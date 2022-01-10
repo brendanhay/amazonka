@@ -15,7 +15,6 @@ import Amazonka.Auth.Exception
 import Amazonka.Data
 import Amazonka.EC2.Metadata
 import Amazonka.Prelude
-import Amazonka.Types
 import qualified Control.Exception as Exception
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.ByteString.Lazy.Char8 as LBS8
@@ -33,7 +32,7 @@ import qualified Data.Text.Encoding as Text
 fromDefaultInstanceProfile ::
   MonadIO m =>
   Env' withAuth ->
-  m (Auth, Region)
+  m Env
 fromDefaultInstanceProfile env =
   liftIO $ do
     ls <-
@@ -67,13 +66,13 @@ fromNamedInstanceProfile ::
   MonadIO m =>
   Text ->
   Env' withAuth ->
-  m (Auth, Region)
+  m Env
 fromNamedInstanceProfile name env =
   liftIO $ do
     auth <- fetchAuthInBackground getCredentials
     reg <- getRegionFromIdentity
 
-    pure (auth, reg)
+    pure env {_envAuth = Identity auth, _envRegion = reg}
   where
     getCredentials =
       Exception.try (metadata manager (IAM . SecurityCredentials $ Just name))

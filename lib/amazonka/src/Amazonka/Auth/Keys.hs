@@ -10,13 +10,12 @@
 -- optional session token and environment variable lookup.
 module Amazonka.Auth.Keys where
 
-import {-# SOURCE #-} Amazonka.Auth (Env', _envRegion)
+import {-# SOURCE #-} Amazonka.Auth (Env, Env' (..), _envRegion)
 import Amazonka.Auth.Exception (_MissingEnvError)
 import Amazonka.Data
 import Amazonka.Lens (throwingM)
 import Amazonka.Prelude
 import Amazonka.Types
-import Control.Applicative (liftA2)
 import Control.Monad.Trans.Maybe (MaybeT (..))
 import qualified Data.ByteString.Char8 as BS8
 import Data.Foldable (asum)
@@ -24,18 +23,22 @@ import qualified Data.Text as Text
 import qualified System.Environment as Environment
 
 -- | Explicit access and secret keys.
-fromKeys :: AccessKey -> SecretKey -> Env' withAuth -> (Auth, Region)
+fromKeys :: AccessKey -> SecretKey -> Env' withAuth -> Env
 fromKeys a s env =
-  (Auth $ AuthEnv a (Sensitive s) Nothing Nothing, _envRegion env)
+  env {_envAuth = Identity . Auth $ AuthEnv a (Sensitive s) Nothing Nothing}
 
 -- | Temporary credentials from a STS session consisting of
 -- the access key, secret key, and session token.
 --
 -- /See:/ 'fromTemporarySession'
 fromSession ::
-  AccessKey -> SecretKey -> SessionToken -> Env' withAuth -> (Auth, Region)
+  AccessKey -> SecretKey -> SessionToken -> Env' withAuth -> Env
 fromSession a s t env =
-  (Auth (AuthEnv a (Sensitive s) (Just (Sensitive t)) Nothing), _envRegion env)
+  env
+    { _envAuth =
+        Identity . Auth $
+          AuthEnv a (Sensitive s) (Just (Sensitive t)) Nothing
+    }
 
 -- | Temporary credentials from a STS session consisting of
 -- the access key, secret key, session token, and expiration time.
@@ -47,12 +50,16 @@ fromTemporarySession ::
   SessionToken ->
   UTCTime ->
   Env' withAuth ->
-  (Auth, Region)
+  Env
 fromTemporarySession a s t e env =
-  (Auth (AuthEnv a (Sensitive s) (Just (Sensitive t)) (Just (Time e))), _envRegion env)
+  env
+    { _envAuth =
+        Identity . Auth $
+          AuthEnv a (Sensitive s) (Just (Sensitive t)) (Just (Time e))
+    }
 
 -- | Retrieve access key, secret key and a session token from
--- environment variables. We copy the behaviour of the Java SDK and
+-- environment variables. We copy the behaviour of the SDKs and
 -- respect the following variables:
 --
 -- * @AWS_ACCESS_KEY_ID@ (and its alternate name, @AWS_ACCESS_KEY@)
@@ -62,8 +69,11 @@ fromTemporarySession a s t e env =
 --
 -- Throws 'MissingEnvError' if a required environment variable is
 -- empty or unset.
-fromKeysEnv :: MonadIO m => Env' withAuth -> m (Auth, Region)
-fromKeysEnv env = liftIO $ liftA2 (,) (Auth <$> lookupKeys) lookupRegion
+fromKeysEnv :: MonadIO m => Env' withAuth -> m Env
+fromKeysEnv env = liftIO $ do
+  auth <- Auth <$> lookupKeys
+  r <- lookupRegion
+  pure $ env {_envAuth = Identity auth, _envRegion = r}
   where
     lookupKeys =
       AuthEnv

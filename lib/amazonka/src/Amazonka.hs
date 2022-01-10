@@ -26,7 +26,6 @@ module Amazonka
 
     -- ** Service Configuration
     -- $service
-    Env.authenticate,
     Env.override,
     Env.configure,
     Env.within,

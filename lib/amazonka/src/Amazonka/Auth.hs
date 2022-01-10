@@ -108,7 +108,7 @@ envRegion = "AWS_REGION"
 discover ::
   (MonadCatch m, MonadIO m, Foldable withAuth) =>
   Env' withAuth ->
-  m (Auth, Region)
+  m Env
 discover =
   runCredentialChain
     [ fromKeysEnv,

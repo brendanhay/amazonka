@@ -18,7 +18,6 @@ import Amazonka.Prelude
 import qualified Amazonka.STS as STS
 import qualified Amazonka.STS.AssumeRole as STS
 import qualified Amazonka.STS.AssumeRoleWithWebIdentity as STS
-import Amazonka.Types
 import qualified Control.Exception as Exception
 import Control.Monad.Trans.Resource (runResourceT)
 import qualified Data.Text as Text
@@ -49,7 +48,7 @@ fromAssumedRole ::
   -- | Role session name
   Text ->
   Env ->
-  m (Auth, Region)
+  m Env
 fromAssumedRole roleArn roleSessionName env = do
   let getCredentials = do
         let assumeRole = STS.newAssumeRole roleArn roleSessionName
@@ -57,13 +56,13 @@ fromAssumedRole roleArn roleSessionName env = do
         clientResponse <- either (liftIO . Exception.throwIO) pure eResponse
         let mCredentials =
               Client.responseBody clientResponse
-              ^. STS.assumeRoleResponse_credentials
+                ^. STS.assumeRoleResponse_credentials
         case mCredentials of
           Nothing ->
             fail "sts:AssumeRole returned no credentials."
           Just c -> pure c
   auth <- liftIO $ fetchAuthInBackground getCredentials
-  pure (auth, _envRegion env)
+  pure env {_envAuth = Identity auth}
 
 -- | https://aws.amazon.com/blogs/opensource/introducing-fine-grained-iam-roles-service-accounts/
 -- Obtain temporary credentials from @sts:AssumeRoleWithWebIdentity@.
@@ -81,7 +80,7 @@ fromWebIdentity ::
   Text ->
   Maybe Text ->
   Env' withAuth ->
-  m (Auth, Region)
+  m Env
 fromWebIdentity tokenFile roleArn mSessionName env = do
   -- Mimic the C++ SDK; fall back to a random UUID if the session name is unset.
   sessionName <-
@@ -111,7 +110,7 @@ fromWebIdentity tokenFile roleArn mSessionName env = do
   -- to fetch new ones automatically on expiry.
   auth <- liftIO $ fetchAuthInBackground getCredentials
 
-  pure (auth, _envRegion env)
+  pure env {_envAuth = Identity auth}
 
 -- | Obtain temporary credentials from
 -- @sts:AssumeRoleWithWebIdentity@, sourcing arguments from standard
@@ -126,7 +125,7 @@ fromWebIdentity tokenFile roleArn mSessionName env = do
 fromWebIdentityEnv ::
   (MonadIO m, Foldable withAuth) =>
   Env' withAuth ->
-  m (Auth, Region)
+  m Env
 fromWebIdentityEnv env = liftIO $ do
   tokenFile <- lookupTokenFile
   roleArn <- lookupRoleArn

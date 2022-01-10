@@ -50,7 +50,7 @@ fromFilePath ::
   -- | Config file
   FilePath ->
   Env' withAuth ->
-  m (Auth, Region)
+  m Env
 fromFilePath profile credentialsFile configFile env = do
   config <-
     liftIO $
@@ -62,7 +62,7 @@ fromFilePath profile credentialsFile configFile env = do
     evalConfig ::
       HashMap Text (HashMap Text Text) ->
       Text ->
-      m (Auth, Region)
+      m Env
     evalConfig config pName =
       case HashMap.lookup pName config of
         Nothing ->
@@ -72,15 +72,20 @@ fromFilePath profile credentialsFile configFile env = do
           Nothing ->
             liftIO . Exception.throwIO . InvalidFileError $
               "Parse error in profile: " <> Text.pack (show pName)
-          Just (cp, mRegion) -> case cp of
-            ExplicitKeys authEnv ->
-              pure (Auth authEnv, fromMaybe (_envRegion env) mRegion)
-            AssumeRoleFromProfile roleArn sourceProfileName -> do
-              (sourceAuth, r) <- evalConfig config sourceProfileName
-              fromAssumedRole roleArn "amazonka-assumed-role" env {_envAuth = Identity sourceAuth, _envRegion = r}
-            AssumeRoleFromCredentialSource {} -> undefined
-            AssumeRoleWithWebIdentity roleArn mRoleSessionName tokenFile ->
-              fromWebIdentity tokenFile roleArn mRoleSessionName env
+          Just (cp, mRegion) -> do
+            env' <- case cp of
+                      ExplicitKeys authEnv ->
+                        pure env {_envAuth = Identity $ Auth authEnv}
+                      AssumeRoleFromProfile roleArn sourceProfileName -> do
+                        sourceEnv <- evalConfig config sourceProfileName
+                        fromAssumedRole roleArn "amazonka-assumed-role" sourceEnv
+                      AssumeRoleFromCredentialSource {} -> undefined -- TODO
+                      AssumeRoleWithWebIdentity roleArn mRoleSessionName tokenFile ->
+                        fromWebIdentity tokenFile roleArn mRoleSessionName env
+
+            -- Once we have the env from the profile, apply the region
+            -- if we parsed one out.
+            pure $ maybe env' (\r -> env' { _envRegion = r}) mRegion
 
 loadIniFile :: FilePath -> IO (HashMap Text [(Text, Text)])
 loadIniFile path = do
@@ -193,7 +198,7 @@ data CredentialSource = Environment | Ec2InstanceMetadata | EcsContainer
 -- /Note:/ This does not match the default AWS SDK location of
 -- @%USERPROFILE%\.aws\credentials@ on Windows. (Sorry.)
 fromFileEnv ::
-  (MonadIO m, Foldable withAuth) => Env' withAuth -> m (Auth, Region)
+  (MonadIO m, Foldable withAuth) => Env' withAuth -> m Env
 fromFileEnv env = liftIO $ do
   mProfile <- Environment.lookupEnv "AWS_PROFILE"
   cred <- file "/.aws/credentials"

@@ -19,7 +19,6 @@ module Amazonka.Env
     envAuthMaybe,
 
     -- * Overriding Default Configuration
-    authenticate,
     override,
     configure,
 
@@ -73,11 +72,11 @@ import qualified Network.HTTP.Conduit as Client.Conduit
 newEnv ::
   MonadIO m =>
   -- | Credential discovery mechanism.
-  (EnvNoAuth -> m (Auth, Region)) ->
+  (EnvNoAuth -> m Env) ->
   m Env
-newEnv c =
+newEnv authenticate =
   liftIO (Client.newManager Client.Conduit.tlsManagerSettings)
-    >>= authenticate c . newEnvWith
+    >>= authenticate . newEnvWith
 
 -- | Generate an environment without credentials, which may only make
 -- unsigned requests.
@@ -101,19 +100,6 @@ newEnvWith m =
       _envManager = m,
       _envAuth = Proxy
     }
-
--- | /See:/ 'newEnv'
---
--- Throws 'AuthError' when environment variables or IAM profiles cannot be read.
-authenticate ::
-  (MonadIO m, Foldable withAuth) =>
-  -- | Credential discovery mechanism.
-  (Env' withAuth -> m (Auth, Region)) ->
-  -- | Previous environment.
-  Env' withAuth -> m Env
-authenticate c env@Env {..} = do
-  (a, r) <- c env
-  pure $ Env {_envRegion = r, _envAuth = Identity a, ..}
 
 -- | Get "the" 'Auth' from an 'Env'', if we can.
 envAuthMaybe :: Foldable withAuth => Env' withAuth -> Maybe Auth

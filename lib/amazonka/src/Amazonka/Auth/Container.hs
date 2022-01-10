@@ -34,13 +34,13 @@ fromContainer ::
   MonadIO m =>
   String ->
   Env' withAuth ->
-  m (Auth, Region)
+  m Env
 fromContainer url env =
   liftIO $ do
     req <- Client.parseUrlThrow url
     auth <- fetchAuthInBackground (renew req)
 
-    pure (auth, _envRegion env)
+    pure env {_envAuth = Identity auth}
   where
     renew :: ClientRequest -> IO AuthEnv
     renew req = do
@@ -70,7 +70,7 @@ fromContainer url env =
 fromContainerEnv ::
   MonadIO m =>
   Env' withAuth ->
-  m (Auth, Region)
+  m Env
 fromContainerEnv env = liftIO $ do
   uriRel <-
     Environment.lookupEnv "AWS_CONTAINER_CREDENTIALS_RELATIVE_URI"

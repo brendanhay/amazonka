@@ -80,6 +80,7 @@ library
     Amazonka.Auth
     Amazonka.Auth.Background
     Amazonka.Auth.ConfigFile
+    Amazonka.Auth.Container
     Amazonka.Auth.Exception
     Amazonka.Auth.InstanceProfile
     Amazonka.Auth.Keys

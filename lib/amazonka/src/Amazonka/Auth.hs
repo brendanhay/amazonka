@@ -21,9 +21,6 @@ module Amazonka.Auth
     Credentials (..),
     Auth (..),
 
-    -- ** Configuration
-    confRegion,
-
     -- ** Credentials
     -- $credentials
     fromKeys,
@@ -31,10 +28,9 @@ module Amazonka.Auth
     fromTemporarySession,
     fromKeysEnv,
     fromFileEnv,
-    fromFilePath,
+    fromContainerEnv,
     fromDefaultInstanceProfile,
     fromNamedInstanceProfile,
-    fromContainer,
 
     -- ** Keys
     AccessKey (..),
@@ -53,8 +49,8 @@ module Amazonka.Auth
   )
 where
 
-import Amazonka.Auth.Background (fetchAuthInBackground)
 import Amazonka.Auth.ConfigFile (fromFileEnv, fromFilePath)
+import Amazonka.Auth.Container (fromContainerEnv)
 import Amazonka.Auth.Exception
 import Amazonka.Auth.InstanceProfile (fromDefaultInstanceProfile, fromNamedInstanceProfile)
 import Amazonka.Auth.Keys (fromKeys, fromKeysEnv, fromSession, fromTemporarySession)
@@ -64,7 +60,6 @@ import Amazonka.EC2.Metadata
 import Amazonka.Lens (catching, catching_, throwingM)
 import Amazonka.Prelude
 import Amazonka.Types
-import qualified Control.Exception as Exception
 import Control.Monad.Catch (MonadCatch (..), throwM)
 import Control.Monad.Trans.Maybe (MaybeT (..))
 import qualified Data.ByteString.Char8 as BS8
@@ -78,19 +73,6 @@ envRegion ::
   -- | AWS_REGION
   Text
 envRegion = "AWS_REGION"
-
--- | Path to obtain container credentials environment variable (see
--- 'FromContainer').
-envContainerCredentialsURI ::
-  -- | AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
-  Text
-envContainerCredentialsURI = "AWS_CONTAINER_CREDENTIALS_RELATIVE_URI"
-
--- | Credentials INI default profile section variable.
-confRegion ::
-  -- | default
-  Text
-confRegion = "region"
 
 -- $credentials
 -- 'getAuth' is implemented using the following @from*@-styled functions below.
@@ -193,7 +175,7 @@ getAuth env@Env {..} =
     FromEnv -> fmap Just <$> fromKeysEnv env
     FromProfile n -> fmap Just <$> fromNamedInstanceProfile n env
     FromFile n cred conf -> fmap Just <$> fromFilePath n cred conf env
-    FromContainer -> fromContainer _envManager
+    FromContainer -> fmap Just <$> fromContainerEnv env
     FromWebIdentity -> fmap Just <$> fromWebIdentityEnv env
     Discover ->
       -- Don't try and catch InvalidFileError, or InvalidIAMProfile,
@@ -204,7 +186,7 @@ getAuth env@Env {..} =
           -- proceed, missing credentials file
           catching_ _MissingEnvError (fmap Just <$> fromWebIdentityEnv env) $
             -- proceed, missing env keys
-            catching_ _MissingEnvError (fromContainer _envManager) $ do
+            catching_ _MissingEnvError (fmap Just <$> fromContainerEnv env) $ do
               -- proceed, missing env key
               p <- isEC2 _envManager
 
@@ -214,60 +196,6 @@ getAuth env@Env {..} =
 
               -- proceed, check EC2 metadata for IAM information.
               fmap Just <$> fromDefaultInstanceProfile env
-
--- | Obtain credentials exposed to a task via the ECS container agent, as
--- described in the <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html IAM Roles for Tasks>
--- section of the AWS ECS documentation. The credentials are obtained by making
--- a request to <http://169.254.170.2> at the path contained by the
--- 'envContainerCredentialsURI' environment variable.
---
--- The ECS container agent provides an access key, secret key, session token,
--- and expiration time, but it does not include a region, so the region will
--- attempt to be determined from the 'envRegion' environment variable if it is
--- set.
---
--- Like 'fromNamedInstanceProfile', additionally starts a refresh thread that
--- will periodically fetch fresh credentials before the current ones expire.
---
--- Throws 'MissingEnvError' if the 'envContainerCredentialsURI' environment
--- variable is not set or 'InvalidIAMError' if the payload returned by the ECS
--- container agent is not of the expected format.
-fromContainer ::
-  MonadIO m =>
-  Client.Manager ->
-  m (Auth, Maybe Region)
-fromContainer m =
-  liftIO $ do
-    req <- getCredentialsURI
-    auth <- fetchAuthInBackground (renew req)
-    reg <- getRegion
-
-    pure (auth, reg)
-  where
-    getCredentialsURI :: IO ClientRequest
-    getCredentialsURI = do
-      mp <- Environment.lookupEnv (Text.unpack envContainerCredentialsURI)
-      p <-
-        maybe
-          (Exception.throwIO . MissingEnvError $ "Unable to read ENV variable: " <> envContainerCredentialsURI)
-          pure
-          mp
-
-      Client.parseUrlThrow ("http://169.254.170.2" <> p)
-
-    renew :: ClientRequest -> IO AuthEnv
-    renew req = do
-      rs <- Client.httpLbs req m
-
-      either
-        (Exception.throwIO . invalidIdentityErr)
-        pure
-        (eitherDecode (Client.responseBody rs))
-
-    invalidIdentityErr =
-      InvalidIAMError
-        . mappend "Error parsing Task Identity Document "
-        . Text.pack
 
 -- | Try to read the region from the 'envRegion' variable.
 getRegion :: MonadIO m => m (Maybe Region)

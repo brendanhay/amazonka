@@ -9,6 +9,7 @@ haskell_library(
         "src/Amazonka/Auth.hs-boot",  # keep
         "src/Amazonka/Auth/Background.hs",
         "src/Amazonka/Auth/ConfigFile.hs",
+        "src/Amazonka/Auth/Container.hs",
         "src/Amazonka/Auth/Exception.hs",
         "src/Amazonka/Auth/InstanceProfile.hs",
         "src/Amazonka/Auth/Keys.hs",
@@ -90,6 +91,7 @@ haskell_library(
         "@stackage//:bytestring",
         "@stackage//:conduit",
         "@stackage//:directory",
+        "@stackage//:exceptions",
         "@stackage//:http-client",
         "@stackage//:http-conduit",
         "@stackage//:http-types",

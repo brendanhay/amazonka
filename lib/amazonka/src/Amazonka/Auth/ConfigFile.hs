@@ -9,13 +9,13 @@
 -- Retrieve authentication credentials from AWS config/credentials files.
 module Amazonka.Auth.ConfigFile where
 
-import Amazonka.Auth.Exception
-import Amazonka.Auth.Keys (fromKeysEnv)
 import Amazonka.Auth.Container (fromContainerEnv)
+import Amazonka.Auth.Exception
 import Amazonka.Auth.InstanceProfile (fromDefaultInstanceProfile)
+import Amazonka.Auth.Keys (fromKeysEnv)
 import Amazonka.Auth.STS (fromAssumedRole, fromWebIdentity)
 import Amazonka.Data
-import Amazonka.Env (Env, Env' (..))
+import Amazonka.Env (Env, Env' (..), lookupRegion)
 import Amazonka.Prelude
 import Amazonka.Types
 import qualified Control.Exception as Exception
@@ -58,7 +58,17 @@ fromFilePath profile credentialsFile configFile env = do
   config <-
     liftIO $
       mergeConfigs <$> loadIniFile credentialsFile <*> loadIniFile configFile
-  evalConfig config profile
+  env' <- evalConfig config profile
+
+  -- A number of settings in the AWS config files should be
+  -- overridable by environment variables, but aren't. We make a point
+  -- of at least respecting the AWS_REGION variable, but leave the
+  -- rest to future work.
+  --
+  -- See: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html
+  lookupRegion <&> \case
+    Nothing -> env'
+    Just r -> env' {_envRegion = r}
   where
     -- Parse the matched config, and extract auth credentials from it,
     -- recursively if necessary.
@@ -93,7 +103,7 @@ fromFilePath profile credentialsFile configFile env = do
 
             -- Once we have the env from the profile, apply the region
             -- if we parsed one out.
-            pure $ maybe env' (\r -> env' {_envRegion = r}) mRegion
+            pure . maybe env' (\r -> env' {_envRegion = r}) $ mRegion
 
 loadIniFile :: FilePath -> IO (HashMap Text [(Text, Text)])
 loadIniFile path = do

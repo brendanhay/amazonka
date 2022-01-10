@@ -60,22 +60,12 @@ import Amazonka.Auth.Exception
 import Amazonka.Auth.InstanceProfile (fromDefaultInstanceProfile, fromNamedInstanceProfile)
 import Amazonka.Auth.Keys (fromKeys, fromKeysEnv, fromSession, fromTemporarySession)
 import Amazonka.Auth.STS (fromWebIdentity, fromWebIdentityEnv)
-import Amazonka.Data
 import Amazonka.EC2.Metadata
 import Amazonka.Env (Env, EnvNoAuth, Env' (..))
 import Amazonka.Lens (catching_)
 import Amazonka.Prelude
 import Amazonka.Types
 import Control.Monad.Catch (MonadCatch (..), throwM)
-import Control.Monad.Trans.Maybe (MaybeT (..))
-import qualified Data.Text as Text
-import qualified System.Environment as Environment
-
--- | Default region environment variable
-envRegion ::
-  -- | AWS_REGION
-  Text
-envRegion = "AWS_REGION"
 
 -- | Attempt to fetch credentials in a way similar to the official AWS
 -- SDKs. The <https://github.com/aws/aws-sdk-cpp/blob/fb8cbebf2fd62720b65aeff841ad2950e73d8ebd/Docs/Credentials_Providers.md#default-credential-provider-chain C++ SDK>
@@ -130,13 +120,3 @@ runCredentialChain chain env =
     [] -> throwM CredentialChainExhausted
     provider : chain' ->
       catching_ _AuthError (provider env) $ runCredentialChain chain' env
-
--- | Try to read the region from the 'envRegion' variable.
-getRegion :: MonadIO m => m (Maybe Region)
-getRegion = runMaybeT $ do
-  mr <- MaybeT . liftIO $ Environment.lookupEnv (Text.unpack envRegion)
-
-  either
-    (const . MaybeT $ pure Nothing)
-    pure
-    (fromText (Text.pack mr))

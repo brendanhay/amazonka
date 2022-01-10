@@ -19,7 +19,6 @@ import Amazonka.Types
 import Control.Monad.Trans.Maybe (MaybeT (..))
 import qualified Data.ByteString.Char8 as BS8
 import Data.Foldable (asum)
-import qualified Data.Text as Text
 import qualified System.Environment as Environment
 
 -- | Explicit access and secret keys.
@@ -65,15 +64,13 @@ fromTemporarySession a s t e env =
 -- * @AWS_ACCESS_KEY_ID@ (and its alternate name, @AWS_ACCESS_KEY@)
 -- * @AWS_SECRET_ACCESS_KEY@ (and its alternate name, @AWS_SECRET_KEY@)
 -- * @AWS_SESSION_TOKEN@ (if present)
--- * @AWS_REGION@ (if present, otherwise we use the region from the 'Env'')
 --
 -- Throws 'MissingEnvError' if a required environment variable is
 -- empty or unset.
 fromKeysEnv :: MonadIO m => Env' withAuth -> m Env
 fromKeysEnv env = liftIO $ do
   auth <- Auth <$> lookupKeys
-  r <- lookupRegion
-  pure $ env {_envAuth = Identity auth, _envRegion = r}
+  pure $ env {_envAuth = Identity auth}
   where
     lookupKeys =
       AuthEnv
@@ -81,9 +78,6 @@ fromKeysEnv env = liftIO $ do
         <*> lookupSecretKey
         <*> lookupSessionToken
         <*> pure Nothing
-
-    lookupRegion :: IO Region
-    lookupRegion = nonEmptyEnv "AWS_REGION" <&> maybe (_envRegion env) (Region' . Text.pack)
 
     lookupAccessKey :: IO AccessKey
     lookupAccessKey = do

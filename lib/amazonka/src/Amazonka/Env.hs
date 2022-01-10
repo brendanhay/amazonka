@@ -12,11 +12,12 @@ module Amazonka.Env
   ( -- * Creating the Environment
     newEnv,
     newEnvNoAuth,
-    newEnvWith,
+    newEnvFromManager,
     Env' (..),
     Env,
     EnvNoAuth,
     envAuthMaybe,
+    lookupRegion,
 
     -- * Overriding Default Configuration
     override,
@@ -47,8 +48,10 @@ import Amazonka.Types
 import Control.Lens (Lens)
 import qualified Data.Function as Function
 import Data.Monoid (Dual (..), Endo (..))
+import qualified Data.Text as Text
 import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Conduit as Client.Conduit
+import System.Environment as Environment
 
 type Env = Env' Identity
 
@@ -86,7 +89,7 @@ data Env' withAuth = Env
 --
 -- Throws 'AuthError' when environment variables or IAM profiles cannot be read.
 --
--- /See:/ 'newEnvWith'.
+-- /See:/ 'newEnvFromManager'.
 newEnv ::
   MonadIO m =>
   -- | Credential discovery mechanism.
@@ -94,22 +97,28 @@ newEnv ::
   m Env
 newEnv authenticate =
   liftIO (Client.newManager Client.Conduit.tlsManagerSettings)
-    >>= authenticate . newEnvWith
+    >>= authenticate . newEnvFromManager
 
 -- | Generate an environment without credentials, which may only make
--- unsigned requests.
+-- unsigned requests. This sets the region based on the @AWS_REGION@
+-- environment variable, or 'NorthVirginia' if unset.
 --
 -- This is useful for the STS
 -- <https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html AssumeRoleWithWebIdentity>
 -- operation, which needs to make an unsigned request to pass the
 -- token from an identity provider.
 newEnvNoAuth :: MonadIO m => m EnvNoAuth
-newEnvNoAuth =
-  newEnvWith <$> liftIO (Client.newManager Client.Conduit.tlsManagerSettings)
+newEnvNoAuth = do
+  manager <- liftIO $ Client.newManager Client.Conduit.tlsManagerSettings
+  let env = newEnvFromManager manager
+  mRegion <- lookupRegion
+  pure $ case mRegion of
+    Nothing -> env
+    Just r -> env {_envRegion = r}
 
 -- | Construct a default 'EnvNoAuth' from a HTTP 'Client.Manager'.
-newEnvWith :: Client.Manager -> EnvNoAuth
-newEnvWith m =
+newEnvFromManager :: Client.Manager -> EnvNoAuth
+newEnvFromManager m =
   Env
     { _envRegion = NorthVirginia,
       _envLogger = \_ _ -> pure (),
@@ -122,6 +131,15 @@ newEnvWith m =
 -- | Get "the" 'Auth' from an 'Env'', if we can.
 envAuthMaybe :: Foldable withAuth => Env' withAuth -> Maybe Auth
 envAuthMaybe = foldr (const . Just) Nothing . _envAuth
+
+-- | Look up the region in the @AWS_REGION@ environment variable.
+lookupRegion :: MonadIO m => m (Maybe Region)
+lookupRegion =
+  liftIO $
+    Environment.lookupEnv "AWS_REGION" <&> \case
+      Nothing -> Nothing
+      Just "" -> Nothing
+      Just t -> Just . Region' $ Text.pack t
 
 -- | Retry the subset of transport specific errors encompassing connection
 -- failure up to the specific number of times.

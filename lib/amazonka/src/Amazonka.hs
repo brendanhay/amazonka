@@ -21,7 +21,7 @@ module Amazonka
     Env.EnvNoAuth,
     Env.newEnv,
     Env.newEnvNoAuth,
-    Env.newEnvWith,
+    Env.newEnvFromManager,
     Env.envAuthMaybe,
 
     -- ** Service Configuration

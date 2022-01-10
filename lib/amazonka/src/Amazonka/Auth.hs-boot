@@ -1,9 +1,13 @@
-module Amazonka.Auth (Env' (..)) where
+module Amazonka.Auth where
 
 import Amazonka.Prelude
 import Amazonka.Types
 import Data.Monoid (Dual, Endo)
 import qualified Network.HTTP.Client as Client
+
+type Env = Env' Identity
+
+type EnvNoAuth = Env' Proxy
 
 data Env' withAuth = Env
   { _envRegion :: Region,

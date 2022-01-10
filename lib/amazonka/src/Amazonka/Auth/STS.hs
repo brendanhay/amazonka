@@ -16,6 +16,7 @@ import {-# SOURCE #-} Amazonka.HTTP (retryRequest)
 import Amazonka.Lens (throwingM, (^.))
 import Amazonka.Prelude
 import qualified Amazonka.STS as STS
+import qualified Amazonka.STS.AssumeRole as STS
 import qualified Amazonka.STS.AssumeRoleWithWebIdentity as STS
 import Amazonka.Types
 import qualified Control.Exception as Exception
@@ -26,6 +27,43 @@ import qualified Data.UUID as UUID
 import qualified Data.UUID.V4 as UUID
 import qualified Network.HTTP.Client as Client
 import qualified System.Environment as Environment
+
+-- NOTE: The implementations in this file are ugly because they must
+-- use primitive operations from Amazonka.HTTP to avoid circular
+-- module dependencies. If you are writing your own functions in this
+-- vein, you will have access to 'Amazonka.send', which should make
+-- things nicer.
+
+-- | Assume a role using the @sts:AssumeRole@ API.
+--
+-- This is a simplified interface suitable for most purposes, but if
+-- you need the full functionality of the @sts:AssumeRole@ API, you
+-- will need to craft your own requests using @amazonka-sts@. If you
+-- do this, remember to use 'fetchAuthInBackground' so that your
+-- application does not get stuck holding temporary credentials which
+-- have expired.
+fromAssumedRole ::
+  MonadIO m =>
+  -- | Role ARN
+  Text ->
+  -- | Role session name
+  Text ->
+  Env ->
+  m (Auth, Region)
+fromAssumedRole roleArn roleSessionName env = do
+  let getCredentials = do
+        let assumeRole = STS.newAssumeRole roleArn roleSessionName
+        eResponse <- runResourceT $ retryRequest env assumeRole
+        clientResponse <- either (liftIO . Exception.throwIO) pure eResponse
+        let mCredentials =
+              Client.responseBody clientResponse
+              ^. STS.assumeRoleResponse_credentials
+        case mCredentials of
+          Nothing ->
+            fail "sts:AssumeRole returned no credentials."
+          Just c -> pure c
+  auth <- liftIO $ fetchAuthInBackground getCredentials
+  pure (auth, _envRegion env)
 
 -- | https://aws.amazon.com/blogs/opensource/introducing-fine-grained-iam-roles-service-accounts/
 -- Obtain temporary credentials from @sts:AssumeRoleWithWebIdentity@.

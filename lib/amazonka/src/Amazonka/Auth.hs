@@ -104,6 +104,12 @@ discover =
       fromFileEnv,
       fromWebIdentityEnv,
       fromContainerEnv,
+      -- NOTE: This is not 100% consistent with the AWS SDKs, which
+      -- does not attempt to query the ECS service if either
+      -- AWS_CONTAINER_CREDENTIALS_RELATIVE_URI or
+      -- AWS_CONTAINER_CREDENTIALS_FULL_URI are set.
+      --
+      -- See: https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/auth/EC2ContainerCredentialsProviderWrapper.html
       \env -> do
         onEC2 <- isEC2 $ _envManager env
         unless onEC2 $ throwM CredentialChainExhausted

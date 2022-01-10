@@ -32,6 +32,7 @@ import qualified System.Environment as Environment
 -- the current ones expire.
 fromContainer ::
   MonadIO m =>
+  -- | Absolute URL
   String ->
   Env' withAuth ->
   m Env
@@ -65,8 +66,9 @@ fromContainer url env =
 -- by the ECS container agent is not of the expected format.
 --
 -- __NOTE:__ We do not currently respect the
--- @AWS_CONTAINER_CREDENTIALS_FULL_URI@ environment variable. If you need this,
--- please file an issue or (better yet) a PR.
+-- @AWS_CONTAINER_CREDENTIALS_FULL_URI@ or @AWS_CONTAINTER_AUTHORIZATION_TOKEN@
+-- environment variable. If you need support for these, please file an issue or
+-- (better yet) a PR.
 fromContainerEnv ::
   MonadIO m =>
   Env' withAuth ->

@@ -3,6 +3,33 @@
 ## [2.0.0](https://github.com/brendanhay/amazonka/tree/2.0.0)
 Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/compare/2.0.0-rc1...2.0.0)
 
+### Major Changes
+
+- The authentication code in `amazonka` got a full rewrite in PR [\#746](https://github.com/brendanhay/amazonka/pull/746).
+
+  - `newEnv` now takes a function of type `EnvNoAuth -> m Env`, which is to fetch credentials in an appropriate manner
+  - The `Credentials` type has been removed, you should instead use the following functions corresponding to the departed constructor. All are exported by `Amazonka.Auth`:
+
+    | Old Name          | New Name                     | Comment                                                                                                                                         |
+    |-------------------|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+    | `FromKeys`        | `fromKeys`                   | Explicit access key id/secret access key.                                                                                                       |
+    | `FromSession`     | `fromSession`                | As above, but with session token.                                                                                                               |
+    |                   | `fromTemporarySession`       | As above, but with token with expiry time. Likely not useful.                                                                                   |
+    |                   | `fromKeysEnv`                | Reads `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and optionally `AWS_SESSION_TOKEN`.                                                         |
+    | `FromEnv`         |                              |                                                                                                                                                 |
+    | `FromProfile`     | `fromNamedInstanceProfile`   | Look up a named instance profile from the Instance Meta-Data Service.                                                                           |
+    |                   | `fromDefaultInstanceProfile` | Select the first instance profile, like `Discover` used to do.                                                                                  |
+    | `FromFile`        | `fromFilePath`               | **Significantly improved** - now supports assuming roles by setting either `source_profile`, `credential_source`, or `web_identity_token_file`. |
+    |                   | `fromFileEnv`                | Read config files from their default location, and respect the `AWS_PROFILE` environment variable.                                              |
+    |                   | `fromAssumedRole`            | Assume a role using `sts:AssumeRole`.                                                                                                           |
+    |                   | `fromWebIdentity`            | Assume a role using `sts:AssumeRoleWithWebIdentity`.                                                                                            |
+    | `FromWebIdentity` | `fromWebIdentityEnv`         | Reads `AWS_WEB_IDENTITY_TOKEN_FILE`, `AWS_ROLE_ARN`, and `AWS_ROLE_SESSION_NAME`.                                                               |
+    |                   | `fromContainer`              | Pass a URL to query the ECS Container Agent.                                                                                                    |
+    | `FromContainer`   | `fromContainerEnv`           | Reads `AWS_CONTAINER_CREDENTIALS_RELATIVE_URI`.                                                                                                 |
+    | `Discover`        | `discover`                   | Mimic the offical SDK and try several methods in sequence.                                                                                      |
+
+  - The `Amazonka.Auth.runCredentialChain` allows you to build your own custom credential chains.
+
 ### Changed
 
 - `amazonka-dynamodb`: Mark various fields as required

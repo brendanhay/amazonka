@@ -23,14 +23,6 @@ module Amazonka.Auth
 
     -- ** Configuration
     confRegion,
-    confFile,
-
-    -- *** Credentials File
-    credAccessKey,
-    credSecretKey,
-    credSessionToken,
-    credProfile,
-    credFile,
 
     -- ** Credentials
     -- $credentials
@@ -38,7 +30,7 @@ module Amazonka.Auth
     fromSession,
     fromTemporarySession,
     fromKeysEnv,
-    fromFile,
+    fromFileEnv,
     fromFilePath,
     fromDefaultInstanceProfile,
     fromNamedInstanceProfile,
@@ -62,33 +54,24 @@ module Amazonka.Auth
 where
 
 import Amazonka.Auth.Background (fetchAuthInBackground)
+import Amazonka.Auth.ConfigFile (fromFileEnv, fromFilePath)
 import Amazonka.Auth.Exception
 import Amazonka.Auth.InstanceProfile (fromDefaultInstanceProfile, fromNamedInstanceProfile)
 import Amazonka.Auth.Keys (fromKeys, fromKeysEnv, fromSession, fromTemporarySession)
 import Amazonka.Auth.STS (fromWebIdentityEnv)
 import Amazonka.Data
 import Amazonka.EC2.Metadata
-import Amazonka.Lens (catching, catching_, throwingM, _IOException)
+import Amazonka.Lens (catching, catching_, throwingM)
 import Amazonka.Prelude
 import Amazonka.Types
 import qualified Control.Exception as Exception
 import Control.Monad.Catch (MonadCatch (..), throwM)
 import Control.Monad.Trans.Maybe (MaybeT (..))
 import qualified Data.ByteString.Char8 as BS8
-import qualified Data.Char as Char
-import qualified Data.Ini as INI
 import Data.Monoid (Dual, Endo)
 import qualified Data.Text as Text
-import qualified Data.Text.Encoding as Text
 import qualified Network.HTTP.Client as Client
-import qualified System.Directory as Directory
 import qualified System.Environment as Environment
-
--- | Default credentials profile environment variable.
-envProfile ::
-  -- | AWS_PROFILE
-  Text
-envProfile = "AWS_PROFILE"
 
 -- | Default region environment variable
 envRegion ::
@@ -103,71 +86,11 @@ envContainerCredentialsURI ::
   Text
 envContainerCredentialsURI = "AWS_CONTAINER_CREDENTIALS_RELATIVE_URI"
 
--- | Credentials INI file access key variable.
-credAccessKey ::
-  -- | aws_access_key_id
-  Text
-credAccessKey = "aws_access_key_id"
-
--- | Credentials INI file secret key variable.
-credSecretKey ::
-  -- | aws_secret_access_key
-  Text
-credSecretKey = "aws_secret_access_key"
-
--- | Credentials INI file session token variable.
-credSessionToken ::
-  -- | aws_session_token
-  Text
-credSessionToken = "aws_session_token"
-
--- | Credentials INI default profile section variable.
-credProfile ::
-  -- | default
-  Text
-credProfile = "default"
-
--- | Default path for the credentials file. This looks in in the @HOME@ directory
--- as determined by the <http://hackage.haskell.org/package/directory directory>
--- library.
---
--- * UNIX/OSX: @$HOME/.aws/credentials@
---
--- * Windows: @C:\/Users\//\<user\>\.aws\credentials@
---
--- /Note:/ This does not match the default AWS SDK location of
--- @%USERPROFILE%\.aws\credentials@ on Windows. (Sorry.)
-credFile :: MonadIO m => m FilePath
-credFile = liftIO (catching_ _IOException dir err)
-  where
-    dir = (++ path) <$> Directory.getHomeDirectory
-    err = Exception.throwIO $ MissingFileError ("$HOME" ++ path)
-
-    path = "/.aws/credentials"
-
 -- | Credentials INI default profile section variable.
 confRegion ::
   -- | default
   Text
 confRegion = "region"
-
--- | Default path for the configuration file. This looks in in the @HOME@ directory
--- as determined by the <http://hackage.haskell.org/package/directory directory>
--- library.
---
--- * UNIX/OSX: @$HOME/.aws/config@
---
--- * Windows: @C:\/Users\//\<user\>\.aws\config@
---
--- /Note:/ This does not match the default AWS SDK location of
--- @%USERPROFILE%\.aws\config@ on Windows. (Sorry.)
-confFile :: MonadIO m => m FilePath
-confFile = liftIO (catching_ _IOException dir err)
-  where
-    dir = (++ path) <$> liftIO Directory.getHomeDirectory
-    err = Exception.throwIO $ MissingFileError ("$HOME" ++ path)
-
-    path = "/.aws/config"
 
 -- $credentials
 -- 'getAuth' is implemented using the following @from*@-styled functions below.
@@ -269,7 +192,7 @@ getAuth env@Env {..} =
     FromSession a s t -> pure (Just <$> fromSession a s t env)
     FromEnv -> fmap Just <$> fromKeysEnv env
     FromProfile n -> fmap Just <$> fromNamedInstanceProfile n env
-    FromFile n cred conf -> fromFilePath n cred conf
+    FromFile n cred conf -> fmap Just <$> fromFilePath n cred conf env
     FromContainer -> fromContainer _envManager
     FromWebIdentity -> fmap Just <$> fromWebIdentityEnv env
     Discover ->
@@ -277,7 +200,7 @@ getAuth env@Env {..} =
       -- let both errors propagate.
       catching_ _MissingEnvError (fmap Just <$> fromKeysEnv env) $
         -- proceed, missing env keys
-        catching _MissingFileError fromFile $ \f ->
+        catching _MissingFileError (fmap Just <$> fromFileEnv env) $ \f ->
           -- proceed, missing credentials file
           catching_ _MissingEnvError (fmap Just <$> fromWebIdentityEnv env) $
             -- proceed, missing env keys
@@ -291,89 +214,6 @@ getAuth env@Env {..} =
 
               -- proceed, check EC2 metadata for IAM information.
               fmap Just <$> fromDefaultInstanceProfile env
-
--- | Loads the default @credentials@ INI file using the default profile name.
---
--- Throws 'MissingFileError' if 'credFile' is missing, or 'InvalidFileError'
--- if an error occurs during parsing.
---
--- /See:/ 'credProfile', 'credFile', and 'envProfile'
-fromFile :: MonadIO m => m (Auth, Maybe Region)
-fromFile = do
-  mprofile <- liftIO (Environment.lookupEnv (Text.unpack envProfile))
-  cred <- credFile
-  conf <- confFile
-
-  fromFilePath (maybe credProfile Text.pack mprofile) cred conf
-
-fromFilePath ::
-  MonadIO m =>
-  Text ->
-  FilePath ->
-  FilePath ->
-  m (Auth, Maybe Region)
-fromFilePath profile cred conf =
-  liftIO ((,) <$> lookupCredentials cred <*> lookupRegion conf)
-  where
-    lookupCredentials path = do
-      exists <- Directory.doesFileExist path
-
-      unless exists $
-        Exception.throwIO (MissingFileError path)
-
-      ini <- INI.readIniFile path >>= either (throwInvalid path Nothing) pure
-
-      env <-
-        AuthEnv
-          <$> (required path credAccessKey ini <&> AccessKey)
-          <*> (required path credSecretKey ini <&> Sensitive . SecretKey)
-          <*> (optional credSessionToken ini <&> fmap (Sensitive . SessionToken))
-          <*> pure Nothing
-
-      pure (Auth env)
-
-    lookupRegion path = do
-      exists <- Directory.doesFileExist path
-
-      if not exists
-        then pure Nothing
-        else do
-          ini <- INI.readIniFile path >>= either (throwInvalid path Nothing) pure
-
-          let configProfile =
-                if profile == "default"
-                  then profile
-                  else "profile " <> profile
-
-          case INI.lookupValue configProfile confRegion ini of
-            Left _ -> pure Nothing
-            Right regionValue ->
-              case fromText regionValue of
-                Left err -> liftIO (throwInvalid path (Just confRegion) err)
-                Right ok -> pure (Just ok)
-
-    required path key ini =
-      case INI.lookupValue profile key ini of
-        Left err -> throwInvalid path (Just key) err
-        Right x
-          | blank x -> throwInvalid path (Just key) "cannot be a blank string."
-          | otherwise -> pure (Text.encodeUtf8 x)
-      where
-        blank x = Text.null x || Text.all Char.isSpace x
-
-    optional key ini =
-      pure $
-        case INI.lookupValue profile key ini of
-          Left _ -> Nothing
-          Right x -> Just (Text.encodeUtf8 x)
-
-    throwInvalid :: FilePath -> Maybe Text -> String -> IO a
-    throwInvalid path mkey err =
-      Exception.throwIO . InvalidFileError $
-        Text.pack path
-          <> maybe mempty (", key " <>) mkey
-          <> ", "
-          <> Text.pack err
 
 -- | Obtain credentials exposed to a task via the ECS container agent, as
 -- described in the <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html IAM Roles for Tasks>

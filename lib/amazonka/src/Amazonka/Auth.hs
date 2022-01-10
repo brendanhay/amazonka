@@ -28,8 +28,12 @@ module Amazonka.Auth
     fromSession,
     fromTemporarySession,
     fromKeysEnv,
+    fromFilePath,
     fromFileEnv,
+    fromContainer,
     fromContainerEnv,
+    fromWebIdentity,
+    fromWebIdentityEnv,
     fromDefaultInstanceProfile,
     fromNamedInstanceProfile,
 
@@ -50,12 +54,12 @@ module Amazonka.Auth
   )
 where
 
-import Amazonka.Auth.ConfigFile (fromFileEnv)
-import Amazonka.Auth.Container (fromContainerEnv)
+import Amazonka.Auth.ConfigFile (fromFileEnv, fromFilePath)
+import Amazonka.Auth.Container (fromContainer, fromContainerEnv)
 import Amazonka.Auth.Exception
 import Amazonka.Auth.InstanceProfile (fromDefaultInstanceProfile, fromNamedInstanceProfile)
 import Amazonka.Auth.Keys (fromKeys, fromKeysEnv, fromSession, fromTemporarySession)
-import Amazonka.Auth.STS (fromWebIdentityEnv)
+import Amazonka.Auth.STS (fromWebIdentity, fromWebIdentityEnv)
 import Amazonka.Data
 import Amazonka.EC2.Metadata
 import Amazonka.Lens (catching_)
@@ -117,10 +121,10 @@ discover =
         fromDefaultInstanceProfile env
     ]
 
--- | Run a sequence of credential-providing functions until one
--- returns successfully. If they throw 'AuthError', the next function
--- in the chain will be tried. Throws 'CredentialChainExhausted' if
--- the list is exhausted.
+-- | Compose a list of credential-providing functions by testing each
+-- until one returns successfully. If they throw 'AuthError', the next
+-- function in the chain will be tried. Throws
+-- 'CredentialChainExhausted' if the list is exhausted.
 runCredentialChain :: MonadCatch m => [a -> m b] -> a -> m b
 runCredentialChain chain env =
   case chain of

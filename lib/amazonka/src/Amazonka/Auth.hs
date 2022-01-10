@@ -72,7 +72,7 @@ import Amazonka.Lens (catching, catching_, throwingM, _IOException)
 import Amazonka.Prelude
 import Amazonka.Types
 import qualified Control.Exception as Exception
-import Control.Monad.Catch (MonadThrow (..))
+import Control.Monad.Catch (MonadCatch (..), throwM)
 import Control.Monad.Trans.Maybe (MaybeT (..))
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.Char as Char
@@ -247,12 +247,12 @@ instance Show Credentials where
 -- discover :: Env' withAuth -> m (Auth, Region)
 -- discover = tryFromEnv $ tryFromWebIdentity $ tryCredentialsFile $ const (throwM ...)
 
-runCredentialChain :: MonadThrow m => [(a -> m (Maybe b))] -> a -> m b
-runCredentialChain chain env = case chain of
-  [] -> throwM CredentialChainExhausted
-  provider : chain' ->
-    provider env
-      >>= maybe (runCredentialChain chain' env) pure
+runCredentialChain :: MonadCatch m => [a -> m b] -> a -> m b
+runCredentialChain chain env =
+  case chain of
+    [] -> throwM CredentialChainExhausted
+    provider : chain' ->
+      catching_ _AuthError (provider env) $ runCredentialChain chain' env
 
 -- | Retrieve authentication information via the specified 'Credentials' mechanism.
 --

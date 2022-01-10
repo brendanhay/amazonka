@@ -10,6 +10,9 @@
 module Amazonka.Auth.ConfigFile where
 
 import Amazonka.Auth.Exception
+import Amazonka.Auth.Keys (fromKeysEnv)
+import Amazonka.Auth.Container (fromContainerEnv)
+import Amazonka.Auth.InstanceProfile (fromDefaultInstanceProfile)
 import Amazonka.Auth.STS (fromAssumedRole, fromWebIdentity)
 import Amazonka.Data
 import Amazonka.Env (Env, Env' (..))
@@ -79,7 +82,12 @@ fromFilePath profile credentialsFile configFile env = do
               AssumeRoleFromProfile roleArn sourceProfileName -> do
                 sourceEnv <- evalConfig config sourceProfileName
                 fromAssumedRole roleArn "amazonka-assumed-role" sourceEnv
-              AssumeRoleFromCredentialSource {} -> undefined -- TODO
+              AssumeRoleFromCredentialSource roleArn source -> do
+                sourceEnv <- case source of
+                  Environment -> fromKeysEnv env
+                  Ec2InstanceMetadata -> fromDefaultInstanceProfile env
+                  EcsContainer -> fromContainerEnv env
+                fromAssumedRole roleArn "amazonka-assumed-role" sourceEnv
               AssumeRoleWithWebIdentity roleArn mRoleSessionName tokenFile ->
                 fromWebIdentity tokenFile roleArn mRoleSessionName env
 

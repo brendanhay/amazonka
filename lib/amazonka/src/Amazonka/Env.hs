@@ -113,8 +113,7 @@ authenticate ::
   Env' withAuth ->
   m Env
 authenticate c env@Env {..} = do
-  (a, fromMaybe NorthVirginia -> r) <- getAuth env c
-
+  (a, r) <- getAuth env c
   pure $ Env {_envRegion = r, _envAuth = Identity a, ..}
 
 -- | Get "the" 'Auth' from an 'Env'', if we can.

@@ -167,26 +167,26 @@ getAuth ::
   (MonadIO m, Foldable withAuth) =>
   Env' withAuth ->
   Credentials ->
-  m (Auth, Maybe Region)
+  m (Auth, Region)
 getAuth env@Env {..} =
   liftIO . \case
-    FromKeys a s -> pure (Just <$> fromKeys a s env)
-    FromSession a s t -> pure (Just <$> fromSession a s t env)
-    FromEnv -> fmap Just <$> fromKeysEnv env
-    FromProfile n -> fmap Just <$> fromNamedInstanceProfile n env
-    FromFile n cred conf -> fmap Just <$> fromFilePath n cred conf env
-    FromContainer -> fmap Just <$> fromContainerEnv env
-    FromWebIdentity -> fmap Just <$> fromWebIdentityEnv env
+    FromKeys a s -> pure $ fromKeys a s env
+    FromSession a s t -> pure $ fromSession a s t env
+    FromEnv -> fromKeysEnv env
+    FromProfile n -> fromNamedInstanceProfile n env
+    FromFile n cred conf -> fromFilePath n cred conf env
+    FromContainer -> fromContainerEnv env
+    FromWebIdentity -> fromWebIdentityEnv env
     Discover ->
       -- Don't try and catch InvalidFileError, or InvalidIAMProfile,
       -- let both errors propagate.
-      catching_ _MissingEnvError (fmap Just <$> fromKeysEnv env) $
+      catching_ _MissingEnvError (fromKeysEnv env) $
         -- proceed, missing env keys
-        catching _MissingFileError (fmap Just <$> fromFileEnv env) $ \f ->
+        catching _MissingFileError (fromFileEnv env) $ \f ->
           -- proceed, missing credentials file
-          catching_ _MissingEnvError (fmap Just <$> fromWebIdentityEnv env) $
+          catching_ _MissingEnvError (fromWebIdentityEnv env) $
             -- proceed, missing env keys
-            catching_ _MissingEnvError (fmap Just <$> fromContainerEnv env) $ do
+            catching_ _MissingEnvError (fromContainerEnv env) $ do
               -- proceed, missing env key
               p <- isEC2 _envManager
 
@@ -195,7 +195,7 @@ getAuth env@Env {..} =
                 throwingM _MissingFileError f
 
               -- proceed, check EC2 metadata for IAM information.
-              fmap Just <$> fromDefaultInstanceProfile env
+              fromDefaultInstanceProfile env
 
 -- | Try to read the region from the 'envRegion' variable.
 getRegion :: MonadIO m => m (Maybe Region)

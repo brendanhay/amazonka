@@ -18,7 +18,6 @@ import Amazonka.Types
 data AuthError
   = RetrievalError HttpException
   | MissingEnvError Text
-  | InvalidEnvError Text
   | MissingFileError FilePath
   | InvalidFileError Text
   | InvalidIAMError Text
@@ -31,7 +30,6 @@ instance ToLog AuthError where
   build = \case
     RetrievalError e -> build e
     MissingEnvError e -> "[MissingEnvError]  { message = " <> build e <> "}"
-    InvalidEnvError e -> "[InvalidEnvError]  { message = " <> build e <> "}"
     MissingFileError f -> "[MissingFileError] { path = " <> build f <> "}"
     InvalidFileError e -> "[InvalidFileError] { message = " <> build e <> "}"
     InvalidIAMError e -> "[InvalidIAMError]  { message = " <> build e <> "}"
@@ -50,9 +48,6 @@ class AsAuthError a where
   -- | The named environment variable was not found.
   _MissingEnvError :: Prism' a Text
 
-  -- | An error occured parsing named environment variable's value.
-  _InvalidEnvError :: Prism' a Text
-
   -- | The specified credentials file could not be found.
   _MissingFileError :: Prism' a FilePath
 
@@ -64,7 +59,6 @@ class AsAuthError a where
 
   _RetrievalError = _AuthError . _RetrievalError
   _MissingEnvError = _AuthError . _MissingEnvError
-  _InvalidEnvError = _AuthError . _InvalidEnvError
   _MissingFileError = _AuthError . _MissingFileError
   _InvalidFileError = _AuthError . _InvalidFileError
   _InvalidIAMError = _AuthError . _InvalidIAMError
@@ -81,10 +75,6 @@ instance AsAuthError AuthError where
 
   _MissingEnvError = prism MissingEnvError $ \case
     MissingEnvError e -> Right e
-    x -> Left x
-
-  _InvalidEnvError = prism InvalidEnvError $ \case
-    InvalidEnvError e -> Right e
     x -> Left x
 
   _MissingFileError = prism MissingFileError $ \case

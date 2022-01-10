@@ -48,7 +48,7 @@ module Amazonka
     AccessKey (..),
     SecretKey (..),
     SessionToken (..),
-    Credentials (..),
+    discover,
     -- $discovery
 
     -- ** Supported Regions
@@ -201,14 +201,14 @@ import qualified Network.HTTP.Client as Client
 --     logger <- AWS.newLogger AWS.Debug IO.stdout
 --
 --     -- To specify configuration preferences, 'newEnv' is used to create a new
---     -- configuration environment. The 'Credentials' parameter is used to specify
+--     -- configuration environment. The argument to 'newEnv' is used to specify the
 --     -- mechanism for supplying or retrieving AuthN/AuthZ information.
---     -- In this case 'Discover' will cause the library to try a number of options such
+--     -- In this case 'discover' will cause the library to try a number of options such
 --     -- as default environment variables, or an instance's IAM Profile and identity document:
---     discover <- AWS.newEnv AWS.Discover
+--     discoveredEnv <- AWS.newEnv AWS.discover
 --
 --     let env =
---             discover
+--             discoveredEnv
 --                 { AWS._envLogger = logger
 --                 , AWS._envRegion = AWS.Frankfurt
 --                 }
@@ -229,9 +229,10 @@ import qualified Network.HTTP.Client as Client
 -- AuthN/AuthZ information is handled similarly to other AWS SDKs. You can read
 -- some of the options available <http://blogs.aws.amazon.com/security/post/Tx3D6U6WSFGOK2H/A-New-and-Standardized-Way-to-Manage-Credentials-in-the-AWS-SDKs here>.
 --
--- When running on an EC2 instance and using 'FromProfile' or 'Discover', a thread
--- is forked which transparently handles the expiry and subsequent refresh of IAM
--- profile information. See 'Amazonka.Auth.fromProfileName' for more information.
+-- Authentication methods which return short-lived credentials (e.g., when running on
+-- an EC2 instance) fork a background thread which transparently handles the expiry
+-- and subsequent refresh of IAM profile information. See
+-- 'Amazonka.Auth.Background.fetchAuthInBackground' for more information.
 
 -- $sending
 -- To send a request you need to create a value of the desired operation type using
@@ -295,7 +296,7 @@ import qualified Network.HTTP.Client as Client
 --
 -- The updated configuration is then passed to the 'Env' during setup:
 --
--- > env <- AWS.configure dynamo <$> AWS.newEnv AWS.Discover
+-- > env <- AWS.configure dynamo <$> AWS.newEnv AWS.discover
 -- >
 -- > AWS.runResourceT $ do
 -- >     -- This S3 operation will communicate with remote AWS APIs.
@@ -309,7 +310,7 @@ import qualified Network.HTTP.Client as Client
 --
 -- You can also scope the service configuration modifications to specific actions:
 --
--- > env <- AWS.newEnv AWS.Discover
+-- > env <- AWS.newEnv AWS.discover
 -- >
 -- > AWS.runResourceT $ do
 -- >     -- Service operations here will communicate with AWS, even remote DynamoDB.

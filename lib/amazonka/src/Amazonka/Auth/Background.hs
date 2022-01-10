@@ -25,10 +25,10 @@ import qualified Data.Time as Time
 import System.Mem.Weak (Weak)
 import qualified System.Mem.Weak as Weak
 
--- | Implements the background fetching behavior used by 'fromProfileName' and
--- 'fromContainer'. Given an 'IO' action that produces an 'AuthEnv', this spawns
--- a thread that mutates the 'IORef' returned in the resulting 'Auth' to keep
--- the temporary credentials up to date.
+-- | Implements the background fetching behavior used by (among others)
+-- 'fromProfileName' and 'fromContainer'. Given an 'IO' action that produces an
+-- 'AuthEnv', this spawns a thread that mutates the 'IORef' returned in the
+-- resulting 'Auth' to keep the temporary credentials up to date.
 fetchAuthInBackground :: IO AuthEnv -> IO Auth
 fetchAuthInBackground menv =
   menv >>= \(!env) -> liftIO $

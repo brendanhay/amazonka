@@ -73,7 +73,7 @@ import qualified Network.HTTP.Conduit as Client.Conduit
 newEnv ::
   MonadIO m =>
   -- | Credential discovery mechanism.
-  Credentials ->
+  (EnvNoAuth -> m (Auth, Region)) ->
   m Env
 newEnv c =
   liftIO (Client.newManager Client.Conduit.tlsManagerSettings)
@@ -108,12 +108,11 @@ newEnvWith m =
 authenticate ::
   (MonadIO m, Foldable withAuth) =>
   -- | Credential discovery mechanism.
-  Credentials ->
+  (Env' withAuth -> m (Auth, Region)) ->
   -- | Previous environment.
-  Env' withAuth ->
-  m Env
+  Env' withAuth -> m Env
 authenticate c env@Env {..} = do
-  (a, r) <- getAuth env c
+  (a, r) <- c env
   pure $ Env {_envRegion = r, _envAuth = Identity a, ..}
 
 -- | Get "the" 'Auth' from an 'Env'', if we can.

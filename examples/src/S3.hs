@@ -30,7 +30,7 @@ getPresignedURL ::
   IO ByteString
 getPresignedURL r b k = do
   lgr <- newLogger Trace stdout
-  env <- newEnv Discover <&> set envLogger lgr . set envRegion r
+  env <- newEnv discover <&> set envLogger lgr . set envRegion r
   ts <- getCurrentTime
   runResourceT $ presignURL env ts 60 (newGetObject b k)
 
@@ -40,7 +40,7 @@ listAll ::
   IO ()
 listAll r = do
   lgr <- newLogger Debug stdout
-  env <- newEnv Discover <&> set envLogger lgr . set envRegion r
+  env <- newEnv discover <&> set envLogger lgr . set envRegion r
 
   let val :: ToText a => Maybe a -> Text
       val = maybe "Nothing" toText
@@ -71,7 +71,7 @@ getFile ::
   IO ()
 getFile r b k f = do
   lgr <- newLogger Debug stdout
-  env <- newEnv Discover <&> set envLogger lgr . set envRegion r
+  env <- newEnv discover <&> set envLogger lgr . set envRegion r
 
   runResourceT $ do
     rs <- send env (newGetObject b k)
@@ -98,7 +98,7 @@ putChunkedFile ::
   IO ()
 putChunkedFile r b k c f = do
   lgr <- newLogger Debug stdout
-  env <- newEnv Discover <&> set #_envLogger lgr . set #_envRegion r
+  env <- newEnv discover <&> set #_envLogger lgr . set #_envRegion r
 
   runResourceT $ do
     bdy <- chunkedFile c f
@@ -121,7 +121,7 @@ tagBucket ::
   IO ()
 tagBucket r bkt xs = do
   lgr <- newLogger Debug stdout
-  env <- newEnv Discover <&> set envLogger lgr . set envRegion r
+  env <- newEnv discover <&> set envLogger lgr . set envRegion r
 
   let tags = map (uncurry newTag) xs
       kv t = toText (t ^. #key) <> "=" <> (t ^. #value)

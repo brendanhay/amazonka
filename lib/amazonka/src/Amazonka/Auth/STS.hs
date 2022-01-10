@@ -9,10 +9,10 @@
 -- Retrieve authentication credentials from Secure Token Service
 module Amazonka.Auth.STS where
 
-import {-# SOURCE #-} Amazonka.Auth
 import Amazonka.Auth.Background (fetchAuthInBackground)
 import Amazonka.Auth.Exception
-import {-# SOURCE #-} Amazonka.HTTP (retryRequest)
+import Amazonka.Env (Env, Env' (..))
+import Amazonka.HTTP (retryRequest)
 import Amazonka.Lens (throwingM, (^.))
 import Amazonka.Prelude
 import qualified Amazonka.STS as STS

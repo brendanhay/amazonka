@@ -10,9 +10,9 @@
 -- optional session token and environment variable lookup.
 module Amazonka.Auth.Keys where
 
-import {-# SOURCE #-} Amazonka.Auth (Env, Env' (..), _envRegion)
 import Amazonka.Auth.Exception (_MissingEnvError)
 import Amazonka.Data
+import Amazonka.Env (Env, Env' (..))
 import Amazonka.Lens (throwingM)
 import Amazonka.Prelude
 import Amazonka.Types

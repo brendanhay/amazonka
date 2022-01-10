@@ -41,7 +41,6 @@ module Amazonka.Env
   )
 where
 
-import Amazonka.Auth
 import Amazonka.Lens ((.~), (?~))
 import Amazonka.Prelude
 import Amazonka.Types
@@ -50,6 +49,25 @@ import qualified Data.Function as Function
 import Data.Monoid (Dual (..), Endo (..))
 import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Conduit as Client.Conduit
+
+type Env = Env' Identity
+
+type EnvNoAuth = Env' Proxy
+
+-- | The environment containing the parameters required to make AWS requests.
+--
+-- This type tracks whether or not we have credentials at the type
+-- level, to avoid "presigning" requests when we lack auth
+-- information.
+data Env' withAuth = Env
+  { _envRegion :: Region,
+    _envLogger :: Logger,
+    _envRetryCheck :: Int -> Client.HttpException -> Bool,
+    _envOverride :: Dual (Endo Service),
+    _envManager :: Client.Manager,
+    _envAuth :: withAuth Auth
+  }
+  deriving stock (Generic)
 
 -- | Creates a new environment with a new 'Manager' without debug logging
 -- and uses 'getAuth' to expand/discover the supplied 'Credentials'.

@@ -9,10 +9,10 @@
 -- Retrieve authentication credentials from AWS config/credentials files.
 module Amazonka.Auth.ConfigFile where
 
-import {-# SOURCE #-} Amazonka.Auth
 import Amazonka.Auth.Exception
 import Amazonka.Auth.STS (fromAssumedRole, fromWebIdentity)
 import Amazonka.Data
+import Amazonka.Env (Env, Env' (..))
 import Amazonka.Prelude
 import Amazonka.Types
 import qualified Control.Exception as Exception
@@ -74,18 +74,18 @@ fromFilePath profile credentialsFile configFile env = do
               "Parse error in profile: " <> Text.pack (show pName)
           Just (cp, mRegion) -> do
             env' <- case cp of
-                      ExplicitKeys authEnv ->
-                        pure env {_envAuth = Identity $ Auth authEnv}
-                      AssumeRoleFromProfile roleArn sourceProfileName -> do
-                        sourceEnv <- evalConfig config sourceProfileName
-                        fromAssumedRole roleArn "amazonka-assumed-role" sourceEnv
-                      AssumeRoleFromCredentialSource {} -> undefined -- TODO
-                      AssumeRoleWithWebIdentity roleArn mRoleSessionName tokenFile ->
-                        fromWebIdentity tokenFile roleArn mRoleSessionName env
+              ExplicitKeys authEnv ->
+                pure env {_envAuth = Identity $ Auth authEnv}
+              AssumeRoleFromProfile roleArn sourceProfileName -> do
+                sourceEnv <- evalConfig config sourceProfileName
+                fromAssumedRole roleArn "amazonka-assumed-role" sourceEnv
+              AssumeRoleFromCredentialSource {} -> undefined -- TODO
+              AssumeRoleWithWebIdentity roleArn mRoleSessionName tokenFile ->
+                fromWebIdentity tokenFile roleArn mRoleSessionName env
 
             -- Once we have the env from the profile, apply the region
             -- if we parsed one out.
-            pure $ maybe env' (\r -> env' { _envRegion = r}) mRegion
+            pure $ maybe env' (\r -> env' {_envRegion = r}) mRegion
 
 loadIniFile :: FilePath -> IO (HashMap Text [(Text, Text)])
 loadIniFile path = do

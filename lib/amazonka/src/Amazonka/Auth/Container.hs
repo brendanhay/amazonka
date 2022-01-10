@@ -10,10 +10,10 @@
 -- Container.
 module Amazonka.Auth.Container where
 
-import {-# SOURCE #-} Amazonka.Auth
 import Amazonka.Auth.Background (fetchAuthInBackground)
 import Amazonka.Auth.Exception
 import Amazonka.Data
+import Amazonka.Env (Env, Env' (..))
 import Amazonka.Prelude
 import Amazonka.Types
 import qualified Control.Exception as Exception

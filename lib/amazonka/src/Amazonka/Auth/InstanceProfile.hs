@@ -9,11 +9,11 @@
 -- Retrieve authentication credentials from EC2 instance profiles.
 module Amazonka.Auth.InstanceProfile where
 
-import {-# SOURCE #-} Amazonka.Auth
 import Amazonka.Auth.Background
 import Amazonka.Auth.Exception
 import Amazonka.Data
 import Amazonka.EC2.Metadata
+import Amazonka.Env (Env, Env' (..))
 import Amazonka.Prelude
 import qualified Control.Exception as Exception
 import qualified Data.ByteString.Char8 as BS8

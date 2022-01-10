@@ -62,14 +62,13 @@ import Amazonka.Auth.Keys (fromKeys, fromKeysEnv, fromSession, fromTemporarySess
 import Amazonka.Auth.STS (fromWebIdentity, fromWebIdentityEnv)
 import Amazonka.Data
 import Amazonka.EC2.Metadata
+import Amazonka.Env (Env, EnvNoAuth, Env' (..))
 import Amazonka.Lens (catching_)
 import Amazonka.Prelude
 import Amazonka.Types
 import Control.Monad.Catch (MonadCatch (..), throwM)
 import Control.Monad.Trans.Maybe (MaybeT (..))
-import Data.Monoid (Dual, Endo)
 import qualified Data.Text as Text
-import qualified Network.HTTP.Client as Client
 import qualified System.Environment as Environment
 
 -- | Default region environment variable
@@ -141,26 +140,3 @@ getRegion = runMaybeT $ do
     (const . MaybeT $ pure Nothing)
     pure
     (fromText (Text.pack mr))
-
--- $env
--- This really should be defined in @Amazonka.Env@, but we define it
--- here to break a gnarly module import cycle.
-
-type Env = Env' Identity
-
-type EnvNoAuth = Env' Proxy
-
--- | The environment containing the parameters required to make AWS requests.
---
--- This type tracks whether or not we have credentials at the type
--- level, to avoid "presigning" requests when we lack auth
--- information.
-data Env' withAuth = Env
-  { _envRegion :: Region,
-    _envLogger :: Logger,
-    _envRetryCheck :: Int -> Client.HttpException -> Bool,
-    _envOverride :: Dual (Endo Service),
-    _envManager :: Client.Manager,
-    _envAuth :: withAuth Auth
-  }
-  deriving stock (Generic)

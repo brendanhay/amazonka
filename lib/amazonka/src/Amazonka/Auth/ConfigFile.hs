@@ -219,12 +219,12 @@ fromFileEnv ::
   (MonadIO m, Foldable withAuth) => Env' withAuth -> m Env
 fromFileEnv env = liftIO $ do
   mProfile <- Environment.lookupEnv "AWS_PROFILE"
-  cred <- file "/.aws/credentials"
-  conf <- file "/.aws/config"
+  cred <- homePathRelative "/.aws/credentials"
+  conf <- homePathRelative "/.aws/config"
 
   fromFilePath (maybe "default" Text.pack mProfile) cred conf env
   where
-    file p = catching_ _IOException dir err
+    homePathRelative p = catching_ _IOException dir err
       where
         dir = Directory.getHomeDirectory <&> (++ p)
         err = Exception.throwIO $ MissingFileError ("$HOME" ++ p)

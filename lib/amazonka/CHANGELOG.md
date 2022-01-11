@@ -16,7 +16,7 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
     | `FromSession`     | `fromSession`                | As above, but with session token.                                                                                                               |
     |                   | `fromTemporarySession`       | As above, but with token with expiry time. Likely not useful.                                                                                   |
     |                   | `fromKeysEnv`                | Reads `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and optionally `AWS_SESSION_TOKEN`.                                                         |
-    | `FromEnv`         |                              |                                                                                                                                                 |
+    | `FromEnv`         |                              | Removed - used to look up named environment variables for access key id/secret access key/session token/expiry time.                            |
     | `FromProfile`     | `fromNamedInstanceProfile`   | Look up a named instance profile from the Instance Meta-Data Service.                                                                           |
     |                   | `fromDefaultInstanceProfile` | Select the first instance profile, like `Discover` used to do.                                                                                  |
     | `FromFile`        | `fromFilePath`               | **Significantly improved** - now supports assuming roles by setting either `source_profile`, `credential_source`, or `web_identity_token_file`. |

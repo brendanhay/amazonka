@@ -88,12 +88,10 @@ fromNamedInstanceProfile name env =
       Left e -> Exception.throwIO (RetrievalError e)
       Right x -> either (Exception.throwIO . g) pure (f x)
 
-    invalidIAMErr =
-      InvalidIAMError
-        . mappend ("Error parsing IAM profile '" <> name <> "' ")
-        . Text.pack
+    invalidIAMErr e =
+      InvalidIAMError $
+        mconcat ["Error parsing IAM profile '", name, "' ", Text.pack e]
 
-    invalidIdentityErr =
-      InvalidIAMError
-        . mappend "Error parsing Instance Identity Document "
-        . Text.pack
+    invalidIdentityErr e =
+      InvalidIAMError $
+        mconcat ["Error parsing Instance Identity Document ", Text.pack e]

@@ -19,7 +19,7 @@ import Amazonka.Env (Env, Env' (..), lookupRegion)
 import Amazonka.Prelude
 import Amazonka.Types
 import qualified Control.Exception as Exception
-import Control.Exception.Lens (catching_, _IOException)
+import Control.Exception.Lens (handling_, _IOException)
 import Data.Foldable (asum)
 import Data.HashMap.Strict as HashMap
 import qualified Data.Ini as INI
@@ -27,6 +27,7 @@ import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
 import qualified System.Directory as Directory
 import qualified System.Environment as Environment
+import System.Info (os)
 
 -- | Retrieve credentials from the AWS config/credentials files, as
 -- Amazonka currently understands them:
@@ -209,22 +210,22 @@ data CredentialSource = Environment | Ec2InstanceMetadata | EcsContainer
 -- This looks in in the @HOME@ directory as determined by the
 -- <http://hackage.haskell.org/package/directory directory> library.
 --
--- * UNIX/OSX: @$HOME/.aws/credentials@
+-- * Not Windows: @$HOME/.aws/credentials@
 --
--- * Windows: @C:\/Users\//\<user\>\.aws\credentials@
---
--- /Note:/ This does not match the default AWS SDK location of
--- @%USERPROFILE%\.aws\credentials@ on Windows. (Sorry.)
+-- * Windows: @%USERPROFILE%\.aws\credentials@
 fromFileEnv ::
   (MonadIO m, Foldable withAuth) => Env' withAuth -> m Env
 fromFileEnv env = liftIO $ do
   mProfile <- Environment.lookupEnv "AWS_PROFILE"
-  cred <- homePathRelative "/.aws/credentials"
-  conf <- homePathRelative "/.aws/config"
+  cred <- configPathRelative "/.aws/credentials"
+  conf <- configPathRelative "/.aws/config"
 
   fromFilePath (maybe "default" Text.pack mProfile) cred conf env
   where
-    homePathRelative p = catching_ _IOException dir err
+    configPathRelative p = handling_ _IOException err dir
       where
-        dir = Directory.getHomeDirectory <&> (++ p)
         err = Exception.throwIO $ MissingFileError ("$HOME" ++ p)
+        dir = case os of
+          "mingw32" -> Environment.lookupEnv "USERPROFILE" >>=
+            maybe (Exception.throwIO $ MissingFileError "%USERPROFILE%") pure
+          _ -> Directory.getHomeDirectory <&> (++ p)

@@ -232,6 +232,10 @@ import qualified Network.HTTP.Client as Client
 -- an EC2 instance) fork a background thread which transparently handles the expiry
 -- and subsequent refresh of IAM profile information. See
 -- 'Amazonka.Auth.Background.fetchAuthInBackground' for more information.
+--
+-- /See:/ "Amazonka.Auth", if you want to commit to specific authentication methods.
+--
+-- /See:/ 'Amazonka.Auth.runCredentialChain' if you want to build your own credential chain.
 
 -- $sending
 -- To send a request you need to create a value of the desired operation type using

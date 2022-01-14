@@ -67,8 +67,7 @@ fromContainer url env =
 --
 -- __NOTE:__ We do not currently respect the
 -- @AWS_CONTAINER_CREDENTIALS_FULL_URI@ or @AWS_CONTAINTER_AUTHORIZATION_TOKEN@
--- environment variable. If you need support for these, please file an issue or
--- (better yet) a PR.
+-- environment variable. If you need support for these, please file a PR.
 fromContainerEnv ::
   MonadIO m =>
   Env' withAuth ->

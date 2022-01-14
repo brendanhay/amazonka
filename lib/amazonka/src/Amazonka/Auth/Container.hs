@@ -33,12 +33,12 @@ import qualified System.Environment as Environment
 fromContainer ::
   MonadIO m =>
   -- | Absolute URL
-  String ->
+  Text ->
   Env' withAuth ->
   m Env
 fromContainer url env =
   liftIO $ do
-    req <- Client.parseUrlThrow url
+    req <- Client.parseUrlThrow $ Text.unpack url
     auth <- fetchAuthInBackground (renew req)
 
     pure env {_envAuth = Identity auth}
@@ -79,4 +79,4 @@ fromContainerEnv env = liftIO $ do
       >>= maybe
         (Exception.throwIO $ MissingEnvError "Unable to read AWS_CONTAINER_CREDENTIALS_RELATIVE_URI")
         pure
-  fromContainer ("http://169.254.170.2" <> uriRel) env
+  fromContainer (Text.pack $ "http://169.254.170.2" <> uriRel) env

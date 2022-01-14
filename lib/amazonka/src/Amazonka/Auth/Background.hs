@@ -51,7 +51,9 @@ fetchAuthInBackground menv =
 
     loop :: IO AuthEnv -> Weak (IORef AuthEnv) -> ThreadId -> ISO8601 -> IO ()
     loop ma w !p !x = do
-      diff x <$> Time.getCurrentTime >>= Concurrent.threadDelay
+      next <- diff x <$> Time.getCurrentTime
+      Concurrent.threadDelay next
+
       env <- Exception.try ma
       case env of
         Left e -> Exception.throwTo p (RetrievalError e)

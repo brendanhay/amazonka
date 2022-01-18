@@ -12,7 +12,6 @@ module Amazonka.Env
   ( -- * Creating the Environment
     newEnv,
     newEnvNoAuth,
-    newEnvFromManager,
     Env' (..),
     Env,
     EnvNoAuth,
@@ -95,9 +94,7 @@ newEnv ::
   -- | Credential discovery mechanism.
   (EnvNoAuth -> m Env) ->
   m Env
-newEnv authenticate =
-  liftIO (Client.newManager Client.Conduit.tlsManagerSettings)
-    >>= authenticate . newEnvFromManager
+newEnv = (newEnvNoAuth >>=)
 
 -- | Generate an environment without credentials, which may only make
 -- unsigned requests. This sets the region based on the @AWS_REGION@
@@ -110,23 +107,17 @@ newEnv authenticate =
 newEnvNoAuth :: MonadIO m => m EnvNoAuth
 newEnvNoAuth = do
   manager <- liftIO $ Client.newManager Client.Conduit.tlsManagerSettings
-  let env = newEnvFromManager manager
   mRegion <- lookupRegion
-  pure $ case mRegion of
-    Nothing -> env
-    Just r -> env {_envRegion = r}
-
--- | Construct a default 'EnvNoAuth' from a HTTP 'Client.Manager'.
-newEnvFromManager :: Client.Manager -> EnvNoAuth
-newEnvFromManager m =
-  Env
-    { _envRegion = NorthVirginia,
-      _envLogger = \_ _ -> pure (),
-      _envRetryCheck = retryConnectionFailure 3,
-      _envOverride = mempty,
-      _envManager = m,
-      _envAuth = Proxy
-    }
+  let env =
+        Env
+          { _envRegion = fromMaybe NorthVirginia mRegion,
+            _envLogger = \_ _ -> pure (),
+            _envRetryCheck = retryConnectionFailure 3,
+            _envOverride = mempty,
+            _envManager = manager,
+            _envAuth = Proxy
+          }
+  pure env
 
 -- | Get "the" 'Auth' from an 'Env'', if we can.
 envAuthMaybe :: Foldable withAuth => Env' withAuth -> Maybe Auth

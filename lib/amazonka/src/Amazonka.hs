@@ -171,11 +171,11 @@ import qualified Network.HTTP.Client as Client
 -- $usage
 -- The key functions dealing with the request/response lifecycle are:
 --
--- * 'send', 'sendThrow'
+-- * 'send', 'sendEither'
 --
--- * 'paginate', 'paginateThrow'
+-- * 'paginate', 'paginateEither'
 --
--- * 'await', 'awaitThrow'
+-- * 'await', 'awaitEither'
 --
 -- These functions have constraints that types from the @amazonka-*@ libraries
 -- satisfy. To utilise these, you will need to specify what 'Region' you wish to

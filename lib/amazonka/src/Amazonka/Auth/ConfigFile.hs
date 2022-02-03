@@ -20,6 +20,8 @@ import Amazonka.Prelude
 import Amazonka.Types
 import qualified Control.Exception as Exception
 import Control.Exception.Lens (handling_, _IOException)
+import Control.Monad.Trans.Reader (ReaderT, ask, runReaderT)
+import Control.Monad.Trans.State (StateT, evalStateT, get, modify)
 import Data.Foldable (asum)
 import Data.HashMap.Strict as HashMap
 import qualified Data.Ini as INI
@@ -67,8 +69,11 @@ fromFilePath profile credentialsFile configFile env = liftIO $ do
       (loadIniFile configFile)
       pure
 
-  let config = mergeConfigs configIni credentialsIni
-  env' <- evalConfig config profile
+  let config = mergeConfigs credentialsIni configIni
+  env' <-
+    evalConfig profile
+      & (`runReaderT` config)
+      & (`evalStateT` mempty)
 
   -- A number of settings in the AWS config files should be
   -- overridable by environment variables, but aren't. We make a point
@@ -91,23 +96,40 @@ fromFilePath profile credentialsFile configFile env = liftIO $ do
 
     -- Parse the matched config, and extract auth credentials from it,
     -- recursively if necessary.
-    evalConfig :: HashMap Text (HashMap Text Text) -> Text -> IO Env
-    evalConfig config pName =
+    evalConfig ::
+      Text ->
+      ReaderT
+        (HashMap Text (HashMap Text Text)) -- Map of profiles and their settings
+        (StateT [Text] IO) -- List of source_profiles we've seen already
+        Env
+    evalConfig pName = do
+      config <- ask
       case HashMap.lookup pName config of
         Nothing ->
-          Exception.throwIO . InvalidFileError $
+          liftIO . Exception.throwIO . InvalidFileError $
             "Missing profile: " <> Text.pack (show pName)
         Just p -> case parseConfigProfile p of
           Nothing ->
-            Exception.throwIO . InvalidFileError $
+            liftIO . Exception.throwIO . InvalidFileError $
               "Parse error in profile: " <> Text.pack (show pName)
           Just (cp, mRegion) -> do
             env' <- case cp of
               ExplicitKeys authEnv ->
                 pure env {envAuth = Identity $ Auth authEnv}
               AssumeRoleFromProfile roleArn sourceProfileName -> do
-                sourceEnv <- evalConfig config sourceProfileName
-                fromAssumedRole roleArn "amazonka-assumed-role" sourceEnv
+                seenProfiles <- lift get
+                if sourceProfileName `elem` seenProfiles
+                  then
+                    let trace = reverse seenProfiles ++ [last seenProfiles]
+                        textTrace = Text.intercalate " -> " trace
+                     in liftIO
+                          . Exception.throwIO
+                          . InvalidFileError
+                          $ "Infinite source_profile loop: " <> textTrace
+                  else do
+                    lift . modify $ (sourceProfileName :)
+                    sourceEnv <- evalConfig sourceProfileName
+                    fromAssumedRole roleArn "amazonka-assumed-role" sourceEnv
               AssumeRoleFromCredentialSource roleArn source -> do
                 sourceEnv <- case source of
                   Environment -> fromKeysEnv env

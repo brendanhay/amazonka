@@ -6,7 +6,6 @@ haskell_library(
     srcs = [
         "src/Amazonka.hs",
         "src/Amazonka/Auth.hs",
-        "src/Amazonka/Auth.hs-boot",  # keep
         "src/Amazonka/Auth/Background.hs",
         "src/Amazonka/Auth/ConfigFile.hs",
         "src/Amazonka/Auth/Container.hs",
@@ -17,7 +16,6 @@ haskell_library(
         "src/Amazonka/EC2/Metadata.hs",
         "src/Amazonka/Env.hs",
         "src/Amazonka/HTTP.hs",
-        "src/Amazonka/HTTP.hs-boot",  # keep
         "src/Amazonka/Logger.hs",
         "src/Amazonka/Presign.hs",
     ],

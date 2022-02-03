@@ -24,7 +24,7 @@ import qualified System.Environment as Environment
 -- | Explicit access and secret keys.
 fromKeys :: AccessKey -> SecretKey -> Env' withAuth -> Env
 fromKeys a s env =
-  env {_envAuth = Identity . Auth $ AuthEnv a (Sensitive s) Nothing Nothing}
+  env {envAuth = Identity . Auth $ AuthEnv a (Sensitive s) Nothing Nothing}
 
 -- | Temporary credentials from a STS session consisting of
 -- the access key, secret key, and session token.
@@ -34,7 +34,7 @@ fromSession ::
   AccessKey -> SecretKey -> SessionToken -> Env' withAuth -> Env
 fromSession a s t env =
   env
-    { _envAuth =
+    { envAuth =
         Identity . Auth $
           AuthEnv a (Sensitive s) (Just (Sensitive t)) Nothing
     }
@@ -52,7 +52,7 @@ fromTemporarySession ::
   Env
 fromTemporarySession a s t e env =
   env
-    { _envAuth =
+    { envAuth =
         Identity . Auth $
           AuthEnv a (Sensitive s) (Just (Sensitive t)) (Just (Time e))
     }
@@ -70,7 +70,7 @@ fromTemporarySession a s t e env =
 fromKeysEnv :: MonadIO m => Env' withAuth -> m Env
 fromKeysEnv env = liftIO $ do
   auth <- Auth <$> lookupKeys
-  pure $ env {_envAuth = Identity auth}
+  pure $ env {envAuth = Identity auth}
   where
     lookupKeys =
       AuthEnv

@@ -37,7 +37,7 @@ fromDefaultInstanceProfile env =
   liftIO $ do
     ls <-
       Exception.try $
-        metadata (_envManager env) (IAM (SecurityCredentials Nothing))
+        metadata (envManager env) (IAM (SecurityCredentials Nothing))
 
     case BS8.lines <$> ls of
       Right (x : _) -> fromNamedInstanceProfile (Text.decodeUtf8 x) env
@@ -72,7 +72,7 @@ fromNamedInstanceProfile name env =
     auth <- fetchAuthInBackground getCredentials
     reg <- getRegionFromIdentity
 
-    pure env {_envAuth = Identity auth, _envRegion = reg}
+    pure env {envAuth = Identity auth, envRegion = reg}
   where
     getCredentials =
       Exception.try (metadata manager (IAM . SecurityCredentials $ Just name))
@@ -82,7 +82,7 @@ fromNamedInstanceProfile name env =
       Exception.try (identity manager)
         >>= handleErr (fmap _region) invalidIdentityErr
 
-    manager = _envManager env
+    manager = envManager env
 
     handleErr f g = \case
       Left e -> Exception.throwIO (RetrievalError e)

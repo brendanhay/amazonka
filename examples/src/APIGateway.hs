@@ -16,7 +16,8 @@ import System.IO
 main :: Region -> IO Method
 main r = do
   lgr <- newLogger Trace stdout
-  env <- newEnv discover <&> set envLogger lgr . set envRegion r
+  env <- newEnv discover <&> set (field @"envLogger") lgr . within r
+
   runResourceT $ do
     restApi <- send env (newCreateRestApi "myApi")
     let Just apiId = restApi ^. field @"id"

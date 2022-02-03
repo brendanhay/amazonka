@@ -62,7 +62,7 @@ fromAssumedRole roleArn roleSessionName env = do
             fail "sts:AssumeRole returned no credentials."
           Just c -> pure c
   auth <- liftIO $ fetchAuthInBackground getCredentials
-  pure env {_envAuth = Identity auth}
+  pure env {envAuth = Identity auth}
 
 -- | https://aws.amazon.com/blogs/opensource/introducing-fine-grained-iam-roles-service-accounts/
 -- Obtain temporary credentials from @sts:AssumeRoleWithWebIdentity@.
@@ -110,7 +110,7 @@ fromWebIdentity tokenFile roleArn mSessionName env = do
   -- to fetch new ones automatically on expiry.
   auth <- liftIO $ fetchAuthInBackground getCredentials
 
-  pure env {_envAuth = Identity auth}
+  pure env {envAuth = Identity auth}
 
 -- | Obtain temporary credentials from
 -- @sts:AssumeRoleWithWebIdentity@, sourcing arguments from standard

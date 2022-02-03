@@ -27,15 +27,6 @@ module Amazonka.Env
     once,
     timeout,
 
-    -- * 'Env' Lenses
-    -- $envLenses
-    envRegion,
-    envLogger,
-    envRetryCheck,
-    envOverride,
-    envManager,
-    envAuth,
-
     -- * Retry HTTP Exceptions
     retryConnectionFailure,
   )
@@ -44,7 +35,6 @@ where
 import Amazonka.Lens ((.~), (?~))
 import Amazonka.Prelude
 import Amazonka.Types
-import Control.Lens (Lens)
 import qualified Data.Function as Function
 import Data.Monoid (Dual (..), Endo (..))
 import qualified Data.Text as Text
@@ -62,12 +52,12 @@ type EnvNoAuth = Env' Proxy
 -- level, to avoid "presigning" requests when we lack auth
 -- information.
 data Env' withAuth = Env
-  { _envRegion :: Region,
-    _envLogger :: Logger,
-    _envRetryCheck :: Int -> Client.HttpException -> Bool,
-    _envOverride :: Dual (Endo Service),
-    _envManager :: Client.Manager,
-    _envAuth :: withAuth Auth
+  { envRegion :: Region,
+    envLogger :: Logger,
+    envRetryCheck :: Int -> Client.HttpException -> Bool,
+    envOverride :: Dual (Endo Service),
+    envManager :: Client.Manager,
+    envAuth :: withAuth Auth
   }
   deriving stock (Generic)
 
@@ -110,18 +100,18 @@ newEnvNoAuth = do
   mRegion <- lookupRegion
   let env =
         Env
-          { _envRegion = fromMaybe NorthVirginia mRegion,
-            _envLogger = \_ _ -> pure (),
-            _envRetryCheck = retryConnectionFailure 3,
-            _envOverride = mempty,
-            _envManager = manager,
-            _envAuth = Proxy
+          { envRegion = fromMaybe NorthVirginia mRegion,
+            envLogger = \_ _ -> pure (),
+            envRetryCheck = retryConnectionFailure 3,
+            envOverride = mempty,
+            envManager = manager,
+            envAuth = Proxy
           }
   pure env
 
 -- | Get "the" 'Auth' from an 'Env'', if we can.
 envAuthMaybe :: Foldable withAuth => Env' withAuth -> Maybe Auth
-envAuthMaybe = foldr (const . Just) Nothing . _envAuth
+envAuthMaybe = foldr (const . Just) Nothing . envAuth
 
 -- | Look up the region in the @AWS_REGION@ environment variable.
 lookupRegion :: MonadIO m => m (Maybe Region)
@@ -151,7 +141,7 @@ retryConnectionFailure limit n = \case
 -- | Provide a function which will be added to the existing stack
 -- of overrides applied to all service configurations.
 override :: (Service -> Service) -> Env -> Env
-override f env = env {_envOverride = _envOverride env <> Dual (Endo f)}
+override f env = env {envOverride = envOverride env <> Dual (Endo f)}
 
 -- | Configure a specific service. All requests belonging to the
 -- supplied service will use this configuration instead of the default.
@@ -167,7 +157,7 @@ configure s = override f
 
 -- | Scope an action within the specific 'Region'.
 within :: Region -> Env -> Env
-within r env = env {_envRegion = r}
+within r env = env {envRegion = r}
 
 -- | Scope an action such that any retry logic for the 'Service' is
 -- ignored and any requests will at most be sent once.
@@ -187,28 +177,3 @@ once = override (serviceRetry . retryAttempts .~ 0)
 -- * The default 'ClientRequest' timeout. (Approximately 30s)
 timeout :: Seconds -> Env -> Env
 timeout n = override (serviceTimeout ?~ n)
-
--- $envLenses
---
--- We provide lenses for 'Env'', though you are of course free to use
--- the @generic-lens@ package.
-
-envRegion :: Lens' (Env' withAuth) Region
-envRegion f env = f (_envRegion env) <&> \r -> env {_envRegion = r}
-
-envLogger :: Lens' (Env' withAuth) Logger
-envLogger f env = f (_envLogger env) <&> \l -> env {_envLogger = l}
-
-envRetryCheck :: Lens' (Env' withAuth) (Int -> Client.HttpException -> Bool)
-envRetryCheck f env =
-  f (_envRetryCheck env) <&> \rc -> env {_envRetryCheck = rc}
-
-envOverride :: Lens' (Env' withAuth) (Dual (Endo Service))
-envOverride f env = f (_envOverride env) <&> \o -> env {_envOverride = o}
-
-envManager :: Lens' (Env' withAuth) Client.Manager
-envManager f env = f (_envManager env) <&> \m -> env {_envManager = m}
-
-envAuth ::
-  Lens (Env' withAuth) (Env' withAuth') (withAuth Auth) (withAuth' Auth)
-envAuth f env = f (_envAuth env) <&> \a -> env {_envAuth = a}

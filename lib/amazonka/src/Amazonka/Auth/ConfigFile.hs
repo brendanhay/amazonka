@@ -69,7 +69,7 @@ fromFilePath profile credentialsFile configFile env = do
   -- See: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html
   lookupRegion <&> \case
     Nothing -> env'
-    Just r -> env' {_envRegion = r}
+    Just r -> env' {envRegion = r}
   where
     -- Parse the matched config, and extract auth credentials from it,
     -- recursively if necessary.
@@ -89,7 +89,7 @@ fromFilePath profile credentialsFile configFile env = do
           Just (cp, mRegion) -> do
             env' <- case cp of
               ExplicitKeys authEnv ->
-                pure env {_envAuth = Identity $ Auth authEnv}
+                pure env {envAuth = Identity $ Auth authEnv}
               AssumeRoleFromProfile roleArn sourceProfileName -> do
                 sourceEnv <- evalConfig config sourceProfileName
                 fromAssumedRole roleArn "amazonka-assumed-role" sourceEnv
@@ -104,7 +104,7 @@ fromFilePath profile credentialsFile configFile env = do
 
             -- Once we have the env from the profile, apply the region
             -- if we parsed one out.
-            pure . maybe env' (\r -> env' {_envRegion = r}) $ mRegion
+            pure . maybe env' (\r -> env' {envRegion = r}) $ mRegion
 
 loadIniFile :: FilePath -> IO (HashMap Text [(Text, Text)])
 loadIniFile path = do

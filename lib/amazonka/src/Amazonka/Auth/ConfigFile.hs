@@ -56,10 +56,18 @@ fromFilePath ::
   FilePath ->
   Env' withAuth ->
   m Env
-fromFilePath profile credentialsFile configFile env = do
-  config <-
-    liftIO $
-      mergeConfigs <$> loadIniFile credentialsFile <*> loadIniFile configFile
+fromFilePath profile credentialsFile configFile env = liftIO $ do
+  credentialsIni <- loadIniFile credentialsFile
+  -- If we fail to read the config file, assume it's empty and move
+  -- on. It is valid to configure only a credentials file if you only
+  -- want to set keys, for example.
+  configIni <-
+    Exception.catchJust
+      (\(_ :: AuthError) -> Just mempty)
+      (loadIniFile configFile)
+      pure
+
+  let config = mergeConfigs configIni credentialsIni
   env' <- evalConfig config profile
 
   -- A number of settings in the AWS config files should be
@@ -72,20 +80,26 @@ fromFilePath profile credentialsFile configFile env = do
     Nothing -> env'
     Just r -> env' {envRegion = r}
   where
+    loadIniFile :: FilePath -> IO (HashMap Text [(Text, Text)])
+    loadIniFile path = do
+      exists <- Directory.doesFileExist path
+      unless exists . Exception.throwIO $ MissingFileError path
+      INI.readIniFile path >>= \case
+        Left e ->
+          Exception.throwIO . InvalidFileError . Text.pack $ path <> ": " <> e
+        Right ini -> pure $ INI.iniSections ini
+
     -- Parse the matched config, and extract auth credentials from it,
     -- recursively if necessary.
-    evalConfig ::
-      HashMap Text (HashMap Text Text) ->
-      Text ->
-      m Env
+    evalConfig :: HashMap Text (HashMap Text Text) -> Text -> IO Env
     evalConfig config pName =
       case HashMap.lookup pName config of
         Nothing ->
-          liftIO . Exception.throwIO . InvalidFileError $
+          Exception.throwIO . InvalidFileError $
             "Missing profile: " <> Text.pack (show pName)
         Just p -> case parseConfigProfile p of
           Nothing ->
-            liftIO . Exception.throwIO . InvalidFileError $
+            Exception.throwIO . InvalidFileError $
               "Parse error in profile: " <> Text.pack (show pName)
           Just (cp, mRegion) -> do
             env' <- case cp of
@@ -106,15 +120,6 @@ fromFilePath profile credentialsFile configFile env = do
             -- Once we have the env from the profile, apply the region
             -- if we parsed one out.
             pure . maybe env' (\r -> env' {envRegion = r}) $ mRegion
-
-loadIniFile :: FilePath -> IO (HashMap Text [(Text, Text)])
-loadIniFile path = do
-  exists <- Directory.doesFileExist path
-  unless exists . Exception.throwIO $ MissingFileError path
-  INI.readIniFile path >>= \case
-    Left e ->
-      Exception.throwIO . InvalidFileError . Text.pack $ path <> ": " <> e
-    Right ini -> pure $ INI.iniSections ini
 
 mergeConfigs ::
   -- | Credentials
@@ -227,6 +232,7 @@ fromFileEnv env = liftIO $ do
       where
         err = Exception.throwIO $ MissingFileError ("$HOME" ++ p)
         dir = case os of
-          "mingw32" -> Environment.lookupEnv "USERPROFILE" >>=
-            maybe (Exception.throwIO $ MissingFileError "%USERPROFILE%") pure
+          "mingw32" ->
+            Environment.lookupEnv "USERPROFILE"
+              >>= maybe (Exception.throwIO $ MissingFileError "%USERPROFILE%") pure
           _ -> Directory.getHomeDirectory <&> (++ p)

@@ -36,8 +36,9 @@ import System.Info (os)
 --   allows it.
 --
 -- * Sections in the config file start should either be named
---   @[default]@ or @[profile foo]@, but unprefixed @[foo]@ is also
---   supported.
+--   @[default]@ or @[profile foo]@. Unprefixed @[foo]@ currently
+--   "happens to work" but is not officially supported, to match the
+--   observed behaviour of the AWS SDK/CLI.
 --
 -- * Sections in the credentials file are always unprefixed -
 --   @[default]@ or @[foo]@.

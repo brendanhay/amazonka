@@ -32,6 +32,7 @@ module Amazonka.Auth
     fromFileEnv,
     fromContainer,
     fromContainerEnv,
+    fromAssumedRole,
     fromWebIdentity,
     fromWebIdentityEnv,
     fromDefaultInstanceProfile,
@@ -59,7 +60,7 @@ import Amazonka.Auth.Container (fromContainer, fromContainerEnv)
 import Amazonka.Auth.Exception
 import Amazonka.Auth.InstanceProfile (fromDefaultInstanceProfile, fromNamedInstanceProfile)
 import Amazonka.Auth.Keys (fromKeys, fromKeysEnv, fromSession, fromTemporarySession)
-import Amazonka.Auth.STS (fromWebIdentity, fromWebIdentityEnv)
+import Amazonka.Auth.STS (fromAssumedRole, fromWebIdentity, fromWebIdentityEnv)
 import Amazonka.EC2.Metadata
 import Amazonka.Env (Env, EnvNoAuth, Env' (..))
 import Amazonka.Lens (catching_)

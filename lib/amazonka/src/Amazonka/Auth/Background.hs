@@ -1,4 +1,5 @@
 {-# LANGUAGE BangPatterns #-}
+{-# LANGUAGE Strict #-}
 
 -- |
 -- Module      : Amazonka.Auth.Background
@@ -12,10 +13,10 @@
 -- background.
 module Amazonka.Auth.Background where
 
+import Amazonka.Auth.Exception
 import Amazonka.Data
 import Amazonka.Prelude
 import Amazonka.Types
-import Amazonka.Auth.Exception
 import Control.Concurrent (ThreadId)
 import qualified Control.Concurrent as Concurrent
 import qualified Control.Exception as Exception
@@ -31,7 +32,7 @@ import qualified System.Mem.Weak as Weak
 -- resulting 'Auth' to keep the temporary credentials up to date.
 fetchAuthInBackground :: IO AuthEnv -> IO Auth
 fetchAuthInBackground menv =
-  menv >>= \(!env) -> liftIO $
+  menv >>= \env -> liftIO $
     case _authExpiration env of
       Nothing -> pure (Auth env)
       Just x -> do
@@ -42,7 +43,7 @@ fetchAuthInBackground menv =
         pure (Ref s r)
   where
     timer :: IO AuthEnv -> IORef AuthEnv -> ThreadId -> ISO8601 -> IO ThreadId
-    timer ma !r !p !x =
+    timer ma r p x =
       Concurrent.forkIO $ do
         s <- Concurrent.myThreadId
         w <- IORef.mkWeakIORef r (Concurrent.killThread s)
@@ -50,14 +51,14 @@ fetchAuthInBackground menv =
         loop ma w p x
 
     loop :: IO AuthEnv -> Weak (IORef AuthEnv) -> ThreadId -> ISO8601 -> IO ()
-    loop ma w !p !x = do
+    loop ma w p x = do
       next <- diff x <$> Time.getCurrentTime
       Concurrent.threadDelay next
 
       env <- Exception.try ma
       case env of
         Left e -> Exception.throwTo p (RetrievalError e)
-        Right !a -> do
+        Right a -> do
           mr <- Weak.deRefWeak w
           case mr of
             Nothing -> pure ()
@@ -65,6 +66,6 @@ fetchAuthInBackground menv =
               IORef.atomicWriteIORef r a
               maybe (pure ()) (loop ma w p) (_authExpiration a)
 
-    diff (Time !x) !y = (* 1000000) $ if n > 0 then n else 1
+    diff (Time x) y = (* 1000000) $ if n > 0 then n else 1
       where
-        !n = truncate (Time.diffUTCTime x y) - 60
+        n = truncate (Time.diffUTCTime x y) - 60

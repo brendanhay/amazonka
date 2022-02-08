@@ -317,7 +317,8 @@ stack_snapshot(
         "free",  # keep
         "generic-lens",
         "groom",
-        "hashable",  # keep
+        "hashable",
+        "hashable-1.3.4.1",  # keep
         "haskell-src-exts",  # keep
         "http-client",
         "http-conduit",
@@ -350,6 +351,7 @@ stack_snapshot(
         "unliftio",  # keep
         "unordered-containers",  # keep
         "uuid",
+        "vector",
         "xml-conduit",
         "xml-types",
         "yaml",
@@ -357,7 +359,7 @@ stack_snapshot(
     setup_deps = {
         "xml-conduit": ["@stackage//:cabal-doctest"],
     },
-    snapshot = "lts-18.10",
+    snapshot = "lts-18.23",
     stack_snapshot_json = "//:third_party/stackage-snapshot.json",
     tools = [
         "@nixpkgs_alex//:bin/alex",

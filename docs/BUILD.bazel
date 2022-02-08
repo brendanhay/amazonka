@@ -99,6 +99,7 @@ haskell_doc(
         "//lib/services/amazonka-dynamodb-dax",
         "//lib/services/amazonka-dynamodb-streams",
         "//lib/services/amazonka-ebs",
+        "//lib/services/amazonka-ec2",
         "//lib/services/amazonka-ec2-instance-connect",
         "//lib/services/amazonka-ecr",
         "//lib/services/amazonka-ecr-public",

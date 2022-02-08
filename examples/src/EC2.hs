@@ -19,7 +19,7 @@ import System.IO
 instanceOverview :: Region -> IO ()
 instanceOverview r = do
   lgr <- newLogger Info stdout
-  env <- newEnv Discover <&> set envLogger lgr . within r
+  env <- newEnv discover <&> set #envLogger lgr . within r
 
   let pp x =
         mconcat

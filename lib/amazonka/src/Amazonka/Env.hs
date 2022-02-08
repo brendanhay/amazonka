@@ -12,14 +12,13 @@ module Amazonka.Env
   ( -- * Creating the Environment
     newEnv,
     newEnvNoAuth,
-    newEnvWith,
     Env' (..),
     Env,
     EnvNoAuth,
     envAuthMaybe,
+    lookupRegion,
 
     -- * Overriding Default Configuration
-    authenticate,
     override,
     configure,
 
@@ -28,33 +27,39 @@ module Amazonka.Env
     once,
     timeout,
 
-    -- * 'Env' Lenses
-    -- $envLenses
-    envRegion,
-    envLogger,
-    envRetryCheck,
-    envOverride,
-    envManager,
-    envAuth,
-
     -- * Retry HTTP Exceptions
     retryConnectionFailure,
   )
 where
 
-import Amazonka.Auth
 import Amazonka.Lens ((.~), (?~))
 import Amazonka.Prelude
 import Amazonka.Types
-import Control.Lens (Lens)
 import qualified Data.Function as Function
 import Data.Monoid (Dual (..), Endo (..))
+import qualified Data.Text as Text
 import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Conduit as Client.Conduit
+import System.Environment as Environment
 
 type Env = Env' Identity
 
 type EnvNoAuth = Env' Proxy
+
+-- | The environment containing the parameters required to make AWS requests.
+--
+-- This type tracks whether or not we have credentials at the type
+-- level, to avoid "presigning" requests when we lack auth
+-- information.
+data Env' withAuth = Env
+  { envRegion :: Region,
+    envLogger :: Logger,
+    envRetryCheck :: Int -> Client.HttpException -> Bool,
+    envOverride :: Dual (Endo Service),
+    envManager :: Client.Manager,
+    envAuth :: withAuth Auth
+  }
+  deriving stock (Generic)
 
 -- | Creates a new environment with a new 'Manager' without debug logging
 -- and uses 'getAuth' to expand/discover the supplied 'Credentials'.
@@ -73,57 +78,49 @@ type EnvNoAuth = Env' Proxy
 --
 -- Throws 'AuthError' when environment variables or IAM profiles cannot be read.
 --
--- /See:/ 'newEnvWith'.
+-- /See:/ 'newEnvFromManager'.
 newEnv ::
   MonadIO m =>
   -- | Credential discovery mechanism.
-  Credentials ->
+  (EnvNoAuth -> m Env) ->
   m Env
-newEnv c =
-  liftIO (Client.newManager Client.Conduit.tlsManagerSettings)
-    >>= authenticate c . newEnvWith
+newEnv = (newEnvNoAuth >>=)
 
 -- | Generate an environment without credentials, which may only make
--- unsigned requests.
+-- unsigned requests. This sets the region based on the @AWS_REGION@
+-- environment variable, or 'NorthVirginia' if unset.
 --
 -- This is useful for the STS
 -- <https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html AssumeRoleWithWebIdentity>
 -- operation, which needs to make an unsigned request to pass the
 -- token from an identity provider.
 newEnvNoAuth :: MonadIO m => m EnvNoAuth
-newEnvNoAuth =
-  newEnvWith <$> liftIO (Client.newManager Client.Conduit.tlsManagerSettings)
-
--- | Construct a default 'EnvNoAuth' from a HTTP 'Client.Manager'.
-newEnvWith :: Client.Manager -> EnvNoAuth
-newEnvWith m =
-  Env
-    { _envRegion = NorthVirginia,
-      _envLogger = \_ _ -> pure (),
-      _envRetryCheck = retryConnectionFailure 3,
-      _envOverride = mempty,
-      _envManager = m,
-      _envAuth = Proxy
-    }
-
--- | /See:/ 'newEnv'
---
--- Throws 'AuthError' when environment variables or IAM profiles cannot be read.
-authenticate ::
-  (MonadIO m, Foldable withAuth) =>
-  -- | Credential discovery mechanism.
-  Credentials ->
-  -- | Previous environment.
-  Env' withAuth ->
-  m Env
-authenticate c env@Env {..} = do
-  (a, fromMaybe NorthVirginia -> r) <- getAuth env c
-
-  pure $ Env {_envRegion = r, _envAuth = Identity a, ..}
+newEnvNoAuth = do
+  manager <- liftIO $ Client.newManager Client.Conduit.tlsManagerSettings
+  mRegion <- lookupRegion
+  let env =
+        Env
+          { envRegion = fromMaybe NorthVirginia mRegion,
+            envLogger = \_ _ -> pure (),
+            envRetryCheck = retryConnectionFailure 3,
+            envOverride = mempty,
+            envManager = manager,
+            envAuth = Proxy
+          }
+  pure env
 
 -- | Get "the" 'Auth' from an 'Env'', if we can.
 envAuthMaybe :: Foldable withAuth => Env' withAuth -> Maybe Auth
-envAuthMaybe = foldr (const . Just) Nothing . _envAuth
+envAuthMaybe = foldr (const . Just) Nothing . envAuth
+
+-- | Look up the region in the @AWS_REGION@ environment variable.
+lookupRegion :: MonadIO m => m (Maybe Region)
+lookupRegion =
+  liftIO $
+    Environment.lookupEnv "AWS_REGION" <&> \case
+      Nothing -> Nothing
+      Just "" -> Nothing
+      Just t -> Just . Region' $ Text.pack t
 
 -- | Retry the subset of transport specific errors encompassing connection
 -- failure up to the specific number of times.
@@ -144,7 +141,7 @@ retryConnectionFailure limit n = \case
 -- | Provide a function which will be added to the existing stack
 -- of overrides applied to all service configurations.
 override :: (Service -> Service) -> Env -> Env
-override f env = env {_envOverride = _envOverride env <> Dual (Endo f)}
+override f env = env {envOverride = envOverride env <> Dual (Endo f)}
 
 -- | Configure a specific service. All requests belonging to the
 -- supplied service will use this configuration instead of the default.
@@ -160,7 +157,7 @@ configure s = override f
 
 -- | Scope an action within the specific 'Region'.
 within :: Region -> Env -> Env
-within r env = env {_envRegion = r}
+within r env = env {envRegion = r}
 
 -- | Scope an action such that any retry logic for the 'Service' is
 -- ignored and any requests will at most be sent once.
@@ -180,28 +177,3 @@ once = override (serviceRetry . retryAttempts .~ 0)
 -- * The default 'ClientRequest' timeout. (Approximately 30s)
 timeout :: Seconds -> Env -> Env
 timeout n = override (serviceTimeout ?~ n)
-
--- $envLenses
---
--- We provide lenses for 'Env'', though you are of course free to use
--- the @generic-lens@ package.
-
-envRegion :: Lens' (Env' withAuth) Region
-envRegion f env = f (_envRegion env) <&> \r -> env {_envRegion = r}
-
-envLogger :: Lens' (Env' withAuth) Logger
-envLogger f env = f (_envLogger env) <&> \l -> env {_envLogger = l}
-
-envRetryCheck :: Lens' (Env' withAuth) (Int -> Client.HttpException -> Bool)
-envRetryCheck f env =
-  f (_envRetryCheck env) <&> \rc -> env {_envRetryCheck = rc}
-
-envOverride :: Lens' (Env' withAuth) (Dual (Endo Service))
-envOverride f env = f (_envOverride env) <&> \o -> env {_envOverride = o}
-
-envManager :: Lens' (Env' withAuth) Client.Manager
-envManager f env = f (_envManager env) <&> \m -> env {_envManager = m}
-
-envAuth ::
-  Lens (Env' withAuth) (Env' withAuth') (withAuth Auth) (withAuth' Auth)
-envAuth f env = f (_envAuth env) <&> \a -> env {_envAuth = a}

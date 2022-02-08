@@ -21,25 +21,15 @@ module Amazonka
     Env.EnvNoAuth,
     Env.newEnv,
     Env.newEnvNoAuth,
-    Env.newEnvWith,
     Env.envAuthMaybe,
 
     -- ** Service Configuration
     -- $service
-    Env.authenticate,
     Env.override,
     Env.configure,
     Env.within,
     Env.once,
     Env.timeout,
-
-    -- *** Lenses
-    Env.envRegion,
-    Env.envLogger,
-    Env.envRetryCheck,
-    Env.envOverride,
-    Env.envManager,
-    Env.envAuth,
 
     -- ** Running AWS Actions
     runResourceT,
@@ -48,7 +38,7 @@ module Amazonka
     AccessKey (..),
     SecretKey (..),
     SessionToken (..),
-    Credentials (..),
+    discover,
     -- $discovery
 
     -- ** Supported Regions
@@ -150,7 +140,6 @@ import qualified Amazonka.Crypto as Crypto
 import qualified Amazonka.Data.Body as Body
 import qualified Amazonka.EC2.Metadata as EC2
 import qualified Amazonka.Endpoint as Endpoint
-import Amazonka.Env (Env)
 import qualified Amazonka.Env as Env
 import qualified Amazonka.Error as Error
 import qualified Amazonka.HTTP as HTTP
@@ -202,16 +191,16 @@ import qualified Network.HTTP.Client as Client
 --     logger <- AWS.newLogger AWS.Debug IO.stdout
 --
 --     -- To specify configuration preferences, 'newEnv' is used to create a new
---     -- configuration environment. The 'Credentials' parameter is used to specify
+--     -- configuration environment. The argument to 'newEnv' is used to specify the
 --     -- mechanism for supplying or retrieving AuthN/AuthZ information.
---     -- In this case 'Discover' will cause the library to try a number of options such
+--     -- In this case 'discover' will cause the library to try a number of options such
 --     -- as default environment variables, or an instance's IAM Profile and identity document:
---     discover <- AWS.newEnv AWS.Discover
+--     discoveredEnv <- AWS.newEnv AWS.discover
 --
 --     let env =
---             discover
---                 { AWS._envLogger = logger
---                 , AWS._envRegion = AWS.Frankfurt
+--             discoveredEnv
+--                 { AWS.envLogger = logger
+--                 , AWS.envRegion = AWS.Frankfurt
 --                 }
 --
 --     -- The payload (and hash) for the S3 object is retrieved from a 'FilePath',
@@ -220,7 +209,7 @@ import qualified Network.HTTP.Client as Client
 --     body <- AWS.chunkedFile AWS.defaultChunkSize "local\/path\/to\/object-payload"
 --
 --     -- We now run the 'AWS' computation with the overriden logger, performing the
---     -- 'PutObject' request. '_envRegion' or 'within' can be used to set the
+--     -- 'PutObject' request. 'envRegion' or 'within' can be used to set the
 --     -- remote AWS 'Region':
 --     AWS.runResourceT $
 --         AWS.send env (S3.newPutObject "bucket-name" "object-key" body)
@@ -230,9 +219,14 @@ import qualified Network.HTTP.Client as Client
 -- AuthN/AuthZ information is handled similarly to other AWS SDKs. You can read
 -- some of the options available <http://blogs.aws.amazon.com/security/post/Tx3D6U6WSFGOK2H/A-New-and-Standardized-Way-to-Manage-Credentials-in-the-AWS-SDKs here>.
 --
--- When running on an EC2 instance and using 'FromProfile' or 'Discover', a thread
--- is forked which transparently handles the expiry and subsequent refresh of IAM
--- profile information. See 'Amazonka.Auth.fromProfileName' for more information.
+-- Authentication methods which return short-lived credentials (e.g., when running on
+-- an EC2 instance) fork a background thread which transparently handles the expiry
+-- and subsequent refresh of IAM profile information. See
+-- 'Amazonka.Auth.Background.fetchAuthInBackground' for more information.
+--
+-- /See:/ "Amazonka.Auth", if you want to commit to specific authentication methods.
+--
+-- /See:/ 'Amazonka.Auth.runCredentialChain' if you want to build your own credential chain.
 
 -- $sending
 -- To send a request you need to create a value of the desired operation type using
@@ -296,7 +290,7 @@ import qualified Network.HTTP.Client as Client
 --
 -- The updated configuration is then passed to the 'Env' during setup:
 --
--- > env <- AWS.configure dynamo <$> AWS.newEnv AWS.Discover
+-- > env <- AWS.configure dynamo <$> AWS.newEnv AWS.discover
 -- >
 -- > AWS.runResourceT $ do
 -- >     -- This S3 operation will communicate with remote AWS APIs.
@@ -310,7 +304,7 @@ import qualified Network.HTTP.Client as Client
 --
 -- You can also scope the service configuration modifications to specific actions:
 --
--- > env <- AWS.newEnv AWS.Discover
+-- > env <- AWS.newEnv AWS.discover
 -- >
 -- > AWS.runResourceT $ do
 -- >     -- Service operations here will communicate with AWS, even remote DynamoDB.
@@ -540,22 +534,22 @@ presign ::
   m ClientRequest
 presign env time expires rq =
   Presign.presignWith
-    (appEndo (getDual (Env._envOverride env)))
-    (runIdentity $ Env._envAuth env)
-    (Env._envRegion env)
+    (appEndo (getDual (Env.envOverride env)))
+    (runIdentity $ Env.envAuth env)
+    (Env.envRegion env)
     time
     expires
     rq
 
 -- | Retrieve the specified 'Dynamic' data.
 dynamic :: MonadIO m => Env -> EC2.Dynamic -> m ByteString
-dynamic env = EC2.dynamic (Env._envManager env)
+dynamic env = EC2.dynamic (Env.envManager env)
 
 -- | Retrieve the specified 'Metadata'.
 metadata :: MonadIO m => Env -> EC2.Metadata -> m ByteString
-metadata env = EC2.metadata (Env._envManager env)
+metadata env = EC2.metadata (Env.envManager env)
 
 -- | Retrieve the user data. Returns 'Nothing' if no user data is assigned
 -- to the instance.
 userdata :: MonadIO m => Env -> m (Maybe ByteString)
-userdata = EC2.userdata . Env._envManager
+userdata = EC2.userdata . Env.envManager

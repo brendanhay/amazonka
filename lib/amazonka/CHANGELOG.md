@@ -40,6 +40,8 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 [\#775](https://github.com/brendanhay/amazonka/pull/775)
 - `amazonka`: Add a public interface to send unsigned requests. Sending functions are now defined in `Amazonka.Send`, but are re-exported from `Amazonka`.
 [\#769](https://github.com/brendanhay/amazonka/pull/769)
+- `amazonka-sso`: Mark `GetRoleCredentialsResponse_roleCredentials` as required
+[\#759](https://github.com/brendanhay/amazonka/pull/759)
 - `amazonka-dynamodb`: Mark various fields as required
 [\#724](https://github.com/brendanhay/amazonka/pull/724)
 - `amazonka-dynamodb`: Provide a sum type for `AttributeValue`

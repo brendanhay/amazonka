@@ -23,6 +23,7 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
     | `FromFile`        | `fromFilePath`               | `Text` (profile name), `FilePath` (credentials file), `FilePath` (config file). **Significantly improved** - now respects the `role_arn` setting in config files, alongside either `source_profile`, `credential_source`, or `web_identity_token_file`. |
     |                   | `fromFileEnv`                | None - read config files from their default location, and respects the `AWS_PROFILE` environment variable.                                                                                                                                              |
     |                   | `fromAssumedRole`            | `Text` (role arn), `Text` (role session name). Assumes a role using `sts:AssumeRole`.                                                                                                                                                                   |
+    |                   | `fromSSO`                    | `FilePath` (cached token file), `Region` (SSO region), `Text` (account id), `Text` (role name). Assumes a role using `sso:GetRoleCredentials` and the cached JWT created by `aws sso login`.                                                            |
     |                   | `fromWebIdentity`            | `FilePath` (web identity token file), `Text` (role arn), `Maybe Text` (role session name). Assumes a role using `sts:AssumeRoleWithWebIdentity`.                                                                                                        |
     | `FromWebIdentity` | `fromWebIdentityEnv`         | None - reads `AWS_WEB_IDENTITY_TOKEN_FILE`, `AWS_ROLE_ARN`, and `AWS_ROLE_SESSION_NAME`.                                                                                                                                                                |
     |                   | `fromContainer`              | `Text` (absolute url to query the ECS Container Agent).                                                                                                                                                                                                 |
@@ -39,6 +40,8 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 [\#724](https://github.com/brendanhay/amazonka/pull/724)
 - `amazonka-dynamodb-streams`: Provide a sum type for `AttributeValue`
 [\#724](https://github.com/brendanhay/amazonka/pull/724)
+- `amazonka`: SSO authentication support (thanks @pbrisbin)
+[\#757](https://github.com/brendanhay/amazonka/pull/757)
 
 ### Fixed
 

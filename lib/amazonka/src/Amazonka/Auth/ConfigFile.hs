@@ -249,12 +249,13 @@ fromFileEnv env = liftIO $ do
   conf <- configPathRelative "/.aws/config"
 
   fromFilePath (maybe "default" Text.pack mProfile) cred conf env
+
+configPathRelative :: String -> IO String
+configPathRelative p = handling_ _IOException err dir
   where
-    configPathRelative p = handling_ _IOException err dir
-      where
-        err = Exception.throwIO $ MissingFileError ("$HOME" ++ p)
-        dir = case os of
-          "mingw32" ->
-            Environment.lookupEnv "USERPROFILE"
-              >>= maybe (Exception.throwIO $ MissingFileError "%USERPROFILE%") pure
-          _ -> Directory.getHomeDirectory <&> (++ p)
+    err = Exception.throwIO $ MissingFileError ("$HOME" ++ p)
+    dir = case os of
+      "mingw32" ->
+        Environment.lookupEnv "USERPROFILE"
+          >>= maybe (Exception.throwIO $ MissingFileError "%USERPROFILE%") pure
+      _ -> Directory.getHomeDirectory <&> (++ p)

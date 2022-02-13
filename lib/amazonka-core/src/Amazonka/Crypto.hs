@@ -12,6 +12,7 @@ module Amazonka.Crypto
     hmacSHA256,
 
     -- * Hashing
+    hashSHA1,
     hashSHA256,
     hashMD5,
     Hash.hash,
@@ -41,6 +42,9 @@ hmacSHA1 = HMAC.hmac
 
 hmacSHA256 :: ByteArrayAccess a => Key -> a -> HMAC.HMAC Hash.SHA256
 hmacSHA256 = HMAC.hmac
+
+hashSHA1 :: ByteArrayAccess a => a -> Hash.Digest Hash.SHA1
+hashSHA1 = Hash.hashWith Hash.SHA1
 
 hashSHA256 :: ByteArrayAccess a => a -> Hash.Digest Hash.SHA256
 hashSHA256 = Hash.hashWith Hash.SHA256

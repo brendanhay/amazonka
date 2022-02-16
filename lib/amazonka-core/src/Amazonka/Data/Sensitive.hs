@@ -20,7 +20,7 @@ import Amazonka.Prelude
 
 -- | /Note/: read . show /= isomorphic
 newtype Sensitive a = Sensitive {fromSensitive :: a}
-  deriving stock (Eq, Ord, Generic)
+  deriving stock (Eq, Ord, Generic, Functor)
   deriving newtype
     ( IsString,
       Semigroup,

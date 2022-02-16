@@ -50,3 +50,6 @@ dist*
 
 # Direnv
 .envrc.local
+
+# Stack
+.stack-work

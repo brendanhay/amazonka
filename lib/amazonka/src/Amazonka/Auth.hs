@@ -37,6 +37,7 @@ module Amazonka.Auth
     fromWebIdentityEnv,
     fromDefaultInstanceProfile,
     fromNamedInstanceProfile,
+    fromSSO,
 
     -- ** Keys
     AccessKey (..),
@@ -60,6 +61,7 @@ import Amazonka.Auth.Container (fromContainer, fromContainerEnv)
 import Amazonka.Auth.Exception
 import Amazonka.Auth.InstanceProfile (fromDefaultInstanceProfile, fromNamedInstanceProfile)
 import Amazonka.Auth.Keys (fromKeys, fromKeysEnv, fromSession, fromTemporarySession)
+import Amazonka.Auth.SSO (fromSSO)
 import Amazonka.Auth.STS (fromAssumedRole, fromWebIdentity, fromWebIdentityEnv)
 import Amazonka.EC2.Metadata
 import Amazonka.Env (Env, EnvNoAuth, Env' (..))

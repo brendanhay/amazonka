@@ -13,6 +13,7 @@ import Amazonka.Auth.Container (fromContainerEnv)
 import Amazonka.Auth.Exception
 import Amazonka.Auth.InstanceProfile (fromDefaultInstanceProfile)
 import Amazonka.Auth.Keys (fromKeysEnv)
+import Amazonka.Auth.SSO (fromSSO, relativeCachedTokenFile)
 import Amazonka.Auth.STS (fromAssumedRole, fromWebIdentity)
 import Amazonka.Data
 import Amazonka.Env (Env, Env' (..), lookupRegion)
@@ -138,6 +139,11 @@ fromFilePath profile credentialsFile configFile env = liftIO $ do
                 fromAssumedRole roleArn "amazonka-assumed-role" sourceEnv
               AssumeRoleWithWebIdentity roleArn mRoleSessionName tokenFile ->
                 fromWebIdentity tokenFile roleArn mRoleSessionName env
+              AssumeRoleViaSSO startUrl ssoRegion accountId roleName -> do
+                cachedTokenFile <-
+                  liftIO $
+                    configPathRelative =<< relativeCachedTokenFile startUrl
+                fromSSO cachedTokenFile ssoRegion accountId roleName env
 
             -- Once we have the env from the profile, apply the region
             -- if we parsed one out.
@@ -172,7 +178,8 @@ parseConfigProfile profile = parseProfile <&> \p -> (p, parseRegion)
         [ explicitKey,
           assumeRoleFromProfile,
           assumeRoleFromCredentialSource,
-          assumeRoleWithWebIdentity
+          assumeRoleWithWebIdentity,
+          assumeRoleViaSSO
         ]
 
     parseRegion :: Maybe Region
@@ -213,6 +220,13 @@ parseConfigProfile profile = parseProfile <&> \p -> (p, parseRegion)
         <*> Just (HashMap.lookup "role_session_name" profile)
         <*> (Text.unpack <$> HashMap.lookup "web_identity_token_file" profile)
 
+    assumeRoleViaSSO =
+      AssumeRoleViaSSO
+        <$> HashMap.lookup "sso_start_url" profile
+        <*> (Region' <$> HashMap.lookup "sso_region" profile)
+        <*> HashMap.lookup "sso_account_id" profile
+        <*> HashMap.lookup "sso_role_name" profile
+
 data ConfigProfile
   = -- | Recognizes @aws_access_key_id@, @aws_secret_access_key@, and
     -- optionally @aws_session_token@.
@@ -224,6 +238,9 @@ data ConfigProfile
   | -- | Recognizes @role_arn@, @role_session_name@, and
     -- @web_identity_token_file@.
     AssumeRoleWithWebIdentity Text (Maybe Text) FilePath
+  | -- | Recognizes @sso_start_url@, @sso_region@, @sso_account_id@, and
+    -- @sso_role_name@.
+    AssumeRoleViaSSO Text Region Text Text
   deriving stock (Eq, Show, Generic)
 
 data CredentialSource = Environment | Ec2InstanceMetadata | EcsContainer
@@ -249,12 +266,13 @@ fromFileEnv env = liftIO $ do
   conf <- configPathRelative "/.aws/config"
 
   fromFilePath (maybe "default" Text.pack mProfile) cred conf env
+
+configPathRelative :: String -> IO String
+configPathRelative p = handling_ _IOException err dir
   where
-    configPathRelative p = handling_ _IOException err dir
-      where
-        err = Exception.throwIO $ MissingFileError ("$HOME" ++ p)
-        dir = case os of
-          "mingw32" ->
-            Environment.lookupEnv "USERPROFILE"
-              >>= maybe (Exception.throwIO $ MissingFileError "%USERPROFILE%") pure
-          _ -> Directory.getHomeDirectory <&> (++ p)
+    err = Exception.throwIO $ MissingFileError ("$HOME" ++ p)
+    dir = case os of
+      "mingw32" ->
+        Environment.lookupEnv "USERPROFILE"
+          >>= maybe (Exception.throwIO $ MissingFileError "%USERPROFILE%") pure
+      _ -> Directory.getHomeDirectory <&> (++ p)

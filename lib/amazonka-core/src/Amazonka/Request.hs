@@ -166,29 +166,17 @@ glacierVersionHeader :: ByteString -> Request a -> Request a
 glacierVersionHeader version rq =
   rq {_requestHeaders = hdr "x-amz-glacier-version" version (_requestHeaders rq)}
 
--- Rewrite a request to use virtual-hosted-style buckets where
+-- This function used to rewrite a request to use virtual-hosted-style buckets where
 -- possible.  A request to endpoint "s3.region.amazonaws.com" with
 -- path "/foo/bar" means "object bar in bucket foo". Rewrite it to
 -- endpoint "foo.s3.region.amazonaws.com" and path "/bar".
 --
 -- See: https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html
+--
+-- But it doesn't rewrite the request anymore since this doesn't work for some
+-- setups, e.g. minio without DNS configs. The rewrite of s3 endpoint also
+-- doesn't work if there is an override for this in the 'Env'. This has a
+-- drawback, buckets on AWS which were created after Sep 2020 will not work as
+-- they cannot be addressed using path-style URLs.
 s3vhost :: Request a -> Request a
-s3vhost rq = case _requestPath rq of
-  Raw [] -> rq -- Impossible?
-  Raw (bucketName : p) ->
-    let path = Raw p
-        bucketNameLen = B8.length bucketName
-
-        -- Inspired by:
-        -- https://github.com/boto/botocore/blob/04d1fae43b657952e49b21d16daa86378ddb4253/botocore/utils.py#L1067
-        rewritePossible
-          | '.' `B8.elem` bucketName = False
-          | bucketNameLen < 3 || bucketNameLen > 63 = False
-          | not $ bucketName =~ ("^[a-z0-9][a-z0-9\\-]*[a-z0-9]$" :: ByteString) = False
-          | otherwise = True
-     in if rewritePossible
-          then
-            rq
-              & requestService . serviceEndpoint . endpointHost %~ ((bucketName <> ".") <>)
-              & requestPath .~ path
-          else rq
+s3vhost = id

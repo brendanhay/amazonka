@@ -6,7 +6,7 @@ import qualified Control.Lens as Lens
 import Data.Aeson ((.!=), (.:), (.:?), (.=))
 import qualified Data.Aeson as Aeson
 import qualified Data.List as List
-import Data.Ord (Down (..))
+import Data.Ord (Down (..), comparing)
 import qualified Data.Text as Text
 import qualified Data.Time as Time
 import Gen.Prelude
@@ -165,7 +165,8 @@ instance ToJSON Library where
             "exposedModules" .= List.sort (l ^. exposedModules),
             "otherModules" .= List.sort (l ^. otherModules),
             "extraDependencies" .= List.sort (l ^. extraDependencies),
-            "operations" .= (l ^.. operations . Lens.each),
+            "operations"
+              .= List.sortBy (comparing _opName) (l ^.. operations . Lens.each),
             "shapes" .= List.sort (l ^.. shapes . Lens.each),
             "waiters" .= (l ^.. waiters . Lens.each)
           ]

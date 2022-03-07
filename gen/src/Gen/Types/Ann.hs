@@ -96,6 +96,9 @@ derivingName = \case
   DNFData -> Nothing
   other -> Just (drop 1 (show other))
 
+-- | Primitive types in AWS service definition files.
+--
+-- /See:/ 'Gen.Types.Service.ShapeF' for lists/maps/structs.
 data Lit
   = Int
   | Long

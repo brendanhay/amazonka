@@ -22,7 +22,7 @@ attach ::
   HashMap Id b ->
   Cofree t a ->
   Cofree t c
-attach ctor m = Comonad.extend (go . Comonad.extract)
+attach ctor m = fmap go
   where
     go x = ctor x . fromMaybe mempty $ HashMap.lookup (identifier x) m
 

@@ -51,7 +51,6 @@ instance Semigroup Relation where
 
 instance Monoid Relation where
   mempty = Relation 0 mempty
-  mappend = (<>)
 
 instance (Functor f, HasRelation a) => HasRelation (Cofree f a) where
   relation = Lens.lens Comonad.extract (flip (:<) . Cofree.unwrap) . relation

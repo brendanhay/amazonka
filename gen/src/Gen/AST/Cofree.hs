@@ -5,6 +5,7 @@ import qualified Control.Lens as Lens
 import qualified Control.Monad.Except as Except
 import qualified Control.Monad.State.Strict as State
 import qualified Data.HashMap.Strict as HashMap
+import qualified Data.Set as Set
 import qualified Data.Text as Text
 import Gen.Prelude
 import Gen.Types
@@ -54,43 +55,54 @@ memoise l f x = Lens.uses l (HashMap.lookup n) >>= maybe go return
 
     n = identifier x
 
+-- | Memoise the set of shapes constructed so far. Because we don't
+-- return 'Ptr' unless we see an 'Id' for the second time in a
+-- traversal, this is safe.
 type MemoE = StateT (HashMap Id (Shape Id)) (Either String)
 
-elaborate :: Show a => HashMap Id (ShapeF a) -> Either String (HashMap Id (Shape Id))
-elaborate m = State.evalStateT (HashMap.traverseWithKey (shape []) m) mempty
+runMemoE :: MemoE a -> Either String a
+runMemoE = flip State.evalStateT mempty
+
+-- | Elaborate a map of 'ShapeF's into a 'Cofree' tree, by looking up
+-- all references in the input map. The 'Cofree' allows us to inline
+-- nested structure definitions, but mutually-recursive shape
+-- references are broken by returning 'Ptr's as loop breakers.
+--
+-- We never return a 'Ptr' in the first layer of the 'HashMap''s
+-- values.
+elaborate ::
+  forall a.
+  Show a =>
+  HashMap Id (ShapeF a) ->
+  Either String (HashMap Id (Shape Id))
+elaborate m = runMemoE $ HashMap.traverseWithKey (shape mempty) m
   where
-    shape :: [Id] -> Id -> ShapeF a -> MemoE (Shape Id)
+    shape :: Set Id -> Id -> ShapeF a -> MemoE (Shape Id)
     shape seen n s
-      | length seen > 30 = Except.throwError $ depth seen
-      | conseq seen = pure $! n :< Ptr (s ^. info) (pointerTo n s)
+      | n `elem` seen = pure $! n :< Ptr (s ^. info) (pointerTo n s)
       | otherwise = do
         ms <- State.gets (HashMap.lookup n)
         case ms of
           Just x -> pure x
           Nothing -> do
-            x <- (n :<) <$> Lens.traverseOf references (ref seen) s
+            x <- (n :<) <$> Lens.traverseOf references (ref (Set.insert n seen)) s
             State.modify' (HashMap.insert n x)
             pure x
 
-    ref :: [Id] -> RefF a -> MemoE (RefF (Shape Id))
-    ref seen r = flip (Lens.set refAnn) r <$> (lift (safe n) >>= shape (n : seen) n)
-      where
-        n = r ^. refShape
+    ref :: Set Id -> RefF a -> MemoE (RefF (Shape Id))
+    ref seen r = do
+      let n = r ^. refShape
+      s <- findShape n >>= shape seen n
+      pure $ r & refAnn .~ s
 
-    safe n =
-      note
-        ( "Missing shape " ++ Text.unpack (memberId n)
-            ++ ", possible matches: "
-            ++ partial n m
-        )
-        (HashMap.lookup n m)
-
-    depth xs =
-      "Too many cycles "
-        ++ show (reverse (map memberId xs))
-
-    conseq (x : ys@(y : z : _))
-      | x == y = True
-      | x == z = True
-      | otherwise = conseq ys
-    conseq _ = False
+    findShape :: Id -> MemoE (ShapeF a)
+    findShape n = case HashMap.lookup n m of
+      Nothing ->
+        Except.throwError $
+          unwords
+            [ "Missing shape ",
+              Text.unpack (memberId n),
+              ", possible matches: ",
+              partial n m
+            ]
+      Just s -> pure s

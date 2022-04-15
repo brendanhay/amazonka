@@ -23,6 +23,8 @@ module Network.AWS.Sign.V4
     ) where
 
 import qualified Data.CaseInsensitive        as CI
+import qualified Data.ByteArray.Encoding as BAE
+import qualified Data.ByteString as BS
 import           Data.Monoid
 import           Network.AWS.Data.Body
 import           Network.AWS.Data.ByteString
@@ -55,7 +57,15 @@ presign ex rq a r ts = signRequest meta mempty auth
         . pair (CI.original hAMZSignedHeaders) (toBS shs)
         . pair (CI.original hAMZToken)         (toBS <$> _authToken a)
 
-    digest = Tag "UNSIGNED-PAYLOAD"
+    digest =
+      case _rqBody rq of
+        Chunked _ -> unsignedPayload
+        Hashed (HashedStream h _ _) -> Tag $ BAE.convertToBase BAE.Base16 h
+        Hashed (HashedBytes h b)
+          | BS.null b && (_svcPrefix $ _rqService rq) == "s3" -> unsignedPayload
+          | otherwise -> Tag $ BAE.convertToBase BAE.Base16 h
+
+    unsignedPayload = Tag "UNSIGNED-PAYLOAD"
 
     prepare = rqHeaders %~ (hdr hHost host)
 

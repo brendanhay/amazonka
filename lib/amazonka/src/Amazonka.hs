@@ -63,6 +63,10 @@ module Amazonka
     await,
     awaitEither,
 
+    -- ** Unsigned
+    sendUnsigned,
+    sendUnsignedEither,
+
     -- ** Streaming
     -- $streaming
     ToBody (..),
@@ -142,20 +146,23 @@ import qualified Amazonka.EC2.Metadata as EC2
 import qualified Amazonka.Endpoint as Endpoint
 import qualified Amazonka.Env as Env
 import qualified Amazonka.Error as Error
-import qualified Amazonka.HTTP as HTTP
 import qualified Amazonka.Lens as Lens
 import Amazonka.Logger
-import qualified Amazonka.Pager as Pager
 import Amazonka.Prelude
 import qualified Amazonka.Presign as Presign
 import Amazonka.Request (clientRequestURL)
-import qualified Amazonka.Waiter as Waiter
-import qualified Control.Exception as Exception
+import Amazonka.Send
+  ( await,
+    awaitEither,
+    paginate,
+    paginateEither,
+    send,
+    sendEither,
+    sendUnsigned,
+    sendUnsignedEither,
+  )
 import Control.Monad.Trans.Resource (runResourceT)
-import Data.Conduit (ConduitM)
-import qualified Data.Conduit as Conduit
 import Data.Monoid (Dual (..), Endo (..))
-import qualified Network.HTTP.Client as Client
 
 -- $usage
 -- The key functions dealing with the request/response lifecycle are:
@@ -399,106 +406,6 @@ import qualified Network.HTTP.Client as Client
 -- using a more robust logging library such as
 -- <http://hackage.haskell.org/package/tinylog tinylog> or
 -- <http://hackage.haskell.org/package/fast-logger fast-logger>.
-
--- | Send a request, returning the associated response if successful.
---
--- See 'send'.
-sendEither ::
-  ( MonadResource m,
-    AWSRequest a
-  ) =>
-  Env ->
-  a ->
-  m (Either Error (AWSResponse a))
-sendEither env =
-  fmap (second Client.responseBody) . HTTP.retryRequest env
-
--- | Send a request, returning the associated response if successful.
---
--- Errors are thrown in 'IO'.
---
--- See 'sendEither'.
-send ::
-  ( MonadResource m,
-    AWSRequest a
-  ) =>
-  Env ->
-  a ->
-  m (AWSResponse a)
-send env =
-  sendEither env >=> hoistEither
-
--- | Repeatedly send a request, automatically setting markers and performing pagination.
---
--- Exits on the first encountered error.
---
--- See 'paginate'.
-paginateEither ::
-  ( MonadResource m,
-    AWSPager a
-  ) =>
-  Env ->
-  a ->
-  ConduitM () (AWSResponse a) m (Either Error ())
-paginateEither env = go
-  where
-    go rq =
-      lift (sendEither env rq) >>= \case
-        Left err -> pure (Left err)
-        Right rs -> do
-          Conduit.yield rs
-          maybe (pure (Right ())) go (Pager.page rq rs)
-
--- | Repeatedly send a request, automatically setting markers and performing pagination.
--- Exits on the first encountered error.
---
--- Errors are thrown in 'IO'.
---
--- See 'paginateEither'.
-paginate ::
-  ( MonadResource m,
-    AWSPager a
-  ) =>
-  Env ->
-  a ->
-  ConduitM () (AWSResponse a) m ()
-paginate env =
-  paginateEither env >=> hoistEither
-
--- | Poll the API with the supplied request until a specific 'Wait' condition
--- is fulfilled.
---
--- See 'await'.
-awaitEither ::
-  ( MonadResource m,
-    AWSRequest a
-  ) =>
-  Env ->
-  Waiter.Wait a ->
-  a ->
-  m (Either Error Waiter.Accept)
-awaitEither env wait =
-  HTTP.awaitRequest env wait
-
--- | Poll the API with the supplied request until a specific 'Wait' condition
--- is fulfilled.
---
--- Errors are thrown in 'IO'.
---
--- See 'awaitEither'.
-await ::
-  ( MonadResource m,
-    AWSRequest a
-  ) =>
-  Env ->
-  Waiter.Wait a ->
-  a ->
-  m Waiter.Accept
-await env wait =
-  awaitEither env wait >=> hoistEither
-
-hoistEither :: MonadIO m => Either Error a -> m a
-hoistEither = either (liftIO . Exception.throwIO) pure
 
 -- | Presign an URL that is valid from the specified time until the
 -- number of seconds expiry has elapsed.

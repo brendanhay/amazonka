@@ -13,11 +13,11 @@ import qualified Amazonka.Crypto as Crypto
 import Amazonka.Data.Sensitive
 import Amazonka.Data.Time (Time (..))
 import Amazonka.Env (Env, Env' (..))
-import Amazonka.HTTP (retryRequest)
 import Amazonka.Lens ((^.))
 import Amazonka.Prelude
 import Amazonka.SSO.GetRoleCredentials as SSO
 import qualified Amazonka.SSO.Types as SSO (RoleCredentials (..))
+import Amazonka.Send (sendUnsigned)
 import Amazonka.Types
 import qualified Control.Exception as Exception
 import Control.Exception.Lens (handling_, _IOException)
@@ -26,7 +26,6 @@ import Data.Aeson (FromJSON, decodeFileStrict)
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
 import Data.Time.Clock.POSIX (posixSecondsToUTCTime)
-import qualified Network.HTTP.Client as Client
 
 data CachedAccessToken = CachedAccessToken
   { startUrl :: Text,
@@ -49,7 +48,7 @@ data CachedAccessToken = CachedAccessToken
 --
 -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sso.html>
 fromSSO ::
-  (MonadIO m, Foldable withAuth) =>
+  MonadIO m =>
   FilePath ->
   Region ->
   -- | Account ID
@@ -69,31 +68,19 @@ fromSSO cachedTokenFile ssoRegion accountId roleName env = do
       -- interact with after. The former is handled here, the latter is taken
       -- care of later, in ConfigFile.
       let ssoEnv = env {envRegion = ssoRegion}
+          getRoleCredentials =
+            SSO.newGetRoleCredentials
+              roleName
+              accountId
+              (fromSensitive accessToken)
 
-      resp <-
-        runResourceT $
-          sendUnsigned ssoEnv $
-            SSO.newGetRoleCredentials roleName accountId (fromSensitive accessToken)
-
+      resp <- runResourceT $ sendUnsigned ssoEnv getRoleCredentials
       let mCreds = do
             rc <- resp ^. SSO.getRoleCredentialsResponse_roleCredentials
             roleCredentialsToAuthEnv rc
-
       case mCreds of
         Nothing -> fail "sso:GetRoleWithCredentials returned no credentials."
         Just c -> pure c
-
-sendUnsigned ::
-  ( MonadResource m,
-    AWSRequest a,
-    Foldable withAuth
-  ) =>
-  Env' withAuth ->
-  a ->
-  m (AWSResponse a)
-sendUnsigned env req = do
-  eResponse <- retryRequest env req
-  either (liftIO . Exception.throwIO) (pure . Client.responseBody) eResponse
 
 -- | Return the cached token file for a given @sso_start_url@
 --

@@ -91,6 +91,7 @@ library
     Amazonka.HTTP
     Amazonka.Logger
     Amazonka.Presign
+    Amazonka.Send
 
   reexported-modules:
     Amazonka.Data, Amazonka.Types, Amazonka.Bytes, Amazonka.Endpoint, Amazonka.Crypto

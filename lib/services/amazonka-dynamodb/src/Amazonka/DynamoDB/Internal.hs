@@ -118,7 +118,7 @@ instance FromJSON AttributeValue where
       [("B", v)] -> B <$> parseJSON v
       [("SS", v)] -> SS <$> parseJSON v
       [("S", v)] -> S <$> parseJSON v
-      [("BOOL", v)] -> B <$> parseJSON v
+      [("BOOL", v)] -> BOOL <$> parseJSON v
       [] -> fail "No keys"
       _ -> fail $ "Multiple or unrecognized keys: " ++ show (KeyMap.keys o)
 

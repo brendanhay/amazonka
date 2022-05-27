@@ -31,7 +31,7 @@ instance ToLog V2 where
     buildLines
       [ "[Version 2 Metadata] {",
         "  time      = " <> build metaTime,
-        "  endpoint  = " <> build (_endpointHost metaEndpoint),
+        "  endpoint  = " <> build (endpointHost metaEndpoint),
         "  signature = " <> build metaSignature,
         "}"
       ]
@@ -45,44 +45,44 @@ sign Request {..} AuthEnv {..} r t = Signed meta rq
     meta = Meta (V2 t end signature)
 
     rq =
-      (newClientRequest end _serviceTimeout)
+      (newClientRequest end serviceTimeout)
         { Client.method = meth,
           Client.path = path',
           Client.queryString = toBS authorised,
           Client.requestHeaders = headers,
-          Client.requestBody = toRequestBody _requestBody
+          Client.requestBody = toRequestBody requestBody
         }
 
-    meth = toBS _requestMethod
-    path' = toBS (escapePath _requestPath)
+    meth = toBS requestMethod
+    path' = toBS (escapePath requestPath)
 
-    end@Endpoint {..} = _serviceEndpoint r
+    end@Endpoint {..} = serviceEndpoint r
 
-    Service {..} = _requestService
+    Service {..} = requestService
 
     authorised = pair "Signature" (URI.urlEncode True signature) query
 
     signature =
       Bytes.encodeBase64
-        . Crypto.hmacSHA256 (toBS _authSecretAccessKey)
+        . Crypto.hmacSHA256 (toBS authSecretAccessKey)
         $ BS8.intercalate
           "\n"
           [ meth,
-            _endpointHost,
+            endpointHost,
             path',
             toBS query
           ]
 
     query =
-      pair "Version" _serviceVersion
+      pair "Version" serviceVersion
         . pair "SignatureVersion" ("2" :: ByteString)
         . pair "SignatureMethod" ("HmacSHA256" :: ByteString)
         . pair "Timestamp" time
-        . pair "AWSAccessKeyId" (toBS _authAccessKeyId)
-        $ _requestQuery <> maybe mempty toQuery token
+        . pair "AWSAccessKeyId" (toBS authAccessKeyId)
+        $ requestQuery <> maybe mempty toQuery token
 
-    token = ("SecurityToken" :: ByteString,) . toBS <$> _authSessionToken
+    token = ("SecurityToken" :: ByteString,) . toBS <$> authSessionToken
 
-    headers = hdr HTTP.hDate time _requestHeaders
+    headers = hdr HTTP.hDate time requestHeaders
 
     time = toBS (Time t :: ISO8601)

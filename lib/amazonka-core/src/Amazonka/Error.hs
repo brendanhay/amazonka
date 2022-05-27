@@ -61,28 +61,28 @@ _HttpStatus = _Error . f
         (\x -> SerializeError (SerializeError' a x b e)) <$> g s
       --
       ServiceError e ->
-        (\x -> ServiceError (e {_serviceErrorStatus = x}))
-          <$> g (_serviceErrorStatus e)
+        (\x -> ServiceError (e {serviceErrorStatus = x}))
+          <$> g (serviceErrorStatus e)
 
 hasService ::
   (Applicative f, Choice p) =>
   Service ->
   Optic' p f ServiceError ServiceError
-hasService s = filtered ((_serviceAbbrev s ==) . _serviceErrorAbbrev)
+hasService s = filtered ((serviceAbbrev s ==) . serviceErrorAbbrev)
 
 hasStatus ::
   (Applicative f, Choice p) =>
   Int ->
   Optic' p f ServiceError ServiceError
-hasStatus n = filtered ((n ==) . fromEnum . _serviceErrorStatus)
+hasStatus n = filtered ((n ==) . fromEnum . serviceErrorStatus)
 
 hasCode ::
   (Applicative f, Choice p) =>
   ErrorCode ->
   Optic' p f ServiceError ServiceError
-hasCode c = filtered ((c ==) . _serviceErrorCode)
+hasCode c = filtered ((c ==) . serviceErrorCode)
 
-serviceError ::
+serviceError' ::
   Abbrev ->
   Status ->
   [Header] ->
@@ -90,7 +90,7 @@ serviceError ::
   Maybe ErrorMessage ->
   Maybe RequestId ->
   ServiceError
-serviceError a s h c m r =
+serviceError' a s h c m r =
   ServiceError' a s h (fromMaybe (getErrorCode s h) c) m (r <|> getRequestId h)
 
 getRequestId :: [Header] -> Maybe RequestId
@@ -120,7 +120,7 @@ parseJSONError a s h bs =
       e <- (Just <$> o .: "__type") <|> o .:? "code"
       m <- msg e o
 
-      pure (serviceError a s h e m Nothing)
+      pure (serviceError' a s h e m Nothing)
 
     msg c o =
       if c == Just "RequestEntityTooLarge"
@@ -138,7 +138,7 @@ parseXMLError ::
 parseXMLError a s h bs = decodeError a s h bs (decodeXML bs >>= go)
   where
     go x =
-      serviceError a s h
+      serviceError' a s h
         <$> code x
         <*> may' (firstElement "Message" x)
         <*> may' (firstElement "RequestId" x <|> firstElement "RequestID" x)
@@ -159,7 +159,7 @@ parseRESTError ::
   a ->
   Error
 parseRESTError a s h _ =
-  ServiceError (serviceError a s h Nothing Nothing Nothing)
+  ServiceError (serviceError' a s h Nothing Nothing Nothing)
 
 decodeError ::
   Abbrev ->

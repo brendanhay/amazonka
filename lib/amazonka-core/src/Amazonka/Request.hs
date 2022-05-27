@@ -42,7 +42,7 @@ module Amazonka.Request
 where
 
 import Amazonka.Core
-import Amazonka.Lens ((%~), (.~))
+import Amazonka.Lens ((%~), (.~), field)
 import Amazonka.Prelude
 import qualified Data.ByteString.Char8 as B8
 import qualified Network.HTTP.Client as Client
@@ -53,73 +53,73 @@ import Text.Regex.Posix
 type ToRequest a = (ToPath a, ToQuery a, ToHeaders a)
 
 head' :: ToRequest a => Service -> a -> Request a
-head' s x = get s x & requestMethod .~ HEAD
+head' s x = get s x & field @"requestMethod" .~ HEAD
 
 delete :: ToRequest a => Service -> a -> Request a
-delete s x = get s x & requestMethod .~ DELETE
+delete s x = get s x & field @"requestMethod" .~ DELETE
 
 get :: ToRequest a => Service -> a -> Request a
 get s = defaultRequest s
 
 post :: ToRequest a => Service -> a -> Request a
-post s x = get s x & requestMethod .~ POST
+post s x = get s x & field @"requestMethod" .~ POST
 
 put :: ToRequest a => Service -> a -> Request a
-put s x = get s x & requestMethod .~ PUT
+put s x = get s x & field @"requestMethod" .~ PUT
 
 patchJSON :: (ToRequest a, ToJSON a) => Service -> a -> Request a
-patchJSON s x = putJSON s x & requestMethod .~ PATCH
+patchJSON s x = putJSON s x & field @"requestMethod" .~ PATCH
 
 postXML :: (ToRequest a, ToElement a) => Service -> a -> Request a
-postXML s x = putXML s x & requestMethod .~ POST
+postXML s x = putXML s x & field @"requestMethod" .~ POST
 
 postJSON :: (ToRequest a, ToJSON a) => Service -> a -> Request a
-postJSON s x = putJSON s x & requestMethod .~ POST
+postJSON s x = putJSON s x & field @"requestMethod" .~ POST
 
 postQuery :: ToRequest a => Service -> a -> Request a
 postQuery s x =
   Request
-    { _requestService = s,
-      _requestMethod = POST,
-      _requestPath = rawPath x,
-      _requestQuery = mempty,
-      _requestBody = toBody (toQuery x),
-      _requestHeaders = hdr hContentType hFormEncoded (toHeaders x)
+    { requestService = s,
+      requestMethod = POST,
+      requestPath = rawPath x,
+      requestQuery = mempty,
+      requestBody = toBody (toQuery x),
+      requestHeaders = hdr hContentType hFormEncoded (toHeaders x)
     }
 
 postBody :: (ToRequest a, ToBody a) => Service -> a -> Request a
 postBody s x =
   defaultRequest s x
-    & requestMethod .~ POST
-    & requestBody .~ toBody x
+    & field @"requestMethod" .~ POST
+    & field @"requestBody" .~ toBody x
 
 putXML :: (ToRequest a, ToElement a) => Service -> a -> Request a
 putXML s x =
   defaultRequest s x
-    & requestMethod .~ PUT
-    & requestBody .~ maybe "" toBody (maybeElement x)
+    & field @"requestMethod" .~ PUT
+    & field @"requestBody" .~ maybe "" toBody (maybeElement x)
 
 putJSON :: (ToRequest a, ToJSON a) => Service -> a -> Request a
 putJSON s x =
   defaultRequest s x
-    & requestMethod .~ PUT
-    & requestBody .~ toBody (toJSON x)
+    & field @"requestMethod" .~ PUT
+    & field @"requestBody" .~ toBody (toJSON x)
 
 putBody :: (ToRequest a, ToBody a) => Service -> a -> Request a
 putBody s x =
   defaultRequest s x
-    & requestMethod .~ PUT
-    & requestBody .~ toBody x
+    & field @"requestMethod" .~ PUT
+    & field @"requestBody" .~ toBody x
 
 defaultRequest :: ToRequest a => Service -> a -> Request a
 defaultRequest s x =
   Request
-    { _requestService = s,
-      _requestMethod = GET,
-      _requestPath = rawPath x,
-      _requestQuery = toQuery x,
-      _requestHeaders = toHeaders x,
-      _requestBody = ""
+    { requestService = s,
+      requestMethod = GET,
+      requestPath = rawPath x,
+      requestQuery = toQuery x,
+      requestHeaders = toHeaders x,
+      requestBody = ""
     }
 
 clientRequestQuery :: Lens' ClientRequest ByteString
@@ -151,20 +151,20 @@ clientRequestURL x =
 
 contentMD5Header :: Request a -> Request a
 contentMD5Header rq
-  | isMissing, Just x <- maybeMD5 = rq {_requestHeaders = hdr HTTP.hContentMD5 x headers}
+  | isMissing, Just x <- maybeMD5 = rq {requestHeaders = hdr HTTP.hContentMD5 x headers}
   | otherwise = rq
   where
-    maybeMD5 = md5Base64 (_requestBody rq)
+    maybeMD5 = md5Base64 (requestBody rq)
     isMissing = isNothing (lookup HTTP.hContentMD5 headers)
-    headers = _requestHeaders rq
+    headers = requestHeaders rq
 
 expectHeader :: Request a -> Request a
 expectHeader rq =
-  rq {_requestHeaders = hdr hExpect "100-continue" (_requestHeaders rq)}
+  rq {requestHeaders = hdr hExpect "100-continue" (requestHeaders rq)}
 
 glacierVersionHeader :: ByteString -> Request a -> Request a
 glacierVersionHeader version rq =
-  rq {_requestHeaders = hdr "x-amz-glacier-version" version (_requestHeaders rq)}
+  rq {requestHeaders = hdr "x-amz-glacier-version" version (requestHeaders rq)}
 
 -- Rewrite a request to use virtual-hosted-style buckets where
 -- possible.  A request to endpoint "s3.region.amazonaws.com" with
@@ -173,7 +173,7 @@ glacierVersionHeader version rq =
 --
 -- See: https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html
 s3vhost :: Request a -> Request a
-s3vhost rq = case _requestPath rq of
+s3vhost rq = case requestPath rq of
   Raw [] -> rq -- Impossible?
   Raw (bucketName : p) ->
     let path = Raw p
@@ -189,6 +189,6 @@ s3vhost rq = case _requestPath rq of
      in if rewritePossible
           then
             rq
-              & requestService . serviceEndpoint . endpointHost %~ ((bucketName <> ".") <>)
-              & requestPath .~ path
+              & field @"requestService" . field @"serviceEndpoint" . field @"endpointHost" %~ ((bucketName <> ".") <>)
+              & field @"requestPath" .~ path
           else rq

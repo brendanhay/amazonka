@@ -59,3 +59,6 @@ import Control.Lens as Export
     _Just,
     _last,
   )
+import Data.Generics.Product.Fields as Export
+  ( field,
+    setField )

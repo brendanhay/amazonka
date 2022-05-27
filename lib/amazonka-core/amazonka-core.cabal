@@ -108,6 +108,7 @@ library
     , containers            >=0.5     && < 0.7
     , cryptonite            >=0.25
     , deepseq               >=1.4
+    , generic-lens          >=2
     , hashable              >=1.2
     , http-client           >=0.5     && <0.8
     , http-conduit          >=2.3     && <3

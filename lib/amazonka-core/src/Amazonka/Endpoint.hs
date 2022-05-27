@@ -13,7 +13,7 @@ module Amazonka.Endpoint
 where
 
 import Amazonka.Data.ByteString
-import Amazonka.Lens ((%~), (.~))
+import Amazonka.Lens ((%~), (.~), field, (^.), setField)
 import Amazonka.Prelude
 import Amazonka.Types
 import qualified Data.CaseInsensitive as CI
@@ -38,10 +38,11 @@ setEndpoint s h p = serviceEndpoint %~ addr
         . (endpointHost .~ h)
         . (endpointPort .~ p)
 
+
 -- | Determine the full host address and credential scope
 -- within the specified 'Region'.
 defaultEndpoint :: Service -> Region -> Endpoint
-defaultEndpoint (_serviceEndpointPrefix -> p) r = go (CI.mk p)
+defaultEndpoint (serviceEndpointPrefix -> p) r = go (CI.mk p)
   where
     go = \case
       "iam"
@@ -83,18 +84,18 @@ defaultEndpoint (_serviceEndpointPrefix -> p) r = go (CI.mk p)
 
     region h =
       Endpoint
-        { _endpointHost = h,
-          _endpointSecure = True,
-          _endpointPort = 443,
-          _endpointScope = reg
+        { endpointHost = h,
+          endpointSecure = True,
+          endpointPort = 443,
+          endpointScope = reg
         }
 
     global h =
       Endpoint
-        { _endpointHost = h,
-          _endpointSecure = True,
-          _endpointPort = 443,
-          _endpointScope = "us-east-1"
+        { endpointHost = h,
+          endpointSecure = True,
+          endpointPort = 443,
+          endpointScope = "us-east-1"
         }
 
     reg = toBS r

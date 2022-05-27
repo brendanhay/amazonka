@@ -50,7 +50,7 @@ instance ToLog V2Header where
     buildLines
       [ "[Version 2 Header Metadata] {",
         "  time      = " <> build metaTime,
-        "  endpoint  = " <> build (_endpointHost metaEndpoint),
+        "  endpoint  = " <> build (endpointHost metaEndpoint),
         "  signature = " <> build metaSignature,
         "  headers = " <> build headers,
         "  signer = " <> build signer,
@@ -65,33 +65,33 @@ sign Request {..} AuthEnv {..} r t = Signed meta rq
   where
     meta = Meta (V2Header t end signature headers signer)
 
-    signer = newSigner headers meth path' _requestQuery
+    signer = newSigner headers meth path' requestQuery
 
     rq =
-      (newClientRequest end _serviceTimeout)
+      (newClientRequest end serviceTimeout)
         { Client.method = meth,
           Client.path = path',
-          Client.queryString = toBS _requestQuery,
+          Client.queryString = toBS requestQuery,
           Client.requestHeaders = headers,
-          Client.requestBody = toRequestBody _requestBody
+          Client.requestBody = toRequestBody requestBody
         }
 
-    meth = toBS _requestMethod
-    path' = toBS (escapePath _requestPath)
+    meth = toBS requestMethod
+    path' = toBS (escapePath requestPath)
 
-    end@Endpoint {} = _serviceEndpoint r
+    end@Endpoint {} = serviceEndpoint r
 
-    Service {..} = _requestService
+    Service {..} = requestService
 
     signature =
       Bytes.encodeBase64
-        . Crypto.hmacSHA1 (toBS _authSecretAccessKey)
+        . Crypto.hmacSHA1 (toBS authSecretAccessKey)
         $ signer
 
     headers =
       hdr HTTP.hDate time
-        . hdr HTTP.hAuthorization ("AWS " <> toBS _authAccessKeyId <> ":" <> signature)
-        $ _requestHeaders
+        . hdr HTTP.hAuthorization ("AWS " <> toBS authAccessKeyId <> ":" <> signature)
+        $ requestHeaders
 
     time = toBS (Time t :: RFC822)
 

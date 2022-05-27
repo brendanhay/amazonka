@@ -57,14 +57,14 @@ instance ToLog Accept where
 
 -- | Timing and acceptance criteria to check fulfillment of a remote operation.
 data Wait a = Wait
-  { _waitName :: ByteString,
-    _waitAttempts :: Int,
-    _waitDelay :: Seconds,
-    _waitAcceptors :: [Acceptor a]
+  { waitName :: ByteString,
+    waitAttempts :: Int,
+    waitDelay :: Seconds,
+    waitAcceptors :: [Acceptor a]
   }
 
 accept :: Wait a -> Acceptor a
-accept w rq rs = listToMaybe . mapMaybe (\f -> f rq rs) $ _waitAcceptors w
+accept w rq rs = listToMaybe . mapMaybe (\f -> f rq rs) $ waitAcceptors w
 
 matchAll :: Eq b => b -> Accept -> Fold (AWSResponse a) b -> Acceptor a
 matchAll x a l = match (allOf l (== x)) a
@@ -83,7 +83,7 @@ matchStatus x a _ = \case
 
 matchError :: ErrorCode -> Accept -> Acceptor a
 matchError c a _ = \case
-  Left e | Just c == e ^? _ServiceError . serviceCode -> Just a
+  Left e | Just c == e ^? _ServiceError . serviceCodeL -> Just a
   _ -> Nothing
 
 match :: (AWSResponse a -> Bool) -> Accept -> Acceptor a

@@ -80,7 +80,7 @@ fromNamedInstanceProfile name env =
 
     getRegionFromIdentity =
       Exception.try (identity manager)
-        >>= handleErr (fmap _region) invalidIdentityErr
+        >>= handleErr (fmap region) invalidIdentityErr
 
     manager = envManager env
 

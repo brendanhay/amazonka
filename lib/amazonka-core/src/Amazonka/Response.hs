@@ -135,8 +135,8 @@ deserialise reader parser logger Service {..} _ rs =
 
     body <- sinkLBS (Client.responseBody rs)
 
-    unless (_serviceCheck status) $
-      Except.throwE (_serviceError status headers body)
+    unless (serviceCheck status) $
+      Except.throwE (serviceError status headers body)
 
     liftIO . logger Trace $
       build ("[Raw Response Body] {\n" <> body <> "\n}")
@@ -145,7 +145,7 @@ deserialise reader parser logger Service {..} _ rs =
       Right ok -> pure (ok <$ rs)
       Left err ->
         Except.throwE $
-          SerializeError (SerializeError' _serviceAbbrev status (Just body) err)
+          SerializeError (SerializeError' serviceAbbrev status (Just body) err)
 
 -- | Stream a raw response body, such as an S3 object payload.
 stream ::
@@ -166,15 +166,15 @@ stream parser Service {..} _ rs =
         headers = Client.responseHeaders rs
         body = Client.responseBody rs
 
-    unless (_serviceCheck status) $ do
+    unless (serviceCheck status) $ do
       lazy <- sinkLBS body
-      Except.throwE (_serviceError status headers lazy)
+      Except.throwE (serviceError status headers lazy)
 
     lift (parser (() <$ rs) (fromEnum status) headers body) >>= \case
       Right ok -> pure (ok <$ rs)
       Left err ->
         Except.throwE $
-          SerializeError (SerializeError' _serviceAbbrev status Nothing err)
+          SerializeError (SerializeError' serviceAbbrev status Nothing err)
 
 sinkLBS :: MonadResource m => ClientBody -> m ByteStringLazy
 sinkLBS bdy = liftResourceT (bdy `Conduit.connect` Conduit.Binary.sinkLbs)

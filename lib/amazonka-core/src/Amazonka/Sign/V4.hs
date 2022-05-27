@@ -17,7 +17,7 @@ import Amazonka.Data.ByteString
 import Amazonka.Data.Headers
 import Amazonka.Data.Query
 import Amazonka.Data.Time
-import Amazonka.Lens ((%~), (<>~))
+import Amazonka.Lens ((%~), (<>~), field)
 import Amazonka.Prelude
 import Amazonka.Request
 import qualified Amazonka.Sign.V4.Base as Base
@@ -48,31 +48,31 @@ presign ex rq a r ts = Base.signRequest meta mempty auth
         . pair (CI.original hAMZDate) (Time ts :: AWSTime)
         . pair (CI.original hAMZExpires) ex
         . pair (CI.original hAMZSignedHeaders) (toBS shs)
-        . pair (CI.original hAMZToken) (toBS <$> _authSessionToken a)
+        . pair (CI.original hAMZToken) (toBS <$> authSessionToken a)
 
     digest =
-      case _requestBody rq of
+      case requestBody rq of
         Chunked _ -> unsignedPayload
         Hashed (HashedStream h _ _) -> Base.Tag $ encodeBase16 h
         Hashed (HashedBytes h b)
-          | BS.null b && _serviceSigningName (_requestService rq) == "s3" -> unsignedPayload
+          | BS.null b && serviceSigningName (requestService rq) == "s3" -> unsignedPayload
           | otherwise -> Base.Tag $ encodeBase16 h
 
     unsignedPayload = Base.Tag "UNSIGNED-PAYLOAD"
 
-    prepare = requestHeaders %~ (hdr hHost host)
+    prepare = field @"requestHeaders" %~ (hdr hHost host)
 
     host =
-      case (_endpointSecure end, _endpointPort end) of
-        (False, 80) -> _endpointHost end
-        (True, 443) -> _endpointHost end
-        (_, port) -> _endpointHost end <> ":" <> toBS port
+      case (endpointSecure end, endpointPort end) of
+        (False, 80) -> endpointHost end
+        (True, 443) -> endpointHost end
+        (_, port) -> endpointHost end <> ":" <> toBS port
 
-    end = _serviceEndpoint (_requestService rq) r
+    end = serviceEndpoint (requestService rq) r
 
 sign :: Algorithm a
 sign rq a r ts =
-  case _requestBody rq of
+  case requestBody rq of
     Chunked x -> Chunked.chunked x rq a r ts
     Hashed x -> hashed x rq a r ts
 

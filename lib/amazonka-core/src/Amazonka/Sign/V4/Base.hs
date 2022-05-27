@@ -10,7 +10,7 @@ module Amazonka.Sign.V4.Base where
 import qualified Amazonka.Bytes as Bytes
 import qualified Amazonka.Crypto as Crypto
 import Amazonka.Data hiding (Path)
-import Amazonka.Lens ((%~), (<>~), (^.))
+import Amazonka.Lens ((%~), (<>~), (^.), field)
 import Amazonka.Prelude
 import Amazonka.Request
 import Amazonka.Types
@@ -45,7 +45,7 @@ instance ToLog V4 where
     buildLines
       [ "[Version 4 Metadata] {",
         "  time              = " <> build metaTime,
-        "  endpoint          = " <> build (_endpointHost metaEndpoint),
+        "  endpoint          = " <> build (endpointHost metaEndpoint),
         "  credential        = " <> build metaCredential,
         "  signed headers    = " <> build metaSignedHeaders,
         "  signature         = " <> build metaSignature,
@@ -74,20 +74,20 @@ base h rq a r ts = (meta, auth)
     presigner _ _ = id
 
     prepare =
-      requestHeaders
+      field @"requestHeaders"
         %~ ( hdr hHost host
                . hdr hAMZDate (toBS (Time ts :: AWSTime))
                . hdr hAMZContentSHA256 (toBS h)
-               . maybe id (hdr hAMZToken . toBS) (_authSessionToken a)
+               . maybe id (hdr hAMZToken . toBS) (authSessionToken a)
            )
 
     host =
-      case (_endpointSecure end, _endpointPort end) of
-        (False, 80) -> _endpointHost end
-        (True, 443) -> _endpointHost end
-        (_, port) -> _endpointHost end <> ":" <> toBS port
+      case (endpointSecure end, endpointPort end) of
+        (False, 80) -> endpointHost end
+        (True, 443) -> endpointHost end
+        (_, port) -> endpointHost end <> ":" <> toBS port
 
-    end = _serviceEndpoint (_requestService rq) r
+    end = serviceEndpoint (requestService rq) r
 
 -- | Used to tag provenance. This allows keeping the same layout as
 -- the signing documentation, passing 'ByteString's everywhere, with
@@ -186,27 +186,27 @@ signMetadata a r ts presign digest rq =
       metaCanonicalHeaders = chs,
       metaSignedHeaders = shs,
       metaStringToSign = sts,
-      metaSignature = signature (_authSecretAccessKey a ^. _Sensitive) scope sts,
-      metaHeaders = _requestHeaders rq,
-      metaTimeout = _serviceTimeout svc
+      metaSignature = signature (authSecretAccessKey a ^. _Sensitive) scope sts,
+      metaHeaders = requestHeaders rq,
+      metaTimeout = serviceTimeout svc
     }
   where
-    query = canonicalQuery . presign cred shs $ _requestQuery rq
+    query = canonicalQuery . presign cred shs $ requestQuery rq
 
     sts = stringToSign ts scope crq
-    cred = credential (_authAccessKeyId a) scope
+    cred = credential (authAccessKeyId a) scope
     scope = credentialScope svc end ts
     crq = canonicalRequest method path digest query chs shs
 
     chs = canonicalHeaders headers
     shs = signedHeaders headers
-    headers = normaliseHeaders (_requestHeaders rq)
+    headers = normaliseHeaders (requestHeaders rq)
 
-    end = _serviceEndpoint svc r
-    method = Tag . toBS $ _requestMethod rq
+    end = serviceEndpoint svc r
+    method = Tag . toBS $ requestMethod rq
     path = escapedPath rq
 
-    svc = _requestService rq
+    svc = requestService rq
 
 algorithm :: ByteString
 algorithm = "AWS4-HMAC-SHA256"
@@ -236,8 +236,8 @@ credentialScope :: Service -> Endpoint -> UTCTime -> CredentialScope
 credentialScope s e t =
   Tag
     [ toBS (Time t :: BasicTime),
-      toBS (_endpointScope e),
-      toBS (_serviceSigningName s),
+      toBS (endpointScope e),
+      toBS (serviceSigningName s),
       "aws4_request"
     ]
 
@@ -263,9 +263,9 @@ canonicalRequest meth path digest query chs shs =
 
 escapedPath :: Request a -> Path
 escapedPath r = Tag . toBS . escapePath $
-  case _serviceAbbrev (_requestService r) of
-    "S3" -> _requestPath r
-    _ -> collapsePath (_requestPath r)
+  case serviceAbbrev (requestService r) of
+    "S3" -> requestPath r
+    _ -> collapsePath (requestPath r)
 
 canonicalQuery :: QueryString -> CanonicalQuery
 canonicalQuery = Tag . toBS

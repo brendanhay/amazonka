@@ -132,9 +132,6 @@ module Amazonka
 
     -- ** Constructing a Logger
     newLogger,
-
-    -- * Re-exported Types
-    module Amazonka.Core,
   )
 where
 

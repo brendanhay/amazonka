@@ -14,6 +14,7 @@ import Amazonka.Types
 import qualified Data.Aeson as Aeson
 import qualified Data.Aeson.Types as Aeson.Types
 import qualified Data.ByteString.Lazy as LBS
+import Data.Either (fromRight)
 import qualified Network.HTTP.Client as Client
 import Network.HTTP.Types.Status (Status (..))
 

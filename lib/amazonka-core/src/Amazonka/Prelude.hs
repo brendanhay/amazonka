@@ -47,7 +47,6 @@ import qualified Data.ByteString.Builder as ByteString.Builder
 import qualified Data.ByteString.Lazy as ByteString.Lazy
 import Data.CaseInsensitive as Export (CI)
 import Data.Coerce as Export (Coercible, coerce)
-import Data.Either as Export (fromRight)
 import Data.Function as Export ((&))
 import Data.Functor as Export ((<&>))
 import Data.Functor.Identity as Export (Identity (..))

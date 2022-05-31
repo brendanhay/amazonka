@@ -94,8 +94,10 @@ serviceError a s h c m r =
   ServiceError' a s h (fromMaybe (getErrorCode s h) c) m (r <|> getRequestId h)
 
 getRequestId :: [Header] -> Maybe RequestId
-getRequestId h =
-  either (const Nothing) Just (h .# hAMZRequestId <|> h .# hAMZNRequestId)
+getRequestId h
+  | Right hAMZ  <- h .# hAMZRequestId  = Just hAMZ
+  | Right hAMZN <- h .# hAMZNRequestId = Just hAMZN
+  | otherwise                          = Nothing
 
 getErrorCode :: Status -> [Header] -> ErrorCode
 getErrorCode s h =
@@ -135,22 +137,23 @@ parseXMLError ::
   [Header] ->
   ByteStringLazy ->
   Error
-parseXMLError a s h bs = decodeError a s h bs (decodeXML bs >>= go)
+parseXMLError a s h bs = decodeError a s h bs (go <$> decodeXML bs)
   where
     go x =
       serviceError a s h
-        <$> code x
-        <*> may' (firstElement "Message" x)
-        <*> may' (firstElement "RequestId" x <|> firstElement "RequestID" x)
+      (code x)
+      (may' (firstElement "Message" x))
+      (may' (firstElement "RequestId" x) <|> may' (firstElement "RequestID" x))
 
-    code x =
-      Just <$> (firstElement "Code" x >>= parseXML)
-        <|> return root
+    code x
+      | Right y <- firstElement "Code" x >>= parseXML = y
+      | otherwise = root
 
     root = newErrorCode <$> rootElementName bs
 
-    may' (Left _) = pure Nothing
-    may' (Right x) = Just <$> parseXML x
+    may' x
+      | Right y <- x >>= parseXML = Just y
+      | otherwise = Nothing
 
 parseRESTError ::
   Abbrev ->

@@ -141,19 +141,15 @@ parseXMLError a s h bs = decodeError a s h bs (go <$> decodeXML bs)
   where
     go x =
       serviceError a s h
-      (code x)
-      (may' (firstElement "Message" x))
-      (may' (firstElement "RequestId" x) <|> may' (firstElement "RequestID" x))
+        (code x)
+        (may' (firstElement "Message" x))
+        (may' (firstElement "RequestId" x) <|> may' (firstElement "RequestID" x))
 
-    code x
-      | Right y <- firstElement "Code" x >>= parseXML = y
-      | otherwise = root
+    code x = fromRight root $ parseXML =<< firstElement "Code" x
 
     root = newErrorCode <$> rootElementName bs
 
-    may' x
-      | Right y <- x >>= parseXML = Just y
-      | otherwise = Nothing
+    may' x = either (const Nothing) Just $ parseXML =<< x
 
 parseRESTError ::
   Abbrev ->
@@ -174,7 +170,7 @@ decodeError ::
 decodeError a s h bs e
   | LBS.null bs = parseRESTError a s h bs
   | otherwise =
-    either
-      (SerializeError . SerializeError' a s (Just bs))
-      ServiceError
-      e
+      either
+        (SerializeError . SerializeError' a s (Just bs))
+        ServiceError
+        e

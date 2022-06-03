@@ -51,8 +51,6 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 - Presigning URLs that are not for S3
 [\#767](https://github.com/brendanhay/amazonka/pull/767)
-- Lenses for the `Env'` data type have been manually provided, as `generic-lens` cannot always derive them when required.
-[\#727](https://github.com/brendanhay/amazonka/pull/727)
 - `amazonka-s3`/`amazonka-glacier`: treat upload IDs are a mandatory part of the `CreateMultipartUpload`/`InitiateMultipartUpload` responses.
 [\#725](https://github.com/brendanhay/amazonka/pull/725)
 - Hosted Zone IDs for S3 website endpoints are correct for all regions.

@@ -34,6 +34,8 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 ### Changed
 
+- `amazonka-core`: urldecode query string parts when parsing to `QueryString`
+[\#780](https://github.com/brendanhay/amazonka/pull/769)
 - `amazonka-dynamodb`, `amazonka-dynamodb-streams`: Fix deserialisation of booleans
 [\#775](https://github.com/brendanhay/amazonka/pull/775)
 - `amazonka`: Add a public interface to send unsigned requests. Sending functions are now defined in `Amazonka.Send`, but are re-exported from `Amazonka`.

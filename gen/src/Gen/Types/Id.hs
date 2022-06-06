@@ -52,6 +52,9 @@ data Id = Id Text Text
 instance Eq Id where
   Id x _ == Id y _ = x == y
 
+instance Ord Id where
+  compare (Id x _) (Id y _) = compare x y
+
 instance Hashable Id where
   hashWithSalt n (Id x _) = hashWithSalt n x
 

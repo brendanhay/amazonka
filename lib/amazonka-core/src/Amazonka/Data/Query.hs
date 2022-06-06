@@ -18,6 +18,13 @@ import qualified Data.List as List
 import qualified Data.Text.Encoding as Text
 import qualified Network.HTTP.Types.URI as URI
 
+-- | Structured representation of a query string.
+--
+-- Some operations (e.g., [sqs:CreateQueue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html))
+-- use query parameters to pass structured data like lists and maps,
+-- which is why this type is more complicatated than the
+-- @[(ByteString, Maybe ByteString)]@ from @http-types@ that you may
+-- have expected here.
 data QueryString
   = QList [QueryString]
   | QPair ByteString QueryString
@@ -49,13 +56,14 @@ parseQueryString bs
       case BS8.break (== '=') x of
         ("", "") -> mempty
         ("", v) -> stripValue v
-        (k, v) -> QPair k (stripValue v)
+        (k, v) -> QPair (URI.urlDecode True k) (stripValue v)
 
+    stripValue :: ByteString -> QueryString
     stripValue x =
       case x of
         "" -> QValue Nothing
         "=" -> QValue Nothing
-        _ -> QValue (Just (fromMaybe x (BS8.stripPrefix "=" x)))
+        _ -> QValue (Just (URI.urlDecode True $ BS8.drop 1 x))
 
 -- FIXME: use Builder
 instance ToByteString QueryString where

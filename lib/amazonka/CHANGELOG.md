@@ -51,6 +51,9 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 ### Fixed
 
+- Background credential refreshing now uses half the token's lifespan
+as a thread delay to avoid potential concurrency issues.
+[\#747](https://github.com/brendanhay/amazonka/pull/783)
 - Presigning URLs that are not for S3
 [\#767](https://github.com/brendanhay/amazonka/pull/767)
 - `amazonka-s3`/`amazonka-glacier`: treat upload IDs are a mandatory part of the `CreateMultipartUpload`/`InitiateMultipartUpload` responses.

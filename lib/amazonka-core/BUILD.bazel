@@ -85,6 +85,7 @@ haskell_library(
         "@stackage//:case-insensitive",
         "@stackage//:conduit",
         "@stackage//:conduit-extra",
+        "@stackage//:containers",
         "@stackage//:cryptonite",
         "@stackage//:deepseq",
         "@stackage//:hashable",

@@ -18,6 +18,7 @@ import Amazonka.Prelude
 import qualified Amazonka.STS as STS
 import qualified Amazonka.STS.AssumeRole as STS
 import qualified Amazonka.STS.AssumeRoleWithWebIdentity as STS
+import Amazonka.Send (sendUnsigned)
 import qualified Control.Exception as Exception
 import Control.Monad.Trans.Resource (runResourceT)
 import qualified Data.Text as Text
@@ -75,7 +76,7 @@ fromAssumedRole roleArn roleSessionName env = do
 -- The implementation is modelled on the C++ SDK:
 -- https://github.com/aws/aws-sdk-cpp/blob/6d6dcdbfa377393306bf79585f61baea524ac124/aws-cpp-sdk-core/source/auth/STSCredentialsProvider.cpp#L33
 fromWebIdentity ::
-  (MonadIO m, Foldable withAuth) =>
+  MonadIO m =>
   FilePath ->
   Text ->
   Maybe Text ->
@@ -91,17 +92,17 @@ fromWebIdentity tokenFile roleArn mSessionName env = do
   -- to environment variables.
   let getCredentials = do
         token <- Text.readFile tokenFile
-        let assumeWeb =
+
+        let assumeRoleWithWebIdentity =
               STS.newAssumeRoleWithWebIdentity
                 roleArn
                 sessionName
                 token
-        eResponse <- runResourceT $ retryRequest env assumeWeb
-        clientResponse <- either (liftIO . Exception.throwIO) pure eResponse
-        let mCredentials =
-              Client.responseBody clientResponse
-                ^. STS.assumeRoleWithWebIdentityResponse_credentials
-        case mCredentials of
+
+        resp <- runResourceT $ sendUnsigned env assumeRoleWithWebIdentity
+        let mCreds =
+              resp ^. STS.assumeRoleWithWebIdentityResponse_credentials
+        case mCreds of
           Nothing ->
             fail "sts:AssumeRoleWithWebIdentity returned no credentials."
           Just c -> pure c
@@ -123,7 +124,7 @@ fromWebIdentity tokenFile roleArn mSessionName env = do
 -- Throws 'MissingEnvError' if a required environment variable is
 -- empty or unset.
 fromWebIdentityEnv ::
-  (MonadIO m, Foldable withAuth) =>
+  MonadIO m =>
   Env' withAuth ->
   m Env
 fromWebIdentityEnv env = liftIO $ do

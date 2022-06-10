@@ -31,6 +31,7 @@ data Signature
   | V3HTTPS
   | V4
   | S3
+  | S3V4
   deriving (Eq, Show, Generic)
 
 sigToText :: Signature -> Text

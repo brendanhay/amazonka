@@ -49,10 +49,10 @@ rewriteService cfg s = do
   elaborate (s ^. shapes)
     -- Annotate the comonadic tree with the associated
     -- bi/unidirectional (input/output/both) relation for shapes.
-    >>= traverse (pure . attach Related rs)
+    <&> fmap (attach Related rs)
     -- Apply the override configuration to the service, and default any
     -- optional fields from the JSON where needed.
-    >>= pure . (\ss -> override (cfg ^. typeOverrides) (s {_shapes = ss}))
+    <&> (\ss -> override (cfg ^. typeOverrides) (s {_shapes = ss}))
     -- Ensure no empty operation references exist, and that operation shapes
     -- are considered 'unique', so they can be lifted into the operation's
     -- module, separately from .Types.
@@ -69,7 +69,7 @@ renderShapes cfg svc = do
     prefixes (svc ^. shapes)
       -- Determine the appropriate Haskell AST type, auto deriveable instances,
       -- and fully rendered instances.
-      >>= pure . solve cfg
+      <&> solve cfg
       -- Separate the operation input/output shapes from the .Types shapes.
       >>= separate (svc ^. operations)
 

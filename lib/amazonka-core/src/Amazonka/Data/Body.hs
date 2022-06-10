@@ -312,7 +312,8 @@ hashedBody = HashedStream
 -- | Invariant: only services that support _both_ standard and
 -- chunked signing expose 'RequestBody' as a parameter.
 data RequestBody
-  = Chunked ChunkedBody
+  = -- | Currently S3 only, see 'ChunkedBody' for details.
+    Chunked ChunkedBody
   | Hashed HashedBody
   deriving stock (Show)
 

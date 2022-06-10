@@ -17,7 +17,7 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
     | `FromSession`     | `fromSession`                | `AccessKey`, `SecretKey`, `SessionToken`.                                                                                                                                                                                                               |
     |                   | `fromTemporarySession`       | `AccessKey`, `SecretKey`, `SessionToken`, `UTCTime` (expiry time). Likely not useful.                                                                                                                                                                   |
     |                   | `fromKeysEnv`                | None - reads `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and optionally `AWS_SESSION_TOKEN`.                                                                                                                                                          |
-    | `FromEnv`         |                              | Removed - took up named environment variables for access key id/secret access key/session token/expiry time.                                                                                                                                            |
+    | `FromEnv`         |                              | Removed - look up named environment variables for access key id/secret access key/session token/expiry time.                                                                                                                                            |
     | `FromProfile`     | `fromNamedInstanceProfile`   | `Text` - looks up a named instance profile from the Instance Meta-Data Service (IMDS).                                                                                                                                                                  |
     |                   | `fromDefaultInstanceProfile` | None - selects the first instance profile, like the `discover` process does as one of its steps.                                                                                                                                                        |
     | `FromFile`        | `fromFilePath`               | `Text` (profile name), `FilePath` (credentials file), `FilePath` (config file). **Significantly improved** - now respects the `role_arn` setting in config files, alongside either `source_profile`, `credential_source`, or `web_identity_token_file`. |
@@ -34,6 +34,12 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 ### Changed
 
+- `amazonka-core`: urldecode query string parts when parsing to `QueryString`
+[\#780](https://github.com/brendanhay/amazonka/pull/769)
+- `amazonka-dynamodb`, `amazonka-dynamodb-streams`: Fix deserialisation of booleans
+[\#775](https://github.com/brendanhay/amazonka/pull/775)
+- `amazonka`: Add a public interface to send unsigned requests. Sending functions are now defined in `Amazonka.Send`, but are re-exported from `Amazonka`.
+[\#769](https://github.com/brendanhay/amazonka/pull/769)
 - `amazonka-dynamodb`: Mark various fields as required
 [\#724](https://github.com/brendanhay/amazonka/pull/724)
 - `amazonka-dynamodb`: Provide a sum type for `AttributeValue`
@@ -50,6 +56,8 @@ as a thread delay to avoid potential concurrency issues.
 [\#747](https://github.com/brendanhay/amazonka/pull/783)
 - Lenses for the `Env'` data type have been manually provided, as `generic-lens` cannot always derive them when required.
 [\#727](https://github.com/brendanhay/amazonka/pull/727)
+- Presigning URLs that are not for S3
+[\#767](https://github.com/brendanhay/amazonka/pull/767)
 - `amazonka-s3`/`amazonka-glacier`: treat upload IDs are a mandatory part of the `CreateMultipartUpload`/`InitiateMultipartUpload` responses.
 [\#725](https://github.com/brendanhay/amazonka/pull/725)
 - Hosted Zone IDs for S3 website endpoints are correct for all regions.

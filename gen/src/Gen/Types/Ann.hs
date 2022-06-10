@@ -51,7 +51,6 @@ instance Semigroup Relation where
 
 instance Monoid Relation where
   mempty = Relation 0 mempty
-  mappend = (<>)
 
 instance (Functor f, HasRelation a) => HasRelation (Cofree f a) where
   relation = Lens.lens Comonad.extract (flip (:<) . Cofree.unwrap) . relation
@@ -96,6 +95,9 @@ derivingName = \case
   DNFData -> Nothing
   other -> Just (drop 1 (show other))
 
+-- | Primitive types in AWS service definition files.
+--
+-- /See:/ 'Gen.Types.Service.ShapeF' for lists/maps/structs.
 data Lit
   = Int
   | Long

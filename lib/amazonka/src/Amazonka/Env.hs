@@ -147,7 +147,7 @@ override f env = env {envOverride = envOverride env <> Dual (Endo f)}
 -- supplied service will use this configuration instead of the default.
 --
 -- It's suggested you modify the default service configuration,
--- such as @Amazonka.DynamoDB.dynamoDB@.
+-- such as @Amazonka.DynamoDB.defaultService@.
 configure :: Service -> Env -> Env
 configure s = override f
   where

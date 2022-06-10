@@ -165,7 +165,8 @@ instance ToJSON Library where
             "exposedModules" .= List.sort (l ^. exposedModules),
             "otherModules" .= List.sort (l ^. otherModules),
             "extraDependencies" .= List.sort (l ^. extraDependencies),
-            "operations" .= (l ^.. operations . Lens.each),
+            "operations"
+              .= List.sortOn _opName (l ^.. operations . Lens.each),
             "shapes" .= List.sort (l ^.. shapes . Lens.each),
             "waiters" .= (l ^.. waiters . Lens.each)
           ]

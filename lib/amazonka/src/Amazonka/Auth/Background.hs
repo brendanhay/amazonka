@@ -52,10 +52,10 @@ fetchAuthInBackground menv =
 
     loop :: IO AuthEnv -> Weak (IORef AuthEnv) -> ThreadId -> ISO8601 -> IO ()
     loop ma w p x = do
-      next <- diff x <$> Time.getCurrentTime
-      -- | Refresh the token conservatively -- within half its lifespan --
-      -- | to account for execution time of the IO AuthEnv action
-      Concurrent.threadDelay (next `div` 2)
+      untilExpiry <- diff x <$> Time.getCurrentTime
+      -- Refresh the token conservatively -- within half its lifespan --
+      -- to account for execution time of the refresh action
+      Concurrent.threadDelay $ untilExpiry `div` 2
 
       env <- Exception.try ma
       case env of

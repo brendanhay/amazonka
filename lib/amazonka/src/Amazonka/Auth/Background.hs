@@ -68,4 +68,4 @@ fetchAuthInBackground menv =
 
     diff (Time x) y = (* 1000000) $ if n > 0 then n else 1
       where
-        n = truncate (Time.diffUTCTime x y) - 60
+        n = truncate (0.80 * Time.diffUTCTime x y)

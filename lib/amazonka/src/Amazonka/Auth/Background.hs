@@ -54,7 +54,7 @@ fetchAuthInBackground menv =
     loop ma w p x = do
       untilExpiry <- diff x <$> Time.getCurrentTime
       -- Refresh the token within 5 minutes of expiry, or half its lifetime if
-      -- sooner than that. This is to account for execution time of the refre
+      -- sooner than that. This is to account for execution time of the refresh action.
       let fiveMinutes = 5 * 60 * 1000000
       Concurrent.threadDelay $
         if untilExpiry > fiveMinutes

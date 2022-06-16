@@ -241,6 +241,9 @@ credentialScope s e t =
       "aws4_request"
     ]
 
+encode :: ByteString -> ByteString
+encode = toBS . escapePath . rawPath
+
 canonicalRequest ::
   Method ->
   Path ->
@@ -254,7 +257,7 @@ canonicalRequest meth path digest query chs shs =
     BS8.intercalate
       "\n"
       [ toBS meth,
-        toBS path,
+        encode (toBS path),
         toBS query,
         toBS chs,
         toBS shs,

@@ -1,3 +1,10 @@
 {
-    "libraryName": "amazonka-sso"
+    "libraryName": "amazonka-sso",
+    "typeOverrides": {
+        "GetRoleCredentialsResponse": {
+            "requiredFields": [
+                "roleCredentials"
+            ]
+        }
+    }
 }

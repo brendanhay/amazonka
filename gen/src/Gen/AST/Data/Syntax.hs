@@ -7,6 +7,7 @@ import qualified Control.Lens as Lens
 import qualified Data.Char as Char
 import qualified Data.Foldable as Fold
 import qualified Data.HashMap.Strict as HashMap
+import Data.List (find)
 import qualified Data.List.NonEmpty as NE
 import qualified Data.Text as Text
 import Gen.AST.Data.Field
@@ -524,16 +525,19 @@ toXMLD p n =
     enc = mconcatE . map (either id id)
 
 toJSOND :: Protocol -> Id -> [Field] -> Decl
-toJSOND p n =
+toJSOND p n fs =
   instD1 "Core.ToJSON" n
     . wildcardD n "toJSON" enc (Exts.paren $ Exts.app (var "Core.Object") memptyE)
-    . map (Right . toJSONE p)
+    $ map (Right . toJSONE p) fs
   where
-    enc =
-      Exts.app (var "Core.object")
-        . Exts.app (var "Prelude.catMaybes")
-        . Exts.listE
-        . map (either id id)
+    enc = case find _fieldPayload fs of
+      Nothing ->
+        Exts.app (var "Core.object")
+          . Exts.app (var "Prelude.catMaybes")
+          . Exts.listE
+          . map (either id id)
+      Just f ->
+        const $ Exts.app (var "Core.toJSON") (var $ fieldAccessor f)
 
 toHeadersD :: Protocol -> Id -> [Either (Text, Text) Field] -> Decl
 toHeadersD p n = instD1 "Core.ToHeaders" n . wildcardD n "toHeaders" enc memptyE
@@ -572,7 +576,7 @@ wildcardD ::
 wildcardD n f enc xs = \case
   [] -> constD f xs
   es
-    | not (any isRight es) -> funD f $ Exts.app (var "Prelude.const") (enc es)
+    | all isLeft es -> funD f $ Exts.app (var "Prelude.const") (enc es)
     | otherwise -> Exts.InsDecl () (Exts.FunBind () [match prec es])
   where
     match p es =

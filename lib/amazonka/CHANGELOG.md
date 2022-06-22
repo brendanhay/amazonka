@@ -34,6 +34,8 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 ### Changed
 
+- `amazonka-sso`: Mark `RoleCredentials_{accessKeyId,secretAccessKey}` as required
+[\#789](https://github.com/brendanhay/amazonka/pull/789)
 - `amazonka-core`: urldecode query string parts when parsing to `QueryString`
 [\#780](https://github.com/brendanhay/amazonka/pull/769)
 - `amazonka-dynamodb`, `amazonka-dynamodb-streams`: Fix deserialisation of booleans

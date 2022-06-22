@@ -5,6 +5,12 @@
             "requiredFields": [
                 "roleCredentials"
             ]
+        },
+        "RoleCredentials": {
+            "requiredFields": [
+                "accessKeyId",
+                "secretAccessKey"
+            ]
         }
     }
 }

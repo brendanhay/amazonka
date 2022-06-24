@@ -17,11 +17,11 @@ module Amazonka.DataPipeline.Types
     defaultService,
 
     -- * Errors
-    _InvalidRequestException,
-    _InternalServiceError,
-    _PipelineDeletedException,
     _PipelineNotFoundException,
+    _InternalServiceError,
     _TaskNotFoundException,
+    _InvalidRequestException,
+    _PipelineDeletedException,
 
     -- * OperatorType
     OperatorType (..),
@@ -39,14 +39,14 @@ module Amazonka.DataPipeline.Types
     -- * InstanceIdentity
     InstanceIdentity (..),
     newInstanceIdentity,
-    instanceIdentity_signature,
     instanceIdentity_document,
+    instanceIdentity_signature,
 
     -- * Operator
     Operator (..),
     newOperator,
-    operator_values,
     operator_type,
+    operator_values,
 
     -- * ParameterAttribute
     ParameterAttribute (..),
@@ -69,8 +69,8 @@ module Amazonka.DataPipeline.Types
     -- * PipelineDescription
     PipelineDescription (..),
     newPipelineDescription,
-    pipelineDescription_description,
     pipelineDescription_tags,
+    pipelineDescription_description,
     pipelineDescription_pipelineId,
     pipelineDescription_name,
     pipelineDescription_fields,
@@ -96,8 +96,8 @@ module Amazonka.DataPipeline.Types
     -- * Selector
     Selector (..),
     newSelector,
-    selector_operator,
     selector_fieldName,
+    selector_operator,
 
     -- * Tag
     Tag (..),
@@ -108,9 +108,9 @@ module Amazonka.DataPipeline.Types
     -- * TaskObject
     TaskObject (..),
     newTaskObject,
-    taskObject_pipelineId,
     taskObject_attemptId,
     taskObject_taskId,
+    taskObject_pipelineId,
     taskObject_objects,
 
     -- * ValidationError
@@ -122,8 +122,8 @@ module Amazonka.DataPipeline.Types
     -- * ValidationWarning
     ValidationWarning (..),
     newValidationWarning,
-    validationWarning_warnings,
     validationWarning_id,
+    validationWarning_warnings,
   )
 where
 
@@ -175,35 +175,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -212,13 +185,62 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | The specified pipeline was not found. Verify that you used the correct
+-- user and account identifiers.
+_PipelineNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PipelineNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "PipelineNotFoundException"
+
+-- | An internal service error occurred.
+_InternalServiceError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceError =
+  Core._MatchServiceError
+    defaultService
+    "InternalServiceError"
+
+-- | The specified task was not found.
+_TaskNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TaskNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "TaskNotFoundException"
 
 -- | The request was not valid. Verify that your request was properly
 -- formatted, that the signature was generated with the correct
@@ -230,31 +252,9 @@ _InvalidRequestException =
     defaultService
     "InvalidRequestException"
 
--- | An internal service error occurred.
-_InternalServiceError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServiceError =
-  Core._MatchServiceError
-    defaultService
-    "InternalServiceError"
-
 -- | The specified pipeline has been deleted.
 _PipelineDeletedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _PipelineDeletedException =
   Core._MatchServiceError
     defaultService
     "PipelineDeletedException"
-
--- | The specified pipeline was not found. Verify that you used the correct
--- user and account identifiers.
-_PipelineNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PipelineNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "PipelineNotFoundException"
-
--- | The specified task was not found.
-_TaskNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TaskNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "TaskNotFoundException"

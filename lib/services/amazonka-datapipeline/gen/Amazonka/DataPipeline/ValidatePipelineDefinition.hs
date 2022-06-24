@@ -28,8 +28,8 @@ module Amazonka.DataPipeline.ValidatePipelineDefinition
     newValidatePipelineDefinition,
 
     -- * Request Lenses
-    validatePipelineDefinition_parameterObjects,
     validatePipelineDefinition_parameterValues,
+    validatePipelineDefinition_parameterObjects,
     validatePipelineDefinition_pipelineId,
     validatePipelineDefinition_pipelineObjects,
 
@@ -56,10 +56,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newValidatePipelineDefinition' smart constructor.
 data ValidatePipelineDefinition = ValidatePipelineDefinition'
-  { -- | The parameter objects used with the pipeline.
-    parameterObjects :: Prelude.Maybe [ParameterObject],
-    -- | The parameter values used with the pipeline.
+  { -- | The parameter values used with the pipeline.
     parameterValues :: Prelude.Maybe [ParameterValue],
+    -- | The parameter objects used with the pipeline.
+    parameterObjects :: Prelude.Maybe [ParameterObject],
     -- | The ID of the pipeline.
     pipelineId :: Prelude.Text,
     -- | The objects that define the pipeline changes to validate against the
@@ -76,9 +76,9 @@ data ValidatePipelineDefinition = ValidatePipelineDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parameterObjects', 'validatePipelineDefinition_parameterObjects' - The parameter objects used with the pipeline.
---
 -- 'parameterValues', 'validatePipelineDefinition_parameterValues' - The parameter values used with the pipeline.
+--
+-- 'parameterObjects', 'validatePipelineDefinition_parameterObjects' - The parameter objects used with the pipeline.
 --
 -- 'pipelineId', 'validatePipelineDefinition_pipelineId' - The ID of the pipeline.
 --
@@ -90,20 +90,20 @@ newValidatePipelineDefinition ::
   ValidatePipelineDefinition
 newValidatePipelineDefinition pPipelineId_ =
   ValidatePipelineDefinition'
-    { parameterObjects =
+    { parameterValues =
         Prelude.Nothing,
-      parameterValues = Prelude.Nothing,
+      parameterObjects = Prelude.Nothing,
       pipelineId = pPipelineId_,
       pipelineObjects = Prelude.mempty
     }
 
--- | The parameter objects used with the pipeline.
-validatePipelineDefinition_parameterObjects :: Lens.Lens' ValidatePipelineDefinition (Prelude.Maybe [ParameterObject])
-validatePipelineDefinition_parameterObjects = Lens.lens (\ValidatePipelineDefinition' {parameterObjects} -> parameterObjects) (\s@ValidatePipelineDefinition' {} a -> s {parameterObjects = a} :: ValidatePipelineDefinition) Prelude.. Lens.mapping Lens.coerced
-
 -- | The parameter values used with the pipeline.
 validatePipelineDefinition_parameterValues :: Lens.Lens' ValidatePipelineDefinition (Prelude.Maybe [ParameterValue])
 validatePipelineDefinition_parameterValues = Lens.lens (\ValidatePipelineDefinition' {parameterValues} -> parameterValues) (\s@ValidatePipelineDefinition' {} a -> s {parameterValues = a} :: ValidatePipelineDefinition) Prelude.. Lens.mapping Lens.coerced
+
+-- | The parameter objects used with the pipeline.
+validatePipelineDefinition_parameterObjects :: Lens.Lens' ValidatePipelineDefinition (Prelude.Maybe [ParameterObject])
+validatePipelineDefinition_parameterObjects = Lens.lens (\ValidatePipelineDefinition' {parameterObjects} -> parameterObjects) (\s@ValidatePipelineDefinition' {} a -> s {parameterObjects = a} :: ValidatePipelineDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the pipeline.
 validatePipelineDefinition_pipelineId :: Lens.Lens' ValidatePipelineDefinition Prelude.Text
@@ -135,15 +135,15 @@ instance Core.AWSRequest ValidatePipelineDefinition where
 
 instance Prelude.Hashable ValidatePipelineDefinition where
   hashWithSalt _salt ValidatePipelineDefinition' {..} =
-    _salt `Prelude.hashWithSalt` parameterObjects
-      `Prelude.hashWithSalt` parameterValues
+    _salt `Prelude.hashWithSalt` parameterValues
+      `Prelude.hashWithSalt` parameterObjects
       `Prelude.hashWithSalt` pipelineId
       `Prelude.hashWithSalt` pipelineObjects
 
 instance Prelude.NFData ValidatePipelineDefinition where
   rnf ValidatePipelineDefinition' {..} =
-    Prelude.rnf parameterObjects
-      `Prelude.seq` Prelude.rnf parameterValues
+    Prelude.rnf parameterValues
+      `Prelude.seq` Prelude.rnf parameterObjects
       `Prelude.seq` Prelude.rnf pipelineId
       `Prelude.seq` Prelude.rnf pipelineObjects
 
@@ -166,10 +166,10 @@ instance Core.ToJSON ValidatePipelineDefinition where
   toJSON ValidatePipelineDefinition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("parameterObjects" Core..=)
-              Prelude.<$> parameterObjects,
-            ("parameterValues" Core..=)
+          [ ("parameterValues" Core..=)
               Prelude.<$> parameterValues,
+            ("parameterObjects" Core..=)
+              Prelude.<$> parameterObjects,
             Prelude.Just ("pipelineId" Core..= pipelineId),
             Prelude.Just
               ("pipelineObjects" Core..= pipelineObjects)

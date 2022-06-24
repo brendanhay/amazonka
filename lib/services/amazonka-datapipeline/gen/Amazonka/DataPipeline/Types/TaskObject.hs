@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTaskObject' smart constructor.
 data TaskObject = TaskObject'
-  { -- | The ID of the pipeline that provided the task.
-    pipelineId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the pipeline task attempt object. AWS Data Pipeline uses this
+  { -- | The ID of the pipeline task attempt object. AWS Data Pipeline uses this
     -- value to track how many times a task is attempted.
     attemptId :: Prelude.Maybe Prelude.Text,
     -- | An internal identifier for the task. This ID is passed to the
     -- SetTaskStatus and ReportTaskProgress actions.
     taskId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the pipeline that provided the task.
+    pipelineId :: Prelude.Maybe Prelude.Text,
     -- | Connection information for the location where the task runner will
     -- publish the output of the task.
     objects :: Prelude.Maybe (Prelude.HashMap Prelude.Text PipelineObject)
@@ -51,13 +51,13 @@ data TaskObject = TaskObject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pipelineId', 'taskObject_pipelineId' - The ID of the pipeline that provided the task.
---
 -- 'attemptId', 'taskObject_attemptId' - The ID of the pipeline task attempt object. AWS Data Pipeline uses this
 -- value to track how many times a task is attempted.
 --
 -- 'taskId', 'taskObject_taskId' - An internal identifier for the task. This ID is passed to the
 -- SetTaskStatus and ReportTaskProgress actions.
+--
+-- 'pipelineId', 'taskObject_pipelineId' - The ID of the pipeline that provided the task.
 --
 -- 'objects', 'taskObject_objects' - Connection information for the location where the task runner will
 -- publish the output of the task.
@@ -65,15 +65,11 @@ newTaskObject ::
   TaskObject
 newTaskObject =
   TaskObject'
-    { pipelineId = Prelude.Nothing,
-      attemptId = Prelude.Nothing,
+    { attemptId = Prelude.Nothing,
       taskId = Prelude.Nothing,
+      pipelineId = Prelude.Nothing,
       objects = Prelude.Nothing
     }
-
--- | The ID of the pipeline that provided the task.
-taskObject_pipelineId :: Lens.Lens' TaskObject (Prelude.Maybe Prelude.Text)
-taskObject_pipelineId = Lens.lens (\TaskObject' {pipelineId} -> pipelineId) (\s@TaskObject' {} a -> s {pipelineId = a} :: TaskObject)
 
 -- | The ID of the pipeline task attempt object. AWS Data Pipeline uses this
 -- value to track how many times a task is attempted.
@@ -84,6 +80,10 @@ taskObject_attemptId = Lens.lens (\TaskObject' {attemptId} -> attemptId) (\s@Tas
 -- SetTaskStatus and ReportTaskProgress actions.
 taskObject_taskId :: Lens.Lens' TaskObject (Prelude.Maybe Prelude.Text)
 taskObject_taskId = Lens.lens (\TaskObject' {taskId} -> taskId) (\s@TaskObject' {} a -> s {taskId = a} :: TaskObject)
+
+-- | The ID of the pipeline that provided the task.
+taskObject_pipelineId :: Lens.Lens' TaskObject (Prelude.Maybe Prelude.Text)
+taskObject_pipelineId = Lens.lens (\TaskObject' {pipelineId} -> pipelineId) (\s@TaskObject' {} a -> s {pipelineId = a} :: TaskObject)
 
 -- | Connection information for the location where the task runner will
 -- publish the output of the task.
@@ -96,22 +96,22 @@ instance Core.FromJSON TaskObject where
       "TaskObject"
       ( \x ->
           TaskObject'
-            Prelude.<$> (x Core..:? "pipelineId")
-            Prelude.<*> (x Core..:? "attemptId")
+            Prelude.<$> (x Core..:? "attemptId")
             Prelude.<*> (x Core..:? "taskId")
+            Prelude.<*> (x Core..:? "pipelineId")
             Prelude.<*> (x Core..:? "objects" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TaskObject where
   hashWithSalt _salt TaskObject' {..} =
-    _salt `Prelude.hashWithSalt` pipelineId
-      `Prelude.hashWithSalt` attemptId
+    _salt `Prelude.hashWithSalt` attemptId
       `Prelude.hashWithSalt` taskId
+      `Prelude.hashWithSalt` pipelineId
       `Prelude.hashWithSalt` objects
 
 instance Prelude.NFData TaskObject where
   rnf TaskObject' {..} =
-    Prelude.rnf pipelineId
-      `Prelude.seq` Prelude.rnf attemptId
+    Prelude.rnf attemptId
       `Prelude.seq` Prelude.rnf taskId
+      `Prelude.seq` Prelude.rnf pipelineId
       `Prelude.seq` Prelude.rnf objects

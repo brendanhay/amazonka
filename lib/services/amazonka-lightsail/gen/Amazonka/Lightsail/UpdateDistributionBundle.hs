@@ -40,8 +40,8 @@ module Amazonka.Lightsail.UpdateDistributionBundle
     newUpdateDistributionBundle,
 
     -- * Request Lenses
-    updateDistributionBundle_bundleId,
     updateDistributionBundle_distributionName,
+    updateDistributionBundle_bundleId,
 
     -- * Destructuring the Response
     UpdateDistributionBundleResponse (..),
@@ -62,16 +62,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateDistributionBundle' smart constructor.
 data UpdateDistributionBundle = UpdateDistributionBundle'
-  { -- | The bundle ID of the new bundle to apply to your distribution.
-    --
-    -- Use the @GetDistributionBundles@ action to get a list of distribution
-    -- bundle IDs that you can specify.
-    bundleId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the distribution for which to update the bundle.
+  { -- | The name of the distribution for which to update the bundle.
     --
     -- Use the @GetDistributions@ action to get a list of distribution names
     -- that you can specify.
-    distributionName :: Prelude.Maybe Prelude.Text
+    distributionName :: Prelude.Maybe Prelude.Text,
+    -- | The bundle ID of the new bundle to apply to your distribution.
+    --
+    -- Use the @GetDistributionBundles@ action to get a list of distribution
+    -- bundle IDs that you can specify.
+    bundleId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,30 +83,23 @@ data UpdateDistributionBundle = UpdateDistributionBundle'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bundleId', 'updateDistributionBundle_bundleId' - The bundle ID of the new bundle to apply to your distribution.
---
--- Use the @GetDistributionBundles@ action to get a list of distribution
--- bundle IDs that you can specify.
---
 -- 'distributionName', 'updateDistributionBundle_distributionName' - The name of the distribution for which to update the bundle.
 --
 -- Use the @GetDistributions@ action to get a list of distribution names
 -- that you can specify.
+--
+-- 'bundleId', 'updateDistributionBundle_bundleId' - The bundle ID of the new bundle to apply to your distribution.
+--
+-- Use the @GetDistributionBundles@ action to get a list of distribution
+-- bundle IDs that you can specify.
 newUpdateDistributionBundle ::
   UpdateDistributionBundle
 newUpdateDistributionBundle =
   UpdateDistributionBundle'
-    { bundleId =
+    { distributionName =
         Prelude.Nothing,
-      distributionName = Prelude.Nothing
+      bundleId = Prelude.Nothing
     }
-
--- | The bundle ID of the new bundle to apply to your distribution.
---
--- Use the @GetDistributionBundles@ action to get a list of distribution
--- bundle IDs that you can specify.
-updateDistributionBundle_bundleId :: Lens.Lens' UpdateDistributionBundle (Prelude.Maybe Prelude.Text)
-updateDistributionBundle_bundleId = Lens.lens (\UpdateDistributionBundle' {bundleId} -> bundleId) (\s@UpdateDistributionBundle' {} a -> s {bundleId = a} :: UpdateDistributionBundle)
 
 -- | The name of the distribution for which to update the bundle.
 --
@@ -114,6 +107,13 @@ updateDistributionBundle_bundleId = Lens.lens (\UpdateDistributionBundle' {bundl
 -- that you can specify.
 updateDistributionBundle_distributionName :: Lens.Lens' UpdateDistributionBundle (Prelude.Maybe Prelude.Text)
 updateDistributionBundle_distributionName = Lens.lens (\UpdateDistributionBundle' {distributionName} -> distributionName) (\s@UpdateDistributionBundle' {} a -> s {distributionName = a} :: UpdateDistributionBundle)
+
+-- | The bundle ID of the new bundle to apply to your distribution.
+--
+-- Use the @GetDistributionBundles@ action to get a list of distribution
+-- bundle IDs that you can specify.
+updateDistributionBundle_bundleId :: Lens.Lens' UpdateDistributionBundle (Prelude.Maybe Prelude.Text)
+updateDistributionBundle_bundleId = Lens.lens (\UpdateDistributionBundle' {bundleId} -> bundleId) (\s@UpdateDistributionBundle' {} a -> s {bundleId = a} :: UpdateDistributionBundle)
 
 instance Core.AWSRequest UpdateDistributionBundle where
   type
@@ -130,13 +130,13 @@ instance Core.AWSRequest UpdateDistributionBundle where
 
 instance Prelude.Hashable UpdateDistributionBundle where
   hashWithSalt _salt UpdateDistributionBundle' {..} =
-    _salt `Prelude.hashWithSalt` bundleId
-      `Prelude.hashWithSalt` distributionName
+    _salt `Prelude.hashWithSalt` distributionName
+      `Prelude.hashWithSalt` bundleId
 
 instance Prelude.NFData UpdateDistributionBundle where
   rnf UpdateDistributionBundle' {..} =
-    Prelude.rnf bundleId
-      `Prelude.seq` Prelude.rnf distributionName
+    Prelude.rnf distributionName
+      `Prelude.seq` Prelude.rnf bundleId
 
 instance Core.ToHeaders UpdateDistributionBundle where
   toHeaders =
@@ -157,9 +157,9 @@ instance Core.ToJSON UpdateDistributionBundle where
   toJSON UpdateDistributionBundle' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("bundleId" Core..=) Prelude.<$> bundleId,
-            ("distributionName" Core..=)
-              Prelude.<$> distributionName
+          [ ("distributionName" Core..=)
+              Prelude.<$> distributionName,
+            ("bundleId" Core..=) Prelude.<$> bundleId
           ]
       )
 

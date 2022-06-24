@@ -32,8 +32,8 @@ module Amazonka.Lightsail.CreateDisk
     newCreateDisk,
 
     -- * Request Lenses
-    createDisk_addOns,
     createDisk_tags,
+    createDisk_addOns,
     createDisk_diskName,
     createDisk_availabilityZone,
     createDisk_sizeInGb,
@@ -57,13 +57,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDisk' smart constructor.
 data CreateDisk = CreateDisk'
-  { -- | An array of objects that represent the add-ons to enable for the new
-    -- disk.
-    addOns :: Prelude.Maybe [AddOnRequest],
-    -- | The tag keys and optional values to add to the resource during create.
+  { -- | The tag keys and optional values to add to the resource during create.
     --
     -- Use the @TagResource@ action to tag a resource after it\'s created.
     tags :: Prelude.Maybe [Tag],
+    -- | An array of objects that represent the add-ons to enable for the new
+    -- disk.
+    addOns :: Prelude.Maybe [AddOnRequest],
     -- | The unique Lightsail disk name (e.g., @my-disk@).
     diskName :: Prelude.Text,
     -- | The Availability Zone where you want to create the disk (e.g.,
@@ -86,12 +86,12 @@ data CreateDisk = CreateDisk'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'addOns', 'createDisk_addOns' - An array of objects that represent the add-ons to enable for the new
--- disk.
---
 -- 'tags', 'createDisk_tags' - The tag keys and optional values to add to the resource during create.
 --
 -- Use the @TagResource@ action to tag a resource after it\'s created.
+--
+-- 'addOns', 'createDisk_addOns' - An array of objects that represent the add-ons to enable for the new
+-- disk.
 --
 -- 'diskName', 'createDisk_diskName' - The unique Lightsail disk name (e.g., @my-disk@).
 --
@@ -116,23 +116,23 @@ newCreateDisk
   pAvailabilityZone_
   pSizeInGb_ =
     CreateDisk'
-      { addOns = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        addOns = Prelude.Nothing,
         diskName = pDiskName_,
         availabilityZone = pAvailabilityZone_,
         sizeInGb = pSizeInGb_
       }
-
--- | An array of objects that represent the add-ons to enable for the new
--- disk.
-createDisk_addOns :: Lens.Lens' CreateDisk (Prelude.Maybe [AddOnRequest])
-createDisk_addOns = Lens.lens (\CreateDisk' {addOns} -> addOns) (\s@CreateDisk' {} a -> s {addOns = a} :: CreateDisk) Prelude.. Lens.mapping Lens.coerced
 
 -- | The tag keys and optional values to add to the resource during create.
 --
 -- Use the @TagResource@ action to tag a resource after it\'s created.
 createDisk_tags :: Lens.Lens' CreateDisk (Prelude.Maybe [Tag])
 createDisk_tags = Lens.lens (\CreateDisk' {tags} -> tags) (\s@CreateDisk' {} a -> s {tags = a} :: CreateDisk) Prelude.. Lens.mapping Lens.coerced
+
+-- | An array of objects that represent the add-ons to enable for the new
+-- disk.
+createDisk_addOns :: Lens.Lens' CreateDisk (Prelude.Maybe [AddOnRequest])
+createDisk_addOns = Lens.lens (\CreateDisk' {addOns} -> addOns) (\s@CreateDisk' {} a -> s {addOns = a} :: CreateDisk) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique Lightsail disk name (e.g., @my-disk@).
 createDisk_diskName :: Lens.Lens' CreateDisk Prelude.Text
@@ -164,16 +164,16 @@ instance Core.AWSRequest CreateDisk where
 
 instance Prelude.Hashable CreateDisk where
   hashWithSalt _salt CreateDisk' {..} =
-    _salt `Prelude.hashWithSalt` addOns
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` addOns
       `Prelude.hashWithSalt` diskName
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` sizeInGb
 
 instance Prelude.NFData CreateDisk where
   rnf CreateDisk' {..} =
-    Prelude.rnf addOns
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf addOns
       `Prelude.seq` Prelude.rnf diskName
       `Prelude.seq` Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf sizeInGb
@@ -197,8 +197,8 @@ instance Core.ToJSON CreateDisk where
   toJSON CreateDisk' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("addOns" Core..=) Prelude.<$> addOns,
-            ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("addOns" Core..=) Prelude.<$> addOns,
             Prelude.Just ("diskName" Core..= diskName),
             Prelude.Just
               ("availabilityZone" Core..= availabilityZone),

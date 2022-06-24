@@ -31,10 +31,11 @@ data HostKeyAttributes = HostKeyAttributes'
     --
     -- This value is listed only for RDP certificates.
     notValidAfter :: Prelude.Maybe Core.POSIX,
-    -- | The returned RDP certificate is valid after this point in time.
-    --
-    -- This value is listed only for RDP certificates.
-    notValidBefore :: Prelude.Maybe Core.POSIX,
+    -- | The public SSH host key or the RDP certificate.
+    publicKey :: Prelude.Maybe Prelude.Text,
+    -- | The time that the SSH host key or RDP certificate was recorded by
+    -- Lightsail.
+    witnessedAt :: Prelude.Maybe Core.POSIX,
     -- | The SHA-1 fingerprint of the returned SSH host key or RDP certificate.
     --
     -- -   Example of an SHA-1 SSH fingerprint:
@@ -45,17 +46,16 @@ data HostKeyAttributes = HostKeyAttributes'
     --
     --     @af:34:51:fe:09:f0:e0:da:b8:4e:56:ca:60:c2:10:ff:38:06:db:45@
     fingerprintSHA1 :: Prelude.Maybe Prelude.Text,
-    -- | The public SSH host key or the RDP certificate.
-    publicKey :: Prelude.Maybe Prelude.Text,
+    -- | The returned RDP certificate is valid after this point in time.
+    --
+    -- This value is listed only for RDP certificates.
+    notValidBefore :: Prelude.Maybe Core.POSIX,
     -- | The SSH host key algorithm or the RDP certificate format.
     --
     -- For SSH host keys, the algorithm may be @ssh-rsa@,
     -- @ecdsa-sha2-nistp256@, @ssh-ed25519@, etc. For RDP certificates, the
     -- algorithm is always @x509-cert@.
     algorithm :: Prelude.Maybe Prelude.Text,
-    -- | The time that the SSH host key or RDP certificate was recorded by
-    -- Lightsail.
-    witnessedAt :: Prelude.Maybe Core.POSIX,
     -- | The SHA-256 fingerprint of the returned SSH host key or RDP certificate.
     --
     -- -   Example of an SHA-256 SSH fingerprint:
@@ -81,9 +81,10 @@ data HostKeyAttributes = HostKeyAttributes'
 --
 -- This value is listed only for RDP certificates.
 --
--- 'notValidBefore', 'hostKeyAttributes_notValidBefore' - The returned RDP certificate is valid after this point in time.
+-- 'publicKey', 'hostKeyAttributes_publicKey' - The public SSH host key or the RDP certificate.
 --
--- This value is listed only for RDP certificates.
+-- 'witnessedAt', 'hostKeyAttributes_witnessedAt' - The time that the SSH host key or RDP certificate was recorded by
+-- Lightsail.
 --
 -- 'fingerprintSHA1', 'hostKeyAttributes_fingerprintSHA1' - The SHA-1 fingerprint of the returned SSH host key or RDP certificate.
 --
@@ -95,16 +96,15 @@ data HostKeyAttributes = HostKeyAttributes'
 --
 --     @af:34:51:fe:09:f0:e0:da:b8:4e:56:ca:60:c2:10:ff:38:06:db:45@
 --
--- 'publicKey', 'hostKeyAttributes_publicKey' - The public SSH host key or the RDP certificate.
+-- 'notValidBefore', 'hostKeyAttributes_notValidBefore' - The returned RDP certificate is valid after this point in time.
+--
+-- This value is listed only for RDP certificates.
 --
 -- 'algorithm', 'hostKeyAttributes_algorithm' - The SSH host key algorithm or the RDP certificate format.
 --
 -- For SSH host keys, the algorithm may be @ssh-rsa@,
 -- @ecdsa-sha2-nistp256@, @ssh-ed25519@, etc. For RDP certificates, the
 -- algorithm is always @x509-cert@.
---
--- 'witnessedAt', 'hostKeyAttributes_witnessedAt' - The time that the SSH host key or RDP certificate was recorded by
--- Lightsail.
 --
 -- 'fingerprintSHA256', 'hostKeyAttributes_fingerprintSHA256' - The SHA-256 fingerprint of the returned SSH host key or RDP certificate.
 --
@@ -120,11 +120,11 @@ newHostKeyAttributes ::
 newHostKeyAttributes =
   HostKeyAttributes'
     { notValidAfter = Prelude.Nothing,
-      notValidBefore = Prelude.Nothing,
-      fingerprintSHA1 = Prelude.Nothing,
       publicKey = Prelude.Nothing,
-      algorithm = Prelude.Nothing,
       witnessedAt = Prelude.Nothing,
+      fingerprintSHA1 = Prelude.Nothing,
+      notValidBefore = Prelude.Nothing,
+      algorithm = Prelude.Nothing,
       fingerprintSHA256 = Prelude.Nothing
     }
 
@@ -134,11 +134,14 @@ newHostKeyAttributes =
 hostKeyAttributes_notValidAfter :: Lens.Lens' HostKeyAttributes (Prelude.Maybe Prelude.UTCTime)
 hostKeyAttributes_notValidAfter = Lens.lens (\HostKeyAttributes' {notValidAfter} -> notValidAfter) (\s@HostKeyAttributes' {} a -> s {notValidAfter = a} :: HostKeyAttributes) Prelude.. Lens.mapping Core._Time
 
--- | The returned RDP certificate is valid after this point in time.
---
--- This value is listed only for RDP certificates.
-hostKeyAttributes_notValidBefore :: Lens.Lens' HostKeyAttributes (Prelude.Maybe Prelude.UTCTime)
-hostKeyAttributes_notValidBefore = Lens.lens (\HostKeyAttributes' {notValidBefore} -> notValidBefore) (\s@HostKeyAttributes' {} a -> s {notValidBefore = a} :: HostKeyAttributes) Prelude.. Lens.mapping Core._Time
+-- | The public SSH host key or the RDP certificate.
+hostKeyAttributes_publicKey :: Lens.Lens' HostKeyAttributes (Prelude.Maybe Prelude.Text)
+hostKeyAttributes_publicKey = Lens.lens (\HostKeyAttributes' {publicKey} -> publicKey) (\s@HostKeyAttributes' {} a -> s {publicKey = a} :: HostKeyAttributes)
+
+-- | The time that the SSH host key or RDP certificate was recorded by
+-- Lightsail.
+hostKeyAttributes_witnessedAt :: Lens.Lens' HostKeyAttributes (Prelude.Maybe Prelude.UTCTime)
+hostKeyAttributes_witnessedAt = Lens.lens (\HostKeyAttributes' {witnessedAt} -> witnessedAt) (\s@HostKeyAttributes' {} a -> s {witnessedAt = a} :: HostKeyAttributes) Prelude.. Lens.mapping Core._Time
 
 -- | The SHA-1 fingerprint of the returned SSH host key or RDP certificate.
 --
@@ -152,9 +155,11 @@ hostKeyAttributes_notValidBefore = Lens.lens (\HostKeyAttributes' {notValidBefor
 hostKeyAttributes_fingerprintSHA1 :: Lens.Lens' HostKeyAttributes (Prelude.Maybe Prelude.Text)
 hostKeyAttributes_fingerprintSHA1 = Lens.lens (\HostKeyAttributes' {fingerprintSHA1} -> fingerprintSHA1) (\s@HostKeyAttributes' {} a -> s {fingerprintSHA1 = a} :: HostKeyAttributes)
 
--- | The public SSH host key or the RDP certificate.
-hostKeyAttributes_publicKey :: Lens.Lens' HostKeyAttributes (Prelude.Maybe Prelude.Text)
-hostKeyAttributes_publicKey = Lens.lens (\HostKeyAttributes' {publicKey} -> publicKey) (\s@HostKeyAttributes' {} a -> s {publicKey = a} :: HostKeyAttributes)
+-- | The returned RDP certificate is valid after this point in time.
+--
+-- This value is listed only for RDP certificates.
+hostKeyAttributes_notValidBefore :: Lens.Lens' HostKeyAttributes (Prelude.Maybe Prelude.UTCTime)
+hostKeyAttributes_notValidBefore = Lens.lens (\HostKeyAttributes' {notValidBefore} -> notValidBefore) (\s@HostKeyAttributes' {} a -> s {notValidBefore = a} :: HostKeyAttributes) Prelude.. Lens.mapping Core._Time
 
 -- | The SSH host key algorithm or the RDP certificate format.
 --
@@ -163,11 +168,6 @@ hostKeyAttributes_publicKey = Lens.lens (\HostKeyAttributes' {publicKey} -> publ
 -- algorithm is always @x509-cert@.
 hostKeyAttributes_algorithm :: Lens.Lens' HostKeyAttributes (Prelude.Maybe Prelude.Text)
 hostKeyAttributes_algorithm = Lens.lens (\HostKeyAttributes' {algorithm} -> algorithm) (\s@HostKeyAttributes' {} a -> s {algorithm = a} :: HostKeyAttributes)
-
--- | The time that the SSH host key or RDP certificate was recorded by
--- Lightsail.
-hostKeyAttributes_witnessedAt :: Lens.Lens' HostKeyAttributes (Prelude.Maybe Prelude.UTCTime)
-hostKeyAttributes_witnessedAt = Lens.lens (\HostKeyAttributes' {witnessedAt} -> witnessedAt) (\s@HostKeyAttributes' {} a -> s {witnessedAt = a} :: HostKeyAttributes) Prelude.. Lens.mapping Core._Time
 
 -- | The SHA-256 fingerprint of the returned SSH host key or RDP certificate.
 --
@@ -188,30 +188,30 @@ instance Core.FromJSON HostKeyAttributes where
       ( \x ->
           HostKeyAttributes'
             Prelude.<$> (x Core..:? "notValidAfter")
-            Prelude.<*> (x Core..:? "notValidBefore")
-            Prelude.<*> (x Core..:? "fingerprintSHA1")
             Prelude.<*> (x Core..:? "publicKey")
-            Prelude.<*> (x Core..:? "algorithm")
             Prelude.<*> (x Core..:? "witnessedAt")
+            Prelude.<*> (x Core..:? "fingerprintSHA1")
+            Prelude.<*> (x Core..:? "notValidBefore")
+            Prelude.<*> (x Core..:? "algorithm")
             Prelude.<*> (x Core..:? "fingerprintSHA256")
       )
 
 instance Prelude.Hashable HostKeyAttributes where
   hashWithSalt _salt HostKeyAttributes' {..} =
     _salt `Prelude.hashWithSalt` notValidAfter
-      `Prelude.hashWithSalt` notValidBefore
-      `Prelude.hashWithSalt` fingerprintSHA1
       `Prelude.hashWithSalt` publicKey
-      `Prelude.hashWithSalt` algorithm
       `Prelude.hashWithSalt` witnessedAt
+      `Prelude.hashWithSalt` fingerprintSHA1
+      `Prelude.hashWithSalt` notValidBefore
+      `Prelude.hashWithSalt` algorithm
       `Prelude.hashWithSalt` fingerprintSHA256
 
 instance Prelude.NFData HostKeyAttributes where
   rnf HostKeyAttributes' {..} =
     Prelude.rnf notValidAfter
-      `Prelude.seq` Prelude.rnf notValidBefore
-      `Prelude.seq` Prelude.rnf fingerprintSHA1
       `Prelude.seq` Prelude.rnf publicKey
-      `Prelude.seq` Prelude.rnf algorithm
       `Prelude.seq` Prelude.rnf witnessedAt
+      `Prelude.seq` Prelude.rnf fingerprintSHA1
+      `Prelude.seq` Prelude.rnf notValidBefore
+      `Prelude.seq` Prelude.rnf algorithm
       `Prelude.seq` Prelude.rnf fingerprintSHA256

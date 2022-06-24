@@ -30,7 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRenewalSummary' smart constructor.
 data RenewalSummary = RenewalSummary'
-  { -- | The renewal status of the certificate.
+  { -- | The reason for the renewal status of the certificate.
+    renewalStatusReason :: Prelude.Maybe Prelude.Text,
+    -- | The renewal status of the certificate.
     --
     -- The following renewal status are possible:
     --
@@ -58,9 +60,7 @@ data RenewalSummary = RenewalSummary'
     -- certificate.
     domainValidationRecords :: Prelude.Maybe [DomainValidationRecord],
     -- | The timestamp when the certificate was last updated.
-    updatedAt :: Prelude.Maybe Core.POSIX,
-    -- | The reason for the renewal status of the certificate.
-    renewalStatusReason :: Prelude.Maybe Prelude.Text
+    updatedAt :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,6 +71,8 @@ data RenewalSummary = RenewalSummary'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'renewalStatusReason', 'renewalSummary_renewalStatusReason' - The reason for the renewal status of the certificate.
 --
 -- 'renewalStatus', 'renewalSummary_renewalStatus' - The renewal status of the certificate.
 --
@@ -100,17 +102,20 @@ data RenewalSummary = RenewalSummary'
 -- certificate.
 --
 -- 'updatedAt', 'renewalSummary_updatedAt' - The timestamp when the certificate was last updated.
---
--- 'renewalStatusReason', 'renewalSummary_renewalStatusReason' - The reason for the renewal status of the certificate.
 newRenewalSummary ::
   RenewalSummary
 newRenewalSummary =
   RenewalSummary'
-    { renewalStatus = Prelude.Nothing,
+    { renewalStatusReason =
+        Prelude.Nothing,
+      renewalStatus = Prelude.Nothing,
       domainValidationRecords = Prelude.Nothing,
-      updatedAt = Prelude.Nothing,
-      renewalStatusReason = Prelude.Nothing
+      updatedAt = Prelude.Nothing
     }
+
+-- | The reason for the renewal status of the certificate.
+renewalSummary_renewalStatusReason :: Lens.Lens' RenewalSummary (Prelude.Maybe Prelude.Text)
+renewalSummary_renewalStatusReason = Lens.lens (\RenewalSummary' {renewalStatusReason} -> renewalStatusReason) (\s@RenewalSummary' {} a -> s {renewalStatusReason = a} :: RenewalSummary)
 
 -- | The renewal status of the certificate.
 --
@@ -147,34 +152,30 @@ renewalSummary_domainValidationRecords = Lens.lens (\RenewalSummary' {domainVali
 renewalSummary_updatedAt :: Lens.Lens' RenewalSummary (Prelude.Maybe Prelude.UTCTime)
 renewalSummary_updatedAt = Lens.lens (\RenewalSummary' {updatedAt} -> updatedAt) (\s@RenewalSummary' {} a -> s {updatedAt = a} :: RenewalSummary) Prelude.. Lens.mapping Core._Time
 
--- | The reason for the renewal status of the certificate.
-renewalSummary_renewalStatusReason :: Lens.Lens' RenewalSummary (Prelude.Maybe Prelude.Text)
-renewalSummary_renewalStatusReason = Lens.lens (\RenewalSummary' {renewalStatusReason} -> renewalStatusReason) (\s@RenewalSummary' {} a -> s {renewalStatusReason = a} :: RenewalSummary)
-
 instance Core.FromJSON RenewalSummary where
   parseJSON =
     Core.withObject
       "RenewalSummary"
       ( \x ->
           RenewalSummary'
-            Prelude.<$> (x Core..:? "renewalStatus")
+            Prelude.<$> (x Core..:? "renewalStatusReason")
+            Prelude.<*> (x Core..:? "renewalStatus")
             Prelude.<*> ( x Core..:? "domainValidationRecords"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "updatedAt")
-            Prelude.<*> (x Core..:? "renewalStatusReason")
       )
 
 instance Prelude.Hashable RenewalSummary where
   hashWithSalt _salt RenewalSummary' {..} =
-    _salt `Prelude.hashWithSalt` renewalStatus
+    _salt `Prelude.hashWithSalt` renewalStatusReason
+      `Prelude.hashWithSalt` renewalStatus
       `Prelude.hashWithSalt` domainValidationRecords
       `Prelude.hashWithSalt` updatedAt
-      `Prelude.hashWithSalt` renewalStatusReason
 
 instance Prelude.NFData RenewalSummary where
   rnf RenewalSummary' {..} =
-    Prelude.rnf renewalStatus
+    Prelude.rnf renewalStatusReason
+      `Prelude.seq` Prelude.rnf renewalStatus
       `Prelude.seq` Prelude.rnf domainValidationRecords
       `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf renewalStatusReason

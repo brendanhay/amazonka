@@ -28,7 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newContainerServiceStateDetail' smart constructor.
 data ContainerServiceStateDetail = ContainerServiceStateDetail'
-  { -- | The state code of the container service.
+  { -- | A message that provides more information for the state code.
+    --
+    -- The state detail is populated only when a container service is in a
+    -- @PENDING@, @DEPLOYING@, or @UPDATING@ state.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The state code of the container service.
     --
     -- The following state codes are possible:
     --
@@ -64,12 +69,7 @@ data ContainerServiceStateDetail = ContainerServiceStateDetail'
     --
     --     -   @UNKNOWN_ERROR@ - An error was experienced when your container
     --         service was being created.
-    code :: Prelude.Maybe ContainerServiceStateDetailCode,
-    -- | A message that provides more information for the state code.
-    --
-    -- The state detail is populated only when a container service is in a
-    -- @PENDING@, @DEPLOYING@, or @UPDATING@ state.
-    message :: Prelude.Maybe Prelude.Text
+    code :: Prelude.Maybe ContainerServiceStateDetailCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,6 +80,11 @@ data ContainerServiceStateDetail = ContainerServiceStateDetail'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'message', 'containerServiceStateDetail_message' - A message that provides more information for the state code.
+--
+-- The state detail is populated only when a container service is in a
+-- @PENDING@, @DEPLOYING@, or @UPDATING@ state.
 --
 -- 'code', 'containerServiceStateDetail_code' - The state code of the container service.
 --
@@ -117,19 +122,21 @@ data ContainerServiceStateDetail = ContainerServiceStateDetail'
 --
 --     -   @UNKNOWN_ERROR@ - An error was experienced when your container
 --         service was being created.
---
--- 'message', 'containerServiceStateDetail_message' - A message that provides more information for the state code.
---
--- The state detail is populated only when a container service is in a
--- @PENDING@, @DEPLOYING@, or @UPDATING@ state.
 newContainerServiceStateDetail ::
   ContainerServiceStateDetail
 newContainerServiceStateDetail =
   ContainerServiceStateDetail'
-    { code =
+    { message =
         Prelude.Nothing,
-      message = Prelude.Nothing
+      code = Prelude.Nothing
     }
+
+-- | A message that provides more information for the state code.
+--
+-- The state detail is populated only when a container service is in a
+-- @PENDING@, @DEPLOYING@, or @UPDATING@ state.
+containerServiceStateDetail_message :: Lens.Lens' ContainerServiceStateDetail (Prelude.Maybe Prelude.Text)
+containerServiceStateDetail_message = Lens.lens (\ContainerServiceStateDetail' {message} -> message) (\s@ContainerServiceStateDetail' {} a -> s {message = a} :: ContainerServiceStateDetail)
 
 -- | The state code of the container service.
 --
@@ -170,28 +177,21 @@ newContainerServiceStateDetail =
 containerServiceStateDetail_code :: Lens.Lens' ContainerServiceStateDetail (Prelude.Maybe ContainerServiceStateDetailCode)
 containerServiceStateDetail_code = Lens.lens (\ContainerServiceStateDetail' {code} -> code) (\s@ContainerServiceStateDetail' {} a -> s {code = a} :: ContainerServiceStateDetail)
 
--- | A message that provides more information for the state code.
---
--- The state detail is populated only when a container service is in a
--- @PENDING@, @DEPLOYING@, or @UPDATING@ state.
-containerServiceStateDetail_message :: Lens.Lens' ContainerServiceStateDetail (Prelude.Maybe Prelude.Text)
-containerServiceStateDetail_message = Lens.lens (\ContainerServiceStateDetail' {message} -> message) (\s@ContainerServiceStateDetail' {} a -> s {message = a} :: ContainerServiceStateDetail)
-
 instance Core.FromJSON ContainerServiceStateDetail where
   parseJSON =
     Core.withObject
       "ContainerServiceStateDetail"
       ( \x ->
           ContainerServiceStateDetail'
-            Prelude.<$> (x Core..:? "code")
-            Prelude.<*> (x Core..:? "message")
+            Prelude.<$> (x Core..:? "message")
+            Prelude.<*> (x Core..:? "code")
       )
 
 instance Prelude.Hashable ContainerServiceStateDetail where
   hashWithSalt _salt ContainerServiceStateDetail' {..} =
-    _salt `Prelude.hashWithSalt` code
-      `Prelude.hashWithSalt` message
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
 
 instance Prelude.NFData ContainerServiceStateDetail where
   rnf ContainerServiceStateDetail' {..} =
-    Prelude.rnf code `Prelude.seq` Prelude.rnf message
+    Prelude.rnf message `Prelude.seq` Prelude.rnf code

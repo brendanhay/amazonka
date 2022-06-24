@@ -32,8 +32,8 @@ module Amazonka.Lightsail.UpdateBucket
 
     -- * Request Lenses
     updateBucket_readonlyAccessAccounts,
-    updateBucket_accessRules,
     updateBucket_versioning,
+    updateBucket_accessRules,
     updateBucket_bucketName,
 
     -- * Destructuring the Response
@@ -41,8 +41,8 @@ module Amazonka.Lightsail.UpdateBucket
     newUpdateBucketResponse,
 
     -- * Response Lenses
-    updateBucketResponse_bucket,
     updateBucketResponse_operations,
+    updateBucketResponse_bucket,
     updateBucketResponse_httpStatus,
   )
 where
@@ -61,9 +61,6 @@ data UpdateBucket = UpdateBucket'
     --
     -- You can give a maximum of 10 AWS accounts access to a bucket.
     readonlyAccessAccounts :: Prelude.Maybe [Prelude.Text],
-    -- | An object that sets the public accessibility of objects in the specified
-    -- bucket.
-    accessRules :: Prelude.Maybe AccessRules,
     -- | Specifies whether to enable or suspend versioning of objects in the
     -- bucket.
     --
@@ -74,6 +71,9 @@ data UpdateBucket = UpdateBucket'
     -- -   @Suspended@ - Suspends versioning of objects in the specified
     --     bucket. Existing object versions are retained.
     versioning :: Prelude.Maybe Prelude.Text,
+    -- | An object that sets the public accessibility of objects in the specified
+    -- bucket.
+    accessRules :: Prelude.Maybe AccessRules,
     -- | The name of the bucket to update.
     bucketName :: Prelude.Text
   }
@@ -92,9 +92,6 @@ data UpdateBucket = UpdateBucket'
 --
 -- You can give a maximum of 10 AWS accounts access to a bucket.
 --
--- 'accessRules', 'updateBucket_accessRules' - An object that sets the public accessibility of objects in the specified
--- bucket.
---
 -- 'versioning', 'updateBucket_versioning' - Specifies whether to enable or suspend versioning of objects in the
 -- bucket.
 --
@@ -105,6 +102,9 @@ data UpdateBucket = UpdateBucket'
 -- -   @Suspended@ - Suspends versioning of objects in the specified
 --     bucket. Existing object versions are retained.
 --
+-- 'accessRules', 'updateBucket_accessRules' - An object that sets the public accessibility of objects in the specified
+-- bucket.
+--
 -- 'bucketName', 'updateBucket_bucketName' - The name of the bucket to update.
 newUpdateBucket ::
   -- | 'bucketName'
@@ -114,8 +114,8 @@ newUpdateBucket pBucketName_ =
   UpdateBucket'
     { readonlyAccessAccounts =
         Prelude.Nothing,
-      accessRules = Prelude.Nothing,
       versioning = Prelude.Nothing,
+      accessRules = Prelude.Nothing,
       bucketName = pBucketName_
     }
 
@@ -125,11 +125,6 @@ newUpdateBucket pBucketName_ =
 -- You can give a maximum of 10 AWS accounts access to a bucket.
 updateBucket_readonlyAccessAccounts :: Lens.Lens' UpdateBucket (Prelude.Maybe [Prelude.Text])
 updateBucket_readonlyAccessAccounts = Lens.lens (\UpdateBucket' {readonlyAccessAccounts} -> readonlyAccessAccounts) (\s@UpdateBucket' {} a -> s {readonlyAccessAccounts = a} :: UpdateBucket) Prelude.. Lens.mapping Lens.coerced
-
--- | An object that sets the public accessibility of objects in the specified
--- bucket.
-updateBucket_accessRules :: Lens.Lens' UpdateBucket (Prelude.Maybe AccessRules)
-updateBucket_accessRules = Lens.lens (\UpdateBucket' {accessRules} -> accessRules) (\s@UpdateBucket' {} a -> s {accessRules = a} :: UpdateBucket)
 
 -- | Specifies whether to enable or suspend versioning of objects in the
 -- bucket.
@@ -143,6 +138,11 @@ updateBucket_accessRules = Lens.lens (\UpdateBucket' {accessRules} -> accessRule
 updateBucket_versioning :: Lens.Lens' UpdateBucket (Prelude.Maybe Prelude.Text)
 updateBucket_versioning = Lens.lens (\UpdateBucket' {versioning} -> versioning) (\s@UpdateBucket' {} a -> s {versioning = a} :: UpdateBucket)
 
+-- | An object that sets the public accessibility of objects in the specified
+-- bucket.
+updateBucket_accessRules :: Lens.Lens' UpdateBucket (Prelude.Maybe AccessRules)
+updateBucket_accessRules = Lens.lens (\UpdateBucket' {accessRules} -> accessRules) (\s@UpdateBucket' {} a -> s {accessRules = a} :: UpdateBucket)
+
 -- | The name of the bucket to update.
 updateBucket_bucketName :: Lens.Lens' UpdateBucket Prelude.Text
 updateBucket_bucketName = Lens.lens (\UpdateBucket' {bucketName} -> bucketName) (\s@UpdateBucket' {} a -> s {bucketName = a} :: UpdateBucket)
@@ -154,23 +154,23 @@ instance Core.AWSRequest UpdateBucket where
     Response.receiveJSON
       ( \s h x ->
           UpdateBucketResponse'
-            Prelude.<$> (x Core..?> "bucket")
-            Prelude.<*> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "bucket")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateBucket where
   hashWithSalt _salt UpdateBucket' {..} =
     _salt `Prelude.hashWithSalt` readonlyAccessAccounts
-      `Prelude.hashWithSalt` accessRules
       `Prelude.hashWithSalt` versioning
+      `Prelude.hashWithSalt` accessRules
       `Prelude.hashWithSalt` bucketName
 
 instance Prelude.NFData UpdateBucket where
   rnf UpdateBucket' {..} =
     Prelude.rnf readonlyAccessAccounts
-      `Prelude.seq` Prelude.rnf accessRules
       `Prelude.seq` Prelude.rnf versioning
+      `Prelude.seq` Prelude.rnf accessRules
       `Prelude.seq` Prelude.rnf bucketName
 
 instance Core.ToHeaders UpdateBucket where
@@ -194,8 +194,8 @@ instance Core.ToJSON UpdateBucket where
       ( Prelude.catMaybes
           [ ("readonlyAccessAccounts" Core..=)
               Prelude.<$> readonlyAccessAccounts,
-            ("accessRules" Core..=) Prelude.<$> accessRules,
             ("versioning" Core..=) Prelude.<$> versioning,
+            ("accessRules" Core..=) Prelude.<$> accessRules,
             Prelude.Just ("bucketName" Core..= bucketName)
           ]
       )
@@ -208,12 +208,12 @@ instance Core.ToQuery UpdateBucket where
 
 -- | /See:/ 'newUpdateBucketResponse' smart constructor.
 data UpdateBucketResponse = UpdateBucketResponse'
-  { -- | An object that describes the bucket that is updated.
-    bucket :: Prelude.Maybe Bucket,
-    -- | An array of objects that describe the result of the action, such as the
+  { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
     operations :: Prelude.Maybe [Operation],
+    -- | An object that describes the bucket that is updated.
+    bucket :: Prelude.Maybe Bucket,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -227,11 +227,11 @@ data UpdateBucketResponse = UpdateBucketResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bucket', 'updateBucketResponse_bucket' - An object that describes the bucket that is updated.
---
 -- 'operations', 'updateBucketResponse_operations' - An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
+--
+-- 'bucket', 'updateBucketResponse_bucket' - An object that describes the bucket that is updated.
 --
 -- 'httpStatus', 'updateBucketResponse_httpStatus' - The response's http status code.
 newUpdateBucketResponse ::
@@ -240,14 +240,10 @@ newUpdateBucketResponse ::
   UpdateBucketResponse
 newUpdateBucketResponse pHttpStatus_ =
   UpdateBucketResponse'
-    { bucket = Prelude.Nothing,
-      operations = Prelude.Nothing,
+    { operations = Prelude.Nothing,
+      bucket = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An object that describes the bucket that is updated.
-updateBucketResponse_bucket :: Lens.Lens' UpdateBucketResponse (Prelude.Maybe Bucket)
-updateBucketResponse_bucket = Lens.lens (\UpdateBucketResponse' {bucket} -> bucket) (\s@UpdateBucketResponse' {} a -> s {bucket = a} :: UpdateBucketResponse)
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
@@ -255,12 +251,16 @@ updateBucketResponse_bucket = Lens.lens (\UpdateBucketResponse' {bucket} -> buck
 updateBucketResponse_operations :: Lens.Lens' UpdateBucketResponse (Prelude.Maybe [Operation])
 updateBucketResponse_operations = Lens.lens (\UpdateBucketResponse' {operations} -> operations) (\s@UpdateBucketResponse' {} a -> s {operations = a} :: UpdateBucketResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | An object that describes the bucket that is updated.
+updateBucketResponse_bucket :: Lens.Lens' UpdateBucketResponse (Prelude.Maybe Bucket)
+updateBucketResponse_bucket = Lens.lens (\UpdateBucketResponse' {bucket} -> bucket) (\s@UpdateBucketResponse' {} a -> s {bucket = a} :: UpdateBucketResponse)
+
 -- | The response's http status code.
 updateBucketResponse_httpStatus :: Lens.Lens' UpdateBucketResponse Prelude.Int
 updateBucketResponse_httpStatus = Lens.lens (\UpdateBucketResponse' {httpStatus} -> httpStatus) (\s@UpdateBucketResponse' {} a -> s {httpStatus = a} :: UpdateBucketResponse)
 
 instance Prelude.NFData UpdateBucketResponse where
   rnf UpdateBucketResponse' {..} =
-    Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf operations
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf httpStatus

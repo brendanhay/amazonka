@@ -34,7 +34,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newContainerServiceDeployment' smart constructor.
 data ContainerServiceDeployment = ContainerServiceDeployment'
-  { -- | The state of the deployment.
+  { -- | An object that describes the configuration for the containers of the
+    -- deployment.
+    containers :: Prelude.Maybe (Prelude.HashMap Prelude.Text Container),
+    -- | The state of the deployment.
     --
     -- A deployment can be in one of the following states:
     --
@@ -55,9 +58,6 @@ data ContainerServiceDeployment = ContainerServiceDeployment'
     publicEndpoint :: Prelude.Maybe ContainerServiceEndpoint,
     -- | The timestamp when the deployment was created.
     createdAt :: Prelude.Maybe Core.POSIX,
-    -- | An object that describes the configuration for the containers of the
-    -- deployment.
-    containers :: Prelude.Maybe (Prelude.HashMap Prelude.Text Container),
     -- | The version number of the deployment.
     version :: Prelude.Maybe Prelude.Int
   }
@@ -70,6 +70,9 @@ data ContainerServiceDeployment = ContainerServiceDeployment'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'containers', 'containerServiceDeployment_containers' - An object that describes the configuration for the containers of the
+-- deployment.
 --
 -- 'state', 'containerServiceDeployment_state' - The state of the deployment.
 --
@@ -92,21 +95,23 @@ data ContainerServiceDeployment = ContainerServiceDeployment'
 --
 -- 'createdAt', 'containerServiceDeployment_createdAt' - The timestamp when the deployment was created.
 --
--- 'containers', 'containerServiceDeployment_containers' - An object that describes the configuration for the containers of the
--- deployment.
---
 -- 'version', 'containerServiceDeployment_version' - The version number of the deployment.
 newContainerServiceDeployment ::
   ContainerServiceDeployment
 newContainerServiceDeployment =
   ContainerServiceDeployment'
-    { state =
+    { containers =
         Prelude.Nothing,
+      state = Prelude.Nothing,
       publicEndpoint = Prelude.Nothing,
       createdAt = Prelude.Nothing,
-      containers = Prelude.Nothing,
       version = Prelude.Nothing
     }
+
+-- | An object that describes the configuration for the containers of the
+-- deployment.
+containerServiceDeployment_containers :: Lens.Lens' ContainerServiceDeployment (Prelude.Maybe (Prelude.HashMap Prelude.Text Container))
+containerServiceDeployment_containers = Lens.lens (\ContainerServiceDeployment' {containers} -> containers) (\s@ContainerServiceDeployment' {} a -> s {containers = a} :: ContainerServiceDeployment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The state of the deployment.
 --
@@ -135,11 +140,6 @@ containerServiceDeployment_publicEndpoint = Lens.lens (\ContainerServiceDeployme
 containerServiceDeployment_createdAt :: Lens.Lens' ContainerServiceDeployment (Prelude.Maybe Prelude.UTCTime)
 containerServiceDeployment_createdAt = Lens.lens (\ContainerServiceDeployment' {createdAt} -> createdAt) (\s@ContainerServiceDeployment' {} a -> s {createdAt = a} :: ContainerServiceDeployment) Prelude.. Lens.mapping Core._Time
 
--- | An object that describes the configuration for the containers of the
--- deployment.
-containerServiceDeployment_containers :: Lens.Lens' ContainerServiceDeployment (Prelude.Maybe (Prelude.HashMap Prelude.Text Container))
-containerServiceDeployment_containers = Lens.lens (\ContainerServiceDeployment' {containers} -> containers) (\s@ContainerServiceDeployment' {} a -> s {containers = a} :: ContainerServiceDeployment) Prelude.. Lens.mapping Lens.coerced
-
 -- | The version number of the deployment.
 containerServiceDeployment_version :: Lens.Lens' ContainerServiceDeployment (Prelude.Maybe Prelude.Int)
 containerServiceDeployment_version = Lens.lens (\ContainerServiceDeployment' {version} -> version) (\s@ContainerServiceDeployment' {} a -> s {version = a} :: ContainerServiceDeployment)
@@ -150,25 +150,25 @@ instance Core.FromJSON ContainerServiceDeployment where
       "ContainerServiceDeployment"
       ( \x ->
           ContainerServiceDeployment'
-            Prelude.<$> (x Core..:? "state")
+            Prelude.<$> (x Core..:? "containers" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "state")
             Prelude.<*> (x Core..:? "publicEndpoint")
             Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "containers" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "version")
       )
 
 instance Prelude.Hashable ContainerServiceDeployment where
   hashWithSalt _salt ContainerServiceDeployment' {..} =
-    _salt `Prelude.hashWithSalt` state
+    _salt `Prelude.hashWithSalt` containers
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` publicEndpoint
       `Prelude.hashWithSalt` createdAt
-      `Prelude.hashWithSalt` containers
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData ContainerServiceDeployment where
   rnf ContainerServiceDeployment' {..} =
-    Prelude.rnf state
+    Prelude.rnf containers
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf publicEndpoint
       `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf containers
       `Prelude.seq` Prelude.rnf version

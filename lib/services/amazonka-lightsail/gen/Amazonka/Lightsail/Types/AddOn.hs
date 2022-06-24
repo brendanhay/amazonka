@@ -27,16 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAddOn' smart constructor.
 data AddOn = AddOn'
-  { -- | The status of the add-on.
+  { -- | The name of the add-on.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The status of the add-on.
     status :: Prelude.Maybe Prelude.Text,
-    -- | The next daily time an automatic snapshot will be created.
-    --
-    -- The time shown is in @HH:00@ format, and in Coordinated Universal Time
-    -- (UTC).
-    --
-    -- The snapshot is automatically created between the time shown and up to
-    -- 45 minutes after.
-    nextSnapshotTimeOfDay :: Prelude.Maybe Prelude.Text,
     -- | The daily time when an automatic snapshot is created.
     --
     -- The time shown is in @HH:00@ format, and in Coordinated Universal Time
@@ -45,8 +39,14 @@ data AddOn = AddOn'
     -- The snapshot is automatically created between the time shown and up to
     -- 45 minutes after.
     snapshotTimeOfDay :: Prelude.Maybe Prelude.Text,
-    -- | The name of the add-on.
-    name :: Prelude.Maybe Prelude.Text
+    -- | The next daily time an automatic snapshot will be created.
+    --
+    -- The time shown is in @HH:00@ format, and in Coordinated Universal Time
+    -- (UTC).
+    --
+    -- The snapshot is automatically created between the time shown and up to
+    -- 45 minutes after.
+    nextSnapshotTimeOfDay :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,15 +58,9 @@ data AddOn = AddOn'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'addOn_name' - The name of the add-on.
+--
 -- 'status', 'addOn_status' - The status of the add-on.
---
--- 'nextSnapshotTimeOfDay', 'addOn_nextSnapshotTimeOfDay' - The next daily time an automatic snapshot will be created.
---
--- The time shown is in @HH:00@ format, and in Coordinated Universal Time
--- (UTC).
---
--- The snapshot is automatically created between the time shown and up to
--- 45 minutes after.
 --
 -- 'snapshotTimeOfDay', 'addOn_snapshotTimeOfDay' - The daily time when an automatic snapshot is created.
 --
@@ -76,30 +70,30 @@ data AddOn = AddOn'
 -- The snapshot is automatically created between the time shown and up to
 -- 45 minutes after.
 --
--- 'name', 'addOn_name' - The name of the add-on.
-newAddOn ::
-  AddOn
-newAddOn =
-  AddOn'
-    { status = Prelude.Nothing,
-      nextSnapshotTimeOfDay = Prelude.Nothing,
-      snapshotTimeOfDay = Prelude.Nothing,
-      name = Prelude.Nothing
-    }
-
--- | The status of the add-on.
-addOn_status :: Lens.Lens' AddOn (Prelude.Maybe Prelude.Text)
-addOn_status = Lens.lens (\AddOn' {status} -> status) (\s@AddOn' {} a -> s {status = a} :: AddOn)
-
--- | The next daily time an automatic snapshot will be created.
+-- 'nextSnapshotTimeOfDay', 'addOn_nextSnapshotTimeOfDay' - The next daily time an automatic snapshot will be created.
 --
 -- The time shown is in @HH:00@ format, and in Coordinated Universal Time
 -- (UTC).
 --
 -- The snapshot is automatically created between the time shown and up to
 -- 45 minutes after.
-addOn_nextSnapshotTimeOfDay :: Lens.Lens' AddOn (Prelude.Maybe Prelude.Text)
-addOn_nextSnapshotTimeOfDay = Lens.lens (\AddOn' {nextSnapshotTimeOfDay} -> nextSnapshotTimeOfDay) (\s@AddOn' {} a -> s {nextSnapshotTimeOfDay = a} :: AddOn)
+newAddOn ::
+  AddOn
+newAddOn =
+  AddOn'
+    { name = Prelude.Nothing,
+      status = Prelude.Nothing,
+      snapshotTimeOfDay = Prelude.Nothing,
+      nextSnapshotTimeOfDay = Prelude.Nothing
+    }
+
+-- | The name of the add-on.
+addOn_name :: Lens.Lens' AddOn (Prelude.Maybe Prelude.Text)
+addOn_name = Lens.lens (\AddOn' {name} -> name) (\s@AddOn' {} a -> s {name = a} :: AddOn)
+
+-- | The status of the add-on.
+addOn_status :: Lens.Lens' AddOn (Prelude.Maybe Prelude.Text)
+addOn_status = Lens.lens (\AddOn' {status} -> status) (\s@AddOn' {} a -> s {status = a} :: AddOn)
 
 -- | The daily time when an automatic snapshot is created.
 --
@@ -111,9 +105,15 @@ addOn_nextSnapshotTimeOfDay = Lens.lens (\AddOn' {nextSnapshotTimeOfDay} -> next
 addOn_snapshotTimeOfDay :: Lens.Lens' AddOn (Prelude.Maybe Prelude.Text)
 addOn_snapshotTimeOfDay = Lens.lens (\AddOn' {snapshotTimeOfDay} -> snapshotTimeOfDay) (\s@AddOn' {} a -> s {snapshotTimeOfDay = a} :: AddOn)
 
--- | The name of the add-on.
-addOn_name :: Lens.Lens' AddOn (Prelude.Maybe Prelude.Text)
-addOn_name = Lens.lens (\AddOn' {name} -> name) (\s@AddOn' {} a -> s {name = a} :: AddOn)
+-- | The next daily time an automatic snapshot will be created.
+--
+-- The time shown is in @HH:00@ format, and in Coordinated Universal Time
+-- (UTC).
+--
+-- The snapshot is automatically created between the time shown and up to
+-- 45 minutes after.
+addOn_nextSnapshotTimeOfDay :: Lens.Lens' AddOn (Prelude.Maybe Prelude.Text)
+addOn_nextSnapshotTimeOfDay = Lens.lens (\AddOn' {nextSnapshotTimeOfDay} -> nextSnapshotTimeOfDay) (\s@AddOn' {} a -> s {nextSnapshotTimeOfDay = a} :: AddOn)
 
 instance Core.FromJSON AddOn where
   parseJSON =
@@ -121,22 +121,22 @@ instance Core.FromJSON AddOn where
       "AddOn"
       ( \x ->
           AddOn'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "nextSnapshotTimeOfDay")
+            Prelude.<$> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "snapshotTimeOfDay")
-            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "nextSnapshotTimeOfDay")
       )
 
 instance Prelude.Hashable AddOn where
   hashWithSalt _salt AddOn' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` nextSnapshotTimeOfDay
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` snapshotTimeOfDay
-      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` nextSnapshotTimeOfDay
 
 instance Prelude.NFData AddOn where
   rnf AddOn' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf nextSnapshotTimeOfDay
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf snapshotTimeOfDay
-      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf nextSnapshotTimeOfDay

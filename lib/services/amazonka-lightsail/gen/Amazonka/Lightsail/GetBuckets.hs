@@ -31,9 +31,9 @@ module Amazonka.Lightsail.GetBuckets
     newGetBuckets,
 
     -- * Request Lenses
-    getBuckets_bucketName,
     getBuckets_includeConnectedResources,
     getBuckets_pageToken,
+    getBuckets_bucketName,
 
     -- * Destructuring the Response
     GetBucketsResponse (..),
@@ -55,12 +55,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetBuckets' smart constructor.
 data GetBuckets = GetBuckets'
-  { -- | The name of the bucket for which to return information.
-    --
-    -- When omitted, the response includes all of your buckets in the AWS
-    -- Region where the request is made.
-    bucketName :: Prelude.Maybe Prelude.Text,
-    -- | A Boolean value that indicates whether to include Lightsail instances
+  { -- | A Boolean value that indicates whether to include Lightsail instances
     -- that were given access to the bucket using the
     -- SetResourceAccessForBucket action.
     includeConnectedResources :: Prelude.Maybe Prelude.Bool,
@@ -69,7 +64,12 @@ data GetBuckets = GetBuckets'
     -- To get a page token, perform an initial @GetBuckets@ request. If your
     -- results are paginated, the response will return a next page token that
     -- you can specify as the page token in a subsequent request.
-    pageToken :: Prelude.Maybe Prelude.Text
+    pageToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of the bucket for which to return information.
+    --
+    -- When omitted, the response includes all of your buckets in the AWS
+    -- Region where the request is made.
+    bucketName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,11 +81,6 @@ data GetBuckets = GetBuckets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bucketName', 'getBuckets_bucketName' - The name of the bucket for which to return information.
---
--- When omitted, the response includes all of your buckets in the AWS
--- Region where the request is made.
---
 -- 'includeConnectedResources', 'getBuckets_includeConnectedResources' - A Boolean value that indicates whether to include Lightsail instances
 -- that were given access to the bucket using the
 -- SetResourceAccessForBucket action.
@@ -95,21 +90,20 @@ data GetBuckets = GetBuckets'
 -- To get a page token, perform an initial @GetBuckets@ request. If your
 -- results are paginated, the response will return a next page token that
 -- you can specify as the page token in a subsequent request.
+--
+-- 'bucketName', 'getBuckets_bucketName' - The name of the bucket for which to return information.
+--
+-- When omitted, the response includes all of your buckets in the AWS
+-- Region where the request is made.
 newGetBuckets ::
   GetBuckets
 newGetBuckets =
   GetBuckets'
-    { bucketName = Prelude.Nothing,
-      includeConnectedResources = Prelude.Nothing,
-      pageToken = Prelude.Nothing
+    { includeConnectedResources =
+        Prelude.Nothing,
+      pageToken = Prelude.Nothing,
+      bucketName = Prelude.Nothing
     }
-
--- | The name of the bucket for which to return information.
---
--- When omitted, the response includes all of your buckets in the AWS
--- Region where the request is made.
-getBuckets_bucketName :: Lens.Lens' GetBuckets (Prelude.Maybe Prelude.Text)
-getBuckets_bucketName = Lens.lens (\GetBuckets' {bucketName} -> bucketName) (\s@GetBuckets' {} a -> s {bucketName = a} :: GetBuckets)
 
 -- | A Boolean value that indicates whether to include Lightsail instances
 -- that were given access to the bucket using the
@@ -125,6 +119,13 @@ getBuckets_includeConnectedResources = Lens.lens (\GetBuckets' {includeConnected
 getBuckets_pageToken :: Lens.Lens' GetBuckets (Prelude.Maybe Prelude.Text)
 getBuckets_pageToken = Lens.lens (\GetBuckets' {pageToken} -> pageToken) (\s@GetBuckets' {} a -> s {pageToken = a} :: GetBuckets)
 
+-- | The name of the bucket for which to return information.
+--
+-- When omitted, the response includes all of your buckets in the AWS
+-- Region where the request is made.
+getBuckets_bucketName :: Lens.Lens' GetBuckets (Prelude.Maybe Prelude.Text)
+getBuckets_bucketName = Lens.lens (\GetBuckets' {bucketName} -> bucketName) (\s@GetBuckets' {} a -> s {bucketName = a} :: GetBuckets)
+
 instance Core.AWSRequest GetBuckets where
   type AWSResponse GetBuckets = GetBucketsResponse
   request = Request.postJSON defaultService
@@ -139,15 +140,16 @@ instance Core.AWSRequest GetBuckets where
 
 instance Prelude.Hashable GetBuckets where
   hashWithSalt _salt GetBuckets' {..} =
-    _salt `Prelude.hashWithSalt` bucketName
+    _salt
       `Prelude.hashWithSalt` includeConnectedResources
       `Prelude.hashWithSalt` pageToken
+      `Prelude.hashWithSalt` bucketName
 
 instance Prelude.NFData GetBuckets where
   rnf GetBuckets' {..} =
-    Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf includeConnectedResources
+    Prelude.rnf includeConnectedResources
       `Prelude.seq` Prelude.rnf pageToken
+      `Prelude.seq` Prelude.rnf bucketName
 
 instance Core.ToHeaders GetBuckets where
   toHeaders =
@@ -168,10 +170,10 @@ instance Core.ToJSON GetBuckets where
   toJSON GetBuckets' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("bucketName" Core..=) Prelude.<$> bucketName,
-            ("includeConnectedResources" Core..=)
+          [ ("includeConnectedResources" Core..=)
               Prelude.<$> includeConnectedResources,
-            ("pageToken" Core..=) Prelude.<$> pageToken
+            ("pageToken" Core..=) Prelude.<$> pageToken,
+            ("bucketName" Core..=) Prelude.<$> bucketName
           ]
       )
 

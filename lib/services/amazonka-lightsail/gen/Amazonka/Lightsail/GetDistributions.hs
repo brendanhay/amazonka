@@ -28,8 +28,8 @@ module Amazonka.Lightsail.GetDistributions
     newGetDistributions,
 
     -- * Request Lenses
-    getDistributions_distributionName,
     getDistributions_pageToken,
+    getDistributions_distributionName,
 
     -- * Destructuring the Response
     GetDistributionsResponse (..),
@@ -51,17 +51,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetDistributions' smart constructor.
 data GetDistributions = GetDistributions'
-  { -- | The name of the distribution for which to return information.
-    --
-    -- When omitted, the response includes all of your distributions in the AWS
-    -- Region where the request is made.
-    distributionName :: Prelude.Maybe Prelude.Text,
-    -- | The token to advance to the next page of results from your request.
+  { -- | The token to advance to the next page of results from your request.
     --
     -- To get a page token, perform an initial @GetDistributions@ request. If
     -- your results are paginated, the response will return a next page token
     -- that you can specify as the page token in a subsequent request.
-    pageToken :: Prelude.Maybe Prelude.Text
+    pageToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of the distribution for which to return information.
+    --
+    -- When omitted, the response includes all of your distributions in the AWS
+    -- Region where the request is made.
+    distributionName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,31 +73,23 @@ data GetDistributions = GetDistributions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'distributionName', 'getDistributions_distributionName' - The name of the distribution for which to return information.
---
--- When omitted, the response includes all of your distributions in the AWS
--- Region where the request is made.
---
 -- 'pageToken', 'getDistributions_pageToken' - The token to advance to the next page of results from your request.
 --
 -- To get a page token, perform an initial @GetDistributions@ request. If
 -- your results are paginated, the response will return a next page token
 -- that you can specify as the page token in a subsequent request.
+--
+-- 'distributionName', 'getDistributions_distributionName' - The name of the distribution for which to return information.
+--
+-- When omitted, the response includes all of your distributions in the AWS
+-- Region where the request is made.
 newGetDistributions ::
   GetDistributions
 newGetDistributions =
   GetDistributions'
-    { distributionName =
-        Prelude.Nothing,
-      pageToken = Prelude.Nothing
+    { pageToken = Prelude.Nothing,
+      distributionName = Prelude.Nothing
     }
-
--- | The name of the distribution for which to return information.
---
--- When omitted, the response includes all of your distributions in the AWS
--- Region where the request is made.
-getDistributions_distributionName :: Lens.Lens' GetDistributions (Prelude.Maybe Prelude.Text)
-getDistributions_distributionName = Lens.lens (\GetDistributions' {distributionName} -> distributionName) (\s@GetDistributions' {} a -> s {distributionName = a} :: GetDistributions)
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -106,6 +98,13 @@ getDistributions_distributionName = Lens.lens (\GetDistributions' {distributionN
 -- that you can specify as the page token in a subsequent request.
 getDistributions_pageToken :: Lens.Lens' GetDistributions (Prelude.Maybe Prelude.Text)
 getDistributions_pageToken = Lens.lens (\GetDistributions' {pageToken} -> pageToken) (\s@GetDistributions' {} a -> s {pageToken = a} :: GetDistributions)
+
+-- | The name of the distribution for which to return information.
+--
+-- When omitted, the response includes all of your distributions in the AWS
+-- Region where the request is made.
+getDistributions_distributionName :: Lens.Lens' GetDistributions (Prelude.Maybe Prelude.Text)
+getDistributions_distributionName = Lens.lens (\GetDistributions' {distributionName} -> distributionName) (\s@GetDistributions' {} a -> s {distributionName = a} :: GetDistributions)
 
 instance Core.AWSRequest GetDistributions where
   type
@@ -123,13 +122,13 @@ instance Core.AWSRequest GetDistributions where
 
 instance Prelude.Hashable GetDistributions where
   hashWithSalt _salt GetDistributions' {..} =
-    _salt `Prelude.hashWithSalt` distributionName
-      `Prelude.hashWithSalt` pageToken
+    _salt `Prelude.hashWithSalt` pageToken
+      `Prelude.hashWithSalt` distributionName
 
 instance Prelude.NFData GetDistributions where
   rnf GetDistributions' {..} =
-    Prelude.rnf distributionName
-      `Prelude.seq` Prelude.rnf pageToken
+    Prelude.rnf pageToken
+      `Prelude.seq` Prelude.rnf distributionName
 
 instance Core.ToHeaders GetDistributions where
   toHeaders =
@@ -150,9 +149,9 @@ instance Core.ToJSON GetDistributions where
   toJSON GetDistributions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("distributionName" Core..=)
-              Prelude.<$> distributionName,
-            ("pageToken" Core..=) Prelude.<$> pageToken
+          [ ("pageToken" Core..=) Prelude.<$> pageToken,
+            ("distributionName" Core..=)
+              Prelude.<$> distributionName
           ]
       )
 

@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newContainerImage' smart constructor.
 data ContainerImage = ContainerImage'
-  { -- | The name of the container image.
+  { -- | The digest of the container image.
+    digest :: Prelude.Maybe Prelude.Text,
+    -- | The name of the container image.
     image :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the container image was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
-    -- | The digest of the container image.
-    digest :: Prelude.Maybe Prelude.Text
+    createdAt :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,19 +45,23 @@ data ContainerImage = ContainerImage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'digest', 'containerImage_digest' - The digest of the container image.
+--
 -- 'image', 'containerImage_image' - The name of the container image.
 --
 -- 'createdAt', 'containerImage_createdAt' - The timestamp when the container image was created.
---
--- 'digest', 'containerImage_digest' - The digest of the container image.
 newContainerImage ::
   ContainerImage
 newContainerImage =
   ContainerImage'
-    { image = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      digest = Prelude.Nothing
+    { digest = Prelude.Nothing,
+      image = Prelude.Nothing,
+      createdAt = Prelude.Nothing
     }
+
+-- | The digest of the container image.
+containerImage_digest :: Lens.Lens' ContainerImage (Prelude.Maybe Prelude.Text)
+containerImage_digest = Lens.lens (\ContainerImage' {digest} -> digest) (\s@ContainerImage' {} a -> s {digest = a} :: ContainerImage)
 
 -- | The name of the container image.
 containerImage_image :: Lens.Lens' ContainerImage (Prelude.Maybe Prelude.Text)
@@ -67,29 +71,25 @@ containerImage_image = Lens.lens (\ContainerImage' {image} -> image) (\s@Contain
 containerImage_createdAt :: Lens.Lens' ContainerImage (Prelude.Maybe Prelude.UTCTime)
 containerImage_createdAt = Lens.lens (\ContainerImage' {createdAt} -> createdAt) (\s@ContainerImage' {} a -> s {createdAt = a} :: ContainerImage) Prelude.. Lens.mapping Core._Time
 
--- | The digest of the container image.
-containerImage_digest :: Lens.Lens' ContainerImage (Prelude.Maybe Prelude.Text)
-containerImage_digest = Lens.lens (\ContainerImage' {digest} -> digest) (\s@ContainerImage' {} a -> s {digest = a} :: ContainerImage)
-
 instance Core.FromJSON ContainerImage where
   parseJSON =
     Core.withObject
       "ContainerImage"
       ( \x ->
           ContainerImage'
-            Prelude.<$> (x Core..:? "image")
+            Prelude.<$> (x Core..:? "digest")
+            Prelude.<*> (x Core..:? "image")
             Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "digest")
       )
 
 instance Prelude.Hashable ContainerImage where
   hashWithSalt _salt ContainerImage' {..} =
-    _salt `Prelude.hashWithSalt` image
+    _salt `Prelude.hashWithSalt` digest
+      `Prelude.hashWithSalt` image
       `Prelude.hashWithSalt` createdAt
-      `Prelude.hashWithSalt` digest
 
 instance Prelude.NFData ContainerImage where
   rnf ContainerImage' {..} =
-    Prelude.rnf image
+    Prelude.rnf digest
+      `Prelude.seq` Prelude.rnf image
       `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf digest

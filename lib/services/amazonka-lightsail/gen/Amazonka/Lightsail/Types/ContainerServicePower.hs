@@ -31,17 +31,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newContainerServicePower' smart constructor.
 data ContainerServicePower = ContainerServicePower'
-  { -- | The ID of the power (e.g., @nano-1@).
-    powerId :: Prelude.Maybe Prelude.Text,
-    -- | The number of vCPUs included in the power.
+  { -- | The number of vCPUs included in the power.
     cpuCount :: Prelude.Maybe Prelude.Double,
+    -- | A Boolean value indicating whether the power is active and can be
+    -- specified for container services.
+    isActive :: Prelude.Maybe Prelude.Bool,
     -- | The friendly name of the power (e.g., @nano@).
     name :: Prelude.Maybe Prelude.Text,
     -- | The monthly price of the power in USD.
     price :: Prelude.Maybe Prelude.Double,
-    -- | A Boolean value indicating whether the power is active and can be
-    -- specified for container services.
-    isActive :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the power (e.g., @nano-1@).
+    powerId :: Prelude.Maybe Prelude.Text,
     -- | The amount of RAM (in GB) of the power.
     ramSizeInGb :: Prelude.Maybe Prelude.Double
   }
@@ -55,37 +55,38 @@ data ContainerServicePower = ContainerServicePower'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'powerId', 'containerServicePower_powerId' - The ID of the power (e.g., @nano-1@).
---
 -- 'cpuCount', 'containerServicePower_cpuCount' - The number of vCPUs included in the power.
+--
+-- 'isActive', 'containerServicePower_isActive' - A Boolean value indicating whether the power is active and can be
+-- specified for container services.
 --
 -- 'name', 'containerServicePower_name' - The friendly name of the power (e.g., @nano@).
 --
 -- 'price', 'containerServicePower_price' - The monthly price of the power in USD.
 --
--- 'isActive', 'containerServicePower_isActive' - A Boolean value indicating whether the power is active and can be
--- specified for container services.
+-- 'powerId', 'containerServicePower_powerId' - The ID of the power (e.g., @nano-1@).
 --
 -- 'ramSizeInGb', 'containerServicePower_ramSizeInGb' - The amount of RAM (in GB) of the power.
 newContainerServicePower ::
   ContainerServicePower
 newContainerServicePower =
   ContainerServicePower'
-    { powerId = Prelude.Nothing,
-      cpuCount = Prelude.Nothing,
+    { cpuCount = Prelude.Nothing,
+      isActive = Prelude.Nothing,
       name = Prelude.Nothing,
       price = Prelude.Nothing,
-      isActive = Prelude.Nothing,
+      powerId = Prelude.Nothing,
       ramSizeInGb = Prelude.Nothing
     }
-
--- | The ID of the power (e.g., @nano-1@).
-containerServicePower_powerId :: Lens.Lens' ContainerServicePower (Prelude.Maybe Prelude.Text)
-containerServicePower_powerId = Lens.lens (\ContainerServicePower' {powerId} -> powerId) (\s@ContainerServicePower' {} a -> s {powerId = a} :: ContainerServicePower)
 
 -- | The number of vCPUs included in the power.
 containerServicePower_cpuCount :: Lens.Lens' ContainerServicePower (Prelude.Maybe Prelude.Double)
 containerServicePower_cpuCount = Lens.lens (\ContainerServicePower' {cpuCount} -> cpuCount) (\s@ContainerServicePower' {} a -> s {cpuCount = a} :: ContainerServicePower)
+
+-- | A Boolean value indicating whether the power is active and can be
+-- specified for container services.
+containerServicePower_isActive :: Lens.Lens' ContainerServicePower (Prelude.Maybe Prelude.Bool)
+containerServicePower_isActive = Lens.lens (\ContainerServicePower' {isActive} -> isActive) (\s@ContainerServicePower' {} a -> s {isActive = a} :: ContainerServicePower)
 
 -- | The friendly name of the power (e.g., @nano@).
 containerServicePower_name :: Lens.Lens' ContainerServicePower (Prelude.Maybe Prelude.Text)
@@ -95,10 +96,9 @@ containerServicePower_name = Lens.lens (\ContainerServicePower' {name} -> name) 
 containerServicePower_price :: Lens.Lens' ContainerServicePower (Prelude.Maybe Prelude.Double)
 containerServicePower_price = Lens.lens (\ContainerServicePower' {price} -> price) (\s@ContainerServicePower' {} a -> s {price = a} :: ContainerServicePower)
 
--- | A Boolean value indicating whether the power is active and can be
--- specified for container services.
-containerServicePower_isActive :: Lens.Lens' ContainerServicePower (Prelude.Maybe Prelude.Bool)
-containerServicePower_isActive = Lens.lens (\ContainerServicePower' {isActive} -> isActive) (\s@ContainerServicePower' {} a -> s {isActive = a} :: ContainerServicePower)
+-- | The ID of the power (e.g., @nano-1@).
+containerServicePower_powerId :: Lens.Lens' ContainerServicePower (Prelude.Maybe Prelude.Text)
+containerServicePower_powerId = Lens.lens (\ContainerServicePower' {powerId} -> powerId) (\s@ContainerServicePower' {} a -> s {powerId = a} :: ContainerServicePower)
 
 -- | The amount of RAM (in GB) of the power.
 containerServicePower_ramSizeInGb :: Lens.Lens' ContainerServicePower (Prelude.Maybe Prelude.Double)
@@ -110,28 +110,28 @@ instance Core.FromJSON ContainerServicePower where
       "ContainerServicePower"
       ( \x ->
           ContainerServicePower'
-            Prelude.<$> (x Core..:? "powerId")
-            Prelude.<*> (x Core..:? "cpuCount")
+            Prelude.<$> (x Core..:? "cpuCount")
+            Prelude.<*> (x Core..:? "isActive")
             Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "price")
-            Prelude.<*> (x Core..:? "isActive")
+            Prelude.<*> (x Core..:? "powerId")
             Prelude.<*> (x Core..:? "ramSizeInGb")
       )
 
 instance Prelude.Hashable ContainerServicePower where
   hashWithSalt _salt ContainerServicePower' {..} =
-    _salt `Prelude.hashWithSalt` powerId
-      `Prelude.hashWithSalt` cpuCount
+    _salt `Prelude.hashWithSalt` cpuCount
+      `Prelude.hashWithSalt` isActive
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` price
-      `Prelude.hashWithSalt` isActive
+      `Prelude.hashWithSalt` powerId
       `Prelude.hashWithSalt` ramSizeInGb
 
 instance Prelude.NFData ContainerServicePower where
   rnf ContainerServicePower' {..} =
-    Prelude.rnf powerId
-      `Prelude.seq` Prelude.rnf cpuCount
+    Prelude.rnf cpuCount
+      `Prelude.seq` Prelude.rnf isActive
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf price
-      `Prelude.seq` Prelude.rnf isActive
+      `Prelude.seq` Prelude.rnf powerId
       `Prelude.seq` Prelude.rnf ramSizeInGb

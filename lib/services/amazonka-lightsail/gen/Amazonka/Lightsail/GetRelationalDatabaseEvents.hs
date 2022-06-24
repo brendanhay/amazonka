@@ -29,8 +29,8 @@ module Amazonka.Lightsail.GetRelationalDatabaseEvents
     newGetRelationalDatabaseEvents,
 
     -- * Request Lenses
-    getRelationalDatabaseEvents_durationInMinutes,
     getRelationalDatabaseEvents_pageToken,
+    getRelationalDatabaseEvents_durationInMinutes,
     getRelationalDatabaseEvents_relationalDatabaseName,
 
     -- * Destructuring the Response
@@ -53,20 +53,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetRelationalDatabaseEvents' smart constructor.
 data GetRelationalDatabaseEvents = GetRelationalDatabaseEvents'
-  { -- | The number of minutes in the past from which to retrieve events. For
-    -- example, to get all events from the past 2 hours, enter 120.
-    --
-    -- Default: @60@
-    --
-    -- The minimum is 1 and the maximum is 14 days (20160 minutes).
-    durationInMinutes :: Prelude.Maybe Prelude.Int,
-    -- | The token to advance to the next page of results from your request.
+  { -- | The token to advance to the next page of results from your request.
     --
     -- To get a page token, perform an initial @GetRelationalDatabaseEvents@
     -- request. If your results are paginated, the response will return a next
     -- page token that you can specify as the page token in a subsequent
     -- request.
     pageToken :: Prelude.Maybe Prelude.Text,
+    -- | The number of minutes in the past from which to retrieve events. For
+    -- example, to get all events from the past 2 hours, enter 120.
+    --
+    -- Default: @60@
+    --
+    -- The minimum is 1 and the maximum is 14 days (20160 minutes).
+    durationInMinutes :: Prelude.Maybe Prelude.Int,
     -- | The name of the database from which to get events.
     relationalDatabaseName :: Prelude.Text
   }
@@ -80,19 +80,19 @@ data GetRelationalDatabaseEvents = GetRelationalDatabaseEvents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'durationInMinutes', 'getRelationalDatabaseEvents_durationInMinutes' - The number of minutes in the past from which to retrieve events. For
--- example, to get all events from the past 2 hours, enter 120.
---
--- Default: @60@
---
--- The minimum is 1 and the maximum is 14 days (20160 minutes).
---
 -- 'pageToken', 'getRelationalDatabaseEvents_pageToken' - The token to advance to the next page of results from your request.
 --
 -- To get a page token, perform an initial @GetRelationalDatabaseEvents@
 -- request. If your results are paginated, the response will return a next
 -- page token that you can specify as the page token in a subsequent
 -- request.
+--
+-- 'durationInMinutes', 'getRelationalDatabaseEvents_durationInMinutes' - The number of minutes in the past from which to retrieve events. For
+-- example, to get all events from the past 2 hours, enter 120.
+--
+-- Default: @60@
+--
+-- The minimum is 1 and the maximum is 14 days (20160 minutes).
 --
 -- 'relationalDatabaseName', 'getRelationalDatabaseEvents_relationalDatabaseName' - The name of the database from which to get events.
 newGetRelationalDatabaseEvents ::
@@ -102,21 +102,12 @@ newGetRelationalDatabaseEvents ::
 newGetRelationalDatabaseEvents
   pRelationalDatabaseName_ =
     GetRelationalDatabaseEvents'
-      { durationInMinutes =
+      { pageToken =
           Prelude.Nothing,
-        pageToken = Prelude.Nothing,
+        durationInMinutes = Prelude.Nothing,
         relationalDatabaseName =
           pRelationalDatabaseName_
       }
-
--- | The number of minutes in the past from which to retrieve events. For
--- example, to get all events from the past 2 hours, enter 120.
---
--- Default: @60@
---
--- The minimum is 1 and the maximum is 14 days (20160 minutes).
-getRelationalDatabaseEvents_durationInMinutes :: Lens.Lens' GetRelationalDatabaseEvents (Prelude.Maybe Prelude.Int)
-getRelationalDatabaseEvents_durationInMinutes = Lens.lens (\GetRelationalDatabaseEvents' {durationInMinutes} -> durationInMinutes) (\s@GetRelationalDatabaseEvents' {} a -> s {durationInMinutes = a} :: GetRelationalDatabaseEvents)
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -126,6 +117,15 @@ getRelationalDatabaseEvents_durationInMinutes = Lens.lens (\GetRelationalDatabas
 -- request.
 getRelationalDatabaseEvents_pageToken :: Lens.Lens' GetRelationalDatabaseEvents (Prelude.Maybe Prelude.Text)
 getRelationalDatabaseEvents_pageToken = Lens.lens (\GetRelationalDatabaseEvents' {pageToken} -> pageToken) (\s@GetRelationalDatabaseEvents' {} a -> s {pageToken = a} :: GetRelationalDatabaseEvents)
+
+-- | The number of minutes in the past from which to retrieve events. For
+-- example, to get all events from the past 2 hours, enter 120.
+--
+-- Default: @60@
+--
+-- The minimum is 1 and the maximum is 14 days (20160 minutes).
+getRelationalDatabaseEvents_durationInMinutes :: Lens.Lens' GetRelationalDatabaseEvents (Prelude.Maybe Prelude.Int)
+getRelationalDatabaseEvents_durationInMinutes = Lens.lens (\GetRelationalDatabaseEvents' {durationInMinutes} -> durationInMinutes) (\s@GetRelationalDatabaseEvents' {} a -> s {durationInMinutes = a} :: GetRelationalDatabaseEvents)
 
 -- | The name of the database from which to get events.
 getRelationalDatabaseEvents_relationalDatabaseName :: Lens.Lens' GetRelationalDatabaseEvents Prelude.Text
@@ -171,14 +171,14 @@ instance Core.AWSRequest GetRelationalDatabaseEvents where
 
 instance Prelude.Hashable GetRelationalDatabaseEvents where
   hashWithSalt _salt GetRelationalDatabaseEvents' {..} =
-    _salt `Prelude.hashWithSalt` durationInMinutes
-      `Prelude.hashWithSalt` pageToken
+    _salt `Prelude.hashWithSalt` pageToken
+      `Prelude.hashWithSalt` durationInMinutes
       `Prelude.hashWithSalt` relationalDatabaseName
 
 instance Prelude.NFData GetRelationalDatabaseEvents where
   rnf GetRelationalDatabaseEvents' {..} =
-    Prelude.rnf durationInMinutes
-      `Prelude.seq` Prelude.rnf pageToken
+    Prelude.rnf pageToken
+      `Prelude.seq` Prelude.rnf durationInMinutes
       `Prelude.seq` Prelude.rnf relationalDatabaseName
 
 instance Core.ToHeaders GetRelationalDatabaseEvents where
@@ -200,9 +200,9 @@ instance Core.ToJSON GetRelationalDatabaseEvents where
   toJSON GetRelationalDatabaseEvents' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("durationInMinutes" Core..=)
+          [ ("pageToken" Core..=) Prelude.<$> pageToken,
+            ("durationInMinutes" Core..=)
               Prelude.<$> durationInMinutes,
-            ("pageToken" Core..=) Prelude.<$> pageToken,
             Prelude.Just
               ( "relationalDatabaseName"
                   Core..= relationalDatabaseName

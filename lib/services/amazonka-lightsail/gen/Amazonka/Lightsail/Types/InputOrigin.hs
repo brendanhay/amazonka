@@ -34,13 +34,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInputOrigin' smart constructor.
 data InputOrigin = InputOrigin'
-  { -- | The AWS Region name of the origin resource.
-    regionName :: Prelude.Maybe RegionName,
-    -- | The name of the origin resource.
+  { -- | The name of the origin resource.
     name :: Prelude.Maybe Prelude.Text,
     -- | The protocol that your Amazon Lightsail distribution uses when
     -- establishing a connection with your origin to pull content.
-    protocolPolicy :: Prelude.Maybe OriginProtocolPolicyEnum
+    protocolPolicy :: Prelude.Maybe OriginProtocolPolicyEnum,
+    -- | The AWS Region name of the origin resource.
+    regionName :: Prelude.Maybe RegionName
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,24 +52,20 @@ data InputOrigin = InputOrigin'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'regionName', 'inputOrigin_regionName' - The AWS Region name of the origin resource.
---
 -- 'name', 'inputOrigin_name' - The name of the origin resource.
 --
 -- 'protocolPolicy', 'inputOrigin_protocolPolicy' - The protocol that your Amazon Lightsail distribution uses when
 -- establishing a connection with your origin to pull content.
+--
+-- 'regionName', 'inputOrigin_regionName' - The AWS Region name of the origin resource.
 newInputOrigin ::
   InputOrigin
 newInputOrigin =
   InputOrigin'
-    { regionName = Prelude.Nothing,
-      name = Prelude.Nothing,
-      protocolPolicy = Prelude.Nothing
+    { name = Prelude.Nothing,
+      protocolPolicy = Prelude.Nothing,
+      regionName = Prelude.Nothing
     }
-
--- | The AWS Region name of the origin resource.
-inputOrigin_regionName :: Lens.Lens' InputOrigin (Prelude.Maybe RegionName)
-inputOrigin_regionName = Lens.lens (\InputOrigin' {regionName} -> regionName) (\s@InputOrigin' {} a -> s {regionName = a} :: InputOrigin)
 
 -- | The name of the origin resource.
 inputOrigin_name :: Lens.Lens' InputOrigin (Prelude.Maybe Prelude.Text)
@@ -80,25 +76,29 @@ inputOrigin_name = Lens.lens (\InputOrigin' {name} -> name) (\s@InputOrigin' {} 
 inputOrigin_protocolPolicy :: Lens.Lens' InputOrigin (Prelude.Maybe OriginProtocolPolicyEnum)
 inputOrigin_protocolPolicy = Lens.lens (\InputOrigin' {protocolPolicy} -> protocolPolicy) (\s@InputOrigin' {} a -> s {protocolPolicy = a} :: InputOrigin)
 
+-- | The AWS Region name of the origin resource.
+inputOrigin_regionName :: Lens.Lens' InputOrigin (Prelude.Maybe RegionName)
+inputOrigin_regionName = Lens.lens (\InputOrigin' {regionName} -> regionName) (\s@InputOrigin' {} a -> s {regionName = a} :: InputOrigin)
+
 instance Prelude.Hashable InputOrigin where
   hashWithSalt _salt InputOrigin' {..} =
-    _salt `Prelude.hashWithSalt` regionName
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` protocolPolicy
+      `Prelude.hashWithSalt` regionName
 
 instance Prelude.NFData InputOrigin where
   rnf InputOrigin' {..} =
-    Prelude.rnf regionName
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf protocolPolicy
+      `Prelude.seq` Prelude.rnf regionName
 
 instance Core.ToJSON InputOrigin where
   toJSON InputOrigin' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("regionName" Core..=) Prelude.<$> regionName,
-            ("name" Core..=) Prelude.<$> name,
+          [ ("name" Core..=) Prelude.<$> name,
             ("protocolPolicy" Core..=)
-              Prelude.<$> protocolPolicy
+              Prelude.<$> protocolPolicy,
+            ("regionName" Core..=) Prelude.<$> regionName
           ]
       )

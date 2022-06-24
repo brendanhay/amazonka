@@ -31,9 +31,9 @@ module Amazonka.CodeGuruProfiler.ListProfileTimes
     newListProfileTimes,
 
     -- * Request Lenses
-    listProfileTimes_orderBy,
     listProfileTimes_nextToken,
     listProfileTimes_maxResults,
+    listProfileTimes_orderBy,
     listProfileTimes_endTime,
     listProfileTimes_period,
     listProfileTimes_profilingGroupName,
@@ -61,10 +61,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListProfileTimes' smart constructor.
 data ListProfileTimes = ListProfileTimes'
-  { -- | The order (ascending or descending by start time of the profile) to use
-    -- when listing profiles. Defaults to @TIMESTAMP_DESCENDING@.
-    orderBy :: Prelude.Maybe OrderBy,
-    -- | The @nextToken@ value returned from a previous paginated
+  { -- | The @nextToken@ value returned from a previous paginated
     -- @ListProfileTimes@ request where @maxResults@ was used and the results
     -- exceeded the value of that parameter. Pagination continues from the end
     -- of the previous results that returned the @nextToken@ value.
@@ -80,6 +77,9 @@ data ListProfileTimes = ListProfileTimes'
     -- initial request can be seen by sending another @ListProfileTimes@
     -- request with the returned @nextToken@ value.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The order (ascending or descending by start time of the profile) to use
+    -- when listing profiles. Defaults to @TIMESTAMP_DESCENDING@.
+    orderBy :: Prelude.Maybe OrderBy,
     -- | The end time of the time range from which to list the profiles.
     endTime :: Core.POSIX,
     -- | The aggregation period. This specifies the period during which an
@@ -107,9 +107,6 @@ data ListProfileTimes = ListProfileTimes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'orderBy', 'listProfileTimes_orderBy' - The order (ascending or descending by start time of the profile) to use
--- when listing profiles. Defaults to @TIMESTAMP_DESCENDING@.
---
 -- 'nextToken', 'listProfileTimes_nextToken' - The @nextToken@ value returned from a previous paginated
 -- @ListProfileTimes@ request where @maxResults@ was used and the results
 -- exceeded the value of that parameter. Pagination continues from the end
@@ -125,6 +122,9 @@ data ListProfileTimes = ListProfileTimes'
 -- with a @nextToken@ response element. The remaining results of the
 -- initial request can be seen by sending another @ListProfileTimes@
 -- request with the returned @nextToken@ value.
+--
+-- 'orderBy', 'listProfileTimes_orderBy' - The order (ascending or descending by start time of the profile) to use
+-- when listing profiles. Defaults to @TIMESTAMP_DESCENDING@.
 --
 -- 'endTime', 'listProfileTimes_endTime' - The end time of the time range from which to list the profiles.
 --
@@ -157,19 +157,14 @@ newListProfileTimes
   pProfilingGroupName_
   pStartTime_ =
     ListProfileTimes'
-      { orderBy = Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+      { nextToken = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        orderBy = Prelude.Nothing,
         endTime = Core._Time Lens.# pEndTime_,
         period = pPeriod_,
         profilingGroupName = pProfilingGroupName_,
         startTime = Core._Time Lens.# pStartTime_
       }
-
--- | The order (ascending or descending by start time of the profile) to use
--- when listing profiles. Defaults to @TIMESTAMP_DESCENDING@.
-listProfileTimes_orderBy :: Lens.Lens' ListProfileTimes (Prelude.Maybe OrderBy)
-listProfileTimes_orderBy = Lens.lens (\ListProfileTimes' {orderBy} -> orderBy) (\s@ListProfileTimes' {} a -> s {orderBy = a} :: ListProfileTimes)
 
 -- | The @nextToken@ value returned from a previous paginated
 -- @ListProfileTimes@ request where @maxResults@ was used and the results
@@ -190,6 +185,11 @@ listProfileTimes_nextToken = Lens.lens (\ListProfileTimes' {nextToken} -> nextTo
 -- request with the returned @nextToken@ value.
 listProfileTimes_maxResults :: Lens.Lens' ListProfileTimes (Prelude.Maybe Prelude.Natural)
 listProfileTimes_maxResults = Lens.lens (\ListProfileTimes' {maxResults} -> maxResults) (\s@ListProfileTimes' {} a -> s {maxResults = a} :: ListProfileTimes)
+
+-- | The order (ascending or descending by start time of the profile) to use
+-- when listing profiles. Defaults to @TIMESTAMP_DESCENDING@.
+listProfileTimes_orderBy :: Lens.Lens' ListProfileTimes (Prelude.Maybe OrderBy)
+listProfileTimes_orderBy = Lens.lens (\ListProfileTimes' {orderBy} -> orderBy) (\s@ListProfileTimes' {} a -> s {orderBy = a} :: ListProfileTimes)
 
 -- | The end time of the time range from which to list the profiles.
 listProfileTimes_endTime :: Lens.Lens' ListProfileTimes Prelude.UTCTime
@@ -250,9 +250,9 @@ instance Core.AWSRequest ListProfileTimes where
 
 instance Prelude.Hashable ListProfileTimes where
   hashWithSalt _salt ListProfileTimes' {..} =
-    _salt `Prelude.hashWithSalt` orderBy
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` orderBy
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` period
       `Prelude.hashWithSalt` profilingGroupName
@@ -260,9 +260,9 @@ instance Prelude.Hashable ListProfileTimes where
 
 instance Prelude.NFData ListProfileTimes where
   rnf ListProfileTimes' {..} =
-    Prelude.rnf orderBy
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf orderBy
       `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf period
       `Prelude.seq` Prelude.rnf profilingGroupName
@@ -290,9 +290,9 @@ instance Core.ToPath ListProfileTimes where
 instance Core.ToQuery ListProfileTimes where
   toQuery ListProfileTimes' {..} =
     Prelude.mconcat
-      [ "orderBy" Core.=: orderBy,
-        "nextToken" Core.=: nextToken,
+      [ "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults,
+        "orderBy" Core.=: orderBy,
         "endTime" Core.=: endTime,
         "period" Core.=: period,
         "startTime" Core.=: startTime

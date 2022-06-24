@@ -27,38 +27,38 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGetRecommendations $
---             newGetRecommendations
---
---         , requestAddNotificationChannels $
+--         [ requestAddNotificationChannels $
 --             newAddNotificationChannels
 --
---         , requestDescribeProfilingGroup $
---             newDescribeProfilingGroup
+--         , requestBatchGetFrameMetricData $
+--             newBatchGetFrameMetricData
 --
---         , requestPutPermission $
---             newPutPermission
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestRemovePermission $
---             newRemovePermission
---
---         , requestSubmitFeedback $
---             newSubmitFeedback
+--         , requestConfigureAgent $
+--             newConfigureAgent
 --
 --         , requestCreateProfilingGroup $
 --             newCreateProfilingGroup
 --
---         , requestRemoveNotificationChannel $
---             newRemoveNotificationChannel
---
---         , requestUpdateProfilingGroup $
---             newUpdateProfilingGroup
---
 --         , requestDeleteProfilingGroup $
 --             newDeleteProfilingGroup
+--
+--         , requestDescribeProfilingGroup $
+--             newDescribeProfilingGroup
+--
+--         , requestGetFindingsReportAccountSummary $
+--             newGetFindingsReportAccountSummary
+--
+--         , requestGetNotificationConfiguration $
+--             newGetNotificationConfiguration
+--
+--         , requestGetPolicy $
+--             newGetPolicy
+--
+--         , requestGetProfile $
+--             newGetProfile
+--
+--         , requestGetRecommendations $
+--             newGetRecommendations
 --
 --         , requestListFindingsReports $
 --             newListFindingsReports
@@ -66,71 +66,71 @@ import Test.Tasty
 --         , requestListProfileTimes $
 --             newListProfileTimes
 --
+--         , requestListProfilingGroups $
+--             newListProfilingGroups
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
 --         , requestPostAgentProfile $
 --             newPostAgentProfile
 --
---         , requestGetProfile $
---             newGetProfile
+--         , requestPutPermission $
+--             newPutPermission
 --
---         , requestListProfilingGroups $
---             newListProfilingGroups
+--         , requestRemoveNotificationChannel $
+--             newRemoveNotificationChannel
+--
+--         , requestRemovePermission $
+--             newRemovePermission
+--
+--         , requestSubmitFeedback $
+--             newSubmitFeedback
 --
 --         , requestTagResource $
 --             newTagResource
 --
---         , requestGetNotificationConfiguration $
---             newGetNotificationConfiguration
---
---         , requestBatchGetFrameMetricData $
---             newBatchGetFrameMetricData
---
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestGetFindingsReportAccountSummary $
---             newGetFindingsReportAccountSummary
---
---         , requestGetPolicy $
---             newGetPolicy
---
---         , requestConfigureAgent $
---             newConfigureAgent
+--         , requestUpdateProfilingGroup $
+--             newUpdateProfilingGroup
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseGetRecommendations $
---             newGetRecommendationsResponse
---
---         , responseAddNotificationChannels $
+--         [ responseAddNotificationChannels $
 --             newAddNotificationChannelsResponse
 --
---         , responseDescribeProfilingGroup $
---             newDescribeProfilingGroupResponse
+--         , responseBatchGetFrameMetricData $
+--             newBatchGetFrameMetricDataResponse
 --
---         , responsePutPermission $
---             newPutPermissionResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseRemovePermission $
---             newRemovePermissionResponse
---
---         , responseSubmitFeedback $
---             newSubmitFeedbackResponse
+--         , responseConfigureAgent $
+--             newConfigureAgentResponse
 --
 --         , responseCreateProfilingGroup $
 --             newCreateProfilingGroupResponse
 --
---         , responseRemoveNotificationChannel $
---             newRemoveNotificationChannelResponse
---
---         , responseUpdateProfilingGroup $
---             newUpdateProfilingGroupResponse
---
 --         , responseDeleteProfilingGroup $
 --             newDeleteProfilingGroupResponse
+--
+--         , responseDescribeProfilingGroup $
+--             newDescribeProfilingGroupResponse
+--
+--         , responseGetFindingsReportAccountSummary $
+--             newGetFindingsReportAccountSummaryResponse
+--
+--         , responseGetNotificationConfiguration $
+--             newGetNotificationConfigurationResponse
+--
+--         , responseGetPolicy $
+--             newGetPolicyResponse
+--
+--         , responseGetProfile $
+--             newGetProfileResponse
+--
+--         , responseGetRecommendations $
+--             newGetRecommendationsResponse
 --
 --         , responseListFindingsReports $
 --             newListFindingsReportsResponse
@@ -138,46 +138,40 @@ import Test.Tasty
 --         , responseListProfileTimes $
 --             newListProfileTimesResponse
 --
+--         , responseListProfilingGroups $
+--             newListProfilingGroupsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
 --         , responsePostAgentProfile $
 --             newPostAgentProfileResponse
 --
---         , responseGetProfile $
---             newGetProfileResponse
+--         , responsePutPermission $
+--             newPutPermissionResponse
 --
---         , responseListProfilingGroups $
---             newListProfilingGroupsResponse
+--         , responseRemoveNotificationChannel $
+--             newRemoveNotificationChannelResponse
+--
+--         , responseRemovePermission $
+--             newRemovePermissionResponse
+--
+--         , responseSubmitFeedback $
+--             newSubmitFeedbackResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
 --
---         , responseGetNotificationConfiguration $
---             newGetNotificationConfigurationResponse
---
---         , responseBatchGetFrameMetricData $
---             newBatchGetFrameMetricDataResponse
---
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseGetFindingsReportAccountSummary $
---             newGetFindingsReportAccountSummaryResponse
---
---         , responseGetPolicy $
---             newGetPolicyResponse
---
---         , responseConfigureAgent $
---             newConfigureAgentResponse
+--         , responseUpdateProfilingGroup $
+--             newUpdateProfilingGroupResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestGetRecommendations :: GetRecommendations -> TestTree
-requestGetRecommendations =
-  req
-    "GetRecommendations"
-    "fixture/GetRecommendations.yaml"
 
 requestAddNotificationChannels :: AddNotificationChannels -> TestTree
 requestAddNotificationChannels =
@@ -185,35 +179,17 @@ requestAddNotificationChannels =
     "AddNotificationChannels"
     "fixture/AddNotificationChannels.yaml"
 
-requestDescribeProfilingGroup :: DescribeProfilingGroup -> TestTree
-requestDescribeProfilingGroup =
+requestBatchGetFrameMetricData :: BatchGetFrameMetricData -> TestTree
+requestBatchGetFrameMetricData =
   req
-    "DescribeProfilingGroup"
-    "fixture/DescribeProfilingGroup.yaml"
+    "BatchGetFrameMetricData"
+    "fixture/BatchGetFrameMetricData.yaml"
 
-requestPutPermission :: PutPermission -> TestTree
-requestPutPermission =
+requestConfigureAgent :: ConfigureAgent -> TestTree
+requestConfigureAgent =
   req
-    "PutPermission"
-    "fixture/PutPermission.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestRemovePermission :: RemovePermission -> TestTree
-requestRemovePermission =
-  req
-    "RemovePermission"
-    "fixture/RemovePermission.yaml"
-
-requestSubmitFeedback :: SubmitFeedback -> TestTree
-requestSubmitFeedback =
-  req
-    "SubmitFeedback"
-    "fixture/SubmitFeedback.yaml"
+    "ConfigureAgent"
+    "fixture/ConfigureAgent.yaml"
 
 requestCreateProfilingGroup :: CreateProfilingGroup -> TestTree
 requestCreateProfilingGroup =
@@ -221,23 +197,47 @@ requestCreateProfilingGroup =
     "CreateProfilingGroup"
     "fixture/CreateProfilingGroup.yaml"
 
-requestRemoveNotificationChannel :: RemoveNotificationChannel -> TestTree
-requestRemoveNotificationChannel =
-  req
-    "RemoveNotificationChannel"
-    "fixture/RemoveNotificationChannel.yaml"
-
-requestUpdateProfilingGroup :: UpdateProfilingGroup -> TestTree
-requestUpdateProfilingGroup =
-  req
-    "UpdateProfilingGroup"
-    "fixture/UpdateProfilingGroup.yaml"
-
 requestDeleteProfilingGroup :: DeleteProfilingGroup -> TestTree
 requestDeleteProfilingGroup =
   req
     "DeleteProfilingGroup"
     "fixture/DeleteProfilingGroup.yaml"
+
+requestDescribeProfilingGroup :: DescribeProfilingGroup -> TestTree
+requestDescribeProfilingGroup =
+  req
+    "DescribeProfilingGroup"
+    "fixture/DescribeProfilingGroup.yaml"
+
+requestGetFindingsReportAccountSummary :: GetFindingsReportAccountSummary -> TestTree
+requestGetFindingsReportAccountSummary =
+  req
+    "GetFindingsReportAccountSummary"
+    "fixture/GetFindingsReportAccountSummary.yaml"
+
+requestGetNotificationConfiguration :: GetNotificationConfiguration -> TestTree
+requestGetNotificationConfiguration =
+  req
+    "GetNotificationConfiguration"
+    "fixture/GetNotificationConfiguration.yaml"
+
+requestGetPolicy :: GetPolicy -> TestTree
+requestGetPolicy =
+  req
+    "GetPolicy"
+    "fixture/GetPolicy.yaml"
+
+requestGetProfile :: GetProfile -> TestTree
+requestGetProfile =
+  req
+    "GetProfile"
+    "fixture/GetProfile.yaml"
+
+requestGetRecommendations :: GetRecommendations -> TestTree
+requestGetRecommendations =
+  req
+    "GetRecommendations"
+    "fixture/GetRecommendations.yaml"
 
 requestListFindingsReports :: ListFindingsReports -> TestTree
 requestListFindingsReports =
@@ -251,23 +251,47 @@ requestListProfileTimes =
     "ListProfileTimes"
     "fixture/ListProfileTimes.yaml"
 
+requestListProfilingGroups :: ListProfilingGroups -> TestTree
+requestListProfilingGroups =
+  req
+    "ListProfilingGroups"
+    "fixture/ListProfilingGroups.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
 requestPostAgentProfile :: PostAgentProfile -> TestTree
 requestPostAgentProfile =
   req
     "PostAgentProfile"
     "fixture/PostAgentProfile.yaml"
 
-requestGetProfile :: GetProfile -> TestTree
-requestGetProfile =
+requestPutPermission :: PutPermission -> TestTree
+requestPutPermission =
   req
-    "GetProfile"
-    "fixture/GetProfile.yaml"
+    "PutPermission"
+    "fixture/PutPermission.yaml"
 
-requestListProfilingGroups :: ListProfilingGroups -> TestTree
-requestListProfilingGroups =
+requestRemoveNotificationChannel :: RemoveNotificationChannel -> TestTree
+requestRemoveNotificationChannel =
   req
-    "ListProfilingGroups"
-    "fixture/ListProfilingGroups.yaml"
+    "RemoveNotificationChannel"
+    "fixture/RemoveNotificationChannel.yaml"
+
+requestRemovePermission :: RemovePermission -> TestTree
+requestRemovePermission =
+  req
+    "RemovePermission"
+    "fixture/RemovePermission.yaml"
+
+requestSubmitFeedback :: SubmitFeedback -> TestTree
+requestSubmitFeedback =
+  req
+    "SubmitFeedback"
+    "fixture/SubmitFeedback.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -275,51 +299,19 @@ requestTagResource =
     "TagResource"
     "fixture/TagResource.yaml"
 
-requestGetNotificationConfiguration :: GetNotificationConfiguration -> TestTree
-requestGetNotificationConfiguration =
-  req
-    "GetNotificationConfiguration"
-    "fixture/GetNotificationConfiguration.yaml"
-
-requestBatchGetFrameMetricData :: BatchGetFrameMetricData -> TestTree
-requestBatchGetFrameMetricData =
-  req
-    "BatchGetFrameMetricData"
-    "fixture/BatchGetFrameMetricData.yaml"
-
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
   req
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestGetFindingsReportAccountSummary :: GetFindingsReportAccountSummary -> TestTree
-requestGetFindingsReportAccountSummary =
+requestUpdateProfilingGroup :: UpdateProfilingGroup -> TestTree
+requestUpdateProfilingGroup =
   req
-    "GetFindingsReportAccountSummary"
-    "fixture/GetFindingsReportAccountSummary.yaml"
-
-requestGetPolicy :: GetPolicy -> TestTree
-requestGetPolicy =
-  req
-    "GetPolicy"
-    "fixture/GetPolicy.yaml"
-
-requestConfigureAgent :: ConfigureAgent -> TestTree
-requestConfigureAgent =
-  req
-    "ConfigureAgent"
-    "fixture/ConfigureAgent.yaml"
+    "UpdateProfilingGroup"
+    "fixture/UpdateProfilingGroup.yaml"
 
 -- Responses
-
-responseGetRecommendations :: GetRecommendationsResponse -> TestTree
-responseGetRecommendations =
-  res
-    "GetRecommendationsResponse"
-    "fixture/GetRecommendationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetRecommendations)
 
 responseAddNotificationChannels :: AddNotificationChannelsResponse -> TestTree
 responseAddNotificationChannels =
@@ -329,45 +321,21 @@ responseAddNotificationChannels =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AddNotificationChannels)
 
-responseDescribeProfilingGroup :: DescribeProfilingGroupResponse -> TestTree
-responseDescribeProfilingGroup =
+responseBatchGetFrameMetricData :: BatchGetFrameMetricDataResponse -> TestTree
+responseBatchGetFrameMetricData =
   res
-    "DescribeProfilingGroupResponse"
-    "fixture/DescribeProfilingGroupResponse.proto"
+    "BatchGetFrameMetricDataResponse"
+    "fixture/BatchGetFrameMetricDataResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeProfilingGroup)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetFrameMetricData)
 
-responsePutPermission :: PutPermissionResponse -> TestTree
-responsePutPermission =
+responseConfigureAgent :: ConfigureAgentResponse -> TestTree
+responseConfigureAgent =
   res
-    "PutPermissionResponse"
-    "fixture/PutPermissionResponse.proto"
+    "ConfigureAgentResponse"
+    "fixture/ConfigureAgentResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutPermission)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseRemovePermission :: RemovePermissionResponse -> TestTree
-responseRemovePermission =
-  res
-    "RemovePermissionResponse"
-    "fixture/RemovePermissionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RemovePermission)
-
-responseSubmitFeedback :: SubmitFeedbackResponse -> TestTree
-responseSubmitFeedback =
-  res
-    "SubmitFeedbackResponse"
-    "fixture/SubmitFeedbackResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy SubmitFeedback)
+    (Proxy.Proxy :: Proxy.Proxy ConfigureAgent)
 
 responseCreateProfilingGroup :: CreateProfilingGroupResponse -> TestTree
 responseCreateProfilingGroup =
@@ -377,22 +345,6 @@ responseCreateProfilingGroup =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateProfilingGroup)
 
-responseRemoveNotificationChannel :: RemoveNotificationChannelResponse -> TestTree
-responseRemoveNotificationChannel =
-  res
-    "RemoveNotificationChannelResponse"
-    "fixture/RemoveNotificationChannelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RemoveNotificationChannel)
-
-responseUpdateProfilingGroup :: UpdateProfilingGroupResponse -> TestTree
-responseUpdateProfilingGroup =
-  res
-    "UpdateProfilingGroupResponse"
-    "fixture/UpdateProfilingGroupResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateProfilingGroup)
-
 responseDeleteProfilingGroup :: DeleteProfilingGroupResponse -> TestTree
 responseDeleteProfilingGroup =
   res
@@ -400,6 +352,54 @@ responseDeleteProfilingGroup =
     "fixture/DeleteProfilingGroupResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteProfilingGroup)
+
+responseDescribeProfilingGroup :: DescribeProfilingGroupResponse -> TestTree
+responseDescribeProfilingGroup =
+  res
+    "DescribeProfilingGroupResponse"
+    "fixture/DescribeProfilingGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeProfilingGroup)
+
+responseGetFindingsReportAccountSummary :: GetFindingsReportAccountSummaryResponse -> TestTree
+responseGetFindingsReportAccountSummary =
+  res
+    "GetFindingsReportAccountSummaryResponse"
+    "fixture/GetFindingsReportAccountSummaryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetFindingsReportAccountSummary)
+
+responseGetNotificationConfiguration :: GetNotificationConfigurationResponse -> TestTree
+responseGetNotificationConfiguration =
+  res
+    "GetNotificationConfigurationResponse"
+    "fixture/GetNotificationConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetNotificationConfiguration)
+
+responseGetPolicy :: GetPolicyResponse -> TestTree
+responseGetPolicy =
+  res
+    "GetPolicyResponse"
+    "fixture/GetPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetPolicy)
+
+responseGetProfile :: GetProfileResponse -> TestTree
+responseGetProfile =
+  res
+    "GetProfileResponse"
+    "fixture/GetProfileResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetProfile)
+
+responseGetRecommendations :: GetRecommendationsResponse -> TestTree
+responseGetRecommendations =
+  res
+    "GetRecommendationsResponse"
+    "fixture/GetRecommendationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetRecommendations)
 
 responseListFindingsReports :: ListFindingsReportsResponse -> TestTree
 responseListFindingsReports =
@@ -417,6 +417,22 @@ responseListProfileTimes =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListProfileTimes)
 
+responseListProfilingGroups :: ListProfilingGroupsResponse -> TestTree
+responseListProfilingGroups =
+  res
+    "ListProfilingGroupsResponse"
+    "fixture/ListProfilingGroupsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListProfilingGroups)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
 responsePostAgentProfile :: PostAgentProfileResponse -> TestTree
 responsePostAgentProfile =
   res
@@ -425,21 +441,37 @@ responsePostAgentProfile =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PostAgentProfile)
 
-responseGetProfile :: GetProfileResponse -> TestTree
-responseGetProfile =
+responsePutPermission :: PutPermissionResponse -> TestTree
+responsePutPermission =
   res
-    "GetProfileResponse"
-    "fixture/GetProfileResponse.proto"
+    "PutPermissionResponse"
+    "fixture/PutPermissionResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetProfile)
+    (Proxy.Proxy :: Proxy.Proxy PutPermission)
 
-responseListProfilingGroups :: ListProfilingGroupsResponse -> TestTree
-responseListProfilingGroups =
+responseRemoveNotificationChannel :: RemoveNotificationChannelResponse -> TestTree
+responseRemoveNotificationChannel =
   res
-    "ListProfilingGroupsResponse"
-    "fixture/ListProfilingGroupsResponse.proto"
+    "RemoveNotificationChannelResponse"
+    "fixture/RemoveNotificationChannelResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListProfilingGroups)
+    (Proxy.Proxy :: Proxy.Proxy RemoveNotificationChannel)
+
+responseRemovePermission :: RemovePermissionResponse -> TestTree
+responseRemovePermission =
+  res
+    "RemovePermissionResponse"
+    "fixture/RemovePermissionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RemovePermission)
+
+responseSubmitFeedback :: SubmitFeedbackResponse -> TestTree
+responseSubmitFeedback =
+  res
+    "SubmitFeedbackResponse"
+    "fixture/SubmitFeedbackResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SubmitFeedback)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -449,22 +481,6 @@ responseTagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy TagResource)
 
-responseGetNotificationConfiguration :: GetNotificationConfigurationResponse -> TestTree
-responseGetNotificationConfiguration =
-  res
-    "GetNotificationConfigurationResponse"
-    "fixture/GetNotificationConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetNotificationConfiguration)
-
-responseBatchGetFrameMetricData :: BatchGetFrameMetricDataResponse -> TestTree
-responseBatchGetFrameMetricData =
-  res
-    "BatchGetFrameMetricDataResponse"
-    "fixture/BatchGetFrameMetricDataResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchGetFrameMetricData)
-
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
   res
@@ -473,26 +489,10 @@ responseUntagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
-responseGetFindingsReportAccountSummary :: GetFindingsReportAccountSummaryResponse -> TestTree
-responseGetFindingsReportAccountSummary =
+responseUpdateProfilingGroup :: UpdateProfilingGroupResponse -> TestTree
+responseUpdateProfilingGroup =
   res
-    "GetFindingsReportAccountSummaryResponse"
-    "fixture/GetFindingsReportAccountSummaryResponse.proto"
+    "UpdateProfilingGroupResponse"
+    "fixture/UpdateProfilingGroupResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetFindingsReportAccountSummary)
-
-responseGetPolicy :: GetPolicyResponse -> TestTree
-responseGetPolicy =
-  res
-    "GetPolicyResponse"
-    "fixture/GetPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetPolicy)
-
-responseConfigureAgent :: ConfigureAgentResponse -> TestTree
-responseConfigureAgent =
-  res
-    "ConfigureAgentResponse"
-    "fixture/ConfigureAgentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ConfigureAgent)
+    (Proxy.Proxy :: Proxy.Proxy UpdateProfilingGroup)

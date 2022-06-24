@@ -28,13 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAnomalyInstance' smart constructor.
 data AnomalyInstance = AnomalyInstance'
-  { -- | The end time of the period during which the metric is flagged as
+  { -- | Feedback type on a specific instance of anomaly submitted by the user.
+    userFeedback :: Prelude.Maybe UserFeedback,
+    -- | The end time of the period during which the metric is flagged as
     -- anomalous. This is specified using the ISO 8601 format. For example,
     -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
     -- 1:15:02 PM UTC.
     endTime :: Prelude.Maybe Core.POSIX,
-    -- | Feedback type on a specific instance of anomaly submitted by the user.
-    userFeedback :: Prelude.Maybe UserFeedback,
     -- | The universally unique identifier (UUID) of an instance of an anomaly in
     -- a metric.
     id :: Prelude.Text,
@@ -54,12 +54,12 @@ data AnomalyInstance = AnomalyInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'userFeedback', 'anomalyInstance_userFeedback' - Feedback type on a specific instance of anomaly submitted by the user.
+--
 -- 'endTime', 'anomalyInstance_endTime' - The end time of the period during which the metric is flagged as
 -- anomalous. This is specified using the ISO 8601 format. For example,
 -- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020
 -- 1:15:02 PM UTC.
---
--- 'userFeedback', 'anomalyInstance_userFeedback' - Feedback type on a specific instance of anomaly submitted by the user.
 --
 -- 'id', 'anomalyInstance_id' - The universally unique identifier (UUID) of an instance of an anomaly in
 -- a metric.
@@ -76,11 +76,15 @@ newAnomalyInstance ::
   AnomalyInstance
 newAnomalyInstance pId_ pStartTime_ =
   AnomalyInstance'
-    { endTime = Prelude.Nothing,
-      userFeedback = Prelude.Nothing,
+    { userFeedback = Prelude.Nothing,
+      endTime = Prelude.Nothing,
       id = pId_,
       startTime = Core._Time Lens.# pStartTime_
     }
+
+-- | Feedback type on a specific instance of anomaly submitted by the user.
+anomalyInstance_userFeedback :: Lens.Lens' AnomalyInstance (Prelude.Maybe UserFeedback)
+anomalyInstance_userFeedback = Lens.lens (\AnomalyInstance' {userFeedback} -> userFeedback) (\s@AnomalyInstance' {} a -> s {userFeedback = a} :: AnomalyInstance)
 
 -- | The end time of the period during which the metric is flagged as
 -- anomalous. This is specified using the ISO 8601 format. For example,
@@ -88,10 +92,6 @@ newAnomalyInstance pId_ pStartTime_ =
 -- 1:15:02 PM UTC.
 anomalyInstance_endTime :: Lens.Lens' AnomalyInstance (Prelude.Maybe Prelude.UTCTime)
 anomalyInstance_endTime = Lens.lens (\AnomalyInstance' {endTime} -> endTime) (\s@AnomalyInstance' {} a -> s {endTime = a} :: AnomalyInstance) Prelude.. Lens.mapping Core._Time
-
--- | Feedback type on a specific instance of anomaly submitted by the user.
-anomalyInstance_userFeedback :: Lens.Lens' AnomalyInstance (Prelude.Maybe UserFeedback)
-anomalyInstance_userFeedback = Lens.lens (\AnomalyInstance' {userFeedback} -> userFeedback) (\s@AnomalyInstance' {} a -> s {userFeedback = a} :: AnomalyInstance)
 
 -- | The universally unique identifier (UUID) of an instance of an anomaly in
 -- a metric.
@@ -111,22 +111,22 @@ instance Core.FromJSON AnomalyInstance where
       "AnomalyInstance"
       ( \x ->
           AnomalyInstance'
-            Prelude.<$> (x Core..:? "endTime")
-            Prelude.<*> (x Core..:? "userFeedback")
+            Prelude.<$> (x Core..:? "userFeedback")
+            Prelude.<*> (x Core..:? "endTime")
             Prelude.<*> (x Core..: "id")
             Prelude.<*> (x Core..: "startTime")
       )
 
 instance Prelude.Hashable AnomalyInstance where
   hashWithSalt _salt AnomalyInstance' {..} =
-    _salt `Prelude.hashWithSalt` endTime
-      `Prelude.hashWithSalt` userFeedback
+    _salt `Prelude.hashWithSalt` userFeedback
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData AnomalyInstance where
   rnf AnomalyInstance' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf userFeedback
+    Prelude.rnf userFeedback
+      `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf startTime

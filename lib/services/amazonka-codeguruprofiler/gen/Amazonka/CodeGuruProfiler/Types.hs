@@ -17,12 +17,12 @@ module Amazonka.CodeGuruProfiler.Types
     defaultService,
 
     -- * Errors
-    _ValidationException,
-    _ConflictException,
-    _ServiceQuotaExceededException,
-    _ThrottlingException,
     _InternalServerException,
+    _ServiceQuotaExceededException,
     _ResourceNotFoundException,
+    _ConflictException,
+    _ThrottlingException,
+    _ValidationException,
 
     -- * ActionGroup
     ActionGroup (..),
@@ -66,8 +66,8 @@ module Amazonka.CodeGuruProfiler.Types
     -- * AggregatedProfileTime
     AggregatedProfileTime (..),
     newAggregatedProfileTime,
-    aggregatedProfileTime_period,
     aggregatedProfileTime_start,
+    aggregatedProfileTime_period,
 
     -- * Anomaly
     Anomaly (..),
@@ -79,8 +79,8 @@ module Amazonka.CodeGuruProfiler.Types
     -- * AnomalyInstance
     AnomalyInstance (..),
     newAnomalyInstance,
-    anomalyInstance_endTime,
     anomalyInstance_userFeedback,
+    anomalyInstance_endTime,
     anomalyInstance_id,
     anomalyInstance_startTime,
 
@@ -95,10 +95,10 @@ module Amazonka.CodeGuruProfiler.Types
     FindingsReportSummary (..),
     newFindingsReportSummary,
     findingsReportSummary_profileStartTime,
-    findingsReportSummary_profileEndTime,
+    findingsReportSummary_totalNumberOfFindings,
     findingsReportSummary_id,
     findingsReportSummary_profilingGroupName,
-    findingsReportSummary_totalNumberOfFindings,
+    findingsReportSummary_profileEndTime,
 
     -- * FrameMetric
     FrameMetric (..),
@@ -135,13 +135,13 @@ module Amazonka.CodeGuruProfiler.Types
     -- * Pattern
     Pattern (..),
     newPattern,
-    pattern_thresholdPercent,
-    pattern_targetFrames,
-    pattern_countersToAggregate,
     pattern_name,
-    pattern_resolutionSteps,
-    pattern_id,
+    pattern_countersToAggregate,
     pattern_description,
+    pattern_id,
+    pattern_targetFrames,
+    pattern_thresholdPercent,
+    pattern_resolutionSteps,
 
     -- * ProfileTime
     ProfileTime (..),
@@ -151,14 +151,14 @@ module Amazonka.CodeGuruProfiler.Types
     -- * ProfilingGroupDescription
     ProfilingGroupDescription (..),
     newProfilingGroupDescription,
-    profilingGroupDescription_computePlatform,
-    profilingGroupDescription_arn,
-    profilingGroupDescription_createdAt,
+    profilingGroupDescription_tags,
     profilingGroupDescription_name,
+    profilingGroupDescription_arn,
+    profilingGroupDescription_computePlatform,
     profilingGroupDescription_profilingStatus,
+    profilingGroupDescription_createdAt,
     profilingGroupDescription_updatedAt,
     profilingGroupDescription_agentOrchestrationConfig,
-    profilingGroupDescription_tags,
 
     -- * ProfilingStatus
     ProfilingStatus (..),
@@ -249,35 +249,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -286,31 +259,49 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The parameter is not valid.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
+-- | The server encountered an internal error and is unable to complete the
+-- request.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
   Core._MatchServiceError
     defaultService
-    "ValidationException"
-    Prelude.. Core.hasStatus 400
-
--- | The requested operation would cause a conflict with the current state of
--- a service resource associated with the request. Resolve the conflict
--- before retrying this request.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
+    "InternalServerException"
+    Prelude.. Core.hasStatus 500
 
 -- | You have exceeded your service quota. To perform the requested action,
 -- remove some of the relevant resources, or use
@@ -323,6 +314,24 @@ _ServiceQuotaExceededException =
     "ServiceQuotaExceededException"
     Prelude.. Core.hasStatus 402
 
+-- | The resource specified in the request does not exist.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | The requested operation would cause a conflict with the current state of
+-- a service resource associated with the request. Resolve the conflict
+-- before retrying this request.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
 -- | The request was denied due to request throttling.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ThrottlingException =
@@ -331,19 +340,10 @@ _ThrottlingException =
     "ThrottlingException"
     Prelude.. Core.hasStatus 429
 
--- | The server encountered an internal error and is unable to complete the
--- request.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
+-- | The parameter is not valid.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
   Core._MatchServiceError
     defaultService
-    "InternalServerException"
-    Prelude.. Core.hasStatus 500
-
--- | The resource specified in the request does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
+    "ValidationException"
+    Prelude.. Core.hasStatus 400

@@ -27,14 +27,17 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListTagsForResource $
---             newListTagsForResource
---
---         , requestDescribeAcceleratorOfferings $
+--         [ requestDescribeAcceleratorOfferings $
 --             newDescribeAcceleratorOfferings
+--
+--         , requestDescribeAcceleratorTypes $
+--             newDescribeAcceleratorTypes
 --
 --         , requestDescribeAccelerators $
 --             newDescribeAccelerators
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
 --
 --         , requestTagResource $
 --             newTagResource
@@ -42,20 +45,20 @@ import Test.Tasty
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestDescribeAcceleratorTypes $
---             newDescribeAcceleratorTypes
---
 --           ]
 
 --     , testGroup "response"
---         [ responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseDescribeAcceleratorOfferings $
+--         [ responseDescribeAcceleratorOfferings $
 --             newDescribeAcceleratorOfferingsResponse
+--
+--         , responseDescribeAcceleratorTypes $
+--             newDescribeAcceleratorTypesResponse
 --
 --         , responseDescribeAccelerators $
 --             newDescribeAcceleratorsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -63,19 +66,10 @@ import Test.Tasty
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseDescribeAcceleratorTypes $
---             newDescribeAcceleratorTypesResponse
---
 --           ]
 --     ]
 
 -- Requests
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
 
 requestDescribeAcceleratorOfferings :: DescribeAcceleratorOfferings -> TestTree
 requestDescribeAcceleratorOfferings =
@@ -83,11 +77,23 @@ requestDescribeAcceleratorOfferings =
     "DescribeAcceleratorOfferings"
     "fixture/DescribeAcceleratorOfferings.yaml"
 
+requestDescribeAcceleratorTypes :: DescribeAcceleratorTypes -> TestTree
+requestDescribeAcceleratorTypes =
+  req
+    "DescribeAcceleratorTypes"
+    "fixture/DescribeAcceleratorTypes.yaml"
+
 requestDescribeAccelerators :: DescribeAccelerators -> TestTree
 requestDescribeAccelerators =
   req
     "DescribeAccelerators"
     "fixture/DescribeAccelerators.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -101,21 +107,7 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestDescribeAcceleratorTypes :: DescribeAcceleratorTypes -> TestTree
-requestDescribeAcceleratorTypes =
-  req
-    "DescribeAcceleratorTypes"
-    "fixture/DescribeAcceleratorTypes.yaml"
-
 -- Responses
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseDescribeAcceleratorOfferings :: DescribeAcceleratorOfferingsResponse -> TestTree
 responseDescribeAcceleratorOfferings =
@@ -125,6 +117,14 @@ responseDescribeAcceleratorOfferings =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeAcceleratorOfferings)
 
+responseDescribeAcceleratorTypes :: DescribeAcceleratorTypesResponse -> TestTree
+responseDescribeAcceleratorTypes =
+  res
+    "DescribeAcceleratorTypesResponse"
+    "fixture/DescribeAcceleratorTypesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAcceleratorTypes)
+
 responseDescribeAccelerators :: DescribeAcceleratorsResponse -> TestTree
 responseDescribeAccelerators =
   res
@@ -132,6 +132,14 @@ responseDescribeAccelerators =
     "fixture/DescribeAcceleratorsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeAccelerators)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -148,11 +156,3 @@ responseUntagResource =
     "fixture/UntagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
-
-responseDescribeAcceleratorTypes :: DescribeAcceleratorTypesResponse -> TestTree
-responseDescribeAcceleratorTypes =
-  res
-    "DescribeAcceleratorTypesResponse"
-    "fixture/DescribeAcceleratorTypesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeAcceleratorTypes)

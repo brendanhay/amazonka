@@ -102,9 +102,9 @@ module Amazonka.ElastiCache.CopySnapshot
     newCopySnapshot,
 
     -- * Request Lenses
+    copySnapshot_tags,
     copySnapshot_targetBucket,
     copySnapshot_kmsKeyId,
-    copySnapshot_tags,
     copySnapshot_sourceSnapshotName,
     copySnapshot_targetSnapshotName,
 
@@ -129,7 +129,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCopySnapshot' smart constructor.
 data CopySnapshot = CopySnapshot'
-  { -- | The Amazon S3 bucket to which the snapshot is exported. This parameter
+  { -- | A list of tags to be added to this resource. A tag is a key-value pair.
+    -- A tag key must be accompanied by a tag value, although null is accepted.
+    tags :: Prelude.Maybe [Tag],
+    -- | The Amazon S3 bucket to which the snapshot is exported. This parameter
     -- is used only when exporting a snapshot for external access.
     --
     -- When using this parameter to export a snapshot, be sure Amazon
@@ -144,9 +147,6 @@ data CopySnapshot = CopySnapshot'
     targetBucket :: Prelude.Maybe Prelude.Text,
     -- | The ID of the KMS key used to encrypt the target snapshot.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | A list of tags to be added to this resource. A tag is a key-value pair.
-    -- A tag key must be accompanied by a tag value, although null is accepted.
-    tags :: Prelude.Maybe [Tag],
     -- | The name of an existing snapshot from which to make a copy.
     sourceSnapshotName :: Prelude.Text,
     -- | A name for the snapshot copy. ElastiCache does not permit overwriting a
@@ -164,6 +164,9 @@ data CopySnapshot = CopySnapshot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'copySnapshot_tags' - A list of tags to be added to this resource. A tag is a key-value pair.
+-- A tag key must be accompanied by a tag value, although null is accepted.
+--
 -- 'targetBucket', 'copySnapshot_targetBucket' - The Amazon S3 bucket to which the snapshot is exported. This parameter
 -- is used only when exporting a snapshot for external access.
 --
@@ -178,9 +181,6 @@ data CopySnapshot = CopySnapshot'
 -- in the /Amazon ElastiCache User Guide/.
 --
 -- 'kmsKeyId', 'copySnapshot_kmsKeyId' - The ID of the KMS key used to encrypt the target snapshot.
---
--- 'tags', 'copySnapshot_tags' - A list of tags to be added to this resource. A tag is a key-value pair.
--- A tag key must be accompanied by a tag value, although null is accepted.
 --
 -- 'sourceSnapshotName', 'copySnapshot_sourceSnapshotName' - The name of an existing snapshot from which to make a copy.
 --
@@ -197,12 +197,17 @@ newCopySnapshot
   pSourceSnapshotName_
   pTargetSnapshotName_ =
     CopySnapshot'
-      { targetBucket = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        targetBucket = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
-        tags = Prelude.Nothing,
         sourceSnapshotName = pSourceSnapshotName_,
         targetSnapshotName = pTargetSnapshotName_
       }
+
+-- | A list of tags to be added to this resource. A tag is a key-value pair.
+-- A tag key must be accompanied by a tag value, although null is accepted.
+copySnapshot_tags :: Lens.Lens' CopySnapshot (Prelude.Maybe [Tag])
+copySnapshot_tags = Lens.lens (\CopySnapshot' {tags} -> tags) (\s@CopySnapshot' {} a -> s {tags = a} :: CopySnapshot) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon S3 bucket to which the snapshot is exported. This parameter
 -- is used only when exporting a snapshot for external access.
@@ -222,11 +227,6 @@ copySnapshot_targetBucket = Lens.lens (\CopySnapshot' {targetBucket} -> targetBu
 -- | The ID of the KMS key used to encrypt the target snapshot.
 copySnapshot_kmsKeyId :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Text)
 copySnapshot_kmsKeyId = Lens.lens (\CopySnapshot' {kmsKeyId} -> kmsKeyId) (\s@CopySnapshot' {} a -> s {kmsKeyId = a} :: CopySnapshot)
-
--- | A list of tags to be added to this resource. A tag is a key-value pair.
--- A tag key must be accompanied by a tag value, although null is accepted.
-copySnapshot_tags :: Lens.Lens' CopySnapshot (Prelude.Maybe [Tag])
-copySnapshot_tags = Lens.lens (\CopySnapshot' {tags} -> tags) (\s@CopySnapshot' {} a -> s {tags = a} :: CopySnapshot) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of an existing snapshot from which to make a copy.
 copySnapshot_sourceSnapshotName :: Lens.Lens' CopySnapshot Prelude.Text
@@ -252,17 +252,17 @@ instance Core.AWSRequest CopySnapshot where
 
 instance Prelude.Hashable CopySnapshot where
   hashWithSalt _salt CopySnapshot' {..} =
-    _salt `Prelude.hashWithSalt` targetBucket
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` targetBucket
       `Prelude.hashWithSalt` kmsKeyId
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` sourceSnapshotName
       `Prelude.hashWithSalt` targetSnapshotName
 
 instance Prelude.NFData CopySnapshot where
   rnf CopySnapshot' {..} =
-    Prelude.rnf targetBucket
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf targetBucket
       `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf sourceSnapshotName
       `Prelude.seq` Prelude.rnf targetSnapshotName
 
@@ -279,11 +279,11 @@ instance Core.ToQuery CopySnapshot where
           Core.=: ("CopySnapshot" :: Prelude.ByteString),
         "Version"
           Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "TargetBucket" Core.=: targetBucket,
-        "KmsKeyId" Core.=: kmsKeyId,
         "Tags"
           Core.=: Core.toQuery
             (Core.toQueryList "Tag" Prelude.<$> tags),
+        "TargetBucket" Core.=: targetBucket,
+        "KmsKeyId" Core.=: kmsKeyId,
         "SourceSnapshotName" Core.=: sourceSnapshotName,
         "TargetSnapshotName" Core.=: targetSnapshotName
       ]

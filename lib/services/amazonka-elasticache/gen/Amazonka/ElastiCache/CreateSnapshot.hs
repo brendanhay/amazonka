@@ -30,10 +30,10 @@ module Amazonka.ElastiCache.CreateSnapshot
     newCreateSnapshot,
 
     -- * Request Lenses
+    createSnapshot_tags,
     createSnapshot_cacheClusterId,
     createSnapshot_kmsKeyId,
     createSnapshot_replicationGroupId,
-    createSnapshot_tags,
     createSnapshot_snapshotName,
 
     -- * Destructuring the Response
@@ -57,7 +57,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateSnapshot' smart constructor.
 data CreateSnapshot = CreateSnapshot'
-  { -- | The identifier of an existing cluster. The snapshot is created from this
+  { -- | A list of tags to be added to this resource. A tag is a key-value pair.
+    -- A tag key must be accompanied by a tag value, although null is accepted.
+    tags :: Prelude.Maybe [Tag],
+    -- | The identifier of an existing cluster. The snapshot is created from this
     -- cluster.
     cacheClusterId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the KMS key used to encrypt the snapshot.
@@ -65,9 +68,6 @@ data CreateSnapshot = CreateSnapshot'
     -- | The identifier of an existing replication group. The snapshot is created
     -- from this replication group.
     replicationGroupId :: Prelude.Maybe Prelude.Text,
-    -- | A list of tags to be added to this resource. A tag is a key-value pair.
-    -- A tag key must be accompanied by a tag value, although null is accepted.
-    tags :: Prelude.Maybe [Tag],
     -- | A name for the snapshot being created.
     snapshotName :: Prelude.Text
   }
@@ -81,6 +81,9 @@ data CreateSnapshot = CreateSnapshot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createSnapshot_tags' - A list of tags to be added to this resource. A tag is a key-value pair.
+-- A tag key must be accompanied by a tag value, although null is accepted.
+--
 -- 'cacheClusterId', 'createSnapshot_cacheClusterId' - The identifier of an existing cluster. The snapshot is created from this
 -- cluster.
 --
@@ -89,9 +92,6 @@ data CreateSnapshot = CreateSnapshot'
 -- 'replicationGroupId', 'createSnapshot_replicationGroupId' - The identifier of an existing replication group. The snapshot is created
 -- from this replication group.
 --
--- 'tags', 'createSnapshot_tags' - A list of tags to be added to this resource. A tag is a key-value pair.
--- A tag key must be accompanied by a tag value, although null is accepted.
---
 -- 'snapshotName', 'createSnapshot_snapshotName' - A name for the snapshot being created.
 newCreateSnapshot ::
   -- | 'snapshotName'
@@ -99,12 +99,17 @@ newCreateSnapshot ::
   CreateSnapshot
 newCreateSnapshot pSnapshotName_ =
   CreateSnapshot'
-    { cacheClusterId = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      cacheClusterId = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
       replicationGroupId = Prelude.Nothing,
-      tags = Prelude.Nothing,
       snapshotName = pSnapshotName_
     }
+
+-- | A list of tags to be added to this resource. A tag is a key-value pair.
+-- A tag key must be accompanied by a tag value, although null is accepted.
+createSnapshot_tags :: Lens.Lens' CreateSnapshot (Prelude.Maybe [Tag])
+createSnapshot_tags = Lens.lens (\CreateSnapshot' {tags} -> tags) (\s@CreateSnapshot' {} a -> s {tags = a} :: CreateSnapshot) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of an existing cluster. The snapshot is created from this
 -- cluster.
@@ -119,11 +124,6 @@ createSnapshot_kmsKeyId = Lens.lens (\CreateSnapshot' {kmsKeyId} -> kmsKeyId) (\
 -- from this replication group.
 createSnapshot_replicationGroupId :: Lens.Lens' CreateSnapshot (Prelude.Maybe Prelude.Text)
 createSnapshot_replicationGroupId = Lens.lens (\CreateSnapshot' {replicationGroupId} -> replicationGroupId) (\s@CreateSnapshot' {} a -> s {replicationGroupId = a} :: CreateSnapshot)
-
--- | A list of tags to be added to this resource. A tag is a key-value pair.
--- A tag key must be accompanied by a tag value, although null is accepted.
-createSnapshot_tags :: Lens.Lens' CreateSnapshot (Prelude.Maybe [Tag])
-createSnapshot_tags = Lens.lens (\CreateSnapshot' {tags} -> tags) (\s@CreateSnapshot' {} a -> s {tags = a} :: CreateSnapshot) Prelude.. Lens.mapping Lens.coerced
 
 -- | A name for the snapshot being created.
 createSnapshot_snapshotName :: Lens.Lens' CreateSnapshot Prelude.Text
@@ -145,18 +145,18 @@ instance Core.AWSRequest CreateSnapshot where
 
 instance Prelude.Hashable CreateSnapshot where
   hashWithSalt _salt CreateSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` cacheClusterId
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` cacheClusterId
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` replicationGroupId
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` snapshotName
 
 instance Prelude.NFData CreateSnapshot where
   rnf CreateSnapshot' {..} =
-    Prelude.rnf cacheClusterId
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf cacheClusterId
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf replicationGroupId
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf snapshotName
 
 instance Core.ToHeaders CreateSnapshot where
@@ -172,12 +172,12 @@ instance Core.ToQuery CreateSnapshot where
           Core.=: ("CreateSnapshot" :: Prelude.ByteString),
         "Version"
           Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "CacheClusterId" Core.=: cacheClusterId,
-        "KmsKeyId" Core.=: kmsKeyId,
-        "ReplicationGroupId" Core.=: replicationGroupId,
         "Tags"
           Core.=: Core.toQuery
             (Core.toQueryList "Tag" Prelude.<$> tags),
+        "CacheClusterId" Core.=: cacheClusterId,
+        "KmsKeyId" Core.=: kmsKeyId,
+        "ReplicationGroupId" Core.=: replicationGroupId,
         "SnapshotName" Core.=: snapshotName
       ]
 

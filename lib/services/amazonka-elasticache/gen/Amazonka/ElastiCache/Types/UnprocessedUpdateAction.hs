@@ -28,17 +28,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUnprocessedUpdateAction' smart constructor.
 data UnprocessedUpdateAction = UnprocessedUpdateAction'
-  { -- | The ID of the cache cluster
+  { -- | The error message that describes the reason the request was not
+    -- processed
+    errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the cache cluster
     cacheClusterId :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of the service update
     serviceUpdateName :: Prelude.Maybe Prelude.Text,
-    -- | The error type for requests that are not processed
-    errorType :: Prelude.Maybe Prelude.Text,
-    -- | The error message that describes the reason the request was not
-    -- processed
-    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The replication group ID
-    replicationGroupId :: Prelude.Maybe Prelude.Text
+    replicationGroupId :: Prelude.Maybe Prelude.Text,
+    -- | The error type for requests that are not processed
+    errorType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,27 +50,32 @@ data UnprocessedUpdateAction = UnprocessedUpdateAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'errorMessage', 'unprocessedUpdateAction_errorMessage' - The error message that describes the reason the request was not
+-- processed
+--
 -- 'cacheClusterId', 'unprocessedUpdateAction_cacheClusterId' - The ID of the cache cluster
 --
 -- 'serviceUpdateName', 'unprocessedUpdateAction_serviceUpdateName' - The unique ID of the service update
 --
--- 'errorType', 'unprocessedUpdateAction_errorType' - The error type for requests that are not processed
---
--- 'errorMessage', 'unprocessedUpdateAction_errorMessage' - The error message that describes the reason the request was not
--- processed
---
 -- 'replicationGroupId', 'unprocessedUpdateAction_replicationGroupId' - The replication group ID
+--
+-- 'errorType', 'unprocessedUpdateAction_errorType' - The error type for requests that are not processed
 newUnprocessedUpdateAction ::
   UnprocessedUpdateAction
 newUnprocessedUpdateAction =
   UnprocessedUpdateAction'
-    { cacheClusterId =
+    { errorMessage =
         Prelude.Nothing,
+      cacheClusterId = Prelude.Nothing,
       serviceUpdateName = Prelude.Nothing,
-      errorType = Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      replicationGroupId = Prelude.Nothing
+      replicationGroupId = Prelude.Nothing,
+      errorType = Prelude.Nothing
     }
+
+-- | The error message that describes the reason the request was not
+-- processed
+unprocessedUpdateAction_errorMessage :: Lens.Lens' UnprocessedUpdateAction (Prelude.Maybe Prelude.Text)
+unprocessedUpdateAction_errorMessage = Lens.lens (\UnprocessedUpdateAction' {errorMessage} -> errorMessage) (\s@UnprocessedUpdateAction' {} a -> s {errorMessage = a} :: UnprocessedUpdateAction)
 
 -- | The ID of the cache cluster
 unprocessedUpdateAction_cacheClusterId :: Lens.Lens' UnprocessedUpdateAction (Prelude.Maybe Prelude.Text)
@@ -80,40 +85,35 @@ unprocessedUpdateAction_cacheClusterId = Lens.lens (\UnprocessedUpdateAction' {c
 unprocessedUpdateAction_serviceUpdateName :: Lens.Lens' UnprocessedUpdateAction (Prelude.Maybe Prelude.Text)
 unprocessedUpdateAction_serviceUpdateName = Lens.lens (\UnprocessedUpdateAction' {serviceUpdateName} -> serviceUpdateName) (\s@UnprocessedUpdateAction' {} a -> s {serviceUpdateName = a} :: UnprocessedUpdateAction)
 
--- | The error type for requests that are not processed
-unprocessedUpdateAction_errorType :: Lens.Lens' UnprocessedUpdateAction (Prelude.Maybe Prelude.Text)
-unprocessedUpdateAction_errorType = Lens.lens (\UnprocessedUpdateAction' {errorType} -> errorType) (\s@UnprocessedUpdateAction' {} a -> s {errorType = a} :: UnprocessedUpdateAction)
-
--- | The error message that describes the reason the request was not
--- processed
-unprocessedUpdateAction_errorMessage :: Lens.Lens' UnprocessedUpdateAction (Prelude.Maybe Prelude.Text)
-unprocessedUpdateAction_errorMessage = Lens.lens (\UnprocessedUpdateAction' {errorMessage} -> errorMessage) (\s@UnprocessedUpdateAction' {} a -> s {errorMessage = a} :: UnprocessedUpdateAction)
-
 -- | The replication group ID
 unprocessedUpdateAction_replicationGroupId :: Lens.Lens' UnprocessedUpdateAction (Prelude.Maybe Prelude.Text)
 unprocessedUpdateAction_replicationGroupId = Lens.lens (\UnprocessedUpdateAction' {replicationGroupId} -> replicationGroupId) (\s@UnprocessedUpdateAction' {} a -> s {replicationGroupId = a} :: UnprocessedUpdateAction)
 
+-- | The error type for requests that are not processed
+unprocessedUpdateAction_errorType :: Lens.Lens' UnprocessedUpdateAction (Prelude.Maybe Prelude.Text)
+unprocessedUpdateAction_errorType = Lens.lens (\UnprocessedUpdateAction' {errorType} -> errorType) (\s@UnprocessedUpdateAction' {} a -> s {errorType = a} :: UnprocessedUpdateAction)
+
 instance Core.FromXML UnprocessedUpdateAction where
   parseXML x =
     UnprocessedUpdateAction'
-      Prelude.<$> (x Core..@? "CacheClusterId")
+      Prelude.<$> (x Core..@? "ErrorMessage")
+      Prelude.<*> (x Core..@? "CacheClusterId")
       Prelude.<*> (x Core..@? "ServiceUpdateName")
-      Prelude.<*> (x Core..@? "ErrorType")
-      Prelude.<*> (x Core..@? "ErrorMessage")
       Prelude.<*> (x Core..@? "ReplicationGroupId")
+      Prelude.<*> (x Core..@? "ErrorType")
 
 instance Prelude.Hashable UnprocessedUpdateAction where
   hashWithSalt _salt UnprocessedUpdateAction' {..} =
-    _salt `Prelude.hashWithSalt` cacheClusterId
+    _salt `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` cacheClusterId
       `Prelude.hashWithSalt` serviceUpdateName
-      `Prelude.hashWithSalt` errorType
-      `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` replicationGroupId
+      `Prelude.hashWithSalt` errorType
 
 instance Prelude.NFData UnprocessedUpdateAction where
   rnf UnprocessedUpdateAction' {..} =
-    Prelude.rnf cacheClusterId
+    Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf cacheClusterId
       `Prelude.seq` Prelude.rnf serviceUpdateName
-      `Prelude.seq` Prelude.rnf errorType
-      `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf replicationGroupId
+      `Prelude.seq` Prelude.rnf errorType

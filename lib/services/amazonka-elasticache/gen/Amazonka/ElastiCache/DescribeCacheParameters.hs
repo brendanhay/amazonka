@@ -40,8 +40,8 @@ module Amazonka.ElastiCache.DescribeCacheParameters
     newDescribeCacheParametersResponse,
 
     -- * Response Lenses
-    describeCacheParametersResponse_cacheNodeTypeSpecificParameters,
     describeCacheParametersResponse_marker,
+    describeCacheParametersResponse_cacheNodeTypeSpecificParameters,
     describeCacheParametersResponse_parameters,
     describeCacheParametersResponse_httpStatus,
   )
@@ -178,12 +178,12 @@ instance Core.AWSRequest DescribeCacheParameters where
       "DescribeCacheParametersResult"
       ( \s h x ->
           DescribeCacheParametersResponse'
-            Prelude.<$> ( x Core..@? "CacheNodeTypeSpecificParameters"
+            Prelude.<$> (x Core..@? "Marker")
+            Prelude.<*> ( x Core..@? "CacheNodeTypeSpecificParameters"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may
                               (Core.parseXMLList "CacheNodeTypeSpecificParameter")
                         )
-            Prelude.<*> (x Core..@? "Marker")
             Prelude.<*> ( x Core..@? "Parameters" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "Parameter")
                         )
@@ -228,11 +228,11 @@ instance Core.ToQuery DescribeCacheParameters where
 --
 -- /See:/ 'newDescribeCacheParametersResponse' smart constructor.
 data DescribeCacheParametersResponse = DescribeCacheParametersResponse'
-  { -- | A list of parameters specific to a particular cache node type. Each
+  { -- | Provides an identifier to allow retrieval of paginated results.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | A list of parameters specific to a particular cache node type. Each
     -- element in the list contains detailed information about one parameter.
     cacheNodeTypeSpecificParameters :: Prelude.Maybe [CacheNodeTypeSpecificParameter],
-    -- | Provides an identifier to allow retrieval of paginated results.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | A list of Parameter instances.
     parameters :: Prelude.Maybe [Parameter],
     -- | The response's http status code.
@@ -248,10 +248,10 @@ data DescribeCacheParametersResponse = DescribeCacheParametersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'marker', 'describeCacheParametersResponse_marker' - Provides an identifier to allow retrieval of paginated results.
+--
 -- 'cacheNodeTypeSpecificParameters', 'describeCacheParametersResponse_cacheNodeTypeSpecificParameters' - A list of parameters specific to a particular cache node type. Each
 -- element in the list contains detailed information about one parameter.
---
--- 'marker', 'describeCacheParametersResponse_marker' - Provides an identifier to allow retrieval of paginated results.
 --
 -- 'parameters', 'describeCacheParametersResponse_parameters' - A list of Parameter instances.
 --
@@ -262,21 +262,22 @@ newDescribeCacheParametersResponse ::
   DescribeCacheParametersResponse
 newDescribeCacheParametersResponse pHttpStatus_ =
   DescribeCacheParametersResponse'
-    { cacheNodeTypeSpecificParameters =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      cacheNodeTypeSpecificParameters =
+        Prelude.Nothing,
       parameters = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Provides an identifier to allow retrieval of paginated results.
+describeCacheParametersResponse_marker :: Lens.Lens' DescribeCacheParametersResponse (Prelude.Maybe Prelude.Text)
+describeCacheParametersResponse_marker = Lens.lens (\DescribeCacheParametersResponse' {marker} -> marker) (\s@DescribeCacheParametersResponse' {} a -> s {marker = a} :: DescribeCacheParametersResponse)
 
 -- | A list of parameters specific to a particular cache node type. Each
 -- element in the list contains detailed information about one parameter.
 describeCacheParametersResponse_cacheNodeTypeSpecificParameters :: Lens.Lens' DescribeCacheParametersResponse (Prelude.Maybe [CacheNodeTypeSpecificParameter])
 describeCacheParametersResponse_cacheNodeTypeSpecificParameters = Lens.lens (\DescribeCacheParametersResponse' {cacheNodeTypeSpecificParameters} -> cacheNodeTypeSpecificParameters) (\s@DescribeCacheParametersResponse' {} a -> s {cacheNodeTypeSpecificParameters = a} :: DescribeCacheParametersResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Provides an identifier to allow retrieval of paginated results.
-describeCacheParametersResponse_marker :: Lens.Lens' DescribeCacheParametersResponse (Prelude.Maybe Prelude.Text)
-describeCacheParametersResponse_marker = Lens.lens (\DescribeCacheParametersResponse' {marker} -> marker) (\s@DescribeCacheParametersResponse' {} a -> s {marker = a} :: DescribeCacheParametersResponse)
 
 -- | A list of Parameter instances.
 describeCacheParametersResponse_parameters :: Lens.Lens' DescribeCacheParametersResponse (Prelude.Maybe [Parameter])
@@ -291,7 +292,7 @@ instance
     DescribeCacheParametersResponse
   where
   rnf DescribeCacheParametersResponse' {..} =
-    Prelude.rnf cacheNodeTypeSpecificParameters
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf cacheNodeTypeSpecificParameters
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf httpStatus

@@ -31,17 +31,17 @@ module Amazonka.ElastiCache.DescribeCacheParameterGroups
     newDescribeCacheParameterGroups,
 
     -- * Request Lenses
-    describeCacheParameterGroups_cacheParameterGroupName,
     describeCacheParameterGroups_marker,
     describeCacheParameterGroups_maxRecords,
+    describeCacheParameterGroups_cacheParameterGroupName,
 
     -- * Destructuring the Response
     DescribeCacheParameterGroupsResponse (..),
     newDescribeCacheParameterGroupsResponse,
 
     -- * Response Lenses
-    describeCacheParameterGroupsResponse_cacheParameterGroups,
     describeCacheParameterGroupsResponse_marker,
+    describeCacheParameterGroupsResponse_cacheParameterGroups,
     describeCacheParameterGroupsResponse_httpStatus,
   )
 where
@@ -57,9 +57,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeCacheParameterGroups' smart constructor.
 data DescribeCacheParameterGroups = DescribeCacheParameterGroups'
-  { -- | The name of a specific cache parameter group to return details for.
-    cacheParameterGroupName :: Prelude.Maybe Prelude.Text,
-    -- | An optional marker returned from a prior request. Use this marker for
+  { -- | An optional marker returned from a prior request. Use this marker for
     -- pagination of results from this operation. If this parameter is
     -- specified, the response includes only records beyond the marker, up to
     -- the value specified by @MaxRecords@.
@@ -71,7 +69,9 @@ data DescribeCacheParameterGroups = DescribeCacheParameterGroups'
     -- Default: 100
     --
     -- Constraints: minimum 20; maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | The name of a specific cache parameter group to return details for.
+    cacheParameterGroupName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,8 +82,6 @@ data DescribeCacheParameterGroups = DescribeCacheParameterGroups'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'cacheParameterGroupName', 'describeCacheParameterGroups_cacheParameterGroupName' - The name of a specific cache parameter group to return details for.
 --
 -- 'marker', 'describeCacheParameterGroups_marker' - An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
@@ -97,19 +95,17 @@ data DescribeCacheParameterGroups = DescribeCacheParameterGroups'
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
+--
+-- 'cacheParameterGroupName', 'describeCacheParameterGroups_cacheParameterGroupName' - The name of a specific cache parameter group to return details for.
 newDescribeCacheParameterGroups ::
   DescribeCacheParameterGroups
 newDescribeCacheParameterGroups =
   DescribeCacheParameterGroups'
-    { cacheParameterGroupName =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      cacheParameterGroupName = Prelude.Nothing
     }
-
--- | The name of a specific cache parameter group to return details for.
-describeCacheParameterGroups_cacheParameterGroupName :: Lens.Lens' DescribeCacheParameterGroups (Prelude.Maybe Prelude.Text)
-describeCacheParameterGroups_cacheParameterGroupName = Lens.lens (\DescribeCacheParameterGroups' {cacheParameterGroupName} -> cacheParameterGroupName) (\s@DescribeCacheParameterGroups' {} a -> s {cacheParameterGroupName = a} :: DescribeCacheParameterGroups)
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
@@ -127,6 +123,10 @@ describeCacheParameterGroups_marker = Lens.lens (\DescribeCacheParameterGroups' 
 -- Constraints: minimum 20; maximum 100.
 describeCacheParameterGroups_maxRecords :: Lens.Lens' DescribeCacheParameterGroups (Prelude.Maybe Prelude.Int)
 describeCacheParameterGroups_maxRecords = Lens.lens (\DescribeCacheParameterGroups' {maxRecords} -> maxRecords) (\s@DescribeCacheParameterGroups' {} a -> s {maxRecords = a} :: DescribeCacheParameterGroups)
+
+-- | The name of a specific cache parameter group to return details for.
+describeCacheParameterGroups_cacheParameterGroupName :: Lens.Lens' DescribeCacheParameterGroups (Prelude.Maybe Prelude.Text)
+describeCacheParameterGroups_cacheParameterGroupName = Lens.lens (\DescribeCacheParameterGroups' {cacheParameterGroupName} -> cacheParameterGroupName) (\s@DescribeCacheParameterGroups' {} a -> s {cacheParameterGroupName = a} :: DescribeCacheParameterGroups)
 
 instance Core.AWSPager DescribeCacheParameterGroups where
   page rq rs
@@ -160,11 +160,11 @@ instance Core.AWSRequest DescribeCacheParameterGroups where
       "DescribeCacheParameterGroupsResult"
       ( \s h x ->
           DescribeCacheParameterGroupsResponse'
-            Prelude.<$> ( x Core..@? "CacheParameterGroups"
+            Prelude.<$> (x Core..@? "Marker")
+            Prelude.<*> ( x Core..@? "CacheParameterGroups"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "CacheParameterGroup")
                         )
-            Prelude.<*> (x Core..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,16 +173,15 @@ instance
     DescribeCacheParameterGroups
   where
   hashWithSalt _salt DescribeCacheParameterGroups' {..} =
-    _salt
-      `Prelude.hashWithSalt` cacheParameterGroupName
-      `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` cacheParameterGroupName
 
 instance Prelude.NFData DescribeCacheParameterGroups where
   rnf DescribeCacheParameterGroups' {..} =
-    Prelude.rnf cacheParameterGroupName
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf cacheParameterGroupName
 
 instance Core.ToHeaders DescribeCacheParameterGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -199,21 +198,21 @@ instance Core.ToQuery DescribeCacheParameterGroups where
                   ),
         "Version"
           Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "CacheParameterGroupName"
-          Core.=: cacheParameterGroupName,
         "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "CacheParameterGroupName"
+          Core.=: cacheParameterGroupName
       ]
 
 -- | Represents the output of a @DescribeCacheParameterGroups@ operation.
 --
 -- /See:/ 'newDescribeCacheParameterGroupsResponse' smart constructor.
 data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse'
-  { -- | A list of cache parameter groups. Each element in the list contains
+  { -- | Provides an identifier to allow retrieval of paginated results.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | A list of cache parameter groups. Each element in the list contains
     -- detailed information about one cache parameter group.
     cacheParameterGroups :: Prelude.Maybe [CacheParameterGroup],
-    -- | Provides an identifier to allow retrieval of paginated results.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -227,10 +226,10 @@ data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'marker', 'describeCacheParameterGroupsResponse_marker' - Provides an identifier to allow retrieval of paginated results.
+--
 -- 'cacheParameterGroups', 'describeCacheParameterGroupsResponse_cacheParameterGroups' - A list of cache parameter groups. Each element in the list contains
 -- detailed information about one cache parameter group.
---
--- 'marker', 'describeCacheParameterGroupsResponse_marker' - Provides an identifier to allow retrieval of paginated results.
 --
 -- 'httpStatus', 'describeCacheParameterGroupsResponse_httpStatus' - The response's http status code.
 newDescribeCacheParameterGroupsResponse ::
@@ -239,20 +238,21 @@ newDescribeCacheParameterGroupsResponse ::
   DescribeCacheParameterGroupsResponse
 newDescribeCacheParameterGroupsResponse pHttpStatus_ =
   DescribeCacheParameterGroupsResponse'
-    { cacheParameterGroups =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      cacheParameterGroups =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Provides an identifier to allow retrieval of paginated results.
+describeCacheParameterGroupsResponse_marker :: Lens.Lens' DescribeCacheParameterGroupsResponse (Prelude.Maybe Prelude.Text)
+describeCacheParameterGroupsResponse_marker = Lens.lens (\DescribeCacheParameterGroupsResponse' {marker} -> marker) (\s@DescribeCacheParameterGroupsResponse' {} a -> s {marker = a} :: DescribeCacheParameterGroupsResponse)
 
 -- | A list of cache parameter groups. Each element in the list contains
 -- detailed information about one cache parameter group.
 describeCacheParameterGroupsResponse_cacheParameterGroups :: Lens.Lens' DescribeCacheParameterGroupsResponse (Prelude.Maybe [CacheParameterGroup])
 describeCacheParameterGroupsResponse_cacheParameterGroups = Lens.lens (\DescribeCacheParameterGroupsResponse' {cacheParameterGroups} -> cacheParameterGroups) (\s@DescribeCacheParameterGroupsResponse' {} a -> s {cacheParameterGroups = a} :: DescribeCacheParameterGroupsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Provides an identifier to allow retrieval of paginated results.
-describeCacheParameterGroupsResponse_marker :: Lens.Lens' DescribeCacheParameterGroupsResponse (Prelude.Maybe Prelude.Text)
-describeCacheParameterGroupsResponse_marker = Lens.lens (\DescribeCacheParameterGroupsResponse' {marker} -> marker) (\s@DescribeCacheParameterGroupsResponse' {} a -> s {marker = a} :: DescribeCacheParameterGroupsResponse)
 
 -- | The response's http status code.
 describeCacheParameterGroupsResponse_httpStatus :: Lens.Lens' DescribeCacheParameterGroupsResponse Prelude.Int
@@ -263,6 +263,6 @@ instance
     DescribeCacheParameterGroupsResponse
   where
   rnf DescribeCacheParameterGroupsResponse' {..} =
-    Prelude.rnf cacheParameterGroups
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf cacheParameterGroups
       `Prelude.seq` Prelude.rnf httpStatus

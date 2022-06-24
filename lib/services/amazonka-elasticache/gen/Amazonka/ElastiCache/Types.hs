@@ -17,73 +17,73 @@ module Amazonka.ElastiCache.Types
     defaultService,
 
     -- * Errors
-    _CacheSubnetGroupInUse,
-    _ReservedCacheNodeAlreadyExistsFault,
-    _CacheSecurityGroupNotFoundFault,
-    _InvalidGlobalReplicationGroupStateFault,
-    _CacheSubnetGroupAlreadyExistsFault,
-    _GlobalReplicationGroupAlreadyExistsFault,
-    _NodeGroupsPerReplicationGroupQuotaExceededFault,
-    _CacheSubnetGroupQuotaExceededFault,
-    _AuthorizationAlreadyExistsFault,
-    _ReservedCacheNodeQuotaExceededFault,
-    _ReservedCacheNodesOfferingNotFoundFault,
-    _ReplicationGroupNotFoundFault,
-    _InvalidSubnet,
-    _InvalidUserGroupStateFault,
-    _TagQuotaPerResourceExceeded,
-    _UserAlreadyExistsFault,
-    _InvalidUserStateFault,
-    _SnapshotNotFoundFault,
-    _InsufficientCacheClusterCapacityFault,
-    _InvalidSnapshotStateFault,
-    _SnapshotAlreadyExistsFault,
-    _DefaultUserRequired,
-    _TagNotFoundFault,
-    _SnapshotQuotaExceededFault,
-    _NodeQuotaForClusterExceededFault,
-    _APICallRateForCustomerExceededFault,
-    _NodeGroupNotFoundFault,
     _CacheParameterGroupAlreadyExistsFault,
-    _ServiceLinkedRoleNotFoundFault,
-    _InvalidKMSKeyFault,
-    _GlobalReplicationGroupNotFoundFault,
-    _ReservedCacheNodeNotFoundFault,
+    _CacheSecurityGroupAlreadyExistsFault,
+    _NodeQuotaForClusterExceededFault,
+    _ClusterQuotaForCustomerExceededFault,
+    _SnapshotQuotaExceededFault,
+    _UserGroupNotFoundFault,
+    _InvalidSubnet,
+    _ReplicationGroupNotFoundFault,
+    _NodeGroupsPerReplicationGroupQuotaExceededFault,
+    _AuthorizationAlreadyExistsFault,
     _CacheSubnetGroupNotFoundFault,
-    _SnapshotFeatureNotSupportedFault,
-    _InvalidParameterValueException,
-    _TestFailoverNotAvailableFault,
-    _SubnetNotAllowedFault,
-    _InvalidReplicationGroupStateFault,
+    _ServiceUpdateNotFoundFault,
+    _UserNotFoundFault,
+    _InvalidSnapshotStateFault,
+    _CacheClusterNotFoundFault,
+    _CacheSubnetGroupQuotaExceededFault,
+    _ReservedCacheNodeAlreadyExistsFault,
+    _NoOperationFault,
+    _UserAlreadyExistsFault,
+    _TagNotFoundFault,
+    _InvalidGlobalReplicationGroupStateFault,
+    _DefaultUserRequired,
+    _InvalidParameterCombinationException,
+    _ServiceLinkedRoleNotFoundFault,
+    _AuthorizationNotFoundFault,
+    _UserQuotaExceededFault,
+    _GlobalReplicationGroupNotFoundFault,
     _ReplicationGroupAlreadyExistsFault,
+    _DuplicateUserNameFault,
+    _CacheParameterGroupQuotaExceededFault,
+    _CacheSecurityGroupQuotaExceededFault,
+    _ReplicationGroupNotUnderMigrationFault,
+    _DefaultUserAssociatedToUserGroupFault,
+    _TagQuotaPerResourceExceeded,
+    _CacheParameterGroupNotFoundFault,
+    _InvalidARNFault,
+    _GlobalReplicationGroupAlreadyExistsFault,
+    _CacheSecurityGroupNotFoundFault,
+    _SnapshotAlreadyExistsFault,
+    _TestFailoverNotAvailableFault,
+    _ReservedCacheNodesOfferingNotFoundFault,
+    _CacheSubnetGroupInUse,
+    _NodeQuotaForCustomerExceededFault,
+    _InvalidUserGroupStateFault,
+    _NodeGroupNotFoundFault,
+    _InvalidCacheSecurityGroupStateFault,
     _InvalidVPCNetworkStateFault,
     _SubnetInUse,
-    _UserGroupNotFoundFault,
-    _CacheClusterNotFoundFault,
-    _ClusterQuotaForCustomerExceededFault,
-    _AuthorizationNotFoundFault,
+    _InsufficientCacheClusterCapacityFault,
+    _InvalidUserStateFault,
+    _SnapshotNotFoundFault,
+    _ReservedCacheNodeQuotaExceededFault,
+    _CacheSubnetGroupAlreadyExistsFault,
     _UserGroupAlreadyExistsFault,
-    _InvalidCacheClusterStateFault,
-    _CacheSecurityGroupQuotaExceededFault,
-    _CacheClusterAlreadyExistsFault,
-    _CacheParameterGroupQuotaExceededFault,
-    _ServiceUpdateNotFoundFault,
-    _DefaultUserAssociatedToUserGroupFault,
-    _UserNotFoundFault,
-    _NodeQuotaForCustomerExceededFault,
     _CacheSubnetQuotaExceededFault,
-    _ReplicationGroupNotUnderMigrationFault,
+    _InvalidKMSKeyFault,
+    _CacheClusterAlreadyExistsFault,
     _ReplicationGroupAlreadyUnderMigrationFault,
-    _CacheParameterGroupNotFoundFault,
-    _DuplicateUserNameFault,
-    _UserQuotaExceededFault,
-    _InvalidARNFault,
-    _NoOperationFault,
+    _SnapshotFeatureNotSupportedFault,
+    _InvalidCacheClusterStateFault,
     _InvalidCacheParameterGroupStateFault,
-    _InvalidParameterCombinationException,
+    _InvalidParameterValueException,
+    _SubnetNotAllowedFault,
+    _APICallRateForCustomerExceededFault,
+    _ReservedCacheNodeNotFoundFault,
+    _InvalidReplicationGroupStateFault,
     _UserGroupQuotaExceededFault,
-    _InvalidCacheSecurityGroupStateFault,
-    _CacheSecurityGroupAlreadyExistsFault,
 
     -- * AZMode
     AZMode (..),
@@ -151,8 +151,8 @@ module Amazonka.ElastiCache.Types
     -- * Authentication
     Authentication (..),
     newAuthentication,
-    authentication_passwordCount,
     authentication_type,
+    authentication_passwordCount,
 
     -- * AvailabilityZone
     AvailabilityZone (..),
@@ -162,70 +162,70 @@ module Amazonka.ElastiCache.Types
     -- * CacheCluster
     CacheCluster (..),
     newCacheCluster,
-    cacheCluster_authTokenLastModifiedDate,
-    cacheCluster_engineVersion,
-    cacheCluster_cacheNodeType,
-    cacheCluster_cacheNodes,
+    cacheCluster_transitEncryptionEnabled,
+    cacheCluster_cacheSubnetGroupName,
+    cacheCluster_replicationGroupLogDeliveryEnabled,
+    cacheCluster_autoMinorVersionUpgrade,
+    cacheCluster_cacheClusterStatus,
+    cacheCluster_clientDownloadLandingPage,
+    cacheCluster_arn,
+    cacheCluster_logDeliveryConfigurations,
     cacheCluster_cacheClusterCreateTime,
     cacheCluster_atRestEncryptionEnabled,
-    cacheCluster_autoMinorVersionUpgrade,
-    cacheCluster_securityGroups,
-    cacheCluster_notificationConfiguration,
-    cacheCluster_arn,
-    cacheCluster_transitEncryptionEnabled,
-    cacheCluster_snapshotWindow,
-    cacheCluster_cacheClusterId,
-    cacheCluster_logDeliveryConfigurations,
-    cacheCluster_configurationEndpoint,
-    cacheCluster_engine,
-    cacheCluster_cacheSecurityGroups,
-    cacheCluster_replicationGroupLogDeliveryEnabled,
-    cacheCluster_authTokenEnabled,
-    cacheCluster_clientDownloadLandingPage,
-    cacheCluster_preferredMaintenanceWindow,
-    cacheCluster_cacheSubnetGroupName,
-    cacheCluster_preferredAvailabilityZone,
-    cacheCluster_cacheParameterGroup,
-    cacheCluster_cacheClusterStatus,
-    cacheCluster_snapshotRetentionLimit,
-    cacheCluster_preferredOutpostArn,
-    cacheCluster_replicationGroupId,
-    cacheCluster_pendingModifiedValues,
     cacheCluster_numCacheNodes,
+    cacheCluster_notificationConfiguration,
+    cacheCluster_cacheNodeType,
+    cacheCluster_preferredAvailabilityZone,
+    cacheCluster_cacheNodes,
+    cacheCluster_cacheClusterId,
+    cacheCluster_authTokenEnabled,
+    cacheCluster_snapshotWindow,
+    cacheCluster_snapshotRetentionLimit,
+    cacheCluster_cacheParameterGroup,
+    cacheCluster_securityGroups,
+    cacheCluster_preferredOutpostArn,
+    cacheCluster_engine,
+    cacheCluster_pendingModifiedValues,
+    cacheCluster_preferredMaintenanceWindow,
+    cacheCluster_authTokenLastModifiedDate,
+    cacheCluster_replicationGroupId,
+    cacheCluster_engineVersion,
+    cacheCluster_cacheSecurityGroups,
+    cacheCluster_configurationEndpoint,
 
     -- * CacheEngineVersion
     CacheEngineVersion (..),
     newCacheEngineVersion,
-    cacheEngineVersion_engineVersion,
+    cacheEngineVersion_cacheEngineVersionDescription,
+    cacheEngineVersion_engine,
     cacheEngineVersion_cacheParameterGroupFamily,
     cacheEngineVersion_cacheEngineDescription,
-    cacheEngineVersion_engine,
-    cacheEngineVersion_cacheEngineVersionDescription,
+    cacheEngineVersion_engineVersion,
 
     -- * CacheNode
     CacheNode (..),
     newCacheNode,
-    cacheNode_sourceCacheNodeId,
-    cacheNode_parameterGroupStatus,
-    cacheNode_cacheNodeCreateTime,
-    cacheNode_customerAvailabilityZone,
-    cacheNode_cacheNodeId,
     cacheNode_customerOutpostArn,
+    cacheNode_customerAvailabilityZone,
+    cacheNode_sourceCacheNodeId,
+    cacheNode_cacheNodeId,
     cacheNode_cacheNodeStatus,
+    cacheNode_parameterGroupStatus,
     cacheNode_endpoint,
+    cacheNode_cacheNodeCreateTime,
 
     -- * CacheNodeTypeSpecificParameter
     CacheNodeTypeSpecificParameter (..),
     newCacheNodeTypeSpecificParameter,
+    cacheNodeTypeSpecificParameter_changeType,
+    cacheNodeTypeSpecificParameter_isModifiable,
+    cacheNodeTypeSpecificParameter_description,
+    cacheNodeTypeSpecificParameter_parameterName,
     cacheNodeTypeSpecificParameter_cacheNodeTypeSpecificValues,
     cacheNodeTypeSpecificParameter_minimumEngineVersion,
     cacheNodeTypeSpecificParameter_source,
-    cacheNodeTypeSpecificParameter_isModifiable,
-    cacheNodeTypeSpecificParameter_dataType,
     cacheNodeTypeSpecificParameter_allowedValues,
-    cacheNodeTypeSpecificParameter_parameterName,
-    cacheNodeTypeSpecificParameter_description,
-    cacheNodeTypeSpecificParameter_changeType,
+    cacheNodeTypeSpecificParameter_dataType,
 
     -- * CacheNodeTypeSpecificValue
     CacheNodeTypeSpecificValue (..),
@@ -236,23 +236,23 @@ module Amazonka.ElastiCache.Types
     -- * CacheNodeUpdateStatus
     CacheNodeUpdateStatus (..),
     newCacheNodeUpdateStatus,
+    cacheNodeUpdateStatus_nodeUpdateStatus,
     cacheNodeUpdateStatus_nodeUpdateEndDate,
+    cacheNodeUpdateStatus_nodeUpdateStartDate,
+    cacheNodeUpdateStatus_nodeDeletionDate,
     cacheNodeUpdateStatus_nodeUpdateInitiatedBy,
+    cacheNodeUpdateStatus_nodeUpdateInitiatedDate,
     cacheNodeUpdateStatus_nodeUpdateStatusModifiedDate,
     cacheNodeUpdateStatus_cacheNodeId,
-    cacheNodeUpdateStatus_nodeUpdateInitiatedDate,
-    cacheNodeUpdateStatus_nodeUpdateStartDate,
-    cacheNodeUpdateStatus_nodeUpdateStatus,
-    cacheNodeUpdateStatus_nodeDeletionDate,
 
     -- * CacheParameterGroup
     CacheParameterGroup (..),
     newCacheParameterGroup,
-    cacheParameterGroup_cacheParameterGroupFamily,
-    cacheParameterGroup_arn,
-    cacheParameterGroup_cacheParameterGroupName,
     cacheParameterGroup_isGlobal,
+    cacheParameterGroup_arn,
     cacheParameterGroup_description,
+    cacheParameterGroup_cacheParameterGroupName,
+    cacheParameterGroup_cacheParameterGroupFamily,
 
     -- * CacheParameterGroupNameMessage
     CacheParameterGroupNameMessage (..),
@@ -263,17 +263,17 @@ module Amazonka.ElastiCache.Types
     CacheParameterGroupStatus (..),
     newCacheParameterGroupStatus,
     cacheParameterGroupStatus_cacheParameterGroupName,
-    cacheParameterGroupStatus_cacheNodeIdsToReboot,
     cacheParameterGroupStatus_parameterApplyStatus,
+    cacheParameterGroupStatus_cacheNodeIdsToReboot,
 
     -- * CacheSecurityGroup
     CacheSecurityGroup (..),
     newCacheSecurityGroup,
-    cacheSecurityGroup_cacheSecurityGroupName,
-    cacheSecurityGroup_arn,
     cacheSecurityGroup_ownerId,
-    cacheSecurityGroup_eC2SecurityGroups,
+    cacheSecurityGroup_arn,
     cacheSecurityGroup_description,
+    cacheSecurityGroup_eC2SecurityGroups,
+    cacheSecurityGroup_cacheSecurityGroupName,
 
     -- * CacheSecurityGroupMembership
     CacheSecurityGroupMembership (..),
@@ -284,11 +284,11 @@ module Amazonka.ElastiCache.Types
     -- * CacheSubnetGroup
     CacheSubnetGroup (..),
     newCacheSubnetGroup,
-    cacheSubnetGroup_arn,
-    cacheSubnetGroup_vpcId,
-    cacheSubnetGroup_subnets,
     cacheSubnetGroup_cacheSubnetGroupName,
+    cacheSubnetGroup_subnets,
+    cacheSubnetGroup_arn,
     cacheSubnetGroup_cacheSubnetGroupDescription,
+    cacheSubnetGroup_vpcId,
 
     -- * CloudWatchLogsDestinationDetails
     CloudWatchLogsDestinationDetails (..),
@@ -306,43 +306,43 @@ module Amazonka.ElastiCache.Types
     -- * CustomerNodeEndpoint
     CustomerNodeEndpoint (..),
     newCustomerNodeEndpoint,
-    customerNodeEndpoint_address,
     customerNodeEndpoint_port,
+    customerNodeEndpoint_address,
 
     -- * DestinationDetails
     DestinationDetails (..),
     newDestinationDetails,
-    destinationDetails_cloudWatchLogsDetails,
     destinationDetails_kinesisFirehoseDetails,
+    destinationDetails_cloudWatchLogsDetails,
 
     -- * EC2SecurityGroup
     EC2SecurityGroup (..),
     newEC2SecurityGroup,
-    eC2SecurityGroup_status,
     eC2SecurityGroup_eC2SecurityGroupOwnerId,
+    eC2SecurityGroup_status,
     eC2SecurityGroup_eC2SecurityGroupName,
 
     -- * Endpoint
     Endpoint (..),
     newEndpoint,
-    endpoint_address,
     endpoint_port,
+    endpoint_address,
 
     -- * EngineDefaults
     EngineDefaults (..),
     newEngineDefaults,
-    engineDefaults_cacheParameterGroupFamily,
-    engineDefaults_cacheNodeTypeSpecificParameters,
     engineDefaults_marker,
+    engineDefaults_cacheNodeTypeSpecificParameters,
+    engineDefaults_cacheParameterGroupFamily,
     engineDefaults_parameters,
 
     -- * Event
     Event (..),
     newEvent,
+    event_message,
+    event_date,
     event_sourceType,
     event_sourceIdentifier,
-    event_date,
-    event_message,
 
     -- * Filter
     Filter (..),
@@ -353,40 +353,40 @@ module Amazonka.ElastiCache.Types
     -- * GlobalNodeGroup
     GlobalNodeGroup (..),
     newGlobalNodeGroup,
-    globalNodeGroup_slots,
     globalNodeGroup_globalNodeGroupId,
+    globalNodeGroup_slots,
 
     -- * GlobalReplicationGroup
     GlobalReplicationGroup (..),
     newGlobalReplicationGroup,
-    globalReplicationGroup_engineVersion,
+    globalReplicationGroup_transitEncryptionEnabled,
+    globalReplicationGroup_globalReplicationGroupDescription,
+    globalReplicationGroup_clusterEnabled,
+    globalReplicationGroup_globalReplicationGroupId,
+    globalReplicationGroup_members,
+    globalReplicationGroup_arn,
+    globalReplicationGroup_atRestEncryptionEnabled,
     globalReplicationGroup_status,
     globalReplicationGroup_cacheNodeType,
-    globalReplicationGroup_clusterEnabled,
-    globalReplicationGroup_atRestEncryptionEnabled,
-    globalReplicationGroup_arn,
-    globalReplicationGroup_transitEncryptionEnabled,
-    globalReplicationGroup_members,
-    globalReplicationGroup_engine,
     globalReplicationGroup_authTokenEnabled,
+    globalReplicationGroup_engine,
+    globalReplicationGroup_engineVersion,
     globalReplicationGroup_globalNodeGroups,
-    globalReplicationGroup_globalReplicationGroupId,
-    globalReplicationGroup_globalReplicationGroupDescription,
 
     -- * GlobalReplicationGroupInfo
     GlobalReplicationGroupInfo (..),
     newGlobalReplicationGroupInfo,
-    globalReplicationGroupInfo_globalReplicationGroupMemberRole,
     globalReplicationGroupInfo_globalReplicationGroupId,
+    globalReplicationGroupInfo_globalReplicationGroupMemberRole,
 
     -- * GlobalReplicationGroupMember
     GlobalReplicationGroupMember (..),
     newGlobalReplicationGroupMember,
-    globalReplicationGroupMember_status,
     globalReplicationGroupMember_replicationGroupRegion,
+    globalReplicationGroupMember_automaticFailover,
+    globalReplicationGroupMember_status,
     globalReplicationGroupMember_role,
     globalReplicationGroupMember_replicationGroupId,
-    globalReplicationGroupMember_automaticFailover,
 
     -- * KinesisFirehoseDestinationDetails
     KinesisFirehoseDestinationDetails (..),
@@ -396,65 +396,65 @@ module Amazonka.ElastiCache.Types
     -- * LogDeliveryConfiguration
     LogDeliveryConfiguration (..),
     newLogDeliveryConfiguration,
+    logDeliveryConfiguration_message,
+    logDeliveryConfiguration_logType,
+    logDeliveryConfiguration_destinationType,
     logDeliveryConfiguration_status,
     logDeliveryConfiguration_logFormat,
     logDeliveryConfiguration_destinationDetails,
-    logDeliveryConfiguration_logType,
-    logDeliveryConfiguration_destinationType,
-    logDeliveryConfiguration_message,
 
     -- * LogDeliveryConfigurationRequest
     LogDeliveryConfigurationRequest (..),
     newLogDeliveryConfigurationRequest,
+    logDeliveryConfigurationRequest_logType,
+    logDeliveryConfigurationRequest_destinationType,
     logDeliveryConfigurationRequest_logFormat,
     logDeliveryConfigurationRequest_enabled,
     logDeliveryConfigurationRequest_destinationDetails,
-    logDeliveryConfigurationRequest_logType,
-    logDeliveryConfigurationRequest_destinationType,
 
     -- * NodeGroup
     NodeGroup (..),
     newNodeGroup,
-    nodeGroup_status,
     nodeGroup_primaryEndpoint,
-    nodeGroup_slots,
+    nodeGroup_status,
     nodeGroup_nodeGroupMembers,
-    nodeGroup_nodeGroupId,
     nodeGroup_readerEndpoint,
+    nodeGroup_nodeGroupId,
+    nodeGroup_slots,
 
     -- * NodeGroupConfiguration
     NodeGroupConfiguration (..),
     newNodeGroupConfiguration,
-    nodeGroupConfiguration_slots,
-    nodeGroupConfiguration_replicaOutpostArns,
-    nodeGroupConfiguration_replicaCount,
-    nodeGroupConfiguration_primaryAvailabilityZone,
     nodeGroupConfiguration_replicaAvailabilityZones,
+    nodeGroupConfiguration_replicaOutpostArns,
     nodeGroupConfiguration_primaryOutpostArn,
+    nodeGroupConfiguration_primaryAvailabilityZone,
     nodeGroupConfiguration_nodeGroupId,
+    nodeGroupConfiguration_slots,
+    nodeGroupConfiguration_replicaCount,
 
     -- * NodeGroupMember
     NodeGroupMember (..),
     newNodeGroupMember,
-    nodeGroupMember_cacheClusterId,
-    nodeGroupMember_cacheNodeId,
     nodeGroupMember_preferredAvailabilityZone,
-    nodeGroupMember_currentRole,
+    nodeGroupMember_cacheClusterId,
     nodeGroupMember_preferredOutpostArn,
+    nodeGroupMember_cacheNodeId,
     nodeGroupMember_readEndpoint,
+    nodeGroupMember_currentRole,
 
     -- * NodeGroupMemberUpdateStatus
     NodeGroupMemberUpdateStatus (..),
     newNodeGroupMemberUpdateStatus,
-    nodeGroupMemberUpdateStatus_nodeUpdateEndDate,
-    nodeGroupMemberUpdateStatus_nodeUpdateInitiatedBy,
-    nodeGroupMemberUpdateStatus_nodeUpdateStatusModifiedDate,
-    nodeGroupMemberUpdateStatus_cacheClusterId,
-    nodeGroupMemberUpdateStatus_cacheNodeId,
-    nodeGroupMemberUpdateStatus_nodeUpdateInitiatedDate,
-    nodeGroupMemberUpdateStatus_nodeUpdateStartDate,
     nodeGroupMemberUpdateStatus_nodeUpdateStatus,
+    nodeGroupMemberUpdateStatus_nodeUpdateEndDate,
+    nodeGroupMemberUpdateStatus_nodeUpdateStartDate,
     nodeGroupMemberUpdateStatus_nodeDeletionDate,
+    nodeGroupMemberUpdateStatus_nodeUpdateInitiatedBy,
+    nodeGroupMemberUpdateStatus_nodeUpdateInitiatedDate,
+    nodeGroupMemberUpdateStatus_cacheClusterId,
+    nodeGroupMemberUpdateStatus_nodeUpdateStatusModifiedDate,
+    nodeGroupMemberUpdateStatus_cacheNodeId,
 
     -- * NodeGroupUpdateStatus
     NodeGroupUpdateStatus (..),
@@ -465,13 +465,13 @@ module Amazonka.ElastiCache.Types
     -- * NodeSnapshot
     NodeSnapshot (..),
     newNodeSnapshot,
-    nodeSnapshot_nodeGroupConfiguration,
-    nodeSnapshot_cacheNodeCreateTime,
+    nodeSnapshot_snapshotCreateTime,
     nodeSnapshot_cacheClusterId,
+    nodeSnapshot_cacheSize,
     nodeSnapshot_cacheNodeId,
     nodeSnapshot_nodeGroupId,
-    nodeSnapshot_snapshotCreateTime,
-    nodeSnapshot_cacheSize,
+    nodeSnapshot_cacheNodeCreateTime,
+    nodeSnapshot_nodeGroupConfiguration,
 
     -- * NotificationConfiguration
     NotificationConfiguration (..),
@@ -482,15 +482,15 @@ module Amazonka.ElastiCache.Types
     -- * Parameter
     Parameter (..),
     newParameter,
+    parameter_changeType,
     parameter_parameterValue,
+    parameter_isModifiable,
+    parameter_description,
+    parameter_parameterName,
     parameter_minimumEngineVersion,
     parameter_source,
-    parameter_isModifiable,
-    parameter_dataType,
     parameter_allowedValues,
-    parameter_parameterName,
-    parameter_description,
-    parameter_changeType,
+    parameter_dataType,
 
     -- * ParameterNameValue
     ParameterNameValue (..),
@@ -501,34 +501,34 @@ module Amazonka.ElastiCache.Types
     -- * PendingLogDeliveryConfiguration
     PendingLogDeliveryConfiguration (..),
     newPendingLogDeliveryConfiguration,
-    pendingLogDeliveryConfiguration_logFormat,
-    pendingLogDeliveryConfiguration_destinationDetails,
     pendingLogDeliveryConfiguration_logType,
     pendingLogDeliveryConfiguration_destinationType,
+    pendingLogDeliveryConfiguration_logFormat,
+    pendingLogDeliveryConfiguration_destinationDetails,
 
     -- * PendingModifiedValues
     PendingModifiedValues (..),
     newPendingModifiedValues,
-    pendingModifiedValues_engineVersion,
+    pendingModifiedValues_cacheNodeIdsToRemove,
+    pendingModifiedValues_logDeliveryConfigurations,
+    pendingModifiedValues_numCacheNodes,
     pendingModifiedValues_cacheNodeType,
     pendingModifiedValues_authTokenStatus,
-    pendingModifiedValues_logDeliveryConfigurations,
-    pendingModifiedValues_cacheNodeIdsToRemove,
-    pendingModifiedValues_numCacheNodes,
+    pendingModifiedValues_engineVersion,
 
     -- * ProcessedUpdateAction
     ProcessedUpdateAction (..),
     newProcessedUpdateAction,
+    processedUpdateAction_updateActionStatus,
     processedUpdateAction_cacheClusterId,
     processedUpdateAction_serviceUpdateName,
-    processedUpdateAction_updateActionStatus,
     processedUpdateAction_replicationGroupId,
 
     -- * RecurringCharge
     RecurringCharge (..),
     newRecurringCharge,
-    recurringCharge_recurringChargeFrequency,
     recurringCharge_recurringChargeAmount,
+    recurringCharge_recurringChargeFrequency,
 
     -- * RegionalConfiguration
     RegionalConfiguration (..),
@@ -540,70 +540,70 @@ module Amazonka.ElastiCache.Types
     -- * ReplicationGroup
     ReplicationGroup (..),
     newReplicationGroup,
-    replicationGroup_authTokenLastModifiedDate,
+    replicationGroup_transitEncryptionEnabled,
+    replicationGroup_memberClustersOutpostArns,
+    replicationGroup_globalReplicationGroupInfo,
+    replicationGroup_clusterEnabled,
+    replicationGroup_replicationGroupCreateTime,
+    replicationGroup_automaticFailover,
+    replicationGroup_arn,
+    replicationGroup_snapshottingClusterId,
+    replicationGroup_logDeliveryConfigurations,
+    replicationGroup_atRestEncryptionEnabled,
     replicationGroup_status,
     replicationGroup_cacheNodeType,
-    replicationGroup_nodeGroups,
-    replicationGroup_snapshottingClusterId,
-    replicationGroup_clusterEnabled,
-    replicationGroup_atRestEncryptionEnabled,
-    replicationGroup_replicationGroupCreateTime,
-    replicationGroup_arn,
-    replicationGroup_transitEncryptionEnabled,
-    replicationGroup_userGroupIds,
-    replicationGroup_snapshotWindow,
-    replicationGroup_logDeliveryConfigurations,
-    replicationGroup_configurationEndpoint,
-    replicationGroup_authTokenEnabled,
-    replicationGroup_memberClusters,
-    replicationGroup_kmsKeyId,
-    replicationGroup_multiAZ,
-    replicationGroup_snapshotRetentionLimit,
     replicationGroup_description,
-    replicationGroup_replicationGroupId,
+    replicationGroup_authTokenEnabled,
+    replicationGroup_nodeGroups,
+    replicationGroup_snapshotWindow,
+    replicationGroup_snapshotRetentionLimit,
+    replicationGroup_userGroupIds,
+    replicationGroup_kmsKeyId,
     replicationGroup_pendingModifiedValues,
-    replicationGroup_globalReplicationGroupInfo,
-    replicationGroup_memberClustersOutpostArns,
-    replicationGroup_automaticFailover,
+    replicationGroup_authTokenLastModifiedDate,
+    replicationGroup_replicationGroupId,
+    replicationGroup_memberClusters,
+    replicationGroup_multiAZ,
+    replicationGroup_configurationEndpoint,
 
     -- * ReplicationGroupPendingModifiedValues
     ReplicationGroupPendingModifiedValues (..),
     newReplicationGroupPendingModifiedValues,
-    replicationGroupPendingModifiedValues_authTokenStatus,
-    replicationGroupPendingModifiedValues_userGroups,
-    replicationGroupPendingModifiedValues_logDeliveryConfigurations,
     replicationGroupPendingModifiedValues_resharding,
-    replicationGroupPendingModifiedValues_primaryClusterId,
     replicationGroupPendingModifiedValues_automaticFailoverStatus,
+    replicationGroupPendingModifiedValues_logDeliveryConfigurations,
+    replicationGroupPendingModifiedValues_userGroups,
+    replicationGroupPendingModifiedValues_authTokenStatus,
+    replicationGroupPendingModifiedValues_primaryClusterId,
 
     -- * ReservedCacheNode
     ReservedCacheNode (..),
     newReservedCacheNode,
-    reservedCacheNode_cacheNodeType,
-    reservedCacheNode_state,
-    reservedCacheNode_startTime,
-    reservedCacheNode_productDescription,
-    reservedCacheNode_reservationARN,
-    reservedCacheNode_cacheNodeCount,
-    reservedCacheNode_reservedCacheNodeId,
-    reservedCacheNode_recurringCharges,
-    reservedCacheNode_offeringType,
-    reservedCacheNode_usagePrice,
-    reservedCacheNode_fixedPrice,
-    reservedCacheNode_duration,
     reservedCacheNode_reservedCacheNodesOfferingId,
+    reservedCacheNode_recurringCharges,
+    reservedCacheNode_state,
+    reservedCacheNode_offeringType,
+    reservedCacheNode_cacheNodeCount,
+    reservedCacheNode_cacheNodeType,
+    reservedCacheNode_duration,
+    reservedCacheNode_reservationARN,
+    reservedCacheNode_reservedCacheNodeId,
+    reservedCacheNode_productDescription,
+    reservedCacheNode_fixedPrice,
+    reservedCacheNode_startTime,
+    reservedCacheNode_usagePrice,
 
     -- * ReservedCacheNodesOffering
     ReservedCacheNodesOffering (..),
     newReservedCacheNodesOffering,
-    reservedCacheNodesOffering_cacheNodeType,
-    reservedCacheNodesOffering_productDescription,
+    reservedCacheNodesOffering_reservedCacheNodesOfferingId,
     reservedCacheNodesOffering_recurringCharges,
     reservedCacheNodesOffering_offeringType,
-    reservedCacheNodesOffering_usagePrice,
-    reservedCacheNodesOffering_fixedPrice,
+    reservedCacheNodesOffering_cacheNodeType,
     reservedCacheNodesOffering_duration,
-    reservedCacheNodesOffering_reservedCacheNodesOfferingId,
+    reservedCacheNodesOffering_productDescription,
+    reservedCacheNodesOffering_fixedPrice,
+    reservedCacheNodesOffering_usagePrice,
 
     -- * ReshardingConfiguration
     ReshardingConfiguration (..),
@@ -619,24 +619,24 @@ module Amazonka.ElastiCache.Types
     -- * SecurityGroupMembership
     SecurityGroupMembership (..),
     newSecurityGroupMembership,
-    securityGroupMembership_status,
     securityGroupMembership_securityGroupId,
+    securityGroupMembership_status,
 
     -- * ServiceUpdate
     ServiceUpdate (..),
     newServiceUpdate,
-    serviceUpdate_engineVersion,
     serviceUpdate_serviceUpdateType,
-    serviceUpdate_serviceUpdateName,
-    serviceUpdate_engine,
-    serviceUpdate_serviceUpdateReleaseDate,
-    serviceUpdate_autoUpdateAfterRecommendedApplyByDate,
-    serviceUpdate_serviceUpdateSeverity,
     serviceUpdate_serviceUpdateEndDate,
-    serviceUpdate_serviceUpdateDescription,
-    serviceUpdate_serviceUpdateRecommendedApplyByDate,
-    serviceUpdate_serviceUpdateStatus,
+    serviceUpdate_serviceUpdateReleaseDate,
     serviceUpdate_estimatedUpdateTime,
+    serviceUpdate_autoUpdateAfterRecommendedApplyByDate,
+    serviceUpdate_serviceUpdateRecommendedApplyByDate,
+    serviceUpdate_serviceUpdateSeverity,
+    serviceUpdate_serviceUpdateName,
+    serviceUpdate_serviceUpdateStatus,
+    serviceUpdate_engine,
+    serviceUpdate_serviceUpdateDescription,
+    serviceUpdate_engineVersion,
 
     -- * SlotMigration
     SlotMigration (..),
@@ -646,40 +646,40 @@ module Amazonka.ElastiCache.Types
     -- * Snapshot
     Snapshot (..),
     newSnapshot,
-    snapshot_engineVersion,
-    snapshot_cacheNodeType,
-    snapshot_cacheClusterCreateTime,
-    snapshot_autoMinorVersionUpgrade,
-    snapshot_arn,
-    snapshot_cacheParameterGroupName,
-    snapshot_replicationGroupDescription,
-    snapshot_vpcId,
+    snapshot_port,
     snapshot_snapshotStatus,
-    snapshot_snapshotWindow,
+    snapshot_cacheSubnetGroupName,
+    snapshot_snapshotName,
+    snapshot_snapshotSource,
+    snapshot_autoMinorVersionUpgrade,
+    snapshot_automaticFailover,
+    snapshot_arn,
+    snapshot_topicArn,
+    snapshot_cacheClusterCreateTime,
+    snapshot_numCacheNodes,
+    snapshot_cacheNodeType,
+    snapshot_cacheParameterGroupName,
+    snapshot_preferredAvailabilityZone,
     snapshot_cacheClusterId,
+    snapshot_snapshotWindow,
+    snapshot_snapshotRetentionLimit,
+    snapshot_replicationGroupDescription,
+    snapshot_preferredOutpostArn,
+    snapshot_kmsKeyId,
     snapshot_engine,
     snapshot_preferredMaintenanceWindow,
-    snapshot_topicArn,
-    snapshot_kmsKeyId,
-    snapshot_nodeSnapshots,
-    snapshot_cacheSubnetGroupName,
-    snapshot_preferredAvailabilityZone,
-    snapshot_numNodeGroups,
-    snapshot_snapshotRetentionLimit,
-    snapshot_snapshotName,
-    snapshot_preferredOutpostArn,
+    snapshot_vpcId,
     snapshot_replicationGroupId,
-    snapshot_numCacheNodes,
-    snapshot_port,
-    snapshot_automaticFailover,
-    snapshot_snapshotSource,
+    snapshot_nodeSnapshots,
+    snapshot_numNodeGroups,
+    snapshot_engineVersion,
 
     -- * Subnet
     Subnet (..),
     newSubnet,
+    subnet_subnetOutpost,
     subnet_subnetIdentifier,
     subnet_subnetAvailabilityZone,
-    subnet_subnetOutpost,
 
     -- * SubnetOutpost
     SubnetOutpost (..),
@@ -689,8 +689,8 @@ module Amazonka.ElastiCache.Types
     -- * Tag
     Tag (..),
     newTag,
-    tag_value,
     tag_key,
+    tag_value,
 
     -- * TagListMessage
     TagListMessage (..),
@@ -700,38 +700,38 @@ module Amazonka.ElastiCache.Types
     -- * TimeRangeFilter
     TimeRangeFilter (..),
     newTimeRangeFilter,
-    timeRangeFilter_startTime,
     timeRangeFilter_endTime,
+    timeRangeFilter_startTime,
 
     -- * UnprocessedUpdateAction
     UnprocessedUpdateAction (..),
     newUnprocessedUpdateAction,
+    unprocessedUpdateAction_errorMessage,
     unprocessedUpdateAction_cacheClusterId,
     unprocessedUpdateAction_serviceUpdateName,
-    unprocessedUpdateAction_errorType,
-    unprocessedUpdateAction_errorMessage,
     unprocessedUpdateAction_replicationGroupId,
+    unprocessedUpdateAction_errorType,
 
     -- * UpdateAction
     UpdateAction (..),
     newUpdateAction,
     updateAction_serviceUpdateType,
-    updateAction_slaMet,
-    updateAction_cacheClusterId,
-    updateAction_serviceUpdateName,
+    updateAction_nodeGroupUpdateStatus,
+    updateAction_serviceUpdateReleaseDate,
+    updateAction_estimatedUpdateTime,
     updateAction_updateActionStatus,
+    updateAction_updateActionAvailableDate,
+    updateAction_cacheClusterId,
+    updateAction_serviceUpdateRecommendedApplyByDate,
+    updateAction_serviceUpdateSeverity,
+    updateAction_serviceUpdateName,
+    updateAction_serviceUpdateStatus,
     updateAction_engine,
+    updateAction_slaMet,
+    updateAction_replicationGroupId,
+    updateAction_cacheNodeUpdateStatus,
     updateAction_nodesUpdated,
     updateAction_updateActionStatusModifiedDate,
-    updateAction_serviceUpdateReleaseDate,
-    updateAction_cacheNodeUpdateStatus,
-    updateAction_serviceUpdateSeverity,
-    updateAction_nodeGroupUpdateStatus,
-    updateAction_serviceUpdateRecommendedApplyByDate,
-    updateAction_updateActionAvailableDate,
-    updateAction_serviceUpdateStatus,
-    updateAction_estimatedUpdateTime,
-    updateAction_replicationGroupId,
 
     -- * UpdateActionResultsMessage
     UpdateActionResultsMessage (..),
@@ -742,31 +742,31 @@ module Amazonka.ElastiCache.Types
     -- * User
     User (..),
     newUser,
-    user_status,
-    user_arn,
-    user_userGroupIds,
-    user_authentication,
-    user_engine,
-    user_userName,
     user_accessString,
+    user_authentication,
+    user_userName,
+    user_arn,
+    user_status,
+    user_userGroupIds,
     user_userId,
+    user_engine,
 
     -- * UserGroup
     UserGroup (..),
     newUserGroup,
-    userGroup_status,
-    userGroup_userIds,
-    userGroup_arn,
     userGroup_userGroupId,
-    userGroup_engine,
-    userGroup_pendingChanges,
     userGroup_replicationGroups,
+    userGroup_arn,
+    userGroup_pendingChanges,
+    userGroup_status,
+    userGroup_engine,
+    userGroup_userIds,
 
     -- * UserGroupPendingChanges
     UserGroupPendingChanges (..),
     newUserGroupPendingChanges,
-    userGroupPendingChanges_userIdsToAdd,
     userGroupPendingChanges_userIdsToRemove,
+    userGroupPendingChanges_userIdsToAdd,
 
     -- * UserGroupsUpdateStatus
     UserGroupsUpdateStatus (..),
@@ -894,35 +894,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -931,63 +904,107 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The requested cache subnet group is currently in use.
-_CacheSubnetGroupInUse :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CacheSubnetGroupInUse =
+-- | A cache parameter group with the requested name already exists.
+_CacheParameterGroupAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CacheParameterGroupAlreadyExistsFault =
   Core._MatchServiceError
     defaultService
-    "CacheSubnetGroupInUse"
+    "CacheParameterGroupAlreadyExists"
     Prelude.. Core.hasStatus 400
 
--- | You already have a reservation with the given identifier.
-_ReservedCacheNodeAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ReservedCacheNodeAlreadyExistsFault =
+-- | A cache security group with the specified name already exists.
+_CacheSecurityGroupAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CacheSecurityGroupAlreadyExistsFault =
   Core._MatchServiceError
     defaultService
-    "ReservedCacheNodeAlreadyExists"
+    "CacheSecurityGroupAlreadyExists"
+    Prelude.. Core.hasStatus 400
+
+-- | The request cannot be processed because it would exceed the allowed
+-- number of cache nodes in a single cluster.
+_NodeQuotaForClusterExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NodeQuotaForClusterExceededFault =
+  Core._MatchServiceError
+    defaultService
+    "NodeQuotaForClusterExceeded"
+    Prelude.. Core.hasStatus 400
+
+-- | The request cannot be processed because it would exceed the allowed
+-- number of clusters per customer.
+_ClusterQuotaForCustomerExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClusterQuotaForCustomerExceededFault =
+  Core._MatchServiceError
+    defaultService
+    "ClusterQuotaForCustomerExceeded"
+    Prelude.. Core.hasStatus 400
+
+-- | The request cannot be processed because it would exceed the maximum
+-- number of snapshots.
+_SnapshotQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SnapshotQuotaExceededFault =
+  Core._MatchServiceError
+    defaultService
+    "SnapshotQuotaExceededFault"
+    Prelude.. Core.hasStatus 400
+
+-- | The user group was not found or does not exist
+_UserGroupNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UserGroupNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "UserGroupNotFound"
     Prelude.. Core.hasStatus 404
 
--- | The requested cache security group name does not refer to an existing
--- cache security group.
-_CacheSecurityGroupNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CacheSecurityGroupNotFoundFault =
+-- | An invalid subnet identifier was specified.
+_InvalidSubnet :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSubnet =
   Core._MatchServiceError
     defaultService
-    "CacheSecurityGroupNotFound"
+    "InvalidSubnet"
+    Prelude.. Core.hasStatus 400
+
+-- | The specified replication group does not exist.
+_ReplicationGroupNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReplicationGroupNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "ReplicationGroupNotFoundFault"
     Prelude.. Core.hasStatus 404
-
--- | The Global datastore is not available or in primary-only state.
-_InvalidGlobalReplicationGroupStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidGlobalReplicationGroupStateFault =
-  Core._MatchServiceError
-    defaultService
-    "InvalidGlobalReplicationGroupState"
-    Prelude.. Core.hasStatus 400
-
--- | The requested cache subnet group name is already in use by an existing
--- cache subnet group.
-_CacheSubnetGroupAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CacheSubnetGroupAlreadyExistsFault =
-  Core._MatchServiceError
-    defaultService
-    "CacheSubnetGroupAlreadyExists"
-    Prelude.. Core.hasStatus 400
-
--- | The Global datastore name already exists.
-_GlobalReplicationGroupAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_GlobalReplicationGroupAlreadyExistsFault =
-  Core._MatchServiceError
-    defaultService
-    "GlobalReplicationGroupAlreadyExistsFault"
-    Prelude.. Core.hasStatus 400
 
 -- | The request cannot be processed because it would exceed the maximum
 -- allowed number of node groups (shards) in a single replication group.
@@ -999,15 +1016,6 @@ _NodeGroupsPerReplicationGroupQuotaExceededFault =
     "NodeGroupsPerReplicationGroupQuotaExceeded"
     Prelude.. Core.hasStatus 400
 
--- | The request cannot be processed because it would exceed the allowed
--- number of cache subnet groups.
-_CacheSubnetGroupQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CacheSubnetGroupQuotaExceededFault =
-  Core._MatchServiceError
-    defaultService
-    "CacheSubnetGroupQuotaExceeded"
-    Prelude.. Core.hasStatus 400
-
 -- | The specified Amazon EC2 security group is already authorized for the
 -- specified cache security group.
 _AuthorizationAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1017,45 +1025,194 @@ _AuthorizationAlreadyExistsFault =
     "AuthorizationAlreadyExists"
     Prelude.. Core.hasStatus 400
 
--- | The request cannot be processed because it would exceed the user\'s
--- cache node quota.
-_ReservedCacheNodeQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ReservedCacheNodeQuotaExceededFault =
+-- | The requested cache subnet group name does not refer to an existing
+-- cache subnet group.
+_CacheSubnetGroupNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CacheSubnetGroupNotFoundFault =
   Core._MatchServiceError
     defaultService
-    "ReservedCacheNodeQuotaExceeded"
+    "CacheSubnetGroupNotFoundFault"
     Prelude.. Core.hasStatus 400
 
--- | The requested cache node offering does not exist.
-_ReservedCacheNodesOfferingNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ReservedCacheNodesOfferingNotFoundFault =
+-- | The service update doesn\'t exist
+_ServiceUpdateNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUpdateNotFoundFault =
   Core._MatchServiceError
     defaultService
-    "ReservedCacheNodesOfferingNotFound"
+    "ServiceUpdateNotFoundFault"
     Prelude.. Core.hasStatus 404
 
--- | The specified replication group does not exist.
-_ReplicationGroupNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ReplicationGroupNotFoundFault =
+-- | The user does not exist or could not be found.
+_UserNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UserNotFoundFault =
   Core._MatchServiceError
     defaultService
-    "ReplicationGroupNotFoundFault"
+    "UserNotFound"
     Prelude.. Core.hasStatus 404
 
--- | An invalid subnet identifier was specified.
-_InvalidSubnet :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidSubnet =
+-- | The current state of the snapshot does not allow the requested operation
+-- to occur.
+_InvalidSnapshotStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSnapshotStateFault =
   Core._MatchServiceError
     defaultService
-    "InvalidSubnet"
+    "InvalidSnapshotState"
     Prelude.. Core.hasStatus 400
 
--- | The user group is not in an active state.
-_InvalidUserGroupStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidUserGroupStateFault =
+-- | The requested cluster ID does not refer to an existing cluster.
+_CacheClusterNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CacheClusterNotFoundFault =
   Core._MatchServiceError
     defaultService
-    "InvalidUserGroupState"
+    "CacheClusterNotFound"
+    Prelude.. Core.hasStatus 404
+
+-- | The request cannot be processed because it would exceed the allowed
+-- number of cache subnet groups.
+_CacheSubnetGroupQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CacheSubnetGroupQuotaExceededFault =
+  Core._MatchServiceError
+    defaultService
+    "CacheSubnetGroupQuotaExceeded"
+    Prelude.. Core.hasStatus 400
+
+-- | You already have a reservation with the given identifier.
+_ReservedCacheNodeAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReservedCacheNodeAlreadyExistsFault =
+  Core._MatchServiceError
+    defaultService
+    "ReservedCacheNodeAlreadyExists"
+    Prelude.. Core.hasStatus 404
+
+-- | The operation was not performed because no changes were required.
+_NoOperationFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoOperationFault =
+  Core._MatchServiceError
+    defaultService
+    "NoOperationFault"
+    Prelude.. Core.hasStatus 400
+
+-- | A user with this ID already exists.
+_UserAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UserAlreadyExistsFault =
+  Core._MatchServiceError
+    defaultService
+    "UserAlreadyExists"
+    Prelude.. Core.hasStatus 400
+
+-- | The requested tag was not found on this resource.
+_TagNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TagNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "TagNotFound"
+    Prelude.. Core.hasStatus 404
+
+-- | The Global datastore is not available or in primary-only state.
+_InvalidGlobalReplicationGroupStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidGlobalReplicationGroupStateFault =
+  Core._MatchServiceError
+    defaultService
+    "InvalidGlobalReplicationGroupState"
+    Prelude.. Core.hasStatus 400
+
+-- | You must add default user to a user group.
+_DefaultUserRequired :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DefaultUserRequired =
+  Core._MatchServiceError
+    defaultService
+    "DefaultUserRequired"
+    Prelude.. Core.hasStatus 400
+
+-- | Two or more incompatible parameters were specified.
+_InvalidParameterCombinationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterCombinationException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidParameterCombination"
+    Prelude.. Core.hasStatus 400
+
+-- | The specified service linked role (SLR) was not found.
+_ServiceLinkedRoleNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceLinkedRoleNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "ServiceLinkedRoleNotFoundFault"
+    Prelude.. Core.hasStatus 400
+
+-- | The specified Amazon EC2 security group is not authorized for the
+-- specified cache security group.
+_AuthorizationNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AuthorizationNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "AuthorizationNotFound"
+    Prelude.. Core.hasStatus 404
+
+-- | The quota of users has been exceeded.
+_UserQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UserQuotaExceededFault =
+  Core._MatchServiceError
+    defaultService
+    "UserQuotaExceeded"
+    Prelude.. Core.hasStatus 400
+
+-- | The Global datastore does not exist
+_GlobalReplicationGroupNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_GlobalReplicationGroupNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "GlobalReplicationGroupNotFoundFault"
+    Prelude.. Core.hasStatus 404
+
+-- | The specified replication group already exists.
+_ReplicationGroupAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReplicationGroupAlreadyExistsFault =
+  Core._MatchServiceError
+    defaultService
+    "ReplicationGroupAlreadyExists"
+    Prelude.. Core.hasStatus 400
+
+-- | A user with this username already exists.
+_DuplicateUserNameFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateUserNameFault =
+  Core._MatchServiceError
+    defaultService
+    "DuplicateUserName"
+    Prelude.. Core.hasStatus 400
+
+-- | The request cannot be processed because it would exceed the maximum
+-- number of cache security groups.
+_CacheParameterGroupQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CacheParameterGroupQuotaExceededFault =
+  Core._MatchServiceError
+    defaultService
+    "CacheParameterGroupQuotaExceeded"
+    Prelude.. Core.hasStatus 400
+
+-- | The request cannot be processed because it would exceed the allowed
+-- number of cache security groups.
+_CacheSecurityGroupQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CacheSecurityGroupQuotaExceededFault =
+  Core._MatchServiceError
+    defaultService
+    "QuotaExceeded.CacheSecurityGroup"
+    Prelude.. Core.hasStatus 400
+
+-- | The designated replication group is not available for data migration.
+_ReplicationGroupNotUnderMigrationFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReplicationGroupNotUnderMigrationFault =
+  Core._MatchServiceError
+    defaultService
+    "ReplicationGroupNotUnderMigrationFault"
+    Prelude.. Core.hasStatus 400
+
+-- | The default user assigned to the user group.
+_DefaultUserAssociatedToUserGroupFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DefaultUserAssociatedToUserGroupFault =
+  Core._MatchServiceError
+    defaultService
+    "DefaultUserAssociatedToUserGroup"
     Prelude.. Core.hasStatus 400
 
 -- | The request cannot be processed because it would cause the resource to
@@ -1068,49 +1225,38 @@ _TagQuotaPerResourceExceeded =
     "TagQuotaPerResourceExceeded"
     Prelude.. Core.hasStatus 400
 
--- | A user with this ID already exists.
-_UserAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UserAlreadyExistsFault =
+-- | The requested cache parameter group name does not refer to an existing
+-- cache parameter group.
+_CacheParameterGroupNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CacheParameterGroupNotFoundFault =
   Core._MatchServiceError
     defaultService
-    "UserAlreadyExists"
-    Prelude.. Core.hasStatus 400
-
--- | The user is not in active state.
-_InvalidUserStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidUserStateFault =
-  Core._MatchServiceError
-    defaultService
-    "InvalidUserState"
-    Prelude.. Core.hasStatus 400
-
--- | The requested snapshot name does not refer to an existing snapshot.
-_SnapshotNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SnapshotNotFoundFault =
-  Core._MatchServiceError
-    defaultService
-    "SnapshotNotFoundFault"
+    "CacheParameterGroupNotFound"
     Prelude.. Core.hasStatus 404
 
--- | The requested cache node type is not available in the specified
--- Availability Zone. For more information, see
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY InsufficientCacheClusterCapacity>
--- in the ElastiCache User Guide.
-_InsufficientCacheClusterCapacityFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InsufficientCacheClusterCapacityFault =
-  Core._MatchServiceError
-    defaultService
-    "InsufficientCacheClusterCapacity"
+-- | The requested Amazon Resource Name (ARN) does not refer to an existing
+-- resource.
+_InvalidARNFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidARNFault =
+  Core._MatchServiceError defaultService "InvalidARN"
     Prelude.. Core.hasStatus 400
 
--- | The current state of the snapshot does not allow the requested operation
--- to occur.
-_InvalidSnapshotStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidSnapshotStateFault =
+-- | The Global datastore name already exists.
+_GlobalReplicationGroupAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_GlobalReplicationGroupAlreadyExistsFault =
   Core._MatchServiceError
     defaultService
-    "InvalidSnapshotState"
+    "GlobalReplicationGroupAlreadyExistsFault"
     Prelude.. Core.hasStatus 400
+
+-- | The requested cache security group name does not refer to an existing
+-- cache security group.
+_CacheSecurityGroupNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CacheSecurityGroupNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "CacheSecurityGroupNotFound"
+    Prelude.. Core.hasStatus 404
 
 -- | You already have a snapshot with the given name.
 _SnapshotAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1120,46 +1266,45 @@ _SnapshotAlreadyExistsFault =
     "SnapshotAlreadyExistsFault"
     Prelude.. Core.hasStatus 400
 
--- | You must add default user to a user group.
-_DefaultUserRequired :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DefaultUserRequired =
+-- | The @TestFailover@ action is not available.
+_TestFailoverNotAvailableFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TestFailoverNotAvailableFault =
   Core._MatchServiceError
     defaultService
-    "DefaultUserRequired"
+    "TestFailoverNotAvailableFault"
     Prelude.. Core.hasStatus 400
 
--- | The requested tag was not found on this resource.
-_TagNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TagNotFoundFault =
+-- | The requested cache node offering does not exist.
+_ReservedCacheNodesOfferingNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReservedCacheNodesOfferingNotFoundFault =
   Core._MatchServiceError
     defaultService
-    "TagNotFound"
+    "ReservedCacheNodesOfferingNotFound"
     Prelude.. Core.hasStatus 404
 
--- | The request cannot be processed because it would exceed the maximum
--- number of snapshots.
-_SnapshotQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SnapshotQuotaExceededFault =
+-- | The requested cache subnet group is currently in use.
+_CacheSubnetGroupInUse :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CacheSubnetGroupInUse =
   Core._MatchServiceError
     defaultService
-    "SnapshotQuotaExceededFault"
+    "CacheSubnetGroupInUse"
     Prelude.. Core.hasStatus 400
 
 -- | The request cannot be processed because it would exceed the allowed
--- number of cache nodes in a single cluster.
-_NodeQuotaForClusterExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NodeQuotaForClusterExceededFault =
+-- number of cache nodes per customer.
+_NodeQuotaForCustomerExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NodeQuotaForCustomerExceededFault =
   Core._MatchServiceError
     defaultService
-    "NodeQuotaForClusterExceeded"
+    "NodeQuotaForCustomerExceeded"
     Prelude.. Core.hasStatus 400
 
--- | The customer has exceeded the allowed rate of API calls.
-_APICallRateForCustomerExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_APICallRateForCustomerExceededFault =
+-- | The user group is not in an active state.
+_InvalidUserGroupStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidUserGroupStateFault =
   Core._MatchServiceError
     defaultService
-    "APICallRateForCustomerExceeded"
+    "InvalidUserGroupState"
     Prelude.. Core.hasStatus 400
 
 -- | The node group specified by the @NodeGroupId@ parameter could not be
@@ -1172,112 +1317,12 @@ _NodeGroupNotFoundFault =
     "NodeGroupNotFoundFault"
     Prelude.. Core.hasStatus 404
 
--- | A cache parameter group with the requested name already exists.
-_CacheParameterGroupAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CacheParameterGroupAlreadyExistsFault =
+-- | The current state of the cache security group does not allow deletion.
+_InvalidCacheSecurityGroupStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidCacheSecurityGroupStateFault =
   Core._MatchServiceError
     defaultService
-    "CacheParameterGroupAlreadyExists"
-    Prelude.. Core.hasStatus 400
-
--- | The specified service linked role (SLR) was not found.
-_ServiceLinkedRoleNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceLinkedRoleNotFoundFault =
-  Core._MatchServiceError
-    defaultService
-    "ServiceLinkedRoleNotFoundFault"
-    Prelude.. Core.hasStatus 400
-
--- | The KMS key supplied is not valid.
-_InvalidKMSKeyFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidKMSKeyFault =
-  Core._MatchServiceError
-    defaultService
-    "InvalidKMSKeyFault"
-    Prelude.. Core.hasStatus 400
-
--- | The Global datastore does not exist
-_GlobalReplicationGroupNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_GlobalReplicationGroupNotFoundFault =
-  Core._MatchServiceError
-    defaultService
-    "GlobalReplicationGroupNotFoundFault"
-    Prelude.. Core.hasStatus 404
-
--- | The requested reserved cache node was not found.
-_ReservedCacheNodeNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ReservedCacheNodeNotFoundFault =
-  Core._MatchServiceError
-    defaultService
-    "ReservedCacheNodeNotFound"
-    Prelude.. Core.hasStatus 404
-
--- | The requested cache subnet group name does not refer to an existing
--- cache subnet group.
-_CacheSubnetGroupNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CacheSubnetGroupNotFoundFault =
-  Core._MatchServiceError
-    defaultService
-    "CacheSubnetGroupNotFoundFault"
-    Prelude.. Core.hasStatus 400
-
--- | You attempted one of the following operations:
---
--- -   Creating a snapshot of a Redis cluster running on a @cache.t1.micro@
---     cache node.
---
--- -   Creating a snapshot of a cluster that is running Memcached rather
---     than Redis.
---
--- Neither of these are supported by ElastiCache.
-_SnapshotFeatureNotSupportedFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SnapshotFeatureNotSupportedFault =
-  Core._MatchServiceError
-    defaultService
-    "SnapshotFeatureNotSupportedFault"
-    Prelude.. Core.hasStatus 400
-
--- | The value for a parameter is invalid.
-_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterValueException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidParameterValue"
-    Prelude.. Core.hasStatus 400
-
--- | The @TestFailover@ action is not available.
-_TestFailoverNotAvailableFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TestFailoverNotAvailableFault =
-  Core._MatchServiceError
-    defaultService
-    "TestFailoverNotAvailableFault"
-    Prelude.. Core.hasStatus 400
-
--- | At least one subnet ID does not match the other subnet IDs. This
--- mismatch typically occurs when a user sets one subnet ID to a regional
--- Availability Zone and a different one to an outpost. Or when a user sets
--- the subnet ID to an Outpost when not subscribed on this service.
-_SubnetNotAllowedFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SubnetNotAllowedFault =
-  Core._MatchServiceError
-    defaultService
-    "SubnetNotAllowedFault"
-    Prelude.. Core.hasStatus 400
-
--- | The requested replication group is not in the @available@ state.
-_InvalidReplicationGroupStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidReplicationGroupStateFault =
-  Core._MatchServiceError
-    defaultService
-    "InvalidReplicationGroupState"
-    Prelude.. Core.hasStatus 400
-
--- | The specified replication group already exists.
-_ReplicationGroupAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ReplicationGroupAlreadyExistsFault =
-  Core._MatchServiceError
-    defaultService
-    "ReplicationGroupAlreadyExists"
+    "InvalidCacheSecurityGroupState"
     Prelude.. Core.hasStatus 400
 
 -- | The VPC network is in an invalid state.
@@ -1296,39 +1341,50 @@ _SubnetInUse =
     "SubnetInUse"
     Prelude.. Core.hasStatus 400
 
--- | The user group was not found or does not exist
-_UserGroupNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UserGroupNotFoundFault =
+-- | The requested cache node type is not available in the specified
+-- Availability Zone. For more information, see
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY InsufficientCacheClusterCapacity>
+-- in the ElastiCache User Guide.
+_InsufficientCacheClusterCapacityFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InsufficientCacheClusterCapacityFault =
   Core._MatchServiceError
     defaultService
-    "UserGroupNotFound"
-    Prelude.. Core.hasStatus 404
-
--- | The requested cluster ID does not refer to an existing cluster.
-_CacheClusterNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CacheClusterNotFoundFault =
-  Core._MatchServiceError
-    defaultService
-    "CacheClusterNotFound"
-    Prelude.. Core.hasStatus 404
-
--- | The request cannot be processed because it would exceed the allowed
--- number of clusters per customer.
-_ClusterQuotaForCustomerExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ClusterQuotaForCustomerExceededFault =
-  Core._MatchServiceError
-    defaultService
-    "ClusterQuotaForCustomerExceeded"
+    "InsufficientCacheClusterCapacity"
     Prelude.. Core.hasStatus 400
 
--- | The specified Amazon EC2 security group is not authorized for the
--- specified cache security group.
-_AuthorizationNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AuthorizationNotFoundFault =
+-- | The user is not in active state.
+_InvalidUserStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidUserStateFault =
   Core._MatchServiceError
     defaultService
-    "AuthorizationNotFound"
+    "InvalidUserState"
+    Prelude.. Core.hasStatus 400
+
+-- | The requested snapshot name does not refer to an existing snapshot.
+_SnapshotNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SnapshotNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "SnapshotNotFoundFault"
     Prelude.. Core.hasStatus 404
+
+-- | The request cannot be processed because it would exceed the user\'s
+-- cache node quota.
+_ReservedCacheNodeQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReservedCacheNodeQuotaExceededFault =
+  Core._MatchServiceError
+    defaultService
+    "ReservedCacheNodeQuotaExceeded"
+    Prelude.. Core.hasStatus 400
+
+-- | The requested cache subnet group name is already in use by an existing
+-- cache subnet group.
+_CacheSubnetGroupAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CacheSubnetGroupAlreadyExistsFault =
+  Core._MatchServiceError
+    defaultService
+    "CacheSubnetGroupAlreadyExists"
+    Prelude.. Core.hasStatus 400
 
 -- | The user group with this ID already exists.
 _UserGroupAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1336,73 +1392,6 @@ _UserGroupAlreadyExistsFault =
   Core._MatchServiceError
     defaultService
     "UserGroupAlreadyExists"
-    Prelude.. Core.hasStatus 400
-
--- | The requested cluster is not in the @available@ state.
-_InvalidCacheClusterStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidCacheClusterStateFault =
-  Core._MatchServiceError
-    defaultService
-    "InvalidCacheClusterState"
-    Prelude.. Core.hasStatus 400
-
--- | The request cannot be processed because it would exceed the allowed
--- number of cache security groups.
-_CacheSecurityGroupQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CacheSecurityGroupQuotaExceededFault =
-  Core._MatchServiceError
-    defaultService
-    "QuotaExceeded.CacheSecurityGroup"
-    Prelude.. Core.hasStatus 400
-
--- | You already have a cluster with the given identifier.
-_CacheClusterAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CacheClusterAlreadyExistsFault =
-  Core._MatchServiceError
-    defaultService
-    "CacheClusterAlreadyExists"
-    Prelude.. Core.hasStatus 400
-
--- | The request cannot be processed because it would exceed the maximum
--- number of cache security groups.
-_CacheParameterGroupQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CacheParameterGroupQuotaExceededFault =
-  Core._MatchServiceError
-    defaultService
-    "CacheParameterGroupQuotaExceeded"
-    Prelude.. Core.hasStatus 400
-
--- | The service update doesn\'t exist
-_ServiceUpdateNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUpdateNotFoundFault =
-  Core._MatchServiceError
-    defaultService
-    "ServiceUpdateNotFoundFault"
-    Prelude.. Core.hasStatus 404
-
--- | The default user assigned to the user group.
-_DefaultUserAssociatedToUserGroupFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DefaultUserAssociatedToUserGroupFault =
-  Core._MatchServiceError
-    defaultService
-    "DefaultUserAssociatedToUserGroup"
-    Prelude.. Core.hasStatus 400
-
--- | The user does not exist or could not be found.
-_UserNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UserNotFoundFault =
-  Core._MatchServiceError
-    defaultService
-    "UserNotFound"
-    Prelude.. Core.hasStatus 404
-
--- | The request cannot be processed because it would exceed the allowed
--- number of cache nodes per customer.
-_NodeQuotaForCustomerExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NodeQuotaForCustomerExceededFault =
-  Core._MatchServiceError
-    defaultService
-    "NodeQuotaForCustomerExceeded"
     Prelude.. Core.hasStatus 400
 
 -- | The request cannot be processed because it would exceed the allowed
@@ -1414,12 +1403,20 @@ _CacheSubnetQuotaExceededFault =
     "CacheSubnetQuotaExceededFault"
     Prelude.. Core.hasStatus 400
 
--- | The designated replication group is not available for data migration.
-_ReplicationGroupNotUnderMigrationFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ReplicationGroupNotUnderMigrationFault =
+-- | The KMS key supplied is not valid.
+_InvalidKMSKeyFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidKMSKeyFault =
   Core._MatchServiceError
     defaultService
-    "ReplicationGroupNotUnderMigrationFault"
+    "InvalidKMSKeyFault"
+    Prelude.. Core.hasStatus 400
+
+-- | You already have a cluster with the given identifier.
+_CacheClusterAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CacheClusterAlreadyExistsFault =
+  Core._MatchServiceError
+    defaultService
+    "CacheClusterAlreadyExists"
     Prelude.. Core.hasStatus 400
 
 -- | The targeted replication group is not available.
@@ -1430,44 +1427,28 @@ _ReplicationGroupAlreadyUnderMigrationFault =
     "ReplicationGroupAlreadyUnderMigrationFault"
     Prelude.. Core.hasStatus 400
 
--- | The requested cache parameter group name does not refer to an existing
--- cache parameter group.
-_CacheParameterGroupNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CacheParameterGroupNotFoundFault =
+-- | You attempted one of the following operations:
+--
+-- -   Creating a snapshot of a Redis cluster running on a @cache.t1.micro@
+--     cache node.
+--
+-- -   Creating a snapshot of a cluster that is running Memcached rather
+--     than Redis.
+--
+-- Neither of these are supported by ElastiCache.
+_SnapshotFeatureNotSupportedFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SnapshotFeatureNotSupportedFault =
   Core._MatchServiceError
     defaultService
-    "CacheParameterGroupNotFound"
-    Prelude.. Core.hasStatus 404
-
--- | A user with this username already exists.
-_DuplicateUserNameFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DuplicateUserNameFault =
-  Core._MatchServiceError
-    defaultService
-    "DuplicateUserName"
+    "SnapshotFeatureNotSupportedFault"
     Prelude.. Core.hasStatus 400
 
--- | The quota of users has been exceeded.
-_UserQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UserQuotaExceededFault =
+-- | The requested cluster is not in the @available@ state.
+_InvalidCacheClusterStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidCacheClusterStateFault =
   Core._MatchServiceError
     defaultService
-    "UserQuotaExceeded"
-    Prelude.. Core.hasStatus 400
-
--- | The requested Amazon Resource Name (ARN) does not refer to an existing
--- resource.
-_InvalidARNFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidARNFault =
-  Core._MatchServiceError defaultService "InvalidARN"
-    Prelude.. Core.hasStatus 400
-
--- | The operation was not performed because no changes were required.
-_NoOperationFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NoOperationFault =
-  Core._MatchServiceError
-    defaultService
-    "NoOperationFault"
+    "InvalidCacheClusterState"
     Prelude.. Core.hasStatus 400
 
 -- | The current state of the cache parameter group does not allow the
@@ -1479,12 +1460,47 @@ _InvalidCacheParameterGroupStateFault =
     "InvalidCacheParameterGroupState"
     Prelude.. Core.hasStatus 400
 
--- | Two or more incompatible parameters were specified.
-_InvalidParameterCombinationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterCombinationException =
+-- | The value for a parameter is invalid.
+_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterValueException =
   Core._MatchServiceError
     defaultService
-    "InvalidParameterCombination"
+    "InvalidParameterValue"
+    Prelude.. Core.hasStatus 400
+
+-- | At least one subnet ID does not match the other subnet IDs. This
+-- mismatch typically occurs when a user sets one subnet ID to a regional
+-- Availability Zone and a different one to an outpost. Or when a user sets
+-- the subnet ID to an Outpost when not subscribed on this service.
+_SubnetNotAllowedFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SubnetNotAllowedFault =
+  Core._MatchServiceError
+    defaultService
+    "SubnetNotAllowedFault"
+    Prelude.. Core.hasStatus 400
+
+-- | The customer has exceeded the allowed rate of API calls.
+_APICallRateForCustomerExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_APICallRateForCustomerExceededFault =
+  Core._MatchServiceError
+    defaultService
+    "APICallRateForCustomerExceeded"
+    Prelude.. Core.hasStatus 400
+
+-- | The requested reserved cache node was not found.
+_ReservedCacheNodeNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReservedCacheNodeNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "ReservedCacheNodeNotFound"
+    Prelude.. Core.hasStatus 404
+
+-- | The requested replication group is not in the @available@ state.
+_InvalidReplicationGroupStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidReplicationGroupStateFault =
+  Core._MatchServiceError
+    defaultService
+    "InvalidReplicationGroupState"
     Prelude.. Core.hasStatus 400
 
 -- | The number of users exceeds the user group limit.
@@ -1493,20 +1509,4 @@ _UserGroupQuotaExceededFault =
   Core._MatchServiceError
     defaultService
     "UserGroupQuotaExceeded"
-    Prelude.. Core.hasStatus 400
-
--- | The current state of the cache security group does not allow deletion.
-_InvalidCacheSecurityGroupStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidCacheSecurityGroupStateFault =
-  Core._MatchServiceError
-    defaultService
-    "InvalidCacheSecurityGroupState"
-    Prelude.. Core.hasStatus 400
-
--- | A cache security group with the specified name already exists.
-_CacheSecurityGroupAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CacheSecurityGroupAlreadyExistsFault =
-  Core._MatchServiceError
-    defaultService
-    "CacheSecurityGroupAlreadyExists"
     Prelude.. Core.hasStatus 400

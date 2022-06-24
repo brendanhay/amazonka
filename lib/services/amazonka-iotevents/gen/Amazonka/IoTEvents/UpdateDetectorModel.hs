@@ -28,8 +28,8 @@ module Amazonka.IoTEvents.UpdateDetectorModel
     newUpdateDetectorModel,
 
     -- * Request Lenses
-    updateDetectorModel_detectorModelDescription,
     updateDetectorModel_evaluationMethod,
+    updateDetectorModel_detectorModelDescription,
     updateDetectorModel_detectorModelName,
     updateDetectorModel_detectorModelDefinition,
     updateDetectorModel_roleArn,
@@ -53,11 +53,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateDetectorModel' smart constructor.
 data UpdateDetectorModel = UpdateDetectorModel'
-  { -- | A brief description of the detector model.
-    detectorModelDescription :: Prelude.Maybe Prelude.Text,
-    -- | Information about the order in which events are evaluated and how
+  { -- | Information about the order in which events are evaluated and how
     -- actions are executed.
     evaluationMethod :: Prelude.Maybe EvaluationMethod,
+    -- | A brief description of the detector model.
+    detectorModelDescription :: Prelude.Maybe Prelude.Text,
     -- | The name of the detector model that is updated.
     detectorModelName :: Prelude.Text,
     -- | Information that defines how a detector operates.
@@ -76,10 +76,10 @@ data UpdateDetectorModel = UpdateDetectorModel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'detectorModelDescription', 'updateDetectorModel_detectorModelDescription' - A brief description of the detector model.
---
 -- 'evaluationMethod', 'updateDetectorModel_evaluationMethod' - Information about the order in which events are evaluated and how
 -- actions are executed.
+--
+-- 'detectorModelDescription', 'updateDetectorModel_detectorModelDescription' - A brief description of the detector model.
 --
 -- 'detectorModelName', 'updateDetectorModel_detectorModelName' - The name of the detector model that is updated.
 --
@@ -100,22 +100,22 @@ newUpdateDetectorModel
   pDetectorModelDefinition_
   pRoleArn_ =
     UpdateDetectorModel'
-      { detectorModelDescription =
+      { evaluationMethod =
           Prelude.Nothing,
-        evaluationMethod = Prelude.Nothing,
+        detectorModelDescription = Prelude.Nothing,
         detectorModelName = pDetectorModelName_,
         detectorModelDefinition = pDetectorModelDefinition_,
         roleArn = pRoleArn_
       }
 
--- | A brief description of the detector model.
-updateDetectorModel_detectorModelDescription :: Lens.Lens' UpdateDetectorModel (Prelude.Maybe Prelude.Text)
-updateDetectorModel_detectorModelDescription = Lens.lens (\UpdateDetectorModel' {detectorModelDescription} -> detectorModelDescription) (\s@UpdateDetectorModel' {} a -> s {detectorModelDescription = a} :: UpdateDetectorModel)
-
 -- | Information about the order in which events are evaluated and how
 -- actions are executed.
 updateDetectorModel_evaluationMethod :: Lens.Lens' UpdateDetectorModel (Prelude.Maybe EvaluationMethod)
 updateDetectorModel_evaluationMethod = Lens.lens (\UpdateDetectorModel' {evaluationMethod} -> evaluationMethod) (\s@UpdateDetectorModel' {} a -> s {evaluationMethod = a} :: UpdateDetectorModel)
+
+-- | A brief description of the detector model.
+updateDetectorModel_detectorModelDescription :: Lens.Lens' UpdateDetectorModel (Prelude.Maybe Prelude.Text)
+updateDetectorModel_detectorModelDescription = Lens.lens (\UpdateDetectorModel' {detectorModelDescription} -> detectorModelDescription) (\s@UpdateDetectorModel' {} a -> s {detectorModelDescription = a} :: UpdateDetectorModel)
 
 -- | The name of the detector model that is updated.
 updateDetectorModel_detectorModelName :: Lens.Lens' UpdateDetectorModel Prelude.Text
@@ -145,17 +145,16 @@ instance Core.AWSRequest UpdateDetectorModel where
 
 instance Prelude.Hashable UpdateDetectorModel where
   hashWithSalt _salt UpdateDetectorModel' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` evaluationMethod
       `Prelude.hashWithSalt` detectorModelDescription
-      `Prelude.hashWithSalt` evaluationMethod
       `Prelude.hashWithSalt` detectorModelName
       `Prelude.hashWithSalt` detectorModelDefinition
       `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData UpdateDetectorModel where
   rnf UpdateDetectorModel' {..} =
-    Prelude.rnf detectorModelDescription
-      `Prelude.seq` Prelude.rnf evaluationMethod
+    Prelude.rnf evaluationMethod
+      `Prelude.seq` Prelude.rnf detectorModelDescription
       `Prelude.seq` Prelude.rnf detectorModelName
       `Prelude.seq` Prelude.rnf detectorModelDefinition
       `Prelude.seq` Prelude.rnf roleArn
@@ -167,10 +166,10 @@ instance Core.ToJSON UpdateDetectorModel where
   toJSON UpdateDetectorModel' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("detectorModelDescription" Core..=)
-              Prelude.<$> detectorModelDescription,
-            ("evaluationMethod" Core..=)
+          [ ("evaluationMethod" Core..=)
               Prelude.<$> evaluationMethod,
+            ("detectorModelDescription" Core..=)
+              Prelude.<$> detectorModelDescription,
             Prelude.Just
               ( "detectorModelDefinition"
                   Core..= detectorModelDefinition

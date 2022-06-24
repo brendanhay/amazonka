@@ -29,7 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAnalysisResult' smart constructor.
 data AnalysisResult = AnalysisResult'
-  { -- | The type of the analysis result. Analyses fall into the following types
+  { -- | Contains additional information about the analysis result.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The type of the analysis result. Analyses fall into the following types
     -- based on the validators used to generate the analysis result:
     --
     -- -   @supported-actions@ - You must specify AWS IoT Events supported
@@ -58,8 +60,6 @@ data AnalysisResult = AnalysisResult'
     -- <https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-analyze-api.html Running detector model analyses>
     -- in the /AWS IoT Events Developer Guide/.
     type' :: Prelude.Maybe Prelude.Text,
-    -- | Contains additional information about the analysis result.
-    message :: Prelude.Maybe Prelude.Text,
     -- | The severity level of the analysis result. Based on the severity level,
     -- analysis results fall into three general categories:
     --
@@ -91,6 +91,8 @@ data AnalysisResult = AnalysisResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'message', 'analysisResult_message' - Contains additional information about the analysis result.
+--
 -- 'type'', 'analysisResult_type' - The type of the analysis result. Analyses fall into the following types
 -- based on the validators used to generate the analysis result:
 --
@@ -120,8 +122,6 @@ data AnalysisResult = AnalysisResult'
 -- <https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-analyze-api.html Running detector model analyses>
 -- in the /AWS IoT Events Developer Guide/.
 --
--- 'message', 'analysisResult_message' - Contains additional information about the analysis result.
---
 -- 'level', 'analysisResult_level' - The severity level of the analysis result. Based on the severity level,
 -- analysis results fall into three general categories:
 --
@@ -145,11 +145,15 @@ newAnalysisResult ::
   AnalysisResult
 newAnalysisResult =
   AnalysisResult'
-    { type' = Prelude.Nothing,
-      message = Prelude.Nothing,
+    { message = Prelude.Nothing,
+      type' = Prelude.Nothing,
       level = Prelude.Nothing,
       locations = Prelude.Nothing
     }
+
+-- | Contains additional information about the analysis result.
+analysisResult_message :: Lens.Lens' AnalysisResult (Prelude.Maybe Prelude.Text)
+analysisResult_message = Lens.lens (\AnalysisResult' {message} -> message) (\s@AnalysisResult' {} a -> s {message = a} :: AnalysisResult)
 
 -- | The type of the analysis result. Analyses fall into the following types
 -- based on the validators used to generate the analysis result:
@@ -182,10 +186,6 @@ newAnalysisResult =
 analysisResult_type :: Lens.Lens' AnalysisResult (Prelude.Maybe Prelude.Text)
 analysisResult_type = Lens.lens (\AnalysisResult' {type'} -> type') (\s@AnalysisResult' {} a -> s {type' = a} :: AnalysisResult)
 
--- | Contains additional information about the analysis result.
-analysisResult_message :: Lens.Lens' AnalysisResult (Prelude.Maybe Prelude.Text)
-analysisResult_message = Lens.lens (\AnalysisResult' {message} -> message) (\s@AnalysisResult' {} a -> s {message = a} :: AnalysisResult)
-
 -- | The severity level of the analysis result. Based on the severity level,
 -- analysis results fall into three general categories:
 --
@@ -216,22 +216,22 @@ instance Core.FromJSON AnalysisResult where
       "AnalysisResult"
       ( \x ->
           AnalysisResult'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "message")
+            Prelude.<$> (x Core..:? "message")
+            Prelude.<*> (x Core..:? "type")
             Prelude.<*> (x Core..:? "level")
             Prelude.<*> (x Core..:? "locations" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AnalysisResult where
   hashWithSalt _salt AnalysisResult' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` message
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` level
       `Prelude.hashWithSalt` locations
 
 instance Prelude.NFData AnalysisResult where
   rnf AnalysisResult' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf message
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf level
       `Prelude.seq` Prelude.rnf locations

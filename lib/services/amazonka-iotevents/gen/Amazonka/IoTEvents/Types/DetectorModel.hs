@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDetectorModel' smart constructor.
 data DetectorModel = DetectorModel'
-  { -- | Information about how the detector is configured.
-    detectorModelConfiguration :: Prelude.Maybe DetectorModelConfiguration,
-    -- | Information that defines how a detector operates.
-    detectorModelDefinition :: Prelude.Maybe DetectorModelDefinition
+  { -- | Information that defines how a detector operates.
+    detectorModelDefinition :: Prelude.Maybe DetectorModelDefinition,
+    -- | Information about how the detector is configured.
+    detectorModelConfiguration :: Prelude.Maybe DetectorModelConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data DetectorModel = DetectorModel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'detectorModelConfiguration', 'detectorModel_detectorModelConfiguration' - Information about how the detector is configured.
---
 -- 'detectorModelDefinition', 'detectorModel_detectorModelDefinition' - Information that defines how a detector operates.
+--
+-- 'detectorModelConfiguration', 'detectorModel_detectorModelConfiguration' - Information about how the detector is configured.
 newDetectorModel ::
   DetectorModel
 newDetectorModel =
   DetectorModel'
-    { detectorModelConfiguration =
+    { detectorModelDefinition =
         Prelude.Nothing,
-      detectorModelDefinition = Prelude.Nothing
+      detectorModelConfiguration = Prelude.Nothing
     }
-
--- | Information about how the detector is configured.
-detectorModel_detectorModelConfiguration :: Lens.Lens' DetectorModel (Prelude.Maybe DetectorModelConfiguration)
-detectorModel_detectorModelConfiguration = Lens.lens (\DetectorModel' {detectorModelConfiguration} -> detectorModelConfiguration) (\s@DetectorModel' {} a -> s {detectorModelConfiguration = a} :: DetectorModel)
 
 -- | Information that defines how a detector operates.
 detectorModel_detectorModelDefinition :: Lens.Lens' DetectorModel (Prelude.Maybe DetectorModelDefinition)
 detectorModel_detectorModelDefinition = Lens.lens (\DetectorModel' {detectorModelDefinition} -> detectorModelDefinition) (\s@DetectorModel' {} a -> s {detectorModelDefinition = a} :: DetectorModel)
+
+-- | Information about how the detector is configured.
+detectorModel_detectorModelConfiguration :: Lens.Lens' DetectorModel (Prelude.Maybe DetectorModelConfiguration)
+detectorModel_detectorModelConfiguration = Lens.lens (\DetectorModel' {detectorModelConfiguration} -> detectorModelConfiguration) (\s@DetectorModel' {} a -> s {detectorModelConfiguration = a} :: DetectorModel)
 
 instance Core.FromJSON DetectorModel where
   parseJSON =
@@ -70,17 +70,17 @@ instance Core.FromJSON DetectorModel where
       "DetectorModel"
       ( \x ->
           DetectorModel'
-            Prelude.<$> (x Core..:? "detectorModelConfiguration")
-            Prelude.<*> (x Core..:? "detectorModelDefinition")
+            Prelude.<$> (x Core..:? "detectorModelDefinition")
+            Prelude.<*> (x Core..:? "detectorModelConfiguration")
       )
 
 instance Prelude.Hashable DetectorModel where
   hashWithSalt _salt DetectorModel' {..} =
     _salt
-      `Prelude.hashWithSalt` detectorModelConfiguration
       `Prelude.hashWithSalt` detectorModelDefinition
+      `Prelude.hashWithSalt` detectorModelConfiguration
 
 instance Prelude.NFData DetectorModel where
   rnf DetectorModel' {..} =
-    Prelude.rnf detectorModelConfiguration
-      `Prelude.seq` Prelude.rnf detectorModelDefinition
+    Prelude.rnf detectorModelDefinition
+      `Prelude.seq` Prelude.rnf detectorModelConfiguration

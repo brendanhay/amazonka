@@ -22,20 +22,11 @@ module Amazonka.IoTEvents
     -- * Errors
     -- $errors
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
-
-    -- ** UnsupportedOperationException
-    _UnsupportedOperationException,
-
     -- ** ResourceAlreadyExistsException
     _ResourceAlreadyExistsException,
 
-    -- ** ThrottlingException
-    _ThrottlingException,
-
-    -- ** InternalFailureException
-    _InternalFailureException,
+    -- ** UnsupportedOperationException
+    _UnsupportedOperationException,
 
     -- ** ServiceUnavailableException
     _ServiceUnavailableException,
@@ -43,11 +34,20 @@ module Amazonka.IoTEvents
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** InternalFailureException
+    _InternalFailureException,
 
     -- * Waiters
     -- $waiters
@@ -55,83 +55,11 @@ module Amazonka.IoTEvents
     -- * Operations
     -- $operations
 
-    -- ** ListInputs
-    ListInputs (ListInputs'),
-    newListInputs,
-    ListInputsResponse (ListInputsResponse'),
-    newListInputsResponse,
-
-    -- ** StartDetectorModelAnalysis
-    StartDetectorModelAnalysis (StartDetectorModelAnalysis'),
-    newStartDetectorModelAnalysis,
-    StartDetectorModelAnalysisResponse (StartDetectorModelAnalysisResponse'),
-    newStartDetectorModelAnalysisResponse,
-
-    -- ** PutLoggingOptions
-    PutLoggingOptions (PutLoggingOptions'),
-    newPutLoggingOptions,
-    PutLoggingOptionsResponse (PutLoggingOptionsResponse'),
-    newPutLoggingOptionsResponse,
-
-    -- ** DescribeDetectorModelAnalysis
-    DescribeDetectorModelAnalysis (DescribeDetectorModelAnalysis'),
-    newDescribeDetectorModelAnalysis,
-    DescribeDetectorModelAnalysisResponse (DescribeDetectorModelAnalysisResponse'),
-    newDescribeDetectorModelAnalysisResponse,
-
-    -- ** CreateInput
-    CreateInput (CreateInput'),
-    newCreateInput,
-    CreateInputResponse (CreateInputResponse'),
-    newCreateInputResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** ListAlarmModels
-    ListAlarmModels (ListAlarmModels'),
-    newListAlarmModels,
-    ListAlarmModelsResponse (ListAlarmModelsResponse'),
-    newListAlarmModelsResponse,
-
-    -- ** DeleteAlarmModel
-    DeleteAlarmModel (DeleteAlarmModel'),
-    newDeleteAlarmModel,
-    DeleteAlarmModelResponse (DeleteAlarmModelResponse'),
-    newDeleteAlarmModelResponse,
-
-    -- ** UpdateAlarmModel
-    UpdateAlarmModel (UpdateAlarmModel'),
-    newUpdateAlarmModel,
-    UpdateAlarmModelResponse (UpdateAlarmModelResponse'),
-    newUpdateAlarmModelResponse,
-
     -- ** CreateAlarmModel
     CreateAlarmModel (CreateAlarmModel'),
     newCreateAlarmModel,
     CreateAlarmModelResponse (CreateAlarmModelResponse'),
     newCreateAlarmModelResponse,
-
-    -- ** GetDetectorModelAnalysisResults
-    GetDetectorModelAnalysisResults (GetDetectorModelAnalysisResults'),
-    newGetDetectorModelAnalysisResults,
-    GetDetectorModelAnalysisResultsResponse (GetDetectorModelAnalysisResultsResponse'),
-    newGetDetectorModelAnalysisResultsResponse,
-
-    -- ** ListDetectorModelVersions
-    ListDetectorModelVersions (ListDetectorModelVersions'),
-    newListDetectorModelVersions,
-    ListDetectorModelVersionsResponse (ListDetectorModelVersionsResponse'),
-    newListDetectorModelVersionsResponse,
-
-    -- ** DescribeAlarmModel
-    DescribeAlarmModel (DescribeAlarmModel'),
-    newDescribeAlarmModel,
-    DescribeAlarmModelResponse (DescribeAlarmModelResponse'),
-    newDescribeAlarmModelResponse,
 
     -- ** CreateDetectorModel
     CreateDetectorModel (CreateDetectorModel'),
@@ -139,17 +67,17 @@ module Amazonka.IoTEvents
     CreateDetectorModelResponse (CreateDetectorModelResponse'),
     newCreateDetectorModelResponse,
 
-    -- ** ListDetectorModels
-    ListDetectorModels (ListDetectorModels'),
-    newListDetectorModels,
-    ListDetectorModelsResponse (ListDetectorModelsResponse'),
-    newListDetectorModelsResponse,
+    -- ** CreateInput
+    CreateInput (CreateInput'),
+    newCreateInput,
+    CreateInputResponse (CreateInputResponse'),
+    newCreateInputResponse,
 
-    -- ** UpdateDetectorModel
-    UpdateDetectorModel (UpdateDetectorModel'),
-    newUpdateDetectorModel,
-    UpdateDetectorModelResponse (UpdateDetectorModelResponse'),
-    newUpdateDetectorModelResponse,
+    -- ** DeleteAlarmModel
+    DeleteAlarmModel (DeleteAlarmModel'),
+    newDeleteAlarmModel,
+    DeleteAlarmModelResponse (DeleteAlarmModelResponse'),
+    newDeleteAlarmModelResponse,
 
     -- ** DeleteDetectorModel
     DeleteDetectorModel (DeleteDetectorModel'),
@@ -163,23 +91,11 @@ module Amazonka.IoTEvents
     DeleteInputResponse (DeleteInputResponse'),
     newDeleteInputResponse,
 
-    -- ** UpdateInput
-    UpdateInput (UpdateInput'),
-    newUpdateInput,
-    UpdateInputResponse (UpdateInputResponse'),
-    newUpdateInputResponse,
-
-    -- ** ListAlarmModelVersions
-    ListAlarmModelVersions (ListAlarmModelVersions'),
-    newListAlarmModelVersions,
-    ListAlarmModelVersionsResponse (ListAlarmModelVersionsResponse'),
-    newListAlarmModelVersionsResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
+    -- ** DescribeAlarmModel
+    DescribeAlarmModel (DescribeAlarmModel'),
+    newDescribeAlarmModel,
+    DescribeAlarmModelResponse (DescribeAlarmModelResponse'),
+    newDescribeAlarmModelResponse,
 
     -- ** DescribeDetectorModel
     DescribeDetectorModel (DescribeDetectorModel'),
@@ -187,17 +103,53 @@ module Amazonka.IoTEvents
     DescribeDetectorModelResponse (DescribeDetectorModelResponse'),
     newDescribeDetectorModelResponse,
 
+    -- ** DescribeDetectorModelAnalysis
+    DescribeDetectorModelAnalysis (DescribeDetectorModelAnalysis'),
+    newDescribeDetectorModelAnalysis,
+    DescribeDetectorModelAnalysisResponse (DescribeDetectorModelAnalysisResponse'),
+    newDescribeDetectorModelAnalysisResponse,
+
     -- ** DescribeInput
     DescribeInput (DescribeInput'),
     newDescribeInput,
     DescribeInputResponse (DescribeInputResponse'),
     newDescribeInputResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
+    -- ** DescribeLoggingOptions
+    DescribeLoggingOptions (DescribeLoggingOptions'),
+    newDescribeLoggingOptions,
+    DescribeLoggingOptionsResponse (DescribeLoggingOptionsResponse'),
+    newDescribeLoggingOptionsResponse,
+
+    -- ** GetDetectorModelAnalysisResults
+    GetDetectorModelAnalysisResults (GetDetectorModelAnalysisResults'),
+    newGetDetectorModelAnalysisResults,
+    GetDetectorModelAnalysisResultsResponse (GetDetectorModelAnalysisResultsResponse'),
+    newGetDetectorModelAnalysisResultsResponse,
+
+    -- ** ListAlarmModelVersions
+    ListAlarmModelVersions (ListAlarmModelVersions'),
+    newListAlarmModelVersions,
+    ListAlarmModelVersionsResponse (ListAlarmModelVersionsResponse'),
+    newListAlarmModelVersionsResponse,
+
+    -- ** ListAlarmModels
+    ListAlarmModels (ListAlarmModels'),
+    newListAlarmModels,
+    ListAlarmModelsResponse (ListAlarmModelsResponse'),
+    newListAlarmModelsResponse,
+
+    -- ** ListDetectorModelVersions
+    ListDetectorModelVersions (ListDetectorModelVersions'),
+    newListDetectorModelVersions,
+    ListDetectorModelVersionsResponse (ListDetectorModelVersionsResponse'),
+    newListDetectorModelVersionsResponse,
+
+    -- ** ListDetectorModels
+    ListDetectorModels (ListDetectorModels'),
+    newListDetectorModels,
+    ListDetectorModelsResponse (ListDetectorModelsResponse'),
+    newListDetectorModelsResponse,
 
     -- ** ListInputRoutings
     ListInputRoutings (ListInputRoutings'),
@@ -205,11 +157,59 @@ module Amazonka.IoTEvents
     ListInputRoutingsResponse (ListInputRoutingsResponse'),
     newListInputRoutingsResponse,
 
-    -- ** DescribeLoggingOptions
-    DescribeLoggingOptions (DescribeLoggingOptions'),
-    newDescribeLoggingOptions,
-    DescribeLoggingOptionsResponse (DescribeLoggingOptionsResponse'),
-    newDescribeLoggingOptionsResponse,
+    -- ** ListInputs
+    ListInputs (ListInputs'),
+    newListInputs,
+    ListInputsResponse (ListInputsResponse'),
+    newListInputsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** PutLoggingOptions
+    PutLoggingOptions (PutLoggingOptions'),
+    newPutLoggingOptions,
+    PutLoggingOptionsResponse (PutLoggingOptionsResponse'),
+    newPutLoggingOptionsResponse,
+
+    -- ** StartDetectorModelAnalysis
+    StartDetectorModelAnalysis (StartDetectorModelAnalysis'),
+    newStartDetectorModelAnalysis,
+    StartDetectorModelAnalysisResponse (StartDetectorModelAnalysisResponse'),
+    newStartDetectorModelAnalysisResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateAlarmModel
+    UpdateAlarmModel (UpdateAlarmModel'),
+    newUpdateAlarmModel,
+    UpdateAlarmModelResponse (UpdateAlarmModelResponse'),
+    newUpdateAlarmModelResponse,
+
+    -- ** UpdateDetectorModel
+    UpdateDetectorModel (UpdateDetectorModel'),
+    newUpdateDetectorModel,
+    UpdateDetectorModelResponse (UpdateDetectorModelResponse'),
+    newUpdateDetectorModelResponse,
+
+    -- ** UpdateInput
+    UpdateInput (UpdateInput'),
+    newUpdateInput,
+    UpdateInputResponse (UpdateInputResponse'),
+    newUpdateInputResponse,
 
     -- * Types
 

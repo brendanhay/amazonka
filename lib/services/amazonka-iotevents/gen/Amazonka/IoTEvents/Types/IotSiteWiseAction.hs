@@ -60,19 +60,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIotSiteWiseAction' smart constructor.
 data IotSiteWiseAction = IotSiteWiseAction'
-  { -- | A unique identifier for this entry. You can use the entry ID to track
-    -- which data entry causes an error in case of failure. The default is a
-    -- new unique identifier.
-    entryId :: Prelude.Maybe Prelude.Text,
-    -- | The alias of the asset property.
+  { -- | The alias of the asset property.
     propertyAlias :: Prelude.Maybe Prelude.Text,
     -- | The value to send to the asset property. This value contains timestamp,
     -- quality, and value (TQV) information.
     propertyValue :: Prelude.Maybe AssetPropertyValue,
-    -- | The ID of the asset property.
-    propertyId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the asset that has the specified property.
-    assetId :: Prelude.Maybe Prelude.Text
+    assetId :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for this entry. You can use the entry ID to track
+    -- which data entry causes an error in case of failure. The default is a
+    -- new unique identifier.
+    entryId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the asset property.
+    propertyId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,34 +84,28 @@ data IotSiteWiseAction = IotSiteWiseAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'entryId', 'iotSiteWiseAction_entryId' - A unique identifier for this entry. You can use the entry ID to track
--- which data entry causes an error in case of failure. The default is a
--- new unique identifier.
---
 -- 'propertyAlias', 'iotSiteWiseAction_propertyAlias' - The alias of the asset property.
 --
 -- 'propertyValue', 'iotSiteWiseAction_propertyValue' - The value to send to the asset property. This value contains timestamp,
 -- quality, and value (TQV) information.
 --
--- 'propertyId', 'iotSiteWiseAction_propertyId' - The ID of the asset property.
---
 -- 'assetId', 'iotSiteWiseAction_assetId' - The ID of the asset that has the specified property.
+--
+-- 'entryId', 'iotSiteWiseAction_entryId' - A unique identifier for this entry. You can use the entry ID to track
+-- which data entry causes an error in case of failure. The default is a
+-- new unique identifier.
+--
+-- 'propertyId', 'iotSiteWiseAction_propertyId' - The ID of the asset property.
 newIotSiteWiseAction ::
   IotSiteWiseAction
 newIotSiteWiseAction =
   IotSiteWiseAction'
-    { entryId = Prelude.Nothing,
-      propertyAlias = Prelude.Nothing,
+    { propertyAlias = Prelude.Nothing,
       propertyValue = Prelude.Nothing,
-      propertyId = Prelude.Nothing,
-      assetId = Prelude.Nothing
+      assetId = Prelude.Nothing,
+      entryId = Prelude.Nothing,
+      propertyId = Prelude.Nothing
     }
-
--- | A unique identifier for this entry. You can use the entry ID to track
--- which data entry causes an error in case of failure. The default is a
--- new unique identifier.
-iotSiteWiseAction_entryId :: Lens.Lens' IotSiteWiseAction (Prelude.Maybe Prelude.Text)
-iotSiteWiseAction_entryId = Lens.lens (\IotSiteWiseAction' {entryId} -> entryId) (\s@IotSiteWiseAction' {} a -> s {entryId = a} :: IotSiteWiseAction)
 
 -- | The alias of the asset property.
 iotSiteWiseAction_propertyAlias :: Lens.Lens' IotSiteWiseAction (Prelude.Maybe Prelude.Text)
@@ -122,13 +116,19 @@ iotSiteWiseAction_propertyAlias = Lens.lens (\IotSiteWiseAction' {propertyAlias}
 iotSiteWiseAction_propertyValue :: Lens.Lens' IotSiteWiseAction (Prelude.Maybe AssetPropertyValue)
 iotSiteWiseAction_propertyValue = Lens.lens (\IotSiteWiseAction' {propertyValue} -> propertyValue) (\s@IotSiteWiseAction' {} a -> s {propertyValue = a} :: IotSiteWiseAction)
 
--- | The ID of the asset property.
-iotSiteWiseAction_propertyId :: Lens.Lens' IotSiteWiseAction (Prelude.Maybe Prelude.Text)
-iotSiteWiseAction_propertyId = Lens.lens (\IotSiteWiseAction' {propertyId} -> propertyId) (\s@IotSiteWiseAction' {} a -> s {propertyId = a} :: IotSiteWiseAction)
-
 -- | The ID of the asset that has the specified property.
 iotSiteWiseAction_assetId :: Lens.Lens' IotSiteWiseAction (Prelude.Maybe Prelude.Text)
 iotSiteWiseAction_assetId = Lens.lens (\IotSiteWiseAction' {assetId} -> assetId) (\s@IotSiteWiseAction' {} a -> s {assetId = a} :: IotSiteWiseAction)
+
+-- | A unique identifier for this entry. You can use the entry ID to track
+-- which data entry causes an error in case of failure. The default is a
+-- new unique identifier.
+iotSiteWiseAction_entryId :: Lens.Lens' IotSiteWiseAction (Prelude.Maybe Prelude.Text)
+iotSiteWiseAction_entryId = Lens.lens (\IotSiteWiseAction' {entryId} -> entryId) (\s@IotSiteWiseAction' {} a -> s {entryId = a} :: IotSiteWiseAction)
+
+-- | The ID of the asset property.
+iotSiteWiseAction_propertyId :: Lens.Lens' IotSiteWiseAction (Prelude.Maybe Prelude.Text)
+iotSiteWiseAction_propertyId = Lens.lens (\IotSiteWiseAction' {propertyId} -> propertyId) (\s@IotSiteWiseAction' {} a -> s {propertyId = a} :: IotSiteWiseAction)
 
 instance Core.FromJSON IotSiteWiseAction where
   parseJSON =
@@ -136,37 +136,37 @@ instance Core.FromJSON IotSiteWiseAction where
       "IotSiteWiseAction"
       ( \x ->
           IotSiteWiseAction'
-            Prelude.<$> (x Core..:? "entryId")
-            Prelude.<*> (x Core..:? "propertyAlias")
+            Prelude.<$> (x Core..:? "propertyAlias")
             Prelude.<*> (x Core..:? "propertyValue")
-            Prelude.<*> (x Core..:? "propertyId")
             Prelude.<*> (x Core..:? "assetId")
+            Prelude.<*> (x Core..:? "entryId")
+            Prelude.<*> (x Core..:? "propertyId")
       )
 
 instance Prelude.Hashable IotSiteWiseAction where
   hashWithSalt _salt IotSiteWiseAction' {..} =
-    _salt `Prelude.hashWithSalt` entryId
-      `Prelude.hashWithSalt` propertyAlias
+    _salt `Prelude.hashWithSalt` propertyAlias
       `Prelude.hashWithSalt` propertyValue
-      `Prelude.hashWithSalt` propertyId
       `Prelude.hashWithSalt` assetId
+      `Prelude.hashWithSalt` entryId
+      `Prelude.hashWithSalt` propertyId
 
 instance Prelude.NFData IotSiteWiseAction where
   rnf IotSiteWiseAction' {..} =
-    Prelude.rnf entryId
-      `Prelude.seq` Prelude.rnf propertyAlias
+    Prelude.rnf propertyAlias
       `Prelude.seq` Prelude.rnf propertyValue
-      `Prelude.seq` Prelude.rnf propertyId
       `Prelude.seq` Prelude.rnf assetId
+      `Prelude.seq` Prelude.rnf entryId
+      `Prelude.seq` Prelude.rnf propertyId
 
 instance Core.ToJSON IotSiteWiseAction where
   toJSON IotSiteWiseAction' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("entryId" Core..=) Prelude.<$> entryId,
-            ("propertyAlias" Core..=) Prelude.<$> propertyAlias,
+          [ ("propertyAlias" Core..=) Prelude.<$> propertyAlias,
             ("propertyValue" Core..=) Prelude.<$> propertyValue,
-            ("propertyId" Core..=) Prelude.<$> propertyId,
-            ("assetId" Core..=) Prelude.<$> assetId
+            ("assetId" Core..=) Prelude.<$> assetId,
+            ("entryId" Core..=) Prelude.<$> entryId,
+            ("propertyId" Core..=) Prelude.<$> propertyId
           ]
       )

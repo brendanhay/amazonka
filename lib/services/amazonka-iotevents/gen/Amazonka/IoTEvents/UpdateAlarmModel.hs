@@ -29,10 +29,10 @@ module Amazonka.IoTEvents.UpdateAlarmModel
 
     -- * Request Lenses
     updateAlarmModel_severity,
-    updateAlarmModel_alarmNotification,
-    updateAlarmModel_alarmModelDescription,
     updateAlarmModel_alarmEventActions,
     updateAlarmModel_alarmCapabilities,
+    updateAlarmModel_alarmModelDescription,
+    updateAlarmModel_alarmNotification,
     updateAlarmModel_alarmModelName,
     updateAlarmModel_roleArn,
     updateAlarmModel_alarmRule,
@@ -42,11 +42,11 @@ module Amazonka.IoTEvents.UpdateAlarmModel
     newUpdateAlarmModelResponse,
 
     -- * Response Lenses
-    updateAlarmModelResponse_creationTime,
-    updateAlarmModelResponse_status,
-    updateAlarmModelResponse_lastUpdateTime,
     updateAlarmModelResponse_alarmModelVersion,
     updateAlarmModelResponse_alarmModelArn,
+    updateAlarmModelResponse_status,
+    updateAlarmModelResponse_creationTime,
+    updateAlarmModelResponse_lastUpdateTime,
     updateAlarmModelResponse_httpStatus,
   )
 where
@@ -62,14 +62,14 @@ import qualified Amazonka.Response as Response
 data UpdateAlarmModel = UpdateAlarmModel'
   { -- | A non-negative integer that reflects the severity level of the alarm.
     severity :: Prelude.Maybe Prelude.Natural,
-    -- | Contains information about one or more notification actions.
-    alarmNotification :: Prelude.Maybe AlarmNotification,
-    -- | The description of the alarm model.
-    alarmModelDescription :: Prelude.Maybe Prelude.Text,
     -- | Contains information about one or more alarm actions.
     alarmEventActions :: Prelude.Maybe AlarmEventActions,
     -- | Contains the configuration information of alarm state changes.
     alarmCapabilities :: Prelude.Maybe AlarmCapabilities,
+    -- | The description of the alarm model.
+    alarmModelDescription :: Prelude.Maybe Prelude.Text,
+    -- | Contains information about one or more notification actions.
+    alarmNotification :: Prelude.Maybe AlarmNotification,
     -- | The name of the alarm model.
     alarmModelName :: Prelude.Text,
     -- | The ARN of the IAM role that allows the alarm to perform actions and
@@ -92,13 +92,13 @@ data UpdateAlarmModel = UpdateAlarmModel'
 --
 -- 'severity', 'updateAlarmModel_severity' - A non-negative integer that reflects the severity level of the alarm.
 --
--- 'alarmNotification', 'updateAlarmModel_alarmNotification' - Contains information about one or more notification actions.
---
--- 'alarmModelDescription', 'updateAlarmModel_alarmModelDescription' - The description of the alarm model.
---
 -- 'alarmEventActions', 'updateAlarmModel_alarmEventActions' - Contains information about one or more alarm actions.
 --
 -- 'alarmCapabilities', 'updateAlarmModel_alarmCapabilities' - Contains the configuration information of alarm state changes.
+--
+-- 'alarmModelDescription', 'updateAlarmModel_alarmModelDescription' - The description of the alarm model.
+--
+-- 'alarmNotification', 'updateAlarmModel_alarmNotification' - Contains information about one or more notification actions.
 --
 -- 'alarmModelName', 'updateAlarmModel_alarmModelName' - The name of the alarm model.
 --
@@ -122,10 +122,10 @@ newUpdateAlarmModel
   pAlarmRule_ =
     UpdateAlarmModel'
       { severity = Prelude.Nothing,
-        alarmNotification = Prelude.Nothing,
-        alarmModelDescription = Prelude.Nothing,
         alarmEventActions = Prelude.Nothing,
         alarmCapabilities = Prelude.Nothing,
+        alarmModelDescription = Prelude.Nothing,
+        alarmNotification = Prelude.Nothing,
         alarmModelName = pAlarmModelName_,
         roleArn = pRoleArn_,
         alarmRule = pAlarmRule_
@@ -135,14 +135,6 @@ newUpdateAlarmModel
 updateAlarmModel_severity :: Lens.Lens' UpdateAlarmModel (Prelude.Maybe Prelude.Natural)
 updateAlarmModel_severity = Lens.lens (\UpdateAlarmModel' {severity} -> severity) (\s@UpdateAlarmModel' {} a -> s {severity = a} :: UpdateAlarmModel)
 
--- | Contains information about one or more notification actions.
-updateAlarmModel_alarmNotification :: Lens.Lens' UpdateAlarmModel (Prelude.Maybe AlarmNotification)
-updateAlarmModel_alarmNotification = Lens.lens (\UpdateAlarmModel' {alarmNotification} -> alarmNotification) (\s@UpdateAlarmModel' {} a -> s {alarmNotification = a} :: UpdateAlarmModel)
-
--- | The description of the alarm model.
-updateAlarmModel_alarmModelDescription :: Lens.Lens' UpdateAlarmModel (Prelude.Maybe Prelude.Text)
-updateAlarmModel_alarmModelDescription = Lens.lens (\UpdateAlarmModel' {alarmModelDescription} -> alarmModelDescription) (\s@UpdateAlarmModel' {} a -> s {alarmModelDescription = a} :: UpdateAlarmModel)
-
 -- | Contains information about one or more alarm actions.
 updateAlarmModel_alarmEventActions :: Lens.Lens' UpdateAlarmModel (Prelude.Maybe AlarmEventActions)
 updateAlarmModel_alarmEventActions = Lens.lens (\UpdateAlarmModel' {alarmEventActions} -> alarmEventActions) (\s@UpdateAlarmModel' {} a -> s {alarmEventActions = a} :: UpdateAlarmModel)
@@ -150,6 +142,14 @@ updateAlarmModel_alarmEventActions = Lens.lens (\UpdateAlarmModel' {alarmEventAc
 -- | Contains the configuration information of alarm state changes.
 updateAlarmModel_alarmCapabilities :: Lens.Lens' UpdateAlarmModel (Prelude.Maybe AlarmCapabilities)
 updateAlarmModel_alarmCapabilities = Lens.lens (\UpdateAlarmModel' {alarmCapabilities} -> alarmCapabilities) (\s@UpdateAlarmModel' {} a -> s {alarmCapabilities = a} :: UpdateAlarmModel)
+
+-- | The description of the alarm model.
+updateAlarmModel_alarmModelDescription :: Lens.Lens' UpdateAlarmModel (Prelude.Maybe Prelude.Text)
+updateAlarmModel_alarmModelDescription = Lens.lens (\UpdateAlarmModel' {alarmModelDescription} -> alarmModelDescription) (\s@UpdateAlarmModel' {} a -> s {alarmModelDescription = a} :: UpdateAlarmModel)
+
+-- | Contains information about one or more notification actions.
+updateAlarmModel_alarmNotification :: Lens.Lens' UpdateAlarmModel (Prelude.Maybe AlarmNotification)
+updateAlarmModel_alarmNotification = Lens.lens (\UpdateAlarmModel' {alarmNotification} -> alarmNotification) (\s@UpdateAlarmModel' {} a -> s {alarmNotification = a} :: UpdateAlarmModel)
 
 -- | The name of the alarm model.
 updateAlarmModel_alarmModelName :: Lens.Lens' UpdateAlarmModel Prelude.Text
@@ -175,21 +175,21 @@ instance Core.AWSRequest UpdateAlarmModel where
     Response.receiveJSON
       ( \s h x ->
           UpdateAlarmModelResponse'
-            Prelude.<$> (x Core..?> "creationTime")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "lastUpdateTime")
-            Prelude.<*> (x Core..?> "alarmModelVersion")
+            Prelude.<$> (x Core..?> "alarmModelVersion")
             Prelude.<*> (x Core..?> "alarmModelArn")
+            Prelude.<*> (x Core..?> "status")
+            Prelude.<*> (x Core..?> "creationTime")
+            Prelude.<*> (x Core..?> "lastUpdateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateAlarmModel where
   hashWithSalt _salt UpdateAlarmModel' {..} =
     _salt `Prelude.hashWithSalt` severity
-      `Prelude.hashWithSalt` alarmNotification
-      `Prelude.hashWithSalt` alarmModelDescription
       `Prelude.hashWithSalt` alarmEventActions
       `Prelude.hashWithSalt` alarmCapabilities
+      `Prelude.hashWithSalt` alarmModelDescription
+      `Prelude.hashWithSalt` alarmNotification
       `Prelude.hashWithSalt` alarmModelName
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` alarmRule
@@ -197,10 +197,10 @@ instance Prelude.Hashable UpdateAlarmModel where
 instance Prelude.NFData UpdateAlarmModel where
   rnf UpdateAlarmModel' {..} =
     Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf alarmNotification
-      `Prelude.seq` Prelude.rnf alarmModelDescription
       `Prelude.seq` Prelude.rnf alarmEventActions
       `Prelude.seq` Prelude.rnf alarmCapabilities
+      `Prelude.seq` Prelude.rnf alarmModelDescription
+      `Prelude.seq` Prelude.rnf alarmNotification
       `Prelude.seq` Prelude.rnf alarmModelName
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf alarmRule
@@ -213,14 +213,14 @@ instance Core.ToJSON UpdateAlarmModel where
     Core.object
       ( Prelude.catMaybes
           [ ("severity" Core..=) Prelude.<$> severity,
-            ("alarmNotification" Core..=)
-              Prelude.<$> alarmNotification,
-            ("alarmModelDescription" Core..=)
-              Prelude.<$> alarmModelDescription,
             ("alarmEventActions" Core..=)
               Prelude.<$> alarmEventActions,
             ("alarmCapabilities" Core..=)
               Prelude.<$> alarmCapabilities,
+            ("alarmModelDescription" Core..=)
+              Prelude.<$> alarmModelDescription,
+            ("alarmNotification" Core..=)
+              Prelude.<$> alarmNotification,
             Prelude.Just ("roleArn" Core..= roleArn),
             Prelude.Just ("alarmRule" Core..= alarmRule)
           ]
@@ -236,8 +236,12 @@ instance Core.ToQuery UpdateAlarmModel where
 
 -- | /See:/ 'newUpdateAlarmModelResponse' smart constructor.
 data UpdateAlarmModelResponse = UpdateAlarmModelResponse'
-  { -- | The time the alarm model was created, in the Unix epoch format.
-    creationTime :: Prelude.Maybe Core.POSIX,
+  { -- | The version of the alarm model.
+    alarmModelVersion :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the alarm model. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+    -- in the /AWS General Reference/.
+    alarmModelArn :: Prelude.Maybe Prelude.Text,
     -- | The status of the alarm model. The status can be one of the following
     -- values:
     --
@@ -254,14 +258,10 @@ data UpdateAlarmModelResponse = UpdateAlarmModelResponse'
     -- -   @FAILED@ - You couldn\'t create or update the alarm model. Check
     --     your alarm model information and try again.
     status :: Prelude.Maybe AlarmModelVersionStatus,
+    -- | The time the alarm model was created, in the Unix epoch format.
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The time the alarm model was last updated, in the Unix epoch format.
     lastUpdateTime :: Prelude.Maybe Core.POSIX,
-    -- | The version of the alarm model.
-    alarmModelVersion :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the alarm model. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
-    alarmModelArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -275,7 +275,11 @@ data UpdateAlarmModelResponse = UpdateAlarmModelResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'updateAlarmModelResponse_creationTime' - The time the alarm model was created, in the Unix epoch format.
+-- 'alarmModelVersion', 'updateAlarmModelResponse_alarmModelVersion' - The version of the alarm model.
+--
+-- 'alarmModelArn', 'updateAlarmModelResponse_alarmModelArn' - The ARN of the alarm model. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+-- in the /AWS General Reference/.
 --
 -- 'status', 'updateAlarmModelResponse_status' - The status of the alarm model. The status can be one of the following
 -- values:
@@ -293,13 +297,9 @@ data UpdateAlarmModelResponse = UpdateAlarmModelResponse'
 -- -   @FAILED@ - You couldn\'t create or update the alarm model. Check
 --     your alarm model information and try again.
 --
+-- 'creationTime', 'updateAlarmModelResponse_creationTime' - The time the alarm model was created, in the Unix epoch format.
+--
 -- 'lastUpdateTime', 'updateAlarmModelResponse_lastUpdateTime' - The time the alarm model was last updated, in the Unix epoch format.
---
--- 'alarmModelVersion', 'updateAlarmModelResponse_alarmModelVersion' - The version of the alarm model.
---
--- 'alarmModelArn', 'updateAlarmModelResponse_alarmModelArn' - The ARN of the alarm model. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
 --
 -- 'httpStatus', 'updateAlarmModelResponse_httpStatus' - The response's http status code.
 newUpdateAlarmModelResponse ::
@@ -308,18 +308,24 @@ newUpdateAlarmModelResponse ::
   UpdateAlarmModelResponse
 newUpdateAlarmModelResponse pHttpStatus_ =
   UpdateAlarmModelResponse'
-    { creationTime =
+    { alarmModelVersion =
         Prelude.Nothing,
-      status = Prelude.Nothing,
-      lastUpdateTime = Prelude.Nothing,
-      alarmModelVersion = Prelude.Nothing,
       alarmModelArn = Prelude.Nothing,
+      status = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      lastUpdateTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The time the alarm model was created, in the Unix epoch format.
-updateAlarmModelResponse_creationTime :: Lens.Lens' UpdateAlarmModelResponse (Prelude.Maybe Prelude.UTCTime)
-updateAlarmModelResponse_creationTime = Lens.lens (\UpdateAlarmModelResponse' {creationTime} -> creationTime) (\s@UpdateAlarmModelResponse' {} a -> s {creationTime = a} :: UpdateAlarmModelResponse) Prelude.. Lens.mapping Core._Time
+-- | The version of the alarm model.
+updateAlarmModelResponse_alarmModelVersion :: Lens.Lens' UpdateAlarmModelResponse (Prelude.Maybe Prelude.Text)
+updateAlarmModelResponse_alarmModelVersion = Lens.lens (\UpdateAlarmModelResponse' {alarmModelVersion} -> alarmModelVersion) (\s@UpdateAlarmModelResponse' {} a -> s {alarmModelVersion = a} :: UpdateAlarmModelResponse)
+
+-- | The ARN of the alarm model. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+-- in the /AWS General Reference/.
+updateAlarmModelResponse_alarmModelArn :: Lens.Lens' UpdateAlarmModelResponse (Prelude.Maybe Prelude.Text)
+updateAlarmModelResponse_alarmModelArn = Lens.lens (\UpdateAlarmModelResponse' {alarmModelArn} -> alarmModelArn) (\s@UpdateAlarmModelResponse' {} a -> s {alarmModelArn = a} :: UpdateAlarmModelResponse)
 
 -- | The status of the alarm model. The status can be one of the following
 -- values:
@@ -339,19 +345,13 @@ updateAlarmModelResponse_creationTime = Lens.lens (\UpdateAlarmModelResponse' {c
 updateAlarmModelResponse_status :: Lens.Lens' UpdateAlarmModelResponse (Prelude.Maybe AlarmModelVersionStatus)
 updateAlarmModelResponse_status = Lens.lens (\UpdateAlarmModelResponse' {status} -> status) (\s@UpdateAlarmModelResponse' {} a -> s {status = a} :: UpdateAlarmModelResponse)
 
+-- | The time the alarm model was created, in the Unix epoch format.
+updateAlarmModelResponse_creationTime :: Lens.Lens' UpdateAlarmModelResponse (Prelude.Maybe Prelude.UTCTime)
+updateAlarmModelResponse_creationTime = Lens.lens (\UpdateAlarmModelResponse' {creationTime} -> creationTime) (\s@UpdateAlarmModelResponse' {} a -> s {creationTime = a} :: UpdateAlarmModelResponse) Prelude.. Lens.mapping Core._Time
+
 -- | The time the alarm model was last updated, in the Unix epoch format.
 updateAlarmModelResponse_lastUpdateTime :: Lens.Lens' UpdateAlarmModelResponse (Prelude.Maybe Prelude.UTCTime)
 updateAlarmModelResponse_lastUpdateTime = Lens.lens (\UpdateAlarmModelResponse' {lastUpdateTime} -> lastUpdateTime) (\s@UpdateAlarmModelResponse' {} a -> s {lastUpdateTime = a} :: UpdateAlarmModelResponse) Prelude.. Lens.mapping Core._Time
-
--- | The version of the alarm model.
-updateAlarmModelResponse_alarmModelVersion :: Lens.Lens' UpdateAlarmModelResponse (Prelude.Maybe Prelude.Text)
-updateAlarmModelResponse_alarmModelVersion = Lens.lens (\UpdateAlarmModelResponse' {alarmModelVersion} -> alarmModelVersion) (\s@UpdateAlarmModelResponse' {} a -> s {alarmModelVersion = a} :: UpdateAlarmModelResponse)
-
--- | The ARN of the alarm model. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
-updateAlarmModelResponse_alarmModelArn :: Lens.Lens' UpdateAlarmModelResponse (Prelude.Maybe Prelude.Text)
-updateAlarmModelResponse_alarmModelArn = Lens.lens (\UpdateAlarmModelResponse' {alarmModelArn} -> alarmModelArn) (\s@UpdateAlarmModelResponse' {} a -> s {alarmModelArn = a} :: UpdateAlarmModelResponse)
 
 -- | The response's http status code.
 updateAlarmModelResponse_httpStatus :: Lens.Lens' UpdateAlarmModelResponse Prelude.Int
@@ -359,9 +359,9 @@ updateAlarmModelResponse_httpStatus = Lens.lens (\UpdateAlarmModelResponse' {htt
 
 instance Prelude.NFData UpdateAlarmModelResponse where
   rnf UpdateAlarmModelResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf alarmModelVersion
+    Prelude.rnf alarmModelVersion
       `Prelude.seq` Prelude.rnf alarmModelArn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastUpdateTime
       `Prelude.seq` Prelude.rnf httpStatus

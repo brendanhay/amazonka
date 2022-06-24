@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOnInputLifecycle' smart constructor.
 data OnInputLifecycle = OnInputLifecycle'
-  { -- | Specifies the actions performed when the @condition@ evaluates to TRUE.
-    events :: Prelude.Maybe [Event],
-    -- | Specifies the actions performed, and the next state entered, when a
+  { -- | Specifies the actions performed, and the next state entered, when a
     -- @condition@ evaluates to TRUE.
-    transitionEvents :: Prelude.Maybe [TransitionEvent]
+    transitionEvents :: Prelude.Maybe [TransitionEvent],
+    -- | Specifies the actions performed when the @condition@ evaluates to TRUE.
+    events :: Prelude.Maybe [Event]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,26 +45,27 @@ data OnInputLifecycle = OnInputLifecycle'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'events', 'onInputLifecycle_events' - Specifies the actions performed when the @condition@ evaluates to TRUE.
---
 -- 'transitionEvents', 'onInputLifecycle_transitionEvents' - Specifies the actions performed, and the next state entered, when a
 -- @condition@ evaluates to TRUE.
+--
+-- 'events', 'onInputLifecycle_events' - Specifies the actions performed when the @condition@ evaluates to TRUE.
 newOnInputLifecycle ::
   OnInputLifecycle
 newOnInputLifecycle =
   OnInputLifecycle'
-    { events = Prelude.Nothing,
-      transitionEvents = Prelude.Nothing
+    { transitionEvents =
+        Prelude.Nothing,
+      events = Prelude.Nothing
     }
-
--- | Specifies the actions performed when the @condition@ evaluates to TRUE.
-onInputLifecycle_events :: Lens.Lens' OnInputLifecycle (Prelude.Maybe [Event])
-onInputLifecycle_events = Lens.lens (\OnInputLifecycle' {events} -> events) (\s@OnInputLifecycle' {} a -> s {events = a} :: OnInputLifecycle) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the actions performed, and the next state entered, when a
 -- @condition@ evaluates to TRUE.
 onInputLifecycle_transitionEvents :: Lens.Lens' OnInputLifecycle (Prelude.Maybe [TransitionEvent])
 onInputLifecycle_transitionEvents = Lens.lens (\OnInputLifecycle' {transitionEvents} -> transitionEvents) (\s@OnInputLifecycle' {} a -> s {transitionEvents = a} :: OnInputLifecycle) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies the actions performed when the @condition@ evaluates to TRUE.
+onInputLifecycle_events :: Lens.Lens' OnInputLifecycle (Prelude.Maybe [Event])
+onInputLifecycle_events = Lens.lens (\OnInputLifecycle' {events} -> events) (\s@OnInputLifecycle' {} a -> s {events = a} :: OnInputLifecycle) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON OnInputLifecycle where
   parseJSON =
@@ -72,28 +73,28 @@ instance Core.FromJSON OnInputLifecycle where
       "OnInputLifecycle"
       ( \x ->
           OnInputLifecycle'
-            Prelude.<$> (x Core..:? "events" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "transitionEvents"
+            Prelude.<$> ( x Core..:? "transitionEvents"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "events" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable OnInputLifecycle where
   hashWithSalt _salt OnInputLifecycle' {..} =
-    _salt `Prelude.hashWithSalt` events
-      `Prelude.hashWithSalt` transitionEvents
+    _salt `Prelude.hashWithSalt` transitionEvents
+      `Prelude.hashWithSalt` events
 
 instance Prelude.NFData OnInputLifecycle where
   rnf OnInputLifecycle' {..} =
-    Prelude.rnf events
-      `Prelude.seq` Prelude.rnf transitionEvents
+    Prelude.rnf transitionEvents
+      `Prelude.seq` Prelude.rnf events
 
 instance Core.ToJSON OnInputLifecycle where
   toJSON OnInputLifecycle' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("events" Core..=) Prelude.<$> events,
-            ("transitionEvents" Core..=)
-              Prelude.<$> transitionEvents
+          [ ("transitionEvents" Core..=)
+              Prelude.<$> transitionEvents,
+            ("events" Core..=) Prelude.<$> events
           ]
       )

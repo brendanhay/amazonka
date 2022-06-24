@@ -29,9 +29,9 @@ module Amazonka.ComprehendMedical.StartICD10CMInferenceJob
     newStartICD10CMInferenceJob,
 
     -- * Request Lenses
-    startICD10CMInferenceJob_kmsKey,
-    startICD10CMInferenceJob_jobName,
     startICD10CMInferenceJob_clientRequestToken,
+    startICD10CMInferenceJob_jobName,
+    startICD10CMInferenceJob_kmsKey,
     startICD10CMInferenceJob_inputDataConfig,
     startICD10CMInferenceJob_outputDataConfig,
     startICD10CMInferenceJob_dataAccessRoleArn,
@@ -56,14 +56,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartICD10CMInferenceJob' smart constructor.
 data StartICD10CMInferenceJob = StartICD10CMInferenceJob'
-  { -- | An AWS Key Management Service key to encrypt your output files. If you
-    -- do not specify a key, the files are written in plain text.
-    kmsKey :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the job.
-    jobName :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the request. If you don\'t set the client
+  { -- | A unique identifier for the request. If you don\'t set the client
     -- request token, Amazon Comprehend Medical generates one.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the job.
+    jobName :: Prelude.Maybe Prelude.Text,
+    -- | An AWS Key Management Service key to encrypt your output files. If you
+    -- do not specify a key, the files are written in plain text.
+    kmsKey :: Prelude.Maybe Prelude.Text,
     -- | Specifies the format and location of the input data for the job.
     inputDataConfig :: InputDataConfig,
     -- | Specifies where to send the output files.
@@ -87,13 +87,13 @@ data StartICD10CMInferenceJob = StartICD10CMInferenceJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKey', 'startICD10CMInferenceJob_kmsKey' - An AWS Key Management Service key to encrypt your output files. If you
--- do not specify a key, the files are written in plain text.
+-- 'clientRequestToken', 'startICD10CMInferenceJob_clientRequestToken' - A unique identifier for the request. If you don\'t set the client
+-- request token, Amazon Comprehend Medical generates one.
 --
 -- 'jobName', 'startICD10CMInferenceJob_jobName' - The identifier of the job.
 --
--- 'clientRequestToken', 'startICD10CMInferenceJob_clientRequestToken' - A unique identifier for the request. If you don\'t set the client
--- request token, Amazon Comprehend Medical generates one.
+-- 'kmsKey', 'startICD10CMInferenceJob_kmsKey' - An AWS Key Management Service key to encrypt your output files. If you
+-- do not specify a key, the files are written in plain text.
 --
 -- 'inputDataConfig', 'startICD10CMInferenceJob_inputDataConfig' - Specifies the format and location of the input data for the job.
 --
@@ -122,28 +122,29 @@ newStartICD10CMInferenceJob
   pDataAccessRoleArn_
   pLanguageCode_ =
     StartICD10CMInferenceJob'
-      { kmsKey = Prelude.Nothing,
+      { clientRequestToken =
+          Prelude.Nothing,
         jobName = Prelude.Nothing,
-        clientRequestToken = Prelude.Nothing,
+        kmsKey = Prelude.Nothing,
         inputDataConfig = pInputDataConfig_,
         outputDataConfig = pOutputDataConfig_,
         dataAccessRoleArn = pDataAccessRoleArn_,
         languageCode = pLanguageCode_
       }
 
--- | An AWS Key Management Service key to encrypt your output files. If you
--- do not specify a key, the files are written in plain text.
-startICD10CMInferenceJob_kmsKey :: Lens.Lens' StartICD10CMInferenceJob (Prelude.Maybe Prelude.Text)
-startICD10CMInferenceJob_kmsKey = Lens.lens (\StartICD10CMInferenceJob' {kmsKey} -> kmsKey) (\s@StartICD10CMInferenceJob' {} a -> s {kmsKey = a} :: StartICD10CMInferenceJob)
+-- | A unique identifier for the request. If you don\'t set the client
+-- request token, Amazon Comprehend Medical generates one.
+startICD10CMInferenceJob_clientRequestToken :: Lens.Lens' StartICD10CMInferenceJob (Prelude.Maybe Prelude.Text)
+startICD10CMInferenceJob_clientRequestToken = Lens.lens (\StartICD10CMInferenceJob' {clientRequestToken} -> clientRequestToken) (\s@StartICD10CMInferenceJob' {} a -> s {clientRequestToken = a} :: StartICD10CMInferenceJob)
 
 -- | The identifier of the job.
 startICD10CMInferenceJob_jobName :: Lens.Lens' StartICD10CMInferenceJob (Prelude.Maybe Prelude.Text)
 startICD10CMInferenceJob_jobName = Lens.lens (\StartICD10CMInferenceJob' {jobName} -> jobName) (\s@StartICD10CMInferenceJob' {} a -> s {jobName = a} :: StartICD10CMInferenceJob)
 
--- | A unique identifier for the request. If you don\'t set the client
--- request token, Amazon Comprehend Medical generates one.
-startICD10CMInferenceJob_clientRequestToken :: Lens.Lens' StartICD10CMInferenceJob (Prelude.Maybe Prelude.Text)
-startICD10CMInferenceJob_clientRequestToken = Lens.lens (\StartICD10CMInferenceJob' {clientRequestToken} -> clientRequestToken) (\s@StartICD10CMInferenceJob' {} a -> s {clientRequestToken = a} :: StartICD10CMInferenceJob)
+-- | An AWS Key Management Service key to encrypt your output files. If you
+-- do not specify a key, the files are written in plain text.
+startICD10CMInferenceJob_kmsKey :: Lens.Lens' StartICD10CMInferenceJob (Prelude.Maybe Prelude.Text)
+startICD10CMInferenceJob_kmsKey = Lens.lens (\StartICD10CMInferenceJob' {kmsKey} -> kmsKey) (\s@StartICD10CMInferenceJob' {} a -> s {kmsKey = a} :: StartICD10CMInferenceJob)
 
 -- | Specifies the format and location of the input data for the job.
 startICD10CMInferenceJob_inputDataConfig :: Lens.Lens' StartICD10CMInferenceJob InputDataConfig
@@ -180,9 +181,9 @@ instance Core.AWSRequest StartICD10CMInferenceJob where
 
 instance Prelude.Hashable StartICD10CMInferenceJob where
   hashWithSalt _salt StartICD10CMInferenceJob' {..} =
-    _salt `Prelude.hashWithSalt` kmsKey
+    _salt `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` jobName
-      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` kmsKey
       `Prelude.hashWithSalt` inputDataConfig
       `Prelude.hashWithSalt` outputDataConfig
       `Prelude.hashWithSalt` dataAccessRoleArn
@@ -190,9 +191,9 @@ instance Prelude.Hashable StartICD10CMInferenceJob where
 
 instance Prelude.NFData StartICD10CMInferenceJob where
   rnf StartICD10CMInferenceJob' {..} =
-    Prelude.rnf kmsKey
+    Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf kmsKey
       `Prelude.seq` Prelude.rnf inputDataConfig
       `Prelude.seq` Prelude.rnf outputDataConfig
       `Prelude.seq` Prelude.rnf dataAccessRoleArn
@@ -217,10 +218,10 @@ instance Core.ToJSON StartICD10CMInferenceJob where
   toJSON StartICD10CMInferenceJob' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("KMSKey" Core..=) Prelude.<$> kmsKey,
-            ("JobName" Core..=) Prelude.<$> jobName,
-            ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
+            ("JobName" Core..=) Prelude.<$> jobName,
+            ("KMSKey" Core..=) Prelude.<$> kmsKey,
             Prelude.Just
               ("InputDataConfig" Core..= inputDataConfig),
             Prelude.Just

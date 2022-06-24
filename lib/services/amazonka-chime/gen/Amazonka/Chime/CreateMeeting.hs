@@ -34,11 +34,11 @@ module Amazonka.Chime.CreateMeeting
     newCreateMeeting,
 
     -- * Request Lenses
-    createMeeting_mediaRegion,
-    createMeeting_meetingHostId,
-    createMeeting_notificationsConfiguration,
-    createMeeting_externalMeetingId,
     createMeeting_tags,
+    createMeeting_notificationsConfiguration,
+    createMeeting_meetingHostId,
+    createMeeting_mediaRegion,
+    createMeeting_externalMeetingId,
     createMeeting_clientRequestToken,
 
     -- * Destructuring the Response
@@ -60,7 +60,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateMeeting' smart constructor.
 data CreateMeeting = CreateMeeting'
-  { -- | The Region in which to create the meeting. Default: @us-east-1@.
+  { -- | The tag key-value pairs.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The configuration for resource targets to receive notifications when
+    -- meeting and attendee events occur.
+    notificationsConfiguration :: Prelude.Maybe MeetingNotificationConfiguration,
+    -- | Reserved.
+    meetingHostId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The Region in which to create the meeting. Default: @us-east-1@.
     --
     -- Available values: @af-south-1@ , @ap-northeast-1@ , @ap-northeast-2@ ,
     -- @ap-south-1@ , @ap-southeast-1@ , @ap-southeast-2@ , @ca-central-1@ ,
@@ -68,15 +75,8 @@ data CreateMeeting = CreateMeeting'
     -- , @eu-west-3@ , @sa-east-1@ , @us-east-1@ , @us-east-2@ , @us-west-1@ ,
     -- @us-west-2@ .
     mediaRegion :: Prelude.Maybe Prelude.Text,
-    -- | Reserved.
-    meetingHostId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The configuration for resource targets to receive notifications when
-    -- meeting and attendee events occur.
-    notificationsConfiguration :: Prelude.Maybe MeetingNotificationConfiguration,
     -- | The external meeting ID.
     externalMeetingId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The tag key-value pairs.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The unique identifier for the client request. Use a different token for
     -- different meetings.
     clientRequestToken :: Core.Sensitive Prelude.Text
@@ -91,6 +91,13 @@ data CreateMeeting = CreateMeeting'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createMeeting_tags' - The tag key-value pairs.
+--
+-- 'notificationsConfiguration', 'createMeeting_notificationsConfiguration' - The configuration for resource targets to receive notifications when
+-- meeting and attendee events occur.
+--
+-- 'meetingHostId', 'createMeeting_meetingHostId' - Reserved.
+--
 -- 'mediaRegion', 'createMeeting_mediaRegion' - The Region in which to create the meeting. Default: @us-east-1@.
 --
 -- Available values: @af-south-1@ , @ap-northeast-1@ , @ap-northeast-2@ ,
@@ -99,14 +106,7 @@ data CreateMeeting = CreateMeeting'
 -- , @eu-west-3@ , @sa-east-1@ , @us-east-1@ , @us-east-2@ , @us-west-1@ ,
 -- @us-west-2@ .
 --
--- 'meetingHostId', 'createMeeting_meetingHostId' - Reserved.
---
--- 'notificationsConfiguration', 'createMeeting_notificationsConfiguration' - The configuration for resource targets to receive notifications when
--- meeting and attendee events occur.
---
 -- 'externalMeetingId', 'createMeeting_externalMeetingId' - The external meeting ID.
---
--- 'tags', 'createMeeting_tags' - The tag key-value pairs.
 --
 -- 'clientRequestToken', 'createMeeting_clientRequestToken' - The unique identifier for the client request. Use a different token for
 -- different meetings.
@@ -116,14 +116,27 @@ newCreateMeeting ::
   CreateMeeting
 newCreateMeeting pClientRequestToken_ =
   CreateMeeting'
-    { mediaRegion = Prelude.Nothing,
-      meetingHostId = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       notificationsConfiguration = Prelude.Nothing,
+      meetingHostId = Prelude.Nothing,
+      mediaRegion = Prelude.Nothing,
       externalMeetingId = Prelude.Nothing,
-      tags = Prelude.Nothing,
       clientRequestToken =
         Core._Sensitive Lens.# pClientRequestToken_
     }
+
+-- | The tag key-value pairs.
+createMeeting_tags :: Lens.Lens' CreateMeeting (Prelude.Maybe (Prelude.NonEmpty Tag))
+createMeeting_tags = Lens.lens (\CreateMeeting' {tags} -> tags) (\s@CreateMeeting' {} a -> s {tags = a} :: CreateMeeting) Prelude.. Lens.mapping Lens.coerced
+
+-- | The configuration for resource targets to receive notifications when
+-- meeting and attendee events occur.
+createMeeting_notificationsConfiguration :: Lens.Lens' CreateMeeting (Prelude.Maybe MeetingNotificationConfiguration)
+createMeeting_notificationsConfiguration = Lens.lens (\CreateMeeting' {notificationsConfiguration} -> notificationsConfiguration) (\s@CreateMeeting' {} a -> s {notificationsConfiguration = a} :: CreateMeeting)
+
+-- | Reserved.
+createMeeting_meetingHostId :: Lens.Lens' CreateMeeting (Prelude.Maybe Prelude.Text)
+createMeeting_meetingHostId = Lens.lens (\CreateMeeting' {meetingHostId} -> meetingHostId) (\s@CreateMeeting' {} a -> s {meetingHostId = a} :: CreateMeeting) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The Region in which to create the meeting. Default: @us-east-1@.
 --
@@ -135,22 +148,9 @@ newCreateMeeting pClientRequestToken_ =
 createMeeting_mediaRegion :: Lens.Lens' CreateMeeting (Prelude.Maybe Prelude.Text)
 createMeeting_mediaRegion = Lens.lens (\CreateMeeting' {mediaRegion} -> mediaRegion) (\s@CreateMeeting' {} a -> s {mediaRegion = a} :: CreateMeeting)
 
--- | Reserved.
-createMeeting_meetingHostId :: Lens.Lens' CreateMeeting (Prelude.Maybe Prelude.Text)
-createMeeting_meetingHostId = Lens.lens (\CreateMeeting' {meetingHostId} -> meetingHostId) (\s@CreateMeeting' {} a -> s {meetingHostId = a} :: CreateMeeting) Prelude.. Lens.mapping Core._Sensitive
-
--- | The configuration for resource targets to receive notifications when
--- meeting and attendee events occur.
-createMeeting_notificationsConfiguration :: Lens.Lens' CreateMeeting (Prelude.Maybe MeetingNotificationConfiguration)
-createMeeting_notificationsConfiguration = Lens.lens (\CreateMeeting' {notificationsConfiguration} -> notificationsConfiguration) (\s@CreateMeeting' {} a -> s {notificationsConfiguration = a} :: CreateMeeting)
-
 -- | The external meeting ID.
 createMeeting_externalMeetingId :: Lens.Lens' CreateMeeting (Prelude.Maybe Prelude.Text)
 createMeeting_externalMeetingId = Lens.lens (\CreateMeeting' {externalMeetingId} -> externalMeetingId) (\s@CreateMeeting' {} a -> s {externalMeetingId = a} :: CreateMeeting) Prelude.. Lens.mapping Core._Sensitive
-
--- | The tag key-value pairs.
-createMeeting_tags :: Lens.Lens' CreateMeeting (Prelude.Maybe (Prelude.NonEmpty Tag))
-createMeeting_tags = Lens.lens (\CreateMeeting' {tags} -> tags) (\s@CreateMeeting' {} a -> s {tags = a} :: CreateMeeting) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique identifier for the client request. Use a different token for
 -- different meetings.
@@ -172,20 +172,20 @@ instance Core.AWSRequest CreateMeeting where
 
 instance Prelude.Hashable CreateMeeting where
   hashWithSalt _salt CreateMeeting' {..} =
-    _salt `Prelude.hashWithSalt` mediaRegion
-      `Prelude.hashWithSalt` meetingHostId
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` notificationsConfiguration
+      `Prelude.hashWithSalt` meetingHostId
+      `Prelude.hashWithSalt` mediaRegion
       `Prelude.hashWithSalt` externalMeetingId
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clientRequestToken
 
 instance Prelude.NFData CreateMeeting where
   rnf CreateMeeting' {..} =
-    Prelude.rnf mediaRegion
-      `Prelude.seq` Prelude.rnf meetingHostId
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf notificationsConfiguration
+      `Prelude.seq` Prelude.rnf meetingHostId
+      `Prelude.seq` Prelude.rnf mediaRegion
       `Prelude.seq` Prelude.rnf externalMeetingId
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf clientRequestToken
 
 instance Core.ToHeaders CreateMeeting where
@@ -195,13 +195,13 @@ instance Core.ToJSON CreateMeeting where
   toJSON CreateMeeting' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MediaRegion" Core..=) Prelude.<$> mediaRegion,
-            ("MeetingHostId" Core..=) Prelude.<$> meetingHostId,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("NotificationsConfiguration" Core..=)
               Prelude.<$> notificationsConfiguration,
+            ("MeetingHostId" Core..=) Prelude.<$> meetingHostId,
+            ("MediaRegion" Core..=) Prelude.<$> mediaRegion,
             ("ExternalMeetingId" Core..=)
               Prelude.<$> externalMeetingId,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ("ClientRequestToken" Core..= clientRequestToken)
           ]

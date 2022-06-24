@@ -27,15 +27,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProxy' smart constructor.
 data Proxy = Proxy'
-  { -- | The default number of minutes allowed for proxy sessions.
+  { -- | The countries for proxy phone numbers to be selected from.
+    phoneNumberCountries :: Prelude.Maybe [Prelude.Text],
+    -- | The default number of minutes allowed for proxy sessions.
     defaultSessionExpiryMinutes :: Prelude.Maybe Prelude.Int,
-    -- | When true, stops proxy sessions from being created on the specified
-    -- Amazon Chime Voice Connector.
-    disabled :: Prelude.Maybe Prelude.Bool,
     -- | The phone number to route calls to after a proxy session expires.
     fallBackPhoneNumber :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The countries for proxy phone numbers to be selected from.
-    phoneNumberCountries :: Prelude.Maybe [Prelude.Text]
+    -- | When true, stops proxy sessions from being created on the specified
+    -- Amazon Chime Voice Connector.
+    disabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -47,41 +47,40 @@ data Proxy = Proxy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'defaultSessionExpiryMinutes', 'proxy_defaultSessionExpiryMinutes' - The default number of minutes allowed for proxy sessions.
+-- 'phoneNumberCountries', 'proxy_phoneNumberCountries' - The countries for proxy phone numbers to be selected from.
 --
--- 'disabled', 'proxy_disabled' - When true, stops proxy sessions from being created on the specified
--- Amazon Chime Voice Connector.
+-- 'defaultSessionExpiryMinutes', 'proxy_defaultSessionExpiryMinutes' - The default number of minutes allowed for proxy sessions.
 --
 -- 'fallBackPhoneNumber', 'proxy_fallBackPhoneNumber' - The phone number to route calls to after a proxy session expires.
 --
--- 'phoneNumberCountries', 'proxy_phoneNumberCountries' - The countries for proxy phone numbers to be selected from.
+-- 'disabled', 'proxy_disabled' - When true, stops proxy sessions from being created on the specified
+-- Amazon Chime Voice Connector.
 newProxy ::
   Proxy
 newProxy =
   Proxy'
-    { defaultSessionExpiryMinutes =
-        Prelude.Nothing,
-      disabled = Prelude.Nothing,
+    { phoneNumberCountries = Prelude.Nothing,
+      defaultSessionExpiryMinutes = Prelude.Nothing,
       fallBackPhoneNumber = Prelude.Nothing,
-      phoneNumberCountries = Prelude.Nothing
+      disabled = Prelude.Nothing
     }
+
+-- | The countries for proxy phone numbers to be selected from.
+proxy_phoneNumberCountries :: Lens.Lens' Proxy (Prelude.Maybe [Prelude.Text])
+proxy_phoneNumberCountries = Lens.lens (\Proxy' {phoneNumberCountries} -> phoneNumberCountries) (\s@Proxy' {} a -> s {phoneNumberCountries = a} :: Proxy) Prelude.. Lens.mapping Lens.coerced
 
 -- | The default number of minutes allowed for proxy sessions.
 proxy_defaultSessionExpiryMinutes :: Lens.Lens' Proxy (Prelude.Maybe Prelude.Int)
 proxy_defaultSessionExpiryMinutes = Lens.lens (\Proxy' {defaultSessionExpiryMinutes} -> defaultSessionExpiryMinutes) (\s@Proxy' {} a -> s {defaultSessionExpiryMinutes = a} :: Proxy)
 
--- | When true, stops proxy sessions from being created on the specified
--- Amazon Chime Voice Connector.
-proxy_disabled :: Lens.Lens' Proxy (Prelude.Maybe Prelude.Bool)
-proxy_disabled = Lens.lens (\Proxy' {disabled} -> disabled) (\s@Proxy' {} a -> s {disabled = a} :: Proxy)
-
 -- | The phone number to route calls to after a proxy session expires.
 proxy_fallBackPhoneNumber :: Lens.Lens' Proxy (Prelude.Maybe Prelude.Text)
 proxy_fallBackPhoneNumber = Lens.lens (\Proxy' {fallBackPhoneNumber} -> fallBackPhoneNumber) (\s@Proxy' {} a -> s {fallBackPhoneNumber = a} :: Proxy) Prelude.. Lens.mapping Core._Sensitive
 
--- | The countries for proxy phone numbers to be selected from.
-proxy_phoneNumberCountries :: Lens.Lens' Proxy (Prelude.Maybe [Prelude.Text])
-proxy_phoneNumberCountries = Lens.lens (\Proxy' {phoneNumberCountries} -> phoneNumberCountries) (\s@Proxy' {} a -> s {phoneNumberCountries = a} :: Proxy) Prelude.. Lens.mapping Lens.coerced
+-- | When true, stops proxy sessions from being created on the specified
+-- Amazon Chime Voice Connector.
+proxy_disabled :: Lens.Lens' Proxy (Prelude.Maybe Prelude.Bool)
+proxy_disabled = Lens.lens (\Proxy' {disabled} -> disabled) (\s@Proxy' {} a -> s {disabled = a} :: Proxy)
 
 instance Core.FromJSON Proxy where
   parseJSON =
@@ -89,25 +88,24 @@ instance Core.FromJSON Proxy where
       "Proxy"
       ( \x ->
           Proxy'
-            Prelude.<$> (x Core..:? "DefaultSessionExpiryMinutes")
-            Prelude.<*> (x Core..:? "Disabled")
-            Prelude.<*> (x Core..:? "FallBackPhoneNumber")
-            Prelude.<*> ( x Core..:? "PhoneNumberCountries"
+            Prelude.<$> ( x Core..:? "PhoneNumberCountries"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "DefaultSessionExpiryMinutes")
+            Prelude.<*> (x Core..:? "FallBackPhoneNumber")
+            Prelude.<*> (x Core..:? "Disabled")
       )
 
 instance Prelude.Hashable Proxy where
   hashWithSalt _salt Proxy' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` phoneNumberCountries
       `Prelude.hashWithSalt` defaultSessionExpiryMinutes
-      `Prelude.hashWithSalt` disabled
       `Prelude.hashWithSalt` fallBackPhoneNumber
-      `Prelude.hashWithSalt` phoneNumberCountries
+      `Prelude.hashWithSalt` disabled
 
 instance Prelude.NFData Proxy where
   rnf Proxy' {..} =
-    Prelude.rnf defaultSessionExpiryMinutes
-      `Prelude.seq` Prelude.rnf disabled
+    Prelude.rnf phoneNumberCountries
+      `Prelude.seq` Prelude.rnf defaultSessionExpiryMinutes
       `Prelude.seq` Prelude.rnf fallBackPhoneNumber
-      `Prelude.seq` Prelude.rnf phoneNumberCountries
+      `Prelude.seq` Prelude.rnf disabled

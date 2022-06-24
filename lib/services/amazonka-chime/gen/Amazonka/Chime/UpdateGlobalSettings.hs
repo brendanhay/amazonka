@@ -28,8 +28,8 @@ module Amazonka.Chime.UpdateGlobalSettings
     newUpdateGlobalSettings,
 
     -- * Request Lenses
-    updateGlobalSettings_businessCalling,
     updateGlobalSettings_voiceConnector,
+    updateGlobalSettings_businessCalling,
 
     -- * Destructuring the Response
     UpdateGlobalSettingsResponse (..),
@@ -46,10 +46,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateGlobalSettings' smart constructor.
 data UpdateGlobalSettings = UpdateGlobalSettings'
-  { -- | The Amazon Chime Business Calling settings.
-    businessCalling :: Prelude.Maybe BusinessCallingSettings,
-    -- | The Amazon Chime Voice Connector settings.
-    voiceConnector :: Prelude.Maybe VoiceConnectorSettings
+  { -- | The Amazon Chime Voice Connector settings.
+    voiceConnector :: Prelude.Maybe VoiceConnectorSettings,
+    -- | The Amazon Chime Business Calling settings.
+    businessCalling :: Prelude.Maybe BusinessCallingSettings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,25 +61,25 @@ data UpdateGlobalSettings = UpdateGlobalSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'businessCalling', 'updateGlobalSettings_businessCalling' - The Amazon Chime Business Calling settings.
---
 -- 'voiceConnector', 'updateGlobalSettings_voiceConnector' - The Amazon Chime Voice Connector settings.
+--
+-- 'businessCalling', 'updateGlobalSettings_businessCalling' - The Amazon Chime Business Calling settings.
 newUpdateGlobalSettings ::
   UpdateGlobalSettings
 newUpdateGlobalSettings =
   UpdateGlobalSettings'
-    { businessCalling =
+    { voiceConnector =
         Prelude.Nothing,
-      voiceConnector = Prelude.Nothing
+      businessCalling = Prelude.Nothing
     }
-
--- | The Amazon Chime Business Calling settings.
-updateGlobalSettings_businessCalling :: Lens.Lens' UpdateGlobalSettings (Prelude.Maybe BusinessCallingSettings)
-updateGlobalSettings_businessCalling = Lens.lens (\UpdateGlobalSettings' {businessCalling} -> businessCalling) (\s@UpdateGlobalSettings' {} a -> s {businessCalling = a} :: UpdateGlobalSettings)
 
 -- | The Amazon Chime Voice Connector settings.
 updateGlobalSettings_voiceConnector :: Lens.Lens' UpdateGlobalSettings (Prelude.Maybe VoiceConnectorSettings)
 updateGlobalSettings_voiceConnector = Lens.lens (\UpdateGlobalSettings' {voiceConnector} -> voiceConnector) (\s@UpdateGlobalSettings' {} a -> s {voiceConnector = a} :: UpdateGlobalSettings)
+
+-- | The Amazon Chime Business Calling settings.
+updateGlobalSettings_businessCalling :: Lens.Lens' UpdateGlobalSettings (Prelude.Maybe BusinessCallingSettings)
+updateGlobalSettings_businessCalling = Lens.lens (\UpdateGlobalSettings' {businessCalling} -> businessCalling) (\s@UpdateGlobalSettings' {} a -> s {businessCalling = a} :: UpdateGlobalSettings)
 
 instance Core.AWSRequest UpdateGlobalSettings where
   type
@@ -91,13 +91,13 @@ instance Core.AWSRequest UpdateGlobalSettings where
 
 instance Prelude.Hashable UpdateGlobalSettings where
   hashWithSalt _salt UpdateGlobalSettings' {..} =
-    _salt `Prelude.hashWithSalt` businessCalling
-      `Prelude.hashWithSalt` voiceConnector
+    _salt `Prelude.hashWithSalt` voiceConnector
+      `Prelude.hashWithSalt` businessCalling
 
 instance Prelude.NFData UpdateGlobalSettings where
   rnf UpdateGlobalSettings' {..} =
-    Prelude.rnf businessCalling
-      `Prelude.seq` Prelude.rnf voiceConnector
+    Prelude.rnf voiceConnector
+      `Prelude.seq` Prelude.rnf businessCalling
 
 instance Core.ToHeaders UpdateGlobalSettings where
   toHeaders = Prelude.const Prelude.mempty
@@ -106,10 +106,10 @@ instance Core.ToJSON UpdateGlobalSettings where
   toJSON UpdateGlobalSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("BusinessCalling" Core..=)
-              Prelude.<$> businessCalling,
-            ("VoiceConnector" Core..=)
-              Prelude.<$> voiceConnector
+          [ ("VoiceConnector" Core..=)
+              Prelude.<$> voiceConnector,
+            ("BusinessCalling" Core..=)
+              Prelude.<$> businessCalling
           ]
       )
 

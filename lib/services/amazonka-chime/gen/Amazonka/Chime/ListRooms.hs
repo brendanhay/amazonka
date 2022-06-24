@@ -39,8 +39,8 @@ module Amazonka.Chime.ListRooms
     newListRoomsResponse,
 
     -- * Response Lenses
-    listRoomsResponse_rooms,
     listRoomsResponse_nextToken,
+    listRoomsResponse_rooms,
     listRoomsResponse_httpStatus,
   )
 where
@@ -115,8 +115,8 @@ instance Core.AWSRequest ListRooms where
     Response.receiveJSON
       ( \s h x ->
           ListRoomsResponse'
-            Prelude.<$> (x Core..?> "Rooms" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Rooms" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,10 +152,10 @@ instance Core.ToQuery ListRooms where
 
 -- | /See:/ 'newListRoomsResponse' smart constructor.
 data ListRoomsResponse = ListRoomsResponse'
-  { -- | The room details.
-    rooms :: Prelude.Maybe [Room],
-    -- | The token to use to retrieve the next page of results.
+  { -- | The token to use to retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The room details.
+    rooms :: Prelude.Maybe [Room],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -169,9 +169,9 @@ data ListRoomsResponse = ListRoomsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rooms', 'listRoomsResponse_rooms' - The room details.
---
 -- 'nextToken', 'listRoomsResponse_nextToken' - The token to use to retrieve the next page of results.
+--
+-- 'rooms', 'listRoomsResponse_rooms' - The room details.
 --
 -- 'httpStatus', 'listRoomsResponse_httpStatus' - The response's http status code.
 newListRoomsResponse ::
@@ -180,18 +180,18 @@ newListRoomsResponse ::
   ListRoomsResponse
 newListRoomsResponse pHttpStatus_ =
   ListRoomsResponse'
-    { rooms = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      rooms = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The room details.
-listRoomsResponse_rooms :: Lens.Lens' ListRoomsResponse (Prelude.Maybe [Room])
-listRoomsResponse_rooms = Lens.lens (\ListRoomsResponse' {rooms} -> rooms) (\s@ListRoomsResponse' {} a -> s {rooms = a} :: ListRoomsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results.
 listRoomsResponse_nextToken :: Lens.Lens' ListRoomsResponse (Prelude.Maybe Prelude.Text)
 listRoomsResponse_nextToken = Lens.lens (\ListRoomsResponse' {nextToken} -> nextToken) (\s@ListRoomsResponse' {} a -> s {nextToken = a} :: ListRoomsResponse)
+
+-- | The room details.
+listRoomsResponse_rooms :: Lens.Lens' ListRoomsResponse (Prelude.Maybe [Room])
+listRoomsResponse_rooms = Lens.lens (\ListRoomsResponse' {rooms} -> rooms) (\s@ListRoomsResponse' {} a -> s {rooms = a} :: ListRoomsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listRoomsResponse_httpStatus :: Lens.Lens' ListRoomsResponse Prelude.Int
@@ -199,6 +199,6 @@ listRoomsResponse_httpStatus = Lens.lens (\ListRoomsResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListRoomsResponse where
   rnf ListRoomsResponse' {..} =
-    Prelude.rnf rooms
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf rooms
       `Prelude.seq` Prelude.rnf httpStatus

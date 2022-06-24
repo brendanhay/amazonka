@@ -29,18 +29,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChannelSummary' smart constructor.
 data ChannelSummary = ChannelSummary'
-  { -- | The mode of the channel.
-    mode :: Prelude.Maybe ChannelMode,
-    -- | The ARN of the channel.
-    channelArn :: Prelude.Maybe Prelude.Text,
-    -- | The privacy setting of the channel.
-    privacy :: Prelude.Maybe ChannelPrivacy,
-    -- | The time at which the last message in a channel was sent.
+  { -- | The time at which the last message in a channel was sent.
     lastMessageTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The name of the channel.
     name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The metadata of the channel.
-    metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The ARN of the channel.
+    channelArn :: Prelude.Maybe Prelude.Text,
+    -- | The privacy setting of the channel.
+    privacy :: Prelude.Maybe ChannelPrivacy,
+    -- | The mode of the channel.
+    mode :: Prelude.Maybe ChannelMode
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -52,40 +52,29 @@ data ChannelSummary = ChannelSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'mode', 'channelSummary_mode' - The mode of the channel.
---
--- 'channelArn', 'channelSummary_channelArn' - The ARN of the channel.
---
--- 'privacy', 'channelSummary_privacy' - The privacy setting of the channel.
---
 -- 'lastMessageTimestamp', 'channelSummary_lastMessageTimestamp' - The time at which the last message in a channel was sent.
 --
 -- 'name', 'channelSummary_name' - The name of the channel.
 --
 -- 'metadata', 'channelSummary_metadata' - The metadata of the channel.
+--
+-- 'channelArn', 'channelSummary_channelArn' - The ARN of the channel.
+--
+-- 'privacy', 'channelSummary_privacy' - The privacy setting of the channel.
+--
+-- 'mode', 'channelSummary_mode' - The mode of the channel.
 newChannelSummary ::
   ChannelSummary
 newChannelSummary =
   ChannelSummary'
-    { mode = Prelude.Nothing,
+    { lastMessageTimestamp =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
+      metadata = Prelude.Nothing,
       channelArn = Prelude.Nothing,
       privacy = Prelude.Nothing,
-      lastMessageTimestamp = Prelude.Nothing,
-      name = Prelude.Nothing,
-      metadata = Prelude.Nothing
+      mode = Prelude.Nothing
     }
-
--- | The mode of the channel.
-channelSummary_mode :: Lens.Lens' ChannelSummary (Prelude.Maybe ChannelMode)
-channelSummary_mode = Lens.lens (\ChannelSummary' {mode} -> mode) (\s@ChannelSummary' {} a -> s {mode = a} :: ChannelSummary)
-
--- | The ARN of the channel.
-channelSummary_channelArn :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.Text)
-channelSummary_channelArn = Lens.lens (\ChannelSummary' {channelArn} -> channelArn) (\s@ChannelSummary' {} a -> s {channelArn = a} :: ChannelSummary)
-
--- | The privacy setting of the channel.
-channelSummary_privacy :: Lens.Lens' ChannelSummary (Prelude.Maybe ChannelPrivacy)
-channelSummary_privacy = Lens.lens (\ChannelSummary' {privacy} -> privacy) (\s@ChannelSummary' {} a -> s {privacy = a} :: ChannelSummary)
 
 -- | The time at which the last message in a channel was sent.
 channelSummary_lastMessageTimestamp :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.UTCTime)
@@ -99,34 +88,46 @@ channelSummary_name = Lens.lens (\ChannelSummary' {name} -> name) (\s@ChannelSum
 channelSummary_metadata :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.Text)
 channelSummary_metadata = Lens.lens (\ChannelSummary' {metadata} -> metadata) (\s@ChannelSummary' {} a -> s {metadata = a} :: ChannelSummary) Prelude.. Lens.mapping Core._Sensitive
 
+-- | The ARN of the channel.
+channelSummary_channelArn :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.Text)
+channelSummary_channelArn = Lens.lens (\ChannelSummary' {channelArn} -> channelArn) (\s@ChannelSummary' {} a -> s {channelArn = a} :: ChannelSummary)
+
+-- | The privacy setting of the channel.
+channelSummary_privacy :: Lens.Lens' ChannelSummary (Prelude.Maybe ChannelPrivacy)
+channelSummary_privacy = Lens.lens (\ChannelSummary' {privacy} -> privacy) (\s@ChannelSummary' {} a -> s {privacy = a} :: ChannelSummary)
+
+-- | The mode of the channel.
+channelSummary_mode :: Lens.Lens' ChannelSummary (Prelude.Maybe ChannelMode)
+channelSummary_mode = Lens.lens (\ChannelSummary' {mode} -> mode) (\s@ChannelSummary' {} a -> s {mode = a} :: ChannelSummary)
+
 instance Core.FromJSON ChannelSummary where
   parseJSON =
     Core.withObject
       "ChannelSummary"
       ( \x ->
           ChannelSummary'
-            Prelude.<$> (x Core..:? "Mode")
-            Prelude.<*> (x Core..:? "ChannelArn")
-            Prelude.<*> (x Core..:? "Privacy")
-            Prelude.<*> (x Core..:? "LastMessageTimestamp")
+            Prelude.<$> (x Core..:? "LastMessageTimestamp")
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "Metadata")
+            Prelude.<*> (x Core..:? "ChannelArn")
+            Prelude.<*> (x Core..:? "Privacy")
+            Prelude.<*> (x Core..:? "Mode")
       )
 
 instance Prelude.Hashable ChannelSummary where
   hashWithSalt _salt ChannelSummary' {..} =
-    _salt `Prelude.hashWithSalt` mode
-      `Prelude.hashWithSalt` channelArn
-      `Prelude.hashWithSalt` privacy
-      `Prelude.hashWithSalt` lastMessageTimestamp
+    _salt `Prelude.hashWithSalt` lastMessageTimestamp
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` channelArn
+      `Prelude.hashWithSalt` privacy
+      `Prelude.hashWithSalt` mode
 
 instance Prelude.NFData ChannelSummary where
   rnf ChannelSummary' {..} =
-    Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf privacy
-      `Prelude.seq` Prelude.rnf lastMessageTimestamp
+    Prelude.rnf lastMessageTimestamp
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf privacy
+      `Prelude.seq` Prelude.rnf mode

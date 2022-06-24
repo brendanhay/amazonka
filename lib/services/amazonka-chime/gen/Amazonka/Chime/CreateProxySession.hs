@@ -28,11 +28,11 @@ module Amazonka.Chime.CreateProxySession
     newCreateProxySession,
 
     -- * Request Lenses
-    createProxySession_numberSelectionBehavior,
+    createProxySession_name,
     createProxySession_geoMatchParams,
     createProxySession_expiryMinutes,
-    createProxySession_name,
     createProxySession_geoMatchLevel,
+    createProxySession_numberSelectionBehavior,
     createProxySession_participantPhoneNumbers,
     createProxySession_capabilities,
     createProxySession_voiceConnectorId,
@@ -56,18 +56,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateProxySession' smart constructor.
 data CreateProxySession = CreateProxySession'
-  { -- | The preference for proxy phone number reuse, or stickiness, between the
-    -- same participants across sessions.
-    numberSelectionBehavior :: Prelude.Maybe NumberSelectionBehavior,
+  { -- | The name of the proxy session.
+    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The country and area code for the proxy phone number.
     geoMatchParams :: Prelude.Maybe GeoMatchParams,
     -- | The number of minutes allowed for the proxy session.
     expiryMinutes :: Prelude.Maybe Prelude.Natural,
-    -- | The name of the proxy session.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The preference for matching the country or area code of the proxy phone
     -- number with that of the first participant.
     geoMatchLevel :: Prelude.Maybe GeoMatchLevel,
+    -- | The preference for proxy phone number reuse, or stickiness, between the
+    -- same participants across sessions.
+    numberSelectionBehavior :: Prelude.Maybe NumberSelectionBehavior,
     -- | The participant phone numbers.
     participantPhoneNumbers :: Prelude.NonEmpty (Core.Sensitive Prelude.Text),
     -- | The proxy session capabilities.
@@ -85,17 +85,17 @@ data CreateProxySession = CreateProxySession'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'numberSelectionBehavior', 'createProxySession_numberSelectionBehavior' - The preference for proxy phone number reuse, or stickiness, between the
--- same participants across sessions.
+-- 'name', 'createProxySession_name' - The name of the proxy session.
 --
 -- 'geoMatchParams', 'createProxySession_geoMatchParams' - The country and area code for the proxy phone number.
 --
 -- 'expiryMinutes', 'createProxySession_expiryMinutes' - The number of minutes allowed for the proxy session.
 --
--- 'name', 'createProxySession_name' - The name of the proxy session.
---
 -- 'geoMatchLevel', 'createProxySession_geoMatchLevel' - The preference for matching the country or area code of the proxy phone
 -- number with that of the first participant.
+--
+-- 'numberSelectionBehavior', 'createProxySession_numberSelectionBehavior' - The preference for proxy phone number reuse, or stickiness, between the
+-- same participants across sessions.
 --
 -- 'participantPhoneNumbers', 'createProxySession_participantPhoneNumbers' - The participant phone numbers.
 --
@@ -112,22 +112,20 @@ newCreateProxySession
   pParticipantPhoneNumbers_
   pVoiceConnectorId_ =
     CreateProxySession'
-      { numberSelectionBehavior =
-          Prelude.Nothing,
+      { name = Prelude.Nothing,
         geoMatchParams = Prelude.Nothing,
         expiryMinutes = Prelude.Nothing,
-        name = Prelude.Nothing,
         geoMatchLevel = Prelude.Nothing,
+        numberSelectionBehavior = Prelude.Nothing,
         participantPhoneNumbers =
           Lens.coerced Lens.# pParticipantPhoneNumbers_,
         capabilities = Prelude.mempty,
         voiceConnectorId = pVoiceConnectorId_
       }
 
--- | The preference for proxy phone number reuse, or stickiness, between the
--- same participants across sessions.
-createProxySession_numberSelectionBehavior :: Lens.Lens' CreateProxySession (Prelude.Maybe NumberSelectionBehavior)
-createProxySession_numberSelectionBehavior = Lens.lens (\CreateProxySession' {numberSelectionBehavior} -> numberSelectionBehavior) (\s@CreateProxySession' {} a -> s {numberSelectionBehavior = a} :: CreateProxySession)
+-- | The name of the proxy session.
+createProxySession_name :: Lens.Lens' CreateProxySession (Prelude.Maybe Prelude.Text)
+createProxySession_name = Lens.lens (\CreateProxySession' {name} -> name) (\s@CreateProxySession' {} a -> s {name = a} :: CreateProxySession) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The country and area code for the proxy phone number.
 createProxySession_geoMatchParams :: Lens.Lens' CreateProxySession (Prelude.Maybe GeoMatchParams)
@@ -137,14 +135,15 @@ createProxySession_geoMatchParams = Lens.lens (\CreateProxySession' {geoMatchPar
 createProxySession_expiryMinutes :: Lens.Lens' CreateProxySession (Prelude.Maybe Prelude.Natural)
 createProxySession_expiryMinutes = Lens.lens (\CreateProxySession' {expiryMinutes} -> expiryMinutes) (\s@CreateProxySession' {} a -> s {expiryMinutes = a} :: CreateProxySession)
 
--- | The name of the proxy session.
-createProxySession_name :: Lens.Lens' CreateProxySession (Prelude.Maybe Prelude.Text)
-createProxySession_name = Lens.lens (\CreateProxySession' {name} -> name) (\s@CreateProxySession' {} a -> s {name = a} :: CreateProxySession) Prelude.. Lens.mapping Core._Sensitive
-
 -- | The preference for matching the country or area code of the proxy phone
 -- number with that of the first participant.
 createProxySession_geoMatchLevel :: Lens.Lens' CreateProxySession (Prelude.Maybe GeoMatchLevel)
 createProxySession_geoMatchLevel = Lens.lens (\CreateProxySession' {geoMatchLevel} -> geoMatchLevel) (\s@CreateProxySession' {} a -> s {geoMatchLevel = a} :: CreateProxySession)
+
+-- | The preference for proxy phone number reuse, or stickiness, between the
+-- same participants across sessions.
+createProxySession_numberSelectionBehavior :: Lens.Lens' CreateProxySession (Prelude.Maybe NumberSelectionBehavior)
+createProxySession_numberSelectionBehavior = Lens.lens (\CreateProxySession' {numberSelectionBehavior} -> numberSelectionBehavior) (\s@CreateProxySession' {} a -> s {numberSelectionBehavior = a} :: CreateProxySession)
 
 -- | The participant phone numbers.
 createProxySession_participantPhoneNumbers :: Lens.Lens' CreateProxySession (Prelude.NonEmpty Prelude.Text)
@@ -173,23 +172,22 @@ instance Core.AWSRequest CreateProxySession where
 
 instance Prelude.Hashable CreateProxySession where
   hashWithSalt _salt CreateProxySession' {..} =
-    _salt
-      `Prelude.hashWithSalt` numberSelectionBehavior
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` geoMatchParams
       `Prelude.hashWithSalt` expiryMinutes
-      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` geoMatchLevel
+      `Prelude.hashWithSalt` numberSelectionBehavior
       `Prelude.hashWithSalt` participantPhoneNumbers
       `Prelude.hashWithSalt` capabilities
       `Prelude.hashWithSalt` voiceConnectorId
 
 instance Prelude.NFData CreateProxySession where
   rnf CreateProxySession' {..} =
-    Prelude.rnf numberSelectionBehavior
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf geoMatchParams
       `Prelude.seq` Prelude.rnf expiryMinutes
-      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf geoMatchLevel
+      `Prelude.seq` Prelude.rnf numberSelectionBehavior
       `Prelude.seq` Prelude.rnf participantPhoneNumbers
       `Prelude.seq` Prelude.rnf capabilities
       `Prelude.seq` Prelude.rnf voiceConnectorId
@@ -201,13 +199,13 @@ instance Core.ToJSON CreateProxySession where
   toJSON CreateProxySession' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NumberSelectionBehavior" Core..=)
-              Prelude.<$> numberSelectionBehavior,
+          [ ("Name" Core..=) Prelude.<$> name,
             ("GeoMatchParams" Core..=)
               Prelude.<$> geoMatchParams,
             ("ExpiryMinutes" Core..=) Prelude.<$> expiryMinutes,
-            ("Name" Core..=) Prelude.<$> name,
             ("GeoMatchLevel" Core..=) Prelude.<$> geoMatchLevel,
+            ("NumberSelectionBehavior" Core..=)
+              Prelude.<$> numberSelectionBehavior,
             Prelude.Just
               ( "ParticipantPhoneNumbers"
                   Core..= participantPhoneNumbers

@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInvite' smart constructor.
 data Invite = Invite'
-  { -- | The status of the invite.
-    status :: Prelude.Maybe InviteStatus,
-    -- | The status of the invite email.
+  { -- | The status of the invite email.
     emailStatus :: Prelude.Maybe EmailStatus,
-    -- | The invite ID.
-    inviteId :: Prelude.Maybe Prelude.Text,
+    -- | The status of the invite.
+    status :: Prelude.Maybe InviteStatus,
     -- | The email address to which the invite is sent.
-    emailAddress :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    emailAddress :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The invite ID.
+    inviteId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -49,38 +49,38 @@ data Invite = Invite'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'invite_status' - The status of the invite.
---
 -- 'emailStatus', 'invite_emailStatus' - The status of the invite email.
 --
--- 'inviteId', 'invite_inviteId' - The invite ID.
+-- 'status', 'invite_status' - The status of the invite.
 --
 -- 'emailAddress', 'invite_emailAddress' - The email address to which the invite is sent.
+--
+-- 'inviteId', 'invite_inviteId' - The invite ID.
 newInvite ::
   Invite
 newInvite =
   Invite'
-    { status = Prelude.Nothing,
-      emailStatus = Prelude.Nothing,
-      inviteId = Prelude.Nothing,
-      emailAddress = Prelude.Nothing
+    { emailStatus = Prelude.Nothing,
+      status = Prelude.Nothing,
+      emailAddress = Prelude.Nothing,
+      inviteId = Prelude.Nothing
     }
-
--- | The status of the invite.
-invite_status :: Lens.Lens' Invite (Prelude.Maybe InviteStatus)
-invite_status = Lens.lens (\Invite' {status} -> status) (\s@Invite' {} a -> s {status = a} :: Invite)
 
 -- | The status of the invite email.
 invite_emailStatus :: Lens.Lens' Invite (Prelude.Maybe EmailStatus)
 invite_emailStatus = Lens.lens (\Invite' {emailStatus} -> emailStatus) (\s@Invite' {} a -> s {emailStatus = a} :: Invite)
 
--- | The invite ID.
-invite_inviteId :: Lens.Lens' Invite (Prelude.Maybe Prelude.Text)
-invite_inviteId = Lens.lens (\Invite' {inviteId} -> inviteId) (\s@Invite' {} a -> s {inviteId = a} :: Invite)
+-- | The status of the invite.
+invite_status :: Lens.Lens' Invite (Prelude.Maybe InviteStatus)
+invite_status = Lens.lens (\Invite' {status} -> status) (\s@Invite' {} a -> s {status = a} :: Invite)
 
 -- | The email address to which the invite is sent.
 invite_emailAddress :: Lens.Lens' Invite (Prelude.Maybe Prelude.Text)
 invite_emailAddress = Lens.lens (\Invite' {emailAddress} -> emailAddress) (\s@Invite' {} a -> s {emailAddress = a} :: Invite) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The invite ID.
+invite_inviteId :: Lens.Lens' Invite (Prelude.Maybe Prelude.Text)
+invite_inviteId = Lens.lens (\Invite' {inviteId} -> inviteId) (\s@Invite' {} a -> s {inviteId = a} :: Invite)
 
 instance Core.FromJSON Invite where
   parseJSON =
@@ -88,22 +88,22 @@ instance Core.FromJSON Invite where
       "Invite"
       ( \x ->
           Invite'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "EmailStatus")
-            Prelude.<*> (x Core..:? "InviteId")
+            Prelude.<$> (x Core..:? "EmailStatus")
+            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "EmailAddress")
+            Prelude.<*> (x Core..:? "InviteId")
       )
 
 instance Prelude.Hashable Invite where
   hashWithSalt _salt Invite' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` emailStatus
-      `Prelude.hashWithSalt` inviteId
+    _salt `Prelude.hashWithSalt` emailStatus
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` emailAddress
+      `Prelude.hashWithSalt` inviteId
 
 instance Prelude.NFData Invite where
   rnf Invite' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf emailStatus
-      `Prelude.seq` Prelude.rnf inviteId
+    Prelude.rnf emailStatus
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf emailAddress
+      `Prelude.seq` Prelude.rnf inviteId

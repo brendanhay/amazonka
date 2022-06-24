@@ -37,8 +37,8 @@ module Amazonka.Chime.ListAppInstanceAdmins
 
     -- * Response Lenses
     listAppInstanceAdminsResponse_nextToken,
-    listAppInstanceAdminsResponse_appInstanceAdmins,
     listAppInstanceAdminsResponse_appInstanceArn,
+    listAppInstanceAdminsResponse_appInstanceAdmins,
     listAppInstanceAdminsResponse_httpStatus,
   )
 where
@@ -110,10 +110,10 @@ instance Core.AWSRequest ListAppInstanceAdmins where
       ( \s h x ->
           ListAppInstanceAdminsResponse'
             Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "AppInstanceArn")
             Prelude.<*> ( x Core..?> "AppInstanceAdmins"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "AppInstanceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,10 +152,10 @@ data ListAppInstanceAdminsResponse = ListAppInstanceAdminsResponse'
   { -- | The token returned from previous API requests until the number of
     -- administrators is reached.
     nextToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The information for each administrator.
-    appInstanceAdmins :: Prelude.Maybe [AppInstanceAdminSummary],
     -- | The ARN of the @AppInstance@.
     appInstanceArn :: Prelude.Maybe Prelude.Text,
+    -- | The information for each administrator.
+    appInstanceAdmins :: Prelude.Maybe [AppInstanceAdminSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -172,9 +172,9 @@ data ListAppInstanceAdminsResponse = ListAppInstanceAdminsResponse'
 -- 'nextToken', 'listAppInstanceAdminsResponse_nextToken' - The token returned from previous API requests until the number of
 -- administrators is reached.
 --
--- 'appInstanceAdmins', 'listAppInstanceAdminsResponse_appInstanceAdmins' - The information for each administrator.
---
 -- 'appInstanceArn', 'listAppInstanceAdminsResponse_appInstanceArn' - The ARN of the @AppInstance@.
+--
+-- 'appInstanceAdmins', 'listAppInstanceAdminsResponse_appInstanceAdmins' - The information for each administrator.
 --
 -- 'httpStatus', 'listAppInstanceAdminsResponse_httpStatus' - The response's http status code.
 newListAppInstanceAdminsResponse ::
@@ -185,8 +185,8 @@ newListAppInstanceAdminsResponse pHttpStatus_ =
   ListAppInstanceAdminsResponse'
     { nextToken =
         Prelude.Nothing,
-      appInstanceAdmins = Prelude.Nothing,
       appInstanceArn = Prelude.Nothing,
+      appInstanceAdmins = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -195,13 +195,13 @@ newListAppInstanceAdminsResponse pHttpStatus_ =
 listAppInstanceAdminsResponse_nextToken :: Lens.Lens' ListAppInstanceAdminsResponse (Prelude.Maybe Prelude.Text)
 listAppInstanceAdminsResponse_nextToken = Lens.lens (\ListAppInstanceAdminsResponse' {nextToken} -> nextToken) (\s@ListAppInstanceAdminsResponse' {} a -> s {nextToken = a} :: ListAppInstanceAdminsResponse) Prelude.. Lens.mapping Core._Sensitive
 
--- | The information for each administrator.
-listAppInstanceAdminsResponse_appInstanceAdmins :: Lens.Lens' ListAppInstanceAdminsResponse (Prelude.Maybe [AppInstanceAdminSummary])
-listAppInstanceAdminsResponse_appInstanceAdmins = Lens.lens (\ListAppInstanceAdminsResponse' {appInstanceAdmins} -> appInstanceAdmins) (\s@ListAppInstanceAdminsResponse' {} a -> s {appInstanceAdmins = a} :: ListAppInstanceAdminsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The ARN of the @AppInstance@.
 listAppInstanceAdminsResponse_appInstanceArn :: Lens.Lens' ListAppInstanceAdminsResponse (Prelude.Maybe Prelude.Text)
 listAppInstanceAdminsResponse_appInstanceArn = Lens.lens (\ListAppInstanceAdminsResponse' {appInstanceArn} -> appInstanceArn) (\s@ListAppInstanceAdminsResponse' {} a -> s {appInstanceArn = a} :: ListAppInstanceAdminsResponse)
+
+-- | The information for each administrator.
+listAppInstanceAdminsResponse_appInstanceAdmins :: Lens.Lens' ListAppInstanceAdminsResponse (Prelude.Maybe [AppInstanceAdminSummary])
+listAppInstanceAdminsResponse_appInstanceAdmins = Lens.lens (\ListAppInstanceAdminsResponse' {appInstanceAdmins} -> appInstanceAdmins) (\s@ListAppInstanceAdminsResponse' {} a -> s {appInstanceAdmins = a} :: ListAppInstanceAdminsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAppInstanceAdminsResponse_httpStatus :: Lens.Lens' ListAppInstanceAdminsResponse Prelude.Int
@@ -210,6 +210,6 @@ listAppInstanceAdminsResponse_httpStatus = Lens.lens (\ListAppInstanceAdminsResp
 instance Prelude.NFData ListAppInstanceAdminsResponse where
   rnf ListAppInstanceAdminsResponse' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf appInstanceAdmins
       `Prelude.seq` Prelude.rnf appInstanceArn
+      `Prelude.seq` Prelude.rnf appInstanceAdmins
       `Prelude.seq` Prelude.rnf httpStatus

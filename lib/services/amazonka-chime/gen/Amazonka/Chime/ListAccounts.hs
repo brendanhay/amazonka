@@ -32,8 +32,8 @@ module Amazonka.Chime.ListAccounts
     newListAccounts,
 
     -- * Request Lenses
-    listAccounts_nextToken,
     listAccounts_name,
+    listAccounts_nextToken,
     listAccounts_userEmail,
     listAccounts_maxResults,
 
@@ -42,8 +42,8 @@ module Amazonka.Chime.ListAccounts
     newListAccountsResponse,
 
     -- * Response Lenses
-    listAccountsResponse_accounts,
     listAccountsResponse_nextToken,
+    listAccountsResponse_accounts,
     listAccountsResponse_httpStatus,
   )
 where
@@ -57,10 +57,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAccounts' smart constructor.
 data ListAccounts = ListAccounts'
-  { -- | The token to use to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Amazon Chime account name prefix with which to filter results.
+  { -- | Amazon Chime account name prefix with which to filter results.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The token to use to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | User email address with which to filter results.
     userEmail :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The maximum number of results to return in a single call. Defaults to
@@ -77,9 +77,9 @@ data ListAccounts = ListAccounts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAccounts_nextToken' - The token to use to retrieve the next page of results.
---
 -- 'name', 'listAccounts_name' - Amazon Chime account name prefix with which to filter results.
+--
+-- 'nextToken', 'listAccounts_nextToken' - The token to use to retrieve the next page of results.
 --
 -- 'userEmail', 'listAccounts_userEmail' - User email address with which to filter results.
 --
@@ -89,19 +89,19 @@ newListAccounts ::
   ListAccounts
 newListAccounts =
   ListAccounts'
-    { nextToken = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       userEmail = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
 
--- | The token to use to retrieve the next page of results.
-listAccounts_nextToken :: Lens.Lens' ListAccounts (Prelude.Maybe Prelude.Text)
-listAccounts_nextToken = Lens.lens (\ListAccounts' {nextToken} -> nextToken) (\s@ListAccounts' {} a -> s {nextToken = a} :: ListAccounts)
-
 -- | Amazon Chime account name prefix with which to filter results.
 listAccounts_name :: Lens.Lens' ListAccounts (Prelude.Maybe Prelude.Text)
 listAccounts_name = Lens.lens (\ListAccounts' {name} -> name) (\s@ListAccounts' {} a -> s {name = a} :: ListAccounts)
+
+-- | The token to use to retrieve the next page of results.
+listAccounts_nextToken :: Lens.Lens' ListAccounts (Prelude.Maybe Prelude.Text)
+listAccounts_nextToken = Lens.lens (\ListAccounts' {nextToken} -> nextToken) (\s@ListAccounts' {} a -> s {nextToken = a} :: ListAccounts)
 
 -- | User email address with which to filter results.
 listAccounts_userEmail :: Lens.Lens' ListAccounts (Prelude.Maybe Prelude.Text)
@@ -138,22 +138,22 @@ instance Core.AWSRequest ListAccounts where
     Response.receiveJSON
       ( \s h x ->
           ListAccountsResponse'
-            Prelude.<$> (x Core..?> "Accounts" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Accounts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListAccounts where
   hashWithSalt _salt ListAccounts' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` userEmail
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListAccounts where
   rnf ListAccounts' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf userEmail
       `Prelude.seq` Prelude.rnf maxResults
 
@@ -166,18 +166,18 @@ instance Core.ToPath ListAccounts where
 instance Core.ToQuery ListAccounts where
   toQuery ListAccounts' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "name" Core.=: name,
+      [ "name" Core.=: name,
+        "next-token" Core.=: nextToken,
         "user-email" Core.=: userEmail,
         "max-results" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListAccountsResponse' smart constructor.
 data ListAccountsResponse = ListAccountsResponse'
-  { -- | List of Amazon Chime accounts and account details.
-    accounts :: Prelude.Maybe [Account],
-    -- | The token to use to retrieve the next page of results.
+  { -- | The token to use to retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | List of Amazon Chime accounts and account details.
+    accounts :: Prelude.Maybe [Account],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -191,9 +191,9 @@ data ListAccountsResponse = ListAccountsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accounts', 'listAccountsResponse_accounts' - List of Amazon Chime accounts and account details.
---
 -- 'nextToken', 'listAccountsResponse_nextToken' - The token to use to retrieve the next page of results.
+--
+-- 'accounts', 'listAccountsResponse_accounts' - List of Amazon Chime accounts and account details.
 --
 -- 'httpStatus', 'listAccountsResponse_httpStatus' - The response's http status code.
 newListAccountsResponse ::
@@ -202,18 +202,18 @@ newListAccountsResponse ::
   ListAccountsResponse
 newListAccountsResponse pHttpStatus_ =
   ListAccountsResponse'
-    { accounts = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      accounts = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | List of Amazon Chime accounts and account details.
-listAccountsResponse_accounts :: Lens.Lens' ListAccountsResponse (Prelude.Maybe [Account])
-listAccountsResponse_accounts = Lens.lens (\ListAccountsResponse' {accounts} -> accounts) (\s@ListAccountsResponse' {} a -> s {accounts = a} :: ListAccountsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results.
 listAccountsResponse_nextToken :: Lens.Lens' ListAccountsResponse (Prelude.Maybe Prelude.Text)
 listAccountsResponse_nextToken = Lens.lens (\ListAccountsResponse' {nextToken} -> nextToken) (\s@ListAccountsResponse' {} a -> s {nextToken = a} :: ListAccountsResponse)
+
+-- | List of Amazon Chime accounts and account details.
+listAccountsResponse_accounts :: Lens.Lens' ListAccountsResponse (Prelude.Maybe [Account])
+listAccountsResponse_accounts = Lens.lens (\ListAccountsResponse' {accounts} -> accounts) (\s@ListAccountsResponse' {} a -> s {accounts = a} :: ListAccountsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAccountsResponse_httpStatus :: Lens.Lens' ListAccountsResponse Prelude.Int
@@ -221,6 +221,6 @@ listAccountsResponse_httpStatus = Lens.lens (\ListAccountsResponse' {httpStatus}
 
 instance Prelude.NFData ListAccountsResponse where
   rnf ListAccountsResponse' {..} =
-    Prelude.rnf accounts
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf accounts
       `Prelude.seq` Prelude.rnf httpStatus

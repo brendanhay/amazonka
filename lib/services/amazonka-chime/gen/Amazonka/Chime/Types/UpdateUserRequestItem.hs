@@ -33,10 +33,10 @@ import qualified Amazonka.Prelude as Prelude
 data UpdateUserRequestItem = UpdateUserRequestItem'
   { -- | The user license type.
     licenseType :: Prelude.Maybe License,
-    -- | The user type.
-    userType :: Prelude.Maybe UserType,
     -- | The Alexa for Business metadata.
     alexaForBusinessMetadata :: Prelude.Maybe AlexaForBusinessMetadata,
+    -- | The user type.
+    userType :: Prelude.Maybe UserType,
     -- | The user ID.
     userId :: Prelude.Text
   }
@@ -52,9 +52,9 @@ data UpdateUserRequestItem = UpdateUserRequestItem'
 --
 -- 'licenseType', 'updateUserRequestItem_licenseType' - The user license type.
 --
--- 'userType', 'updateUserRequestItem_userType' - The user type.
---
 -- 'alexaForBusinessMetadata', 'updateUserRequestItem_alexaForBusinessMetadata' - The Alexa for Business metadata.
+--
+-- 'userType', 'updateUserRequestItem_userType' - The user type.
 --
 -- 'userId', 'updateUserRequestItem_userId' - The user ID.
 newUpdateUserRequestItem ::
@@ -65,8 +65,8 @@ newUpdateUserRequestItem pUserId_ =
   UpdateUserRequestItem'
     { licenseType =
         Prelude.Nothing,
-      userType = Prelude.Nothing,
       alexaForBusinessMetadata = Prelude.Nothing,
+      userType = Prelude.Nothing,
       userId = pUserId_
     }
 
@@ -74,13 +74,13 @@ newUpdateUserRequestItem pUserId_ =
 updateUserRequestItem_licenseType :: Lens.Lens' UpdateUserRequestItem (Prelude.Maybe License)
 updateUserRequestItem_licenseType = Lens.lens (\UpdateUserRequestItem' {licenseType} -> licenseType) (\s@UpdateUserRequestItem' {} a -> s {licenseType = a} :: UpdateUserRequestItem)
 
--- | The user type.
-updateUserRequestItem_userType :: Lens.Lens' UpdateUserRequestItem (Prelude.Maybe UserType)
-updateUserRequestItem_userType = Lens.lens (\UpdateUserRequestItem' {userType} -> userType) (\s@UpdateUserRequestItem' {} a -> s {userType = a} :: UpdateUserRequestItem)
-
 -- | The Alexa for Business metadata.
 updateUserRequestItem_alexaForBusinessMetadata :: Lens.Lens' UpdateUserRequestItem (Prelude.Maybe AlexaForBusinessMetadata)
 updateUserRequestItem_alexaForBusinessMetadata = Lens.lens (\UpdateUserRequestItem' {alexaForBusinessMetadata} -> alexaForBusinessMetadata) (\s@UpdateUserRequestItem' {} a -> s {alexaForBusinessMetadata = a} :: UpdateUserRequestItem)
+
+-- | The user type.
+updateUserRequestItem_userType :: Lens.Lens' UpdateUserRequestItem (Prelude.Maybe UserType)
+updateUserRequestItem_userType = Lens.lens (\UpdateUserRequestItem' {userType} -> userType) (\s@UpdateUserRequestItem' {} a -> s {userType = a} :: UpdateUserRequestItem)
 
 -- | The user ID.
 updateUserRequestItem_userId :: Lens.Lens' UpdateUserRequestItem Prelude.Text
@@ -89,15 +89,15 @@ updateUserRequestItem_userId = Lens.lens (\UpdateUserRequestItem' {userId} -> us
 instance Prelude.Hashable UpdateUserRequestItem where
   hashWithSalt _salt UpdateUserRequestItem' {..} =
     _salt `Prelude.hashWithSalt` licenseType
-      `Prelude.hashWithSalt` userType
       `Prelude.hashWithSalt` alexaForBusinessMetadata
+      `Prelude.hashWithSalt` userType
       `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData UpdateUserRequestItem where
   rnf UpdateUserRequestItem' {..} =
     Prelude.rnf licenseType
-      `Prelude.seq` Prelude.rnf userType
       `Prelude.seq` Prelude.rnf alexaForBusinessMetadata
+      `Prelude.seq` Prelude.rnf userType
       `Prelude.seq` Prelude.rnf userId
 
 instance Core.ToJSON UpdateUserRequestItem where
@@ -105,9 +105,9 @@ instance Core.ToJSON UpdateUserRequestItem where
     Core.object
       ( Prelude.catMaybes
           [ ("LicenseType" Core..=) Prelude.<$> licenseType,
-            ("UserType" Core..=) Prelude.<$> userType,
             ("AlexaForBusinessMetadata" Core..=)
               Prelude.<$> alexaForBusinessMetadata,
+            ("UserType" Core..=) Prelude.<$> userType,
             Prelude.Just ("UserId" Core..= userId)
           ]
       )

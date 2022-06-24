@@ -29,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRoomMembership' smart constructor.
 data RoomMembership = RoomMembership'
-  { -- | The room membership update timestamp, in ISO 8601 format.
-    updatedTimestamp :: Prelude.Maybe Core.POSIX,
-    -- | The membership role.
-    role' :: Prelude.Maybe RoomMembershipRole,
+  { member :: Prelude.Maybe Member,
     -- | The room ID.
     roomId :: Prelude.Maybe Prelude.Text,
-    member :: Prelude.Maybe Member,
+    -- | The room membership update timestamp, in ISO 8601 format.
+    updatedTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The identifier of the user that invited the room member.
-    invitedBy :: Prelude.Maybe Prelude.Text
+    invitedBy :: Prelude.Maybe Prelude.Text,
+    -- | The membership role.
+    role' :: Prelude.Maybe RoomMembershipRole
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -49,45 +49,45 @@ data RoomMembership = RoomMembership'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'updatedTimestamp', 'roomMembership_updatedTimestamp' - The room membership update timestamp, in ISO 8601 format.
---
--- 'role'', 'roomMembership_role' - The membership role.
+-- 'member', 'roomMembership_member' - Undocumented member.
 --
 -- 'roomId', 'roomMembership_roomId' - The room ID.
 --
--- 'member', 'roomMembership_member' - Undocumented member.
+-- 'updatedTimestamp', 'roomMembership_updatedTimestamp' - The room membership update timestamp, in ISO 8601 format.
 --
 -- 'invitedBy', 'roomMembership_invitedBy' - The identifier of the user that invited the room member.
+--
+-- 'role'', 'roomMembership_role' - The membership role.
 newRoomMembership ::
   RoomMembership
 newRoomMembership =
   RoomMembership'
-    { updatedTimestamp = Prelude.Nothing,
-      role' = Prelude.Nothing,
+    { member = Prelude.Nothing,
       roomId = Prelude.Nothing,
-      member = Prelude.Nothing,
-      invitedBy = Prelude.Nothing
+      updatedTimestamp = Prelude.Nothing,
+      invitedBy = Prelude.Nothing,
+      role' = Prelude.Nothing
     }
-
--- | The room membership update timestamp, in ISO 8601 format.
-roomMembership_updatedTimestamp :: Lens.Lens' RoomMembership (Prelude.Maybe Prelude.UTCTime)
-roomMembership_updatedTimestamp = Lens.lens (\RoomMembership' {updatedTimestamp} -> updatedTimestamp) (\s@RoomMembership' {} a -> s {updatedTimestamp = a} :: RoomMembership) Prelude.. Lens.mapping Core._Time
-
--- | The membership role.
-roomMembership_role :: Lens.Lens' RoomMembership (Prelude.Maybe RoomMembershipRole)
-roomMembership_role = Lens.lens (\RoomMembership' {role'} -> role') (\s@RoomMembership' {} a -> s {role' = a} :: RoomMembership)
-
--- | The room ID.
-roomMembership_roomId :: Lens.Lens' RoomMembership (Prelude.Maybe Prelude.Text)
-roomMembership_roomId = Lens.lens (\RoomMembership' {roomId} -> roomId) (\s@RoomMembership' {} a -> s {roomId = a} :: RoomMembership)
 
 -- | Undocumented member.
 roomMembership_member :: Lens.Lens' RoomMembership (Prelude.Maybe Member)
 roomMembership_member = Lens.lens (\RoomMembership' {member} -> member) (\s@RoomMembership' {} a -> s {member = a} :: RoomMembership)
 
+-- | The room ID.
+roomMembership_roomId :: Lens.Lens' RoomMembership (Prelude.Maybe Prelude.Text)
+roomMembership_roomId = Lens.lens (\RoomMembership' {roomId} -> roomId) (\s@RoomMembership' {} a -> s {roomId = a} :: RoomMembership)
+
+-- | The room membership update timestamp, in ISO 8601 format.
+roomMembership_updatedTimestamp :: Lens.Lens' RoomMembership (Prelude.Maybe Prelude.UTCTime)
+roomMembership_updatedTimestamp = Lens.lens (\RoomMembership' {updatedTimestamp} -> updatedTimestamp) (\s@RoomMembership' {} a -> s {updatedTimestamp = a} :: RoomMembership) Prelude.. Lens.mapping Core._Time
+
 -- | The identifier of the user that invited the room member.
 roomMembership_invitedBy :: Lens.Lens' RoomMembership (Prelude.Maybe Prelude.Text)
 roomMembership_invitedBy = Lens.lens (\RoomMembership' {invitedBy} -> invitedBy) (\s@RoomMembership' {} a -> s {invitedBy = a} :: RoomMembership)
+
+-- | The membership role.
+roomMembership_role :: Lens.Lens' RoomMembership (Prelude.Maybe RoomMembershipRole)
+roomMembership_role = Lens.lens (\RoomMembership' {role'} -> role') (\s@RoomMembership' {} a -> s {role' = a} :: RoomMembership)
 
 instance Core.FromJSON RoomMembership where
   parseJSON =
@@ -95,25 +95,25 @@ instance Core.FromJSON RoomMembership where
       "RoomMembership"
       ( \x ->
           RoomMembership'
-            Prelude.<$> (x Core..:? "UpdatedTimestamp")
-            Prelude.<*> (x Core..:? "Role")
+            Prelude.<$> (x Core..:? "Member")
             Prelude.<*> (x Core..:? "RoomId")
-            Prelude.<*> (x Core..:? "Member")
+            Prelude.<*> (x Core..:? "UpdatedTimestamp")
             Prelude.<*> (x Core..:? "InvitedBy")
+            Prelude.<*> (x Core..:? "Role")
       )
 
 instance Prelude.Hashable RoomMembership where
   hashWithSalt _salt RoomMembership' {..} =
-    _salt `Prelude.hashWithSalt` updatedTimestamp
-      `Prelude.hashWithSalt` role'
+    _salt `Prelude.hashWithSalt` member
       `Prelude.hashWithSalt` roomId
-      `Prelude.hashWithSalt` member
+      `Prelude.hashWithSalt` updatedTimestamp
       `Prelude.hashWithSalt` invitedBy
+      `Prelude.hashWithSalt` role'
 
 instance Prelude.NFData RoomMembership where
   rnf RoomMembership' {..} =
-    Prelude.rnf updatedTimestamp
-      `Prelude.seq` Prelude.rnf role'
+    Prelude.rnf member
       `Prelude.seq` Prelude.rnf roomId
-      `Prelude.seq` Prelude.rnf member
+      `Prelude.seq` Prelude.rnf updatedTimestamp
       `Prelude.seq` Prelude.rnf invitedBy
+      `Prelude.seq` Prelude.rnf role'

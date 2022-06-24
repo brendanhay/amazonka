@@ -37,8 +37,8 @@ module Amazonka.Chime.ListBots
     newListBotsResponse,
 
     -- * Response Lenses
-    listBotsResponse_bots,
     listBotsResponse_nextToken,
+    listBotsResponse_bots,
     listBotsResponse_httpStatus,
   )
 where
@@ -107,8 +107,8 @@ instance Core.AWSRequest ListBots where
     Response.receiveJSON
       ( \s h x ->
           ListBotsResponse'
-            Prelude.<$> (x Core..?> "Bots" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Bots" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,10 +141,10 @@ instance Core.ToQuery ListBots where
 
 -- | /See:/ 'newListBotsResponse' smart constructor.
 data ListBotsResponse = ListBotsResponse'
-  { -- | List of bots and bot details.
-    bots :: Prelude.Maybe [Bot],
-    -- | The token to use to retrieve the next page of results.
+  { -- | The token to use to retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | List of bots and bot details.
+    bots :: Prelude.Maybe [Bot],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -158,9 +158,9 @@ data ListBotsResponse = ListBotsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bots', 'listBotsResponse_bots' - List of bots and bot details.
---
 -- 'nextToken', 'listBotsResponse_nextToken' - The token to use to retrieve the next page of results.
+--
+-- 'bots', 'listBotsResponse_bots' - List of bots and bot details.
 --
 -- 'httpStatus', 'listBotsResponse_httpStatus' - The response's http status code.
 newListBotsResponse ::
@@ -169,18 +169,18 @@ newListBotsResponse ::
   ListBotsResponse
 newListBotsResponse pHttpStatus_ =
   ListBotsResponse'
-    { bots = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      bots = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | List of bots and bot details.
-listBotsResponse_bots :: Lens.Lens' ListBotsResponse (Prelude.Maybe [Bot])
-listBotsResponse_bots = Lens.lens (\ListBotsResponse' {bots} -> bots) (\s@ListBotsResponse' {} a -> s {bots = a} :: ListBotsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results.
 listBotsResponse_nextToken :: Lens.Lens' ListBotsResponse (Prelude.Maybe Prelude.Text)
 listBotsResponse_nextToken = Lens.lens (\ListBotsResponse' {nextToken} -> nextToken) (\s@ListBotsResponse' {} a -> s {nextToken = a} :: ListBotsResponse)
+
+-- | List of bots and bot details.
+listBotsResponse_bots :: Lens.Lens' ListBotsResponse (Prelude.Maybe [Bot])
+listBotsResponse_bots = Lens.lens (\ListBotsResponse' {bots} -> bots) (\s@ListBotsResponse' {} a -> s {bots = a} :: ListBotsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listBotsResponse_httpStatus :: Lens.Lens' ListBotsResponse Prelude.Int
@@ -188,6 +188,6 @@ listBotsResponse_httpStatus = Lens.lens (\ListBotsResponse' {httpStatus} -> http
 
 instance Prelude.NFData ListBotsResponse where
   rnf ListBotsResponse' {..} =
-    Prelude.rnf bots
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf bots
       `Prelude.seq` Prelude.rnf httpStatus

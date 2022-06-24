@@ -30,14 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChannel' smart constructor.
 data Channel = Channel'
-  { -- | The mode of the channel.
-    mode :: Prelude.Maybe ChannelMode,
-    -- | The @AppInstanceUser@ who created the channel.
-    createdBy :: Prelude.Maybe Identity,
-    -- | The ARN of the channel.
-    channelArn :: Prelude.Maybe Prelude.Text,
-    -- | The channel\'s privacy setting.
-    privacy :: Prelude.Maybe ChannelPrivacy,
+  { -- | The time at which a channel was last updated.
+    lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The time at which a member sent the last message in the channel.
     lastMessageTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The name of the channel.
@@ -46,8 +40,14 @@ data Channel = Channel'
     metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The time at which the @AppInstanceUser@ created the channel.
     createdTimestamp :: Prelude.Maybe Core.POSIX,
-    -- | The time at which a channel was last updated.
-    lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX
+    -- | The ARN of the channel.
+    channelArn :: Prelude.Maybe Prelude.Text,
+    -- | The channel\'s privacy setting.
+    privacy :: Prelude.Maybe ChannelPrivacy,
+    -- | The mode of the channel.
+    mode :: Prelude.Maybe ChannelMode,
+    -- | The @AppInstanceUser@ who created the channel.
+    createdBy :: Prelude.Maybe Identity
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -59,13 +59,7 @@ data Channel = Channel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'mode', 'channel_mode' - The mode of the channel.
---
--- 'createdBy', 'channel_createdBy' - The @AppInstanceUser@ who created the channel.
---
--- 'channelArn', 'channel_channelArn' - The ARN of the channel.
---
--- 'privacy', 'channel_privacy' - The channel\'s privacy setting.
+-- 'lastUpdatedTimestamp', 'channel_lastUpdatedTimestamp' - The time at which a channel was last updated.
 --
 -- 'lastMessageTimestamp', 'channel_lastMessageTimestamp' - The time at which a member sent the last message in the channel.
 --
@@ -75,37 +69,31 @@ data Channel = Channel'
 --
 -- 'createdTimestamp', 'channel_createdTimestamp' - The time at which the @AppInstanceUser@ created the channel.
 --
--- 'lastUpdatedTimestamp', 'channel_lastUpdatedTimestamp' - The time at which a channel was last updated.
+-- 'channelArn', 'channel_channelArn' - The ARN of the channel.
+--
+-- 'privacy', 'channel_privacy' - The channel\'s privacy setting.
+--
+-- 'mode', 'channel_mode' - The mode of the channel.
+--
+-- 'createdBy', 'channel_createdBy' - The @AppInstanceUser@ who created the channel.
 newChannel ::
   Channel
 newChannel =
   Channel'
-    { mode = Prelude.Nothing,
-      createdBy = Prelude.Nothing,
-      channelArn = Prelude.Nothing,
-      privacy = Prelude.Nothing,
+    { lastUpdatedTimestamp = Prelude.Nothing,
       lastMessageTimestamp = Prelude.Nothing,
       name = Prelude.Nothing,
       metadata = Prelude.Nothing,
       createdTimestamp = Prelude.Nothing,
-      lastUpdatedTimestamp = Prelude.Nothing
+      channelArn = Prelude.Nothing,
+      privacy = Prelude.Nothing,
+      mode = Prelude.Nothing,
+      createdBy = Prelude.Nothing
     }
 
--- | The mode of the channel.
-channel_mode :: Lens.Lens' Channel (Prelude.Maybe ChannelMode)
-channel_mode = Lens.lens (\Channel' {mode} -> mode) (\s@Channel' {} a -> s {mode = a} :: Channel)
-
--- | The @AppInstanceUser@ who created the channel.
-channel_createdBy :: Lens.Lens' Channel (Prelude.Maybe Identity)
-channel_createdBy = Lens.lens (\Channel' {createdBy} -> createdBy) (\s@Channel' {} a -> s {createdBy = a} :: Channel)
-
--- | The ARN of the channel.
-channel_channelArn :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
-channel_channelArn = Lens.lens (\Channel' {channelArn} -> channelArn) (\s@Channel' {} a -> s {channelArn = a} :: Channel)
-
--- | The channel\'s privacy setting.
-channel_privacy :: Lens.Lens' Channel (Prelude.Maybe ChannelPrivacy)
-channel_privacy = Lens.lens (\Channel' {privacy} -> privacy) (\s@Channel' {} a -> s {privacy = a} :: Channel)
+-- | The time at which a channel was last updated.
+channel_lastUpdatedTimestamp :: Lens.Lens' Channel (Prelude.Maybe Prelude.UTCTime)
+channel_lastUpdatedTimestamp = Lens.lens (\Channel' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@Channel' {} a -> s {lastUpdatedTimestamp = a} :: Channel) Prelude.. Lens.mapping Core._Time
 
 -- | The time at which a member sent the last message in the channel.
 channel_lastMessageTimestamp :: Lens.Lens' Channel (Prelude.Maybe Prelude.UTCTime)
@@ -123,9 +111,21 @@ channel_metadata = Lens.lens (\Channel' {metadata} -> metadata) (\s@Channel' {} 
 channel_createdTimestamp :: Lens.Lens' Channel (Prelude.Maybe Prelude.UTCTime)
 channel_createdTimestamp = Lens.lens (\Channel' {createdTimestamp} -> createdTimestamp) (\s@Channel' {} a -> s {createdTimestamp = a} :: Channel) Prelude.. Lens.mapping Core._Time
 
--- | The time at which a channel was last updated.
-channel_lastUpdatedTimestamp :: Lens.Lens' Channel (Prelude.Maybe Prelude.UTCTime)
-channel_lastUpdatedTimestamp = Lens.lens (\Channel' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@Channel' {} a -> s {lastUpdatedTimestamp = a} :: Channel) Prelude.. Lens.mapping Core._Time
+-- | The ARN of the channel.
+channel_channelArn :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
+channel_channelArn = Lens.lens (\Channel' {channelArn} -> channelArn) (\s@Channel' {} a -> s {channelArn = a} :: Channel)
+
+-- | The channel\'s privacy setting.
+channel_privacy :: Lens.Lens' Channel (Prelude.Maybe ChannelPrivacy)
+channel_privacy = Lens.lens (\Channel' {privacy} -> privacy) (\s@Channel' {} a -> s {privacy = a} :: Channel)
+
+-- | The mode of the channel.
+channel_mode :: Lens.Lens' Channel (Prelude.Maybe ChannelMode)
+channel_mode = Lens.lens (\Channel' {mode} -> mode) (\s@Channel' {} a -> s {mode = a} :: Channel)
+
+-- | The @AppInstanceUser@ who created the channel.
+channel_createdBy :: Lens.Lens' Channel (Prelude.Maybe Identity)
+channel_createdBy = Lens.lens (\Channel' {createdBy} -> createdBy) (\s@Channel' {} a -> s {createdBy = a} :: Channel)
 
 instance Core.FromJSON Channel where
   parseJSON =
@@ -133,37 +133,37 @@ instance Core.FromJSON Channel where
       "Channel"
       ( \x ->
           Channel'
-            Prelude.<$> (x Core..:? "Mode")
-            Prelude.<*> (x Core..:? "CreatedBy")
-            Prelude.<*> (x Core..:? "ChannelArn")
-            Prelude.<*> (x Core..:? "Privacy")
+            Prelude.<$> (x Core..:? "LastUpdatedTimestamp")
             Prelude.<*> (x Core..:? "LastMessageTimestamp")
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "Metadata")
             Prelude.<*> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "LastUpdatedTimestamp")
+            Prelude.<*> (x Core..:? "ChannelArn")
+            Prelude.<*> (x Core..:? "Privacy")
+            Prelude.<*> (x Core..:? "Mode")
+            Prelude.<*> (x Core..:? "CreatedBy")
       )
 
 instance Prelude.Hashable Channel where
   hashWithSalt _salt Channel' {..} =
-    _salt `Prelude.hashWithSalt` mode
-      `Prelude.hashWithSalt` createdBy
-      `Prelude.hashWithSalt` channelArn
-      `Prelude.hashWithSalt` privacy
+    _salt `Prelude.hashWithSalt` lastUpdatedTimestamp
       `Prelude.hashWithSalt` lastMessageTimestamp
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` createdTimestamp
-      `Prelude.hashWithSalt` lastUpdatedTimestamp
+      `Prelude.hashWithSalt` channelArn
+      `Prelude.hashWithSalt` privacy
+      `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` createdBy
 
 instance Prelude.NFData Channel where
   rnf Channel' {..} =
-    Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf privacy
+    Prelude.rnf lastUpdatedTimestamp
       `Prelude.seq` Prelude.rnf lastMessageTimestamp
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf metadata
       `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf privacy
+      `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf createdBy

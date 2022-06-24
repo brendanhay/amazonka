@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStreamingConfiguration' smart constructor.
 data StreamingConfiguration = StreamingConfiguration'
-  { -- | When true, media streaming to Amazon Kinesis is turned off.
-    disabled :: Prelude.Maybe Prelude.Bool,
-    -- | The streaming notification targets.
+  { -- | The streaming notification targets.
     streamingNotificationTargets :: Prelude.Maybe (Prelude.NonEmpty StreamingNotificationTarget),
+    -- | When true, media streaming to Amazon Kinesis is turned off.
+    disabled :: Prelude.Maybe Prelude.Bool,
     -- | The retention period, in hours, for the Amazon Kinesis data.
     dataRetentionInHours :: Prelude.Natural
   }
@@ -48,9 +48,9 @@ data StreamingConfiguration = StreamingConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'disabled', 'streamingConfiguration_disabled' - When true, media streaming to Amazon Kinesis is turned off.
---
 -- 'streamingNotificationTargets', 'streamingConfiguration_streamingNotificationTargets' - The streaming notification targets.
+--
+-- 'disabled', 'streamingConfiguration_disabled' - When true, media streaming to Amazon Kinesis is turned off.
 --
 -- 'dataRetentionInHours', 'streamingConfiguration_dataRetentionInHours' - The retention period, in hours, for the Amazon Kinesis data.
 newStreamingConfiguration ::
@@ -59,18 +59,19 @@ newStreamingConfiguration ::
   StreamingConfiguration
 newStreamingConfiguration pDataRetentionInHours_ =
   StreamingConfiguration'
-    { disabled = Prelude.Nothing,
-      streamingNotificationTargets = Prelude.Nothing,
+    { streamingNotificationTargets =
+        Prelude.Nothing,
+      disabled = Prelude.Nothing,
       dataRetentionInHours = pDataRetentionInHours_
     }
-
--- | When true, media streaming to Amazon Kinesis is turned off.
-streamingConfiguration_disabled :: Lens.Lens' StreamingConfiguration (Prelude.Maybe Prelude.Bool)
-streamingConfiguration_disabled = Lens.lens (\StreamingConfiguration' {disabled} -> disabled) (\s@StreamingConfiguration' {} a -> s {disabled = a} :: StreamingConfiguration)
 
 -- | The streaming notification targets.
 streamingConfiguration_streamingNotificationTargets :: Lens.Lens' StreamingConfiguration (Prelude.Maybe (Prelude.NonEmpty StreamingNotificationTarget))
 streamingConfiguration_streamingNotificationTargets = Lens.lens (\StreamingConfiguration' {streamingNotificationTargets} -> streamingNotificationTargets) (\s@StreamingConfiguration' {} a -> s {streamingNotificationTargets = a} :: StreamingConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | When true, media streaming to Amazon Kinesis is turned off.
+streamingConfiguration_disabled :: Lens.Lens' StreamingConfiguration (Prelude.Maybe Prelude.Bool)
+streamingConfiguration_disabled = Lens.lens (\StreamingConfiguration' {disabled} -> disabled) (\s@StreamingConfiguration' {} a -> s {disabled = a} :: StreamingConfiguration)
 
 -- | The retention period, in hours, for the Amazon Kinesis data.
 streamingConfiguration_dataRetentionInHours :: Lens.Lens' StreamingConfiguration Prelude.Natural
@@ -82,30 +83,31 @@ instance Core.FromJSON StreamingConfiguration where
       "StreamingConfiguration"
       ( \x ->
           StreamingConfiguration'
-            Prelude.<$> (x Core..:? "Disabled")
-            Prelude.<*> (x Core..:? "StreamingNotificationTargets")
+            Prelude.<$> (x Core..:? "StreamingNotificationTargets")
+            Prelude.<*> (x Core..:? "Disabled")
             Prelude.<*> (x Core..: "DataRetentionInHours")
       )
 
 instance Prelude.Hashable StreamingConfiguration where
   hashWithSalt _salt StreamingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` disabled
+    _salt
       `Prelude.hashWithSalt` streamingNotificationTargets
+      `Prelude.hashWithSalt` disabled
       `Prelude.hashWithSalt` dataRetentionInHours
 
 instance Prelude.NFData StreamingConfiguration where
   rnf StreamingConfiguration' {..} =
-    Prelude.rnf disabled
-      `Prelude.seq` Prelude.rnf streamingNotificationTargets
+    Prelude.rnf streamingNotificationTargets
+      `Prelude.seq` Prelude.rnf disabled
       `Prelude.seq` Prelude.rnf dataRetentionInHours
 
 instance Core.ToJSON StreamingConfiguration where
   toJSON StreamingConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Disabled" Core..=) Prelude.<$> disabled,
-            ("StreamingNotificationTargets" Core..=)
+          [ ("StreamingNotificationTargets" Core..=)
               Prelude.<$> streamingNotificationTargets,
+            ("Disabled" Core..=) Prelude.<$> disabled,
             Prelude.Just
               ( "DataRetentionInHours"
                   Core..= dataRetentionInHours

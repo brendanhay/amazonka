@@ -27,1981 +27,1153 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDescribeChannelMembership $
---             newDescribeChannelMembership
---
---         , requestCreateAppInstance $
---             newCreateAppInstance
---
---         , requestGetVoiceConnectorGroup $
---             newGetVoiceConnectorGroup
---
---         , requestListVoiceConnectors $
---             newListVoiceConnectors
---
---         , requestListRoomMemberships $
---             newListRoomMemberships
---
---         , requestGetPhoneNumberSettings $
---             newGetPhoneNumberSettings
---
---         , requestUpdateGlobalSettings $
---             newUpdateGlobalSettings
---
---         , requestListAttendees $
---             newListAttendees
---
---         , requestPutVoiceConnectorLoggingConfiguration $
---             newPutVoiceConnectorLoggingConfiguration
---
---         , requestGetVoiceConnectorTermination $
---             newGetVoiceConnectorTermination
---
---         , requestDeleteAttendee $
---             newDeleteAttendee
---
---         , requestGetVoiceConnectorProxy $
---             newGetVoiceConnectorProxy
---
---         , requestDeleteVoiceConnectorEmergencyCallingConfiguration $
---             newDeleteVoiceConnectorEmergencyCallingConfiguration
---
---         , requestGetVoiceConnectorStreamingConfiguration $
---             newGetVoiceConnectorStreamingConfiguration
---
---         , requestUpdateSipMediaApplicationCall $
---             newUpdateSipMediaApplicationCall
---
---         , requestStopMeetingTranscription $
---             newStopMeetingTranscription
---
---         , requestGetAppInstanceRetentionSettings $
---             newGetAppInstanceRetentionSettings
---
---         , requestPutVoiceConnectorEmergencyCallingConfiguration $
---             newPutVoiceConnectorEmergencyCallingConfiguration
---
---         , requestCreateMeetingWithAttendees $
---             newCreateMeetingWithAttendees
---
---         , requestListChannels $
---             newListChannels
---
---         , requestDisassociatePhoneNumberFromUser $
---             newDisassociatePhoneNumberFromUser
---
---         , requestDisassociateSigninDelegateGroupsFromAccount $
---             newDisassociateSigninDelegateGroupsFromAccount
---
---         , requestResetPersonalPIN $
---             newResetPersonalPIN
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestDeleteChannel $
---             newDeleteChannel
---
---         , requestUpdateChannel $
---             newUpdateChannel
---
---         , requestDescribeAppInstanceAdmin $
---             newDescribeAppInstanceAdmin
---
---         , requestCreateAttendee $
---             newCreateAttendee
---
---         , requestListSupportedPhoneNumberCountries $
---             newListSupportedPhoneNumberCountries
---
---         , requestDeleteSipRule $
---             newDeleteSipRule
---
---         , requestUpdateSipRule $
---             newUpdateSipRule
---
---         , requestUpdateAccountSettings $
---             newUpdateAccountSettings
---
---         , requestDeleteVoiceConnectorOrigination $
---             newDeleteVoiceConnectorOrigination
---
---         , requestDeleteSipMediaApplication $
---             newDeleteSipMediaApplication
---
---         , requestUpdateSipMediaApplication $
---             newUpdateSipMediaApplication
---
---         , requestDisassociatePhoneNumbersFromVoiceConnector $
---             newDisassociatePhoneNumbersFromVoiceConnector
---
---         , requestGetMessagingSessionEndpoint $
---             newGetMessagingSessionEndpoint
---
---         , requestPutVoiceConnectorOrigination $
---             newPutVoiceConnectorOrigination
---
---         , requestCreateAppInstanceUser $
---             newCreateAppInstanceUser
---
---         , requestListAttendeeTags $
---             newListAttendeeTags
---
---         , requestListChannelsModeratedByAppInstanceUser $
---             newListChannelsModeratedByAppInstanceUser
---
---         , requestRedactChannelMessage $
---             newRedactChannelMessage
---
---         , requestPutRetentionSettings $
---             newPutRetentionSettings
---
---         , requestListUsers $
---             newListUsers
---
---         , requestDeleteVoiceConnectorStreamingConfiguration $
---             newDeleteVoiceConnectorStreamingConfiguration
---
---         , requestAssociatePhoneNumbersWithVoiceConnectorGroup $
---             newAssociatePhoneNumbersWithVoiceConnectorGroup
---
---         , requestPutAppInstanceRetentionSettings $
---             newPutAppInstanceRetentionSettings
---
---         , requestGetVoiceConnectorLoggingConfiguration $
---             newGetVoiceConnectorLoggingConfiguration
---
---         , requestListBots $
---             newListBots
---
---         , requestDeleteChannelMembership $
---             newDeleteChannelMembership
---
---         , requestPutVoiceConnectorStreamingConfiguration $
---             newPutVoiceConnectorStreamingConfiguration
---
---         , requestListChannelMemberships $
---             newListChannelMemberships
---
---         , requestGetGlobalSettings $
---             newGetGlobalSettings
---
---         , requestDeleteMeeting $
---             newDeleteMeeting
---
---         , requestListMeetings $
---             newListMeetings
---
---         , requestGetAttendee $
---             newGetAttendee
---
---         , requestDeleteAccount $
---             newDeleteAccount
---
---         , requestUpdateAccount $
---             newUpdateAccount
---
---         , requestListAccounts $
---             newListAccounts
---
---         , requestUpdateBot $
---             newUpdateBot
---
---         , requestListPhoneNumberOrders $
---             newListPhoneNumberOrders
---
---         , requestSearchAvailablePhoneNumbers $
---             newSearchAvailablePhoneNumbers
---
---         , requestCreateAppInstanceAdmin $
---             newCreateAppInstanceAdmin
---
---         , requestTagMeeting $
---             newTagMeeting
---
---         , requestListVoiceConnectorGroups $
---             newListVoiceConnectorGroups
---
---         , requestLogoutUser $
---             newLogoutUser
---
---         , requestListVoiceConnectorTerminationCredentials $
---             newListVoiceConnectorTerminationCredentials
---
---         , requestCreateMediaCapturePipeline $
---             newCreateMediaCapturePipeline
---
---         , requestCreateProxySession $
---             newCreateProxySession
---
---         , requestDeleteEventsConfiguration $
---             newDeleteEventsConfiguration
---
---         , requestPutEventsConfiguration $
---             newPutEventsConfiguration
---
---         , requestGetChannelMessage $
---             newGetChannelMessage
---
---         , requestUpdateRoom $
---             newUpdateRoom
---
---         , requestDeleteRoom $
---             newDeleteRoom
---
---         , requestPutSipMediaApplicationLoggingConfiguration $
---             newPutSipMediaApplicationLoggingConfiguration
---
---         , requestDescribeChannelMembershipForAppInstanceUser $
---             newDescribeChannelMembershipForAppInstanceUser
---
---         , requestListAppInstanceAdmins $
---             newListAppInstanceAdmins
---
---         , requestDeletePhoneNumber $
---             newDeletePhoneNumber
---
---         , requestUpdatePhoneNumber $
---             newUpdatePhoneNumber
---
---         , requestListPhoneNumbers $
---             newListPhoneNumbers
---
---         , requestCreateChannelModerator $
---             newCreateChannelModerator
---
---         , requestGetAppInstanceStreamingConfigurations $
---             newGetAppInstanceStreamingConfigurations
---
---         , requestListAppInstances $
---             newListAppInstances
---
---         , requestDescribeChannelModeratedByAppInstanceUser $
---             newDescribeChannelModeratedByAppInstanceUser
---
---         , requestGetPhoneNumber $
---             newGetPhoneNumber
---
---         , requestGetEventsConfiguration $
---             newGetEventsConfiguration
---
---         , requestGetSipMediaApplicationLoggingConfiguration $
---             newGetSipMediaApplicationLoggingConfiguration
---
---         , requestBatchUpdateUser $
---             newBatchUpdateUser
---
---         , requestSendChannelMessage $
---             newSendChannelMessage
---
---         , requestTagAttendee $
---             newTagAttendee
---
---         , requestUpdateVoiceConnector $
---             newUpdateVoiceConnector
---
---         , requestDeleteVoiceConnector $
---             newDeleteVoiceConnector
---
---         , requestGetMediaCapturePipeline $
---             newGetMediaCapturePipeline
---
---         , requestUpdateRoomMembership $
---             newUpdateRoomMembership
---
---         , requestGetProxySession $
---             newGetProxySession
---
---         , requestDeleteRoomMembership $
---             newDeleteRoomMembership
---
---         , requestDescribeAppInstanceUser $
---             newDescribeAppInstanceUser
---
---         , requestBatchUnsuspendUser $
---             newBatchUnsuspendUser
---
---         , requestDeleteChannelBan $
---             newDeleteChannelBan
---
---         , requestGetMeeting $
---             newGetMeeting
---
---         , requestRestorePhoneNumber $
---             newRestorePhoneNumber
---
---         , requestGetRetentionSettings $
---             newGetRetentionSettings
---
---         , requestGetBot $
---             newGetBot
---
---         , requestGetUser $
---             newGetUser
---
---         , requestUntagAttendee $
---             newUntagAttendee
---
---         , requestStartMeetingTranscription $
---             newStartMeetingTranscription
---
---         , requestListChannelBans $
---             newListChannelBans
---
---         , requestCreateChannel $
---             newCreateChannel
---
---         , requestBatchSuspendUser $
---             newBatchSuspendUser
---
---         , requestGetAccount $
---             newGetAccount
---
---         , requestDescribeChannelModerator $
---             newDescribeChannelModerator
+--         [ requestAssociatePhoneNumberWithUser $
+--             newAssociatePhoneNumberWithUser
 --
 --         , requestAssociatePhoneNumbersWithVoiceConnector $
 --             newAssociatePhoneNumbersWithVoiceConnector
 --
---         , requestGetPhoneNumberOrder $
---             newGetPhoneNumberOrder
---
---         , requestGetSipRule $
---             newGetSipRule
---
---         , requestGetUserSettings $
---             newGetUserSettings
---
---         , requestGetSipMediaApplication $
---             newGetSipMediaApplication
---
---         , requestGetAccountSettings $
---             newGetAccountSettings
---
---         , requestCreateChannelBan $
---             newCreateChannelBan
---
---         , requestListMeetingTags $
---             newListMeetingTags
---
---         , requestListChannelMembershipsForAppInstanceUser $
---             newListChannelMembershipsForAppInstanceUser
---
---         , requestGetVoiceConnectorOrigination $
---             newGetVoiceConnectorOrigination
---
---         , requestBatchUpdatePhoneNumber $
---             newBatchUpdatePhoneNumber
---
---         , requestDisassociatePhoneNumbersFromVoiceConnectorGroup $
---             newDisassociatePhoneNumbersFromVoiceConnectorGroup
---
---         , requestUpdateChannelReadMarker $
---             newUpdateChannelReadMarker
---
---         , requestCreateSipMediaApplicationCall $
---             newCreateSipMediaApplicationCall
---
---         , requestBatchDeletePhoneNumber $
---             newBatchDeletePhoneNumber
---
---         , requestListSipMediaApplications $
---             newListSipMediaApplications
---
---         , requestCreateMeeting $
---             newCreateMeeting
---
---         , requestCreatePhoneNumberOrder $
---             newCreatePhoneNumberOrder
---
---         , requestListSipRules $
---             newListSipRules
---
---         , requestCreateBot $
---             newCreateBot
---
---         , requestUpdateUserSettings $
---             newUpdateUserSettings
---
---         , requestCreateUser $
---             newCreateUser
---
---         , requestBatchCreateRoomMembership $
---             newBatchCreateRoomMembership
---
---         , requestDescribeAppInstance $
---             newDescribeAppInstance
---
---         , requestCreateAccount $
---             newCreateAccount
---
---         , requestCreateChannelMembership $
---             newCreateChannelMembership
---
---         , requestDeleteVoiceConnectorTermination $
---             newDeleteVoiceConnectorTermination
---
---         , requestAssociatePhoneNumberWithUser $
---             newAssociatePhoneNumberWithUser
---
---         , requestDeleteVoiceConnectorProxy $
---             newDeleteVoiceConnectorProxy
---
---         , requestCreateSipMediaApplication $
---             newCreateSipMediaApplication
---
---         , requestPutVoiceConnectorProxy $
---             newPutVoiceConnectorProxy
---
---         , requestUpdateUser $
---             newUpdateUser
---
---         , requestPutVoiceConnectorTermination $
---             newPutVoiceConnectorTermination
---
---         , requestGetVoiceConnectorEmergencyCallingConfiguration $
---             newGetVoiceConnectorEmergencyCallingConfiguration
---
---         , requestPutVoiceConnectorTerminationCredentials $
---             newPutVoiceConnectorTerminationCredentials
---
---         , requestListAppInstanceUsers $
---             newListAppInstanceUsers
+--         , requestAssociatePhoneNumbersWithVoiceConnectorGroup $
+--             newAssociatePhoneNumbersWithVoiceConnectorGroup
 --
 --         , requestAssociateSigninDelegateGroupsWithAccount $
 --             newAssociateSigninDelegateGroupsWithAccount
 --
---         , requestCreateSipRule $
---             newCreateSipRule
---
---         , requestDeleteVoiceConnectorTerminationCredentials $
---             newDeleteVoiceConnectorTerminationCredentials
---
---         , requestTagResource $
---             newTagResource
---
---         , requestDeleteAppInstanceUser $
---             newDeleteAppInstanceUser
---
---         , requestUpdateAppInstanceUser $
---             newUpdateAppInstanceUser
---
---         , requestUntagMeeting $
---             newUntagMeeting
---
---         , requestUpdateVoiceConnectorGroup $
---             newUpdateVoiceConnectorGroup
---
---         , requestRedactConversationMessage $
---             newRedactConversationMessage
---
---         , requestDeleteChannelModerator $
---             newDeleteChannelModerator
---
---         , requestDeleteVoiceConnectorGroup $
---             newDeleteVoiceConnectorGroup
---
---         , requestDescribeChannelBan $
---             newDescribeChannelBan
---
---         , requestDeleteMediaCapturePipeline $
---             newDeleteMediaCapturePipeline
---
---         , requestUpdateProxySession $
---             newUpdateProxySession
---
---         , requestDeleteProxySession $
---             newDeleteProxySession
---
---         , requestGetVoiceConnectorTerminationHealth $
---             newGetVoiceConnectorTerminationHealth
---
---         , requestCreateMeetingDialOut $
---             newCreateMeetingDialOut
---
---         , requestUntagResource $
---             newUntagResource
---
---         , requestListProxySessions $
---             newListProxySessions
---
---         , requestListMediaCapturePipelines $
---             newListMediaCapturePipelines
---
---         , requestUpdatePhoneNumberSettings $
---             newUpdatePhoneNumberSettings
---
---         , requestInviteUsers $
---             newInviteUsers
---
---         , requestCreateRoom $
---             newCreateRoom
---
---         , requestListChannelModerators $
---             newListChannelModerators
---
---         , requestGetVoiceConnector $
---             newGetVoiceConnector
---
---         , requestDescribeChannel $
---             newDescribeChannel
---
---         , requestCreateVoiceConnectorGroup $
---             newCreateVoiceConnectorGroup
---
---         , requestDeleteAppInstanceStreamingConfigurations $
---             newDeleteAppInstanceStreamingConfigurations
---
---         , requestListRooms $
---             newListRooms
---
 --         , requestBatchCreateAttendee $
 --             newBatchCreateAttendee
---
---         , requestDeleteAppInstanceAdmin $
---             newDeleteAppInstanceAdmin
---
---         , requestPutAppInstanceStreamingConfigurations $
---             newPutAppInstanceStreamingConfigurations
---
---         , requestRegenerateSecurityToken $
---             newRegenerateSecurityToken
---
---         , requestDeleteChannelMessage $
---             newDeleteChannelMessage
---
---         , requestUpdateChannelMessage $
---             newUpdateChannelMessage
---
---         , requestDeleteAppInstance $
---             newDeleteAppInstance
---
---         , requestUpdateAppInstance $
---             newUpdateAppInstance
---
---         , requestCreateVoiceConnector $
---             newCreateVoiceConnector
---
---         , requestListChannelMessages $
---             newListChannelMessages
---
---         , requestRedactRoomMessage $
---             newRedactRoomMessage
---
---         , requestGetRoom $
---             newGetRoom
---
---         , requestCreateRoomMembership $
---             newCreateRoomMembership
 --
 --         , requestBatchCreateChannelMembership $
 --             newBatchCreateChannelMembership
 --
+--         , requestBatchCreateRoomMembership $
+--             newBatchCreateRoomMembership
+--
+--         , requestBatchDeletePhoneNumber $
+--             newBatchDeletePhoneNumber
+--
+--         , requestBatchSuspendUser $
+--             newBatchSuspendUser
+--
+--         , requestBatchUnsuspendUser $
+--             newBatchUnsuspendUser
+--
+--         , requestBatchUpdatePhoneNumber $
+--             newBatchUpdatePhoneNumber
+--
+--         , requestBatchUpdateUser $
+--             newBatchUpdateUser
+--
+--         , requestCreateAccount $
+--             newCreateAccount
+--
+--         , requestCreateAppInstance $
+--             newCreateAppInstance
+--
+--         , requestCreateAppInstanceAdmin $
+--             newCreateAppInstanceAdmin
+--
+--         , requestCreateAppInstanceUser $
+--             newCreateAppInstanceUser
+--
+--         , requestCreateAttendee $
+--             newCreateAttendee
+--
+--         , requestCreateBot $
+--             newCreateBot
+--
+--         , requestCreateChannel $
+--             newCreateChannel
+--
+--         , requestCreateChannelBan $
+--             newCreateChannelBan
+--
+--         , requestCreateChannelMembership $
+--             newCreateChannelMembership
+--
+--         , requestCreateChannelModerator $
+--             newCreateChannelModerator
+--
+--         , requestCreateMediaCapturePipeline $
+--             newCreateMediaCapturePipeline
+--
+--         , requestCreateMeeting $
+--             newCreateMeeting
+--
+--         , requestCreateMeetingDialOut $
+--             newCreateMeetingDialOut
+--
+--         , requestCreateMeetingWithAttendees $
+--             newCreateMeetingWithAttendees
+--
+--         , requestCreatePhoneNumberOrder $
+--             newCreatePhoneNumberOrder
+--
+--         , requestCreateProxySession $
+--             newCreateProxySession
+--
+--         , requestCreateRoom $
+--             newCreateRoom
+--
+--         , requestCreateRoomMembership $
+--             newCreateRoomMembership
+--
+--         , requestCreateSipMediaApplication $
+--             newCreateSipMediaApplication
+--
+--         , requestCreateSipMediaApplicationCall $
+--             newCreateSipMediaApplicationCall
+--
+--         , requestCreateSipRule $
+--             newCreateSipRule
+--
+--         , requestCreateUser $
+--             newCreateUser
+--
+--         , requestCreateVoiceConnector $
+--             newCreateVoiceConnector
+--
+--         , requestCreateVoiceConnectorGroup $
+--             newCreateVoiceConnectorGroup
+--
+--         , requestDeleteAccount $
+--             newDeleteAccount
+--
+--         , requestDeleteAppInstance $
+--             newDeleteAppInstance
+--
+--         , requestDeleteAppInstanceAdmin $
+--             newDeleteAppInstanceAdmin
+--
+--         , requestDeleteAppInstanceStreamingConfigurations $
+--             newDeleteAppInstanceStreamingConfigurations
+--
+--         , requestDeleteAppInstanceUser $
+--             newDeleteAppInstanceUser
+--
+--         , requestDeleteAttendee $
+--             newDeleteAttendee
+--
+--         , requestDeleteChannel $
+--             newDeleteChannel
+--
+--         , requestDeleteChannelBan $
+--             newDeleteChannelBan
+--
+--         , requestDeleteChannelMembership $
+--             newDeleteChannelMembership
+--
+--         , requestDeleteChannelMessage $
+--             newDeleteChannelMessage
+--
+--         , requestDeleteChannelModerator $
+--             newDeleteChannelModerator
+--
+--         , requestDeleteEventsConfiguration $
+--             newDeleteEventsConfiguration
+--
+--         , requestDeleteMediaCapturePipeline $
+--             newDeleteMediaCapturePipeline
+--
+--         , requestDeleteMeeting $
+--             newDeleteMeeting
+--
+--         , requestDeletePhoneNumber $
+--             newDeletePhoneNumber
+--
+--         , requestDeleteProxySession $
+--             newDeleteProxySession
+--
+--         , requestDeleteRoom $
+--             newDeleteRoom
+--
+--         , requestDeleteRoomMembership $
+--             newDeleteRoomMembership
+--
+--         , requestDeleteSipMediaApplication $
+--             newDeleteSipMediaApplication
+--
+--         , requestDeleteSipRule $
+--             newDeleteSipRule
+--
+--         , requestDeleteVoiceConnector $
+--             newDeleteVoiceConnector
+--
+--         , requestDeleteVoiceConnectorEmergencyCallingConfiguration $
+--             newDeleteVoiceConnectorEmergencyCallingConfiguration
+--
+--         , requestDeleteVoiceConnectorGroup $
+--             newDeleteVoiceConnectorGroup
+--
+--         , requestDeleteVoiceConnectorOrigination $
+--             newDeleteVoiceConnectorOrigination
+--
+--         , requestDeleteVoiceConnectorProxy $
+--             newDeleteVoiceConnectorProxy
+--
+--         , requestDeleteVoiceConnectorStreamingConfiguration $
+--             newDeleteVoiceConnectorStreamingConfiguration
+--
+--         , requestDeleteVoiceConnectorTermination $
+--             newDeleteVoiceConnectorTermination
+--
+--         , requestDeleteVoiceConnectorTerminationCredentials $
+--             newDeleteVoiceConnectorTerminationCredentials
+--
+--         , requestDescribeAppInstance $
+--             newDescribeAppInstance
+--
+--         , requestDescribeAppInstanceAdmin $
+--             newDescribeAppInstanceAdmin
+--
+--         , requestDescribeAppInstanceUser $
+--             newDescribeAppInstanceUser
+--
+--         , requestDescribeChannel $
+--             newDescribeChannel
+--
+--         , requestDescribeChannelBan $
+--             newDescribeChannelBan
+--
+--         , requestDescribeChannelMembership $
+--             newDescribeChannelMembership
+--
+--         , requestDescribeChannelMembershipForAppInstanceUser $
+--             newDescribeChannelMembershipForAppInstanceUser
+--
+--         , requestDescribeChannelModeratedByAppInstanceUser $
+--             newDescribeChannelModeratedByAppInstanceUser
+--
+--         , requestDescribeChannelModerator $
+--             newDescribeChannelModerator
+--
+--         , requestDisassociatePhoneNumberFromUser $
+--             newDisassociatePhoneNumberFromUser
+--
+--         , requestDisassociatePhoneNumbersFromVoiceConnector $
+--             newDisassociatePhoneNumbersFromVoiceConnector
+--
+--         , requestDisassociatePhoneNumbersFromVoiceConnectorGroup $
+--             newDisassociatePhoneNumbersFromVoiceConnectorGroup
+--
+--         , requestDisassociateSigninDelegateGroupsFromAccount $
+--             newDisassociateSigninDelegateGroupsFromAccount
+--
+--         , requestGetAccount $
+--             newGetAccount
+--
+--         , requestGetAccountSettings $
+--             newGetAccountSettings
+--
+--         , requestGetAppInstanceRetentionSettings $
+--             newGetAppInstanceRetentionSettings
+--
+--         , requestGetAppInstanceStreamingConfigurations $
+--             newGetAppInstanceStreamingConfigurations
+--
+--         , requestGetAttendee $
+--             newGetAttendee
+--
+--         , requestGetBot $
+--             newGetBot
+--
+--         , requestGetChannelMessage $
+--             newGetChannelMessage
+--
+--         , requestGetEventsConfiguration $
+--             newGetEventsConfiguration
+--
+--         , requestGetGlobalSettings $
+--             newGetGlobalSettings
+--
+--         , requestGetMediaCapturePipeline $
+--             newGetMediaCapturePipeline
+--
+--         , requestGetMeeting $
+--             newGetMeeting
+--
+--         , requestGetMessagingSessionEndpoint $
+--             newGetMessagingSessionEndpoint
+--
+--         , requestGetPhoneNumber $
+--             newGetPhoneNumber
+--
+--         , requestGetPhoneNumberOrder $
+--             newGetPhoneNumberOrder
+--
+--         , requestGetPhoneNumberSettings $
+--             newGetPhoneNumberSettings
+--
+--         , requestGetProxySession $
+--             newGetProxySession
+--
+--         , requestGetRetentionSettings $
+--             newGetRetentionSettings
+--
+--         , requestGetRoom $
+--             newGetRoom
+--
+--         , requestGetSipMediaApplication $
+--             newGetSipMediaApplication
+--
+--         , requestGetSipMediaApplicationLoggingConfiguration $
+--             newGetSipMediaApplicationLoggingConfiguration
+--
+--         , requestGetSipRule $
+--             newGetSipRule
+--
+--         , requestGetUser $
+--             newGetUser
+--
+--         , requestGetUserSettings $
+--             newGetUserSettings
+--
+--         , requestGetVoiceConnector $
+--             newGetVoiceConnector
+--
+--         , requestGetVoiceConnectorEmergencyCallingConfiguration $
+--             newGetVoiceConnectorEmergencyCallingConfiguration
+--
+--         , requestGetVoiceConnectorGroup $
+--             newGetVoiceConnectorGroup
+--
+--         , requestGetVoiceConnectorLoggingConfiguration $
+--             newGetVoiceConnectorLoggingConfiguration
+--
+--         , requestGetVoiceConnectorOrigination $
+--             newGetVoiceConnectorOrigination
+--
+--         , requestGetVoiceConnectorProxy $
+--             newGetVoiceConnectorProxy
+--
+--         , requestGetVoiceConnectorStreamingConfiguration $
+--             newGetVoiceConnectorStreamingConfiguration
+--
+--         , requestGetVoiceConnectorTermination $
+--             newGetVoiceConnectorTermination
+--
+--         , requestGetVoiceConnectorTerminationHealth $
+--             newGetVoiceConnectorTerminationHealth
+--
+--         , requestInviteUsers $
+--             newInviteUsers
+--
+--         , requestListAccounts $
+--             newListAccounts
+--
+--         , requestListAppInstanceAdmins $
+--             newListAppInstanceAdmins
+--
+--         , requestListAppInstanceUsers $
+--             newListAppInstanceUsers
+--
+--         , requestListAppInstances $
+--             newListAppInstances
+--
+--         , requestListAttendeeTags $
+--             newListAttendeeTags
+--
+--         , requestListAttendees $
+--             newListAttendees
+--
+--         , requestListBots $
+--             newListBots
+--
+--         , requestListChannelBans $
+--             newListChannelBans
+--
+--         , requestListChannelMemberships $
+--             newListChannelMemberships
+--
+--         , requestListChannelMembershipsForAppInstanceUser $
+--             newListChannelMembershipsForAppInstanceUser
+--
+--         , requestListChannelMessages $
+--             newListChannelMessages
+--
+--         , requestListChannelModerators $
+--             newListChannelModerators
+--
+--         , requestListChannels $
+--             newListChannels
+--
+--         , requestListChannelsModeratedByAppInstanceUser $
+--             newListChannelsModeratedByAppInstanceUser
+--
+--         , requestListMediaCapturePipelines $
+--             newListMediaCapturePipelines
+--
+--         , requestListMeetingTags $
+--             newListMeetingTags
+--
+--         , requestListMeetings $
+--             newListMeetings
+--
+--         , requestListPhoneNumberOrders $
+--             newListPhoneNumberOrders
+--
+--         , requestListPhoneNumbers $
+--             newListPhoneNumbers
+--
+--         , requestListProxySessions $
+--             newListProxySessions
+--
+--         , requestListRoomMemberships $
+--             newListRoomMemberships
+--
+--         , requestListRooms $
+--             newListRooms
+--
+--         , requestListSipMediaApplications $
+--             newListSipMediaApplications
+--
+--         , requestListSipRules $
+--             newListSipRules
+--
+--         , requestListSupportedPhoneNumberCountries $
+--             newListSupportedPhoneNumberCountries
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestListUsers $
+--             newListUsers
+--
+--         , requestListVoiceConnectorGroups $
+--             newListVoiceConnectorGroups
+--
+--         , requestListVoiceConnectorTerminationCredentials $
+--             newListVoiceConnectorTerminationCredentials
+--
+--         , requestListVoiceConnectors $
+--             newListVoiceConnectors
+--
+--         , requestLogoutUser $
+--             newLogoutUser
+--
+--         , requestPutAppInstanceRetentionSettings $
+--             newPutAppInstanceRetentionSettings
+--
+--         , requestPutAppInstanceStreamingConfigurations $
+--             newPutAppInstanceStreamingConfigurations
+--
+--         , requestPutEventsConfiguration $
+--             newPutEventsConfiguration
+--
+--         , requestPutRetentionSettings $
+--             newPutRetentionSettings
+--
+--         , requestPutSipMediaApplicationLoggingConfiguration $
+--             newPutSipMediaApplicationLoggingConfiguration
+--
+--         , requestPutVoiceConnectorEmergencyCallingConfiguration $
+--             newPutVoiceConnectorEmergencyCallingConfiguration
+--
+--         , requestPutVoiceConnectorLoggingConfiguration $
+--             newPutVoiceConnectorLoggingConfiguration
+--
+--         , requestPutVoiceConnectorOrigination $
+--             newPutVoiceConnectorOrigination
+--
+--         , requestPutVoiceConnectorProxy $
+--             newPutVoiceConnectorProxy
+--
+--         , requestPutVoiceConnectorStreamingConfiguration $
+--             newPutVoiceConnectorStreamingConfiguration
+--
+--         , requestPutVoiceConnectorTermination $
+--             newPutVoiceConnectorTermination
+--
+--         , requestPutVoiceConnectorTerminationCredentials $
+--             newPutVoiceConnectorTerminationCredentials
+--
+--         , requestRedactChannelMessage $
+--             newRedactChannelMessage
+--
+--         , requestRedactConversationMessage $
+--             newRedactConversationMessage
+--
+--         , requestRedactRoomMessage $
+--             newRedactRoomMessage
+--
+--         , requestRegenerateSecurityToken $
+--             newRegenerateSecurityToken
+--
+--         , requestResetPersonalPIN $
+--             newResetPersonalPIN
+--
+--         , requestRestorePhoneNumber $
+--             newRestorePhoneNumber
+--
+--         , requestSearchAvailablePhoneNumbers $
+--             newSearchAvailablePhoneNumbers
+--
+--         , requestSendChannelMessage $
+--             newSendChannelMessage
+--
+--         , requestStartMeetingTranscription $
+--             newStartMeetingTranscription
+--
+--         , requestStopMeetingTranscription $
+--             newStopMeetingTranscription
+--
+--         , requestTagAttendee $
+--             newTagAttendee
+--
+--         , requestTagMeeting $
+--             newTagMeeting
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagAttendee $
+--             newUntagAttendee
+--
+--         , requestUntagMeeting $
+--             newUntagMeeting
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateAccount $
+--             newUpdateAccount
+--
+--         , requestUpdateAccountSettings $
+--             newUpdateAccountSettings
+--
+--         , requestUpdateAppInstance $
+--             newUpdateAppInstance
+--
+--         , requestUpdateAppInstanceUser $
+--             newUpdateAppInstanceUser
+--
+--         , requestUpdateBot $
+--             newUpdateBot
+--
+--         , requestUpdateChannel $
+--             newUpdateChannel
+--
+--         , requestUpdateChannelMessage $
+--             newUpdateChannelMessage
+--
+--         , requestUpdateChannelReadMarker $
+--             newUpdateChannelReadMarker
+--
+--         , requestUpdateGlobalSettings $
+--             newUpdateGlobalSettings
+--
+--         , requestUpdatePhoneNumber $
+--             newUpdatePhoneNumber
+--
+--         , requestUpdatePhoneNumberSettings $
+--             newUpdatePhoneNumberSettings
+--
+--         , requestUpdateProxySession $
+--             newUpdateProxySession
+--
+--         , requestUpdateRoom $
+--             newUpdateRoom
+--
+--         , requestUpdateRoomMembership $
+--             newUpdateRoomMembership
+--
+--         , requestUpdateSipMediaApplication $
+--             newUpdateSipMediaApplication
+--
+--         , requestUpdateSipMediaApplicationCall $
+--             newUpdateSipMediaApplicationCall
+--
+--         , requestUpdateSipRule $
+--             newUpdateSipRule
+--
+--         , requestUpdateUser $
+--             newUpdateUser
+--
+--         , requestUpdateUserSettings $
+--             newUpdateUserSettings
+--
+--         , requestUpdateVoiceConnector $
+--             newUpdateVoiceConnector
+--
+--         , requestUpdateVoiceConnectorGroup $
+--             newUpdateVoiceConnectorGroup
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseDescribeChannelMembership $
---             newDescribeChannelMembershipResponse
---
---         , responseCreateAppInstance $
---             newCreateAppInstanceResponse
---
---         , responseGetVoiceConnectorGroup $
---             newGetVoiceConnectorGroupResponse
---
---         , responseListVoiceConnectors $
---             newListVoiceConnectorsResponse
---
---         , responseListRoomMemberships $
---             newListRoomMembershipsResponse
---
---         , responseGetPhoneNumberSettings $
---             newGetPhoneNumberSettingsResponse
---
---         , responseUpdateGlobalSettings $
---             newUpdateGlobalSettingsResponse
---
---         , responseListAttendees $
---             newListAttendeesResponse
---
---         , responsePutVoiceConnectorLoggingConfiguration $
---             newPutVoiceConnectorLoggingConfigurationResponse
---
---         , responseGetVoiceConnectorTermination $
---             newGetVoiceConnectorTerminationResponse
---
---         , responseDeleteAttendee $
---             newDeleteAttendeeResponse
---
---         , responseGetVoiceConnectorProxy $
---             newGetVoiceConnectorProxyResponse
---
---         , responseDeleteVoiceConnectorEmergencyCallingConfiguration $
---             newDeleteVoiceConnectorEmergencyCallingConfigurationResponse
---
---         , responseGetVoiceConnectorStreamingConfiguration $
---             newGetVoiceConnectorStreamingConfigurationResponse
---
---         , responseUpdateSipMediaApplicationCall $
---             newUpdateSipMediaApplicationCallResponse
---
---         , responseStopMeetingTranscription $
---             newStopMeetingTranscriptionResponse
---
---         , responseGetAppInstanceRetentionSettings $
---             newGetAppInstanceRetentionSettingsResponse
---
---         , responsePutVoiceConnectorEmergencyCallingConfiguration $
---             newPutVoiceConnectorEmergencyCallingConfigurationResponse
---
---         , responseCreateMeetingWithAttendees $
---             newCreateMeetingWithAttendeesResponse
---
---         , responseListChannels $
---             newListChannelsResponse
---
---         , responseDisassociatePhoneNumberFromUser $
---             newDisassociatePhoneNumberFromUserResponse
---
---         , responseDisassociateSigninDelegateGroupsFromAccount $
---             newDisassociateSigninDelegateGroupsFromAccountResponse
---
---         , responseResetPersonalPIN $
---             newResetPersonalPINResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseDeleteChannel $
---             newDeleteChannelResponse
---
---         , responseUpdateChannel $
---             newUpdateChannelResponse
---
---         , responseDescribeAppInstanceAdmin $
---             newDescribeAppInstanceAdminResponse
---
---         , responseCreateAttendee $
---             newCreateAttendeeResponse
---
---         , responseListSupportedPhoneNumberCountries $
---             newListSupportedPhoneNumberCountriesResponse
---
---         , responseDeleteSipRule $
---             newDeleteSipRuleResponse
---
---         , responseUpdateSipRule $
---             newUpdateSipRuleResponse
---
---         , responseUpdateAccountSettings $
---             newUpdateAccountSettingsResponse
---
---         , responseDeleteVoiceConnectorOrigination $
---             newDeleteVoiceConnectorOriginationResponse
---
---         , responseDeleteSipMediaApplication $
---             newDeleteSipMediaApplicationResponse
---
---         , responseUpdateSipMediaApplication $
---             newUpdateSipMediaApplicationResponse
---
---         , responseDisassociatePhoneNumbersFromVoiceConnector $
---             newDisassociatePhoneNumbersFromVoiceConnectorResponse
---
---         , responseGetMessagingSessionEndpoint $
---             newGetMessagingSessionEndpointResponse
---
---         , responsePutVoiceConnectorOrigination $
---             newPutVoiceConnectorOriginationResponse
---
---         , responseCreateAppInstanceUser $
---             newCreateAppInstanceUserResponse
---
---         , responseListAttendeeTags $
---             newListAttendeeTagsResponse
---
---         , responseListChannelsModeratedByAppInstanceUser $
---             newListChannelsModeratedByAppInstanceUserResponse
---
---         , responseRedactChannelMessage $
---             newRedactChannelMessageResponse
---
---         , responsePutRetentionSettings $
---             newPutRetentionSettingsResponse
---
---         , responseListUsers $
---             newListUsersResponse
---
---         , responseDeleteVoiceConnectorStreamingConfiguration $
---             newDeleteVoiceConnectorStreamingConfigurationResponse
---
---         , responseAssociatePhoneNumbersWithVoiceConnectorGroup $
---             newAssociatePhoneNumbersWithVoiceConnectorGroupResponse
---
---         , responsePutAppInstanceRetentionSettings $
---             newPutAppInstanceRetentionSettingsResponse
---
---         , responseGetVoiceConnectorLoggingConfiguration $
---             newGetVoiceConnectorLoggingConfigurationResponse
---
---         , responseListBots $
---             newListBotsResponse
---
---         , responseDeleteChannelMembership $
---             newDeleteChannelMembershipResponse
---
---         , responsePutVoiceConnectorStreamingConfiguration $
---             newPutVoiceConnectorStreamingConfigurationResponse
---
---         , responseListChannelMemberships $
---             newListChannelMembershipsResponse
---
---         , responseGetGlobalSettings $
---             newGetGlobalSettingsResponse
---
---         , responseDeleteMeeting $
---             newDeleteMeetingResponse
---
---         , responseListMeetings $
---             newListMeetingsResponse
---
---         , responseGetAttendee $
---             newGetAttendeeResponse
---
---         , responseDeleteAccount $
---             newDeleteAccountResponse
---
---         , responseUpdateAccount $
---             newUpdateAccountResponse
---
---         , responseListAccounts $
---             newListAccountsResponse
---
---         , responseUpdateBot $
---             newUpdateBotResponse
---
---         , responseListPhoneNumberOrders $
---             newListPhoneNumberOrdersResponse
---
---         , responseSearchAvailablePhoneNumbers $
---             newSearchAvailablePhoneNumbersResponse
---
---         , responseCreateAppInstanceAdmin $
---             newCreateAppInstanceAdminResponse
---
---         , responseTagMeeting $
---             newTagMeetingResponse
---
---         , responseListVoiceConnectorGroups $
---             newListVoiceConnectorGroupsResponse
---
---         , responseLogoutUser $
---             newLogoutUserResponse
---
---         , responseListVoiceConnectorTerminationCredentials $
---             newListVoiceConnectorTerminationCredentialsResponse
---
---         , responseCreateMediaCapturePipeline $
---             newCreateMediaCapturePipelineResponse
---
---         , responseCreateProxySession $
---             newCreateProxySessionResponse
---
---         , responseDeleteEventsConfiguration $
---             newDeleteEventsConfigurationResponse
---
---         , responsePutEventsConfiguration $
---             newPutEventsConfigurationResponse
---
---         , responseGetChannelMessage $
---             newGetChannelMessageResponse
---
---         , responseUpdateRoom $
---             newUpdateRoomResponse
---
---         , responseDeleteRoom $
---             newDeleteRoomResponse
---
---         , responsePutSipMediaApplicationLoggingConfiguration $
---             newPutSipMediaApplicationLoggingConfigurationResponse
---
---         , responseDescribeChannelMembershipForAppInstanceUser $
---             newDescribeChannelMembershipForAppInstanceUserResponse
---
---         , responseListAppInstanceAdmins $
---             newListAppInstanceAdminsResponse
---
---         , responseDeletePhoneNumber $
---             newDeletePhoneNumberResponse
---
---         , responseUpdatePhoneNumber $
---             newUpdatePhoneNumberResponse
---
---         , responseListPhoneNumbers $
---             newListPhoneNumbersResponse
---
---         , responseCreateChannelModerator $
---             newCreateChannelModeratorResponse
---
---         , responseGetAppInstanceStreamingConfigurations $
---             newGetAppInstanceStreamingConfigurationsResponse
---
---         , responseListAppInstances $
---             newListAppInstancesResponse
---
---         , responseDescribeChannelModeratedByAppInstanceUser $
---             newDescribeChannelModeratedByAppInstanceUserResponse
---
---         , responseGetPhoneNumber $
---             newGetPhoneNumberResponse
---
---         , responseGetEventsConfiguration $
---             newGetEventsConfigurationResponse
---
---         , responseGetSipMediaApplicationLoggingConfiguration $
---             newGetSipMediaApplicationLoggingConfigurationResponse
---
---         , responseBatchUpdateUser $
---             newBatchUpdateUserResponse
---
---         , responseSendChannelMessage $
---             newSendChannelMessageResponse
---
---         , responseTagAttendee $
---             newTagAttendeeResponse
---
---         , responseUpdateVoiceConnector $
---             newUpdateVoiceConnectorResponse
---
---         , responseDeleteVoiceConnector $
---             newDeleteVoiceConnectorResponse
---
---         , responseGetMediaCapturePipeline $
---             newGetMediaCapturePipelineResponse
---
---         , responseUpdateRoomMembership $
---             newUpdateRoomMembershipResponse
---
---         , responseGetProxySession $
---             newGetProxySessionResponse
---
---         , responseDeleteRoomMembership $
---             newDeleteRoomMembershipResponse
---
---         , responseDescribeAppInstanceUser $
---             newDescribeAppInstanceUserResponse
---
---         , responseBatchUnsuspendUser $
---             newBatchUnsuspendUserResponse
---
---         , responseDeleteChannelBan $
---             newDeleteChannelBanResponse
---
---         , responseGetMeeting $
---             newGetMeetingResponse
---
---         , responseRestorePhoneNumber $
---             newRestorePhoneNumberResponse
---
---         , responseGetRetentionSettings $
---             newGetRetentionSettingsResponse
---
---         , responseGetBot $
---             newGetBotResponse
---
---         , responseGetUser $
---             newGetUserResponse
---
---         , responseUntagAttendee $
---             newUntagAttendeeResponse
---
---         , responseStartMeetingTranscription $
---             newStartMeetingTranscriptionResponse
---
---         , responseListChannelBans $
---             newListChannelBansResponse
---
---         , responseCreateChannel $
---             newCreateChannelResponse
---
---         , responseBatchSuspendUser $
---             newBatchSuspendUserResponse
---
---         , responseGetAccount $
---             newGetAccountResponse
---
---         , responseDescribeChannelModerator $
---             newDescribeChannelModeratorResponse
+--         [ responseAssociatePhoneNumberWithUser $
+--             newAssociatePhoneNumberWithUserResponse
 --
 --         , responseAssociatePhoneNumbersWithVoiceConnector $
 --             newAssociatePhoneNumbersWithVoiceConnectorResponse
 --
---         , responseGetPhoneNumberOrder $
---             newGetPhoneNumberOrderResponse
---
---         , responseGetSipRule $
---             newGetSipRuleResponse
---
---         , responseGetUserSettings $
---             newGetUserSettingsResponse
---
---         , responseGetSipMediaApplication $
---             newGetSipMediaApplicationResponse
---
---         , responseGetAccountSettings $
---             newGetAccountSettingsResponse
---
---         , responseCreateChannelBan $
---             newCreateChannelBanResponse
---
---         , responseListMeetingTags $
---             newListMeetingTagsResponse
---
---         , responseListChannelMembershipsForAppInstanceUser $
---             newListChannelMembershipsForAppInstanceUserResponse
---
---         , responseGetVoiceConnectorOrigination $
---             newGetVoiceConnectorOriginationResponse
---
---         , responseBatchUpdatePhoneNumber $
---             newBatchUpdatePhoneNumberResponse
---
---         , responseDisassociatePhoneNumbersFromVoiceConnectorGroup $
---             newDisassociatePhoneNumbersFromVoiceConnectorGroupResponse
---
---         , responseUpdateChannelReadMarker $
---             newUpdateChannelReadMarkerResponse
---
---         , responseCreateSipMediaApplicationCall $
---             newCreateSipMediaApplicationCallResponse
---
---         , responseBatchDeletePhoneNumber $
---             newBatchDeletePhoneNumberResponse
---
---         , responseListSipMediaApplications $
---             newListSipMediaApplicationsResponse
---
---         , responseCreateMeeting $
---             newCreateMeetingResponse
---
---         , responseCreatePhoneNumberOrder $
---             newCreatePhoneNumberOrderResponse
---
---         , responseListSipRules $
---             newListSipRulesResponse
---
---         , responseCreateBot $
---             newCreateBotResponse
---
---         , responseUpdateUserSettings $
---             newUpdateUserSettingsResponse
---
---         , responseCreateUser $
---             newCreateUserResponse
---
---         , responseBatchCreateRoomMembership $
---             newBatchCreateRoomMembershipResponse
---
---         , responseDescribeAppInstance $
---             newDescribeAppInstanceResponse
---
---         , responseCreateAccount $
---             newCreateAccountResponse
---
---         , responseCreateChannelMembership $
---             newCreateChannelMembershipResponse
---
---         , responseDeleteVoiceConnectorTermination $
---             newDeleteVoiceConnectorTerminationResponse
---
---         , responseAssociatePhoneNumberWithUser $
---             newAssociatePhoneNumberWithUserResponse
---
---         , responseDeleteVoiceConnectorProxy $
---             newDeleteVoiceConnectorProxyResponse
---
---         , responseCreateSipMediaApplication $
---             newCreateSipMediaApplicationResponse
---
---         , responsePutVoiceConnectorProxy $
---             newPutVoiceConnectorProxyResponse
---
---         , responseUpdateUser $
---             newUpdateUserResponse
---
---         , responsePutVoiceConnectorTermination $
---             newPutVoiceConnectorTerminationResponse
---
---         , responseGetVoiceConnectorEmergencyCallingConfiguration $
---             newGetVoiceConnectorEmergencyCallingConfigurationResponse
---
---         , responsePutVoiceConnectorTerminationCredentials $
---             newPutVoiceConnectorTerminationCredentialsResponse
---
---         , responseListAppInstanceUsers $
---             newListAppInstanceUsersResponse
+--         , responseAssociatePhoneNumbersWithVoiceConnectorGroup $
+--             newAssociatePhoneNumbersWithVoiceConnectorGroupResponse
 --
 --         , responseAssociateSigninDelegateGroupsWithAccount $
 --             newAssociateSigninDelegateGroupsWithAccountResponse
 --
---         , responseCreateSipRule $
---             newCreateSipRuleResponse
+--         , responseBatchCreateAttendee $
+--             newBatchCreateAttendeeResponse
 --
---         , responseDeleteVoiceConnectorTerminationCredentials $
---             newDeleteVoiceConnectorTerminationCredentialsResponse
+--         , responseBatchCreateChannelMembership $
+--             newBatchCreateChannelMembershipResponse
 --
---         , responseTagResource $
---             newTagResourceResponse
+--         , responseBatchCreateRoomMembership $
+--             newBatchCreateRoomMembershipResponse
 --
---         , responseDeleteAppInstanceUser $
---             newDeleteAppInstanceUserResponse
+--         , responseBatchDeletePhoneNumber $
+--             newBatchDeletePhoneNumberResponse
 --
---         , responseUpdateAppInstanceUser $
---             newUpdateAppInstanceUserResponse
+--         , responseBatchSuspendUser $
+--             newBatchSuspendUserResponse
 --
---         , responseUntagMeeting $
---             newUntagMeetingResponse
+--         , responseBatchUnsuspendUser $
+--             newBatchUnsuspendUserResponse
 --
---         , responseUpdateVoiceConnectorGroup $
---             newUpdateVoiceConnectorGroupResponse
+--         , responseBatchUpdatePhoneNumber $
+--             newBatchUpdatePhoneNumberResponse
 --
---         , responseRedactConversationMessage $
---             newRedactConversationMessageResponse
+--         , responseBatchUpdateUser $
+--             newBatchUpdateUserResponse
 --
---         , responseDeleteChannelModerator $
---             newDeleteChannelModeratorResponse
+--         , responseCreateAccount $
+--             newCreateAccountResponse
 --
---         , responseDeleteVoiceConnectorGroup $
---             newDeleteVoiceConnectorGroupResponse
+--         , responseCreateAppInstance $
+--             newCreateAppInstanceResponse
 --
---         , responseDescribeChannelBan $
---             newDescribeChannelBanResponse
+--         , responseCreateAppInstanceAdmin $
+--             newCreateAppInstanceAdminResponse
 --
---         , responseDeleteMediaCapturePipeline $
---             newDeleteMediaCapturePipelineResponse
+--         , responseCreateAppInstanceUser $
+--             newCreateAppInstanceUserResponse
 --
---         , responseUpdateProxySession $
---             newUpdateProxySessionResponse
+--         , responseCreateAttendee $
+--             newCreateAttendeeResponse
 --
---         , responseDeleteProxySession $
---             newDeleteProxySessionResponse
+--         , responseCreateBot $
+--             newCreateBotResponse
 --
---         , responseGetVoiceConnectorTerminationHealth $
---             newGetVoiceConnectorTerminationHealthResponse
+--         , responseCreateChannel $
+--             newCreateChannelResponse
+--
+--         , responseCreateChannelBan $
+--             newCreateChannelBanResponse
+--
+--         , responseCreateChannelMembership $
+--             newCreateChannelMembershipResponse
+--
+--         , responseCreateChannelModerator $
+--             newCreateChannelModeratorResponse
+--
+--         , responseCreateMediaCapturePipeline $
+--             newCreateMediaCapturePipelineResponse
+--
+--         , responseCreateMeeting $
+--             newCreateMeetingResponse
 --
 --         , responseCreateMeetingDialOut $
 --             newCreateMeetingDialOutResponse
 --
---         , responseUntagResource $
---             newUntagResourceResponse
+--         , responseCreateMeetingWithAttendees $
+--             newCreateMeetingWithAttendeesResponse
 --
---         , responseListProxySessions $
---             newListProxySessionsResponse
+--         , responseCreatePhoneNumberOrder $
+--             newCreatePhoneNumberOrderResponse
 --
---         , responseListMediaCapturePipelines $
---             newListMediaCapturePipelinesResponse
---
---         , responseUpdatePhoneNumberSettings $
---             newUpdatePhoneNumberSettingsResponse
---
---         , responseInviteUsers $
---             newInviteUsersResponse
+--         , responseCreateProxySession $
+--             newCreateProxySessionResponse
 --
 --         , responseCreateRoom $
 --             newCreateRoomResponse
 --
---         , responseListChannelModerators $
---             newListChannelModeratorsResponse
+--         , responseCreateRoomMembership $
+--             newCreateRoomMembershipResponse
 --
---         , responseGetVoiceConnector $
---             newGetVoiceConnectorResponse
+--         , responseCreateSipMediaApplication $
+--             newCreateSipMediaApplicationResponse
 --
---         , responseDescribeChannel $
---             newDescribeChannelResponse
+--         , responseCreateSipMediaApplicationCall $
+--             newCreateSipMediaApplicationCallResponse
 --
---         , responseCreateVoiceConnectorGroup $
---             newCreateVoiceConnectorGroupResponse
+--         , responseCreateSipRule $
+--             newCreateSipRuleResponse
 --
---         , responseDeleteAppInstanceStreamingConfigurations $
---             newDeleteAppInstanceStreamingConfigurationsResponse
---
---         , responseListRooms $
---             newListRoomsResponse
---
---         , responseBatchCreateAttendee $
---             newBatchCreateAttendeeResponse
---
---         , responseDeleteAppInstanceAdmin $
---             newDeleteAppInstanceAdminResponse
---
---         , responsePutAppInstanceStreamingConfigurations $
---             newPutAppInstanceStreamingConfigurationsResponse
---
---         , responseRegenerateSecurityToken $
---             newRegenerateSecurityTokenResponse
---
---         , responseDeleteChannelMessage $
---             newDeleteChannelMessageResponse
---
---         , responseUpdateChannelMessage $
---             newUpdateChannelMessageResponse
---
---         , responseDeleteAppInstance $
---             newDeleteAppInstanceResponse
---
---         , responseUpdateAppInstance $
---             newUpdateAppInstanceResponse
+--         , responseCreateUser $
+--             newCreateUserResponse
 --
 --         , responseCreateVoiceConnector $
 --             newCreateVoiceConnectorResponse
 --
---         , responseListChannelMessages $
---             newListChannelMessagesResponse
+--         , responseCreateVoiceConnectorGroup $
+--             newCreateVoiceConnectorGroupResponse
 --
---         , responseRedactRoomMessage $
---             newRedactRoomMessageResponse
+--         , responseDeleteAccount $
+--             newDeleteAccountResponse
+--
+--         , responseDeleteAppInstance $
+--             newDeleteAppInstanceResponse
+--
+--         , responseDeleteAppInstanceAdmin $
+--             newDeleteAppInstanceAdminResponse
+--
+--         , responseDeleteAppInstanceStreamingConfigurations $
+--             newDeleteAppInstanceStreamingConfigurationsResponse
+--
+--         , responseDeleteAppInstanceUser $
+--             newDeleteAppInstanceUserResponse
+--
+--         , responseDeleteAttendee $
+--             newDeleteAttendeeResponse
+--
+--         , responseDeleteChannel $
+--             newDeleteChannelResponse
+--
+--         , responseDeleteChannelBan $
+--             newDeleteChannelBanResponse
+--
+--         , responseDeleteChannelMembership $
+--             newDeleteChannelMembershipResponse
+--
+--         , responseDeleteChannelMessage $
+--             newDeleteChannelMessageResponse
+--
+--         , responseDeleteChannelModerator $
+--             newDeleteChannelModeratorResponse
+--
+--         , responseDeleteEventsConfiguration $
+--             newDeleteEventsConfigurationResponse
+--
+--         , responseDeleteMediaCapturePipeline $
+--             newDeleteMediaCapturePipelineResponse
+--
+--         , responseDeleteMeeting $
+--             newDeleteMeetingResponse
+--
+--         , responseDeletePhoneNumber $
+--             newDeletePhoneNumberResponse
+--
+--         , responseDeleteProxySession $
+--             newDeleteProxySessionResponse
+--
+--         , responseDeleteRoom $
+--             newDeleteRoomResponse
+--
+--         , responseDeleteRoomMembership $
+--             newDeleteRoomMembershipResponse
+--
+--         , responseDeleteSipMediaApplication $
+--             newDeleteSipMediaApplicationResponse
+--
+--         , responseDeleteSipRule $
+--             newDeleteSipRuleResponse
+--
+--         , responseDeleteVoiceConnector $
+--             newDeleteVoiceConnectorResponse
+--
+--         , responseDeleteVoiceConnectorEmergencyCallingConfiguration $
+--             newDeleteVoiceConnectorEmergencyCallingConfigurationResponse
+--
+--         , responseDeleteVoiceConnectorGroup $
+--             newDeleteVoiceConnectorGroupResponse
+--
+--         , responseDeleteVoiceConnectorOrigination $
+--             newDeleteVoiceConnectorOriginationResponse
+--
+--         , responseDeleteVoiceConnectorProxy $
+--             newDeleteVoiceConnectorProxyResponse
+--
+--         , responseDeleteVoiceConnectorStreamingConfiguration $
+--             newDeleteVoiceConnectorStreamingConfigurationResponse
+--
+--         , responseDeleteVoiceConnectorTermination $
+--             newDeleteVoiceConnectorTerminationResponse
+--
+--         , responseDeleteVoiceConnectorTerminationCredentials $
+--             newDeleteVoiceConnectorTerminationCredentialsResponse
+--
+--         , responseDescribeAppInstance $
+--             newDescribeAppInstanceResponse
+--
+--         , responseDescribeAppInstanceAdmin $
+--             newDescribeAppInstanceAdminResponse
+--
+--         , responseDescribeAppInstanceUser $
+--             newDescribeAppInstanceUserResponse
+--
+--         , responseDescribeChannel $
+--             newDescribeChannelResponse
+--
+--         , responseDescribeChannelBan $
+--             newDescribeChannelBanResponse
+--
+--         , responseDescribeChannelMembership $
+--             newDescribeChannelMembershipResponse
+--
+--         , responseDescribeChannelMembershipForAppInstanceUser $
+--             newDescribeChannelMembershipForAppInstanceUserResponse
+--
+--         , responseDescribeChannelModeratedByAppInstanceUser $
+--             newDescribeChannelModeratedByAppInstanceUserResponse
+--
+--         , responseDescribeChannelModerator $
+--             newDescribeChannelModeratorResponse
+--
+--         , responseDisassociatePhoneNumberFromUser $
+--             newDisassociatePhoneNumberFromUserResponse
+--
+--         , responseDisassociatePhoneNumbersFromVoiceConnector $
+--             newDisassociatePhoneNumbersFromVoiceConnectorResponse
+--
+--         , responseDisassociatePhoneNumbersFromVoiceConnectorGroup $
+--             newDisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+--
+--         , responseDisassociateSigninDelegateGroupsFromAccount $
+--             newDisassociateSigninDelegateGroupsFromAccountResponse
+--
+--         , responseGetAccount $
+--             newGetAccountResponse
+--
+--         , responseGetAccountSettings $
+--             newGetAccountSettingsResponse
+--
+--         , responseGetAppInstanceRetentionSettings $
+--             newGetAppInstanceRetentionSettingsResponse
+--
+--         , responseGetAppInstanceStreamingConfigurations $
+--             newGetAppInstanceStreamingConfigurationsResponse
+--
+--         , responseGetAttendee $
+--             newGetAttendeeResponse
+--
+--         , responseGetBot $
+--             newGetBotResponse
+--
+--         , responseGetChannelMessage $
+--             newGetChannelMessageResponse
+--
+--         , responseGetEventsConfiguration $
+--             newGetEventsConfigurationResponse
+--
+--         , responseGetGlobalSettings $
+--             newGetGlobalSettingsResponse
+--
+--         , responseGetMediaCapturePipeline $
+--             newGetMediaCapturePipelineResponse
+--
+--         , responseGetMeeting $
+--             newGetMeetingResponse
+--
+--         , responseGetMessagingSessionEndpoint $
+--             newGetMessagingSessionEndpointResponse
+--
+--         , responseGetPhoneNumber $
+--             newGetPhoneNumberResponse
+--
+--         , responseGetPhoneNumberOrder $
+--             newGetPhoneNumberOrderResponse
+--
+--         , responseGetPhoneNumberSettings $
+--             newGetPhoneNumberSettingsResponse
+--
+--         , responseGetProxySession $
+--             newGetProxySessionResponse
+--
+--         , responseGetRetentionSettings $
+--             newGetRetentionSettingsResponse
 --
 --         , responseGetRoom $
 --             newGetRoomResponse
 --
---         , responseCreateRoomMembership $
---             newCreateRoomMembershipResponse
+--         , responseGetSipMediaApplication $
+--             newGetSipMediaApplicationResponse
 --
---         , responseBatchCreateChannelMembership $
---             newBatchCreateChannelMembershipResponse
+--         , responseGetSipMediaApplicationLoggingConfiguration $
+--             newGetSipMediaApplicationLoggingConfigurationResponse
+--
+--         , responseGetSipRule $
+--             newGetSipRuleResponse
+--
+--         , responseGetUser $
+--             newGetUserResponse
+--
+--         , responseGetUserSettings $
+--             newGetUserSettingsResponse
+--
+--         , responseGetVoiceConnector $
+--             newGetVoiceConnectorResponse
+--
+--         , responseGetVoiceConnectorEmergencyCallingConfiguration $
+--             newGetVoiceConnectorEmergencyCallingConfigurationResponse
+--
+--         , responseGetVoiceConnectorGroup $
+--             newGetVoiceConnectorGroupResponse
+--
+--         , responseGetVoiceConnectorLoggingConfiguration $
+--             newGetVoiceConnectorLoggingConfigurationResponse
+--
+--         , responseGetVoiceConnectorOrigination $
+--             newGetVoiceConnectorOriginationResponse
+--
+--         , responseGetVoiceConnectorProxy $
+--             newGetVoiceConnectorProxyResponse
+--
+--         , responseGetVoiceConnectorStreamingConfiguration $
+--             newGetVoiceConnectorStreamingConfigurationResponse
+--
+--         , responseGetVoiceConnectorTermination $
+--             newGetVoiceConnectorTerminationResponse
+--
+--         , responseGetVoiceConnectorTerminationHealth $
+--             newGetVoiceConnectorTerminationHealthResponse
+--
+--         , responseInviteUsers $
+--             newInviteUsersResponse
+--
+--         , responseListAccounts $
+--             newListAccountsResponse
+--
+--         , responseListAppInstanceAdmins $
+--             newListAppInstanceAdminsResponse
+--
+--         , responseListAppInstanceUsers $
+--             newListAppInstanceUsersResponse
+--
+--         , responseListAppInstances $
+--             newListAppInstancesResponse
+--
+--         , responseListAttendeeTags $
+--             newListAttendeeTagsResponse
+--
+--         , responseListAttendees $
+--             newListAttendeesResponse
+--
+--         , responseListBots $
+--             newListBotsResponse
+--
+--         , responseListChannelBans $
+--             newListChannelBansResponse
+--
+--         , responseListChannelMemberships $
+--             newListChannelMembershipsResponse
+--
+--         , responseListChannelMembershipsForAppInstanceUser $
+--             newListChannelMembershipsForAppInstanceUserResponse
+--
+--         , responseListChannelMessages $
+--             newListChannelMessagesResponse
+--
+--         , responseListChannelModerators $
+--             newListChannelModeratorsResponse
+--
+--         , responseListChannels $
+--             newListChannelsResponse
+--
+--         , responseListChannelsModeratedByAppInstanceUser $
+--             newListChannelsModeratedByAppInstanceUserResponse
+--
+--         , responseListMediaCapturePipelines $
+--             newListMediaCapturePipelinesResponse
+--
+--         , responseListMeetingTags $
+--             newListMeetingTagsResponse
+--
+--         , responseListMeetings $
+--             newListMeetingsResponse
+--
+--         , responseListPhoneNumberOrders $
+--             newListPhoneNumberOrdersResponse
+--
+--         , responseListPhoneNumbers $
+--             newListPhoneNumbersResponse
+--
+--         , responseListProxySessions $
+--             newListProxySessionsResponse
+--
+--         , responseListRoomMemberships $
+--             newListRoomMembershipsResponse
+--
+--         , responseListRooms $
+--             newListRoomsResponse
+--
+--         , responseListSipMediaApplications $
+--             newListSipMediaApplicationsResponse
+--
+--         , responseListSipRules $
+--             newListSipRulesResponse
+--
+--         , responseListSupportedPhoneNumberCountries $
+--             newListSupportedPhoneNumberCountriesResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseListUsers $
+--             newListUsersResponse
+--
+--         , responseListVoiceConnectorGroups $
+--             newListVoiceConnectorGroupsResponse
+--
+--         , responseListVoiceConnectorTerminationCredentials $
+--             newListVoiceConnectorTerminationCredentialsResponse
+--
+--         , responseListVoiceConnectors $
+--             newListVoiceConnectorsResponse
+--
+--         , responseLogoutUser $
+--             newLogoutUserResponse
+--
+--         , responsePutAppInstanceRetentionSettings $
+--             newPutAppInstanceRetentionSettingsResponse
+--
+--         , responsePutAppInstanceStreamingConfigurations $
+--             newPutAppInstanceStreamingConfigurationsResponse
+--
+--         , responsePutEventsConfiguration $
+--             newPutEventsConfigurationResponse
+--
+--         , responsePutRetentionSettings $
+--             newPutRetentionSettingsResponse
+--
+--         , responsePutSipMediaApplicationLoggingConfiguration $
+--             newPutSipMediaApplicationLoggingConfigurationResponse
+--
+--         , responsePutVoiceConnectorEmergencyCallingConfiguration $
+--             newPutVoiceConnectorEmergencyCallingConfigurationResponse
+--
+--         , responsePutVoiceConnectorLoggingConfiguration $
+--             newPutVoiceConnectorLoggingConfigurationResponse
+--
+--         , responsePutVoiceConnectorOrigination $
+--             newPutVoiceConnectorOriginationResponse
+--
+--         , responsePutVoiceConnectorProxy $
+--             newPutVoiceConnectorProxyResponse
+--
+--         , responsePutVoiceConnectorStreamingConfiguration $
+--             newPutVoiceConnectorStreamingConfigurationResponse
+--
+--         , responsePutVoiceConnectorTermination $
+--             newPutVoiceConnectorTerminationResponse
+--
+--         , responsePutVoiceConnectorTerminationCredentials $
+--             newPutVoiceConnectorTerminationCredentialsResponse
+--
+--         , responseRedactChannelMessage $
+--             newRedactChannelMessageResponse
+--
+--         , responseRedactConversationMessage $
+--             newRedactConversationMessageResponse
+--
+--         , responseRedactRoomMessage $
+--             newRedactRoomMessageResponse
+--
+--         , responseRegenerateSecurityToken $
+--             newRegenerateSecurityTokenResponse
+--
+--         , responseResetPersonalPIN $
+--             newResetPersonalPINResponse
+--
+--         , responseRestorePhoneNumber $
+--             newRestorePhoneNumberResponse
+--
+--         , responseSearchAvailablePhoneNumbers $
+--             newSearchAvailablePhoneNumbersResponse
+--
+--         , responseSendChannelMessage $
+--             newSendChannelMessageResponse
+--
+--         , responseStartMeetingTranscription $
+--             newStartMeetingTranscriptionResponse
+--
+--         , responseStopMeetingTranscription $
+--             newStopMeetingTranscriptionResponse
+--
+--         , responseTagAttendee $
+--             newTagAttendeeResponse
+--
+--         , responseTagMeeting $
+--             newTagMeetingResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagAttendee $
+--             newUntagAttendeeResponse
+--
+--         , responseUntagMeeting $
+--             newUntagMeetingResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseUpdateAccount $
+--             newUpdateAccountResponse
+--
+--         , responseUpdateAccountSettings $
+--             newUpdateAccountSettingsResponse
+--
+--         , responseUpdateAppInstance $
+--             newUpdateAppInstanceResponse
+--
+--         , responseUpdateAppInstanceUser $
+--             newUpdateAppInstanceUserResponse
+--
+--         , responseUpdateBot $
+--             newUpdateBotResponse
+--
+--         , responseUpdateChannel $
+--             newUpdateChannelResponse
+--
+--         , responseUpdateChannelMessage $
+--             newUpdateChannelMessageResponse
+--
+--         , responseUpdateChannelReadMarker $
+--             newUpdateChannelReadMarkerResponse
+--
+--         , responseUpdateGlobalSettings $
+--             newUpdateGlobalSettingsResponse
+--
+--         , responseUpdatePhoneNumber $
+--             newUpdatePhoneNumberResponse
+--
+--         , responseUpdatePhoneNumberSettings $
+--             newUpdatePhoneNumberSettingsResponse
+--
+--         , responseUpdateProxySession $
+--             newUpdateProxySessionResponse
+--
+--         , responseUpdateRoom $
+--             newUpdateRoomResponse
+--
+--         , responseUpdateRoomMembership $
+--             newUpdateRoomMembershipResponse
+--
+--         , responseUpdateSipMediaApplication $
+--             newUpdateSipMediaApplicationResponse
+--
+--         , responseUpdateSipMediaApplicationCall $
+--             newUpdateSipMediaApplicationCallResponse
+--
+--         , responseUpdateSipRule $
+--             newUpdateSipRuleResponse
+--
+--         , responseUpdateUser $
+--             newUpdateUserResponse
+--
+--         , responseUpdateUserSettings $
+--             newUpdateUserSettingsResponse
+--
+--         , responseUpdateVoiceConnector $
+--             newUpdateVoiceConnectorResponse
+--
+--         , responseUpdateVoiceConnectorGroup $
+--             newUpdateVoiceConnectorGroupResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestDescribeChannelMembership :: DescribeChannelMembership -> TestTree
-requestDescribeChannelMembership =
-  req
-    "DescribeChannelMembership"
-    "fixture/DescribeChannelMembership.yaml"
-
-requestCreateAppInstance :: CreateAppInstance -> TestTree
-requestCreateAppInstance =
-  req
-    "CreateAppInstance"
-    "fixture/CreateAppInstance.yaml"
-
-requestGetVoiceConnectorGroup :: GetVoiceConnectorGroup -> TestTree
-requestGetVoiceConnectorGroup =
-  req
-    "GetVoiceConnectorGroup"
-    "fixture/GetVoiceConnectorGroup.yaml"
-
-requestListVoiceConnectors :: ListVoiceConnectors -> TestTree
-requestListVoiceConnectors =
-  req
-    "ListVoiceConnectors"
-    "fixture/ListVoiceConnectors.yaml"
-
-requestListRoomMemberships :: ListRoomMemberships -> TestTree
-requestListRoomMemberships =
-  req
-    "ListRoomMemberships"
-    "fixture/ListRoomMemberships.yaml"
-
-requestGetPhoneNumberSettings :: GetPhoneNumberSettings -> TestTree
-requestGetPhoneNumberSettings =
-  req
-    "GetPhoneNumberSettings"
-    "fixture/GetPhoneNumberSettings.yaml"
-
-requestUpdateGlobalSettings :: UpdateGlobalSettings -> TestTree
-requestUpdateGlobalSettings =
-  req
-    "UpdateGlobalSettings"
-    "fixture/UpdateGlobalSettings.yaml"
-
-requestListAttendees :: ListAttendees -> TestTree
-requestListAttendees =
-  req
-    "ListAttendees"
-    "fixture/ListAttendees.yaml"
-
-requestPutVoiceConnectorLoggingConfiguration :: PutVoiceConnectorLoggingConfiguration -> TestTree
-requestPutVoiceConnectorLoggingConfiguration =
-  req
-    "PutVoiceConnectorLoggingConfiguration"
-    "fixture/PutVoiceConnectorLoggingConfiguration.yaml"
-
-requestGetVoiceConnectorTermination :: GetVoiceConnectorTermination -> TestTree
-requestGetVoiceConnectorTermination =
-  req
-    "GetVoiceConnectorTermination"
-    "fixture/GetVoiceConnectorTermination.yaml"
-
-requestDeleteAttendee :: DeleteAttendee -> TestTree
-requestDeleteAttendee =
-  req
-    "DeleteAttendee"
-    "fixture/DeleteAttendee.yaml"
-
-requestGetVoiceConnectorProxy :: GetVoiceConnectorProxy -> TestTree
-requestGetVoiceConnectorProxy =
-  req
-    "GetVoiceConnectorProxy"
-    "fixture/GetVoiceConnectorProxy.yaml"
-
-requestDeleteVoiceConnectorEmergencyCallingConfiguration :: DeleteVoiceConnectorEmergencyCallingConfiguration -> TestTree
-requestDeleteVoiceConnectorEmergencyCallingConfiguration =
-  req
-    "DeleteVoiceConnectorEmergencyCallingConfiguration"
-    "fixture/DeleteVoiceConnectorEmergencyCallingConfiguration.yaml"
-
-requestGetVoiceConnectorStreamingConfiguration :: GetVoiceConnectorStreamingConfiguration -> TestTree
-requestGetVoiceConnectorStreamingConfiguration =
-  req
-    "GetVoiceConnectorStreamingConfiguration"
-    "fixture/GetVoiceConnectorStreamingConfiguration.yaml"
-
-requestUpdateSipMediaApplicationCall :: UpdateSipMediaApplicationCall -> TestTree
-requestUpdateSipMediaApplicationCall =
-  req
-    "UpdateSipMediaApplicationCall"
-    "fixture/UpdateSipMediaApplicationCall.yaml"
-
-requestStopMeetingTranscription :: StopMeetingTranscription -> TestTree
-requestStopMeetingTranscription =
-  req
-    "StopMeetingTranscription"
-    "fixture/StopMeetingTranscription.yaml"
-
-requestGetAppInstanceRetentionSettings :: GetAppInstanceRetentionSettings -> TestTree
-requestGetAppInstanceRetentionSettings =
-  req
-    "GetAppInstanceRetentionSettings"
-    "fixture/GetAppInstanceRetentionSettings.yaml"
-
-requestPutVoiceConnectorEmergencyCallingConfiguration :: PutVoiceConnectorEmergencyCallingConfiguration -> TestTree
-requestPutVoiceConnectorEmergencyCallingConfiguration =
-  req
-    "PutVoiceConnectorEmergencyCallingConfiguration"
-    "fixture/PutVoiceConnectorEmergencyCallingConfiguration.yaml"
-
-requestCreateMeetingWithAttendees :: CreateMeetingWithAttendees -> TestTree
-requestCreateMeetingWithAttendees =
-  req
-    "CreateMeetingWithAttendees"
-    "fixture/CreateMeetingWithAttendees.yaml"
-
-requestListChannels :: ListChannels -> TestTree
-requestListChannels =
-  req
-    "ListChannels"
-    "fixture/ListChannels.yaml"
-
-requestDisassociatePhoneNumberFromUser :: DisassociatePhoneNumberFromUser -> TestTree
-requestDisassociatePhoneNumberFromUser =
-  req
-    "DisassociatePhoneNumberFromUser"
-    "fixture/DisassociatePhoneNumberFromUser.yaml"
-
-requestDisassociateSigninDelegateGroupsFromAccount :: DisassociateSigninDelegateGroupsFromAccount -> TestTree
-requestDisassociateSigninDelegateGroupsFromAccount =
-  req
-    "DisassociateSigninDelegateGroupsFromAccount"
-    "fixture/DisassociateSigninDelegateGroupsFromAccount.yaml"
-
-requestResetPersonalPIN :: ResetPersonalPIN -> TestTree
-requestResetPersonalPIN =
-  req
-    "ResetPersonalPIN"
-    "fixture/ResetPersonalPIN.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestDeleteChannel :: DeleteChannel -> TestTree
-requestDeleteChannel =
-  req
-    "DeleteChannel"
-    "fixture/DeleteChannel.yaml"
-
-requestUpdateChannel :: UpdateChannel -> TestTree
-requestUpdateChannel =
-  req
-    "UpdateChannel"
-    "fixture/UpdateChannel.yaml"
-
-requestDescribeAppInstanceAdmin :: DescribeAppInstanceAdmin -> TestTree
-requestDescribeAppInstanceAdmin =
-  req
-    "DescribeAppInstanceAdmin"
-    "fixture/DescribeAppInstanceAdmin.yaml"
-
-requestCreateAttendee :: CreateAttendee -> TestTree
-requestCreateAttendee =
-  req
-    "CreateAttendee"
-    "fixture/CreateAttendee.yaml"
-
-requestListSupportedPhoneNumberCountries :: ListSupportedPhoneNumberCountries -> TestTree
-requestListSupportedPhoneNumberCountries =
-  req
-    "ListSupportedPhoneNumberCountries"
-    "fixture/ListSupportedPhoneNumberCountries.yaml"
-
-requestDeleteSipRule :: DeleteSipRule -> TestTree
-requestDeleteSipRule =
-  req
-    "DeleteSipRule"
-    "fixture/DeleteSipRule.yaml"
-
-requestUpdateSipRule :: UpdateSipRule -> TestTree
-requestUpdateSipRule =
-  req
-    "UpdateSipRule"
-    "fixture/UpdateSipRule.yaml"
-
-requestUpdateAccountSettings :: UpdateAccountSettings -> TestTree
-requestUpdateAccountSettings =
-  req
-    "UpdateAccountSettings"
-    "fixture/UpdateAccountSettings.yaml"
-
-requestDeleteVoiceConnectorOrigination :: DeleteVoiceConnectorOrigination -> TestTree
-requestDeleteVoiceConnectorOrigination =
-  req
-    "DeleteVoiceConnectorOrigination"
-    "fixture/DeleteVoiceConnectorOrigination.yaml"
-
-requestDeleteSipMediaApplication :: DeleteSipMediaApplication -> TestTree
-requestDeleteSipMediaApplication =
-  req
-    "DeleteSipMediaApplication"
-    "fixture/DeleteSipMediaApplication.yaml"
-
-requestUpdateSipMediaApplication :: UpdateSipMediaApplication -> TestTree
-requestUpdateSipMediaApplication =
-  req
-    "UpdateSipMediaApplication"
-    "fixture/UpdateSipMediaApplication.yaml"
-
-requestDisassociatePhoneNumbersFromVoiceConnector :: DisassociatePhoneNumbersFromVoiceConnector -> TestTree
-requestDisassociatePhoneNumbersFromVoiceConnector =
-  req
-    "DisassociatePhoneNumbersFromVoiceConnector"
-    "fixture/DisassociatePhoneNumbersFromVoiceConnector.yaml"
-
-requestGetMessagingSessionEndpoint :: GetMessagingSessionEndpoint -> TestTree
-requestGetMessagingSessionEndpoint =
-  req
-    "GetMessagingSessionEndpoint"
-    "fixture/GetMessagingSessionEndpoint.yaml"
-
-requestPutVoiceConnectorOrigination :: PutVoiceConnectorOrigination -> TestTree
-requestPutVoiceConnectorOrigination =
-  req
-    "PutVoiceConnectorOrigination"
-    "fixture/PutVoiceConnectorOrigination.yaml"
-
-requestCreateAppInstanceUser :: CreateAppInstanceUser -> TestTree
-requestCreateAppInstanceUser =
-  req
-    "CreateAppInstanceUser"
-    "fixture/CreateAppInstanceUser.yaml"
-
-requestListAttendeeTags :: ListAttendeeTags -> TestTree
-requestListAttendeeTags =
-  req
-    "ListAttendeeTags"
-    "fixture/ListAttendeeTags.yaml"
-
-requestListChannelsModeratedByAppInstanceUser :: ListChannelsModeratedByAppInstanceUser -> TestTree
-requestListChannelsModeratedByAppInstanceUser =
-  req
-    "ListChannelsModeratedByAppInstanceUser"
-    "fixture/ListChannelsModeratedByAppInstanceUser.yaml"
-
-requestRedactChannelMessage :: RedactChannelMessage -> TestTree
-requestRedactChannelMessage =
-  req
-    "RedactChannelMessage"
-    "fixture/RedactChannelMessage.yaml"
-
-requestPutRetentionSettings :: PutRetentionSettings -> TestTree
-requestPutRetentionSettings =
-  req
-    "PutRetentionSettings"
-    "fixture/PutRetentionSettings.yaml"
-
-requestListUsers :: ListUsers -> TestTree
-requestListUsers =
-  req
-    "ListUsers"
-    "fixture/ListUsers.yaml"
-
-requestDeleteVoiceConnectorStreamingConfiguration :: DeleteVoiceConnectorStreamingConfiguration -> TestTree
-requestDeleteVoiceConnectorStreamingConfiguration =
-  req
-    "DeleteVoiceConnectorStreamingConfiguration"
-    "fixture/DeleteVoiceConnectorStreamingConfiguration.yaml"
-
-requestAssociatePhoneNumbersWithVoiceConnectorGroup :: AssociatePhoneNumbersWithVoiceConnectorGroup -> TestTree
-requestAssociatePhoneNumbersWithVoiceConnectorGroup =
-  req
-    "AssociatePhoneNumbersWithVoiceConnectorGroup"
-    "fixture/AssociatePhoneNumbersWithVoiceConnectorGroup.yaml"
-
-requestPutAppInstanceRetentionSettings :: PutAppInstanceRetentionSettings -> TestTree
-requestPutAppInstanceRetentionSettings =
-  req
-    "PutAppInstanceRetentionSettings"
-    "fixture/PutAppInstanceRetentionSettings.yaml"
-
-requestGetVoiceConnectorLoggingConfiguration :: GetVoiceConnectorLoggingConfiguration -> TestTree
-requestGetVoiceConnectorLoggingConfiguration =
-  req
-    "GetVoiceConnectorLoggingConfiguration"
-    "fixture/GetVoiceConnectorLoggingConfiguration.yaml"
-
-requestListBots :: ListBots -> TestTree
-requestListBots =
-  req
-    "ListBots"
-    "fixture/ListBots.yaml"
-
-requestDeleteChannelMembership :: DeleteChannelMembership -> TestTree
-requestDeleteChannelMembership =
-  req
-    "DeleteChannelMembership"
-    "fixture/DeleteChannelMembership.yaml"
-
-requestPutVoiceConnectorStreamingConfiguration :: PutVoiceConnectorStreamingConfiguration -> TestTree
-requestPutVoiceConnectorStreamingConfiguration =
-  req
-    "PutVoiceConnectorStreamingConfiguration"
-    "fixture/PutVoiceConnectorStreamingConfiguration.yaml"
-
-requestListChannelMemberships :: ListChannelMemberships -> TestTree
-requestListChannelMemberships =
-  req
-    "ListChannelMemberships"
-    "fixture/ListChannelMemberships.yaml"
-
-requestGetGlobalSettings :: GetGlobalSettings -> TestTree
-requestGetGlobalSettings =
-  req
-    "GetGlobalSettings"
-    "fixture/GetGlobalSettings.yaml"
-
-requestDeleteMeeting :: DeleteMeeting -> TestTree
-requestDeleteMeeting =
-  req
-    "DeleteMeeting"
-    "fixture/DeleteMeeting.yaml"
-
-requestListMeetings :: ListMeetings -> TestTree
-requestListMeetings =
-  req
-    "ListMeetings"
-    "fixture/ListMeetings.yaml"
-
-requestGetAttendee :: GetAttendee -> TestTree
-requestGetAttendee =
-  req
-    "GetAttendee"
-    "fixture/GetAttendee.yaml"
-
-requestDeleteAccount :: DeleteAccount -> TestTree
-requestDeleteAccount =
-  req
-    "DeleteAccount"
-    "fixture/DeleteAccount.yaml"
-
-requestUpdateAccount :: UpdateAccount -> TestTree
-requestUpdateAccount =
-  req
-    "UpdateAccount"
-    "fixture/UpdateAccount.yaml"
-
-requestListAccounts :: ListAccounts -> TestTree
-requestListAccounts =
-  req
-    "ListAccounts"
-    "fixture/ListAccounts.yaml"
-
-requestUpdateBot :: UpdateBot -> TestTree
-requestUpdateBot =
-  req
-    "UpdateBot"
-    "fixture/UpdateBot.yaml"
-
-requestListPhoneNumberOrders :: ListPhoneNumberOrders -> TestTree
-requestListPhoneNumberOrders =
-  req
-    "ListPhoneNumberOrders"
-    "fixture/ListPhoneNumberOrders.yaml"
-
-requestSearchAvailablePhoneNumbers :: SearchAvailablePhoneNumbers -> TestTree
-requestSearchAvailablePhoneNumbers =
-  req
-    "SearchAvailablePhoneNumbers"
-    "fixture/SearchAvailablePhoneNumbers.yaml"
-
-requestCreateAppInstanceAdmin :: CreateAppInstanceAdmin -> TestTree
-requestCreateAppInstanceAdmin =
-  req
-    "CreateAppInstanceAdmin"
-    "fixture/CreateAppInstanceAdmin.yaml"
-
-requestTagMeeting :: TagMeeting -> TestTree
-requestTagMeeting =
-  req
-    "TagMeeting"
-    "fixture/TagMeeting.yaml"
-
-requestListVoiceConnectorGroups :: ListVoiceConnectorGroups -> TestTree
-requestListVoiceConnectorGroups =
-  req
-    "ListVoiceConnectorGroups"
-    "fixture/ListVoiceConnectorGroups.yaml"
-
-requestLogoutUser :: LogoutUser -> TestTree
-requestLogoutUser =
-  req
-    "LogoutUser"
-    "fixture/LogoutUser.yaml"
-
-requestListVoiceConnectorTerminationCredentials :: ListVoiceConnectorTerminationCredentials -> TestTree
-requestListVoiceConnectorTerminationCredentials =
-  req
-    "ListVoiceConnectorTerminationCredentials"
-    "fixture/ListVoiceConnectorTerminationCredentials.yaml"
-
-requestCreateMediaCapturePipeline :: CreateMediaCapturePipeline -> TestTree
-requestCreateMediaCapturePipeline =
-  req
-    "CreateMediaCapturePipeline"
-    "fixture/CreateMediaCapturePipeline.yaml"
-
-requestCreateProxySession :: CreateProxySession -> TestTree
-requestCreateProxySession =
-  req
-    "CreateProxySession"
-    "fixture/CreateProxySession.yaml"
-
-requestDeleteEventsConfiguration :: DeleteEventsConfiguration -> TestTree
-requestDeleteEventsConfiguration =
-  req
-    "DeleteEventsConfiguration"
-    "fixture/DeleteEventsConfiguration.yaml"
-
-requestPutEventsConfiguration :: PutEventsConfiguration -> TestTree
-requestPutEventsConfiguration =
-  req
-    "PutEventsConfiguration"
-    "fixture/PutEventsConfiguration.yaml"
-
-requestGetChannelMessage :: GetChannelMessage -> TestTree
-requestGetChannelMessage =
-  req
-    "GetChannelMessage"
-    "fixture/GetChannelMessage.yaml"
-
-requestUpdateRoom :: UpdateRoom -> TestTree
-requestUpdateRoom =
-  req
-    "UpdateRoom"
-    "fixture/UpdateRoom.yaml"
-
-requestDeleteRoom :: DeleteRoom -> TestTree
-requestDeleteRoom =
-  req
-    "DeleteRoom"
-    "fixture/DeleteRoom.yaml"
-
-requestPutSipMediaApplicationLoggingConfiguration :: PutSipMediaApplicationLoggingConfiguration -> TestTree
-requestPutSipMediaApplicationLoggingConfiguration =
-  req
-    "PutSipMediaApplicationLoggingConfiguration"
-    "fixture/PutSipMediaApplicationLoggingConfiguration.yaml"
-
-requestDescribeChannelMembershipForAppInstanceUser :: DescribeChannelMembershipForAppInstanceUser -> TestTree
-requestDescribeChannelMembershipForAppInstanceUser =
-  req
-    "DescribeChannelMembershipForAppInstanceUser"
-    "fixture/DescribeChannelMembershipForAppInstanceUser.yaml"
-
-requestListAppInstanceAdmins :: ListAppInstanceAdmins -> TestTree
-requestListAppInstanceAdmins =
-  req
-    "ListAppInstanceAdmins"
-    "fixture/ListAppInstanceAdmins.yaml"
-
-requestDeletePhoneNumber :: DeletePhoneNumber -> TestTree
-requestDeletePhoneNumber =
-  req
-    "DeletePhoneNumber"
-    "fixture/DeletePhoneNumber.yaml"
-
-requestUpdatePhoneNumber :: UpdatePhoneNumber -> TestTree
-requestUpdatePhoneNumber =
-  req
-    "UpdatePhoneNumber"
-    "fixture/UpdatePhoneNumber.yaml"
-
-requestListPhoneNumbers :: ListPhoneNumbers -> TestTree
-requestListPhoneNumbers =
-  req
-    "ListPhoneNumbers"
-    "fixture/ListPhoneNumbers.yaml"
-
-requestCreateChannelModerator :: CreateChannelModerator -> TestTree
-requestCreateChannelModerator =
-  req
-    "CreateChannelModerator"
-    "fixture/CreateChannelModerator.yaml"
-
-requestGetAppInstanceStreamingConfigurations :: GetAppInstanceStreamingConfigurations -> TestTree
-requestGetAppInstanceStreamingConfigurations =
-  req
-    "GetAppInstanceStreamingConfigurations"
-    "fixture/GetAppInstanceStreamingConfigurations.yaml"
-
-requestListAppInstances :: ListAppInstances -> TestTree
-requestListAppInstances =
-  req
-    "ListAppInstances"
-    "fixture/ListAppInstances.yaml"
-
-requestDescribeChannelModeratedByAppInstanceUser :: DescribeChannelModeratedByAppInstanceUser -> TestTree
-requestDescribeChannelModeratedByAppInstanceUser =
-  req
-    "DescribeChannelModeratedByAppInstanceUser"
-    "fixture/DescribeChannelModeratedByAppInstanceUser.yaml"
-
-requestGetPhoneNumber :: GetPhoneNumber -> TestTree
-requestGetPhoneNumber =
-  req
-    "GetPhoneNumber"
-    "fixture/GetPhoneNumber.yaml"
-
-requestGetEventsConfiguration :: GetEventsConfiguration -> TestTree
-requestGetEventsConfiguration =
-  req
-    "GetEventsConfiguration"
-    "fixture/GetEventsConfiguration.yaml"
-
-requestGetSipMediaApplicationLoggingConfiguration :: GetSipMediaApplicationLoggingConfiguration -> TestTree
-requestGetSipMediaApplicationLoggingConfiguration =
-  req
-    "GetSipMediaApplicationLoggingConfiguration"
-    "fixture/GetSipMediaApplicationLoggingConfiguration.yaml"
-
-requestBatchUpdateUser :: BatchUpdateUser -> TestTree
-requestBatchUpdateUser =
-  req
-    "BatchUpdateUser"
-    "fixture/BatchUpdateUser.yaml"
-
-requestSendChannelMessage :: SendChannelMessage -> TestTree
-requestSendChannelMessage =
-  req
-    "SendChannelMessage"
-    "fixture/SendChannelMessage.yaml"
-
-requestTagAttendee :: TagAttendee -> TestTree
-requestTagAttendee =
-  req
-    "TagAttendee"
-    "fixture/TagAttendee.yaml"
-
-requestUpdateVoiceConnector :: UpdateVoiceConnector -> TestTree
-requestUpdateVoiceConnector =
-  req
-    "UpdateVoiceConnector"
-    "fixture/UpdateVoiceConnector.yaml"
-
-requestDeleteVoiceConnector :: DeleteVoiceConnector -> TestTree
-requestDeleteVoiceConnector =
-  req
-    "DeleteVoiceConnector"
-    "fixture/DeleteVoiceConnector.yaml"
-
-requestGetMediaCapturePipeline :: GetMediaCapturePipeline -> TestTree
-requestGetMediaCapturePipeline =
-  req
-    "GetMediaCapturePipeline"
-    "fixture/GetMediaCapturePipeline.yaml"
-
-requestUpdateRoomMembership :: UpdateRoomMembership -> TestTree
-requestUpdateRoomMembership =
-  req
-    "UpdateRoomMembership"
-    "fixture/UpdateRoomMembership.yaml"
-
-requestGetProxySession :: GetProxySession -> TestTree
-requestGetProxySession =
-  req
-    "GetProxySession"
-    "fixture/GetProxySession.yaml"
-
-requestDeleteRoomMembership :: DeleteRoomMembership -> TestTree
-requestDeleteRoomMembership =
-  req
-    "DeleteRoomMembership"
-    "fixture/DeleteRoomMembership.yaml"
-
-requestDescribeAppInstanceUser :: DescribeAppInstanceUser -> TestTree
-requestDescribeAppInstanceUser =
-  req
-    "DescribeAppInstanceUser"
-    "fixture/DescribeAppInstanceUser.yaml"
-
-requestBatchUnsuspendUser :: BatchUnsuspendUser -> TestTree
-requestBatchUnsuspendUser =
-  req
-    "BatchUnsuspendUser"
-    "fixture/BatchUnsuspendUser.yaml"
-
-requestDeleteChannelBan :: DeleteChannelBan -> TestTree
-requestDeleteChannelBan =
-  req
-    "DeleteChannelBan"
-    "fixture/DeleteChannelBan.yaml"
-
-requestGetMeeting :: GetMeeting -> TestTree
-requestGetMeeting =
-  req
-    "GetMeeting"
-    "fixture/GetMeeting.yaml"
-
-requestRestorePhoneNumber :: RestorePhoneNumber -> TestTree
-requestRestorePhoneNumber =
-  req
-    "RestorePhoneNumber"
-    "fixture/RestorePhoneNumber.yaml"
-
-requestGetRetentionSettings :: GetRetentionSettings -> TestTree
-requestGetRetentionSettings =
-  req
-    "GetRetentionSettings"
-    "fixture/GetRetentionSettings.yaml"
-
-requestGetBot :: GetBot -> TestTree
-requestGetBot =
-  req
-    "GetBot"
-    "fixture/GetBot.yaml"
-
-requestGetUser :: GetUser -> TestTree
-requestGetUser =
-  req
-    "GetUser"
-    "fixture/GetUser.yaml"
-
-requestUntagAttendee :: UntagAttendee -> TestTree
-requestUntagAttendee =
-  req
-    "UntagAttendee"
-    "fixture/UntagAttendee.yaml"
-
-requestStartMeetingTranscription :: StartMeetingTranscription -> TestTree
-requestStartMeetingTranscription =
-  req
-    "StartMeetingTranscription"
-    "fixture/StartMeetingTranscription.yaml"
-
-requestListChannelBans :: ListChannelBans -> TestTree
-requestListChannelBans =
-  req
-    "ListChannelBans"
-    "fixture/ListChannelBans.yaml"
-
-requestCreateChannel :: CreateChannel -> TestTree
-requestCreateChannel =
-  req
-    "CreateChannel"
-    "fixture/CreateChannel.yaml"
-
-requestBatchSuspendUser :: BatchSuspendUser -> TestTree
-requestBatchSuspendUser =
-  req
-    "BatchSuspendUser"
-    "fixture/BatchSuspendUser.yaml"
-
-requestGetAccount :: GetAccount -> TestTree
-requestGetAccount =
-  req
-    "GetAccount"
-    "fixture/GetAccount.yaml"
-
-requestDescribeChannelModerator :: DescribeChannelModerator -> TestTree
-requestDescribeChannelModerator =
-  req
-    "DescribeChannelModerator"
-    "fixture/DescribeChannelModerator.yaml"
-
-requestAssociatePhoneNumbersWithVoiceConnector :: AssociatePhoneNumbersWithVoiceConnector -> TestTree
-requestAssociatePhoneNumbersWithVoiceConnector =
-  req
-    "AssociatePhoneNumbersWithVoiceConnector"
-    "fixture/AssociatePhoneNumbersWithVoiceConnector.yaml"
-
-requestGetPhoneNumberOrder :: GetPhoneNumberOrder -> TestTree
-requestGetPhoneNumberOrder =
-  req
-    "GetPhoneNumberOrder"
-    "fixture/GetPhoneNumberOrder.yaml"
-
-requestGetSipRule :: GetSipRule -> TestTree
-requestGetSipRule =
-  req
-    "GetSipRule"
-    "fixture/GetSipRule.yaml"
-
-requestGetUserSettings :: GetUserSettings -> TestTree
-requestGetUserSettings =
-  req
-    "GetUserSettings"
-    "fixture/GetUserSettings.yaml"
-
-requestGetSipMediaApplication :: GetSipMediaApplication -> TestTree
-requestGetSipMediaApplication =
-  req
-    "GetSipMediaApplication"
-    "fixture/GetSipMediaApplication.yaml"
-
-requestGetAccountSettings :: GetAccountSettings -> TestTree
-requestGetAccountSettings =
-  req
-    "GetAccountSettings"
-    "fixture/GetAccountSettings.yaml"
-
-requestCreateChannelBan :: CreateChannelBan -> TestTree
-requestCreateChannelBan =
-  req
-    "CreateChannelBan"
-    "fixture/CreateChannelBan.yaml"
-
-requestListMeetingTags :: ListMeetingTags -> TestTree
-requestListMeetingTags =
-  req
-    "ListMeetingTags"
-    "fixture/ListMeetingTags.yaml"
-
-requestListChannelMembershipsForAppInstanceUser :: ListChannelMembershipsForAppInstanceUser -> TestTree
-requestListChannelMembershipsForAppInstanceUser =
-  req
-    "ListChannelMembershipsForAppInstanceUser"
-    "fixture/ListChannelMembershipsForAppInstanceUser.yaml"
-
-requestGetVoiceConnectorOrigination :: GetVoiceConnectorOrigination -> TestTree
-requestGetVoiceConnectorOrigination =
-  req
-    "GetVoiceConnectorOrigination"
-    "fixture/GetVoiceConnectorOrigination.yaml"
-
-requestBatchUpdatePhoneNumber :: BatchUpdatePhoneNumber -> TestTree
-requestBatchUpdatePhoneNumber =
-  req
-    "BatchUpdatePhoneNumber"
-    "fixture/BatchUpdatePhoneNumber.yaml"
-
-requestDisassociatePhoneNumbersFromVoiceConnectorGroup :: DisassociatePhoneNumbersFromVoiceConnectorGroup -> TestTree
-requestDisassociatePhoneNumbersFromVoiceConnectorGroup =
-  req
-    "DisassociatePhoneNumbersFromVoiceConnectorGroup"
-    "fixture/DisassociatePhoneNumbersFromVoiceConnectorGroup.yaml"
-
-requestUpdateChannelReadMarker :: UpdateChannelReadMarker -> TestTree
-requestUpdateChannelReadMarker =
-  req
-    "UpdateChannelReadMarker"
-    "fixture/UpdateChannelReadMarker.yaml"
-
-requestCreateSipMediaApplicationCall :: CreateSipMediaApplicationCall -> TestTree
-requestCreateSipMediaApplicationCall =
-  req
-    "CreateSipMediaApplicationCall"
-    "fixture/CreateSipMediaApplicationCall.yaml"
-
-requestBatchDeletePhoneNumber :: BatchDeletePhoneNumber -> TestTree
-requestBatchDeletePhoneNumber =
-  req
-    "BatchDeletePhoneNumber"
-    "fixture/BatchDeletePhoneNumber.yaml"
-
-requestListSipMediaApplications :: ListSipMediaApplications -> TestTree
-requestListSipMediaApplications =
-  req
-    "ListSipMediaApplications"
-    "fixture/ListSipMediaApplications.yaml"
-
-requestCreateMeeting :: CreateMeeting -> TestTree
-requestCreateMeeting =
-  req
-    "CreateMeeting"
-    "fixture/CreateMeeting.yaml"
-
-requestCreatePhoneNumberOrder :: CreatePhoneNumberOrder -> TestTree
-requestCreatePhoneNumberOrder =
-  req
-    "CreatePhoneNumberOrder"
-    "fixture/CreatePhoneNumberOrder.yaml"
-
-requestListSipRules :: ListSipRules -> TestTree
-requestListSipRules =
-  req
-    "ListSipRules"
-    "fixture/ListSipRules.yaml"
-
-requestCreateBot :: CreateBot -> TestTree
-requestCreateBot =
-  req
-    "CreateBot"
-    "fixture/CreateBot.yaml"
-
-requestUpdateUserSettings :: UpdateUserSettings -> TestTree
-requestUpdateUserSettings =
-  req
-    "UpdateUserSettings"
-    "fixture/UpdateUserSettings.yaml"
-
-requestCreateUser :: CreateUser -> TestTree
-requestCreateUser =
-  req
-    "CreateUser"
-    "fixture/CreateUser.yaml"
-
-requestBatchCreateRoomMembership :: BatchCreateRoomMembership -> TestTree
-requestBatchCreateRoomMembership =
-  req
-    "BatchCreateRoomMembership"
-    "fixture/BatchCreateRoomMembership.yaml"
-
-requestDescribeAppInstance :: DescribeAppInstance -> TestTree
-requestDescribeAppInstance =
-  req
-    "DescribeAppInstance"
-    "fixture/DescribeAppInstance.yaml"
-
-requestCreateAccount :: CreateAccount -> TestTree
-requestCreateAccount =
-  req
-    "CreateAccount"
-    "fixture/CreateAccount.yaml"
-
-requestCreateChannelMembership :: CreateChannelMembership -> TestTree
-requestCreateChannelMembership =
-  req
-    "CreateChannelMembership"
-    "fixture/CreateChannelMembership.yaml"
-
-requestDeleteVoiceConnectorTermination :: DeleteVoiceConnectorTermination -> TestTree
-requestDeleteVoiceConnectorTermination =
-  req
-    "DeleteVoiceConnectorTermination"
-    "fixture/DeleteVoiceConnectorTermination.yaml"
 
 requestAssociatePhoneNumberWithUser :: AssociatePhoneNumberWithUser -> TestTree
 requestAssociatePhoneNumberWithUser =
@@ -2009,53 +1181,17 @@ requestAssociatePhoneNumberWithUser =
     "AssociatePhoneNumberWithUser"
     "fixture/AssociatePhoneNumberWithUser.yaml"
 
-requestDeleteVoiceConnectorProxy :: DeleteVoiceConnectorProxy -> TestTree
-requestDeleteVoiceConnectorProxy =
+requestAssociatePhoneNumbersWithVoiceConnector :: AssociatePhoneNumbersWithVoiceConnector -> TestTree
+requestAssociatePhoneNumbersWithVoiceConnector =
   req
-    "DeleteVoiceConnectorProxy"
-    "fixture/DeleteVoiceConnectorProxy.yaml"
+    "AssociatePhoneNumbersWithVoiceConnector"
+    "fixture/AssociatePhoneNumbersWithVoiceConnector.yaml"
 
-requestCreateSipMediaApplication :: CreateSipMediaApplication -> TestTree
-requestCreateSipMediaApplication =
+requestAssociatePhoneNumbersWithVoiceConnectorGroup :: AssociatePhoneNumbersWithVoiceConnectorGroup -> TestTree
+requestAssociatePhoneNumbersWithVoiceConnectorGroup =
   req
-    "CreateSipMediaApplication"
-    "fixture/CreateSipMediaApplication.yaml"
-
-requestPutVoiceConnectorProxy :: PutVoiceConnectorProxy -> TestTree
-requestPutVoiceConnectorProxy =
-  req
-    "PutVoiceConnectorProxy"
-    "fixture/PutVoiceConnectorProxy.yaml"
-
-requestUpdateUser :: UpdateUser -> TestTree
-requestUpdateUser =
-  req
-    "UpdateUser"
-    "fixture/UpdateUser.yaml"
-
-requestPutVoiceConnectorTermination :: PutVoiceConnectorTermination -> TestTree
-requestPutVoiceConnectorTermination =
-  req
-    "PutVoiceConnectorTermination"
-    "fixture/PutVoiceConnectorTermination.yaml"
-
-requestGetVoiceConnectorEmergencyCallingConfiguration :: GetVoiceConnectorEmergencyCallingConfiguration -> TestTree
-requestGetVoiceConnectorEmergencyCallingConfiguration =
-  req
-    "GetVoiceConnectorEmergencyCallingConfiguration"
-    "fixture/GetVoiceConnectorEmergencyCallingConfiguration.yaml"
-
-requestPutVoiceConnectorTerminationCredentials :: PutVoiceConnectorTerminationCredentials -> TestTree
-requestPutVoiceConnectorTerminationCredentials =
-  req
-    "PutVoiceConnectorTerminationCredentials"
-    "fixture/PutVoiceConnectorTerminationCredentials.yaml"
-
-requestListAppInstanceUsers :: ListAppInstanceUsers -> TestTree
-requestListAppInstanceUsers =
-  req
-    "ListAppInstanceUsers"
-    "fixture/ListAppInstanceUsers.yaml"
+    "AssociatePhoneNumbersWithVoiceConnectorGroup"
+    "fixture/AssociatePhoneNumbersWithVoiceConnectorGroup.yaml"
 
 requestAssociateSigninDelegateGroupsWithAccount :: AssociateSigninDelegateGroupsWithAccount -> TestTree
 requestAssociateSigninDelegateGroupsWithAccount =
@@ -2063,251 +1199,11 @@ requestAssociateSigninDelegateGroupsWithAccount =
     "AssociateSigninDelegateGroupsWithAccount"
     "fixture/AssociateSigninDelegateGroupsWithAccount.yaml"
 
-requestCreateSipRule :: CreateSipRule -> TestTree
-requestCreateSipRule =
-  req
-    "CreateSipRule"
-    "fixture/CreateSipRule.yaml"
-
-requestDeleteVoiceConnectorTerminationCredentials :: DeleteVoiceConnectorTerminationCredentials -> TestTree
-requestDeleteVoiceConnectorTerminationCredentials =
-  req
-    "DeleteVoiceConnectorTerminationCredentials"
-    "fixture/DeleteVoiceConnectorTerminationCredentials.yaml"
-
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
-
-requestDeleteAppInstanceUser :: DeleteAppInstanceUser -> TestTree
-requestDeleteAppInstanceUser =
-  req
-    "DeleteAppInstanceUser"
-    "fixture/DeleteAppInstanceUser.yaml"
-
-requestUpdateAppInstanceUser :: UpdateAppInstanceUser -> TestTree
-requestUpdateAppInstanceUser =
-  req
-    "UpdateAppInstanceUser"
-    "fixture/UpdateAppInstanceUser.yaml"
-
-requestUntagMeeting :: UntagMeeting -> TestTree
-requestUntagMeeting =
-  req
-    "UntagMeeting"
-    "fixture/UntagMeeting.yaml"
-
-requestUpdateVoiceConnectorGroup :: UpdateVoiceConnectorGroup -> TestTree
-requestUpdateVoiceConnectorGroup =
-  req
-    "UpdateVoiceConnectorGroup"
-    "fixture/UpdateVoiceConnectorGroup.yaml"
-
-requestRedactConversationMessage :: RedactConversationMessage -> TestTree
-requestRedactConversationMessage =
-  req
-    "RedactConversationMessage"
-    "fixture/RedactConversationMessage.yaml"
-
-requestDeleteChannelModerator :: DeleteChannelModerator -> TestTree
-requestDeleteChannelModerator =
-  req
-    "DeleteChannelModerator"
-    "fixture/DeleteChannelModerator.yaml"
-
-requestDeleteVoiceConnectorGroup :: DeleteVoiceConnectorGroup -> TestTree
-requestDeleteVoiceConnectorGroup =
-  req
-    "DeleteVoiceConnectorGroup"
-    "fixture/DeleteVoiceConnectorGroup.yaml"
-
-requestDescribeChannelBan :: DescribeChannelBan -> TestTree
-requestDescribeChannelBan =
-  req
-    "DescribeChannelBan"
-    "fixture/DescribeChannelBan.yaml"
-
-requestDeleteMediaCapturePipeline :: DeleteMediaCapturePipeline -> TestTree
-requestDeleteMediaCapturePipeline =
-  req
-    "DeleteMediaCapturePipeline"
-    "fixture/DeleteMediaCapturePipeline.yaml"
-
-requestUpdateProxySession :: UpdateProxySession -> TestTree
-requestUpdateProxySession =
-  req
-    "UpdateProxySession"
-    "fixture/UpdateProxySession.yaml"
-
-requestDeleteProxySession :: DeleteProxySession -> TestTree
-requestDeleteProxySession =
-  req
-    "DeleteProxySession"
-    "fixture/DeleteProxySession.yaml"
-
-requestGetVoiceConnectorTerminationHealth :: GetVoiceConnectorTerminationHealth -> TestTree
-requestGetVoiceConnectorTerminationHealth =
-  req
-    "GetVoiceConnectorTerminationHealth"
-    "fixture/GetVoiceConnectorTerminationHealth.yaml"
-
-requestCreateMeetingDialOut :: CreateMeetingDialOut -> TestTree
-requestCreateMeetingDialOut =
-  req
-    "CreateMeetingDialOut"
-    "fixture/CreateMeetingDialOut.yaml"
-
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
-
-requestListProxySessions :: ListProxySessions -> TestTree
-requestListProxySessions =
-  req
-    "ListProxySessions"
-    "fixture/ListProxySessions.yaml"
-
-requestListMediaCapturePipelines :: ListMediaCapturePipelines -> TestTree
-requestListMediaCapturePipelines =
-  req
-    "ListMediaCapturePipelines"
-    "fixture/ListMediaCapturePipelines.yaml"
-
-requestUpdatePhoneNumberSettings :: UpdatePhoneNumberSettings -> TestTree
-requestUpdatePhoneNumberSettings =
-  req
-    "UpdatePhoneNumberSettings"
-    "fixture/UpdatePhoneNumberSettings.yaml"
-
-requestInviteUsers :: InviteUsers -> TestTree
-requestInviteUsers =
-  req
-    "InviteUsers"
-    "fixture/InviteUsers.yaml"
-
-requestCreateRoom :: CreateRoom -> TestTree
-requestCreateRoom =
-  req
-    "CreateRoom"
-    "fixture/CreateRoom.yaml"
-
-requestListChannelModerators :: ListChannelModerators -> TestTree
-requestListChannelModerators =
-  req
-    "ListChannelModerators"
-    "fixture/ListChannelModerators.yaml"
-
-requestGetVoiceConnector :: GetVoiceConnector -> TestTree
-requestGetVoiceConnector =
-  req
-    "GetVoiceConnector"
-    "fixture/GetVoiceConnector.yaml"
-
-requestDescribeChannel :: DescribeChannel -> TestTree
-requestDescribeChannel =
-  req
-    "DescribeChannel"
-    "fixture/DescribeChannel.yaml"
-
-requestCreateVoiceConnectorGroup :: CreateVoiceConnectorGroup -> TestTree
-requestCreateVoiceConnectorGroup =
-  req
-    "CreateVoiceConnectorGroup"
-    "fixture/CreateVoiceConnectorGroup.yaml"
-
-requestDeleteAppInstanceStreamingConfigurations :: DeleteAppInstanceStreamingConfigurations -> TestTree
-requestDeleteAppInstanceStreamingConfigurations =
-  req
-    "DeleteAppInstanceStreamingConfigurations"
-    "fixture/DeleteAppInstanceStreamingConfigurations.yaml"
-
-requestListRooms :: ListRooms -> TestTree
-requestListRooms =
-  req
-    "ListRooms"
-    "fixture/ListRooms.yaml"
-
 requestBatchCreateAttendee :: BatchCreateAttendee -> TestTree
 requestBatchCreateAttendee =
   req
     "BatchCreateAttendee"
     "fixture/BatchCreateAttendee.yaml"
-
-requestDeleteAppInstanceAdmin :: DeleteAppInstanceAdmin -> TestTree
-requestDeleteAppInstanceAdmin =
-  req
-    "DeleteAppInstanceAdmin"
-    "fixture/DeleteAppInstanceAdmin.yaml"
-
-requestPutAppInstanceStreamingConfigurations :: PutAppInstanceStreamingConfigurations -> TestTree
-requestPutAppInstanceStreamingConfigurations =
-  req
-    "PutAppInstanceStreamingConfigurations"
-    "fixture/PutAppInstanceStreamingConfigurations.yaml"
-
-requestRegenerateSecurityToken :: RegenerateSecurityToken -> TestTree
-requestRegenerateSecurityToken =
-  req
-    "RegenerateSecurityToken"
-    "fixture/RegenerateSecurityToken.yaml"
-
-requestDeleteChannelMessage :: DeleteChannelMessage -> TestTree
-requestDeleteChannelMessage =
-  req
-    "DeleteChannelMessage"
-    "fixture/DeleteChannelMessage.yaml"
-
-requestUpdateChannelMessage :: UpdateChannelMessage -> TestTree
-requestUpdateChannelMessage =
-  req
-    "UpdateChannelMessage"
-    "fixture/UpdateChannelMessage.yaml"
-
-requestDeleteAppInstance :: DeleteAppInstance -> TestTree
-requestDeleteAppInstance =
-  req
-    "DeleteAppInstance"
-    "fixture/DeleteAppInstance.yaml"
-
-requestUpdateAppInstance :: UpdateAppInstance -> TestTree
-requestUpdateAppInstance =
-  req
-    "UpdateAppInstance"
-    "fixture/UpdateAppInstance.yaml"
-
-requestCreateVoiceConnector :: CreateVoiceConnector -> TestTree
-requestCreateVoiceConnector =
-  req
-    "CreateVoiceConnector"
-    "fixture/CreateVoiceConnector.yaml"
-
-requestListChannelMessages :: ListChannelMessages -> TestTree
-requestListChannelMessages =
-  req
-    "ListChannelMessages"
-    "fixture/ListChannelMessages.yaml"
-
-requestRedactRoomMessage :: RedactRoomMessage -> TestTree
-requestRedactRoomMessage =
-  req
-    "RedactRoomMessage"
-    "fixture/RedactRoomMessage.yaml"
-
-requestGetRoom :: GetRoom -> TestTree
-requestGetRoom =
-  req
-    "GetRoom"
-    "fixture/GetRoom.yaml"
-
-requestCreateRoomMembership :: CreateRoomMembership -> TestTree
-requestCreateRoomMembership =
-  req
-    "CreateRoomMembership"
-    "fixture/CreateRoomMembership.yaml"
 
 requestBatchCreateChannelMembership :: BatchCreateChannelMembership -> TestTree
 requestBatchCreateChannelMembership =
@@ -2315,1111 +1211,1111 @@ requestBatchCreateChannelMembership =
     "BatchCreateChannelMembership"
     "fixture/BatchCreateChannelMembership.yaml"
 
+requestBatchCreateRoomMembership :: BatchCreateRoomMembership -> TestTree
+requestBatchCreateRoomMembership =
+  req
+    "BatchCreateRoomMembership"
+    "fixture/BatchCreateRoomMembership.yaml"
+
+requestBatchDeletePhoneNumber :: BatchDeletePhoneNumber -> TestTree
+requestBatchDeletePhoneNumber =
+  req
+    "BatchDeletePhoneNumber"
+    "fixture/BatchDeletePhoneNumber.yaml"
+
+requestBatchSuspendUser :: BatchSuspendUser -> TestTree
+requestBatchSuspendUser =
+  req
+    "BatchSuspendUser"
+    "fixture/BatchSuspendUser.yaml"
+
+requestBatchUnsuspendUser :: BatchUnsuspendUser -> TestTree
+requestBatchUnsuspendUser =
+  req
+    "BatchUnsuspendUser"
+    "fixture/BatchUnsuspendUser.yaml"
+
+requestBatchUpdatePhoneNumber :: BatchUpdatePhoneNumber -> TestTree
+requestBatchUpdatePhoneNumber =
+  req
+    "BatchUpdatePhoneNumber"
+    "fixture/BatchUpdatePhoneNumber.yaml"
+
+requestBatchUpdateUser :: BatchUpdateUser -> TestTree
+requestBatchUpdateUser =
+  req
+    "BatchUpdateUser"
+    "fixture/BatchUpdateUser.yaml"
+
+requestCreateAccount :: CreateAccount -> TestTree
+requestCreateAccount =
+  req
+    "CreateAccount"
+    "fixture/CreateAccount.yaml"
+
+requestCreateAppInstance :: CreateAppInstance -> TestTree
+requestCreateAppInstance =
+  req
+    "CreateAppInstance"
+    "fixture/CreateAppInstance.yaml"
+
+requestCreateAppInstanceAdmin :: CreateAppInstanceAdmin -> TestTree
+requestCreateAppInstanceAdmin =
+  req
+    "CreateAppInstanceAdmin"
+    "fixture/CreateAppInstanceAdmin.yaml"
+
+requestCreateAppInstanceUser :: CreateAppInstanceUser -> TestTree
+requestCreateAppInstanceUser =
+  req
+    "CreateAppInstanceUser"
+    "fixture/CreateAppInstanceUser.yaml"
+
+requestCreateAttendee :: CreateAttendee -> TestTree
+requestCreateAttendee =
+  req
+    "CreateAttendee"
+    "fixture/CreateAttendee.yaml"
+
+requestCreateBot :: CreateBot -> TestTree
+requestCreateBot =
+  req
+    "CreateBot"
+    "fixture/CreateBot.yaml"
+
+requestCreateChannel :: CreateChannel -> TestTree
+requestCreateChannel =
+  req
+    "CreateChannel"
+    "fixture/CreateChannel.yaml"
+
+requestCreateChannelBan :: CreateChannelBan -> TestTree
+requestCreateChannelBan =
+  req
+    "CreateChannelBan"
+    "fixture/CreateChannelBan.yaml"
+
+requestCreateChannelMembership :: CreateChannelMembership -> TestTree
+requestCreateChannelMembership =
+  req
+    "CreateChannelMembership"
+    "fixture/CreateChannelMembership.yaml"
+
+requestCreateChannelModerator :: CreateChannelModerator -> TestTree
+requestCreateChannelModerator =
+  req
+    "CreateChannelModerator"
+    "fixture/CreateChannelModerator.yaml"
+
+requestCreateMediaCapturePipeline :: CreateMediaCapturePipeline -> TestTree
+requestCreateMediaCapturePipeline =
+  req
+    "CreateMediaCapturePipeline"
+    "fixture/CreateMediaCapturePipeline.yaml"
+
+requestCreateMeeting :: CreateMeeting -> TestTree
+requestCreateMeeting =
+  req
+    "CreateMeeting"
+    "fixture/CreateMeeting.yaml"
+
+requestCreateMeetingDialOut :: CreateMeetingDialOut -> TestTree
+requestCreateMeetingDialOut =
+  req
+    "CreateMeetingDialOut"
+    "fixture/CreateMeetingDialOut.yaml"
+
+requestCreateMeetingWithAttendees :: CreateMeetingWithAttendees -> TestTree
+requestCreateMeetingWithAttendees =
+  req
+    "CreateMeetingWithAttendees"
+    "fixture/CreateMeetingWithAttendees.yaml"
+
+requestCreatePhoneNumberOrder :: CreatePhoneNumberOrder -> TestTree
+requestCreatePhoneNumberOrder =
+  req
+    "CreatePhoneNumberOrder"
+    "fixture/CreatePhoneNumberOrder.yaml"
+
+requestCreateProxySession :: CreateProxySession -> TestTree
+requestCreateProxySession =
+  req
+    "CreateProxySession"
+    "fixture/CreateProxySession.yaml"
+
+requestCreateRoom :: CreateRoom -> TestTree
+requestCreateRoom =
+  req
+    "CreateRoom"
+    "fixture/CreateRoom.yaml"
+
+requestCreateRoomMembership :: CreateRoomMembership -> TestTree
+requestCreateRoomMembership =
+  req
+    "CreateRoomMembership"
+    "fixture/CreateRoomMembership.yaml"
+
+requestCreateSipMediaApplication :: CreateSipMediaApplication -> TestTree
+requestCreateSipMediaApplication =
+  req
+    "CreateSipMediaApplication"
+    "fixture/CreateSipMediaApplication.yaml"
+
+requestCreateSipMediaApplicationCall :: CreateSipMediaApplicationCall -> TestTree
+requestCreateSipMediaApplicationCall =
+  req
+    "CreateSipMediaApplicationCall"
+    "fixture/CreateSipMediaApplicationCall.yaml"
+
+requestCreateSipRule :: CreateSipRule -> TestTree
+requestCreateSipRule =
+  req
+    "CreateSipRule"
+    "fixture/CreateSipRule.yaml"
+
+requestCreateUser :: CreateUser -> TestTree
+requestCreateUser =
+  req
+    "CreateUser"
+    "fixture/CreateUser.yaml"
+
+requestCreateVoiceConnector :: CreateVoiceConnector -> TestTree
+requestCreateVoiceConnector =
+  req
+    "CreateVoiceConnector"
+    "fixture/CreateVoiceConnector.yaml"
+
+requestCreateVoiceConnectorGroup :: CreateVoiceConnectorGroup -> TestTree
+requestCreateVoiceConnectorGroup =
+  req
+    "CreateVoiceConnectorGroup"
+    "fixture/CreateVoiceConnectorGroup.yaml"
+
+requestDeleteAccount :: DeleteAccount -> TestTree
+requestDeleteAccount =
+  req
+    "DeleteAccount"
+    "fixture/DeleteAccount.yaml"
+
+requestDeleteAppInstance :: DeleteAppInstance -> TestTree
+requestDeleteAppInstance =
+  req
+    "DeleteAppInstance"
+    "fixture/DeleteAppInstance.yaml"
+
+requestDeleteAppInstanceAdmin :: DeleteAppInstanceAdmin -> TestTree
+requestDeleteAppInstanceAdmin =
+  req
+    "DeleteAppInstanceAdmin"
+    "fixture/DeleteAppInstanceAdmin.yaml"
+
+requestDeleteAppInstanceStreamingConfigurations :: DeleteAppInstanceStreamingConfigurations -> TestTree
+requestDeleteAppInstanceStreamingConfigurations =
+  req
+    "DeleteAppInstanceStreamingConfigurations"
+    "fixture/DeleteAppInstanceStreamingConfigurations.yaml"
+
+requestDeleteAppInstanceUser :: DeleteAppInstanceUser -> TestTree
+requestDeleteAppInstanceUser =
+  req
+    "DeleteAppInstanceUser"
+    "fixture/DeleteAppInstanceUser.yaml"
+
+requestDeleteAttendee :: DeleteAttendee -> TestTree
+requestDeleteAttendee =
+  req
+    "DeleteAttendee"
+    "fixture/DeleteAttendee.yaml"
+
+requestDeleteChannel :: DeleteChannel -> TestTree
+requestDeleteChannel =
+  req
+    "DeleteChannel"
+    "fixture/DeleteChannel.yaml"
+
+requestDeleteChannelBan :: DeleteChannelBan -> TestTree
+requestDeleteChannelBan =
+  req
+    "DeleteChannelBan"
+    "fixture/DeleteChannelBan.yaml"
+
+requestDeleteChannelMembership :: DeleteChannelMembership -> TestTree
+requestDeleteChannelMembership =
+  req
+    "DeleteChannelMembership"
+    "fixture/DeleteChannelMembership.yaml"
+
+requestDeleteChannelMessage :: DeleteChannelMessage -> TestTree
+requestDeleteChannelMessage =
+  req
+    "DeleteChannelMessage"
+    "fixture/DeleteChannelMessage.yaml"
+
+requestDeleteChannelModerator :: DeleteChannelModerator -> TestTree
+requestDeleteChannelModerator =
+  req
+    "DeleteChannelModerator"
+    "fixture/DeleteChannelModerator.yaml"
+
+requestDeleteEventsConfiguration :: DeleteEventsConfiguration -> TestTree
+requestDeleteEventsConfiguration =
+  req
+    "DeleteEventsConfiguration"
+    "fixture/DeleteEventsConfiguration.yaml"
+
+requestDeleteMediaCapturePipeline :: DeleteMediaCapturePipeline -> TestTree
+requestDeleteMediaCapturePipeline =
+  req
+    "DeleteMediaCapturePipeline"
+    "fixture/DeleteMediaCapturePipeline.yaml"
+
+requestDeleteMeeting :: DeleteMeeting -> TestTree
+requestDeleteMeeting =
+  req
+    "DeleteMeeting"
+    "fixture/DeleteMeeting.yaml"
+
+requestDeletePhoneNumber :: DeletePhoneNumber -> TestTree
+requestDeletePhoneNumber =
+  req
+    "DeletePhoneNumber"
+    "fixture/DeletePhoneNumber.yaml"
+
+requestDeleteProxySession :: DeleteProxySession -> TestTree
+requestDeleteProxySession =
+  req
+    "DeleteProxySession"
+    "fixture/DeleteProxySession.yaml"
+
+requestDeleteRoom :: DeleteRoom -> TestTree
+requestDeleteRoom =
+  req
+    "DeleteRoom"
+    "fixture/DeleteRoom.yaml"
+
+requestDeleteRoomMembership :: DeleteRoomMembership -> TestTree
+requestDeleteRoomMembership =
+  req
+    "DeleteRoomMembership"
+    "fixture/DeleteRoomMembership.yaml"
+
+requestDeleteSipMediaApplication :: DeleteSipMediaApplication -> TestTree
+requestDeleteSipMediaApplication =
+  req
+    "DeleteSipMediaApplication"
+    "fixture/DeleteSipMediaApplication.yaml"
+
+requestDeleteSipRule :: DeleteSipRule -> TestTree
+requestDeleteSipRule =
+  req
+    "DeleteSipRule"
+    "fixture/DeleteSipRule.yaml"
+
+requestDeleteVoiceConnector :: DeleteVoiceConnector -> TestTree
+requestDeleteVoiceConnector =
+  req
+    "DeleteVoiceConnector"
+    "fixture/DeleteVoiceConnector.yaml"
+
+requestDeleteVoiceConnectorEmergencyCallingConfiguration :: DeleteVoiceConnectorEmergencyCallingConfiguration -> TestTree
+requestDeleteVoiceConnectorEmergencyCallingConfiguration =
+  req
+    "DeleteVoiceConnectorEmergencyCallingConfiguration"
+    "fixture/DeleteVoiceConnectorEmergencyCallingConfiguration.yaml"
+
+requestDeleteVoiceConnectorGroup :: DeleteVoiceConnectorGroup -> TestTree
+requestDeleteVoiceConnectorGroup =
+  req
+    "DeleteVoiceConnectorGroup"
+    "fixture/DeleteVoiceConnectorGroup.yaml"
+
+requestDeleteVoiceConnectorOrigination :: DeleteVoiceConnectorOrigination -> TestTree
+requestDeleteVoiceConnectorOrigination =
+  req
+    "DeleteVoiceConnectorOrigination"
+    "fixture/DeleteVoiceConnectorOrigination.yaml"
+
+requestDeleteVoiceConnectorProxy :: DeleteVoiceConnectorProxy -> TestTree
+requestDeleteVoiceConnectorProxy =
+  req
+    "DeleteVoiceConnectorProxy"
+    "fixture/DeleteVoiceConnectorProxy.yaml"
+
+requestDeleteVoiceConnectorStreamingConfiguration :: DeleteVoiceConnectorStreamingConfiguration -> TestTree
+requestDeleteVoiceConnectorStreamingConfiguration =
+  req
+    "DeleteVoiceConnectorStreamingConfiguration"
+    "fixture/DeleteVoiceConnectorStreamingConfiguration.yaml"
+
+requestDeleteVoiceConnectorTermination :: DeleteVoiceConnectorTermination -> TestTree
+requestDeleteVoiceConnectorTermination =
+  req
+    "DeleteVoiceConnectorTermination"
+    "fixture/DeleteVoiceConnectorTermination.yaml"
+
+requestDeleteVoiceConnectorTerminationCredentials :: DeleteVoiceConnectorTerminationCredentials -> TestTree
+requestDeleteVoiceConnectorTerminationCredentials =
+  req
+    "DeleteVoiceConnectorTerminationCredentials"
+    "fixture/DeleteVoiceConnectorTerminationCredentials.yaml"
+
+requestDescribeAppInstance :: DescribeAppInstance -> TestTree
+requestDescribeAppInstance =
+  req
+    "DescribeAppInstance"
+    "fixture/DescribeAppInstance.yaml"
+
+requestDescribeAppInstanceAdmin :: DescribeAppInstanceAdmin -> TestTree
+requestDescribeAppInstanceAdmin =
+  req
+    "DescribeAppInstanceAdmin"
+    "fixture/DescribeAppInstanceAdmin.yaml"
+
+requestDescribeAppInstanceUser :: DescribeAppInstanceUser -> TestTree
+requestDescribeAppInstanceUser =
+  req
+    "DescribeAppInstanceUser"
+    "fixture/DescribeAppInstanceUser.yaml"
+
+requestDescribeChannel :: DescribeChannel -> TestTree
+requestDescribeChannel =
+  req
+    "DescribeChannel"
+    "fixture/DescribeChannel.yaml"
+
+requestDescribeChannelBan :: DescribeChannelBan -> TestTree
+requestDescribeChannelBan =
+  req
+    "DescribeChannelBan"
+    "fixture/DescribeChannelBan.yaml"
+
+requestDescribeChannelMembership :: DescribeChannelMembership -> TestTree
+requestDescribeChannelMembership =
+  req
+    "DescribeChannelMembership"
+    "fixture/DescribeChannelMembership.yaml"
+
+requestDescribeChannelMembershipForAppInstanceUser :: DescribeChannelMembershipForAppInstanceUser -> TestTree
+requestDescribeChannelMembershipForAppInstanceUser =
+  req
+    "DescribeChannelMembershipForAppInstanceUser"
+    "fixture/DescribeChannelMembershipForAppInstanceUser.yaml"
+
+requestDescribeChannelModeratedByAppInstanceUser :: DescribeChannelModeratedByAppInstanceUser -> TestTree
+requestDescribeChannelModeratedByAppInstanceUser =
+  req
+    "DescribeChannelModeratedByAppInstanceUser"
+    "fixture/DescribeChannelModeratedByAppInstanceUser.yaml"
+
+requestDescribeChannelModerator :: DescribeChannelModerator -> TestTree
+requestDescribeChannelModerator =
+  req
+    "DescribeChannelModerator"
+    "fixture/DescribeChannelModerator.yaml"
+
+requestDisassociatePhoneNumberFromUser :: DisassociatePhoneNumberFromUser -> TestTree
+requestDisassociatePhoneNumberFromUser =
+  req
+    "DisassociatePhoneNumberFromUser"
+    "fixture/DisassociatePhoneNumberFromUser.yaml"
+
+requestDisassociatePhoneNumbersFromVoiceConnector :: DisassociatePhoneNumbersFromVoiceConnector -> TestTree
+requestDisassociatePhoneNumbersFromVoiceConnector =
+  req
+    "DisassociatePhoneNumbersFromVoiceConnector"
+    "fixture/DisassociatePhoneNumbersFromVoiceConnector.yaml"
+
+requestDisassociatePhoneNumbersFromVoiceConnectorGroup :: DisassociatePhoneNumbersFromVoiceConnectorGroup -> TestTree
+requestDisassociatePhoneNumbersFromVoiceConnectorGroup =
+  req
+    "DisassociatePhoneNumbersFromVoiceConnectorGroup"
+    "fixture/DisassociatePhoneNumbersFromVoiceConnectorGroup.yaml"
+
+requestDisassociateSigninDelegateGroupsFromAccount :: DisassociateSigninDelegateGroupsFromAccount -> TestTree
+requestDisassociateSigninDelegateGroupsFromAccount =
+  req
+    "DisassociateSigninDelegateGroupsFromAccount"
+    "fixture/DisassociateSigninDelegateGroupsFromAccount.yaml"
+
+requestGetAccount :: GetAccount -> TestTree
+requestGetAccount =
+  req
+    "GetAccount"
+    "fixture/GetAccount.yaml"
+
+requestGetAccountSettings :: GetAccountSettings -> TestTree
+requestGetAccountSettings =
+  req
+    "GetAccountSettings"
+    "fixture/GetAccountSettings.yaml"
+
+requestGetAppInstanceRetentionSettings :: GetAppInstanceRetentionSettings -> TestTree
+requestGetAppInstanceRetentionSettings =
+  req
+    "GetAppInstanceRetentionSettings"
+    "fixture/GetAppInstanceRetentionSettings.yaml"
+
+requestGetAppInstanceStreamingConfigurations :: GetAppInstanceStreamingConfigurations -> TestTree
+requestGetAppInstanceStreamingConfigurations =
+  req
+    "GetAppInstanceStreamingConfigurations"
+    "fixture/GetAppInstanceStreamingConfigurations.yaml"
+
+requestGetAttendee :: GetAttendee -> TestTree
+requestGetAttendee =
+  req
+    "GetAttendee"
+    "fixture/GetAttendee.yaml"
+
+requestGetBot :: GetBot -> TestTree
+requestGetBot =
+  req
+    "GetBot"
+    "fixture/GetBot.yaml"
+
+requestGetChannelMessage :: GetChannelMessage -> TestTree
+requestGetChannelMessage =
+  req
+    "GetChannelMessage"
+    "fixture/GetChannelMessage.yaml"
+
+requestGetEventsConfiguration :: GetEventsConfiguration -> TestTree
+requestGetEventsConfiguration =
+  req
+    "GetEventsConfiguration"
+    "fixture/GetEventsConfiguration.yaml"
+
+requestGetGlobalSettings :: GetGlobalSettings -> TestTree
+requestGetGlobalSettings =
+  req
+    "GetGlobalSettings"
+    "fixture/GetGlobalSettings.yaml"
+
+requestGetMediaCapturePipeline :: GetMediaCapturePipeline -> TestTree
+requestGetMediaCapturePipeline =
+  req
+    "GetMediaCapturePipeline"
+    "fixture/GetMediaCapturePipeline.yaml"
+
+requestGetMeeting :: GetMeeting -> TestTree
+requestGetMeeting =
+  req
+    "GetMeeting"
+    "fixture/GetMeeting.yaml"
+
+requestGetMessagingSessionEndpoint :: GetMessagingSessionEndpoint -> TestTree
+requestGetMessagingSessionEndpoint =
+  req
+    "GetMessagingSessionEndpoint"
+    "fixture/GetMessagingSessionEndpoint.yaml"
+
+requestGetPhoneNumber :: GetPhoneNumber -> TestTree
+requestGetPhoneNumber =
+  req
+    "GetPhoneNumber"
+    "fixture/GetPhoneNumber.yaml"
+
+requestGetPhoneNumberOrder :: GetPhoneNumberOrder -> TestTree
+requestGetPhoneNumberOrder =
+  req
+    "GetPhoneNumberOrder"
+    "fixture/GetPhoneNumberOrder.yaml"
+
+requestGetPhoneNumberSettings :: GetPhoneNumberSettings -> TestTree
+requestGetPhoneNumberSettings =
+  req
+    "GetPhoneNumberSettings"
+    "fixture/GetPhoneNumberSettings.yaml"
+
+requestGetProxySession :: GetProxySession -> TestTree
+requestGetProxySession =
+  req
+    "GetProxySession"
+    "fixture/GetProxySession.yaml"
+
+requestGetRetentionSettings :: GetRetentionSettings -> TestTree
+requestGetRetentionSettings =
+  req
+    "GetRetentionSettings"
+    "fixture/GetRetentionSettings.yaml"
+
+requestGetRoom :: GetRoom -> TestTree
+requestGetRoom =
+  req
+    "GetRoom"
+    "fixture/GetRoom.yaml"
+
+requestGetSipMediaApplication :: GetSipMediaApplication -> TestTree
+requestGetSipMediaApplication =
+  req
+    "GetSipMediaApplication"
+    "fixture/GetSipMediaApplication.yaml"
+
+requestGetSipMediaApplicationLoggingConfiguration :: GetSipMediaApplicationLoggingConfiguration -> TestTree
+requestGetSipMediaApplicationLoggingConfiguration =
+  req
+    "GetSipMediaApplicationLoggingConfiguration"
+    "fixture/GetSipMediaApplicationLoggingConfiguration.yaml"
+
+requestGetSipRule :: GetSipRule -> TestTree
+requestGetSipRule =
+  req
+    "GetSipRule"
+    "fixture/GetSipRule.yaml"
+
+requestGetUser :: GetUser -> TestTree
+requestGetUser =
+  req
+    "GetUser"
+    "fixture/GetUser.yaml"
+
+requestGetUserSettings :: GetUserSettings -> TestTree
+requestGetUserSettings =
+  req
+    "GetUserSettings"
+    "fixture/GetUserSettings.yaml"
+
+requestGetVoiceConnector :: GetVoiceConnector -> TestTree
+requestGetVoiceConnector =
+  req
+    "GetVoiceConnector"
+    "fixture/GetVoiceConnector.yaml"
+
+requestGetVoiceConnectorEmergencyCallingConfiguration :: GetVoiceConnectorEmergencyCallingConfiguration -> TestTree
+requestGetVoiceConnectorEmergencyCallingConfiguration =
+  req
+    "GetVoiceConnectorEmergencyCallingConfiguration"
+    "fixture/GetVoiceConnectorEmergencyCallingConfiguration.yaml"
+
+requestGetVoiceConnectorGroup :: GetVoiceConnectorGroup -> TestTree
+requestGetVoiceConnectorGroup =
+  req
+    "GetVoiceConnectorGroup"
+    "fixture/GetVoiceConnectorGroup.yaml"
+
+requestGetVoiceConnectorLoggingConfiguration :: GetVoiceConnectorLoggingConfiguration -> TestTree
+requestGetVoiceConnectorLoggingConfiguration =
+  req
+    "GetVoiceConnectorLoggingConfiguration"
+    "fixture/GetVoiceConnectorLoggingConfiguration.yaml"
+
+requestGetVoiceConnectorOrigination :: GetVoiceConnectorOrigination -> TestTree
+requestGetVoiceConnectorOrigination =
+  req
+    "GetVoiceConnectorOrigination"
+    "fixture/GetVoiceConnectorOrigination.yaml"
+
+requestGetVoiceConnectorProxy :: GetVoiceConnectorProxy -> TestTree
+requestGetVoiceConnectorProxy =
+  req
+    "GetVoiceConnectorProxy"
+    "fixture/GetVoiceConnectorProxy.yaml"
+
+requestGetVoiceConnectorStreamingConfiguration :: GetVoiceConnectorStreamingConfiguration -> TestTree
+requestGetVoiceConnectorStreamingConfiguration =
+  req
+    "GetVoiceConnectorStreamingConfiguration"
+    "fixture/GetVoiceConnectorStreamingConfiguration.yaml"
+
+requestGetVoiceConnectorTermination :: GetVoiceConnectorTermination -> TestTree
+requestGetVoiceConnectorTermination =
+  req
+    "GetVoiceConnectorTermination"
+    "fixture/GetVoiceConnectorTermination.yaml"
+
+requestGetVoiceConnectorTerminationHealth :: GetVoiceConnectorTerminationHealth -> TestTree
+requestGetVoiceConnectorTerminationHealth =
+  req
+    "GetVoiceConnectorTerminationHealth"
+    "fixture/GetVoiceConnectorTerminationHealth.yaml"
+
+requestInviteUsers :: InviteUsers -> TestTree
+requestInviteUsers =
+  req
+    "InviteUsers"
+    "fixture/InviteUsers.yaml"
+
+requestListAccounts :: ListAccounts -> TestTree
+requestListAccounts =
+  req
+    "ListAccounts"
+    "fixture/ListAccounts.yaml"
+
+requestListAppInstanceAdmins :: ListAppInstanceAdmins -> TestTree
+requestListAppInstanceAdmins =
+  req
+    "ListAppInstanceAdmins"
+    "fixture/ListAppInstanceAdmins.yaml"
+
+requestListAppInstanceUsers :: ListAppInstanceUsers -> TestTree
+requestListAppInstanceUsers =
+  req
+    "ListAppInstanceUsers"
+    "fixture/ListAppInstanceUsers.yaml"
+
+requestListAppInstances :: ListAppInstances -> TestTree
+requestListAppInstances =
+  req
+    "ListAppInstances"
+    "fixture/ListAppInstances.yaml"
+
+requestListAttendeeTags :: ListAttendeeTags -> TestTree
+requestListAttendeeTags =
+  req
+    "ListAttendeeTags"
+    "fixture/ListAttendeeTags.yaml"
+
+requestListAttendees :: ListAttendees -> TestTree
+requestListAttendees =
+  req
+    "ListAttendees"
+    "fixture/ListAttendees.yaml"
+
+requestListBots :: ListBots -> TestTree
+requestListBots =
+  req
+    "ListBots"
+    "fixture/ListBots.yaml"
+
+requestListChannelBans :: ListChannelBans -> TestTree
+requestListChannelBans =
+  req
+    "ListChannelBans"
+    "fixture/ListChannelBans.yaml"
+
+requestListChannelMemberships :: ListChannelMemberships -> TestTree
+requestListChannelMemberships =
+  req
+    "ListChannelMemberships"
+    "fixture/ListChannelMemberships.yaml"
+
+requestListChannelMembershipsForAppInstanceUser :: ListChannelMembershipsForAppInstanceUser -> TestTree
+requestListChannelMembershipsForAppInstanceUser =
+  req
+    "ListChannelMembershipsForAppInstanceUser"
+    "fixture/ListChannelMembershipsForAppInstanceUser.yaml"
+
+requestListChannelMessages :: ListChannelMessages -> TestTree
+requestListChannelMessages =
+  req
+    "ListChannelMessages"
+    "fixture/ListChannelMessages.yaml"
+
+requestListChannelModerators :: ListChannelModerators -> TestTree
+requestListChannelModerators =
+  req
+    "ListChannelModerators"
+    "fixture/ListChannelModerators.yaml"
+
+requestListChannels :: ListChannels -> TestTree
+requestListChannels =
+  req
+    "ListChannels"
+    "fixture/ListChannels.yaml"
+
+requestListChannelsModeratedByAppInstanceUser :: ListChannelsModeratedByAppInstanceUser -> TestTree
+requestListChannelsModeratedByAppInstanceUser =
+  req
+    "ListChannelsModeratedByAppInstanceUser"
+    "fixture/ListChannelsModeratedByAppInstanceUser.yaml"
+
+requestListMediaCapturePipelines :: ListMediaCapturePipelines -> TestTree
+requestListMediaCapturePipelines =
+  req
+    "ListMediaCapturePipelines"
+    "fixture/ListMediaCapturePipelines.yaml"
+
+requestListMeetingTags :: ListMeetingTags -> TestTree
+requestListMeetingTags =
+  req
+    "ListMeetingTags"
+    "fixture/ListMeetingTags.yaml"
+
+requestListMeetings :: ListMeetings -> TestTree
+requestListMeetings =
+  req
+    "ListMeetings"
+    "fixture/ListMeetings.yaml"
+
+requestListPhoneNumberOrders :: ListPhoneNumberOrders -> TestTree
+requestListPhoneNumberOrders =
+  req
+    "ListPhoneNumberOrders"
+    "fixture/ListPhoneNumberOrders.yaml"
+
+requestListPhoneNumbers :: ListPhoneNumbers -> TestTree
+requestListPhoneNumbers =
+  req
+    "ListPhoneNumbers"
+    "fixture/ListPhoneNumbers.yaml"
+
+requestListProxySessions :: ListProxySessions -> TestTree
+requestListProxySessions =
+  req
+    "ListProxySessions"
+    "fixture/ListProxySessions.yaml"
+
+requestListRoomMemberships :: ListRoomMemberships -> TestTree
+requestListRoomMemberships =
+  req
+    "ListRoomMemberships"
+    "fixture/ListRoomMemberships.yaml"
+
+requestListRooms :: ListRooms -> TestTree
+requestListRooms =
+  req
+    "ListRooms"
+    "fixture/ListRooms.yaml"
+
+requestListSipMediaApplications :: ListSipMediaApplications -> TestTree
+requestListSipMediaApplications =
+  req
+    "ListSipMediaApplications"
+    "fixture/ListSipMediaApplications.yaml"
+
+requestListSipRules :: ListSipRules -> TestTree
+requestListSipRules =
+  req
+    "ListSipRules"
+    "fixture/ListSipRules.yaml"
+
+requestListSupportedPhoneNumberCountries :: ListSupportedPhoneNumberCountries -> TestTree
+requestListSupportedPhoneNumberCountries =
+  req
+    "ListSupportedPhoneNumberCountries"
+    "fixture/ListSupportedPhoneNumberCountries.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestListUsers :: ListUsers -> TestTree
+requestListUsers =
+  req
+    "ListUsers"
+    "fixture/ListUsers.yaml"
+
+requestListVoiceConnectorGroups :: ListVoiceConnectorGroups -> TestTree
+requestListVoiceConnectorGroups =
+  req
+    "ListVoiceConnectorGroups"
+    "fixture/ListVoiceConnectorGroups.yaml"
+
+requestListVoiceConnectorTerminationCredentials :: ListVoiceConnectorTerminationCredentials -> TestTree
+requestListVoiceConnectorTerminationCredentials =
+  req
+    "ListVoiceConnectorTerminationCredentials"
+    "fixture/ListVoiceConnectorTerminationCredentials.yaml"
+
+requestListVoiceConnectors :: ListVoiceConnectors -> TestTree
+requestListVoiceConnectors =
+  req
+    "ListVoiceConnectors"
+    "fixture/ListVoiceConnectors.yaml"
+
+requestLogoutUser :: LogoutUser -> TestTree
+requestLogoutUser =
+  req
+    "LogoutUser"
+    "fixture/LogoutUser.yaml"
+
+requestPutAppInstanceRetentionSettings :: PutAppInstanceRetentionSettings -> TestTree
+requestPutAppInstanceRetentionSettings =
+  req
+    "PutAppInstanceRetentionSettings"
+    "fixture/PutAppInstanceRetentionSettings.yaml"
+
+requestPutAppInstanceStreamingConfigurations :: PutAppInstanceStreamingConfigurations -> TestTree
+requestPutAppInstanceStreamingConfigurations =
+  req
+    "PutAppInstanceStreamingConfigurations"
+    "fixture/PutAppInstanceStreamingConfigurations.yaml"
+
+requestPutEventsConfiguration :: PutEventsConfiguration -> TestTree
+requestPutEventsConfiguration =
+  req
+    "PutEventsConfiguration"
+    "fixture/PutEventsConfiguration.yaml"
+
+requestPutRetentionSettings :: PutRetentionSettings -> TestTree
+requestPutRetentionSettings =
+  req
+    "PutRetentionSettings"
+    "fixture/PutRetentionSettings.yaml"
+
+requestPutSipMediaApplicationLoggingConfiguration :: PutSipMediaApplicationLoggingConfiguration -> TestTree
+requestPutSipMediaApplicationLoggingConfiguration =
+  req
+    "PutSipMediaApplicationLoggingConfiguration"
+    "fixture/PutSipMediaApplicationLoggingConfiguration.yaml"
+
+requestPutVoiceConnectorEmergencyCallingConfiguration :: PutVoiceConnectorEmergencyCallingConfiguration -> TestTree
+requestPutVoiceConnectorEmergencyCallingConfiguration =
+  req
+    "PutVoiceConnectorEmergencyCallingConfiguration"
+    "fixture/PutVoiceConnectorEmergencyCallingConfiguration.yaml"
+
+requestPutVoiceConnectorLoggingConfiguration :: PutVoiceConnectorLoggingConfiguration -> TestTree
+requestPutVoiceConnectorLoggingConfiguration =
+  req
+    "PutVoiceConnectorLoggingConfiguration"
+    "fixture/PutVoiceConnectorLoggingConfiguration.yaml"
+
+requestPutVoiceConnectorOrigination :: PutVoiceConnectorOrigination -> TestTree
+requestPutVoiceConnectorOrigination =
+  req
+    "PutVoiceConnectorOrigination"
+    "fixture/PutVoiceConnectorOrigination.yaml"
+
+requestPutVoiceConnectorProxy :: PutVoiceConnectorProxy -> TestTree
+requestPutVoiceConnectorProxy =
+  req
+    "PutVoiceConnectorProxy"
+    "fixture/PutVoiceConnectorProxy.yaml"
+
+requestPutVoiceConnectorStreamingConfiguration :: PutVoiceConnectorStreamingConfiguration -> TestTree
+requestPutVoiceConnectorStreamingConfiguration =
+  req
+    "PutVoiceConnectorStreamingConfiguration"
+    "fixture/PutVoiceConnectorStreamingConfiguration.yaml"
+
+requestPutVoiceConnectorTermination :: PutVoiceConnectorTermination -> TestTree
+requestPutVoiceConnectorTermination =
+  req
+    "PutVoiceConnectorTermination"
+    "fixture/PutVoiceConnectorTermination.yaml"
+
+requestPutVoiceConnectorTerminationCredentials :: PutVoiceConnectorTerminationCredentials -> TestTree
+requestPutVoiceConnectorTerminationCredentials =
+  req
+    "PutVoiceConnectorTerminationCredentials"
+    "fixture/PutVoiceConnectorTerminationCredentials.yaml"
+
+requestRedactChannelMessage :: RedactChannelMessage -> TestTree
+requestRedactChannelMessage =
+  req
+    "RedactChannelMessage"
+    "fixture/RedactChannelMessage.yaml"
+
+requestRedactConversationMessage :: RedactConversationMessage -> TestTree
+requestRedactConversationMessage =
+  req
+    "RedactConversationMessage"
+    "fixture/RedactConversationMessage.yaml"
+
+requestRedactRoomMessage :: RedactRoomMessage -> TestTree
+requestRedactRoomMessage =
+  req
+    "RedactRoomMessage"
+    "fixture/RedactRoomMessage.yaml"
+
+requestRegenerateSecurityToken :: RegenerateSecurityToken -> TestTree
+requestRegenerateSecurityToken =
+  req
+    "RegenerateSecurityToken"
+    "fixture/RegenerateSecurityToken.yaml"
+
+requestResetPersonalPIN :: ResetPersonalPIN -> TestTree
+requestResetPersonalPIN =
+  req
+    "ResetPersonalPIN"
+    "fixture/ResetPersonalPIN.yaml"
+
+requestRestorePhoneNumber :: RestorePhoneNumber -> TestTree
+requestRestorePhoneNumber =
+  req
+    "RestorePhoneNumber"
+    "fixture/RestorePhoneNumber.yaml"
+
+requestSearchAvailablePhoneNumbers :: SearchAvailablePhoneNumbers -> TestTree
+requestSearchAvailablePhoneNumbers =
+  req
+    "SearchAvailablePhoneNumbers"
+    "fixture/SearchAvailablePhoneNumbers.yaml"
+
+requestSendChannelMessage :: SendChannelMessage -> TestTree
+requestSendChannelMessage =
+  req
+    "SendChannelMessage"
+    "fixture/SendChannelMessage.yaml"
+
+requestStartMeetingTranscription :: StartMeetingTranscription -> TestTree
+requestStartMeetingTranscription =
+  req
+    "StartMeetingTranscription"
+    "fixture/StartMeetingTranscription.yaml"
+
+requestStopMeetingTranscription :: StopMeetingTranscription -> TestTree
+requestStopMeetingTranscription =
+  req
+    "StopMeetingTranscription"
+    "fixture/StopMeetingTranscription.yaml"
+
+requestTagAttendee :: TagAttendee -> TestTree
+requestTagAttendee =
+  req
+    "TagAttendee"
+    "fixture/TagAttendee.yaml"
+
+requestTagMeeting :: TagMeeting -> TestTree
+requestTagMeeting =
+  req
+    "TagMeeting"
+    "fixture/TagMeeting.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagAttendee :: UntagAttendee -> TestTree
+requestUntagAttendee =
+  req
+    "UntagAttendee"
+    "fixture/UntagAttendee.yaml"
+
+requestUntagMeeting :: UntagMeeting -> TestTree
+requestUntagMeeting =
+  req
+    "UntagMeeting"
+    "fixture/UntagMeeting.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateAccount :: UpdateAccount -> TestTree
+requestUpdateAccount =
+  req
+    "UpdateAccount"
+    "fixture/UpdateAccount.yaml"
+
+requestUpdateAccountSettings :: UpdateAccountSettings -> TestTree
+requestUpdateAccountSettings =
+  req
+    "UpdateAccountSettings"
+    "fixture/UpdateAccountSettings.yaml"
+
+requestUpdateAppInstance :: UpdateAppInstance -> TestTree
+requestUpdateAppInstance =
+  req
+    "UpdateAppInstance"
+    "fixture/UpdateAppInstance.yaml"
+
+requestUpdateAppInstanceUser :: UpdateAppInstanceUser -> TestTree
+requestUpdateAppInstanceUser =
+  req
+    "UpdateAppInstanceUser"
+    "fixture/UpdateAppInstanceUser.yaml"
+
+requestUpdateBot :: UpdateBot -> TestTree
+requestUpdateBot =
+  req
+    "UpdateBot"
+    "fixture/UpdateBot.yaml"
+
+requestUpdateChannel :: UpdateChannel -> TestTree
+requestUpdateChannel =
+  req
+    "UpdateChannel"
+    "fixture/UpdateChannel.yaml"
+
+requestUpdateChannelMessage :: UpdateChannelMessage -> TestTree
+requestUpdateChannelMessage =
+  req
+    "UpdateChannelMessage"
+    "fixture/UpdateChannelMessage.yaml"
+
+requestUpdateChannelReadMarker :: UpdateChannelReadMarker -> TestTree
+requestUpdateChannelReadMarker =
+  req
+    "UpdateChannelReadMarker"
+    "fixture/UpdateChannelReadMarker.yaml"
+
+requestUpdateGlobalSettings :: UpdateGlobalSettings -> TestTree
+requestUpdateGlobalSettings =
+  req
+    "UpdateGlobalSettings"
+    "fixture/UpdateGlobalSettings.yaml"
+
+requestUpdatePhoneNumber :: UpdatePhoneNumber -> TestTree
+requestUpdatePhoneNumber =
+  req
+    "UpdatePhoneNumber"
+    "fixture/UpdatePhoneNumber.yaml"
+
+requestUpdatePhoneNumberSettings :: UpdatePhoneNumberSettings -> TestTree
+requestUpdatePhoneNumberSettings =
+  req
+    "UpdatePhoneNumberSettings"
+    "fixture/UpdatePhoneNumberSettings.yaml"
+
+requestUpdateProxySession :: UpdateProxySession -> TestTree
+requestUpdateProxySession =
+  req
+    "UpdateProxySession"
+    "fixture/UpdateProxySession.yaml"
+
+requestUpdateRoom :: UpdateRoom -> TestTree
+requestUpdateRoom =
+  req
+    "UpdateRoom"
+    "fixture/UpdateRoom.yaml"
+
+requestUpdateRoomMembership :: UpdateRoomMembership -> TestTree
+requestUpdateRoomMembership =
+  req
+    "UpdateRoomMembership"
+    "fixture/UpdateRoomMembership.yaml"
+
+requestUpdateSipMediaApplication :: UpdateSipMediaApplication -> TestTree
+requestUpdateSipMediaApplication =
+  req
+    "UpdateSipMediaApplication"
+    "fixture/UpdateSipMediaApplication.yaml"
+
+requestUpdateSipMediaApplicationCall :: UpdateSipMediaApplicationCall -> TestTree
+requestUpdateSipMediaApplicationCall =
+  req
+    "UpdateSipMediaApplicationCall"
+    "fixture/UpdateSipMediaApplicationCall.yaml"
+
+requestUpdateSipRule :: UpdateSipRule -> TestTree
+requestUpdateSipRule =
+  req
+    "UpdateSipRule"
+    "fixture/UpdateSipRule.yaml"
+
+requestUpdateUser :: UpdateUser -> TestTree
+requestUpdateUser =
+  req
+    "UpdateUser"
+    "fixture/UpdateUser.yaml"
+
+requestUpdateUserSettings :: UpdateUserSettings -> TestTree
+requestUpdateUserSettings =
+  req
+    "UpdateUserSettings"
+    "fixture/UpdateUserSettings.yaml"
+
+requestUpdateVoiceConnector :: UpdateVoiceConnector -> TestTree
+requestUpdateVoiceConnector =
+  req
+    "UpdateVoiceConnector"
+    "fixture/UpdateVoiceConnector.yaml"
+
+requestUpdateVoiceConnectorGroup :: UpdateVoiceConnectorGroup -> TestTree
+requestUpdateVoiceConnectorGroup =
+  req
+    "UpdateVoiceConnectorGroup"
+    "fixture/UpdateVoiceConnectorGroup.yaml"
+
 -- Responses
-
-responseDescribeChannelMembership :: DescribeChannelMembershipResponse -> TestTree
-responseDescribeChannelMembership =
-  res
-    "DescribeChannelMembershipResponse"
-    "fixture/DescribeChannelMembershipResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeChannelMembership)
-
-responseCreateAppInstance :: CreateAppInstanceResponse -> TestTree
-responseCreateAppInstance =
-  res
-    "CreateAppInstanceResponse"
-    "fixture/CreateAppInstanceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateAppInstance)
-
-responseGetVoiceConnectorGroup :: GetVoiceConnectorGroupResponse -> TestTree
-responseGetVoiceConnectorGroup =
-  res
-    "GetVoiceConnectorGroupResponse"
-    "fixture/GetVoiceConnectorGroupResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetVoiceConnectorGroup)
-
-responseListVoiceConnectors :: ListVoiceConnectorsResponse -> TestTree
-responseListVoiceConnectors =
-  res
-    "ListVoiceConnectorsResponse"
-    "fixture/ListVoiceConnectorsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListVoiceConnectors)
-
-responseListRoomMemberships :: ListRoomMembershipsResponse -> TestTree
-responseListRoomMemberships =
-  res
-    "ListRoomMembershipsResponse"
-    "fixture/ListRoomMembershipsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListRoomMemberships)
-
-responseGetPhoneNumberSettings :: GetPhoneNumberSettingsResponse -> TestTree
-responseGetPhoneNumberSettings =
-  res
-    "GetPhoneNumberSettingsResponse"
-    "fixture/GetPhoneNumberSettingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetPhoneNumberSettings)
-
-responseUpdateGlobalSettings :: UpdateGlobalSettingsResponse -> TestTree
-responseUpdateGlobalSettings =
-  res
-    "UpdateGlobalSettingsResponse"
-    "fixture/UpdateGlobalSettingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateGlobalSettings)
-
-responseListAttendees :: ListAttendeesResponse -> TestTree
-responseListAttendees =
-  res
-    "ListAttendeesResponse"
-    "fixture/ListAttendeesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAttendees)
-
-responsePutVoiceConnectorLoggingConfiguration :: PutVoiceConnectorLoggingConfigurationResponse -> TestTree
-responsePutVoiceConnectorLoggingConfiguration =
-  res
-    "PutVoiceConnectorLoggingConfigurationResponse"
-    "fixture/PutVoiceConnectorLoggingConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutVoiceConnectorLoggingConfiguration)
-
-responseGetVoiceConnectorTermination :: GetVoiceConnectorTerminationResponse -> TestTree
-responseGetVoiceConnectorTermination =
-  res
-    "GetVoiceConnectorTerminationResponse"
-    "fixture/GetVoiceConnectorTerminationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetVoiceConnectorTermination)
-
-responseDeleteAttendee :: DeleteAttendeeResponse -> TestTree
-responseDeleteAttendee =
-  res
-    "DeleteAttendeeResponse"
-    "fixture/DeleteAttendeeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteAttendee)
-
-responseGetVoiceConnectorProxy :: GetVoiceConnectorProxyResponse -> TestTree
-responseGetVoiceConnectorProxy =
-  res
-    "GetVoiceConnectorProxyResponse"
-    "fixture/GetVoiceConnectorProxyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetVoiceConnectorProxy)
-
-responseDeleteVoiceConnectorEmergencyCallingConfiguration :: DeleteVoiceConnectorEmergencyCallingConfigurationResponse -> TestTree
-responseDeleteVoiceConnectorEmergencyCallingConfiguration =
-  res
-    "DeleteVoiceConnectorEmergencyCallingConfigurationResponse"
-    "fixture/DeleteVoiceConnectorEmergencyCallingConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteVoiceConnectorEmergencyCallingConfiguration)
-
-responseGetVoiceConnectorStreamingConfiguration :: GetVoiceConnectorStreamingConfigurationResponse -> TestTree
-responseGetVoiceConnectorStreamingConfiguration =
-  res
-    "GetVoiceConnectorStreamingConfigurationResponse"
-    "fixture/GetVoiceConnectorStreamingConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetVoiceConnectorStreamingConfiguration)
-
-responseUpdateSipMediaApplicationCall :: UpdateSipMediaApplicationCallResponse -> TestTree
-responseUpdateSipMediaApplicationCall =
-  res
-    "UpdateSipMediaApplicationCallResponse"
-    "fixture/UpdateSipMediaApplicationCallResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateSipMediaApplicationCall)
-
-responseStopMeetingTranscription :: StopMeetingTranscriptionResponse -> TestTree
-responseStopMeetingTranscription =
-  res
-    "StopMeetingTranscriptionResponse"
-    "fixture/StopMeetingTranscriptionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StopMeetingTranscription)
-
-responseGetAppInstanceRetentionSettings :: GetAppInstanceRetentionSettingsResponse -> TestTree
-responseGetAppInstanceRetentionSettings =
-  res
-    "GetAppInstanceRetentionSettingsResponse"
-    "fixture/GetAppInstanceRetentionSettingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetAppInstanceRetentionSettings)
-
-responsePutVoiceConnectorEmergencyCallingConfiguration :: PutVoiceConnectorEmergencyCallingConfigurationResponse -> TestTree
-responsePutVoiceConnectorEmergencyCallingConfiguration =
-  res
-    "PutVoiceConnectorEmergencyCallingConfigurationResponse"
-    "fixture/PutVoiceConnectorEmergencyCallingConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutVoiceConnectorEmergencyCallingConfiguration)
-
-responseCreateMeetingWithAttendees :: CreateMeetingWithAttendeesResponse -> TestTree
-responseCreateMeetingWithAttendees =
-  res
-    "CreateMeetingWithAttendeesResponse"
-    "fixture/CreateMeetingWithAttendeesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateMeetingWithAttendees)
-
-responseListChannels :: ListChannelsResponse -> TestTree
-responseListChannels =
-  res
-    "ListChannelsResponse"
-    "fixture/ListChannelsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListChannels)
-
-responseDisassociatePhoneNumberFromUser :: DisassociatePhoneNumberFromUserResponse -> TestTree
-responseDisassociatePhoneNumberFromUser =
-  res
-    "DisassociatePhoneNumberFromUserResponse"
-    "fixture/DisassociatePhoneNumberFromUserResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisassociatePhoneNumberFromUser)
-
-responseDisassociateSigninDelegateGroupsFromAccount :: DisassociateSigninDelegateGroupsFromAccountResponse -> TestTree
-responseDisassociateSigninDelegateGroupsFromAccount =
-  res
-    "DisassociateSigninDelegateGroupsFromAccountResponse"
-    "fixture/DisassociateSigninDelegateGroupsFromAccountResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisassociateSigninDelegateGroupsFromAccount)
-
-responseResetPersonalPIN :: ResetPersonalPINResponse -> TestTree
-responseResetPersonalPIN =
-  res
-    "ResetPersonalPINResponse"
-    "fixture/ResetPersonalPINResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ResetPersonalPIN)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseDeleteChannel :: DeleteChannelResponse -> TestTree
-responseDeleteChannel =
-  res
-    "DeleteChannelResponse"
-    "fixture/DeleteChannelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteChannel)
-
-responseUpdateChannel :: UpdateChannelResponse -> TestTree
-responseUpdateChannel =
-  res
-    "UpdateChannelResponse"
-    "fixture/UpdateChannelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateChannel)
-
-responseDescribeAppInstanceAdmin :: DescribeAppInstanceAdminResponse -> TestTree
-responseDescribeAppInstanceAdmin =
-  res
-    "DescribeAppInstanceAdminResponse"
-    "fixture/DescribeAppInstanceAdminResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeAppInstanceAdmin)
-
-responseCreateAttendee :: CreateAttendeeResponse -> TestTree
-responseCreateAttendee =
-  res
-    "CreateAttendeeResponse"
-    "fixture/CreateAttendeeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateAttendee)
-
-responseListSupportedPhoneNumberCountries :: ListSupportedPhoneNumberCountriesResponse -> TestTree
-responseListSupportedPhoneNumberCountries =
-  res
-    "ListSupportedPhoneNumberCountriesResponse"
-    "fixture/ListSupportedPhoneNumberCountriesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListSupportedPhoneNumberCountries)
-
-responseDeleteSipRule :: DeleteSipRuleResponse -> TestTree
-responseDeleteSipRule =
-  res
-    "DeleteSipRuleResponse"
-    "fixture/DeleteSipRuleResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteSipRule)
-
-responseUpdateSipRule :: UpdateSipRuleResponse -> TestTree
-responseUpdateSipRule =
-  res
-    "UpdateSipRuleResponse"
-    "fixture/UpdateSipRuleResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateSipRule)
-
-responseUpdateAccountSettings :: UpdateAccountSettingsResponse -> TestTree
-responseUpdateAccountSettings =
-  res
-    "UpdateAccountSettingsResponse"
-    "fixture/UpdateAccountSettingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateAccountSettings)
-
-responseDeleteVoiceConnectorOrigination :: DeleteVoiceConnectorOriginationResponse -> TestTree
-responseDeleteVoiceConnectorOrigination =
-  res
-    "DeleteVoiceConnectorOriginationResponse"
-    "fixture/DeleteVoiceConnectorOriginationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteVoiceConnectorOrigination)
-
-responseDeleteSipMediaApplication :: DeleteSipMediaApplicationResponse -> TestTree
-responseDeleteSipMediaApplication =
-  res
-    "DeleteSipMediaApplicationResponse"
-    "fixture/DeleteSipMediaApplicationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteSipMediaApplication)
-
-responseUpdateSipMediaApplication :: UpdateSipMediaApplicationResponse -> TestTree
-responseUpdateSipMediaApplication =
-  res
-    "UpdateSipMediaApplicationResponse"
-    "fixture/UpdateSipMediaApplicationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateSipMediaApplication)
-
-responseDisassociatePhoneNumbersFromVoiceConnector :: DisassociatePhoneNumbersFromVoiceConnectorResponse -> TestTree
-responseDisassociatePhoneNumbersFromVoiceConnector =
-  res
-    "DisassociatePhoneNumbersFromVoiceConnectorResponse"
-    "fixture/DisassociatePhoneNumbersFromVoiceConnectorResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisassociatePhoneNumbersFromVoiceConnector)
-
-responseGetMessagingSessionEndpoint :: GetMessagingSessionEndpointResponse -> TestTree
-responseGetMessagingSessionEndpoint =
-  res
-    "GetMessagingSessionEndpointResponse"
-    "fixture/GetMessagingSessionEndpointResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetMessagingSessionEndpoint)
-
-responsePutVoiceConnectorOrigination :: PutVoiceConnectorOriginationResponse -> TestTree
-responsePutVoiceConnectorOrigination =
-  res
-    "PutVoiceConnectorOriginationResponse"
-    "fixture/PutVoiceConnectorOriginationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutVoiceConnectorOrigination)
-
-responseCreateAppInstanceUser :: CreateAppInstanceUserResponse -> TestTree
-responseCreateAppInstanceUser =
-  res
-    "CreateAppInstanceUserResponse"
-    "fixture/CreateAppInstanceUserResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateAppInstanceUser)
-
-responseListAttendeeTags :: ListAttendeeTagsResponse -> TestTree
-responseListAttendeeTags =
-  res
-    "ListAttendeeTagsResponse"
-    "fixture/ListAttendeeTagsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAttendeeTags)
-
-responseListChannelsModeratedByAppInstanceUser :: ListChannelsModeratedByAppInstanceUserResponse -> TestTree
-responseListChannelsModeratedByAppInstanceUser =
-  res
-    "ListChannelsModeratedByAppInstanceUserResponse"
-    "fixture/ListChannelsModeratedByAppInstanceUserResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListChannelsModeratedByAppInstanceUser)
-
-responseRedactChannelMessage :: RedactChannelMessageResponse -> TestTree
-responseRedactChannelMessage =
-  res
-    "RedactChannelMessageResponse"
-    "fixture/RedactChannelMessageResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RedactChannelMessage)
-
-responsePutRetentionSettings :: PutRetentionSettingsResponse -> TestTree
-responsePutRetentionSettings =
-  res
-    "PutRetentionSettingsResponse"
-    "fixture/PutRetentionSettingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutRetentionSettings)
-
-responseListUsers :: ListUsersResponse -> TestTree
-responseListUsers =
-  res
-    "ListUsersResponse"
-    "fixture/ListUsersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListUsers)
-
-responseDeleteVoiceConnectorStreamingConfiguration :: DeleteVoiceConnectorStreamingConfigurationResponse -> TestTree
-responseDeleteVoiceConnectorStreamingConfiguration =
-  res
-    "DeleteVoiceConnectorStreamingConfigurationResponse"
-    "fixture/DeleteVoiceConnectorStreamingConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteVoiceConnectorStreamingConfiguration)
-
-responseAssociatePhoneNumbersWithVoiceConnectorGroup :: AssociatePhoneNumbersWithVoiceConnectorGroupResponse -> TestTree
-responseAssociatePhoneNumbersWithVoiceConnectorGroup =
-  res
-    "AssociatePhoneNumbersWithVoiceConnectorGroupResponse"
-    "fixture/AssociatePhoneNumbersWithVoiceConnectorGroupResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy AssociatePhoneNumbersWithVoiceConnectorGroup)
-
-responsePutAppInstanceRetentionSettings :: PutAppInstanceRetentionSettingsResponse -> TestTree
-responsePutAppInstanceRetentionSettings =
-  res
-    "PutAppInstanceRetentionSettingsResponse"
-    "fixture/PutAppInstanceRetentionSettingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutAppInstanceRetentionSettings)
-
-responseGetVoiceConnectorLoggingConfiguration :: GetVoiceConnectorLoggingConfigurationResponse -> TestTree
-responseGetVoiceConnectorLoggingConfiguration =
-  res
-    "GetVoiceConnectorLoggingConfigurationResponse"
-    "fixture/GetVoiceConnectorLoggingConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetVoiceConnectorLoggingConfiguration)
-
-responseListBots :: ListBotsResponse -> TestTree
-responseListBots =
-  res
-    "ListBotsResponse"
-    "fixture/ListBotsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListBots)
-
-responseDeleteChannelMembership :: DeleteChannelMembershipResponse -> TestTree
-responseDeleteChannelMembership =
-  res
-    "DeleteChannelMembershipResponse"
-    "fixture/DeleteChannelMembershipResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteChannelMembership)
-
-responsePutVoiceConnectorStreamingConfiguration :: PutVoiceConnectorStreamingConfigurationResponse -> TestTree
-responsePutVoiceConnectorStreamingConfiguration =
-  res
-    "PutVoiceConnectorStreamingConfigurationResponse"
-    "fixture/PutVoiceConnectorStreamingConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutVoiceConnectorStreamingConfiguration)
-
-responseListChannelMemberships :: ListChannelMembershipsResponse -> TestTree
-responseListChannelMemberships =
-  res
-    "ListChannelMembershipsResponse"
-    "fixture/ListChannelMembershipsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListChannelMemberships)
-
-responseGetGlobalSettings :: GetGlobalSettingsResponse -> TestTree
-responseGetGlobalSettings =
-  res
-    "GetGlobalSettingsResponse"
-    "fixture/GetGlobalSettingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetGlobalSettings)
-
-responseDeleteMeeting :: DeleteMeetingResponse -> TestTree
-responseDeleteMeeting =
-  res
-    "DeleteMeetingResponse"
-    "fixture/DeleteMeetingResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteMeeting)
-
-responseListMeetings :: ListMeetingsResponse -> TestTree
-responseListMeetings =
-  res
-    "ListMeetingsResponse"
-    "fixture/ListMeetingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListMeetings)
-
-responseGetAttendee :: GetAttendeeResponse -> TestTree
-responseGetAttendee =
-  res
-    "GetAttendeeResponse"
-    "fixture/GetAttendeeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetAttendee)
-
-responseDeleteAccount :: DeleteAccountResponse -> TestTree
-responseDeleteAccount =
-  res
-    "DeleteAccountResponse"
-    "fixture/DeleteAccountResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteAccount)
-
-responseUpdateAccount :: UpdateAccountResponse -> TestTree
-responseUpdateAccount =
-  res
-    "UpdateAccountResponse"
-    "fixture/UpdateAccountResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateAccount)
-
-responseListAccounts :: ListAccountsResponse -> TestTree
-responseListAccounts =
-  res
-    "ListAccountsResponse"
-    "fixture/ListAccountsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAccounts)
-
-responseUpdateBot :: UpdateBotResponse -> TestTree
-responseUpdateBot =
-  res
-    "UpdateBotResponse"
-    "fixture/UpdateBotResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateBot)
-
-responseListPhoneNumberOrders :: ListPhoneNumberOrdersResponse -> TestTree
-responseListPhoneNumberOrders =
-  res
-    "ListPhoneNumberOrdersResponse"
-    "fixture/ListPhoneNumberOrdersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListPhoneNumberOrders)
-
-responseSearchAvailablePhoneNumbers :: SearchAvailablePhoneNumbersResponse -> TestTree
-responseSearchAvailablePhoneNumbers =
-  res
-    "SearchAvailablePhoneNumbersResponse"
-    "fixture/SearchAvailablePhoneNumbersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy SearchAvailablePhoneNumbers)
-
-responseCreateAppInstanceAdmin :: CreateAppInstanceAdminResponse -> TestTree
-responseCreateAppInstanceAdmin =
-  res
-    "CreateAppInstanceAdminResponse"
-    "fixture/CreateAppInstanceAdminResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateAppInstanceAdmin)
-
-responseTagMeeting :: TagMeetingResponse -> TestTree
-responseTagMeeting =
-  res
-    "TagMeetingResponse"
-    "fixture/TagMeetingResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagMeeting)
-
-responseListVoiceConnectorGroups :: ListVoiceConnectorGroupsResponse -> TestTree
-responseListVoiceConnectorGroups =
-  res
-    "ListVoiceConnectorGroupsResponse"
-    "fixture/ListVoiceConnectorGroupsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListVoiceConnectorGroups)
-
-responseLogoutUser :: LogoutUserResponse -> TestTree
-responseLogoutUser =
-  res
-    "LogoutUserResponse"
-    "fixture/LogoutUserResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy LogoutUser)
-
-responseListVoiceConnectorTerminationCredentials :: ListVoiceConnectorTerminationCredentialsResponse -> TestTree
-responseListVoiceConnectorTerminationCredentials =
-  res
-    "ListVoiceConnectorTerminationCredentialsResponse"
-    "fixture/ListVoiceConnectorTerminationCredentialsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListVoiceConnectorTerminationCredentials)
-
-responseCreateMediaCapturePipeline :: CreateMediaCapturePipelineResponse -> TestTree
-responseCreateMediaCapturePipeline =
-  res
-    "CreateMediaCapturePipelineResponse"
-    "fixture/CreateMediaCapturePipelineResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateMediaCapturePipeline)
-
-responseCreateProxySession :: CreateProxySessionResponse -> TestTree
-responseCreateProxySession =
-  res
-    "CreateProxySessionResponse"
-    "fixture/CreateProxySessionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateProxySession)
-
-responseDeleteEventsConfiguration :: DeleteEventsConfigurationResponse -> TestTree
-responseDeleteEventsConfiguration =
-  res
-    "DeleteEventsConfigurationResponse"
-    "fixture/DeleteEventsConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteEventsConfiguration)
-
-responsePutEventsConfiguration :: PutEventsConfigurationResponse -> TestTree
-responsePutEventsConfiguration =
-  res
-    "PutEventsConfigurationResponse"
-    "fixture/PutEventsConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutEventsConfiguration)
-
-responseGetChannelMessage :: GetChannelMessageResponse -> TestTree
-responseGetChannelMessage =
-  res
-    "GetChannelMessageResponse"
-    "fixture/GetChannelMessageResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetChannelMessage)
-
-responseUpdateRoom :: UpdateRoomResponse -> TestTree
-responseUpdateRoom =
-  res
-    "UpdateRoomResponse"
-    "fixture/UpdateRoomResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateRoom)
-
-responseDeleteRoom :: DeleteRoomResponse -> TestTree
-responseDeleteRoom =
-  res
-    "DeleteRoomResponse"
-    "fixture/DeleteRoomResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteRoom)
-
-responsePutSipMediaApplicationLoggingConfiguration :: PutSipMediaApplicationLoggingConfigurationResponse -> TestTree
-responsePutSipMediaApplicationLoggingConfiguration =
-  res
-    "PutSipMediaApplicationLoggingConfigurationResponse"
-    "fixture/PutSipMediaApplicationLoggingConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutSipMediaApplicationLoggingConfiguration)
-
-responseDescribeChannelMembershipForAppInstanceUser :: DescribeChannelMembershipForAppInstanceUserResponse -> TestTree
-responseDescribeChannelMembershipForAppInstanceUser =
-  res
-    "DescribeChannelMembershipForAppInstanceUserResponse"
-    "fixture/DescribeChannelMembershipForAppInstanceUserResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeChannelMembershipForAppInstanceUser)
-
-responseListAppInstanceAdmins :: ListAppInstanceAdminsResponse -> TestTree
-responseListAppInstanceAdmins =
-  res
-    "ListAppInstanceAdminsResponse"
-    "fixture/ListAppInstanceAdminsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAppInstanceAdmins)
-
-responseDeletePhoneNumber :: DeletePhoneNumberResponse -> TestTree
-responseDeletePhoneNumber =
-  res
-    "DeletePhoneNumberResponse"
-    "fixture/DeletePhoneNumberResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeletePhoneNumber)
-
-responseUpdatePhoneNumber :: UpdatePhoneNumberResponse -> TestTree
-responseUpdatePhoneNumber =
-  res
-    "UpdatePhoneNumberResponse"
-    "fixture/UpdatePhoneNumberResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdatePhoneNumber)
-
-responseListPhoneNumbers :: ListPhoneNumbersResponse -> TestTree
-responseListPhoneNumbers =
-  res
-    "ListPhoneNumbersResponse"
-    "fixture/ListPhoneNumbersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListPhoneNumbers)
-
-responseCreateChannelModerator :: CreateChannelModeratorResponse -> TestTree
-responseCreateChannelModerator =
-  res
-    "CreateChannelModeratorResponse"
-    "fixture/CreateChannelModeratorResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateChannelModerator)
-
-responseGetAppInstanceStreamingConfigurations :: GetAppInstanceStreamingConfigurationsResponse -> TestTree
-responseGetAppInstanceStreamingConfigurations =
-  res
-    "GetAppInstanceStreamingConfigurationsResponse"
-    "fixture/GetAppInstanceStreamingConfigurationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetAppInstanceStreamingConfigurations)
-
-responseListAppInstances :: ListAppInstancesResponse -> TestTree
-responseListAppInstances =
-  res
-    "ListAppInstancesResponse"
-    "fixture/ListAppInstancesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAppInstances)
-
-responseDescribeChannelModeratedByAppInstanceUser :: DescribeChannelModeratedByAppInstanceUserResponse -> TestTree
-responseDescribeChannelModeratedByAppInstanceUser =
-  res
-    "DescribeChannelModeratedByAppInstanceUserResponse"
-    "fixture/DescribeChannelModeratedByAppInstanceUserResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeChannelModeratedByAppInstanceUser)
-
-responseGetPhoneNumber :: GetPhoneNumberResponse -> TestTree
-responseGetPhoneNumber =
-  res
-    "GetPhoneNumberResponse"
-    "fixture/GetPhoneNumberResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetPhoneNumber)
-
-responseGetEventsConfiguration :: GetEventsConfigurationResponse -> TestTree
-responseGetEventsConfiguration =
-  res
-    "GetEventsConfigurationResponse"
-    "fixture/GetEventsConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetEventsConfiguration)
-
-responseGetSipMediaApplicationLoggingConfiguration :: GetSipMediaApplicationLoggingConfigurationResponse -> TestTree
-responseGetSipMediaApplicationLoggingConfiguration =
-  res
-    "GetSipMediaApplicationLoggingConfigurationResponse"
-    "fixture/GetSipMediaApplicationLoggingConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetSipMediaApplicationLoggingConfiguration)
-
-responseBatchUpdateUser :: BatchUpdateUserResponse -> TestTree
-responseBatchUpdateUser =
-  res
-    "BatchUpdateUserResponse"
-    "fixture/BatchUpdateUserResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchUpdateUser)
-
-responseSendChannelMessage :: SendChannelMessageResponse -> TestTree
-responseSendChannelMessage =
-  res
-    "SendChannelMessageResponse"
-    "fixture/SendChannelMessageResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy SendChannelMessage)
-
-responseTagAttendee :: TagAttendeeResponse -> TestTree
-responseTagAttendee =
-  res
-    "TagAttendeeResponse"
-    "fixture/TagAttendeeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagAttendee)
-
-responseUpdateVoiceConnector :: UpdateVoiceConnectorResponse -> TestTree
-responseUpdateVoiceConnector =
-  res
-    "UpdateVoiceConnectorResponse"
-    "fixture/UpdateVoiceConnectorResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateVoiceConnector)
-
-responseDeleteVoiceConnector :: DeleteVoiceConnectorResponse -> TestTree
-responseDeleteVoiceConnector =
-  res
-    "DeleteVoiceConnectorResponse"
-    "fixture/DeleteVoiceConnectorResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteVoiceConnector)
-
-responseGetMediaCapturePipeline :: GetMediaCapturePipelineResponse -> TestTree
-responseGetMediaCapturePipeline =
-  res
-    "GetMediaCapturePipelineResponse"
-    "fixture/GetMediaCapturePipelineResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetMediaCapturePipeline)
-
-responseUpdateRoomMembership :: UpdateRoomMembershipResponse -> TestTree
-responseUpdateRoomMembership =
-  res
-    "UpdateRoomMembershipResponse"
-    "fixture/UpdateRoomMembershipResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateRoomMembership)
-
-responseGetProxySession :: GetProxySessionResponse -> TestTree
-responseGetProxySession =
-  res
-    "GetProxySessionResponse"
-    "fixture/GetProxySessionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetProxySession)
-
-responseDeleteRoomMembership :: DeleteRoomMembershipResponse -> TestTree
-responseDeleteRoomMembership =
-  res
-    "DeleteRoomMembershipResponse"
-    "fixture/DeleteRoomMembershipResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteRoomMembership)
-
-responseDescribeAppInstanceUser :: DescribeAppInstanceUserResponse -> TestTree
-responseDescribeAppInstanceUser =
-  res
-    "DescribeAppInstanceUserResponse"
-    "fixture/DescribeAppInstanceUserResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeAppInstanceUser)
-
-responseBatchUnsuspendUser :: BatchUnsuspendUserResponse -> TestTree
-responseBatchUnsuspendUser =
-  res
-    "BatchUnsuspendUserResponse"
-    "fixture/BatchUnsuspendUserResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchUnsuspendUser)
-
-responseDeleteChannelBan :: DeleteChannelBanResponse -> TestTree
-responseDeleteChannelBan =
-  res
-    "DeleteChannelBanResponse"
-    "fixture/DeleteChannelBanResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteChannelBan)
-
-responseGetMeeting :: GetMeetingResponse -> TestTree
-responseGetMeeting =
-  res
-    "GetMeetingResponse"
-    "fixture/GetMeetingResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetMeeting)
-
-responseRestorePhoneNumber :: RestorePhoneNumberResponse -> TestTree
-responseRestorePhoneNumber =
-  res
-    "RestorePhoneNumberResponse"
-    "fixture/RestorePhoneNumberResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RestorePhoneNumber)
-
-responseGetRetentionSettings :: GetRetentionSettingsResponse -> TestTree
-responseGetRetentionSettings =
-  res
-    "GetRetentionSettingsResponse"
-    "fixture/GetRetentionSettingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetRetentionSettings)
-
-responseGetBot :: GetBotResponse -> TestTree
-responseGetBot =
-  res
-    "GetBotResponse"
-    "fixture/GetBotResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetBot)
-
-responseGetUser :: GetUserResponse -> TestTree
-responseGetUser =
-  res
-    "GetUserResponse"
-    "fixture/GetUserResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetUser)
-
-responseUntagAttendee :: UntagAttendeeResponse -> TestTree
-responseUntagAttendee =
-  res
-    "UntagAttendeeResponse"
-    "fixture/UntagAttendeeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagAttendee)
-
-responseStartMeetingTranscription :: StartMeetingTranscriptionResponse -> TestTree
-responseStartMeetingTranscription =
-  res
-    "StartMeetingTranscriptionResponse"
-    "fixture/StartMeetingTranscriptionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartMeetingTranscription)
-
-responseListChannelBans :: ListChannelBansResponse -> TestTree
-responseListChannelBans =
-  res
-    "ListChannelBansResponse"
-    "fixture/ListChannelBansResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListChannelBans)
-
-responseCreateChannel :: CreateChannelResponse -> TestTree
-responseCreateChannel =
-  res
-    "CreateChannelResponse"
-    "fixture/CreateChannelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateChannel)
-
-responseBatchSuspendUser :: BatchSuspendUserResponse -> TestTree
-responseBatchSuspendUser =
-  res
-    "BatchSuspendUserResponse"
-    "fixture/BatchSuspendUserResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchSuspendUser)
-
-responseGetAccount :: GetAccountResponse -> TestTree
-responseGetAccount =
-  res
-    "GetAccountResponse"
-    "fixture/GetAccountResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetAccount)
-
-responseDescribeChannelModerator :: DescribeChannelModeratorResponse -> TestTree
-responseDescribeChannelModerator =
-  res
-    "DescribeChannelModeratorResponse"
-    "fixture/DescribeChannelModeratorResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeChannelModerator)
-
-responseAssociatePhoneNumbersWithVoiceConnector :: AssociatePhoneNumbersWithVoiceConnectorResponse -> TestTree
-responseAssociatePhoneNumbersWithVoiceConnector =
-  res
-    "AssociatePhoneNumbersWithVoiceConnectorResponse"
-    "fixture/AssociatePhoneNumbersWithVoiceConnectorResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy AssociatePhoneNumbersWithVoiceConnector)
-
-responseGetPhoneNumberOrder :: GetPhoneNumberOrderResponse -> TestTree
-responseGetPhoneNumberOrder =
-  res
-    "GetPhoneNumberOrderResponse"
-    "fixture/GetPhoneNumberOrderResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetPhoneNumberOrder)
-
-responseGetSipRule :: GetSipRuleResponse -> TestTree
-responseGetSipRule =
-  res
-    "GetSipRuleResponse"
-    "fixture/GetSipRuleResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetSipRule)
-
-responseGetUserSettings :: GetUserSettingsResponse -> TestTree
-responseGetUserSettings =
-  res
-    "GetUserSettingsResponse"
-    "fixture/GetUserSettingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetUserSettings)
-
-responseGetSipMediaApplication :: GetSipMediaApplicationResponse -> TestTree
-responseGetSipMediaApplication =
-  res
-    "GetSipMediaApplicationResponse"
-    "fixture/GetSipMediaApplicationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetSipMediaApplication)
-
-responseGetAccountSettings :: GetAccountSettingsResponse -> TestTree
-responseGetAccountSettings =
-  res
-    "GetAccountSettingsResponse"
-    "fixture/GetAccountSettingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetAccountSettings)
-
-responseCreateChannelBan :: CreateChannelBanResponse -> TestTree
-responseCreateChannelBan =
-  res
-    "CreateChannelBanResponse"
-    "fixture/CreateChannelBanResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateChannelBan)
-
-responseListMeetingTags :: ListMeetingTagsResponse -> TestTree
-responseListMeetingTags =
-  res
-    "ListMeetingTagsResponse"
-    "fixture/ListMeetingTagsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListMeetingTags)
-
-responseListChannelMembershipsForAppInstanceUser :: ListChannelMembershipsForAppInstanceUserResponse -> TestTree
-responseListChannelMembershipsForAppInstanceUser =
-  res
-    "ListChannelMembershipsForAppInstanceUserResponse"
-    "fixture/ListChannelMembershipsForAppInstanceUserResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListChannelMembershipsForAppInstanceUser)
-
-responseGetVoiceConnectorOrigination :: GetVoiceConnectorOriginationResponse -> TestTree
-responseGetVoiceConnectorOrigination =
-  res
-    "GetVoiceConnectorOriginationResponse"
-    "fixture/GetVoiceConnectorOriginationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetVoiceConnectorOrigination)
-
-responseBatchUpdatePhoneNumber :: BatchUpdatePhoneNumberResponse -> TestTree
-responseBatchUpdatePhoneNumber =
-  res
-    "BatchUpdatePhoneNumberResponse"
-    "fixture/BatchUpdatePhoneNumberResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchUpdatePhoneNumber)
-
-responseDisassociatePhoneNumbersFromVoiceConnectorGroup :: DisassociatePhoneNumbersFromVoiceConnectorGroupResponse -> TestTree
-responseDisassociatePhoneNumbersFromVoiceConnectorGroup =
-  res
-    "DisassociatePhoneNumbersFromVoiceConnectorGroupResponse"
-    "fixture/DisassociatePhoneNumbersFromVoiceConnectorGroupResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisassociatePhoneNumbersFromVoiceConnectorGroup)
-
-responseUpdateChannelReadMarker :: UpdateChannelReadMarkerResponse -> TestTree
-responseUpdateChannelReadMarker =
-  res
-    "UpdateChannelReadMarkerResponse"
-    "fixture/UpdateChannelReadMarkerResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateChannelReadMarker)
-
-responseCreateSipMediaApplicationCall :: CreateSipMediaApplicationCallResponse -> TestTree
-responseCreateSipMediaApplicationCall =
-  res
-    "CreateSipMediaApplicationCallResponse"
-    "fixture/CreateSipMediaApplicationCallResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateSipMediaApplicationCall)
-
-responseBatchDeletePhoneNumber :: BatchDeletePhoneNumberResponse -> TestTree
-responseBatchDeletePhoneNumber =
-  res
-    "BatchDeletePhoneNumberResponse"
-    "fixture/BatchDeletePhoneNumberResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchDeletePhoneNumber)
-
-responseListSipMediaApplications :: ListSipMediaApplicationsResponse -> TestTree
-responseListSipMediaApplications =
-  res
-    "ListSipMediaApplicationsResponse"
-    "fixture/ListSipMediaApplicationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListSipMediaApplications)
-
-responseCreateMeeting :: CreateMeetingResponse -> TestTree
-responseCreateMeeting =
-  res
-    "CreateMeetingResponse"
-    "fixture/CreateMeetingResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateMeeting)
-
-responseCreatePhoneNumberOrder :: CreatePhoneNumberOrderResponse -> TestTree
-responseCreatePhoneNumberOrder =
-  res
-    "CreatePhoneNumberOrderResponse"
-    "fixture/CreatePhoneNumberOrderResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreatePhoneNumberOrder)
-
-responseListSipRules :: ListSipRulesResponse -> TestTree
-responseListSipRules =
-  res
-    "ListSipRulesResponse"
-    "fixture/ListSipRulesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListSipRules)
-
-responseCreateBot :: CreateBotResponse -> TestTree
-responseCreateBot =
-  res
-    "CreateBotResponse"
-    "fixture/CreateBotResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateBot)
-
-responseUpdateUserSettings :: UpdateUserSettingsResponse -> TestTree
-responseUpdateUserSettings =
-  res
-    "UpdateUserSettingsResponse"
-    "fixture/UpdateUserSettingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateUserSettings)
-
-responseCreateUser :: CreateUserResponse -> TestTree
-responseCreateUser =
-  res
-    "CreateUserResponse"
-    "fixture/CreateUserResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateUser)
-
-responseBatchCreateRoomMembership :: BatchCreateRoomMembershipResponse -> TestTree
-responseBatchCreateRoomMembership =
-  res
-    "BatchCreateRoomMembershipResponse"
-    "fixture/BatchCreateRoomMembershipResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchCreateRoomMembership)
-
-responseDescribeAppInstance :: DescribeAppInstanceResponse -> TestTree
-responseDescribeAppInstance =
-  res
-    "DescribeAppInstanceResponse"
-    "fixture/DescribeAppInstanceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeAppInstance)
-
-responseCreateAccount :: CreateAccountResponse -> TestTree
-responseCreateAccount =
-  res
-    "CreateAccountResponse"
-    "fixture/CreateAccountResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateAccount)
-
-responseCreateChannelMembership :: CreateChannelMembershipResponse -> TestTree
-responseCreateChannelMembership =
-  res
-    "CreateChannelMembershipResponse"
-    "fixture/CreateChannelMembershipResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateChannelMembership)
-
-responseDeleteVoiceConnectorTermination :: DeleteVoiceConnectorTerminationResponse -> TestTree
-responseDeleteVoiceConnectorTermination =
-  res
-    "DeleteVoiceConnectorTerminationResponse"
-    "fixture/DeleteVoiceConnectorTerminationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteVoiceConnectorTermination)
 
 responseAssociatePhoneNumberWithUser :: AssociatePhoneNumberWithUserResponse -> TestTree
 responseAssociatePhoneNumberWithUser =
@@ -3429,69 +2325,21 @@ responseAssociatePhoneNumberWithUser =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociatePhoneNumberWithUser)
 
-responseDeleteVoiceConnectorProxy :: DeleteVoiceConnectorProxyResponse -> TestTree
-responseDeleteVoiceConnectorProxy =
+responseAssociatePhoneNumbersWithVoiceConnector :: AssociatePhoneNumbersWithVoiceConnectorResponse -> TestTree
+responseAssociatePhoneNumbersWithVoiceConnector =
   res
-    "DeleteVoiceConnectorProxyResponse"
-    "fixture/DeleteVoiceConnectorProxyResponse.proto"
+    "AssociatePhoneNumbersWithVoiceConnectorResponse"
+    "fixture/AssociatePhoneNumbersWithVoiceConnectorResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteVoiceConnectorProxy)
+    (Proxy.Proxy :: Proxy.Proxy AssociatePhoneNumbersWithVoiceConnector)
 
-responseCreateSipMediaApplication :: CreateSipMediaApplicationResponse -> TestTree
-responseCreateSipMediaApplication =
+responseAssociatePhoneNumbersWithVoiceConnectorGroup :: AssociatePhoneNumbersWithVoiceConnectorGroupResponse -> TestTree
+responseAssociatePhoneNumbersWithVoiceConnectorGroup =
   res
-    "CreateSipMediaApplicationResponse"
-    "fixture/CreateSipMediaApplicationResponse.proto"
+    "AssociatePhoneNumbersWithVoiceConnectorGroupResponse"
+    "fixture/AssociatePhoneNumbersWithVoiceConnectorGroupResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateSipMediaApplication)
-
-responsePutVoiceConnectorProxy :: PutVoiceConnectorProxyResponse -> TestTree
-responsePutVoiceConnectorProxy =
-  res
-    "PutVoiceConnectorProxyResponse"
-    "fixture/PutVoiceConnectorProxyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutVoiceConnectorProxy)
-
-responseUpdateUser :: UpdateUserResponse -> TestTree
-responseUpdateUser =
-  res
-    "UpdateUserResponse"
-    "fixture/UpdateUserResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateUser)
-
-responsePutVoiceConnectorTermination :: PutVoiceConnectorTerminationResponse -> TestTree
-responsePutVoiceConnectorTermination =
-  res
-    "PutVoiceConnectorTerminationResponse"
-    "fixture/PutVoiceConnectorTerminationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutVoiceConnectorTermination)
-
-responseGetVoiceConnectorEmergencyCallingConfiguration :: GetVoiceConnectorEmergencyCallingConfigurationResponse -> TestTree
-responseGetVoiceConnectorEmergencyCallingConfiguration =
-  res
-    "GetVoiceConnectorEmergencyCallingConfigurationResponse"
-    "fixture/GetVoiceConnectorEmergencyCallingConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetVoiceConnectorEmergencyCallingConfiguration)
-
-responsePutVoiceConnectorTerminationCredentials :: PutVoiceConnectorTerminationCredentialsResponse -> TestTree
-responsePutVoiceConnectorTerminationCredentials =
-  res
-    "PutVoiceConnectorTerminationCredentialsResponse"
-    "fixture/PutVoiceConnectorTerminationCredentialsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutVoiceConnectorTerminationCredentials)
-
-responseListAppInstanceUsers :: ListAppInstanceUsersResponse -> TestTree
-responseListAppInstanceUsers =
-  res
-    "ListAppInstanceUsersResponse"
-    "fixture/ListAppInstanceUsersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAppInstanceUsers)
+    (Proxy.Proxy :: Proxy.Proxy AssociatePhoneNumbersWithVoiceConnectorGroup)
 
 responseAssociateSigninDelegateGroupsWithAccount :: AssociateSigninDelegateGroupsWithAccountResponse -> TestTree
 responseAssociateSigninDelegateGroupsWithAccount =
@@ -3501,125 +2349,165 @@ responseAssociateSigninDelegateGroupsWithAccount =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociateSigninDelegateGroupsWithAccount)
 
-responseCreateSipRule :: CreateSipRuleResponse -> TestTree
-responseCreateSipRule =
+responseBatchCreateAttendee :: BatchCreateAttendeeResponse -> TestTree
+responseBatchCreateAttendee =
   res
-    "CreateSipRuleResponse"
-    "fixture/CreateSipRuleResponse.proto"
+    "BatchCreateAttendeeResponse"
+    "fixture/BatchCreateAttendeeResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateSipRule)
+    (Proxy.Proxy :: Proxy.Proxy BatchCreateAttendee)
 
-responseDeleteVoiceConnectorTerminationCredentials :: DeleteVoiceConnectorTerminationCredentialsResponse -> TestTree
-responseDeleteVoiceConnectorTerminationCredentials =
+responseBatchCreateChannelMembership :: BatchCreateChannelMembershipResponse -> TestTree
+responseBatchCreateChannelMembership =
   res
-    "DeleteVoiceConnectorTerminationCredentialsResponse"
-    "fixture/DeleteVoiceConnectorTerminationCredentialsResponse.proto"
+    "BatchCreateChannelMembershipResponse"
+    "fixture/BatchCreateChannelMembershipResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteVoiceConnectorTerminationCredentials)
+    (Proxy.Proxy :: Proxy.Proxy BatchCreateChannelMembership)
 
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
+responseBatchCreateRoomMembership :: BatchCreateRoomMembershipResponse -> TestTree
+responseBatchCreateRoomMembership =
   res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
+    "BatchCreateRoomMembershipResponse"
+    "fixture/BatchCreateRoomMembershipResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy BatchCreateRoomMembership)
 
-responseDeleteAppInstanceUser :: DeleteAppInstanceUserResponse -> TestTree
-responseDeleteAppInstanceUser =
+responseBatchDeletePhoneNumber :: BatchDeletePhoneNumberResponse -> TestTree
+responseBatchDeletePhoneNumber =
   res
-    "DeleteAppInstanceUserResponse"
-    "fixture/DeleteAppInstanceUserResponse.proto"
+    "BatchDeletePhoneNumberResponse"
+    "fixture/BatchDeletePhoneNumberResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteAppInstanceUser)
+    (Proxy.Proxy :: Proxy.Proxy BatchDeletePhoneNumber)
 
-responseUpdateAppInstanceUser :: UpdateAppInstanceUserResponse -> TestTree
-responseUpdateAppInstanceUser =
+responseBatchSuspendUser :: BatchSuspendUserResponse -> TestTree
+responseBatchSuspendUser =
   res
-    "UpdateAppInstanceUserResponse"
-    "fixture/UpdateAppInstanceUserResponse.proto"
+    "BatchSuspendUserResponse"
+    "fixture/BatchSuspendUserResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateAppInstanceUser)
+    (Proxy.Proxy :: Proxy.Proxy BatchSuspendUser)
 
-responseUntagMeeting :: UntagMeetingResponse -> TestTree
-responseUntagMeeting =
+responseBatchUnsuspendUser :: BatchUnsuspendUserResponse -> TestTree
+responseBatchUnsuspendUser =
   res
-    "UntagMeetingResponse"
-    "fixture/UntagMeetingResponse.proto"
+    "BatchUnsuspendUserResponse"
+    "fixture/BatchUnsuspendUserResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagMeeting)
+    (Proxy.Proxy :: Proxy.Proxy BatchUnsuspendUser)
 
-responseUpdateVoiceConnectorGroup :: UpdateVoiceConnectorGroupResponse -> TestTree
-responseUpdateVoiceConnectorGroup =
+responseBatchUpdatePhoneNumber :: BatchUpdatePhoneNumberResponse -> TestTree
+responseBatchUpdatePhoneNumber =
   res
-    "UpdateVoiceConnectorGroupResponse"
-    "fixture/UpdateVoiceConnectorGroupResponse.proto"
+    "BatchUpdatePhoneNumberResponse"
+    "fixture/BatchUpdatePhoneNumberResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateVoiceConnectorGroup)
+    (Proxy.Proxy :: Proxy.Proxy BatchUpdatePhoneNumber)
 
-responseRedactConversationMessage :: RedactConversationMessageResponse -> TestTree
-responseRedactConversationMessage =
+responseBatchUpdateUser :: BatchUpdateUserResponse -> TestTree
+responseBatchUpdateUser =
   res
-    "RedactConversationMessageResponse"
-    "fixture/RedactConversationMessageResponse.proto"
+    "BatchUpdateUserResponse"
+    "fixture/BatchUpdateUserResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy RedactConversationMessage)
+    (Proxy.Proxy :: Proxy.Proxy BatchUpdateUser)
 
-responseDeleteChannelModerator :: DeleteChannelModeratorResponse -> TestTree
-responseDeleteChannelModerator =
+responseCreateAccount :: CreateAccountResponse -> TestTree
+responseCreateAccount =
   res
-    "DeleteChannelModeratorResponse"
-    "fixture/DeleteChannelModeratorResponse.proto"
+    "CreateAccountResponse"
+    "fixture/CreateAccountResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteChannelModerator)
+    (Proxy.Proxy :: Proxy.Proxy CreateAccount)
 
-responseDeleteVoiceConnectorGroup :: DeleteVoiceConnectorGroupResponse -> TestTree
-responseDeleteVoiceConnectorGroup =
+responseCreateAppInstance :: CreateAppInstanceResponse -> TestTree
+responseCreateAppInstance =
   res
-    "DeleteVoiceConnectorGroupResponse"
-    "fixture/DeleteVoiceConnectorGroupResponse.proto"
+    "CreateAppInstanceResponse"
+    "fixture/CreateAppInstanceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteVoiceConnectorGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateAppInstance)
 
-responseDescribeChannelBan :: DescribeChannelBanResponse -> TestTree
-responseDescribeChannelBan =
+responseCreateAppInstanceAdmin :: CreateAppInstanceAdminResponse -> TestTree
+responseCreateAppInstanceAdmin =
   res
-    "DescribeChannelBanResponse"
-    "fixture/DescribeChannelBanResponse.proto"
+    "CreateAppInstanceAdminResponse"
+    "fixture/CreateAppInstanceAdminResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeChannelBan)
+    (Proxy.Proxy :: Proxy.Proxy CreateAppInstanceAdmin)
 
-responseDeleteMediaCapturePipeline :: DeleteMediaCapturePipelineResponse -> TestTree
-responseDeleteMediaCapturePipeline =
+responseCreateAppInstanceUser :: CreateAppInstanceUserResponse -> TestTree
+responseCreateAppInstanceUser =
   res
-    "DeleteMediaCapturePipelineResponse"
-    "fixture/DeleteMediaCapturePipelineResponse.proto"
+    "CreateAppInstanceUserResponse"
+    "fixture/CreateAppInstanceUserResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteMediaCapturePipeline)
+    (Proxy.Proxy :: Proxy.Proxy CreateAppInstanceUser)
 
-responseUpdateProxySession :: UpdateProxySessionResponse -> TestTree
-responseUpdateProxySession =
+responseCreateAttendee :: CreateAttendeeResponse -> TestTree
+responseCreateAttendee =
   res
-    "UpdateProxySessionResponse"
-    "fixture/UpdateProxySessionResponse.proto"
+    "CreateAttendeeResponse"
+    "fixture/CreateAttendeeResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateProxySession)
+    (Proxy.Proxy :: Proxy.Proxy CreateAttendee)
 
-responseDeleteProxySession :: DeleteProxySessionResponse -> TestTree
-responseDeleteProxySession =
+responseCreateBot :: CreateBotResponse -> TestTree
+responseCreateBot =
   res
-    "DeleteProxySessionResponse"
-    "fixture/DeleteProxySessionResponse.proto"
+    "CreateBotResponse"
+    "fixture/CreateBotResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteProxySession)
+    (Proxy.Proxy :: Proxy.Proxy CreateBot)
 
-responseGetVoiceConnectorTerminationHealth :: GetVoiceConnectorTerminationHealthResponse -> TestTree
-responseGetVoiceConnectorTerminationHealth =
+responseCreateChannel :: CreateChannelResponse -> TestTree
+responseCreateChannel =
   res
-    "GetVoiceConnectorTerminationHealthResponse"
-    "fixture/GetVoiceConnectorTerminationHealthResponse.proto"
+    "CreateChannelResponse"
+    "fixture/CreateChannelResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetVoiceConnectorTerminationHealth)
+    (Proxy.Proxy :: Proxy.Proxy CreateChannel)
+
+responseCreateChannelBan :: CreateChannelBanResponse -> TestTree
+responseCreateChannelBan =
+  res
+    "CreateChannelBanResponse"
+    "fixture/CreateChannelBanResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateChannelBan)
+
+responseCreateChannelMembership :: CreateChannelMembershipResponse -> TestTree
+responseCreateChannelMembership =
+  res
+    "CreateChannelMembershipResponse"
+    "fixture/CreateChannelMembershipResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateChannelMembership)
+
+responseCreateChannelModerator :: CreateChannelModeratorResponse -> TestTree
+responseCreateChannelModerator =
+  res
+    "CreateChannelModeratorResponse"
+    "fixture/CreateChannelModeratorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateChannelModerator)
+
+responseCreateMediaCapturePipeline :: CreateMediaCapturePipelineResponse -> TestTree
+responseCreateMediaCapturePipeline =
+  res
+    "CreateMediaCapturePipelineResponse"
+    "fixture/CreateMediaCapturePipelineResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateMediaCapturePipeline)
+
+responseCreateMeeting :: CreateMeetingResponse -> TestTree
+responseCreateMeeting =
+  res
+    "CreateMeetingResponse"
+    "fixture/CreateMeetingResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateMeeting)
 
 responseCreateMeetingDialOut :: CreateMeetingDialOutResponse -> TestTree
 responseCreateMeetingDialOut =
@@ -3629,45 +2517,29 @@ responseCreateMeetingDialOut =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateMeetingDialOut)
 
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
+responseCreateMeetingWithAttendees :: CreateMeetingWithAttendeesResponse -> TestTree
+responseCreateMeetingWithAttendees =
   res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
+    "CreateMeetingWithAttendeesResponse"
+    "fixture/CreateMeetingWithAttendeesResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy CreateMeetingWithAttendees)
 
-responseListProxySessions :: ListProxySessionsResponse -> TestTree
-responseListProxySessions =
+responseCreatePhoneNumberOrder :: CreatePhoneNumberOrderResponse -> TestTree
+responseCreatePhoneNumberOrder =
   res
-    "ListProxySessionsResponse"
-    "fixture/ListProxySessionsResponse.proto"
+    "CreatePhoneNumberOrderResponse"
+    "fixture/CreatePhoneNumberOrderResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListProxySessions)
+    (Proxy.Proxy :: Proxy.Proxy CreatePhoneNumberOrder)
 
-responseListMediaCapturePipelines :: ListMediaCapturePipelinesResponse -> TestTree
-responseListMediaCapturePipelines =
+responseCreateProxySession :: CreateProxySessionResponse -> TestTree
+responseCreateProxySession =
   res
-    "ListMediaCapturePipelinesResponse"
-    "fixture/ListMediaCapturePipelinesResponse.proto"
+    "CreateProxySessionResponse"
+    "fixture/CreateProxySessionResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListMediaCapturePipelines)
-
-responseUpdatePhoneNumberSettings :: UpdatePhoneNumberSettingsResponse -> TestTree
-responseUpdatePhoneNumberSettings =
-  res
-    "UpdatePhoneNumberSettingsResponse"
-    "fixture/UpdatePhoneNumberSettingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdatePhoneNumberSettings)
-
-responseInviteUsers :: InviteUsersResponse -> TestTree
-responseInviteUsers =
-  res
-    "InviteUsersResponse"
-    "fixture/InviteUsersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy InviteUsers)
+    (Proxy.Proxy :: Proxy.Proxy CreateProxySession)
 
 responseCreateRoom :: CreateRoomResponse -> TestTree
 responseCreateRoom =
@@ -3677,117 +2549,45 @@ responseCreateRoom =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateRoom)
 
-responseListChannelModerators :: ListChannelModeratorsResponse -> TestTree
-responseListChannelModerators =
+responseCreateRoomMembership :: CreateRoomMembershipResponse -> TestTree
+responseCreateRoomMembership =
   res
-    "ListChannelModeratorsResponse"
-    "fixture/ListChannelModeratorsResponse.proto"
+    "CreateRoomMembershipResponse"
+    "fixture/CreateRoomMembershipResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListChannelModerators)
+    (Proxy.Proxy :: Proxy.Proxy CreateRoomMembership)
 
-responseGetVoiceConnector :: GetVoiceConnectorResponse -> TestTree
-responseGetVoiceConnector =
+responseCreateSipMediaApplication :: CreateSipMediaApplicationResponse -> TestTree
+responseCreateSipMediaApplication =
   res
-    "GetVoiceConnectorResponse"
-    "fixture/GetVoiceConnectorResponse.proto"
+    "CreateSipMediaApplicationResponse"
+    "fixture/CreateSipMediaApplicationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetVoiceConnector)
+    (Proxy.Proxy :: Proxy.Proxy CreateSipMediaApplication)
 
-responseDescribeChannel :: DescribeChannelResponse -> TestTree
-responseDescribeChannel =
+responseCreateSipMediaApplicationCall :: CreateSipMediaApplicationCallResponse -> TestTree
+responseCreateSipMediaApplicationCall =
   res
-    "DescribeChannelResponse"
-    "fixture/DescribeChannelResponse.proto"
+    "CreateSipMediaApplicationCallResponse"
+    "fixture/CreateSipMediaApplicationCallResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeChannel)
+    (Proxy.Proxy :: Proxy.Proxy CreateSipMediaApplicationCall)
 
-responseCreateVoiceConnectorGroup :: CreateVoiceConnectorGroupResponse -> TestTree
-responseCreateVoiceConnectorGroup =
+responseCreateSipRule :: CreateSipRuleResponse -> TestTree
+responseCreateSipRule =
   res
-    "CreateVoiceConnectorGroupResponse"
-    "fixture/CreateVoiceConnectorGroupResponse.proto"
+    "CreateSipRuleResponse"
+    "fixture/CreateSipRuleResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateVoiceConnectorGroup)
+    (Proxy.Proxy :: Proxy.Proxy CreateSipRule)
 
-responseDeleteAppInstanceStreamingConfigurations :: DeleteAppInstanceStreamingConfigurationsResponse -> TestTree
-responseDeleteAppInstanceStreamingConfigurations =
+responseCreateUser :: CreateUserResponse -> TestTree
+responseCreateUser =
   res
-    "DeleteAppInstanceStreamingConfigurationsResponse"
-    "fixture/DeleteAppInstanceStreamingConfigurationsResponse.proto"
+    "CreateUserResponse"
+    "fixture/CreateUserResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteAppInstanceStreamingConfigurations)
-
-responseListRooms :: ListRoomsResponse -> TestTree
-responseListRooms =
-  res
-    "ListRoomsResponse"
-    "fixture/ListRoomsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListRooms)
-
-responseBatchCreateAttendee :: BatchCreateAttendeeResponse -> TestTree
-responseBatchCreateAttendee =
-  res
-    "BatchCreateAttendeeResponse"
-    "fixture/BatchCreateAttendeeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchCreateAttendee)
-
-responseDeleteAppInstanceAdmin :: DeleteAppInstanceAdminResponse -> TestTree
-responseDeleteAppInstanceAdmin =
-  res
-    "DeleteAppInstanceAdminResponse"
-    "fixture/DeleteAppInstanceAdminResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteAppInstanceAdmin)
-
-responsePutAppInstanceStreamingConfigurations :: PutAppInstanceStreamingConfigurationsResponse -> TestTree
-responsePutAppInstanceStreamingConfigurations =
-  res
-    "PutAppInstanceStreamingConfigurationsResponse"
-    "fixture/PutAppInstanceStreamingConfigurationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutAppInstanceStreamingConfigurations)
-
-responseRegenerateSecurityToken :: RegenerateSecurityTokenResponse -> TestTree
-responseRegenerateSecurityToken =
-  res
-    "RegenerateSecurityTokenResponse"
-    "fixture/RegenerateSecurityTokenResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RegenerateSecurityToken)
-
-responseDeleteChannelMessage :: DeleteChannelMessageResponse -> TestTree
-responseDeleteChannelMessage =
-  res
-    "DeleteChannelMessageResponse"
-    "fixture/DeleteChannelMessageResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteChannelMessage)
-
-responseUpdateChannelMessage :: UpdateChannelMessageResponse -> TestTree
-responseUpdateChannelMessage =
-  res
-    "UpdateChannelMessageResponse"
-    "fixture/UpdateChannelMessageResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateChannelMessage)
-
-responseDeleteAppInstance :: DeleteAppInstanceResponse -> TestTree
-responseDeleteAppInstance =
-  res
-    "DeleteAppInstanceResponse"
-    "fixture/DeleteAppInstanceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteAppInstance)
-
-responseUpdateAppInstance :: UpdateAppInstanceResponse -> TestTree
-responseUpdateAppInstance =
-  res
-    "UpdateAppInstanceResponse"
-    "fixture/UpdateAppInstanceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateAppInstance)
+    (Proxy.Proxy :: Proxy.Proxy CreateUser)
 
 responseCreateVoiceConnector :: CreateVoiceConnectorResponse -> TestTree
 responseCreateVoiceConnector =
@@ -3797,21 +2597,477 @@ responseCreateVoiceConnector =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateVoiceConnector)
 
-responseListChannelMessages :: ListChannelMessagesResponse -> TestTree
-responseListChannelMessages =
+responseCreateVoiceConnectorGroup :: CreateVoiceConnectorGroupResponse -> TestTree
+responseCreateVoiceConnectorGroup =
   res
-    "ListChannelMessagesResponse"
-    "fixture/ListChannelMessagesResponse.proto"
+    "CreateVoiceConnectorGroupResponse"
+    "fixture/CreateVoiceConnectorGroupResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListChannelMessages)
+    (Proxy.Proxy :: Proxy.Proxy CreateVoiceConnectorGroup)
 
-responseRedactRoomMessage :: RedactRoomMessageResponse -> TestTree
-responseRedactRoomMessage =
+responseDeleteAccount :: DeleteAccountResponse -> TestTree
+responseDeleteAccount =
   res
-    "RedactRoomMessageResponse"
-    "fixture/RedactRoomMessageResponse.proto"
+    "DeleteAccountResponse"
+    "fixture/DeleteAccountResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy RedactRoomMessage)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAccount)
+
+responseDeleteAppInstance :: DeleteAppInstanceResponse -> TestTree
+responseDeleteAppInstance =
+  res
+    "DeleteAppInstanceResponse"
+    "fixture/DeleteAppInstanceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAppInstance)
+
+responseDeleteAppInstanceAdmin :: DeleteAppInstanceAdminResponse -> TestTree
+responseDeleteAppInstanceAdmin =
+  res
+    "DeleteAppInstanceAdminResponse"
+    "fixture/DeleteAppInstanceAdminResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAppInstanceAdmin)
+
+responseDeleteAppInstanceStreamingConfigurations :: DeleteAppInstanceStreamingConfigurationsResponse -> TestTree
+responseDeleteAppInstanceStreamingConfigurations =
+  res
+    "DeleteAppInstanceStreamingConfigurationsResponse"
+    "fixture/DeleteAppInstanceStreamingConfigurationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAppInstanceStreamingConfigurations)
+
+responseDeleteAppInstanceUser :: DeleteAppInstanceUserResponse -> TestTree
+responseDeleteAppInstanceUser =
+  res
+    "DeleteAppInstanceUserResponse"
+    "fixture/DeleteAppInstanceUserResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAppInstanceUser)
+
+responseDeleteAttendee :: DeleteAttendeeResponse -> TestTree
+responseDeleteAttendee =
+  res
+    "DeleteAttendeeResponse"
+    "fixture/DeleteAttendeeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAttendee)
+
+responseDeleteChannel :: DeleteChannelResponse -> TestTree
+responseDeleteChannel =
+  res
+    "DeleteChannelResponse"
+    "fixture/DeleteChannelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteChannel)
+
+responseDeleteChannelBan :: DeleteChannelBanResponse -> TestTree
+responseDeleteChannelBan =
+  res
+    "DeleteChannelBanResponse"
+    "fixture/DeleteChannelBanResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteChannelBan)
+
+responseDeleteChannelMembership :: DeleteChannelMembershipResponse -> TestTree
+responseDeleteChannelMembership =
+  res
+    "DeleteChannelMembershipResponse"
+    "fixture/DeleteChannelMembershipResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteChannelMembership)
+
+responseDeleteChannelMessage :: DeleteChannelMessageResponse -> TestTree
+responseDeleteChannelMessage =
+  res
+    "DeleteChannelMessageResponse"
+    "fixture/DeleteChannelMessageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteChannelMessage)
+
+responseDeleteChannelModerator :: DeleteChannelModeratorResponse -> TestTree
+responseDeleteChannelModerator =
+  res
+    "DeleteChannelModeratorResponse"
+    "fixture/DeleteChannelModeratorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteChannelModerator)
+
+responseDeleteEventsConfiguration :: DeleteEventsConfigurationResponse -> TestTree
+responseDeleteEventsConfiguration =
+  res
+    "DeleteEventsConfigurationResponse"
+    "fixture/DeleteEventsConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteEventsConfiguration)
+
+responseDeleteMediaCapturePipeline :: DeleteMediaCapturePipelineResponse -> TestTree
+responseDeleteMediaCapturePipeline =
+  res
+    "DeleteMediaCapturePipelineResponse"
+    "fixture/DeleteMediaCapturePipelineResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteMediaCapturePipeline)
+
+responseDeleteMeeting :: DeleteMeetingResponse -> TestTree
+responseDeleteMeeting =
+  res
+    "DeleteMeetingResponse"
+    "fixture/DeleteMeetingResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteMeeting)
+
+responseDeletePhoneNumber :: DeletePhoneNumberResponse -> TestTree
+responseDeletePhoneNumber =
+  res
+    "DeletePhoneNumberResponse"
+    "fixture/DeletePhoneNumberResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeletePhoneNumber)
+
+responseDeleteProxySession :: DeleteProxySessionResponse -> TestTree
+responseDeleteProxySession =
+  res
+    "DeleteProxySessionResponse"
+    "fixture/DeleteProxySessionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteProxySession)
+
+responseDeleteRoom :: DeleteRoomResponse -> TestTree
+responseDeleteRoom =
+  res
+    "DeleteRoomResponse"
+    "fixture/DeleteRoomResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteRoom)
+
+responseDeleteRoomMembership :: DeleteRoomMembershipResponse -> TestTree
+responseDeleteRoomMembership =
+  res
+    "DeleteRoomMembershipResponse"
+    "fixture/DeleteRoomMembershipResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteRoomMembership)
+
+responseDeleteSipMediaApplication :: DeleteSipMediaApplicationResponse -> TestTree
+responseDeleteSipMediaApplication =
+  res
+    "DeleteSipMediaApplicationResponse"
+    "fixture/DeleteSipMediaApplicationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteSipMediaApplication)
+
+responseDeleteSipRule :: DeleteSipRuleResponse -> TestTree
+responseDeleteSipRule =
+  res
+    "DeleteSipRuleResponse"
+    "fixture/DeleteSipRuleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteSipRule)
+
+responseDeleteVoiceConnector :: DeleteVoiceConnectorResponse -> TestTree
+responseDeleteVoiceConnector =
+  res
+    "DeleteVoiceConnectorResponse"
+    "fixture/DeleteVoiceConnectorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteVoiceConnector)
+
+responseDeleteVoiceConnectorEmergencyCallingConfiguration :: DeleteVoiceConnectorEmergencyCallingConfigurationResponse -> TestTree
+responseDeleteVoiceConnectorEmergencyCallingConfiguration =
+  res
+    "DeleteVoiceConnectorEmergencyCallingConfigurationResponse"
+    "fixture/DeleteVoiceConnectorEmergencyCallingConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteVoiceConnectorEmergencyCallingConfiguration)
+
+responseDeleteVoiceConnectorGroup :: DeleteVoiceConnectorGroupResponse -> TestTree
+responseDeleteVoiceConnectorGroup =
+  res
+    "DeleteVoiceConnectorGroupResponse"
+    "fixture/DeleteVoiceConnectorGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteVoiceConnectorGroup)
+
+responseDeleteVoiceConnectorOrigination :: DeleteVoiceConnectorOriginationResponse -> TestTree
+responseDeleteVoiceConnectorOrigination =
+  res
+    "DeleteVoiceConnectorOriginationResponse"
+    "fixture/DeleteVoiceConnectorOriginationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteVoiceConnectorOrigination)
+
+responseDeleteVoiceConnectorProxy :: DeleteVoiceConnectorProxyResponse -> TestTree
+responseDeleteVoiceConnectorProxy =
+  res
+    "DeleteVoiceConnectorProxyResponse"
+    "fixture/DeleteVoiceConnectorProxyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteVoiceConnectorProxy)
+
+responseDeleteVoiceConnectorStreamingConfiguration :: DeleteVoiceConnectorStreamingConfigurationResponse -> TestTree
+responseDeleteVoiceConnectorStreamingConfiguration =
+  res
+    "DeleteVoiceConnectorStreamingConfigurationResponse"
+    "fixture/DeleteVoiceConnectorStreamingConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteVoiceConnectorStreamingConfiguration)
+
+responseDeleteVoiceConnectorTermination :: DeleteVoiceConnectorTerminationResponse -> TestTree
+responseDeleteVoiceConnectorTermination =
+  res
+    "DeleteVoiceConnectorTerminationResponse"
+    "fixture/DeleteVoiceConnectorTerminationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteVoiceConnectorTermination)
+
+responseDeleteVoiceConnectorTerminationCredentials :: DeleteVoiceConnectorTerminationCredentialsResponse -> TestTree
+responseDeleteVoiceConnectorTerminationCredentials =
+  res
+    "DeleteVoiceConnectorTerminationCredentialsResponse"
+    "fixture/DeleteVoiceConnectorTerminationCredentialsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteVoiceConnectorTerminationCredentials)
+
+responseDescribeAppInstance :: DescribeAppInstanceResponse -> TestTree
+responseDescribeAppInstance =
+  res
+    "DescribeAppInstanceResponse"
+    "fixture/DescribeAppInstanceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAppInstance)
+
+responseDescribeAppInstanceAdmin :: DescribeAppInstanceAdminResponse -> TestTree
+responseDescribeAppInstanceAdmin =
+  res
+    "DescribeAppInstanceAdminResponse"
+    "fixture/DescribeAppInstanceAdminResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAppInstanceAdmin)
+
+responseDescribeAppInstanceUser :: DescribeAppInstanceUserResponse -> TestTree
+responseDescribeAppInstanceUser =
+  res
+    "DescribeAppInstanceUserResponse"
+    "fixture/DescribeAppInstanceUserResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAppInstanceUser)
+
+responseDescribeChannel :: DescribeChannelResponse -> TestTree
+responseDescribeChannel =
+  res
+    "DescribeChannelResponse"
+    "fixture/DescribeChannelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeChannel)
+
+responseDescribeChannelBan :: DescribeChannelBanResponse -> TestTree
+responseDescribeChannelBan =
+  res
+    "DescribeChannelBanResponse"
+    "fixture/DescribeChannelBanResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeChannelBan)
+
+responseDescribeChannelMembership :: DescribeChannelMembershipResponse -> TestTree
+responseDescribeChannelMembership =
+  res
+    "DescribeChannelMembershipResponse"
+    "fixture/DescribeChannelMembershipResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeChannelMembership)
+
+responseDescribeChannelMembershipForAppInstanceUser :: DescribeChannelMembershipForAppInstanceUserResponse -> TestTree
+responseDescribeChannelMembershipForAppInstanceUser =
+  res
+    "DescribeChannelMembershipForAppInstanceUserResponse"
+    "fixture/DescribeChannelMembershipForAppInstanceUserResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeChannelMembershipForAppInstanceUser)
+
+responseDescribeChannelModeratedByAppInstanceUser :: DescribeChannelModeratedByAppInstanceUserResponse -> TestTree
+responseDescribeChannelModeratedByAppInstanceUser =
+  res
+    "DescribeChannelModeratedByAppInstanceUserResponse"
+    "fixture/DescribeChannelModeratedByAppInstanceUserResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeChannelModeratedByAppInstanceUser)
+
+responseDescribeChannelModerator :: DescribeChannelModeratorResponse -> TestTree
+responseDescribeChannelModerator =
+  res
+    "DescribeChannelModeratorResponse"
+    "fixture/DescribeChannelModeratorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeChannelModerator)
+
+responseDisassociatePhoneNumberFromUser :: DisassociatePhoneNumberFromUserResponse -> TestTree
+responseDisassociatePhoneNumberFromUser =
+  res
+    "DisassociatePhoneNumberFromUserResponse"
+    "fixture/DisassociatePhoneNumberFromUserResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociatePhoneNumberFromUser)
+
+responseDisassociatePhoneNumbersFromVoiceConnector :: DisassociatePhoneNumbersFromVoiceConnectorResponse -> TestTree
+responseDisassociatePhoneNumbersFromVoiceConnector =
+  res
+    "DisassociatePhoneNumbersFromVoiceConnectorResponse"
+    "fixture/DisassociatePhoneNumbersFromVoiceConnectorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociatePhoneNumbersFromVoiceConnector)
+
+responseDisassociatePhoneNumbersFromVoiceConnectorGroup :: DisassociatePhoneNumbersFromVoiceConnectorGroupResponse -> TestTree
+responseDisassociatePhoneNumbersFromVoiceConnectorGroup =
+  res
+    "DisassociatePhoneNumbersFromVoiceConnectorGroupResponse"
+    "fixture/DisassociatePhoneNumbersFromVoiceConnectorGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociatePhoneNumbersFromVoiceConnectorGroup)
+
+responseDisassociateSigninDelegateGroupsFromAccount :: DisassociateSigninDelegateGroupsFromAccountResponse -> TestTree
+responseDisassociateSigninDelegateGroupsFromAccount =
+  res
+    "DisassociateSigninDelegateGroupsFromAccountResponse"
+    "fixture/DisassociateSigninDelegateGroupsFromAccountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateSigninDelegateGroupsFromAccount)
+
+responseGetAccount :: GetAccountResponse -> TestTree
+responseGetAccount =
+  res
+    "GetAccountResponse"
+    "fixture/GetAccountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAccount)
+
+responseGetAccountSettings :: GetAccountSettingsResponse -> TestTree
+responseGetAccountSettings =
+  res
+    "GetAccountSettingsResponse"
+    "fixture/GetAccountSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAccountSettings)
+
+responseGetAppInstanceRetentionSettings :: GetAppInstanceRetentionSettingsResponse -> TestTree
+responseGetAppInstanceRetentionSettings =
+  res
+    "GetAppInstanceRetentionSettingsResponse"
+    "fixture/GetAppInstanceRetentionSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAppInstanceRetentionSettings)
+
+responseGetAppInstanceStreamingConfigurations :: GetAppInstanceStreamingConfigurationsResponse -> TestTree
+responseGetAppInstanceStreamingConfigurations =
+  res
+    "GetAppInstanceStreamingConfigurationsResponse"
+    "fixture/GetAppInstanceStreamingConfigurationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAppInstanceStreamingConfigurations)
+
+responseGetAttendee :: GetAttendeeResponse -> TestTree
+responseGetAttendee =
+  res
+    "GetAttendeeResponse"
+    "fixture/GetAttendeeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAttendee)
+
+responseGetBot :: GetBotResponse -> TestTree
+responseGetBot =
+  res
+    "GetBotResponse"
+    "fixture/GetBotResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetBot)
+
+responseGetChannelMessage :: GetChannelMessageResponse -> TestTree
+responseGetChannelMessage =
+  res
+    "GetChannelMessageResponse"
+    "fixture/GetChannelMessageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetChannelMessage)
+
+responseGetEventsConfiguration :: GetEventsConfigurationResponse -> TestTree
+responseGetEventsConfiguration =
+  res
+    "GetEventsConfigurationResponse"
+    "fixture/GetEventsConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetEventsConfiguration)
+
+responseGetGlobalSettings :: GetGlobalSettingsResponse -> TestTree
+responseGetGlobalSettings =
+  res
+    "GetGlobalSettingsResponse"
+    "fixture/GetGlobalSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetGlobalSettings)
+
+responseGetMediaCapturePipeline :: GetMediaCapturePipelineResponse -> TestTree
+responseGetMediaCapturePipeline =
+  res
+    "GetMediaCapturePipelineResponse"
+    "fixture/GetMediaCapturePipelineResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetMediaCapturePipeline)
+
+responseGetMeeting :: GetMeetingResponse -> TestTree
+responseGetMeeting =
+  res
+    "GetMeetingResponse"
+    "fixture/GetMeetingResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetMeeting)
+
+responseGetMessagingSessionEndpoint :: GetMessagingSessionEndpointResponse -> TestTree
+responseGetMessagingSessionEndpoint =
+  res
+    "GetMessagingSessionEndpointResponse"
+    "fixture/GetMessagingSessionEndpointResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetMessagingSessionEndpoint)
+
+responseGetPhoneNumber :: GetPhoneNumberResponse -> TestTree
+responseGetPhoneNumber =
+  res
+    "GetPhoneNumberResponse"
+    "fixture/GetPhoneNumberResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetPhoneNumber)
+
+responseGetPhoneNumberOrder :: GetPhoneNumberOrderResponse -> TestTree
+responseGetPhoneNumberOrder =
+  res
+    "GetPhoneNumberOrderResponse"
+    "fixture/GetPhoneNumberOrderResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetPhoneNumberOrder)
+
+responseGetPhoneNumberSettings :: GetPhoneNumberSettingsResponse -> TestTree
+responseGetPhoneNumberSettings =
+  res
+    "GetPhoneNumberSettingsResponse"
+    "fixture/GetPhoneNumberSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetPhoneNumberSettings)
+
+responseGetProxySession :: GetProxySessionResponse -> TestTree
+responseGetProxySession =
+  res
+    "GetProxySessionResponse"
+    "fixture/GetProxySessionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetProxySession)
+
+responseGetRetentionSettings :: GetRetentionSettingsResponse -> TestTree
+responseGetRetentionSettings =
+  res
+    "GetRetentionSettingsResponse"
+    "fixture/GetRetentionSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetRetentionSettings)
 
 responseGetRoom :: GetRoomResponse -> TestTree
 responseGetRoom =
@@ -3821,18 +3077,762 @@ responseGetRoom =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetRoom)
 
-responseCreateRoomMembership :: CreateRoomMembershipResponse -> TestTree
-responseCreateRoomMembership =
+responseGetSipMediaApplication :: GetSipMediaApplicationResponse -> TestTree
+responseGetSipMediaApplication =
   res
-    "CreateRoomMembershipResponse"
-    "fixture/CreateRoomMembershipResponse.proto"
+    "GetSipMediaApplicationResponse"
+    "fixture/GetSipMediaApplicationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateRoomMembership)
+    (Proxy.Proxy :: Proxy.Proxy GetSipMediaApplication)
 
-responseBatchCreateChannelMembership :: BatchCreateChannelMembershipResponse -> TestTree
-responseBatchCreateChannelMembership =
+responseGetSipMediaApplicationLoggingConfiguration :: GetSipMediaApplicationLoggingConfigurationResponse -> TestTree
+responseGetSipMediaApplicationLoggingConfiguration =
   res
-    "BatchCreateChannelMembershipResponse"
-    "fixture/BatchCreateChannelMembershipResponse.proto"
+    "GetSipMediaApplicationLoggingConfigurationResponse"
+    "fixture/GetSipMediaApplicationLoggingConfigurationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchCreateChannelMembership)
+    (Proxy.Proxy :: Proxy.Proxy GetSipMediaApplicationLoggingConfiguration)
+
+responseGetSipRule :: GetSipRuleResponse -> TestTree
+responseGetSipRule =
+  res
+    "GetSipRuleResponse"
+    "fixture/GetSipRuleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetSipRule)
+
+responseGetUser :: GetUserResponse -> TestTree
+responseGetUser =
+  res
+    "GetUserResponse"
+    "fixture/GetUserResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetUser)
+
+responseGetUserSettings :: GetUserSettingsResponse -> TestTree
+responseGetUserSettings =
+  res
+    "GetUserSettingsResponse"
+    "fixture/GetUserSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetUserSettings)
+
+responseGetVoiceConnector :: GetVoiceConnectorResponse -> TestTree
+responseGetVoiceConnector =
+  res
+    "GetVoiceConnectorResponse"
+    "fixture/GetVoiceConnectorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetVoiceConnector)
+
+responseGetVoiceConnectorEmergencyCallingConfiguration :: GetVoiceConnectorEmergencyCallingConfigurationResponse -> TestTree
+responseGetVoiceConnectorEmergencyCallingConfiguration =
+  res
+    "GetVoiceConnectorEmergencyCallingConfigurationResponse"
+    "fixture/GetVoiceConnectorEmergencyCallingConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetVoiceConnectorEmergencyCallingConfiguration)
+
+responseGetVoiceConnectorGroup :: GetVoiceConnectorGroupResponse -> TestTree
+responseGetVoiceConnectorGroup =
+  res
+    "GetVoiceConnectorGroupResponse"
+    "fixture/GetVoiceConnectorGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetVoiceConnectorGroup)
+
+responseGetVoiceConnectorLoggingConfiguration :: GetVoiceConnectorLoggingConfigurationResponse -> TestTree
+responseGetVoiceConnectorLoggingConfiguration =
+  res
+    "GetVoiceConnectorLoggingConfigurationResponse"
+    "fixture/GetVoiceConnectorLoggingConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetVoiceConnectorLoggingConfiguration)
+
+responseGetVoiceConnectorOrigination :: GetVoiceConnectorOriginationResponse -> TestTree
+responseGetVoiceConnectorOrigination =
+  res
+    "GetVoiceConnectorOriginationResponse"
+    "fixture/GetVoiceConnectorOriginationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetVoiceConnectorOrigination)
+
+responseGetVoiceConnectorProxy :: GetVoiceConnectorProxyResponse -> TestTree
+responseGetVoiceConnectorProxy =
+  res
+    "GetVoiceConnectorProxyResponse"
+    "fixture/GetVoiceConnectorProxyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetVoiceConnectorProxy)
+
+responseGetVoiceConnectorStreamingConfiguration :: GetVoiceConnectorStreamingConfigurationResponse -> TestTree
+responseGetVoiceConnectorStreamingConfiguration =
+  res
+    "GetVoiceConnectorStreamingConfigurationResponse"
+    "fixture/GetVoiceConnectorStreamingConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetVoiceConnectorStreamingConfiguration)
+
+responseGetVoiceConnectorTermination :: GetVoiceConnectorTerminationResponse -> TestTree
+responseGetVoiceConnectorTermination =
+  res
+    "GetVoiceConnectorTerminationResponse"
+    "fixture/GetVoiceConnectorTerminationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetVoiceConnectorTermination)
+
+responseGetVoiceConnectorTerminationHealth :: GetVoiceConnectorTerminationHealthResponse -> TestTree
+responseGetVoiceConnectorTerminationHealth =
+  res
+    "GetVoiceConnectorTerminationHealthResponse"
+    "fixture/GetVoiceConnectorTerminationHealthResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetVoiceConnectorTerminationHealth)
+
+responseInviteUsers :: InviteUsersResponse -> TestTree
+responseInviteUsers =
+  res
+    "InviteUsersResponse"
+    "fixture/InviteUsersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy InviteUsers)
+
+responseListAccounts :: ListAccountsResponse -> TestTree
+responseListAccounts =
+  res
+    "ListAccountsResponse"
+    "fixture/ListAccountsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAccounts)
+
+responseListAppInstanceAdmins :: ListAppInstanceAdminsResponse -> TestTree
+responseListAppInstanceAdmins =
+  res
+    "ListAppInstanceAdminsResponse"
+    "fixture/ListAppInstanceAdminsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAppInstanceAdmins)
+
+responseListAppInstanceUsers :: ListAppInstanceUsersResponse -> TestTree
+responseListAppInstanceUsers =
+  res
+    "ListAppInstanceUsersResponse"
+    "fixture/ListAppInstanceUsersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAppInstanceUsers)
+
+responseListAppInstances :: ListAppInstancesResponse -> TestTree
+responseListAppInstances =
+  res
+    "ListAppInstancesResponse"
+    "fixture/ListAppInstancesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAppInstances)
+
+responseListAttendeeTags :: ListAttendeeTagsResponse -> TestTree
+responseListAttendeeTags =
+  res
+    "ListAttendeeTagsResponse"
+    "fixture/ListAttendeeTagsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAttendeeTags)
+
+responseListAttendees :: ListAttendeesResponse -> TestTree
+responseListAttendees =
+  res
+    "ListAttendeesResponse"
+    "fixture/ListAttendeesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAttendees)
+
+responseListBots :: ListBotsResponse -> TestTree
+responseListBots =
+  res
+    "ListBotsResponse"
+    "fixture/ListBotsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListBots)
+
+responseListChannelBans :: ListChannelBansResponse -> TestTree
+responseListChannelBans =
+  res
+    "ListChannelBansResponse"
+    "fixture/ListChannelBansResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListChannelBans)
+
+responseListChannelMemberships :: ListChannelMembershipsResponse -> TestTree
+responseListChannelMemberships =
+  res
+    "ListChannelMembershipsResponse"
+    "fixture/ListChannelMembershipsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListChannelMemberships)
+
+responseListChannelMembershipsForAppInstanceUser :: ListChannelMembershipsForAppInstanceUserResponse -> TestTree
+responseListChannelMembershipsForAppInstanceUser =
+  res
+    "ListChannelMembershipsForAppInstanceUserResponse"
+    "fixture/ListChannelMembershipsForAppInstanceUserResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListChannelMembershipsForAppInstanceUser)
+
+responseListChannelMessages :: ListChannelMessagesResponse -> TestTree
+responseListChannelMessages =
+  res
+    "ListChannelMessagesResponse"
+    "fixture/ListChannelMessagesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListChannelMessages)
+
+responseListChannelModerators :: ListChannelModeratorsResponse -> TestTree
+responseListChannelModerators =
+  res
+    "ListChannelModeratorsResponse"
+    "fixture/ListChannelModeratorsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListChannelModerators)
+
+responseListChannels :: ListChannelsResponse -> TestTree
+responseListChannels =
+  res
+    "ListChannelsResponse"
+    "fixture/ListChannelsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListChannels)
+
+responseListChannelsModeratedByAppInstanceUser :: ListChannelsModeratedByAppInstanceUserResponse -> TestTree
+responseListChannelsModeratedByAppInstanceUser =
+  res
+    "ListChannelsModeratedByAppInstanceUserResponse"
+    "fixture/ListChannelsModeratedByAppInstanceUserResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListChannelsModeratedByAppInstanceUser)
+
+responseListMediaCapturePipelines :: ListMediaCapturePipelinesResponse -> TestTree
+responseListMediaCapturePipelines =
+  res
+    "ListMediaCapturePipelinesResponse"
+    "fixture/ListMediaCapturePipelinesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListMediaCapturePipelines)
+
+responseListMeetingTags :: ListMeetingTagsResponse -> TestTree
+responseListMeetingTags =
+  res
+    "ListMeetingTagsResponse"
+    "fixture/ListMeetingTagsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListMeetingTags)
+
+responseListMeetings :: ListMeetingsResponse -> TestTree
+responseListMeetings =
+  res
+    "ListMeetingsResponse"
+    "fixture/ListMeetingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListMeetings)
+
+responseListPhoneNumberOrders :: ListPhoneNumberOrdersResponse -> TestTree
+responseListPhoneNumberOrders =
+  res
+    "ListPhoneNumberOrdersResponse"
+    "fixture/ListPhoneNumberOrdersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListPhoneNumberOrders)
+
+responseListPhoneNumbers :: ListPhoneNumbersResponse -> TestTree
+responseListPhoneNumbers =
+  res
+    "ListPhoneNumbersResponse"
+    "fixture/ListPhoneNumbersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListPhoneNumbers)
+
+responseListProxySessions :: ListProxySessionsResponse -> TestTree
+responseListProxySessions =
+  res
+    "ListProxySessionsResponse"
+    "fixture/ListProxySessionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListProxySessions)
+
+responseListRoomMemberships :: ListRoomMembershipsResponse -> TestTree
+responseListRoomMemberships =
+  res
+    "ListRoomMembershipsResponse"
+    "fixture/ListRoomMembershipsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRoomMemberships)
+
+responseListRooms :: ListRoomsResponse -> TestTree
+responseListRooms =
+  res
+    "ListRoomsResponse"
+    "fixture/ListRoomsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRooms)
+
+responseListSipMediaApplications :: ListSipMediaApplicationsResponse -> TestTree
+responseListSipMediaApplications =
+  res
+    "ListSipMediaApplicationsResponse"
+    "fixture/ListSipMediaApplicationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSipMediaApplications)
+
+responseListSipRules :: ListSipRulesResponse -> TestTree
+responseListSipRules =
+  res
+    "ListSipRulesResponse"
+    "fixture/ListSipRulesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSipRules)
+
+responseListSupportedPhoneNumberCountries :: ListSupportedPhoneNumberCountriesResponse -> TestTree
+responseListSupportedPhoneNumberCountries =
+  res
+    "ListSupportedPhoneNumberCountriesResponse"
+    "fixture/ListSupportedPhoneNumberCountriesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSupportedPhoneNumberCountries)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseListUsers :: ListUsersResponse -> TestTree
+responseListUsers =
+  res
+    "ListUsersResponse"
+    "fixture/ListUsersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListUsers)
+
+responseListVoiceConnectorGroups :: ListVoiceConnectorGroupsResponse -> TestTree
+responseListVoiceConnectorGroups =
+  res
+    "ListVoiceConnectorGroupsResponse"
+    "fixture/ListVoiceConnectorGroupsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListVoiceConnectorGroups)
+
+responseListVoiceConnectorTerminationCredentials :: ListVoiceConnectorTerminationCredentialsResponse -> TestTree
+responseListVoiceConnectorTerminationCredentials =
+  res
+    "ListVoiceConnectorTerminationCredentialsResponse"
+    "fixture/ListVoiceConnectorTerminationCredentialsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListVoiceConnectorTerminationCredentials)
+
+responseListVoiceConnectors :: ListVoiceConnectorsResponse -> TestTree
+responseListVoiceConnectors =
+  res
+    "ListVoiceConnectorsResponse"
+    "fixture/ListVoiceConnectorsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListVoiceConnectors)
+
+responseLogoutUser :: LogoutUserResponse -> TestTree
+responseLogoutUser =
+  res
+    "LogoutUserResponse"
+    "fixture/LogoutUserResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy LogoutUser)
+
+responsePutAppInstanceRetentionSettings :: PutAppInstanceRetentionSettingsResponse -> TestTree
+responsePutAppInstanceRetentionSettings =
+  res
+    "PutAppInstanceRetentionSettingsResponse"
+    "fixture/PutAppInstanceRetentionSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutAppInstanceRetentionSettings)
+
+responsePutAppInstanceStreamingConfigurations :: PutAppInstanceStreamingConfigurationsResponse -> TestTree
+responsePutAppInstanceStreamingConfigurations =
+  res
+    "PutAppInstanceStreamingConfigurationsResponse"
+    "fixture/PutAppInstanceStreamingConfigurationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutAppInstanceStreamingConfigurations)
+
+responsePutEventsConfiguration :: PutEventsConfigurationResponse -> TestTree
+responsePutEventsConfiguration =
+  res
+    "PutEventsConfigurationResponse"
+    "fixture/PutEventsConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutEventsConfiguration)
+
+responsePutRetentionSettings :: PutRetentionSettingsResponse -> TestTree
+responsePutRetentionSettings =
+  res
+    "PutRetentionSettingsResponse"
+    "fixture/PutRetentionSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutRetentionSettings)
+
+responsePutSipMediaApplicationLoggingConfiguration :: PutSipMediaApplicationLoggingConfigurationResponse -> TestTree
+responsePutSipMediaApplicationLoggingConfiguration =
+  res
+    "PutSipMediaApplicationLoggingConfigurationResponse"
+    "fixture/PutSipMediaApplicationLoggingConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutSipMediaApplicationLoggingConfiguration)
+
+responsePutVoiceConnectorEmergencyCallingConfiguration :: PutVoiceConnectorEmergencyCallingConfigurationResponse -> TestTree
+responsePutVoiceConnectorEmergencyCallingConfiguration =
+  res
+    "PutVoiceConnectorEmergencyCallingConfigurationResponse"
+    "fixture/PutVoiceConnectorEmergencyCallingConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutVoiceConnectorEmergencyCallingConfiguration)
+
+responsePutVoiceConnectorLoggingConfiguration :: PutVoiceConnectorLoggingConfigurationResponse -> TestTree
+responsePutVoiceConnectorLoggingConfiguration =
+  res
+    "PutVoiceConnectorLoggingConfigurationResponse"
+    "fixture/PutVoiceConnectorLoggingConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutVoiceConnectorLoggingConfiguration)
+
+responsePutVoiceConnectorOrigination :: PutVoiceConnectorOriginationResponse -> TestTree
+responsePutVoiceConnectorOrigination =
+  res
+    "PutVoiceConnectorOriginationResponse"
+    "fixture/PutVoiceConnectorOriginationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutVoiceConnectorOrigination)
+
+responsePutVoiceConnectorProxy :: PutVoiceConnectorProxyResponse -> TestTree
+responsePutVoiceConnectorProxy =
+  res
+    "PutVoiceConnectorProxyResponse"
+    "fixture/PutVoiceConnectorProxyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutVoiceConnectorProxy)
+
+responsePutVoiceConnectorStreamingConfiguration :: PutVoiceConnectorStreamingConfigurationResponse -> TestTree
+responsePutVoiceConnectorStreamingConfiguration =
+  res
+    "PutVoiceConnectorStreamingConfigurationResponse"
+    "fixture/PutVoiceConnectorStreamingConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutVoiceConnectorStreamingConfiguration)
+
+responsePutVoiceConnectorTermination :: PutVoiceConnectorTerminationResponse -> TestTree
+responsePutVoiceConnectorTermination =
+  res
+    "PutVoiceConnectorTerminationResponse"
+    "fixture/PutVoiceConnectorTerminationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutVoiceConnectorTermination)
+
+responsePutVoiceConnectorTerminationCredentials :: PutVoiceConnectorTerminationCredentialsResponse -> TestTree
+responsePutVoiceConnectorTerminationCredentials =
+  res
+    "PutVoiceConnectorTerminationCredentialsResponse"
+    "fixture/PutVoiceConnectorTerminationCredentialsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutVoiceConnectorTerminationCredentials)
+
+responseRedactChannelMessage :: RedactChannelMessageResponse -> TestTree
+responseRedactChannelMessage =
+  res
+    "RedactChannelMessageResponse"
+    "fixture/RedactChannelMessageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RedactChannelMessage)
+
+responseRedactConversationMessage :: RedactConversationMessageResponse -> TestTree
+responseRedactConversationMessage =
+  res
+    "RedactConversationMessageResponse"
+    "fixture/RedactConversationMessageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RedactConversationMessage)
+
+responseRedactRoomMessage :: RedactRoomMessageResponse -> TestTree
+responseRedactRoomMessage =
+  res
+    "RedactRoomMessageResponse"
+    "fixture/RedactRoomMessageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RedactRoomMessage)
+
+responseRegenerateSecurityToken :: RegenerateSecurityTokenResponse -> TestTree
+responseRegenerateSecurityToken =
+  res
+    "RegenerateSecurityTokenResponse"
+    "fixture/RegenerateSecurityTokenResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RegenerateSecurityToken)
+
+responseResetPersonalPIN :: ResetPersonalPINResponse -> TestTree
+responseResetPersonalPIN =
+  res
+    "ResetPersonalPINResponse"
+    "fixture/ResetPersonalPINResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ResetPersonalPIN)
+
+responseRestorePhoneNumber :: RestorePhoneNumberResponse -> TestTree
+responseRestorePhoneNumber =
+  res
+    "RestorePhoneNumberResponse"
+    "fixture/RestorePhoneNumberResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RestorePhoneNumber)
+
+responseSearchAvailablePhoneNumbers :: SearchAvailablePhoneNumbersResponse -> TestTree
+responseSearchAvailablePhoneNumbers =
+  res
+    "SearchAvailablePhoneNumbersResponse"
+    "fixture/SearchAvailablePhoneNumbersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SearchAvailablePhoneNumbers)
+
+responseSendChannelMessage :: SendChannelMessageResponse -> TestTree
+responseSendChannelMessage =
+  res
+    "SendChannelMessageResponse"
+    "fixture/SendChannelMessageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SendChannelMessage)
+
+responseStartMeetingTranscription :: StartMeetingTranscriptionResponse -> TestTree
+responseStartMeetingTranscription =
+  res
+    "StartMeetingTranscriptionResponse"
+    "fixture/StartMeetingTranscriptionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartMeetingTranscription)
+
+responseStopMeetingTranscription :: StopMeetingTranscriptionResponse -> TestTree
+responseStopMeetingTranscription =
+  res
+    "StopMeetingTranscriptionResponse"
+    "fixture/StopMeetingTranscriptionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopMeetingTranscription)
+
+responseTagAttendee :: TagAttendeeResponse -> TestTree
+responseTagAttendee =
+  res
+    "TagAttendeeResponse"
+    "fixture/TagAttendeeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagAttendee)
+
+responseTagMeeting :: TagMeetingResponse -> TestTree
+responseTagMeeting =
+  res
+    "TagMeetingResponse"
+    "fixture/TagMeetingResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagMeeting)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagAttendee :: UntagAttendeeResponse -> TestTree
+responseUntagAttendee =
+  res
+    "UntagAttendeeResponse"
+    "fixture/UntagAttendeeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagAttendee)
+
+responseUntagMeeting :: UntagMeetingResponse -> TestTree
+responseUntagMeeting =
+  res
+    "UntagMeetingResponse"
+    "fixture/UntagMeetingResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagMeeting)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateAccount :: UpdateAccountResponse -> TestTree
+responseUpdateAccount =
+  res
+    "UpdateAccountResponse"
+    "fixture/UpdateAccountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAccount)
+
+responseUpdateAccountSettings :: UpdateAccountSettingsResponse -> TestTree
+responseUpdateAccountSettings =
+  res
+    "UpdateAccountSettingsResponse"
+    "fixture/UpdateAccountSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAccountSettings)
+
+responseUpdateAppInstance :: UpdateAppInstanceResponse -> TestTree
+responseUpdateAppInstance =
+  res
+    "UpdateAppInstanceResponse"
+    "fixture/UpdateAppInstanceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAppInstance)
+
+responseUpdateAppInstanceUser :: UpdateAppInstanceUserResponse -> TestTree
+responseUpdateAppInstanceUser =
+  res
+    "UpdateAppInstanceUserResponse"
+    "fixture/UpdateAppInstanceUserResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAppInstanceUser)
+
+responseUpdateBot :: UpdateBotResponse -> TestTree
+responseUpdateBot =
+  res
+    "UpdateBotResponse"
+    "fixture/UpdateBotResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateBot)
+
+responseUpdateChannel :: UpdateChannelResponse -> TestTree
+responseUpdateChannel =
+  res
+    "UpdateChannelResponse"
+    "fixture/UpdateChannelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateChannel)
+
+responseUpdateChannelMessage :: UpdateChannelMessageResponse -> TestTree
+responseUpdateChannelMessage =
+  res
+    "UpdateChannelMessageResponse"
+    "fixture/UpdateChannelMessageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateChannelMessage)
+
+responseUpdateChannelReadMarker :: UpdateChannelReadMarkerResponse -> TestTree
+responseUpdateChannelReadMarker =
+  res
+    "UpdateChannelReadMarkerResponse"
+    "fixture/UpdateChannelReadMarkerResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateChannelReadMarker)
+
+responseUpdateGlobalSettings :: UpdateGlobalSettingsResponse -> TestTree
+responseUpdateGlobalSettings =
+  res
+    "UpdateGlobalSettingsResponse"
+    "fixture/UpdateGlobalSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateGlobalSettings)
+
+responseUpdatePhoneNumber :: UpdatePhoneNumberResponse -> TestTree
+responseUpdatePhoneNumber =
+  res
+    "UpdatePhoneNumberResponse"
+    "fixture/UpdatePhoneNumberResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdatePhoneNumber)
+
+responseUpdatePhoneNumberSettings :: UpdatePhoneNumberSettingsResponse -> TestTree
+responseUpdatePhoneNumberSettings =
+  res
+    "UpdatePhoneNumberSettingsResponse"
+    "fixture/UpdatePhoneNumberSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdatePhoneNumberSettings)
+
+responseUpdateProxySession :: UpdateProxySessionResponse -> TestTree
+responseUpdateProxySession =
+  res
+    "UpdateProxySessionResponse"
+    "fixture/UpdateProxySessionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateProxySession)
+
+responseUpdateRoom :: UpdateRoomResponse -> TestTree
+responseUpdateRoom =
+  res
+    "UpdateRoomResponse"
+    "fixture/UpdateRoomResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateRoom)
+
+responseUpdateRoomMembership :: UpdateRoomMembershipResponse -> TestTree
+responseUpdateRoomMembership =
+  res
+    "UpdateRoomMembershipResponse"
+    "fixture/UpdateRoomMembershipResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateRoomMembership)
+
+responseUpdateSipMediaApplication :: UpdateSipMediaApplicationResponse -> TestTree
+responseUpdateSipMediaApplication =
+  res
+    "UpdateSipMediaApplicationResponse"
+    "fixture/UpdateSipMediaApplicationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateSipMediaApplication)
+
+responseUpdateSipMediaApplicationCall :: UpdateSipMediaApplicationCallResponse -> TestTree
+responseUpdateSipMediaApplicationCall =
+  res
+    "UpdateSipMediaApplicationCallResponse"
+    "fixture/UpdateSipMediaApplicationCallResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateSipMediaApplicationCall)
+
+responseUpdateSipRule :: UpdateSipRuleResponse -> TestTree
+responseUpdateSipRule =
+  res
+    "UpdateSipRuleResponse"
+    "fixture/UpdateSipRuleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateSipRule)
+
+responseUpdateUser :: UpdateUserResponse -> TestTree
+responseUpdateUser =
+  res
+    "UpdateUserResponse"
+    "fixture/UpdateUserResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateUser)
+
+responseUpdateUserSettings :: UpdateUserSettingsResponse -> TestTree
+responseUpdateUserSettings =
+  res
+    "UpdateUserSettingsResponse"
+    "fixture/UpdateUserSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateUserSettings)
+
+responseUpdateVoiceConnector :: UpdateVoiceConnectorResponse -> TestTree
+responseUpdateVoiceConnector =
+  res
+    "UpdateVoiceConnectorResponse"
+    "fixture/UpdateVoiceConnectorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateVoiceConnector)
+
+responseUpdateVoiceConnectorGroup :: UpdateVoiceConnectorGroupResponse -> TestTree
+responseUpdateVoiceConnectorGroup =
+  res
+    "UpdateVoiceConnectorGroupResponse"
+    "fixture/UpdateVoiceConnectorGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateVoiceConnectorGroup)

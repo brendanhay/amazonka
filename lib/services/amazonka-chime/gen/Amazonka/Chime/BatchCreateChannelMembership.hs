@@ -27,8 +27,8 @@ module Amazonka.Chime.BatchCreateChannelMembership
     newBatchCreateChannelMembership,
 
     -- * Request Lenses
-    batchCreateChannelMembership_chimeBearer,
     batchCreateChannelMembership_type,
+    batchCreateChannelMembership_chimeBearer,
     batchCreateChannelMembership_channelArn,
     batchCreateChannelMembership_memberArns,
 
@@ -52,14 +52,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchCreateChannelMembership' smart constructor.
 data BatchCreateChannelMembership = BatchCreateChannelMembership'
-  { -- | The @AppInstanceUserArn@ of the user that makes the API call.
-    chimeBearer :: Prelude.Maybe Prelude.Text,
-    -- | The membership type of a user, @DEFAULT@ or @HIDDEN@. Default members
+  { -- | The membership type of a user, @DEFAULT@ or @HIDDEN@. Default members
     -- are always returned as part of @ListChannelMemberships@. Hidden members
     -- are only returned if the type filter in @ListChannelMemberships@ equals
     -- @HIDDEN@. Otherwise hidden members are not returned. This is only
     -- supported by moderators.
     type' :: Prelude.Maybe ChannelMembershipType,
+    -- | The @AppInstanceUserArn@ of the user that makes the API call.
+    chimeBearer :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the channel to which you\'re adding users.
     channelArn :: Prelude.Text,
     -- | The ARNs of the members you want to add to the channel.
@@ -75,13 +75,13 @@ data BatchCreateChannelMembership = BatchCreateChannelMembership'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'chimeBearer', 'batchCreateChannelMembership_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
---
 -- 'type'', 'batchCreateChannelMembership_type' - The membership type of a user, @DEFAULT@ or @HIDDEN@. Default members
 -- are always returned as part of @ListChannelMemberships@. Hidden members
 -- are only returned if the type filter in @ListChannelMemberships@ equals
 -- @HIDDEN@. Otherwise hidden members are not returned. This is only
 -- supported by moderators.
+--
+-- 'chimeBearer', 'batchCreateChannelMembership_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
 --
 -- 'channelArn', 'batchCreateChannelMembership_channelArn' - The ARN of the channel to which you\'re adding users.
 --
@@ -96,16 +96,12 @@ newBatchCreateChannelMembership
   pChannelArn_
   pMemberArns_ =
     BatchCreateChannelMembership'
-      { chimeBearer =
+      { type' =
           Prelude.Nothing,
-        type' = Prelude.Nothing,
+        chimeBearer = Prelude.Nothing,
         channelArn = pChannelArn_,
         memberArns = Lens.coerced Lens.# pMemberArns_
       }
-
--- | The @AppInstanceUserArn@ of the user that makes the API call.
-batchCreateChannelMembership_chimeBearer :: Lens.Lens' BatchCreateChannelMembership (Prelude.Maybe Prelude.Text)
-batchCreateChannelMembership_chimeBearer = Lens.lens (\BatchCreateChannelMembership' {chimeBearer} -> chimeBearer) (\s@BatchCreateChannelMembership' {} a -> s {chimeBearer = a} :: BatchCreateChannelMembership)
 
 -- | The membership type of a user, @DEFAULT@ or @HIDDEN@. Default members
 -- are always returned as part of @ListChannelMemberships@. Hidden members
@@ -114,6 +110,10 @@ batchCreateChannelMembership_chimeBearer = Lens.lens (\BatchCreateChannelMembers
 -- supported by moderators.
 batchCreateChannelMembership_type :: Lens.Lens' BatchCreateChannelMembership (Prelude.Maybe ChannelMembershipType)
 batchCreateChannelMembership_type = Lens.lens (\BatchCreateChannelMembership' {type'} -> type') (\s@BatchCreateChannelMembership' {} a -> s {type' = a} :: BatchCreateChannelMembership)
+
+-- | The @AppInstanceUserArn@ of the user that makes the API call.
+batchCreateChannelMembership_chimeBearer :: Lens.Lens' BatchCreateChannelMembership (Prelude.Maybe Prelude.Text)
+batchCreateChannelMembership_chimeBearer = Lens.lens (\BatchCreateChannelMembership' {chimeBearer} -> chimeBearer) (\s@BatchCreateChannelMembership' {} a -> s {chimeBearer = a} :: BatchCreateChannelMembership)
 
 -- | The ARN of the channel to which you\'re adding users.
 batchCreateChannelMembership_channelArn :: Lens.Lens' BatchCreateChannelMembership Prelude.Text
@@ -142,15 +142,15 @@ instance
     BatchCreateChannelMembership
   where
   hashWithSalt _salt BatchCreateChannelMembership' {..} =
-    _salt `Prelude.hashWithSalt` chimeBearer
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` chimeBearer
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` memberArns
 
 instance Prelude.NFData BatchCreateChannelMembership where
   rnf BatchCreateChannelMembership' {..} =
-    Prelude.rnf chimeBearer
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf chimeBearer
       `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf memberArns
 

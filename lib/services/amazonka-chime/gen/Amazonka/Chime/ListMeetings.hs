@@ -38,8 +38,8 @@ module Amazonka.Chime.ListMeetings
     newListMeetingsResponse,
 
     -- * Response Lenses
-    listMeetingsResponse_meetings,
     listMeetingsResponse_nextToken,
+    listMeetingsResponse_meetings,
     listMeetingsResponse_httpStatus,
   )
 where
@@ -94,8 +94,8 @@ instance Core.AWSRequest ListMeetings where
     Response.receiveJSON
       ( \s h x ->
           ListMeetingsResponse'
-            Prelude.<$> (x Core..?> "Meetings" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Meetings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,10 +124,10 @@ instance Core.ToQuery ListMeetings where
 
 -- | /See:/ 'newListMeetingsResponse' smart constructor.
 data ListMeetingsResponse = ListMeetingsResponse'
-  { -- | The Amazon Chime SDK meeting information.
-    meetings :: Prelude.Maybe [Meeting],
-    -- | The token to use to retrieve the next page of results.
+  { -- | The token to use to retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Chime SDK meeting information.
+    meetings :: Prelude.Maybe [Meeting],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -141,9 +141,9 @@ data ListMeetingsResponse = ListMeetingsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'meetings', 'listMeetingsResponse_meetings' - The Amazon Chime SDK meeting information.
---
 -- 'nextToken', 'listMeetingsResponse_nextToken' - The token to use to retrieve the next page of results.
+--
+-- 'meetings', 'listMeetingsResponse_meetings' - The Amazon Chime SDK meeting information.
 --
 -- 'httpStatus', 'listMeetingsResponse_httpStatus' - The response's http status code.
 newListMeetingsResponse ::
@@ -152,18 +152,18 @@ newListMeetingsResponse ::
   ListMeetingsResponse
 newListMeetingsResponse pHttpStatus_ =
   ListMeetingsResponse'
-    { meetings = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      meetings = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Amazon Chime SDK meeting information.
-listMeetingsResponse_meetings :: Lens.Lens' ListMeetingsResponse (Prelude.Maybe [Meeting])
-listMeetingsResponse_meetings = Lens.lens (\ListMeetingsResponse' {meetings} -> meetings) (\s@ListMeetingsResponse' {} a -> s {meetings = a} :: ListMeetingsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results.
 listMeetingsResponse_nextToken :: Lens.Lens' ListMeetingsResponse (Prelude.Maybe Prelude.Text)
 listMeetingsResponse_nextToken = Lens.lens (\ListMeetingsResponse' {nextToken} -> nextToken) (\s@ListMeetingsResponse' {} a -> s {nextToken = a} :: ListMeetingsResponse)
+
+-- | The Amazon Chime SDK meeting information.
+listMeetingsResponse_meetings :: Lens.Lens' ListMeetingsResponse (Prelude.Maybe [Meeting])
+listMeetingsResponse_meetings = Lens.lens (\ListMeetingsResponse' {meetings} -> meetings) (\s@ListMeetingsResponse' {} a -> s {meetings = a} :: ListMeetingsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listMeetingsResponse_httpStatus :: Lens.Lens' ListMeetingsResponse Prelude.Int
@@ -171,6 +171,6 @@ listMeetingsResponse_httpStatus = Lens.lens (\ListMeetingsResponse' {httpStatus}
 
 instance Prelude.NFData ListMeetingsResponse where
   rnf ListMeetingsResponse' {..} =
-    Prelude.rnf meetings
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf meetings
       `Prelude.seq` Prelude.rnf httpStatus

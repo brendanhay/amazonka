@@ -17,17 +17,17 @@ module Amazonka.Chime.Types
     defaultService,
 
     -- * Errors
-    _AccessDeniedException,
     _ThrottledClientException,
-    _ResourceLimitExceededException,
-    _UnprocessableEntityException,
-    _ConflictException,
-    _ForbiddenException,
+    _AccessDeniedException,
     _NotFoundException,
-    _ServiceFailureException,
-    _UnauthorizedClientException,
     _ServiceUnavailableException,
+    _UnprocessableEntityException,
+    _ResourceLimitExceededException,
+    _ForbiddenException,
+    _ConflictException,
     _BadRequestException,
+    _UnauthorizedClientException,
+    _ServiceFailureException,
 
     -- * AccountStatus
     AccountStatus (..),
@@ -173,12 +173,12 @@ module Amazonka.Chime.Types
     -- * Account
     Account (..),
     newAccount,
-    account_signinDelegateGroups,
-    account_accountStatus,
-    account_defaultLicense,
     account_supportedLicenses,
     account_createdTimestamp,
+    account_signinDelegateGroups,
     account_accountType,
+    account_accountStatus,
+    account_defaultLicense,
     account_awsAccountId,
     account_accountId,
     account_name,
@@ -186,8 +186,8 @@ module Amazonka.Chime.Types
     -- * AccountSettings
     AccountSettings (..),
     newAccountSettings,
-    accountSettings_enableDialOut,
     accountSettings_disableRemoteControl,
+    accountSettings_enableDialOut,
 
     -- * AlexaForBusinessMetadata
     AlexaForBusinessMetadata (..),
@@ -198,18 +198,18 @@ module Amazonka.Chime.Types
     -- * AppInstance
     AppInstance (..),
     newAppInstance,
+    appInstance_lastUpdatedTimestamp,
     appInstance_name,
     appInstance_metadata,
-    appInstance_appInstanceArn,
     appInstance_createdTimestamp,
-    appInstance_lastUpdatedTimestamp,
+    appInstance_appInstanceArn,
 
     -- * AppInstanceAdmin
     AppInstanceAdmin (..),
     newAppInstanceAdmin,
-    appInstanceAdmin_admin,
-    appInstanceAdmin_appInstanceArn,
     appInstanceAdmin_createdTimestamp,
+    appInstanceAdmin_appInstanceArn,
+    appInstanceAdmin_admin,
 
     -- * AppInstanceAdminSummary
     AppInstanceAdminSummary (..),
@@ -237,24 +237,24 @@ module Amazonka.Chime.Types
     -- * AppInstanceUser
     AppInstanceUser (..),
     newAppInstanceUser,
-    appInstanceUser_appInstanceUserArn,
+    appInstanceUser_lastUpdatedTimestamp,
     appInstanceUser_name,
     appInstanceUser_metadata,
+    appInstanceUser_appInstanceUserArn,
     appInstanceUser_createdTimestamp,
-    appInstanceUser_lastUpdatedTimestamp,
 
     -- * AppInstanceUserMembershipSummary
     AppInstanceUserMembershipSummary (..),
     newAppInstanceUserMembershipSummary,
-    appInstanceUserMembershipSummary_readMarkerTimestamp,
     appInstanceUserMembershipSummary_type,
+    appInstanceUserMembershipSummary_readMarkerTimestamp,
 
     -- * AppInstanceUserSummary
     AppInstanceUserSummary (..),
     newAppInstanceUserSummary,
-    appInstanceUserSummary_appInstanceUserArn,
     appInstanceUserSummary_name,
     appInstanceUserSummary_metadata,
+    appInstanceUserSummary_appInstanceUserArn,
 
     -- * ArtifactsConfiguration
     ArtifactsConfiguration (..),
@@ -266,9 +266,9 @@ module Amazonka.Chime.Types
     -- * Attendee
     Attendee (..),
     newAttendee,
+    attendee_externalUserId,
     attendee_attendeeId,
     attendee_joinToken,
-    attendee_externalUserId,
 
     -- * AudioArtifactsConfiguration
     AudioArtifactsConfiguration (..),
@@ -278,30 +278,30 @@ module Amazonka.Chime.Types
     -- * BatchChannelMemberships
     BatchChannelMemberships (..),
     newBatchChannelMemberships,
+    batchChannelMemberships_type,
     batchChannelMemberships_members,
     batchChannelMemberships_channelArn,
-    batchChannelMemberships_type,
     batchChannelMemberships_invitedBy,
 
     -- * BatchCreateChannelMembershipError
     BatchCreateChannelMembershipError (..),
     newBatchCreateChannelMembershipError,
-    batchCreateChannelMembershipError_errorCode,
     batchCreateChannelMembershipError_memberArn,
     batchCreateChannelMembershipError_errorMessage,
+    batchCreateChannelMembershipError_errorCode,
 
     -- * Bot
     Bot (..),
     newBot,
-    bot_securityToken,
-    bot_disabled,
-    bot_updatedTimestamp,
-    bot_userId,
-    bot_botId,
-    bot_displayName,
     bot_botEmail,
     bot_createdTimestamp,
+    bot_updatedTimestamp,
+    bot_displayName,
+    bot_botId,
+    bot_securityToken,
     bot_botType,
+    bot_userId,
+    bot_disabled,
 
     -- * BusinessCallingSettings
     BusinessCallingSettings (..),
@@ -311,23 +311,23 @@ module Amazonka.Chime.Types
     -- * Channel
     Channel (..),
     newChannel,
-    channel_mode,
-    channel_createdBy,
-    channel_channelArn,
-    channel_privacy,
+    channel_lastUpdatedTimestamp,
     channel_lastMessageTimestamp,
     channel_name,
     channel_metadata,
     channel_createdTimestamp,
-    channel_lastUpdatedTimestamp,
+    channel_channelArn,
+    channel_privacy,
+    channel_mode,
+    channel_createdBy,
 
     -- * ChannelBan
     ChannelBan (..),
     newChannelBan,
-    channelBan_createdBy,
-    channelBan_channelArn,
     channelBan_member,
     channelBan_createdTimestamp,
+    channelBan_channelArn,
+    channelBan_createdBy,
 
     -- * ChannelBanSummary
     ChannelBanSummary (..),
@@ -337,18 +337,18 @@ module Amazonka.Chime.Types
     -- * ChannelMembership
     ChannelMembership (..),
     newChannelMembership,
-    channelMembership_channelArn,
+    channelMembership_lastUpdatedTimestamp,
     channelMembership_member,
     channelMembership_type,
-    channelMembership_invitedBy,
     channelMembership_createdTimestamp,
-    channelMembership_lastUpdatedTimestamp,
+    channelMembership_channelArn,
+    channelMembership_invitedBy,
 
     -- * ChannelMembershipForAppInstanceUserSummary
     ChannelMembershipForAppInstanceUserSummary (..),
     newChannelMembershipForAppInstanceUserSummary,
-    channelMembershipForAppInstanceUserSummary_appInstanceUserMembershipSummary,
     channelMembershipForAppInstanceUserSummary_channelSummary,
+    channelMembershipForAppInstanceUserSummary_appInstanceUserMembershipSummary,
 
     -- * ChannelMembershipSummary
     ChannelMembershipSummary (..),
@@ -358,30 +358,30 @@ module Amazonka.Chime.Types
     -- * ChannelMessage
     ChannelMessage (..),
     newChannelMessage,
-    channelMessage_sender,
-    channelMessage_channelArn,
-    channelMessage_content,
-    channelMessage_redacted,
-    channelMessage_persistence,
-    channelMessage_metadata,
-    channelMessage_type,
-    channelMessage_createdTimestamp,
-    channelMessage_messageId,
     channelMessage_lastUpdatedTimestamp,
+    channelMessage_type,
+    channelMessage_metadata,
+    channelMessage_createdTimestamp,
+    channelMessage_redacted,
+    channelMessage_channelArn,
+    channelMessage_messageId,
     channelMessage_lastEditedTimestamp,
+    channelMessage_sender,
+    channelMessage_persistence,
+    channelMessage_content,
 
     -- * ChannelMessageSummary
     ChannelMessageSummary (..),
     newChannelMessageSummary,
+    channelMessageSummary_lastUpdatedTimestamp,
+    channelMessageSummary_type,
+    channelMessageSummary_metadata,
+    channelMessageSummary_createdTimestamp,
+    channelMessageSummary_redacted,
+    channelMessageSummary_messageId,
+    channelMessageSummary_lastEditedTimestamp,
     channelMessageSummary_sender,
     channelMessageSummary_content,
-    channelMessageSummary_redacted,
-    channelMessageSummary_metadata,
-    channelMessageSummary_type,
-    channelMessageSummary_createdTimestamp,
-    channelMessageSummary_messageId,
-    channelMessageSummary_lastUpdatedTimestamp,
-    channelMessageSummary_lastEditedTimestamp,
 
     -- * ChannelModeratedByAppInstanceUserSummary
     ChannelModeratedByAppInstanceUserSummary (..),
@@ -391,10 +391,10 @@ module Amazonka.Chime.Types
     -- * ChannelModerator
     ChannelModerator (..),
     newChannelModerator,
-    channelModerator_createdBy,
-    channelModerator_channelArn,
-    channelModerator_createdTimestamp,
     channelModerator_moderator,
+    channelModerator_createdTimestamp,
+    channelModerator_channelArn,
+    channelModerator_createdBy,
 
     -- * ChannelModeratorSummary
     ChannelModeratorSummary (..),
@@ -409,18 +409,18 @@ module Amazonka.Chime.Types
     -- * ChannelSummary
     ChannelSummary (..),
     newChannelSummary,
-    channelSummary_mode,
-    channelSummary_channelArn,
-    channelSummary_privacy,
     channelSummary_lastMessageTimestamp,
     channelSummary_name,
     channelSummary_metadata,
+    channelSummary_channelArn,
+    channelSummary_privacy,
+    channelSummary_mode,
 
     -- * ChimeSdkMeetingConfiguration
     ChimeSdkMeetingConfiguration (..),
     newChimeSdkMeetingConfiguration,
-    chimeSdkMeetingConfiguration_artifactsConfiguration,
     chimeSdkMeetingConfiguration_sourceConfiguration,
+    chimeSdkMeetingConfiguration_artifactsConfiguration,
 
     -- * ContentArtifactsConfiguration
     ContentArtifactsConfiguration (..),
@@ -436,9 +436,9 @@ module Amazonka.Chime.Types
     -- * CreateAttendeeError
     CreateAttendeeError (..),
     newCreateAttendeeError,
-    createAttendeeError_errorCode,
-    createAttendeeError_errorMessage,
     createAttendeeError_externalUserId,
+    createAttendeeError_errorMessage,
+    createAttendeeError_errorCode,
 
     -- * CreateAttendeeRequestItem
     CreateAttendeeRequestItem (..),
@@ -449,8 +449,8 @@ module Amazonka.Chime.Types
     -- * Credential
     Credential (..),
     newCredential,
-    credential_username,
     credential_password,
+    credential_username,
 
     -- * DNISEmergencyCallingConfiguration
     DNISEmergencyCallingConfiguration (..),
@@ -476,18 +476,18 @@ module Amazonka.Chime.Types
     -- * EngineTranscribeSettings
     EngineTranscribeSettings (..),
     newEngineTranscribeSettings,
-    engineTranscribeSettings_vocabularyName,
-    engineTranscribeSettings_vocabularyFilterName,
     engineTranscribeSettings_vocabularyFilterMethod,
+    engineTranscribeSettings_vocabularyName,
     engineTranscribeSettings_region,
+    engineTranscribeSettings_vocabularyFilterName,
     engineTranscribeSettings_languageCode,
 
     -- * EventsConfiguration
     EventsConfiguration (..),
     newEventsConfiguration,
-    eventsConfiguration_lambdaFunctionArn,
-    eventsConfiguration_botId,
     eventsConfiguration_outboundEventsHTTPSEndpoint,
+    eventsConfiguration_botId,
+    eventsConfiguration_lambdaFunctionArn,
 
     -- * GeoMatchParams
     GeoMatchParams (..),
@@ -498,16 +498,16 @@ module Amazonka.Chime.Types
     -- * Identity
     Identity (..),
     newIdentity,
-    identity_arn,
     identity_name,
+    identity_arn,
 
     -- * Invite
     Invite (..),
     newInvite,
-    invite_status,
     invite_emailStatus,
-    invite_inviteId,
+    invite_status,
     invite_emailAddress,
+    invite_inviteId,
 
     -- * LoggingConfiguration
     LoggingConfiguration (..),
@@ -517,25 +517,25 @@ module Amazonka.Chime.Types
     -- * MediaCapturePipeline
     MediaCapturePipeline (..),
     newMediaCapturePipeline,
+    mediaCapturePipeline_sourceArn,
+    mediaCapturePipeline_sinkType,
+    mediaCapturePipeline_createdTimestamp,
+    mediaCapturePipeline_updatedTimestamp,
+    mediaCapturePipeline_chimeSdkMeetingConfiguration,
     mediaCapturePipeline_status,
     mediaCapturePipeline_sourceType,
-    mediaCapturePipeline_sourceArn,
-    mediaCapturePipeline_updatedTimestamp,
-    mediaCapturePipeline_sinkType,
-    mediaCapturePipeline_chimeSdkMeetingConfiguration,
-    mediaCapturePipeline_sinkArn,
     mediaCapturePipeline_mediaPipelineId,
-    mediaCapturePipeline_createdTimestamp,
+    mediaCapturePipeline_sinkArn,
 
     -- * MediaPlacement
     MediaPlacement (..),
     newMediaPlacement,
-    mediaPlacement_screenDataUrl,
-    mediaPlacement_eventIngestionUrl,
     mediaPlacement_signalingUrl,
-    mediaPlacement_screenSharingUrl,
     mediaPlacement_screenViewingUrl,
+    mediaPlacement_eventIngestionUrl,
     mediaPlacement_audioHostUrl,
+    mediaPlacement_screenSharingUrl,
+    mediaPlacement_screenDataUrl,
     mediaPlacement_audioFallbackUrl,
     mediaPlacement_turnControlUrl,
 
@@ -543,8 +543,8 @@ module Amazonka.Chime.Types
     Meeting (..),
     newMeeting,
     meeting_mediaRegion,
-    meeting_mediaPlacement,
     meeting_externalMeetingId,
+    meeting_mediaPlacement,
     meeting_meetingId,
 
     -- * MeetingNotificationConfiguration
@@ -556,18 +556,18 @@ module Amazonka.Chime.Types
     -- * Member
     Member (..),
     newMember,
-    member_fullName,
-    member_email,
     member_memberId,
     member_memberType,
+    member_email,
     member_accountId,
+    member_fullName,
 
     -- * MemberError
     MemberError (..),
     newMemberError,
     memberError_memberId,
-    memberError_errorCode,
     memberError_errorMessage,
+    memberError_errorCode,
 
     -- * MembershipItem
     MembershipItem (..),
@@ -583,111 +583,111 @@ module Amazonka.Chime.Types
     -- * OrderedPhoneNumber
     OrderedPhoneNumber (..),
     newOrderedPhoneNumber,
-    orderedPhoneNumber_status,
     orderedPhoneNumber_e164PhoneNumber,
+    orderedPhoneNumber_status,
 
     -- * Origination
     Origination (..),
     newOrigination,
-    origination_routes,
     origination_disabled,
+    origination_routes,
 
     -- * OriginationRoute
     OriginationRoute (..),
     newOriginationRoute,
+    originationRoute_port,
+    originationRoute_host,
     originationRoute_priority,
     originationRoute_weight,
     originationRoute_protocol,
-    originationRoute_host,
-    originationRoute_port,
 
     -- * Participant
     Participant (..),
     newParticipant,
-    participant_phoneNumber,
     participant_proxyPhoneNumber,
+    participant_phoneNumber,
 
     -- * PhoneNumber
     PhoneNumber (..),
     newPhoneNumber,
+    phoneNumber_type,
+    phoneNumber_e164PhoneNumber,
+    phoneNumber_productType,
+    phoneNumber_country,
+    phoneNumber_associations,
+    phoneNumber_createdTimestamp,
+    phoneNumber_updatedTimestamp,
     phoneNumber_status,
     phoneNumber_deletionTimestamp,
     phoneNumber_phoneNumberId,
-    phoneNumber_country,
-    phoneNumber_updatedTimestamp,
-    phoneNumber_productType,
-    phoneNumber_e164PhoneNumber,
-    phoneNumber_associations,
-    phoneNumber_callingName,
-    phoneNumber_type,
-    phoneNumber_createdTimestamp,
     phoneNumber_capabilities,
     phoneNumber_callingNameStatus,
+    phoneNumber_callingName,
 
     -- * PhoneNumberAssociation
     PhoneNumberAssociation (..),
     newPhoneNumberAssociation,
-    phoneNumberAssociation_value,
-    phoneNumberAssociation_associatedTimestamp,
     phoneNumberAssociation_name,
+    phoneNumberAssociation_associatedTimestamp,
+    phoneNumberAssociation_value,
 
     -- * PhoneNumberCapabilities
     PhoneNumberCapabilities (..),
     newPhoneNumberCapabilities,
     phoneNumberCapabilities_outboundMMS,
     phoneNumberCapabilities_inboundCall,
-    phoneNumberCapabilities_inboundSMS,
-    phoneNumberCapabilities_inboundMMS,
-    phoneNumberCapabilities_outboundCall,
     phoneNumberCapabilities_outboundSMS,
+    phoneNumberCapabilities_inboundSMS,
+    phoneNumberCapabilities_outboundCall,
+    phoneNumberCapabilities_inboundMMS,
 
     -- * PhoneNumberCountry
     PhoneNumberCountry (..),
     newPhoneNumberCountry,
-    phoneNumberCountry_supportedPhoneNumberTypes,
     phoneNumberCountry_countryCode,
+    phoneNumberCountry_supportedPhoneNumberTypes,
 
     -- * PhoneNumberError
     PhoneNumberError (..),
     newPhoneNumberError,
+    phoneNumberError_errorMessage,
     phoneNumberError_phoneNumberId,
     phoneNumberError_errorCode,
-    phoneNumberError_errorMessage,
 
     -- * PhoneNumberOrder
     PhoneNumberOrder (..),
     newPhoneNumberOrder,
+    phoneNumberOrder_phoneNumberOrderId,
+    phoneNumberOrder_productType,
+    phoneNumberOrder_createdTimestamp,
+    phoneNumberOrder_updatedTimestamp,
     phoneNumberOrder_status,
     phoneNumberOrder_orderedPhoneNumbers,
-    phoneNumberOrder_updatedTimestamp,
-    phoneNumberOrder_productType,
-    phoneNumberOrder_phoneNumberOrderId,
-    phoneNumberOrder_createdTimestamp,
 
     -- * Proxy
     Proxy (..),
     newProxy,
-    proxy_defaultSessionExpiryMinutes,
-    proxy_disabled,
-    proxy_fallBackPhoneNumber,
     proxy_phoneNumberCountries,
+    proxy_defaultSessionExpiryMinutes,
+    proxy_fallBackPhoneNumber,
+    proxy_disabled,
 
     -- * ProxySession
     ProxySession (..),
     newProxySession,
-    proxySession_status,
-    proxySession_numberSelectionBehavior,
-    proxySession_geoMatchParams,
-    proxySession_expiryMinutes,
-    proxySession_endedTimestamp,
-    proxySession_updatedTimestamp,
-    proxySession_participants,
     proxySession_name,
-    proxySession_proxySessionId,
-    proxySession_geoMatchLevel,
+    proxySession_geoMatchParams,
     proxySession_voiceConnectorId,
     proxySession_createdTimestamp,
+    proxySession_updatedTimestamp,
+    proxySession_proxySessionId,
+    proxySession_status,
+    proxySession_endedTimestamp,
+    proxySession_expiryMinutes,
     proxySession_capabilities,
+    proxySession_geoMatchLevel,
+    proxySession_numberSelectionBehavior,
+    proxySession_participants,
 
     -- * RetentionSettings
     RetentionSettings (..),
@@ -698,21 +698,21 @@ module Amazonka.Chime.Types
     -- * Room
     Room (..),
     newRoom,
-    room_updatedTimestamp,
-    room_createdBy,
-    room_accountId,
     room_name,
     room_roomId,
     room_createdTimestamp,
+    room_updatedTimestamp,
+    room_accountId,
+    room_createdBy,
 
     -- * RoomMembership
     RoomMembership (..),
     newRoomMembership,
-    roomMembership_updatedTimestamp,
-    roomMembership_role,
-    roomMembership_roomId,
     roomMembership_member,
+    roomMembership_roomId,
+    roomMembership_updatedTimestamp,
     roomMembership_invitedBy,
+    roomMembership_role,
 
     -- * RoomRetentionSettings
     RoomRetentionSettings (..),
@@ -733,11 +733,11 @@ module Amazonka.Chime.Types
     -- * SipMediaApplication
     SipMediaApplication (..),
     newSipMediaApplication,
-    sipMediaApplication_updatedTimestamp,
     sipMediaApplication_name,
-    sipMediaApplication_awsRegion,
-    sipMediaApplication_endpoints,
     sipMediaApplication_createdTimestamp,
+    sipMediaApplication_updatedTimestamp,
+    sipMediaApplication_endpoints,
+    sipMediaApplication_awsRegion,
     sipMediaApplication_sipMediaApplicationId,
 
     -- * SipMediaApplicationCall
@@ -758,14 +758,14 @@ module Amazonka.Chime.Types
     -- * SipRule
     SipRule (..),
     newSipRule,
-    sipRule_disabled,
+    sipRule_sipRuleId,
+    sipRule_name,
+    sipRule_createdTimestamp,
+    sipRule_updatedTimestamp,
     sipRule_targetApplications,
     sipRule_triggerType,
-    sipRule_updatedTimestamp,
-    sipRule_name,
     sipRule_triggerValue,
-    sipRule_createdTimestamp,
-    sipRule_sipRuleId,
+    sipRule_disabled,
 
     -- * SipRuleTargetApplication
     SipRuleTargetApplication (..),
@@ -782,8 +782,8 @@ module Amazonka.Chime.Types
     -- * StreamingConfiguration
     StreamingConfiguration (..),
     newStreamingConfiguration,
-    streamingConfiguration_disabled,
     streamingConfiguration_streamingNotificationTargets,
+    streamingConfiguration_disabled,
     streamingConfiguration_dataRetentionInHours,
 
     -- * StreamingNotificationTarget
@@ -807,17 +807,17 @@ module Amazonka.Chime.Types
     -- * Termination
     Termination (..),
     newTermination,
+    termination_cidrAllowedList,
+    termination_cpsLimit,
     termination_defaultPhoneNumber,
     termination_disabled,
     termination_callingRegions,
-    termination_cpsLimit,
-    termination_cidrAllowedList,
 
     -- * TerminationHealth
     TerminationHealth (..),
     newTerminationHealth,
-    terminationHealth_source,
     terminationHealth_timestamp,
+    terminationHealth_source,
 
     -- * TranscriptionConfiguration
     TranscriptionConfiguration (..),
@@ -836,33 +836,33 @@ module Amazonka.Chime.Types
     UpdateUserRequestItem (..),
     newUpdateUserRequestItem,
     updateUserRequestItem_licenseType,
-    updateUserRequestItem_userType,
     updateUserRequestItem_alexaForBusinessMetadata,
+    updateUserRequestItem_userType,
     updateUserRequestItem_userId,
 
     -- * User
     User (..),
     newUser,
-    user_userInvitationStatus,
     user_personalPIN,
-    user_primaryProvisionedNumber,
+    user_invitedOn,
     user_licenseType,
+    user_displayName,
+    user_alexaForBusinessMetadata,
+    user_userType,
     user_registeredOn,
     user_accountId,
     user_userRegistrationStatus,
-    user_invitedOn,
-    user_displayName,
     user_primaryEmail,
-    user_userType,
-    user_alexaForBusinessMetadata,
+    user_primaryProvisionedNumber,
+    user_userInvitationStatus,
     user_userId,
 
     -- * UserError
     UserError (..),
     newUserError,
+    userError_errorMessage,
     userError_userId,
     userError_errorCode,
-    userError_errorMessage,
 
     -- * UserSettings
     UserSettings (..),
@@ -878,24 +878,24 @@ module Amazonka.Chime.Types
     -- * VoiceConnector
     VoiceConnector (..),
     newVoiceConnector,
-    voiceConnector_updatedTimestamp,
-    voiceConnector_outboundHostName,
     voiceConnector_name,
-    voiceConnector_requireEncryption,
-    voiceConnector_awsRegion,
     voiceConnector_voiceConnectorId,
-    voiceConnector_voiceConnectorArn,
+    voiceConnector_requireEncryption,
     voiceConnector_createdTimestamp,
+    voiceConnector_updatedTimestamp,
+    voiceConnector_awsRegion,
+    voiceConnector_voiceConnectorArn,
+    voiceConnector_outboundHostName,
 
     -- * VoiceConnectorGroup
     VoiceConnectorGroup (..),
     newVoiceConnectorGroup,
-    voiceConnectorGroup_voiceConnectorGroupId,
-    voiceConnectorGroup_updatedTimestamp,
-    voiceConnectorGroup_voiceConnectorItems,
-    voiceConnectorGroup_voiceConnectorGroupArn,
     voiceConnectorGroup_name,
+    voiceConnectorGroup_voiceConnectorGroupArn,
     voiceConnectorGroup_createdTimestamp,
+    voiceConnectorGroup_updatedTimestamp,
+    voiceConnectorGroup_voiceConnectorGroupId,
+    voiceConnectorGroup_voiceConnectorItems,
 
     -- * VoiceConnectorItem
     VoiceConnectorItem (..),
@@ -1084,35 +1084,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -1121,21 +1094,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | You don\'t have permissions to perform the requested operation.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AccessDeniedException =
-  Core._MatchServiceError
-    defaultService
-    "AccessDeniedException"
-    Prelude.. Core.hasStatus 403
 
 -- | The client exceeded its request rate limit.
 _ThrottledClientException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1145,38 +1137,12 @@ _ThrottledClientException =
     "ThrottledClientException"
     Prelude.. Core.hasStatus 429
 
--- | The request exceeds the resource limit.
-_ResourceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceLimitExceededException =
+-- | You don\'t have permissions to perform the requested operation.
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException =
   Core._MatchServiceError
     defaultService
-    "ResourceLimitExceededException"
-    Prelude.. Core.hasStatus 400
-
--- | The request was well-formed but was unable to be followed due to
--- semantic errors.
-_UnprocessableEntityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnprocessableEntityException =
-  Core._MatchServiceError
-    defaultService
-    "UnprocessableEntityException"
-    Prelude.. Core.hasStatus 422
-
--- | The request could not be processed because of conflict in the current
--- state of the resource.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
-
--- | The client is permanently forbidden from making the request.
-_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ForbiddenException =
-  Core._MatchServiceError
-    defaultService
-    "ForbiddenException"
+    "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
 -- | One or more of the resources in the request does not exist in the
@@ -1188,13 +1154,55 @@ _NotFoundException =
     "NotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | The service encountered an unexpected error.
-_ServiceFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceFailureException =
+-- | The service is currently unavailable.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
-    "ServiceFailureException"
-    Prelude.. Core.hasStatus 500
+    "ServiceUnavailableException"
+    Prelude.. Core.hasStatus 503
+
+-- | The request was well-formed but was unable to be followed due to
+-- semantic errors.
+_UnprocessableEntityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnprocessableEntityException =
+  Core._MatchServiceError
+    defaultService
+    "UnprocessableEntityException"
+    Prelude.. Core.hasStatus 422
+
+-- | The request exceeds the resource limit.
+_ResourceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceLimitExceededException"
+    Prelude.. Core.hasStatus 400
+
+-- | The client is permanently forbidden from making the request.
+_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException =
+  Core._MatchServiceError
+    defaultService
+    "ForbiddenException"
+    Prelude.. Core.hasStatus 403
+
+-- | The request could not be processed because of conflict in the current
+-- state of the resource.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
+-- | The input parameters don\'t match the service\'s restrictions.
+_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
+  Core._MatchServiceError
+    defaultService
+    "BadRequestException"
+    Prelude.. Core.hasStatus 400
 
 -- | The client is not currently authorized to make the request.
 _UnauthorizedClientException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1204,18 +1212,10 @@ _UnauthorizedClientException =
     "UnauthorizedClientException"
     Prelude.. Core.hasStatus 401
 
--- | The service is currently unavailable.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUnavailableException =
+-- | The service encountered an unexpected error.
+_ServiceFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceFailureException =
   Core._MatchServiceError
     defaultService
-    "ServiceUnavailableException"
-    Prelude.. Core.hasStatus 503
-
--- | The input parameters don\'t match the service\'s restrictions.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BadRequestException =
-  Core._MatchServiceError
-    defaultService
-    "BadRequestException"
-    Prelude.. Core.hasStatus 400
+    "ServiceFailureException"
+    Prelude.. Core.hasStatus 500

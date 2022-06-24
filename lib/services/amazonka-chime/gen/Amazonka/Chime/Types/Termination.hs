@@ -28,18 +28,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTermination' smart constructor.
 data Termination = Termination'
-  { -- | The default caller ID phone number.
+  { -- | The IP addresses allowed to make calls, in CIDR format. Required.
+    cidrAllowedList :: Prelude.Maybe [Prelude.Text],
+    -- | The limit on calls per second. Max value based on account service quota.
+    -- Default value of 1.
+    cpsLimit :: Prelude.Maybe Prelude.Natural,
+    -- | The default caller ID phone number.
     defaultPhoneNumber :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | When termination settings are disabled, outbound calls can not be made.
     disabled :: Prelude.Maybe Prelude.Bool,
     -- | The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
     -- Required.
-    callingRegions :: Prelude.Maybe [Prelude.Text],
-    -- | The limit on calls per second. Max value based on account service quota.
-    -- Default value of 1.
-    cpsLimit :: Prelude.Maybe Prelude.Natural,
-    -- | The IP addresses allowed to make calls, in CIDR format. Required.
-    cidrAllowedList :: Prelude.Maybe [Prelude.Text]
+    callingRegions :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -51,27 +51,36 @@ data Termination = Termination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'cidrAllowedList', 'termination_cidrAllowedList' - The IP addresses allowed to make calls, in CIDR format. Required.
+--
+-- 'cpsLimit', 'termination_cpsLimit' - The limit on calls per second. Max value based on account service quota.
+-- Default value of 1.
+--
 -- 'defaultPhoneNumber', 'termination_defaultPhoneNumber' - The default caller ID phone number.
 --
 -- 'disabled', 'termination_disabled' - When termination settings are disabled, outbound calls can not be made.
 --
 -- 'callingRegions', 'termination_callingRegions' - The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
 -- Required.
---
--- 'cpsLimit', 'termination_cpsLimit' - The limit on calls per second. Max value based on account service quota.
--- Default value of 1.
---
--- 'cidrAllowedList', 'termination_cidrAllowedList' - The IP addresses allowed to make calls, in CIDR format. Required.
 newTermination ::
   Termination
 newTermination =
   Termination'
-    { defaultPhoneNumber = Prelude.Nothing,
-      disabled = Prelude.Nothing,
-      callingRegions = Prelude.Nothing,
+    { cidrAllowedList = Prelude.Nothing,
       cpsLimit = Prelude.Nothing,
-      cidrAllowedList = Prelude.Nothing
+      defaultPhoneNumber = Prelude.Nothing,
+      disabled = Prelude.Nothing,
+      callingRegions = Prelude.Nothing
     }
+
+-- | The IP addresses allowed to make calls, in CIDR format. Required.
+termination_cidrAllowedList :: Lens.Lens' Termination (Prelude.Maybe [Prelude.Text])
+termination_cidrAllowedList = Lens.lens (\Termination' {cidrAllowedList} -> cidrAllowedList) (\s@Termination' {} a -> s {cidrAllowedList = a} :: Termination) Prelude.. Lens.mapping Lens.coerced
+
+-- | The limit on calls per second. Max value based on account service quota.
+-- Default value of 1.
+termination_cpsLimit :: Lens.Lens' Termination (Prelude.Maybe Prelude.Natural)
+termination_cpsLimit = Lens.lens (\Termination' {cpsLimit} -> cpsLimit) (\s@Termination' {} a -> s {cpsLimit = a} :: Termination)
 
 -- | The default caller ID phone number.
 termination_defaultPhoneNumber :: Lens.Lens' Termination (Prelude.Maybe Prelude.Text)
@@ -86,57 +95,50 @@ termination_disabled = Lens.lens (\Termination' {disabled} -> disabled) (\s@Term
 termination_callingRegions :: Lens.Lens' Termination (Prelude.Maybe [Prelude.Text])
 termination_callingRegions = Lens.lens (\Termination' {callingRegions} -> callingRegions) (\s@Termination' {} a -> s {callingRegions = a} :: Termination) Prelude.. Lens.mapping Lens.coerced
 
--- | The limit on calls per second. Max value based on account service quota.
--- Default value of 1.
-termination_cpsLimit :: Lens.Lens' Termination (Prelude.Maybe Prelude.Natural)
-termination_cpsLimit = Lens.lens (\Termination' {cpsLimit} -> cpsLimit) (\s@Termination' {} a -> s {cpsLimit = a} :: Termination)
-
--- | The IP addresses allowed to make calls, in CIDR format. Required.
-termination_cidrAllowedList :: Lens.Lens' Termination (Prelude.Maybe [Prelude.Text])
-termination_cidrAllowedList = Lens.lens (\Termination' {cidrAllowedList} -> cidrAllowedList) (\s@Termination' {} a -> s {cidrAllowedList = a} :: Termination) Prelude.. Lens.mapping Lens.coerced
-
 instance Core.FromJSON Termination where
   parseJSON =
     Core.withObject
       "Termination"
       ( \x ->
           Termination'
-            Prelude.<$> (x Core..:? "DefaultPhoneNumber")
-            Prelude.<*> (x Core..:? "Disabled")
-            Prelude.<*> (x Core..:? "CallingRegions" Core..!= Prelude.mempty)
+            Prelude.<$> ( x Core..:? "CidrAllowedList"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..:? "CpsLimit")
-            Prelude.<*> ( x Core..:? "CidrAllowedList"
+            Prelude.<*> (x Core..:? "DefaultPhoneNumber")
+            Prelude.<*> (x Core..:? "Disabled")
+            Prelude.<*> ( x Core..:? "CallingRegions"
                             Core..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable Termination where
   hashWithSalt _salt Termination' {..} =
-    _salt `Prelude.hashWithSalt` defaultPhoneNumber
+    _salt `Prelude.hashWithSalt` cidrAllowedList
+      `Prelude.hashWithSalt` cpsLimit
+      `Prelude.hashWithSalt` defaultPhoneNumber
       `Prelude.hashWithSalt` disabled
       `Prelude.hashWithSalt` callingRegions
-      `Prelude.hashWithSalt` cpsLimit
-      `Prelude.hashWithSalt` cidrAllowedList
 
 instance Prelude.NFData Termination where
   rnf Termination' {..} =
-    Prelude.rnf defaultPhoneNumber
+    Prelude.rnf cidrAllowedList
+      `Prelude.seq` Prelude.rnf cpsLimit
+      `Prelude.seq` Prelude.rnf defaultPhoneNumber
       `Prelude.seq` Prelude.rnf disabled
       `Prelude.seq` Prelude.rnf callingRegions
-      `Prelude.seq` Prelude.rnf cpsLimit
-      `Prelude.seq` Prelude.rnf cidrAllowedList
 
 instance Core.ToJSON Termination where
   toJSON Termination' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DefaultPhoneNumber" Core..=)
+          [ ("CidrAllowedList" Core..=)
+              Prelude.<$> cidrAllowedList,
+            ("CpsLimit" Core..=) Prelude.<$> cpsLimit,
+            ("DefaultPhoneNumber" Core..=)
               Prelude.<$> defaultPhoneNumber,
             ("Disabled" Core..=) Prelude.<$> disabled,
             ("CallingRegions" Core..=)
-              Prelude.<$> callingRegions,
-            ("CpsLimit" Core..=) Prelude.<$> cpsLimit,
-            ("CidrAllowedList" Core..=)
-              Prelude.<$> cidrAllowedList
+              Prelude.<$> callingRegions
           ]
       )

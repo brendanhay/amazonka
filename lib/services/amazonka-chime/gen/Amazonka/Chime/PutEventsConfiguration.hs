@@ -29,8 +29,8 @@ module Amazonka.Chime.PutEventsConfiguration
     newPutEventsConfiguration,
 
     -- * Request Lenses
-    putEventsConfiguration_lambdaFunctionArn,
     putEventsConfiguration_outboundEventsHTTPSEndpoint,
+    putEventsConfiguration_lambdaFunctionArn,
     putEventsConfiguration_accountId,
     putEventsConfiguration_botId,
 
@@ -53,10 +53,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutEventsConfiguration' smart constructor.
 data PutEventsConfiguration = PutEventsConfiguration'
-  { -- | Lambda function ARN that allows the bot to receive outgoing events.
-    lambdaFunctionArn :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | HTTPS endpoint that allows the bot to receive outgoing events.
+  { -- | HTTPS endpoint that allows the bot to receive outgoing events.
     outboundEventsHTTPSEndpoint :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | Lambda function ARN that allows the bot to receive outgoing events.
+    lambdaFunctionArn :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The Amazon Chime account ID.
     accountId :: Prelude.Text,
     -- | The bot ID.
@@ -72,9 +72,9 @@ data PutEventsConfiguration = PutEventsConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lambdaFunctionArn', 'putEventsConfiguration_lambdaFunctionArn' - Lambda function ARN that allows the bot to receive outgoing events.
---
 -- 'outboundEventsHTTPSEndpoint', 'putEventsConfiguration_outboundEventsHTTPSEndpoint' - HTTPS endpoint that allows the bot to receive outgoing events.
+--
+-- 'lambdaFunctionArn', 'putEventsConfiguration_lambdaFunctionArn' - Lambda function ARN that allows the bot to receive outgoing events.
 --
 -- 'accountId', 'putEventsConfiguration_accountId' - The Amazon Chime account ID.
 --
@@ -87,20 +87,20 @@ newPutEventsConfiguration ::
   PutEventsConfiguration
 newPutEventsConfiguration pAccountId_ pBotId_ =
   PutEventsConfiguration'
-    { lambdaFunctionArn =
+    { outboundEventsHTTPSEndpoint =
         Prelude.Nothing,
-      outboundEventsHTTPSEndpoint = Prelude.Nothing,
+      lambdaFunctionArn = Prelude.Nothing,
       accountId = pAccountId_,
       botId = pBotId_
     }
 
--- | Lambda function ARN that allows the bot to receive outgoing events.
-putEventsConfiguration_lambdaFunctionArn :: Lens.Lens' PutEventsConfiguration (Prelude.Maybe Prelude.Text)
-putEventsConfiguration_lambdaFunctionArn = Lens.lens (\PutEventsConfiguration' {lambdaFunctionArn} -> lambdaFunctionArn) (\s@PutEventsConfiguration' {} a -> s {lambdaFunctionArn = a} :: PutEventsConfiguration) Prelude.. Lens.mapping Core._Sensitive
-
 -- | HTTPS endpoint that allows the bot to receive outgoing events.
 putEventsConfiguration_outboundEventsHTTPSEndpoint :: Lens.Lens' PutEventsConfiguration (Prelude.Maybe Prelude.Text)
 putEventsConfiguration_outboundEventsHTTPSEndpoint = Lens.lens (\PutEventsConfiguration' {outboundEventsHTTPSEndpoint} -> outboundEventsHTTPSEndpoint) (\s@PutEventsConfiguration' {} a -> s {outboundEventsHTTPSEndpoint = a} :: PutEventsConfiguration) Prelude.. Lens.mapping Core._Sensitive
+
+-- | Lambda function ARN that allows the bot to receive outgoing events.
+putEventsConfiguration_lambdaFunctionArn :: Lens.Lens' PutEventsConfiguration (Prelude.Maybe Prelude.Text)
+putEventsConfiguration_lambdaFunctionArn = Lens.lens (\PutEventsConfiguration' {lambdaFunctionArn} -> lambdaFunctionArn) (\s@PutEventsConfiguration' {} a -> s {lambdaFunctionArn = a} :: PutEventsConfiguration) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The Amazon Chime account ID.
 putEventsConfiguration_accountId :: Lens.Lens' PutEventsConfiguration Prelude.Text
@@ -125,15 +125,16 @@ instance Core.AWSRequest PutEventsConfiguration where
 
 instance Prelude.Hashable PutEventsConfiguration where
   hashWithSalt _salt PutEventsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` lambdaFunctionArn
+    _salt
       `Prelude.hashWithSalt` outboundEventsHTTPSEndpoint
+      `Prelude.hashWithSalt` lambdaFunctionArn
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` botId
 
 instance Prelude.NFData PutEventsConfiguration where
   rnf PutEventsConfiguration' {..} =
-    Prelude.rnf lambdaFunctionArn
-      `Prelude.seq` Prelude.rnf outboundEventsHTTPSEndpoint
+    Prelude.rnf outboundEventsHTTPSEndpoint
+      `Prelude.seq` Prelude.rnf lambdaFunctionArn
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf botId
 
@@ -144,10 +145,10 @@ instance Core.ToJSON PutEventsConfiguration where
   toJSON PutEventsConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("LambdaFunctionArn" Core..=)
-              Prelude.<$> lambdaFunctionArn,
-            ("OutboundEventsHTTPSEndpoint" Core..=)
-              Prelude.<$> outboundEventsHTTPSEndpoint
+          [ ("OutboundEventsHTTPSEndpoint" Core..=)
+              Prelude.<$> outboundEventsHTTPSEndpoint,
+            ("LambdaFunctionArn" Core..=)
+              Prelude.<$> lambdaFunctionArn
           ]
       )
 

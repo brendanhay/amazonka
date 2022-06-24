@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTerminationHealth' smart constructor.
 data TerminationHealth = TerminationHealth'
-  { -- | The source IP address.
-    source :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp, in ISO 8601 format.
-    timestamp :: Prelude.Maybe Core.POSIX
+  { -- | The timestamp, in ISO 8601 format.
+    timestamp :: Prelude.Maybe Core.POSIX,
+    -- | The source IP address.
+    source :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data TerminationHealth = TerminationHealth'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'source', 'terminationHealth_source' - The source IP address.
---
 -- 'timestamp', 'terminationHealth_timestamp' - The timestamp, in ISO 8601 format.
+--
+-- 'source', 'terminationHealth_source' - The source IP address.
 newTerminationHealth ::
   TerminationHealth
 newTerminationHealth =
   TerminationHealth'
-    { source = Prelude.Nothing,
-      timestamp = Prelude.Nothing
+    { timestamp = Prelude.Nothing,
+      source = Prelude.Nothing
     }
-
--- | The source IP address.
-terminationHealth_source :: Lens.Lens' TerminationHealth (Prelude.Maybe Prelude.Text)
-terminationHealth_source = Lens.lens (\TerminationHealth' {source} -> source) (\s@TerminationHealth' {} a -> s {source = a} :: TerminationHealth)
 
 -- | The timestamp, in ISO 8601 format.
 terminationHealth_timestamp :: Lens.Lens' TerminationHealth (Prelude.Maybe Prelude.UTCTime)
 terminationHealth_timestamp = Lens.lens (\TerminationHealth' {timestamp} -> timestamp) (\s@TerminationHealth' {} a -> s {timestamp = a} :: TerminationHealth) Prelude.. Lens.mapping Core._Time
+
+-- | The source IP address.
+terminationHealth_source :: Lens.Lens' TerminationHealth (Prelude.Maybe Prelude.Text)
+terminationHealth_source = Lens.lens (\TerminationHealth' {source} -> source) (\s@TerminationHealth' {} a -> s {source = a} :: TerminationHealth)
 
 instance Core.FromJSON TerminationHealth where
   parseJSON =
@@ -69,16 +69,16 @@ instance Core.FromJSON TerminationHealth where
       "TerminationHealth"
       ( \x ->
           TerminationHealth'
-            Prelude.<$> (x Core..:? "Source")
-            Prelude.<*> (x Core..:? "Timestamp")
+            Prelude.<$> (x Core..:? "Timestamp")
+            Prelude.<*> (x Core..:? "Source")
       )
 
 instance Prelude.Hashable TerminationHealth where
   hashWithSalt _salt TerminationHealth' {..} =
-    _salt `Prelude.hashWithSalt` source
-      `Prelude.hashWithSalt` timestamp
+    _salt `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` source
 
 instance Prelude.NFData TerminationHealth where
   rnf TerminationHealth' {..} =
-    Prelude.rnf source
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf source

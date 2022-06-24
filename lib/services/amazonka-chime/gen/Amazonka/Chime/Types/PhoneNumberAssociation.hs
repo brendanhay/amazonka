@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPhoneNumberAssociation' smart constructor.
 data PhoneNumberAssociation = PhoneNumberAssociation'
-  { -- | Contains the ID for the entity specified in Name.
-    value :: Prelude.Maybe Prelude.Text,
+  { -- | Defines the association with an Amazon Chime account ID, user ID, Amazon
+    -- Chime Voice Connector ID, or Amazon Chime Voice Connector group ID.
+    name :: Prelude.Maybe PhoneNumberAssociationName,
     -- | The timestamp of the phone number association, in ISO 8601 format.
     associatedTimestamp :: Prelude.Maybe Core.POSIX,
-    -- | Defines the association with an Amazon Chime account ID, user ID, Amazon
-    -- Chime Voice Connector ID, or Amazon Chime Voice Connector group ID.
-    name :: Prelude.Maybe PhoneNumberAssociationName
+    -- | Contains the ID for the entity specified in Name.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,33 +48,33 @@ data PhoneNumberAssociation = PhoneNumberAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'phoneNumberAssociation_value' - Contains the ID for the entity specified in Name.
+-- 'name', 'phoneNumberAssociation_name' - Defines the association with an Amazon Chime account ID, user ID, Amazon
+-- Chime Voice Connector ID, or Amazon Chime Voice Connector group ID.
 --
 -- 'associatedTimestamp', 'phoneNumberAssociation_associatedTimestamp' - The timestamp of the phone number association, in ISO 8601 format.
 --
--- 'name', 'phoneNumberAssociation_name' - Defines the association with an Amazon Chime account ID, user ID, Amazon
--- Chime Voice Connector ID, or Amazon Chime Voice Connector group ID.
+-- 'value', 'phoneNumberAssociation_value' - Contains the ID for the entity specified in Name.
 newPhoneNumberAssociation ::
   PhoneNumberAssociation
 newPhoneNumberAssociation =
   PhoneNumberAssociation'
-    { value = Prelude.Nothing,
+    { name = Prelude.Nothing,
       associatedTimestamp = Prelude.Nothing,
-      name = Prelude.Nothing
+      value = Prelude.Nothing
     }
-
--- | Contains the ID for the entity specified in Name.
-phoneNumberAssociation_value :: Lens.Lens' PhoneNumberAssociation (Prelude.Maybe Prelude.Text)
-phoneNumberAssociation_value = Lens.lens (\PhoneNumberAssociation' {value} -> value) (\s@PhoneNumberAssociation' {} a -> s {value = a} :: PhoneNumberAssociation)
-
--- | The timestamp of the phone number association, in ISO 8601 format.
-phoneNumberAssociation_associatedTimestamp :: Lens.Lens' PhoneNumberAssociation (Prelude.Maybe Prelude.UTCTime)
-phoneNumberAssociation_associatedTimestamp = Lens.lens (\PhoneNumberAssociation' {associatedTimestamp} -> associatedTimestamp) (\s@PhoneNumberAssociation' {} a -> s {associatedTimestamp = a} :: PhoneNumberAssociation) Prelude.. Lens.mapping Core._Time
 
 -- | Defines the association with an Amazon Chime account ID, user ID, Amazon
 -- Chime Voice Connector ID, or Amazon Chime Voice Connector group ID.
 phoneNumberAssociation_name :: Lens.Lens' PhoneNumberAssociation (Prelude.Maybe PhoneNumberAssociationName)
 phoneNumberAssociation_name = Lens.lens (\PhoneNumberAssociation' {name} -> name) (\s@PhoneNumberAssociation' {} a -> s {name = a} :: PhoneNumberAssociation)
+
+-- | The timestamp of the phone number association, in ISO 8601 format.
+phoneNumberAssociation_associatedTimestamp :: Lens.Lens' PhoneNumberAssociation (Prelude.Maybe Prelude.UTCTime)
+phoneNumberAssociation_associatedTimestamp = Lens.lens (\PhoneNumberAssociation' {associatedTimestamp} -> associatedTimestamp) (\s@PhoneNumberAssociation' {} a -> s {associatedTimestamp = a} :: PhoneNumberAssociation) Prelude.. Lens.mapping Core._Time
+
+-- | Contains the ID for the entity specified in Name.
+phoneNumberAssociation_value :: Lens.Lens' PhoneNumberAssociation (Prelude.Maybe Prelude.Text)
+phoneNumberAssociation_value = Lens.lens (\PhoneNumberAssociation' {value} -> value) (\s@PhoneNumberAssociation' {} a -> s {value = a} :: PhoneNumberAssociation)
 
 instance Core.FromJSON PhoneNumberAssociation where
   parseJSON =
@@ -82,19 +82,19 @@ instance Core.FromJSON PhoneNumberAssociation where
       "PhoneNumberAssociation"
       ( \x ->
           PhoneNumberAssociation'
-            Prelude.<$> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "AssociatedTimestamp")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Value")
       )
 
 instance Prelude.Hashable PhoneNumberAssociation where
   hashWithSalt _salt PhoneNumberAssociation' {..} =
-    _salt `Prelude.hashWithSalt` value
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` associatedTimestamp
-      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData PhoneNumberAssociation where
   rnf PhoneNumberAssociation' {..} =
-    Prelude.rnf value
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf associatedTimestamp
-      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf value

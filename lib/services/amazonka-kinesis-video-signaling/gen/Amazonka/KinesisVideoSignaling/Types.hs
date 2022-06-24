@@ -18,11 +18,11 @@ module Amazonka.KinesisVideoSignaling.Types
 
     -- * Errors
     _InvalidArgumentException,
-    _NotAuthorizedException,
     _ClientLimitExceededException,
-    _SessionExpiredException,
     _InvalidClientException,
     _ResourceNotFoundException,
+    _SessionExpiredException,
+    _NotAuthorizedException,
 
     -- * Service
     Service (..),
@@ -30,10 +30,10 @@ module Amazonka.KinesisVideoSignaling.Types
     -- * IceServer
     IceServer (..),
     newIceServer,
-    iceServer_ttl,
-    iceServer_uris,
-    iceServer_username,
     iceServer_password,
+    iceServer_ttl,
+    iceServer_username,
+    iceServer_uris,
   )
 where
 
@@ -71,35 +71,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -108,12 +81,39 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The value for this input parameter is invalid.
@@ -124,14 +124,6 @@ _InvalidArgumentException =
     "InvalidArgumentException"
     Prelude.. Core.hasStatus 400
 
--- | The caller is not authorized to perform this operation.
-_NotAuthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotAuthorizedException =
-  Core._MatchServiceError
-    defaultService
-    "NotAuthorizedException"
-    Prelude.. Core.hasStatus 401
-
 -- | Your request was throttled because you have exceeded the limit of
 -- allowed client calls. Try making the call later.
 _ClientLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -139,16 +131,6 @@ _ClientLimitExceededException =
   Core._MatchServiceError
     defaultService
     "ClientLimitExceededException"
-    Prelude.. Core.hasStatus 400
-
--- | If the client session is expired. Once the client is connected, the
--- session is valid for 45 minutes. Client should reconnect to the channel
--- to continue sending\/receiving messages.
-_SessionExpiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SessionExpiredException =
-  Core._MatchServiceError
-    defaultService
-    "SessionExpiredException"
     Prelude.. Core.hasStatus 400
 
 -- | The specified client is invalid.
@@ -166,3 +148,21 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
+
+-- | If the client session is expired. Once the client is connected, the
+-- session is valid for 45 minutes. Client should reconnect to the channel
+-- to continue sending\/receiving messages.
+_SessionExpiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SessionExpiredException =
+  Core._MatchServiceError
+    defaultService
+    "SessionExpiredException"
+    Prelude.. Core.hasStatus 400
+
+-- | The caller is not authorized to perform this operation.
+_NotAuthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotAuthorizedException =
+  Core._MatchServiceError
+    defaultService
+    "NotAuthorizedException"
+    Prelude.. Core.hasStatus 401

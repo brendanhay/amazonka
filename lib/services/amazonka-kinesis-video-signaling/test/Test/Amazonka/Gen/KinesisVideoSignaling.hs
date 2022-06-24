@@ -27,31 +27,25 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestSendAlexaOfferToMaster $
---             newSendAlexaOfferToMaster
---
---         , requestGetIceServerConfig $
+--         [ requestGetIceServerConfig $
 --             newGetIceServerConfig
+--
+--         , requestSendAlexaOfferToMaster $
+--             newSendAlexaOfferToMaster
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseSendAlexaOfferToMaster $
---             newSendAlexaOfferToMasterResponse
---
---         , responseGetIceServerConfig $
+--         [ responseGetIceServerConfig $
 --             newGetIceServerConfigResponse
+--
+--         , responseSendAlexaOfferToMaster $
+--             newSendAlexaOfferToMasterResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestSendAlexaOfferToMaster :: SendAlexaOfferToMaster -> TestTree
-requestSendAlexaOfferToMaster =
-  req
-    "SendAlexaOfferToMaster"
-    "fixture/SendAlexaOfferToMaster.yaml"
 
 requestGetIceServerConfig :: GetIceServerConfig -> TestTree
 requestGetIceServerConfig =
@@ -59,15 +53,13 @@ requestGetIceServerConfig =
     "GetIceServerConfig"
     "fixture/GetIceServerConfig.yaml"
 
--- Responses
+requestSendAlexaOfferToMaster :: SendAlexaOfferToMaster -> TestTree
+requestSendAlexaOfferToMaster =
+  req
+    "SendAlexaOfferToMaster"
+    "fixture/SendAlexaOfferToMaster.yaml"
 
-responseSendAlexaOfferToMaster :: SendAlexaOfferToMasterResponse -> TestTree
-responseSendAlexaOfferToMaster =
-  res
-    "SendAlexaOfferToMasterResponse"
-    "fixture/SendAlexaOfferToMasterResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy SendAlexaOfferToMaster)
+-- Responses
 
 responseGetIceServerConfig :: GetIceServerConfigResponse -> TestTree
 responseGetIceServerConfig =
@@ -76,3 +68,11 @@ responseGetIceServerConfig =
     "fixture/GetIceServerConfigResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetIceServerConfig)
+
+responseSendAlexaOfferToMaster :: SendAlexaOfferToMasterResponse -> TestTree
+responseSendAlexaOfferToMaster =
+  res
+    "SendAlexaOfferToMasterResponse"
+    "fixture/SendAlexaOfferToMasterResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SendAlexaOfferToMaster)

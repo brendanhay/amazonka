@@ -14,6 +14,14 @@
 module Amazonka.KinesisVideoSignaling.Lens
   ( -- * Operations
 
+    -- ** GetIceServerConfig
+    getIceServerConfig_clientId,
+    getIceServerConfig_username,
+    getIceServerConfig_service,
+    getIceServerConfig_channelARN,
+    getIceServerConfigResponse_iceServerList,
+    getIceServerConfigResponse_httpStatus,
+
     -- ** SendAlexaOfferToMaster
     sendAlexaOfferToMaster_channelARN,
     sendAlexaOfferToMaster_senderClientId,
@@ -21,21 +29,13 @@ module Amazonka.KinesisVideoSignaling.Lens
     sendAlexaOfferToMasterResponse_answer,
     sendAlexaOfferToMasterResponse_httpStatus,
 
-    -- ** GetIceServerConfig
-    getIceServerConfig_clientId,
-    getIceServerConfig_service,
-    getIceServerConfig_username,
-    getIceServerConfig_channelARN,
-    getIceServerConfigResponse_iceServerList,
-    getIceServerConfigResponse_httpStatus,
-
     -- * Types
 
     -- ** IceServer
-    iceServer_ttl,
-    iceServer_uris,
-    iceServer_username,
     iceServer_password,
+    iceServer_ttl,
+    iceServer_username,
+    iceServer_uris,
   )
 where
 

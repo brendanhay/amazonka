@@ -17,50 +17,50 @@ module Amazonka.Organizations.Types
     defaultService,
 
     -- * Errors
-    _PolicyNotFoundException,
-    _PolicyTypeAlreadyEnabledException,
-    _HandshakeConstraintViolationException,
-    _AccessDeniedException,
-    _MalformedPolicyDocumentException,
-    _RootNotFoundException,
-    _MasterCannotLeaveOrganizationException,
-    _AccountNotFoundException,
-    _AccountAlreadyRegisteredException,
-    _DuplicatePolicyException,
-    _ConstraintViolationException,
-    _AccountNotRegisteredException,
-    _FinalizingOrganizationException,
-    _HandshakeNotFoundException,
     _PolicyTypeNotAvailableForOrganizationException,
-    _ChildNotFoundException,
+    _DuplicateAccountException,
+    _FinalizingOrganizationException,
+    _OrganizationalUnitNotEmptyException,
+    _InvalidInputException,
     _UnsupportedAPIEndpointException,
-    _EffectivePolicyNotFoundException,
+    _DuplicateOrganizationalUnitException,
+    _CreateAccountStatusNotFoundException,
+    _ConcurrentModificationException,
+    _AccessDeniedException,
+    _HandshakeConstraintViolationException,
+    _DuplicatePolicyException,
+    _ChildNotFoundException,
+    _PolicyChangesInProgressException,
+    _HandshakeAlreadyInStateException,
+    _DuplicateHandshakeException,
+    _AWSOrganizationsNotInUseException,
+    _PolicyTypeNotEnabledException,
+    _MasterCannotLeaveOrganizationException,
+    _RootNotFoundException,
+    _PolicyNotFoundException,
+    _PolicyNotAttachedException,
+    _AccountAlreadyRegisteredException,
+    _PolicyInUseException,
+    _ParentNotFoundException,
+    _AccountNotFoundException,
     _OrganizationalUnitNotFoundException,
     _DestinationParentNotFoundException,
-    _OrganizationNotEmptyException,
-    _AccountOwnerNotVerifiedException,
-    _PolicyTypeNotEnabledException,
-    _DuplicateHandshakeException,
-    _OrganizationalUnitNotEmptyException,
-    _TooManyRequestsException,
-    _ConcurrentModificationException,
-    _ServiceException,
-    _SourceParentNotFoundException,
-    _TargetNotFoundException,
-    _CreateAccountStatusNotFoundException,
-    _AlreadyInOrganizationException,
-    _DuplicateOrganizationalUnitException,
-    _InvalidInputException,
-    _PolicyChangesInProgressException,
-    _PolicyNotAttachedException,
-    _ParentNotFoundException,
-    _AccessDeniedForDependencyException,
-    _AWSOrganizationsNotInUseException,
-    _PolicyInUseException,
-    _InvalidHandshakeTransitionException,
-    _HandshakeAlreadyInStateException,
-    _DuplicateAccountException,
     _DuplicatePolicyAttachmentException,
+    _PolicyTypeAlreadyEnabledException,
+    _AccountOwnerNotVerifiedException,
+    _HandshakeNotFoundException,
+    _ServiceException,
+    _AccessDeniedForDependencyException,
+    _MalformedPolicyDocumentException,
+    _OrganizationNotEmptyException,
+    _InvalidHandshakeTransitionException,
+    _TargetNotFoundException,
+    _AccountNotRegisteredException,
+    _SourceParentNotFoundException,
+    _AlreadyInOrganizationException,
+    _EffectivePolicyNotFoundException,
+    _TooManyRequestsException,
+    _ConstraintViolationException,
 
     -- * AccountJoinedMethod
     AccountJoinedMethod (..),
@@ -113,43 +113,43 @@ module Amazonka.Organizations.Types
     -- * Account
     Account (..),
     newAccount,
-    account_status,
-    account_joinedMethod,
+    account_name,
     account_email,
     account_arn,
-    account_joinedTimestamp,
-    account_name,
+    account_status,
     account_id,
+    account_joinedTimestamp,
+    account_joinedMethod,
 
     -- * Child
     Child (..),
     newChild,
-    child_id,
     child_type,
+    child_id,
 
     -- * CreateAccountStatus
     CreateAccountStatus (..),
     newCreateAccountStatus,
-    createAccountStatus_failureReason,
-    createAccountStatus_state,
-    createAccountStatus_completedTimestamp,
-    createAccountStatus_accountName,
-    createAccountStatus_accountId,
-    createAccountStatus_id,
-    createAccountStatus_govCloudAccountId,
     createAccountStatus_requestedTimestamp,
+    createAccountStatus_govCloudAccountId,
+    createAccountStatus_state,
+    createAccountStatus_id,
+    createAccountStatus_accountId,
+    createAccountStatus_accountName,
+    createAccountStatus_completedTimestamp,
+    createAccountStatus_failureReason,
 
     -- * DelegatedAdministrator
     DelegatedAdministrator (..),
     newDelegatedAdministrator,
-    delegatedAdministrator_status,
-    delegatedAdministrator_joinedMethod,
+    delegatedAdministrator_name,
     delegatedAdministrator_email,
     delegatedAdministrator_arn,
-    delegatedAdministrator_joinedTimestamp,
-    delegatedAdministrator_delegationEnabledDate,
-    delegatedAdministrator_name,
+    delegatedAdministrator_status,
     delegatedAdministrator_id,
+    delegatedAdministrator_joinedTimestamp,
+    delegatedAdministrator_joinedMethod,
+    delegatedAdministrator_delegationEnabledDate,
 
     -- * DelegatedService
     DelegatedService (..),
@@ -160,9 +160,9 @@ module Amazonka.Organizations.Types
     -- * EffectivePolicy
     EffectivePolicy (..),
     newEffectivePolicy,
+    effectivePolicy_lastUpdatedTimestamp,
     effectivePolicy_targetId,
     effectivePolicy_policyType,
-    effectivePolicy_lastUpdatedTimestamp,
     effectivePolicy_policyContent,
 
     -- * EnabledServicePrincipal
@@ -174,20 +174,20 @@ module Amazonka.Organizations.Types
     -- * Handshake
     Handshake (..),
     newHandshake,
-    handshake_state,
     handshake_arn,
+    handshake_requestedTimestamp,
+    handshake_state,
+    handshake_id,
+    handshake_parties,
+    handshake_expirationTimestamp,
     handshake_action,
     handshake_resources,
-    handshake_id,
-    handshake_expirationTimestamp,
-    handshake_parties,
-    handshake_requestedTimestamp,
 
     -- * HandshakeFilter
     HandshakeFilter (..),
     newHandshakeFilter,
-    handshakeFilter_parentHandshakeId,
     handshakeFilter_actionType,
+    handshakeFilter_parentHandshakeId,
 
     -- * HandshakeParty
     HandshakeParty (..),
@@ -198,71 +198,71 @@ module Amazonka.Organizations.Types
     -- * HandshakeResource
     HandshakeResource (..),
     newHandshakeResource,
-    handshakeResource_value,
-    handshakeResource_resources,
     handshakeResource_type,
+    handshakeResource_resources,
+    handshakeResource_value,
 
     -- * Organization
     Organization (..),
     newOrganization,
     organization_arn,
-    organization_masterAccountId,
-    organization_masterAccountArn,
-    organization_masterAccountEmail,
-    organization_availablePolicyTypes,
     organization_id,
+    organization_masterAccountId,
+    organization_availablePolicyTypes,
     organization_featureSet,
+    organization_masterAccountEmail,
+    organization_masterAccountArn,
 
     -- * OrganizationalUnit
     OrganizationalUnit (..),
     newOrganizationalUnit,
-    organizationalUnit_arn,
     organizationalUnit_name,
+    organizationalUnit_arn,
     organizationalUnit_id,
 
     -- * Parent
     Parent (..),
     newParent,
-    parent_id,
     parent_type,
+    parent_id,
 
     -- * Policy
     Policy (..),
     newPolicy,
-    policy_content,
     policy_policySummary,
+    policy_content,
 
     -- * PolicySummary
     PolicySummary (..),
     newPolicySummary,
-    policySummary_arn,
     policySummary_name,
-    policySummary_id,
-    policySummary_awsManaged,
     policySummary_type,
+    policySummary_arn,
+    policySummary_awsManaged,
+    policySummary_id,
     policySummary_description,
 
     -- * PolicyTargetSummary
     PolicyTargetSummary (..),
     newPolicyTargetSummary,
-    policyTargetSummary_targetId,
-    policyTargetSummary_arn,
     policyTargetSummary_name,
     policyTargetSummary_type,
+    policyTargetSummary_targetId,
+    policyTargetSummary_arn,
 
     -- * PolicyTypeSummary
     PolicyTypeSummary (..),
     newPolicyTypeSummary,
-    policyTypeSummary_status,
     policyTypeSummary_type,
+    policyTypeSummary_status,
 
     -- * Root
     Root (..),
     newRoot,
-    root_arn,
     root_name,
-    root_id,
+    root_arn,
     root_policyTypes,
+    root_id,
 
     -- * Tag
     Tag (..),
@@ -339,35 +339,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -376,27 +349,203 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | We can\'t find a policy with the @PolicyId@ that you specified.
-_PolicyNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PolicyNotFoundException =
+-- | You can\'t use the specified policy type with the feature set currently
+-- enabled for this organization. For example, you can enable SCPs only
+-- after you enable all features in the organization. For more information,
+-- see
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html#enable_policies_on_root Managing AWS Organizations Policies>in
+-- the /AWS Organizations User Guide./
+_PolicyTypeNotAvailableForOrganizationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PolicyTypeNotAvailableForOrganizationException =
   Core._MatchServiceError
     defaultService
-    "PolicyNotFoundException"
+    "PolicyTypeNotAvailableForOrganizationException"
 
--- | The specified policy type is already enabled in the specified root.
-_PolicyTypeAlreadyEnabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PolicyTypeAlreadyEnabledException =
+-- | That account is already present in the specified destination.
+_DuplicateAccountException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateAccountException =
   Core._MatchServiceError
     defaultService
-    "PolicyTypeAlreadyEnabledException"
+    "DuplicateAccountException"
+
+-- | AWS Organizations couldn\'t perform the operation because your
+-- organization hasn\'t finished initializing. This can take up to an hour.
+-- Try again later. If after one hour you continue to receive this error,
+-- contact <https://console.aws.amazon.com/support/home#/ AWS Support>.
+_FinalizingOrganizationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_FinalizingOrganizationException =
+  Core._MatchServiceError
+    defaultService
+    "FinalizingOrganizationException"
+
+-- | The specified OU is not empty. Move all accounts to another root or to
+-- other OUs, remove all child OUs, and try the operation again.
+_OrganizationalUnitNotEmptyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OrganizationalUnitNotEmptyException =
+  Core._MatchServiceError
+    defaultService
+    "OrganizationalUnitNotEmptyException"
+
+-- | The requested operation failed because you provided invalid values for
+-- one or more of the request parameters. This exception includes a reason
+-- that contains additional information about the violated limit:
+--
+-- Some of the reasons in the following list might not be applicable to
+-- this specific API or operation.
+--
+-- -   DUPLICATE_TAG_KEY: Tag keys must be unique among the tags attached
+--     to the same entity.
+--
+-- -   IMMUTABLE_POLICY: You specified a policy that is managed by AWS and
+--     can\'t be modified.
+--
+-- -   INPUT_REQUIRED: You must include a value for all required
+--     parameters.
+--
+-- -   INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address
+--     for the invited account owner.
+--
+-- -   INVALID_ENUM: You specified an invalid value.
+--
+-- -   INVALID_ENUM_POLICY_TYPE: You specified an invalid policy type
+--     string.
+--
+-- -   INVALID_FULL_NAME_TARGET: You specified a full name that contains
+--     invalid characters.
+--
+-- -   INVALID_LIST_MEMBER: You provided a list to a parameter that
+--     contains at least one invalid value.
+--
+-- -   INVALID_PAGINATION_TOKEN: Get the value for the @NextToken@
+--     parameter from the response to a previous call of the operation.
+--
+-- -   INVALID_PARTY_TYPE_TARGET: You specified the wrong type of entity
+--     (account, organization, or email) as a party.
+--
+-- -   INVALID_PATTERN: You provided a value that doesn\'t match the
+--     required pattern.
+--
+-- -   INVALID_PATTERN_TARGET_ID: You specified a policy target ID that
+--     doesn\'t match the required pattern.
+--
+-- -   INVALID_ROLE_NAME: You provided a role name that isn\'t valid. A
+--     role name can\'t begin with the reserved prefix @AWSServiceRoleFor@.
+--
+-- -   INVALID_SYNTAX_ORGANIZATION_ARN: You specified an invalid Amazon
+--     Resource Name (ARN) for the organization.
+--
+-- -   INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
+--
+-- -   INVALID_SYSTEM_TAGS_PARAMETER: You specified a tag key that is a
+--     system tag. You can’t add, edit, or delete system tag keys because
+--     they\'re reserved for AWS use. System tags don’t count against your
+--     tags per resource limit.
+--
+-- -   MAX_FILTER_LIMIT_EXCEEDED: You can specify only one filter parameter
+--     for the operation.
+--
+-- -   MAX_LENGTH_EXCEEDED: You provided a string parameter that is longer
+--     than allowed.
+--
+-- -   MAX_VALUE_EXCEEDED: You provided a numeric parameter that has a
+--     larger value than allowed.
+--
+-- -   MIN_LENGTH_EXCEEDED: You provided a string parameter that is shorter
+--     than allowed.
+--
+-- -   MIN_VALUE_EXCEEDED: You provided a numeric parameter that has a
+--     smaller value than allowed.
+--
+-- -   MOVING_ACCOUNT_BETWEEN_DIFFERENT_ROOTS: You can move an account only
+--     between entities in the same root.
+--
+-- -   TARGET_NOT_SUPPORTED: You can\'t perform the specified operation on
+--     that target entity.
+--
+-- -   UNRECOGNIZED_SERVICE_PRINCIPAL: You specified a service principal
+--     that isn\'t recognized.
+_InvalidInputException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidInputException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidInputException"
+
+-- | This action isn\'t available in the current AWS Region.
+_UnsupportedAPIEndpointException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedAPIEndpointException =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedAPIEndpointException"
+
+-- | An OU with the same name already exists.
+_DuplicateOrganizationalUnitException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateOrganizationalUnitException =
+  Core._MatchServiceError
+    defaultService
+    "DuplicateOrganizationalUnitException"
+
+-- | We can\'t find an create account request with the
+-- @CreateAccountRequestId@ that you specified.
+_CreateAccountStatusNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CreateAccountStatusNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "CreateAccountStatusNotFoundException"
+
+-- | The target of the operation is currently being modified by a different
+-- request. Try again later.
+_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentModificationException =
+  Core._MatchServiceError
+    defaultService
+    "ConcurrentModificationException"
+
+-- | You don\'t have permissions to perform the requested operation. The user
+-- or role that is making the request must have at least one IAM
+-- permissions policy attached that grants the required permissions. For
+-- more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html Access Management>
+-- in the /IAM User Guide./
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException =
+  Core._MatchServiceError
+    defaultService
+    "AccessDeniedException"
 
 -- | The requested operation would violate the constraint identified in the
 -- reason code.
@@ -450,17 +599,196 @@ _HandshakeConstraintViolationException =
     defaultService
     "HandshakeConstraintViolationException"
 
--- | You don\'t have permissions to perform the requested operation. The user
--- or role that is making the request must have at least one IAM
--- permissions policy attached that grants the required permissions. For
--- more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html Access Management>
--- in the /IAM User Guide./
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AccessDeniedException =
+-- | A policy with the same name already exists.
+_DuplicatePolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicatePolicyException =
   Core._MatchServiceError
     defaultService
-    "AccessDeniedException"
+    "DuplicatePolicyException"
+
+-- | We can\'t find an organizational unit (OU) or AWS account with the
+-- @ChildId@ that you specified.
+_ChildNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ChildNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ChildNotFoundException"
+
+-- | Changes to the effective policy are in progress, and its contents can\'t
+-- be returned. Try the operation again later.
+_PolicyChangesInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PolicyChangesInProgressException =
+  Core._MatchServiceError
+    defaultService
+    "PolicyChangesInProgressException"
+
+-- | The specified handshake is already in the requested state. For example,
+-- you can\'t accept a handshake that was already accepted.
+_HandshakeAlreadyInStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_HandshakeAlreadyInStateException =
+  Core._MatchServiceError
+    defaultService
+    "HandshakeAlreadyInStateException"
+
+-- | A handshake with the same action and target already exists. For example,
+-- if you invited an account to join your organization, the invited account
+-- might already have a pending invitation from this organization. If you
+-- intend to resend an invitation to an account, ensure that existing
+-- handshakes that might be considered duplicates are canceled or declined.
+_DuplicateHandshakeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateHandshakeException =
+  Core._MatchServiceError
+    defaultService
+    "DuplicateHandshakeException"
+
+-- | Your account isn\'t a member of an organization. To make this request,
+-- you must use the credentials of an account that belongs to an
+-- organization.
+_AWSOrganizationsNotInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AWSOrganizationsNotInUseException =
+  Core._MatchServiceError
+    defaultService
+    "AWSOrganizationsNotInUseException"
+
+-- | The specified policy type isn\'t currently enabled in this root. You
+-- can\'t attach policies of the specified type to entities in a root until
+-- you enable that type in the root. For more information, see
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html Enabling All Features in Your Organization>
+-- in the /AWS Organizations User Guide./
+_PolicyTypeNotEnabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PolicyTypeNotEnabledException =
+  Core._MatchServiceError
+    defaultService
+    "PolicyTypeNotEnabledException"
+
+-- | You can\'t remove a management account from an organization. If you want
+-- the management account to become a member account in another
+-- organization, you must first delete the current organization of the
+-- management account.
+_MasterCannotLeaveOrganizationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MasterCannotLeaveOrganizationException =
+  Core._MatchServiceError
+    defaultService
+    "MasterCannotLeaveOrganizationException"
+
+-- | We can\'t find a root with the @RootId@ that you specified.
+_RootNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RootNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "RootNotFoundException"
+
+-- | We can\'t find a policy with the @PolicyId@ that you specified.
+_PolicyNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PolicyNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "PolicyNotFoundException"
+
+-- | The policy isn\'t attached to the specified target in the specified
+-- root.
+_PolicyNotAttachedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PolicyNotAttachedException =
+  Core._MatchServiceError
+    defaultService
+    "PolicyNotAttachedException"
+
+-- | The specified account is already a delegated administrator for this AWS
+-- service.
+_AccountAlreadyRegisteredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccountAlreadyRegisteredException =
+  Core._MatchServiceError
+    defaultService
+    "AccountAlreadyRegisteredException"
+
+-- | The policy is attached to one or more entities. You must detach it from
+-- all roots, OUs, and accounts before performing this operation.
+_PolicyInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PolicyInUseException =
+  Core._MatchServiceError
+    defaultService
+    "PolicyInUseException"
+
+-- | We can\'t find a root or OU with the @ParentId@ that you specified.
+_ParentNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ParentNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ParentNotFoundException"
+
+-- | We can\'t find an AWS account with the @AccountId@ that you specified,
+-- or the account whose credentials you used to make this request isn\'t a
+-- member of an organization.
+_AccountNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccountNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "AccountNotFoundException"
+
+-- | We can\'t find an OU with the @OrganizationalUnitId@ that you specified.
+_OrganizationalUnitNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OrganizationalUnitNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "OrganizationalUnitNotFoundException"
+
+-- | We can\'t find the destination container (a root or OU) with the
+-- @ParentId@ that you specified.
+_DestinationParentNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DestinationParentNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "DestinationParentNotFoundException"
+
+-- | The selected policy is already attached to the specified target.
+_DuplicatePolicyAttachmentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicatePolicyAttachmentException =
+  Core._MatchServiceError
+    defaultService
+    "DuplicatePolicyAttachmentException"
+
+-- | The specified policy type is already enabled in the specified root.
+_PolicyTypeAlreadyEnabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PolicyTypeAlreadyEnabledException =
+  Core._MatchServiceError
+    defaultService
+    "PolicyTypeAlreadyEnabledException"
+
+-- | You can\'t invite an existing account to your organization until you
+-- verify that you own the email address associated with the management
+-- account. For more information, see
+-- <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_create.html#about-email-verification Email Address Verification>
+-- in the /AWS Organizations User Guide./
+_AccountOwnerNotVerifiedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccountOwnerNotVerifiedException =
+  Core._MatchServiceError
+    defaultService
+    "AccountOwnerNotVerifiedException"
+
+-- | We can\'t find a handshake with the @HandshakeId@ that you specified.
+_HandshakeNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_HandshakeNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "HandshakeNotFoundException"
+
+-- | AWS Organizations can\'t complete your request because of an internal
+-- service error. Try again later.
+_ServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceException"
+
+-- | The operation that you attempted requires you to have the
+-- @iam:CreateServiceLinkedRole@ for @organizations.amazonaws.com@
+-- permission so that AWS Organizations can create the required
+-- service-linked role. You don\'t have that permission.
+_AccessDeniedForDependencyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedForDependencyException =
+  Core._MatchServiceError
+    defaultService
+    "AccessDeniedForDependencyException"
 
 -- | The provided policy document doesn\'t meet the requirements of the
 -- specified policy type. For example, the syntax might be incorrect. For
@@ -473,46 +801,78 @@ _MalformedPolicyDocumentException =
     defaultService
     "MalformedPolicyDocumentException"
 
--- | We can\'t find a root with the @RootId@ that you specified.
-_RootNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_RootNotFoundException =
+-- | The organization isn\'t empty. To delete an organization, you must first
+-- remove all accounts except the management account, delete all OUs, and
+-- delete all policies.
+_OrganizationNotEmptyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OrganizationNotEmptyException =
   Core._MatchServiceError
     defaultService
-    "RootNotFoundException"
+    "OrganizationNotEmptyException"
 
--- | You can\'t remove a management account from an organization. If you want
--- the management account to become a member account in another
--- organization, you must first delete the current organization of the
--- management account.
-_MasterCannotLeaveOrganizationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MasterCannotLeaveOrganizationException =
+-- | You can\'t perform the operation on the handshake in its current state.
+-- For example, you can\'t cancel a handshake that was already accepted or
+-- accept a handshake that was already declined.
+_InvalidHandshakeTransitionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidHandshakeTransitionException =
   Core._MatchServiceError
     defaultService
-    "MasterCannotLeaveOrganizationException"
+    "InvalidHandshakeTransitionException"
 
--- | We can\'t find an AWS account with the @AccountId@ that you specified,
--- or the account whose credentials you used to make this request isn\'t a
--- member of an organization.
-_AccountNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AccountNotFoundException =
+-- | We can\'t find a root, OU, account, or policy with the @TargetId@ that
+-- you specified.
+_TargetNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TargetNotFoundException =
   Core._MatchServiceError
     defaultService
-    "AccountNotFoundException"
+    "TargetNotFoundException"
 
--- | The specified account is already a delegated administrator for this AWS
+-- | The specified account is not a delegated administrator for this AWS
 -- service.
-_AccountAlreadyRegisteredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AccountAlreadyRegisteredException =
+_AccountNotRegisteredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccountNotRegisteredException =
   Core._MatchServiceError
     defaultService
-    "AccountAlreadyRegisteredException"
+    "AccountNotRegisteredException"
 
--- | A policy with the same name already exists.
-_DuplicatePolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DuplicatePolicyException =
+-- | We can\'t find a source root or OU with the @ParentId@ that you
+-- specified.
+_SourceParentNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SourceParentNotFoundException =
   Core._MatchServiceError
     defaultService
-    "DuplicatePolicyException"
+    "SourceParentNotFoundException"
+
+-- | This account is already a member of an organization. An account can
+-- belong to only one organization at a time.
+_AlreadyInOrganizationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AlreadyInOrganizationException =
+  Core._MatchServiceError
+    defaultService
+    "AlreadyInOrganizationException"
+
+-- | If you ran this action on the management account, this policy type is
+-- not enabled. If you ran the action on a member account, the account
+-- doesn\'t have an effective policy of this type. Contact the
+-- administrator of your organization about attaching a policy of this type
+-- to the account.
+_EffectivePolicyNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EffectivePolicyNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "EffectivePolicyNotFoundException"
+
+-- | You have sent too many requests in too short a period of time. The quota
+-- helps protect against denial-of-service attacks. Try again later.
+--
+-- For information about quotas that affect AWS Organizations, see
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html Quotas for AWS Organizations>in
+-- the /AWS Organizations User Guide./
+_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyRequestsException"
 
 -- | Performing this operation violates a minimum or maximum value limit. For
 -- example, attempting to remove the last service control policy (SCP) from
@@ -671,363 +1031,3 @@ _ConstraintViolationException =
   Core._MatchServiceError
     defaultService
     "ConstraintViolationException"
-
--- | The specified account is not a delegated administrator for this AWS
--- service.
-_AccountNotRegisteredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AccountNotRegisteredException =
-  Core._MatchServiceError
-    defaultService
-    "AccountNotRegisteredException"
-
--- | AWS Organizations couldn\'t perform the operation because your
--- organization hasn\'t finished initializing. This can take up to an hour.
--- Try again later. If after one hour you continue to receive this error,
--- contact <https://console.aws.amazon.com/support/home#/ AWS Support>.
-_FinalizingOrganizationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_FinalizingOrganizationException =
-  Core._MatchServiceError
-    defaultService
-    "FinalizingOrganizationException"
-
--- | We can\'t find a handshake with the @HandshakeId@ that you specified.
-_HandshakeNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_HandshakeNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "HandshakeNotFoundException"
-
--- | You can\'t use the specified policy type with the feature set currently
--- enabled for this organization. For example, you can enable SCPs only
--- after you enable all features in the organization. For more information,
--- see
--- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html#enable_policies_on_root Managing AWS Organizations Policies>in
--- the /AWS Organizations User Guide./
-_PolicyTypeNotAvailableForOrganizationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PolicyTypeNotAvailableForOrganizationException =
-  Core._MatchServiceError
-    defaultService
-    "PolicyTypeNotAvailableForOrganizationException"
-
--- | We can\'t find an organizational unit (OU) or AWS account with the
--- @ChildId@ that you specified.
-_ChildNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ChildNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ChildNotFoundException"
-
--- | This action isn\'t available in the current AWS Region.
-_UnsupportedAPIEndpointException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedAPIEndpointException =
-  Core._MatchServiceError
-    defaultService
-    "UnsupportedAPIEndpointException"
-
--- | If you ran this action on the management account, this policy type is
--- not enabled. If you ran the action on a member account, the account
--- doesn\'t have an effective policy of this type. Contact the
--- administrator of your organization about attaching a policy of this type
--- to the account.
-_EffectivePolicyNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_EffectivePolicyNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "EffectivePolicyNotFoundException"
-
--- | We can\'t find an OU with the @OrganizationalUnitId@ that you specified.
-_OrganizationalUnitNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OrganizationalUnitNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "OrganizationalUnitNotFoundException"
-
--- | We can\'t find the destination container (a root or OU) with the
--- @ParentId@ that you specified.
-_DestinationParentNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DestinationParentNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "DestinationParentNotFoundException"
-
--- | The organization isn\'t empty. To delete an organization, you must first
--- remove all accounts except the management account, delete all OUs, and
--- delete all policies.
-_OrganizationNotEmptyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OrganizationNotEmptyException =
-  Core._MatchServiceError
-    defaultService
-    "OrganizationNotEmptyException"
-
--- | You can\'t invite an existing account to your organization until you
--- verify that you own the email address associated with the management
--- account. For more information, see
--- <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_create.html#about-email-verification Email Address Verification>
--- in the /AWS Organizations User Guide./
-_AccountOwnerNotVerifiedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AccountOwnerNotVerifiedException =
-  Core._MatchServiceError
-    defaultService
-    "AccountOwnerNotVerifiedException"
-
--- | The specified policy type isn\'t currently enabled in this root. You
--- can\'t attach policies of the specified type to entities in a root until
--- you enable that type in the root. For more information, see
--- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html Enabling All Features in Your Organization>
--- in the /AWS Organizations User Guide./
-_PolicyTypeNotEnabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PolicyTypeNotEnabledException =
-  Core._MatchServiceError
-    defaultService
-    "PolicyTypeNotEnabledException"
-
--- | A handshake with the same action and target already exists. For example,
--- if you invited an account to join your organization, the invited account
--- might already have a pending invitation from this organization. If you
--- intend to resend an invitation to an account, ensure that existing
--- handshakes that might be considered duplicates are canceled or declined.
-_DuplicateHandshakeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DuplicateHandshakeException =
-  Core._MatchServiceError
-    defaultService
-    "DuplicateHandshakeException"
-
--- | The specified OU is not empty. Move all accounts to another root or to
--- other OUs, remove all child OUs, and try the operation again.
-_OrganizationalUnitNotEmptyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OrganizationalUnitNotEmptyException =
-  Core._MatchServiceError
-    defaultService
-    "OrganizationalUnitNotEmptyException"
-
--- | You have sent too many requests in too short a period of time. The quota
--- helps protect against denial-of-service attacks. Try again later.
---
--- For information about quotas that affect AWS Organizations, see
--- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html Quotas for AWS Organizations>in
--- the /AWS Organizations User Guide./
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyRequestsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyRequestsException"
-
--- | The target of the operation is currently being modified by a different
--- request. Try again later.
-_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConcurrentModificationException =
-  Core._MatchServiceError
-    defaultService
-    "ConcurrentModificationException"
-
--- | AWS Organizations can\'t complete your request because of an internal
--- service error. Try again later.
-_ServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceException"
-
--- | We can\'t find a source root or OU with the @ParentId@ that you
--- specified.
-_SourceParentNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SourceParentNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "SourceParentNotFoundException"
-
--- | We can\'t find a root, OU, account, or policy with the @TargetId@ that
--- you specified.
-_TargetNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TargetNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "TargetNotFoundException"
-
--- | We can\'t find an create account request with the
--- @CreateAccountRequestId@ that you specified.
-_CreateAccountStatusNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CreateAccountStatusNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "CreateAccountStatusNotFoundException"
-
--- | This account is already a member of an organization. An account can
--- belong to only one organization at a time.
-_AlreadyInOrganizationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AlreadyInOrganizationException =
-  Core._MatchServiceError
-    defaultService
-    "AlreadyInOrganizationException"
-
--- | An OU with the same name already exists.
-_DuplicateOrganizationalUnitException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DuplicateOrganizationalUnitException =
-  Core._MatchServiceError
-    defaultService
-    "DuplicateOrganizationalUnitException"
-
--- | The requested operation failed because you provided invalid values for
--- one or more of the request parameters. This exception includes a reason
--- that contains additional information about the violated limit:
---
--- Some of the reasons in the following list might not be applicable to
--- this specific API or operation.
---
--- -   DUPLICATE_TAG_KEY: Tag keys must be unique among the tags attached
---     to the same entity.
---
--- -   IMMUTABLE_POLICY: You specified a policy that is managed by AWS and
---     can\'t be modified.
---
--- -   INPUT_REQUIRED: You must include a value for all required
---     parameters.
---
--- -   INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address
---     for the invited account owner.
---
--- -   INVALID_ENUM: You specified an invalid value.
---
--- -   INVALID_ENUM_POLICY_TYPE: You specified an invalid policy type
---     string.
---
--- -   INVALID_FULL_NAME_TARGET: You specified a full name that contains
---     invalid characters.
---
--- -   INVALID_LIST_MEMBER: You provided a list to a parameter that
---     contains at least one invalid value.
---
--- -   INVALID_PAGINATION_TOKEN: Get the value for the @NextToken@
---     parameter from the response to a previous call of the operation.
---
--- -   INVALID_PARTY_TYPE_TARGET: You specified the wrong type of entity
---     (account, organization, or email) as a party.
---
--- -   INVALID_PATTERN: You provided a value that doesn\'t match the
---     required pattern.
---
--- -   INVALID_PATTERN_TARGET_ID: You specified a policy target ID that
---     doesn\'t match the required pattern.
---
--- -   INVALID_ROLE_NAME: You provided a role name that isn\'t valid. A
---     role name can\'t begin with the reserved prefix @AWSServiceRoleFor@.
---
--- -   INVALID_SYNTAX_ORGANIZATION_ARN: You specified an invalid Amazon
---     Resource Name (ARN) for the organization.
---
--- -   INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
---
--- -   INVALID_SYSTEM_TAGS_PARAMETER: You specified a tag key that is a
---     system tag. You can’t add, edit, or delete system tag keys because
---     they\'re reserved for AWS use. System tags don’t count against your
---     tags per resource limit.
---
--- -   MAX_FILTER_LIMIT_EXCEEDED: You can specify only one filter parameter
---     for the operation.
---
--- -   MAX_LENGTH_EXCEEDED: You provided a string parameter that is longer
---     than allowed.
---
--- -   MAX_VALUE_EXCEEDED: You provided a numeric parameter that has a
---     larger value than allowed.
---
--- -   MIN_LENGTH_EXCEEDED: You provided a string parameter that is shorter
---     than allowed.
---
--- -   MIN_VALUE_EXCEEDED: You provided a numeric parameter that has a
---     smaller value than allowed.
---
--- -   MOVING_ACCOUNT_BETWEEN_DIFFERENT_ROOTS: You can move an account only
---     between entities in the same root.
---
--- -   TARGET_NOT_SUPPORTED: You can\'t perform the specified operation on
---     that target entity.
---
--- -   UNRECOGNIZED_SERVICE_PRINCIPAL: You specified a service principal
---     that isn\'t recognized.
-_InvalidInputException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidInputException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidInputException"
-
--- | Changes to the effective policy are in progress, and its contents can\'t
--- be returned. Try the operation again later.
-_PolicyChangesInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PolicyChangesInProgressException =
-  Core._MatchServiceError
-    defaultService
-    "PolicyChangesInProgressException"
-
--- | The policy isn\'t attached to the specified target in the specified
--- root.
-_PolicyNotAttachedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PolicyNotAttachedException =
-  Core._MatchServiceError
-    defaultService
-    "PolicyNotAttachedException"
-
--- | We can\'t find a root or OU with the @ParentId@ that you specified.
-_ParentNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ParentNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ParentNotFoundException"
-
--- | The operation that you attempted requires you to have the
--- @iam:CreateServiceLinkedRole@ for @organizations.amazonaws.com@
--- permission so that AWS Organizations can create the required
--- service-linked role. You don\'t have that permission.
-_AccessDeniedForDependencyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AccessDeniedForDependencyException =
-  Core._MatchServiceError
-    defaultService
-    "AccessDeniedForDependencyException"
-
--- | Your account isn\'t a member of an organization. To make this request,
--- you must use the credentials of an account that belongs to an
--- organization.
-_AWSOrganizationsNotInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AWSOrganizationsNotInUseException =
-  Core._MatchServiceError
-    defaultService
-    "AWSOrganizationsNotInUseException"
-
--- | The policy is attached to one or more entities. You must detach it from
--- all roots, OUs, and accounts before performing this operation.
-_PolicyInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PolicyInUseException =
-  Core._MatchServiceError
-    defaultService
-    "PolicyInUseException"
-
--- | You can\'t perform the operation on the handshake in its current state.
--- For example, you can\'t cancel a handshake that was already accepted or
--- accept a handshake that was already declined.
-_InvalidHandshakeTransitionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidHandshakeTransitionException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidHandshakeTransitionException"
-
--- | The specified handshake is already in the requested state. For example,
--- you can\'t accept a handshake that was already accepted.
-_HandshakeAlreadyInStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_HandshakeAlreadyInStateException =
-  Core._MatchServiceError
-    defaultService
-    "HandshakeAlreadyInStateException"
-
--- | That account is already present in the specified destination.
-_DuplicateAccountException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DuplicateAccountException =
-  Core._MatchServiceError
-    defaultService
-    "DuplicateAccountException"
-
--- | The selected policy is already attached to the specified target.
-_DuplicatePolicyAttachmentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DuplicatePolicyAttachmentException =
-  Core._MatchServiceError
-    defaultService
-    "DuplicatePolicyAttachmentException"

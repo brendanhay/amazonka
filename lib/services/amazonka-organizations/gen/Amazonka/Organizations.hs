@@ -87,59 +87,83 @@ module Amazonka.Organizations
     -- * Errors
     -- $errors
 
-    -- ** PolicyNotFoundException
-    _PolicyNotFoundException,
+    -- ** PolicyTypeNotAvailableForOrganizationException
+    _PolicyTypeNotAvailableForOrganizationException,
 
-    -- ** PolicyTypeAlreadyEnabledException
-    _PolicyTypeAlreadyEnabledException,
-
-    -- ** HandshakeConstraintViolationException
-    _HandshakeConstraintViolationException,
-
-    -- ** AccessDeniedException
-    _AccessDeniedException,
-
-    -- ** MalformedPolicyDocumentException
-    _MalformedPolicyDocumentException,
-
-    -- ** RootNotFoundException
-    _RootNotFoundException,
-
-    -- ** MasterCannotLeaveOrganizationException
-    _MasterCannotLeaveOrganizationException,
-
-    -- ** AccountNotFoundException
-    _AccountNotFoundException,
-
-    -- ** AccountAlreadyRegisteredException
-    _AccountAlreadyRegisteredException,
-
-    -- ** DuplicatePolicyException
-    _DuplicatePolicyException,
-
-    -- ** ConstraintViolationException
-    _ConstraintViolationException,
-
-    -- ** AccountNotRegisteredException
-    _AccountNotRegisteredException,
+    -- ** DuplicateAccountException
+    _DuplicateAccountException,
 
     -- ** FinalizingOrganizationException
     _FinalizingOrganizationException,
 
-    -- ** HandshakeNotFoundException
-    _HandshakeNotFoundException,
+    -- ** OrganizationalUnitNotEmptyException
+    _OrganizationalUnitNotEmptyException,
 
-    -- ** PolicyTypeNotAvailableForOrganizationException
-    _PolicyTypeNotAvailableForOrganizationException,
-
-    -- ** ChildNotFoundException
-    _ChildNotFoundException,
+    -- ** InvalidInputException
+    _InvalidInputException,
 
     -- ** UnsupportedAPIEndpointException
     _UnsupportedAPIEndpointException,
 
-    -- ** EffectivePolicyNotFoundException
-    _EffectivePolicyNotFoundException,
+    -- ** DuplicateOrganizationalUnitException
+    _DuplicateOrganizationalUnitException,
+
+    -- ** CreateAccountStatusNotFoundException
+    _CreateAccountStatusNotFoundException,
+
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
+
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
+    -- ** HandshakeConstraintViolationException
+    _HandshakeConstraintViolationException,
+
+    -- ** DuplicatePolicyException
+    _DuplicatePolicyException,
+
+    -- ** ChildNotFoundException
+    _ChildNotFoundException,
+
+    -- ** PolicyChangesInProgressException
+    _PolicyChangesInProgressException,
+
+    -- ** HandshakeAlreadyInStateException
+    _HandshakeAlreadyInStateException,
+
+    -- ** DuplicateHandshakeException
+    _DuplicateHandshakeException,
+
+    -- ** AWSOrganizationsNotInUseException
+    _AWSOrganizationsNotInUseException,
+
+    -- ** PolicyTypeNotEnabledException
+    _PolicyTypeNotEnabledException,
+
+    -- ** MasterCannotLeaveOrganizationException
+    _MasterCannotLeaveOrganizationException,
+
+    -- ** RootNotFoundException
+    _RootNotFoundException,
+
+    -- ** PolicyNotFoundException
+    _PolicyNotFoundException,
+
+    -- ** PolicyNotAttachedException
+    _PolicyNotAttachedException,
+
+    -- ** AccountAlreadyRegisteredException
+    _AccountAlreadyRegisteredException,
+
+    -- ** PolicyInUseException
+    _PolicyInUseException,
+
+    -- ** ParentNotFoundException
+    _ParentNotFoundException,
+
+    -- ** AccountNotFoundException
+    _AccountNotFoundException,
 
     -- ** OrganizationalUnitNotFoundException
     _OrganizationalUnitNotFoundException,
@@ -147,77 +171,53 @@ module Amazonka.Organizations
     -- ** DestinationParentNotFoundException
     _DestinationParentNotFoundException,
 
-    -- ** OrganizationNotEmptyException
-    _OrganizationNotEmptyException,
+    -- ** DuplicatePolicyAttachmentException
+    _DuplicatePolicyAttachmentException,
+
+    -- ** PolicyTypeAlreadyEnabledException
+    _PolicyTypeAlreadyEnabledException,
 
     -- ** AccountOwnerNotVerifiedException
     _AccountOwnerNotVerifiedException,
 
-    -- ** PolicyTypeNotEnabledException
-    _PolicyTypeNotEnabledException,
-
-    -- ** DuplicateHandshakeException
-    _DuplicateHandshakeException,
-
-    -- ** OrganizationalUnitNotEmptyException
-    _OrganizationalUnitNotEmptyException,
-
-    -- ** TooManyRequestsException
-    _TooManyRequestsException,
-
-    -- ** ConcurrentModificationException
-    _ConcurrentModificationException,
+    -- ** HandshakeNotFoundException
+    _HandshakeNotFoundException,
 
     -- ** ServiceException
     _ServiceException,
 
-    -- ** SourceParentNotFoundException
-    _SourceParentNotFoundException,
-
-    -- ** TargetNotFoundException
-    _TargetNotFoundException,
-
-    -- ** CreateAccountStatusNotFoundException
-    _CreateAccountStatusNotFoundException,
-
-    -- ** AlreadyInOrganizationException
-    _AlreadyInOrganizationException,
-
-    -- ** DuplicateOrganizationalUnitException
-    _DuplicateOrganizationalUnitException,
-
-    -- ** InvalidInputException
-    _InvalidInputException,
-
-    -- ** PolicyChangesInProgressException
-    _PolicyChangesInProgressException,
-
-    -- ** PolicyNotAttachedException
-    _PolicyNotAttachedException,
-
-    -- ** ParentNotFoundException
-    _ParentNotFoundException,
-
     -- ** AccessDeniedForDependencyException
     _AccessDeniedForDependencyException,
 
-    -- ** AWSOrganizationsNotInUseException
-    _AWSOrganizationsNotInUseException,
+    -- ** MalformedPolicyDocumentException
+    _MalformedPolicyDocumentException,
 
-    -- ** PolicyInUseException
-    _PolicyInUseException,
+    -- ** OrganizationNotEmptyException
+    _OrganizationNotEmptyException,
 
     -- ** InvalidHandshakeTransitionException
     _InvalidHandshakeTransitionException,
 
-    -- ** HandshakeAlreadyInStateException
-    _HandshakeAlreadyInStateException,
+    -- ** TargetNotFoundException
+    _TargetNotFoundException,
 
-    -- ** DuplicateAccountException
-    _DuplicateAccountException,
+    -- ** AccountNotRegisteredException
+    _AccountNotRegisteredException,
 
-    -- ** DuplicatePolicyAttachmentException
-    _DuplicatePolicyAttachmentException,
+    -- ** SourceParentNotFoundException
+    _SourceParentNotFoundException,
+
+    -- ** AlreadyInOrganizationException
+    _AlreadyInOrganizationException,
+
+    -- ** EffectivePolicyNotFoundException
+    _EffectivePolicyNotFoundException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
+
+    -- ** ConstraintViolationException
+    _ConstraintViolationException,
 
     -- * Waiters
     -- $waiters
@@ -225,269 +225,11 @@ module Amazonka.Organizations
     -- * Operations
     -- $operations
 
-    -- ** ListHandshakesForAccount (Paginated)
-    ListHandshakesForAccount (ListHandshakesForAccount'),
-    newListHandshakesForAccount,
-    ListHandshakesForAccountResponse (ListHandshakesForAccountResponse'),
-    newListHandshakesForAccountResponse,
-
-    -- ** DescribeAccount
-    DescribeAccount (DescribeAccount'),
-    newDescribeAccount,
-    DescribeAccountResponse (DescribeAccountResponse'),
-    newDescribeAccountResponse,
-
-    -- ** ListPolicies (Paginated)
-    ListPolicies (ListPolicies'),
-    newListPolicies,
-    ListPoliciesResponse (ListPoliciesResponse'),
-    newListPoliciesResponse,
-
-    -- ** CreatePolicy
-    CreatePolicy (CreatePolicy'),
-    newCreatePolicy,
-    CreatePolicyResponse (CreatePolicyResponse'),
-    newCreatePolicyResponse,
-
-    -- ** ListRoots (Paginated)
-    ListRoots (ListRoots'),
-    newListRoots,
-    ListRootsResponse (ListRootsResponse'),
-    newListRootsResponse,
-
     -- ** AcceptHandshake
     AcceptHandshake (AcceptHandshake'),
     newAcceptHandshake,
     AcceptHandshakeResponse (AcceptHandshakeResponse'),
     newAcceptHandshakeResponse,
-
-    -- ** CreateOrganization
-    CreateOrganization (CreateOrganization'),
-    newCreateOrganization,
-    CreateOrganizationResponse (CreateOrganizationResponse'),
-    newCreateOrganizationResponse,
-
-    -- ** EnableAllFeatures
-    EnableAllFeatures (EnableAllFeatures'),
-    newEnableAllFeatures,
-    EnableAllFeaturesResponse (EnableAllFeaturesResponse'),
-    newEnableAllFeaturesResponse,
-
-    -- ** DeleteOrganization
-    DeleteOrganization (DeleteOrganization'),
-    newDeleteOrganization,
-    DeleteOrganizationResponse (DeleteOrganizationResponse'),
-    newDeleteOrganizationResponse,
-
-    -- ** DescribeHandshake
-    DescribeHandshake (DescribeHandshake'),
-    newDescribeHandshake,
-    DescribeHandshakeResponse (DescribeHandshakeResponse'),
-    newDescribeHandshakeResponse,
-
-    -- ** ListTagsForResource (Paginated)
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** DescribePolicy
-    DescribePolicy (DescribePolicy'),
-    newDescribePolicy,
-    DescribePolicyResponse (DescribePolicyResponse'),
-    newDescribePolicyResponse,
-
-    -- ** ListDelegatedServicesForAccount (Paginated)
-    ListDelegatedServicesForAccount (ListDelegatedServicesForAccount'),
-    newListDelegatedServicesForAccount,
-    ListDelegatedServicesForAccountResponse (ListDelegatedServicesForAccountResponse'),
-    newListDelegatedServicesForAccountResponse,
-
-    -- ** DisableAWSServiceAccess
-    DisableAWSServiceAccess (DisableAWSServiceAccess'),
-    newDisableAWSServiceAccess,
-    DisableAWSServiceAccessResponse (DisableAWSServiceAccessResponse'),
-    newDisableAWSServiceAccessResponse,
-
-    -- ** DescribeEffectivePolicy
-    DescribeEffectivePolicy (DescribeEffectivePolicy'),
-    newDescribeEffectivePolicy,
-    DescribeEffectivePolicyResponse (DescribeEffectivePolicyResponse'),
-    newDescribeEffectivePolicyResponse,
-
-    -- ** LeaveOrganization
-    LeaveOrganization (LeaveOrganization'),
-    newLeaveOrganization,
-    LeaveOrganizationResponse (LeaveOrganizationResponse'),
-    newLeaveOrganizationResponse,
-
-    -- ** MoveAccount
-    MoveAccount (MoveAccount'),
-    newMoveAccount,
-    MoveAccountResponse (MoveAccountResponse'),
-    newMoveAccountResponse,
-
-    -- ** ListAccounts (Paginated)
-    ListAccounts (ListAccounts'),
-    newListAccounts,
-    ListAccountsResponse (ListAccountsResponse'),
-    newListAccountsResponse,
-
-    -- ** InviteAccountToOrganization
-    InviteAccountToOrganization (InviteAccountToOrganization'),
-    newInviteAccountToOrganization,
-    InviteAccountToOrganizationResponse (InviteAccountToOrganizationResponse'),
-    newInviteAccountToOrganizationResponse,
-
-    -- ** ListAWSServiceAccessForOrganization (Paginated)
-    ListAWSServiceAccessForOrganization (ListAWSServiceAccessForOrganization'),
-    newListAWSServiceAccessForOrganization,
-    ListAWSServiceAccessForOrganizationResponse (ListAWSServiceAccessForOrganizationResponse'),
-    newListAWSServiceAccessForOrganizationResponse,
-
-    -- ** ListOrganizationalUnitsForParent (Paginated)
-    ListOrganizationalUnitsForParent (ListOrganizationalUnitsForParent'),
-    newListOrganizationalUnitsForParent,
-    ListOrganizationalUnitsForParentResponse (ListOrganizationalUnitsForParentResponse'),
-    newListOrganizationalUnitsForParentResponse,
-
-    -- ** CancelHandshake
-    CancelHandshake (CancelHandshake'),
-    newCancelHandshake,
-    CancelHandshakeResponse (CancelHandshakeResponse'),
-    newCancelHandshakeResponse,
-
-    -- ** ListChildren (Paginated)
-    ListChildren (ListChildren'),
-    newListChildren,
-    ListChildrenResponse (ListChildrenResponse'),
-    newListChildrenResponse,
-
-    -- ** ListDelegatedAdministrators (Paginated)
-    ListDelegatedAdministrators (ListDelegatedAdministrators'),
-    newListDelegatedAdministrators,
-    ListDelegatedAdministratorsResponse (ListDelegatedAdministratorsResponse'),
-    newListDelegatedAdministratorsResponse,
-
-    -- ** DeletePolicy
-    DeletePolicy (DeletePolicy'),
-    newDeletePolicy,
-    DeletePolicyResponse (DeletePolicyResponse'),
-    newDeletePolicyResponse,
-
-    -- ** UpdatePolicy
-    UpdatePolicy (UpdatePolicy'),
-    newUpdatePolicy,
-    UpdatePolicyResponse (UpdatePolicyResponse'),
-    newUpdatePolicyResponse,
-
-    -- ** EnablePolicyType
-    EnablePolicyType (EnablePolicyType'),
-    newEnablePolicyType,
-    EnablePolicyTypeResponse (EnablePolicyTypeResponse'),
-    newEnablePolicyTypeResponse,
-
-    -- ** DisablePolicyType
-    DisablePolicyType (DisablePolicyType'),
-    newDisablePolicyType,
-    DisablePolicyTypeResponse (DisablePolicyTypeResponse'),
-    newDisablePolicyTypeResponse,
-
-    -- ** DescribeCreateAccountStatus
-    DescribeCreateAccountStatus (DescribeCreateAccountStatus'),
-    newDescribeCreateAccountStatus,
-    DescribeCreateAccountStatusResponse (DescribeCreateAccountStatusResponse'),
-    newDescribeCreateAccountStatusResponse,
-
-    -- ** CreateOrganizationalUnit
-    CreateOrganizationalUnit (CreateOrganizationalUnit'),
-    newCreateOrganizationalUnit,
-    CreateOrganizationalUnitResponse (CreateOrganizationalUnitResponse'),
-    newCreateOrganizationalUnitResponse,
-
-    -- ** ListAccountsForParent (Paginated)
-    ListAccountsForParent (ListAccountsForParent'),
-    newListAccountsForParent,
-    ListAccountsForParentResponse (ListAccountsForParentResponse'),
-    newListAccountsForParentResponse,
-
-    -- ** DetachPolicy
-    DetachPolicy (DetachPolicy'),
-    newDetachPolicy,
-    DetachPolicyResponse (DetachPolicyResponse'),
-    newDetachPolicyResponse,
-
-    -- ** RemoveAccountFromOrganization
-    RemoveAccountFromOrganization (RemoveAccountFromOrganization'),
-    newRemoveAccountFromOrganization,
-    RemoveAccountFromOrganizationResponse (RemoveAccountFromOrganizationResponse'),
-    newRemoveAccountFromOrganizationResponse,
-
-    -- ** CreateGovCloudAccount
-    CreateGovCloudAccount (CreateGovCloudAccount'),
-    newCreateGovCloudAccount,
-    CreateGovCloudAccountResponse (CreateGovCloudAccountResponse'),
-    newCreateGovCloudAccountResponse,
-
-    -- ** EnableAWSServiceAccess
-    EnableAWSServiceAccess (EnableAWSServiceAccess'),
-    newEnableAWSServiceAccess,
-    EnableAWSServiceAccessResponse (EnableAWSServiceAccessResponse'),
-    newEnableAWSServiceAccessResponse,
-
-    -- ** DescribeOrganizationalUnit
-    DescribeOrganizationalUnit (DescribeOrganizationalUnit'),
-    newDescribeOrganizationalUnit,
-    DescribeOrganizationalUnitResponse (DescribeOrganizationalUnitResponse'),
-    newDescribeOrganizationalUnitResponse,
-
-    -- ** ListParents (Paginated)
-    ListParents (ListParents'),
-    newListParents,
-    ListParentsResponse (ListParentsResponse'),
-    newListParentsResponse,
-
-    -- ** CreateAccount
-    CreateAccount (CreateAccount'),
-    newCreateAccount,
-    CreateAccountResponse (CreateAccountResponse'),
-    newCreateAccountResponse,
-
-    -- ** DeregisterDelegatedAdministrator
-    DeregisterDelegatedAdministrator (DeregisterDelegatedAdministrator'),
-    newDeregisterDelegatedAdministrator,
-    DeregisterDelegatedAdministratorResponse (DeregisterDelegatedAdministratorResponse'),
-    newDeregisterDelegatedAdministratorResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** ListCreateAccountStatus (Paginated)
-    ListCreateAccountStatus (ListCreateAccountStatus'),
-    newListCreateAccountStatus,
-    ListCreateAccountStatusResponse (ListCreateAccountStatusResponse'),
-    newListCreateAccountStatusResponse,
-
-    -- ** ListTargetsForPolicy (Paginated)
-    ListTargetsForPolicy (ListTargetsForPolicy'),
-    newListTargetsForPolicy,
-    ListTargetsForPolicyResponse (ListTargetsForPolicyResponse'),
-    newListTargetsForPolicyResponse,
-
-    -- ** DeclineHandshake
-    DeclineHandshake (DeclineHandshake'),
-    newDeclineHandshake,
-    DeclineHandshakeResponse (DeclineHandshakeResponse'),
-    newDeclineHandshakeResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
 
     -- ** AttachPolicy
     AttachPolicy (AttachPolicy'),
@@ -495,29 +237,53 @@ module Amazonka.Organizations
     AttachPolicyResponse (AttachPolicyResponse'),
     newAttachPolicyResponse,
 
-    -- ** ListPoliciesForTarget (Paginated)
-    ListPoliciesForTarget (ListPoliciesForTarget'),
-    newListPoliciesForTarget,
-    ListPoliciesForTargetResponse (ListPoliciesForTargetResponse'),
-    newListPoliciesForTargetResponse,
+    -- ** CancelHandshake
+    CancelHandshake (CancelHandshake'),
+    newCancelHandshake,
+    CancelHandshakeResponse (CancelHandshakeResponse'),
+    newCancelHandshakeResponse,
 
-    -- ** DescribeOrganization
-    DescribeOrganization (DescribeOrganization'),
-    newDescribeOrganization,
-    DescribeOrganizationResponse (DescribeOrganizationResponse'),
-    newDescribeOrganizationResponse,
+    -- ** CreateAccount
+    CreateAccount (CreateAccount'),
+    newCreateAccount,
+    CreateAccountResponse (CreateAccountResponse'),
+    newCreateAccountResponse,
 
-    -- ** ListHandshakesForOrganization (Paginated)
-    ListHandshakesForOrganization (ListHandshakesForOrganization'),
-    newListHandshakesForOrganization,
-    ListHandshakesForOrganizationResponse (ListHandshakesForOrganizationResponse'),
-    newListHandshakesForOrganizationResponse,
+    -- ** CreateGovCloudAccount
+    CreateGovCloudAccount (CreateGovCloudAccount'),
+    newCreateGovCloudAccount,
+    CreateGovCloudAccountResponse (CreateGovCloudAccountResponse'),
+    newCreateGovCloudAccountResponse,
 
-    -- ** RegisterDelegatedAdministrator
-    RegisterDelegatedAdministrator (RegisterDelegatedAdministrator'),
-    newRegisterDelegatedAdministrator,
-    RegisterDelegatedAdministratorResponse (RegisterDelegatedAdministratorResponse'),
-    newRegisterDelegatedAdministratorResponse,
+    -- ** CreateOrganization
+    CreateOrganization (CreateOrganization'),
+    newCreateOrganization,
+    CreateOrganizationResponse (CreateOrganizationResponse'),
+    newCreateOrganizationResponse,
+
+    -- ** CreateOrganizationalUnit
+    CreateOrganizationalUnit (CreateOrganizationalUnit'),
+    newCreateOrganizationalUnit,
+    CreateOrganizationalUnitResponse (CreateOrganizationalUnitResponse'),
+    newCreateOrganizationalUnitResponse,
+
+    -- ** CreatePolicy
+    CreatePolicy (CreatePolicy'),
+    newCreatePolicy,
+    CreatePolicyResponse (CreatePolicyResponse'),
+    newCreatePolicyResponse,
+
+    -- ** DeclineHandshake
+    DeclineHandshake (DeclineHandshake'),
+    newDeclineHandshake,
+    DeclineHandshakeResponse (DeclineHandshakeResponse'),
+    newDeclineHandshakeResponse,
+
+    -- ** DeleteOrganization
+    DeleteOrganization (DeleteOrganization'),
+    newDeleteOrganization,
+    DeleteOrganizationResponse (DeleteOrganizationResponse'),
+    newDeleteOrganizationResponse,
 
     -- ** DeleteOrganizationalUnit
     DeleteOrganizationalUnit (DeleteOrganizationalUnit'),
@@ -525,11 +291,245 @@ module Amazonka.Organizations
     DeleteOrganizationalUnitResponse (DeleteOrganizationalUnitResponse'),
     newDeleteOrganizationalUnitResponse,
 
+    -- ** DeletePolicy
+    DeletePolicy (DeletePolicy'),
+    newDeletePolicy,
+    DeletePolicyResponse (DeletePolicyResponse'),
+    newDeletePolicyResponse,
+
+    -- ** DeregisterDelegatedAdministrator
+    DeregisterDelegatedAdministrator (DeregisterDelegatedAdministrator'),
+    newDeregisterDelegatedAdministrator,
+    DeregisterDelegatedAdministratorResponse (DeregisterDelegatedAdministratorResponse'),
+    newDeregisterDelegatedAdministratorResponse,
+
+    -- ** DescribeAccount
+    DescribeAccount (DescribeAccount'),
+    newDescribeAccount,
+    DescribeAccountResponse (DescribeAccountResponse'),
+    newDescribeAccountResponse,
+
+    -- ** DescribeCreateAccountStatus
+    DescribeCreateAccountStatus (DescribeCreateAccountStatus'),
+    newDescribeCreateAccountStatus,
+    DescribeCreateAccountStatusResponse (DescribeCreateAccountStatusResponse'),
+    newDescribeCreateAccountStatusResponse,
+
+    -- ** DescribeEffectivePolicy
+    DescribeEffectivePolicy (DescribeEffectivePolicy'),
+    newDescribeEffectivePolicy,
+    DescribeEffectivePolicyResponse (DescribeEffectivePolicyResponse'),
+    newDescribeEffectivePolicyResponse,
+
+    -- ** DescribeHandshake
+    DescribeHandshake (DescribeHandshake'),
+    newDescribeHandshake,
+    DescribeHandshakeResponse (DescribeHandshakeResponse'),
+    newDescribeHandshakeResponse,
+
+    -- ** DescribeOrganization
+    DescribeOrganization (DescribeOrganization'),
+    newDescribeOrganization,
+    DescribeOrganizationResponse (DescribeOrganizationResponse'),
+    newDescribeOrganizationResponse,
+
+    -- ** DescribeOrganizationalUnit
+    DescribeOrganizationalUnit (DescribeOrganizationalUnit'),
+    newDescribeOrganizationalUnit,
+    DescribeOrganizationalUnitResponse (DescribeOrganizationalUnitResponse'),
+    newDescribeOrganizationalUnitResponse,
+
+    -- ** DescribePolicy
+    DescribePolicy (DescribePolicy'),
+    newDescribePolicy,
+    DescribePolicyResponse (DescribePolicyResponse'),
+    newDescribePolicyResponse,
+
+    -- ** DetachPolicy
+    DetachPolicy (DetachPolicy'),
+    newDetachPolicy,
+    DetachPolicyResponse (DetachPolicyResponse'),
+    newDetachPolicyResponse,
+
+    -- ** DisableAWSServiceAccess
+    DisableAWSServiceAccess (DisableAWSServiceAccess'),
+    newDisableAWSServiceAccess,
+    DisableAWSServiceAccessResponse (DisableAWSServiceAccessResponse'),
+    newDisableAWSServiceAccessResponse,
+
+    -- ** DisablePolicyType
+    DisablePolicyType (DisablePolicyType'),
+    newDisablePolicyType,
+    DisablePolicyTypeResponse (DisablePolicyTypeResponse'),
+    newDisablePolicyTypeResponse,
+
+    -- ** EnableAWSServiceAccess
+    EnableAWSServiceAccess (EnableAWSServiceAccess'),
+    newEnableAWSServiceAccess,
+    EnableAWSServiceAccessResponse (EnableAWSServiceAccessResponse'),
+    newEnableAWSServiceAccessResponse,
+
+    -- ** EnableAllFeatures
+    EnableAllFeatures (EnableAllFeatures'),
+    newEnableAllFeatures,
+    EnableAllFeaturesResponse (EnableAllFeaturesResponse'),
+    newEnableAllFeaturesResponse,
+
+    -- ** EnablePolicyType
+    EnablePolicyType (EnablePolicyType'),
+    newEnablePolicyType,
+    EnablePolicyTypeResponse (EnablePolicyTypeResponse'),
+    newEnablePolicyTypeResponse,
+
+    -- ** InviteAccountToOrganization
+    InviteAccountToOrganization (InviteAccountToOrganization'),
+    newInviteAccountToOrganization,
+    InviteAccountToOrganizationResponse (InviteAccountToOrganizationResponse'),
+    newInviteAccountToOrganizationResponse,
+
+    -- ** LeaveOrganization
+    LeaveOrganization (LeaveOrganization'),
+    newLeaveOrganization,
+    LeaveOrganizationResponse (LeaveOrganizationResponse'),
+    newLeaveOrganizationResponse,
+
+    -- ** ListAWSServiceAccessForOrganization (Paginated)
+    ListAWSServiceAccessForOrganization (ListAWSServiceAccessForOrganization'),
+    newListAWSServiceAccessForOrganization,
+    ListAWSServiceAccessForOrganizationResponse (ListAWSServiceAccessForOrganizationResponse'),
+    newListAWSServiceAccessForOrganizationResponse,
+
+    -- ** ListAccounts (Paginated)
+    ListAccounts (ListAccounts'),
+    newListAccounts,
+    ListAccountsResponse (ListAccountsResponse'),
+    newListAccountsResponse,
+
+    -- ** ListAccountsForParent (Paginated)
+    ListAccountsForParent (ListAccountsForParent'),
+    newListAccountsForParent,
+    ListAccountsForParentResponse (ListAccountsForParentResponse'),
+    newListAccountsForParentResponse,
+
+    -- ** ListChildren (Paginated)
+    ListChildren (ListChildren'),
+    newListChildren,
+    ListChildrenResponse (ListChildrenResponse'),
+    newListChildrenResponse,
+
+    -- ** ListCreateAccountStatus (Paginated)
+    ListCreateAccountStatus (ListCreateAccountStatus'),
+    newListCreateAccountStatus,
+    ListCreateAccountStatusResponse (ListCreateAccountStatusResponse'),
+    newListCreateAccountStatusResponse,
+
+    -- ** ListDelegatedAdministrators (Paginated)
+    ListDelegatedAdministrators (ListDelegatedAdministrators'),
+    newListDelegatedAdministrators,
+    ListDelegatedAdministratorsResponse (ListDelegatedAdministratorsResponse'),
+    newListDelegatedAdministratorsResponse,
+
+    -- ** ListDelegatedServicesForAccount (Paginated)
+    ListDelegatedServicesForAccount (ListDelegatedServicesForAccount'),
+    newListDelegatedServicesForAccount,
+    ListDelegatedServicesForAccountResponse (ListDelegatedServicesForAccountResponse'),
+    newListDelegatedServicesForAccountResponse,
+
+    -- ** ListHandshakesForAccount (Paginated)
+    ListHandshakesForAccount (ListHandshakesForAccount'),
+    newListHandshakesForAccount,
+    ListHandshakesForAccountResponse (ListHandshakesForAccountResponse'),
+    newListHandshakesForAccountResponse,
+
+    -- ** ListHandshakesForOrganization (Paginated)
+    ListHandshakesForOrganization (ListHandshakesForOrganization'),
+    newListHandshakesForOrganization,
+    ListHandshakesForOrganizationResponse (ListHandshakesForOrganizationResponse'),
+    newListHandshakesForOrganizationResponse,
+
+    -- ** ListOrganizationalUnitsForParent (Paginated)
+    ListOrganizationalUnitsForParent (ListOrganizationalUnitsForParent'),
+    newListOrganizationalUnitsForParent,
+    ListOrganizationalUnitsForParentResponse (ListOrganizationalUnitsForParentResponse'),
+    newListOrganizationalUnitsForParentResponse,
+
+    -- ** ListParents (Paginated)
+    ListParents (ListParents'),
+    newListParents,
+    ListParentsResponse (ListParentsResponse'),
+    newListParentsResponse,
+
+    -- ** ListPolicies (Paginated)
+    ListPolicies (ListPolicies'),
+    newListPolicies,
+    ListPoliciesResponse (ListPoliciesResponse'),
+    newListPoliciesResponse,
+
+    -- ** ListPoliciesForTarget (Paginated)
+    ListPoliciesForTarget (ListPoliciesForTarget'),
+    newListPoliciesForTarget,
+    ListPoliciesForTargetResponse (ListPoliciesForTargetResponse'),
+    newListPoliciesForTargetResponse,
+
+    -- ** ListRoots (Paginated)
+    ListRoots (ListRoots'),
+    newListRoots,
+    ListRootsResponse (ListRootsResponse'),
+    newListRootsResponse,
+
+    -- ** ListTagsForResource (Paginated)
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** ListTargetsForPolicy (Paginated)
+    ListTargetsForPolicy (ListTargetsForPolicy'),
+    newListTargetsForPolicy,
+    ListTargetsForPolicyResponse (ListTargetsForPolicyResponse'),
+    newListTargetsForPolicyResponse,
+
+    -- ** MoveAccount
+    MoveAccount (MoveAccount'),
+    newMoveAccount,
+    MoveAccountResponse (MoveAccountResponse'),
+    newMoveAccountResponse,
+
+    -- ** RegisterDelegatedAdministrator
+    RegisterDelegatedAdministrator (RegisterDelegatedAdministrator'),
+    newRegisterDelegatedAdministrator,
+    RegisterDelegatedAdministratorResponse (RegisterDelegatedAdministratorResponse'),
+    newRegisterDelegatedAdministratorResponse,
+
+    -- ** RemoveAccountFromOrganization
+    RemoveAccountFromOrganization (RemoveAccountFromOrganization'),
+    newRemoveAccountFromOrganization,
+    RemoveAccountFromOrganizationResponse (RemoveAccountFromOrganizationResponse'),
+    newRemoveAccountFromOrganizationResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
     -- ** UpdateOrganizationalUnit
     UpdateOrganizationalUnit (UpdateOrganizationalUnit'),
     newUpdateOrganizationalUnit,
     UpdateOrganizationalUnitResponse (UpdateOrganizationalUnitResponse'),
     newUpdateOrganizationalUnitResponse,
+
+    -- ** UpdatePolicy
+    UpdatePolicy (UpdatePolicy'),
+    newUpdatePolicy,
+    UpdatePolicyResponse (UpdatePolicyResponse'),
+    newUpdatePolicyResponse,
 
     -- * Types
 

@@ -34,17 +34,17 @@ module Amazonka.Organizations.ListDelegatedAdministrators
     newListDelegatedAdministrators,
 
     -- * Request Lenses
-    listDelegatedAdministrators_servicePrincipal,
     listDelegatedAdministrators_nextToken,
     listDelegatedAdministrators_maxResults,
+    listDelegatedAdministrators_servicePrincipal,
 
     -- * Destructuring the Response
     ListDelegatedAdministratorsResponse (..),
     newListDelegatedAdministratorsResponse,
 
     -- * Response Lenses
-    listDelegatedAdministratorsResponse_delegatedAdministrators,
     listDelegatedAdministratorsResponse_nextToken,
+    listDelegatedAdministratorsResponse_delegatedAdministrators,
     listDelegatedAdministratorsResponse_httpStatus,
   )
 where
@@ -58,13 +58,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDelegatedAdministrators' smart constructor.
 data ListDelegatedAdministrators = ListDelegatedAdministrators'
-  { -- | Specifies a service principal name. If specified, then the operation
-    -- lists the delegated administrators only for the specified service.
-    --
-    -- If you don\'t specify a service principal, the operation lists all
-    -- delegated administrators for all services in your organization.
-    servicePrincipal :: Prelude.Maybe Prelude.Text,
-    -- | The parameter for receiving additional results if you receive a
+  { -- | The parameter for receiving additional results if you receive a
     -- @NextToken@ response in a previous request. A @NextToken@ response
     -- indicates that more output is available. Set this parameter to the value
     -- of the previous call\'s @NextToken@ response to indicate where the
@@ -80,7 +74,13 @@ data ListDelegatedAdministrators = ListDelegatedAdministrators'
     -- maximum even when there are more results available. You should check
     -- @NextToken@ after every operation to ensure that you receive all of the
     -- results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies a service principal name. If specified, then the operation
+    -- lists the delegated administrators only for the specified service.
+    --
+    -- If you don\'t specify a service principal, the operation lists all
+    -- delegated administrators for all services in your organization.
+    servicePrincipal :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,12 +91,6 @@ data ListDelegatedAdministrators = ListDelegatedAdministrators'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'servicePrincipal', 'listDelegatedAdministrators_servicePrincipal' - Specifies a service principal name. If specified, then the operation
--- lists the delegated administrators only for the specified service.
---
--- If you don\'t specify a service principal, the operation lists all
--- delegated administrators for all services in your organization.
 --
 -- 'nextToken', 'listDelegatedAdministrators_nextToken' - The parameter for receiving additional results if you receive a
 -- @NextToken@ response in a previous request. A @NextToken@ response
@@ -114,23 +108,21 @@ data ListDelegatedAdministrators = ListDelegatedAdministrators'
 -- maximum even when there are more results available. You should check
 -- @NextToken@ after every operation to ensure that you receive all of the
 -- results.
-newListDelegatedAdministrators ::
-  ListDelegatedAdministrators
-newListDelegatedAdministrators =
-  ListDelegatedAdministrators'
-    { servicePrincipal =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
-    }
-
--- | Specifies a service principal name. If specified, then the operation
+--
+-- 'servicePrincipal', 'listDelegatedAdministrators_servicePrincipal' - Specifies a service principal name. If specified, then the operation
 -- lists the delegated administrators only for the specified service.
 --
 -- If you don\'t specify a service principal, the operation lists all
 -- delegated administrators for all services in your organization.
-listDelegatedAdministrators_servicePrincipal :: Lens.Lens' ListDelegatedAdministrators (Prelude.Maybe Prelude.Text)
-listDelegatedAdministrators_servicePrincipal = Lens.lens (\ListDelegatedAdministrators' {servicePrincipal} -> servicePrincipal) (\s@ListDelegatedAdministrators' {} a -> s {servicePrincipal = a} :: ListDelegatedAdministrators)
+newListDelegatedAdministrators ::
+  ListDelegatedAdministrators
+newListDelegatedAdministrators =
+  ListDelegatedAdministrators'
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      servicePrincipal = Prelude.Nothing
+    }
 
 -- | The parameter for receiving additional results if you receive a
 -- @NextToken@ response in a previous request. A @NextToken@ response
@@ -152,6 +144,14 @@ listDelegatedAdministrators_nextToken = Lens.lens (\ListDelegatedAdministrators'
 -- results.
 listDelegatedAdministrators_maxResults :: Lens.Lens' ListDelegatedAdministrators (Prelude.Maybe Prelude.Natural)
 listDelegatedAdministrators_maxResults = Lens.lens (\ListDelegatedAdministrators' {maxResults} -> maxResults) (\s@ListDelegatedAdministrators' {} a -> s {maxResults = a} :: ListDelegatedAdministrators)
+
+-- | Specifies a service principal name. If specified, then the operation
+-- lists the delegated administrators only for the specified service.
+--
+-- If you don\'t specify a service principal, the operation lists all
+-- delegated administrators for all services in your organization.
+listDelegatedAdministrators_servicePrincipal :: Lens.Lens' ListDelegatedAdministrators (Prelude.Maybe Prelude.Text)
+listDelegatedAdministrators_servicePrincipal = Lens.lens (\ListDelegatedAdministrators' {servicePrincipal} -> servicePrincipal) (\s@ListDelegatedAdministrators' {} a -> s {servicePrincipal = a} :: ListDelegatedAdministrators)
 
 instance Core.AWSPager ListDelegatedAdministrators where
   page rq rs
@@ -184,24 +184,24 @@ instance Core.AWSRequest ListDelegatedAdministrators where
     Response.receiveJSON
       ( \s h x ->
           ListDelegatedAdministratorsResponse'
-            Prelude.<$> ( x Core..?> "DelegatedAdministrators"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "DelegatedAdministrators"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDelegatedAdministrators where
   hashWithSalt _salt ListDelegatedAdministrators' {..} =
-    _salt `Prelude.hashWithSalt` servicePrincipal
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` servicePrincipal
 
 instance Prelude.NFData ListDelegatedAdministrators where
   rnf ListDelegatedAdministrators' {..} =
-    Prelude.rnf servicePrincipal
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf servicePrincipal
 
 instance Core.ToHeaders ListDelegatedAdministrators where
   toHeaders =
@@ -222,10 +222,10 @@ instance Core.ToJSON ListDelegatedAdministrators where
   toJSON ListDelegatedAdministrators' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ServicePrincipal" Core..=)
-              Prelude.<$> servicePrincipal,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("ServicePrincipal" Core..=)
+              Prelude.<$> servicePrincipal
           ]
       )
 
@@ -237,14 +237,14 @@ instance Core.ToQuery ListDelegatedAdministrators where
 
 -- | /See:/ 'newListDelegatedAdministratorsResponse' smart constructor.
 data ListDelegatedAdministratorsResponse = ListDelegatedAdministratorsResponse'
-  { -- | The list of delegated administrators in your organization.
-    delegatedAdministrators :: Prelude.Maybe [DelegatedAdministrator],
-    -- | If present, indicates that more output is available than is included in
+  { -- | If present, indicates that more output is available than is included in
     -- the current response. Use this value in the @NextToken@ request
     -- parameter in a subsequent call to the operation to get the next part of
     -- the output. You should repeat this until the @NextToken@ response
     -- element comes back as @null@.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of delegated administrators in your organization.
+    delegatedAdministrators :: Prelude.Maybe [DelegatedAdministrator],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -258,13 +258,13 @@ data ListDelegatedAdministratorsResponse = ListDelegatedAdministratorsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'delegatedAdministrators', 'listDelegatedAdministratorsResponse_delegatedAdministrators' - The list of delegated administrators in your organization.
---
 -- 'nextToken', 'listDelegatedAdministratorsResponse_nextToken' - If present, indicates that more output is available than is included in
 -- the current response. Use this value in the @NextToken@ request
 -- parameter in a subsequent call to the operation to get the next part of
 -- the output. You should repeat this until the @NextToken@ response
 -- element comes back as @null@.
+--
+-- 'delegatedAdministrators', 'listDelegatedAdministratorsResponse_delegatedAdministrators' - The list of delegated administrators in your organization.
 --
 -- 'httpStatus', 'listDelegatedAdministratorsResponse_httpStatus' - The response's http status code.
 newListDelegatedAdministratorsResponse ::
@@ -273,15 +273,12 @@ newListDelegatedAdministratorsResponse ::
   ListDelegatedAdministratorsResponse
 newListDelegatedAdministratorsResponse pHttpStatus_ =
   ListDelegatedAdministratorsResponse'
-    { delegatedAdministrators =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      delegatedAdministrators =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The list of delegated administrators in your organization.
-listDelegatedAdministratorsResponse_delegatedAdministrators :: Lens.Lens' ListDelegatedAdministratorsResponse (Prelude.Maybe [DelegatedAdministrator])
-listDelegatedAdministratorsResponse_delegatedAdministrators = Lens.lens (\ListDelegatedAdministratorsResponse' {delegatedAdministrators} -> delegatedAdministrators) (\s@ListDelegatedAdministratorsResponse' {} a -> s {delegatedAdministrators = a} :: ListDelegatedAdministratorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If present, indicates that more output is available than is included in
 -- the current response. Use this value in the @NextToken@ request
@@ -290,6 +287,10 @@ listDelegatedAdministratorsResponse_delegatedAdministrators = Lens.lens (\ListDe
 -- element comes back as @null@.
 listDelegatedAdministratorsResponse_nextToken :: Lens.Lens' ListDelegatedAdministratorsResponse (Prelude.Maybe Prelude.Text)
 listDelegatedAdministratorsResponse_nextToken = Lens.lens (\ListDelegatedAdministratorsResponse' {nextToken} -> nextToken) (\s@ListDelegatedAdministratorsResponse' {} a -> s {nextToken = a} :: ListDelegatedAdministratorsResponse)
+
+-- | The list of delegated administrators in your organization.
+listDelegatedAdministratorsResponse_delegatedAdministrators :: Lens.Lens' ListDelegatedAdministratorsResponse (Prelude.Maybe [DelegatedAdministrator])
+listDelegatedAdministratorsResponse_delegatedAdministrators = Lens.lens (\ListDelegatedAdministratorsResponse' {delegatedAdministrators} -> delegatedAdministrators) (\s@ListDelegatedAdministratorsResponse' {} a -> s {delegatedAdministrators = a} :: ListDelegatedAdministratorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDelegatedAdministratorsResponse_httpStatus :: Lens.Lens' ListDelegatedAdministratorsResponse Prelude.Int
@@ -300,6 +301,6 @@ instance
     ListDelegatedAdministratorsResponse
   where
   rnf ListDelegatedAdministratorsResponse' {..} =
-    Prelude.rnf delegatedAdministrators
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf delegatedAdministrators
       `Prelude.seq` Prelude.rnf httpStatus

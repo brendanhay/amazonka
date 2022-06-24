@@ -54,8 +54,8 @@ module Amazonka.Organizations.ListRoots
     newListRootsResponse,
 
     -- * Response Lenses
-    listRootsResponse_roots,
     listRootsResponse_nextToken,
+    listRootsResponse_roots,
     listRootsResponse_httpStatus,
   )
 where
@@ -168,8 +168,8 @@ instance Core.AWSRequest ListRoots where
     Response.receiveJSON
       ( \s h x ->
           ListRootsResponse'
-            Prelude.<$> (x Core..?> "Roots" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Roots" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -215,14 +215,14 @@ instance Core.ToQuery ListRoots where
 
 -- | /See:/ 'newListRootsResponse' smart constructor.
 data ListRootsResponse = ListRootsResponse'
-  { -- | A list of roots that are defined in an organization.
-    roots :: Prelude.Maybe [Root],
-    -- | If present, indicates that more output is available than is included in
+  { -- | If present, indicates that more output is available than is included in
     -- the current response. Use this value in the @NextToken@ request
     -- parameter in a subsequent call to the operation to get the next part of
     -- the output. You should repeat this until the @NextToken@ response
     -- element comes back as @null@.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of roots that are defined in an organization.
+    roots :: Prelude.Maybe [Root],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -236,13 +236,13 @@ data ListRootsResponse = ListRootsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roots', 'listRootsResponse_roots' - A list of roots that are defined in an organization.
---
 -- 'nextToken', 'listRootsResponse_nextToken' - If present, indicates that more output is available than is included in
 -- the current response. Use this value in the @NextToken@ request
 -- parameter in a subsequent call to the operation to get the next part of
 -- the output. You should repeat this until the @NextToken@ response
 -- element comes back as @null@.
+--
+-- 'roots', 'listRootsResponse_roots' - A list of roots that are defined in an organization.
 --
 -- 'httpStatus', 'listRootsResponse_httpStatus' - The response's http status code.
 newListRootsResponse ::
@@ -251,14 +251,10 @@ newListRootsResponse ::
   ListRootsResponse
 newListRootsResponse pHttpStatus_ =
   ListRootsResponse'
-    { roots = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      roots = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of roots that are defined in an organization.
-listRootsResponse_roots :: Lens.Lens' ListRootsResponse (Prelude.Maybe [Root])
-listRootsResponse_roots = Lens.lens (\ListRootsResponse' {roots} -> roots) (\s@ListRootsResponse' {} a -> s {roots = a} :: ListRootsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If present, indicates that more output is available than is included in
 -- the current response. Use this value in the @NextToken@ request
@@ -268,12 +264,16 @@ listRootsResponse_roots = Lens.lens (\ListRootsResponse' {roots} -> roots) (\s@L
 listRootsResponse_nextToken :: Lens.Lens' ListRootsResponse (Prelude.Maybe Prelude.Text)
 listRootsResponse_nextToken = Lens.lens (\ListRootsResponse' {nextToken} -> nextToken) (\s@ListRootsResponse' {} a -> s {nextToken = a} :: ListRootsResponse)
 
+-- | A list of roots that are defined in an organization.
+listRootsResponse_roots :: Lens.Lens' ListRootsResponse (Prelude.Maybe [Root])
+listRootsResponse_roots = Lens.lens (\ListRootsResponse' {roots} -> roots) (\s@ListRootsResponse' {} a -> s {roots = a} :: ListRootsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listRootsResponse_httpStatus :: Lens.Lens' ListRootsResponse Prelude.Int
 listRootsResponse_httpStatus = Lens.lens (\ListRootsResponse' {httpStatus} -> httpStatus) (\s@ListRootsResponse' {} a -> s {httpStatus = a} :: ListRootsResponse)
 
 instance Prelude.NFData ListRootsResponse where
   rnf ListRootsResponse' {..} =
-    Prelude.rnf roots
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf roots
       `Prelude.seq` Prelude.rnf httpStatus

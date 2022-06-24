@@ -43,8 +43,8 @@ module Amazonka.Organizations.ListDelegatedServicesForAccount
     newListDelegatedServicesForAccountResponse,
 
     -- * Response Lenses
-    listDelegatedServicesForAccountResponse_delegatedServices,
     listDelegatedServicesForAccountResponse_nextToken,
+    listDelegatedServicesForAccountResponse_delegatedServices,
     listDelegatedServicesForAccountResponse_httpStatus,
   )
 where
@@ -183,10 +183,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListDelegatedServicesForAccountResponse'
-            Prelude.<$> ( x Core..?> "DelegatedServices"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "DelegatedServices"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -246,14 +246,14 @@ instance Core.ToQuery ListDelegatedServicesForAccount where
 
 -- | /See:/ 'newListDelegatedServicesForAccountResponse' smart constructor.
 data ListDelegatedServicesForAccountResponse = ListDelegatedServicesForAccountResponse'
-  { -- | The services for which the account is a delegated administrator.
-    delegatedServices :: Prelude.Maybe [DelegatedService],
-    -- | If present, indicates that more output is available than is included in
+  { -- | If present, indicates that more output is available than is included in
     -- the current response. Use this value in the @NextToken@ request
     -- parameter in a subsequent call to the operation to get the next part of
     -- the output. You should repeat this until the @NextToken@ response
     -- element comes back as @null@.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The services for which the account is a delegated administrator.
+    delegatedServices :: Prelude.Maybe [DelegatedService],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -267,13 +267,13 @@ data ListDelegatedServicesForAccountResponse = ListDelegatedServicesForAccountRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'delegatedServices', 'listDelegatedServicesForAccountResponse_delegatedServices' - The services for which the account is a delegated administrator.
---
 -- 'nextToken', 'listDelegatedServicesForAccountResponse_nextToken' - If present, indicates that more output is available than is included in
 -- the current response. Use this value in the @NextToken@ request
 -- parameter in a subsequent call to the operation to get the next part of
 -- the output. You should repeat this until the @NextToken@ response
 -- element comes back as @null@.
+--
+-- 'delegatedServices', 'listDelegatedServicesForAccountResponse_delegatedServices' - The services for which the account is a delegated administrator.
 --
 -- 'httpStatus', 'listDelegatedServicesForAccountResponse_httpStatus' - The response's http status code.
 newListDelegatedServicesForAccountResponse ::
@@ -283,15 +283,12 @@ newListDelegatedServicesForAccountResponse ::
 newListDelegatedServicesForAccountResponse
   pHttpStatus_ =
     ListDelegatedServicesForAccountResponse'
-      { delegatedServices =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        delegatedServices =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The services for which the account is a delegated administrator.
-listDelegatedServicesForAccountResponse_delegatedServices :: Lens.Lens' ListDelegatedServicesForAccountResponse (Prelude.Maybe [DelegatedService])
-listDelegatedServicesForAccountResponse_delegatedServices = Lens.lens (\ListDelegatedServicesForAccountResponse' {delegatedServices} -> delegatedServices) (\s@ListDelegatedServicesForAccountResponse' {} a -> s {delegatedServices = a} :: ListDelegatedServicesForAccountResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If present, indicates that more output is available than is included in
 -- the current response. Use this value in the @NextToken@ request
@@ -300,6 +297,10 @@ listDelegatedServicesForAccountResponse_delegatedServices = Lens.lens (\ListDele
 -- element comes back as @null@.
 listDelegatedServicesForAccountResponse_nextToken :: Lens.Lens' ListDelegatedServicesForAccountResponse (Prelude.Maybe Prelude.Text)
 listDelegatedServicesForAccountResponse_nextToken = Lens.lens (\ListDelegatedServicesForAccountResponse' {nextToken} -> nextToken) (\s@ListDelegatedServicesForAccountResponse' {} a -> s {nextToken = a} :: ListDelegatedServicesForAccountResponse)
+
+-- | The services for which the account is a delegated administrator.
+listDelegatedServicesForAccountResponse_delegatedServices :: Lens.Lens' ListDelegatedServicesForAccountResponse (Prelude.Maybe [DelegatedService])
+listDelegatedServicesForAccountResponse_delegatedServices = Lens.lens (\ListDelegatedServicesForAccountResponse' {delegatedServices} -> delegatedServices) (\s@ListDelegatedServicesForAccountResponse' {} a -> s {delegatedServices = a} :: ListDelegatedServicesForAccountResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDelegatedServicesForAccountResponse_httpStatus :: Lens.Lens' ListDelegatedServicesForAccountResponse Prelude.Int
@@ -310,6 +311,6 @@ instance
     ListDelegatedServicesForAccountResponse
   where
   rnf ListDelegatedServicesForAccountResponse' {..} =
-    Prelude.rnf delegatedServices
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf delegatedServices
       `Prelude.seq` Prelude.rnf httpStatus

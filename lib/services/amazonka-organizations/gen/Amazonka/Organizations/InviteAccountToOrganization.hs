@@ -51,8 +51,8 @@ module Amazonka.Organizations.InviteAccountToOrganization
     newInviteAccountToOrganization,
 
     -- * Request Lenses
-    inviteAccountToOrganization_notes,
     inviteAccountToOrganization_tags,
+    inviteAccountToOrganization_notes,
     inviteAccountToOrganization_target,
 
     -- * Destructuring the Response
@@ -74,10 +74,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newInviteAccountToOrganization' smart constructor.
 data InviteAccountToOrganization = InviteAccountToOrganization'
-  { -- | Additional information that you want to include in the generated email
-    -- to the recipient account owner.
-    notes :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | A list of tags that you want to attach to the account when it becomes a
+  { -- | A list of tags that you want to attach to the account when it becomes a
     -- member of the organization. For each tag in the list, you must specify
     -- both a tag key and a value. You can set the value to an empty string,
     -- but you can\'t set it to @null@. For more information about tagging, see
@@ -97,6 +94,9 @@ data InviteAccountToOrganization = InviteAccountToOrganization'
     -- tags for an account, then the entire request fails and invitations are
     -- not sent.
     tags :: Prelude.Maybe [Tag],
+    -- | Additional information that you want to include in the generated email
+    -- to the recipient account owner.
+    notes :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The identifier (ID) of the AWS account that you want to invite to join
     -- your organization. This is a JSON object that contains the following
     -- elements:
@@ -125,9 +125,6 @@ data InviteAccountToOrganization = InviteAccountToOrganization'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'notes', 'inviteAccountToOrganization_notes' - Additional information that you want to include in the generated email
--- to the recipient account owner.
---
 -- 'tags', 'inviteAccountToOrganization_tags' - A list of tags that you want to attach to the account when it becomes a
 -- member of the organization. For each tag in the list, you must specify
 -- both a tag key and a value. You can set the value to an empty string,
@@ -147,6 +144,9 @@ data InviteAccountToOrganization = InviteAccountToOrganization'
 -- If any one of the tags is invalid or if you exceed the allowed number of
 -- tags for an account, then the entire request fails and invitations are
 -- not sent.
+--
+-- 'notes', 'inviteAccountToOrganization_notes' - Additional information that you want to include in the generated email
+-- to the recipient account owner.
 --
 -- 'target', 'inviteAccountToOrganization_target' - The identifier (ID) of the AWS account that you want to invite to join
 -- your organization. This is a JSON object that contains the following
@@ -170,16 +170,11 @@ newInviteAccountToOrganization ::
   InviteAccountToOrganization
 newInviteAccountToOrganization pTarget_ =
   InviteAccountToOrganization'
-    { notes =
+    { tags =
         Prelude.Nothing,
-      tags = Prelude.Nothing,
+      notes = Prelude.Nothing,
       target = pTarget_
     }
-
--- | Additional information that you want to include in the generated email
--- to the recipient account owner.
-inviteAccountToOrganization_notes :: Lens.Lens' InviteAccountToOrganization (Prelude.Maybe Prelude.Text)
-inviteAccountToOrganization_notes = Lens.lens (\InviteAccountToOrganization' {notes} -> notes) (\s@InviteAccountToOrganization' {} a -> s {notes = a} :: InviteAccountToOrganization) Prelude.. Lens.mapping Core._Sensitive
 
 -- | A list of tags that you want to attach to the account when it becomes a
 -- member of the organization. For each tag in the list, you must specify
@@ -202,6 +197,11 @@ inviteAccountToOrganization_notes = Lens.lens (\InviteAccountToOrganization' {no
 -- not sent.
 inviteAccountToOrganization_tags :: Lens.Lens' InviteAccountToOrganization (Prelude.Maybe [Tag])
 inviteAccountToOrganization_tags = Lens.lens (\InviteAccountToOrganization' {tags} -> tags) (\s@InviteAccountToOrganization' {} a -> s {tags = a} :: InviteAccountToOrganization) Prelude.. Lens.mapping Lens.coerced
+
+-- | Additional information that you want to include in the generated email
+-- to the recipient account owner.
+inviteAccountToOrganization_notes :: Lens.Lens' InviteAccountToOrganization (Prelude.Maybe Prelude.Text)
+inviteAccountToOrganization_notes = Lens.lens (\InviteAccountToOrganization' {notes} -> notes) (\s@InviteAccountToOrganization' {} a -> s {notes = a} :: InviteAccountToOrganization) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The identifier (ID) of the AWS account that you want to invite to join
 -- your organization. This is a JSON object that contains the following
@@ -237,14 +237,14 @@ instance Core.AWSRequest InviteAccountToOrganization where
 
 instance Prelude.Hashable InviteAccountToOrganization where
   hashWithSalt _salt InviteAccountToOrganization' {..} =
-    _salt `Prelude.hashWithSalt` notes
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` notes
       `Prelude.hashWithSalt` target
 
 instance Prelude.NFData InviteAccountToOrganization where
   rnf InviteAccountToOrganization' {..} =
-    Prelude.rnf notes
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf notes
       `Prelude.seq` Prelude.rnf target
 
 instance Core.ToHeaders InviteAccountToOrganization where
@@ -266,8 +266,8 @@ instance Core.ToJSON InviteAccountToOrganization where
   toJSON InviteAccountToOrganization' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Notes" Core..=) Prelude.<$> notes,
-            ("Tags" Core..=) Prelude.<$> tags,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Notes" Core..=) Prelude.<$> notes,
             Prelude.Just ("Target" Core..= target)
           ]
       )

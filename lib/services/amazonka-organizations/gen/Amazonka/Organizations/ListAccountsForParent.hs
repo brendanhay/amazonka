@@ -53,8 +53,8 @@ module Amazonka.Organizations.ListAccountsForParent
     newListAccountsForParentResponse,
 
     -- * Response Lenses
-    listAccountsForParentResponse_accounts,
     listAccountsForParentResponse_nextToken,
+    listAccountsForParentResponse_accounts,
     listAccountsForParentResponse_httpStatus,
   )
 where
@@ -186,8 +186,8 @@ instance Core.AWSRequest ListAccountsForParent where
     Response.receiveJSON
       ( \s h x ->
           ListAccountsForParentResponse'
-            Prelude.<$> (x Core..?> "Accounts" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Accounts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -236,14 +236,14 @@ instance Core.ToQuery ListAccountsForParent where
 
 -- | /See:/ 'newListAccountsForParentResponse' smart constructor.
 data ListAccountsForParentResponse = ListAccountsForParentResponse'
-  { -- | A list of the accounts in the specified root or OU.
-    accounts :: Prelude.Maybe [Account],
-    -- | If present, indicates that more output is available than is included in
+  { -- | If present, indicates that more output is available than is included in
     -- the current response. Use this value in the @NextToken@ request
     -- parameter in a subsequent call to the operation to get the next part of
     -- the output. You should repeat this until the @NextToken@ response
     -- element comes back as @null@.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of the accounts in the specified root or OU.
+    accounts :: Prelude.Maybe [Account],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -257,13 +257,13 @@ data ListAccountsForParentResponse = ListAccountsForParentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accounts', 'listAccountsForParentResponse_accounts' - A list of the accounts in the specified root or OU.
---
 -- 'nextToken', 'listAccountsForParentResponse_nextToken' - If present, indicates that more output is available than is included in
 -- the current response. Use this value in the @NextToken@ request
 -- parameter in a subsequent call to the operation to get the next part of
 -- the output. You should repeat this until the @NextToken@ response
 -- element comes back as @null@.
+--
+-- 'accounts', 'listAccountsForParentResponse_accounts' - A list of the accounts in the specified root or OU.
 --
 -- 'httpStatus', 'listAccountsForParentResponse_httpStatus' - The response's http status code.
 newListAccountsForParentResponse ::
@@ -272,15 +272,11 @@ newListAccountsForParentResponse ::
   ListAccountsForParentResponse
 newListAccountsForParentResponse pHttpStatus_ =
   ListAccountsForParentResponse'
-    { accounts =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      accounts = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of the accounts in the specified root or OU.
-listAccountsForParentResponse_accounts :: Lens.Lens' ListAccountsForParentResponse (Prelude.Maybe [Account])
-listAccountsForParentResponse_accounts = Lens.lens (\ListAccountsForParentResponse' {accounts} -> accounts) (\s@ListAccountsForParentResponse' {} a -> s {accounts = a} :: ListAccountsForParentResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If present, indicates that more output is available than is included in
 -- the current response. Use this value in the @NextToken@ request
@@ -290,12 +286,16 @@ listAccountsForParentResponse_accounts = Lens.lens (\ListAccountsForParentRespon
 listAccountsForParentResponse_nextToken :: Lens.Lens' ListAccountsForParentResponse (Prelude.Maybe Prelude.Text)
 listAccountsForParentResponse_nextToken = Lens.lens (\ListAccountsForParentResponse' {nextToken} -> nextToken) (\s@ListAccountsForParentResponse' {} a -> s {nextToken = a} :: ListAccountsForParentResponse)
 
+-- | A list of the accounts in the specified root or OU.
+listAccountsForParentResponse_accounts :: Lens.Lens' ListAccountsForParentResponse (Prelude.Maybe [Account])
+listAccountsForParentResponse_accounts = Lens.lens (\ListAccountsForParentResponse' {accounts} -> accounts) (\s@ListAccountsForParentResponse' {} a -> s {accounts = a} :: ListAccountsForParentResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listAccountsForParentResponse_httpStatus :: Lens.Lens' ListAccountsForParentResponse Prelude.Int
 listAccountsForParentResponse_httpStatus = Lens.lens (\ListAccountsForParentResponse' {httpStatus} -> httpStatus) (\s@ListAccountsForParentResponse' {} a -> s {httpStatus = a} :: ListAccountsForParentResponse)
 
 instance Prelude.NFData ListAccountsForParentResponse where
   rnf ListAccountsForParentResponse' {..} =
-    Prelude.rnf accounts
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf accounts
       `Prelude.seq` Prelude.rnf httpStatus

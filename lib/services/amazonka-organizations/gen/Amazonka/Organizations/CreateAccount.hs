@@ -102,9 +102,9 @@ module Amazonka.Organizations.CreateAccount
     newCreateAccount,
 
     -- * Request Lenses
-    createAccount_iamUserAccessToBilling,
-    createAccount_roleName,
     createAccount_tags,
+    createAccount_roleName,
+    createAccount_iamUserAccessToBilling,
     createAccount_email,
     createAccount_accountName,
 
@@ -127,17 +127,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateAccount' smart constructor.
 data CreateAccount = CreateAccount'
-  { -- | If set to @ALLOW@, the new account enables IAM users to access account
-    -- billing information /if/ they have the required permissions. If set to
-    -- @DENY@, only the root user of the new account can access account billing
-    -- information. For more information, see
-    -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console>
-    -- in the /AWS Billing and Cost Management User Guide/.
+  { -- | A list of tags that you want to attach to the newly created account. For
+    -- each tag in the list, you must specify both a tag key and a value. You
+    -- can set the value to an empty string, but you can\'t set it to @null@.
+    -- For more information about tagging, see
+    -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources>
+    -- in the AWS Organizations User Guide.
     --
-    -- If you don\'t specify this parameter, the value defaults to @ALLOW@, and
-    -- IAM users and roles with the required permissions can access billing
-    -- information for the new account.
-    iamUserAccessToBilling :: Prelude.Maybe IAMUserAccessToBilling,
+    -- If any one of the tags is invalid or if you exceed the allowed number of
+    -- tags for an account, then the entire request fails and the account is
+    -- not created.
+    tags :: Prelude.Maybe [Tag],
     -- | (Optional)
     --
     -- The name of an IAM role that AWS Organizations automatically
@@ -164,17 +164,17 @@ data CreateAccount = CreateAccount'
     -- lowercase letters, digits with no spaces, and any of the following
     -- characters: =,.\@-
     roleName :: Prelude.Maybe Prelude.Text,
-    -- | A list of tags that you want to attach to the newly created account. For
-    -- each tag in the list, you must specify both a tag key and a value. You
-    -- can set the value to an empty string, but you can\'t set it to @null@.
-    -- For more information about tagging, see
-    -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources>
-    -- in the AWS Organizations User Guide.
+    -- | If set to @ALLOW@, the new account enables IAM users to access account
+    -- billing information /if/ they have the required permissions. If set to
+    -- @DENY@, only the root user of the new account can access account billing
+    -- information. For more information, see
+    -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console>
+    -- in the /AWS Billing and Cost Management User Guide/.
     --
-    -- If any one of the tags is invalid or if you exceed the allowed number of
-    -- tags for an account, then the entire request fails and the account is
-    -- not created.
-    tags :: Prelude.Maybe [Tag],
+    -- If you don\'t specify this parameter, the value defaults to @ALLOW@, and
+    -- IAM users and roles with the required permissions can access billing
+    -- information for the new account.
+    iamUserAccessToBilling :: Prelude.Maybe IAMUserAccessToBilling,
     -- | The email address of the owner to assign to the new member account. This
     -- email address must not already be associated with another AWS account.
     -- You must use a valid email address to complete account creation. You
@@ -194,16 +194,16 @@ data CreateAccount = CreateAccount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'iamUserAccessToBilling', 'createAccount_iamUserAccessToBilling' - If set to @ALLOW@, the new account enables IAM users to access account
--- billing information /if/ they have the required permissions. If set to
--- @DENY@, only the root user of the new account can access account billing
--- information. For more information, see
--- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console>
--- in the /AWS Billing and Cost Management User Guide/.
+-- 'tags', 'createAccount_tags' - A list of tags that you want to attach to the newly created account. For
+-- each tag in the list, you must specify both a tag key and a value. You
+-- can set the value to an empty string, but you can\'t set it to @null@.
+-- For more information about tagging, see
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources>
+-- in the AWS Organizations User Guide.
 --
--- If you don\'t specify this parameter, the value defaults to @ALLOW@, and
--- IAM users and roles with the required permissions can access billing
--- information for the new account.
+-- If any one of the tags is invalid or if you exceed the allowed number of
+-- tags for an account, then the entire request fails and the account is
+-- not created.
 --
 -- 'roleName', 'createAccount_roleName' - (Optional)
 --
@@ -231,16 +231,16 @@ data CreateAccount = CreateAccount'
 -- lowercase letters, digits with no spaces, and any of the following
 -- characters: =,.\@-
 --
--- 'tags', 'createAccount_tags' - A list of tags that you want to attach to the newly created account. For
--- each tag in the list, you must specify both a tag key and a value. You
--- can set the value to an empty string, but you can\'t set it to @null@.
--- For more information about tagging, see
--- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources>
--- in the AWS Organizations User Guide.
+-- 'iamUserAccessToBilling', 'createAccount_iamUserAccessToBilling' - If set to @ALLOW@, the new account enables IAM users to access account
+-- billing information /if/ they have the required permissions. If set to
+-- @DENY@, only the root user of the new account can access account billing
+-- information. For more information, see
+-- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console>
+-- in the /AWS Billing and Cost Management User Guide/.
 --
--- If any one of the tags is invalid or if you exceed the allowed number of
--- tags for an account, then the entire request fails and the account is
--- not created.
+-- If you don\'t specify this parameter, the value defaults to @ALLOW@, and
+-- IAM users and roles with the required permissions can access billing
+-- information for the new account.
 --
 -- 'email', 'createAccount_email' - The email address of the owner to assign to the new member account. This
 -- email address must not already be associated with another AWS account.
@@ -257,26 +257,25 @@ newCreateAccount ::
   CreateAccount
 newCreateAccount pEmail_ pAccountName_ =
   CreateAccount'
-    { iamUserAccessToBilling =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
       roleName = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      iamUserAccessToBilling = Prelude.Nothing,
       email = Core._Sensitive Lens.# pEmail_,
       accountName = Core._Sensitive Lens.# pAccountName_
     }
 
--- | If set to @ALLOW@, the new account enables IAM users to access account
--- billing information /if/ they have the required permissions. If set to
--- @DENY@, only the root user of the new account can access account billing
--- information. For more information, see
--- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console>
--- in the /AWS Billing and Cost Management User Guide/.
+-- | A list of tags that you want to attach to the newly created account. For
+-- each tag in the list, you must specify both a tag key and a value. You
+-- can set the value to an empty string, but you can\'t set it to @null@.
+-- For more information about tagging, see
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources>
+-- in the AWS Organizations User Guide.
 --
--- If you don\'t specify this parameter, the value defaults to @ALLOW@, and
--- IAM users and roles with the required permissions can access billing
--- information for the new account.
-createAccount_iamUserAccessToBilling :: Lens.Lens' CreateAccount (Prelude.Maybe IAMUserAccessToBilling)
-createAccount_iamUserAccessToBilling = Lens.lens (\CreateAccount' {iamUserAccessToBilling} -> iamUserAccessToBilling) (\s@CreateAccount' {} a -> s {iamUserAccessToBilling = a} :: CreateAccount)
+-- If any one of the tags is invalid or if you exceed the allowed number of
+-- tags for an account, then the entire request fails and the account is
+-- not created.
+createAccount_tags :: Lens.Lens' CreateAccount (Prelude.Maybe [Tag])
+createAccount_tags = Lens.lens (\CreateAccount' {tags} -> tags) (\s@CreateAccount' {} a -> s {tags = a} :: CreateAccount) Prelude.. Lens.mapping Lens.coerced
 
 -- | (Optional)
 --
@@ -306,18 +305,18 @@ createAccount_iamUserAccessToBilling = Lens.lens (\CreateAccount' {iamUserAccess
 createAccount_roleName :: Lens.Lens' CreateAccount (Prelude.Maybe Prelude.Text)
 createAccount_roleName = Lens.lens (\CreateAccount' {roleName} -> roleName) (\s@CreateAccount' {} a -> s {roleName = a} :: CreateAccount)
 
--- | A list of tags that you want to attach to the newly created account. For
--- each tag in the list, you must specify both a tag key and a value. You
--- can set the value to an empty string, but you can\'t set it to @null@.
--- For more information about tagging, see
--- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources>
--- in the AWS Organizations User Guide.
+-- | If set to @ALLOW@, the new account enables IAM users to access account
+-- billing information /if/ they have the required permissions. If set to
+-- @DENY@, only the root user of the new account can access account billing
+-- information. For more information, see
+-- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console>
+-- in the /AWS Billing and Cost Management User Guide/.
 --
--- If any one of the tags is invalid or if you exceed the allowed number of
--- tags for an account, then the entire request fails and the account is
--- not created.
-createAccount_tags :: Lens.Lens' CreateAccount (Prelude.Maybe [Tag])
-createAccount_tags = Lens.lens (\CreateAccount' {tags} -> tags) (\s@CreateAccount' {} a -> s {tags = a} :: CreateAccount) Prelude.. Lens.mapping Lens.coerced
+-- If you don\'t specify this parameter, the value defaults to @ALLOW@, and
+-- IAM users and roles with the required permissions can access billing
+-- information for the new account.
+createAccount_iamUserAccessToBilling :: Lens.Lens' CreateAccount (Prelude.Maybe IAMUserAccessToBilling)
+createAccount_iamUserAccessToBilling = Lens.lens (\CreateAccount' {iamUserAccessToBilling} -> iamUserAccessToBilling) (\s@CreateAccount' {} a -> s {iamUserAccessToBilling = a} :: CreateAccount)
 
 -- | The email address of the owner to assign to the new member account. This
 -- email address must not already be associated with another AWS account.
@@ -346,17 +345,17 @@ instance Core.AWSRequest CreateAccount where
 
 instance Prelude.Hashable CreateAccount where
   hashWithSalt _salt CreateAccount' {..} =
-    _salt `Prelude.hashWithSalt` iamUserAccessToBilling
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` roleName
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` iamUserAccessToBilling
       `Prelude.hashWithSalt` email
       `Prelude.hashWithSalt` accountName
 
 instance Prelude.NFData CreateAccount where
   rnf CreateAccount' {..} =
-    Prelude.rnf iamUserAccessToBilling
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf iamUserAccessToBilling
       `Prelude.seq` Prelude.rnf email
       `Prelude.seq` Prelude.rnf accountName
 
@@ -379,10 +378,10 @@ instance Core.ToJSON CreateAccount where
   toJSON CreateAccount' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("IamUserAccessToBilling" Core..=)
-              Prelude.<$> iamUserAccessToBilling,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("RoleName" Core..=) Prelude.<$> roleName,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("IamUserAccessToBilling" Core..=)
+              Prelude.<$> iamUserAccessToBilling,
             Prelude.Just ("Email" Core..= email),
             Prelude.Just ("AccountName" Core..= accountName)
           ]

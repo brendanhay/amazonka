@@ -36,10 +36,10 @@ module Amazonka.MQ.ListConfigurationRevisions
     newListConfigurationRevisionsResponse,
 
     -- * Response Lenses
-    listConfigurationRevisionsResponse_configurationId,
     listConfigurationRevisionsResponse_nextToken,
     listConfigurationRevisionsResponse_revisions,
     listConfigurationRevisionsResponse_maxResults,
+    listConfigurationRevisionsResponse_configurationId,
     listConfigurationRevisionsResponse_httpStatus,
   )
 where
@@ -114,10 +114,10 @@ instance Core.AWSRequest ListConfigurationRevisions where
     Response.receiveJSON
       ( \s h x ->
           ListConfigurationRevisionsResponse'
-            Prelude.<$> (x Core..?> "configurationId")
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
             Prelude.<*> (x Core..?> "revisions" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "maxResults")
+            Prelude.<*> (x Core..?> "configurationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,9 +161,7 @@ instance Core.ToQuery ListConfigurationRevisions where
 
 -- | /See:/ 'newListConfigurationRevisionsResponse' smart constructor.
 data ListConfigurationRevisionsResponse = ListConfigurationRevisionsResponse'
-  { -- | The unique ID that Amazon MQ generates for the configuration.
-    configurationId :: Prelude.Maybe Prelude.Text,
-    -- | The token that specifies the next page of results Amazon MQ should
+  { -- | The token that specifies the next page of results Amazon MQ should
     -- return. To request the first page, leave nextToken empty.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of all revisions for the specified configuration.
@@ -171,6 +169,8 @@ data ListConfigurationRevisionsResponse = ListConfigurationRevisionsResponse'
     -- | The maximum number of configuration revisions that can be returned per
     -- page (20 by default). This value must be an integer from 5 to 100.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The unique ID that Amazon MQ generates for the configuration.
+    configurationId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -184,8 +184,6 @@ data ListConfigurationRevisionsResponse = ListConfigurationRevisionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configurationId', 'listConfigurationRevisionsResponse_configurationId' - The unique ID that Amazon MQ generates for the configuration.
---
 -- 'nextToken', 'listConfigurationRevisionsResponse_nextToken' - The token that specifies the next page of results Amazon MQ should
 -- return. To request the first page, leave nextToken empty.
 --
@@ -194,6 +192,8 @@ data ListConfigurationRevisionsResponse = ListConfigurationRevisionsResponse'
 -- 'maxResults', 'listConfigurationRevisionsResponse_maxResults' - The maximum number of configuration revisions that can be returned per
 -- page (20 by default). This value must be an integer from 5 to 100.
 --
+-- 'configurationId', 'listConfigurationRevisionsResponse_configurationId' - The unique ID that Amazon MQ generates for the configuration.
+--
 -- 'httpStatus', 'listConfigurationRevisionsResponse_httpStatus' - The response's http status code.
 newListConfigurationRevisionsResponse ::
   -- | 'httpStatus'
@@ -201,17 +201,13 @@ newListConfigurationRevisionsResponse ::
   ListConfigurationRevisionsResponse
 newListConfigurationRevisionsResponse pHttpStatus_ =
   ListConfigurationRevisionsResponse'
-    { configurationId =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       revisions = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      configurationId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The unique ID that Amazon MQ generates for the configuration.
-listConfigurationRevisionsResponse_configurationId :: Lens.Lens' ListConfigurationRevisionsResponse (Prelude.Maybe Prelude.Text)
-listConfigurationRevisionsResponse_configurationId = Lens.lens (\ListConfigurationRevisionsResponse' {configurationId} -> configurationId) (\s@ListConfigurationRevisionsResponse' {} a -> s {configurationId = a} :: ListConfigurationRevisionsResponse)
 
 -- | The token that specifies the next page of results Amazon MQ should
 -- return. To request the first page, leave nextToken empty.
@@ -227,6 +223,10 @@ listConfigurationRevisionsResponse_revisions = Lens.lens (\ListConfigurationRevi
 listConfigurationRevisionsResponse_maxResults :: Lens.Lens' ListConfigurationRevisionsResponse (Prelude.Maybe Prelude.Int)
 listConfigurationRevisionsResponse_maxResults = Lens.lens (\ListConfigurationRevisionsResponse' {maxResults} -> maxResults) (\s@ListConfigurationRevisionsResponse' {} a -> s {maxResults = a} :: ListConfigurationRevisionsResponse)
 
+-- | The unique ID that Amazon MQ generates for the configuration.
+listConfigurationRevisionsResponse_configurationId :: Lens.Lens' ListConfigurationRevisionsResponse (Prelude.Maybe Prelude.Text)
+listConfigurationRevisionsResponse_configurationId = Lens.lens (\ListConfigurationRevisionsResponse' {configurationId} -> configurationId) (\s@ListConfigurationRevisionsResponse' {} a -> s {configurationId = a} :: ListConfigurationRevisionsResponse)
+
 -- | The response's http status code.
 listConfigurationRevisionsResponse_httpStatus :: Lens.Lens' ListConfigurationRevisionsResponse Prelude.Int
 listConfigurationRevisionsResponse_httpStatus = Lens.lens (\ListConfigurationRevisionsResponse' {httpStatus} -> httpStatus) (\s@ListConfigurationRevisionsResponse' {} a -> s {httpStatus = a} :: ListConfigurationRevisionsResponse)
@@ -236,8 +236,8 @@ instance
     ListConfigurationRevisionsResponse
   where
   rnf ListConfigurationRevisionsResponse' {..} =
-    Prelude.rnf configurationId
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf revisions
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf configurationId
       `Prelude.seq` Prelude.rnf httpStatus

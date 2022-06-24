@@ -35,16 +35,16 @@ data BrokerSummary = BrokerSummary'
     -- underscores, and must not contain white spaces, brackets, wildcard
     -- characters, or special characters.
     brokerName :: Prelude.Maybe Prelude.Text,
-    -- | The broker\'s status.
-    brokerState :: Prelude.Maybe BrokerState,
     -- | The time when the broker was created.
     created :: Prelude.Maybe Core.POSIX,
+    -- | The broker\'s status.
+    brokerState :: Prelude.Maybe BrokerState,
     -- | The unique ID that Amazon MQ generates for the broker.
     brokerId :: Prelude.Maybe Prelude.Text,
-    -- | The broker\'s Amazon Resource Name (ARN).
-    brokerArn :: Prelude.Maybe Prelude.Text,
     -- | The broker\'s instance type.
     hostInstanceType :: Prelude.Maybe Prelude.Text,
+    -- | The broker\'s Amazon Resource Name (ARN).
+    brokerArn :: Prelude.Maybe Prelude.Text,
     -- | The broker\'s deployment mode.
     deploymentMode :: DeploymentMode,
     -- | The type of broker engine.
@@ -65,15 +65,15 @@ data BrokerSummary = BrokerSummary'
 -- underscores, and must not contain white spaces, brackets, wildcard
 -- characters, or special characters.
 --
--- 'brokerState', 'brokerSummary_brokerState' - The broker\'s status.
---
 -- 'created', 'brokerSummary_created' - The time when the broker was created.
+--
+-- 'brokerState', 'brokerSummary_brokerState' - The broker\'s status.
 --
 -- 'brokerId', 'brokerSummary_brokerId' - The unique ID that Amazon MQ generates for the broker.
 --
--- 'brokerArn', 'brokerSummary_brokerArn' - The broker\'s Amazon Resource Name (ARN).
---
 -- 'hostInstanceType', 'brokerSummary_hostInstanceType' - The broker\'s instance type.
+--
+-- 'brokerArn', 'brokerSummary_brokerArn' - The broker\'s Amazon Resource Name (ARN).
 --
 -- 'deploymentMode', 'brokerSummary_deploymentMode' - The broker\'s deployment mode.
 --
@@ -87,11 +87,11 @@ newBrokerSummary ::
 newBrokerSummary pDeploymentMode_ pEngineType_ =
   BrokerSummary'
     { brokerName = Prelude.Nothing,
-      brokerState = Prelude.Nothing,
       created = Prelude.Nothing,
+      brokerState = Prelude.Nothing,
       brokerId = Prelude.Nothing,
-      brokerArn = Prelude.Nothing,
       hostInstanceType = Prelude.Nothing,
+      brokerArn = Prelude.Nothing,
       deploymentMode = pDeploymentMode_,
       engineType = pEngineType_
     }
@@ -103,25 +103,25 @@ newBrokerSummary pDeploymentMode_ pEngineType_ =
 brokerSummary_brokerName :: Lens.Lens' BrokerSummary (Prelude.Maybe Prelude.Text)
 brokerSummary_brokerName = Lens.lens (\BrokerSummary' {brokerName} -> brokerName) (\s@BrokerSummary' {} a -> s {brokerName = a} :: BrokerSummary)
 
--- | The broker\'s status.
-brokerSummary_brokerState :: Lens.Lens' BrokerSummary (Prelude.Maybe BrokerState)
-brokerSummary_brokerState = Lens.lens (\BrokerSummary' {brokerState} -> brokerState) (\s@BrokerSummary' {} a -> s {brokerState = a} :: BrokerSummary)
-
 -- | The time when the broker was created.
 brokerSummary_created :: Lens.Lens' BrokerSummary (Prelude.Maybe Prelude.UTCTime)
 brokerSummary_created = Lens.lens (\BrokerSummary' {created} -> created) (\s@BrokerSummary' {} a -> s {created = a} :: BrokerSummary) Prelude.. Lens.mapping Core._Time
+
+-- | The broker\'s status.
+brokerSummary_brokerState :: Lens.Lens' BrokerSummary (Prelude.Maybe BrokerState)
+brokerSummary_brokerState = Lens.lens (\BrokerSummary' {brokerState} -> brokerState) (\s@BrokerSummary' {} a -> s {brokerState = a} :: BrokerSummary)
 
 -- | The unique ID that Amazon MQ generates for the broker.
 brokerSummary_brokerId :: Lens.Lens' BrokerSummary (Prelude.Maybe Prelude.Text)
 brokerSummary_brokerId = Lens.lens (\BrokerSummary' {brokerId} -> brokerId) (\s@BrokerSummary' {} a -> s {brokerId = a} :: BrokerSummary)
 
--- | The broker\'s Amazon Resource Name (ARN).
-brokerSummary_brokerArn :: Lens.Lens' BrokerSummary (Prelude.Maybe Prelude.Text)
-brokerSummary_brokerArn = Lens.lens (\BrokerSummary' {brokerArn} -> brokerArn) (\s@BrokerSummary' {} a -> s {brokerArn = a} :: BrokerSummary)
-
 -- | The broker\'s instance type.
 brokerSummary_hostInstanceType :: Lens.Lens' BrokerSummary (Prelude.Maybe Prelude.Text)
 brokerSummary_hostInstanceType = Lens.lens (\BrokerSummary' {hostInstanceType} -> hostInstanceType) (\s@BrokerSummary' {} a -> s {hostInstanceType = a} :: BrokerSummary)
+
+-- | The broker\'s Amazon Resource Name (ARN).
+brokerSummary_brokerArn :: Lens.Lens' BrokerSummary (Prelude.Maybe Prelude.Text)
+brokerSummary_brokerArn = Lens.lens (\BrokerSummary' {brokerArn} -> brokerArn) (\s@BrokerSummary' {} a -> s {brokerArn = a} :: BrokerSummary)
 
 -- | The broker\'s deployment mode.
 brokerSummary_deploymentMode :: Lens.Lens' BrokerSummary DeploymentMode
@@ -138,11 +138,11 @@ instance Core.FromJSON BrokerSummary where
       ( \x ->
           BrokerSummary'
             Prelude.<$> (x Core..:? "brokerName")
-            Prelude.<*> (x Core..:? "brokerState")
             Prelude.<*> (x Core..:? "created")
+            Prelude.<*> (x Core..:? "brokerState")
             Prelude.<*> (x Core..:? "brokerId")
-            Prelude.<*> (x Core..:? "brokerArn")
             Prelude.<*> (x Core..:? "hostInstanceType")
+            Prelude.<*> (x Core..:? "brokerArn")
             Prelude.<*> (x Core..: "deploymentMode")
             Prelude.<*> (x Core..: "engineType")
       )
@@ -150,21 +150,21 @@ instance Core.FromJSON BrokerSummary where
 instance Prelude.Hashable BrokerSummary where
   hashWithSalt _salt BrokerSummary' {..} =
     _salt `Prelude.hashWithSalt` brokerName
-      `Prelude.hashWithSalt` brokerState
       `Prelude.hashWithSalt` created
+      `Prelude.hashWithSalt` brokerState
       `Prelude.hashWithSalt` brokerId
-      `Prelude.hashWithSalt` brokerArn
       `Prelude.hashWithSalt` hostInstanceType
+      `Prelude.hashWithSalt` brokerArn
       `Prelude.hashWithSalt` deploymentMode
       `Prelude.hashWithSalt` engineType
 
 instance Prelude.NFData BrokerSummary where
   rnf BrokerSummary' {..} =
     Prelude.rnf brokerName
-      `Prelude.seq` Prelude.rnf brokerState
       `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf brokerState
       `Prelude.seq` Prelude.rnf brokerId
-      `Prelude.seq` Prelude.rnf brokerArn
       `Prelude.seq` Prelude.rnf hostInstanceType
+      `Prelude.seq` Prelude.rnf brokerArn
       `Prelude.seq` Prelude.rnf deploymentMode
       `Prelude.seq` Prelude.rnf engineType

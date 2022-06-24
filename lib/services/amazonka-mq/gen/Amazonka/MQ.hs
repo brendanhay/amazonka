@@ -23,11 +23,8 @@ module Amazonka.MQ
     -- * Errors
     -- $errors
 
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** ForbiddenException
-    _ForbiddenException,
+    -- ** UnauthorizedException
+    _UnauthorizedException,
 
     -- ** NotFoundException
     _NotFoundException,
@@ -35,8 +32,11 @@ module Amazonka.MQ
     -- ** InternalServerErrorException
     _InternalServerErrorException,
 
-    -- ** UnauthorizedException
-    _UnauthorizedException,
+    -- ** ForbiddenException
+    _ForbiddenException,
+
+    -- ** ConflictException
+    _ConflictException,
 
     -- ** BadRequestException
     _BadRequestException,
@@ -47,41 +47,17 @@ module Amazonka.MQ
     -- * Operations
     -- $operations
 
-    -- ** CreateConfiguration
-    CreateConfiguration (CreateConfiguration'),
-    newCreateConfiguration,
-    CreateConfigurationResponse (CreateConfigurationResponse'),
-    newCreateConfigurationResponse,
-
     -- ** CreateBroker
     CreateBroker (CreateBroker'),
     newCreateBroker,
     CreateBrokerResponse (CreateBrokerResponse'),
     newCreateBrokerResponse,
 
-    -- ** DeleteBroker
-    DeleteBroker (DeleteBroker'),
-    newDeleteBroker,
-    DeleteBrokerResponse (DeleteBrokerResponse'),
-    newDeleteBrokerResponse,
-
-    -- ** UpdateBroker
-    UpdateBroker (UpdateBroker'),
-    newUpdateBroker,
-    UpdateBrokerResponse (UpdateBrokerResponse'),
-    newUpdateBrokerResponse,
-
-    -- ** RebootBroker
-    RebootBroker (RebootBroker'),
-    newRebootBroker,
-    RebootBrokerResponse (RebootBrokerResponse'),
-    newRebootBrokerResponse,
-
-    -- ** ListConfigurationRevisions
-    ListConfigurationRevisions (ListConfigurationRevisions'),
-    newListConfigurationRevisions,
-    ListConfigurationRevisionsResponse (ListConfigurationRevisionsResponse'),
-    newListConfigurationRevisionsResponse,
+    -- ** CreateConfiguration
+    CreateConfiguration (CreateConfiguration'),
+    newCreateConfiguration,
+    CreateConfigurationResponse (CreateConfigurationResponse'),
+    newCreateConfigurationResponse,
 
     -- ** CreateTags
     CreateTags (CreateTags'),
@@ -89,11 +65,17 @@ module Amazonka.MQ
     CreateTagsResponse (CreateTagsResponse'),
     newCreateTagsResponse,
 
-    -- ** ListUsers
-    ListUsers (ListUsers'),
-    newListUsers,
-    ListUsersResponse (ListUsersResponse'),
-    newListUsersResponse,
+    -- ** CreateUser
+    CreateUser (CreateUser'),
+    newCreateUser,
+    CreateUserResponse (CreateUserResponse'),
+    newCreateUserResponse,
+
+    -- ** DeleteBroker
+    DeleteBroker (DeleteBroker'),
+    newDeleteBroker,
+    DeleteBrokerResponse (DeleteBrokerResponse'),
+    newDeleteBrokerResponse,
 
     -- ** DeleteTags
     DeleteTags (DeleteTags'),
@@ -101,71 +83,11 @@ module Amazonka.MQ
     DeleteTagsResponse (DeleteTagsResponse'),
     newDeleteTagsResponse,
 
-    -- ** ListConfigurations
-    ListConfigurations (ListConfigurations'),
-    newListConfigurations,
-    ListConfigurationsResponse (ListConfigurationsResponse'),
-    newListConfigurationsResponse,
-
-    -- ** DescribeUser
-    DescribeUser (DescribeUser'),
-    newDescribeUser,
-    DescribeUserResponse (DescribeUserResponse'),
-    newDescribeUserResponse,
-
-    -- ** DescribeBrokerInstanceOptions
-    DescribeBrokerInstanceOptions (DescribeBrokerInstanceOptions'),
-    newDescribeBrokerInstanceOptions,
-    DescribeBrokerInstanceOptionsResponse (DescribeBrokerInstanceOptionsResponse'),
-    newDescribeBrokerInstanceOptionsResponse,
-
-    -- ** ListBrokers (Paginated)
-    ListBrokers (ListBrokers'),
-    newListBrokers,
-    ListBrokersResponse (ListBrokersResponse'),
-    newListBrokersResponse,
-
-    -- ** CreateUser
-    CreateUser (CreateUser'),
-    newCreateUser,
-    CreateUserResponse (CreateUserResponse'),
-    newCreateUserResponse,
-
-    -- ** DescribeConfiguration
-    DescribeConfiguration (DescribeConfiguration'),
-    newDescribeConfiguration,
-    DescribeConfigurationResponse (DescribeConfigurationResponse'),
-    newDescribeConfigurationResponse,
-
-    -- ** UpdateUser
-    UpdateUser (UpdateUser'),
-    newUpdateUser,
-    UpdateUserResponse (UpdateUserResponse'),
-    newUpdateUserResponse,
-
     -- ** DeleteUser
     DeleteUser (DeleteUser'),
     newDeleteUser,
     DeleteUserResponse (DeleteUserResponse'),
     newDeleteUserResponse,
-
-    -- ** ListTags
-    ListTags (ListTags'),
-    newListTags,
-    ListTagsResponse (ListTagsResponse'),
-    newListTagsResponse,
-
-    -- ** DescribeBrokerEngineTypes
-    DescribeBrokerEngineTypes (DescribeBrokerEngineTypes'),
-    newDescribeBrokerEngineTypes,
-    DescribeBrokerEngineTypesResponse (DescribeBrokerEngineTypesResponse'),
-    newDescribeBrokerEngineTypesResponse,
-
-    -- ** DescribeConfigurationRevision
-    DescribeConfigurationRevision (DescribeConfigurationRevision'),
-    newDescribeConfigurationRevision,
-    DescribeConfigurationRevisionResponse (DescribeConfigurationRevisionResponse'),
-    newDescribeConfigurationRevisionResponse,
 
     -- ** DescribeBroker
     DescribeBroker (DescribeBroker'),
@@ -173,11 +95,89 @@ module Amazonka.MQ
     DescribeBrokerResponse (DescribeBrokerResponse'),
     newDescribeBrokerResponse,
 
+    -- ** DescribeBrokerEngineTypes
+    DescribeBrokerEngineTypes (DescribeBrokerEngineTypes'),
+    newDescribeBrokerEngineTypes,
+    DescribeBrokerEngineTypesResponse (DescribeBrokerEngineTypesResponse'),
+    newDescribeBrokerEngineTypesResponse,
+
+    -- ** DescribeBrokerInstanceOptions
+    DescribeBrokerInstanceOptions (DescribeBrokerInstanceOptions'),
+    newDescribeBrokerInstanceOptions,
+    DescribeBrokerInstanceOptionsResponse (DescribeBrokerInstanceOptionsResponse'),
+    newDescribeBrokerInstanceOptionsResponse,
+
+    -- ** DescribeConfiguration
+    DescribeConfiguration (DescribeConfiguration'),
+    newDescribeConfiguration,
+    DescribeConfigurationResponse (DescribeConfigurationResponse'),
+    newDescribeConfigurationResponse,
+
+    -- ** DescribeConfigurationRevision
+    DescribeConfigurationRevision (DescribeConfigurationRevision'),
+    newDescribeConfigurationRevision,
+    DescribeConfigurationRevisionResponse (DescribeConfigurationRevisionResponse'),
+    newDescribeConfigurationRevisionResponse,
+
+    -- ** DescribeUser
+    DescribeUser (DescribeUser'),
+    newDescribeUser,
+    DescribeUserResponse (DescribeUserResponse'),
+    newDescribeUserResponse,
+
+    -- ** ListBrokers (Paginated)
+    ListBrokers (ListBrokers'),
+    newListBrokers,
+    ListBrokersResponse (ListBrokersResponse'),
+    newListBrokersResponse,
+
+    -- ** ListConfigurationRevisions
+    ListConfigurationRevisions (ListConfigurationRevisions'),
+    newListConfigurationRevisions,
+    ListConfigurationRevisionsResponse (ListConfigurationRevisionsResponse'),
+    newListConfigurationRevisionsResponse,
+
+    -- ** ListConfigurations
+    ListConfigurations (ListConfigurations'),
+    newListConfigurations,
+    ListConfigurationsResponse (ListConfigurationsResponse'),
+    newListConfigurationsResponse,
+
+    -- ** ListTags
+    ListTags (ListTags'),
+    newListTags,
+    ListTagsResponse (ListTagsResponse'),
+    newListTagsResponse,
+
+    -- ** ListUsers
+    ListUsers (ListUsers'),
+    newListUsers,
+    ListUsersResponse (ListUsersResponse'),
+    newListUsersResponse,
+
+    -- ** RebootBroker
+    RebootBroker (RebootBroker'),
+    newRebootBroker,
+    RebootBrokerResponse (RebootBrokerResponse'),
+    newRebootBrokerResponse,
+
+    -- ** UpdateBroker
+    UpdateBroker (UpdateBroker'),
+    newUpdateBroker,
+    UpdateBrokerResponse (UpdateBrokerResponse'),
+    newUpdateBrokerResponse,
+
     -- ** UpdateConfiguration
     UpdateConfiguration (UpdateConfiguration'),
     newUpdateConfiguration,
     UpdateConfigurationResponse (UpdateConfigurationResponse'),
     newUpdateConfigurationResponse,
+
+    -- ** UpdateUser
+    UpdateUser (UpdateUser'),
+    newUpdateUser,
+    UpdateUserResponse (UpdateUserResponse'),
+    newUpdateUserResponse,
 
     -- * Types
 

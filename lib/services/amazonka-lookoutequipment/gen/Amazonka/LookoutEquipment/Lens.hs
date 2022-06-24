@@ -14,55 +14,45 @@
 module Amazonka.LookoutEquipment.Lens
   ( -- * Operations
 
-    -- ** StartInferenceScheduler
-    startInferenceScheduler_inferenceSchedulerName,
-    startInferenceSchedulerResponse_status,
-    startInferenceSchedulerResponse_modelArn,
-    startInferenceSchedulerResponse_modelName,
-    startInferenceSchedulerResponse_inferenceSchedulerArn,
-    startInferenceSchedulerResponse_inferenceSchedulerName,
-    startInferenceSchedulerResponse_httpStatus,
+    -- ** CreateDataset
+    createDataset_tags,
+    createDataset_serverSideKmsKeyId,
+    createDataset_datasetName,
+    createDataset_datasetSchema,
+    createDataset_clientToken,
+    createDatasetResponse_datasetName,
+    createDatasetResponse_status,
+    createDatasetResponse_datasetArn,
+    createDatasetResponse_httpStatus,
 
-    -- ** DescribeDataset
-    describeDataset_datasetName,
-    describeDatasetResponse_ingestionInputConfiguration,
-    describeDatasetResponse_status,
-    describeDatasetResponse_datasetArn,
-    describeDatasetResponse_lastUpdatedAt,
-    describeDatasetResponse_createdAt,
-    describeDatasetResponse_schema,
-    describeDatasetResponse_datasetName,
-    describeDatasetResponse_serverSideKmsKeyId,
-    describeDatasetResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** DescribeDataIngestionJob
-    describeDataIngestionJob_jobId,
-    describeDataIngestionJobResponse_ingestionInputConfiguration,
-    describeDataIngestionJobResponse_status,
-    describeDataIngestionJobResponse_datasetArn,
-    describeDataIngestionJobResponse_failedReason,
-    describeDataIngestionJobResponse_jobId,
-    describeDataIngestionJobResponse_createdAt,
-    describeDataIngestionJobResponse_roleArn,
-    describeDataIngestionJobResponse_httpStatus,
+    -- ** CreateInferenceScheduler
+    createInferenceScheduler_tags,
+    createInferenceScheduler_serverSideKmsKeyId,
+    createInferenceScheduler_dataDelayOffsetInMinutes,
+    createInferenceScheduler_modelName,
+    createInferenceScheduler_inferenceSchedulerName,
+    createInferenceScheduler_dataUploadFrequency,
+    createInferenceScheduler_dataInputConfiguration,
+    createInferenceScheduler_dataOutputConfiguration,
+    createInferenceScheduler_roleArn,
+    createInferenceScheduler_clientToken,
+    createInferenceSchedulerResponse_inferenceSchedulerName,
+    createInferenceSchedulerResponse_status,
+    createInferenceSchedulerResponse_inferenceSchedulerArn,
+    createInferenceSchedulerResponse_httpStatus,
 
     -- ** CreateModel
-    createModel_dataPreProcessingConfiguration,
-    createModel_trainingDataEndTime,
-    createModel_datasetSchema,
-    createModel_evaluationDataStartTime,
-    createModel_offCondition,
-    createModel_evaluationDataEndTime,
-    createModel_trainingDataStartTime,
-    createModel_labelsInputConfiguration,
     createModel_tags,
     createModel_serverSideKmsKeyId,
     createModel_roleArn,
+    createModel_dataPreProcessingConfiguration,
+    createModel_datasetSchema,
+    createModel_labelsInputConfiguration,
+    createModel_trainingDataStartTime,
+    createModel_evaluationDataStartTime,
+    createModel_trainingDataEndTime,
+    createModel_evaluationDataEndTime,
+    createModel_offCondition,
     createModel_modelName,
     createModel_datasetName,
     createModel_clientToken,
@@ -73,172 +63,182 @@ module Amazonka.LookoutEquipment.Lens
     -- ** DeleteDataset
     deleteDataset_datasetName,
 
-    -- ** CreateDataset
-    createDataset_tags,
-    createDataset_serverSideKmsKeyId,
-    createDataset_datasetName,
-    createDataset_datasetSchema,
-    createDataset_clientToken,
-    createDatasetResponse_status,
-    createDatasetResponse_datasetArn,
-    createDatasetResponse_datasetName,
-    createDatasetResponse_httpStatus,
+    -- ** DeleteInferenceScheduler
+    deleteInferenceScheduler_inferenceSchedulerName,
 
     -- ** DeleteModel
     deleteModel_modelName,
 
-    -- ** ListModels
-    listModels_status,
-    listModels_nextToken,
-    listModels_datasetNameBeginsWith,
-    listModels_modelNameBeginsWith,
-    listModels_maxResults,
-    listModelsResponse_nextToken,
-    listModelsResponse_modelSummaries,
-    listModelsResponse_httpStatus,
+    -- ** DescribeDataIngestionJob
+    describeDataIngestionJob_jobId,
+    describeDataIngestionJobResponse_failedReason,
+    describeDataIngestionJobResponse_roleArn,
+    describeDataIngestionJobResponse_jobId,
+    describeDataIngestionJobResponse_status,
+    describeDataIngestionJobResponse_datasetArn,
+    describeDataIngestionJobResponse_ingestionInputConfiguration,
+    describeDataIngestionJobResponse_createdAt,
+    describeDataIngestionJobResponse_httpStatus,
 
-    -- ** StopInferenceScheduler
-    stopInferenceScheduler_inferenceSchedulerName,
-    stopInferenceSchedulerResponse_status,
-    stopInferenceSchedulerResponse_modelArn,
-    stopInferenceSchedulerResponse_modelName,
-    stopInferenceSchedulerResponse_inferenceSchedulerArn,
-    stopInferenceSchedulerResponse_inferenceSchedulerName,
-    stopInferenceSchedulerResponse_httpStatus,
+    -- ** DescribeDataset
+    describeDataset_datasetName,
+    describeDatasetResponse_serverSideKmsKeyId,
+    describeDatasetResponse_lastUpdatedAt,
+    describeDatasetResponse_datasetName,
+    describeDatasetResponse_status,
+    describeDatasetResponse_datasetArn,
+    describeDatasetResponse_ingestionInputConfiguration,
+    describeDatasetResponse_schema,
+    describeDatasetResponse_createdAt,
+    describeDatasetResponse_httpStatus,
+
+    -- ** DescribeInferenceScheduler
+    describeInferenceScheduler_inferenceSchedulerName,
+    describeInferenceSchedulerResponse_inferenceSchedulerName,
+    describeInferenceSchedulerResponse_serverSideKmsKeyId,
+    describeInferenceSchedulerResponse_roleArn,
+    describeInferenceSchedulerResponse_dataDelayOffsetInMinutes,
+    describeInferenceSchedulerResponse_dataOutputConfiguration,
+    describeInferenceSchedulerResponse_status,
+    describeInferenceSchedulerResponse_modelArn,
+    describeInferenceSchedulerResponse_modelName,
+    describeInferenceSchedulerResponse_dataUploadFrequency,
+    describeInferenceSchedulerResponse_createdAt,
+    describeInferenceSchedulerResponse_inferenceSchedulerArn,
+    describeInferenceSchedulerResponse_updatedAt,
+    describeInferenceSchedulerResponse_dataInputConfiguration,
+    describeInferenceSchedulerResponse_httpStatus,
+
+    -- ** DescribeModel
+    describeModel_modelName,
+    describeModelResponse_serverSideKmsKeyId,
+    describeModelResponse_failedReason,
+    describeModelResponse_roleArn,
+    describeModelResponse_dataPreProcessingConfiguration,
+    describeModelResponse_labelsInputConfiguration,
+    describeModelResponse_datasetName,
+    describeModelResponse_status,
+    describeModelResponse_lastUpdatedTime,
+    describeModelResponse_datasetArn,
+    describeModelResponse_trainingExecutionStartTime,
+    describeModelResponse_trainingDataStartTime,
+    describeModelResponse_modelMetrics,
+    describeModelResponse_modelArn,
+    describeModelResponse_modelName,
+    describeModelResponse_schema,
+    describeModelResponse_evaluationDataStartTime,
+    describeModelResponse_trainingDataEndTime,
+    describeModelResponse_createdAt,
+    describeModelResponse_evaluationDataEndTime,
+    describeModelResponse_offCondition,
+    describeModelResponse_trainingExecutionEndTime,
+    describeModelResponse_httpStatus,
 
     -- ** ListDataIngestionJobs
-    listDataIngestionJobs_status,
     listDataIngestionJobs_nextToken,
     listDataIngestionJobs_datasetName,
+    listDataIngestionJobs_status,
     listDataIngestionJobs_maxResults,
     listDataIngestionJobsResponse_nextToken,
     listDataIngestionJobsResponse_dataIngestionJobSummaries,
     listDataIngestionJobsResponse_httpStatus,
 
-    -- ** DescribeModel
-    describeModel_modelName,
-    describeModelResponse_status,
-    describeModelResponse_dataPreProcessingConfiguration,
-    describeModelResponse_trainingExecutionStartTime,
-    describeModelResponse_datasetArn,
-    describeModelResponse_failedReason,
-    describeModelResponse_modelArn,
-    describeModelResponse_lastUpdatedTime,
-    describeModelResponse_trainingDataEndTime,
-    describeModelResponse_createdAt,
-    describeModelResponse_modelName,
-    describeModelResponse_modelMetrics,
-    describeModelResponse_evaluationDataStartTime,
-    describeModelResponse_schema,
-    describeModelResponse_offCondition,
-    describeModelResponse_evaluationDataEndTime,
-    describeModelResponse_datasetName,
-    describeModelResponse_trainingDataStartTime,
-    describeModelResponse_trainingExecutionEndTime,
-    describeModelResponse_labelsInputConfiguration,
-    describeModelResponse_serverSideKmsKeyId,
-    describeModelResponse_roleArn,
-    describeModelResponse_httpStatus,
+    -- ** ListDatasets
+    listDatasets_nextToken,
+    listDatasets_maxResults,
+    listDatasets_datasetNameBeginsWith,
+    listDatasetsResponse_nextToken,
+    listDatasetsResponse_datasetSummaries,
+    listDatasetsResponse_httpStatus,
+
+    -- ** ListInferenceExecutions
+    listInferenceExecutions_dataStartTimeAfter,
+    listInferenceExecutions_nextToken,
+    listInferenceExecutions_status,
+    listInferenceExecutions_maxResults,
+    listInferenceExecutions_dataEndTimeBefore,
+    listInferenceExecutions_inferenceSchedulerName,
+    listInferenceExecutionsResponse_nextToken,
+    listInferenceExecutionsResponse_inferenceExecutionSummaries,
+    listInferenceExecutionsResponse_httpStatus,
+
+    -- ** ListInferenceSchedulers
+    listInferenceSchedulers_nextToken,
+    listInferenceSchedulers_inferenceSchedulerNameBeginsWith,
+    listInferenceSchedulers_maxResults,
+    listInferenceSchedulers_modelName,
+    listInferenceSchedulersResponse_nextToken,
+    listInferenceSchedulersResponse_inferenceSchedulerSummaries,
+    listInferenceSchedulersResponse_httpStatus,
+
+    -- ** ListModels
+    listModels_nextToken,
+    listModels_status,
+    listModels_maxResults,
+    listModels_modelNameBeginsWith,
+    listModels_datasetNameBeginsWith,
+    listModelsResponse_nextToken,
+    listModelsResponse_modelSummaries,
+    listModelsResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
     -- ** StartDataIngestionJob
     startDataIngestionJob_datasetName,
     startDataIngestionJob_ingestionInputConfiguration,
     startDataIngestionJob_roleArn,
     startDataIngestionJob_clientToken,
-    startDataIngestionJobResponse_status,
     startDataIngestionJobResponse_jobId,
+    startDataIngestionJobResponse_status,
     startDataIngestionJobResponse_httpStatus,
 
-    -- ** ListInferenceSchedulers
-    listInferenceSchedulers_modelName,
-    listInferenceSchedulers_nextToken,
-    listInferenceSchedulers_inferenceSchedulerNameBeginsWith,
-    listInferenceSchedulers_maxResults,
-    listInferenceSchedulersResponse_inferenceSchedulerSummaries,
-    listInferenceSchedulersResponse_nextToken,
-    listInferenceSchedulersResponse_httpStatus,
+    -- ** StartInferenceScheduler
+    startInferenceScheduler_inferenceSchedulerName,
+    startInferenceSchedulerResponse_inferenceSchedulerName,
+    startInferenceSchedulerResponse_status,
+    startInferenceSchedulerResponse_modelArn,
+    startInferenceSchedulerResponse_modelName,
+    startInferenceSchedulerResponse_inferenceSchedulerArn,
+    startInferenceSchedulerResponse_httpStatus,
 
-    -- ** UpdateInferenceScheduler
-    updateInferenceScheduler_dataUploadFrequency,
-    updateInferenceScheduler_dataDelayOffsetInMinutes,
-    updateInferenceScheduler_dataOutputConfiguration,
-    updateInferenceScheduler_dataInputConfiguration,
-    updateInferenceScheduler_roleArn,
-    updateInferenceScheduler_inferenceSchedulerName,
-
-    -- ** DeleteInferenceScheduler
-    deleteInferenceScheduler_inferenceSchedulerName,
+    -- ** StopInferenceScheduler
+    stopInferenceScheduler_inferenceSchedulerName,
+    stopInferenceSchedulerResponse_inferenceSchedulerName,
+    stopInferenceSchedulerResponse_status,
+    stopInferenceSchedulerResponse_modelArn,
+    stopInferenceSchedulerResponse_modelName,
+    stopInferenceSchedulerResponse_inferenceSchedulerArn,
+    stopInferenceSchedulerResponse_httpStatus,
 
     -- ** TagResource
     tagResource_resourceArn,
     tagResource_tags,
     tagResourceResponse_httpStatus,
 
-    -- ** ListInferenceExecutions
-    listInferenceExecutions_status,
-    listInferenceExecutions_dataEndTimeBefore,
-    listInferenceExecutions_nextToken,
-    listInferenceExecutions_maxResults,
-    listInferenceExecutions_dataStartTimeAfter,
-    listInferenceExecutions_inferenceSchedulerName,
-    listInferenceExecutionsResponse_nextToken,
-    listInferenceExecutionsResponse_inferenceExecutionSummaries,
-    listInferenceExecutionsResponse_httpStatus,
-
-    -- ** CreateInferenceScheduler
-    createInferenceScheduler_dataDelayOffsetInMinutes,
-    createInferenceScheduler_tags,
-    createInferenceScheduler_serverSideKmsKeyId,
-    createInferenceScheduler_modelName,
-    createInferenceScheduler_inferenceSchedulerName,
-    createInferenceScheduler_dataUploadFrequency,
-    createInferenceScheduler_dataInputConfiguration,
-    createInferenceScheduler_dataOutputConfiguration,
-    createInferenceScheduler_roleArn,
-    createInferenceScheduler_clientToken,
-    createInferenceSchedulerResponse_status,
-    createInferenceSchedulerResponse_inferenceSchedulerArn,
-    createInferenceSchedulerResponse_inferenceSchedulerName,
-    createInferenceSchedulerResponse_httpStatus,
-
-    -- ** ListDatasets
-    listDatasets_nextToken,
-    listDatasets_datasetNameBeginsWith,
-    listDatasets_maxResults,
-    listDatasetsResponse_nextToken,
-    listDatasetsResponse_datasetSummaries,
-    listDatasetsResponse_httpStatus,
-
     -- ** UntagResource
     untagResource_resourceArn,
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
-    -- ** DescribeInferenceScheduler
-    describeInferenceScheduler_inferenceSchedulerName,
-    describeInferenceSchedulerResponse_status,
-    describeInferenceSchedulerResponse_dataUploadFrequency,
-    describeInferenceSchedulerResponse_dataDelayOffsetInMinutes,
-    describeInferenceSchedulerResponse_modelArn,
-    describeInferenceSchedulerResponse_createdAt,
-    describeInferenceSchedulerResponse_modelName,
-    describeInferenceSchedulerResponse_inferenceSchedulerArn,
-    describeInferenceSchedulerResponse_dataOutputConfiguration,
-    describeInferenceSchedulerResponse_updatedAt,
-    describeInferenceSchedulerResponse_inferenceSchedulerName,
-    describeInferenceSchedulerResponse_dataInputConfiguration,
-    describeInferenceSchedulerResponse_serverSideKmsKeyId,
-    describeInferenceSchedulerResponse_roleArn,
-    describeInferenceSchedulerResponse_httpStatus,
+    -- ** UpdateInferenceScheduler
+    updateInferenceScheduler_roleArn,
+    updateInferenceScheduler_dataDelayOffsetInMinutes,
+    updateInferenceScheduler_dataOutputConfiguration,
+    updateInferenceScheduler_dataUploadFrequency,
+    updateInferenceScheduler_dataInputConfiguration,
+    updateInferenceScheduler_inferenceSchedulerName,
 
     -- * Types
 
     -- ** DataIngestionJobSummary
-    dataIngestionJobSummary_ingestionInputConfiguration,
+    dataIngestionJobSummary_datasetName,
+    dataIngestionJobSummary_jobId,
     dataIngestionJobSummary_status,
     dataIngestionJobSummary_datasetArn,
-    dataIngestionJobSummary_jobId,
-    dataIngestionJobSummary_datasetName,
+    dataIngestionJobSummary_ingestionInputConfiguration,
 
     -- ** DataPreProcessingConfiguration
     dataPreProcessingConfiguration_targetSamplingRate,
@@ -247,23 +247,23 @@ module Amazonka.LookoutEquipment.Lens
     datasetSchema_inlineDataSchema,
 
     -- ** DatasetSummary
+    datasetSummary_datasetName,
     datasetSummary_status,
     datasetSummary_datasetArn,
     datasetSummary_createdAt,
-    datasetSummary_datasetName,
 
     -- ** InferenceExecutionSummary
-    inferenceExecutionSummary_status,
-    inferenceExecutionSummary_failedReason,
-    inferenceExecutionSummary_modelArn,
-    inferenceExecutionSummary_dataStartTime,
-    inferenceExecutionSummary_modelName,
-    inferenceExecutionSummary_customerResultObject,
-    inferenceExecutionSummary_inferenceSchedulerArn,
+    inferenceExecutionSummary_inferenceSchedulerName,
     inferenceExecutionSummary_scheduledStartTime,
+    inferenceExecutionSummary_dataStartTime,
+    inferenceExecutionSummary_failedReason,
     inferenceExecutionSummary_dataOutputConfiguration,
     inferenceExecutionSummary_dataEndTime,
-    inferenceExecutionSummary_inferenceSchedulerName,
+    inferenceExecutionSummary_customerResultObject,
+    inferenceExecutionSummary_status,
+    inferenceExecutionSummary_modelArn,
+    inferenceExecutionSummary_modelName,
+    inferenceExecutionSummary_inferenceSchedulerArn,
     inferenceExecutionSummary_dataInputConfiguration,
 
     -- ** InferenceInputConfiguration
@@ -272,8 +272,8 @@ module Amazonka.LookoutEquipment.Lens
     inferenceInputConfiguration_inferenceInputNameConfiguration,
 
     -- ** InferenceInputNameConfiguration
-    inferenceInputNameConfiguration_timestampFormat,
     inferenceInputNameConfiguration_componentTimestampDelimiter,
+    inferenceInputNameConfiguration_timestampFormat,
 
     -- ** InferenceOutputConfiguration
     inferenceOutputConfiguration_kmsKeyId,
@@ -288,13 +288,13 @@ module Amazonka.LookoutEquipment.Lens
     inferenceS3OutputConfiguration_bucket,
 
     -- ** InferenceSchedulerSummary
-    inferenceSchedulerSummary_status,
-    inferenceSchedulerSummary_dataUploadFrequency,
+    inferenceSchedulerSummary_inferenceSchedulerName,
     inferenceSchedulerSummary_dataDelayOffsetInMinutes,
+    inferenceSchedulerSummary_status,
     inferenceSchedulerSummary_modelArn,
     inferenceSchedulerSummary_modelName,
+    inferenceSchedulerSummary_dataUploadFrequency,
     inferenceSchedulerSummary_inferenceSchedulerArn,
-    inferenceSchedulerSummary_inferenceSchedulerName,
 
     -- ** IngestionInputConfiguration
     ingestionInputConfiguration_s3InputConfiguration,
@@ -311,12 +311,12 @@ module Amazonka.LookoutEquipment.Lens
     labelsS3InputConfiguration_bucket,
 
     -- ** ModelSummary
+    modelSummary_datasetName,
     modelSummary_status,
     modelSummary_datasetArn,
     modelSummary_modelArn,
-    modelSummary_createdAt,
     modelSummary_modelName,
-    modelSummary_datasetName,
+    modelSummary_createdAt,
 
     -- ** S3Object
     s3Object_bucket,

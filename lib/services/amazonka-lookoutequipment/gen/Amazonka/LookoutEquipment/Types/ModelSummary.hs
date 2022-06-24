@@ -29,18 +29,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newModelSummary' smart constructor.
 data ModelSummary = ModelSummary'
-  { -- | Indicates the status of the ML model.
+  { -- | The name of the dataset being used for the ML model.
+    datasetName :: Prelude.Maybe Prelude.Text,
+    -- | Indicates the status of the ML model.
     status :: Prelude.Maybe ModelStatus,
     -- | The Amazon Resource Name (ARN) of the dataset used to create the model.
     datasetArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the ML model.
     modelArn :: Prelude.Maybe Prelude.Text,
-    -- | The time at which the specific model was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The name of the ML model.
     modelName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the dataset being used for the ML model.
-    datasetName :: Prelude.Maybe Prelude.Text
+    -- | The time at which the specific model was created.
+    createdAt :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,28 +52,32 @@ data ModelSummary = ModelSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'datasetName', 'modelSummary_datasetName' - The name of the dataset being used for the ML model.
+--
 -- 'status', 'modelSummary_status' - Indicates the status of the ML model.
 --
 -- 'datasetArn', 'modelSummary_datasetArn' - The Amazon Resource Name (ARN) of the dataset used to create the model.
 --
 -- 'modelArn', 'modelSummary_modelArn' - The Amazon Resource Name (ARN) of the ML model.
 --
--- 'createdAt', 'modelSummary_createdAt' - The time at which the specific model was created.
---
 -- 'modelName', 'modelSummary_modelName' - The name of the ML model.
 --
--- 'datasetName', 'modelSummary_datasetName' - The name of the dataset being used for the ML model.
+-- 'createdAt', 'modelSummary_createdAt' - The time at which the specific model was created.
 newModelSummary ::
   ModelSummary
 newModelSummary =
   ModelSummary'
-    { status = Prelude.Nothing,
+    { datasetName = Prelude.Nothing,
+      status = Prelude.Nothing,
       datasetArn = Prelude.Nothing,
       modelArn = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
       modelName = Prelude.Nothing,
-      datasetName = Prelude.Nothing
+      createdAt = Prelude.Nothing
     }
+
+-- | The name of the dataset being used for the ML model.
+modelSummary_datasetName :: Lens.Lens' ModelSummary (Prelude.Maybe Prelude.Text)
+modelSummary_datasetName = Lens.lens (\ModelSummary' {datasetName} -> datasetName) (\s@ModelSummary' {} a -> s {datasetName = a} :: ModelSummary)
 
 -- | Indicates the status of the ML model.
 modelSummary_status :: Lens.Lens' ModelSummary (Prelude.Maybe ModelStatus)
@@ -87,17 +91,13 @@ modelSummary_datasetArn = Lens.lens (\ModelSummary' {datasetArn} -> datasetArn) 
 modelSummary_modelArn :: Lens.Lens' ModelSummary (Prelude.Maybe Prelude.Text)
 modelSummary_modelArn = Lens.lens (\ModelSummary' {modelArn} -> modelArn) (\s@ModelSummary' {} a -> s {modelArn = a} :: ModelSummary)
 
--- | The time at which the specific model was created.
-modelSummary_createdAt :: Lens.Lens' ModelSummary (Prelude.Maybe Prelude.UTCTime)
-modelSummary_createdAt = Lens.lens (\ModelSummary' {createdAt} -> createdAt) (\s@ModelSummary' {} a -> s {createdAt = a} :: ModelSummary) Prelude.. Lens.mapping Core._Time
-
 -- | The name of the ML model.
 modelSummary_modelName :: Lens.Lens' ModelSummary (Prelude.Maybe Prelude.Text)
 modelSummary_modelName = Lens.lens (\ModelSummary' {modelName} -> modelName) (\s@ModelSummary' {} a -> s {modelName = a} :: ModelSummary)
 
--- | The name of the dataset being used for the ML model.
-modelSummary_datasetName :: Lens.Lens' ModelSummary (Prelude.Maybe Prelude.Text)
-modelSummary_datasetName = Lens.lens (\ModelSummary' {datasetName} -> datasetName) (\s@ModelSummary' {} a -> s {datasetName = a} :: ModelSummary)
+-- | The time at which the specific model was created.
+modelSummary_createdAt :: Lens.Lens' ModelSummary (Prelude.Maybe Prelude.UTCTime)
+modelSummary_createdAt = Lens.lens (\ModelSummary' {createdAt} -> createdAt) (\s@ModelSummary' {} a -> s {createdAt = a} :: ModelSummary) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON ModelSummary where
   parseJSON =
@@ -105,28 +105,28 @@ instance Core.FromJSON ModelSummary where
       "ModelSummary"
       ( \x ->
           ModelSummary'
-            Prelude.<$> (x Core..:? "Status")
+            Prelude.<$> (x Core..:? "DatasetName")
+            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "DatasetArn")
             Prelude.<*> (x Core..:? "ModelArn")
-            Prelude.<*> (x Core..:? "CreatedAt")
             Prelude.<*> (x Core..:? "ModelName")
-            Prelude.<*> (x Core..:? "DatasetName")
+            Prelude.<*> (x Core..:? "CreatedAt")
       )
 
 instance Prelude.Hashable ModelSummary where
   hashWithSalt _salt ModelSummary' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` datasetName
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` datasetArn
       `Prelude.hashWithSalt` modelArn
-      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` modelName
-      `Prelude.hashWithSalt` datasetName
+      `Prelude.hashWithSalt` createdAt
 
 instance Prelude.NFData ModelSummary where
   rnf ModelSummary' {..} =
-    Prelude.rnf status
+    Prelude.rnf datasetName
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf datasetArn
       `Prelude.seq` Prelude.rnf modelArn
-      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf datasetName
+      `Prelude.seq` Prelude.rnf createdAt

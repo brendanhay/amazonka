@@ -42,9 +42,9 @@ module Amazonka.LookoutEquipment.CreateDataset
     newCreateDatasetResponse,
 
     -- * Response Lenses
+    createDatasetResponse_datasetName,
     createDatasetResponse_status,
     createDatasetResponse_datasetArn,
-    createDatasetResponse_datasetName,
     createDatasetResponse_httpStatus,
   )
 where
@@ -146,9 +146,9 @@ instance Core.AWSRequest CreateDataset where
     Response.receiveJSON
       ( \s h x ->
           CreateDatasetResponse'
-            Prelude.<$> (x Core..?> "Status")
+            Prelude.<$> (x Core..?> "DatasetName")
+            Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "DatasetArn")
-            Prelude.<*> (x Core..?> "DatasetName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -204,12 +204,12 @@ instance Core.ToQuery CreateDataset where
 
 -- | /See:/ 'newCreateDatasetResponse' smart constructor.
 data CreateDatasetResponse = CreateDatasetResponse'
-  { -- | Indicates the status of the @CreateDataset@ operation.
+  { -- | The name of the dataset being created.
+    datasetName :: Prelude.Maybe Prelude.Text,
+    -- | Indicates the status of the @CreateDataset@ operation.
     status :: Prelude.Maybe DatasetStatus,
     -- | The Amazon Resource Name (ARN) of the dataset being created.
     datasetArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the dataset being created.
-    datasetName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -223,11 +223,11 @@ data CreateDatasetResponse = CreateDatasetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'datasetName', 'createDatasetResponse_datasetName' - The name of the dataset being created.
+--
 -- 'status', 'createDatasetResponse_status' - Indicates the status of the @CreateDataset@ operation.
 --
 -- 'datasetArn', 'createDatasetResponse_datasetArn' - The Amazon Resource Name (ARN) of the dataset being created.
---
--- 'datasetName', 'createDatasetResponse_datasetName' - The name of the dataset being created.
 --
 -- 'httpStatus', 'createDatasetResponse_httpStatus' - The response's http status code.
 newCreateDatasetResponse ::
@@ -236,11 +236,16 @@ newCreateDatasetResponse ::
   CreateDatasetResponse
 newCreateDatasetResponse pHttpStatus_ =
   CreateDatasetResponse'
-    { status = Prelude.Nothing,
+    { datasetName =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
       datasetArn = Prelude.Nothing,
-      datasetName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The name of the dataset being created.
+createDatasetResponse_datasetName :: Lens.Lens' CreateDatasetResponse (Prelude.Maybe Prelude.Text)
+createDatasetResponse_datasetName = Lens.lens (\CreateDatasetResponse' {datasetName} -> datasetName) (\s@CreateDatasetResponse' {} a -> s {datasetName = a} :: CreateDatasetResponse)
 
 -- | Indicates the status of the @CreateDataset@ operation.
 createDatasetResponse_status :: Lens.Lens' CreateDatasetResponse (Prelude.Maybe DatasetStatus)
@@ -250,17 +255,13 @@ createDatasetResponse_status = Lens.lens (\CreateDatasetResponse' {status} -> st
 createDatasetResponse_datasetArn :: Lens.Lens' CreateDatasetResponse (Prelude.Maybe Prelude.Text)
 createDatasetResponse_datasetArn = Lens.lens (\CreateDatasetResponse' {datasetArn} -> datasetArn) (\s@CreateDatasetResponse' {} a -> s {datasetArn = a} :: CreateDatasetResponse)
 
--- | The name of the dataset being created.
-createDatasetResponse_datasetName :: Lens.Lens' CreateDatasetResponse (Prelude.Maybe Prelude.Text)
-createDatasetResponse_datasetName = Lens.lens (\CreateDatasetResponse' {datasetName} -> datasetName) (\s@CreateDatasetResponse' {} a -> s {datasetName = a} :: CreateDatasetResponse)
-
 -- | The response's http status code.
 createDatasetResponse_httpStatus :: Lens.Lens' CreateDatasetResponse Prelude.Int
 createDatasetResponse_httpStatus = Lens.lens (\CreateDatasetResponse' {httpStatus} -> httpStatus) (\s@CreateDatasetResponse' {} a -> s {httpStatus = a} :: CreateDatasetResponse)
 
 instance Prelude.NFData CreateDatasetResponse where
   rnf CreateDatasetResponse' {..} =
-    Prelude.rnf status
+    Prelude.rnf datasetName
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf datasetArn
-      `Prelude.seq` Prelude.rnf datasetName
       `Prelude.seq` Prelude.rnf httpStatus

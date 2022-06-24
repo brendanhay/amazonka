@@ -17,13 +17,13 @@ module Amazonka.LookoutEquipment.Types
     defaultService,
 
     -- * Errors
-    _ValidationException,
     _AccessDeniedException,
-    _ConflictException,
-    _ServiceQuotaExceededException,
-    _ThrottlingException,
     _InternalServerException,
+    _ServiceQuotaExceededException,
     _ResourceNotFoundException,
+    _ConflictException,
+    _ThrottlingException,
+    _ValidationException,
 
     -- * DataUploadFrequency
     DataUploadFrequency (..),
@@ -49,11 +49,11 @@ module Amazonka.LookoutEquipment.Types
     -- * DataIngestionJobSummary
     DataIngestionJobSummary (..),
     newDataIngestionJobSummary,
-    dataIngestionJobSummary_ingestionInputConfiguration,
+    dataIngestionJobSummary_datasetName,
+    dataIngestionJobSummary_jobId,
     dataIngestionJobSummary_status,
     dataIngestionJobSummary_datasetArn,
-    dataIngestionJobSummary_jobId,
-    dataIngestionJobSummary_datasetName,
+    dataIngestionJobSummary_ingestionInputConfiguration,
 
     -- * DataPreProcessingConfiguration
     DataPreProcessingConfiguration (..),
@@ -68,25 +68,25 @@ module Amazonka.LookoutEquipment.Types
     -- * DatasetSummary
     DatasetSummary (..),
     newDatasetSummary,
+    datasetSummary_datasetName,
     datasetSummary_status,
     datasetSummary_datasetArn,
     datasetSummary_createdAt,
-    datasetSummary_datasetName,
 
     -- * InferenceExecutionSummary
     InferenceExecutionSummary (..),
     newInferenceExecutionSummary,
-    inferenceExecutionSummary_status,
-    inferenceExecutionSummary_failedReason,
-    inferenceExecutionSummary_modelArn,
-    inferenceExecutionSummary_dataStartTime,
-    inferenceExecutionSummary_modelName,
-    inferenceExecutionSummary_customerResultObject,
-    inferenceExecutionSummary_inferenceSchedulerArn,
+    inferenceExecutionSummary_inferenceSchedulerName,
     inferenceExecutionSummary_scheduledStartTime,
+    inferenceExecutionSummary_dataStartTime,
+    inferenceExecutionSummary_failedReason,
     inferenceExecutionSummary_dataOutputConfiguration,
     inferenceExecutionSummary_dataEndTime,
-    inferenceExecutionSummary_inferenceSchedulerName,
+    inferenceExecutionSummary_customerResultObject,
+    inferenceExecutionSummary_status,
+    inferenceExecutionSummary_modelArn,
+    inferenceExecutionSummary_modelName,
+    inferenceExecutionSummary_inferenceSchedulerArn,
     inferenceExecutionSummary_dataInputConfiguration,
 
     -- * InferenceInputConfiguration
@@ -99,8 +99,8 @@ module Amazonka.LookoutEquipment.Types
     -- * InferenceInputNameConfiguration
     InferenceInputNameConfiguration (..),
     newInferenceInputNameConfiguration,
-    inferenceInputNameConfiguration_timestampFormat,
     inferenceInputNameConfiguration_componentTimestampDelimiter,
+    inferenceInputNameConfiguration_timestampFormat,
 
     -- * InferenceOutputConfiguration
     InferenceOutputConfiguration (..),
@@ -123,13 +123,13 @@ module Amazonka.LookoutEquipment.Types
     -- * InferenceSchedulerSummary
     InferenceSchedulerSummary (..),
     newInferenceSchedulerSummary,
-    inferenceSchedulerSummary_status,
-    inferenceSchedulerSummary_dataUploadFrequency,
+    inferenceSchedulerSummary_inferenceSchedulerName,
     inferenceSchedulerSummary_dataDelayOffsetInMinutes,
+    inferenceSchedulerSummary_status,
     inferenceSchedulerSummary_modelArn,
     inferenceSchedulerSummary_modelName,
+    inferenceSchedulerSummary_dataUploadFrequency,
     inferenceSchedulerSummary_inferenceSchedulerArn,
-    inferenceSchedulerSummary_inferenceSchedulerName,
 
     -- * IngestionInputConfiguration
     IngestionInputConfiguration (..),
@@ -156,12 +156,12 @@ module Amazonka.LookoutEquipment.Types
     -- * ModelSummary
     ModelSummary (..),
     newModelSummary,
+    modelSummary_datasetName,
     modelSummary_status,
     modelSummary_datasetArn,
     modelSummary_modelArn,
-    modelSummary_createdAt,
     modelSummary_modelName,
-    modelSummary_datasetName,
+    modelSummary_createdAt,
 
     -- * S3Object
     S3Object (..),
@@ -234,35 +234,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -271,21 +244,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The input fails to satisfy constraints specified by Amazon Lookout for
--- Equipment or a related AWS service that\'s being utilized.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
 
 -- | The request could not be completed because you do not have access to the
 -- resource.
@@ -295,28 +287,6 @@ _AccessDeniedException =
     defaultService
     "AccessDeniedException"
 
--- | The request could not be completed due to a conflict with the current
--- state of the target resource.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-
--- | Resource limitations have been exceeded.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-
--- | The request was denied due to request throttling.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
-  Core._MatchServiceError
-    defaultService
-    "ThrottlingException"
-
 -- | Processing of the request has failed because of an unknown error,
 -- exception or failure.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -325,6 +295,13 @@ _InternalServerException =
     defaultService
     "InternalServerException"
 
+-- | Resource limitations have been exceeded.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceQuotaExceededException"
+
 -- | The resource requested could not be found. Verify the resource ID and
 -- retry your request.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -332,3 +309,26 @@ _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
+
+-- | The request could not be completed due to a conflict with the current
+-- state of the target resource.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+
+-- | The request was denied due to request throttling.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
+
+-- | The input fails to satisfy constraints specified by Amazon Lookout for
+-- Equipment or a related AWS service that\'s being utilized.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"

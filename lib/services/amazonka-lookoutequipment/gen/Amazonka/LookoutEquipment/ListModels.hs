@@ -28,11 +28,11 @@ module Amazonka.LookoutEquipment.ListModels
     newListModels,
 
     -- * Request Lenses
-    listModels_status,
     listModels_nextToken,
-    listModels_datasetNameBeginsWith,
-    listModels_modelNameBeginsWith,
+    listModels_status,
     listModels_maxResults,
+    listModels_modelNameBeginsWith,
+    listModels_datasetNameBeginsWith,
 
     -- * Destructuring the Response
     ListModelsResponse (..),
@@ -54,17 +54,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListModels' smart constructor.
 data ListModels = ListModels'
-  { -- | The status of the ML model.
-    status :: Prelude.Maybe ModelStatus,
-    -- | An opaque pagination token indicating where to continue the listing of
+  { -- | An opaque pagination token indicating where to continue the listing of
     -- ML models.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The beginning of the name of the dataset of the ML models to be listed.
-    datasetNameBeginsWith :: Prelude.Maybe Prelude.Text,
+    -- | The status of the ML model.
+    status :: Prelude.Maybe ModelStatus,
+    -- | Specifies the maximum number of ML models to list.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The beginning of the name of the ML models being listed.
     modelNameBeginsWith :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the maximum number of ML models to list.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    -- | The beginning of the name of the dataset of the ML models to be listed.
+    datasetNameBeginsWith :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,47 +76,47 @@ data ListModels = ListModels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'listModels_status' - The status of the ML model.
---
 -- 'nextToken', 'listModels_nextToken' - An opaque pagination token indicating where to continue the listing of
 -- ML models.
 --
--- 'datasetNameBeginsWith', 'listModels_datasetNameBeginsWith' - The beginning of the name of the dataset of the ML models to be listed.
+-- 'status', 'listModels_status' - The status of the ML model.
+--
+-- 'maxResults', 'listModels_maxResults' - Specifies the maximum number of ML models to list.
 --
 -- 'modelNameBeginsWith', 'listModels_modelNameBeginsWith' - The beginning of the name of the ML models being listed.
 --
--- 'maxResults', 'listModels_maxResults' - Specifies the maximum number of ML models to list.
+-- 'datasetNameBeginsWith', 'listModels_datasetNameBeginsWith' - The beginning of the name of the dataset of the ML models to be listed.
 newListModels ::
   ListModels
 newListModels =
   ListModels'
-    { status = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      datasetNameBeginsWith = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      status = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       modelNameBeginsWith = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      datasetNameBeginsWith = Prelude.Nothing
     }
-
--- | The status of the ML model.
-listModels_status :: Lens.Lens' ListModels (Prelude.Maybe ModelStatus)
-listModels_status = Lens.lens (\ListModels' {status} -> status) (\s@ListModels' {} a -> s {status = a} :: ListModels)
 
 -- | An opaque pagination token indicating where to continue the listing of
 -- ML models.
 listModels_nextToken :: Lens.Lens' ListModels (Prelude.Maybe Prelude.Text)
 listModels_nextToken = Lens.lens (\ListModels' {nextToken} -> nextToken) (\s@ListModels' {} a -> s {nextToken = a} :: ListModels)
 
--- | The beginning of the name of the dataset of the ML models to be listed.
-listModels_datasetNameBeginsWith :: Lens.Lens' ListModels (Prelude.Maybe Prelude.Text)
-listModels_datasetNameBeginsWith = Lens.lens (\ListModels' {datasetNameBeginsWith} -> datasetNameBeginsWith) (\s@ListModels' {} a -> s {datasetNameBeginsWith = a} :: ListModels)
+-- | The status of the ML model.
+listModels_status :: Lens.Lens' ListModels (Prelude.Maybe ModelStatus)
+listModels_status = Lens.lens (\ListModels' {status} -> status) (\s@ListModels' {} a -> s {status = a} :: ListModels)
+
+-- | Specifies the maximum number of ML models to list.
+listModels_maxResults :: Lens.Lens' ListModels (Prelude.Maybe Prelude.Natural)
+listModels_maxResults = Lens.lens (\ListModels' {maxResults} -> maxResults) (\s@ListModels' {} a -> s {maxResults = a} :: ListModels)
 
 -- | The beginning of the name of the ML models being listed.
 listModels_modelNameBeginsWith :: Lens.Lens' ListModels (Prelude.Maybe Prelude.Text)
 listModels_modelNameBeginsWith = Lens.lens (\ListModels' {modelNameBeginsWith} -> modelNameBeginsWith) (\s@ListModels' {} a -> s {modelNameBeginsWith = a} :: ListModels)
 
--- | Specifies the maximum number of ML models to list.
-listModels_maxResults :: Lens.Lens' ListModels (Prelude.Maybe Prelude.Natural)
-listModels_maxResults = Lens.lens (\ListModels' {maxResults} -> maxResults) (\s@ListModels' {} a -> s {maxResults = a} :: ListModels)
+-- | The beginning of the name of the dataset of the ML models to be listed.
+listModels_datasetNameBeginsWith :: Lens.Lens' ListModels (Prelude.Maybe Prelude.Text)
+listModels_datasetNameBeginsWith = Lens.lens (\ListModels' {datasetNameBeginsWith} -> datasetNameBeginsWith) (\s@ListModels' {} a -> s {datasetNameBeginsWith = a} :: ListModels)
 
 instance Core.AWSRequest ListModels where
   type AWSResponse ListModels = ListModelsResponse
@@ -132,19 +132,19 @@ instance Core.AWSRequest ListModels where
 
 instance Prelude.Hashable ListModels where
   hashWithSalt _salt ListModels' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` datasetNameBeginsWith
-      `Prelude.hashWithSalt` modelNameBeginsWith
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` modelNameBeginsWith
+      `Prelude.hashWithSalt` datasetNameBeginsWith
 
 instance Prelude.NFData ListModels where
   rnf ListModels' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf datasetNameBeginsWith
-      `Prelude.seq` Prelude.rnf modelNameBeginsWith
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf modelNameBeginsWith
+      `Prelude.seq` Prelude.rnf datasetNameBeginsWith
 
 instance Core.ToHeaders ListModels where
   toHeaders =
@@ -165,13 +165,13 @@ instance Core.ToJSON ListModels where
   toJSON ListModels' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("DatasetNameBeginsWith" Core..=)
-              Prelude.<$> datasetNameBeginsWith,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Status" Core..=) Prelude.<$> status,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("ModelNameBeginsWith" Core..=)
               Prelude.<$> modelNameBeginsWith,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("DatasetNameBeginsWith" Core..=)
+              Prelude.<$> datasetNameBeginsWith
           ]
       )
 

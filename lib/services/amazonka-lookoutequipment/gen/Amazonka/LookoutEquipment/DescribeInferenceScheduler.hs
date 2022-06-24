@@ -35,19 +35,19 @@ module Amazonka.LookoutEquipment.DescribeInferenceScheduler
     newDescribeInferenceSchedulerResponse,
 
     -- * Response Lenses
-    describeInferenceSchedulerResponse_status,
-    describeInferenceSchedulerResponse_dataUploadFrequency,
-    describeInferenceSchedulerResponse_dataDelayOffsetInMinutes,
-    describeInferenceSchedulerResponse_modelArn,
-    describeInferenceSchedulerResponse_createdAt,
-    describeInferenceSchedulerResponse_modelName,
-    describeInferenceSchedulerResponse_inferenceSchedulerArn,
-    describeInferenceSchedulerResponse_dataOutputConfiguration,
-    describeInferenceSchedulerResponse_updatedAt,
     describeInferenceSchedulerResponse_inferenceSchedulerName,
-    describeInferenceSchedulerResponse_dataInputConfiguration,
     describeInferenceSchedulerResponse_serverSideKmsKeyId,
     describeInferenceSchedulerResponse_roleArn,
+    describeInferenceSchedulerResponse_dataDelayOffsetInMinutes,
+    describeInferenceSchedulerResponse_dataOutputConfiguration,
+    describeInferenceSchedulerResponse_status,
+    describeInferenceSchedulerResponse_modelArn,
+    describeInferenceSchedulerResponse_modelName,
+    describeInferenceSchedulerResponse_dataUploadFrequency,
+    describeInferenceSchedulerResponse_createdAt,
+    describeInferenceSchedulerResponse_inferenceSchedulerArn,
+    describeInferenceSchedulerResponse_updatedAt,
+    describeInferenceSchedulerResponse_dataInputConfiguration,
     describeInferenceSchedulerResponse_httpStatus,
   )
 where
@@ -99,19 +99,19 @@ instance Core.AWSRequest DescribeInferenceScheduler where
     Response.receiveJSON
       ( \s h x ->
           DescribeInferenceSchedulerResponse'
-            Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "DataUploadFrequency")
-            Prelude.<*> (x Core..?> "DataDelayOffsetInMinutes")
-            Prelude.<*> (x Core..?> "ModelArn")
-            Prelude.<*> (x Core..?> "CreatedAt")
-            Prelude.<*> (x Core..?> "ModelName")
-            Prelude.<*> (x Core..?> "InferenceSchedulerArn")
-            Prelude.<*> (x Core..?> "DataOutputConfiguration")
-            Prelude.<*> (x Core..?> "UpdatedAt")
-            Prelude.<*> (x Core..?> "InferenceSchedulerName")
-            Prelude.<*> (x Core..?> "DataInputConfiguration")
+            Prelude.<$> (x Core..?> "InferenceSchedulerName")
             Prelude.<*> (x Core..?> "ServerSideKmsKeyId")
             Prelude.<*> (x Core..?> "RoleArn")
+            Prelude.<*> (x Core..?> "DataDelayOffsetInMinutes")
+            Prelude.<*> (x Core..?> "DataOutputConfiguration")
+            Prelude.<*> (x Core..?> "Status")
+            Prelude.<*> (x Core..?> "ModelArn")
+            Prelude.<*> (x Core..?> "ModelName")
+            Prelude.<*> (x Core..?> "DataUploadFrequency")
+            Prelude.<*> (x Core..?> "CreatedAt")
+            Prelude.<*> (x Core..?> "InferenceSchedulerArn")
+            Prelude.<*> (x Core..?> "UpdatedAt")
+            Prelude.<*> (x Core..?> "DataInputConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,16 +157,14 @@ instance Core.ToQuery DescribeInferenceScheduler where
 
 -- | /See:/ 'newDescribeInferenceSchedulerResponse' smart constructor.
 data DescribeInferenceSchedulerResponse = DescribeInferenceSchedulerResponse'
-  { -- | Indicates the status of the inference scheduler.
-    status :: Prelude.Maybe InferenceSchedulerStatus,
-    -- | Specifies how often data is uploaded to the source S3 bucket for the
-    -- input data. This value is the length of time between data uploads. For
-    -- instance, if you select 5 minutes, Amazon Lookout for Equipment will
-    -- upload the real-time data to the source bucket once every 5 minutes.
-    -- This frequency also determines how often Amazon Lookout for Equipment
-    -- starts a scheduled inference on your data. In this example, it starts
-    -- once every 5 minutes.
-    dataUploadFrequency :: Prelude.Maybe DataUploadFrequency,
+  { -- | The name of the inference scheduler being described.
+    inferenceSchedulerName :: Prelude.Maybe Prelude.Text,
+    -- | Provides the identifier of the KMS key used to encrypt inference
+    -- scheduler data by Amazon Lookout for Equipment.
+    serverSideKmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of a role with permission to access the
+    -- data source for the inference scheduler being described.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | A period of time (in minutes) by which inference on the data is delayed
     -- after the data starts. For instance, if you select an offset delay time
     -- of five minutes, inference will not begin on the data until the first
@@ -177,33 +175,35 @@ data DescribeInferenceSchedulerResponse = DescribeInferenceSchedulerResponse'
     -- frequency and they don\'t need to stop and restart the scheduler when
     -- uploading new data.
     dataDelayOffsetInMinutes :: Prelude.Maybe Prelude.Natural,
-    -- | The Amazon Resource Name (ARN) of the ML model of the inference
-    -- scheduler being described.
-    modelArn :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the time at which the inference scheduler was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
-    -- | The name of the ML model of the inference scheduler being described.
-    modelName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the inference scheduler being
-    -- described.
-    inferenceSchedulerArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies information for the output results for the inference
     -- scheduler, including the output S3 location.
     dataOutputConfiguration :: Prelude.Maybe InferenceOutputConfiguration,
+    -- | Indicates the status of the inference scheduler.
+    status :: Prelude.Maybe InferenceSchedulerStatus,
+    -- | The Amazon Resource Name (ARN) of the ML model of the inference
+    -- scheduler being described.
+    modelArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the ML model of the inference scheduler being described.
+    modelName :: Prelude.Maybe Prelude.Text,
+    -- | Specifies how often data is uploaded to the source S3 bucket for the
+    -- input data. This value is the length of time between data uploads. For
+    -- instance, if you select 5 minutes, Amazon Lookout for Equipment will
+    -- upload the real-time data to the source bucket once every 5 minutes.
+    -- This frequency also determines how often Amazon Lookout for Equipment
+    -- starts a scheduled inference on your data. In this example, it starts
+    -- once every 5 minutes.
+    dataUploadFrequency :: Prelude.Maybe DataUploadFrequency,
+    -- | Specifies the time at which the inference scheduler was created.
+    createdAt :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN) of the inference scheduler being
+    -- described.
+    inferenceSchedulerArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies the time at which the inference scheduler was last updated, if
     -- it was.
     updatedAt :: Prelude.Maybe Core.POSIX,
-    -- | The name of the inference scheduler being described.
-    inferenceSchedulerName :: Prelude.Maybe Prelude.Text,
     -- | Specifies configuration information for the input data for the inference
     -- scheduler, including delimiter, format, and dataset location.
     dataInputConfiguration :: Prelude.Maybe InferenceInputConfiguration,
-    -- | Provides the identifier of the KMS key used to encrypt inference
-    -- scheduler data by Amazon Lookout for Equipment.
-    serverSideKmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of a role with permission to access the
-    -- data source for the inference scheduler being described.
-    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -217,15 +217,13 @@ data DescribeInferenceSchedulerResponse = DescribeInferenceSchedulerResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'describeInferenceSchedulerResponse_status' - Indicates the status of the inference scheduler.
+-- 'inferenceSchedulerName', 'describeInferenceSchedulerResponse_inferenceSchedulerName' - The name of the inference scheduler being described.
 --
--- 'dataUploadFrequency', 'describeInferenceSchedulerResponse_dataUploadFrequency' - Specifies how often data is uploaded to the source S3 bucket for the
--- input data. This value is the length of time between data uploads. For
--- instance, if you select 5 minutes, Amazon Lookout for Equipment will
--- upload the real-time data to the source bucket once every 5 minutes.
--- This frequency also determines how often Amazon Lookout for Equipment
--- starts a scheduled inference on your data. In this example, it starts
--- once every 5 minutes.
+-- 'serverSideKmsKeyId', 'describeInferenceSchedulerResponse_serverSideKmsKeyId' - Provides the identifier of the KMS key used to encrypt inference
+-- scheduler data by Amazon Lookout for Equipment.
+--
+-- 'roleArn', 'describeInferenceSchedulerResponse_roleArn' - The Amazon Resource Name (ARN) of a role with permission to access the
+-- data source for the inference scheduler being described.
 --
 -- 'dataDelayOffsetInMinutes', 'describeInferenceSchedulerResponse_dataDelayOffsetInMinutes' - A period of time (in minutes) by which inference on the data is delayed
 -- after the data starts. For instance, if you select an offset delay time
@@ -237,32 +235,34 @@ data DescribeInferenceSchedulerResponse = DescribeInferenceSchedulerResponse'
 -- frequency and they don\'t need to stop and restart the scheduler when
 -- uploading new data.
 --
+-- 'dataOutputConfiguration', 'describeInferenceSchedulerResponse_dataOutputConfiguration' - Specifies information for the output results for the inference
+-- scheduler, including the output S3 location.
+--
+-- 'status', 'describeInferenceSchedulerResponse_status' - Indicates the status of the inference scheduler.
+--
 -- 'modelArn', 'describeInferenceSchedulerResponse_modelArn' - The Amazon Resource Name (ARN) of the ML model of the inference
 -- scheduler being described.
 --
--- 'createdAt', 'describeInferenceSchedulerResponse_createdAt' - Specifies the time at which the inference scheduler was created.
---
 -- 'modelName', 'describeInferenceSchedulerResponse_modelName' - The name of the ML model of the inference scheduler being described.
+--
+-- 'dataUploadFrequency', 'describeInferenceSchedulerResponse_dataUploadFrequency' - Specifies how often data is uploaded to the source S3 bucket for the
+-- input data. This value is the length of time between data uploads. For
+-- instance, if you select 5 minutes, Amazon Lookout for Equipment will
+-- upload the real-time data to the source bucket once every 5 minutes.
+-- This frequency also determines how often Amazon Lookout for Equipment
+-- starts a scheduled inference on your data. In this example, it starts
+-- once every 5 minutes.
+--
+-- 'createdAt', 'describeInferenceSchedulerResponse_createdAt' - Specifies the time at which the inference scheduler was created.
 --
 -- 'inferenceSchedulerArn', 'describeInferenceSchedulerResponse_inferenceSchedulerArn' - The Amazon Resource Name (ARN) of the inference scheduler being
 -- described.
 --
--- 'dataOutputConfiguration', 'describeInferenceSchedulerResponse_dataOutputConfiguration' - Specifies information for the output results for the inference
--- scheduler, including the output S3 location.
---
 -- 'updatedAt', 'describeInferenceSchedulerResponse_updatedAt' - Specifies the time at which the inference scheduler was last updated, if
 -- it was.
 --
--- 'inferenceSchedulerName', 'describeInferenceSchedulerResponse_inferenceSchedulerName' - The name of the inference scheduler being described.
---
 -- 'dataInputConfiguration', 'describeInferenceSchedulerResponse_dataInputConfiguration' - Specifies configuration information for the input data for the inference
 -- scheduler, including delimiter, format, and dataset location.
---
--- 'serverSideKmsKeyId', 'describeInferenceSchedulerResponse_serverSideKmsKeyId' - Provides the identifier of the KMS key used to encrypt inference
--- scheduler data by Amazon Lookout for Equipment.
---
--- 'roleArn', 'describeInferenceSchedulerResponse_roleArn' - The Amazon Resource Name (ARN) of a role with permission to access the
--- data source for the inference scheduler being described.
 --
 -- 'httpStatus', 'describeInferenceSchedulerResponse_httpStatus' - The response's http status code.
 newDescribeInferenceSchedulerResponse ::
@@ -271,40 +271,39 @@ newDescribeInferenceSchedulerResponse ::
   DescribeInferenceSchedulerResponse
 newDescribeInferenceSchedulerResponse pHttpStatus_ =
   DescribeInferenceSchedulerResponse'
-    { status =
-        Prelude.Nothing,
-      dataUploadFrequency = Prelude.Nothing,
-      dataDelayOffsetInMinutes =
-        Prelude.Nothing,
-      modelArn = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      modelName = Prelude.Nothing,
-      inferenceSchedulerArn = Prelude.Nothing,
-      dataOutputConfiguration =
-        Prelude.Nothing,
-      updatedAt = Prelude.Nothing,
-      inferenceSchedulerName =
-        Prelude.Nothing,
-      dataInputConfiguration =
+    { inferenceSchedulerName =
         Prelude.Nothing,
       serverSideKmsKeyId = Prelude.Nothing,
       roleArn = Prelude.Nothing,
+      dataDelayOffsetInMinutes =
+        Prelude.Nothing,
+      dataOutputConfiguration =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
+      modelArn = Prelude.Nothing,
+      modelName = Prelude.Nothing,
+      dataUploadFrequency = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      inferenceSchedulerArn = Prelude.Nothing,
+      updatedAt = Prelude.Nothing,
+      dataInputConfiguration =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Indicates the status of the inference scheduler.
-describeInferenceSchedulerResponse_status :: Lens.Lens' DescribeInferenceSchedulerResponse (Prelude.Maybe InferenceSchedulerStatus)
-describeInferenceSchedulerResponse_status = Lens.lens (\DescribeInferenceSchedulerResponse' {status} -> status) (\s@DescribeInferenceSchedulerResponse' {} a -> s {status = a} :: DescribeInferenceSchedulerResponse)
+-- | The name of the inference scheduler being described.
+describeInferenceSchedulerResponse_inferenceSchedulerName :: Lens.Lens' DescribeInferenceSchedulerResponse (Prelude.Maybe Prelude.Text)
+describeInferenceSchedulerResponse_inferenceSchedulerName = Lens.lens (\DescribeInferenceSchedulerResponse' {inferenceSchedulerName} -> inferenceSchedulerName) (\s@DescribeInferenceSchedulerResponse' {} a -> s {inferenceSchedulerName = a} :: DescribeInferenceSchedulerResponse)
 
--- | Specifies how often data is uploaded to the source S3 bucket for the
--- input data. This value is the length of time between data uploads. For
--- instance, if you select 5 minutes, Amazon Lookout for Equipment will
--- upload the real-time data to the source bucket once every 5 minutes.
--- This frequency also determines how often Amazon Lookout for Equipment
--- starts a scheduled inference on your data. In this example, it starts
--- once every 5 minutes.
-describeInferenceSchedulerResponse_dataUploadFrequency :: Lens.Lens' DescribeInferenceSchedulerResponse (Prelude.Maybe DataUploadFrequency)
-describeInferenceSchedulerResponse_dataUploadFrequency = Lens.lens (\DescribeInferenceSchedulerResponse' {dataUploadFrequency} -> dataUploadFrequency) (\s@DescribeInferenceSchedulerResponse' {} a -> s {dataUploadFrequency = a} :: DescribeInferenceSchedulerResponse)
+-- | Provides the identifier of the KMS key used to encrypt inference
+-- scheduler data by Amazon Lookout for Equipment.
+describeInferenceSchedulerResponse_serverSideKmsKeyId :: Lens.Lens' DescribeInferenceSchedulerResponse (Prelude.Maybe Prelude.Text)
+describeInferenceSchedulerResponse_serverSideKmsKeyId = Lens.lens (\DescribeInferenceSchedulerResponse' {serverSideKmsKeyId} -> serverSideKmsKeyId) (\s@DescribeInferenceSchedulerResponse' {} a -> s {serverSideKmsKeyId = a} :: DescribeInferenceSchedulerResponse)
+
+-- | The Amazon Resource Name (ARN) of a role with permission to access the
+-- data source for the inference scheduler being described.
+describeInferenceSchedulerResponse_roleArn :: Lens.Lens' DescribeInferenceSchedulerResponse (Prelude.Maybe Prelude.Text)
+describeInferenceSchedulerResponse_roleArn = Lens.lens (\DescribeInferenceSchedulerResponse' {roleArn} -> roleArn) (\s@DescribeInferenceSchedulerResponse' {} a -> s {roleArn = a} :: DescribeInferenceSchedulerResponse)
 
 -- | A period of time (in minutes) by which inference on the data is delayed
 -- after the data starts. For instance, if you select an offset delay time
@@ -318,52 +317,52 @@ describeInferenceSchedulerResponse_dataUploadFrequency = Lens.lens (\DescribeInf
 describeInferenceSchedulerResponse_dataDelayOffsetInMinutes :: Lens.Lens' DescribeInferenceSchedulerResponse (Prelude.Maybe Prelude.Natural)
 describeInferenceSchedulerResponse_dataDelayOffsetInMinutes = Lens.lens (\DescribeInferenceSchedulerResponse' {dataDelayOffsetInMinutes} -> dataDelayOffsetInMinutes) (\s@DescribeInferenceSchedulerResponse' {} a -> s {dataDelayOffsetInMinutes = a} :: DescribeInferenceSchedulerResponse)
 
+-- | Specifies information for the output results for the inference
+-- scheduler, including the output S3 location.
+describeInferenceSchedulerResponse_dataOutputConfiguration :: Lens.Lens' DescribeInferenceSchedulerResponse (Prelude.Maybe InferenceOutputConfiguration)
+describeInferenceSchedulerResponse_dataOutputConfiguration = Lens.lens (\DescribeInferenceSchedulerResponse' {dataOutputConfiguration} -> dataOutputConfiguration) (\s@DescribeInferenceSchedulerResponse' {} a -> s {dataOutputConfiguration = a} :: DescribeInferenceSchedulerResponse)
+
+-- | Indicates the status of the inference scheduler.
+describeInferenceSchedulerResponse_status :: Lens.Lens' DescribeInferenceSchedulerResponse (Prelude.Maybe InferenceSchedulerStatus)
+describeInferenceSchedulerResponse_status = Lens.lens (\DescribeInferenceSchedulerResponse' {status} -> status) (\s@DescribeInferenceSchedulerResponse' {} a -> s {status = a} :: DescribeInferenceSchedulerResponse)
+
 -- | The Amazon Resource Name (ARN) of the ML model of the inference
 -- scheduler being described.
 describeInferenceSchedulerResponse_modelArn :: Lens.Lens' DescribeInferenceSchedulerResponse (Prelude.Maybe Prelude.Text)
 describeInferenceSchedulerResponse_modelArn = Lens.lens (\DescribeInferenceSchedulerResponse' {modelArn} -> modelArn) (\s@DescribeInferenceSchedulerResponse' {} a -> s {modelArn = a} :: DescribeInferenceSchedulerResponse)
 
--- | Specifies the time at which the inference scheduler was created.
-describeInferenceSchedulerResponse_createdAt :: Lens.Lens' DescribeInferenceSchedulerResponse (Prelude.Maybe Prelude.UTCTime)
-describeInferenceSchedulerResponse_createdAt = Lens.lens (\DescribeInferenceSchedulerResponse' {createdAt} -> createdAt) (\s@DescribeInferenceSchedulerResponse' {} a -> s {createdAt = a} :: DescribeInferenceSchedulerResponse) Prelude.. Lens.mapping Core._Time
-
 -- | The name of the ML model of the inference scheduler being described.
 describeInferenceSchedulerResponse_modelName :: Lens.Lens' DescribeInferenceSchedulerResponse (Prelude.Maybe Prelude.Text)
 describeInferenceSchedulerResponse_modelName = Lens.lens (\DescribeInferenceSchedulerResponse' {modelName} -> modelName) (\s@DescribeInferenceSchedulerResponse' {} a -> s {modelName = a} :: DescribeInferenceSchedulerResponse)
+
+-- | Specifies how often data is uploaded to the source S3 bucket for the
+-- input data. This value is the length of time between data uploads. For
+-- instance, if you select 5 minutes, Amazon Lookout for Equipment will
+-- upload the real-time data to the source bucket once every 5 minutes.
+-- This frequency also determines how often Amazon Lookout for Equipment
+-- starts a scheduled inference on your data. In this example, it starts
+-- once every 5 minutes.
+describeInferenceSchedulerResponse_dataUploadFrequency :: Lens.Lens' DescribeInferenceSchedulerResponse (Prelude.Maybe DataUploadFrequency)
+describeInferenceSchedulerResponse_dataUploadFrequency = Lens.lens (\DescribeInferenceSchedulerResponse' {dataUploadFrequency} -> dataUploadFrequency) (\s@DescribeInferenceSchedulerResponse' {} a -> s {dataUploadFrequency = a} :: DescribeInferenceSchedulerResponse)
+
+-- | Specifies the time at which the inference scheduler was created.
+describeInferenceSchedulerResponse_createdAt :: Lens.Lens' DescribeInferenceSchedulerResponse (Prelude.Maybe Prelude.UTCTime)
+describeInferenceSchedulerResponse_createdAt = Lens.lens (\DescribeInferenceSchedulerResponse' {createdAt} -> createdAt) (\s@DescribeInferenceSchedulerResponse' {} a -> s {createdAt = a} :: DescribeInferenceSchedulerResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the inference scheduler being
 -- described.
 describeInferenceSchedulerResponse_inferenceSchedulerArn :: Lens.Lens' DescribeInferenceSchedulerResponse (Prelude.Maybe Prelude.Text)
 describeInferenceSchedulerResponse_inferenceSchedulerArn = Lens.lens (\DescribeInferenceSchedulerResponse' {inferenceSchedulerArn} -> inferenceSchedulerArn) (\s@DescribeInferenceSchedulerResponse' {} a -> s {inferenceSchedulerArn = a} :: DescribeInferenceSchedulerResponse)
 
--- | Specifies information for the output results for the inference
--- scheduler, including the output S3 location.
-describeInferenceSchedulerResponse_dataOutputConfiguration :: Lens.Lens' DescribeInferenceSchedulerResponse (Prelude.Maybe InferenceOutputConfiguration)
-describeInferenceSchedulerResponse_dataOutputConfiguration = Lens.lens (\DescribeInferenceSchedulerResponse' {dataOutputConfiguration} -> dataOutputConfiguration) (\s@DescribeInferenceSchedulerResponse' {} a -> s {dataOutputConfiguration = a} :: DescribeInferenceSchedulerResponse)
-
 -- | Specifies the time at which the inference scheduler was last updated, if
 -- it was.
 describeInferenceSchedulerResponse_updatedAt :: Lens.Lens' DescribeInferenceSchedulerResponse (Prelude.Maybe Prelude.UTCTime)
 describeInferenceSchedulerResponse_updatedAt = Lens.lens (\DescribeInferenceSchedulerResponse' {updatedAt} -> updatedAt) (\s@DescribeInferenceSchedulerResponse' {} a -> s {updatedAt = a} :: DescribeInferenceSchedulerResponse) Prelude.. Lens.mapping Core._Time
 
--- | The name of the inference scheduler being described.
-describeInferenceSchedulerResponse_inferenceSchedulerName :: Lens.Lens' DescribeInferenceSchedulerResponse (Prelude.Maybe Prelude.Text)
-describeInferenceSchedulerResponse_inferenceSchedulerName = Lens.lens (\DescribeInferenceSchedulerResponse' {inferenceSchedulerName} -> inferenceSchedulerName) (\s@DescribeInferenceSchedulerResponse' {} a -> s {inferenceSchedulerName = a} :: DescribeInferenceSchedulerResponse)
-
 -- | Specifies configuration information for the input data for the inference
 -- scheduler, including delimiter, format, and dataset location.
 describeInferenceSchedulerResponse_dataInputConfiguration :: Lens.Lens' DescribeInferenceSchedulerResponse (Prelude.Maybe InferenceInputConfiguration)
 describeInferenceSchedulerResponse_dataInputConfiguration = Lens.lens (\DescribeInferenceSchedulerResponse' {dataInputConfiguration} -> dataInputConfiguration) (\s@DescribeInferenceSchedulerResponse' {} a -> s {dataInputConfiguration = a} :: DescribeInferenceSchedulerResponse)
-
--- | Provides the identifier of the KMS key used to encrypt inference
--- scheduler data by Amazon Lookout for Equipment.
-describeInferenceSchedulerResponse_serverSideKmsKeyId :: Lens.Lens' DescribeInferenceSchedulerResponse (Prelude.Maybe Prelude.Text)
-describeInferenceSchedulerResponse_serverSideKmsKeyId = Lens.lens (\DescribeInferenceSchedulerResponse' {serverSideKmsKeyId} -> serverSideKmsKeyId) (\s@DescribeInferenceSchedulerResponse' {} a -> s {serverSideKmsKeyId = a} :: DescribeInferenceSchedulerResponse)
-
--- | The Amazon Resource Name (ARN) of a role with permission to access the
--- data source for the inference scheduler being described.
-describeInferenceSchedulerResponse_roleArn :: Lens.Lens' DescribeInferenceSchedulerResponse (Prelude.Maybe Prelude.Text)
-describeInferenceSchedulerResponse_roleArn = Lens.lens (\DescribeInferenceSchedulerResponse' {roleArn} -> roleArn) (\s@DescribeInferenceSchedulerResponse' {} a -> s {roleArn = a} :: DescribeInferenceSchedulerResponse)
 
 -- | The response's http status code.
 describeInferenceSchedulerResponse_httpStatus :: Lens.Lens' DescribeInferenceSchedulerResponse Prelude.Int
@@ -374,17 +373,17 @@ instance
     DescribeInferenceSchedulerResponse
   where
   rnf DescribeInferenceSchedulerResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf dataUploadFrequency
-      `Prelude.seq` Prelude.rnf dataDelayOffsetInMinutes
-      `Prelude.seq` Prelude.rnf modelArn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf inferenceSchedulerArn
-      `Prelude.seq` Prelude.rnf dataOutputConfiguration
-      `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf inferenceSchedulerName
-      `Prelude.seq` Prelude.rnf dataInputConfiguration
+    Prelude.rnf inferenceSchedulerName
       `Prelude.seq` Prelude.rnf serverSideKmsKeyId
       `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf dataDelayOffsetInMinutes
+      `Prelude.seq` Prelude.rnf dataOutputConfiguration
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf modelArn
+      `Prelude.seq` Prelude.rnf modelName
+      `Prelude.seq` Prelude.rnf dataUploadFrequency
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf inferenceSchedulerArn
+      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf dataInputConfiguration
       `Prelude.seq` Prelude.rnf httpStatus

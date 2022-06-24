@@ -27,53 +27,68 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListComponentVersions $
---             newListComponentVersions
---
---         , requestGetDeployment $
---             newGetDeployment
---
---         , requestDescribeComponent $
---             newDescribeComponent
---
---         , requestDeleteCoreDevice $
---             newDeleteCoreDevice
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestGetCoreDevice $
---             newGetCoreDevice
---
---         , requestGetComponentVersionArtifact $
---             newGetComponentVersionArtifact
---
---         , requestCreateDeployment $
---             newCreateDeployment
---
---         , requestBatchAssociateClientDeviceWithCoreDevice $
+--         [ requestBatchAssociateClientDeviceWithCoreDevice $
 --             newBatchAssociateClientDeviceWithCoreDevice
---
---         , requestListInstalledComponents $
---             newListInstalledComponents
---
---         , requestCancelDeployment $
---             newCancelDeployment
 --
 --         , requestBatchDisassociateClientDeviceFromCoreDevice $
 --             newBatchDisassociateClientDeviceFromCoreDevice
 --
+--         , requestCancelDeployment $
+--             newCancelDeployment
+--
+--         , requestCreateComponentVersion $
+--             newCreateComponentVersion
+--
+--         , requestCreateDeployment $
+--             newCreateDeployment
+--
+--         , requestDeleteComponent $
+--             newDeleteComponent
+--
+--         , requestDeleteCoreDevice $
+--             newDeleteCoreDevice
+--
+--         , requestDescribeComponent $
+--             newDescribeComponent
+--
+--         , requestGetComponent $
+--             newGetComponent
+--
+--         , requestGetComponentVersionArtifact $
+--             newGetComponentVersionArtifact
+--
+--         , requestGetCoreDevice $
+--             newGetCoreDevice
+--
+--         , requestGetDeployment $
+--             newGetDeployment
+--
+--         , requestListClientDevicesAssociatedWithCoreDevice $
+--             newListClientDevicesAssociatedWithCoreDevice
+--
+--         , requestListComponentVersions $
+--             newListComponentVersions
+--
+--         , requestListComponents $
+--             newListComponents
+--
 --         , requestListCoreDevices $
 --             newListCoreDevices
 --
---         , requestResolveComponentCandidates $
---             newResolveComponentCandidates
+--         , requestListDeployments $
+--             newListDeployments
 --
 --         , requestListEffectiveDeployments $
 --             newListEffectiveDeployments
 --
---         , requestListDeployments $
---             newListDeployments
+--         , requestListInstalledComponents $
+--             newListInstalledComponents
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestResolveComponentCandidates $
+--             newResolveComponentCandidates
 --
 --         , requestTagResource $
 --             newTagResource
@@ -81,71 +96,71 @@ import Test.Tasty
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestListComponents $
---             newListComponents
---
---         , requestDeleteComponent $
---             newDeleteComponent
---
---         , requestCreateComponentVersion $
---             newCreateComponentVersion
---
---         , requestGetComponent $
---             newGetComponent
---
---         , requestListClientDevicesAssociatedWithCoreDevice $
---             newListClientDevicesAssociatedWithCoreDevice
---
 --           ]
 
 --     , testGroup "response"
---         [ responseListComponentVersions $
---             newListComponentVersionsResponse
---
---         , responseGetDeployment $
---             newGetDeploymentResponse
---
---         , responseDescribeComponent $
---             newDescribeComponentResponse
---
---         , responseDeleteCoreDevice $
---             newDeleteCoreDeviceResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseGetCoreDevice $
---             newGetCoreDeviceResponse
---
---         , responseGetComponentVersionArtifact $
---             newGetComponentVersionArtifactResponse
---
---         , responseCreateDeployment $
---             newCreateDeploymentResponse
---
---         , responseBatchAssociateClientDeviceWithCoreDevice $
+--         [ responseBatchAssociateClientDeviceWithCoreDevice $
 --             newBatchAssociateClientDeviceWithCoreDeviceResponse
---
---         , responseListInstalledComponents $
---             newListInstalledComponentsResponse
---
---         , responseCancelDeployment $
---             newCancelDeploymentResponse
 --
 --         , responseBatchDisassociateClientDeviceFromCoreDevice $
 --             newBatchDisassociateClientDeviceFromCoreDeviceResponse
 --
+--         , responseCancelDeployment $
+--             newCancelDeploymentResponse
+--
+--         , responseCreateComponentVersion $
+--             newCreateComponentVersionResponse
+--
+--         , responseCreateDeployment $
+--             newCreateDeploymentResponse
+--
+--         , responseDeleteComponent $
+--             newDeleteComponentResponse
+--
+--         , responseDeleteCoreDevice $
+--             newDeleteCoreDeviceResponse
+--
+--         , responseDescribeComponent $
+--             newDescribeComponentResponse
+--
+--         , responseGetComponent $
+--             newGetComponentResponse
+--
+--         , responseGetComponentVersionArtifact $
+--             newGetComponentVersionArtifactResponse
+--
+--         , responseGetCoreDevice $
+--             newGetCoreDeviceResponse
+--
+--         , responseGetDeployment $
+--             newGetDeploymentResponse
+--
+--         , responseListClientDevicesAssociatedWithCoreDevice $
+--             newListClientDevicesAssociatedWithCoreDeviceResponse
+--
+--         , responseListComponentVersions $
+--             newListComponentVersionsResponse
+--
+--         , responseListComponents $
+--             newListComponentsResponse
+--
 --         , responseListCoreDevices $
 --             newListCoreDevicesResponse
 --
---         , responseResolveComponentCandidates $
---             newResolveComponentCandidatesResponse
+--         , responseListDeployments $
+--             newListDeploymentsResponse
 --
 --         , responseListEffectiveDeployments $
 --             newListEffectiveDeploymentsResponse
 --
---         , responseListDeployments $
---             newListDeploymentsResponse
+--         , responseListInstalledComponents $
+--             newListInstalledComponentsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseResolveComponentCandidates $
+--             newResolveComponentCandidatesResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -153,73 +168,10 @@ import Test.Tasty
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseListComponents $
---             newListComponentsResponse
---
---         , responseDeleteComponent $
---             newDeleteComponentResponse
---
---         , responseCreateComponentVersion $
---             newCreateComponentVersionResponse
---
---         , responseGetComponent $
---             newGetComponentResponse
---
---         , responseListClientDevicesAssociatedWithCoreDevice $
---             newListClientDevicesAssociatedWithCoreDeviceResponse
---
 --           ]
 --     ]
 
 -- Requests
-
-requestListComponentVersions :: ListComponentVersions -> TestTree
-requestListComponentVersions =
-  req
-    "ListComponentVersions"
-    "fixture/ListComponentVersions.yaml"
-
-requestGetDeployment :: GetDeployment -> TestTree
-requestGetDeployment =
-  req
-    "GetDeployment"
-    "fixture/GetDeployment.yaml"
-
-requestDescribeComponent :: DescribeComponent -> TestTree
-requestDescribeComponent =
-  req
-    "DescribeComponent"
-    "fixture/DescribeComponent.yaml"
-
-requestDeleteCoreDevice :: DeleteCoreDevice -> TestTree
-requestDeleteCoreDevice =
-  req
-    "DeleteCoreDevice"
-    "fixture/DeleteCoreDevice.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestGetCoreDevice :: GetCoreDevice -> TestTree
-requestGetCoreDevice =
-  req
-    "GetCoreDevice"
-    "fixture/GetCoreDevice.yaml"
-
-requestGetComponentVersionArtifact :: GetComponentVersionArtifact -> TestTree
-requestGetComponentVersionArtifact =
-  req
-    "GetComponentVersionArtifact"
-    "fixture/GetComponentVersionArtifact.yaml"
-
-requestCreateDeployment :: CreateDeployment -> TestTree
-requestCreateDeployment =
-  req
-    "CreateDeployment"
-    "fixture/CreateDeployment.yaml"
 
 requestBatchAssociateClientDeviceWithCoreDevice :: BatchAssociateClientDeviceWithCoreDevice -> TestTree
 requestBatchAssociateClientDeviceWithCoreDevice =
@@ -227,11 +179,11 @@ requestBatchAssociateClientDeviceWithCoreDevice =
     "BatchAssociateClientDeviceWithCoreDevice"
     "fixture/BatchAssociateClientDeviceWithCoreDevice.yaml"
 
-requestListInstalledComponents :: ListInstalledComponents -> TestTree
-requestListInstalledComponents =
+requestBatchDisassociateClientDeviceFromCoreDevice :: BatchDisassociateClientDeviceFromCoreDevice -> TestTree
+requestBatchDisassociateClientDeviceFromCoreDevice =
   req
-    "ListInstalledComponents"
-    "fixture/ListInstalledComponents.yaml"
+    "BatchDisassociateClientDeviceFromCoreDevice"
+    "fixture/BatchDisassociateClientDeviceFromCoreDevice.yaml"
 
 requestCancelDeployment :: CancelDeployment -> TestTree
 requestCancelDeployment =
@@ -239,11 +191,77 @@ requestCancelDeployment =
     "CancelDeployment"
     "fixture/CancelDeployment.yaml"
 
-requestBatchDisassociateClientDeviceFromCoreDevice :: BatchDisassociateClientDeviceFromCoreDevice -> TestTree
-requestBatchDisassociateClientDeviceFromCoreDevice =
+requestCreateComponentVersion :: CreateComponentVersion -> TestTree
+requestCreateComponentVersion =
   req
-    "BatchDisassociateClientDeviceFromCoreDevice"
-    "fixture/BatchDisassociateClientDeviceFromCoreDevice.yaml"
+    "CreateComponentVersion"
+    "fixture/CreateComponentVersion.yaml"
+
+requestCreateDeployment :: CreateDeployment -> TestTree
+requestCreateDeployment =
+  req
+    "CreateDeployment"
+    "fixture/CreateDeployment.yaml"
+
+requestDeleteComponent :: DeleteComponent -> TestTree
+requestDeleteComponent =
+  req
+    "DeleteComponent"
+    "fixture/DeleteComponent.yaml"
+
+requestDeleteCoreDevice :: DeleteCoreDevice -> TestTree
+requestDeleteCoreDevice =
+  req
+    "DeleteCoreDevice"
+    "fixture/DeleteCoreDevice.yaml"
+
+requestDescribeComponent :: DescribeComponent -> TestTree
+requestDescribeComponent =
+  req
+    "DescribeComponent"
+    "fixture/DescribeComponent.yaml"
+
+requestGetComponent :: GetComponent -> TestTree
+requestGetComponent =
+  req
+    "GetComponent"
+    "fixture/GetComponent.yaml"
+
+requestGetComponentVersionArtifact :: GetComponentVersionArtifact -> TestTree
+requestGetComponentVersionArtifact =
+  req
+    "GetComponentVersionArtifact"
+    "fixture/GetComponentVersionArtifact.yaml"
+
+requestGetCoreDevice :: GetCoreDevice -> TestTree
+requestGetCoreDevice =
+  req
+    "GetCoreDevice"
+    "fixture/GetCoreDevice.yaml"
+
+requestGetDeployment :: GetDeployment -> TestTree
+requestGetDeployment =
+  req
+    "GetDeployment"
+    "fixture/GetDeployment.yaml"
+
+requestListClientDevicesAssociatedWithCoreDevice :: ListClientDevicesAssociatedWithCoreDevice -> TestTree
+requestListClientDevicesAssociatedWithCoreDevice =
+  req
+    "ListClientDevicesAssociatedWithCoreDevice"
+    "fixture/ListClientDevicesAssociatedWithCoreDevice.yaml"
+
+requestListComponentVersions :: ListComponentVersions -> TestTree
+requestListComponentVersions =
+  req
+    "ListComponentVersions"
+    "fixture/ListComponentVersions.yaml"
+
+requestListComponents :: ListComponents -> TestTree
+requestListComponents =
+  req
+    "ListComponents"
+    "fixture/ListComponents.yaml"
 
 requestListCoreDevices :: ListCoreDevices -> TestTree
 requestListCoreDevices =
@@ -251,11 +269,11 @@ requestListCoreDevices =
     "ListCoreDevices"
     "fixture/ListCoreDevices.yaml"
 
-requestResolveComponentCandidates :: ResolveComponentCandidates -> TestTree
-requestResolveComponentCandidates =
+requestListDeployments :: ListDeployments -> TestTree
+requestListDeployments =
   req
-    "ResolveComponentCandidates"
-    "fixture/ResolveComponentCandidates.yaml"
+    "ListDeployments"
+    "fixture/ListDeployments.yaml"
 
 requestListEffectiveDeployments :: ListEffectiveDeployments -> TestTree
 requestListEffectiveDeployments =
@@ -263,11 +281,23 @@ requestListEffectiveDeployments =
     "ListEffectiveDeployments"
     "fixture/ListEffectiveDeployments.yaml"
 
-requestListDeployments :: ListDeployments -> TestTree
-requestListDeployments =
+requestListInstalledComponents :: ListInstalledComponents -> TestTree
+requestListInstalledComponents =
   req
-    "ListDeployments"
-    "fixture/ListDeployments.yaml"
+    "ListInstalledComponents"
+    "fixture/ListInstalledComponents.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestResolveComponentCandidates :: ResolveComponentCandidates -> TestTree
+requestResolveComponentCandidates =
+  req
+    "ResolveComponentCandidates"
+    "fixture/ResolveComponentCandidates.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -281,101 +311,7 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestListComponents :: ListComponents -> TestTree
-requestListComponents =
-  req
-    "ListComponents"
-    "fixture/ListComponents.yaml"
-
-requestDeleteComponent :: DeleteComponent -> TestTree
-requestDeleteComponent =
-  req
-    "DeleteComponent"
-    "fixture/DeleteComponent.yaml"
-
-requestCreateComponentVersion :: CreateComponentVersion -> TestTree
-requestCreateComponentVersion =
-  req
-    "CreateComponentVersion"
-    "fixture/CreateComponentVersion.yaml"
-
-requestGetComponent :: GetComponent -> TestTree
-requestGetComponent =
-  req
-    "GetComponent"
-    "fixture/GetComponent.yaml"
-
-requestListClientDevicesAssociatedWithCoreDevice :: ListClientDevicesAssociatedWithCoreDevice -> TestTree
-requestListClientDevicesAssociatedWithCoreDevice =
-  req
-    "ListClientDevicesAssociatedWithCoreDevice"
-    "fixture/ListClientDevicesAssociatedWithCoreDevice.yaml"
-
 -- Responses
-
-responseListComponentVersions :: ListComponentVersionsResponse -> TestTree
-responseListComponentVersions =
-  res
-    "ListComponentVersionsResponse"
-    "fixture/ListComponentVersionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListComponentVersions)
-
-responseGetDeployment :: GetDeploymentResponse -> TestTree
-responseGetDeployment =
-  res
-    "GetDeploymentResponse"
-    "fixture/GetDeploymentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetDeployment)
-
-responseDescribeComponent :: DescribeComponentResponse -> TestTree
-responseDescribeComponent =
-  res
-    "DescribeComponentResponse"
-    "fixture/DescribeComponentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeComponent)
-
-responseDeleteCoreDevice :: DeleteCoreDeviceResponse -> TestTree
-responseDeleteCoreDevice =
-  res
-    "DeleteCoreDeviceResponse"
-    "fixture/DeleteCoreDeviceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteCoreDevice)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseGetCoreDevice :: GetCoreDeviceResponse -> TestTree
-responseGetCoreDevice =
-  res
-    "GetCoreDeviceResponse"
-    "fixture/GetCoreDeviceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetCoreDevice)
-
-responseGetComponentVersionArtifact :: GetComponentVersionArtifactResponse -> TestTree
-responseGetComponentVersionArtifact =
-  res
-    "GetComponentVersionArtifactResponse"
-    "fixture/GetComponentVersionArtifactResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetComponentVersionArtifact)
-
-responseCreateDeployment :: CreateDeploymentResponse -> TestTree
-responseCreateDeployment =
-  res
-    "CreateDeploymentResponse"
-    "fixture/CreateDeploymentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateDeployment)
 
 responseBatchAssociateClientDeviceWithCoreDevice :: BatchAssociateClientDeviceWithCoreDeviceResponse -> TestTree
 responseBatchAssociateClientDeviceWithCoreDevice =
@@ -385,13 +321,13 @@ responseBatchAssociateClientDeviceWithCoreDevice =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchAssociateClientDeviceWithCoreDevice)
 
-responseListInstalledComponents :: ListInstalledComponentsResponse -> TestTree
-responseListInstalledComponents =
+responseBatchDisassociateClientDeviceFromCoreDevice :: BatchDisassociateClientDeviceFromCoreDeviceResponse -> TestTree
+responseBatchDisassociateClientDeviceFromCoreDevice =
   res
-    "ListInstalledComponentsResponse"
-    "fixture/ListInstalledComponentsResponse.proto"
+    "BatchDisassociateClientDeviceFromCoreDeviceResponse"
+    "fixture/BatchDisassociateClientDeviceFromCoreDeviceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListInstalledComponents)
+    (Proxy.Proxy :: Proxy.Proxy BatchDisassociateClientDeviceFromCoreDevice)
 
 responseCancelDeployment :: CancelDeploymentResponse -> TestTree
 responseCancelDeployment =
@@ -401,13 +337,101 @@ responseCancelDeployment =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CancelDeployment)
 
-responseBatchDisassociateClientDeviceFromCoreDevice :: BatchDisassociateClientDeviceFromCoreDeviceResponse -> TestTree
-responseBatchDisassociateClientDeviceFromCoreDevice =
+responseCreateComponentVersion :: CreateComponentVersionResponse -> TestTree
+responseCreateComponentVersion =
   res
-    "BatchDisassociateClientDeviceFromCoreDeviceResponse"
-    "fixture/BatchDisassociateClientDeviceFromCoreDeviceResponse.proto"
+    "CreateComponentVersionResponse"
+    "fixture/CreateComponentVersionResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchDisassociateClientDeviceFromCoreDevice)
+    (Proxy.Proxy :: Proxy.Proxy CreateComponentVersion)
+
+responseCreateDeployment :: CreateDeploymentResponse -> TestTree
+responseCreateDeployment =
+  res
+    "CreateDeploymentResponse"
+    "fixture/CreateDeploymentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateDeployment)
+
+responseDeleteComponent :: DeleteComponentResponse -> TestTree
+responseDeleteComponent =
+  res
+    "DeleteComponentResponse"
+    "fixture/DeleteComponentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteComponent)
+
+responseDeleteCoreDevice :: DeleteCoreDeviceResponse -> TestTree
+responseDeleteCoreDevice =
+  res
+    "DeleteCoreDeviceResponse"
+    "fixture/DeleteCoreDeviceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteCoreDevice)
+
+responseDescribeComponent :: DescribeComponentResponse -> TestTree
+responseDescribeComponent =
+  res
+    "DescribeComponentResponse"
+    "fixture/DescribeComponentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeComponent)
+
+responseGetComponent :: GetComponentResponse -> TestTree
+responseGetComponent =
+  res
+    "GetComponentResponse"
+    "fixture/GetComponentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetComponent)
+
+responseGetComponentVersionArtifact :: GetComponentVersionArtifactResponse -> TestTree
+responseGetComponentVersionArtifact =
+  res
+    "GetComponentVersionArtifactResponse"
+    "fixture/GetComponentVersionArtifactResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetComponentVersionArtifact)
+
+responseGetCoreDevice :: GetCoreDeviceResponse -> TestTree
+responseGetCoreDevice =
+  res
+    "GetCoreDeviceResponse"
+    "fixture/GetCoreDeviceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetCoreDevice)
+
+responseGetDeployment :: GetDeploymentResponse -> TestTree
+responseGetDeployment =
+  res
+    "GetDeploymentResponse"
+    "fixture/GetDeploymentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDeployment)
+
+responseListClientDevicesAssociatedWithCoreDevice :: ListClientDevicesAssociatedWithCoreDeviceResponse -> TestTree
+responseListClientDevicesAssociatedWithCoreDevice =
+  res
+    "ListClientDevicesAssociatedWithCoreDeviceResponse"
+    "fixture/ListClientDevicesAssociatedWithCoreDeviceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListClientDevicesAssociatedWithCoreDevice)
+
+responseListComponentVersions :: ListComponentVersionsResponse -> TestTree
+responseListComponentVersions =
+  res
+    "ListComponentVersionsResponse"
+    "fixture/ListComponentVersionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListComponentVersions)
+
+responseListComponents :: ListComponentsResponse -> TestTree
+responseListComponents =
+  res
+    "ListComponentsResponse"
+    "fixture/ListComponentsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListComponents)
 
 responseListCoreDevices :: ListCoreDevicesResponse -> TestTree
 responseListCoreDevices =
@@ -417,13 +441,13 @@ responseListCoreDevices =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListCoreDevices)
 
-responseResolveComponentCandidates :: ResolveComponentCandidatesResponse -> TestTree
-responseResolveComponentCandidates =
+responseListDeployments :: ListDeploymentsResponse -> TestTree
+responseListDeployments =
   res
-    "ResolveComponentCandidatesResponse"
-    "fixture/ResolveComponentCandidatesResponse.proto"
+    "ListDeploymentsResponse"
+    "fixture/ListDeploymentsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ResolveComponentCandidates)
+    (Proxy.Proxy :: Proxy.Proxy ListDeployments)
 
 responseListEffectiveDeployments :: ListEffectiveDeploymentsResponse -> TestTree
 responseListEffectiveDeployments =
@@ -433,13 +457,29 @@ responseListEffectiveDeployments =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListEffectiveDeployments)
 
-responseListDeployments :: ListDeploymentsResponse -> TestTree
-responseListDeployments =
+responseListInstalledComponents :: ListInstalledComponentsResponse -> TestTree
+responseListInstalledComponents =
   res
-    "ListDeploymentsResponse"
-    "fixture/ListDeploymentsResponse.proto"
+    "ListInstalledComponentsResponse"
+    "fixture/ListInstalledComponentsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDeployments)
+    (Proxy.Proxy :: Proxy.Proxy ListInstalledComponents)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseResolveComponentCandidates :: ResolveComponentCandidatesResponse -> TestTree
+responseResolveComponentCandidates =
+  res
+    "ResolveComponentCandidatesResponse"
+    "fixture/ResolveComponentCandidatesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ResolveComponentCandidates)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -456,43 +496,3 @@ responseUntagResource =
     "fixture/UntagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
-
-responseListComponents :: ListComponentsResponse -> TestTree
-responseListComponents =
-  res
-    "ListComponentsResponse"
-    "fixture/ListComponentsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListComponents)
-
-responseDeleteComponent :: DeleteComponentResponse -> TestTree
-responseDeleteComponent =
-  res
-    "DeleteComponentResponse"
-    "fixture/DeleteComponentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteComponent)
-
-responseCreateComponentVersion :: CreateComponentVersionResponse -> TestTree
-responseCreateComponentVersion =
-  res
-    "CreateComponentVersionResponse"
-    "fixture/CreateComponentVersionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateComponentVersion)
-
-responseGetComponent :: GetComponentResponse -> TestTree
-responseGetComponent =
-  res
-    "GetComponentResponse"
-    "fixture/GetComponentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetComponent)
-
-responseListClientDevicesAssociatedWithCoreDevice :: ListClientDevicesAssociatedWithCoreDeviceResponse -> TestTree
-responseListClientDevicesAssociatedWithCoreDevice =
-  res
-    "ListClientDevicesAssociatedWithCoreDeviceResponse"
-    "fixture/ListClientDevicesAssociatedWithCoreDeviceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListClientDevicesAssociatedWithCoreDevice)

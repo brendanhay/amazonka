@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstalledComponent' smart constructor.
 data InstalledComponent = InstalledComponent'
-  { -- | Whether or not the component is a root component.
-    isRoot :: Prelude.Maybe Prelude.Bool,
-    -- | The version of the component.
+  { -- | The version of the component.
     componentVersion :: Prelude.Maybe Prelude.Text,
     -- | The name of the component.
     componentName :: Prelude.Maybe Prelude.Text,
+    -- | The lifecycle state of the component.
+    lifecycleState :: Prelude.Maybe InstalledComponentLifecycleState,
     -- | The details about the lifecycle state of the component.
     lifecycleStateDetails :: Prelude.Maybe Prelude.Text,
-    -- | The lifecycle state of the component.
-    lifecycleState :: Prelude.Maybe InstalledComponentLifecycleState
+    -- | Whether or not the component is a root component.
+    isRoot :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,29 +49,26 @@ data InstalledComponent = InstalledComponent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'isRoot', 'installedComponent_isRoot' - Whether or not the component is a root component.
---
 -- 'componentVersion', 'installedComponent_componentVersion' - The version of the component.
 --
 -- 'componentName', 'installedComponent_componentName' - The name of the component.
 --
+-- 'lifecycleState', 'installedComponent_lifecycleState' - The lifecycle state of the component.
+--
 -- 'lifecycleStateDetails', 'installedComponent_lifecycleStateDetails' - The details about the lifecycle state of the component.
 --
--- 'lifecycleState', 'installedComponent_lifecycleState' - The lifecycle state of the component.
+-- 'isRoot', 'installedComponent_isRoot' - Whether or not the component is a root component.
 newInstalledComponent ::
   InstalledComponent
 newInstalledComponent =
   InstalledComponent'
-    { isRoot = Prelude.Nothing,
-      componentVersion = Prelude.Nothing,
+    { componentVersion =
+        Prelude.Nothing,
       componentName = Prelude.Nothing,
+      lifecycleState = Prelude.Nothing,
       lifecycleStateDetails = Prelude.Nothing,
-      lifecycleState = Prelude.Nothing
+      isRoot = Prelude.Nothing
     }
-
--- | Whether or not the component is a root component.
-installedComponent_isRoot :: Lens.Lens' InstalledComponent (Prelude.Maybe Prelude.Bool)
-installedComponent_isRoot = Lens.lens (\InstalledComponent' {isRoot} -> isRoot) (\s@InstalledComponent' {} a -> s {isRoot = a} :: InstalledComponent)
 
 -- | The version of the component.
 installedComponent_componentVersion :: Lens.Lens' InstalledComponent (Prelude.Maybe Prelude.Text)
@@ -81,13 +78,17 @@ installedComponent_componentVersion = Lens.lens (\InstalledComponent' {component
 installedComponent_componentName :: Lens.Lens' InstalledComponent (Prelude.Maybe Prelude.Text)
 installedComponent_componentName = Lens.lens (\InstalledComponent' {componentName} -> componentName) (\s@InstalledComponent' {} a -> s {componentName = a} :: InstalledComponent)
 
+-- | The lifecycle state of the component.
+installedComponent_lifecycleState :: Lens.Lens' InstalledComponent (Prelude.Maybe InstalledComponentLifecycleState)
+installedComponent_lifecycleState = Lens.lens (\InstalledComponent' {lifecycleState} -> lifecycleState) (\s@InstalledComponent' {} a -> s {lifecycleState = a} :: InstalledComponent)
+
 -- | The details about the lifecycle state of the component.
 installedComponent_lifecycleStateDetails :: Lens.Lens' InstalledComponent (Prelude.Maybe Prelude.Text)
 installedComponent_lifecycleStateDetails = Lens.lens (\InstalledComponent' {lifecycleStateDetails} -> lifecycleStateDetails) (\s@InstalledComponent' {} a -> s {lifecycleStateDetails = a} :: InstalledComponent)
 
--- | The lifecycle state of the component.
-installedComponent_lifecycleState :: Lens.Lens' InstalledComponent (Prelude.Maybe InstalledComponentLifecycleState)
-installedComponent_lifecycleState = Lens.lens (\InstalledComponent' {lifecycleState} -> lifecycleState) (\s@InstalledComponent' {} a -> s {lifecycleState = a} :: InstalledComponent)
+-- | Whether or not the component is a root component.
+installedComponent_isRoot :: Lens.Lens' InstalledComponent (Prelude.Maybe Prelude.Bool)
+installedComponent_isRoot = Lens.lens (\InstalledComponent' {isRoot} -> isRoot) (\s@InstalledComponent' {} a -> s {isRoot = a} :: InstalledComponent)
 
 instance Core.FromJSON InstalledComponent where
   parseJSON =
@@ -95,25 +96,25 @@ instance Core.FromJSON InstalledComponent where
       "InstalledComponent"
       ( \x ->
           InstalledComponent'
-            Prelude.<$> (x Core..:? "isRoot")
-            Prelude.<*> (x Core..:? "componentVersion")
+            Prelude.<$> (x Core..:? "componentVersion")
             Prelude.<*> (x Core..:? "componentName")
-            Prelude.<*> (x Core..:? "lifecycleStateDetails")
             Prelude.<*> (x Core..:? "lifecycleState")
+            Prelude.<*> (x Core..:? "lifecycleStateDetails")
+            Prelude.<*> (x Core..:? "isRoot")
       )
 
 instance Prelude.Hashable InstalledComponent where
   hashWithSalt _salt InstalledComponent' {..} =
-    _salt `Prelude.hashWithSalt` isRoot
-      `Prelude.hashWithSalt` componentVersion
+    _salt `Prelude.hashWithSalt` componentVersion
       `Prelude.hashWithSalt` componentName
-      `Prelude.hashWithSalt` lifecycleStateDetails
       `Prelude.hashWithSalt` lifecycleState
+      `Prelude.hashWithSalt` lifecycleStateDetails
+      `Prelude.hashWithSalt` isRoot
 
 instance Prelude.NFData InstalledComponent where
   rnf InstalledComponent' {..} =
-    Prelude.rnf isRoot
-      `Prelude.seq` Prelude.rnf componentVersion
+    Prelude.rnf componentVersion
       `Prelude.seq` Prelude.rnf componentName
-      `Prelude.seq` Prelude.rnf lifecycleStateDetails
       `Prelude.seq` Prelude.rnf lifecycleState
+      `Prelude.seq` Prelude.rnf lifecycleStateDetails
+      `Prelude.seq` Prelude.rnf isRoot

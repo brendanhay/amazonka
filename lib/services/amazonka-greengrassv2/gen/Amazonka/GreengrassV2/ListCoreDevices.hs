@@ -29,10 +29,10 @@ module Amazonka.GreengrassV2.ListCoreDevices
     newListCoreDevices,
 
     -- * Request Lenses
-    listCoreDevices_status,
-    listCoreDevices_thingGroupArn,
     listCoreDevices_nextToken,
+    listCoreDevices_status,
     listCoreDevices_maxResults,
+    listCoreDevices_thingGroupArn,
 
     -- * Destructuring the Response
     ListCoreDevicesResponse (..),
@@ -54,7 +54,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListCoreDevices' smart constructor.
 data ListCoreDevices = ListCoreDevices'
-  { -- | The core device status by which to filter. If you specify this
+  { -- | The token to be used for the next set of paginated results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The core device status by which to filter. If you specify this
     -- parameter, the list includes only core devices that have this status.
     -- Choose one of the following options:
     --
@@ -64,16 +66,14 @@ data ListCoreDevices = ListCoreDevices'
     -- -   @UNHEALTHY@ – The IoT Greengrass Core software or a component is in
     --     a failed state on the core device.
     status :: Prelude.Maybe CoreDeviceStatus,
+    -- | The maximum number of results to be returned per paginated request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
     -- of the IoT thing group by which to filter. If you specify this
     -- parameter, the list includes only core devices that are members of this
     -- thing group.
-    thingGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | The token to be used for the next set of paginated results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned per paginated request.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    thingGroupArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,6 +85,8 @@ data ListCoreDevices = ListCoreDevices'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listCoreDevices_nextToken' - The token to be used for the next set of paginated results.
+--
 -- 'status', 'listCoreDevices_status' - The core device status by which to filter. If you specify this
 -- parameter, the list includes only core devices that have this status.
 -- Choose one of the following options:
@@ -95,24 +97,26 @@ data ListCoreDevices = ListCoreDevices'
 -- -   @UNHEALTHY@ – The IoT Greengrass Core software or a component is in
 --     a failed state on the core device.
 --
+-- 'maxResults', 'listCoreDevices_maxResults' - The maximum number of results to be returned per paginated request.
+--
 -- 'thingGroupArn', 'listCoreDevices_thingGroupArn' - The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
 -- of the IoT thing group by which to filter. If you specify this
 -- parameter, the list includes only core devices that are members of this
 -- thing group.
---
--- 'nextToken', 'listCoreDevices_nextToken' - The token to be used for the next set of paginated results.
---
--- 'maxResults', 'listCoreDevices_maxResults' - The maximum number of results to be returned per paginated request.
 newListCoreDevices ::
   ListCoreDevices
 newListCoreDevices =
   ListCoreDevices'
-    { status = Prelude.Nothing,
-      thingGroupArn = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Prelude.Nothing,
+      status = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      thingGroupArn = Prelude.Nothing
     }
+
+-- | The token to be used for the next set of paginated results.
+listCoreDevices_nextToken :: Lens.Lens' ListCoreDevices (Prelude.Maybe Prelude.Text)
+listCoreDevices_nextToken = Lens.lens (\ListCoreDevices' {nextToken} -> nextToken) (\s@ListCoreDevices' {} a -> s {nextToken = a} :: ListCoreDevices)
 
 -- | The core device status by which to filter. If you specify this
 -- parameter, the list includes only core devices that have this status.
@@ -126,6 +130,10 @@ newListCoreDevices =
 listCoreDevices_status :: Lens.Lens' ListCoreDevices (Prelude.Maybe CoreDeviceStatus)
 listCoreDevices_status = Lens.lens (\ListCoreDevices' {status} -> status) (\s@ListCoreDevices' {} a -> s {status = a} :: ListCoreDevices)
 
+-- | The maximum number of results to be returned per paginated request.
+listCoreDevices_maxResults :: Lens.Lens' ListCoreDevices (Prelude.Maybe Prelude.Natural)
+listCoreDevices_maxResults = Lens.lens (\ListCoreDevices' {maxResults} -> maxResults) (\s@ListCoreDevices' {} a -> s {maxResults = a} :: ListCoreDevices)
+
 -- | The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
 -- of the IoT thing group by which to filter. If you specify this
@@ -133,14 +141,6 @@ listCoreDevices_status = Lens.lens (\ListCoreDevices' {status} -> status) (\s@Li
 -- thing group.
 listCoreDevices_thingGroupArn :: Lens.Lens' ListCoreDevices (Prelude.Maybe Prelude.Text)
 listCoreDevices_thingGroupArn = Lens.lens (\ListCoreDevices' {thingGroupArn} -> thingGroupArn) (\s@ListCoreDevices' {} a -> s {thingGroupArn = a} :: ListCoreDevices)
-
--- | The token to be used for the next set of paginated results.
-listCoreDevices_nextToken :: Lens.Lens' ListCoreDevices (Prelude.Maybe Prelude.Text)
-listCoreDevices_nextToken = Lens.lens (\ListCoreDevices' {nextToken} -> nextToken) (\s@ListCoreDevices' {} a -> s {nextToken = a} :: ListCoreDevices)
-
--- | The maximum number of results to be returned per paginated request.
-listCoreDevices_maxResults :: Lens.Lens' ListCoreDevices (Prelude.Maybe Prelude.Natural)
-listCoreDevices_maxResults = Lens.lens (\ListCoreDevices' {maxResults} -> maxResults) (\s@ListCoreDevices' {} a -> s {maxResults = a} :: ListCoreDevices)
 
 instance Core.AWSPager ListCoreDevices where
   page rq rs
@@ -180,17 +180,17 @@ instance Core.AWSRequest ListCoreDevices where
 
 instance Prelude.Hashable ListCoreDevices where
   hashWithSalt _salt ListCoreDevices' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` thingGroupArn
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` thingGroupArn
 
 instance Prelude.NFData ListCoreDevices where
   rnf ListCoreDevices' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf thingGroupArn
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf thingGroupArn
 
 instance Core.ToHeaders ListCoreDevices where
   toHeaders =
@@ -209,10 +209,10 @@ instance Core.ToPath ListCoreDevices where
 instance Core.ToQuery ListCoreDevices where
   toQuery ListCoreDevices' {..} =
     Prelude.mconcat
-      [ "status" Core.=: status,
-        "thingGroupArn" Core.=: thingGroupArn,
-        "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Core.=: nextToken,
+        "status" Core.=: status,
+        "maxResults" Core.=: maxResults,
+        "thingGroupArn" Core.=: thingGroupArn
       ]
 
 -- | /See:/ 'newListCoreDevicesResponse' smart constructor.

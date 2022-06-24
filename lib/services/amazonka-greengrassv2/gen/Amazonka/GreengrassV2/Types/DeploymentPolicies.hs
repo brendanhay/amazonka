@@ -31,18 +31,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeploymentPolicies' smart constructor.
 data DeploymentPolicies = DeploymentPolicies'
-  { -- | The failure handling policy for the configuration deployment. This
-    -- policy defines what to do if the deployment fails.
-    --
-    -- Default: @ROLLBACK@
-    failureHandlingPolicy :: Prelude.Maybe DeploymentFailureHandlingPolicy,
+  { -- | The component update policy for the configuration deployment. This
+    -- policy defines when it\'s safe to deploy the configuration to devices.
+    componentUpdatePolicy :: Prelude.Maybe DeploymentComponentUpdatePolicy,
     -- | The configuration validation policy for the configuration deployment.
     -- This policy defines how long each component has to validate its
     -- configure updates.
     configurationValidationPolicy :: Prelude.Maybe DeploymentConfigurationValidationPolicy,
-    -- | The component update policy for the configuration deployment. This
-    -- policy defines when it\'s safe to deploy the configuration to devices.
-    componentUpdatePolicy :: Prelude.Maybe DeploymentComponentUpdatePolicy
+    -- | The failure handling policy for the configuration deployment. This
+    -- policy defines what to do if the deployment fails.
+    --
+    -- Default: @ROLLBACK@
+    failureHandlingPolicy :: Prelude.Maybe DeploymentFailureHandlingPolicy
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,26 +54,37 @@ data DeploymentPolicies = DeploymentPolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failureHandlingPolicy', 'deploymentPolicies_failureHandlingPolicy' - The failure handling policy for the configuration deployment. This
--- policy defines what to do if the deployment fails.
---
--- Default: @ROLLBACK@
+-- 'componentUpdatePolicy', 'deploymentPolicies_componentUpdatePolicy' - The component update policy for the configuration deployment. This
+-- policy defines when it\'s safe to deploy the configuration to devices.
 --
 -- 'configurationValidationPolicy', 'deploymentPolicies_configurationValidationPolicy' - The configuration validation policy for the configuration deployment.
 -- This policy defines how long each component has to validate its
 -- configure updates.
 --
--- 'componentUpdatePolicy', 'deploymentPolicies_componentUpdatePolicy' - The component update policy for the configuration deployment. This
--- policy defines when it\'s safe to deploy the configuration to devices.
+-- 'failureHandlingPolicy', 'deploymentPolicies_failureHandlingPolicy' - The failure handling policy for the configuration deployment. This
+-- policy defines what to do if the deployment fails.
+--
+-- Default: @ROLLBACK@
 newDeploymentPolicies ::
   DeploymentPolicies
 newDeploymentPolicies =
   DeploymentPolicies'
-    { failureHandlingPolicy =
+    { componentUpdatePolicy =
         Prelude.Nothing,
       configurationValidationPolicy = Prelude.Nothing,
-      componentUpdatePolicy = Prelude.Nothing
+      failureHandlingPolicy = Prelude.Nothing
     }
+
+-- | The component update policy for the configuration deployment. This
+-- policy defines when it\'s safe to deploy the configuration to devices.
+deploymentPolicies_componentUpdatePolicy :: Lens.Lens' DeploymentPolicies (Prelude.Maybe DeploymentComponentUpdatePolicy)
+deploymentPolicies_componentUpdatePolicy = Lens.lens (\DeploymentPolicies' {componentUpdatePolicy} -> componentUpdatePolicy) (\s@DeploymentPolicies' {} a -> s {componentUpdatePolicy = a} :: DeploymentPolicies)
+
+-- | The configuration validation policy for the configuration deployment.
+-- This policy defines how long each component has to validate its
+-- configure updates.
+deploymentPolicies_configurationValidationPolicy :: Lens.Lens' DeploymentPolicies (Prelude.Maybe DeploymentConfigurationValidationPolicy)
+deploymentPolicies_configurationValidationPolicy = Lens.lens (\DeploymentPolicies' {configurationValidationPolicy} -> configurationValidationPolicy) (\s@DeploymentPolicies' {} a -> s {configurationValidationPolicy = a} :: DeploymentPolicies)
 
 -- | The failure handling policy for the configuration deployment. This
 -- policy defines what to do if the deployment fails.
@@ -82,49 +93,38 @@ newDeploymentPolicies =
 deploymentPolicies_failureHandlingPolicy :: Lens.Lens' DeploymentPolicies (Prelude.Maybe DeploymentFailureHandlingPolicy)
 deploymentPolicies_failureHandlingPolicy = Lens.lens (\DeploymentPolicies' {failureHandlingPolicy} -> failureHandlingPolicy) (\s@DeploymentPolicies' {} a -> s {failureHandlingPolicy = a} :: DeploymentPolicies)
 
--- | The configuration validation policy for the configuration deployment.
--- This policy defines how long each component has to validate its
--- configure updates.
-deploymentPolicies_configurationValidationPolicy :: Lens.Lens' DeploymentPolicies (Prelude.Maybe DeploymentConfigurationValidationPolicy)
-deploymentPolicies_configurationValidationPolicy = Lens.lens (\DeploymentPolicies' {configurationValidationPolicy} -> configurationValidationPolicy) (\s@DeploymentPolicies' {} a -> s {configurationValidationPolicy = a} :: DeploymentPolicies)
-
--- | The component update policy for the configuration deployment. This
--- policy defines when it\'s safe to deploy the configuration to devices.
-deploymentPolicies_componentUpdatePolicy :: Lens.Lens' DeploymentPolicies (Prelude.Maybe DeploymentComponentUpdatePolicy)
-deploymentPolicies_componentUpdatePolicy = Lens.lens (\DeploymentPolicies' {componentUpdatePolicy} -> componentUpdatePolicy) (\s@DeploymentPolicies' {} a -> s {componentUpdatePolicy = a} :: DeploymentPolicies)
-
 instance Core.FromJSON DeploymentPolicies where
   parseJSON =
     Core.withObject
       "DeploymentPolicies"
       ( \x ->
           DeploymentPolicies'
-            Prelude.<$> (x Core..:? "failureHandlingPolicy")
+            Prelude.<$> (x Core..:? "componentUpdatePolicy")
             Prelude.<*> (x Core..:? "configurationValidationPolicy")
-            Prelude.<*> (x Core..:? "componentUpdatePolicy")
+            Prelude.<*> (x Core..:? "failureHandlingPolicy")
       )
 
 instance Prelude.Hashable DeploymentPolicies where
   hashWithSalt _salt DeploymentPolicies' {..} =
-    _salt `Prelude.hashWithSalt` failureHandlingPolicy
+    _salt `Prelude.hashWithSalt` componentUpdatePolicy
       `Prelude.hashWithSalt` configurationValidationPolicy
-      `Prelude.hashWithSalt` componentUpdatePolicy
+      `Prelude.hashWithSalt` failureHandlingPolicy
 
 instance Prelude.NFData DeploymentPolicies where
   rnf DeploymentPolicies' {..} =
-    Prelude.rnf failureHandlingPolicy
+    Prelude.rnf componentUpdatePolicy
       `Prelude.seq` Prelude.rnf configurationValidationPolicy
-      `Prelude.seq` Prelude.rnf componentUpdatePolicy
+      `Prelude.seq` Prelude.rnf failureHandlingPolicy
 
 instance Core.ToJSON DeploymentPolicies where
   toJSON DeploymentPolicies' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("failureHandlingPolicy" Core..=)
-              Prelude.<$> failureHandlingPolicy,
+          [ ("componentUpdatePolicy" Core..=)
+              Prelude.<$> componentUpdatePolicy,
             ("configurationValidationPolicy" Core..=)
               Prelude.<$> configurationValidationPolicy,
-            ("componentUpdatePolicy" Core..=)
-              Prelude.<$> componentUpdatePolicy
+            ("failureHandlingPolicy" Core..=)
+              Prelude.<$> failureHandlingPolicy
           ]
       )

@@ -29,10 +29,10 @@ module Amazonka.GreengrassV2.ListDeployments
     newListDeployments,
 
     -- * Request Lenses
-    listDeployments_targetArn,
     listDeployments_nextToken,
-    listDeployments_historyFilter,
+    listDeployments_targetArn,
     listDeployments_maxResults,
+    listDeployments_historyFilter,
 
     -- * Destructuring the Response
     ListDeploymentsResponse (..),
@@ -54,12 +54,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDeployments' smart constructor.
 data ListDeployments = ListDeployments'
-  { -- | The
+  { -- | The token to be used for the next set of paginated results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
     -- of the target IoT thing or thing group.
     targetArn :: Prelude.Maybe Prelude.Text,
-    -- | The token to be used for the next set of paginated results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to be returned per paginated request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The filter for the list of deployments. Choose one of the following
     -- options:
     --
@@ -69,9 +71,7 @@ data ListDeployments = ListDeployments'
     --     deployment.
     --
     -- Default: @LATEST_ONLY@
-    historyFilter :: Prelude.Maybe DeploymentHistoryFilter,
-    -- | The maximum number of results to be returned per paginated request.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    historyFilter :: Prelude.Maybe DeploymentHistoryFilter
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,11 +83,13 @@ data ListDeployments = ListDeployments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listDeployments_nextToken' - The token to be used for the next set of paginated results.
+--
 -- 'targetArn', 'listDeployments_targetArn' - The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
 -- of the target IoT thing or thing group.
 --
--- 'nextToken', 'listDeployments_nextToken' - The token to be used for the next set of paginated results.
+-- 'maxResults', 'listDeployments_maxResults' - The maximum number of results to be returned per paginated request.
 --
 -- 'historyFilter', 'listDeployments_historyFilter' - The filter for the list of deployments. Choose one of the following
 -- options:
@@ -98,17 +100,19 @@ data ListDeployments = ListDeployments'
 --     deployment.
 --
 -- Default: @LATEST_ONLY@
---
--- 'maxResults', 'listDeployments_maxResults' - The maximum number of results to be returned per paginated request.
 newListDeployments ::
   ListDeployments
 newListDeployments =
   ListDeployments'
-    { targetArn = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      historyFilter = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Prelude.Nothing,
+      targetArn = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      historyFilter = Prelude.Nothing
     }
+
+-- | The token to be used for the next set of paginated results.
+listDeployments_nextToken :: Lens.Lens' ListDeployments (Prelude.Maybe Prelude.Text)
+listDeployments_nextToken = Lens.lens (\ListDeployments' {nextToken} -> nextToken) (\s@ListDeployments' {} a -> s {nextToken = a} :: ListDeployments)
 
 -- | The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
@@ -116,9 +120,9 @@ newListDeployments =
 listDeployments_targetArn :: Lens.Lens' ListDeployments (Prelude.Maybe Prelude.Text)
 listDeployments_targetArn = Lens.lens (\ListDeployments' {targetArn} -> targetArn) (\s@ListDeployments' {} a -> s {targetArn = a} :: ListDeployments)
 
--- | The token to be used for the next set of paginated results.
-listDeployments_nextToken :: Lens.Lens' ListDeployments (Prelude.Maybe Prelude.Text)
-listDeployments_nextToken = Lens.lens (\ListDeployments' {nextToken} -> nextToken) (\s@ListDeployments' {} a -> s {nextToken = a} :: ListDeployments)
+-- | The maximum number of results to be returned per paginated request.
+listDeployments_maxResults :: Lens.Lens' ListDeployments (Prelude.Maybe Prelude.Natural)
+listDeployments_maxResults = Lens.lens (\ListDeployments' {maxResults} -> maxResults) (\s@ListDeployments' {} a -> s {maxResults = a} :: ListDeployments)
 
 -- | The filter for the list of deployments. Choose one of the following
 -- options:
@@ -131,10 +135,6 @@ listDeployments_nextToken = Lens.lens (\ListDeployments' {nextToken} -> nextToke
 -- Default: @LATEST_ONLY@
 listDeployments_historyFilter :: Lens.Lens' ListDeployments (Prelude.Maybe DeploymentHistoryFilter)
 listDeployments_historyFilter = Lens.lens (\ListDeployments' {historyFilter} -> historyFilter) (\s@ListDeployments' {} a -> s {historyFilter = a} :: ListDeployments)
-
--- | The maximum number of results to be returned per paginated request.
-listDeployments_maxResults :: Lens.Lens' ListDeployments (Prelude.Maybe Prelude.Natural)
-listDeployments_maxResults = Lens.lens (\ListDeployments' {maxResults} -> maxResults) (\s@ListDeployments' {} a -> s {maxResults = a} :: ListDeployments)
 
 instance Core.AWSPager ListDeployments where
   page rq rs
@@ -174,17 +174,17 @@ instance Core.AWSRequest ListDeployments where
 
 instance Prelude.Hashable ListDeployments where
   hashWithSalt _salt ListDeployments' {..} =
-    _salt `Prelude.hashWithSalt` targetArn
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` historyFilter
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` targetArn
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` historyFilter
 
 instance Prelude.NFData ListDeployments where
   rnf ListDeployments' {..} =
-    Prelude.rnf targetArn
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf historyFilter
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf targetArn
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf historyFilter
 
 instance Core.ToHeaders ListDeployments where
   toHeaders =
@@ -203,10 +203,10 @@ instance Core.ToPath ListDeployments where
 instance Core.ToQuery ListDeployments where
   toQuery ListDeployments' {..} =
     Prelude.mconcat
-      [ "targetArn" Core.=: targetArn,
-        "nextToken" Core.=: nextToken,
-        "historyFilter" Core.=: historyFilter,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Core.=: nextToken,
+        "targetArn" Core.=: targetArn,
+        "maxResults" Core.=: maxResults,
+        "historyFilter" Core.=: historyFilter
       ]
 
 -- | /See:/ 'newListDeploymentsResponse' smart constructor.

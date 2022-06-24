@@ -39,8 +39,8 @@ module Amazonka.GreengrassV2.ListEffectiveDeployments
     newListEffectiveDeploymentsResponse,
 
     -- * Response Lenses
-    listEffectiveDeploymentsResponse_nextToken,
     listEffectiveDeploymentsResponse_effectiveDeployments,
+    listEffectiveDeploymentsResponse_nextToken,
     listEffectiveDeploymentsResponse_httpStatus,
   )
 where
@@ -131,10 +131,10 @@ instance Core.AWSRequest ListEffectiveDeployments where
     Response.receiveJSON
       ( \s h x ->
           ListEffectiveDeploymentsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "effectiveDeployments"
+            Prelude.<$> ( x Core..?> "effectiveDeployments"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -178,11 +178,11 @@ instance Core.ToQuery ListEffectiveDeployments where
 
 -- | /See:/ 'newListEffectiveDeploymentsResponse' smart constructor.
 data ListEffectiveDeploymentsResponse = ListEffectiveDeploymentsResponse'
-  { -- | The token for the next set of results, or null if there are no
+  { -- | A list that summarizes each deployment on the core device.
+    effectiveDeployments :: Prelude.Maybe [EffectiveDeployment],
+    -- | The token for the next set of results, or null if there are no
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list that summarizes each deployment on the core device.
-    effectiveDeployments :: Prelude.Maybe [EffectiveDeployment],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -196,10 +196,10 @@ data ListEffectiveDeploymentsResponse = ListEffectiveDeploymentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'effectiveDeployments', 'listEffectiveDeploymentsResponse_effectiveDeployments' - A list that summarizes each deployment on the core device.
+--
 -- 'nextToken', 'listEffectiveDeploymentsResponse_nextToken' - The token for the next set of results, or null if there are no
 -- additional results.
---
--- 'effectiveDeployments', 'listEffectiveDeploymentsResponse_effectiveDeployments' - A list that summarizes each deployment on the core device.
 --
 -- 'httpStatus', 'listEffectiveDeploymentsResponse_httpStatus' - The response's http status code.
 newListEffectiveDeploymentsResponse ::
@@ -208,20 +208,20 @@ newListEffectiveDeploymentsResponse ::
   ListEffectiveDeploymentsResponse
 newListEffectiveDeploymentsResponse pHttpStatus_ =
   ListEffectiveDeploymentsResponse'
-    { nextToken =
+    { effectiveDeployments =
         Prelude.Nothing,
-      effectiveDeployments = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list that summarizes each deployment on the core device.
+listEffectiveDeploymentsResponse_effectiveDeployments :: Lens.Lens' ListEffectiveDeploymentsResponse (Prelude.Maybe [EffectiveDeployment])
+listEffectiveDeploymentsResponse_effectiveDeployments = Lens.lens (\ListEffectiveDeploymentsResponse' {effectiveDeployments} -> effectiveDeployments) (\s@ListEffectiveDeploymentsResponse' {} a -> s {effectiveDeployments = a} :: ListEffectiveDeploymentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or null if there are no
 -- additional results.
 listEffectiveDeploymentsResponse_nextToken :: Lens.Lens' ListEffectiveDeploymentsResponse (Prelude.Maybe Prelude.Text)
 listEffectiveDeploymentsResponse_nextToken = Lens.lens (\ListEffectiveDeploymentsResponse' {nextToken} -> nextToken) (\s@ListEffectiveDeploymentsResponse' {} a -> s {nextToken = a} :: ListEffectiveDeploymentsResponse)
-
--- | A list that summarizes each deployment on the core device.
-listEffectiveDeploymentsResponse_effectiveDeployments :: Lens.Lens' ListEffectiveDeploymentsResponse (Prelude.Maybe [EffectiveDeployment])
-listEffectiveDeploymentsResponse_effectiveDeployments = Lens.lens (\ListEffectiveDeploymentsResponse' {effectiveDeployments} -> effectiveDeployments) (\s@ListEffectiveDeploymentsResponse' {} a -> s {effectiveDeployments = a} :: ListEffectiveDeploymentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listEffectiveDeploymentsResponse_httpStatus :: Lens.Lens' ListEffectiveDeploymentsResponse Prelude.Int
@@ -232,6 +232,6 @@ instance
     ListEffectiveDeploymentsResponse
   where
   rnf ListEffectiveDeploymentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf effectiveDeployments
+    Prelude.rnf effectiveDeployments
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

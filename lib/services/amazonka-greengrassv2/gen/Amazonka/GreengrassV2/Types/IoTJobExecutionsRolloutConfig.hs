@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIoTJobExecutionsRolloutConfig' smart constructor.
 data IoTJobExecutionsRolloutConfig = IoTJobExecutionsRolloutConfig'
-  { -- | The exponential rate to increase the job rollout rate.
-    exponentialRate :: Prelude.Maybe IoTJobExponentialRolloutRate,
-    -- | The maximum number of devices that receive a pending job notification,
+  { -- | The maximum number of devices that receive a pending job notification,
     -- per minute.
-    maximumPerMinute :: Prelude.Maybe Prelude.Natural
+    maximumPerMinute :: Prelude.Maybe Prelude.Natural,
+    -- | The exponential rate to increase the job rollout rate.
+    exponentialRate :: Prelude.Maybe IoTJobExponentialRolloutRate
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,27 +46,27 @@ data IoTJobExecutionsRolloutConfig = IoTJobExecutionsRolloutConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'exponentialRate', 'ioTJobExecutionsRolloutConfig_exponentialRate' - The exponential rate to increase the job rollout rate.
---
 -- 'maximumPerMinute', 'ioTJobExecutionsRolloutConfig_maximumPerMinute' - The maximum number of devices that receive a pending job notification,
 -- per minute.
+--
+-- 'exponentialRate', 'ioTJobExecutionsRolloutConfig_exponentialRate' - The exponential rate to increase the job rollout rate.
 newIoTJobExecutionsRolloutConfig ::
   IoTJobExecutionsRolloutConfig
 newIoTJobExecutionsRolloutConfig =
   IoTJobExecutionsRolloutConfig'
-    { exponentialRate =
+    { maximumPerMinute =
         Prelude.Nothing,
-      maximumPerMinute = Prelude.Nothing
+      exponentialRate = Prelude.Nothing
     }
-
--- | The exponential rate to increase the job rollout rate.
-ioTJobExecutionsRolloutConfig_exponentialRate :: Lens.Lens' IoTJobExecutionsRolloutConfig (Prelude.Maybe IoTJobExponentialRolloutRate)
-ioTJobExecutionsRolloutConfig_exponentialRate = Lens.lens (\IoTJobExecutionsRolloutConfig' {exponentialRate} -> exponentialRate) (\s@IoTJobExecutionsRolloutConfig' {} a -> s {exponentialRate = a} :: IoTJobExecutionsRolloutConfig)
 
 -- | The maximum number of devices that receive a pending job notification,
 -- per minute.
 ioTJobExecutionsRolloutConfig_maximumPerMinute :: Lens.Lens' IoTJobExecutionsRolloutConfig (Prelude.Maybe Prelude.Natural)
 ioTJobExecutionsRolloutConfig_maximumPerMinute = Lens.lens (\IoTJobExecutionsRolloutConfig' {maximumPerMinute} -> maximumPerMinute) (\s@IoTJobExecutionsRolloutConfig' {} a -> s {maximumPerMinute = a} :: IoTJobExecutionsRolloutConfig)
+
+-- | The exponential rate to increase the job rollout rate.
+ioTJobExecutionsRolloutConfig_exponentialRate :: Lens.Lens' IoTJobExecutionsRolloutConfig (Prelude.Maybe IoTJobExponentialRolloutRate)
+ioTJobExecutionsRolloutConfig_exponentialRate = Lens.lens (\IoTJobExecutionsRolloutConfig' {exponentialRate} -> exponentialRate) (\s@IoTJobExecutionsRolloutConfig' {} a -> s {exponentialRate = a} :: IoTJobExecutionsRolloutConfig)
 
 instance Core.FromJSON IoTJobExecutionsRolloutConfig where
   parseJSON =
@@ -74,8 +74,8 @@ instance Core.FromJSON IoTJobExecutionsRolloutConfig where
       "IoTJobExecutionsRolloutConfig"
       ( \x ->
           IoTJobExecutionsRolloutConfig'
-            Prelude.<$> (x Core..:? "exponentialRate")
-            Prelude.<*> (x Core..:? "maximumPerMinute")
+            Prelude.<$> (x Core..:? "maximumPerMinute")
+            Prelude.<*> (x Core..:? "exponentialRate")
       )
 
 instance
@@ -83,21 +83,21 @@ instance
     IoTJobExecutionsRolloutConfig
   where
   hashWithSalt _salt IoTJobExecutionsRolloutConfig' {..} =
-    _salt `Prelude.hashWithSalt` exponentialRate
-      `Prelude.hashWithSalt` maximumPerMinute
+    _salt `Prelude.hashWithSalt` maximumPerMinute
+      `Prelude.hashWithSalt` exponentialRate
 
 instance Prelude.NFData IoTJobExecutionsRolloutConfig where
   rnf IoTJobExecutionsRolloutConfig' {..} =
-    Prelude.rnf exponentialRate
-      `Prelude.seq` Prelude.rnf maximumPerMinute
+    Prelude.rnf maximumPerMinute
+      `Prelude.seq` Prelude.rnf exponentialRate
 
 instance Core.ToJSON IoTJobExecutionsRolloutConfig where
   toJSON IoTJobExecutionsRolloutConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("exponentialRate" Core..=)
-              Prelude.<$> exponentialRate,
-            ("maximumPerMinute" Core..=)
-              Prelude.<$> maximumPerMinute
+          [ ("maximumPerMinute" Core..=)
+              Prelude.<$> maximumPerMinute,
+            ("exponentialRate" Core..=)
+              Prelude.<$> exponentialRate
           ]
       )

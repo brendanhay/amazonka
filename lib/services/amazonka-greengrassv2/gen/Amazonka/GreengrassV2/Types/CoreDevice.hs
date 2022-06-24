@@ -29,7 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCoreDevice' smart constructor.
 data CoreDevice = CoreDevice'
-  { -- | The status of the core device. Core devices can have the following
+  { -- | The name of the core device. This is also the name of the IoT thing.
+    coreDeviceThingName :: Prelude.Maybe Prelude.Text,
+    -- | The status of the core device. Core devices can have the following
     -- statuses:
     --
     -- -   @HEALTHY@ – The IoT Greengrass Core software and all components run
@@ -38,8 +40,6 @@ data CoreDevice = CoreDevice'
     -- -   @UNHEALTHY@ – The IoT Greengrass Core software or a component is in
     --     a failed state on the core device.
     status :: Prelude.Maybe CoreDeviceStatus,
-    -- | The name of the core device. This is also the name of the IoT thing.
-    coreDeviceThingName :: Prelude.Maybe Prelude.Text,
     -- | The time at which the core device\'s status last updated, expressed in
     -- ISO 8601 format.
     lastStatusUpdateTimestamp :: Prelude.Maybe Core.POSIX
@@ -54,6 +54,8 @@ data CoreDevice = CoreDevice'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'coreDeviceThingName', 'coreDevice_coreDeviceThingName' - The name of the core device. This is also the name of the IoT thing.
+--
 -- 'status', 'coreDevice_status' - The status of the core device. Core devices can have the following
 -- statuses:
 --
@@ -63,18 +65,20 @@ data CoreDevice = CoreDevice'
 -- -   @UNHEALTHY@ – The IoT Greengrass Core software or a component is in
 --     a failed state on the core device.
 --
--- 'coreDeviceThingName', 'coreDevice_coreDeviceThingName' - The name of the core device. This is also the name of the IoT thing.
---
 -- 'lastStatusUpdateTimestamp', 'coreDevice_lastStatusUpdateTimestamp' - The time at which the core device\'s status last updated, expressed in
 -- ISO 8601 format.
 newCoreDevice ::
   CoreDevice
 newCoreDevice =
   CoreDevice'
-    { status = Prelude.Nothing,
-      coreDeviceThingName = Prelude.Nothing,
+    { coreDeviceThingName = Prelude.Nothing,
+      status = Prelude.Nothing,
       lastStatusUpdateTimestamp = Prelude.Nothing
     }
+
+-- | The name of the core device. This is also the name of the IoT thing.
+coreDevice_coreDeviceThingName :: Lens.Lens' CoreDevice (Prelude.Maybe Prelude.Text)
+coreDevice_coreDeviceThingName = Lens.lens (\CoreDevice' {coreDeviceThingName} -> coreDeviceThingName) (\s@CoreDevice' {} a -> s {coreDeviceThingName = a} :: CoreDevice)
 
 -- | The status of the core device. Core devices can have the following
 -- statuses:
@@ -87,10 +91,6 @@ newCoreDevice =
 coreDevice_status :: Lens.Lens' CoreDevice (Prelude.Maybe CoreDeviceStatus)
 coreDevice_status = Lens.lens (\CoreDevice' {status} -> status) (\s@CoreDevice' {} a -> s {status = a} :: CoreDevice)
 
--- | The name of the core device. This is also the name of the IoT thing.
-coreDevice_coreDeviceThingName :: Lens.Lens' CoreDevice (Prelude.Maybe Prelude.Text)
-coreDevice_coreDeviceThingName = Lens.lens (\CoreDevice' {coreDeviceThingName} -> coreDeviceThingName) (\s@CoreDevice' {} a -> s {coreDeviceThingName = a} :: CoreDevice)
-
 -- | The time at which the core device\'s status last updated, expressed in
 -- ISO 8601 format.
 coreDevice_lastStatusUpdateTimestamp :: Lens.Lens' CoreDevice (Prelude.Maybe Prelude.UTCTime)
@@ -102,19 +102,19 @@ instance Core.FromJSON CoreDevice where
       "CoreDevice"
       ( \x ->
           CoreDevice'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "coreDeviceThingName")
+            Prelude.<$> (x Core..:? "coreDeviceThingName")
+            Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "lastStatusUpdateTimestamp")
       )
 
 instance Prelude.Hashable CoreDevice where
   hashWithSalt _salt CoreDevice' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` coreDeviceThingName
+    _salt `Prelude.hashWithSalt` coreDeviceThingName
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` lastStatusUpdateTimestamp
 
 instance Prelude.NFData CoreDevice where
   rnf CoreDevice' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf coreDeviceThingName
+    Prelude.rnf coreDeviceThingName
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf lastStatusUpdateTimestamp

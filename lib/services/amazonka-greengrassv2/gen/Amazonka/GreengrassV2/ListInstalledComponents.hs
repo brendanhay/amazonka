@@ -39,8 +39,8 @@ module Amazonka.GreengrassV2.ListInstalledComponents
     newListInstalledComponentsResponse,
 
     -- * Response Lenses
-    listInstalledComponentsResponse_installedComponents,
     listInstalledComponentsResponse_nextToken,
+    listInstalledComponentsResponse_installedComponents,
     listInstalledComponentsResponse_httpStatus,
   )
 where
@@ -131,10 +131,10 @@ instance Core.AWSRequest ListInstalledComponents where
     Response.receiveJSON
       ( \s h x ->
           ListInstalledComponentsResponse'
-            Prelude.<$> ( x Core..?> "installedComponents"
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "installedComponents"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -178,11 +178,11 @@ instance Core.ToQuery ListInstalledComponents where
 
 -- | /See:/ 'newListInstalledComponentsResponse' smart constructor.
 data ListInstalledComponentsResponse = ListInstalledComponentsResponse'
-  { -- | A list that summarizes each component on the core device.
-    installedComponents :: Prelude.Maybe [InstalledComponent],
-    -- | The token for the next set of results, or null if there are no
+  { -- | The token for the next set of results, or null if there are no
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list that summarizes each component on the core device.
+    installedComponents :: Prelude.Maybe [InstalledComponent],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -196,10 +196,10 @@ data ListInstalledComponentsResponse = ListInstalledComponentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'installedComponents', 'listInstalledComponentsResponse_installedComponents' - A list that summarizes each component on the core device.
---
 -- 'nextToken', 'listInstalledComponentsResponse_nextToken' - The token for the next set of results, or null if there are no
 -- additional results.
+--
+-- 'installedComponents', 'listInstalledComponentsResponse_installedComponents' - A list that summarizes each component on the core device.
 --
 -- 'httpStatus', 'listInstalledComponentsResponse_httpStatus' - The response's http status code.
 newListInstalledComponentsResponse ::
@@ -208,20 +208,20 @@ newListInstalledComponentsResponse ::
   ListInstalledComponentsResponse
 newListInstalledComponentsResponse pHttpStatus_ =
   ListInstalledComponentsResponse'
-    { installedComponents =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      installedComponents = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list that summarizes each component on the core device.
-listInstalledComponentsResponse_installedComponents :: Lens.Lens' ListInstalledComponentsResponse (Prelude.Maybe [InstalledComponent])
-listInstalledComponentsResponse_installedComponents = Lens.lens (\ListInstalledComponentsResponse' {installedComponents} -> installedComponents) (\s@ListInstalledComponentsResponse' {} a -> s {installedComponents = a} :: ListInstalledComponentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or null if there are no
 -- additional results.
 listInstalledComponentsResponse_nextToken :: Lens.Lens' ListInstalledComponentsResponse (Prelude.Maybe Prelude.Text)
 listInstalledComponentsResponse_nextToken = Lens.lens (\ListInstalledComponentsResponse' {nextToken} -> nextToken) (\s@ListInstalledComponentsResponse' {} a -> s {nextToken = a} :: ListInstalledComponentsResponse)
+
+-- | A list that summarizes each component on the core device.
+listInstalledComponentsResponse_installedComponents :: Lens.Lens' ListInstalledComponentsResponse (Prelude.Maybe [InstalledComponent])
+listInstalledComponentsResponse_installedComponents = Lens.lens (\ListInstalledComponentsResponse' {installedComponents} -> installedComponents) (\s@ListInstalledComponentsResponse' {} a -> s {installedComponents = a} :: ListInstalledComponentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listInstalledComponentsResponse_httpStatus :: Lens.Lens' ListInstalledComponentsResponse Prelude.Int
@@ -232,6 +232,6 @@ instance
     ListInstalledComponentsResponse
   where
   rnf ListInstalledComponentsResponse' {..} =
-    Prelude.rnf installedComponents
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf installedComponents
       `Prelude.seq` Prelude.rnf httpStatus

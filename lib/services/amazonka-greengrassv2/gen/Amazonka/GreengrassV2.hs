@@ -36,29 +36,29 @@ module Amazonka.GreengrassV2
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
-
-    -- ** RequestAlreadyInProgressException
-    _RequestAlreadyInProgressException,
 
     -- ** InternalServerException
     _InternalServerException,
 
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** ValidationException
+    _ValidationException,
+
+    -- ** RequestAlreadyInProgressException
+    _RequestAlreadyInProgressException,
 
     -- * Waiters
     -- $waiters
@@ -66,71 +66,11 @@ module Amazonka.GreengrassV2
     -- * Operations
     -- $operations
 
-    -- ** ListComponentVersions (Paginated)
-    ListComponentVersions (ListComponentVersions'),
-    newListComponentVersions,
-    ListComponentVersionsResponse (ListComponentVersionsResponse'),
-    newListComponentVersionsResponse,
-
-    -- ** GetDeployment
-    GetDeployment (GetDeployment'),
-    newGetDeployment,
-    GetDeploymentResponse (GetDeploymentResponse'),
-    newGetDeploymentResponse,
-
-    -- ** DescribeComponent
-    DescribeComponent (DescribeComponent'),
-    newDescribeComponent,
-    DescribeComponentResponse (DescribeComponentResponse'),
-    newDescribeComponentResponse,
-
-    -- ** DeleteCoreDevice
-    DeleteCoreDevice (DeleteCoreDevice'),
-    newDeleteCoreDevice,
-    DeleteCoreDeviceResponse (DeleteCoreDeviceResponse'),
-    newDeleteCoreDeviceResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** GetCoreDevice
-    GetCoreDevice (GetCoreDevice'),
-    newGetCoreDevice,
-    GetCoreDeviceResponse (GetCoreDeviceResponse'),
-    newGetCoreDeviceResponse,
-
-    -- ** GetComponentVersionArtifact
-    GetComponentVersionArtifact (GetComponentVersionArtifact'),
-    newGetComponentVersionArtifact,
-    GetComponentVersionArtifactResponse (GetComponentVersionArtifactResponse'),
-    newGetComponentVersionArtifactResponse,
-
-    -- ** CreateDeployment
-    CreateDeployment (CreateDeployment'),
-    newCreateDeployment,
-    CreateDeploymentResponse (CreateDeploymentResponse'),
-    newCreateDeploymentResponse,
-
     -- ** BatchAssociateClientDeviceWithCoreDevice
     BatchAssociateClientDeviceWithCoreDevice (BatchAssociateClientDeviceWithCoreDevice'),
     newBatchAssociateClientDeviceWithCoreDevice,
     BatchAssociateClientDeviceWithCoreDeviceResponse (BatchAssociateClientDeviceWithCoreDeviceResponse'),
     newBatchAssociateClientDeviceWithCoreDeviceResponse,
-
-    -- ** ListInstalledComponents (Paginated)
-    ListInstalledComponents (ListInstalledComponents'),
-    newListInstalledComponents,
-    ListInstalledComponentsResponse (ListInstalledComponentsResponse'),
-    newListInstalledComponentsResponse,
-
-    -- ** CancelDeployment
-    CancelDeployment (CancelDeployment'),
-    newCancelDeployment,
-    CancelDeploymentResponse (CancelDeploymentResponse'),
-    newCancelDeploymentResponse,
 
     -- ** BatchDisassociateClientDeviceFromCoreDevice
     BatchDisassociateClientDeviceFromCoreDevice (BatchDisassociateClientDeviceFromCoreDevice'),
@@ -138,17 +78,95 @@ module Amazonka.GreengrassV2
     BatchDisassociateClientDeviceFromCoreDeviceResponse (BatchDisassociateClientDeviceFromCoreDeviceResponse'),
     newBatchDisassociateClientDeviceFromCoreDeviceResponse,
 
+    -- ** CancelDeployment
+    CancelDeployment (CancelDeployment'),
+    newCancelDeployment,
+    CancelDeploymentResponse (CancelDeploymentResponse'),
+    newCancelDeploymentResponse,
+
+    -- ** CreateComponentVersion
+    CreateComponentVersion (CreateComponentVersion'),
+    newCreateComponentVersion,
+    CreateComponentVersionResponse (CreateComponentVersionResponse'),
+    newCreateComponentVersionResponse,
+
+    -- ** CreateDeployment
+    CreateDeployment (CreateDeployment'),
+    newCreateDeployment,
+    CreateDeploymentResponse (CreateDeploymentResponse'),
+    newCreateDeploymentResponse,
+
+    -- ** DeleteComponent
+    DeleteComponent (DeleteComponent'),
+    newDeleteComponent,
+    DeleteComponentResponse (DeleteComponentResponse'),
+    newDeleteComponentResponse,
+
+    -- ** DeleteCoreDevice
+    DeleteCoreDevice (DeleteCoreDevice'),
+    newDeleteCoreDevice,
+    DeleteCoreDeviceResponse (DeleteCoreDeviceResponse'),
+    newDeleteCoreDeviceResponse,
+
+    -- ** DescribeComponent
+    DescribeComponent (DescribeComponent'),
+    newDescribeComponent,
+    DescribeComponentResponse (DescribeComponentResponse'),
+    newDescribeComponentResponse,
+
+    -- ** GetComponent
+    GetComponent (GetComponent'),
+    newGetComponent,
+    GetComponentResponse (GetComponentResponse'),
+    newGetComponentResponse,
+
+    -- ** GetComponentVersionArtifact
+    GetComponentVersionArtifact (GetComponentVersionArtifact'),
+    newGetComponentVersionArtifact,
+    GetComponentVersionArtifactResponse (GetComponentVersionArtifactResponse'),
+    newGetComponentVersionArtifactResponse,
+
+    -- ** GetCoreDevice
+    GetCoreDevice (GetCoreDevice'),
+    newGetCoreDevice,
+    GetCoreDeviceResponse (GetCoreDeviceResponse'),
+    newGetCoreDeviceResponse,
+
+    -- ** GetDeployment
+    GetDeployment (GetDeployment'),
+    newGetDeployment,
+    GetDeploymentResponse (GetDeploymentResponse'),
+    newGetDeploymentResponse,
+
+    -- ** ListClientDevicesAssociatedWithCoreDevice (Paginated)
+    ListClientDevicesAssociatedWithCoreDevice (ListClientDevicesAssociatedWithCoreDevice'),
+    newListClientDevicesAssociatedWithCoreDevice,
+    ListClientDevicesAssociatedWithCoreDeviceResponse (ListClientDevicesAssociatedWithCoreDeviceResponse'),
+    newListClientDevicesAssociatedWithCoreDeviceResponse,
+
+    -- ** ListComponentVersions (Paginated)
+    ListComponentVersions (ListComponentVersions'),
+    newListComponentVersions,
+    ListComponentVersionsResponse (ListComponentVersionsResponse'),
+    newListComponentVersionsResponse,
+
+    -- ** ListComponents (Paginated)
+    ListComponents (ListComponents'),
+    newListComponents,
+    ListComponentsResponse (ListComponentsResponse'),
+    newListComponentsResponse,
+
     -- ** ListCoreDevices (Paginated)
     ListCoreDevices (ListCoreDevices'),
     newListCoreDevices,
     ListCoreDevicesResponse (ListCoreDevicesResponse'),
     newListCoreDevicesResponse,
 
-    -- ** ResolveComponentCandidates
-    ResolveComponentCandidates (ResolveComponentCandidates'),
-    newResolveComponentCandidates,
-    ResolveComponentCandidatesResponse (ResolveComponentCandidatesResponse'),
-    newResolveComponentCandidatesResponse,
+    -- ** ListDeployments (Paginated)
+    ListDeployments (ListDeployments'),
+    newListDeployments,
+    ListDeploymentsResponse (ListDeploymentsResponse'),
+    newListDeploymentsResponse,
 
     -- ** ListEffectiveDeployments (Paginated)
     ListEffectiveDeployments (ListEffectiveDeployments'),
@@ -156,11 +174,23 @@ module Amazonka.GreengrassV2
     ListEffectiveDeploymentsResponse (ListEffectiveDeploymentsResponse'),
     newListEffectiveDeploymentsResponse,
 
-    -- ** ListDeployments (Paginated)
-    ListDeployments (ListDeployments'),
-    newListDeployments,
-    ListDeploymentsResponse (ListDeploymentsResponse'),
-    newListDeploymentsResponse,
+    -- ** ListInstalledComponents (Paginated)
+    ListInstalledComponents (ListInstalledComponents'),
+    newListInstalledComponents,
+    ListInstalledComponentsResponse (ListInstalledComponentsResponse'),
+    newListInstalledComponentsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** ResolveComponentCandidates
+    ResolveComponentCandidates (ResolveComponentCandidates'),
+    newResolveComponentCandidates,
+    ResolveComponentCandidatesResponse (ResolveComponentCandidatesResponse'),
+    newResolveComponentCandidatesResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -173,36 +203,6 @@ module Amazonka.GreengrassV2
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
-
-    -- ** ListComponents (Paginated)
-    ListComponents (ListComponents'),
-    newListComponents,
-    ListComponentsResponse (ListComponentsResponse'),
-    newListComponentsResponse,
-
-    -- ** DeleteComponent
-    DeleteComponent (DeleteComponent'),
-    newDeleteComponent,
-    DeleteComponentResponse (DeleteComponentResponse'),
-    newDeleteComponentResponse,
-
-    -- ** CreateComponentVersion
-    CreateComponentVersion (CreateComponentVersion'),
-    newCreateComponentVersion,
-    CreateComponentVersionResponse (CreateComponentVersionResponse'),
-    newCreateComponentVersionResponse,
-
-    -- ** GetComponent
-    GetComponent (GetComponent'),
-    newGetComponent,
-    GetComponentResponse (GetComponentResponse'),
-    newGetComponentResponse,
-
-    -- ** ListClientDevicesAssociatedWithCoreDevice (Paginated)
-    ListClientDevicesAssociatedWithCoreDevice (ListClientDevicesAssociatedWithCoreDevice'),
-    newListClientDevicesAssociatedWithCoreDevice,
-    ListClientDevicesAssociatedWithCoreDeviceResponse (ListClientDevicesAssociatedWithCoreDeviceResponse'),
-    newListClientDevicesAssociatedWithCoreDeviceResponse,
 
     -- * Types
 

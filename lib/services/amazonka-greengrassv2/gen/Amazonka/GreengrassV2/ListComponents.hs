@@ -31,16 +31,16 @@ module Amazonka.GreengrassV2.ListComponents
 
     -- * Request Lenses
     listComponents_nextToken,
-    listComponents_scope,
     listComponents_maxResults,
+    listComponents_scope,
 
     -- * Destructuring the Response
     ListComponentsResponse (..),
     newListComponentsResponse,
 
     -- * Response Lenses
-    listComponentsResponse_components,
     listComponentsResponse_nextToken,
+    listComponentsResponse_components,
     listComponentsResponse_httpStatus,
   )
 where
@@ -56,12 +56,12 @@ import qualified Amazonka.Response as Response
 data ListComponents = ListComponents'
   { -- | The token to be used for the next set of paginated results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to be returned per paginated request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The scope of the components to list.
     --
     -- Default: @PRIVATE@
-    scope :: Prelude.Maybe ComponentVisibilityScope,
-    -- | The maximum number of results to be returned per paginated request.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    scope :: Prelude.Maybe ComponentVisibilityScope
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,33 +75,33 @@ data ListComponents = ListComponents'
 --
 -- 'nextToken', 'listComponents_nextToken' - The token to be used for the next set of paginated results.
 --
+-- 'maxResults', 'listComponents_maxResults' - The maximum number of results to be returned per paginated request.
+--
 -- 'scope', 'listComponents_scope' - The scope of the components to list.
 --
 -- Default: @PRIVATE@
---
--- 'maxResults', 'listComponents_maxResults' - The maximum number of results to be returned per paginated request.
 newListComponents ::
   ListComponents
 newListComponents =
   ListComponents'
     { nextToken = Prelude.Nothing,
-      scope = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      scope = Prelude.Nothing
     }
 
 -- | The token to be used for the next set of paginated results.
 listComponents_nextToken :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Text)
 listComponents_nextToken = Lens.lens (\ListComponents' {nextToken} -> nextToken) (\s@ListComponents' {} a -> s {nextToken = a} :: ListComponents)
 
+-- | The maximum number of results to be returned per paginated request.
+listComponents_maxResults :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Natural)
+listComponents_maxResults = Lens.lens (\ListComponents' {maxResults} -> maxResults) (\s@ListComponents' {} a -> s {maxResults = a} :: ListComponents)
+
 -- | The scope of the components to list.
 --
 -- Default: @PRIVATE@
 listComponents_scope :: Lens.Lens' ListComponents (Prelude.Maybe ComponentVisibilityScope)
 listComponents_scope = Lens.lens (\ListComponents' {scope} -> scope) (\s@ListComponents' {} a -> s {scope = a} :: ListComponents)
-
--- | The maximum number of results to be returned per paginated request.
-listComponents_maxResults :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Natural)
-listComponents_maxResults = Lens.lens (\ListComponents' {maxResults} -> maxResults) (\s@ListComponents' {} a -> s {maxResults = a} :: ListComponents)
 
 instance Core.AWSPager ListComponents where
   page rq rs
@@ -133,22 +133,22 @@ instance Core.AWSRequest ListComponents where
     Response.receiveJSON
       ( \s h x ->
           ListComponentsResponse'
-            Prelude.<$> (x Core..?> "components" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "components" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListComponents where
   hashWithSalt _salt ListComponents' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` scope
 
 instance Prelude.NFData ListComponents where
   rnf ListComponents' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf scope
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf scope
 
 instance Core.ToHeaders ListComponents where
   toHeaders =
@@ -168,17 +168,17 @@ instance Core.ToQuery ListComponents where
   toQuery ListComponents' {..} =
     Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
-        "scope" Core.=: scope,
-        "maxResults" Core.=: maxResults
+        "maxResults" Core.=: maxResults,
+        "scope" Core.=: scope
       ]
 
 -- | /See:/ 'newListComponentsResponse' smart constructor.
 data ListComponentsResponse = ListComponentsResponse'
-  { -- | A list that summarizes each component.
-    components :: Prelude.Maybe [Component],
-    -- | The token for the next set of results, or null if there are no
+  { -- | The token for the next set of results, or null if there are no
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list that summarizes each component.
+    components :: Prelude.Maybe [Component],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -192,10 +192,10 @@ data ListComponentsResponse = ListComponentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'components', 'listComponentsResponse_components' - A list that summarizes each component.
---
 -- 'nextToken', 'listComponentsResponse_nextToken' - The token for the next set of results, or null if there are no
 -- additional results.
+--
+-- 'components', 'listComponentsResponse_components' - A list that summarizes each component.
 --
 -- 'httpStatus', 'listComponentsResponse_httpStatus' - The response's http status code.
 newListComponentsResponse ::
@@ -204,20 +204,20 @@ newListComponentsResponse ::
   ListComponentsResponse
 newListComponentsResponse pHttpStatus_ =
   ListComponentsResponse'
-    { components =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      components = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list that summarizes each component.
-listComponentsResponse_components :: Lens.Lens' ListComponentsResponse (Prelude.Maybe [Component])
-listComponentsResponse_components = Lens.lens (\ListComponentsResponse' {components} -> components) (\s@ListComponentsResponse' {} a -> s {components = a} :: ListComponentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or null if there are no
 -- additional results.
 listComponentsResponse_nextToken :: Lens.Lens' ListComponentsResponse (Prelude.Maybe Prelude.Text)
 listComponentsResponse_nextToken = Lens.lens (\ListComponentsResponse' {nextToken} -> nextToken) (\s@ListComponentsResponse' {} a -> s {nextToken = a} :: ListComponentsResponse)
+
+-- | A list that summarizes each component.
+listComponentsResponse_components :: Lens.Lens' ListComponentsResponse (Prelude.Maybe [Component])
+listComponentsResponse_components = Lens.lens (\ListComponentsResponse' {components} -> components) (\s@ListComponentsResponse' {} a -> s {components = a} :: ListComponentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listComponentsResponse_httpStatus :: Lens.Lens' ListComponentsResponse Prelude.Int
@@ -225,6 +225,6 @@ listComponentsResponse_httpStatus = Lens.lens (\ListComponentsResponse' {httpSta
 
 instance Prelude.NFData ListComponentsResponse where
   rnf ListComponentsResponse' {..} =
-    Prelude.rnf components
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf components
       `Prelude.seq` Prelude.rnf httpStatus

@@ -40,11 +40,11 @@ module Amazonka.RedshiftData.ListSchemas
     newListSchemas,
 
     -- * Request Lenses
-    listSchemas_dbUser,
-    listSchemas_connectedDatabase,
     listSchemas_nextToken,
-    listSchemas_secretArn,
+    listSchemas_connectedDatabase,
     listSchemas_maxResults,
+    listSchemas_secretArn,
+    listSchemas_dbUser,
     listSchemas_schemaPattern,
     listSchemas_clusterIdentifier,
     listSchemas_database,
@@ -54,8 +54,8 @@ module Amazonka.RedshiftData.ListSchemas
     newListSchemasResponse,
 
     -- * Response Lenses
-    listSchemasResponse_schemas,
     listSchemasResponse_nextToken,
+    listSchemasResponse_schemas,
     listSchemasResponse_httpStatus,
   )
 where
@@ -69,26 +69,26 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSchemas' smart constructor.
 data ListSchemas = ListSchemas'
-  { -- | The database user name. This parameter is required when authenticating
-    -- using temporary credentials.
-    dbUser :: Prelude.Maybe Prelude.Text,
-    -- | A database name. The connected database is specified when you connect
-    -- with your authentication credentials.
-    connectedDatabase :: Prelude.Maybe Prelude.Text,
-    -- | A value that indicates the starting point for the next set of response
+  { -- | A value that indicates the starting point for the next set of response
     -- records in a subsequent request. If a value is returned in a response,
     -- you can retrieve the next set of records by providing this returned
     -- NextToken value in the next NextToken parameter and retrying the
     -- command. If the NextToken field is empty, all response records have been
     -- retrieved for the request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name or ARN of the secret that enables access to the database. This
-    -- parameter is required when authenticating using Secrets Manager.
-    secretArn :: Prelude.Maybe Prelude.Text,
+    -- | A database name. The connected database is specified when you connect
+    -- with your authentication credentials.
+    connectedDatabase :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of schemas to return in the response. If more schemas
     -- exist than fit in one response, then @NextToken@ is returned to page
     -- through the results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The name or ARN of the secret that enables access to the database. This
+    -- parameter is required when authenticating using Secrets Manager.
+    secretArn :: Prelude.Maybe Prelude.Text,
+    -- | The database user name. This parameter is required when authenticating
+    -- using temporary credentials.
+    dbUser :: Prelude.Maybe Prelude.Text,
     -- | A pattern to filter results by schema name. Within a schema pattern,
     -- \"%\" means match any substring of 0 or more characters and \"_\" means
     -- match any one character. Only schema name entries matching the search
@@ -112,12 +112,6 @@ data ListSchemas = ListSchemas'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dbUser', 'listSchemas_dbUser' - The database user name. This parameter is required when authenticating
--- using temporary credentials.
---
--- 'connectedDatabase', 'listSchemas_connectedDatabase' - A database name. The connected database is specified when you connect
--- with your authentication credentials.
---
 -- 'nextToken', 'listSchemas_nextToken' - A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
 -- you can retrieve the next set of records by providing this returned
@@ -125,12 +119,18 @@ data ListSchemas = ListSchemas'
 -- command. If the NextToken field is empty, all response records have been
 -- retrieved for the request.
 --
--- 'secretArn', 'listSchemas_secretArn' - The name or ARN of the secret that enables access to the database. This
--- parameter is required when authenticating using Secrets Manager.
+-- 'connectedDatabase', 'listSchemas_connectedDatabase' - A database name. The connected database is specified when you connect
+-- with your authentication credentials.
 --
 -- 'maxResults', 'listSchemas_maxResults' - The maximum number of schemas to return in the response. If more schemas
 -- exist than fit in one response, then @NextToken@ is returned to page
 -- through the results.
+--
+-- 'secretArn', 'listSchemas_secretArn' - The name or ARN of the secret that enables access to the database. This
+-- parameter is required when authenticating using Secrets Manager.
+--
+-- 'dbUser', 'listSchemas_dbUser' - The database user name. This parameter is required when authenticating
+-- using temporary credentials.
 --
 -- 'schemaPattern', 'listSchemas_schemaPattern' - A pattern to filter results by schema name. Within a schema pattern,
 -- \"%\" means match any substring of 0 or more characters and \"_\" means
@@ -151,25 +151,15 @@ newListSchemas ::
   ListSchemas
 newListSchemas pClusterIdentifier_ pDatabase_ =
   ListSchemas'
-    { dbUser = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       connectedDatabase = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      secretArn = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      secretArn = Prelude.Nothing,
+      dbUser = Prelude.Nothing,
       schemaPattern = Prelude.Nothing,
       clusterIdentifier = pClusterIdentifier_,
       database = pDatabase_
     }
-
--- | The database user name. This parameter is required when authenticating
--- using temporary credentials.
-listSchemas_dbUser :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
-listSchemas_dbUser = Lens.lens (\ListSchemas' {dbUser} -> dbUser) (\s@ListSchemas' {} a -> s {dbUser = a} :: ListSchemas)
-
--- | A database name. The connected database is specified when you connect
--- with your authentication credentials.
-listSchemas_connectedDatabase :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
-listSchemas_connectedDatabase = Lens.lens (\ListSchemas' {connectedDatabase} -> connectedDatabase) (\s@ListSchemas' {} a -> s {connectedDatabase = a} :: ListSchemas)
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -180,16 +170,26 @@ listSchemas_connectedDatabase = Lens.lens (\ListSchemas' {connectedDatabase} -> 
 listSchemas_nextToken :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
 listSchemas_nextToken = Lens.lens (\ListSchemas' {nextToken} -> nextToken) (\s@ListSchemas' {} a -> s {nextToken = a} :: ListSchemas)
 
--- | The name or ARN of the secret that enables access to the database. This
--- parameter is required when authenticating using Secrets Manager.
-listSchemas_secretArn :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
-listSchemas_secretArn = Lens.lens (\ListSchemas' {secretArn} -> secretArn) (\s@ListSchemas' {} a -> s {secretArn = a} :: ListSchemas)
+-- | A database name. The connected database is specified when you connect
+-- with your authentication credentials.
+listSchemas_connectedDatabase :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
+listSchemas_connectedDatabase = Lens.lens (\ListSchemas' {connectedDatabase} -> connectedDatabase) (\s@ListSchemas' {} a -> s {connectedDatabase = a} :: ListSchemas)
 
 -- | The maximum number of schemas to return in the response. If more schemas
 -- exist than fit in one response, then @NextToken@ is returned to page
 -- through the results.
 listSchemas_maxResults :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Natural)
 listSchemas_maxResults = Lens.lens (\ListSchemas' {maxResults} -> maxResults) (\s@ListSchemas' {} a -> s {maxResults = a} :: ListSchemas)
+
+-- | The name or ARN of the secret that enables access to the database. This
+-- parameter is required when authenticating using Secrets Manager.
+listSchemas_secretArn :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
+listSchemas_secretArn = Lens.lens (\ListSchemas' {secretArn} -> secretArn) (\s@ListSchemas' {} a -> s {secretArn = a} :: ListSchemas)
+
+-- | The database user name. This parameter is required when authenticating
+-- using temporary credentials.
+listSchemas_dbUser :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
+listSchemas_dbUser = Lens.lens (\ListSchemas' {dbUser} -> dbUser) (\s@ListSchemas' {} a -> s {dbUser = a} :: ListSchemas)
 
 -- | A pattern to filter results by schema name. Within a schema pattern,
 -- \"%\" means match any substring of 0 or more characters and \"_\" means
@@ -235,29 +235,29 @@ instance Core.AWSRequest ListSchemas where
     Response.receiveJSON
       ( \s h x ->
           ListSchemasResponse'
-            Prelude.<$> (x Core..?> "Schemas" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Schemas" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListSchemas where
   hashWithSalt _salt ListSchemas' {..} =
-    _salt `Prelude.hashWithSalt` dbUser
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` connectedDatabase
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` secretArn
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` secretArn
+      `Prelude.hashWithSalt` dbUser
       `Prelude.hashWithSalt` schemaPattern
       `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` database
 
 instance Prelude.NFData ListSchemas where
   rnf ListSchemas' {..} =
-    Prelude.rnf dbUser
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf connectedDatabase
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf secretArn
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf secretArn
+      `Prelude.seq` Prelude.rnf dbUser
       `Prelude.seq` Prelude.rnf schemaPattern
       `Prelude.seq` Prelude.rnf clusterIdentifier
       `Prelude.seq` Prelude.rnf database
@@ -279,12 +279,12 @@ instance Core.ToJSON ListSchemas where
   toJSON ListSchemas' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DbUser" Core..=) Prelude.<$> dbUser,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("ConnectedDatabase" Core..=)
               Prelude.<$> connectedDatabase,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SecretArn" Core..=) Prelude.<$> secretArn,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("SecretArn" Core..=) Prelude.<$> secretArn,
+            ("DbUser" Core..=) Prelude.<$> dbUser,
             ("SchemaPattern" Core..=) Prelude.<$> schemaPattern,
             Prelude.Just
               ("ClusterIdentifier" Core..= clusterIdentifier),
@@ -300,15 +300,15 @@ instance Core.ToQuery ListSchemas where
 
 -- | /See:/ 'newListSchemasResponse' smart constructor.
 data ListSchemasResponse = ListSchemasResponse'
-  { -- | The schemas that match the request pattern.
-    schemas :: Prelude.Maybe [Prelude.Text],
-    -- | A value that indicates the starting point for the next set of response
+  { -- | A value that indicates the starting point for the next set of response
     -- records in a subsequent request. If a value is returned in a response,
     -- you can retrieve the next set of records by providing this returned
     -- NextToken value in the next NextToken parameter and retrying the
     -- command. If the NextToken field is empty, all response records have been
     -- retrieved for the request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The schemas that match the request pattern.
+    schemas :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -322,14 +322,14 @@ data ListSchemasResponse = ListSchemasResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'schemas', 'listSchemasResponse_schemas' - The schemas that match the request pattern.
---
 -- 'nextToken', 'listSchemasResponse_nextToken' - A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
 -- you can retrieve the next set of records by providing this returned
 -- NextToken value in the next NextToken parameter and retrying the
 -- command. If the NextToken field is empty, all response records have been
 -- retrieved for the request.
+--
+-- 'schemas', 'listSchemasResponse_schemas' - The schemas that match the request pattern.
 --
 -- 'httpStatus', 'listSchemasResponse_httpStatus' - The response's http status code.
 newListSchemasResponse ::
@@ -338,14 +338,10 @@ newListSchemasResponse ::
   ListSchemasResponse
 newListSchemasResponse pHttpStatus_ =
   ListSchemasResponse'
-    { schemas = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      schemas = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The schemas that match the request pattern.
-listSchemasResponse_schemas :: Lens.Lens' ListSchemasResponse (Prelude.Maybe [Prelude.Text])
-listSchemasResponse_schemas = Lens.lens (\ListSchemasResponse' {schemas} -> schemas) (\s@ListSchemasResponse' {} a -> s {schemas = a} :: ListSchemasResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -356,12 +352,16 @@ listSchemasResponse_schemas = Lens.lens (\ListSchemasResponse' {schemas} -> sche
 listSchemasResponse_nextToken :: Lens.Lens' ListSchemasResponse (Prelude.Maybe Prelude.Text)
 listSchemasResponse_nextToken = Lens.lens (\ListSchemasResponse' {nextToken} -> nextToken) (\s@ListSchemasResponse' {} a -> s {nextToken = a} :: ListSchemasResponse)
 
+-- | The schemas that match the request pattern.
+listSchemasResponse_schemas :: Lens.Lens' ListSchemasResponse (Prelude.Maybe [Prelude.Text])
+listSchemasResponse_schemas = Lens.lens (\ListSchemasResponse' {schemas} -> schemas) (\s@ListSchemasResponse' {} a -> s {schemas = a} :: ListSchemasResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listSchemasResponse_httpStatus :: Lens.Lens' ListSchemasResponse Prelude.Int
 listSchemasResponse_httpStatus = Lens.lens (\ListSchemasResponse' {httpStatus} -> httpStatus) (\s@ListSchemasResponse' {} a -> s {httpStatus = a} :: ListSchemasResponse)
 
 instance Prelude.NFData ListSchemasResponse where
   rnf ListSchemasResponse' {..} =
-    Prelude.rnf schemas
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf schemas
       `Prelude.seq` Prelude.rnf httpStatus

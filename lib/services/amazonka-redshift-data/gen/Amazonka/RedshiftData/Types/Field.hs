@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 data Field = Field'
   { -- | A value of the double data type.
     doubleValue :: Prelude.Maybe Prelude.Double,
+    -- | A value of the Boolean data type.
+    booleanValue :: Prelude.Maybe Prelude.Bool,
+    -- | A value that indicates whether the data is NULL.
+    isNull :: Prelude.Maybe Prelude.Bool,
     -- | A value of the string data type.
     stringValue :: Prelude.Maybe Prelude.Text,
     -- | A value of the long data type.
     longValue :: Prelude.Maybe Prelude.Integer,
-    -- | A value of the Boolean data type.
-    booleanValue :: Prelude.Maybe Prelude.Bool,
     -- | A value of the BLOB data type.
-    blobValue :: Prelude.Maybe Core.Base64,
-    -- | A value that indicates whether the data is NULL.
-    isNull :: Prelude.Maybe Prelude.Bool
+    blobValue :: Prelude.Maybe Core.Base64
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,34 +52,42 @@ data Field = Field'
 --
 -- 'doubleValue', 'field_doubleValue' - A value of the double data type.
 --
+-- 'booleanValue', 'field_booleanValue' - A value of the Boolean data type.
+--
+-- 'isNull', 'field_isNull' - A value that indicates whether the data is NULL.
+--
 -- 'stringValue', 'field_stringValue' - A value of the string data type.
 --
 -- 'longValue', 'field_longValue' - A value of the long data type.
---
--- 'booleanValue', 'field_booleanValue' - A value of the Boolean data type.
 --
 -- 'blobValue', 'field_blobValue' - A value of the BLOB data type.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
---
--- 'isNull', 'field_isNull' - A value that indicates whether the data is NULL.
 newField ::
   Field
 newField =
   Field'
     { doubleValue = Prelude.Nothing,
+      booleanValue = Prelude.Nothing,
+      isNull = Prelude.Nothing,
       stringValue = Prelude.Nothing,
       longValue = Prelude.Nothing,
-      booleanValue = Prelude.Nothing,
-      blobValue = Prelude.Nothing,
-      isNull = Prelude.Nothing
+      blobValue = Prelude.Nothing
     }
 
 -- | A value of the double data type.
 field_doubleValue :: Lens.Lens' Field (Prelude.Maybe Prelude.Double)
 field_doubleValue = Lens.lens (\Field' {doubleValue} -> doubleValue) (\s@Field' {} a -> s {doubleValue = a} :: Field)
+
+-- | A value of the Boolean data type.
+field_booleanValue :: Lens.Lens' Field (Prelude.Maybe Prelude.Bool)
+field_booleanValue = Lens.lens (\Field' {booleanValue} -> booleanValue) (\s@Field' {} a -> s {booleanValue = a} :: Field)
+
+-- | A value that indicates whether the data is NULL.
+field_isNull :: Lens.Lens' Field (Prelude.Maybe Prelude.Bool)
+field_isNull = Lens.lens (\Field' {isNull} -> isNull) (\s@Field' {} a -> s {isNull = a} :: Field)
 
 -- | A value of the string data type.
 field_stringValue :: Lens.Lens' Field (Prelude.Maybe Prelude.Text)
@@ -89,10 +97,6 @@ field_stringValue = Lens.lens (\Field' {stringValue} -> stringValue) (\s@Field' 
 field_longValue :: Lens.Lens' Field (Prelude.Maybe Prelude.Integer)
 field_longValue = Lens.lens (\Field' {longValue} -> longValue) (\s@Field' {} a -> s {longValue = a} :: Field)
 
--- | A value of the Boolean data type.
-field_booleanValue :: Lens.Lens' Field (Prelude.Maybe Prelude.Bool)
-field_booleanValue = Lens.lens (\Field' {booleanValue} -> booleanValue) (\s@Field' {} a -> s {booleanValue = a} :: Field)
-
 -- | A value of the BLOB data type.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
@@ -101,10 +105,6 @@ field_booleanValue = Lens.lens (\Field' {booleanValue} -> booleanValue) (\s@Fiel
 field_blobValue :: Lens.Lens' Field (Prelude.Maybe Prelude.ByteString)
 field_blobValue = Lens.lens (\Field' {blobValue} -> blobValue) (\s@Field' {} a -> s {blobValue = a} :: Field) Prelude.. Lens.mapping Core._Base64
 
--- | A value that indicates whether the data is NULL.
-field_isNull :: Lens.Lens' Field (Prelude.Maybe Prelude.Bool)
-field_isNull = Lens.lens (\Field' {isNull} -> isNull) (\s@Field' {} a -> s {isNull = a} :: Field)
-
 instance Core.FromJSON Field where
   parseJSON =
     Core.withObject
@@ -112,27 +112,27 @@ instance Core.FromJSON Field where
       ( \x ->
           Field'
             Prelude.<$> (x Core..:? "doubleValue")
+            Prelude.<*> (x Core..:? "booleanValue")
+            Prelude.<*> (x Core..:? "isNull")
             Prelude.<*> (x Core..:? "stringValue")
             Prelude.<*> (x Core..:? "longValue")
-            Prelude.<*> (x Core..:? "booleanValue")
             Prelude.<*> (x Core..:? "blobValue")
-            Prelude.<*> (x Core..:? "isNull")
       )
 
 instance Prelude.Hashable Field where
   hashWithSalt _salt Field' {..} =
     _salt `Prelude.hashWithSalt` doubleValue
+      `Prelude.hashWithSalt` booleanValue
+      `Prelude.hashWithSalt` isNull
       `Prelude.hashWithSalt` stringValue
       `Prelude.hashWithSalt` longValue
-      `Prelude.hashWithSalt` booleanValue
       `Prelude.hashWithSalt` blobValue
-      `Prelude.hashWithSalt` isNull
 
 instance Prelude.NFData Field where
   rnf Field' {..} =
     Prelude.rnf doubleValue
+      `Prelude.seq` Prelude.rnf booleanValue
+      `Prelude.seq` Prelude.rnf isNull
       `Prelude.seq` Prelude.rnf stringValue
       `Prelude.seq` Prelude.rnf longValue
-      `Prelude.seq` Prelude.rnf booleanValue
       `Prelude.seq` Prelude.rnf blobValue
-      `Prelude.seq` Prelude.rnf isNull

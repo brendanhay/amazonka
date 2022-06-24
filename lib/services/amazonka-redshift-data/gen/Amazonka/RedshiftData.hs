@@ -25,23 +25,23 @@ module Amazonka.RedshiftData
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** ExecuteStatementException
     _ExecuteStatementException,
 
     -- ** InternalServerException
     _InternalServerException,
 
-    -- ** ActiveStatementsExceededException
-    _ActiveStatementsExceededException,
-
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
+    -- ** ActiveStatementsExceededException
+    _ActiveStatementsExceededException,
+
     -- ** BatchExecuteStatementException
     _BatchExecuteStatementException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -49,11 +49,41 @@ module Amazonka.RedshiftData
     -- * Operations
     -- $operations
 
-    -- ** ListStatements (Paginated)
-    ListStatements (ListStatements'),
-    newListStatements,
-    ListStatementsResponse (ListStatementsResponse'),
-    newListStatementsResponse,
+    -- ** BatchExecuteStatement
+    BatchExecuteStatement (BatchExecuteStatement'),
+    newBatchExecuteStatement,
+    BatchExecuteStatementResponse (BatchExecuteStatementResponse'),
+    newBatchExecuteStatementResponse,
+
+    -- ** CancelStatement
+    CancelStatement (CancelStatement'),
+    newCancelStatement,
+    CancelStatementResponse (CancelStatementResponse'),
+    newCancelStatementResponse,
+
+    -- ** DescribeStatement
+    DescribeStatement (DescribeStatement'),
+    newDescribeStatement,
+    DescribeStatementResponse (DescribeStatementResponse'),
+    newDescribeStatementResponse,
+
+    -- ** DescribeTable (Paginated)
+    DescribeTable (DescribeTable'),
+    newDescribeTable,
+    DescribeTableResponse (DescribeTableResponse'),
+    newDescribeTableResponse,
+
+    -- ** ExecuteStatement
+    ExecuteStatement (ExecuteStatement'),
+    newExecuteStatement,
+    ExecuteStatementResponse (ExecuteStatementResponse'),
+    newExecuteStatementResponse,
+
+    -- ** GetStatementResult (Paginated)
+    GetStatementResult (GetStatementResult'),
+    newGetStatementResult,
+    GetStatementResultResponse (GetStatementResultResponse'),
+    newGetStatementResultResponse,
 
     -- ** ListDatabases (Paginated)
     ListDatabases (ListDatabases'),
@@ -67,47 +97,17 @@ module Amazonka.RedshiftData
     ListSchemasResponse (ListSchemasResponse'),
     newListSchemasResponse,
 
-    -- ** DescribeStatement
-    DescribeStatement (DescribeStatement'),
-    newDescribeStatement,
-    DescribeStatementResponse (DescribeStatementResponse'),
-    newDescribeStatementResponse,
-
-    -- ** CancelStatement
-    CancelStatement (CancelStatement'),
-    newCancelStatement,
-    CancelStatementResponse (CancelStatementResponse'),
-    newCancelStatementResponse,
-
-    -- ** DescribeTable (Paginated)
-    DescribeTable (DescribeTable'),
-    newDescribeTable,
-    DescribeTableResponse (DescribeTableResponse'),
-    newDescribeTableResponse,
-
-    -- ** BatchExecuteStatement
-    BatchExecuteStatement (BatchExecuteStatement'),
-    newBatchExecuteStatement,
-    BatchExecuteStatementResponse (BatchExecuteStatementResponse'),
-    newBatchExecuteStatementResponse,
+    -- ** ListStatements (Paginated)
+    ListStatements (ListStatements'),
+    newListStatements,
+    ListStatementsResponse (ListStatementsResponse'),
+    newListStatementsResponse,
 
     -- ** ListTables (Paginated)
     ListTables (ListTables'),
     newListTables,
     ListTablesResponse (ListTablesResponse'),
     newListTablesResponse,
-
-    -- ** ExecuteStatement
-    ExecuteStatement (ExecuteStatement'),
-    newExecuteStatement,
-    ExecuteStatementResponse (ExecuteStatementResponse'),
-    newExecuteStatementResponse,
-
-    -- ** GetStatementResult (Paginated)
-    GetStatementResult (GetStatementResult'),
-    newGetStatementResult,
-    GetStatementResultResponse (GetStatementResultResponse'),
-    newGetStatementResultResponse,
 
     -- * Types
 

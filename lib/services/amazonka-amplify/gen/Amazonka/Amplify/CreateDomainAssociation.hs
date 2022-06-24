@@ -28,9 +28,9 @@ module Amazonka.Amplify.CreateDomainAssociation
     newCreateDomainAssociation,
 
     -- * Request Lenses
-    createDomainAssociation_enableAutoSubDomain,
-    createDomainAssociation_autoSubDomainCreationPatterns,
     createDomainAssociation_autoSubDomainIAMRole,
+    createDomainAssociation_autoSubDomainCreationPatterns,
+    createDomainAssociation_enableAutoSubDomain,
     createDomainAssociation_appId,
     createDomainAssociation_domainName,
     createDomainAssociation_subDomainSettings,
@@ -56,13 +56,13 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateDomainAssociation' smart constructor.
 data CreateDomainAssociation = CreateDomainAssociation'
-  { -- | Enables the automated creation of subdomains for branches.
-    enableAutoSubDomain :: Prelude.Maybe Prelude.Bool,
-    -- | Sets the branch patterns for automatic subdomain creation.
-    autoSubDomainCreationPatterns :: Prelude.Maybe [Prelude.Text],
-    -- | The required AWS Identity and Access Management (IAM) service role for
+  { -- | The required AWS Identity and Access Management (IAM) service role for
     -- the Amazon Resource Name (ARN) for automatically creating subdomains.
     autoSubDomainIAMRole :: Prelude.Maybe Prelude.Text,
+    -- | Sets the branch patterns for automatic subdomain creation.
+    autoSubDomainCreationPatterns :: Prelude.Maybe [Prelude.Text],
+    -- | Enables the automated creation of subdomains for branches.
+    enableAutoSubDomain :: Prelude.Maybe Prelude.Bool,
     -- | The unique ID for an Amplify app.
     appId :: Prelude.Text,
     -- | The domain name for the domain association.
@@ -80,12 +80,12 @@ data CreateDomainAssociation = CreateDomainAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enableAutoSubDomain', 'createDomainAssociation_enableAutoSubDomain' - Enables the automated creation of subdomains for branches.
+-- 'autoSubDomainIAMRole', 'createDomainAssociation_autoSubDomainIAMRole' - The required AWS Identity and Access Management (IAM) service role for
+-- the Amazon Resource Name (ARN) for automatically creating subdomains.
 --
 -- 'autoSubDomainCreationPatterns', 'createDomainAssociation_autoSubDomainCreationPatterns' - Sets the branch patterns for automatic subdomain creation.
 --
--- 'autoSubDomainIAMRole', 'createDomainAssociation_autoSubDomainIAMRole' - The required AWS Identity and Access Management (IAM) service role for
--- the Amazon Resource Name (ARN) for automatically creating subdomains.
+-- 'enableAutoSubDomain', 'createDomainAssociation_enableAutoSubDomain' - Enables the automated creation of subdomains for branches.
 --
 -- 'appId', 'createDomainAssociation_appId' - The unique ID for an Amplify app.
 --
@@ -100,27 +100,27 @@ newCreateDomainAssociation ::
   CreateDomainAssociation
 newCreateDomainAssociation pAppId_ pDomainName_ =
   CreateDomainAssociation'
-    { enableAutoSubDomain =
+    { autoSubDomainIAMRole =
         Prelude.Nothing,
       autoSubDomainCreationPatterns = Prelude.Nothing,
-      autoSubDomainIAMRole = Prelude.Nothing,
+      enableAutoSubDomain = Prelude.Nothing,
       appId = pAppId_,
       domainName = pDomainName_,
       subDomainSettings = Prelude.mempty
     }
 
--- | Enables the automated creation of subdomains for branches.
-createDomainAssociation_enableAutoSubDomain :: Lens.Lens' CreateDomainAssociation (Prelude.Maybe Prelude.Bool)
-createDomainAssociation_enableAutoSubDomain = Lens.lens (\CreateDomainAssociation' {enableAutoSubDomain} -> enableAutoSubDomain) (\s@CreateDomainAssociation' {} a -> s {enableAutoSubDomain = a} :: CreateDomainAssociation)
+-- | The required AWS Identity and Access Management (IAM) service role for
+-- the Amazon Resource Name (ARN) for automatically creating subdomains.
+createDomainAssociation_autoSubDomainIAMRole :: Lens.Lens' CreateDomainAssociation (Prelude.Maybe Prelude.Text)
+createDomainAssociation_autoSubDomainIAMRole = Lens.lens (\CreateDomainAssociation' {autoSubDomainIAMRole} -> autoSubDomainIAMRole) (\s@CreateDomainAssociation' {} a -> s {autoSubDomainIAMRole = a} :: CreateDomainAssociation)
 
 -- | Sets the branch patterns for automatic subdomain creation.
 createDomainAssociation_autoSubDomainCreationPatterns :: Lens.Lens' CreateDomainAssociation (Prelude.Maybe [Prelude.Text])
 createDomainAssociation_autoSubDomainCreationPatterns = Lens.lens (\CreateDomainAssociation' {autoSubDomainCreationPatterns} -> autoSubDomainCreationPatterns) (\s@CreateDomainAssociation' {} a -> s {autoSubDomainCreationPatterns = a} :: CreateDomainAssociation) Prelude.. Lens.mapping Lens.coerced
 
--- | The required AWS Identity and Access Management (IAM) service role for
--- the Amazon Resource Name (ARN) for automatically creating subdomains.
-createDomainAssociation_autoSubDomainIAMRole :: Lens.Lens' CreateDomainAssociation (Prelude.Maybe Prelude.Text)
-createDomainAssociation_autoSubDomainIAMRole = Lens.lens (\CreateDomainAssociation' {autoSubDomainIAMRole} -> autoSubDomainIAMRole) (\s@CreateDomainAssociation' {} a -> s {autoSubDomainIAMRole = a} :: CreateDomainAssociation)
+-- | Enables the automated creation of subdomains for branches.
+createDomainAssociation_enableAutoSubDomain :: Lens.Lens' CreateDomainAssociation (Prelude.Maybe Prelude.Bool)
+createDomainAssociation_enableAutoSubDomain = Lens.lens (\CreateDomainAssociation' {enableAutoSubDomain} -> enableAutoSubDomain) (\s@CreateDomainAssociation' {} a -> s {enableAutoSubDomain = a} :: CreateDomainAssociation)
 
 -- | The unique ID for an Amplify app.
 createDomainAssociation_appId :: Lens.Lens' CreateDomainAssociation Prelude.Text
@@ -149,18 +149,18 @@ instance Core.AWSRequest CreateDomainAssociation where
 
 instance Prelude.Hashable CreateDomainAssociation where
   hashWithSalt _salt CreateDomainAssociation' {..} =
-    _salt `Prelude.hashWithSalt` enableAutoSubDomain
+    _salt `Prelude.hashWithSalt` autoSubDomainIAMRole
       `Prelude.hashWithSalt` autoSubDomainCreationPatterns
-      `Prelude.hashWithSalt` autoSubDomainIAMRole
+      `Prelude.hashWithSalt` enableAutoSubDomain
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` subDomainSettings
 
 instance Prelude.NFData CreateDomainAssociation where
   rnf CreateDomainAssociation' {..} =
-    Prelude.rnf enableAutoSubDomain
+    Prelude.rnf autoSubDomainIAMRole
       `Prelude.seq` Prelude.rnf autoSubDomainCreationPatterns
-      `Prelude.seq` Prelude.rnf autoSubDomainIAMRole
+      `Prelude.seq` Prelude.rnf enableAutoSubDomain
       `Prelude.seq` Prelude.rnf appId
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf subDomainSettings
@@ -180,12 +180,12 @@ instance Core.ToJSON CreateDomainAssociation where
   toJSON CreateDomainAssociation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("enableAutoSubDomain" Core..=)
-              Prelude.<$> enableAutoSubDomain,
+          [ ("autoSubDomainIAMRole" Core..=)
+              Prelude.<$> autoSubDomainIAMRole,
             ("autoSubDomainCreationPatterns" Core..=)
               Prelude.<$> autoSubDomainCreationPatterns,
-            ("autoSubDomainIAMRole" Core..=)
-              Prelude.<$> autoSubDomainIAMRole,
+            ("enableAutoSubDomain" Core..=)
+              Prelude.<$> enableAutoSubDomain,
             Prelude.Just ("domainName" Core..= domainName),
             Prelude.Just
               ("subDomainSettings" Core..= subDomainSettings)

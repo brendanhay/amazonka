@@ -25,26 +25,26 @@ module Amazonka.Amplify
     -- * Errors
     -- $errors
 
+    -- ** UnauthorizedException
+    _UnauthorizedException,
+
     -- ** DependentServiceFailureException
     _DependentServiceFailureException,
 
     -- ** NotFoundException
     _NotFoundException,
 
-    -- ** InternalFailureException
-    _InternalFailureException,
-
-    -- ** UnauthorizedException
-    _UnauthorizedException,
-
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- ** BadRequestException
     _BadRequestException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** InternalFailureException
+    _InternalFailureException,
 
     -- * Waiters
     -- $waiters
@@ -52,71 +52,11 @@ module Amazonka.Amplify
     -- * Operations
     -- $operations
 
-    -- ** GetDomainAssociation
-    GetDomainAssociation (GetDomainAssociation'),
-    newGetDomainAssociation,
-    GetDomainAssociationResponse (GetDomainAssociationResponse'),
-    newGetDomainAssociationResponse,
-
-    -- ** ListArtifacts
-    ListArtifacts (ListArtifacts'),
-    newListArtifacts,
-    ListArtifactsResponse (ListArtifactsResponse'),
-    newListArtifactsResponse,
-
-    -- ** StopJob
-    StopJob (StopJob'),
-    newStopJob,
-    StopJobResponse (StopJobResponse'),
-    newStopJobResponse,
-
-    -- ** GetBackendEnvironment
-    GetBackendEnvironment (GetBackendEnvironment'),
-    newGetBackendEnvironment,
-    GetBackendEnvironmentResponse (GetBackendEnvironmentResponse'),
-    newGetBackendEnvironmentResponse,
-
-    -- ** CreateWebhook
-    CreateWebhook (CreateWebhook'),
-    newCreateWebhook,
-    CreateWebhookResponse (CreateWebhookResponse'),
-    newCreateWebhookResponse,
-
-    -- ** GetBranch
-    GetBranch (GetBranch'),
-    newGetBranch,
-    GetBranchResponse (GetBranchResponse'),
-    newGetBranchResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** CreateDomainAssociation
-    CreateDomainAssociation (CreateDomainAssociation'),
-    newCreateDomainAssociation,
-    CreateDomainAssociationResponse (CreateDomainAssociationResponse'),
-    newCreateDomainAssociationResponse,
-
-    -- ** GetWebhook
-    GetWebhook (GetWebhook'),
-    newGetWebhook,
-    GetWebhookResponse (GetWebhookResponse'),
-    newGetWebhookResponse,
-
-    -- ** DeleteBranch
-    DeleteBranch (DeleteBranch'),
-    newDeleteBranch,
-    DeleteBranchResponse (DeleteBranchResponse'),
-    newDeleteBranchResponse,
-
-    -- ** UpdateBranch
-    UpdateBranch (UpdateBranch'),
-    newUpdateBranch,
-    UpdateBranchResponse (UpdateBranchResponse'),
-    newUpdateBranchResponse,
+    -- ** CreateApp
+    CreateApp (CreateApp'),
+    newCreateApp,
+    CreateAppResponse (CreateAppResponse'),
+    newCreateAppResponse,
 
     -- ** CreateBackendEnvironment
     CreateBackendEnvironment (CreateBackendEnvironment'),
@@ -124,41 +64,29 @@ module Amazonka.Amplify
     CreateBackendEnvironmentResponse (CreateBackendEnvironmentResponse'),
     newCreateBackendEnvironmentResponse,
 
-    -- ** CreateDeployment
-    CreateDeployment (CreateDeployment'),
-    newCreateDeployment,
-    CreateDeploymentResponse (CreateDeploymentResponse'),
-    newCreateDeploymentResponse,
-
     -- ** CreateBranch
     CreateBranch (CreateBranch'),
     newCreateBranch,
     CreateBranchResponse (CreateBranchResponse'),
     newCreateBranchResponse,
 
-    -- ** GenerateAccessLogs
-    GenerateAccessLogs (GenerateAccessLogs'),
-    newGenerateAccessLogs,
-    GenerateAccessLogsResponse (GenerateAccessLogsResponse'),
-    newGenerateAccessLogsResponse,
+    -- ** CreateDeployment
+    CreateDeployment (CreateDeployment'),
+    newCreateDeployment,
+    CreateDeploymentResponse (CreateDeploymentResponse'),
+    newCreateDeploymentResponse,
 
-    -- ** ListApps (Paginated)
-    ListApps (ListApps'),
-    newListApps,
-    ListAppsResponse (ListAppsResponse'),
-    newListAppsResponse,
+    -- ** CreateDomainAssociation
+    CreateDomainAssociation (CreateDomainAssociation'),
+    newCreateDomainAssociation,
+    CreateDomainAssociationResponse (CreateDomainAssociationResponse'),
+    newCreateDomainAssociationResponse,
 
-    -- ** ListBranches (Paginated)
-    ListBranches (ListBranches'),
-    newListBranches,
-    ListBranchesResponse (ListBranchesResponse'),
-    newListBranchesResponse,
-
-    -- ** DeleteBackendEnvironment
-    DeleteBackendEnvironment (DeleteBackendEnvironment'),
-    newDeleteBackendEnvironment,
-    DeleteBackendEnvironmentResponse (DeleteBackendEnvironmentResponse'),
-    newDeleteBackendEnvironmentResponse,
+    -- ** CreateWebhook
+    CreateWebhook (CreateWebhook'),
+    newCreateWebhook,
+    CreateWebhookResponse (CreateWebhookResponse'),
+    newCreateWebhookResponse,
 
     -- ** DeleteApp
     DeleteApp (DeleteApp'),
@@ -166,71 +94,17 @@ module Amazonka.Amplify
     DeleteAppResponse (DeleteAppResponse'),
     newDeleteAppResponse,
 
-    -- ** UpdateApp
-    UpdateApp (UpdateApp'),
-    newUpdateApp,
-    UpdateAppResponse (UpdateAppResponse'),
-    newUpdateAppResponse,
+    -- ** DeleteBackendEnvironment
+    DeleteBackendEnvironment (DeleteBackendEnvironment'),
+    newDeleteBackendEnvironment,
+    DeleteBackendEnvironmentResponse (DeleteBackendEnvironmentResponse'),
+    newDeleteBackendEnvironmentResponse,
 
-    -- ** GetArtifactUrl
-    GetArtifactUrl (GetArtifactUrl'),
-    newGetArtifactUrl,
-    GetArtifactUrlResponse (GetArtifactUrlResponse'),
-    newGetArtifactUrlResponse,
-
-    -- ** ListJobs (Paginated)
-    ListJobs (ListJobs'),
-    newListJobs,
-    ListJobsResponse (ListJobsResponse'),
-    newListJobsResponse,
-
-    -- ** DeleteJob
-    DeleteJob (DeleteJob'),
-    newDeleteJob,
-    DeleteJobResponse (DeleteJobResponse'),
-    newDeleteJobResponse,
-
-    -- ** GetJob
-    GetJob (GetJob'),
-    newGetJob,
-    GetJobResponse (GetJobResponse'),
-    newGetJobResponse,
-
-    -- ** StartJob
-    StartJob (StartJob'),
-    newStartJob,
-    StartJobResponse (StartJobResponse'),
-    newStartJobResponse,
-
-    -- ** GetApp
-    GetApp (GetApp'),
-    newGetApp,
-    GetAppResponse (GetAppResponse'),
-    newGetAppResponse,
-
-    -- ** UpdateWebhook
-    UpdateWebhook (UpdateWebhook'),
-    newUpdateWebhook,
-    UpdateWebhookResponse (UpdateWebhookResponse'),
-    newUpdateWebhookResponse,
-
-    -- ** DeleteWebhook
-    DeleteWebhook (DeleteWebhook'),
-    newDeleteWebhook,
-    DeleteWebhookResponse (DeleteWebhookResponse'),
-    newDeleteWebhookResponse,
-
-    -- ** ListWebhooks
-    ListWebhooks (ListWebhooks'),
-    newListWebhooks,
-    ListWebhooksResponse (ListWebhooksResponse'),
-    newListWebhooksResponse,
-
-    -- ** CreateApp
-    CreateApp (CreateApp'),
-    newCreateApp,
-    CreateAppResponse (CreateAppResponse'),
-    newCreateAppResponse,
+    -- ** DeleteBranch
+    DeleteBranch (DeleteBranch'),
+    newDeleteBranch,
+    DeleteBranchResponse (DeleteBranchResponse'),
+    newDeleteBranchResponse,
 
     -- ** DeleteDomainAssociation
     DeleteDomainAssociation (DeleteDomainAssociation'),
@@ -238,23 +112,77 @@ module Amazonka.Amplify
     DeleteDomainAssociationResponse (DeleteDomainAssociationResponse'),
     newDeleteDomainAssociationResponse,
 
-    -- ** UpdateDomainAssociation
-    UpdateDomainAssociation (UpdateDomainAssociation'),
-    newUpdateDomainAssociation,
-    UpdateDomainAssociationResponse (UpdateDomainAssociationResponse'),
-    newUpdateDomainAssociationResponse,
+    -- ** DeleteJob
+    DeleteJob (DeleteJob'),
+    newDeleteJob,
+    DeleteJobResponse (DeleteJobResponse'),
+    newDeleteJobResponse,
 
-    -- ** ListDomainAssociations (Paginated)
-    ListDomainAssociations (ListDomainAssociations'),
-    newListDomainAssociations,
-    ListDomainAssociationsResponse (ListDomainAssociationsResponse'),
-    newListDomainAssociationsResponse,
+    -- ** DeleteWebhook
+    DeleteWebhook (DeleteWebhook'),
+    newDeleteWebhook,
+    DeleteWebhookResponse (DeleteWebhookResponse'),
+    newDeleteWebhookResponse,
 
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
+    -- ** GenerateAccessLogs
+    GenerateAccessLogs (GenerateAccessLogs'),
+    newGenerateAccessLogs,
+    GenerateAccessLogsResponse (GenerateAccessLogsResponse'),
+    newGenerateAccessLogsResponse,
+
+    -- ** GetApp
+    GetApp (GetApp'),
+    newGetApp,
+    GetAppResponse (GetAppResponse'),
+    newGetAppResponse,
+
+    -- ** GetArtifactUrl
+    GetArtifactUrl (GetArtifactUrl'),
+    newGetArtifactUrl,
+    GetArtifactUrlResponse (GetArtifactUrlResponse'),
+    newGetArtifactUrlResponse,
+
+    -- ** GetBackendEnvironment
+    GetBackendEnvironment (GetBackendEnvironment'),
+    newGetBackendEnvironment,
+    GetBackendEnvironmentResponse (GetBackendEnvironmentResponse'),
+    newGetBackendEnvironmentResponse,
+
+    -- ** GetBranch
+    GetBranch (GetBranch'),
+    newGetBranch,
+    GetBranchResponse (GetBranchResponse'),
+    newGetBranchResponse,
+
+    -- ** GetDomainAssociation
+    GetDomainAssociation (GetDomainAssociation'),
+    newGetDomainAssociation,
+    GetDomainAssociationResponse (GetDomainAssociationResponse'),
+    newGetDomainAssociationResponse,
+
+    -- ** GetJob
+    GetJob (GetJob'),
+    newGetJob,
+    GetJobResponse (GetJobResponse'),
+    newGetJobResponse,
+
+    -- ** GetWebhook
+    GetWebhook (GetWebhook'),
+    newGetWebhook,
+    GetWebhookResponse (GetWebhookResponse'),
+    newGetWebhookResponse,
+
+    -- ** ListApps (Paginated)
+    ListApps (ListApps'),
+    newListApps,
+    ListAppsResponse (ListAppsResponse'),
+    newListAppsResponse,
+
+    -- ** ListArtifacts
+    ListArtifacts (ListArtifacts'),
+    newListArtifacts,
+    ListArtifactsResponse (ListArtifactsResponse'),
+    newListArtifactsResponse,
 
     -- ** ListBackendEnvironments
     ListBackendEnvironments (ListBackendEnvironments'),
@@ -262,17 +190,89 @@ module Amazonka.Amplify
     ListBackendEnvironmentsResponse (ListBackendEnvironmentsResponse'),
     newListBackendEnvironmentsResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
+    -- ** ListBranches (Paginated)
+    ListBranches (ListBranches'),
+    newListBranches,
+    ListBranchesResponse (ListBranchesResponse'),
+    newListBranchesResponse,
+
+    -- ** ListDomainAssociations (Paginated)
+    ListDomainAssociations (ListDomainAssociations'),
+    newListDomainAssociations,
+    ListDomainAssociationsResponse (ListDomainAssociationsResponse'),
+    newListDomainAssociationsResponse,
+
+    -- ** ListJobs (Paginated)
+    ListJobs (ListJobs'),
+    newListJobs,
+    ListJobsResponse (ListJobsResponse'),
+    newListJobsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** ListWebhooks
+    ListWebhooks (ListWebhooks'),
+    newListWebhooks,
+    ListWebhooksResponse (ListWebhooksResponse'),
+    newListWebhooksResponse,
 
     -- ** StartDeployment
     StartDeployment (StartDeployment'),
     newStartDeployment,
     StartDeploymentResponse (StartDeploymentResponse'),
     newStartDeploymentResponse,
+
+    -- ** StartJob
+    StartJob (StartJob'),
+    newStartJob,
+    StartJobResponse (StartJobResponse'),
+    newStartJobResponse,
+
+    -- ** StopJob
+    StopJob (StopJob'),
+    newStopJob,
+    StopJobResponse (StopJobResponse'),
+    newStopJobResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateApp
+    UpdateApp (UpdateApp'),
+    newUpdateApp,
+    UpdateAppResponse (UpdateAppResponse'),
+    newUpdateAppResponse,
+
+    -- ** UpdateBranch
+    UpdateBranch (UpdateBranch'),
+    newUpdateBranch,
+    UpdateBranchResponse (UpdateBranchResponse'),
+    newUpdateBranchResponse,
+
+    -- ** UpdateDomainAssociation
+    UpdateDomainAssociation (UpdateDomainAssociation'),
+    newUpdateDomainAssociation,
+    UpdateDomainAssociationResponse (UpdateDomainAssociationResponse'),
+    newUpdateDomainAssociationResponse,
+
+    -- ** UpdateWebhook
+    UpdateWebhook (UpdateWebhook'),
+    newUpdateWebhook,
+    UpdateWebhookResponse (UpdateWebhookResponse'),
+    newUpdateWebhookResponse,
 
     -- * Types
 

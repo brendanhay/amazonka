@@ -27,17 +27,17 @@ module Amazonka.ServerlessApplicationRepository.CreateCloudFormationChangeSet
     newCreateCloudFormationChangeSet,
 
     -- * Request Lenses
-    createCloudFormationChangeSet_clientToken,
-    createCloudFormationChangeSet_templateId,
     createCloudFormationChangeSet_semanticVersion,
-    createCloudFormationChangeSet_notificationArns,
+    createCloudFormationChangeSet_tags,
+    createCloudFormationChangeSet_clientToken,
     createCloudFormationChangeSet_changeSetName,
+    createCloudFormationChangeSet_notificationArns,
+    createCloudFormationChangeSet_parameterOverrides,
+    createCloudFormationChangeSet_resourceTypes,
+    createCloudFormationChangeSet_templateId,
     createCloudFormationChangeSet_description,
     createCloudFormationChangeSet_capabilities,
-    createCloudFormationChangeSet_parameterOverrides,
     createCloudFormationChangeSet_rollbackConfiguration,
-    createCloudFormationChangeSet_resourceTypes,
-    createCloudFormationChangeSet_tags,
     createCloudFormationChangeSet_applicationId,
     createCloudFormationChangeSet_stackName,
 
@@ -47,9 +47,9 @@ module Amazonka.ServerlessApplicationRepository.CreateCloudFormationChangeSet
 
     -- * Response Lenses
     createCloudFormationChangeSetResponse_semanticVersion,
+    createCloudFormationChangeSetResponse_stackId,
     createCloudFormationChangeSetResponse_changeSetId,
     createCloudFormationChangeSetResponse_applicationId,
-    createCloudFormationChangeSetResponse_stackId,
     createCloudFormationChangeSetResponse_httpStatus,
   )
 where
@@ -63,17 +63,7 @@ import Amazonka.ServerlessApplicationRepository.Types
 
 -- | /See:/ 'newCreateCloudFormationChangeSet' smart constructor.
 data CreateCloudFormationChangeSet = CreateCloudFormationChangeSet'
-  { -- | This property corresponds to the parameter of the same name for the /AWS
-    -- CloudFormation
-    -- <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet CreateChangeSet>/
-    -- API.
-    clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The UUID returned by CreateCloudFormationTemplate.
-    --
-    -- Pattern:
-    -- [0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}
-    templateId :: Prelude.Maybe Prelude.Text,
-    -- | The semantic version of the application:
+  { -- | The semantic version of the application:
     --
     -- <https://semver.org/>
     semanticVersion :: Prelude.Maybe Prelude.Text,
@@ -81,12 +71,34 @@ data CreateCloudFormationChangeSet = CreateCloudFormationChangeSet'
     -- CloudFormation
     -- <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet CreateChangeSet>/
     -- API.
-    notificationArns :: Prelude.Maybe [Prelude.Text],
+    tags :: Prelude.Maybe [Tag],
+    -- | This property corresponds to the parameter of the same name for the /AWS
+    -- CloudFormation
+    -- <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet CreateChangeSet>/
+    -- API.
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | This property corresponds to the parameter of the same name for the /AWS
     -- CloudFormation
     -- <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet CreateChangeSet>/
     -- API.
     changeSetName :: Prelude.Maybe Prelude.Text,
+    -- | This property corresponds to the parameter of the same name for the /AWS
+    -- CloudFormation
+    -- <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet CreateChangeSet>/
+    -- API.
+    notificationArns :: Prelude.Maybe [Prelude.Text],
+    -- | A list of parameter values for the parameters of the application.
+    parameterOverrides :: Prelude.Maybe [ParameterValue],
+    -- | This property corresponds to the parameter of the same name for the /AWS
+    -- CloudFormation
+    -- <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet CreateChangeSet>/
+    -- API.
+    resourceTypes :: Prelude.Maybe [Prelude.Text],
+    -- | The UUID returned by CreateCloudFormationTemplate.
+    --
+    -- Pattern:
+    -- [0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}
+    templateId :: Prelude.Maybe Prelude.Text,
     -- | This property corresponds to the parameter of the same name for the /AWS
     -- CloudFormation
     -- <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet CreateChangeSet>/
@@ -131,23 +143,11 @@ data CreateCloudFormationChangeSet = CreateCloudFormationChangeSet'
     -- application before deploying. If you don\'t specify this parameter for
     -- an application that requires capabilities, the call will fail.
     capabilities :: Prelude.Maybe [Prelude.Text],
-    -- | A list of parameter values for the parameters of the application.
-    parameterOverrides :: Prelude.Maybe [ParameterValue],
     -- | This property corresponds to the parameter of the same name for the /AWS
     -- CloudFormation
     -- <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet CreateChangeSet>/
     -- API.
     rollbackConfiguration :: Prelude.Maybe RollbackConfiguration,
-    -- | This property corresponds to the parameter of the same name for the /AWS
-    -- CloudFormation
-    -- <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet CreateChangeSet>/
-    -- API.
-    resourceTypes :: Prelude.Maybe [Prelude.Text],
-    -- | This property corresponds to the parameter of the same name for the /AWS
-    -- CloudFormation
-    -- <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet CreateChangeSet>/
-    -- API.
-    tags :: Prelude.Maybe [Tag],
     -- | The Amazon Resource Name (ARN) of the application.
     applicationId :: Prelude.Text,
     -- | This property corresponds to the parameter of the same name for the /AWS
@@ -166,21 +166,16 @@ data CreateCloudFormationChangeSet = CreateCloudFormationChangeSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'createCloudFormationChangeSet_clientToken' - This property corresponds to the parameter of the same name for the /AWS
--- CloudFormation
--- <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet CreateChangeSet>/
--- API.
---
--- 'templateId', 'createCloudFormationChangeSet_templateId' - The UUID returned by CreateCloudFormationTemplate.
---
--- Pattern:
--- [0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}
---
 -- 'semanticVersion', 'createCloudFormationChangeSet_semanticVersion' - The semantic version of the application:
 --
 -- <https://semver.org/>
 --
--- 'notificationArns', 'createCloudFormationChangeSet_notificationArns' - This property corresponds to the parameter of the same name for the /AWS
+-- 'tags', 'createCloudFormationChangeSet_tags' - This property corresponds to the parameter of the same name for the /AWS
+-- CloudFormation
+-- <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet CreateChangeSet>/
+-- API.
+--
+-- 'clientToken', 'createCloudFormationChangeSet_clientToken' - This property corresponds to the parameter of the same name for the /AWS
 -- CloudFormation
 -- <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet CreateChangeSet>/
 -- API.
@@ -189,6 +184,23 @@ data CreateCloudFormationChangeSet = CreateCloudFormationChangeSet'
 -- CloudFormation
 -- <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet CreateChangeSet>/
 -- API.
+--
+-- 'notificationArns', 'createCloudFormationChangeSet_notificationArns' - This property corresponds to the parameter of the same name for the /AWS
+-- CloudFormation
+-- <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet CreateChangeSet>/
+-- API.
+--
+-- 'parameterOverrides', 'createCloudFormationChangeSet_parameterOverrides' - A list of parameter values for the parameters of the application.
+--
+-- 'resourceTypes', 'createCloudFormationChangeSet_resourceTypes' - This property corresponds to the parameter of the same name for the /AWS
+-- CloudFormation
+-- <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet CreateChangeSet>/
+-- API.
+--
+-- 'templateId', 'createCloudFormationChangeSet_templateId' - The UUID returned by CreateCloudFormationTemplate.
+--
+-- Pattern:
+-- [0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}
 --
 -- 'description', 'createCloudFormationChangeSet_description' - This property corresponds to the parameter of the same name for the /AWS
 -- CloudFormation
@@ -234,19 +246,7 @@ data CreateCloudFormationChangeSet = CreateCloudFormationChangeSet'
 -- application before deploying. If you don\'t specify this parameter for
 -- an application that requires capabilities, the call will fail.
 --
--- 'parameterOverrides', 'createCloudFormationChangeSet_parameterOverrides' - A list of parameter values for the parameters of the application.
---
 -- 'rollbackConfiguration', 'createCloudFormationChangeSet_rollbackConfiguration' - This property corresponds to the parameter of the same name for the /AWS
--- CloudFormation
--- <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet CreateChangeSet>/
--- API.
---
--- 'resourceTypes', 'createCloudFormationChangeSet_resourceTypes' - This property corresponds to the parameter of the same name for the /AWS
--- CloudFormation
--- <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet CreateChangeSet>/
--- API.
---
--- 'tags', 'createCloudFormationChangeSet_tags' - This property corresponds to the parameter of the same name for the /AWS
 -- CloudFormation
 -- <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet CreateChangeSet>/
 -- API.
@@ -267,35 +267,21 @@ newCreateCloudFormationChangeSet
   pApplicationId_
   pStackName_ =
     CreateCloudFormationChangeSet'
-      { clientToken =
+      { semanticVersion =
           Prelude.Nothing,
-        templateId = Prelude.Nothing,
-        semanticVersion = Prelude.Nothing,
-        notificationArns = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        clientToken = Prelude.Nothing,
         changeSetName = Prelude.Nothing,
+        notificationArns = Prelude.Nothing,
+        parameterOverrides = Prelude.Nothing,
+        resourceTypes = Prelude.Nothing,
+        templateId = Prelude.Nothing,
         description = Prelude.Nothing,
         capabilities = Prelude.Nothing,
-        parameterOverrides = Prelude.Nothing,
         rollbackConfiguration = Prelude.Nothing,
-        resourceTypes = Prelude.Nothing,
-        tags = Prelude.Nothing,
         applicationId = pApplicationId_,
         stackName = pStackName_
       }
-
--- | This property corresponds to the parameter of the same name for the /AWS
--- CloudFormation
--- <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet CreateChangeSet>/
--- API.
-createCloudFormationChangeSet_clientToken :: Lens.Lens' CreateCloudFormationChangeSet (Prelude.Maybe Prelude.Text)
-createCloudFormationChangeSet_clientToken = Lens.lens (\CreateCloudFormationChangeSet' {clientToken} -> clientToken) (\s@CreateCloudFormationChangeSet' {} a -> s {clientToken = a} :: CreateCloudFormationChangeSet)
-
--- | The UUID returned by CreateCloudFormationTemplate.
---
--- Pattern:
--- [0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}
-createCloudFormationChangeSet_templateId :: Lens.Lens' CreateCloudFormationChangeSet (Prelude.Maybe Prelude.Text)
-createCloudFormationChangeSet_templateId = Lens.lens (\CreateCloudFormationChangeSet' {templateId} -> templateId) (\s@CreateCloudFormationChangeSet' {} a -> s {templateId = a} :: CreateCloudFormationChangeSet)
 
 -- | The semantic version of the application:
 --
@@ -307,8 +293,15 @@ createCloudFormationChangeSet_semanticVersion = Lens.lens (\CreateCloudFormation
 -- CloudFormation
 -- <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet CreateChangeSet>/
 -- API.
-createCloudFormationChangeSet_notificationArns :: Lens.Lens' CreateCloudFormationChangeSet (Prelude.Maybe [Prelude.Text])
-createCloudFormationChangeSet_notificationArns = Lens.lens (\CreateCloudFormationChangeSet' {notificationArns} -> notificationArns) (\s@CreateCloudFormationChangeSet' {} a -> s {notificationArns = a} :: CreateCloudFormationChangeSet) Prelude.. Lens.mapping Lens.coerced
+createCloudFormationChangeSet_tags :: Lens.Lens' CreateCloudFormationChangeSet (Prelude.Maybe [Tag])
+createCloudFormationChangeSet_tags = Lens.lens (\CreateCloudFormationChangeSet' {tags} -> tags) (\s@CreateCloudFormationChangeSet' {} a -> s {tags = a} :: CreateCloudFormationChangeSet) Prelude.. Lens.mapping Lens.coerced
+
+-- | This property corresponds to the parameter of the same name for the /AWS
+-- CloudFormation
+-- <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet CreateChangeSet>/
+-- API.
+createCloudFormationChangeSet_clientToken :: Lens.Lens' CreateCloudFormationChangeSet (Prelude.Maybe Prelude.Text)
+createCloudFormationChangeSet_clientToken = Lens.lens (\CreateCloudFormationChangeSet' {clientToken} -> clientToken) (\s@CreateCloudFormationChangeSet' {} a -> s {clientToken = a} :: CreateCloudFormationChangeSet)
 
 -- | This property corresponds to the parameter of the same name for the /AWS
 -- CloudFormation
@@ -316,6 +309,31 @@ createCloudFormationChangeSet_notificationArns = Lens.lens (\CreateCloudFormatio
 -- API.
 createCloudFormationChangeSet_changeSetName :: Lens.Lens' CreateCloudFormationChangeSet (Prelude.Maybe Prelude.Text)
 createCloudFormationChangeSet_changeSetName = Lens.lens (\CreateCloudFormationChangeSet' {changeSetName} -> changeSetName) (\s@CreateCloudFormationChangeSet' {} a -> s {changeSetName = a} :: CreateCloudFormationChangeSet)
+
+-- | This property corresponds to the parameter of the same name for the /AWS
+-- CloudFormation
+-- <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet CreateChangeSet>/
+-- API.
+createCloudFormationChangeSet_notificationArns :: Lens.Lens' CreateCloudFormationChangeSet (Prelude.Maybe [Prelude.Text])
+createCloudFormationChangeSet_notificationArns = Lens.lens (\CreateCloudFormationChangeSet' {notificationArns} -> notificationArns) (\s@CreateCloudFormationChangeSet' {} a -> s {notificationArns = a} :: CreateCloudFormationChangeSet) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of parameter values for the parameters of the application.
+createCloudFormationChangeSet_parameterOverrides :: Lens.Lens' CreateCloudFormationChangeSet (Prelude.Maybe [ParameterValue])
+createCloudFormationChangeSet_parameterOverrides = Lens.lens (\CreateCloudFormationChangeSet' {parameterOverrides} -> parameterOverrides) (\s@CreateCloudFormationChangeSet' {} a -> s {parameterOverrides = a} :: CreateCloudFormationChangeSet) Prelude.. Lens.mapping Lens.coerced
+
+-- | This property corresponds to the parameter of the same name for the /AWS
+-- CloudFormation
+-- <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet CreateChangeSet>/
+-- API.
+createCloudFormationChangeSet_resourceTypes :: Lens.Lens' CreateCloudFormationChangeSet (Prelude.Maybe [Prelude.Text])
+createCloudFormationChangeSet_resourceTypes = Lens.lens (\CreateCloudFormationChangeSet' {resourceTypes} -> resourceTypes) (\s@CreateCloudFormationChangeSet' {} a -> s {resourceTypes = a} :: CreateCloudFormationChangeSet) Prelude.. Lens.mapping Lens.coerced
+
+-- | The UUID returned by CreateCloudFormationTemplate.
+--
+-- Pattern:
+-- [0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}
+createCloudFormationChangeSet_templateId :: Lens.Lens' CreateCloudFormationChangeSet (Prelude.Maybe Prelude.Text)
+createCloudFormationChangeSet_templateId = Lens.lens (\CreateCloudFormationChangeSet' {templateId} -> templateId) (\s@CreateCloudFormationChangeSet' {} a -> s {templateId = a} :: CreateCloudFormationChangeSet)
 
 -- | This property corresponds to the parameter of the same name for the /AWS
 -- CloudFormation
@@ -365,30 +383,12 @@ createCloudFormationChangeSet_description = Lens.lens (\CreateCloudFormationChan
 createCloudFormationChangeSet_capabilities :: Lens.Lens' CreateCloudFormationChangeSet (Prelude.Maybe [Prelude.Text])
 createCloudFormationChangeSet_capabilities = Lens.lens (\CreateCloudFormationChangeSet' {capabilities} -> capabilities) (\s@CreateCloudFormationChangeSet' {} a -> s {capabilities = a} :: CreateCloudFormationChangeSet) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of parameter values for the parameters of the application.
-createCloudFormationChangeSet_parameterOverrides :: Lens.Lens' CreateCloudFormationChangeSet (Prelude.Maybe [ParameterValue])
-createCloudFormationChangeSet_parameterOverrides = Lens.lens (\CreateCloudFormationChangeSet' {parameterOverrides} -> parameterOverrides) (\s@CreateCloudFormationChangeSet' {} a -> s {parameterOverrides = a} :: CreateCloudFormationChangeSet) Prelude.. Lens.mapping Lens.coerced
-
 -- | This property corresponds to the parameter of the same name for the /AWS
 -- CloudFormation
 -- <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet CreateChangeSet>/
 -- API.
 createCloudFormationChangeSet_rollbackConfiguration :: Lens.Lens' CreateCloudFormationChangeSet (Prelude.Maybe RollbackConfiguration)
 createCloudFormationChangeSet_rollbackConfiguration = Lens.lens (\CreateCloudFormationChangeSet' {rollbackConfiguration} -> rollbackConfiguration) (\s@CreateCloudFormationChangeSet' {} a -> s {rollbackConfiguration = a} :: CreateCloudFormationChangeSet)
-
--- | This property corresponds to the parameter of the same name for the /AWS
--- CloudFormation
--- <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet CreateChangeSet>/
--- API.
-createCloudFormationChangeSet_resourceTypes :: Lens.Lens' CreateCloudFormationChangeSet (Prelude.Maybe [Prelude.Text])
-createCloudFormationChangeSet_resourceTypes = Lens.lens (\CreateCloudFormationChangeSet' {resourceTypes} -> resourceTypes) (\s@CreateCloudFormationChangeSet' {} a -> s {resourceTypes = a} :: CreateCloudFormationChangeSet) Prelude.. Lens.mapping Lens.coerced
-
--- | This property corresponds to the parameter of the same name for the /AWS
--- CloudFormation
--- <https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet CreateChangeSet>/
--- API.
-createCloudFormationChangeSet_tags :: Lens.Lens' CreateCloudFormationChangeSet (Prelude.Maybe [Tag])
-createCloudFormationChangeSet_tags = Lens.lens (\CreateCloudFormationChangeSet' {tags} -> tags) (\s@CreateCloudFormationChangeSet' {} a -> s {tags = a} :: CreateCloudFormationChangeSet) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the application.
 createCloudFormationChangeSet_applicationId :: Lens.Lens' CreateCloudFormationChangeSet Prelude.Text
@@ -414,9 +414,9 @@ instance
       ( \s h x ->
           CreateCloudFormationChangeSetResponse'
             Prelude.<$> (x Core..?> "semanticVersion")
+            Prelude.<*> (x Core..?> "stackId")
             Prelude.<*> (x Core..?> "changeSetId")
             Prelude.<*> (x Core..?> "applicationId")
-            Prelude.<*> (x Core..?> "stackId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -425,33 +425,33 @@ instance
     CreateCloudFormationChangeSet
   where
   hashWithSalt _salt CreateCloudFormationChangeSet' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` templateId
-      `Prelude.hashWithSalt` semanticVersion
-      `Prelude.hashWithSalt` notificationArns
+    _salt `Prelude.hashWithSalt` semanticVersion
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` changeSetName
+      `Prelude.hashWithSalt` notificationArns
+      `Prelude.hashWithSalt` parameterOverrides
+      `Prelude.hashWithSalt` resourceTypes
+      `Prelude.hashWithSalt` templateId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` capabilities
-      `Prelude.hashWithSalt` parameterOverrides
       `Prelude.hashWithSalt` rollbackConfiguration
-      `Prelude.hashWithSalt` resourceTypes
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` stackName
 
 instance Prelude.NFData CreateCloudFormationChangeSet where
   rnf CreateCloudFormationChangeSet' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf templateId
-      `Prelude.seq` Prelude.rnf semanticVersion
-      `Prelude.seq` Prelude.rnf notificationArns
+    Prelude.rnf semanticVersion
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf changeSetName
+      `Prelude.seq` Prelude.rnf notificationArns
+      `Prelude.seq` Prelude.rnf parameterOverrides
+      `Prelude.seq` Prelude.rnf resourceTypes
+      `Prelude.seq` Prelude.rnf templateId
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf capabilities
-      `Prelude.seq` Prelude.rnf parameterOverrides
       `Prelude.seq` Prelude.rnf rollbackConfiguration
-      `Prelude.seq` Prelude.rnf resourceTypes
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf stackName
 
@@ -470,21 +470,21 @@ instance Core.ToJSON CreateCloudFormationChangeSet where
   toJSON CreateCloudFormationChangeSet' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("templateId" Core..=) Prelude.<$> templateId,
-            ("semanticVersion" Core..=)
+          [ ("semanticVersion" Core..=)
               Prelude.<$> semanticVersion,
+            ("tags" Core..=) Prelude.<$> tags,
+            ("clientToken" Core..=) Prelude.<$> clientToken,
+            ("changeSetName" Core..=) Prelude.<$> changeSetName,
             ("notificationArns" Core..=)
               Prelude.<$> notificationArns,
-            ("changeSetName" Core..=) Prelude.<$> changeSetName,
-            ("description" Core..=) Prelude.<$> description,
-            ("capabilities" Core..=) Prelude.<$> capabilities,
             ("parameterOverrides" Core..=)
               Prelude.<$> parameterOverrides,
+            ("resourceTypes" Core..=) Prelude.<$> resourceTypes,
+            ("templateId" Core..=) Prelude.<$> templateId,
+            ("description" Core..=) Prelude.<$> description,
+            ("capabilities" Core..=) Prelude.<$> capabilities,
             ("rollbackConfiguration" Core..=)
               Prelude.<$> rollbackConfiguration,
-            ("resourceTypes" Core..=) Prelude.<$> resourceTypes,
-            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("stackName" Core..= stackName)
           ]
       )
@@ -506,6 +506,8 @@ data CreateCloudFormationChangeSetResponse = CreateCloudFormationChangeSetRespon
     --
     -- <https://semver.org/>
     semanticVersion :: Prelude.Maybe Prelude.Text,
+    -- | The unique ID of the stack.
+    stackId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the change set.
     --
     -- Length constraints: Minimum length of 1.
@@ -514,8 +516,6 @@ data CreateCloudFormationChangeSetResponse = CreateCloudFormationChangeSetRespon
     changeSetId :: Prelude.Maybe Prelude.Text,
     -- | The application Amazon Resource Name (ARN).
     applicationId :: Prelude.Maybe Prelude.Text,
-    -- | The unique ID of the stack.
-    stackId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -533,6 +533,8 @@ data CreateCloudFormationChangeSetResponse = CreateCloudFormationChangeSetRespon
 --
 -- <https://semver.org/>
 --
+-- 'stackId', 'createCloudFormationChangeSetResponse_stackId' - The unique ID of the stack.
+--
 -- 'changeSetId', 'createCloudFormationChangeSetResponse_changeSetId' - The Amazon Resource Name (ARN) of the change set.
 --
 -- Length constraints: Minimum length of 1.
@@ -540,8 +542,6 @@ data CreateCloudFormationChangeSetResponse = CreateCloudFormationChangeSetRespon
 -- Pattern: ARN:[-a-zA-Z0-9:\/]*
 --
 -- 'applicationId', 'createCloudFormationChangeSetResponse_applicationId' - The application Amazon Resource Name (ARN).
---
--- 'stackId', 'createCloudFormationChangeSetResponse_stackId' - The unique ID of the stack.
 --
 -- 'httpStatus', 'createCloudFormationChangeSetResponse_httpStatus' - The response's http status code.
 newCreateCloudFormationChangeSetResponse ::
@@ -552,9 +552,9 @@ newCreateCloudFormationChangeSetResponse pHttpStatus_ =
   CreateCloudFormationChangeSetResponse'
     { semanticVersion =
         Prelude.Nothing,
+      stackId = Prelude.Nothing,
       changeSetId = Prelude.Nothing,
       applicationId = Prelude.Nothing,
-      stackId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -563,6 +563,10 @@ newCreateCloudFormationChangeSetResponse pHttpStatus_ =
 -- <https://semver.org/>
 createCloudFormationChangeSetResponse_semanticVersion :: Lens.Lens' CreateCloudFormationChangeSetResponse (Prelude.Maybe Prelude.Text)
 createCloudFormationChangeSetResponse_semanticVersion = Lens.lens (\CreateCloudFormationChangeSetResponse' {semanticVersion} -> semanticVersion) (\s@CreateCloudFormationChangeSetResponse' {} a -> s {semanticVersion = a} :: CreateCloudFormationChangeSetResponse)
+
+-- | The unique ID of the stack.
+createCloudFormationChangeSetResponse_stackId :: Lens.Lens' CreateCloudFormationChangeSetResponse (Prelude.Maybe Prelude.Text)
+createCloudFormationChangeSetResponse_stackId = Lens.lens (\CreateCloudFormationChangeSetResponse' {stackId} -> stackId) (\s@CreateCloudFormationChangeSetResponse' {} a -> s {stackId = a} :: CreateCloudFormationChangeSetResponse)
 
 -- | The Amazon Resource Name (ARN) of the change set.
 --
@@ -576,10 +580,6 @@ createCloudFormationChangeSetResponse_changeSetId = Lens.lens (\CreateCloudForma
 createCloudFormationChangeSetResponse_applicationId :: Lens.Lens' CreateCloudFormationChangeSetResponse (Prelude.Maybe Prelude.Text)
 createCloudFormationChangeSetResponse_applicationId = Lens.lens (\CreateCloudFormationChangeSetResponse' {applicationId} -> applicationId) (\s@CreateCloudFormationChangeSetResponse' {} a -> s {applicationId = a} :: CreateCloudFormationChangeSetResponse)
 
--- | The unique ID of the stack.
-createCloudFormationChangeSetResponse_stackId :: Lens.Lens' CreateCloudFormationChangeSetResponse (Prelude.Maybe Prelude.Text)
-createCloudFormationChangeSetResponse_stackId = Lens.lens (\CreateCloudFormationChangeSetResponse' {stackId} -> stackId) (\s@CreateCloudFormationChangeSetResponse' {} a -> s {stackId = a} :: CreateCloudFormationChangeSetResponse)
-
 -- | The response's http status code.
 createCloudFormationChangeSetResponse_httpStatus :: Lens.Lens' CreateCloudFormationChangeSetResponse Prelude.Int
 createCloudFormationChangeSetResponse_httpStatus = Lens.lens (\CreateCloudFormationChangeSetResponse' {httpStatus} -> httpStatus) (\s@CreateCloudFormationChangeSetResponse' {} a -> s {httpStatus = a} :: CreateCloudFormationChangeSetResponse)
@@ -590,7 +590,7 @@ instance
   where
   rnf CreateCloudFormationChangeSetResponse' {..} =
     Prelude.rnf semanticVersion
+      `Prelude.seq` Prelude.rnf stackId
       `Prelude.seq` Prelude.rnf changeSetId
       `Prelude.seq` Prelude.rnf applicationId
-      `Prelude.seq` Prelude.rnf stackId
       `Prelude.seq` Prelude.rnf httpStatus

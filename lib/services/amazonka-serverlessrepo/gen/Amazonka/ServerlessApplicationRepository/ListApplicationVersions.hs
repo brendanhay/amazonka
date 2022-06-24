@@ -38,8 +38,8 @@ module Amazonka.ServerlessApplicationRepository.ListApplicationVersions
     newListApplicationVersionsResponse,
 
     -- * Response Lenses
-    listApplicationVersionsResponse_versions,
     listApplicationVersionsResponse_nextToken,
+    listApplicationVersionsResponse_versions,
     listApplicationVersionsResponse_httpStatus,
   )
 where
@@ -130,8 +130,8 @@ instance Core.AWSRequest ListApplicationVersions where
     Response.receiveJSON
       ( \s h x ->
           ListApplicationVersionsResponse'
-            Prelude.<$> (x Core..?> "versions" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "versions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -175,10 +175,10 @@ instance Core.ToQuery ListApplicationVersions where
 
 -- | /See:/ 'newListApplicationVersionsResponse' smart constructor.
 data ListApplicationVersionsResponse = ListApplicationVersionsResponse'
-  { -- | An array of version summaries for the application.
-    versions :: Prelude.Maybe [VersionSummary],
-    -- | The token to request the next page of results.
+  { -- | The token to request the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of version summaries for the application.
+    versions :: Prelude.Maybe [VersionSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -192,9 +192,9 @@ data ListApplicationVersionsResponse = ListApplicationVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versions', 'listApplicationVersionsResponse_versions' - An array of version summaries for the application.
---
 -- 'nextToken', 'listApplicationVersionsResponse_nextToken' - The token to request the next page of results.
+--
+-- 'versions', 'listApplicationVersionsResponse_versions' - An array of version summaries for the application.
 --
 -- 'httpStatus', 'listApplicationVersionsResponse_httpStatus' - The response's http status code.
 newListApplicationVersionsResponse ::
@@ -203,19 +203,19 @@ newListApplicationVersionsResponse ::
   ListApplicationVersionsResponse
 newListApplicationVersionsResponse pHttpStatus_ =
   ListApplicationVersionsResponse'
-    { versions =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      versions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of version summaries for the application.
-listApplicationVersionsResponse_versions :: Lens.Lens' ListApplicationVersionsResponse (Prelude.Maybe [VersionSummary])
-listApplicationVersionsResponse_versions = Lens.lens (\ListApplicationVersionsResponse' {versions} -> versions) (\s@ListApplicationVersionsResponse' {} a -> s {versions = a} :: ListApplicationVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to request the next page of results.
 listApplicationVersionsResponse_nextToken :: Lens.Lens' ListApplicationVersionsResponse (Prelude.Maybe Prelude.Text)
 listApplicationVersionsResponse_nextToken = Lens.lens (\ListApplicationVersionsResponse' {nextToken} -> nextToken) (\s@ListApplicationVersionsResponse' {} a -> s {nextToken = a} :: ListApplicationVersionsResponse)
+
+-- | An array of version summaries for the application.
+listApplicationVersionsResponse_versions :: Lens.Lens' ListApplicationVersionsResponse (Prelude.Maybe [VersionSummary])
+listApplicationVersionsResponse_versions = Lens.lens (\ListApplicationVersionsResponse' {versions} -> versions) (\s@ListApplicationVersionsResponse' {} a -> s {versions = a} :: ListApplicationVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listApplicationVersionsResponse_httpStatus :: Lens.Lens' ListApplicationVersionsResponse Prelude.Int
@@ -226,6 +226,6 @@ instance
     ListApplicationVersionsResponse
   where
   rnf ListApplicationVersionsResponse' {..} =
-    Prelude.rnf versions
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf versions
       `Prelude.seq` Prelude.rnf httpStatus

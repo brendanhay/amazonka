@@ -35,13 +35,13 @@ module Amazonka.ServerlessApplicationRepository.CreateCloudFormationTemplate
     newCreateCloudFormationTemplateResponse,
 
     -- * Response Lenses
-    createCloudFormationTemplateResponse_creationTime,
+    createCloudFormationTemplateResponse_semanticVersion,
+    createCloudFormationTemplateResponse_expirationTime,
     createCloudFormationTemplateResponse_status,
     createCloudFormationTemplateResponse_templateId,
-    createCloudFormationTemplateResponse_semanticVersion,
+    createCloudFormationTemplateResponse_creationTime,
     createCloudFormationTemplateResponse_applicationId,
     createCloudFormationTemplateResponse_templateUrl,
-    createCloudFormationTemplateResponse_expirationTime,
     createCloudFormationTemplateResponse_httpStatus,
   )
 where
@@ -107,13 +107,13 @@ instance Core.AWSRequest CreateCloudFormationTemplate where
     Response.receiveJSON
       ( \s h x ->
           CreateCloudFormationTemplateResponse'
-            Prelude.<$> (x Core..?> "creationTime")
+            Prelude.<$> (x Core..?> "semanticVersion")
+            Prelude.<*> (x Core..?> "expirationTime")
             Prelude.<*> (x Core..?> "status")
             Prelude.<*> (x Core..?> "templateId")
-            Prelude.<*> (x Core..?> "semanticVersion")
+            Prelude.<*> (x Core..?> "creationTime")
             Prelude.<*> (x Core..?> "applicationId")
             Prelude.<*> (x Core..?> "templateUrl")
-            Prelude.<*> (x Core..?> "expirationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,8 +163,13 @@ instance Core.ToQuery CreateCloudFormationTemplate where
 
 -- | /See:/ 'newCreateCloudFormationTemplateResponse' smart constructor.
 data CreateCloudFormationTemplateResponse = CreateCloudFormationTemplateResponse'
-  { -- | The date and time this resource was created.
-    creationTime :: Prelude.Maybe Prelude.Text,
+  { -- | The semantic version of the application:
+    --
+    -- <https://semver.org/>
+    semanticVersion :: Prelude.Maybe Prelude.Text,
+    -- | The date and time this template expires. Templates expire 1 hour after
+    -- creation.
+    expirationTime :: Prelude.Maybe Prelude.Text,
     -- | Status of the template creation workflow.
     --
     -- Possible values: PREPARING | ACTIVE | EXPIRED
@@ -174,18 +179,13 @@ data CreateCloudFormationTemplateResponse = CreateCloudFormationTemplateResponse
     -- Pattern:
     -- [0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}
     templateId :: Prelude.Maybe Prelude.Text,
-    -- | The semantic version of the application:
-    --
-    -- <https://semver.org/>
-    semanticVersion :: Prelude.Maybe Prelude.Text,
+    -- | The date and time this resource was created.
+    creationTime :: Prelude.Maybe Prelude.Text,
     -- | The application Amazon Resource Name (ARN).
     applicationId :: Prelude.Maybe Prelude.Text,
     -- | A link to the template that can be used to deploy the application using
     -- AWS CloudFormation.
     templateUrl :: Prelude.Maybe Prelude.Text,
-    -- | The date and time this template expires. Templates expire 1 hour after
-    -- creation.
-    expirationTime :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -199,7 +199,12 @@ data CreateCloudFormationTemplateResponse = CreateCloudFormationTemplateResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'createCloudFormationTemplateResponse_creationTime' - The date and time this resource was created.
+-- 'semanticVersion', 'createCloudFormationTemplateResponse_semanticVersion' - The semantic version of the application:
+--
+-- <https://semver.org/>
+--
+-- 'expirationTime', 'createCloudFormationTemplateResponse_expirationTime' - The date and time this template expires. Templates expire 1 hour after
+-- creation.
 --
 -- 'status', 'createCloudFormationTemplateResponse_status' - Status of the template creation workflow.
 --
@@ -210,17 +215,12 @@ data CreateCloudFormationTemplateResponse = CreateCloudFormationTemplateResponse
 -- Pattern:
 -- [0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}
 --
--- 'semanticVersion', 'createCloudFormationTemplateResponse_semanticVersion' - The semantic version of the application:
---
--- <https://semver.org/>
+-- 'creationTime', 'createCloudFormationTemplateResponse_creationTime' - The date and time this resource was created.
 --
 -- 'applicationId', 'createCloudFormationTemplateResponse_applicationId' - The application Amazon Resource Name (ARN).
 --
 -- 'templateUrl', 'createCloudFormationTemplateResponse_templateUrl' - A link to the template that can be used to deploy the application using
 -- AWS CloudFormation.
---
--- 'expirationTime', 'createCloudFormationTemplateResponse_expirationTime' - The date and time this template expires. Templates expire 1 hour after
--- creation.
 --
 -- 'httpStatus', 'createCloudFormationTemplateResponse_httpStatus' - The response's http status code.
 newCreateCloudFormationTemplateResponse ::
@@ -229,20 +229,27 @@ newCreateCloudFormationTemplateResponse ::
   CreateCloudFormationTemplateResponse
 newCreateCloudFormationTemplateResponse pHttpStatus_ =
   CreateCloudFormationTemplateResponse'
-    { creationTime =
+    { semanticVersion =
         Prelude.Nothing,
+      expirationTime = Prelude.Nothing,
       status = Prelude.Nothing,
       templateId = Prelude.Nothing,
-      semanticVersion = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       applicationId = Prelude.Nothing,
       templateUrl = Prelude.Nothing,
-      expirationTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The date and time this resource was created.
-createCloudFormationTemplateResponse_creationTime :: Lens.Lens' CreateCloudFormationTemplateResponse (Prelude.Maybe Prelude.Text)
-createCloudFormationTemplateResponse_creationTime = Lens.lens (\CreateCloudFormationTemplateResponse' {creationTime} -> creationTime) (\s@CreateCloudFormationTemplateResponse' {} a -> s {creationTime = a} :: CreateCloudFormationTemplateResponse)
+-- | The semantic version of the application:
+--
+-- <https://semver.org/>
+createCloudFormationTemplateResponse_semanticVersion :: Lens.Lens' CreateCloudFormationTemplateResponse (Prelude.Maybe Prelude.Text)
+createCloudFormationTemplateResponse_semanticVersion = Lens.lens (\CreateCloudFormationTemplateResponse' {semanticVersion} -> semanticVersion) (\s@CreateCloudFormationTemplateResponse' {} a -> s {semanticVersion = a} :: CreateCloudFormationTemplateResponse)
+
+-- | The date and time this template expires. Templates expire 1 hour after
+-- creation.
+createCloudFormationTemplateResponse_expirationTime :: Lens.Lens' CreateCloudFormationTemplateResponse (Prelude.Maybe Prelude.Text)
+createCloudFormationTemplateResponse_expirationTime = Lens.lens (\CreateCloudFormationTemplateResponse' {expirationTime} -> expirationTime) (\s@CreateCloudFormationTemplateResponse' {} a -> s {expirationTime = a} :: CreateCloudFormationTemplateResponse)
 
 -- | Status of the template creation workflow.
 --
@@ -257,11 +264,9 @@ createCloudFormationTemplateResponse_status = Lens.lens (\CreateCloudFormationTe
 createCloudFormationTemplateResponse_templateId :: Lens.Lens' CreateCloudFormationTemplateResponse (Prelude.Maybe Prelude.Text)
 createCloudFormationTemplateResponse_templateId = Lens.lens (\CreateCloudFormationTemplateResponse' {templateId} -> templateId) (\s@CreateCloudFormationTemplateResponse' {} a -> s {templateId = a} :: CreateCloudFormationTemplateResponse)
 
--- | The semantic version of the application:
---
--- <https://semver.org/>
-createCloudFormationTemplateResponse_semanticVersion :: Lens.Lens' CreateCloudFormationTemplateResponse (Prelude.Maybe Prelude.Text)
-createCloudFormationTemplateResponse_semanticVersion = Lens.lens (\CreateCloudFormationTemplateResponse' {semanticVersion} -> semanticVersion) (\s@CreateCloudFormationTemplateResponse' {} a -> s {semanticVersion = a} :: CreateCloudFormationTemplateResponse)
+-- | The date and time this resource was created.
+createCloudFormationTemplateResponse_creationTime :: Lens.Lens' CreateCloudFormationTemplateResponse (Prelude.Maybe Prelude.Text)
+createCloudFormationTemplateResponse_creationTime = Lens.lens (\CreateCloudFormationTemplateResponse' {creationTime} -> creationTime) (\s@CreateCloudFormationTemplateResponse' {} a -> s {creationTime = a} :: CreateCloudFormationTemplateResponse)
 
 -- | The application Amazon Resource Name (ARN).
 createCloudFormationTemplateResponse_applicationId :: Lens.Lens' CreateCloudFormationTemplateResponse (Prelude.Maybe Prelude.Text)
@@ -272,11 +277,6 @@ createCloudFormationTemplateResponse_applicationId = Lens.lens (\CreateCloudForm
 createCloudFormationTemplateResponse_templateUrl :: Lens.Lens' CreateCloudFormationTemplateResponse (Prelude.Maybe Prelude.Text)
 createCloudFormationTemplateResponse_templateUrl = Lens.lens (\CreateCloudFormationTemplateResponse' {templateUrl} -> templateUrl) (\s@CreateCloudFormationTemplateResponse' {} a -> s {templateUrl = a} :: CreateCloudFormationTemplateResponse)
 
--- | The date and time this template expires. Templates expire 1 hour after
--- creation.
-createCloudFormationTemplateResponse_expirationTime :: Lens.Lens' CreateCloudFormationTemplateResponse (Prelude.Maybe Prelude.Text)
-createCloudFormationTemplateResponse_expirationTime = Lens.lens (\CreateCloudFormationTemplateResponse' {expirationTime} -> expirationTime) (\s@CreateCloudFormationTemplateResponse' {} a -> s {expirationTime = a} :: CreateCloudFormationTemplateResponse)
-
 -- | The response's http status code.
 createCloudFormationTemplateResponse_httpStatus :: Lens.Lens' CreateCloudFormationTemplateResponse Prelude.Int
 createCloudFormationTemplateResponse_httpStatus = Lens.lens (\CreateCloudFormationTemplateResponse' {httpStatus} -> httpStatus) (\s@CreateCloudFormationTemplateResponse' {} a -> s {httpStatus = a} :: CreateCloudFormationTemplateResponse)
@@ -286,11 +286,11 @@ instance
     CreateCloudFormationTemplateResponse
   where
   rnf CreateCloudFormationTemplateResponse' {..} =
-    Prelude.rnf creationTime
+    Prelude.rnf semanticVersion
+      `Prelude.seq` Prelude.rnf expirationTime
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf templateId
-      `Prelude.seq` Prelude.rnf semanticVersion
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf templateUrl
-      `Prelude.seq` Prelude.rnf expirationTime
       `Prelude.seq` Prelude.rnf httpStatus

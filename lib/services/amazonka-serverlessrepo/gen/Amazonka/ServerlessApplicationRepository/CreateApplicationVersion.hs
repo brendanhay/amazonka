@@ -27,10 +27,10 @@ module Amazonka.ServerlessApplicationRepository.CreateApplicationVersion
     newCreateApplicationVersion,
 
     -- * Request Lenses
+    createApplicationVersion_sourceCodeArchiveUrl,
     createApplicationVersion_sourceCodeUrl,
     createApplicationVersion_templateBody,
     createApplicationVersion_templateUrl,
-    createApplicationVersion_sourceCodeArchiveUrl,
     createApplicationVersion_applicationId,
     createApplicationVersion_semanticVersion,
 
@@ -39,15 +39,15 @@ module Amazonka.ServerlessApplicationRepository.CreateApplicationVersion
     newCreateApplicationVersionResponse,
 
     -- * Response Lenses
-    createApplicationVersionResponse_creationTime,
-    createApplicationVersionResponse_resourcesSupported,
+    createApplicationVersionResponse_semanticVersion,
+    createApplicationVersionResponse_sourceCodeArchiveUrl,
+    createApplicationVersionResponse_sourceCodeUrl,
     createApplicationVersionResponse_requiredCapabilities,
     createApplicationVersionResponse_parameterDefinitions,
-    createApplicationVersionResponse_semanticVersion,
-    createApplicationVersionResponse_sourceCodeUrl,
+    createApplicationVersionResponse_creationTime,
+    createApplicationVersionResponse_resourcesSupported,
     createApplicationVersionResponse_applicationId,
     createApplicationVersionResponse_templateUrl,
-    createApplicationVersionResponse_sourceCodeArchiveUrl,
     createApplicationVersionResponse_httpStatus,
   )
 where
@@ -61,18 +61,18 @@ import Amazonka.ServerlessApplicationRepository.Types
 
 -- | /See:/ 'newCreateApplicationVersion' smart constructor.
 data CreateApplicationVersion = CreateApplicationVersion'
-  { -- | A link to a public repository for the source code of your application,
+  { -- | A link to the S3 object that contains the ZIP archive of the source code
+    -- for this version of your application.
+    --
+    -- Maximum size 50 MB
+    sourceCodeArchiveUrl :: Prelude.Maybe Prelude.Text,
+    -- | A link to a public repository for the source code of your application,
     -- for example the URL of a specific GitHub commit.
     sourceCodeUrl :: Prelude.Maybe Prelude.Text,
     -- | The raw packaged AWS SAM template of your application.
     templateBody :: Prelude.Maybe Prelude.Text,
     -- | A link to the packaged AWS SAM template of your application.
     templateUrl :: Prelude.Maybe Prelude.Text,
-    -- | A link to the S3 object that contains the ZIP archive of the source code
-    -- for this version of your application.
-    --
-    -- Maximum size 50 MB
-    sourceCodeArchiveUrl :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the application.
     applicationId :: Prelude.Text,
     -- | The semantic version of the new version.
@@ -88,17 +88,17 @@ data CreateApplicationVersion = CreateApplicationVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'sourceCodeArchiveUrl', 'createApplicationVersion_sourceCodeArchiveUrl' - A link to the S3 object that contains the ZIP archive of the source code
+-- for this version of your application.
+--
+-- Maximum size 50 MB
+--
 -- 'sourceCodeUrl', 'createApplicationVersion_sourceCodeUrl' - A link to a public repository for the source code of your application,
 -- for example the URL of a specific GitHub commit.
 --
 -- 'templateBody', 'createApplicationVersion_templateBody' - The raw packaged AWS SAM template of your application.
 --
 -- 'templateUrl', 'createApplicationVersion_templateUrl' - A link to the packaged AWS SAM template of your application.
---
--- 'sourceCodeArchiveUrl', 'createApplicationVersion_sourceCodeArchiveUrl' - A link to the S3 object that contains the ZIP archive of the source code
--- for this version of your application.
---
--- Maximum size 50 MB
 --
 -- 'applicationId', 'createApplicationVersion_applicationId' - The Amazon Resource Name (ARN) of the application.
 --
@@ -113,14 +113,21 @@ newCreateApplicationVersion
   pApplicationId_
   pSemanticVersion_ =
     CreateApplicationVersion'
-      { sourceCodeUrl =
+      { sourceCodeArchiveUrl =
           Prelude.Nothing,
+        sourceCodeUrl = Prelude.Nothing,
         templateBody = Prelude.Nothing,
         templateUrl = Prelude.Nothing,
-        sourceCodeArchiveUrl = Prelude.Nothing,
         applicationId = pApplicationId_,
         semanticVersion = pSemanticVersion_
       }
+
+-- | A link to the S3 object that contains the ZIP archive of the source code
+-- for this version of your application.
+--
+-- Maximum size 50 MB
+createApplicationVersion_sourceCodeArchiveUrl :: Lens.Lens' CreateApplicationVersion (Prelude.Maybe Prelude.Text)
+createApplicationVersion_sourceCodeArchiveUrl = Lens.lens (\CreateApplicationVersion' {sourceCodeArchiveUrl} -> sourceCodeArchiveUrl) (\s@CreateApplicationVersion' {} a -> s {sourceCodeArchiveUrl = a} :: CreateApplicationVersion)
 
 -- | A link to a public repository for the source code of your application,
 -- for example the URL of a specific GitHub commit.
@@ -134,13 +141,6 @@ createApplicationVersion_templateBody = Lens.lens (\CreateApplicationVersion' {t
 -- | A link to the packaged AWS SAM template of your application.
 createApplicationVersion_templateUrl :: Lens.Lens' CreateApplicationVersion (Prelude.Maybe Prelude.Text)
 createApplicationVersion_templateUrl = Lens.lens (\CreateApplicationVersion' {templateUrl} -> templateUrl) (\s@CreateApplicationVersion' {} a -> s {templateUrl = a} :: CreateApplicationVersion)
-
--- | A link to the S3 object that contains the ZIP archive of the source code
--- for this version of your application.
---
--- Maximum size 50 MB
-createApplicationVersion_sourceCodeArchiveUrl :: Lens.Lens' CreateApplicationVersion (Prelude.Maybe Prelude.Text)
-createApplicationVersion_sourceCodeArchiveUrl = Lens.lens (\CreateApplicationVersion' {sourceCodeArchiveUrl} -> sourceCodeArchiveUrl) (\s@CreateApplicationVersion' {} a -> s {sourceCodeArchiveUrl = a} :: CreateApplicationVersion)
 
 -- | The Amazon Resource Name (ARN) of the application.
 createApplicationVersion_applicationId :: Lens.Lens' CreateApplicationVersion Prelude.Text
@@ -159,37 +159,37 @@ instance Core.AWSRequest CreateApplicationVersion where
     Response.receiveJSON
       ( \s h x ->
           CreateApplicationVersionResponse'
-            Prelude.<$> (x Core..?> "creationTime")
-            Prelude.<*> (x Core..?> "resourcesSupported")
+            Prelude.<$> (x Core..?> "semanticVersion")
+            Prelude.<*> (x Core..?> "sourceCodeArchiveUrl")
+            Prelude.<*> (x Core..?> "sourceCodeUrl")
             Prelude.<*> ( x Core..?> "requiredCapabilities"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> ( x Core..?> "parameterDefinitions"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "semanticVersion")
-            Prelude.<*> (x Core..?> "sourceCodeUrl")
+            Prelude.<*> (x Core..?> "creationTime")
+            Prelude.<*> (x Core..?> "resourcesSupported")
             Prelude.<*> (x Core..?> "applicationId")
             Prelude.<*> (x Core..?> "templateUrl")
-            Prelude.<*> (x Core..?> "sourceCodeArchiveUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateApplicationVersion where
   hashWithSalt _salt CreateApplicationVersion' {..} =
-    _salt `Prelude.hashWithSalt` sourceCodeUrl
+    _salt `Prelude.hashWithSalt` sourceCodeArchiveUrl
+      `Prelude.hashWithSalt` sourceCodeUrl
       `Prelude.hashWithSalt` templateBody
       `Prelude.hashWithSalt` templateUrl
-      `Prelude.hashWithSalt` sourceCodeArchiveUrl
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` semanticVersion
 
 instance Prelude.NFData CreateApplicationVersion where
   rnf CreateApplicationVersion' {..} =
-    Prelude.rnf sourceCodeUrl
+    Prelude.rnf sourceCodeArchiveUrl
+      `Prelude.seq` Prelude.rnf sourceCodeUrl
       `Prelude.seq` Prelude.rnf templateBody
       `Prelude.seq` Prelude.rnf templateUrl
-      `Prelude.seq` Prelude.rnf sourceCodeArchiveUrl
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf semanticVersion
 
@@ -208,11 +208,11 @@ instance Core.ToJSON CreateApplicationVersion where
   toJSON CreateApplicationVersion' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("sourceCodeUrl" Core..=) Prelude.<$> sourceCodeUrl,
+          [ ("sourceCodeArchiveUrl" Core..=)
+              Prelude.<$> sourceCodeArchiveUrl,
+            ("sourceCodeUrl" Core..=) Prelude.<$> sourceCodeUrl,
             ("templateBody" Core..=) Prelude.<$> templateBody,
-            ("templateUrl" Core..=) Prelude.<$> templateUrl,
-            ("sourceCodeArchiveUrl" Core..=)
-              Prelude.<$> sourceCodeArchiveUrl
+            ("templateUrl" Core..=) Prelude.<$> templateUrl
           ]
       )
 
@@ -230,11 +230,18 @@ instance Core.ToQuery CreateApplicationVersion where
 
 -- | /See:/ 'newCreateApplicationVersionResponse' smart constructor.
 data CreateApplicationVersionResponse = CreateApplicationVersionResponse'
-  { -- | The date and time this resource was created.
-    creationTime :: Prelude.Maybe Prelude.Text,
-    -- | Whether all of the AWS resources contained in this application are
-    -- supported in the region in which it is being retrieved.
-    resourcesSupported :: Prelude.Maybe Prelude.Bool,
+  { -- | The semantic version of the application:
+    --
+    -- <https://semver.org/>
+    semanticVersion :: Prelude.Maybe Prelude.Text,
+    -- | A link to the S3 object that contains the ZIP archive of the source code
+    -- for this version of your application.
+    --
+    -- Maximum size 50 MB
+    sourceCodeArchiveUrl :: Prelude.Maybe Prelude.Text,
+    -- | A link to a public repository for the source code of your application,
+    -- for example the URL of a specific GitHub commit.
+    sourceCodeUrl :: Prelude.Maybe Prelude.Text,
     -- | A list of values that you must specify before you can deploy certain
     -- applications. Some applications might include resources that can affect
     -- permissions in your AWS account, for example, by creating new AWS
@@ -276,22 +283,15 @@ data CreateApplicationVersionResponse = CreateApplicationVersionResponse'
     requiredCapabilities :: Prelude.Maybe [Capability],
     -- | An array of parameter types supported by the application.
     parameterDefinitions :: Prelude.Maybe [ParameterDefinition],
-    -- | The semantic version of the application:
-    --
-    -- <https://semver.org/>
-    semanticVersion :: Prelude.Maybe Prelude.Text,
-    -- | A link to a public repository for the source code of your application,
-    -- for example the URL of a specific GitHub commit.
-    sourceCodeUrl :: Prelude.Maybe Prelude.Text,
+    -- | The date and time this resource was created.
+    creationTime :: Prelude.Maybe Prelude.Text,
+    -- | Whether all of the AWS resources contained in this application are
+    -- supported in the region in which it is being retrieved.
+    resourcesSupported :: Prelude.Maybe Prelude.Bool,
     -- | The application Amazon Resource Name (ARN).
     applicationId :: Prelude.Maybe Prelude.Text,
     -- | A link to the packaged AWS SAM template of your application.
     templateUrl :: Prelude.Maybe Prelude.Text,
-    -- | A link to the S3 object that contains the ZIP archive of the source code
-    -- for this version of your application.
-    --
-    -- Maximum size 50 MB
-    sourceCodeArchiveUrl :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -305,10 +305,17 @@ data CreateApplicationVersionResponse = CreateApplicationVersionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'createApplicationVersionResponse_creationTime' - The date and time this resource was created.
+-- 'semanticVersion', 'createApplicationVersionResponse_semanticVersion' - The semantic version of the application:
 --
--- 'resourcesSupported', 'createApplicationVersionResponse_resourcesSupported' - Whether all of the AWS resources contained in this application are
--- supported in the region in which it is being retrieved.
+-- <https://semver.org/>
+--
+-- 'sourceCodeArchiveUrl', 'createApplicationVersionResponse_sourceCodeArchiveUrl' - A link to the S3 object that contains the ZIP archive of the source code
+-- for this version of your application.
+--
+-- Maximum size 50 MB
+--
+-- 'sourceCodeUrl', 'createApplicationVersionResponse_sourceCodeUrl' - A link to a public repository for the source code of your application,
+-- for example the URL of a specific GitHub commit.
 --
 -- 'requiredCapabilities', 'createApplicationVersionResponse_requiredCapabilities' - A list of values that you must specify before you can deploy certain
 -- applications. Some applications might include resources that can affect
@@ -351,21 +358,14 @@ data CreateApplicationVersionResponse = CreateApplicationVersionResponse'
 --
 -- 'parameterDefinitions', 'createApplicationVersionResponse_parameterDefinitions' - An array of parameter types supported by the application.
 --
--- 'semanticVersion', 'createApplicationVersionResponse_semanticVersion' - The semantic version of the application:
+-- 'creationTime', 'createApplicationVersionResponse_creationTime' - The date and time this resource was created.
 --
--- <https://semver.org/>
---
--- 'sourceCodeUrl', 'createApplicationVersionResponse_sourceCodeUrl' - A link to a public repository for the source code of your application,
--- for example the URL of a specific GitHub commit.
+-- 'resourcesSupported', 'createApplicationVersionResponse_resourcesSupported' - Whether all of the AWS resources contained in this application are
+-- supported in the region in which it is being retrieved.
 --
 -- 'applicationId', 'createApplicationVersionResponse_applicationId' - The application Amazon Resource Name (ARN).
 --
 -- 'templateUrl', 'createApplicationVersionResponse_templateUrl' - A link to the packaged AWS SAM template of your application.
---
--- 'sourceCodeArchiveUrl', 'createApplicationVersionResponse_sourceCodeArchiveUrl' - A link to the S3 object that contains the ZIP archive of the source code
--- for this version of your application.
---
--- Maximum size 50 MB
 --
 -- 'httpStatus', 'createApplicationVersionResponse_httpStatus' - The response's http status code.
 newCreateApplicationVersionResponse ::
@@ -374,27 +374,36 @@ newCreateApplicationVersionResponse ::
   CreateApplicationVersionResponse
 newCreateApplicationVersionResponse pHttpStatus_ =
   CreateApplicationVersionResponse'
-    { creationTime =
+    { semanticVersion =
         Prelude.Nothing,
-      resourcesSupported = Prelude.Nothing,
+      sourceCodeArchiveUrl = Prelude.Nothing,
+      sourceCodeUrl = Prelude.Nothing,
       requiredCapabilities = Prelude.Nothing,
       parameterDefinitions = Prelude.Nothing,
-      semanticVersion = Prelude.Nothing,
-      sourceCodeUrl = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      resourcesSupported = Prelude.Nothing,
       applicationId = Prelude.Nothing,
       templateUrl = Prelude.Nothing,
-      sourceCodeArchiveUrl = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The date and time this resource was created.
-createApplicationVersionResponse_creationTime :: Lens.Lens' CreateApplicationVersionResponse (Prelude.Maybe Prelude.Text)
-createApplicationVersionResponse_creationTime = Lens.lens (\CreateApplicationVersionResponse' {creationTime} -> creationTime) (\s@CreateApplicationVersionResponse' {} a -> s {creationTime = a} :: CreateApplicationVersionResponse)
+-- | The semantic version of the application:
+--
+-- <https://semver.org/>
+createApplicationVersionResponse_semanticVersion :: Lens.Lens' CreateApplicationVersionResponse (Prelude.Maybe Prelude.Text)
+createApplicationVersionResponse_semanticVersion = Lens.lens (\CreateApplicationVersionResponse' {semanticVersion} -> semanticVersion) (\s@CreateApplicationVersionResponse' {} a -> s {semanticVersion = a} :: CreateApplicationVersionResponse)
 
--- | Whether all of the AWS resources contained in this application are
--- supported in the region in which it is being retrieved.
-createApplicationVersionResponse_resourcesSupported :: Lens.Lens' CreateApplicationVersionResponse (Prelude.Maybe Prelude.Bool)
-createApplicationVersionResponse_resourcesSupported = Lens.lens (\CreateApplicationVersionResponse' {resourcesSupported} -> resourcesSupported) (\s@CreateApplicationVersionResponse' {} a -> s {resourcesSupported = a} :: CreateApplicationVersionResponse)
+-- | A link to the S3 object that contains the ZIP archive of the source code
+-- for this version of your application.
+--
+-- Maximum size 50 MB
+createApplicationVersionResponse_sourceCodeArchiveUrl :: Lens.Lens' CreateApplicationVersionResponse (Prelude.Maybe Prelude.Text)
+createApplicationVersionResponse_sourceCodeArchiveUrl = Lens.lens (\CreateApplicationVersionResponse' {sourceCodeArchiveUrl} -> sourceCodeArchiveUrl) (\s@CreateApplicationVersionResponse' {} a -> s {sourceCodeArchiveUrl = a} :: CreateApplicationVersionResponse)
+
+-- | A link to a public repository for the source code of your application,
+-- for example the URL of a specific GitHub commit.
+createApplicationVersionResponse_sourceCodeUrl :: Lens.Lens' CreateApplicationVersionResponse (Prelude.Maybe Prelude.Text)
+createApplicationVersionResponse_sourceCodeUrl = Lens.lens (\CreateApplicationVersionResponse' {sourceCodeUrl} -> sourceCodeUrl) (\s@CreateApplicationVersionResponse' {} a -> s {sourceCodeUrl = a} :: CreateApplicationVersionResponse)
 
 -- | A list of values that you must specify before you can deploy certain
 -- applications. Some applications might include resources that can affect
@@ -441,16 +450,14 @@ createApplicationVersionResponse_requiredCapabilities = Lens.lens (\CreateApplic
 createApplicationVersionResponse_parameterDefinitions :: Lens.Lens' CreateApplicationVersionResponse (Prelude.Maybe [ParameterDefinition])
 createApplicationVersionResponse_parameterDefinitions = Lens.lens (\CreateApplicationVersionResponse' {parameterDefinitions} -> parameterDefinitions) (\s@CreateApplicationVersionResponse' {} a -> s {parameterDefinitions = a} :: CreateApplicationVersionResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The semantic version of the application:
---
--- <https://semver.org/>
-createApplicationVersionResponse_semanticVersion :: Lens.Lens' CreateApplicationVersionResponse (Prelude.Maybe Prelude.Text)
-createApplicationVersionResponse_semanticVersion = Lens.lens (\CreateApplicationVersionResponse' {semanticVersion} -> semanticVersion) (\s@CreateApplicationVersionResponse' {} a -> s {semanticVersion = a} :: CreateApplicationVersionResponse)
+-- | The date and time this resource was created.
+createApplicationVersionResponse_creationTime :: Lens.Lens' CreateApplicationVersionResponse (Prelude.Maybe Prelude.Text)
+createApplicationVersionResponse_creationTime = Lens.lens (\CreateApplicationVersionResponse' {creationTime} -> creationTime) (\s@CreateApplicationVersionResponse' {} a -> s {creationTime = a} :: CreateApplicationVersionResponse)
 
--- | A link to a public repository for the source code of your application,
--- for example the URL of a specific GitHub commit.
-createApplicationVersionResponse_sourceCodeUrl :: Lens.Lens' CreateApplicationVersionResponse (Prelude.Maybe Prelude.Text)
-createApplicationVersionResponse_sourceCodeUrl = Lens.lens (\CreateApplicationVersionResponse' {sourceCodeUrl} -> sourceCodeUrl) (\s@CreateApplicationVersionResponse' {} a -> s {sourceCodeUrl = a} :: CreateApplicationVersionResponse)
+-- | Whether all of the AWS resources contained in this application are
+-- supported in the region in which it is being retrieved.
+createApplicationVersionResponse_resourcesSupported :: Lens.Lens' CreateApplicationVersionResponse (Prelude.Maybe Prelude.Bool)
+createApplicationVersionResponse_resourcesSupported = Lens.lens (\CreateApplicationVersionResponse' {resourcesSupported} -> resourcesSupported) (\s@CreateApplicationVersionResponse' {} a -> s {resourcesSupported = a} :: CreateApplicationVersionResponse)
 
 -- | The application Amazon Resource Name (ARN).
 createApplicationVersionResponse_applicationId :: Lens.Lens' CreateApplicationVersionResponse (Prelude.Maybe Prelude.Text)
@@ -459,13 +466,6 @@ createApplicationVersionResponse_applicationId = Lens.lens (\CreateApplicationVe
 -- | A link to the packaged AWS SAM template of your application.
 createApplicationVersionResponse_templateUrl :: Lens.Lens' CreateApplicationVersionResponse (Prelude.Maybe Prelude.Text)
 createApplicationVersionResponse_templateUrl = Lens.lens (\CreateApplicationVersionResponse' {templateUrl} -> templateUrl) (\s@CreateApplicationVersionResponse' {} a -> s {templateUrl = a} :: CreateApplicationVersionResponse)
-
--- | A link to the S3 object that contains the ZIP archive of the source code
--- for this version of your application.
---
--- Maximum size 50 MB
-createApplicationVersionResponse_sourceCodeArchiveUrl :: Lens.Lens' CreateApplicationVersionResponse (Prelude.Maybe Prelude.Text)
-createApplicationVersionResponse_sourceCodeArchiveUrl = Lens.lens (\CreateApplicationVersionResponse' {sourceCodeArchiveUrl} -> sourceCodeArchiveUrl) (\s@CreateApplicationVersionResponse' {} a -> s {sourceCodeArchiveUrl = a} :: CreateApplicationVersionResponse)
 
 -- | The response's http status code.
 createApplicationVersionResponse_httpStatus :: Lens.Lens' CreateApplicationVersionResponse Prelude.Int
@@ -476,13 +476,13 @@ instance
     CreateApplicationVersionResponse
   where
   rnf CreateApplicationVersionResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf resourcesSupported
+    Prelude.rnf semanticVersion
+      `Prelude.seq` Prelude.rnf sourceCodeArchiveUrl
+      `Prelude.seq` Prelude.rnf sourceCodeUrl
       `Prelude.seq` Prelude.rnf requiredCapabilities
       `Prelude.seq` Prelude.rnf parameterDefinitions
-      `Prelude.seq` Prelude.rnf semanticVersion
-      `Prelude.seq` Prelude.rnf sourceCodeUrl
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf resourcesSupported
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf templateUrl
-      `Prelude.seq` Prelude.rnf sourceCodeArchiveUrl
       `Prelude.seq` Prelude.rnf httpStatus

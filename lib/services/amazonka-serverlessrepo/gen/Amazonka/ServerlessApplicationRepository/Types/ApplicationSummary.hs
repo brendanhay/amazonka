@@ -27,8 +27,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newApplicationSummary' smart constructor.
 data ApplicationSummary = ApplicationSummary'
-  { -- | The date and time this resource was created.
-    creationTime :: Prelude.Maybe Prelude.Text,
+  { -- | A valid identifier from <https://spdx.org/licenses/>.
+    spdxLicenseId :: Prelude.Maybe Prelude.Text,
     -- | A URL with more information about the application, for example the
     -- location of your GitHub repository for the application.
     homePageUrl :: Prelude.Maybe Prelude.Text,
@@ -38,8 +38,8 @@ data ApplicationSummary = ApplicationSummary'
     --
     -- Pattern: \"^[a-zA-Z0-9+\\\\-_:\\\\\/\@]+$\";
     labels :: Prelude.Maybe [Prelude.Text],
-    -- | A valid identifier from <https://spdx.org/licenses/>.
-    spdxLicenseId :: Prelude.Maybe Prelude.Text,
+    -- | The date and time this resource was created.
+    creationTime :: Prelude.Maybe Prelude.Text,
     -- | The description of the application.
     --
     -- Minimum length=1. Maximum length=256
@@ -69,7 +69,7 @@ data ApplicationSummary = ApplicationSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'applicationSummary_creationTime' - The date and time this resource was created.
+-- 'spdxLicenseId', 'applicationSummary_spdxLicenseId' - A valid identifier from <https://spdx.org/licenses/>.
 --
 -- 'homePageUrl', 'applicationSummary_homePageUrl' - A URL with more information about the application, for example the
 -- location of your GitHub repository for the application.
@@ -80,7 +80,7 @@ data ApplicationSummary = ApplicationSummary'
 --
 -- Pattern: \"^[a-zA-Z0-9+\\\\-_:\\\\\/\@]+$\";
 --
--- 'spdxLicenseId', 'applicationSummary_spdxLicenseId' - A valid identifier from <https://spdx.org/licenses/>.
+-- 'creationTime', 'applicationSummary_creationTime' - The date and time this resource was created.
 --
 -- 'description', 'applicationSummary_description' - The description of the application.
 --
@@ -115,19 +115,20 @@ newApplicationSummary
   pApplicationId_
   pName_ =
     ApplicationSummary'
-      { creationTime = Prelude.Nothing,
+      { spdxLicenseId =
+          Prelude.Nothing,
         homePageUrl = Prelude.Nothing,
         labels = Prelude.Nothing,
-        spdxLicenseId = Prelude.Nothing,
+        creationTime = Prelude.Nothing,
         description = pDescription_,
         author = pAuthor_,
         applicationId = pApplicationId_,
         name = pName_
       }
 
--- | The date and time this resource was created.
-applicationSummary_creationTime :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.Text)
-applicationSummary_creationTime = Lens.lens (\ApplicationSummary' {creationTime} -> creationTime) (\s@ApplicationSummary' {} a -> s {creationTime = a} :: ApplicationSummary)
+-- | A valid identifier from <https://spdx.org/licenses/>.
+applicationSummary_spdxLicenseId :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.Text)
+applicationSummary_spdxLicenseId = Lens.lens (\ApplicationSummary' {spdxLicenseId} -> spdxLicenseId) (\s@ApplicationSummary' {} a -> s {spdxLicenseId = a} :: ApplicationSummary)
 
 -- | A URL with more information about the application, for example the
 -- location of your GitHub repository for the application.
@@ -142,9 +143,9 @@ applicationSummary_homePageUrl = Lens.lens (\ApplicationSummary' {homePageUrl} -
 applicationSummary_labels :: Lens.Lens' ApplicationSummary (Prelude.Maybe [Prelude.Text])
 applicationSummary_labels = Lens.lens (\ApplicationSummary' {labels} -> labels) (\s@ApplicationSummary' {} a -> s {labels = a} :: ApplicationSummary) Prelude.. Lens.mapping Lens.coerced
 
--- | A valid identifier from <https://spdx.org/licenses/>.
-applicationSummary_spdxLicenseId :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.Text)
-applicationSummary_spdxLicenseId = Lens.lens (\ApplicationSummary' {spdxLicenseId} -> spdxLicenseId) (\s@ApplicationSummary' {} a -> s {spdxLicenseId = a} :: ApplicationSummary)
+-- | The date and time this resource was created.
+applicationSummary_creationTime :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.Text)
+applicationSummary_creationTime = Lens.lens (\ApplicationSummary' {creationTime} -> creationTime) (\s@ApplicationSummary' {} a -> s {creationTime = a} :: ApplicationSummary)
 
 -- | The description of the application.
 --
@@ -178,10 +179,10 @@ instance Core.FromJSON ApplicationSummary where
       "ApplicationSummary"
       ( \x ->
           ApplicationSummary'
-            Prelude.<$> (x Core..:? "creationTime")
+            Prelude.<$> (x Core..:? "spdxLicenseId")
             Prelude.<*> (x Core..:? "homePageUrl")
             Prelude.<*> (x Core..:? "labels" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "spdxLicenseId")
+            Prelude.<*> (x Core..:? "creationTime")
             Prelude.<*> (x Core..: "description")
             Prelude.<*> (x Core..: "author")
             Prelude.<*> (x Core..: "applicationId")
@@ -190,10 +191,10 @@ instance Core.FromJSON ApplicationSummary where
 
 instance Prelude.Hashable ApplicationSummary where
   hashWithSalt _salt ApplicationSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt `Prelude.hashWithSalt` spdxLicenseId
       `Prelude.hashWithSalt` homePageUrl
       `Prelude.hashWithSalt` labels
-      `Prelude.hashWithSalt` spdxLicenseId
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` author
       `Prelude.hashWithSalt` applicationId
@@ -201,10 +202,10 @@ instance Prelude.Hashable ApplicationSummary where
 
 instance Prelude.NFData ApplicationSummary where
   rnf ApplicationSummary' {..} =
-    Prelude.rnf creationTime
+    Prelude.rnf spdxLicenseId
       `Prelude.seq` Prelude.rnf homePageUrl
       `Prelude.seq` Prelude.rnf labels
-      `Prelude.seq` Prelude.rnf spdxLicenseId
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf author
       `Prelude.seq` Prelude.rnf applicationId

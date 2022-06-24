@@ -27,26 +27,29 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGetApplicationPolicy $
---             newGetApplicationPolicy
+--         [ requestCreateApplication $
+--             newCreateApplication
 --
 --         , requestCreateApplicationVersion $
 --             newCreateApplicationVersion
 --
---         , requestUnshareApplication $
---             newUnshareApplication
---
---         , requestDeleteApplication $
---             newDeleteApplication
---
---         , requestUpdateApplication $
---             newUpdateApplication
+--         , requestCreateCloudFormationChangeSet $
+--             newCreateCloudFormationChangeSet
 --
 --         , requestCreateCloudFormationTemplate $
 --             newCreateCloudFormationTemplate
 --
---         , requestCreateApplication $
---             newCreateApplication
+--         , requestDeleteApplication $
+--             newDeleteApplication
+--
+--         , requestGetApplication $
+--             newGetApplication
+--
+--         , requestGetApplicationPolicy $
+--             newGetApplicationPolicy
+--
+--         , requestGetCloudFormationTemplate $
+--             newGetCloudFormationTemplate
 --
 --         , requestListApplicationDependencies $
 --             newListApplicationDependencies
@@ -54,44 +57,44 @@ import Test.Tasty
 --         , requestListApplicationVersions $
 --             newListApplicationVersions
 --
---         , requestGetApplication $
---             newGetApplication
---
---         , requestGetCloudFormationTemplate $
---             newGetCloudFormationTemplate
---
---         , requestCreateCloudFormationChangeSet $
---             newCreateCloudFormationChangeSet
+--         , requestListApplications $
+--             newListApplications
 --
 --         , requestPutApplicationPolicy $
 --             newPutApplicationPolicy
 --
---         , requestListApplications $
---             newListApplications
+--         , requestUnshareApplication $
+--             newUnshareApplication
+--
+--         , requestUpdateApplication $
+--             newUpdateApplication
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseGetApplicationPolicy $
---             newGetApplicationPolicyResponse
+--         [ responseCreateApplication $
+--             newCreateApplicationResponse
 --
 --         , responseCreateApplicationVersion $
 --             newCreateApplicationVersionResponse
 --
---         , responseUnshareApplication $
---             newUnshareApplicationResponse
---
---         , responseDeleteApplication $
---             newDeleteApplicationResponse
---
---         , responseUpdateApplication $
---             newUpdateApplicationResponse
+--         , responseCreateCloudFormationChangeSet $
+--             newCreateCloudFormationChangeSetResponse
 --
 --         , responseCreateCloudFormationTemplate $
 --             newCreateCloudFormationTemplateResponse
 --
---         , responseCreateApplication $
---             newCreateApplicationResponse
+--         , responseDeleteApplication $
+--             newDeleteApplicationResponse
+--
+--         , responseGetApplication $
+--             newGetApplicationResponse
+--
+--         , responseGetApplicationPolicy $
+--             newGetApplicationPolicyResponse
+--
+--         , responseGetCloudFormationTemplate $
+--             newGetCloudFormationTemplateResponse
 --
 --         , responseListApplicationDependencies $
 --             newListApplicationDependenciesResponse
@@ -99,31 +102,28 @@ import Test.Tasty
 --         , responseListApplicationVersions $
 --             newListApplicationVersionsResponse
 --
---         , responseGetApplication $
---             newGetApplicationResponse
---
---         , responseGetCloudFormationTemplate $
---             newGetCloudFormationTemplateResponse
---
---         , responseCreateCloudFormationChangeSet $
---             newCreateCloudFormationChangeSetResponse
+--         , responseListApplications $
+--             newListApplicationsResponse
 --
 --         , responsePutApplicationPolicy $
 --             newPutApplicationPolicyResponse
 --
---         , responseListApplications $
---             newListApplicationsResponse
+--         , responseUnshareApplication $
+--             newUnshareApplicationResponse
+--
+--         , responseUpdateApplication $
+--             newUpdateApplicationResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestGetApplicationPolicy :: GetApplicationPolicy -> TestTree
-requestGetApplicationPolicy =
+requestCreateApplication :: CreateApplication -> TestTree
+requestCreateApplication =
   req
-    "GetApplicationPolicy"
-    "fixture/GetApplicationPolicy.yaml"
+    "CreateApplication"
+    "fixture/CreateApplication.yaml"
 
 requestCreateApplicationVersion :: CreateApplicationVersion -> TestTree
 requestCreateApplicationVersion =
@@ -131,23 +131,11 @@ requestCreateApplicationVersion =
     "CreateApplicationVersion"
     "fixture/CreateApplicationVersion.yaml"
 
-requestUnshareApplication :: UnshareApplication -> TestTree
-requestUnshareApplication =
+requestCreateCloudFormationChangeSet :: CreateCloudFormationChangeSet -> TestTree
+requestCreateCloudFormationChangeSet =
   req
-    "UnshareApplication"
-    "fixture/UnshareApplication.yaml"
-
-requestDeleteApplication :: DeleteApplication -> TestTree
-requestDeleteApplication =
-  req
-    "DeleteApplication"
-    "fixture/DeleteApplication.yaml"
-
-requestUpdateApplication :: UpdateApplication -> TestTree
-requestUpdateApplication =
-  req
-    "UpdateApplication"
-    "fixture/UpdateApplication.yaml"
+    "CreateCloudFormationChangeSet"
+    "fixture/CreateCloudFormationChangeSet.yaml"
 
 requestCreateCloudFormationTemplate :: CreateCloudFormationTemplate -> TestTree
 requestCreateCloudFormationTemplate =
@@ -155,11 +143,29 @@ requestCreateCloudFormationTemplate =
     "CreateCloudFormationTemplate"
     "fixture/CreateCloudFormationTemplate.yaml"
 
-requestCreateApplication :: CreateApplication -> TestTree
-requestCreateApplication =
+requestDeleteApplication :: DeleteApplication -> TestTree
+requestDeleteApplication =
   req
-    "CreateApplication"
-    "fixture/CreateApplication.yaml"
+    "DeleteApplication"
+    "fixture/DeleteApplication.yaml"
+
+requestGetApplication :: GetApplication -> TestTree
+requestGetApplication =
+  req
+    "GetApplication"
+    "fixture/GetApplication.yaml"
+
+requestGetApplicationPolicy :: GetApplicationPolicy -> TestTree
+requestGetApplicationPolicy =
+  req
+    "GetApplicationPolicy"
+    "fixture/GetApplicationPolicy.yaml"
+
+requestGetCloudFormationTemplate :: GetCloudFormationTemplate -> TestTree
+requestGetCloudFormationTemplate =
+  req
+    "GetCloudFormationTemplate"
+    "fixture/GetCloudFormationTemplate.yaml"
 
 requestListApplicationDependencies :: ListApplicationDependencies -> TestTree
 requestListApplicationDependencies =
@@ -173,23 +179,11 @@ requestListApplicationVersions =
     "ListApplicationVersions"
     "fixture/ListApplicationVersions.yaml"
 
-requestGetApplication :: GetApplication -> TestTree
-requestGetApplication =
+requestListApplications :: ListApplications -> TestTree
+requestListApplications =
   req
-    "GetApplication"
-    "fixture/GetApplication.yaml"
-
-requestGetCloudFormationTemplate :: GetCloudFormationTemplate -> TestTree
-requestGetCloudFormationTemplate =
-  req
-    "GetCloudFormationTemplate"
-    "fixture/GetCloudFormationTemplate.yaml"
-
-requestCreateCloudFormationChangeSet :: CreateCloudFormationChangeSet -> TestTree
-requestCreateCloudFormationChangeSet =
-  req
-    "CreateCloudFormationChangeSet"
-    "fixture/CreateCloudFormationChangeSet.yaml"
+    "ListApplications"
+    "fixture/ListApplications.yaml"
 
 requestPutApplicationPolicy :: PutApplicationPolicy -> TestTree
 requestPutApplicationPolicy =
@@ -197,21 +191,27 @@ requestPutApplicationPolicy =
     "PutApplicationPolicy"
     "fixture/PutApplicationPolicy.yaml"
 
-requestListApplications :: ListApplications -> TestTree
-requestListApplications =
+requestUnshareApplication :: UnshareApplication -> TestTree
+requestUnshareApplication =
   req
-    "ListApplications"
-    "fixture/ListApplications.yaml"
+    "UnshareApplication"
+    "fixture/UnshareApplication.yaml"
+
+requestUpdateApplication :: UpdateApplication -> TestTree
+requestUpdateApplication =
+  req
+    "UpdateApplication"
+    "fixture/UpdateApplication.yaml"
 
 -- Responses
 
-responseGetApplicationPolicy :: GetApplicationPolicyResponse -> TestTree
-responseGetApplicationPolicy =
+responseCreateApplication :: CreateApplicationResponse -> TestTree
+responseCreateApplication =
   res
-    "GetApplicationPolicyResponse"
-    "fixture/GetApplicationPolicyResponse.proto"
+    "CreateApplicationResponse"
+    "fixture/CreateApplicationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetApplicationPolicy)
+    (Proxy.Proxy :: Proxy.Proxy CreateApplication)
 
 responseCreateApplicationVersion :: CreateApplicationVersionResponse -> TestTree
 responseCreateApplicationVersion =
@@ -221,29 +221,13 @@ responseCreateApplicationVersion =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateApplicationVersion)
 
-responseUnshareApplication :: UnshareApplicationResponse -> TestTree
-responseUnshareApplication =
+responseCreateCloudFormationChangeSet :: CreateCloudFormationChangeSetResponse -> TestTree
+responseCreateCloudFormationChangeSet =
   res
-    "UnshareApplicationResponse"
-    "fixture/UnshareApplicationResponse.proto"
+    "CreateCloudFormationChangeSetResponse"
+    "fixture/CreateCloudFormationChangeSetResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UnshareApplication)
-
-responseDeleteApplication :: DeleteApplicationResponse -> TestTree
-responseDeleteApplication =
-  res
-    "DeleteApplicationResponse"
-    "fixture/DeleteApplicationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteApplication)
-
-responseUpdateApplication :: UpdateApplicationResponse -> TestTree
-responseUpdateApplication =
-  res
-    "UpdateApplicationResponse"
-    "fixture/UpdateApplicationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateApplication)
+    (Proxy.Proxy :: Proxy.Proxy CreateCloudFormationChangeSet)
 
 responseCreateCloudFormationTemplate :: CreateCloudFormationTemplateResponse -> TestTree
 responseCreateCloudFormationTemplate =
@@ -253,13 +237,37 @@ responseCreateCloudFormationTemplate =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateCloudFormationTemplate)
 
-responseCreateApplication :: CreateApplicationResponse -> TestTree
-responseCreateApplication =
+responseDeleteApplication :: DeleteApplicationResponse -> TestTree
+responseDeleteApplication =
   res
-    "CreateApplicationResponse"
-    "fixture/CreateApplicationResponse.proto"
+    "DeleteApplicationResponse"
+    "fixture/DeleteApplicationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateApplication)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApplication)
+
+responseGetApplication :: GetApplicationResponse -> TestTree
+responseGetApplication =
+  res
+    "GetApplicationResponse"
+    "fixture/GetApplicationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetApplication)
+
+responseGetApplicationPolicy :: GetApplicationPolicyResponse -> TestTree
+responseGetApplicationPolicy =
+  res
+    "GetApplicationPolicyResponse"
+    "fixture/GetApplicationPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetApplicationPolicy)
+
+responseGetCloudFormationTemplate :: GetCloudFormationTemplateResponse -> TestTree
+responseGetCloudFormationTemplate =
+  res
+    "GetCloudFormationTemplateResponse"
+    "fixture/GetCloudFormationTemplateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetCloudFormationTemplate)
 
 responseListApplicationDependencies :: ListApplicationDependenciesResponse -> TestTree
 responseListApplicationDependencies =
@@ -277,29 +285,13 @@ responseListApplicationVersions =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListApplicationVersions)
 
-responseGetApplication :: GetApplicationResponse -> TestTree
-responseGetApplication =
+responseListApplications :: ListApplicationsResponse -> TestTree
+responseListApplications =
   res
-    "GetApplicationResponse"
-    "fixture/GetApplicationResponse.proto"
+    "ListApplicationsResponse"
+    "fixture/ListApplicationsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetApplication)
-
-responseGetCloudFormationTemplate :: GetCloudFormationTemplateResponse -> TestTree
-responseGetCloudFormationTemplate =
-  res
-    "GetCloudFormationTemplateResponse"
-    "fixture/GetCloudFormationTemplateResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetCloudFormationTemplate)
-
-responseCreateCloudFormationChangeSet :: CreateCloudFormationChangeSetResponse -> TestTree
-responseCreateCloudFormationChangeSet =
-  res
-    "CreateCloudFormationChangeSetResponse"
-    "fixture/CreateCloudFormationChangeSetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateCloudFormationChangeSet)
+    (Proxy.Proxy :: Proxy.Proxy ListApplications)
 
 responsePutApplicationPolicy :: PutApplicationPolicyResponse -> TestTree
 responsePutApplicationPolicy =
@@ -309,10 +301,18 @@ responsePutApplicationPolicy =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PutApplicationPolicy)
 
-responseListApplications :: ListApplicationsResponse -> TestTree
-responseListApplications =
+responseUnshareApplication :: UnshareApplicationResponse -> TestTree
+responseUnshareApplication =
   res
-    "ListApplicationsResponse"
-    "fixture/ListApplicationsResponse.proto"
+    "UnshareApplicationResponse"
+    "fixture/UnshareApplicationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListApplications)
+    (Proxy.Proxy :: Proxy.Proxy UnshareApplication)
+
+responseUpdateApplication :: UpdateApplicationResponse -> TestTree
+responseUpdateApplication =
+  res
+    "UpdateApplicationResponse"
+    "fixture/UpdateApplicationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateApplication)

@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEvaluationResult' smart constructor.
 data EvaluationResult = EvaluationResult'
-  { -- | The Amazon Resource Name (ARN) of the algorithm that was evaluated.
-    algorithmArn :: Prelude.Maybe Prelude.Text,
-    -- | The array of test windows used for evaluating the algorithm. The
+  { -- | The array of test windows used for evaluating the algorithm. The
     -- @NumberOfBacktestWindows@ from the EvaluationParameters object
     -- determines the number of windows in the array.
-    testWindows :: Prelude.Maybe [WindowSummary]
+    testWindows :: Prelude.Maybe [WindowSummary],
+    -- | The Amazon Resource Name (ARN) of the algorithm that was evaluated.
+    algorithmArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,22 +46,18 @@ data EvaluationResult = EvaluationResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'algorithmArn', 'evaluationResult_algorithmArn' - The Amazon Resource Name (ARN) of the algorithm that was evaluated.
---
 -- 'testWindows', 'evaluationResult_testWindows' - The array of test windows used for evaluating the algorithm. The
 -- @NumberOfBacktestWindows@ from the EvaluationParameters object
 -- determines the number of windows in the array.
+--
+-- 'algorithmArn', 'evaluationResult_algorithmArn' - The Amazon Resource Name (ARN) of the algorithm that was evaluated.
 newEvaluationResult ::
   EvaluationResult
 newEvaluationResult =
   EvaluationResult'
-    { algorithmArn = Prelude.Nothing,
-      testWindows = Prelude.Nothing
+    { testWindows = Prelude.Nothing,
+      algorithmArn = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the algorithm that was evaluated.
-evaluationResult_algorithmArn :: Lens.Lens' EvaluationResult (Prelude.Maybe Prelude.Text)
-evaluationResult_algorithmArn = Lens.lens (\EvaluationResult' {algorithmArn} -> algorithmArn) (\s@EvaluationResult' {} a -> s {algorithmArn = a} :: EvaluationResult)
 
 -- | The array of test windows used for evaluating the algorithm. The
 -- @NumberOfBacktestWindows@ from the EvaluationParameters object
@@ -69,22 +65,26 @@ evaluationResult_algorithmArn = Lens.lens (\EvaluationResult' {algorithmArn} -> 
 evaluationResult_testWindows :: Lens.Lens' EvaluationResult (Prelude.Maybe [WindowSummary])
 evaluationResult_testWindows = Lens.lens (\EvaluationResult' {testWindows} -> testWindows) (\s@EvaluationResult' {} a -> s {testWindows = a} :: EvaluationResult) Prelude.. Lens.mapping Lens.coerced
 
+-- | The Amazon Resource Name (ARN) of the algorithm that was evaluated.
+evaluationResult_algorithmArn :: Lens.Lens' EvaluationResult (Prelude.Maybe Prelude.Text)
+evaluationResult_algorithmArn = Lens.lens (\EvaluationResult' {algorithmArn} -> algorithmArn) (\s@EvaluationResult' {} a -> s {algorithmArn = a} :: EvaluationResult)
+
 instance Core.FromJSON EvaluationResult where
   parseJSON =
     Core.withObject
       "EvaluationResult"
       ( \x ->
           EvaluationResult'
-            Prelude.<$> (x Core..:? "AlgorithmArn")
-            Prelude.<*> (x Core..:? "TestWindows" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "TestWindows" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "AlgorithmArn")
       )
 
 instance Prelude.Hashable EvaluationResult where
   hashWithSalt _salt EvaluationResult' {..} =
-    _salt `Prelude.hashWithSalt` algorithmArn
-      `Prelude.hashWithSalt` testWindows
+    _salt `Prelude.hashWithSalt` testWindows
+      `Prelude.hashWithSalt` algorithmArn
 
 instance Prelude.NFData EvaluationResult where
   rnf EvaluationResult' {..} =
-    Prelude.rnf algorithmArn
-      `Prelude.seq` Prelude.rnf testWindows
+    Prelude.rnf testWindows
+      `Prelude.seq` Prelude.rnf algorithmArn

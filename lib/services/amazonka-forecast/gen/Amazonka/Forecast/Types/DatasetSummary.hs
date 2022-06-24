@@ -31,22 +31,22 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDatasetSummary' smart constructor.
 data DatasetSummary = DatasetSummary'
-  { -- | When the dataset was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The Amazon Resource Name (ARN) of the dataset.
-    datasetArn :: Prelude.Maybe Prelude.Text,
+  { -- | When you create a dataset, @LastModificationTime@ is the same as
+    -- @CreationTime@. While data is being imported to the dataset,
+    -- @LastModificationTime@ is the current time of the @ListDatasets@ call.
+    -- After a CreateDatasetImportJob operation has finished,
+    -- @LastModificationTime@ is when the import job completed or failed.
+    lastModificationTime :: Prelude.Maybe Core.POSIX,
     -- | The domain associated with the dataset.
     domain :: Prelude.Maybe Domain,
     -- | The dataset type.
     datasetType :: Prelude.Maybe DatasetType,
     -- | The name of the dataset.
     datasetName :: Prelude.Maybe Prelude.Text,
-    -- | When you create a dataset, @LastModificationTime@ is the same as
-    -- @CreationTime@. While data is being imported to the dataset,
-    -- @LastModificationTime@ is the current time of the @ListDatasets@ call.
-    -- After a CreateDatasetImportJob operation has finished,
-    -- @LastModificationTime@ is when the import job completed or failed.
-    lastModificationTime :: Prelude.Maybe Core.POSIX
+    -- | The Amazon Resource Name (ARN) of the dataset.
+    datasetArn :: Prelude.Maybe Prelude.Text,
+    -- | When the dataset was created.
+    creationTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,9 +58,11 @@ data DatasetSummary = DatasetSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'datasetSummary_creationTime' - When the dataset was created.
---
--- 'datasetArn', 'datasetSummary_datasetArn' - The Amazon Resource Name (ARN) of the dataset.
+-- 'lastModificationTime', 'datasetSummary_lastModificationTime' - When you create a dataset, @LastModificationTime@ is the same as
+-- @CreationTime@. While data is being imported to the dataset,
+-- @LastModificationTime@ is the current time of the @ListDatasets@ call.
+-- After a CreateDatasetImportJob operation has finished,
+-- @LastModificationTime@ is when the import job completed or failed.
 --
 -- 'domain', 'datasetSummary_domain' - The domain associated with the dataset.
 --
@@ -68,30 +70,29 @@ data DatasetSummary = DatasetSummary'
 --
 -- 'datasetName', 'datasetSummary_datasetName' - The name of the dataset.
 --
--- 'lastModificationTime', 'datasetSummary_lastModificationTime' - When you create a dataset, @LastModificationTime@ is the same as
--- @CreationTime@. While data is being imported to the dataset,
--- @LastModificationTime@ is the current time of the @ListDatasets@ call.
--- After a CreateDatasetImportJob operation has finished,
--- @LastModificationTime@ is when the import job completed or failed.
+-- 'datasetArn', 'datasetSummary_datasetArn' - The Amazon Resource Name (ARN) of the dataset.
+--
+-- 'creationTime', 'datasetSummary_creationTime' - When the dataset was created.
 newDatasetSummary ::
   DatasetSummary
 newDatasetSummary =
   DatasetSummary'
-    { creationTime = Prelude.Nothing,
-      datasetArn = Prelude.Nothing,
+    { lastModificationTime =
+        Prelude.Nothing,
       domain = Prelude.Nothing,
       datasetType = Prelude.Nothing,
       datasetName = Prelude.Nothing,
-      lastModificationTime = Prelude.Nothing
+      datasetArn = Prelude.Nothing,
+      creationTime = Prelude.Nothing
     }
 
--- | When the dataset was created.
-datasetSummary_creationTime :: Lens.Lens' DatasetSummary (Prelude.Maybe Prelude.UTCTime)
-datasetSummary_creationTime = Lens.lens (\DatasetSummary' {creationTime} -> creationTime) (\s@DatasetSummary' {} a -> s {creationTime = a} :: DatasetSummary) Prelude.. Lens.mapping Core._Time
-
--- | The Amazon Resource Name (ARN) of the dataset.
-datasetSummary_datasetArn :: Lens.Lens' DatasetSummary (Prelude.Maybe Prelude.Text)
-datasetSummary_datasetArn = Lens.lens (\DatasetSummary' {datasetArn} -> datasetArn) (\s@DatasetSummary' {} a -> s {datasetArn = a} :: DatasetSummary)
+-- | When you create a dataset, @LastModificationTime@ is the same as
+-- @CreationTime@. While data is being imported to the dataset,
+-- @LastModificationTime@ is the current time of the @ListDatasets@ call.
+-- After a CreateDatasetImportJob operation has finished,
+-- @LastModificationTime@ is when the import job completed or failed.
+datasetSummary_lastModificationTime :: Lens.Lens' DatasetSummary (Prelude.Maybe Prelude.UTCTime)
+datasetSummary_lastModificationTime = Lens.lens (\DatasetSummary' {lastModificationTime} -> lastModificationTime) (\s@DatasetSummary' {} a -> s {lastModificationTime = a} :: DatasetSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The domain associated with the dataset.
 datasetSummary_domain :: Lens.Lens' DatasetSummary (Prelude.Maybe Domain)
@@ -105,13 +106,13 @@ datasetSummary_datasetType = Lens.lens (\DatasetSummary' {datasetType} -> datase
 datasetSummary_datasetName :: Lens.Lens' DatasetSummary (Prelude.Maybe Prelude.Text)
 datasetSummary_datasetName = Lens.lens (\DatasetSummary' {datasetName} -> datasetName) (\s@DatasetSummary' {} a -> s {datasetName = a} :: DatasetSummary)
 
--- | When you create a dataset, @LastModificationTime@ is the same as
--- @CreationTime@. While data is being imported to the dataset,
--- @LastModificationTime@ is the current time of the @ListDatasets@ call.
--- After a CreateDatasetImportJob operation has finished,
--- @LastModificationTime@ is when the import job completed or failed.
-datasetSummary_lastModificationTime :: Lens.Lens' DatasetSummary (Prelude.Maybe Prelude.UTCTime)
-datasetSummary_lastModificationTime = Lens.lens (\DatasetSummary' {lastModificationTime} -> lastModificationTime) (\s@DatasetSummary' {} a -> s {lastModificationTime = a} :: DatasetSummary) Prelude.. Lens.mapping Core._Time
+-- | The Amazon Resource Name (ARN) of the dataset.
+datasetSummary_datasetArn :: Lens.Lens' DatasetSummary (Prelude.Maybe Prelude.Text)
+datasetSummary_datasetArn = Lens.lens (\DatasetSummary' {datasetArn} -> datasetArn) (\s@DatasetSummary' {} a -> s {datasetArn = a} :: DatasetSummary)
+
+-- | When the dataset was created.
+datasetSummary_creationTime :: Lens.Lens' DatasetSummary (Prelude.Maybe Prelude.UTCTime)
+datasetSummary_creationTime = Lens.lens (\DatasetSummary' {creationTime} -> creationTime) (\s@DatasetSummary' {} a -> s {creationTime = a} :: DatasetSummary) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON DatasetSummary where
   parseJSON =
@@ -119,28 +120,28 @@ instance Core.FromJSON DatasetSummary where
       "DatasetSummary"
       ( \x ->
           DatasetSummary'
-            Prelude.<$> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "DatasetArn")
+            Prelude.<$> (x Core..:? "LastModificationTime")
             Prelude.<*> (x Core..:? "Domain")
             Prelude.<*> (x Core..:? "DatasetType")
             Prelude.<*> (x Core..:? "DatasetName")
-            Prelude.<*> (x Core..:? "LastModificationTime")
+            Prelude.<*> (x Core..:? "DatasetArn")
+            Prelude.<*> (x Core..:? "CreationTime")
       )
 
 instance Prelude.Hashable DatasetSummary where
   hashWithSalt _salt DatasetSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` datasetArn
+    _salt `Prelude.hashWithSalt` lastModificationTime
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` datasetType
       `Prelude.hashWithSalt` datasetName
-      `Prelude.hashWithSalt` lastModificationTime
+      `Prelude.hashWithSalt` datasetArn
+      `Prelude.hashWithSalt` creationTime
 
 instance Prelude.NFData DatasetSummary where
   rnf DatasetSummary' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf datasetArn
+    Prelude.rnf lastModificationTime
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf datasetType
       `Prelude.seq` Prelude.rnf datasetName
-      `Prelude.seq` Prelude.rnf lastModificationTime
+      `Prelude.seq` Prelude.rnf datasetArn
+      `Prelude.seq` Prelude.rnf creationTime

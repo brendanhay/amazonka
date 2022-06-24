@@ -47,14 +47,14 @@ module Amazonka.Forecast.DescribeForecastExportJob
     newDescribeForecastExportJobResponse,
 
     -- * Response Lenses
-    describeForecastExportJobResponse_creationTime,
-    describeForecastExportJobResponse_status,
-    describeForecastExportJobResponse_destination,
-    describeForecastExportJobResponse_forecastExportJobArn,
-    describeForecastExportJobResponse_forecastArn,
-    describeForecastExportJobResponse_forecastExportJobName,
-    describeForecastExportJobResponse_message,
     describeForecastExportJobResponse_lastModificationTime,
+    describeForecastExportJobResponse_destination,
+    describeForecastExportJobResponse_message,
+    describeForecastExportJobResponse_forecastExportJobName,
+    describeForecastExportJobResponse_forecastExportJobArn,
+    describeForecastExportJobResponse_status,
+    describeForecastExportJobResponse_forecastArn,
+    describeForecastExportJobResponse_creationTime,
     describeForecastExportJobResponse_httpStatus,
   )
 where
@@ -105,14 +105,14 @@ instance Core.AWSRequest DescribeForecastExportJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeForecastExportJobResponse'
-            Prelude.<$> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "Status")
+            Prelude.<$> (x Core..?> "LastModificationTime")
             Prelude.<*> (x Core..?> "Destination")
-            Prelude.<*> (x Core..?> "ForecastExportJobArn")
-            Prelude.<*> (x Core..?> "ForecastArn")
-            Prelude.<*> (x Core..?> "ForecastExportJobName")
             Prelude.<*> (x Core..?> "Message")
-            Prelude.<*> (x Core..?> "LastModificationTime")
+            Prelude.<*> (x Core..?> "ForecastExportJobName")
+            Prelude.<*> (x Core..?> "ForecastExportJobArn")
+            Prelude.<*> (x Core..?> "Status")
+            Prelude.<*> (x Core..?> "ForecastArn")
+            Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,8 +158,28 @@ instance Core.ToQuery DescribeForecastExportJob where
 
 -- | /See:/ 'newDescribeForecastExportJobResponse' smart constructor.
 data DescribeForecastExportJobResponse = DescribeForecastExportJobResponse'
-  { -- | When the forecast export job was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+  { -- | The last time the resource was modified. The timestamp depends on the
+    -- status of the job:
+    --
+    -- -   @CREATE_PENDING@ - The @CreationTime@.
+    --
+    -- -   @CREATE_IN_PROGRESS@ - The current timestamp.
+    --
+    -- -   @CREATE_STOPPING@ - The current timestamp.
+    --
+    -- -   @CREATE_STOPPED@ - When the job stopped.
+    --
+    -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
+    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    -- | The path to the Amazon Simple Storage Service (Amazon S3) bucket where
+    -- the forecast is exported.
+    destination :: Prelude.Maybe DataDestination,
+    -- | If an error occurred, an informational message about the error.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The name of the forecast export job.
+    forecastExportJobName :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the forecast export job.
+    forecastExportJobArn :: Prelude.Maybe Prelude.Text,
     -- | The status of the forecast export job. States include:
     --
     -- -   @ACTIVE@
@@ -173,30 +193,10 @@ data DescribeForecastExportJobResponse = DescribeForecastExportJobResponse'
     -- The @Status@ of the forecast export job must be @ACTIVE@ before you can
     -- access the forecast in your S3 bucket.
     status :: Prelude.Maybe Prelude.Text,
-    -- | The path to the Amazon Simple Storage Service (Amazon S3) bucket where
-    -- the forecast is exported.
-    destination :: Prelude.Maybe DataDestination,
-    -- | The ARN of the forecast export job.
-    forecastExportJobArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the exported forecast.
     forecastArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the forecast export job.
-    forecastExportJobName :: Prelude.Maybe Prelude.Text,
-    -- | If an error occurred, an informational message about the error.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The last time the resource was modified. The timestamp depends on the
-    -- status of the job:
-    --
-    -- -   @CREATE_PENDING@ - The @CreationTime@.
-    --
-    -- -   @CREATE_IN_PROGRESS@ - The current timestamp.
-    --
-    -- -   @CREATE_STOPPING@ - The current timestamp.
-    --
-    -- -   @CREATE_STOPPED@ - When the job stopped.
-    --
-    -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    -- | When the forecast export job was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -209,32 +209,6 @@ data DescribeForecastExportJobResponse = DescribeForecastExportJobResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'creationTime', 'describeForecastExportJobResponse_creationTime' - When the forecast export job was created.
---
--- 'status', 'describeForecastExportJobResponse_status' - The status of the forecast export job. States include:
---
--- -   @ACTIVE@
---
--- -   @CREATE_PENDING@, @CREATE_IN_PROGRESS@, @CREATE_FAILED@
---
--- -   @CREATE_STOPPING@, @CREATE_STOPPED@
---
--- -   @DELETE_PENDING@, @DELETE_IN_PROGRESS@, @DELETE_FAILED@
---
--- The @Status@ of the forecast export job must be @ACTIVE@ before you can
--- access the forecast in your S3 bucket.
---
--- 'destination', 'describeForecastExportJobResponse_destination' - The path to the Amazon Simple Storage Service (Amazon S3) bucket where
--- the forecast is exported.
---
--- 'forecastExportJobArn', 'describeForecastExportJobResponse_forecastExportJobArn' - The ARN of the forecast export job.
---
--- 'forecastArn', 'describeForecastExportJobResponse_forecastArn' - The Amazon Resource Name (ARN) of the exported forecast.
---
--- 'forecastExportJobName', 'describeForecastExportJobResponse_forecastExportJobName' - The name of the forecast export job.
---
--- 'message', 'describeForecastExportJobResponse_message' - If an error occurred, an informational message about the error.
 --
 -- 'lastModificationTime', 'describeForecastExportJobResponse_lastModificationTime' - The last time the resource was modified. The timestamp depends on the
 -- status of the job:
@@ -249,30 +223,16 @@ data DescribeForecastExportJobResponse = DescribeForecastExportJobResponse'
 --
 -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
 --
--- 'httpStatus', 'describeForecastExportJobResponse_httpStatus' - The response's http status code.
-newDescribeForecastExportJobResponse ::
-  -- | 'httpStatus'
-  Prelude.Int ->
-  DescribeForecastExportJobResponse
-newDescribeForecastExportJobResponse pHttpStatus_ =
-  DescribeForecastExportJobResponse'
-    { creationTime =
-        Prelude.Nothing,
-      status = Prelude.Nothing,
-      destination = Prelude.Nothing,
-      forecastExportJobArn = Prelude.Nothing,
-      forecastArn = Prelude.Nothing,
-      forecastExportJobName = Prelude.Nothing,
-      message = Prelude.Nothing,
-      lastModificationTime = Prelude.Nothing,
-      httpStatus = pHttpStatus_
-    }
-
--- | When the forecast export job was created.
-describeForecastExportJobResponse_creationTime :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeForecastExportJobResponse_creationTime = Lens.lens (\DescribeForecastExportJobResponse' {creationTime} -> creationTime) (\s@DescribeForecastExportJobResponse' {} a -> s {creationTime = a} :: DescribeForecastExportJobResponse) Prelude.. Lens.mapping Core._Time
-
--- | The status of the forecast export job. States include:
+-- 'destination', 'describeForecastExportJobResponse_destination' - The path to the Amazon Simple Storage Service (Amazon S3) bucket where
+-- the forecast is exported.
+--
+-- 'message', 'describeForecastExportJobResponse_message' - If an error occurred, an informational message about the error.
+--
+-- 'forecastExportJobName', 'describeForecastExportJobResponse_forecastExportJobName' - The name of the forecast export job.
+--
+-- 'forecastExportJobArn', 'describeForecastExportJobResponse_forecastExportJobArn' - The ARN of the forecast export job.
+--
+-- 'status', 'describeForecastExportJobResponse_status' - The status of the forecast export job. States include:
 --
 -- -   @ACTIVE@
 --
@@ -284,29 +244,29 @@ describeForecastExportJobResponse_creationTime = Lens.lens (\DescribeForecastExp
 --
 -- The @Status@ of the forecast export job must be @ACTIVE@ before you can
 -- access the forecast in your S3 bucket.
-describeForecastExportJobResponse_status :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe Prelude.Text)
-describeForecastExportJobResponse_status = Lens.lens (\DescribeForecastExportJobResponse' {status} -> status) (\s@DescribeForecastExportJobResponse' {} a -> s {status = a} :: DescribeForecastExportJobResponse)
-
--- | The path to the Amazon Simple Storage Service (Amazon S3) bucket where
--- the forecast is exported.
-describeForecastExportJobResponse_destination :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe DataDestination)
-describeForecastExportJobResponse_destination = Lens.lens (\DescribeForecastExportJobResponse' {destination} -> destination) (\s@DescribeForecastExportJobResponse' {} a -> s {destination = a} :: DescribeForecastExportJobResponse)
-
--- | The ARN of the forecast export job.
-describeForecastExportJobResponse_forecastExportJobArn :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe Prelude.Text)
-describeForecastExportJobResponse_forecastExportJobArn = Lens.lens (\DescribeForecastExportJobResponse' {forecastExportJobArn} -> forecastExportJobArn) (\s@DescribeForecastExportJobResponse' {} a -> s {forecastExportJobArn = a} :: DescribeForecastExportJobResponse)
-
--- | The Amazon Resource Name (ARN) of the exported forecast.
-describeForecastExportJobResponse_forecastArn :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe Prelude.Text)
-describeForecastExportJobResponse_forecastArn = Lens.lens (\DescribeForecastExportJobResponse' {forecastArn} -> forecastArn) (\s@DescribeForecastExportJobResponse' {} a -> s {forecastArn = a} :: DescribeForecastExportJobResponse)
-
--- | The name of the forecast export job.
-describeForecastExportJobResponse_forecastExportJobName :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe Prelude.Text)
-describeForecastExportJobResponse_forecastExportJobName = Lens.lens (\DescribeForecastExportJobResponse' {forecastExportJobName} -> forecastExportJobName) (\s@DescribeForecastExportJobResponse' {} a -> s {forecastExportJobName = a} :: DescribeForecastExportJobResponse)
-
--- | If an error occurred, an informational message about the error.
-describeForecastExportJobResponse_message :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe Prelude.Text)
-describeForecastExportJobResponse_message = Lens.lens (\DescribeForecastExportJobResponse' {message} -> message) (\s@DescribeForecastExportJobResponse' {} a -> s {message = a} :: DescribeForecastExportJobResponse)
+--
+-- 'forecastArn', 'describeForecastExportJobResponse_forecastArn' - The Amazon Resource Name (ARN) of the exported forecast.
+--
+-- 'creationTime', 'describeForecastExportJobResponse_creationTime' - When the forecast export job was created.
+--
+-- 'httpStatus', 'describeForecastExportJobResponse_httpStatus' - The response's http status code.
+newDescribeForecastExportJobResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeForecastExportJobResponse
+newDescribeForecastExportJobResponse pHttpStatus_ =
+  DescribeForecastExportJobResponse'
+    { lastModificationTime =
+        Prelude.Nothing,
+      destination = Prelude.Nothing,
+      message = Prelude.Nothing,
+      forecastExportJobName = Prelude.Nothing,
+      forecastExportJobArn = Prelude.Nothing,
+      status = Prelude.Nothing,
+      forecastArn = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The last time the resource was modified. The timestamp depends on the
 -- status of the job:
@@ -323,6 +283,46 @@ describeForecastExportJobResponse_message = Lens.lens (\DescribeForecastExportJo
 describeForecastExportJobResponse_lastModificationTime :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe Prelude.UTCTime)
 describeForecastExportJobResponse_lastModificationTime = Lens.lens (\DescribeForecastExportJobResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeForecastExportJobResponse' {} a -> s {lastModificationTime = a} :: DescribeForecastExportJobResponse) Prelude.. Lens.mapping Core._Time
 
+-- | The path to the Amazon Simple Storage Service (Amazon S3) bucket where
+-- the forecast is exported.
+describeForecastExportJobResponse_destination :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe DataDestination)
+describeForecastExportJobResponse_destination = Lens.lens (\DescribeForecastExportJobResponse' {destination} -> destination) (\s@DescribeForecastExportJobResponse' {} a -> s {destination = a} :: DescribeForecastExportJobResponse)
+
+-- | If an error occurred, an informational message about the error.
+describeForecastExportJobResponse_message :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe Prelude.Text)
+describeForecastExportJobResponse_message = Lens.lens (\DescribeForecastExportJobResponse' {message} -> message) (\s@DescribeForecastExportJobResponse' {} a -> s {message = a} :: DescribeForecastExportJobResponse)
+
+-- | The name of the forecast export job.
+describeForecastExportJobResponse_forecastExportJobName :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe Prelude.Text)
+describeForecastExportJobResponse_forecastExportJobName = Lens.lens (\DescribeForecastExportJobResponse' {forecastExportJobName} -> forecastExportJobName) (\s@DescribeForecastExportJobResponse' {} a -> s {forecastExportJobName = a} :: DescribeForecastExportJobResponse)
+
+-- | The ARN of the forecast export job.
+describeForecastExportJobResponse_forecastExportJobArn :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe Prelude.Text)
+describeForecastExportJobResponse_forecastExportJobArn = Lens.lens (\DescribeForecastExportJobResponse' {forecastExportJobArn} -> forecastExportJobArn) (\s@DescribeForecastExportJobResponse' {} a -> s {forecastExportJobArn = a} :: DescribeForecastExportJobResponse)
+
+-- | The status of the forecast export job. States include:
+--
+-- -   @ACTIVE@
+--
+-- -   @CREATE_PENDING@, @CREATE_IN_PROGRESS@, @CREATE_FAILED@
+--
+-- -   @CREATE_STOPPING@, @CREATE_STOPPED@
+--
+-- -   @DELETE_PENDING@, @DELETE_IN_PROGRESS@, @DELETE_FAILED@
+--
+-- The @Status@ of the forecast export job must be @ACTIVE@ before you can
+-- access the forecast in your S3 bucket.
+describeForecastExportJobResponse_status :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe Prelude.Text)
+describeForecastExportJobResponse_status = Lens.lens (\DescribeForecastExportJobResponse' {status} -> status) (\s@DescribeForecastExportJobResponse' {} a -> s {status = a} :: DescribeForecastExportJobResponse)
+
+-- | The Amazon Resource Name (ARN) of the exported forecast.
+describeForecastExportJobResponse_forecastArn :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe Prelude.Text)
+describeForecastExportJobResponse_forecastArn = Lens.lens (\DescribeForecastExportJobResponse' {forecastArn} -> forecastArn) (\s@DescribeForecastExportJobResponse' {} a -> s {forecastArn = a} :: DescribeForecastExportJobResponse)
+
+-- | When the forecast export job was created.
+describeForecastExportJobResponse_creationTime :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe Prelude.UTCTime)
+describeForecastExportJobResponse_creationTime = Lens.lens (\DescribeForecastExportJobResponse' {creationTime} -> creationTime) (\s@DescribeForecastExportJobResponse' {} a -> s {creationTime = a} :: DescribeForecastExportJobResponse) Prelude.. Lens.mapping Core._Time
+
 -- | The response's http status code.
 describeForecastExportJobResponse_httpStatus :: Lens.Lens' DescribeForecastExportJobResponse Prelude.Int
 describeForecastExportJobResponse_httpStatus = Lens.lens (\DescribeForecastExportJobResponse' {httpStatus} -> httpStatus) (\s@DescribeForecastExportJobResponse' {} a -> s {httpStatus = a} :: DescribeForecastExportJobResponse)
@@ -332,12 +332,12 @@ instance
     DescribeForecastExportJobResponse
   where
   rnf DescribeForecastExportJobResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf lastModificationTime
       `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf forecastExportJobArn
-      `Prelude.seq` Prelude.rnf forecastArn
-      `Prelude.seq` Prelude.rnf forecastExportJobName
       `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf lastModificationTime
+      `Prelude.seq` Prelude.rnf forecastExportJobName
+      `Prelude.seq` Prelude.rnf forecastExportJobArn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf forecastArn
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf httpStatus

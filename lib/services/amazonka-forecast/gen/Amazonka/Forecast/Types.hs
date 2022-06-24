@@ -18,11 +18,11 @@ module Amazonka.Forecast.Types
 
     -- * Errors
     _ResourceAlreadyExistsException,
-    _InvalidNextTokenException,
     _InvalidInputException,
     _ResourceNotFoundException,
-    _LimitExceededException,
     _ResourceInUseException,
+    _LimitExceededException,
+    _InvalidNextTokenException,
 
     -- * AttributeType
     AttributeType (..),
@@ -78,31 +78,31 @@ module Amazonka.Forecast.Types
     -- * DatasetGroupSummary
     DatasetGroupSummary (..),
     newDatasetGroupSummary,
-    datasetGroupSummary_creationTime,
-    datasetGroupSummary_datasetGroupName,
-    datasetGroupSummary_datasetGroupArn,
     datasetGroupSummary_lastModificationTime,
+    datasetGroupSummary_datasetGroupName,
+    datasetGroupSummary_creationTime,
+    datasetGroupSummary_datasetGroupArn,
 
     -- * DatasetImportJobSummary
     DatasetImportJobSummary (..),
     newDatasetImportJobSummary,
-    datasetImportJobSummary_creationTime,
-    datasetImportJobSummary_status,
-    datasetImportJobSummary_datasetImportJobName,
-    datasetImportJobSummary_dataSource,
-    datasetImportJobSummary_datasetImportJobArn,
-    datasetImportJobSummary_message,
     datasetImportJobSummary_lastModificationTime,
+    datasetImportJobSummary_message,
+    datasetImportJobSummary_status,
+    datasetImportJobSummary_datasetImportJobArn,
+    datasetImportJobSummary_dataSource,
+    datasetImportJobSummary_creationTime,
+    datasetImportJobSummary_datasetImportJobName,
 
     -- * DatasetSummary
     DatasetSummary (..),
     newDatasetSummary,
-    datasetSummary_creationTime,
-    datasetSummary_datasetArn,
+    datasetSummary_lastModificationTime,
     datasetSummary_domain,
     datasetSummary_datasetType,
     datasetSummary_datasetName,
-    datasetSummary_lastModificationTime,
+    datasetSummary_datasetArn,
+    datasetSummary_creationTime,
 
     -- * EncryptionConfig
     EncryptionConfig (..),
@@ -113,23 +113,23 @@ module Amazonka.Forecast.Types
     -- * ErrorMetric
     ErrorMetric (..),
     newErrorMetric,
-    errorMetric_mase,
     errorMetric_wape,
-    errorMetric_mape,
-    errorMetric_rmse,
+    errorMetric_mase,
     errorMetric_forecastType,
+    errorMetric_rmse,
+    errorMetric_mape,
 
     -- * EvaluationParameters
     EvaluationParameters (..),
     newEvaluationParameters,
-    evaluationParameters_backTestWindowOffset,
     evaluationParameters_numberOfBacktestWindows,
+    evaluationParameters_backTestWindowOffset,
 
     -- * EvaluationResult
     EvaluationResult (..),
     newEvaluationResult,
-    evaluationResult_algorithmArn,
     evaluationResult_testWindows,
+    evaluationResult_algorithmArn,
 
     -- * Featurization
     Featurization (..),
@@ -140,8 +140,8 @@ module Amazonka.Forecast.Types
     -- * FeaturizationConfig
     FeaturizationConfig (..),
     newFeaturizationConfig,
-    featurizationConfig_featurizations,
     featurizationConfig_forecastDimensions,
+    featurizationConfig_featurizations,
     featurizationConfig_forecastFrequency,
 
     -- * FeaturizationMethod
@@ -160,25 +160,25 @@ module Amazonka.Forecast.Types
     -- * ForecastExportJobSummary
     ForecastExportJobSummary (..),
     newForecastExportJobSummary,
-    forecastExportJobSummary_creationTime,
-    forecastExportJobSummary_status,
-    forecastExportJobSummary_destination,
-    forecastExportJobSummary_forecastExportJobArn,
-    forecastExportJobSummary_forecastExportJobName,
-    forecastExportJobSummary_message,
     forecastExportJobSummary_lastModificationTime,
+    forecastExportJobSummary_destination,
+    forecastExportJobSummary_message,
+    forecastExportJobSummary_forecastExportJobName,
+    forecastExportJobSummary_forecastExportJobArn,
+    forecastExportJobSummary_status,
+    forecastExportJobSummary_creationTime,
 
     -- * ForecastSummary
     ForecastSummary (..),
     newForecastSummary,
-    forecastSummary_creationTime,
+    forecastSummary_lastModificationTime,
+    forecastSummary_message,
     forecastSummary_status,
     forecastSummary_predictorArn,
     forecastSummary_forecastArn,
-    forecastSummary_forecastName,
+    forecastSummary_creationTime,
     forecastSummary_datasetGroupArn,
-    forecastSummary_message,
-    forecastSummary_lastModificationTime,
+    forecastSummary_forecastName,
 
     -- * HyperParameterTuningJobConfig
     HyperParameterTuningJobConfig (..),
@@ -202,10 +202,10 @@ module Amazonka.Forecast.Types
     -- * Metrics
     Metrics (..),
     newMetrics,
+    metrics_averageWeightedQuantileLoss,
+    metrics_weightedQuantileLosses,
     metrics_errorMetrics,
     metrics_rmse,
-    metrics_weightedQuantileLosses,
-    metrics_averageWeightedQuantileLoss,
 
     -- * ParameterRanges
     ParameterRanges (..),
@@ -217,19 +217,19 @@ module Amazonka.Forecast.Types
     -- * PredictorBacktestExportJobSummary
     PredictorBacktestExportJobSummary (..),
     newPredictorBacktestExportJobSummary,
-    predictorBacktestExportJobSummary_creationTime,
-    predictorBacktestExportJobSummary_status,
-    predictorBacktestExportJobSummary_destination,
-    predictorBacktestExportJobSummary_predictorBacktestExportJobArn,
-    predictorBacktestExportJobSummary_message,
-    predictorBacktestExportJobSummary_predictorBacktestExportJobName,
     predictorBacktestExportJobSummary_lastModificationTime,
+    predictorBacktestExportJobSummary_destination,
+    predictorBacktestExportJobSummary_message,
+    predictorBacktestExportJobSummary_status,
+    predictorBacktestExportJobSummary_predictorBacktestExportJobName,
+    predictorBacktestExportJobSummary_predictorBacktestExportJobArn,
+    predictorBacktestExportJobSummary_creationTime,
 
     -- * PredictorExecution
     PredictorExecution (..),
     newPredictorExecution,
-    predictorExecution_algorithmArn,
     predictorExecution_testWindows,
+    predictorExecution_algorithmArn,
 
     -- * PredictorExecutionDetails
     PredictorExecutionDetails (..),
@@ -239,13 +239,13 @@ module Amazonka.Forecast.Types
     -- * PredictorSummary
     PredictorSummary (..),
     newPredictorSummary,
-    predictorSummary_creationTime,
+    predictorSummary_lastModificationTime,
+    predictorSummary_message,
+    predictorSummary_predictorName,
     predictorSummary_status,
     predictorSummary_predictorArn,
-    predictorSummary_predictorName,
+    predictorSummary_creationTime,
     predictorSummary_datasetGroupArn,
-    predictorSummary_message,
-    predictorSummary_lastModificationTime,
 
     -- * S3Config
     S3Config (..),
@@ -268,17 +268,17 @@ module Amazonka.Forecast.Types
     -- * Statistics
     Statistics (..),
     newStatistics,
-    statistics_max,
-    statistics_countNullLong,
-    statistics_countNan,
     statistics_countNanLong,
-    statistics_avg,
+    statistics_countNullLong,
     statistics_countNull,
-    statistics_count,
+    statistics_max,
     statistics_countLong,
-    statistics_stddev,
-    statistics_min,
     statistics_countDistinctLong,
+    statistics_avg,
+    statistics_count,
+    statistics_min,
+    statistics_countNan,
+    statistics_stddev,
     statistics_countDistinct,
 
     -- * SupplementaryFeature
@@ -296,10 +296,10 @@ module Amazonka.Forecast.Types
     -- * TestWindowSummary
     TestWindowSummary (..),
     newTestWindowSummary,
+    testWindowSummary_message,
     testWindowSummary_status,
     testWindowSummary_testWindowEnd,
     testWindowSummary_testWindowStart,
-    testWindowSummary_message,
 
     -- * WeightedQuantileLoss
     WeightedQuantileLoss (..),
@@ -310,11 +310,11 @@ module Amazonka.Forecast.Types
     -- * WindowSummary
     WindowSummary (..),
     newWindowSummary,
-    windowSummary_metrics,
-    windowSummary_testWindowEnd,
-    windowSummary_evaluationType,
-    windowSummary_testWindowStart,
     windowSummary_itemCount,
+    windowSummary_metrics,
+    windowSummary_evaluationType,
+    windowSummary_testWindowEnd,
+    windowSummary_testWindowStart,
   )
 where
 
@@ -392,35 +392,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -429,12 +402,39 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | There is already a resource with this name. Try again with a different
@@ -444,13 +444,6 @@ _ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "ResourceAlreadyExistsException"
-
--- | The token is not valid. Tokens expire after 24 hours.
-_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidNextTokenException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidNextTokenException"
 
 -- | We can\'t process the request because it includes an invalid value or a
 -- value that exceeds the valid range.
@@ -468,6 +461,13 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
 
+-- | The specified resource is in use.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUseException"
+
 -- | The limit on the number of resources per account has been exceeded.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
@@ -475,9 +475,9 @@ _LimitExceededException =
     defaultService
     "LimitExceededException"
 
--- | The specified resource is in use.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
+-- | The token is not valid. Tokens expire after 24 hours.
+_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
-    "ResourceInUseException"
+    "InvalidNextTokenException"

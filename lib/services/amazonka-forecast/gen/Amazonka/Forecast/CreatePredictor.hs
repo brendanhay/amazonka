@@ -77,17 +77,17 @@ module Amazonka.Forecast.CreatePredictor
     newCreatePredictor,
 
     -- * Request Lenses
-    createPredictor_performAutoML,
-    createPredictor_trainingParameters,
-    createPredictor_algorithmArn,
-    createPredictor_hPOConfig,
-    createPredictor_optimizationMetric,
-    createPredictor_autoMLOverrideStrategy,
-    createPredictor_evaluationParameters,
-    createPredictor_encryptionConfig,
-    createPredictor_forecastTypes,
-    createPredictor_performHPO,
     createPredictor_tags,
+    createPredictor_encryptionConfig,
+    createPredictor_performAutoML,
+    createPredictor_performHPO,
+    createPredictor_optimizationMetric,
+    createPredictor_evaluationParameters,
+    createPredictor_forecastTypes,
+    createPredictor_algorithmArn,
+    createPredictor_autoMLOverrideStrategy,
+    createPredictor_hPOConfig,
+    createPredictor_trainingParameters,
     createPredictor_predictorName,
     createPredictor_forecastHorizon,
     createPredictor_inputDataConfig,
@@ -112,95 +112,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreatePredictor' smart constructor.
 data CreatePredictor = CreatePredictor'
-  { -- | Whether to perform AutoML. When Amazon Forecast performs AutoML, it
-    -- evaluates the algorithms it provides and chooses the best algorithm and
-    -- configuration for your training dataset.
-    --
-    -- The default value is @false@. In this case, you are required to specify
-    -- an algorithm.
-    --
-    -- Set @PerformAutoML@ to @true@ to have Amazon Forecast perform AutoML.
-    -- This is a good option if you aren\'t sure which algorithm is suitable
-    -- for your training data. In this case, @PerformHPO@ must be false.
-    performAutoML :: Prelude.Maybe Prelude.Bool,
-    -- | The hyperparameters to override for model training. The hyperparameters
-    -- that you can override are listed in the individual algorithms. For the
-    -- list of supported algorithms, see aws-forecast-choosing-recipes.
-    trainingParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The Amazon Resource Name (ARN) of the algorithm to use for model
-    -- training. Required if @PerformAutoML@ is not set to @true@.
-    --
-    -- __Supported algorithms:__
-    --
-    -- -   @arn:aws:forecast:::algorithm\/ARIMA@
-    --
-    -- -   @arn:aws:forecast:::algorithm\/CNN-QR@
-    --
-    -- -   @arn:aws:forecast:::algorithm\/Deep_AR_Plus@
-    --
-    -- -   @arn:aws:forecast:::algorithm\/ETS@
-    --
-    -- -   @arn:aws:forecast:::algorithm\/NPTS@
-    --
-    -- -   @arn:aws:forecast:::algorithm\/Prophet@
-    algorithmArn :: Prelude.Maybe Prelude.Text,
-    -- | Provides hyperparameter override values for the algorithm. If you don\'t
-    -- provide this parameter, Amazon Forecast uses default values. The
-    -- individual algorithms specify which hyperparameters support
-    -- hyperparameter optimization (HPO). For more information, see
-    -- aws-forecast-choosing-recipes.
-    --
-    -- If you included the @HPOConfig@ object, you must set @PerformHPO@ to
-    -- true.
-    hPOConfig :: Prelude.Maybe HyperParameterTuningJobConfig,
-    -- | The accuracy metric used to optimize the predictor.
-    optimizationMetric :: Prelude.Maybe OptimizationMetric,
-    -- | The @LatencyOptimized@ AutoML override strategy is only available in
-    -- private beta. Contact AWS Support or your account manager to learn more
-    -- about access privileges.
-    --
-    -- Used to overide the default AutoML strategy, which is to optimize
-    -- predictor accuracy. To apply an AutoML strategy that minimizes training
-    -- time, use @LatencyOptimized@.
-    --
-    -- This parameter is only valid for predictors trained using AutoML.
-    autoMLOverrideStrategy :: Prelude.Maybe AutoMLOverrideStrategy,
-    -- | Used to override the default evaluation parameters of the specified
-    -- algorithm. Amazon Forecast evaluates a predictor by splitting a dataset
-    -- into training data and testing data. The evaluation parameters define
-    -- how to perform the split and the number of iterations.
-    evaluationParameters :: Prelude.Maybe EvaluationParameters,
-    -- | An AWS Key Management Service (KMS) key and the AWS Identity and Access
-    -- Management (IAM) role that Amazon Forecast can assume to access the key.
-    encryptionConfig :: Prelude.Maybe EncryptionConfig,
-    -- | Specifies the forecast types used to train a predictor. You can specify
-    -- up to five forecast types. Forecast types can be quantiles from 0.01 to
-    -- 0.99, by increments of 0.01 or higher. You can also specify the mean
-    -- forecast with @mean@.
-    --
-    -- The default value is @[\"0.10\", \"0.50\", \"0.9\"]@.
-    forecastTypes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Whether to perform hyperparameter optimization (HPO). HPO finds optimal
-    -- hyperparameter values for your training data. The process of performing
-    -- HPO is known as running a hyperparameter tuning job.
-    --
-    -- The default value is @false@. In this case, Amazon Forecast uses default
-    -- hyperparameter values from the chosen algorithm.
-    --
-    -- To override the default values, set @PerformHPO@ to @true@ and,
-    -- optionally, supply the HyperParameterTuningJobConfig object. The tuning
-    -- job specifies a metric to optimize, which hyperparameters participate in
-    -- tuning, and the valid range for each tunable hyperparameter. In this
-    -- case, you are required to specify an algorithm and @PerformAutoML@ must
-    -- be false.
-    --
-    -- The following algorithms support HPO:
-    --
-    -- -   DeepAR+
-    --
-    -- -   CNN-QR
-    performHPO :: Prelude.Maybe Prelude.Bool,
-    -- | The optional metadata that you apply to the predictor to help you
+  { -- | The optional metadata that you apply to the predictor to help you
     -- categorize and organize them. Each tag consists of a key and an optional
     -- value, both of which you define.
     --
@@ -231,6 +143,94 @@ data CreatePredictor = CreatePredictor'
     --     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
     --     count against your tags per resource limit.
     tags :: Prelude.Maybe [Tag],
+    -- | An AWS Key Management Service (KMS) key and the AWS Identity and Access
+    -- Management (IAM) role that Amazon Forecast can assume to access the key.
+    encryptionConfig :: Prelude.Maybe EncryptionConfig,
+    -- | Whether to perform AutoML. When Amazon Forecast performs AutoML, it
+    -- evaluates the algorithms it provides and chooses the best algorithm and
+    -- configuration for your training dataset.
+    --
+    -- The default value is @false@. In this case, you are required to specify
+    -- an algorithm.
+    --
+    -- Set @PerformAutoML@ to @true@ to have Amazon Forecast perform AutoML.
+    -- This is a good option if you aren\'t sure which algorithm is suitable
+    -- for your training data. In this case, @PerformHPO@ must be false.
+    performAutoML :: Prelude.Maybe Prelude.Bool,
+    -- | Whether to perform hyperparameter optimization (HPO). HPO finds optimal
+    -- hyperparameter values for your training data. The process of performing
+    -- HPO is known as running a hyperparameter tuning job.
+    --
+    -- The default value is @false@. In this case, Amazon Forecast uses default
+    -- hyperparameter values from the chosen algorithm.
+    --
+    -- To override the default values, set @PerformHPO@ to @true@ and,
+    -- optionally, supply the HyperParameterTuningJobConfig object. The tuning
+    -- job specifies a metric to optimize, which hyperparameters participate in
+    -- tuning, and the valid range for each tunable hyperparameter. In this
+    -- case, you are required to specify an algorithm and @PerformAutoML@ must
+    -- be false.
+    --
+    -- The following algorithms support HPO:
+    --
+    -- -   DeepAR+
+    --
+    -- -   CNN-QR
+    performHPO :: Prelude.Maybe Prelude.Bool,
+    -- | The accuracy metric used to optimize the predictor.
+    optimizationMetric :: Prelude.Maybe OptimizationMetric,
+    -- | Used to override the default evaluation parameters of the specified
+    -- algorithm. Amazon Forecast evaluates a predictor by splitting a dataset
+    -- into training data and testing data. The evaluation parameters define
+    -- how to perform the split and the number of iterations.
+    evaluationParameters :: Prelude.Maybe EvaluationParameters,
+    -- | Specifies the forecast types used to train a predictor. You can specify
+    -- up to five forecast types. Forecast types can be quantiles from 0.01 to
+    -- 0.99, by increments of 0.01 or higher. You can also specify the mean
+    -- forecast with @mean@.
+    --
+    -- The default value is @[\"0.10\", \"0.50\", \"0.9\"]@.
+    forecastTypes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The Amazon Resource Name (ARN) of the algorithm to use for model
+    -- training. Required if @PerformAutoML@ is not set to @true@.
+    --
+    -- __Supported algorithms:__
+    --
+    -- -   @arn:aws:forecast:::algorithm\/ARIMA@
+    --
+    -- -   @arn:aws:forecast:::algorithm\/CNN-QR@
+    --
+    -- -   @arn:aws:forecast:::algorithm\/Deep_AR_Plus@
+    --
+    -- -   @arn:aws:forecast:::algorithm\/ETS@
+    --
+    -- -   @arn:aws:forecast:::algorithm\/NPTS@
+    --
+    -- -   @arn:aws:forecast:::algorithm\/Prophet@
+    algorithmArn :: Prelude.Maybe Prelude.Text,
+    -- | The @LatencyOptimized@ AutoML override strategy is only available in
+    -- private beta. Contact AWS Support or your account manager to learn more
+    -- about access privileges.
+    --
+    -- Used to overide the default AutoML strategy, which is to optimize
+    -- predictor accuracy. To apply an AutoML strategy that minimizes training
+    -- time, use @LatencyOptimized@.
+    --
+    -- This parameter is only valid for predictors trained using AutoML.
+    autoMLOverrideStrategy :: Prelude.Maybe AutoMLOverrideStrategy,
+    -- | Provides hyperparameter override values for the algorithm. If you don\'t
+    -- provide this parameter, Amazon Forecast uses default values. The
+    -- individual algorithms specify which hyperparameters support
+    -- hyperparameter optimization (HPO). For more information, see
+    -- aws-forecast-choosing-recipes.
+    --
+    -- If you included the @HPOConfig@ object, you must set @PerformHPO@ to
+    -- true.
+    hPOConfig :: Prelude.Maybe HyperParameterTuningJobConfig,
+    -- | The hyperparameters to override for model training. The hyperparameters
+    -- that you can override are listed in the individual algorithms. For the
+    -- list of supported algorithms, see aws-forecast-choosing-recipes.
+    trainingParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A name for the predictor.
     predictorName :: Prelude.Text,
     -- | Specifies the number of time-steps that the model is trained to predict.
@@ -258,94 +258,6 @@ data CreatePredictor = CreatePredictor'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'performAutoML', 'createPredictor_performAutoML' - Whether to perform AutoML. When Amazon Forecast performs AutoML, it
--- evaluates the algorithms it provides and chooses the best algorithm and
--- configuration for your training dataset.
---
--- The default value is @false@. In this case, you are required to specify
--- an algorithm.
---
--- Set @PerformAutoML@ to @true@ to have Amazon Forecast perform AutoML.
--- This is a good option if you aren\'t sure which algorithm is suitable
--- for your training data. In this case, @PerformHPO@ must be false.
---
--- 'trainingParameters', 'createPredictor_trainingParameters' - The hyperparameters to override for model training. The hyperparameters
--- that you can override are listed in the individual algorithms. For the
--- list of supported algorithms, see aws-forecast-choosing-recipes.
---
--- 'algorithmArn', 'createPredictor_algorithmArn' - The Amazon Resource Name (ARN) of the algorithm to use for model
--- training. Required if @PerformAutoML@ is not set to @true@.
---
--- __Supported algorithms:__
---
--- -   @arn:aws:forecast:::algorithm\/ARIMA@
---
--- -   @arn:aws:forecast:::algorithm\/CNN-QR@
---
--- -   @arn:aws:forecast:::algorithm\/Deep_AR_Plus@
---
--- -   @arn:aws:forecast:::algorithm\/ETS@
---
--- -   @arn:aws:forecast:::algorithm\/NPTS@
---
--- -   @arn:aws:forecast:::algorithm\/Prophet@
---
--- 'hPOConfig', 'createPredictor_hPOConfig' - Provides hyperparameter override values for the algorithm. If you don\'t
--- provide this parameter, Amazon Forecast uses default values. The
--- individual algorithms specify which hyperparameters support
--- hyperparameter optimization (HPO). For more information, see
--- aws-forecast-choosing-recipes.
---
--- If you included the @HPOConfig@ object, you must set @PerformHPO@ to
--- true.
---
--- 'optimizationMetric', 'createPredictor_optimizationMetric' - The accuracy metric used to optimize the predictor.
---
--- 'autoMLOverrideStrategy', 'createPredictor_autoMLOverrideStrategy' - The @LatencyOptimized@ AutoML override strategy is only available in
--- private beta. Contact AWS Support or your account manager to learn more
--- about access privileges.
---
--- Used to overide the default AutoML strategy, which is to optimize
--- predictor accuracy. To apply an AutoML strategy that minimizes training
--- time, use @LatencyOptimized@.
---
--- This parameter is only valid for predictors trained using AutoML.
---
--- 'evaluationParameters', 'createPredictor_evaluationParameters' - Used to override the default evaluation parameters of the specified
--- algorithm. Amazon Forecast evaluates a predictor by splitting a dataset
--- into training data and testing data. The evaluation parameters define
--- how to perform the split and the number of iterations.
---
--- 'encryptionConfig', 'createPredictor_encryptionConfig' - An AWS Key Management Service (KMS) key and the AWS Identity and Access
--- Management (IAM) role that Amazon Forecast can assume to access the key.
---
--- 'forecastTypes', 'createPredictor_forecastTypes' - Specifies the forecast types used to train a predictor. You can specify
--- up to five forecast types. Forecast types can be quantiles from 0.01 to
--- 0.99, by increments of 0.01 or higher. You can also specify the mean
--- forecast with @mean@.
---
--- The default value is @[\"0.10\", \"0.50\", \"0.9\"]@.
---
--- 'performHPO', 'createPredictor_performHPO' - Whether to perform hyperparameter optimization (HPO). HPO finds optimal
--- hyperparameter values for your training data. The process of performing
--- HPO is known as running a hyperparameter tuning job.
---
--- The default value is @false@. In this case, Amazon Forecast uses default
--- hyperparameter values from the chosen algorithm.
---
--- To override the default values, set @PerformHPO@ to @true@ and,
--- optionally, supply the HyperParameterTuningJobConfig object. The tuning
--- job specifies a metric to optimize, which hyperparameters participate in
--- tuning, and the valid range for each tunable hyperparameter. In this
--- case, you are required to specify an algorithm and @PerformAutoML@ must
--- be false.
---
--- The following algorithms support HPO:
---
--- -   DeepAR+
---
--- -   CNN-QR
 --
 -- 'tags', 'createPredictor_tags' - The optional metadata that you apply to the predictor to help you
 -- categorize and organize them. Each tag consists of a key and an optional
@@ -377,6 +289,94 @@ data CreatePredictor = CreatePredictor'
 --     then Forecast considers it to be a user tag and will count against
 --     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
 --     count against your tags per resource limit.
+--
+-- 'encryptionConfig', 'createPredictor_encryptionConfig' - An AWS Key Management Service (KMS) key and the AWS Identity and Access
+-- Management (IAM) role that Amazon Forecast can assume to access the key.
+--
+-- 'performAutoML', 'createPredictor_performAutoML' - Whether to perform AutoML. When Amazon Forecast performs AutoML, it
+-- evaluates the algorithms it provides and chooses the best algorithm and
+-- configuration for your training dataset.
+--
+-- The default value is @false@. In this case, you are required to specify
+-- an algorithm.
+--
+-- Set @PerformAutoML@ to @true@ to have Amazon Forecast perform AutoML.
+-- This is a good option if you aren\'t sure which algorithm is suitable
+-- for your training data. In this case, @PerformHPO@ must be false.
+--
+-- 'performHPO', 'createPredictor_performHPO' - Whether to perform hyperparameter optimization (HPO). HPO finds optimal
+-- hyperparameter values for your training data. The process of performing
+-- HPO is known as running a hyperparameter tuning job.
+--
+-- The default value is @false@. In this case, Amazon Forecast uses default
+-- hyperparameter values from the chosen algorithm.
+--
+-- To override the default values, set @PerformHPO@ to @true@ and,
+-- optionally, supply the HyperParameterTuningJobConfig object. The tuning
+-- job specifies a metric to optimize, which hyperparameters participate in
+-- tuning, and the valid range for each tunable hyperparameter. In this
+-- case, you are required to specify an algorithm and @PerformAutoML@ must
+-- be false.
+--
+-- The following algorithms support HPO:
+--
+-- -   DeepAR+
+--
+-- -   CNN-QR
+--
+-- 'optimizationMetric', 'createPredictor_optimizationMetric' - The accuracy metric used to optimize the predictor.
+--
+-- 'evaluationParameters', 'createPredictor_evaluationParameters' - Used to override the default evaluation parameters of the specified
+-- algorithm. Amazon Forecast evaluates a predictor by splitting a dataset
+-- into training data and testing data. The evaluation parameters define
+-- how to perform the split and the number of iterations.
+--
+-- 'forecastTypes', 'createPredictor_forecastTypes' - Specifies the forecast types used to train a predictor. You can specify
+-- up to five forecast types. Forecast types can be quantiles from 0.01 to
+-- 0.99, by increments of 0.01 or higher. You can also specify the mean
+-- forecast with @mean@.
+--
+-- The default value is @[\"0.10\", \"0.50\", \"0.9\"]@.
+--
+-- 'algorithmArn', 'createPredictor_algorithmArn' - The Amazon Resource Name (ARN) of the algorithm to use for model
+-- training. Required if @PerformAutoML@ is not set to @true@.
+--
+-- __Supported algorithms:__
+--
+-- -   @arn:aws:forecast:::algorithm\/ARIMA@
+--
+-- -   @arn:aws:forecast:::algorithm\/CNN-QR@
+--
+-- -   @arn:aws:forecast:::algorithm\/Deep_AR_Plus@
+--
+-- -   @arn:aws:forecast:::algorithm\/ETS@
+--
+-- -   @arn:aws:forecast:::algorithm\/NPTS@
+--
+-- -   @arn:aws:forecast:::algorithm\/Prophet@
+--
+-- 'autoMLOverrideStrategy', 'createPredictor_autoMLOverrideStrategy' - The @LatencyOptimized@ AutoML override strategy is only available in
+-- private beta. Contact AWS Support or your account manager to learn more
+-- about access privileges.
+--
+-- Used to overide the default AutoML strategy, which is to optimize
+-- predictor accuracy. To apply an AutoML strategy that minimizes training
+-- time, use @LatencyOptimized@.
+--
+-- This parameter is only valid for predictors trained using AutoML.
+--
+-- 'hPOConfig', 'createPredictor_hPOConfig' - Provides hyperparameter override values for the algorithm. If you don\'t
+-- provide this parameter, Amazon Forecast uses default values. The
+-- individual algorithms specify which hyperparameters support
+-- hyperparameter optimization (HPO). For more information, see
+-- aws-forecast-choosing-recipes.
+--
+-- If you included the @HPOConfig@ object, you must set @PerformHPO@ to
+-- true.
+--
+-- 'trainingParameters', 'createPredictor_trainingParameters' - The hyperparameters to override for model training. The hyperparameters
+-- that you can override are listed in the individual algorithms. For the
+-- list of supported algorithms, see aws-forecast-choosing-recipes.
 --
 -- 'predictorName', 'createPredictor_predictorName' - A name for the predictor.
 --
@@ -410,130 +410,22 @@ newCreatePredictor
   pInputDataConfig_
   pFeaturizationConfig_ =
     CreatePredictor'
-      { performAutoML = Prelude.Nothing,
-        trainingParameters = Prelude.Nothing,
-        algorithmArn = Prelude.Nothing,
-        hPOConfig = Prelude.Nothing,
-        optimizationMetric = Prelude.Nothing,
-        autoMLOverrideStrategy = Prelude.Nothing,
-        evaluationParameters = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         encryptionConfig = Prelude.Nothing,
-        forecastTypes = Prelude.Nothing,
+        performAutoML = Prelude.Nothing,
         performHPO = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        optimizationMetric = Prelude.Nothing,
+        evaluationParameters = Prelude.Nothing,
+        forecastTypes = Prelude.Nothing,
+        algorithmArn = Prelude.Nothing,
+        autoMLOverrideStrategy = Prelude.Nothing,
+        hPOConfig = Prelude.Nothing,
+        trainingParameters = Prelude.Nothing,
         predictorName = pPredictorName_,
         forecastHorizon = pForecastHorizon_,
         inputDataConfig = pInputDataConfig_,
         featurizationConfig = pFeaturizationConfig_
       }
-
--- | Whether to perform AutoML. When Amazon Forecast performs AutoML, it
--- evaluates the algorithms it provides and chooses the best algorithm and
--- configuration for your training dataset.
---
--- The default value is @false@. In this case, you are required to specify
--- an algorithm.
---
--- Set @PerformAutoML@ to @true@ to have Amazon Forecast perform AutoML.
--- This is a good option if you aren\'t sure which algorithm is suitable
--- for your training data. In this case, @PerformHPO@ must be false.
-createPredictor_performAutoML :: Lens.Lens' CreatePredictor (Prelude.Maybe Prelude.Bool)
-createPredictor_performAutoML = Lens.lens (\CreatePredictor' {performAutoML} -> performAutoML) (\s@CreatePredictor' {} a -> s {performAutoML = a} :: CreatePredictor)
-
--- | The hyperparameters to override for model training. The hyperparameters
--- that you can override are listed in the individual algorithms. For the
--- list of supported algorithms, see aws-forecast-choosing-recipes.
-createPredictor_trainingParameters :: Lens.Lens' CreatePredictor (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createPredictor_trainingParameters = Lens.lens (\CreatePredictor' {trainingParameters} -> trainingParameters) (\s@CreatePredictor' {} a -> s {trainingParameters = a} :: CreatePredictor) Prelude.. Lens.mapping Lens.coerced
-
--- | The Amazon Resource Name (ARN) of the algorithm to use for model
--- training. Required if @PerformAutoML@ is not set to @true@.
---
--- __Supported algorithms:__
---
--- -   @arn:aws:forecast:::algorithm\/ARIMA@
---
--- -   @arn:aws:forecast:::algorithm\/CNN-QR@
---
--- -   @arn:aws:forecast:::algorithm\/Deep_AR_Plus@
---
--- -   @arn:aws:forecast:::algorithm\/ETS@
---
--- -   @arn:aws:forecast:::algorithm\/NPTS@
---
--- -   @arn:aws:forecast:::algorithm\/Prophet@
-createPredictor_algorithmArn :: Lens.Lens' CreatePredictor (Prelude.Maybe Prelude.Text)
-createPredictor_algorithmArn = Lens.lens (\CreatePredictor' {algorithmArn} -> algorithmArn) (\s@CreatePredictor' {} a -> s {algorithmArn = a} :: CreatePredictor)
-
--- | Provides hyperparameter override values for the algorithm. If you don\'t
--- provide this parameter, Amazon Forecast uses default values. The
--- individual algorithms specify which hyperparameters support
--- hyperparameter optimization (HPO). For more information, see
--- aws-forecast-choosing-recipes.
---
--- If you included the @HPOConfig@ object, you must set @PerformHPO@ to
--- true.
-createPredictor_hPOConfig :: Lens.Lens' CreatePredictor (Prelude.Maybe HyperParameterTuningJobConfig)
-createPredictor_hPOConfig = Lens.lens (\CreatePredictor' {hPOConfig} -> hPOConfig) (\s@CreatePredictor' {} a -> s {hPOConfig = a} :: CreatePredictor)
-
--- | The accuracy metric used to optimize the predictor.
-createPredictor_optimizationMetric :: Lens.Lens' CreatePredictor (Prelude.Maybe OptimizationMetric)
-createPredictor_optimizationMetric = Lens.lens (\CreatePredictor' {optimizationMetric} -> optimizationMetric) (\s@CreatePredictor' {} a -> s {optimizationMetric = a} :: CreatePredictor)
-
--- | The @LatencyOptimized@ AutoML override strategy is only available in
--- private beta. Contact AWS Support or your account manager to learn more
--- about access privileges.
---
--- Used to overide the default AutoML strategy, which is to optimize
--- predictor accuracy. To apply an AutoML strategy that minimizes training
--- time, use @LatencyOptimized@.
---
--- This parameter is only valid for predictors trained using AutoML.
-createPredictor_autoMLOverrideStrategy :: Lens.Lens' CreatePredictor (Prelude.Maybe AutoMLOverrideStrategy)
-createPredictor_autoMLOverrideStrategy = Lens.lens (\CreatePredictor' {autoMLOverrideStrategy} -> autoMLOverrideStrategy) (\s@CreatePredictor' {} a -> s {autoMLOverrideStrategy = a} :: CreatePredictor)
-
--- | Used to override the default evaluation parameters of the specified
--- algorithm. Amazon Forecast evaluates a predictor by splitting a dataset
--- into training data and testing data. The evaluation parameters define
--- how to perform the split and the number of iterations.
-createPredictor_evaluationParameters :: Lens.Lens' CreatePredictor (Prelude.Maybe EvaluationParameters)
-createPredictor_evaluationParameters = Lens.lens (\CreatePredictor' {evaluationParameters} -> evaluationParameters) (\s@CreatePredictor' {} a -> s {evaluationParameters = a} :: CreatePredictor)
-
--- | An AWS Key Management Service (KMS) key and the AWS Identity and Access
--- Management (IAM) role that Amazon Forecast can assume to access the key.
-createPredictor_encryptionConfig :: Lens.Lens' CreatePredictor (Prelude.Maybe EncryptionConfig)
-createPredictor_encryptionConfig = Lens.lens (\CreatePredictor' {encryptionConfig} -> encryptionConfig) (\s@CreatePredictor' {} a -> s {encryptionConfig = a} :: CreatePredictor)
-
--- | Specifies the forecast types used to train a predictor. You can specify
--- up to five forecast types. Forecast types can be quantiles from 0.01 to
--- 0.99, by increments of 0.01 or higher. You can also specify the mean
--- forecast with @mean@.
---
--- The default value is @[\"0.10\", \"0.50\", \"0.9\"]@.
-createPredictor_forecastTypes :: Lens.Lens' CreatePredictor (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-createPredictor_forecastTypes = Lens.lens (\CreatePredictor' {forecastTypes} -> forecastTypes) (\s@CreatePredictor' {} a -> s {forecastTypes = a} :: CreatePredictor) Prelude.. Lens.mapping Lens.coerced
-
--- | Whether to perform hyperparameter optimization (HPO). HPO finds optimal
--- hyperparameter values for your training data. The process of performing
--- HPO is known as running a hyperparameter tuning job.
---
--- The default value is @false@. In this case, Amazon Forecast uses default
--- hyperparameter values from the chosen algorithm.
---
--- To override the default values, set @PerformHPO@ to @true@ and,
--- optionally, supply the HyperParameterTuningJobConfig object. The tuning
--- job specifies a metric to optimize, which hyperparameters participate in
--- tuning, and the valid range for each tunable hyperparameter. In this
--- case, you are required to specify an algorithm and @PerformAutoML@ must
--- be false.
---
--- The following algorithms support HPO:
---
--- -   DeepAR+
---
--- -   CNN-QR
-createPredictor_performHPO :: Lens.Lens' CreatePredictor (Prelude.Maybe Prelude.Bool)
-createPredictor_performHPO = Lens.lens (\CreatePredictor' {performHPO} -> performHPO) (\s@CreatePredictor' {} a -> s {performHPO = a} :: CreatePredictor)
 
 -- | The optional metadata that you apply to the predictor to help you
 -- categorize and organize them. Each tag consists of a key and an optional
@@ -567,6 +459,114 @@ createPredictor_performHPO = Lens.lens (\CreatePredictor' {performHPO} -> perfor
 --     count against your tags per resource limit.
 createPredictor_tags :: Lens.Lens' CreatePredictor (Prelude.Maybe [Tag])
 createPredictor_tags = Lens.lens (\CreatePredictor' {tags} -> tags) (\s@CreatePredictor' {} a -> s {tags = a} :: CreatePredictor) Prelude.. Lens.mapping Lens.coerced
+
+-- | An AWS Key Management Service (KMS) key and the AWS Identity and Access
+-- Management (IAM) role that Amazon Forecast can assume to access the key.
+createPredictor_encryptionConfig :: Lens.Lens' CreatePredictor (Prelude.Maybe EncryptionConfig)
+createPredictor_encryptionConfig = Lens.lens (\CreatePredictor' {encryptionConfig} -> encryptionConfig) (\s@CreatePredictor' {} a -> s {encryptionConfig = a} :: CreatePredictor)
+
+-- | Whether to perform AutoML. When Amazon Forecast performs AutoML, it
+-- evaluates the algorithms it provides and chooses the best algorithm and
+-- configuration for your training dataset.
+--
+-- The default value is @false@. In this case, you are required to specify
+-- an algorithm.
+--
+-- Set @PerformAutoML@ to @true@ to have Amazon Forecast perform AutoML.
+-- This is a good option if you aren\'t sure which algorithm is suitable
+-- for your training data. In this case, @PerformHPO@ must be false.
+createPredictor_performAutoML :: Lens.Lens' CreatePredictor (Prelude.Maybe Prelude.Bool)
+createPredictor_performAutoML = Lens.lens (\CreatePredictor' {performAutoML} -> performAutoML) (\s@CreatePredictor' {} a -> s {performAutoML = a} :: CreatePredictor)
+
+-- | Whether to perform hyperparameter optimization (HPO). HPO finds optimal
+-- hyperparameter values for your training data. The process of performing
+-- HPO is known as running a hyperparameter tuning job.
+--
+-- The default value is @false@. In this case, Amazon Forecast uses default
+-- hyperparameter values from the chosen algorithm.
+--
+-- To override the default values, set @PerformHPO@ to @true@ and,
+-- optionally, supply the HyperParameterTuningJobConfig object. The tuning
+-- job specifies a metric to optimize, which hyperparameters participate in
+-- tuning, and the valid range for each tunable hyperparameter. In this
+-- case, you are required to specify an algorithm and @PerformAutoML@ must
+-- be false.
+--
+-- The following algorithms support HPO:
+--
+-- -   DeepAR+
+--
+-- -   CNN-QR
+createPredictor_performHPO :: Lens.Lens' CreatePredictor (Prelude.Maybe Prelude.Bool)
+createPredictor_performHPO = Lens.lens (\CreatePredictor' {performHPO} -> performHPO) (\s@CreatePredictor' {} a -> s {performHPO = a} :: CreatePredictor)
+
+-- | The accuracy metric used to optimize the predictor.
+createPredictor_optimizationMetric :: Lens.Lens' CreatePredictor (Prelude.Maybe OptimizationMetric)
+createPredictor_optimizationMetric = Lens.lens (\CreatePredictor' {optimizationMetric} -> optimizationMetric) (\s@CreatePredictor' {} a -> s {optimizationMetric = a} :: CreatePredictor)
+
+-- | Used to override the default evaluation parameters of the specified
+-- algorithm. Amazon Forecast evaluates a predictor by splitting a dataset
+-- into training data and testing data. The evaluation parameters define
+-- how to perform the split and the number of iterations.
+createPredictor_evaluationParameters :: Lens.Lens' CreatePredictor (Prelude.Maybe EvaluationParameters)
+createPredictor_evaluationParameters = Lens.lens (\CreatePredictor' {evaluationParameters} -> evaluationParameters) (\s@CreatePredictor' {} a -> s {evaluationParameters = a} :: CreatePredictor)
+
+-- | Specifies the forecast types used to train a predictor. You can specify
+-- up to five forecast types. Forecast types can be quantiles from 0.01 to
+-- 0.99, by increments of 0.01 or higher. You can also specify the mean
+-- forecast with @mean@.
+--
+-- The default value is @[\"0.10\", \"0.50\", \"0.9\"]@.
+createPredictor_forecastTypes :: Lens.Lens' CreatePredictor (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+createPredictor_forecastTypes = Lens.lens (\CreatePredictor' {forecastTypes} -> forecastTypes) (\s@CreatePredictor' {} a -> s {forecastTypes = a} :: CreatePredictor) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Name (ARN) of the algorithm to use for model
+-- training. Required if @PerformAutoML@ is not set to @true@.
+--
+-- __Supported algorithms:__
+--
+-- -   @arn:aws:forecast:::algorithm\/ARIMA@
+--
+-- -   @arn:aws:forecast:::algorithm\/CNN-QR@
+--
+-- -   @arn:aws:forecast:::algorithm\/Deep_AR_Plus@
+--
+-- -   @arn:aws:forecast:::algorithm\/ETS@
+--
+-- -   @arn:aws:forecast:::algorithm\/NPTS@
+--
+-- -   @arn:aws:forecast:::algorithm\/Prophet@
+createPredictor_algorithmArn :: Lens.Lens' CreatePredictor (Prelude.Maybe Prelude.Text)
+createPredictor_algorithmArn = Lens.lens (\CreatePredictor' {algorithmArn} -> algorithmArn) (\s@CreatePredictor' {} a -> s {algorithmArn = a} :: CreatePredictor)
+
+-- | The @LatencyOptimized@ AutoML override strategy is only available in
+-- private beta. Contact AWS Support or your account manager to learn more
+-- about access privileges.
+--
+-- Used to overide the default AutoML strategy, which is to optimize
+-- predictor accuracy. To apply an AutoML strategy that minimizes training
+-- time, use @LatencyOptimized@.
+--
+-- This parameter is only valid for predictors trained using AutoML.
+createPredictor_autoMLOverrideStrategy :: Lens.Lens' CreatePredictor (Prelude.Maybe AutoMLOverrideStrategy)
+createPredictor_autoMLOverrideStrategy = Lens.lens (\CreatePredictor' {autoMLOverrideStrategy} -> autoMLOverrideStrategy) (\s@CreatePredictor' {} a -> s {autoMLOverrideStrategy = a} :: CreatePredictor)
+
+-- | Provides hyperparameter override values for the algorithm. If you don\'t
+-- provide this parameter, Amazon Forecast uses default values. The
+-- individual algorithms specify which hyperparameters support
+-- hyperparameter optimization (HPO). For more information, see
+-- aws-forecast-choosing-recipes.
+--
+-- If you included the @HPOConfig@ object, you must set @PerformHPO@ to
+-- true.
+createPredictor_hPOConfig :: Lens.Lens' CreatePredictor (Prelude.Maybe HyperParameterTuningJobConfig)
+createPredictor_hPOConfig = Lens.lens (\CreatePredictor' {hPOConfig} -> hPOConfig) (\s@CreatePredictor' {} a -> s {hPOConfig = a} :: CreatePredictor)
+
+-- | The hyperparameters to override for model training. The hyperparameters
+-- that you can override are listed in the individual algorithms. For the
+-- list of supported algorithms, see aws-forecast-choosing-recipes.
+createPredictor_trainingParameters :: Lens.Lens' CreatePredictor (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createPredictor_trainingParameters = Lens.lens (\CreatePredictor' {trainingParameters} -> trainingParameters) (\s@CreatePredictor' {} a -> s {trainingParameters = a} :: CreatePredictor) Prelude.. Lens.mapping Lens.coerced
 
 -- | A name for the predictor.
 createPredictor_predictorName :: Lens.Lens' CreatePredictor Prelude.Text
@@ -608,17 +608,17 @@ instance Core.AWSRequest CreatePredictor where
 
 instance Prelude.Hashable CreatePredictor where
   hashWithSalt _salt CreatePredictor' {..} =
-    _salt `Prelude.hashWithSalt` performAutoML
-      `Prelude.hashWithSalt` trainingParameters
-      `Prelude.hashWithSalt` algorithmArn
-      `Prelude.hashWithSalt` hPOConfig
-      `Prelude.hashWithSalt` optimizationMetric
-      `Prelude.hashWithSalt` autoMLOverrideStrategy
-      `Prelude.hashWithSalt` evaluationParameters
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` encryptionConfig
-      `Prelude.hashWithSalt` forecastTypes
+      `Prelude.hashWithSalt` performAutoML
       `Prelude.hashWithSalt` performHPO
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` optimizationMetric
+      `Prelude.hashWithSalt` evaluationParameters
+      `Prelude.hashWithSalt` forecastTypes
+      `Prelude.hashWithSalt` algorithmArn
+      `Prelude.hashWithSalt` autoMLOverrideStrategy
+      `Prelude.hashWithSalt` hPOConfig
+      `Prelude.hashWithSalt` trainingParameters
       `Prelude.hashWithSalt` predictorName
       `Prelude.hashWithSalt` forecastHorizon
       `Prelude.hashWithSalt` inputDataConfig
@@ -626,17 +626,17 @@ instance Prelude.Hashable CreatePredictor where
 
 instance Prelude.NFData CreatePredictor where
   rnf CreatePredictor' {..} =
-    Prelude.rnf performAutoML
-      `Prelude.seq` Prelude.rnf trainingParameters
-      `Prelude.seq` Prelude.rnf algorithmArn
-      `Prelude.seq` Prelude.rnf hPOConfig
-      `Prelude.seq` Prelude.rnf optimizationMetric
-      `Prelude.seq` Prelude.rnf autoMLOverrideStrategy
-      `Prelude.seq` Prelude.rnf evaluationParameters
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf encryptionConfig
-      `Prelude.seq` Prelude.rnf forecastTypes
+      `Prelude.seq` Prelude.rnf performAutoML
       `Prelude.seq` Prelude.rnf performHPO
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf optimizationMetric
+      `Prelude.seq` Prelude.rnf evaluationParameters
+      `Prelude.seq` Prelude.rnf forecastTypes
+      `Prelude.seq` Prelude.rnf algorithmArn
+      `Prelude.seq` Prelude.rnf autoMLOverrideStrategy
+      `Prelude.seq` Prelude.rnf hPOConfig
+      `Prelude.seq` Prelude.rnf trainingParameters
       `Prelude.seq` Prelude.rnf predictorName
       `Prelude.seq` Prelude.rnf forecastHorizon
       `Prelude.seq` Prelude.rnf inputDataConfig
@@ -661,22 +661,22 @@ instance Core.ToJSON CreatePredictor where
   toJSON CreatePredictor' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PerformAutoML" Core..=) Prelude.<$> performAutoML,
-            ("TrainingParameters" Core..=)
-              Prelude.<$> trainingParameters,
-            ("AlgorithmArn" Core..=) Prelude.<$> algorithmArn,
-            ("HPOConfig" Core..=) Prelude.<$> hPOConfig,
-            ("OptimizationMetric" Core..=)
-              Prelude.<$> optimizationMetric,
-            ("AutoMLOverrideStrategy" Core..=)
-              Prelude.<$> autoMLOverrideStrategy,
-            ("EvaluationParameters" Core..=)
-              Prelude.<$> evaluationParameters,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("EncryptionConfig" Core..=)
               Prelude.<$> encryptionConfig,
-            ("ForecastTypes" Core..=) Prelude.<$> forecastTypes,
+            ("PerformAutoML" Core..=) Prelude.<$> performAutoML,
             ("PerformHPO" Core..=) Prelude.<$> performHPO,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("OptimizationMetric" Core..=)
+              Prelude.<$> optimizationMetric,
+            ("EvaluationParameters" Core..=)
+              Prelude.<$> evaluationParameters,
+            ("ForecastTypes" Core..=) Prelude.<$> forecastTypes,
+            ("AlgorithmArn" Core..=) Prelude.<$> algorithmArn,
+            ("AutoMLOverrideStrategy" Core..=)
+              Prelude.<$> autoMLOverrideStrategy,
+            ("HPOConfig" Core..=) Prelude.<$> hPOConfig,
+            ("TrainingParameters" Core..=)
+              Prelude.<$> trainingParameters,
             Prelude.Just ("PredictorName" Core..= predictorName),
             Prelude.Just
               ("ForecastHorizon" Core..= forecastHorizon),

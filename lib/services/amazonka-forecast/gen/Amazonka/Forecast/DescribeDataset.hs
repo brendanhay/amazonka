@@ -44,16 +44,16 @@ module Amazonka.Forecast.DescribeDataset
     newDescribeDatasetResponse,
 
     -- * Response Lenses
-    describeDatasetResponse_creationTime,
+    describeDatasetResponse_lastModificationTime,
+    describeDatasetResponse_encryptionConfig,
+    describeDatasetResponse_domain,
+    describeDatasetResponse_datasetType,
+    describeDatasetResponse_datasetName,
     describeDatasetResponse_status,
     describeDatasetResponse_dataFrequency,
     describeDatasetResponse_datasetArn,
-    describeDatasetResponse_domain,
     describeDatasetResponse_schema,
-    describeDatasetResponse_datasetType,
-    describeDatasetResponse_datasetName,
-    describeDatasetResponse_encryptionConfig,
-    describeDatasetResponse_lastModificationTime,
+    describeDatasetResponse_creationTime,
     describeDatasetResponse_httpStatus,
   )
 where
@@ -101,16 +101,16 @@ instance Core.AWSRequest DescribeDataset where
     Response.receiveJSON
       ( \s h x ->
           DescribeDatasetResponse'
-            Prelude.<$> (x Core..?> "CreationTime")
+            Prelude.<$> (x Core..?> "LastModificationTime")
+            Prelude.<*> (x Core..?> "EncryptionConfig")
+            Prelude.<*> (x Core..?> "Domain")
+            Prelude.<*> (x Core..?> "DatasetType")
+            Prelude.<*> (x Core..?> "DatasetName")
             Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "DataFrequency")
             Prelude.<*> (x Core..?> "DatasetArn")
-            Prelude.<*> (x Core..?> "Domain")
             Prelude.<*> (x Core..?> "Schema")
-            Prelude.<*> (x Core..?> "DatasetType")
-            Prelude.<*> (x Core..?> "DatasetName")
-            Prelude.<*> (x Core..?> "EncryptionConfig")
-            Prelude.<*> (x Core..?> "LastModificationTime")
+            Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,8 +151,21 @@ instance Core.ToQuery DescribeDataset where
 
 -- | /See:/ 'newDescribeDatasetResponse' smart constructor.
 data DescribeDatasetResponse = DescribeDatasetResponse'
-  { -- | When the dataset was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+  { -- | When you create a dataset, @LastModificationTime@ is the same as
+    -- @CreationTime@. While data is being imported to the dataset,
+    -- @LastModificationTime@ is the current time of the @DescribeDataset@
+    -- call. After a CreateDatasetImportJob operation has finished,
+    -- @LastModificationTime@ is when the import job completed or failed.
+    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    -- | The AWS Key Management Service (KMS) key and the AWS Identity and Access
+    -- Management (IAM) role that Amazon Forecast can assume to access the key.
+    encryptionConfig :: Prelude.Maybe EncryptionConfig,
+    -- | The domain associated with the dataset.
+    domain :: Prelude.Maybe Domain,
+    -- | The dataset type.
+    datasetType :: Prelude.Maybe DatasetType,
+    -- | The name of the dataset.
+    datasetName :: Prelude.Maybe Prelude.Text,
     -- | The status of the dataset. States include:
     --
     -- -   @ACTIVE@
@@ -180,24 +193,11 @@ data DescribeDatasetResponse = DescribeDatasetResponse'
     dataFrequency :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the dataset.
     datasetArn :: Prelude.Maybe Prelude.Text,
-    -- | The domain associated with the dataset.
-    domain :: Prelude.Maybe Domain,
     -- | An array of @SchemaAttribute@ objects that specify the dataset fields.
     -- Each @SchemaAttribute@ specifies the name and data type of a field.
     schema :: Prelude.Maybe Schema,
-    -- | The dataset type.
-    datasetType :: Prelude.Maybe DatasetType,
-    -- | The name of the dataset.
-    datasetName :: Prelude.Maybe Prelude.Text,
-    -- | The AWS Key Management Service (KMS) key and the AWS Identity and Access
-    -- Management (IAM) role that Amazon Forecast can assume to access the key.
-    encryptionConfig :: Prelude.Maybe EncryptionConfig,
-    -- | When you create a dataset, @LastModificationTime@ is the same as
-    -- @CreationTime@. While data is being imported to the dataset,
-    -- @LastModificationTime@ is the current time of the @DescribeDataset@
-    -- call. After a CreateDatasetImportJob operation has finished,
-    -- @LastModificationTime@ is when the import job completed or failed.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    -- | When the dataset was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -211,7 +211,20 @@ data DescribeDatasetResponse = DescribeDatasetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'describeDatasetResponse_creationTime' - When the dataset was created.
+-- 'lastModificationTime', 'describeDatasetResponse_lastModificationTime' - When you create a dataset, @LastModificationTime@ is the same as
+-- @CreationTime@. While data is being imported to the dataset,
+-- @LastModificationTime@ is the current time of the @DescribeDataset@
+-- call. After a CreateDatasetImportJob operation has finished,
+-- @LastModificationTime@ is when the import job completed or failed.
+--
+-- 'encryptionConfig', 'describeDatasetResponse_encryptionConfig' - The AWS Key Management Service (KMS) key and the AWS Identity and Access
+-- Management (IAM) role that Amazon Forecast can assume to access the key.
+--
+-- 'domain', 'describeDatasetResponse_domain' - The domain associated with the dataset.
+--
+-- 'datasetType', 'describeDatasetResponse_datasetType' - The dataset type.
+--
+-- 'datasetName', 'describeDatasetResponse_datasetName' - The name of the dataset.
 --
 -- 'status', 'describeDatasetResponse_status' - The status of the dataset. States include:
 --
@@ -240,23 +253,10 @@ data DescribeDatasetResponse = DescribeDatasetResponse'
 --
 -- 'datasetArn', 'describeDatasetResponse_datasetArn' - The Amazon Resource Name (ARN) of the dataset.
 --
--- 'domain', 'describeDatasetResponse_domain' - The domain associated with the dataset.
---
 -- 'schema', 'describeDatasetResponse_schema' - An array of @SchemaAttribute@ objects that specify the dataset fields.
 -- Each @SchemaAttribute@ specifies the name and data type of a field.
 --
--- 'datasetType', 'describeDatasetResponse_datasetType' - The dataset type.
---
--- 'datasetName', 'describeDatasetResponse_datasetName' - The name of the dataset.
---
--- 'encryptionConfig', 'describeDatasetResponse_encryptionConfig' - The AWS Key Management Service (KMS) key and the AWS Identity and Access
--- Management (IAM) role that Amazon Forecast can assume to access the key.
---
--- 'lastModificationTime', 'describeDatasetResponse_lastModificationTime' - When you create a dataset, @LastModificationTime@ is the same as
--- @CreationTime@. While data is being imported to the dataset,
--- @LastModificationTime@ is the current time of the @DescribeDataset@
--- call. After a CreateDatasetImportJob operation has finished,
--- @LastModificationTime@ is when the import job completed or failed.
+-- 'creationTime', 'describeDatasetResponse_creationTime' - When the dataset was created.
 --
 -- 'httpStatus', 'describeDatasetResponse_httpStatus' - The response's http status code.
 newDescribeDatasetResponse ::
@@ -265,23 +265,44 @@ newDescribeDatasetResponse ::
   DescribeDatasetResponse
 newDescribeDatasetResponse pHttpStatus_ =
   DescribeDatasetResponse'
-    { creationTime =
+    { lastModificationTime =
         Prelude.Nothing,
+      encryptionConfig = Prelude.Nothing,
+      domain = Prelude.Nothing,
+      datasetType = Prelude.Nothing,
+      datasetName = Prelude.Nothing,
       status = Prelude.Nothing,
       dataFrequency = Prelude.Nothing,
       datasetArn = Prelude.Nothing,
-      domain = Prelude.Nothing,
       schema = Prelude.Nothing,
-      datasetType = Prelude.Nothing,
-      datasetName = Prelude.Nothing,
-      encryptionConfig = Prelude.Nothing,
-      lastModificationTime = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | When the dataset was created.
-describeDatasetResponse_creationTime :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Prelude.UTCTime)
-describeDatasetResponse_creationTime = Lens.lens (\DescribeDatasetResponse' {creationTime} -> creationTime) (\s@DescribeDatasetResponse' {} a -> s {creationTime = a} :: DescribeDatasetResponse) Prelude.. Lens.mapping Core._Time
+-- | When you create a dataset, @LastModificationTime@ is the same as
+-- @CreationTime@. While data is being imported to the dataset,
+-- @LastModificationTime@ is the current time of the @DescribeDataset@
+-- call. After a CreateDatasetImportJob operation has finished,
+-- @LastModificationTime@ is when the import job completed or failed.
+describeDatasetResponse_lastModificationTime :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Prelude.UTCTime)
+describeDatasetResponse_lastModificationTime = Lens.lens (\DescribeDatasetResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeDatasetResponse' {} a -> s {lastModificationTime = a} :: DescribeDatasetResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The AWS Key Management Service (KMS) key and the AWS Identity and Access
+-- Management (IAM) role that Amazon Forecast can assume to access the key.
+describeDatasetResponse_encryptionConfig :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe EncryptionConfig)
+describeDatasetResponse_encryptionConfig = Lens.lens (\DescribeDatasetResponse' {encryptionConfig} -> encryptionConfig) (\s@DescribeDatasetResponse' {} a -> s {encryptionConfig = a} :: DescribeDatasetResponse)
+
+-- | The domain associated with the dataset.
+describeDatasetResponse_domain :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Domain)
+describeDatasetResponse_domain = Lens.lens (\DescribeDatasetResponse' {domain} -> domain) (\s@DescribeDatasetResponse' {} a -> s {domain = a} :: DescribeDatasetResponse)
+
+-- | The dataset type.
+describeDatasetResponse_datasetType :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe DatasetType)
+describeDatasetResponse_datasetType = Lens.lens (\DescribeDatasetResponse' {datasetType} -> datasetType) (\s@DescribeDatasetResponse' {} a -> s {datasetType = a} :: DescribeDatasetResponse)
+
+-- | The name of the dataset.
+describeDatasetResponse_datasetName :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Prelude.Text)
+describeDatasetResponse_datasetName = Lens.lens (\DescribeDatasetResponse' {datasetName} -> datasetName) (\s@DescribeDatasetResponse' {} a -> s {datasetName = a} :: DescribeDatasetResponse)
 
 -- | The status of the dataset. States include:
 --
@@ -316,35 +337,14 @@ describeDatasetResponse_dataFrequency = Lens.lens (\DescribeDatasetResponse' {da
 describeDatasetResponse_datasetArn :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Prelude.Text)
 describeDatasetResponse_datasetArn = Lens.lens (\DescribeDatasetResponse' {datasetArn} -> datasetArn) (\s@DescribeDatasetResponse' {} a -> s {datasetArn = a} :: DescribeDatasetResponse)
 
--- | The domain associated with the dataset.
-describeDatasetResponse_domain :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Domain)
-describeDatasetResponse_domain = Lens.lens (\DescribeDatasetResponse' {domain} -> domain) (\s@DescribeDatasetResponse' {} a -> s {domain = a} :: DescribeDatasetResponse)
-
 -- | An array of @SchemaAttribute@ objects that specify the dataset fields.
 -- Each @SchemaAttribute@ specifies the name and data type of a field.
 describeDatasetResponse_schema :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Schema)
 describeDatasetResponse_schema = Lens.lens (\DescribeDatasetResponse' {schema} -> schema) (\s@DescribeDatasetResponse' {} a -> s {schema = a} :: DescribeDatasetResponse)
 
--- | The dataset type.
-describeDatasetResponse_datasetType :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe DatasetType)
-describeDatasetResponse_datasetType = Lens.lens (\DescribeDatasetResponse' {datasetType} -> datasetType) (\s@DescribeDatasetResponse' {} a -> s {datasetType = a} :: DescribeDatasetResponse)
-
--- | The name of the dataset.
-describeDatasetResponse_datasetName :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Prelude.Text)
-describeDatasetResponse_datasetName = Lens.lens (\DescribeDatasetResponse' {datasetName} -> datasetName) (\s@DescribeDatasetResponse' {} a -> s {datasetName = a} :: DescribeDatasetResponse)
-
--- | The AWS Key Management Service (KMS) key and the AWS Identity and Access
--- Management (IAM) role that Amazon Forecast can assume to access the key.
-describeDatasetResponse_encryptionConfig :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe EncryptionConfig)
-describeDatasetResponse_encryptionConfig = Lens.lens (\DescribeDatasetResponse' {encryptionConfig} -> encryptionConfig) (\s@DescribeDatasetResponse' {} a -> s {encryptionConfig = a} :: DescribeDatasetResponse)
-
--- | When you create a dataset, @LastModificationTime@ is the same as
--- @CreationTime@. While data is being imported to the dataset,
--- @LastModificationTime@ is the current time of the @DescribeDataset@
--- call. After a CreateDatasetImportJob operation has finished,
--- @LastModificationTime@ is when the import job completed or failed.
-describeDatasetResponse_lastModificationTime :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Prelude.UTCTime)
-describeDatasetResponse_lastModificationTime = Lens.lens (\DescribeDatasetResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeDatasetResponse' {} a -> s {lastModificationTime = a} :: DescribeDatasetResponse) Prelude.. Lens.mapping Core._Time
+-- | When the dataset was created.
+describeDatasetResponse_creationTime :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Prelude.UTCTime)
+describeDatasetResponse_creationTime = Lens.lens (\DescribeDatasetResponse' {creationTime} -> creationTime) (\s@DescribeDatasetResponse' {} a -> s {creationTime = a} :: DescribeDatasetResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
 describeDatasetResponse_httpStatus :: Lens.Lens' DescribeDatasetResponse Prelude.Int
@@ -352,14 +352,14 @@ describeDatasetResponse_httpStatus = Lens.lens (\DescribeDatasetResponse' {httpS
 
 instance Prelude.NFData DescribeDatasetResponse where
   rnf DescribeDatasetResponse' {..} =
-    Prelude.rnf creationTime
+    Prelude.rnf lastModificationTime
+      `Prelude.seq` Prelude.rnf encryptionConfig
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf datasetType
+      `Prelude.seq` Prelude.rnf datasetName
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf dataFrequency
       `Prelude.seq` Prelude.rnf datasetArn
-      `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf datasetType
-      `Prelude.seq` Prelude.rnf datasetName
-      `Prelude.seq` Prelude.rnf encryptionConfig
-      `Prelude.seq` Prelude.rnf lastModificationTime
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf httpStatus

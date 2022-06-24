@@ -34,8 +34,8 @@ module Amazonka.Forecast.ListDatasetImportJobs
     newListDatasetImportJobs,
 
     -- * Request Lenses
-    listDatasetImportJobs_filters,
     listDatasetImportJobs_nextToken,
+    listDatasetImportJobs_filters,
     listDatasetImportJobs_maxResults,
 
     -- * Destructuring the Response
@@ -43,8 +43,8 @@ module Amazonka.Forecast.ListDatasetImportJobs
     newListDatasetImportJobsResponse,
 
     -- * Response Lenses
-    listDatasetImportJobsResponse_datasetImportJobs,
     listDatasetImportJobsResponse_nextToken,
+    listDatasetImportJobsResponse_datasetImportJobs,
     listDatasetImportJobsResponse_httpStatus,
   )
 where
@@ -58,7 +58,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDatasetImportJobs' smart constructor.
 data ListDatasetImportJobs = ListDatasetImportJobs'
-  { -- | An array of filters. For each filter, you provide a condition and a
+  { -- | If the result of the previous request was truncated, the response
+    -- includes a @NextToken@. To retrieve the next set of results, use the
+    -- token in the next request. Tokens expire after 24 hours.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of filters. For each filter, you provide a condition and a
     -- match statement. The condition is either @IS@ or @IS_NOT@, which
     -- specifies whether to include or exclude the datasets that match the
     -- statement from the list, respectively. The match statement consists of a
@@ -80,10 +84,6 @@ data ListDatasetImportJobs = ListDatasetImportJobs'
     --
     -- @\"Filters\": [ { \"Condition\": \"IS\", \"Key\": \"Status\", \"Value\": \"ACTIVE\" } ]@
     filters :: Prelude.Maybe [Filter],
-    -- | If the result of the previous request was truncated, the response
-    -- includes a @NextToken@. To retrieve the next set of results, use the
-    -- token in the next request. Tokens expire after 24 hours.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The number of items to return in the response.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -96,6 +96,10 @@ data ListDatasetImportJobs = ListDatasetImportJobs'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'nextToken', 'listDatasetImportJobs_nextToken' - If the result of the previous request was truncated, the response
+-- includes a @NextToken@. To retrieve the next set of results, use the
+-- token in the next request. Tokens expire after 24 hours.
 --
 -- 'filters', 'listDatasetImportJobs_filters' - An array of filters. For each filter, you provide a condition and a
 -- match statement. The condition is either @IS@ or @IS_NOT@, which
@@ -119,19 +123,21 @@ data ListDatasetImportJobs = ListDatasetImportJobs'
 --
 -- @\"Filters\": [ { \"Condition\": \"IS\", \"Key\": \"Status\", \"Value\": \"ACTIVE\" } ]@
 --
--- 'nextToken', 'listDatasetImportJobs_nextToken' - If the result of the previous request was truncated, the response
--- includes a @NextToken@. To retrieve the next set of results, use the
--- token in the next request. Tokens expire after 24 hours.
---
 -- 'maxResults', 'listDatasetImportJobs_maxResults' - The number of items to return in the response.
 newListDatasetImportJobs ::
   ListDatasetImportJobs
 newListDatasetImportJobs =
   ListDatasetImportJobs'
-    { filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | If the result of the previous request was truncated, the response
+-- includes a @NextToken@. To retrieve the next set of results, use the
+-- token in the next request. Tokens expire after 24 hours.
+listDatasetImportJobs_nextToken :: Lens.Lens' ListDatasetImportJobs (Prelude.Maybe Prelude.Text)
+listDatasetImportJobs_nextToken = Lens.lens (\ListDatasetImportJobs' {nextToken} -> nextToken) (\s@ListDatasetImportJobs' {} a -> s {nextToken = a} :: ListDatasetImportJobs)
 
 -- | An array of filters. For each filter, you provide a condition and a
 -- match statement. The condition is either @IS@ or @IS_NOT@, which
@@ -156,12 +162,6 @@ newListDatasetImportJobs =
 -- @\"Filters\": [ { \"Condition\": \"IS\", \"Key\": \"Status\", \"Value\": \"ACTIVE\" } ]@
 listDatasetImportJobs_filters :: Lens.Lens' ListDatasetImportJobs (Prelude.Maybe [Filter])
 listDatasetImportJobs_filters = Lens.lens (\ListDatasetImportJobs' {filters} -> filters) (\s@ListDatasetImportJobs' {} a -> s {filters = a} :: ListDatasetImportJobs) Prelude.. Lens.mapping Lens.coerced
-
--- | If the result of the previous request was truncated, the response
--- includes a @NextToken@. To retrieve the next set of results, use the
--- token in the next request. Tokens expire after 24 hours.
-listDatasetImportJobs_nextToken :: Lens.Lens' ListDatasetImportJobs (Prelude.Maybe Prelude.Text)
-listDatasetImportJobs_nextToken = Lens.lens (\ListDatasetImportJobs' {nextToken} -> nextToken) (\s@ListDatasetImportJobs' {} a -> s {nextToken = a} :: ListDatasetImportJobs)
 
 -- | The number of items to return in the response.
 listDatasetImportJobs_maxResults :: Lens.Lens' ListDatasetImportJobs (Prelude.Maybe Prelude.Natural)
@@ -198,23 +198,23 @@ instance Core.AWSRequest ListDatasetImportJobs where
     Response.receiveJSON
       ( \s h x ->
           ListDatasetImportJobsResponse'
-            Prelude.<$> ( x Core..?> "DatasetImportJobs"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "DatasetImportJobs"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDatasetImportJobs where
   hashWithSalt _salt ListDatasetImportJobs' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListDatasetImportJobs where
   rnf ListDatasetImportJobs' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListDatasetImportJobs where
@@ -236,8 +236,8 @@ instance Core.ToJSON ListDatasetImportJobs where
   toJSON ListDatasetImportJobs' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
@@ -250,12 +250,12 @@ instance Core.ToQuery ListDatasetImportJobs where
 
 -- | /See:/ 'newListDatasetImportJobsResponse' smart constructor.
 data ListDatasetImportJobsResponse = ListDatasetImportJobsResponse'
-  { -- | An array of objects that summarize each dataset import job\'s
-    -- properties.
-    datasetImportJobs :: Prelude.Maybe [DatasetImportJobSummary],
-    -- | If the response is truncated, Amazon Forecast returns this token. To
+  { -- | If the response is truncated, Amazon Forecast returns this token. To
     -- retrieve the next set of results, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of objects that summarize each dataset import job\'s
+    -- properties.
+    datasetImportJobs :: Prelude.Maybe [DatasetImportJobSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -269,11 +269,11 @@ data ListDatasetImportJobsResponse = ListDatasetImportJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'datasetImportJobs', 'listDatasetImportJobsResponse_datasetImportJobs' - An array of objects that summarize each dataset import job\'s
--- properties.
---
 -- 'nextToken', 'listDatasetImportJobsResponse_nextToken' - If the response is truncated, Amazon Forecast returns this token. To
 -- retrieve the next set of results, use the token in the next request.
+--
+-- 'datasetImportJobs', 'listDatasetImportJobsResponse_datasetImportJobs' - An array of objects that summarize each dataset import job\'s
+-- properties.
 --
 -- 'httpStatus', 'listDatasetImportJobsResponse_httpStatus' - The response's http status code.
 newListDatasetImportJobsResponse ::
@@ -282,21 +282,21 @@ newListDatasetImportJobsResponse ::
   ListDatasetImportJobsResponse
 newListDatasetImportJobsResponse pHttpStatus_ =
   ListDatasetImportJobsResponse'
-    { datasetImportJobs =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      datasetImportJobs = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of objects that summarize each dataset import job\'s
--- properties.
-listDatasetImportJobsResponse_datasetImportJobs :: Lens.Lens' ListDatasetImportJobsResponse (Prelude.Maybe [DatasetImportJobSummary])
-listDatasetImportJobsResponse_datasetImportJobs = Lens.lens (\ListDatasetImportJobsResponse' {datasetImportJobs} -> datasetImportJobs) (\s@ListDatasetImportJobsResponse' {} a -> s {datasetImportJobs = a} :: ListDatasetImportJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the response is truncated, Amazon Forecast returns this token. To
 -- retrieve the next set of results, use the token in the next request.
 listDatasetImportJobsResponse_nextToken :: Lens.Lens' ListDatasetImportJobsResponse (Prelude.Maybe Prelude.Text)
 listDatasetImportJobsResponse_nextToken = Lens.lens (\ListDatasetImportJobsResponse' {nextToken} -> nextToken) (\s@ListDatasetImportJobsResponse' {} a -> s {nextToken = a} :: ListDatasetImportJobsResponse)
+
+-- | An array of objects that summarize each dataset import job\'s
+-- properties.
+listDatasetImportJobsResponse_datasetImportJobs :: Lens.Lens' ListDatasetImportJobsResponse (Prelude.Maybe [DatasetImportJobSummary])
+listDatasetImportJobsResponse_datasetImportJobs = Lens.lens (\ListDatasetImportJobsResponse' {datasetImportJobs} -> datasetImportJobs) (\s@ListDatasetImportJobsResponse' {} a -> s {datasetImportJobs = a} :: ListDatasetImportJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDatasetImportJobsResponse_httpStatus :: Lens.Lens' ListDatasetImportJobsResponse Prelude.Int
@@ -304,6 +304,6 @@ listDatasetImportJobsResponse_httpStatus = Lens.lens (\ListDatasetImportJobsResp
 
 instance Prelude.NFData ListDatasetImportJobsResponse where
   rnf ListDatasetImportJobsResponse' {..} =
-    Prelude.rnf datasetImportJobs
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf datasetImportJobs
       `Prelude.seq` Prelude.rnf httpStatus

@@ -34,8 +34,8 @@ module Amazonka.Forecast.ListForecastExportJobs
     newListForecastExportJobs,
 
     -- * Request Lenses
-    listForecastExportJobs_filters,
     listForecastExportJobs_nextToken,
+    listForecastExportJobs_filters,
     listForecastExportJobs_maxResults,
 
     -- * Destructuring the Response
@@ -58,7 +58,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListForecastExportJobs' smart constructor.
 data ListForecastExportJobs = ListForecastExportJobs'
-  { -- | An array of filters. For each filter, you provide a condition and a
+  { -- | If the result of the previous request was truncated, the response
+    -- includes a @NextToken@. To retrieve the next set of results, use the
+    -- token in the next request. Tokens expire after 24 hours.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of filters. For each filter, you provide a condition and a
     -- match statement. The condition is either @IS@ or @IS_NOT@, which
     -- specifies whether to include or exclude the forecast export jobs that
     -- match the statement from the list, respectively. The match statement
@@ -81,10 +85,6 @@ data ListForecastExportJobs = ListForecastExportJobs'
     --
     -- @\"Filters\": [ { \"Condition\": \"IS\", \"Key\": \"ForecastArn\", \"Value\": \"arn:aws:forecast:us-west-2:\<acct-id>:forecast\/electricityforecast\" } ]@
     filters :: Prelude.Maybe [Filter],
-    -- | If the result of the previous request was truncated, the response
-    -- includes a @NextToken@. To retrieve the next set of results, use the
-    -- token in the next request. Tokens expire after 24 hours.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The number of items to return in the response.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -97,6 +97,10 @@ data ListForecastExportJobs = ListForecastExportJobs'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'nextToken', 'listForecastExportJobs_nextToken' - If the result of the previous request was truncated, the response
+-- includes a @NextToken@. To retrieve the next set of results, use the
+-- token in the next request. Tokens expire after 24 hours.
 --
 -- 'filters', 'listForecastExportJobs_filters' - An array of filters. For each filter, you provide a condition and a
 -- match statement. The condition is either @IS@ or @IS_NOT@, which
@@ -121,19 +125,22 @@ data ListForecastExportJobs = ListForecastExportJobs'
 --
 -- @\"Filters\": [ { \"Condition\": \"IS\", \"Key\": \"ForecastArn\", \"Value\": \"arn:aws:forecast:us-west-2:\<acct-id>:forecast\/electricityforecast\" } ]@
 --
--- 'nextToken', 'listForecastExportJobs_nextToken' - If the result of the previous request was truncated, the response
--- includes a @NextToken@. To retrieve the next set of results, use the
--- token in the next request. Tokens expire after 24 hours.
---
 -- 'maxResults', 'listForecastExportJobs_maxResults' - The number of items to return in the response.
 newListForecastExportJobs ::
   ListForecastExportJobs
 newListForecastExportJobs =
   ListForecastExportJobs'
-    { filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | If the result of the previous request was truncated, the response
+-- includes a @NextToken@. To retrieve the next set of results, use the
+-- token in the next request. Tokens expire after 24 hours.
+listForecastExportJobs_nextToken :: Lens.Lens' ListForecastExportJobs (Prelude.Maybe Prelude.Text)
+listForecastExportJobs_nextToken = Lens.lens (\ListForecastExportJobs' {nextToken} -> nextToken) (\s@ListForecastExportJobs' {} a -> s {nextToken = a} :: ListForecastExportJobs)
 
 -- | An array of filters. For each filter, you provide a condition and a
 -- match statement. The condition is either @IS@ or @IS_NOT@, which
@@ -159,12 +166,6 @@ newListForecastExportJobs =
 -- @\"Filters\": [ { \"Condition\": \"IS\", \"Key\": \"ForecastArn\", \"Value\": \"arn:aws:forecast:us-west-2:\<acct-id>:forecast\/electricityforecast\" } ]@
 listForecastExportJobs_filters :: Lens.Lens' ListForecastExportJobs (Prelude.Maybe [Filter])
 listForecastExportJobs_filters = Lens.lens (\ListForecastExportJobs' {filters} -> filters) (\s@ListForecastExportJobs' {} a -> s {filters = a} :: ListForecastExportJobs) Prelude.. Lens.mapping Lens.coerced
-
--- | If the result of the previous request was truncated, the response
--- includes a @NextToken@. To retrieve the next set of results, use the
--- token in the next request. Tokens expire after 24 hours.
-listForecastExportJobs_nextToken :: Lens.Lens' ListForecastExportJobs (Prelude.Maybe Prelude.Text)
-listForecastExportJobs_nextToken = Lens.lens (\ListForecastExportJobs' {nextToken} -> nextToken) (\s@ListForecastExportJobs' {} a -> s {nextToken = a} :: ListForecastExportJobs)
 
 -- | The number of items to return in the response.
 listForecastExportJobs_maxResults :: Lens.Lens' ListForecastExportJobs (Prelude.Maybe Prelude.Natural)
@@ -210,14 +211,14 @@ instance Core.AWSRequest ListForecastExportJobs where
 
 instance Prelude.Hashable ListForecastExportJobs where
   hashWithSalt _salt ListForecastExportJobs' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListForecastExportJobs where
   rnf ListForecastExportJobs' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListForecastExportJobs where
@@ -239,8 +240,8 @@ instance Core.ToJSON ListForecastExportJobs where
   toJSON ListForecastExportJobs' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

@@ -31,17 +31,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMessageSystemAttributeValue' smart constructor.
 data MessageSystemAttributeValue = MessageSystemAttributeValue'
-  { -- | Binary type attributes can store any binary data, such as compressed
+  { -- | Not implemented. Reserved for future use.
+    stringListValues :: Prelude.Maybe [Prelude.Text],
+    -- | Binary type attributes can store any binary data, such as compressed
     -- data, encrypted data, or images.
     binaryValue :: Prelude.Maybe Core.Base64,
     -- | Not implemented. Reserved for future use.
-    stringListValues :: Prelude.Maybe [Prelude.Text],
+    binaryListValues :: Prelude.Maybe [Core.Base64],
     -- | Strings are Unicode with UTF-8 binary encoding. For a list of code
     -- values, see
     -- <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters>.
     stringValue :: Prelude.Maybe Prelude.Text,
-    -- | Not implemented. Reserved for future use.
-    binaryListValues :: Prelude.Maybe [Core.Base64],
     -- | Amazon SQS supports the following logical data types: @String@,
     -- @Number@, and @Binary@. For the @Number@ data type, you must use
     -- @StringValue@.
@@ -61,6 +61,8 @@ data MessageSystemAttributeValue = MessageSystemAttributeValue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'stringListValues', 'messageSystemAttributeValue_stringListValues' - Not implemented. Reserved for future use.
+--
 -- 'binaryValue', 'messageSystemAttributeValue_binaryValue' - Binary type attributes can store any binary data, such as compressed
 -- data, encrypted data, or images.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -68,13 +70,11 @@ data MessageSystemAttributeValue = MessageSystemAttributeValue'
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
--- 'stringListValues', 'messageSystemAttributeValue_stringListValues' - Not implemented. Reserved for future use.
+-- 'binaryListValues', 'messageSystemAttributeValue_binaryListValues' - Not implemented. Reserved for future use.
 --
 -- 'stringValue', 'messageSystemAttributeValue_stringValue' - Strings are Unicode with UTF-8 binary encoding. For a list of code
 -- values, see
 -- <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters>.
---
--- 'binaryListValues', 'messageSystemAttributeValue_binaryListValues' - Not implemented. Reserved for future use.
 --
 -- 'dataType', 'messageSystemAttributeValue_dataType' - Amazon SQS supports the following logical data types: @String@,
 -- @Number@, and @Binary@. For the @Number@ data type, you must use
@@ -89,13 +89,17 @@ newMessageSystemAttributeValue ::
   MessageSystemAttributeValue
 newMessageSystemAttributeValue pDataType_ =
   MessageSystemAttributeValue'
-    { binaryValue =
+    { stringListValues =
         Prelude.Nothing,
-      stringListValues = Prelude.Nothing,
-      stringValue = Prelude.Nothing,
+      binaryValue = Prelude.Nothing,
       binaryListValues = Prelude.Nothing,
+      stringValue = Prelude.Nothing,
       dataType = pDataType_
     }
+
+-- | Not implemented. Reserved for future use.
+messageSystemAttributeValue_stringListValues :: Lens.Lens' MessageSystemAttributeValue (Prelude.Maybe [Prelude.Text])
+messageSystemAttributeValue_stringListValues = Lens.lens (\MessageSystemAttributeValue' {stringListValues} -> stringListValues) (\s@MessageSystemAttributeValue' {} a -> s {stringListValues = a} :: MessageSystemAttributeValue) Prelude.. Lens.mapping Lens.coerced
 
 -- | Binary type attributes can store any binary data, such as compressed
 -- data, encrypted data, or images.--
@@ -107,18 +111,14 @@ messageSystemAttributeValue_binaryValue :: Lens.Lens' MessageSystemAttributeValu
 messageSystemAttributeValue_binaryValue = Lens.lens (\MessageSystemAttributeValue' {binaryValue} -> binaryValue) (\s@MessageSystemAttributeValue' {} a -> s {binaryValue = a} :: MessageSystemAttributeValue) Prelude.. Lens.mapping Core._Base64
 
 -- | Not implemented. Reserved for future use.
-messageSystemAttributeValue_stringListValues :: Lens.Lens' MessageSystemAttributeValue (Prelude.Maybe [Prelude.Text])
-messageSystemAttributeValue_stringListValues = Lens.lens (\MessageSystemAttributeValue' {stringListValues} -> stringListValues) (\s@MessageSystemAttributeValue' {} a -> s {stringListValues = a} :: MessageSystemAttributeValue) Prelude.. Lens.mapping Lens.coerced
+messageSystemAttributeValue_binaryListValues :: Lens.Lens' MessageSystemAttributeValue (Prelude.Maybe [Prelude.ByteString])
+messageSystemAttributeValue_binaryListValues = Lens.lens (\MessageSystemAttributeValue' {binaryListValues} -> binaryListValues) (\s@MessageSystemAttributeValue' {} a -> s {binaryListValues = a} :: MessageSystemAttributeValue) Prelude.. Lens.mapping Lens.coerced
 
 -- | Strings are Unicode with UTF-8 binary encoding. For a list of code
 -- values, see
 -- <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters>.
 messageSystemAttributeValue_stringValue :: Lens.Lens' MessageSystemAttributeValue (Prelude.Maybe Prelude.Text)
 messageSystemAttributeValue_stringValue = Lens.lens (\MessageSystemAttributeValue' {stringValue} -> stringValue) (\s@MessageSystemAttributeValue' {} a -> s {stringValue = a} :: MessageSystemAttributeValue)
-
--- | Not implemented. Reserved for future use.
-messageSystemAttributeValue_binaryListValues :: Lens.Lens' MessageSystemAttributeValue (Prelude.Maybe [Prelude.ByteString])
-messageSystemAttributeValue_binaryListValues = Lens.lens (\MessageSystemAttributeValue' {binaryListValues} -> binaryListValues) (\s@MessageSystemAttributeValue' {} a -> s {binaryListValues = a} :: MessageSystemAttributeValue) Prelude.. Lens.mapping Lens.coerced
 
 -- | Amazon SQS supports the following logical data types: @String@,
 -- @Number@, and @Binary@. For the @Number@ data type, you must use
@@ -132,34 +132,34 @@ messageSystemAttributeValue_dataType = Lens.lens (\MessageSystemAttributeValue' 
 
 instance Prelude.Hashable MessageSystemAttributeValue where
   hashWithSalt _salt MessageSystemAttributeValue' {..} =
-    _salt `Prelude.hashWithSalt` binaryValue
-      `Prelude.hashWithSalt` stringListValues
-      `Prelude.hashWithSalt` stringValue
+    _salt `Prelude.hashWithSalt` stringListValues
+      `Prelude.hashWithSalt` binaryValue
       `Prelude.hashWithSalt` binaryListValues
+      `Prelude.hashWithSalt` stringValue
       `Prelude.hashWithSalt` dataType
 
 instance Prelude.NFData MessageSystemAttributeValue where
   rnf MessageSystemAttributeValue' {..} =
-    Prelude.rnf binaryValue
-      `Prelude.seq` Prelude.rnf stringListValues
-      `Prelude.seq` Prelude.rnf stringValue
+    Prelude.rnf stringListValues
+      `Prelude.seq` Prelude.rnf binaryValue
       `Prelude.seq` Prelude.rnf binaryListValues
+      `Prelude.seq` Prelude.rnf stringValue
       `Prelude.seq` Prelude.rnf dataType
 
 instance Core.ToQuery MessageSystemAttributeValue where
   toQuery MessageSystemAttributeValue' {..} =
     Prelude.mconcat
-      [ "BinaryValue" Core.=: binaryValue,
-        "StringListValue"
+      [ "StringListValue"
           Core.=: Core.toQuery
             ( Core.toQueryList "StringListValue"
                 Prelude.<$> stringListValues
             ),
-        "StringValue" Core.=: stringValue,
+        "BinaryValue" Core.=: binaryValue,
         "BinaryListValue"
           Core.=: Core.toQuery
             ( Core.toQueryList "BinaryListValue"
                 Prelude.<$> binaryListValues
             ),
+        "StringValue" Core.=: stringValue,
         "DataType" Core.=: dataType
       ]

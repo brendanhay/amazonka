@@ -77,8 +77,8 @@ module Amazonka.SQS.CreateQueue
     newCreateQueue,
 
     -- * Request Lenses
-    createQueue_attributes,
     createQueue_tags,
+    createQueue_attributes,
     createQueue_queueName,
 
     -- * Destructuring the Response
@@ -102,7 +102,36 @@ import Amazonka.SQS.Types
 --
 -- /See:/ 'newCreateQueue' smart constructor.
 data CreateQueue = CreateQueue'
-  { -- | A map of attributes with their corresponding values.
+  { -- | Add cost allocation tags to the specified Amazon SQS queue. For an
+    -- overview, see
+    -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html Tagging Your Amazon SQS Queues>
+    -- in the /Amazon SQS Developer Guide/.
+    --
+    -- When you use queue tags, keep the following guidelines in mind:
+    --
+    -- -   Adding more than 50 tags to a queue isn\'t recommended.
+    --
+    -- -   Tags don\'t have any semantic meaning. Amazon SQS interprets tags as
+    --     character strings.
+    --
+    -- -   Tags are case-sensitive.
+    --
+    -- -   A new tag with a key identical to that of an existing tag overwrites
+    --     the existing tag.
+    --
+    -- For a full list of tag restrictions, see
+    -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-limits.html#limits-queues Quotas related to queues>
+    -- in the /Amazon SQS Developer Guide/.
+    --
+    -- To be able to tag a queue on creation, you must have the
+    -- @sqs:CreateQueue@ and @sqs:TagQueue@ permissions.
+    --
+    -- Cross-account permissions don\'t apply to this action. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name Grant cross-account permissions to a role and a user name>
+    -- in the /Amazon SQS Developer Guide/.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A map of attributes with their corresponding values.
     --
     -- The following lists the names, descriptions, and values of the special
     -- request parameters that the @CreateQueue@ action uses:
@@ -281,35 +310,6 @@ data CreateQueue = CreateQueue'
     -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html Quotas related to messages>
     -- in the /Amazon SQS Developer Guide/.
     attributes :: Prelude.Maybe (Prelude.HashMap QueueAttributeName Prelude.Text),
-    -- | Add cost allocation tags to the specified Amazon SQS queue. For an
-    -- overview, see
-    -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html Tagging Your Amazon SQS Queues>
-    -- in the /Amazon SQS Developer Guide/.
-    --
-    -- When you use queue tags, keep the following guidelines in mind:
-    --
-    -- -   Adding more than 50 tags to a queue isn\'t recommended.
-    --
-    -- -   Tags don\'t have any semantic meaning. Amazon SQS interprets tags as
-    --     character strings.
-    --
-    -- -   Tags are case-sensitive.
-    --
-    -- -   A new tag with a key identical to that of an existing tag overwrites
-    --     the existing tag.
-    --
-    -- For a full list of tag restrictions, see
-    -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-limits.html#limits-queues Quotas related to queues>
-    -- in the /Amazon SQS Developer Guide/.
-    --
-    -- To be able to tag a queue on creation, you must have the
-    -- @sqs:CreateQueue@ and @sqs:TagQueue@ permissions.
-    --
-    -- Cross-account permissions don\'t apply to this action. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name Grant cross-account permissions to a role and a user name>
-    -- in the /Amazon SQS Developer Guide/.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the new queue. The following limits apply to this name:
     --
     -- -   A queue name can have up to 80 characters.
@@ -331,6 +331,35 @@ data CreateQueue = CreateQueue'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'tags', 'createQueue_tags' - Add cost allocation tags to the specified Amazon SQS queue. For an
+-- overview, see
+-- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html Tagging Your Amazon SQS Queues>
+-- in the /Amazon SQS Developer Guide/.
+--
+-- When you use queue tags, keep the following guidelines in mind:
+--
+-- -   Adding more than 50 tags to a queue isn\'t recommended.
+--
+-- -   Tags don\'t have any semantic meaning. Amazon SQS interprets tags as
+--     character strings.
+--
+-- -   Tags are case-sensitive.
+--
+-- -   A new tag with a key identical to that of an existing tag overwrites
+--     the existing tag.
+--
+-- For a full list of tag restrictions, see
+-- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-limits.html#limits-queues Quotas related to queues>
+-- in the /Amazon SQS Developer Guide/.
+--
+-- To be able to tag a queue on creation, you must have the
+-- @sqs:CreateQueue@ and @sqs:TagQueue@ permissions.
+--
+-- Cross-account permissions don\'t apply to this action. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name Grant cross-account permissions to a role and a user name>
+-- in the /Amazon SQS Developer Guide/.
 --
 -- 'attributes', 'createQueue_attributes' - A map of attributes with their corresponding values.
 --
@@ -511,7 +540,28 @@ data CreateQueue = CreateQueue'
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html Quotas related to messages>
 -- in the /Amazon SQS Developer Guide/.
 --
--- 'tags', 'createQueue_tags' - Add cost allocation tags to the specified Amazon SQS queue. For an
+-- 'queueName', 'createQueue_queueName' - The name of the new queue. The following limits apply to this name:
+--
+-- -   A queue name can have up to 80 characters.
+--
+-- -   Valid values: alphanumeric characters, hyphens (@-@), and
+--     underscores (@_@).
+--
+-- -   A FIFO queue name must end with the @.fifo@ suffix.
+--
+-- Queue URLs and names are case-sensitive.
+newCreateQueue ::
+  -- | 'queueName'
+  Prelude.Text ->
+  CreateQueue
+newCreateQueue pQueueName_ =
+  CreateQueue'
+    { tags = Prelude.Nothing,
+      attributes = Prelude.Nothing,
+      queueName = pQueueName_
+    }
+
+-- | Add cost allocation tags to the specified Amazon SQS queue. For an
 -- overview, see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html Tagging Your Amazon SQS Queues>
 -- in the /Amazon SQS Developer Guide/.
@@ -539,27 +589,8 @@ data CreateQueue = CreateQueue'
 -- information, see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name Grant cross-account permissions to a role and a user name>
 -- in the /Amazon SQS Developer Guide/.
---
--- 'queueName', 'createQueue_queueName' - The name of the new queue. The following limits apply to this name:
---
--- -   A queue name can have up to 80 characters.
---
--- -   Valid values: alphanumeric characters, hyphens (@-@), and
---     underscores (@_@).
---
--- -   A FIFO queue name must end with the @.fifo@ suffix.
---
--- Queue URLs and names are case-sensitive.
-newCreateQueue ::
-  -- | 'queueName'
-  Prelude.Text ->
-  CreateQueue
-newCreateQueue pQueueName_ =
-  CreateQueue'
-    { attributes = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      queueName = pQueueName_
-    }
+createQueue_tags :: Lens.Lens' CreateQueue (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createQueue_tags = Lens.lens (\CreateQueue' {tags} -> tags) (\s@CreateQueue' {} a -> s {tags = a} :: CreateQueue) Prelude.. Lens.mapping Lens.coerced
 
 -- | A map of attributes with their corresponding values.
 --
@@ -742,37 +773,6 @@ newCreateQueue pQueueName_ =
 createQueue_attributes :: Lens.Lens' CreateQueue (Prelude.Maybe (Prelude.HashMap QueueAttributeName Prelude.Text))
 createQueue_attributes = Lens.lens (\CreateQueue' {attributes} -> attributes) (\s@CreateQueue' {} a -> s {attributes = a} :: CreateQueue) Prelude.. Lens.mapping Lens.coerced
 
--- | Add cost allocation tags to the specified Amazon SQS queue. For an
--- overview, see
--- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html Tagging Your Amazon SQS Queues>
--- in the /Amazon SQS Developer Guide/.
---
--- When you use queue tags, keep the following guidelines in mind:
---
--- -   Adding more than 50 tags to a queue isn\'t recommended.
---
--- -   Tags don\'t have any semantic meaning. Amazon SQS interprets tags as
---     character strings.
---
--- -   Tags are case-sensitive.
---
--- -   A new tag with a key identical to that of an existing tag overwrites
---     the existing tag.
---
--- For a full list of tag restrictions, see
--- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-limits.html#limits-queues Quotas related to queues>
--- in the /Amazon SQS Developer Guide/.
---
--- To be able to tag a queue on creation, you must have the
--- @sqs:CreateQueue@ and @sqs:TagQueue@ permissions.
---
--- Cross-account permissions don\'t apply to this action. For more
--- information, see
--- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name Grant cross-account permissions to a role and a user name>
--- in the /Amazon SQS Developer Guide/.
-createQueue_tags :: Lens.Lens' CreateQueue (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createQueue_tags = Lens.lens (\CreateQueue' {tags} -> tags) (\s@CreateQueue' {} a -> s {tags = a} :: CreateQueue) Prelude.. Lens.mapping Lens.coerced
-
 -- | The name of the new queue. The following limits apply to this name:
 --
 -- -   A queue name can have up to 80 characters.
@@ -800,14 +800,14 @@ instance Core.AWSRequest CreateQueue where
 
 instance Prelude.Hashable CreateQueue where
   hashWithSalt _salt CreateQueue' {..} =
-    _salt `Prelude.hashWithSalt` attributes
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` queueName
 
 instance Prelude.NFData CreateQueue where
   rnf CreateQueue' {..} =
-    Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf attributes
       `Prelude.seq` Prelude.rnf queueName
 
 instance Core.ToHeaders CreateQueue where
@@ -824,12 +824,12 @@ instance Core.ToQuery CreateQueue where
         "Version"
           Core.=: ("2012-11-05" :: Prelude.ByteString),
         Core.toQuery
-          ( Core.toQueryMap "Attribute" "Name" "Value"
-              Prelude.<$> attributes
-          ),
-        Core.toQuery
           ( Core.toQueryMap "Tag" "Key" "Value"
               Prelude.<$> tags
+          ),
+        Core.toQuery
+          ( Core.toQueryMap "Attribute" "Name" "Value"
+              Prelude.<$> attributes
           ),
         "QueueName" Core.=: queueName
       ]

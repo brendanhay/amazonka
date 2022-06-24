@@ -56,53 +56,53 @@ module Amazonka.SQS
     -- * Errors
     -- $errors
 
-    -- ** InvalidBatchEntryId
-    _InvalidBatchEntryId,
-
-    -- ** TooManyEntriesInBatchRequest
-    _TooManyEntriesInBatchRequest,
-
-    -- ** QueueDeletedRecently
-    _QueueDeletedRecently,
-
     -- ** QueueDoesNotExist
     _QueueDoesNotExist,
-
-    -- ** InvalidAttributeName
-    _InvalidAttributeName,
-
-    -- ** UnsupportedOperation
-    _UnsupportedOperation,
-
-    -- ** InvalidMessageContents
-    _InvalidMessageContents,
-
-    -- ** BatchRequestTooLong
-    _BatchRequestTooLong,
-
-    -- ** OverLimit
-    _OverLimit,
-
-    -- ** QueueNameExists
-    _QueueNameExists,
-
-    -- ** PurgeQueueInProgress
-    _PurgeQueueInProgress,
 
     -- ** InvalidIdFormat
     _InvalidIdFormat,
 
+    -- ** BatchRequestTooLong
+    _BatchRequestTooLong,
+
     -- ** ReceiptHandleIsInvalid
     _ReceiptHandleIsInvalid,
+
+    -- ** MessageNotInflight
+    _MessageNotInflight,
+
+    -- ** TooManyEntriesInBatchRequest
+    _TooManyEntriesInBatchRequest,
+
+    -- ** PurgeQueueInProgress
+    _PurgeQueueInProgress,
 
     -- ** EmptyBatchRequest
     _EmptyBatchRequest,
 
+    -- ** InvalidBatchEntryId
+    _InvalidBatchEntryId,
+
+    -- ** InvalidMessageContents
+    _InvalidMessageContents,
+
+    -- ** InvalidAttributeName
+    _InvalidAttributeName,
+
+    -- ** QueueDeletedRecently
+    _QueueDeletedRecently,
+
+    -- ** QueueNameExists
+    _QueueNameExists,
+
+    -- ** UnsupportedOperation
+    _UnsupportedOperation,
+
+    -- ** OverLimit
+    _OverLimit,
+
     -- ** BatchEntryIdsNotDistinct
     _BatchEntryIdsNotDistinct,
-
-    -- ** MessageNotInflight
-    _MessageNotInflight,
 
     -- * Waiters
     -- $waiters
@@ -110,17 +110,17 @@ module Amazonka.SQS
     -- * Operations
     -- $operations
 
-    -- ** GetQueueUrl
-    GetQueueUrl (GetQueueUrl'),
-    newGetQueueUrl,
-    GetQueueUrlResponse (GetQueueUrlResponse'),
-    newGetQueueUrlResponse,
+    -- ** AddPermission
+    AddPermission (AddPermission'),
+    newAddPermission,
+    AddPermissionResponse (AddPermissionResponse'),
+    newAddPermissionResponse,
 
-    -- ** PurgeQueue
-    PurgeQueue (PurgeQueue'),
-    newPurgeQueue,
-    PurgeQueueResponse (PurgeQueueResponse'),
-    newPurgeQueueResponse,
+    -- ** ChangeMessageVisibility
+    ChangeMessageVisibility (ChangeMessageVisibility'),
+    newChangeMessageVisibility,
+    ChangeMessageVisibilityResponse (ChangeMessageVisibilityResponse'),
+    newChangeMessageVisibilityResponse,
 
     -- ** ChangeMessageVisibilityBatch
     ChangeMessageVisibilityBatch (ChangeMessageVisibilityBatch'),
@@ -128,71 +128,11 @@ module Amazonka.SQS
     ChangeMessageVisibilityBatchResponse (ChangeMessageVisibilityBatchResponse'),
     newChangeMessageVisibilityBatchResponse,
 
-    -- ** SendMessage
-    SendMessage (SendMessage'),
-    newSendMessage,
-    SendMessageResponse (SendMessageResponse'),
-    newSendMessageResponse,
-
-    -- ** RemovePermission
-    RemovePermission (RemovePermission'),
-    newRemovePermission,
-    RemovePermissionResponse (RemovePermissionResponse'),
-    newRemovePermissionResponse,
-
-    -- ** GetQueueAttributes
-    GetQueueAttributes (GetQueueAttributes'),
-    newGetQueueAttributes,
-    GetQueueAttributesResponse (GetQueueAttributesResponse'),
-    newGetQueueAttributesResponse,
-
-    -- ** ListQueues (Paginated)
-    ListQueues (ListQueues'),
-    newListQueues,
-    ListQueuesResponse (ListQueuesResponse'),
-    newListQueuesResponse,
-
-    -- ** ReceiveMessage
-    ReceiveMessage (ReceiveMessage'),
-    newReceiveMessage,
-    ReceiveMessageResponse (ReceiveMessageResponse'),
-    newReceiveMessageResponse,
-
-    -- ** DeleteQueue
-    DeleteQueue (DeleteQueue'),
-    newDeleteQueue,
-    DeleteQueueResponse (DeleteQueueResponse'),
-    newDeleteQueueResponse,
-
-    -- ** TagQueue
-    TagQueue (TagQueue'),
-    newTagQueue,
-    TagQueueResponse (TagQueueResponse'),
-    newTagQueueResponse,
-
-    -- ** DeleteMessageBatch
-    DeleteMessageBatch (DeleteMessageBatch'),
-    newDeleteMessageBatch,
-    DeleteMessageBatchResponse (DeleteMessageBatchResponse'),
-    newDeleteMessageBatchResponse,
-
-    -- ** SetQueueAttributes
-    SetQueueAttributes (SetQueueAttributes'),
-    newSetQueueAttributes,
-    SetQueueAttributesResponse (SetQueueAttributesResponse'),
-    newSetQueueAttributesResponse,
-
-    -- ** ListDeadLetterSourceQueues (Paginated)
-    ListDeadLetterSourceQueues (ListDeadLetterSourceQueues'),
-    newListDeadLetterSourceQueues,
-    ListDeadLetterSourceQueuesResponse (ListDeadLetterSourceQueuesResponse'),
-    newListDeadLetterSourceQueuesResponse,
-
-    -- ** AddPermission
-    AddPermission (AddPermission'),
-    newAddPermission,
-    AddPermissionResponse (AddPermissionResponse'),
-    newAddPermissionResponse,
+    -- ** CreateQueue
+    CreateQueue (CreateQueue'),
+    newCreateQueue,
+    CreateQueueResponse (CreateQueueResponse'),
+    newCreateQueueResponse,
 
     -- ** DeleteMessage
     DeleteMessage (DeleteMessage'),
@@ -200,23 +140,71 @@ module Amazonka.SQS
     DeleteMessageResponse (DeleteMessageResponse'),
     newDeleteMessageResponse,
 
+    -- ** DeleteMessageBatch
+    DeleteMessageBatch (DeleteMessageBatch'),
+    newDeleteMessageBatch,
+    DeleteMessageBatchResponse (DeleteMessageBatchResponse'),
+    newDeleteMessageBatchResponse,
+
+    -- ** DeleteQueue
+    DeleteQueue (DeleteQueue'),
+    newDeleteQueue,
+    DeleteQueueResponse (DeleteQueueResponse'),
+    newDeleteQueueResponse,
+
+    -- ** GetQueueAttributes
+    GetQueueAttributes (GetQueueAttributes'),
+    newGetQueueAttributes,
+    GetQueueAttributesResponse (GetQueueAttributesResponse'),
+    newGetQueueAttributesResponse,
+
+    -- ** GetQueueUrl
+    GetQueueUrl (GetQueueUrl'),
+    newGetQueueUrl,
+    GetQueueUrlResponse (GetQueueUrlResponse'),
+    newGetQueueUrlResponse,
+
+    -- ** ListDeadLetterSourceQueues (Paginated)
+    ListDeadLetterSourceQueues (ListDeadLetterSourceQueues'),
+    newListDeadLetterSourceQueues,
+    ListDeadLetterSourceQueuesResponse (ListDeadLetterSourceQueuesResponse'),
+    newListDeadLetterSourceQueuesResponse,
+
     -- ** ListQueueTags
     ListQueueTags (ListQueueTags'),
     newListQueueTags,
     ListQueueTagsResponse (ListQueueTagsResponse'),
     newListQueueTagsResponse,
 
-    -- ** CreateQueue
-    CreateQueue (CreateQueue'),
-    newCreateQueue,
-    CreateQueueResponse (CreateQueueResponse'),
-    newCreateQueueResponse,
+    -- ** ListQueues (Paginated)
+    ListQueues (ListQueues'),
+    newListQueues,
+    ListQueuesResponse (ListQueuesResponse'),
+    newListQueuesResponse,
 
-    -- ** UntagQueue
-    UntagQueue (UntagQueue'),
-    newUntagQueue,
-    UntagQueueResponse (UntagQueueResponse'),
-    newUntagQueueResponse,
+    -- ** PurgeQueue
+    PurgeQueue (PurgeQueue'),
+    newPurgeQueue,
+    PurgeQueueResponse (PurgeQueueResponse'),
+    newPurgeQueueResponse,
+
+    -- ** ReceiveMessage
+    ReceiveMessage (ReceiveMessage'),
+    newReceiveMessage,
+    ReceiveMessageResponse (ReceiveMessageResponse'),
+    newReceiveMessageResponse,
+
+    -- ** RemovePermission
+    RemovePermission (RemovePermission'),
+    newRemovePermission,
+    RemovePermissionResponse (RemovePermissionResponse'),
+    newRemovePermissionResponse,
+
+    -- ** SendMessage
+    SendMessage (SendMessage'),
+    newSendMessage,
+    SendMessageResponse (SendMessageResponse'),
+    newSendMessageResponse,
 
     -- ** SendMessageBatch
     SendMessageBatch (SendMessageBatch'),
@@ -224,11 +212,23 @@ module Amazonka.SQS
     SendMessageBatchResponse (SendMessageBatchResponse'),
     newSendMessageBatchResponse,
 
-    -- ** ChangeMessageVisibility
-    ChangeMessageVisibility (ChangeMessageVisibility'),
-    newChangeMessageVisibility,
-    ChangeMessageVisibilityResponse (ChangeMessageVisibilityResponse'),
-    newChangeMessageVisibilityResponse,
+    -- ** SetQueueAttributes
+    SetQueueAttributes (SetQueueAttributes'),
+    newSetQueueAttributes,
+    SetQueueAttributesResponse (SetQueueAttributesResponse'),
+    newSetQueueAttributesResponse,
+
+    -- ** TagQueue
+    TagQueue (TagQueue'),
+    newTagQueue,
+    TagQueueResponse (TagQueueResponse'),
+    newTagQueueResponse,
+
+    -- ** UntagQueue
+    UntagQueue (UntagQueue'),
+    newUntagQueue,
+    UntagQueueResponse (UntagQueueResponse'),
+    newUntagQueueResponse,
 
     -- * Types
 

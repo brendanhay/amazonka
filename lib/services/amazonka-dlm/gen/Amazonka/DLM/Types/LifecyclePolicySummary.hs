@@ -29,18 +29,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLifecyclePolicySummary' smart constructor.
 data LifecyclePolicySummary = LifecyclePolicySummary'
-  { -- | The activation state of the lifecycle policy.
-    state :: Prelude.Maybe GettablePolicyStateValues,
+  { -- | The tags.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The identifier of the lifecycle policy.
     policyId :: Prelude.Maybe Prelude.Text,
     -- | The type of policy. @EBS_SNAPSHOT_MANAGEMENT@ indicates that the policy
     -- manages the lifecycle of Amazon EBS snapshots. @IMAGE_MANAGEMENT@
     -- indicates that the policy manages the lifecycle of EBS-backed AMIs.
     policyType :: Prelude.Maybe PolicyTypeValues,
+    -- | The activation state of the lifecycle policy.
+    state :: Prelude.Maybe GettablePolicyStateValues,
     -- | The description of the lifecycle policy.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The tags.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,7 +52,7 @@ data LifecyclePolicySummary = LifecyclePolicySummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'lifecyclePolicySummary_state' - The activation state of the lifecycle policy.
+-- 'tags', 'lifecyclePolicySummary_tags' - The tags.
 --
 -- 'policyId', 'lifecyclePolicySummary_policyId' - The identifier of the lifecycle policy.
 --
@@ -60,23 +60,23 @@ data LifecyclePolicySummary = LifecyclePolicySummary'
 -- manages the lifecycle of Amazon EBS snapshots. @IMAGE_MANAGEMENT@
 -- indicates that the policy manages the lifecycle of EBS-backed AMIs.
 --
--- 'description', 'lifecyclePolicySummary_description' - The description of the lifecycle policy.
+-- 'state', 'lifecyclePolicySummary_state' - The activation state of the lifecycle policy.
 --
--- 'tags', 'lifecyclePolicySummary_tags' - The tags.
+-- 'description', 'lifecyclePolicySummary_description' - The description of the lifecycle policy.
 newLifecyclePolicySummary ::
   LifecyclePolicySummary
 newLifecyclePolicySummary =
   LifecyclePolicySummary'
-    { state = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       policyId = Prelude.Nothing,
       policyType = Prelude.Nothing,
-      description = Prelude.Nothing,
-      tags = Prelude.Nothing
+      state = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
--- | The activation state of the lifecycle policy.
-lifecyclePolicySummary_state :: Lens.Lens' LifecyclePolicySummary (Prelude.Maybe GettablePolicyStateValues)
-lifecyclePolicySummary_state = Lens.lens (\LifecyclePolicySummary' {state} -> state) (\s@LifecyclePolicySummary' {} a -> s {state = a} :: LifecyclePolicySummary)
+-- | The tags.
+lifecyclePolicySummary_tags :: Lens.Lens' LifecyclePolicySummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+lifecyclePolicySummary_tags = Lens.lens (\LifecyclePolicySummary' {tags} -> tags) (\s@LifecyclePolicySummary' {} a -> s {tags = a} :: LifecyclePolicySummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the lifecycle policy.
 lifecyclePolicySummary_policyId :: Lens.Lens' LifecyclePolicySummary (Prelude.Maybe Prelude.Text)
@@ -88,13 +88,13 @@ lifecyclePolicySummary_policyId = Lens.lens (\LifecyclePolicySummary' {policyId}
 lifecyclePolicySummary_policyType :: Lens.Lens' LifecyclePolicySummary (Prelude.Maybe PolicyTypeValues)
 lifecyclePolicySummary_policyType = Lens.lens (\LifecyclePolicySummary' {policyType} -> policyType) (\s@LifecyclePolicySummary' {} a -> s {policyType = a} :: LifecyclePolicySummary)
 
+-- | The activation state of the lifecycle policy.
+lifecyclePolicySummary_state :: Lens.Lens' LifecyclePolicySummary (Prelude.Maybe GettablePolicyStateValues)
+lifecyclePolicySummary_state = Lens.lens (\LifecyclePolicySummary' {state} -> state) (\s@LifecyclePolicySummary' {} a -> s {state = a} :: LifecyclePolicySummary)
+
 -- | The description of the lifecycle policy.
 lifecyclePolicySummary_description :: Lens.Lens' LifecyclePolicySummary (Prelude.Maybe Prelude.Text)
 lifecyclePolicySummary_description = Lens.lens (\LifecyclePolicySummary' {description} -> description) (\s@LifecyclePolicySummary' {} a -> s {description = a} :: LifecyclePolicySummary)
-
--- | The tags.
-lifecyclePolicySummary_tags :: Lens.Lens' LifecyclePolicySummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-lifecyclePolicySummary_tags = Lens.lens (\LifecyclePolicySummary' {tags} -> tags) (\s@LifecyclePolicySummary' {} a -> s {tags = a} :: LifecyclePolicySummary) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON LifecyclePolicySummary where
   parseJSON =
@@ -102,25 +102,25 @@ instance Core.FromJSON LifecyclePolicySummary where
       "LifecyclePolicySummary"
       ( \x ->
           LifecyclePolicySummary'
-            Prelude.<$> (x Core..:? "State")
+            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "PolicyId")
             Prelude.<*> (x Core..:? "PolicyType")
+            Prelude.<*> (x Core..:? "State")
             Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable LifecyclePolicySummary where
   hashWithSalt _salt LifecyclePolicySummary' {..} =
-    _salt `Prelude.hashWithSalt` state
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` policyId
       `Prelude.hashWithSalt` policyType
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData LifecyclePolicySummary where
   rnf LifecyclePolicySummary' {..} =
-    Prelude.rnf state
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf policyId
       `Prelude.seq` Prelude.rnf policyType
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags

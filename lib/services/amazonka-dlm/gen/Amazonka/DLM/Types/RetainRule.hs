@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRetainRule' smart constructor.
 data RetainRule = RetainRule'
-  { -- | The number of snapshots to retain for each volume, up to a maximum of
-    -- 1000.
-    count :: Prelude.Maybe Prelude.Natural,
-    -- | The amount of time to retain each snapshot. The maximum is 100 years.
+  { -- | The amount of time to retain each snapshot. The maximum is 100 years.
     -- This is equivalent to 1200 months, 5200 weeks, or 36500 days.
     interval :: Prelude.Maybe Prelude.Natural,
+    -- | The number of snapshots to retain for each volume, up to a maximum of
+    -- 1000.
+    count :: Prelude.Maybe Prelude.Natural,
     -- | The unit of time for time-based retention.
     intervalUnit :: Prelude.Maybe RetentionIntervalUnitValues
   }
@@ -48,31 +48,31 @@ data RetainRule = RetainRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'count', 'retainRule_count' - The number of snapshots to retain for each volume, up to a maximum of
--- 1000.
---
 -- 'interval', 'retainRule_interval' - The amount of time to retain each snapshot. The maximum is 100 years.
 -- This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+--
+-- 'count', 'retainRule_count' - The number of snapshots to retain for each volume, up to a maximum of
+-- 1000.
 --
 -- 'intervalUnit', 'retainRule_intervalUnit' - The unit of time for time-based retention.
 newRetainRule ::
   RetainRule
 newRetainRule =
   RetainRule'
-    { count = Prelude.Nothing,
-      interval = Prelude.Nothing,
+    { interval = Prelude.Nothing,
+      count = Prelude.Nothing,
       intervalUnit = Prelude.Nothing
     }
-
--- | The number of snapshots to retain for each volume, up to a maximum of
--- 1000.
-retainRule_count :: Lens.Lens' RetainRule (Prelude.Maybe Prelude.Natural)
-retainRule_count = Lens.lens (\RetainRule' {count} -> count) (\s@RetainRule' {} a -> s {count = a} :: RetainRule)
 
 -- | The amount of time to retain each snapshot. The maximum is 100 years.
 -- This is equivalent to 1200 months, 5200 weeks, or 36500 days.
 retainRule_interval :: Lens.Lens' RetainRule (Prelude.Maybe Prelude.Natural)
 retainRule_interval = Lens.lens (\RetainRule' {interval} -> interval) (\s@RetainRule' {} a -> s {interval = a} :: RetainRule)
+
+-- | The number of snapshots to retain for each volume, up to a maximum of
+-- 1000.
+retainRule_count :: Lens.Lens' RetainRule (Prelude.Maybe Prelude.Natural)
+retainRule_count = Lens.lens (\RetainRule' {count} -> count) (\s@RetainRule' {} a -> s {count = a} :: RetainRule)
 
 -- | The unit of time for time-based retention.
 retainRule_intervalUnit :: Lens.Lens' RetainRule (Prelude.Maybe RetentionIntervalUnitValues)
@@ -84,29 +84,29 @@ instance Core.FromJSON RetainRule where
       "RetainRule"
       ( \x ->
           RetainRule'
-            Prelude.<$> (x Core..:? "Count")
-            Prelude.<*> (x Core..:? "Interval")
+            Prelude.<$> (x Core..:? "Interval")
+            Prelude.<*> (x Core..:? "Count")
             Prelude.<*> (x Core..:? "IntervalUnit")
       )
 
 instance Prelude.Hashable RetainRule where
   hashWithSalt _salt RetainRule' {..} =
-    _salt `Prelude.hashWithSalt` count
-      `Prelude.hashWithSalt` interval
+    _salt `Prelude.hashWithSalt` interval
+      `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` intervalUnit
 
 instance Prelude.NFData RetainRule where
   rnf RetainRule' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf interval
+    Prelude.rnf interval
+      `Prelude.seq` Prelude.rnf count
       `Prelude.seq` Prelude.rnf intervalUnit
 
 instance Core.ToJSON RetainRule where
   toJSON RetainRule' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Count" Core..=) Prelude.<$> count,
-            ("Interval" Core..=) Prelude.<$> interval,
+          [ ("Interval" Core..=) Prelude.<$> interval,
+            ("Count" Core..=) Prelude.<$> count,
             ("IntervalUnit" Core..=) Prelude.<$> intervalUnit
           ]
       )

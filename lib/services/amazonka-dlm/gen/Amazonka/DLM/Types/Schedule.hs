@@ -34,28 +34,28 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSchedule' smart constructor.
 data Schedule = Schedule'
-  { -- | A collection of key\/value pairs with values determined dynamically when
+  { -- | The name of the schedule.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The rule for enabling fast snapshot restore.
+    fastRestoreRule :: Prelude.Maybe FastRestoreRule,
+    -- | A collection of key\/value pairs with values determined dynamically when
     -- the policy is executed. Keys may be any valid Amazon EC2 tag key. Values
     -- must be in one of the two following formats: @$(instance-id)@ or
     -- @$(timestamp)@. Variable tags are only valid for EBS Snapshot Management
     -- – Instance policies.
     variableTags :: Prelude.Maybe [Tag],
-    -- | The creation rule.
-    createRule :: Prelude.Maybe CreateRule,
-    -- | The AMI deprecation rule for the schedule.
-    deprecateRule :: Prelude.Maybe DeprecateRule,
-    -- | Copy all user-defined tags on a source volume to snapshots of the volume
-    -- created by this policy.
-    copyTags :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the schedule.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The rule for sharing snapshots with other Amazon Web Services accounts.
-    shareRules :: Prelude.Maybe [ShareRule],
     -- | The tags to apply to policy-created resources. These user-defined tags
     -- are in addition to the Amazon Web Services-added lifecycle tags.
     tagsToAdd :: Prelude.Maybe [Tag],
+    -- | The creation rule.
+    createRule :: Prelude.Maybe CreateRule,
+    -- | Copy all user-defined tags on a source volume to snapshots of the volume
+    -- created by this policy.
+    copyTags :: Prelude.Maybe Prelude.Bool,
     -- | The retention rule.
     retainRule :: Prelude.Maybe RetainRule,
+    -- | The AMI deprecation rule for the schedule.
+    deprecateRule :: Prelude.Maybe DeprecateRule,
     -- | The rule for cross-Region snapshot copies.
     --
     -- You can only specify cross-Region copy rules for policies that create
@@ -64,8 +64,8 @@ data Schedule = Schedule'
     -- policy creates snapshots in a Region, then snapshots can be copied to up
     -- to three Regions or Outposts.
     crossRegionCopyRules :: Prelude.Maybe [CrossRegionCopyRule],
-    -- | The rule for enabling fast snapshot restore.
-    fastRestoreRule :: Prelude.Maybe FastRestoreRule
+    -- | The rule for sharing snapshots with other Amazon Web Services accounts.
+    shareRules :: Prelude.Maybe [ShareRule]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,27 +77,27 @@ data Schedule = Schedule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'schedule_name' - The name of the schedule.
+--
+-- 'fastRestoreRule', 'schedule_fastRestoreRule' - The rule for enabling fast snapshot restore.
+--
 -- 'variableTags', 'schedule_variableTags' - A collection of key\/value pairs with values determined dynamically when
 -- the policy is executed. Keys may be any valid Amazon EC2 tag key. Values
 -- must be in one of the two following formats: @$(instance-id)@ or
 -- @$(timestamp)@. Variable tags are only valid for EBS Snapshot Management
 -- – Instance policies.
 --
--- 'createRule', 'schedule_createRule' - The creation rule.
+-- 'tagsToAdd', 'schedule_tagsToAdd' - The tags to apply to policy-created resources. These user-defined tags
+-- are in addition to the Amazon Web Services-added lifecycle tags.
 --
--- 'deprecateRule', 'schedule_deprecateRule' - The AMI deprecation rule for the schedule.
+-- 'createRule', 'schedule_createRule' - The creation rule.
 --
 -- 'copyTags', 'schedule_copyTags' - Copy all user-defined tags on a source volume to snapshots of the volume
 -- created by this policy.
 --
--- 'name', 'schedule_name' - The name of the schedule.
---
--- 'shareRules', 'schedule_shareRules' - The rule for sharing snapshots with other Amazon Web Services accounts.
---
--- 'tagsToAdd', 'schedule_tagsToAdd' - The tags to apply to policy-created resources. These user-defined tags
--- are in addition to the Amazon Web Services-added lifecycle tags.
---
 -- 'retainRule', 'schedule_retainRule' - The retention rule.
+--
+-- 'deprecateRule', 'schedule_deprecateRule' - The AMI deprecation rule for the schedule.
 --
 -- 'crossRegionCopyRules', 'schedule_crossRegionCopyRules' - The rule for cross-Region snapshot copies.
 --
@@ -107,22 +107,30 @@ data Schedule = Schedule'
 -- policy creates snapshots in a Region, then snapshots can be copied to up
 -- to three Regions or Outposts.
 --
--- 'fastRestoreRule', 'schedule_fastRestoreRule' - The rule for enabling fast snapshot restore.
+-- 'shareRules', 'schedule_shareRules' - The rule for sharing snapshots with other Amazon Web Services accounts.
 newSchedule ::
   Schedule
 newSchedule =
   Schedule'
-    { variableTags = Prelude.Nothing,
-      createRule = Prelude.Nothing,
-      deprecateRule = Prelude.Nothing,
-      copyTags = Prelude.Nothing,
-      name = Prelude.Nothing,
-      shareRules = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      fastRestoreRule = Prelude.Nothing,
+      variableTags = Prelude.Nothing,
       tagsToAdd = Prelude.Nothing,
+      createRule = Prelude.Nothing,
+      copyTags = Prelude.Nothing,
       retainRule = Prelude.Nothing,
+      deprecateRule = Prelude.Nothing,
       crossRegionCopyRules = Prelude.Nothing,
-      fastRestoreRule = Prelude.Nothing
+      shareRules = Prelude.Nothing
     }
+
+-- | The name of the schedule.
+schedule_name :: Lens.Lens' Schedule (Prelude.Maybe Prelude.Text)
+schedule_name = Lens.lens (\Schedule' {name} -> name) (\s@Schedule' {} a -> s {name = a} :: Schedule)
+
+-- | The rule for enabling fast snapshot restore.
+schedule_fastRestoreRule :: Lens.Lens' Schedule (Prelude.Maybe FastRestoreRule)
+schedule_fastRestoreRule = Lens.lens (\Schedule' {fastRestoreRule} -> fastRestoreRule) (\s@Schedule' {} a -> s {fastRestoreRule = a} :: Schedule)
 
 -- | A collection of key\/value pairs with values determined dynamically when
 -- the policy is executed. Keys may be any valid Amazon EC2 tag key. Values
@@ -132,35 +140,27 @@ newSchedule =
 schedule_variableTags :: Lens.Lens' Schedule (Prelude.Maybe [Tag])
 schedule_variableTags = Lens.lens (\Schedule' {variableTags} -> variableTags) (\s@Schedule' {} a -> s {variableTags = a} :: Schedule) Prelude.. Lens.mapping Lens.coerced
 
+-- | The tags to apply to policy-created resources. These user-defined tags
+-- are in addition to the Amazon Web Services-added lifecycle tags.
+schedule_tagsToAdd :: Lens.Lens' Schedule (Prelude.Maybe [Tag])
+schedule_tagsToAdd = Lens.lens (\Schedule' {tagsToAdd} -> tagsToAdd) (\s@Schedule' {} a -> s {tagsToAdd = a} :: Schedule) Prelude.. Lens.mapping Lens.coerced
+
 -- | The creation rule.
 schedule_createRule :: Lens.Lens' Schedule (Prelude.Maybe CreateRule)
 schedule_createRule = Lens.lens (\Schedule' {createRule} -> createRule) (\s@Schedule' {} a -> s {createRule = a} :: Schedule)
-
--- | The AMI deprecation rule for the schedule.
-schedule_deprecateRule :: Lens.Lens' Schedule (Prelude.Maybe DeprecateRule)
-schedule_deprecateRule = Lens.lens (\Schedule' {deprecateRule} -> deprecateRule) (\s@Schedule' {} a -> s {deprecateRule = a} :: Schedule)
 
 -- | Copy all user-defined tags on a source volume to snapshots of the volume
 -- created by this policy.
 schedule_copyTags :: Lens.Lens' Schedule (Prelude.Maybe Prelude.Bool)
 schedule_copyTags = Lens.lens (\Schedule' {copyTags} -> copyTags) (\s@Schedule' {} a -> s {copyTags = a} :: Schedule)
 
--- | The name of the schedule.
-schedule_name :: Lens.Lens' Schedule (Prelude.Maybe Prelude.Text)
-schedule_name = Lens.lens (\Schedule' {name} -> name) (\s@Schedule' {} a -> s {name = a} :: Schedule)
-
--- | The rule for sharing snapshots with other Amazon Web Services accounts.
-schedule_shareRules :: Lens.Lens' Schedule (Prelude.Maybe [ShareRule])
-schedule_shareRules = Lens.lens (\Schedule' {shareRules} -> shareRules) (\s@Schedule' {} a -> s {shareRules = a} :: Schedule) Prelude.. Lens.mapping Lens.coerced
-
--- | The tags to apply to policy-created resources. These user-defined tags
--- are in addition to the Amazon Web Services-added lifecycle tags.
-schedule_tagsToAdd :: Lens.Lens' Schedule (Prelude.Maybe [Tag])
-schedule_tagsToAdd = Lens.lens (\Schedule' {tagsToAdd} -> tagsToAdd) (\s@Schedule' {} a -> s {tagsToAdd = a} :: Schedule) Prelude.. Lens.mapping Lens.coerced
-
 -- | The retention rule.
 schedule_retainRule :: Lens.Lens' Schedule (Prelude.Maybe RetainRule)
 schedule_retainRule = Lens.lens (\Schedule' {retainRule} -> retainRule) (\s@Schedule' {} a -> s {retainRule = a} :: Schedule)
+
+-- | The AMI deprecation rule for the schedule.
+schedule_deprecateRule :: Lens.Lens' Schedule (Prelude.Maybe DeprecateRule)
+schedule_deprecateRule = Lens.lens (\Schedule' {deprecateRule} -> deprecateRule) (\s@Schedule' {} a -> s {deprecateRule = a} :: Schedule)
 
 -- | The rule for cross-Region snapshot copies.
 --
@@ -172,9 +172,9 @@ schedule_retainRule = Lens.lens (\Schedule' {retainRule} -> retainRule) (\s@Sche
 schedule_crossRegionCopyRules :: Lens.Lens' Schedule (Prelude.Maybe [CrossRegionCopyRule])
 schedule_crossRegionCopyRules = Lens.lens (\Schedule' {crossRegionCopyRules} -> crossRegionCopyRules) (\s@Schedule' {} a -> s {crossRegionCopyRules = a} :: Schedule) Prelude.. Lens.mapping Lens.coerced
 
--- | The rule for enabling fast snapshot restore.
-schedule_fastRestoreRule :: Lens.Lens' Schedule (Prelude.Maybe FastRestoreRule)
-schedule_fastRestoreRule = Lens.lens (\Schedule' {fastRestoreRule} -> fastRestoreRule) (\s@Schedule' {} a -> s {fastRestoreRule = a} :: Schedule)
+-- | The rule for sharing snapshots with other Amazon Web Services accounts.
+schedule_shareRules :: Lens.Lens' Schedule (Prelude.Maybe [ShareRule])
+schedule_shareRules = Lens.lens (\Schedule' {shareRules} -> shareRules) (\s@Schedule' {} a -> s {shareRules = a} :: Schedule) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON Schedule where
   parseJSON =
@@ -182,61 +182,61 @@ instance Core.FromJSON Schedule where
       "Schedule"
       ( \x ->
           Schedule'
-            Prelude.<$> (x Core..:? "VariableTags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CreateRule")
-            Prelude.<*> (x Core..:? "DeprecateRule")
-            Prelude.<*> (x Core..:? "CopyTags")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ShareRules" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "FastRestoreRule")
+            Prelude.<*> (x Core..:? "VariableTags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "TagsToAdd" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "CreateRule")
+            Prelude.<*> (x Core..:? "CopyTags")
             Prelude.<*> (x Core..:? "RetainRule")
+            Prelude.<*> (x Core..:? "DeprecateRule")
             Prelude.<*> ( x Core..:? "CrossRegionCopyRules"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "FastRestoreRule")
+            Prelude.<*> (x Core..:? "ShareRules" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Schedule where
   hashWithSalt _salt Schedule' {..} =
-    _salt `Prelude.hashWithSalt` variableTags
-      `Prelude.hashWithSalt` createRule
-      `Prelude.hashWithSalt` deprecateRule
-      `Prelude.hashWithSalt` copyTags
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` shareRules
-      `Prelude.hashWithSalt` tagsToAdd
-      `Prelude.hashWithSalt` retainRule
-      `Prelude.hashWithSalt` crossRegionCopyRules
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` fastRestoreRule
+      `Prelude.hashWithSalt` variableTags
+      `Prelude.hashWithSalt` tagsToAdd
+      `Prelude.hashWithSalt` createRule
+      `Prelude.hashWithSalt` copyTags
+      `Prelude.hashWithSalt` retainRule
+      `Prelude.hashWithSalt` deprecateRule
+      `Prelude.hashWithSalt` crossRegionCopyRules
+      `Prelude.hashWithSalt` shareRules
 
 instance Prelude.NFData Schedule where
   rnf Schedule' {..} =
-    Prelude.rnf variableTags
-      `Prelude.seq` Prelude.rnf createRule
-      `Prelude.seq` Prelude.rnf deprecateRule
-      `Prelude.seq` Prelude.rnf copyTags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf shareRules
-      `Prelude.seq` Prelude.rnf tagsToAdd
-      `Prelude.seq` Prelude.rnf retainRule
-      `Prelude.seq` Prelude.rnf crossRegionCopyRules
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf fastRestoreRule
+      `Prelude.seq` Prelude.rnf variableTags
+      `Prelude.seq` Prelude.rnf tagsToAdd
+      `Prelude.seq` Prelude.rnf createRule
+      `Prelude.seq` Prelude.rnf copyTags
+      `Prelude.seq` Prelude.rnf retainRule
+      `Prelude.seq` Prelude.rnf deprecateRule
+      `Prelude.seq` Prelude.rnf crossRegionCopyRules
+      `Prelude.seq` Prelude.rnf shareRules
 
 instance Core.ToJSON Schedule where
   toJSON Schedule' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("VariableTags" Core..=) Prelude.<$> variableTags,
-            ("CreateRule" Core..=) Prelude.<$> createRule,
-            ("DeprecateRule" Core..=) Prelude.<$> deprecateRule,
-            ("CopyTags" Core..=) Prelude.<$> copyTags,
-            ("Name" Core..=) Prelude.<$> name,
-            ("ShareRules" Core..=) Prelude.<$> shareRules,
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("FastRestoreRule" Core..=)
+              Prelude.<$> fastRestoreRule,
+            ("VariableTags" Core..=) Prelude.<$> variableTags,
             ("TagsToAdd" Core..=) Prelude.<$> tagsToAdd,
+            ("CreateRule" Core..=) Prelude.<$> createRule,
+            ("CopyTags" Core..=) Prelude.<$> copyTags,
             ("RetainRule" Core..=) Prelude.<$> retainRule,
+            ("DeprecateRule" Core..=) Prelude.<$> deprecateRule,
             ("CrossRegionCopyRules" Core..=)
               Prelude.<$> crossRegionCopyRules,
-            ("FastRestoreRule" Core..=)
-              Prelude.<$> fastRestoreRule
+            ("ShareRules" Core..=) Prelude.<$> shareRules
           ]
       )

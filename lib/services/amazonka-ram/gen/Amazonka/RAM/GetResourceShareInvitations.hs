@@ -30,9 +30,9 @@ module Amazonka.RAM.GetResourceShareInvitations
 
     -- * Request Lenses
     getResourceShareInvitations_nextToken,
-    getResourceShareInvitations_resourceShareInvitationArns,
     getResourceShareInvitations_maxResults,
     getResourceShareInvitations_resourceShareArns,
+    getResourceShareInvitations_resourceShareInvitationArns,
 
     -- * Destructuring the Response
     GetResourceShareInvitationsResponse (..),
@@ -56,14 +56,14 @@ import qualified Amazonka.Response as Response
 data GetResourceShareInvitations = GetResourceShareInvitations'
   { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Names (ARN) of the invitations.
-    resourceShareInvitationArns :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Names (ARN) of the resource shares.
-    resourceShareArns :: Prelude.Maybe [Prelude.Text]
+    resourceShareArns :: Prelude.Maybe [Prelude.Text],
+    -- | The Amazon Resource Names (ARN) of the invitations.
+    resourceShareInvitationArns :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,31 +77,27 @@ data GetResourceShareInvitations = GetResourceShareInvitations'
 --
 -- 'nextToken', 'getResourceShareInvitations_nextToken' - The token for the next page of results.
 --
--- 'resourceShareInvitationArns', 'getResourceShareInvitations_resourceShareInvitationArns' - The Amazon Resource Names (ARN) of the invitations.
---
 -- 'maxResults', 'getResourceShareInvitations_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
 --
 -- 'resourceShareArns', 'getResourceShareInvitations_resourceShareArns' - The Amazon Resource Names (ARN) of the resource shares.
+--
+-- 'resourceShareInvitationArns', 'getResourceShareInvitations_resourceShareInvitationArns' - The Amazon Resource Names (ARN) of the invitations.
 newGetResourceShareInvitations ::
   GetResourceShareInvitations
 newGetResourceShareInvitations =
   GetResourceShareInvitations'
     { nextToken =
         Prelude.Nothing,
-      resourceShareInvitationArns = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      resourceShareArns = Prelude.Nothing
+      resourceShareArns = Prelude.Nothing,
+      resourceShareInvitationArns = Prelude.Nothing
     }
 
 -- | The token for the next page of results.
 getResourceShareInvitations_nextToken :: Lens.Lens' GetResourceShareInvitations (Prelude.Maybe Prelude.Text)
 getResourceShareInvitations_nextToken = Lens.lens (\GetResourceShareInvitations' {nextToken} -> nextToken) (\s@GetResourceShareInvitations' {} a -> s {nextToken = a} :: GetResourceShareInvitations)
-
--- | The Amazon Resource Names (ARN) of the invitations.
-getResourceShareInvitations_resourceShareInvitationArns :: Lens.Lens' GetResourceShareInvitations (Prelude.Maybe [Prelude.Text])
-getResourceShareInvitations_resourceShareInvitationArns = Lens.lens (\GetResourceShareInvitations' {resourceShareInvitationArns} -> resourceShareInvitationArns) (\s@GetResourceShareInvitations' {} a -> s {resourceShareInvitationArns = a} :: GetResourceShareInvitations) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
@@ -112,6 +108,10 @@ getResourceShareInvitations_maxResults = Lens.lens (\GetResourceShareInvitations
 -- | The Amazon Resource Names (ARN) of the resource shares.
 getResourceShareInvitations_resourceShareArns :: Lens.Lens' GetResourceShareInvitations (Prelude.Maybe [Prelude.Text])
 getResourceShareInvitations_resourceShareArns = Lens.lens (\GetResourceShareInvitations' {resourceShareArns} -> resourceShareArns) (\s@GetResourceShareInvitations' {} a -> s {resourceShareArns = a} :: GetResourceShareInvitations) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Names (ARN) of the invitations.
+getResourceShareInvitations_resourceShareInvitationArns :: Lens.Lens' GetResourceShareInvitations (Prelude.Maybe [Prelude.Text])
+getResourceShareInvitations_resourceShareInvitationArns = Lens.lens (\GetResourceShareInvitations' {resourceShareInvitationArns} -> resourceShareInvitationArns) (\s@GetResourceShareInvitations' {} a -> s {resourceShareInvitationArns = a} :: GetResourceShareInvitations) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager GetResourceShareInvitations where
   page rq rs
@@ -154,16 +154,16 @@ instance Core.AWSRequest GetResourceShareInvitations where
 instance Prelude.Hashable GetResourceShareInvitations where
   hashWithSalt _salt GetResourceShareInvitations' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` resourceShareInvitationArns
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` resourceShareArns
+      `Prelude.hashWithSalt` resourceShareInvitationArns
 
 instance Prelude.NFData GetResourceShareInvitations where
   rnf GetResourceShareInvitations' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceShareInvitationArns
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf resourceShareArns
+      `Prelude.seq` Prelude.rnf resourceShareInvitationArns
 
 instance Core.ToHeaders GetResourceShareInvitations where
   toHeaders =
@@ -181,11 +181,11 @@ instance Core.ToJSON GetResourceShareInvitations where
     Core.object
       ( Prelude.catMaybes
           [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("resourceShareInvitationArns" Core..=)
-              Prelude.<$> resourceShareInvitationArns,
             ("maxResults" Core..=) Prelude.<$> maxResults,
             ("resourceShareArns" Core..=)
-              Prelude.<$> resourceShareArns
+              Prelude.<$> resourceShareArns,
+            ("resourceShareInvitationArns" Core..=)
+              Prelude.<$> resourceShareInvitationArns
           ]
       )
 

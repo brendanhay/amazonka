@@ -30,11 +30,11 @@ module Amazonka.RAM.GetResourceShares
     newGetResourceShares,
 
     -- * Request Lenses
-    getResourceShares_tagFilters,
-    getResourceShares_nextToken,
     getResourceShares_name,
+    getResourceShares_nextToken,
     getResourceShares_resourceShareStatus,
     getResourceShares_permissionArn,
+    getResourceShares_tagFilters,
     getResourceShares_maxResults,
     getResourceShares_resourceShareArns,
     getResourceShares_resourceOwner,
@@ -44,8 +44,8 @@ module Amazonka.RAM.GetResourceShares
     newGetResourceSharesResponse,
 
     -- * Response Lenses
-    getResourceSharesResponse_resourceShares,
     getResourceSharesResponse_nextToken,
+    getResourceSharesResponse_resourceShares,
     getResourceSharesResponse_httpStatus,
   )
 where
@@ -59,17 +59,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetResourceShares' smart constructor.
 data GetResourceShares = GetResourceShares'
-  { -- | One or more tag filters.
-    tagFilters :: Prelude.Maybe [TagFilter],
+  { -- | The name of the resource share.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of the resource share.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The status of the resource share.
     resourceShareStatus :: Prelude.Maybe ResourceShareStatus,
     -- | The Amazon Resource Name (ARN) of the RAM permission that is associated
     -- with the resource share.
     permissionArn :: Prelude.Maybe Prelude.Text,
+    -- | One or more tag filters.
+    tagFilters :: Prelude.Maybe [TagFilter],
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
@@ -89,16 +89,16 @@ data GetResourceShares = GetResourceShares'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagFilters', 'getResourceShares_tagFilters' - One or more tag filters.
+-- 'name', 'getResourceShares_name' - The name of the resource share.
 --
 -- 'nextToken', 'getResourceShares_nextToken' - The token for the next page of results.
---
--- 'name', 'getResourceShares_name' - The name of the resource share.
 --
 -- 'resourceShareStatus', 'getResourceShares_resourceShareStatus' - The status of the resource share.
 --
 -- 'permissionArn', 'getResourceShares_permissionArn' - The Amazon Resource Name (ARN) of the RAM permission that is associated
 -- with the resource share.
+--
+-- 'tagFilters', 'getResourceShares_tagFilters' - One or more tag filters.
 --
 -- 'maxResults', 'getResourceShares_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
@@ -113,27 +113,23 @@ newGetResourceShares ::
   GetResourceShares
 newGetResourceShares pResourceOwner_ =
   GetResourceShares'
-    { tagFilters = Prelude.Nothing,
+    { name = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      name = Prelude.Nothing,
       resourceShareStatus = Prelude.Nothing,
       permissionArn = Prelude.Nothing,
+      tagFilters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       resourceShareArns = Prelude.Nothing,
       resourceOwner = pResourceOwner_
     }
 
--- | One or more tag filters.
-getResourceShares_tagFilters :: Lens.Lens' GetResourceShares (Prelude.Maybe [TagFilter])
-getResourceShares_tagFilters = Lens.lens (\GetResourceShares' {tagFilters} -> tagFilters) (\s@GetResourceShares' {} a -> s {tagFilters = a} :: GetResourceShares) Prelude.. Lens.mapping Lens.coerced
+-- | The name of the resource share.
+getResourceShares_name :: Lens.Lens' GetResourceShares (Prelude.Maybe Prelude.Text)
+getResourceShares_name = Lens.lens (\GetResourceShares' {name} -> name) (\s@GetResourceShares' {} a -> s {name = a} :: GetResourceShares)
 
 -- | The token for the next page of results.
 getResourceShares_nextToken :: Lens.Lens' GetResourceShares (Prelude.Maybe Prelude.Text)
 getResourceShares_nextToken = Lens.lens (\GetResourceShares' {nextToken} -> nextToken) (\s@GetResourceShares' {} a -> s {nextToken = a} :: GetResourceShares)
-
--- | The name of the resource share.
-getResourceShares_name :: Lens.Lens' GetResourceShares (Prelude.Maybe Prelude.Text)
-getResourceShares_name = Lens.lens (\GetResourceShares' {name} -> name) (\s@GetResourceShares' {} a -> s {name = a} :: GetResourceShares)
 
 -- | The status of the resource share.
 getResourceShares_resourceShareStatus :: Lens.Lens' GetResourceShares (Prelude.Maybe ResourceShareStatus)
@@ -143,6 +139,10 @@ getResourceShares_resourceShareStatus = Lens.lens (\GetResourceShares' {resource
 -- with the resource share.
 getResourceShares_permissionArn :: Lens.Lens' GetResourceShares (Prelude.Maybe Prelude.Text)
 getResourceShares_permissionArn = Lens.lens (\GetResourceShares' {permissionArn} -> permissionArn) (\s@GetResourceShares' {} a -> s {permissionArn = a} :: GetResourceShares)
+
+-- | One or more tag filters.
+getResourceShares_tagFilters :: Lens.Lens' GetResourceShares (Prelude.Maybe [TagFilter])
+getResourceShares_tagFilters = Lens.lens (\GetResourceShares' {tagFilters} -> tagFilters) (\s@GetResourceShares' {} a -> s {tagFilters = a} :: GetResourceShares) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
@@ -189,29 +189,29 @@ instance Core.AWSRequest GetResourceShares where
     Response.receiveJSON
       ( \s h x ->
           GetResourceSharesResponse'
-            Prelude.<$> (x Core..?> "resourceShares" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "resourceShares" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetResourceShares where
   hashWithSalt _salt GetResourceShares' {..} =
-    _salt `Prelude.hashWithSalt` tagFilters
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` resourceShareStatus
       `Prelude.hashWithSalt` permissionArn
+      `Prelude.hashWithSalt` tagFilters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` resourceShareArns
       `Prelude.hashWithSalt` resourceOwner
 
 instance Prelude.NFData GetResourceShares where
   rnf GetResourceShares' {..} =
-    Prelude.rnf tagFilters
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf resourceShareStatus
       `Prelude.seq` Prelude.rnf permissionArn
+      `Prelude.seq` Prelude.rnf tagFilters
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf resourceShareArns
       `Prelude.seq` Prelude.rnf resourceOwner
@@ -231,12 +231,12 @@ instance Core.ToJSON GetResourceShares where
   toJSON GetResourceShares' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("tagFilters" Core..=) Prelude.<$> tagFilters,
+          [ ("name" Core..=) Prelude.<$> name,
             ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("name" Core..=) Prelude.<$> name,
             ("resourceShareStatus" Core..=)
               Prelude.<$> resourceShareStatus,
             ("permissionArn" Core..=) Prelude.<$> permissionArn,
+            ("tagFilters" Core..=) Prelude.<$> tagFilters,
             ("maxResults" Core..=) Prelude.<$> maxResults,
             ("resourceShareArns" Core..=)
               Prelude.<$> resourceShareArns,
@@ -253,11 +253,11 @@ instance Core.ToQuery GetResourceShares where
 
 -- | /See:/ 'newGetResourceSharesResponse' smart constructor.
 data GetResourceSharesResponse = GetResourceSharesResponse'
-  { -- | Information about the resource shares.
-    resourceShares :: Prelude.Maybe [ResourceShare],
-    -- | The token to use to retrieve the next page of results. This value is
+  { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the resource shares.
+    resourceShares :: Prelude.Maybe [ResourceShare],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -271,10 +271,10 @@ data GetResourceSharesResponse = GetResourceSharesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceShares', 'getResourceSharesResponse_resourceShares' - Information about the resource shares.
---
 -- 'nextToken', 'getResourceSharesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
+--
+-- 'resourceShares', 'getResourceSharesResponse_resourceShares' - Information about the resource shares.
 --
 -- 'httpStatus', 'getResourceSharesResponse_httpStatus' - The response's http status code.
 newGetResourceSharesResponse ::
@@ -283,20 +283,20 @@ newGetResourceSharesResponse ::
   GetResourceSharesResponse
 newGetResourceSharesResponse pHttpStatus_ =
   GetResourceSharesResponse'
-    { resourceShares =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      resourceShares = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the resource shares.
-getResourceSharesResponse_resourceShares :: Lens.Lens' GetResourceSharesResponse (Prelude.Maybe [ResourceShare])
-getResourceSharesResponse_resourceShares = Lens.lens (\GetResourceSharesResponse' {resourceShares} -> resourceShares) (\s@GetResourceSharesResponse' {} a -> s {resourceShares = a} :: GetResourceSharesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 getResourceSharesResponse_nextToken :: Lens.Lens' GetResourceSharesResponse (Prelude.Maybe Prelude.Text)
 getResourceSharesResponse_nextToken = Lens.lens (\GetResourceSharesResponse' {nextToken} -> nextToken) (\s@GetResourceSharesResponse' {} a -> s {nextToken = a} :: GetResourceSharesResponse)
+
+-- | Information about the resource shares.
+getResourceSharesResponse_resourceShares :: Lens.Lens' GetResourceSharesResponse (Prelude.Maybe [ResourceShare])
+getResourceSharesResponse_resourceShares = Lens.lens (\GetResourceSharesResponse' {resourceShares} -> resourceShares) (\s@GetResourceSharesResponse' {} a -> s {resourceShares = a} :: GetResourceSharesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getResourceSharesResponse_httpStatus :: Lens.Lens' GetResourceSharesResponse Prelude.Int
@@ -304,6 +304,6 @@ getResourceSharesResponse_httpStatus = Lens.lens (\GetResourceSharesResponse' {h
 
 instance Prelude.NFData GetResourceSharesResponse where
   rnf GetResourceSharesResponse' {..} =
-    Prelude.rnf resourceShares
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceShares
       `Prelude.seq` Prelude.rnf httpStatus

@@ -37,8 +37,8 @@ module Amazonka.RAM.ListPendingInvitationResources
     newListPendingInvitationResourcesResponse,
 
     -- * Response Lenses
-    listPendingInvitationResourcesResponse_resources,
     listPendingInvitationResourcesResponse_nextToken,
+    listPendingInvitationResourcesResponse_resources,
     listPendingInvitationResourcesResponse_httpStatus,
   )
 where
@@ -118,8 +118,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListPendingInvitationResourcesResponse'
-            Prelude.<$> (x Core..?> "resources" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "resources" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -179,11 +179,11 @@ instance Core.ToQuery ListPendingInvitationResources where
 
 -- | /See:/ 'newListPendingInvitationResourcesResponse' smart constructor.
 data ListPendingInvitationResourcesResponse = ListPendingInvitationResourcesResponse'
-  { -- | Information about the resources included the resource share.
-    resources :: Prelude.Maybe [Resource],
-    -- | The token to use to retrieve the next page of results. This value is
+  { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the resources included the resource share.
+    resources :: Prelude.Maybe [Resource],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -197,10 +197,10 @@ data ListPendingInvitationResourcesResponse = ListPendingInvitationResourcesResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resources', 'listPendingInvitationResourcesResponse_resources' - Information about the resources included the resource share.
---
 -- 'nextToken', 'listPendingInvitationResourcesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
+--
+-- 'resources', 'listPendingInvitationResourcesResponse_resources' - Information about the resources included the resource share.
 --
 -- 'httpStatus', 'listPendingInvitationResourcesResponse_httpStatus' - The response's http status code.
 newListPendingInvitationResourcesResponse ::
@@ -210,20 +210,20 @@ newListPendingInvitationResourcesResponse ::
 newListPendingInvitationResourcesResponse
   pHttpStatus_ =
     ListPendingInvitationResourcesResponse'
-      { resources =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        resources = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Information about the resources included the resource share.
-listPendingInvitationResourcesResponse_resources :: Lens.Lens' ListPendingInvitationResourcesResponse (Prelude.Maybe [Resource])
-listPendingInvitationResourcesResponse_resources = Lens.lens (\ListPendingInvitationResourcesResponse' {resources} -> resources) (\s@ListPendingInvitationResourcesResponse' {} a -> s {resources = a} :: ListPendingInvitationResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 listPendingInvitationResourcesResponse_nextToken :: Lens.Lens' ListPendingInvitationResourcesResponse (Prelude.Maybe Prelude.Text)
 listPendingInvitationResourcesResponse_nextToken = Lens.lens (\ListPendingInvitationResourcesResponse' {nextToken} -> nextToken) (\s@ListPendingInvitationResourcesResponse' {} a -> s {nextToken = a} :: ListPendingInvitationResourcesResponse)
+
+-- | Information about the resources included the resource share.
+listPendingInvitationResourcesResponse_resources :: Lens.Lens' ListPendingInvitationResourcesResponse (Prelude.Maybe [Resource])
+listPendingInvitationResourcesResponse_resources = Lens.lens (\ListPendingInvitationResourcesResponse' {resources} -> resources) (\s@ListPendingInvitationResourcesResponse' {} a -> s {resources = a} :: ListPendingInvitationResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listPendingInvitationResourcesResponse_httpStatus :: Lens.Lens' ListPendingInvitationResourcesResponse Prelude.Int
@@ -234,6 +234,6 @@ instance
     ListPendingInvitationResourcesResponse
   where
   rnf ListPendingInvitationResourcesResponse' {..} =
-    Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resources
       `Prelude.seq` Prelude.rnf httpStatus

@@ -27,23 +27,11 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestPromoteResourceShareCreatedFromPolicy $
---             newPromoteResourceShareCreatedFromPolicy
+--         [ requestAcceptResourceShareInvitation $
+--             newAcceptResourceShareInvitation
 --
---         , requestGetResourceShares $
---             newGetResourceShares
---
---         , requestGetResourcePolicies $
---             newGetResourcePolicies
---
---         , requestListPendingInvitationResources $
---             newListPendingInvitationResources
---
---         , requestGetPermission $
---             newGetPermission
---
---         , requestEnableSharingWithAwsOrganization $
---             newEnableSharingWithAwsOrganization
+--         , requestAssociateResourceShare $
+--             newAssociateResourceShare
 --
 --         , requestAssociateResourceSharePermission $
 --             newAssociateResourceSharePermission
@@ -51,38 +39,23 @@ import Test.Tasty
 --         , requestCreateResourceShare $
 --             newCreateResourceShare
 --
---         , requestListPrincipals $
---             newListPrincipals
---
---         , requestListResources $
---             newListResources
---
---         , requestAcceptResourceShareInvitation $
---             newAcceptResourceShareInvitation
---
 --         , requestDeleteResourceShare $
 --             newDeleteResourceShare
---
---         , requestUpdateResourceShare $
---             newUpdateResourceShare
---
---         , requestRejectResourceShareInvitation $
---             newRejectResourceShareInvitation
---
---         , requestListPermissions $
---             newListPermissions
 --
 --         , requestDisassociateResourceShare $
 --             newDisassociateResourceShare
 --
---         , requestListResourceSharePermissions $
---             newListResourceSharePermissions
+--         , requestDisassociateResourceSharePermission $
+--             newDisassociateResourceSharePermission
 --
---         , requestTagResource $
---             newTagResource
+--         , requestEnableSharingWithAwsOrganization $
+--             newEnableSharingWithAwsOrganization
 --
---         , requestListResourceTypes $
---             newListResourceTypes
+--         , requestGetPermission $
+--             newGetPermission
+--
+--         , requestGetResourcePolicies $
+--             newGetResourcePolicies
 --
 --         , requestGetResourceShareAssociations $
 --             newGetResourceShareAssociations
@@ -90,35 +63,50 @@ import Test.Tasty
 --         , requestGetResourceShareInvitations $
 --             newGetResourceShareInvitations
 --
+--         , requestGetResourceShares $
+--             newGetResourceShares
+--
+--         , requestListPendingInvitationResources $
+--             newListPendingInvitationResources
+--
+--         , requestListPermissions $
+--             newListPermissions
+--
+--         , requestListPrincipals $
+--             newListPrincipals
+--
+--         , requestListResourceSharePermissions $
+--             newListResourceSharePermissions
+--
+--         , requestListResourceTypes $
+--             newListResourceTypes
+--
+--         , requestListResources $
+--             newListResources
+--
+--         , requestPromoteResourceShareCreatedFromPolicy $
+--             newPromoteResourceShareCreatedFromPolicy
+--
+--         , requestRejectResourceShareInvitation $
+--             newRejectResourceShareInvitation
+--
+--         , requestTagResource $
+--             newTagResource
+--
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestAssociateResourceShare $
---             newAssociateResourceShare
---
---         , requestDisassociateResourceSharePermission $
---             newDisassociateResourceSharePermission
+--         , requestUpdateResourceShare $
+--             newUpdateResourceShare
 --
 --           ]
 
 --     , testGroup "response"
---         [ responsePromoteResourceShareCreatedFromPolicy $
---             newPromoteResourceShareCreatedFromPolicyResponse
+--         [ responseAcceptResourceShareInvitation $
+--             newAcceptResourceShareInvitationResponse
 --
---         , responseGetResourceShares $
---             newGetResourceSharesResponse
---
---         , responseGetResourcePolicies $
---             newGetResourcePoliciesResponse
---
---         , responseListPendingInvitationResources $
---             newListPendingInvitationResourcesResponse
---
---         , responseGetPermission $
---             newGetPermissionResponse
---
---         , responseEnableSharingWithAwsOrganization $
---             newEnableSharingWithAwsOrganizationResponse
+--         , responseAssociateResourceShare $
+--             newAssociateResourceShareResponse
 --
 --         , responseAssociateResourceSharePermission $
 --             newAssociateResourceSharePermissionResponse
@@ -126,38 +114,23 @@ import Test.Tasty
 --         , responseCreateResourceShare $
 --             newCreateResourceShareResponse
 --
---         , responseListPrincipals $
---             newListPrincipalsResponse
---
---         , responseListResources $
---             newListResourcesResponse
---
---         , responseAcceptResourceShareInvitation $
---             newAcceptResourceShareInvitationResponse
---
 --         , responseDeleteResourceShare $
 --             newDeleteResourceShareResponse
---
---         , responseUpdateResourceShare $
---             newUpdateResourceShareResponse
---
---         , responseRejectResourceShareInvitation $
---             newRejectResourceShareInvitationResponse
---
---         , responseListPermissions $
---             newListPermissionsResponse
 --
 --         , responseDisassociateResourceShare $
 --             newDisassociateResourceShareResponse
 --
---         , responseListResourceSharePermissions $
---             newListResourceSharePermissionsResponse
+--         , responseDisassociateResourceSharePermission $
+--             newDisassociateResourceSharePermissionResponse
 --
---         , responseTagResource $
---             newTagResourceResponse
+--         , responseEnableSharingWithAwsOrganization $
+--             newEnableSharingWithAwsOrganizationResponse
 --
---         , responseListResourceTypes $
---             newListResourceTypesResponse
+--         , responseGetPermission $
+--             newGetPermissionResponse
+--
+--         , responseGetResourcePolicies $
+--             newGetResourcePoliciesResponse
 --
 --         , responseGetResourceShareAssociations $
 --             newGetResourceShareAssociationsResponse
@@ -165,55 +138,58 @@ import Test.Tasty
 --         , responseGetResourceShareInvitations $
 --             newGetResourceShareInvitationsResponse
 --
+--         , responseGetResourceShares $
+--             newGetResourceSharesResponse
+--
+--         , responseListPendingInvitationResources $
+--             newListPendingInvitationResourcesResponse
+--
+--         , responseListPermissions $
+--             newListPermissionsResponse
+--
+--         , responseListPrincipals $
+--             newListPrincipalsResponse
+--
+--         , responseListResourceSharePermissions $
+--             newListResourceSharePermissionsResponse
+--
+--         , responseListResourceTypes $
+--             newListResourceTypesResponse
+--
+--         , responseListResources $
+--             newListResourcesResponse
+--
+--         , responsePromoteResourceShareCreatedFromPolicy $
+--             newPromoteResourceShareCreatedFromPolicyResponse
+--
+--         , responseRejectResourceShareInvitation $
+--             newRejectResourceShareInvitationResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseAssociateResourceShare $
---             newAssociateResourceShareResponse
---
---         , responseDisassociateResourceSharePermission $
---             newDisassociateResourceSharePermissionResponse
+--         , responseUpdateResourceShare $
+--             newUpdateResourceShareResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestPromoteResourceShareCreatedFromPolicy :: PromoteResourceShareCreatedFromPolicy -> TestTree
-requestPromoteResourceShareCreatedFromPolicy =
+requestAcceptResourceShareInvitation :: AcceptResourceShareInvitation -> TestTree
+requestAcceptResourceShareInvitation =
   req
-    "PromoteResourceShareCreatedFromPolicy"
-    "fixture/PromoteResourceShareCreatedFromPolicy.yaml"
+    "AcceptResourceShareInvitation"
+    "fixture/AcceptResourceShareInvitation.yaml"
 
-requestGetResourceShares :: GetResourceShares -> TestTree
-requestGetResourceShares =
+requestAssociateResourceShare :: AssociateResourceShare -> TestTree
+requestAssociateResourceShare =
   req
-    "GetResourceShares"
-    "fixture/GetResourceShares.yaml"
-
-requestGetResourcePolicies :: GetResourcePolicies -> TestTree
-requestGetResourcePolicies =
-  req
-    "GetResourcePolicies"
-    "fixture/GetResourcePolicies.yaml"
-
-requestListPendingInvitationResources :: ListPendingInvitationResources -> TestTree
-requestListPendingInvitationResources =
-  req
-    "ListPendingInvitationResources"
-    "fixture/ListPendingInvitationResources.yaml"
-
-requestGetPermission :: GetPermission -> TestTree
-requestGetPermission =
-  req
-    "GetPermission"
-    "fixture/GetPermission.yaml"
-
-requestEnableSharingWithAwsOrganization :: EnableSharingWithAwsOrganization -> TestTree
-requestEnableSharingWithAwsOrganization =
-  req
-    "EnableSharingWithAwsOrganization"
-    "fixture/EnableSharingWithAwsOrganization.yaml"
+    "AssociateResourceShare"
+    "fixture/AssociateResourceShare.yaml"
 
 requestAssociateResourceSharePermission :: AssociateResourceSharePermission -> TestTree
 requestAssociateResourceSharePermission =
@@ -227,47 +203,11 @@ requestCreateResourceShare =
     "CreateResourceShare"
     "fixture/CreateResourceShare.yaml"
 
-requestListPrincipals :: ListPrincipals -> TestTree
-requestListPrincipals =
-  req
-    "ListPrincipals"
-    "fixture/ListPrincipals.yaml"
-
-requestListResources :: ListResources -> TestTree
-requestListResources =
-  req
-    "ListResources"
-    "fixture/ListResources.yaml"
-
-requestAcceptResourceShareInvitation :: AcceptResourceShareInvitation -> TestTree
-requestAcceptResourceShareInvitation =
-  req
-    "AcceptResourceShareInvitation"
-    "fixture/AcceptResourceShareInvitation.yaml"
-
 requestDeleteResourceShare :: DeleteResourceShare -> TestTree
 requestDeleteResourceShare =
   req
     "DeleteResourceShare"
     "fixture/DeleteResourceShare.yaml"
-
-requestUpdateResourceShare :: UpdateResourceShare -> TestTree
-requestUpdateResourceShare =
-  req
-    "UpdateResourceShare"
-    "fixture/UpdateResourceShare.yaml"
-
-requestRejectResourceShareInvitation :: RejectResourceShareInvitation -> TestTree
-requestRejectResourceShareInvitation =
-  req
-    "RejectResourceShareInvitation"
-    "fixture/RejectResourceShareInvitation.yaml"
-
-requestListPermissions :: ListPermissions -> TestTree
-requestListPermissions =
-  req
-    "ListPermissions"
-    "fixture/ListPermissions.yaml"
 
 requestDisassociateResourceShare :: DisassociateResourceShare -> TestTree
 requestDisassociateResourceShare =
@@ -275,23 +215,29 @@ requestDisassociateResourceShare =
     "DisassociateResourceShare"
     "fixture/DisassociateResourceShare.yaml"
 
-requestListResourceSharePermissions :: ListResourceSharePermissions -> TestTree
-requestListResourceSharePermissions =
+requestDisassociateResourceSharePermission :: DisassociateResourceSharePermission -> TestTree
+requestDisassociateResourceSharePermission =
   req
-    "ListResourceSharePermissions"
-    "fixture/ListResourceSharePermissions.yaml"
+    "DisassociateResourceSharePermission"
+    "fixture/DisassociateResourceSharePermission.yaml"
 
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
+requestEnableSharingWithAwsOrganization :: EnableSharingWithAwsOrganization -> TestTree
+requestEnableSharingWithAwsOrganization =
   req
-    "TagResource"
-    "fixture/TagResource.yaml"
+    "EnableSharingWithAwsOrganization"
+    "fixture/EnableSharingWithAwsOrganization.yaml"
 
-requestListResourceTypes :: ListResourceTypes -> TestTree
-requestListResourceTypes =
+requestGetPermission :: GetPermission -> TestTree
+requestGetPermission =
   req
-    "ListResourceTypes"
-    "fixture/ListResourceTypes.yaml"
+    "GetPermission"
+    "fixture/GetPermission.yaml"
+
+requestGetResourcePolicies :: GetResourcePolicies -> TestTree
+requestGetResourcePolicies =
+  req
+    "GetResourcePolicies"
+    "fixture/GetResourcePolicies.yaml"
 
 requestGetResourceShareAssociations :: GetResourceShareAssociations -> TestTree
 requestGetResourceShareAssociations =
@@ -305,73 +251,95 @@ requestGetResourceShareInvitations =
     "GetResourceShareInvitations"
     "fixture/GetResourceShareInvitations.yaml"
 
+requestGetResourceShares :: GetResourceShares -> TestTree
+requestGetResourceShares =
+  req
+    "GetResourceShares"
+    "fixture/GetResourceShares.yaml"
+
+requestListPendingInvitationResources :: ListPendingInvitationResources -> TestTree
+requestListPendingInvitationResources =
+  req
+    "ListPendingInvitationResources"
+    "fixture/ListPendingInvitationResources.yaml"
+
+requestListPermissions :: ListPermissions -> TestTree
+requestListPermissions =
+  req
+    "ListPermissions"
+    "fixture/ListPermissions.yaml"
+
+requestListPrincipals :: ListPrincipals -> TestTree
+requestListPrincipals =
+  req
+    "ListPrincipals"
+    "fixture/ListPrincipals.yaml"
+
+requestListResourceSharePermissions :: ListResourceSharePermissions -> TestTree
+requestListResourceSharePermissions =
+  req
+    "ListResourceSharePermissions"
+    "fixture/ListResourceSharePermissions.yaml"
+
+requestListResourceTypes :: ListResourceTypes -> TestTree
+requestListResourceTypes =
+  req
+    "ListResourceTypes"
+    "fixture/ListResourceTypes.yaml"
+
+requestListResources :: ListResources -> TestTree
+requestListResources =
+  req
+    "ListResources"
+    "fixture/ListResources.yaml"
+
+requestPromoteResourceShareCreatedFromPolicy :: PromoteResourceShareCreatedFromPolicy -> TestTree
+requestPromoteResourceShareCreatedFromPolicy =
+  req
+    "PromoteResourceShareCreatedFromPolicy"
+    "fixture/PromoteResourceShareCreatedFromPolicy.yaml"
+
+requestRejectResourceShareInvitation :: RejectResourceShareInvitation -> TestTree
+requestRejectResourceShareInvitation =
+  req
+    "RejectResourceShareInvitation"
+    "fixture/RejectResourceShareInvitation.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
   req
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestAssociateResourceShare :: AssociateResourceShare -> TestTree
-requestAssociateResourceShare =
+requestUpdateResourceShare :: UpdateResourceShare -> TestTree
+requestUpdateResourceShare =
   req
-    "AssociateResourceShare"
-    "fixture/AssociateResourceShare.yaml"
-
-requestDisassociateResourceSharePermission :: DisassociateResourceSharePermission -> TestTree
-requestDisassociateResourceSharePermission =
-  req
-    "DisassociateResourceSharePermission"
-    "fixture/DisassociateResourceSharePermission.yaml"
+    "UpdateResourceShare"
+    "fixture/UpdateResourceShare.yaml"
 
 -- Responses
 
-responsePromoteResourceShareCreatedFromPolicy :: PromoteResourceShareCreatedFromPolicyResponse -> TestTree
-responsePromoteResourceShareCreatedFromPolicy =
+responseAcceptResourceShareInvitation :: AcceptResourceShareInvitationResponse -> TestTree
+responseAcceptResourceShareInvitation =
   res
-    "PromoteResourceShareCreatedFromPolicyResponse"
-    "fixture/PromoteResourceShareCreatedFromPolicyResponse.proto"
+    "AcceptResourceShareInvitationResponse"
+    "fixture/AcceptResourceShareInvitationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy PromoteResourceShareCreatedFromPolicy)
+    (Proxy.Proxy :: Proxy.Proxy AcceptResourceShareInvitation)
 
-responseGetResourceShares :: GetResourceSharesResponse -> TestTree
-responseGetResourceShares =
+responseAssociateResourceShare :: AssociateResourceShareResponse -> TestTree
+responseAssociateResourceShare =
   res
-    "GetResourceSharesResponse"
-    "fixture/GetResourceSharesResponse.proto"
+    "AssociateResourceShareResponse"
+    "fixture/AssociateResourceShareResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetResourceShares)
-
-responseGetResourcePolicies :: GetResourcePoliciesResponse -> TestTree
-responseGetResourcePolicies =
-  res
-    "GetResourcePoliciesResponse"
-    "fixture/GetResourcePoliciesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetResourcePolicies)
-
-responseListPendingInvitationResources :: ListPendingInvitationResourcesResponse -> TestTree
-responseListPendingInvitationResources =
-  res
-    "ListPendingInvitationResourcesResponse"
-    "fixture/ListPendingInvitationResourcesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListPendingInvitationResources)
-
-responseGetPermission :: GetPermissionResponse -> TestTree
-responseGetPermission =
-  res
-    "GetPermissionResponse"
-    "fixture/GetPermissionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetPermission)
-
-responseEnableSharingWithAwsOrganization :: EnableSharingWithAwsOrganizationResponse -> TestTree
-responseEnableSharingWithAwsOrganization =
-  res
-    "EnableSharingWithAwsOrganizationResponse"
-    "fixture/EnableSharingWithAwsOrganizationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy EnableSharingWithAwsOrganization)
+    (Proxy.Proxy :: Proxy.Proxy AssociateResourceShare)
 
 responseAssociateResourceSharePermission :: AssociateResourceSharePermissionResponse -> TestTree
 responseAssociateResourceSharePermission =
@@ -389,30 +357,6 @@ responseCreateResourceShare =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateResourceShare)
 
-responseListPrincipals :: ListPrincipalsResponse -> TestTree
-responseListPrincipals =
-  res
-    "ListPrincipalsResponse"
-    "fixture/ListPrincipalsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListPrincipals)
-
-responseListResources :: ListResourcesResponse -> TestTree
-responseListResources =
-  res
-    "ListResourcesResponse"
-    "fixture/ListResourcesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListResources)
-
-responseAcceptResourceShareInvitation :: AcceptResourceShareInvitationResponse -> TestTree
-responseAcceptResourceShareInvitation =
-  res
-    "AcceptResourceShareInvitationResponse"
-    "fixture/AcceptResourceShareInvitationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy AcceptResourceShareInvitation)
-
 responseDeleteResourceShare :: DeleteResourceShareResponse -> TestTree
 responseDeleteResourceShare =
   res
@@ -420,30 +364,6 @@ responseDeleteResourceShare =
     "fixture/DeleteResourceShareResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteResourceShare)
-
-responseUpdateResourceShare :: UpdateResourceShareResponse -> TestTree
-responseUpdateResourceShare =
-  res
-    "UpdateResourceShareResponse"
-    "fixture/UpdateResourceShareResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateResourceShare)
-
-responseRejectResourceShareInvitation :: RejectResourceShareInvitationResponse -> TestTree
-responseRejectResourceShareInvitation =
-  res
-    "RejectResourceShareInvitationResponse"
-    "fixture/RejectResourceShareInvitationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RejectResourceShareInvitation)
-
-responseListPermissions :: ListPermissionsResponse -> TestTree
-responseListPermissions =
-  res
-    "ListPermissionsResponse"
-    "fixture/ListPermissionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListPermissions)
 
 responseDisassociateResourceShare :: DisassociateResourceShareResponse -> TestTree
 responseDisassociateResourceShare =
@@ -453,29 +373,37 @@ responseDisassociateResourceShare =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DisassociateResourceShare)
 
-responseListResourceSharePermissions :: ListResourceSharePermissionsResponse -> TestTree
-responseListResourceSharePermissions =
+responseDisassociateResourceSharePermission :: DisassociateResourceSharePermissionResponse -> TestTree
+responseDisassociateResourceSharePermission =
   res
-    "ListResourceSharePermissionsResponse"
-    "fixture/ListResourceSharePermissionsResponse.proto"
+    "DisassociateResourceSharePermissionResponse"
+    "fixture/DisassociateResourceSharePermissionResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListResourceSharePermissions)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateResourceSharePermission)
 
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
+responseEnableSharingWithAwsOrganization :: EnableSharingWithAwsOrganizationResponse -> TestTree
+responseEnableSharingWithAwsOrganization =
   res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
+    "EnableSharingWithAwsOrganizationResponse"
+    "fixture/EnableSharingWithAwsOrganizationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy EnableSharingWithAwsOrganization)
 
-responseListResourceTypes :: ListResourceTypesResponse -> TestTree
-responseListResourceTypes =
+responseGetPermission :: GetPermissionResponse -> TestTree
+responseGetPermission =
   res
-    "ListResourceTypesResponse"
-    "fixture/ListResourceTypesResponse.proto"
+    "GetPermissionResponse"
+    "fixture/GetPermissionResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListResourceTypes)
+    (Proxy.Proxy :: Proxy.Proxy GetPermission)
+
+responseGetResourcePolicies :: GetResourcePoliciesResponse -> TestTree
+responseGetResourcePolicies =
+  res
+    "GetResourcePoliciesResponse"
+    "fixture/GetResourcePoliciesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetResourcePolicies)
 
 responseGetResourceShareAssociations :: GetResourceShareAssociationsResponse -> TestTree
 responseGetResourceShareAssociations =
@@ -493,6 +421,86 @@ responseGetResourceShareInvitations =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetResourceShareInvitations)
 
+responseGetResourceShares :: GetResourceSharesResponse -> TestTree
+responseGetResourceShares =
+  res
+    "GetResourceSharesResponse"
+    "fixture/GetResourceSharesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetResourceShares)
+
+responseListPendingInvitationResources :: ListPendingInvitationResourcesResponse -> TestTree
+responseListPendingInvitationResources =
+  res
+    "ListPendingInvitationResourcesResponse"
+    "fixture/ListPendingInvitationResourcesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListPendingInvitationResources)
+
+responseListPermissions :: ListPermissionsResponse -> TestTree
+responseListPermissions =
+  res
+    "ListPermissionsResponse"
+    "fixture/ListPermissionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListPermissions)
+
+responseListPrincipals :: ListPrincipalsResponse -> TestTree
+responseListPrincipals =
+  res
+    "ListPrincipalsResponse"
+    "fixture/ListPrincipalsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListPrincipals)
+
+responseListResourceSharePermissions :: ListResourceSharePermissionsResponse -> TestTree
+responseListResourceSharePermissions =
+  res
+    "ListResourceSharePermissionsResponse"
+    "fixture/ListResourceSharePermissionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListResourceSharePermissions)
+
+responseListResourceTypes :: ListResourceTypesResponse -> TestTree
+responseListResourceTypes =
+  res
+    "ListResourceTypesResponse"
+    "fixture/ListResourceTypesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListResourceTypes)
+
+responseListResources :: ListResourcesResponse -> TestTree
+responseListResources =
+  res
+    "ListResourcesResponse"
+    "fixture/ListResourcesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListResources)
+
+responsePromoteResourceShareCreatedFromPolicy :: PromoteResourceShareCreatedFromPolicyResponse -> TestTree
+responsePromoteResourceShareCreatedFromPolicy =
+  res
+    "PromoteResourceShareCreatedFromPolicyResponse"
+    "fixture/PromoteResourceShareCreatedFromPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PromoteResourceShareCreatedFromPolicy)
+
+responseRejectResourceShareInvitation :: RejectResourceShareInvitationResponse -> TestTree
+responseRejectResourceShareInvitation =
+  res
+    "RejectResourceShareInvitationResponse"
+    "fixture/RejectResourceShareInvitationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RejectResourceShareInvitation)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
   res
@@ -501,18 +509,10 @@ responseUntagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
-responseAssociateResourceShare :: AssociateResourceShareResponse -> TestTree
-responseAssociateResourceShare =
+responseUpdateResourceShare :: UpdateResourceShareResponse -> TestTree
+responseUpdateResourceShare =
   res
-    "AssociateResourceShareResponse"
-    "fixture/AssociateResourceShareResponse.proto"
+    "UpdateResourceShareResponse"
+    "fixture/UpdateResourceShareResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy AssociateResourceShare)
-
-responseDisassociateResourceSharePermission :: DisassociateResourceSharePermissionResponse -> TestTree
-responseDisassociateResourceSharePermission =
-  res
-    "DisassociateResourceSharePermissionResponse"
-    "fixture/DisassociateResourceSharePermissionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisassociateResourceSharePermission)
+    (Proxy.Proxy :: Proxy.Proxy UpdateResourceShare)

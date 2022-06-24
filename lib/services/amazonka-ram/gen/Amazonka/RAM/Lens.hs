@@ -14,189 +14,12 @@
 module Amazonka.RAM.Lens
   ( -- * Operations
 
-    -- ** PromoteResourceShareCreatedFromPolicy
-    promoteResourceShareCreatedFromPolicy_resourceShareArn,
-    promoteResourceShareCreatedFromPolicyResponse_returnValue,
-    promoteResourceShareCreatedFromPolicyResponse_httpStatus,
-
-    -- ** GetResourceShares
-    getResourceShares_tagFilters,
-    getResourceShares_nextToken,
-    getResourceShares_name,
-    getResourceShares_resourceShareStatus,
-    getResourceShares_permissionArn,
-    getResourceShares_maxResults,
-    getResourceShares_resourceShareArns,
-    getResourceShares_resourceOwner,
-    getResourceSharesResponse_resourceShares,
-    getResourceSharesResponse_nextToken,
-    getResourceSharesResponse_httpStatus,
-
-    -- ** GetResourcePolicies
-    getResourcePolicies_nextToken,
-    getResourcePolicies_principal,
-    getResourcePolicies_maxResults,
-    getResourcePolicies_resourceArns,
-    getResourcePoliciesResponse_nextToken,
-    getResourcePoliciesResponse_policies,
-    getResourcePoliciesResponse_httpStatus,
-
-    -- ** ListPendingInvitationResources
-    listPendingInvitationResources_nextToken,
-    listPendingInvitationResources_maxResults,
-    listPendingInvitationResources_resourceShareInvitationArn,
-    listPendingInvitationResourcesResponse_resources,
-    listPendingInvitationResourcesResponse_nextToken,
-    listPendingInvitationResourcesResponse_httpStatus,
-
-    -- ** GetPermission
-    getPermission_permissionVersion,
-    getPermission_permissionArn,
-    getPermissionResponse_permission,
-    getPermissionResponse_httpStatus,
-
-    -- ** EnableSharingWithAwsOrganization
-    enableSharingWithAwsOrganizationResponse_returnValue,
-    enableSharingWithAwsOrganizationResponse_httpStatus,
-
-    -- ** AssociateResourceSharePermission
-    associateResourceSharePermission_replace,
-    associateResourceSharePermission_clientToken,
-    associateResourceSharePermission_permissionVersion,
-    associateResourceSharePermission_resourceShareArn,
-    associateResourceSharePermission_permissionArn,
-    associateResourceSharePermissionResponse_clientToken,
-    associateResourceSharePermissionResponse_returnValue,
-    associateResourceSharePermissionResponse_httpStatus,
-
-    -- ** CreateResourceShare
-    createResourceShare_clientToken,
-    createResourceShare_allowExternalPrincipals,
-    createResourceShare_principals,
-    createResourceShare_resourceArns,
-    createResourceShare_permissionArns,
-    createResourceShare_tags,
-    createResourceShare_name,
-    createResourceShareResponse_clientToken,
-    createResourceShareResponse_resourceShare,
-    createResourceShareResponse_httpStatus,
-
-    -- ** ListPrincipals
-    listPrincipals_resourceType,
-    listPrincipals_principals,
-    listPrincipals_nextToken,
-    listPrincipals_resourceArn,
-    listPrincipals_maxResults,
-    listPrincipals_resourceShareArns,
-    listPrincipals_resourceOwner,
-    listPrincipalsResponse_principals,
-    listPrincipalsResponse_nextToken,
-    listPrincipalsResponse_httpStatus,
-
-    -- ** ListResources
-    listResources_resourceType,
-    listResources_nextToken,
-    listResources_resourceArns,
-    listResources_principal,
-    listResources_maxResults,
-    listResources_resourceShareArns,
-    listResources_resourceOwner,
-    listResourcesResponse_resources,
-    listResourcesResponse_nextToken,
-    listResourcesResponse_httpStatus,
-
     -- ** AcceptResourceShareInvitation
     acceptResourceShareInvitation_clientToken,
     acceptResourceShareInvitation_resourceShareInvitationArn,
     acceptResourceShareInvitationResponse_clientToken,
     acceptResourceShareInvitationResponse_resourceShareInvitation,
     acceptResourceShareInvitationResponse_httpStatus,
-
-    -- ** DeleteResourceShare
-    deleteResourceShare_clientToken,
-    deleteResourceShare_resourceShareArn,
-    deleteResourceShareResponse_clientToken,
-    deleteResourceShareResponse_returnValue,
-    deleteResourceShareResponse_httpStatus,
-
-    -- ** UpdateResourceShare
-    updateResourceShare_clientToken,
-    updateResourceShare_allowExternalPrincipals,
-    updateResourceShare_name,
-    updateResourceShare_resourceShareArn,
-    updateResourceShareResponse_clientToken,
-    updateResourceShareResponse_resourceShare,
-    updateResourceShareResponse_httpStatus,
-
-    -- ** RejectResourceShareInvitation
-    rejectResourceShareInvitation_clientToken,
-    rejectResourceShareInvitation_resourceShareInvitationArn,
-    rejectResourceShareInvitationResponse_clientToken,
-    rejectResourceShareInvitationResponse_resourceShareInvitation,
-    rejectResourceShareInvitationResponse_httpStatus,
-
-    -- ** ListPermissions
-    listPermissions_resourceType,
-    listPermissions_nextToken,
-    listPermissions_maxResults,
-    listPermissionsResponse_nextToken,
-    listPermissionsResponse_permissions,
-    listPermissionsResponse_httpStatus,
-
-    -- ** DisassociateResourceShare
-    disassociateResourceShare_clientToken,
-    disassociateResourceShare_principals,
-    disassociateResourceShare_resourceArns,
-    disassociateResourceShare_resourceShareArn,
-    disassociateResourceShareResponse_clientToken,
-    disassociateResourceShareResponse_resourceShareAssociations,
-    disassociateResourceShareResponse_httpStatus,
-
-    -- ** ListResourceSharePermissions
-    listResourceSharePermissions_nextToken,
-    listResourceSharePermissions_maxResults,
-    listResourceSharePermissions_resourceShareArn,
-    listResourceSharePermissionsResponse_nextToken,
-    listResourceSharePermissionsResponse_permissions,
-    listResourceSharePermissionsResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceShareArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
-    -- ** ListResourceTypes
-    listResourceTypes_nextToken,
-    listResourceTypes_maxResults,
-    listResourceTypesResponse_nextToken,
-    listResourceTypesResponse_resourceTypes,
-    listResourceTypesResponse_httpStatus,
-
-    -- ** GetResourceShareAssociations
-    getResourceShareAssociations_nextToken,
-    getResourceShareAssociations_resourceArn,
-    getResourceShareAssociations_principal,
-    getResourceShareAssociations_associationStatus,
-    getResourceShareAssociations_maxResults,
-    getResourceShareAssociations_resourceShareArns,
-    getResourceShareAssociations_associationType,
-    getResourceShareAssociationsResponse_resourceShareAssociations,
-    getResourceShareAssociationsResponse_nextToken,
-    getResourceShareAssociationsResponse_httpStatus,
-
-    -- ** GetResourceShareInvitations
-    getResourceShareInvitations_nextToken,
-    getResourceShareInvitations_resourceShareInvitationArns,
-    getResourceShareInvitations_maxResults,
-    getResourceShareInvitations_resourceShareArns,
-    getResourceShareInvitationsResponse_resourceShareInvitations,
-    getResourceShareInvitationsResponse_nextToken,
-    getResourceShareInvitationsResponse_httpStatus,
-
-    -- ** UntagResource
-    untagResource_resourceShareArn,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
 
     -- ** AssociateResourceShare
     associateResourceShare_clientToken,
@@ -207,6 +30,44 @@ module Amazonka.RAM.Lens
     associateResourceShareResponse_resourceShareAssociations,
     associateResourceShareResponse_httpStatus,
 
+    -- ** AssociateResourceSharePermission
+    associateResourceSharePermission_clientToken,
+    associateResourceSharePermission_permissionVersion,
+    associateResourceSharePermission_replace,
+    associateResourceSharePermission_resourceShareArn,
+    associateResourceSharePermission_permissionArn,
+    associateResourceSharePermissionResponse_clientToken,
+    associateResourceSharePermissionResponse_returnValue,
+    associateResourceSharePermissionResponse_httpStatus,
+
+    -- ** CreateResourceShare
+    createResourceShare_tags,
+    createResourceShare_clientToken,
+    createResourceShare_permissionArns,
+    createResourceShare_principals,
+    createResourceShare_resourceArns,
+    createResourceShare_allowExternalPrincipals,
+    createResourceShare_name,
+    createResourceShareResponse_clientToken,
+    createResourceShareResponse_resourceShare,
+    createResourceShareResponse_httpStatus,
+
+    -- ** DeleteResourceShare
+    deleteResourceShare_clientToken,
+    deleteResourceShare_resourceShareArn,
+    deleteResourceShareResponse_clientToken,
+    deleteResourceShareResponse_returnValue,
+    deleteResourceShareResponse_httpStatus,
+
+    -- ** DisassociateResourceShare
+    disassociateResourceShare_clientToken,
+    disassociateResourceShare_principals,
+    disassociateResourceShare_resourceArns,
+    disassociateResourceShare_resourceShareArn,
+    disassociateResourceShareResponse_clientToken,
+    disassociateResourceShareResponse_resourceShareAssociations,
+    disassociateResourceShareResponse_httpStatus,
+
     -- ** DisassociateResourceSharePermission
     disassociateResourceSharePermission_clientToken,
     disassociateResourceSharePermission_resourceShareArn,
@@ -215,88 +76,227 @@ module Amazonka.RAM.Lens
     disassociateResourceSharePermissionResponse_returnValue,
     disassociateResourceSharePermissionResponse_httpStatus,
 
+    -- ** EnableSharingWithAwsOrganization
+    enableSharingWithAwsOrganizationResponse_returnValue,
+    enableSharingWithAwsOrganizationResponse_httpStatus,
+
+    -- ** GetPermission
+    getPermission_permissionVersion,
+    getPermission_permissionArn,
+    getPermissionResponse_permission,
+    getPermissionResponse_httpStatus,
+
+    -- ** GetResourcePolicies
+    getResourcePolicies_principal,
+    getResourcePolicies_nextToken,
+    getResourcePolicies_maxResults,
+    getResourcePolicies_resourceArns,
+    getResourcePoliciesResponse_nextToken,
+    getResourcePoliciesResponse_policies,
+    getResourcePoliciesResponse_httpStatus,
+
+    -- ** GetResourceShareAssociations
+    getResourceShareAssociations_principal,
+    getResourceShareAssociations_nextToken,
+    getResourceShareAssociations_associationStatus,
+    getResourceShareAssociations_maxResults,
+    getResourceShareAssociations_resourceShareArns,
+    getResourceShareAssociations_resourceArn,
+    getResourceShareAssociations_associationType,
+    getResourceShareAssociationsResponse_nextToken,
+    getResourceShareAssociationsResponse_resourceShareAssociations,
+    getResourceShareAssociationsResponse_httpStatus,
+
+    -- ** GetResourceShareInvitations
+    getResourceShareInvitations_nextToken,
+    getResourceShareInvitations_maxResults,
+    getResourceShareInvitations_resourceShareArns,
+    getResourceShareInvitations_resourceShareInvitationArns,
+    getResourceShareInvitationsResponse_resourceShareInvitations,
+    getResourceShareInvitationsResponse_nextToken,
+    getResourceShareInvitationsResponse_httpStatus,
+
+    -- ** GetResourceShares
+    getResourceShares_name,
+    getResourceShares_nextToken,
+    getResourceShares_resourceShareStatus,
+    getResourceShares_permissionArn,
+    getResourceShares_tagFilters,
+    getResourceShares_maxResults,
+    getResourceShares_resourceShareArns,
+    getResourceShares_resourceOwner,
+    getResourceSharesResponse_nextToken,
+    getResourceSharesResponse_resourceShares,
+    getResourceSharesResponse_httpStatus,
+
+    -- ** ListPendingInvitationResources
+    listPendingInvitationResources_nextToken,
+    listPendingInvitationResources_maxResults,
+    listPendingInvitationResources_resourceShareInvitationArn,
+    listPendingInvitationResourcesResponse_nextToken,
+    listPendingInvitationResourcesResponse_resources,
+    listPendingInvitationResourcesResponse_httpStatus,
+
+    -- ** ListPermissions
+    listPermissions_resourceType,
+    listPermissions_nextToken,
+    listPermissions_maxResults,
+    listPermissionsResponse_nextToken,
+    listPermissionsResponse_permissions,
+    listPermissionsResponse_httpStatus,
+
+    -- ** ListPrincipals
+    listPrincipals_resourceType,
+    listPrincipals_nextToken,
+    listPrincipals_principals,
+    listPrincipals_maxResults,
+    listPrincipals_resourceShareArns,
+    listPrincipals_resourceArn,
+    listPrincipals_resourceOwner,
+    listPrincipalsResponse_nextToken,
+    listPrincipalsResponse_principals,
+    listPrincipalsResponse_httpStatus,
+
+    -- ** ListResourceSharePermissions
+    listResourceSharePermissions_nextToken,
+    listResourceSharePermissions_maxResults,
+    listResourceSharePermissions_resourceShareArn,
+    listResourceSharePermissionsResponse_nextToken,
+    listResourceSharePermissionsResponse_permissions,
+    listResourceSharePermissionsResponse_httpStatus,
+
+    -- ** ListResourceTypes
+    listResourceTypes_nextToken,
+    listResourceTypes_maxResults,
+    listResourceTypesResponse_nextToken,
+    listResourceTypesResponse_resourceTypes,
+    listResourceTypesResponse_httpStatus,
+
+    -- ** ListResources
+    listResources_principal,
+    listResources_resourceType,
+    listResources_nextToken,
+    listResources_maxResults,
+    listResources_resourceShareArns,
+    listResources_resourceArns,
+    listResources_resourceOwner,
+    listResourcesResponse_nextToken,
+    listResourcesResponse_resources,
+    listResourcesResponse_httpStatus,
+
+    -- ** PromoteResourceShareCreatedFromPolicy
+    promoteResourceShareCreatedFromPolicy_resourceShareArn,
+    promoteResourceShareCreatedFromPolicyResponse_returnValue,
+    promoteResourceShareCreatedFromPolicyResponse_httpStatus,
+
+    -- ** RejectResourceShareInvitation
+    rejectResourceShareInvitation_clientToken,
+    rejectResourceShareInvitation_resourceShareInvitationArn,
+    rejectResourceShareInvitationResponse_clientToken,
+    rejectResourceShareInvitationResponse_resourceShareInvitation,
+    rejectResourceShareInvitationResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceShareArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceShareArn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
+
+    -- ** UpdateResourceShare
+    updateResourceShare_name,
+    updateResourceShare_clientToken,
+    updateResourceShare_allowExternalPrincipals,
+    updateResourceShare_resourceShareArn,
+    updateResourceShareResponse_clientToken,
+    updateResourceShareResponse_resourceShare,
+    updateResourceShareResponse_httpStatus,
+
     -- * Types
 
     -- ** Principal
-    principal_creationTime,
+    principal_external,
     principal_resourceShareArn,
     principal_lastUpdatedTime,
-    principal_external,
     principal_id,
+    principal_creationTime,
 
     -- ** Resource
-    resource_creationTime,
-    resource_status,
-    resource_resourceShareArn,
-    resource_lastUpdatedTime,
-    resource_arn,
-    resource_resourceGroupArn,
-    resource_statusMessage,
     resource_type,
+    resource_arn,
+    resource_resourceShareArn,
+    resource_status,
+    resource_lastUpdatedTime,
+    resource_creationTime,
+    resource_statusMessage,
+    resource_resourceGroupArn,
 
     -- ** ResourceShare
-    resourceShare_creationTime,
-    resourceShare_status,
-    resourceShare_resourceShareArn,
-    resourceShare_owningAccountId,
-    resourceShare_lastUpdatedTime,
-    resourceShare_allowExternalPrincipals,
-    resourceShare_name,
-    resourceShare_statusMessage,
-    resourceShare_featureSet,
     resourceShare_tags,
+    resourceShare_name,
+    resourceShare_resourceShareArn,
+    resourceShare_status,
+    resourceShare_lastUpdatedTime,
+    resourceShare_featureSet,
+    resourceShare_creationTime,
+    resourceShare_statusMessage,
+    resourceShare_owningAccountId,
+    resourceShare_allowExternalPrincipals,
 
     -- ** ResourceShareAssociation
-    resourceShareAssociation_creationTime,
-    resourceShareAssociation_status,
-    resourceShareAssociation_resourceShareArn,
-    resourceShareAssociation_lastUpdatedTime,
     resourceShareAssociation_external,
-    resourceShareAssociation_resourceShareName,
-    resourceShareAssociation_associatedEntity,
     resourceShareAssociation_associationType,
+    resourceShareAssociation_associatedEntity,
+    resourceShareAssociation_resourceShareArn,
+    resourceShareAssociation_status,
+    resourceShareAssociation_lastUpdatedTime,
+    resourceShareAssociation_creationTime,
     resourceShareAssociation_statusMessage,
+    resourceShareAssociation_resourceShareName,
 
     -- ** ResourceShareInvitation
-    resourceShareInvitation_status,
-    resourceShareInvitation_senderAccountId,
     resourceShareInvitation_resourceShareArn,
-    resourceShareInvitation_receiverAccountId,
+    resourceShareInvitation_status,
     resourceShareInvitation_resourceShareAssociations,
-    resourceShareInvitation_resourceShareName,
-    resourceShareInvitation_receiverArn,
     resourceShareInvitation_invitationTimestamp,
+    resourceShareInvitation_senderAccountId,
+    resourceShareInvitation_receiverAccountId,
+    resourceShareInvitation_receiverArn,
     resourceShareInvitation_resourceShareInvitationArn,
+    resourceShareInvitation_resourceShareName,
 
     -- ** ResourceSharePermissionDetail
-    resourceSharePermissionDetail_creationTime,
     resourceSharePermissionDetail_resourceType,
-    resourceSharePermissionDetail_lastUpdatedTime,
-    resourceSharePermissionDetail_arn,
-    resourceSharePermissionDetail_defaultVersion,
     resourceSharePermissionDetail_name,
-    resourceSharePermissionDetail_version,
-    resourceSharePermissionDetail_isResourceTypeDefault,
+    resourceSharePermissionDetail_arn,
     resourceSharePermissionDetail_permission,
+    resourceSharePermissionDetail_lastUpdatedTime,
+    resourceSharePermissionDetail_defaultVersion,
+    resourceSharePermissionDetail_creationTime,
+    resourceSharePermissionDetail_isResourceTypeDefault,
+    resourceSharePermissionDetail_version,
 
     -- ** ResourceSharePermissionSummary
-    resourceSharePermissionSummary_creationTime,
-    resourceSharePermissionSummary_status,
     resourceSharePermissionSummary_resourceType,
-    resourceSharePermissionSummary_lastUpdatedTime,
-    resourceSharePermissionSummary_arn,
-    resourceSharePermissionSummary_defaultVersion,
     resourceSharePermissionSummary_name,
-    resourceSharePermissionSummary_version,
+    resourceSharePermissionSummary_arn,
+    resourceSharePermissionSummary_status,
+    resourceSharePermissionSummary_lastUpdatedTime,
+    resourceSharePermissionSummary_defaultVersion,
+    resourceSharePermissionSummary_creationTime,
     resourceSharePermissionSummary_isResourceTypeDefault,
+    resourceSharePermissionSummary_version,
 
     -- ** ServiceNameAndResourceType
     serviceNameAndResourceType_resourceType,
     serviceNameAndResourceType_serviceName,
 
     -- ** Tag
-    tag_value,
     tag_key,
+    tag_value,
 
     -- ** TagFilter
     tagFilter_tagValues,

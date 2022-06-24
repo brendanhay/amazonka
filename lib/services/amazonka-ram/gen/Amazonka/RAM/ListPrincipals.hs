@@ -31,11 +31,11 @@ module Amazonka.RAM.ListPrincipals
 
     -- * Request Lenses
     listPrincipals_resourceType,
-    listPrincipals_principals,
     listPrincipals_nextToken,
-    listPrincipals_resourceArn,
+    listPrincipals_principals,
     listPrincipals_maxResults,
     listPrincipals_resourceShareArns,
+    listPrincipals_resourceArn,
     listPrincipals_resourceOwner,
 
     -- * Destructuring the Response
@@ -43,8 +43,8 @@ module Amazonka.RAM.ListPrincipals
     newListPrincipalsResponse,
 
     -- * Response Lenses
-    listPrincipalsResponse_principals,
     listPrincipalsResponse_nextToken,
+    listPrincipalsResponse_principals,
     listPrincipalsResponse_httpStatus,
   )
 where
@@ -77,18 +77,18 @@ data ListPrincipals = ListPrincipals'
     -- @route53resolver:ResolverRule@ | @s3-outposts:Outpost@ |
     -- @ssm-contacts:Contact@ | @ssm-incidents:ResponsePlan@
     resourceType :: Prelude.Maybe Prelude.Text,
-    -- | The principals.
-    principals :: Prelude.Maybe [Prelude.Text],
     -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the resource.
-    resourceArn :: Prelude.Maybe Prelude.Text,
+    -- | The principals.
+    principals :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Names (ARN) of the resource shares.
     resourceShareArns :: Prelude.Maybe [Prelude.Text],
+    -- | The Amazon Resource Name (ARN) of the resource.
+    resourceArn :: Prelude.Maybe Prelude.Text,
     -- | The type of owner.
     resourceOwner :: ResourceOwner
   }
@@ -121,17 +121,17 @@ data ListPrincipals = ListPrincipals'
 -- @route53resolver:ResolverRule@ | @s3-outposts:Outpost@ |
 -- @ssm-contacts:Contact@ | @ssm-incidents:ResponsePlan@
 --
--- 'principals', 'listPrincipals_principals' - The principals.
---
 -- 'nextToken', 'listPrincipals_nextToken' - The token for the next page of results.
 --
--- 'resourceArn', 'listPrincipals_resourceArn' - The Amazon Resource Name (ARN) of the resource.
+-- 'principals', 'listPrincipals_principals' - The principals.
 --
 -- 'maxResults', 'listPrincipals_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
 --
 -- 'resourceShareArns', 'listPrincipals_resourceShareArns' - The Amazon Resource Names (ARN) of the resource shares.
+--
+-- 'resourceArn', 'listPrincipals_resourceArn' - The Amazon Resource Name (ARN) of the resource.
 --
 -- 'resourceOwner', 'listPrincipals_resourceOwner' - The type of owner.
 newListPrincipals ::
@@ -141,11 +141,11 @@ newListPrincipals ::
 newListPrincipals pResourceOwner_ =
   ListPrincipals'
     { resourceType = Prelude.Nothing,
-      principals = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      resourceArn = Prelude.Nothing,
+      principals = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       resourceShareArns = Prelude.Nothing,
+      resourceArn = Prelude.Nothing,
       resourceOwner = pResourceOwner_
     }
 
@@ -170,17 +170,13 @@ newListPrincipals pResourceOwner_ =
 listPrincipals_resourceType :: Lens.Lens' ListPrincipals (Prelude.Maybe Prelude.Text)
 listPrincipals_resourceType = Lens.lens (\ListPrincipals' {resourceType} -> resourceType) (\s@ListPrincipals' {} a -> s {resourceType = a} :: ListPrincipals)
 
--- | The principals.
-listPrincipals_principals :: Lens.Lens' ListPrincipals (Prelude.Maybe [Prelude.Text])
-listPrincipals_principals = Lens.lens (\ListPrincipals' {principals} -> principals) (\s@ListPrincipals' {} a -> s {principals = a} :: ListPrincipals) Prelude.. Lens.mapping Lens.coerced
-
 -- | The token for the next page of results.
 listPrincipals_nextToken :: Lens.Lens' ListPrincipals (Prelude.Maybe Prelude.Text)
 listPrincipals_nextToken = Lens.lens (\ListPrincipals' {nextToken} -> nextToken) (\s@ListPrincipals' {} a -> s {nextToken = a} :: ListPrincipals)
 
--- | The Amazon Resource Name (ARN) of the resource.
-listPrincipals_resourceArn :: Lens.Lens' ListPrincipals (Prelude.Maybe Prelude.Text)
-listPrincipals_resourceArn = Lens.lens (\ListPrincipals' {resourceArn} -> resourceArn) (\s@ListPrincipals' {} a -> s {resourceArn = a} :: ListPrincipals)
+-- | The principals.
+listPrincipals_principals :: Lens.Lens' ListPrincipals (Prelude.Maybe [Prelude.Text])
+listPrincipals_principals = Lens.lens (\ListPrincipals' {principals} -> principals) (\s@ListPrincipals' {} a -> s {principals = a} :: ListPrincipals) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
@@ -191,6 +187,10 @@ listPrincipals_maxResults = Lens.lens (\ListPrincipals' {maxResults} -> maxResul
 -- | The Amazon Resource Names (ARN) of the resource shares.
 listPrincipals_resourceShareArns :: Lens.Lens' ListPrincipals (Prelude.Maybe [Prelude.Text])
 listPrincipals_resourceShareArns = Lens.lens (\ListPrincipals' {resourceShareArns} -> resourceShareArns) (\s@ListPrincipals' {} a -> s {resourceShareArns = a} :: ListPrincipals) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Name (ARN) of the resource.
+listPrincipals_resourceArn :: Lens.Lens' ListPrincipals (Prelude.Maybe Prelude.Text)
+listPrincipals_resourceArn = Lens.lens (\ListPrincipals' {resourceArn} -> resourceArn) (\s@ListPrincipals' {} a -> s {resourceArn = a} :: ListPrincipals)
 
 -- | The type of owner.
 listPrincipals_resourceOwner :: Lens.Lens' ListPrincipals ResourceOwner
@@ -226,29 +226,29 @@ instance Core.AWSRequest ListPrincipals where
     Response.receiveJSON
       ( \s h x ->
           ListPrincipalsResponse'
-            Prelude.<$> (x Core..?> "principals" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "principals" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListPrincipals where
   hashWithSalt _salt ListPrincipals' {..} =
     _salt `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` principals
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` principals
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` resourceShareArns
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` resourceOwner
 
 instance Prelude.NFData ListPrincipals where
   rnf ListPrincipals' {..} =
     Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf principals
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf principals
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf resourceShareArns
+      `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf resourceOwner
 
 instance Core.ToHeaders ListPrincipals where
@@ -267,12 +267,12 @@ instance Core.ToJSON ListPrincipals where
     Core.object
       ( Prelude.catMaybes
           [ ("resourceType" Core..=) Prelude.<$> resourceType,
-            ("principals" Core..=) Prelude.<$> principals,
             ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("resourceArn" Core..=) Prelude.<$> resourceArn,
+            ("principals" Core..=) Prelude.<$> principals,
             ("maxResults" Core..=) Prelude.<$> maxResults,
             ("resourceShareArns" Core..=)
               Prelude.<$> resourceShareArns,
+            ("resourceArn" Core..=) Prelude.<$> resourceArn,
             Prelude.Just
               ("resourceOwner" Core..= resourceOwner)
           ]
@@ -286,11 +286,11 @@ instance Core.ToQuery ListPrincipals where
 
 -- | /See:/ 'newListPrincipalsResponse' smart constructor.
 data ListPrincipalsResponse = ListPrincipalsResponse'
-  { -- | The principals.
-    principals :: Prelude.Maybe [Principal],
-    -- | The token to use to retrieve the next page of results. This value is
+  { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The principals.
+    principals :: Prelude.Maybe [Principal],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -304,10 +304,10 @@ data ListPrincipalsResponse = ListPrincipalsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'principals', 'listPrincipalsResponse_principals' - The principals.
---
 -- 'nextToken', 'listPrincipalsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
+--
+-- 'principals', 'listPrincipalsResponse_principals' - The principals.
 --
 -- 'httpStatus', 'listPrincipalsResponse_httpStatus' - The response's http status code.
 newListPrincipalsResponse ::
@@ -316,20 +316,20 @@ newListPrincipalsResponse ::
   ListPrincipalsResponse
 newListPrincipalsResponse pHttpStatus_ =
   ListPrincipalsResponse'
-    { principals =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      principals = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The principals.
-listPrincipalsResponse_principals :: Lens.Lens' ListPrincipalsResponse (Prelude.Maybe [Principal])
-listPrincipalsResponse_principals = Lens.lens (\ListPrincipalsResponse' {principals} -> principals) (\s@ListPrincipalsResponse' {} a -> s {principals = a} :: ListPrincipalsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 listPrincipalsResponse_nextToken :: Lens.Lens' ListPrincipalsResponse (Prelude.Maybe Prelude.Text)
 listPrincipalsResponse_nextToken = Lens.lens (\ListPrincipalsResponse' {nextToken} -> nextToken) (\s@ListPrincipalsResponse' {} a -> s {nextToken = a} :: ListPrincipalsResponse)
+
+-- | The principals.
+listPrincipalsResponse_principals :: Lens.Lens' ListPrincipalsResponse (Prelude.Maybe [Principal])
+listPrincipalsResponse_principals = Lens.lens (\ListPrincipalsResponse' {principals} -> principals) (\s@ListPrincipalsResponse' {} a -> s {principals = a} :: ListPrincipalsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listPrincipalsResponse_httpStatus :: Lens.Lens' ListPrincipalsResponse Prelude.Int
@@ -337,6 +337,6 @@ listPrincipalsResponse_httpStatus = Lens.lens (\ListPrincipalsResponse' {httpSta
 
 instance Prelude.NFData ListPrincipalsResponse where
   rnf ListPrincipalsResponse' {..} =
-    Prelude.rnf principals
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf principals
       `Prelude.seq` Prelude.rnf httpStatus

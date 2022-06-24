@@ -14,87 +14,16 @@
 module Amazonka.MediaPackageVOD.Lens
   ( -- * Operations
 
-    -- ** CreatePackagingGroup
-    createPackagingGroup_authorization,
-    createPackagingGroup_egressAccessLogs,
-    createPackagingGroup_tags,
-    createPackagingGroup_id,
-    createPackagingGroupResponse_arn,
-    createPackagingGroupResponse_authorization,
-    createPackagingGroupResponse_domainName,
-    createPackagingGroupResponse_id,
-    createPackagingGroupResponse_egressAccessLogs,
-    createPackagingGroupResponse_tags,
-    createPackagingGroupResponse_httpStatus,
-
     -- ** ConfigureLogs
     configureLogs_egressAccessLogs,
     configureLogs_id,
-    configureLogsResponse_arn,
-    configureLogsResponse_authorization,
-    configureLogsResponse_domainName,
-    configureLogsResponse_id,
-    configureLogsResponse_egressAccessLogs,
     configureLogsResponse_tags,
+    configureLogsResponse_domainName,
+    configureLogsResponse_arn,
+    configureLogsResponse_id,
+    configureLogsResponse_authorization,
+    configureLogsResponse_egressAccessLogs,
     configureLogsResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** DescribePackagingGroup
-    describePackagingGroup_id,
-    describePackagingGroupResponse_arn,
-    describePackagingGroupResponse_authorization,
-    describePackagingGroupResponse_domainName,
-    describePackagingGroupResponse_id,
-    describePackagingGroupResponse_egressAccessLogs,
-    describePackagingGroupResponse_tags,
-    describePackagingGroupResponse_httpStatus,
-
-    -- ** DescribeAsset
-    describeAsset_id,
-    describeAssetResponse_resourceId,
-    describeAssetResponse_arn,
-    describeAssetResponse_createdAt,
-    describeAssetResponse_packagingGroupId,
-    describeAssetResponse_sourceArn,
-    describeAssetResponse_sourceRoleArn,
-    describeAssetResponse_id,
-    describeAssetResponse_egressEndpoints,
-    describeAssetResponse_tags,
-    describeAssetResponse_httpStatus,
-
-    -- ** DeletePackagingConfiguration
-    deletePackagingConfiguration_id,
-    deletePackagingConfigurationResponse_httpStatus,
-
-    -- ** ListPackagingGroups
-    listPackagingGroups_nextToken,
-    listPackagingGroups_maxResults,
-    listPackagingGroupsResponse_packagingGroups,
-    listPackagingGroupsResponse_nextToken,
-    listPackagingGroupsResponse_httpStatus,
-
-    -- ** DeleteAsset
-    deleteAsset_id,
-    deleteAssetResponse_httpStatus,
-
-    -- ** UpdatePackagingGroup
-    updatePackagingGroup_authorization,
-    updatePackagingGroup_id,
-    updatePackagingGroupResponse_arn,
-    updatePackagingGroupResponse_authorization,
-    updatePackagingGroupResponse_domainName,
-    updatePackagingGroupResponse_id,
-    updatePackagingGroupResponse_egressAccessLogs,
-    updatePackagingGroupResponse_tags,
-    updatePackagingGroupResponse_httpStatus,
-
-    -- ** DeletePackagingGroup
-    deletePackagingGroup_id,
-    deletePackagingGroupResponse_httpStatus,
 
     -- ** CreateAsset
     createAsset_resourceId,
@@ -104,27 +33,121 @@ module Amazonka.MediaPackageVOD.Lens
     createAsset_packagingGroupId,
     createAsset_sourceRoleArn,
     createAssetResponse_resourceId,
-    createAssetResponse_arn,
-    createAssetResponse_createdAt,
-    createAssetResponse_packagingGroupId,
-    createAssetResponse_sourceArn,
-    createAssetResponse_sourceRoleArn,
-    createAssetResponse_id,
-    createAssetResponse_egressEndpoints,
     createAssetResponse_tags,
+    createAssetResponse_sourceRoleArn,
+    createAssetResponse_sourceArn,
+    createAssetResponse_packagingGroupId,
+    createAssetResponse_arn,
+    createAssetResponse_id,
+    createAssetResponse_createdAt,
+    createAssetResponse_egressEndpoints,
     createAssetResponse_httpStatus,
+
+    -- ** CreatePackagingConfiguration
+    createPackagingConfiguration_tags,
+    createPackagingConfiguration_mssPackage,
+    createPackagingConfiguration_dashPackage,
+    createPackagingConfiguration_cmafPackage,
+    createPackagingConfiguration_hlsPackage,
+    createPackagingConfiguration_id,
+    createPackagingConfiguration_packagingGroupId,
+    createPackagingConfigurationResponse_tags,
+    createPackagingConfigurationResponse_mssPackage,
+    createPackagingConfigurationResponse_packagingGroupId,
+    createPackagingConfigurationResponse_arn,
+    createPackagingConfigurationResponse_id,
+    createPackagingConfigurationResponse_dashPackage,
+    createPackagingConfigurationResponse_cmafPackage,
+    createPackagingConfigurationResponse_hlsPackage,
+    createPackagingConfigurationResponse_httpStatus,
+
+    -- ** CreatePackagingGroup
+    createPackagingGroup_tags,
+    createPackagingGroup_authorization,
+    createPackagingGroup_egressAccessLogs,
+    createPackagingGroup_id,
+    createPackagingGroupResponse_tags,
+    createPackagingGroupResponse_domainName,
+    createPackagingGroupResponse_arn,
+    createPackagingGroupResponse_id,
+    createPackagingGroupResponse_authorization,
+    createPackagingGroupResponse_egressAccessLogs,
+    createPackagingGroupResponse_httpStatus,
+
+    -- ** DeleteAsset
+    deleteAsset_id,
+    deleteAssetResponse_httpStatus,
+
+    -- ** DeletePackagingConfiguration
+    deletePackagingConfiguration_id,
+    deletePackagingConfigurationResponse_httpStatus,
+
+    -- ** DeletePackagingGroup
+    deletePackagingGroup_id,
+    deletePackagingGroupResponse_httpStatus,
+
+    -- ** DescribeAsset
+    describeAsset_id,
+    describeAssetResponse_resourceId,
+    describeAssetResponse_tags,
+    describeAssetResponse_sourceRoleArn,
+    describeAssetResponse_sourceArn,
+    describeAssetResponse_packagingGroupId,
+    describeAssetResponse_arn,
+    describeAssetResponse_id,
+    describeAssetResponse_createdAt,
+    describeAssetResponse_egressEndpoints,
+    describeAssetResponse_httpStatus,
 
     -- ** DescribePackagingConfiguration
     describePackagingConfiguration_id,
-    describePackagingConfigurationResponse_hlsPackage,
-    describePackagingConfigurationResponse_arn,
-    describePackagingConfigurationResponse_packagingGroupId,
-    describePackagingConfigurationResponse_dashPackage,
-    describePackagingConfigurationResponse_mssPackage,
-    describePackagingConfigurationResponse_id,
-    describePackagingConfigurationResponse_cmafPackage,
     describePackagingConfigurationResponse_tags,
+    describePackagingConfigurationResponse_mssPackage,
+    describePackagingConfigurationResponse_packagingGroupId,
+    describePackagingConfigurationResponse_arn,
+    describePackagingConfigurationResponse_id,
+    describePackagingConfigurationResponse_dashPackage,
+    describePackagingConfigurationResponse_cmafPackage,
+    describePackagingConfigurationResponse_hlsPackage,
     describePackagingConfigurationResponse_httpStatus,
+
+    -- ** DescribePackagingGroup
+    describePackagingGroup_id,
+    describePackagingGroupResponse_tags,
+    describePackagingGroupResponse_domainName,
+    describePackagingGroupResponse_arn,
+    describePackagingGroupResponse_id,
+    describePackagingGroupResponse_authorization,
+    describePackagingGroupResponse_egressAccessLogs,
+    describePackagingGroupResponse_httpStatus,
+
+    -- ** ListAssets
+    listAssets_nextToken,
+    listAssets_packagingGroupId,
+    listAssets_maxResults,
+    listAssetsResponse_nextToken,
+    listAssetsResponse_assets,
+    listAssetsResponse_httpStatus,
+
+    -- ** ListPackagingConfigurations
+    listPackagingConfigurations_nextToken,
+    listPackagingConfigurations_packagingGroupId,
+    listPackagingConfigurations_maxResults,
+    listPackagingConfigurationsResponse_nextToken,
+    listPackagingConfigurationsResponse_packagingConfigurations,
+    listPackagingConfigurationsResponse_httpStatus,
+
+    -- ** ListPackagingGroups
+    listPackagingGroups_nextToken,
+    listPackagingGroups_maxResults,
+    listPackagingGroupsResponse_nextToken,
+    listPackagingGroupsResponse_packagingGroups,
+    listPackagingGroupsResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
     -- ** TagResource
     tagResource_resourceArn,
@@ -134,51 +157,28 @@ module Amazonka.MediaPackageVOD.Lens
     untagResource_tagKeys,
     untagResource_resourceArn,
 
-    -- ** CreatePackagingConfiguration
-    createPackagingConfiguration_hlsPackage,
-    createPackagingConfiguration_dashPackage,
-    createPackagingConfiguration_mssPackage,
-    createPackagingConfiguration_cmafPackage,
-    createPackagingConfiguration_tags,
-    createPackagingConfiguration_id,
-    createPackagingConfiguration_packagingGroupId,
-    createPackagingConfigurationResponse_hlsPackage,
-    createPackagingConfigurationResponse_arn,
-    createPackagingConfigurationResponse_packagingGroupId,
-    createPackagingConfigurationResponse_dashPackage,
-    createPackagingConfigurationResponse_mssPackage,
-    createPackagingConfigurationResponse_id,
-    createPackagingConfigurationResponse_cmafPackage,
-    createPackagingConfigurationResponse_tags,
-    createPackagingConfigurationResponse_httpStatus,
-
-    -- ** ListPackagingConfigurations
-    listPackagingConfigurations_packagingGroupId,
-    listPackagingConfigurations_nextToken,
-    listPackagingConfigurations_maxResults,
-    listPackagingConfigurationsResponse_packagingConfigurations,
-    listPackagingConfigurationsResponse_nextToken,
-    listPackagingConfigurationsResponse_httpStatus,
-
-    -- ** ListAssets
-    listAssets_packagingGroupId,
-    listAssets_nextToken,
-    listAssets_maxResults,
-    listAssetsResponse_nextToken,
-    listAssetsResponse_assets,
-    listAssetsResponse_httpStatus,
+    -- ** UpdatePackagingGroup
+    updatePackagingGroup_authorization,
+    updatePackagingGroup_id,
+    updatePackagingGroupResponse_tags,
+    updatePackagingGroupResponse_domainName,
+    updatePackagingGroupResponse_arn,
+    updatePackagingGroupResponse_id,
+    updatePackagingGroupResponse_authorization,
+    updatePackagingGroupResponse_egressAccessLogs,
+    updatePackagingGroupResponse_httpStatus,
 
     -- * Types
 
     -- ** AssetShallow
     assetShallow_resourceId,
-    assetShallow_arn,
-    assetShallow_createdAt,
-    assetShallow_packagingGroupId,
-    assetShallow_sourceArn,
-    assetShallow_sourceRoleArn,
-    assetShallow_id,
     assetShallow_tags,
+    assetShallow_sourceRoleArn,
+    assetShallow_sourceArn,
+    assetShallow_packagingGroupId,
+    assetShallow_arn,
+    assetShallow_id,
+    assetShallow_createdAt,
 
     -- ** Authorization
     authorization_secretsRoleArn,
@@ -189,63 +189,63 @@ module Amazonka.MediaPackageVOD.Lens
     cmafEncryption_spekeKeyProvider,
 
     -- ** CmafPackage
-    cmafPackage_includeEncoderConfigurationInSegments,
     cmafPackage_segmentDurationSeconds,
     cmafPackage_encryption,
+    cmafPackage_includeEncoderConfigurationInSegments,
     cmafPackage_hlsManifests,
 
     -- ** DashEncryption
     dashEncryption_spekeKeyProvider,
 
     -- ** DashManifest
-    dashManifest_minBufferTimeSeconds,
-    dashManifest_manifestName,
     dashManifest_profile,
     dashManifest_streamSelection,
+    dashManifest_manifestName,
     dashManifest_manifestLayout,
+    dashManifest_minBufferTimeSeconds,
 
     -- ** DashPackage
-    dashPackage_includeEncoderConfigurationInSegments,
     dashPackage_segmentTemplateFormat,
     dashPackage_segmentDurationSeconds,
-    dashPackage_encryption,
     dashPackage_periodTriggers,
+    dashPackage_encryption,
+    dashPackage_includeEncoderConfigurationInSegments,
     dashPackage_dashManifests,
 
     -- ** EgressAccessLogs
     egressAccessLogs_logGroupName,
 
     -- ** EgressEndpoint
-    egressEndpoint_status,
     egressEndpoint_url,
+    egressEndpoint_status,
     egressEndpoint_packagingConfigurationId,
 
     -- ** HlsEncryption
-    hlsEncryption_encryptionMethod,
     hlsEncryption_constantInitializationVector,
+    hlsEncryption_encryptionMethod,
     hlsEncryption_spekeKeyProvider,
 
     -- ** HlsManifest
-    hlsManifest_manifestName,
-    hlsManifest_programDateTimeIntervalSeconds,
     hlsManifest_streamSelection,
-    hlsManifest_adMarkers,
-    hlsManifest_includeIframeOnlyStream,
     hlsManifest_repeatExtXKey,
+    hlsManifest_programDateTimeIntervalSeconds,
+    hlsManifest_includeIframeOnlyStream,
+    hlsManifest_adMarkers,
+    hlsManifest_manifestName,
 
     -- ** HlsPackage
     hlsPackage_useAudioRenditionGroup,
-    hlsPackage_includeDvbSubtitles,
     hlsPackage_segmentDurationSeconds,
     hlsPackage_encryption,
+    hlsPackage_includeDvbSubtitles,
     hlsPackage_hlsManifests,
 
     -- ** MssEncryption
     mssEncryption_spekeKeyProvider,
 
     -- ** MssManifest
-    mssManifest_manifestName,
     mssManifest_streamSelection,
+    mssManifest_manifestName,
 
     -- ** MssPackage
     mssPackage_segmentDurationSeconds,
@@ -253,22 +253,22 @@ module Amazonka.MediaPackageVOD.Lens
     mssPackage_mssManifests,
 
     -- ** PackagingConfiguration
-    packagingConfiguration_hlsPackage,
-    packagingConfiguration_arn,
-    packagingConfiguration_packagingGroupId,
-    packagingConfiguration_dashPackage,
-    packagingConfiguration_mssPackage,
-    packagingConfiguration_id,
-    packagingConfiguration_cmafPackage,
     packagingConfiguration_tags,
+    packagingConfiguration_mssPackage,
+    packagingConfiguration_packagingGroupId,
+    packagingConfiguration_arn,
+    packagingConfiguration_id,
+    packagingConfiguration_dashPackage,
+    packagingConfiguration_cmafPackage,
+    packagingConfiguration_hlsPackage,
 
     -- ** PackagingGroup
-    packagingGroup_arn,
-    packagingGroup_authorization,
-    packagingGroup_domainName,
-    packagingGroup_id,
-    packagingGroup_egressAccessLogs,
     packagingGroup_tags,
+    packagingGroup_domainName,
+    packagingGroup_arn,
+    packagingGroup_id,
+    packagingGroup_authorization,
+    packagingGroup_egressAccessLogs,
 
     -- ** SpekeKeyProvider
     spekeKeyProvider_systemIds,

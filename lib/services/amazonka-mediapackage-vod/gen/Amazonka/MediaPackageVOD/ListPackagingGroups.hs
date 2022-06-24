@@ -37,8 +37,8 @@ module Amazonka.MediaPackageVOD.ListPackagingGroups
     newListPackagingGroupsResponse,
 
     -- * Response Lenses
-    listPackagingGroupsResponse_packagingGroups,
     listPackagingGroupsResponse_nextToken,
+    listPackagingGroupsResponse_packagingGroups,
     listPackagingGroupsResponse_httpStatus,
   )
 where
@@ -117,10 +117,10 @@ instance Core.AWSRequest ListPackagingGroups where
     Response.receiveJSON
       ( \s h x ->
           ListPackagingGroupsResponse'
-            Prelude.<$> ( x Core..?> "packagingGroups"
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "packagingGroups"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,11 +157,11 @@ instance Core.ToQuery ListPackagingGroups where
 
 -- | /See:/ 'newListPackagingGroupsResponse' smart constructor.
 data ListPackagingGroupsResponse = ListPackagingGroupsResponse'
-  { -- | A list of MediaPackage VOD PackagingGroup resources.
-    packagingGroups :: Prelude.Maybe [PackagingGroup],
-    -- | A token that can be used to resume pagination from the end of the
+  { -- | A token that can be used to resume pagination from the end of the
     -- collection.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of MediaPackage VOD PackagingGroup resources.
+    packagingGroups :: Prelude.Maybe [PackagingGroup],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -175,10 +175,10 @@ data ListPackagingGroupsResponse = ListPackagingGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'packagingGroups', 'listPackagingGroupsResponse_packagingGroups' - A list of MediaPackage VOD PackagingGroup resources.
---
 -- 'nextToken', 'listPackagingGroupsResponse_nextToken' - A token that can be used to resume pagination from the end of the
 -- collection.
+--
+-- 'packagingGroups', 'listPackagingGroupsResponse_packagingGroups' - A list of MediaPackage VOD PackagingGroup resources.
 --
 -- 'httpStatus', 'listPackagingGroupsResponse_httpStatus' - The response's http status code.
 newListPackagingGroupsResponse ::
@@ -187,20 +187,20 @@ newListPackagingGroupsResponse ::
   ListPackagingGroupsResponse
 newListPackagingGroupsResponse pHttpStatus_ =
   ListPackagingGroupsResponse'
-    { packagingGroups =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      packagingGroups = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of MediaPackage VOD PackagingGroup resources.
-listPackagingGroupsResponse_packagingGroups :: Lens.Lens' ListPackagingGroupsResponse (Prelude.Maybe [PackagingGroup])
-listPackagingGroupsResponse_packagingGroups = Lens.lens (\ListPackagingGroupsResponse' {packagingGroups} -> packagingGroups) (\s@ListPackagingGroupsResponse' {} a -> s {packagingGroups = a} :: ListPackagingGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that can be used to resume pagination from the end of the
 -- collection.
 listPackagingGroupsResponse_nextToken :: Lens.Lens' ListPackagingGroupsResponse (Prelude.Maybe Prelude.Text)
 listPackagingGroupsResponse_nextToken = Lens.lens (\ListPackagingGroupsResponse' {nextToken} -> nextToken) (\s@ListPackagingGroupsResponse' {} a -> s {nextToken = a} :: ListPackagingGroupsResponse)
+
+-- | A list of MediaPackage VOD PackagingGroup resources.
+listPackagingGroupsResponse_packagingGroups :: Lens.Lens' ListPackagingGroupsResponse (Prelude.Maybe [PackagingGroup])
+listPackagingGroupsResponse_packagingGroups = Lens.lens (\ListPackagingGroupsResponse' {packagingGroups} -> packagingGroups) (\s@ListPackagingGroupsResponse' {} a -> s {packagingGroups = a} :: ListPackagingGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listPackagingGroupsResponse_httpStatus :: Lens.Lens' ListPackagingGroupsResponse Prelude.Int
@@ -208,6 +208,6 @@ listPackagingGroupsResponse_httpStatus = Lens.lens (\ListPackagingGroupsResponse
 
 instance Prelude.NFData ListPackagingGroupsResponse where
   rnf ListPackagingGroupsResponse' {..} =
-    Prelude.rnf packagingGroups
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf packagingGroups
       `Prelude.seq` Prelude.rnf httpStatus

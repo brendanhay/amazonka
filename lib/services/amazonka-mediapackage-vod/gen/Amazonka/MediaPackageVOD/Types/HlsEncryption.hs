@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHlsEncryption' smart constructor.
 data HlsEncryption = HlsEncryption'
-  { -- | The encryption method to use.
-    encryptionMethod :: Prelude.Maybe EncryptionMethod,
-    -- | A constant initialization vector for encryption (optional). When not
+  { -- | A constant initialization vector for encryption (optional). When not
     -- specified the initialization vector will be periodically rotated.
     constantInitializationVector :: Prelude.Maybe Prelude.Text,
+    -- | The encryption method to use.
+    encryptionMethod :: Prelude.Maybe EncryptionMethod,
     spekeKeyProvider :: SpekeKeyProvider
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,10 +46,10 @@ data HlsEncryption = HlsEncryption'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'encryptionMethod', 'hlsEncryption_encryptionMethod' - The encryption method to use.
---
 -- 'constantInitializationVector', 'hlsEncryption_constantInitializationVector' - A constant initialization vector for encryption (optional). When not
 -- specified the initialization vector will be periodically rotated.
+--
+-- 'encryptionMethod', 'hlsEncryption_encryptionMethod' - The encryption method to use.
 --
 -- 'spekeKeyProvider', 'hlsEncryption_spekeKeyProvider' - Undocumented member.
 newHlsEncryption ::
@@ -58,19 +58,20 @@ newHlsEncryption ::
   HlsEncryption
 newHlsEncryption pSpekeKeyProvider_ =
   HlsEncryption'
-    { encryptionMethod = Prelude.Nothing,
-      constantInitializationVector = Prelude.Nothing,
+    { constantInitializationVector =
+        Prelude.Nothing,
+      encryptionMethod = Prelude.Nothing,
       spekeKeyProvider = pSpekeKeyProvider_
     }
-
--- | The encryption method to use.
-hlsEncryption_encryptionMethod :: Lens.Lens' HlsEncryption (Prelude.Maybe EncryptionMethod)
-hlsEncryption_encryptionMethod = Lens.lens (\HlsEncryption' {encryptionMethod} -> encryptionMethod) (\s@HlsEncryption' {} a -> s {encryptionMethod = a} :: HlsEncryption)
 
 -- | A constant initialization vector for encryption (optional). When not
 -- specified the initialization vector will be periodically rotated.
 hlsEncryption_constantInitializationVector :: Lens.Lens' HlsEncryption (Prelude.Maybe Prelude.Text)
 hlsEncryption_constantInitializationVector = Lens.lens (\HlsEncryption' {constantInitializationVector} -> constantInitializationVector) (\s@HlsEncryption' {} a -> s {constantInitializationVector = a} :: HlsEncryption)
+
+-- | The encryption method to use.
+hlsEncryption_encryptionMethod :: Lens.Lens' HlsEncryption (Prelude.Maybe EncryptionMethod)
+hlsEncryption_encryptionMethod = Lens.lens (\HlsEncryption' {encryptionMethod} -> encryptionMethod) (\s@HlsEncryption' {} a -> s {encryptionMethod = a} :: HlsEncryption)
 
 -- | Undocumented member.
 hlsEncryption_spekeKeyProvider :: Lens.Lens' HlsEncryption SpekeKeyProvider
@@ -82,31 +83,32 @@ instance Core.FromJSON HlsEncryption where
       "HlsEncryption"
       ( \x ->
           HlsEncryption'
-            Prelude.<$> (x Core..:? "encryptionMethod")
-            Prelude.<*> (x Core..:? "constantInitializationVector")
+            Prelude.<$> (x Core..:? "constantInitializationVector")
+            Prelude.<*> (x Core..:? "encryptionMethod")
             Prelude.<*> (x Core..: "spekeKeyProvider")
       )
 
 instance Prelude.Hashable HlsEncryption where
   hashWithSalt _salt HlsEncryption' {..} =
-    _salt `Prelude.hashWithSalt` encryptionMethod
+    _salt
       `Prelude.hashWithSalt` constantInitializationVector
+      `Prelude.hashWithSalt` encryptionMethod
       `Prelude.hashWithSalt` spekeKeyProvider
 
 instance Prelude.NFData HlsEncryption where
   rnf HlsEncryption' {..} =
-    Prelude.rnf encryptionMethod
-      `Prelude.seq` Prelude.rnf constantInitializationVector
+    Prelude.rnf constantInitializationVector
+      `Prelude.seq` Prelude.rnf encryptionMethod
       `Prelude.seq` Prelude.rnf spekeKeyProvider
 
 instance Core.ToJSON HlsEncryption where
   toJSON HlsEncryption' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("encryptionMethod" Core..=)
-              Prelude.<$> encryptionMethod,
-            ("constantInitializationVector" Core..=)
+          [ ("constantInitializationVector" Core..=)
               Prelude.<$> constantInitializationVector,
+            ("encryptionMethod" Core..=)
+              Prelude.<$> encryptionMethod,
             Prelude.Just
               ("spekeKeyProvider" Core..= spekeKeyProvider)
           ]

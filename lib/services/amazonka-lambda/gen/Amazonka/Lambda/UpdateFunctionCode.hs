@@ -37,15 +37,15 @@ module Amazonka.Lambda.UpdateFunctionCode
     newUpdateFunctionCode,
 
     -- * Request Lenses
-    updateFunctionCode_s3ObjectVersion,
+    updateFunctionCode_s3Bucket,
+    updateFunctionCode_publish,
+    updateFunctionCode_imageUri,
     updateFunctionCode_s3Key,
     updateFunctionCode_zipFile,
-    updateFunctionCode_architectures,
-    updateFunctionCode_imageUri,
-    updateFunctionCode_s3Bucket,
     updateFunctionCode_dryRun,
     updateFunctionCode_revisionId,
-    updateFunctionCode_publish,
+    updateFunctionCode_s3ObjectVersion,
+    updateFunctionCode_architectures,
     updateFunctionCode_functionName,
 
     -- * Destructuring the Response
@@ -53,38 +53,38 @@ module Amazonka.Lambda.UpdateFunctionCode
     newFunctionConfiguration,
 
     -- * Response Lenses
-    functionConfiguration_memorySize,
-    functionConfiguration_runtime,
-    functionConfiguration_state,
-    functionConfiguration_signingProfileVersionArn,
-    functionConfiguration_lastUpdateStatus,
-    functionConfiguration_functionArn,
-    functionConfiguration_kmsKeyArn,
-    functionConfiguration_packageType,
-    functionConfiguration_fileSystemConfigs,
-    functionConfiguration_environment,
-    functionConfiguration_deadLetterConfig,
-    functionConfiguration_architectures,
-    functionConfiguration_signingJobArn,
-    functionConfiguration_role,
-    functionConfiguration_vpcConfig,
-    functionConfiguration_version,
-    functionConfiguration_functionName,
-    functionConfiguration_layers,
-    functionConfiguration_codeSize,
-    functionConfiguration_handler,
-    functionConfiguration_timeout,
-    functionConfiguration_lastUpdateStatusReason,
-    functionConfiguration_stateReason,
-    functionConfiguration_lastModified,
-    functionConfiguration_codeSha256,
     functionConfiguration_tracingConfig,
-    functionConfiguration_stateReasonCode,
-    functionConfiguration_imageConfigResponse,
+    functionConfiguration_fileSystemConfigs,
+    functionConfiguration_lastUpdateStatusReason,
+    functionConfiguration_masterArn,
+    functionConfiguration_functionArn,
+    functionConfiguration_timeout,
+    functionConfiguration_memorySize,
+    functionConfiguration_codeSha256,
+    functionConfiguration_environment,
+    functionConfiguration_vpcConfig,
+    functionConfiguration_state,
+    functionConfiguration_functionName,
+    functionConfiguration_runtime,
+    functionConfiguration_signingProfileVersionArn,
     functionConfiguration_description,
+    functionConfiguration_kmsKeyArn,
+    functionConfiguration_handler,
+    functionConfiguration_layers,
+    functionConfiguration_stateReasonCode,
+    functionConfiguration_packageType,
     functionConfiguration_lastUpdateStatusReasonCode,
     functionConfiguration_revisionId,
-    functionConfiguration_masterArn,
+    functionConfiguration_signingJobArn,
+    functionConfiguration_imageConfigResponse,
+    functionConfiguration_lastUpdateStatus,
+    functionConfiguration_lastModified,
+    functionConfiguration_role,
+    functionConfiguration_architectures,
+    functionConfiguration_stateReason,
+    functionConfiguration_version,
+    functionConfiguration_deadLetterConfig,
+    functionConfiguration_codeSize,
   )
 where
 
@@ -97,24 +97,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateFunctionCode' smart constructor.
 data UpdateFunctionCode = UpdateFunctionCode'
-  { -- | For versioned objects, the version of the deployment package object to
-    -- use.
-    s3ObjectVersion :: Prelude.Maybe Prelude.Text,
+  { -- | An Amazon S3 bucket in the same Amazon Web Services Region as your
+    -- function. The bucket can be in a different Amazon Web Services account.
+    s3Bucket :: Prelude.Maybe Prelude.Text,
+    -- | Set to true to publish a new version of the function after updating the
+    -- code. This has the same effect as calling PublishVersion separately.
+    publish :: Prelude.Maybe Prelude.Bool,
+    -- | URI of a container image in the Amazon ECR registry.
+    imageUri :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 key of the deployment package.
     s3Key :: Prelude.Maybe Prelude.Text,
     -- | The base64-encoded contents of the deployment package. Amazon Web
     -- Services SDK and Amazon Web Services CLI clients handle the encoding for
     -- you.
     zipFile :: Prelude.Maybe (Core.Sensitive Core.Base64),
-    -- | The instruction set architecture that the function supports. Enter a
-    -- string array with one of the valid values. The default value is
-    -- @x86_64@.
-    architectures :: Prelude.Maybe (Prelude.NonEmpty Architecture),
-    -- | URI of a container image in the Amazon ECR registry.
-    imageUri :: Prelude.Maybe Prelude.Text,
-    -- | An Amazon S3 bucket in the same Amazon Web Services Region as your
-    -- function. The bucket can be in a different Amazon Web Services account.
-    s3Bucket :: Prelude.Maybe Prelude.Text,
     -- | Set to true to validate the request parameters and access permissions
     -- without modifying the function code.
     dryRun :: Prelude.Maybe Prelude.Bool,
@@ -122,9 +118,13 @@ data UpdateFunctionCode = UpdateFunctionCode'
     -- specified. Use this option to avoid modifying a function that has
     -- changed since you last read it.
     revisionId :: Prelude.Maybe Prelude.Text,
-    -- | Set to true to publish a new version of the function after updating the
-    -- code. This has the same effect as calling PublishVersion separately.
-    publish :: Prelude.Maybe Prelude.Bool,
+    -- | For versioned objects, the version of the deployment package object to
+    -- use.
+    s3ObjectVersion :: Prelude.Maybe Prelude.Text,
+    -- | The instruction set architecture that the function supports. Enter a
+    -- string array with one of the valid values. The default value is
+    -- @x86_64@.
+    architectures :: Prelude.Maybe (Prelude.NonEmpty Architecture),
     -- | The name of the Lambda function.
     --
     -- __Name formats__
@@ -150,8 +150,13 @@ data UpdateFunctionCode = UpdateFunctionCode'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3ObjectVersion', 'updateFunctionCode_s3ObjectVersion' - For versioned objects, the version of the deployment package object to
--- use.
+-- 's3Bucket', 'updateFunctionCode_s3Bucket' - An Amazon S3 bucket in the same Amazon Web Services Region as your
+-- function. The bucket can be in a different Amazon Web Services account.
+--
+-- 'publish', 'updateFunctionCode_publish' - Set to true to publish a new version of the function after updating the
+-- code. This has the same effect as calling PublishVersion separately.
+--
+-- 'imageUri', 'updateFunctionCode_imageUri' - URI of a container image in the Amazon ECR registry.
 --
 -- 's3Key', 'updateFunctionCode_s3Key' - The Amazon S3 key of the deployment package.
 --
@@ -163,15 +168,6 @@ data UpdateFunctionCode = UpdateFunctionCode'
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
--- 'architectures', 'updateFunctionCode_architectures' - The instruction set architecture that the function supports. Enter a
--- string array with one of the valid values. The default value is
--- @x86_64@.
---
--- 'imageUri', 'updateFunctionCode_imageUri' - URI of a container image in the Amazon ECR registry.
---
--- 's3Bucket', 'updateFunctionCode_s3Bucket' - An Amazon S3 bucket in the same Amazon Web Services Region as your
--- function. The bucket can be in a different Amazon Web Services account.
---
 -- 'dryRun', 'updateFunctionCode_dryRun' - Set to true to validate the request parameters and access permissions
 -- without modifying the function code.
 --
@@ -179,8 +175,12 @@ data UpdateFunctionCode = UpdateFunctionCode'
 -- specified. Use this option to avoid modifying a function that has
 -- changed since you last read it.
 --
--- 'publish', 'updateFunctionCode_publish' - Set to true to publish a new version of the function after updating the
--- code. This has the same effect as calling PublishVersion separately.
+-- 's3ObjectVersion', 'updateFunctionCode_s3ObjectVersion' - For versioned objects, the version of the deployment package object to
+-- use.
+--
+-- 'architectures', 'updateFunctionCode_architectures' - The instruction set architecture that the function supports. Enter a
+-- string array with one of the valid values. The default value is
+-- @x86_64@.
 --
 -- 'functionName', 'updateFunctionCode_functionName' - The name of the Lambda function.
 --
@@ -201,23 +201,31 @@ newUpdateFunctionCode ::
   UpdateFunctionCode
 newUpdateFunctionCode pFunctionName_ =
   UpdateFunctionCode'
-    { s3ObjectVersion =
-        Prelude.Nothing,
+    { s3Bucket = Prelude.Nothing,
+      publish = Prelude.Nothing,
+      imageUri = Prelude.Nothing,
       s3Key = Prelude.Nothing,
       zipFile = Prelude.Nothing,
-      architectures = Prelude.Nothing,
-      imageUri = Prelude.Nothing,
-      s3Bucket = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       revisionId = Prelude.Nothing,
-      publish = Prelude.Nothing,
+      s3ObjectVersion = Prelude.Nothing,
+      architectures = Prelude.Nothing,
       functionName = pFunctionName_
     }
 
--- | For versioned objects, the version of the deployment package object to
--- use.
-updateFunctionCode_s3ObjectVersion :: Lens.Lens' UpdateFunctionCode (Prelude.Maybe Prelude.Text)
-updateFunctionCode_s3ObjectVersion = Lens.lens (\UpdateFunctionCode' {s3ObjectVersion} -> s3ObjectVersion) (\s@UpdateFunctionCode' {} a -> s {s3ObjectVersion = a} :: UpdateFunctionCode)
+-- | An Amazon S3 bucket in the same Amazon Web Services Region as your
+-- function. The bucket can be in a different Amazon Web Services account.
+updateFunctionCode_s3Bucket :: Lens.Lens' UpdateFunctionCode (Prelude.Maybe Prelude.Text)
+updateFunctionCode_s3Bucket = Lens.lens (\UpdateFunctionCode' {s3Bucket} -> s3Bucket) (\s@UpdateFunctionCode' {} a -> s {s3Bucket = a} :: UpdateFunctionCode)
+
+-- | Set to true to publish a new version of the function after updating the
+-- code. This has the same effect as calling PublishVersion separately.
+updateFunctionCode_publish :: Lens.Lens' UpdateFunctionCode (Prelude.Maybe Prelude.Bool)
+updateFunctionCode_publish = Lens.lens (\UpdateFunctionCode' {publish} -> publish) (\s@UpdateFunctionCode' {} a -> s {publish = a} :: UpdateFunctionCode)
+
+-- | URI of a container image in the Amazon ECR registry.
+updateFunctionCode_imageUri :: Lens.Lens' UpdateFunctionCode (Prelude.Maybe Prelude.Text)
+updateFunctionCode_imageUri = Lens.lens (\UpdateFunctionCode' {imageUri} -> imageUri) (\s@UpdateFunctionCode' {} a -> s {imageUri = a} :: UpdateFunctionCode)
 
 -- | The Amazon S3 key of the deployment package.
 updateFunctionCode_s3Key :: Lens.Lens' UpdateFunctionCode (Prelude.Maybe Prelude.Text)
@@ -233,21 +241,6 @@ updateFunctionCode_s3Key = Lens.lens (\UpdateFunctionCode' {s3Key} -> s3Key) (\s
 updateFunctionCode_zipFile :: Lens.Lens' UpdateFunctionCode (Prelude.Maybe Prelude.ByteString)
 updateFunctionCode_zipFile = Lens.lens (\UpdateFunctionCode' {zipFile} -> zipFile) (\s@UpdateFunctionCode' {} a -> s {zipFile = a} :: UpdateFunctionCode) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
 
--- | The instruction set architecture that the function supports. Enter a
--- string array with one of the valid values. The default value is
--- @x86_64@.
-updateFunctionCode_architectures :: Lens.Lens' UpdateFunctionCode (Prelude.Maybe (Prelude.NonEmpty Architecture))
-updateFunctionCode_architectures = Lens.lens (\UpdateFunctionCode' {architectures} -> architectures) (\s@UpdateFunctionCode' {} a -> s {architectures = a} :: UpdateFunctionCode) Prelude.. Lens.mapping Lens.coerced
-
--- | URI of a container image in the Amazon ECR registry.
-updateFunctionCode_imageUri :: Lens.Lens' UpdateFunctionCode (Prelude.Maybe Prelude.Text)
-updateFunctionCode_imageUri = Lens.lens (\UpdateFunctionCode' {imageUri} -> imageUri) (\s@UpdateFunctionCode' {} a -> s {imageUri = a} :: UpdateFunctionCode)
-
--- | An Amazon S3 bucket in the same Amazon Web Services Region as your
--- function. The bucket can be in a different Amazon Web Services account.
-updateFunctionCode_s3Bucket :: Lens.Lens' UpdateFunctionCode (Prelude.Maybe Prelude.Text)
-updateFunctionCode_s3Bucket = Lens.lens (\UpdateFunctionCode' {s3Bucket} -> s3Bucket) (\s@UpdateFunctionCode' {} a -> s {s3Bucket = a} :: UpdateFunctionCode)
-
 -- | Set to true to validate the request parameters and access permissions
 -- without modifying the function code.
 updateFunctionCode_dryRun :: Lens.Lens' UpdateFunctionCode (Prelude.Maybe Prelude.Bool)
@@ -259,10 +252,16 @@ updateFunctionCode_dryRun = Lens.lens (\UpdateFunctionCode' {dryRun} -> dryRun) 
 updateFunctionCode_revisionId :: Lens.Lens' UpdateFunctionCode (Prelude.Maybe Prelude.Text)
 updateFunctionCode_revisionId = Lens.lens (\UpdateFunctionCode' {revisionId} -> revisionId) (\s@UpdateFunctionCode' {} a -> s {revisionId = a} :: UpdateFunctionCode)
 
--- | Set to true to publish a new version of the function after updating the
--- code. This has the same effect as calling PublishVersion separately.
-updateFunctionCode_publish :: Lens.Lens' UpdateFunctionCode (Prelude.Maybe Prelude.Bool)
-updateFunctionCode_publish = Lens.lens (\UpdateFunctionCode' {publish} -> publish) (\s@UpdateFunctionCode' {} a -> s {publish = a} :: UpdateFunctionCode)
+-- | For versioned objects, the version of the deployment package object to
+-- use.
+updateFunctionCode_s3ObjectVersion :: Lens.Lens' UpdateFunctionCode (Prelude.Maybe Prelude.Text)
+updateFunctionCode_s3ObjectVersion = Lens.lens (\UpdateFunctionCode' {s3ObjectVersion} -> s3ObjectVersion) (\s@UpdateFunctionCode' {} a -> s {s3ObjectVersion = a} :: UpdateFunctionCode)
+
+-- | The instruction set architecture that the function supports. Enter a
+-- string array with one of the valid values. The default value is
+-- @x86_64@.
+updateFunctionCode_architectures :: Lens.Lens' UpdateFunctionCode (Prelude.Maybe (Prelude.NonEmpty Architecture))
+updateFunctionCode_architectures = Lens.lens (\UpdateFunctionCode' {architectures} -> architectures) (\s@UpdateFunctionCode' {} a -> s {architectures = a} :: UpdateFunctionCode) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the Lambda function.
 --
@@ -291,28 +290,28 @@ instance Core.AWSRequest UpdateFunctionCode where
 
 instance Prelude.Hashable UpdateFunctionCode where
   hashWithSalt _salt UpdateFunctionCode' {..} =
-    _salt `Prelude.hashWithSalt` s3ObjectVersion
+    _salt `Prelude.hashWithSalt` s3Bucket
+      `Prelude.hashWithSalt` publish
+      `Prelude.hashWithSalt` imageUri
       `Prelude.hashWithSalt` s3Key
       `Prelude.hashWithSalt` zipFile
-      `Prelude.hashWithSalt` architectures
-      `Prelude.hashWithSalt` imageUri
-      `Prelude.hashWithSalt` s3Bucket
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` revisionId
-      `Prelude.hashWithSalt` publish
+      `Prelude.hashWithSalt` s3ObjectVersion
+      `Prelude.hashWithSalt` architectures
       `Prelude.hashWithSalt` functionName
 
 instance Prelude.NFData UpdateFunctionCode where
   rnf UpdateFunctionCode' {..} =
-    Prelude.rnf s3ObjectVersion
+    Prelude.rnf s3Bucket
+      `Prelude.seq` Prelude.rnf publish
+      `Prelude.seq` Prelude.rnf imageUri
       `Prelude.seq` Prelude.rnf s3Key
       `Prelude.seq` Prelude.rnf zipFile
-      `Prelude.seq` Prelude.rnf architectures
-      `Prelude.seq` Prelude.rnf imageUri
-      `Prelude.seq` Prelude.rnf s3Bucket
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf publish
+      `Prelude.seq` Prelude.rnf s3ObjectVersion
+      `Prelude.seq` Prelude.rnf architectures
       `Prelude.seq` Prelude.rnf functionName
 
 instance Core.ToHeaders UpdateFunctionCode where
@@ -322,16 +321,16 @@ instance Core.ToJSON UpdateFunctionCode where
   toJSON UpdateFunctionCode' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("S3ObjectVersion" Core..=)
-              Prelude.<$> s3ObjectVersion,
+          [ ("S3Bucket" Core..=) Prelude.<$> s3Bucket,
+            ("Publish" Core..=) Prelude.<$> publish,
+            ("ImageUri" Core..=) Prelude.<$> imageUri,
             ("S3Key" Core..=) Prelude.<$> s3Key,
             ("ZipFile" Core..=) Prelude.<$> zipFile,
-            ("Architectures" Core..=) Prelude.<$> architectures,
-            ("ImageUri" Core..=) Prelude.<$> imageUri,
-            ("S3Bucket" Core..=) Prelude.<$> s3Bucket,
             ("DryRun" Core..=) Prelude.<$> dryRun,
             ("RevisionId" Core..=) Prelude.<$> revisionId,
-            ("Publish" Core..=) Prelude.<$> publish
+            ("S3ObjectVersion" Core..=)
+              Prelude.<$> s3ObjectVersion,
+            ("Architectures" Core..=) Prelude.<$> architectures
           ]
       )
 

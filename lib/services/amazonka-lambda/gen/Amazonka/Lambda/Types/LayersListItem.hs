@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLayersListItem' smart constructor.
 data LayersListItem = LayersListItem'
-  { -- | The name of the layer.
+  { -- | The Amazon Resource Name (ARN) of the function layer.
+    layerArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the layer.
     layerName :: Prelude.Maybe Prelude.Text,
     -- | The newest version of the layer.
-    latestMatchingVersion :: Prelude.Maybe LayerVersionsListItem,
-    -- | The Amazon Resource Name (ARN) of the function layer.
-    layerArn :: Prelude.Maybe Prelude.Text
+    latestMatchingVersion :: Prelude.Maybe LayerVersionsListItem
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,19 +46,23 @@ data LayersListItem = LayersListItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'layerArn', 'layersListItem_layerArn' - The Amazon Resource Name (ARN) of the function layer.
+--
 -- 'layerName', 'layersListItem_layerName' - The name of the layer.
 --
 -- 'latestMatchingVersion', 'layersListItem_latestMatchingVersion' - The newest version of the layer.
---
--- 'layerArn', 'layersListItem_layerArn' - The Amazon Resource Name (ARN) of the function layer.
 newLayersListItem ::
   LayersListItem
 newLayersListItem =
   LayersListItem'
-    { layerName = Prelude.Nothing,
-      latestMatchingVersion = Prelude.Nothing,
-      layerArn = Prelude.Nothing
+    { layerArn = Prelude.Nothing,
+      layerName = Prelude.Nothing,
+      latestMatchingVersion = Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the function layer.
+layersListItem_layerArn :: Lens.Lens' LayersListItem (Prelude.Maybe Prelude.Text)
+layersListItem_layerArn = Lens.lens (\LayersListItem' {layerArn} -> layerArn) (\s@LayersListItem' {} a -> s {layerArn = a} :: LayersListItem)
 
 -- | The name of the layer.
 layersListItem_layerName :: Lens.Lens' LayersListItem (Prelude.Maybe Prelude.Text)
@@ -68,29 +72,25 @@ layersListItem_layerName = Lens.lens (\LayersListItem' {layerName} -> layerName)
 layersListItem_latestMatchingVersion :: Lens.Lens' LayersListItem (Prelude.Maybe LayerVersionsListItem)
 layersListItem_latestMatchingVersion = Lens.lens (\LayersListItem' {latestMatchingVersion} -> latestMatchingVersion) (\s@LayersListItem' {} a -> s {latestMatchingVersion = a} :: LayersListItem)
 
--- | The Amazon Resource Name (ARN) of the function layer.
-layersListItem_layerArn :: Lens.Lens' LayersListItem (Prelude.Maybe Prelude.Text)
-layersListItem_layerArn = Lens.lens (\LayersListItem' {layerArn} -> layerArn) (\s@LayersListItem' {} a -> s {layerArn = a} :: LayersListItem)
-
 instance Core.FromJSON LayersListItem where
   parseJSON =
     Core.withObject
       "LayersListItem"
       ( \x ->
           LayersListItem'
-            Prelude.<$> (x Core..:? "LayerName")
+            Prelude.<$> (x Core..:? "LayerArn")
+            Prelude.<*> (x Core..:? "LayerName")
             Prelude.<*> (x Core..:? "LatestMatchingVersion")
-            Prelude.<*> (x Core..:? "LayerArn")
       )
 
 instance Prelude.Hashable LayersListItem where
   hashWithSalt _salt LayersListItem' {..} =
-    _salt `Prelude.hashWithSalt` layerName
+    _salt `Prelude.hashWithSalt` layerArn
+      `Prelude.hashWithSalt` layerName
       `Prelude.hashWithSalt` latestMatchingVersion
-      `Prelude.hashWithSalt` layerArn
 
 instance Prelude.NFData LayersListItem where
   rnf LayersListItem' {..} =
-    Prelude.rnf layerName
+    Prelude.rnf layerArn
+      `Prelude.seq` Prelude.rnf layerName
       `Prelude.seq` Prelude.rnf latestMatchingVersion
-      `Prelude.seq` Prelude.rnf layerArn

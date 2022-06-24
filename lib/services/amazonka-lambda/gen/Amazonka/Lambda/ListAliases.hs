@@ -32,8 +32,8 @@ module Amazonka.Lambda.ListAliases
 
     -- * Request Lenses
     listAliases_marker,
-    listAliases_maxItems,
     listAliases_functionVersion,
+    listAliases_maxItems,
     listAliases_functionName,
 
     -- * Destructuring the Response
@@ -59,11 +59,11 @@ data ListAliases = ListAliases'
   { -- | Specify the pagination token that\'s returned by a previous request to
     -- retrieve the next page of results.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | Limit the number of aliases returned.
-    maxItems :: Prelude.Maybe Prelude.Natural,
     -- | Specify a function version to only list aliases that invoke that
     -- version.
     functionVersion :: Prelude.Maybe Prelude.Text,
+    -- | Limit the number of aliases returned.
+    maxItems :: Prelude.Maybe Prelude.Natural,
     -- | The name of the Lambda function.
     --
     -- __Name formats__
@@ -92,10 +92,10 @@ data ListAliases = ListAliases'
 -- 'marker', 'listAliases_marker' - Specify the pagination token that\'s returned by a previous request to
 -- retrieve the next page of results.
 --
--- 'maxItems', 'listAliases_maxItems' - Limit the number of aliases returned.
---
 -- 'functionVersion', 'listAliases_functionVersion' - Specify a function version to only list aliases that invoke that
 -- version.
+--
+-- 'maxItems', 'listAliases_maxItems' - Limit the number of aliases returned.
 --
 -- 'functionName', 'listAliases_functionName' - The name of the Lambda function.
 --
@@ -117,8 +117,8 @@ newListAliases ::
 newListAliases pFunctionName_ =
   ListAliases'
     { marker = Prelude.Nothing,
-      maxItems = Prelude.Nothing,
       functionVersion = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
       functionName = pFunctionName_
     }
 
@@ -127,14 +127,14 @@ newListAliases pFunctionName_ =
 listAliases_marker :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
 listAliases_marker = Lens.lens (\ListAliases' {marker} -> marker) (\s@ListAliases' {} a -> s {marker = a} :: ListAliases)
 
--- | Limit the number of aliases returned.
-listAliases_maxItems :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Natural)
-listAliases_maxItems = Lens.lens (\ListAliases' {maxItems} -> maxItems) (\s@ListAliases' {} a -> s {maxItems = a} :: ListAliases)
-
 -- | Specify a function version to only list aliases that invoke that
 -- version.
 listAliases_functionVersion :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
 listAliases_functionVersion = Lens.lens (\ListAliases' {functionVersion} -> functionVersion) (\s@ListAliases' {} a -> s {functionVersion = a} :: ListAliases)
+
+-- | Limit the number of aliases returned.
+listAliases_maxItems :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Natural)
+listAliases_maxItems = Lens.lens (\ListAliases' {maxItems} -> maxItems) (\s@ListAliases' {} a -> s {maxItems = a} :: ListAliases)
 
 -- | The name of the Lambda function.
 --
@@ -186,15 +186,15 @@ instance Core.AWSRequest ListAliases where
 instance Prelude.Hashable ListAliases where
   hashWithSalt _salt ListAliases' {..} =
     _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` functionVersion
+      `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` functionName
 
 instance Prelude.NFData ListAliases where
   rnf ListAliases' {..} =
     Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf functionVersion
+      `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf functionName
 
 instance Core.ToHeaders ListAliases where
@@ -212,8 +212,8 @@ instance Core.ToQuery ListAliases where
   toQuery ListAliases' {..} =
     Prelude.mconcat
       [ "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems,
-        "FunctionVersion" Core.=: functionVersion
+        "FunctionVersion" Core.=: functionVersion,
+        "MaxItems" Core.=: maxItems
       ]
 
 -- | /See:/ 'newListAliasesResponse' smart constructor.

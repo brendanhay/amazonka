@@ -36,12 +36,12 @@ module Amazonka.Lambda.GetProvisionedConcurrencyConfig
     newGetProvisionedConcurrencyConfigResponse,
 
     -- * Response Lenses
-    getProvisionedConcurrencyConfigResponse_status,
-    getProvisionedConcurrencyConfigResponse_requestedProvisionedConcurrentExecutions,
     getProvisionedConcurrencyConfigResponse_availableProvisionedConcurrentExecutions,
     getProvisionedConcurrencyConfigResponse_statusReason,
-    getProvisionedConcurrencyConfigResponse_allocatedProvisionedConcurrentExecutions,
+    getProvisionedConcurrencyConfigResponse_status,
+    getProvisionedConcurrencyConfigResponse_requestedProvisionedConcurrentExecutions,
     getProvisionedConcurrencyConfigResponse_lastModified,
+    getProvisionedConcurrencyConfigResponse_allocatedProvisionedConcurrentExecutions,
     getProvisionedConcurrencyConfigResponse_httpStatus,
   )
 where
@@ -144,18 +144,18 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetProvisionedConcurrencyConfigResponse'
-            Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> ( x
-                            Core..?> "RequestedProvisionedConcurrentExecutions"
-                        )
-            Prelude.<*> ( x
+            Prelude.<$> ( x
                             Core..?> "AvailableProvisionedConcurrentExecutions"
                         )
             Prelude.<*> (x Core..?> "StatusReason")
+            Prelude.<*> (x Core..?> "Status")
+            Prelude.<*> ( x
+                            Core..?> "RequestedProvisionedConcurrentExecutions"
+                        )
+            Prelude.<*> (x Core..?> "LastModified")
             Prelude.<*> ( x
                             Core..?> "AllocatedProvisionedConcurrentExecutions"
                         )
-            Prelude.<*> (x Core..?> "LastModified")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -197,20 +197,20 @@ instance Core.ToQuery GetProvisionedConcurrencyConfig where
 
 -- | /See:/ 'newGetProvisionedConcurrencyConfigResponse' smart constructor.
 data GetProvisionedConcurrencyConfigResponse = GetProvisionedConcurrencyConfigResponse'
-  { -- | The status of the allocation process.
-    status :: Prelude.Maybe ProvisionedConcurrencyStatusEnum,
-    -- | The amount of provisioned concurrency requested.
-    requestedProvisionedConcurrentExecutions :: Prelude.Maybe Prelude.Natural,
-    -- | The amount of provisioned concurrency available.
+  { -- | The amount of provisioned concurrency available.
     availableProvisionedConcurrentExecutions :: Prelude.Maybe Prelude.Natural,
     -- | For failed allocations, the reason that provisioned concurrency could
     -- not be allocated.
     statusReason :: Prelude.Maybe Prelude.Text,
-    -- | The amount of provisioned concurrency allocated.
-    allocatedProvisionedConcurrentExecutions :: Prelude.Maybe Prelude.Natural,
+    -- | The status of the allocation process.
+    status :: Prelude.Maybe ProvisionedConcurrencyStatusEnum,
+    -- | The amount of provisioned concurrency requested.
+    requestedProvisionedConcurrentExecutions :: Prelude.Maybe Prelude.Natural,
     -- | The date and time that a user last updated the configuration, in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601 format>.
     lastModified :: Prelude.Maybe Prelude.Text,
+    -- | The amount of provisioned concurrency allocated.
+    allocatedProvisionedConcurrentExecutions :: Prelude.Maybe Prelude.Natural,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -224,19 +224,19 @@ data GetProvisionedConcurrencyConfigResponse = GetProvisionedConcurrencyConfigRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'getProvisionedConcurrencyConfigResponse_status' - The status of the allocation process.
---
--- 'requestedProvisionedConcurrentExecutions', 'getProvisionedConcurrencyConfigResponse_requestedProvisionedConcurrentExecutions' - The amount of provisioned concurrency requested.
---
 -- 'availableProvisionedConcurrentExecutions', 'getProvisionedConcurrencyConfigResponse_availableProvisionedConcurrentExecutions' - The amount of provisioned concurrency available.
 --
 -- 'statusReason', 'getProvisionedConcurrencyConfigResponse_statusReason' - For failed allocations, the reason that provisioned concurrency could
 -- not be allocated.
 --
--- 'allocatedProvisionedConcurrentExecutions', 'getProvisionedConcurrencyConfigResponse_allocatedProvisionedConcurrentExecutions' - The amount of provisioned concurrency allocated.
+-- 'status', 'getProvisionedConcurrencyConfigResponse_status' - The status of the allocation process.
+--
+-- 'requestedProvisionedConcurrentExecutions', 'getProvisionedConcurrencyConfigResponse_requestedProvisionedConcurrentExecutions' - The amount of provisioned concurrency requested.
 --
 -- 'lastModified', 'getProvisionedConcurrencyConfigResponse_lastModified' - The date and time that a user last updated the configuration, in
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601 format>.
+--
+-- 'allocatedProvisionedConcurrentExecutions', 'getProvisionedConcurrencyConfigResponse_allocatedProvisionedConcurrentExecutions' - The amount of provisioned concurrency allocated.
 --
 -- 'httpStatus', 'getProvisionedConcurrencyConfigResponse_httpStatus' - The response's http status code.
 newGetProvisionedConcurrencyConfigResponse ::
@@ -246,26 +246,17 @@ newGetProvisionedConcurrencyConfigResponse ::
 newGetProvisionedConcurrencyConfigResponse
   pHttpStatus_ =
     GetProvisionedConcurrencyConfigResponse'
-      { status =
-          Prelude.Nothing,
-        requestedProvisionedConcurrentExecutions =
-          Prelude.Nothing,
-        availableProvisionedConcurrentExecutions =
+      { availableProvisionedConcurrentExecutions =
           Prelude.Nothing,
         statusReason = Prelude.Nothing,
-        allocatedProvisionedConcurrentExecutions =
+        status = Prelude.Nothing,
+        requestedProvisionedConcurrentExecutions =
           Prelude.Nothing,
         lastModified = Prelude.Nothing,
+        allocatedProvisionedConcurrentExecutions =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The status of the allocation process.
-getProvisionedConcurrencyConfigResponse_status :: Lens.Lens' GetProvisionedConcurrencyConfigResponse (Prelude.Maybe ProvisionedConcurrencyStatusEnum)
-getProvisionedConcurrencyConfigResponse_status = Lens.lens (\GetProvisionedConcurrencyConfigResponse' {status} -> status) (\s@GetProvisionedConcurrencyConfigResponse' {} a -> s {status = a} :: GetProvisionedConcurrencyConfigResponse)
-
--- | The amount of provisioned concurrency requested.
-getProvisionedConcurrencyConfigResponse_requestedProvisionedConcurrentExecutions :: Lens.Lens' GetProvisionedConcurrencyConfigResponse (Prelude.Maybe Prelude.Natural)
-getProvisionedConcurrencyConfigResponse_requestedProvisionedConcurrentExecutions = Lens.lens (\GetProvisionedConcurrencyConfigResponse' {requestedProvisionedConcurrentExecutions} -> requestedProvisionedConcurrentExecutions) (\s@GetProvisionedConcurrencyConfigResponse' {} a -> s {requestedProvisionedConcurrentExecutions = a} :: GetProvisionedConcurrencyConfigResponse)
 
 -- | The amount of provisioned concurrency available.
 getProvisionedConcurrencyConfigResponse_availableProvisionedConcurrentExecutions :: Lens.Lens' GetProvisionedConcurrencyConfigResponse (Prelude.Maybe Prelude.Natural)
@@ -276,14 +267,22 @@ getProvisionedConcurrencyConfigResponse_availableProvisionedConcurrentExecutions
 getProvisionedConcurrencyConfigResponse_statusReason :: Lens.Lens' GetProvisionedConcurrencyConfigResponse (Prelude.Maybe Prelude.Text)
 getProvisionedConcurrencyConfigResponse_statusReason = Lens.lens (\GetProvisionedConcurrencyConfigResponse' {statusReason} -> statusReason) (\s@GetProvisionedConcurrencyConfigResponse' {} a -> s {statusReason = a} :: GetProvisionedConcurrencyConfigResponse)
 
--- | The amount of provisioned concurrency allocated.
-getProvisionedConcurrencyConfigResponse_allocatedProvisionedConcurrentExecutions :: Lens.Lens' GetProvisionedConcurrencyConfigResponse (Prelude.Maybe Prelude.Natural)
-getProvisionedConcurrencyConfigResponse_allocatedProvisionedConcurrentExecutions = Lens.lens (\GetProvisionedConcurrencyConfigResponse' {allocatedProvisionedConcurrentExecutions} -> allocatedProvisionedConcurrentExecutions) (\s@GetProvisionedConcurrencyConfigResponse' {} a -> s {allocatedProvisionedConcurrentExecutions = a} :: GetProvisionedConcurrencyConfigResponse)
+-- | The status of the allocation process.
+getProvisionedConcurrencyConfigResponse_status :: Lens.Lens' GetProvisionedConcurrencyConfigResponse (Prelude.Maybe ProvisionedConcurrencyStatusEnum)
+getProvisionedConcurrencyConfigResponse_status = Lens.lens (\GetProvisionedConcurrencyConfigResponse' {status} -> status) (\s@GetProvisionedConcurrencyConfigResponse' {} a -> s {status = a} :: GetProvisionedConcurrencyConfigResponse)
+
+-- | The amount of provisioned concurrency requested.
+getProvisionedConcurrencyConfigResponse_requestedProvisionedConcurrentExecutions :: Lens.Lens' GetProvisionedConcurrencyConfigResponse (Prelude.Maybe Prelude.Natural)
+getProvisionedConcurrencyConfigResponse_requestedProvisionedConcurrentExecutions = Lens.lens (\GetProvisionedConcurrencyConfigResponse' {requestedProvisionedConcurrentExecutions} -> requestedProvisionedConcurrentExecutions) (\s@GetProvisionedConcurrencyConfigResponse' {} a -> s {requestedProvisionedConcurrentExecutions = a} :: GetProvisionedConcurrencyConfigResponse)
 
 -- | The date and time that a user last updated the configuration, in
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601 format>.
 getProvisionedConcurrencyConfigResponse_lastModified :: Lens.Lens' GetProvisionedConcurrencyConfigResponse (Prelude.Maybe Prelude.Text)
 getProvisionedConcurrencyConfigResponse_lastModified = Lens.lens (\GetProvisionedConcurrencyConfigResponse' {lastModified} -> lastModified) (\s@GetProvisionedConcurrencyConfigResponse' {} a -> s {lastModified = a} :: GetProvisionedConcurrencyConfigResponse)
+
+-- | The amount of provisioned concurrency allocated.
+getProvisionedConcurrencyConfigResponse_allocatedProvisionedConcurrentExecutions :: Lens.Lens' GetProvisionedConcurrencyConfigResponse (Prelude.Maybe Prelude.Natural)
+getProvisionedConcurrencyConfigResponse_allocatedProvisionedConcurrentExecutions = Lens.lens (\GetProvisionedConcurrencyConfigResponse' {allocatedProvisionedConcurrentExecutions} -> allocatedProvisionedConcurrentExecutions) (\s@GetProvisionedConcurrencyConfigResponse' {} a -> s {allocatedProvisionedConcurrentExecutions = a} :: GetProvisionedConcurrencyConfigResponse)
 
 -- | The response's http status code.
 getProvisionedConcurrencyConfigResponse_httpStatus :: Lens.Lens' GetProvisionedConcurrencyConfigResponse Prelude.Int
@@ -294,10 +293,11 @@ instance
     GetProvisionedConcurrencyConfigResponse
   where
   rnf GetProvisionedConcurrencyConfigResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf requestedProvisionedConcurrentExecutions
-      `Prelude.seq` Prelude.rnf availableProvisionedConcurrentExecutions
+    Prelude.rnf
+      availableProvisionedConcurrentExecutions
       `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf allocatedProvisionedConcurrentExecutions
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf requestedProvisionedConcurrentExecutions
       `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf allocatedProvisionedConcurrentExecutions
       `Prelude.seq` Prelude.rnf httpStatus

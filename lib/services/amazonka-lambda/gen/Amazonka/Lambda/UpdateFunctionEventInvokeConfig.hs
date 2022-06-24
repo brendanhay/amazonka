@@ -32,9 +32,9 @@ module Amazonka.Lambda.UpdateFunctionEventInvokeConfig
 
     -- * Request Lenses
     updateFunctionEventInvokeConfig_maximumEventAgeInSeconds,
+    updateFunctionEventInvokeConfig_destinationConfig,
     updateFunctionEventInvokeConfig_maximumRetryAttempts,
     updateFunctionEventInvokeConfig_qualifier,
-    updateFunctionEventInvokeConfig_destinationConfig,
     updateFunctionEventInvokeConfig_functionName,
 
     -- * Destructuring the Response
@@ -44,9 +44,9 @@ module Amazonka.Lambda.UpdateFunctionEventInvokeConfig
     -- * Response Lenses
     functionEventInvokeConfig_functionArn,
     functionEventInvokeConfig_maximumEventAgeInSeconds,
+    functionEventInvokeConfig_destinationConfig,
     functionEventInvokeConfig_maximumRetryAttempts,
     functionEventInvokeConfig_lastModified,
-    functionEventInvokeConfig_destinationConfig,
   )
 where
 
@@ -62,10 +62,6 @@ data UpdateFunctionEventInvokeConfig = UpdateFunctionEventInvokeConfig'
   { -- | The maximum age of a request that Lambda sends to a function for
     -- processing.
     maximumEventAgeInSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | The maximum number of times to retry when the function returns an error.
-    maximumRetryAttempts :: Prelude.Maybe Prelude.Natural,
-    -- | A version number or alias name.
-    qualifier :: Prelude.Maybe Prelude.Text,
     -- | A destination for events after they have been sent to a function for
     -- processing.
     --
@@ -79,6 +75,10 @@ data UpdateFunctionEventInvokeConfig = UpdateFunctionEventInvokeConfig'
     --
     -- -   __Event Bus__ - The ARN of an Amazon EventBridge event bus.
     destinationConfig :: Prelude.Maybe DestinationConfig,
+    -- | The maximum number of times to retry when the function returns an error.
+    maximumRetryAttempts :: Prelude.Maybe Prelude.Natural,
+    -- | A version number or alias name.
+    qualifier :: Prelude.Maybe Prelude.Text,
     -- | The name of the Lambda function, version, or alias.
     --
     -- __Name formats__
@@ -109,10 +109,6 @@ data UpdateFunctionEventInvokeConfig = UpdateFunctionEventInvokeConfig'
 -- 'maximumEventAgeInSeconds', 'updateFunctionEventInvokeConfig_maximumEventAgeInSeconds' - The maximum age of a request that Lambda sends to a function for
 -- processing.
 --
--- 'maximumRetryAttempts', 'updateFunctionEventInvokeConfig_maximumRetryAttempts' - The maximum number of times to retry when the function returns an error.
---
--- 'qualifier', 'updateFunctionEventInvokeConfig_qualifier' - A version number or alias name.
---
 -- 'destinationConfig', 'updateFunctionEventInvokeConfig_destinationConfig' - A destination for events after they have been sent to a function for
 -- processing.
 --
@@ -125,6 +121,10 @@ data UpdateFunctionEventInvokeConfig = UpdateFunctionEventInvokeConfig'
 -- -   __Topic__ - The ARN of an SNS topic.
 --
 -- -   __Event Bus__ - The ARN of an Amazon EventBridge event bus.
+--
+-- 'maximumRetryAttempts', 'updateFunctionEventInvokeConfig_maximumRetryAttempts' - The maximum number of times to retry when the function returns an error.
+--
+-- 'qualifier', 'updateFunctionEventInvokeConfig_qualifier' - A version number or alias name.
 --
 -- 'functionName', 'updateFunctionEventInvokeConfig_functionName' - The name of the Lambda function, version, or alias.
 --
@@ -149,9 +149,9 @@ newUpdateFunctionEventInvokeConfig pFunctionName_ =
   UpdateFunctionEventInvokeConfig'
     { maximumEventAgeInSeconds =
         Prelude.Nothing,
+      destinationConfig = Prelude.Nothing,
       maximumRetryAttempts = Prelude.Nothing,
       qualifier = Prelude.Nothing,
-      destinationConfig = Prelude.Nothing,
       functionName = pFunctionName_
     }
 
@@ -159,14 +159,6 @@ newUpdateFunctionEventInvokeConfig pFunctionName_ =
 -- processing.
 updateFunctionEventInvokeConfig_maximumEventAgeInSeconds :: Lens.Lens' UpdateFunctionEventInvokeConfig (Prelude.Maybe Prelude.Natural)
 updateFunctionEventInvokeConfig_maximumEventAgeInSeconds = Lens.lens (\UpdateFunctionEventInvokeConfig' {maximumEventAgeInSeconds} -> maximumEventAgeInSeconds) (\s@UpdateFunctionEventInvokeConfig' {} a -> s {maximumEventAgeInSeconds = a} :: UpdateFunctionEventInvokeConfig)
-
--- | The maximum number of times to retry when the function returns an error.
-updateFunctionEventInvokeConfig_maximumRetryAttempts :: Lens.Lens' UpdateFunctionEventInvokeConfig (Prelude.Maybe Prelude.Natural)
-updateFunctionEventInvokeConfig_maximumRetryAttempts = Lens.lens (\UpdateFunctionEventInvokeConfig' {maximumRetryAttempts} -> maximumRetryAttempts) (\s@UpdateFunctionEventInvokeConfig' {} a -> s {maximumRetryAttempts = a} :: UpdateFunctionEventInvokeConfig)
-
--- | A version number or alias name.
-updateFunctionEventInvokeConfig_qualifier :: Lens.Lens' UpdateFunctionEventInvokeConfig (Prelude.Maybe Prelude.Text)
-updateFunctionEventInvokeConfig_qualifier = Lens.lens (\UpdateFunctionEventInvokeConfig' {qualifier} -> qualifier) (\s@UpdateFunctionEventInvokeConfig' {} a -> s {qualifier = a} :: UpdateFunctionEventInvokeConfig)
 
 -- | A destination for events after they have been sent to a function for
 -- processing.
@@ -182,6 +174,14 @@ updateFunctionEventInvokeConfig_qualifier = Lens.lens (\UpdateFunctionEventInvok
 -- -   __Event Bus__ - The ARN of an Amazon EventBridge event bus.
 updateFunctionEventInvokeConfig_destinationConfig :: Lens.Lens' UpdateFunctionEventInvokeConfig (Prelude.Maybe DestinationConfig)
 updateFunctionEventInvokeConfig_destinationConfig = Lens.lens (\UpdateFunctionEventInvokeConfig' {destinationConfig} -> destinationConfig) (\s@UpdateFunctionEventInvokeConfig' {} a -> s {destinationConfig = a} :: UpdateFunctionEventInvokeConfig)
+
+-- | The maximum number of times to retry when the function returns an error.
+updateFunctionEventInvokeConfig_maximumRetryAttempts :: Lens.Lens' UpdateFunctionEventInvokeConfig (Prelude.Maybe Prelude.Natural)
+updateFunctionEventInvokeConfig_maximumRetryAttempts = Lens.lens (\UpdateFunctionEventInvokeConfig' {maximumRetryAttempts} -> maximumRetryAttempts) (\s@UpdateFunctionEventInvokeConfig' {} a -> s {maximumRetryAttempts = a} :: UpdateFunctionEventInvokeConfig)
+
+-- | A version number or alias name.
+updateFunctionEventInvokeConfig_qualifier :: Lens.Lens' UpdateFunctionEventInvokeConfig (Prelude.Maybe Prelude.Text)
+updateFunctionEventInvokeConfig_qualifier = Lens.lens (\UpdateFunctionEventInvokeConfig' {qualifier} -> qualifier) (\s@UpdateFunctionEventInvokeConfig' {} a -> s {qualifier = a} :: UpdateFunctionEventInvokeConfig)
 
 -- | The name of the Lambda function, version, or alias.
 --
@@ -222,9 +222,9 @@ instance
     UpdateFunctionEventInvokeConfig' {..} =
       _salt
         `Prelude.hashWithSalt` maximumEventAgeInSeconds
+        `Prelude.hashWithSalt` destinationConfig
         `Prelude.hashWithSalt` maximumRetryAttempts
         `Prelude.hashWithSalt` qualifier
-        `Prelude.hashWithSalt` destinationConfig
         `Prelude.hashWithSalt` functionName
 
 instance
@@ -233,9 +233,9 @@ instance
   where
   rnf UpdateFunctionEventInvokeConfig' {..} =
     Prelude.rnf maximumEventAgeInSeconds
+      `Prelude.seq` Prelude.rnf destinationConfig
       `Prelude.seq` Prelude.rnf maximumRetryAttempts
       `Prelude.seq` Prelude.rnf qualifier
-      `Prelude.seq` Prelude.rnf destinationConfig
       `Prelude.seq` Prelude.rnf functionName
 
 instance
@@ -250,10 +250,10 @@ instance Core.ToJSON UpdateFunctionEventInvokeConfig where
       ( Prelude.catMaybes
           [ ("MaximumEventAgeInSeconds" Core..=)
               Prelude.<$> maximumEventAgeInSeconds,
-            ("MaximumRetryAttempts" Core..=)
-              Prelude.<$> maximumRetryAttempts,
             ("DestinationConfig" Core..=)
-              Prelude.<$> destinationConfig
+              Prelude.<$> destinationConfig,
+            ("MaximumRetryAttempts" Core..=)
+              Prelude.<$> maximumRetryAttempts
           ]
       )
 

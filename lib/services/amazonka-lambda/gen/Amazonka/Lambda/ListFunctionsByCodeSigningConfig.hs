@@ -40,8 +40,8 @@ module Amazonka.Lambda.ListFunctionsByCodeSigningConfig
     newListFunctionsByCodeSigningConfigResponse,
 
     -- * Response Lenses
-    listFunctionsByCodeSigningConfigResponse_functionArns,
     listFunctionsByCodeSigningConfigResponse_nextMarker,
+    listFunctionsByCodeSigningConfigResponse_functionArns,
     listFunctionsByCodeSigningConfigResponse_httpStatus,
   )
 where
@@ -143,8 +143,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListFunctionsByCodeSigningConfigResponse'
-            Prelude.<$> (x Core..?> "FunctionArns" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextMarker")
+            Prelude.<$> (x Core..?> "NextMarker")
+            Prelude.<*> (x Core..?> "FunctionArns" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -194,10 +194,10 @@ instance
 
 -- | /See:/ 'newListFunctionsByCodeSigningConfigResponse' smart constructor.
 data ListFunctionsByCodeSigningConfigResponse = ListFunctionsByCodeSigningConfigResponse'
-  { -- | The function ARNs.
-    functionArns :: Prelude.Maybe [Prelude.Text],
-    -- | The pagination token that\'s included if more results are available.
+  { -- | The pagination token that\'s included if more results are available.
     nextMarker :: Prelude.Maybe Prelude.Text,
+    -- | The function ARNs.
+    functionArns :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -211,9 +211,9 @@ data ListFunctionsByCodeSigningConfigResponse = ListFunctionsByCodeSigningConfig
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'functionArns', 'listFunctionsByCodeSigningConfigResponse_functionArns' - The function ARNs.
---
 -- 'nextMarker', 'listFunctionsByCodeSigningConfigResponse_nextMarker' - The pagination token that\'s included if more results are available.
+--
+-- 'functionArns', 'listFunctionsByCodeSigningConfigResponse_functionArns' - The function ARNs.
 --
 -- 'httpStatus', 'listFunctionsByCodeSigningConfigResponse_httpStatus' - The response's http status code.
 newListFunctionsByCodeSigningConfigResponse ::
@@ -223,19 +223,19 @@ newListFunctionsByCodeSigningConfigResponse ::
 newListFunctionsByCodeSigningConfigResponse
   pHttpStatus_ =
     ListFunctionsByCodeSigningConfigResponse'
-      { functionArns =
+      { nextMarker =
           Prelude.Nothing,
-        nextMarker = Prelude.Nothing,
+        functionArns = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The function ARNs.
-listFunctionsByCodeSigningConfigResponse_functionArns :: Lens.Lens' ListFunctionsByCodeSigningConfigResponse (Prelude.Maybe [Prelude.Text])
-listFunctionsByCodeSigningConfigResponse_functionArns = Lens.lens (\ListFunctionsByCodeSigningConfigResponse' {functionArns} -> functionArns) (\s@ListFunctionsByCodeSigningConfigResponse' {} a -> s {functionArns = a} :: ListFunctionsByCodeSigningConfigResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token that\'s included if more results are available.
 listFunctionsByCodeSigningConfigResponse_nextMarker :: Lens.Lens' ListFunctionsByCodeSigningConfigResponse (Prelude.Maybe Prelude.Text)
 listFunctionsByCodeSigningConfigResponse_nextMarker = Lens.lens (\ListFunctionsByCodeSigningConfigResponse' {nextMarker} -> nextMarker) (\s@ListFunctionsByCodeSigningConfigResponse' {} a -> s {nextMarker = a} :: ListFunctionsByCodeSigningConfigResponse)
+
+-- | The function ARNs.
+listFunctionsByCodeSigningConfigResponse_functionArns :: Lens.Lens' ListFunctionsByCodeSigningConfigResponse (Prelude.Maybe [Prelude.Text])
+listFunctionsByCodeSigningConfigResponse_functionArns = Lens.lens (\ListFunctionsByCodeSigningConfigResponse' {functionArns} -> functionArns) (\s@ListFunctionsByCodeSigningConfigResponse' {} a -> s {functionArns = a} :: ListFunctionsByCodeSigningConfigResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listFunctionsByCodeSigningConfigResponse_httpStatus :: Lens.Lens' ListFunctionsByCodeSigningConfigResponse Prelude.Int
@@ -246,6 +246,6 @@ instance
     ListFunctionsByCodeSigningConfigResponse
   where
   rnf ListFunctionsByCodeSigningConfigResponse' {..} =
-    Prelude.rnf functionArns
-      `Prelude.seq` Prelude.rnf nextMarker
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf functionArns
       `Prelude.seq` Prelude.rnf httpStatus

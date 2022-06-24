@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLayerVersionContentOutput' smart constructor.
 data LayerVersionContentOutput = LayerVersionContentOutput'
-  { -- | The Amazon Resource Name (ARN) for a signing profile version.
+  { -- | The SHA-256 hash of the layer archive.
+    codeSha256 :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) for a signing profile version.
     signingProfileVersionArn :: Prelude.Maybe Prelude.Text,
     -- | A link to the layer archive in Amazon S3 that is valid for 10 minutes.
     location :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of a signing job.
     signingJobArn :: Prelude.Maybe Prelude.Text,
     -- | The size of the layer archive in bytes.
-    codeSize :: Prelude.Maybe Prelude.Integer,
-    -- | The SHA-256 hash of the layer archive.
-    codeSha256 :: Prelude.Maybe Prelude.Text
+    codeSize :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,6 +49,8 @@ data LayerVersionContentOutput = LayerVersionContentOutput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'codeSha256', 'layerVersionContentOutput_codeSha256' - The SHA-256 hash of the layer archive.
+--
 -- 'signingProfileVersionArn', 'layerVersionContentOutput_signingProfileVersionArn' - The Amazon Resource Name (ARN) for a signing profile version.
 --
 -- 'location', 'layerVersionContentOutput_location' - A link to the layer archive in Amazon S3 that is valid for 10 minutes.
@@ -56,19 +58,21 @@ data LayerVersionContentOutput = LayerVersionContentOutput'
 -- 'signingJobArn', 'layerVersionContentOutput_signingJobArn' - The Amazon Resource Name (ARN) of a signing job.
 --
 -- 'codeSize', 'layerVersionContentOutput_codeSize' - The size of the layer archive in bytes.
---
--- 'codeSha256', 'layerVersionContentOutput_codeSha256' - The SHA-256 hash of the layer archive.
 newLayerVersionContentOutput ::
   LayerVersionContentOutput
 newLayerVersionContentOutput =
   LayerVersionContentOutput'
-    { signingProfileVersionArn =
+    { codeSha256 =
         Prelude.Nothing,
+      signingProfileVersionArn = Prelude.Nothing,
       location = Prelude.Nothing,
       signingJobArn = Prelude.Nothing,
-      codeSize = Prelude.Nothing,
-      codeSha256 = Prelude.Nothing
+      codeSize = Prelude.Nothing
     }
+
+-- | The SHA-256 hash of the layer archive.
+layerVersionContentOutput_codeSha256 :: Lens.Lens' LayerVersionContentOutput (Prelude.Maybe Prelude.Text)
+layerVersionContentOutput_codeSha256 = Lens.lens (\LayerVersionContentOutput' {codeSha256} -> codeSha256) (\s@LayerVersionContentOutput' {} a -> s {codeSha256 = a} :: LayerVersionContentOutput)
 
 -- | The Amazon Resource Name (ARN) for a signing profile version.
 layerVersionContentOutput_signingProfileVersionArn :: Lens.Lens' LayerVersionContentOutput (Prelude.Maybe Prelude.Text)
@@ -86,36 +90,31 @@ layerVersionContentOutput_signingJobArn = Lens.lens (\LayerVersionContentOutput'
 layerVersionContentOutput_codeSize :: Lens.Lens' LayerVersionContentOutput (Prelude.Maybe Prelude.Integer)
 layerVersionContentOutput_codeSize = Lens.lens (\LayerVersionContentOutput' {codeSize} -> codeSize) (\s@LayerVersionContentOutput' {} a -> s {codeSize = a} :: LayerVersionContentOutput)
 
--- | The SHA-256 hash of the layer archive.
-layerVersionContentOutput_codeSha256 :: Lens.Lens' LayerVersionContentOutput (Prelude.Maybe Prelude.Text)
-layerVersionContentOutput_codeSha256 = Lens.lens (\LayerVersionContentOutput' {codeSha256} -> codeSha256) (\s@LayerVersionContentOutput' {} a -> s {codeSha256 = a} :: LayerVersionContentOutput)
-
 instance Core.FromJSON LayerVersionContentOutput where
   parseJSON =
     Core.withObject
       "LayerVersionContentOutput"
       ( \x ->
           LayerVersionContentOutput'
-            Prelude.<$> (x Core..:? "SigningProfileVersionArn")
+            Prelude.<$> (x Core..:? "CodeSha256")
+            Prelude.<*> (x Core..:? "SigningProfileVersionArn")
             Prelude.<*> (x Core..:? "Location")
             Prelude.<*> (x Core..:? "SigningJobArn")
             Prelude.<*> (x Core..:? "CodeSize")
-            Prelude.<*> (x Core..:? "CodeSha256")
       )
 
 instance Prelude.Hashable LayerVersionContentOutput where
   hashWithSalt _salt LayerVersionContentOutput' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` codeSha256
       `Prelude.hashWithSalt` signingProfileVersionArn
       `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` signingJobArn
       `Prelude.hashWithSalt` codeSize
-      `Prelude.hashWithSalt` codeSha256
 
 instance Prelude.NFData LayerVersionContentOutput where
   rnf LayerVersionContentOutput' {..} =
-    Prelude.rnf signingProfileVersionArn
+    Prelude.rnf codeSha256
+      `Prelude.seq` Prelude.rnf signingProfileVersionArn
       `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf signingJobArn
       `Prelude.seq` Prelude.rnf codeSize
-      `Prelude.seq` Prelude.rnf codeSha256

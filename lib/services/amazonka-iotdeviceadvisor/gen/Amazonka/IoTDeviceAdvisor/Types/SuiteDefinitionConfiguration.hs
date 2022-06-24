@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSuiteDefinitionConfiguration' smart constructor.
 data SuiteDefinitionConfiguration = SuiteDefinitionConfiguration'
-  { -- | Gets Suite Definition Configuration name.
+  { -- | Gets test suite root group.
+    rootGroup :: Prelude.Maybe Prelude.Text,
+    -- | Gets the devices configured.
+    devices :: Prelude.Maybe [DeviceUnderTest],
+    -- | Gets Suite Definition Configuration name.
     suiteDefinitionName :: Prelude.Maybe Prelude.Text,
     -- | Gets the tests intended for qualification in a suite.
     intendedForQualification :: Prelude.Maybe Prelude.Bool,
     -- | Gets device permission arn.
-    devicePermissionRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | Gets the devices configured.
-    devices :: Prelude.Maybe [DeviceUnderTest],
-    -- | Gets test suite root group.
-    rootGroup :: Prelude.Maybe Prelude.Text
+    devicePermissionRoleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,26 +49,34 @@ data SuiteDefinitionConfiguration = SuiteDefinitionConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'rootGroup', 'suiteDefinitionConfiguration_rootGroup' - Gets test suite root group.
+--
+-- 'devices', 'suiteDefinitionConfiguration_devices' - Gets the devices configured.
+--
 -- 'suiteDefinitionName', 'suiteDefinitionConfiguration_suiteDefinitionName' - Gets Suite Definition Configuration name.
 --
 -- 'intendedForQualification', 'suiteDefinitionConfiguration_intendedForQualification' - Gets the tests intended for qualification in a suite.
 --
 -- 'devicePermissionRoleArn', 'suiteDefinitionConfiguration_devicePermissionRoleArn' - Gets device permission arn.
---
--- 'devices', 'suiteDefinitionConfiguration_devices' - Gets the devices configured.
---
--- 'rootGroup', 'suiteDefinitionConfiguration_rootGroup' - Gets test suite root group.
 newSuiteDefinitionConfiguration ::
   SuiteDefinitionConfiguration
 newSuiteDefinitionConfiguration =
   SuiteDefinitionConfiguration'
-    { suiteDefinitionName =
+    { rootGroup =
         Prelude.Nothing,
-      intendedForQualification = Prelude.Nothing,
-      devicePermissionRoleArn = Prelude.Nothing,
       devices = Prelude.Nothing,
-      rootGroup = Prelude.Nothing
+      suiteDefinitionName = Prelude.Nothing,
+      intendedForQualification = Prelude.Nothing,
+      devicePermissionRoleArn = Prelude.Nothing
     }
+
+-- | Gets test suite root group.
+suiteDefinitionConfiguration_rootGroup :: Lens.Lens' SuiteDefinitionConfiguration (Prelude.Maybe Prelude.Text)
+suiteDefinitionConfiguration_rootGroup = Lens.lens (\SuiteDefinitionConfiguration' {rootGroup} -> rootGroup) (\s@SuiteDefinitionConfiguration' {} a -> s {rootGroup = a} :: SuiteDefinitionConfiguration)
+
+-- | Gets the devices configured.
+suiteDefinitionConfiguration_devices :: Lens.Lens' SuiteDefinitionConfiguration (Prelude.Maybe [DeviceUnderTest])
+suiteDefinitionConfiguration_devices = Lens.lens (\SuiteDefinitionConfiguration' {devices} -> devices) (\s@SuiteDefinitionConfiguration' {} a -> s {devices = a} :: SuiteDefinitionConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Gets Suite Definition Configuration name.
 suiteDefinitionConfiguration_suiteDefinitionName :: Lens.Lens' SuiteDefinitionConfiguration (Prelude.Maybe Prelude.Text)
@@ -82,25 +90,17 @@ suiteDefinitionConfiguration_intendedForQualification = Lens.lens (\SuiteDefinit
 suiteDefinitionConfiguration_devicePermissionRoleArn :: Lens.Lens' SuiteDefinitionConfiguration (Prelude.Maybe Prelude.Text)
 suiteDefinitionConfiguration_devicePermissionRoleArn = Lens.lens (\SuiteDefinitionConfiguration' {devicePermissionRoleArn} -> devicePermissionRoleArn) (\s@SuiteDefinitionConfiguration' {} a -> s {devicePermissionRoleArn = a} :: SuiteDefinitionConfiguration)
 
--- | Gets the devices configured.
-suiteDefinitionConfiguration_devices :: Lens.Lens' SuiteDefinitionConfiguration (Prelude.Maybe [DeviceUnderTest])
-suiteDefinitionConfiguration_devices = Lens.lens (\SuiteDefinitionConfiguration' {devices} -> devices) (\s@SuiteDefinitionConfiguration' {} a -> s {devices = a} :: SuiteDefinitionConfiguration) Prelude.. Lens.mapping Lens.coerced
-
--- | Gets test suite root group.
-suiteDefinitionConfiguration_rootGroup :: Lens.Lens' SuiteDefinitionConfiguration (Prelude.Maybe Prelude.Text)
-suiteDefinitionConfiguration_rootGroup = Lens.lens (\SuiteDefinitionConfiguration' {rootGroup} -> rootGroup) (\s@SuiteDefinitionConfiguration' {} a -> s {rootGroup = a} :: SuiteDefinitionConfiguration)
-
 instance Core.FromJSON SuiteDefinitionConfiguration where
   parseJSON =
     Core.withObject
       "SuiteDefinitionConfiguration"
       ( \x ->
           SuiteDefinitionConfiguration'
-            Prelude.<$> (x Core..:? "suiteDefinitionName")
+            Prelude.<$> (x Core..:? "rootGroup")
+            Prelude.<*> (x Core..:? "devices" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "suiteDefinitionName")
             Prelude.<*> (x Core..:? "intendedForQualification")
             Prelude.<*> (x Core..:? "devicePermissionRoleArn")
-            Prelude.<*> (x Core..:? "devices" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "rootGroup")
       )
 
 instance
@@ -108,31 +108,31 @@ instance
     SuiteDefinitionConfiguration
   where
   hashWithSalt _salt SuiteDefinitionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` suiteDefinitionName
+    _salt `Prelude.hashWithSalt` rootGroup
+      `Prelude.hashWithSalt` devices
+      `Prelude.hashWithSalt` suiteDefinitionName
       `Prelude.hashWithSalt` intendedForQualification
       `Prelude.hashWithSalt` devicePermissionRoleArn
-      `Prelude.hashWithSalt` devices
-      `Prelude.hashWithSalt` rootGroup
 
 instance Prelude.NFData SuiteDefinitionConfiguration where
   rnf SuiteDefinitionConfiguration' {..} =
-    Prelude.rnf suiteDefinitionName
+    Prelude.rnf rootGroup
+      `Prelude.seq` Prelude.rnf devices
+      `Prelude.seq` Prelude.rnf suiteDefinitionName
       `Prelude.seq` Prelude.rnf intendedForQualification
       `Prelude.seq` Prelude.rnf devicePermissionRoleArn
-      `Prelude.seq` Prelude.rnf devices
-      `Prelude.seq` Prelude.rnf rootGroup
 
 instance Core.ToJSON SuiteDefinitionConfiguration where
   toJSON SuiteDefinitionConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("suiteDefinitionName" Core..=)
+          [ ("rootGroup" Core..=) Prelude.<$> rootGroup,
+            ("devices" Core..=) Prelude.<$> devices,
+            ("suiteDefinitionName" Core..=)
               Prelude.<$> suiteDefinitionName,
             ("intendedForQualification" Core..=)
               Prelude.<$> intendedForQualification,
             ("devicePermissionRoleArn" Core..=)
-              Prelude.<$> devicePermissionRoleArn,
-            ("devices" Core..=) Prelude.<$> devices,
-            ("rootGroup" Core..=) Prelude.<$> rootGroup
+              Prelude.<$> devicePermissionRoleArn
           ]
       )

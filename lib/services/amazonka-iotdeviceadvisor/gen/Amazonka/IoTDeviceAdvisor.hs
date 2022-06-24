@@ -29,17 +29,17 @@ module Amazonka.IoTDeviceAdvisor
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
-    -- ** ConflictException
-    _ConflictException,
-
     -- ** InternalServerException
     _InternalServerException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -47,29 +47,11 @@ module Amazonka.IoTDeviceAdvisor
     -- * Operations
     -- $operations
 
-    -- ** GetSuiteRunReport
-    GetSuiteRunReport (GetSuiteRunReport'),
-    newGetSuiteRunReport,
-    GetSuiteRunReportResponse (GetSuiteRunReportResponse'),
-    newGetSuiteRunReportResponse,
-
-    -- ** StartSuiteRun
-    StartSuiteRun (StartSuiteRun'),
-    newStartSuiteRun,
-    StartSuiteRunResponse (StartSuiteRunResponse'),
-    newStartSuiteRunResponse,
-
-    -- ** ListSuiteDefinitions
-    ListSuiteDefinitions (ListSuiteDefinitions'),
-    newListSuiteDefinitions,
-    ListSuiteDefinitionsResponse (ListSuiteDefinitionsResponse'),
-    newListSuiteDefinitionsResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** CreateSuiteDefinition
+    CreateSuiteDefinition (CreateSuiteDefinition'),
+    newCreateSuiteDefinition,
+    CreateSuiteDefinitionResponse (CreateSuiteDefinitionResponse'),
+    newCreateSuiteDefinitionResponse,
 
     -- ** DeleteSuiteDefinition
     DeleteSuiteDefinition (DeleteSuiteDefinition'),
@@ -77,29 +59,53 @@ module Amazonka.IoTDeviceAdvisor
     DeleteSuiteDefinitionResponse (DeleteSuiteDefinitionResponse'),
     newDeleteSuiteDefinitionResponse,
 
-    -- ** UpdateSuiteDefinition
-    UpdateSuiteDefinition (UpdateSuiteDefinition'),
-    newUpdateSuiteDefinition,
-    UpdateSuiteDefinitionResponse (UpdateSuiteDefinitionResponse'),
-    newUpdateSuiteDefinitionResponse,
+    -- ** GetSuiteDefinition
+    GetSuiteDefinition (GetSuiteDefinition'),
+    newGetSuiteDefinition,
+    GetSuiteDefinitionResponse (GetSuiteDefinitionResponse'),
+    newGetSuiteDefinitionResponse,
 
-    -- ** CreateSuiteDefinition
-    CreateSuiteDefinition (CreateSuiteDefinition'),
-    newCreateSuiteDefinition,
-    CreateSuiteDefinitionResponse (CreateSuiteDefinitionResponse'),
-    newCreateSuiteDefinitionResponse,
+    -- ** GetSuiteRun
+    GetSuiteRun (GetSuiteRun'),
+    newGetSuiteRun,
+    GetSuiteRunResponse (GetSuiteRunResponse'),
+    newGetSuiteRunResponse,
+
+    -- ** GetSuiteRunReport
+    GetSuiteRunReport (GetSuiteRunReport'),
+    newGetSuiteRunReport,
+    GetSuiteRunReportResponse (GetSuiteRunReportResponse'),
+    newGetSuiteRunReportResponse,
+
+    -- ** ListSuiteDefinitions
+    ListSuiteDefinitions (ListSuiteDefinitions'),
+    newListSuiteDefinitions,
+    ListSuiteDefinitionsResponse (ListSuiteDefinitionsResponse'),
+    newListSuiteDefinitionsResponse,
+
+    -- ** ListSuiteRuns
+    ListSuiteRuns (ListSuiteRuns'),
+    newListSuiteRuns,
+    ListSuiteRunsResponse (ListSuiteRunsResponse'),
+    newListSuiteRunsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** StartSuiteRun
+    StartSuiteRun (StartSuiteRun'),
+    newStartSuiteRun,
+    StartSuiteRunResponse (StartSuiteRunResponse'),
+    newStartSuiteRunResponse,
 
     -- ** StopSuiteRun
     StopSuiteRun (StopSuiteRun'),
     newStopSuiteRun,
     StopSuiteRunResponse (StopSuiteRunResponse'),
     newStopSuiteRunResponse,
-
-    -- ** GetSuiteDefinition
-    GetSuiteDefinition (GetSuiteDefinition'),
-    newGetSuiteDefinition,
-    GetSuiteDefinitionResponse (GetSuiteDefinitionResponse'),
-    newGetSuiteDefinitionResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -113,17 +119,11 @@ module Amazonka.IoTDeviceAdvisor
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** ListSuiteRuns
-    ListSuiteRuns (ListSuiteRuns'),
-    newListSuiteRuns,
-    ListSuiteRunsResponse (ListSuiteRunsResponse'),
-    newListSuiteRunsResponse,
-
-    -- ** GetSuiteRun
-    GetSuiteRun (GetSuiteRun'),
-    newGetSuiteRun,
-    GetSuiteRunResponse (GetSuiteRunResponse'),
-    newGetSuiteRunResponse,
+    -- ** UpdateSuiteDefinition
+    UpdateSuiteDefinition (UpdateSuiteDefinition'),
+    newUpdateSuiteDefinition,
+    UpdateSuiteDefinitionResponse (UpdateSuiteDefinitionResponse'),
+    newUpdateSuiteDefinitionResponse,
 
     -- * Types
 

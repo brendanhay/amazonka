@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSuiteRunConfiguration' smart constructor.
 data SuiteRunConfiguration = SuiteRunConfiguration'
-  { -- | Gets the primary device for suite run.
-    primaryDevice :: Prelude.Maybe DeviceUnderTest,
-    -- | Gets test case list.
-    selectedTestList :: Prelude.Maybe [Prelude.Text]
+  { -- | Gets test case list.
+    selectedTestList :: Prelude.Maybe [Prelude.Text],
+    -- | Gets the primary device for suite run.
+    primaryDevice :: Prelude.Maybe DeviceUnderTest
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data SuiteRunConfiguration = SuiteRunConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'primaryDevice', 'suiteRunConfiguration_primaryDevice' - Gets the primary device for suite run.
---
 -- 'selectedTestList', 'suiteRunConfiguration_selectedTestList' - Gets test case list.
+--
+-- 'primaryDevice', 'suiteRunConfiguration_primaryDevice' - Gets the primary device for suite run.
 newSuiteRunConfiguration ::
   SuiteRunConfiguration
 newSuiteRunConfiguration =
   SuiteRunConfiguration'
-    { primaryDevice =
+    { selectedTestList =
         Prelude.Nothing,
-      selectedTestList = Prelude.Nothing
+      primaryDevice = Prelude.Nothing
     }
-
--- | Gets the primary device for suite run.
-suiteRunConfiguration_primaryDevice :: Lens.Lens' SuiteRunConfiguration (Prelude.Maybe DeviceUnderTest)
-suiteRunConfiguration_primaryDevice = Lens.lens (\SuiteRunConfiguration' {primaryDevice} -> primaryDevice) (\s@SuiteRunConfiguration' {} a -> s {primaryDevice = a} :: SuiteRunConfiguration)
 
 -- | Gets test case list.
 suiteRunConfiguration_selectedTestList :: Lens.Lens' SuiteRunConfiguration (Prelude.Maybe [Prelude.Text])
 suiteRunConfiguration_selectedTestList = Lens.lens (\SuiteRunConfiguration' {selectedTestList} -> selectedTestList) (\s@SuiteRunConfiguration' {} a -> s {selectedTestList = a} :: SuiteRunConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | Gets the primary device for suite run.
+suiteRunConfiguration_primaryDevice :: Lens.Lens' SuiteRunConfiguration (Prelude.Maybe DeviceUnderTest)
+suiteRunConfiguration_primaryDevice = Lens.lens (\SuiteRunConfiguration' {primaryDevice} -> primaryDevice) (\s@SuiteRunConfiguration' {} a -> s {primaryDevice = a} :: SuiteRunConfiguration)
 
 instance Core.FromJSON SuiteRunConfiguration where
   parseJSON =
@@ -69,28 +69,28 @@ instance Core.FromJSON SuiteRunConfiguration where
       "SuiteRunConfiguration"
       ( \x ->
           SuiteRunConfiguration'
-            Prelude.<$> (x Core..:? "primaryDevice")
-            Prelude.<*> ( x Core..:? "selectedTestList"
+            Prelude.<$> ( x Core..:? "selectedTestList"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "primaryDevice")
       )
 
 instance Prelude.Hashable SuiteRunConfiguration where
   hashWithSalt _salt SuiteRunConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` primaryDevice
-      `Prelude.hashWithSalt` selectedTestList
+    _salt `Prelude.hashWithSalt` selectedTestList
+      `Prelude.hashWithSalt` primaryDevice
 
 instance Prelude.NFData SuiteRunConfiguration where
   rnf SuiteRunConfiguration' {..} =
-    Prelude.rnf primaryDevice
-      `Prelude.seq` Prelude.rnf selectedTestList
+    Prelude.rnf selectedTestList
+      `Prelude.seq` Prelude.rnf primaryDevice
 
 instance Core.ToJSON SuiteRunConfiguration where
   toJSON SuiteRunConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("primaryDevice" Core..=) Prelude.<$> primaryDevice,
-            ("selectedTestList" Core..=)
-              Prelude.<$> selectedTestList
+          [ ("selectedTestList" Core..=)
+              Prelude.<$> selectedTestList,
+            ("primaryDevice" Core..=) Prelude.<$> primaryDevice
           ]
       )

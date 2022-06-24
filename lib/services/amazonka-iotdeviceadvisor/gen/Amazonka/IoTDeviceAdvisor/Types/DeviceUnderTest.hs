@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeviceUnderTest' smart constructor.
 data DeviceUnderTest = DeviceUnderTest'
-  { -- | Lists devices certificate arn
-    certificateArn :: Prelude.Maybe Prelude.Text,
-    -- | Lists devices thing arn
-    thingArn :: Prelude.Maybe Prelude.Text
+  { -- | Lists devices thing arn
+    thingArn :: Prelude.Maybe Prelude.Text,
+    -- | Lists devices certificate arn
+    certificateArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data DeviceUnderTest = DeviceUnderTest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'certificateArn', 'deviceUnderTest_certificateArn' - Lists devices certificate arn
---
 -- 'thingArn', 'deviceUnderTest_thingArn' - Lists devices thing arn
+--
+-- 'certificateArn', 'deviceUnderTest_certificateArn' - Lists devices certificate arn
 newDeviceUnderTest ::
   DeviceUnderTest
 newDeviceUnderTest =
   DeviceUnderTest'
-    { certificateArn = Prelude.Nothing,
-      thingArn = Prelude.Nothing
+    { thingArn = Prelude.Nothing,
+      certificateArn = Prelude.Nothing
     }
-
--- | Lists devices certificate arn
-deviceUnderTest_certificateArn :: Lens.Lens' DeviceUnderTest (Prelude.Maybe Prelude.Text)
-deviceUnderTest_certificateArn = Lens.lens (\DeviceUnderTest' {certificateArn} -> certificateArn) (\s@DeviceUnderTest' {} a -> s {certificateArn = a} :: DeviceUnderTest)
 
 -- | Lists devices thing arn
 deviceUnderTest_thingArn :: Lens.Lens' DeviceUnderTest (Prelude.Maybe Prelude.Text)
 deviceUnderTest_thingArn = Lens.lens (\DeviceUnderTest' {thingArn} -> thingArn) (\s@DeviceUnderTest' {} a -> s {thingArn = a} :: DeviceUnderTest)
+
+-- | Lists devices certificate arn
+deviceUnderTest_certificateArn :: Lens.Lens' DeviceUnderTest (Prelude.Maybe Prelude.Text)
+deviceUnderTest_certificateArn = Lens.lens (\DeviceUnderTest' {certificateArn} -> certificateArn) (\s@DeviceUnderTest' {} a -> s {certificateArn = a} :: DeviceUnderTest)
 
 instance Core.FromJSON DeviceUnderTest where
   parseJSON =
@@ -67,26 +67,26 @@ instance Core.FromJSON DeviceUnderTest where
       "DeviceUnderTest"
       ( \x ->
           DeviceUnderTest'
-            Prelude.<$> (x Core..:? "certificateArn")
-            Prelude.<*> (x Core..:? "thingArn")
+            Prelude.<$> (x Core..:? "thingArn")
+            Prelude.<*> (x Core..:? "certificateArn")
       )
 
 instance Prelude.Hashable DeviceUnderTest where
   hashWithSalt _salt DeviceUnderTest' {..} =
-    _salt `Prelude.hashWithSalt` certificateArn
-      `Prelude.hashWithSalt` thingArn
+    _salt `Prelude.hashWithSalt` thingArn
+      `Prelude.hashWithSalt` certificateArn
 
 instance Prelude.NFData DeviceUnderTest where
   rnf DeviceUnderTest' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf thingArn
+    Prelude.rnf thingArn
+      `Prelude.seq` Prelude.rnf certificateArn
 
 instance Core.ToJSON DeviceUnderTest where
   toJSON DeviceUnderTest' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("certificateArn" Core..=)
-              Prelude.<$> certificateArn,
-            ("thingArn" Core..=) Prelude.<$> thingArn
+          [ ("thingArn" Core..=) Prelude.<$> thingArn,
+            ("certificateArn" Core..=)
+              Prelude.<$> certificateArn
           ]
       )

@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSuiteDefinitionInformation' smart constructor.
 data SuiteDefinitionInformation = SuiteDefinitionInformation'
-  { -- | Date (in Unix epoch time) when the test suite was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+  { -- | Suite name of the test suite.
+    suiteDefinitionName :: Prelude.Maybe Prelude.Text,
     -- | Specifies the devices under test for the test suite.
     defaultDevices :: Prelude.Maybe [DeviceUnderTest],
+    -- | Specifies if the test suite is intended for qualification.
+    intendedForQualification :: Prelude.Maybe Prelude.Bool,
     -- | Suite definition Id of the test suite.
     suiteDefinitionId :: Prelude.Maybe Prelude.Text,
-    -- | Suite name of the test suite.
-    suiteDefinitionName :: Prelude.Maybe Prelude.Text,
-    -- | Specifies if the test suite is intended for qualification.
-    intendedForQualification :: Prelude.Maybe Prelude.Bool
+    -- | Date (in Unix epoch time) when the test suite was created.
+    createdAt :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,46 +49,46 @@ data SuiteDefinitionInformation = SuiteDefinitionInformation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAt', 'suiteDefinitionInformation_createdAt' - Date (in Unix epoch time) when the test suite was created.
+-- 'suiteDefinitionName', 'suiteDefinitionInformation_suiteDefinitionName' - Suite name of the test suite.
 --
 -- 'defaultDevices', 'suiteDefinitionInformation_defaultDevices' - Specifies the devices under test for the test suite.
 --
+-- 'intendedForQualification', 'suiteDefinitionInformation_intendedForQualification' - Specifies if the test suite is intended for qualification.
+--
 -- 'suiteDefinitionId', 'suiteDefinitionInformation_suiteDefinitionId' - Suite definition Id of the test suite.
 --
--- 'suiteDefinitionName', 'suiteDefinitionInformation_suiteDefinitionName' - Suite name of the test suite.
---
--- 'intendedForQualification', 'suiteDefinitionInformation_intendedForQualification' - Specifies if the test suite is intended for qualification.
+-- 'createdAt', 'suiteDefinitionInformation_createdAt' - Date (in Unix epoch time) when the test suite was created.
 newSuiteDefinitionInformation ::
   SuiteDefinitionInformation
 newSuiteDefinitionInformation =
   SuiteDefinitionInformation'
-    { createdAt =
+    { suiteDefinitionName =
         Prelude.Nothing,
       defaultDevices = Prelude.Nothing,
+      intendedForQualification = Prelude.Nothing,
       suiteDefinitionId = Prelude.Nothing,
-      suiteDefinitionName = Prelude.Nothing,
-      intendedForQualification = Prelude.Nothing
+      createdAt = Prelude.Nothing
     }
-
--- | Date (in Unix epoch time) when the test suite was created.
-suiteDefinitionInformation_createdAt :: Lens.Lens' SuiteDefinitionInformation (Prelude.Maybe Prelude.UTCTime)
-suiteDefinitionInformation_createdAt = Lens.lens (\SuiteDefinitionInformation' {createdAt} -> createdAt) (\s@SuiteDefinitionInformation' {} a -> s {createdAt = a} :: SuiteDefinitionInformation) Prelude.. Lens.mapping Core._Time
-
--- | Specifies the devices under test for the test suite.
-suiteDefinitionInformation_defaultDevices :: Lens.Lens' SuiteDefinitionInformation (Prelude.Maybe [DeviceUnderTest])
-suiteDefinitionInformation_defaultDevices = Lens.lens (\SuiteDefinitionInformation' {defaultDevices} -> defaultDevices) (\s@SuiteDefinitionInformation' {} a -> s {defaultDevices = a} :: SuiteDefinitionInformation) Prelude.. Lens.mapping Lens.coerced
-
--- | Suite definition Id of the test suite.
-suiteDefinitionInformation_suiteDefinitionId :: Lens.Lens' SuiteDefinitionInformation (Prelude.Maybe Prelude.Text)
-suiteDefinitionInformation_suiteDefinitionId = Lens.lens (\SuiteDefinitionInformation' {suiteDefinitionId} -> suiteDefinitionId) (\s@SuiteDefinitionInformation' {} a -> s {suiteDefinitionId = a} :: SuiteDefinitionInformation)
 
 -- | Suite name of the test suite.
 suiteDefinitionInformation_suiteDefinitionName :: Lens.Lens' SuiteDefinitionInformation (Prelude.Maybe Prelude.Text)
 suiteDefinitionInformation_suiteDefinitionName = Lens.lens (\SuiteDefinitionInformation' {suiteDefinitionName} -> suiteDefinitionName) (\s@SuiteDefinitionInformation' {} a -> s {suiteDefinitionName = a} :: SuiteDefinitionInformation)
 
+-- | Specifies the devices under test for the test suite.
+suiteDefinitionInformation_defaultDevices :: Lens.Lens' SuiteDefinitionInformation (Prelude.Maybe [DeviceUnderTest])
+suiteDefinitionInformation_defaultDevices = Lens.lens (\SuiteDefinitionInformation' {defaultDevices} -> defaultDevices) (\s@SuiteDefinitionInformation' {} a -> s {defaultDevices = a} :: SuiteDefinitionInformation) Prelude.. Lens.mapping Lens.coerced
+
 -- | Specifies if the test suite is intended for qualification.
 suiteDefinitionInformation_intendedForQualification :: Lens.Lens' SuiteDefinitionInformation (Prelude.Maybe Prelude.Bool)
 suiteDefinitionInformation_intendedForQualification = Lens.lens (\SuiteDefinitionInformation' {intendedForQualification} -> intendedForQualification) (\s@SuiteDefinitionInformation' {} a -> s {intendedForQualification = a} :: SuiteDefinitionInformation)
+
+-- | Suite definition Id of the test suite.
+suiteDefinitionInformation_suiteDefinitionId :: Lens.Lens' SuiteDefinitionInformation (Prelude.Maybe Prelude.Text)
+suiteDefinitionInformation_suiteDefinitionId = Lens.lens (\SuiteDefinitionInformation' {suiteDefinitionId} -> suiteDefinitionId) (\s@SuiteDefinitionInformation' {} a -> s {suiteDefinitionId = a} :: SuiteDefinitionInformation)
+
+-- | Date (in Unix epoch time) when the test suite was created.
+suiteDefinitionInformation_createdAt :: Lens.Lens' SuiteDefinitionInformation (Prelude.Maybe Prelude.UTCTime)
+suiteDefinitionInformation_createdAt = Lens.lens (\SuiteDefinitionInformation' {createdAt} -> createdAt) (\s@SuiteDefinitionInformation' {} a -> s {createdAt = a} :: SuiteDefinitionInformation) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON SuiteDefinitionInformation where
   parseJSON =
@@ -96,25 +96,25 @@ instance Core.FromJSON SuiteDefinitionInformation where
       "SuiteDefinitionInformation"
       ( \x ->
           SuiteDefinitionInformation'
-            Prelude.<$> (x Core..:? "createdAt")
+            Prelude.<$> (x Core..:? "suiteDefinitionName")
             Prelude.<*> (x Core..:? "defaultDevices" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "suiteDefinitionId")
-            Prelude.<*> (x Core..:? "suiteDefinitionName")
             Prelude.<*> (x Core..:? "intendedForQualification")
+            Prelude.<*> (x Core..:? "suiteDefinitionId")
+            Prelude.<*> (x Core..:? "createdAt")
       )
 
 instance Prelude.Hashable SuiteDefinitionInformation where
   hashWithSalt _salt SuiteDefinitionInformation' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt `Prelude.hashWithSalt` suiteDefinitionName
       `Prelude.hashWithSalt` defaultDevices
-      `Prelude.hashWithSalt` suiteDefinitionId
-      `Prelude.hashWithSalt` suiteDefinitionName
       `Prelude.hashWithSalt` intendedForQualification
+      `Prelude.hashWithSalt` suiteDefinitionId
+      `Prelude.hashWithSalt` createdAt
 
 instance Prelude.NFData SuiteDefinitionInformation where
   rnf SuiteDefinitionInformation' {..} =
-    Prelude.rnf createdAt
+    Prelude.rnf suiteDefinitionName
       `Prelude.seq` Prelude.rnf defaultDevices
-      `Prelude.seq` Prelude.rnf suiteDefinitionId
-      `Prelude.seq` Prelude.rnf suiteDefinitionName
       `Prelude.seq` Prelude.rnf intendedForQualification
+      `Prelude.seq` Prelude.rnf suiteDefinitionId
+      `Prelude.seq` Prelude.rnf createdAt

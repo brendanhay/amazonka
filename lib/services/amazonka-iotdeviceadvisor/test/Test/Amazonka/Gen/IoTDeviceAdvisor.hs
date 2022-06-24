@@ -27,32 +27,35 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGetSuiteRunReport $
---             newGetSuiteRunReport
---
---         , requestStartSuiteRun $
---             newStartSuiteRun
---
---         , requestListSuiteDefinitions $
---             newListSuiteDefinitions
---
---         , requestListTagsForResource $
---             newListTagsForResource
+--         [ requestCreateSuiteDefinition $
+--             newCreateSuiteDefinition
 --
 --         , requestDeleteSuiteDefinition $
 --             newDeleteSuiteDefinition
 --
---         , requestUpdateSuiteDefinition $
---             newUpdateSuiteDefinition
+--         , requestGetSuiteDefinition $
+--             newGetSuiteDefinition
 --
---         , requestCreateSuiteDefinition $
---             newCreateSuiteDefinition
+--         , requestGetSuiteRun $
+--             newGetSuiteRun
+--
+--         , requestGetSuiteRunReport $
+--             newGetSuiteRunReport
+--
+--         , requestListSuiteDefinitions $
+--             newListSuiteDefinitions
+--
+--         , requestListSuiteRuns $
+--             newListSuiteRuns
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestStartSuiteRun $
+--             newStartSuiteRun
 --
 --         , requestStopSuiteRun $
 --             newStopSuiteRun
---
---         , requestGetSuiteDefinition $
---             newGetSuiteDefinition
 --
 --         , requestTagResource $
 --             newTagResource
@@ -60,41 +63,41 @@ import Test.Tasty
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestListSuiteRuns $
---             newListSuiteRuns
---
---         , requestGetSuiteRun $
---             newGetSuiteRun
+--         , requestUpdateSuiteDefinition $
+--             newUpdateSuiteDefinition
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseGetSuiteRunReport $
---             newGetSuiteRunReportResponse
---
---         , responseStartSuiteRun $
---             newStartSuiteRunResponse
---
---         , responseListSuiteDefinitions $
---             newListSuiteDefinitionsResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
+--         [ responseCreateSuiteDefinition $
+--             newCreateSuiteDefinitionResponse
 --
 --         , responseDeleteSuiteDefinition $
 --             newDeleteSuiteDefinitionResponse
 --
---         , responseUpdateSuiteDefinition $
---             newUpdateSuiteDefinitionResponse
+--         , responseGetSuiteDefinition $
+--             newGetSuiteDefinitionResponse
 --
---         , responseCreateSuiteDefinition $
---             newCreateSuiteDefinitionResponse
+--         , responseGetSuiteRun $
+--             newGetSuiteRunResponse
+--
+--         , responseGetSuiteRunReport $
+--             newGetSuiteRunReportResponse
+--
+--         , responseListSuiteDefinitions $
+--             newListSuiteDefinitionsResponse
+--
+--         , responseListSuiteRuns $
+--             newListSuiteRunsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseStartSuiteRun $
+--             newStartSuiteRunResponse
 --
 --         , responseStopSuiteRun $
 --             newStopSuiteRunResponse
---
---         , responseGetSuiteDefinition $
---             newGetSuiteDefinitionResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -102,52 +105,13 @@ import Test.Tasty
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseListSuiteRuns $
---             newListSuiteRunsResponse
---
---         , responseGetSuiteRun $
---             newGetSuiteRunResponse
+--         , responseUpdateSuiteDefinition $
+--             newUpdateSuiteDefinitionResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestGetSuiteRunReport :: GetSuiteRunReport -> TestTree
-requestGetSuiteRunReport =
-  req
-    "GetSuiteRunReport"
-    "fixture/GetSuiteRunReport.yaml"
-
-requestStartSuiteRun :: StartSuiteRun -> TestTree
-requestStartSuiteRun =
-  req
-    "StartSuiteRun"
-    "fixture/StartSuiteRun.yaml"
-
-requestListSuiteDefinitions :: ListSuiteDefinitions -> TestTree
-requestListSuiteDefinitions =
-  req
-    "ListSuiteDefinitions"
-    "fixture/ListSuiteDefinitions.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestDeleteSuiteDefinition :: DeleteSuiteDefinition -> TestTree
-requestDeleteSuiteDefinition =
-  req
-    "DeleteSuiteDefinition"
-    "fixture/DeleteSuiteDefinition.yaml"
-
-requestUpdateSuiteDefinition :: UpdateSuiteDefinition -> TestTree
-requestUpdateSuiteDefinition =
-  req
-    "UpdateSuiteDefinition"
-    "fixture/UpdateSuiteDefinition.yaml"
 
 requestCreateSuiteDefinition :: CreateSuiteDefinition -> TestTree
 requestCreateSuiteDefinition =
@@ -155,17 +119,59 @@ requestCreateSuiteDefinition =
     "CreateSuiteDefinition"
     "fixture/CreateSuiteDefinition.yaml"
 
-requestStopSuiteRun :: StopSuiteRun -> TestTree
-requestStopSuiteRun =
+requestDeleteSuiteDefinition :: DeleteSuiteDefinition -> TestTree
+requestDeleteSuiteDefinition =
   req
-    "StopSuiteRun"
-    "fixture/StopSuiteRun.yaml"
+    "DeleteSuiteDefinition"
+    "fixture/DeleteSuiteDefinition.yaml"
 
 requestGetSuiteDefinition :: GetSuiteDefinition -> TestTree
 requestGetSuiteDefinition =
   req
     "GetSuiteDefinition"
     "fixture/GetSuiteDefinition.yaml"
+
+requestGetSuiteRun :: GetSuiteRun -> TestTree
+requestGetSuiteRun =
+  req
+    "GetSuiteRun"
+    "fixture/GetSuiteRun.yaml"
+
+requestGetSuiteRunReport :: GetSuiteRunReport -> TestTree
+requestGetSuiteRunReport =
+  req
+    "GetSuiteRunReport"
+    "fixture/GetSuiteRunReport.yaml"
+
+requestListSuiteDefinitions :: ListSuiteDefinitions -> TestTree
+requestListSuiteDefinitions =
+  req
+    "ListSuiteDefinitions"
+    "fixture/ListSuiteDefinitions.yaml"
+
+requestListSuiteRuns :: ListSuiteRuns -> TestTree
+requestListSuiteRuns =
+  req
+    "ListSuiteRuns"
+    "fixture/ListSuiteRuns.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestStartSuiteRun :: StartSuiteRun -> TestTree
+requestStartSuiteRun =
+  req
+    "StartSuiteRun"
+    "fixture/StartSuiteRun.yaml"
+
+requestStopSuiteRun :: StopSuiteRun -> TestTree
+requestStopSuiteRun =
+  req
+    "StopSuiteRun"
+    "fixture/StopSuiteRun.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -179,67 +185,13 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestListSuiteRuns :: ListSuiteRuns -> TestTree
-requestListSuiteRuns =
+requestUpdateSuiteDefinition :: UpdateSuiteDefinition -> TestTree
+requestUpdateSuiteDefinition =
   req
-    "ListSuiteRuns"
-    "fixture/ListSuiteRuns.yaml"
-
-requestGetSuiteRun :: GetSuiteRun -> TestTree
-requestGetSuiteRun =
-  req
-    "GetSuiteRun"
-    "fixture/GetSuiteRun.yaml"
+    "UpdateSuiteDefinition"
+    "fixture/UpdateSuiteDefinition.yaml"
 
 -- Responses
-
-responseGetSuiteRunReport :: GetSuiteRunReportResponse -> TestTree
-responseGetSuiteRunReport =
-  res
-    "GetSuiteRunReportResponse"
-    "fixture/GetSuiteRunReportResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetSuiteRunReport)
-
-responseStartSuiteRun :: StartSuiteRunResponse -> TestTree
-responseStartSuiteRun =
-  res
-    "StartSuiteRunResponse"
-    "fixture/StartSuiteRunResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartSuiteRun)
-
-responseListSuiteDefinitions :: ListSuiteDefinitionsResponse -> TestTree
-responseListSuiteDefinitions =
-  res
-    "ListSuiteDefinitionsResponse"
-    "fixture/ListSuiteDefinitionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListSuiteDefinitions)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseDeleteSuiteDefinition :: DeleteSuiteDefinitionResponse -> TestTree
-responseDeleteSuiteDefinition =
-  res
-    "DeleteSuiteDefinitionResponse"
-    "fixture/DeleteSuiteDefinitionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteSuiteDefinition)
-
-responseUpdateSuiteDefinition :: UpdateSuiteDefinitionResponse -> TestTree
-responseUpdateSuiteDefinition =
-  res
-    "UpdateSuiteDefinitionResponse"
-    "fixture/UpdateSuiteDefinitionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateSuiteDefinition)
 
 responseCreateSuiteDefinition :: CreateSuiteDefinitionResponse -> TestTree
 responseCreateSuiteDefinition =
@@ -249,13 +201,13 @@ responseCreateSuiteDefinition =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateSuiteDefinition)
 
-responseStopSuiteRun :: StopSuiteRunResponse -> TestTree
-responseStopSuiteRun =
+responseDeleteSuiteDefinition :: DeleteSuiteDefinitionResponse -> TestTree
+responseDeleteSuiteDefinition =
   res
-    "StopSuiteRunResponse"
-    "fixture/StopSuiteRunResponse.proto"
+    "DeleteSuiteDefinitionResponse"
+    "fixture/DeleteSuiteDefinitionResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy StopSuiteRun)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSuiteDefinition)
 
 responseGetSuiteDefinition :: GetSuiteDefinitionResponse -> TestTree
 responseGetSuiteDefinition =
@@ -264,6 +216,62 @@ responseGetSuiteDefinition =
     "fixture/GetSuiteDefinitionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetSuiteDefinition)
+
+responseGetSuiteRun :: GetSuiteRunResponse -> TestTree
+responseGetSuiteRun =
+  res
+    "GetSuiteRunResponse"
+    "fixture/GetSuiteRunResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetSuiteRun)
+
+responseGetSuiteRunReport :: GetSuiteRunReportResponse -> TestTree
+responseGetSuiteRunReport =
+  res
+    "GetSuiteRunReportResponse"
+    "fixture/GetSuiteRunReportResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetSuiteRunReport)
+
+responseListSuiteDefinitions :: ListSuiteDefinitionsResponse -> TestTree
+responseListSuiteDefinitions =
+  res
+    "ListSuiteDefinitionsResponse"
+    "fixture/ListSuiteDefinitionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSuiteDefinitions)
+
+responseListSuiteRuns :: ListSuiteRunsResponse -> TestTree
+responseListSuiteRuns =
+  res
+    "ListSuiteRunsResponse"
+    "fixture/ListSuiteRunsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSuiteRuns)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseStartSuiteRun :: StartSuiteRunResponse -> TestTree
+responseStartSuiteRun =
+  res
+    "StartSuiteRunResponse"
+    "fixture/StartSuiteRunResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartSuiteRun)
+
+responseStopSuiteRun :: StopSuiteRunResponse -> TestTree
+responseStopSuiteRun =
+  res
+    "StopSuiteRunResponse"
+    "fixture/StopSuiteRunResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopSuiteRun)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -281,18 +289,10 @@ responseUntagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
-responseListSuiteRuns :: ListSuiteRunsResponse -> TestTree
-responseListSuiteRuns =
+responseUpdateSuiteDefinition :: UpdateSuiteDefinitionResponse -> TestTree
+responseUpdateSuiteDefinition =
   res
-    "ListSuiteRunsResponse"
-    "fixture/ListSuiteRunsResponse.proto"
+    "UpdateSuiteDefinitionResponse"
+    "fixture/UpdateSuiteDefinitionResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListSuiteRuns)
-
-responseGetSuiteRun :: GetSuiteRunResponse -> TestTree
-responseGetSuiteRun =
-  res
-    "GetSuiteRunResponse"
-    "fixture/GetSuiteRunResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetSuiteRun)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSuiteDefinition)

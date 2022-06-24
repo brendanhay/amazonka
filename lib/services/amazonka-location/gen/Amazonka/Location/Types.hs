@@ -17,13 +17,13 @@ module Amazonka.Location.Types
     defaultService,
 
     -- * Errors
-    _ValidationException,
     _AccessDeniedException,
-    _ConflictException,
-    _ServiceQuotaExceededException,
-    _ThrottlingException,
     _InternalServerException,
+    _ServiceQuotaExceededException,
     _ResourceNotFoundException,
+    _ConflictException,
+    _ThrottlingException,
+    _ValidationException,
 
     -- * BatchItemErrorCode
     BatchItemErrorCode (..),
@@ -77,8 +77,8 @@ module Amazonka.Location.Types
     -- * BatchItemError
     BatchItemError (..),
     newBatchItemError,
-    batchItemError_code,
     batchItemError_message,
+    batchItemError_code,
 
     -- * BatchPutGeofenceError
     BatchPutGeofenceError (..),
@@ -109,8 +109,8 @@ module Amazonka.Location.Types
     -- * CalculateRouteCarModeOptions
     CalculateRouteCarModeOptions (..),
     newCalculateRouteCarModeOptions,
-    calculateRouteCarModeOptions_avoidTolls,
     calculateRouteCarModeOptions_avoidFerries,
+    calculateRouteCarModeOptions_avoidTolls,
 
     -- * CalculateRouteSummary
     CalculateRouteSummary (..),
@@ -124,10 +124,10 @@ module Amazonka.Location.Types
     -- * CalculateRouteTruckModeOptions
     CalculateRouteTruckModeOptions (..),
     newCalculateRouteTruckModeOptions,
-    calculateRouteTruckModeOptions_weight,
-    calculateRouteTruckModeOptions_avoidTolls,
-    calculateRouteTruckModeOptions_dimensions,
     calculateRouteTruckModeOptions_avoidFerries,
+    calculateRouteTruckModeOptions_dimensions,
+    calculateRouteTruckModeOptions_avoidTolls,
+    calculateRouteTruckModeOptions_weight,
 
     -- * DataSourceConfiguration
     DataSourceConfiguration (..),
@@ -243,15 +243,15 @@ module Amazonka.Location.Types
     -- * Place
     Place (..),
     newPlace,
-    place_municipality,
     place_addressNumber,
     place_postalCode,
-    place_country,
-    place_street,
-    place_subRegion,
-    place_region,
-    place_label,
     place_neighborhood,
+    place_country,
+    place_label,
+    place_region,
+    place_subRegion,
+    place_street,
+    place_municipality,
     place_geometry,
 
     -- * PlaceGeometry
@@ -300,8 +300,8 @@ module Amazonka.Location.Types
     TruckDimensions (..),
     newTruckDimensions,
     truckDimensions_length,
-    truckDimensions_height,
     truckDimensions_width,
+    truckDimensions_height,
     truckDimensions_unit,
 
     -- * TruckWeight
@@ -385,35 +385,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -422,21 +395,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The input failed to meet the constraints specified by the AWS service.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
-    Prelude.. Core.hasStatus 400
 
 -- | The request was denied because of insufficient access or permissions.
 -- Check with an administrator to verify your permissions.
@@ -447,13 +439,14 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
--- | The request was unsuccessful because of a conflict.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
+-- | The request has failed to process because of an unknown server error,
+-- exception, or failure.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
   Core._MatchServiceError
     defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
+    "InternalServerException"
+    Prelude.. Core.hasStatus 500
 
 -- | The operation was denied because the request would exceed the maximum
 -- <https://docs.aws.amazon.com/location/latest/developerguide/location-quotas.html quota>
@@ -465,6 +458,22 @@ _ServiceQuotaExceededException =
     "ServiceQuotaExceededException"
     Prelude.. Core.hasStatus 402
 
+-- | The resource that you\'ve entered was not found in your AWS account.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | The request was unsuccessful because of a conflict.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
 -- | The request was denied because of request throttling.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ThrottlingException =
@@ -473,19 +482,10 @@ _ThrottlingException =
     "ThrottlingException"
     Prelude.. Core.hasStatus 429
 
--- | The request has failed to process because of an unknown server error,
--- exception, or failure.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
+-- | The input failed to meet the constraints specified by the AWS service.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
   Core._MatchServiceError
     defaultService
-    "InternalServerException"
-    Prelude.. Core.hasStatus 500
-
--- | The resource that you\'ve entered was not found in your AWS account.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
+    "ValidationException"
+    Prelude.. Core.hasStatus 400

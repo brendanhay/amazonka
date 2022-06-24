@@ -28,8 +28,8 @@ module Amazonka.Location.CreateMap
     newCreateMap,
 
     -- * Request Lenses
-    createMap_description,
     createMap_tags,
+    createMap_description,
     createMap_configuration,
     createMap_mapName,
     createMap_pricingPlan,
@@ -55,9 +55,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateMap' smart constructor.
 data CreateMap = CreateMap'
-  { -- | An optional description for the map resource.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Applies one or more tags to the map resource. A tag is a key-value pair
+  { -- | Applies one or more tags to the map resource. A tag is a key-value pair
     -- helps manage, identify, search, and filter your resources by labelling
     -- them.
     --
@@ -76,6 +74,8 @@ data CreateMap = CreateMap'
     -- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
     --     characters: + - = . _ : \/ \@.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | An optional description for the map resource.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Specifies the map style selected from an available data provider.
     configuration :: MapConfiguration,
     -- | The name for the map resource.
@@ -105,8 +105,6 @@ data CreateMap = CreateMap'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'createMap_description' - An optional description for the map resource.
---
 -- 'tags', 'createMap_tags' - Applies one or more tags to the map resource. A tag is a key-value pair
 -- helps manage, identify, search, and filter your resources by labelling
 -- them.
@@ -125,6 +123,8 @@ data CreateMap = CreateMap'
 --
 -- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
 --     characters: + - = . _ : \/ \@.
+--
+-- 'description', 'createMap_description' - An optional description for the map resource.
 --
 -- 'configuration', 'createMap_configuration' - Specifies the map style selected from an available data provider.
 --
@@ -153,16 +153,12 @@ newCreateMap ::
   CreateMap
 newCreateMap pConfiguration_ pMapName_ pPricingPlan_ =
   CreateMap'
-    { description = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      description = Prelude.Nothing,
       configuration = pConfiguration_,
       mapName = pMapName_,
       pricingPlan = pPricingPlan_
     }
-
--- | An optional description for the map resource.
-createMap_description :: Lens.Lens' CreateMap (Prelude.Maybe Prelude.Text)
-createMap_description = Lens.lens (\CreateMap' {description} -> description) (\s@CreateMap' {} a -> s {description = a} :: CreateMap)
 
 -- | Applies one or more tags to the map resource. A tag is a key-value pair
 -- helps manage, identify, search, and filter your resources by labelling
@@ -184,6 +180,10 @@ createMap_description = Lens.lens (\CreateMap' {description} -> description) (\s
 --     characters: + - = . _ : \/ \@.
 createMap_tags :: Lens.Lens' CreateMap (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createMap_tags = Lens.lens (\CreateMap' {tags} -> tags) (\s@CreateMap' {} a -> s {tags = a} :: CreateMap) Prelude.. Lens.mapping Lens.coerced
+
+-- | An optional description for the map resource.
+createMap_description :: Lens.Lens' CreateMap (Prelude.Maybe Prelude.Text)
+createMap_description = Lens.lens (\CreateMap' {description} -> description) (\s@CreateMap' {} a -> s {description = a} :: CreateMap)
 
 -- | Specifies the map style selected from an available data provider.
 createMap_configuration :: Lens.Lens' CreateMap MapConfiguration
@@ -224,16 +224,16 @@ instance Core.AWSRequest CreateMap where
 
 instance Prelude.Hashable CreateMap where
   hashWithSalt _salt CreateMap' {..} =
-    _salt `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` mapName
       `Prelude.hashWithSalt` pricingPlan
 
 instance Prelude.NFData CreateMap where
   rnf CreateMap' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf configuration
       `Prelude.seq` Prelude.rnf mapName
       `Prelude.seq` Prelude.rnf pricingPlan
@@ -253,8 +253,8 @@ instance Core.ToJSON CreateMap where
   toJSON CreateMap' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
             Prelude.Just ("Configuration" Core..= configuration),
             Prelude.Just ("MapName" Core..= mapName),
             Prelude.Just ("PricingPlan" Core..= pricingPlan)

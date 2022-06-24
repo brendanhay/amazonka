@@ -27,9 +27,9 @@ module Amazonka.Location.UpdateTracker
     newUpdateTracker,
 
     -- * Request Lenses
-    updateTracker_pricingPlan,
-    updateTracker_pricingPlanDataSource,
     updateTracker_description,
+    updateTracker_pricingPlanDataSource,
+    updateTracker_pricingPlan,
     updateTracker_positionFiltering,
     updateTracker_trackerName,
 
@@ -54,11 +54,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateTracker' smart constructor.
 data UpdateTracker = UpdateTracker'
-  { -- | Updates the pricing plan for the tracker resource.
-    --
-    -- For more information about each pricing plan option restrictions, see
-    -- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
-    pricingPlan :: Prelude.Maybe PricingPlan,
+  { -- | Updates the description for the tracker resource.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Updates the data provider for the tracker resource.
     --
     -- A required value for the following pricing plans: @MobileAssetTracking@|
@@ -77,8 +74,11 @@ data UpdateTracker = UpdateTracker'
     -- data provider, and will remain in your AWS account and Region unless you
     -- move it.
     pricingPlanDataSource :: Prelude.Maybe Prelude.Text,
-    -- | Updates the description for the tracker resource.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | Updates the pricing plan for the tracker resource.
+    --
+    -- For more information about each pricing plan option restrictions, see
+    -- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
+    pricingPlan :: Prelude.Maybe PricingPlan,
     -- | Updates the position filtering for the tracker resource.
     --
     -- Valid values:
@@ -109,10 +109,7 @@ data UpdateTracker = UpdateTracker'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pricingPlan', 'updateTracker_pricingPlan' - Updates the pricing plan for the tracker resource.
---
--- For more information about each pricing plan option restrictions, see
--- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
+-- 'description', 'updateTracker_description' - Updates the description for the tracker resource.
 --
 -- 'pricingPlanDataSource', 'updateTracker_pricingPlanDataSource' - Updates the data provider for the tracker resource.
 --
@@ -132,7 +129,10 @@ data UpdateTracker = UpdateTracker'
 -- data provider, and will remain in your AWS account and Region unless you
 -- move it.
 --
--- 'description', 'updateTracker_description' - Updates the description for the tracker resource.
+-- 'pricingPlan', 'updateTracker_pricingPlan' - Updates the pricing plan for the tracker resource.
+--
+-- For more information about each pricing plan option restrictions, see
+-- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
 --
 -- 'positionFiltering', 'updateTracker_positionFiltering' - Updates the position filtering for the tracker resource.
 --
@@ -158,19 +158,16 @@ newUpdateTracker ::
   UpdateTracker
 newUpdateTracker pTrackerName_ =
   UpdateTracker'
-    { pricingPlan = Prelude.Nothing,
+    { description = Prelude.Nothing,
       pricingPlanDataSource = Prelude.Nothing,
-      description = Prelude.Nothing,
+      pricingPlan = Prelude.Nothing,
       positionFiltering = Prelude.Nothing,
       trackerName = pTrackerName_
     }
 
--- | Updates the pricing plan for the tracker resource.
---
--- For more information about each pricing plan option restrictions, see
--- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
-updateTracker_pricingPlan :: Lens.Lens' UpdateTracker (Prelude.Maybe PricingPlan)
-updateTracker_pricingPlan = Lens.lens (\UpdateTracker' {pricingPlan} -> pricingPlan) (\s@UpdateTracker' {} a -> s {pricingPlan = a} :: UpdateTracker)
+-- | Updates the description for the tracker resource.
+updateTracker_description :: Lens.Lens' UpdateTracker (Prelude.Maybe Prelude.Text)
+updateTracker_description = Lens.lens (\UpdateTracker' {description} -> description) (\s@UpdateTracker' {} a -> s {description = a} :: UpdateTracker)
 
 -- | Updates the data provider for the tracker resource.
 --
@@ -192,9 +189,12 @@ updateTracker_pricingPlan = Lens.lens (\UpdateTracker' {pricingPlan} -> pricingP
 updateTracker_pricingPlanDataSource :: Lens.Lens' UpdateTracker (Prelude.Maybe Prelude.Text)
 updateTracker_pricingPlanDataSource = Lens.lens (\UpdateTracker' {pricingPlanDataSource} -> pricingPlanDataSource) (\s@UpdateTracker' {} a -> s {pricingPlanDataSource = a} :: UpdateTracker)
 
--- | Updates the description for the tracker resource.
-updateTracker_description :: Lens.Lens' UpdateTracker (Prelude.Maybe Prelude.Text)
-updateTracker_description = Lens.lens (\UpdateTracker' {description} -> description) (\s@UpdateTracker' {} a -> s {description = a} :: UpdateTracker)
+-- | Updates the pricing plan for the tracker resource.
+--
+-- For more information about each pricing plan option restrictions, see
+-- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
+updateTracker_pricingPlan :: Lens.Lens' UpdateTracker (Prelude.Maybe PricingPlan)
+updateTracker_pricingPlan = Lens.lens (\UpdateTracker' {pricingPlan} -> pricingPlan) (\s@UpdateTracker' {} a -> s {pricingPlan = a} :: UpdateTracker)
 
 -- | Updates the position filtering for the tracker resource.
 --
@@ -236,17 +236,17 @@ instance Core.AWSRequest UpdateTracker where
 
 instance Prelude.Hashable UpdateTracker where
   hashWithSalt _salt UpdateTracker' {..} =
-    _salt `Prelude.hashWithSalt` pricingPlan
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` pricingPlanDataSource
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` pricingPlan
       `Prelude.hashWithSalt` positionFiltering
       `Prelude.hashWithSalt` trackerName
 
 instance Prelude.NFData UpdateTracker where
   rnf UpdateTracker' {..} =
-    Prelude.rnf pricingPlan
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf pricingPlanDataSource
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf pricingPlan
       `Prelude.seq` Prelude.rnf positionFiltering
       `Prelude.seq` Prelude.rnf trackerName
 
@@ -265,10 +265,10 @@ instance Core.ToJSON UpdateTracker where
   toJSON UpdateTracker' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PricingPlan" Core..=) Prelude.<$> pricingPlan,
+          [ ("Description" Core..=) Prelude.<$> description,
             ("PricingPlanDataSource" Core..=)
               Prelude.<$> pricingPlanDataSource,
-            ("Description" Core..=) Prelude.<$> description,
+            ("PricingPlan" Core..=) Prelude.<$> pricingPlan,
             ("PositionFiltering" Core..=)
               Prelude.<$> positionFiltering
           ]

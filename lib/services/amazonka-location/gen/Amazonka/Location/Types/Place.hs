@@ -29,32 +29,32 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPlace' smart constructor.
 data Place = Place'
-  { -- | A name for a local area, such as a city or town name. For example,
-    -- @Toronto@.
-    municipality :: Prelude.Maybe Prelude.Text,
-    -- | The numerical portion of an address, such as a building number.
+  { -- | The numerical portion of an address, such as a building number.
     addressNumber :: Prelude.Maybe Prelude.Text,
     -- | A group of numbers and letters in a country-specific format, which
     -- accompanies the address for the purpose of identifying a location.
     postalCode :: Prelude.Maybe Prelude.Text,
+    -- | The name of a community district. For example, @Downtown@.
+    neighborhood :: Prelude.Maybe Prelude.Text,
     -- | A country\/region specified using
     -- <https://www.iso.org/iso-3166-country-codes.html ISO 3166> 3-digit
     -- country\/region code. For example, @CAN@.
     country :: Prelude.Maybe Prelude.Text,
-    -- | The name for a street or a road to identify a location. For example,
-    -- @Main Street@.
-    street :: Prelude.Maybe Prelude.Text,
-    -- | A country, or an area that\'s part of a larger region . For example,
-    -- @Metro Vancouver@.
-    subRegion :: Prelude.Maybe Prelude.Text,
-    -- | A name for an area or geographical division, such as a province or state
-    -- name. For example, @British Columbia@.
-    region :: Prelude.Maybe Prelude.Text,
     -- | The full name and address of the point of interest such as a city,
     -- region, or country. For example, @123 Any Street, Any Town, USA@.
     label :: Prelude.Maybe Prelude.Text,
-    -- | The name of a community district. For example, @Downtown@.
-    neighborhood :: Prelude.Maybe Prelude.Text,
+    -- | A name for an area or geographical division, such as a province or state
+    -- name. For example, @British Columbia@.
+    region :: Prelude.Maybe Prelude.Text,
+    -- | A country, or an area that\'s part of a larger region . For example,
+    -- @Metro Vancouver@.
+    subRegion :: Prelude.Maybe Prelude.Text,
+    -- | The name for a street or a road to identify a location. For example,
+    -- @Main Street@.
+    street :: Prelude.Maybe Prelude.Text,
+    -- | A name for a local area, such as a city or town name. For example,
+    -- @Toronto@.
+    municipality :: Prelude.Maybe Prelude.Text,
     geometry :: PlaceGeometry
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -67,31 +67,31 @@ data Place = Place'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'municipality', 'place_municipality' - A name for a local area, such as a city or town name. For example,
--- @Toronto@.
---
 -- 'addressNumber', 'place_addressNumber' - The numerical portion of an address, such as a building number.
 --
 -- 'postalCode', 'place_postalCode' - A group of numbers and letters in a country-specific format, which
 -- accompanies the address for the purpose of identifying a location.
 --
+-- 'neighborhood', 'place_neighborhood' - The name of a community district. For example, @Downtown@.
+--
 -- 'country', 'place_country' - A country\/region specified using
 -- <https://www.iso.org/iso-3166-country-codes.html ISO 3166> 3-digit
 -- country\/region code. For example, @CAN@.
 --
--- 'street', 'place_street' - The name for a street or a road to identify a location. For example,
--- @Main Street@.
---
--- 'subRegion', 'place_subRegion' - A country, or an area that\'s part of a larger region . For example,
--- @Metro Vancouver@.
+-- 'label', 'place_label' - The full name and address of the point of interest such as a city,
+-- region, or country. For example, @123 Any Street, Any Town, USA@.
 --
 -- 'region', 'place_region' - A name for an area or geographical division, such as a province or state
 -- name. For example, @British Columbia@.
 --
--- 'label', 'place_label' - The full name and address of the point of interest such as a city,
--- region, or country. For example, @123 Any Street, Any Town, USA@.
+-- 'subRegion', 'place_subRegion' - A country, or an area that\'s part of a larger region . For example,
+-- @Metro Vancouver@.
 --
--- 'neighborhood', 'place_neighborhood' - The name of a community district. For example, @Downtown@.
+-- 'street', 'place_street' - The name for a street or a road to identify a location. For example,
+-- @Main Street@.
+--
+-- 'municipality', 'place_municipality' - A name for a local area, such as a city or town name. For example,
+-- @Toronto@.
 --
 -- 'geometry', 'place_geometry' - Undocumented member.
 newPlace ::
@@ -100,22 +100,17 @@ newPlace ::
   Place
 newPlace pGeometry_ =
   Place'
-    { municipality = Prelude.Nothing,
-      addressNumber = Prelude.Nothing,
+    { addressNumber = Prelude.Nothing,
       postalCode = Prelude.Nothing,
-      country = Prelude.Nothing,
-      street = Prelude.Nothing,
-      subRegion = Prelude.Nothing,
-      region = Prelude.Nothing,
-      label = Prelude.Nothing,
       neighborhood = Prelude.Nothing,
+      country = Prelude.Nothing,
+      label = Prelude.Nothing,
+      region = Prelude.Nothing,
+      subRegion = Prelude.Nothing,
+      street = Prelude.Nothing,
+      municipality = Prelude.Nothing,
       geometry = pGeometry_
     }
-
--- | A name for a local area, such as a city or town name. For example,
--- @Toronto@.
-place_municipality :: Lens.Lens' Place (Prelude.Maybe Prelude.Text)
-place_municipality = Lens.lens (\Place' {municipality} -> municipality) (\s@Place' {} a -> s {municipality = a} :: Place)
 
 -- | The numerical portion of an address, such as a building number.
 place_addressNumber :: Lens.Lens' Place (Prelude.Maybe Prelude.Text)
@@ -126,35 +121,40 @@ place_addressNumber = Lens.lens (\Place' {addressNumber} -> addressNumber) (\s@P
 place_postalCode :: Lens.Lens' Place (Prelude.Maybe Prelude.Text)
 place_postalCode = Lens.lens (\Place' {postalCode} -> postalCode) (\s@Place' {} a -> s {postalCode = a} :: Place)
 
+-- | The name of a community district. For example, @Downtown@.
+place_neighborhood :: Lens.Lens' Place (Prelude.Maybe Prelude.Text)
+place_neighborhood = Lens.lens (\Place' {neighborhood} -> neighborhood) (\s@Place' {} a -> s {neighborhood = a} :: Place)
+
 -- | A country\/region specified using
 -- <https://www.iso.org/iso-3166-country-codes.html ISO 3166> 3-digit
 -- country\/region code. For example, @CAN@.
 place_country :: Lens.Lens' Place (Prelude.Maybe Prelude.Text)
 place_country = Lens.lens (\Place' {country} -> country) (\s@Place' {} a -> s {country = a} :: Place)
 
--- | The name for a street or a road to identify a location. For example,
--- @Main Street@.
-place_street :: Lens.Lens' Place (Prelude.Maybe Prelude.Text)
-place_street = Lens.lens (\Place' {street} -> street) (\s@Place' {} a -> s {street = a} :: Place)
-
--- | A country, or an area that\'s part of a larger region . For example,
--- @Metro Vancouver@.
-place_subRegion :: Lens.Lens' Place (Prelude.Maybe Prelude.Text)
-place_subRegion = Lens.lens (\Place' {subRegion} -> subRegion) (\s@Place' {} a -> s {subRegion = a} :: Place)
+-- | The full name and address of the point of interest such as a city,
+-- region, or country. For example, @123 Any Street, Any Town, USA@.
+place_label :: Lens.Lens' Place (Prelude.Maybe Prelude.Text)
+place_label = Lens.lens (\Place' {label} -> label) (\s@Place' {} a -> s {label = a} :: Place)
 
 -- | A name for an area or geographical division, such as a province or state
 -- name. For example, @British Columbia@.
 place_region :: Lens.Lens' Place (Prelude.Maybe Prelude.Text)
 place_region = Lens.lens (\Place' {region} -> region) (\s@Place' {} a -> s {region = a} :: Place)
 
--- | The full name and address of the point of interest such as a city,
--- region, or country. For example, @123 Any Street, Any Town, USA@.
-place_label :: Lens.Lens' Place (Prelude.Maybe Prelude.Text)
-place_label = Lens.lens (\Place' {label} -> label) (\s@Place' {} a -> s {label = a} :: Place)
+-- | A country, or an area that\'s part of a larger region . For example,
+-- @Metro Vancouver@.
+place_subRegion :: Lens.Lens' Place (Prelude.Maybe Prelude.Text)
+place_subRegion = Lens.lens (\Place' {subRegion} -> subRegion) (\s@Place' {} a -> s {subRegion = a} :: Place)
 
--- | The name of a community district. For example, @Downtown@.
-place_neighborhood :: Lens.Lens' Place (Prelude.Maybe Prelude.Text)
-place_neighborhood = Lens.lens (\Place' {neighborhood} -> neighborhood) (\s@Place' {} a -> s {neighborhood = a} :: Place)
+-- | The name for a street or a road to identify a location. For example,
+-- @Main Street@.
+place_street :: Lens.Lens' Place (Prelude.Maybe Prelude.Text)
+place_street = Lens.lens (\Place' {street} -> street) (\s@Place' {} a -> s {street = a} :: Place)
+
+-- | A name for a local area, such as a city or town name. For example,
+-- @Toronto@.
+place_municipality :: Lens.Lens' Place (Prelude.Maybe Prelude.Text)
+place_municipality = Lens.lens (\Place' {municipality} -> municipality) (\s@Place' {} a -> s {municipality = a} :: Place)
 
 -- | Undocumented member.
 place_geometry :: Lens.Lens' Place PlaceGeometry
@@ -166,40 +166,40 @@ instance Core.FromJSON Place where
       "Place"
       ( \x ->
           Place'
-            Prelude.<$> (x Core..:? "Municipality")
-            Prelude.<*> (x Core..:? "AddressNumber")
+            Prelude.<$> (x Core..:? "AddressNumber")
             Prelude.<*> (x Core..:? "PostalCode")
-            Prelude.<*> (x Core..:? "Country")
-            Prelude.<*> (x Core..:? "Street")
-            Prelude.<*> (x Core..:? "SubRegion")
-            Prelude.<*> (x Core..:? "Region")
-            Prelude.<*> (x Core..:? "Label")
             Prelude.<*> (x Core..:? "Neighborhood")
+            Prelude.<*> (x Core..:? "Country")
+            Prelude.<*> (x Core..:? "Label")
+            Prelude.<*> (x Core..:? "Region")
+            Prelude.<*> (x Core..:? "SubRegion")
+            Prelude.<*> (x Core..:? "Street")
+            Prelude.<*> (x Core..:? "Municipality")
             Prelude.<*> (x Core..: "Geometry")
       )
 
 instance Prelude.Hashable Place where
   hashWithSalt _salt Place' {..} =
-    _salt `Prelude.hashWithSalt` municipality
-      `Prelude.hashWithSalt` addressNumber
+    _salt `Prelude.hashWithSalt` addressNumber
       `Prelude.hashWithSalt` postalCode
-      `Prelude.hashWithSalt` country
-      `Prelude.hashWithSalt` street
-      `Prelude.hashWithSalt` subRegion
-      `Prelude.hashWithSalt` region
-      `Prelude.hashWithSalt` label
       `Prelude.hashWithSalt` neighborhood
+      `Prelude.hashWithSalt` country
+      `Prelude.hashWithSalt` label
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` subRegion
+      `Prelude.hashWithSalt` street
+      `Prelude.hashWithSalt` municipality
       `Prelude.hashWithSalt` geometry
 
 instance Prelude.NFData Place where
   rnf Place' {..} =
-    Prelude.rnf municipality
-      `Prelude.seq` Prelude.rnf addressNumber
+    Prelude.rnf addressNumber
       `Prelude.seq` Prelude.rnf postalCode
-      `Prelude.seq` Prelude.rnf country
-      `Prelude.seq` Prelude.rnf street
-      `Prelude.seq` Prelude.rnf subRegion
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf label
       `Prelude.seq` Prelude.rnf neighborhood
+      `Prelude.seq` Prelude.rnf country
+      `Prelude.seq` Prelude.rnf label
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf subRegion
+      `Prelude.seq` Prelude.rnf street
+      `Prelude.seq` Prelude.rnf municipality
       `Prelude.seq` Prelude.rnf geometry

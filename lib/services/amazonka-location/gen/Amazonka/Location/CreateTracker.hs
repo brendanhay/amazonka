@@ -28,10 +28,10 @@ module Amazonka.Location.CreateTracker
     newCreateTracker,
 
     -- * Request Lenses
+    createTracker_tags,
+    createTracker_description,
     createTracker_pricingPlanDataSource,
     createTracker_kmsKeyId,
-    createTracker_description,
-    createTracker_tags,
     createTracker_positionFiltering,
     createTracker_pricingPlan,
     createTracker_trackerName,
@@ -57,7 +57,28 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateTracker' smart constructor.
 data CreateTracker = CreateTracker'
-  { -- | Specifies the data provider for the tracker resource.
+  { -- | Applies one or more tags to the tracker resource. A tag is a key-value
+    -- pair helps manage, identify, search, and filter your resources by
+    -- labelling them.
+    --
+    -- Format: @\"key\" : \"value\"@
+    --
+    -- Restrictions:
+    --
+    -- -   Maximum 50 tags per resource
+    --
+    -- -   Each resource tag must be unique with a maximum of one value.
+    --
+    -- -   Maximum key length: 128 Unicode characters in UTF-8
+    --
+    -- -   Maximum value length: 256 Unicode characters in UTF-8
+    --
+    -- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
+    --     characters: + - = . _ : \/ \@.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | An optional description for the tracker resource.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the data provider for the tracker resource.
     --
     -- -   Required value for the following pricing plans:
     --     @MobileAssetTracking @| @MobileAssetManagement@
@@ -78,27 +99,6 @@ data CreateTracker = CreateTracker'
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>.
     -- Enter a key ID, key ARN, alias name, or alias ARN.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | An optional description for the tracker resource.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Applies one or more tags to the tracker resource. A tag is a key-value
-    -- pair helps manage, identify, search, and filter your resources by
-    -- labelling them.
-    --
-    -- Format: @\"key\" : \"value\"@
-    --
-    -- Restrictions:
-    --
-    -- -   Maximum 50 tags per resource
-    --
-    -- -   Each resource tag must be unique with a maximum of one value.
-    --
-    -- -   Maximum key length: 128 Unicode characters in UTF-8
-    --
-    -- -   Maximum value length: 256 Unicode characters in UTF-8
-    --
-    -- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
-    --     characters: + - = . _ : \/ \@.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Specifies the position filtering for the tracker resource.
     --
     -- Valid values:
@@ -146,6 +146,27 @@ data CreateTracker = CreateTracker'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createTracker_tags' - Applies one or more tags to the tracker resource. A tag is a key-value
+-- pair helps manage, identify, search, and filter your resources by
+-- labelling them.
+--
+-- Format: @\"key\" : \"value\"@
+--
+-- Restrictions:
+--
+-- -   Maximum 50 tags per resource
+--
+-- -   Each resource tag must be unique with a maximum of one value.
+--
+-- -   Maximum key length: 128 Unicode characters in UTF-8
+--
+-- -   Maximum value length: 256 Unicode characters in UTF-8
+--
+-- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
+--     characters: + - = . _ : \/ \@.
+--
+-- 'description', 'createTracker_description' - An optional description for the tracker resource.
+--
 -- 'pricingPlanDataSource', 'createTracker_pricingPlanDataSource' - Specifies the data provider for the tracker resource.
 --
 -- -   Required value for the following pricing plans:
@@ -166,27 +187,6 @@ data CreateTracker = CreateTracker'
 -- 'kmsKeyId', 'createTracker_kmsKeyId' - A key identifier for an
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>.
 -- Enter a key ID, key ARN, alias name, or alias ARN.
---
--- 'description', 'createTracker_description' - An optional description for the tracker resource.
---
--- 'tags', 'createTracker_tags' - Applies one or more tags to the tracker resource. A tag is a key-value
--- pair helps manage, identify, search, and filter your resources by
--- labelling them.
---
--- Format: @\"key\" : \"value\"@
---
--- Restrictions:
---
--- -   Maximum 50 tags per resource
---
--- -   Each resource tag must be unique with a maximum of one value.
---
--- -   Maximum key length: 128 Unicode characters in UTF-8
---
--- -   Maximum value length: 256 Unicode characters in UTF-8
---
--- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
---     characters: + - = . _ : \/ \@.
 --
 -- 'positionFiltering', 'createTracker_positionFiltering' - Specifies the position filtering for the tracker resource.
 --
@@ -231,15 +231,39 @@ newCreateTracker ::
   CreateTracker
 newCreateTracker pPricingPlan_ pTrackerName_ =
   CreateTracker'
-    { pricingPlanDataSource =
-        Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      pricingPlanDataSource = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
       positionFiltering = Prelude.Nothing,
       pricingPlan = pPricingPlan_,
       trackerName = pTrackerName_
     }
+
+-- | Applies one or more tags to the tracker resource. A tag is a key-value
+-- pair helps manage, identify, search, and filter your resources by
+-- labelling them.
+--
+-- Format: @\"key\" : \"value\"@
+--
+-- Restrictions:
+--
+-- -   Maximum 50 tags per resource
+--
+-- -   Each resource tag must be unique with a maximum of one value.
+--
+-- -   Maximum key length: 128 Unicode characters in UTF-8
+--
+-- -   Maximum value length: 256 Unicode characters in UTF-8
+--
+-- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
+--     characters: + - = . _ : \/ \@.
+createTracker_tags :: Lens.Lens' CreateTracker (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createTracker_tags = Lens.lens (\CreateTracker' {tags} -> tags) (\s@CreateTracker' {} a -> s {tags = a} :: CreateTracker) Prelude.. Lens.mapping Lens.coerced
+
+-- | An optional description for the tracker resource.
+createTracker_description :: Lens.Lens' CreateTracker (Prelude.Maybe Prelude.Text)
+createTracker_description = Lens.lens (\CreateTracker' {description} -> description) (\s@CreateTracker' {} a -> s {description = a} :: CreateTracker)
 
 -- | Specifies the data provider for the tracker resource.
 --
@@ -265,31 +289,6 @@ createTracker_pricingPlanDataSource = Lens.lens (\CreateTracker' {pricingPlanDat
 -- Enter a key ID, key ARN, alias name, or alias ARN.
 createTracker_kmsKeyId :: Lens.Lens' CreateTracker (Prelude.Maybe Prelude.Text)
 createTracker_kmsKeyId = Lens.lens (\CreateTracker' {kmsKeyId} -> kmsKeyId) (\s@CreateTracker' {} a -> s {kmsKeyId = a} :: CreateTracker)
-
--- | An optional description for the tracker resource.
-createTracker_description :: Lens.Lens' CreateTracker (Prelude.Maybe Prelude.Text)
-createTracker_description = Lens.lens (\CreateTracker' {description} -> description) (\s@CreateTracker' {} a -> s {description = a} :: CreateTracker)
-
--- | Applies one or more tags to the tracker resource. A tag is a key-value
--- pair helps manage, identify, search, and filter your resources by
--- labelling them.
---
--- Format: @\"key\" : \"value\"@
---
--- Restrictions:
---
--- -   Maximum 50 tags per resource
---
--- -   Each resource tag must be unique with a maximum of one value.
---
--- -   Maximum key length: 128 Unicode characters in UTF-8
---
--- -   Maximum value length: 256 Unicode characters in UTF-8
---
--- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
---     characters: + - = . _ : \/ \@.
-createTracker_tags :: Lens.Lens' CreateTracker (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createTracker_tags = Lens.lens (\CreateTracker' {tags} -> tags) (\s@CreateTracker' {} a -> s {tags = a} :: CreateTracker) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the position filtering for the tracker resource.
 --
@@ -350,20 +349,20 @@ instance Core.AWSRequest CreateTracker where
 
 instance Prelude.Hashable CreateTracker where
   hashWithSalt _salt CreateTracker' {..} =
-    _salt `Prelude.hashWithSalt` pricingPlanDataSource
-      `Prelude.hashWithSalt` kmsKeyId
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` pricingPlanDataSource
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` positionFiltering
       `Prelude.hashWithSalt` pricingPlan
       `Prelude.hashWithSalt` trackerName
 
 instance Prelude.NFData CreateTracker where
   rnf CreateTracker' {..} =
-    Prelude.rnf pricingPlanDataSource
-      `Prelude.seq` Prelude.rnf kmsKeyId
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf pricingPlanDataSource
+      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf positionFiltering
       `Prelude.seq` Prelude.rnf pricingPlan
       `Prelude.seq` Prelude.rnf trackerName
@@ -383,11 +382,11 @@ instance Core.ToJSON CreateTracker where
   toJSON CreateTracker' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PricingPlanDataSource" Core..=)
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
+            ("PricingPlanDataSource" Core..=)
               Prelude.<$> pricingPlanDataSource,
             ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
             ("PositionFiltering" Core..=)
               Prelude.<$> positionFiltering,
             Prelude.Just ("PricingPlan" Core..= pricingPlan),

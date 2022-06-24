@@ -27,9 +27,9 @@ module Amazonka.Location.UpdatePlaceIndex
     newUpdatePlaceIndex,
 
     -- * Request Lenses
-    updatePlaceIndex_pricingPlan,
     updatePlaceIndex_dataSourceConfiguration,
     updatePlaceIndex_description,
+    updatePlaceIndex_pricingPlan,
     updatePlaceIndex_indexName,
 
     -- * Destructuring the Response
@@ -53,15 +53,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdatePlaceIndex' smart constructor.
 data UpdatePlaceIndex = UpdatePlaceIndex'
-  { -- | Updates the pricing plan for the place index resource.
+  { -- | Updates the data storage option for the place index resource.
+    dataSourceConfiguration :: Prelude.Maybe DataSourceConfiguration,
+    -- | Updates the description for the place index resource.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Updates the pricing plan for the place index resource.
     --
     -- For more information about each pricing plan option restrictions, see
     -- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
     pricingPlan :: Prelude.Maybe PricingPlan,
-    -- | Updates the data storage option for the place index resource.
-    dataSourceConfiguration :: Prelude.Maybe DataSourceConfiguration,
-    -- | Updates the description for the place index resource.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the place index resource to update.
     indexName :: Prelude.Text
   }
@@ -75,14 +75,14 @@ data UpdatePlaceIndex = UpdatePlaceIndex'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dataSourceConfiguration', 'updatePlaceIndex_dataSourceConfiguration' - Updates the data storage option for the place index resource.
+--
+-- 'description', 'updatePlaceIndex_description' - Updates the description for the place index resource.
+--
 -- 'pricingPlan', 'updatePlaceIndex_pricingPlan' - Updates the pricing plan for the place index resource.
 --
 -- For more information about each pricing plan option restrictions, see
 -- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
---
--- 'dataSourceConfiguration', 'updatePlaceIndex_dataSourceConfiguration' - Updates the data storage option for the place index resource.
---
--- 'description', 'updatePlaceIndex_description' - Updates the description for the place index resource.
 --
 -- 'indexName', 'updatePlaceIndex_indexName' - The name of the place index resource to update.
 newUpdatePlaceIndex ::
@@ -91,18 +91,12 @@ newUpdatePlaceIndex ::
   UpdatePlaceIndex
 newUpdatePlaceIndex pIndexName_ =
   UpdatePlaceIndex'
-    { pricingPlan = Prelude.Nothing,
-      dataSourceConfiguration = Prelude.Nothing,
+    { dataSourceConfiguration =
+        Prelude.Nothing,
       description = Prelude.Nothing,
+      pricingPlan = Prelude.Nothing,
       indexName = pIndexName_
     }
-
--- | Updates the pricing plan for the place index resource.
---
--- For more information about each pricing plan option restrictions, see
--- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
-updatePlaceIndex_pricingPlan :: Lens.Lens' UpdatePlaceIndex (Prelude.Maybe PricingPlan)
-updatePlaceIndex_pricingPlan = Lens.lens (\UpdatePlaceIndex' {pricingPlan} -> pricingPlan) (\s@UpdatePlaceIndex' {} a -> s {pricingPlan = a} :: UpdatePlaceIndex)
 
 -- | Updates the data storage option for the place index resource.
 updatePlaceIndex_dataSourceConfiguration :: Lens.Lens' UpdatePlaceIndex (Prelude.Maybe DataSourceConfiguration)
@@ -111,6 +105,13 @@ updatePlaceIndex_dataSourceConfiguration = Lens.lens (\UpdatePlaceIndex' {dataSo
 -- | Updates the description for the place index resource.
 updatePlaceIndex_description :: Lens.Lens' UpdatePlaceIndex (Prelude.Maybe Prelude.Text)
 updatePlaceIndex_description = Lens.lens (\UpdatePlaceIndex' {description} -> description) (\s@UpdatePlaceIndex' {} a -> s {description = a} :: UpdatePlaceIndex)
+
+-- | Updates the pricing plan for the place index resource.
+--
+-- For more information about each pricing plan option restrictions, see
+-- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
+updatePlaceIndex_pricingPlan :: Lens.Lens' UpdatePlaceIndex (Prelude.Maybe PricingPlan)
+updatePlaceIndex_pricingPlan = Lens.lens (\UpdatePlaceIndex' {pricingPlan} -> pricingPlan) (\s@UpdatePlaceIndex' {} a -> s {pricingPlan = a} :: UpdatePlaceIndex)
 
 -- | The name of the place index resource to update.
 updatePlaceIndex_indexName :: Lens.Lens' UpdatePlaceIndex Prelude.Text
@@ -133,16 +134,17 @@ instance Core.AWSRequest UpdatePlaceIndex where
 
 instance Prelude.Hashable UpdatePlaceIndex where
   hashWithSalt _salt UpdatePlaceIndex' {..} =
-    _salt `Prelude.hashWithSalt` pricingPlan
+    _salt
       `Prelude.hashWithSalt` dataSourceConfiguration
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` pricingPlan
       `Prelude.hashWithSalt` indexName
 
 instance Prelude.NFData UpdatePlaceIndex where
   rnf UpdatePlaceIndex' {..} =
-    Prelude.rnf pricingPlan
-      `Prelude.seq` Prelude.rnf dataSourceConfiguration
+    Prelude.rnf dataSourceConfiguration
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf pricingPlan
       `Prelude.seq` Prelude.rnf indexName
 
 instance Core.ToHeaders UpdatePlaceIndex where
@@ -160,10 +162,10 @@ instance Core.ToJSON UpdatePlaceIndex where
   toJSON UpdatePlaceIndex' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PricingPlan" Core..=) Prelude.<$> pricingPlan,
-            ("DataSourceConfiguration" Core..=)
+          [ ("DataSourceConfiguration" Core..=)
               Prelude.<$> dataSourceConfiguration,
-            ("Description" Core..=) Prelude.<$> description
+            ("Description" Core..=) Prelude.<$> description,
+            ("PricingPlan" Core..=) Prelude.<$> pricingPlan
           ]
       )
 

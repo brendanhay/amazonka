@@ -14,30 +14,70 @@
 module Amazonka.Location.Lens
   ( -- * Operations
 
+    -- ** AssociateTrackerConsumer
+    associateTrackerConsumer_consumerArn,
+    associateTrackerConsumer_trackerName,
+    associateTrackerConsumerResponse_httpStatus,
+
+    -- ** BatchDeleteDevicePositionHistory
+    batchDeleteDevicePositionHistory_deviceIds,
+    batchDeleteDevicePositionHistory_trackerName,
+    batchDeleteDevicePositionHistoryResponse_httpStatus,
+    batchDeleteDevicePositionHistoryResponse_errors,
+
+    -- ** BatchDeleteGeofence
+    batchDeleteGeofence_collectionName,
+    batchDeleteGeofence_geofenceIds,
+    batchDeleteGeofenceResponse_httpStatus,
+    batchDeleteGeofenceResponse_errors,
+
+    -- ** BatchEvaluateGeofences
+    batchEvaluateGeofences_collectionName,
+    batchEvaluateGeofences_devicePositionUpdates,
+    batchEvaluateGeofencesResponse_httpStatus,
+    batchEvaluateGeofencesResponse_errors,
+
+    -- ** BatchGetDevicePosition
+    batchGetDevicePosition_deviceIds,
+    batchGetDevicePosition_trackerName,
+    batchGetDevicePositionResponse_httpStatus,
+    batchGetDevicePositionResponse_devicePositions,
+    batchGetDevicePositionResponse_errors,
+
+    -- ** BatchPutGeofence
+    batchPutGeofence_collectionName,
+    batchPutGeofence_entries,
+    batchPutGeofenceResponse_httpStatus,
+    batchPutGeofenceResponse_errors,
+    batchPutGeofenceResponse_successes,
+
     -- ** BatchUpdateDevicePosition
     batchUpdateDevicePosition_trackerName,
     batchUpdateDevicePosition_updates,
     batchUpdateDevicePositionResponse_httpStatus,
     batchUpdateDevicePositionResponse_errors,
 
-    -- ** DeleteRouteCalculator
-    deleteRouteCalculator_calculatorName,
-    deleteRouteCalculatorResponse_httpStatus,
-
-    -- ** UpdateRouteCalculator
-    updateRouteCalculator_pricingPlan,
-    updateRouteCalculator_description,
-    updateRouteCalculator_calculatorName,
-    updateRouteCalculatorResponse_httpStatus,
-    updateRouteCalculatorResponse_calculatorArn,
-    updateRouteCalculatorResponse_calculatorName,
-    updateRouteCalculatorResponse_updateTime,
+    -- ** CalculateRoute
+    calculateRoute_distanceUnit,
+    calculateRoute_carModeOptions,
+    calculateRoute_travelMode,
+    calculateRoute_departureTime,
+    calculateRoute_truckModeOptions,
+    calculateRoute_waypointPositions,
+    calculateRoute_includeLegGeometry,
+    calculateRoute_departNow,
+    calculateRoute_calculatorName,
+    calculateRoute_departurePosition,
+    calculateRoute_destinationPosition,
+    calculateRouteResponse_httpStatus,
+    calculateRouteResponse_legs,
+    calculateRouteResponse_summary,
 
     -- ** CreateGeofenceCollection
+    createGeofenceCollection_tags,
+    createGeofenceCollection_description,
     createGeofenceCollection_pricingPlanDataSource,
     createGeofenceCollection_kmsKeyId,
-    createGeofenceCollection_description,
-    createGeofenceCollection_tags,
     createGeofenceCollection_collectionName,
     createGeofenceCollection_pricingPlan,
     createGeofenceCollectionResponse_httpStatus,
@@ -45,18 +85,45 @@ module Amazonka.Location.Lens
     createGeofenceCollectionResponse_collectionName,
     createGeofenceCollectionResponse_createTime,
 
-    -- ** ListRouteCalculators
-    listRouteCalculators_nextToken,
-    listRouteCalculators_maxResults,
-    listRouteCalculatorsResponse_nextToken,
-    listRouteCalculatorsResponse_httpStatus,
-    listRouteCalculatorsResponse_entries,
+    -- ** CreateMap
+    createMap_tags,
+    createMap_description,
+    createMap_configuration,
+    createMap_mapName,
+    createMap_pricingPlan,
+    createMapResponse_httpStatus,
+    createMapResponse_createTime,
+    createMapResponse_mapArn,
+    createMapResponse_mapName,
+
+    -- ** CreatePlaceIndex
+    createPlaceIndex_tags,
+    createPlaceIndex_dataSourceConfiguration,
+    createPlaceIndex_description,
+    createPlaceIndex_dataSource,
+    createPlaceIndex_indexName,
+    createPlaceIndex_pricingPlan,
+    createPlaceIndexResponse_httpStatus,
+    createPlaceIndexResponse_createTime,
+    createPlaceIndexResponse_indexArn,
+    createPlaceIndexResponse_indexName,
+
+    -- ** CreateRouteCalculator
+    createRouteCalculator_tags,
+    createRouteCalculator_description,
+    createRouteCalculator_calculatorName,
+    createRouteCalculator_dataSource,
+    createRouteCalculator_pricingPlan,
+    createRouteCalculatorResponse_httpStatus,
+    createRouteCalculatorResponse_calculatorArn,
+    createRouteCalculatorResponse_calculatorName,
+    createRouteCalculatorResponse_createTime,
 
     -- ** CreateTracker
+    createTracker_tags,
+    createTracker_description,
     createTracker_pricingPlanDataSource,
     createTracker_kmsKeyId,
-    createTracker_description,
-    createTracker_tags,
     createTracker_positionFiltering,
     createTracker_pricingPlan,
     createTracker_trackerName,
@@ -65,44 +132,31 @@ module Amazonka.Location.Lens
     createTrackerResponse_trackerArn,
     createTrackerResponse_trackerName,
 
-    -- ** ListTrackerConsumers
-    listTrackerConsumers_nextToken,
-    listTrackerConsumers_maxResults,
-    listTrackerConsumers_trackerName,
-    listTrackerConsumersResponse_nextToken,
-    listTrackerConsumersResponse_httpStatus,
-    listTrackerConsumersResponse_consumerArns,
+    -- ** DeleteGeofenceCollection
+    deleteGeofenceCollection_collectionName,
+    deleteGeofenceCollectionResponse_httpStatus,
 
-    -- ** GetDevicePosition
-    getDevicePosition_deviceId,
-    getDevicePosition_trackerName,
-    getDevicePositionResponse_deviceId,
-    getDevicePositionResponse_httpStatus,
-    getDevicePositionResponse_position,
-    getDevicePositionResponse_receivedTime,
-    getDevicePositionResponse_sampleTime,
+    -- ** DeleteMap
+    deleteMap_mapName,
+    deleteMapResponse_httpStatus,
 
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
+    -- ** DeletePlaceIndex
+    deletePlaceIndex_indexName,
+    deletePlaceIndexResponse_httpStatus,
 
-    -- ** SearchPlaceIndexForText
-    searchPlaceIndexForText_filterBBox,
-    searchPlaceIndexForText_biasPosition,
-    searchPlaceIndexForText_filterCountries,
-    searchPlaceIndexForText_maxResults,
-    searchPlaceIndexForText_indexName,
-    searchPlaceIndexForText_text,
-    searchPlaceIndexForTextResponse_httpStatus,
-    searchPlaceIndexForTextResponse_results,
-    searchPlaceIndexForTextResponse_summary,
+    -- ** DeleteRouteCalculator
+    deleteRouteCalculator_calculatorName,
+    deleteRouteCalculatorResponse_httpStatus,
+
+    -- ** DeleteTracker
+    deleteTracker_trackerName,
+    deleteTrackerResponse_httpStatus,
 
     -- ** DescribeGeofenceCollection
     describeGeofenceCollection_collectionName,
+    describeGeofenceCollectionResponse_tags,
     describeGeofenceCollectionResponse_pricingPlanDataSource,
     describeGeofenceCollectionResponse_kmsKeyId,
-    describeGeofenceCollectionResponse_tags,
     describeGeofenceCollectionResponse_httpStatus,
     describeGeofenceCollectionResponse_collectionArn,
     describeGeofenceCollectionResponse_collectionName,
@@ -111,30 +165,31 @@ module Amazonka.Location.Lens
     describeGeofenceCollectionResponse_pricingPlan,
     describeGeofenceCollectionResponse_updateTime,
 
-    -- ** ListMaps
-    listMaps_nextToken,
-    listMaps_maxResults,
-    listMapsResponse_nextToken,
-    listMapsResponse_httpStatus,
-    listMapsResponse_entries,
+    -- ** DescribeMap
+    describeMap_mapName,
+    describeMapResponse_tags,
+    describeMapResponse_httpStatus,
+    describeMapResponse_configuration,
+    describeMapResponse_createTime,
+    describeMapResponse_dataSource,
+    describeMapResponse_description,
+    describeMapResponse_mapArn,
+    describeMapResponse_mapName,
+    describeMapResponse_pricingPlan,
+    describeMapResponse_updateTime,
 
-    -- ** GetMapSprites
-    getMapSprites_fileName,
-    getMapSprites_mapName,
-    getMapSpritesResponse_blob,
-    getMapSpritesResponse_contentType,
-    getMapSpritesResponse_httpStatus,
-
-    -- ** CreateMap
-    createMap_description,
-    createMap_tags,
-    createMap_configuration,
-    createMap_mapName,
-    createMap_pricingPlan,
-    createMapResponse_httpStatus,
-    createMapResponse_createTime,
-    createMapResponse_mapArn,
-    createMapResponse_mapName,
+    -- ** DescribePlaceIndex
+    describePlaceIndex_indexName,
+    describePlaceIndexResponse_tags,
+    describePlaceIndexResponse_httpStatus,
+    describePlaceIndexResponse_createTime,
+    describePlaceIndexResponse_dataSource,
+    describePlaceIndexResponse_dataSourceConfiguration,
+    describePlaceIndexResponse_description,
+    describePlaceIndexResponse_indexArn,
+    describePlaceIndexResponse_indexName,
+    describePlaceIndexResponse_pricingPlan,
+    describePlaceIndexResponse_updateTime,
 
     -- ** DescribeRouteCalculator
     describeRouteCalculator_calculatorName,
@@ -148,12 +203,68 @@ module Amazonka.Location.Lens
     describeRouteCalculatorResponse_pricingPlan,
     describeRouteCalculatorResponse_updateTime,
 
-    -- ** BatchGetDevicePosition
-    batchGetDevicePosition_deviceIds,
-    batchGetDevicePosition_trackerName,
-    batchGetDevicePositionResponse_httpStatus,
-    batchGetDevicePositionResponse_devicePositions,
-    batchGetDevicePositionResponse_errors,
+    -- ** DescribeTracker
+    describeTracker_trackerName,
+    describeTrackerResponse_tags,
+    describeTrackerResponse_pricingPlanDataSource,
+    describeTrackerResponse_kmsKeyId,
+    describeTrackerResponse_positionFiltering,
+    describeTrackerResponse_httpStatus,
+    describeTrackerResponse_createTime,
+    describeTrackerResponse_description,
+    describeTrackerResponse_pricingPlan,
+    describeTrackerResponse_trackerArn,
+    describeTrackerResponse_trackerName,
+    describeTrackerResponse_updateTime,
+
+    -- ** DisassociateTrackerConsumer
+    disassociateTrackerConsumer_consumerArn,
+    disassociateTrackerConsumer_trackerName,
+    disassociateTrackerConsumerResponse_httpStatus,
+
+    -- ** GetDevicePosition
+    getDevicePosition_deviceId,
+    getDevicePosition_trackerName,
+    getDevicePositionResponse_deviceId,
+    getDevicePositionResponse_httpStatus,
+    getDevicePositionResponse_position,
+    getDevicePositionResponse_receivedTime,
+    getDevicePositionResponse_sampleTime,
+
+    -- ** GetDevicePositionHistory
+    getDevicePositionHistory_startTimeInclusive,
+    getDevicePositionHistory_nextToken,
+    getDevicePositionHistory_endTimeExclusive,
+    getDevicePositionHistory_deviceId,
+    getDevicePositionHistory_trackerName,
+    getDevicePositionHistoryResponse_nextToken,
+    getDevicePositionHistoryResponse_httpStatus,
+    getDevicePositionHistoryResponse_devicePositions,
+
+    -- ** GetGeofence
+    getGeofence_collectionName,
+    getGeofence_geofenceId,
+    getGeofenceResponse_httpStatus,
+    getGeofenceResponse_createTime,
+    getGeofenceResponse_geofenceId,
+    getGeofenceResponse_geometry,
+    getGeofenceResponse_status,
+    getGeofenceResponse_updateTime,
+
+    -- ** GetMapGlyphs
+    getMapGlyphs_fontStack,
+    getMapGlyphs_fontUnicodeRange,
+    getMapGlyphs_mapName,
+    getMapGlyphsResponse_blob,
+    getMapGlyphsResponse_contentType,
+    getMapGlyphsResponse_httpStatus,
+
+    -- ** GetMapSprites
+    getMapSprites_fileName,
+    getMapSprites_mapName,
+    getMapSpritesResponse_blob,
+    getMapSpritesResponse_contentType,
+    getMapSpritesResponse_httpStatus,
 
     -- ** GetMapStyleDescriptor
     getMapStyleDescriptor_mapName,
@@ -170,6 +281,14 @@ module Amazonka.Location.Lens
     getMapTileResponse_contentType,
     getMapTileResponse_httpStatus,
 
+    -- ** ListDevicePositions
+    listDevicePositions_nextToken,
+    listDevicePositions_maxResults,
+    listDevicePositions_trackerName,
+    listDevicePositionsResponse_nextToken,
+    listDevicePositionsResponse_httpStatus,
+    listDevicePositionsResponse_entries,
+
     -- ** ListGeofenceCollections
     listGeofenceCollections_nextToken,
     listGeofenceCollections_maxResults,
@@ -177,19 +296,46 @@ module Amazonka.Location.Lens
     listGeofenceCollectionsResponse_httpStatus,
     listGeofenceCollectionsResponse_entries,
 
-    -- ** DeleteGeofenceCollection
-    deleteGeofenceCollection_collectionName,
-    deleteGeofenceCollectionResponse_httpStatus,
+    -- ** ListGeofences
+    listGeofences_nextToken,
+    listGeofences_collectionName,
+    listGeofencesResponse_nextToken,
+    listGeofencesResponse_httpStatus,
+    listGeofencesResponse_entries,
 
-    -- ** UpdateGeofenceCollection
-    updateGeofenceCollection_pricingPlan,
-    updateGeofenceCollection_pricingPlanDataSource,
-    updateGeofenceCollection_description,
-    updateGeofenceCollection_collectionName,
-    updateGeofenceCollectionResponse_httpStatus,
-    updateGeofenceCollectionResponse_collectionArn,
-    updateGeofenceCollectionResponse_collectionName,
-    updateGeofenceCollectionResponse_updateTime,
+    -- ** ListMaps
+    listMaps_nextToken,
+    listMaps_maxResults,
+    listMapsResponse_nextToken,
+    listMapsResponse_httpStatus,
+    listMapsResponse_entries,
+
+    -- ** ListPlaceIndexes
+    listPlaceIndexes_nextToken,
+    listPlaceIndexes_maxResults,
+    listPlaceIndexesResponse_nextToken,
+    listPlaceIndexesResponse_httpStatus,
+    listPlaceIndexesResponse_entries,
+
+    -- ** ListRouteCalculators
+    listRouteCalculators_nextToken,
+    listRouteCalculators_maxResults,
+    listRouteCalculatorsResponse_nextToken,
+    listRouteCalculatorsResponse_httpStatus,
+    listRouteCalculatorsResponse_entries,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** ListTrackerConsumers
+    listTrackerConsumers_nextToken,
+    listTrackerConsumers_maxResults,
+    listTrackerConsumers_trackerName,
+    listTrackerConsumersResponse_nextToken,
+    listTrackerConsumersResponse_httpStatus,
+    listTrackerConsumersResponse_consumerArns,
 
     -- ** ListTrackers
     listTrackers_nextToken,
@@ -197,25 +343,6 @@ module Amazonka.Location.Lens
     listTrackersResponse_nextToken,
     listTrackersResponse_httpStatus,
     listTrackersResponse_entries,
-
-    -- ** DeletePlaceIndex
-    deletePlaceIndex_indexName,
-    deletePlaceIndexResponse_httpStatus,
-
-    -- ** UpdatePlaceIndex
-    updatePlaceIndex_pricingPlan,
-    updatePlaceIndex_dataSourceConfiguration,
-    updatePlaceIndex_description,
-    updatePlaceIndex_indexName,
-    updatePlaceIndexResponse_httpStatus,
-    updatePlaceIndexResponse_indexArn,
-    updatePlaceIndexResponse_indexName,
-    updatePlaceIndexResponse_updateTime,
-
-    -- ** DisassociateTrackerConsumer
-    disassociateTrackerConsumer_consumerArn,
-    disassociateTrackerConsumer_trackerName,
-    disassociateTrackerConsumerResponse_httpStatus,
 
     -- ** PutGeofence
     putGeofence_collectionName,
@@ -226,152 +353,6 @@ module Amazonka.Location.Lens
     putGeofenceResponse_geofenceId,
     putGeofenceResponse_updateTime,
 
-    -- ** ListGeofences
-    listGeofences_nextToken,
-    listGeofences_collectionName,
-    listGeofencesResponse_nextToken,
-    listGeofencesResponse_httpStatus,
-    listGeofencesResponse_entries,
-
-    -- ** AssociateTrackerConsumer
-    associateTrackerConsumer_consumerArn,
-    associateTrackerConsumer_trackerName,
-    associateTrackerConsumerResponse_httpStatus,
-
-    -- ** BatchEvaluateGeofences
-    batchEvaluateGeofences_collectionName,
-    batchEvaluateGeofences_devicePositionUpdates,
-    batchEvaluateGeofencesResponse_httpStatus,
-    batchEvaluateGeofencesResponse_errors,
-
-    -- ** CalculateRoute
-    calculateRoute_distanceUnit,
-    calculateRoute_truckModeOptions,
-    calculateRoute_waypointPositions,
-    calculateRoute_includeLegGeometry,
-    calculateRoute_departNow,
-    calculateRoute_travelMode,
-    calculateRoute_carModeOptions,
-    calculateRoute_departureTime,
-    calculateRoute_calculatorName,
-    calculateRoute_departurePosition,
-    calculateRoute_destinationPosition,
-    calculateRouteResponse_httpStatus,
-    calculateRouteResponse_legs,
-    calculateRouteResponse_summary,
-
-    -- ** DeleteMap
-    deleteMap_mapName,
-    deleteMapResponse_httpStatus,
-
-    -- ** UpdateMap
-    updateMap_pricingPlan,
-    updateMap_description,
-    updateMap_mapName,
-    updateMapResponse_httpStatus,
-    updateMapResponse_mapArn,
-    updateMapResponse_mapName,
-    updateMapResponse_updateTime,
-
-    -- ** GetDevicePositionHistory
-    getDevicePositionHistory_nextToken,
-    getDevicePositionHistory_endTimeExclusive,
-    getDevicePositionHistory_startTimeInclusive,
-    getDevicePositionHistory_deviceId,
-    getDevicePositionHistory_trackerName,
-    getDevicePositionHistoryResponse_nextToken,
-    getDevicePositionHistoryResponse_httpStatus,
-    getDevicePositionHistoryResponse_devicePositions,
-
-    -- ** DescribeTracker
-    describeTracker_trackerName,
-    describeTrackerResponse_pricingPlanDataSource,
-    describeTrackerResponse_kmsKeyId,
-    describeTrackerResponse_tags,
-    describeTrackerResponse_positionFiltering,
-    describeTrackerResponse_httpStatus,
-    describeTrackerResponse_createTime,
-    describeTrackerResponse_description,
-    describeTrackerResponse_pricingPlan,
-    describeTrackerResponse_trackerArn,
-    describeTrackerResponse_trackerName,
-    describeTrackerResponse_updateTime,
-
-    -- ** DescribePlaceIndex
-    describePlaceIndex_indexName,
-    describePlaceIndexResponse_tags,
-    describePlaceIndexResponse_httpStatus,
-    describePlaceIndexResponse_createTime,
-    describePlaceIndexResponse_dataSource,
-    describePlaceIndexResponse_dataSourceConfiguration,
-    describePlaceIndexResponse_description,
-    describePlaceIndexResponse_indexArn,
-    describePlaceIndexResponse_indexName,
-    describePlaceIndexResponse_pricingPlan,
-    describePlaceIndexResponse_updateTime,
-
-    -- ** GetGeofence
-    getGeofence_collectionName,
-    getGeofence_geofenceId,
-    getGeofenceResponse_httpStatus,
-    getGeofenceResponse_createTime,
-    getGeofenceResponse_geofenceId,
-    getGeofenceResponse_geometry,
-    getGeofenceResponse_status,
-    getGeofenceResponse_updateTime,
-
-    -- ** ListDevicePositions
-    listDevicePositions_nextToken,
-    listDevicePositions_maxResults,
-    listDevicePositions_trackerName,
-    listDevicePositionsResponse_nextToken,
-    listDevicePositionsResponse_httpStatus,
-    listDevicePositionsResponse_entries,
-
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
-    -- ** GetMapGlyphs
-    getMapGlyphs_fontStack,
-    getMapGlyphs_fontUnicodeRange,
-    getMapGlyphs_mapName,
-    getMapGlyphsResponse_blob,
-    getMapGlyphsResponse_contentType,
-    getMapGlyphsResponse_httpStatus,
-
-    -- ** BatchPutGeofence
-    batchPutGeofence_collectionName,
-    batchPutGeofence_entries,
-    batchPutGeofenceResponse_httpStatus,
-    batchPutGeofenceResponse_errors,
-    batchPutGeofenceResponse_successes,
-
-    -- ** BatchDeleteGeofence
-    batchDeleteGeofence_collectionName,
-    batchDeleteGeofence_geofenceIds,
-    batchDeleteGeofenceResponse_httpStatus,
-    batchDeleteGeofenceResponse_errors,
-
-    -- ** UntagResource
-    untagResource_resourceArn,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
-
-    -- ** BatchDeleteDevicePositionHistory
-    batchDeleteDevicePositionHistory_deviceIds,
-    batchDeleteDevicePositionHistory_trackerName,
-    batchDeleteDevicePositionHistoryResponse_httpStatus,
-    batchDeleteDevicePositionHistoryResponse_errors,
-
-    -- ** ListPlaceIndexes
-    listPlaceIndexes_nextToken,
-    listPlaceIndexes_maxResults,
-    listPlaceIndexesResponse_nextToken,
-    listPlaceIndexesResponse_httpStatus,
-    listPlaceIndexesResponse_entries,
-
     -- ** SearchPlaceIndexForPosition
     searchPlaceIndexForPosition_maxResults,
     searchPlaceIndexForPosition_indexName,
@@ -380,56 +361,75 @@ module Amazonka.Location.Lens
     searchPlaceIndexForPositionResponse_results,
     searchPlaceIndexForPositionResponse_summary,
 
-    -- ** DeleteTracker
-    deleteTracker_trackerName,
-    deleteTrackerResponse_httpStatus,
+    -- ** SearchPlaceIndexForText
+    searchPlaceIndexForText_filterBBox,
+    searchPlaceIndexForText_biasPosition,
+    searchPlaceIndexForText_filterCountries,
+    searchPlaceIndexForText_maxResults,
+    searchPlaceIndexForText_indexName,
+    searchPlaceIndexForText_text,
+    searchPlaceIndexForTextResponse_httpStatus,
+    searchPlaceIndexForTextResponse_results,
+    searchPlaceIndexForTextResponse_summary,
 
-    -- ** CreatePlaceIndex
-    createPlaceIndex_dataSourceConfiguration,
-    createPlaceIndex_description,
-    createPlaceIndex_tags,
-    createPlaceIndex_dataSource,
-    createPlaceIndex_indexName,
-    createPlaceIndex_pricingPlan,
-    createPlaceIndexResponse_httpStatus,
-    createPlaceIndexResponse_createTime,
-    createPlaceIndexResponse_indexArn,
-    createPlaceIndexResponse_indexName,
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
+
+    -- ** UpdateGeofenceCollection
+    updateGeofenceCollection_description,
+    updateGeofenceCollection_pricingPlanDataSource,
+    updateGeofenceCollection_pricingPlan,
+    updateGeofenceCollection_collectionName,
+    updateGeofenceCollectionResponse_httpStatus,
+    updateGeofenceCollectionResponse_collectionArn,
+    updateGeofenceCollectionResponse_collectionName,
+    updateGeofenceCollectionResponse_updateTime,
+
+    -- ** UpdateMap
+    updateMap_description,
+    updateMap_pricingPlan,
+    updateMap_mapName,
+    updateMapResponse_httpStatus,
+    updateMapResponse_mapArn,
+    updateMapResponse_mapName,
+    updateMapResponse_updateTime,
+
+    -- ** UpdatePlaceIndex
+    updatePlaceIndex_dataSourceConfiguration,
+    updatePlaceIndex_description,
+    updatePlaceIndex_pricingPlan,
+    updatePlaceIndex_indexName,
+    updatePlaceIndexResponse_httpStatus,
+    updatePlaceIndexResponse_indexArn,
+    updatePlaceIndexResponse_indexName,
+    updatePlaceIndexResponse_updateTime,
+
+    -- ** UpdateRouteCalculator
+    updateRouteCalculator_description,
+    updateRouteCalculator_pricingPlan,
+    updateRouteCalculator_calculatorName,
+    updateRouteCalculatorResponse_httpStatus,
+    updateRouteCalculatorResponse_calculatorArn,
+    updateRouteCalculatorResponse_calculatorName,
+    updateRouteCalculatorResponse_updateTime,
 
     -- ** UpdateTracker
-    updateTracker_pricingPlan,
-    updateTracker_pricingPlanDataSource,
     updateTracker_description,
+    updateTracker_pricingPlanDataSource,
+    updateTracker_pricingPlan,
     updateTracker_positionFiltering,
     updateTracker_trackerName,
     updateTrackerResponse_httpStatus,
     updateTrackerResponse_trackerArn,
     updateTrackerResponse_trackerName,
     updateTrackerResponse_updateTime,
-
-    -- ** CreateRouteCalculator
-    createRouteCalculator_description,
-    createRouteCalculator_tags,
-    createRouteCalculator_calculatorName,
-    createRouteCalculator_dataSource,
-    createRouteCalculator_pricingPlan,
-    createRouteCalculatorResponse_httpStatus,
-    createRouteCalculatorResponse_calculatorArn,
-    createRouteCalculatorResponse_calculatorName,
-    createRouteCalculatorResponse_createTime,
-
-    -- ** DescribeMap
-    describeMap_mapName,
-    describeMapResponse_tags,
-    describeMapResponse_httpStatus,
-    describeMapResponse_configuration,
-    describeMapResponse_createTime,
-    describeMapResponse_dataSource,
-    describeMapResponse_description,
-    describeMapResponse_mapArn,
-    describeMapResponse_mapName,
-    describeMapResponse_pricingPlan,
-    describeMapResponse_updateTime,
 
     -- * Types
 
@@ -451,8 +451,8 @@ module Amazonka.Location.Lens
     batchGetDevicePositionError_error,
 
     -- ** BatchItemError
-    batchItemError_code,
     batchItemError_message,
+    batchItemError_code,
 
     -- ** BatchPutGeofenceError
     batchPutGeofenceError_error,
@@ -473,8 +473,8 @@ module Amazonka.Location.Lens
     batchUpdateDevicePositionError_sampleTime,
 
     -- ** CalculateRouteCarModeOptions
-    calculateRouteCarModeOptions_avoidTolls,
     calculateRouteCarModeOptions_avoidFerries,
+    calculateRouteCarModeOptions_avoidTolls,
 
     -- ** CalculateRouteSummary
     calculateRouteSummary_dataSource,
@@ -484,10 +484,10 @@ module Amazonka.Location.Lens
     calculateRouteSummary_routeBBox,
 
     -- ** CalculateRouteTruckModeOptions
-    calculateRouteTruckModeOptions_weight,
-    calculateRouteTruckModeOptions_avoidTolls,
-    calculateRouteTruckModeOptions_dimensions,
     calculateRouteTruckModeOptions_avoidFerries,
+    calculateRouteTruckModeOptions_dimensions,
+    calculateRouteTruckModeOptions_avoidTolls,
+    calculateRouteTruckModeOptions_weight,
 
     -- ** DataSourceConfiguration
     dataSourceConfiguration_intendedUse,
@@ -573,15 +573,15 @@ module Amazonka.Location.Lens
     mapConfiguration_style,
 
     -- ** Place
-    place_municipality,
     place_addressNumber,
     place_postalCode,
-    place_country,
-    place_street,
-    place_subRegion,
-    place_region,
-    place_label,
     place_neighborhood,
+    place_country,
+    place_label,
+    place_region,
+    place_subRegion,
+    place_street,
+    place_municipality,
     place_geometry,
 
     -- ** PlaceGeometry
@@ -616,8 +616,8 @@ module Amazonka.Location.Lens
 
     -- ** TruckDimensions
     truckDimensions_length,
-    truckDimensions_height,
     truckDimensions_width,
+    truckDimensions_height,
     truckDimensions_unit,
 
     -- ** TruckWeight

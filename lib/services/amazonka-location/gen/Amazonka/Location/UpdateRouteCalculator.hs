@@ -27,8 +27,8 @@ module Amazonka.Location.UpdateRouteCalculator
     newUpdateRouteCalculator,
 
     -- * Request Lenses
-    updateRouteCalculator_pricingPlan,
     updateRouteCalculator_description,
+    updateRouteCalculator_pricingPlan,
     updateRouteCalculator_calculatorName,
 
     -- * Destructuring the Response
@@ -52,13 +52,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateRouteCalculator' smart constructor.
 data UpdateRouteCalculator = UpdateRouteCalculator'
-  { -- | Updates the pricing plan for the route calculator resource.
+  { -- | Updates the description for the route calculator resource.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Updates the pricing plan for the route calculator resource.
     --
     -- For more information about each pricing plan option restrictions, see
     -- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
     pricingPlan :: Prelude.Maybe PricingPlan,
-    -- | Updates the description for the route calculator resource.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the route calculator resource to update.
     calculatorName :: Prelude.Text
   }
@@ -72,12 +72,12 @@ data UpdateRouteCalculator = UpdateRouteCalculator'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'updateRouteCalculator_description' - Updates the description for the route calculator resource.
+--
 -- 'pricingPlan', 'updateRouteCalculator_pricingPlan' - Updates the pricing plan for the route calculator resource.
 --
 -- For more information about each pricing plan option restrictions, see
 -- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
---
--- 'description', 'updateRouteCalculator_description' - Updates the description for the route calculator resource.
 --
 -- 'calculatorName', 'updateRouteCalculator_calculatorName' - The name of the route calculator resource to update.
 newUpdateRouteCalculator ::
@@ -86,11 +86,15 @@ newUpdateRouteCalculator ::
   UpdateRouteCalculator
 newUpdateRouteCalculator pCalculatorName_ =
   UpdateRouteCalculator'
-    { pricingPlan =
+    { description =
         Prelude.Nothing,
-      description = Prelude.Nothing,
+      pricingPlan = Prelude.Nothing,
       calculatorName = pCalculatorName_
     }
+
+-- | Updates the description for the route calculator resource.
+updateRouteCalculator_description :: Lens.Lens' UpdateRouteCalculator (Prelude.Maybe Prelude.Text)
+updateRouteCalculator_description = Lens.lens (\UpdateRouteCalculator' {description} -> description) (\s@UpdateRouteCalculator' {} a -> s {description = a} :: UpdateRouteCalculator)
 
 -- | Updates the pricing plan for the route calculator resource.
 --
@@ -98,10 +102,6 @@ newUpdateRouteCalculator pCalculatorName_ =
 -- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
 updateRouteCalculator_pricingPlan :: Lens.Lens' UpdateRouteCalculator (Prelude.Maybe PricingPlan)
 updateRouteCalculator_pricingPlan = Lens.lens (\UpdateRouteCalculator' {pricingPlan} -> pricingPlan) (\s@UpdateRouteCalculator' {} a -> s {pricingPlan = a} :: UpdateRouteCalculator)
-
--- | Updates the description for the route calculator resource.
-updateRouteCalculator_description :: Lens.Lens' UpdateRouteCalculator (Prelude.Maybe Prelude.Text)
-updateRouteCalculator_description = Lens.lens (\UpdateRouteCalculator' {description} -> description) (\s@UpdateRouteCalculator' {} a -> s {description = a} :: UpdateRouteCalculator)
 
 -- | The name of the route calculator resource to update.
 updateRouteCalculator_calculatorName :: Lens.Lens' UpdateRouteCalculator Prelude.Text
@@ -124,14 +124,14 @@ instance Core.AWSRequest UpdateRouteCalculator where
 
 instance Prelude.Hashable UpdateRouteCalculator where
   hashWithSalt _salt UpdateRouteCalculator' {..} =
-    _salt `Prelude.hashWithSalt` pricingPlan
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` pricingPlan
       `Prelude.hashWithSalt` calculatorName
 
 instance Prelude.NFData UpdateRouteCalculator where
   rnf UpdateRouteCalculator' {..} =
-    Prelude.rnf pricingPlan
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf pricingPlan
       `Prelude.seq` Prelude.rnf calculatorName
 
 instance Core.ToHeaders UpdateRouteCalculator where
@@ -149,8 +149,8 @@ instance Core.ToJSON UpdateRouteCalculator where
   toJSON UpdateRouteCalculator' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PricingPlan" Core..=) Prelude.<$> pricingPlan,
-            ("Description" Core..=) Prelude.<$> description
+          [ ("Description" Core..=) Prelude.<$> description,
+            ("PricingPlan" Core..=) Prelude.<$> pricingPlan
           ]
       )
 

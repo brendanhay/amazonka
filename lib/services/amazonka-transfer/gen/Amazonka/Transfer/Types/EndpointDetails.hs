@@ -54,21 +54,6 @@ data EndpointDetails = EndpointDetails'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVpcEndpoint.html ModifyVpcEndpoint>
     -- API.
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | A list of subnet IDs that are required to host your server endpoint in
-    -- your VPC.
-    --
-    -- This property can only be set when @EndpointType@ is set to @VPC@.
-    subnetIds :: Prelude.Maybe [Prelude.Text],
-    -- | The VPC ID of the VPC in which a server\'s endpoint will be hosted.
-    --
-    -- This property can only be set when @EndpointType@ is set to @VPC@.
-    vpcId :: Prelude.Maybe Prelude.Text,
-    -- | A list of address allocation IDs that are required to attach an Elastic
-    -- IP address to your server\'s endpoint.
-    --
-    -- This property can only be set when @EndpointType@ is set to @VPC@ and it
-    -- is only valid in the @UpdateServer@ API.
-    addressAllocationIds :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the VPC endpoint.
     --
     -- This property can only be set when @EndpointType@ is set to
@@ -76,7 +61,22 @@ data EndpointDetails = EndpointDetails'
     --
     -- For more information, see
     -- https:\/\/docs.aws.amazon.com\/transfer\/latest\/userguide\/create-server-in-vpc.html#deprecate-vpc-endpoint.
-    vpcEndpointId :: Prelude.Maybe Prelude.Text
+    vpcEndpointId :: Prelude.Maybe Prelude.Text,
+    -- | A list of address allocation IDs that are required to attach an Elastic
+    -- IP address to your server\'s endpoint.
+    --
+    -- This property can only be set when @EndpointType@ is set to @VPC@ and it
+    -- is only valid in the @UpdateServer@ API.
+    addressAllocationIds :: Prelude.Maybe [Prelude.Text],
+    -- | The VPC ID of the VPC in which a server\'s endpoint will be hosted.
+    --
+    -- This property can only be set when @EndpointType@ is set to @VPC@.
+    vpcId :: Prelude.Maybe Prelude.Text,
+    -- | A list of subnet IDs that are required to host your server endpoint in
+    -- your VPC.
+    --
+    -- This property can only be set when @EndpointType@ is set to @VPC@.
+    subnetIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -101,21 +101,6 @@ data EndpointDetails = EndpointDetails'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVpcEndpoint.html ModifyVpcEndpoint>
 -- API.
 --
--- 'subnetIds', 'endpointDetails_subnetIds' - A list of subnet IDs that are required to host your server endpoint in
--- your VPC.
---
--- This property can only be set when @EndpointType@ is set to @VPC@.
---
--- 'vpcId', 'endpointDetails_vpcId' - The VPC ID of the VPC in which a server\'s endpoint will be hosted.
---
--- This property can only be set when @EndpointType@ is set to @VPC@.
---
--- 'addressAllocationIds', 'endpointDetails_addressAllocationIds' - A list of address allocation IDs that are required to attach an Elastic
--- IP address to your server\'s endpoint.
---
--- This property can only be set when @EndpointType@ is set to @VPC@ and it
--- is only valid in the @UpdateServer@ API.
---
 -- 'vpcEndpointId', 'endpointDetails_vpcEndpointId' - The ID of the VPC endpoint.
 --
 -- This property can only be set when @EndpointType@ is set to
@@ -123,16 +108,31 @@ data EndpointDetails = EndpointDetails'
 --
 -- For more information, see
 -- https:\/\/docs.aws.amazon.com\/transfer\/latest\/userguide\/create-server-in-vpc.html#deprecate-vpc-endpoint.
+--
+-- 'addressAllocationIds', 'endpointDetails_addressAllocationIds' - A list of address allocation IDs that are required to attach an Elastic
+-- IP address to your server\'s endpoint.
+--
+-- This property can only be set when @EndpointType@ is set to @VPC@ and it
+-- is only valid in the @UpdateServer@ API.
+--
+-- 'vpcId', 'endpointDetails_vpcId' - The VPC ID of the VPC in which a server\'s endpoint will be hosted.
+--
+-- This property can only be set when @EndpointType@ is set to @VPC@.
+--
+-- 'subnetIds', 'endpointDetails_subnetIds' - A list of subnet IDs that are required to host your server endpoint in
+-- your VPC.
+--
+-- This property can only be set when @EndpointType@ is set to @VPC@.
 newEndpointDetails ::
   EndpointDetails
 newEndpointDetails =
   EndpointDetails'
     { securityGroupIds =
         Prelude.Nothing,
-      subnetIds = Prelude.Nothing,
-      vpcId = Prelude.Nothing,
+      vpcEndpointId = Prelude.Nothing,
       addressAllocationIds = Prelude.Nothing,
-      vpcEndpointId = Prelude.Nothing
+      vpcId = Prelude.Nothing,
+      subnetIds = Prelude.Nothing
     }
 
 -- | A list of security groups IDs that are available to attach to your
@@ -150,27 +150,6 @@ newEndpointDetails =
 endpointDetails_securityGroupIds :: Lens.Lens' EndpointDetails (Prelude.Maybe [Prelude.Text])
 endpointDetails_securityGroupIds = Lens.lens (\EndpointDetails' {securityGroupIds} -> securityGroupIds) (\s@EndpointDetails' {} a -> s {securityGroupIds = a} :: EndpointDetails) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of subnet IDs that are required to host your server endpoint in
--- your VPC.
---
--- This property can only be set when @EndpointType@ is set to @VPC@.
-endpointDetails_subnetIds :: Lens.Lens' EndpointDetails (Prelude.Maybe [Prelude.Text])
-endpointDetails_subnetIds = Lens.lens (\EndpointDetails' {subnetIds} -> subnetIds) (\s@EndpointDetails' {} a -> s {subnetIds = a} :: EndpointDetails) Prelude.. Lens.mapping Lens.coerced
-
--- | The VPC ID of the VPC in which a server\'s endpoint will be hosted.
---
--- This property can only be set when @EndpointType@ is set to @VPC@.
-endpointDetails_vpcId :: Lens.Lens' EndpointDetails (Prelude.Maybe Prelude.Text)
-endpointDetails_vpcId = Lens.lens (\EndpointDetails' {vpcId} -> vpcId) (\s@EndpointDetails' {} a -> s {vpcId = a} :: EndpointDetails)
-
--- | A list of address allocation IDs that are required to attach an Elastic
--- IP address to your server\'s endpoint.
---
--- This property can only be set when @EndpointType@ is set to @VPC@ and it
--- is only valid in the @UpdateServer@ API.
-endpointDetails_addressAllocationIds :: Lens.Lens' EndpointDetails (Prelude.Maybe [Prelude.Text])
-endpointDetails_addressAllocationIds = Lens.lens (\EndpointDetails' {addressAllocationIds} -> addressAllocationIds) (\s@EndpointDetails' {} a -> s {addressAllocationIds = a} :: EndpointDetails) Prelude.. Lens.mapping Lens.coerced
-
 -- | The ID of the VPC endpoint.
 --
 -- This property can only be set when @EndpointType@ is set to
@@ -181,6 +160,27 @@ endpointDetails_addressAllocationIds = Lens.lens (\EndpointDetails' {addressAllo
 endpointDetails_vpcEndpointId :: Lens.Lens' EndpointDetails (Prelude.Maybe Prelude.Text)
 endpointDetails_vpcEndpointId = Lens.lens (\EndpointDetails' {vpcEndpointId} -> vpcEndpointId) (\s@EndpointDetails' {} a -> s {vpcEndpointId = a} :: EndpointDetails)
 
+-- | A list of address allocation IDs that are required to attach an Elastic
+-- IP address to your server\'s endpoint.
+--
+-- This property can only be set when @EndpointType@ is set to @VPC@ and it
+-- is only valid in the @UpdateServer@ API.
+endpointDetails_addressAllocationIds :: Lens.Lens' EndpointDetails (Prelude.Maybe [Prelude.Text])
+endpointDetails_addressAllocationIds = Lens.lens (\EndpointDetails' {addressAllocationIds} -> addressAllocationIds) (\s@EndpointDetails' {} a -> s {addressAllocationIds = a} :: EndpointDetails) Prelude.. Lens.mapping Lens.coerced
+
+-- | The VPC ID of the VPC in which a server\'s endpoint will be hosted.
+--
+-- This property can only be set when @EndpointType@ is set to @VPC@.
+endpointDetails_vpcId :: Lens.Lens' EndpointDetails (Prelude.Maybe Prelude.Text)
+endpointDetails_vpcId = Lens.lens (\EndpointDetails' {vpcId} -> vpcId) (\s@EndpointDetails' {} a -> s {vpcId = a} :: EndpointDetails)
+
+-- | A list of subnet IDs that are required to host your server endpoint in
+-- your VPC.
+--
+-- This property can only be set when @EndpointType@ is set to @VPC@.
+endpointDetails_subnetIds :: Lens.Lens' EndpointDetails (Prelude.Maybe [Prelude.Text])
+endpointDetails_subnetIds = Lens.lens (\EndpointDetails' {subnetIds} -> subnetIds) (\s@EndpointDetails' {} a -> s {subnetIds = a} :: EndpointDetails) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON EndpointDetails where
   parseJSON =
     Core.withObject
@@ -190,29 +190,29 @@ instance Core.FromJSON EndpointDetails where
             Prelude.<$> ( x Core..:? "SecurityGroupIds"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "VpcId")
+            Prelude.<*> (x Core..:? "VpcEndpointId")
             Prelude.<*> ( x Core..:? "AddressAllocationIds"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "VpcEndpointId")
+            Prelude.<*> (x Core..:? "VpcId")
+            Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable EndpointDetails where
   hashWithSalt _salt EndpointDetails' {..} =
     _salt `Prelude.hashWithSalt` securityGroupIds
-      `Prelude.hashWithSalt` subnetIds
-      `Prelude.hashWithSalt` vpcId
-      `Prelude.hashWithSalt` addressAllocationIds
       `Prelude.hashWithSalt` vpcEndpointId
+      `Prelude.hashWithSalt` addressAllocationIds
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` subnetIds
 
 instance Prelude.NFData EndpointDetails where
   rnf EndpointDetails' {..} =
     Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf addressAllocationIds
       `Prelude.seq` Prelude.rnf vpcEndpointId
+      `Prelude.seq` Prelude.rnf addressAllocationIds
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf subnetIds
 
 instance Core.ToJSON EndpointDetails where
   toJSON EndpointDetails' {..} =
@@ -220,10 +220,10 @@ instance Core.ToJSON EndpointDetails where
       ( Prelude.catMaybes
           [ ("SecurityGroupIds" Core..=)
               Prelude.<$> securityGroupIds,
-            ("SubnetIds" Core..=) Prelude.<$> subnetIds,
-            ("VpcId" Core..=) Prelude.<$> vpcId,
+            ("VpcEndpointId" Core..=) Prelude.<$> vpcEndpointId,
             ("AddressAllocationIds" Core..=)
               Prelude.<$> addressAllocationIds,
-            ("VpcEndpointId" Core..=) Prelude.<$> vpcEndpointId
+            ("VpcId" Core..=) Prelude.<$> vpcId,
+            ("SubnetIds" Core..=) Prelude.<$> subnetIds
           ]
       )

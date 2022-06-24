@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newListedWorkflow' smart constructor.
 data ListedWorkflow = ListedWorkflow'
-  { -- | Specifies the unique Amazon Resource Name (ARN) for the workflow.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the workflow.
+  { -- | A unique identifier for the workflow.
     workflowId :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the unique Amazon Resource Name (ARN) for the workflow.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | Specifies the text description for the workflow.
     description :: Prelude.Maybe Prelude.Text
   }
@@ -45,27 +45,27 @@ data ListedWorkflow = ListedWorkflow'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'listedWorkflow_arn' - Specifies the unique Amazon Resource Name (ARN) for the workflow.
---
 -- 'workflowId', 'listedWorkflow_workflowId' - A unique identifier for the workflow.
+--
+-- 'arn', 'listedWorkflow_arn' - Specifies the unique Amazon Resource Name (ARN) for the workflow.
 --
 -- 'description', 'listedWorkflow_description' - Specifies the text description for the workflow.
 newListedWorkflow ::
   ListedWorkflow
 newListedWorkflow =
   ListedWorkflow'
-    { arn = Prelude.Nothing,
-      workflowId = Prelude.Nothing,
+    { workflowId = Prelude.Nothing,
+      arn = Prelude.Nothing,
       description = Prelude.Nothing
     }
-
--- | Specifies the unique Amazon Resource Name (ARN) for the workflow.
-listedWorkflow_arn :: Lens.Lens' ListedWorkflow (Prelude.Maybe Prelude.Text)
-listedWorkflow_arn = Lens.lens (\ListedWorkflow' {arn} -> arn) (\s@ListedWorkflow' {} a -> s {arn = a} :: ListedWorkflow)
 
 -- | A unique identifier for the workflow.
 listedWorkflow_workflowId :: Lens.Lens' ListedWorkflow (Prelude.Maybe Prelude.Text)
 listedWorkflow_workflowId = Lens.lens (\ListedWorkflow' {workflowId} -> workflowId) (\s@ListedWorkflow' {} a -> s {workflowId = a} :: ListedWorkflow)
+
+-- | Specifies the unique Amazon Resource Name (ARN) for the workflow.
+listedWorkflow_arn :: Lens.Lens' ListedWorkflow (Prelude.Maybe Prelude.Text)
+listedWorkflow_arn = Lens.lens (\ListedWorkflow' {arn} -> arn) (\s@ListedWorkflow' {} a -> s {arn = a} :: ListedWorkflow)
 
 -- | Specifies the text description for the workflow.
 listedWorkflow_description :: Lens.Lens' ListedWorkflow (Prelude.Maybe Prelude.Text)
@@ -77,19 +77,19 @@ instance Core.FromJSON ListedWorkflow where
       "ListedWorkflow"
       ( \x ->
           ListedWorkflow'
-            Prelude.<$> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "WorkflowId")
+            Prelude.<$> (x Core..:? "WorkflowId")
+            Prelude.<*> (x Core..:? "Arn")
             Prelude.<*> (x Core..:? "Description")
       )
 
 instance Prelude.Hashable ListedWorkflow where
   hashWithSalt _salt ListedWorkflow' {..} =
-    _salt `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` workflowId
+    _salt `Prelude.hashWithSalt` workflowId
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
 
 instance Prelude.NFData ListedWorkflow where
   rnf ListedWorkflow' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf workflowId
+    Prelude.rnf workflowId
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf description

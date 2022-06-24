@@ -54,8 +54,8 @@ module Amazonka.Transfer.TestIdentityProvider
 
     -- * Request Lenses
     testIdentityProvider_serverProtocol,
-    testIdentityProvider_userPassword,
     testIdentityProvider_sourceIp,
+    testIdentityProvider_userPassword,
     testIdentityProvider_serverId,
     testIdentityProvider_userName,
 
@@ -64,8 +64,8 @@ module Amazonka.Transfer.TestIdentityProvider
     newTestIdentityProviderResponse,
 
     -- * Response Lenses
-    testIdentityProviderResponse_response,
     testIdentityProviderResponse_message,
+    testIdentityProviderResponse_response,
     testIdentityProviderResponse_httpStatus,
     testIdentityProviderResponse_statusCode,
     testIdentityProviderResponse_url,
@@ -91,10 +91,10 @@ data TestIdentityProvider = TestIdentityProvider'
     --
     -- -   File Transfer Protocol (FTP)
     serverProtocol :: Prelude.Maybe Protocol,
-    -- | The password of the user account to be tested.
-    userPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The source IP address of the user account to be tested.
     sourceIp :: Prelude.Maybe Prelude.Text,
+    -- | The password of the user account to be tested.
+    userPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | A system-assigned identifier for a specific server. That server\'s user
     -- authentication method is tested with a user name and password.
     serverId :: Prelude.Text,
@@ -121,9 +121,9 @@ data TestIdentityProvider = TestIdentityProvider'
 --
 -- -   File Transfer Protocol (FTP)
 --
--- 'userPassword', 'testIdentityProvider_userPassword' - The password of the user account to be tested.
---
 -- 'sourceIp', 'testIdentityProvider_sourceIp' - The source IP address of the user account to be tested.
+--
+-- 'userPassword', 'testIdentityProvider_userPassword' - The password of the user account to be tested.
 --
 -- 'serverId', 'testIdentityProvider_serverId' - A system-assigned identifier for a specific server. That server\'s user
 -- authentication method is tested with a user name and password.
@@ -139,8 +139,8 @@ newTestIdentityProvider pServerId_ pUserName_ =
   TestIdentityProvider'
     { serverProtocol =
         Prelude.Nothing,
-      userPassword = Prelude.Nothing,
       sourceIp = Prelude.Nothing,
+      userPassword = Prelude.Nothing,
       serverId = pServerId_,
       userName = pUserName_
     }
@@ -157,13 +157,13 @@ newTestIdentityProvider pServerId_ pUserName_ =
 testIdentityProvider_serverProtocol :: Lens.Lens' TestIdentityProvider (Prelude.Maybe Protocol)
 testIdentityProvider_serverProtocol = Lens.lens (\TestIdentityProvider' {serverProtocol} -> serverProtocol) (\s@TestIdentityProvider' {} a -> s {serverProtocol = a} :: TestIdentityProvider)
 
--- | The password of the user account to be tested.
-testIdentityProvider_userPassword :: Lens.Lens' TestIdentityProvider (Prelude.Maybe Prelude.Text)
-testIdentityProvider_userPassword = Lens.lens (\TestIdentityProvider' {userPassword} -> userPassword) (\s@TestIdentityProvider' {} a -> s {userPassword = a} :: TestIdentityProvider) Prelude.. Lens.mapping Core._Sensitive
-
 -- | The source IP address of the user account to be tested.
 testIdentityProvider_sourceIp :: Lens.Lens' TestIdentityProvider (Prelude.Maybe Prelude.Text)
 testIdentityProvider_sourceIp = Lens.lens (\TestIdentityProvider' {sourceIp} -> sourceIp) (\s@TestIdentityProvider' {} a -> s {sourceIp = a} :: TestIdentityProvider)
+
+-- | The password of the user account to be tested.
+testIdentityProvider_userPassword :: Lens.Lens' TestIdentityProvider (Prelude.Maybe Prelude.Text)
+testIdentityProvider_userPassword = Lens.lens (\TestIdentityProvider' {userPassword} -> userPassword) (\s@TestIdentityProvider' {} a -> s {userPassword = a} :: TestIdentityProvider) Prelude.. Lens.mapping Core._Sensitive
 
 -- | A system-assigned identifier for a specific server. That server\'s user
 -- authentication method is tested with a user name and password.
@@ -183,8 +183,8 @@ instance Core.AWSRequest TestIdentityProvider where
     Response.receiveJSON
       ( \s h x ->
           TestIdentityProviderResponse'
-            Prelude.<$> (x Core..?> "Response")
-            Prelude.<*> (x Core..?> "Message")
+            Prelude.<$> (x Core..?> "Message")
+            Prelude.<*> (x Core..?> "Response")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "StatusCode")
             Prelude.<*> (x Core..:> "Url")
@@ -193,16 +193,16 @@ instance Core.AWSRequest TestIdentityProvider where
 instance Prelude.Hashable TestIdentityProvider where
   hashWithSalt _salt TestIdentityProvider' {..} =
     _salt `Prelude.hashWithSalt` serverProtocol
-      `Prelude.hashWithSalt` userPassword
       `Prelude.hashWithSalt` sourceIp
+      `Prelude.hashWithSalt` userPassword
       `Prelude.hashWithSalt` serverId
       `Prelude.hashWithSalt` userName
 
 instance Prelude.NFData TestIdentityProvider where
   rnf TestIdentityProvider' {..} =
     Prelude.rnf serverProtocol
-      `Prelude.seq` Prelude.rnf userPassword
       `Prelude.seq` Prelude.rnf sourceIp
+      `Prelude.seq` Prelude.rnf userPassword
       `Prelude.seq` Prelude.rnf serverId
       `Prelude.seq` Prelude.rnf userName
 
@@ -227,8 +227,8 @@ instance Core.ToJSON TestIdentityProvider where
       ( Prelude.catMaybes
           [ ("ServerProtocol" Core..=)
               Prelude.<$> serverProtocol,
-            ("UserPassword" Core..=) Prelude.<$> userPassword,
             ("SourceIp" Core..=) Prelude.<$> sourceIp,
+            ("UserPassword" Core..=) Prelude.<$> userPassword,
             Prelude.Just ("ServerId" Core..= serverId),
             Prelude.Just ("UserName" Core..= userName)
           ]
@@ -242,10 +242,10 @@ instance Core.ToQuery TestIdentityProvider where
 
 -- | /See:/ 'newTestIdentityProviderResponse' smart constructor.
 data TestIdentityProviderResponse = TestIdentityProviderResponse'
-  { -- | The response that is returned from your API Gateway.
-    response :: Prelude.Maybe Prelude.Text,
-    -- | A message that indicates whether the test was successful or not.
+  { -- | A message that indicates whether the test was successful or not.
     message :: Prelude.Maybe Prelude.Text,
+    -- | The response that is returned from your API Gateway.
+    response :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The HTTP status code that is the response from your API Gateway.
@@ -263,9 +263,9 @@ data TestIdentityProviderResponse = TestIdentityProviderResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'response', 'testIdentityProviderResponse_response' - The response that is returned from your API Gateway.
---
 -- 'message', 'testIdentityProviderResponse_message' - A message that indicates whether the test was successful or not.
+--
+-- 'response', 'testIdentityProviderResponse_response' - The response that is returned from your API Gateway.
 --
 -- 'httpStatus', 'testIdentityProviderResponse_httpStatus' - The response's http status code.
 --
@@ -285,21 +285,21 @@ newTestIdentityProviderResponse
   pStatusCode_
   pUrl_ =
     TestIdentityProviderResponse'
-      { response =
+      { message =
           Prelude.Nothing,
-        message = Prelude.Nothing,
+        response = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         statusCode = pStatusCode_,
         url = pUrl_
       }
 
--- | The response that is returned from your API Gateway.
-testIdentityProviderResponse_response :: Lens.Lens' TestIdentityProviderResponse (Prelude.Maybe Prelude.Text)
-testIdentityProviderResponse_response = Lens.lens (\TestIdentityProviderResponse' {response} -> response) (\s@TestIdentityProviderResponse' {} a -> s {response = a} :: TestIdentityProviderResponse)
-
 -- | A message that indicates whether the test was successful or not.
 testIdentityProviderResponse_message :: Lens.Lens' TestIdentityProviderResponse (Prelude.Maybe Prelude.Text)
 testIdentityProviderResponse_message = Lens.lens (\TestIdentityProviderResponse' {message} -> message) (\s@TestIdentityProviderResponse' {} a -> s {message = a} :: TestIdentityProviderResponse)
+
+-- | The response that is returned from your API Gateway.
+testIdentityProviderResponse_response :: Lens.Lens' TestIdentityProviderResponse (Prelude.Maybe Prelude.Text)
+testIdentityProviderResponse_response = Lens.lens (\TestIdentityProviderResponse' {response} -> response) (\s@TestIdentityProviderResponse' {} a -> s {response = a} :: TestIdentityProviderResponse)
 
 -- | The response's http status code.
 testIdentityProviderResponse_httpStatus :: Lens.Lens' TestIdentityProviderResponse Prelude.Int
@@ -315,8 +315,8 @@ testIdentityProviderResponse_url = Lens.lens (\TestIdentityProviderResponse' {ur
 
 instance Prelude.NFData TestIdentityProviderResponse where
   rnf TestIdentityProviderResponse' {..} =
-    Prelude.rnf response
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf message
+      `Prelude.seq` Prelude.rnf response
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf statusCode
       `Prelude.seq` Prelude.rnf url

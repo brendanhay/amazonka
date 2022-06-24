@@ -29,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIdentityProviderDetails' smart constructor.
 data IdentityProviderDetails = IdentityProviderDetails'
-  { -- | Provides the type of @InvocationRole@ used to authenticate the user
-    -- account.
-    invocationRole :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Web ServicesDirectory Service directory
+  { -- | The identifier of the Amazon Web ServicesDirectory Service directory
     -- that you want to stop sharing.
     directoryId :: Prelude.Maybe Prelude.Text,
     -- | Provides the location of the service endpoint used to authenticate
     -- users.
-    url :: Prelude.Maybe Prelude.Text
+    url :: Prelude.Maybe Prelude.Text,
+    -- | Provides the type of @InvocationRole@ used to authenticate the user
+    -- account.
+    invocationRole :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,28 +49,23 @@ data IdentityProviderDetails = IdentityProviderDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'invocationRole', 'identityProviderDetails_invocationRole' - Provides the type of @InvocationRole@ used to authenticate the user
--- account.
---
 -- 'directoryId', 'identityProviderDetails_directoryId' - The identifier of the Amazon Web ServicesDirectory Service directory
 -- that you want to stop sharing.
 --
 -- 'url', 'identityProviderDetails_url' - Provides the location of the service endpoint used to authenticate
 -- users.
+--
+-- 'invocationRole', 'identityProviderDetails_invocationRole' - Provides the type of @InvocationRole@ used to authenticate the user
+-- account.
 newIdentityProviderDetails ::
   IdentityProviderDetails
 newIdentityProviderDetails =
   IdentityProviderDetails'
-    { invocationRole =
+    { directoryId =
         Prelude.Nothing,
-      directoryId = Prelude.Nothing,
-      url = Prelude.Nothing
+      url = Prelude.Nothing,
+      invocationRole = Prelude.Nothing
     }
-
--- | Provides the type of @InvocationRole@ used to authenticate the user
--- account.
-identityProviderDetails_invocationRole :: Lens.Lens' IdentityProviderDetails (Prelude.Maybe Prelude.Text)
-identityProviderDetails_invocationRole = Lens.lens (\IdentityProviderDetails' {invocationRole} -> invocationRole) (\s@IdentityProviderDetails' {} a -> s {invocationRole = a} :: IdentityProviderDetails)
 
 -- | The identifier of the Amazon Web ServicesDirectory Service directory
 -- that you want to stop sharing.
@@ -82,36 +77,41 @@ identityProviderDetails_directoryId = Lens.lens (\IdentityProviderDetails' {dire
 identityProviderDetails_url :: Lens.Lens' IdentityProviderDetails (Prelude.Maybe Prelude.Text)
 identityProviderDetails_url = Lens.lens (\IdentityProviderDetails' {url} -> url) (\s@IdentityProviderDetails' {} a -> s {url = a} :: IdentityProviderDetails)
 
+-- | Provides the type of @InvocationRole@ used to authenticate the user
+-- account.
+identityProviderDetails_invocationRole :: Lens.Lens' IdentityProviderDetails (Prelude.Maybe Prelude.Text)
+identityProviderDetails_invocationRole = Lens.lens (\IdentityProviderDetails' {invocationRole} -> invocationRole) (\s@IdentityProviderDetails' {} a -> s {invocationRole = a} :: IdentityProviderDetails)
+
 instance Core.FromJSON IdentityProviderDetails where
   parseJSON =
     Core.withObject
       "IdentityProviderDetails"
       ( \x ->
           IdentityProviderDetails'
-            Prelude.<$> (x Core..:? "InvocationRole")
-            Prelude.<*> (x Core..:? "DirectoryId")
+            Prelude.<$> (x Core..:? "DirectoryId")
             Prelude.<*> (x Core..:? "Url")
+            Prelude.<*> (x Core..:? "InvocationRole")
       )
 
 instance Prelude.Hashable IdentityProviderDetails where
   hashWithSalt _salt IdentityProviderDetails' {..} =
-    _salt `Prelude.hashWithSalt` invocationRole
-      `Prelude.hashWithSalt` directoryId
+    _salt `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` invocationRole
 
 instance Prelude.NFData IdentityProviderDetails where
   rnf IdentityProviderDetails' {..} =
-    Prelude.rnf invocationRole
-      `Prelude.seq` Prelude.rnf directoryId
+    Prelude.rnf directoryId
       `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf invocationRole
 
 instance Core.ToJSON IdentityProviderDetails where
   toJSON IdentityProviderDetails' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("InvocationRole" Core..=)
-              Prelude.<$> invocationRole,
-            ("DirectoryId" Core..=) Prelude.<$> directoryId,
-            ("Url" Core..=) Prelude.<$> url
+          [ ("DirectoryId" Core..=) Prelude.<$> directoryId,
+            ("Url" Core..=) Prelude.<$> url,
+            ("InvocationRole" Core..=)
+              Prelude.<$> invocationRole
           ]
       )

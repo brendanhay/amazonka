@@ -18,14 +18,14 @@ module Amazonka.Transfer.Types
 
     -- * Errors
     _AccessDeniedException,
-    _InvalidRequestException,
-    _ConflictException,
-    _ThrottlingException,
-    _InvalidNextTokenException,
-    _InternalServiceError,
-    _ResourceExistsException,
     _ServiceUnavailableException,
     _ResourceNotFoundException,
+    _InvalidNextTokenException,
+    _InternalServiceError,
+    _ConflictException,
+    _ThrottlingException,
+    _ResourceExistsException,
+    _InvalidRequestException,
 
     -- * CustomStepStatus
     CustomStepStatus (..),
@@ -63,9 +63,9 @@ module Amazonka.Transfer.Types
     -- * CopyStepDetails
     CopyStepDetails (..),
     newCopyStepDetails,
-    copyStepDetails_destinationFileLocation,
-    copyStepDetails_overwriteExisting,
     copyStepDetails_name,
+    copyStepDetails_overwriteExisting,
+    copyStepDetails_destinationFileLocation,
 
     -- * CustomStepDetails
     CustomStepDetails (..),
@@ -82,79 +82,79 @@ module Amazonka.Transfer.Types
     -- * DescribedAccess
     DescribedAccess (..),
     newDescribedAccess,
-    describedAccess_homeDirectoryType,
-    describedAccess_posixProfile,
-    describedAccess_homeDirectoryMappings,
-    describedAccess_role,
-    describedAccess_policy,
-    describedAccess_externalId,
     describedAccess_homeDirectory,
+    describedAccess_policy,
+    describedAccess_posixProfile,
+    describedAccess_externalId,
+    describedAccess_role,
+    describedAccess_homeDirectoryType,
+    describedAccess_homeDirectoryMappings,
 
     -- * DescribedExecution
     DescribedExecution (..),
     newDescribedExecution,
+    describedExecution_executionRole,
+    describedExecution_serviceMetadata,
+    describedExecution_initialFileLocation,
+    describedExecution_posixProfile,
     describedExecution_status,
     describedExecution_executionId,
     describedExecution_results,
-    describedExecution_initialFileLocation,
-    describedExecution_posixProfile,
-    describedExecution_serviceMetadata,
     describedExecution_loggingConfiguration,
-    describedExecution_executionRole,
 
     -- * DescribedSecurityPolicy
     DescribedSecurityPolicy (..),
     newDescribedSecurityPolicy,
-    describedSecurityPolicy_fips,
-    describedSecurityPolicy_sshMacs,
-    describedSecurityPolicy_sshKexs,
     describedSecurityPolicy_tlsCiphers,
+    describedSecurityPolicy_sshKexs,
+    describedSecurityPolicy_fips,
     describedSecurityPolicy_sshCiphers,
+    describedSecurityPolicy_sshMacs,
     describedSecurityPolicy_securityPolicyName,
 
     -- * DescribedServer
     DescribedServer (..),
     newDescribedServer,
-    describedServer_protocolDetails,
-    describedServer_loggingRole,
-    describedServer_state,
-    describedServer_identityProviderType,
-    describedServer_protocols,
-    describedServer_serverId,
-    describedServer_domain,
-    describedServer_endpointType,
-    describedServer_securityPolicyName,
-    describedServer_hostKeyFingerprint,
-    describedServer_userCount,
-    describedServer_certificate,
-    describedServer_identityProviderDetails,
-    describedServer_workflowDetails,
     describedServer_tags,
+    describedServer_userCount,
+    describedServer_protocolDetails,
+    describedServer_identityProviderDetails,
+    describedServer_domain,
+    describedServer_identityProviderType,
+    describedServer_securityPolicyName,
     describedServer_endpointDetails,
+    describedServer_state,
+    describedServer_certificate,
+    describedServer_protocols,
+    describedServer_endpointType,
+    describedServer_hostKeyFingerprint,
+    describedServer_loggingRole,
+    describedServer_serverId,
+    describedServer_workflowDetails,
     describedServer_arn,
 
     -- * DescribedUser
     DescribedUser (..),
     newDescribedUser,
-    describedUser_sshPublicKeys,
-    describedUser_homeDirectoryType,
+    describedUser_tags,
+    describedUser_homeDirectory,
+    describedUser_policy,
     describedUser_userName,
     describedUser_posixProfile,
-    describedUser_homeDirectoryMappings,
+    describedUser_sshPublicKeys,
     describedUser_role,
-    describedUser_policy,
-    describedUser_homeDirectory,
-    describedUser_tags,
+    describedUser_homeDirectoryType,
+    describedUser_homeDirectoryMappings,
     describedUser_arn,
 
     -- * DescribedWorkflow
     DescribedWorkflow (..),
     newDescribedWorkflow,
-    describedWorkflow_onExceptionSteps,
-    describedWorkflow_steps,
-    describedWorkflow_workflowId,
-    describedWorkflow_description,
     describedWorkflow_tags,
+    describedWorkflow_workflowId,
+    describedWorkflow_steps,
+    describedWorkflow_description,
+    describedWorkflow_onExceptionSteps,
     describedWorkflow_arn,
 
     -- * EfsFileLocation
@@ -167,10 +167,10 @@ module Amazonka.Transfer.Types
     EndpointDetails (..),
     newEndpointDetails,
     endpointDetails_securityGroupIds,
-    endpointDetails_subnetIds,
-    endpointDetails_vpcId,
-    endpointDetails_addressAllocationIds,
     endpointDetails_vpcEndpointId,
+    endpointDetails_addressAllocationIds,
+    endpointDetails_vpcId,
+    endpointDetails_subnetIds,
 
     -- * ExecutionError
     ExecutionError (..),
@@ -181,21 +181,21 @@ module Amazonka.Transfer.Types
     -- * ExecutionResults
     ExecutionResults (..),
     newExecutionResults,
-    executionResults_onExceptionSteps,
     executionResults_steps,
+    executionResults_onExceptionSteps,
 
     -- * ExecutionStepResult
     ExecutionStepResult (..),
     newExecutionStepResult,
+    executionStepResult_outputs,
     executionStepResult_stepType,
     executionStepResult_error,
-    executionStepResult_outputs,
 
     -- * FileLocation
     FileLocation (..),
     newFileLocation,
-    fileLocation_efsFileLocation,
     fileLocation_s3FileLocation,
+    fileLocation_efsFileLocation,
 
     -- * HomeDirectoryMapEntry
     HomeDirectoryMapEntry (..),
@@ -206,59 +206,59 @@ module Amazonka.Transfer.Types
     -- * IdentityProviderDetails
     IdentityProviderDetails (..),
     newIdentityProviderDetails,
-    identityProviderDetails_invocationRole,
     identityProviderDetails_directoryId,
     identityProviderDetails_url,
+    identityProviderDetails_invocationRole,
 
     -- * InputFileLocation
     InputFileLocation (..),
     newInputFileLocation,
-    inputFileLocation_efsFileLocation,
     inputFileLocation_s3FileLocation,
+    inputFileLocation_efsFileLocation,
 
     -- * ListedAccess
     ListedAccess (..),
     newListedAccess,
-    listedAccess_homeDirectoryType,
-    listedAccess_role,
-    listedAccess_externalId,
     listedAccess_homeDirectory,
+    listedAccess_externalId,
+    listedAccess_role,
+    listedAccess_homeDirectoryType,
 
     -- * ListedExecution
     ListedExecution (..),
     newListedExecution,
+    listedExecution_serviceMetadata,
+    listedExecution_initialFileLocation,
     listedExecution_status,
     listedExecution_executionId,
-    listedExecution_initialFileLocation,
-    listedExecution_serviceMetadata,
 
     -- * ListedServer
     ListedServer (..),
     newListedServer,
-    listedServer_loggingRole,
-    listedServer_state,
-    listedServer_identityProviderType,
-    listedServer_serverId,
-    listedServer_domain,
-    listedServer_endpointType,
     listedServer_userCount,
+    listedServer_domain,
+    listedServer_identityProviderType,
+    listedServer_state,
+    listedServer_endpointType,
+    listedServer_loggingRole,
+    listedServer_serverId,
     listedServer_arn,
 
     -- * ListedUser
     ListedUser (..),
     newListedUser,
-    listedUser_homeDirectoryType,
+    listedUser_homeDirectory,
     listedUser_userName,
     listedUser_role,
+    listedUser_homeDirectoryType,
     listedUser_sshPublicKeyCount,
-    listedUser_homeDirectory,
     listedUser_arn,
 
     -- * ListedWorkflow
     ListedWorkflow (..),
     newListedWorkflow,
-    listedWorkflow_arn,
     listedWorkflow_workflowId,
+    listedWorkflow_arn,
     listedWorkflow_description,
 
     -- * LoggingConfiguration
@@ -282,16 +282,16 @@ module Amazonka.Transfer.Types
     -- * S3FileLocation
     S3FileLocation (..),
     newS3FileLocation,
-    s3FileLocation_versionId,
-    s3FileLocation_etag,
-    s3FileLocation_bucket,
     s3FileLocation_key,
+    s3FileLocation_bucket,
+    s3FileLocation_etag,
+    s3FileLocation_versionId,
 
     -- * S3InputFileLocation
     S3InputFileLocation (..),
     newS3InputFileLocation,
-    s3InputFileLocation_bucket,
     s3InputFileLocation_key,
+    s3InputFileLocation_bucket,
 
     -- * S3Tag
     S3Tag (..),
@@ -320,8 +320,8 @@ module Amazonka.Transfer.Types
     -- * TagStepDetails
     TagStepDetails (..),
     newTagStepDetails,
-    tagStepDetails_name,
     tagStepDetails_tags,
+    tagStepDetails_name,
 
     -- * UserDetails
     UserDetails (..),
@@ -344,11 +344,11 @@ module Amazonka.Transfer.Types
     -- * WorkflowStep
     WorkflowStep (..),
     newWorkflowStep,
+    workflowStep_type,
     workflowStep_tagStepDetails,
+    workflowStep_customStepDetails,
     workflowStep_deleteStepDetails,
     workflowStep_copyStepDetails,
-    workflowStep_type,
-    workflowStep_customStepDetails,
   )
 where
 
@@ -430,35 +430,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -467,12 +440,39 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
@@ -482,12 +482,36 @@ _AccessDeniedException =
     defaultService
     "AccessDeniedException"
 
--- | This exception is thrown when the client submits a malformed request.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRequestException =
+-- | The request has failed because the Amazon Web ServicesTransfer Family
+-- service is not available.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
-    "InvalidRequestException"
+    "ServiceUnavailableException"
+
+-- | This exception is thrown when a resource is not found by the Amazon Web
+-- ServicesTransfer Family service.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+
+-- | The @NextToken@ parameter that was passed is invalid.
+_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidNextTokenException"
+
+-- | This exception is thrown when an error occurs in the Amazon Web
+-- ServicesTransfer Family service.
+_InternalServiceError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceError =
+  Core._MatchServiceError
+    defaultService
+    "InternalServiceError"
 
 -- | This exception is thrown when the @UpdateServer@ is called for a file
 -- transfer protocol-enabled server that has VPC as the endpoint type and
@@ -507,21 +531,6 @@ _ThrottlingException =
     defaultService
     "ThrottlingException"
 
--- | The @NextToken@ parameter that was passed is invalid.
-_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidNextTokenException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidNextTokenException"
-
--- | This exception is thrown when an error occurs in the Amazon Web
--- ServicesTransfer Family service.
-_InternalServiceError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServiceError =
-  Core._MatchServiceError
-    defaultService
-    "InternalServiceError"
-
 -- | The requested resource does not exist.
 _ResourceExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceExistsException =
@@ -529,18 +538,9 @@ _ResourceExistsException =
     defaultService
     "ResourceExistsException"
 
--- | The request has failed because the Amazon Web ServicesTransfer Family
--- service is not available.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUnavailableException =
+-- | This exception is thrown when the client submits a malformed request.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
   Core._MatchServiceError
     defaultService
-    "ServiceUnavailableException"
-
--- | This exception is thrown when a resource is not found by the Amazon Web
--- ServicesTransfer Family service.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
+    "InvalidRequestException"

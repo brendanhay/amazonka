@@ -31,9 +31,9 @@ module Amazonka.Transfer.CreateWorkflow
     newCreateWorkflow,
 
     -- * Request Lenses
-    createWorkflow_onExceptionSteps,
-    createWorkflow_description,
     createWorkflow_tags,
+    createWorkflow_description,
+    createWorkflow_onExceptionSteps,
     createWorkflow_steps,
 
     -- * Destructuring the Response
@@ -55,7 +55,12 @@ import Amazonka.Transfer.Types
 
 -- | /See:/ 'newCreateWorkflow' smart constructor.
 data CreateWorkflow = CreateWorkflow'
-  { -- | Specifies the steps (actions) to take if errors are encountered during
+  { -- | Key-value pairs that can be used to group and search for workflows. Tags
+    -- are metadata attached to workflows for any purpose.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | A textual description for the workflow.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the steps (actions) to take if errors are encountered during
     -- execution of the workflow.
     --
     -- For custom steps, the lambda function needs to send @FAILURE@ to the
@@ -63,11 +68,6 @@ data CreateWorkflow = CreateWorkflow'
     -- lambda does not send @SUCCESS@ before it times out, the exception steps
     -- are executed.
     onExceptionSteps :: Prelude.Maybe [WorkflowStep],
-    -- | A textual description for the workflow.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Key-value pairs that can be used to group and search for workflows. Tags
-    -- are metadata attached to workflows for any purpose.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | Specifies the details for the steps that are in the specified workflow.
     --
     -- The @TYPE@ specifies which of the following actions is being taken for
@@ -97,6 +97,11 @@ data CreateWorkflow = CreateWorkflow'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createWorkflow_tags' - Key-value pairs that can be used to group and search for workflows. Tags
+-- are metadata attached to workflows for any purpose.
+--
+-- 'description', 'createWorkflow_description' - A textual description for the workflow.
+--
 -- 'onExceptionSteps', 'createWorkflow_onExceptionSteps' - Specifies the steps (actions) to take if errors are encountered during
 -- execution of the workflow.
 --
@@ -104,11 +109,6 @@ data CreateWorkflow = CreateWorkflow'
 -- call back API to kick off the exception steps. Additionally, if the
 -- lambda does not send @SUCCESS@ before it times out, the exception steps
 -- are executed.
---
--- 'description', 'createWorkflow_description' - A textual description for the workflow.
---
--- 'tags', 'createWorkflow_tags' - Key-value pairs that can be used to group and search for workflows. Tags
--- are metadata attached to workflows for any purpose.
 --
 -- 'steps', 'createWorkflow_steps' - Specifies the details for the steps that are in the specified workflow.
 --
@@ -131,11 +131,20 @@ newCreateWorkflow ::
   CreateWorkflow
 newCreateWorkflow =
   CreateWorkflow'
-    { onExceptionSteps = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      onExceptionSteps = Prelude.Nothing,
       steps = Prelude.mempty
     }
+
+-- | Key-value pairs that can be used to group and search for workflows. Tags
+-- are metadata attached to workflows for any purpose.
+createWorkflow_tags :: Lens.Lens' CreateWorkflow (Prelude.Maybe (Prelude.NonEmpty Tag))
+createWorkflow_tags = Lens.lens (\CreateWorkflow' {tags} -> tags) (\s@CreateWorkflow' {} a -> s {tags = a} :: CreateWorkflow) Prelude.. Lens.mapping Lens.coerced
+
+-- | A textual description for the workflow.
+createWorkflow_description :: Lens.Lens' CreateWorkflow (Prelude.Maybe Prelude.Text)
+createWorkflow_description = Lens.lens (\CreateWorkflow' {description} -> description) (\s@CreateWorkflow' {} a -> s {description = a} :: CreateWorkflow)
 
 -- | Specifies the steps (actions) to take if errors are encountered during
 -- execution of the workflow.
@@ -146,15 +155,6 @@ newCreateWorkflow =
 -- are executed.
 createWorkflow_onExceptionSteps :: Lens.Lens' CreateWorkflow (Prelude.Maybe [WorkflowStep])
 createWorkflow_onExceptionSteps = Lens.lens (\CreateWorkflow' {onExceptionSteps} -> onExceptionSteps) (\s@CreateWorkflow' {} a -> s {onExceptionSteps = a} :: CreateWorkflow) Prelude.. Lens.mapping Lens.coerced
-
--- | A textual description for the workflow.
-createWorkflow_description :: Lens.Lens' CreateWorkflow (Prelude.Maybe Prelude.Text)
-createWorkflow_description = Lens.lens (\CreateWorkflow' {description} -> description) (\s@CreateWorkflow' {} a -> s {description = a} :: CreateWorkflow)
-
--- | Key-value pairs that can be used to group and search for workflows. Tags
--- are metadata attached to workflows for any purpose.
-createWorkflow_tags :: Lens.Lens' CreateWorkflow (Prelude.Maybe (Prelude.NonEmpty Tag))
-createWorkflow_tags = Lens.lens (\CreateWorkflow' {tags} -> tags) (\s@CreateWorkflow' {} a -> s {tags = a} :: CreateWorkflow) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the details for the steps that are in the specified workflow.
 --
@@ -191,16 +191,16 @@ instance Core.AWSRequest CreateWorkflow where
 
 instance Prelude.Hashable CreateWorkflow where
   hashWithSalt _salt CreateWorkflow' {..} =
-    _salt `Prelude.hashWithSalt` onExceptionSteps
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` onExceptionSteps
       `Prelude.hashWithSalt` steps
 
 instance Prelude.NFData CreateWorkflow where
   rnf CreateWorkflow' {..} =
-    Prelude.rnf onExceptionSteps
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf onExceptionSteps
       `Prelude.seq` Prelude.rnf steps
 
 instance Core.ToHeaders CreateWorkflow where
@@ -222,10 +222,10 @@ instance Core.ToJSON CreateWorkflow where
   toJSON CreateWorkflow' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("OnExceptionSteps" Core..=)
-              Prelude.<$> onExceptionSteps,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("OnExceptionSteps" Core..=)
+              Prelude.<$> onExceptionSteps,
             Prelude.Just ("Steps" Core..= steps)
           ]
       )

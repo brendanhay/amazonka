@@ -33,7 +33,16 @@ import Amazonka.Transfer.Types.ServiceMetadata
 --
 -- /See:/ 'newDescribedExecution' smart constructor.
 data DescribedExecution = DescribedExecution'
-  { -- | The status is one of the execution. Can be in progress, completed,
+  { -- | The IAM role associated with the execution.
+    executionRole :: Prelude.Maybe Prelude.Text,
+    -- | A container object for the session details associated with a workflow.
+    serviceMetadata :: Prelude.Maybe ServiceMetadata,
+    -- | A structure that describes the Amazon S3 or EFS file location. This is
+    -- the file location when the execution begins: if the file is being
+    -- copied, this is the initial (as opposed to destination) file location.
+    initialFileLocation :: Prelude.Maybe FileLocation,
+    posixProfile :: Prelude.Maybe PosixProfile,
+    -- | The status is one of the execution. Can be in progress, completed,
     -- exception encountered, or handling the exception.
     status :: Prelude.Maybe ExecutionStatus,
     -- | A unique identifier for the execution of a workflow.
@@ -42,17 +51,8 @@ data DescribedExecution = DescribedExecution'
     -- of the steps along with the details of each step, error type and message
     -- (if any), and the @OnExceptionSteps@ structure.
     results :: Prelude.Maybe ExecutionResults,
-    -- | A structure that describes the Amazon S3 or EFS file location. This is
-    -- the file location when the execution begins: if the file is being
-    -- copied, this is the initial (as opposed to destination) file location.
-    initialFileLocation :: Prelude.Maybe FileLocation,
-    posixProfile :: Prelude.Maybe PosixProfile,
-    -- | A container object for the session details associated with a workflow.
-    serviceMetadata :: Prelude.Maybe ServiceMetadata,
     -- | The IAM logging role associated with the execution.
-    loggingConfiguration :: Prelude.Maybe LoggingConfiguration,
-    -- | The IAM role associated with the execution.
-    executionRole :: Prelude.Maybe Prelude.Text
+    loggingConfiguration :: Prelude.Maybe LoggingConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,6 +64,16 @@ data DescribedExecution = DescribedExecution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'executionRole', 'describedExecution_executionRole' - The IAM role associated with the execution.
+--
+-- 'serviceMetadata', 'describedExecution_serviceMetadata' - A container object for the session details associated with a workflow.
+--
+-- 'initialFileLocation', 'describedExecution_initialFileLocation' - A structure that describes the Amazon S3 or EFS file location. This is
+-- the file location when the execution begins: if the file is being
+-- copied, this is the initial (as opposed to destination) file location.
+--
+-- 'posixProfile', 'describedExecution_posixProfile' - Undocumented member.
+--
 -- 'status', 'describedExecution_status' - The status is one of the execution. Can be in progress, completed,
 -- exception encountered, or handling the exception.
 --
@@ -73,30 +83,39 @@ data DescribedExecution = DescribedExecution'
 -- of the steps along with the details of each step, error type and message
 -- (if any), and the @OnExceptionSteps@ structure.
 --
--- 'initialFileLocation', 'describedExecution_initialFileLocation' - A structure that describes the Amazon S3 or EFS file location. This is
--- the file location when the execution begins: if the file is being
--- copied, this is the initial (as opposed to destination) file location.
---
--- 'posixProfile', 'describedExecution_posixProfile' - Undocumented member.
---
--- 'serviceMetadata', 'describedExecution_serviceMetadata' - A container object for the session details associated with a workflow.
---
 -- 'loggingConfiguration', 'describedExecution_loggingConfiguration' - The IAM logging role associated with the execution.
---
--- 'executionRole', 'describedExecution_executionRole' - The IAM role associated with the execution.
 newDescribedExecution ::
   DescribedExecution
 newDescribedExecution =
   DescribedExecution'
-    { status = Prelude.Nothing,
-      executionId = Prelude.Nothing,
-      results = Prelude.Nothing,
+    { executionRole =
+        Prelude.Nothing,
+      serviceMetadata = Prelude.Nothing,
       initialFileLocation = Prelude.Nothing,
       posixProfile = Prelude.Nothing,
-      serviceMetadata = Prelude.Nothing,
-      loggingConfiguration = Prelude.Nothing,
-      executionRole = Prelude.Nothing
+      status = Prelude.Nothing,
+      executionId = Prelude.Nothing,
+      results = Prelude.Nothing,
+      loggingConfiguration = Prelude.Nothing
     }
+
+-- | The IAM role associated with the execution.
+describedExecution_executionRole :: Lens.Lens' DescribedExecution (Prelude.Maybe Prelude.Text)
+describedExecution_executionRole = Lens.lens (\DescribedExecution' {executionRole} -> executionRole) (\s@DescribedExecution' {} a -> s {executionRole = a} :: DescribedExecution)
+
+-- | A container object for the session details associated with a workflow.
+describedExecution_serviceMetadata :: Lens.Lens' DescribedExecution (Prelude.Maybe ServiceMetadata)
+describedExecution_serviceMetadata = Lens.lens (\DescribedExecution' {serviceMetadata} -> serviceMetadata) (\s@DescribedExecution' {} a -> s {serviceMetadata = a} :: DescribedExecution)
+
+-- | A structure that describes the Amazon S3 or EFS file location. This is
+-- the file location when the execution begins: if the file is being
+-- copied, this is the initial (as opposed to destination) file location.
+describedExecution_initialFileLocation :: Lens.Lens' DescribedExecution (Prelude.Maybe FileLocation)
+describedExecution_initialFileLocation = Lens.lens (\DescribedExecution' {initialFileLocation} -> initialFileLocation) (\s@DescribedExecution' {} a -> s {initialFileLocation = a} :: DescribedExecution)
+
+-- | Undocumented member.
+describedExecution_posixProfile :: Lens.Lens' DescribedExecution (Prelude.Maybe PosixProfile)
+describedExecution_posixProfile = Lens.lens (\DescribedExecution' {posixProfile} -> posixProfile) (\s@DescribedExecution' {} a -> s {posixProfile = a} :: DescribedExecution)
 
 -- | The status is one of the execution. Can be in progress, completed,
 -- exception encountered, or handling the exception.
@@ -113,27 +132,9 @@ describedExecution_executionId = Lens.lens (\DescribedExecution' {executionId} -
 describedExecution_results :: Lens.Lens' DescribedExecution (Prelude.Maybe ExecutionResults)
 describedExecution_results = Lens.lens (\DescribedExecution' {results} -> results) (\s@DescribedExecution' {} a -> s {results = a} :: DescribedExecution)
 
--- | A structure that describes the Amazon S3 or EFS file location. This is
--- the file location when the execution begins: if the file is being
--- copied, this is the initial (as opposed to destination) file location.
-describedExecution_initialFileLocation :: Lens.Lens' DescribedExecution (Prelude.Maybe FileLocation)
-describedExecution_initialFileLocation = Lens.lens (\DescribedExecution' {initialFileLocation} -> initialFileLocation) (\s@DescribedExecution' {} a -> s {initialFileLocation = a} :: DescribedExecution)
-
--- | Undocumented member.
-describedExecution_posixProfile :: Lens.Lens' DescribedExecution (Prelude.Maybe PosixProfile)
-describedExecution_posixProfile = Lens.lens (\DescribedExecution' {posixProfile} -> posixProfile) (\s@DescribedExecution' {} a -> s {posixProfile = a} :: DescribedExecution)
-
--- | A container object for the session details associated with a workflow.
-describedExecution_serviceMetadata :: Lens.Lens' DescribedExecution (Prelude.Maybe ServiceMetadata)
-describedExecution_serviceMetadata = Lens.lens (\DescribedExecution' {serviceMetadata} -> serviceMetadata) (\s@DescribedExecution' {} a -> s {serviceMetadata = a} :: DescribedExecution)
-
 -- | The IAM logging role associated with the execution.
 describedExecution_loggingConfiguration :: Lens.Lens' DescribedExecution (Prelude.Maybe LoggingConfiguration)
 describedExecution_loggingConfiguration = Lens.lens (\DescribedExecution' {loggingConfiguration} -> loggingConfiguration) (\s@DescribedExecution' {} a -> s {loggingConfiguration = a} :: DescribedExecution)
-
--- | The IAM role associated with the execution.
-describedExecution_executionRole :: Lens.Lens' DescribedExecution (Prelude.Maybe Prelude.Text)
-describedExecution_executionRole = Lens.lens (\DescribedExecution' {executionRole} -> executionRole) (\s@DescribedExecution' {} a -> s {executionRole = a} :: DescribedExecution)
 
 instance Core.FromJSON DescribedExecution where
   parseJSON =
@@ -141,34 +142,34 @@ instance Core.FromJSON DescribedExecution where
       "DescribedExecution"
       ( \x ->
           DescribedExecution'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ExecutionId")
-            Prelude.<*> (x Core..:? "Results")
+            Prelude.<$> (x Core..:? "ExecutionRole")
+            Prelude.<*> (x Core..:? "ServiceMetadata")
             Prelude.<*> (x Core..:? "InitialFileLocation")
             Prelude.<*> (x Core..:? "PosixProfile")
-            Prelude.<*> (x Core..:? "ServiceMetadata")
+            Prelude.<*> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "ExecutionId")
+            Prelude.<*> (x Core..:? "Results")
             Prelude.<*> (x Core..:? "LoggingConfiguration")
-            Prelude.<*> (x Core..:? "ExecutionRole")
       )
 
 instance Prelude.Hashable DescribedExecution where
   hashWithSalt _salt DescribedExecution' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` executionId
-      `Prelude.hashWithSalt` results
+    _salt `Prelude.hashWithSalt` executionRole
+      `Prelude.hashWithSalt` serviceMetadata
       `Prelude.hashWithSalt` initialFileLocation
       `Prelude.hashWithSalt` posixProfile
-      `Prelude.hashWithSalt` serviceMetadata
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` executionId
+      `Prelude.hashWithSalt` results
       `Prelude.hashWithSalt` loggingConfiguration
-      `Prelude.hashWithSalt` executionRole
 
 instance Prelude.NFData DescribedExecution where
   rnf DescribedExecution' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf executionId
-      `Prelude.seq` Prelude.rnf results
+    Prelude.rnf executionRole
+      `Prelude.seq` Prelude.rnf serviceMetadata
       `Prelude.seq` Prelude.rnf initialFileLocation
       `Prelude.seq` Prelude.rnf posixProfile
-      `Prelude.seq` Prelude.rnf serviceMetadata
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf executionId
+      `Prelude.seq` Prelude.rnf results
       `Prelude.seq` Prelude.rnf loggingConfiguration
-      `Prelude.seq` Prelude.rnf executionRole

@@ -32,10 +32,24 @@ import Amazonka.Transfer.Types.WorkflowStepType
 --
 -- /See:/ 'newWorkflowStep' smart constructor.
 data WorkflowStep = WorkflowStep'
-  { -- | Details for a step that creates one or more tags.
+  { -- | Currently, the following step types are supported.
+    --
+    -- -   /Copy/: copy the file to another location
+    --
+    -- -   /Custom/: custom step with a lambda target
+    --
+    -- -   /Delete/: delete the file
+    --
+    -- -   /Tag/: add a tag to the file
+    type' :: Prelude.Maybe WorkflowStepType,
+    -- | Details for a step that creates one or more tags.
     --
     -- You specify one or more tags: each tag contains a key\/value pair.
     tagStepDetails :: Prelude.Maybe TagStepDetails,
+    -- | Details for a step that invokes a lambda function.
+    --
+    -- Consists of the lambda function name, target, and timeout (in seconds).
+    customStepDetails :: Prelude.Maybe CustomStepDetails,
     -- | Details for a step that deletes the file.
     deleteStepDetails :: Prelude.Maybe DeleteStepDetails,
     -- | Details for a step that performs a file copy.
@@ -48,21 +62,7 @@ data WorkflowStep = WorkflowStep'
     --
     -- -   A flag that indicates whether or not to overwrite an existing file
     --     of the same name. The default is @FALSE@.
-    copyStepDetails :: Prelude.Maybe CopyStepDetails,
-    -- | Currently, the following step types are supported.
-    --
-    -- -   /Copy/: copy the file to another location
-    --
-    -- -   /Custom/: custom step with a lambda target
-    --
-    -- -   /Delete/: delete the file
-    --
-    -- -   /Tag/: add a tag to the file
-    type' :: Prelude.Maybe WorkflowStepType,
-    -- | Details for a step that invokes a lambda function.
-    --
-    -- Consists of the lambda function name, target, and timeout (in seconds).
-    customStepDetails :: Prelude.Maybe CustomStepDetails
+    copyStepDetails :: Prelude.Maybe CopyStepDetails
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,9 +74,23 @@ data WorkflowStep = WorkflowStep'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'type'', 'workflowStep_type' - Currently, the following step types are supported.
+--
+-- -   /Copy/: copy the file to another location
+--
+-- -   /Custom/: custom step with a lambda target
+--
+-- -   /Delete/: delete the file
+--
+-- -   /Tag/: add a tag to the file
+--
 -- 'tagStepDetails', 'workflowStep_tagStepDetails' - Details for a step that creates one or more tags.
 --
 -- You specify one or more tags: each tag contains a key\/value pair.
+--
+-- 'customStepDetails', 'workflowStep_customStepDetails' - Details for a step that invokes a lambda function.
+--
+-- Consists of the lambda function name, target, and timeout (in seconds).
 --
 -- 'deleteStepDetails', 'workflowStep_deleteStepDetails' - Details for a step that deletes the file.
 --
@@ -90,8 +104,18 @@ data WorkflowStep = WorkflowStep'
 --
 -- -   A flag that indicates whether or not to overwrite an existing file
 --     of the same name. The default is @FALSE@.
---
--- 'type'', 'workflowStep_type' - Currently, the following step types are supported.
+newWorkflowStep ::
+  WorkflowStep
+newWorkflowStep =
+  WorkflowStep'
+    { type' = Prelude.Nothing,
+      tagStepDetails = Prelude.Nothing,
+      customStepDetails = Prelude.Nothing,
+      deleteStepDetails = Prelude.Nothing,
+      copyStepDetails = Prelude.Nothing
+    }
+
+-- | Currently, the following step types are supported.
 --
 -- -   /Copy/: copy the file to another location
 --
@@ -100,26 +124,20 @@ data WorkflowStep = WorkflowStep'
 -- -   /Delete/: delete the file
 --
 -- -   /Tag/: add a tag to the file
---
--- 'customStepDetails', 'workflowStep_customStepDetails' - Details for a step that invokes a lambda function.
---
--- Consists of the lambda function name, target, and timeout (in seconds).
-newWorkflowStep ::
-  WorkflowStep
-newWorkflowStep =
-  WorkflowStep'
-    { tagStepDetails = Prelude.Nothing,
-      deleteStepDetails = Prelude.Nothing,
-      copyStepDetails = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      customStepDetails = Prelude.Nothing
-    }
+workflowStep_type :: Lens.Lens' WorkflowStep (Prelude.Maybe WorkflowStepType)
+workflowStep_type = Lens.lens (\WorkflowStep' {type'} -> type') (\s@WorkflowStep' {} a -> s {type' = a} :: WorkflowStep)
 
 -- | Details for a step that creates one or more tags.
 --
 -- You specify one or more tags: each tag contains a key\/value pair.
 workflowStep_tagStepDetails :: Lens.Lens' WorkflowStep (Prelude.Maybe TagStepDetails)
 workflowStep_tagStepDetails = Lens.lens (\WorkflowStep' {tagStepDetails} -> tagStepDetails) (\s@WorkflowStep' {} a -> s {tagStepDetails = a} :: WorkflowStep)
+
+-- | Details for a step that invokes a lambda function.
+--
+-- Consists of the lambda function name, target, and timeout (in seconds).
+workflowStep_customStepDetails :: Lens.Lens' WorkflowStep (Prelude.Maybe CustomStepDetails)
+workflowStep_customStepDetails = Lens.lens (\WorkflowStep' {customStepDetails} -> customStepDetails) (\s@WorkflowStep' {} a -> s {customStepDetails = a} :: WorkflowStep)
 
 -- | Details for a step that deletes the file.
 workflowStep_deleteStepDetails :: Lens.Lens' WorkflowStep (Prelude.Maybe DeleteStepDetails)
@@ -138,65 +156,47 @@ workflowStep_deleteStepDetails = Lens.lens (\WorkflowStep' {deleteStepDetails} -
 workflowStep_copyStepDetails :: Lens.Lens' WorkflowStep (Prelude.Maybe CopyStepDetails)
 workflowStep_copyStepDetails = Lens.lens (\WorkflowStep' {copyStepDetails} -> copyStepDetails) (\s@WorkflowStep' {} a -> s {copyStepDetails = a} :: WorkflowStep)
 
--- | Currently, the following step types are supported.
---
--- -   /Copy/: copy the file to another location
---
--- -   /Custom/: custom step with a lambda target
---
--- -   /Delete/: delete the file
---
--- -   /Tag/: add a tag to the file
-workflowStep_type :: Lens.Lens' WorkflowStep (Prelude.Maybe WorkflowStepType)
-workflowStep_type = Lens.lens (\WorkflowStep' {type'} -> type') (\s@WorkflowStep' {} a -> s {type' = a} :: WorkflowStep)
-
--- | Details for a step that invokes a lambda function.
---
--- Consists of the lambda function name, target, and timeout (in seconds).
-workflowStep_customStepDetails :: Lens.Lens' WorkflowStep (Prelude.Maybe CustomStepDetails)
-workflowStep_customStepDetails = Lens.lens (\WorkflowStep' {customStepDetails} -> customStepDetails) (\s@WorkflowStep' {} a -> s {customStepDetails = a} :: WorkflowStep)
-
 instance Core.FromJSON WorkflowStep where
   parseJSON =
     Core.withObject
       "WorkflowStep"
       ( \x ->
           WorkflowStep'
-            Prelude.<$> (x Core..:? "TagStepDetails")
+            Prelude.<$> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "TagStepDetails")
+            Prelude.<*> (x Core..:? "CustomStepDetails")
             Prelude.<*> (x Core..:? "DeleteStepDetails")
             Prelude.<*> (x Core..:? "CopyStepDetails")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "CustomStepDetails")
       )
 
 instance Prelude.Hashable WorkflowStep where
   hashWithSalt _salt WorkflowStep' {..} =
-    _salt `Prelude.hashWithSalt` tagStepDetails
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` tagStepDetails
+      `Prelude.hashWithSalt` customStepDetails
       `Prelude.hashWithSalt` deleteStepDetails
       `Prelude.hashWithSalt` copyStepDetails
-      `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` customStepDetails
 
 instance Prelude.NFData WorkflowStep where
   rnf WorkflowStep' {..} =
-    Prelude.rnf tagStepDetails
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf tagStepDetails
+      `Prelude.seq` Prelude.rnf customStepDetails
       `Prelude.seq` Prelude.rnf deleteStepDetails
       `Prelude.seq` Prelude.rnf copyStepDetails
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf customStepDetails
 
 instance Core.ToJSON WorkflowStep where
   toJSON WorkflowStep' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TagStepDetails" Core..=)
+          [ ("Type" Core..=) Prelude.<$> type',
+            ("TagStepDetails" Core..=)
               Prelude.<$> tagStepDetails,
+            ("CustomStepDetails" Core..=)
+              Prelude.<$> customStepDetails,
             ("DeleteStepDetails" Core..=)
               Prelude.<$> deleteStepDetails,
             ("CopyStepDetails" Core..=)
-              Prelude.<$> copyStepDetails,
-            ("Type" Core..=) Prelude.<$> type',
-            ("CustomStepDetails" Core..=)
-              Prelude.<$> customStepDetails
+              Prelude.<$> copyStepDetails
           ]
       )

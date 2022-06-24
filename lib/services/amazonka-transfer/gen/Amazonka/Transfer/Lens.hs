@@ -14,84 +14,112 @@
 module Amazonka.Transfer.Lens
   ( -- * Operations
 
-    -- ** UpdateServer
-    updateServer_protocolDetails,
-    updateServer_loggingRole,
-    updateServer_hostKey,
-    updateServer_protocols,
-    updateServer_endpointType,
-    updateServer_securityPolicyName,
-    updateServer_certificate,
-    updateServer_identityProviderDetails,
-    updateServer_workflowDetails,
-    updateServer_endpointDetails,
-    updateServer_serverId,
-    updateServerResponse_httpStatus,
-    updateServerResponse_serverId,
+    -- ** CreateAccess
+    createAccess_homeDirectory,
+    createAccess_policy,
+    createAccess_posixProfile,
+    createAccess_homeDirectoryType,
+    createAccess_homeDirectoryMappings,
+    createAccess_role,
+    createAccess_serverId,
+    createAccess_externalId,
+    createAccessResponse_httpStatus,
+    createAccessResponse_serverId,
+    createAccessResponse_externalId,
 
-    -- ** DeleteServer
-    deleteServer_serverId,
+    -- ** CreateServer
+    createServer_tags,
+    createServer_identityProviderDetails,
+    createServer_domain,
+    createServer_identityProviderType,
+    createServer_securityPolicyName,
+    createServer_endpointDetails,
+    createServer_certificate,
+    createServer_protocols,
+    createServer_endpointType,
+    createServer_loggingRole,
+    createServer_workflowDetails,
+    createServer_hostKey,
+    createServerResponse_httpStatus,
+    createServerResponse_serverId,
+
+    -- ** CreateUser
+    createUser_tags,
+    createUser_homeDirectory,
+    createUser_policy,
+    createUser_sshPublicKeyBody,
+    createUser_posixProfile,
+    createUser_homeDirectoryType,
+    createUser_homeDirectoryMappings,
+    createUser_role,
+    createUser_serverId,
+    createUser_userName,
+    createUserResponse_httpStatus,
+    createUserResponse_serverId,
+    createUserResponse_userName,
 
     -- ** CreateWorkflow
-    createWorkflow_onExceptionSteps,
-    createWorkflow_description,
     createWorkflow_tags,
+    createWorkflow_description,
+    createWorkflow_onExceptionSteps,
     createWorkflow_steps,
     createWorkflowResponse_httpStatus,
     createWorkflowResponse_workflowId,
+
+    -- ** DeleteAccess
+    deleteAccess_serverId,
+    deleteAccess_externalId,
+
+    -- ** DeleteServer
+    deleteServer_serverId,
 
     -- ** DeleteSshPublicKey
     deleteSshPublicKey_serverId,
     deleteSshPublicKey_sshPublicKeyId,
     deleteSshPublicKey_userName,
 
-    -- ** ListSecurityPolicies
-    listSecurityPolicies_nextToken,
-    listSecurityPolicies_maxResults,
-    listSecurityPoliciesResponse_nextToken,
-    listSecurityPoliciesResponse_httpStatus,
-    listSecurityPoliciesResponse_securityPolicyNames,
+    -- ** DeleteUser
+    deleteUser_serverId,
+    deleteUser_userName,
 
     -- ** DeleteWorkflow
     deleteWorkflow_workflowId,
 
-    -- ** ListTagsForResource
-    listTagsForResource_nextToken,
-    listTagsForResource_maxResults,
-    listTagsForResource_arn,
-    listTagsForResourceResponse_arn,
-    listTagsForResourceResponse_nextToken,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
+    -- ** DescribeAccess
+    describeAccess_serverId,
+    describeAccess_externalId,
+    describeAccessResponse_httpStatus,
+    describeAccessResponse_serverId,
+    describeAccessResponse_access,
 
-    -- ** SendWorkflowStepState
-    sendWorkflowStepState_workflowId,
-    sendWorkflowStepState_executionId,
-    sendWorkflowStepState_token,
-    sendWorkflowStepState_status,
-    sendWorkflowStepStateResponse_httpStatus,
+    -- ** DescribeExecution
+    describeExecution_executionId,
+    describeExecution_workflowId,
+    describeExecutionResponse_httpStatus,
+    describeExecutionResponse_workflowId,
+    describeExecutionResponse_execution,
 
-    -- ** StopServer
-    stopServer_serverId,
-
-    -- ** ListUsers
-    listUsers_nextToken,
-    listUsers_maxResults,
-    listUsers_serverId,
-    listUsersResponse_nextToken,
-    listUsersResponse_httpStatus,
-    listUsersResponse_serverId,
-    listUsersResponse_users,
+    -- ** DescribeSecurityPolicy
+    describeSecurityPolicy_securityPolicyName,
+    describeSecurityPolicyResponse_httpStatus,
+    describeSecurityPolicyResponse_securityPolicy,
 
     -- ** DescribeServer
     describeServer_serverId,
     describeServerResponse_httpStatus,
     describeServerResponse_server,
 
-    -- ** DescribeSecurityPolicy
-    describeSecurityPolicy_securityPolicyName,
-    describeSecurityPolicyResponse_httpStatus,
-    describeSecurityPolicyResponse_securityPolicy,
+    -- ** DescribeUser
+    describeUser_serverId,
+    describeUser_userName,
+    describeUserResponse_httpStatus,
+    describeUserResponse_serverId,
+    describeUserResponse_user,
+
+    -- ** DescribeWorkflow
+    describeWorkflow_workflowId,
+    describeWorkflowResponse_httpStatus,
+    describeWorkflowResponse_workflow,
 
     -- ** ImportSshPublicKey
     importSshPublicKey_serverId,
@@ -102,119 +130,6 @@ module Amazonka.Transfer.Lens
     importSshPublicKeyResponse_sshPublicKeyId,
     importSshPublicKeyResponse_userName,
 
-    -- ** ListExecutions
-    listExecutions_nextToken,
-    listExecutions_maxResults,
-    listExecutions_workflowId,
-    listExecutionsResponse_nextToken,
-    listExecutionsResponse_httpStatus,
-    listExecutionsResponse_workflowId,
-    listExecutionsResponse_executions,
-
-    -- ** CreateServer
-    createServer_loggingRole,
-    createServer_hostKey,
-    createServer_identityProviderType,
-    createServer_protocols,
-    createServer_domain,
-    createServer_endpointType,
-    createServer_securityPolicyName,
-    createServer_certificate,
-    createServer_identityProviderDetails,
-    createServer_workflowDetails,
-    createServer_tags,
-    createServer_endpointDetails,
-    createServerResponse_httpStatus,
-    createServerResponse_serverId,
-
-    -- ** TestIdentityProvider
-    testIdentityProvider_serverProtocol,
-    testIdentityProvider_userPassword,
-    testIdentityProvider_sourceIp,
-    testIdentityProvider_serverId,
-    testIdentityProvider_userName,
-    testIdentityProviderResponse_response,
-    testIdentityProviderResponse_message,
-    testIdentityProviderResponse_httpStatus,
-    testIdentityProviderResponse_statusCode,
-    testIdentityProviderResponse_url,
-
-    -- ** ListServers
-    listServers_nextToken,
-    listServers_maxResults,
-    listServersResponse_nextToken,
-    listServersResponse_httpStatus,
-    listServersResponse_servers,
-
-    -- ** DescribeUser
-    describeUser_serverId,
-    describeUser_userName,
-    describeUserResponse_httpStatus,
-    describeUserResponse_serverId,
-    describeUserResponse_user,
-
-    -- ** DescribeExecution
-    describeExecution_executionId,
-    describeExecution_workflowId,
-    describeExecutionResponse_httpStatus,
-    describeExecutionResponse_workflowId,
-    describeExecutionResponse_execution,
-
-    -- ** ListWorkflows
-    listWorkflows_nextToken,
-    listWorkflows_maxResults,
-    listWorkflowsResponse_nextToken,
-    listWorkflowsResponse_httpStatus,
-    listWorkflowsResponse_workflows,
-
-    -- ** CreateUser
-    createUser_homeDirectoryType,
-    createUser_sshPublicKeyBody,
-    createUser_posixProfile,
-    createUser_homeDirectoryMappings,
-    createUser_policy,
-    createUser_homeDirectory,
-    createUser_tags,
-    createUser_role,
-    createUser_serverId,
-    createUser_userName,
-    createUserResponse_httpStatus,
-    createUserResponse_serverId,
-    createUserResponse_userName,
-
-    -- ** StartServer
-    startServer_serverId,
-
-    -- ** UpdateAccess
-    updateAccess_homeDirectoryType,
-    updateAccess_posixProfile,
-    updateAccess_homeDirectoryMappings,
-    updateAccess_role,
-    updateAccess_policy,
-    updateAccess_homeDirectory,
-    updateAccess_serverId,
-    updateAccess_externalId,
-    updateAccessResponse_httpStatus,
-    updateAccessResponse_serverId,
-    updateAccessResponse_externalId,
-
-    -- ** DeleteAccess
-    deleteAccess_serverId,
-    deleteAccess_externalId,
-
-    -- ** CreateAccess
-    createAccess_homeDirectoryType,
-    createAccess_posixProfile,
-    createAccess_homeDirectoryMappings,
-    createAccess_policy,
-    createAccess_homeDirectory,
-    createAccess_role,
-    createAccess_serverId,
-    createAccess_externalId,
-    createAccessResponse_httpStatus,
-    createAccessResponse_serverId,
-    createAccessResponse_externalId,
-
     -- ** ListAccesses
     listAccesses_nextToken,
     listAccesses_maxResults,
@@ -224,49 +139,134 @@ module Amazonka.Transfer.Lens
     listAccessesResponse_serverId,
     listAccessesResponse_accesses,
 
+    -- ** ListExecutions
+    listExecutions_nextToken,
+    listExecutions_maxResults,
+    listExecutions_workflowId,
+    listExecutionsResponse_nextToken,
+    listExecutionsResponse_httpStatus,
+    listExecutionsResponse_workflowId,
+    listExecutionsResponse_executions,
+
+    -- ** ListSecurityPolicies
+    listSecurityPolicies_nextToken,
+    listSecurityPolicies_maxResults,
+    listSecurityPoliciesResponse_nextToken,
+    listSecurityPoliciesResponse_httpStatus,
+    listSecurityPoliciesResponse_securityPolicyNames,
+
+    -- ** ListServers
+    listServers_nextToken,
+    listServers_maxResults,
+    listServersResponse_nextToken,
+    listServersResponse_httpStatus,
+    listServersResponse_servers,
+
+    -- ** ListTagsForResource
+    listTagsForResource_nextToken,
+    listTagsForResource_maxResults,
+    listTagsForResource_arn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_nextToken,
+    listTagsForResourceResponse_arn,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** ListUsers
+    listUsers_nextToken,
+    listUsers_maxResults,
+    listUsers_serverId,
+    listUsersResponse_nextToken,
+    listUsersResponse_httpStatus,
+    listUsersResponse_serverId,
+    listUsersResponse_users,
+
+    -- ** ListWorkflows
+    listWorkflows_nextToken,
+    listWorkflows_maxResults,
+    listWorkflowsResponse_nextToken,
+    listWorkflowsResponse_httpStatus,
+    listWorkflowsResponse_workflows,
+
+    -- ** SendWorkflowStepState
+    sendWorkflowStepState_workflowId,
+    sendWorkflowStepState_executionId,
+    sendWorkflowStepState_token,
+    sendWorkflowStepState_status,
+    sendWorkflowStepStateResponse_httpStatus,
+
+    -- ** StartServer
+    startServer_serverId,
+
+    -- ** StopServer
+    stopServer_serverId,
+
+    -- ** TagResource
+    tagResource_arn,
+    tagResource_tags,
+
+    -- ** TestIdentityProvider
+    testIdentityProvider_serverProtocol,
+    testIdentityProvider_sourceIp,
+    testIdentityProvider_userPassword,
+    testIdentityProvider_serverId,
+    testIdentityProvider_userName,
+    testIdentityProviderResponse_message,
+    testIdentityProviderResponse_response,
+    testIdentityProviderResponse_httpStatus,
+    testIdentityProviderResponse_statusCode,
+    testIdentityProviderResponse_url,
+
+    -- ** UntagResource
+    untagResource_arn,
+    untagResource_tagKeys,
+
+    -- ** UpdateAccess
+    updateAccess_homeDirectory,
+    updateAccess_policy,
+    updateAccess_posixProfile,
+    updateAccess_role,
+    updateAccess_homeDirectoryType,
+    updateAccess_homeDirectoryMappings,
+    updateAccess_serverId,
+    updateAccess_externalId,
+    updateAccessResponse_httpStatus,
+    updateAccessResponse_serverId,
+    updateAccessResponse_externalId,
+
+    -- ** UpdateServer
+    updateServer_protocolDetails,
+    updateServer_identityProviderDetails,
+    updateServer_securityPolicyName,
+    updateServer_endpointDetails,
+    updateServer_certificate,
+    updateServer_protocols,
+    updateServer_endpointType,
+    updateServer_loggingRole,
+    updateServer_workflowDetails,
+    updateServer_hostKey,
+    updateServer_serverId,
+    updateServerResponse_httpStatus,
+    updateServerResponse_serverId,
+
     -- ** UpdateUser
-    updateUser_homeDirectoryType,
-    updateUser_posixProfile,
-    updateUser_homeDirectoryMappings,
-    updateUser_role,
-    updateUser_policy,
     updateUser_homeDirectory,
+    updateUser_policy,
+    updateUser_posixProfile,
+    updateUser_role,
+    updateUser_homeDirectoryType,
+    updateUser_homeDirectoryMappings,
     updateUser_serverId,
     updateUser_userName,
     updateUserResponse_httpStatus,
     updateUserResponse_serverId,
     updateUserResponse_userName,
 
-    -- ** DeleteUser
-    deleteUser_serverId,
-    deleteUser_userName,
-
-    -- ** TagResource
-    tagResource_arn,
-    tagResource_tags,
-
-    -- ** UntagResource
-    untagResource_arn,
-    untagResource_tagKeys,
-
-    -- ** DescribeWorkflow
-    describeWorkflow_workflowId,
-    describeWorkflowResponse_httpStatus,
-    describeWorkflowResponse_workflow,
-
-    -- ** DescribeAccess
-    describeAccess_serverId,
-    describeAccess_externalId,
-    describeAccessResponse_httpStatus,
-    describeAccessResponse_serverId,
-    describeAccessResponse_access,
-
     -- * Types
 
     -- ** CopyStepDetails
-    copyStepDetails_destinationFileLocation,
-    copyStepDetails_overwriteExisting,
     copyStepDetails_name,
+    copyStepDetails_overwriteExisting,
+    copyStepDetails_destinationFileLocation,
 
     -- ** CustomStepDetails
     customStepDetails_name,
@@ -277,69 +277,69 @@ module Amazonka.Transfer.Lens
     deleteStepDetails_name,
 
     -- ** DescribedAccess
-    describedAccess_homeDirectoryType,
-    describedAccess_posixProfile,
-    describedAccess_homeDirectoryMappings,
-    describedAccess_role,
-    describedAccess_policy,
-    describedAccess_externalId,
     describedAccess_homeDirectory,
+    describedAccess_policy,
+    describedAccess_posixProfile,
+    describedAccess_externalId,
+    describedAccess_role,
+    describedAccess_homeDirectoryType,
+    describedAccess_homeDirectoryMappings,
 
     -- ** DescribedExecution
+    describedExecution_executionRole,
+    describedExecution_serviceMetadata,
+    describedExecution_initialFileLocation,
+    describedExecution_posixProfile,
     describedExecution_status,
     describedExecution_executionId,
     describedExecution_results,
-    describedExecution_initialFileLocation,
-    describedExecution_posixProfile,
-    describedExecution_serviceMetadata,
     describedExecution_loggingConfiguration,
-    describedExecution_executionRole,
 
     -- ** DescribedSecurityPolicy
-    describedSecurityPolicy_fips,
-    describedSecurityPolicy_sshMacs,
-    describedSecurityPolicy_sshKexs,
     describedSecurityPolicy_tlsCiphers,
+    describedSecurityPolicy_sshKexs,
+    describedSecurityPolicy_fips,
     describedSecurityPolicy_sshCiphers,
+    describedSecurityPolicy_sshMacs,
     describedSecurityPolicy_securityPolicyName,
 
     -- ** DescribedServer
-    describedServer_protocolDetails,
-    describedServer_loggingRole,
-    describedServer_state,
-    describedServer_identityProviderType,
-    describedServer_protocols,
-    describedServer_serverId,
-    describedServer_domain,
-    describedServer_endpointType,
-    describedServer_securityPolicyName,
-    describedServer_hostKeyFingerprint,
-    describedServer_userCount,
-    describedServer_certificate,
-    describedServer_identityProviderDetails,
-    describedServer_workflowDetails,
     describedServer_tags,
+    describedServer_userCount,
+    describedServer_protocolDetails,
+    describedServer_identityProviderDetails,
+    describedServer_domain,
+    describedServer_identityProviderType,
+    describedServer_securityPolicyName,
     describedServer_endpointDetails,
+    describedServer_state,
+    describedServer_certificate,
+    describedServer_protocols,
+    describedServer_endpointType,
+    describedServer_hostKeyFingerprint,
+    describedServer_loggingRole,
+    describedServer_serverId,
+    describedServer_workflowDetails,
     describedServer_arn,
 
     -- ** DescribedUser
-    describedUser_sshPublicKeys,
-    describedUser_homeDirectoryType,
+    describedUser_tags,
+    describedUser_homeDirectory,
+    describedUser_policy,
     describedUser_userName,
     describedUser_posixProfile,
-    describedUser_homeDirectoryMappings,
+    describedUser_sshPublicKeys,
     describedUser_role,
-    describedUser_policy,
-    describedUser_homeDirectory,
-    describedUser_tags,
+    describedUser_homeDirectoryType,
+    describedUser_homeDirectoryMappings,
     describedUser_arn,
 
     -- ** DescribedWorkflow
-    describedWorkflow_onExceptionSteps,
-    describedWorkflow_steps,
-    describedWorkflow_workflowId,
-    describedWorkflow_description,
     describedWorkflow_tags,
+    describedWorkflow_workflowId,
+    describedWorkflow_steps,
+    describedWorkflow_description,
+    describedWorkflow_onExceptionSteps,
     describedWorkflow_arn,
 
     -- ** EfsFileLocation
@@ -348,74 +348,74 @@ module Amazonka.Transfer.Lens
 
     -- ** EndpointDetails
     endpointDetails_securityGroupIds,
-    endpointDetails_subnetIds,
-    endpointDetails_vpcId,
-    endpointDetails_addressAllocationIds,
     endpointDetails_vpcEndpointId,
+    endpointDetails_addressAllocationIds,
+    endpointDetails_vpcId,
+    endpointDetails_subnetIds,
 
     -- ** ExecutionError
     executionError_type,
     executionError_message,
 
     -- ** ExecutionResults
-    executionResults_onExceptionSteps,
     executionResults_steps,
+    executionResults_onExceptionSteps,
 
     -- ** ExecutionStepResult
+    executionStepResult_outputs,
     executionStepResult_stepType,
     executionStepResult_error,
-    executionStepResult_outputs,
 
     -- ** FileLocation
-    fileLocation_efsFileLocation,
     fileLocation_s3FileLocation,
+    fileLocation_efsFileLocation,
 
     -- ** HomeDirectoryMapEntry
     homeDirectoryMapEntry_entry,
     homeDirectoryMapEntry_target,
 
     -- ** IdentityProviderDetails
-    identityProviderDetails_invocationRole,
     identityProviderDetails_directoryId,
     identityProviderDetails_url,
+    identityProviderDetails_invocationRole,
 
     -- ** InputFileLocation
-    inputFileLocation_efsFileLocation,
     inputFileLocation_s3FileLocation,
+    inputFileLocation_efsFileLocation,
 
     -- ** ListedAccess
-    listedAccess_homeDirectoryType,
-    listedAccess_role,
-    listedAccess_externalId,
     listedAccess_homeDirectory,
+    listedAccess_externalId,
+    listedAccess_role,
+    listedAccess_homeDirectoryType,
 
     -- ** ListedExecution
+    listedExecution_serviceMetadata,
+    listedExecution_initialFileLocation,
     listedExecution_status,
     listedExecution_executionId,
-    listedExecution_initialFileLocation,
-    listedExecution_serviceMetadata,
 
     -- ** ListedServer
-    listedServer_loggingRole,
-    listedServer_state,
-    listedServer_identityProviderType,
-    listedServer_serverId,
-    listedServer_domain,
-    listedServer_endpointType,
     listedServer_userCount,
+    listedServer_domain,
+    listedServer_identityProviderType,
+    listedServer_state,
+    listedServer_endpointType,
+    listedServer_loggingRole,
+    listedServer_serverId,
     listedServer_arn,
 
     -- ** ListedUser
-    listedUser_homeDirectoryType,
+    listedUser_homeDirectory,
     listedUser_userName,
     listedUser_role,
+    listedUser_homeDirectoryType,
     listedUser_sshPublicKeyCount,
-    listedUser_homeDirectory,
     listedUser_arn,
 
     -- ** ListedWorkflow
-    listedWorkflow_arn,
     listedWorkflow_workflowId,
+    listedWorkflow_arn,
     listedWorkflow_description,
 
     -- ** LoggingConfiguration
@@ -431,14 +431,14 @@ module Amazonka.Transfer.Lens
     protocolDetails_passiveIp,
 
     -- ** S3FileLocation
-    s3FileLocation_versionId,
-    s3FileLocation_etag,
-    s3FileLocation_bucket,
     s3FileLocation_key,
+    s3FileLocation_bucket,
+    s3FileLocation_etag,
+    s3FileLocation_versionId,
 
     -- ** S3InputFileLocation
-    s3InputFileLocation_bucket,
     s3InputFileLocation_key,
+    s3InputFileLocation_bucket,
 
     -- ** S3Tag
     s3Tag_key,
@@ -457,8 +457,8 @@ module Amazonka.Transfer.Lens
     tag_value,
 
     -- ** TagStepDetails
-    tagStepDetails_name,
     tagStepDetails_tags,
+    tagStepDetails_name,
 
     -- ** UserDetails
     userDetails_sessionId,
@@ -473,11 +473,11 @@ module Amazonka.Transfer.Lens
     workflowDetails_onUpload,
 
     -- ** WorkflowStep
+    workflowStep_type,
     workflowStep_tagStepDetails,
+    workflowStep_customStepDetails,
     workflowStep_deleteStepDetails,
     workflowStep_copyStepDetails,
-    workflowStep_type,
-    workflowStep_customStepDetails,
   )
 where
 

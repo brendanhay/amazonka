@@ -15,21 +15,21 @@ module Amazonka.QLDBSession.Lens
   ( -- * Operations
 
     -- ** SendCommand
-    sendCommand_fetchPage,
-    sendCommand_sessionToken,
     sendCommand_abortTransaction,
+    sendCommand_sessionToken,
+    sendCommand_executeStatement,
     sendCommand_endSession,
     sendCommand_startTransaction,
-    sendCommand_executeStatement,
-    sendCommand_commitTransaction,
     sendCommand_startSession,
-    sendCommandResponse_fetchPage,
+    sendCommand_commitTransaction,
+    sendCommand_fetchPage,
     sendCommandResponse_abortTransaction,
+    sendCommandResponse_executeStatement,
     sendCommandResponse_endSession,
     sendCommandResponse_startTransaction,
-    sendCommandResponse_executeStatement,
-    sendCommandResponse_commitTransaction,
     sendCommandResponse_startSession,
+    sendCommandResponse_commitTransaction,
+    sendCommandResponse_fetchPage,
     sendCommandResponse_httpStatus,
 
     -- * Types
@@ -44,9 +44,9 @@ module Amazonka.QLDBSession.Lens
     commitTransactionRequest_commitDigest,
 
     -- ** CommitTransactionResult
+    commitTransactionResult_commitDigest,
     commitTransactionResult_timingInformation,
     commitTransactionResult_consumedIOs,
-    commitTransactionResult_commitDigest,
     commitTransactionResult_transactionId,
 
     -- ** EndSessionRequest
@@ -98,8 +98,8 @@ module Amazonka.QLDBSession.Lens
     timingInformation_processingTimeMilliseconds,
 
     -- ** ValueHolder
-    valueHolder_ionText,
     valueHolder_ionBinary,
+    valueHolder_ionText,
   )
 where
 

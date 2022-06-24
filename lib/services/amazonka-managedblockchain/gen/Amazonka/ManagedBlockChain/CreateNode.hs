@@ -29,8 +29,8 @@ module Amazonka.ManagedBlockChain.CreateNode
     newCreateNode,
 
     -- * Request Lenses
-    createNode_memberId,
     createNode_tags,
+    createNode_memberId,
     createNode_clientRequestToken,
     createNode_networkId,
     createNode_nodeConfiguration,
@@ -54,11 +54,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateNode' smart constructor.
 data CreateNode = CreateNode'
-  { -- | The unique identifier of the member that owns this node.
-    --
-    -- Applies only to Hyperledger Fabric.
-    memberId :: Prelude.Maybe Prelude.Text,
-    -- | Tags to assign to the node. Each tag consists of a key and optional
+  { -- | Tags to assign to the node. Each tag consists of a key and optional
     -- value.
     --
     -- When specifying tags during creation, you can specify multiple key-value
@@ -71,6 +67,10 @@ data CreateNode = CreateNode'
     -- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources>
     -- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The unique identifier of the member that owns this node.
+    --
+    -- Applies only to Hyperledger Fabric.
+    memberId :: Prelude.Maybe Prelude.Text,
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the operation. An idempotent operation completes no more
     -- than one time. This identifier is required only if you make a service
@@ -100,10 +100,6 @@ data CreateNode = CreateNode'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'memberId', 'createNode_memberId' - The unique identifier of the member that owns this node.
---
--- Applies only to Hyperledger Fabric.
---
 -- 'tags', 'createNode_tags' - Tags to assign to the node. Each tag consists of a key and optional
 -- value.
 --
@@ -116,6 +112,10 @@ data CreateNode = CreateNode'
 -- in the /Amazon Managed Blockchain Ethereum Developer Guide/, or
 -- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources>
 -- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
+--
+-- 'memberId', 'createNode_memberId' - The unique identifier of the member that owns this node.
+--
+-- Applies only to Hyperledger Fabric.
 --
 -- 'clientRequestToken', 'createNode_clientRequestToken' - A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the operation. An idempotent operation completes no more
@@ -147,18 +147,12 @@ newCreateNode
   pNetworkId_
   pNodeConfiguration_ =
     CreateNode'
-      { memberId = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        memberId = Prelude.Nothing,
         clientRequestToken = pClientRequestToken_,
         networkId = pNetworkId_,
         nodeConfiguration = pNodeConfiguration_
       }
-
--- | The unique identifier of the member that owns this node.
---
--- Applies only to Hyperledger Fabric.
-createNode_memberId :: Lens.Lens' CreateNode (Prelude.Maybe Prelude.Text)
-createNode_memberId = Lens.lens (\CreateNode' {memberId} -> memberId) (\s@CreateNode' {} a -> s {memberId = a} :: CreateNode)
 
 -- | Tags to assign to the node. Each tag consists of a key and optional
 -- value.
@@ -174,6 +168,12 @@ createNode_memberId = Lens.lens (\CreateNode' {memberId} -> memberId) (\s@Create
 -- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
 createNode_tags :: Lens.Lens' CreateNode (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createNode_tags = Lens.lens (\CreateNode' {tags} -> tags) (\s@CreateNode' {} a -> s {tags = a} :: CreateNode) Prelude.. Lens.mapping Lens.coerced
+
+-- | The unique identifier of the member that owns this node.
+--
+-- Applies only to Hyperledger Fabric.
+createNode_memberId :: Lens.Lens' CreateNode (Prelude.Maybe Prelude.Text)
+createNode_memberId = Lens.lens (\CreateNode' {memberId} -> memberId) (\s@CreateNode' {} a -> s {memberId = a} :: CreateNode)
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the operation. An idempotent operation completes no more
@@ -212,16 +212,16 @@ instance Core.AWSRequest CreateNode where
 
 instance Prelude.Hashable CreateNode where
   hashWithSalt _salt CreateNode' {..} =
-    _salt `Prelude.hashWithSalt` memberId
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` memberId
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` networkId
       `Prelude.hashWithSalt` nodeConfiguration
 
 instance Prelude.NFData CreateNode where
   rnf CreateNode' {..} =
-    Prelude.rnf memberId
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf memberId
       `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf networkId
       `Prelude.seq` Prelude.rnf nodeConfiguration
@@ -241,8 +241,8 @@ instance Core.ToJSON CreateNode where
   toJSON CreateNode' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MemberId" Core..=) Prelude.<$> memberId,
-            ("Tags" Core..=) Prelude.<$> tags,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("MemberId" Core..=) Prelude.<$> memberId,
             Prelude.Just
               ("ClientRequestToken" Core..= clientRequestToken),
             Prelude.Just

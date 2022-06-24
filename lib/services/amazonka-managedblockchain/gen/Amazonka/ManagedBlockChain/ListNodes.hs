@@ -29,9 +29,9 @@ module Amazonka.ManagedBlockChain.ListNodes
     newListNodes,
 
     -- * Request Lenses
-    listNodes_status,
     listNodes_memberId,
     listNodes_nextToken,
+    listNodes_status,
     listNodes_maxResults,
     listNodes_networkId,
 
@@ -55,16 +55,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListNodes' smart constructor.
 data ListNodes = ListNodes'
-  { -- | An optional status specifier. If provided, only nodes currently in this
-    -- status are listed.
-    status :: Prelude.Maybe NodeStatus,
-    -- | The unique identifier of the member who owns the nodes to list.
+  { -- | The unique identifier of the member who owns the nodes to list.
     --
     -- Applies only to Hyperledger Fabric and is required for Hyperledger
     -- Fabric.
     memberId :: Prelude.Maybe Prelude.Text,
     -- | The pagination token that indicates the next set of results to retrieve.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An optional status specifier. If provided, only nodes currently in this
+    -- status are listed.
+    status :: Prelude.Maybe NodeStatus,
     -- | The maximum number of nodes to list.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The unique identifier of the network for which to list nodes.
@@ -80,15 +80,15 @@ data ListNodes = ListNodes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'listNodes_status' - An optional status specifier. If provided, only nodes currently in this
--- status are listed.
---
 -- 'memberId', 'listNodes_memberId' - The unique identifier of the member who owns the nodes to list.
 --
 -- Applies only to Hyperledger Fabric and is required for Hyperledger
 -- Fabric.
 --
 -- 'nextToken', 'listNodes_nextToken' - The pagination token that indicates the next set of results to retrieve.
+--
+-- 'status', 'listNodes_status' - An optional status specifier. If provided, only nodes currently in this
+-- status are listed.
 --
 -- 'maxResults', 'listNodes_maxResults' - The maximum number of nodes to list.
 --
@@ -99,17 +99,12 @@ newListNodes ::
   ListNodes
 newListNodes pNetworkId_ =
   ListNodes'
-    { status = Prelude.Nothing,
-      memberId = Prelude.Nothing,
+    { memberId = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      status = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       networkId = pNetworkId_
     }
-
--- | An optional status specifier. If provided, only nodes currently in this
--- status are listed.
-listNodes_status :: Lens.Lens' ListNodes (Prelude.Maybe NodeStatus)
-listNodes_status = Lens.lens (\ListNodes' {status} -> status) (\s@ListNodes' {} a -> s {status = a} :: ListNodes)
 
 -- | The unique identifier of the member who owns the nodes to list.
 --
@@ -121,6 +116,11 @@ listNodes_memberId = Lens.lens (\ListNodes' {memberId} -> memberId) (\s@ListNode
 -- | The pagination token that indicates the next set of results to retrieve.
 listNodes_nextToken :: Lens.Lens' ListNodes (Prelude.Maybe Prelude.Text)
 listNodes_nextToken = Lens.lens (\ListNodes' {nextToken} -> nextToken) (\s@ListNodes' {} a -> s {nextToken = a} :: ListNodes)
+
+-- | An optional status specifier. If provided, only nodes currently in this
+-- status are listed.
+listNodes_status :: Lens.Lens' ListNodes (Prelude.Maybe NodeStatus)
+listNodes_status = Lens.lens (\ListNodes' {status} -> status) (\s@ListNodes' {} a -> s {status = a} :: ListNodes)
 
 -- | The maximum number of nodes to list.
 listNodes_maxResults :: Lens.Lens' ListNodes (Prelude.Maybe Prelude.Natural)
@@ -144,17 +144,17 @@ instance Core.AWSRequest ListNodes where
 
 instance Prelude.Hashable ListNodes where
   hashWithSalt _salt ListNodes' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` memberId
+    _salt `Prelude.hashWithSalt` memberId
       `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` networkId
 
 instance Prelude.NFData ListNodes where
   rnf ListNodes' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf memberId
+    Prelude.rnf memberId
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf networkId
 
@@ -177,9 +177,9 @@ instance Core.ToPath ListNodes where
 instance Core.ToQuery ListNodes where
   toQuery ListNodes' {..} =
     Prelude.mconcat
-      [ "status" Core.=: status,
-        "memberId" Core.=: memberId,
+      [ "memberId" Core.=: memberId,
         "nextToken" Core.=: nextToken,
+        "status" Core.=: status,
         "maxResults" Core.=: maxResults
       ]
 

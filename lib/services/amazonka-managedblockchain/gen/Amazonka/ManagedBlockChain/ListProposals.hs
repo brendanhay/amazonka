@@ -38,8 +38,8 @@ module Amazonka.ManagedBlockChain.ListProposals
     newListProposalsResponse,
 
     -- * Response Lenses
-    listProposalsResponse_proposals,
     listProposalsResponse_nextToken,
+    listProposalsResponse_proposals,
     listProposalsResponse_httpStatus,
   )
 where
@@ -107,8 +107,8 @@ instance Core.AWSRequest ListProposals where
     Response.receiveJSON
       ( \s h x ->
           ListProposalsResponse'
-            Prelude.<$> (x Core..?> "Proposals" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Proposals" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,10 +149,10 @@ instance Core.ToQuery ListProposals where
 
 -- | /See:/ 'newListProposalsResponse' smart constructor.
 data ListProposalsResponse = ListProposalsResponse'
-  { -- | The summary of each proposal made on the network.
-    proposals :: Prelude.Maybe [ProposalSummary],
-    -- | The pagination token that indicates the next set of results to retrieve.
+  { -- | The pagination token that indicates the next set of results to retrieve.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The summary of each proposal made on the network.
+    proposals :: Prelude.Maybe [ProposalSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -166,9 +166,9 @@ data ListProposalsResponse = ListProposalsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'proposals', 'listProposalsResponse_proposals' - The summary of each proposal made on the network.
---
 -- 'nextToken', 'listProposalsResponse_nextToken' - The pagination token that indicates the next set of results to retrieve.
+--
+-- 'proposals', 'listProposalsResponse_proposals' - The summary of each proposal made on the network.
 --
 -- 'httpStatus', 'listProposalsResponse_httpStatus' - The response's http status code.
 newListProposalsResponse ::
@@ -177,18 +177,18 @@ newListProposalsResponse ::
   ListProposalsResponse
 newListProposalsResponse pHttpStatus_ =
   ListProposalsResponse'
-    { proposals = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      proposals = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The summary of each proposal made on the network.
-listProposalsResponse_proposals :: Lens.Lens' ListProposalsResponse (Prelude.Maybe [ProposalSummary])
-listProposalsResponse_proposals = Lens.lens (\ListProposalsResponse' {proposals} -> proposals) (\s@ListProposalsResponse' {} a -> s {proposals = a} :: ListProposalsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token that indicates the next set of results to retrieve.
 listProposalsResponse_nextToken :: Lens.Lens' ListProposalsResponse (Prelude.Maybe Prelude.Text)
 listProposalsResponse_nextToken = Lens.lens (\ListProposalsResponse' {nextToken} -> nextToken) (\s@ListProposalsResponse' {} a -> s {nextToken = a} :: ListProposalsResponse)
+
+-- | The summary of each proposal made on the network.
+listProposalsResponse_proposals :: Lens.Lens' ListProposalsResponse (Prelude.Maybe [ProposalSummary])
+listProposalsResponse_proposals = Lens.lens (\ListProposalsResponse' {proposals} -> proposals) (\s@ListProposalsResponse' {} a -> s {proposals = a} :: ListProposalsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listProposalsResponse_httpStatus :: Lens.Lens' ListProposalsResponse Prelude.Int
@@ -196,6 +196,6 @@ listProposalsResponse_httpStatus = Lens.lens (\ListProposalsResponse' {httpStatu
 
 instance Prelude.NFData ListProposalsResponse where
   rnf ListProposalsResponse' {..} =
-    Prelude.rnf proposals
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf proposals
       `Prelude.seq` Prelude.rnf httpStatus

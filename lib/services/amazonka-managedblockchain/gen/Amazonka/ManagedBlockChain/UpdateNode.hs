@@ -29,8 +29,8 @@ module Amazonka.ManagedBlockChain.UpdateNode
     newUpdateNode,
 
     -- * Request Lenses
-    updateNode_logPublishingConfiguration,
     updateNode_memberId,
+    updateNode_logPublishingConfiguration,
     updateNode_networkId,
     updateNode_nodeId,
 
@@ -52,12 +52,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateNode' smart constructor.
 data UpdateNode = UpdateNode'
-  { -- | Configuration properties for publishing to Amazon CloudWatch Logs.
-    logPublishingConfiguration :: Prelude.Maybe NodeLogPublishingConfiguration,
-    -- | The unique identifier of the member that owns the node.
+  { -- | The unique identifier of the member that owns the node.
     --
     -- Applies only to Hyperledger Fabric.
     memberId :: Prelude.Maybe Prelude.Text,
+    -- | Configuration properties for publishing to Amazon CloudWatch Logs.
+    logPublishingConfiguration :: Prelude.Maybe NodeLogPublishingConfiguration,
     -- | The unique identifier of the network that the node is on.
     networkId :: Prelude.Text,
     -- | The unique identifier of the node.
@@ -73,11 +73,11 @@ data UpdateNode = UpdateNode'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'logPublishingConfiguration', 'updateNode_logPublishingConfiguration' - Configuration properties for publishing to Amazon CloudWatch Logs.
---
 -- 'memberId', 'updateNode_memberId' - The unique identifier of the member that owns the node.
 --
 -- Applies only to Hyperledger Fabric.
+--
+-- 'logPublishingConfiguration', 'updateNode_logPublishingConfiguration' - Configuration properties for publishing to Amazon CloudWatch Logs.
 --
 -- 'networkId', 'updateNode_networkId' - The unique identifier of the network that the node is on.
 --
@@ -90,22 +90,21 @@ newUpdateNode ::
   UpdateNode
 newUpdateNode pNetworkId_ pNodeId_ =
   UpdateNode'
-    { logPublishingConfiguration =
-        Prelude.Nothing,
-      memberId = Prelude.Nothing,
+    { memberId = Prelude.Nothing,
+      logPublishingConfiguration = Prelude.Nothing,
       networkId = pNetworkId_,
       nodeId = pNodeId_
     }
-
--- | Configuration properties for publishing to Amazon CloudWatch Logs.
-updateNode_logPublishingConfiguration :: Lens.Lens' UpdateNode (Prelude.Maybe NodeLogPublishingConfiguration)
-updateNode_logPublishingConfiguration = Lens.lens (\UpdateNode' {logPublishingConfiguration} -> logPublishingConfiguration) (\s@UpdateNode' {} a -> s {logPublishingConfiguration = a} :: UpdateNode)
 
 -- | The unique identifier of the member that owns the node.
 --
 -- Applies only to Hyperledger Fabric.
 updateNode_memberId :: Lens.Lens' UpdateNode (Prelude.Maybe Prelude.Text)
 updateNode_memberId = Lens.lens (\UpdateNode' {memberId} -> memberId) (\s@UpdateNode' {} a -> s {memberId = a} :: UpdateNode)
+
+-- | Configuration properties for publishing to Amazon CloudWatch Logs.
+updateNode_logPublishingConfiguration :: Lens.Lens' UpdateNode (Prelude.Maybe NodeLogPublishingConfiguration)
+updateNode_logPublishingConfiguration = Lens.lens (\UpdateNode' {logPublishingConfiguration} -> logPublishingConfiguration) (\s@UpdateNode' {} a -> s {logPublishingConfiguration = a} :: UpdateNode)
 
 -- | The unique identifier of the network that the node is on.
 updateNode_networkId :: Lens.Lens' UpdateNode Prelude.Text
@@ -127,16 +126,15 @@ instance Core.AWSRequest UpdateNode where
 
 instance Prelude.Hashable UpdateNode where
   hashWithSalt _salt UpdateNode' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` memberId
       `Prelude.hashWithSalt` logPublishingConfiguration
-      `Prelude.hashWithSalt` memberId
       `Prelude.hashWithSalt` networkId
       `Prelude.hashWithSalt` nodeId
 
 instance Prelude.NFData UpdateNode where
   rnf UpdateNode' {..} =
-    Prelude.rnf logPublishingConfiguration
-      `Prelude.seq` Prelude.rnf memberId
+    Prelude.rnf memberId
+      `Prelude.seq` Prelude.rnf logPublishingConfiguration
       `Prelude.seq` Prelude.rnf networkId
       `Prelude.seq` Prelude.rnf nodeId
 
@@ -155,9 +153,9 @@ instance Core.ToJSON UpdateNode where
   toJSON UpdateNode' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("LogPublishingConfiguration" Core..=)
-              Prelude.<$> logPublishingConfiguration,
-            ("MemberId" Core..=) Prelude.<$> memberId
+          [ ("MemberId" Core..=) Prelude.<$> memberId,
+            ("LogPublishingConfiguration" Core..=)
+              Prelude.<$> logPublishingConfiguration
           ]
       )
 

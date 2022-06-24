@@ -30,26 +30,23 @@ import Test.Tasty
 --         [ requestCreateMember $
 --             newCreateMember
 --
---         , requestListNetworks $
---             newListNetworks
---
---         , requestGetProposal $
---             newGetProposal
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
 --         , requestCreateNetwork $
 --             newCreateNetwork
 --
---         , requestListProposals $
---             newListProposals
---
---         , requestListInvitations $
---             newListInvitations
+--         , requestCreateNode $
+--             newCreateNode
 --
 --         , requestCreateProposal $
 --             newCreateProposal
+--
+--         , requestDeleteMember $
+--             newDeleteMember
+--
+--         , requestDeleteNode $
+--             newDeleteNode
+--
+--         , requestGetMember $
+--             newGetMember
 --
 --         , requestGetNetwork $
 --             newGetNetwork
@@ -57,23 +54,32 @@ import Test.Tasty
 --         , requestGetNode $
 --             newGetNode
 --
---         , requestUpdateMember $
---             newUpdateMember
+--         , requestGetProposal $
+--             newGetProposal
 --
---         , requestDeleteMember $
---             newDeleteMember
+--         , requestListInvitations $
+--             newListInvitations
 --
 --         , requestListMembers $
 --             newListMembers
 --
---         , requestCreateNode $
---             newCreateNode
+--         , requestListNetworks $
+--             newListNetworks
+--
+--         , requestListNodes $
+--             newListNodes
 --
 --         , requestListProposalVotes $
 --             newListProposalVotes
 --
---         , requestVoteOnProposal $
---             newVoteOnProposal
+--         , requestListProposals $
+--             newListProposals
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestRejectInvitation $
+--             newRejectInvitation
 --
 --         , requestTagResource $
 --             newTagResource
@@ -81,20 +87,14 @@ import Test.Tasty
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestGetMember $
---             newGetMember
---
---         , requestRejectInvitation $
---             newRejectInvitation
+--         , requestUpdateMember $
+--             newUpdateMember
 --
 --         , requestUpdateNode $
 --             newUpdateNode
 --
---         , requestDeleteNode $
---             newDeleteNode
---
---         , requestListNodes $
---             newListNodes
+--         , requestVoteOnProposal $
+--             newVoteOnProposal
 --
 --           ]
 
@@ -102,26 +102,23 @@ import Test.Tasty
 --         [ responseCreateMember $
 --             newCreateMemberResponse
 --
---         , responseListNetworks $
---             newListNetworksResponse
---
---         , responseGetProposal $
---             newGetProposalResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
 --         , responseCreateNetwork $
 --             newCreateNetworkResponse
 --
---         , responseListProposals $
---             newListProposalsResponse
---
---         , responseListInvitations $
---             newListInvitationsResponse
+--         , responseCreateNode $
+--             newCreateNodeResponse
 --
 --         , responseCreateProposal $
 --             newCreateProposalResponse
+--
+--         , responseDeleteMember $
+--             newDeleteMemberResponse
+--
+--         , responseDeleteNode $
+--             newDeleteNodeResponse
+--
+--         , responseGetMember $
+--             newGetMemberResponse
 --
 --         , responseGetNetwork $
 --             newGetNetworkResponse
@@ -129,23 +126,32 @@ import Test.Tasty
 --         , responseGetNode $
 --             newGetNodeResponse
 --
---         , responseUpdateMember $
---             newUpdateMemberResponse
+--         , responseGetProposal $
+--             newGetProposalResponse
 --
---         , responseDeleteMember $
---             newDeleteMemberResponse
+--         , responseListInvitations $
+--             newListInvitationsResponse
 --
 --         , responseListMembers $
 --             newListMembersResponse
 --
---         , responseCreateNode $
---             newCreateNodeResponse
+--         , responseListNetworks $
+--             newListNetworksResponse
+--
+--         , responseListNodes $
+--             newListNodesResponse
 --
 --         , responseListProposalVotes $
 --             newListProposalVotesResponse
 --
---         , responseVoteOnProposal $
---             newVoteOnProposalResponse
+--         , responseListProposals $
+--             newListProposalsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseRejectInvitation $
+--             newRejectInvitationResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -153,20 +159,14 @@ import Test.Tasty
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseGetMember $
---             newGetMemberResponse
---
---         , responseRejectInvitation $
---             newRejectInvitationResponse
+--         , responseUpdateMember $
+--             newUpdateMemberResponse
 --
 --         , responseUpdateNode $
 --             newUpdateNodeResponse
 --
---         , responseDeleteNode $
---             newDeleteNodeResponse
---
---         , responseListNodes $
---             newListNodesResponse
+--         , responseVoteOnProposal $
+--             newVoteOnProposalResponse
 --
 --           ]
 --     ]
@@ -179,47 +179,41 @@ requestCreateMember =
     "CreateMember"
     "fixture/CreateMember.yaml"
 
-requestListNetworks :: ListNetworks -> TestTree
-requestListNetworks =
-  req
-    "ListNetworks"
-    "fixture/ListNetworks.yaml"
-
-requestGetProposal :: GetProposal -> TestTree
-requestGetProposal =
-  req
-    "GetProposal"
-    "fixture/GetProposal.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
 requestCreateNetwork :: CreateNetwork -> TestTree
 requestCreateNetwork =
   req
     "CreateNetwork"
     "fixture/CreateNetwork.yaml"
 
-requestListProposals :: ListProposals -> TestTree
-requestListProposals =
+requestCreateNode :: CreateNode -> TestTree
+requestCreateNode =
   req
-    "ListProposals"
-    "fixture/ListProposals.yaml"
-
-requestListInvitations :: ListInvitations -> TestTree
-requestListInvitations =
-  req
-    "ListInvitations"
-    "fixture/ListInvitations.yaml"
+    "CreateNode"
+    "fixture/CreateNode.yaml"
 
 requestCreateProposal :: CreateProposal -> TestTree
 requestCreateProposal =
   req
     "CreateProposal"
     "fixture/CreateProposal.yaml"
+
+requestDeleteMember :: DeleteMember -> TestTree
+requestDeleteMember =
+  req
+    "DeleteMember"
+    "fixture/DeleteMember.yaml"
+
+requestDeleteNode :: DeleteNode -> TestTree
+requestDeleteNode =
+  req
+    "DeleteNode"
+    "fixture/DeleteNode.yaml"
+
+requestGetMember :: GetMember -> TestTree
+requestGetMember =
+  req
+    "GetMember"
+    "fixture/GetMember.yaml"
 
 requestGetNetwork :: GetNetwork -> TestTree
 requestGetNetwork =
@@ -233,17 +227,17 @@ requestGetNode =
     "GetNode"
     "fixture/GetNode.yaml"
 
-requestUpdateMember :: UpdateMember -> TestTree
-requestUpdateMember =
+requestGetProposal :: GetProposal -> TestTree
+requestGetProposal =
   req
-    "UpdateMember"
-    "fixture/UpdateMember.yaml"
+    "GetProposal"
+    "fixture/GetProposal.yaml"
 
-requestDeleteMember :: DeleteMember -> TestTree
-requestDeleteMember =
+requestListInvitations :: ListInvitations -> TestTree
+requestListInvitations =
   req
-    "DeleteMember"
-    "fixture/DeleteMember.yaml"
+    "ListInvitations"
+    "fixture/ListInvitations.yaml"
 
 requestListMembers :: ListMembers -> TestTree
 requestListMembers =
@@ -251,11 +245,17 @@ requestListMembers =
     "ListMembers"
     "fixture/ListMembers.yaml"
 
-requestCreateNode :: CreateNode -> TestTree
-requestCreateNode =
+requestListNetworks :: ListNetworks -> TestTree
+requestListNetworks =
   req
-    "CreateNode"
-    "fixture/CreateNode.yaml"
+    "ListNetworks"
+    "fixture/ListNetworks.yaml"
+
+requestListNodes :: ListNodes -> TestTree
+requestListNodes =
+  req
+    "ListNodes"
+    "fixture/ListNodes.yaml"
 
 requestListProposalVotes :: ListProposalVotes -> TestTree
 requestListProposalVotes =
@@ -263,11 +263,23 @@ requestListProposalVotes =
     "ListProposalVotes"
     "fixture/ListProposalVotes.yaml"
 
-requestVoteOnProposal :: VoteOnProposal -> TestTree
-requestVoteOnProposal =
+requestListProposals :: ListProposals -> TestTree
+requestListProposals =
   req
-    "VoteOnProposal"
-    "fixture/VoteOnProposal.yaml"
+    "ListProposals"
+    "fixture/ListProposals.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestRejectInvitation :: RejectInvitation -> TestTree
+requestRejectInvitation =
+  req
+    "RejectInvitation"
+    "fixture/RejectInvitation.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -281,17 +293,11 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestGetMember :: GetMember -> TestTree
-requestGetMember =
+requestUpdateMember :: UpdateMember -> TestTree
+requestUpdateMember =
   req
-    "GetMember"
-    "fixture/GetMember.yaml"
-
-requestRejectInvitation :: RejectInvitation -> TestTree
-requestRejectInvitation =
-  req
-    "RejectInvitation"
-    "fixture/RejectInvitation.yaml"
+    "UpdateMember"
+    "fixture/UpdateMember.yaml"
 
 requestUpdateNode :: UpdateNode -> TestTree
 requestUpdateNode =
@@ -299,17 +305,11 @@ requestUpdateNode =
     "UpdateNode"
     "fixture/UpdateNode.yaml"
 
-requestDeleteNode :: DeleteNode -> TestTree
-requestDeleteNode =
+requestVoteOnProposal :: VoteOnProposal -> TestTree
+requestVoteOnProposal =
   req
-    "DeleteNode"
-    "fixture/DeleteNode.yaml"
-
-requestListNodes :: ListNodes -> TestTree
-requestListNodes =
-  req
-    "ListNodes"
-    "fixture/ListNodes.yaml"
+    "VoteOnProposal"
+    "fixture/VoteOnProposal.yaml"
 
 -- Responses
 
@@ -321,30 +321,6 @@ responseCreateMember =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateMember)
 
-responseListNetworks :: ListNetworksResponse -> TestTree
-responseListNetworks =
-  res
-    "ListNetworksResponse"
-    "fixture/ListNetworksResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListNetworks)
-
-responseGetProposal :: GetProposalResponse -> TestTree
-responseGetProposal =
-  res
-    "GetProposalResponse"
-    "fixture/GetProposalResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetProposal)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
 responseCreateNetwork :: CreateNetworkResponse -> TestTree
 responseCreateNetwork =
   res
@@ -353,21 +329,13 @@ responseCreateNetwork =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateNetwork)
 
-responseListProposals :: ListProposalsResponse -> TestTree
-responseListProposals =
+responseCreateNode :: CreateNodeResponse -> TestTree
+responseCreateNode =
   res
-    "ListProposalsResponse"
-    "fixture/ListProposalsResponse.proto"
+    "CreateNodeResponse"
+    "fixture/CreateNodeResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListProposals)
-
-responseListInvitations :: ListInvitationsResponse -> TestTree
-responseListInvitations =
-  res
-    "ListInvitationsResponse"
-    "fixture/ListInvitationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListInvitations)
+    (Proxy.Proxy :: Proxy.Proxy CreateNode)
 
 responseCreateProposal :: CreateProposalResponse -> TestTree
 responseCreateProposal =
@@ -376,6 +344,30 @@ responseCreateProposal =
     "fixture/CreateProposalResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateProposal)
+
+responseDeleteMember :: DeleteMemberResponse -> TestTree
+responseDeleteMember =
+  res
+    "DeleteMemberResponse"
+    "fixture/DeleteMemberResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteMember)
+
+responseDeleteNode :: DeleteNodeResponse -> TestTree
+responseDeleteNode =
+  res
+    "DeleteNodeResponse"
+    "fixture/DeleteNodeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteNode)
+
+responseGetMember :: GetMemberResponse -> TestTree
+responseGetMember =
+  res
+    "GetMemberResponse"
+    "fixture/GetMemberResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetMember)
 
 responseGetNetwork :: GetNetworkResponse -> TestTree
 responseGetNetwork =
@@ -393,21 +385,21 @@ responseGetNode =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetNode)
 
-responseUpdateMember :: UpdateMemberResponse -> TestTree
-responseUpdateMember =
+responseGetProposal :: GetProposalResponse -> TestTree
+responseGetProposal =
   res
-    "UpdateMemberResponse"
-    "fixture/UpdateMemberResponse.proto"
+    "GetProposalResponse"
+    "fixture/GetProposalResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateMember)
+    (Proxy.Proxy :: Proxy.Proxy GetProposal)
 
-responseDeleteMember :: DeleteMemberResponse -> TestTree
-responseDeleteMember =
+responseListInvitations :: ListInvitationsResponse -> TestTree
+responseListInvitations =
   res
-    "DeleteMemberResponse"
-    "fixture/DeleteMemberResponse.proto"
+    "ListInvitationsResponse"
+    "fixture/ListInvitationsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteMember)
+    (Proxy.Proxy :: Proxy.Proxy ListInvitations)
 
 responseListMembers :: ListMembersResponse -> TestTree
 responseListMembers =
@@ -417,13 +409,21 @@ responseListMembers =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListMembers)
 
-responseCreateNode :: CreateNodeResponse -> TestTree
-responseCreateNode =
+responseListNetworks :: ListNetworksResponse -> TestTree
+responseListNetworks =
   res
-    "CreateNodeResponse"
-    "fixture/CreateNodeResponse.proto"
+    "ListNetworksResponse"
+    "fixture/ListNetworksResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateNode)
+    (Proxy.Proxy :: Proxy.Proxy ListNetworks)
+
+responseListNodes :: ListNodesResponse -> TestTree
+responseListNodes =
+  res
+    "ListNodesResponse"
+    "fixture/ListNodesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListNodes)
 
 responseListProposalVotes :: ListProposalVotesResponse -> TestTree
 responseListProposalVotes =
@@ -433,13 +433,29 @@ responseListProposalVotes =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListProposalVotes)
 
-responseVoteOnProposal :: VoteOnProposalResponse -> TestTree
-responseVoteOnProposal =
+responseListProposals :: ListProposalsResponse -> TestTree
+responseListProposals =
   res
-    "VoteOnProposalResponse"
-    "fixture/VoteOnProposalResponse.proto"
+    "ListProposalsResponse"
+    "fixture/ListProposalsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy VoteOnProposal)
+    (Proxy.Proxy :: Proxy.Proxy ListProposals)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseRejectInvitation :: RejectInvitationResponse -> TestTree
+responseRejectInvitation =
+  res
+    "RejectInvitationResponse"
+    "fixture/RejectInvitationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RejectInvitation)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -457,21 +473,13 @@ responseUntagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
-responseGetMember :: GetMemberResponse -> TestTree
-responseGetMember =
+responseUpdateMember :: UpdateMemberResponse -> TestTree
+responseUpdateMember =
   res
-    "GetMemberResponse"
-    "fixture/GetMemberResponse.proto"
+    "UpdateMemberResponse"
+    "fixture/UpdateMemberResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetMember)
-
-responseRejectInvitation :: RejectInvitationResponse -> TestTree
-responseRejectInvitation =
-  res
-    "RejectInvitationResponse"
-    "fixture/RejectInvitationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RejectInvitation)
+    (Proxy.Proxy :: Proxy.Proxy UpdateMember)
 
 responseUpdateNode :: UpdateNodeResponse -> TestTree
 responseUpdateNode =
@@ -481,18 +489,10 @@ responseUpdateNode =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateNode)
 
-responseDeleteNode :: DeleteNodeResponse -> TestTree
-responseDeleteNode =
+responseVoteOnProposal :: VoteOnProposalResponse -> TestTree
+responseVoteOnProposal =
   res
-    "DeleteNodeResponse"
-    "fixture/DeleteNodeResponse.proto"
+    "VoteOnProposalResponse"
+    "fixture/VoteOnProposalResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteNode)
-
-responseListNodes :: ListNodesResponse -> TestTree
-responseListNodes =
-  res
-    "ListNodesResponse"
-    "fixture/ListNodesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListNodes)
+    (Proxy.Proxy :: Proxy.Proxy VoteOnProposal)

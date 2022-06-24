@@ -17,15 +17,15 @@ module Amazonka.Discovery.Types
     defaultService,
 
     -- * Errors
+    _ConflictErrorException,
+    _ResourceNotFoundException,
+    _ServerInternalErrorException,
+    _ResourceInUseException,
     _AuthorizationErrorException,
+    _OperationNotPermittedException,
+    _InvalidParameterValueException,
     _HomeRegionNotSetException,
     _InvalidParameterException,
-    _ConflictErrorException,
-    _InvalidParameterValueException,
-    _ServerInternalErrorException,
-    _OperationNotPermittedException,
-    _ResourceNotFoundException,
-    _ResourceInUseException,
 
     -- * AgentStatus
     AgentStatus (..),
@@ -60,29 +60,29 @@ module Amazonka.Discovery.Types
     -- * AgentConfigurationStatus
     AgentConfigurationStatus (..),
     newAgentConfigurationStatus,
+    agentConfigurationStatus_description,
     agentConfigurationStatus_agentId,
     agentConfigurationStatus_operationSucceeded,
-    agentConfigurationStatus_description,
 
     -- * AgentInfo
     AgentInfo (..),
     newAgentInfo,
-    agentInfo_hostName,
-    agentInfo_lastHealthPingTime,
-    agentInfo_agentNetworkInfoList,
-    agentInfo_connectorId,
-    agentInfo_health,
-    agentInfo_agentId,
-    agentInfo_version,
-    agentInfo_collectionStatus,
-    agentInfo_registeredTime,
     agentInfo_agentType,
+    agentInfo_collectionStatus,
+    agentInfo_connectorId,
+    agentInfo_lastHealthPingTime,
+    agentInfo_hostName,
+    agentInfo_agentId,
+    agentInfo_health,
+    agentInfo_agentNetworkInfoList,
+    agentInfo_registeredTime,
+    agentInfo_version,
 
     -- * AgentNetworkInfo
     AgentNetworkInfo (..),
     newAgentNetworkInfo,
-    agentNetworkInfo_ipAddress,
     agentNetworkInfo_macAddress,
+    agentNetworkInfo_ipAddress,
 
     -- * BatchDeleteImportDataError
     BatchDeleteImportDataError (..),
@@ -94,23 +94,23 @@ module Amazonka.Discovery.Types
     -- * ConfigurationTag
     ConfigurationTag (..),
     newConfigurationTag,
+    configurationTag_key,
     configurationTag_timeOfCreation,
     configurationTag_configurationId,
     configurationTag_configurationType,
     configurationTag_value,
-    configurationTag_key,
 
     -- * ContinuousExportDescription
     ContinuousExportDescription (..),
     newContinuousExportDescription,
-    continuousExportDescription_status,
-    continuousExportDescription_startTime,
-    continuousExportDescription_schemaStorageConfig,
-    continuousExportDescription_statusDetail,
-    continuousExportDescription_stopTime,
-    continuousExportDescription_dataSource,
     continuousExportDescription_s3Bucket,
+    continuousExportDescription_stopTime,
+    continuousExportDescription_statusDetail,
+    continuousExportDescription_status,
+    continuousExportDescription_schemaStorageConfig,
+    continuousExportDescription_dataSource,
     continuousExportDescription_exportId,
+    continuousExportDescription_startTime,
 
     -- * CustomerAgentInfo
     CustomerAgentInfo (..),
@@ -144,10 +144,10 @@ module Amazonka.Discovery.Types
     -- * ExportInfo
     ExportInfo (..),
     newExportInfo,
-    exportInfo_configurationsDownloadUrl,
-    exportInfo_requestedStartTime,
     exportInfo_requestedEndTime,
     exportInfo_isTruncated,
+    exportInfo_requestedStartTime,
+    exportInfo_configurationsDownloadUrl,
     exportInfo_exportId,
     exportInfo_exportStatus,
     exportInfo_statusMessage,
@@ -163,25 +163,25 @@ module Amazonka.Discovery.Types
     -- * ImportTask
     ImportTask (..),
     newImportTask,
-    importTask_applicationImportSuccess,
-    importTask_status,
-    importTask_serverImportSuccess,
-    importTask_importCompletionTime,
     importTask_name,
-    importTask_applicationImportFailure,
-    importTask_errorsAndFailedEntriesZip,
-    importTask_importTaskId,
-    importTask_importDeletedTime,
     importTask_serverImportFailure,
     importTask_clientRequestToken,
-    importTask_importUrl,
+    importTask_importTaskId,
+    importTask_status,
+    importTask_serverImportSuccess,
+    importTask_errorsAndFailedEntriesZip,
+    importTask_applicationImportSuccess,
+    importTask_applicationImportFailure,
+    importTask_importCompletionTime,
     importTask_importRequestTime,
+    importTask_importUrl,
+    importTask_importDeletedTime,
 
     -- * ImportTaskFilter
     ImportTaskFilter (..),
     newImportTaskFilter,
-    importTaskFilter_values,
     importTaskFilter_name,
+    importTaskFilter_values,
 
     -- * NeighborConnectionDetail
     NeighborConnectionDetail (..),
@@ -269,35 +269,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -306,13 +279,73 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
+
+-- |
+_ConflictErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictErrorException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictErrorException"
+
+-- | The specified configuration ID was not located. Verify the configuration
+-- ID and try again.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+
+-- | The server experienced an internal error. Try again.
+_ServerInternalErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServerInternalErrorException =
+  Core._MatchServiceError
+    defaultService
+    "ServerInternalErrorException"
+
+-- | This issue occurs when the same @clientRequestToken@ is used with the
+-- @StartImportTask@ action, but with different parameters. For example,
+-- you use the same request token but have two different import URLs, you
+-- can encounter this issue. If the import tasks are meant to be different,
+-- use a different @clientRequestToken@, and try again.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUseException"
 
 -- | The AWS user account does not have permission to perform the action.
 -- Check the IAM policy associated with this account.
@@ -321,6 +354,21 @@ _AuthorizationErrorException =
   Core._MatchServiceError
     defaultService
     "AuthorizationErrorException"
+
+-- | This operation is not permitted.
+_OperationNotPermittedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OperationNotPermittedException =
+  Core._MatchServiceError
+    defaultService
+    "OperationNotPermittedException"
+
+-- | The value of one or more parameters are either invalid or out of range.
+-- Verify the parameter values and try again.
+_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterValueException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidParameterValueException"
 
 -- | The home region is not set. Set the home region to continue.
 _HomeRegionNotSetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -336,51 +384,3 @@ _InvalidParameterException =
   Core._MatchServiceError
     defaultService
     "InvalidParameterException"
-
--- |
-_ConflictErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictErrorException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictErrorException"
-
--- | The value of one or more parameters are either invalid or out of range.
--- Verify the parameter values and try again.
-_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterValueException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidParameterValueException"
-
--- | The server experienced an internal error. Try again.
-_ServerInternalErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServerInternalErrorException =
-  Core._MatchServiceError
-    defaultService
-    "ServerInternalErrorException"
-
--- | This operation is not permitted.
-_OperationNotPermittedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OperationNotPermittedException =
-  Core._MatchServiceError
-    defaultService
-    "OperationNotPermittedException"
-
--- | The specified configuration ID was not located. Verify the configuration
--- ID and try again.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-
--- | This issue occurs when the same @clientRequestToken@ is used with the
--- @StartImportTask@ action, but with different parameters. For example,
--- you use the same request token but have two different import URLs, you
--- can encounter this issue. If the import tasks are meant to be different,
--- use a different @clientRequestToken@, and try again.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceInUseException"

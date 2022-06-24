@@ -30,9 +30,9 @@ module Amazonka.Discovery.DescribeExportTasks
     newDescribeExportTasks,
 
     -- * Request Lenses
-    describeExportTasks_filters,
-    describeExportTasks_nextToken,
     describeExportTasks_exportIds,
+    describeExportTasks_nextToken,
+    describeExportTasks_filters,
     describeExportTasks_maxResults,
 
     -- * Destructuring the Response
@@ -55,19 +55,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeExportTasks' smart constructor.
 data DescribeExportTasks = DescribeExportTasks'
-  { -- | One or more filters.
-    --
-    -- -   @AgentId@ - ID of the agent whose collected data will be exported
-    filters :: Prelude.Maybe [ExportFilter],
+  { -- | One or more unique identifiers used to query the status of an export
+    -- request.
+    exportIds :: Prelude.Maybe [Prelude.Text],
     -- | The @nextToken@ value returned from a previous paginated
     -- @DescribeExportTasks@ request where @maxResults@ was used and the
     -- results exceeded the value of that parameter. Pagination continues from
     -- the end of the previous results that returned the @nextToken@ value.
     -- This value is null when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | One or more unique identifiers used to query the status of an export
-    -- request.
-    exportIds :: Prelude.Maybe [Prelude.Text],
+    -- | One or more filters.
+    --
+    -- -   @AgentId@ - ID of the agent whose collected data will be exported
+    filters :: Prelude.Maybe [ExportFilter],
     -- | The maximum number of volume results returned by @DescribeExportTasks@
     -- in paginated output. When this parameter is used, @DescribeExportTasks@
     -- only returns @maxResults@ results in a single page along with a
@@ -84,9 +84,8 @@ data DescribeExportTasks = DescribeExportTasks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'describeExportTasks_filters' - One or more filters.
---
--- -   @AgentId@ - ID of the agent whose collected data will be exported
+-- 'exportIds', 'describeExportTasks_exportIds' - One or more unique identifiers used to query the status of an export
+-- request.
 --
 -- 'nextToken', 'describeExportTasks_nextToken' - The @nextToken@ value returned from a previous paginated
 -- @DescribeExportTasks@ request where @maxResults@ was used and the
@@ -94,8 +93,9 @@ data DescribeExportTasks = DescribeExportTasks'
 -- the end of the previous results that returned the @nextToken@ value.
 -- This value is null when there are no more results to return.
 --
--- 'exportIds', 'describeExportTasks_exportIds' - One or more unique identifiers used to query the status of an export
--- request.
+-- 'filters', 'describeExportTasks_filters' - One or more filters.
+--
+-- -   @AgentId@ - ID of the agent whose collected data will be exported
 --
 -- 'maxResults', 'describeExportTasks_maxResults' - The maximum number of volume results returned by @DescribeExportTasks@
 -- in paginated output. When this parameter is used, @DescribeExportTasks@
@@ -105,17 +105,16 @@ newDescribeExportTasks ::
   DescribeExportTasks
 newDescribeExportTasks =
   DescribeExportTasks'
-    { filters = Prelude.Nothing,
+    { exportIds = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      exportIds = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
 
--- | One or more filters.
---
--- -   @AgentId@ - ID of the agent whose collected data will be exported
-describeExportTasks_filters :: Lens.Lens' DescribeExportTasks (Prelude.Maybe [ExportFilter])
-describeExportTasks_filters = Lens.lens (\DescribeExportTasks' {filters} -> filters) (\s@DescribeExportTasks' {} a -> s {filters = a} :: DescribeExportTasks) Prelude.. Lens.mapping Lens.coerced
+-- | One or more unique identifiers used to query the status of an export
+-- request.
+describeExportTasks_exportIds :: Lens.Lens' DescribeExportTasks (Prelude.Maybe [Prelude.Text])
+describeExportTasks_exportIds = Lens.lens (\DescribeExportTasks' {exportIds} -> exportIds) (\s@DescribeExportTasks' {} a -> s {exportIds = a} :: DescribeExportTasks) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @nextToken@ value returned from a previous paginated
 -- @DescribeExportTasks@ request where @maxResults@ was used and the
@@ -125,10 +124,11 @@ describeExportTasks_filters = Lens.lens (\DescribeExportTasks' {filters} -> filt
 describeExportTasks_nextToken :: Lens.Lens' DescribeExportTasks (Prelude.Maybe Prelude.Text)
 describeExportTasks_nextToken = Lens.lens (\DescribeExportTasks' {nextToken} -> nextToken) (\s@DescribeExportTasks' {} a -> s {nextToken = a} :: DescribeExportTasks)
 
--- | One or more unique identifiers used to query the status of an export
--- request.
-describeExportTasks_exportIds :: Lens.Lens' DescribeExportTasks (Prelude.Maybe [Prelude.Text])
-describeExportTasks_exportIds = Lens.lens (\DescribeExportTasks' {exportIds} -> exportIds) (\s@DescribeExportTasks' {} a -> s {exportIds = a} :: DescribeExportTasks) Prelude.. Lens.mapping Lens.coerced
+-- | One or more filters.
+--
+-- -   @AgentId@ - ID of the agent whose collected data will be exported
+describeExportTasks_filters :: Lens.Lens' DescribeExportTasks (Prelude.Maybe [ExportFilter])
+describeExportTasks_filters = Lens.lens (\DescribeExportTasks' {filters} -> filters) (\s@DescribeExportTasks' {} a -> s {filters = a} :: DescribeExportTasks) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of volume results returned by @DescribeExportTasks@
 -- in paginated output. When this parameter is used, @DescribeExportTasks@
@@ -175,16 +175,16 @@ instance Core.AWSRequest DescribeExportTasks where
 
 instance Prelude.Hashable DescribeExportTasks where
   hashWithSalt _salt DescribeExportTasks' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` exportIds
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` exportIds
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeExportTasks where
   rnf DescribeExportTasks' {..} =
-    Prelude.rnf filters
+    Prelude.rnf exportIds
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf exportIds
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeExportTasks where
@@ -206,9 +206,9 @@ instance Core.ToJSON DescribeExportTasks where
   toJSON DescribeExportTasks' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("filters" Core..=) Prelude.<$> filters,
+          [ ("exportIds" Core..=) Prelude.<$> exportIds,
             ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("exportIds" Core..=) Prelude.<$> exportIds,
+            ("filters" Core..=) Prelude.<$> filters,
             ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )

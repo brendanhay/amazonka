@@ -29,7 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConfigurationTag' smart constructor.
 data ConfigurationTag = ConfigurationTag'
-  { -- | The time the configuration tag was created in Coordinated Universal Time
+  { -- | A type of tag on which to filter. For example, /serverType/.
+    key :: Prelude.Maybe Prelude.Text,
+    -- | The time the configuration tag was created in Coordinated Universal Time
     -- (UTC).
     timeOfCreation :: Prelude.Maybe Core.POSIX,
     -- | The configuration ID for the item to tag. You can specify a list of keys
@@ -39,9 +41,7 @@ data ConfigurationTag = ConfigurationTag'
     configurationType :: Prelude.Maybe ConfigurationItemType,
     -- | A value on which to filter. For example /key = serverType/ and /value =
     -- web server/.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | A type of tag on which to filter. For example, /serverType/.
-    key :: Prelude.Maybe Prelude.Text
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,6 +53,8 @@ data ConfigurationTag = ConfigurationTag'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'key', 'configurationTag_key' - A type of tag on which to filter. For example, /serverType/.
+--
 -- 'timeOfCreation', 'configurationTag_timeOfCreation' - The time the configuration tag was created in Coordinated Universal Time
 -- (UTC).
 --
@@ -63,18 +65,20 @@ data ConfigurationTag = ConfigurationTag'
 --
 -- 'value', 'configurationTag_value' - A value on which to filter. For example /key = serverType/ and /value =
 -- web server/.
---
--- 'key', 'configurationTag_key' - A type of tag on which to filter. For example, /serverType/.
 newConfigurationTag ::
   ConfigurationTag
 newConfigurationTag =
   ConfigurationTag'
-    { timeOfCreation = Prelude.Nothing,
+    { key = Prelude.Nothing,
+      timeOfCreation = Prelude.Nothing,
       configurationId = Prelude.Nothing,
       configurationType = Prelude.Nothing,
-      value = Prelude.Nothing,
-      key = Prelude.Nothing
+      value = Prelude.Nothing
     }
+
+-- | A type of tag on which to filter. For example, /serverType/.
+configurationTag_key :: Lens.Lens' ConfigurationTag (Prelude.Maybe Prelude.Text)
+configurationTag_key = Lens.lens (\ConfigurationTag' {key} -> key) (\s@ConfigurationTag' {} a -> s {key = a} :: ConfigurationTag)
 
 -- | The time the configuration tag was created in Coordinated Universal Time
 -- (UTC).
@@ -95,35 +99,31 @@ configurationTag_configurationType = Lens.lens (\ConfigurationTag' {configuratio
 configurationTag_value :: Lens.Lens' ConfigurationTag (Prelude.Maybe Prelude.Text)
 configurationTag_value = Lens.lens (\ConfigurationTag' {value} -> value) (\s@ConfigurationTag' {} a -> s {value = a} :: ConfigurationTag)
 
--- | A type of tag on which to filter. For example, /serverType/.
-configurationTag_key :: Lens.Lens' ConfigurationTag (Prelude.Maybe Prelude.Text)
-configurationTag_key = Lens.lens (\ConfigurationTag' {key} -> key) (\s@ConfigurationTag' {} a -> s {key = a} :: ConfigurationTag)
-
 instance Core.FromJSON ConfigurationTag where
   parseJSON =
     Core.withObject
       "ConfigurationTag"
       ( \x ->
           ConfigurationTag'
-            Prelude.<$> (x Core..:? "timeOfCreation")
+            Prelude.<$> (x Core..:? "key")
+            Prelude.<*> (x Core..:? "timeOfCreation")
             Prelude.<*> (x Core..:? "configurationId")
             Prelude.<*> (x Core..:? "configurationType")
             Prelude.<*> (x Core..:? "value")
-            Prelude.<*> (x Core..:? "key")
       )
 
 instance Prelude.Hashable ConfigurationTag where
   hashWithSalt _salt ConfigurationTag' {..} =
-    _salt `Prelude.hashWithSalt` timeOfCreation
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` timeOfCreation
       `Prelude.hashWithSalt` configurationId
       `Prelude.hashWithSalt` configurationType
       `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` key
 
 instance Prelude.NFData ConfigurationTag where
   rnf ConfigurationTag' {..} =
-    Prelude.rnf timeOfCreation
+    Prelude.rnf key
+      `Prelude.seq` Prelude.rnf timeOfCreation
       `Prelude.seq` Prelude.rnf configurationId
       `Prelude.seq` Prelude.rnf configurationType
       `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf key

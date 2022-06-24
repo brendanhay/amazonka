@@ -27,11 +27,11 @@ module Amazonka.FinSpace.CreateEnvironment
     newCreateEnvironment,
 
     -- * Request Lenses
+    createEnvironment_tags,
     createEnvironment_federationParameters,
+    createEnvironment_description,
     createEnvironment_federationMode,
     createEnvironment_kmsKeyId,
-    createEnvironment_description,
-    createEnvironment_tags,
     createEnvironment_name,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Amazonka.FinSpace.CreateEnvironment
 
     -- * Response Lenses
     createEnvironmentResponse_environmentUrl,
-    createEnvironmentResponse_environmentId,
     createEnvironmentResponse_environmentArn,
+    createEnvironmentResponse_environmentId,
     createEnvironmentResponse_httpStatus,
   )
 where
@@ -55,8 +55,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateEnvironment' smart constructor.
 data CreateEnvironment = CreateEnvironment'
-  { -- | Configuration information when authentication mode is FEDERATED.
+  { -- | Add tags to your FinSpace environment.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Configuration information when authentication mode is FEDERATED.
     federationParameters :: Prelude.Maybe FederationParameters,
+    -- | The description of the FinSpace environment to be created.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Authentication mode for the environment.
     --
     -- -   @FEDERATED@ - Users access FinSpace through Single Sign On (SSO) via
@@ -67,10 +71,6 @@ data CreateEnvironment = CreateEnvironment'
     federationMode :: Prelude.Maybe FederationMode,
     -- | The KMS key id to encrypt your data in the FinSpace environment.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The description of the FinSpace environment to be created.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Add tags to your FinSpace environment.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the FinSpace environment to be created.
     name :: Prelude.Text
   }
@@ -84,7 +84,11 @@ data CreateEnvironment = CreateEnvironment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createEnvironment_tags' - Add tags to your FinSpace environment.
+--
 -- 'federationParameters', 'createEnvironment_federationParameters' - Configuration information when authentication mode is FEDERATED.
+--
+-- 'description', 'createEnvironment_description' - The description of the FinSpace environment to be created.
 --
 -- 'federationMode', 'createEnvironment_federationMode' - Authentication mode for the environment.
 --
@@ -96,10 +100,6 @@ data CreateEnvironment = CreateEnvironment'
 --
 -- 'kmsKeyId', 'createEnvironment_kmsKeyId' - The KMS key id to encrypt your data in the FinSpace environment.
 --
--- 'description', 'createEnvironment_description' - The description of the FinSpace environment to be created.
---
--- 'tags', 'createEnvironment_tags' - Add tags to your FinSpace environment.
---
 -- 'name', 'createEnvironment_name' - The name of the FinSpace environment to be created.
 newCreateEnvironment ::
   -- | 'name'
@@ -107,18 +107,25 @@ newCreateEnvironment ::
   CreateEnvironment
 newCreateEnvironment pName_ =
   CreateEnvironment'
-    { federationParameters =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      federationParameters = Prelude.Nothing,
+      description = Prelude.Nothing,
       federationMode = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
-      description = Prelude.Nothing,
-      tags = Prelude.Nothing,
       name = pName_
     }
+
+-- | Add tags to your FinSpace environment.
+createEnvironment_tags :: Lens.Lens' CreateEnvironment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createEnvironment_tags = Lens.lens (\CreateEnvironment' {tags} -> tags) (\s@CreateEnvironment' {} a -> s {tags = a} :: CreateEnvironment) Prelude.. Lens.mapping Lens.coerced
 
 -- | Configuration information when authentication mode is FEDERATED.
 createEnvironment_federationParameters :: Lens.Lens' CreateEnvironment (Prelude.Maybe FederationParameters)
 createEnvironment_federationParameters = Lens.lens (\CreateEnvironment' {federationParameters} -> federationParameters) (\s@CreateEnvironment' {} a -> s {federationParameters = a} :: CreateEnvironment)
+
+-- | The description of the FinSpace environment to be created.
+createEnvironment_description :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
+createEnvironment_description = Lens.lens (\CreateEnvironment' {description} -> description) (\s@CreateEnvironment' {} a -> s {description = a} :: CreateEnvironment)
 
 -- | Authentication mode for the environment.
 --
@@ -134,14 +141,6 @@ createEnvironment_federationMode = Lens.lens (\CreateEnvironment' {federationMod
 createEnvironment_kmsKeyId :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
 createEnvironment_kmsKeyId = Lens.lens (\CreateEnvironment' {kmsKeyId} -> kmsKeyId) (\s@CreateEnvironment' {} a -> s {kmsKeyId = a} :: CreateEnvironment)
 
--- | The description of the FinSpace environment to be created.
-createEnvironment_description :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
-createEnvironment_description = Lens.lens (\CreateEnvironment' {description} -> description) (\s@CreateEnvironment' {} a -> s {description = a} :: CreateEnvironment)
-
--- | Add tags to your FinSpace environment.
-createEnvironment_tags :: Lens.Lens' CreateEnvironment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createEnvironment_tags = Lens.lens (\CreateEnvironment' {tags} -> tags) (\s@CreateEnvironment' {} a -> s {tags = a} :: CreateEnvironment) Prelude.. Lens.mapping Lens.coerced
-
 -- | The name of the FinSpace environment to be created.
 createEnvironment_name :: Lens.Lens' CreateEnvironment Prelude.Text
 createEnvironment_name = Lens.lens (\CreateEnvironment' {name} -> name) (\s@CreateEnvironment' {} a -> s {name = a} :: CreateEnvironment)
@@ -156,27 +155,27 @@ instance Core.AWSRequest CreateEnvironment where
       ( \s h x ->
           CreateEnvironmentResponse'
             Prelude.<$> (x Core..?> "environmentUrl")
-            Prelude.<*> (x Core..?> "environmentId")
             Prelude.<*> (x Core..?> "environmentArn")
+            Prelude.<*> (x Core..?> "environmentId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateEnvironment where
   hashWithSalt _salt CreateEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` federationParameters
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` federationParameters
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` federationMode
       `Prelude.hashWithSalt` kmsKeyId
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateEnvironment where
   rnf CreateEnvironment' {..} =
-    Prelude.rnf federationParameters
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf federationParameters
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf federationMode
       `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateEnvironment where
@@ -194,13 +193,13 @@ instance Core.ToJSON CreateEnvironment where
   toJSON CreateEnvironment' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("federationParameters" Core..=)
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("federationParameters" Core..=)
               Prelude.<$> federationParameters,
+            ("description" Core..=) Prelude.<$> description,
             ("federationMode" Core..=)
               Prelude.<$> federationMode,
             ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("description" Core..=) Prelude.<$> description,
-            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("name" Core..= name)
           ]
       )
@@ -216,11 +215,11 @@ data CreateEnvironmentResponse = CreateEnvironmentResponse'
   { -- | The sign-in url for the web application of the FinSpace environment you
     -- created.
     environmentUrl :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for FinSpace environment that you created.
-    environmentId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the FinSpace environment that you
     -- created.
     environmentArn :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for FinSpace environment that you created.
+    environmentId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -237,10 +236,10 @@ data CreateEnvironmentResponse = CreateEnvironmentResponse'
 -- 'environmentUrl', 'createEnvironmentResponse_environmentUrl' - The sign-in url for the web application of the FinSpace environment you
 -- created.
 --
--- 'environmentId', 'createEnvironmentResponse_environmentId' - The unique identifier for FinSpace environment that you created.
---
 -- 'environmentArn', 'createEnvironmentResponse_environmentArn' - The Amazon Resource Name (ARN) of the FinSpace environment that you
 -- created.
+--
+-- 'environmentId', 'createEnvironmentResponse_environmentId' - The unique identifier for FinSpace environment that you created.
 --
 -- 'httpStatus', 'createEnvironmentResponse_httpStatus' - The response's http status code.
 newCreateEnvironmentResponse ::
@@ -251,8 +250,8 @@ newCreateEnvironmentResponse pHttpStatus_ =
   CreateEnvironmentResponse'
     { environmentUrl =
         Prelude.Nothing,
-      environmentId = Prelude.Nothing,
       environmentArn = Prelude.Nothing,
+      environmentId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -261,14 +260,14 @@ newCreateEnvironmentResponse pHttpStatus_ =
 createEnvironmentResponse_environmentUrl :: Lens.Lens' CreateEnvironmentResponse (Prelude.Maybe Prelude.Text)
 createEnvironmentResponse_environmentUrl = Lens.lens (\CreateEnvironmentResponse' {environmentUrl} -> environmentUrl) (\s@CreateEnvironmentResponse' {} a -> s {environmentUrl = a} :: CreateEnvironmentResponse)
 
--- | The unique identifier for FinSpace environment that you created.
-createEnvironmentResponse_environmentId :: Lens.Lens' CreateEnvironmentResponse (Prelude.Maybe Prelude.Text)
-createEnvironmentResponse_environmentId = Lens.lens (\CreateEnvironmentResponse' {environmentId} -> environmentId) (\s@CreateEnvironmentResponse' {} a -> s {environmentId = a} :: CreateEnvironmentResponse)
-
 -- | The Amazon Resource Name (ARN) of the FinSpace environment that you
 -- created.
 createEnvironmentResponse_environmentArn :: Lens.Lens' CreateEnvironmentResponse (Prelude.Maybe Prelude.Text)
 createEnvironmentResponse_environmentArn = Lens.lens (\CreateEnvironmentResponse' {environmentArn} -> environmentArn) (\s@CreateEnvironmentResponse' {} a -> s {environmentArn = a} :: CreateEnvironmentResponse)
+
+-- | The unique identifier for FinSpace environment that you created.
+createEnvironmentResponse_environmentId :: Lens.Lens' CreateEnvironmentResponse (Prelude.Maybe Prelude.Text)
+createEnvironmentResponse_environmentId = Lens.lens (\CreateEnvironmentResponse' {environmentId} -> environmentId) (\s@CreateEnvironmentResponse' {} a -> s {environmentId = a} :: CreateEnvironmentResponse)
 
 -- | The response's http status code.
 createEnvironmentResponse_httpStatus :: Lens.Lens' CreateEnvironmentResponse Prelude.Int
@@ -277,6 +276,6 @@ createEnvironmentResponse_httpStatus = Lens.lens (\CreateEnvironmentResponse' {h
 instance Prelude.NFData CreateEnvironmentResponse where
   rnf CreateEnvironmentResponse' {..} =
     Prelude.rnf environmentUrl
-      `Prelude.seq` Prelude.rnf environmentId
       `Prelude.seq` Prelude.rnf environmentArn
+      `Prelude.seq` Prelude.rnf environmentId
       `Prelude.seq` Prelude.rnf httpStatus

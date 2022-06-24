@@ -14,25 +14,33 @@
 module Amazonka.FinSpace.Lens
   ( -- * Operations
 
+    -- ** CreateEnvironment
+    createEnvironment_tags,
+    createEnvironment_federationParameters,
+    createEnvironment_description,
+    createEnvironment_federationMode,
+    createEnvironment_kmsKeyId,
+    createEnvironment_name,
+    createEnvironmentResponse_environmentUrl,
+    createEnvironmentResponse_environmentArn,
+    createEnvironmentResponse_environmentId,
+    createEnvironmentResponse_httpStatus,
+
+    -- ** DeleteEnvironment
+    deleteEnvironment_environmentId,
+    deleteEnvironmentResponse_httpStatus,
+
+    -- ** GetEnvironment
+    getEnvironment_environmentId,
+    getEnvironmentResponse_environment,
+    getEnvironmentResponse_httpStatus,
+
     -- ** ListEnvironments
     listEnvironments_nextToken,
     listEnvironments_maxResults,
     listEnvironmentsResponse_nextToken,
     listEnvironmentsResponse_environments,
     listEnvironmentsResponse_httpStatus,
-
-    -- ** UpdateEnvironment
-    updateEnvironment_federationParameters,
-    updateEnvironment_federationMode,
-    updateEnvironment_name,
-    updateEnvironment_description,
-    updateEnvironment_environmentId,
-    updateEnvironmentResponse_environment,
-    updateEnvironmentResponse_httpStatus,
-
-    -- ** DeleteEnvironment
-    deleteEnvironment_environmentId,
-    deleteEnvironmentResponse_httpStatus,
 
     -- ** ListTagsForResource
     listTagsForResource_resourceArn,
@@ -44,51 +52,43 @@ module Amazonka.FinSpace.Lens
     tagResource_tags,
     tagResourceResponse_httpStatus,
 
-    -- ** GetEnvironment
-    getEnvironment_environmentId,
-    getEnvironmentResponse_environment,
-    getEnvironmentResponse_httpStatus,
-
     -- ** UntagResource
     untagResource_resourceArn,
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
-    -- ** CreateEnvironment
-    createEnvironment_federationParameters,
-    createEnvironment_federationMode,
-    createEnvironment_kmsKeyId,
-    createEnvironment_description,
-    createEnvironment_tags,
-    createEnvironment_name,
-    createEnvironmentResponse_environmentUrl,
-    createEnvironmentResponse_environmentId,
-    createEnvironmentResponse_environmentArn,
-    createEnvironmentResponse_httpStatus,
+    -- ** UpdateEnvironment
+    updateEnvironment_name,
+    updateEnvironment_federationParameters,
+    updateEnvironment_description,
+    updateEnvironment_federationMode,
+    updateEnvironment_environmentId,
+    updateEnvironmentResponse_environment,
+    updateEnvironmentResponse_httpStatus,
 
     -- * Types
 
     -- ** Environment
-    environment_status,
-    environment_federationParameters,
-    environment_dedicatedServiceAccountId,
-    environment_environmentUrl,
-    environment_federationMode,
     environment_awsAccountId,
     environment_name,
-    environment_kmsKeyId,
-    environment_environmentId,
-    environment_environmentArn,
-    environment_sageMakerStudioDomainUrl,
+    environment_federationParameters,
+    environment_status,
     environment_description,
+    environment_federationMode,
+    environment_environmentUrl,
+    environment_kmsKeyId,
+    environment_dedicatedServiceAccountId,
+    environment_environmentArn,
+    environment_environmentId,
+    environment_sageMakerStudioDomainUrl,
 
     -- ** FederationParameters
-    federationParameters_samlMetadataURL,
-    federationParameters_applicationCallBackURL,
-    federationParameters_federationURN,
-    federationParameters_attributeMap,
     federationParameters_federationProviderName,
     federationParameters_samlMetadataDocument,
+    federationParameters_federationURN,
+    federationParameters_samlMetadataURL,
+    federationParameters_applicationCallBackURL,
+    federationParameters_attributeMap,
   )
 where
 

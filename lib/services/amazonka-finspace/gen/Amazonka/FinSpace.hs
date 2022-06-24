@@ -20,23 +20,14 @@ module Amazonka.FinSpace
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
+    -- ** InternalServerException
+    _InternalServerException,
 
     -- ** ServiceQuotaExceededException
     _ServiceQuotaExceededException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
-
-    -- ** InternalServerException
-    _InternalServerException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
@@ -44,29 +35,44 @@ module Amazonka.FinSpace
     -- ** LimitExceededException
     _LimitExceededException,
 
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** ValidationException
+    _ValidationException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
 
-    -- ** ListEnvironments
-    ListEnvironments (ListEnvironments'),
-    newListEnvironments,
-    ListEnvironmentsResponse (ListEnvironmentsResponse'),
-    newListEnvironmentsResponse,
-
-    -- ** UpdateEnvironment
-    UpdateEnvironment (UpdateEnvironment'),
-    newUpdateEnvironment,
-    UpdateEnvironmentResponse (UpdateEnvironmentResponse'),
-    newUpdateEnvironmentResponse,
+    -- ** CreateEnvironment
+    CreateEnvironment (CreateEnvironment'),
+    newCreateEnvironment,
+    CreateEnvironmentResponse (CreateEnvironmentResponse'),
+    newCreateEnvironmentResponse,
 
     -- ** DeleteEnvironment
     DeleteEnvironment (DeleteEnvironment'),
     newDeleteEnvironment,
     DeleteEnvironmentResponse (DeleteEnvironmentResponse'),
     newDeleteEnvironmentResponse,
+
+    -- ** GetEnvironment
+    GetEnvironment (GetEnvironment'),
+    newGetEnvironment,
+    GetEnvironmentResponse (GetEnvironmentResponse'),
+    newGetEnvironmentResponse,
+
+    -- ** ListEnvironments
+    ListEnvironments (ListEnvironments'),
+    newListEnvironments,
+    ListEnvironmentsResponse (ListEnvironmentsResponse'),
+    newListEnvironmentsResponse,
 
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
@@ -80,23 +86,17 @@ module Amazonka.FinSpace
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
-    -- ** GetEnvironment
-    GetEnvironment (GetEnvironment'),
-    newGetEnvironment,
-    GetEnvironmentResponse (GetEnvironmentResponse'),
-    newGetEnvironmentResponse,
-
     -- ** UntagResource
     UntagResource (UntagResource'),
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** CreateEnvironment
-    CreateEnvironment (CreateEnvironment'),
-    newCreateEnvironment,
-    CreateEnvironmentResponse (CreateEnvironmentResponse'),
-    newCreateEnvironmentResponse,
+    -- ** UpdateEnvironment
+    UpdateEnvironment (UpdateEnvironment'),
+    newUpdateEnvironment,
+    UpdateEnvironmentResponse (UpdateEnvironmentResponse'),
+    newUpdateEnvironmentResponse,
 
     -- * Types
 

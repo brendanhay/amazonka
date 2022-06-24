@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCaptionSelector' smart constructor.
 data CaptionSelector = CaptionSelector'
-  { -- | When specified this field indicates the three letter language code of
+  { -- | Caption selector settings.
+    selectorSettings :: Prelude.Maybe CaptionSelectorSettings,
+    -- | When specified this field indicates the three letter language code of
     -- the caption track to extract from the source.
     languageCode :: Prelude.Maybe Prelude.Text,
-    -- | Caption selector settings.
-    selectorSettings :: Prelude.Maybe CaptionSelectorSettings,
     -- | Name identifier for a caption selector. This name is used to associate
     -- this caption selector with one or more caption descriptions. Names must
     -- be unique within an event.
@@ -49,10 +49,10 @@ data CaptionSelector = CaptionSelector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'selectorSettings', 'captionSelector_selectorSettings' - Caption selector settings.
+--
 -- 'languageCode', 'captionSelector_languageCode' - When specified this field indicates the three letter language code of
 -- the caption track to extract from the source.
---
--- 'selectorSettings', 'captionSelector_selectorSettings' - Caption selector settings.
 --
 -- 'name', 'captionSelector_name' - Name identifier for a caption selector. This name is used to associate
 -- this caption selector with one or more caption descriptions. Names must
@@ -63,19 +63,20 @@ newCaptionSelector ::
   CaptionSelector
 newCaptionSelector pName_ =
   CaptionSelector'
-    { languageCode = Prelude.Nothing,
-      selectorSettings = Prelude.Nothing,
+    { selectorSettings =
+        Prelude.Nothing,
+      languageCode = Prelude.Nothing,
       name = pName_
     }
+
+-- | Caption selector settings.
+captionSelector_selectorSettings :: Lens.Lens' CaptionSelector (Prelude.Maybe CaptionSelectorSettings)
+captionSelector_selectorSettings = Lens.lens (\CaptionSelector' {selectorSettings} -> selectorSettings) (\s@CaptionSelector' {} a -> s {selectorSettings = a} :: CaptionSelector)
 
 -- | When specified this field indicates the three letter language code of
 -- the caption track to extract from the source.
 captionSelector_languageCode :: Lens.Lens' CaptionSelector (Prelude.Maybe Prelude.Text)
 captionSelector_languageCode = Lens.lens (\CaptionSelector' {languageCode} -> languageCode) (\s@CaptionSelector' {} a -> s {languageCode = a} :: CaptionSelector)
-
--- | Caption selector settings.
-captionSelector_selectorSettings :: Lens.Lens' CaptionSelector (Prelude.Maybe CaptionSelectorSettings)
-captionSelector_selectorSettings = Lens.lens (\CaptionSelector' {selectorSettings} -> selectorSettings) (\s@CaptionSelector' {} a -> s {selectorSettings = a} :: CaptionSelector)
 
 -- | Name identifier for a caption selector. This name is used to associate
 -- this caption selector with one or more caption descriptions. Names must
@@ -89,30 +90,30 @@ instance Core.FromJSON CaptionSelector where
       "CaptionSelector"
       ( \x ->
           CaptionSelector'
-            Prelude.<$> (x Core..:? "languageCode")
-            Prelude.<*> (x Core..:? "selectorSettings")
+            Prelude.<$> (x Core..:? "selectorSettings")
+            Prelude.<*> (x Core..:? "languageCode")
             Prelude.<*> (x Core..: "name")
       )
 
 instance Prelude.Hashable CaptionSelector where
   hashWithSalt _salt CaptionSelector' {..} =
-    _salt `Prelude.hashWithSalt` languageCode
-      `Prelude.hashWithSalt` selectorSettings
+    _salt `Prelude.hashWithSalt` selectorSettings
+      `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CaptionSelector where
   rnf CaptionSelector' {..} =
-    Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf selectorSettings
+    Prelude.rnf selectorSettings
+      `Prelude.seq` Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON CaptionSelector where
   toJSON CaptionSelector' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("languageCode" Core..=) Prelude.<$> languageCode,
-            ("selectorSettings" Core..=)
+          [ ("selectorSettings" Core..=)
               Prelude.<$> selectorSettings,
+            ("languageCode" Core..=) Prelude.<$> languageCode,
             Prelude.Just ("name" Core..= name)
           ]
       )

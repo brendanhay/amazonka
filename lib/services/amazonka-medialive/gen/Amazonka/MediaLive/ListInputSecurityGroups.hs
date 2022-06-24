@@ -37,8 +37,8 @@ module Amazonka.MediaLive.ListInputSecurityGroups
     newListInputSecurityGroupsResponse,
 
     -- * Response Lenses
-    listInputSecurityGroupsResponse_nextToken,
     listInputSecurityGroupsResponse_inputSecurityGroups,
+    listInputSecurityGroupsResponse_nextToken,
     listInputSecurityGroupsResponse_httpStatus,
   )
 where
@@ -118,10 +118,10 @@ instance Core.AWSRequest ListInputSecurityGroups where
     Response.receiveJSON
       ( \s h x ->
           ListInputSecurityGroupsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "inputSecurityGroups"
+            Prelude.<$> ( x Core..?> "inputSecurityGroups"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,9 +160,9 @@ instance Core.ToQuery ListInputSecurityGroups where
 --
 -- /See:/ 'newListInputSecurityGroupsResponse' smart constructor.
 data ListInputSecurityGroupsResponse = ListInputSecurityGroupsResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | List of input security groups
+  { -- | List of input security groups
     inputSecurityGroups :: Prelude.Maybe [InputSecurityGroup],
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -176,9 +176,9 @@ data ListInputSecurityGroupsResponse = ListInputSecurityGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listInputSecurityGroupsResponse_nextToken' - Undocumented member.
---
 -- 'inputSecurityGroups', 'listInputSecurityGroupsResponse_inputSecurityGroups' - List of input security groups
+--
+-- 'nextToken', 'listInputSecurityGroupsResponse_nextToken' - Undocumented member.
 --
 -- 'httpStatus', 'listInputSecurityGroupsResponse_httpStatus' - The response's http status code.
 newListInputSecurityGroupsResponse ::
@@ -187,19 +187,19 @@ newListInputSecurityGroupsResponse ::
   ListInputSecurityGroupsResponse
 newListInputSecurityGroupsResponse pHttpStatus_ =
   ListInputSecurityGroupsResponse'
-    { nextToken =
+    { inputSecurityGroups =
         Prelude.Nothing,
-      inputSecurityGroups = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Undocumented member.
-listInputSecurityGroupsResponse_nextToken :: Lens.Lens' ListInputSecurityGroupsResponse (Prelude.Maybe Prelude.Text)
-listInputSecurityGroupsResponse_nextToken = Lens.lens (\ListInputSecurityGroupsResponse' {nextToken} -> nextToken) (\s@ListInputSecurityGroupsResponse' {} a -> s {nextToken = a} :: ListInputSecurityGroupsResponse)
 
 -- | List of input security groups
 listInputSecurityGroupsResponse_inputSecurityGroups :: Lens.Lens' ListInputSecurityGroupsResponse (Prelude.Maybe [InputSecurityGroup])
 listInputSecurityGroupsResponse_inputSecurityGroups = Lens.lens (\ListInputSecurityGroupsResponse' {inputSecurityGroups} -> inputSecurityGroups) (\s@ListInputSecurityGroupsResponse' {} a -> s {inputSecurityGroups = a} :: ListInputSecurityGroupsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+listInputSecurityGroupsResponse_nextToken :: Lens.Lens' ListInputSecurityGroupsResponse (Prelude.Maybe Prelude.Text)
+listInputSecurityGroupsResponse_nextToken = Lens.lens (\ListInputSecurityGroupsResponse' {nextToken} -> nextToken) (\s@ListInputSecurityGroupsResponse' {} a -> s {nextToken = a} :: ListInputSecurityGroupsResponse)
 
 -- | The response's http status code.
 listInputSecurityGroupsResponse_httpStatus :: Lens.Lens' ListInputSecurityGroupsResponse Prelude.Int
@@ -210,6 +210,6 @@ instance
     ListInputSecurityGroupsResponse
   where
   rnf ListInputSecurityGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf inputSecurityGroups
+    Prelude.rnf inputSecurityGroups
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

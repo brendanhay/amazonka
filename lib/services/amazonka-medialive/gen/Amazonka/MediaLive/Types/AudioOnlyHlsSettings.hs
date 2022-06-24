@@ -36,10 +36,6 @@ data AudioOnlyHlsSettings = AudioOnlyHlsSettings'
     -- as an ID3 tag, frame type APIC, picture type 0x10, as per the \"ID3 tag
     -- version 2.4.0 - Native Frames\" standard.
     audioOnlyImage :: Prelude.Maybe InputLocation,
-    -- | Specifies the segment type.
-    segmentType :: Prelude.Maybe AudioOnlyHlsSegmentType,
-    -- | Specifies the group to which the audio Rendition belongs.
-    audioGroupId :: Prelude.Maybe Prelude.Text,
     -- | Four types of audio-only tracks are supported: Audio-Only Variant Stream
     -- The client can play back this audio-only stream instead of video in
     -- low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS
@@ -52,7 +48,11 @@ data AudioOnlyHlsSettings = AudioOnlyHlsSettings'
     -- Auto Select Alternate rendition that the client will not try to play
     -- back by default. Represented as an EXT-X-MEDIA in the HLS manifest with
     -- DEFAULT=NO, AUTOSELECT=NO
-    audioTrackType :: Prelude.Maybe AudioOnlyHlsTrackType
+    audioTrackType :: Prelude.Maybe AudioOnlyHlsTrackType,
+    -- | Specifies the segment type.
+    segmentType :: Prelude.Maybe AudioOnlyHlsSegmentType,
+    -- | Specifies the group to which the audio Rendition belongs.
+    audioGroupId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,10 +70,6 @@ data AudioOnlyHlsSettings = AudioOnlyHlsSettings'
 -- as an ID3 tag, frame type APIC, picture type 0x10, as per the \"ID3 tag
 -- version 2.4.0 - Native Frames\" standard.
 --
--- 'segmentType', 'audioOnlyHlsSettings_segmentType' - Specifies the segment type.
---
--- 'audioGroupId', 'audioOnlyHlsSettings_audioGroupId' - Specifies the group to which the audio Rendition belongs.
---
 -- 'audioTrackType', 'audioOnlyHlsSettings_audioTrackType' - Four types of audio-only tracks are supported: Audio-Only Variant Stream
 -- The client can play back this audio-only stream instead of video in
 -- low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS
@@ -86,15 +82,19 @@ data AudioOnlyHlsSettings = AudioOnlyHlsSettings'
 -- Auto Select Alternate rendition that the client will not try to play
 -- back by default. Represented as an EXT-X-MEDIA in the HLS manifest with
 -- DEFAULT=NO, AUTOSELECT=NO
+--
+-- 'segmentType', 'audioOnlyHlsSettings_segmentType' - Specifies the segment type.
+--
+-- 'audioGroupId', 'audioOnlyHlsSettings_audioGroupId' - Specifies the group to which the audio Rendition belongs.
 newAudioOnlyHlsSettings ::
   AudioOnlyHlsSettings
 newAudioOnlyHlsSettings =
   AudioOnlyHlsSettings'
     { audioOnlyImage =
         Prelude.Nothing,
+      audioTrackType = Prelude.Nothing,
       segmentType = Prelude.Nothing,
-      audioGroupId = Prelude.Nothing,
-      audioTrackType = Prelude.Nothing
+      audioGroupId = Prelude.Nothing
     }
 
 -- | Optional. Specifies the .jpg or .png image to use as the cover art for
@@ -104,14 +104,6 @@ newAudioOnlyHlsSettings =
 -- version 2.4.0 - Native Frames\" standard.
 audioOnlyHlsSettings_audioOnlyImage :: Lens.Lens' AudioOnlyHlsSettings (Prelude.Maybe InputLocation)
 audioOnlyHlsSettings_audioOnlyImage = Lens.lens (\AudioOnlyHlsSettings' {audioOnlyImage} -> audioOnlyImage) (\s@AudioOnlyHlsSettings' {} a -> s {audioOnlyImage = a} :: AudioOnlyHlsSettings)
-
--- | Specifies the segment type.
-audioOnlyHlsSettings_segmentType :: Lens.Lens' AudioOnlyHlsSettings (Prelude.Maybe AudioOnlyHlsSegmentType)
-audioOnlyHlsSettings_segmentType = Lens.lens (\AudioOnlyHlsSettings' {segmentType} -> segmentType) (\s@AudioOnlyHlsSettings' {} a -> s {segmentType = a} :: AudioOnlyHlsSettings)
-
--- | Specifies the group to which the audio Rendition belongs.
-audioOnlyHlsSettings_audioGroupId :: Lens.Lens' AudioOnlyHlsSettings (Prelude.Maybe Prelude.Text)
-audioOnlyHlsSettings_audioGroupId = Lens.lens (\AudioOnlyHlsSettings' {audioGroupId} -> audioGroupId) (\s@AudioOnlyHlsSettings' {} a -> s {audioGroupId = a} :: AudioOnlyHlsSettings)
 
 -- | Four types of audio-only tracks are supported: Audio-Only Variant Stream
 -- The client can play back this audio-only stream instead of video in
@@ -128,6 +120,14 @@ audioOnlyHlsSettings_audioGroupId = Lens.lens (\AudioOnlyHlsSettings' {audioGrou
 audioOnlyHlsSettings_audioTrackType :: Lens.Lens' AudioOnlyHlsSettings (Prelude.Maybe AudioOnlyHlsTrackType)
 audioOnlyHlsSettings_audioTrackType = Lens.lens (\AudioOnlyHlsSettings' {audioTrackType} -> audioTrackType) (\s@AudioOnlyHlsSettings' {} a -> s {audioTrackType = a} :: AudioOnlyHlsSettings)
 
+-- | Specifies the segment type.
+audioOnlyHlsSettings_segmentType :: Lens.Lens' AudioOnlyHlsSettings (Prelude.Maybe AudioOnlyHlsSegmentType)
+audioOnlyHlsSettings_segmentType = Lens.lens (\AudioOnlyHlsSettings' {segmentType} -> segmentType) (\s@AudioOnlyHlsSettings' {} a -> s {segmentType = a} :: AudioOnlyHlsSettings)
+
+-- | Specifies the group to which the audio Rendition belongs.
+audioOnlyHlsSettings_audioGroupId :: Lens.Lens' AudioOnlyHlsSettings (Prelude.Maybe Prelude.Text)
+audioOnlyHlsSettings_audioGroupId = Lens.lens (\AudioOnlyHlsSettings' {audioGroupId} -> audioGroupId) (\s@AudioOnlyHlsSettings' {} a -> s {audioGroupId = a} :: AudioOnlyHlsSettings)
+
 instance Core.FromJSON AudioOnlyHlsSettings where
   parseJSON =
     Core.withObject
@@ -135,24 +135,24 @@ instance Core.FromJSON AudioOnlyHlsSettings where
       ( \x ->
           AudioOnlyHlsSettings'
             Prelude.<$> (x Core..:? "audioOnlyImage")
+            Prelude.<*> (x Core..:? "audioTrackType")
             Prelude.<*> (x Core..:? "segmentType")
             Prelude.<*> (x Core..:? "audioGroupId")
-            Prelude.<*> (x Core..:? "audioTrackType")
       )
 
 instance Prelude.Hashable AudioOnlyHlsSettings where
   hashWithSalt _salt AudioOnlyHlsSettings' {..} =
     _salt `Prelude.hashWithSalt` audioOnlyImage
+      `Prelude.hashWithSalt` audioTrackType
       `Prelude.hashWithSalt` segmentType
       `Prelude.hashWithSalt` audioGroupId
-      `Prelude.hashWithSalt` audioTrackType
 
 instance Prelude.NFData AudioOnlyHlsSettings where
   rnf AudioOnlyHlsSettings' {..} =
     Prelude.rnf audioOnlyImage
+      `Prelude.seq` Prelude.rnf audioTrackType
       `Prelude.seq` Prelude.rnf segmentType
       `Prelude.seq` Prelude.rnf audioGroupId
-      `Prelude.seq` Prelude.rnf audioTrackType
 
 instance Core.ToJSON AudioOnlyHlsSettings where
   toJSON AudioOnlyHlsSettings' {..} =
@@ -160,9 +160,9 @@ instance Core.ToJSON AudioOnlyHlsSettings where
       ( Prelude.catMaybes
           [ ("audioOnlyImage" Core..=)
               Prelude.<$> audioOnlyImage,
-            ("segmentType" Core..=) Prelude.<$> segmentType,
-            ("audioGroupId" Core..=) Prelude.<$> audioGroupId,
             ("audioTrackType" Core..=)
-              Prelude.<$> audioTrackType
+              Prelude.<$> audioTrackType,
+            ("segmentType" Core..=) Prelude.<$> segmentType,
+            ("audioGroupId" Core..=) Prelude.<$> audioGroupId
           ]
       )

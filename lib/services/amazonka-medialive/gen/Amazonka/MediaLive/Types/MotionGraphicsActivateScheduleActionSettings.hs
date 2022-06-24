@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMotionGraphicsActivateScheduleActionSettings' smart constructor.
 data MotionGraphicsActivateScheduleActionSettings = MotionGraphicsActivateScheduleActionSettings'
-  { -- | URI of the HTML5 content to be rendered into the live stream.
-    url :: Prelude.Maybe Prelude.Text,
-    -- | Documentation update needed
+  { -- | Documentation update needed
     username :: Prelude.Maybe Prelude.Text,
     -- | Key used to extract the password from EC2 Parameter store
     passwordParam :: Prelude.Maybe Prelude.Text,
+    -- | URI of the HTML5 content to be rendered into the live stream.
+    url :: Prelude.Maybe Prelude.Text,
     -- | Duration (in milliseconds) that motion graphics should render on to the
     -- video stream. Leaving out this property or setting to 0 will result in
     -- rendering continuing until a deactivate action is processed.
@@ -49,11 +49,11 @@ data MotionGraphicsActivateScheduleActionSettings = MotionGraphicsActivateSchedu
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'url', 'motionGraphicsActivateScheduleActionSettings_url' - URI of the HTML5 content to be rendered into the live stream.
---
 -- 'username', 'motionGraphicsActivateScheduleActionSettings_username' - Documentation update needed
 --
 -- 'passwordParam', 'motionGraphicsActivateScheduleActionSettings_passwordParam' - Key used to extract the password from EC2 Parameter store
+--
+-- 'url', 'motionGraphicsActivateScheduleActionSettings_url' - URI of the HTML5 content to be rendered into the live stream.
 --
 -- 'duration', 'motionGraphicsActivateScheduleActionSettings_duration' - Duration (in milliseconds) that motion graphics should render on to the
 -- video stream. Leaving out this property or setting to 0 will result in
@@ -62,17 +62,13 @@ newMotionGraphicsActivateScheduleActionSettings ::
   MotionGraphicsActivateScheduleActionSettings
 newMotionGraphicsActivateScheduleActionSettings =
   MotionGraphicsActivateScheduleActionSettings'
-    { url =
+    { username =
         Prelude.Nothing,
-      username = Prelude.Nothing,
       passwordParam =
         Prelude.Nothing,
+      url = Prelude.Nothing,
       duration = Prelude.Nothing
     }
-
--- | URI of the HTML5 content to be rendered into the live stream.
-motionGraphicsActivateScheduleActionSettings_url :: Lens.Lens' MotionGraphicsActivateScheduleActionSettings (Prelude.Maybe Prelude.Text)
-motionGraphicsActivateScheduleActionSettings_url = Lens.lens (\MotionGraphicsActivateScheduleActionSettings' {url} -> url) (\s@MotionGraphicsActivateScheduleActionSettings' {} a -> s {url = a} :: MotionGraphicsActivateScheduleActionSettings)
 
 -- | Documentation update needed
 motionGraphicsActivateScheduleActionSettings_username :: Lens.Lens' MotionGraphicsActivateScheduleActionSettings (Prelude.Maybe Prelude.Text)
@@ -81,6 +77,10 @@ motionGraphicsActivateScheduleActionSettings_username = Lens.lens (\MotionGraphi
 -- | Key used to extract the password from EC2 Parameter store
 motionGraphicsActivateScheduleActionSettings_passwordParam :: Lens.Lens' MotionGraphicsActivateScheduleActionSettings (Prelude.Maybe Prelude.Text)
 motionGraphicsActivateScheduleActionSettings_passwordParam = Lens.lens (\MotionGraphicsActivateScheduleActionSettings' {passwordParam} -> passwordParam) (\s@MotionGraphicsActivateScheduleActionSettings' {} a -> s {passwordParam = a} :: MotionGraphicsActivateScheduleActionSettings)
+
+-- | URI of the HTML5 content to be rendered into the live stream.
+motionGraphicsActivateScheduleActionSettings_url :: Lens.Lens' MotionGraphicsActivateScheduleActionSettings (Prelude.Maybe Prelude.Text)
+motionGraphicsActivateScheduleActionSettings_url = Lens.lens (\MotionGraphicsActivateScheduleActionSettings' {url} -> url) (\s@MotionGraphicsActivateScheduleActionSettings' {} a -> s {url = a} :: MotionGraphicsActivateScheduleActionSettings)
 
 -- | Duration (in milliseconds) that motion graphics should render on to the
 -- video stream. Leaving out this property or setting to 0 will result in
@@ -97,9 +97,9 @@ instance
       "MotionGraphicsActivateScheduleActionSettings"
       ( \x ->
           MotionGraphicsActivateScheduleActionSettings'
-            Prelude.<$> (x Core..:? "url")
-              Prelude.<*> (x Core..:? "username")
+            Prelude.<$> (x Core..:? "username")
               Prelude.<*> (x Core..:? "passwordParam")
+              Prelude.<*> (x Core..:? "url")
               Prelude.<*> (x Core..:? "duration")
       )
 
@@ -110,9 +110,9 @@ instance
   hashWithSalt
     _salt
     MotionGraphicsActivateScheduleActionSettings' {..} =
-      _salt `Prelude.hashWithSalt` url
-        `Prelude.hashWithSalt` username
+      _salt `Prelude.hashWithSalt` username
         `Prelude.hashWithSalt` passwordParam
+        `Prelude.hashWithSalt` url
         `Prelude.hashWithSalt` duration
 
 instance
@@ -120,9 +120,9 @@ instance
     MotionGraphicsActivateScheduleActionSettings
   where
   rnf MotionGraphicsActivateScheduleActionSettings' {..} =
-    Prelude.rnf url
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf username
       `Prelude.seq` Prelude.rnf passwordParam
+      `Prelude.seq` Prelude.rnf url
       `Prelude.seq` Prelude.rnf duration
 
 instance
@@ -133,9 +133,9 @@ instance
     MotionGraphicsActivateScheduleActionSettings' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("url" Core..=) Prelude.<$> url,
-              ("username" Core..=) Prelude.<$> username,
+            [ ("username" Core..=) Prelude.<$> username,
               ("passwordParam" Core..=) Prelude.<$> passwordParam,
+              ("url" Core..=) Prelude.<$> url,
               ("duration" Core..=) Prelude.<$> duration
             ]
         )

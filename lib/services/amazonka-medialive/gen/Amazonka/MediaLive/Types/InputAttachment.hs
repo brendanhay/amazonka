@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInputAttachment' smart constructor.
 data InputAttachment = InputAttachment'
-  { -- | User-specified name for the attachment. This is required if the user
-    -- wants to use this input in an input switch action.
-    inputAttachmentName :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the input
+  { -- | The ID of the input
     inputId :: Prelude.Maybe Prelude.Text,
     -- | User-specified settings for defining what the conditions are for
     -- declaring the input unhealthy and failing over to a different input.
     automaticInputFailoverSettings :: Prelude.Maybe AutomaticInputFailoverSettings,
+    -- | User-specified name for the attachment. This is required if the user
+    -- wants to use this input in an input switch action.
+    inputAttachmentName :: Prelude.Maybe Prelude.Text,
     -- | Settings of an input (caption selector, etc.)
     inputSettings :: Prelude.Maybe InputSettings
   }
@@ -50,30 +50,24 @@ data InputAttachment = InputAttachment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inputAttachmentName', 'inputAttachment_inputAttachmentName' - User-specified name for the attachment. This is required if the user
--- wants to use this input in an input switch action.
---
 -- 'inputId', 'inputAttachment_inputId' - The ID of the input
 --
 -- 'automaticInputFailoverSettings', 'inputAttachment_automaticInputFailoverSettings' - User-specified settings for defining what the conditions are for
 -- declaring the input unhealthy and failing over to a different input.
+--
+-- 'inputAttachmentName', 'inputAttachment_inputAttachmentName' - User-specified name for the attachment. This is required if the user
+-- wants to use this input in an input switch action.
 --
 -- 'inputSettings', 'inputAttachment_inputSettings' - Settings of an input (caption selector, etc.)
 newInputAttachment ::
   InputAttachment
 newInputAttachment =
   InputAttachment'
-    { inputAttachmentName =
-        Prelude.Nothing,
-      inputId = Prelude.Nothing,
+    { inputId = Prelude.Nothing,
       automaticInputFailoverSettings = Prelude.Nothing,
+      inputAttachmentName = Prelude.Nothing,
       inputSettings = Prelude.Nothing
     }
-
--- | User-specified name for the attachment. This is required if the user
--- wants to use this input in an input switch action.
-inputAttachment_inputAttachmentName :: Lens.Lens' InputAttachment (Prelude.Maybe Prelude.Text)
-inputAttachment_inputAttachmentName = Lens.lens (\InputAttachment' {inputAttachmentName} -> inputAttachmentName) (\s@InputAttachment' {} a -> s {inputAttachmentName = a} :: InputAttachment)
 
 -- | The ID of the input
 inputAttachment_inputId :: Lens.Lens' InputAttachment (Prelude.Maybe Prelude.Text)
@@ -83,6 +77,11 @@ inputAttachment_inputId = Lens.lens (\InputAttachment' {inputId} -> inputId) (\s
 -- declaring the input unhealthy and failing over to a different input.
 inputAttachment_automaticInputFailoverSettings :: Lens.Lens' InputAttachment (Prelude.Maybe AutomaticInputFailoverSettings)
 inputAttachment_automaticInputFailoverSettings = Lens.lens (\InputAttachment' {automaticInputFailoverSettings} -> automaticInputFailoverSettings) (\s@InputAttachment' {} a -> s {automaticInputFailoverSettings = a} :: InputAttachment)
+
+-- | User-specified name for the attachment. This is required if the user
+-- wants to use this input in an input switch action.
+inputAttachment_inputAttachmentName :: Lens.Lens' InputAttachment (Prelude.Maybe Prelude.Text)
+inputAttachment_inputAttachmentName = Lens.lens (\InputAttachment' {inputAttachmentName} -> inputAttachmentName) (\s@InputAttachment' {} a -> s {inputAttachmentName = a} :: InputAttachment)
 
 -- | Settings of an input (caption selector, etc.)
 inputAttachment_inputSettings :: Lens.Lens' InputAttachment (Prelude.Maybe InputSettings)
@@ -94,35 +93,35 @@ instance Core.FromJSON InputAttachment where
       "InputAttachment"
       ( \x ->
           InputAttachment'
-            Prelude.<$> (x Core..:? "inputAttachmentName")
-            Prelude.<*> (x Core..:? "inputId")
+            Prelude.<$> (x Core..:? "inputId")
             Prelude.<*> (x Core..:? "automaticInputFailoverSettings")
+            Prelude.<*> (x Core..:? "inputAttachmentName")
             Prelude.<*> (x Core..:? "inputSettings")
       )
 
 instance Prelude.Hashable InputAttachment where
   hashWithSalt _salt InputAttachment' {..} =
-    _salt `Prelude.hashWithSalt` inputAttachmentName
-      `Prelude.hashWithSalt` inputId
+    _salt `Prelude.hashWithSalt` inputId
       `Prelude.hashWithSalt` automaticInputFailoverSettings
+      `Prelude.hashWithSalt` inputAttachmentName
       `Prelude.hashWithSalt` inputSettings
 
 instance Prelude.NFData InputAttachment where
   rnf InputAttachment' {..} =
-    Prelude.rnf inputAttachmentName
-      `Prelude.seq` Prelude.rnf inputId
+    Prelude.rnf inputId
       `Prelude.seq` Prelude.rnf automaticInputFailoverSettings
+      `Prelude.seq` Prelude.rnf inputAttachmentName
       `Prelude.seq` Prelude.rnf inputSettings
 
 instance Core.ToJSON InputAttachment where
   toJSON InputAttachment' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("inputAttachmentName" Core..=)
-              Prelude.<$> inputAttachmentName,
-            ("inputId" Core..=) Prelude.<$> inputId,
+          [ ("inputId" Core..=) Prelude.<$> inputId,
             ("automaticInputFailoverSettings" Core..=)
               Prelude.<$> automaticInputFailoverSettings,
+            ("inputAttachmentName" Core..=)
+              Prelude.<$> inputAttachmentName,
             ("inputSettings" Core..=) Prelude.<$> inputSettings
           ]
       )

@@ -34,23 +34,23 @@ module Amazonka.MediaLive.StartChannel
     newStartChannelResponse,
 
     -- * Response Lenses
-    startChannelResponse_state,
+    startChannelResponse_tags,
+    startChannelResponse_name,
+    startChannelResponse_roleArn,
+    startChannelResponse_vpc,
     startChannelResponse_logLevel,
     startChannelResponse_arn,
-    startChannelResponse_pipelinesRunningCount,
-    startChannelResponse_pipelineDetails,
+    startChannelResponse_state,
     startChannelResponse_inputSpecification,
-    startChannelResponse_inputAttachments,
-    startChannelResponse_destinations,
-    startChannelResponse_name,
-    startChannelResponse_cdiInputSpecification,
-    startChannelResponse_id,
     startChannelResponse_channelClass,
-    startChannelResponse_vpc,
-    startChannelResponse_egressEndpoints,
-    startChannelResponse_tags,
+    startChannelResponse_id,
+    startChannelResponse_pipelineDetails,
+    startChannelResponse_cdiInputSpecification,
+    startChannelResponse_inputAttachments,
+    startChannelResponse_pipelinesRunningCount,
+    startChannelResponse_destinations,
     startChannelResponse_encoderSettings,
-    startChannelResponse_roleArn,
+    startChannelResponse_egressEndpoints,
     startChannelResponse_httpStatus,
   )
 where
@@ -98,29 +98,29 @@ instance Core.AWSRequest StartChannel where
     Response.receiveJSON
       ( \s h x ->
           StartChannelResponse'
-            Prelude.<$> (x Core..?> "state")
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "name")
+            Prelude.<*> (x Core..?> "roleArn")
+            Prelude.<*> (x Core..?> "vpc")
             Prelude.<*> (x Core..?> "logLevel")
             Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "pipelinesRunningCount")
+            Prelude.<*> (x Core..?> "state")
+            Prelude.<*> (x Core..?> "inputSpecification")
+            Prelude.<*> (x Core..?> "channelClass")
+            Prelude.<*> (x Core..?> "id")
             Prelude.<*> ( x Core..?> "pipelineDetails"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "inputSpecification")
+            Prelude.<*> (x Core..?> "cdiInputSpecification")
             Prelude.<*> ( x Core..?> "inputAttachments"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "pipelinesRunningCount")
             Prelude.<*> (x Core..?> "destinations" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "cdiInputSpecification")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "channelClass")
-            Prelude.<*> (x Core..?> "vpc")
+            Prelude.<*> (x Core..?> "encoderSettings")
             Prelude.<*> ( x Core..?> "egressEndpoints"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "encoderSettings")
-            Prelude.<*> (x Core..?> "roleArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,42 +157,42 @@ instance Core.ToQuery StartChannel where
 --
 -- /See:/ 'newStartChannelResponse' smart constructor.
 data StartChannelResponse = StartChannelResponse'
-  { state :: Prelude.Maybe ChannelState,
+  { -- | A collection of key-value pairs.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The name of the channel. (user-mutable)
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the role assumed when running the
+    -- Channel.
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | Settings for VPC output
+    vpc :: Prelude.Maybe VpcOutputSettingsDescription,
     -- | The log level being written to CloudWatch Logs.
     logLevel :: Prelude.Maybe LogLevel,
     -- | The unique arn of the channel.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The number of currently healthy pipelines.
-    pipelinesRunningCount :: Prelude.Maybe Prelude.Int,
-    -- | Runtime details for the pipelines of a running channel.
-    pipelineDetails :: Prelude.Maybe [PipelineDetail],
+    state :: Prelude.Maybe ChannelState,
     -- | Specification of network and file inputs for this channel
     inputSpecification :: Prelude.Maybe InputSpecification,
+    -- | The class for this channel. STANDARD for a channel with two pipelines or
+    -- SINGLE_PIPELINE for a channel with one pipeline.
+    channelClass :: Prelude.Maybe ChannelClass,
+    -- | The unique id of the channel.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | Runtime details for the pipelines of a running channel.
+    pipelineDetails :: Prelude.Maybe [PipelineDetail],
+    -- | Specification of CDI inputs for this channel
+    cdiInputSpecification :: Prelude.Maybe CdiInputSpecification,
     -- | List of input attachments for channel.
     inputAttachments :: Prelude.Maybe [InputAttachment],
+    -- | The number of currently healthy pipelines.
+    pipelinesRunningCount :: Prelude.Maybe Prelude.Int,
     -- | A list of destinations of the channel. For UDP outputs, there is one
     -- destination per output. For other types (HLS, for example), there is one
     -- destination per packager.
     destinations :: Prelude.Maybe [OutputDestination],
-    -- | The name of the channel. (user-mutable)
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Specification of CDI inputs for this channel
-    cdiInputSpecification :: Prelude.Maybe CdiInputSpecification,
-    -- | The unique id of the channel.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The class for this channel. STANDARD for a channel with two pipelines or
-    -- SINGLE_PIPELINE for a channel with one pipeline.
-    channelClass :: Prelude.Maybe ChannelClass,
-    -- | Settings for VPC output
-    vpc :: Prelude.Maybe VpcOutputSettingsDescription,
+    encoderSettings :: Prelude.Maybe EncoderSettings,
     -- | The endpoints where outgoing connections initiate from
     egressEndpoints :: Prelude.Maybe [ChannelEgressEndpoint],
-    -- | A collection of key-value pairs.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    encoderSettings :: Prelude.Maybe EncoderSettings,
-    -- | The Amazon Resource Name (ARN) of the role assumed when running the
-    -- Channel.
-    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -206,43 +206,43 @@ data StartChannelResponse = StartChannelResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'startChannelResponse_state' - Undocumented member.
+-- 'tags', 'startChannelResponse_tags' - A collection of key-value pairs.
+--
+-- 'name', 'startChannelResponse_name' - The name of the channel. (user-mutable)
+--
+-- 'roleArn', 'startChannelResponse_roleArn' - The Amazon Resource Name (ARN) of the role assumed when running the
+-- Channel.
+--
+-- 'vpc', 'startChannelResponse_vpc' - Settings for VPC output
 --
 -- 'logLevel', 'startChannelResponse_logLevel' - The log level being written to CloudWatch Logs.
 --
 -- 'arn', 'startChannelResponse_arn' - The unique arn of the channel.
 --
--- 'pipelinesRunningCount', 'startChannelResponse_pipelinesRunningCount' - The number of currently healthy pipelines.
---
--- 'pipelineDetails', 'startChannelResponse_pipelineDetails' - Runtime details for the pipelines of a running channel.
+-- 'state', 'startChannelResponse_state' - Undocumented member.
 --
 -- 'inputSpecification', 'startChannelResponse_inputSpecification' - Specification of network and file inputs for this channel
 --
+-- 'channelClass', 'startChannelResponse_channelClass' - The class for this channel. STANDARD for a channel with two pipelines or
+-- SINGLE_PIPELINE for a channel with one pipeline.
+--
+-- 'id', 'startChannelResponse_id' - The unique id of the channel.
+--
+-- 'pipelineDetails', 'startChannelResponse_pipelineDetails' - Runtime details for the pipelines of a running channel.
+--
+-- 'cdiInputSpecification', 'startChannelResponse_cdiInputSpecification' - Specification of CDI inputs for this channel
+--
 -- 'inputAttachments', 'startChannelResponse_inputAttachments' - List of input attachments for channel.
+--
+-- 'pipelinesRunningCount', 'startChannelResponse_pipelinesRunningCount' - The number of currently healthy pipelines.
 --
 -- 'destinations', 'startChannelResponse_destinations' - A list of destinations of the channel. For UDP outputs, there is one
 -- destination per output. For other types (HLS, for example), there is one
 -- destination per packager.
 --
--- 'name', 'startChannelResponse_name' - The name of the channel. (user-mutable)
---
--- 'cdiInputSpecification', 'startChannelResponse_cdiInputSpecification' - Specification of CDI inputs for this channel
---
--- 'id', 'startChannelResponse_id' - The unique id of the channel.
---
--- 'channelClass', 'startChannelResponse_channelClass' - The class for this channel. STANDARD for a channel with two pipelines or
--- SINGLE_PIPELINE for a channel with one pipeline.
---
--- 'vpc', 'startChannelResponse_vpc' - Settings for VPC output
---
--- 'egressEndpoints', 'startChannelResponse_egressEndpoints' - The endpoints where outgoing connections initiate from
---
--- 'tags', 'startChannelResponse_tags' - A collection of key-value pairs.
---
 -- 'encoderSettings', 'startChannelResponse_encoderSettings' - Undocumented member.
 --
--- 'roleArn', 'startChannelResponse_roleArn' - The Amazon Resource Name (ARN) of the role assumed when running the
--- Channel.
+-- 'egressEndpoints', 'startChannelResponse_egressEndpoints' - The endpoints where outgoing connections initiate from
 --
 -- 'httpStatus', 'startChannelResponse_httpStatus' - The response's http status code.
 newStartChannelResponse ::
@@ -251,29 +251,42 @@ newStartChannelResponse ::
   StartChannelResponse
 newStartChannelResponse pHttpStatus_ =
   StartChannelResponse'
-    { state = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      name = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
+      vpc = Prelude.Nothing,
       logLevel = Prelude.Nothing,
       arn = Prelude.Nothing,
-      pipelinesRunningCount = Prelude.Nothing,
-      pipelineDetails = Prelude.Nothing,
+      state = Prelude.Nothing,
       inputSpecification = Prelude.Nothing,
-      inputAttachments = Prelude.Nothing,
-      destinations = Prelude.Nothing,
-      name = Prelude.Nothing,
-      cdiInputSpecification = Prelude.Nothing,
-      id = Prelude.Nothing,
       channelClass = Prelude.Nothing,
-      vpc = Prelude.Nothing,
-      egressEndpoints = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      id = Prelude.Nothing,
+      pipelineDetails = Prelude.Nothing,
+      cdiInputSpecification = Prelude.Nothing,
+      inputAttachments = Prelude.Nothing,
+      pipelinesRunningCount = Prelude.Nothing,
+      destinations = Prelude.Nothing,
       encoderSettings = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
+      egressEndpoints = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
-startChannelResponse_state :: Lens.Lens' StartChannelResponse (Prelude.Maybe ChannelState)
-startChannelResponse_state = Lens.lens (\StartChannelResponse' {state} -> state) (\s@StartChannelResponse' {} a -> s {state = a} :: StartChannelResponse)
+-- | A collection of key-value pairs.
+startChannelResponse_tags :: Lens.Lens' StartChannelResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+startChannelResponse_tags = Lens.lens (\StartChannelResponse' {tags} -> tags) (\s@StartChannelResponse' {} a -> s {tags = a} :: StartChannelResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the channel. (user-mutable)
+startChannelResponse_name :: Lens.Lens' StartChannelResponse (Prelude.Maybe Prelude.Text)
+startChannelResponse_name = Lens.lens (\StartChannelResponse' {name} -> name) (\s@StartChannelResponse' {} a -> s {name = a} :: StartChannelResponse)
+
+-- | The Amazon Resource Name (ARN) of the role assumed when running the
+-- Channel.
+startChannelResponse_roleArn :: Lens.Lens' StartChannelResponse (Prelude.Maybe Prelude.Text)
+startChannelResponse_roleArn = Lens.lens (\StartChannelResponse' {roleArn} -> roleArn) (\s@StartChannelResponse' {} a -> s {roleArn = a} :: StartChannelResponse)
+
+-- | Settings for VPC output
+startChannelResponse_vpc :: Lens.Lens' StartChannelResponse (Prelude.Maybe VpcOutputSettingsDescription)
+startChannelResponse_vpc = Lens.lens (\StartChannelResponse' {vpc} -> vpc) (\s@StartChannelResponse' {} a -> s {vpc = a} :: StartChannelResponse)
 
 -- | The log level being written to CloudWatch Logs.
 startChannelResponse_logLevel :: Lens.Lens' StartChannelResponse (Prelude.Maybe LogLevel)
@@ -283,21 +296,38 @@ startChannelResponse_logLevel = Lens.lens (\StartChannelResponse' {logLevel} -> 
 startChannelResponse_arn :: Lens.Lens' StartChannelResponse (Prelude.Maybe Prelude.Text)
 startChannelResponse_arn = Lens.lens (\StartChannelResponse' {arn} -> arn) (\s@StartChannelResponse' {} a -> s {arn = a} :: StartChannelResponse)
 
--- | The number of currently healthy pipelines.
-startChannelResponse_pipelinesRunningCount :: Lens.Lens' StartChannelResponse (Prelude.Maybe Prelude.Int)
-startChannelResponse_pipelinesRunningCount = Lens.lens (\StartChannelResponse' {pipelinesRunningCount} -> pipelinesRunningCount) (\s@StartChannelResponse' {} a -> s {pipelinesRunningCount = a} :: StartChannelResponse)
-
--- | Runtime details for the pipelines of a running channel.
-startChannelResponse_pipelineDetails :: Lens.Lens' StartChannelResponse (Prelude.Maybe [PipelineDetail])
-startChannelResponse_pipelineDetails = Lens.lens (\StartChannelResponse' {pipelineDetails} -> pipelineDetails) (\s@StartChannelResponse' {} a -> s {pipelineDetails = a} :: StartChannelResponse) Prelude.. Lens.mapping Lens.coerced
+-- | Undocumented member.
+startChannelResponse_state :: Lens.Lens' StartChannelResponse (Prelude.Maybe ChannelState)
+startChannelResponse_state = Lens.lens (\StartChannelResponse' {state} -> state) (\s@StartChannelResponse' {} a -> s {state = a} :: StartChannelResponse)
 
 -- | Specification of network and file inputs for this channel
 startChannelResponse_inputSpecification :: Lens.Lens' StartChannelResponse (Prelude.Maybe InputSpecification)
 startChannelResponse_inputSpecification = Lens.lens (\StartChannelResponse' {inputSpecification} -> inputSpecification) (\s@StartChannelResponse' {} a -> s {inputSpecification = a} :: StartChannelResponse)
 
+-- | The class for this channel. STANDARD for a channel with two pipelines or
+-- SINGLE_PIPELINE for a channel with one pipeline.
+startChannelResponse_channelClass :: Lens.Lens' StartChannelResponse (Prelude.Maybe ChannelClass)
+startChannelResponse_channelClass = Lens.lens (\StartChannelResponse' {channelClass} -> channelClass) (\s@StartChannelResponse' {} a -> s {channelClass = a} :: StartChannelResponse)
+
+-- | The unique id of the channel.
+startChannelResponse_id :: Lens.Lens' StartChannelResponse (Prelude.Maybe Prelude.Text)
+startChannelResponse_id = Lens.lens (\StartChannelResponse' {id} -> id) (\s@StartChannelResponse' {} a -> s {id = a} :: StartChannelResponse)
+
+-- | Runtime details for the pipelines of a running channel.
+startChannelResponse_pipelineDetails :: Lens.Lens' StartChannelResponse (Prelude.Maybe [PipelineDetail])
+startChannelResponse_pipelineDetails = Lens.lens (\StartChannelResponse' {pipelineDetails} -> pipelineDetails) (\s@StartChannelResponse' {} a -> s {pipelineDetails = a} :: StartChannelResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specification of CDI inputs for this channel
+startChannelResponse_cdiInputSpecification :: Lens.Lens' StartChannelResponse (Prelude.Maybe CdiInputSpecification)
+startChannelResponse_cdiInputSpecification = Lens.lens (\StartChannelResponse' {cdiInputSpecification} -> cdiInputSpecification) (\s@StartChannelResponse' {} a -> s {cdiInputSpecification = a} :: StartChannelResponse)
+
 -- | List of input attachments for channel.
 startChannelResponse_inputAttachments :: Lens.Lens' StartChannelResponse (Prelude.Maybe [InputAttachment])
 startChannelResponse_inputAttachments = Lens.lens (\StartChannelResponse' {inputAttachments} -> inputAttachments) (\s@StartChannelResponse' {} a -> s {inputAttachments = a} :: StartChannelResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The number of currently healthy pipelines.
+startChannelResponse_pipelinesRunningCount :: Lens.Lens' StartChannelResponse (Prelude.Maybe Prelude.Int)
+startChannelResponse_pipelinesRunningCount = Lens.lens (\StartChannelResponse' {pipelinesRunningCount} -> pipelinesRunningCount) (\s@StartChannelResponse' {} a -> s {pipelinesRunningCount = a} :: StartChannelResponse)
 
 -- | A list of destinations of the channel. For UDP outputs, there is one
 -- destination per output. For other types (HLS, for example), there is one
@@ -305,43 +335,13 @@ startChannelResponse_inputAttachments = Lens.lens (\StartChannelResponse' {input
 startChannelResponse_destinations :: Lens.Lens' StartChannelResponse (Prelude.Maybe [OutputDestination])
 startChannelResponse_destinations = Lens.lens (\StartChannelResponse' {destinations} -> destinations) (\s@StartChannelResponse' {} a -> s {destinations = a} :: StartChannelResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the channel. (user-mutable)
-startChannelResponse_name :: Lens.Lens' StartChannelResponse (Prelude.Maybe Prelude.Text)
-startChannelResponse_name = Lens.lens (\StartChannelResponse' {name} -> name) (\s@StartChannelResponse' {} a -> s {name = a} :: StartChannelResponse)
-
--- | Specification of CDI inputs for this channel
-startChannelResponse_cdiInputSpecification :: Lens.Lens' StartChannelResponse (Prelude.Maybe CdiInputSpecification)
-startChannelResponse_cdiInputSpecification = Lens.lens (\StartChannelResponse' {cdiInputSpecification} -> cdiInputSpecification) (\s@StartChannelResponse' {} a -> s {cdiInputSpecification = a} :: StartChannelResponse)
-
--- | The unique id of the channel.
-startChannelResponse_id :: Lens.Lens' StartChannelResponse (Prelude.Maybe Prelude.Text)
-startChannelResponse_id = Lens.lens (\StartChannelResponse' {id} -> id) (\s@StartChannelResponse' {} a -> s {id = a} :: StartChannelResponse)
-
--- | The class for this channel. STANDARD for a channel with two pipelines or
--- SINGLE_PIPELINE for a channel with one pipeline.
-startChannelResponse_channelClass :: Lens.Lens' StartChannelResponse (Prelude.Maybe ChannelClass)
-startChannelResponse_channelClass = Lens.lens (\StartChannelResponse' {channelClass} -> channelClass) (\s@StartChannelResponse' {} a -> s {channelClass = a} :: StartChannelResponse)
-
--- | Settings for VPC output
-startChannelResponse_vpc :: Lens.Lens' StartChannelResponse (Prelude.Maybe VpcOutputSettingsDescription)
-startChannelResponse_vpc = Lens.lens (\StartChannelResponse' {vpc} -> vpc) (\s@StartChannelResponse' {} a -> s {vpc = a} :: StartChannelResponse)
-
--- | The endpoints where outgoing connections initiate from
-startChannelResponse_egressEndpoints :: Lens.Lens' StartChannelResponse (Prelude.Maybe [ChannelEgressEndpoint])
-startChannelResponse_egressEndpoints = Lens.lens (\StartChannelResponse' {egressEndpoints} -> egressEndpoints) (\s@StartChannelResponse' {} a -> s {egressEndpoints = a} :: StartChannelResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | A collection of key-value pairs.
-startChannelResponse_tags :: Lens.Lens' StartChannelResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-startChannelResponse_tags = Lens.lens (\StartChannelResponse' {tags} -> tags) (\s@StartChannelResponse' {} a -> s {tags = a} :: StartChannelResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | Undocumented member.
 startChannelResponse_encoderSettings :: Lens.Lens' StartChannelResponse (Prelude.Maybe EncoderSettings)
 startChannelResponse_encoderSettings = Lens.lens (\StartChannelResponse' {encoderSettings} -> encoderSettings) (\s@StartChannelResponse' {} a -> s {encoderSettings = a} :: StartChannelResponse)
 
--- | The Amazon Resource Name (ARN) of the role assumed when running the
--- Channel.
-startChannelResponse_roleArn :: Lens.Lens' StartChannelResponse (Prelude.Maybe Prelude.Text)
-startChannelResponse_roleArn = Lens.lens (\StartChannelResponse' {roleArn} -> roleArn) (\s@StartChannelResponse' {} a -> s {roleArn = a} :: StartChannelResponse)
+-- | The endpoints where outgoing connections initiate from
+startChannelResponse_egressEndpoints :: Lens.Lens' StartChannelResponse (Prelude.Maybe [ChannelEgressEndpoint])
+startChannelResponse_egressEndpoints = Lens.lens (\StartChannelResponse' {egressEndpoints} -> egressEndpoints) (\s@StartChannelResponse' {} a -> s {egressEndpoints = a} :: StartChannelResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 startChannelResponse_httpStatus :: Lens.Lens' StartChannelResponse Prelude.Int
@@ -349,21 +349,21 @@ startChannelResponse_httpStatus = Lens.lens (\StartChannelResponse' {httpStatus}
 
 instance Prelude.NFData StartChannelResponse where
   rnf StartChannelResponse' {..} =
-    Prelude.rnf state
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf vpc
       `Prelude.seq` Prelude.rnf logLevel
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf pipelinesRunningCount
-      `Prelude.seq` Prelude.rnf pipelineDetails
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf inputSpecification
-      `Prelude.seq` Prelude.rnf inputAttachments
-      `Prelude.seq` Prelude.rnf destinations
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf cdiInputSpecification
-      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf channelClass
-      `Prelude.seq` Prelude.rnf vpc
-      `Prelude.seq` Prelude.rnf egressEndpoints
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf pipelineDetails
+      `Prelude.seq` Prelude.rnf cdiInputSpecification
+      `Prelude.seq` Prelude.rnf inputAttachments
+      `Prelude.seq` Prelude.rnf pipelinesRunningCount
+      `Prelude.seq` Prelude.rnf destinations
       `Prelude.seq` Prelude.rnf encoderSettings
-      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf egressEndpoints
       `Prelude.seq` Prelude.rnf httpStatus

@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInputSpecification' smart constructor.
 data InputSpecification = InputSpecification'
-  { -- | Input resolution, categorized coarsely
-    resolution :: Prelude.Maybe InputResolution,
-    -- | Input codec
+  { -- | Input codec
     codec :: Prelude.Maybe InputCodec,
     -- | Maximum input bitrate, categorized coarsely
-    maximumBitrate :: Prelude.Maybe InputMaximumBitrate
+    maximumBitrate :: Prelude.Maybe InputMaximumBitrate,
+    -- | Input resolution, categorized coarsely
+    resolution :: Prelude.Maybe InputResolution
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,23 +47,19 @@ data InputSpecification = InputSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resolution', 'inputSpecification_resolution' - Input resolution, categorized coarsely
---
 -- 'codec', 'inputSpecification_codec' - Input codec
 --
 -- 'maximumBitrate', 'inputSpecification_maximumBitrate' - Maximum input bitrate, categorized coarsely
+--
+-- 'resolution', 'inputSpecification_resolution' - Input resolution, categorized coarsely
 newInputSpecification ::
   InputSpecification
 newInputSpecification =
   InputSpecification'
-    { resolution = Prelude.Nothing,
-      codec = Prelude.Nothing,
-      maximumBitrate = Prelude.Nothing
+    { codec = Prelude.Nothing,
+      maximumBitrate = Prelude.Nothing,
+      resolution = Prelude.Nothing
     }
-
--- | Input resolution, categorized coarsely
-inputSpecification_resolution :: Lens.Lens' InputSpecification (Prelude.Maybe InputResolution)
-inputSpecification_resolution = Lens.lens (\InputSpecification' {resolution} -> resolution) (\s@InputSpecification' {} a -> s {resolution = a} :: InputSpecification)
 
 -- | Input codec
 inputSpecification_codec :: Lens.Lens' InputSpecification (Prelude.Maybe InputCodec)
@@ -73,36 +69,40 @@ inputSpecification_codec = Lens.lens (\InputSpecification' {codec} -> codec) (\s
 inputSpecification_maximumBitrate :: Lens.Lens' InputSpecification (Prelude.Maybe InputMaximumBitrate)
 inputSpecification_maximumBitrate = Lens.lens (\InputSpecification' {maximumBitrate} -> maximumBitrate) (\s@InputSpecification' {} a -> s {maximumBitrate = a} :: InputSpecification)
 
+-- | Input resolution, categorized coarsely
+inputSpecification_resolution :: Lens.Lens' InputSpecification (Prelude.Maybe InputResolution)
+inputSpecification_resolution = Lens.lens (\InputSpecification' {resolution} -> resolution) (\s@InputSpecification' {} a -> s {resolution = a} :: InputSpecification)
+
 instance Core.FromJSON InputSpecification where
   parseJSON =
     Core.withObject
       "InputSpecification"
       ( \x ->
           InputSpecification'
-            Prelude.<$> (x Core..:? "resolution")
-            Prelude.<*> (x Core..:? "codec")
+            Prelude.<$> (x Core..:? "codec")
             Prelude.<*> (x Core..:? "maximumBitrate")
+            Prelude.<*> (x Core..:? "resolution")
       )
 
 instance Prelude.Hashable InputSpecification where
   hashWithSalt _salt InputSpecification' {..} =
-    _salt `Prelude.hashWithSalt` resolution
-      `Prelude.hashWithSalt` codec
+    _salt `Prelude.hashWithSalt` codec
       `Prelude.hashWithSalt` maximumBitrate
+      `Prelude.hashWithSalt` resolution
 
 instance Prelude.NFData InputSpecification where
   rnf InputSpecification' {..} =
-    Prelude.rnf resolution
-      `Prelude.seq` Prelude.rnf codec
+    Prelude.rnf codec
       `Prelude.seq` Prelude.rnf maximumBitrate
+      `Prelude.seq` Prelude.rnf resolution
 
 instance Core.ToJSON InputSpecification where
   toJSON InputSpecification' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("resolution" Core..=) Prelude.<$> resolution,
-            ("codec" Core..=) Prelude.<$> codec,
+          [ ("codec" Core..=) Prelude.<$> codec,
             ("maximumBitrate" Core..=)
-              Prelude.<$> maximumBitrate
+              Prelude.<$> maximumBitrate,
+            ("resolution" Core..=) Prelude.<$> resolution
           ]
       )

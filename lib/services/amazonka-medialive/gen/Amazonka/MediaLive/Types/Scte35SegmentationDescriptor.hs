@@ -29,22 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newScte35SegmentationDescriptor' smart constructor.
 data Scte35SegmentationDescriptor = Scte35SegmentationDescriptor'
-  { -- | Corresponds to SCTE-35 segmentation_upid_type. On the console, enter one
-    -- of the types listed in the SCTE-35 specification, converted to a
-    -- decimal. For example, \"0x0C\" hex from the specification is \"12\" in
-    -- decimal. In the CLI, API, or an SDK, enter one of the types listed in
-    -- the SCTE-35 specification, in either hex (for example, \"0x0C\" ) or in
-    -- decimal (for example, \"12\").
-    segmentationUpidType :: Prelude.Maybe Prelude.Natural,
-    -- | Corresponds to SCTE-35 segments_expected. A value that is valid for the
-    -- specified segmentation_type_id.
-    segmentsExpected :: Prelude.Maybe Prelude.Natural,
-    -- | Corresponds to SCTE-35 sub_segments_expected. A value that is valid for
+  { -- | Corresponds to SCTE-35 sub_segments_expected. A value that is valid for
     -- the specified segmentation_type_id.
     subSegmentsExpected :: Prelude.Maybe Prelude.Natural,
-    -- | Corresponds to SCTE-35 segment_num. A value that is valid for the
-    -- specified segmentation_type_id.
-    segmentNum :: Prelude.Maybe Prelude.Natural,
     -- | Corresponds to SCTE-35 segmentation_duration. Optional. The duration for
     -- the time_signal, in 90 KHz ticks. To convert seconds to ticks, multiple
     -- the seconds by 90,000. Enter time in 90 KHz clock ticks. If you do not
@@ -57,8 +44,16 @@ data Scte35SegmentationDescriptor = Scte35SegmentationDescriptor'
     -- or an SDK, enter the ID in hex (for example, \"0x34\") or decimal (for
     -- example, \"52\").
     segmentationTypeId :: Prelude.Maybe Prelude.Natural,
-    -- | Holds the four SCTE-35 delivery restriction parameters.
-    deliveryRestrictions :: Prelude.Maybe Scte35DeliveryRestrictions,
+    -- | Corresponds to SCTE-35 segmentation_upid_type. On the console, enter one
+    -- of the types listed in the SCTE-35 specification, converted to a
+    -- decimal. For example, \"0x0C\" hex from the specification is \"12\" in
+    -- decimal. In the CLI, API, or an SDK, enter one of the types listed in
+    -- the SCTE-35 specification, in either hex (for example, \"0x0C\" ) or in
+    -- decimal (for example, \"12\").
+    segmentationUpidType :: Prelude.Maybe Prelude.Natural,
+    -- | Corresponds to SCTE-35 segment_num. A value that is valid for the
+    -- specified segmentation_type_id.
+    segmentNum :: Prelude.Maybe Prelude.Natural,
     -- | Corresponds to SCTE-35 segmentation_upid. Enter a string containing the
     -- hexadecimal representation of the characters that make up the SCTE-35
     -- segmentation_upid value. Must contain an even number of hex characters.
@@ -68,6 +63,11 @@ data Scte35SegmentationDescriptor = Scte35SegmentationDescriptor'
     -- | Corresponds to SCTE-35 sub_segment_num. A value that is valid for the
     -- specified segmentation_type_id.
     subSegmentNum :: Prelude.Maybe Prelude.Natural,
+    -- | Holds the four SCTE-35 delivery restriction parameters.
+    deliveryRestrictions :: Prelude.Maybe Scte35DeliveryRestrictions,
+    -- | Corresponds to SCTE-35 segments_expected. A value that is valid for the
+    -- specified segmentation_type_id.
+    segmentsExpected :: Prelude.Maybe Prelude.Natural,
     -- | Corresponds to SCTE-35 segmentation_event_id.
     segmentationEventId :: Prelude.Natural,
     -- | Corresponds to SCTE-35 segmentation_event_cancel_indicator.
@@ -83,21 +83,8 @@ data Scte35SegmentationDescriptor = Scte35SegmentationDescriptor'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'segmentationUpidType', 'scte35SegmentationDescriptor_segmentationUpidType' - Corresponds to SCTE-35 segmentation_upid_type. On the console, enter one
--- of the types listed in the SCTE-35 specification, converted to a
--- decimal. For example, \"0x0C\" hex from the specification is \"12\" in
--- decimal. In the CLI, API, or an SDK, enter one of the types listed in
--- the SCTE-35 specification, in either hex (for example, \"0x0C\" ) or in
--- decimal (for example, \"12\").
---
--- 'segmentsExpected', 'scte35SegmentationDescriptor_segmentsExpected' - Corresponds to SCTE-35 segments_expected. A value that is valid for the
--- specified segmentation_type_id.
---
 -- 'subSegmentsExpected', 'scte35SegmentationDescriptor_subSegmentsExpected' - Corresponds to SCTE-35 sub_segments_expected. A value that is valid for
 -- the specified segmentation_type_id.
---
--- 'segmentNum', 'scte35SegmentationDescriptor_segmentNum' - Corresponds to SCTE-35 segment_num. A value that is valid for the
--- specified segmentation_type_id.
 --
 -- 'segmentationDuration', 'scte35SegmentationDescriptor_segmentationDuration' - Corresponds to SCTE-35 segmentation_duration. Optional. The duration for
 -- the time_signal, in 90 KHz ticks. To convert seconds to ticks, multiple
@@ -111,7 +98,15 @@ data Scte35SegmentationDescriptor = Scte35SegmentationDescriptor'
 -- or an SDK, enter the ID in hex (for example, \"0x34\") or decimal (for
 -- example, \"52\").
 --
--- 'deliveryRestrictions', 'scte35SegmentationDescriptor_deliveryRestrictions' - Holds the four SCTE-35 delivery restriction parameters.
+-- 'segmentationUpidType', 'scte35SegmentationDescriptor_segmentationUpidType' - Corresponds to SCTE-35 segmentation_upid_type. On the console, enter one
+-- of the types listed in the SCTE-35 specification, converted to a
+-- decimal. For example, \"0x0C\" hex from the specification is \"12\" in
+-- decimal. In the CLI, API, or an SDK, enter one of the types listed in
+-- the SCTE-35 specification, in either hex (for example, \"0x0C\" ) or in
+-- decimal (for example, \"12\").
+--
+-- 'segmentNum', 'scte35SegmentationDescriptor_segmentNum' - Corresponds to SCTE-35 segment_num. A value that is valid for the
+-- specified segmentation_type_id.
 --
 -- 'segmentationUpid', 'scte35SegmentationDescriptor_segmentationUpid' - Corresponds to SCTE-35 segmentation_upid. Enter a string containing the
 -- hexadecimal representation of the characters that make up the SCTE-35
@@ -120,6 +115,11 @@ data Scte35SegmentationDescriptor = Scte35SegmentationDescriptor'
 -- \"ADS Information\" becomes hex \"41445320496e666f726d6174696f6e.
 --
 -- 'subSegmentNum', 'scte35SegmentationDescriptor_subSegmentNum' - Corresponds to SCTE-35 sub_segment_num. A value that is valid for the
+-- specified segmentation_type_id.
+--
+-- 'deliveryRestrictions', 'scte35SegmentationDescriptor_deliveryRestrictions' - Holds the four SCTE-35 delivery restriction parameters.
+--
+-- 'segmentsExpected', 'scte35SegmentationDescriptor_segmentsExpected' - Corresponds to SCTE-35 segments_expected. A value that is valid for the
 -- specified segmentation_type_id.
 --
 -- 'segmentationEventId', 'scte35SegmentationDescriptor_segmentationEventId' - Corresponds to SCTE-35 segmentation_event_id.
@@ -135,44 +135,25 @@ newScte35SegmentationDescriptor
   pSegmentationEventId_
   pSegmentationCancelIndicator_ =
     Scte35SegmentationDescriptor'
-      { segmentationUpidType =
+      { subSegmentsExpected =
           Prelude.Nothing,
-        segmentsExpected = Prelude.Nothing,
-        subSegmentsExpected = Prelude.Nothing,
-        segmentNum = Prelude.Nothing,
         segmentationDuration = Prelude.Nothing,
         segmentationTypeId = Prelude.Nothing,
-        deliveryRestrictions = Prelude.Nothing,
+        segmentationUpidType = Prelude.Nothing,
+        segmentNum = Prelude.Nothing,
         segmentationUpid = Prelude.Nothing,
         subSegmentNum = Prelude.Nothing,
+        deliveryRestrictions = Prelude.Nothing,
+        segmentsExpected = Prelude.Nothing,
         segmentationEventId = pSegmentationEventId_,
         segmentationCancelIndicator =
           pSegmentationCancelIndicator_
       }
 
--- | Corresponds to SCTE-35 segmentation_upid_type. On the console, enter one
--- of the types listed in the SCTE-35 specification, converted to a
--- decimal. For example, \"0x0C\" hex from the specification is \"12\" in
--- decimal. In the CLI, API, or an SDK, enter one of the types listed in
--- the SCTE-35 specification, in either hex (for example, \"0x0C\" ) or in
--- decimal (for example, \"12\").
-scte35SegmentationDescriptor_segmentationUpidType :: Lens.Lens' Scte35SegmentationDescriptor (Prelude.Maybe Prelude.Natural)
-scte35SegmentationDescriptor_segmentationUpidType = Lens.lens (\Scte35SegmentationDescriptor' {segmentationUpidType} -> segmentationUpidType) (\s@Scte35SegmentationDescriptor' {} a -> s {segmentationUpidType = a} :: Scte35SegmentationDescriptor)
-
--- | Corresponds to SCTE-35 segments_expected. A value that is valid for the
--- specified segmentation_type_id.
-scte35SegmentationDescriptor_segmentsExpected :: Lens.Lens' Scte35SegmentationDescriptor (Prelude.Maybe Prelude.Natural)
-scte35SegmentationDescriptor_segmentsExpected = Lens.lens (\Scte35SegmentationDescriptor' {segmentsExpected} -> segmentsExpected) (\s@Scte35SegmentationDescriptor' {} a -> s {segmentsExpected = a} :: Scte35SegmentationDescriptor)
-
 -- | Corresponds to SCTE-35 sub_segments_expected. A value that is valid for
 -- the specified segmentation_type_id.
 scte35SegmentationDescriptor_subSegmentsExpected :: Lens.Lens' Scte35SegmentationDescriptor (Prelude.Maybe Prelude.Natural)
 scte35SegmentationDescriptor_subSegmentsExpected = Lens.lens (\Scte35SegmentationDescriptor' {subSegmentsExpected} -> subSegmentsExpected) (\s@Scte35SegmentationDescriptor' {} a -> s {subSegmentsExpected = a} :: Scte35SegmentationDescriptor)
-
--- | Corresponds to SCTE-35 segment_num. A value that is valid for the
--- specified segmentation_type_id.
-scte35SegmentationDescriptor_segmentNum :: Lens.Lens' Scte35SegmentationDescriptor (Prelude.Maybe Prelude.Natural)
-scte35SegmentationDescriptor_segmentNum = Lens.lens (\Scte35SegmentationDescriptor' {segmentNum} -> segmentNum) (\s@Scte35SegmentationDescriptor' {} a -> s {segmentNum = a} :: Scte35SegmentationDescriptor)
 
 -- | Corresponds to SCTE-35 segmentation_duration. Optional. The duration for
 -- the time_signal, in 90 KHz ticks. To convert seconds to ticks, multiple
@@ -190,9 +171,19 @@ scte35SegmentationDescriptor_segmentationDuration = Lens.lens (\Scte35Segmentati
 scte35SegmentationDescriptor_segmentationTypeId :: Lens.Lens' Scte35SegmentationDescriptor (Prelude.Maybe Prelude.Natural)
 scte35SegmentationDescriptor_segmentationTypeId = Lens.lens (\Scte35SegmentationDescriptor' {segmentationTypeId} -> segmentationTypeId) (\s@Scte35SegmentationDescriptor' {} a -> s {segmentationTypeId = a} :: Scte35SegmentationDescriptor)
 
--- | Holds the four SCTE-35 delivery restriction parameters.
-scte35SegmentationDescriptor_deliveryRestrictions :: Lens.Lens' Scte35SegmentationDescriptor (Prelude.Maybe Scte35DeliveryRestrictions)
-scte35SegmentationDescriptor_deliveryRestrictions = Lens.lens (\Scte35SegmentationDescriptor' {deliveryRestrictions} -> deliveryRestrictions) (\s@Scte35SegmentationDescriptor' {} a -> s {deliveryRestrictions = a} :: Scte35SegmentationDescriptor)
+-- | Corresponds to SCTE-35 segmentation_upid_type. On the console, enter one
+-- of the types listed in the SCTE-35 specification, converted to a
+-- decimal. For example, \"0x0C\" hex from the specification is \"12\" in
+-- decimal. In the CLI, API, or an SDK, enter one of the types listed in
+-- the SCTE-35 specification, in either hex (for example, \"0x0C\" ) or in
+-- decimal (for example, \"12\").
+scte35SegmentationDescriptor_segmentationUpidType :: Lens.Lens' Scte35SegmentationDescriptor (Prelude.Maybe Prelude.Natural)
+scte35SegmentationDescriptor_segmentationUpidType = Lens.lens (\Scte35SegmentationDescriptor' {segmentationUpidType} -> segmentationUpidType) (\s@Scte35SegmentationDescriptor' {} a -> s {segmentationUpidType = a} :: Scte35SegmentationDescriptor)
+
+-- | Corresponds to SCTE-35 segment_num. A value that is valid for the
+-- specified segmentation_type_id.
+scte35SegmentationDescriptor_segmentNum :: Lens.Lens' Scte35SegmentationDescriptor (Prelude.Maybe Prelude.Natural)
+scte35SegmentationDescriptor_segmentNum = Lens.lens (\Scte35SegmentationDescriptor' {segmentNum} -> segmentNum) (\s@Scte35SegmentationDescriptor' {} a -> s {segmentNum = a} :: Scte35SegmentationDescriptor)
 
 -- | Corresponds to SCTE-35 segmentation_upid. Enter a string containing the
 -- hexadecimal representation of the characters that make up the SCTE-35
@@ -206,6 +197,15 @@ scte35SegmentationDescriptor_segmentationUpid = Lens.lens (\Scte35SegmentationDe
 -- specified segmentation_type_id.
 scte35SegmentationDescriptor_subSegmentNum :: Lens.Lens' Scte35SegmentationDescriptor (Prelude.Maybe Prelude.Natural)
 scte35SegmentationDescriptor_subSegmentNum = Lens.lens (\Scte35SegmentationDescriptor' {subSegmentNum} -> subSegmentNum) (\s@Scte35SegmentationDescriptor' {} a -> s {subSegmentNum = a} :: Scte35SegmentationDescriptor)
+
+-- | Holds the four SCTE-35 delivery restriction parameters.
+scte35SegmentationDescriptor_deliveryRestrictions :: Lens.Lens' Scte35SegmentationDescriptor (Prelude.Maybe Scte35DeliveryRestrictions)
+scte35SegmentationDescriptor_deliveryRestrictions = Lens.lens (\Scte35SegmentationDescriptor' {deliveryRestrictions} -> deliveryRestrictions) (\s@Scte35SegmentationDescriptor' {} a -> s {deliveryRestrictions = a} :: Scte35SegmentationDescriptor)
+
+-- | Corresponds to SCTE-35 segments_expected. A value that is valid for the
+-- specified segmentation_type_id.
+scte35SegmentationDescriptor_segmentsExpected :: Lens.Lens' Scte35SegmentationDescriptor (Prelude.Maybe Prelude.Natural)
+scte35SegmentationDescriptor_segmentsExpected = Lens.lens (\Scte35SegmentationDescriptor' {segmentsExpected} -> segmentsExpected) (\s@Scte35SegmentationDescriptor' {} a -> s {segmentsExpected = a} :: Scte35SegmentationDescriptor)
 
 -- | Corresponds to SCTE-35 segmentation_event_id.
 scte35SegmentationDescriptor_segmentationEventId :: Lens.Lens' Scte35SegmentationDescriptor Prelude.Natural
@@ -221,15 +221,15 @@ instance Core.FromJSON Scte35SegmentationDescriptor where
       "Scte35SegmentationDescriptor"
       ( \x ->
           Scte35SegmentationDescriptor'
-            Prelude.<$> (x Core..:? "segmentationUpidType")
-            Prelude.<*> (x Core..:? "segmentsExpected")
-            Prelude.<*> (x Core..:? "subSegmentsExpected")
-            Prelude.<*> (x Core..:? "segmentNum")
+            Prelude.<$> (x Core..:? "subSegmentsExpected")
             Prelude.<*> (x Core..:? "segmentationDuration")
             Prelude.<*> (x Core..:? "segmentationTypeId")
-            Prelude.<*> (x Core..:? "deliveryRestrictions")
+            Prelude.<*> (x Core..:? "segmentationUpidType")
+            Prelude.<*> (x Core..:? "segmentNum")
             Prelude.<*> (x Core..:? "segmentationUpid")
             Prelude.<*> (x Core..:? "subSegmentNum")
+            Prelude.<*> (x Core..:? "deliveryRestrictions")
+            Prelude.<*> (x Core..:? "segmentsExpected")
             Prelude.<*> (x Core..: "segmentationEventId")
             Prelude.<*> (x Core..: "segmentationCancelIndicator")
       )
@@ -239,29 +239,29 @@ instance
     Scte35SegmentationDescriptor
   where
   hashWithSalt _salt Scte35SegmentationDescriptor' {..} =
-    _salt `Prelude.hashWithSalt` segmentationUpidType
-      `Prelude.hashWithSalt` segmentsExpected
-      `Prelude.hashWithSalt` subSegmentsExpected
-      `Prelude.hashWithSalt` segmentNum
+    _salt `Prelude.hashWithSalt` subSegmentsExpected
       `Prelude.hashWithSalt` segmentationDuration
       `Prelude.hashWithSalt` segmentationTypeId
-      `Prelude.hashWithSalt` deliveryRestrictions
+      `Prelude.hashWithSalt` segmentationUpidType
+      `Prelude.hashWithSalt` segmentNum
       `Prelude.hashWithSalt` segmentationUpid
       `Prelude.hashWithSalt` subSegmentNum
+      `Prelude.hashWithSalt` deliveryRestrictions
+      `Prelude.hashWithSalt` segmentsExpected
       `Prelude.hashWithSalt` segmentationEventId
       `Prelude.hashWithSalt` segmentationCancelIndicator
 
 instance Prelude.NFData Scte35SegmentationDescriptor where
   rnf Scte35SegmentationDescriptor' {..} =
-    Prelude.rnf segmentationUpidType
-      `Prelude.seq` Prelude.rnf segmentsExpected
-      `Prelude.seq` Prelude.rnf subSegmentsExpected
-      `Prelude.seq` Prelude.rnf segmentNum
+    Prelude.rnf subSegmentsExpected
       `Prelude.seq` Prelude.rnf segmentationDuration
       `Prelude.seq` Prelude.rnf segmentationTypeId
-      `Prelude.seq` Prelude.rnf deliveryRestrictions
+      `Prelude.seq` Prelude.rnf segmentationUpidType
+      `Prelude.seq` Prelude.rnf segmentNum
       `Prelude.seq` Prelude.rnf segmentationUpid
       `Prelude.seq` Prelude.rnf subSegmentNum
+      `Prelude.seq` Prelude.rnf deliveryRestrictions
+      `Prelude.seq` Prelude.rnf segmentsExpected
       `Prelude.seq` Prelude.rnf segmentationEventId
       `Prelude.seq` Prelude.rnf segmentationCancelIndicator
 
@@ -269,22 +269,22 @@ instance Core.ToJSON Scte35SegmentationDescriptor where
   toJSON Scte35SegmentationDescriptor' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("segmentationUpidType" Core..=)
-              Prelude.<$> segmentationUpidType,
-            ("segmentsExpected" Core..=)
-              Prelude.<$> segmentsExpected,
-            ("subSegmentsExpected" Core..=)
+          [ ("subSegmentsExpected" Core..=)
               Prelude.<$> subSegmentsExpected,
-            ("segmentNum" Core..=) Prelude.<$> segmentNum,
             ("segmentationDuration" Core..=)
               Prelude.<$> segmentationDuration,
             ("segmentationTypeId" Core..=)
               Prelude.<$> segmentationTypeId,
-            ("deliveryRestrictions" Core..=)
-              Prelude.<$> deliveryRestrictions,
+            ("segmentationUpidType" Core..=)
+              Prelude.<$> segmentationUpidType,
+            ("segmentNum" Core..=) Prelude.<$> segmentNum,
             ("segmentationUpid" Core..=)
               Prelude.<$> segmentationUpid,
             ("subSegmentNum" Core..=) Prelude.<$> subSegmentNum,
+            ("deliveryRestrictions" Core..=)
+              Prelude.<$> deliveryRestrictions,
+            ("segmentsExpected" Core..=)
+              Prelude.<$> segmentsExpected,
             Prelude.Just
               ("segmentationEventId" Core..= segmentationEventId),
             Prelude.Just

@@ -28,18 +28,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newScte27SourceSettings' smart constructor.
 data Scte27SourceSettings = Scte27SourceSettings'
-  { -- | If you will configure a WebVTT caption description that references this
-    -- caption selector, use this field to provide the language to consider
-    -- when translating the image-based source to text.
-    ocrLanguage :: Prelude.Maybe Scte27OcrLanguage,
-    -- | The pid field is used in conjunction with the caption selector
+  { -- | The pid field is used in conjunction with the caption selector
     -- languageCode field as follows: - Specify PID and Language: Extracts
     -- captions from that PID; the language is \"informational\". - Specify PID
     -- and omit Language: Extracts the specified PID. - Omit PID and specify
     -- Language: Extracts the specified language, whichever PID that happens to
     -- be. - Omit PID and omit Language: Valid only if source is DVB-Sub that
     -- is being passed through; all languages will be passed through.
-    pid :: Prelude.Maybe Prelude.Natural
+    pid :: Prelude.Maybe Prelude.Natural,
+    -- | If you will configure a WebVTT caption description that references this
+    -- caption selector, use this field to provide the language to consider
+    -- when translating the image-based source to text.
+    ocrLanguage :: Prelude.Maybe Scte27OcrLanguage
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,10 +51,6 @@ data Scte27SourceSettings = Scte27SourceSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ocrLanguage', 'scte27SourceSettings_ocrLanguage' - If you will configure a WebVTT caption description that references this
--- caption selector, use this field to provide the language to consider
--- when translating the image-based source to text.
---
 -- 'pid', 'scte27SourceSettings_pid' - The pid field is used in conjunction with the caption selector
 -- languageCode field as follows: - Specify PID and Language: Extracts
 -- captions from that PID; the language is \"informational\". - Specify PID
@@ -62,20 +58,17 @@ data Scte27SourceSettings = Scte27SourceSettings'
 -- Language: Extracts the specified language, whichever PID that happens to
 -- be. - Omit PID and omit Language: Valid only if source is DVB-Sub that
 -- is being passed through; all languages will be passed through.
+--
+-- 'ocrLanguage', 'scte27SourceSettings_ocrLanguage' - If you will configure a WebVTT caption description that references this
+-- caption selector, use this field to provide the language to consider
+-- when translating the image-based source to text.
 newScte27SourceSettings ::
   Scte27SourceSettings
 newScte27SourceSettings =
   Scte27SourceSettings'
-    { ocrLanguage =
-        Prelude.Nothing,
-      pid = Prelude.Nothing
+    { pid = Prelude.Nothing,
+      ocrLanguage = Prelude.Nothing
     }
-
--- | If you will configure a WebVTT caption description that references this
--- caption selector, use this field to provide the language to consider
--- when translating the image-based source to text.
-scte27SourceSettings_ocrLanguage :: Lens.Lens' Scte27SourceSettings (Prelude.Maybe Scte27OcrLanguage)
-scte27SourceSettings_ocrLanguage = Lens.lens (\Scte27SourceSettings' {ocrLanguage} -> ocrLanguage) (\s@Scte27SourceSettings' {} a -> s {ocrLanguage = a} :: Scte27SourceSettings)
 
 -- | The pid field is used in conjunction with the caption selector
 -- languageCode field as follows: - Specify PID and Language: Extracts
@@ -87,31 +80,37 @@ scte27SourceSettings_ocrLanguage = Lens.lens (\Scte27SourceSettings' {ocrLanguag
 scte27SourceSettings_pid :: Lens.Lens' Scte27SourceSettings (Prelude.Maybe Prelude.Natural)
 scte27SourceSettings_pid = Lens.lens (\Scte27SourceSettings' {pid} -> pid) (\s@Scte27SourceSettings' {} a -> s {pid = a} :: Scte27SourceSettings)
 
+-- | If you will configure a WebVTT caption description that references this
+-- caption selector, use this field to provide the language to consider
+-- when translating the image-based source to text.
+scte27SourceSettings_ocrLanguage :: Lens.Lens' Scte27SourceSettings (Prelude.Maybe Scte27OcrLanguage)
+scte27SourceSettings_ocrLanguage = Lens.lens (\Scte27SourceSettings' {ocrLanguage} -> ocrLanguage) (\s@Scte27SourceSettings' {} a -> s {ocrLanguage = a} :: Scte27SourceSettings)
+
 instance Core.FromJSON Scte27SourceSettings where
   parseJSON =
     Core.withObject
       "Scte27SourceSettings"
       ( \x ->
           Scte27SourceSettings'
-            Prelude.<$> (x Core..:? "ocrLanguage")
-            Prelude.<*> (x Core..:? "pid")
+            Prelude.<$> (x Core..:? "pid")
+            Prelude.<*> (x Core..:? "ocrLanguage")
       )
 
 instance Prelude.Hashable Scte27SourceSettings where
   hashWithSalt _salt Scte27SourceSettings' {..} =
-    _salt `Prelude.hashWithSalt` ocrLanguage
-      `Prelude.hashWithSalt` pid
+    _salt `Prelude.hashWithSalt` pid
+      `Prelude.hashWithSalt` ocrLanguage
 
 instance Prelude.NFData Scte27SourceSettings where
   rnf Scte27SourceSettings' {..} =
-    Prelude.rnf ocrLanguage
-      `Prelude.seq` Prelude.rnf pid
+    Prelude.rnf pid
+      `Prelude.seq` Prelude.rnf ocrLanguage
 
 instance Core.ToJSON Scte27SourceSettings where
   toJSON Scte27SourceSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ocrLanguage" Core..=) Prelude.<$> ocrLanguage,
-            ("pid" Core..=) Prelude.<$> pid
+          [ ("pid" Core..=) Prelude.<$> pid,
+            ("ocrLanguage" Core..=) Prelude.<$> ocrLanguage
           ]
       )

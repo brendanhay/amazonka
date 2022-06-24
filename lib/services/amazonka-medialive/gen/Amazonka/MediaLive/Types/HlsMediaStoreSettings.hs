@@ -34,14 +34,14 @@ data HlsMediaStoreSettings = HlsMediaStoreSettings'
     -- | Number of seconds to wait before retrying connection to the CDN if the
     -- connection is lost.
     connectionRetryInterval :: Prelude.Maybe Prelude.Natural,
-    -- | Size in seconds of file cache for streaming outputs.
-    filecacheDuration :: Prelude.Maybe Prelude.Natural,
     -- | When set to temporal, output files are stored in non-persistent memory
     -- for faster reading and writing.
     mediaStoreStorageClass :: Prelude.Maybe HlsMediaStoreStorageClass,
     -- | If a streaming output fails, number of seconds to wait until a restart
     -- is initiated. A value of 0 means never restart.
-    restartDelay :: Prelude.Maybe Prelude.Natural
+    restartDelay :: Prelude.Maybe Prelude.Natural,
+    -- | Size in seconds of file cache for streaming outputs.
+    filecacheDuration :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,13 +59,13 @@ data HlsMediaStoreSettings = HlsMediaStoreSettings'
 -- 'connectionRetryInterval', 'hlsMediaStoreSettings_connectionRetryInterval' - Number of seconds to wait before retrying connection to the CDN if the
 -- connection is lost.
 --
--- 'filecacheDuration', 'hlsMediaStoreSettings_filecacheDuration' - Size in seconds of file cache for streaming outputs.
---
 -- 'mediaStoreStorageClass', 'hlsMediaStoreSettings_mediaStoreStorageClass' - When set to temporal, output files are stored in non-persistent memory
 -- for faster reading and writing.
 --
 -- 'restartDelay', 'hlsMediaStoreSettings_restartDelay' - If a streaming output fails, number of seconds to wait until a restart
 -- is initiated. A value of 0 means never restart.
+--
+-- 'filecacheDuration', 'hlsMediaStoreSettings_filecacheDuration' - Size in seconds of file cache for streaming outputs.
 newHlsMediaStoreSettings ::
   HlsMediaStoreSettings
 newHlsMediaStoreSettings =
@@ -73,9 +73,9 @@ newHlsMediaStoreSettings =
     { numRetries =
         Prelude.Nothing,
       connectionRetryInterval = Prelude.Nothing,
-      filecacheDuration = Prelude.Nothing,
       mediaStoreStorageClass = Prelude.Nothing,
-      restartDelay = Prelude.Nothing
+      restartDelay = Prelude.Nothing,
+      filecacheDuration = Prelude.Nothing
     }
 
 -- | Number of retry attempts that will be made before the Live Event is put
@@ -88,10 +88,6 @@ hlsMediaStoreSettings_numRetries = Lens.lens (\HlsMediaStoreSettings' {numRetrie
 hlsMediaStoreSettings_connectionRetryInterval :: Lens.Lens' HlsMediaStoreSettings (Prelude.Maybe Prelude.Natural)
 hlsMediaStoreSettings_connectionRetryInterval = Lens.lens (\HlsMediaStoreSettings' {connectionRetryInterval} -> connectionRetryInterval) (\s@HlsMediaStoreSettings' {} a -> s {connectionRetryInterval = a} :: HlsMediaStoreSettings)
 
--- | Size in seconds of file cache for streaming outputs.
-hlsMediaStoreSettings_filecacheDuration :: Lens.Lens' HlsMediaStoreSettings (Prelude.Maybe Prelude.Natural)
-hlsMediaStoreSettings_filecacheDuration = Lens.lens (\HlsMediaStoreSettings' {filecacheDuration} -> filecacheDuration) (\s@HlsMediaStoreSettings' {} a -> s {filecacheDuration = a} :: HlsMediaStoreSettings)
-
 -- | When set to temporal, output files are stored in non-persistent memory
 -- for faster reading and writing.
 hlsMediaStoreSettings_mediaStoreStorageClass :: Lens.Lens' HlsMediaStoreSettings (Prelude.Maybe HlsMediaStoreStorageClass)
@@ -102,6 +98,10 @@ hlsMediaStoreSettings_mediaStoreStorageClass = Lens.lens (\HlsMediaStoreSettings
 hlsMediaStoreSettings_restartDelay :: Lens.Lens' HlsMediaStoreSettings (Prelude.Maybe Prelude.Natural)
 hlsMediaStoreSettings_restartDelay = Lens.lens (\HlsMediaStoreSettings' {restartDelay} -> restartDelay) (\s@HlsMediaStoreSettings' {} a -> s {restartDelay = a} :: HlsMediaStoreSettings)
 
+-- | Size in seconds of file cache for streaming outputs.
+hlsMediaStoreSettings_filecacheDuration :: Lens.Lens' HlsMediaStoreSettings (Prelude.Maybe Prelude.Natural)
+hlsMediaStoreSettings_filecacheDuration = Lens.lens (\HlsMediaStoreSettings' {filecacheDuration} -> filecacheDuration) (\s@HlsMediaStoreSettings' {} a -> s {filecacheDuration = a} :: HlsMediaStoreSettings)
+
 instance Core.FromJSON HlsMediaStoreSettings where
   parseJSON =
     Core.withObject
@@ -110,26 +110,26 @@ instance Core.FromJSON HlsMediaStoreSettings where
           HlsMediaStoreSettings'
             Prelude.<$> (x Core..:? "numRetries")
             Prelude.<*> (x Core..:? "connectionRetryInterval")
-            Prelude.<*> (x Core..:? "filecacheDuration")
             Prelude.<*> (x Core..:? "mediaStoreStorageClass")
             Prelude.<*> (x Core..:? "restartDelay")
+            Prelude.<*> (x Core..:? "filecacheDuration")
       )
 
 instance Prelude.Hashable HlsMediaStoreSettings where
   hashWithSalt _salt HlsMediaStoreSettings' {..} =
     _salt `Prelude.hashWithSalt` numRetries
       `Prelude.hashWithSalt` connectionRetryInterval
-      `Prelude.hashWithSalt` filecacheDuration
       `Prelude.hashWithSalt` mediaStoreStorageClass
       `Prelude.hashWithSalt` restartDelay
+      `Prelude.hashWithSalt` filecacheDuration
 
 instance Prelude.NFData HlsMediaStoreSettings where
   rnf HlsMediaStoreSettings' {..} =
     Prelude.rnf numRetries
       `Prelude.seq` Prelude.rnf connectionRetryInterval
-      `Prelude.seq` Prelude.rnf filecacheDuration
       `Prelude.seq` Prelude.rnf mediaStoreStorageClass
       `Prelude.seq` Prelude.rnf restartDelay
+      `Prelude.seq` Prelude.rnf filecacheDuration
 
 instance Core.ToJSON HlsMediaStoreSettings where
   toJSON HlsMediaStoreSettings' {..} =
@@ -138,10 +138,10 @@ instance Core.ToJSON HlsMediaStoreSettings where
           [ ("numRetries" Core..=) Prelude.<$> numRetries,
             ("connectionRetryInterval" Core..=)
               Prelude.<$> connectionRetryInterval,
-            ("filecacheDuration" Core..=)
-              Prelude.<$> filecacheDuration,
             ("mediaStoreStorageClass" Core..=)
               Prelude.<$> mediaStoreStorageClass,
-            ("restartDelay" Core..=) Prelude.<$> restartDelay
+            ("restartDelay" Core..=) Prelude.<$> restartDelay,
+            ("filecacheDuration" Core..=)
+              Prelude.<$> filecacheDuration
           ]
       )

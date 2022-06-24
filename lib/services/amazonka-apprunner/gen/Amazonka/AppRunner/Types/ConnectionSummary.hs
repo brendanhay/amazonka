@@ -32,14 +32,14 @@ data ConnectionSummary = ConnectionSummary'
   { -- | The current state of the App Runner connection. When the state is
     -- @AVAILABLE@, you can use the connection to create an App Runner service.
     status :: Prelude.Maybe ConnectionStatus,
-    -- | The App Runner connection creation time, expressed as a Unix time stamp.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN) of this connection.
+    connectionArn :: Prelude.Maybe Prelude.Text,
     -- | The source repository provider.
     providerType :: Prelude.Maybe ProviderType,
+    -- | The App Runner connection creation time, expressed as a Unix time stamp.
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The customer-provided connection name.
-    connectionName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of this connection.
-    connectionArn :: Prelude.Maybe Prelude.Text
+    connectionName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,22 +54,22 @@ data ConnectionSummary = ConnectionSummary'
 -- 'status', 'connectionSummary_status' - The current state of the App Runner connection. When the state is
 -- @AVAILABLE@, you can use the connection to create an App Runner service.
 --
--- 'createdAt', 'connectionSummary_createdAt' - The App Runner connection creation time, expressed as a Unix time stamp.
+-- 'connectionArn', 'connectionSummary_connectionArn' - The Amazon Resource Name (ARN) of this connection.
 --
 -- 'providerType', 'connectionSummary_providerType' - The source repository provider.
 --
--- 'connectionName', 'connectionSummary_connectionName' - The customer-provided connection name.
+-- 'createdAt', 'connectionSummary_createdAt' - The App Runner connection creation time, expressed as a Unix time stamp.
 --
--- 'connectionArn', 'connectionSummary_connectionArn' - The Amazon Resource Name (ARN) of this connection.
+-- 'connectionName', 'connectionSummary_connectionName' - The customer-provided connection name.
 newConnectionSummary ::
   ConnectionSummary
 newConnectionSummary =
   ConnectionSummary'
     { status = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
+      connectionArn = Prelude.Nothing,
       providerType = Prelude.Nothing,
-      connectionName = Prelude.Nothing,
-      connectionArn = Prelude.Nothing
+      createdAt = Prelude.Nothing,
+      connectionName = Prelude.Nothing
     }
 
 -- | The current state of the App Runner connection. When the state is
@@ -77,21 +77,21 @@ newConnectionSummary =
 connectionSummary_status :: Lens.Lens' ConnectionSummary (Prelude.Maybe ConnectionStatus)
 connectionSummary_status = Lens.lens (\ConnectionSummary' {status} -> status) (\s@ConnectionSummary' {} a -> s {status = a} :: ConnectionSummary)
 
--- | The App Runner connection creation time, expressed as a Unix time stamp.
-connectionSummary_createdAt :: Lens.Lens' ConnectionSummary (Prelude.Maybe Prelude.UTCTime)
-connectionSummary_createdAt = Lens.lens (\ConnectionSummary' {createdAt} -> createdAt) (\s@ConnectionSummary' {} a -> s {createdAt = a} :: ConnectionSummary) Prelude.. Lens.mapping Core._Time
+-- | The Amazon Resource Name (ARN) of this connection.
+connectionSummary_connectionArn :: Lens.Lens' ConnectionSummary (Prelude.Maybe Prelude.Text)
+connectionSummary_connectionArn = Lens.lens (\ConnectionSummary' {connectionArn} -> connectionArn) (\s@ConnectionSummary' {} a -> s {connectionArn = a} :: ConnectionSummary)
 
 -- | The source repository provider.
 connectionSummary_providerType :: Lens.Lens' ConnectionSummary (Prelude.Maybe ProviderType)
 connectionSummary_providerType = Lens.lens (\ConnectionSummary' {providerType} -> providerType) (\s@ConnectionSummary' {} a -> s {providerType = a} :: ConnectionSummary)
 
+-- | The App Runner connection creation time, expressed as a Unix time stamp.
+connectionSummary_createdAt :: Lens.Lens' ConnectionSummary (Prelude.Maybe Prelude.UTCTime)
+connectionSummary_createdAt = Lens.lens (\ConnectionSummary' {createdAt} -> createdAt) (\s@ConnectionSummary' {} a -> s {createdAt = a} :: ConnectionSummary) Prelude.. Lens.mapping Core._Time
+
 -- | The customer-provided connection name.
 connectionSummary_connectionName :: Lens.Lens' ConnectionSummary (Prelude.Maybe Prelude.Text)
 connectionSummary_connectionName = Lens.lens (\ConnectionSummary' {connectionName} -> connectionName) (\s@ConnectionSummary' {} a -> s {connectionName = a} :: ConnectionSummary)
-
--- | The Amazon Resource Name (ARN) of this connection.
-connectionSummary_connectionArn :: Lens.Lens' ConnectionSummary (Prelude.Maybe Prelude.Text)
-connectionSummary_connectionArn = Lens.lens (\ConnectionSummary' {connectionArn} -> connectionArn) (\s@ConnectionSummary' {} a -> s {connectionArn = a} :: ConnectionSummary)
 
 instance Core.FromJSON ConnectionSummary where
   parseJSON =
@@ -100,24 +100,24 @@ instance Core.FromJSON ConnectionSummary where
       ( \x ->
           ConnectionSummary'
             Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "ProviderType")
-            Prelude.<*> (x Core..:? "ConnectionName")
             Prelude.<*> (x Core..:? "ConnectionArn")
+            Prelude.<*> (x Core..:? "ProviderType")
+            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<*> (x Core..:? "ConnectionName")
       )
 
 instance Prelude.Hashable ConnectionSummary where
   hashWithSalt _salt ConnectionSummary' {..} =
     _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` createdAt
-      `Prelude.hashWithSalt` providerType
-      `Prelude.hashWithSalt` connectionName
       `Prelude.hashWithSalt` connectionArn
+      `Prelude.hashWithSalt` providerType
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` connectionName
 
 instance Prelude.NFData ConnectionSummary where
   rnf ConnectionSummary' {..} =
     Prelude.rnf status
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf providerType
-      `Prelude.seq` Prelude.rnf connectionName
       `Prelude.seq` Prelude.rnf connectionArn
+      `Prelude.seq` Prelude.rnf providerType
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf connectionName

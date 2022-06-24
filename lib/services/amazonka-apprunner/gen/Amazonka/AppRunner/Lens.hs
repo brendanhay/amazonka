@@ -14,43 +14,6 @@
 module Amazonka.AppRunner.Lens
   ( -- * Operations
 
-    -- ** ListServices
-    listServices_nextToken,
-    listServices_maxResults,
-    listServicesResponse_nextToken,
-    listServicesResponse_httpStatus,
-    listServicesResponse_serviceSummaryList,
-
-    -- ** ResumeService
-    resumeService_serviceArn,
-    resumeServiceResponse_operationId,
-    resumeServiceResponse_httpStatus,
-    resumeServiceResponse_service,
-
-    -- ** DeleteService
-    deleteService_serviceArn,
-    deleteServiceResponse_httpStatus,
-    deleteServiceResponse_service,
-    deleteServiceResponse_operationId,
-
-    -- ** UpdateService
-    updateService_autoScalingConfigurationArn,
-    updateService_healthCheckConfiguration,
-    updateService_sourceConfiguration,
-    updateService_instanceConfiguration,
-    updateService_serviceArn,
-    updateServiceResponse_httpStatus,
-    updateServiceResponse_service,
-    updateServiceResponse_operationId,
-
-    -- ** ListOperations
-    listOperations_nextToken,
-    listOperations_maxResults,
-    listOperations_serviceArn,
-    listOperationsResponse_nextToken,
-    listOperationsResponse_operationSummaryList,
-    listOperationsResponse_httpStatus,
-
     -- ** AssociateCustomDomain
     associateCustomDomain_enableWWWSubdomain,
     associateCustomDomain_serviceArn,
@@ -60,28 +23,14 @@ module Amazonka.AppRunner.Lens
     associateCustomDomainResponse_serviceArn,
     associateCustomDomainResponse_customDomain,
 
-    -- ** ListConnections
-    listConnections_connectionName,
-    listConnections_nextToken,
-    listConnections_maxResults,
-    listConnectionsResponse_nextToken,
-    listConnectionsResponse_httpStatus,
-    listConnectionsResponse_connectionSummaryList,
-
-    -- ** DeleteConnection
-    deleteConnection_connectionArn,
-    deleteConnectionResponse_connection,
-    deleteConnectionResponse_httpStatus,
-
-    -- ** DescribeAutoScalingConfiguration
-    describeAutoScalingConfiguration_autoScalingConfigurationArn,
-    describeAutoScalingConfigurationResponse_httpStatus,
-    describeAutoScalingConfigurationResponse_autoScalingConfiguration,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
+    -- ** CreateAutoScalingConfiguration
+    createAutoScalingConfiguration_tags,
+    createAutoScalingConfiguration_minSize,
+    createAutoScalingConfiguration_maxConcurrency,
+    createAutoScalingConfiguration_maxSize,
+    createAutoScalingConfiguration_autoScalingConfigurationName,
+    createAutoScalingConfigurationResponse_httpStatus,
+    createAutoScalingConfigurationResponse_autoScalingConfiguration,
 
     -- ** CreateConnection
     createConnection_tags,
@@ -89,6 +38,39 @@ module Amazonka.AppRunner.Lens
     createConnection_providerType,
     createConnectionResponse_httpStatus,
     createConnectionResponse_connection,
+
+    -- ** CreateService
+    createService_tags,
+    createService_instanceConfiguration,
+    createService_encryptionConfiguration,
+    createService_autoScalingConfigurationArn,
+    createService_healthCheckConfiguration,
+    createService_serviceName,
+    createService_sourceConfiguration,
+    createServiceResponse_httpStatus,
+    createServiceResponse_service,
+    createServiceResponse_operationId,
+
+    -- ** DeleteAutoScalingConfiguration
+    deleteAutoScalingConfiguration_autoScalingConfigurationArn,
+    deleteAutoScalingConfigurationResponse_httpStatus,
+    deleteAutoScalingConfigurationResponse_autoScalingConfiguration,
+
+    -- ** DeleteConnection
+    deleteConnection_connectionArn,
+    deleteConnectionResponse_connection,
+    deleteConnectionResponse_httpStatus,
+
+    -- ** DeleteService
+    deleteService_serviceArn,
+    deleteServiceResponse_httpStatus,
+    deleteServiceResponse_service,
+    deleteServiceResponse_operationId,
+
+    -- ** DescribeAutoScalingConfiguration
+    describeAutoScalingConfiguration_autoScalingConfigurationArn,
+    describeAutoScalingConfigurationResponse_httpStatus,
+    describeAutoScalingConfigurationResponse_autoScalingConfiguration,
 
     -- ** DescribeCustomDomains
     describeCustomDomains_nextToken,
@@ -105,20 +87,6 @@ module Amazonka.AppRunner.Lens
     describeServiceResponse_httpStatus,
     describeServiceResponse_service,
 
-    -- ** DeleteAutoScalingConfiguration
-    deleteAutoScalingConfiguration_autoScalingConfigurationArn,
-    deleteAutoScalingConfigurationResponse_httpStatus,
-    deleteAutoScalingConfigurationResponse_autoScalingConfiguration,
-
-    -- ** ListAutoScalingConfigurations
-    listAutoScalingConfigurations_autoScalingConfigurationName,
-    listAutoScalingConfigurations_nextToken,
-    listAutoScalingConfigurations_latestOnly,
-    listAutoScalingConfigurations_maxResults,
-    listAutoScalingConfigurationsResponse_nextToken,
-    listAutoScalingConfigurationsResponse_httpStatus,
-    listAutoScalingConfigurationsResponse_autoScalingConfigurationSummaryList,
-
     -- ** DisassociateCustomDomain
     disassociateCustomDomain_serviceArn,
     disassociateCustomDomain_domainName,
@@ -127,11 +95,59 @@ module Amazonka.AppRunner.Lens
     disassociateCustomDomainResponse_serviceArn,
     disassociateCustomDomainResponse_customDomain,
 
+    -- ** ListAutoScalingConfigurations
+    listAutoScalingConfigurations_nextToken,
+    listAutoScalingConfigurations_latestOnly,
+    listAutoScalingConfigurations_maxResults,
+    listAutoScalingConfigurations_autoScalingConfigurationName,
+    listAutoScalingConfigurationsResponse_nextToken,
+    listAutoScalingConfigurationsResponse_httpStatus,
+    listAutoScalingConfigurationsResponse_autoScalingConfigurationSummaryList,
+
+    -- ** ListConnections
+    listConnections_nextToken,
+    listConnections_maxResults,
+    listConnections_connectionName,
+    listConnectionsResponse_nextToken,
+    listConnectionsResponse_httpStatus,
+    listConnectionsResponse_connectionSummaryList,
+
+    -- ** ListOperations
+    listOperations_nextToken,
+    listOperations_maxResults,
+    listOperations_serviceArn,
+    listOperationsResponse_nextToken,
+    listOperationsResponse_operationSummaryList,
+    listOperationsResponse_httpStatus,
+
+    -- ** ListServices
+    listServices_nextToken,
+    listServices_maxResults,
+    listServicesResponse_nextToken,
+    listServicesResponse_httpStatus,
+    listServicesResponse_serviceSummaryList,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
     -- ** PauseService
     pauseService_serviceArn,
     pauseServiceResponse_operationId,
     pauseServiceResponse_httpStatus,
     pauseServiceResponse_service,
+
+    -- ** ResumeService
+    resumeService_serviceArn,
+    resumeServiceResponse_operationId,
+    resumeServiceResponse_httpStatus,
+    resumeServiceResponse_service,
+
+    -- ** StartDeployment
+    startDeployment_serviceArn,
+    startDeploymentResponse_httpStatus,
+    startDeploymentResponse_operationId,
 
     -- ** TagResource
     tagResource_resourceArn,
@@ -143,31 +159,15 @@ module Amazonka.AppRunner.Lens
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
-    -- ** CreateAutoScalingConfiguration
-    createAutoScalingConfiguration_maxSize,
-    createAutoScalingConfiguration_minSize,
-    createAutoScalingConfiguration_tags,
-    createAutoScalingConfiguration_maxConcurrency,
-    createAutoScalingConfiguration_autoScalingConfigurationName,
-    createAutoScalingConfigurationResponse_httpStatus,
-    createAutoScalingConfigurationResponse_autoScalingConfiguration,
-
-    -- ** StartDeployment
-    startDeployment_serviceArn,
-    startDeploymentResponse_httpStatus,
-    startDeploymentResponse_operationId,
-
-    -- ** CreateService
-    createService_autoScalingConfigurationArn,
-    createService_encryptionConfiguration,
-    createService_healthCheckConfiguration,
-    createService_tags,
-    createService_instanceConfiguration,
-    createService_serviceName,
-    createService_sourceConfiguration,
-    createServiceResponse_httpStatus,
-    createServiceResponse_service,
-    createServiceResponse_operationId,
+    -- ** UpdateService
+    updateService_sourceConfiguration,
+    updateService_instanceConfiguration,
+    updateService_autoScalingConfigurationArn,
+    updateService_healthCheckConfiguration,
+    updateService_serviceArn,
+    updateServiceResponse_httpStatus,
+    updateServiceResponse_service,
+    updateServiceResponse_operationId,
 
     -- * Types
 
@@ -177,36 +177,36 @@ module Amazonka.AppRunner.Lens
 
     -- ** AutoScalingConfiguration
     autoScalingConfiguration_status,
-    autoScalingConfiguration_autoScalingConfigurationName,
-    autoScalingConfiguration_createdAt,
-    autoScalingConfiguration_maxSize,
-    autoScalingConfiguration_autoScalingConfigurationRevision,
-    autoScalingConfiguration_autoScalingConfigurationArn,
-    autoScalingConfiguration_minSize,
     autoScalingConfiguration_deletedAt,
     autoScalingConfiguration_latest,
+    autoScalingConfiguration_autoScalingConfigurationName,
+    autoScalingConfiguration_minSize,
     autoScalingConfiguration_maxConcurrency,
+    autoScalingConfiguration_autoScalingConfigurationArn,
+    autoScalingConfiguration_maxSize,
+    autoScalingConfiguration_autoScalingConfigurationRevision,
+    autoScalingConfiguration_createdAt,
 
     -- ** AutoScalingConfigurationSummary
     autoScalingConfigurationSummary_autoScalingConfigurationName,
-    autoScalingConfigurationSummary_autoScalingConfigurationRevision,
     autoScalingConfigurationSummary_autoScalingConfigurationArn,
+    autoScalingConfigurationSummary_autoScalingConfigurationRevision,
 
     -- ** CertificateValidationRecord
-    certificateValidationRecord_status,
-    certificateValidationRecord_value,
     certificateValidationRecord_name,
     certificateValidationRecord_type,
+    certificateValidationRecord_status,
+    certificateValidationRecord_value,
 
     -- ** CodeConfiguration
     codeConfiguration_codeConfigurationValues,
     codeConfiguration_configurationSource,
 
     -- ** CodeConfigurationValues
-    codeConfigurationValues_startCommand,
-    codeConfigurationValues_runtimeEnvironmentVariables,
-    codeConfigurationValues_buildCommand,
     codeConfigurationValues_port,
+    codeConfigurationValues_startCommand,
+    codeConfigurationValues_buildCommand,
+    codeConfigurationValues_runtimeEnvironmentVariables,
     codeConfigurationValues_runtime,
 
     -- ** CodeRepository
@@ -216,17 +216,17 @@ module Amazonka.AppRunner.Lens
 
     -- ** Connection
     connection_status,
-    connection_createdAt,
-    connection_providerType,
-    connection_connectionName,
     connection_connectionArn,
+    connection_providerType,
+    connection_createdAt,
+    connection_connectionName,
 
     -- ** ConnectionSummary
     connectionSummary_status,
-    connectionSummary_createdAt,
-    connectionSummary_providerType,
-    connectionSummary_connectionName,
     connectionSummary_connectionArn,
+    connectionSummary_providerType,
+    connectionSummary_createdAt,
+    connectionSummary_connectionName,
 
     -- ** CustomDomain
     customDomain_certificateValidationRecords,
@@ -238,17 +238,17 @@ module Amazonka.AppRunner.Lens
     encryptionConfiguration_kmsKey,
 
     -- ** HealthCheckConfiguration
-    healthCheckConfiguration_healthyThreshold,
-    healthCheckConfiguration_path,
-    healthCheckConfiguration_protocol,
-    healthCheckConfiguration_interval,
     healthCheckConfiguration_timeout,
+    healthCheckConfiguration_interval,
+    healthCheckConfiguration_path,
+    healthCheckConfiguration_healthyThreshold,
     healthCheckConfiguration_unhealthyThreshold,
+    healthCheckConfiguration_protocol,
 
     -- ** ImageConfiguration
+    imageConfiguration_port,
     imageConfiguration_startCommand,
     imageConfiguration_runtimeEnvironmentVariables,
-    imageConfiguration_port,
 
     -- ** ImageRepository
     imageRepository_imageConfiguration,
@@ -256,23 +256,23 @@ module Amazonka.AppRunner.Lens
     imageRepository_imageRepositoryType,
 
     -- ** InstanceConfiguration
+    instanceConfiguration_cpu,
     instanceConfiguration_memory,
     instanceConfiguration_instanceRoleArn,
-    instanceConfiguration_cpu,
 
     -- ** OperationSummary
-    operationSummary_status,
-    operationSummary_targetArn,
-    operationSummary_endedAt,
-    operationSummary_startedAt,
-    operationSummary_id,
     operationSummary_type,
+    operationSummary_endedAt,
+    operationSummary_targetArn,
+    operationSummary_status,
+    operationSummary_id,
+    operationSummary_startedAt,
     operationSummary_updatedAt,
 
     -- ** Service
+    service_deletedAt,
     service_encryptionConfiguration,
     service_healthCheckConfiguration,
-    service_deletedAt,
     service_serviceName,
     service_serviceId,
     service_serviceArn,
@@ -286,11 +286,11 @@ module Amazonka.AppRunner.Lens
 
     -- ** ServiceSummary
     serviceSummary_status,
-    serviceSummary_createdAt,
-    serviceSummary_serviceUrl,
     serviceSummary_serviceName,
-    serviceSummary_updatedAt,
+    serviceSummary_serviceUrl,
+    serviceSummary_createdAt,
     serviceSummary_serviceArn,
+    serviceSummary_updatedAt,
     serviceSummary_serviceId,
 
     -- ** SourceCodeVersion
@@ -298,14 +298,14 @@ module Amazonka.AppRunner.Lens
     sourceCodeVersion_value,
 
     -- ** SourceConfiguration
-    sourceConfiguration_imageRepository,
     sourceConfiguration_codeRepository,
     sourceConfiguration_autoDeploymentsEnabled,
+    sourceConfiguration_imageRepository,
     sourceConfiguration_authenticationConfiguration,
 
     -- ** Tag
-    tag_value,
     tag_key,
+    tag_value,
   )
 where
 

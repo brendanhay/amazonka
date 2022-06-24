@@ -46,7 +46,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newService' smart constructor.
 data Service = Service'
-  { -- | The encryption key that App Runner uses to encrypt the service logs and
+  { -- | The time when the App Runner service was deleted. It\'s in the Unix time
+    -- stamp format.
+    deletedAt :: Prelude.Maybe Core.POSIX,
+    -- | The encryption key that App Runner uses to encrypt the service logs and
     -- the copy of the source repository that App Runner maintains for the
     -- service. It can be either a customer-provided encryption key or an
     -- Amazon Web Services managed CMK.
@@ -54,9 +57,6 @@ data Service = Service'
     -- | The settings for the health check that App Runner performs to monitor
     -- the health of this service.
     healthCheckConfiguration :: Prelude.Maybe HealthCheckConfiguration,
-    -- | The time when the App Runner service was deleted. It\'s in the Unix time
-    -- stamp format.
-    deletedAt :: Prelude.Maybe Core.POSIX,
     -- | The customer-provided service name.
     serviceName :: Prelude.Text,
     -- | An ID that App Runner generated for this service. It\'s unique within
@@ -107,6 +107,9 @@ data Service = Service'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deletedAt', 'service_deletedAt' - The time when the App Runner service was deleted. It\'s in the Unix time
+-- stamp format.
+--
 -- 'encryptionConfiguration', 'service_encryptionConfiguration' - The encryption key that App Runner uses to encrypt the service logs and
 -- the copy of the source repository that App Runner maintains for the
 -- service. It can be either a customer-provided encryption key or an
@@ -114,9 +117,6 @@ data Service = Service'
 --
 -- 'healthCheckConfiguration', 'service_healthCheckConfiguration' - The settings for the health check that App Runner performs to monitor
 -- the health of this service.
---
--- 'deletedAt', 'service_deletedAt' - The time when the App Runner service was deleted. It\'s in the Unix time
--- stamp format.
 --
 -- 'serviceName', 'service_serviceName' - The customer-provided service name.
 --
@@ -190,9 +190,9 @@ newService
   pInstanceConfiguration_
   pAutoScalingConfigurationSummary_ =
     Service'
-      { encryptionConfiguration = Prelude.Nothing,
+      { deletedAt = Prelude.Nothing,
+        encryptionConfiguration = Prelude.Nothing,
         healthCheckConfiguration = Prelude.Nothing,
-        deletedAt = Prelude.Nothing,
         serviceName = pServiceName_,
         serviceId = pServiceId_,
         serviceArn = pServiceArn_,
@@ -206,6 +206,11 @@ newService
           pAutoScalingConfigurationSummary_
       }
 
+-- | The time when the App Runner service was deleted. It\'s in the Unix time
+-- stamp format.
+service_deletedAt :: Lens.Lens' Service (Prelude.Maybe Prelude.UTCTime)
+service_deletedAt = Lens.lens (\Service' {deletedAt} -> deletedAt) (\s@Service' {} a -> s {deletedAt = a} :: Service) Prelude.. Lens.mapping Core._Time
+
 -- | The encryption key that App Runner uses to encrypt the service logs and
 -- the copy of the source repository that App Runner maintains for the
 -- service. It can be either a customer-provided encryption key or an
@@ -217,11 +222,6 @@ service_encryptionConfiguration = Lens.lens (\Service' {encryptionConfiguration}
 -- the health of this service.
 service_healthCheckConfiguration :: Lens.Lens' Service (Prelude.Maybe HealthCheckConfiguration)
 service_healthCheckConfiguration = Lens.lens (\Service' {healthCheckConfiguration} -> healthCheckConfiguration) (\s@Service' {} a -> s {healthCheckConfiguration = a} :: Service)
-
--- | The time when the App Runner service was deleted. It\'s in the Unix time
--- stamp format.
-service_deletedAt :: Lens.Lens' Service (Prelude.Maybe Prelude.UTCTime)
-service_deletedAt = Lens.lens (\Service' {deletedAt} -> deletedAt) (\s@Service' {} a -> s {deletedAt = a} :: Service) Prelude.. Lens.mapping Core._Time
 
 -- | The customer-provided service name.
 service_serviceName :: Lens.Lens' Service Prelude.Text
@@ -288,9 +288,9 @@ instance Core.FromJSON Service where
       "Service"
       ( \x ->
           Service'
-            Prelude.<$> (x Core..:? "EncryptionConfiguration")
+            Prelude.<$> (x Core..:? "DeletedAt")
+            Prelude.<*> (x Core..:? "EncryptionConfiguration")
             Prelude.<*> (x Core..:? "HealthCheckConfiguration")
-            Prelude.<*> (x Core..:? "DeletedAt")
             Prelude.<*> (x Core..: "ServiceName")
             Prelude.<*> (x Core..: "ServiceId")
             Prelude.<*> (x Core..: "ServiceArn")
@@ -305,10 +305,9 @@ instance Core.FromJSON Service where
 
 instance Prelude.Hashable Service where
   hashWithSalt _salt Service' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` deletedAt
       `Prelude.hashWithSalt` encryptionConfiguration
       `Prelude.hashWithSalt` healthCheckConfiguration
-      `Prelude.hashWithSalt` deletedAt
       `Prelude.hashWithSalt` serviceName
       `Prelude.hashWithSalt` serviceId
       `Prelude.hashWithSalt` serviceArn
@@ -322,9 +321,9 @@ instance Prelude.Hashable Service where
 
 instance Prelude.NFData Service where
   rnf Service' {..} =
-    Prelude.rnf encryptionConfiguration
+    Prelude.rnf deletedAt
+      `Prelude.seq` Prelude.rnf encryptionConfiguration
       `Prelude.seq` Prelude.rnf healthCheckConfiguration
-      `Prelude.seq` Prelude.rnf deletedAt
       `Prelude.seq` Prelude.rnf serviceName
       `Prelude.seq` Prelude.rnf serviceId
       `Prelude.seq` Prelude.rnf serviceArn

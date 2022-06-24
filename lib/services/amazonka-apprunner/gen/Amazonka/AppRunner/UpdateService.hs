@@ -39,10 +39,10 @@ module Amazonka.AppRunner.UpdateService
     newUpdateService,
 
     -- * Request Lenses
-    updateService_autoScalingConfigurationArn,
-    updateService_healthCheckConfiguration,
     updateService_sourceConfiguration,
     updateService_instanceConfiguration,
+    updateService_autoScalingConfigurationArn,
+    updateService_healthCheckConfiguration,
     updateService_serviceArn,
 
     -- * Destructuring the Response
@@ -65,13 +65,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateService' smart constructor.
 data UpdateService = UpdateService'
-  { -- | The Amazon Resource Name (ARN) of an App Runner automatic scaling
-    -- configuration resource that you want to associate with your service.
-    autoScalingConfigurationArn :: Prelude.Maybe Prelude.Text,
-    -- | The settings for the health check that App Runner performs to monitor
-    -- the health of your service.
-    healthCheckConfiguration :: Prelude.Maybe HealthCheckConfiguration,
-    -- | The source configuration to apply to the App Runner service.
+  { -- | The source configuration to apply to the App Runner service.
     --
     -- You can change the configuration of the code or image repository that
     -- the service uses. However, you can\'t switch from code to image or the
@@ -85,6 +79,12 @@ data UpdateService = UpdateService'
     -- | The runtime configuration to apply to instances (scaling units) of the
     -- App Runner service.
     instanceConfiguration :: Prelude.Maybe InstanceConfiguration,
+    -- | The Amazon Resource Name (ARN) of an App Runner automatic scaling
+    -- configuration resource that you want to associate with your service.
+    autoScalingConfigurationArn :: Prelude.Maybe Prelude.Text,
+    -- | The settings for the health check that App Runner performs to monitor
+    -- the health of your service.
+    healthCheckConfiguration :: Prelude.Maybe HealthCheckConfiguration,
     -- | The Amazon Resource Name (ARN) of the App Runner service that you want
     -- to update.
     serviceArn :: Prelude.Text
@@ -98,12 +98,6 @@ data UpdateService = UpdateService'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'autoScalingConfigurationArn', 'updateService_autoScalingConfigurationArn' - The Amazon Resource Name (ARN) of an App Runner automatic scaling
--- configuration resource that you want to associate with your service.
---
--- 'healthCheckConfiguration', 'updateService_healthCheckConfiguration' - The settings for the health check that App Runner performs to monitor
--- the health of your service.
 --
 -- 'sourceConfiguration', 'updateService_sourceConfiguration' - The source configuration to apply to the App Runner service.
 --
@@ -119,6 +113,12 @@ data UpdateService = UpdateService'
 -- 'instanceConfiguration', 'updateService_instanceConfiguration' - The runtime configuration to apply to instances (scaling units) of the
 -- App Runner service.
 --
+-- 'autoScalingConfigurationArn', 'updateService_autoScalingConfigurationArn' - The Amazon Resource Name (ARN) of an App Runner automatic scaling
+-- configuration resource that you want to associate with your service.
+--
+-- 'healthCheckConfiguration', 'updateService_healthCheckConfiguration' - The settings for the health check that App Runner performs to monitor
+-- the health of your service.
+--
 -- 'serviceArn', 'updateService_serviceArn' - The Amazon Resource Name (ARN) of the App Runner service that you want
 -- to update.
 newUpdateService ::
@@ -127,23 +127,13 @@ newUpdateService ::
   UpdateService
 newUpdateService pServiceArn_ =
   UpdateService'
-    { autoScalingConfigurationArn =
+    { sourceConfiguration =
         Prelude.Nothing,
-      healthCheckConfiguration = Prelude.Nothing,
-      sourceConfiguration = Prelude.Nothing,
       instanceConfiguration = Prelude.Nothing,
+      autoScalingConfigurationArn = Prelude.Nothing,
+      healthCheckConfiguration = Prelude.Nothing,
       serviceArn = pServiceArn_
     }
-
--- | The Amazon Resource Name (ARN) of an App Runner automatic scaling
--- configuration resource that you want to associate with your service.
-updateService_autoScalingConfigurationArn :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Text)
-updateService_autoScalingConfigurationArn = Lens.lens (\UpdateService' {autoScalingConfigurationArn} -> autoScalingConfigurationArn) (\s@UpdateService' {} a -> s {autoScalingConfigurationArn = a} :: UpdateService)
-
--- | The settings for the health check that App Runner performs to monitor
--- the health of your service.
-updateService_healthCheckConfiguration :: Lens.Lens' UpdateService (Prelude.Maybe HealthCheckConfiguration)
-updateService_healthCheckConfiguration = Lens.lens (\UpdateService' {healthCheckConfiguration} -> healthCheckConfiguration) (\s@UpdateService' {} a -> s {healthCheckConfiguration = a} :: UpdateService)
 
 -- | The source configuration to apply to the App Runner service.
 --
@@ -162,6 +152,16 @@ updateService_sourceConfiguration = Lens.lens (\UpdateService' {sourceConfigurat
 -- App Runner service.
 updateService_instanceConfiguration :: Lens.Lens' UpdateService (Prelude.Maybe InstanceConfiguration)
 updateService_instanceConfiguration = Lens.lens (\UpdateService' {instanceConfiguration} -> instanceConfiguration) (\s@UpdateService' {} a -> s {instanceConfiguration = a} :: UpdateService)
+
+-- | The Amazon Resource Name (ARN) of an App Runner automatic scaling
+-- configuration resource that you want to associate with your service.
+updateService_autoScalingConfigurationArn :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Text)
+updateService_autoScalingConfigurationArn = Lens.lens (\UpdateService' {autoScalingConfigurationArn} -> autoScalingConfigurationArn) (\s@UpdateService' {} a -> s {autoScalingConfigurationArn = a} :: UpdateService)
+
+-- | The settings for the health check that App Runner performs to monitor
+-- the health of your service.
+updateService_healthCheckConfiguration :: Lens.Lens' UpdateService (Prelude.Maybe HealthCheckConfiguration)
+updateService_healthCheckConfiguration = Lens.lens (\UpdateService' {healthCheckConfiguration} -> healthCheckConfiguration) (\s@UpdateService' {} a -> s {healthCheckConfiguration = a} :: UpdateService)
 
 -- | The Amazon Resource Name (ARN) of the App Runner service that you want
 -- to update.
@@ -184,19 +184,18 @@ instance Core.AWSRequest UpdateService where
 
 instance Prelude.Hashable UpdateService where
   hashWithSalt _salt UpdateService' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` sourceConfiguration
+      `Prelude.hashWithSalt` instanceConfiguration
       `Prelude.hashWithSalt` autoScalingConfigurationArn
       `Prelude.hashWithSalt` healthCheckConfiguration
-      `Prelude.hashWithSalt` sourceConfiguration
-      `Prelude.hashWithSalt` instanceConfiguration
       `Prelude.hashWithSalt` serviceArn
 
 instance Prelude.NFData UpdateService where
   rnf UpdateService' {..} =
-    Prelude.rnf autoScalingConfigurationArn
-      `Prelude.seq` Prelude.rnf healthCheckConfiguration
-      `Prelude.seq` Prelude.rnf sourceConfiguration
+    Prelude.rnf sourceConfiguration
       `Prelude.seq` Prelude.rnf instanceConfiguration
+      `Prelude.seq` Prelude.rnf autoScalingConfigurationArn
+      `Prelude.seq` Prelude.rnf healthCheckConfiguration
       `Prelude.seq` Prelude.rnf serviceArn
 
 instance Core.ToHeaders UpdateService where
@@ -216,14 +215,14 @@ instance Core.ToJSON UpdateService where
   toJSON UpdateService' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AutoScalingConfigurationArn" Core..=)
-              Prelude.<$> autoScalingConfigurationArn,
-            ("HealthCheckConfiguration" Core..=)
-              Prelude.<$> healthCheckConfiguration,
-            ("SourceConfiguration" Core..=)
+          [ ("SourceConfiguration" Core..=)
               Prelude.<$> sourceConfiguration,
             ("InstanceConfiguration" Core..=)
               Prelude.<$> instanceConfiguration,
+            ("AutoScalingConfigurationArn" Core..=)
+              Prelude.<$> autoScalingConfigurationArn,
+            ("HealthCheckConfiguration" Core..=)
+              Prelude.<$> healthCheckConfiguration,
             Prelude.Just ("ServiceArn" Core..= serviceArn)
           ]
       )

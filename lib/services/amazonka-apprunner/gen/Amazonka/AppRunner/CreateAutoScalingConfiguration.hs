@@ -43,10 +43,10 @@ module Amazonka.AppRunner.CreateAutoScalingConfiguration
     newCreateAutoScalingConfiguration,
 
     -- * Request Lenses
-    createAutoScalingConfiguration_maxSize,
-    createAutoScalingConfiguration_minSize,
     createAutoScalingConfiguration_tags,
+    createAutoScalingConfiguration_minSize,
     createAutoScalingConfiguration_maxConcurrency,
+    createAutoScalingConfiguration_maxSize,
     createAutoScalingConfiguration_autoScalingConfigurationName,
 
     -- * Destructuring the Response
@@ -68,11 +68,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateAutoScalingConfiguration' smart constructor.
 data CreateAutoScalingConfiguration = CreateAutoScalingConfiguration'
-  { -- | The maximum number of instances that your service scales up to. At most
-    -- @MaxSize@ instances actively serve traffic for your service.
-    --
-    -- Default: @25@
-    maxSize :: Prelude.Maybe Prelude.Natural,
+  { -- | A list of metadata items that you can associate with your auto scaling
+    -- configuration resource. A tag is a key-value pair.
+    tags :: Prelude.Maybe [Tag],
     -- | The minimum number of instances that App Runner provisions for your
     -- service. The service always has at least @MinSize@ provisioned
     -- instances. Some of them actively serve traffic. The rest of them
@@ -87,15 +85,17 @@ data CreateAutoScalingConfiguration = CreateAutoScalingConfiguration'
     --
     -- Default: @1@
     minSize :: Prelude.Maybe Prelude.Natural,
-    -- | A list of metadata items that you can associate with your auto scaling
-    -- configuration resource. A tag is a key-value pair.
-    tags :: Prelude.Maybe [Tag],
     -- | The maximum number of concurrent requests that you want an instance to
     -- process. If the number of concurrent requests exceeds this limit, App
     -- Runner scales up your service.
     --
     -- Default: @100@
     maxConcurrency :: Prelude.Maybe Prelude.Natural,
+    -- | The maximum number of instances that your service scales up to. At most
+    -- @MaxSize@ instances actively serve traffic for your service.
+    --
+    -- Default: @25@
+    maxSize :: Prelude.Maybe Prelude.Natural,
     -- | A name for the auto scaling configuration. When you use it for the first
     -- time in an Amazon Web Services Region, App Runner creates revision
     -- number @1@ of this name. When you use the same name in subsequent calls,
@@ -112,10 +112,8 @@ data CreateAutoScalingConfiguration = CreateAutoScalingConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxSize', 'createAutoScalingConfiguration_maxSize' - The maximum number of instances that your service scales up to. At most
--- @MaxSize@ instances actively serve traffic for your service.
---
--- Default: @25@
+-- 'tags', 'createAutoScalingConfiguration_tags' - A list of metadata items that you can associate with your auto scaling
+-- configuration resource. A tag is a key-value pair.
 --
 -- 'minSize', 'createAutoScalingConfiguration_minSize' - The minimum number of instances that App Runner provisions for your
 -- service. The service always has at least @MinSize@ provisioned
@@ -131,14 +129,16 @@ data CreateAutoScalingConfiguration = CreateAutoScalingConfiguration'
 --
 -- Default: @1@
 --
--- 'tags', 'createAutoScalingConfiguration_tags' - A list of metadata items that you can associate with your auto scaling
--- configuration resource. A tag is a key-value pair.
---
 -- 'maxConcurrency', 'createAutoScalingConfiguration_maxConcurrency' - The maximum number of concurrent requests that you want an instance to
 -- process. If the number of concurrent requests exceeds this limit, App
 -- Runner scales up your service.
 --
 -- Default: @100@
+--
+-- 'maxSize', 'createAutoScalingConfiguration_maxSize' - The maximum number of instances that your service scales up to. At most
+-- @MaxSize@ instances actively serve traffic for your service.
+--
+-- Default: @25@
 --
 -- 'autoScalingConfigurationName', 'createAutoScalingConfiguration_autoScalingConfigurationName' - A name for the auto scaling configuration. When you use it for the first
 -- time in an Amazon Web Services Region, App Runner creates revision
@@ -151,21 +151,19 @@ newCreateAutoScalingConfiguration ::
 newCreateAutoScalingConfiguration
   pAutoScalingConfigurationName_ =
     CreateAutoScalingConfiguration'
-      { maxSize =
+      { tags =
           Prelude.Nothing,
         minSize = Prelude.Nothing,
-        tags = Prelude.Nothing,
         maxConcurrency = Prelude.Nothing,
+        maxSize = Prelude.Nothing,
         autoScalingConfigurationName =
           pAutoScalingConfigurationName_
       }
 
--- | The maximum number of instances that your service scales up to. At most
--- @MaxSize@ instances actively serve traffic for your service.
---
--- Default: @25@
-createAutoScalingConfiguration_maxSize :: Lens.Lens' CreateAutoScalingConfiguration (Prelude.Maybe Prelude.Natural)
-createAutoScalingConfiguration_maxSize = Lens.lens (\CreateAutoScalingConfiguration' {maxSize} -> maxSize) (\s@CreateAutoScalingConfiguration' {} a -> s {maxSize = a} :: CreateAutoScalingConfiguration)
+-- | A list of metadata items that you can associate with your auto scaling
+-- configuration resource. A tag is a key-value pair.
+createAutoScalingConfiguration_tags :: Lens.Lens' CreateAutoScalingConfiguration (Prelude.Maybe [Tag])
+createAutoScalingConfiguration_tags = Lens.lens (\CreateAutoScalingConfiguration' {tags} -> tags) (\s@CreateAutoScalingConfiguration' {} a -> s {tags = a} :: CreateAutoScalingConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The minimum number of instances that App Runner provisions for your
 -- service. The service always has at least @MinSize@ provisioned
@@ -183,11 +181,6 @@ createAutoScalingConfiguration_maxSize = Lens.lens (\CreateAutoScalingConfigurat
 createAutoScalingConfiguration_minSize :: Lens.Lens' CreateAutoScalingConfiguration (Prelude.Maybe Prelude.Natural)
 createAutoScalingConfiguration_minSize = Lens.lens (\CreateAutoScalingConfiguration' {minSize} -> minSize) (\s@CreateAutoScalingConfiguration' {} a -> s {minSize = a} :: CreateAutoScalingConfiguration)
 
--- | A list of metadata items that you can associate with your auto scaling
--- configuration resource. A tag is a key-value pair.
-createAutoScalingConfiguration_tags :: Lens.Lens' CreateAutoScalingConfiguration (Prelude.Maybe [Tag])
-createAutoScalingConfiguration_tags = Lens.lens (\CreateAutoScalingConfiguration' {tags} -> tags) (\s@CreateAutoScalingConfiguration' {} a -> s {tags = a} :: CreateAutoScalingConfiguration) Prelude.. Lens.mapping Lens.coerced
-
 -- | The maximum number of concurrent requests that you want an instance to
 -- process. If the number of concurrent requests exceeds this limit, App
 -- Runner scales up your service.
@@ -195,6 +188,13 @@ createAutoScalingConfiguration_tags = Lens.lens (\CreateAutoScalingConfiguration
 -- Default: @100@
 createAutoScalingConfiguration_maxConcurrency :: Lens.Lens' CreateAutoScalingConfiguration (Prelude.Maybe Prelude.Natural)
 createAutoScalingConfiguration_maxConcurrency = Lens.lens (\CreateAutoScalingConfiguration' {maxConcurrency} -> maxConcurrency) (\s@CreateAutoScalingConfiguration' {} a -> s {maxConcurrency = a} :: CreateAutoScalingConfiguration)
+
+-- | The maximum number of instances that your service scales up to. At most
+-- @MaxSize@ instances actively serve traffic for your service.
+--
+-- Default: @25@
+createAutoScalingConfiguration_maxSize :: Lens.Lens' CreateAutoScalingConfiguration (Prelude.Maybe Prelude.Natural)
+createAutoScalingConfiguration_maxSize = Lens.lens (\CreateAutoScalingConfiguration' {maxSize} -> maxSize) (\s@CreateAutoScalingConfiguration' {} a -> s {maxSize = a} :: CreateAutoScalingConfiguration)
 
 -- | A name for the auto scaling configuration. When you use it for the first
 -- time in an Amazon Web Services Region, App Runner creates revision
@@ -226,10 +226,10 @@ instance
   hashWithSalt
     _salt
     CreateAutoScalingConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` maxSize
+      _salt `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` minSize
-        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` maxConcurrency
+        `Prelude.hashWithSalt` maxSize
         `Prelude.hashWithSalt` autoScalingConfigurationName
 
 instance
@@ -237,10 +237,10 @@ instance
     CreateAutoScalingConfiguration
   where
   rnf CreateAutoScalingConfiguration' {..} =
-    Prelude.rnf maxSize
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf minSize
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf maxConcurrency
+      `Prelude.seq` Prelude.rnf maxSize
       `Prelude.seq` Prelude.rnf autoScalingConfigurationName
 
 instance
@@ -265,11 +265,11 @@ instance Core.ToJSON CreateAutoScalingConfiguration where
   toJSON CreateAutoScalingConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MaxSize" Core..=) Prelude.<$> maxSize,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("MinSize" Core..=) Prelude.<$> minSize,
-            ("Tags" Core..=) Prelude.<$> tags,
             ("MaxConcurrency" Core..=)
               Prelude.<$> maxConcurrency,
+            ("MaxSize" Core..=) Prelude.<$> maxSize,
             Prelude.Just
               ( "AutoScalingConfigurationName"
                   Core..= autoScalingConfigurationName

@@ -46,20 +46,20 @@ module Amazonka.AppRunner
     -- * Errors
     -- $errors
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
+    -- ** InvalidStateException
+    _InvalidStateException,
 
     -- ** ServiceQuotaExceededException
     _ServiceQuotaExceededException,
 
-    -- ** InternalServiceErrorException
-    _InternalServiceErrorException,
-
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** InvalidStateException
-    _InvalidStateException,
+    -- ** InternalServiceErrorException
+    _InternalServiceErrorException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
 
     -- * Waiters
     -- $waiters
@@ -67,47 +67,35 @@ module Amazonka.AppRunner
     -- * Operations
     -- $operations
 
-    -- ** ListServices
-    ListServices (ListServices'),
-    newListServices,
-    ListServicesResponse (ListServicesResponse'),
-    newListServicesResponse,
-
-    -- ** ResumeService
-    ResumeService (ResumeService'),
-    newResumeService,
-    ResumeServiceResponse (ResumeServiceResponse'),
-    newResumeServiceResponse,
-
-    -- ** DeleteService
-    DeleteService (DeleteService'),
-    newDeleteService,
-    DeleteServiceResponse (DeleteServiceResponse'),
-    newDeleteServiceResponse,
-
-    -- ** UpdateService
-    UpdateService (UpdateService'),
-    newUpdateService,
-    UpdateServiceResponse (UpdateServiceResponse'),
-    newUpdateServiceResponse,
-
-    -- ** ListOperations
-    ListOperations (ListOperations'),
-    newListOperations,
-    ListOperationsResponse (ListOperationsResponse'),
-    newListOperationsResponse,
-
     -- ** AssociateCustomDomain
     AssociateCustomDomain (AssociateCustomDomain'),
     newAssociateCustomDomain,
     AssociateCustomDomainResponse (AssociateCustomDomainResponse'),
     newAssociateCustomDomainResponse,
 
-    -- ** ListConnections
-    ListConnections (ListConnections'),
-    newListConnections,
-    ListConnectionsResponse (ListConnectionsResponse'),
-    newListConnectionsResponse,
+    -- ** CreateAutoScalingConfiguration
+    CreateAutoScalingConfiguration (CreateAutoScalingConfiguration'),
+    newCreateAutoScalingConfiguration,
+    CreateAutoScalingConfigurationResponse (CreateAutoScalingConfigurationResponse'),
+    newCreateAutoScalingConfigurationResponse,
+
+    -- ** CreateConnection
+    CreateConnection (CreateConnection'),
+    newCreateConnection,
+    CreateConnectionResponse (CreateConnectionResponse'),
+    newCreateConnectionResponse,
+
+    -- ** CreateService
+    CreateService (CreateService'),
+    newCreateService,
+    CreateServiceResponse (CreateServiceResponse'),
+    newCreateServiceResponse,
+
+    -- ** DeleteAutoScalingConfiguration
+    DeleteAutoScalingConfiguration (DeleteAutoScalingConfiguration'),
+    newDeleteAutoScalingConfiguration,
+    DeleteAutoScalingConfigurationResponse (DeleteAutoScalingConfigurationResponse'),
+    newDeleteAutoScalingConfigurationResponse,
 
     -- ** DeleteConnection
     DeleteConnection (DeleteConnection'),
@@ -115,23 +103,17 @@ module Amazonka.AppRunner
     DeleteConnectionResponse (DeleteConnectionResponse'),
     newDeleteConnectionResponse,
 
+    -- ** DeleteService
+    DeleteService (DeleteService'),
+    newDeleteService,
+    DeleteServiceResponse (DeleteServiceResponse'),
+    newDeleteServiceResponse,
+
     -- ** DescribeAutoScalingConfiguration
     DescribeAutoScalingConfiguration (DescribeAutoScalingConfiguration'),
     newDescribeAutoScalingConfiguration,
     DescribeAutoScalingConfigurationResponse (DescribeAutoScalingConfigurationResponse'),
     newDescribeAutoScalingConfigurationResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** CreateConnection
-    CreateConnection (CreateConnection'),
-    newCreateConnection,
-    CreateConnectionResponse (CreateConnectionResponse'),
-    newCreateConnectionResponse,
 
     -- ** DescribeCustomDomains
     DescribeCustomDomains (DescribeCustomDomains'),
@@ -145,11 +127,11 @@ module Amazonka.AppRunner
     DescribeServiceResponse (DescribeServiceResponse'),
     newDescribeServiceResponse,
 
-    -- ** DeleteAutoScalingConfiguration
-    DeleteAutoScalingConfiguration (DeleteAutoScalingConfiguration'),
-    newDeleteAutoScalingConfiguration,
-    DeleteAutoScalingConfigurationResponse (DeleteAutoScalingConfigurationResponse'),
-    newDeleteAutoScalingConfigurationResponse,
+    -- ** DisassociateCustomDomain
+    DisassociateCustomDomain (DisassociateCustomDomain'),
+    newDisassociateCustomDomain,
+    DisassociateCustomDomainResponse (DisassociateCustomDomainResponse'),
+    newDisassociateCustomDomainResponse,
 
     -- ** ListAutoScalingConfigurations
     ListAutoScalingConfigurations (ListAutoScalingConfigurations'),
@@ -157,17 +139,47 @@ module Amazonka.AppRunner
     ListAutoScalingConfigurationsResponse (ListAutoScalingConfigurationsResponse'),
     newListAutoScalingConfigurationsResponse,
 
-    -- ** DisassociateCustomDomain
-    DisassociateCustomDomain (DisassociateCustomDomain'),
-    newDisassociateCustomDomain,
-    DisassociateCustomDomainResponse (DisassociateCustomDomainResponse'),
-    newDisassociateCustomDomainResponse,
+    -- ** ListConnections
+    ListConnections (ListConnections'),
+    newListConnections,
+    ListConnectionsResponse (ListConnectionsResponse'),
+    newListConnectionsResponse,
+
+    -- ** ListOperations
+    ListOperations (ListOperations'),
+    newListOperations,
+    ListOperationsResponse (ListOperationsResponse'),
+    newListOperationsResponse,
+
+    -- ** ListServices
+    ListServices (ListServices'),
+    newListServices,
+    ListServicesResponse (ListServicesResponse'),
+    newListServicesResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- ** PauseService
     PauseService (PauseService'),
     newPauseService,
     PauseServiceResponse (PauseServiceResponse'),
     newPauseServiceResponse,
+
+    -- ** ResumeService
+    ResumeService (ResumeService'),
+    newResumeService,
+    ResumeServiceResponse (ResumeServiceResponse'),
+    newResumeServiceResponse,
+
+    -- ** StartDeployment
+    StartDeployment (StartDeployment'),
+    newStartDeployment,
+    StartDeploymentResponse (StartDeploymentResponse'),
+    newStartDeploymentResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -181,23 +193,11 @@ module Amazonka.AppRunner
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** CreateAutoScalingConfiguration
-    CreateAutoScalingConfiguration (CreateAutoScalingConfiguration'),
-    newCreateAutoScalingConfiguration,
-    CreateAutoScalingConfigurationResponse (CreateAutoScalingConfigurationResponse'),
-    newCreateAutoScalingConfigurationResponse,
-
-    -- ** StartDeployment
-    StartDeployment (StartDeployment'),
-    newStartDeployment,
-    StartDeploymentResponse (StartDeploymentResponse'),
-    newStartDeploymentResponse,
-
-    -- ** CreateService
-    CreateService (CreateService'),
-    newCreateService,
-    CreateServiceResponse (CreateServiceResponse'),
-    newCreateServiceResponse,
+    -- ** UpdateService
+    UpdateService (UpdateService'),
+    newUpdateService,
+    UpdateServiceResponse (UpdateServiceResponse'),
+    newUpdateServiceResponse,
 
     -- * Types
 

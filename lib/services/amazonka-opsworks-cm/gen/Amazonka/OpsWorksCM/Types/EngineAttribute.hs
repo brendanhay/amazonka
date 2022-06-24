@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEngineAttribute' smart constructor.
 data EngineAttribute = EngineAttribute'
-  { -- | The value of the engine attribute.
-    value :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The name of the engine attribute.
-    name :: Prelude.Maybe Prelude.Text
+  { -- | The name of the engine attribute.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The value of the engine attribute.
+    value :: Prelude.Maybe (Core.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data EngineAttribute = EngineAttribute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'engineAttribute_value' - The value of the engine attribute.
---
 -- 'name', 'engineAttribute_name' - The name of the engine attribute.
+--
+-- 'value', 'engineAttribute_value' - The value of the engine attribute.
 newEngineAttribute ::
   EngineAttribute
 newEngineAttribute =
   EngineAttribute'
-    { value = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The value of the engine attribute.
-engineAttribute_value :: Lens.Lens' EngineAttribute (Prelude.Maybe Prelude.Text)
-engineAttribute_value = Lens.lens (\EngineAttribute' {value} -> value) (\s@EngineAttribute' {} a -> s {value = a} :: EngineAttribute) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The name of the engine attribute.
 engineAttribute_name :: Lens.Lens' EngineAttribute (Prelude.Maybe Prelude.Text)
 engineAttribute_name = Lens.lens (\EngineAttribute' {name} -> name) (\s@EngineAttribute' {} a -> s {name = a} :: EngineAttribute)
+
+-- | The value of the engine attribute.
+engineAttribute_value :: Lens.Lens' EngineAttribute (Prelude.Maybe Prelude.Text)
+engineAttribute_value = Lens.lens (\EngineAttribute' {value} -> value) (\s@EngineAttribute' {} a -> s {value = a} :: EngineAttribute) Prelude.. Lens.mapping Core._Sensitive
 
 instance Core.FromJSON EngineAttribute where
   parseJSON =
@@ -67,23 +67,23 @@ instance Core.FromJSON EngineAttribute where
       "EngineAttribute"
       ( \x ->
           EngineAttribute'
-            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Value")
       )
 
 instance Prelude.Hashable EngineAttribute where
   hashWithSalt _salt EngineAttribute' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData EngineAttribute where
   rnf EngineAttribute' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON EngineAttribute where
   toJSON EngineAttribute' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Value" Core..=) Prelude.<$> value,
-            ("Name" Core..=) Prelude.<$> name
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("Value" Core..=) Prelude.<$> value
           ]
       )

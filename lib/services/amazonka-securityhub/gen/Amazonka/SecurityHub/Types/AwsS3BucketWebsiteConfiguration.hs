@@ -29,14 +29,14 @@ import Amazonka.SecurityHub.Types.AwsS3BucketWebsiteConfigurationRoutingRule
 --
 -- /See:/ 'newAwsS3BucketWebsiteConfiguration' smart constructor.
 data AwsS3BucketWebsiteConfiguration = AwsS3BucketWebsiteConfiguration'
-  { -- | The redirect behavior for requests to the website.
-    redirectAllRequestsTo :: Prelude.Maybe AwsS3BucketWebsiteConfigurationRedirectTo,
-    -- | The name of the index document for the website.
-    indexDocumentSuffix :: Prelude.Maybe Prelude.Text,
+  { -- | The rules for applying redirects for requests to the website.
+    routingRules :: Prelude.Maybe [AwsS3BucketWebsiteConfigurationRoutingRule],
     -- | The name of the error document for the website.
     errorDocument :: Prelude.Maybe Prelude.Text,
-    -- | The rules for applying redirects for requests to the website.
-    routingRules :: Prelude.Maybe [AwsS3BucketWebsiteConfigurationRoutingRule]
+    -- | The redirect behavior for requests to the website.
+    redirectAllRequestsTo :: Prelude.Maybe AwsS3BucketWebsiteConfigurationRedirectTo,
+    -- | The name of the index document for the website.
+    indexDocumentSuffix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,23 +48,31 @@ data AwsS3BucketWebsiteConfiguration = AwsS3BucketWebsiteConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'redirectAllRequestsTo', 'awsS3BucketWebsiteConfiguration_redirectAllRequestsTo' - The redirect behavior for requests to the website.
---
--- 'indexDocumentSuffix', 'awsS3BucketWebsiteConfiguration_indexDocumentSuffix' - The name of the index document for the website.
+-- 'routingRules', 'awsS3BucketWebsiteConfiguration_routingRules' - The rules for applying redirects for requests to the website.
 --
 -- 'errorDocument', 'awsS3BucketWebsiteConfiguration_errorDocument' - The name of the error document for the website.
 --
--- 'routingRules', 'awsS3BucketWebsiteConfiguration_routingRules' - The rules for applying redirects for requests to the website.
+-- 'redirectAllRequestsTo', 'awsS3BucketWebsiteConfiguration_redirectAllRequestsTo' - The redirect behavior for requests to the website.
+--
+-- 'indexDocumentSuffix', 'awsS3BucketWebsiteConfiguration_indexDocumentSuffix' - The name of the index document for the website.
 newAwsS3BucketWebsiteConfiguration ::
   AwsS3BucketWebsiteConfiguration
 newAwsS3BucketWebsiteConfiguration =
   AwsS3BucketWebsiteConfiguration'
-    { redirectAllRequestsTo =
+    { routingRules =
         Prelude.Nothing,
-      indexDocumentSuffix = Prelude.Nothing,
       errorDocument = Prelude.Nothing,
-      routingRules = Prelude.Nothing
+      redirectAllRequestsTo = Prelude.Nothing,
+      indexDocumentSuffix = Prelude.Nothing
     }
+
+-- | The rules for applying redirects for requests to the website.
+awsS3BucketWebsiteConfiguration_routingRules :: Lens.Lens' AwsS3BucketWebsiteConfiguration (Prelude.Maybe [AwsS3BucketWebsiteConfigurationRoutingRule])
+awsS3BucketWebsiteConfiguration_routingRules = Lens.lens (\AwsS3BucketWebsiteConfiguration' {routingRules} -> routingRules) (\s@AwsS3BucketWebsiteConfiguration' {} a -> s {routingRules = a} :: AwsS3BucketWebsiteConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the error document for the website.
+awsS3BucketWebsiteConfiguration_errorDocument :: Lens.Lens' AwsS3BucketWebsiteConfiguration (Prelude.Maybe Prelude.Text)
+awsS3BucketWebsiteConfiguration_errorDocument = Lens.lens (\AwsS3BucketWebsiteConfiguration' {errorDocument} -> errorDocument) (\s@AwsS3BucketWebsiteConfiguration' {} a -> s {errorDocument = a} :: AwsS3BucketWebsiteConfiguration)
 
 -- | The redirect behavior for requests to the website.
 awsS3BucketWebsiteConfiguration_redirectAllRequestsTo :: Lens.Lens' AwsS3BucketWebsiteConfiguration (Prelude.Maybe AwsS3BucketWebsiteConfigurationRedirectTo)
@@ -73,14 +81,6 @@ awsS3BucketWebsiteConfiguration_redirectAllRequestsTo = Lens.lens (\AwsS3BucketW
 -- | The name of the index document for the website.
 awsS3BucketWebsiteConfiguration_indexDocumentSuffix :: Lens.Lens' AwsS3BucketWebsiteConfiguration (Prelude.Maybe Prelude.Text)
 awsS3BucketWebsiteConfiguration_indexDocumentSuffix = Lens.lens (\AwsS3BucketWebsiteConfiguration' {indexDocumentSuffix} -> indexDocumentSuffix) (\s@AwsS3BucketWebsiteConfiguration' {} a -> s {indexDocumentSuffix = a} :: AwsS3BucketWebsiteConfiguration)
-
--- | The name of the error document for the website.
-awsS3BucketWebsiteConfiguration_errorDocument :: Lens.Lens' AwsS3BucketWebsiteConfiguration (Prelude.Maybe Prelude.Text)
-awsS3BucketWebsiteConfiguration_errorDocument = Lens.lens (\AwsS3BucketWebsiteConfiguration' {errorDocument} -> errorDocument) (\s@AwsS3BucketWebsiteConfiguration' {} a -> s {errorDocument = a} :: AwsS3BucketWebsiteConfiguration)
-
--- | The rules for applying redirects for requests to the website.
-awsS3BucketWebsiteConfiguration_routingRules :: Lens.Lens' AwsS3BucketWebsiteConfiguration (Prelude.Maybe [AwsS3BucketWebsiteConfigurationRoutingRule])
-awsS3BucketWebsiteConfiguration_routingRules = Lens.lens (\AwsS3BucketWebsiteConfiguration' {routingRules} -> routingRules) (\s@AwsS3BucketWebsiteConfiguration' {} a -> s {routingRules = a} :: AwsS3BucketWebsiteConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.FromJSON
@@ -91,10 +91,10 @@ instance
       "AwsS3BucketWebsiteConfiguration"
       ( \x ->
           AwsS3BucketWebsiteConfiguration'
-            Prelude.<$> (x Core..:? "RedirectAllRequestsTo")
-            Prelude.<*> (x Core..:? "IndexDocumentSuffix")
+            Prelude.<$> (x Core..:? "RoutingRules" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "ErrorDocument")
-            Prelude.<*> (x Core..:? "RoutingRules" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "RedirectAllRequestsTo")
+            Prelude.<*> (x Core..:? "IndexDocumentSuffix")
       )
 
 instance
@@ -104,30 +104,30 @@ instance
   hashWithSalt
     _salt
     AwsS3BucketWebsiteConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` redirectAllRequestsTo
-        `Prelude.hashWithSalt` indexDocumentSuffix
+      _salt `Prelude.hashWithSalt` routingRules
         `Prelude.hashWithSalt` errorDocument
-        `Prelude.hashWithSalt` routingRules
+        `Prelude.hashWithSalt` redirectAllRequestsTo
+        `Prelude.hashWithSalt` indexDocumentSuffix
 
 instance
   Prelude.NFData
     AwsS3BucketWebsiteConfiguration
   where
   rnf AwsS3BucketWebsiteConfiguration' {..} =
-    Prelude.rnf redirectAllRequestsTo
-      `Prelude.seq` Prelude.rnf indexDocumentSuffix
+    Prelude.rnf routingRules
       `Prelude.seq` Prelude.rnf errorDocument
-      `Prelude.seq` Prelude.rnf routingRules
+      `Prelude.seq` Prelude.rnf redirectAllRequestsTo
+      `Prelude.seq` Prelude.rnf indexDocumentSuffix
 
 instance Core.ToJSON AwsS3BucketWebsiteConfiguration where
   toJSON AwsS3BucketWebsiteConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RedirectAllRequestsTo" Core..=)
+          [ ("RoutingRules" Core..=) Prelude.<$> routingRules,
+            ("ErrorDocument" Core..=) Prelude.<$> errorDocument,
+            ("RedirectAllRequestsTo" Core..=)
               Prelude.<$> redirectAllRequestsTo,
             ("IndexDocumentSuffix" Core..=)
-              Prelude.<$> indexDocumentSuffix,
-            ("ErrorDocument" Core..=) Prelude.<$> errorDocument,
-            ("RoutingRules" Core..=) Prelude.<$> routingRules
+              Prelude.<$> indexDocumentSuffix
           ]
       )

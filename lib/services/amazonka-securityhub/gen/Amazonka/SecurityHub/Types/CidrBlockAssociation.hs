@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCidrBlockAssociation' smart constructor.
 data CidrBlockAssociation = CidrBlockAssociation'
-  { -- | The association ID for the IPv4 CIDR block.
-    associationId :: Prelude.Maybe Prelude.Text,
-    -- | Information about the state of the IPv4 CIDR block.
+  { -- | Information about the state of the IPv4 CIDR block.
     cidrBlockState :: Prelude.Maybe Prelude.Text,
     -- | The IPv4 CIDR block.
-    cidrBlock :: Prelude.Maybe Prelude.Text
+    cidrBlock :: Prelude.Maybe Prelude.Text,
+    -- | The association ID for the IPv4 CIDR block.
+    associationId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,20 @@ data CidrBlockAssociation = CidrBlockAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'associationId', 'cidrBlockAssociation_associationId' - The association ID for the IPv4 CIDR block.
---
 -- 'cidrBlockState', 'cidrBlockAssociation_cidrBlockState' - Information about the state of the IPv4 CIDR block.
 --
 -- 'cidrBlock', 'cidrBlockAssociation_cidrBlock' - The IPv4 CIDR block.
+--
+-- 'associationId', 'cidrBlockAssociation_associationId' - The association ID for the IPv4 CIDR block.
 newCidrBlockAssociation ::
   CidrBlockAssociation
 newCidrBlockAssociation =
   CidrBlockAssociation'
-    { associationId =
+    { cidrBlockState =
         Prelude.Nothing,
-      cidrBlockState = Prelude.Nothing,
-      cidrBlock = Prelude.Nothing
+      cidrBlock = Prelude.Nothing,
+      associationId = Prelude.Nothing
     }
-
--- | The association ID for the IPv4 CIDR block.
-cidrBlockAssociation_associationId :: Lens.Lens' CidrBlockAssociation (Prelude.Maybe Prelude.Text)
-cidrBlockAssociation_associationId = Lens.lens (\CidrBlockAssociation' {associationId} -> associationId) (\s@CidrBlockAssociation' {} a -> s {associationId = a} :: CidrBlockAssociation)
 
 -- | Information about the state of the IPv4 CIDR block.
 cidrBlockAssociation_cidrBlockState :: Lens.Lens' CidrBlockAssociation (Prelude.Maybe Prelude.Text)
@@ -71,36 +67,40 @@ cidrBlockAssociation_cidrBlockState = Lens.lens (\CidrBlockAssociation' {cidrBlo
 cidrBlockAssociation_cidrBlock :: Lens.Lens' CidrBlockAssociation (Prelude.Maybe Prelude.Text)
 cidrBlockAssociation_cidrBlock = Lens.lens (\CidrBlockAssociation' {cidrBlock} -> cidrBlock) (\s@CidrBlockAssociation' {} a -> s {cidrBlock = a} :: CidrBlockAssociation)
 
+-- | The association ID for the IPv4 CIDR block.
+cidrBlockAssociation_associationId :: Lens.Lens' CidrBlockAssociation (Prelude.Maybe Prelude.Text)
+cidrBlockAssociation_associationId = Lens.lens (\CidrBlockAssociation' {associationId} -> associationId) (\s@CidrBlockAssociation' {} a -> s {associationId = a} :: CidrBlockAssociation)
+
 instance Core.FromJSON CidrBlockAssociation where
   parseJSON =
     Core.withObject
       "CidrBlockAssociation"
       ( \x ->
           CidrBlockAssociation'
-            Prelude.<$> (x Core..:? "AssociationId")
-            Prelude.<*> (x Core..:? "CidrBlockState")
+            Prelude.<$> (x Core..:? "CidrBlockState")
             Prelude.<*> (x Core..:? "CidrBlock")
+            Prelude.<*> (x Core..:? "AssociationId")
       )
 
 instance Prelude.Hashable CidrBlockAssociation where
   hashWithSalt _salt CidrBlockAssociation' {..} =
-    _salt `Prelude.hashWithSalt` associationId
-      `Prelude.hashWithSalt` cidrBlockState
+    _salt `Prelude.hashWithSalt` cidrBlockState
       `Prelude.hashWithSalt` cidrBlock
+      `Prelude.hashWithSalt` associationId
 
 instance Prelude.NFData CidrBlockAssociation where
   rnf CidrBlockAssociation' {..} =
-    Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf cidrBlockState
+    Prelude.rnf cidrBlockState
       `Prelude.seq` Prelude.rnf cidrBlock
+      `Prelude.seq` Prelude.rnf associationId
 
 instance Core.ToJSON CidrBlockAssociation where
   toJSON CidrBlockAssociation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AssociationId" Core..=) Prelude.<$> associationId,
-            ("CidrBlockState" Core..=)
+          [ ("CidrBlockState" Core..=)
               Prelude.<$> cidrBlockState,
-            ("CidrBlock" Core..=) Prelude.<$> cidrBlock
+            ("CidrBlock" Core..=) Prelude.<$> cidrBlock,
+            ("AssociationId" Core..=) Prelude.<$> associationId
           ]
       )

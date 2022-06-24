@@ -30,40 +30,40 @@ import Amazonka.SecurityHub.Types.AwsElasticBeanstalkEnvironmentTier
 --
 -- /See:/ 'newAwsElasticBeanstalkEnvironmentDetails' smart constructor.
 data AwsElasticBeanstalkEnvironmentDetails = AwsElasticBeanstalkEnvironmentDetails'
-  { -- | The current operational status of the environment.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The URL to the CNAME for this environment.
+  { -- | The URL to the CNAME for this environment.
     cname :: Prelude.Maybe Prelude.Text,
+    -- | The name of the environment.
+    environmentName :: Prelude.Maybe Prelude.Text,
+    -- | The current operational status of the environment.
+    status :: Prelude.Maybe Prelude.Text,
+    -- | A description of the environment.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The tier of the environment.
+    tier :: Prelude.Maybe AwsElasticBeanstalkEnvironmentTier,
     -- | For load-balanced, autoscaling environments, the URL to the load
     -- balancer. For single-instance environments, the IP address of the
     -- instance.
     endpointUrl :: Prelude.Maybe Prelude.Text,
-    -- | The configuration setting for the environment.
-    optionSettings :: Prelude.Maybe [AwsElasticBeanstalkEnvironmentOptionSetting],
+    -- | The name of the solution stack that is deployed with the environment.
+    solutionStackName :: Prelude.Maybe Prelude.Text,
     -- | The date when this environment was last modified.
     dateUpdated :: Prelude.Maybe Prelude.Text,
     -- | The creation date for this environment.
     dateCreated :: Prelude.Maybe Prelude.Text,
-    -- | The application version of the environment.
-    versionLabel :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the platform version for the environment.
-    platformArn :: Prelude.Maybe Prelude.Text,
-    -- | The tier of the environment.
-    tier :: Prelude.Maybe AwsElasticBeanstalkEnvironmentTier,
-    -- | The name of the environment.
-    environmentName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the application that is associated with the environment.
-    applicationName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the environment.
     environmentArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the solution stack that is deployed with the environment.
-    solutionStackName :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the environment.
-    environmentId :: Prelude.Maybe Prelude.Text,
     -- | Links to other environments in the same group.
     environmentLinks :: Prelude.Maybe [AwsElasticBeanstalkEnvironmentEnvironmentLink],
-    -- | A description of the environment.
-    description :: Prelude.Maybe Prelude.Text
+    -- | The ARN of the platform version for the environment.
+    platformArn :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the environment.
+    environmentId :: Prelude.Maybe Prelude.Text,
+    -- | The application version of the environment.
+    versionLabel :: Prelude.Maybe Prelude.Text,
+    -- | The name of the application that is associated with the environment.
+    applicationName :: Prelude.Maybe Prelude.Text,
+    -- | The configuration setting for the environment.
+    optionSettings :: Prelude.Maybe [AwsElasticBeanstalkEnvironmentOptionSetting]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,69 +75,81 @@ data AwsElasticBeanstalkEnvironmentDetails = AwsElasticBeanstalkEnvironmentDetai
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'cname', 'awsElasticBeanstalkEnvironmentDetails_cname' - The URL to the CNAME for this environment.
+--
+-- 'environmentName', 'awsElasticBeanstalkEnvironmentDetails_environmentName' - The name of the environment.
+--
 -- 'status', 'awsElasticBeanstalkEnvironmentDetails_status' - The current operational status of the environment.
 --
--- 'cname', 'awsElasticBeanstalkEnvironmentDetails_cname' - The URL to the CNAME for this environment.
+-- 'description', 'awsElasticBeanstalkEnvironmentDetails_description' - A description of the environment.
+--
+-- 'tier', 'awsElasticBeanstalkEnvironmentDetails_tier' - The tier of the environment.
 --
 -- 'endpointUrl', 'awsElasticBeanstalkEnvironmentDetails_endpointUrl' - For load-balanced, autoscaling environments, the URL to the load
 -- balancer. For single-instance environments, the IP address of the
 -- instance.
 --
--- 'optionSettings', 'awsElasticBeanstalkEnvironmentDetails_optionSettings' - The configuration setting for the environment.
+-- 'solutionStackName', 'awsElasticBeanstalkEnvironmentDetails_solutionStackName' - The name of the solution stack that is deployed with the environment.
 --
 -- 'dateUpdated', 'awsElasticBeanstalkEnvironmentDetails_dateUpdated' - The date when this environment was last modified.
 --
 -- 'dateCreated', 'awsElasticBeanstalkEnvironmentDetails_dateCreated' - The creation date for this environment.
 --
--- 'versionLabel', 'awsElasticBeanstalkEnvironmentDetails_versionLabel' - The application version of the environment.
---
--- 'platformArn', 'awsElasticBeanstalkEnvironmentDetails_platformArn' - The ARN of the platform version for the environment.
---
--- 'tier', 'awsElasticBeanstalkEnvironmentDetails_tier' - The tier of the environment.
---
--- 'environmentName', 'awsElasticBeanstalkEnvironmentDetails_environmentName' - The name of the environment.
---
--- 'applicationName', 'awsElasticBeanstalkEnvironmentDetails_applicationName' - The name of the application that is associated with the environment.
---
 -- 'environmentArn', 'awsElasticBeanstalkEnvironmentDetails_environmentArn' - The ARN of the environment.
---
--- 'solutionStackName', 'awsElasticBeanstalkEnvironmentDetails_solutionStackName' - The name of the solution stack that is deployed with the environment.
---
--- 'environmentId', 'awsElasticBeanstalkEnvironmentDetails_environmentId' - The identifier of the environment.
 --
 -- 'environmentLinks', 'awsElasticBeanstalkEnvironmentDetails_environmentLinks' - Links to other environments in the same group.
 --
--- 'description', 'awsElasticBeanstalkEnvironmentDetails_description' - A description of the environment.
+-- 'platformArn', 'awsElasticBeanstalkEnvironmentDetails_platformArn' - The ARN of the platform version for the environment.
+--
+-- 'environmentId', 'awsElasticBeanstalkEnvironmentDetails_environmentId' - The identifier of the environment.
+--
+-- 'versionLabel', 'awsElasticBeanstalkEnvironmentDetails_versionLabel' - The application version of the environment.
+--
+-- 'applicationName', 'awsElasticBeanstalkEnvironmentDetails_applicationName' - The name of the application that is associated with the environment.
+--
+-- 'optionSettings', 'awsElasticBeanstalkEnvironmentDetails_optionSettings' - The configuration setting for the environment.
 newAwsElasticBeanstalkEnvironmentDetails ::
   AwsElasticBeanstalkEnvironmentDetails
 newAwsElasticBeanstalkEnvironmentDetails =
   AwsElasticBeanstalkEnvironmentDetails'
-    { status =
+    { cname =
         Prelude.Nothing,
-      cname = Prelude.Nothing,
+      environmentName = Prelude.Nothing,
+      status = Prelude.Nothing,
+      description = Prelude.Nothing,
+      tier = Prelude.Nothing,
       endpointUrl = Prelude.Nothing,
-      optionSettings = Prelude.Nothing,
+      solutionStackName = Prelude.Nothing,
       dateUpdated = Prelude.Nothing,
       dateCreated = Prelude.Nothing,
-      versionLabel = Prelude.Nothing,
-      platformArn = Prelude.Nothing,
-      tier = Prelude.Nothing,
-      environmentName = Prelude.Nothing,
-      applicationName = Prelude.Nothing,
       environmentArn = Prelude.Nothing,
-      solutionStackName = Prelude.Nothing,
-      environmentId = Prelude.Nothing,
       environmentLinks = Prelude.Nothing,
-      description = Prelude.Nothing
+      platformArn = Prelude.Nothing,
+      environmentId = Prelude.Nothing,
+      versionLabel = Prelude.Nothing,
+      applicationName = Prelude.Nothing,
+      optionSettings = Prelude.Nothing
     }
+
+-- | The URL to the CNAME for this environment.
+awsElasticBeanstalkEnvironmentDetails_cname :: Lens.Lens' AwsElasticBeanstalkEnvironmentDetails (Prelude.Maybe Prelude.Text)
+awsElasticBeanstalkEnvironmentDetails_cname = Lens.lens (\AwsElasticBeanstalkEnvironmentDetails' {cname} -> cname) (\s@AwsElasticBeanstalkEnvironmentDetails' {} a -> s {cname = a} :: AwsElasticBeanstalkEnvironmentDetails)
+
+-- | The name of the environment.
+awsElasticBeanstalkEnvironmentDetails_environmentName :: Lens.Lens' AwsElasticBeanstalkEnvironmentDetails (Prelude.Maybe Prelude.Text)
+awsElasticBeanstalkEnvironmentDetails_environmentName = Lens.lens (\AwsElasticBeanstalkEnvironmentDetails' {environmentName} -> environmentName) (\s@AwsElasticBeanstalkEnvironmentDetails' {} a -> s {environmentName = a} :: AwsElasticBeanstalkEnvironmentDetails)
 
 -- | The current operational status of the environment.
 awsElasticBeanstalkEnvironmentDetails_status :: Lens.Lens' AwsElasticBeanstalkEnvironmentDetails (Prelude.Maybe Prelude.Text)
 awsElasticBeanstalkEnvironmentDetails_status = Lens.lens (\AwsElasticBeanstalkEnvironmentDetails' {status} -> status) (\s@AwsElasticBeanstalkEnvironmentDetails' {} a -> s {status = a} :: AwsElasticBeanstalkEnvironmentDetails)
 
--- | The URL to the CNAME for this environment.
-awsElasticBeanstalkEnvironmentDetails_cname :: Lens.Lens' AwsElasticBeanstalkEnvironmentDetails (Prelude.Maybe Prelude.Text)
-awsElasticBeanstalkEnvironmentDetails_cname = Lens.lens (\AwsElasticBeanstalkEnvironmentDetails' {cname} -> cname) (\s@AwsElasticBeanstalkEnvironmentDetails' {} a -> s {cname = a} :: AwsElasticBeanstalkEnvironmentDetails)
+-- | A description of the environment.
+awsElasticBeanstalkEnvironmentDetails_description :: Lens.Lens' AwsElasticBeanstalkEnvironmentDetails (Prelude.Maybe Prelude.Text)
+awsElasticBeanstalkEnvironmentDetails_description = Lens.lens (\AwsElasticBeanstalkEnvironmentDetails' {description} -> description) (\s@AwsElasticBeanstalkEnvironmentDetails' {} a -> s {description = a} :: AwsElasticBeanstalkEnvironmentDetails)
+
+-- | The tier of the environment.
+awsElasticBeanstalkEnvironmentDetails_tier :: Lens.Lens' AwsElasticBeanstalkEnvironmentDetails (Prelude.Maybe AwsElasticBeanstalkEnvironmentTier)
+awsElasticBeanstalkEnvironmentDetails_tier = Lens.lens (\AwsElasticBeanstalkEnvironmentDetails' {tier} -> tier) (\s@AwsElasticBeanstalkEnvironmentDetails' {} a -> s {tier = a} :: AwsElasticBeanstalkEnvironmentDetails)
 
 -- | For load-balanced, autoscaling environments, the URL to the load
 -- balancer. For single-instance environments, the IP address of the
@@ -145,9 +157,9 @@ awsElasticBeanstalkEnvironmentDetails_cname = Lens.lens (\AwsElasticBeanstalkEnv
 awsElasticBeanstalkEnvironmentDetails_endpointUrl :: Lens.Lens' AwsElasticBeanstalkEnvironmentDetails (Prelude.Maybe Prelude.Text)
 awsElasticBeanstalkEnvironmentDetails_endpointUrl = Lens.lens (\AwsElasticBeanstalkEnvironmentDetails' {endpointUrl} -> endpointUrl) (\s@AwsElasticBeanstalkEnvironmentDetails' {} a -> s {endpointUrl = a} :: AwsElasticBeanstalkEnvironmentDetails)
 
--- | The configuration setting for the environment.
-awsElasticBeanstalkEnvironmentDetails_optionSettings :: Lens.Lens' AwsElasticBeanstalkEnvironmentDetails (Prelude.Maybe [AwsElasticBeanstalkEnvironmentOptionSetting])
-awsElasticBeanstalkEnvironmentDetails_optionSettings = Lens.lens (\AwsElasticBeanstalkEnvironmentDetails' {optionSettings} -> optionSettings) (\s@AwsElasticBeanstalkEnvironmentDetails' {} a -> s {optionSettings = a} :: AwsElasticBeanstalkEnvironmentDetails) Prelude.. Lens.mapping Lens.coerced
+-- | The name of the solution stack that is deployed with the environment.
+awsElasticBeanstalkEnvironmentDetails_solutionStackName :: Lens.Lens' AwsElasticBeanstalkEnvironmentDetails (Prelude.Maybe Prelude.Text)
+awsElasticBeanstalkEnvironmentDetails_solutionStackName = Lens.lens (\AwsElasticBeanstalkEnvironmentDetails' {solutionStackName} -> solutionStackName) (\s@AwsElasticBeanstalkEnvironmentDetails' {} a -> s {solutionStackName = a} :: AwsElasticBeanstalkEnvironmentDetails)
 
 -- | The date when this environment was last modified.
 awsElasticBeanstalkEnvironmentDetails_dateUpdated :: Lens.Lens' AwsElasticBeanstalkEnvironmentDetails (Prelude.Maybe Prelude.Text)
@@ -157,45 +169,33 @@ awsElasticBeanstalkEnvironmentDetails_dateUpdated = Lens.lens (\AwsElasticBeanst
 awsElasticBeanstalkEnvironmentDetails_dateCreated :: Lens.Lens' AwsElasticBeanstalkEnvironmentDetails (Prelude.Maybe Prelude.Text)
 awsElasticBeanstalkEnvironmentDetails_dateCreated = Lens.lens (\AwsElasticBeanstalkEnvironmentDetails' {dateCreated} -> dateCreated) (\s@AwsElasticBeanstalkEnvironmentDetails' {} a -> s {dateCreated = a} :: AwsElasticBeanstalkEnvironmentDetails)
 
--- | The application version of the environment.
-awsElasticBeanstalkEnvironmentDetails_versionLabel :: Lens.Lens' AwsElasticBeanstalkEnvironmentDetails (Prelude.Maybe Prelude.Text)
-awsElasticBeanstalkEnvironmentDetails_versionLabel = Lens.lens (\AwsElasticBeanstalkEnvironmentDetails' {versionLabel} -> versionLabel) (\s@AwsElasticBeanstalkEnvironmentDetails' {} a -> s {versionLabel = a} :: AwsElasticBeanstalkEnvironmentDetails)
-
--- | The ARN of the platform version for the environment.
-awsElasticBeanstalkEnvironmentDetails_platformArn :: Lens.Lens' AwsElasticBeanstalkEnvironmentDetails (Prelude.Maybe Prelude.Text)
-awsElasticBeanstalkEnvironmentDetails_platformArn = Lens.lens (\AwsElasticBeanstalkEnvironmentDetails' {platformArn} -> platformArn) (\s@AwsElasticBeanstalkEnvironmentDetails' {} a -> s {platformArn = a} :: AwsElasticBeanstalkEnvironmentDetails)
-
--- | The tier of the environment.
-awsElasticBeanstalkEnvironmentDetails_tier :: Lens.Lens' AwsElasticBeanstalkEnvironmentDetails (Prelude.Maybe AwsElasticBeanstalkEnvironmentTier)
-awsElasticBeanstalkEnvironmentDetails_tier = Lens.lens (\AwsElasticBeanstalkEnvironmentDetails' {tier} -> tier) (\s@AwsElasticBeanstalkEnvironmentDetails' {} a -> s {tier = a} :: AwsElasticBeanstalkEnvironmentDetails)
-
--- | The name of the environment.
-awsElasticBeanstalkEnvironmentDetails_environmentName :: Lens.Lens' AwsElasticBeanstalkEnvironmentDetails (Prelude.Maybe Prelude.Text)
-awsElasticBeanstalkEnvironmentDetails_environmentName = Lens.lens (\AwsElasticBeanstalkEnvironmentDetails' {environmentName} -> environmentName) (\s@AwsElasticBeanstalkEnvironmentDetails' {} a -> s {environmentName = a} :: AwsElasticBeanstalkEnvironmentDetails)
-
--- | The name of the application that is associated with the environment.
-awsElasticBeanstalkEnvironmentDetails_applicationName :: Lens.Lens' AwsElasticBeanstalkEnvironmentDetails (Prelude.Maybe Prelude.Text)
-awsElasticBeanstalkEnvironmentDetails_applicationName = Lens.lens (\AwsElasticBeanstalkEnvironmentDetails' {applicationName} -> applicationName) (\s@AwsElasticBeanstalkEnvironmentDetails' {} a -> s {applicationName = a} :: AwsElasticBeanstalkEnvironmentDetails)
-
 -- | The ARN of the environment.
 awsElasticBeanstalkEnvironmentDetails_environmentArn :: Lens.Lens' AwsElasticBeanstalkEnvironmentDetails (Prelude.Maybe Prelude.Text)
 awsElasticBeanstalkEnvironmentDetails_environmentArn = Lens.lens (\AwsElasticBeanstalkEnvironmentDetails' {environmentArn} -> environmentArn) (\s@AwsElasticBeanstalkEnvironmentDetails' {} a -> s {environmentArn = a} :: AwsElasticBeanstalkEnvironmentDetails)
-
--- | The name of the solution stack that is deployed with the environment.
-awsElasticBeanstalkEnvironmentDetails_solutionStackName :: Lens.Lens' AwsElasticBeanstalkEnvironmentDetails (Prelude.Maybe Prelude.Text)
-awsElasticBeanstalkEnvironmentDetails_solutionStackName = Lens.lens (\AwsElasticBeanstalkEnvironmentDetails' {solutionStackName} -> solutionStackName) (\s@AwsElasticBeanstalkEnvironmentDetails' {} a -> s {solutionStackName = a} :: AwsElasticBeanstalkEnvironmentDetails)
-
--- | The identifier of the environment.
-awsElasticBeanstalkEnvironmentDetails_environmentId :: Lens.Lens' AwsElasticBeanstalkEnvironmentDetails (Prelude.Maybe Prelude.Text)
-awsElasticBeanstalkEnvironmentDetails_environmentId = Lens.lens (\AwsElasticBeanstalkEnvironmentDetails' {environmentId} -> environmentId) (\s@AwsElasticBeanstalkEnvironmentDetails' {} a -> s {environmentId = a} :: AwsElasticBeanstalkEnvironmentDetails)
 
 -- | Links to other environments in the same group.
 awsElasticBeanstalkEnvironmentDetails_environmentLinks :: Lens.Lens' AwsElasticBeanstalkEnvironmentDetails (Prelude.Maybe [AwsElasticBeanstalkEnvironmentEnvironmentLink])
 awsElasticBeanstalkEnvironmentDetails_environmentLinks = Lens.lens (\AwsElasticBeanstalkEnvironmentDetails' {environmentLinks} -> environmentLinks) (\s@AwsElasticBeanstalkEnvironmentDetails' {} a -> s {environmentLinks = a} :: AwsElasticBeanstalkEnvironmentDetails) Prelude.. Lens.mapping Lens.coerced
 
--- | A description of the environment.
-awsElasticBeanstalkEnvironmentDetails_description :: Lens.Lens' AwsElasticBeanstalkEnvironmentDetails (Prelude.Maybe Prelude.Text)
-awsElasticBeanstalkEnvironmentDetails_description = Lens.lens (\AwsElasticBeanstalkEnvironmentDetails' {description} -> description) (\s@AwsElasticBeanstalkEnvironmentDetails' {} a -> s {description = a} :: AwsElasticBeanstalkEnvironmentDetails)
+-- | The ARN of the platform version for the environment.
+awsElasticBeanstalkEnvironmentDetails_platformArn :: Lens.Lens' AwsElasticBeanstalkEnvironmentDetails (Prelude.Maybe Prelude.Text)
+awsElasticBeanstalkEnvironmentDetails_platformArn = Lens.lens (\AwsElasticBeanstalkEnvironmentDetails' {platformArn} -> platformArn) (\s@AwsElasticBeanstalkEnvironmentDetails' {} a -> s {platformArn = a} :: AwsElasticBeanstalkEnvironmentDetails)
+
+-- | The identifier of the environment.
+awsElasticBeanstalkEnvironmentDetails_environmentId :: Lens.Lens' AwsElasticBeanstalkEnvironmentDetails (Prelude.Maybe Prelude.Text)
+awsElasticBeanstalkEnvironmentDetails_environmentId = Lens.lens (\AwsElasticBeanstalkEnvironmentDetails' {environmentId} -> environmentId) (\s@AwsElasticBeanstalkEnvironmentDetails' {} a -> s {environmentId = a} :: AwsElasticBeanstalkEnvironmentDetails)
+
+-- | The application version of the environment.
+awsElasticBeanstalkEnvironmentDetails_versionLabel :: Lens.Lens' AwsElasticBeanstalkEnvironmentDetails (Prelude.Maybe Prelude.Text)
+awsElasticBeanstalkEnvironmentDetails_versionLabel = Lens.lens (\AwsElasticBeanstalkEnvironmentDetails' {versionLabel} -> versionLabel) (\s@AwsElasticBeanstalkEnvironmentDetails' {} a -> s {versionLabel = a} :: AwsElasticBeanstalkEnvironmentDetails)
+
+-- | The name of the application that is associated with the environment.
+awsElasticBeanstalkEnvironmentDetails_applicationName :: Lens.Lens' AwsElasticBeanstalkEnvironmentDetails (Prelude.Maybe Prelude.Text)
+awsElasticBeanstalkEnvironmentDetails_applicationName = Lens.lens (\AwsElasticBeanstalkEnvironmentDetails' {applicationName} -> applicationName) (\s@AwsElasticBeanstalkEnvironmentDetails' {} a -> s {applicationName = a} :: AwsElasticBeanstalkEnvironmentDetails)
+
+-- | The configuration setting for the environment.
+awsElasticBeanstalkEnvironmentDetails_optionSettings :: Lens.Lens' AwsElasticBeanstalkEnvironmentDetails (Prelude.Maybe [AwsElasticBeanstalkEnvironmentOptionSetting])
+awsElasticBeanstalkEnvironmentDetails_optionSettings = Lens.lens (\AwsElasticBeanstalkEnvironmentDetails' {optionSettings} -> optionSettings) (\s@AwsElasticBeanstalkEnvironmentDetails' {} a -> s {optionSettings = a} :: AwsElasticBeanstalkEnvironmentDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.FromJSON
@@ -206,24 +206,26 @@ instance
       "AwsElasticBeanstalkEnvironmentDetails"
       ( \x ->
           AwsElasticBeanstalkEnvironmentDetails'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Cname")
+            Prelude.<$> (x Core..:? "Cname")
+            Prelude.<*> (x Core..:? "EnvironmentName")
+            Prelude.<*> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "Tier")
             Prelude.<*> (x Core..:? "EndpointUrl")
-            Prelude.<*> (x Core..:? "OptionSettings" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "SolutionStackName")
             Prelude.<*> (x Core..:? "DateUpdated")
             Prelude.<*> (x Core..:? "DateCreated")
-            Prelude.<*> (x Core..:? "VersionLabel")
-            Prelude.<*> (x Core..:? "PlatformArn")
-            Prelude.<*> (x Core..:? "Tier")
-            Prelude.<*> (x Core..:? "EnvironmentName")
-            Prelude.<*> (x Core..:? "ApplicationName")
             Prelude.<*> (x Core..:? "EnvironmentArn")
-            Prelude.<*> (x Core..:? "SolutionStackName")
-            Prelude.<*> (x Core..:? "EnvironmentId")
             Prelude.<*> ( x Core..:? "EnvironmentLinks"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "PlatformArn")
+            Prelude.<*> (x Core..:? "EnvironmentId")
+            Prelude.<*> (x Core..:? "VersionLabel")
+            Prelude.<*> (x Core..:? "ApplicationName")
+            Prelude.<*> ( x Core..:? "OptionSettings"
+                            Core..!= Prelude.mempty
+                        )
       )
 
 instance
@@ -233,44 +235,44 @@ instance
   hashWithSalt
     _salt
     AwsElasticBeanstalkEnvironmentDetails' {..} =
-      _salt `Prelude.hashWithSalt` status
-        `Prelude.hashWithSalt` cname
+      _salt `Prelude.hashWithSalt` cname
+        `Prelude.hashWithSalt` environmentName
+        `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` tier
         `Prelude.hashWithSalt` endpointUrl
-        `Prelude.hashWithSalt` optionSettings
+        `Prelude.hashWithSalt` solutionStackName
         `Prelude.hashWithSalt` dateUpdated
         `Prelude.hashWithSalt` dateCreated
-        `Prelude.hashWithSalt` versionLabel
-        `Prelude.hashWithSalt` platformArn
-        `Prelude.hashWithSalt` tier
-        `Prelude.hashWithSalt` environmentName
-        `Prelude.hashWithSalt` applicationName
         `Prelude.hashWithSalt` environmentArn
-        `Prelude.hashWithSalt` solutionStackName
-        `Prelude.hashWithSalt` environmentId
         `Prelude.hashWithSalt` environmentLinks
-        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` platformArn
+        `Prelude.hashWithSalt` environmentId
+        `Prelude.hashWithSalt` versionLabel
+        `Prelude.hashWithSalt` applicationName
+        `Prelude.hashWithSalt` optionSettings
 
 instance
   Prelude.NFData
     AwsElasticBeanstalkEnvironmentDetails
   where
   rnf AwsElasticBeanstalkEnvironmentDetails' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf cname
+    Prelude.rnf cname
+      `Prelude.seq` Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tier
       `Prelude.seq` Prelude.rnf endpointUrl
-      `Prelude.seq` Prelude.rnf optionSettings
+      `Prelude.seq` Prelude.rnf solutionStackName
       `Prelude.seq` Prelude.rnf dateUpdated
       `Prelude.seq` Prelude.rnf dateCreated
-      `Prelude.seq` Prelude.rnf versionLabel
-      `Prelude.seq` Prelude.rnf platformArn
-      `Prelude.seq` Prelude.rnf tier
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf environmentArn
-      `Prelude.seq` Prelude.rnf solutionStackName
-      `Prelude.seq` Prelude.rnf environmentId
       `Prelude.seq` Prelude.rnf environmentLinks
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf platformArn
+      `Prelude.seq` Prelude.rnf environmentId
+      `Prelude.seq` Prelude.rnf versionLabel
+      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf optionSettings
 
 instance
   Core.ToJSON
@@ -279,27 +281,27 @@ instance
   toJSON AwsElasticBeanstalkEnvironmentDetails' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
-            ("Cname" Core..=) Prelude.<$> cname,
-            ("EndpointUrl" Core..=) Prelude.<$> endpointUrl,
-            ("OptionSettings" Core..=)
-              Prelude.<$> optionSettings,
-            ("DateUpdated" Core..=) Prelude.<$> dateUpdated,
-            ("DateCreated" Core..=) Prelude.<$> dateCreated,
-            ("VersionLabel" Core..=) Prelude.<$> versionLabel,
-            ("PlatformArn" Core..=) Prelude.<$> platformArn,
-            ("Tier" Core..=) Prelude.<$> tier,
+          [ ("Cname" Core..=) Prelude.<$> cname,
             ("EnvironmentName" Core..=)
               Prelude.<$> environmentName,
-            ("ApplicationName" Core..=)
-              Prelude.<$> applicationName,
-            ("EnvironmentArn" Core..=)
-              Prelude.<$> environmentArn,
+            ("Status" Core..=) Prelude.<$> status,
+            ("Description" Core..=) Prelude.<$> description,
+            ("Tier" Core..=) Prelude.<$> tier,
+            ("EndpointUrl" Core..=) Prelude.<$> endpointUrl,
             ("SolutionStackName" Core..=)
               Prelude.<$> solutionStackName,
-            ("EnvironmentId" Core..=) Prelude.<$> environmentId,
+            ("DateUpdated" Core..=) Prelude.<$> dateUpdated,
+            ("DateCreated" Core..=) Prelude.<$> dateCreated,
+            ("EnvironmentArn" Core..=)
+              Prelude.<$> environmentArn,
             ("EnvironmentLinks" Core..=)
               Prelude.<$> environmentLinks,
-            ("Description" Core..=) Prelude.<$> description
+            ("PlatformArn" Core..=) Prelude.<$> platformArn,
+            ("EnvironmentId" Core..=) Prelude.<$> environmentId,
+            ("VersionLabel" Core..=) Prelude.<$> versionLabel,
+            ("ApplicationName" Core..=)
+              Prelude.<$> applicationName,
+            ("OptionSettings" Core..=)
+              Prelude.<$> optionSettings
           ]
       )

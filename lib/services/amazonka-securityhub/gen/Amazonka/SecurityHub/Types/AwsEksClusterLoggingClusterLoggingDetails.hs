@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEksClusterLoggingClusterLoggingDetails' smart constructor.
 data AwsEksClusterLoggingClusterLoggingDetails = AwsEksClusterLoggingClusterLoggingDetails'
-  { -- | Whether the logging types that are listed in @Types@ are enabled.
-    enabled :: Prelude.Maybe Prelude.Bool,
-    -- | A list of logging types.
-    types :: Prelude.Maybe [Prelude.Text]
+  { -- | A list of logging types.
+    types :: Prelude.Maybe [Prelude.Text],
+    -- | Whether the logging types that are listed in @Types@ are enabled.
+    enabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,25 @@ data AwsEksClusterLoggingClusterLoggingDetails = AwsEksClusterLoggingClusterLogg
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enabled', 'awsEksClusterLoggingClusterLoggingDetails_enabled' - Whether the logging types that are listed in @Types@ are enabled.
---
 -- 'types', 'awsEksClusterLoggingClusterLoggingDetails_types' - A list of logging types.
+--
+-- 'enabled', 'awsEksClusterLoggingClusterLoggingDetails_enabled' - Whether the logging types that are listed in @Types@ are enabled.
 newAwsEksClusterLoggingClusterLoggingDetails ::
   AwsEksClusterLoggingClusterLoggingDetails
 newAwsEksClusterLoggingClusterLoggingDetails =
   AwsEksClusterLoggingClusterLoggingDetails'
-    { enabled =
+    { types =
         Prelude.Nothing,
-      types = Prelude.Nothing
+      enabled = Prelude.Nothing
     }
-
--- | Whether the logging types that are listed in @Types@ are enabled.
-awsEksClusterLoggingClusterLoggingDetails_enabled :: Lens.Lens' AwsEksClusterLoggingClusterLoggingDetails (Prelude.Maybe Prelude.Bool)
-awsEksClusterLoggingClusterLoggingDetails_enabled = Lens.lens (\AwsEksClusterLoggingClusterLoggingDetails' {enabled} -> enabled) (\s@AwsEksClusterLoggingClusterLoggingDetails' {} a -> s {enabled = a} :: AwsEksClusterLoggingClusterLoggingDetails)
 
 -- | A list of logging types.
 awsEksClusterLoggingClusterLoggingDetails_types :: Lens.Lens' AwsEksClusterLoggingClusterLoggingDetails (Prelude.Maybe [Prelude.Text])
 awsEksClusterLoggingClusterLoggingDetails_types = Lens.lens (\AwsEksClusterLoggingClusterLoggingDetails' {types} -> types) (\s@AwsEksClusterLoggingClusterLoggingDetails' {} a -> s {types = a} :: AwsEksClusterLoggingClusterLoggingDetails) Prelude.. Lens.mapping Lens.coerced
+
+-- | Whether the logging types that are listed in @Types@ are enabled.
+awsEksClusterLoggingClusterLoggingDetails_enabled :: Lens.Lens' AwsEksClusterLoggingClusterLoggingDetails (Prelude.Maybe Prelude.Bool)
+awsEksClusterLoggingClusterLoggingDetails_enabled = Lens.lens (\AwsEksClusterLoggingClusterLoggingDetails' {enabled} -> enabled) (\s@AwsEksClusterLoggingClusterLoggingDetails' {} a -> s {enabled = a} :: AwsEksClusterLoggingClusterLoggingDetails)
 
 instance
   Core.FromJSON
@@ -71,8 +71,8 @@ instance
       "AwsEksClusterLoggingClusterLoggingDetails"
       ( \x ->
           AwsEksClusterLoggingClusterLoggingDetails'
-            Prelude.<$> (x Core..:? "Enabled")
-              Prelude.<*> (x Core..:? "Types" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "Types" Core..!= Prelude.mempty)
+              Prelude.<*> (x Core..:? "Enabled")
       )
 
 instance
@@ -82,15 +82,15 @@ instance
   hashWithSalt
     _salt
     AwsEksClusterLoggingClusterLoggingDetails' {..} =
-      _salt `Prelude.hashWithSalt` enabled
-        `Prelude.hashWithSalt` types
+      _salt `Prelude.hashWithSalt` types
+        `Prelude.hashWithSalt` enabled
 
 instance
   Prelude.NFData
     AwsEksClusterLoggingClusterLoggingDetails
   where
   rnf AwsEksClusterLoggingClusterLoggingDetails' {..} =
-    Prelude.rnf enabled `Prelude.seq` Prelude.rnf types
+    Prelude.rnf types `Prelude.seq` Prelude.rnf enabled
 
 instance
   Core.ToJSON
@@ -99,7 +99,7 @@ instance
   toJSON AwsEksClusterLoggingClusterLoggingDetails' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Enabled" Core..=) Prelude.<$> enabled,
-            ("Types" Core..=) Prelude.<$> types
+          [ ("Types" Core..=) Prelude.<$> types,
+            ("Enabled" Core..=) Prelude.<$> enabled
           ]
       )

@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsElasticBeanstalkEnvironmentOptionSetting' smart constructor.
 data AwsElasticBeanstalkEnvironmentOptionSetting = AwsElasticBeanstalkEnvironmentOptionSetting'
-  { -- | The name of the option.
-    optionName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the resource.
+  { -- | The name of the resource.
     resourceName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the option.
+    optionName :: Prelude.Maybe Prelude.Text,
     -- | The type of resource that the configuration option is associated with.
     namespace :: Prelude.Maybe Prelude.Text,
     -- | The value of the configuration setting.
@@ -46,9 +46,9 @@ data AwsElasticBeanstalkEnvironmentOptionSetting = AwsElasticBeanstalkEnvironmen
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'optionName', 'awsElasticBeanstalkEnvironmentOptionSetting_optionName' - The name of the option.
---
 -- 'resourceName', 'awsElasticBeanstalkEnvironmentOptionSetting_resourceName' - The name of the resource.
+--
+-- 'optionName', 'awsElasticBeanstalkEnvironmentOptionSetting_optionName' - The name of the option.
 --
 -- 'namespace', 'awsElasticBeanstalkEnvironmentOptionSetting_namespace' - The type of resource that the configuration option is associated with.
 --
@@ -57,20 +57,20 @@ newAwsElasticBeanstalkEnvironmentOptionSetting ::
   AwsElasticBeanstalkEnvironmentOptionSetting
 newAwsElasticBeanstalkEnvironmentOptionSetting =
   AwsElasticBeanstalkEnvironmentOptionSetting'
-    { optionName =
+    { resourceName =
         Prelude.Nothing,
-      resourceName = Prelude.Nothing,
+      optionName = Prelude.Nothing,
       namespace = Prelude.Nothing,
       value = Prelude.Nothing
     }
 
--- | The name of the option.
-awsElasticBeanstalkEnvironmentOptionSetting_optionName :: Lens.Lens' AwsElasticBeanstalkEnvironmentOptionSetting (Prelude.Maybe Prelude.Text)
-awsElasticBeanstalkEnvironmentOptionSetting_optionName = Lens.lens (\AwsElasticBeanstalkEnvironmentOptionSetting' {optionName} -> optionName) (\s@AwsElasticBeanstalkEnvironmentOptionSetting' {} a -> s {optionName = a} :: AwsElasticBeanstalkEnvironmentOptionSetting)
-
 -- | The name of the resource.
 awsElasticBeanstalkEnvironmentOptionSetting_resourceName :: Lens.Lens' AwsElasticBeanstalkEnvironmentOptionSetting (Prelude.Maybe Prelude.Text)
 awsElasticBeanstalkEnvironmentOptionSetting_resourceName = Lens.lens (\AwsElasticBeanstalkEnvironmentOptionSetting' {resourceName} -> resourceName) (\s@AwsElasticBeanstalkEnvironmentOptionSetting' {} a -> s {resourceName = a} :: AwsElasticBeanstalkEnvironmentOptionSetting)
+
+-- | The name of the option.
+awsElasticBeanstalkEnvironmentOptionSetting_optionName :: Lens.Lens' AwsElasticBeanstalkEnvironmentOptionSetting (Prelude.Maybe Prelude.Text)
+awsElasticBeanstalkEnvironmentOptionSetting_optionName = Lens.lens (\AwsElasticBeanstalkEnvironmentOptionSetting' {optionName} -> optionName) (\s@AwsElasticBeanstalkEnvironmentOptionSetting' {} a -> s {optionName = a} :: AwsElasticBeanstalkEnvironmentOptionSetting)
 
 -- | The type of resource that the configuration option is associated with.
 awsElasticBeanstalkEnvironmentOptionSetting_namespace :: Lens.Lens' AwsElasticBeanstalkEnvironmentOptionSetting (Prelude.Maybe Prelude.Text)
@@ -89,8 +89,8 @@ instance
       "AwsElasticBeanstalkEnvironmentOptionSetting"
       ( \x ->
           AwsElasticBeanstalkEnvironmentOptionSetting'
-            Prelude.<$> (x Core..:? "OptionName")
-              Prelude.<*> (x Core..:? "ResourceName")
+            Prelude.<$> (x Core..:? "ResourceName")
+              Prelude.<*> (x Core..:? "OptionName")
               Prelude.<*> (x Core..:? "Namespace")
               Prelude.<*> (x Core..:? "Value")
       )
@@ -102,8 +102,8 @@ instance
   hashWithSalt
     _salt
     AwsElasticBeanstalkEnvironmentOptionSetting' {..} =
-      _salt `Prelude.hashWithSalt` optionName
-        `Prelude.hashWithSalt` resourceName
+      _salt `Prelude.hashWithSalt` resourceName
+        `Prelude.hashWithSalt` optionName
         `Prelude.hashWithSalt` namespace
         `Prelude.hashWithSalt` value
 
@@ -112,8 +112,8 @@ instance
     AwsElasticBeanstalkEnvironmentOptionSetting
   where
   rnf AwsElasticBeanstalkEnvironmentOptionSetting' {..} =
-    Prelude.rnf optionName
-      `Prelude.seq` Prelude.rnf resourceName
+    Prelude.rnf resourceName
+      `Prelude.seq` Prelude.rnf optionName
       `Prelude.seq` Prelude.rnf namespace
       `Prelude.seq` Prelude.rnf value
 
@@ -125,8 +125,8 @@ instance
     AwsElasticBeanstalkEnvironmentOptionSetting' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("OptionName" Core..=) Prelude.<$> optionName,
-              ("ResourceName" Core..=) Prelude.<$> resourceName,
+            [ ("ResourceName" Core..=) Prelude.<$> resourceName,
+              ("OptionName" Core..=) Prelude.<$> optionName,
               ("Namespace" Core..=) Prelude.<$> namespace,
               ("Value" Core..=) Prelude.<$> value
             ]

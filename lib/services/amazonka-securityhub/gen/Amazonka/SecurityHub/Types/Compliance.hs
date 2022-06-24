@@ -30,7 +30,11 @@ import Amazonka.SecurityHub.Types.StatusReason
 --
 -- /See:/ 'newCompliance' smart constructor.
 data Compliance = Compliance'
-  { -- | The result of a standards check.
+  { -- | For a control, the industry or regulatory framework requirements that
+    -- are related to the control. The check for that control is aligned with
+    -- these requirements.
+    relatedRequirements :: Prelude.Maybe [Prelude.Text],
+    -- | The result of a standards check.
     --
     -- The valid values for @Status@ are as follows.
     --
@@ -48,10 +52,6 @@ data Compliance = Compliance'
     --         was @NOT_APPLICABLE@, then after 3 days, Security Hub
     --         automatically archives the finding.
     status :: Prelude.Maybe ComplianceStatus,
-    -- | For a control, the industry or regulatory framework requirements that
-    -- are related to the control. The check for that control is aligned with
-    -- these requirements.
-    relatedRequirements :: Prelude.Maybe [Prelude.Text],
     -- | For findings generated from controls, a list of reasons behind the value
     -- of @Status@. For the list of status reason codes and their meanings, see
     -- <https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-results.html#securityhub-standards-results-asff Standards-related information in the ASFF>
@@ -67,6 +67,10 @@ data Compliance = Compliance'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'relatedRequirements', 'compliance_relatedRequirements' - For a control, the industry or regulatory framework requirements that
+-- are related to the control. The check for that control is aligned with
+-- these requirements.
 --
 -- 'status', 'compliance_status' - The result of a standards check.
 --
@@ -86,10 +90,6 @@ data Compliance = Compliance'
 --         was @NOT_APPLICABLE@, then after 3 days, Security Hub
 --         automatically archives the finding.
 --
--- 'relatedRequirements', 'compliance_relatedRequirements' - For a control, the industry or regulatory framework requirements that
--- are related to the control. The check for that control is aligned with
--- these requirements.
---
 -- 'statusReasons', 'compliance_statusReasons' - For findings generated from controls, a list of reasons behind the value
 -- of @Status@. For the list of status reason codes and their meanings, see
 -- <https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-results.html#securityhub-standards-results-asff Standards-related information in the ASFF>
@@ -98,10 +98,16 @@ newCompliance ::
   Compliance
 newCompliance =
   Compliance'
-    { status = Prelude.Nothing,
-      relatedRequirements = Prelude.Nothing,
+    { relatedRequirements = Prelude.Nothing,
+      status = Prelude.Nothing,
       statusReasons = Prelude.Nothing
     }
+
+-- | For a control, the industry or regulatory framework requirements that
+-- are related to the control. The check for that control is aligned with
+-- these requirements.
+compliance_relatedRequirements :: Lens.Lens' Compliance (Prelude.Maybe [Prelude.Text])
+compliance_relatedRequirements = Lens.lens (\Compliance' {relatedRequirements} -> relatedRequirements) (\s@Compliance' {} a -> s {relatedRequirements = a} :: Compliance) Prelude.. Lens.mapping Lens.coerced
 
 -- | The result of a standards check.
 --
@@ -123,12 +129,6 @@ newCompliance =
 compliance_status :: Lens.Lens' Compliance (Prelude.Maybe ComplianceStatus)
 compliance_status = Lens.lens (\Compliance' {status} -> status) (\s@Compliance' {} a -> s {status = a} :: Compliance)
 
--- | For a control, the industry or regulatory framework requirements that
--- are related to the control. The check for that control is aligned with
--- these requirements.
-compliance_relatedRequirements :: Lens.Lens' Compliance (Prelude.Maybe [Prelude.Text])
-compliance_relatedRequirements = Lens.lens (\Compliance' {relatedRequirements} -> relatedRequirements) (\s@Compliance' {} a -> s {relatedRequirements = a} :: Compliance) Prelude.. Lens.mapping Lens.coerced
-
 -- | For findings generated from controls, a list of reasons behind the value
 -- of @Status@. For the list of status reason codes and their meanings, see
 -- <https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-results.html#securityhub-standards-results-asff Standards-related information in the ASFF>
@@ -142,32 +142,32 @@ instance Core.FromJSON Compliance where
       "Compliance"
       ( \x ->
           Compliance'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> ( x Core..:? "RelatedRequirements"
+            Prelude.<$> ( x Core..:? "RelatedRequirements"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "StatusReasons" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Compliance where
   hashWithSalt _salt Compliance' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` relatedRequirements
+    _salt `Prelude.hashWithSalt` relatedRequirements
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` statusReasons
 
 instance Prelude.NFData Compliance where
   rnf Compliance' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf relatedRequirements
+    Prelude.rnf relatedRequirements
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf statusReasons
 
 instance Core.ToJSON Compliance where
   toJSON Compliance' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
-            ("RelatedRequirements" Core..=)
+          [ ("RelatedRequirements" Core..=)
               Prelude.<$> relatedRequirements,
+            ("Status" Core..=) Prelude.<$> status,
             ("StatusReasons" Core..=) Prelude.<$> statusReasons
           ]
       )

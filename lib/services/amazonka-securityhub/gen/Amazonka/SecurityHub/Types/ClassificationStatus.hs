@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newClassificationStatus' smart constructor.
 data ClassificationStatus = ClassificationStatus'
-  { -- | A longer description of the current status of the sensitive data
+  { -- | The code that represents the status of the sensitive data detection.
+    code :: Prelude.Maybe Prelude.Text,
+    -- | A longer description of the current status of the sensitive data
     -- detection.
-    reason :: Prelude.Maybe Prelude.Text,
-    -- | The code that represents the status of the sensitive data detection.
-    code :: Prelude.Maybe Prelude.Text
+    reason :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,26 +44,26 @@ data ClassificationStatus = ClassificationStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'code', 'classificationStatus_code' - The code that represents the status of the sensitive data detection.
+--
 -- 'reason', 'classificationStatus_reason' - A longer description of the current status of the sensitive data
 -- detection.
---
--- 'code', 'classificationStatus_code' - The code that represents the status of the sensitive data detection.
 newClassificationStatus ::
   ClassificationStatus
 newClassificationStatus =
   ClassificationStatus'
-    { reason = Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      reason = Prelude.Nothing
     }
+
+-- | The code that represents the status of the sensitive data detection.
+classificationStatus_code :: Lens.Lens' ClassificationStatus (Prelude.Maybe Prelude.Text)
+classificationStatus_code = Lens.lens (\ClassificationStatus' {code} -> code) (\s@ClassificationStatus' {} a -> s {code = a} :: ClassificationStatus)
 
 -- | A longer description of the current status of the sensitive data
 -- detection.
 classificationStatus_reason :: Lens.Lens' ClassificationStatus (Prelude.Maybe Prelude.Text)
 classificationStatus_reason = Lens.lens (\ClassificationStatus' {reason} -> reason) (\s@ClassificationStatus' {} a -> s {reason = a} :: ClassificationStatus)
-
--- | The code that represents the status of the sensitive data detection.
-classificationStatus_code :: Lens.Lens' ClassificationStatus (Prelude.Maybe Prelude.Text)
-classificationStatus_code = Lens.lens (\ClassificationStatus' {code} -> code) (\s@ClassificationStatus' {} a -> s {code = a} :: ClassificationStatus)
 
 instance Core.FromJSON ClassificationStatus where
   parseJSON =
@@ -71,24 +71,24 @@ instance Core.FromJSON ClassificationStatus where
       "ClassificationStatus"
       ( \x ->
           ClassificationStatus'
-            Prelude.<$> (x Core..:? "Reason")
-            Prelude.<*> (x Core..:? "Code")
+            Prelude.<$> (x Core..:? "Code")
+            Prelude.<*> (x Core..:? "Reason")
       )
 
 instance Prelude.Hashable ClassificationStatus where
   hashWithSalt _salt ClassificationStatus' {..} =
-    _salt `Prelude.hashWithSalt` reason
-      `Prelude.hashWithSalt` code
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` reason
 
 instance Prelude.NFData ClassificationStatus where
   rnf ClassificationStatus' {..} =
-    Prelude.rnf reason `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code `Prelude.seq` Prelude.rnf reason
 
 instance Core.ToJSON ClassificationStatus where
   toJSON ClassificationStatus' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Reason" Core..=) Prelude.<$> reason,
-            ("Code" Core..=) Prelude.<$> code
+          [ ("Code" Core..=) Prelude.<$> code,
+            ("Reason" Core..=) Prelude.<$> reason
           ]
       )

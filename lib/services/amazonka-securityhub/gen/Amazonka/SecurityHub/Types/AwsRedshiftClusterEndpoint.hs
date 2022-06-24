@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsRedshiftClusterEndpoint' smart constructor.
 data AwsRedshiftClusterEndpoint = AwsRedshiftClusterEndpoint'
-  { -- | The DNS address of the cluster.
-    address :: Prelude.Maybe Prelude.Text,
-    -- | The port that the database engine listens on.
-    port :: Prelude.Maybe Prelude.Int
+  { -- | The port that the database engine listens on.
+    port :: Prelude.Maybe Prelude.Int,
+    -- | The DNS address of the cluster.
+    address :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,24 @@ data AwsRedshiftClusterEndpoint = AwsRedshiftClusterEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'address', 'awsRedshiftClusterEndpoint_address' - The DNS address of the cluster.
---
 -- 'port', 'awsRedshiftClusterEndpoint_port' - The port that the database engine listens on.
+--
+-- 'address', 'awsRedshiftClusterEndpoint_address' - The DNS address of the cluster.
 newAwsRedshiftClusterEndpoint ::
   AwsRedshiftClusterEndpoint
 newAwsRedshiftClusterEndpoint =
   AwsRedshiftClusterEndpoint'
-    { address =
-        Prelude.Nothing,
-      port = Prelude.Nothing
+    { port = Prelude.Nothing,
+      address = Prelude.Nothing
     }
-
--- | The DNS address of the cluster.
-awsRedshiftClusterEndpoint_address :: Lens.Lens' AwsRedshiftClusterEndpoint (Prelude.Maybe Prelude.Text)
-awsRedshiftClusterEndpoint_address = Lens.lens (\AwsRedshiftClusterEndpoint' {address} -> address) (\s@AwsRedshiftClusterEndpoint' {} a -> s {address = a} :: AwsRedshiftClusterEndpoint)
 
 -- | The port that the database engine listens on.
 awsRedshiftClusterEndpoint_port :: Lens.Lens' AwsRedshiftClusterEndpoint (Prelude.Maybe Prelude.Int)
 awsRedshiftClusterEndpoint_port = Lens.lens (\AwsRedshiftClusterEndpoint' {port} -> port) (\s@AwsRedshiftClusterEndpoint' {} a -> s {port = a} :: AwsRedshiftClusterEndpoint)
+
+-- | The DNS address of the cluster.
+awsRedshiftClusterEndpoint_address :: Lens.Lens' AwsRedshiftClusterEndpoint (Prelude.Maybe Prelude.Text)
+awsRedshiftClusterEndpoint_address = Lens.lens (\AwsRedshiftClusterEndpoint' {address} -> address) (\s@AwsRedshiftClusterEndpoint' {} a -> s {address = a} :: AwsRedshiftClusterEndpoint)
 
 instance Core.FromJSON AwsRedshiftClusterEndpoint where
   parseJSON =
@@ -68,24 +67,24 @@ instance Core.FromJSON AwsRedshiftClusterEndpoint where
       "AwsRedshiftClusterEndpoint"
       ( \x ->
           AwsRedshiftClusterEndpoint'
-            Prelude.<$> (x Core..:? "Address")
-            Prelude.<*> (x Core..:? "Port")
+            Prelude.<$> (x Core..:? "Port")
+            Prelude.<*> (x Core..:? "Address")
       )
 
 instance Prelude.Hashable AwsRedshiftClusterEndpoint where
   hashWithSalt _salt AwsRedshiftClusterEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` address
-      `Prelude.hashWithSalt` port
+    _salt `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` address
 
 instance Prelude.NFData AwsRedshiftClusterEndpoint where
   rnf AwsRedshiftClusterEndpoint' {..} =
-    Prelude.rnf address `Prelude.seq` Prelude.rnf port
+    Prelude.rnf port `Prelude.seq` Prelude.rnf address
 
 instance Core.ToJSON AwsRedshiftClusterEndpoint where
   toJSON AwsRedshiftClusterEndpoint' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Address" Core..=) Prelude.<$> address,
-            ("Port" Core..=) Prelude.<$> port
+          [ ("Port" Core..=) Prelude.<$> port,
+            ("Address" Core..=) Prelude.<$> address
           ]
       )

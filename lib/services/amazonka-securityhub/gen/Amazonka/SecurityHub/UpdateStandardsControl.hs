@@ -28,8 +28,8 @@ module Amazonka.SecurityHub.UpdateStandardsControl
     newUpdateStandardsControl,
 
     -- * Request Lenses
-    updateStandardsControl_controlStatus,
     updateStandardsControl_disabledReason,
+    updateStandardsControl_controlStatus,
     updateStandardsControl_standardsControlArn,
 
     -- * Destructuring the Response
@@ -50,11 +50,11 @@ import Amazonka.SecurityHub.Types
 
 -- | /See:/ 'newUpdateStandardsControl' smart constructor.
 data UpdateStandardsControl = UpdateStandardsControl'
-  { -- | The updated status of the security standard control.
-    controlStatus :: Prelude.Maybe ControlStatus,
-    -- | A description of the reason why you are disabling a security standard
+  { -- | A description of the reason why you are disabling a security standard
     -- control. If you are disabling a control, then this is required.
     disabledReason :: Prelude.Maybe Prelude.Text,
+    -- | The updated status of the security standard control.
+    controlStatus :: Prelude.Maybe ControlStatus,
     -- | The ARN of the security standard control to enable or disable.
     standardsControlArn :: Prelude.Text
   }
@@ -68,10 +68,10 @@ data UpdateStandardsControl = UpdateStandardsControl'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'controlStatus', 'updateStandardsControl_controlStatus' - The updated status of the security standard control.
---
 -- 'disabledReason', 'updateStandardsControl_disabledReason' - A description of the reason why you are disabling a security standard
 -- control. If you are disabling a control, then this is required.
+--
+-- 'controlStatus', 'updateStandardsControl_controlStatus' - The updated status of the security standard control.
 --
 -- 'standardsControlArn', 'updateStandardsControl_standardsControlArn' - The ARN of the security standard control to enable or disable.
 newUpdateStandardsControl ::
@@ -80,20 +80,20 @@ newUpdateStandardsControl ::
   UpdateStandardsControl
 newUpdateStandardsControl pStandardsControlArn_ =
   UpdateStandardsControl'
-    { controlStatus =
+    { disabledReason =
         Prelude.Nothing,
-      disabledReason = Prelude.Nothing,
+      controlStatus = Prelude.Nothing,
       standardsControlArn = pStandardsControlArn_
     }
-
--- | The updated status of the security standard control.
-updateStandardsControl_controlStatus :: Lens.Lens' UpdateStandardsControl (Prelude.Maybe ControlStatus)
-updateStandardsControl_controlStatus = Lens.lens (\UpdateStandardsControl' {controlStatus} -> controlStatus) (\s@UpdateStandardsControl' {} a -> s {controlStatus = a} :: UpdateStandardsControl)
 
 -- | A description of the reason why you are disabling a security standard
 -- control. If you are disabling a control, then this is required.
 updateStandardsControl_disabledReason :: Lens.Lens' UpdateStandardsControl (Prelude.Maybe Prelude.Text)
 updateStandardsControl_disabledReason = Lens.lens (\UpdateStandardsControl' {disabledReason} -> disabledReason) (\s@UpdateStandardsControl' {} a -> s {disabledReason = a} :: UpdateStandardsControl)
+
+-- | The updated status of the security standard control.
+updateStandardsControl_controlStatus :: Lens.Lens' UpdateStandardsControl (Prelude.Maybe ControlStatus)
+updateStandardsControl_controlStatus = Lens.lens (\UpdateStandardsControl' {controlStatus} -> controlStatus) (\s@UpdateStandardsControl' {} a -> s {controlStatus = a} :: UpdateStandardsControl)
 
 -- | The ARN of the security standard control to enable or disable.
 updateStandardsControl_standardsControlArn :: Lens.Lens' UpdateStandardsControl Prelude.Text
@@ -113,14 +113,14 @@ instance Core.AWSRequest UpdateStandardsControl where
 
 instance Prelude.Hashable UpdateStandardsControl where
   hashWithSalt _salt UpdateStandardsControl' {..} =
-    _salt `Prelude.hashWithSalt` controlStatus
-      `Prelude.hashWithSalt` disabledReason
+    _salt `Prelude.hashWithSalt` disabledReason
+      `Prelude.hashWithSalt` controlStatus
       `Prelude.hashWithSalt` standardsControlArn
 
 instance Prelude.NFData UpdateStandardsControl where
   rnf UpdateStandardsControl' {..} =
-    Prelude.rnf controlStatus
-      `Prelude.seq` Prelude.rnf disabledReason
+    Prelude.rnf disabledReason
+      `Prelude.seq` Prelude.rnf controlStatus
       `Prelude.seq` Prelude.rnf standardsControlArn
 
 instance Core.ToHeaders UpdateStandardsControl where
@@ -138,9 +138,9 @@ instance Core.ToJSON UpdateStandardsControl where
   toJSON UpdateStandardsControl' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ControlStatus" Core..=) Prelude.<$> controlStatus,
-            ("DisabledReason" Core..=)
-              Prelude.<$> disabledReason
+          [ ("DisabledReason" Core..=)
+              Prelude.<$> disabledReason,
+            ("ControlStatus" Core..=) Prelude.<$> controlStatus
           ]
       )
 

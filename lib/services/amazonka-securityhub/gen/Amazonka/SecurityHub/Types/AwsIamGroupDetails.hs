@@ -31,6 +31,10 @@ import Amazonka.SecurityHub.Types.AwsIamGroupPolicy
 data AwsIamGroupDetails = AwsIamGroupDetails'
   { -- | The path to the group.
     path :: Prelude.Maybe Prelude.Text,
+    -- | The name of the IAM group.
+    groupName :: Prelude.Maybe Prelude.Text,
+    -- | A list of the managed policies that are attached to the IAM group.
+    attachedManagedPolicies :: Prelude.Maybe [AwsIamAttachedManagedPolicy],
     -- | Indicates when the IAM group was created.
     --
     -- Uses the @date-time@ format specified in
@@ -41,11 +45,7 @@ data AwsIamGroupDetails = AwsIamGroupDetails'
     -- | The identifier of the IAM group.
     groupId :: Prelude.Maybe Prelude.Text,
     -- | The list of inline policies that are embedded in the group.
-    groupPolicyList :: Prelude.Maybe [AwsIamGroupPolicy],
-    -- | The name of the IAM group.
-    groupName :: Prelude.Maybe Prelude.Text,
-    -- | A list of the managed policies that are attached to the IAM group.
-    attachedManagedPolicies :: Prelude.Maybe [AwsIamAttachedManagedPolicy]
+    groupPolicyList :: Prelude.Maybe [AwsIamGroupPolicy]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,6 +59,10 @@ data AwsIamGroupDetails = AwsIamGroupDetails'
 --
 -- 'path', 'awsIamGroupDetails_path' - The path to the group.
 --
+-- 'groupName', 'awsIamGroupDetails_groupName' - The name of the IAM group.
+--
+-- 'attachedManagedPolicies', 'awsIamGroupDetails_attachedManagedPolicies' - A list of the managed policies that are attached to the IAM group.
+--
 -- 'createDate', 'awsIamGroupDetails_createDate' - Indicates when the IAM group was created.
 --
 -- Uses the @date-time@ format specified in
@@ -69,25 +73,29 @@ data AwsIamGroupDetails = AwsIamGroupDetails'
 -- 'groupId', 'awsIamGroupDetails_groupId' - The identifier of the IAM group.
 --
 -- 'groupPolicyList', 'awsIamGroupDetails_groupPolicyList' - The list of inline policies that are embedded in the group.
---
--- 'groupName', 'awsIamGroupDetails_groupName' - The name of the IAM group.
---
--- 'attachedManagedPolicies', 'awsIamGroupDetails_attachedManagedPolicies' - A list of the managed policies that are attached to the IAM group.
 newAwsIamGroupDetails ::
   AwsIamGroupDetails
 newAwsIamGroupDetails =
   AwsIamGroupDetails'
     { path = Prelude.Nothing,
+      groupName = Prelude.Nothing,
+      attachedManagedPolicies = Prelude.Nothing,
       createDate = Prelude.Nothing,
       groupId = Prelude.Nothing,
-      groupPolicyList = Prelude.Nothing,
-      groupName = Prelude.Nothing,
-      attachedManagedPolicies = Prelude.Nothing
+      groupPolicyList = Prelude.Nothing
     }
 
 -- | The path to the group.
 awsIamGroupDetails_path :: Lens.Lens' AwsIamGroupDetails (Prelude.Maybe Prelude.Text)
 awsIamGroupDetails_path = Lens.lens (\AwsIamGroupDetails' {path} -> path) (\s@AwsIamGroupDetails' {} a -> s {path = a} :: AwsIamGroupDetails)
+
+-- | The name of the IAM group.
+awsIamGroupDetails_groupName :: Lens.Lens' AwsIamGroupDetails (Prelude.Maybe Prelude.Text)
+awsIamGroupDetails_groupName = Lens.lens (\AwsIamGroupDetails' {groupName} -> groupName) (\s@AwsIamGroupDetails' {} a -> s {groupName = a} :: AwsIamGroupDetails)
+
+-- | A list of the managed policies that are attached to the IAM group.
+awsIamGroupDetails_attachedManagedPolicies :: Lens.Lens' AwsIamGroupDetails (Prelude.Maybe [AwsIamAttachedManagedPolicy])
+awsIamGroupDetails_attachedManagedPolicies = Lens.lens (\AwsIamGroupDetails' {attachedManagedPolicies} -> attachedManagedPolicies) (\s@AwsIamGroupDetails' {} a -> s {attachedManagedPolicies = a} :: AwsIamGroupDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates when the IAM group was created.
 --
@@ -106,14 +114,6 @@ awsIamGroupDetails_groupId = Lens.lens (\AwsIamGroupDetails' {groupId} -> groupI
 awsIamGroupDetails_groupPolicyList :: Lens.Lens' AwsIamGroupDetails (Prelude.Maybe [AwsIamGroupPolicy])
 awsIamGroupDetails_groupPolicyList = Lens.lens (\AwsIamGroupDetails' {groupPolicyList} -> groupPolicyList) (\s@AwsIamGroupDetails' {} a -> s {groupPolicyList = a} :: AwsIamGroupDetails) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the IAM group.
-awsIamGroupDetails_groupName :: Lens.Lens' AwsIamGroupDetails (Prelude.Maybe Prelude.Text)
-awsIamGroupDetails_groupName = Lens.lens (\AwsIamGroupDetails' {groupName} -> groupName) (\s@AwsIamGroupDetails' {} a -> s {groupName = a} :: AwsIamGroupDetails)
-
--- | A list of the managed policies that are attached to the IAM group.
-awsIamGroupDetails_attachedManagedPolicies :: Lens.Lens' AwsIamGroupDetails (Prelude.Maybe [AwsIamAttachedManagedPolicy])
-awsIamGroupDetails_attachedManagedPolicies = Lens.lens (\AwsIamGroupDetails' {attachedManagedPolicies} -> attachedManagedPolicies) (\s@AwsIamGroupDetails' {} a -> s {attachedManagedPolicies = a} :: AwsIamGroupDetails) Prelude.. Lens.mapping Lens.coerced
-
 instance Core.FromJSON AwsIamGroupDetails where
   parseJSON =
     Core.withObject
@@ -121,13 +121,13 @@ instance Core.FromJSON AwsIamGroupDetails where
       ( \x ->
           AwsIamGroupDetails'
             Prelude.<$> (x Core..:? "Path")
+            Prelude.<*> (x Core..:? "GroupName")
+            Prelude.<*> ( x Core..:? "AttachedManagedPolicies"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..:? "CreateDate")
             Prelude.<*> (x Core..:? "GroupId")
             Prelude.<*> ( x Core..:? "GroupPolicyList"
-                            Core..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Core..:? "GroupName")
-            Prelude.<*> ( x Core..:? "AttachedManagedPolicies"
                             Core..!= Prelude.mempty
                         )
       )
@@ -135,32 +135,32 @@ instance Core.FromJSON AwsIamGroupDetails where
 instance Prelude.Hashable AwsIamGroupDetails where
   hashWithSalt _salt AwsIamGroupDetails' {..} =
     _salt `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` attachedManagedPolicies
       `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` groupPolicyList
-      `Prelude.hashWithSalt` groupName
-      `Prelude.hashWithSalt` attachedManagedPolicies
 
 instance Prelude.NFData AwsIamGroupDetails where
   rnf AwsIamGroupDetails' {..} =
     Prelude.rnf path
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf attachedManagedPolicies
       `Prelude.seq` Prelude.rnf createDate
       `Prelude.seq` Prelude.rnf groupId
       `Prelude.seq` Prelude.rnf groupPolicyList
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf attachedManagedPolicies
 
 instance Core.ToJSON AwsIamGroupDetails where
   toJSON AwsIamGroupDetails' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("Path" Core..=) Prelude.<$> path,
+            ("GroupName" Core..=) Prelude.<$> groupName,
+            ("AttachedManagedPolicies" Core..=)
+              Prelude.<$> attachedManagedPolicies,
             ("CreateDate" Core..=) Prelude.<$> createDate,
             ("GroupId" Core..=) Prelude.<$> groupId,
             ("GroupPolicyList" Core..=)
-              Prelude.<$> groupPolicyList,
-            ("GroupName" Core..=) Prelude.<$> groupName,
-            ("AttachedManagedPolicies" Core..=)
-              Prelude.<$> attachedManagedPolicies
+              Prelude.<$> groupPolicyList
           ]
       )

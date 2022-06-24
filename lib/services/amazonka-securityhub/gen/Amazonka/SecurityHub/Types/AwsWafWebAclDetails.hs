@@ -28,14 +28,14 @@ import Amazonka.SecurityHub.Types.AwsWafWebAclRule
 --
 -- /See:/ 'newAwsWafWebAclDetails' smart constructor.
 data AwsWafWebAclDetails = AwsWafWebAclDetails'
-  { -- | An array that contains the action for each rule in a WebACL, the
+  { -- | A friendly name or description of the WebACL. You can\'t change the name
+    -- of a WebACL after you create it.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | An array that contains the action for each rule in a WebACL, the
     -- priority of the rule, and the ID of the rule.
     rules :: Prelude.Maybe [AwsWafWebAclRule],
     -- | A unique identifier for a WebACL.
     webAclId :: Prelude.Maybe Prelude.Text,
-    -- | A friendly name or description of the WebACL. You can\'t change the name
-    -- of a WebACL after you create it.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The action to perform if none of the rules contained in the WebACL
     -- match.
     defaultAction :: Prelude.Maybe Prelude.Text
@@ -50,13 +50,13 @@ data AwsWafWebAclDetails = AwsWafWebAclDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'awsWafWebAclDetails_name' - A friendly name or description of the WebACL. You can\'t change the name
+-- of a WebACL after you create it.
+--
 -- 'rules', 'awsWafWebAclDetails_rules' - An array that contains the action for each rule in a WebACL, the
 -- priority of the rule, and the ID of the rule.
 --
 -- 'webAclId', 'awsWafWebAclDetails_webAclId' - A unique identifier for a WebACL.
---
--- 'name', 'awsWafWebAclDetails_name' - A friendly name or description of the WebACL. You can\'t change the name
--- of a WebACL after you create it.
 --
 -- 'defaultAction', 'awsWafWebAclDetails_defaultAction' - The action to perform if none of the rules contained in the WebACL
 -- match.
@@ -64,11 +64,16 @@ newAwsWafWebAclDetails ::
   AwsWafWebAclDetails
 newAwsWafWebAclDetails =
   AwsWafWebAclDetails'
-    { rules = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      rules = Prelude.Nothing,
       webAclId = Prelude.Nothing,
-      name = Prelude.Nothing,
       defaultAction = Prelude.Nothing
     }
+
+-- | A friendly name or description of the WebACL. You can\'t change the name
+-- of a WebACL after you create it.
+awsWafWebAclDetails_name :: Lens.Lens' AwsWafWebAclDetails (Prelude.Maybe Prelude.Text)
+awsWafWebAclDetails_name = Lens.lens (\AwsWafWebAclDetails' {name} -> name) (\s@AwsWafWebAclDetails' {} a -> s {name = a} :: AwsWafWebAclDetails)
 
 -- | An array that contains the action for each rule in a WebACL, the
 -- priority of the rule, and the ID of the rule.
@@ -78,11 +83,6 @@ awsWafWebAclDetails_rules = Lens.lens (\AwsWafWebAclDetails' {rules} -> rules) (
 -- | A unique identifier for a WebACL.
 awsWafWebAclDetails_webAclId :: Lens.Lens' AwsWafWebAclDetails (Prelude.Maybe Prelude.Text)
 awsWafWebAclDetails_webAclId = Lens.lens (\AwsWafWebAclDetails' {webAclId} -> webAclId) (\s@AwsWafWebAclDetails' {} a -> s {webAclId = a} :: AwsWafWebAclDetails)
-
--- | A friendly name or description of the WebACL. You can\'t change the name
--- of a WebACL after you create it.
-awsWafWebAclDetails_name :: Lens.Lens' AwsWafWebAclDetails (Prelude.Maybe Prelude.Text)
-awsWafWebAclDetails_name = Lens.lens (\AwsWafWebAclDetails' {name} -> name) (\s@AwsWafWebAclDetails' {} a -> s {name = a} :: AwsWafWebAclDetails)
 
 -- | The action to perform if none of the rules contained in the WebACL
 -- match.
@@ -95,33 +95,33 @@ instance Core.FromJSON AwsWafWebAclDetails where
       "AwsWafWebAclDetails"
       ( \x ->
           AwsWafWebAclDetails'
-            Prelude.<$> (x Core..:? "Rules" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Rules" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "WebAclId")
-            Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "DefaultAction")
       )
 
 instance Prelude.Hashable AwsWafWebAclDetails where
   hashWithSalt _salt AwsWafWebAclDetails' {..} =
-    _salt `Prelude.hashWithSalt` rules
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` rules
       `Prelude.hashWithSalt` webAclId
-      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` defaultAction
 
 instance Prelude.NFData AwsWafWebAclDetails where
   rnf AwsWafWebAclDetails' {..} =
-    Prelude.rnf rules
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf rules
       `Prelude.seq` Prelude.rnf webAclId
-      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf defaultAction
 
 instance Core.ToJSON AwsWafWebAclDetails where
   toJSON AwsWafWebAclDetails' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Rules" Core..=) Prelude.<$> rules,
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("Rules" Core..=) Prelude.<$> rules,
             ("WebAclId" Core..=) Prelude.<$> webAclId,
-            ("Name" Core..=) Prelude.<$> name,
             ("DefaultAction" Core..=) Prelude.<$> defaultAction
           ]
       )

@@ -30,15 +30,15 @@ data AwsIamAccessKeySessionContextSessionIssuer = AwsIamAccessKeySessionContextS
   { -- | The principal ID of the principal (user, role, or group) that created
     -- the session.
     principalId :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the session.
-    arn :: Prelude.Maybe Prelude.Text,
+    -- | The type of principal (user, role, or group) that created the session.
+    type' :: Prelude.Maybe Prelude.Text,
     -- | The name of the principal that created the session.
     userName :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the session.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the Amazon Web Services account that created the
     -- session.
-    accountId :: Prelude.Maybe Prelude.Text,
-    -- | The type of principal (user, role, or group) that created the session.
-    type' :: Prelude.Maybe Prelude.Text
+    accountId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,24 +53,24 @@ data AwsIamAccessKeySessionContextSessionIssuer = AwsIamAccessKeySessionContextS
 -- 'principalId', 'awsIamAccessKeySessionContextSessionIssuer_principalId' - The principal ID of the principal (user, role, or group) that created
 -- the session.
 --
--- 'arn', 'awsIamAccessKeySessionContextSessionIssuer_arn' - The ARN of the session.
+-- 'type'', 'awsIamAccessKeySessionContextSessionIssuer_type' - The type of principal (user, role, or group) that created the session.
 --
 -- 'userName', 'awsIamAccessKeySessionContextSessionIssuer_userName' - The name of the principal that created the session.
 --
+-- 'arn', 'awsIamAccessKeySessionContextSessionIssuer_arn' - The ARN of the session.
+--
 -- 'accountId', 'awsIamAccessKeySessionContextSessionIssuer_accountId' - The identifier of the Amazon Web Services account that created the
 -- session.
---
--- 'type'', 'awsIamAccessKeySessionContextSessionIssuer_type' - The type of principal (user, role, or group) that created the session.
 newAwsIamAccessKeySessionContextSessionIssuer ::
   AwsIamAccessKeySessionContextSessionIssuer
 newAwsIamAccessKeySessionContextSessionIssuer =
   AwsIamAccessKeySessionContextSessionIssuer'
     { principalId =
         Prelude.Nothing,
-      arn = Prelude.Nothing,
+      type' = Prelude.Nothing,
       userName = Prelude.Nothing,
-      accountId = Prelude.Nothing,
-      type' = Prelude.Nothing
+      arn = Prelude.Nothing,
+      accountId = Prelude.Nothing
     }
 
 -- | The principal ID of the principal (user, role, or group) that created
@@ -78,22 +78,22 @@ newAwsIamAccessKeySessionContextSessionIssuer =
 awsIamAccessKeySessionContextSessionIssuer_principalId :: Lens.Lens' AwsIamAccessKeySessionContextSessionIssuer (Prelude.Maybe Prelude.Text)
 awsIamAccessKeySessionContextSessionIssuer_principalId = Lens.lens (\AwsIamAccessKeySessionContextSessionIssuer' {principalId} -> principalId) (\s@AwsIamAccessKeySessionContextSessionIssuer' {} a -> s {principalId = a} :: AwsIamAccessKeySessionContextSessionIssuer)
 
--- | The ARN of the session.
-awsIamAccessKeySessionContextSessionIssuer_arn :: Lens.Lens' AwsIamAccessKeySessionContextSessionIssuer (Prelude.Maybe Prelude.Text)
-awsIamAccessKeySessionContextSessionIssuer_arn = Lens.lens (\AwsIamAccessKeySessionContextSessionIssuer' {arn} -> arn) (\s@AwsIamAccessKeySessionContextSessionIssuer' {} a -> s {arn = a} :: AwsIamAccessKeySessionContextSessionIssuer)
+-- | The type of principal (user, role, or group) that created the session.
+awsIamAccessKeySessionContextSessionIssuer_type :: Lens.Lens' AwsIamAccessKeySessionContextSessionIssuer (Prelude.Maybe Prelude.Text)
+awsIamAccessKeySessionContextSessionIssuer_type = Lens.lens (\AwsIamAccessKeySessionContextSessionIssuer' {type'} -> type') (\s@AwsIamAccessKeySessionContextSessionIssuer' {} a -> s {type' = a} :: AwsIamAccessKeySessionContextSessionIssuer)
 
 -- | The name of the principal that created the session.
 awsIamAccessKeySessionContextSessionIssuer_userName :: Lens.Lens' AwsIamAccessKeySessionContextSessionIssuer (Prelude.Maybe Prelude.Text)
 awsIamAccessKeySessionContextSessionIssuer_userName = Lens.lens (\AwsIamAccessKeySessionContextSessionIssuer' {userName} -> userName) (\s@AwsIamAccessKeySessionContextSessionIssuer' {} a -> s {userName = a} :: AwsIamAccessKeySessionContextSessionIssuer)
 
+-- | The ARN of the session.
+awsIamAccessKeySessionContextSessionIssuer_arn :: Lens.Lens' AwsIamAccessKeySessionContextSessionIssuer (Prelude.Maybe Prelude.Text)
+awsIamAccessKeySessionContextSessionIssuer_arn = Lens.lens (\AwsIamAccessKeySessionContextSessionIssuer' {arn} -> arn) (\s@AwsIamAccessKeySessionContextSessionIssuer' {} a -> s {arn = a} :: AwsIamAccessKeySessionContextSessionIssuer)
+
 -- | The identifier of the Amazon Web Services account that created the
 -- session.
 awsIamAccessKeySessionContextSessionIssuer_accountId :: Lens.Lens' AwsIamAccessKeySessionContextSessionIssuer (Prelude.Maybe Prelude.Text)
 awsIamAccessKeySessionContextSessionIssuer_accountId = Lens.lens (\AwsIamAccessKeySessionContextSessionIssuer' {accountId} -> accountId) (\s@AwsIamAccessKeySessionContextSessionIssuer' {} a -> s {accountId = a} :: AwsIamAccessKeySessionContextSessionIssuer)
-
--- | The type of principal (user, role, or group) that created the session.
-awsIamAccessKeySessionContextSessionIssuer_type :: Lens.Lens' AwsIamAccessKeySessionContextSessionIssuer (Prelude.Maybe Prelude.Text)
-awsIamAccessKeySessionContextSessionIssuer_type = Lens.lens (\AwsIamAccessKeySessionContextSessionIssuer' {type'} -> type') (\s@AwsIamAccessKeySessionContextSessionIssuer' {} a -> s {type' = a} :: AwsIamAccessKeySessionContextSessionIssuer)
 
 instance
   Core.FromJSON
@@ -105,10 +105,10 @@ instance
       ( \x ->
           AwsIamAccessKeySessionContextSessionIssuer'
             Prelude.<$> (x Core..:? "PrincipalId")
-              Prelude.<*> (x Core..:? "Arn")
-              Prelude.<*> (x Core..:? "UserName")
-              Prelude.<*> (x Core..:? "AccountId")
               Prelude.<*> (x Core..:? "Type")
+              Prelude.<*> (x Core..:? "UserName")
+              Prelude.<*> (x Core..:? "Arn")
+              Prelude.<*> (x Core..:? "AccountId")
       )
 
 instance
@@ -119,10 +119,10 @@ instance
     _salt
     AwsIamAccessKeySessionContextSessionIssuer' {..} =
       _salt `Prelude.hashWithSalt` principalId
-        `Prelude.hashWithSalt` arn
-        `Prelude.hashWithSalt` userName
-        `Prelude.hashWithSalt` accountId
         `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` userName
+        `Prelude.hashWithSalt` arn
+        `Prelude.hashWithSalt` accountId
 
 instance
   Prelude.NFData
@@ -130,10 +130,10 @@ instance
   where
   rnf AwsIamAccessKeySessionContextSessionIssuer' {..} =
     Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf userName
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf accountId
 
 instance
   Core.ToJSON
@@ -144,9 +144,9 @@ instance
       Core.object
         ( Prelude.catMaybes
             [ ("PrincipalId" Core..=) Prelude.<$> principalId,
-              ("Arn" Core..=) Prelude.<$> arn,
+              ("Type" Core..=) Prelude.<$> type',
               ("UserName" Core..=) Prelude.<$> userName,
-              ("AccountId" Core..=) Prelude.<$> accountId,
-              ("Type" Core..=) Prelude.<$> type'
+              ("Arn" Core..=) Prelude.<$> arn,
+              ("AccountId" Core..=) Prelude.<$> accountId
             ]
         )

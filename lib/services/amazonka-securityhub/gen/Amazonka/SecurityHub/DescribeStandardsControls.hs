@@ -41,8 +41,8 @@ module Amazonka.SecurityHub.DescribeStandardsControls
     newDescribeStandardsControlsResponse,
 
     -- * Response Lenses
-    describeStandardsControlsResponse_controls,
     describeStandardsControlsResponse_nextToken,
+    describeStandardsControlsResponse_controls,
     describeStandardsControlsResponse_httpStatus,
   )
 where
@@ -159,8 +159,8 @@ instance Core.AWSRequest DescribeStandardsControls where
     Response.receiveJSON
       ( \s h x ->
           DescribeStandardsControlsResponse'
-            Prelude.<$> (x Core..?> "Controls" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Controls" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -203,10 +203,10 @@ instance Core.ToQuery DescribeStandardsControls where
 
 -- | /See:/ 'newDescribeStandardsControlsResponse' smart constructor.
 data DescribeStandardsControlsResponse = DescribeStandardsControlsResponse'
-  { -- | A list of security standards controls.
-    controls :: Prelude.Maybe [StandardsControl],
-    -- | The pagination token to use to request the next page of results.
+  { -- | The pagination token to use to request the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of security standards controls.
+    controls :: Prelude.Maybe [StandardsControl],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -220,9 +220,9 @@ data DescribeStandardsControlsResponse = DescribeStandardsControlsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'controls', 'describeStandardsControlsResponse_controls' - A list of security standards controls.
---
 -- 'nextToken', 'describeStandardsControlsResponse_nextToken' - The pagination token to use to request the next page of results.
+--
+-- 'controls', 'describeStandardsControlsResponse_controls' - A list of security standards controls.
 --
 -- 'httpStatus', 'describeStandardsControlsResponse_httpStatus' - The response's http status code.
 newDescribeStandardsControlsResponse ::
@@ -231,19 +231,19 @@ newDescribeStandardsControlsResponse ::
   DescribeStandardsControlsResponse
 newDescribeStandardsControlsResponse pHttpStatus_ =
   DescribeStandardsControlsResponse'
-    { controls =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      controls = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of security standards controls.
-describeStandardsControlsResponse_controls :: Lens.Lens' DescribeStandardsControlsResponse (Prelude.Maybe [StandardsControl])
-describeStandardsControlsResponse_controls = Lens.lens (\DescribeStandardsControlsResponse' {controls} -> controls) (\s@DescribeStandardsControlsResponse' {} a -> s {controls = a} :: DescribeStandardsControlsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token to use to request the next page of results.
 describeStandardsControlsResponse_nextToken :: Lens.Lens' DescribeStandardsControlsResponse (Prelude.Maybe Prelude.Text)
 describeStandardsControlsResponse_nextToken = Lens.lens (\DescribeStandardsControlsResponse' {nextToken} -> nextToken) (\s@DescribeStandardsControlsResponse' {} a -> s {nextToken = a} :: DescribeStandardsControlsResponse)
+
+-- | A list of security standards controls.
+describeStandardsControlsResponse_controls :: Lens.Lens' DescribeStandardsControlsResponse (Prelude.Maybe [StandardsControl])
+describeStandardsControlsResponse_controls = Lens.lens (\DescribeStandardsControlsResponse' {controls} -> controls) (\s@DescribeStandardsControlsResponse' {} a -> s {controls = a} :: DescribeStandardsControlsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeStandardsControlsResponse_httpStatus :: Lens.Lens' DescribeStandardsControlsResponse Prelude.Int
@@ -254,6 +254,6 @@ instance
     DescribeStandardsControlsResponse
   where
   rnf DescribeStandardsControlsResponse' {..} =
-    Prelude.rnf controls
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf controls
       `Prelude.seq` Prelude.rnf httpStatus

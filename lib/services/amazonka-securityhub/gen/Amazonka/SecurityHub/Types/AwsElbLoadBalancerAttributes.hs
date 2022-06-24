@@ -31,19 +31,7 @@ import Amazonka.SecurityHub.Types.AwsElbLoadBalancerCrossZoneLoadBalancing
 --
 -- /See:/ 'newAwsElbLoadBalancerAttributes' smart constructor.
 data AwsElbLoadBalancerAttributes = AwsElbLoadBalancerAttributes'
-  { -- | Cross-zone load balancing settings for the load balancer.
-    --
-    -- If cross-zone load balancing is enabled, the load balancer routes the
-    -- request traffic evenly across all instances regardless of the
-    -- Availability Zones.
-    crossZoneLoadBalancing :: Prelude.Maybe AwsElbLoadBalancerCrossZoneLoadBalancing,
-    -- | Information about the access log configuration for the load balancer.
-    --
-    -- If the access log is enabled, the load balancer captures detailed
-    -- information about all requests. It delivers the information to a
-    -- specified S3 bucket.
-    accessLog :: Prelude.Maybe AwsElbLoadBalancerAccessLog,
-    -- | Connection settings for the load balancer.
+  { -- | Connection settings for the load balancer.
     --
     -- If an idle timeout is configured, the load balancer allows connections
     -- to remain idle for the specified duration. When a connection is idle, no
@@ -55,7 +43,19 @@ data AwsElbLoadBalancerAttributes = AwsElbLoadBalancerAttributes'
     -- If connection draining is enabled, the load balancer allows existing
     -- requests to complete before it shifts traffic away from a deregistered
     -- or unhealthy instance.
-    connectionDraining :: Prelude.Maybe AwsElbLoadBalancerConnectionDraining
+    connectionDraining :: Prelude.Maybe AwsElbLoadBalancerConnectionDraining,
+    -- | Information about the access log configuration for the load balancer.
+    --
+    -- If the access log is enabled, the load balancer captures detailed
+    -- information about all requests. It delivers the information to a
+    -- specified S3 bucket.
+    accessLog :: Prelude.Maybe AwsElbLoadBalancerAccessLog,
+    -- | Cross-zone load balancing settings for the load balancer.
+    --
+    -- If cross-zone load balancing is enabled, the load balancer routes the
+    -- request traffic evenly across all instances regardless of the
+    -- Availability Zones.
+    crossZoneLoadBalancing :: Prelude.Maybe AwsElbLoadBalancerCrossZoneLoadBalancing
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,18 +66,6 @@ data AwsElbLoadBalancerAttributes = AwsElbLoadBalancerAttributes'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'crossZoneLoadBalancing', 'awsElbLoadBalancerAttributes_crossZoneLoadBalancing' - Cross-zone load balancing settings for the load balancer.
---
--- If cross-zone load balancing is enabled, the load balancer routes the
--- request traffic evenly across all instances regardless of the
--- Availability Zones.
---
--- 'accessLog', 'awsElbLoadBalancerAttributes_accessLog' - Information about the access log configuration for the load balancer.
---
--- If the access log is enabled, the load balancer captures detailed
--- information about all requests. It delivers the information to a
--- specified S3 bucket.
 --
 -- 'connectionSettings', 'awsElbLoadBalancerAttributes_connectionSettings' - Connection settings for the load balancer.
 --
@@ -91,32 +79,28 @@ data AwsElbLoadBalancerAttributes = AwsElbLoadBalancerAttributes'
 -- If connection draining is enabled, the load balancer allows existing
 -- requests to complete before it shifts traffic away from a deregistered
 -- or unhealthy instance.
-newAwsElbLoadBalancerAttributes ::
-  AwsElbLoadBalancerAttributes
-newAwsElbLoadBalancerAttributes =
-  AwsElbLoadBalancerAttributes'
-    { crossZoneLoadBalancing =
-        Prelude.Nothing,
-      accessLog = Prelude.Nothing,
-      connectionSettings = Prelude.Nothing,
-      connectionDraining = Prelude.Nothing
-    }
-
--- | Cross-zone load balancing settings for the load balancer.
 --
--- If cross-zone load balancing is enabled, the load balancer routes the
--- request traffic evenly across all instances regardless of the
--- Availability Zones.
-awsElbLoadBalancerAttributes_crossZoneLoadBalancing :: Lens.Lens' AwsElbLoadBalancerAttributes (Prelude.Maybe AwsElbLoadBalancerCrossZoneLoadBalancing)
-awsElbLoadBalancerAttributes_crossZoneLoadBalancing = Lens.lens (\AwsElbLoadBalancerAttributes' {crossZoneLoadBalancing} -> crossZoneLoadBalancing) (\s@AwsElbLoadBalancerAttributes' {} a -> s {crossZoneLoadBalancing = a} :: AwsElbLoadBalancerAttributes)
-
--- | Information about the access log configuration for the load balancer.
+-- 'accessLog', 'awsElbLoadBalancerAttributes_accessLog' - Information about the access log configuration for the load balancer.
 --
 -- If the access log is enabled, the load balancer captures detailed
 -- information about all requests. It delivers the information to a
 -- specified S3 bucket.
-awsElbLoadBalancerAttributes_accessLog :: Lens.Lens' AwsElbLoadBalancerAttributes (Prelude.Maybe AwsElbLoadBalancerAccessLog)
-awsElbLoadBalancerAttributes_accessLog = Lens.lens (\AwsElbLoadBalancerAttributes' {accessLog} -> accessLog) (\s@AwsElbLoadBalancerAttributes' {} a -> s {accessLog = a} :: AwsElbLoadBalancerAttributes)
+--
+-- 'crossZoneLoadBalancing', 'awsElbLoadBalancerAttributes_crossZoneLoadBalancing' - Cross-zone load balancing settings for the load balancer.
+--
+-- If cross-zone load balancing is enabled, the load balancer routes the
+-- request traffic evenly across all instances regardless of the
+-- Availability Zones.
+newAwsElbLoadBalancerAttributes ::
+  AwsElbLoadBalancerAttributes
+newAwsElbLoadBalancerAttributes =
+  AwsElbLoadBalancerAttributes'
+    { connectionSettings =
+        Prelude.Nothing,
+      connectionDraining = Prelude.Nothing,
+      accessLog = Prelude.Nothing,
+      crossZoneLoadBalancing = Prelude.Nothing
+    }
 
 -- | Connection settings for the load balancer.
 --
@@ -135,16 +119,32 @@ awsElbLoadBalancerAttributes_connectionSettings = Lens.lens (\AwsElbLoadBalancer
 awsElbLoadBalancerAttributes_connectionDraining :: Lens.Lens' AwsElbLoadBalancerAttributes (Prelude.Maybe AwsElbLoadBalancerConnectionDraining)
 awsElbLoadBalancerAttributes_connectionDraining = Lens.lens (\AwsElbLoadBalancerAttributes' {connectionDraining} -> connectionDraining) (\s@AwsElbLoadBalancerAttributes' {} a -> s {connectionDraining = a} :: AwsElbLoadBalancerAttributes)
 
+-- | Information about the access log configuration for the load balancer.
+--
+-- If the access log is enabled, the load balancer captures detailed
+-- information about all requests. It delivers the information to a
+-- specified S3 bucket.
+awsElbLoadBalancerAttributes_accessLog :: Lens.Lens' AwsElbLoadBalancerAttributes (Prelude.Maybe AwsElbLoadBalancerAccessLog)
+awsElbLoadBalancerAttributes_accessLog = Lens.lens (\AwsElbLoadBalancerAttributes' {accessLog} -> accessLog) (\s@AwsElbLoadBalancerAttributes' {} a -> s {accessLog = a} :: AwsElbLoadBalancerAttributes)
+
+-- | Cross-zone load balancing settings for the load balancer.
+--
+-- If cross-zone load balancing is enabled, the load balancer routes the
+-- request traffic evenly across all instances regardless of the
+-- Availability Zones.
+awsElbLoadBalancerAttributes_crossZoneLoadBalancing :: Lens.Lens' AwsElbLoadBalancerAttributes (Prelude.Maybe AwsElbLoadBalancerCrossZoneLoadBalancing)
+awsElbLoadBalancerAttributes_crossZoneLoadBalancing = Lens.lens (\AwsElbLoadBalancerAttributes' {crossZoneLoadBalancing} -> crossZoneLoadBalancing) (\s@AwsElbLoadBalancerAttributes' {} a -> s {crossZoneLoadBalancing = a} :: AwsElbLoadBalancerAttributes)
+
 instance Core.FromJSON AwsElbLoadBalancerAttributes where
   parseJSON =
     Core.withObject
       "AwsElbLoadBalancerAttributes"
       ( \x ->
           AwsElbLoadBalancerAttributes'
-            Prelude.<$> (x Core..:? "CrossZoneLoadBalancing")
-            Prelude.<*> (x Core..:? "AccessLog")
-            Prelude.<*> (x Core..:? "ConnectionSettings")
+            Prelude.<$> (x Core..:? "ConnectionSettings")
             Prelude.<*> (x Core..:? "ConnectionDraining")
+            Prelude.<*> (x Core..:? "AccessLog")
+            Prelude.<*> (x Core..:? "CrossZoneLoadBalancing")
       )
 
 instance
@@ -152,28 +152,28 @@ instance
     AwsElbLoadBalancerAttributes
   where
   hashWithSalt _salt AwsElbLoadBalancerAttributes' {..} =
-    _salt `Prelude.hashWithSalt` crossZoneLoadBalancing
-      `Prelude.hashWithSalt` accessLog
-      `Prelude.hashWithSalt` connectionSettings
+    _salt `Prelude.hashWithSalt` connectionSettings
       `Prelude.hashWithSalt` connectionDraining
+      `Prelude.hashWithSalt` accessLog
+      `Prelude.hashWithSalt` crossZoneLoadBalancing
 
 instance Prelude.NFData AwsElbLoadBalancerAttributes where
   rnf AwsElbLoadBalancerAttributes' {..} =
-    Prelude.rnf crossZoneLoadBalancing
-      `Prelude.seq` Prelude.rnf accessLog
-      `Prelude.seq` Prelude.rnf connectionSettings
+    Prelude.rnf connectionSettings
       `Prelude.seq` Prelude.rnf connectionDraining
+      `Prelude.seq` Prelude.rnf accessLog
+      `Prelude.seq` Prelude.rnf crossZoneLoadBalancing
 
 instance Core.ToJSON AwsElbLoadBalancerAttributes where
   toJSON AwsElbLoadBalancerAttributes' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CrossZoneLoadBalancing" Core..=)
-              Prelude.<$> crossZoneLoadBalancing,
-            ("AccessLog" Core..=) Prelude.<$> accessLog,
-            ("ConnectionSettings" Core..=)
+          [ ("ConnectionSettings" Core..=)
               Prelude.<$> connectionSettings,
             ("ConnectionDraining" Core..=)
-              Prelude.<$> connectionDraining
+              Prelude.<$> connectionDraining,
+            ("AccessLog" Core..=) Prelude.<$> accessLog,
+            ("CrossZoneLoadBalancing" Core..=)
+              Prelude.<$> crossZoneLoadBalancing
           ]
       )

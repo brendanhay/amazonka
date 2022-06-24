@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails' smart constructor.
 data AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails = AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails'
-  { -- | The ARN of the S3 object that contains the environment variable file.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The type of environment file.
-    type' :: Prelude.Maybe Prelude.Text
+  { -- | The type of environment file.
+    type' :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the S3 object that contains the environment variable file.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,26 +42,26 @@ data AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails = AwsEcsTas
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'awsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails_value' - The ARN of the S3 object that contains the environment variable file.
---
 -- 'type'', 'awsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails_type' - The type of environment file.
+--
+-- 'value', 'awsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails_value' - The ARN of the S3 object that contains the environment variable file.
 newAwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails ::
   AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails
 newAwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails =
   AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails'
-    { value =
+    { type' =
         Prelude.Nothing,
-      type' =
+      value =
         Prelude.Nothing
     }
-
--- | The ARN of the S3 object that contains the environment variable file.
-awsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails_value :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails (Prelude.Maybe Prelude.Text)
-awsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails_value = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails' {value} -> value) (\s@AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails' {} a -> s {value = a} :: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails)
 
 -- | The type of environment file.
 awsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails_type :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails (Prelude.Maybe Prelude.Text)
 awsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails_type = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails' {type'} -> type') (\s@AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails' {} a -> s {type' = a} :: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails)
+
+-- | The ARN of the S3 object that contains the environment variable file.
+awsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails_value :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails (Prelude.Maybe Prelude.Text)
+awsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails_value = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails' {value} -> value) (\s@AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails' {} a -> s {value = a} :: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails)
 
 instance
   Core.FromJSON
@@ -72,7 +72,7 @@ instance
       "AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails"
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails'
-            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Type") Prelude.<*> (x Core..:? "Value")
       )
 
 instance
@@ -82,8 +82,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails' {..} =
-      _salt `Prelude.hashWithSalt` value
-        `Prelude.hashWithSalt` type'
+      _salt `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` value
 
 instance
   Prelude.NFData
@@ -91,7 +91,7 @@ instance
   where
   rnf
     AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails' {..} =
-      Prelude.rnf value `Prelude.seq` Prelude.rnf type'
+      Prelude.rnf type' `Prelude.seq` Prelude.rnf value
 
 instance
   Core.ToJSON
@@ -101,7 +101,7 @@ instance
     AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("Value" Core..=) Prelude.<$> value,
-              ("Type" Core..=) Prelude.<$> type'
+            [ ("Type" Core..=) Prelude.<$> type',
+              ("Value" Core..=) Prelude.<$> value
             ]
         )

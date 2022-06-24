@@ -27,13 +27,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails' smart constructor.
 data AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails = AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails'
-  { -- | The protocol used for the port mapping. The default is @tcp@.
-    protocol :: Prelude.Maybe Prelude.Text,
+  { -- | The port number on the container that is bound to the user-specified or
+    -- automatically assigned host port.
+    containerPort :: Prelude.Maybe Prelude.Int,
     -- | The port number on the container instance to reserve for the container.
     hostPort :: Prelude.Maybe Prelude.Int,
-    -- | The port number on the container that is bound to the user-specified or
-    -- automatically assigned host port.
-    containerPort :: Prelude.Maybe Prelude.Int
+    -- | The protocol used for the port mapping. The default is @tcp@.
+    protocol :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,36 +45,36 @@ data AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails = AwsEcsTaskDef
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'protocol', 'awsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails_protocol' - The protocol used for the port mapping. The default is @tcp@.
+-- 'containerPort', 'awsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails_containerPort' - The port number on the container that is bound to the user-specified or
+-- automatically assigned host port.
 --
 -- 'hostPort', 'awsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails_hostPort' - The port number on the container instance to reserve for the container.
 --
--- 'containerPort', 'awsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails_containerPort' - The port number on the container that is bound to the user-specified or
--- automatically assigned host port.
+-- 'protocol', 'awsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails_protocol' - The protocol used for the port mapping. The default is @tcp@.
 newAwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails ::
   AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails
 newAwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails =
   AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails'
-    { protocol =
+    { containerPort =
         Prelude.Nothing,
       hostPort =
         Prelude.Nothing,
-      containerPort =
+      protocol =
         Prelude.Nothing
     }
-
--- | The protocol used for the port mapping. The default is @tcp@.
-awsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails_protocol :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails (Prelude.Maybe Prelude.Text)
-awsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails_protocol = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails' {protocol} -> protocol) (\s@AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails' {} a -> s {protocol = a} :: AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails)
-
--- | The port number on the container instance to reserve for the container.
-awsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails_hostPort :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails (Prelude.Maybe Prelude.Int)
-awsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails_hostPort = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails' {hostPort} -> hostPort) (\s@AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails' {} a -> s {hostPort = a} :: AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails)
 
 -- | The port number on the container that is bound to the user-specified or
 -- automatically assigned host port.
 awsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails_containerPort :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails (Prelude.Maybe Prelude.Int)
 awsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails_containerPort = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails' {containerPort} -> containerPort) (\s@AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails' {} a -> s {containerPort = a} :: AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails)
+
+-- | The port number on the container instance to reserve for the container.
+awsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails_hostPort :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails (Prelude.Maybe Prelude.Int)
+awsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails_hostPort = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails' {hostPort} -> hostPort) (\s@AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails' {} a -> s {hostPort = a} :: AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails)
+
+-- | The protocol used for the port mapping. The default is @tcp@.
+awsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails_protocol :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails (Prelude.Maybe Prelude.Text)
+awsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails_protocol = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails' {protocol} -> protocol) (\s@AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails' {} a -> s {protocol = a} :: AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails)
 
 instance
   Core.FromJSON
@@ -85,9 +85,9 @@ instance
       "AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails"
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails'
-            Prelude.<$> (x Core..:? "Protocol")
+            Prelude.<$> (x Core..:? "ContainerPort")
               Prelude.<*> (x Core..:? "HostPort")
-              Prelude.<*> (x Core..:? "ContainerPort")
+              Prelude.<*> (x Core..:? "Protocol")
       )
 
 instance
@@ -97,9 +97,9 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails' {..} =
-      _salt `Prelude.hashWithSalt` protocol
+      _salt `Prelude.hashWithSalt` containerPort
         `Prelude.hashWithSalt` hostPort
-        `Prelude.hashWithSalt` containerPort
+        `Prelude.hashWithSalt` protocol
 
 instance
   Prelude.NFData
@@ -107,9 +107,9 @@ instance
   where
   rnf
     AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails' {..} =
-      Prelude.rnf protocol
+      Prelude.rnf containerPort
         `Prelude.seq` Prelude.rnf hostPort
-        `Prelude.seq` Prelude.rnf containerPort
+        `Prelude.seq` Prelude.rnf protocol
 
 instance
   Core.ToJSON
@@ -119,8 +119,8 @@ instance
     AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("Protocol" Core..=) Prelude.<$> protocol,
+            [ ("ContainerPort" Core..=) Prelude.<$> containerPort,
               ("HostPort" Core..=) Prelude.<$> hostPort,
-              ("ContainerPort" Core..=) Prelude.<$> containerPort
+              ("Protocol" Core..=) Prelude.<$> protocol
             ]
         )

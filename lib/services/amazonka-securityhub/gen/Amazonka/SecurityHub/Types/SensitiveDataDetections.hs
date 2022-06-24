@@ -30,11 +30,11 @@ import Amazonka.SecurityHub.Types.Occurrences
 data SensitiveDataDetections = SensitiveDataDetections'
   { -- | Details about the sensitive data that was detected.
     occurrences :: Prelude.Maybe Occurrences,
-    -- | The total number of occurrences of sensitive data that were detected.
-    count :: Prelude.Maybe Prelude.Integer,
     -- | The type of sensitive data that was detected. For example, the type
     -- might indicate that the data is an email address.
-    type' :: Prelude.Maybe Prelude.Text
+    type' :: Prelude.Maybe Prelude.Text,
+    -- | The total number of occurrences of sensitive data that were detected.
+    count :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,32 +48,32 @@ data SensitiveDataDetections = SensitiveDataDetections'
 --
 -- 'occurrences', 'sensitiveDataDetections_occurrences' - Details about the sensitive data that was detected.
 --
--- 'count', 'sensitiveDataDetections_count' - The total number of occurrences of sensitive data that were detected.
---
 -- 'type'', 'sensitiveDataDetections_type' - The type of sensitive data that was detected. For example, the type
 -- might indicate that the data is an email address.
+--
+-- 'count', 'sensitiveDataDetections_count' - The total number of occurrences of sensitive data that were detected.
 newSensitiveDataDetections ::
   SensitiveDataDetections
 newSensitiveDataDetections =
   SensitiveDataDetections'
     { occurrences =
         Prelude.Nothing,
-      count = Prelude.Nothing,
-      type' = Prelude.Nothing
+      type' = Prelude.Nothing,
+      count = Prelude.Nothing
     }
 
 -- | Details about the sensitive data that was detected.
 sensitiveDataDetections_occurrences :: Lens.Lens' SensitiveDataDetections (Prelude.Maybe Occurrences)
 sensitiveDataDetections_occurrences = Lens.lens (\SensitiveDataDetections' {occurrences} -> occurrences) (\s@SensitiveDataDetections' {} a -> s {occurrences = a} :: SensitiveDataDetections)
 
--- | The total number of occurrences of sensitive data that were detected.
-sensitiveDataDetections_count :: Lens.Lens' SensitiveDataDetections (Prelude.Maybe Prelude.Integer)
-sensitiveDataDetections_count = Lens.lens (\SensitiveDataDetections' {count} -> count) (\s@SensitiveDataDetections' {} a -> s {count = a} :: SensitiveDataDetections)
-
 -- | The type of sensitive data that was detected. For example, the type
 -- might indicate that the data is an email address.
 sensitiveDataDetections_type :: Lens.Lens' SensitiveDataDetections (Prelude.Maybe Prelude.Text)
 sensitiveDataDetections_type = Lens.lens (\SensitiveDataDetections' {type'} -> type') (\s@SensitiveDataDetections' {} a -> s {type' = a} :: SensitiveDataDetections)
+
+-- | The total number of occurrences of sensitive data that were detected.
+sensitiveDataDetections_count :: Lens.Lens' SensitiveDataDetections (Prelude.Maybe Prelude.Integer)
+sensitiveDataDetections_count = Lens.lens (\SensitiveDataDetections' {count} -> count) (\s@SensitiveDataDetections' {} a -> s {count = a} :: SensitiveDataDetections)
 
 instance Core.FromJSON SensitiveDataDetections where
   parseJSON =
@@ -82,28 +82,28 @@ instance Core.FromJSON SensitiveDataDetections where
       ( \x ->
           SensitiveDataDetections'
             Prelude.<$> (x Core..:? "Occurrences")
-            Prelude.<*> (x Core..:? "Count")
             Prelude.<*> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "Count")
       )
 
 instance Prelude.Hashable SensitiveDataDetections where
   hashWithSalt _salt SensitiveDataDetections' {..} =
     _salt `Prelude.hashWithSalt` occurrences
-      `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` count
 
 instance Prelude.NFData SensitiveDataDetections where
   rnf SensitiveDataDetections' {..} =
     Prelude.rnf occurrences
-      `Prelude.seq` Prelude.rnf count
       `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf count
 
 instance Core.ToJSON SensitiveDataDetections where
   toJSON SensitiveDataDetections' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("Occurrences" Core..=) Prelude.<$> occurrences,
-            ("Count" Core..=) Prelude.<$> count,
-            ("Type" Core..=) Prelude.<$> type'
+            ("Type" Core..=) Prelude.<$> type',
+            ("Count" Core..=) Prelude.<$> count
           ]
       )

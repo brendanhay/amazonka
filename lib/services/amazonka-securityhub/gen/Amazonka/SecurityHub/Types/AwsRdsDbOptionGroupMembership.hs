@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsRdsDbOptionGroupMembership' smart constructor.
 data AwsRdsDbOptionGroupMembership = AwsRdsDbOptionGroupMembership'
-  { -- | The status of the option group membership.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The name of the option group.
-    optionGroupName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the option group.
+    optionGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The status of the option group membership.
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,25 @@ data AwsRdsDbOptionGroupMembership = AwsRdsDbOptionGroupMembership'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'awsRdsDbOptionGroupMembership_status' - The status of the option group membership.
---
 -- 'optionGroupName', 'awsRdsDbOptionGroupMembership_optionGroupName' - The name of the option group.
+--
+-- 'status', 'awsRdsDbOptionGroupMembership_status' - The status of the option group membership.
 newAwsRdsDbOptionGroupMembership ::
   AwsRdsDbOptionGroupMembership
 newAwsRdsDbOptionGroupMembership =
   AwsRdsDbOptionGroupMembership'
-    { status =
+    { optionGroupName =
         Prelude.Nothing,
-      optionGroupName = Prelude.Nothing
+      status = Prelude.Nothing
     }
-
--- | The status of the option group membership.
-awsRdsDbOptionGroupMembership_status :: Lens.Lens' AwsRdsDbOptionGroupMembership (Prelude.Maybe Prelude.Text)
-awsRdsDbOptionGroupMembership_status = Lens.lens (\AwsRdsDbOptionGroupMembership' {status} -> status) (\s@AwsRdsDbOptionGroupMembership' {} a -> s {status = a} :: AwsRdsDbOptionGroupMembership)
 
 -- | The name of the option group.
 awsRdsDbOptionGroupMembership_optionGroupName :: Lens.Lens' AwsRdsDbOptionGroupMembership (Prelude.Maybe Prelude.Text)
 awsRdsDbOptionGroupMembership_optionGroupName = Lens.lens (\AwsRdsDbOptionGroupMembership' {optionGroupName} -> optionGroupName) (\s@AwsRdsDbOptionGroupMembership' {} a -> s {optionGroupName = a} :: AwsRdsDbOptionGroupMembership)
+
+-- | The status of the option group membership.
+awsRdsDbOptionGroupMembership_status :: Lens.Lens' AwsRdsDbOptionGroupMembership (Prelude.Maybe Prelude.Text)
+awsRdsDbOptionGroupMembership_status = Lens.lens (\AwsRdsDbOptionGroupMembership' {status} -> status) (\s@AwsRdsDbOptionGroupMembership' {} a -> s {status = a} :: AwsRdsDbOptionGroupMembership)
 
 instance Core.FromJSON AwsRdsDbOptionGroupMembership where
   parseJSON =
@@ -68,8 +68,8 @@ instance Core.FromJSON AwsRdsDbOptionGroupMembership where
       "AwsRdsDbOptionGroupMembership"
       ( \x ->
           AwsRdsDbOptionGroupMembership'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "OptionGroupName")
+            Prelude.<$> (x Core..:? "OptionGroupName")
+            Prelude.<*> (x Core..:? "Status")
       )
 
 instance
@@ -77,20 +77,20 @@ instance
     AwsRdsDbOptionGroupMembership
   where
   hashWithSalt _salt AwsRdsDbOptionGroupMembership' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` optionGroupName
+    _salt `Prelude.hashWithSalt` optionGroupName
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData AwsRdsDbOptionGroupMembership where
   rnf AwsRdsDbOptionGroupMembership' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf optionGroupName
+    Prelude.rnf optionGroupName
+      `Prelude.seq` Prelude.rnf status
 
 instance Core.ToJSON AwsRdsDbOptionGroupMembership where
   toJSON AwsRdsDbOptionGroupMembership' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
-            ("OptionGroupName" Core..=)
-              Prelude.<$> optionGroupName
+          [ ("OptionGroupName" Core..=)
+              Prelude.<$> optionGroupName,
+            ("Status" Core..=) Prelude.<$> status
           ]
       )

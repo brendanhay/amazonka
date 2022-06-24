@@ -31,12 +31,12 @@ import Amazonka.SecurityHub.Types.Range
 data Page = Page'
   { -- | An occurrence of sensitive data detected in a binary text file.
     offsetRange :: Prelude.Maybe Range,
+    -- | The page number of the page that contains the sensitive data.
+    pageNumber :: Prelude.Maybe Prelude.Integer,
     -- | An occurrence of sensitive data detected in a non-binary text file or a
     -- Microsoft Word file. Non-binary text files include files such as HTML,
     -- XML, JSON, and TXT files.
-    lineRange :: Prelude.Maybe Range,
-    -- | The page number of the page that contains the sensitive data.
-    pageNumber :: Prelude.Maybe Prelude.Integer
+    lineRange :: Prelude.Maybe Range
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,33 +50,33 @@ data Page = Page'
 --
 -- 'offsetRange', 'page_offsetRange' - An occurrence of sensitive data detected in a binary text file.
 --
+-- 'pageNumber', 'page_pageNumber' - The page number of the page that contains the sensitive data.
+--
 -- 'lineRange', 'page_lineRange' - An occurrence of sensitive data detected in a non-binary text file or a
 -- Microsoft Word file. Non-binary text files include files such as HTML,
 -- XML, JSON, and TXT files.
---
--- 'pageNumber', 'page_pageNumber' - The page number of the page that contains the sensitive data.
 newPage ::
   Page
 newPage =
   Page'
     { offsetRange = Prelude.Nothing,
-      lineRange = Prelude.Nothing,
-      pageNumber = Prelude.Nothing
+      pageNumber = Prelude.Nothing,
+      lineRange = Prelude.Nothing
     }
 
 -- | An occurrence of sensitive data detected in a binary text file.
 page_offsetRange :: Lens.Lens' Page (Prelude.Maybe Range)
 page_offsetRange = Lens.lens (\Page' {offsetRange} -> offsetRange) (\s@Page' {} a -> s {offsetRange = a} :: Page)
 
+-- | The page number of the page that contains the sensitive data.
+page_pageNumber :: Lens.Lens' Page (Prelude.Maybe Prelude.Integer)
+page_pageNumber = Lens.lens (\Page' {pageNumber} -> pageNumber) (\s@Page' {} a -> s {pageNumber = a} :: Page)
+
 -- | An occurrence of sensitive data detected in a non-binary text file or a
 -- Microsoft Word file. Non-binary text files include files such as HTML,
 -- XML, JSON, and TXT files.
 page_lineRange :: Lens.Lens' Page (Prelude.Maybe Range)
 page_lineRange = Lens.lens (\Page' {lineRange} -> lineRange) (\s@Page' {} a -> s {lineRange = a} :: Page)
-
--- | The page number of the page that contains the sensitive data.
-page_pageNumber :: Lens.Lens' Page (Prelude.Maybe Prelude.Integer)
-page_pageNumber = Lens.lens (\Page' {pageNumber} -> pageNumber) (\s@Page' {} a -> s {pageNumber = a} :: Page)
 
 instance Core.FromJSON Page where
   parseJSON =
@@ -85,28 +85,28 @@ instance Core.FromJSON Page where
       ( \x ->
           Page'
             Prelude.<$> (x Core..:? "OffsetRange")
-            Prelude.<*> (x Core..:? "LineRange")
             Prelude.<*> (x Core..:? "PageNumber")
+            Prelude.<*> (x Core..:? "LineRange")
       )
 
 instance Prelude.Hashable Page where
   hashWithSalt _salt Page' {..} =
     _salt `Prelude.hashWithSalt` offsetRange
-      `Prelude.hashWithSalt` lineRange
       `Prelude.hashWithSalt` pageNumber
+      `Prelude.hashWithSalt` lineRange
 
 instance Prelude.NFData Page where
   rnf Page' {..} =
     Prelude.rnf offsetRange
-      `Prelude.seq` Prelude.rnf lineRange
       `Prelude.seq` Prelude.rnf pageNumber
+      `Prelude.seq` Prelude.rnf lineRange
 
 instance Core.ToJSON Page where
   toJSON Page' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("OffsetRange" Core..=) Prelude.<$> offsetRange,
-            ("LineRange" Core..=) Prelude.<$> lineRange,
-            ("PageNumber" Core..=) Prelude.<$> pageNumber
+            ("PageNumber" Core..=) Prelude.<$> pageNumber,
+            ("LineRange" Core..=) Prelude.<$> lineRange
           ]
       )

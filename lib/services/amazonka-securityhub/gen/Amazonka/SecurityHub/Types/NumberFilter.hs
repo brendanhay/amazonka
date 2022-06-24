@@ -27,15 +27,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNumberFilter' smart constructor.
 data NumberFilter = NumberFilter'
-  { -- | The equal-to condition to be applied to a single field when querying for
-    -- findings.
-    eq :: Prelude.Maybe Prelude.Double,
-    -- | The less-than-equal condition to be applied to a single field when
+  { -- | The less-than-equal condition to be applied to a single field when
     -- querying for findings.
     lte :: Prelude.Maybe Prelude.Double,
     -- | The greater-than-equal condition to be applied to a single field when
     -- querying for findings.
-    gte :: Prelude.Maybe Prelude.Double
+    gte :: Prelude.Maybe Prelude.Double,
+    -- | The equal-to condition to be applied to a single field when querying for
+    -- findings.
+    eq :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,27 +47,22 @@ data NumberFilter = NumberFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eq', 'numberFilter_eq' - The equal-to condition to be applied to a single field when querying for
--- findings.
---
 -- 'lte', 'numberFilter_lte' - The less-than-equal condition to be applied to a single field when
 -- querying for findings.
 --
 -- 'gte', 'numberFilter_gte' - The greater-than-equal condition to be applied to a single field when
 -- querying for findings.
+--
+-- 'eq', 'numberFilter_eq' - The equal-to condition to be applied to a single field when querying for
+-- findings.
 newNumberFilter ::
   NumberFilter
 newNumberFilter =
   NumberFilter'
-    { eq = Prelude.Nothing,
-      lte = Prelude.Nothing,
-      gte = Prelude.Nothing
+    { lte = Prelude.Nothing,
+      gte = Prelude.Nothing,
+      eq = Prelude.Nothing
     }
-
--- | The equal-to condition to be applied to a single field when querying for
--- findings.
-numberFilter_eq :: Lens.Lens' NumberFilter (Prelude.Maybe Prelude.Double)
-numberFilter_eq = Lens.lens (\NumberFilter' {eq} -> eq) (\s@NumberFilter' {} a -> s {eq = a} :: NumberFilter)
 
 -- | The less-than-equal condition to be applied to a single field when
 -- querying for findings.
@@ -79,35 +74,40 @@ numberFilter_lte = Lens.lens (\NumberFilter' {lte} -> lte) (\s@NumberFilter' {} 
 numberFilter_gte :: Lens.Lens' NumberFilter (Prelude.Maybe Prelude.Double)
 numberFilter_gte = Lens.lens (\NumberFilter' {gte} -> gte) (\s@NumberFilter' {} a -> s {gte = a} :: NumberFilter)
 
+-- | The equal-to condition to be applied to a single field when querying for
+-- findings.
+numberFilter_eq :: Lens.Lens' NumberFilter (Prelude.Maybe Prelude.Double)
+numberFilter_eq = Lens.lens (\NumberFilter' {eq} -> eq) (\s@NumberFilter' {} a -> s {eq = a} :: NumberFilter)
+
 instance Core.FromJSON NumberFilter where
   parseJSON =
     Core.withObject
       "NumberFilter"
       ( \x ->
           NumberFilter'
-            Prelude.<$> (x Core..:? "Eq")
-            Prelude.<*> (x Core..:? "Lte")
+            Prelude.<$> (x Core..:? "Lte")
             Prelude.<*> (x Core..:? "Gte")
+            Prelude.<*> (x Core..:? "Eq")
       )
 
 instance Prelude.Hashable NumberFilter where
   hashWithSalt _salt NumberFilter' {..} =
-    _salt `Prelude.hashWithSalt` eq
-      `Prelude.hashWithSalt` lte
+    _salt `Prelude.hashWithSalt` lte
       `Prelude.hashWithSalt` gte
+      `Prelude.hashWithSalt` eq
 
 instance Prelude.NFData NumberFilter where
   rnf NumberFilter' {..} =
-    Prelude.rnf eq
-      `Prelude.seq` Prelude.rnf lte
+    Prelude.rnf lte
       `Prelude.seq` Prelude.rnf gte
+      `Prelude.seq` Prelude.rnf eq
 
 instance Core.ToJSON NumberFilter where
   toJSON NumberFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Eq" Core..=) Prelude.<$> eq,
-            ("Lte" Core..=) Prelude.<$> lte,
-            ("Gte" Core..=) Prelude.<$> gte
+          [ ("Lte" Core..=) Prelude.<$> lte,
+            ("Gte" Core..=) Prelude.<$> gte,
+            ("Eq" Core..=) Prelude.<$> eq
           ]
       )

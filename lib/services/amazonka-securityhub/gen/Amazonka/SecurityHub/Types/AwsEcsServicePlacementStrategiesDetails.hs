@@ -28,19 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEcsServicePlacementStrategiesDetails' smart constructor.
 data AwsEcsServicePlacementStrategiesDetails = AwsEcsServicePlacementStrategiesDetails'
-  { -- | The field to apply the placement strategy against.
-    --
-    -- For the @spread@ placement strategy, valid values are @instanceId@ (or
-    -- @host@, which has the same effect), or any platform or custom attribute
-    -- that is applied to a container instance, such as
-    -- @attribute:ecs.availability-zone@.
-    --
-    -- For the @binpack@ placement strategy, valid values are @cpu@ and
-    -- @memory@.
-    --
-    -- For the @random@ placement strategy, this attribute is not used.
-    field :: Prelude.Maybe Prelude.Text,
-    -- | The type of placement strategy.
+  { -- | The type of placement strategy.
     --
     -- The @random@ placement strategy randomly places tasks on available
     -- candidates.
@@ -52,7 +40,19 @@ data AwsEcsServicePlacementStrategiesDetails = AwsEcsServicePlacementStrategiesD
     -- the least available amount of the resource that is specified in @Field@.
     --
     -- Valid values: @random@ | @spread@ | @binpack@
-    type' :: Prelude.Maybe Prelude.Text
+    type' :: Prelude.Maybe Prelude.Text,
+    -- | The field to apply the placement strategy against.
+    --
+    -- For the @spread@ placement strategy, valid values are @instanceId@ (or
+    -- @host@, which has the same effect), or any platform or custom attribute
+    -- that is applied to a container instance, such as
+    -- @attribute:ecs.availability-zone@.
+    --
+    -- For the @binpack@ placement strategy, valid values are @cpu@ and
+    -- @memory@.
+    --
+    -- For the @random@ placement strategy, this attribute is not used.
+    field :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,18 +63,6 @@ data AwsEcsServicePlacementStrategiesDetails = AwsEcsServicePlacementStrategiesD
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'field', 'awsEcsServicePlacementStrategiesDetails_field' - The field to apply the placement strategy against.
---
--- For the @spread@ placement strategy, valid values are @instanceId@ (or
--- @host@, which has the same effect), or any platform or custom attribute
--- that is applied to a container instance, such as
--- @attribute:ecs.availability-zone@.
---
--- For the @binpack@ placement strategy, valid values are @cpu@ and
--- @memory@.
---
--- For the @random@ placement strategy, this attribute is not used.
 --
 -- 'type'', 'awsEcsServicePlacementStrategiesDetails_type' - The type of placement strategy.
 --
@@ -88,16 +76,8 @@ data AwsEcsServicePlacementStrategiesDetails = AwsEcsServicePlacementStrategiesD
 -- the least available amount of the resource that is specified in @Field@.
 --
 -- Valid values: @random@ | @spread@ | @binpack@
-newAwsEcsServicePlacementStrategiesDetails ::
-  AwsEcsServicePlacementStrategiesDetails
-newAwsEcsServicePlacementStrategiesDetails =
-  AwsEcsServicePlacementStrategiesDetails'
-    { field =
-        Prelude.Nothing,
-      type' = Prelude.Nothing
-    }
-
--- | The field to apply the placement strategy against.
+--
+-- 'field', 'awsEcsServicePlacementStrategiesDetails_field' - The field to apply the placement strategy against.
 --
 -- For the @spread@ placement strategy, valid values are @instanceId@ (or
 -- @host@, which has the same effect), or any platform or custom attribute
@@ -108,8 +88,14 @@ newAwsEcsServicePlacementStrategiesDetails =
 -- @memory@.
 --
 -- For the @random@ placement strategy, this attribute is not used.
-awsEcsServicePlacementStrategiesDetails_field :: Lens.Lens' AwsEcsServicePlacementStrategiesDetails (Prelude.Maybe Prelude.Text)
-awsEcsServicePlacementStrategiesDetails_field = Lens.lens (\AwsEcsServicePlacementStrategiesDetails' {field} -> field) (\s@AwsEcsServicePlacementStrategiesDetails' {} a -> s {field = a} :: AwsEcsServicePlacementStrategiesDetails)
+newAwsEcsServicePlacementStrategiesDetails ::
+  AwsEcsServicePlacementStrategiesDetails
+newAwsEcsServicePlacementStrategiesDetails =
+  AwsEcsServicePlacementStrategiesDetails'
+    { type' =
+        Prelude.Nothing,
+      field = Prelude.Nothing
+    }
 
 -- | The type of placement strategy.
 --
@@ -126,6 +112,20 @@ awsEcsServicePlacementStrategiesDetails_field = Lens.lens (\AwsEcsServicePlaceme
 awsEcsServicePlacementStrategiesDetails_type :: Lens.Lens' AwsEcsServicePlacementStrategiesDetails (Prelude.Maybe Prelude.Text)
 awsEcsServicePlacementStrategiesDetails_type = Lens.lens (\AwsEcsServicePlacementStrategiesDetails' {type'} -> type') (\s@AwsEcsServicePlacementStrategiesDetails' {} a -> s {type' = a} :: AwsEcsServicePlacementStrategiesDetails)
 
+-- | The field to apply the placement strategy against.
+--
+-- For the @spread@ placement strategy, valid values are @instanceId@ (or
+-- @host@, which has the same effect), or any platform or custom attribute
+-- that is applied to a container instance, such as
+-- @attribute:ecs.availability-zone@.
+--
+-- For the @binpack@ placement strategy, valid values are @cpu@ and
+-- @memory@.
+--
+-- For the @random@ placement strategy, this attribute is not used.
+awsEcsServicePlacementStrategiesDetails_field :: Lens.Lens' AwsEcsServicePlacementStrategiesDetails (Prelude.Maybe Prelude.Text)
+awsEcsServicePlacementStrategiesDetails_field = Lens.lens (\AwsEcsServicePlacementStrategiesDetails' {field} -> field) (\s@AwsEcsServicePlacementStrategiesDetails' {} a -> s {field = a} :: AwsEcsServicePlacementStrategiesDetails)
+
 instance
   Core.FromJSON
     AwsEcsServicePlacementStrategiesDetails
@@ -135,7 +135,7 @@ instance
       "AwsEcsServicePlacementStrategiesDetails"
       ( \x ->
           AwsEcsServicePlacementStrategiesDetails'
-            Prelude.<$> (x Core..:? "Field") Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Type") Prelude.<*> (x Core..:? "Field")
       )
 
 instance
@@ -145,15 +145,15 @@ instance
   hashWithSalt
     _salt
     AwsEcsServicePlacementStrategiesDetails' {..} =
-      _salt `Prelude.hashWithSalt` field
-        `Prelude.hashWithSalt` type'
+      _salt `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` field
 
 instance
   Prelude.NFData
     AwsEcsServicePlacementStrategiesDetails
   where
   rnf AwsEcsServicePlacementStrategiesDetails' {..} =
-    Prelude.rnf field `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf field
 
 instance
   Core.ToJSON
@@ -162,7 +162,7 @@ instance
   toJSON AwsEcsServicePlacementStrategiesDetails' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Field" Core..=) Prelude.<$> field,
-            ("Type" Core..=) Prelude.<$> type'
+          [ ("Type" Core..=) Prelude.<$> type',
+            ("Field" Core..=) Prelude.<$> field
           ]
       )

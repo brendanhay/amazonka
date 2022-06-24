@@ -27,11 +27,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsCloudFrontDistributionOriginGroupFailoverStatusCodes' smart constructor.
 data AwsCloudFrontDistributionOriginGroupFailoverStatusCodes = AwsCloudFrontDistributionOriginGroupFailoverStatusCodes'
-  { -- | The number of status codes that can cause a failover.
-    quantity :: Prelude.Maybe Prelude.Int,
-    -- | The list of status code values that can cause a failover to the next
+  { -- | The list of status code values that can cause a failover to the next
     -- origin.
-    items :: Prelude.Maybe [Prelude.Int]
+    items :: Prelude.Maybe [Prelude.Int],
+    -- | The number of status codes that can cause a failover.
+    quantity :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,28 +43,28 @@ data AwsCloudFrontDistributionOriginGroupFailoverStatusCodes = AwsCloudFrontDist
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'quantity', 'awsCloudFrontDistributionOriginGroupFailoverStatusCodes_quantity' - The number of status codes that can cause a failover.
---
 -- 'items', 'awsCloudFrontDistributionOriginGroupFailoverStatusCodes_items' - The list of status code values that can cause a failover to the next
 -- origin.
+--
+-- 'quantity', 'awsCloudFrontDistributionOriginGroupFailoverStatusCodes_quantity' - The number of status codes that can cause a failover.
 newAwsCloudFrontDistributionOriginGroupFailoverStatusCodes ::
   AwsCloudFrontDistributionOriginGroupFailoverStatusCodes
 newAwsCloudFrontDistributionOriginGroupFailoverStatusCodes =
   AwsCloudFrontDistributionOriginGroupFailoverStatusCodes'
-    { quantity =
+    { items =
         Prelude.Nothing,
-      items =
+      quantity =
         Prelude.Nothing
     }
-
--- | The number of status codes that can cause a failover.
-awsCloudFrontDistributionOriginGroupFailoverStatusCodes_quantity :: Lens.Lens' AwsCloudFrontDistributionOriginGroupFailoverStatusCodes (Prelude.Maybe Prelude.Int)
-awsCloudFrontDistributionOriginGroupFailoverStatusCodes_quantity = Lens.lens (\AwsCloudFrontDistributionOriginGroupFailoverStatusCodes' {quantity} -> quantity) (\s@AwsCloudFrontDistributionOriginGroupFailoverStatusCodes' {} a -> s {quantity = a} :: AwsCloudFrontDistributionOriginGroupFailoverStatusCodes)
 
 -- | The list of status code values that can cause a failover to the next
 -- origin.
 awsCloudFrontDistributionOriginGroupFailoverStatusCodes_items :: Lens.Lens' AwsCloudFrontDistributionOriginGroupFailoverStatusCodes (Prelude.Maybe [Prelude.Int])
 awsCloudFrontDistributionOriginGroupFailoverStatusCodes_items = Lens.lens (\AwsCloudFrontDistributionOriginGroupFailoverStatusCodes' {items} -> items) (\s@AwsCloudFrontDistributionOriginGroupFailoverStatusCodes' {} a -> s {items = a} :: AwsCloudFrontDistributionOriginGroupFailoverStatusCodes) Prelude.. Lens.mapping Lens.coerced
+
+-- | The number of status codes that can cause a failover.
+awsCloudFrontDistributionOriginGroupFailoverStatusCodes_quantity :: Lens.Lens' AwsCloudFrontDistributionOriginGroupFailoverStatusCodes (Prelude.Maybe Prelude.Int)
+awsCloudFrontDistributionOriginGroupFailoverStatusCodes_quantity = Lens.lens (\AwsCloudFrontDistributionOriginGroupFailoverStatusCodes' {quantity} -> quantity) (\s@AwsCloudFrontDistributionOriginGroupFailoverStatusCodes' {} a -> s {quantity = a} :: AwsCloudFrontDistributionOriginGroupFailoverStatusCodes)
 
 instance
   Core.FromJSON
@@ -75,8 +75,8 @@ instance
       "AwsCloudFrontDistributionOriginGroupFailoverStatusCodes"
       ( \x ->
           AwsCloudFrontDistributionOriginGroupFailoverStatusCodes'
-            Prelude.<$> (x Core..:? "Quantity")
-              Prelude.<*> (x Core..:? "Items" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "Items" Core..!= Prelude.mempty)
+              Prelude.<*> (x Core..:? "Quantity")
       )
 
 instance
@@ -86,8 +86,8 @@ instance
   hashWithSalt
     _salt
     AwsCloudFrontDistributionOriginGroupFailoverStatusCodes' {..} =
-      _salt `Prelude.hashWithSalt` quantity
-        `Prelude.hashWithSalt` items
+      _salt `Prelude.hashWithSalt` items
+        `Prelude.hashWithSalt` quantity
 
 instance
   Prelude.NFData
@@ -95,8 +95,8 @@ instance
   where
   rnf
     AwsCloudFrontDistributionOriginGroupFailoverStatusCodes' {..} =
-      Prelude.rnf quantity
-        `Prelude.seq` Prelude.rnf items
+      Prelude.rnf items
+        `Prelude.seq` Prelude.rnf quantity
 
 instance
   Core.ToJSON
@@ -106,7 +106,7 @@ instance
     AwsCloudFrontDistributionOriginGroupFailoverStatusCodes' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("Quantity" Core..=) Prelude.<$> quantity,
-              ("Items" Core..=) Prelude.<$> items
+            [ ("Items" Core..=) Prelude.<$> items,
+              ("Quantity" Core..=) Prelude.<$> quantity
             ]
         )

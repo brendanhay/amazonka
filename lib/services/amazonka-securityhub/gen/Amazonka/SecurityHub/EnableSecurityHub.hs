@@ -53,8 +53,8 @@ module Amazonka.SecurityHub.EnableSecurityHub
     newEnableSecurityHub,
 
     -- * Request Lenses
-    enableSecurityHub_enableDefaultStandards,
     enableSecurityHub_tags,
+    enableSecurityHub_enableDefaultStandards,
 
     -- * Destructuring the Response
     EnableSecurityHubResponse (..),
@@ -74,14 +74,14 @@ import Amazonka.SecurityHub.Types
 
 -- | /See:/ 'newEnableSecurityHub' smart constructor.
 data EnableSecurityHub = EnableSecurityHub'
-  { -- | Whether to enable the security standards that Security Hub has
+  { -- | The tags to add to the hub resource when you enable Security Hub.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Whether to enable the security standards that Security Hub has
     -- designated as automatically enabled. If you do not provide a value for
     -- @EnableDefaultStandards@, it is set to @true@. To not enable the
     -- automatically enabled standards, set @EnableDefaultStandards@ to
     -- @false@.
-    enableDefaultStandards :: Prelude.Maybe Prelude.Bool,
-    -- | The tags to add to the hub resource when you enable Security Hub.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    enableDefaultStandards :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,21 +93,24 @@ data EnableSecurityHub = EnableSecurityHub'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'enableSecurityHub_tags' - The tags to add to the hub resource when you enable Security Hub.
+--
 -- 'enableDefaultStandards', 'enableSecurityHub_enableDefaultStandards' - Whether to enable the security standards that Security Hub has
 -- designated as automatically enabled. If you do not provide a value for
 -- @EnableDefaultStandards@, it is set to @true@. To not enable the
 -- automatically enabled standards, set @EnableDefaultStandards@ to
 -- @false@.
---
--- 'tags', 'enableSecurityHub_tags' - The tags to add to the hub resource when you enable Security Hub.
 newEnableSecurityHub ::
   EnableSecurityHub
 newEnableSecurityHub =
   EnableSecurityHub'
-    { enableDefaultStandards =
-        Prelude.Nothing,
-      tags = Prelude.Nothing
+    { tags = Prelude.Nothing,
+      enableDefaultStandards = Prelude.Nothing
     }
+
+-- | The tags to add to the hub resource when you enable Security Hub.
+enableSecurityHub_tags :: Lens.Lens' EnableSecurityHub (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+enableSecurityHub_tags = Lens.lens (\EnableSecurityHub' {tags} -> tags) (\s@EnableSecurityHub' {} a -> s {tags = a} :: EnableSecurityHub) Prelude.. Lens.mapping Lens.coerced
 
 -- | Whether to enable the security standards that Security Hub has
 -- designated as automatically enabled. If you do not provide a value for
@@ -116,10 +119,6 @@ newEnableSecurityHub =
 -- @false@.
 enableSecurityHub_enableDefaultStandards :: Lens.Lens' EnableSecurityHub (Prelude.Maybe Prelude.Bool)
 enableSecurityHub_enableDefaultStandards = Lens.lens (\EnableSecurityHub' {enableDefaultStandards} -> enableDefaultStandards) (\s@EnableSecurityHub' {} a -> s {enableDefaultStandards = a} :: EnableSecurityHub)
-
--- | The tags to add to the hub resource when you enable Security Hub.
-enableSecurityHub_tags :: Lens.Lens' EnableSecurityHub (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-enableSecurityHub_tags = Lens.lens (\EnableSecurityHub' {tags} -> tags) (\s@EnableSecurityHub' {} a -> s {tags = a} :: EnableSecurityHub) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest EnableSecurityHub where
   type
@@ -135,13 +134,13 @@ instance Core.AWSRequest EnableSecurityHub where
 
 instance Prelude.Hashable EnableSecurityHub where
   hashWithSalt _salt EnableSecurityHub' {..} =
-    _salt `Prelude.hashWithSalt` enableDefaultStandards
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` enableDefaultStandards
 
 instance Prelude.NFData EnableSecurityHub where
   rnf EnableSecurityHub' {..} =
-    Prelude.rnf enableDefaultStandards
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf enableDefaultStandards
 
 instance Core.ToHeaders EnableSecurityHub where
   toHeaders =
@@ -158,9 +157,9 @@ instance Core.ToJSON EnableSecurityHub where
   toJSON EnableSecurityHub' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EnableDefaultStandards" Core..=)
-              Prelude.<$> enableDefaultStandards,
-            ("Tags" Core..=) Prelude.<$> tags
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("EnableDefaultStandards" Core..=)
+              Prelude.<$> enableDefaultStandards
           ]
       )
 

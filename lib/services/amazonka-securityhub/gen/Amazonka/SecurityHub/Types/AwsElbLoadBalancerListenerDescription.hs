@@ -28,10 +28,10 @@ import Amazonka.SecurityHub.Types.AwsElbLoadBalancerListener
 --
 -- /See:/ 'newAwsElbLoadBalancerListenerDescription' smart constructor.
 data AwsElbLoadBalancerListenerDescription = AwsElbLoadBalancerListenerDescription'
-  { -- | The policies enabled for the listener.
-    policyNames :: Prelude.Maybe [Prelude.Text],
-    -- | Information about the listener.
-    listener :: Prelude.Maybe AwsElbLoadBalancerListener
+  { -- | Information about the listener.
+    listener :: Prelude.Maybe AwsElbLoadBalancerListener,
+    -- | The policies enabled for the listener.
+    policyNames :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data AwsElbLoadBalancerListenerDescription = AwsElbLoadBalancerListenerDescripti
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyNames', 'awsElbLoadBalancerListenerDescription_policyNames' - The policies enabled for the listener.
---
 -- 'listener', 'awsElbLoadBalancerListenerDescription_listener' - Information about the listener.
+--
+-- 'policyNames', 'awsElbLoadBalancerListenerDescription_policyNames' - The policies enabled for the listener.
 newAwsElbLoadBalancerListenerDescription ::
   AwsElbLoadBalancerListenerDescription
 newAwsElbLoadBalancerListenerDescription =
   AwsElbLoadBalancerListenerDescription'
-    { policyNames =
+    { listener =
         Prelude.Nothing,
-      listener = Prelude.Nothing
+      policyNames = Prelude.Nothing
     }
-
--- | The policies enabled for the listener.
-awsElbLoadBalancerListenerDescription_policyNames :: Lens.Lens' AwsElbLoadBalancerListenerDescription (Prelude.Maybe [Prelude.Text])
-awsElbLoadBalancerListenerDescription_policyNames = Lens.lens (\AwsElbLoadBalancerListenerDescription' {policyNames} -> policyNames) (\s@AwsElbLoadBalancerListenerDescription' {} a -> s {policyNames = a} :: AwsElbLoadBalancerListenerDescription) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about the listener.
 awsElbLoadBalancerListenerDescription_listener :: Lens.Lens' AwsElbLoadBalancerListenerDescription (Prelude.Maybe AwsElbLoadBalancerListener)
 awsElbLoadBalancerListenerDescription_listener = Lens.lens (\AwsElbLoadBalancerListenerDescription' {listener} -> listener) (\s@AwsElbLoadBalancerListenerDescription' {} a -> s {listener = a} :: AwsElbLoadBalancerListenerDescription)
+
+-- | The policies enabled for the listener.
+awsElbLoadBalancerListenerDescription_policyNames :: Lens.Lens' AwsElbLoadBalancerListenerDescription (Prelude.Maybe [Prelude.Text])
+awsElbLoadBalancerListenerDescription_policyNames = Lens.lens (\AwsElbLoadBalancerListenerDescription' {policyNames} -> policyNames) (\s@AwsElbLoadBalancerListenerDescription' {} a -> s {policyNames = a} :: AwsElbLoadBalancerListenerDescription) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.FromJSON
@@ -72,8 +72,8 @@ instance
       "AwsElbLoadBalancerListenerDescription"
       ( \x ->
           AwsElbLoadBalancerListenerDescription'
-            Prelude.<$> (x Core..:? "PolicyNames" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Listener")
+            Prelude.<$> (x Core..:? "Listener")
+            Prelude.<*> (x Core..:? "PolicyNames" Core..!= Prelude.mempty)
       )
 
 instance
@@ -83,16 +83,16 @@ instance
   hashWithSalt
     _salt
     AwsElbLoadBalancerListenerDescription' {..} =
-      _salt `Prelude.hashWithSalt` policyNames
-        `Prelude.hashWithSalt` listener
+      _salt `Prelude.hashWithSalt` listener
+        `Prelude.hashWithSalt` policyNames
 
 instance
   Prelude.NFData
     AwsElbLoadBalancerListenerDescription
   where
   rnf AwsElbLoadBalancerListenerDescription' {..} =
-    Prelude.rnf policyNames
-      `Prelude.seq` Prelude.rnf listener
+    Prelude.rnf listener
+      `Prelude.seq` Prelude.rnf policyNames
 
 instance
   Core.ToJSON
@@ -101,7 +101,7 @@ instance
   toJSON AwsElbLoadBalancerListenerDescription' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PolicyNames" Core..=) Prelude.<$> policyNames,
-            ("Listener" Core..=) Prelude.<$> listener
+          [ ("Listener" Core..=) Prelude.<$> listener,
+            ("PolicyNames" Core..=) Prelude.<$> policyNames
           ]
       )

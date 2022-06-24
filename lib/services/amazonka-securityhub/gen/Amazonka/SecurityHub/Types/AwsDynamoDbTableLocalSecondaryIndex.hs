@@ -29,16 +29,16 @@ import Amazonka.SecurityHub.Types.AwsDynamoDbTableProjection
 --
 -- /See:/ 'newAwsDynamoDbTableLocalSecondaryIndex' smart constructor.
 data AwsDynamoDbTableLocalSecondaryIndex = AwsDynamoDbTableLocalSecondaryIndex'
-  { -- | The ARN of the index.
+  { -- | The name of the index.
+    indexName :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the index.
     indexArn :: Prelude.Maybe Prelude.Text,
     -- | The complete key schema for the index.
     keySchema :: Prelude.Maybe [AwsDynamoDbTableKeySchema],
     -- | Attributes that are copied from the table into the index. These are in
     -- addition to the primary key attributes and index key attributes, which
     -- are automatically projected.
-    projection :: Prelude.Maybe AwsDynamoDbTableProjection,
-    -- | The name of the index.
-    indexName :: Prelude.Maybe Prelude.Text
+    projection :: Prelude.Maybe AwsDynamoDbTableProjection
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,6 +50,8 @@ data AwsDynamoDbTableLocalSecondaryIndex = AwsDynamoDbTableLocalSecondaryIndex'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'indexName', 'awsDynamoDbTableLocalSecondaryIndex_indexName' - The name of the index.
+--
 -- 'indexArn', 'awsDynamoDbTableLocalSecondaryIndex_indexArn' - The ARN of the index.
 --
 -- 'keySchema', 'awsDynamoDbTableLocalSecondaryIndex_keySchema' - The complete key schema for the index.
@@ -57,18 +59,20 @@ data AwsDynamoDbTableLocalSecondaryIndex = AwsDynamoDbTableLocalSecondaryIndex'
 -- 'projection', 'awsDynamoDbTableLocalSecondaryIndex_projection' - Attributes that are copied from the table into the index. These are in
 -- addition to the primary key attributes and index key attributes, which
 -- are automatically projected.
---
--- 'indexName', 'awsDynamoDbTableLocalSecondaryIndex_indexName' - The name of the index.
 newAwsDynamoDbTableLocalSecondaryIndex ::
   AwsDynamoDbTableLocalSecondaryIndex
 newAwsDynamoDbTableLocalSecondaryIndex =
   AwsDynamoDbTableLocalSecondaryIndex'
-    { indexArn =
+    { indexName =
         Prelude.Nothing,
+      indexArn = Prelude.Nothing,
       keySchema = Prelude.Nothing,
-      projection = Prelude.Nothing,
-      indexName = Prelude.Nothing
+      projection = Prelude.Nothing
     }
+
+-- | The name of the index.
+awsDynamoDbTableLocalSecondaryIndex_indexName :: Lens.Lens' AwsDynamoDbTableLocalSecondaryIndex (Prelude.Maybe Prelude.Text)
+awsDynamoDbTableLocalSecondaryIndex_indexName = Lens.lens (\AwsDynamoDbTableLocalSecondaryIndex' {indexName} -> indexName) (\s@AwsDynamoDbTableLocalSecondaryIndex' {} a -> s {indexName = a} :: AwsDynamoDbTableLocalSecondaryIndex)
 
 -- | The ARN of the index.
 awsDynamoDbTableLocalSecondaryIndex_indexArn :: Lens.Lens' AwsDynamoDbTableLocalSecondaryIndex (Prelude.Maybe Prelude.Text)
@@ -84,10 +88,6 @@ awsDynamoDbTableLocalSecondaryIndex_keySchema = Lens.lens (\AwsDynamoDbTableLoca
 awsDynamoDbTableLocalSecondaryIndex_projection :: Lens.Lens' AwsDynamoDbTableLocalSecondaryIndex (Prelude.Maybe AwsDynamoDbTableProjection)
 awsDynamoDbTableLocalSecondaryIndex_projection = Lens.lens (\AwsDynamoDbTableLocalSecondaryIndex' {projection} -> projection) (\s@AwsDynamoDbTableLocalSecondaryIndex' {} a -> s {projection = a} :: AwsDynamoDbTableLocalSecondaryIndex)
 
--- | The name of the index.
-awsDynamoDbTableLocalSecondaryIndex_indexName :: Lens.Lens' AwsDynamoDbTableLocalSecondaryIndex (Prelude.Maybe Prelude.Text)
-awsDynamoDbTableLocalSecondaryIndex_indexName = Lens.lens (\AwsDynamoDbTableLocalSecondaryIndex' {indexName} -> indexName) (\s@AwsDynamoDbTableLocalSecondaryIndex' {} a -> s {indexName = a} :: AwsDynamoDbTableLocalSecondaryIndex)
-
 instance
   Core.FromJSON
     AwsDynamoDbTableLocalSecondaryIndex
@@ -97,10 +97,10 @@ instance
       "AwsDynamoDbTableLocalSecondaryIndex"
       ( \x ->
           AwsDynamoDbTableLocalSecondaryIndex'
-            Prelude.<$> (x Core..:? "IndexArn")
+            Prelude.<$> (x Core..:? "IndexName")
+            Prelude.<*> (x Core..:? "IndexArn")
             Prelude.<*> (x Core..:? "KeySchema" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Projection")
-            Prelude.<*> (x Core..:? "IndexName")
       )
 
 instance
@@ -110,20 +110,20 @@ instance
   hashWithSalt
     _salt
     AwsDynamoDbTableLocalSecondaryIndex' {..} =
-      _salt `Prelude.hashWithSalt` indexArn
+      _salt `Prelude.hashWithSalt` indexName
+        `Prelude.hashWithSalt` indexArn
         `Prelude.hashWithSalt` keySchema
         `Prelude.hashWithSalt` projection
-        `Prelude.hashWithSalt` indexName
 
 instance
   Prelude.NFData
     AwsDynamoDbTableLocalSecondaryIndex
   where
   rnf AwsDynamoDbTableLocalSecondaryIndex' {..} =
-    Prelude.rnf indexArn
+    Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf indexArn
       `Prelude.seq` Prelude.rnf keySchema
       `Prelude.seq` Prelude.rnf projection
-      `Prelude.seq` Prelude.rnf indexName
 
 instance
   Core.ToJSON
@@ -132,9 +132,9 @@ instance
   toJSON AwsDynamoDbTableLocalSecondaryIndex' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("IndexArn" Core..=) Prelude.<$> indexArn,
+          [ ("IndexName" Core..=) Prelude.<$> indexName,
+            ("IndexArn" Core..=) Prelude.<$> indexArn,
             ("KeySchema" Core..=) Prelude.<$> keySchema,
-            ("Projection" Core..=) Prelude.<$> projection,
-            ("IndexName" Core..=) Prelude.<$> indexName
+            ("Projection" Core..=) Prelude.<$> projection
           ]
       )

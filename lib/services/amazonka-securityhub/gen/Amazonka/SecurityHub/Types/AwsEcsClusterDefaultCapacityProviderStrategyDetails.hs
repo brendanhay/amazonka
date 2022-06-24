@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEcsClusterDefaultCapacityProviderStrategyDetails' smart constructor.
 data AwsEcsClusterDefaultCapacityProviderStrategyDetails = AwsEcsClusterDefaultCapacityProviderStrategyDetails'
-  { -- | The minimum number of tasks to run on the specified capacity provider.
-    base :: Prelude.Maybe Prelude.Int,
-    -- | The name of the capacity provider.
+  { -- | The name of the capacity provider.
     capacityProvider :: Prelude.Maybe Prelude.Text,
+    -- | The minimum number of tasks to run on the specified capacity provider.
+    base :: Prelude.Maybe Prelude.Int,
     -- | The relative percentage of the total number of tasks launched that
     -- should use the capacity provider.
     weight :: Prelude.Maybe Prelude.Int
@@ -47,9 +47,9 @@ data AwsEcsClusterDefaultCapacityProviderStrategyDetails = AwsEcsClusterDefaultC
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'base', 'awsEcsClusterDefaultCapacityProviderStrategyDetails_base' - The minimum number of tasks to run on the specified capacity provider.
---
 -- 'capacityProvider', 'awsEcsClusterDefaultCapacityProviderStrategyDetails_capacityProvider' - The name of the capacity provider.
+--
+-- 'base', 'awsEcsClusterDefaultCapacityProviderStrategyDetails_base' - The minimum number of tasks to run on the specified capacity provider.
 --
 -- 'weight', 'awsEcsClusterDefaultCapacityProviderStrategyDetails_weight' - The relative percentage of the total number of tasks launched that
 -- should use the capacity provider.
@@ -57,21 +57,20 @@ newAwsEcsClusterDefaultCapacityProviderStrategyDetails ::
   AwsEcsClusterDefaultCapacityProviderStrategyDetails
 newAwsEcsClusterDefaultCapacityProviderStrategyDetails =
   AwsEcsClusterDefaultCapacityProviderStrategyDetails'
-    { base =
+    { capacityProvider =
         Prelude.Nothing,
-      capacityProvider =
-        Prelude.Nothing,
+      base = Prelude.Nothing,
       weight =
         Prelude.Nothing
     }
 
--- | The minimum number of tasks to run on the specified capacity provider.
-awsEcsClusterDefaultCapacityProviderStrategyDetails_base :: Lens.Lens' AwsEcsClusterDefaultCapacityProviderStrategyDetails (Prelude.Maybe Prelude.Int)
-awsEcsClusterDefaultCapacityProviderStrategyDetails_base = Lens.lens (\AwsEcsClusterDefaultCapacityProviderStrategyDetails' {base} -> base) (\s@AwsEcsClusterDefaultCapacityProviderStrategyDetails' {} a -> s {base = a} :: AwsEcsClusterDefaultCapacityProviderStrategyDetails)
-
 -- | The name of the capacity provider.
 awsEcsClusterDefaultCapacityProviderStrategyDetails_capacityProvider :: Lens.Lens' AwsEcsClusterDefaultCapacityProviderStrategyDetails (Prelude.Maybe Prelude.Text)
 awsEcsClusterDefaultCapacityProviderStrategyDetails_capacityProvider = Lens.lens (\AwsEcsClusterDefaultCapacityProviderStrategyDetails' {capacityProvider} -> capacityProvider) (\s@AwsEcsClusterDefaultCapacityProviderStrategyDetails' {} a -> s {capacityProvider = a} :: AwsEcsClusterDefaultCapacityProviderStrategyDetails)
+
+-- | The minimum number of tasks to run on the specified capacity provider.
+awsEcsClusterDefaultCapacityProviderStrategyDetails_base :: Lens.Lens' AwsEcsClusterDefaultCapacityProviderStrategyDetails (Prelude.Maybe Prelude.Int)
+awsEcsClusterDefaultCapacityProviderStrategyDetails_base = Lens.lens (\AwsEcsClusterDefaultCapacityProviderStrategyDetails' {base} -> base) (\s@AwsEcsClusterDefaultCapacityProviderStrategyDetails' {} a -> s {base = a} :: AwsEcsClusterDefaultCapacityProviderStrategyDetails)
 
 -- | The relative percentage of the total number of tasks launched that
 -- should use the capacity provider.
@@ -87,8 +86,8 @@ instance
       "AwsEcsClusterDefaultCapacityProviderStrategyDetails"
       ( \x ->
           AwsEcsClusterDefaultCapacityProviderStrategyDetails'
-            Prelude.<$> (x Core..:? "Base")
-              Prelude.<*> (x Core..:? "CapacityProvider")
+            Prelude.<$> (x Core..:? "CapacityProvider")
+              Prelude.<*> (x Core..:? "Base")
               Prelude.<*> (x Core..:? "Weight")
       )
 
@@ -99,8 +98,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsClusterDefaultCapacityProviderStrategyDetails' {..} =
-      _salt `Prelude.hashWithSalt` base
-        `Prelude.hashWithSalt` capacityProvider
+      _salt `Prelude.hashWithSalt` capacityProvider
+        `Prelude.hashWithSalt` base
         `Prelude.hashWithSalt` weight
 
 instance
@@ -109,8 +108,8 @@ instance
   where
   rnf
     AwsEcsClusterDefaultCapacityProviderStrategyDetails' {..} =
-      Prelude.rnf base
-        `Prelude.seq` Prelude.rnf capacityProvider
+      Prelude.rnf capacityProvider
+        `Prelude.seq` Prelude.rnf base
         `Prelude.seq` Prelude.rnf weight
 
 instance
@@ -121,9 +120,9 @@ instance
     AwsEcsClusterDefaultCapacityProviderStrategyDetails' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("Base" Core..=) Prelude.<$> base,
-              ("CapacityProvider" Core..=)
+            [ ("CapacityProvider" Core..=)
                 Prelude.<$> capacityProvider,
+              ("Base" Core..=) Prelude.<$> base,
               ("Weight" Core..=) Prelude.<$> weight
             ]
         )

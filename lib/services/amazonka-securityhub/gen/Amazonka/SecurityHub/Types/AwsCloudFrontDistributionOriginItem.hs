@@ -30,17 +30,17 @@ import Amazonka.SecurityHub.Types.AwsCloudFrontDistributionOriginS3OriginConfig
 --
 -- /See:/ 'newAwsCloudFrontDistributionOriginItem' smart constructor.
 data AwsCloudFrontDistributionOriginItem = AwsCloudFrontDistributionOriginItem'
-  { -- | An origin that is an S3 bucket that is not configured with static
+  { -- | Amazon S3 origins: The DNS name of the S3 bucket from which you want
+    -- CloudFront to get objects for this origin.
+    domainName :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the origin or origin group.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | An origin that is an S3 bucket that is not configured with static
     -- website hosting.
     s3OriginConfig :: Prelude.Maybe AwsCloudFrontDistributionOriginS3OriginConfig,
     -- | An optional element that causes CloudFront to request your content from
     -- a directory in your Amazon S3 bucket or your custom origin.
-    originPath :: Prelude.Maybe Prelude.Text,
-    -- | Amazon S3 origins: The DNS name of the S3 bucket from which you want
-    -- CloudFront to get objects for this origin.
-    domainName :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the origin or origin group.
-    id :: Prelude.Maybe Prelude.Text
+    originPath :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,26 +52,35 @@ data AwsCloudFrontDistributionOriginItem = AwsCloudFrontDistributionOriginItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'domainName', 'awsCloudFrontDistributionOriginItem_domainName' - Amazon S3 origins: The DNS name of the S3 bucket from which you want
+-- CloudFront to get objects for this origin.
+--
+-- 'id', 'awsCloudFrontDistributionOriginItem_id' - A unique identifier for the origin or origin group.
+--
 -- 's3OriginConfig', 'awsCloudFrontDistributionOriginItem_s3OriginConfig' - An origin that is an S3 bucket that is not configured with static
 -- website hosting.
 --
 -- 'originPath', 'awsCloudFrontDistributionOriginItem_originPath' - An optional element that causes CloudFront to request your content from
 -- a directory in your Amazon S3 bucket or your custom origin.
---
--- 'domainName', 'awsCloudFrontDistributionOriginItem_domainName' - Amazon S3 origins: The DNS name of the S3 bucket from which you want
--- CloudFront to get objects for this origin.
---
--- 'id', 'awsCloudFrontDistributionOriginItem_id' - A unique identifier for the origin or origin group.
 newAwsCloudFrontDistributionOriginItem ::
   AwsCloudFrontDistributionOriginItem
 newAwsCloudFrontDistributionOriginItem =
   AwsCloudFrontDistributionOriginItem'
-    { s3OriginConfig =
+    { domainName =
         Prelude.Nothing,
-      originPath = Prelude.Nothing,
-      domainName = Prelude.Nothing,
-      id = Prelude.Nothing
+      id = Prelude.Nothing,
+      s3OriginConfig = Prelude.Nothing,
+      originPath = Prelude.Nothing
     }
+
+-- | Amazon S3 origins: The DNS name of the S3 bucket from which you want
+-- CloudFront to get objects for this origin.
+awsCloudFrontDistributionOriginItem_domainName :: Lens.Lens' AwsCloudFrontDistributionOriginItem (Prelude.Maybe Prelude.Text)
+awsCloudFrontDistributionOriginItem_domainName = Lens.lens (\AwsCloudFrontDistributionOriginItem' {domainName} -> domainName) (\s@AwsCloudFrontDistributionOriginItem' {} a -> s {domainName = a} :: AwsCloudFrontDistributionOriginItem)
+
+-- | A unique identifier for the origin or origin group.
+awsCloudFrontDistributionOriginItem_id :: Lens.Lens' AwsCloudFrontDistributionOriginItem (Prelude.Maybe Prelude.Text)
+awsCloudFrontDistributionOriginItem_id = Lens.lens (\AwsCloudFrontDistributionOriginItem' {id} -> id) (\s@AwsCloudFrontDistributionOriginItem' {} a -> s {id = a} :: AwsCloudFrontDistributionOriginItem)
 
 -- | An origin that is an S3 bucket that is not configured with static
 -- website hosting.
@@ -83,15 +92,6 @@ awsCloudFrontDistributionOriginItem_s3OriginConfig = Lens.lens (\AwsCloudFrontDi
 awsCloudFrontDistributionOriginItem_originPath :: Lens.Lens' AwsCloudFrontDistributionOriginItem (Prelude.Maybe Prelude.Text)
 awsCloudFrontDistributionOriginItem_originPath = Lens.lens (\AwsCloudFrontDistributionOriginItem' {originPath} -> originPath) (\s@AwsCloudFrontDistributionOriginItem' {} a -> s {originPath = a} :: AwsCloudFrontDistributionOriginItem)
 
--- | Amazon S3 origins: The DNS name of the S3 bucket from which you want
--- CloudFront to get objects for this origin.
-awsCloudFrontDistributionOriginItem_domainName :: Lens.Lens' AwsCloudFrontDistributionOriginItem (Prelude.Maybe Prelude.Text)
-awsCloudFrontDistributionOriginItem_domainName = Lens.lens (\AwsCloudFrontDistributionOriginItem' {domainName} -> domainName) (\s@AwsCloudFrontDistributionOriginItem' {} a -> s {domainName = a} :: AwsCloudFrontDistributionOriginItem)
-
--- | A unique identifier for the origin or origin group.
-awsCloudFrontDistributionOriginItem_id :: Lens.Lens' AwsCloudFrontDistributionOriginItem (Prelude.Maybe Prelude.Text)
-awsCloudFrontDistributionOriginItem_id = Lens.lens (\AwsCloudFrontDistributionOriginItem' {id} -> id) (\s@AwsCloudFrontDistributionOriginItem' {} a -> s {id = a} :: AwsCloudFrontDistributionOriginItem)
-
 instance
   Core.FromJSON
     AwsCloudFrontDistributionOriginItem
@@ -101,10 +101,10 @@ instance
       "AwsCloudFrontDistributionOriginItem"
       ( \x ->
           AwsCloudFrontDistributionOriginItem'
-            Prelude.<$> (x Core..:? "S3OriginConfig")
-            Prelude.<*> (x Core..:? "OriginPath")
-            Prelude.<*> (x Core..:? "DomainName")
+            Prelude.<$> (x Core..:? "DomainName")
             Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "S3OriginConfig")
+            Prelude.<*> (x Core..:? "OriginPath")
       )
 
 instance
@@ -114,20 +114,20 @@ instance
   hashWithSalt
     _salt
     AwsCloudFrontDistributionOriginItem' {..} =
-      _salt `Prelude.hashWithSalt` s3OriginConfig
-        `Prelude.hashWithSalt` originPath
-        `Prelude.hashWithSalt` domainName
+      _salt `Prelude.hashWithSalt` domainName
         `Prelude.hashWithSalt` id
+        `Prelude.hashWithSalt` s3OriginConfig
+        `Prelude.hashWithSalt` originPath
 
 instance
   Prelude.NFData
     AwsCloudFrontDistributionOriginItem
   where
   rnf AwsCloudFrontDistributionOriginItem' {..} =
-    Prelude.rnf s3OriginConfig
-      `Prelude.seq` Prelude.rnf originPath
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf s3OriginConfig
+      `Prelude.seq` Prelude.rnf originPath
 
 instance
   Core.ToJSON
@@ -136,10 +136,10 @@ instance
   toJSON AwsCloudFrontDistributionOriginItem' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("S3OriginConfig" Core..=)
+          [ ("DomainName" Core..=) Prelude.<$> domainName,
+            ("Id" Core..=) Prelude.<$> id,
+            ("S3OriginConfig" Core..=)
               Prelude.<$> s3OriginConfig,
-            ("OriginPath" Core..=) Prelude.<$> originPath,
-            ("DomainName" Core..=) Prelude.<$> domainName,
-            ("Id" Core..=) Prelude.<$> id
+            ("OriginPath" Core..=) Prelude.<$> originPath
           ]
       )

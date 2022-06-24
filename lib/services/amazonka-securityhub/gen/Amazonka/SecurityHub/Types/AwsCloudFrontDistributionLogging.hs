@@ -28,15 +28,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsCloudFrontDistributionLogging' smart constructor.
 data AwsCloudFrontDistributionLogging = AwsCloudFrontDistributionLogging'
-  { -- | With this field, you can enable or disable the selected distribution.
+  { -- | The S3 bucket to store the access logs in.
+    bucket :: Prelude.Maybe Prelude.Text,
+    -- | With this field, you can enable or disable the selected distribution.
     enabled :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies whether you want CloudFront to include cookies in access logs.
+    includeCookies :: Prelude.Maybe Prelude.Bool,
     -- | An optional string that you want CloudFront to use as a prefix to the
     -- access log filenames for this distribution.
-    prefix :: Prelude.Maybe Prelude.Text,
-    -- | The S3 bucket to store the access logs in.
-    bucket :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether you want CloudFront to include cookies in access logs.
-    includeCookies :: Prelude.Maybe Prelude.Bool
+    prefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,41 +48,41 @@ data AwsCloudFrontDistributionLogging = AwsCloudFrontDistributionLogging'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'bucket', 'awsCloudFrontDistributionLogging_bucket' - The S3 bucket to store the access logs in.
+--
 -- 'enabled', 'awsCloudFrontDistributionLogging_enabled' - With this field, you can enable or disable the selected distribution.
+--
+-- 'includeCookies', 'awsCloudFrontDistributionLogging_includeCookies' - Specifies whether you want CloudFront to include cookies in access logs.
 --
 -- 'prefix', 'awsCloudFrontDistributionLogging_prefix' - An optional string that you want CloudFront to use as a prefix to the
 -- access log filenames for this distribution.
---
--- 'bucket', 'awsCloudFrontDistributionLogging_bucket' - The S3 bucket to store the access logs in.
---
--- 'includeCookies', 'awsCloudFrontDistributionLogging_includeCookies' - Specifies whether you want CloudFront to include cookies in access logs.
 newAwsCloudFrontDistributionLogging ::
   AwsCloudFrontDistributionLogging
 newAwsCloudFrontDistributionLogging =
   AwsCloudFrontDistributionLogging'
-    { enabled =
+    { bucket =
         Prelude.Nothing,
-      prefix = Prelude.Nothing,
-      bucket = Prelude.Nothing,
-      includeCookies = Prelude.Nothing
+      enabled = Prelude.Nothing,
+      includeCookies = Prelude.Nothing,
+      prefix = Prelude.Nothing
     }
-
--- | With this field, you can enable or disable the selected distribution.
-awsCloudFrontDistributionLogging_enabled :: Lens.Lens' AwsCloudFrontDistributionLogging (Prelude.Maybe Prelude.Bool)
-awsCloudFrontDistributionLogging_enabled = Lens.lens (\AwsCloudFrontDistributionLogging' {enabled} -> enabled) (\s@AwsCloudFrontDistributionLogging' {} a -> s {enabled = a} :: AwsCloudFrontDistributionLogging)
-
--- | An optional string that you want CloudFront to use as a prefix to the
--- access log filenames for this distribution.
-awsCloudFrontDistributionLogging_prefix :: Lens.Lens' AwsCloudFrontDistributionLogging (Prelude.Maybe Prelude.Text)
-awsCloudFrontDistributionLogging_prefix = Lens.lens (\AwsCloudFrontDistributionLogging' {prefix} -> prefix) (\s@AwsCloudFrontDistributionLogging' {} a -> s {prefix = a} :: AwsCloudFrontDistributionLogging)
 
 -- | The S3 bucket to store the access logs in.
 awsCloudFrontDistributionLogging_bucket :: Lens.Lens' AwsCloudFrontDistributionLogging (Prelude.Maybe Prelude.Text)
 awsCloudFrontDistributionLogging_bucket = Lens.lens (\AwsCloudFrontDistributionLogging' {bucket} -> bucket) (\s@AwsCloudFrontDistributionLogging' {} a -> s {bucket = a} :: AwsCloudFrontDistributionLogging)
 
+-- | With this field, you can enable or disable the selected distribution.
+awsCloudFrontDistributionLogging_enabled :: Lens.Lens' AwsCloudFrontDistributionLogging (Prelude.Maybe Prelude.Bool)
+awsCloudFrontDistributionLogging_enabled = Lens.lens (\AwsCloudFrontDistributionLogging' {enabled} -> enabled) (\s@AwsCloudFrontDistributionLogging' {} a -> s {enabled = a} :: AwsCloudFrontDistributionLogging)
+
 -- | Specifies whether you want CloudFront to include cookies in access logs.
 awsCloudFrontDistributionLogging_includeCookies :: Lens.Lens' AwsCloudFrontDistributionLogging (Prelude.Maybe Prelude.Bool)
 awsCloudFrontDistributionLogging_includeCookies = Lens.lens (\AwsCloudFrontDistributionLogging' {includeCookies} -> includeCookies) (\s@AwsCloudFrontDistributionLogging' {} a -> s {includeCookies = a} :: AwsCloudFrontDistributionLogging)
+
+-- | An optional string that you want CloudFront to use as a prefix to the
+-- access log filenames for this distribution.
+awsCloudFrontDistributionLogging_prefix :: Lens.Lens' AwsCloudFrontDistributionLogging (Prelude.Maybe Prelude.Text)
+awsCloudFrontDistributionLogging_prefix = Lens.lens (\AwsCloudFrontDistributionLogging' {prefix} -> prefix) (\s@AwsCloudFrontDistributionLogging' {} a -> s {prefix = a} :: AwsCloudFrontDistributionLogging)
 
 instance
   Core.FromJSON
@@ -93,10 +93,10 @@ instance
       "AwsCloudFrontDistributionLogging"
       ( \x ->
           AwsCloudFrontDistributionLogging'
-            Prelude.<$> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "Prefix")
-            Prelude.<*> (x Core..:? "Bucket")
+            Prelude.<$> (x Core..:? "Bucket")
+            Prelude.<*> (x Core..:? "Enabled")
             Prelude.<*> (x Core..:? "IncludeCookies")
+            Prelude.<*> (x Core..:? "Prefix")
       )
 
 instance
@@ -106,29 +106,29 @@ instance
   hashWithSalt
     _salt
     AwsCloudFrontDistributionLogging' {..} =
-      _salt `Prelude.hashWithSalt` enabled
-        `Prelude.hashWithSalt` prefix
-        `Prelude.hashWithSalt` bucket
+      _salt `Prelude.hashWithSalt` bucket
+        `Prelude.hashWithSalt` enabled
         `Prelude.hashWithSalt` includeCookies
+        `Prelude.hashWithSalt` prefix
 
 instance
   Prelude.NFData
     AwsCloudFrontDistributionLogging
   where
   rnf AwsCloudFrontDistributionLogging' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf includeCookies
+      `Prelude.seq` Prelude.rnf prefix
 
 instance Core.ToJSON AwsCloudFrontDistributionLogging where
   toJSON AwsCloudFrontDistributionLogging' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Enabled" Core..=) Prelude.<$> enabled,
-            ("Prefix" Core..=) Prelude.<$> prefix,
-            ("Bucket" Core..=) Prelude.<$> bucket,
+          [ ("Bucket" Core..=) Prelude.<$> bucket,
+            ("Enabled" Core..=) Prelude.<$> enabled,
             ("IncludeCookies" Core..=)
-              Prelude.<$> includeCookies
+              Prelude.<$> includeCookies,
+            ("Prefix" Core..=) Prelude.<$> prefix
           ]
       )

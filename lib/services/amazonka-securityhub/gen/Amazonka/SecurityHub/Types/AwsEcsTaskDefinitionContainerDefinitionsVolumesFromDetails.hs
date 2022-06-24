@@ -27,11 +27,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails' smart constructor.
 data AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails = AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails'
-  { -- | The name of another container within the same task definition from which
+  { -- | Whether the container has read-only access to the volume.
+    readOnly :: Prelude.Maybe Prelude.Bool,
+    -- | The name of another container within the same task definition from which
     -- to mount volumes.
-    sourceContainer :: Prelude.Maybe Prelude.Text,
-    -- | Whether the container has read-only access to the volume.
-    readOnly :: Prelude.Maybe Prelude.Bool
+    sourceContainer :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,28 +43,28 @@ data AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails = AwsEcsTaskDefi
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'readOnly', 'awsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails_readOnly' - Whether the container has read-only access to the volume.
+--
 -- 'sourceContainer', 'awsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails_sourceContainer' - The name of another container within the same task definition from which
 -- to mount volumes.
---
--- 'readOnly', 'awsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails_readOnly' - Whether the container has read-only access to the volume.
 newAwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails ::
   AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails
 newAwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails =
   AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails'
-    { sourceContainer =
+    { readOnly =
         Prelude.Nothing,
-      readOnly =
+      sourceContainer =
         Prelude.Nothing
     }
+
+-- | Whether the container has read-only access to the volume.
+awsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails_readOnly :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails (Prelude.Maybe Prelude.Bool)
+awsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails_readOnly = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails' {readOnly} -> readOnly) (\s@AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails' {} a -> s {readOnly = a} :: AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails)
 
 -- | The name of another container within the same task definition from which
 -- to mount volumes.
 awsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails_sourceContainer :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails (Prelude.Maybe Prelude.Text)
 awsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails_sourceContainer = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails' {sourceContainer} -> sourceContainer) (\s@AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails' {} a -> s {sourceContainer = a} :: AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails)
-
--- | Whether the container has read-only access to the volume.
-awsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails_readOnly :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails (Prelude.Maybe Prelude.Bool)
-awsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails_readOnly = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails' {readOnly} -> readOnly) (\s@AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails' {} a -> s {readOnly = a} :: AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails)
 
 instance
   Core.FromJSON
@@ -75,8 +75,8 @@ instance
       "AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails"
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails'
-            Prelude.<$> (x Core..:? "SourceContainer")
-              Prelude.<*> (x Core..:? "ReadOnly")
+            Prelude.<$> (x Core..:? "ReadOnly")
+              Prelude.<*> (x Core..:? "SourceContainer")
       )
 
 instance
@@ -86,8 +86,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails' {..} =
-      _salt `Prelude.hashWithSalt` sourceContainer
-        `Prelude.hashWithSalt` readOnly
+      _salt `Prelude.hashWithSalt` readOnly
+        `Prelude.hashWithSalt` sourceContainer
 
 instance
   Prelude.NFData
@@ -95,8 +95,8 @@ instance
   where
   rnf
     AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails' {..} =
-      Prelude.rnf sourceContainer
-        `Prelude.seq` Prelude.rnf readOnly
+      Prelude.rnf readOnly
+        `Prelude.seq` Prelude.rnf sourceContainer
 
 instance
   Core.ToJSON
@@ -106,8 +106,8 @@ instance
     AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("SourceContainer" Core..=)
-                Prelude.<$> sourceContainer,
-              ("ReadOnly" Core..=) Prelude.<$> readOnly
+            [ ("ReadOnly" Core..=) Prelude.<$> readOnly,
+              ("SourceContainer" Core..=)
+                Prelude.<$> sourceContainer
             ]
         )

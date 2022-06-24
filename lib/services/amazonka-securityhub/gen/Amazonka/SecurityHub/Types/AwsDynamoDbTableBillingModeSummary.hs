@@ -28,17 +28,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsDynamoDbTableBillingModeSummary' smart constructor.
 data AwsDynamoDbTableBillingModeSummary = AwsDynamoDbTableBillingModeSummary'
-  { -- | If the billing mode is @PAY_PER_REQUEST@, indicates when the billing
+  { -- | The method used to charge for read and write throughput and to manage
+    -- capacity.
+    billingMode :: Prelude.Maybe Prelude.Text,
+    -- | If the billing mode is @PAY_PER_REQUEST@, indicates when the billing
     -- mode was set to that value.
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
     -- The value cannot contain spaces. For example,
     -- @2020-03-22T13:22:13.933Z@.
-    lastUpdateToPayPerRequestDateTime :: Prelude.Maybe Prelude.Text,
-    -- | The method used to charge for read and write throughput and to manage
-    -- capacity.
-    billingMode :: Prelude.Maybe Prelude.Text
+    lastUpdateToPayPerRequestDateTime :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,6 +50,9 @@ data AwsDynamoDbTableBillingModeSummary = AwsDynamoDbTableBillingModeSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'billingMode', 'awsDynamoDbTableBillingModeSummary_billingMode' - The method used to charge for read and write throughput and to manage
+-- capacity.
+--
 -- 'lastUpdateToPayPerRequestDateTime', 'awsDynamoDbTableBillingModeSummary_lastUpdateToPayPerRequestDateTime' - If the billing mode is @PAY_PER_REQUEST@, indicates when the billing
 -- mode was set to that value.
 --
@@ -57,17 +60,20 @@ data AwsDynamoDbTableBillingModeSummary = AwsDynamoDbTableBillingModeSummary'
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
 -- The value cannot contain spaces. For example,
 -- @2020-03-22T13:22:13.933Z@.
---
--- 'billingMode', 'awsDynamoDbTableBillingModeSummary_billingMode' - The method used to charge for read and write throughput and to manage
--- capacity.
 newAwsDynamoDbTableBillingModeSummary ::
   AwsDynamoDbTableBillingModeSummary
 newAwsDynamoDbTableBillingModeSummary =
   AwsDynamoDbTableBillingModeSummary'
-    { lastUpdateToPayPerRequestDateTime =
+    { billingMode =
         Prelude.Nothing,
-      billingMode = Prelude.Nothing
+      lastUpdateToPayPerRequestDateTime =
+        Prelude.Nothing
     }
+
+-- | The method used to charge for read and write throughput and to manage
+-- capacity.
+awsDynamoDbTableBillingModeSummary_billingMode :: Lens.Lens' AwsDynamoDbTableBillingModeSummary (Prelude.Maybe Prelude.Text)
+awsDynamoDbTableBillingModeSummary_billingMode = Lens.lens (\AwsDynamoDbTableBillingModeSummary' {billingMode} -> billingMode) (\s@AwsDynamoDbTableBillingModeSummary' {} a -> s {billingMode = a} :: AwsDynamoDbTableBillingModeSummary)
 
 -- | If the billing mode is @PAY_PER_REQUEST@, indicates when the billing
 -- mode was set to that value.
@@ -79,11 +85,6 @@ newAwsDynamoDbTableBillingModeSummary =
 awsDynamoDbTableBillingModeSummary_lastUpdateToPayPerRequestDateTime :: Lens.Lens' AwsDynamoDbTableBillingModeSummary (Prelude.Maybe Prelude.Text)
 awsDynamoDbTableBillingModeSummary_lastUpdateToPayPerRequestDateTime = Lens.lens (\AwsDynamoDbTableBillingModeSummary' {lastUpdateToPayPerRequestDateTime} -> lastUpdateToPayPerRequestDateTime) (\s@AwsDynamoDbTableBillingModeSummary' {} a -> s {lastUpdateToPayPerRequestDateTime = a} :: AwsDynamoDbTableBillingModeSummary)
 
--- | The method used to charge for read and write throughput and to manage
--- capacity.
-awsDynamoDbTableBillingModeSummary_billingMode :: Lens.Lens' AwsDynamoDbTableBillingModeSummary (Prelude.Maybe Prelude.Text)
-awsDynamoDbTableBillingModeSummary_billingMode = Lens.lens (\AwsDynamoDbTableBillingModeSummary' {billingMode} -> billingMode) (\s@AwsDynamoDbTableBillingModeSummary' {} a -> s {billingMode = a} :: AwsDynamoDbTableBillingModeSummary)
-
 instance
   Core.FromJSON
     AwsDynamoDbTableBillingModeSummary
@@ -93,8 +94,8 @@ instance
       "AwsDynamoDbTableBillingModeSummary"
       ( \x ->
           AwsDynamoDbTableBillingModeSummary'
-            Prelude.<$> (x Core..:? "LastUpdateToPayPerRequestDateTime")
-            Prelude.<*> (x Core..:? "BillingMode")
+            Prelude.<$> (x Core..:? "BillingMode")
+            Prelude.<*> (x Core..:? "LastUpdateToPayPerRequestDateTime")
       )
 
 instance
@@ -104,17 +105,16 @@ instance
   hashWithSalt
     _salt
     AwsDynamoDbTableBillingModeSummary' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` billingMode
         `Prelude.hashWithSalt` lastUpdateToPayPerRequestDateTime
-        `Prelude.hashWithSalt` billingMode
 
 instance
   Prelude.NFData
     AwsDynamoDbTableBillingModeSummary
   where
   rnf AwsDynamoDbTableBillingModeSummary' {..} =
-    Prelude.rnf lastUpdateToPayPerRequestDateTime
-      `Prelude.seq` Prelude.rnf billingMode
+    Prelude.rnf billingMode
+      `Prelude.seq` Prelude.rnf lastUpdateToPayPerRequestDateTime
 
 instance
   Core.ToJSON
@@ -123,8 +123,8 @@ instance
   toJSON AwsDynamoDbTableBillingModeSummary' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("LastUpdateToPayPerRequestDateTime" Core..=)
-              Prelude.<$> lastUpdateToPayPerRequestDateTime,
-            ("BillingMode" Core..=) Prelude.<$> billingMode
+          [ ("BillingMode" Core..=) Prelude.<$> billingMode,
+            ("LastUpdateToPayPerRequestDateTime" Core..=)
+              Prelude.<$> lastUpdateToPayPerRequestDateTime
           ]
       )

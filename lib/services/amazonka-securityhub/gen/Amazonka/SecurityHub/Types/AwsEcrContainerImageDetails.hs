@@ -27,13 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEcrContainerImageDetails' smart constructor.
 data AwsEcrContainerImageDetails = AwsEcrContainerImageDetails'
-  { -- | The Amazon Web Services account identifier that is associated with the
-    -- registry that the image belongs to.
-    registryId :: Prelude.Maybe Prelude.Text,
+  { -- | The name of the repository that the image belongs to.
+    repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The list of tags that are associated with the image.
     imageTags :: Prelude.Maybe [Prelude.Text],
-    -- | The sha256 digest of the image manifest.
-    imageDigest :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the image was pushed to the repository.
     --
     -- Uses the @date-time@ format specified in
@@ -41,10 +38,13 @@ data AwsEcrContainerImageDetails = AwsEcrContainerImageDetails'
     -- The value cannot contain spaces. For example,
     -- @2020-03-22T13:22:13.933Z@.
     imagePublishedAt :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services account identifier that is associated with the
+    -- registry that the image belongs to.
+    registryId :: Prelude.Maybe Prelude.Text,
+    -- | The sha256 digest of the image manifest.
+    imageDigest :: Prelude.Maybe Prelude.Text,
     -- | The architecture of the image.
-    architecture :: Prelude.Maybe Prelude.Text,
-    -- | The name of the repository that the image belongs to.
-    repositoryName :: Prelude.Maybe Prelude.Text
+    architecture :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,12 +56,9 @@ data AwsEcrContainerImageDetails = AwsEcrContainerImageDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryId', 'awsEcrContainerImageDetails_registryId' - The Amazon Web Services account identifier that is associated with the
--- registry that the image belongs to.
+-- 'repositoryName', 'awsEcrContainerImageDetails_repositoryName' - The name of the repository that the image belongs to.
 --
 -- 'imageTags', 'awsEcrContainerImageDetails_imageTags' - The list of tags that are associated with the image.
---
--- 'imageDigest', 'awsEcrContainerImageDetails_imageDigest' - The sha256 digest of the image manifest.
 --
 -- 'imagePublishedAt', 'awsEcrContainerImageDetails_imagePublishedAt' - The date and time when the image was pushed to the repository.
 --
@@ -70,34 +67,32 @@ data AwsEcrContainerImageDetails = AwsEcrContainerImageDetails'
 -- The value cannot contain spaces. For example,
 -- @2020-03-22T13:22:13.933Z@.
 --
--- 'architecture', 'awsEcrContainerImageDetails_architecture' - The architecture of the image.
+-- 'registryId', 'awsEcrContainerImageDetails_registryId' - The Amazon Web Services account identifier that is associated with the
+-- registry that the image belongs to.
 --
--- 'repositoryName', 'awsEcrContainerImageDetails_repositoryName' - The name of the repository that the image belongs to.
+-- 'imageDigest', 'awsEcrContainerImageDetails_imageDigest' - The sha256 digest of the image manifest.
+--
+-- 'architecture', 'awsEcrContainerImageDetails_architecture' - The architecture of the image.
 newAwsEcrContainerImageDetails ::
   AwsEcrContainerImageDetails
 newAwsEcrContainerImageDetails =
   AwsEcrContainerImageDetails'
-    { registryId =
+    { repositoryName =
         Prelude.Nothing,
       imageTags = Prelude.Nothing,
-      imageDigest = Prelude.Nothing,
       imagePublishedAt = Prelude.Nothing,
-      architecture = Prelude.Nothing,
-      repositoryName = Prelude.Nothing
+      registryId = Prelude.Nothing,
+      imageDigest = Prelude.Nothing,
+      architecture = Prelude.Nothing
     }
 
--- | The Amazon Web Services account identifier that is associated with the
--- registry that the image belongs to.
-awsEcrContainerImageDetails_registryId :: Lens.Lens' AwsEcrContainerImageDetails (Prelude.Maybe Prelude.Text)
-awsEcrContainerImageDetails_registryId = Lens.lens (\AwsEcrContainerImageDetails' {registryId} -> registryId) (\s@AwsEcrContainerImageDetails' {} a -> s {registryId = a} :: AwsEcrContainerImageDetails)
+-- | The name of the repository that the image belongs to.
+awsEcrContainerImageDetails_repositoryName :: Lens.Lens' AwsEcrContainerImageDetails (Prelude.Maybe Prelude.Text)
+awsEcrContainerImageDetails_repositoryName = Lens.lens (\AwsEcrContainerImageDetails' {repositoryName} -> repositoryName) (\s@AwsEcrContainerImageDetails' {} a -> s {repositoryName = a} :: AwsEcrContainerImageDetails)
 
 -- | The list of tags that are associated with the image.
 awsEcrContainerImageDetails_imageTags :: Lens.Lens' AwsEcrContainerImageDetails (Prelude.Maybe [Prelude.Text])
 awsEcrContainerImageDetails_imageTags = Lens.lens (\AwsEcrContainerImageDetails' {imageTags} -> imageTags) (\s@AwsEcrContainerImageDetails' {} a -> s {imageTags = a} :: AwsEcrContainerImageDetails) Prelude.. Lens.mapping Lens.coerced
-
--- | The sha256 digest of the image manifest.
-awsEcrContainerImageDetails_imageDigest :: Lens.Lens' AwsEcrContainerImageDetails (Prelude.Maybe Prelude.Text)
-awsEcrContainerImageDetails_imageDigest = Lens.lens (\AwsEcrContainerImageDetails' {imageDigest} -> imageDigest) (\s@AwsEcrContainerImageDetails' {} a -> s {imageDigest = a} :: AwsEcrContainerImageDetails)
 
 -- | The date and time when the image was pushed to the repository.
 --
@@ -108,13 +103,18 @@ awsEcrContainerImageDetails_imageDigest = Lens.lens (\AwsEcrContainerImageDetail
 awsEcrContainerImageDetails_imagePublishedAt :: Lens.Lens' AwsEcrContainerImageDetails (Prelude.Maybe Prelude.Text)
 awsEcrContainerImageDetails_imagePublishedAt = Lens.lens (\AwsEcrContainerImageDetails' {imagePublishedAt} -> imagePublishedAt) (\s@AwsEcrContainerImageDetails' {} a -> s {imagePublishedAt = a} :: AwsEcrContainerImageDetails)
 
+-- | The Amazon Web Services account identifier that is associated with the
+-- registry that the image belongs to.
+awsEcrContainerImageDetails_registryId :: Lens.Lens' AwsEcrContainerImageDetails (Prelude.Maybe Prelude.Text)
+awsEcrContainerImageDetails_registryId = Lens.lens (\AwsEcrContainerImageDetails' {registryId} -> registryId) (\s@AwsEcrContainerImageDetails' {} a -> s {registryId = a} :: AwsEcrContainerImageDetails)
+
+-- | The sha256 digest of the image manifest.
+awsEcrContainerImageDetails_imageDigest :: Lens.Lens' AwsEcrContainerImageDetails (Prelude.Maybe Prelude.Text)
+awsEcrContainerImageDetails_imageDigest = Lens.lens (\AwsEcrContainerImageDetails' {imageDigest} -> imageDigest) (\s@AwsEcrContainerImageDetails' {} a -> s {imageDigest = a} :: AwsEcrContainerImageDetails)
+
 -- | The architecture of the image.
 awsEcrContainerImageDetails_architecture :: Lens.Lens' AwsEcrContainerImageDetails (Prelude.Maybe Prelude.Text)
 awsEcrContainerImageDetails_architecture = Lens.lens (\AwsEcrContainerImageDetails' {architecture} -> architecture) (\s@AwsEcrContainerImageDetails' {} a -> s {architecture = a} :: AwsEcrContainerImageDetails)
-
--- | The name of the repository that the image belongs to.
-awsEcrContainerImageDetails_repositoryName :: Lens.Lens' AwsEcrContainerImageDetails (Prelude.Maybe Prelude.Text)
-awsEcrContainerImageDetails_repositoryName = Lens.lens (\AwsEcrContainerImageDetails' {repositoryName} -> repositoryName) (\s@AwsEcrContainerImageDetails' {} a -> s {repositoryName = a} :: AwsEcrContainerImageDetails)
 
 instance Core.FromJSON AwsEcrContainerImageDetails where
   parseJSON =
@@ -122,43 +122,43 @@ instance Core.FromJSON AwsEcrContainerImageDetails where
       "AwsEcrContainerImageDetails"
       ( \x ->
           AwsEcrContainerImageDetails'
-            Prelude.<$> (x Core..:? "RegistryId")
+            Prelude.<$> (x Core..:? "RepositoryName")
             Prelude.<*> (x Core..:? "ImageTags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ImageDigest")
             Prelude.<*> (x Core..:? "ImagePublishedAt")
+            Prelude.<*> (x Core..:? "RegistryId")
+            Prelude.<*> (x Core..:? "ImageDigest")
             Prelude.<*> (x Core..:? "Architecture")
-            Prelude.<*> (x Core..:? "RepositoryName")
       )
 
 instance Prelude.Hashable AwsEcrContainerImageDetails where
   hashWithSalt _salt AwsEcrContainerImageDetails' {..} =
-    _salt `Prelude.hashWithSalt` registryId
+    _salt `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` imageTags
-      `Prelude.hashWithSalt` imageDigest
       `Prelude.hashWithSalt` imagePublishedAt
+      `Prelude.hashWithSalt` registryId
+      `Prelude.hashWithSalt` imageDigest
       `Prelude.hashWithSalt` architecture
-      `Prelude.hashWithSalt` repositoryName
 
 instance Prelude.NFData AwsEcrContainerImageDetails where
   rnf AwsEcrContainerImageDetails' {..} =
-    Prelude.rnf registryId
+    Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf imageTags
-      `Prelude.seq` Prelude.rnf imageDigest
       `Prelude.seq` Prelude.rnf imagePublishedAt
+      `Prelude.seq` Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf imageDigest
       `Prelude.seq` Prelude.rnf architecture
-      `Prelude.seq` Prelude.rnf repositoryName
 
 instance Core.ToJSON AwsEcrContainerImageDetails where
   toJSON AwsEcrContainerImageDetails' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RegistryId" Core..=) Prelude.<$> registryId,
+          [ ("RepositoryName" Core..=)
+              Prelude.<$> repositoryName,
             ("ImageTags" Core..=) Prelude.<$> imageTags,
-            ("ImageDigest" Core..=) Prelude.<$> imageDigest,
             ("ImagePublishedAt" Core..=)
               Prelude.<$> imagePublishedAt,
-            ("Architecture" Core..=) Prelude.<$> architecture,
-            ("RepositoryName" Core..=)
-              Prelude.<$> repositoryName
+            ("RegistryId" Core..=) Prelude.<$> registryId,
+            ("ImageDigest" Core..=) Prelude.<$> imageDigest,
+            ("Architecture" Core..=) Prelude.<$> architecture
           ]
       )

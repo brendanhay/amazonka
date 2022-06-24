@@ -27,29 +27,29 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsCodeBuildProjectArtifactsDetails' smart constructor.
 data AwsCodeBuildProjectArtifactsDetails = AwsCodeBuildProjectArtifactsDetails'
-  { -- | Only used when @Type@ is @S3@. The type of output artifact to create.
-    packaging :: Prelude.Maybe Prelude.Text,
-    -- | Only used when @Type@ is @S3@. The name of the S3 bucket where the
-    -- artifact is located.
-    location :: Prelude.Maybe Prelude.Text,
-    -- | Only used when @Type@ is @S3@. The path to the artifact. Used with
-    -- @Name@ and @NamespaceType@ to determine the pattern for storing the
-    -- artifact.
-    path :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether to disable encryption on the artifact. Only valid when
+  { -- | Indicates whether to disable encryption on the artifact. Only valid when
     -- @Type@ is @S3@.
     encryptionDisabled :: Prelude.Maybe Prelude.Bool,
     -- | Only used when Type is S3. The name of the artifact. Used with
     -- @NamepaceType@ and @Path@ to determine the pattern for storing the
     -- artifact.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The type of build artifact.
+    type' :: Prelude.Maybe Prelude.Text,
+    -- | Only used when @Type@ is @S3@. The path to the artifact. Used with
+    -- @Name@ and @NamespaceType@ to determine the pattern for storing the
+    -- artifact.
+    path :: Prelude.Maybe Prelude.Text,
+    -- | An identifier for the artifact definition.
+    artifactIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | Only used when @Type@ is @S3@. The type of output artifact to create.
+    packaging :: Prelude.Maybe Prelude.Text,
+    -- | Only used when @Type@ is @S3@. The name of the S3 bucket where the
+    -- artifact is located.
+    location :: Prelude.Maybe Prelude.Text,
     -- | Whether the name specified in the buildspec file overrides the artifact
     -- name.
     overrideArtifactName :: Prelude.Maybe Prelude.Bool,
-    -- | An identifier for the artifact definition.
-    artifactIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The type of build artifact.
-    type' :: Prelude.Maybe Prelude.Text,
     -- | Only used when @Type@ is @S3@. The value to use for the namespace. Used
     -- with @Name@ and @Path@ to determine the pattern for storing the
     -- artifact.
@@ -65,15 +65,6 @@ data AwsCodeBuildProjectArtifactsDetails = AwsCodeBuildProjectArtifactsDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'packaging', 'awsCodeBuildProjectArtifactsDetails_packaging' - Only used when @Type@ is @S3@. The type of output artifact to create.
---
--- 'location', 'awsCodeBuildProjectArtifactsDetails_location' - Only used when @Type@ is @S3@. The name of the S3 bucket where the
--- artifact is located.
---
--- 'path', 'awsCodeBuildProjectArtifactsDetails_path' - Only used when @Type@ is @S3@. The path to the artifact. Used with
--- @Name@ and @NamespaceType@ to determine the pattern for storing the
--- artifact.
---
 -- 'encryptionDisabled', 'awsCodeBuildProjectArtifactsDetails_encryptionDisabled' - Indicates whether to disable encryption on the artifact. Only valid when
 -- @Type@ is @S3@.
 --
@@ -81,12 +72,21 @@ data AwsCodeBuildProjectArtifactsDetails = AwsCodeBuildProjectArtifactsDetails'
 -- @NamepaceType@ and @Path@ to determine the pattern for storing the
 -- artifact.
 --
--- 'overrideArtifactName', 'awsCodeBuildProjectArtifactsDetails_overrideArtifactName' - Whether the name specified in the buildspec file overrides the artifact
--- name.
+-- 'type'', 'awsCodeBuildProjectArtifactsDetails_type' - The type of build artifact.
+--
+-- 'path', 'awsCodeBuildProjectArtifactsDetails_path' - Only used when @Type@ is @S3@. The path to the artifact. Used with
+-- @Name@ and @NamespaceType@ to determine the pattern for storing the
+-- artifact.
 --
 -- 'artifactIdentifier', 'awsCodeBuildProjectArtifactsDetails_artifactIdentifier' - An identifier for the artifact definition.
 --
--- 'type'', 'awsCodeBuildProjectArtifactsDetails_type' - The type of build artifact.
+-- 'packaging', 'awsCodeBuildProjectArtifactsDetails_packaging' - Only used when @Type@ is @S3@. The type of output artifact to create.
+--
+-- 'location', 'awsCodeBuildProjectArtifactsDetails_location' - Only used when @Type@ is @S3@. The name of the S3 bucket where the
+-- artifact is located.
+--
+-- 'overrideArtifactName', 'awsCodeBuildProjectArtifactsDetails_overrideArtifactName' - Whether the name specified in the buildspec file overrides the artifact
+-- name.
 --
 -- 'namespaceType', 'awsCodeBuildProjectArtifactsDetails_namespaceType' - Only used when @Type@ is @S3@. The value to use for the namespace. Used
 -- with @Name@ and @Path@ to determine the pattern for storing the
@@ -95,32 +95,17 @@ newAwsCodeBuildProjectArtifactsDetails ::
   AwsCodeBuildProjectArtifactsDetails
 newAwsCodeBuildProjectArtifactsDetails =
   AwsCodeBuildProjectArtifactsDetails'
-    { packaging =
+    { encryptionDisabled =
         Prelude.Nothing,
-      location = Prelude.Nothing,
-      path = Prelude.Nothing,
-      encryptionDisabled = Prelude.Nothing,
       name = Prelude.Nothing,
-      overrideArtifactName = Prelude.Nothing,
-      artifactIdentifier = Prelude.Nothing,
       type' = Prelude.Nothing,
+      path = Prelude.Nothing,
+      artifactIdentifier = Prelude.Nothing,
+      packaging = Prelude.Nothing,
+      location = Prelude.Nothing,
+      overrideArtifactName = Prelude.Nothing,
       namespaceType = Prelude.Nothing
     }
-
--- | Only used when @Type@ is @S3@. The type of output artifact to create.
-awsCodeBuildProjectArtifactsDetails_packaging :: Lens.Lens' AwsCodeBuildProjectArtifactsDetails (Prelude.Maybe Prelude.Text)
-awsCodeBuildProjectArtifactsDetails_packaging = Lens.lens (\AwsCodeBuildProjectArtifactsDetails' {packaging} -> packaging) (\s@AwsCodeBuildProjectArtifactsDetails' {} a -> s {packaging = a} :: AwsCodeBuildProjectArtifactsDetails)
-
--- | Only used when @Type@ is @S3@. The name of the S3 bucket where the
--- artifact is located.
-awsCodeBuildProjectArtifactsDetails_location :: Lens.Lens' AwsCodeBuildProjectArtifactsDetails (Prelude.Maybe Prelude.Text)
-awsCodeBuildProjectArtifactsDetails_location = Lens.lens (\AwsCodeBuildProjectArtifactsDetails' {location} -> location) (\s@AwsCodeBuildProjectArtifactsDetails' {} a -> s {location = a} :: AwsCodeBuildProjectArtifactsDetails)
-
--- | Only used when @Type@ is @S3@. The path to the artifact. Used with
--- @Name@ and @NamespaceType@ to determine the pattern for storing the
--- artifact.
-awsCodeBuildProjectArtifactsDetails_path :: Lens.Lens' AwsCodeBuildProjectArtifactsDetails (Prelude.Maybe Prelude.Text)
-awsCodeBuildProjectArtifactsDetails_path = Lens.lens (\AwsCodeBuildProjectArtifactsDetails' {path} -> path) (\s@AwsCodeBuildProjectArtifactsDetails' {} a -> s {path = a} :: AwsCodeBuildProjectArtifactsDetails)
 
 -- | Indicates whether to disable encryption on the artifact. Only valid when
 -- @Type@ is @S3@.
@@ -133,18 +118,33 @@ awsCodeBuildProjectArtifactsDetails_encryptionDisabled = Lens.lens (\AwsCodeBuil
 awsCodeBuildProjectArtifactsDetails_name :: Lens.Lens' AwsCodeBuildProjectArtifactsDetails (Prelude.Maybe Prelude.Text)
 awsCodeBuildProjectArtifactsDetails_name = Lens.lens (\AwsCodeBuildProjectArtifactsDetails' {name} -> name) (\s@AwsCodeBuildProjectArtifactsDetails' {} a -> s {name = a} :: AwsCodeBuildProjectArtifactsDetails)
 
--- | Whether the name specified in the buildspec file overrides the artifact
--- name.
-awsCodeBuildProjectArtifactsDetails_overrideArtifactName :: Lens.Lens' AwsCodeBuildProjectArtifactsDetails (Prelude.Maybe Prelude.Bool)
-awsCodeBuildProjectArtifactsDetails_overrideArtifactName = Lens.lens (\AwsCodeBuildProjectArtifactsDetails' {overrideArtifactName} -> overrideArtifactName) (\s@AwsCodeBuildProjectArtifactsDetails' {} a -> s {overrideArtifactName = a} :: AwsCodeBuildProjectArtifactsDetails)
+-- | The type of build artifact.
+awsCodeBuildProjectArtifactsDetails_type :: Lens.Lens' AwsCodeBuildProjectArtifactsDetails (Prelude.Maybe Prelude.Text)
+awsCodeBuildProjectArtifactsDetails_type = Lens.lens (\AwsCodeBuildProjectArtifactsDetails' {type'} -> type') (\s@AwsCodeBuildProjectArtifactsDetails' {} a -> s {type' = a} :: AwsCodeBuildProjectArtifactsDetails)
+
+-- | Only used when @Type@ is @S3@. The path to the artifact. Used with
+-- @Name@ and @NamespaceType@ to determine the pattern for storing the
+-- artifact.
+awsCodeBuildProjectArtifactsDetails_path :: Lens.Lens' AwsCodeBuildProjectArtifactsDetails (Prelude.Maybe Prelude.Text)
+awsCodeBuildProjectArtifactsDetails_path = Lens.lens (\AwsCodeBuildProjectArtifactsDetails' {path} -> path) (\s@AwsCodeBuildProjectArtifactsDetails' {} a -> s {path = a} :: AwsCodeBuildProjectArtifactsDetails)
 
 -- | An identifier for the artifact definition.
 awsCodeBuildProjectArtifactsDetails_artifactIdentifier :: Lens.Lens' AwsCodeBuildProjectArtifactsDetails (Prelude.Maybe Prelude.Text)
 awsCodeBuildProjectArtifactsDetails_artifactIdentifier = Lens.lens (\AwsCodeBuildProjectArtifactsDetails' {artifactIdentifier} -> artifactIdentifier) (\s@AwsCodeBuildProjectArtifactsDetails' {} a -> s {artifactIdentifier = a} :: AwsCodeBuildProjectArtifactsDetails)
 
--- | The type of build artifact.
-awsCodeBuildProjectArtifactsDetails_type :: Lens.Lens' AwsCodeBuildProjectArtifactsDetails (Prelude.Maybe Prelude.Text)
-awsCodeBuildProjectArtifactsDetails_type = Lens.lens (\AwsCodeBuildProjectArtifactsDetails' {type'} -> type') (\s@AwsCodeBuildProjectArtifactsDetails' {} a -> s {type' = a} :: AwsCodeBuildProjectArtifactsDetails)
+-- | Only used when @Type@ is @S3@. The type of output artifact to create.
+awsCodeBuildProjectArtifactsDetails_packaging :: Lens.Lens' AwsCodeBuildProjectArtifactsDetails (Prelude.Maybe Prelude.Text)
+awsCodeBuildProjectArtifactsDetails_packaging = Lens.lens (\AwsCodeBuildProjectArtifactsDetails' {packaging} -> packaging) (\s@AwsCodeBuildProjectArtifactsDetails' {} a -> s {packaging = a} :: AwsCodeBuildProjectArtifactsDetails)
+
+-- | Only used when @Type@ is @S3@. The name of the S3 bucket where the
+-- artifact is located.
+awsCodeBuildProjectArtifactsDetails_location :: Lens.Lens' AwsCodeBuildProjectArtifactsDetails (Prelude.Maybe Prelude.Text)
+awsCodeBuildProjectArtifactsDetails_location = Lens.lens (\AwsCodeBuildProjectArtifactsDetails' {location} -> location) (\s@AwsCodeBuildProjectArtifactsDetails' {} a -> s {location = a} :: AwsCodeBuildProjectArtifactsDetails)
+
+-- | Whether the name specified in the buildspec file overrides the artifact
+-- name.
+awsCodeBuildProjectArtifactsDetails_overrideArtifactName :: Lens.Lens' AwsCodeBuildProjectArtifactsDetails (Prelude.Maybe Prelude.Bool)
+awsCodeBuildProjectArtifactsDetails_overrideArtifactName = Lens.lens (\AwsCodeBuildProjectArtifactsDetails' {overrideArtifactName} -> overrideArtifactName) (\s@AwsCodeBuildProjectArtifactsDetails' {} a -> s {overrideArtifactName = a} :: AwsCodeBuildProjectArtifactsDetails)
 
 -- | Only used when @Type@ is @S3@. The value to use for the namespace. Used
 -- with @Name@ and @Path@ to determine the pattern for storing the
@@ -161,14 +161,14 @@ instance
       "AwsCodeBuildProjectArtifactsDetails"
       ( \x ->
           AwsCodeBuildProjectArtifactsDetails'
-            Prelude.<$> (x Core..:? "Packaging")
-            Prelude.<*> (x Core..:? "Location")
-            Prelude.<*> (x Core..:? "Path")
-            Prelude.<*> (x Core..:? "EncryptionDisabled")
+            Prelude.<$> (x Core..:? "EncryptionDisabled")
             Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "OverrideArtifactName")
-            Prelude.<*> (x Core..:? "ArtifactIdentifier")
             Prelude.<*> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "Path")
+            Prelude.<*> (x Core..:? "ArtifactIdentifier")
+            Prelude.<*> (x Core..:? "Packaging")
+            Prelude.<*> (x Core..:? "Location")
+            Prelude.<*> (x Core..:? "OverrideArtifactName")
             Prelude.<*> (x Core..:? "NamespaceType")
       )
 
@@ -179,14 +179,14 @@ instance
   hashWithSalt
     _salt
     AwsCodeBuildProjectArtifactsDetails' {..} =
-      _salt `Prelude.hashWithSalt` packaging
-        `Prelude.hashWithSalt` location
-        `Prelude.hashWithSalt` path
-        `Prelude.hashWithSalt` encryptionDisabled
+      _salt `Prelude.hashWithSalt` encryptionDisabled
         `Prelude.hashWithSalt` name
-        `Prelude.hashWithSalt` overrideArtifactName
-        `Prelude.hashWithSalt` artifactIdentifier
         `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` path
+        `Prelude.hashWithSalt` artifactIdentifier
+        `Prelude.hashWithSalt` packaging
+        `Prelude.hashWithSalt` location
+        `Prelude.hashWithSalt` overrideArtifactName
         `Prelude.hashWithSalt` namespaceType
 
 instance
@@ -194,14 +194,14 @@ instance
     AwsCodeBuildProjectArtifactsDetails
   where
   rnf AwsCodeBuildProjectArtifactsDetails' {..} =
-    Prelude.rnf packaging
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf encryptionDisabled
+    Prelude.rnf encryptionDisabled
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf overrideArtifactName
-      `Prelude.seq` Prelude.rnf artifactIdentifier
       `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf path
+      `Prelude.seq` Prelude.rnf artifactIdentifier
+      `Prelude.seq` Prelude.rnf packaging
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf overrideArtifactName
       `Prelude.seq` Prelude.rnf namespaceType
 
 instance
@@ -211,17 +211,17 @@ instance
   toJSON AwsCodeBuildProjectArtifactsDetails' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Packaging" Core..=) Prelude.<$> packaging,
-            ("Location" Core..=) Prelude.<$> location,
-            ("Path" Core..=) Prelude.<$> path,
-            ("EncryptionDisabled" Core..=)
+          [ ("EncryptionDisabled" Core..=)
               Prelude.<$> encryptionDisabled,
             ("Name" Core..=) Prelude.<$> name,
-            ("OverrideArtifactName" Core..=)
-              Prelude.<$> overrideArtifactName,
+            ("Type" Core..=) Prelude.<$> type',
+            ("Path" Core..=) Prelude.<$> path,
             ("ArtifactIdentifier" Core..=)
               Prelude.<$> artifactIdentifier,
-            ("Type" Core..=) Prelude.<$> type',
+            ("Packaging" Core..=) Prelude.<$> packaging,
+            ("Location" Core..=) Prelude.<$> location,
+            ("OverrideArtifactName" Core..=)
+              Prelude.<$> overrideArtifactName,
             ("NamespaceType" Core..=) Prelude.<$> namespaceType
           ]
       )

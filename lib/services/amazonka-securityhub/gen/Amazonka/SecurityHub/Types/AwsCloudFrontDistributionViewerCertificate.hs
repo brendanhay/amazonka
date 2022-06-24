@@ -28,30 +28,30 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsCloudFrontDistributionViewerCertificate' smart constructor.
 data AwsCloudFrontDistributionViewerCertificate = AwsCloudFrontDistributionViewerCertificate'
-  { -- | The viewers that the distribution accepts HTTPS connections from.
-    sslSupportMethod :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the ACM certificate. Used if the certificate is stored in
-    -- ACM. If you provide an ACM certificate ARN, you must also provide
-    -- @MinimumCertificateVersion@ and @SslSupportMethod@.
-    acmCertificateArn :: Prelude.Maybe Prelude.Text,
-    -- | The source of the certificate identified by @Certificate@. Note that in
-    -- CloudFront, this attribute is deprecated.
-    certificateSource :: Prelude.Maybe Prelude.Text,
-    -- | The security policy that CloudFront uses for HTTPS connections with
-    -- viewers. If @SslSupportMethod@ is @sni-only@, then
-    -- @MinimumProtocolVersion@ must be @TLSv1@ or higher.
-    minimumProtocolVersion :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the certificate. Note that in CloudFront, this
-    -- attribute is deprecated.
-    certificate :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the IAM certificate. Used if the certificate is stored
+  { -- | The identifier of the IAM certificate. Used if the certificate is stored
     -- in IAM. If you provide @IamCertificateId@, then you also must provide
     -- @MinimumProtocolVersion@ and @SslSupportMethod@.
     iamCertificateId :: Prelude.Maybe Prelude.Text,
     -- | Whether the distribution uses the CloudFront domain name. If set to
     -- @false@, then you provide either @AcmCertificateArn@ or
     -- @IamCertificateId@.
-    cloudFrontDefaultCertificate :: Prelude.Maybe Prelude.Bool
+    cloudFrontDefaultCertificate :: Prelude.Maybe Prelude.Bool,
+    -- | The identifier of the certificate. Note that in CloudFront, this
+    -- attribute is deprecated.
+    certificate :: Prelude.Maybe Prelude.Text,
+    -- | The security policy that CloudFront uses for HTTPS connections with
+    -- viewers. If @SslSupportMethod@ is @sni-only@, then
+    -- @MinimumProtocolVersion@ must be @TLSv1@ or higher.
+    minimumProtocolVersion :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the ACM certificate. Used if the certificate is stored in
+    -- ACM. If you provide an ACM certificate ARN, you must also provide
+    -- @MinimumCertificateVersion@ and @SslSupportMethod@.
+    acmCertificateArn :: Prelude.Maybe Prelude.Text,
+    -- | The viewers that the distribution accepts HTTPS connections from.
+    sslSupportMethod :: Prelude.Maybe Prelude.Text,
+    -- | The source of the certificate identified by @Certificate@. Note that in
+    -- CloudFront, this attribute is deprecated.
+    certificateSource :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,22 +63,6 @@ data AwsCloudFrontDistributionViewerCertificate = AwsCloudFrontDistributionViewe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sslSupportMethod', 'awsCloudFrontDistributionViewerCertificate_sslSupportMethod' - The viewers that the distribution accepts HTTPS connections from.
---
--- 'acmCertificateArn', 'awsCloudFrontDistributionViewerCertificate_acmCertificateArn' - The ARN of the ACM certificate. Used if the certificate is stored in
--- ACM. If you provide an ACM certificate ARN, you must also provide
--- @MinimumCertificateVersion@ and @SslSupportMethod@.
---
--- 'certificateSource', 'awsCloudFrontDistributionViewerCertificate_certificateSource' - The source of the certificate identified by @Certificate@. Note that in
--- CloudFront, this attribute is deprecated.
---
--- 'minimumProtocolVersion', 'awsCloudFrontDistributionViewerCertificate_minimumProtocolVersion' - The security policy that CloudFront uses for HTTPS connections with
--- viewers. If @SslSupportMethod@ is @sni-only@, then
--- @MinimumProtocolVersion@ must be @TLSv1@ or higher.
---
--- 'certificate', 'awsCloudFrontDistributionViewerCertificate_certificate' - The identifier of the certificate. Note that in CloudFront, this
--- attribute is deprecated.
---
 -- 'iamCertificateId', 'awsCloudFrontDistributionViewerCertificate_iamCertificateId' - The identifier of the IAM certificate. Used if the certificate is stored
 -- in IAM. If you provide @IamCertificateId@, then you also must provide
 -- @MinimumProtocolVersion@ and @SslSupportMethod@.
@@ -86,50 +70,40 @@ data AwsCloudFrontDistributionViewerCertificate = AwsCloudFrontDistributionViewe
 -- 'cloudFrontDefaultCertificate', 'awsCloudFrontDistributionViewerCertificate_cloudFrontDefaultCertificate' - Whether the distribution uses the CloudFront domain name. If set to
 -- @false@, then you provide either @AcmCertificateArn@ or
 -- @IamCertificateId@.
+--
+-- 'certificate', 'awsCloudFrontDistributionViewerCertificate_certificate' - The identifier of the certificate. Note that in CloudFront, this
+-- attribute is deprecated.
+--
+-- 'minimumProtocolVersion', 'awsCloudFrontDistributionViewerCertificate_minimumProtocolVersion' - The security policy that CloudFront uses for HTTPS connections with
+-- viewers. If @SslSupportMethod@ is @sni-only@, then
+-- @MinimumProtocolVersion@ must be @TLSv1@ or higher.
+--
+-- 'acmCertificateArn', 'awsCloudFrontDistributionViewerCertificate_acmCertificateArn' - The ARN of the ACM certificate. Used if the certificate is stored in
+-- ACM. If you provide an ACM certificate ARN, you must also provide
+-- @MinimumCertificateVersion@ and @SslSupportMethod@.
+--
+-- 'sslSupportMethod', 'awsCloudFrontDistributionViewerCertificate_sslSupportMethod' - The viewers that the distribution accepts HTTPS connections from.
+--
+-- 'certificateSource', 'awsCloudFrontDistributionViewerCertificate_certificateSource' - The source of the certificate identified by @Certificate@. Note that in
+-- CloudFront, this attribute is deprecated.
 newAwsCloudFrontDistributionViewerCertificate ::
   AwsCloudFrontDistributionViewerCertificate
 newAwsCloudFrontDistributionViewerCertificate =
   AwsCloudFrontDistributionViewerCertificate'
-    { sslSupportMethod =
+    { iamCertificateId =
+        Prelude.Nothing,
+      cloudFrontDefaultCertificate =
+        Prelude.Nothing,
+      certificate = Prelude.Nothing,
+      minimumProtocolVersion =
         Prelude.Nothing,
       acmCertificateArn =
         Prelude.Nothing,
+      sslSupportMethod =
+        Prelude.Nothing,
       certificateSource =
-        Prelude.Nothing,
-      minimumProtocolVersion =
-        Prelude.Nothing,
-      certificate = Prelude.Nothing,
-      iamCertificateId =
-        Prelude.Nothing,
-      cloudFrontDefaultCertificate =
         Prelude.Nothing
     }
-
--- | The viewers that the distribution accepts HTTPS connections from.
-awsCloudFrontDistributionViewerCertificate_sslSupportMethod :: Lens.Lens' AwsCloudFrontDistributionViewerCertificate (Prelude.Maybe Prelude.Text)
-awsCloudFrontDistributionViewerCertificate_sslSupportMethod = Lens.lens (\AwsCloudFrontDistributionViewerCertificate' {sslSupportMethod} -> sslSupportMethod) (\s@AwsCloudFrontDistributionViewerCertificate' {} a -> s {sslSupportMethod = a} :: AwsCloudFrontDistributionViewerCertificate)
-
--- | The ARN of the ACM certificate. Used if the certificate is stored in
--- ACM. If you provide an ACM certificate ARN, you must also provide
--- @MinimumCertificateVersion@ and @SslSupportMethod@.
-awsCloudFrontDistributionViewerCertificate_acmCertificateArn :: Lens.Lens' AwsCloudFrontDistributionViewerCertificate (Prelude.Maybe Prelude.Text)
-awsCloudFrontDistributionViewerCertificate_acmCertificateArn = Lens.lens (\AwsCloudFrontDistributionViewerCertificate' {acmCertificateArn} -> acmCertificateArn) (\s@AwsCloudFrontDistributionViewerCertificate' {} a -> s {acmCertificateArn = a} :: AwsCloudFrontDistributionViewerCertificate)
-
--- | The source of the certificate identified by @Certificate@. Note that in
--- CloudFront, this attribute is deprecated.
-awsCloudFrontDistributionViewerCertificate_certificateSource :: Lens.Lens' AwsCloudFrontDistributionViewerCertificate (Prelude.Maybe Prelude.Text)
-awsCloudFrontDistributionViewerCertificate_certificateSource = Lens.lens (\AwsCloudFrontDistributionViewerCertificate' {certificateSource} -> certificateSource) (\s@AwsCloudFrontDistributionViewerCertificate' {} a -> s {certificateSource = a} :: AwsCloudFrontDistributionViewerCertificate)
-
--- | The security policy that CloudFront uses for HTTPS connections with
--- viewers. If @SslSupportMethod@ is @sni-only@, then
--- @MinimumProtocolVersion@ must be @TLSv1@ or higher.
-awsCloudFrontDistributionViewerCertificate_minimumProtocolVersion :: Lens.Lens' AwsCloudFrontDistributionViewerCertificate (Prelude.Maybe Prelude.Text)
-awsCloudFrontDistributionViewerCertificate_minimumProtocolVersion = Lens.lens (\AwsCloudFrontDistributionViewerCertificate' {minimumProtocolVersion} -> minimumProtocolVersion) (\s@AwsCloudFrontDistributionViewerCertificate' {} a -> s {minimumProtocolVersion = a} :: AwsCloudFrontDistributionViewerCertificate)
-
--- | The identifier of the certificate. Note that in CloudFront, this
--- attribute is deprecated.
-awsCloudFrontDistributionViewerCertificate_certificate :: Lens.Lens' AwsCloudFrontDistributionViewerCertificate (Prelude.Maybe Prelude.Text)
-awsCloudFrontDistributionViewerCertificate_certificate = Lens.lens (\AwsCloudFrontDistributionViewerCertificate' {certificate} -> certificate) (\s@AwsCloudFrontDistributionViewerCertificate' {} a -> s {certificate = a} :: AwsCloudFrontDistributionViewerCertificate)
 
 -- | The identifier of the IAM certificate. Used if the certificate is stored
 -- in IAM. If you provide @IamCertificateId@, then you also must provide
@@ -143,6 +117,32 @@ awsCloudFrontDistributionViewerCertificate_iamCertificateId = Lens.lens (\AwsClo
 awsCloudFrontDistributionViewerCertificate_cloudFrontDefaultCertificate :: Lens.Lens' AwsCloudFrontDistributionViewerCertificate (Prelude.Maybe Prelude.Bool)
 awsCloudFrontDistributionViewerCertificate_cloudFrontDefaultCertificate = Lens.lens (\AwsCloudFrontDistributionViewerCertificate' {cloudFrontDefaultCertificate} -> cloudFrontDefaultCertificate) (\s@AwsCloudFrontDistributionViewerCertificate' {} a -> s {cloudFrontDefaultCertificate = a} :: AwsCloudFrontDistributionViewerCertificate)
 
+-- | The identifier of the certificate. Note that in CloudFront, this
+-- attribute is deprecated.
+awsCloudFrontDistributionViewerCertificate_certificate :: Lens.Lens' AwsCloudFrontDistributionViewerCertificate (Prelude.Maybe Prelude.Text)
+awsCloudFrontDistributionViewerCertificate_certificate = Lens.lens (\AwsCloudFrontDistributionViewerCertificate' {certificate} -> certificate) (\s@AwsCloudFrontDistributionViewerCertificate' {} a -> s {certificate = a} :: AwsCloudFrontDistributionViewerCertificate)
+
+-- | The security policy that CloudFront uses for HTTPS connections with
+-- viewers. If @SslSupportMethod@ is @sni-only@, then
+-- @MinimumProtocolVersion@ must be @TLSv1@ or higher.
+awsCloudFrontDistributionViewerCertificate_minimumProtocolVersion :: Lens.Lens' AwsCloudFrontDistributionViewerCertificate (Prelude.Maybe Prelude.Text)
+awsCloudFrontDistributionViewerCertificate_minimumProtocolVersion = Lens.lens (\AwsCloudFrontDistributionViewerCertificate' {minimumProtocolVersion} -> minimumProtocolVersion) (\s@AwsCloudFrontDistributionViewerCertificate' {} a -> s {minimumProtocolVersion = a} :: AwsCloudFrontDistributionViewerCertificate)
+
+-- | The ARN of the ACM certificate. Used if the certificate is stored in
+-- ACM. If you provide an ACM certificate ARN, you must also provide
+-- @MinimumCertificateVersion@ and @SslSupportMethod@.
+awsCloudFrontDistributionViewerCertificate_acmCertificateArn :: Lens.Lens' AwsCloudFrontDistributionViewerCertificate (Prelude.Maybe Prelude.Text)
+awsCloudFrontDistributionViewerCertificate_acmCertificateArn = Lens.lens (\AwsCloudFrontDistributionViewerCertificate' {acmCertificateArn} -> acmCertificateArn) (\s@AwsCloudFrontDistributionViewerCertificate' {} a -> s {acmCertificateArn = a} :: AwsCloudFrontDistributionViewerCertificate)
+
+-- | The viewers that the distribution accepts HTTPS connections from.
+awsCloudFrontDistributionViewerCertificate_sslSupportMethod :: Lens.Lens' AwsCloudFrontDistributionViewerCertificate (Prelude.Maybe Prelude.Text)
+awsCloudFrontDistributionViewerCertificate_sslSupportMethod = Lens.lens (\AwsCloudFrontDistributionViewerCertificate' {sslSupportMethod} -> sslSupportMethod) (\s@AwsCloudFrontDistributionViewerCertificate' {} a -> s {sslSupportMethod = a} :: AwsCloudFrontDistributionViewerCertificate)
+
+-- | The source of the certificate identified by @Certificate@. Note that in
+-- CloudFront, this attribute is deprecated.
+awsCloudFrontDistributionViewerCertificate_certificateSource :: Lens.Lens' AwsCloudFrontDistributionViewerCertificate (Prelude.Maybe Prelude.Text)
+awsCloudFrontDistributionViewerCertificate_certificateSource = Lens.lens (\AwsCloudFrontDistributionViewerCertificate' {certificateSource} -> certificateSource) (\s@AwsCloudFrontDistributionViewerCertificate' {} a -> s {certificateSource = a} :: AwsCloudFrontDistributionViewerCertificate)
+
 instance
   Core.FromJSON
     AwsCloudFrontDistributionViewerCertificate
@@ -152,13 +152,13 @@ instance
       "AwsCloudFrontDistributionViewerCertificate"
       ( \x ->
           AwsCloudFrontDistributionViewerCertificate'
-            Prelude.<$> (x Core..:? "SslSupportMethod")
-              Prelude.<*> (x Core..:? "AcmCertificateArn")
-              Prelude.<*> (x Core..:? "CertificateSource")
-              Prelude.<*> (x Core..:? "MinimumProtocolVersion")
-              Prelude.<*> (x Core..:? "Certificate")
-              Prelude.<*> (x Core..:? "IamCertificateId")
+            Prelude.<$> (x Core..:? "IamCertificateId")
               Prelude.<*> (x Core..:? "CloudFrontDefaultCertificate")
+              Prelude.<*> (x Core..:? "Certificate")
+              Prelude.<*> (x Core..:? "MinimumProtocolVersion")
+              Prelude.<*> (x Core..:? "AcmCertificateArn")
+              Prelude.<*> (x Core..:? "SslSupportMethod")
+              Prelude.<*> (x Core..:? "CertificateSource")
       )
 
 instance
@@ -168,26 +168,26 @@ instance
   hashWithSalt
     _salt
     AwsCloudFrontDistributionViewerCertificate' {..} =
-      _salt `Prelude.hashWithSalt` sslSupportMethod
-        `Prelude.hashWithSalt` acmCertificateArn
-        `Prelude.hashWithSalt` certificateSource
-        `Prelude.hashWithSalt` minimumProtocolVersion
-        `Prelude.hashWithSalt` certificate
-        `Prelude.hashWithSalt` iamCertificateId
+      _salt `Prelude.hashWithSalt` iamCertificateId
         `Prelude.hashWithSalt` cloudFrontDefaultCertificate
+        `Prelude.hashWithSalt` certificate
+        `Prelude.hashWithSalt` minimumProtocolVersion
+        `Prelude.hashWithSalt` acmCertificateArn
+        `Prelude.hashWithSalt` sslSupportMethod
+        `Prelude.hashWithSalt` certificateSource
 
 instance
   Prelude.NFData
     AwsCloudFrontDistributionViewerCertificate
   where
   rnf AwsCloudFrontDistributionViewerCertificate' {..} =
-    Prelude.rnf sslSupportMethod
-      `Prelude.seq` Prelude.rnf acmCertificateArn
-      `Prelude.seq` Prelude.rnf certificateSource
-      `Prelude.seq` Prelude.rnf minimumProtocolVersion
-      `Prelude.seq` Prelude.rnf certificate
-      `Prelude.seq` Prelude.rnf iamCertificateId
+    Prelude.rnf iamCertificateId
       `Prelude.seq` Prelude.rnf cloudFrontDefaultCertificate
+      `Prelude.seq` Prelude.rnf certificate
+      `Prelude.seq` Prelude.rnf minimumProtocolVersion
+      `Prelude.seq` Prelude.rnf acmCertificateArn
+      `Prelude.seq` Prelude.rnf sslSupportMethod
+      `Prelude.seq` Prelude.rnf certificateSource
 
 instance
   Core.ToJSON
@@ -197,18 +197,18 @@ instance
     AwsCloudFrontDistributionViewerCertificate' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("SslSupportMethod" Core..=)
-                Prelude.<$> sslSupportMethod,
-              ("AcmCertificateArn" Core..=)
-                Prelude.<$> acmCertificateArn,
-              ("CertificateSource" Core..=)
-                Prelude.<$> certificateSource,
-              ("MinimumProtocolVersion" Core..=)
-                Prelude.<$> minimumProtocolVersion,
-              ("Certificate" Core..=) Prelude.<$> certificate,
-              ("IamCertificateId" Core..=)
+            [ ("IamCertificateId" Core..=)
                 Prelude.<$> iamCertificateId,
               ("CloudFrontDefaultCertificate" Core..=)
-                Prelude.<$> cloudFrontDefaultCertificate
+                Prelude.<$> cloudFrontDefaultCertificate,
+              ("Certificate" Core..=) Prelude.<$> certificate,
+              ("MinimumProtocolVersion" Core..=)
+                Prelude.<$> minimumProtocolVersion,
+              ("AcmCertificateArn" Core..=)
+                Prelude.<$> acmCertificateArn,
+              ("SslSupportMethod" Core..=)
+                Prelude.<$> sslSupportMethod,
+              ("CertificateSource" Core..=)
+                Prelude.<$> certificateSource
             ]
         )

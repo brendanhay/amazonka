@@ -27,17 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEcsServiceServiceRegistriesDetails' smart constructor.
 data AwsEcsServiceServiceRegistriesDetails = AwsEcsServiceServiceRegistriesDetails'
-  { -- | The container name value to use for the service discovery service.
-    --
-    -- If the task definition uses the @bridge@ or @host@ network mode, you
-    -- must specify @ContainerName@ and @ContainerPort@.
-    --
-    -- If the task definition uses the @awsvpc@ network mode and a type SRV DNS
-    -- record, you must specify either @ContainerName@ and @ContainerPort@, or
-    -- @Port@ , but not both.
-    containerName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the service registry.
-    registryArn :: Prelude.Maybe Prelude.Text,
+  { -- | The port value to use for a service discovery service that specifies an
+    -- SRV record. This field can be used if both the @awsvpc@awsvpc network
+    -- mode and SRV records are used.
+    port :: Prelude.Maybe Prelude.Int,
     -- | The port value to use for the service discovery service.
     --
     -- If the task definition uses the @bridge@ or @host@ network mode, you
@@ -47,10 +40,17 @@ data AwsEcsServiceServiceRegistriesDetails = AwsEcsServiceServiceRegistriesDetai
     -- record, you must specify either @ContainerName@ and @ContainerPort@, or
     -- @Port@ , but not both.
     containerPort :: Prelude.Maybe Prelude.Int,
-    -- | The port value to use for a service discovery service that specifies an
-    -- SRV record. This field can be used if both the @awsvpc@awsvpc network
-    -- mode and SRV records are used.
-    port :: Prelude.Maybe Prelude.Int
+    -- | The container name value to use for the service discovery service.
+    --
+    -- If the task definition uses the @bridge@ or @host@ network mode, you
+    -- must specify @ContainerName@ and @ContainerPort@.
+    --
+    -- If the task definition uses the @awsvpc@ network mode and a type SRV DNS
+    -- record, you must specify either @ContainerName@ and @ContainerPort@, or
+    -- @Port@ , but not both.
+    containerName :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the service registry.
+    registryArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,16 +62,9 @@ data AwsEcsServiceServiceRegistriesDetails = AwsEcsServiceServiceRegistriesDetai
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'containerName', 'awsEcsServiceServiceRegistriesDetails_containerName' - The container name value to use for the service discovery service.
---
--- If the task definition uses the @bridge@ or @host@ network mode, you
--- must specify @ContainerName@ and @ContainerPort@.
---
--- If the task definition uses the @awsvpc@ network mode and a type SRV DNS
--- record, you must specify either @ContainerName@ and @ContainerPort@, or
--- @Port@ , but not both.
---
--- 'registryArn', 'awsEcsServiceServiceRegistriesDetails_registryArn' - The ARN of the service registry.
+-- 'port', 'awsEcsServiceServiceRegistriesDetails_port' - The port value to use for a service discovery service that specifies an
+-- SRV record. This field can be used if both the @awsvpc@awsvpc network
+-- mode and SRV records are used.
 --
 -- 'containerPort', 'awsEcsServiceServiceRegistriesDetails_containerPort' - The port value to use for the service discovery service.
 --
@@ -82,19 +75,43 @@ data AwsEcsServiceServiceRegistriesDetails = AwsEcsServiceServiceRegistriesDetai
 -- record, you must specify either @ContainerName@ and @ContainerPort@, or
 -- @Port@ , but not both.
 --
--- 'port', 'awsEcsServiceServiceRegistriesDetails_port' - The port value to use for a service discovery service that specifies an
--- SRV record. This field can be used if both the @awsvpc@awsvpc network
--- mode and SRV records are used.
+-- 'containerName', 'awsEcsServiceServiceRegistriesDetails_containerName' - The container name value to use for the service discovery service.
+--
+-- If the task definition uses the @bridge@ or @host@ network mode, you
+-- must specify @ContainerName@ and @ContainerPort@.
+--
+-- If the task definition uses the @awsvpc@ network mode and a type SRV DNS
+-- record, you must specify either @ContainerName@ and @ContainerPort@, or
+-- @Port@ , but not both.
+--
+-- 'registryArn', 'awsEcsServiceServiceRegistriesDetails_registryArn' - The ARN of the service registry.
 newAwsEcsServiceServiceRegistriesDetails ::
   AwsEcsServiceServiceRegistriesDetails
 newAwsEcsServiceServiceRegistriesDetails =
   AwsEcsServiceServiceRegistriesDetails'
-    { containerName =
+    { port =
         Prelude.Nothing,
-      registryArn = Prelude.Nothing,
       containerPort = Prelude.Nothing,
-      port = Prelude.Nothing
+      containerName = Prelude.Nothing,
+      registryArn = Prelude.Nothing
     }
+
+-- | The port value to use for a service discovery service that specifies an
+-- SRV record. This field can be used if both the @awsvpc@awsvpc network
+-- mode and SRV records are used.
+awsEcsServiceServiceRegistriesDetails_port :: Lens.Lens' AwsEcsServiceServiceRegistriesDetails (Prelude.Maybe Prelude.Int)
+awsEcsServiceServiceRegistriesDetails_port = Lens.lens (\AwsEcsServiceServiceRegistriesDetails' {port} -> port) (\s@AwsEcsServiceServiceRegistriesDetails' {} a -> s {port = a} :: AwsEcsServiceServiceRegistriesDetails)
+
+-- | The port value to use for the service discovery service.
+--
+-- If the task definition uses the @bridge@ or @host@ network mode, you
+-- must specify @ContainerName@ and @ContainerPort@.
+--
+-- If the task definition uses the @awsvpc@ network mode and a type SRV DNS
+-- record, you must specify either @ContainerName@ and @ContainerPort@, or
+-- @Port@ , but not both.
+awsEcsServiceServiceRegistriesDetails_containerPort :: Lens.Lens' AwsEcsServiceServiceRegistriesDetails (Prelude.Maybe Prelude.Int)
+awsEcsServiceServiceRegistriesDetails_containerPort = Lens.lens (\AwsEcsServiceServiceRegistriesDetails' {containerPort} -> containerPort) (\s@AwsEcsServiceServiceRegistriesDetails' {} a -> s {containerPort = a} :: AwsEcsServiceServiceRegistriesDetails)
 
 -- | The container name value to use for the service discovery service.
 --
@@ -111,23 +128,6 @@ awsEcsServiceServiceRegistriesDetails_containerName = Lens.lens (\AwsEcsServiceS
 awsEcsServiceServiceRegistriesDetails_registryArn :: Lens.Lens' AwsEcsServiceServiceRegistriesDetails (Prelude.Maybe Prelude.Text)
 awsEcsServiceServiceRegistriesDetails_registryArn = Lens.lens (\AwsEcsServiceServiceRegistriesDetails' {registryArn} -> registryArn) (\s@AwsEcsServiceServiceRegistriesDetails' {} a -> s {registryArn = a} :: AwsEcsServiceServiceRegistriesDetails)
 
--- | The port value to use for the service discovery service.
---
--- If the task definition uses the @bridge@ or @host@ network mode, you
--- must specify @ContainerName@ and @ContainerPort@.
---
--- If the task definition uses the @awsvpc@ network mode and a type SRV DNS
--- record, you must specify either @ContainerName@ and @ContainerPort@, or
--- @Port@ , but not both.
-awsEcsServiceServiceRegistriesDetails_containerPort :: Lens.Lens' AwsEcsServiceServiceRegistriesDetails (Prelude.Maybe Prelude.Int)
-awsEcsServiceServiceRegistriesDetails_containerPort = Lens.lens (\AwsEcsServiceServiceRegistriesDetails' {containerPort} -> containerPort) (\s@AwsEcsServiceServiceRegistriesDetails' {} a -> s {containerPort = a} :: AwsEcsServiceServiceRegistriesDetails)
-
--- | The port value to use for a service discovery service that specifies an
--- SRV record. This field can be used if both the @awsvpc@awsvpc network
--- mode and SRV records are used.
-awsEcsServiceServiceRegistriesDetails_port :: Lens.Lens' AwsEcsServiceServiceRegistriesDetails (Prelude.Maybe Prelude.Int)
-awsEcsServiceServiceRegistriesDetails_port = Lens.lens (\AwsEcsServiceServiceRegistriesDetails' {port} -> port) (\s@AwsEcsServiceServiceRegistriesDetails' {} a -> s {port = a} :: AwsEcsServiceServiceRegistriesDetails)
-
 instance
   Core.FromJSON
     AwsEcsServiceServiceRegistriesDetails
@@ -137,10 +137,10 @@ instance
       "AwsEcsServiceServiceRegistriesDetails"
       ( \x ->
           AwsEcsServiceServiceRegistriesDetails'
-            Prelude.<$> (x Core..:? "ContainerName")
-            Prelude.<*> (x Core..:? "RegistryArn")
+            Prelude.<$> (x Core..:? "Port")
             Prelude.<*> (x Core..:? "ContainerPort")
-            Prelude.<*> (x Core..:? "Port")
+            Prelude.<*> (x Core..:? "ContainerName")
+            Prelude.<*> (x Core..:? "RegistryArn")
       )
 
 instance
@@ -150,20 +150,20 @@ instance
   hashWithSalt
     _salt
     AwsEcsServiceServiceRegistriesDetails' {..} =
-      _salt `Prelude.hashWithSalt` containerName
-        `Prelude.hashWithSalt` registryArn
+      _salt `Prelude.hashWithSalt` port
         `Prelude.hashWithSalt` containerPort
-        `Prelude.hashWithSalt` port
+        `Prelude.hashWithSalt` containerName
+        `Prelude.hashWithSalt` registryArn
 
 instance
   Prelude.NFData
     AwsEcsServiceServiceRegistriesDetails
   where
   rnf AwsEcsServiceServiceRegistriesDetails' {..} =
-    Prelude.rnf containerName
-      `Prelude.seq` Prelude.rnf registryArn
+    Prelude.rnf port
       `Prelude.seq` Prelude.rnf containerPort
-      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf containerName
+      `Prelude.seq` Prelude.rnf registryArn
 
 instance
   Core.ToJSON
@@ -172,9 +172,9 @@ instance
   toJSON AwsEcsServiceServiceRegistriesDetails' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ContainerName" Core..=) Prelude.<$> containerName,
-            ("RegistryArn" Core..=) Prelude.<$> registryArn,
+          [ ("Port" Core..=) Prelude.<$> port,
             ("ContainerPort" Core..=) Prelude.<$> containerPort,
-            ("Port" Core..=) Prelude.<$> port
+            ("ContainerName" Core..=) Prelude.<$> containerName,
+            ("RegistryArn" Core..=) Prelude.<$> registryArn
           ]
       )

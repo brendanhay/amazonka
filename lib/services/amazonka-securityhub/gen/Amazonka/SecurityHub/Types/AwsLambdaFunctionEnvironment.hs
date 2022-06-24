@@ -28,10 +28,10 @@ import Amazonka.SecurityHub.Types.AwsLambdaFunctionEnvironmentError
 --
 -- /See:/ 'newAwsLambdaFunctionEnvironment' smart constructor.
 data AwsLambdaFunctionEnvironment = AwsLambdaFunctionEnvironment'
-  { -- | Environment variable key-value pairs.
-    variables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | An @AwsLambdaFunctionEnvironmentError@ object.
-    error :: Prelude.Maybe AwsLambdaFunctionEnvironmentError
+  { -- | An @AwsLambdaFunctionEnvironmentError@ object.
+    error :: Prelude.Maybe AwsLambdaFunctionEnvironmentError,
+    -- | Environment variable key-value pairs.
+    variables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data AwsLambdaFunctionEnvironment = AwsLambdaFunctionEnvironment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'variables', 'awsLambdaFunctionEnvironment_variables' - Environment variable key-value pairs.
---
 -- 'error', 'awsLambdaFunctionEnvironment_error' - An @AwsLambdaFunctionEnvironmentError@ object.
+--
+-- 'variables', 'awsLambdaFunctionEnvironment_variables' - Environment variable key-value pairs.
 newAwsLambdaFunctionEnvironment ::
   AwsLambdaFunctionEnvironment
 newAwsLambdaFunctionEnvironment =
   AwsLambdaFunctionEnvironment'
-    { variables =
+    { error =
         Prelude.Nothing,
-      error = Prelude.Nothing
+      variables = Prelude.Nothing
     }
-
--- | Environment variable key-value pairs.
-awsLambdaFunctionEnvironment_variables :: Lens.Lens' AwsLambdaFunctionEnvironment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-awsLambdaFunctionEnvironment_variables = Lens.lens (\AwsLambdaFunctionEnvironment' {variables} -> variables) (\s@AwsLambdaFunctionEnvironment' {} a -> s {variables = a} :: AwsLambdaFunctionEnvironment) Prelude.. Lens.mapping Lens.coerced
 
 -- | An @AwsLambdaFunctionEnvironmentError@ object.
 awsLambdaFunctionEnvironment_error :: Lens.Lens' AwsLambdaFunctionEnvironment (Prelude.Maybe AwsLambdaFunctionEnvironmentError)
 awsLambdaFunctionEnvironment_error = Lens.lens (\AwsLambdaFunctionEnvironment' {error} -> error) (\s@AwsLambdaFunctionEnvironment' {} a -> s {error = a} :: AwsLambdaFunctionEnvironment)
+
+-- | Environment variable key-value pairs.
+awsLambdaFunctionEnvironment_variables :: Lens.Lens' AwsLambdaFunctionEnvironment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+awsLambdaFunctionEnvironment_variables = Lens.lens (\AwsLambdaFunctionEnvironment' {variables} -> variables) (\s@AwsLambdaFunctionEnvironment' {} a -> s {variables = a} :: AwsLambdaFunctionEnvironment) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON AwsLambdaFunctionEnvironment where
   parseJSON =
@@ -69,8 +69,8 @@ instance Core.FromJSON AwsLambdaFunctionEnvironment where
       "AwsLambdaFunctionEnvironment"
       ( \x ->
           AwsLambdaFunctionEnvironment'
-            Prelude.<$> (x Core..:? "Variables" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Error")
+            Prelude.<$> (x Core..:? "Error")
+            Prelude.<*> (x Core..:? "Variables" Core..!= Prelude.mempty)
       )
 
 instance
@@ -78,19 +78,19 @@ instance
     AwsLambdaFunctionEnvironment
   where
   hashWithSalt _salt AwsLambdaFunctionEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` variables
-      `Prelude.hashWithSalt` error
+    _salt `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` variables
 
 instance Prelude.NFData AwsLambdaFunctionEnvironment where
   rnf AwsLambdaFunctionEnvironment' {..} =
-    Prelude.rnf variables
-      `Prelude.seq` Prelude.rnf error
+    Prelude.rnf error
+      `Prelude.seq` Prelude.rnf variables
 
 instance Core.ToJSON AwsLambdaFunctionEnvironment where
   toJSON AwsLambdaFunctionEnvironment' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Variables" Core..=) Prelude.<$> variables,
-            ("Error" Core..=) Prelude.<$> error
+          [ ("Error" Core..=) Prelude.<$> error,
+            ("Variables" Core..=) Prelude.<$> variables
           ]
       )

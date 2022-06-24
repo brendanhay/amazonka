@@ -27,11 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsS3ObjectDetails' smart constructor.
 data AwsS3ObjectDetails = AwsS3ObjectDetails'
-  { -- | The opaque identifier assigned by a web server to a specific version of
-    -- a resource found at a URL.
-    eTag :: Prelude.Maybe Prelude.Text,
-    -- | The version of the object.
-    versionId :: Prelude.Maybe Prelude.Text,
+  { -- | If the object is stored using server-side encryption, the value of the
+    -- server-side encryption algorithm used when storing this object in Amazon
+    -- S3.
+    serverSideEncryption :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the KMS symmetric customer managed key that was used
     -- for the object.
     sSEKMSKeyId :: Prelude.Maybe Prelude.Text,
@@ -42,12 +41,13 @@ data AwsS3ObjectDetails = AwsS3ObjectDetails'
     -- The value cannot contain spaces. For example,
     -- @2020-03-22T13:22:13.933Z@.
     lastModified :: Prelude.Maybe Prelude.Text,
-    -- | If the object is stored using server-side encryption, the value of the
-    -- server-side encryption algorithm used when storing this object in Amazon
-    -- S3.
-    serverSideEncryption :: Prelude.Maybe Prelude.Text,
+    -- | The opaque identifier assigned by a web server to a specific version of
+    -- a resource found at a URL.
+    eTag :: Prelude.Maybe Prelude.Text,
     -- | A standard MIME type describing the format of the object data.
-    contentType :: Prelude.Maybe Prelude.Text
+    contentType :: Prelude.Maybe Prelude.Text,
+    -- | The version of the object.
+    versionId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,10 +59,9 @@ data AwsS3ObjectDetails = AwsS3ObjectDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eTag', 'awsS3ObjectDetails_eTag' - The opaque identifier assigned by a web server to a specific version of
--- a resource found at a URL.
---
--- 'versionId', 'awsS3ObjectDetails_versionId' - The version of the object.
+-- 'serverSideEncryption', 'awsS3ObjectDetails_serverSideEncryption' - If the object is stored using server-side encryption, the value of the
+-- server-side encryption algorithm used when storing this object in Amazon
+-- S3.
 --
 -- 'sSEKMSKeyId', 'awsS3ObjectDetails_sSEKMSKeyId' - The identifier of the KMS symmetric customer managed key that was used
 -- for the object.
@@ -74,31 +73,30 @@ data AwsS3ObjectDetails = AwsS3ObjectDetails'
 -- The value cannot contain spaces. For example,
 -- @2020-03-22T13:22:13.933Z@.
 --
--- 'serverSideEncryption', 'awsS3ObjectDetails_serverSideEncryption' - If the object is stored using server-side encryption, the value of the
--- server-side encryption algorithm used when storing this object in Amazon
--- S3.
+-- 'eTag', 'awsS3ObjectDetails_eTag' - The opaque identifier assigned by a web server to a specific version of
+-- a resource found at a URL.
 --
 -- 'contentType', 'awsS3ObjectDetails_contentType' - A standard MIME type describing the format of the object data.
+--
+-- 'versionId', 'awsS3ObjectDetails_versionId' - The version of the object.
 newAwsS3ObjectDetails ::
   AwsS3ObjectDetails
 newAwsS3ObjectDetails =
   AwsS3ObjectDetails'
-    { eTag = Prelude.Nothing,
-      versionId = Prelude.Nothing,
+    { serverSideEncryption =
+        Prelude.Nothing,
       sSEKMSKeyId = Prelude.Nothing,
       lastModified = Prelude.Nothing,
-      serverSideEncryption = Prelude.Nothing,
-      contentType = Prelude.Nothing
+      eTag = Prelude.Nothing,
+      contentType = Prelude.Nothing,
+      versionId = Prelude.Nothing
     }
 
--- | The opaque identifier assigned by a web server to a specific version of
--- a resource found at a URL.
-awsS3ObjectDetails_eTag :: Lens.Lens' AwsS3ObjectDetails (Prelude.Maybe Prelude.Text)
-awsS3ObjectDetails_eTag = Lens.lens (\AwsS3ObjectDetails' {eTag} -> eTag) (\s@AwsS3ObjectDetails' {} a -> s {eTag = a} :: AwsS3ObjectDetails)
-
--- | The version of the object.
-awsS3ObjectDetails_versionId :: Lens.Lens' AwsS3ObjectDetails (Prelude.Maybe Prelude.Text)
-awsS3ObjectDetails_versionId = Lens.lens (\AwsS3ObjectDetails' {versionId} -> versionId) (\s@AwsS3ObjectDetails' {} a -> s {versionId = a} :: AwsS3ObjectDetails)
+-- | If the object is stored using server-side encryption, the value of the
+-- server-side encryption algorithm used when storing this object in Amazon
+-- S3.
+awsS3ObjectDetails_serverSideEncryption :: Lens.Lens' AwsS3ObjectDetails (Prelude.Maybe Prelude.Text)
+awsS3ObjectDetails_serverSideEncryption = Lens.lens (\AwsS3ObjectDetails' {serverSideEncryption} -> serverSideEncryption) (\s@AwsS3ObjectDetails' {} a -> s {serverSideEncryption = a} :: AwsS3ObjectDetails)
 
 -- | The identifier of the KMS symmetric customer managed key that was used
 -- for the object.
@@ -114,15 +112,18 @@ awsS3ObjectDetails_sSEKMSKeyId = Lens.lens (\AwsS3ObjectDetails' {sSEKMSKeyId} -
 awsS3ObjectDetails_lastModified :: Lens.Lens' AwsS3ObjectDetails (Prelude.Maybe Prelude.Text)
 awsS3ObjectDetails_lastModified = Lens.lens (\AwsS3ObjectDetails' {lastModified} -> lastModified) (\s@AwsS3ObjectDetails' {} a -> s {lastModified = a} :: AwsS3ObjectDetails)
 
--- | If the object is stored using server-side encryption, the value of the
--- server-side encryption algorithm used when storing this object in Amazon
--- S3.
-awsS3ObjectDetails_serverSideEncryption :: Lens.Lens' AwsS3ObjectDetails (Prelude.Maybe Prelude.Text)
-awsS3ObjectDetails_serverSideEncryption = Lens.lens (\AwsS3ObjectDetails' {serverSideEncryption} -> serverSideEncryption) (\s@AwsS3ObjectDetails' {} a -> s {serverSideEncryption = a} :: AwsS3ObjectDetails)
+-- | The opaque identifier assigned by a web server to a specific version of
+-- a resource found at a URL.
+awsS3ObjectDetails_eTag :: Lens.Lens' AwsS3ObjectDetails (Prelude.Maybe Prelude.Text)
+awsS3ObjectDetails_eTag = Lens.lens (\AwsS3ObjectDetails' {eTag} -> eTag) (\s@AwsS3ObjectDetails' {} a -> s {eTag = a} :: AwsS3ObjectDetails)
 
 -- | A standard MIME type describing the format of the object data.
 awsS3ObjectDetails_contentType :: Lens.Lens' AwsS3ObjectDetails (Prelude.Maybe Prelude.Text)
 awsS3ObjectDetails_contentType = Lens.lens (\AwsS3ObjectDetails' {contentType} -> contentType) (\s@AwsS3ObjectDetails' {} a -> s {contentType = a} :: AwsS3ObjectDetails)
+
+-- | The version of the object.
+awsS3ObjectDetails_versionId :: Lens.Lens' AwsS3ObjectDetails (Prelude.Maybe Prelude.Text)
+awsS3ObjectDetails_versionId = Lens.lens (\AwsS3ObjectDetails' {versionId} -> versionId) (\s@AwsS3ObjectDetails' {} a -> s {versionId = a} :: AwsS3ObjectDetails)
 
 instance Core.FromJSON AwsS3ObjectDetails where
   parseJSON =
@@ -130,42 +131,42 @@ instance Core.FromJSON AwsS3ObjectDetails where
       "AwsS3ObjectDetails"
       ( \x ->
           AwsS3ObjectDetails'
-            Prelude.<$> (x Core..:? "ETag")
-            Prelude.<*> (x Core..:? "VersionId")
+            Prelude.<$> (x Core..:? "ServerSideEncryption")
             Prelude.<*> (x Core..:? "SSEKMSKeyId")
             Prelude.<*> (x Core..:? "LastModified")
-            Prelude.<*> (x Core..:? "ServerSideEncryption")
+            Prelude.<*> (x Core..:? "ETag")
             Prelude.<*> (x Core..:? "ContentType")
+            Prelude.<*> (x Core..:? "VersionId")
       )
 
 instance Prelude.Hashable AwsS3ObjectDetails where
   hashWithSalt _salt AwsS3ObjectDetails' {..} =
-    _salt `Prelude.hashWithSalt` eTag
-      `Prelude.hashWithSalt` versionId
+    _salt `Prelude.hashWithSalt` serverSideEncryption
       `Prelude.hashWithSalt` sSEKMSKeyId
       `Prelude.hashWithSalt` lastModified
-      `Prelude.hashWithSalt` serverSideEncryption
+      `Prelude.hashWithSalt` eTag
       `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` versionId
 
 instance Prelude.NFData AwsS3ObjectDetails where
   rnf AwsS3ObjectDetails' {..} =
-    Prelude.rnf eTag
-      `Prelude.seq` Prelude.rnf versionId
+    Prelude.rnf serverSideEncryption
       `Prelude.seq` Prelude.rnf sSEKMSKeyId
       `Prelude.seq` Prelude.rnf lastModified
-      `Prelude.seq` Prelude.rnf serverSideEncryption
+      `Prelude.seq` Prelude.rnf eTag
       `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf versionId
 
 instance Core.ToJSON AwsS3ObjectDetails where
   toJSON AwsS3ObjectDetails' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ETag" Core..=) Prelude.<$> eTag,
-            ("VersionId" Core..=) Prelude.<$> versionId,
+          [ ("ServerSideEncryption" Core..=)
+              Prelude.<$> serverSideEncryption,
             ("SSEKMSKeyId" Core..=) Prelude.<$> sSEKMSKeyId,
             ("LastModified" Core..=) Prelude.<$> lastModified,
-            ("ServerSideEncryption" Core..=)
-              Prelude.<$> serverSideEncryption,
-            ("ContentType" Core..=) Prelude.<$> contentType
+            ("ETag" Core..=) Prelude.<$> eTag,
+            ("ContentType" Core..=) Prelude.<$> contentType,
+            ("VersionId" Core..=) Prelude.<$> versionId
           ]
       )

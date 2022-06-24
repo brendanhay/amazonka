@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails' smart constructor.
 data AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails = AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails'
-  { -- | The value of the property.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The name of the property.
-    name :: Prelude.Maybe Prelude.Text
+  { -- | The name of the property.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The value of the property.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,26 +43,26 @@ data AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails =
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'awsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails_value' - The value of the property.
---
 -- 'name', 'awsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails_name' - The name of the property.
+--
+-- 'value', 'awsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails_value' - The value of the property.
 newAwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails ::
   AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails
 newAwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails =
   AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails'
-    { value =
+    { name =
         Prelude.Nothing,
-      name =
+      value =
         Prelude.Nothing
     }
-
--- | The value of the property.
-awsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails_value :: Lens.Lens' AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails (Prelude.Maybe Prelude.Text)
-awsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails_value = Lens.lens (\AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails' {value} -> value) (\s@AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails' {} a -> s {value = a} :: AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails)
 
 -- | The name of the property.
 awsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails_name :: Lens.Lens' AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails (Prelude.Maybe Prelude.Text)
 awsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails_name = Lens.lens (\AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails' {name} -> name) (\s@AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails' {} a -> s {name = a} :: AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails)
+
+-- | The value of the property.
+awsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails_value :: Lens.Lens' AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails (Prelude.Maybe Prelude.Text)
+awsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails_value = Lens.lens (\AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails' {value} -> value) (\s@AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails' {} a -> s {value = a} :: AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails)
 
 instance
   Core.FromJSON
@@ -73,7 +73,7 @@ instance
       "AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails"
       ( \x ->
           AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails'
-            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Value")
       )
 
 instance
@@ -83,8 +83,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails' {..} =
-      _salt `Prelude.hashWithSalt` value
-        `Prelude.hashWithSalt` name
+      _salt `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` value
 
 instance
   Prelude.NFData
@@ -92,7 +92,7 @@ instance
   where
   rnf
     AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails' {..} =
-      Prelude.rnf value `Prelude.seq` Prelude.rnf name
+      Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
 instance
   Core.ToJSON
@@ -102,7 +102,7 @@ instance
     AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("Value" Core..=) Prelude.<$> value,
-              ("Name" Core..=) Prelude.<$> name
+            [ ("Name" Core..=) Prelude.<$> name,
+              ("Value" Core..=) Prelude.<$> value
             ]
         )

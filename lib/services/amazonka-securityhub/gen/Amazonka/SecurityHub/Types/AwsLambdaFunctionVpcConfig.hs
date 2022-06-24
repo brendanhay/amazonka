@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 data AwsLambdaFunctionVpcConfig = AwsLambdaFunctionVpcConfig'
   { -- | A list of VPC security groups IDs.
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | A list of VPC subnet IDs.
-    subnetIds :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the VPC.
-    vpcId :: Prelude.Maybe Prelude.Text
+    vpcId :: Prelude.Maybe Prelude.Text,
+    -- | A list of VPC subnet IDs.
+    subnetIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,30 +47,30 @@ data AwsLambdaFunctionVpcConfig = AwsLambdaFunctionVpcConfig'
 --
 -- 'securityGroupIds', 'awsLambdaFunctionVpcConfig_securityGroupIds' - A list of VPC security groups IDs.
 --
--- 'subnetIds', 'awsLambdaFunctionVpcConfig_subnetIds' - A list of VPC subnet IDs.
---
 -- 'vpcId', 'awsLambdaFunctionVpcConfig_vpcId' - The ID of the VPC.
+--
+-- 'subnetIds', 'awsLambdaFunctionVpcConfig_subnetIds' - A list of VPC subnet IDs.
 newAwsLambdaFunctionVpcConfig ::
   AwsLambdaFunctionVpcConfig
 newAwsLambdaFunctionVpcConfig =
   AwsLambdaFunctionVpcConfig'
     { securityGroupIds =
         Prelude.Nothing,
-      subnetIds = Prelude.Nothing,
-      vpcId = Prelude.Nothing
+      vpcId = Prelude.Nothing,
+      subnetIds = Prelude.Nothing
     }
 
 -- | A list of VPC security groups IDs.
 awsLambdaFunctionVpcConfig_securityGroupIds :: Lens.Lens' AwsLambdaFunctionVpcConfig (Prelude.Maybe [Prelude.Text])
 awsLambdaFunctionVpcConfig_securityGroupIds = Lens.lens (\AwsLambdaFunctionVpcConfig' {securityGroupIds} -> securityGroupIds) (\s@AwsLambdaFunctionVpcConfig' {} a -> s {securityGroupIds = a} :: AwsLambdaFunctionVpcConfig) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of VPC subnet IDs.
-awsLambdaFunctionVpcConfig_subnetIds :: Lens.Lens' AwsLambdaFunctionVpcConfig (Prelude.Maybe [Prelude.Text])
-awsLambdaFunctionVpcConfig_subnetIds = Lens.lens (\AwsLambdaFunctionVpcConfig' {subnetIds} -> subnetIds) (\s@AwsLambdaFunctionVpcConfig' {} a -> s {subnetIds = a} :: AwsLambdaFunctionVpcConfig) Prelude.. Lens.mapping Lens.coerced
-
 -- | The ID of the VPC.
 awsLambdaFunctionVpcConfig_vpcId :: Lens.Lens' AwsLambdaFunctionVpcConfig (Prelude.Maybe Prelude.Text)
 awsLambdaFunctionVpcConfig_vpcId = Lens.lens (\AwsLambdaFunctionVpcConfig' {vpcId} -> vpcId) (\s@AwsLambdaFunctionVpcConfig' {} a -> s {vpcId = a} :: AwsLambdaFunctionVpcConfig)
+
+-- | A list of VPC subnet IDs.
+awsLambdaFunctionVpcConfig_subnetIds :: Lens.Lens' AwsLambdaFunctionVpcConfig (Prelude.Maybe [Prelude.Text])
+awsLambdaFunctionVpcConfig_subnetIds = Lens.lens (\AwsLambdaFunctionVpcConfig' {subnetIds} -> subnetIds) (\s@AwsLambdaFunctionVpcConfig' {} a -> s {subnetIds = a} :: AwsLambdaFunctionVpcConfig) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON AwsLambdaFunctionVpcConfig where
   parseJSON =
@@ -81,21 +81,21 @@ instance Core.FromJSON AwsLambdaFunctionVpcConfig where
             Prelude.<$> ( x Core..:? "SecurityGroupIds"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "VpcId")
+            Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AwsLambdaFunctionVpcConfig where
   hashWithSalt _salt AwsLambdaFunctionVpcConfig' {..} =
     _salt `Prelude.hashWithSalt` securityGroupIds
-      `Prelude.hashWithSalt` subnetIds
       `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` subnetIds
 
 instance Prelude.NFData AwsLambdaFunctionVpcConfig where
   rnf AwsLambdaFunctionVpcConfig' {..} =
     Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnetIds
       `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf subnetIds
 
 instance Core.ToJSON AwsLambdaFunctionVpcConfig where
   toJSON AwsLambdaFunctionVpcConfig' {..} =
@@ -103,7 +103,7 @@ instance Core.ToJSON AwsLambdaFunctionVpcConfig where
       ( Prelude.catMaybes
           [ ("SecurityGroupIds" Core..=)
               Prelude.<$> securityGroupIds,
-            ("SubnetIds" Core..=) Prelude.<$> subnetIds,
-            ("VpcId" Core..=) Prelude.<$> vpcId
+            ("VpcId" Core..=) Prelude.<$> vpcId,
+            ("SubnetIds" Core..=) Prelude.<$> subnetIds
           ]
       )

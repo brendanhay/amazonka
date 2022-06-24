@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsS3BucketServerSideEncryptionByDefault' smart constructor.
 data AwsS3BucketServerSideEncryptionByDefault = AwsS3BucketServerSideEncryptionByDefault'
-  { -- | Server-side encryption algorithm to use for the default encryption.
-    sSEAlgorithm :: Prelude.Maybe Prelude.Text,
-    -- | KMS key ID to use for the default encryption.
-    kmsMasterKeyID :: Prelude.Maybe Prelude.Text
+  { -- | KMS key ID to use for the default encryption.
+    kmsMasterKeyID :: Prelude.Maybe Prelude.Text,
+    -- | Server-side encryption algorithm to use for the default encryption.
+    sSEAlgorithm :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data AwsS3BucketServerSideEncryptionByDefault = AwsS3BucketServerSideEncryptionB
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sSEAlgorithm', 'awsS3BucketServerSideEncryptionByDefault_sSEAlgorithm' - Server-side encryption algorithm to use for the default encryption.
---
 -- 'kmsMasterKeyID', 'awsS3BucketServerSideEncryptionByDefault_kmsMasterKeyID' - KMS key ID to use for the default encryption.
+--
+-- 'sSEAlgorithm', 'awsS3BucketServerSideEncryptionByDefault_sSEAlgorithm' - Server-side encryption algorithm to use for the default encryption.
 newAwsS3BucketServerSideEncryptionByDefault ::
   AwsS3BucketServerSideEncryptionByDefault
 newAwsS3BucketServerSideEncryptionByDefault =
   AwsS3BucketServerSideEncryptionByDefault'
-    { sSEAlgorithm =
+    { kmsMasterKeyID =
         Prelude.Nothing,
-      kmsMasterKeyID = Prelude.Nothing
+      sSEAlgorithm = Prelude.Nothing
     }
-
--- | Server-side encryption algorithm to use for the default encryption.
-awsS3BucketServerSideEncryptionByDefault_sSEAlgorithm :: Lens.Lens' AwsS3BucketServerSideEncryptionByDefault (Prelude.Maybe Prelude.Text)
-awsS3BucketServerSideEncryptionByDefault_sSEAlgorithm = Lens.lens (\AwsS3BucketServerSideEncryptionByDefault' {sSEAlgorithm} -> sSEAlgorithm) (\s@AwsS3BucketServerSideEncryptionByDefault' {} a -> s {sSEAlgorithm = a} :: AwsS3BucketServerSideEncryptionByDefault)
 
 -- | KMS key ID to use for the default encryption.
 awsS3BucketServerSideEncryptionByDefault_kmsMasterKeyID :: Lens.Lens' AwsS3BucketServerSideEncryptionByDefault (Prelude.Maybe Prelude.Text)
 awsS3BucketServerSideEncryptionByDefault_kmsMasterKeyID = Lens.lens (\AwsS3BucketServerSideEncryptionByDefault' {kmsMasterKeyID} -> kmsMasterKeyID) (\s@AwsS3BucketServerSideEncryptionByDefault' {} a -> s {kmsMasterKeyID = a} :: AwsS3BucketServerSideEncryptionByDefault)
+
+-- | Server-side encryption algorithm to use for the default encryption.
+awsS3BucketServerSideEncryptionByDefault_sSEAlgorithm :: Lens.Lens' AwsS3BucketServerSideEncryptionByDefault (Prelude.Maybe Prelude.Text)
+awsS3BucketServerSideEncryptionByDefault_sSEAlgorithm = Lens.lens (\AwsS3BucketServerSideEncryptionByDefault' {sSEAlgorithm} -> sSEAlgorithm) (\s@AwsS3BucketServerSideEncryptionByDefault' {} a -> s {sSEAlgorithm = a} :: AwsS3BucketServerSideEncryptionByDefault)
 
 instance
   Core.FromJSON
@@ -72,8 +72,8 @@ instance
       "AwsS3BucketServerSideEncryptionByDefault"
       ( \x ->
           AwsS3BucketServerSideEncryptionByDefault'
-            Prelude.<$> (x Core..:? "SSEAlgorithm")
-            Prelude.<*> (x Core..:? "KMSMasterKeyID")
+            Prelude.<$> (x Core..:? "KMSMasterKeyID")
+            Prelude.<*> (x Core..:? "SSEAlgorithm")
       )
 
 instance
@@ -83,16 +83,16 @@ instance
   hashWithSalt
     _salt
     AwsS3BucketServerSideEncryptionByDefault' {..} =
-      _salt `Prelude.hashWithSalt` sSEAlgorithm
-        `Prelude.hashWithSalt` kmsMasterKeyID
+      _salt `Prelude.hashWithSalt` kmsMasterKeyID
+        `Prelude.hashWithSalt` sSEAlgorithm
 
 instance
   Prelude.NFData
     AwsS3BucketServerSideEncryptionByDefault
   where
   rnf AwsS3BucketServerSideEncryptionByDefault' {..} =
-    Prelude.rnf sSEAlgorithm
-      `Prelude.seq` Prelude.rnf kmsMasterKeyID
+    Prelude.rnf kmsMasterKeyID
+      `Prelude.seq` Prelude.rnf sSEAlgorithm
 
 instance
   Core.ToJSON
@@ -101,8 +101,8 @@ instance
   toJSON AwsS3BucketServerSideEncryptionByDefault' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SSEAlgorithm" Core..=) Prelude.<$> sSEAlgorithm,
-            ("KMSMasterKeyID" Core..=)
-              Prelude.<$> kmsMasterKeyID
+          [ ("KMSMasterKeyID" Core..=)
+              Prelude.<$> kmsMasterKeyID,
+            ("SSEAlgorithm" Core..=) Prelude.<$> sSEAlgorithm
           ]
       )

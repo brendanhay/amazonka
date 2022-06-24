@@ -28,12 +28,14 @@ import Amazonka.SecurityHub.Types.AwsEc2VolumeAttachment
 --
 -- /See:/ 'newAwsEc2VolumeDetails' smart constructor.
 data AwsEc2VolumeDetails = AwsEc2VolumeDetails'
-  { -- | The volume state.
+  { -- | The snapshot from which the volume was created.
+    snapshotId :: Prelude.Maybe Prelude.Text,
+    -- | The size of the volume, in GiBs.
+    size :: Prelude.Maybe Prelude.Int,
+    -- | The volume state.
     status :: Prelude.Maybe Prelude.Text,
     -- | The volume attachments.
     attachments :: Prelude.Maybe [AwsEc2VolumeAttachment],
-    -- | The size of the volume, in GiBs.
-    size :: Prelude.Maybe Prelude.Int,
     -- | Whether the volume is encrypted.
     encrypted :: Prelude.Maybe Prelude.Bool,
     -- | The ARN of the KMS key that was used to protect the volume encryption
@@ -45,9 +47,7 @@ data AwsEc2VolumeDetails = AwsEc2VolumeDetails'
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
     -- The value cannot contain spaces. For example,
     -- @2020-03-22T13:22:13.933Z@.
-    createTime :: Prelude.Maybe Prelude.Text,
-    -- | The snapshot from which the volume was created.
-    snapshotId :: Prelude.Maybe Prelude.Text
+    createTime :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,11 +59,13 @@ data AwsEc2VolumeDetails = AwsEc2VolumeDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'snapshotId', 'awsEc2VolumeDetails_snapshotId' - The snapshot from which the volume was created.
+--
+-- 'size', 'awsEc2VolumeDetails_size' - The size of the volume, in GiBs.
+--
 -- 'status', 'awsEc2VolumeDetails_status' - The volume state.
 --
 -- 'attachments', 'awsEc2VolumeDetails_attachments' - The volume attachments.
---
--- 'size', 'awsEc2VolumeDetails_size' - The size of the volume, in GiBs.
 --
 -- 'encrypted', 'awsEc2VolumeDetails_encrypted' - Whether the volume is encrypted.
 --
@@ -76,20 +78,26 @@ data AwsEc2VolumeDetails = AwsEc2VolumeDetails'
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
 -- The value cannot contain spaces. For example,
 -- @2020-03-22T13:22:13.933Z@.
---
--- 'snapshotId', 'awsEc2VolumeDetails_snapshotId' - The snapshot from which the volume was created.
 newAwsEc2VolumeDetails ::
   AwsEc2VolumeDetails
 newAwsEc2VolumeDetails =
   AwsEc2VolumeDetails'
-    { status = Prelude.Nothing,
-      attachments = Prelude.Nothing,
+    { snapshotId = Prelude.Nothing,
       size = Prelude.Nothing,
+      status = Prelude.Nothing,
+      attachments = Prelude.Nothing,
       encrypted = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
-      createTime = Prelude.Nothing,
-      snapshotId = Prelude.Nothing
+      createTime = Prelude.Nothing
     }
+
+-- | The snapshot from which the volume was created.
+awsEc2VolumeDetails_snapshotId :: Lens.Lens' AwsEc2VolumeDetails (Prelude.Maybe Prelude.Text)
+awsEc2VolumeDetails_snapshotId = Lens.lens (\AwsEc2VolumeDetails' {snapshotId} -> snapshotId) (\s@AwsEc2VolumeDetails' {} a -> s {snapshotId = a} :: AwsEc2VolumeDetails)
+
+-- | The size of the volume, in GiBs.
+awsEc2VolumeDetails_size :: Lens.Lens' AwsEc2VolumeDetails (Prelude.Maybe Prelude.Int)
+awsEc2VolumeDetails_size = Lens.lens (\AwsEc2VolumeDetails' {size} -> size) (\s@AwsEc2VolumeDetails' {} a -> s {size = a} :: AwsEc2VolumeDetails)
 
 -- | The volume state.
 awsEc2VolumeDetails_status :: Lens.Lens' AwsEc2VolumeDetails (Prelude.Maybe Prelude.Text)
@@ -98,10 +106,6 @@ awsEc2VolumeDetails_status = Lens.lens (\AwsEc2VolumeDetails' {status} -> status
 -- | The volume attachments.
 awsEc2VolumeDetails_attachments :: Lens.Lens' AwsEc2VolumeDetails (Prelude.Maybe [AwsEc2VolumeAttachment])
 awsEc2VolumeDetails_attachments = Lens.lens (\AwsEc2VolumeDetails' {attachments} -> attachments) (\s@AwsEc2VolumeDetails' {} a -> s {attachments = a} :: AwsEc2VolumeDetails) Prelude.. Lens.mapping Lens.coerced
-
--- | The size of the volume, in GiBs.
-awsEc2VolumeDetails_size :: Lens.Lens' AwsEc2VolumeDetails (Prelude.Maybe Prelude.Int)
-awsEc2VolumeDetails_size = Lens.lens (\AwsEc2VolumeDetails' {size} -> size) (\s@AwsEc2VolumeDetails' {} a -> s {size = a} :: AwsEc2VolumeDetails)
 
 -- | Whether the volume is encrypted.
 awsEc2VolumeDetails_encrypted :: Lens.Lens' AwsEc2VolumeDetails (Prelude.Maybe Prelude.Bool)
@@ -121,55 +125,51 @@ awsEc2VolumeDetails_kmsKeyId = Lens.lens (\AwsEc2VolumeDetails' {kmsKeyId} -> km
 awsEc2VolumeDetails_createTime :: Lens.Lens' AwsEc2VolumeDetails (Prelude.Maybe Prelude.Text)
 awsEc2VolumeDetails_createTime = Lens.lens (\AwsEc2VolumeDetails' {createTime} -> createTime) (\s@AwsEc2VolumeDetails' {} a -> s {createTime = a} :: AwsEc2VolumeDetails)
 
--- | The snapshot from which the volume was created.
-awsEc2VolumeDetails_snapshotId :: Lens.Lens' AwsEc2VolumeDetails (Prelude.Maybe Prelude.Text)
-awsEc2VolumeDetails_snapshotId = Lens.lens (\AwsEc2VolumeDetails' {snapshotId} -> snapshotId) (\s@AwsEc2VolumeDetails' {} a -> s {snapshotId = a} :: AwsEc2VolumeDetails)
-
 instance Core.FromJSON AwsEc2VolumeDetails where
   parseJSON =
     Core.withObject
       "AwsEc2VolumeDetails"
       ( \x ->
           AwsEc2VolumeDetails'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Attachments" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "SnapshotId")
             Prelude.<*> (x Core..:? "Size")
+            Prelude.<*> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "Attachments" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Encrypted")
             Prelude.<*> (x Core..:? "KmsKeyId")
             Prelude.<*> (x Core..:? "CreateTime")
-            Prelude.<*> (x Core..:? "SnapshotId")
       )
 
 instance Prelude.Hashable AwsEc2VolumeDetails where
   hashWithSalt _salt AwsEc2VolumeDetails' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` attachments
+    _salt `Prelude.hashWithSalt` snapshotId
       `Prelude.hashWithSalt` size
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` attachments
       `Prelude.hashWithSalt` encrypted
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` createTime
-      `Prelude.hashWithSalt` snapshotId
 
 instance Prelude.NFData AwsEc2VolumeDetails where
   rnf AwsEc2VolumeDetails' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf attachments
+    Prelude.rnf snapshotId
       `Prelude.seq` Prelude.rnf size
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf attachments
       `Prelude.seq` Prelude.rnf encrypted
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf snapshotId
 
 instance Core.ToJSON AwsEc2VolumeDetails where
   toJSON AwsEc2VolumeDetails' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
-            ("Attachments" Core..=) Prelude.<$> attachments,
+          [ ("SnapshotId" Core..=) Prelude.<$> snapshotId,
             ("Size" Core..=) Prelude.<$> size,
+            ("Status" Core..=) Prelude.<$> status,
+            ("Attachments" Core..=) Prelude.<$> attachments,
             ("Encrypted" Core..=) Prelude.<$> encrypted,
             ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("CreateTime" Core..=) Prelude.<$> createTime,
-            ("SnapshotId" Core..=) Prelude.<$> snapshotId
+            ("CreateTime" Core..=) Prelude.<$> createTime
           ]
       )

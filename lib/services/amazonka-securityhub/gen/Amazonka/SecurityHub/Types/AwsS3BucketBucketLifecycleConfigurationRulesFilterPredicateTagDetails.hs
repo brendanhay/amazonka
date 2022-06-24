@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails' smart constructor.
 data AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails = AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails'
-  { -- | The tag value
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The tag key.
-    key :: Prelude.Maybe Prelude.Text
+  { -- | The tag key.
+    key :: Prelude.Maybe Prelude.Text,
+    -- | The tag value
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,26 +42,26 @@ data AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails = Aws
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails_value' - The tag value
---
 -- 'key', 'awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails_key' - The tag key.
+--
+-- 'value', 'awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails_value' - The tag value
 newAwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails ::
   AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails
 newAwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails =
   AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails'
-    { value =
+    { key =
         Prelude.Nothing,
-      key =
+      value =
         Prelude.Nothing
     }
-
--- | The tag value
-awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails_value :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails (Prelude.Maybe Prelude.Text)
-awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails_value = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails' {value} -> value) (\s@AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails' {} a -> s {value = a} :: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails)
 
 -- | The tag key.
 awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails_key :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails (Prelude.Maybe Prelude.Text)
 awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails_key = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails' {key} -> key) (\s@AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails' {} a -> s {key = a} :: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails)
+
+-- | The tag value
+awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails_value :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails (Prelude.Maybe Prelude.Text)
+awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails_value = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails' {value} -> value) (\s@AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails' {} a -> s {value = a} :: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails)
 
 instance
   Core.FromJSON
@@ -72,7 +72,7 @@ instance
       "AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails"
       ( \x ->
           AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails'
-            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Key")
+            Prelude.<$> (x Core..:? "Key") Prelude.<*> (x Core..:? "Value")
       )
 
 instance
@@ -82,8 +82,8 @@ instance
   hashWithSalt
     _salt
     AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails' {..} =
-      _salt `Prelude.hashWithSalt` value
-        `Prelude.hashWithSalt` key
+      _salt `Prelude.hashWithSalt` key
+        `Prelude.hashWithSalt` value
 
 instance
   Prelude.NFData
@@ -91,7 +91,7 @@ instance
   where
   rnf
     AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails' {..} =
-      Prelude.rnf value `Prelude.seq` Prelude.rnf key
+      Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
 instance
   Core.ToJSON
@@ -101,7 +101,7 @@ instance
     AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("Value" Core..=) Prelude.<$> value,
-              ("Key" Core..=) Prelude.<$> key
+            [ ("Key" Core..=) Prelude.<$> key,
+              ("Value" Core..=) Prelude.<$> value
             ]
         )

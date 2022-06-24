@@ -69,8 +69,6 @@ data Severity = Severity'
     --
     -- -   90–100 - @CRITICAL@
     label :: Prelude.Maybe SeverityLabel,
-    -- | The native severity from the finding product that generated the finding.
-    original :: Prelude.Maybe Prelude.Text,
     -- | Deprecated. The normalized severity of a finding. This attribute is
     -- being deprecated. Instead of providing @Normalized@, provide @Label@.
     --
@@ -86,7 +84,9 @@ data Severity = Severity'
     -- -   @HIGH@ - 70
     --
     -- -   @CRITICAL@ - 90
-    normalized :: Prelude.Maybe Prelude.Int
+    normalized :: Prelude.Maybe Prelude.Int,
+    -- | The native severity from the finding product that generated the finding.
+    original :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -130,8 +130,6 @@ data Severity = Severity'
 --
 -- -   90–100 - @CRITICAL@
 --
--- 'original', 'severity_original' - The native severity from the finding product that generated the finding.
---
 -- 'normalized', 'severity_normalized' - Deprecated. The normalized severity of a finding. This attribute is
 -- being deprecated. Instead of providing @Normalized@, provide @Label@.
 --
@@ -147,14 +145,16 @@ data Severity = Severity'
 -- -   @HIGH@ - 70
 --
 -- -   @CRITICAL@ - 90
+--
+-- 'original', 'severity_original' - The native severity from the finding product that generated the finding.
 newSeverity ::
   Severity
 newSeverity =
   Severity'
     { product = Prelude.Nothing,
       label = Prelude.Nothing,
-      original = Prelude.Nothing,
-      normalized = Prelude.Nothing
+      normalized = Prelude.Nothing,
+      original = Prelude.Nothing
     }
 
 -- | Deprecated. This attribute is being deprecated. Instead of providing
@@ -193,10 +193,6 @@ severity_product = Lens.lens (\Severity' {product} -> product) (\s@Severity' {} 
 severity_label :: Lens.Lens' Severity (Prelude.Maybe SeverityLabel)
 severity_label = Lens.lens (\Severity' {label} -> label) (\s@Severity' {} a -> s {label = a} :: Severity)
 
--- | The native severity from the finding product that generated the finding.
-severity_original :: Lens.Lens' Severity (Prelude.Maybe Prelude.Text)
-severity_original = Lens.lens (\Severity' {original} -> original) (\s@Severity' {} a -> s {original = a} :: Severity)
-
 -- | Deprecated. The normalized severity of a finding. This attribute is
 -- being deprecated. Instead of providing @Normalized@, provide @Label@.
 --
@@ -215,6 +211,10 @@ severity_original = Lens.lens (\Severity' {original} -> original) (\s@Severity' 
 severity_normalized :: Lens.Lens' Severity (Prelude.Maybe Prelude.Int)
 severity_normalized = Lens.lens (\Severity' {normalized} -> normalized) (\s@Severity' {} a -> s {normalized = a} :: Severity)
 
+-- | The native severity from the finding product that generated the finding.
+severity_original :: Lens.Lens' Severity (Prelude.Maybe Prelude.Text)
+severity_original = Lens.lens (\Severity' {original} -> original) (\s@Severity' {} a -> s {original = a} :: Severity)
+
 instance Core.FromJSON Severity where
   parseJSON =
     Core.withObject
@@ -223,23 +223,23 @@ instance Core.FromJSON Severity where
           Severity'
             Prelude.<$> (x Core..:? "Product")
             Prelude.<*> (x Core..:? "Label")
-            Prelude.<*> (x Core..:? "Original")
             Prelude.<*> (x Core..:? "Normalized")
+            Prelude.<*> (x Core..:? "Original")
       )
 
 instance Prelude.Hashable Severity where
   hashWithSalt _salt Severity' {..} =
     _salt `Prelude.hashWithSalt` product
       `Prelude.hashWithSalt` label
-      `Prelude.hashWithSalt` original
       `Prelude.hashWithSalt` normalized
+      `Prelude.hashWithSalt` original
 
 instance Prelude.NFData Severity where
   rnf Severity' {..} =
     Prelude.rnf product
       `Prelude.seq` Prelude.rnf label
-      `Prelude.seq` Prelude.rnf original
       `Prelude.seq` Prelude.rnf normalized
+      `Prelude.seq` Prelude.rnf original
 
 instance Core.ToJSON Severity where
   toJSON Severity' {..} =
@@ -247,7 +247,7 @@ instance Core.ToJSON Severity where
       ( Prelude.catMaybes
           [ ("Product" Core..=) Prelude.<$> product,
             ("Label" Core..=) Prelude.<$> label,
-            ("Original" Core..=) Prelude.<$> original,
-            ("Normalized" Core..=) Prelude.<$> normalized
+            ("Normalized" Core..=) Prelude.<$> normalized,
+            ("Original" Core..=) Prelude.<$> original
           ]
       )

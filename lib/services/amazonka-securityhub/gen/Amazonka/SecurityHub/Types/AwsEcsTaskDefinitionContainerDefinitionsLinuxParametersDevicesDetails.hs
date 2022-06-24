@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails' smart constructor.
 data AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails = AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails'
-  { -- | The path inside the container at which to expose the host device.
-    containerPath :: Prelude.Maybe Prelude.Text,
-    -- | The path for the device on the host container instance.
+  { -- | The path for the device on the host container instance.
     hostPath :: Prelude.Maybe Prelude.Text,
+    -- | The path inside the container at which to expose the host device.
+    containerPath :: Prelude.Maybe Prelude.Text,
     -- | The explicit permissions to provide to the container for the device. By
     -- default, the container has permissions for read, write, and @mknod@ for
     -- the device.
@@ -46,9 +46,9 @@ data AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails = Aws
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'containerPath', 'awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails_containerPath' - The path inside the container at which to expose the host device.
---
 -- 'hostPath', 'awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails_hostPath' - The path for the device on the host container instance.
+--
+-- 'containerPath', 'awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails_containerPath' - The path inside the container at which to expose the host device.
 --
 -- 'permissions', 'awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails_permissions' - The explicit permissions to provide to the container for the device. By
 -- default, the container has permissions for read, write, and @mknod@ for
@@ -57,21 +57,21 @@ newAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails ::
   AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails
 newAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails =
   AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails'
-    { containerPath =
+    { hostPath =
         Prelude.Nothing,
-      hostPath =
+      containerPath =
         Prelude.Nothing,
       permissions =
         Prelude.Nothing
     }
 
--- | The path inside the container at which to expose the host device.
-awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails_containerPath :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails (Prelude.Maybe Prelude.Text)
-awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails_containerPath = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails' {containerPath} -> containerPath) (\s@AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails' {} a -> s {containerPath = a} :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails)
-
 -- | The path for the device on the host container instance.
 awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails_hostPath :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails (Prelude.Maybe Prelude.Text)
 awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails_hostPath = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails' {hostPath} -> hostPath) (\s@AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails' {} a -> s {hostPath = a} :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails)
+
+-- | The path inside the container at which to expose the host device.
+awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails_containerPath :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails (Prelude.Maybe Prelude.Text)
+awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails_containerPath = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails' {containerPath} -> containerPath) (\s@AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails' {} a -> s {containerPath = a} :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails)
 
 -- | The explicit permissions to provide to the container for the device. By
 -- default, the container has permissions for read, write, and @mknod@ for
@@ -88,8 +88,8 @@ instance
       "AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails"
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails'
-            Prelude.<$> (x Core..:? "ContainerPath")
-              Prelude.<*> (x Core..:? "HostPath")
+            Prelude.<$> (x Core..:? "HostPath")
+              Prelude.<*> (x Core..:? "ContainerPath")
               Prelude.<*> (x Core..:? "Permissions" Core..!= Prelude.mempty)
       )
 
@@ -100,8 +100,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails' {..} =
-      _salt `Prelude.hashWithSalt` containerPath
-        `Prelude.hashWithSalt` hostPath
+      _salt `Prelude.hashWithSalt` hostPath
+        `Prelude.hashWithSalt` containerPath
         `Prelude.hashWithSalt` permissions
 
 instance
@@ -110,8 +110,8 @@ instance
   where
   rnf
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails' {..} =
-      Prelude.rnf containerPath
-        `Prelude.seq` Prelude.rnf hostPath
+      Prelude.rnf hostPath
+        `Prelude.seq` Prelude.rnf containerPath
         `Prelude.seq` Prelude.rnf permissions
 
 instance
@@ -122,8 +122,8 @@ instance
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("ContainerPath" Core..=) Prelude.<$> containerPath,
-              ("HostPath" Core..=) Prelude.<$> hostPath,
+            [ ("HostPath" Core..=) Prelude.<$> hostPath,
+              ("ContainerPath" Core..=) Prelude.<$> containerPath,
               ("Permissions" Core..=) Prelude.<$> permissions
             ]
         )

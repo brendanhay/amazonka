@@ -60,20 +60,14 @@ module Amazonka.SecurityHub
     -- * Errors
     -- $errors
 
-    -- ** AccessDeniedException
-    _AccessDeniedException,
+    -- ** InvalidInputException
+    _InvalidInputException,
 
     -- ** InvalidAccessException
     _InvalidAccessException,
 
-    -- ** InvalidInputException
-    _InvalidInputException,
-
-    -- ** InternalException
-    _InternalException,
-
-    -- ** ResourceConflictException
-    _ResourceConflictException,
+    -- ** AccessDeniedException
+    _AccessDeniedException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
@@ -81,35 +75,17 @@ module Amazonka.SecurityHub
     -- ** LimitExceededException
     _LimitExceededException,
 
+    -- ** ResourceConflictException
+    _ResourceConflictException,
+
+    -- ** InternalException
+    _InternalException,
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
-
-    -- ** EnableOrganizationAdminAccount
-    EnableOrganizationAdminAccount (EnableOrganizationAdminAccount'),
-    newEnableOrganizationAdminAccount,
-    EnableOrganizationAdminAccountResponse (EnableOrganizationAdminAccountResponse'),
-    newEnableOrganizationAdminAccountResponse,
-
-    -- ** GetAdministratorAccount
-    GetAdministratorAccount (GetAdministratorAccount'),
-    newGetAdministratorAccount,
-    GetAdministratorAccountResponse (GetAdministratorAccountResponse'),
-    newGetAdministratorAccountResponse,
-
-    -- ** ListOrganizationAdminAccounts (Paginated)
-    ListOrganizationAdminAccounts (ListOrganizationAdminAccounts'),
-    newListOrganizationAdminAccounts,
-    ListOrganizationAdminAccountsResponse (ListOrganizationAdminAccountsResponse'),
-    newListOrganizationAdminAccountsResponse,
-
-    -- ** CreateInsight
-    CreateInsight (CreateInsight'),
-    newCreateInsight,
-    CreateInsightResponse (CreateInsightResponse'),
-    newCreateInsightResponse,
 
     -- ** AcceptAdministratorInvitation
     AcceptAdministratorInvitation (AcceptAdministratorInvitation'),
@@ -117,215 +93,11 @@ module Amazonka.SecurityHub
     AcceptAdministratorInvitationResponse (AcceptAdministratorInvitationResponse'),
     newAcceptAdministratorInvitationResponse,
 
-    -- ** DeleteMembers
-    DeleteMembers (DeleteMembers'),
-    newDeleteMembers,
-    DeleteMembersResponse (DeleteMembersResponse'),
-    newDeleteMembersResponse,
-
-    -- ** DescribeHub
-    DescribeHub (DescribeHub'),
-    newDescribeHub,
-    DescribeHubResponse (DescribeHubResponse'),
-    newDescribeHubResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** GetInsightResults
-    GetInsightResults (GetInsightResults'),
-    newGetInsightResults,
-    GetInsightResultsResponse (GetInsightResultsResponse'),
-    newGetInsightResultsResponse,
-
-    -- ** EnableImportFindingsForProduct
-    EnableImportFindingsForProduct (EnableImportFindingsForProduct'),
-    newEnableImportFindingsForProduct,
-    EnableImportFindingsForProductResponse (EnableImportFindingsForProductResponse'),
-    newEnableImportFindingsForProductResponse,
-
-    -- ** DescribeStandards (Paginated)
-    DescribeStandards (DescribeStandards'),
-    newDescribeStandards,
-    DescribeStandardsResponse (DescribeStandardsResponse'),
-    newDescribeStandardsResponse,
-
-    -- ** DescribeProducts (Paginated)
-    DescribeProducts (DescribeProducts'),
-    newDescribeProducts,
-    DescribeProductsResponse (DescribeProductsResponse'),
-    newDescribeProductsResponse,
-
-    -- ** DeleteFindingAggregator
-    DeleteFindingAggregator (DeleteFindingAggregator'),
-    newDeleteFindingAggregator,
-    DeleteFindingAggregatorResponse (DeleteFindingAggregatorResponse'),
-    newDeleteFindingAggregatorResponse,
-
-    -- ** UpdateFindingAggregator
-    UpdateFindingAggregator (UpdateFindingAggregator'),
-    newUpdateFindingAggregator,
-    UpdateFindingAggregatorResponse (UpdateFindingAggregatorResponse'),
-    newUpdateFindingAggregatorResponse,
-
-    -- ** ListInvitations (Paginated)
-    ListInvitations (ListInvitations'),
-    newListInvitations,
-    ListInvitationsResponse (ListInvitationsResponse'),
-    newListInvitationsResponse,
-
-    -- ** DeleteInvitations
-    DeleteInvitations (DeleteInvitations'),
-    newDeleteInvitations,
-    DeleteInvitationsResponse (DeleteInvitationsResponse'),
-    newDeleteInvitationsResponse,
-
-    -- ** GetEnabledStandards (Paginated)
-    GetEnabledStandards (GetEnabledStandards'),
-    newGetEnabledStandards,
-    GetEnabledStandardsResponse (GetEnabledStandardsResponse'),
-    newGetEnabledStandardsResponse,
-
-    -- ** DeclineInvitations
-    DeclineInvitations (DeclineInvitations'),
-    newDeclineInvitations,
-    DeclineInvitationsResponse (DeclineInvitationsResponse'),
-    newDeclineInvitationsResponse,
-
-    -- ** UpdateActionTarget
-    UpdateActionTarget (UpdateActionTarget'),
-    newUpdateActionTarget,
-    UpdateActionTargetResponse (UpdateActionTargetResponse'),
-    newUpdateActionTargetResponse,
-
-    -- ** DeleteActionTarget
-    DeleteActionTarget (DeleteActionTarget'),
-    newDeleteActionTarget,
-    DeleteActionTargetResponse (DeleteActionTargetResponse'),
-    newDeleteActionTargetResponse,
-
-    -- ** UpdateStandardsControl
-    UpdateStandardsControl (UpdateStandardsControl'),
-    newUpdateStandardsControl,
-    UpdateStandardsControlResponse (UpdateStandardsControlResponse'),
-    newUpdateStandardsControlResponse,
-
-    -- ** DescribeOrganizationConfiguration
-    DescribeOrganizationConfiguration (DescribeOrganizationConfiguration'),
-    newDescribeOrganizationConfiguration,
-    DescribeOrganizationConfigurationResponse (DescribeOrganizationConfigurationResponse'),
-    newDescribeOrganizationConfigurationResponse,
-
-    -- ** DescribeActionTargets (Paginated)
-    DescribeActionTargets (DescribeActionTargets'),
-    newDescribeActionTargets,
-    DescribeActionTargetsResponse (DescribeActionTargetsResponse'),
-    newDescribeActionTargetsResponse,
-
-    -- ** DisassociateMembers
-    DisassociateMembers (DisassociateMembers'),
-    newDisassociateMembers,
-    DisassociateMembersResponse (DisassociateMembersResponse'),
-    newDisassociateMembersResponse,
-
-    -- ** ListEnabledProductsForImport (Paginated)
-    ListEnabledProductsForImport (ListEnabledProductsForImport'),
-    newListEnabledProductsForImport,
-    ListEnabledProductsForImportResponse (ListEnabledProductsForImportResponse'),
-    newListEnabledProductsForImportResponse,
-
-    -- ** DescribeStandardsControls (Paginated)
-    DescribeStandardsControls (DescribeStandardsControls'),
-    newDescribeStandardsControls,
-    DescribeStandardsControlsResponse (DescribeStandardsControlsResponse'),
-    newDescribeStandardsControlsResponse,
-
-    -- ** ListMembers (Paginated)
-    ListMembers (ListMembers'),
-    newListMembers,
-    ListMembersResponse (ListMembersResponse'),
-    newListMembersResponse,
-
-    -- ** CreateMembers
-    CreateMembers (CreateMembers'),
-    newCreateMembers,
-    CreateMembersResponse (CreateMembersResponse'),
-    newCreateMembersResponse,
-
-    -- ** BatchImportFindings
-    BatchImportFindings (BatchImportFindings'),
-    newBatchImportFindings,
-    BatchImportFindingsResponse (BatchImportFindingsResponse'),
-    newBatchImportFindingsResponse,
-
-    -- ** GetInvitationsCount
-    GetInvitationsCount (GetInvitationsCount'),
-    newGetInvitationsCount,
-    GetInvitationsCountResponse (GetInvitationsCountResponse'),
-    newGetInvitationsCountResponse,
-
-    -- ** DeleteInsight
-    DeleteInsight (DeleteInsight'),
-    newDeleteInsight,
-    DeleteInsightResponse (DeleteInsightResponse'),
-    newDeleteInsightResponse,
-
-    -- ** UpdateInsight
-    UpdateInsight (UpdateInsight'),
-    newUpdateInsight,
-    UpdateInsightResponse (UpdateInsightResponse'),
-    newUpdateInsightResponse,
-
-    -- ** DisableImportFindingsForProduct
-    DisableImportFindingsForProduct (DisableImportFindingsForProduct'),
-    newDisableImportFindingsForProduct,
-    DisableImportFindingsForProductResponse (DisableImportFindingsForProductResponse'),
-    newDisableImportFindingsForProductResponse,
-
-    -- ** UpdateFindings
-    UpdateFindings (UpdateFindings'),
-    newUpdateFindings,
-    UpdateFindingsResponse (UpdateFindingsResponse'),
-    newUpdateFindingsResponse,
-
-    -- ** UpdateOrganizationConfiguration
-    UpdateOrganizationConfiguration (UpdateOrganizationConfiguration'),
-    newUpdateOrganizationConfiguration,
-    UpdateOrganizationConfigurationResponse (UpdateOrganizationConfigurationResponse'),
-    newUpdateOrganizationConfigurationResponse,
-
-    -- ** GetFindingAggregator
-    GetFindingAggregator (GetFindingAggregator'),
-    newGetFindingAggregator,
-    GetFindingAggregatorResponse (GetFindingAggregatorResponse'),
-    newGetFindingAggregatorResponse,
-
-    -- ** InviteMembers
-    InviteMembers (InviteMembers'),
-    newInviteMembers,
-    InviteMembersResponse (InviteMembersResponse'),
-    newInviteMembersResponse,
-
-    -- ** GetMembers
-    GetMembers (GetMembers'),
-    newGetMembers,
-    GetMembersResponse (GetMembersResponse'),
-    newGetMembersResponse,
-
-    -- ** DisableSecurityHub
-    DisableSecurityHub (DisableSecurityHub'),
-    newDisableSecurityHub,
-    DisableSecurityHubResponse (DisableSecurityHubResponse'),
-    newDisableSecurityHubResponse,
-
-    -- ** ListFindingAggregators (Paginated)
-    ListFindingAggregators (ListFindingAggregators'),
-    newListFindingAggregators,
-    ListFindingAggregatorsResponse (ListFindingAggregatorsResponse'),
-    newListFindingAggregatorsResponse,
+    -- ** BatchDisableStandards
+    BatchDisableStandards (BatchDisableStandards'),
+    newBatchDisableStandards,
+    BatchDisableStandardsResponse (BatchDisableStandardsResponse'),
+    newBatchDisableStandardsResponse,
 
     -- ** BatchEnableStandards
     BatchEnableStandards (BatchEnableStandards'),
@@ -333,53 +105,11 @@ module Amazonka.SecurityHub
     BatchEnableStandardsResponse (BatchEnableStandardsResponse'),
     newBatchEnableStandardsResponse,
 
-    -- ** CreateFindingAggregator
-    CreateFindingAggregator (CreateFindingAggregator'),
-    newCreateFindingAggregator,
-    CreateFindingAggregatorResponse (CreateFindingAggregatorResponse'),
-    newCreateFindingAggregatorResponse,
-
-    -- ** BatchDisableStandards
-    BatchDisableStandards (BatchDisableStandards'),
-    newBatchDisableStandards,
-    BatchDisableStandardsResponse (BatchDisableStandardsResponse'),
-    newBatchDisableStandardsResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** EnableSecurityHub
-    EnableSecurityHub (EnableSecurityHub'),
-    newEnableSecurityHub,
-    EnableSecurityHubResponse (EnableSecurityHubResponse'),
-    newEnableSecurityHubResponse,
-
-    -- ** UpdateSecurityHubConfiguration
-    UpdateSecurityHubConfiguration (UpdateSecurityHubConfiguration'),
-    newUpdateSecurityHubConfiguration,
-    UpdateSecurityHubConfigurationResponse (UpdateSecurityHubConfigurationResponse'),
-    newUpdateSecurityHubConfigurationResponse,
-
-    -- ** GetFindings (Paginated)
-    GetFindings (GetFindings'),
-    newGetFindings,
-    GetFindingsResponse (GetFindingsResponse'),
-    newGetFindingsResponse,
-
-    -- ** GetInsights (Paginated)
-    GetInsights (GetInsights'),
-    newGetInsights,
-    GetInsightsResponse (GetInsightsResponse'),
-    newGetInsightsResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
+    -- ** BatchImportFindings
+    BatchImportFindings (BatchImportFindings'),
+    newBatchImportFindings,
+    BatchImportFindingsResponse (BatchImportFindingsResponse'),
+    newBatchImportFindingsResponse,
 
     -- ** BatchUpdateFindings
     BatchUpdateFindings (BatchUpdateFindings'),
@@ -393,17 +123,287 @@ module Amazonka.SecurityHub
     CreateActionTargetResponse (CreateActionTargetResponse'),
     newCreateActionTargetResponse,
 
-    -- ** DisassociateFromAdministratorAccount
-    DisassociateFromAdministratorAccount (DisassociateFromAdministratorAccount'),
-    newDisassociateFromAdministratorAccount,
-    DisassociateFromAdministratorAccountResponse (DisassociateFromAdministratorAccountResponse'),
-    newDisassociateFromAdministratorAccountResponse,
+    -- ** CreateFindingAggregator
+    CreateFindingAggregator (CreateFindingAggregator'),
+    newCreateFindingAggregator,
+    CreateFindingAggregatorResponse (CreateFindingAggregatorResponse'),
+    newCreateFindingAggregatorResponse,
+
+    -- ** CreateInsight
+    CreateInsight (CreateInsight'),
+    newCreateInsight,
+    CreateInsightResponse (CreateInsightResponse'),
+    newCreateInsightResponse,
+
+    -- ** CreateMembers
+    CreateMembers (CreateMembers'),
+    newCreateMembers,
+    CreateMembersResponse (CreateMembersResponse'),
+    newCreateMembersResponse,
+
+    -- ** DeclineInvitations
+    DeclineInvitations (DeclineInvitations'),
+    newDeclineInvitations,
+    DeclineInvitationsResponse (DeclineInvitationsResponse'),
+    newDeclineInvitationsResponse,
+
+    -- ** DeleteActionTarget
+    DeleteActionTarget (DeleteActionTarget'),
+    newDeleteActionTarget,
+    DeleteActionTargetResponse (DeleteActionTargetResponse'),
+    newDeleteActionTargetResponse,
+
+    -- ** DeleteFindingAggregator
+    DeleteFindingAggregator (DeleteFindingAggregator'),
+    newDeleteFindingAggregator,
+    DeleteFindingAggregatorResponse (DeleteFindingAggregatorResponse'),
+    newDeleteFindingAggregatorResponse,
+
+    -- ** DeleteInsight
+    DeleteInsight (DeleteInsight'),
+    newDeleteInsight,
+    DeleteInsightResponse (DeleteInsightResponse'),
+    newDeleteInsightResponse,
+
+    -- ** DeleteInvitations
+    DeleteInvitations (DeleteInvitations'),
+    newDeleteInvitations,
+    DeleteInvitationsResponse (DeleteInvitationsResponse'),
+    newDeleteInvitationsResponse,
+
+    -- ** DeleteMembers
+    DeleteMembers (DeleteMembers'),
+    newDeleteMembers,
+    DeleteMembersResponse (DeleteMembersResponse'),
+    newDeleteMembersResponse,
+
+    -- ** DescribeActionTargets (Paginated)
+    DescribeActionTargets (DescribeActionTargets'),
+    newDescribeActionTargets,
+    DescribeActionTargetsResponse (DescribeActionTargetsResponse'),
+    newDescribeActionTargetsResponse,
+
+    -- ** DescribeHub
+    DescribeHub (DescribeHub'),
+    newDescribeHub,
+    DescribeHubResponse (DescribeHubResponse'),
+    newDescribeHubResponse,
+
+    -- ** DescribeOrganizationConfiguration
+    DescribeOrganizationConfiguration (DescribeOrganizationConfiguration'),
+    newDescribeOrganizationConfiguration,
+    DescribeOrganizationConfigurationResponse (DescribeOrganizationConfigurationResponse'),
+    newDescribeOrganizationConfigurationResponse,
+
+    -- ** DescribeProducts (Paginated)
+    DescribeProducts (DescribeProducts'),
+    newDescribeProducts,
+    DescribeProductsResponse (DescribeProductsResponse'),
+    newDescribeProductsResponse,
+
+    -- ** DescribeStandards (Paginated)
+    DescribeStandards (DescribeStandards'),
+    newDescribeStandards,
+    DescribeStandardsResponse (DescribeStandardsResponse'),
+    newDescribeStandardsResponse,
+
+    -- ** DescribeStandardsControls (Paginated)
+    DescribeStandardsControls (DescribeStandardsControls'),
+    newDescribeStandardsControls,
+    DescribeStandardsControlsResponse (DescribeStandardsControlsResponse'),
+    newDescribeStandardsControlsResponse,
+
+    -- ** DisableImportFindingsForProduct
+    DisableImportFindingsForProduct (DisableImportFindingsForProduct'),
+    newDisableImportFindingsForProduct,
+    DisableImportFindingsForProductResponse (DisableImportFindingsForProductResponse'),
+    newDisableImportFindingsForProductResponse,
 
     -- ** DisableOrganizationAdminAccount
     DisableOrganizationAdminAccount (DisableOrganizationAdminAccount'),
     newDisableOrganizationAdminAccount,
     DisableOrganizationAdminAccountResponse (DisableOrganizationAdminAccountResponse'),
     newDisableOrganizationAdminAccountResponse,
+
+    -- ** DisableSecurityHub
+    DisableSecurityHub (DisableSecurityHub'),
+    newDisableSecurityHub,
+    DisableSecurityHubResponse (DisableSecurityHubResponse'),
+    newDisableSecurityHubResponse,
+
+    -- ** DisassociateFromAdministratorAccount
+    DisassociateFromAdministratorAccount (DisassociateFromAdministratorAccount'),
+    newDisassociateFromAdministratorAccount,
+    DisassociateFromAdministratorAccountResponse (DisassociateFromAdministratorAccountResponse'),
+    newDisassociateFromAdministratorAccountResponse,
+
+    -- ** DisassociateMembers
+    DisassociateMembers (DisassociateMembers'),
+    newDisassociateMembers,
+    DisassociateMembersResponse (DisassociateMembersResponse'),
+    newDisassociateMembersResponse,
+
+    -- ** EnableImportFindingsForProduct
+    EnableImportFindingsForProduct (EnableImportFindingsForProduct'),
+    newEnableImportFindingsForProduct,
+    EnableImportFindingsForProductResponse (EnableImportFindingsForProductResponse'),
+    newEnableImportFindingsForProductResponse,
+
+    -- ** EnableOrganizationAdminAccount
+    EnableOrganizationAdminAccount (EnableOrganizationAdminAccount'),
+    newEnableOrganizationAdminAccount,
+    EnableOrganizationAdminAccountResponse (EnableOrganizationAdminAccountResponse'),
+    newEnableOrganizationAdminAccountResponse,
+
+    -- ** EnableSecurityHub
+    EnableSecurityHub (EnableSecurityHub'),
+    newEnableSecurityHub,
+    EnableSecurityHubResponse (EnableSecurityHubResponse'),
+    newEnableSecurityHubResponse,
+
+    -- ** GetAdministratorAccount
+    GetAdministratorAccount (GetAdministratorAccount'),
+    newGetAdministratorAccount,
+    GetAdministratorAccountResponse (GetAdministratorAccountResponse'),
+    newGetAdministratorAccountResponse,
+
+    -- ** GetEnabledStandards (Paginated)
+    GetEnabledStandards (GetEnabledStandards'),
+    newGetEnabledStandards,
+    GetEnabledStandardsResponse (GetEnabledStandardsResponse'),
+    newGetEnabledStandardsResponse,
+
+    -- ** GetFindingAggregator
+    GetFindingAggregator (GetFindingAggregator'),
+    newGetFindingAggregator,
+    GetFindingAggregatorResponse (GetFindingAggregatorResponse'),
+    newGetFindingAggregatorResponse,
+
+    -- ** GetFindings (Paginated)
+    GetFindings (GetFindings'),
+    newGetFindings,
+    GetFindingsResponse (GetFindingsResponse'),
+    newGetFindingsResponse,
+
+    -- ** GetInsightResults
+    GetInsightResults (GetInsightResults'),
+    newGetInsightResults,
+    GetInsightResultsResponse (GetInsightResultsResponse'),
+    newGetInsightResultsResponse,
+
+    -- ** GetInsights (Paginated)
+    GetInsights (GetInsights'),
+    newGetInsights,
+    GetInsightsResponse (GetInsightsResponse'),
+    newGetInsightsResponse,
+
+    -- ** GetInvitationsCount
+    GetInvitationsCount (GetInvitationsCount'),
+    newGetInvitationsCount,
+    GetInvitationsCountResponse (GetInvitationsCountResponse'),
+    newGetInvitationsCountResponse,
+
+    -- ** GetMembers
+    GetMembers (GetMembers'),
+    newGetMembers,
+    GetMembersResponse (GetMembersResponse'),
+    newGetMembersResponse,
+
+    -- ** InviteMembers
+    InviteMembers (InviteMembers'),
+    newInviteMembers,
+    InviteMembersResponse (InviteMembersResponse'),
+    newInviteMembersResponse,
+
+    -- ** ListEnabledProductsForImport (Paginated)
+    ListEnabledProductsForImport (ListEnabledProductsForImport'),
+    newListEnabledProductsForImport,
+    ListEnabledProductsForImportResponse (ListEnabledProductsForImportResponse'),
+    newListEnabledProductsForImportResponse,
+
+    -- ** ListFindingAggregators (Paginated)
+    ListFindingAggregators (ListFindingAggregators'),
+    newListFindingAggregators,
+    ListFindingAggregatorsResponse (ListFindingAggregatorsResponse'),
+    newListFindingAggregatorsResponse,
+
+    -- ** ListInvitations (Paginated)
+    ListInvitations (ListInvitations'),
+    newListInvitations,
+    ListInvitationsResponse (ListInvitationsResponse'),
+    newListInvitationsResponse,
+
+    -- ** ListMembers (Paginated)
+    ListMembers (ListMembers'),
+    newListMembers,
+    ListMembersResponse (ListMembersResponse'),
+    newListMembersResponse,
+
+    -- ** ListOrganizationAdminAccounts (Paginated)
+    ListOrganizationAdminAccounts (ListOrganizationAdminAccounts'),
+    newListOrganizationAdminAccounts,
+    ListOrganizationAdminAccountsResponse (ListOrganizationAdminAccountsResponse'),
+    newListOrganizationAdminAccountsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateActionTarget
+    UpdateActionTarget (UpdateActionTarget'),
+    newUpdateActionTarget,
+    UpdateActionTargetResponse (UpdateActionTargetResponse'),
+    newUpdateActionTargetResponse,
+
+    -- ** UpdateFindingAggregator
+    UpdateFindingAggregator (UpdateFindingAggregator'),
+    newUpdateFindingAggregator,
+    UpdateFindingAggregatorResponse (UpdateFindingAggregatorResponse'),
+    newUpdateFindingAggregatorResponse,
+
+    -- ** UpdateFindings
+    UpdateFindings (UpdateFindings'),
+    newUpdateFindings,
+    UpdateFindingsResponse (UpdateFindingsResponse'),
+    newUpdateFindingsResponse,
+
+    -- ** UpdateInsight
+    UpdateInsight (UpdateInsight'),
+    newUpdateInsight,
+    UpdateInsightResponse (UpdateInsightResponse'),
+    newUpdateInsightResponse,
+
+    -- ** UpdateOrganizationConfiguration
+    UpdateOrganizationConfiguration (UpdateOrganizationConfiguration'),
+    newUpdateOrganizationConfiguration,
+    UpdateOrganizationConfigurationResponse (UpdateOrganizationConfigurationResponse'),
+    newUpdateOrganizationConfigurationResponse,
+
+    -- ** UpdateSecurityHubConfiguration
+    UpdateSecurityHubConfiguration (UpdateSecurityHubConfiguration'),
+    newUpdateSecurityHubConfiguration,
+    UpdateSecurityHubConfigurationResponse (UpdateSecurityHubConfigurationResponse'),
+    newUpdateSecurityHubConfigurationResponse,
+
+    -- ** UpdateStandardsControl
+    UpdateStandardsControl (UpdateStandardsControl'),
+    newUpdateStandardsControl,
+    UpdateStandardsControlResponse (UpdateStandardsControlResponse'),
+    newUpdateStandardsControlResponse,
 
     -- * Types
 

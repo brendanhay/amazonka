@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsWafRegionalRateBasedRuleMatchPredicate' smart constructor.
 data AwsWafRegionalRateBasedRuleMatchPredicate = AwsWafRegionalRateBasedRuleMatchPredicate'
-  { -- | If set to @true@, then the rule actions are performed on requests that
+  { -- | The type of predicate.
+    type' :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the predicate.
+    dataId :: Prelude.Maybe Prelude.Text,
+    -- | If set to @true@, then the rule actions are performed on requests that
     -- match the predicate settings.
     --
     -- If set to @false@, then the rule actions are performed on all requests
     -- except those that match the predicate settings.
-    negated :: Prelude.Maybe Prelude.Bool,
-    -- | The unique identifier for the predicate.
-    dataId :: Prelude.Maybe Prelude.Text,
-    -- | The type of predicate.
-    type' :: Prelude.Maybe Prelude.Text
+    negated :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,24 +50,32 @@ data AwsWafRegionalRateBasedRuleMatchPredicate = AwsWafRegionalRateBasedRuleMatc
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'type'', 'awsWafRegionalRateBasedRuleMatchPredicate_type' - The type of predicate.
+--
+-- 'dataId', 'awsWafRegionalRateBasedRuleMatchPredicate_dataId' - The unique identifier for the predicate.
+--
 -- 'negated', 'awsWafRegionalRateBasedRuleMatchPredicate_negated' - If set to @true@, then the rule actions are performed on requests that
 -- match the predicate settings.
 --
 -- If set to @false@, then the rule actions are performed on all requests
 -- except those that match the predicate settings.
---
--- 'dataId', 'awsWafRegionalRateBasedRuleMatchPredicate_dataId' - The unique identifier for the predicate.
---
--- 'type'', 'awsWafRegionalRateBasedRuleMatchPredicate_type' - The type of predicate.
 newAwsWafRegionalRateBasedRuleMatchPredicate ::
   AwsWafRegionalRateBasedRuleMatchPredicate
 newAwsWafRegionalRateBasedRuleMatchPredicate =
   AwsWafRegionalRateBasedRuleMatchPredicate'
-    { negated =
+    { type' =
         Prelude.Nothing,
       dataId = Prelude.Nothing,
-      type' = Prelude.Nothing
+      negated = Prelude.Nothing
     }
+
+-- | The type of predicate.
+awsWafRegionalRateBasedRuleMatchPredicate_type :: Lens.Lens' AwsWafRegionalRateBasedRuleMatchPredicate (Prelude.Maybe Prelude.Text)
+awsWafRegionalRateBasedRuleMatchPredicate_type = Lens.lens (\AwsWafRegionalRateBasedRuleMatchPredicate' {type'} -> type') (\s@AwsWafRegionalRateBasedRuleMatchPredicate' {} a -> s {type' = a} :: AwsWafRegionalRateBasedRuleMatchPredicate)
+
+-- | The unique identifier for the predicate.
+awsWafRegionalRateBasedRuleMatchPredicate_dataId :: Lens.Lens' AwsWafRegionalRateBasedRuleMatchPredicate (Prelude.Maybe Prelude.Text)
+awsWafRegionalRateBasedRuleMatchPredicate_dataId = Lens.lens (\AwsWafRegionalRateBasedRuleMatchPredicate' {dataId} -> dataId) (\s@AwsWafRegionalRateBasedRuleMatchPredicate' {} a -> s {dataId = a} :: AwsWafRegionalRateBasedRuleMatchPredicate)
 
 -- | If set to @true@, then the rule actions are performed on requests that
 -- match the predicate settings.
@@ -76,14 +84,6 @@ newAwsWafRegionalRateBasedRuleMatchPredicate =
 -- except those that match the predicate settings.
 awsWafRegionalRateBasedRuleMatchPredicate_negated :: Lens.Lens' AwsWafRegionalRateBasedRuleMatchPredicate (Prelude.Maybe Prelude.Bool)
 awsWafRegionalRateBasedRuleMatchPredicate_negated = Lens.lens (\AwsWafRegionalRateBasedRuleMatchPredicate' {negated} -> negated) (\s@AwsWafRegionalRateBasedRuleMatchPredicate' {} a -> s {negated = a} :: AwsWafRegionalRateBasedRuleMatchPredicate)
-
--- | The unique identifier for the predicate.
-awsWafRegionalRateBasedRuleMatchPredicate_dataId :: Lens.Lens' AwsWafRegionalRateBasedRuleMatchPredicate (Prelude.Maybe Prelude.Text)
-awsWafRegionalRateBasedRuleMatchPredicate_dataId = Lens.lens (\AwsWafRegionalRateBasedRuleMatchPredicate' {dataId} -> dataId) (\s@AwsWafRegionalRateBasedRuleMatchPredicate' {} a -> s {dataId = a} :: AwsWafRegionalRateBasedRuleMatchPredicate)
-
--- | The type of predicate.
-awsWafRegionalRateBasedRuleMatchPredicate_type :: Lens.Lens' AwsWafRegionalRateBasedRuleMatchPredicate (Prelude.Maybe Prelude.Text)
-awsWafRegionalRateBasedRuleMatchPredicate_type = Lens.lens (\AwsWafRegionalRateBasedRuleMatchPredicate' {type'} -> type') (\s@AwsWafRegionalRateBasedRuleMatchPredicate' {} a -> s {type' = a} :: AwsWafRegionalRateBasedRuleMatchPredicate)
 
 instance
   Core.FromJSON
@@ -94,9 +94,8 @@ instance
       "AwsWafRegionalRateBasedRuleMatchPredicate"
       ( \x ->
           AwsWafRegionalRateBasedRuleMatchPredicate'
-            Prelude.<$> (x Core..:? "Negated")
-              Prelude.<*> (x Core..:? "DataId")
-              Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Type") Prelude.<*> (x Core..:? "DataId")
+              Prelude.<*> (x Core..:? "Negated")
       )
 
 instance
@@ -106,18 +105,18 @@ instance
   hashWithSalt
     _salt
     AwsWafRegionalRateBasedRuleMatchPredicate' {..} =
-      _salt `Prelude.hashWithSalt` negated
+      _salt `Prelude.hashWithSalt` type'
         `Prelude.hashWithSalt` dataId
-        `Prelude.hashWithSalt` type'
+        `Prelude.hashWithSalt` negated
 
 instance
   Prelude.NFData
     AwsWafRegionalRateBasedRuleMatchPredicate
   where
   rnf AwsWafRegionalRateBasedRuleMatchPredicate' {..} =
-    Prelude.rnf negated
+    Prelude.rnf type'
       `Prelude.seq` Prelude.rnf dataId
-      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf negated
 
 instance
   Core.ToJSON
@@ -126,8 +125,8 @@ instance
   toJSON AwsWafRegionalRateBasedRuleMatchPredicate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Negated" Core..=) Prelude.<$> negated,
+          [ ("Type" Core..=) Prelude.<$> type',
             ("DataId" Core..=) Prelude.<$> dataId,
-            ("Type" Core..=) Prelude.<$> type'
+            ("Negated" Core..=) Prelude.<$> negated
           ]
       )

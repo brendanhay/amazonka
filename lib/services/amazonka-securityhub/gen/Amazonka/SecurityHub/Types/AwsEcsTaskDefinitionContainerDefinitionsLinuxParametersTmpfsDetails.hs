@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails' smart constructor.
 data AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails = AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails'
-  { -- | The maximum size (in MiB) of the tmpfs volume.
-    size :: Prelude.Maybe Prelude.Int,
-    -- | The absolute file path where the tmpfs volume is to be mounted.
+  { -- | The absolute file path where the tmpfs volume is to be mounted.
     containerPath :: Prelude.Maybe Prelude.Text,
+    -- | The maximum size (in MiB) of the tmpfs volume.
+    size :: Prelude.Maybe Prelude.Int,
     -- | The list of tmpfs volume mount options.
     mountOptions :: Prelude.Maybe [Prelude.Text]
   }
@@ -44,30 +44,30 @@ data AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails = AwsEc
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'size', 'awsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails_size' - The maximum size (in MiB) of the tmpfs volume.
---
 -- 'containerPath', 'awsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails_containerPath' - The absolute file path where the tmpfs volume is to be mounted.
+--
+-- 'size', 'awsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails_size' - The maximum size (in MiB) of the tmpfs volume.
 --
 -- 'mountOptions', 'awsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails_mountOptions' - The list of tmpfs volume mount options.
 newAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails ::
   AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails
 newAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails =
   AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails'
-    { size =
+    { containerPath =
         Prelude.Nothing,
-      containerPath =
+      size =
         Prelude.Nothing,
       mountOptions =
         Prelude.Nothing
     }
 
--- | The maximum size (in MiB) of the tmpfs volume.
-awsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails_size :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails (Prelude.Maybe Prelude.Int)
-awsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails_size = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails' {size} -> size) (\s@AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails' {} a -> s {size = a} :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails)
-
 -- | The absolute file path where the tmpfs volume is to be mounted.
 awsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails_containerPath :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails (Prelude.Maybe Prelude.Text)
 awsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails_containerPath = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails' {containerPath} -> containerPath) (\s@AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails' {} a -> s {containerPath = a} :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails)
+
+-- | The maximum size (in MiB) of the tmpfs volume.
+awsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails_size :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails (Prelude.Maybe Prelude.Int)
+awsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails_size = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails' {size} -> size) (\s@AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails' {} a -> s {size = a} :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails)
 
 -- | The list of tmpfs volume mount options.
 awsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails_mountOptions :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails (Prelude.Maybe [Prelude.Text])
@@ -82,8 +82,8 @@ instance
       "AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails"
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails'
-            Prelude.<$> (x Core..:? "Size")
-              Prelude.<*> (x Core..:? "ContainerPath")
+            Prelude.<$> (x Core..:? "ContainerPath")
+              Prelude.<*> (x Core..:? "Size")
               Prelude.<*> (x Core..:? "MountOptions" Core..!= Prelude.mempty)
       )
 
@@ -94,8 +94,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails' {..} =
-      _salt `Prelude.hashWithSalt` size
-        `Prelude.hashWithSalt` containerPath
+      _salt `Prelude.hashWithSalt` containerPath
+        `Prelude.hashWithSalt` size
         `Prelude.hashWithSalt` mountOptions
 
 instance
@@ -104,8 +104,8 @@ instance
   where
   rnf
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails' {..} =
-      Prelude.rnf size
-        `Prelude.seq` Prelude.rnf containerPath
+      Prelude.rnf containerPath
+        `Prelude.seq` Prelude.rnf size
         `Prelude.seq` Prelude.rnf mountOptions
 
 instance
@@ -116,8 +116,8 @@ instance
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("Size" Core..=) Prelude.<$> size,
-              ("ContainerPath" Core..=) Prelude.<$> containerPath,
+            [ ("ContainerPath" Core..=) Prelude.<$> containerPath,
+              ("Size" Core..=) Prelude.<$> size,
               ("MountOptions" Core..=) Prelude.<$> mountOptions
             ]
         )

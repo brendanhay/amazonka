@@ -29,11 +29,10 @@ import Amazonka.SecurityHub.Types.MapFilterComparison
 --
 -- /See:/ 'newMapFilter' smart constructor.
 data MapFilter = MapFilter'
-  { -- | The value for the key in the map filter. Filter values are case
-    -- sensitive. For example, one of the values for a tag called @Department@
-    -- might be @Security@. If you provide @security@ as the filter value, then
-    -- there is no match.
-    value :: Prelude.Maybe Prelude.Text,
+  { -- | The key of the map filter. For example, for @ResourceTags@, @Key@
+    -- identifies the name of the tag. For @UserDefinedFields@, @Key@ is the
+    -- name of the field.
+    key :: Prelude.Maybe Prelude.Text,
     -- | The condition to apply to the key value when querying for findings with
     -- a map filter.
     --
@@ -56,10 +55,11 @@ data MapFilter = MapFilter'
     -- You cannot have both an @EQUALS@ filter and a @NOT_EQUALS@ filter on the
     -- same field.
     comparison :: Prelude.Maybe MapFilterComparison,
-    -- | The key of the map filter. For example, for @ResourceTags@, @Key@
-    -- identifies the name of the tag. For @UserDefinedFields@, @Key@ is the
-    -- name of the field.
-    key :: Prelude.Maybe Prelude.Text
+    -- | The value for the key in the map filter. Filter values are case
+    -- sensitive. For example, one of the values for a tag called @Department@
+    -- might be @Security@. If you provide @security@ as the filter value, then
+    -- there is no match.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,10 +71,9 @@ data MapFilter = MapFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'mapFilter_value' - The value for the key in the map filter. Filter values are case
--- sensitive. For example, one of the values for a tag called @Department@
--- might be @Security@. If you provide @security@ as the filter value, then
--- there is no match.
+-- 'key', 'mapFilter_key' - The key of the map filter. For example, for @ResourceTags@, @Key@
+-- identifies the name of the tag. For @UserDefinedFields@, @Key@ is the
+-- name of the field.
 --
 -- 'comparison', 'mapFilter_comparison' - The condition to apply to the key value when querying for findings with
 -- a map filter.
@@ -98,24 +97,24 @@ data MapFilter = MapFilter'
 -- You cannot have both an @EQUALS@ filter and a @NOT_EQUALS@ filter on the
 -- same field.
 --
--- 'key', 'mapFilter_key' - The key of the map filter. For example, for @ResourceTags@, @Key@
--- identifies the name of the tag. For @UserDefinedFields@, @Key@ is the
--- name of the field.
+-- 'value', 'mapFilter_value' - The value for the key in the map filter. Filter values are case
+-- sensitive. For example, one of the values for a tag called @Department@
+-- might be @Security@. If you provide @security@ as the filter value, then
+-- there is no match.
 newMapFilter ::
   MapFilter
 newMapFilter =
   MapFilter'
-    { value = Prelude.Nothing,
+    { key = Prelude.Nothing,
       comparison = Prelude.Nothing,
-      key = Prelude.Nothing
+      value = Prelude.Nothing
     }
 
--- | The value for the key in the map filter. Filter values are case
--- sensitive. For example, one of the values for a tag called @Department@
--- might be @Security@. If you provide @security@ as the filter value, then
--- there is no match.
-mapFilter_value :: Lens.Lens' MapFilter (Prelude.Maybe Prelude.Text)
-mapFilter_value = Lens.lens (\MapFilter' {value} -> value) (\s@MapFilter' {} a -> s {value = a} :: MapFilter)
+-- | The key of the map filter. For example, for @ResourceTags@, @Key@
+-- identifies the name of the tag. For @UserDefinedFields@, @Key@ is the
+-- name of the field.
+mapFilter_key :: Lens.Lens' MapFilter (Prelude.Maybe Prelude.Text)
+mapFilter_key = Lens.lens (\MapFilter' {key} -> key) (\s@MapFilter' {} a -> s {key = a} :: MapFilter)
 
 -- | The condition to apply to the key value when querying for findings with
 -- a map filter.
@@ -141,11 +140,12 @@ mapFilter_value = Lens.lens (\MapFilter' {value} -> value) (\s@MapFilter' {} a -
 mapFilter_comparison :: Lens.Lens' MapFilter (Prelude.Maybe MapFilterComparison)
 mapFilter_comparison = Lens.lens (\MapFilter' {comparison} -> comparison) (\s@MapFilter' {} a -> s {comparison = a} :: MapFilter)
 
--- | The key of the map filter. For example, for @ResourceTags@, @Key@
--- identifies the name of the tag. For @UserDefinedFields@, @Key@ is the
--- name of the field.
-mapFilter_key :: Lens.Lens' MapFilter (Prelude.Maybe Prelude.Text)
-mapFilter_key = Lens.lens (\MapFilter' {key} -> key) (\s@MapFilter' {} a -> s {key = a} :: MapFilter)
+-- | The value for the key in the map filter. Filter values are case
+-- sensitive. For example, one of the values for a tag called @Department@
+-- might be @Security@. If you provide @security@ as the filter value, then
+-- there is no match.
+mapFilter_value :: Lens.Lens' MapFilter (Prelude.Maybe Prelude.Text)
+mapFilter_value = Lens.lens (\MapFilter' {value} -> value) (\s@MapFilter' {} a -> s {value = a} :: MapFilter)
 
 instance Core.FromJSON MapFilter where
   parseJSON =
@@ -153,29 +153,29 @@ instance Core.FromJSON MapFilter where
       "MapFilter"
       ( \x ->
           MapFilter'
-            Prelude.<$> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Key")
             Prelude.<*> (x Core..:? "Comparison")
-            Prelude.<*> (x Core..:? "Key")
+            Prelude.<*> (x Core..:? "Value")
       )
 
 instance Prelude.Hashable MapFilter where
   hashWithSalt _salt MapFilter' {..} =
-    _salt `Prelude.hashWithSalt` value
+    _salt `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` comparison
-      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData MapFilter where
   rnf MapFilter' {..} =
-    Prelude.rnf value
+    Prelude.rnf key
       `Prelude.seq` Prelude.rnf comparison
-      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON MapFilter where
   toJSON MapFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Value" Core..=) Prelude.<$> value,
+          [ ("Key" Core..=) Prelude.<$> key,
             ("Comparison" Core..=) Prelude.<$> comparison,
-            ("Key" Core..=) Prelude.<$> key
+            ("Value" Core..=) Prelude.<$> value
           ]
       )

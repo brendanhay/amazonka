@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails' smart constructor.
 data AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails = AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails'
-  { -- | The IDs of the security groups associated with the task or service.
-    --
-    -- You can provide up to five security groups.
-    securityGroups :: Prelude.Maybe [Prelude.Text],
-    -- | The IDs of the subnets associated with the task or service.
+  { -- | The IDs of the subnets associated with the task or service.
     --
     -- You can provide up to 16 subnets.
     subnets :: Prelude.Maybe [Prelude.Text],
+    -- | The IDs of the security groups associated with the task or service.
+    --
+    -- You can provide up to five security groups.
+    securityGroups :: Prelude.Maybe [Prelude.Text],
     -- | Whether the task\'s elastic network interface receives a public IP
     -- address. The default value is @DISABLED@.
     --
@@ -52,13 +52,13 @@ data AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails = AwsEcsService
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'securityGroups', 'awsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails_securityGroups' - The IDs of the security groups associated with the task or service.
---
--- You can provide up to five security groups.
---
 -- 'subnets', 'awsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails_subnets' - The IDs of the subnets associated with the task or service.
 --
 -- You can provide up to 16 subnets.
+--
+-- 'securityGroups', 'awsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails_securityGroups' - The IDs of the security groups associated with the task or service.
+--
+-- You can provide up to five security groups.
 --
 -- 'assignPublicIp', 'awsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails_assignPublicIp' - Whether the task\'s elastic network interface receives a public IP
 -- address. The default value is @DISABLED@.
@@ -68,25 +68,25 @@ newAwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails ::
   AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails
 newAwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails =
   AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails'
-    { securityGroups =
+    { subnets =
         Prelude.Nothing,
-      subnets =
+      securityGroups =
         Prelude.Nothing,
       assignPublicIp =
         Prelude.Nothing
     }
-
--- | The IDs of the security groups associated with the task or service.
---
--- You can provide up to five security groups.
-awsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails_securityGroups :: Lens.Lens' AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails (Prelude.Maybe [Prelude.Text])
-awsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails_securityGroups = Lens.lens (\AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails' {securityGroups} -> securityGroups) (\s@AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails' {} a -> s {securityGroups = a} :: AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | The IDs of the subnets associated with the task or service.
 --
 -- You can provide up to 16 subnets.
 awsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails_subnets :: Lens.Lens' AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails (Prelude.Maybe [Prelude.Text])
 awsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails_subnets = Lens.lens (\AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails' {subnets} -> subnets) (\s@AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails' {} a -> s {subnets = a} :: AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails) Prelude.. Lens.mapping Lens.coerced
+
+-- | The IDs of the security groups associated with the task or service.
+--
+-- You can provide up to five security groups.
+awsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails_securityGroups :: Lens.Lens' AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails (Prelude.Maybe [Prelude.Text])
+awsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails_securityGroups = Lens.lens (\AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails' {securityGroups} -> securityGroups) (\s@AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails' {} a -> s {securityGroups = a} :: AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | Whether the task\'s elastic network interface receives a public IP
 -- address. The default value is @DISABLED@.
@@ -104,8 +104,8 @@ instance
       "AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails"
       ( \x ->
           AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails'
-            Prelude.<$> (x Core..:? "SecurityGroups" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..:? "Subnets" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "Subnets" Core..!= Prelude.mempty)
+              Prelude.<*> (x Core..:? "SecurityGroups" Core..!= Prelude.mempty)
               Prelude.<*> (x Core..:? "AssignPublicIp")
       )
 
@@ -116,8 +116,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails' {..} =
-      _salt `Prelude.hashWithSalt` securityGroups
-        `Prelude.hashWithSalt` subnets
+      _salt `Prelude.hashWithSalt` subnets
+        `Prelude.hashWithSalt` securityGroups
         `Prelude.hashWithSalt` assignPublicIp
 
 instance
@@ -126,8 +126,8 @@ instance
   where
   rnf
     AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails' {..} =
-      Prelude.rnf securityGroups
-        `Prelude.seq` Prelude.rnf subnets
+      Prelude.rnf subnets
+        `Prelude.seq` Prelude.rnf securityGroups
         `Prelude.seq` Prelude.rnf assignPublicIp
 
 instance
@@ -138,9 +138,9 @@ instance
     AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("SecurityGroups" Core..=)
+            [ ("Subnets" Core..=) Prelude.<$> subnets,
+              ("SecurityGroups" Core..=)
                 Prelude.<$> securityGroups,
-              ("Subnets" Core..=) Prelude.<$> subnets,
               ("AssignPublicIp" Core..=)
                 Prelude.<$> assignPublicIp
             ]

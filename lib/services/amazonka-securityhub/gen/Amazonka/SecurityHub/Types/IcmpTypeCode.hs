@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIcmpTypeCode' smart constructor.
 data IcmpTypeCode = IcmpTypeCode'
-  { -- | The ICMP code for which to deny or allow access. To deny or allow all
-    -- codes, use the value -1.
-    code :: Prelude.Maybe Prelude.Int,
-    -- | The ICMP type for which to deny or allow access. To deny or allow all
+  { -- | The ICMP type for which to deny or allow access. To deny or allow all
     -- types, use the value -1.
-    type' :: Prelude.Maybe Prelude.Int
+    type' :: Prelude.Maybe Prelude.Int,
+    -- | The ICMP code for which to deny or allow access. To deny or allow all
+    -- codes, use the value -1.
+    code :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,28 +44,28 @@ data IcmpTypeCode = IcmpTypeCode'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'code', 'icmpTypeCode_code' - The ICMP code for which to deny or allow access. To deny or allow all
--- codes, use the value -1.
---
 -- 'type'', 'icmpTypeCode_type' - The ICMP type for which to deny or allow access. To deny or allow all
 -- types, use the value -1.
+--
+-- 'code', 'icmpTypeCode_code' - The ICMP code for which to deny or allow access. To deny or allow all
+-- codes, use the value -1.
 newIcmpTypeCode ::
   IcmpTypeCode
 newIcmpTypeCode =
   IcmpTypeCode'
-    { code = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { type' = Prelude.Nothing,
+      code = Prelude.Nothing
     }
-
--- | The ICMP code for which to deny or allow access. To deny or allow all
--- codes, use the value -1.
-icmpTypeCode_code :: Lens.Lens' IcmpTypeCode (Prelude.Maybe Prelude.Int)
-icmpTypeCode_code = Lens.lens (\IcmpTypeCode' {code} -> code) (\s@IcmpTypeCode' {} a -> s {code = a} :: IcmpTypeCode)
 
 -- | The ICMP type for which to deny or allow access. To deny or allow all
 -- types, use the value -1.
 icmpTypeCode_type :: Lens.Lens' IcmpTypeCode (Prelude.Maybe Prelude.Int)
 icmpTypeCode_type = Lens.lens (\IcmpTypeCode' {type'} -> type') (\s@IcmpTypeCode' {} a -> s {type' = a} :: IcmpTypeCode)
+
+-- | The ICMP code for which to deny or allow access. To deny or allow all
+-- codes, use the value -1.
+icmpTypeCode_code :: Lens.Lens' IcmpTypeCode (Prelude.Maybe Prelude.Int)
+icmpTypeCode_code = Lens.lens (\IcmpTypeCode' {code} -> code) (\s@IcmpTypeCode' {} a -> s {code = a} :: IcmpTypeCode)
 
 instance Core.FromJSON IcmpTypeCode where
   parseJSON =
@@ -73,23 +73,23 @@ instance Core.FromJSON IcmpTypeCode where
       "IcmpTypeCode"
       ( \x ->
           IcmpTypeCode'
-            Prelude.<$> (x Core..:? "Code") Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Type") Prelude.<*> (x Core..:? "Code")
       )
 
 instance Prelude.Hashable IcmpTypeCode where
   hashWithSalt _salt IcmpTypeCode' {..} =
-    _salt `Prelude.hashWithSalt` code
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` code
 
 instance Prelude.NFData IcmpTypeCode where
   rnf IcmpTypeCode' {..} =
-    Prelude.rnf code `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf code
 
 instance Core.ToJSON IcmpTypeCode where
   toJSON IcmpTypeCode' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Code" Core..=) Prelude.<$> code,
-            ("Type" Core..=) Prelude.<$> type'
+          [ ("Type" Core..=) Prelude.<$> type',
+            ("Code" Core..=) Prelude.<$> code
           ]
       )

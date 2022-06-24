@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsCodeBuildProjectLogsConfigS3LogsDetails' smart constructor.
 data AwsCodeBuildProjectLogsConfigS3LogsDetails = AwsCodeBuildProjectLogsConfigS3LogsDetails'
-  { -- | The current status of the S3 build logs.
+  { -- | Whether to disable encryption of the S3 build log output.
+    encryptionDisabled :: Prelude.Maybe Prelude.Bool,
+    -- | The current status of the S3 build logs.
     status :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the S3 bucket and the path prefix for S3 logs.
-    location :: Prelude.Maybe Prelude.Text,
-    -- | Whether to disable encryption of the S3 build log output.
-    encryptionDisabled :: Prelude.Maybe Prelude.Bool
+    location :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,21 +44,24 @@ data AwsCodeBuildProjectLogsConfigS3LogsDetails = AwsCodeBuildProjectLogsConfigS
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'encryptionDisabled', 'awsCodeBuildProjectLogsConfigS3LogsDetails_encryptionDisabled' - Whether to disable encryption of the S3 build log output.
+--
 -- 'status', 'awsCodeBuildProjectLogsConfigS3LogsDetails_status' - The current status of the S3 build logs.
 --
 -- 'location', 'awsCodeBuildProjectLogsConfigS3LogsDetails_location' - The ARN of the S3 bucket and the path prefix for S3 logs.
---
--- 'encryptionDisabled', 'awsCodeBuildProjectLogsConfigS3LogsDetails_encryptionDisabled' - Whether to disable encryption of the S3 build log output.
 newAwsCodeBuildProjectLogsConfigS3LogsDetails ::
   AwsCodeBuildProjectLogsConfigS3LogsDetails
 newAwsCodeBuildProjectLogsConfigS3LogsDetails =
   AwsCodeBuildProjectLogsConfigS3LogsDetails'
-    { status =
+    { encryptionDisabled =
         Prelude.Nothing,
-      location = Prelude.Nothing,
-      encryptionDisabled =
-        Prelude.Nothing
+      status = Prelude.Nothing,
+      location = Prelude.Nothing
     }
+
+-- | Whether to disable encryption of the S3 build log output.
+awsCodeBuildProjectLogsConfigS3LogsDetails_encryptionDisabled :: Lens.Lens' AwsCodeBuildProjectLogsConfigS3LogsDetails (Prelude.Maybe Prelude.Bool)
+awsCodeBuildProjectLogsConfigS3LogsDetails_encryptionDisabled = Lens.lens (\AwsCodeBuildProjectLogsConfigS3LogsDetails' {encryptionDisabled} -> encryptionDisabled) (\s@AwsCodeBuildProjectLogsConfigS3LogsDetails' {} a -> s {encryptionDisabled = a} :: AwsCodeBuildProjectLogsConfigS3LogsDetails)
 
 -- | The current status of the S3 build logs.
 awsCodeBuildProjectLogsConfigS3LogsDetails_status :: Lens.Lens' AwsCodeBuildProjectLogsConfigS3LogsDetails (Prelude.Maybe Prelude.Text)
@@ -67,10 +70,6 @@ awsCodeBuildProjectLogsConfigS3LogsDetails_status = Lens.lens (\AwsCodeBuildProj
 -- | The ARN of the S3 bucket and the path prefix for S3 logs.
 awsCodeBuildProjectLogsConfigS3LogsDetails_location :: Lens.Lens' AwsCodeBuildProjectLogsConfigS3LogsDetails (Prelude.Maybe Prelude.Text)
 awsCodeBuildProjectLogsConfigS3LogsDetails_location = Lens.lens (\AwsCodeBuildProjectLogsConfigS3LogsDetails' {location} -> location) (\s@AwsCodeBuildProjectLogsConfigS3LogsDetails' {} a -> s {location = a} :: AwsCodeBuildProjectLogsConfigS3LogsDetails)
-
--- | Whether to disable encryption of the S3 build log output.
-awsCodeBuildProjectLogsConfigS3LogsDetails_encryptionDisabled :: Lens.Lens' AwsCodeBuildProjectLogsConfigS3LogsDetails (Prelude.Maybe Prelude.Bool)
-awsCodeBuildProjectLogsConfigS3LogsDetails_encryptionDisabled = Lens.lens (\AwsCodeBuildProjectLogsConfigS3LogsDetails' {encryptionDisabled} -> encryptionDisabled) (\s@AwsCodeBuildProjectLogsConfigS3LogsDetails' {} a -> s {encryptionDisabled = a} :: AwsCodeBuildProjectLogsConfigS3LogsDetails)
 
 instance
   Core.FromJSON
@@ -81,9 +80,9 @@ instance
       "AwsCodeBuildProjectLogsConfigS3LogsDetails"
       ( \x ->
           AwsCodeBuildProjectLogsConfigS3LogsDetails'
-            Prelude.<$> (x Core..:? "Status")
+            Prelude.<$> (x Core..:? "EncryptionDisabled")
+              Prelude.<*> (x Core..:? "Status")
               Prelude.<*> (x Core..:? "Location")
-              Prelude.<*> (x Core..:? "EncryptionDisabled")
       )
 
 instance
@@ -93,18 +92,18 @@ instance
   hashWithSalt
     _salt
     AwsCodeBuildProjectLogsConfigS3LogsDetails' {..} =
-      _salt `Prelude.hashWithSalt` status
+      _salt `Prelude.hashWithSalt` encryptionDisabled
+        `Prelude.hashWithSalt` status
         `Prelude.hashWithSalt` location
-        `Prelude.hashWithSalt` encryptionDisabled
 
 instance
   Prelude.NFData
     AwsCodeBuildProjectLogsConfigS3LogsDetails
   where
   rnf AwsCodeBuildProjectLogsConfigS3LogsDetails' {..} =
-    Prelude.rnf status
+    Prelude.rnf encryptionDisabled
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf encryptionDisabled
 
 instance
   Core.ToJSON
@@ -114,9 +113,9 @@ instance
     AwsCodeBuildProjectLogsConfigS3LogsDetails' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("Status" Core..=) Prelude.<$> status,
-              ("Location" Core..=) Prelude.<$> location,
-              ("EncryptionDisabled" Core..=)
-                Prelude.<$> encryptionDisabled
+            [ ("EncryptionDisabled" Core..=)
+                Prelude.<$> encryptionDisabled,
+              ("Status" Core..=) Prelude.<$> status,
+              ("Location" Core..=) Prelude.<$> location
             ]
         )

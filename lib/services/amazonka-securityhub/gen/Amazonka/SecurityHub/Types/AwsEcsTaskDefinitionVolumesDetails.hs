@@ -30,15 +30,15 @@ import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionVolumesHostDetails
 --
 -- /See:/ 'newAwsEcsTaskDefinitionVolumesDetails' smart constructor.
 data AwsEcsTaskDefinitionVolumesDetails = AwsEcsTaskDefinitionVolumesDetails'
-  { -- | Information about a Docker volume.
-    dockerVolumeConfiguration :: Prelude.Maybe AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails,
-    -- | The name of the data volume.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Information about the Amazon Elastic File System file system that is
+  { -- | Information about the Amazon Elastic File System file system that is
     -- used for task storage.
     efsVolumeConfiguration :: Prelude.Maybe AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails,
+    -- | The name of the data volume.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Information about a bind mount host volume.
-    host :: Prelude.Maybe AwsEcsTaskDefinitionVolumesHostDetails
+    host :: Prelude.Maybe AwsEcsTaskDefinitionVolumesHostDetails,
+    -- | Information about a Docker volume.
+    dockerVolumeConfiguration :: Prelude.Maybe AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,42 +50,42 @@ data AwsEcsTaskDefinitionVolumesDetails = AwsEcsTaskDefinitionVolumesDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dockerVolumeConfiguration', 'awsEcsTaskDefinitionVolumesDetails_dockerVolumeConfiguration' - Information about a Docker volume.
---
--- 'name', 'awsEcsTaskDefinitionVolumesDetails_name' - The name of the data volume.
---
 -- 'efsVolumeConfiguration', 'awsEcsTaskDefinitionVolumesDetails_efsVolumeConfiguration' - Information about the Amazon Elastic File System file system that is
 -- used for task storage.
 --
+-- 'name', 'awsEcsTaskDefinitionVolumesDetails_name' - The name of the data volume.
+--
 -- 'host', 'awsEcsTaskDefinitionVolumesDetails_host' - Information about a bind mount host volume.
+--
+-- 'dockerVolumeConfiguration', 'awsEcsTaskDefinitionVolumesDetails_dockerVolumeConfiguration' - Information about a Docker volume.
 newAwsEcsTaskDefinitionVolumesDetails ::
   AwsEcsTaskDefinitionVolumesDetails
 newAwsEcsTaskDefinitionVolumesDetails =
   AwsEcsTaskDefinitionVolumesDetails'
-    { dockerVolumeConfiguration =
+    { efsVolumeConfiguration =
         Prelude.Nothing,
       name = Prelude.Nothing,
-      efsVolumeConfiguration =
-        Prelude.Nothing,
-      host = Prelude.Nothing
+      host = Prelude.Nothing,
+      dockerVolumeConfiguration =
+        Prelude.Nothing
     }
-
--- | Information about a Docker volume.
-awsEcsTaskDefinitionVolumesDetails_dockerVolumeConfiguration :: Lens.Lens' AwsEcsTaskDefinitionVolumesDetails (Prelude.Maybe AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails)
-awsEcsTaskDefinitionVolumesDetails_dockerVolumeConfiguration = Lens.lens (\AwsEcsTaskDefinitionVolumesDetails' {dockerVolumeConfiguration} -> dockerVolumeConfiguration) (\s@AwsEcsTaskDefinitionVolumesDetails' {} a -> s {dockerVolumeConfiguration = a} :: AwsEcsTaskDefinitionVolumesDetails)
-
--- | The name of the data volume.
-awsEcsTaskDefinitionVolumesDetails_name :: Lens.Lens' AwsEcsTaskDefinitionVolumesDetails (Prelude.Maybe Prelude.Text)
-awsEcsTaskDefinitionVolumesDetails_name = Lens.lens (\AwsEcsTaskDefinitionVolumesDetails' {name} -> name) (\s@AwsEcsTaskDefinitionVolumesDetails' {} a -> s {name = a} :: AwsEcsTaskDefinitionVolumesDetails)
 
 -- | Information about the Amazon Elastic File System file system that is
 -- used for task storage.
 awsEcsTaskDefinitionVolumesDetails_efsVolumeConfiguration :: Lens.Lens' AwsEcsTaskDefinitionVolumesDetails (Prelude.Maybe AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails)
 awsEcsTaskDefinitionVolumesDetails_efsVolumeConfiguration = Lens.lens (\AwsEcsTaskDefinitionVolumesDetails' {efsVolumeConfiguration} -> efsVolumeConfiguration) (\s@AwsEcsTaskDefinitionVolumesDetails' {} a -> s {efsVolumeConfiguration = a} :: AwsEcsTaskDefinitionVolumesDetails)
 
+-- | The name of the data volume.
+awsEcsTaskDefinitionVolumesDetails_name :: Lens.Lens' AwsEcsTaskDefinitionVolumesDetails (Prelude.Maybe Prelude.Text)
+awsEcsTaskDefinitionVolumesDetails_name = Lens.lens (\AwsEcsTaskDefinitionVolumesDetails' {name} -> name) (\s@AwsEcsTaskDefinitionVolumesDetails' {} a -> s {name = a} :: AwsEcsTaskDefinitionVolumesDetails)
+
 -- | Information about a bind mount host volume.
 awsEcsTaskDefinitionVolumesDetails_host :: Lens.Lens' AwsEcsTaskDefinitionVolumesDetails (Prelude.Maybe AwsEcsTaskDefinitionVolumesHostDetails)
 awsEcsTaskDefinitionVolumesDetails_host = Lens.lens (\AwsEcsTaskDefinitionVolumesDetails' {host} -> host) (\s@AwsEcsTaskDefinitionVolumesDetails' {} a -> s {host = a} :: AwsEcsTaskDefinitionVolumesDetails)
+
+-- | Information about a Docker volume.
+awsEcsTaskDefinitionVolumesDetails_dockerVolumeConfiguration :: Lens.Lens' AwsEcsTaskDefinitionVolumesDetails (Prelude.Maybe AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails)
+awsEcsTaskDefinitionVolumesDetails_dockerVolumeConfiguration = Lens.lens (\AwsEcsTaskDefinitionVolumesDetails' {dockerVolumeConfiguration} -> dockerVolumeConfiguration) (\s@AwsEcsTaskDefinitionVolumesDetails' {} a -> s {dockerVolumeConfiguration = a} :: AwsEcsTaskDefinitionVolumesDetails)
 
 instance
   Core.FromJSON
@@ -96,10 +96,10 @@ instance
       "AwsEcsTaskDefinitionVolumesDetails"
       ( \x ->
           AwsEcsTaskDefinitionVolumesDetails'
-            Prelude.<$> (x Core..:? "DockerVolumeConfiguration")
+            Prelude.<$> (x Core..:? "EfsVolumeConfiguration")
             Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "EfsVolumeConfiguration")
             Prelude.<*> (x Core..:? "Host")
+            Prelude.<*> (x Core..:? "DockerVolumeConfiguration")
       )
 
 instance
@@ -109,21 +109,20 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionVolumesDetails' {..} =
-      _salt
-        `Prelude.hashWithSalt` dockerVolumeConfiguration
+      _salt `Prelude.hashWithSalt` efsVolumeConfiguration
         `Prelude.hashWithSalt` name
-        `Prelude.hashWithSalt` efsVolumeConfiguration
         `Prelude.hashWithSalt` host
+        `Prelude.hashWithSalt` dockerVolumeConfiguration
 
 instance
   Prelude.NFData
     AwsEcsTaskDefinitionVolumesDetails
   where
   rnf AwsEcsTaskDefinitionVolumesDetails' {..} =
-    Prelude.rnf dockerVolumeConfiguration
+    Prelude.rnf efsVolumeConfiguration
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf efsVolumeConfiguration
       `Prelude.seq` Prelude.rnf host
+      `Prelude.seq` Prelude.rnf dockerVolumeConfiguration
 
 instance
   Core.ToJSON
@@ -132,11 +131,11 @@ instance
   toJSON AwsEcsTaskDefinitionVolumesDetails' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DockerVolumeConfiguration" Core..=)
-              Prelude.<$> dockerVolumeConfiguration,
-            ("Name" Core..=) Prelude.<$> name,
-            ("EfsVolumeConfiguration" Core..=)
+          [ ("EfsVolumeConfiguration" Core..=)
               Prelude.<$> efsVolumeConfiguration,
-            ("Host" Core..=) Prelude.<$> host
+            ("Name" Core..=) Prelude.<$> name,
+            ("Host" Core..=) Prelude.<$> host,
+            ("DockerVolumeConfiguration" Core..=)
+              Prelude.<$> dockerVolumeConfiguration
           ]
       )

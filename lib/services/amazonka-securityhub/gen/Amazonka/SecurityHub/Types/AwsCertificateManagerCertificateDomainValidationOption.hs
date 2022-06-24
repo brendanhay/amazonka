@@ -34,21 +34,21 @@ import Amazonka.SecurityHub.Types.AwsCertificateManagerCertificateResourceRecord
 --
 -- /See:/ 'newAwsCertificateManagerCertificateDomainValidationOption' smart constructor.
 data AwsCertificateManagerCertificateDomainValidationOption = AwsCertificateManagerCertificateDomainValidationOption'
-  { -- | A list of email addresses that Certificate Manager uses to send domain
-    -- validation emails.
-    validationEmails :: Prelude.Maybe [Prelude.Text],
-    -- | The method used to validate the domain name.
-    validationMethod :: Prelude.Maybe Prelude.Text,
+  { -- | A fully qualified domain name (FQDN) in the certificate.
+    domainName :: Prelude.Maybe Prelude.Text,
+    -- | The validation status of the domain name.
+    validationStatus :: Prelude.Maybe Prelude.Text,
+    -- | The domain name that Certificate Manager uses to send domain validation
+    -- emails.
+    validationDomain :: Prelude.Maybe Prelude.Text,
     -- | The CNAME record that is added to the DNS database for domain
     -- validation.
     resourceRecord :: Prelude.Maybe AwsCertificateManagerCertificateResourceRecord,
-    -- | The validation status of the domain name.
-    validationStatus :: Prelude.Maybe Prelude.Text,
-    -- | A fully qualified domain name (FQDN) in the certificate.
-    domainName :: Prelude.Maybe Prelude.Text,
-    -- | The domain name that Certificate Manager uses to send domain validation
-    -- emails.
-    validationDomain :: Prelude.Maybe Prelude.Text
+    -- | A list of email addresses that Certificate Manager uses to send domain
+    -- validation emails.
+    validationEmails :: Prelude.Maybe [Prelude.Text],
+    -- | The method used to validate the domain name.
+    validationMethod :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,37 +60,55 @@ data AwsCertificateManagerCertificateDomainValidationOption = AwsCertificateMana
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'validationEmails', 'awsCertificateManagerCertificateDomainValidationOption_validationEmails' - A list of email addresses that Certificate Manager uses to send domain
--- validation emails.
+-- 'domainName', 'awsCertificateManagerCertificateDomainValidationOption_domainName' - A fully qualified domain name (FQDN) in the certificate.
 --
--- 'validationMethod', 'awsCertificateManagerCertificateDomainValidationOption_validationMethod' - The method used to validate the domain name.
+-- 'validationStatus', 'awsCertificateManagerCertificateDomainValidationOption_validationStatus' - The validation status of the domain name.
+--
+-- 'validationDomain', 'awsCertificateManagerCertificateDomainValidationOption_validationDomain' - The domain name that Certificate Manager uses to send domain validation
+-- emails.
 --
 -- 'resourceRecord', 'awsCertificateManagerCertificateDomainValidationOption_resourceRecord' - The CNAME record that is added to the DNS database for domain
 -- validation.
 --
--- 'validationStatus', 'awsCertificateManagerCertificateDomainValidationOption_validationStatus' - The validation status of the domain name.
+-- 'validationEmails', 'awsCertificateManagerCertificateDomainValidationOption_validationEmails' - A list of email addresses that Certificate Manager uses to send domain
+-- validation emails.
 --
--- 'domainName', 'awsCertificateManagerCertificateDomainValidationOption_domainName' - A fully qualified domain name (FQDN) in the certificate.
---
--- 'validationDomain', 'awsCertificateManagerCertificateDomainValidationOption_validationDomain' - The domain name that Certificate Manager uses to send domain validation
--- emails.
+-- 'validationMethod', 'awsCertificateManagerCertificateDomainValidationOption_validationMethod' - The method used to validate the domain name.
 newAwsCertificateManagerCertificateDomainValidationOption ::
   AwsCertificateManagerCertificateDomainValidationOption
 newAwsCertificateManagerCertificateDomainValidationOption =
   AwsCertificateManagerCertificateDomainValidationOption'
-    { validationEmails =
-        Prelude.Nothing,
-      validationMethod =
-        Prelude.Nothing,
-      resourceRecord =
+    { domainName =
         Prelude.Nothing,
       validationStatus =
         Prelude.Nothing,
-      domainName =
-        Prelude.Nothing,
       validationDomain =
+        Prelude.Nothing,
+      resourceRecord =
+        Prelude.Nothing,
+      validationEmails =
+        Prelude.Nothing,
+      validationMethod =
         Prelude.Nothing
     }
+
+-- | A fully qualified domain name (FQDN) in the certificate.
+awsCertificateManagerCertificateDomainValidationOption_domainName :: Lens.Lens' AwsCertificateManagerCertificateDomainValidationOption (Prelude.Maybe Prelude.Text)
+awsCertificateManagerCertificateDomainValidationOption_domainName = Lens.lens (\AwsCertificateManagerCertificateDomainValidationOption' {domainName} -> domainName) (\s@AwsCertificateManagerCertificateDomainValidationOption' {} a -> s {domainName = a} :: AwsCertificateManagerCertificateDomainValidationOption)
+
+-- | The validation status of the domain name.
+awsCertificateManagerCertificateDomainValidationOption_validationStatus :: Lens.Lens' AwsCertificateManagerCertificateDomainValidationOption (Prelude.Maybe Prelude.Text)
+awsCertificateManagerCertificateDomainValidationOption_validationStatus = Lens.lens (\AwsCertificateManagerCertificateDomainValidationOption' {validationStatus} -> validationStatus) (\s@AwsCertificateManagerCertificateDomainValidationOption' {} a -> s {validationStatus = a} :: AwsCertificateManagerCertificateDomainValidationOption)
+
+-- | The domain name that Certificate Manager uses to send domain validation
+-- emails.
+awsCertificateManagerCertificateDomainValidationOption_validationDomain :: Lens.Lens' AwsCertificateManagerCertificateDomainValidationOption (Prelude.Maybe Prelude.Text)
+awsCertificateManagerCertificateDomainValidationOption_validationDomain = Lens.lens (\AwsCertificateManagerCertificateDomainValidationOption' {validationDomain} -> validationDomain) (\s@AwsCertificateManagerCertificateDomainValidationOption' {} a -> s {validationDomain = a} :: AwsCertificateManagerCertificateDomainValidationOption)
+
+-- | The CNAME record that is added to the DNS database for domain
+-- validation.
+awsCertificateManagerCertificateDomainValidationOption_resourceRecord :: Lens.Lens' AwsCertificateManagerCertificateDomainValidationOption (Prelude.Maybe AwsCertificateManagerCertificateResourceRecord)
+awsCertificateManagerCertificateDomainValidationOption_resourceRecord = Lens.lens (\AwsCertificateManagerCertificateDomainValidationOption' {resourceRecord} -> resourceRecord) (\s@AwsCertificateManagerCertificateDomainValidationOption' {} a -> s {resourceRecord = a} :: AwsCertificateManagerCertificateDomainValidationOption)
 
 -- | A list of email addresses that Certificate Manager uses to send domain
 -- validation emails.
@@ -101,24 +119,6 @@ awsCertificateManagerCertificateDomainValidationOption_validationEmails = Lens.l
 awsCertificateManagerCertificateDomainValidationOption_validationMethod :: Lens.Lens' AwsCertificateManagerCertificateDomainValidationOption (Prelude.Maybe Prelude.Text)
 awsCertificateManagerCertificateDomainValidationOption_validationMethod = Lens.lens (\AwsCertificateManagerCertificateDomainValidationOption' {validationMethod} -> validationMethod) (\s@AwsCertificateManagerCertificateDomainValidationOption' {} a -> s {validationMethod = a} :: AwsCertificateManagerCertificateDomainValidationOption)
 
--- | The CNAME record that is added to the DNS database for domain
--- validation.
-awsCertificateManagerCertificateDomainValidationOption_resourceRecord :: Lens.Lens' AwsCertificateManagerCertificateDomainValidationOption (Prelude.Maybe AwsCertificateManagerCertificateResourceRecord)
-awsCertificateManagerCertificateDomainValidationOption_resourceRecord = Lens.lens (\AwsCertificateManagerCertificateDomainValidationOption' {resourceRecord} -> resourceRecord) (\s@AwsCertificateManagerCertificateDomainValidationOption' {} a -> s {resourceRecord = a} :: AwsCertificateManagerCertificateDomainValidationOption)
-
--- | The validation status of the domain name.
-awsCertificateManagerCertificateDomainValidationOption_validationStatus :: Lens.Lens' AwsCertificateManagerCertificateDomainValidationOption (Prelude.Maybe Prelude.Text)
-awsCertificateManagerCertificateDomainValidationOption_validationStatus = Lens.lens (\AwsCertificateManagerCertificateDomainValidationOption' {validationStatus} -> validationStatus) (\s@AwsCertificateManagerCertificateDomainValidationOption' {} a -> s {validationStatus = a} :: AwsCertificateManagerCertificateDomainValidationOption)
-
--- | A fully qualified domain name (FQDN) in the certificate.
-awsCertificateManagerCertificateDomainValidationOption_domainName :: Lens.Lens' AwsCertificateManagerCertificateDomainValidationOption (Prelude.Maybe Prelude.Text)
-awsCertificateManagerCertificateDomainValidationOption_domainName = Lens.lens (\AwsCertificateManagerCertificateDomainValidationOption' {domainName} -> domainName) (\s@AwsCertificateManagerCertificateDomainValidationOption' {} a -> s {domainName = a} :: AwsCertificateManagerCertificateDomainValidationOption)
-
--- | The domain name that Certificate Manager uses to send domain validation
--- emails.
-awsCertificateManagerCertificateDomainValidationOption_validationDomain :: Lens.Lens' AwsCertificateManagerCertificateDomainValidationOption (Prelude.Maybe Prelude.Text)
-awsCertificateManagerCertificateDomainValidationOption_validationDomain = Lens.lens (\AwsCertificateManagerCertificateDomainValidationOption' {validationDomain} -> validationDomain) (\s@AwsCertificateManagerCertificateDomainValidationOption' {} a -> s {validationDomain = a} :: AwsCertificateManagerCertificateDomainValidationOption)
-
 instance
   Core.FromJSON
     AwsCertificateManagerCertificateDomainValidationOption
@@ -128,14 +128,14 @@ instance
       "AwsCertificateManagerCertificateDomainValidationOption"
       ( \x ->
           AwsCertificateManagerCertificateDomainValidationOption'
-            Prelude.<$> ( x Core..:? "ValidationEmails"
-                            Core..!= Prelude.mempty
-                        )
-              Prelude.<*> (x Core..:? "ValidationMethod")
-              Prelude.<*> (x Core..:? "ResourceRecord")
+            Prelude.<$> (x Core..:? "DomainName")
               Prelude.<*> (x Core..:? "ValidationStatus")
-              Prelude.<*> (x Core..:? "DomainName")
               Prelude.<*> (x Core..:? "ValidationDomain")
+              Prelude.<*> (x Core..:? "ResourceRecord")
+              Prelude.<*> ( x Core..:? "ValidationEmails"
+                              Core..!= Prelude.mempty
+                          )
+              Prelude.<*> (x Core..:? "ValidationMethod")
       )
 
 instance
@@ -145,12 +145,12 @@ instance
   hashWithSalt
     _salt
     AwsCertificateManagerCertificateDomainValidationOption' {..} =
-      _salt `Prelude.hashWithSalt` validationEmails
-        `Prelude.hashWithSalt` validationMethod
-        `Prelude.hashWithSalt` resourceRecord
+      _salt `Prelude.hashWithSalt` domainName
         `Prelude.hashWithSalt` validationStatus
-        `Prelude.hashWithSalt` domainName
         `Prelude.hashWithSalt` validationDomain
+        `Prelude.hashWithSalt` resourceRecord
+        `Prelude.hashWithSalt` validationEmails
+        `Prelude.hashWithSalt` validationMethod
 
 instance
   Prelude.NFData
@@ -158,12 +158,12 @@ instance
   where
   rnf
     AwsCertificateManagerCertificateDomainValidationOption' {..} =
-      Prelude.rnf validationEmails
-        `Prelude.seq` Prelude.rnf validationMethod
-        `Prelude.seq` Prelude.rnf resourceRecord
+      Prelude.rnf domainName
         `Prelude.seq` Prelude.rnf validationStatus
-        `Prelude.seq` Prelude.rnf domainName
         `Prelude.seq` Prelude.rnf validationDomain
+        `Prelude.seq` Prelude.rnf resourceRecord
+        `Prelude.seq` Prelude.rnf validationEmails
+        `Prelude.seq` Prelude.rnf validationMethod
 
 instance
   Core.ToJSON
@@ -173,16 +173,16 @@ instance
     AwsCertificateManagerCertificateDomainValidationOption' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("ValidationEmails" Core..=)
-                Prelude.<$> validationEmails,
-              ("ValidationMethod" Core..=)
-                Prelude.<$> validationMethod,
-              ("ResourceRecord" Core..=)
-                Prelude.<$> resourceRecord,
+            [ ("DomainName" Core..=) Prelude.<$> domainName,
               ("ValidationStatus" Core..=)
                 Prelude.<$> validationStatus,
-              ("DomainName" Core..=) Prelude.<$> domainName,
               ("ValidationDomain" Core..=)
-                Prelude.<$> validationDomain
+                Prelude.<$> validationDomain,
+              ("ResourceRecord" Core..=)
+                Prelude.<$> resourceRecord,
+              ("ValidationEmails" Core..=)
+                Prelude.<$> validationEmails,
+              ("ValidationMethod" Core..=)
+                Prelude.<$> validationMethod
             ]
         )

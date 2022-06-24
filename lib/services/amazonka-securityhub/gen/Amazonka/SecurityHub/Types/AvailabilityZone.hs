@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAvailabilityZone' smart constructor.
 data AvailabilityZone = AvailabilityZone'
-  { -- | The ID of the subnet. You can specify one subnet per Availability Zone.
-    subnetId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Availability Zone.
-    zoneName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the Availability Zone.
+    zoneName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the subnet. You can specify one subnet per Availability Zone.
+    subnetId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data AvailabilityZone = AvailabilityZone'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'subnetId', 'availabilityZone_subnetId' - The ID of the subnet. You can specify one subnet per Availability Zone.
---
 -- 'zoneName', 'availabilityZone_zoneName' - The name of the Availability Zone.
+--
+-- 'subnetId', 'availabilityZone_subnetId' - The ID of the subnet. You can specify one subnet per Availability Zone.
 newAvailabilityZone ::
   AvailabilityZone
 newAvailabilityZone =
   AvailabilityZone'
-    { subnetId = Prelude.Nothing,
-      zoneName = Prelude.Nothing
+    { zoneName = Prelude.Nothing,
+      subnetId = Prelude.Nothing
     }
-
--- | The ID of the subnet. You can specify one subnet per Availability Zone.
-availabilityZone_subnetId :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
-availabilityZone_subnetId = Lens.lens (\AvailabilityZone' {subnetId} -> subnetId) (\s@AvailabilityZone' {} a -> s {subnetId = a} :: AvailabilityZone)
 
 -- | The name of the Availability Zone.
 availabilityZone_zoneName :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
 availabilityZone_zoneName = Lens.lens (\AvailabilityZone' {zoneName} -> zoneName) (\s@AvailabilityZone' {} a -> s {zoneName = a} :: AvailabilityZone)
+
+-- | The ID of the subnet. You can specify one subnet per Availability Zone.
+availabilityZone_subnetId :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
+availabilityZone_subnetId = Lens.lens (\AvailabilityZone' {subnetId} -> subnetId) (\s@AvailabilityZone' {} a -> s {subnetId = a} :: AvailabilityZone)
 
 instance Core.FromJSON AvailabilityZone where
   parseJSON =
@@ -67,25 +67,25 @@ instance Core.FromJSON AvailabilityZone where
       "AvailabilityZone"
       ( \x ->
           AvailabilityZone'
-            Prelude.<$> (x Core..:? "SubnetId")
-            Prelude.<*> (x Core..:? "ZoneName")
+            Prelude.<$> (x Core..:? "ZoneName")
+            Prelude.<*> (x Core..:? "SubnetId")
       )
 
 instance Prelude.Hashable AvailabilityZone where
   hashWithSalt _salt AvailabilityZone' {..} =
-    _salt `Prelude.hashWithSalt` subnetId
-      `Prelude.hashWithSalt` zoneName
+    _salt `Prelude.hashWithSalt` zoneName
+      `Prelude.hashWithSalt` subnetId
 
 instance Prelude.NFData AvailabilityZone where
   rnf AvailabilityZone' {..} =
-    Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf zoneName
+    Prelude.rnf zoneName
+      `Prelude.seq` Prelude.rnf subnetId
 
 instance Core.ToJSON AvailabilityZone where
   toJSON AvailabilityZone' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SubnetId" Core..=) Prelude.<$> subnetId,
-            ("ZoneName" Core..=) Prelude.<$> zoneName
+          [ ("ZoneName" Core..=) Prelude.<$> zoneName,
+            ("SubnetId" Core..=) Prelude.<$> subnetId
           ]
       )

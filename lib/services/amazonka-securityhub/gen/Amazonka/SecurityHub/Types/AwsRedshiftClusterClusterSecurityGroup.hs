@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsRedshiftClusterClusterSecurityGroup' smart constructor.
 data AwsRedshiftClusterClusterSecurityGroup = AwsRedshiftClusterClusterSecurityGroup'
-  { -- | The status of the cluster security group.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The name of the cluster security group.
-    clusterSecurityGroupName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the cluster security group.
+    clusterSecurityGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The status of the cluster security group.
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,26 +42,25 @@ data AwsRedshiftClusterClusterSecurityGroup = AwsRedshiftClusterClusterSecurityG
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'awsRedshiftClusterClusterSecurityGroup_status' - The status of the cluster security group.
---
 -- 'clusterSecurityGroupName', 'awsRedshiftClusterClusterSecurityGroup_clusterSecurityGroupName' - The name of the cluster security group.
+--
+-- 'status', 'awsRedshiftClusterClusterSecurityGroup_status' - The status of the cluster security group.
 newAwsRedshiftClusterClusterSecurityGroup ::
   AwsRedshiftClusterClusterSecurityGroup
 newAwsRedshiftClusterClusterSecurityGroup =
   AwsRedshiftClusterClusterSecurityGroup'
-    { status =
+    { clusterSecurityGroupName =
         Prelude.Nothing,
-      clusterSecurityGroupName =
-        Prelude.Nothing
+      status = Prelude.Nothing
     }
-
--- | The status of the cluster security group.
-awsRedshiftClusterClusterSecurityGroup_status :: Lens.Lens' AwsRedshiftClusterClusterSecurityGroup (Prelude.Maybe Prelude.Text)
-awsRedshiftClusterClusterSecurityGroup_status = Lens.lens (\AwsRedshiftClusterClusterSecurityGroup' {status} -> status) (\s@AwsRedshiftClusterClusterSecurityGroup' {} a -> s {status = a} :: AwsRedshiftClusterClusterSecurityGroup)
 
 -- | The name of the cluster security group.
 awsRedshiftClusterClusterSecurityGroup_clusterSecurityGroupName :: Lens.Lens' AwsRedshiftClusterClusterSecurityGroup (Prelude.Maybe Prelude.Text)
 awsRedshiftClusterClusterSecurityGroup_clusterSecurityGroupName = Lens.lens (\AwsRedshiftClusterClusterSecurityGroup' {clusterSecurityGroupName} -> clusterSecurityGroupName) (\s@AwsRedshiftClusterClusterSecurityGroup' {} a -> s {clusterSecurityGroupName = a} :: AwsRedshiftClusterClusterSecurityGroup)
+
+-- | The status of the cluster security group.
+awsRedshiftClusterClusterSecurityGroup_status :: Lens.Lens' AwsRedshiftClusterClusterSecurityGroup (Prelude.Maybe Prelude.Text)
+awsRedshiftClusterClusterSecurityGroup_status = Lens.lens (\AwsRedshiftClusterClusterSecurityGroup' {status} -> status) (\s@AwsRedshiftClusterClusterSecurityGroup' {} a -> s {status = a} :: AwsRedshiftClusterClusterSecurityGroup)
 
 instance
   Core.FromJSON
@@ -72,8 +71,8 @@ instance
       "AwsRedshiftClusterClusterSecurityGroup"
       ( \x ->
           AwsRedshiftClusterClusterSecurityGroup'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ClusterSecurityGroupName")
+            Prelude.<$> (x Core..:? "ClusterSecurityGroupName")
+            Prelude.<*> (x Core..:? "Status")
       )
 
 instance
@@ -83,16 +82,17 @@ instance
   hashWithSalt
     _salt
     AwsRedshiftClusterClusterSecurityGroup' {..} =
-      _salt `Prelude.hashWithSalt` status
+      _salt
         `Prelude.hashWithSalt` clusterSecurityGroupName
+        `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
     AwsRedshiftClusterClusterSecurityGroup
   where
   rnf AwsRedshiftClusterClusterSecurityGroup' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf clusterSecurityGroupName
+    Prelude.rnf clusterSecurityGroupName
+      `Prelude.seq` Prelude.rnf status
 
 instance
   Core.ToJSON
@@ -101,8 +101,8 @@ instance
   toJSON AwsRedshiftClusterClusterSecurityGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
-            ("ClusterSecurityGroupName" Core..=)
-              Prelude.<$> clusterSecurityGroupName
+          [ ("ClusterSecurityGroupName" Core..=)
+              Prelude.<$> clusterSecurityGroupName,
+            ("Status" Core..=) Prelude.<$> status
           ]
       )

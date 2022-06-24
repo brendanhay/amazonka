@@ -30,8 +30,8 @@ module Amazonka.SecurityHub.DescribeActionTargets
     newDescribeActionTargets,
 
     -- * Request Lenses
-    describeActionTargets_actionTargetArns,
     describeActionTargets_nextToken,
+    describeActionTargets_actionTargetArns,
     describeActionTargets_maxResults,
 
     -- * Destructuring the Response
@@ -54,10 +54,7 @@ import Amazonka.SecurityHub.Types
 
 -- | /See:/ 'newDescribeActionTargets' smart constructor.
 data DescribeActionTargets = DescribeActionTargets'
-  { -- | A list of custom action target ARNs for the custom action targets to
-    -- retrieve.
-    actionTargetArns :: Prelude.Maybe [Prelude.Text],
-    -- | The token that is required for pagination. On your first call to the
+  { -- | The token that is required for pagination. On your first call to the
     -- @DescribeActionTargets@ operation, set the value of this parameter to
     -- @NULL@.
     --
@@ -65,6 +62,9 @@ data DescribeActionTargets = DescribeActionTargets'
     -- value of this parameter to the value returned from the previous
     -- response.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of custom action target ARNs for the custom action targets to
+    -- retrieve.
+    actionTargetArns :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to return.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -78,9 +78,6 @@ data DescribeActionTargets = DescribeActionTargets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'actionTargetArns', 'describeActionTargets_actionTargetArns' - A list of custom action target ARNs for the custom action targets to
--- retrieve.
---
 -- 'nextToken', 'describeActionTargets_nextToken' - The token that is required for pagination. On your first call to the
 -- @DescribeActionTargets@ operation, set the value of this parameter to
 -- @NULL@.
@@ -89,21 +86,18 @@ data DescribeActionTargets = DescribeActionTargets'
 -- value of this parameter to the value returned from the previous
 -- response.
 --
+-- 'actionTargetArns', 'describeActionTargets_actionTargetArns' - A list of custom action target ARNs for the custom action targets to
+-- retrieve.
+--
 -- 'maxResults', 'describeActionTargets_maxResults' - The maximum number of results to return.
 newDescribeActionTargets ::
   DescribeActionTargets
 newDescribeActionTargets =
   DescribeActionTargets'
-    { actionTargetArns =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      actionTargetArns = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | A list of custom action target ARNs for the custom action targets to
--- retrieve.
-describeActionTargets_actionTargetArns :: Lens.Lens' DescribeActionTargets (Prelude.Maybe [Prelude.Text])
-describeActionTargets_actionTargetArns = Lens.lens (\DescribeActionTargets' {actionTargetArns} -> actionTargetArns) (\s@DescribeActionTargets' {} a -> s {actionTargetArns = a} :: DescribeActionTargets) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token that is required for pagination. On your first call to the
 -- @DescribeActionTargets@ operation, set the value of this parameter to
@@ -114,6 +108,11 @@ describeActionTargets_actionTargetArns = Lens.lens (\DescribeActionTargets' {act
 -- response.
 describeActionTargets_nextToken :: Lens.Lens' DescribeActionTargets (Prelude.Maybe Prelude.Text)
 describeActionTargets_nextToken = Lens.lens (\DescribeActionTargets' {nextToken} -> nextToken) (\s@DescribeActionTargets' {} a -> s {nextToken = a} :: DescribeActionTargets)
+
+-- | A list of custom action target ARNs for the custom action targets to
+-- retrieve.
+describeActionTargets_actionTargetArns :: Lens.Lens' DescribeActionTargets (Prelude.Maybe [Prelude.Text])
+describeActionTargets_actionTargetArns = Lens.lens (\DescribeActionTargets' {actionTargetArns} -> actionTargetArns) (\s@DescribeActionTargets' {} a -> s {actionTargetArns = a} :: DescribeActionTargets) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of results to return.
 describeActionTargets_maxResults :: Lens.Lens' DescribeActionTargets (Prelude.Maybe Prelude.Natural)
@@ -156,14 +155,14 @@ instance Core.AWSRequest DescribeActionTargets where
 
 instance Prelude.Hashable DescribeActionTargets where
   hashWithSalt _salt DescribeActionTargets' {..} =
-    _salt `Prelude.hashWithSalt` actionTargetArns
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` actionTargetArns
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeActionTargets where
   rnf DescribeActionTargets' {..} =
-    Prelude.rnf actionTargetArns
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf actionTargetArns
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeActionTargets where
@@ -181,9 +180,9 @@ instance Core.ToJSON DescribeActionTargets where
   toJSON DescribeActionTargets' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ActionTargetArns" Core..=)
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("ActionTargetArns" Core..=)
               Prelude.<$> actionTargetArns,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

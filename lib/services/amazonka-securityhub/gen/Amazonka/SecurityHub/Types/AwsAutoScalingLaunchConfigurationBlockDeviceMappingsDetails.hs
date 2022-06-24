@@ -28,21 +28,21 @@ import Amazonka.SecurityHub.Types.AwsAutoScalingLaunchConfigurationBlockDeviceMa
 --
 -- /See:/ 'newAwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails' smart constructor.
 data AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails = AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails'
-  { -- | The name of the virtual device (for example, @ephemeral0@).
-    --
-    -- You can provide either @VirtualName@ or @Ebs@, but not both.
-    virtualName :: Prelude.Maybe Prelude.Text,
+  { -- | Parameters that are used to automatically set up Amazon EBS volumes when
+    -- an instance is launched.
+    ebs :: Prelude.Maybe AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails,
+    -- | The device name that is exposed to the EC2 instance. For example,
+    -- @\/dev\/sdh@ or @xvdh@.
+    deviceName :: Prelude.Maybe Prelude.Text,
     -- | Whether to suppress the device that is included in the block device
     -- mapping of the Amazon Machine Image (AMI).
     --
     -- If @NoDevice@ is @true@, then you cannot specify @Ebs@.>
     noDevice :: Prelude.Maybe Prelude.Bool,
-    -- | Parameters that are used to automatically set up Amazon EBS volumes when
-    -- an instance is launched.
-    ebs :: Prelude.Maybe AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails,
-    -- | The device name that is exposed to the EC2 instance. For example,
-    -- @\/dev\/sdh@ or @xvdh@.
-    deviceName :: Prelude.Maybe Prelude.Text
+    -- | The name of the virtual device (for example, @ephemeral0@).
+    --
+    -- You can provide either @VirtualName@ or @Ebs@, but not both.
+    virtualName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,46 +54,33 @@ data AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails = AwsAutoScalin
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'virtualName', 'awsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails_virtualName' - The name of the virtual device (for example, @ephemeral0@).
+-- 'ebs', 'awsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails_ebs' - Parameters that are used to automatically set up Amazon EBS volumes when
+-- an instance is launched.
 --
--- You can provide either @VirtualName@ or @Ebs@, but not both.
+-- 'deviceName', 'awsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails_deviceName' - The device name that is exposed to the EC2 instance. For example,
+-- @\/dev\/sdh@ or @xvdh@.
 --
 -- 'noDevice', 'awsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails_noDevice' - Whether to suppress the device that is included in the block device
 -- mapping of the Amazon Machine Image (AMI).
 --
 -- If @NoDevice@ is @true@, then you cannot specify @Ebs@.>
 --
--- 'ebs', 'awsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails_ebs' - Parameters that are used to automatically set up Amazon EBS volumes when
--- an instance is launched.
+-- 'virtualName', 'awsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails_virtualName' - The name of the virtual device (for example, @ephemeral0@).
 --
--- 'deviceName', 'awsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails_deviceName' - The device name that is exposed to the EC2 instance. For example,
--- @\/dev\/sdh@ or @xvdh@.
+-- You can provide either @VirtualName@ or @Ebs@, but not both.
 newAwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails ::
   AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails
 newAwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails =
   AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails'
-    { virtualName =
+    { ebs =
+        Prelude.Nothing,
+      deviceName =
         Prelude.Nothing,
       noDevice =
         Prelude.Nothing,
-      ebs =
-        Prelude.Nothing,
-      deviceName =
+      virtualName =
         Prelude.Nothing
     }
-
--- | The name of the virtual device (for example, @ephemeral0@).
---
--- You can provide either @VirtualName@ or @Ebs@, but not both.
-awsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails_virtualName :: Lens.Lens' AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails (Prelude.Maybe Prelude.Text)
-awsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails_virtualName = Lens.lens (\AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails' {virtualName} -> virtualName) (\s@AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails' {} a -> s {virtualName = a} :: AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails)
-
--- | Whether to suppress the device that is included in the block device
--- mapping of the Amazon Machine Image (AMI).
---
--- If @NoDevice@ is @true@, then you cannot specify @Ebs@.>
-awsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails_noDevice :: Lens.Lens' AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails (Prelude.Maybe Prelude.Bool)
-awsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails_noDevice = Lens.lens (\AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails' {noDevice} -> noDevice) (\s@AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails' {} a -> s {noDevice = a} :: AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails)
 
 -- | Parameters that are used to automatically set up Amazon EBS volumes when
 -- an instance is launched.
@@ -105,6 +92,19 @@ awsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails_ebs = Lens.lens (\Aw
 awsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails_deviceName :: Lens.Lens' AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails (Prelude.Maybe Prelude.Text)
 awsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails_deviceName = Lens.lens (\AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails' {deviceName} -> deviceName) (\s@AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails' {} a -> s {deviceName = a} :: AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails)
 
+-- | Whether to suppress the device that is included in the block device
+-- mapping of the Amazon Machine Image (AMI).
+--
+-- If @NoDevice@ is @true@, then you cannot specify @Ebs@.>
+awsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails_noDevice :: Lens.Lens' AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails (Prelude.Maybe Prelude.Bool)
+awsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails_noDevice = Lens.lens (\AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails' {noDevice} -> noDevice) (\s@AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails' {} a -> s {noDevice = a} :: AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails)
+
+-- | The name of the virtual device (for example, @ephemeral0@).
+--
+-- You can provide either @VirtualName@ or @Ebs@, but not both.
+awsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails_virtualName :: Lens.Lens' AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails (Prelude.Maybe Prelude.Text)
+awsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails_virtualName = Lens.lens (\AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails' {virtualName} -> virtualName) (\s@AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails' {} a -> s {virtualName = a} :: AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails)
+
 instance
   Core.FromJSON
     AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails
@@ -114,10 +114,10 @@ instance
       "AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails"
       ( \x ->
           AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails'
-            Prelude.<$> (x Core..:? "VirtualName")
-              Prelude.<*> (x Core..:? "NoDevice")
-              Prelude.<*> (x Core..:? "Ebs")
+            Prelude.<$> (x Core..:? "Ebs")
               Prelude.<*> (x Core..:? "DeviceName")
+              Prelude.<*> (x Core..:? "NoDevice")
+              Prelude.<*> (x Core..:? "VirtualName")
       )
 
 instance
@@ -127,10 +127,10 @@ instance
   hashWithSalt
     _salt
     AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails' {..} =
-      _salt `Prelude.hashWithSalt` virtualName
-        `Prelude.hashWithSalt` noDevice
-        `Prelude.hashWithSalt` ebs
+      _salt `Prelude.hashWithSalt` ebs
         `Prelude.hashWithSalt` deviceName
+        `Prelude.hashWithSalt` noDevice
+        `Prelude.hashWithSalt` virtualName
 
 instance
   Prelude.NFData
@@ -138,10 +138,10 @@ instance
   where
   rnf
     AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails' {..} =
-      Prelude.rnf virtualName
-        `Prelude.seq` Prelude.rnf noDevice
-        `Prelude.seq` Prelude.rnf ebs
+      Prelude.rnf ebs
         `Prelude.seq` Prelude.rnf deviceName
+        `Prelude.seq` Prelude.rnf noDevice
+        `Prelude.seq` Prelude.rnf virtualName
 
 instance
   Core.ToJSON
@@ -151,9 +151,9 @@ instance
     AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("VirtualName" Core..=) Prelude.<$> virtualName,
+            [ ("Ebs" Core..=) Prelude.<$> ebs,
+              ("DeviceName" Core..=) Prelude.<$> deviceName,
               ("NoDevice" Core..=) Prelude.<$> noDevice,
-              ("Ebs" Core..=) Prelude.<$> ebs,
-              ("DeviceName" Core..=) Prelude.<$> deviceName
+              ("VirtualName" Core..=) Prelude.<$> virtualName
             ]
         )

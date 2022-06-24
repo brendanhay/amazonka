@@ -31,14 +31,14 @@ import Amazonka.SecurityHub.Types.Ipv6CidrBlockAssociation
 data AwsEc2VpcDetails = AwsEc2VpcDetails'
   { -- | The current state of the VPC.
     state :: Prelude.Maybe Prelude.Text,
-    -- | Information about the IPv6 CIDR blocks associated with the VPC.
-    ipv6CidrBlockAssociationSet :: Prelude.Maybe [Ipv6CidrBlockAssociation],
-    -- | Information about the IPv4 CIDR blocks associated with the VPC.
-    cidrBlockAssociationSet :: Prelude.Maybe [CidrBlockAssociation],
     -- | The identifier of the set of Dynamic Host Configuration Protocol (DHCP)
     -- options that are associated with the VPC. If the default options are
     -- associated with the VPC, then this is default.
-    dhcpOptionsId :: Prelude.Maybe Prelude.Text
+    dhcpOptionsId :: Prelude.Maybe Prelude.Text,
+    -- | Information about the IPv6 CIDR blocks associated with the VPC.
+    ipv6CidrBlockAssociationSet :: Prelude.Maybe [Ipv6CidrBlockAssociation],
+    -- | Information about the IPv4 CIDR blocks associated with the VPC.
+    cidrBlockAssociationSet :: Prelude.Maybe [CidrBlockAssociation]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,26 +52,32 @@ data AwsEc2VpcDetails = AwsEc2VpcDetails'
 --
 -- 'state', 'awsEc2VpcDetails_state' - The current state of the VPC.
 --
--- 'ipv6CidrBlockAssociationSet', 'awsEc2VpcDetails_ipv6CidrBlockAssociationSet' - Information about the IPv6 CIDR blocks associated with the VPC.
---
--- 'cidrBlockAssociationSet', 'awsEc2VpcDetails_cidrBlockAssociationSet' - Information about the IPv4 CIDR blocks associated with the VPC.
---
 -- 'dhcpOptionsId', 'awsEc2VpcDetails_dhcpOptionsId' - The identifier of the set of Dynamic Host Configuration Protocol (DHCP)
 -- options that are associated with the VPC. If the default options are
 -- associated with the VPC, then this is default.
+--
+-- 'ipv6CidrBlockAssociationSet', 'awsEc2VpcDetails_ipv6CidrBlockAssociationSet' - Information about the IPv6 CIDR blocks associated with the VPC.
+--
+-- 'cidrBlockAssociationSet', 'awsEc2VpcDetails_cidrBlockAssociationSet' - Information about the IPv4 CIDR blocks associated with the VPC.
 newAwsEc2VpcDetails ::
   AwsEc2VpcDetails
 newAwsEc2VpcDetails =
   AwsEc2VpcDetails'
     { state = Prelude.Nothing,
+      dhcpOptionsId = Prelude.Nothing,
       ipv6CidrBlockAssociationSet = Prelude.Nothing,
-      cidrBlockAssociationSet = Prelude.Nothing,
-      dhcpOptionsId = Prelude.Nothing
+      cidrBlockAssociationSet = Prelude.Nothing
     }
 
 -- | The current state of the VPC.
 awsEc2VpcDetails_state :: Lens.Lens' AwsEc2VpcDetails (Prelude.Maybe Prelude.Text)
 awsEc2VpcDetails_state = Lens.lens (\AwsEc2VpcDetails' {state} -> state) (\s@AwsEc2VpcDetails' {} a -> s {state = a} :: AwsEc2VpcDetails)
+
+-- | The identifier of the set of Dynamic Host Configuration Protocol (DHCP)
+-- options that are associated with the VPC. If the default options are
+-- associated with the VPC, then this is default.
+awsEc2VpcDetails_dhcpOptionsId :: Lens.Lens' AwsEc2VpcDetails (Prelude.Maybe Prelude.Text)
+awsEc2VpcDetails_dhcpOptionsId = Lens.lens (\AwsEc2VpcDetails' {dhcpOptionsId} -> dhcpOptionsId) (\s@AwsEc2VpcDetails' {} a -> s {dhcpOptionsId = a} :: AwsEc2VpcDetails)
 
 -- | Information about the IPv6 CIDR blocks associated with the VPC.
 awsEc2VpcDetails_ipv6CidrBlockAssociationSet :: Lens.Lens' AwsEc2VpcDetails (Prelude.Maybe [Ipv6CidrBlockAssociation])
@@ -81,12 +87,6 @@ awsEc2VpcDetails_ipv6CidrBlockAssociationSet = Lens.lens (\AwsEc2VpcDetails' {ip
 awsEc2VpcDetails_cidrBlockAssociationSet :: Lens.Lens' AwsEc2VpcDetails (Prelude.Maybe [CidrBlockAssociation])
 awsEc2VpcDetails_cidrBlockAssociationSet = Lens.lens (\AwsEc2VpcDetails' {cidrBlockAssociationSet} -> cidrBlockAssociationSet) (\s@AwsEc2VpcDetails' {} a -> s {cidrBlockAssociationSet = a} :: AwsEc2VpcDetails) Prelude.. Lens.mapping Lens.coerced
 
--- | The identifier of the set of Dynamic Host Configuration Protocol (DHCP)
--- options that are associated with the VPC. If the default options are
--- associated with the VPC, then this is default.
-awsEc2VpcDetails_dhcpOptionsId :: Lens.Lens' AwsEc2VpcDetails (Prelude.Maybe Prelude.Text)
-awsEc2VpcDetails_dhcpOptionsId = Lens.lens (\AwsEc2VpcDetails' {dhcpOptionsId} -> dhcpOptionsId) (\s@AwsEc2VpcDetails' {} a -> s {dhcpOptionsId = a} :: AwsEc2VpcDetails)
-
 instance Core.FromJSON AwsEc2VpcDetails where
   parseJSON =
     Core.withObject
@@ -94,38 +94,38 @@ instance Core.FromJSON AwsEc2VpcDetails where
       ( \x ->
           AwsEc2VpcDetails'
             Prelude.<$> (x Core..:? "State")
+            Prelude.<*> (x Core..:? "DhcpOptionsId")
             Prelude.<*> ( x Core..:? "Ipv6CidrBlockAssociationSet"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> ( x Core..:? "CidrBlockAssociationSet"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DhcpOptionsId")
       )
 
 instance Prelude.Hashable AwsEc2VpcDetails where
   hashWithSalt _salt AwsEc2VpcDetails' {..} =
     _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` dhcpOptionsId
       `Prelude.hashWithSalt` ipv6CidrBlockAssociationSet
       `Prelude.hashWithSalt` cidrBlockAssociationSet
-      `Prelude.hashWithSalt` dhcpOptionsId
 
 instance Prelude.NFData AwsEc2VpcDetails where
   rnf AwsEc2VpcDetails' {..} =
     Prelude.rnf state
+      `Prelude.seq` Prelude.rnf dhcpOptionsId
       `Prelude.seq` Prelude.rnf ipv6CidrBlockAssociationSet
       `Prelude.seq` Prelude.rnf cidrBlockAssociationSet
-      `Prelude.seq` Prelude.rnf dhcpOptionsId
 
 instance Core.ToJSON AwsEc2VpcDetails where
   toJSON AwsEc2VpcDetails' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("State" Core..=) Prelude.<$> state,
+            ("DhcpOptionsId" Core..=) Prelude.<$> dhcpOptionsId,
             ("Ipv6CidrBlockAssociationSet" Core..=)
               Prelude.<$> ipv6CidrBlockAssociationSet,
             ("CidrBlockAssociationSet" Core..=)
-              Prelude.<$> cidrBlockAssociationSet,
-            ("DhcpOptionsId" Core..=) Prelude.<$> dhcpOptionsId
+              Prelude.<$> cidrBlockAssociationSet
           ]
       )

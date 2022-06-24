@@ -31,24 +31,24 @@ import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxP
 --
 -- /See:/ 'newAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' smart constructor.
 data AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails = AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails'
-  { -- | The value for the size (in MiB) of the __\/dev\/shm__ volume.
-    sharedMemorySize :: Prelude.Maybe Prelude.Int,
+  { -- | The host devices to expose to the container.
+    devices :: Prelude.Maybe [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails],
+    -- | Configures the container\'s memory swappiness behavior. Determines how
+    -- aggressively pages are swapped. The higher the value, the more
+    -- aggressive the swappiness. The default is 60.
+    swappiness :: Prelude.Maybe Prelude.Int,
     -- | The container path, mount options, and size (in MiB) of the tmpfs mount.
     tmpfs :: Prelude.Maybe [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails],
     -- | Whether to run an @init@ process inside the container that forwards
     -- signals and reaps processes.
     initProcessEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | Configures the container\'s memory swappiness behavior. Determines how
-    -- aggressively pages are swapped. The higher the value, the more
-    -- aggressive the swappiness. The default is 60.
-    swappiness :: Prelude.Maybe Prelude.Int,
-    -- | The host devices to expose to the container.
-    devices :: Prelude.Maybe [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails],
+    -- | The total amount of swap memory (in MiB) that a container can use.
+    maxSwap :: Prelude.Maybe Prelude.Int,
     -- | The Linux capabilities for the container that are added to or dropped
     -- from the default configuration provided by Docker.
     capabilities :: Prelude.Maybe AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails,
-    -- | The total amount of swap memory (in MiB) that a container can use.
-    maxSwap :: Prelude.Maybe Prelude.Int
+    -- | The value for the size (in MiB) of the __\/dev\/shm__ volume.
+    sharedMemorySize :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,46 +60,52 @@ data AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails = AwsEcsTask
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sharedMemorySize', 'awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_sharedMemorySize' - The value for the size (in MiB) of the __\/dev\/shm__ volume.
+-- 'devices', 'awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_devices' - The host devices to expose to the container.
+--
+-- 'swappiness', 'awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_swappiness' - Configures the container\'s memory swappiness behavior. Determines how
+-- aggressively pages are swapped. The higher the value, the more
+-- aggressive the swappiness. The default is 60.
 --
 -- 'tmpfs', 'awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_tmpfs' - The container path, mount options, and size (in MiB) of the tmpfs mount.
 --
 -- 'initProcessEnabled', 'awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_initProcessEnabled' - Whether to run an @init@ process inside the container that forwards
 -- signals and reaps processes.
 --
--- 'swappiness', 'awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_swappiness' - Configures the container\'s memory swappiness behavior. Determines how
--- aggressively pages are swapped. The higher the value, the more
--- aggressive the swappiness. The default is 60.
---
--- 'devices', 'awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_devices' - The host devices to expose to the container.
+-- 'maxSwap', 'awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_maxSwap' - The total amount of swap memory (in MiB) that a container can use.
 --
 -- 'capabilities', 'awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_capabilities' - The Linux capabilities for the container that are added to or dropped
 -- from the default configuration provided by Docker.
 --
--- 'maxSwap', 'awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_maxSwap' - The total amount of swap memory (in MiB) that a container can use.
+-- 'sharedMemorySize', 'awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_sharedMemorySize' - The value for the size (in MiB) of the __\/dev\/shm__ volume.
 newAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails ::
   AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
 newAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails =
   AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails'
-    { sharedMemorySize =
+    { devices =
+        Prelude.Nothing,
+      swappiness =
         Prelude.Nothing,
       tmpfs =
         Prelude.Nothing,
       initProcessEnabled =
         Prelude.Nothing,
-      swappiness =
-        Prelude.Nothing,
-      devices =
+      maxSwap =
         Prelude.Nothing,
       capabilities =
         Prelude.Nothing,
-      maxSwap =
+      sharedMemorySize =
         Prelude.Nothing
     }
 
--- | The value for the size (in MiB) of the __\/dev\/shm__ volume.
-awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_sharedMemorySize :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails (Prelude.Maybe Prelude.Int)
-awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_sharedMemorySize = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' {sharedMemorySize} -> sharedMemorySize) (\s@AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' {} a -> s {sharedMemorySize = a} :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
+-- | The host devices to expose to the container.
+awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_devices :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails (Prelude.Maybe [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails])
+awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_devices = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' {devices} -> devices) (\s@AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' {} a -> s {devices = a} :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails) Prelude.. Lens.mapping Lens.coerced
+
+-- | Configures the container\'s memory swappiness behavior. Determines how
+-- aggressively pages are swapped. The higher the value, the more
+-- aggressive the swappiness. The default is 60.
+awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_swappiness :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails (Prelude.Maybe Prelude.Int)
+awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_swappiness = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' {swappiness} -> swappiness) (\s@AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' {} a -> s {swappiness = a} :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
 
 -- | The container path, mount options, and size (in MiB) of the tmpfs mount.
 awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_tmpfs :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails (Prelude.Maybe [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails])
@@ -110,24 +116,18 @@ awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_tmpfs = Lens.lens
 awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_initProcessEnabled :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails (Prelude.Maybe Prelude.Bool)
 awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_initProcessEnabled = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' {initProcessEnabled} -> initProcessEnabled) (\s@AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' {} a -> s {initProcessEnabled = a} :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
 
--- | Configures the container\'s memory swappiness behavior. Determines how
--- aggressively pages are swapped. The higher the value, the more
--- aggressive the swappiness. The default is 60.
-awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_swappiness :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails (Prelude.Maybe Prelude.Int)
-awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_swappiness = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' {swappiness} -> swappiness) (\s@AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' {} a -> s {swappiness = a} :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
-
--- | The host devices to expose to the container.
-awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_devices :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails (Prelude.Maybe [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails])
-awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_devices = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' {devices} -> devices) (\s@AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' {} a -> s {devices = a} :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails) Prelude.. Lens.mapping Lens.coerced
+-- | The total amount of swap memory (in MiB) that a container can use.
+awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_maxSwap :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails (Prelude.Maybe Prelude.Int)
+awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_maxSwap = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' {maxSwap} -> maxSwap) (\s@AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' {} a -> s {maxSwap = a} :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
 
 -- | The Linux capabilities for the container that are added to or dropped
 -- from the default configuration provided by Docker.
 awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_capabilities :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails (Prelude.Maybe AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails)
 awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_capabilities = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' {capabilities} -> capabilities) (\s@AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' {} a -> s {capabilities = a} :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
 
--- | The total amount of swap memory (in MiB) that a container can use.
-awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_maxSwap :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails (Prelude.Maybe Prelude.Int)
-awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_maxSwap = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' {maxSwap} -> maxSwap) (\s@AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' {} a -> s {maxSwap = a} :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
+-- | The value for the size (in MiB) of the __\/dev\/shm__ volume.
+awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_sharedMemorySize :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails (Prelude.Maybe Prelude.Int)
+awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_sharedMemorySize = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' {sharedMemorySize} -> sharedMemorySize) (\s@AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' {} a -> s {sharedMemorySize = a} :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
 
 instance
   Core.FromJSON
@@ -138,13 +138,13 @@ instance
       "AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails"
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails'
-            Prelude.<$> (x Core..:? "SharedMemorySize")
+            Prelude.<$> (x Core..:? "Devices" Core..!= Prelude.mempty)
+              Prelude.<*> (x Core..:? "Swappiness")
               Prelude.<*> (x Core..:? "Tmpfs" Core..!= Prelude.mempty)
               Prelude.<*> (x Core..:? "InitProcessEnabled")
-              Prelude.<*> (x Core..:? "Swappiness")
-              Prelude.<*> (x Core..:? "Devices" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..:? "Capabilities")
               Prelude.<*> (x Core..:? "MaxSwap")
+              Prelude.<*> (x Core..:? "Capabilities")
+              Prelude.<*> (x Core..:? "SharedMemorySize")
       )
 
 instance
@@ -154,13 +154,13 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' {..} =
-      _salt `Prelude.hashWithSalt` sharedMemorySize
+      _salt `Prelude.hashWithSalt` devices
+        `Prelude.hashWithSalt` swappiness
         `Prelude.hashWithSalt` tmpfs
         `Prelude.hashWithSalt` initProcessEnabled
-        `Prelude.hashWithSalt` swappiness
-        `Prelude.hashWithSalt` devices
-        `Prelude.hashWithSalt` capabilities
         `Prelude.hashWithSalt` maxSwap
+        `Prelude.hashWithSalt` capabilities
+        `Prelude.hashWithSalt` sharedMemorySize
 
 instance
   Prelude.NFData
@@ -168,13 +168,13 @@ instance
   where
   rnf
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' {..} =
-      Prelude.rnf sharedMemorySize
+      Prelude.rnf devices
+        `Prelude.seq` Prelude.rnf swappiness
         `Prelude.seq` Prelude.rnf tmpfs
         `Prelude.seq` Prelude.rnf initProcessEnabled
-        `Prelude.seq` Prelude.rnf swappiness
-        `Prelude.seq` Prelude.rnf devices
-        `Prelude.seq` Prelude.rnf capabilities
         `Prelude.seq` Prelude.rnf maxSwap
+        `Prelude.seq` Prelude.rnf capabilities
+        `Prelude.seq` Prelude.rnf sharedMemorySize
 
 instance
   Core.ToJSON
@@ -184,14 +184,14 @@ instance
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("SharedMemorySize" Core..=)
-                Prelude.<$> sharedMemorySize,
+            [ ("Devices" Core..=) Prelude.<$> devices,
+              ("Swappiness" Core..=) Prelude.<$> swappiness,
               ("Tmpfs" Core..=) Prelude.<$> tmpfs,
               ("InitProcessEnabled" Core..=)
                 Prelude.<$> initProcessEnabled,
-              ("Swappiness" Core..=) Prelude.<$> swappiness,
-              ("Devices" Core..=) Prelude.<$> devices,
+              ("MaxSwap" Core..=) Prelude.<$> maxSwap,
               ("Capabilities" Core..=) Prelude.<$> capabilities,
-              ("MaxSwap" Core..=) Prelude.<$> maxSwap
+              ("SharedMemorySize" Core..=)
+                Prelude.<$> sharedMemorySize
             ]
         )

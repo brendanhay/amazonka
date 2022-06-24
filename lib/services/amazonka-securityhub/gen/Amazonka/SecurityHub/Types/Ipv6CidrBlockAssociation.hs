@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIpv6CidrBlockAssociation' smart constructor.
 data Ipv6CidrBlockAssociation = Ipv6CidrBlockAssociation'
-  { -- | The association ID for the IPv6 CIDR block.
+  { -- | Information about the state of the CIDR block.
+    cidrBlockState :: Prelude.Maybe Prelude.Text,
+    -- | The association ID for the IPv6 CIDR block.
     associationId :: Prelude.Maybe Prelude.Text,
     -- | The IPv6 CIDR block.
-    ipv6CidrBlock :: Prelude.Maybe Prelude.Text,
-    -- | Information about the state of the CIDR block.
-    cidrBlockState :: Prelude.Maybe Prelude.Text
+    ipv6CidrBlock :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,20 +44,24 @@ data Ipv6CidrBlockAssociation = Ipv6CidrBlockAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'cidrBlockState', 'ipv6CidrBlockAssociation_cidrBlockState' - Information about the state of the CIDR block.
+--
 -- 'associationId', 'ipv6CidrBlockAssociation_associationId' - The association ID for the IPv6 CIDR block.
 --
 -- 'ipv6CidrBlock', 'ipv6CidrBlockAssociation_ipv6CidrBlock' - The IPv6 CIDR block.
---
--- 'cidrBlockState', 'ipv6CidrBlockAssociation_cidrBlockState' - Information about the state of the CIDR block.
 newIpv6CidrBlockAssociation ::
   Ipv6CidrBlockAssociation
 newIpv6CidrBlockAssociation =
   Ipv6CidrBlockAssociation'
-    { associationId =
+    { cidrBlockState =
         Prelude.Nothing,
-      ipv6CidrBlock = Prelude.Nothing,
-      cidrBlockState = Prelude.Nothing
+      associationId = Prelude.Nothing,
+      ipv6CidrBlock = Prelude.Nothing
     }
+
+-- | Information about the state of the CIDR block.
+ipv6CidrBlockAssociation_cidrBlockState :: Lens.Lens' Ipv6CidrBlockAssociation (Prelude.Maybe Prelude.Text)
+ipv6CidrBlockAssociation_cidrBlockState = Lens.lens (\Ipv6CidrBlockAssociation' {cidrBlockState} -> cidrBlockState) (\s@Ipv6CidrBlockAssociation' {} a -> s {cidrBlockState = a} :: Ipv6CidrBlockAssociation)
 
 -- | The association ID for the IPv6 CIDR block.
 ipv6CidrBlockAssociation_associationId :: Lens.Lens' Ipv6CidrBlockAssociation (Prelude.Maybe Prelude.Text)
@@ -67,40 +71,36 @@ ipv6CidrBlockAssociation_associationId = Lens.lens (\Ipv6CidrBlockAssociation' {
 ipv6CidrBlockAssociation_ipv6CidrBlock :: Lens.Lens' Ipv6CidrBlockAssociation (Prelude.Maybe Prelude.Text)
 ipv6CidrBlockAssociation_ipv6CidrBlock = Lens.lens (\Ipv6CidrBlockAssociation' {ipv6CidrBlock} -> ipv6CidrBlock) (\s@Ipv6CidrBlockAssociation' {} a -> s {ipv6CidrBlock = a} :: Ipv6CidrBlockAssociation)
 
--- | Information about the state of the CIDR block.
-ipv6CidrBlockAssociation_cidrBlockState :: Lens.Lens' Ipv6CidrBlockAssociation (Prelude.Maybe Prelude.Text)
-ipv6CidrBlockAssociation_cidrBlockState = Lens.lens (\Ipv6CidrBlockAssociation' {cidrBlockState} -> cidrBlockState) (\s@Ipv6CidrBlockAssociation' {} a -> s {cidrBlockState = a} :: Ipv6CidrBlockAssociation)
-
 instance Core.FromJSON Ipv6CidrBlockAssociation where
   parseJSON =
     Core.withObject
       "Ipv6CidrBlockAssociation"
       ( \x ->
           Ipv6CidrBlockAssociation'
-            Prelude.<$> (x Core..:? "AssociationId")
+            Prelude.<$> (x Core..:? "CidrBlockState")
+            Prelude.<*> (x Core..:? "AssociationId")
             Prelude.<*> (x Core..:? "Ipv6CidrBlock")
-            Prelude.<*> (x Core..:? "CidrBlockState")
       )
 
 instance Prelude.Hashable Ipv6CidrBlockAssociation where
   hashWithSalt _salt Ipv6CidrBlockAssociation' {..} =
-    _salt `Prelude.hashWithSalt` associationId
+    _salt `Prelude.hashWithSalt` cidrBlockState
+      `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` ipv6CidrBlock
-      `Prelude.hashWithSalt` cidrBlockState
 
 instance Prelude.NFData Ipv6CidrBlockAssociation where
   rnf Ipv6CidrBlockAssociation' {..} =
-    Prelude.rnf associationId
+    Prelude.rnf cidrBlockState
+      `Prelude.seq` Prelude.rnf associationId
       `Prelude.seq` Prelude.rnf ipv6CidrBlock
-      `Prelude.seq` Prelude.rnf cidrBlockState
 
 instance Core.ToJSON Ipv6CidrBlockAssociation where
   toJSON Ipv6CidrBlockAssociation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AssociationId" Core..=) Prelude.<$> associationId,
-            ("Ipv6CidrBlock" Core..=) Prelude.<$> ipv6CidrBlock,
-            ("CidrBlockState" Core..=)
-              Prelude.<$> cidrBlockState
+          [ ("CidrBlockState" Core..=)
+              Prelude.<$> cidrBlockState,
+            ("AssociationId" Core..=) Prelude.<$> associationId,
+            ("Ipv6CidrBlock" Core..=) Prelude.<$> ipv6CidrBlock
           ]
       )

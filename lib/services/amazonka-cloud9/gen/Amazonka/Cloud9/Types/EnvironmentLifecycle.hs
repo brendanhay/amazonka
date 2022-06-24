@@ -41,11 +41,11 @@ data EnvironmentLifecycle = EnvironmentLifecycle'
     --
     -- -   @DELETE_FAILED@: The environment failed to delete.
     status :: Prelude.Maybe EnvironmentLifecycleStatus,
+    -- | Any informational message about the lifecycle state of the environment.
+    reason :: Prelude.Maybe Prelude.Text,
     -- | If the environment failed to delete, the Amazon Resource Name (ARN) of
     -- the related Amazon Web Services resource.
-    failureResource :: Prelude.Maybe Prelude.Text,
-    -- | Any informational message about the lifecycle state of the environment.
-    reason :: Prelude.Maybe Prelude.Text
+    failureResource :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,17 +69,17 @@ data EnvironmentLifecycle = EnvironmentLifecycle'
 --
 -- -   @DELETE_FAILED@: The environment failed to delete.
 --
+-- 'reason', 'environmentLifecycle_reason' - Any informational message about the lifecycle state of the environment.
+--
 -- 'failureResource', 'environmentLifecycle_failureResource' - If the environment failed to delete, the Amazon Resource Name (ARN) of
 -- the related Amazon Web Services resource.
---
--- 'reason', 'environmentLifecycle_reason' - Any informational message about the lifecycle state of the environment.
 newEnvironmentLifecycle ::
   EnvironmentLifecycle
 newEnvironmentLifecycle =
   EnvironmentLifecycle'
     { status = Prelude.Nothing,
-      failureResource = Prelude.Nothing,
-      reason = Prelude.Nothing
+      reason = Prelude.Nothing,
+      failureResource = Prelude.Nothing
     }
 
 -- | The current creation or deletion lifecycle state of the environment.
@@ -96,14 +96,14 @@ newEnvironmentLifecycle =
 environmentLifecycle_status :: Lens.Lens' EnvironmentLifecycle (Prelude.Maybe EnvironmentLifecycleStatus)
 environmentLifecycle_status = Lens.lens (\EnvironmentLifecycle' {status} -> status) (\s@EnvironmentLifecycle' {} a -> s {status = a} :: EnvironmentLifecycle)
 
+-- | Any informational message about the lifecycle state of the environment.
+environmentLifecycle_reason :: Lens.Lens' EnvironmentLifecycle (Prelude.Maybe Prelude.Text)
+environmentLifecycle_reason = Lens.lens (\EnvironmentLifecycle' {reason} -> reason) (\s@EnvironmentLifecycle' {} a -> s {reason = a} :: EnvironmentLifecycle)
+
 -- | If the environment failed to delete, the Amazon Resource Name (ARN) of
 -- the related Amazon Web Services resource.
 environmentLifecycle_failureResource :: Lens.Lens' EnvironmentLifecycle (Prelude.Maybe Prelude.Text)
 environmentLifecycle_failureResource = Lens.lens (\EnvironmentLifecycle' {failureResource} -> failureResource) (\s@EnvironmentLifecycle' {} a -> s {failureResource = a} :: EnvironmentLifecycle)
-
--- | Any informational message about the lifecycle state of the environment.
-environmentLifecycle_reason :: Lens.Lens' EnvironmentLifecycle (Prelude.Maybe Prelude.Text)
-environmentLifecycle_reason = Lens.lens (\EnvironmentLifecycle' {reason} -> reason) (\s@EnvironmentLifecycle' {} a -> s {reason = a} :: EnvironmentLifecycle)
 
 instance Core.FromJSON EnvironmentLifecycle where
   parseJSON =
@@ -112,18 +112,18 @@ instance Core.FromJSON EnvironmentLifecycle where
       ( \x ->
           EnvironmentLifecycle'
             Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "failureResource")
             Prelude.<*> (x Core..:? "reason")
+            Prelude.<*> (x Core..:? "failureResource")
       )
 
 instance Prelude.Hashable EnvironmentLifecycle where
   hashWithSalt _salt EnvironmentLifecycle' {..} =
     _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` failureResource
       `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` failureResource
 
 instance Prelude.NFData EnvironmentLifecycle where
   rnf EnvironmentLifecycle' {..} =
     Prelude.rnf status
-      `Prelude.seq` Prelude.rnf failureResource
       `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf failureResource

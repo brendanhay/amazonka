@@ -40,8 +40,8 @@ module Amazonka.Route53Domains.GetContactReachabilityStatus
     newGetContactReachabilityStatusResponse,
 
     -- * Response Lenses
-    getContactReachabilityStatusResponse_status,
     getContactReachabilityStatusResponse_domainName,
+    getContactReachabilityStatusResponse_status,
     getContactReachabilityStatusResponse_httpStatus,
   )
 where
@@ -93,8 +93,8 @@ instance Core.AWSRequest GetContactReachabilityStatus where
     Response.receiveJSON
       ( \s h x ->
           GetContactReachabilityStatusResponse'
-            Prelude.<$> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "domainName")
+            Prelude.<$> (x Core..?> "domainName")
+            Prelude.<*> (x Core..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,7 +139,9 @@ instance Core.ToQuery GetContactReachabilityStatus where
 
 -- | /See:/ 'newGetContactReachabilityStatusResponse' smart constructor.
 data GetContactReachabilityStatusResponse = GetContactReachabilityStatusResponse'
-  { -- | Whether the registrant contact has responded. Values include the
+  { -- | The domain name for which you requested the reachability status.
+    domainName :: Prelude.Maybe Prelude.Text,
+    -- | Whether the registrant contact has responded. Values include the
     -- following:
     --
     -- [PENDING]
@@ -151,8 +153,6 @@ data GetContactReachabilityStatusResponse = GetContactReachabilityStatusResponse
     -- [EXPIRED]
     --     The time limit expired before the registrant contact responded.
     status :: Prelude.Maybe ReachabilityStatus,
-    -- | The domain name for which you requested the reachability status.
-    domainName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -166,6 +166,8 @@ data GetContactReachabilityStatusResponse = GetContactReachabilityStatusResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'domainName', 'getContactReachabilityStatusResponse_domainName' - The domain name for which you requested the reachability status.
+--
 -- 'status', 'getContactReachabilityStatusResponse_status' - Whether the registrant contact has responded. Values include the
 -- following:
 --
@@ -178,8 +180,6 @@ data GetContactReachabilityStatusResponse = GetContactReachabilityStatusResponse
 -- [EXPIRED]
 --     The time limit expired before the registrant contact responded.
 --
--- 'domainName', 'getContactReachabilityStatusResponse_domainName' - The domain name for which you requested the reachability status.
---
 -- 'httpStatus', 'getContactReachabilityStatusResponse_httpStatus' - The response's http status code.
 newGetContactReachabilityStatusResponse ::
   -- | 'httpStatus'
@@ -187,11 +187,15 @@ newGetContactReachabilityStatusResponse ::
   GetContactReachabilityStatusResponse
 newGetContactReachabilityStatusResponse pHttpStatus_ =
   GetContactReachabilityStatusResponse'
-    { status =
+    { domainName =
         Prelude.Nothing,
-      domainName = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The domain name for which you requested the reachability status.
+getContactReachabilityStatusResponse_domainName :: Lens.Lens' GetContactReachabilityStatusResponse (Prelude.Maybe Prelude.Text)
+getContactReachabilityStatusResponse_domainName = Lens.lens (\GetContactReachabilityStatusResponse' {domainName} -> domainName) (\s@GetContactReachabilityStatusResponse' {} a -> s {domainName = a} :: GetContactReachabilityStatusResponse)
 
 -- | Whether the registrant contact has responded. Values include the
 -- following:
@@ -207,10 +211,6 @@ newGetContactReachabilityStatusResponse pHttpStatus_ =
 getContactReachabilityStatusResponse_status :: Lens.Lens' GetContactReachabilityStatusResponse (Prelude.Maybe ReachabilityStatus)
 getContactReachabilityStatusResponse_status = Lens.lens (\GetContactReachabilityStatusResponse' {status} -> status) (\s@GetContactReachabilityStatusResponse' {} a -> s {status = a} :: GetContactReachabilityStatusResponse)
 
--- | The domain name for which you requested the reachability status.
-getContactReachabilityStatusResponse_domainName :: Lens.Lens' GetContactReachabilityStatusResponse (Prelude.Maybe Prelude.Text)
-getContactReachabilityStatusResponse_domainName = Lens.lens (\GetContactReachabilityStatusResponse' {domainName} -> domainName) (\s@GetContactReachabilityStatusResponse' {} a -> s {domainName = a} :: GetContactReachabilityStatusResponse)
-
 -- | The response's http status code.
 getContactReachabilityStatusResponse_httpStatus :: Lens.Lens' GetContactReachabilityStatusResponse Prelude.Int
 getContactReachabilityStatusResponse_httpStatus = Lens.lens (\GetContactReachabilityStatusResponse' {httpStatus} -> httpStatus) (\s@GetContactReachabilityStatusResponse' {} a -> s {httpStatus = a} :: GetContactReachabilityStatusResponse)
@@ -220,6 +220,6 @@ instance
     GetContactReachabilityStatusResponse
   where
   rnf GetContactReachabilityStatusResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

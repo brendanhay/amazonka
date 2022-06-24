@@ -35,12 +35,12 @@ module Amazonka.Route53Domains.GetOperationDetail
     newGetOperationDetailResponse,
 
     -- * Response Lenses
-    getOperationDetailResponse_status,
     getOperationDetailResponse_submittedDate,
+    getOperationDetailResponse_message,
+    getOperationDetailResponse_type,
     getOperationDetailResponse_domainName,
     getOperationDetailResponse_operationId,
-    getOperationDetailResponse_type,
-    getOperationDetailResponse_message,
+    getOperationDetailResponse_status,
     getOperationDetailResponse_httpStatus,
   )
 where
@@ -98,12 +98,12 @@ instance Core.AWSRequest GetOperationDetail where
     Response.receiveJSON
       ( \s h x ->
           GetOperationDetailResponse'
-            Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "SubmittedDate")
+            Prelude.<$> (x Core..?> "SubmittedDate")
+            Prelude.<*> (x Core..?> "Message")
+            Prelude.<*> (x Core..?> "Type")
             Prelude.<*> (x Core..?> "DomainName")
             Prelude.<*> (x Core..?> "OperationId")
-            Prelude.<*> (x Core..?> "Type")
-            Prelude.<*> (x Core..?> "Message")
+            Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,18 +146,18 @@ instance Core.ToQuery GetOperationDetail where
 --
 -- /See:/ 'newGetOperationDetailResponse' smart constructor.
 data GetOperationDetailResponse = GetOperationDetailResponse'
-  { -- | The current status of the requested operation in the system.
-    status :: Prelude.Maybe OperationStatus,
-    -- | The date when the request was submitted.
+  { -- | The date when the request was submitted.
     submittedDate :: Prelude.Maybe Core.POSIX,
+    -- | Detailed information on the status including possible errors.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The type of operation that was requested.
+    type' :: Prelude.Maybe OperationType,
     -- | The name of a domain.
     domainName :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the operation.
     operationId :: Prelude.Maybe Prelude.Text,
-    -- | The type of operation that was requested.
-    type' :: Prelude.Maybe OperationType,
-    -- | Detailed information on the status including possible errors.
-    message :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the requested operation in the system.
+    status :: Prelude.Maybe OperationStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -171,17 +171,17 @@ data GetOperationDetailResponse = GetOperationDetailResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'getOperationDetailResponse_status' - The current status of the requested operation in the system.
---
 -- 'submittedDate', 'getOperationDetailResponse_submittedDate' - The date when the request was submitted.
+--
+-- 'message', 'getOperationDetailResponse_message' - Detailed information on the status including possible errors.
+--
+-- 'type'', 'getOperationDetailResponse_type' - The type of operation that was requested.
 --
 -- 'domainName', 'getOperationDetailResponse_domainName' - The name of a domain.
 --
 -- 'operationId', 'getOperationDetailResponse_operationId' - The identifier for the operation.
 --
--- 'type'', 'getOperationDetailResponse_type' - The type of operation that was requested.
---
--- 'message', 'getOperationDetailResponse_message' - Detailed information on the status including possible errors.
+-- 'status', 'getOperationDetailResponse_status' - The current status of the requested operation in the system.
 --
 -- 'httpStatus', 'getOperationDetailResponse_httpStatus' - The response's http status code.
 newGetOperationDetailResponse ::
@@ -190,23 +190,27 @@ newGetOperationDetailResponse ::
   GetOperationDetailResponse
 newGetOperationDetailResponse pHttpStatus_ =
   GetOperationDetailResponse'
-    { status =
+    { submittedDate =
         Prelude.Nothing,
-      submittedDate = Prelude.Nothing,
+      message = Prelude.Nothing,
+      type' = Prelude.Nothing,
       domainName = Prelude.Nothing,
       operationId = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      message = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The current status of the requested operation in the system.
-getOperationDetailResponse_status :: Lens.Lens' GetOperationDetailResponse (Prelude.Maybe OperationStatus)
-getOperationDetailResponse_status = Lens.lens (\GetOperationDetailResponse' {status} -> status) (\s@GetOperationDetailResponse' {} a -> s {status = a} :: GetOperationDetailResponse)
 
 -- | The date when the request was submitted.
 getOperationDetailResponse_submittedDate :: Lens.Lens' GetOperationDetailResponse (Prelude.Maybe Prelude.UTCTime)
 getOperationDetailResponse_submittedDate = Lens.lens (\GetOperationDetailResponse' {submittedDate} -> submittedDate) (\s@GetOperationDetailResponse' {} a -> s {submittedDate = a} :: GetOperationDetailResponse) Prelude.. Lens.mapping Core._Time
+
+-- | Detailed information on the status including possible errors.
+getOperationDetailResponse_message :: Lens.Lens' GetOperationDetailResponse (Prelude.Maybe Prelude.Text)
+getOperationDetailResponse_message = Lens.lens (\GetOperationDetailResponse' {message} -> message) (\s@GetOperationDetailResponse' {} a -> s {message = a} :: GetOperationDetailResponse)
+
+-- | The type of operation that was requested.
+getOperationDetailResponse_type :: Lens.Lens' GetOperationDetailResponse (Prelude.Maybe OperationType)
+getOperationDetailResponse_type = Lens.lens (\GetOperationDetailResponse' {type'} -> type') (\s@GetOperationDetailResponse' {} a -> s {type' = a} :: GetOperationDetailResponse)
 
 -- | The name of a domain.
 getOperationDetailResponse_domainName :: Lens.Lens' GetOperationDetailResponse (Prelude.Maybe Prelude.Text)
@@ -216,13 +220,9 @@ getOperationDetailResponse_domainName = Lens.lens (\GetOperationDetailResponse' 
 getOperationDetailResponse_operationId :: Lens.Lens' GetOperationDetailResponse (Prelude.Maybe Prelude.Text)
 getOperationDetailResponse_operationId = Lens.lens (\GetOperationDetailResponse' {operationId} -> operationId) (\s@GetOperationDetailResponse' {} a -> s {operationId = a} :: GetOperationDetailResponse)
 
--- | The type of operation that was requested.
-getOperationDetailResponse_type :: Lens.Lens' GetOperationDetailResponse (Prelude.Maybe OperationType)
-getOperationDetailResponse_type = Lens.lens (\GetOperationDetailResponse' {type'} -> type') (\s@GetOperationDetailResponse' {} a -> s {type' = a} :: GetOperationDetailResponse)
-
--- | Detailed information on the status including possible errors.
-getOperationDetailResponse_message :: Lens.Lens' GetOperationDetailResponse (Prelude.Maybe Prelude.Text)
-getOperationDetailResponse_message = Lens.lens (\GetOperationDetailResponse' {message} -> message) (\s@GetOperationDetailResponse' {} a -> s {message = a} :: GetOperationDetailResponse)
+-- | The current status of the requested operation in the system.
+getOperationDetailResponse_status :: Lens.Lens' GetOperationDetailResponse (Prelude.Maybe OperationStatus)
+getOperationDetailResponse_status = Lens.lens (\GetOperationDetailResponse' {status} -> status) (\s@GetOperationDetailResponse' {} a -> s {status = a} :: GetOperationDetailResponse)
 
 -- | The response's http status code.
 getOperationDetailResponse_httpStatus :: Lens.Lens' GetOperationDetailResponse Prelude.Int
@@ -230,10 +230,10 @@ getOperationDetailResponse_httpStatus = Lens.lens (\GetOperationDetailResponse' 
 
 instance Prelude.NFData GetOperationDetailResponse where
   rnf GetOperationDetailResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf submittedDate
+    Prelude.rnf submittedDate
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf operationId
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

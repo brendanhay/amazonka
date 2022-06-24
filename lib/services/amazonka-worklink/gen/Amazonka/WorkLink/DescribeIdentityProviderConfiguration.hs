@@ -34,9 +34,9 @@ module Amazonka.WorkLink.DescribeIdentityProviderConfiguration
     newDescribeIdentityProviderConfigurationResponse,
 
     -- * Response Lenses
+    describeIdentityProviderConfigurationResponse_identityProviderSamlMetadata,
     describeIdentityProviderConfigurationResponse_identityProviderType,
     describeIdentityProviderConfigurationResponse_serviceProviderSamlMetadata,
-    describeIdentityProviderConfigurationResponse_identityProviderSamlMetadata,
     describeIdentityProviderConfigurationResponse_httpStatus,
   )
 where
@@ -91,9 +91,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeIdentityProviderConfigurationResponse'
-            Prelude.<$> (x Core..?> "IdentityProviderType")
+            Prelude.<$> (x Core..?> "IdentityProviderSamlMetadata")
+              Prelude.<*> (x Core..?> "IdentityProviderType")
               Prelude.<*> (x Core..?> "ServiceProviderSamlMetadata")
-              Prelude.<*> (x Core..?> "IdentityProviderSamlMetadata")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,12 +153,12 @@ instance
 
 -- | /See:/ 'newDescribeIdentityProviderConfigurationResponse' smart constructor.
 data DescribeIdentityProviderConfigurationResponse = DescribeIdentityProviderConfigurationResponse'
-  { -- | The type of identity provider.
+  { -- | The SAML metadata document provided by the user’s identity provider.
+    identityProviderSamlMetadata :: Prelude.Maybe Prelude.Text,
+    -- | The type of identity provider.
     identityProviderType :: Prelude.Maybe IdentityProviderType,
     -- | The SAML metadata document uploaded to the user’s identity provider.
     serviceProviderSamlMetadata :: Prelude.Maybe Prelude.Text,
-    -- | The SAML metadata document provided by the user’s identity provider.
-    identityProviderSamlMetadata :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -172,11 +172,11 @@ data DescribeIdentityProviderConfigurationResponse = DescribeIdentityProviderCon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'identityProviderSamlMetadata', 'describeIdentityProviderConfigurationResponse_identityProviderSamlMetadata' - The SAML metadata document provided by the user’s identity provider.
+--
 -- 'identityProviderType', 'describeIdentityProviderConfigurationResponse_identityProviderType' - The type of identity provider.
 --
 -- 'serviceProviderSamlMetadata', 'describeIdentityProviderConfigurationResponse_serviceProviderSamlMetadata' - The SAML metadata document uploaded to the user’s identity provider.
---
--- 'identityProviderSamlMetadata', 'describeIdentityProviderConfigurationResponse_identityProviderSamlMetadata' - The SAML metadata document provided by the user’s identity provider.
 --
 -- 'httpStatus', 'describeIdentityProviderConfigurationResponse_httpStatus' - The response's http status code.
 newDescribeIdentityProviderConfigurationResponse ::
@@ -186,14 +186,18 @@ newDescribeIdentityProviderConfigurationResponse ::
 newDescribeIdentityProviderConfigurationResponse
   pHttpStatus_ =
     DescribeIdentityProviderConfigurationResponse'
-      { identityProviderType =
+      { identityProviderSamlMetadata =
+          Prelude.Nothing,
+        identityProviderType =
           Prelude.Nothing,
         serviceProviderSamlMetadata =
           Prelude.Nothing,
-        identityProviderSamlMetadata =
-          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | The SAML metadata document provided by the user’s identity provider.
+describeIdentityProviderConfigurationResponse_identityProviderSamlMetadata :: Lens.Lens' DescribeIdentityProviderConfigurationResponse (Prelude.Maybe Prelude.Text)
+describeIdentityProviderConfigurationResponse_identityProviderSamlMetadata = Lens.lens (\DescribeIdentityProviderConfigurationResponse' {identityProviderSamlMetadata} -> identityProviderSamlMetadata) (\s@DescribeIdentityProviderConfigurationResponse' {} a -> s {identityProviderSamlMetadata = a} :: DescribeIdentityProviderConfigurationResponse)
 
 -- | The type of identity provider.
 describeIdentityProviderConfigurationResponse_identityProviderType :: Lens.Lens' DescribeIdentityProviderConfigurationResponse (Prelude.Maybe IdentityProviderType)
@@ -202,10 +206,6 @@ describeIdentityProviderConfigurationResponse_identityProviderType = Lens.lens (
 -- | The SAML metadata document uploaded to the user’s identity provider.
 describeIdentityProviderConfigurationResponse_serviceProviderSamlMetadata :: Lens.Lens' DescribeIdentityProviderConfigurationResponse (Prelude.Maybe Prelude.Text)
 describeIdentityProviderConfigurationResponse_serviceProviderSamlMetadata = Lens.lens (\DescribeIdentityProviderConfigurationResponse' {serviceProviderSamlMetadata} -> serviceProviderSamlMetadata) (\s@DescribeIdentityProviderConfigurationResponse' {} a -> s {serviceProviderSamlMetadata = a} :: DescribeIdentityProviderConfigurationResponse)
-
--- | The SAML metadata document provided by the user’s identity provider.
-describeIdentityProviderConfigurationResponse_identityProviderSamlMetadata :: Lens.Lens' DescribeIdentityProviderConfigurationResponse (Prelude.Maybe Prelude.Text)
-describeIdentityProviderConfigurationResponse_identityProviderSamlMetadata = Lens.lens (\DescribeIdentityProviderConfigurationResponse' {identityProviderSamlMetadata} -> identityProviderSamlMetadata) (\s@DescribeIdentityProviderConfigurationResponse' {} a -> s {identityProviderSamlMetadata = a} :: DescribeIdentityProviderConfigurationResponse)
 
 -- | The response's http status code.
 describeIdentityProviderConfigurationResponse_httpStatus :: Lens.Lens' DescribeIdentityProviderConfigurationResponse Prelude.Int
@@ -217,7 +217,7 @@ instance
   where
   rnf
     DescribeIdentityProviderConfigurationResponse' {..} =
-      Prelude.rnf identityProviderType
+      Prelude.rnf identityProviderSamlMetadata
+        `Prelude.seq` Prelude.rnf identityProviderType
         `Prelude.seq` Prelude.rnf serviceProviderSamlMetadata
-        `Prelude.seq` Prelude.rnf identityProviderSamlMetadata
         `Prelude.seq` Prelude.rnf httpStatus

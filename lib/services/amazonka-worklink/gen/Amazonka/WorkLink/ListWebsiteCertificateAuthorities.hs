@@ -37,8 +37,8 @@ module Amazonka.WorkLink.ListWebsiteCertificateAuthorities
     newListWebsiteCertificateAuthoritiesResponse,
 
     -- * Response Lenses
-    listWebsiteCertificateAuthoritiesResponse_websiteCertificateAuthorities,
     listWebsiteCertificateAuthoritiesResponse_nextToken,
+    listWebsiteCertificateAuthoritiesResponse_websiteCertificateAuthorities,
     listWebsiteCertificateAuthoritiesResponse_httpStatus,
   )
 where
@@ -113,10 +113,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListWebsiteCertificateAuthoritiesResponse'
-            Prelude.<$> ( x Core..?> "WebsiteCertificateAuthorities"
-                            Core..!@ Prelude.mempty
-                        )
-              Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+              Prelude.<*> ( x Core..?> "WebsiteCertificateAuthorities"
+                              Core..!@ Prelude.mempty
+                          )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -182,11 +182,11 @@ instance
 
 -- | /See:/ 'newListWebsiteCertificateAuthoritiesResponse' smart constructor.
 data ListWebsiteCertificateAuthoritiesResponse = ListWebsiteCertificateAuthoritiesResponse'
-  { -- | Information about the certificates.
-    websiteCertificateAuthorities :: Prelude.Maybe [WebsiteCaSummary],
-    -- | The pagination token used to retrieve the next page of results for this
+  { -- | The pagination token used to retrieve the next page of results for this
     -- operation. If there are no more pages, this value is null.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the certificates.
+    websiteCertificateAuthorities :: Prelude.Maybe [WebsiteCaSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -200,10 +200,10 @@ data ListWebsiteCertificateAuthoritiesResponse = ListWebsiteCertificateAuthoriti
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'websiteCertificateAuthorities', 'listWebsiteCertificateAuthoritiesResponse_websiteCertificateAuthorities' - Information about the certificates.
---
 -- 'nextToken', 'listWebsiteCertificateAuthoritiesResponse_nextToken' - The pagination token used to retrieve the next page of results for this
 -- operation. If there are no more pages, this value is null.
+--
+-- 'websiteCertificateAuthorities', 'listWebsiteCertificateAuthoritiesResponse_websiteCertificateAuthorities' - Information about the certificates.
 --
 -- 'httpStatus', 'listWebsiteCertificateAuthoritiesResponse_httpStatus' - The response's http status code.
 newListWebsiteCertificateAuthoritiesResponse ::
@@ -213,20 +213,21 @@ newListWebsiteCertificateAuthoritiesResponse ::
 newListWebsiteCertificateAuthoritiesResponse
   pHttpStatus_ =
     ListWebsiteCertificateAuthoritiesResponse'
-      { websiteCertificateAuthorities =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        websiteCertificateAuthorities =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Information about the certificates.
-listWebsiteCertificateAuthoritiesResponse_websiteCertificateAuthorities :: Lens.Lens' ListWebsiteCertificateAuthoritiesResponse (Prelude.Maybe [WebsiteCaSummary])
-listWebsiteCertificateAuthoritiesResponse_websiteCertificateAuthorities = Lens.lens (\ListWebsiteCertificateAuthoritiesResponse' {websiteCertificateAuthorities} -> websiteCertificateAuthorities) (\s@ListWebsiteCertificateAuthoritiesResponse' {} a -> s {websiteCertificateAuthorities = a} :: ListWebsiteCertificateAuthoritiesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token used to retrieve the next page of results for this
 -- operation. If there are no more pages, this value is null.
 listWebsiteCertificateAuthoritiesResponse_nextToken :: Lens.Lens' ListWebsiteCertificateAuthoritiesResponse (Prelude.Maybe Prelude.Text)
 listWebsiteCertificateAuthoritiesResponse_nextToken = Lens.lens (\ListWebsiteCertificateAuthoritiesResponse' {nextToken} -> nextToken) (\s@ListWebsiteCertificateAuthoritiesResponse' {} a -> s {nextToken = a} :: ListWebsiteCertificateAuthoritiesResponse)
+
+-- | Information about the certificates.
+listWebsiteCertificateAuthoritiesResponse_websiteCertificateAuthorities :: Lens.Lens' ListWebsiteCertificateAuthoritiesResponse (Prelude.Maybe [WebsiteCaSummary])
+listWebsiteCertificateAuthoritiesResponse_websiteCertificateAuthorities = Lens.lens (\ListWebsiteCertificateAuthoritiesResponse' {websiteCertificateAuthorities} -> websiteCertificateAuthorities) (\s@ListWebsiteCertificateAuthoritiesResponse' {} a -> s {websiteCertificateAuthorities = a} :: ListWebsiteCertificateAuthoritiesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listWebsiteCertificateAuthoritiesResponse_httpStatus :: Lens.Lens' ListWebsiteCertificateAuthoritiesResponse Prelude.Int
@@ -237,6 +238,6 @@ instance
     ListWebsiteCertificateAuthoritiesResponse
   where
   rnf ListWebsiteCertificateAuthoritiesResponse' {..} =
-    Prelude.rnf websiteCertificateAuthorities
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf websiteCertificateAuthorities
       `Prelude.seq` Prelude.rnf httpStatus

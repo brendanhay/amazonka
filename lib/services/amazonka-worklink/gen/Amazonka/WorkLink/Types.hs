@@ -17,12 +17,12 @@ module Amazonka.WorkLink.Types
     defaultService,
 
     -- * Errors
-    _InvalidRequestException,
     _ResourceAlreadyExistsException,
-    _TooManyRequestsException,
-    _InternalServerErrorException,
     _UnauthorizedException,
     _ResourceNotFoundException,
+    _InternalServerErrorException,
+    _TooManyRequestsException,
+    _InvalidRequestException,
 
     -- * AuthorizationProviderType
     AuthorizationProviderType (..),
@@ -42,8 +42,8 @@ module Amazonka.WorkLink.Types
     -- * DeviceSummary
     DeviceSummary (..),
     newDeviceSummary,
-    deviceSummary_deviceStatus,
     deviceSummary_deviceId,
+    deviceSummary_deviceStatus,
 
     -- * DomainSummary
     DomainSummary (..),
@@ -56,29 +56,29 @@ module Amazonka.WorkLink.Types
     -- * FleetSummary
     FleetSummary (..),
     newFleetSummary,
-    fleetSummary_lastUpdatedTime,
-    fleetSummary_fleetStatus,
+    fleetSummary_tags,
     fleetSummary_companyCode,
     fleetSummary_createdTime,
-    fleetSummary_fleetArn,
     fleetSummary_displayName,
+    fleetSummary_lastUpdatedTime,
     fleetSummary_fleetName,
-    fleetSummary_tags,
+    fleetSummary_fleetArn,
+    fleetSummary_fleetStatus,
 
     -- * WebsiteAuthorizationProviderSummary
     WebsiteAuthorizationProviderSummary (..),
     newWebsiteAuthorizationProviderSummary,
-    websiteAuthorizationProviderSummary_authorizationProviderId,
     websiteAuthorizationProviderSummary_createdTime,
     websiteAuthorizationProviderSummary_domainName,
+    websiteAuthorizationProviderSummary_authorizationProviderId,
     websiteAuthorizationProviderSummary_authorizationProviderType,
 
     -- * WebsiteCaSummary
     WebsiteCaSummary (..),
     newWebsiteCaSummary,
     websiteCaSummary_createdTime,
-    websiteCaSummary_websiteCaId,
     websiteCaSummary_displayName,
+    websiteCaSummary_websiteCaId,
   )
 where
 
@@ -122,35 +122,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -159,21 +132,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The request is not valid.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRequestException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidRequestException"
-    Prelude.. Core.hasStatus 400
 
 -- | The resource already exists.
 _ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -182,22 +174,6 @@ _ResourceAlreadyExistsException =
     defaultService
     "ResourceAlreadyExistsException"
     Prelude.. Core.hasStatus 400
-
--- | The number of requests exceeds the limit.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyRequestsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyRequestsException"
-    Prelude.. Core.hasStatus 429
-
--- | The service is temporarily unavailable.
-_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerErrorException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerErrorException"
-    Prelude.. Core.hasStatus 500
 
 -- | You are not authorized to perform this action.
 _UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -214,3 +190,27 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
+
+-- | The service is temporarily unavailable.
+_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerErrorException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerErrorException"
+    Prelude.. Core.hasStatus 500
+
+-- | The number of requests exceeds the limit.
+_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyRequestsException"
+    Prelude.. Core.hasStatus 429
+
+-- | The request is not valid.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRequestException"
+    Prelude.. Core.hasStatus 400

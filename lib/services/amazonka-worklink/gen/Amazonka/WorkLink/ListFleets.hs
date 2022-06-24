@@ -35,8 +35,8 @@ module Amazonka.WorkLink.ListFleets
     newListFleetsResponse,
 
     -- * Response Lenses
-    listFleetsResponse_fleetSummaryList,
     listFleetsResponse_nextToken,
+    listFleetsResponse_fleetSummaryList,
     listFleetsResponse_httpStatus,
   )
 where
@@ -94,10 +94,10 @@ instance Core.AWSRequest ListFleets where
     Response.receiveJSON
       ( \s h x ->
           ListFleetsResponse'
-            Prelude.<$> ( x Core..?> "FleetSummaryList"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "FleetSummaryList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,11 +139,11 @@ instance Core.ToQuery ListFleets where
 
 -- | /See:/ 'newListFleetsResponse' smart constructor.
 data ListFleetsResponse = ListFleetsResponse'
-  { -- | The summary list of the fleets.
-    fleetSummaryList :: Prelude.Maybe [FleetSummary],
-    -- | The pagination token used to retrieve the next page of results for this
+  { -- | The pagination token used to retrieve the next page of results for this
     -- operation. If there are no more pages, this value is null.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The summary list of the fleets.
+    fleetSummaryList :: Prelude.Maybe [FleetSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -157,10 +157,10 @@ data ListFleetsResponse = ListFleetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fleetSummaryList', 'listFleetsResponse_fleetSummaryList' - The summary list of the fleets.
---
 -- 'nextToken', 'listFleetsResponse_nextToken' - The pagination token used to retrieve the next page of results for this
 -- operation. If there are no more pages, this value is null.
+--
+-- 'fleetSummaryList', 'listFleetsResponse_fleetSummaryList' - The summary list of the fleets.
 --
 -- 'httpStatus', 'listFleetsResponse_httpStatus' - The response's http status code.
 newListFleetsResponse ::
@@ -169,20 +169,19 @@ newListFleetsResponse ::
   ListFleetsResponse
 newListFleetsResponse pHttpStatus_ =
   ListFleetsResponse'
-    { fleetSummaryList =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      fleetSummaryList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The summary list of the fleets.
-listFleetsResponse_fleetSummaryList :: Lens.Lens' ListFleetsResponse (Prelude.Maybe [FleetSummary])
-listFleetsResponse_fleetSummaryList = Lens.lens (\ListFleetsResponse' {fleetSummaryList} -> fleetSummaryList) (\s@ListFleetsResponse' {} a -> s {fleetSummaryList = a} :: ListFleetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token used to retrieve the next page of results for this
 -- operation. If there are no more pages, this value is null.
 listFleetsResponse_nextToken :: Lens.Lens' ListFleetsResponse (Prelude.Maybe Prelude.Text)
 listFleetsResponse_nextToken = Lens.lens (\ListFleetsResponse' {nextToken} -> nextToken) (\s@ListFleetsResponse' {} a -> s {nextToken = a} :: ListFleetsResponse)
+
+-- | The summary list of the fleets.
+listFleetsResponse_fleetSummaryList :: Lens.Lens' ListFleetsResponse (Prelude.Maybe [FleetSummary])
+listFleetsResponse_fleetSummaryList = Lens.lens (\ListFleetsResponse' {fleetSummaryList} -> fleetSummaryList) (\s@ListFleetsResponse' {} a -> s {fleetSummaryList = a} :: ListFleetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listFleetsResponse_httpStatus :: Lens.Lens' ListFleetsResponse Prelude.Int
@@ -190,6 +189,6 @@ listFleetsResponse_httpStatus = Lens.lens (\ListFleetsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListFleetsResponse where
   rnf ListFleetsResponse' {..} =
-    Prelude.rnf fleetSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf fleetSummaryList
       `Prelude.seq` Prelude.rnf httpStatus

@@ -28,13 +28,13 @@ import Amazonka.WorkLink.Types.AuthorizationProviderType
 --
 -- /See:/ 'newWebsiteAuthorizationProviderSummary' smart constructor.
 data WebsiteAuthorizationProviderSummary = WebsiteAuthorizationProviderSummary'
-  { -- | A unique identifier for the authorization provider.
-    authorizationProviderId :: Prelude.Maybe Prelude.Text,
-    -- | The time of creation.
+  { -- | The time of creation.
     createdTime :: Prelude.Maybe Core.POSIX,
     -- | The domain name of the authorization provider. This applies only to
     -- SAML-based authorization providers.
     domainName :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the authorization provider.
+    authorizationProviderId :: Prelude.Maybe Prelude.Text,
     -- | The authorization provider type.
     authorizationProviderType :: AuthorizationProviderType
   }
@@ -48,12 +48,12 @@ data WebsiteAuthorizationProviderSummary = WebsiteAuthorizationProviderSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authorizationProviderId', 'websiteAuthorizationProviderSummary_authorizationProviderId' - A unique identifier for the authorization provider.
---
 -- 'createdTime', 'websiteAuthorizationProviderSummary_createdTime' - The time of creation.
 --
 -- 'domainName', 'websiteAuthorizationProviderSummary_domainName' - The domain name of the authorization provider. This applies only to
 -- SAML-based authorization providers.
+--
+-- 'authorizationProviderId', 'websiteAuthorizationProviderSummary_authorizationProviderId' - A unique identifier for the authorization provider.
 --
 -- 'authorizationProviderType', 'websiteAuthorizationProviderSummary_authorizationProviderType' - The authorization provider type.
 newWebsiteAuthorizationProviderSummary ::
@@ -63,17 +63,14 @@ newWebsiteAuthorizationProviderSummary ::
 newWebsiteAuthorizationProviderSummary
   pAuthorizationProviderType_ =
     WebsiteAuthorizationProviderSummary'
-      { authorizationProviderId =
+      { createdTime =
           Prelude.Nothing,
-        createdTime = Prelude.Nothing,
         domainName = Prelude.Nothing,
+        authorizationProviderId =
+          Prelude.Nothing,
         authorizationProviderType =
           pAuthorizationProviderType_
       }
-
--- | A unique identifier for the authorization provider.
-websiteAuthorizationProviderSummary_authorizationProviderId :: Lens.Lens' WebsiteAuthorizationProviderSummary (Prelude.Maybe Prelude.Text)
-websiteAuthorizationProviderSummary_authorizationProviderId = Lens.lens (\WebsiteAuthorizationProviderSummary' {authorizationProviderId} -> authorizationProviderId) (\s@WebsiteAuthorizationProviderSummary' {} a -> s {authorizationProviderId = a} :: WebsiteAuthorizationProviderSummary)
 
 -- | The time of creation.
 websiteAuthorizationProviderSummary_createdTime :: Lens.Lens' WebsiteAuthorizationProviderSummary (Prelude.Maybe Prelude.UTCTime)
@@ -83,6 +80,10 @@ websiteAuthorizationProviderSummary_createdTime = Lens.lens (\WebsiteAuthorizati
 -- SAML-based authorization providers.
 websiteAuthorizationProviderSummary_domainName :: Lens.Lens' WebsiteAuthorizationProviderSummary (Prelude.Maybe Prelude.Text)
 websiteAuthorizationProviderSummary_domainName = Lens.lens (\WebsiteAuthorizationProviderSummary' {domainName} -> domainName) (\s@WebsiteAuthorizationProviderSummary' {} a -> s {domainName = a} :: WebsiteAuthorizationProviderSummary)
+
+-- | A unique identifier for the authorization provider.
+websiteAuthorizationProviderSummary_authorizationProviderId :: Lens.Lens' WebsiteAuthorizationProviderSummary (Prelude.Maybe Prelude.Text)
+websiteAuthorizationProviderSummary_authorizationProviderId = Lens.lens (\WebsiteAuthorizationProviderSummary' {authorizationProviderId} -> authorizationProviderId) (\s@WebsiteAuthorizationProviderSummary' {} a -> s {authorizationProviderId = a} :: WebsiteAuthorizationProviderSummary)
 
 -- | The authorization provider type.
 websiteAuthorizationProviderSummary_authorizationProviderType :: Lens.Lens' WebsiteAuthorizationProviderSummary AuthorizationProviderType
@@ -97,9 +98,9 @@ instance
       "WebsiteAuthorizationProviderSummary"
       ( \x ->
           WebsiteAuthorizationProviderSummary'
-            Prelude.<$> (x Core..:? "AuthorizationProviderId")
-            Prelude.<*> (x Core..:? "CreatedTime")
+            Prelude.<$> (x Core..:? "CreatedTime")
             Prelude.<*> (x Core..:? "DomainName")
+            Prelude.<*> (x Core..:? "AuthorizationProviderId")
             Prelude.<*> (x Core..: "AuthorizationProviderType")
       )
 
@@ -110,10 +111,9 @@ instance
   hashWithSalt
     _salt
     WebsiteAuthorizationProviderSummary' {..} =
-      _salt
-        `Prelude.hashWithSalt` authorizationProviderId
-        `Prelude.hashWithSalt` createdTime
+      _salt `Prelude.hashWithSalt` createdTime
         `Prelude.hashWithSalt` domainName
+        `Prelude.hashWithSalt` authorizationProviderId
         `Prelude.hashWithSalt` authorizationProviderType
 
 instance
@@ -121,7 +121,7 @@ instance
     WebsiteAuthorizationProviderSummary
   where
   rnf WebsiteAuthorizationProviderSummary' {..} =
-    Prelude.rnf authorizationProviderId
-      `Prelude.seq` Prelude.rnf createdTime
+    Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf authorizationProviderId
       `Prelude.seq` Prelude.rnf authorizationProviderType

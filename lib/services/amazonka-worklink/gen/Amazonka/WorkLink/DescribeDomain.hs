@@ -35,11 +35,11 @@ module Amazonka.WorkLink.DescribeDomain
     newDescribeDomainResponse,
 
     -- * Response Lenses
-    describeDomainResponse_domainStatus,
-    describeDomainResponse_acmCertificateArn,
     describeDomainResponse_createdTime,
     describeDomainResponse_domainName,
     describeDomainResponse_displayName,
+    describeDomainResponse_domainStatus,
+    describeDomainResponse_acmCertificateArn,
     describeDomainResponse_httpStatus,
   )
 where
@@ -100,11 +100,11 @@ instance Core.AWSRequest DescribeDomain where
     Response.receiveJSON
       ( \s h x ->
           DescribeDomainResponse'
-            Prelude.<$> (x Core..?> "DomainStatus")
-            Prelude.<*> (x Core..?> "AcmCertificateArn")
-            Prelude.<*> (x Core..?> "CreatedTime")
+            Prelude.<$> (x Core..?> "CreatedTime")
             Prelude.<*> (x Core..?> "DomainName")
             Prelude.<*> (x Core..?> "DisplayName")
+            Prelude.<*> (x Core..?> "DomainStatus")
+            Prelude.<*> (x Core..?> "AcmCertificateArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,17 +146,17 @@ instance Core.ToQuery DescribeDomain where
 
 -- | /See:/ 'newDescribeDomainResponse' smart constructor.
 data DescribeDomainResponse = DescribeDomainResponse'
-  { -- | The current state for the domain.
-    domainStatus :: Prelude.Maybe DomainStatus,
-    -- | The ARN of an issued ACM certificate that is valid for the domain being
-    -- associated.
-    acmCertificateArn :: Prelude.Maybe Prelude.Text,
-    -- | The time that the domain was added.
+  { -- | The time that the domain was added.
     createdTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the domain.
     domainName :: Prelude.Maybe Prelude.Text,
     -- | The name to display.
     displayName :: Prelude.Maybe Prelude.Text,
+    -- | The current state for the domain.
+    domainStatus :: Prelude.Maybe DomainStatus,
+    -- | The ARN of an issued ACM certificate that is valid for the domain being
+    -- associated.
+    acmCertificateArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -170,16 +170,16 @@ data DescribeDomainResponse = DescribeDomainResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainStatus', 'describeDomainResponse_domainStatus' - The current state for the domain.
---
--- 'acmCertificateArn', 'describeDomainResponse_acmCertificateArn' - The ARN of an issued ACM certificate that is valid for the domain being
--- associated.
---
 -- 'createdTime', 'describeDomainResponse_createdTime' - The time that the domain was added.
 --
 -- 'domainName', 'describeDomainResponse_domainName' - The name of the domain.
 --
 -- 'displayName', 'describeDomainResponse_displayName' - The name to display.
+--
+-- 'domainStatus', 'describeDomainResponse_domainStatus' - The current state for the domain.
+--
+-- 'acmCertificateArn', 'describeDomainResponse_acmCertificateArn' - The ARN of an issued ACM certificate that is valid for the domain being
+-- associated.
 --
 -- 'httpStatus', 'describeDomainResponse_httpStatus' - The response's http status code.
 newDescribeDomainResponse ::
@@ -188,23 +188,14 @@ newDescribeDomainResponse ::
   DescribeDomainResponse
 newDescribeDomainResponse pHttpStatus_ =
   DescribeDomainResponse'
-    { domainStatus =
+    { createdTime =
         Prelude.Nothing,
-      acmCertificateArn = Prelude.Nothing,
-      createdTime = Prelude.Nothing,
       domainName = Prelude.Nothing,
       displayName = Prelude.Nothing,
+      domainStatus = Prelude.Nothing,
+      acmCertificateArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The current state for the domain.
-describeDomainResponse_domainStatus :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe DomainStatus)
-describeDomainResponse_domainStatus = Lens.lens (\DescribeDomainResponse' {domainStatus} -> domainStatus) (\s@DescribeDomainResponse' {} a -> s {domainStatus = a} :: DescribeDomainResponse)
-
--- | The ARN of an issued ACM certificate that is valid for the domain being
--- associated.
-describeDomainResponse_acmCertificateArn :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe Prelude.Text)
-describeDomainResponse_acmCertificateArn = Lens.lens (\DescribeDomainResponse' {acmCertificateArn} -> acmCertificateArn) (\s@DescribeDomainResponse' {} a -> s {acmCertificateArn = a} :: DescribeDomainResponse)
 
 -- | The time that the domain was added.
 describeDomainResponse_createdTime :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe Prelude.UTCTime)
@@ -218,15 +209,24 @@ describeDomainResponse_domainName = Lens.lens (\DescribeDomainResponse' {domainN
 describeDomainResponse_displayName :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe Prelude.Text)
 describeDomainResponse_displayName = Lens.lens (\DescribeDomainResponse' {displayName} -> displayName) (\s@DescribeDomainResponse' {} a -> s {displayName = a} :: DescribeDomainResponse)
 
+-- | The current state for the domain.
+describeDomainResponse_domainStatus :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe DomainStatus)
+describeDomainResponse_domainStatus = Lens.lens (\DescribeDomainResponse' {domainStatus} -> domainStatus) (\s@DescribeDomainResponse' {} a -> s {domainStatus = a} :: DescribeDomainResponse)
+
+-- | The ARN of an issued ACM certificate that is valid for the domain being
+-- associated.
+describeDomainResponse_acmCertificateArn :: Lens.Lens' DescribeDomainResponse (Prelude.Maybe Prelude.Text)
+describeDomainResponse_acmCertificateArn = Lens.lens (\DescribeDomainResponse' {acmCertificateArn} -> acmCertificateArn) (\s@DescribeDomainResponse' {} a -> s {acmCertificateArn = a} :: DescribeDomainResponse)
+
 -- | The response's http status code.
 describeDomainResponse_httpStatus :: Lens.Lens' DescribeDomainResponse Prelude.Int
 describeDomainResponse_httpStatus = Lens.lens (\DescribeDomainResponse' {httpStatus} -> httpStatus) (\s@DescribeDomainResponse' {} a -> s {httpStatus = a} :: DescribeDomainResponse)
 
 instance Prelude.NFData DescribeDomainResponse where
   rnf DescribeDomainResponse' {..} =
-    Prelude.rnf domainStatus
-      `Prelude.seq` Prelude.rnf acmCertificateArn
-      `Prelude.seq` Prelude.rnf createdTime
+    Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf domainStatus
+      `Prelude.seq` Prelude.rnf acmCertificateArn
       `Prelude.seq` Prelude.rnf httpStatus

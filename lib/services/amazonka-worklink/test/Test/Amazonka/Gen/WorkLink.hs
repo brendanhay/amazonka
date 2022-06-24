@@ -27,89 +27,80 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestUpdateDomainMetadata $
---             newUpdateDomainMetadata
---
---         , requestSignOutUser $
---             newSignOutUser
---
---         , requestRestoreDomainAccess $
---             newRestoreDomainAccess
---
---         , requestAssociateDomain $
+--         [ requestAssociateDomain $
 --             newAssociateDomain
---
---         , requestDeleteFleet $
---             newDeleteFleet
---
---         , requestDisassociateDomain $
---             newDisassociateDomain
---
---         , requestListTagsForResource $
---             newListTagsForResource
 --
 --         , requestAssociateWebsiteAuthorizationProvider $
 --             newAssociateWebsiteAuthorizationProvider
 --
---         , requestDescribeDevicePolicyConfiguration $
---             newDescribeDevicePolicyConfiguration
---
---         , requestListWebsiteAuthorizationProviders $
---             newListWebsiteAuthorizationProviders
---
---         , requestDisassociateWebsiteAuthorizationProvider $
---             newDisassociateWebsiteAuthorizationProvider
---
---         , requestListWebsiteCertificateAuthorities $
---             newListWebsiteCertificateAuthorities
---
---         , requestUpdateIdentityProviderConfiguration $
---             newUpdateIdentityProviderConfiguration
---
---         , requestDescribeFleetMetadata $
---             newDescribeFleetMetadata
---
---         , requestUpdateDevicePolicyConfiguration $
---             newUpdateDevicePolicyConfiguration
---
---         , requestDescribeCompanyNetworkConfiguration $
---             newDescribeCompanyNetworkConfiguration
---
---         , requestDescribeAuditStreamConfiguration $
---             newDescribeAuditStreamConfiguration
---
---         , requestRevokeDomainAccess $
---             newRevokeDomainAccess
---
---         , requestListFleets $
---             newListFleets
---
---         , requestUpdateFleetMetadata $
---             newUpdateFleetMetadata
---
---         , requestDescribeIdentityProviderConfiguration $
---             newDescribeIdentityProviderConfiguration
+--         , requestAssociateWebsiteCertificateAuthority $
+--             newAssociateWebsiteCertificateAuthority
 --
 --         , requestCreateFleet $
 --             newCreateFleet
 --
---         , requestDescribeWebsiteCertificateAuthority $
---             newDescribeWebsiteCertificateAuthority
+--         , requestDeleteFleet $
+--             newDeleteFleet
 --
---         , requestDescribeDomain $
---             newDescribeDomain
+--         , requestDescribeAuditStreamConfiguration $
+--             newDescribeAuditStreamConfiguration
 --
---         , requestDisassociateWebsiteCertificateAuthority $
---             newDisassociateWebsiteCertificateAuthority
+--         , requestDescribeCompanyNetworkConfiguration $
+--             newDescribeCompanyNetworkConfiguration
 --
 --         , requestDescribeDevice $
 --             newDescribeDevice
 --
---         , requestUpdateAuditStreamConfiguration $
---             newUpdateAuditStreamConfiguration
+--         , requestDescribeDevicePolicyConfiguration $
+--             newDescribeDevicePolicyConfiguration
 --
---         , requestUpdateCompanyNetworkConfiguration $
---             newUpdateCompanyNetworkConfiguration
+--         , requestDescribeDomain $
+--             newDescribeDomain
+--
+--         , requestDescribeFleetMetadata $
+--             newDescribeFleetMetadata
+--
+--         , requestDescribeIdentityProviderConfiguration $
+--             newDescribeIdentityProviderConfiguration
+--
+--         , requestDescribeWebsiteCertificateAuthority $
+--             newDescribeWebsiteCertificateAuthority
+--
+--         , requestDisassociateDomain $
+--             newDisassociateDomain
+--
+--         , requestDisassociateWebsiteAuthorizationProvider $
+--             newDisassociateWebsiteAuthorizationProvider
+--
+--         , requestDisassociateWebsiteCertificateAuthority $
+--             newDisassociateWebsiteCertificateAuthority
+--
+--         , requestListDevices $
+--             newListDevices
+--
+--         , requestListDomains $
+--             newListDomains
+--
+--         , requestListFleets $
+--             newListFleets
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestListWebsiteAuthorizationProviders $
+--             newListWebsiteAuthorizationProviders
+--
+--         , requestListWebsiteCertificateAuthorities $
+--             newListWebsiteCertificateAuthorities
+--
+--         , requestRestoreDomainAccess $
+--             newRestoreDomainAccess
+--
+--         , requestRevokeDomainAccess $
+--             newRevokeDomainAccess
+--
+--         , requestSignOutUser $
+--             newSignOutUser
 --
 --         , requestTagResource $
 --             newTagResource
@@ -117,101 +108,101 @@ import Test.Tasty
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestAssociateWebsiteCertificateAuthority $
---             newAssociateWebsiteCertificateAuthority
+--         , requestUpdateAuditStreamConfiguration $
+--             newUpdateAuditStreamConfiguration
 --
---         , requestListDomains $
---             newListDomains
+--         , requestUpdateCompanyNetworkConfiguration $
+--             newUpdateCompanyNetworkConfiguration
 --
---         , requestListDevices $
---             newListDevices
+--         , requestUpdateDevicePolicyConfiguration $
+--             newUpdateDevicePolicyConfiguration
+--
+--         , requestUpdateDomainMetadata $
+--             newUpdateDomainMetadata
+--
+--         , requestUpdateFleetMetadata $
+--             newUpdateFleetMetadata
+--
+--         , requestUpdateIdentityProviderConfiguration $
+--             newUpdateIdentityProviderConfiguration
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseUpdateDomainMetadata $
---             newUpdateDomainMetadataResponse
---
---         , responseSignOutUser $
---             newSignOutUserResponse
---
---         , responseRestoreDomainAccess $
---             newRestoreDomainAccessResponse
---
---         , responseAssociateDomain $
+--         [ responseAssociateDomain $
 --             newAssociateDomainResponse
---
---         , responseDeleteFleet $
---             newDeleteFleetResponse
---
---         , responseDisassociateDomain $
---             newDisassociateDomainResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
 --
 --         , responseAssociateWebsiteAuthorizationProvider $
 --             newAssociateWebsiteAuthorizationProviderResponse
 --
---         , responseDescribeDevicePolicyConfiguration $
---             newDescribeDevicePolicyConfigurationResponse
---
---         , responseListWebsiteAuthorizationProviders $
---             newListWebsiteAuthorizationProvidersResponse
---
---         , responseDisassociateWebsiteAuthorizationProvider $
---             newDisassociateWebsiteAuthorizationProviderResponse
---
---         , responseListWebsiteCertificateAuthorities $
---             newListWebsiteCertificateAuthoritiesResponse
---
---         , responseUpdateIdentityProviderConfiguration $
---             newUpdateIdentityProviderConfigurationResponse
---
---         , responseDescribeFleetMetadata $
---             newDescribeFleetMetadataResponse
---
---         , responseUpdateDevicePolicyConfiguration $
---             newUpdateDevicePolicyConfigurationResponse
---
---         , responseDescribeCompanyNetworkConfiguration $
---             newDescribeCompanyNetworkConfigurationResponse
---
---         , responseDescribeAuditStreamConfiguration $
---             newDescribeAuditStreamConfigurationResponse
---
---         , responseRevokeDomainAccess $
---             newRevokeDomainAccessResponse
---
---         , responseListFleets $
---             newListFleetsResponse
---
---         , responseUpdateFleetMetadata $
---             newUpdateFleetMetadataResponse
---
---         , responseDescribeIdentityProviderConfiguration $
---             newDescribeIdentityProviderConfigurationResponse
+--         , responseAssociateWebsiteCertificateAuthority $
+--             newAssociateWebsiteCertificateAuthorityResponse
 --
 --         , responseCreateFleet $
 --             newCreateFleetResponse
 --
---         , responseDescribeWebsiteCertificateAuthority $
---             newDescribeWebsiteCertificateAuthorityResponse
+--         , responseDeleteFleet $
+--             newDeleteFleetResponse
 --
---         , responseDescribeDomain $
---             newDescribeDomainResponse
+--         , responseDescribeAuditStreamConfiguration $
+--             newDescribeAuditStreamConfigurationResponse
 --
---         , responseDisassociateWebsiteCertificateAuthority $
---             newDisassociateWebsiteCertificateAuthorityResponse
+--         , responseDescribeCompanyNetworkConfiguration $
+--             newDescribeCompanyNetworkConfigurationResponse
 --
 --         , responseDescribeDevice $
 --             newDescribeDeviceResponse
 --
---         , responseUpdateAuditStreamConfiguration $
---             newUpdateAuditStreamConfigurationResponse
+--         , responseDescribeDevicePolicyConfiguration $
+--             newDescribeDevicePolicyConfigurationResponse
 --
---         , responseUpdateCompanyNetworkConfiguration $
---             newUpdateCompanyNetworkConfigurationResponse
+--         , responseDescribeDomain $
+--             newDescribeDomainResponse
+--
+--         , responseDescribeFleetMetadata $
+--             newDescribeFleetMetadataResponse
+--
+--         , responseDescribeIdentityProviderConfiguration $
+--             newDescribeIdentityProviderConfigurationResponse
+--
+--         , responseDescribeWebsiteCertificateAuthority $
+--             newDescribeWebsiteCertificateAuthorityResponse
+--
+--         , responseDisassociateDomain $
+--             newDisassociateDomainResponse
+--
+--         , responseDisassociateWebsiteAuthorizationProvider $
+--             newDisassociateWebsiteAuthorizationProviderResponse
+--
+--         , responseDisassociateWebsiteCertificateAuthority $
+--             newDisassociateWebsiteCertificateAuthorityResponse
+--
+--         , responseListDevices $
+--             newListDevicesResponse
+--
+--         , responseListDomains $
+--             newListDomainsResponse
+--
+--         , responseListFleets $
+--             newListFleetsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseListWebsiteAuthorizationProviders $
+--             newListWebsiteAuthorizationProvidersResponse
+--
+--         , responseListWebsiteCertificateAuthorities $
+--             newListWebsiteCertificateAuthoritiesResponse
+--
+--         , responseRestoreDomainAccess $
+--             newRestoreDomainAccessResponse
+--
+--         , responseRevokeDomainAccess $
+--             newRevokeDomainAccessResponse
+--
+--         , responseSignOutUser $
+--             newSignOutUserResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -219,37 +210,28 @@ import Test.Tasty
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseAssociateWebsiteCertificateAuthority $
---             newAssociateWebsiteCertificateAuthorityResponse
+--         , responseUpdateAuditStreamConfiguration $
+--             newUpdateAuditStreamConfigurationResponse
 --
---         , responseListDomains $
---             newListDomainsResponse
+--         , responseUpdateCompanyNetworkConfiguration $
+--             newUpdateCompanyNetworkConfigurationResponse
 --
---         , responseListDevices $
---             newListDevicesResponse
+--         , responseUpdateDevicePolicyConfiguration $
+--             newUpdateDevicePolicyConfigurationResponse
+--
+--         , responseUpdateDomainMetadata $
+--             newUpdateDomainMetadataResponse
+--
+--         , responseUpdateFleetMetadata $
+--             newUpdateFleetMetadataResponse
+--
+--         , responseUpdateIdentityProviderConfiguration $
+--             newUpdateIdentityProviderConfigurationResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestUpdateDomainMetadata :: UpdateDomainMetadata -> TestTree
-requestUpdateDomainMetadata =
-  req
-    "UpdateDomainMetadata"
-    "fixture/UpdateDomainMetadata.yaml"
-
-requestSignOutUser :: SignOutUser -> TestTree
-requestSignOutUser =
-  req
-    "SignOutUser"
-    "fixture/SignOutUser.yaml"
-
-requestRestoreDomainAccess :: RestoreDomainAccess -> TestTree
-requestRestoreDomainAccess =
-  req
-    "RestoreDomainAccess"
-    "fixture/RestoreDomainAccess.yaml"
 
 requestAssociateDomain :: AssociateDomain -> TestTree
 requestAssociateDomain =
@@ -257,107 +239,17 @@ requestAssociateDomain =
     "AssociateDomain"
     "fixture/AssociateDomain.yaml"
 
-requestDeleteFleet :: DeleteFleet -> TestTree
-requestDeleteFleet =
-  req
-    "DeleteFleet"
-    "fixture/DeleteFleet.yaml"
-
-requestDisassociateDomain :: DisassociateDomain -> TestTree
-requestDisassociateDomain =
-  req
-    "DisassociateDomain"
-    "fixture/DisassociateDomain.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
 requestAssociateWebsiteAuthorizationProvider :: AssociateWebsiteAuthorizationProvider -> TestTree
 requestAssociateWebsiteAuthorizationProvider =
   req
     "AssociateWebsiteAuthorizationProvider"
     "fixture/AssociateWebsiteAuthorizationProvider.yaml"
 
-requestDescribeDevicePolicyConfiguration :: DescribeDevicePolicyConfiguration -> TestTree
-requestDescribeDevicePolicyConfiguration =
+requestAssociateWebsiteCertificateAuthority :: AssociateWebsiteCertificateAuthority -> TestTree
+requestAssociateWebsiteCertificateAuthority =
   req
-    "DescribeDevicePolicyConfiguration"
-    "fixture/DescribeDevicePolicyConfiguration.yaml"
-
-requestListWebsiteAuthorizationProviders :: ListWebsiteAuthorizationProviders -> TestTree
-requestListWebsiteAuthorizationProviders =
-  req
-    "ListWebsiteAuthorizationProviders"
-    "fixture/ListWebsiteAuthorizationProviders.yaml"
-
-requestDisassociateWebsiteAuthorizationProvider :: DisassociateWebsiteAuthorizationProvider -> TestTree
-requestDisassociateWebsiteAuthorizationProvider =
-  req
-    "DisassociateWebsiteAuthorizationProvider"
-    "fixture/DisassociateWebsiteAuthorizationProvider.yaml"
-
-requestListWebsiteCertificateAuthorities :: ListWebsiteCertificateAuthorities -> TestTree
-requestListWebsiteCertificateAuthorities =
-  req
-    "ListWebsiteCertificateAuthorities"
-    "fixture/ListWebsiteCertificateAuthorities.yaml"
-
-requestUpdateIdentityProviderConfiguration :: UpdateIdentityProviderConfiguration -> TestTree
-requestUpdateIdentityProviderConfiguration =
-  req
-    "UpdateIdentityProviderConfiguration"
-    "fixture/UpdateIdentityProviderConfiguration.yaml"
-
-requestDescribeFleetMetadata :: DescribeFleetMetadata -> TestTree
-requestDescribeFleetMetadata =
-  req
-    "DescribeFleetMetadata"
-    "fixture/DescribeFleetMetadata.yaml"
-
-requestUpdateDevicePolicyConfiguration :: UpdateDevicePolicyConfiguration -> TestTree
-requestUpdateDevicePolicyConfiguration =
-  req
-    "UpdateDevicePolicyConfiguration"
-    "fixture/UpdateDevicePolicyConfiguration.yaml"
-
-requestDescribeCompanyNetworkConfiguration :: DescribeCompanyNetworkConfiguration -> TestTree
-requestDescribeCompanyNetworkConfiguration =
-  req
-    "DescribeCompanyNetworkConfiguration"
-    "fixture/DescribeCompanyNetworkConfiguration.yaml"
-
-requestDescribeAuditStreamConfiguration :: DescribeAuditStreamConfiguration -> TestTree
-requestDescribeAuditStreamConfiguration =
-  req
-    "DescribeAuditStreamConfiguration"
-    "fixture/DescribeAuditStreamConfiguration.yaml"
-
-requestRevokeDomainAccess :: RevokeDomainAccess -> TestTree
-requestRevokeDomainAccess =
-  req
-    "RevokeDomainAccess"
-    "fixture/RevokeDomainAccess.yaml"
-
-requestListFleets :: ListFleets -> TestTree
-requestListFleets =
-  req
-    "ListFleets"
-    "fixture/ListFleets.yaml"
-
-requestUpdateFleetMetadata :: UpdateFleetMetadata -> TestTree
-requestUpdateFleetMetadata =
-  req
-    "UpdateFleetMetadata"
-    "fixture/UpdateFleetMetadata.yaml"
-
-requestDescribeIdentityProviderConfiguration :: DescribeIdentityProviderConfiguration -> TestTree
-requestDescribeIdentityProviderConfiguration =
-  req
-    "DescribeIdentityProviderConfiguration"
-    "fixture/DescribeIdentityProviderConfiguration.yaml"
+    "AssociateWebsiteCertificateAuthority"
+    "fixture/AssociateWebsiteCertificateAuthority.yaml"
 
 requestCreateFleet :: CreateFleet -> TestTree
 requestCreateFleet =
@@ -365,23 +257,23 @@ requestCreateFleet =
     "CreateFleet"
     "fixture/CreateFleet.yaml"
 
-requestDescribeWebsiteCertificateAuthority :: DescribeWebsiteCertificateAuthority -> TestTree
-requestDescribeWebsiteCertificateAuthority =
+requestDeleteFleet :: DeleteFleet -> TestTree
+requestDeleteFleet =
   req
-    "DescribeWebsiteCertificateAuthority"
-    "fixture/DescribeWebsiteCertificateAuthority.yaml"
+    "DeleteFleet"
+    "fixture/DeleteFleet.yaml"
 
-requestDescribeDomain :: DescribeDomain -> TestTree
-requestDescribeDomain =
+requestDescribeAuditStreamConfiguration :: DescribeAuditStreamConfiguration -> TestTree
+requestDescribeAuditStreamConfiguration =
   req
-    "DescribeDomain"
-    "fixture/DescribeDomain.yaml"
+    "DescribeAuditStreamConfiguration"
+    "fixture/DescribeAuditStreamConfiguration.yaml"
 
-requestDisassociateWebsiteCertificateAuthority :: DisassociateWebsiteCertificateAuthority -> TestTree
-requestDisassociateWebsiteCertificateAuthority =
+requestDescribeCompanyNetworkConfiguration :: DescribeCompanyNetworkConfiguration -> TestTree
+requestDescribeCompanyNetworkConfiguration =
   req
-    "DisassociateWebsiteCertificateAuthority"
-    "fixture/DisassociateWebsiteCertificateAuthority.yaml"
+    "DescribeCompanyNetworkConfiguration"
+    "fixture/DescribeCompanyNetworkConfiguration.yaml"
 
 requestDescribeDevice :: DescribeDevice -> TestTree
 requestDescribeDevice =
@@ -389,17 +281,107 @@ requestDescribeDevice =
     "DescribeDevice"
     "fixture/DescribeDevice.yaml"
 
-requestUpdateAuditStreamConfiguration :: UpdateAuditStreamConfiguration -> TestTree
-requestUpdateAuditStreamConfiguration =
+requestDescribeDevicePolicyConfiguration :: DescribeDevicePolicyConfiguration -> TestTree
+requestDescribeDevicePolicyConfiguration =
   req
-    "UpdateAuditStreamConfiguration"
-    "fixture/UpdateAuditStreamConfiguration.yaml"
+    "DescribeDevicePolicyConfiguration"
+    "fixture/DescribeDevicePolicyConfiguration.yaml"
 
-requestUpdateCompanyNetworkConfiguration :: UpdateCompanyNetworkConfiguration -> TestTree
-requestUpdateCompanyNetworkConfiguration =
+requestDescribeDomain :: DescribeDomain -> TestTree
+requestDescribeDomain =
   req
-    "UpdateCompanyNetworkConfiguration"
-    "fixture/UpdateCompanyNetworkConfiguration.yaml"
+    "DescribeDomain"
+    "fixture/DescribeDomain.yaml"
+
+requestDescribeFleetMetadata :: DescribeFleetMetadata -> TestTree
+requestDescribeFleetMetadata =
+  req
+    "DescribeFleetMetadata"
+    "fixture/DescribeFleetMetadata.yaml"
+
+requestDescribeIdentityProviderConfiguration :: DescribeIdentityProviderConfiguration -> TestTree
+requestDescribeIdentityProviderConfiguration =
+  req
+    "DescribeIdentityProviderConfiguration"
+    "fixture/DescribeIdentityProviderConfiguration.yaml"
+
+requestDescribeWebsiteCertificateAuthority :: DescribeWebsiteCertificateAuthority -> TestTree
+requestDescribeWebsiteCertificateAuthority =
+  req
+    "DescribeWebsiteCertificateAuthority"
+    "fixture/DescribeWebsiteCertificateAuthority.yaml"
+
+requestDisassociateDomain :: DisassociateDomain -> TestTree
+requestDisassociateDomain =
+  req
+    "DisassociateDomain"
+    "fixture/DisassociateDomain.yaml"
+
+requestDisassociateWebsiteAuthorizationProvider :: DisassociateWebsiteAuthorizationProvider -> TestTree
+requestDisassociateWebsiteAuthorizationProvider =
+  req
+    "DisassociateWebsiteAuthorizationProvider"
+    "fixture/DisassociateWebsiteAuthorizationProvider.yaml"
+
+requestDisassociateWebsiteCertificateAuthority :: DisassociateWebsiteCertificateAuthority -> TestTree
+requestDisassociateWebsiteCertificateAuthority =
+  req
+    "DisassociateWebsiteCertificateAuthority"
+    "fixture/DisassociateWebsiteCertificateAuthority.yaml"
+
+requestListDevices :: ListDevices -> TestTree
+requestListDevices =
+  req
+    "ListDevices"
+    "fixture/ListDevices.yaml"
+
+requestListDomains :: ListDomains -> TestTree
+requestListDomains =
+  req
+    "ListDomains"
+    "fixture/ListDomains.yaml"
+
+requestListFleets :: ListFleets -> TestTree
+requestListFleets =
+  req
+    "ListFleets"
+    "fixture/ListFleets.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestListWebsiteAuthorizationProviders :: ListWebsiteAuthorizationProviders -> TestTree
+requestListWebsiteAuthorizationProviders =
+  req
+    "ListWebsiteAuthorizationProviders"
+    "fixture/ListWebsiteAuthorizationProviders.yaml"
+
+requestListWebsiteCertificateAuthorities :: ListWebsiteCertificateAuthorities -> TestTree
+requestListWebsiteCertificateAuthorities =
+  req
+    "ListWebsiteCertificateAuthorities"
+    "fixture/ListWebsiteCertificateAuthorities.yaml"
+
+requestRestoreDomainAccess :: RestoreDomainAccess -> TestTree
+requestRestoreDomainAccess =
+  req
+    "RestoreDomainAccess"
+    "fixture/RestoreDomainAccess.yaml"
+
+requestRevokeDomainAccess :: RevokeDomainAccess -> TestTree
+requestRevokeDomainAccess =
+  req
+    "RevokeDomainAccess"
+    "fixture/RevokeDomainAccess.yaml"
+
+requestSignOutUser :: SignOutUser -> TestTree
+requestSignOutUser =
+  req
+    "SignOutUser"
+    "fixture/SignOutUser.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -413,49 +395,43 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestAssociateWebsiteCertificateAuthority :: AssociateWebsiteCertificateAuthority -> TestTree
-requestAssociateWebsiteCertificateAuthority =
+requestUpdateAuditStreamConfiguration :: UpdateAuditStreamConfiguration -> TestTree
+requestUpdateAuditStreamConfiguration =
   req
-    "AssociateWebsiteCertificateAuthority"
-    "fixture/AssociateWebsiteCertificateAuthority.yaml"
+    "UpdateAuditStreamConfiguration"
+    "fixture/UpdateAuditStreamConfiguration.yaml"
 
-requestListDomains :: ListDomains -> TestTree
-requestListDomains =
+requestUpdateCompanyNetworkConfiguration :: UpdateCompanyNetworkConfiguration -> TestTree
+requestUpdateCompanyNetworkConfiguration =
   req
-    "ListDomains"
-    "fixture/ListDomains.yaml"
+    "UpdateCompanyNetworkConfiguration"
+    "fixture/UpdateCompanyNetworkConfiguration.yaml"
 
-requestListDevices :: ListDevices -> TestTree
-requestListDevices =
+requestUpdateDevicePolicyConfiguration :: UpdateDevicePolicyConfiguration -> TestTree
+requestUpdateDevicePolicyConfiguration =
   req
-    "ListDevices"
-    "fixture/ListDevices.yaml"
+    "UpdateDevicePolicyConfiguration"
+    "fixture/UpdateDevicePolicyConfiguration.yaml"
+
+requestUpdateDomainMetadata :: UpdateDomainMetadata -> TestTree
+requestUpdateDomainMetadata =
+  req
+    "UpdateDomainMetadata"
+    "fixture/UpdateDomainMetadata.yaml"
+
+requestUpdateFleetMetadata :: UpdateFleetMetadata -> TestTree
+requestUpdateFleetMetadata =
+  req
+    "UpdateFleetMetadata"
+    "fixture/UpdateFleetMetadata.yaml"
+
+requestUpdateIdentityProviderConfiguration :: UpdateIdentityProviderConfiguration -> TestTree
+requestUpdateIdentityProviderConfiguration =
+  req
+    "UpdateIdentityProviderConfiguration"
+    "fixture/UpdateIdentityProviderConfiguration.yaml"
 
 -- Responses
-
-responseUpdateDomainMetadata :: UpdateDomainMetadataResponse -> TestTree
-responseUpdateDomainMetadata =
-  res
-    "UpdateDomainMetadataResponse"
-    "fixture/UpdateDomainMetadataResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateDomainMetadata)
-
-responseSignOutUser :: SignOutUserResponse -> TestTree
-responseSignOutUser =
-  res
-    "SignOutUserResponse"
-    "fixture/SignOutUserResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy SignOutUser)
-
-responseRestoreDomainAccess :: RestoreDomainAccessResponse -> TestTree
-responseRestoreDomainAccess =
-  res
-    "RestoreDomainAccessResponse"
-    "fixture/RestoreDomainAccessResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RestoreDomainAccess)
 
 responseAssociateDomain :: AssociateDomainResponse -> TestTree
 responseAssociateDomain =
@@ -465,30 +441,6 @@ responseAssociateDomain =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociateDomain)
 
-responseDeleteFleet :: DeleteFleetResponse -> TestTree
-responseDeleteFleet =
-  res
-    "DeleteFleetResponse"
-    "fixture/DeleteFleetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteFleet)
-
-responseDisassociateDomain :: DisassociateDomainResponse -> TestTree
-responseDisassociateDomain =
-  res
-    "DisassociateDomainResponse"
-    "fixture/DisassociateDomainResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisassociateDomain)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
 responseAssociateWebsiteAuthorizationProvider :: AssociateWebsiteAuthorizationProviderResponse -> TestTree
 responseAssociateWebsiteAuthorizationProvider =
   res
@@ -497,109 +449,13 @@ responseAssociateWebsiteAuthorizationProvider =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociateWebsiteAuthorizationProvider)
 
-responseDescribeDevicePolicyConfiguration :: DescribeDevicePolicyConfigurationResponse -> TestTree
-responseDescribeDevicePolicyConfiguration =
+responseAssociateWebsiteCertificateAuthority :: AssociateWebsiteCertificateAuthorityResponse -> TestTree
+responseAssociateWebsiteCertificateAuthority =
   res
-    "DescribeDevicePolicyConfigurationResponse"
-    "fixture/DescribeDevicePolicyConfigurationResponse.proto"
+    "AssociateWebsiteCertificateAuthorityResponse"
+    "fixture/AssociateWebsiteCertificateAuthorityResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeDevicePolicyConfiguration)
-
-responseListWebsiteAuthorizationProviders :: ListWebsiteAuthorizationProvidersResponse -> TestTree
-responseListWebsiteAuthorizationProviders =
-  res
-    "ListWebsiteAuthorizationProvidersResponse"
-    "fixture/ListWebsiteAuthorizationProvidersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListWebsiteAuthorizationProviders)
-
-responseDisassociateWebsiteAuthorizationProvider :: DisassociateWebsiteAuthorizationProviderResponse -> TestTree
-responseDisassociateWebsiteAuthorizationProvider =
-  res
-    "DisassociateWebsiteAuthorizationProviderResponse"
-    "fixture/DisassociateWebsiteAuthorizationProviderResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisassociateWebsiteAuthorizationProvider)
-
-responseListWebsiteCertificateAuthorities :: ListWebsiteCertificateAuthoritiesResponse -> TestTree
-responseListWebsiteCertificateAuthorities =
-  res
-    "ListWebsiteCertificateAuthoritiesResponse"
-    "fixture/ListWebsiteCertificateAuthoritiesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListWebsiteCertificateAuthorities)
-
-responseUpdateIdentityProviderConfiguration :: UpdateIdentityProviderConfigurationResponse -> TestTree
-responseUpdateIdentityProviderConfiguration =
-  res
-    "UpdateIdentityProviderConfigurationResponse"
-    "fixture/UpdateIdentityProviderConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateIdentityProviderConfiguration)
-
-responseDescribeFleetMetadata :: DescribeFleetMetadataResponse -> TestTree
-responseDescribeFleetMetadata =
-  res
-    "DescribeFleetMetadataResponse"
-    "fixture/DescribeFleetMetadataResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeFleetMetadata)
-
-responseUpdateDevicePolicyConfiguration :: UpdateDevicePolicyConfigurationResponse -> TestTree
-responseUpdateDevicePolicyConfiguration =
-  res
-    "UpdateDevicePolicyConfigurationResponse"
-    "fixture/UpdateDevicePolicyConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateDevicePolicyConfiguration)
-
-responseDescribeCompanyNetworkConfiguration :: DescribeCompanyNetworkConfigurationResponse -> TestTree
-responseDescribeCompanyNetworkConfiguration =
-  res
-    "DescribeCompanyNetworkConfigurationResponse"
-    "fixture/DescribeCompanyNetworkConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeCompanyNetworkConfiguration)
-
-responseDescribeAuditStreamConfiguration :: DescribeAuditStreamConfigurationResponse -> TestTree
-responseDescribeAuditStreamConfiguration =
-  res
-    "DescribeAuditStreamConfigurationResponse"
-    "fixture/DescribeAuditStreamConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeAuditStreamConfiguration)
-
-responseRevokeDomainAccess :: RevokeDomainAccessResponse -> TestTree
-responseRevokeDomainAccess =
-  res
-    "RevokeDomainAccessResponse"
-    "fixture/RevokeDomainAccessResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RevokeDomainAccess)
-
-responseListFleets :: ListFleetsResponse -> TestTree
-responseListFleets =
-  res
-    "ListFleetsResponse"
-    "fixture/ListFleetsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListFleets)
-
-responseUpdateFleetMetadata :: UpdateFleetMetadataResponse -> TestTree
-responseUpdateFleetMetadata =
-  res
-    "UpdateFleetMetadataResponse"
-    "fixture/UpdateFleetMetadataResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateFleetMetadata)
-
-responseDescribeIdentityProviderConfiguration :: DescribeIdentityProviderConfigurationResponse -> TestTree
-responseDescribeIdentityProviderConfiguration =
-  res
-    "DescribeIdentityProviderConfigurationResponse"
-    "fixture/DescribeIdentityProviderConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeIdentityProviderConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy AssociateWebsiteCertificateAuthority)
 
 responseCreateFleet :: CreateFleetResponse -> TestTree
 responseCreateFleet =
@@ -609,29 +465,29 @@ responseCreateFleet =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateFleet)
 
-responseDescribeWebsiteCertificateAuthority :: DescribeWebsiteCertificateAuthorityResponse -> TestTree
-responseDescribeWebsiteCertificateAuthority =
+responseDeleteFleet :: DeleteFleetResponse -> TestTree
+responseDeleteFleet =
   res
-    "DescribeWebsiteCertificateAuthorityResponse"
-    "fixture/DescribeWebsiteCertificateAuthorityResponse.proto"
+    "DeleteFleetResponse"
+    "fixture/DeleteFleetResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeWebsiteCertificateAuthority)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFleet)
 
-responseDescribeDomain :: DescribeDomainResponse -> TestTree
-responseDescribeDomain =
+responseDescribeAuditStreamConfiguration :: DescribeAuditStreamConfigurationResponse -> TestTree
+responseDescribeAuditStreamConfiguration =
   res
-    "DescribeDomainResponse"
-    "fixture/DescribeDomainResponse.proto"
+    "DescribeAuditStreamConfigurationResponse"
+    "fixture/DescribeAuditStreamConfigurationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeDomain)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAuditStreamConfiguration)
 
-responseDisassociateWebsiteCertificateAuthority :: DisassociateWebsiteCertificateAuthorityResponse -> TestTree
-responseDisassociateWebsiteCertificateAuthority =
+responseDescribeCompanyNetworkConfiguration :: DescribeCompanyNetworkConfigurationResponse -> TestTree
+responseDescribeCompanyNetworkConfiguration =
   res
-    "DisassociateWebsiteCertificateAuthorityResponse"
-    "fixture/DisassociateWebsiteCertificateAuthorityResponse.proto"
+    "DescribeCompanyNetworkConfigurationResponse"
+    "fixture/DescribeCompanyNetworkConfigurationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisassociateWebsiteCertificateAuthority)
+    (Proxy.Proxy :: Proxy.Proxy DescribeCompanyNetworkConfiguration)
 
 responseDescribeDevice :: DescribeDeviceResponse -> TestTree
 responseDescribeDevice =
@@ -641,21 +497,141 @@ responseDescribeDevice =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeDevice)
 
-responseUpdateAuditStreamConfiguration :: UpdateAuditStreamConfigurationResponse -> TestTree
-responseUpdateAuditStreamConfiguration =
+responseDescribeDevicePolicyConfiguration :: DescribeDevicePolicyConfigurationResponse -> TestTree
+responseDescribeDevicePolicyConfiguration =
   res
-    "UpdateAuditStreamConfigurationResponse"
-    "fixture/UpdateAuditStreamConfigurationResponse.proto"
+    "DescribeDevicePolicyConfigurationResponse"
+    "fixture/DescribeDevicePolicyConfigurationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateAuditStreamConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDevicePolicyConfiguration)
 
-responseUpdateCompanyNetworkConfiguration :: UpdateCompanyNetworkConfigurationResponse -> TestTree
-responseUpdateCompanyNetworkConfiguration =
+responseDescribeDomain :: DescribeDomainResponse -> TestTree
+responseDescribeDomain =
   res
-    "UpdateCompanyNetworkConfigurationResponse"
-    "fixture/UpdateCompanyNetworkConfigurationResponse.proto"
+    "DescribeDomainResponse"
+    "fixture/DescribeDomainResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateCompanyNetworkConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DescribeDomain)
+
+responseDescribeFleetMetadata :: DescribeFleetMetadataResponse -> TestTree
+responseDescribeFleetMetadata =
+  res
+    "DescribeFleetMetadataResponse"
+    "fixture/DescribeFleetMetadataResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeFleetMetadata)
+
+responseDescribeIdentityProviderConfiguration :: DescribeIdentityProviderConfigurationResponse -> TestTree
+responseDescribeIdentityProviderConfiguration =
+  res
+    "DescribeIdentityProviderConfigurationResponse"
+    "fixture/DescribeIdentityProviderConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeIdentityProviderConfiguration)
+
+responseDescribeWebsiteCertificateAuthority :: DescribeWebsiteCertificateAuthorityResponse -> TestTree
+responseDescribeWebsiteCertificateAuthority =
+  res
+    "DescribeWebsiteCertificateAuthorityResponse"
+    "fixture/DescribeWebsiteCertificateAuthorityResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeWebsiteCertificateAuthority)
+
+responseDisassociateDomain :: DisassociateDomainResponse -> TestTree
+responseDisassociateDomain =
+  res
+    "DisassociateDomainResponse"
+    "fixture/DisassociateDomainResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateDomain)
+
+responseDisassociateWebsiteAuthorizationProvider :: DisassociateWebsiteAuthorizationProviderResponse -> TestTree
+responseDisassociateWebsiteAuthorizationProvider =
+  res
+    "DisassociateWebsiteAuthorizationProviderResponse"
+    "fixture/DisassociateWebsiteAuthorizationProviderResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateWebsiteAuthorizationProvider)
+
+responseDisassociateWebsiteCertificateAuthority :: DisassociateWebsiteCertificateAuthorityResponse -> TestTree
+responseDisassociateWebsiteCertificateAuthority =
+  res
+    "DisassociateWebsiteCertificateAuthorityResponse"
+    "fixture/DisassociateWebsiteCertificateAuthorityResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateWebsiteCertificateAuthority)
+
+responseListDevices :: ListDevicesResponse -> TestTree
+responseListDevices =
+  res
+    "ListDevicesResponse"
+    "fixture/ListDevicesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDevices)
+
+responseListDomains :: ListDomainsResponse -> TestTree
+responseListDomains =
+  res
+    "ListDomainsResponse"
+    "fixture/ListDomainsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDomains)
+
+responseListFleets :: ListFleetsResponse -> TestTree
+responseListFleets =
+  res
+    "ListFleetsResponse"
+    "fixture/ListFleetsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListFleets)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseListWebsiteAuthorizationProviders :: ListWebsiteAuthorizationProvidersResponse -> TestTree
+responseListWebsiteAuthorizationProviders =
+  res
+    "ListWebsiteAuthorizationProvidersResponse"
+    "fixture/ListWebsiteAuthorizationProvidersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListWebsiteAuthorizationProviders)
+
+responseListWebsiteCertificateAuthorities :: ListWebsiteCertificateAuthoritiesResponse -> TestTree
+responseListWebsiteCertificateAuthorities =
+  res
+    "ListWebsiteCertificateAuthoritiesResponse"
+    "fixture/ListWebsiteCertificateAuthoritiesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListWebsiteCertificateAuthorities)
+
+responseRestoreDomainAccess :: RestoreDomainAccessResponse -> TestTree
+responseRestoreDomainAccess =
+  res
+    "RestoreDomainAccessResponse"
+    "fixture/RestoreDomainAccessResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RestoreDomainAccess)
+
+responseRevokeDomainAccess :: RevokeDomainAccessResponse -> TestTree
+responseRevokeDomainAccess =
+  res
+    "RevokeDomainAccessResponse"
+    "fixture/RevokeDomainAccessResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RevokeDomainAccess)
+
+responseSignOutUser :: SignOutUserResponse -> TestTree
+responseSignOutUser =
+  res
+    "SignOutUserResponse"
+    "fixture/SignOutUserResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SignOutUser)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -673,26 +649,50 @@ responseUntagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
-responseAssociateWebsiteCertificateAuthority :: AssociateWebsiteCertificateAuthorityResponse -> TestTree
-responseAssociateWebsiteCertificateAuthority =
+responseUpdateAuditStreamConfiguration :: UpdateAuditStreamConfigurationResponse -> TestTree
+responseUpdateAuditStreamConfiguration =
   res
-    "AssociateWebsiteCertificateAuthorityResponse"
-    "fixture/AssociateWebsiteCertificateAuthorityResponse.proto"
+    "UpdateAuditStreamConfigurationResponse"
+    "fixture/UpdateAuditStreamConfigurationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy AssociateWebsiteCertificateAuthority)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAuditStreamConfiguration)
 
-responseListDomains :: ListDomainsResponse -> TestTree
-responseListDomains =
+responseUpdateCompanyNetworkConfiguration :: UpdateCompanyNetworkConfigurationResponse -> TestTree
+responseUpdateCompanyNetworkConfiguration =
   res
-    "ListDomainsResponse"
-    "fixture/ListDomainsResponse.proto"
+    "UpdateCompanyNetworkConfigurationResponse"
+    "fixture/UpdateCompanyNetworkConfigurationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDomains)
+    (Proxy.Proxy :: Proxy.Proxy UpdateCompanyNetworkConfiguration)
 
-responseListDevices :: ListDevicesResponse -> TestTree
-responseListDevices =
+responseUpdateDevicePolicyConfiguration :: UpdateDevicePolicyConfigurationResponse -> TestTree
+responseUpdateDevicePolicyConfiguration =
   res
-    "ListDevicesResponse"
-    "fixture/ListDevicesResponse.proto"
+    "UpdateDevicePolicyConfigurationResponse"
+    "fixture/UpdateDevicePolicyConfigurationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDevices)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDevicePolicyConfiguration)
+
+responseUpdateDomainMetadata :: UpdateDomainMetadataResponse -> TestTree
+responseUpdateDomainMetadata =
+  res
+    "UpdateDomainMetadataResponse"
+    "fixture/UpdateDomainMetadataResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateDomainMetadata)
+
+responseUpdateFleetMetadata :: UpdateFleetMetadataResponse -> TestTree
+responseUpdateFleetMetadata =
+  res
+    "UpdateFleetMetadataResponse"
+    "fixture/UpdateFleetMetadataResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateFleetMetadata)
+
+responseUpdateIdentityProviderConfiguration :: UpdateIdentityProviderConfigurationResponse -> TestTree
+responseUpdateIdentityProviderConfiguration =
+  res
+    "UpdateIdentityProviderConfigurationResponse"
+    "fixture/UpdateIdentityProviderConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateIdentityProviderConfiguration)

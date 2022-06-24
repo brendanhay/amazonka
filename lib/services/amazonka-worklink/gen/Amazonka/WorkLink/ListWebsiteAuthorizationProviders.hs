@@ -37,8 +37,8 @@ module Amazonka.WorkLink.ListWebsiteAuthorizationProviders
     newListWebsiteAuthorizationProvidersResponse,
 
     -- * Response Lenses
-    listWebsiteAuthorizationProvidersResponse_websiteAuthorizationProviders,
     listWebsiteAuthorizationProvidersResponse_nextToken,
+    listWebsiteAuthorizationProvidersResponse_websiteAuthorizationProviders,
     listWebsiteAuthorizationProvidersResponse_httpStatus,
   )
 where
@@ -113,10 +113,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListWebsiteAuthorizationProvidersResponse'
-            Prelude.<$> ( x Core..?> "WebsiteAuthorizationProviders"
-                            Core..!@ Prelude.mempty
-                        )
-              Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+              Prelude.<*> ( x Core..?> "WebsiteAuthorizationProviders"
+                              Core..!@ Prelude.mempty
+                          )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -182,11 +182,11 @@ instance
 
 -- | /See:/ 'newListWebsiteAuthorizationProvidersResponse' smart constructor.
 data ListWebsiteAuthorizationProvidersResponse = ListWebsiteAuthorizationProvidersResponse'
-  { -- | The website authorization providers.
-    websiteAuthorizationProviders :: Prelude.Maybe [WebsiteAuthorizationProviderSummary],
-    -- | The pagination token to use to retrieve the next page of results for
+  { -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If this value is null, it retrieves the first page.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The website authorization providers.
+    websiteAuthorizationProviders :: Prelude.Maybe [WebsiteAuthorizationProviderSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -200,10 +200,10 @@ data ListWebsiteAuthorizationProvidersResponse = ListWebsiteAuthorizationProvide
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'websiteAuthorizationProviders', 'listWebsiteAuthorizationProvidersResponse_websiteAuthorizationProviders' - The website authorization providers.
---
 -- 'nextToken', 'listWebsiteAuthorizationProvidersResponse_nextToken' - The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
+--
+-- 'websiteAuthorizationProviders', 'listWebsiteAuthorizationProvidersResponse_websiteAuthorizationProviders' - The website authorization providers.
 --
 -- 'httpStatus', 'listWebsiteAuthorizationProvidersResponse_httpStatus' - The response's http status code.
 newListWebsiteAuthorizationProvidersResponse ::
@@ -213,20 +213,21 @@ newListWebsiteAuthorizationProvidersResponse ::
 newListWebsiteAuthorizationProvidersResponse
   pHttpStatus_ =
     ListWebsiteAuthorizationProvidersResponse'
-      { websiteAuthorizationProviders =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        websiteAuthorizationProviders =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The website authorization providers.
-listWebsiteAuthorizationProvidersResponse_websiteAuthorizationProviders :: Lens.Lens' ListWebsiteAuthorizationProvidersResponse (Prelude.Maybe [WebsiteAuthorizationProviderSummary])
-listWebsiteAuthorizationProvidersResponse_websiteAuthorizationProviders = Lens.lens (\ListWebsiteAuthorizationProvidersResponse' {websiteAuthorizationProviders} -> websiteAuthorizationProviders) (\s@ListWebsiteAuthorizationProvidersResponse' {} a -> s {websiteAuthorizationProviders = a} :: ListWebsiteAuthorizationProvidersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
 listWebsiteAuthorizationProvidersResponse_nextToken :: Lens.Lens' ListWebsiteAuthorizationProvidersResponse (Prelude.Maybe Prelude.Text)
 listWebsiteAuthorizationProvidersResponse_nextToken = Lens.lens (\ListWebsiteAuthorizationProvidersResponse' {nextToken} -> nextToken) (\s@ListWebsiteAuthorizationProvidersResponse' {} a -> s {nextToken = a} :: ListWebsiteAuthorizationProvidersResponse)
+
+-- | The website authorization providers.
+listWebsiteAuthorizationProvidersResponse_websiteAuthorizationProviders :: Lens.Lens' ListWebsiteAuthorizationProvidersResponse (Prelude.Maybe [WebsiteAuthorizationProviderSummary])
+listWebsiteAuthorizationProvidersResponse_websiteAuthorizationProviders = Lens.lens (\ListWebsiteAuthorizationProvidersResponse' {websiteAuthorizationProviders} -> websiteAuthorizationProviders) (\s@ListWebsiteAuthorizationProvidersResponse' {} a -> s {websiteAuthorizationProviders = a} :: ListWebsiteAuthorizationProvidersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listWebsiteAuthorizationProvidersResponse_httpStatus :: Lens.Lens' ListWebsiteAuthorizationProvidersResponse Prelude.Int
@@ -237,6 +238,6 @@ instance
     ListWebsiteAuthorizationProvidersResponse
   where
   rnf ListWebsiteAuthorizationProvidersResponse' {..} =
-    Prelude.rnf websiteAuthorizationProviders
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf websiteAuthorizationProviders
       `Prelude.seq` Prelude.rnf httpStatus

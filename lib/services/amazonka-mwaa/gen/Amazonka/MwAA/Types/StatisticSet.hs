@@ -28,13 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newStatisticSet' smart constructor.
 data StatisticSet = StatisticSet'
   { -- | Internal only API.
-    sampleCount :: Prelude.Maybe Prelude.Int,
-    -- | Internal only API.
-    maximum :: Prelude.Maybe Prelude.Double,
-    -- | Internal only API.
     minimum :: Prelude.Maybe Prelude.Double,
     -- | Internal only API.
-    sum :: Prelude.Maybe Prelude.Double
+    sampleCount :: Prelude.Maybe Prelude.Int,
+    -- | Internal only API.
+    sum :: Prelude.Maybe Prelude.Double,
+    -- | Internal only API.
+    maximum :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,60 +46,60 @@ data StatisticSet = StatisticSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sampleCount', 'statisticSet_sampleCount' - Internal only API.
---
--- 'maximum', 'statisticSet_maximum' - Internal only API.
---
 -- 'minimum', 'statisticSet_minimum' - Internal only API.
 --
+-- 'sampleCount', 'statisticSet_sampleCount' - Internal only API.
+--
 -- 'sum', 'statisticSet_sum' - Internal only API.
+--
+-- 'maximum', 'statisticSet_maximum' - Internal only API.
 newStatisticSet ::
   StatisticSet
 newStatisticSet =
   StatisticSet'
-    { sampleCount = Prelude.Nothing,
-      maximum = Prelude.Nothing,
-      minimum = Prelude.Nothing,
-      sum = Prelude.Nothing
+    { minimum = Prelude.Nothing,
+      sampleCount = Prelude.Nothing,
+      sum = Prelude.Nothing,
+      maximum = Prelude.Nothing
     }
-
--- | Internal only API.
-statisticSet_sampleCount :: Lens.Lens' StatisticSet (Prelude.Maybe Prelude.Int)
-statisticSet_sampleCount = Lens.lens (\StatisticSet' {sampleCount} -> sampleCount) (\s@StatisticSet' {} a -> s {sampleCount = a} :: StatisticSet)
-
--- | Internal only API.
-statisticSet_maximum :: Lens.Lens' StatisticSet (Prelude.Maybe Prelude.Double)
-statisticSet_maximum = Lens.lens (\StatisticSet' {maximum} -> maximum) (\s@StatisticSet' {} a -> s {maximum = a} :: StatisticSet)
 
 -- | Internal only API.
 statisticSet_minimum :: Lens.Lens' StatisticSet (Prelude.Maybe Prelude.Double)
 statisticSet_minimum = Lens.lens (\StatisticSet' {minimum} -> minimum) (\s@StatisticSet' {} a -> s {minimum = a} :: StatisticSet)
 
 -- | Internal only API.
+statisticSet_sampleCount :: Lens.Lens' StatisticSet (Prelude.Maybe Prelude.Int)
+statisticSet_sampleCount = Lens.lens (\StatisticSet' {sampleCount} -> sampleCount) (\s@StatisticSet' {} a -> s {sampleCount = a} :: StatisticSet)
+
+-- | Internal only API.
 statisticSet_sum :: Lens.Lens' StatisticSet (Prelude.Maybe Prelude.Double)
 statisticSet_sum = Lens.lens (\StatisticSet' {sum} -> sum) (\s@StatisticSet' {} a -> s {sum = a} :: StatisticSet)
 
+-- | Internal only API.
+statisticSet_maximum :: Lens.Lens' StatisticSet (Prelude.Maybe Prelude.Double)
+statisticSet_maximum = Lens.lens (\StatisticSet' {maximum} -> maximum) (\s@StatisticSet' {} a -> s {maximum = a} :: StatisticSet)
+
 instance Prelude.Hashable StatisticSet where
   hashWithSalt _salt StatisticSet' {..} =
-    _salt `Prelude.hashWithSalt` sampleCount
-      `Prelude.hashWithSalt` maximum
-      `Prelude.hashWithSalt` minimum
+    _salt `Prelude.hashWithSalt` minimum
+      `Prelude.hashWithSalt` sampleCount
       `Prelude.hashWithSalt` sum
+      `Prelude.hashWithSalt` maximum
 
 instance Prelude.NFData StatisticSet where
   rnf StatisticSet' {..} =
-    Prelude.rnf sampleCount
-      `Prelude.seq` Prelude.rnf maximum
-      `Prelude.seq` Prelude.rnf minimum
+    Prelude.rnf minimum
+      `Prelude.seq` Prelude.rnf sampleCount
       `Prelude.seq` Prelude.rnf sum
+      `Prelude.seq` Prelude.rnf maximum
 
 instance Core.ToJSON StatisticSet where
   toJSON StatisticSet' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SampleCount" Core..=) Prelude.<$> sampleCount,
-            ("Maximum" Core..=) Prelude.<$> maximum,
-            ("Minimum" Core..=) Prelude.<$> minimum,
-            ("Sum" Core..=) Prelude.<$> sum
+          [ ("Minimum" Core..=) Prelude.<$> minimum,
+            ("SampleCount" Core..=) Prelude.<$> sampleCount,
+            ("Sum" Core..=) Prelude.<$> sum,
+            ("Maximum" Core..=) Prelude.<$> maximum
           ]
       )

@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLoggingConfigurationInput' smart constructor.
 data LoggingConfigurationInput = LoggingConfigurationInput'
-  { taskLogs :: Prelude.Maybe ModuleLoggingConfigurationInput,
+  { dagProcessingLogs :: Prelude.Maybe ModuleLoggingConfigurationInput,
+    taskLogs :: Prelude.Maybe ModuleLoggingConfigurationInput,
+    workerLogs :: Prelude.Maybe ModuleLoggingConfigurationInput,
     webserverLogs :: Prelude.Maybe ModuleLoggingConfigurationInput,
-    schedulerLogs :: Prelude.Maybe ModuleLoggingConfigurationInput,
-    dagProcessingLogs :: Prelude.Maybe ModuleLoggingConfigurationInput,
-    workerLogs :: Prelude.Maybe ModuleLoggingConfigurationInput
+    schedulerLogs :: Prelude.Maybe ModuleLoggingConfigurationInput
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,30 +46,38 @@ data LoggingConfigurationInput = LoggingConfigurationInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dagProcessingLogs', 'loggingConfigurationInput_dagProcessingLogs' - Undocumented member.
+--
 -- 'taskLogs', 'loggingConfigurationInput_taskLogs' - Undocumented member.
+--
+-- 'workerLogs', 'loggingConfigurationInput_workerLogs' - Undocumented member.
 --
 -- 'webserverLogs', 'loggingConfigurationInput_webserverLogs' - Undocumented member.
 --
 -- 'schedulerLogs', 'loggingConfigurationInput_schedulerLogs' - Undocumented member.
---
--- 'dagProcessingLogs', 'loggingConfigurationInput_dagProcessingLogs' - Undocumented member.
---
--- 'workerLogs', 'loggingConfigurationInput_workerLogs' - Undocumented member.
 newLoggingConfigurationInput ::
   LoggingConfigurationInput
 newLoggingConfigurationInput =
   LoggingConfigurationInput'
-    { taskLogs =
+    { dagProcessingLogs =
         Prelude.Nothing,
+      taskLogs = Prelude.Nothing,
+      workerLogs = Prelude.Nothing,
       webserverLogs = Prelude.Nothing,
-      schedulerLogs = Prelude.Nothing,
-      dagProcessingLogs = Prelude.Nothing,
-      workerLogs = Prelude.Nothing
+      schedulerLogs = Prelude.Nothing
     }
+
+-- | Undocumented member.
+loggingConfigurationInput_dagProcessingLogs :: Lens.Lens' LoggingConfigurationInput (Prelude.Maybe ModuleLoggingConfigurationInput)
+loggingConfigurationInput_dagProcessingLogs = Lens.lens (\LoggingConfigurationInput' {dagProcessingLogs} -> dagProcessingLogs) (\s@LoggingConfigurationInput' {} a -> s {dagProcessingLogs = a} :: LoggingConfigurationInput)
 
 -- | Undocumented member.
 loggingConfigurationInput_taskLogs :: Lens.Lens' LoggingConfigurationInput (Prelude.Maybe ModuleLoggingConfigurationInput)
 loggingConfigurationInput_taskLogs = Lens.lens (\LoggingConfigurationInput' {taskLogs} -> taskLogs) (\s@LoggingConfigurationInput' {} a -> s {taskLogs = a} :: LoggingConfigurationInput)
+
+-- | Undocumented member.
+loggingConfigurationInput_workerLogs :: Lens.Lens' LoggingConfigurationInput (Prelude.Maybe ModuleLoggingConfigurationInput)
+loggingConfigurationInput_workerLogs = Lens.lens (\LoggingConfigurationInput' {workerLogs} -> workerLogs) (\s@LoggingConfigurationInput' {} a -> s {workerLogs = a} :: LoggingConfigurationInput)
 
 -- | Undocumented member.
 loggingConfigurationInput_webserverLogs :: Lens.Lens' LoggingConfigurationInput (Prelude.Maybe ModuleLoggingConfigurationInput)
@@ -79,39 +87,31 @@ loggingConfigurationInput_webserverLogs = Lens.lens (\LoggingConfigurationInput'
 loggingConfigurationInput_schedulerLogs :: Lens.Lens' LoggingConfigurationInput (Prelude.Maybe ModuleLoggingConfigurationInput)
 loggingConfigurationInput_schedulerLogs = Lens.lens (\LoggingConfigurationInput' {schedulerLogs} -> schedulerLogs) (\s@LoggingConfigurationInput' {} a -> s {schedulerLogs = a} :: LoggingConfigurationInput)
 
--- | Undocumented member.
-loggingConfigurationInput_dagProcessingLogs :: Lens.Lens' LoggingConfigurationInput (Prelude.Maybe ModuleLoggingConfigurationInput)
-loggingConfigurationInput_dagProcessingLogs = Lens.lens (\LoggingConfigurationInput' {dagProcessingLogs} -> dagProcessingLogs) (\s@LoggingConfigurationInput' {} a -> s {dagProcessingLogs = a} :: LoggingConfigurationInput)
-
--- | Undocumented member.
-loggingConfigurationInput_workerLogs :: Lens.Lens' LoggingConfigurationInput (Prelude.Maybe ModuleLoggingConfigurationInput)
-loggingConfigurationInput_workerLogs = Lens.lens (\LoggingConfigurationInput' {workerLogs} -> workerLogs) (\s@LoggingConfigurationInput' {} a -> s {workerLogs = a} :: LoggingConfigurationInput)
-
 instance Prelude.Hashable LoggingConfigurationInput where
   hashWithSalt _salt LoggingConfigurationInput' {..} =
-    _salt `Prelude.hashWithSalt` taskLogs
+    _salt `Prelude.hashWithSalt` dagProcessingLogs
+      `Prelude.hashWithSalt` taskLogs
+      `Prelude.hashWithSalt` workerLogs
       `Prelude.hashWithSalt` webserverLogs
       `Prelude.hashWithSalt` schedulerLogs
-      `Prelude.hashWithSalt` dagProcessingLogs
-      `Prelude.hashWithSalt` workerLogs
 
 instance Prelude.NFData LoggingConfigurationInput where
   rnf LoggingConfigurationInput' {..} =
-    Prelude.rnf taskLogs
+    Prelude.rnf dagProcessingLogs
+      `Prelude.seq` Prelude.rnf taskLogs
+      `Prelude.seq` Prelude.rnf workerLogs
       `Prelude.seq` Prelude.rnf webserverLogs
       `Prelude.seq` Prelude.rnf schedulerLogs
-      `Prelude.seq` Prelude.rnf dagProcessingLogs
-      `Prelude.seq` Prelude.rnf workerLogs
 
 instance Core.ToJSON LoggingConfigurationInput where
   toJSON LoggingConfigurationInput' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TaskLogs" Core..=) Prelude.<$> taskLogs,
-            ("WebserverLogs" Core..=) Prelude.<$> webserverLogs,
-            ("SchedulerLogs" Core..=) Prelude.<$> schedulerLogs,
-            ("DagProcessingLogs" Core..=)
+          [ ("DagProcessingLogs" Core..=)
               Prelude.<$> dagProcessingLogs,
-            ("WorkerLogs" Core..=) Prelude.<$> workerLogs
+            ("TaskLogs" Core..=) Prelude.<$> taskLogs,
+            ("WorkerLogs" Core..=) Prelude.<$> workerLogs,
+            ("WebserverLogs" Core..=) Prelude.<$> webserverLogs,
+            ("SchedulerLogs" Core..=) Prelude.<$> schedulerLogs
           ]
       )

@@ -34,14 +34,14 @@ data ModuleLoggingConfiguration = ModuleLoggingConfiguration'
     -- @DagProcessingLogs@) to CloudWatch Logs. Valid values: @CRITICAL@,
     -- @ERROR@, @WARNING@, @INFO@.
     logLevel :: Prelude.Maybe LoggingLevel,
-    -- | Indicates whether to enable the Apache Airflow log type (e.g.
-    -- @DagProcessingLogs@) in CloudWatch Logs.
-    enabled :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) for the CloudWatch Logs group where the
     -- Apache Airflow log type (e.g. @DagProcessingLogs@) is published. For
     -- example,
     -- @arn:aws:logs:us-east-1:123456789012:log-group:airflow-MyMWAAEnvironment-MwaaEnvironment-DAGProcessing:*@.
-    cloudWatchLogGroupArn :: Prelude.Maybe Prelude.Text
+    cloudWatchLogGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether to enable the Apache Airflow log type (e.g.
+    -- @DagProcessingLogs@) in CloudWatch Logs.
+    enabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,21 +57,21 @@ data ModuleLoggingConfiguration = ModuleLoggingConfiguration'
 -- @DagProcessingLogs@) to CloudWatch Logs. Valid values: @CRITICAL@,
 -- @ERROR@, @WARNING@, @INFO@.
 --
--- 'enabled', 'moduleLoggingConfiguration_enabled' - Indicates whether to enable the Apache Airflow log type (e.g.
--- @DagProcessingLogs@) in CloudWatch Logs.
---
 -- 'cloudWatchLogGroupArn', 'moduleLoggingConfiguration_cloudWatchLogGroupArn' - The Amazon Resource Name (ARN) for the CloudWatch Logs group where the
 -- Apache Airflow log type (e.g. @DagProcessingLogs@) is published. For
 -- example,
 -- @arn:aws:logs:us-east-1:123456789012:log-group:airflow-MyMWAAEnvironment-MwaaEnvironment-DAGProcessing:*@.
+--
+-- 'enabled', 'moduleLoggingConfiguration_enabled' - Indicates whether to enable the Apache Airflow log type (e.g.
+-- @DagProcessingLogs@) in CloudWatch Logs.
 newModuleLoggingConfiguration ::
   ModuleLoggingConfiguration
 newModuleLoggingConfiguration =
   ModuleLoggingConfiguration'
     { logLevel =
         Prelude.Nothing,
-      enabled = Prelude.Nothing,
-      cloudWatchLogGroupArn = Prelude.Nothing
+      cloudWatchLogGroupArn = Prelude.Nothing,
+      enabled = Prelude.Nothing
     }
 
 -- | Defines the Apache Airflow logs to send for the log type (e.g.
@@ -80,17 +80,17 @@ newModuleLoggingConfiguration =
 moduleLoggingConfiguration_logLevel :: Lens.Lens' ModuleLoggingConfiguration (Prelude.Maybe LoggingLevel)
 moduleLoggingConfiguration_logLevel = Lens.lens (\ModuleLoggingConfiguration' {logLevel} -> logLevel) (\s@ModuleLoggingConfiguration' {} a -> s {logLevel = a} :: ModuleLoggingConfiguration)
 
--- | Indicates whether to enable the Apache Airflow log type (e.g.
--- @DagProcessingLogs@) in CloudWatch Logs.
-moduleLoggingConfiguration_enabled :: Lens.Lens' ModuleLoggingConfiguration (Prelude.Maybe Prelude.Bool)
-moduleLoggingConfiguration_enabled = Lens.lens (\ModuleLoggingConfiguration' {enabled} -> enabled) (\s@ModuleLoggingConfiguration' {} a -> s {enabled = a} :: ModuleLoggingConfiguration)
-
 -- | The Amazon Resource Name (ARN) for the CloudWatch Logs group where the
 -- Apache Airflow log type (e.g. @DagProcessingLogs@) is published. For
 -- example,
 -- @arn:aws:logs:us-east-1:123456789012:log-group:airflow-MyMWAAEnvironment-MwaaEnvironment-DAGProcessing:*@.
 moduleLoggingConfiguration_cloudWatchLogGroupArn :: Lens.Lens' ModuleLoggingConfiguration (Prelude.Maybe Prelude.Text)
 moduleLoggingConfiguration_cloudWatchLogGroupArn = Lens.lens (\ModuleLoggingConfiguration' {cloudWatchLogGroupArn} -> cloudWatchLogGroupArn) (\s@ModuleLoggingConfiguration' {} a -> s {cloudWatchLogGroupArn = a} :: ModuleLoggingConfiguration)
+
+-- | Indicates whether to enable the Apache Airflow log type (e.g.
+-- @DagProcessingLogs@) in CloudWatch Logs.
+moduleLoggingConfiguration_enabled :: Lens.Lens' ModuleLoggingConfiguration (Prelude.Maybe Prelude.Bool)
+moduleLoggingConfiguration_enabled = Lens.lens (\ModuleLoggingConfiguration' {enabled} -> enabled) (\s@ModuleLoggingConfiguration' {} a -> s {enabled = a} :: ModuleLoggingConfiguration)
 
 instance Core.FromJSON ModuleLoggingConfiguration where
   parseJSON =
@@ -99,18 +99,18 @@ instance Core.FromJSON ModuleLoggingConfiguration where
       ( \x ->
           ModuleLoggingConfiguration'
             Prelude.<$> (x Core..:? "LogLevel")
-            Prelude.<*> (x Core..:? "Enabled")
             Prelude.<*> (x Core..:? "CloudWatchLogGroupArn")
+            Prelude.<*> (x Core..:? "Enabled")
       )
 
 instance Prelude.Hashable ModuleLoggingConfiguration where
   hashWithSalt _salt ModuleLoggingConfiguration' {..} =
     _salt `Prelude.hashWithSalt` logLevel
-      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` cloudWatchLogGroupArn
+      `Prelude.hashWithSalt` enabled
 
 instance Prelude.NFData ModuleLoggingConfiguration where
   rnf ModuleLoggingConfiguration' {..} =
     Prelude.rnf logLevel
-      `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf cloudWatchLogGroupArn
+      `Prelude.seq` Prelude.rnf enabled

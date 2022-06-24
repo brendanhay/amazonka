@@ -63,8 +63,8 @@ module Amazonka.FMS.PutPolicy
     newPutPolicyResponse,
 
     -- * Response Lenses
-    putPolicyResponse_policyArn,
     putPolicyResponse_policy,
+    putPolicyResponse_policyArn,
     putPolicyResponse_httpStatus,
   )
 where
@@ -121,8 +121,8 @@ instance Core.AWSRequest PutPolicy where
     Response.receiveJSON
       ( \s h x ->
           PutPolicyResponse'
-            Prelude.<$> (x Core..?> "PolicyArn")
-            Prelude.<*> (x Core..?> "Policy")
+            Prelude.<$> (x Core..?> "Policy")
+            Prelude.<*> (x Core..?> "PolicyArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,10 +166,10 @@ instance Core.ToQuery PutPolicy where
 
 -- | /See:/ 'newPutPolicyResponse' smart constructor.
 data PutPolicyResponse = PutPolicyResponse'
-  { -- | The Amazon Resource Name (ARN) of the policy.
-    policyArn :: Prelude.Maybe Prelude.Text,
-    -- | The details of the Firewall Manager policy.
+  { -- | The details of the Firewall Manager policy.
     policy :: Prelude.Maybe Policy,
+    -- | The Amazon Resource Name (ARN) of the policy.
+    policyArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -183,9 +183,9 @@ data PutPolicyResponse = PutPolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyArn', 'putPolicyResponse_policyArn' - The Amazon Resource Name (ARN) of the policy.
---
 -- 'policy', 'putPolicyResponse_policy' - The details of the Firewall Manager policy.
+--
+-- 'policyArn', 'putPolicyResponse_policyArn' - The Amazon Resource Name (ARN) of the policy.
 --
 -- 'httpStatus', 'putPolicyResponse_httpStatus' - The response's http status code.
 newPutPolicyResponse ::
@@ -194,18 +194,18 @@ newPutPolicyResponse ::
   PutPolicyResponse
 newPutPolicyResponse pHttpStatus_ =
   PutPolicyResponse'
-    { policyArn = Prelude.Nothing,
-      policy = Prelude.Nothing,
+    { policy = Prelude.Nothing,
+      policyArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Amazon Resource Name (ARN) of the policy.
-putPolicyResponse_policyArn :: Lens.Lens' PutPolicyResponse (Prelude.Maybe Prelude.Text)
-putPolicyResponse_policyArn = Lens.lens (\PutPolicyResponse' {policyArn} -> policyArn) (\s@PutPolicyResponse' {} a -> s {policyArn = a} :: PutPolicyResponse)
 
 -- | The details of the Firewall Manager policy.
 putPolicyResponse_policy :: Lens.Lens' PutPolicyResponse (Prelude.Maybe Policy)
 putPolicyResponse_policy = Lens.lens (\PutPolicyResponse' {policy} -> policy) (\s@PutPolicyResponse' {} a -> s {policy = a} :: PutPolicyResponse)
+
+-- | The Amazon Resource Name (ARN) of the policy.
+putPolicyResponse_policyArn :: Lens.Lens' PutPolicyResponse (Prelude.Maybe Prelude.Text)
+putPolicyResponse_policyArn = Lens.lens (\PutPolicyResponse' {policyArn} -> policyArn) (\s@PutPolicyResponse' {} a -> s {policyArn = a} :: PutPolicyResponse)
 
 -- | The response's http status code.
 putPolicyResponse_httpStatus :: Lens.Lens' PutPolicyResponse Prelude.Int
@@ -213,6 +213,6 @@ putPolicyResponse_httpStatus = Lens.lens (\PutPolicyResponse' {httpStatus} -> ht
 
 instance Prelude.NFData PutPolicyResponse where
   rnf PutPolicyResponse' {..} =
-    Prelude.rnf policyArn
-      `Prelude.seq` Prelude.rnf policy
+    Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf policyArn
       `Prelude.seq` Prelude.rnf httpStatus

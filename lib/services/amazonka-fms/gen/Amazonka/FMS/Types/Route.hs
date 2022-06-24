@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 data Route = Route'
   { -- | The destination of the route.
     destination :: Prelude.Maybe Prelude.Text,
-    -- | The type of target for the route.
-    targetType :: Prelude.Maybe TargetType,
     -- | The type of destination for the route.
     destinationType :: Prelude.Maybe DestinationType,
     -- | The route\'s target.
-    target :: Prelude.Maybe Prelude.Text
+    target :: Prelude.Maybe Prelude.Text,
+    -- | The type of target for the route.
+    targetType :: Prelude.Maybe TargetType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,28 +50,24 @@ data Route = Route'
 --
 -- 'destination', 'route_destination' - The destination of the route.
 --
--- 'targetType', 'route_targetType' - The type of target for the route.
---
 -- 'destinationType', 'route_destinationType' - The type of destination for the route.
 --
 -- 'target', 'route_target' - The route\'s target.
+--
+-- 'targetType', 'route_targetType' - The type of target for the route.
 newRoute ::
   Route
 newRoute =
   Route'
     { destination = Prelude.Nothing,
-      targetType = Prelude.Nothing,
       destinationType = Prelude.Nothing,
-      target = Prelude.Nothing
+      target = Prelude.Nothing,
+      targetType = Prelude.Nothing
     }
 
 -- | The destination of the route.
 route_destination :: Lens.Lens' Route (Prelude.Maybe Prelude.Text)
 route_destination = Lens.lens (\Route' {destination} -> destination) (\s@Route' {} a -> s {destination = a} :: Route)
-
--- | The type of target for the route.
-route_targetType :: Lens.Lens' Route (Prelude.Maybe TargetType)
-route_targetType = Lens.lens (\Route' {targetType} -> targetType) (\s@Route' {} a -> s {targetType = a} :: Route)
 
 -- | The type of destination for the route.
 route_destinationType :: Lens.Lens' Route (Prelude.Maybe DestinationType)
@@ -81,6 +77,10 @@ route_destinationType = Lens.lens (\Route' {destinationType} -> destinationType)
 route_target :: Lens.Lens' Route (Prelude.Maybe Prelude.Text)
 route_target = Lens.lens (\Route' {target} -> target) (\s@Route' {} a -> s {target = a} :: Route)
 
+-- | The type of target for the route.
+route_targetType :: Lens.Lens' Route (Prelude.Maybe TargetType)
+route_targetType = Lens.lens (\Route' {targetType} -> targetType) (\s@Route' {} a -> s {targetType = a} :: Route)
+
 instance Core.FromJSON Route where
   parseJSON =
     Core.withObject
@@ -88,21 +88,21 @@ instance Core.FromJSON Route where
       ( \x ->
           Route'
             Prelude.<$> (x Core..:? "Destination")
-            Prelude.<*> (x Core..:? "TargetType")
             Prelude.<*> (x Core..:? "DestinationType")
             Prelude.<*> (x Core..:? "Target")
+            Prelude.<*> (x Core..:? "TargetType")
       )
 
 instance Prelude.Hashable Route where
   hashWithSalt _salt Route' {..} =
     _salt `Prelude.hashWithSalt` destination
-      `Prelude.hashWithSalt` targetType
       `Prelude.hashWithSalt` destinationType
       `Prelude.hashWithSalt` target
+      `Prelude.hashWithSalt` targetType
 
 instance Prelude.NFData Route where
   rnf Route' {..} =
     Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf targetType
       `Prelude.seq` Prelude.rnf destinationType
       `Prelude.seq` Prelude.rnf target
+      `Prelude.seq` Prelude.rnf targetType

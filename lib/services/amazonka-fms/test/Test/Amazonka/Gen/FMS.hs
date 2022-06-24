@@ -27,50 +27,77 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListPolicies $
---             newListPolicies
+--         [ requestAssociateAdminAccount $
+--             newAssociateAdminAccount
 --
---         , requestGetComplianceDetail $
---             newGetComplianceDetail
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestGetNotificationChannel $
---             newGetNotificationChannel
---
---         , requestGetAdminAccount $
---             newGetAdminAccount
---
---         , requestListComplianceStatus $
---             newListComplianceStatus
---
---         , requestGetAppsList $
---             newGetAppsList
---
---         , requestPutPolicy $
---             newPutPolicy
---
---         , requestDeletePolicy $
---             newDeletePolicy
---
---         , requestDisassociateAdminAccount $
---             newDisassociateAdminAccount
---
---         , requestPutNotificationChannel $
---             newPutNotificationChannel
+--         , requestDeleteAppsList $
+--             newDeleteAppsList
 --
 --         , requestDeleteNotificationChannel $
 --             newDeleteNotificationChannel
 --
---         , requestAssociateAdminAccount $
---             newAssociateAdminAccount
+--         , requestDeletePolicy $
+--             newDeletePolicy
+--
+--         , requestDeleteProtocolsList $
+--             newDeleteProtocolsList
+--
+--         , requestDisassociateAdminAccount $
+--             newDisassociateAdminAccount
+--
+--         , requestGetAdminAccount $
+--             newGetAdminAccount
+--
+--         , requestGetAppsList $
+--             newGetAppsList
+--
+--         , requestGetComplianceDetail $
+--             newGetComplianceDetail
+--
+--         , requestGetNotificationChannel $
+--             newGetNotificationChannel
+--
+--         , requestGetPolicy $
+--             newGetPolicy
+--
+--         , requestGetProtectionStatus $
+--             newGetProtectionStatus
+--
+--         , requestGetProtocolsList $
+--             newGetProtocolsList
 --
 --         , requestGetViolationDetails $
 --             newGetViolationDetails
 --
+--         , requestListAppsLists $
+--             newListAppsLists
+--
+--         , requestListComplianceStatus $
+--             newListComplianceStatus
+--
 --         , requestListMemberAccounts $
 --             newListMemberAccounts
+--
+--         , requestListPolicies $
+--             newListPolicies
+--
+--         , requestListProtocolsLists $
+--             newListProtocolsLists
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestPutAppsList $
+--             newPutAppsList
+--
+--         , requestPutNotificationChannel $
+--             newPutNotificationChannel
+--
+--         , requestPutPolicy $
+--             newPutPolicy
+--
+--         , requestPutProtocolsList $
+--             newPutProtocolsList
 --
 --         , requestTagResource $
 --             newTagResource
@@ -78,80 +105,80 @@ import Test.Tasty
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestDeleteProtocolsList $
---             newDeleteProtocolsList
---
---         , requestGetPolicy $
---             newGetPolicy
---
---         , requestListProtocolsLists $
---             newListProtocolsLists
---
---         , requestPutProtocolsList $
---             newPutProtocolsList
---
---         , requestPutAppsList $
---             newPutAppsList
---
---         , requestDeleteAppsList $
---             newDeleteAppsList
---
---         , requestListAppsLists $
---             newListAppsLists
---
---         , requestGetProtocolsList $
---             newGetProtocolsList
---
---         , requestGetProtectionStatus $
---             newGetProtectionStatus
---
 --           ]
 
 --     , testGroup "response"
---         [ responseListPolicies $
---             newListPoliciesResponse
+--         [ responseAssociateAdminAccount $
+--             newAssociateAdminAccountResponse
 --
---         , responseGetComplianceDetail $
---             newGetComplianceDetailResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseGetNotificationChannel $
---             newGetNotificationChannelResponse
---
---         , responseGetAdminAccount $
---             newGetAdminAccountResponse
---
---         , responseListComplianceStatus $
---             newListComplianceStatusResponse
---
---         , responseGetAppsList $
---             newGetAppsListResponse
---
---         , responsePutPolicy $
---             newPutPolicyResponse
---
---         , responseDeletePolicy $
---             newDeletePolicyResponse
---
---         , responseDisassociateAdminAccount $
---             newDisassociateAdminAccountResponse
---
---         , responsePutNotificationChannel $
---             newPutNotificationChannelResponse
+--         , responseDeleteAppsList $
+--             newDeleteAppsListResponse
 --
 --         , responseDeleteNotificationChannel $
 --             newDeleteNotificationChannelResponse
 --
---         , responseAssociateAdminAccount $
---             newAssociateAdminAccountResponse
+--         , responseDeletePolicy $
+--             newDeletePolicyResponse
+--
+--         , responseDeleteProtocolsList $
+--             newDeleteProtocolsListResponse
+--
+--         , responseDisassociateAdminAccount $
+--             newDisassociateAdminAccountResponse
+--
+--         , responseGetAdminAccount $
+--             newGetAdminAccountResponse
+--
+--         , responseGetAppsList $
+--             newGetAppsListResponse
+--
+--         , responseGetComplianceDetail $
+--             newGetComplianceDetailResponse
+--
+--         , responseGetNotificationChannel $
+--             newGetNotificationChannelResponse
+--
+--         , responseGetPolicy $
+--             newGetPolicyResponse
+--
+--         , responseGetProtectionStatus $
+--             newGetProtectionStatusResponse
+--
+--         , responseGetProtocolsList $
+--             newGetProtocolsListResponse
 --
 --         , responseGetViolationDetails $
 --             newGetViolationDetailsResponse
 --
+--         , responseListAppsLists $
+--             newListAppsListsResponse
+--
+--         , responseListComplianceStatus $
+--             newListComplianceStatusResponse
+--
 --         , responseListMemberAccounts $
 --             newListMemberAccountsResponse
+--
+--         , responseListPolicies $
+--             newListPoliciesResponse
+--
+--         , responseListProtocolsLists $
+--             newListProtocolsListsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responsePutAppsList $
+--             newPutAppsListResponse
+--
+--         , responsePutNotificationChannel $
+--             newPutNotificationChannelResponse
+--
+--         , responsePutPolicy $
+--             newPutPolicyResponse
+--
+--         , responsePutProtocolsList $
+--             newPutProtocolsListResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -159,109 +186,10 @@ import Test.Tasty
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseDeleteProtocolsList $
---             newDeleteProtocolsListResponse
---
---         , responseGetPolicy $
---             newGetPolicyResponse
---
---         , responseListProtocolsLists $
---             newListProtocolsListsResponse
---
---         , responsePutProtocolsList $
---             newPutProtocolsListResponse
---
---         , responsePutAppsList $
---             newPutAppsListResponse
---
---         , responseDeleteAppsList $
---             newDeleteAppsListResponse
---
---         , responseListAppsLists $
---             newListAppsListsResponse
---
---         , responseGetProtocolsList $
---             newGetProtocolsListResponse
---
---         , responseGetProtectionStatus $
---             newGetProtectionStatusResponse
---
 --           ]
 --     ]
 
 -- Requests
-
-requestListPolicies :: ListPolicies -> TestTree
-requestListPolicies =
-  req
-    "ListPolicies"
-    "fixture/ListPolicies.yaml"
-
-requestGetComplianceDetail :: GetComplianceDetail -> TestTree
-requestGetComplianceDetail =
-  req
-    "GetComplianceDetail"
-    "fixture/GetComplianceDetail.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestGetNotificationChannel :: GetNotificationChannel -> TestTree
-requestGetNotificationChannel =
-  req
-    "GetNotificationChannel"
-    "fixture/GetNotificationChannel.yaml"
-
-requestGetAdminAccount :: GetAdminAccount -> TestTree
-requestGetAdminAccount =
-  req
-    "GetAdminAccount"
-    "fixture/GetAdminAccount.yaml"
-
-requestListComplianceStatus :: ListComplianceStatus -> TestTree
-requestListComplianceStatus =
-  req
-    "ListComplianceStatus"
-    "fixture/ListComplianceStatus.yaml"
-
-requestGetAppsList :: GetAppsList -> TestTree
-requestGetAppsList =
-  req
-    "GetAppsList"
-    "fixture/GetAppsList.yaml"
-
-requestPutPolicy :: PutPolicy -> TestTree
-requestPutPolicy =
-  req
-    "PutPolicy"
-    "fixture/PutPolicy.yaml"
-
-requestDeletePolicy :: DeletePolicy -> TestTree
-requestDeletePolicy =
-  req
-    "DeletePolicy"
-    "fixture/DeletePolicy.yaml"
-
-requestDisassociateAdminAccount :: DisassociateAdminAccount -> TestTree
-requestDisassociateAdminAccount =
-  req
-    "DisassociateAdminAccount"
-    "fixture/DisassociateAdminAccount.yaml"
-
-requestPutNotificationChannel :: PutNotificationChannel -> TestTree
-requestPutNotificationChannel =
-  req
-    "PutNotificationChannel"
-    "fixture/PutNotificationChannel.yaml"
-
-requestDeleteNotificationChannel :: DeleteNotificationChannel -> TestTree
-requestDeleteNotificationChannel =
-  req
-    "DeleteNotificationChannel"
-    "fixture/DeleteNotificationChannel.yaml"
 
 requestAssociateAdminAccount :: AssociateAdminAccount -> TestTree
 requestAssociateAdminAccount =
@@ -269,17 +197,143 @@ requestAssociateAdminAccount =
     "AssociateAdminAccount"
     "fixture/AssociateAdminAccount.yaml"
 
+requestDeleteAppsList :: DeleteAppsList -> TestTree
+requestDeleteAppsList =
+  req
+    "DeleteAppsList"
+    "fixture/DeleteAppsList.yaml"
+
+requestDeleteNotificationChannel :: DeleteNotificationChannel -> TestTree
+requestDeleteNotificationChannel =
+  req
+    "DeleteNotificationChannel"
+    "fixture/DeleteNotificationChannel.yaml"
+
+requestDeletePolicy :: DeletePolicy -> TestTree
+requestDeletePolicy =
+  req
+    "DeletePolicy"
+    "fixture/DeletePolicy.yaml"
+
+requestDeleteProtocolsList :: DeleteProtocolsList -> TestTree
+requestDeleteProtocolsList =
+  req
+    "DeleteProtocolsList"
+    "fixture/DeleteProtocolsList.yaml"
+
+requestDisassociateAdminAccount :: DisassociateAdminAccount -> TestTree
+requestDisassociateAdminAccount =
+  req
+    "DisassociateAdminAccount"
+    "fixture/DisassociateAdminAccount.yaml"
+
+requestGetAdminAccount :: GetAdminAccount -> TestTree
+requestGetAdminAccount =
+  req
+    "GetAdminAccount"
+    "fixture/GetAdminAccount.yaml"
+
+requestGetAppsList :: GetAppsList -> TestTree
+requestGetAppsList =
+  req
+    "GetAppsList"
+    "fixture/GetAppsList.yaml"
+
+requestGetComplianceDetail :: GetComplianceDetail -> TestTree
+requestGetComplianceDetail =
+  req
+    "GetComplianceDetail"
+    "fixture/GetComplianceDetail.yaml"
+
+requestGetNotificationChannel :: GetNotificationChannel -> TestTree
+requestGetNotificationChannel =
+  req
+    "GetNotificationChannel"
+    "fixture/GetNotificationChannel.yaml"
+
+requestGetPolicy :: GetPolicy -> TestTree
+requestGetPolicy =
+  req
+    "GetPolicy"
+    "fixture/GetPolicy.yaml"
+
+requestGetProtectionStatus :: GetProtectionStatus -> TestTree
+requestGetProtectionStatus =
+  req
+    "GetProtectionStatus"
+    "fixture/GetProtectionStatus.yaml"
+
+requestGetProtocolsList :: GetProtocolsList -> TestTree
+requestGetProtocolsList =
+  req
+    "GetProtocolsList"
+    "fixture/GetProtocolsList.yaml"
+
 requestGetViolationDetails :: GetViolationDetails -> TestTree
 requestGetViolationDetails =
   req
     "GetViolationDetails"
     "fixture/GetViolationDetails.yaml"
 
+requestListAppsLists :: ListAppsLists -> TestTree
+requestListAppsLists =
+  req
+    "ListAppsLists"
+    "fixture/ListAppsLists.yaml"
+
+requestListComplianceStatus :: ListComplianceStatus -> TestTree
+requestListComplianceStatus =
+  req
+    "ListComplianceStatus"
+    "fixture/ListComplianceStatus.yaml"
+
 requestListMemberAccounts :: ListMemberAccounts -> TestTree
 requestListMemberAccounts =
   req
     "ListMemberAccounts"
     "fixture/ListMemberAccounts.yaml"
+
+requestListPolicies :: ListPolicies -> TestTree
+requestListPolicies =
+  req
+    "ListPolicies"
+    "fixture/ListPolicies.yaml"
+
+requestListProtocolsLists :: ListProtocolsLists -> TestTree
+requestListProtocolsLists =
+  req
+    "ListProtocolsLists"
+    "fixture/ListProtocolsLists.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestPutAppsList :: PutAppsList -> TestTree
+requestPutAppsList =
+  req
+    "PutAppsList"
+    "fixture/PutAppsList.yaml"
+
+requestPutNotificationChannel :: PutNotificationChannel -> TestTree
+requestPutNotificationChannel =
+  req
+    "PutNotificationChannel"
+    "fixture/PutNotificationChannel.yaml"
+
+requestPutPolicy :: PutPolicy -> TestTree
+requestPutPolicy =
+  req
+    "PutPolicy"
+    "fixture/PutPolicy.yaml"
+
+requestPutProtocolsList :: PutProtocolsList -> TestTree
+requestPutProtocolsList =
+  req
+    "PutProtocolsList"
+    "fixture/PutProtocolsList.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -293,157 +347,7 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestDeleteProtocolsList :: DeleteProtocolsList -> TestTree
-requestDeleteProtocolsList =
-  req
-    "DeleteProtocolsList"
-    "fixture/DeleteProtocolsList.yaml"
-
-requestGetPolicy :: GetPolicy -> TestTree
-requestGetPolicy =
-  req
-    "GetPolicy"
-    "fixture/GetPolicy.yaml"
-
-requestListProtocolsLists :: ListProtocolsLists -> TestTree
-requestListProtocolsLists =
-  req
-    "ListProtocolsLists"
-    "fixture/ListProtocolsLists.yaml"
-
-requestPutProtocolsList :: PutProtocolsList -> TestTree
-requestPutProtocolsList =
-  req
-    "PutProtocolsList"
-    "fixture/PutProtocolsList.yaml"
-
-requestPutAppsList :: PutAppsList -> TestTree
-requestPutAppsList =
-  req
-    "PutAppsList"
-    "fixture/PutAppsList.yaml"
-
-requestDeleteAppsList :: DeleteAppsList -> TestTree
-requestDeleteAppsList =
-  req
-    "DeleteAppsList"
-    "fixture/DeleteAppsList.yaml"
-
-requestListAppsLists :: ListAppsLists -> TestTree
-requestListAppsLists =
-  req
-    "ListAppsLists"
-    "fixture/ListAppsLists.yaml"
-
-requestGetProtocolsList :: GetProtocolsList -> TestTree
-requestGetProtocolsList =
-  req
-    "GetProtocolsList"
-    "fixture/GetProtocolsList.yaml"
-
-requestGetProtectionStatus :: GetProtectionStatus -> TestTree
-requestGetProtectionStatus =
-  req
-    "GetProtectionStatus"
-    "fixture/GetProtectionStatus.yaml"
-
 -- Responses
-
-responseListPolicies :: ListPoliciesResponse -> TestTree
-responseListPolicies =
-  res
-    "ListPoliciesResponse"
-    "fixture/ListPoliciesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListPolicies)
-
-responseGetComplianceDetail :: GetComplianceDetailResponse -> TestTree
-responseGetComplianceDetail =
-  res
-    "GetComplianceDetailResponse"
-    "fixture/GetComplianceDetailResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetComplianceDetail)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseGetNotificationChannel :: GetNotificationChannelResponse -> TestTree
-responseGetNotificationChannel =
-  res
-    "GetNotificationChannelResponse"
-    "fixture/GetNotificationChannelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetNotificationChannel)
-
-responseGetAdminAccount :: GetAdminAccountResponse -> TestTree
-responseGetAdminAccount =
-  res
-    "GetAdminAccountResponse"
-    "fixture/GetAdminAccountResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetAdminAccount)
-
-responseListComplianceStatus :: ListComplianceStatusResponse -> TestTree
-responseListComplianceStatus =
-  res
-    "ListComplianceStatusResponse"
-    "fixture/ListComplianceStatusResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListComplianceStatus)
-
-responseGetAppsList :: GetAppsListResponse -> TestTree
-responseGetAppsList =
-  res
-    "GetAppsListResponse"
-    "fixture/GetAppsListResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetAppsList)
-
-responsePutPolicy :: PutPolicyResponse -> TestTree
-responsePutPolicy =
-  res
-    "PutPolicyResponse"
-    "fixture/PutPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutPolicy)
-
-responseDeletePolicy :: DeletePolicyResponse -> TestTree
-responseDeletePolicy =
-  res
-    "DeletePolicyResponse"
-    "fixture/DeletePolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeletePolicy)
-
-responseDisassociateAdminAccount :: DisassociateAdminAccountResponse -> TestTree
-responseDisassociateAdminAccount =
-  res
-    "DisassociateAdminAccountResponse"
-    "fixture/DisassociateAdminAccountResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisassociateAdminAccount)
-
-responsePutNotificationChannel :: PutNotificationChannelResponse -> TestTree
-responsePutNotificationChannel =
-  res
-    "PutNotificationChannelResponse"
-    "fixture/PutNotificationChannelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutNotificationChannel)
-
-responseDeleteNotificationChannel :: DeleteNotificationChannelResponse -> TestTree
-responseDeleteNotificationChannel =
-  res
-    "DeleteNotificationChannelResponse"
-    "fixture/DeleteNotificationChannelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteNotificationChannel)
 
 responseAssociateAdminAccount :: AssociateAdminAccountResponse -> TestTree
 responseAssociateAdminAccount =
@@ -453,6 +357,102 @@ responseAssociateAdminAccount =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociateAdminAccount)
 
+responseDeleteAppsList :: DeleteAppsListResponse -> TestTree
+responseDeleteAppsList =
+  res
+    "DeleteAppsListResponse"
+    "fixture/DeleteAppsListResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAppsList)
+
+responseDeleteNotificationChannel :: DeleteNotificationChannelResponse -> TestTree
+responseDeleteNotificationChannel =
+  res
+    "DeleteNotificationChannelResponse"
+    "fixture/DeleteNotificationChannelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteNotificationChannel)
+
+responseDeletePolicy :: DeletePolicyResponse -> TestTree
+responseDeletePolicy =
+  res
+    "DeletePolicyResponse"
+    "fixture/DeletePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeletePolicy)
+
+responseDeleteProtocolsList :: DeleteProtocolsListResponse -> TestTree
+responseDeleteProtocolsList =
+  res
+    "DeleteProtocolsListResponse"
+    "fixture/DeleteProtocolsListResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteProtocolsList)
+
+responseDisassociateAdminAccount :: DisassociateAdminAccountResponse -> TestTree
+responseDisassociateAdminAccount =
+  res
+    "DisassociateAdminAccountResponse"
+    "fixture/DisassociateAdminAccountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateAdminAccount)
+
+responseGetAdminAccount :: GetAdminAccountResponse -> TestTree
+responseGetAdminAccount =
+  res
+    "GetAdminAccountResponse"
+    "fixture/GetAdminAccountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAdminAccount)
+
+responseGetAppsList :: GetAppsListResponse -> TestTree
+responseGetAppsList =
+  res
+    "GetAppsListResponse"
+    "fixture/GetAppsListResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAppsList)
+
+responseGetComplianceDetail :: GetComplianceDetailResponse -> TestTree
+responseGetComplianceDetail =
+  res
+    "GetComplianceDetailResponse"
+    "fixture/GetComplianceDetailResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetComplianceDetail)
+
+responseGetNotificationChannel :: GetNotificationChannelResponse -> TestTree
+responseGetNotificationChannel =
+  res
+    "GetNotificationChannelResponse"
+    "fixture/GetNotificationChannelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetNotificationChannel)
+
+responseGetPolicy :: GetPolicyResponse -> TestTree
+responseGetPolicy =
+  res
+    "GetPolicyResponse"
+    "fixture/GetPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetPolicy)
+
+responseGetProtectionStatus :: GetProtectionStatusResponse -> TestTree
+responseGetProtectionStatus =
+  res
+    "GetProtectionStatusResponse"
+    "fixture/GetProtectionStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetProtectionStatus)
+
+responseGetProtocolsList :: GetProtocolsListResponse -> TestTree
+responseGetProtocolsList =
+  res
+    "GetProtocolsListResponse"
+    "fixture/GetProtocolsListResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetProtocolsList)
+
 responseGetViolationDetails :: GetViolationDetailsResponse -> TestTree
 responseGetViolationDetails =
   res
@@ -461,6 +461,22 @@ responseGetViolationDetails =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetViolationDetails)
 
+responseListAppsLists :: ListAppsListsResponse -> TestTree
+responseListAppsLists =
+  res
+    "ListAppsListsResponse"
+    "fixture/ListAppsListsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAppsLists)
+
+responseListComplianceStatus :: ListComplianceStatusResponse -> TestTree
+responseListComplianceStatus =
+  res
+    "ListComplianceStatusResponse"
+    "fixture/ListComplianceStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListComplianceStatus)
+
 responseListMemberAccounts :: ListMemberAccountsResponse -> TestTree
 responseListMemberAccounts =
   res
@@ -468,6 +484,62 @@ responseListMemberAccounts =
     "fixture/ListMemberAccountsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListMemberAccounts)
+
+responseListPolicies :: ListPoliciesResponse -> TestTree
+responseListPolicies =
+  res
+    "ListPoliciesResponse"
+    "fixture/ListPoliciesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListPolicies)
+
+responseListProtocolsLists :: ListProtocolsListsResponse -> TestTree
+responseListProtocolsLists =
+  res
+    "ListProtocolsListsResponse"
+    "fixture/ListProtocolsListsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListProtocolsLists)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responsePutAppsList :: PutAppsListResponse -> TestTree
+responsePutAppsList =
+  res
+    "PutAppsListResponse"
+    "fixture/PutAppsListResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutAppsList)
+
+responsePutNotificationChannel :: PutNotificationChannelResponse -> TestTree
+responsePutNotificationChannel =
+  res
+    "PutNotificationChannelResponse"
+    "fixture/PutNotificationChannelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutNotificationChannel)
+
+responsePutPolicy :: PutPolicyResponse -> TestTree
+responsePutPolicy =
+  res
+    "PutPolicyResponse"
+    "fixture/PutPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutPolicy)
+
+responsePutProtocolsList :: PutProtocolsListResponse -> TestTree
+responsePutProtocolsList =
+  res
+    "PutProtocolsListResponse"
+    "fixture/PutProtocolsListResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutProtocolsList)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -484,75 +556,3 @@ responseUntagResource =
     "fixture/UntagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
-
-responseDeleteProtocolsList :: DeleteProtocolsListResponse -> TestTree
-responseDeleteProtocolsList =
-  res
-    "DeleteProtocolsListResponse"
-    "fixture/DeleteProtocolsListResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteProtocolsList)
-
-responseGetPolicy :: GetPolicyResponse -> TestTree
-responseGetPolicy =
-  res
-    "GetPolicyResponse"
-    "fixture/GetPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetPolicy)
-
-responseListProtocolsLists :: ListProtocolsListsResponse -> TestTree
-responseListProtocolsLists =
-  res
-    "ListProtocolsListsResponse"
-    "fixture/ListProtocolsListsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListProtocolsLists)
-
-responsePutProtocolsList :: PutProtocolsListResponse -> TestTree
-responsePutProtocolsList =
-  res
-    "PutProtocolsListResponse"
-    "fixture/PutProtocolsListResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutProtocolsList)
-
-responsePutAppsList :: PutAppsListResponse -> TestTree
-responsePutAppsList =
-  res
-    "PutAppsListResponse"
-    "fixture/PutAppsListResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutAppsList)
-
-responseDeleteAppsList :: DeleteAppsListResponse -> TestTree
-responseDeleteAppsList =
-  res
-    "DeleteAppsListResponse"
-    "fixture/DeleteAppsListResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteAppsList)
-
-responseListAppsLists :: ListAppsListsResponse -> TestTree
-responseListAppsLists =
-  res
-    "ListAppsListsResponse"
-    "fixture/ListAppsListsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAppsLists)
-
-responseGetProtocolsList :: GetProtocolsListResponse -> TestTree
-responseGetProtocolsList =
-  res
-    "GetProtocolsListResponse"
-    "fixture/GetProtocolsListResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetProtocolsList)
-
-responseGetProtectionStatus :: GetProtectionStatusResponse -> TestTree
-responseGetProtectionStatus =
-  res
-    "GetProtectionStatusResponse"
-    "fixture/GetProtectionStatusResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetProtectionStatus)

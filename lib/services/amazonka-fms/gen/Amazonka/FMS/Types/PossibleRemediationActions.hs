@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPossibleRemediationActions' smart constructor.
 data PossibleRemediationActions = PossibleRemediationActions'
-  { -- | Information about the actions.
-    actions :: Prelude.Maybe [PossibleRemediationAction],
-    -- | A description of the possible remediation actions list.
-    description :: Prelude.Maybe Prelude.Text
+  { -- | A description of the possible remediation actions list.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Information about the actions.
+    actions :: Prelude.Maybe [PossibleRemediationAction]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data PossibleRemediationActions = PossibleRemediationActions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'actions', 'possibleRemediationActions_actions' - Information about the actions.
---
 -- 'description', 'possibleRemediationActions_description' - A description of the possible remediation actions list.
+--
+-- 'actions', 'possibleRemediationActions_actions' - Information about the actions.
 newPossibleRemediationActions ::
   PossibleRemediationActions
 newPossibleRemediationActions =
   PossibleRemediationActions'
-    { actions =
+    { description =
         Prelude.Nothing,
-      description = Prelude.Nothing
+      actions = Prelude.Nothing
     }
-
--- | Information about the actions.
-possibleRemediationActions_actions :: Lens.Lens' PossibleRemediationActions (Prelude.Maybe [PossibleRemediationAction])
-possibleRemediationActions_actions = Lens.lens (\PossibleRemediationActions' {actions} -> actions) (\s@PossibleRemediationActions' {} a -> s {actions = a} :: PossibleRemediationActions) Prelude.. Lens.mapping Lens.coerced
 
 -- | A description of the possible remediation actions list.
 possibleRemediationActions_description :: Lens.Lens' PossibleRemediationActions (Prelude.Maybe Prelude.Text)
 possibleRemediationActions_description = Lens.lens (\PossibleRemediationActions' {description} -> description) (\s@PossibleRemediationActions' {} a -> s {description = a} :: PossibleRemediationActions)
+
+-- | Information about the actions.
+possibleRemediationActions_actions :: Lens.Lens' PossibleRemediationActions (Prelude.Maybe [PossibleRemediationAction])
+possibleRemediationActions_actions = Lens.lens (\PossibleRemediationActions' {actions} -> actions) (\s@PossibleRemediationActions' {} a -> s {actions = a} :: PossibleRemediationActions) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON PossibleRemediationActions where
   parseJSON =
@@ -70,16 +70,16 @@ instance Core.FromJSON PossibleRemediationActions where
       "PossibleRemediationActions"
       ( \x ->
           PossibleRemediationActions'
-            Prelude.<$> (x Core..:? "Actions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "Actions" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable PossibleRemediationActions where
   hashWithSalt _salt PossibleRemediationActions' {..} =
-    _salt `Prelude.hashWithSalt` actions
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` actions
 
 instance Prelude.NFData PossibleRemediationActions where
   rnf PossibleRemediationActions' {..} =
-    Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf actions

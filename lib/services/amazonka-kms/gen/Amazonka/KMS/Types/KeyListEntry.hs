@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newKeyListEntry' smart constructor.
 data KeyListEntry = KeyListEntry'
-  { -- | Unique identifier of the key.
-    keyId :: Prelude.Maybe Prelude.Text,
-    -- | ARN of the key.
-    keyArn :: Prelude.Maybe Prelude.Text
+  { -- | ARN of the key.
+    keyArn :: Prelude.Maybe Prelude.Text,
+    -- | Unique identifier of the key.
+    keyId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data KeyListEntry = KeyListEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyId', 'keyListEntry_keyId' - Unique identifier of the key.
---
 -- 'keyArn', 'keyListEntry_keyArn' - ARN of the key.
+--
+-- 'keyId', 'keyListEntry_keyId' - Unique identifier of the key.
 newKeyListEntry ::
   KeyListEntry
 newKeyListEntry =
   KeyListEntry'
-    { keyId = Prelude.Nothing,
-      keyArn = Prelude.Nothing
+    { keyArn = Prelude.Nothing,
+      keyId = Prelude.Nothing
     }
-
--- | Unique identifier of the key.
-keyListEntry_keyId :: Lens.Lens' KeyListEntry (Prelude.Maybe Prelude.Text)
-keyListEntry_keyId = Lens.lens (\KeyListEntry' {keyId} -> keyId) (\s@KeyListEntry' {} a -> s {keyId = a} :: KeyListEntry)
 
 -- | ARN of the key.
 keyListEntry_keyArn :: Lens.Lens' KeyListEntry (Prelude.Maybe Prelude.Text)
 keyListEntry_keyArn = Lens.lens (\KeyListEntry' {keyArn} -> keyArn) (\s@KeyListEntry' {} a -> s {keyArn = a} :: KeyListEntry)
+
+-- | Unique identifier of the key.
+keyListEntry_keyId :: Lens.Lens' KeyListEntry (Prelude.Maybe Prelude.Text)
+keyListEntry_keyId = Lens.lens (\KeyListEntry' {keyId} -> keyId) (\s@KeyListEntry' {} a -> s {keyId = a} :: KeyListEntry)
 
 instance Core.FromJSON KeyListEntry where
   parseJSON =
@@ -67,15 +67,15 @@ instance Core.FromJSON KeyListEntry where
       "KeyListEntry"
       ( \x ->
           KeyListEntry'
-            Prelude.<$> (x Core..:? "KeyId")
-            Prelude.<*> (x Core..:? "KeyArn")
+            Prelude.<$> (x Core..:? "KeyArn")
+            Prelude.<*> (x Core..:? "KeyId")
       )
 
 instance Prelude.Hashable KeyListEntry where
   hashWithSalt _salt KeyListEntry' {..} =
-    _salt `Prelude.hashWithSalt` keyId
-      `Prelude.hashWithSalt` keyArn
+    _salt `Prelude.hashWithSalt` keyArn
+      `Prelude.hashWithSalt` keyId
 
 instance Prelude.NFData KeyListEntry where
   rnf KeyListEntry' {..} =
-    Prelude.rnf keyId `Prelude.seq` Prelude.rnf keyArn
+    Prelude.rnf keyArn `Prelude.seq` Prelude.rnf keyId

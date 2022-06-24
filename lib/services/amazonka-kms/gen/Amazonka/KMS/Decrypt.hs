@@ -107,10 +107,10 @@ module Amazonka.KMS.Decrypt
     newDecrypt,
 
     -- * Request Lenses
+    decrypt_encryptionAlgorithm,
+    decrypt_grantTokens,
     decrypt_keyId,
     decrypt_encryptionContext,
-    decrypt_grantTokens,
-    decrypt_encryptionAlgorithm,
     decrypt_ciphertextBlob,
 
     -- * Destructuring the Response
@@ -118,9 +118,9 @@ module Amazonka.KMS.Decrypt
     newDecryptResponse,
 
     -- * Response Lenses
-    decryptResponse_keyId,
-    decryptResponse_plaintext,
     decryptResponse_encryptionAlgorithm,
+    decryptResponse_plaintext,
+    decryptResponse_keyId,
     decryptResponse_httpStatus,
   )
 where
@@ -134,7 +134,27 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDecrypt' smart constructor.
 data Decrypt = Decrypt'
-  { -- | Specifies the KMS key that KMS uses to decrypt the ciphertext. Enter a
+  { -- | Specifies the encryption algorithm that will be used to decrypt the
+    -- ciphertext. Specify the same algorithm that was used to encrypt the
+    -- data. If you specify a different algorithm, the @Decrypt@ operation
+    -- fails.
+    --
+    -- This parameter is required only when the ciphertext was encrypted under
+    -- an asymmetric KMS key. The default value, @SYMMETRIC_DEFAULT@,
+    -- represents the only supported algorithm that is valid for symmetric KMS
+    -- keys.
+    encryptionAlgorithm :: Prelude.Maybe EncryptionAlgorithmSpec,
+    -- | A list of grant tokens.
+    --
+    -- Use a grant token when your permission to call this operation comes from
+    -- a new grant that has not yet achieved /eventual consistency/. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
+    -- and
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
+    -- in the /Key Management Service Developer Guide/.
+    grantTokens :: Prelude.Maybe [Prelude.Text],
+    -- | Specifies the KMS key that KMS uses to decrypt the ciphertext. Enter a
     -- key ID of the KMS key that was used to encrypt the ciphertext.
     --
     -- This parameter is required only when the ciphertext was encrypted under
@@ -179,26 +199,6 @@ data Decrypt = Decrypt'
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
     -- in the /Key Management Service Developer Guide/.
     encryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A list of grant tokens.
-    --
-    -- Use a grant token when your permission to call this operation comes from
-    -- a new grant that has not yet achieved /eventual consistency/. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
-    -- and
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
-    -- in the /Key Management Service Developer Guide/.
-    grantTokens :: Prelude.Maybe [Prelude.Text],
-    -- | Specifies the encryption algorithm that will be used to decrypt the
-    -- ciphertext. Specify the same algorithm that was used to encrypt the
-    -- data. If you specify a different algorithm, the @Decrypt@ operation
-    -- fails.
-    --
-    -- This parameter is required only when the ciphertext was encrypted under
-    -- an asymmetric KMS key. The default value, @SYMMETRIC_DEFAULT@,
-    -- represents the only supported algorithm that is valid for symmetric KMS
-    -- keys.
-    encryptionAlgorithm :: Prelude.Maybe EncryptionAlgorithmSpec,
     -- | Ciphertext to be decrypted. The blob includes metadata.
     ciphertextBlob :: Core.Base64
   }
@@ -211,6 +211,26 @@ data Decrypt = Decrypt'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'encryptionAlgorithm', 'decrypt_encryptionAlgorithm' - Specifies the encryption algorithm that will be used to decrypt the
+-- ciphertext. Specify the same algorithm that was used to encrypt the
+-- data. If you specify a different algorithm, the @Decrypt@ operation
+-- fails.
+--
+-- This parameter is required only when the ciphertext was encrypted under
+-- an asymmetric KMS key. The default value, @SYMMETRIC_DEFAULT@,
+-- represents the only supported algorithm that is valid for symmetric KMS
+-- keys.
+--
+-- 'grantTokens', 'decrypt_grantTokens' - A list of grant tokens.
+--
+-- Use a grant token when your permission to call this operation comes from
+-- a new grant that has not yet achieved /eventual consistency/. For more
+-- information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
+-- and
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
+-- in the /Key Management Service Developer Guide/.
 --
 -- 'keyId', 'decrypt_keyId' - Specifies the KMS key that KMS uses to decrypt the ciphertext. Enter a
 -- key ID of the KMS key that was used to encrypt the ciphertext.
@@ -257,26 +277,6 @@ data Decrypt = Decrypt'
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
 -- in the /Key Management Service Developer Guide/.
 --
--- 'grantTokens', 'decrypt_grantTokens' - A list of grant tokens.
---
--- Use a grant token when your permission to call this operation comes from
--- a new grant that has not yet achieved /eventual consistency/. For more
--- information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
--- and
--- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
--- in the /Key Management Service Developer Guide/.
---
--- 'encryptionAlgorithm', 'decrypt_encryptionAlgorithm' - Specifies the encryption algorithm that will be used to decrypt the
--- ciphertext. Specify the same algorithm that was used to encrypt the
--- data. If you specify a different algorithm, the @Decrypt@ operation
--- fails.
---
--- This parameter is required only when the ciphertext was encrypted under
--- an asymmetric KMS key. The default value, @SYMMETRIC_DEFAULT@,
--- represents the only supported algorithm that is valid for symmetric KMS
--- keys.
---
 -- 'ciphertextBlob', 'decrypt_ciphertextBlob' - Ciphertext to be decrypted. The blob includes metadata.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
@@ -288,13 +288,37 @@ newDecrypt ::
   Decrypt
 newDecrypt pCiphertextBlob_ =
   Decrypt'
-    { keyId = Prelude.Nothing,
-      encryptionContext = Prelude.Nothing,
+    { encryptionAlgorithm = Prelude.Nothing,
       grantTokens = Prelude.Nothing,
-      encryptionAlgorithm = Prelude.Nothing,
+      keyId = Prelude.Nothing,
+      encryptionContext = Prelude.Nothing,
       ciphertextBlob =
         Core._Base64 Lens.# pCiphertextBlob_
     }
+
+-- | Specifies the encryption algorithm that will be used to decrypt the
+-- ciphertext. Specify the same algorithm that was used to encrypt the
+-- data. If you specify a different algorithm, the @Decrypt@ operation
+-- fails.
+--
+-- This parameter is required only when the ciphertext was encrypted under
+-- an asymmetric KMS key. The default value, @SYMMETRIC_DEFAULT@,
+-- represents the only supported algorithm that is valid for symmetric KMS
+-- keys.
+decrypt_encryptionAlgorithm :: Lens.Lens' Decrypt (Prelude.Maybe EncryptionAlgorithmSpec)
+decrypt_encryptionAlgorithm = Lens.lens (\Decrypt' {encryptionAlgorithm} -> encryptionAlgorithm) (\s@Decrypt' {} a -> s {encryptionAlgorithm = a} :: Decrypt)
+
+-- | A list of grant tokens.
+--
+-- Use a grant token when your permission to call this operation comes from
+-- a new grant that has not yet achieved /eventual consistency/. For more
+-- information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
+-- and
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
+-- in the /Key Management Service Developer Guide/.
+decrypt_grantTokens :: Lens.Lens' Decrypt (Prelude.Maybe [Prelude.Text])
+decrypt_grantTokens = Lens.lens (\Decrypt' {grantTokens} -> grantTokens) (\s@Decrypt' {} a -> s {grantTokens = a} :: Decrypt) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the KMS key that KMS uses to decrypt the ciphertext. Enter a
 -- key ID of the KMS key that was used to encrypt the ciphertext.
@@ -345,30 +369,6 @@ decrypt_keyId = Lens.lens (\Decrypt' {keyId} -> keyId) (\s@Decrypt' {} a -> s {k
 decrypt_encryptionContext :: Lens.Lens' Decrypt (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 decrypt_encryptionContext = Lens.lens (\Decrypt' {encryptionContext} -> encryptionContext) (\s@Decrypt' {} a -> s {encryptionContext = a} :: Decrypt) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of grant tokens.
---
--- Use a grant token when your permission to call this operation comes from
--- a new grant that has not yet achieved /eventual consistency/. For more
--- information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
--- and
--- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
--- in the /Key Management Service Developer Guide/.
-decrypt_grantTokens :: Lens.Lens' Decrypt (Prelude.Maybe [Prelude.Text])
-decrypt_grantTokens = Lens.lens (\Decrypt' {grantTokens} -> grantTokens) (\s@Decrypt' {} a -> s {grantTokens = a} :: Decrypt) Prelude.. Lens.mapping Lens.coerced
-
--- | Specifies the encryption algorithm that will be used to decrypt the
--- ciphertext. Specify the same algorithm that was used to encrypt the
--- data. If you specify a different algorithm, the @Decrypt@ operation
--- fails.
---
--- This parameter is required only when the ciphertext was encrypted under
--- an asymmetric KMS key. The default value, @SYMMETRIC_DEFAULT@,
--- represents the only supported algorithm that is valid for symmetric KMS
--- keys.
-decrypt_encryptionAlgorithm :: Lens.Lens' Decrypt (Prelude.Maybe EncryptionAlgorithmSpec)
-decrypt_encryptionAlgorithm = Lens.lens (\Decrypt' {encryptionAlgorithm} -> encryptionAlgorithm) (\s@Decrypt' {} a -> s {encryptionAlgorithm = a} :: Decrypt)
-
 -- | Ciphertext to be decrypted. The blob includes metadata.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
@@ -384,26 +384,26 @@ instance Core.AWSRequest Decrypt where
     Response.receiveJSON
       ( \s h x ->
           DecryptResponse'
-            Prelude.<$> (x Core..?> "KeyId")
+            Prelude.<$> (x Core..?> "EncryptionAlgorithm")
             Prelude.<*> (x Core..?> "Plaintext")
-            Prelude.<*> (x Core..?> "EncryptionAlgorithm")
+            Prelude.<*> (x Core..?> "KeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable Decrypt where
   hashWithSalt _salt Decrypt' {..} =
-    _salt `Prelude.hashWithSalt` keyId
-      `Prelude.hashWithSalt` encryptionContext
+    _salt `Prelude.hashWithSalt` encryptionAlgorithm
       `Prelude.hashWithSalt` grantTokens
-      `Prelude.hashWithSalt` encryptionAlgorithm
+      `Prelude.hashWithSalt` keyId
+      `Prelude.hashWithSalt` encryptionContext
       `Prelude.hashWithSalt` ciphertextBlob
 
 instance Prelude.NFData Decrypt where
   rnf Decrypt' {..} =
-    Prelude.rnf keyId
-      `Prelude.seq` Prelude.rnf encryptionContext
+    Prelude.rnf encryptionAlgorithm
       `Prelude.seq` Prelude.rnf grantTokens
-      `Prelude.seq` Prelude.rnf encryptionAlgorithm
+      `Prelude.seq` Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf encryptionContext
       `Prelude.seq` Prelude.rnf ciphertextBlob
 
 instance Core.ToHeaders Decrypt where
@@ -423,12 +423,12 @@ instance Core.ToJSON Decrypt where
   toJSON Decrypt' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("KeyId" Core..=) Prelude.<$> keyId,
+          [ ("EncryptionAlgorithm" Core..=)
+              Prelude.<$> encryptionAlgorithm,
+            ("GrantTokens" Core..=) Prelude.<$> grantTokens,
+            ("KeyId" Core..=) Prelude.<$> keyId,
             ("EncryptionContext" Core..=)
               Prelude.<$> encryptionContext,
-            ("GrantTokens" Core..=) Prelude.<$> grantTokens,
-            ("EncryptionAlgorithm" Core..=)
-              Prelude.<$> encryptionAlgorithm,
             Prelude.Just
               ("CiphertextBlob" Core..= ciphertextBlob)
           ]
@@ -442,16 +442,16 @@ instance Core.ToQuery Decrypt where
 
 -- | /See:/ 'newDecryptResponse' smart constructor.
 data DecryptResponse = DecryptResponse'
-  { -- | The Amazon Resource Name
-    -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
-    -- of the KMS key that was used to decrypt the ciphertext.
-    keyId :: Prelude.Maybe Prelude.Text,
+  { -- | The encryption algorithm that was used to decrypt the ciphertext.
+    encryptionAlgorithm :: Prelude.Maybe EncryptionAlgorithmSpec,
     -- | Decrypted plaintext data. When you use the HTTP API or the Amazon Web
     -- Services CLI, the value is Base64-encoded. Otherwise, it is not
     -- Base64-encoded.
     plaintext :: Prelude.Maybe (Core.Sensitive Core.Base64),
-    -- | The encryption algorithm that was used to decrypt the ciphertext.
-    encryptionAlgorithm :: Prelude.Maybe EncryptionAlgorithmSpec,
+    -- | The Amazon Resource Name
+    -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
+    -- of the KMS key that was used to decrypt the ciphertext.
+    keyId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -465,9 +465,7 @@ data DecryptResponse = DecryptResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyId', 'decryptResponse_keyId' - The Amazon Resource Name
--- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
--- of the KMS key that was used to decrypt the ciphertext.
+-- 'encryptionAlgorithm', 'decryptResponse_encryptionAlgorithm' - The encryption algorithm that was used to decrypt the ciphertext.
 --
 -- 'plaintext', 'decryptResponse_plaintext' - Decrypted plaintext data. When you use the HTTP API or the Amazon Web
 -- Services CLI, the value is Base64-encoded. Otherwise, it is not
@@ -477,7 +475,9 @@ data DecryptResponse = DecryptResponse'
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
--- 'encryptionAlgorithm', 'decryptResponse_encryptionAlgorithm' - The encryption algorithm that was used to decrypt the ciphertext.
+-- 'keyId', 'decryptResponse_keyId' - The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
+-- of the KMS key that was used to decrypt the ciphertext.
 --
 -- 'httpStatus', 'decryptResponse_httpStatus' - The response's http status code.
 newDecryptResponse ::
@@ -486,17 +486,16 @@ newDecryptResponse ::
   DecryptResponse
 newDecryptResponse pHttpStatus_ =
   DecryptResponse'
-    { keyId = Prelude.Nothing,
+    { encryptionAlgorithm =
+        Prelude.Nothing,
       plaintext = Prelude.Nothing,
-      encryptionAlgorithm = Prelude.Nothing,
+      keyId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The Amazon Resource Name
--- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
--- of the KMS key that was used to decrypt the ciphertext.
-decryptResponse_keyId :: Lens.Lens' DecryptResponse (Prelude.Maybe Prelude.Text)
-decryptResponse_keyId = Lens.lens (\DecryptResponse' {keyId} -> keyId) (\s@DecryptResponse' {} a -> s {keyId = a} :: DecryptResponse)
+-- | The encryption algorithm that was used to decrypt the ciphertext.
+decryptResponse_encryptionAlgorithm :: Lens.Lens' DecryptResponse (Prelude.Maybe EncryptionAlgorithmSpec)
+decryptResponse_encryptionAlgorithm = Lens.lens (\DecryptResponse' {encryptionAlgorithm} -> encryptionAlgorithm) (\s@DecryptResponse' {} a -> s {encryptionAlgorithm = a} :: DecryptResponse)
 
 -- | Decrypted plaintext data. When you use the HTTP API or the Amazon Web
 -- Services CLI, the value is Base64-encoded. Otherwise, it is not
@@ -508,9 +507,11 @@ decryptResponse_keyId = Lens.lens (\DecryptResponse' {keyId} -> keyId) (\s@Decry
 decryptResponse_plaintext :: Lens.Lens' DecryptResponse (Prelude.Maybe Prelude.ByteString)
 decryptResponse_plaintext = Lens.lens (\DecryptResponse' {plaintext} -> plaintext) (\s@DecryptResponse' {} a -> s {plaintext = a} :: DecryptResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
 
--- | The encryption algorithm that was used to decrypt the ciphertext.
-decryptResponse_encryptionAlgorithm :: Lens.Lens' DecryptResponse (Prelude.Maybe EncryptionAlgorithmSpec)
-decryptResponse_encryptionAlgorithm = Lens.lens (\DecryptResponse' {encryptionAlgorithm} -> encryptionAlgorithm) (\s@DecryptResponse' {} a -> s {encryptionAlgorithm = a} :: DecryptResponse)
+-- | The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
+-- of the KMS key that was used to decrypt the ciphertext.
+decryptResponse_keyId :: Lens.Lens' DecryptResponse (Prelude.Maybe Prelude.Text)
+decryptResponse_keyId = Lens.lens (\DecryptResponse' {keyId} -> keyId) (\s@DecryptResponse' {} a -> s {keyId = a} :: DecryptResponse)
 
 -- | The response's http status code.
 decryptResponse_httpStatus :: Lens.Lens' DecryptResponse Prelude.Int
@@ -518,7 +519,7 @@ decryptResponse_httpStatus = Lens.lens (\DecryptResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData DecryptResponse where
   rnf DecryptResponse' {..} =
-    Prelude.rnf keyId
+    Prelude.rnf encryptionAlgorithm
       `Prelude.seq` Prelude.rnf plaintext
-      `Prelude.seq` Prelude.rnf encryptionAlgorithm
+      `Prelude.seq` Prelude.rnf keyId
       `Prelude.seq` Prelude.rnf httpStatus

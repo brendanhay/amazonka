@@ -14,16 +14,18 @@
 module Amazonka.KMS.Lens
   ( -- * Operations
 
-    -- ** Encrypt
-    encrypt_encryptionContext,
-    encrypt_grantTokens,
-    encrypt_encryptionAlgorithm,
-    encrypt_keyId,
-    encrypt_plaintext,
-    encryptResponse_keyId,
-    encryptResponse_encryptionAlgorithm,
-    encryptResponse_ciphertextBlob,
-    encryptResponse_httpStatus,
+    -- ** CancelKeyDeletion
+    cancelKeyDeletion_keyId,
+    cancelKeyDeletionResponse_keyId,
+    cancelKeyDeletionResponse_httpStatus,
+
+    -- ** ConnectCustomKeyStore
+    connectCustomKeyStore_customKeyStoreId,
+    connectCustomKeyStoreResponse_httpStatus,
+
+    -- ** CreateAlias
+    createAlias_aliasName,
+    createAlias_targetKeyId,
 
     -- ** CreateCustomKeyStore
     createCustomKeyStore_customKeyStoreName,
@@ -33,189 +35,62 @@ module Amazonka.KMS.Lens
     createCustomKeyStoreResponse_customKeyStoreId,
     createCustomKeyStoreResponse_httpStatus,
 
-    -- ** ListGrants
-    listGrants_grantId,
-    listGrants_granteePrincipal,
-    listGrants_marker,
-    listGrants_limit,
-    listGrants_keyId,
-    listGrantsResponse_truncated,
-    listGrantsResponse_grants,
-    listGrantsResponse_nextMarker,
+    -- ** CreateGrant
+    createGrant_name,
+    createGrant_constraints,
+    createGrant_retiringPrincipal,
+    createGrant_grantTokens,
+    createGrant_keyId,
+    createGrant_granteePrincipal,
+    createGrant_operations,
+    createGrantResponse_grantToken,
+    createGrantResponse_grantId,
+    createGrantResponse_httpStatus,
 
-    -- ** DisableKeyRotation
-    disableKeyRotation_keyId,
+    -- ** CreateKey
+    createKey_tags,
+    createKey_policy,
+    createKey_customKeyStoreId,
+    createKey_customerMasterKeySpec,
+    createKey_keyUsage,
+    createKey_description,
+    createKey_multiRegion,
+    createKey_keySpec,
+    createKey_bypassPolicyLockoutSafetyCheck,
+    createKey_origin,
+    createKeyResponse_keyMetadata,
+    createKeyResponse_httpStatus,
 
-    -- ** Verify
-    verify_messageType,
-    verify_grantTokens,
-    verify_keyId,
-    verify_message,
-    verify_signature,
-    verify_signingAlgorithm,
-    verifyResponse_signingAlgorithm,
-    verifyResponse_signatureValid,
-    verifyResponse_keyId,
-    verifyResponse_httpStatus,
+    -- ** Decrypt
+    decrypt_encryptionAlgorithm,
+    decrypt_grantTokens,
+    decrypt_keyId,
+    decrypt_encryptionContext,
+    decrypt_ciphertextBlob,
+    decryptResponse_encryptionAlgorithm,
+    decryptResponse_plaintext,
+    decryptResponse_keyId,
+    decryptResponse_httpStatus,
 
-    -- ** GenerateDataKeyWithoutPlaintext
-    generateDataKeyWithoutPlaintext_keySpec,
-    generateDataKeyWithoutPlaintext_encryptionContext,
-    generateDataKeyWithoutPlaintext_numberOfBytes,
-    generateDataKeyWithoutPlaintext_grantTokens,
-    generateDataKeyWithoutPlaintext_keyId,
-    generateDataKeyWithoutPlaintextResponse_keyId,
-    generateDataKeyWithoutPlaintextResponse_ciphertextBlob,
-    generateDataKeyWithoutPlaintextResponse_httpStatus,
-
-    -- ** UpdateCustomKeyStore
-    updateCustomKeyStore_keyStorePassword,
-    updateCustomKeyStore_cloudHsmClusterId,
-    updateCustomKeyStore_newCustomKeyStoreName,
-    updateCustomKeyStore_customKeyStoreId,
-    updateCustomKeyStoreResponse_httpStatus,
-
-    -- ** GetParametersForImport
-    getParametersForImport_keyId,
-    getParametersForImport_wrappingAlgorithm,
-    getParametersForImport_wrappingKeySpec,
-    getParametersForImportResponse_keyId,
-    getParametersForImportResponse_publicKey,
-    getParametersForImportResponse_parametersValidTo,
-    getParametersForImportResponse_importToken,
-    getParametersForImportResponse_httpStatus,
-
-    -- ** EnableKeyRotation
-    enableKeyRotation_keyId,
+    -- ** DeleteAlias
+    deleteAlias_aliasName,
 
     -- ** DeleteCustomKeyStore
     deleteCustomKeyStore_customKeyStoreId,
     deleteCustomKeyStoreResponse_httpStatus,
 
-    -- ** CreateAlias
-    createAlias_aliasName,
-    createAlias_targetKeyId,
+    -- ** DeleteImportedKeyMaterial
+    deleteImportedKeyMaterial_keyId,
 
-    -- ** CreateGrant
-    createGrant_retiringPrincipal,
-    createGrant_grantTokens,
-    createGrant_constraints,
-    createGrant_name,
-    createGrant_keyId,
-    createGrant_granteePrincipal,
-    createGrant_operations,
-    createGrantResponse_grantId,
-    createGrantResponse_grantToken,
-    createGrantResponse_httpStatus,
-
-    -- ** ListAliases
-    listAliases_keyId,
-    listAliases_marker,
-    listAliases_limit,
-    listAliasesResponse_truncated,
-    listAliasesResponse_aliases,
-    listAliasesResponse_nextMarker,
-    listAliasesResponse_httpStatus,
-
-    -- ** UpdatePrimaryRegion
-    updatePrimaryRegion_keyId,
-    updatePrimaryRegion_primaryRegion,
-
-    -- ** ConnectCustomKeyStore
-    connectCustomKeyStore_customKeyStoreId,
-    connectCustomKeyStoreResponse_httpStatus,
-
-    -- ** ListRetirableGrants
-    listRetirableGrants_marker,
-    listRetirableGrants_limit,
-    listRetirableGrants_retiringPrincipal,
-    listGrantsResponse_truncated,
-    listGrantsResponse_grants,
-    listGrantsResponse_nextMarker,
-
-    -- ** GetPublicKey
-    getPublicKey_grantTokens,
-    getPublicKey_keyId,
-    getPublicKeyResponse_keySpec,
-    getPublicKeyResponse_keyId,
-    getPublicKeyResponse_customerMasterKeySpec,
-    getPublicKeyResponse_encryptionAlgorithms,
-    getPublicKeyResponse_publicKey,
-    getPublicKeyResponse_signingAlgorithms,
-    getPublicKeyResponse_keyUsage,
-    getPublicKeyResponse_httpStatus,
-
-    -- ** GenerateRandom
-    generateRandom_numberOfBytes,
-    generateRandom_customKeyStoreId,
-    generateRandomResponse_plaintext,
-    generateRandomResponse_httpStatus,
-
-    -- ** CreateKey
-    createKey_origin,
-    createKey_keySpec,
-    createKey_customerMasterKeySpec,
-    createKey_keyUsage,
-    createKey_bypassPolicyLockoutSafetyCheck,
-    createKey_policy,
-    createKey_description,
-    createKey_customKeyStoreId,
-    createKey_tags,
-    createKey_multiRegion,
-    createKeyResponse_keyMetadata,
-    createKeyResponse_httpStatus,
-
-    -- ** DisableKey
-    disableKey_keyId,
-
-    -- ** DisconnectCustomKeyStore
-    disconnectCustomKeyStore_customKeyStoreId,
-    disconnectCustomKeyStoreResponse_httpStatus,
-
-    -- ** RetireGrant
-    retireGrant_keyId,
-    retireGrant_grantId,
-    retireGrant_grantToken,
-
-    -- ** ListKeys
-    listKeys_marker,
-    listKeys_limit,
-    listKeysResponse_truncated,
-    listKeysResponse_keys,
-    listKeysResponse_nextMarker,
-    listKeysResponse_httpStatus,
-
-    -- ** ListResourceTags
-    listResourceTags_marker,
-    listResourceTags_limit,
-    listResourceTags_keyId,
-    listResourceTagsResponse_truncated,
-    listResourceTagsResponse_nextMarker,
-    listResourceTagsResponse_tags,
-    listResourceTagsResponse_httpStatus,
-
-    -- ** GetKeyRotationStatus
-    getKeyRotationStatus_keyId,
-    getKeyRotationStatusResponse_keyRotationEnabled,
-    getKeyRotationStatusResponse_httpStatus,
-
-    -- ** GenerateDataKey
-    generateDataKey_keySpec,
-    generateDataKey_encryptionContext,
-    generateDataKey_numberOfBytes,
-    generateDataKey_grantTokens,
-    generateDataKey_keyId,
-    generateDataKeyResponse_httpStatus,
-    generateDataKeyResponse_keyId,
-    generateDataKeyResponse_plaintext,
-    generateDataKeyResponse_ciphertextBlob,
-
-    -- ** DeleteAlias
-    deleteAlias_aliasName,
-
-    -- ** UpdateAlias
-    updateAlias_aliasName,
-    updateAlias_targetKeyId,
+    -- ** DescribeCustomKeyStores
+    describeCustomKeyStores_marker,
+    describeCustomKeyStores_customKeyStoreId,
+    describeCustomKeyStores_limit,
+    describeCustomKeyStores_customKeyStoreName,
+    describeCustomKeyStoresResponse_truncated,
+    describeCustomKeyStoresResponse_customKeyStores,
+    describeCustomKeyStoresResponse_nextMarker,
+    describeCustomKeyStoresResponse_httpStatus,
 
     -- ** DescribeKey
     describeKey_grantTokens,
@@ -223,142 +98,115 @@ module Amazonka.KMS.Lens
     describeKeyResponse_keyMetadata,
     describeKeyResponse_httpStatus,
 
-    -- ** DescribeCustomKeyStores
-    describeCustomKeyStores_customKeyStoreName,
-    describeCustomKeyStores_marker,
-    describeCustomKeyStores_limit,
-    describeCustomKeyStores_customKeyStoreId,
-    describeCustomKeyStoresResponse_truncated,
-    describeCustomKeyStoresResponse_nextMarker,
-    describeCustomKeyStoresResponse_customKeyStores,
-    describeCustomKeyStoresResponse_httpStatus,
+    -- ** DisableKey
+    disableKey_keyId,
 
-    -- ** CancelKeyDeletion
-    cancelKeyDeletion_keyId,
-    cancelKeyDeletionResponse_keyId,
-    cancelKeyDeletionResponse_httpStatus,
+    -- ** DisableKeyRotation
+    disableKeyRotation_keyId,
 
-    -- ** Decrypt
-    decrypt_keyId,
-    decrypt_encryptionContext,
-    decrypt_grantTokens,
-    decrypt_encryptionAlgorithm,
-    decrypt_ciphertextBlob,
-    decryptResponse_keyId,
-    decryptResponse_plaintext,
-    decryptResponse_encryptionAlgorithm,
-    decryptResponse_httpStatus,
-
-    -- ** GenerateDataKeyPairWithoutPlaintext
-    generateDataKeyPairWithoutPlaintext_encryptionContext,
-    generateDataKeyPairWithoutPlaintext_grantTokens,
-    generateDataKeyPairWithoutPlaintext_keyId,
-    generateDataKeyPairWithoutPlaintext_keyPairSpec,
-    generateDataKeyPairWithoutPlaintextResponse_keyId,
-    generateDataKeyPairWithoutPlaintextResponse_publicKey,
-    generateDataKeyPairWithoutPlaintextResponse_keyPairSpec,
-    generateDataKeyPairWithoutPlaintextResponse_privateKeyCiphertextBlob,
-    generateDataKeyPairWithoutPlaintextResponse_httpStatus,
-
-    -- ** UpdateKeyDescription
-    updateKeyDescription_keyId,
-    updateKeyDescription_description,
-
-    -- ** ReEncrypt
-    reEncrypt_destinationEncryptionContext,
-    reEncrypt_sourceKeyId,
-    reEncrypt_sourceEncryptionContext,
-    reEncrypt_grantTokens,
-    reEncrypt_destinationEncryptionAlgorithm,
-    reEncrypt_sourceEncryptionAlgorithm,
-    reEncrypt_ciphertextBlob,
-    reEncrypt_destinationKeyId,
-    reEncryptResponse_sourceKeyId,
-    reEncryptResponse_keyId,
-    reEncryptResponse_destinationEncryptionAlgorithm,
-    reEncryptResponse_sourceEncryptionAlgorithm,
-    reEncryptResponse_ciphertextBlob,
-    reEncryptResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_keyId,
-    tagResource_tags,
-
-    -- ** ListKeyPolicies
-    listKeyPolicies_marker,
-    listKeyPolicies_limit,
-    listKeyPolicies_keyId,
-    listKeyPoliciesResponse_policyNames,
-    listKeyPoliciesResponse_truncated,
-    listKeyPoliciesResponse_nextMarker,
-    listKeyPoliciesResponse_httpStatus,
-
-    -- ** UntagResource
-    untagResource_keyId,
-    untagResource_tagKeys,
-
-    -- ** Sign
-    sign_messageType,
-    sign_grantTokens,
-    sign_keyId,
-    sign_message,
-    sign_signingAlgorithm,
-    signResponse_signingAlgorithm,
-    signResponse_signature,
-    signResponse_keyId,
-    signResponse_httpStatus,
-
-    -- ** ScheduleKeyDeletion
-    scheduleKeyDeletion_pendingWindowInDays,
-    scheduleKeyDeletion_keyId,
-    scheduleKeyDeletionResponse_keyId,
-    scheduleKeyDeletionResponse_keyState,
-    scheduleKeyDeletionResponse_deletionDate,
-    scheduleKeyDeletionResponse_pendingWindowInDays,
-    scheduleKeyDeletionResponse_httpStatus,
-
-    -- ** GenerateDataKeyPair
-    generateDataKeyPair_encryptionContext,
-    generateDataKeyPair_grantTokens,
-    generateDataKeyPair_keyId,
-    generateDataKeyPair_keyPairSpec,
-    generateDataKeyPairResponse_keyId,
-    generateDataKeyPairResponse_publicKey,
-    generateDataKeyPairResponse_privateKeyPlaintext,
-    generateDataKeyPairResponse_keyPairSpec,
-    generateDataKeyPairResponse_privateKeyCiphertextBlob,
-    generateDataKeyPairResponse_httpStatus,
-
-    -- ** ReplicateKey
-    replicateKey_bypassPolicyLockoutSafetyCheck,
-    replicateKey_policy,
-    replicateKey_description,
-    replicateKey_tags,
-    replicateKey_keyId,
-    replicateKey_replicaRegion,
-    replicateKeyResponse_replicaKeyMetadata,
-    replicateKeyResponse_replicaPolicy,
-    replicateKeyResponse_replicaTags,
-    replicateKeyResponse_httpStatus,
-
-    -- ** PutKeyPolicy
-    putKeyPolicy_bypassPolicyLockoutSafetyCheck,
-    putKeyPolicy_keyId,
-    putKeyPolicy_policyName,
-    putKeyPolicy_policy,
+    -- ** DisconnectCustomKeyStore
+    disconnectCustomKeyStore_customKeyStoreId,
+    disconnectCustomKeyStoreResponse_httpStatus,
 
     -- ** EnableKey
     enableKey_keyId,
 
-    -- ** RevokeGrant
-    revokeGrant_keyId,
-    revokeGrant_grantId,
+    -- ** EnableKeyRotation
+    enableKeyRotation_keyId,
+
+    -- ** Encrypt
+    encrypt_encryptionAlgorithm,
+    encrypt_grantTokens,
+    encrypt_encryptionContext,
+    encrypt_keyId,
+    encrypt_plaintext,
+    encryptResponse_encryptionAlgorithm,
+    encryptResponse_ciphertextBlob,
+    encryptResponse_keyId,
+    encryptResponse_httpStatus,
+
+    -- ** GenerateDataKey
+    generateDataKey_grantTokens,
+    generateDataKey_keySpec,
+    generateDataKey_numberOfBytes,
+    generateDataKey_encryptionContext,
+    generateDataKey_keyId,
+    generateDataKeyResponse_httpStatus,
+    generateDataKeyResponse_keyId,
+    generateDataKeyResponse_plaintext,
+    generateDataKeyResponse_ciphertextBlob,
+
+    -- ** GenerateDataKeyPair
+    generateDataKeyPair_grantTokens,
+    generateDataKeyPair_encryptionContext,
+    generateDataKeyPair_keyId,
+    generateDataKeyPair_keyPairSpec,
+    generateDataKeyPairResponse_privateKeyPlaintext,
+    generateDataKeyPairResponse_publicKey,
+    generateDataKeyPairResponse_privateKeyCiphertextBlob,
+    generateDataKeyPairResponse_keyPairSpec,
+    generateDataKeyPairResponse_keyId,
+    generateDataKeyPairResponse_httpStatus,
+
+    -- ** GenerateDataKeyPairWithoutPlaintext
+    generateDataKeyPairWithoutPlaintext_grantTokens,
+    generateDataKeyPairWithoutPlaintext_encryptionContext,
+    generateDataKeyPairWithoutPlaintext_keyId,
+    generateDataKeyPairWithoutPlaintext_keyPairSpec,
+    generateDataKeyPairWithoutPlaintextResponse_publicKey,
+    generateDataKeyPairWithoutPlaintextResponse_privateKeyCiphertextBlob,
+    generateDataKeyPairWithoutPlaintextResponse_keyPairSpec,
+    generateDataKeyPairWithoutPlaintextResponse_keyId,
+    generateDataKeyPairWithoutPlaintextResponse_httpStatus,
+
+    -- ** GenerateDataKeyWithoutPlaintext
+    generateDataKeyWithoutPlaintext_grantTokens,
+    generateDataKeyWithoutPlaintext_keySpec,
+    generateDataKeyWithoutPlaintext_numberOfBytes,
+    generateDataKeyWithoutPlaintext_encryptionContext,
+    generateDataKeyWithoutPlaintext_keyId,
+    generateDataKeyWithoutPlaintextResponse_ciphertextBlob,
+    generateDataKeyWithoutPlaintextResponse_keyId,
+    generateDataKeyWithoutPlaintextResponse_httpStatus,
+
+    -- ** GenerateRandom
+    generateRandom_customKeyStoreId,
+    generateRandom_numberOfBytes,
+    generateRandomResponse_plaintext,
+    generateRandomResponse_httpStatus,
 
     -- ** GetKeyPolicy
     getKeyPolicy_keyId,
     getKeyPolicy_policyName,
     getKeyPolicyResponse_policy,
     getKeyPolicyResponse_httpStatus,
+
+    -- ** GetKeyRotationStatus
+    getKeyRotationStatus_keyId,
+    getKeyRotationStatusResponse_keyRotationEnabled,
+    getKeyRotationStatusResponse_httpStatus,
+
+    -- ** GetParametersForImport
+    getParametersForImport_keyId,
+    getParametersForImport_wrappingAlgorithm,
+    getParametersForImport_wrappingKeySpec,
+    getParametersForImportResponse_publicKey,
+    getParametersForImportResponse_keyId,
+    getParametersForImportResponse_importToken,
+    getParametersForImportResponse_parametersValidTo,
+    getParametersForImportResponse_httpStatus,
+
+    -- ** GetPublicKey
+    getPublicKey_grantTokens,
+    getPublicKey_keyId,
+    getPublicKeyResponse_publicKey,
+    getPublicKeyResponse_encryptionAlgorithms,
+    getPublicKeyResponse_customerMasterKeySpec,
+    getPublicKeyResponse_keyUsage,
+    getPublicKeyResponse_keySpec,
+    getPublicKeyResponse_keyId,
+    getPublicKeyResponse_signingAlgorithms,
+    getPublicKeyResponse_httpStatus,
 
     -- ** ImportKeyMaterial
     importKeyMaterial_expirationModel,
@@ -368,68 +216,220 @@ module Amazonka.KMS.Lens
     importKeyMaterial_encryptedKeyMaterial,
     importKeyMaterialResponse_httpStatus,
 
-    -- ** DeleteImportedKeyMaterial
-    deleteImportedKeyMaterial_keyId,
+    -- ** ListAliases
+    listAliases_marker,
+    listAliases_limit,
+    listAliases_keyId,
+    listAliasesResponse_truncated,
+    listAliasesResponse_aliases,
+    listAliasesResponse_nextMarker,
+    listAliasesResponse_httpStatus,
+
+    -- ** ListGrants
+    listGrants_granteePrincipal,
+    listGrants_marker,
+    listGrants_limit,
+    listGrants_grantId,
+    listGrants_keyId,
+    listGrantsResponse_truncated,
+    listGrantsResponse_grants,
+    listGrantsResponse_nextMarker,
+
+    -- ** ListKeyPolicies
+    listKeyPolicies_marker,
+    listKeyPolicies_limit,
+    listKeyPolicies_keyId,
+    listKeyPoliciesResponse_truncated,
+    listKeyPoliciesResponse_policyNames,
+    listKeyPoliciesResponse_nextMarker,
+    listKeyPoliciesResponse_httpStatus,
+
+    -- ** ListKeys
+    listKeys_marker,
+    listKeys_limit,
+    listKeysResponse_truncated,
+    listKeysResponse_nextMarker,
+    listKeysResponse_keys,
+    listKeysResponse_httpStatus,
+
+    -- ** ListResourceTags
+    listResourceTags_marker,
+    listResourceTags_limit,
+    listResourceTags_keyId,
+    listResourceTagsResponse_tags,
+    listResourceTagsResponse_truncated,
+    listResourceTagsResponse_nextMarker,
+    listResourceTagsResponse_httpStatus,
+
+    -- ** ListRetirableGrants
+    listRetirableGrants_marker,
+    listRetirableGrants_limit,
+    listRetirableGrants_retiringPrincipal,
+    listGrantsResponse_truncated,
+    listGrantsResponse_grants,
+    listGrantsResponse_nextMarker,
+
+    -- ** PutKeyPolicy
+    putKeyPolicy_bypassPolicyLockoutSafetyCheck,
+    putKeyPolicy_keyId,
+    putKeyPolicy_policyName,
+    putKeyPolicy_policy,
+
+    -- ** ReEncrypt
+    reEncrypt_sourceKeyId,
+    reEncrypt_sourceEncryptionAlgorithm,
+    reEncrypt_grantTokens,
+    reEncrypt_destinationEncryptionContext,
+    reEncrypt_destinationEncryptionAlgorithm,
+    reEncrypt_sourceEncryptionContext,
+    reEncrypt_ciphertextBlob,
+    reEncrypt_destinationKeyId,
+    reEncryptResponse_sourceKeyId,
+    reEncryptResponse_sourceEncryptionAlgorithm,
+    reEncryptResponse_ciphertextBlob,
+    reEncryptResponse_keyId,
+    reEncryptResponse_destinationEncryptionAlgorithm,
+    reEncryptResponse_httpStatus,
+
+    -- ** ReplicateKey
+    replicateKey_tags,
+    replicateKey_policy,
+    replicateKey_description,
+    replicateKey_bypassPolicyLockoutSafetyCheck,
+    replicateKey_keyId,
+    replicateKey_replicaRegion,
+    replicateKeyResponse_replicaKeyMetadata,
+    replicateKeyResponse_replicaTags,
+    replicateKeyResponse_replicaPolicy,
+    replicateKeyResponse_httpStatus,
+
+    -- ** RetireGrant
+    retireGrant_grantToken,
+    retireGrant_grantId,
+    retireGrant_keyId,
+
+    -- ** RevokeGrant
+    revokeGrant_keyId,
+    revokeGrant_grantId,
+
+    -- ** ScheduleKeyDeletion
+    scheduleKeyDeletion_pendingWindowInDays,
+    scheduleKeyDeletion_keyId,
+    scheduleKeyDeletionResponse_pendingWindowInDays,
+    scheduleKeyDeletionResponse_keyState,
+    scheduleKeyDeletionResponse_deletionDate,
+    scheduleKeyDeletionResponse_keyId,
+    scheduleKeyDeletionResponse_httpStatus,
+
+    -- ** Sign
+    sign_messageType,
+    sign_grantTokens,
+    sign_keyId,
+    sign_message,
+    sign_signingAlgorithm,
+    signResponse_signature,
+    signResponse_signingAlgorithm,
+    signResponse_keyId,
+    signResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_keyId,
+    tagResource_tags,
+
+    -- ** UntagResource
+    untagResource_keyId,
+    untagResource_tagKeys,
+
+    -- ** UpdateAlias
+    updateAlias_aliasName,
+    updateAlias_targetKeyId,
+
+    -- ** UpdateCustomKeyStore
+    updateCustomKeyStore_newCustomKeyStoreName,
+    updateCustomKeyStore_keyStorePassword,
+    updateCustomKeyStore_cloudHsmClusterId,
+    updateCustomKeyStore_customKeyStoreId,
+    updateCustomKeyStoreResponse_httpStatus,
+
+    -- ** UpdateKeyDescription
+    updateKeyDescription_keyId,
+    updateKeyDescription_description,
+
+    -- ** UpdatePrimaryRegion
+    updatePrimaryRegion_keyId,
+    updatePrimaryRegion_primaryRegion,
+
+    -- ** Verify
+    verify_messageType,
+    verify_grantTokens,
+    verify_keyId,
+    verify_message,
+    verify_signature,
+    verify_signingAlgorithm,
+    verifyResponse_signatureValid,
+    verifyResponse_signingAlgorithm,
+    verifyResponse_keyId,
+    verifyResponse_httpStatus,
 
     -- * Types
 
     -- ** AliasListEntry
-    aliasListEntry_targetKeyId,
-    aliasListEntry_aliasName,
-    aliasListEntry_creationDate,
     aliasListEntry_lastUpdatedDate,
     aliasListEntry_aliasArn,
+    aliasListEntry_creationDate,
+    aliasListEntry_targetKeyId,
+    aliasListEntry_aliasName,
 
     -- ** CustomKeyStoresListEntry
-    customKeyStoresListEntry_customKeyStoreName,
-    customKeyStoresListEntry_trustAnchorCertificate,
-    customKeyStoresListEntry_connectionErrorCode,
-    customKeyStoresListEntry_creationDate,
-    customKeyStoresListEntry_cloudHsmClusterId,
     customKeyStoresListEntry_customKeyStoreId,
     customKeyStoresListEntry_connectionState,
+    customKeyStoresListEntry_creationDate,
+    customKeyStoresListEntry_cloudHsmClusterId,
+    customKeyStoresListEntry_trustAnchorCertificate,
+    customKeyStoresListEntry_customKeyStoreName,
+    customKeyStoresListEntry_connectionErrorCode,
 
     -- ** GrantConstraints
-    grantConstraints_encryptionContextEquals,
     grantConstraints_encryptionContextSubset,
+    grantConstraints_encryptionContextEquals,
 
     -- ** GrantListEntry
-    grantListEntry_keyId,
-    grantListEntry_retiringPrincipal,
     grantListEntry_issuingAccount,
-    grantListEntry_grantId,
-    grantListEntry_constraints,
-    grantListEntry_granteePrincipal,
     grantListEntry_name,
-    grantListEntry_creationDate,
+    grantListEntry_granteePrincipal,
     grantListEntry_operations,
+    grantListEntry_constraints,
+    grantListEntry_creationDate,
+    grantListEntry_retiringPrincipal,
+    grantListEntry_grantId,
+    grantListEntry_keyId,
 
     -- ** KeyListEntry
-    keyListEntry_keyId,
     keyListEntry_keyArn,
+    keyListEntry_keyId,
 
     -- ** KeyMetadata
-    keyMetadata_origin,
-    keyMetadata_expirationModel,
-    keyMetadata_keyManager,
-    keyMetadata_keySpec,
-    keyMetadata_customerMasterKeySpec,
-    keyMetadata_enabled,
-    keyMetadata_validTo,
-    keyMetadata_arn,
-    keyMetadata_keyState,
-    keyMetadata_encryptionAlgorithms,
     keyMetadata_aWSAccountId,
-    keyMetadata_signingAlgorithms,
-    keyMetadata_pendingDeletionWindowInDays,
-    keyMetadata_keyUsage,
-    keyMetadata_creationDate,
-    keyMetadata_deletionDate,
-    keyMetadata_cloudHsmClusterId,
-    keyMetadata_description,
+    keyMetadata_expirationModel,
+    keyMetadata_encryptionAlgorithms,
     keyMetadata_customKeyStoreId,
-    keyMetadata_multiRegion,
+    keyMetadata_pendingDeletionWindowInDays,
+    keyMetadata_arn,
     keyMetadata_multiRegionConfiguration,
+    keyMetadata_creationDate,
+    keyMetadata_customerMasterKeySpec,
+    keyMetadata_keyUsage,
+    keyMetadata_description,
+    keyMetadata_multiRegion,
+    keyMetadata_enabled,
+    keyMetadata_keyManager,
+    keyMetadata_cloudHsmClusterId,
+    keyMetadata_keySpec,
+    keyMetadata_keyState,
+    keyMetadata_deletionDate,
+    keyMetadata_origin,
+    keyMetadata_signingAlgorithms,
+    keyMetadata_validTo,
     keyMetadata_keyId,
 
     -- ** ListGrantsResponse

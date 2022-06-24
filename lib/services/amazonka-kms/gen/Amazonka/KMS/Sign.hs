@@ -90,8 +90,8 @@ module Amazonka.KMS.Sign
     newSignResponse,
 
     -- * Response Lenses
-    signResponse_signingAlgorithm,
     signResponse_signature,
+    signResponse_signingAlgorithm,
     signResponse_keyId,
     signResponse_httpStatus,
   )
@@ -307,8 +307,8 @@ instance Core.AWSRequest Sign where
     Response.receiveJSON
       ( \s h x ->
           SignResponse'
-            Prelude.<$> (x Core..?> "SigningAlgorithm")
-            Prelude.<*> (x Core..?> "Signature")
+            Prelude.<$> (x Core..?> "Signature")
+            Prelude.<*> (x Core..?> "SigningAlgorithm")
             Prelude.<*> (x Core..?> "KeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -363,9 +363,7 @@ instance Core.ToQuery Sign where
 
 -- | /See:/ 'newSignResponse' smart constructor.
 data SignResponse = SignResponse'
-  { -- | The signing algorithm that was used to sign the message.
-    signingAlgorithm :: Prelude.Maybe SigningAlgorithmSpec,
-    -- | The cryptographic signature that was generated for the message.
+  { -- | The cryptographic signature that was generated for the message.
     --
     -- -   When used with the supported RSA signing algorithms, the encoding of
     --     this value is defined by
@@ -381,6 +379,8 @@ data SignResponse = SignResponse'
     -- When you use the HTTP API or the Amazon Web Services CLI, the value is
     -- Base64-encoded. Otherwise, it is not Base64-encoded.
     signature :: Prelude.Maybe Core.Base64,
+    -- | The signing algorithm that was used to sign the message.
+    signingAlgorithm :: Prelude.Maybe SigningAlgorithmSpec,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
     -- of the asymmetric KMS key that was used to sign the message.
@@ -397,8 +397,6 @@ data SignResponse = SignResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'signingAlgorithm', 'signResponse_signingAlgorithm' - The signing algorithm that was used to sign the message.
 --
 -- 'signature', 'signResponse_signature' - The cryptographic signature that was generated for the message.
 --
@@ -420,6 +418,8 @@ data SignResponse = SignResponse'
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
+-- 'signingAlgorithm', 'signResponse_signingAlgorithm' - The signing algorithm that was used to sign the message.
+--
 -- 'keyId', 'signResponse_keyId' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
 -- of the asymmetric KMS key that was used to sign the message.
@@ -431,15 +431,11 @@ newSignResponse ::
   SignResponse
 newSignResponse pHttpStatus_ =
   SignResponse'
-    { signingAlgorithm = Prelude.Nothing,
-      signature = Prelude.Nothing,
+    { signature = Prelude.Nothing,
+      signingAlgorithm = Prelude.Nothing,
       keyId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The signing algorithm that was used to sign the message.
-signResponse_signingAlgorithm :: Lens.Lens' SignResponse (Prelude.Maybe SigningAlgorithmSpec)
-signResponse_signingAlgorithm = Lens.lens (\SignResponse' {signingAlgorithm} -> signingAlgorithm) (\s@SignResponse' {} a -> s {signingAlgorithm = a} :: SignResponse)
 
 -- | The cryptographic signature that was generated for the message.
 --
@@ -463,6 +459,10 @@ signResponse_signingAlgorithm = Lens.lens (\SignResponse' {signingAlgorithm} -> 
 signResponse_signature :: Lens.Lens' SignResponse (Prelude.Maybe Prelude.ByteString)
 signResponse_signature = Lens.lens (\SignResponse' {signature} -> signature) (\s@SignResponse' {} a -> s {signature = a} :: SignResponse) Prelude.. Lens.mapping Core._Base64
 
+-- | The signing algorithm that was used to sign the message.
+signResponse_signingAlgorithm :: Lens.Lens' SignResponse (Prelude.Maybe SigningAlgorithmSpec)
+signResponse_signingAlgorithm = Lens.lens (\SignResponse' {signingAlgorithm} -> signingAlgorithm) (\s@SignResponse' {} a -> s {signingAlgorithm = a} :: SignResponse)
+
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
 -- of the asymmetric KMS key that was used to sign the message.
@@ -475,7 +475,7 @@ signResponse_httpStatus = Lens.lens (\SignResponse' {httpStatus} -> httpStatus) 
 
 instance Prelude.NFData SignResponse where
   rnf SignResponse' {..} =
-    Prelude.rnf signingAlgorithm
-      `Prelude.seq` Prelude.rnf signature
+    Prelude.rnf signature
+      `Prelude.seq` Prelude.rnf signingAlgorithm
       `Prelude.seq` Prelude.rnf keyId
       `Prelude.seq` Prelude.rnf httpStatus

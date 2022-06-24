@@ -56,8 +56,8 @@ module Amazonka.KMS.ListKeys
 
     -- * Response Lenses
     listKeysResponse_truncated,
-    listKeysResponse_keys,
     listKeysResponse_nextMarker,
+    listKeysResponse_keys,
     listKeysResponse_httpStatus,
   )
 where
@@ -153,8 +153,8 @@ instance Core.AWSRequest ListKeys where
       ( \s h x ->
           ListKeysResponse'
             Prelude.<$> (x Core..?> "Truncated")
-            Prelude.<*> (x Core..?> "Keys" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "NextMarker")
+            Prelude.<*> (x Core..?> "Keys" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -202,11 +202,11 @@ data ListKeysResponse = ListKeysResponse'
     -- items, pass the value of the @NextMarker@ element in thisresponse to the
     -- @Marker@ parameter in a subsequent request.
     truncated :: Prelude.Maybe Prelude.Bool,
-    -- | A list of KMS keys.
-    keys :: Prelude.Maybe [KeyListEntry],
     -- | When @Truncated@ is true, this element is present and contains the value
     -- to use for the @Marker@ parameter in a subsequent request.
     nextMarker :: Prelude.Maybe Prelude.Text,
+    -- | A list of KMS keys.
+    keys :: Prelude.Maybe [KeyListEntry],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -225,10 +225,10 @@ data ListKeysResponse = ListKeysResponse'
 -- items, pass the value of the @NextMarker@ element in thisresponse to the
 -- @Marker@ parameter in a subsequent request.
 --
--- 'keys', 'listKeysResponse_keys' - A list of KMS keys.
---
 -- 'nextMarker', 'listKeysResponse_nextMarker' - When @Truncated@ is true, this element is present and contains the value
 -- to use for the @Marker@ parameter in a subsequent request.
+--
+-- 'keys', 'listKeysResponse_keys' - A list of KMS keys.
 --
 -- 'httpStatus', 'listKeysResponse_httpStatus' - The response's http status code.
 newListKeysResponse ::
@@ -238,8 +238,8 @@ newListKeysResponse ::
 newListKeysResponse pHttpStatus_ =
   ListKeysResponse'
     { truncated = Prelude.Nothing,
-      keys = Prelude.Nothing,
       nextMarker = Prelude.Nothing,
+      keys = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -250,14 +250,14 @@ newListKeysResponse pHttpStatus_ =
 listKeysResponse_truncated :: Lens.Lens' ListKeysResponse (Prelude.Maybe Prelude.Bool)
 listKeysResponse_truncated = Lens.lens (\ListKeysResponse' {truncated} -> truncated) (\s@ListKeysResponse' {} a -> s {truncated = a} :: ListKeysResponse)
 
--- | A list of KMS keys.
-listKeysResponse_keys :: Lens.Lens' ListKeysResponse (Prelude.Maybe [KeyListEntry])
-listKeysResponse_keys = Lens.lens (\ListKeysResponse' {keys} -> keys) (\s@ListKeysResponse' {} a -> s {keys = a} :: ListKeysResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | When @Truncated@ is true, this element is present and contains the value
 -- to use for the @Marker@ parameter in a subsequent request.
 listKeysResponse_nextMarker :: Lens.Lens' ListKeysResponse (Prelude.Maybe Prelude.Text)
 listKeysResponse_nextMarker = Lens.lens (\ListKeysResponse' {nextMarker} -> nextMarker) (\s@ListKeysResponse' {} a -> s {nextMarker = a} :: ListKeysResponse)
+
+-- | A list of KMS keys.
+listKeysResponse_keys :: Lens.Lens' ListKeysResponse (Prelude.Maybe [KeyListEntry])
+listKeysResponse_keys = Lens.lens (\ListKeysResponse' {keys} -> keys) (\s@ListKeysResponse' {} a -> s {keys = a} :: ListKeysResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listKeysResponse_httpStatus :: Lens.Lens' ListKeysResponse Prelude.Int
@@ -266,6 +266,6 @@ listKeysResponse_httpStatus = Lens.lens (\ListKeysResponse' {httpStatus} -> http
 instance Prelude.NFData ListKeysResponse where
   rnf ListKeysResponse' {..} =
     Prelude.rnf truncated
-      `Prelude.seq` Prelude.rnf keys
       `Prelude.seq` Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf keys
       `Prelude.seq` Prelude.rnf httpStatus

@@ -54,8 +54,8 @@ module Amazonka.KMS.ListKeyPolicies
     newListKeyPoliciesResponse,
 
     -- * Response Lenses
-    listKeyPoliciesResponse_policyNames,
     listKeyPoliciesResponse_truncated,
+    listKeyPoliciesResponse_policyNames,
     listKeyPoliciesResponse_nextMarker,
     listKeyPoliciesResponse_httpStatus,
   )
@@ -209,8 +209,8 @@ instance Core.AWSRequest ListKeyPolicies where
     Response.receiveJSON
       ( \s h x ->
           ListKeyPoliciesResponse'
-            Prelude.<$> (x Core..?> "PolicyNames" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Truncated")
+            Prelude.<$> (x Core..?> "Truncated")
+            Prelude.<*> (x Core..?> "PolicyNames" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -260,13 +260,13 @@ instance Core.ToQuery ListKeyPolicies where
 
 -- | /See:/ 'newListKeyPoliciesResponse' smart constructor.
 data ListKeyPoliciesResponse = ListKeyPoliciesResponse'
-  { -- | A list of key policy names. The only valid value is @default@.
-    policyNames :: Prelude.Maybe [Prelude.Text],
-    -- | A flag that indicates whether there are more items in the list. When
+  { -- | A flag that indicates whether there are more items in the list. When
     -- this value is true, the list in this response is truncated. To get more
     -- items, pass the value of the @NextMarker@ element in thisresponse to the
     -- @Marker@ parameter in a subsequent request.
     truncated :: Prelude.Maybe Prelude.Bool,
+    -- | A list of key policy names. The only valid value is @default@.
+    policyNames :: Prelude.Maybe [Prelude.Text],
     -- | When @Truncated@ is true, this element is present and contains the value
     -- to use for the @Marker@ parameter in a subsequent request.
     nextMarker :: Prelude.Maybe Prelude.Text,
@@ -283,12 +283,12 @@ data ListKeyPoliciesResponse = ListKeyPoliciesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyNames', 'listKeyPoliciesResponse_policyNames' - A list of key policy names. The only valid value is @default@.
---
 -- 'truncated', 'listKeyPoliciesResponse_truncated' - A flag that indicates whether there are more items in the list. When
 -- this value is true, the list in this response is truncated. To get more
 -- items, pass the value of the @NextMarker@ element in thisresponse to the
 -- @Marker@ parameter in a subsequent request.
+--
+-- 'policyNames', 'listKeyPoliciesResponse_policyNames' - A list of key policy names. The only valid value is @default@.
 --
 -- 'nextMarker', 'listKeyPoliciesResponse_nextMarker' - When @Truncated@ is true, this element is present and contains the value
 -- to use for the @Marker@ parameter in a subsequent request.
@@ -300,16 +300,12 @@ newListKeyPoliciesResponse ::
   ListKeyPoliciesResponse
 newListKeyPoliciesResponse pHttpStatus_ =
   ListKeyPoliciesResponse'
-    { policyNames =
+    { truncated =
         Prelude.Nothing,
-      truncated = Prelude.Nothing,
+      policyNames = Prelude.Nothing,
       nextMarker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of key policy names. The only valid value is @default@.
-listKeyPoliciesResponse_policyNames :: Lens.Lens' ListKeyPoliciesResponse (Prelude.Maybe [Prelude.Text])
-listKeyPoliciesResponse_policyNames = Lens.lens (\ListKeyPoliciesResponse' {policyNames} -> policyNames) (\s@ListKeyPoliciesResponse' {} a -> s {policyNames = a} :: ListKeyPoliciesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A flag that indicates whether there are more items in the list. When
 -- this value is true, the list in this response is truncated. To get more
@@ -317,6 +313,10 @@ listKeyPoliciesResponse_policyNames = Lens.lens (\ListKeyPoliciesResponse' {poli
 -- @Marker@ parameter in a subsequent request.
 listKeyPoliciesResponse_truncated :: Lens.Lens' ListKeyPoliciesResponse (Prelude.Maybe Prelude.Bool)
 listKeyPoliciesResponse_truncated = Lens.lens (\ListKeyPoliciesResponse' {truncated} -> truncated) (\s@ListKeyPoliciesResponse' {} a -> s {truncated = a} :: ListKeyPoliciesResponse)
+
+-- | A list of key policy names. The only valid value is @default@.
+listKeyPoliciesResponse_policyNames :: Lens.Lens' ListKeyPoliciesResponse (Prelude.Maybe [Prelude.Text])
+listKeyPoliciesResponse_policyNames = Lens.lens (\ListKeyPoliciesResponse' {policyNames} -> policyNames) (\s@ListKeyPoliciesResponse' {} a -> s {policyNames = a} :: ListKeyPoliciesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | When @Truncated@ is true, this element is present and contains the value
 -- to use for the @Marker@ parameter in a subsequent request.
@@ -329,7 +329,7 @@ listKeyPoliciesResponse_httpStatus = Lens.lens (\ListKeyPoliciesResponse' {httpS
 
 instance Prelude.NFData ListKeyPoliciesResponse where
   rnf ListKeyPoliciesResponse' {..} =
-    Prelude.rnf policyNames
-      `Prelude.seq` Prelude.rnf truncated
+    Prelude.rnf truncated
+      `Prelude.seq` Prelude.rnf policyNames
       `Prelude.seq` Prelude.rnf nextMarker
       `Prelude.seq` Prelude.rnf httpStatus

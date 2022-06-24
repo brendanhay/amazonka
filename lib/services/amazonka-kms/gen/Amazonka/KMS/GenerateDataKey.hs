@@ -119,10 +119,10 @@ module Amazonka.KMS.GenerateDataKey
     newGenerateDataKey,
 
     -- * Request Lenses
-    generateDataKey_keySpec,
-    generateDataKey_encryptionContext,
-    generateDataKey_numberOfBytes,
     generateDataKey_grantTokens,
+    generateDataKey_keySpec,
+    generateDataKey_numberOfBytes,
+    generateDataKey_encryptionContext,
     generateDataKey_keyId,
 
     -- * Destructuring the Response
@@ -146,12 +146,30 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGenerateDataKey' smart constructor.
 data GenerateDataKey = GenerateDataKey'
-  { -- | Specifies the length of the data key. Use @AES_128@ to generate a
+  { -- | A list of grant tokens.
+    --
+    -- Use a grant token when your permission to call this operation comes from
+    -- a new grant that has not yet achieved /eventual consistency/. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
+    -- and
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
+    -- in the /Key Management Service Developer Guide/.
+    grantTokens :: Prelude.Maybe [Prelude.Text],
+    -- | Specifies the length of the data key. Use @AES_128@ to generate a
     -- 128-bit symmetric key, or @AES_256@ to generate a 256-bit symmetric key.
     --
     -- You must specify either the @KeySpec@ or the @NumberOfBytes@ parameter
     -- (but not both) in every @GenerateDataKey@ request.
     keySpec :: Prelude.Maybe DataKeySpec,
+    -- | Specifies the length of the data key in bytes. For example, use the
+    -- value 64 to generate a 512-bit data key (64 bytes is 512 bits). For
+    -- 128-bit (16-byte) and 256-bit (32-byte) data keys, use the @KeySpec@
+    -- parameter.
+    --
+    -- You must specify either the @KeySpec@ or the @NumberOfBytes@ parameter
+    -- (but not both) in every @GenerateDataKey@ request.
+    numberOfBytes :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the encryption context that will be used when encrypting the
     -- data key.
     --
@@ -166,24 +184,6 @@ data GenerateDataKey = GenerateDataKey'
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
     -- in the /Key Management Service Developer Guide/.
     encryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Specifies the length of the data key in bytes. For example, use the
-    -- value 64 to generate a 512-bit data key (64 bytes is 512 bits). For
-    -- 128-bit (16-byte) and 256-bit (32-byte) data keys, use the @KeySpec@
-    -- parameter.
-    --
-    -- You must specify either the @KeySpec@ or the @NumberOfBytes@ parameter
-    -- (but not both) in every @GenerateDataKey@ request.
-    numberOfBytes :: Prelude.Maybe Prelude.Natural,
-    -- | A list of grant tokens.
-    --
-    -- Use a grant token when your permission to call this operation comes from
-    -- a new grant that has not yet achieved /eventual consistency/. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
-    -- and
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
-    -- in the /Key Management Service Developer Guide/.
-    grantTokens :: Prelude.Maybe [Prelude.Text],
     -- | Identifies the symmetric KMS key that encrypts the data key.
     --
     -- To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN.
@@ -216,8 +216,26 @@ data GenerateDataKey = GenerateDataKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'grantTokens', 'generateDataKey_grantTokens' - A list of grant tokens.
+--
+-- Use a grant token when your permission to call this operation comes from
+-- a new grant that has not yet achieved /eventual consistency/. For more
+-- information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
+-- and
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
+-- in the /Key Management Service Developer Guide/.
+--
 -- 'keySpec', 'generateDataKey_keySpec' - Specifies the length of the data key. Use @AES_128@ to generate a
 -- 128-bit symmetric key, or @AES_256@ to generate a 256-bit symmetric key.
+--
+-- You must specify either the @KeySpec@ or the @NumberOfBytes@ parameter
+-- (but not both) in every @GenerateDataKey@ request.
+--
+-- 'numberOfBytes', 'generateDataKey_numberOfBytes' - Specifies the length of the data key in bytes. For example, use the
+-- value 64 to generate a 512-bit data key (64 bytes is 512 bits). For
+-- 128-bit (16-byte) and 256-bit (32-byte) data keys, use the @KeySpec@
+-- parameter.
 --
 -- You must specify either the @KeySpec@ or the @NumberOfBytes@ parameter
 -- (but not both) in every @GenerateDataKey@ request.
@@ -234,24 +252,6 @@ data GenerateDataKey = GenerateDataKey'
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
--- in the /Key Management Service Developer Guide/.
---
--- 'numberOfBytes', 'generateDataKey_numberOfBytes' - Specifies the length of the data key in bytes. For example, use the
--- value 64 to generate a 512-bit data key (64 bytes is 512 bits). For
--- 128-bit (16-byte) and 256-bit (32-byte) data keys, use the @KeySpec@
--- parameter.
---
--- You must specify either the @KeySpec@ or the @NumberOfBytes@ parameter
--- (but not both) in every @GenerateDataKey@ request.
---
--- 'grantTokens', 'generateDataKey_grantTokens' - A list of grant tokens.
---
--- Use a grant token when your permission to call this operation comes from
--- a new grant that has not yet achieved /eventual consistency/. For more
--- information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
--- and
--- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
 -- in the /Key Management Service Developer Guide/.
 --
 -- 'keyId', 'generateDataKey_keyId' - Identifies the symmetric KMS key that encrypts the data key.
@@ -280,12 +280,24 @@ newGenerateDataKey ::
   GenerateDataKey
 newGenerateDataKey pKeyId_ =
   GenerateDataKey'
-    { keySpec = Prelude.Nothing,
-      encryptionContext = Prelude.Nothing,
+    { grantTokens = Prelude.Nothing,
+      keySpec = Prelude.Nothing,
       numberOfBytes = Prelude.Nothing,
-      grantTokens = Prelude.Nothing,
+      encryptionContext = Prelude.Nothing,
       keyId = pKeyId_
     }
+
+-- | A list of grant tokens.
+--
+-- Use a grant token when your permission to call this operation comes from
+-- a new grant that has not yet achieved /eventual consistency/. For more
+-- information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
+-- and
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
+-- in the /Key Management Service Developer Guide/.
+generateDataKey_grantTokens :: Lens.Lens' GenerateDataKey (Prelude.Maybe [Prelude.Text])
+generateDataKey_grantTokens = Lens.lens (\GenerateDataKey' {grantTokens} -> grantTokens) (\s@GenerateDataKey' {} a -> s {grantTokens = a} :: GenerateDataKey) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the length of the data key. Use @AES_128@ to generate a
 -- 128-bit symmetric key, or @AES_256@ to generate a 256-bit symmetric key.
@@ -294,6 +306,16 @@ newGenerateDataKey pKeyId_ =
 -- (but not both) in every @GenerateDataKey@ request.
 generateDataKey_keySpec :: Lens.Lens' GenerateDataKey (Prelude.Maybe DataKeySpec)
 generateDataKey_keySpec = Lens.lens (\GenerateDataKey' {keySpec} -> keySpec) (\s@GenerateDataKey' {} a -> s {keySpec = a} :: GenerateDataKey)
+
+-- | Specifies the length of the data key in bytes. For example, use the
+-- value 64 to generate a 512-bit data key (64 bytes is 512 bits). For
+-- 128-bit (16-byte) and 256-bit (32-byte) data keys, use the @KeySpec@
+-- parameter.
+--
+-- You must specify either the @KeySpec@ or the @NumberOfBytes@ parameter
+-- (but not both) in every @GenerateDataKey@ request.
+generateDataKey_numberOfBytes :: Lens.Lens' GenerateDataKey (Prelude.Maybe Prelude.Natural)
+generateDataKey_numberOfBytes = Lens.lens (\GenerateDataKey' {numberOfBytes} -> numberOfBytes) (\s@GenerateDataKey' {} a -> s {numberOfBytes = a} :: GenerateDataKey)
 
 -- | Specifies the encryption context that will be used when encrypting the
 -- data key.
@@ -310,28 +332,6 @@ generateDataKey_keySpec = Lens.lens (\GenerateDataKey' {keySpec} -> keySpec) (\s
 -- in the /Key Management Service Developer Guide/.
 generateDataKey_encryptionContext :: Lens.Lens' GenerateDataKey (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 generateDataKey_encryptionContext = Lens.lens (\GenerateDataKey' {encryptionContext} -> encryptionContext) (\s@GenerateDataKey' {} a -> s {encryptionContext = a} :: GenerateDataKey) Prelude.. Lens.mapping Lens.coerced
-
--- | Specifies the length of the data key in bytes. For example, use the
--- value 64 to generate a 512-bit data key (64 bytes is 512 bits). For
--- 128-bit (16-byte) and 256-bit (32-byte) data keys, use the @KeySpec@
--- parameter.
---
--- You must specify either the @KeySpec@ or the @NumberOfBytes@ parameter
--- (but not both) in every @GenerateDataKey@ request.
-generateDataKey_numberOfBytes :: Lens.Lens' GenerateDataKey (Prelude.Maybe Prelude.Natural)
-generateDataKey_numberOfBytes = Lens.lens (\GenerateDataKey' {numberOfBytes} -> numberOfBytes) (\s@GenerateDataKey' {} a -> s {numberOfBytes = a} :: GenerateDataKey)
-
--- | A list of grant tokens.
---
--- Use a grant token when your permission to call this operation comes from
--- a new grant that has not yet achieved /eventual consistency/. For more
--- information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
--- and
--- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
--- in the /Key Management Service Developer Guide/.
-generateDataKey_grantTokens :: Lens.Lens' GenerateDataKey (Prelude.Maybe [Prelude.Text])
-generateDataKey_grantTokens = Lens.lens (\GenerateDataKey' {grantTokens} -> grantTokens) (\s@GenerateDataKey' {} a -> s {grantTokens = a} :: GenerateDataKey) Prelude.. Lens.mapping Lens.coerced
 
 -- | Identifies the symmetric KMS key that encrypts the data key.
 --
@@ -373,18 +373,18 @@ instance Core.AWSRequest GenerateDataKey where
 
 instance Prelude.Hashable GenerateDataKey where
   hashWithSalt _salt GenerateDataKey' {..} =
-    _salt `Prelude.hashWithSalt` keySpec
-      `Prelude.hashWithSalt` encryptionContext
+    _salt `Prelude.hashWithSalt` grantTokens
+      `Prelude.hashWithSalt` keySpec
       `Prelude.hashWithSalt` numberOfBytes
-      `Prelude.hashWithSalt` grantTokens
+      `Prelude.hashWithSalt` encryptionContext
       `Prelude.hashWithSalt` keyId
 
 instance Prelude.NFData GenerateDataKey where
   rnf GenerateDataKey' {..} =
-    Prelude.rnf keySpec
-      `Prelude.seq` Prelude.rnf encryptionContext
+    Prelude.rnf grantTokens
+      `Prelude.seq` Prelude.rnf keySpec
       `Prelude.seq` Prelude.rnf numberOfBytes
-      `Prelude.seq` Prelude.rnf grantTokens
+      `Prelude.seq` Prelude.rnf encryptionContext
       `Prelude.seq` Prelude.rnf keyId
 
 instance Core.ToHeaders GenerateDataKey where
@@ -406,11 +406,11 @@ instance Core.ToJSON GenerateDataKey where
   toJSON GenerateDataKey' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("KeySpec" Core..=) Prelude.<$> keySpec,
+          [ ("GrantTokens" Core..=) Prelude.<$> grantTokens,
+            ("KeySpec" Core..=) Prelude.<$> keySpec,
+            ("NumberOfBytes" Core..=) Prelude.<$> numberOfBytes,
             ("EncryptionContext" Core..=)
               Prelude.<$> encryptionContext,
-            ("NumberOfBytes" Core..=) Prelude.<$> numberOfBytes,
-            ("GrantTokens" Core..=) Prelude.<$> grantTokens,
             Prelude.Just ("KeyId" Core..= keyId)
           ]
       )

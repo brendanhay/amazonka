@@ -83,8 +83,8 @@ module Amazonka.Glacier.GetJobOutput
     newGetJobOutputResponse,
 
     -- * Response Lenses
-    getJobOutputResponse_checksum,
     getJobOutputResponse_acceptRanges,
+    getJobOutputResponse_checksum,
     getJobOutputResponse_archiveDescription,
     getJobOutputResponse_contentRange,
     getJobOutputResponse_contentType,
@@ -273,8 +273,8 @@ instance Core.AWSRequest GetJobOutput where
     Response.receiveBody
       ( \s h x ->
           GetJobOutputResponse'
-            Prelude.<$> (h Core..#? "x-amz-sha256-tree-hash")
-            Prelude.<*> (h Core..#? "Accept-Ranges")
+            Prelude.<$> (h Core..#? "Accept-Ranges")
+            Prelude.<*> (h Core..#? "x-amz-sha256-tree-hash")
             Prelude.<*> (h Core..#? "x-amz-archive-description")
             Prelude.<*> (h Core..#? "Content-Range")
             Prelude.<*> (h Core..#? "Content-Type")
@@ -319,7 +319,10 @@ instance Core.ToQuery GetJobOutput where
 --
 -- /See:/ 'newGetJobOutputResponse' smart constructor.
 data GetJobOutputResponse = GetJobOutputResponse'
-  { -- | The checksum of the data in the response. This header is returned only
+  { -- | Indicates the range units accepted. For more information, see
+    -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC2616>.
+    acceptRanges :: Prelude.Maybe Prelude.Text,
+    -- | The checksum of the data in the response. This header is returned only
     -- when retrieving the output for an archive retrieval job. Furthermore,
     -- this header appears only under the following conditions:
     --
@@ -336,9 +339,6 @@ data GetJobOutputResponse = GetJobOutputResponse'
     --     MB and ends at 3.1 MB (the end of the archive), then the
     --     x-amz-sha256-tree-hash is returned as a response header.
     checksum :: Prelude.Maybe Prelude.Text,
-    -- | Indicates the range units accepted. For more information, see
-    -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC2616>.
-    acceptRanges :: Prelude.Maybe Prelude.Text,
     -- | The description of an archive.
     archiveDescription :: Prelude.Maybe Prelude.Text,
     -- | The range of bytes returned by Amazon S3 Glacier. If only partial output
@@ -369,6 +369,9 @@ data GetJobOutputResponse = GetJobOutputResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'acceptRanges', 'getJobOutputResponse_acceptRanges' - Indicates the range units accepted. For more information, see
+-- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC2616>.
+--
 -- 'checksum', 'getJobOutputResponse_checksum' - The checksum of the data in the response. This header is returned only
 -- when retrieving the output for an archive retrieval job. Furthermore,
 -- this header appears only under the following conditions:
@@ -385,9 +388,6 @@ data GetJobOutputResponse = GetJobOutputResponse'
 --     you have a 3.1 MB archive and you specify a range that starts at 2
 --     MB and ends at 3.1 MB (the end of the archive), then the
 --     x-amz-sha256-tree-hash is returned as a response header.
---
--- 'acceptRanges', 'getJobOutputResponse_acceptRanges' - Indicates the range units accepted. For more information, see
--- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC2616>.
 --
 -- 'archiveDescription', 'getJobOutputResponse_archiveDescription' - The description of an archive.
 --
@@ -415,14 +415,20 @@ newGetJobOutputResponse ::
   GetJobOutputResponse
 newGetJobOutputResponse pStatus_ pBody_ =
   GetJobOutputResponse'
-    { checksum = Prelude.Nothing,
-      acceptRanges = Prelude.Nothing,
+    { acceptRanges =
+        Prelude.Nothing,
+      checksum = Prelude.Nothing,
       archiveDescription = Prelude.Nothing,
       contentRange = Prelude.Nothing,
       contentType = Prelude.Nothing,
       status = pStatus_,
       body = pBody_
     }
+
+-- | Indicates the range units accepted. For more information, see
+-- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC2616>.
+getJobOutputResponse_acceptRanges :: Lens.Lens' GetJobOutputResponse (Prelude.Maybe Prelude.Text)
+getJobOutputResponse_acceptRanges = Lens.lens (\GetJobOutputResponse' {acceptRanges} -> acceptRanges) (\s@GetJobOutputResponse' {} a -> s {acceptRanges = a} :: GetJobOutputResponse)
 
 -- | The checksum of the data in the response. This header is returned only
 -- when retrieving the output for an archive retrieval job. Furthermore,
@@ -442,11 +448,6 @@ newGetJobOutputResponse pStatus_ pBody_ =
 --     x-amz-sha256-tree-hash is returned as a response header.
 getJobOutputResponse_checksum :: Lens.Lens' GetJobOutputResponse (Prelude.Maybe Prelude.Text)
 getJobOutputResponse_checksum = Lens.lens (\GetJobOutputResponse' {checksum} -> checksum) (\s@GetJobOutputResponse' {} a -> s {checksum = a} :: GetJobOutputResponse)
-
--- | Indicates the range units accepted. For more information, see
--- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC2616>.
-getJobOutputResponse_acceptRanges :: Lens.Lens' GetJobOutputResponse (Prelude.Maybe Prelude.Text)
-getJobOutputResponse_acceptRanges = Lens.lens (\GetJobOutputResponse' {acceptRanges} -> acceptRanges) (\s@GetJobOutputResponse' {} a -> s {acceptRanges = a} :: GetJobOutputResponse)
 
 -- | The description of an archive.
 getJobOutputResponse_archiveDescription :: Lens.Lens' GetJobOutputResponse (Prelude.Maybe Prelude.Text)

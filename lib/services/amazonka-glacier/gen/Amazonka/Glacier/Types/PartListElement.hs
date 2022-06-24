@@ -27,11 +27,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPartListElement' smart constructor.
 data PartListElement = PartListElement'
-  { -- | The SHA256 tree hash value that Amazon S3 Glacier calculated for the
+  { -- | The byte range of a part, inclusive of the upper value of the range.
+    rangeInBytes :: Prelude.Maybe Prelude.Text,
+    -- | The SHA256 tree hash value that Amazon S3 Glacier calculated for the
     -- part. This field is never @null@.
-    sHA256TreeHash :: Prelude.Maybe Prelude.Text,
-    -- | The byte range of a part, inclusive of the upper value of the range.
-    rangeInBytes :: Prelude.Maybe Prelude.Text
+    sHA256TreeHash :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,26 +43,26 @@ data PartListElement = PartListElement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'rangeInBytes', 'partListElement_rangeInBytes' - The byte range of a part, inclusive of the upper value of the range.
+--
 -- 'sHA256TreeHash', 'partListElement_sHA256TreeHash' - The SHA256 tree hash value that Amazon S3 Glacier calculated for the
 -- part. This field is never @null@.
---
--- 'rangeInBytes', 'partListElement_rangeInBytes' - The byte range of a part, inclusive of the upper value of the range.
 newPartListElement ::
   PartListElement
 newPartListElement =
   PartListElement'
-    { sHA256TreeHash = Prelude.Nothing,
-      rangeInBytes = Prelude.Nothing
+    { rangeInBytes = Prelude.Nothing,
+      sHA256TreeHash = Prelude.Nothing
     }
+
+-- | The byte range of a part, inclusive of the upper value of the range.
+partListElement_rangeInBytes :: Lens.Lens' PartListElement (Prelude.Maybe Prelude.Text)
+partListElement_rangeInBytes = Lens.lens (\PartListElement' {rangeInBytes} -> rangeInBytes) (\s@PartListElement' {} a -> s {rangeInBytes = a} :: PartListElement)
 
 -- | The SHA256 tree hash value that Amazon S3 Glacier calculated for the
 -- part. This field is never @null@.
 partListElement_sHA256TreeHash :: Lens.Lens' PartListElement (Prelude.Maybe Prelude.Text)
 partListElement_sHA256TreeHash = Lens.lens (\PartListElement' {sHA256TreeHash} -> sHA256TreeHash) (\s@PartListElement' {} a -> s {sHA256TreeHash = a} :: PartListElement)
-
--- | The byte range of a part, inclusive of the upper value of the range.
-partListElement_rangeInBytes :: Lens.Lens' PartListElement (Prelude.Maybe Prelude.Text)
-partListElement_rangeInBytes = Lens.lens (\PartListElement' {rangeInBytes} -> rangeInBytes) (\s@PartListElement' {} a -> s {rangeInBytes = a} :: PartListElement)
 
 instance Core.FromJSON PartListElement where
   parseJSON =
@@ -70,16 +70,16 @@ instance Core.FromJSON PartListElement where
       "PartListElement"
       ( \x ->
           PartListElement'
-            Prelude.<$> (x Core..:? "SHA256TreeHash")
-            Prelude.<*> (x Core..:? "RangeInBytes")
+            Prelude.<$> (x Core..:? "RangeInBytes")
+            Prelude.<*> (x Core..:? "SHA256TreeHash")
       )
 
 instance Prelude.Hashable PartListElement where
   hashWithSalt _salt PartListElement' {..} =
-    _salt `Prelude.hashWithSalt` sHA256TreeHash
-      `Prelude.hashWithSalt` rangeInBytes
+    _salt `Prelude.hashWithSalt` rangeInBytes
+      `Prelude.hashWithSalt` sHA256TreeHash
 
 instance Prelude.NFData PartListElement where
   rnf PartListElement' {..} =
-    Prelude.rnf sHA256TreeHash
-      `Prelude.seq` Prelude.rnf rangeInBytes
+    Prelude.rnf rangeInBytes
+      `Prelude.seq` Prelude.rnf sHA256TreeHash

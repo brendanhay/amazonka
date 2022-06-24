@@ -139,11 +139,7 @@ instance Core.ToHeaders SetVaultAccessPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON SetVaultAccessPolicy where
-  toJSON SetVaultAccessPolicy' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [("policy" Core..=) Prelude.<$> policy]
-      )
+  toJSON SetVaultAccessPolicy' {..} = Core.toJSON policy
 
 instance Core.ToPath SetVaultAccessPolicy where
   toPath SetVaultAccessPolicy' {..} =

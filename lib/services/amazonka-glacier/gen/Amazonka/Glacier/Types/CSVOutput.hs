@@ -35,14 +35,14 @@ data CSVOutput = CSVOutput'
     -- | A value that indicates whether all output fields should be contained
     -- within quotation marks.
     quoteFields :: Prelude.Maybe QuoteFields,
-    -- | A value used to separate individual records from each other.
-    recordDelimiter :: Prelude.Maybe Prelude.Text,
     -- | A single character used for escaping the quotation-mark character inside
     -- an already escaped value.
     quoteEscapeCharacter :: Prelude.Maybe Prelude.Text,
     -- | A value used to separate individual fields from each other within a
     -- record.
-    fieldDelimiter :: Prelude.Maybe Prelude.Text
+    fieldDelimiter :: Prelude.Maybe Prelude.Text,
+    -- | A value used to separate individual records from each other.
+    recordDelimiter :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,22 +60,22 @@ data CSVOutput = CSVOutput'
 -- 'quoteFields', 'cSVOutput_quoteFields' - A value that indicates whether all output fields should be contained
 -- within quotation marks.
 --
--- 'recordDelimiter', 'cSVOutput_recordDelimiter' - A value used to separate individual records from each other.
---
 -- 'quoteEscapeCharacter', 'cSVOutput_quoteEscapeCharacter' - A single character used for escaping the quotation-mark character inside
 -- an already escaped value.
 --
 -- 'fieldDelimiter', 'cSVOutput_fieldDelimiter' - A value used to separate individual fields from each other within a
 -- record.
+--
+-- 'recordDelimiter', 'cSVOutput_recordDelimiter' - A value used to separate individual records from each other.
 newCSVOutput ::
   CSVOutput
 newCSVOutput =
   CSVOutput'
     { quoteCharacter = Prelude.Nothing,
       quoteFields = Prelude.Nothing,
-      recordDelimiter = Prelude.Nothing,
       quoteEscapeCharacter = Prelude.Nothing,
-      fieldDelimiter = Prelude.Nothing
+      fieldDelimiter = Prelude.Nothing,
+      recordDelimiter = Prelude.Nothing
     }
 
 -- | A value used as an escape character where the field delimiter is part of
@@ -88,10 +88,6 @@ cSVOutput_quoteCharacter = Lens.lens (\CSVOutput' {quoteCharacter} -> quoteChara
 cSVOutput_quoteFields :: Lens.Lens' CSVOutput (Prelude.Maybe QuoteFields)
 cSVOutput_quoteFields = Lens.lens (\CSVOutput' {quoteFields} -> quoteFields) (\s@CSVOutput' {} a -> s {quoteFields = a} :: CSVOutput)
 
--- | A value used to separate individual records from each other.
-cSVOutput_recordDelimiter :: Lens.Lens' CSVOutput (Prelude.Maybe Prelude.Text)
-cSVOutput_recordDelimiter = Lens.lens (\CSVOutput' {recordDelimiter} -> recordDelimiter) (\s@CSVOutput' {} a -> s {recordDelimiter = a} :: CSVOutput)
-
 -- | A single character used for escaping the quotation-mark character inside
 -- an already escaped value.
 cSVOutput_quoteEscapeCharacter :: Lens.Lens' CSVOutput (Prelude.Maybe Prelude.Text)
@@ -102,6 +98,10 @@ cSVOutput_quoteEscapeCharacter = Lens.lens (\CSVOutput' {quoteEscapeCharacter} -
 cSVOutput_fieldDelimiter :: Lens.Lens' CSVOutput (Prelude.Maybe Prelude.Text)
 cSVOutput_fieldDelimiter = Lens.lens (\CSVOutput' {fieldDelimiter} -> fieldDelimiter) (\s@CSVOutput' {} a -> s {fieldDelimiter = a} :: CSVOutput)
 
+-- | A value used to separate individual records from each other.
+cSVOutput_recordDelimiter :: Lens.Lens' CSVOutput (Prelude.Maybe Prelude.Text)
+cSVOutput_recordDelimiter = Lens.lens (\CSVOutput' {recordDelimiter} -> recordDelimiter) (\s@CSVOutput' {} a -> s {recordDelimiter = a} :: CSVOutput)
+
 instance Core.FromJSON CSVOutput where
   parseJSON =
     Core.withObject
@@ -110,26 +110,26 @@ instance Core.FromJSON CSVOutput where
           CSVOutput'
             Prelude.<$> (x Core..:? "QuoteCharacter")
             Prelude.<*> (x Core..:? "QuoteFields")
-            Prelude.<*> (x Core..:? "RecordDelimiter")
             Prelude.<*> (x Core..:? "QuoteEscapeCharacter")
             Prelude.<*> (x Core..:? "FieldDelimiter")
+            Prelude.<*> (x Core..:? "RecordDelimiter")
       )
 
 instance Prelude.Hashable CSVOutput where
   hashWithSalt _salt CSVOutput' {..} =
     _salt `Prelude.hashWithSalt` quoteCharacter
       `Prelude.hashWithSalt` quoteFields
-      `Prelude.hashWithSalt` recordDelimiter
       `Prelude.hashWithSalt` quoteEscapeCharacter
       `Prelude.hashWithSalt` fieldDelimiter
+      `Prelude.hashWithSalt` recordDelimiter
 
 instance Prelude.NFData CSVOutput where
   rnf CSVOutput' {..} =
     Prelude.rnf quoteCharacter
       `Prelude.seq` Prelude.rnf quoteFields
-      `Prelude.seq` Prelude.rnf recordDelimiter
       `Prelude.seq` Prelude.rnf quoteEscapeCharacter
       `Prelude.seq` Prelude.rnf fieldDelimiter
+      `Prelude.seq` Prelude.rnf recordDelimiter
 
 instance Core.ToJSON CSVOutput where
   toJSON CSVOutput' {..} =
@@ -138,11 +138,11 @@ instance Core.ToJSON CSVOutput where
           [ ("QuoteCharacter" Core..=)
               Prelude.<$> quoteCharacter,
             ("QuoteFields" Core..=) Prelude.<$> quoteFields,
-            ("RecordDelimiter" Core..=)
-              Prelude.<$> recordDelimiter,
             ("QuoteEscapeCharacter" Core..=)
               Prelude.<$> quoteEscapeCharacter,
             ("FieldDelimiter" Core..=)
-              Prelude.<$> fieldDelimiter
+              Prelude.<$> fieldDelimiter,
+            ("RecordDelimiter" Core..=)
+              Prelude.<$> recordDelimiter
           ]
       )

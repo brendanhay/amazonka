@@ -66,13 +66,13 @@ module Amazonka.Glacier.ListParts
     newListPartsResponse,
 
     -- * Response Lenses
+    listPartsResponse_marker,
     listPartsResponse_parts,
+    listPartsResponse_creationDate,
     listPartsResponse_multipartUploadId,
-    listPartsResponse_partSizeInBytes,
     listPartsResponse_archiveDescription,
     listPartsResponse_vaultARN,
-    listPartsResponse_marker,
-    listPartsResponse_creationDate,
+    listPartsResponse_partSizeInBytes,
     listPartsResponse_httpStatus,
   )
 where
@@ -214,13 +214,13 @@ instance Core.AWSRequest ListParts where
     Response.receiveJSON
       ( \s h x ->
           ListPartsResponse'
-            Prelude.<$> (x Core..?> "Parts" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Marker")
+            Prelude.<*> (x Core..?> "Parts" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "CreationDate")
             Prelude.<*> (x Core..?> "MultipartUploadId")
-            Prelude.<*> (x Core..?> "PartSizeInBytes")
             Prelude.<*> (x Core..?> "ArchiveDescription")
             Prelude.<*> (x Core..?> "VaultARN")
-            Prelude.<*> (x Core..?> "Marker")
-            Prelude.<*> (x Core..?> "CreationDate")
+            Prelude.<*> (x Core..?> "PartSizeInBytes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -263,26 +263,26 @@ instance Core.ToQuery ListParts where
 --
 -- /See:/ 'newListPartsResponse' smart constructor.
 data ListPartsResponse = ListPartsResponse'
-  { -- | A list of the part sizes of the multipart upload. Each object in the
+  { -- | An opaque string that represents where to continue pagination of the
+    -- results. You use the marker in a new List Parts request to obtain more
+    -- jobs in the list. If there are no more parts, this value is @null@.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | A list of the part sizes of the multipart upload. Each object in the
     -- array contains a @RangeBytes@ and @sha256-tree-hash@ name\/value pair.
     parts :: Prelude.Maybe [PartListElement],
+    -- | The UTC time at which the multipart upload was initiated.
+    creationDate :: Prelude.Maybe Prelude.Text,
     -- | The ID of the upload to which the parts are associated.
     multipartUploadId :: Prelude.Maybe Prelude.Text,
-    -- | The part size in bytes. This is the same value that you specified in the
-    -- Initiate Multipart Upload request.
-    partSizeInBytes :: Prelude.Maybe Prelude.Integer,
     -- | The description of the archive that was specified in the Initiate
     -- Multipart Upload request.
     archiveDescription :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the vault to which the multipart
     -- upload was initiated.
     vaultARN :: Prelude.Maybe Prelude.Text,
-    -- | An opaque string that represents where to continue pagination of the
-    -- results. You use the marker in a new List Parts request to obtain more
-    -- jobs in the list. If there are no more parts, this value is @null@.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | The UTC time at which the multipart upload was initiated.
-    creationDate :: Prelude.Maybe Prelude.Text,
+    -- | The part size in bytes. This is the same value that you specified in the
+    -- Initiate Multipart Upload request.
+    partSizeInBytes :: Prelude.Maybe Prelude.Integer,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -296,13 +296,16 @@ data ListPartsResponse = ListPartsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'marker', 'listPartsResponse_marker' - An opaque string that represents where to continue pagination of the
+-- results. You use the marker in a new List Parts request to obtain more
+-- jobs in the list. If there are no more parts, this value is @null@.
+--
 -- 'parts', 'listPartsResponse_parts' - A list of the part sizes of the multipart upload. Each object in the
 -- array contains a @RangeBytes@ and @sha256-tree-hash@ name\/value pair.
 --
--- 'multipartUploadId', 'listPartsResponse_multipartUploadId' - The ID of the upload to which the parts are associated.
+-- 'creationDate', 'listPartsResponse_creationDate' - The UTC time at which the multipart upload was initiated.
 --
--- 'partSizeInBytes', 'listPartsResponse_partSizeInBytes' - The part size in bytes. This is the same value that you specified in the
--- Initiate Multipart Upload request.
+-- 'multipartUploadId', 'listPartsResponse_multipartUploadId' - The ID of the upload to which the parts are associated.
 --
 -- 'archiveDescription', 'listPartsResponse_archiveDescription' - The description of the archive that was specified in the Initiate
 -- Multipart Upload request.
@@ -310,11 +313,8 @@ data ListPartsResponse = ListPartsResponse'
 -- 'vaultARN', 'listPartsResponse_vaultARN' - The Amazon Resource Name (ARN) of the vault to which the multipart
 -- upload was initiated.
 --
--- 'marker', 'listPartsResponse_marker' - An opaque string that represents where to continue pagination of the
--- results. You use the marker in a new List Parts request to obtain more
--- jobs in the list. If there are no more parts, this value is @null@.
---
--- 'creationDate', 'listPartsResponse_creationDate' - The UTC time at which the multipart upload was initiated.
+-- 'partSizeInBytes', 'listPartsResponse_partSizeInBytes' - The part size in bytes. This is the same value that you specified in the
+-- Initiate Multipart Upload request.
 --
 -- 'httpStatus', 'listPartsResponse_httpStatus' - The response's http status code.
 newListPartsResponse ::
@@ -323,29 +323,34 @@ newListPartsResponse ::
   ListPartsResponse
 newListPartsResponse pHttpStatus_ =
   ListPartsResponse'
-    { parts = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      parts = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
       multipartUploadId = Prelude.Nothing,
-      partSizeInBytes = Prelude.Nothing,
       archiveDescription = Prelude.Nothing,
       vaultARN = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
+      partSizeInBytes = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An opaque string that represents where to continue pagination of the
+-- results. You use the marker in a new List Parts request to obtain more
+-- jobs in the list. If there are no more parts, this value is @null@.
+listPartsResponse_marker :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.Text)
+listPartsResponse_marker = Lens.lens (\ListPartsResponse' {marker} -> marker) (\s@ListPartsResponse' {} a -> s {marker = a} :: ListPartsResponse)
 
 -- | A list of the part sizes of the multipart upload. Each object in the
 -- array contains a @RangeBytes@ and @sha256-tree-hash@ name\/value pair.
 listPartsResponse_parts :: Lens.Lens' ListPartsResponse (Prelude.Maybe [PartListElement])
 listPartsResponse_parts = Lens.lens (\ListPartsResponse' {parts} -> parts) (\s@ListPartsResponse' {} a -> s {parts = a} :: ListPartsResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The UTC time at which the multipart upload was initiated.
+listPartsResponse_creationDate :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.Text)
+listPartsResponse_creationDate = Lens.lens (\ListPartsResponse' {creationDate} -> creationDate) (\s@ListPartsResponse' {} a -> s {creationDate = a} :: ListPartsResponse)
+
 -- | The ID of the upload to which the parts are associated.
 listPartsResponse_multipartUploadId :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.Text)
 listPartsResponse_multipartUploadId = Lens.lens (\ListPartsResponse' {multipartUploadId} -> multipartUploadId) (\s@ListPartsResponse' {} a -> s {multipartUploadId = a} :: ListPartsResponse)
-
--- | The part size in bytes. This is the same value that you specified in the
--- Initiate Multipart Upload request.
-listPartsResponse_partSizeInBytes :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.Integer)
-listPartsResponse_partSizeInBytes = Lens.lens (\ListPartsResponse' {partSizeInBytes} -> partSizeInBytes) (\s@ListPartsResponse' {} a -> s {partSizeInBytes = a} :: ListPartsResponse)
 
 -- | The description of the archive that was specified in the Initiate
 -- Multipart Upload request.
@@ -357,15 +362,10 @@ listPartsResponse_archiveDescription = Lens.lens (\ListPartsResponse' {archiveDe
 listPartsResponse_vaultARN :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.Text)
 listPartsResponse_vaultARN = Lens.lens (\ListPartsResponse' {vaultARN} -> vaultARN) (\s@ListPartsResponse' {} a -> s {vaultARN = a} :: ListPartsResponse)
 
--- | An opaque string that represents where to continue pagination of the
--- results. You use the marker in a new List Parts request to obtain more
--- jobs in the list. If there are no more parts, this value is @null@.
-listPartsResponse_marker :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.Text)
-listPartsResponse_marker = Lens.lens (\ListPartsResponse' {marker} -> marker) (\s@ListPartsResponse' {} a -> s {marker = a} :: ListPartsResponse)
-
--- | The UTC time at which the multipart upload was initiated.
-listPartsResponse_creationDate :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.Text)
-listPartsResponse_creationDate = Lens.lens (\ListPartsResponse' {creationDate} -> creationDate) (\s@ListPartsResponse' {} a -> s {creationDate = a} :: ListPartsResponse)
+-- | The part size in bytes. This is the same value that you specified in the
+-- Initiate Multipart Upload request.
+listPartsResponse_partSizeInBytes :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.Integer)
+listPartsResponse_partSizeInBytes = Lens.lens (\ListPartsResponse' {partSizeInBytes} -> partSizeInBytes) (\s@ListPartsResponse' {} a -> s {partSizeInBytes = a} :: ListPartsResponse)
 
 -- | The response's http status code.
 listPartsResponse_httpStatus :: Lens.Lens' ListPartsResponse Prelude.Int
@@ -373,11 +373,11 @@ listPartsResponse_httpStatus = Lens.lens (\ListPartsResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListPartsResponse where
   rnf ListPartsResponse' {..} =
-    Prelude.rnf parts
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf parts
+      `Prelude.seq` Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf multipartUploadId
-      `Prelude.seq` Prelude.rnf partSizeInBytes
       `Prelude.seq` Prelude.rnf archiveDescription
       `Prelude.seq` Prelude.rnf vaultARN
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf partSizeInBytes
       `Prelude.seq` Prelude.rnf httpStatus

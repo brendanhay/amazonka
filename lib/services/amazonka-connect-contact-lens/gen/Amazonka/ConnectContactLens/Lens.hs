@@ -44,8 +44,8 @@ module Amazonka.ConnectContactLens.Lens
     pointOfInterest_endOffsetMillis,
 
     -- ** RealtimeContactAnalysisSegment
-    realtimeContactAnalysisSegment_categories,
     realtimeContactAnalysisSegment_transcript,
+    realtimeContactAnalysisSegment_categories,
 
     -- ** Transcript
     transcript_issuesDetected,

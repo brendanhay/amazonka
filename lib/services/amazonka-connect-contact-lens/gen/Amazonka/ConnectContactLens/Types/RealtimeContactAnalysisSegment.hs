@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRealtimeContactAnalysisSegment' smart constructor.
 data RealtimeContactAnalysisSegment = RealtimeContactAnalysisSegment'
-  { -- | The matched category rules.
-    categories :: Prelude.Maybe Categories,
-    -- | The analyzed transcript.
-    transcript :: Prelude.Maybe Transcript
+  { -- | The analyzed transcript.
+    transcript :: Prelude.Maybe Transcript,
+    -- | The matched category rules.
+    categories :: Prelude.Maybe Categories
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data RealtimeContactAnalysisSegment = RealtimeContactAnalysisSegment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'categories', 'realtimeContactAnalysisSegment_categories' - The matched category rules.
---
 -- 'transcript', 'realtimeContactAnalysisSegment_transcript' - The analyzed transcript.
+--
+-- 'categories', 'realtimeContactAnalysisSegment_categories' - The matched category rules.
 newRealtimeContactAnalysisSegment ::
   RealtimeContactAnalysisSegment
 newRealtimeContactAnalysisSegment =
   RealtimeContactAnalysisSegment'
-    { categories =
+    { transcript =
         Prelude.Nothing,
-      transcript = Prelude.Nothing
+      categories = Prelude.Nothing
     }
-
--- | The matched category rules.
-realtimeContactAnalysisSegment_categories :: Lens.Lens' RealtimeContactAnalysisSegment (Prelude.Maybe Categories)
-realtimeContactAnalysisSegment_categories = Lens.lens (\RealtimeContactAnalysisSegment' {categories} -> categories) (\s@RealtimeContactAnalysisSegment' {} a -> s {categories = a} :: RealtimeContactAnalysisSegment)
 
 -- | The analyzed transcript.
 realtimeContactAnalysisSegment_transcript :: Lens.Lens' RealtimeContactAnalysisSegment (Prelude.Maybe Transcript)
 realtimeContactAnalysisSegment_transcript = Lens.lens (\RealtimeContactAnalysisSegment' {transcript} -> transcript) (\s@RealtimeContactAnalysisSegment' {} a -> s {transcript = a} :: RealtimeContactAnalysisSegment)
+
+-- | The matched category rules.
+realtimeContactAnalysisSegment_categories :: Lens.Lens' RealtimeContactAnalysisSegment (Prelude.Maybe Categories)
+realtimeContactAnalysisSegment_categories = Lens.lens (\RealtimeContactAnalysisSegment' {categories} -> categories) (\s@RealtimeContactAnalysisSegment' {} a -> s {categories = a} :: RealtimeContactAnalysisSegment)
 
 instance Core.FromJSON RealtimeContactAnalysisSegment where
   parseJSON =
@@ -70,8 +70,8 @@ instance Core.FromJSON RealtimeContactAnalysisSegment where
       "RealtimeContactAnalysisSegment"
       ( \x ->
           RealtimeContactAnalysisSegment'
-            Prelude.<$> (x Core..:? "Categories")
-            Prelude.<*> (x Core..:? "Transcript")
+            Prelude.<$> (x Core..:? "Transcript")
+            Prelude.<*> (x Core..:? "Categories")
       )
 
 instance
@@ -81,13 +81,13 @@ instance
   hashWithSalt
     _salt
     RealtimeContactAnalysisSegment' {..} =
-      _salt `Prelude.hashWithSalt` categories
-        `Prelude.hashWithSalt` transcript
+      _salt `Prelude.hashWithSalt` transcript
+        `Prelude.hashWithSalt` categories
 
 instance
   Prelude.NFData
     RealtimeContactAnalysisSegment
   where
   rnf RealtimeContactAnalysisSegment' {..} =
-    Prelude.rnf categories
-      `Prelude.seq` Prelude.rnf transcript
+    Prelude.rnf transcript
+      `Prelude.seq` Prelude.rnf categories

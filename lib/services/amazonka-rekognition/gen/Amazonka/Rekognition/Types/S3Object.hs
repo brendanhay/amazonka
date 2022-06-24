@@ -34,10 +34,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3Object' smart constructor.
 data S3Object = S3Object'
-  { -- | Name of the S3 bucket.
-    bucket :: Prelude.Maybe Prelude.Text,
-    -- | S3 object key name.
+  { -- | S3 object key name.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Name of the S3 bucket.
+    bucket :: Prelude.Maybe Prelude.Text,
     -- | If the bucket is versioning enabled, you can specify the object version.
     version :: Prelude.Maybe Prelude.Text
   }
@@ -51,27 +51,27 @@ data S3Object = S3Object'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bucket', 's3Object_bucket' - Name of the S3 bucket.
---
 -- 'name', 's3Object_name' - S3 object key name.
+--
+-- 'bucket', 's3Object_bucket' - Name of the S3 bucket.
 --
 -- 'version', 's3Object_version' - If the bucket is versioning enabled, you can specify the object version.
 newS3Object ::
   S3Object
 newS3Object =
   S3Object'
-    { bucket = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      bucket = Prelude.Nothing,
       version = Prelude.Nothing
     }
-
--- | Name of the S3 bucket.
-s3Object_bucket :: Lens.Lens' S3Object (Prelude.Maybe Prelude.Text)
-s3Object_bucket = Lens.lens (\S3Object' {bucket} -> bucket) (\s@S3Object' {} a -> s {bucket = a} :: S3Object)
 
 -- | S3 object key name.
 s3Object_name :: Lens.Lens' S3Object (Prelude.Maybe Prelude.Text)
 s3Object_name = Lens.lens (\S3Object' {name} -> name) (\s@S3Object' {} a -> s {name = a} :: S3Object)
+
+-- | Name of the S3 bucket.
+s3Object_bucket :: Lens.Lens' S3Object (Prelude.Maybe Prelude.Text)
+s3Object_bucket = Lens.lens (\S3Object' {bucket} -> bucket) (\s@S3Object' {} a -> s {bucket = a} :: S3Object)
 
 -- | If the bucket is versioning enabled, you can specify the object version.
 s3Object_version :: Lens.Lens' S3Object (Prelude.Maybe Prelude.Text)
@@ -83,29 +83,29 @@ instance Core.FromJSON S3Object where
       "S3Object"
       ( \x ->
           S3Object'
-            Prelude.<$> (x Core..:? "Bucket")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Bucket")
             Prelude.<*> (x Core..:? "Version")
       )
 
 instance Prelude.Hashable S3Object where
   hashWithSalt _salt S3Object' {..} =
-    _salt `Prelude.hashWithSalt` bucket
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData S3Object where
   rnf S3Object' {..} =
-    Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf version
 
 instance Core.ToJSON S3Object where
   toJSON S3Object' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Bucket" Core..=) Prelude.<$> bucket,
-            ("Name" Core..=) Prelude.<$> name,
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("Bucket" Core..=) Prelude.<$> bucket,
             ("Version" Core..=) Prelude.<$> version
           ]
       )

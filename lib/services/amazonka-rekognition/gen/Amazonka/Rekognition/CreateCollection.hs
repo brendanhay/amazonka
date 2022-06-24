@@ -51,9 +51,9 @@ module Amazonka.Rekognition.CreateCollection
     newCreateCollectionResponse,
 
     -- * Response Lenses
+    createCollectionResponse_statusCode,
     createCollectionResponse_faceModelVersion,
     createCollectionResponse_collectionArn,
-    createCollectionResponse_statusCode,
     createCollectionResponse_httpStatus,
   )
 where
@@ -115,9 +115,9 @@ instance Core.AWSRequest CreateCollection where
     Response.receiveJSON
       ( \s h x ->
           CreateCollectionResponse'
-            Prelude.<$> (x Core..?> "FaceModelVersion")
+            Prelude.<$> (x Core..?> "StatusCode")
+            Prelude.<*> (x Core..?> "FaceModelVersion")
             Prelude.<*> (x Core..?> "CollectionArn")
-            Prelude.<*> (x Core..?> "StatusCode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,14 +163,14 @@ instance Core.ToQuery CreateCollection where
 
 -- | /See:/ 'newCreateCollectionResponse' smart constructor.
 data CreateCollectionResponse = CreateCollectionResponse'
-  { -- | Version number of the face detection model associated with the
+  { -- | HTTP status code indicating the result of the operation.
+    statusCode :: Prelude.Maybe Prelude.Natural,
+    -- | Version number of the face detection model associated with the
     -- collection you are creating.
     faceModelVersion :: Prelude.Maybe Prelude.Text,
     -- | Amazon Resource Name (ARN) of the collection. You can use this to manage
     -- permissions on your resources.
     collectionArn :: Prelude.Maybe Prelude.Text,
-    -- | HTTP status code indicating the result of the operation.
-    statusCode :: Prelude.Maybe Prelude.Natural,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -184,13 +184,13 @@ data CreateCollectionResponse = CreateCollectionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'statusCode', 'createCollectionResponse_statusCode' - HTTP status code indicating the result of the operation.
+--
 -- 'faceModelVersion', 'createCollectionResponse_faceModelVersion' - Version number of the face detection model associated with the
 -- collection you are creating.
 --
 -- 'collectionArn', 'createCollectionResponse_collectionArn' - Amazon Resource Name (ARN) of the collection. You can use this to manage
 -- permissions on your resources.
---
--- 'statusCode', 'createCollectionResponse_statusCode' - HTTP status code indicating the result of the operation.
 --
 -- 'httpStatus', 'createCollectionResponse_httpStatus' - The response's http status code.
 newCreateCollectionResponse ::
@@ -199,12 +199,16 @@ newCreateCollectionResponse ::
   CreateCollectionResponse
 newCreateCollectionResponse pHttpStatus_ =
   CreateCollectionResponse'
-    { faceModelVersion =
+    { statusCode =
         Prelude.Nothing,
+      faceModelVersion = Prelude.Nothing,
       collectionArn = Prelude.Nothing,
-      statusCode = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | HTTP status code indicating the result of the operation.
+createCollectionResponse_statusCode :: Lens.Lens' CreateCollectionResponse (Prelude.Maybe Prelude.Natural)
+createCollectionResponse_statusCode = Lens.lens (\CreateCollectionResponse' {statusCode} -> statusCode) (\s@CreateCollectionResponse' {} a -> s {statusCode = a} :: CreateCollectionResponse)
 
 -- | Version number of the face detection model associated with the
 -- collection you are creating.
@@ -216,17 +220,13 @@ createCollectionResponse_faceModelVersion = Lens.lens (\CreateCollectionResponse
 createCollectionResponse_collectionArn :: Lens.Lens' CreateCollectionResponse (Prelude.Maybe Prelude.Text)
 createCollectionResponse_collectionArn = Lens.lens (\CreateCollectionResponse' {collectionArn} -> collectionArn) (\s@CreateCollectionResponse' {} a -> s {collectionArn = a} :: CreateCollectionResponse)
 
--- | HTTP status code indicating the result of the operation.
-createCollectionResponse_statusCode :: Lens.Lens' CreateCollectionResponse (Prelude.Maybe Prelude.Natural)
-createCollectionResponse_statusCode = Lens.lens (\CreateCollectionResponse' {statusCode} -> statusCode) (\s@CreateCollectionResponse' {} a -> s {statusCode = a} :: CreateCollectionResponse)
-
 -- | The response's http status code.
 createCollectionResponse_httpStatus :: Lens.Lens' CreateCollectionResponse Prelude.Int
 createCollectionResponse_httpStatus = Lens.lens (\CreateCollectionResponse' {httpStatus} -> httpStatus) (\s@CreateCollectionResponse' {} a -> s {httpStatus = a} :: CreateCollectionResponse)
 
 instance Prelude.NFData CreateCollectionResponse where
   rnf CreateCollectionResponse' {..} =
-    Prelude.rnf faceModelVersion
+    Prelude.rnf statusCode
+      `Prelude.seq` Prelude.rnf faceModelVersion
       `Prelude.seq` Prelude.rnf collectionArn
-      `Prelude.seq` Prelude.rnf statusCode
       `Prelude.seq` Prelude.rnf httpStatus

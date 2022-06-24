@@ -82,10 +82,10 @@ module Amazonka.Rekognition.SearchFacesByImage
     newSearchFacesByImageResponse,
 
     -- * Response Lenses
-    searchFacesByImageResponse_faceMatches,
-    searchFacesByImageResponse_faceModelVersion,
-    searchFacesByImageResponse_searchedFaceBoundingBox,
     searchFacesByImageResponse_searchedFaceConfidence,
+    searchFacesByImageResponse_faceMatches,
+    searchFacesByImageResponse_searchedFaceBoundingBox,
+    searchFacesByImageResponse_faceModelVersion,
     searchFacesByImageResponse_httpStatus,
   )
 where
@@ -237,10 +237,10 @@ instance Core.AWSRequest SearchFacesByImage where
     Response.receiveJSON
       ( \s h x ->
           SearchFacesByImageResponse'
-            Prelude.<$> (x Core..?> "FaceMatches" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "FaceModelVersion")
+            Prelude.<$> (x Core..?> "SearchedFaceConfidence")
+            Prelude.<*> (x Core..?> "FaceMatches" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "SearchedFaceBoundingBox")
-            Prelude.<*> (x Core..?> "SearchedFaceConfidence")
+            Prelude.<*> (x Core..?> "FaceModelVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -296,18 +296,18 @@ instance Core.ToQuery SearchFacesByImage where
 
 -- | /See:/ 'newSearchFacesByImageResponse' smart constructor.
 data SearchFacesByImageResponse = SearchFacesByImageResponse'
-  { -- | An array of faces that match the input face, along with the confidence
+  { -- | The level of confidence that the @searchedFaceBoundingBox@, contains a
+    -- face.
+    searchedFaceConfidence :: Prelude.Maybe Prelude.Double,
+    -- | An array of faces that match the input face, along with the confidence
     -- in the match.
     faceMatches :: Prelude.Maybe [FaceMatch],
-    -- | Version number of the face detection model associated with the input
-    -- collection (@CollectionId@).
-    faceModelVersion :: Prelude.Maybe Prelude.Text,
     -- | The bounding box around the face in the input image that Amazon
     -- Rekognition used for the search.
     searchedFaceBoundingBox :: Prelude.Maybe BoundingBox,
-    -- | The level of confidence that the @searchedFaceBoundingBox@, contains a
-    -- face.
-    searchedFaceConfidence :: Prelude.Maybe Prelude.Double,
+    -- | Version number of the face detection model associated with the input
+    -- collection (@CollectionId@).
+    faceModelVersion :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -321,17 +321,17 @@ data SearchFacesByImageResponse = SearchFacesByImageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'searchedFaceConfidence', 'searchFacesByImageResponse_searchedFaceConfidence' - The level of confidence that the @searchedFaceBoundingBox@, contains a
+-- face.
+--
 -- 'faceMatches', 'searchFacesByImageResponse_faceMatches' - An array of faces that match the input face, along with the confidence
 -- in the match.
---
--- 'faceModelVersion', 'searchFacesByImageResponse_faceModelVersion' - Version number of the face detection model associated with the input
--- collection (@CollectionId@).
 --
 -- 'searchedFaceBoundingBox', 'searchFacesByImageResponse_searchedFaceBoundingBox' - The bounding box around the face in the input image that Amazon
 -- Rekognition used for the search.
 --
--- 'searchedFaceConfidence', 'searchFacesByImageResponse_searchedFaceConfidence' - The level of confidence that the @searchedFaceBoundingBox@, contains a
--- face.
+-- 'faceModelVersion', 'searchFacesByImageResponse_faceModelVersion' - Version number of the face detection model associated with the input
+-- collection (@CollectionId@).
 --
 -- 'httpStatus', 'searchFacesByImageResponse_httpStatus' - The response's http status code.
 newSearchFacesByImageResponse ::
@@ -340,33 +340,33 @@ newSearchFacesByImageResponse ::
   SearchFacesByImageResponse
 newSearchFacesByImageResponse pHttpStatus_ =
   SearchFacesByImageResponse'
-    { faceMatches =
+    { searchedFaceConfidence =
         Prelude.Nothing,
-      faceModelVersion = Prelude.Nothing,
+      faceMatches = Prelude.Nothing,
       searchedFaceBoundingBox = Prelude.Nothing,
-      searchedFaceConfidence = Prelude.Nothing,
+      faceModelVersion = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The level of confidence that the @searchedFaceBoundingBox@, contains a
+-- face.
+searchFacesByImageResponse_searchedFaceConfidence :: Lens.Lens' SearchFacesByImageResponse (Prelude.Maybe Prelude.Double)
+searchFacesByImageResponse_searchedFaceConfidence = Lens.lens (\SearchFacesByImageResponse' {searchedFaceConfidence} -> searchedFaceConfidence) (\s@SearchFacesByImageResponse' {} a -> s {searchedFaceConfidence = a} :: SearchFacesByImageResponse)
 
 -- | An array of faces that match the input face, along with the confidence
 -- in the match.
 searchFacesByImageResponse_faceMatches :: Lens.Lens' SearchFacesByImageResponse (Prelude.Maybe [FaceMatch])
 searchFacesByImageResponse_faceMatches = Lens.lens (\SearchFacesByImageResponse' {faceMatches} -> faceMatches) (\s@SearchFacesByImageResponse' {} a -> s {faceMatches = a} :: SearchFacesByImageResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Version number of the face detection model associated with the input
--- collection (@CollectionId@).
-searchFacesByImageResponse_faceModelVersion :: Lens.Lens' SearchFacesByImageResponse (Prelude.Maybe Prelude.Text)
-searchFacesByImageResponse_faceModelVersion = Lens.lens (\SearchFacesByImageResponse' {faceModelVersion} -> faceModelVersion) (\s@SearchFacesByImageResponse' {} a -> s {faceModelVersion = a} :: SearchFacesByImageResponse)
-
 -- | The bounding box around the face in the input image that Amazon
 -- Rekognition used for the search.
 searchFacesByImageResponse_searchedFaceBoundingBox :: Lens.Lens' SearchFacesByImageResponse (Prelude.Maybe BoundingBox)
 searchFacesByImageResponse_searchedFaceBoundingBox = Lens.lens (\SearchFacesByImageResponse' {searchedFaceBoundingBox} -> searchedFaceBoundingBox) (\s@SearchFacesByImageResponse' {} a -> s {searchedFaceBoundingBox = a} :: SearchFacesByImageResponse)
 
--- | The level of confidence that the @searchedFaceBoundingBox@, contains a
--- face.
-searchFacesByImageResponse_searchedFaceConfidence :: Lens.Lens' SearchFacesByImageResponse (Prelude.Maybe Prelude.Double)
-searchFacesByImageResponse_searchedFaceConfidence = Lens.lens (\SearchFacesByImageResponse' {searchedFaceConfidence} -> searchedFaceConfidence) (\s@SearchFacesByImageResponse' {} a -> s {searchedFaceConfidence = a} :: SearchFacesByImageResponse)
+-- | Version number of the face detection model associated with the input
+-- collection (@CollectionId@).
+searchFacesByImageResponse_faceModelVersion :: Lens.Lens' SearchFacesByImageResponse (Prelude.Maybe Prelude.Text)
+searchFacesByImageResponse_faceModelVersion = Lens.lens (\SearchFacesByImageResponse' {faceModelVersion} -> faceModelVersion) (\s@SearchFacesByImageResponse' {} a -> s {faceModelVersion = a} :: SearchFacesByImageResponse)
 
 -- | The response's http status code.
 searchFacesByImageResponse_httpStatus :: Lens.Lens' SearchFacesByImageResponse Prelude.Int
@@ -374,8 +374,8 @@ searchFacesByImageResponse_httpStatus = Lens.lens (\SearchFacesByImageResponse' 
 
 instance Prelude.NFData SearchFacesByImageResponse where
   rnf SearchFacesByImageResponse' {..} =
-    Prelude.rnf faceMatches
-      `Prelude.seq` Prelude.rnf faceModelVersion
+    Prelude.rnf searchedFaceConfidence
+      `Prelude.seq` Prelude.rnf faceMatches
       `Prelude.seq` Prelude.rnf searchedFaceBoundingBox
-      `Prelude.seq` Prelude.rnf searchedFaceConfidence
+      `Prelude.seq` Prelude.rnf faceModelVersion
       `Prelude.seq` Prelude.rnf httpStatus

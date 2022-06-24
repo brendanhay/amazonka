@@ -45,9 +45,9 @@ module Amazonka.Rekognition.ListFaces
     newListFacesResponse,
 
     -- * Response Lenses
-    listFacesResponse_faceModelVersion,
     listFacesResponse_nextToken,
     listFacesResponse_faces,
+    listFacesResponse_faceModelVersion,
     listFacesResponse_httpStatus,
   )
 where
@@ -141,9 +141,9 @@ instance Core.AWSRequest ListFaces where
     Response.receiveJSON
       ( \s h x ->
           ListFacesResponse'
-            Prelude.<$> (x Core..?> "FaceModelVersion")
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
             Prelude.<*> (x Core..?> "Faces" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "FaceModelVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -192,14 +192,14 @@ instance Core.ToQuery ListFaces where
 
 -- | /See:/ 'newListFacesResponse' smart constructor.
 data ListFacesResponse = ListFacesResponse'
-  { -- | Version number of the face detection model associated with the input
-    -- collection (@CollectionId@).
-    faceModelVersion :: Prelude.Maybe Prelude.Text,
-    -- | If the response is truncated, Amazon Rekognition returns this token that
+  { -- | If the response is truncated, Amazon Rekognition returns this token that
     -- you can use in the subsequent request to retrieve the next set of faces.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | An array of @Face@ objects.
     faces :: Prelude.Maybe [Face],
+    -- | Version number of the face detection model associated with the input
+    -- collection (@CollectionId@).
+    faceModelVersion :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -213,13 +213,13 @@ data ListFacesResponse = ListFacesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'faceModelVersion', 'listFacesResponse_faceModelVersion' - Version number of the face detection model associated with the input
--- collection (@CollectionId@).
---
 -- 'nextToken', 'listFacesResponse_nextToken' - If the response is truncated, Amazon Rekognition returns this token that
 -- you can use in the subsequent request to retrieve the next set of faces.
 --
 -- 'faces', 'listFacesResponse_faces' - An array of @Face@ objects.
+--
+-- 'faceModelVersion', 'listFacesResponse_faceModelVersion' - Version number of the face detection model associated with the input
+-- collection (@CollectionId@).
 --
 -- 'httpStatus', 'listFacesResponse_httpStatus' - The response's http status code.
 newListFacesResponse ::
@@ -228,17 +228,11 @@ newListFacesResponse ::
   ListFacesResponse
 newListFacesResponse pHttpStatus_ =
   ListFacesResponse'
-    { faceModelVersion =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       faces = Prelude.Nothing,
+      faceModelVersion = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Version number of the face detection model associated with the input
--- collection (@CollectionId@).
-listFacesResponse_faceModelVersion :: Lens.Lens' ListFacesResponse (Prelude.Maybe Prelude.Text)
-listFacesResponse_faceModelVersion = Lens.lens (\ListFacesResponse' {faceModelVersion} -> faceModelVersion) (\s@ListFacesResponse' {} a -> s {faceModelVersion = a} :: ListFacesResponse)
 
 -- | If the response is truncated, Amazon Rekognition returns this token that
 -- you can use in the subsequent request to retrieve the next set of faces.
@@ -249,13 +243,18 @@ listFacesResponse_nextToken = Lens.lens (\ListFacesResponse' {nextToken} -> next
 listFacesResponse_faces :: Lens.Lens' ListFacesResponse (Prelude.Maybe [Face])
 listFacesResponse_faces = Lens.lens (\ListFacesResponse' {faces} -> faces) (\s@ListFacesResponse' {} a -> s {faces = a} :: ListFacesResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | Version number of the face detection model associated with the input
+-- collection (@CollectionId@).
+listFacesResponse_faceModelVersion :: Lens.Lens' ListFacesResponse (Prelude.Maybe Prelude.Text)
+listFacesResponse_faceModelVersion = Lens.lens (\ListFacesResponse' {faceModelVersion} -> faceModelVersion) (\s@ListFacesResponse' {} a -> s {faceModelVersion = a} :: ListFacesResponse)
+
 -- | The response's http status code.
 listFacesResponse_httpStatus :: Lens.Lens' ListFacesResponse Prelude.Int
 listFacesResponse_httpStatus = Lens.lens (\ListFacesResponse' {httpStatus} -> httpStatus) (\s@ListFacesResponse' {} a -> s {httpStatus = a} :: ListFacesResponse)
 
 instance Prelude.NFData ListFacesResponse where
   rnf ListFacesResponse' {..} =
-    Prelude.rnf faceModelVersion
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf faces
+      `Prelude.seq` Prelude.rnf faceModelVersion
       `Prelude.seq` Prelude.rnf httpStatus

@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOutputConfig' smart constructor.
 data OutputConfig = OutputConfig'
-  { -- | The prefix applied to the training output files.
-    s3KeyPrefix :: Prelude.Maybe Prelude.Text,
-    -- | The S3 bucket where training output is placed.
-    s3Bucket :: Prelude.Maybe Prelude.Text
+  { -- | The S3 bucket where training output is placed.
+    s3Bucket :: Prelude.Maybe Prelude.Text,
+    -- | The prefix applied to the training output files.
+    s3KeyPrefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data OutputConfig = OutputConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3KeyPrefix', 'outputConfig_s3KeyPrefix' - The prefix applied to the training output files.
---
 -- 's3Bucket', 'outputConfig_s3Bucket' - The S3 bucket where training output is placed.
+--
+-- 's3KeyPrefix', 'outputConfig_s3KeyPrefix' - The prefix applied to the training output files.
 newOutputConfig ::
   OutputConfig
 newOutputConfig =
   OutputConfig'
-    { s3KeyPrefix = Prelude.Nothing,
-      s3Bucket = Prelude.Nothing
+    { s3Bucket = Prelude.Nothing,
+      s3KeyPrefix = Prelude.Nothing
     }
-
--- | The prefix applied to the training output files.
-outputConfig_s3KeyPrefix :: Lens.Lens' OutputConfig (Prelude.Maybe Prelude.Text)
-outputConfig_s3KeyPrefix = Lens.lens (\OutputConfig' {s3KeyPrefix} -> s3KeyPrefix) (\s@OutputConfig' {} a -> s {s3KeyPrefix = a} :: OutputConfig)
 
 -- | The S3 bucket where training output is placed.
 outputConfig_s3Bucket :: Lens.Lens' OutputConfig (Prelude.Maybe Prelude.Text)
 outputConfig_s3Bucket = Lens.lens (\OutputConfig' {s3Bucket} -> s3Bucket) (\s@OutputConfig' {} a -> s {s3Bucket = a} :: OutputConfig)
+
+-- | The prefix applied to the training output files.
+outputConfig_s3KeyPrefix :: Lens.Lens' OutputConfig (Prelude.Maybe Prelude.Text)
+outputConfig_s3KeyPrefix = Lens.lens (\OutputConfig' {s3KeyPrefix} -> s3KeyPrefix) (\s@OutputConfig' {} a -> s {s3KeyPrefix = a} :: OutputConfig)
 
 instance Core.FromJSON OutputConfig where
   parseJSON =
@@ -67,25 +67,25 @@ instance Core.FromJSON OutputConfig where
       "OutputConfig"
       ( \x ->
           OutputConfig'
-            Prelude.<$> (x Core..:? "S3KeyPrefix")
-            Prelude.<*> (x Core..:? "S3Bucket")
+            Prelude.<$> (x Core..:? "S3Bucket")
+            Prelude.<*> (x Core..:? "S3KeyPrefix")
       )
 
 instance Prelude.Hashable OutputConfig where
   hashWithSalt _salt OutputConfig' {..} =
-    _salt `Prelude.hashWithSalt` s3KeyPrefix
-      `Prelude.hashWithSalt` s3Bucket
+    _salt `Prelude.hashWithSalt` s3Bucket
+      `Prelude.hashWithSalt` s3KeyPrefix
 
 instance Prelude.NFData OutputConfig where
   rnf OutputConfig' {..} =
-    Prelude.rnf s3KeyPrefix
-      `Prelude.seq` Prelude.rnf s3Bucket
+    Prelude.rnf s3Bucket
+      `Prelude.seq` Prelude.rnf s3KeyPrefix
 
 instance Core.ToJSON OutputConfig where
   toJSON OutputConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("S3KeyPrefix" Core..=) Prelude.<$> s3KeyPrefix,
-            ("S3Bucket" Core..=) Prelude.<$> s3Bucket
+          [ ("S3Bucket" Core..=) Prelude.<$> s3Bucket,
+            ("S3KeyPrefix" Core..=) Prelude.<$> s3KeyPrefix
           ]
       )

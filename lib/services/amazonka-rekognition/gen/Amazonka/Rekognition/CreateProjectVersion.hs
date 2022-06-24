@@ -43,8 +43,8 @@ module Amazonka.Rekognition.CreateProjectVersion
     newCreateProjectVersion,
 
     -- * Request Lenses
-    createProjectVersion_kmsKeyId,
     createProjectVersion_tags,
+    createProjectVersion_kmsKeyId,
     createProjectVersion_projectArn,
     createProjectVersion_versionName,
     createProjectVersion_outputConfig,
@@ -70,7 +70,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateProjectVersion' smart constructor.
 data CreateProjectVersion = CreateProjectVersion'
-  { -- | The identifier for your AWS Key Management Service (AWS KMS) customer
+  { -- | A set of tags (key-value pairs) that you want to attach to the model.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The identifier for your AWS Key Management Service (AWS KMS) customer
     -- master key (CMK). You can supply the Amazon Resource Name (ARN) of your
     -- CMK, the ID of your CMK, an alias for your CMK, or an alias ARN. The key
     -- is used to encrypt training and test images copied into the service for
@@ -92,8 +94,6 @@ data CreateProjectVersion = CreateProjectVersion'
     -- If you don\'t specify a value for @KmsKeyId@, images copied into the
     -- service are encrypted using a key that AWS owns and manages.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | A set of tags (key-value pairs) that you want to attach to the model.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ARN of the Amazon Rekognition Custom Labels project that manages the
     -- model that you want to train.
     projectArn :: Prelude.Text,
@@ -118,6 +118,8 @@ data CreateProjectVersion = CreateProjectVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createProjectVersion_tags' - A set of tags (key-value pairs) that you want to attach to the model.
+--
 -- 'kmsKeyId', 'createProjectVersion_kmsKeyId' - The identifier for your AWS Key Management Service (AWS KMS) customer
 -- master key (CMK). You can supply the Amazon Resource Name (ARN) of your
 -- CMK, the ID of your CMK, an alias for your CMK, or an alias ARN. The key
@@ -139,8 +141,6 @@ data CreateProjectVersion = CreateProjectVersion'
 --
 -- If you don\'t specify a value for @KmsKeyId@, images copied into the
 -- service are encrypted using a key that AWS owns and manages.
---
--- 'tags', 'createProjectVersion_tags' - A set of tags (key-value pairs) that you want to attach to the model.
 --
 -- 'projectArn', 'createProjectVersion_projectArn' - The ARN of the Amazon Rekognition Custom Labels project that manages the
 -- model that you want to train.
@@ -173,14 +173,18 @@ newCreateProjectVersion
   pTrainingData_
   pTestingData_ =
     CreateProjectVersion'
-      { kmsKeyId = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        kmsKeyId = Prelude.Nothing,
         projectArn = pProjectArn_,
         versionName = pVersionName_,
         outputConfig = pOutputConfig_,
         trainingData = pTrainingData_,
         testingData = pTestingData_
       }
+
+-- | A set of tags (key-value pairs) that you want to attach to the model.
+createProjectVersion_tags :: Lens.Lens' CreateProjectVersion (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createProjectVersion_tags = Lens.lens (\CreateProjectVersion' {tags} -> tags) (\s@CreateProjectVersion' {} a -> s {tags = a} :: CreateProjectVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier for your AWS Key Management Service (AWS KMS) customer
 -- master key (CMK). You can supply the Amazon Resource Name (ARN) of your
@@ -205,10 +209,6 @@ newCreateProjectVersion
 -- service are encrypted using a key that AWS owns and manages.
 createProjectVersion_kmsKeyId :: Lens.Lens' CreateProjectVersion (Prelude.Maybe Prelude.Text)
 createProjectVersion_kmsKeyId = Lens.lens (\CreateProjectVersion' {kmsKeyId} -> kmsKeyId) (\s@CreateProjectVersion' {} a -> s {kmsKeyId = a} :: CreateProjectVersion)
-
--- | A set of tags (key-value pairs) that you want to attach to the model.
-createProjectVersion_tags :: Lens.Lens' CreateProjectVersion (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createProjectVersion_tags = Lens.lens (\CreateProjectVersion' {tags} -> tags) (\s@CreateProjectVersion' {} a -> s {tags = a} :: CreateProjectVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the Amazon Rekognition Custom Labels project that manages the
 -- model that you want to train.
@@ -248,8 +248,8 @@ instance Core.AWSRequest CreateProjectVersion where
 
 instance Prelude.Hashable CreateProjectVersion where
   hashWithSalt _salt CreateProjectVersion' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` projectArn
       `Prelude.hashWithSalt` versionName
       `Prelude.hashWithSalt` outputConfig
@@ -258,8 +258,8 @@ instance Prelude.Hashable CreateProjectVersion where
 
 instance Prelude.NFData CreateProjectVersion where
   rnf CreateProjectVersion' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf projectArn
       `Prelude.seq` Prelude.rnf versionName
       `Prelude.seq` Prelude.rnf outputConfig
@@ -285,8 +285,8 @@ instance Core.ToJSON CreateProjectVersion where
   toJSON CreateProjectVersion' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("Tags" Core..=) Prelude.<$> tags,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
             Prelude.Just ("ProjectArn" Core..= projectArn),
             Prelude.Just ("VersionName" Core..= versionName),
             Prelude.Just ("OutputConfig" Core..= outputConfig),

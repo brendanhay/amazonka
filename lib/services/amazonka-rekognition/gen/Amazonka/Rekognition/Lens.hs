@@ -14,357 +14,34 @@
 module Amazonka.Rekognition.Lens
   ( -- * Operations
 
-    -- ** DetectProtectiveEquipment
-    detectProtectiveEquipment_summarizationAttributes,
-    detectProtectiveEquipment_image,
-    detectProtectiveEquipmentResponse_summary,
-    detectProtectiveEquipmentResponse_protectiveEquipmentModelVersion,
-    detectProtectiveEquipmentResponse_persons,
-    detectProtectiveEquipmentResponse_httpStatus,
-
-    -- ** DeleteProject
-    deleteProject_projectArn,
-    deleteProjectResponse_status,
-    deleteProjectResponse_httpStatus,
-
-    -- ** StartCelebrityRecognition
-    startCelebrityRecognition_jobTag,
-    startCelebrityRecognition_notificationChannel,
-    startCelebrityRecognition_clientRequestToken,
-    startCelebrityRecognition_video,
-    startCelebrityRecognitionResponse_jobId,
-    startCelebrityRecognitionResponse_httpStatus,
-
-    -- ** GetPersonTracking
-    getPersonTracking_nextToken,
-    getPersonTracking_maxResults,
-    getPersonTracking_sortBy,
-    getPersonTracking_jobId,
-    getPersonTrackingResponse_nextToken,
-    getPersonTrackingResponse_videoMetadata,
-    getPersonTrackingResponse_statusMessage,
-    getPersonTrackingResponse_jobStatus,
-    getPersonTrackingResponse_persons,
-    getPersonTrackingResponse_httpStatus,
-
-    -- ** GetTextDetection
-    getTextDetection_nextToken,
-    getTextDetection_maxResults,
-    getTextDetection_jobId,
-    getTextDetectionResponse_textDetections,
-    getTextDetectionResponse_nextToken,
-    getTextDetectionResponse_videoMetadata,
-    getTextDetectionResponse_statusMessage,
-    getTextDetectionResponse_textModelVersion,
-    getTextDetectionResponse_jobStatus,
-    getTextDetectionResponse_httpStatus,
-
-    -- ** StartSegmentDetection
-    startSegmentDetection_jobTag,
-    startSegmentDetection_filters,
-    startSegmentDetection_notificationChannel,
-    startSegmentDetection_clientRequestToken,
-    startSegmentDetection_video,
-    startSegmentDetection_segmentTypes,
-    startSegmentDetectionResponse_jobId,
-    startSegmentDetectionResponse_httpStatus,
-
-    -- ** ListCollections
-    listCollections_nextToken,
-    listCollections_maxResults,
-    listCollectionsResponse_collectionIds,
-    listCollectionsResponse_nextToken,
-    listCollectionsResponse_faceModelVersions,
-    listCollectionsResponse_httpStatus,
-
-    -- ** StartProjectVersion
-    startProjectVersion_projectVersionArn,
-    startProjectVersion_minInferenceUnits,
-    startProjectVersionResponse_status,
-    startProjectVersionResponse_httpStatus,
-
-    -- ** DeleteCollection
-    deleteCollection_collectionId,
-    deleteCollectionResponse_statusCode,
-    deleteCollectionResponse_httpStatus,
-
-    -- ** CreateCollection
-    createCollection_tags,
-    createCollection_collectionId,
-    createCollectionResponse_faceModelVersion,
-    createCollectionResponse_collectionArn,
-    createCollectionResponse_statusCode,
-    createCollectionResponse_httpStatus,
-
-    -- ** StopStreamProcessor
-    stopStreamProcessor_name,
-    stopStreamProcessorResponse_httpStatus,
-
-    -- ** DetectLabels
-    detectLabels_minConfidence,
-    detectLabels_maxLabels,
-    detectLabels_image,
-    detectLabelsResponse_labels,
-    detectLabelsResponse_orientationCorrection,
-    detectLabelsResponse_labelModelVersion,
-    detectLabelsResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** StartContentModeration
-    startContentModeration_jobTag,
-    startContentModeration_notificationChannel,
-    startContentModeration_clientRequestToken,
-    startContentModeration_minConfidence,
-    startContentModeration_video,
-    startContentModerationResponse_jobId,
-    startContentModerationResponse_httpStatus,
-
-    -- ** SearchFacesByImage
-    searchFacesByImage_qualityFilter,
-    searchFacesByImage_faceMatchThreshold,
-    searchFacesByImage_maxFaces,
-    searchFacesByImage_collectionId,
-    searchFacesByImage_image,
-    searchFacesByImageResponse_faceMatches,
-    searchFacesByImageResponse_faceModelVersion,
-    searchFacesByImageResponse_searchedFaceBoundingBox,
-    searchFacesByImageResponse_searchedFaceConfidence,
-    searchFacesByImageResponse_httpStatus,
-
-    -- ** ListStreamProcessors
-    listStreamProcessors_nextToken,
-    listStreamProcessors_maxResults,
-    listStreamProcessorsResponse_streamProcessors,
-    listStreamProcessorsResponse_nextToken,
-    listStreamProcessorsResponse_httpStatus,
-
-    -- ** DescribeCollection
-    describeCollection_collectionId,
-    describeCollectionResponse_faceModelVersion,
-    describeCollectionResponse_faceCount,
-    describeCollectionResponse_creationTimestamp,
-    describeCollectionResponse_collectionARN,
-    describeCollectionResponse_httpStatus,
-
-    -- ** DeleteProjectVersion
-    deleteProjectVersion_projectVersionArn,
-    deleteProjectVersionResponse_status,
-    deleteProjectVersionResponse_httpStatus,
-
-    -- ** DescribeProjectVersions
-    describeProjectVersions_nextToken,
-    describeProjectVersions_versionNames,
-    describeProjectVersions_maxResults,
-    describeProjectVersions_projectArn,
-    describeProjectVersionsResponse_nextToken,
-    describeProjectVersionsResponse_projectVersionDescriptions,
-    describeProjectVersionsResponse_httpStatus,
-
-    -- ** RecognizeCelebrities
-    recognizeCelebrities_image,
-    recognizeCelebritiesResponse_celebrityFaces,
-    recognizeCelebritiesResponse_orientationCorrection,
-    recognizeCelebritiesResponse_unrecognizedFaces,
-    recognizeCelebritiesResponse_httpStatus,
-
-    -- ** DetectCustomLabels
-    detectCustomLabels_minConfidence,
-    detectCustomLabels_maxResults,
-    detectCustomLabels_projectVersionArn,
-    detectCustomLabels_image,
-    detectCustomLabelsResponse_customLabels,
-    detectCustomLabelsResponse_httpStatus,
-
-    -- ** GetFaceSearch
-    getFaceSearch_nextToken,
-    getFaceSearch_maxResults,
-    getFaceSearch_sortBy,
-    getFaceSearch_jobId,
-    getFaceSearchResponse_nextToken,
-    getFaceSearchResponse_videoMetadata,
-    getFaceSearchResponse_statusMessage,
-    getFaceSearchResponse_jobStatus,
-    getFaceSearchResponse_persons,
-    getFaceSearchResponse_httpStatus,
-
-    -- ** StartLabelDetection
-    startLabelDetection_jobTag,
-    startLabelDetection_notificationChannel,
-    startLabelDetection_clientRequestToken,
-    startLabelDetection_minConfidence,
-    startLabelDetection_video,
-    startLabelDetectionResponse_jobId,
-    startLabelDetectionResponse_httpStatus,
-
-    -- ** SearchFaces
-    searchFaces_faceMatchThreshold,
-    searchFaces_maxFaces,
-    searchFaces_collectionId,
-    searchFaces_faceId,
-    searchFacesResponse_faceMatches,
-    searchFacesResponse_faceModelVersion,
-    searchFacesResponse_searchedFaceId,
-    searchFacesResponse_httpStatus,
-
-    -- ** IndexFaces
-    indexFaces_externalImageId,
-    indexFaces_qualityFilter,
-    indexFaces_maxFaces,
-    indexFaces_detectionAttributes,
-    indexFaces_collectionId,
-    indexFaces_image,
-    indexFacesResponse_faceModelVersion,
-    indexFacesResponse_faceRecords,
-    indexFacesResponse_orientationCorrection,
-    indexFacesResponse_unindexedFaces,
-    indexFacesResponse_httpStatus,
-
-    -- ** GetLabelDetection
-    getLabelDetection_nextToken,
-    getLabelDetection_maxResults,
-    getLabelDetection_sortBy,
-    getLabelDetection_jobId,
-    getLabelDetectionResponse_nextToken,
-    getLabelDetectionResponse_videoMetadata,
-    getLabelDetectionResponse_statusMessage,
-    getLabelDetectionResponse_labels,
-    getLabelDetectionResponse_jobStatus,
-    getLabelDetectionResponse_labelModelVersion,
-    getLabelDetectionResponse_httpStatus,
-
-    -- ** StopProjectVersion
-    stopProjectVersion_projectVersionArn,
-    stopProjectVersionResponse_status,
-    stopProjectVersionResponse_httpStatus,
-
-    -- ** DescribeStreamProcessor
-    describeStreamProcessor_name,
-    describeStreamProcessorResponse_status,
-    describeStreamProcessorResponse_settings,
-    describeStreamProcessorResponse_input,
-    describeStreamProcessorResponse_output,
-    describeStreamProcessorResponse_streamProcessorArn,
-    describeStreamProcessorResponse_statusMessage,
-    describeStreamProcessorResponse_name,
-    describeStreamProcessorResponse_creationTimestamp,
-    describeStreamProcessorResponse_lastUpdateTimestamp,
-    describeStreamProcessorResponse_roleArn,
-    describeStreamProcessorResponse_httpStatus,
-
-    -- ** StartFaceSearch
-    startFaceSearch_faceMatchThreshold,
-    startFaceSearch_jobTag,
-    startFaceSearch_notificationChannel,
-    startFaceSearch_clientRequestToken,
-    startFaceSearch_video,
-    startFaceSearch_collectionId,
-    startFaceSearchResponse_jobId,
-    startFaceSearchResponse_httpStatus,
-
-    -- ** StartTextDetection
-    startTextDetection_jobTag,
-    startTextDetection_filters,
-    startTextDetection_notificationChannel,
-    startTextDetection_clientRequestToken,
-    startTextDetection_video,
-    startTextDetectionResponse_jobId,
-    startTextDetectionResponse_httpStatus,
-
-    -- ** StartPersonTracking
-    startPersonTracking_jobTag,
-    startPersonTracking_notificationChannel,
-    startPersonTracking_clientRequestToken,
-    startPersonTracking_video,
-    startPersonTrackingResponse_jobId,
-    startPersonTrackingResponse_httpStatus,
-
-    -- ** GetCelebrityRecognition
-    getCelebrityRecognition_nextToken,
-    getCelebrityRecognition_maxResults,
-    getCelebrityRecognition_sortBy,
-    getCelebrityRecognition_jobId,
-    getCelebrityRecognitionResponse_nextToken,
-    getCelebrityRecognitionResponse_videoMetadata,
-    getCelebrityRecognitionResponse_statusMessage,
-    getCelebrityRecognitionResponse_celebrities,
-    getCelebrityRecognitionResponse_jobStatus,
-    getCelebrityRecognitionResponse_httpStatus,
-
-    -- ** StartStreamProcessor
-    startStreamProcessor_name,
-    startStreamProcessorResponse_httpStatus,
-
-    -- ** DetectText
-    detectText_filters,
-    detectText_image,
-    detectTextResponse_textDetections,
-    detectTextResponse_textModelVersion,
-    detectTextResponse_httpStatus,
-
-    -- ** GetSegmentDetection
-    getSegmentDetection_nextToken,
-    getSegmentDetection_maxResults,
-    getSegmentDetection_jobId,
-    getSegmentDetectionResponse_selectedSegmentTypes,
-    getSegmentDetectionResponse_nextToken,
-    getSegmentDetectionResponse_videoMetadata,
-    getSegmentDetectionResponse_statusMessage,
-    getSegmentDetectionResponse_segments,
-    getSegmentDetectionResponse_jobStatus,
-    getSegmentDetectionResponse_audioMetadata,
-    getSegmentDetectionResponse_httpStatus,
-
     -- ** CompareFaces
     compareFaces_qualityFilter,
     compareFaces_similarityThreshold,
     compareFaces_sourceImage,
     compareFaces_targetImage,
-    compareFacesResponse_faceMatches,
-    compareFacesResponse_unmatchedFaces,
     compareFacesResponse_targetImageOrientationCorrection,
     compareFacesResponse_sourceImageOrientationCorrection,
+    compareFacesResponse_faceMatches,
+    compareFacesResponse_unmatchedFaces,
     compareFacesResponse_sourceImageFace,
     compareFacesResponse_httpStatus,
 
-    -- ** DetectFaces
-    detectFaces_attributes,
-    detectFaces_image,
-    detectFacesResponse_orientationCorrection,
-    detectFacesResponse_faceDetails,
-    detectFacesResponse_httpStatus,
+    -- ** CreateCollection
+    createCollection_tags,
+    createCollection_collectionId,
+    createCollectionResponse_statusCode,
+    createCollectionResponse_faceModelVersion,
+    createCollectionResponse_collectionArn,
+    createCollectionResponse_httpStatus,
 
-    -- ** GetFaceDetection
-    getFaceDetection_nextToken,
-    getFaceDetection_maxResults,
-    getFaceDetection_jobId,
-    getFaceDetectionResponse_nextToken,
-    getFaceDetectionResponse_videoMetadata,
-    getFaceDetectionResponse_statusMessage,
-    getFaceDetectionResponse_faces,
-    getFaceDetectionResponse_jobStatus,
-    getFaceDetectionResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
-    -- ** ListFaces
-    listFaces_nextToken,
-    listFaces_maxResults,
-    listFaces_collectionId,
-    listFacesResponse_faceModelVersion,
-    listFacesResponse_nextToken,
-    listFacesResponse_faces,
-    listFacesResponse_httpStatus,
+    -- ** CreateProject
+    createProject_projectName,
+    createProjectResponse_projectArn,
+    createProjectResponse_httpStatus,
 
     -- ** CreateProjectVersion
-    createProjectVersion_kmsKeyId,
     createProjectVersion_tags,
+    createProjectVersion_kmsKeyId,
     createProjectVersion_projectArn,
     createProjectVersion_versionName,
     createProjectVersion_outputConfig,
@@ -372,57 +49,6 @@ module Amazonka.Rekognition.Lens
     createProjectVersion_testingData,
     createProjectVersionResponse_projectVersionArn,
     createProjectVersionResponse_httpStatus,
-
-    -- ** DescribeProjects
-    describeProjects_nextToken,
-    describeProjects_maxResults,
-    describeProjectsResponse_nextToken,
-    describeProjectsResponse_projectDescriptions,
-    describeProjectsResponse_httpStatus,
-
-    -- ** GetContentModeration
-    getContentModeration_nextToken,
-    getContentModeration_maxResults,
-    getContentModeration_sortBy,
-    getContentModeration_jobId,
-    getContentModerationResponse_nextToken,
-    getContentModerationResponse_videoMetadata,
-    getContentModerationResponse_statusMessage,
-    getContentModerationResponse_jobStatus,
-    getContentModerationResponse_moderationModelVersion,
-    getContentModerationResponse_moderationLabels,
-    getContentModerationResponse_httpStatus,
-
-    -- ** DeleteFaces
-    deleteFaces_collectionId,
-    deleteFaces_faceIds,
-    deleteFacesResponse_deletedFaces,
-    deleteFacesResponse_httpStatus,
-
-    -- ** GetCelebrityInfo
-    getCelebrityInfo_id,
-    getCelebrityInfoResponse_urls,
-    getCelebrityInfoResponse_knownGender,
-    getCelebrityInfoResponse_name,
-    getCelebrityInfoResponse_httpStatus,
-
-    -- ** DeleteStreamProcessor
-    deleteStreamProcessor_name,
-    deleteStreamProcessorResponse_httpStatus,
-
-    -- ** UntagResource
-    untagResource_resourceArn,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
-
-    -- ** DetectModerationLabels
-    detectModerationLabels_humanLoopConfig,
-    detectModerationLabels_minConfidence,
-    detectModerationLabels_image,
-    detectModerationLabelsResponse_humanLoopActivationOutput,
-    detectModerationLabelsResponse_moderationModelVersion,
-    detectModerationLabelsResponse_moderationLabels,
-    detectModerationLabelsResponse_httpStatus,
 
     -- ** CreateStreamProcessor
     createStreamProcessor_tags,
@@ -434,19 +60,393 @@ module Amazonka.Rekognition.Lens
     createStreamProcessorResponse_streamProcessorArn,
     createStreamProcessorResponse_httpStatus,
 
+    -- ** DeleteCollection
+    deleteCollection_collectionId,
+    deleteCollectionResponse_statusCode,
+    deleteCollectionResponse_httpStatus,
+
+    -- ** DeleteFaces
+    deleteFaces_collectionId,
+    deleteFaces_faceIds,
+    deleteFacesResponse_deletedFaces,
+    deleteFacesResponse_httpStatus,
+
+    -- ** DeleteProject
+    deleteProject_projectArn,
+    deleteProjectResponse_status,
+    deleteProjectResponse_httpStatus,
+
+    -- ** DeleteProjectVersion
+    deleteProjectVersion_projectVersionArn,
+    deleteProjectVersionResponse_status,
+    deleteProjectVersionResponse_httpStatus,
+
+    -- ** DeleteStreamProcessor
+    deleteStreamProcessor_name,
+    deleteStreamProcessorResponse_httpStatus,
+
+    -- ** DescribeCollection
+    describeCollection_collectionId,
+    describeCollectionResponse_creationTimestamp,
+    describeCollectionResponse_faceCount,
+    describeCollectionResponse_faceModelVersion,
+    describeCollectionResponse_collectionARN,
+    describeCollectionResponse_httpStatus,
+
+    -- ** DescribeProjectVersions
+    describeProjectVersions_nextToken,
+    describeProjectVersions_versionNames,
+    describeProjectVersions_maxResults,
+    describeProjectVersions_projectArn,
+    describeProjectVersionsResponse_nextToken,
+    describeProjectVersionsResponse_projectVersionDescriptions,
+    describeProjectVersionsResponse_httpStatus,
+
+    -- ** DescribeProjects
+    describeProjects_nextToken,
+    describeProjects_maxResults,
+    describeProjectsResponse_nextToken,
+    describeProjectsResponse_projectDescriptions,
+    describeProjectsResponse_httpStatus,
+
+    -- ** DescribeStreamProcessor
+    describeStreamProcessor_name,
+    describeStreamProcessorResponse_streamProcessorArn,
+    describeStreamProcessorResponse_name,
+    describeStreamProcessorResponse_lastUpdateTimestamp,
+    describeStreamProcessorResponse_roleArn,
+    describeStreamProcessorResponse_status,
+    describeStreamProcessorResponse_creationTimestamp,
+    describeStreamProcessorResponse_input,
+    describeStreamProcessorResponse_settings,
+    describeStreamProcessorResponse_output,
+    describeStreamProcessorResponse_statusMessage,
+    describeStreamProcessorResponse_httpStatus,
+
+    -- ** DetectCustomLabels
+    detectCustomLabels_minConfidence,
+    detectCustomLabels_maxResults,
+    detectCustomLabels_projectVersionArn,
+    detectCustomLabels_image,
+    detectCustomLabelsResponse_customLabels,
+    detectCustomLabelsResponse_httpStatus,
+
+    -- ** DetectFaces
+    detectFaces_attributes,
+    detectFaces_image,
+    detectFacesResponse_faceDetails,
+    detectFacesResponse_orientationCorrection,
+    detectFacesResponse_httpStatus,
+
+    -- ** DetectLabels
+    detectLabels_maxLabels,
+    detectLabels_minConfidence,
+    detectLabels_image,
+    detectLabelsResponse_labelModelVersion,
+    detectLabelsResponse_orientationCorrection,
+    detectLabelsResponse_labels,
+    detectLabelsResponse_httpStatus,
+
+    -- ** DetectModerationLabels
+    detectModerationLabels_humanLoopConfig,
+    detectModerationLabels_minConfidence,
+    detectModerationLabels_image,
+    detectModerationLabelsResponse_moderationLabels,
+    detectModerationLabelsResponse_humanLoopActivationOutput,
+    detectModerationLabelsResponse_moderationModelVersion,
+    detectModerationLabelsResponse_httpStatus,
+
+    -- ** DetectProtectiveEquipment
+    detectProtectiveEquipment_summarizationAttributes,
+    detectProtectiveEquipment_image,
+    detectProtectiveEquipmentResponse_protectiveEquipmentModelVersion,
+    detectProtectiveEquipmentResponse_summary,
+    detectProtectiveEquipmentResponse_persons,
+    detectProtectiveEquipmentResponse_httpStatus,
+
+    -- ** DetectText
+    detectText_filters,
+    detectText_image,
+    detectTextResponse_textDetections,
+    detectTextResponse_textModelVersion,
+    detectTextResponse_httpStatus,
+
+    -- ** GetCelebrityInfo
+    getCelebrityInfo_id,
+    getCelebrityInfoResponse_name,
+    getCelebrityInfoResponse_knownGender,
+    getCelebrityInfoResponse_urls,
+    getCelebrityInfoResponse_httpStatus,
+
+    -- ** GetCelebrityRecognition
+    getCelebrityRecognition_nextToken,
+    getCelebrityRecognition_sortBy,
+    getCelebrityRecognition_maxResults,
+    getCelebrityRecognition_jobId,
+    getCelebrityRecognitionResponse_nextToken,
+    getCelebrityRecognitionResponse_jobStatus,
+    getCelebrityRecognitionResponse_celebrities,
+    getCelebrityRecognitionResponse_videoMetadata,
+    getCelebrityRecognitionResponse_statusMessage,
+    getCelebrityRecognitionResponse_httpStatus,
+
+    -- ** GetContentModeration
+    getContentModeration_nextToken,
+    getContentModeration_sortBy,
+    getContentModeration_maxResults,
+    getContentModeration_jobId,
+    getContentModerationResponse_nextToken,
+    getContentModerationResponse_jobStatus,
+    getContentModerationResponse_moderationLabels,
+    getContentModerationResponse_videoMetadata,
+    getContentModerationResponse_statusMessage,
+    getContentModerationResponse_moderationModelVersion,
+    getContentModerationResponse_httpStatus,
+
+    -- ** GetFaceDetection
+    getFaceDetection_nextToken,
+    getFaceDetection_maxResults,
+    getFaceDetection_jobId,
+    getFaceDetectionResponse_nextToken,
+    getFaceDetectionResponse_jobStatus,
+    getFaceDetectionResponse_faces,
+    getFaceDetectionResponse_videoMetadata,
+    getFaceDetectionResponse_statusMessage,
+    getFaceDetectionResponse_httpStatus,
+
+    -- ** GetFaceSearch
+    getFaceSearch_nextToken,
+    getFaceSearch_sortBy,
+    getFaceSearch_maxResults,
+    getFaceSearch_jobId,
+    getFaceSearchResponse_nextToken,
+    getFaceSearchResponse_jobStatus,
+    getFaceSearchResponse_videoMetadata,
+    getFaceSearchResponse_persons,
+    getFaceSearchResponse_statusMessage,
+    getFaceSearchResponse_httpStatus,
+
+    -- ** GetLabelDetection
+    getLabelDetection_nextToken,
+    getLabelDetection_sortBy,
+    getLabelDetection_maxResults,
+    getLabelDetection_jobId,
+    getLabelDetectionResponse_nextToken,
+    getLabelDetectionResponse_jobStatus,
+    getLabelDetectionResponse_labelModelVersion,
+    getLabelDetectionResponse_labels,
+    getLabelDetectionResponse_videoMetadata,
+    getLabelDetectionResponse_statusMessage,
+    getLabelDetectionResponse_httpStatus,
+
+    -- ** GetPersonTracking
+    getPersonTracking_nextToken,
+    getPersonTracking_sortBy,
+    getPersonTracking_maxResults,
+    getPersonTracking_jobId,
+    getPersonTrackingResponse_nextToken,
+    getPersonTrackingResponse_jobStatus,
+    getPersonTrackingResponse_videoMetadata,
+    getPersonTrackingResponse_persons,
+    getPersonTrackingResponse_statusMessage,
+    getPersonTrackingResponse_httpStatus,
+
+    -- ** GetSegmentDetection
+    getSegmentDetection_nextToken,
+    getSegmentDetection_maxResults,
+    getSegmentDetection_jobId,
+    getSegmentDetectionResponse_nextToken,
+    getSegmentDetectionResponse_jobStatus,
+    getSegmentDetectionResponse_videoMetadata,
+    getSegmentDetectionResponse_selectedSegmentTypes,
+    getSegmentDetectionResponse_statusMessage,
+    getSegmentDetectionResponse_segments,
+    getSegmentDetectionResponse_audioMetadata,
+    getSegmentDetectionResponse_httpStatus,
+
+    -- ** GetTextDetection
+    getTextDetection_nextToken,
+    getTextDetection_maxResults,
+    getTextDetection_jobId,
+    getTextDetectionResponse_nextToken,
+    getTextDetectionResponse_jobStatus,
+    getTextDetectionResponse_textDetections,
+    getTextDetectionResponse_videoMetadata,
+    getTextDetectionResponse_textModelVersion,
+    getTextDetectionResponse_statusMessage,
+    getTextDetectionResponse_httpStatus,
+
+    -- ** IndexFaces
+    indexFaces_qualityFilter,
+    indexFaces_detectionAttributes,
+    indexFaces_externalImageId,
+    indexFaces_maxFaces,
+    indexFaces_collectionId,
+    indexFaces_image,
+    indexFacesResponse_unindexedFaces,
+    indexFacesResponse_faceRecords,
+    indexFacesResponse_orientationCorrection,
+    indexFacesResponse_faceModelVersion,
+    indexFacesResponse_httpStatus,
+
+    -- ** ListCollections
+    listCollections_nextToken,
+    listCollections_maxResults,
+    listCollectionsResponse_collectionIds,
+    listCollectionsResponse_nextToken,
+    listCollectionsResponse_faceModelVersions,
+    listCollectionsResponse_httpStatus,
+
+    -- ** ListFaces
+    listFaces_nextToken,
+    listFaces_maxResults,
+    listFaces_collectionId,
+    listFacesResponse_nextToken,
+    listFacesResponse_faces,
+    listFacesResponse_faceModelVersion,
+    listFacesResponse_httpStatus,
+
+    -- ** ListStreamProcessors
+    listStreamProcessors_nextToken,
+    listStreamProcessors_maxResults,
+    listStreamProcessorsResponse_nextToken,
+    listStreamProcessorsResponse_streamProcessors,
+    listStreamProcessorsResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** RecognizeCelebrities
+    recognizeCelebrities_image,
+    recognizeCelebritiesResponse_unrecognizedFaces,
+    recognizeCelebritiesResponse_celebrityFaces,
+    recognizeCelebritiesResponse_orientationCorrection,
+    recognizeCelebritiesResponse_httpStatus,
+
+    -- ** SearchFaces
+    searchFaces_faceMatchThreshold,
+    searchFaces_maxFaces,
+    searchFaces_collectionId,
+    searchFaces_faceId,
+    searchFacesResponse_faceMatches,
+    searchFacesResponse_searchedFaceId,
+    searchFacesResponse_faceModelVersion,
+    searchFacesResponse_httpStatus,
+
+    -- ** SearchFacesByImage
+    searchFacesByImage_qualityFilter,
+    searchFacesByImage_faceMatchThreshold,
+    searchFacesByImage_maxFaces,
+    searchFacesByImage_collectionId,
+    searchFacesByImage_image,
+    searchFacesByImageResponse_searchedFaceConfidence,
+    searchFacesByImageResponse_faceMatches,
+    searchFacesByImageResponse_searchedFaceBoundingBox,
+    searchFacesByImageResponse_faceModelVersion,
+    searchFacesByImageResponse_httpStatus,
+
+    -- ** StartCelebrityRecognition
+    startCelebrityRecognition_clientRequestToken,
+    startCelebrityRecognition_jobTag,
+    startCelebrityRecognition_notificationChannel,
+    startCelebrityRecognition_video,
+    startCelebrityRecognitionResponse_jobId,
+    startCelebrityRecognitionResponse_httpStatus,
+
+    -- ** StartContentModeration
+    startContentModeration_clientRequestToken,
+    startContentModeration_minConfidence,
+    startContentModeration_jobTag,
+    startContentModeration_notificationChannel,
+    startContentModeration_video,
+    startContentModerationResponse_jobId,
+    startContentModerationResponse_httpStatus,
+
     -- ** StartFaceDetection
-    startFaceDetection_jobTag,
-    startFaceDetection_notificationChannel,
     startFaceDetection_clientRequestToken,
     startFaceDetection_faceAttributes,
+    startFaceDetection_jobTag,
+    startFaceDetection_notificationChannel,
     startFaceDetection_video,
     startFaceDetectionResponse_jobId,
     startFaceDetectionResponse_httpStatus,
 
-    -- ** CreateProject
-    createProject_projectName,
-    createProjectResponse_projectArn,
-    createProjectResponse_httpStatus,
+    -- ** StartFaceSearch
+    startFaceSearch_clientRequestToken,
+    startFaceSearch_faceMatchThreshold,
+    startFaceSearch_jobTag,
+    startFaceSearch_notificationChannel,
+    startFaceSearch_video,
+    startFaceSearch_collectionId,
+    startFaceSearchResponse_jobId,
+    startFaceSearchResponse_httpStatus,
+
+    -- ** StartLabelDetection
+    startLabelDetection_clientRequestToken,
+    startLabelDetection_minConfidence,
+    startLabelDetection_jobTag,
+    startLabelDetection_notificationChannel,
+    startLabelDetection_video,
+    startLabelDetectionResponse_jobId,
+    startLabelDetectionResponse_httpStatus,
+
+    -- ** StartPersonTracking
+    startPersonTracking_clientRequestToken,
+    startPersonTracking_jobTag,
+    startPersonTracking_notificationChannel,
+    startPersonTracking_video,
+    startPersonTrackingResponse_jobId,
+    startPersonTrackingResponse_httpStatus,
+
+    -- ** StartProjectVersion
+    startProjectVersion_projectVersionArn,
+    startProjectVersion_minInferenceUnits,
+    startProjectVersionResponse_status,
+    startProjectVersionResponse_httpStatus,
+
+    -- ** StartSegmentDetection
+    startSegmentDetection_clientRequestToken,
+    startSegmentDetection_filters,
+    startSegmentDetection_jobTag,
+    startSegmentDetection_notificationChannel,
+    startSegmentDetection_video,
+    startSegmentDetection_segmentTypes,
+    startSegmentDetectionResponse_jobId,
+    startSegmentDetectionResponse_httpStatus,
+
+    -- ** StartStreamProcessor
+    startStreamProcessor_name,
+    startStreamProcessorResponse_httpStatus,
+
+    -- ** StartTextDetection
+    startTextDetection_clientRequestToken,
+    startTextDetection_filters,
+    startTextDetection_jobTag,
+    startTextDetection_notificationChannel,
+    startTextDetection_video,
+    startTextDetectionResponse_jobId,
+    startTextDetectionResponse_httpStatus,
+
+    -- ** StopProjectVersion
+    stopProjectVersion_projectVersionArn,
+    stopProjectVersionResponse_status,
+    stopProjectVersionResponse_httpStatus,
+
+    -- ** StopStreamProcessor
+    stopStreamProcessor_name,
+    stopStreamProcessorResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
 
     -- * Types
 
@@ -458,73 +458,73 @@ module Amazonka.Rekognition.Lens
     asset_groundTruthManifest,
 
     -- ** AudioMetadata
-    audioMetadata_codec,
-    audioMetadata_sampleRate,
     audioMetadata_numberOfChannels,
+    audioMetadata_sampleRate,
+    audioMetadata_codec,
     audioMetadata_durationMillis,
 
     -- ** Beard
-    beard_value,
     beard_confidence,
+    beard_value,
 
     -- ** BlackFrame
-    blackFrame_maxPixelThreshold,
     blackFrame_minCoveragePercentage,
+    blackFrame_maxPixelThreshold,
 
     -- ** BoundingBox
-    boundingBox_height,
-    boundingBox_left,
     boundingBox_width,
     boundingBox_top,
+    boundingBox_left,
+    boundingBox_height,
 
     -- ** Celebrity
-    celebrity_matchConfidence,
-    celebrity_urls,
-    celebrity_knownGender,
     celebrity_name,
+    celebrity_matchConfidence,
+    celebrity_knownGender,
     celebrity_id,
     celebrity_face,
+    celebrity_urls,
 
     -- ** CelebrityDetail
-    celebrityDetail_boundingBox,
-    celebrityDetail_urls,
-    celebrityDetail_confidence,
     celebrityDetail_name,
+    celebrityDetail_confidence,
     celebrityDetail_id,
     celebrityDetail_face,
+    celebrityDetail_boundingBox,
+    celebrityDetail_urls,
 
     -- ** CelebrityRecognition
-    celebrityRecognition_celebrity,
     celebrityRecognition_timestamp,
+    celebrityRecognition_celebrity,
 
     -- ** CompareFacesMatch
     compareFacesMatch_similarity,
     compareFacesMatch_face,
 
     -- ** ComparedFace
-    comparedFace_boundingBox,
-    comparedFace_emotions,
+    comparedFace_quality,
     comparedFace_pose,
     comparedFace_confidence,
-    comparedFace_quality,
-    comparedFace_smile,
+    comparedFace_boundingBox,
     comparedFace_landmarks,
+    comparedFace_emotions,
+    comparedFace_smile,
 
     -- ** ComparedSourceImageFace
-    comparedSourceImageFace_boundingBox,
     comparedSourceImageFace_confidence,
+    comparedSourceImageFace_boundingBox,
 
     -- ** ContentModerationDetection
-    contentModerationDetection_moderationLabel,
     contentModerationDetection_timestamp,
+    contentModerationDetection_moderationLabel,
 
     -- ** CoversBodyPart
-    coversBodyPart_value,
     coversBodyPart_confidence,
+    coversBodyPart_value,
 
     -- ** CustomLabel
-    customLabel_confidence,
     customLabel_name,
+    customLabel_confidence,
     customLabel_geometry,
 
     -- ** DetectTextFilters
@@ -537,50 +537,50 @@ module Amazonka.Rekognition.Lens
     detectionFilter_minConfidence,
 
     -- ** Emotion
-    emotion_confidence,
     emotion_type,
+    emotion_confidence,
 
     -- ** EquipmentDetection
+    equipmentDetection_type,
+    equipmentDetection_confidence,
     equipmentDetection_boundingBox,
     equipmentDetection_coversBodyPart,
-    equipmentDetection_confidence,
-    equipmentDetection_type,
 
     -- ** EvaluationResult
-    evaluationResult_summary,
     evaluationResult_f1Score,
+    evaluationResult_summary,
 
     -- ** EyeOpen
-    eyeOpen_value,
     eyeOpen_confidence,
+    eyeOpen_value,
 
     -- ** Eyeglasses
-    eyeglasses_value,
     eyeglasses_confidence,
+    eyeglasses_value,
 
     -- ** Face
+    face_confidence,
     face_faceId,
     face_boundingBox,
     face_externalImageId,
-    face_confidence,
     face_imageId,
 
     -- ** FaceDetail
+    faceDetail_beard,
     faceDetail_ageRange,
-    faceDetail_sunglasses,
-    faceDetail_mouthOpen,
-    faceDetail_boundingBox,
-    faceDetail_emotions,
-    faceDetail_eyesOpen,
+    faceDetail_quality,
     faceDetail_pose,
     faceDetail_confidence,
-    faceDetail_gender,
-    faceDetail_quality,
-    faceDetail_eyeglasses,
-    faceDetail_beard,
-    faceDetail_mustache,
-    faceDetail_smile,
+    faceDetail_mouthOpen,
+    faceDetail_sunglasses,
+    faceDetail_boundingBox,
     faceDetail_landmarks,
+    faceDetail_gender,
+    faceDetail_eyeglasses,
+    faceDetail_emotions,
+    faceDetail_smile,
+    faceDetail_eyesOpen,
+    faceDetail_mustache,
 
     -- ** FaceDetection
     faceDetection_timestamp,
@@ -599,20 +599,20 @@ module Amazonka.Rekognition.Lens
     faceSearchSettings_collectionId,
 
     -- ** Gender
-    gender_value,
     gender_confidence,
+    gender_value,
 
     -- ** Geometry
-    geometry_boundingBox,
     geometry_polygon,
+    geometry_boundingBox,
 
     -- ** GroundTruthManifest
     groundTruthManifest_s3Object,
 
     -- ** HumanLoopActivationOutput
-    humanLoopActivationOutput_humanLoopActivationReasons,
-    humanLoopActivationOutput_humanLoopArn,
     humanLoopActivationOutput_humanLoopActivationConditionsEvaluationResults,
+    humanLoopActivationOutput_humanLoopArn,
+    humanLoopActivationOutput_humanLoopActivationReasons,
 
     -- ** HumanLoopConfig
     humanLoopConfig_dataAttributes,
@@ -623,16 +623,16 @@ module Amazonka.Rekognition.Lens
     humanLoopDataAttributes_contentClassifiers,
 
     -- ** Image
-    image_s3Object,
     image_bytes,
+    image_s3Object,
 
     -- ** ImageQuality
     imageQuality_sharpness,
     imageQuality_brightness,
 
     -- ** Instance
-    instance_boundingBox,
     instance_confidence,
+    instance_boundingBox,
 
     -- ** KinesisDataStream
     kinesisDataStream_arn,
@@ -644,10 +644,10 @@ module Amazonka.Rekognition.Lens
     knownGender_type,
 
     -- ** Label
+    label_instances,
+    label_name,
     label_confidence,
     label_parents,
-    label_name,
-    label_instances,
 
     -- ** LabelDetection
     labelDetection_label,
@@ -659,51 +659,51 @@ module Amazonka.Rekognition.Lens
     landmark_y,
 
     -- ** ModerationLabel
-    moderationLabel_confidence,
     moderationLabel_name,
+    moderationLabel_confidence,
     moderationLabel_parentName,
 
     -- ** MouthOpen
-    mouthOpen_value,
     mouthOpen_confidence,
+    mouthOpen_value,
 
     -- ** Mustache
-    mustache_value,
     mustache_confidence,
+    mustache_value,
 
     -- ** NotificationChannel
     notificationChannel_sNSTopicArn,
     notificationChannel_roleArn,
 
     -- ** OutputConfig
-    outputConfig_s3KeyPrefix,
     outputConfig_s3Bucket,
+    outputConfig_s3KeyPrefix,
 
     -- ** Parent
     parent_name,
 
     -- ** PersonDetail
-    personDetail_boundingBox,
     personDetail_index,
     personDetail_face,
+    personDetail_boundingBox,
 
     -- ** PersonDetection
     personDetection_person,
     personDetection_timestamp,
 
     -- ** PersonMatch
-    personMatch_faceMatches,
     personMatch_person,
     personMatch_timestamp,
+    personMatch_faceMatches,
 
     -- ** Point
     point_x,
     point_y,
 
     -- ** Pose
-    pose_yaw,
     pose_roll,
     pose_pitch,
+    pose_yaw,
 
     -- ** ProjectDescription
     projectDescription_status,
@@ -711,30 +711,30 @@ module Amazonka.Rekognition.Lens
     projectDescription_projectArn,
 
     -- ** ProjectVersionDescription
+    projectVersionDescription_trainingEndTimestamp,
     projectVersionDescription_minInferenceUnits,
     projectVersionDescription_status,
-    projectVersionDescription_evaluationResult,
-    projectVersionDescription_manifestSummary,
-    projectVersionDescription_kmsKeyId,
     projectVersionDescription_testingDataResult,
-    projectVersionDescription_statusMessage,
     projectVersionDescription_creationTimestamp,
-    projectVersionDescription_projectVersionArn,
-    projectVersionDescription_outputConfig,
-    projectVersionDescription_billableTrainingTimeInSeconds,
-    projectVersionDescription_trainingEndTimestamp,
+    projectVersionDescription_manifestSummary,
     projectVersionDescription_trainingDataResult,
+    projectVersionDescription_evaluationResult,
+    projectVersionDescription_kmsKeyId,
+    projectVersionDescription_projectVersionArn,
+    projectVersionDescription_billableTrainingTimeInSeconds,
+    projectVersionDescription_statusMessage,
+    projectVersionDescription_outputConfig,
 
     -- ** ProtectiveEquipmentBodyPart
-    protectiveEquipmentBodyPart_equipmentDetections,
-    protectiveEquipmentBodyPart_confidence,
     protectiveEquipmentBodyPart_name,
+    protectiveEquipmentBodyPart_confidence,
+    protectiveEquipmentBodyPart_equipmentDetections,
 
     -- ** ProtectiveEquipmentPerson
-    protectiveEquipmentPerson_bodyParts,
-    protectiveEquipmentPerson_boundingBox,
     protectiveEquipmentPerson_confidence,
+    protectiveEquipmentPerson_bodyParts,
     protectiveEquipmentPerson_id,
+    protectiveEquipmentPerson_boundingBox,
 
     -- ** ProtectiveEquipmentSummarizationAttributes
     protectiveEquipmentSummarizationAttributes_minConfidence,
@@ -749,35 +749,35 @@ module Amazonka.Rekognition.Lens
     regionOfInterest_boundingBox,
 
     -- ** S3Object
-    s3Object_bucket,
     s3Object_name,
+    s3Object_bucket,
     s3Object_version,
 
     -- ** SegmentDetection
-    segmentDetection_technicalCueSegment,
-    segmentDetection_endFrameNumber,
-    segmentDetection_durationSMPTE,
-    segmentDetection_endTimestampMillis,
     segmentDetection_startTimecodeSMPTE,
-    segmentDetection_endTimecodeSMPTE,
-    segmentDetection_durationMillis,
-    segmentDetection_durationFrames,
-    segmentDetection_startTimestampMillis,
     segmentDetection_type,
-    segmentDetection_shotSegment,
+    segmentDetection_startTimestampMillis,
+    segmentDetection_durationSMPTE,
     segmentDetection_startFrameNumber,
+    segmentDetection_shotSegment,
+    segmentDetection_technicalCueSegment,
+    segmentDetection_endTimestampMillis,
+    segmentDetection_endTimecodeSMPTE,
+    segmentDetection_durationFrames,
+    segmentDetection_durationMillis,
+    segmentDetection_endFrameNumber,
 
     -- ** SegmentTypeInfo
-    segmentTypeInfo_modelVersion,
     segmentTypeInfo_type,
+    segmentTypeInfo_modelVersion,
 
     -- ** ShotSegment
-    shotSegment_confidence,
     shotSegment_index,
+    shotSegment_confidence,
 
     -- ** Smile
-    smile_value,
     smile_confidence,
+    smile_value,
 
     -- ** StartSegmentDetectionFilters
     startSegmentDetectionFilters_technicalCueFilter,
@@ -787,16 +787,16 @@ module Amazonka.Rekognition.Lens
     startShotDetectionFilter_minSegmentConfidence,
 
     -- ** StartTechnicalCueDetectionFilter
-    startTechnicalCueDetectionFilter_blackFrame,
     startTechnicalCueDetectionFilter_minSegmentConfidence,
+    startTechnicalCueDetectionFilter_blackFrame,
 
     -- ** StartTextDetectionFilters
     startTextDetectionFilters_regionsOfInterest,
     startTextDetectionFilters_wordFilter,
 
     -- ** StreamProcessor
-    streamProcessor_status,
     streamProcessor_name,
+    streamProcessor_status,
 
     -- ** StreamProcessorInput
     streamProcessorInput_kinesisVideoStream,
@@ -811,45 +811,45 @@ module Amazonka.Rekognition.Lens
     summary_s3Object,
 
     -- ** Sunglasses
-    sunglasses_value,
     sunglasses_confidence,
+    sunglasses_value,
 
     -- ** TechnicalCueSegment
-    technicalCueSegment_confidence,
     technicalCueSegment_type,
+    technicalCueSegment_confidence,
 
     -- ** TestingData
     testingData_assets,
     testingData_autoCreate,
 
     -- ** TestingDataResult
+    testingDataResult_validation,
     testingDataResult_input,
     testingDataResult_output,
-    testingDataResult_validation,
 
     -- ** TextDetection
-    textDetection_detectedText,
-    textDetection_confidence,
-    textDetection_geometry,
-    textDetection_id,
     textDetection_type,
+    textDetection_confidence,
     textDetection_parentId,
+    textDetection_detectedText,
+    textDetection_id,
+    textDetection_geometry,
 
     -- ** TextDetectionResult
-    textDetectionResult_textDetection,
     textDetectionResult_timestamp,
+    textDetectionResult_textDetection,
 
     -- ** TrainingData
     trainingData_assets,
 
     -- ** TrainingDataResult
+    trainingDataResult_validation,
     trainingDataResult_input,
     trainingDataResult_output,
-    trainingDataResult_validation,
 
     -- ** UnindexedFace
-    unindexedFace_reasons,
     unindexedFace_faceDetail,
+    unindexedFace_reasons,
 
     -- ** ValidationData
     validationData_assets,
@@ -858,13 +858,13 @@ module Amazonka.Rekognition.Lens
     video_s3Object,
 
     -- ** VideoMetadata
-    videoMetadata_frameRate,
-    videoMetadata_colorRange,
     videoMetadata_format,
-    videoMetadata_codec,
     videoMetadata_frameHeight,
+    videoMetadata_codec,
+    videoMetadata_colorRange,
     videoMetadata_durationMillis,
     videoMetadata_frameWidth,
+    videoMetadata_frameRate,
   )
 where
 

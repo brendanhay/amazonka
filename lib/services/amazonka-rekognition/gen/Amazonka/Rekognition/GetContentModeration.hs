@@ -66,8 +66,8 @@ module Amazonka.Rekognition.GetContentModeration
 
     -- * Request Lenses
     getContentModeration_nextToken,
-    getContentModeration_maxResults,
     getContentModeration_sortBy,
+    getContentModeration_maxResults,
     getContentModeration_jobId,
 
     -- * Destructuring the Response
@@ -76,11 +76,11 @@ module Amazonka.Rekognition.GetContentModeration
 
     -- * Response Lenses
     getContentModerationResponse_nextToken,
+    getContentModerationResponse_jobStatus,
+    getContentModerationResponse_moderationLabels,
     getContentModerationResponse_videoMetadata,
     getContentModerationResponse_statusMessage,
-    getContentModerationResponse_jobStatus,
     getContentModerationResponse_moderationModelVersion,
-    getContentModerationResponse_moderationLabels,
     getContentModerationResponse_httpStatus,
   )
 where
@@ -99,16 +99,16 @@ data GetContentModeration = GetContentModeration'
     -- response. You can use this pagination token to retrieve the next set of
     -- content moderation labels.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of results to return per paginated call. The largest
-    -- value you can specify is 1000. If you specify a value greater than 1000,
-    -- a maximum of 1000 results is returned. The default value is 1000.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Sort to use for elements in the @ModerationLabelDetections@ array. Use
     -- @TIMESTAMP@ to sort array elements by the time labels are detected. Use
     -- @NAME@ to alphabetically group elements for a label together. Within
     -- each label group, the array element are sorted by detection confidence.
     -- The default sort is by @TIMESTAMP@.
     sortBy :: Prelude.Maybe ContentModerationSortBy,
+    -- | Maximum number of results to return per paginated call. The largest
+    -- value you can specify is 1000. If you specify a value greater than 1000,
+    -- a maximum of 1000 results is returned. The default value is 1000.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier for the inappropriate, unwanted, or offensive content
     -- moderation job. Use @JobId@ to identify the job in a subsequent call to
     -- @GetContentModeration@.
@@ -129,15 +129,15 @@ data GetContentModeration = GetContentModeration'
 -- response. You can use this pagination token to retrieve the next set of
 -- content moderation labels.
 --
--- 'maxResults', 'getContentModeration_maxResults' - Maximum number of results to return per paginated call. The largest
--- value you can specify is 1000. If you specify a value greater than 1000,
--- a maximum of 1000 results is returned. The default value is 1000.
---
 -- 'sortBy', 'getContentModeration_sortBy' - Sort to use for elements in the @ModerationLabelDetections@ array. Use
 -- @TIMESTAMP@ to sort array elements by the time labels are detected. Use
 -- @NAME@ to alphabetically group elements for a label together. Within
 -- each label group, the array element are sorted by detection confidence.
 -- The default sort is by @TIMESTAMP@.
+--
+-- 'maxResults', 'getContentModeration_maxResults' - Maximum number of results to return per paginated call. The largest
+-- value you can specify is 1000. If you specify a value greater than 1000,
+-- a maximum of 1000 results is returned. The default value is 1000.
 --
 -- 'jobId', 'getContentModeration_jobId' - The identifier for the inappropriate, unwanted, or offensive content
 -- moderation job. Use @JobId@ to identify the job in a subsequent call to
@@ -149,8 +149,8 @@ newGetContentModeration ::
 newGetContentModeration pJobId_ =
   GetContentModeration'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       sortBy = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       jobId = pJobId_
     }
 
@@ -161,12 +161,6 @@ newGetContentModeration pJobId_ =
 getContentModeration_nextToken :: Lens.Lens' GetContentModeration (Prelude.Maybe Prelude.Text)
 getContentModeration_nextToken = Lens.lens (\GetContentModeration' {nextToken} -> nextToken) (\s@GetContentModeration' {} a -> s {nextToken = a} :: GetContentModeration)
 
--- | Maximum number of results to return per paginated call. The largest
--- value you can specify is 1000. If you specify a value greater than 1000,
--- a maximum of 1000 results is returned. The default value is 1000.
-getContentModeration_maxResults :: Lens.Lens' GetContentModeration (Prelude.Maybe Prelude.Natural)
-getContentModeration_maxResults = Lens.lens (\GetContentModeration' {maxResults} -> maxResults) (\s@GetContentModeration' {} a -> s {maxResults = a} :: GetContentModeration)
-
 -- | Sort to use for elements in the @ModerationLabelDetections@ array. Use
 -- @TIMESTAMP@ to sort array elements by the time labels are detected. Use
 -- @NAME@ to alphabetically group elements for a label together. Within
@@ -174,6 +168,12 @@ getContentModeration_maxResults = Lens.lens (\GetContentModeration' {maxResults}
 -- The default sort is by @TIMESTAMP@.
 getContentModeration_sortBy :: Lens.Lens' GetContentModeration (Prelude.Maybe ContentModerationSortBy)
 getContentModeration_sortBy = Lens.lens (\GetContentModeration' {sortBy} -> sortBy) (\s@GetContentModeration' {} a -> s {sortBy = a} :: GetContentModeration)
+
+-- | Maximum number of results to return per paginated call. The largest
+-- value you can specify is 1000. If you specify a value greater than 1000,
+-- a maximum of 1000 results is returned. The default value is 1000.
+getContentModeration_maxResults :: Lens.Lens' GetContentModeration (Prelude.Maybe Prelude.Natural)
+getContentModeration_maxResults = Lens.lens (\GetContentModeration' {maxResults} -> maxResults) (\s@GetContentModeration' {} a -> s {maxResults = a} :: GetContentModeration)
 
 -- | The identifier for the inappropriate, unwanted, or offensive content
 -- moderation job. Use @JobId@ to identify the job in a subsequent call to
@@ -191,28 +191,28 @@ instance Core.AWSRequest GetContentModeration where
       ( \s h x ->
           GetContentModerationResponse'
             Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "VideoMetadata")
-            Prelude.<*> (x Core..?> "StatusMessage")
             Prelude.<*> (x Core..?> "JobStatus")
-            Prelude.<*> (x Core..?> "ModerationModelVersion")
             Prelude.<*> ( x Core..?> "ModerationLabels"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "VideoMetadata")
+            Prelude.<*> (x Core..?> "StatusMessage")
+            Prelude.<*> (x Core..?> "ModerationModelVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetContentModeration where
   hashWithSalt _salt GetContentModeration' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` jobId
 
 instance Prelude.NFData GetContentModeration where
   rnf GetContentModeration' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf jobId
 
 instance Core.ToHeaders GetContentModeration where
@@ -235,8 +235,8 @@ instance Core.ToJSON GetContentModeration where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("SortBy" Core..=) Prelude.<$> sortBy,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just ("JobId" Core..= jobId)
           ]
       )
@@ -253,20 +253,20 @@ data GetContentModerationResponse = GetContentModerationResponse'
     -- token that you can use in the subsequent request to retrieve the next
     -- set of content moderation labels.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the content moderation analysis job.
+    jobStatus :: Prelude.Maybe VideoJobStatus,
+    -- | The detected inappropriate, unwanted, or offensive content moderation
+    -- labels and the time(s) they were detected.
+    moderationLabels :: Prelude.Maybe [ContentModerationDetection],
     -- | Information about a video that Amazon Rekognition analyzed.
     -- @Videometadata@ is returned in every page of paginated responses from
     -- @GetContentModeration@.
     videoMetadata :: Prelude.Maybe VideoMetadata,
     -- | If the job fails, @StatusMessage@ provides a descriptive error message.
     statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the content moderation analysis job.
-    jobStatus :: Prelude.Maybe VideoJobStatus,
     -- | Version number of the moderation detection model that was used to detect
     -- inappropriate, unwanted, or offensive content.
     moderationModelVersion :: Prelude.Maybe Prelude.Text,
-    -- | The detected inappropriate, unwanted, or offensive content moderation
-    -- labels and the time(s) they were detected.
-    moderationLabels :: Prelude.Maybe [ContentModerationDetection],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -284,19 +284,19 @@ data GetContentModerationResponse = GetContentModerationResponse'
 -- token that you can use in the subsequent request to retrieve the next
 -- set of content moderation labels.
 --
+-- 'jobStatus', 'getContentModerationResponse_jobStatus' - The current status of the content moderation analysis job.
+--
+-- 'moderationLabels', 'getContentModerationResponse_moderationLabels' - The detected inappropriate, unwanted, or offensive content moderation
+-- labels and the time(s) they were detected.
+--
 -- 'videoMetadata', 'getContentModerationResponse_videoMetadata' - Information about a video that Amazon Rekognition analyzed.
 -- @Videometadata@ is returned in every page of paginated responses from
 -- @GetContentModeration@.
 --
 -- 'statusMessage', 'getContentModerationResponse_statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
 --
--- 'jobStatus', 'getContentModerationResponse_jobStatus' - The current status of the content moderation analysis job.
---
 -- 'moderationModelVersion', 'getContentModerationResponse_moderationModelVersion' - Version number of the moderation detection model that was used to detect
 -- inappropriate, unwanted, or offensive content.
---
--- 'moderationLabels', 'getContentModerationResponse_moderationLabels' - The detected inappropriate, unwanted, or offensive content moderation
--- labels and the time(s) they were detected.
 --
 -- 'httpStatus', 'getContentModerationResponse_httpStatus' - The response's http status code.
 newGetContentModerationResponse ::
@@ -307,11 +307,11 @@ newGetContentModerationResponse pHttpStatus_ =
   GetContentModerationResponse'
     { nextToken =
         Prelude.Nothing,
+      jobStatus = Prelude.Nothing,
+      moderationLabels = Prelude.Nothing,
       videoMetadata = Prelude.Nothing,
       statusMessage = Prelude.Nothing,
-      jobStatus = Prelude.Nothing,
       moderationModelVersion = Prelude.Nothing,
-      moderationLabels = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -320,6 +320,15 @@ newGetContentModerationResponse pHttpStatus_ =
 -- set of content moderation labels.
 getContentModerationResponse_nextToken :: Lens.Lens' GetContentModerationResponse (Prelude.Maybe Prelude.Text)
 getContentModerationResponse_nextToken = Lens.lens (\GetContentModerationResponse' {nextToken} -> nextToken) (\s@GetContentModerationResponse' {} a -> s {nextToken = a} :: GetContentModerationResponse)
+
+-- | The current status of the content moderation analysis job.
+getContentModerationResponse_jobStatus :: Lens.Lens' GetContentModerationResponse (Prelude.Maybe VideoJobStatus)
+getContentModerationResponse_jobStatus = Lens.lens (\GetContentModerationResponse' {jobStatus} -> jobStatus) (\s@GetContentModerationResponse' {} a -> s {jobStatus = a} :: GetContentModerationResponse)
+
+-- | The detected inappropriate, unwanted, or offensive content moderation
+-- labels and the time(s) they were detected.
+getContentModerationResponse_moderationLabels :: Lens.Lens' GetContentModerationResponse (Prelude.Maybe [ContentModerationDetection])
+getContentModerationResponse_moderationLabels = Lens.lens (\GetContentModerationResponse' {moderationLabels} -> moderationLabels) (\s@GetContentModerationResponse' {} a -> s {moderationLabels = a} :: GetContentModerationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about a video that Amazon Rekognition analyzed.
 -- @Videometadata@ is returned in every page of paginated responses from
@@ -331,19 +340,10 @@ getContentModerationResponse_videoMetadata = Lens.lens (\GetContentModerationRes
 getContentModerationResponse_statusMessage :: Lens.Lens' GetContentModerationResponse (Prelude.Maybe Prelude.Text)
 getContentModerationResponse_statusMessage = Lens.lens (\GetContentModerationResponse' {statusMessage} -> statusMessage) (\s@GetContentModerationResponse' {} a -> s {statusMessage = a} :: GetContentModerationResponse)
 
--- | The current status of the content moderation analysis job.
-getContentModerationResponse_jobStatus :: Lens.Lens' GetContentModerationResponse (Prelude.Maybe VideoJobStatus)
-getContentModerationResponse_jobStatus = Lens.lens (\GetContentModerationResponse' {jobStatus} -> jobStatus) (\s@GetContentModerationResponse' {} a -> s {jobStatus = a} :: GetContentModerationResponse)
-
 -- | Version number of the moderation detection model that was used to detect
 -- inappropriate, unwanted, or offensive content.
 getContentModerationResponse_moderationModelVersion :: Lens.Lens' GetContentModerationResponse (Prelude.Maybe Prelude.Text)
 getContentModerationResponse_moderationModelVersion = Lens.lens (\GetContentModerationResponse' {moderationModelVersion} -> moderationModelVersion) (\s@GetContentModerationResponse' {} a -> s {moderationModelVersion = a} :: GetContentModerationResponse)
-
--- | The detected inappropriate, unwanted, or offensive content moderation
--- labels and the time(s) they were detected.
-getContentModerationResponse_moderationLabels :: Lens.Lens' GetContentModerationResponse (Prelude.Maybe [ContentModerationDetection])
-getContentModerationResponse_moderationLabels = Lens.lens (\GetContentModerationResponse' {moderationLabels} -> moderationLabels) (\s@GetContentModerationResponse' {} a -> s {moderationLabels = a} :: GetContentModerationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getContentModerationResponse_httpStatus :: Lens.Lens' GetContentModerationResponse Prelude.Int
@@ -352,9 +352,9 @@ getContentModerationResponse_httpStatus = Lens.lens (\GetContentModerationRespon
 instance Prelude.NFData GetContentModerationResponse where
   rnf GetContentModerationResponse' {..} =
     Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf moderationLabels
       `Prelude.seq` Prelude.rnf videoMetadata
       `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf jobStatus
       `Prelude.seq` Prelude.rnf moderationModelVersion
-      `Prelude.seq` Prelude.rnf moderationLabels
       `Prelude.seq` Prelude.rnf httpStatus

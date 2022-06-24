@@ -29,11 +29,11 @@ import Amazonka.Rekognition.Types.ModerationLabel
 --
 -- /See:/ 'newContentModerationDetection' smart constructor.
 data ContentModerationDetection = ContentModerationDetection'
-  { -- | The content moderation label detected by in the stored video.
-    moderationLabel :: Prelude.Maybe ModerationLabel,
-    -- | Time, in milliseconds from the beginning of the video, that the content
+  { -- | Time, in milliseconds from the beginning of the video, that the content
     -- moderation label was detected.
-    timestamp :: Prelude.Maybe Prelude.Integer
+    timestamp :: Prelude.Maybe Prelude.Integer,
+    -- | The content moderation label detected by in the stored video.
+    moderationLabel :: Prelude.Maybe ModerationLabel
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,27 +45,27 @@ data ContentModerationDetection = ContentModerationDetection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'moderationLabel', 'contentModerationDetection_moderationLabel' - The content moderation label detected by in the stored video.
---
 -- 'timestamp', 'contentModerationDetection_timestamp' - Time, in milliseconds from the beginning of the video, that the content
 -- moderation label was detected.
+--
+-- 'moderationLabel', 'contentModerationDetection_moderationLabel' - The content moderation label detected by in the stored video.
 newContentModerationDetection ::
   ContentModerationDetection
 newContentModerationDetection =
   ContentModerationDetection'
-    { moderationLabel =
+    { timestamp =
         Prelude.Nothing,
-      timestamp = Prelude.Nothing
+      moderationLabel = Prelude.Nothing
     }
-
--- | The content moderation label detected by in the stored video.
-contentModerationDetection_moderationLabel :: Lens.Lens' ContentModerationDetection (Prelude.Maybe ModerationLabel)
-contentModerationDetection_moderationLabel = Lens.lens (\ContentModerationDetection' {moderationLabel} -> moderationLabel) (\s@ContentModerationDetection' {} a -> s {moderationLabel = a} :: ContentModerationDetection)
 
 -- | Time, in milliseconds from the beginning of the video, that the content
 -- moderation label was detected.
 contentModerationDetection_timestamp :: Lens.Lens' ContentModerationDetection (Prelude.Maybe Prelude.Integer)
 contentModerationDetection_timestamp = Lens.lens (\ContentModerationDetection' {timestamp} -> timestamp) (\s@ContentModerationDetection' {} a -> s {timestamp = a} :: ContentModerationDetection)
+
+-- | The content moderation label detected by in the stored video.
+contentModerationDetection_moderationLabel :: Lens.Lens' ContentModerationDetection (Prelude.Maybe ModerationLabel)
+contentModerationDetection_moderationLabel = Lens.lens (\ContentModerationDetection' {moderationLabel} -> moderationLabel) (\s@ContentModerationDetection' {} a -> s {moderationLabel = a} :: ContentModerationDetection)
 
 instance Core.FromJSON ContentModerationDetection where
   parseJSON =
@@ -73,16 +73,16 @@ instance Core.FromJSON ContentModerationDetection where
       "ContentModerationDetection"
       ( \x ->
           ContentModerationDetection'
-            Prelude.<$> (x Core..:? "ModerationLabel")
-            Prelude.<*> (x Core..:? "Timestamp")
+            Prelude.<$> (x Core..:? "Timestamp")
+            Prelude.<*> (x Core..:? "ModerationLabel")
       )
 
 instance Prelude.Hashable ContentModerationDetection where
   hashWithSalt _salt ContentModerationDetection' {..} =
-    _salt `Prelude.hashWithSalt` moderationLabel
-      `Prelude.hashWithSalt` timestamp
+    _salt `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` moderationLabel
 
 instance Prelude.NFData ContentModerationDetection where
   rnf ContentModerationDetection' {..} =
-    Prelude.rnf moderationLabel
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf moderationLabel

@@ -30,11 +30,11 @@ import Amazonka.Rekognition.Types.CelebrityDetail
 --
 -- /See:/ 'newCelebrityRecognition' smart constructor.
 data CelebrityRecognition = CelebrityRecognition'
-  { -- | Information about a recognized celebrity.
-    celebrity :: Prelude.Maybe CelebrityDetail,
-    -- | The time, in milliseconds from the start of the video, that the
+  { -- | The time, in milliseconds from the start of the video, that the
     -- celebrity was recognized.
-    timestamp :: Prelude.Maybe Prelude.Integer
+    timestamp :: Prelude.Maybe Prelude.Integer,
+    -- | Information about a recognized celebrity.
+    celebrity :: Prelude.Maybe CelebrityDetail
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,26 +46,26 @@ data CelebrityRecognition = CelebrityRecognition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'celebrity', 'celebrityRecognition_celebrity' - Information about a recognized celebrity.
---
 -- 'timestamp', 'celebrityRecognition_timestamp' - The time, in milliseconds from the start of the video, that the
 -- celebrity was recognized.
+--
+-- 'celebrity', 'celebrityRecognition_celebrity' - Information about a recognized celebrity.
 newCelebrityRecognition ::
   CelebrityRecognition
 newCelebrityRecognition =
   CelebrityRecognition'
-    { celebrity = Prelude.Nothing,
-      timestamp = Prelude.Nothing
+    { timestamp = Prelude.Nothing,
+      celebrity = Prelude.Nothing
     }
-
--- | Information about a recognized celebrity.
-celebrityRecognition_celebrity :: Lens.Lens' CelebrityRecognition (Prelude.Maybe CelebrityDetail)
-celebrityRecognition_celebrity = Lens.lens (\CelebrityRecognition' {celebrity} -> celebrity) (\s@CelebrityRecognition' {} a -> s {celebrity = a} :: CelebrityRecognition)
 
 -- | The time, in milliseconds from the start of the video, that the
 -- celebrity was recognized.
 celebrityRecognition_timestamp :: Lens.Lens' CelebrityRecognition (Prelude.Maybe Prelude.Integer)
 celebrityRecognition_timestamp = Lens.lens (\CelebrityRecognition' {timestamp} -> timestamp) (\s@CelebrityRecognition' {} a -> s {timestamp = a} :: CelebrityRecognition)
+
+-- | Information about a recognized celebrity.
+celebrityRecognition_celebrity :: Lens.Lens' CelebrityRecognition (Prelude.Maybe CelebrityDetail)
+celebrityRecognition_celebrity = Lens.lens (\CelebrityRecognition' {celebrity} -> celebrity) (\s@CelebrityRecognition' {} a -> s {celebrity = a} :: CelebrityRecognition)
 
 instance Core.FromJSON CelebrityRecognition where
   parseJSON =
@@ -73,16 +73,16 @@ instance Core.FromJSON CelebrityRecognition where
       "CelebrityRecognition"
       ( \x ->
           CelebrityRecognition'
-            Prelude.<$> (x Core..:? "Celebrity")
-            Prelude.<*> (x Core..:? "Timestamp")
+            Prelude.<$> (x Core..:? "Timestamp")
+            Prelude.<*> (x Core..:? "Celebrity")
       )
 
 instance Prelude.Hashable CelebrityRecognition where
   hashWithSalt _salt CelebrityRecognition' {..} =
-    _salt `Prelude.hashWithSalt` celebrity
-      `Prelude.hashWithSalt` timestamp
+    _salt `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` celebrity
 
 instance Prelude.NFData CelebrityRecognition where
   rnf CelebrityRecognition' {..} =
-    Prelude.rnf celebrity
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf celebrity

@@ -32,7 +32,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBlackFrame' smart constructor.
 data BlackFrame = BlackFrame'
-  { -- | A threshold used to determine the maximum luminance value for a pixel to
+  { -- | The minimum percentage of pixels in a frame that need to have a
+    -- luminance below the max_black_pixel_value for a frame to be considered a
+    -- black frame. Luminance is calculated using the BT.709 matrix.
+    --
+    -- The default value is 99, which means at least 99% of all pixels in the
+    -- frame are black pixels as per the @MaxPixelThreshold@ set. You can
+    -- reduce this value to allow more noise on the black frame.
+    minCoveragePercentage :: Prelude.Maybe Prelude.Double,
+    -- | A threshold used to determine the maximum luminance value for a pixel to
     -- be considered black. In a full color range video, luminance values range
     -- from 0-255. A pixel value of 0 is pure black, and the most strict
     -- filter. The maximum black pixel value is computed as follows:
@@ -45,15 +53,7 @@ data BlackFrame = BlackFrame'
     -- The default value of MaxPixelThreshold is 0.2, which maps to a
     -- max_black_pixel_value of 51 for a full range video. You can lower this
     -- threshold to be more strict on black levels.
-    maxPixelThreshold :: Prelude.Maybe Prelude.Double,
-    -- | The minimum percentage of pixels in a frame that need to have a
-    -- luminance below the max_black_pixel_value for a frame to be considered a
-    -- black frame. Luminance is calculated using the BT.709 matrix.
-    --
-    -- The default value is 99, which means at least 99% of all pixels in the
-    -- frame are black pixels as per the @MaxPixelThreshold@ set. You can
-    -- reduce this value to allow more noise on the black frame.
-    minCoveragePercentage :: Prelude.Maybe Prelude.Double
+    maxPixelThreshold :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,6 +64,14 @@ data BlackFrame = BlackFrame'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'minCoveragePercentage', 'blackFrame_minCoveragePercentage' - The minimum percentage of pixels in a frame that need to have a
+-- luminance below the max_black_pixel_value for a frame to be considered a
+-- black frame. Luminance is calculated using the BT.709 matrix.
+--
+-- The default value is 99, which means at least 99% of all pixels in the
+-- frame are black pixels as per the @MaxPixelThreshold@ set. You can
+-- reduce this value to allow more noise on the black frame.
 --
 -- 'maxPixelThreshold', 'blackFrame_maxPixelThreshold' - A threshold used to determine the maximum luminance value for a pixel to
 -- be considered black. In a full color range video, luminance values range
@@ -78,21 +86,24 @@ data BlackFrame = BlackFrame'
 -- The default value of MaxPixelThreshold is 0.2, which maps to a
 -- max_black_pixel_value of 51 for a full range video. You can lower this
 -- threshold to be more strict on black levels.
---
--- 'minCoveragePercentage', 'blackFrame_minCoveragePercentage' - The minimum percentage of pixels in a frame that need to have a
+newBlackFrame ::
+  BlackFrame
+newBlackFrame =
+  BlackFrame'
+    { minCoveragePercentage =
+        Prelude.Nothing,
+      maxPixelThreshold = Prelude.Nothing
+    }
+
+-- | The minimum percentage of pixels in a frame that need to have a
 -- luminance below the max_black_pixel_value for a frame to be considered a
 -- black frame. Luminance is calculated using the BT.709 matrix.
 --
 -- The default value is 99, which means at least 99% of all pixels in the
 -- frame are black pixels as per the @MaxPixelThreshold@ set. You can
 -- reduce this value to allow more noise on the black frame.
-newBlackFrame ::
-  BlackFrame
-newBlackFrame =
-  BlackFrame'
-    { maxPixelThreshold = Prelude.Nothing,
-      minCoveragePercentage = Prelude.Nothing
-    }
+blackFrame_minCoveragePercentage :: Lens.Lens' BlackFrame (Prelude.Maybe Prelude.Double)
+blackFrame_minCoveragePercentage = Lens.lens (\BlackFrame' {minCoveragePercentage} -> minCoveragePercentage) (\s@BlackFrame' {} a -> s {minCoveragePercentage = a} :: BlackFrame)
 
 -- | A threshold used to determine the maximum luminance value for a pixel to
 -- be considered black. In a full color range video, luminance values range
@@ -110,33 +121,23 @@ newBlackFrame =
 blackFrame_maxPixelThreshold :: Lens.Lens' BlackFrame (Prelude.Maybe Prelude.Double)
 blackFrame_maxPixelThreshold = Lens.lens (\BlackFrame' {maxPixelThreshold} -> maxPixelThreshold) (\s@BlackFrame' {} a -> s {maxPixelThreshold = a} :: BlackFrame)
 
--- | The minimum percentage of pixels in a frame that need to have a
--- luminance below the max_black_pixel_value for a frame to be considered a
--- black frame. Luminance is calculated using the BT.709 matrix.
---
--- The default value is 99, which means at least 99% of all pixels in the
--- frame are black pixels as per the @MaxPixelThreshold@ set. You can
--- reduce this value to allow more noise on the black frame.
-blackFrame_minCoveragePercentage :: Lens.Lens' BlackFrame (Prelude.Maybe Prelude.Double)
-blackFrame_minCoveragePercentage = Lens.lens (\BlackFrame' {minCoveragePercentage} -> minCoveragePercentage) (\s@BlackFrame' {} a -> s {minCoveragePercentage = a} :: BlackFrame)
-
 instance Prelude.Hashable BlackFrame where
   hashWithSalt _salt BlackFrame' {..} =
-    _salt `Prelude.hashWithSalt` maxPixelThreshold
-      `Prelude.hashWithSalt` minCoveragePercentage
+    _salt `Prelude.hashWithSalt` minCoveragePercentage
+      `Prelude.hashWithSalt` maxPixelThreshold
 
 instance Prelude.NFData BlackFrame where
   rnf BlackFrame' {..} =
-    Prelude.rnf maxPixelThreshold
-      `Prelude.seq` Prelude.rnf minCoveragePercentage
+    Prelude.rnf minCoveragePercentage
+      `Prelude.seq` Prelude.rnf maxPixelThreshold
 
 instance Core.ToJSON BlackFrame where
   toJSON BlackFrame' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MaxPixelThreshold" Core..=)
-              Prelude.<$> maxPixelThreshold,
-            ("MinCoveragePercentage" Core..=)
-              Prelude.<$> minCoveragePercentage
+          [ ("MinCoveragePercentage" Core..=)
+              Prelude.<$> minCoveragePercentage,
+            ("MaxPixelThreshold" Core..=)
+              Prelude.<$> maxPixelThreshold
           ]
       )

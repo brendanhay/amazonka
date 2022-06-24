@@ -62,8 +62,8 @@ module Amazonka.Rekognition.GetPersonTracking
 
     -- * Request Lenses
     getPersonTracking_nextToken,
-    getPersonTracking_maxResults,
     getPersonTracking_sortBy,
+    getPersonTracking_maxResults,
     getPersonTracking_jobId,
 
     -- * Destructuring the Response
@@ -72,10 +72,10 @@ module Amazonka.Rekognition.GetPersonTracking
 
     -- * Response Lenses
     getPersonTrackingResponse_nextToken,
-    getPersonTrackingResponse_videoMetadata,
-    getPersonTrackingResponse_statusMessage,
     getPersonTrackingResponse_jobStatus,
+    getPersonTrackingResponse_videoMetadata,
     getPersonTrackingResponse_persons,
+    getPersonTrackingResponse_statusMessage,
     getPersonTrackingResponse_httpStatus,
   )
 where
@@ -94,16 +94,16 @@ data GetPersonTracking = GetPersonTracking'
     -- response. You can use this pagination token to retrieve the next set of
     -- persons.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of results to return per paginated call. The largest
-    -- value you can specify is 1000. If you specify a value greater than 1000,
-    -- a maximum of 1000 results is returned. The default value is 1000.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Sort to use for elements in the @Persons@ array. Use @TIMESTAMP@ to sort
     -- array elements by the time persons are detected. Use @INDEX@ to sort by
     -- the tracked persons. If you sort by @INDEX@, the array elements for each
     -- person are sorted by detection confidence. The default sort is by
     -- @TIMESTAMP@.
     sortBy :: Prelude.Maybe PersonTrackingSortBy,
+    -- | Maximum number of results to return per paginated call. The largest
+    -- value you can specify is 1000. If you specify a value greater than 1000,
+    -- a maximum of 1000 results is returned. The default value is 1000.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier for a job that tracks persons in a video. You get the
     -- @JobId@ from a call to @StartPersonTracking@.
     jobId :: Prelude.Text
@@ -123,15 +123,15 @@ data GetPersonTracking = GetPersonTracking'
 -- response. You can use this pagination token to retrieve the next set of
 -- persons.
 --
--- 'maxResults', 'getPersonTracking_maxResults' - Maximum number of results to return per paginated call. The largest
--- value you can specify is 1000. If you specify a value greater than 1000,
--- a maximum of 1000 results is returned. The default value is 1000.
---
 -- 'sortBy', 'getPersonTracking_sortBy' - Sort to use for elements in the @Persons@ array. Use @TIMESTAMP@ to sort
 -- array elements by the time persons are detected. Use @INDEX@ to sort by
 -- the tracked persons. If you sort by @INDEX@, the array elements for each
 -- person are sorted by detection confidence. The default sort is by
 -- @TIMESTAMP@.
+--
+-- 'maxResults', 'getPersonTracking_maxResults' - Maximum number of results to return per paginated call. The largest
+-- value you can specify is 1000. If you specify a value greater than 1000,
+-- a maximum of 1000 results is returned. The default value is 1000.
 --
 -- 'jobId', 'getPersonTracking_jobId' - The identifier for a job that tracks persons in a video. You get the
 -- @JobId@ from a call to @StartPersonTracking@.
@@ -142,8 +142,8 @@ newGetPersonTracking ::
 newGetPersonTracking pJobId_ =
   GetPersonTracking'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       sortBy = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       jobId = pJobId_
     }
 
@@ -154,12 +154,6 @@ newGetPersonTracking pJobId_ =
 getPersonTracking_nextToken :: Lens.Lens' GetPersonTracking (Prelude.Maybe Prelude.Text)
 getPersonTracking_nextToken = Lens.lens (\GetPersonTracking' {nextToken} -> nextToken) (\s@GetPersonTracking' {} a -> s {nextToken = a} :: GetPersonTracking)
 
--- | Maximum number of results to return per paginated call. The largest
--- value you can specify is 1000. If you specify a value greater than 1000,
--- a maximum of 1000 results is returned. The default value is 1000.
-getPersonTracking_maxResults :: Lens.Lens' GetPersonTracking (Prelude.Maybe Prelude.Natural)
-getPersonTracking_maxResults = Lens.lens (\GetPersonTracking' {maxResults} -> maxResults) (\s@GetPersonTracking' {} a -> s {maxResults = a} :: GetPersonTracking)
-
 -- | Sort to use for elements in the @Persons@ array. Use @TIMESTAMP@ to sort
 -- array elements by the time persons are detected. Use @INDEX@ to sort by
 -- the tracked persons. If you sort by @INDEX@, the array elements for each
@@ -167,6 +161,12 @@ getPersonTracking_maxResults = Lens.lens (\GetPersonTracking' {maxResults} -> ma
 -- @TIMESTAMP@.
 getPersonTracking_sortBy :: Lens.Lens' GetPersonTracking (Prelude.Maybe PersonTrackingSortBy)
 getPersonTracking_sortBy = Lens.lens (\GetPersonTracking' {sortBy} -> sortBy) (\s@GetPersonTracking' {} a -> s {sortBy = a} :: GetPersonTracking)
+
+-- | Maximum number of results to return per paginated call. The largest
+-- value you can specify is 1000. If you specify a value greater than 1000,
+-- a maximum of 1000 results is returned. The default value is 1000.
+getPersonTracking_maxResults :: Lens.Lens' GetPersonTracking (Prelude.Maybe Prelude.Natural)
+getPersonTracking_maxResults = Lens.lens (\GetPersonTracking' {maxResults} -> maxResults) (\s@GetPersonTracking' {} a -> s {maxResults = a} :: GetPersonTracking)
 
 -- | The identifier for a job that tracks persons in a video. You get the
 -- @JobId@ from a call to @StartPersonTracking@.
@@ -183,25 +183,25 @@ instance Core.AWSRequest GetPersonTracking where
       ( \s h x ->
           GetPersonTrackingResponse'
             Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "VideoMetadata")
-            Prelude.<*> (x Core..?> "StatusMessage")
             Prelude.<*> (x Core..?> "JobStatus")
+            Prelude.<*> (x Core..?> "VideoMetadata")
             Prelude.<*> (x Core..?> "Persons" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "StatusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetPersonTracking where
   hashWithSalt _salt GetPersonTracking' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` jobId
 
 instance Prelude.NFData GetPersonTracking where
   rnf GetPersonTracking' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf jobId
 
 instance Core.ToHeaders GetPersonTracking where
@@ -224,8 +224,8 @@ instance Core.ToJSON GetPersonTracking where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("SortBy" Core..=) Prelude.<$> sortBy,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just ("JobId" Core..= jobId)
           ]
       )
@@ -242,18 +242,18 @@ data GetPersonTrackingResponse = GetPersonTrackingResponse'
     -- token that you can use in the subsequent request to retrieve the next
     -- set of persons.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the person tracking job.
+    jobStatus :: Prelude.Maybe VideoJobStatus,
     -- | Information about a video that Amazon Rekognition Video analyzed.
     -- @Videometadata@ is returned in every page of paginated responses from a
     -- Amazon Rekognition Video operation.
     videoMetadata :: Prelude.Maybe VideoMetadata,
-    -- | If the job fails, @StatusMessage@ provides a descriptive error message.
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the person tracking job.
-    jobStatus :: Prelude.Maybe VideoJobStatus,
     -- | An array of the persons detected in the video and the time(s) their path
     -- was tracked throughout the video. An array element will exist for each
     -- time a person\'s path is tracked.
     persons :: Prelude.Maybe [PersonDetection],
+    -- | If the job fails, @StatusMessage@ provides a descriptive error message.
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -271,17 +271,17 @@ data GetPersonTrackingResponse = GetPersonTrackingResponse'
 -- token that you can use in the subsequent request to retrieve the next
 -- set of persons.
 --
+-- 'jobStatus', 'getPersonTrackingResponse_jobStatus' - The current status of the person tracking job.
+--
 -- 'videoMetadata', 'getPersonTrackingResponse_videoMetadata' - Information about a video that Amazon Rekognition Video analyzed.
 -- @Videometadata@ is returned in every page of paginated responses from a
 -- Amazon Rekognition Video operation.
 --
--- 'statusMessage', 'getPersonTrackingResponse_statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
---
--- 'jobStatus', 'getPersonTrackingResponse_jobStatus' - The current status of the person tracking job.
---
 -- 'persons', 'getPersonTrackingResponse_persons' - An array of the persons detected in the video and the time(s) their path
 -- was tracked throughout the video. An array element will exist for each
 -- time a person\'s path is tracked.
+--
+-- 'statusMessage', 'getPersonTrackingResponse_statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
 --
 -- 'httpStatus', 'getPersonTrackingResponse_httpStatus' - The response's http status code.
 newGetPersonTrackingResponse ::
@@ -292,10 +292,10 @@ newGetPersonTrackingResponse pHttpStatus_ =
   GetPersonTrackingResponse'
     { nextToken =
         Prelude.Nothing,
-      videoMetadata = Prelude.Nothing,
-      statusMessage = Prelude.Nothing,
       jobStatus = Prelude.Nothing,
+      videoMetadata = Prelude.Nothing,
       persons = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -305,25 +305,25 @@ newGetPersonTrackingResponse pHttpStatus_ =
 getPersonTrackingResponse_nextToken :: Lens.Lens' GetPersonTrackingResponse (Prelude.Maybe Prelude.Text)
 getPersonTrackingResponse_nextToken = Lens.lens (\GetPersonTrackingResponse' {nextToken} -> nextToken) (\s@GetPersonTrackingResponse' {} a -> s {nextToken = a} :: GetPersonTrackingResponse)
 
+-- | The current status of the person tracking job.
+getPersonTrackingResponse_jobStatus :: Lens.Lens' GetPersonTrackingResponse (Prelude.Maybe VideoJobStatus)
+getPersonTrackingResponse_jobStatus = Lens.lens (\GetPersonTrackingResponse' {jobStatus} -> jobStatus) (\s@GetPersonTrackingResponse' {} a -> s {jobStatus = a} :: GetPersonTrackingResponse)
+
 -- | Information about a video that Amazon Rekognition Video analyzed.
 -- @Videometadata@ is returned in every page of paginated responses from a
 -- Amazon Rekognition Video operation.
 getPersonTrackingResponse_videoMetadata :: Lens.Lens' GetPersonTrackingResponse (Prelude.Maybe VideoMetadata)
 getPersonTrackingResponse_videoMetadata = Lens.lens (\GetPersonTrackingResponse' {videoMetadata} -> videoMetadata) (\s@GetPersonTrackingResponse' {} a -> s {videoMetadata = a} :: GetPersonTrackingResponse)
 
--- | If the job fails, @StatusMessage@ provides a descriptive error message.
-getPersonTrackingResponse_statusMessage :: Lens.Lens' GetPersonTrackingResponse (Prelude.Maybe Prelude.Text)
-getPersonTrackingResponse_statusMessage = Lens.lens (\GetPersonTrackingResponse' {statusMessage} -> statusMessage) (\s@GetPersonTrackingResponse' {} a -> s {statusMessage = a} :: GetPersonTrackingResponse)
-
--- | The current status of the person tracking job.
-getPersonTrackingResponse_jobStatus :: Lens.Lens' GetPersonTrackingResponse (Prelude.Maybe VideoJobStatus)
-getPersonTrackingResponse_jobStatus = Lens.lens (\GetPersonTrackingResponse' {jobStatus} -> jobStatus) (\s@GetPersonTrackingResponse' {} a -> s {jobStatus = a} :: GetPersonTrackingResponse)
-
 -- | An array of the persons detected in the video and the time(s) their path
 -- was tracked throughout the video. An array element will exist for each
 -- time a person\'s path is tracked.
 getPersonTrackingResponse_persons :: Lens.Lens' GetPersonTrackingResponse (Prelude.Maybe [PersonDetection])
 getPersonTrackingResponse_persons = Lens.lens (\GetPersonTrackingResponse' {persons} -> persons) (\s@GetPersonTrackingResponse' {} a -> s {persons = a} :: GetPersonTrackingResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | If the job fails, @StatusMessage@ provides a descriptive error message.
+getPersonTrackingResponse_statusMessage :: Lens.Lens' GetPersonTrackingResponse (Prelude.Maybe Prelude.Text)
+getPersonTrackingResponse_statusMessage = Lens.lens (\GetPersonTrackingResponse' {statusMessage} -> statusMessage) (\s@GetPersonTrackingResponse' {} a -> s {statusMessage = a} :: GetPersonTrackingResponse)
 
 -- | The response's http status code.
 getPersonTrackingResponse_httpStatus :: Lens.Lens' GetPersonTrackingResponse Prelude.Int
@@ -332,8 +332,8 @@ getPersonTrackingResponse_httpStatus = Lens.lens (\GetPersonTrackingResponse' {h
 instance Prelude.NFData GetPersonTrackingResponse where
   rnf GetPersonTrackingResponse' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf videoMetadata
-      `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf videoMetadata
       `Prelude.seq` Prelude.rnf persons
+      `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf httpStatus

@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newShotSegment' smart constructor.
 data ShotSegment = ShotSegment'
-  { -- | The confidence that Amazon Rekognition Video has in the accuracy of the
+  { -- | An Identifier for a shot detection segment detected in a video.
+    index :: Prelude.Maybe Prelude.Natural,
+    -- | The confidence that Amazon Rekognition Video has in the accuracy of the
     -- detected segment.
-    confidence :: Prelude.Maybe Prelude.Double,
-    -- | An Identifier for a shot detection segment detected in a video.
-    index :: Prelude.Maybe Prelude.Natural
+    confidence :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,26 +44,26 @@ data ShotSegment = ShotSegment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'index', 'shotSegment_index' - An Identifier for a shot detection segment detected in a video.
+--
 -- 'confidence', 'shotSegment_confidence' - The confidence that Amazon Rekognition Video has in the accuracy of the
 -- detected segment.
---
--- 'index', 'shotSegment_index' - An Identifier for a shot detection segment detected in a video.
 newShotSegment ::
   ShotSegment
 newShotSegment =
   ShotSegment'
-    { confidence = Prelude.Nothing,
-      index = Prelude.Nothing
+    { index = Prelude.Nothing,
+      confidence = Prelude.Nothing
     }
+
+-- | An Identifier for a shot detection segment detected in a video.
+shotSegment_index :: Lens.Lens' ShotSegment (Prelude.Maybe Prelude.Natural)
+shotSegment_index = Lens.lens (\ShotSegment' {index} -> index) (\s@ShotSegment' {} a -> s {index = a} :: ShotSegment)
 
 -- | The confidence that Amazon Rekognition Video has in the accuracy of the
 -- detected segment.
 shotSegment_confidence :: Lens.Lens' ShotSegment (Prelude.Maybe Prelude.Double)
 shotSegment_confidence = Lens.lens (\ShotSegment' {confidence} -> confidence) (\s@ShotSegment' {} a -> s {confidence = a} :: ShotSegment)
-
--- | An Identifier for a shot detection segment detected in a video.
-shotSegment_index :: Lens.Lens' ShotSegment (Prelude.Maybe Prelude.Natural)
-shotSegment_index = Lens.lens (\ShotSegment' {index} -> index) (\s@ShotSegment' {} a -> s {index = a} :: ShotSegment)
 
 instance Core.FromJSON ShotSegment where
   parseJSON =
@@ -71,16 +71,16 @@ instance Core.FromJSON ShotSegment where
       "ShotSegment"
       ( \x ->
           ShotSegment'
-            Prelude.<$> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "Index")
+            Prelude.<$> (x Core..:? "Index")
+            Prelude.<*> (x Core..:? "Confidence")
       )
 
 instance Prelude.Hashable ShotSegment where
   hashWithSalt _salt ShotSegment' {..} =
-    _salt `Prelude.hashWithSalt` confidence
-      `Prelude.hashWithSalt` index
+    _salt `Prelude.hashWithSalt` index
+      `Prelude.hashWithSalt` confidence
 
 instance Prelude.NFData ShotSegment where
   rnf ShotSegment' {..} =
-    Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf index
+    Prelude.rnf index
+      `Prelude.seq` Prelude.rnf confidence

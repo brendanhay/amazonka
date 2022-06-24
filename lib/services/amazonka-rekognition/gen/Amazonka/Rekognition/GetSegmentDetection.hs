@@ -70,12 +70,12 @@ module Amazonka.Rekognition.GetSegmentDetection
     newGetSegmentDetectionResponse,
 
     -- * Response Lenses
-    getSegmentDetectionResponse_selectedSegmentTypes,
     getSegmentDetectionResponse_nextToken,
+    getSegmentDetectionResponse_jobStatus,
     getSegmentDetectionResponse_videoMetadata,
+    getSegmentDetectionResponse_selectedSegmentTypes,
     getSegmentDetectionResponse_statusMessage,
     getSegmentDetectionResponse_segments,
-    getSegmentDetectionResponse_jobStatus,
     getSegmentDetectionResponse_audioMetadata,
     getSegmentDetectionResponse_httpStatus,
   )
@@ -159,14 +159,14 @@ instance Core.AWSRequest GetSegmentDetection where
     Response.receiveJSON
       ( \s h x ->
           GetSegmentDetectionResponse'
-            Prelude.<$> ( x Core..?> "SelectedSegmentTypes"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "JobStatus")
+            Prelude.<*> (x Core..?> "VideoMetadata" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Core..?> "SelectedSegmentTypes"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "VideoMetadata" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "StatusMessage")
             Prelude.<*> (x Core..?> "Segments" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "JobStatus")
             Prelude.<*> (x Core..?> "AudioMetadata" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -216,14 +216,13 @@ instance Core.ToQuery GetSegmentDetection where
 
 -- | /See:/ 'newGetSegmentDetectionResponse' smart constructor.
 data GetSegmentDetectionResponse = GetSegmentDetectionResponse'
-  { -- | An array containing the segment types requested in the call to
-    -- @StartSegmentDetection@.
-    selectedSegmentTypes :: Prelude.Maybe [SegmentTypeInfo],
-    -- | If the previous response was incomplete (because there are more labels
+  { -- | If the previous response was incomplete (because there are more labels
     -- to retrieve), Amazon Rekognition Video returns a pagination token in the
     -- response. You can use this pagination token to retrieve the next set of
     -- text.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Current status of the segment detection job.
+    jobStatus :: Prelude.Maybe VideoJobStatus,
     -- | Currently, Amazon Rekognition Video returns a single object in the
     -- @VideoMetadata@ array. The object contains information about the video
     -- stream in the input file that Amazon Rekognition Video chose to analyze.
@@ -231,6 +230,9 @@ data GetSegmentDetectionResponse = GetSegmentDetectionResponse'
     -- other information. Video metadata is returned in each page of
     -- information returned by @GetSegmentDetection@.
     videoMetadata :: Prelude.Maybe [VideoMetadata],
+    -- | An array containing the segment types requested in the call to
+    -- @StartSegmentDetection@.
+    selectedSegmentTypes :: Prelude.Maybe [SegmentTypeInfo],
     -- | If the job fails, @StatusMessage@ provides a descriptive error message.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | An array of segments detected in a video. The array is sorted by the
@@ -238,8 +240,6 @@ data GetSegmentDetectionResponse = GetSegmentDetectionResponse'
     -- input parameter of @StartSegmentDetection@. Within each segment type the
     -- array is sorted by timestamp values.
     segments :: Prelude.Maybe [SegmentDetection],
-    -- | Current status of the segment detection job.
-    jobStatus :: Prelude.Maybe VideoJobStatus,
     -- | An array of objects. There can be multiple audio streams. Each
     -- @AudioMetadata@ object contains metadata for a single audio stream.
     -- Audio information in an @AudioMetadata@ objects includes the audio
@@ -260,13 +260,12 @@ data GetSegmentDetectionResponse = GetSegmentDetectionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'selectedSegmentTypes', 'getSegmentDetectionResponse_selectedSegmentTypes' - An array containing the segment types requested in the call to
--- @StartSegmentDetection@.
---
 -- 'nextToken', 'getSegmentDetectionResponse_nextToken' - If the previous response was incomplete (because there are more labels
 -- to retrieve), Amazon Rekognition Video returns a pagination token in the
 -- response. You can use this pagination token to retrieve the next set of
 -- text.
+--
+-- 'jobStatus', 'getSegmentDetectionResponse_jobStatus' - Current status of the segment detection job.
 --
 -- 'videoMetadata', 'getSegmentDetectionResponse_videoMetadata' - Currently, Amazon Rekognition Video returns a single object in the
 -- @VideoMetadata@ array. The object contains information about the video
@@ -275,14 +274,15 @@ data GetSegmentDetectionResponse = GetSegmentDetectionResponse'
 -- other information. Video metadata is returned in each page of
 -- information returned by @GetSegmentDetection@.
 --
+-- 'selectedSegmentTypes', 'getSegmentDetectionResponse_selectedSegmentTypes' - An array containing the segment types requested in the call to
+-- @StartSegmentDetection@.
+--
 -- 'statusMessage', 'getSegmentDetectionResponse_statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
 --
 -- 'segments', 'getSegmentDetectionResponse_segments' - An array of segments detected in a video. The array is sorted by the
 -- segment types (TECHNICAL_CUE or SHOT) specified in the @SegmentTypes@
 -- input parameter of @StartSegmentDetection@. Within each segment type the
 -- array is sorted by timestamp values.
---
--- 'jobStatus', 'getSegmentDetectionResponse_jobStatus' - Current status of the segment detection job.
 --
 -- 'audioMetadata', 'getSegmentDetectionResponse_audioMetadata' - An array of objects. There can be multiple audio streams. Each
 -- @AudioMetadata@ object contains metadata for a single audio stream.
@@ -298,21 +298,16 @@ newGetSegmentDetectionResponse ::
   GetSegmentDetectionResponse
 newGetSegmentDetectionResponse pHttpStatus_ =
   GetSegmentDetectionResponse'
-    { selectedSegmentTypes =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      jobStatus = Prelude.Nothing,
       videoMetadata = Prelude.Nothing,
+      selectedSegmentTypes = Prelude.Nothing,
       statusMessage = Prelude.Nothing,
       segments = Prelude.Nothing,
-      jobStatus = Prelude.Nothing,
       audioMetadata = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array containing the segment types requested in the call to
--- @StartSegmentDetection@.
-getSegmentDetectionResponse_selectedSegmentTypes :: Lens.Lens' GetSegmentDetectionResponse (Prelude.Maybe [SegmentTypeInfo])
-getSegmentDetectionResponse_selectedSegmentTypes = Lens.lens (\GetSegmentDetectionResponse' {selectedSegmentTypes} -> selectedSegmentTypes) (\s@GetSegmentDetectionResponse' {} a -> s {selectedSegmentTypes = a} :: GetSegmentDetectionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the previous response was incomplete (because there are more labels
 -- to retrieve), Amazon Rekognition Video returns a pagination token in the
@@ -320,6 +315,10 @@ getSegmentDetectionResponse_selectedSegmentTypes = Lens.lens (\GetSegmentDetecti
 -- text.
 getSegmentDetectionResponse_nextToken :: Lens.Lens' GetSegmentDetectionResponse (Prelude.Maybe Prelude.Text)
 getSegmentDetectionResponse_nextToken = Lens.lens (\GetSegmentDetectionResponse' {nextToken} -> nextToken) (\s@GetSegmentDetectionResponse' {} a -> s {nextToken = a} :: GetSegmentDetectionResponse)
+
+-- | Current status of the segment detection job.
+getSegmentDetectionResponse_jobStatus :: Lens.Lens' GetSegmentDetectionResponse (Prelude.Maybe VideoJobStatus)
+getSegmentDetectionResponse_jobStatus = Lens.lens (\GetSegmentDetectionResponse' {jobStatus} -> jobStatus) (\s@GetSegmentDetectionResponse' {} a -> s {jobStatus = a} :: GetSegmentDetectionResponse)
 
 -- | Currently, Amazon Rekognition Video returns a single object in the
 -- @VideoMetadata@ array. The object contains information about the video
@@ -329,6 +328,11 @@ getSegmentDetectionResponse_nextToken = Lens.lens (\GetSegmentDetectionResponse'
 -- information returned by @GetSegmentDetection@.
 getSegmentDetectionResponse_videoMetadata :: Lens.Lens' GetSegmentDetectionResponse (Prelude.Maybe [VideoMetadata])
 getSegmentDetectionResponse_videoMetadata = Lens.lens (\GetSegmentDetectionResponse' {videoMetadata} -> videoMetadata) (\s@GetSegmentDetectionResponse' {} a -> s {videoMetadata = a} :: GetSegmentDetectionResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | An array containing the segment types requested in the call to
+-- @StartSegmentDetection@.
+getSegmentDetectionResponse_selectedSegmentTypes :: Lens.Lens' GetSegmentDetectionResponse (Prelude.Maybe [SegmentTypeInfo])
+getSegmentDetectionResponse_selectedSegmentTypes = Lens.lens (\GetSegmentDetectionResponse' {selectedSegmentTypes} -> selectedSegmentTypes) (\s@GetSegmentDetectionResponse' {} a -> s {selectedSegmentTypes = a} :: GetSegmentDetectionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the job fails, @StatusMessage@ provides a descriptive error message.
 getSegmentDetectionResponse_statusMessage :: Lens.Lens' GetSegmentDetectionResponse (Prelude.Maybe Prelude.Text)
@@ -340,10 +344,6 @@ getSegmentDetectionResponse_statusMessage = Lens.lens (\GetSegmentDetectionRespo
 -- array is sorted by timestamp values.
 getSegmentDetectionResponse_segments :: Lens.Lens' GetSegmentDetectionResponse (Prelude.Maybe [SegmentDetection])
 getSegmentDetectionResponse_segments = Lens.lens (\GetSegmentDetectionResponse' {segments} -> segments) (\s@GetSegmentDetectionResponse' {} a -> s {segments = a} :: GetSegmentDetectionResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Current status of the segment detection job.
-getSegmentDetectionResponse_jobStatus :: Lens.Lens' GetSegmentDetectionResponse (Prelude.Maybe VideoJobStatus)
-getSegmentDetectionResponse_jobStatus = Lens.lens (\GetSegmentDetectionResponse' {jobStatus} -> jobStatus) (\s@GetSegmentDetectionResponse' {} a -> s {jobStatus = a} :: GetSegmentDetectionResponse)
 
 -- | An array of objects. There can be multiple audio streams. Each
 -- @AudioMetadata@ object contains metadata for a single audio stream.
@@ -360,11 +360,11 @@ getSegmentDetectionResponse_httpStatus = Lens.lens (\GetSegmentDetectionResponse
 
 instance Prelude.NFData GetSegmentDetectionResponse where
   rnf GetSegmentDetectionResponse' {..} =
-    Prelude.rnf selectedSegmentTypes
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf jobStatus
       `Prelude.seq` Prelude.rnf videoMetadata
+      `Prelude.seq` Prelude.rnf selectedSegmentTypes
       `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf segments
-      `Prelude.seq` Prelude.rnf jobStatus
       `Prelude.seq` Prelude.rnf audioMetadata
       `Prelude.seq` Prelude.rnf httpStatus

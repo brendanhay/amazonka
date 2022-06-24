@@ -44,10 +44,10 @@ import Amazonka.Rekognition.Types.GenderType
 --
 -- /See:/ 'newGender' smart constructor.
 data Gender = Gender'
-  { -- | The predicted gender of the face.
-    value :: Prelude.Maybe GenderType,
-    -- | Level of confidence in the prediction.
-    confidence :: Prelude.Maybe Prelude.Double
+  { -- | Level of confidence in the prediction.
+    confidence :: Prelude.Maybe Prelude.Double,
+    -- | The predicted gender of the face.
+    value :: Prelude.Maybe GenderType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,24 +59,24 @@ data Gender = Gender'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'gender_value' - The predicted gender of the face.
---
 -- 'confidence', 'gender_confidence' - Level of confidence in the prediction.
+--
+-- 'value', 'gender_value' - The predicted gender of the face.
 newGender ::
   Gender
 newGender =
   Gender'
-    { value = Prelude.Nothing,
-      confidence = Prelude.Nothing
+    { confidence = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The predicted gender of the face.
-gender_value :: Lens.Lens' Gender (Prelude.Maybe GenderType)
-gender_value = Lens.lens (\Gender' {value} -> value) (\s@Gender' {} a -> s {value = a} :: Gender)
 
 -- | Level of confidence in the prediction.
 gender_confidence :: Lens.Lens' Gender (Prelude.Maybe Prelude.Double)
 gender_confidence = Lens.lens (\Gender' {confidence} -> confidence) (\s@Gender' {} a -> s {confidence = a} :: Gender)
+
+-- | The predicted gender of the face.
+gender_value :: Lens.Lens' Gender (Prelude.Maybe GenderType)
+gender_value = Lens.lens (\Gender' {value} -> value) (\s@Gender' {} a -> s {value = a} :: Gender)
 
 instance Core.FromJSON Gender where
   parseJSON =
@@ -84,16 +84,16 @@ instance Core.FromJSON Gender where
       "Gender"
       ( \x ->
           Gender'
-            Prelude.<$> (x Core..:? "Value")
-            Prelude.<*> (x Core..:? "Confidence")
+            Prelude.<$> (x Core..:? "Confidence")
+            Prelude.<*> (x Core..:? "Value")
       )
 
 instance Prelude.Hashable Gender where
   hashWithSalt _salt Gender' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` confidence
+    _salt `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Gender where
   rnf Gender' {..} =
-    Prelude.rnf value
-      `Prelude.seq` Prelude.rnf confidence
+    Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf value

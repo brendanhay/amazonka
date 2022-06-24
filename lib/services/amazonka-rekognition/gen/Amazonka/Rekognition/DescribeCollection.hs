@@ -39,9 +39,9 @@ module Amazonka.Rekognition.DescribeCollection
     newDescribeCollectionResponse,
 
     -- * Response Lenses
-    describeCollectionResponse_faceModelVersion,
-    describeCollectionResponse_faceCount,
     describeCollectionResponse_creationTimestamp,
+    describeCollectionResponse_faceCount,
+    describeCollectionResponse_faceModelVersion,
     describeCollectionResponse_collectionARN,
     describeCollectionResponse_httpStatus,
   )
@@ -90,9 +90,9 @@ instance Core.AWSRequest DescribeCollection where
     Response.receiveJSON
       ( \s h x ->
           DescribeCollectionResponse'
-            Prelude.<$> (x Core..?> "FaceModelVersion")
+            Prelude.<$> (x Core..?> "CreationTimestamp")
             Prelude.<*> (x Core..?> "FaceCount")
-            Prelude.<*> (x Core..?> "CreationTimestamp")
+            Prelude.<*> (x Core..?> "FaceModelVersion")
             Prelude.<*> (x Core..?> "CollectionARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -135,19 +135,19 @@ instance Core.ToQuery DescribeCollection where
 
 -- | /See:/ 'newDescribeCollectionResponse' smart constructor.
 data DescribeCollectionResponse = DescribeCollectionResponse'
-  { -- | The version of the face model that\'s used by the collection for face
+  { -- | The number of milliseconds since the Unix epoch time until the creation
+    -- of the collection. The Unix epoch time is 00:00:00 Coordinated Universal
+    -- Time (UTC), Thursday, 1 January 1970.
+    creationTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | The number of faces that are indexed into the collection. To index faces
+    -- into a collection, use IndexFaces.
+    faceCount :: Prelude.Maybe Prelude.Natural,
+    -- | The version of the face model that\'s used by the collection for face
     -- detection.
     --
     -- For more information, see Model Versioning in the Amazon Rekognition
     -- Developer Guide.
     faceModelVersion :: Prelude.Maybe Prelude.Text,
-    -- | The number of faces that are indexed into the collection. To index faces
-    -- into a collection, use IndexFaces.
-    faceCount :: Prelude.Maybe Prelude.Natural,
-    -- | The number of milliseconds since the Unix epoch time until the creation
-    -- of the collection. The Unix epoch time is 00:00:00 Coordinated Universal
-    -- Time (UTC), Thursday, 1 January 1970.
-    creationTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the collection.
     collectionARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -163,18 +163,18 @@ data DescribeCollectionResponse = DescribeCollectionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'creationTimestamp', 'describeCollectionResponse_creationTimestamp' - The number of milliseconds since the Unix epoch time until the creation
+-- of the collection. The Unix epoch time is 00:00:00 Coordinated Universal
+-- Time (UTC), Thursday, 1 January 1970.
+--
+-- 'faceCount', 'describeCollectionResponse_faceCount' - The number of faces that are indexed into the collection. To index faces
+-- into a collection, use IndexFaces.
+--
 -- 'faceModelVersion', 'describeCollectionResponse_faceModelVersion' - The version of the face model that\'s used by the collection for face
 -- detection.
 --
 -- For more information, see Model Versioning in the Amazon Rekognition
 -- Developer Guide.
---
--- 'faceCount', 'describeCollectionResponse_faceCount' - The number of faces that are indexed into the collection. To index faces
--- into a collection, use IndexFaces.
---
--- 'creationTimestamp', 'describeCollectionResponse_creationTimestamp' - The number of milliseconds since the Unix epoch time until the creation
--- of the collection. The Unix epoch time is 00:00:00 Coordinated Universal
--- Time (UTC), Thursday, 1 January 1970.
 --
 -- 'collectionARN', 'describeCollectionResponse_collectionARN' - The Amazon Resource Name (ARN) of the collection.
 --
@@ -185,13 +185,24 @@ newDescribeCollectionResponse ::
   DescribeCollectionResponse
 newDescribeCollectionResponse pHttpStatus_ =
   DescribeCollectionResponse'
-    { faceModelVersion =
+    { creationTimestamp =
         Prelude.Nothing,
       faceCount = Prelude.Nothing,
-      creationTimestamp = Prelude.Nothing,
+      faceModelVersion = Prelude.Nothing,
       collectionARN = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The number of milliseconds since the Unix epoch time until the creation
+-- of the collection. The Unix epoch time is 00:00:00 Coordinated Universal
+-- Time (UTC), Thursday, 1 January 1970.
+describeCollectionResponse_creationTimestamp :: Lens.Lens' DescribeCollectionResponse (Prelude.Maybe Prelude.UTCTime)
+describeCollectionResponse_creationTimestamp = Lens.lens (\DescribeCollectionResponse' {creationTimestamp} -> creationTimestamp) (\s@DescribeCollectionResponse' {} a -> s {creationTimestamp = a} :: DescribeCollectionResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The number of faces that are indexed into the collection. To index faces
+-- into a collection, use IndexFaces.
+describeCollectionResponse_faceCount :: Lens.Lens' DescribeCollectionResponse (Prelude.Maybe Prelude.Natural)
+describeCollectionResponse_faceCount = Lens.lens (\DescribeCollectionResponse' {faceCount} -> faceCount) (\s@DescribeCollectionResponse' {} a -> s {faceCount = a} :: DescribeCollectionResponse)
 
 -- | The version of the face model that\'s used by the collection for face
 -- detection.
@@ -200,17 +211,6 @@ newDescribeCollectionResponse pHttpStatus_ =
 -- Developer Guide.
 describeCollectionResponse_faceModelVersion :: Lens.Lens' DescribeCollectionResponse (Prelude.Maybe Prelude.Text)
 describeCollectionResponse_faceModelVersion = Lens.lens (\DescribeCollectionResponse' {faceModelVersion} -> faceModelVersion) (\s@DescribeCollectionResponse' {} a -> s {faceModelVersion = a} :: DescribeCollectionResponse)
-
--- | The number of faces that are indexed into the collection. To index faces
--- into a collection, use IndexFaces.
-describeCollectionResponse_faceCount :: Lens.Lens' DescribeCollectionResponse (Prelude.Maybe Prelude.Natural)
-describeCollectionResponse_faceCount = Lens.lens (\DescribeCollectionResponse' {faceCount} -> faceCount) (\s@DescribeCollectionResponse' {} a -> s {faceCount = a} :: DescribeCollectionResponse)
-
--- | The number of milliseconds since the Unix epoch time until the creation
--- of the collection. The Unix epoch time is 00:00:00 Coordinated Universal
--- Time (UTC), Thursday, 1 January 1970.
-describeCollectionResponse_creationTimestamp :: Lens.Lens' DescribeCollectionResponse (Prelude.Maybe Prelude.UTCTime)
-describeCollectionResponse_creationTimestamp = Lens.lens (\DescribeCollectionResponse' {creationTimestamp} -> creationTimestamp) (\s@DescribeCollectionResponse' {} a -> s {creationTimestamp = a} :: DescribeCollectionResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the collection.
 describeCollectionResponse_collectionARN :: Lens.Lens' DescribeCollectionResponse (Prelude.Maybe Prelude.Text)
@@ -222,8 +222,8 @@ describeCollectionResponse_httpStatus = Lens.lens (\DescribeCollectionResponse' 
 
 instance Prelude.NFData DescribeCollectionResponse where
   rnf DescribeCollectionResponse' {..} =
-    Prelude.rnf faceModelVersion
+    Prelude.rnf creationTimestamp
       `Prelude.seq` Prelude.rnf faceCount
-      `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf faceModelVersion
       `Prelude.seq` Prelude.rnf collectionARN
       `Prelude.seq` Prelude.rnf httpStatus

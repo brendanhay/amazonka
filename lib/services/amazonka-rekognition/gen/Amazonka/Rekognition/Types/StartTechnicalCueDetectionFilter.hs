@@ -29,13 +29,7 @@ import Amazonka.Rekognition.Types.BlackFrame
 --
 -- /See:/ 'newStartTechnicalCueDetectionFilter' smart constructor.
 data StartTechnicalCueDetectionFilter = StartTechnicalCueDetectionFilter'
-  { -- | A filter that allows you to control the black frame detection by
-    -- specifying the black levels and pixel coverage of black pixels in a
-    -- frame. Videos can come from multiple sources, formats, and time periods,
-    -- with different standards and varying noise levels for black frames that
-    -- need to be accounted for.
-    blackFrame :: Prelude.Maybe BlackFrame,
-    -- | Specifies the minimum confidence that Amazon Rekognition Video must have
+  { -- | Specifies the minimum confidence that Amazon Rekognition Video must have
     -- in order to return a detected segment. Confidence represents how certain
     -- Amazon Rekognition is that a segment is correctly identified. 0 is the
     -- lowest confidence. 100 is the highest confidence. Amazon Rekognition
@@ -45,7 +39,13 @@ data StartTechnicalCueDetectionFilter = StartTechnicalCueDetectionFilter'
     -- If you don\'t specify @MinSegmentConfidence@, @GetSegmentDetection@
     -- returns segments with confidence values greater than or equal to 50
     -- percent.
-    minSegmentConfidence :: Prelude.Maybe Prelude.Double
+    minSegmentConfidence :: Prelude.Maybe Prelude.Double,
+    -- | A filter that allows you to control the black frame detection by
+    -- specifying the black levels and pixel coverage of black pixels in a
+    -- frame. Videos can come from multiple sources, formats, and time periods,
+    -- with different standards and varying noise levels for black frames that
+    -- need to be accounted for.
+    blackFrame :: Prelude.Maybe BlackFrame
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,12 +57,6 @@ data StartTechnicalCueDetectionFilter = StartTechnicalCueDetectionFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'blackFrame', 'startTechnicalCueDetectionFilter_blackFrame' - A filter that allows you to control the black frame detection by
--- specifying the black levels and pixel coverage of black pixels in a
--- frame. Videos can come from multiple sources, formats, and time periods,
--- with different standards and varying noise levels for black frames that
--- need to be accounted for.
---
 -- 'minSegmentConfidence', 'startTechnicalCueDetectionFilter_minSegmentConfidence' - Specifies the minimum confidence that Amazon Rekognition Video must have
 -- in order to return a detected segment. Confidence represents how certain
 -- Amazon Rekognition is that a segment is correctly identified. 0 is the
@@ -73,22 +67,20 @@ data StartTechnicalCueDetectionFilter = StartTechnicalCueDetectionFilter'
 -- If you don\'t specify @MinSegmentConfidence@, @GetSegmentDetection@
 -- returns segments with confidence values greater than or equal to 50
 -- percent.
-newStartTechnicalCueDetectionFilter ::
-  StartTechnicalCueDetectionFilter
-newStartTechnicalCueDetectionFilter =
-  StartTechnicalCueDetectionFilter'
-    { blackFrame =
-        Prelude.Nothing,
-      minSegmentConfidence = Prelude.Nothing
-    }
-
--- | A filter that allows you to control the black frame detection by
+--
+-- 'blackFrame', 'startTechnicalCueDetectionFilter_blackFrame' - A filter that allows you to control the black frame detection by
 -- specifying the black levels and pixel coverage of black pixels in a
 -- frame. Videos can come from multiple sources, formats, and time periods,
 -- with different standards and varying noise levels for black frames that
 -- need to be accounted for.
-startTechnicalCueDetectionFilter_blackFrame :: Lens.Lens' StartTechnicalCueDetectionFilter (Prelude.Maybe BlackFrame)
-startTechnicalCueDetectionFilter_blackFrame = Lens.lens (\StartTechnicalCueDetectionFilter' {blackFrame} -> blackFrame) (\s@StartTechnicalCueDetectionFilter' {} a -> s {blackFrame = a} :: StartTechnicalCueDetectionFilter)
+newStartTechnicalCueDetectionFilter ::
+  StartTechnicalCueDetectionFilter
+newStartTechnicalCueDetectionFilter =
+  StartTechnicalCueDetectionFilter'
+    { minSegmentConfidence =
+        Prelude.Nothing,
+      blackFrame = Prelude.Nothing
+    }
 
 -- | Specifies the minimum confidence that Amazon Rekognition Video must have
 -- in order to return a detected segment. Confidence represents how certain
@@ -103,6 +95,14 @@ startTechnicalCueDetectionFilter_blackFrame = Lens.lens (\StartTechnicalCueDetec
 startTechnicalCueDetectionFilter_minSegmentConfidence :: Lens.Lens' StartTechnicalCueDetectionFilter (Prelude.Maybe Prelude.Double)
 startTechnicalCueDetectionFilter_minSegmentConfidence = Lens.lens (\StartTechnicalCueDetectionFilter' {minSegmentConfidence} -> minSegmentConfidence) (\s@StartTechnicalCueDetectionFilter' {} a -> s {minSegmentConfidence = a} :: StartTechnicalCueDetectionFilter)
 
+-- | A filter that allows you to control the black frame detection by
+-- specifying the black levels and pixel coverage of black pixels in a
+-- frame. Videos can come from multiple sources, formats, and time periods,
+-- with different standards and varying noise levels for black frames that
+-- need to be accounted for.
+startTechnicalCueDetectionFilter_blackFrame :: Lens.Lens' StartTechnicalCueDetectionFilter (Prelude.Maybe BlackFrame)
+startTechnicalCueDetectionFilter_blackFrame = Lens.lens (\StartTechnicalCueDetectionFilter' {blackFrame} -> blackFrame) (\s@StartTechnicalCueDetectionFilter' {} a -> s {blackFrame = a} :: StartTechnicalCueDetectionFilter)
+
 instance
   Prelude.Hashable
     StartTechnicalCueDetectionFilter
@@ -110,23 +110,23 @@ instance
   hashWithSalt
     _salt
     StartTechnicalCueDetectionFilter' {..} =
-      _salt `Prelude.hashWithSalt` blackFrame
-        `Prelude.hashWithSalt` minSegmentConfidence
+      _salt `Prelude.hashWithSalt` minSegmentConfidence
+        `Prelude.hashWithSalt` blackFrame
 
 instance
   Prelude.NFData
     StartTechnicalCueDetectionFilter
   where
   rnf StartTechnicalCueDetectionFilter' {..} =
-    Prelude.rnf blackFrame
-      `Prelude.seq` Prelude.rnf minSegmentConfidence
+    Prelude.rnf minSegmentConfidence
+      `Prelude.seq` Prelude.rnf blackFrame
 
 instance Core.ToJSON StartTechnicalCueDetectionFilter where
   toJSON StartTechnicalCueDetectionFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("BlackFrame" Core..=) Prelude.<$> blackFrame,
-            ("MinSegmentConfidence" Core..=)
-              Prelude.<$> minSegmentConfidence
+          [ ("MinSegmentConfidence" Core..=)
+              Prelude.<$> minSegmentConfidence,
+            ("BlackFrame" Core..=) Prelude.<$> blackFrame
           ]
       )

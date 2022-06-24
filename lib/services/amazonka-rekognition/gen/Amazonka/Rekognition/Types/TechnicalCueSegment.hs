@@ -29,11 +29,11 @@ import Amazonka.Rekognition.Types.TechnicalCueType
 --
 -- /See:/ 'newTechnicalCueSegment' smart constructor.
 data TechnicalCueSegment = TechnicalCueSegment'
-  { -- | The confidence that Amazon Rekognition Video has in the accuracy of the
+  { -- | The type of the technical cue.
+    type' :: Prelude.Maybe TechnicalCueType,
+    -- | The confidence that Amazon Rekognition Video has in the accuracy of the
     -- detected segment.
-    confidence :: Prelude.Maybe Prelude.Double,
-    -- | The type of the technical cue.
-    type' :: Prelude.Maybe TechnicalCueType
+    confidence :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,26 +45,26 @@ data TechnicalCueSegment = TechnicalCueSegment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'type'', 'technicalCueSegment_type' - The type of the technical cue.
+--
 -- 'confidence', 'technicalCueSegment_confidence' - The confidence that Amazon Rekognition Video has in the accuracy of the
 -- detected segment.
---
--- 'type'', 'technicalCueSegment_type' - The type of the technical cue.
 newTechnicalCueSegment ::
   TechnicalCueSegment
 newTechnicalCueSegment =
   TechnicalCueSegment'
-    { confidence = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { type' = Prelude.Nothing,
+      confidence = Prelude.Nothing
     }
+
+-- | The type of the technical cue.
+technicalCueSegment_type :: Lens.Lens' TechnicalCueSegment (Prelude.Maybe TechnicalCueType)
+technicalCueSegment_type = Lens.lens (\TechnicalCueSegment' {type'} -> type') (\s@TechnicalCueSegment' {} a -> s {type' = a} :: TechnicalCueSegment)
 
 -- | The confidence that Amazon Rekognition Video has in the accuracy of the
 -- detected segment.
 technicalCueSegment_confidence :: Lens.Lens' TechnicalCueSegment (Prelude.Maybe Prelude.Double)
 technicalCueSegment_confidence = Lens.lens (\TechnicalCueSegment' {confidence} -> confidence) (\s@TechnicalCueSegment' {} a -> s {confidence = a} :: TechnicalCueSegment)
-
--- | The type of the technical cue.
-technicalCueSegment_type :: Lens.Lens' TechnicalCueSegment (Prelude.Maybe TechnicalCueType)
-technicalCueSegment_type = Lens.lens (\TechnicalCueSegment' {type'} -> type') (\s@TechnicalCueSegment' {} a -> s {type' = a} :: TechnicalCueSegment)
 
 instance Core.FromJSON TechnicalCueSegment where
   parseJSON =
@@ -72,16 +72,16 @@ instance Core.FromJSON TechnicalCueSegment where
       "TechnicalCueSegment"
       ( \x ->
           TechnicalCueSegment'
-            Prelude.<$> (x Core..:? "Confidence")
-            Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "Confidence")
       )
 
 instance Prelude.Hashable TechnicalCueSegment where
   hashWithSalt _salt TechnicalCueSegment' {..} =
-    _salt `Prelude.hashWithSalt` confidence
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` confidence
 
 instance Prelude.NFData TechnicalCueSegment where
   rnf TechnicalCueSegment' {..} =
-    Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf confidence

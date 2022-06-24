@@ -33,17 +33,17 @@ data Mp3Settings = Mp3Settings'
     -- on the console gives you 1 output channel; choosing Stereo gives you 2.
     -- In the API, valid values are 1 and 2.
     channels :: Prelude.Maybe Prelude.Natural,
-    -- | Specify whether the service encodes this MP3 audio output with a
-    -- constant bitrate (CBR) or a variable bitrate (VBR).
-    rateControlMode :: Prelude.Maybe Mp3RateControlMode,
-    -- | Sample rate in hz.
-    sampleRate :: Prelude.Maybe Prelude.Natural,
     -- | Specify the average bitrate in bits per second.
     bitrate :: Prelude.Maybe Prelude.Natural,
+    -- | Sample rate in hz.
+    sampleRate :: Prelude.Maybe Prelude.Natural,
     -- | Required when you set Bitrate control mode (rateControlMode) to VBR.
     -- Specify the audio quality of this MP3 output from 0 (highest quality) to
     -- 9 (lowest quality).
-    vbrQuality :: Prelude.Maybe Prelude.Natural
+    vbrQuality :: Prelude.Maybe Prelude.Natural,
+    -- | Specify whether the service encodes this MP3 audio output with a
+    -- constant bitrate (CBR) or a variable bitrate (VBR).
+    rateControlMode :: Prelude.Maybe Mp3RateControlMode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,25 +59,25 @@ data Mp3Settings = Mp3Settings'
 -- on the console gives you 1 output channel; choosing Stereo gives you 2.
 -- In the API, valid values are 1 and 2.
 --
--- 'rateControlMode', 'mp3Settings_rateControlMode' - Specify whether the service encodes this MP3 audio output with a
--- constant bitrate (CBR) or a variable bitrate (VBR).
+-- 'bitrate', 'mp3Settings_bitrate' - Specify the average bitrate in bits per second.
 --
 -- 'sampleRate', 'mp3Settings_sampleRate' - Sample rate in hz.
---
--- 'bitrate', 'mp3Settings_bitrate' - Specify the average bitrate in bits per second.
 --
 -- 'vbrQuality', 'mp3Settings_vbrQuality' - Required when you set Bitrate control mode (rateControlMode) to VBR.
 -- Specify the audio quality of this MP3 output from 0 (highest quality) to
 -- 9 (lowest quality).
+--
+-- 'rateControlMode', 'mp3Settings_rateControlMode' - Specify whether the service encodes this MP3 audio output with a
+-- constant bitrate (CBR) or a variable bitrate (VBR).
 newMp3Settings ::
   Mp3Settings
 newMp3Settings =
   Mp3Settings'
     { channels = Prelude.Nothing,
-      rateControlMode = Prelude.Nothing,
-      sampleRate = Prelude.Nothing,
       bitrate = Prelude.Nothing,
-      vbrQuality = Prelude.Nothing
+      sampleRate = Prelude.Nothing,
+      vbrQuality = Prelude.Nothing,
+      rateControlMode = Prelude.Nothing
     }
 
 -- | Specify the number of channels in this output audio track. Choosing Mono
@@ -86,24 +86,24 @@ newMp3Settings =
 mp3Settings_channels :: Lens.Lens' Mp3Settings (Prelude.Maybe Prelude.Natural)
 mp3Settings_channels = Lens.lens (\Mp3Settings' {channels} -> channels) (\s@Mp3Settings' {} a -> s {channels = a} :: Mp3Settings)
 
--- | Specify whether the service encodes this MP3 audio output with a
--- constant bitrate (CBR) or a variable bitrate (VBR).
-mp3Settings_rateControlMode :: Lens.Lens' Mp3Settings (Prelude.Maybe Mp3RateControlMode)
-mp3Settings_rateControlMode = Lens.lens (\Mp3Settings' {rateControlMode} -> rateControlMode) (\s@Mp3Settings' {} a -> s {rateControlMode = a} :: Mp3Settings)
+-- | Specify the average bitrate in bits per second.
+mp3Settings_bitrate :: Lens.Lens' Mp3Settings (Prelude.Maybe Prelude.Natural)
+mp3Settings_bitrate = Lens.lens (\Mp3Settings' {bitrate} -> bitrate) (\s@Mp3Settings' {} a -> s {bitrate = a} :: Mp3Settings)
 
 -- | Sample rate in hz.
 mp3Settings_sampleRate :: Lens.Lens' Mp3Settings (Prelude.Maybe Prelude.Natural)
 mp3Settings_sampleRate = Lens.lens (\Mp3Settings' {sampleRate} -> sampleRate) (\s@Mp3Settings' {} a -> s {sampleRate = a} :: Mp3Settings)
-
--- | Specify the average bitrate in bits per second.
-mp3Settings_bitrate :: Lens.Lens' Mp3Settings (Prelude.Maybe Prelude.Natural)
-mp3Settings_bitrate = Lens.lens (\Mp3Settings' {bitrate} -> bitrate) (\s@Mp3Settings' {} a -> s {bitrate = a} :: Mp3Settings)
 
 -- | Required when you set Bitrate control mode (rateControlMode) to VBR.
 -- Specify the audio quality of this MP3 output from 0 (highest quality) to
 -- 9 (lowest quality).
 mp3Settings_vbrQuality :: Lens.Lens' Mp3Settings (Prelude.Maybe Prelude.Natural)
 mp3Settings_vbrQuality = Lens.lens (\Mp3Settings' {vbrQuality} -> vbrQuality) (\s@Mp3Settings' {} a -> s {vbrQuality = a} :: Mp3Settings)
+
+-- | Specify whether the service encodes this MP3 audio output with a
+-- constant bitrate (CBR) or a variable bitrate (VBR).
+mp3Settings_rateControlMode :: Lens.Lens' Mp3Settings (Prelude.Maybe Mp3RateControlMode)
+mp3Settings_rateControlMode = Lens.lens (\Mp3Settings' {rateControlMode} -> rateControlMode) (\s@Mp3Settings' {} a -> s {rateControlMode = a} :: Mp3Settings)
 
 instance Core.FromJSON Mp3Settings where
   parseJSON =
@@ -112,37 +112,37 @@ instance Core.FromJSON Mp3Settings where
       ( \x ->
           Mp3Settings'
             Prelude.<$> (x Core..:? "channels")
-            Prelude.<*> (x Core..:? "rateControlMode")
-            Prelude.<*> (x Core..:? "sampleRate")
             Prelude.<*> (x Core..:? "bitrate")
+            Prelude.<*> (x Core..:? "sampleRate")
             Prelude.<*> (x Core..:? "vbrQuality")
+            Prelude.<*> (x Core..:? "rateControlMode")
       )
 
 instance Prelude.Hashable Mp3Settings where
   hashWithSalt _salt Mp3Settings' {..} =
     _salt `Prelude.hashWithSalt` channels
-      `Prelude.hashWithSalt` rateControlMode
-      `Prelude.hashWithSalt` sampleRate
       `Prelude.hashWithSalt` bitrate
+      `Prelude.hashWithSalt` sampleRate
       `Prelude.hashWithSalt` vbrQuality
+      `Prelude.hashWithSalt` rateControlMode
 
 instance Prelude.NFData Mp3Settings where
   rnf Mp3Settings' {..} =
     Prelude.rnf channels
-      `Prelude.seq` Prelude.rnf rateControlMode
-      `Prelude.seq` Prelude.rnf sampleRate
       `Prelude.seq` Prelude.rnf bitrate
+      `Prelude.seq` Prelude.rnf sampleRate
       `Prelude.seq` Prelude.rnf vbrQuality
+      `Prelude.seq` Prelude.rnf rateControlMode
 
 instance Core.ToJSON Mp3Settings where
   toJSON Mp3Settings' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("channels" Core..=) Prelude.<$> channels,
-            ("rateControlMode" Core..=)
-              Prelude.<$> rateControlMode,
-            ("sampleRate" Core..=) Prelude.<$> sampleRate,
             ("bitrate" Core..=) Prelude.<$> bitrate,
-            ("vbrQuality" Core..=) Prelude.<$> vbrQuality
+            ("sampleRate" Core..=) Prelude.<$> sampleRate,
+            ("vbrQuality" Core..=) Prelude.<$> vbrQuality,
+            ("rateControlMode" Core..=)
+              Prelude.<$> rateControlMode
           ]
       )

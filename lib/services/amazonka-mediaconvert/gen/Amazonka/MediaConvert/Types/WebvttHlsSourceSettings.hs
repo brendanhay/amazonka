@@ -36,12 +36,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWebvttHlsSourceSettings' smart constructor.
 data WebvttHlsSourceSettings = WebvttHlsSourceSettings'
-  { -- | Optional. Specify media name
+  { -- | Optional. Specify ISO 639-2 or ISO 639-3 code in the language property
+    renditionLanguageCode :: Prelude.Maybe LanguageCode,
+    -- | Optional. Specify media name
     renditionName :: Prelude.Maybe Prelude.Text,
     -- | Optional. Specify alternative group ID
-    renditionGroupId :: Prelude.Maybe Prelude.Text,
-    -- | Optional. Specify ISO 639-2 or ISO 639-3 code in the language property
-    renditionLanguageCode :: Prelude.Maybe LanguageCode
+    renditionGroupId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,20 +53,24 @@ data WebvttHlsSourceSettings = WebvttHlsSourceSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'renditionLanguageCode', 'webvttHlsSourceSettings_renditionLanguageCode' - Optional. Specify ISO 639-2 or ISO 639-3 code in the language property
+--
 -- 'renditionName', 'webvttHlsSourceSettings_renditionName' - Optional. Specify media name
 --
 -- 'renditionGroupId', 'webvttHlsSourceSettings_renditionGroupId' - Optional. Specify alternative group ID
---
--- 'renditionLanguageCode', 'webvttHlsSourceSettings_renditionLanguageCode' - Optional. Specify ISO 639-2 or ISO 639-3 code in the language property
 newWebvttHlsSourceSettings ::
   WebvttHlsSourceSettings
 newWebvttHlsSourceSettings =
   WebvttHlsSourceSettings'
-    { renditionName =
+    { renditionLanguageCode =
         Prelude.Nothing,
-      renditionGroupId = Prelude.Nothing,
-      renditionLanguageCode = Prelude.Nothing
+      renditionName = Prelude.Nothing,
+      renditionGroupId = Prelude.Nothing
     }
+
+-- | Optional. Specify ISO 639-2 or ISO 639-3 code in the language property
+webvttHlsSourceSettings_renditionLanguageCode :: Lens.Lens' WebvttHlsSourceSettings (Prelude.Maybe LanguageCode)
+webvttHlsSourceSettings_renditionLanguageCode = Lens.lens (\WebvttHlsSourceSettings' {renditionLanguageCode} -> renditionLanguageCode) (\s@WebvttHlsSourceSettings' {} a -> s {renditionLanguageCode = a} :: WebvttHlsSourceSettings)
 
 -- | Optional. Specify media name
 webvttHlsSourceSettings_renditionName :: Lens.Lens' WebvttHlsSourceSettings (Prelude.Maybe Prelude.Text)
@@ -76,41 +80,37 @@ webvttHlsSourceSettings_renditionName = Lens.lens (\WebvttHlsSourceSettings' {re
 webvttHlsSourceSettings_renditionGroupId :: Lens.Lens' WebvttHlsSourceSettings (Prelude.Maybe Prelude.Text)
 webvttHlsSourceSettings_renditionGroupId = Lens.lens (\WebvttHlsSourceSettings' {renditionGroupId} -> renditionGroupId) (\s@WebvttHlsSourceSettings' {} a -> s {renditionGroupId = a} :: WebvttHlsSourceSettings)
 
--- | Optional. Specify ISO 639-2 or ISO 639-3 code in the language property
-webvttHlsSourceSettings_renditionLanguageCode :: Lens.Lens' WebvttHlsSourceSettings (Prelude.Maybe LanguageCode)
-webvttHlsSourceSettings_renditionLanguageCode = Lens.lens (\WebvttHlsSourceSettings' {renditionLanguageCode} -> renditionLanguageCode) (\s@WebvttHlsSourceSettings' {} a -> s {renditionLanguageCode = a} :: WebvttHlsSourceSettings)
-
 instance Core.FromJSON WebvttHlsSourceSettings where
   parseJSON =
     Core.withObject
       "WebvttHlsSourceSettings"
       ( \x ->
           WebvttHlsSourceSettings'
-            Prelude.<$> (x Core..:? "renditionName")
+            Prelude.<$> (x Core..:? "renditionLanguageCode")
+            Prelude.<*> (x Core..:? "renditionName")
             Prelude.<*> (x Core..:? "renditionGroupId")
-            Prelude.<*> (x Core..:? "renditionLanguageCode")
       )
 
 instance Prelude.Hashable WebvttHlsSourceSettings where
   hashWithSalt _salt WebvttHlsSourceSettings' {..} =
-    _salt `Prelude.hashWithSalt` renditionName
+    _salt `Prelude.hashWithSalt` renditionLanguageCode
+      `Prelude.hashWithSalt` renditionName
       `Prelude.hashWithSalt` renditionGroupId
-      `Prelude.hashWithSalt` renditionLanguageCode
 
 instance Prelude.NFData WebvttHlsSourceSettings where
   rnf WebvttHlsSourceSettings' {..} =
-    Prelude.rnf renditionName
+    Prelude.rnf renditionLanguageCode
+      `Prelude.seq` Prelude.rnf renditionName
       `Prelude.seq` Prelude.rnf renditionGroupId
-      `Prelude.seq` Prelude.rnf renditionLanguageCode
 
 instance Core.ToJSON WebvttHlsSourceSettings where
   toJSON WebvttHlsSourceSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("renditionName" Core..=) Prelude.<$> renditionName,
+          [ ("renditionLanguageCode" Core..=)
+              Prelude.<$> renditionLanguageCode,
+            ("renditionName" Core..=) Prelude.<$> renditionName,
             ("renditionGroupId" Core..=)
-              Prelude.<$> renditionGroupId,
-            ("renditionLanguageCode" Core..=)
-              Prelude.<$> renditionLanguageCode
+              Prelude.<$> renditionGroupId
           ]
       )

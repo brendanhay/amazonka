@@ -39,6 +39,12 @@ data CaptionDescriptionPreset = CaptionDescriptionPreset'
     -- outputs are those that are in one of the following output groups: CMAF,
     -- DASH ISO, Apple HLS, or Microsoft Smooth Streaming.
     customLanguageCode :: Prelude.Maybe Prelude.Text,
+    -- | Specify a label for this set of output captions. For example,
+    -- \"English\", \"Director commentary\", or \"track_2\". For streaming
+    -- outputs, MediaConvert passes this information into destination manifests
+    -- for display on the end-viewer\'s player device. For outputs in other
+    -- output groups, the service ignores this setting.
+    languageDescription :: Prelude.Maybe Prelude.Text,
     -- | Specify the language of this captions output track. For most captions
     -- output formats, the encoder puts this language information in the output
     -- captions metadata. If your output captions format is DVB-Sub or Burn in,
@@ -52,13 +58,7 @@ data CaptionDescriptionPreset = CaptionDescriptionPreset'
     -- captions format, one tab might correspond to a set of output captions
     -- tracks. For more information, see
     -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/including-captions.html.
-    destinationSettings :: Prelude.Maybe CaptionDestinationSettings,
-    -- | Specify a label for this set of output captions. For example,
-    -- \"English\", \"Director commentary\", or \"track_2\". For streaming
-    -- outputs, MediaConvert passes this information into destination manifests
-    -- for display on the end-viewer\'s player device. For outputs in other
-    -- output groups, the service ignores this setting.
-    languageDescription :: Prelude.Maybe Prelude.Text
+    destinationSettings :: Prelude.Maybe CaptionDestinationSettings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,6 +80,12 @@ data CaptionDescriptionPreset = CaptionDescriptionPreset'
 -- outputs are those that are in one of the following output groups: CMAF,
 -- DASH ISO, Apple HLS, or Microsoft Smooth Streaming.
 --
+-- 'languageDescription', 'captionDescriptionPreset_languageDescription' - Specify a label for this set of output captions. For example,
+-- \"English\", \"Director commentary\", or \"track_2\". For streaming
+-- outputs, MediaConvert passes this information into destination manifests
+-- for display on the end-viewer\'s player device. For outputs in other
+-- output groups, the service ignores this setting.
+--
 -- 'languageCode', 'captionDescriptionPreset_languageCode' - Specify the language of this captions output track. For most captions
 -- output formats, the encoder puts this language information in the output
 -- captions metadata. If your output captions format is DVB-Sub or Burn in,
@@ -93,21 +99,15 @@ data CaptionDescriptionPreset = CaptionDescriptionPreset'
 -- captions format, one tab might correspond to a set of output captions
 -- tracks. For more information, see
 -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/including-captions.html.
---
--- 'languageDescription', 'captionDescriptionPreset_languageDescription' - Specify a label for this set of output captions. For example,
--- \"English\", \"Director commentary\", or \"track_2\". For streaming
--- outputs, MediaConvert passes this information into destination manifests
--- for display on the end-viewer\'s player device. For outputs in other
--- output groups, the service ignores this setting.
 newCaptionDescriptionPreset ::
   CaptionDescriptionPreset
 newCaptionDescriptionPreset =
   CaptionDescriptionPreset'
     { customLanguageCode =
         Prelude.Nothing,
+      languageDescription = Prelude.Nothing,
       languageCode = Prelude.Nothing,
-      destinationSettings = Prelude.Nothing,
-      languageDescription = Prelude.Nothing
+      destinationSettings = Prelude.Nothing
     }
 
 -- | Specify the language for this captions output track. For most captions
@@ -121,6 +121,14 @@ newCaptionDescriptionPreset =
 -- DASH ISO, Apple HLS, or Microsoft Smooth Streaming.
 captionDescriptionPreset_customLanguageCode :: Lens.Lens' CaptionDescriptionPreset (Prelude.Maybe Prelude.Text)
 captionDescriptionPreset_customLanguageCode = Lens.lens (\CaptionDescriptionPreset' {customLanguageCode} -> customLanguageCode) (\s@CaptionDescriptionPreset' {} a -> s {customLanguageCode = a} :: CaptionDescriptionPreset)
+
+-- | Specify a label for this set of output captions. For example,
+-- \"English\", \"Director commentary\", or \"track_2\". For streaming
+-- outputs, MediaConvert passes this information into destination manifests
+-- for display on the end-viewer\'s player device. For outputs in other
+-- output groups, the service ignores this setting.
+captionDescriptionPreset_languageDescription :: Lens.Lens' CaptionDescriptionPreset (Prelude.Maybe Prelude.Text)
+captionDescriptionPreset_languageDescription = Lens.lens (\CaptionDescriptionPreset' {languageDescription} -> languageDescription) (\s@CaptionDescriptionPreset' {} a -> s {languageDescription = a} :: CaptionDescriptionPreset)
 
 -- | Specify the language of this captions output track. For most captions
 -- output formats, the encoder puts this language information in the output
@@ -140,14 +148,6 @@ captionDescriptionPreset_languageCode = Lens.lens (\CaptionDescriptionPreset' {l
 captionDescriptionPreset_destinationSettings :: Lens.Lens' CaptionDescriptionPreset (Prelude.Maybe CaptionDestinationSettings)
 captionDescriptionPreset_destinationSettings = Lens.lens (\CaptionDescriptionPreset' {destinationSettings} -> destinationSettings) (\s@CaptionDescriptionPreset' {} a -> s {destinationSettings = a} :: CaptionDescriptionPreset)
 
--- | Specify a label for this set of output captions. For example,
--- \"English\", \"Director commentary\", or \"track_2\". For streaming
--- outputs, MediaConvert passes this information into destination manifests
--- for display on the end-viewer\'s player device. For outputs in other
--- output groups, the service ignores this setting.
-captionDescriptionPreset_languageDescription :: Lens.Lens' CaptionDescriptionPreset (Prelude.Maybe Prelude.Text)
-captionDescriptionPreset_languageDescription = Lens.lens (\CaptionDescriptionPreset' {languageDescription} -> languageDescription) (\s@CaptionDescriptionPreset' {} a -> s {languageDescription = a} :: CaptionDescriptionPreset)
-
 instance Core.FromJSON CaptionDescriptionPreset where
   parseJSON =
     Core.withObject
@@ -155,24 +155,24 @@ instance Core.FromJSON CaptionDescriptionPreset where
       ( \x ->
           CaptionDescriptionPreset'
             Prelude.<$> (x Core..:? "customLanguageCode")
+            Prelude.<*> (x Core..:? "languageDescription")
             Prelude.<*> (x Core..:? "languageCode")
             Prelude.<*> (x Core..:? "destinationSettings")
-            Prelude.<*> (x Core..:? "languageDescription")
       )
 
 instance Prelude.Hashable CaptionDescriptionPreset where
   hashWithSalt _salt CaptionDescriptionPreset' {..} =
     _salt `Prelude.hashWithSalt` customLanguageCode
+      `Prelude.hashWithSalt` languageDescription
       `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` destinationSettings
-      `Prelude.hashWithSalt` languageDescription
 
 instance Prelude.NFData CaptionDescriptionPreset where
   rnf CaptionDescriptionPreset' {..} =
     Prelude.rnf customLanguageCode
+      `Prelude.seq` Prelude.rnf languageDescription
       `Prelude.seq` Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf destinationSettings
-      `Prelude.seq` Prelude.rnf languageDescription
 
 instance Core.ToJSON CaptionDescriptionPreset where
   toJSON CaptionDescriptionPreset' {..} =
@@ -180,10 +180,10 @@ instance Core.ToJSON CaptionDescriptionPreset where
       ( Prelude.catMaybes
           [ ("customLanguageCode" Core..=)
               Prelude.<$> customLanguageCode,
+            ("languageDescription" Core..=)
+              Prelude.<$> languageDescription,
             ("languageCode" Core..=) Prelude.<$> languageCode,
             ("destinationSettings" Core..=)
-              Prelude.<$> destinationSettings,
-            ("languageDescription" Core..=)
-              Prelude.<$> languageDescription
+              Prelude.<$> destinationSettings
           ]
       )

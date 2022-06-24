@@ -32,13 +32,13 @@ data OpusSettings = OpusSettings'
     -- on the console gives you 1 output channel; choosing Stereo gives you 2.
     -- In the API, valid values are 1 and 2.
     channels :: Prelude.Maybe Prelude.Natural,
-    -- | Optional. Sample rate in hz. Valid values are 16000, 24000, and 48000.
-    -- The default value is 48000.
-    sampleRate :: Prelude.Maybe Prelude.Natural,
     -- | Optional. Specify the average bitrate in bits per second. Valid values
     -- are multiples of 8000, from 32000 through 192000. The default value is
     -- 96000, which we recommend for quality and bandwidth.
-    bitrate :: Prelude.Maybe Prelude.Natural
+    bitrate :: Prelude.Maybe Prelude.Natural,
+    -- | Optional. Sample rate in hz. Valid values are 16000, 24000, and 48000.
+    -- The default value is 48000.
+    sampleRate :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,19 +54,19 @@ data OpusSettings = OpusSettings'
 -- on the console gives you 1 output channel; choosing Stereo gives you 2.
 -- In the API, valid values are 1 and 2.
 --
--- 'sampleRate', 'opusSettings_sampleRate' - Optional. Sample rate in hz. Valid values are 16000, 24000, and 48000.
--- The default value is 48000.
---
 -- 'bitrate', 'opusSettings_bitrate' - Optional. Specify the average bitrate in bits per second. Valid values
 -- are multiples of 8000, from 32000 through 192000. The default value is
 -- 96000, which we recommend for quality and bandwidth.
+--
+-- 'sampleRate', 'opusSettings_sampleRate' - Optional. Sample rate in hz. Valid values are 16000, 24000, and 48000.
+-- The default value is 48000.
 newOpusSettings ::
   OpusSettings
 newOpusSettings =
   OpusSettings'
     { channels = Prelude.Nothing,
-      sampleRate = Prelude.Nothing,
-      bitrate = Prelude.Nothing
+      bitrate = Prelude.Nothing,
+      sampleRate = Prelude.Nothing
     }
 
 -- | Specify the number of channels in this output audio track. Choosing Mono
@@ -75,16 +75,16 @@ newOpusSettings =
 opusSettings_channels :: Lens.Lens' OpusSettings (Prelude.Maybe Prelude.Natural)
 opusSettings_channels = Lens.lens (\OpusSettings' {channels} -> channels) (\s@OpusSettings' {} a -> s {channels = a} :: OpusSettings)
 
--- | Optional. Sample rate in hz. Valid values are 16000, 24000, and 48000.
--- The default value is 48000.
-opusSettings_sampleRate :: Lens.Lens' OpusSettings (Prelude.Maybe Prelude.Natural)
-opusSettings_sampleRate = Lens.lens (\OpusSettings' {sampleRate} -> sampleRate) (\s@OpusSettings' {} a -> s {sampleRate = a} :: OpusSettings)
-
 -- | Optional. Specify the average bitrate in bits per second. Valid values
 -- are multiples of 8000, from 32000 through 192000. The default value is
 -- 96000, which we recommend for quality and bandwidth.
 opusSettings_bitrate :: Lens.Lens' OpusSettings (Prelude.Maybe Prelude.Natural)
 opusSettings_bitrate = Lens.lens (\OpusSettings' {bitrate} -> bitrate) (\s@OpusSettings' {} a -> s {bitrate = a} :: OpusSettings)
+
+-- | Optional. Sample rate in hz. Valid values are 16000, 24000, and 48000.
+-- The default value is 48000.
+opusSettings_sampleRate :: Lens.Lens' OpusSettings (Prelude.Maybe Prelude.Natural)
+opusSettings_sampleRate = Lens.lens (\OpusSettings' {sampleRate} -> sampleRate) (\s@OpusSettings' {} a -> s {sampleRate = a} :: OpusSettings)
 
 instance Core.FromJSON OpusSettings where
   parseJSON =
@@ -93,28 +93,28 @@ instance Core.FromJSON OpusSettings where
       ( \x ->
           OpusSettings'
             Prelude.<$> (x Core..:? "channels")
-            Prelude.<*> (x Core..:? "sampleRate")
             Prelude.<*> (x Core..:? "bitrate")
+            Prelude.<*> (x Core..:? "sampleRate")
       )
 
 instance Prelude.Hashable OpusSettings where
   hashWithSalt _salt OpusSettings' {..} =
     _salt `Prelude.hashWithSalt` channels
-      `Prelude.hashWithSalt` sampleRate
       `Prelude.hashWithSalt` bitrate
+      `Prelude.hashWithSalt` sampleRate
 
 instance Prelude.NFData OpusSettings where
   rnf OpusSettings' {..} =
     Prelude.rnf channels
-      `Prelude.seq` Prelude.rnf sampleRate
       `Prelude.seq` Prelude.rnf bitrate
+      `Prelude.seq` Prelude.rnf sampleRate
 
 instance Core.ToJSON OpusSettings where
   toJSON OpusSettings' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("channels" Core..=) Prelude.<$> channels,
-            ("sampleRate" Core..=) Prelude.<$> sampleRate,
-            ("bitrate" Core..=) Prelude.<$> bitrate
+            ("bitrate" Core..=) Prelude.<$> bitrate,
+            ("sampleRate" Core..=) Prelude.<$> sampleRate
           ]
       )

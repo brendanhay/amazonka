@@ -29,7 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHlsAdditionalManifest' smart constructor.
 data HlsAdditionalManifest = HlsAdditionalManifest'
-  { -- | Specify a name modifier that the service adds to the name of this
+  { -- | Specify the outputs that you want this additional top-level manifest to
+    -- reference.
+    selectedOutputs :: Prelude.Maybe [Prelude.Text],
+    -- | Specify a name modifier that the service adds to the name of this
     -- manifest to make it different from the file names of the other main
     -- manifests in the output group. For example, say that the default main
     -- manifest for your HLS group is film-name.m3u8. If you enter
@@ -38,10 +41,7 @@ data HlsAdditionalManifest = HlsAdditionalManifest'
     -- HLS output groups, specify a manifestNameModifier that is different from
     -- the nameModifier of the output. The service uses the output name
     -- modifier to create unique names for the individual variant manifests.
-    manifestNameModifier :: Prelude.Maybe Prelude.Text,
-    -- | Specify the outputs that you want this additional top-level manifest to
-    -- reference.
-    selectedOutputs :: Prelude.Maybe [Prelude.Text]
+    manifestNameModifier :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,6 +53,9 @@ data HlsAdditionalManifest = HlsAdditionalManifest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'selectedOutputs', 'hlsAdditionalManifest_selectedOutputs' - Specify the outputs that you want this additional top-level manifest to
+-- reference.
+--
 -- 'manifestNameModifier', 'hlsAdditionalManifest_manifestNameModifier' - Specify a name modifier that the service adds to the name of this
 -- manifest to make it different from the file names of the other main
 -- manifests in the output group. For example, say that the default main
@@ -62,17 +65,19 @@ data HlsAdditionalManifest = HlsAdditionalManifest'
 -- HLS output groups, specify a manifestNameModifier that is different from
 -- the nameModifier of the output. The service uses the output name
 -- modifier to create unique names for the individual variant manifests.
---
--- 'selectedOutputs', 'hlsAdditionalManifest_selectedOutputs' - Specify the outputs that you want this additional top-level manifest to
--- reference.
 newHlsAdditionalManifest ::
   HlsAdditionalManifest
 newHlsAdditionalManifest =
   HlsAdditionalManifest'
-    { manifestNameModifier =
+    { selectedOutputs =
         Prelude.Nothing,
-      selectedOutputs = Prelude.Nothing
+      manifestNameModifier = Prelude.Nothing
     }
+
+-- | Specify the outputs that you want this additional top-level manifest to
+-- reference.
+hlsAdditionalManifest_selectedOutputs :: Lens.Lens' HlsAdditionalManifest (Prelude.Maybe [Prelude.Text])
+hlsAdditionalManifest_selectedOutputs = Lens.lens (\HlsAdditionalManifest' {selectedOutputs} -> selectedOutputs) (\s@HlsAdditionalManifest' {} a -> s {selectedOutputs = a} :: HlsAdditionalManifest) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specify a name modifier that the service adds to the name of this
 -- manifest to make it different from the file names of the other main
@@ -86,40 +91,35 @@ newHlsAdditionalManifest =
 hlsAdditionalManifest_manifestNameModifier :: Lens.Lens' HlsAdditionalManifest (Prelude.Maybe Prelude.Text)
 hlsAdditionalManifest_manifestNameModifier = Lens.lens (\HlsAdditionalManifest' {manifestNameModifier} -> manifestNameModifier) (\s@HlsAdditionalManifest' {} a -> s {manifestNameModifier = a} :: HlsAdditionalManifest)
 
--- | Specify the outputs that you want this additional top-level manifest to
--- reference.
-hlsAdditionalManifest_selectedOutputs :: Lens.Lens' HlsAdditionalManifest (Prelude.Maybe [Prelude.Text])
-hlsAdditionalManifest_selectedOutputs = Lens.lens (\HlsAdditionalManifest' {selectedOutputs} -> selectedOutputs) (\s@HlsAdditionalManifest' {} a -> s {selectedOutputs = a} :: HlsAdditionalManifest) Prelude.. Lens.mapping Lens.coerced
-
 instance Core.FromJSON HlsAdditionalManifest where
   parseJSON =
     Core.withObject
       "HlsAdditionalManifest"
       ( \x ->
           HlsAdditionalManifest'
-            Prelude.<$> (x Core..:? "manifestNameModifier")
-            Prelude.<*> ( x Core..:? "selectedOutputs"
+            Prelude.<$> ( x Core..:? "selectedOutputs"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "manifestNameModifier")
       )
 
 instance Prelude.Hashable HlsAdditionalManifest where
   hashWithSalt _salt HlsAdditionalManifest' {..} =
-    _salt `Prelude.hashWithSalt` manifestNameModifier
-      `Prelude.hashWithSalt` selectedOutputs
+    _salt `Prelude.hashWithSalt` selectedOutputs
+      `Prelude.hashWithSalt` manifestNameModifier
 
 instance Prelude.NFData HlsAdditionalManifest where
   rnf HlsAdditionalManifest' {..} =
-    Prelude.rnf manifestNameModifier
-      `Prelude.seq` Prelude.rnf selectedOutputs
+    Prelude.rnf selectedOutputs
+      `Prelude.seq` Prelude.rnf manifestNameModifier
 
 instance Core.ToJSON HlsAdditionalManifest where
   toJSON HlsAdditionalManifest' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("manifestNameModifier" Core..=)
-              Prelude.<$> manifestNameModifier,
-            ("selectedOutputs" Core..=)
-              Prelude.<$> selectedOutputs
+          [ ("selectedOutputs" Core..=)
+              Prelude.<$> selectedOutputs,
+            ("manifestNameModifier" Core..=)
+              Prelude.<$> manifestNameModifier
           ]
       )

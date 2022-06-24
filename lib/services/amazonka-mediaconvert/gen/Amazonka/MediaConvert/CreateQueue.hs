@@ -29,11 +29,11 @@ module Amazonka.MediaConvert.CreateQueue
     newCreateQueue,
 
     -- * Request Lenses
-    createQueue_status,
-    createQueue_pricingPlan,
-    createQueue_description,
-    createQueue_reservationPlanSettings,
     createQueue_tags,
+    createQueue_status,
+    createQueue_description,
+    createQueue_pricingPlan,
+    createQueue_reservationPlanSettings,
     createQueue_name,
 
     -- * Destructuring the Response
@@ -55,9 +55,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateQueue' smart constructor.
 data CreateQueue = CreateQueue'
-  { -- | Initial state of the queue. If you create a paused queue, then jobs in
+  { -- | The tags that you want to add to the resource. You can tag resources
+    -- with a key-value pair or with only a key.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Initial state of the queue. If you create a paused queue, then jobs in
     -- that queue won\'t begin.
     status :: Prelude.Maybe QueueStatus,
+    -- | Optional. A description of the queue that you are creating.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the pricing plan for the queue is on-demand or
     -- reserved. For on-demand, you pay per minute, billed in increments of .01
     -- minute. For reserved, you pay for the transcoding capacity of the entire
@@ -65,14 +70,9 @@ data CreateQueue = CreateQueue'
     -- requires a 12-month commitment. When you use the API to create a queue,
     -- the default is on-demand.
     pricingPlan :: Prelude.Maybe PricingPlan,
-    -- | Optional. A description of the queue that you are creating.
-    description :: Prelude.Maybe Prelude.Text,
     -- | Details about the pricing plan for your reserved queue. Required for
     -- reserved queues and not applicable to on-demand queues.
     reservationPlanSettings :: Prelude.Maybe ReservationPlanSettings,
-    -- | The tags that you want to add to the resource. You can tag resources
-    -- with a key-value pair or with only a key.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the queue that you are creating.
     name :: Prelude.Text
   }
@@ -86,8 +86,13 @@ data CreateQueue = CreateQueue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createQueue_tags' - The tags that you want to add to the resource. You can tag resources
+-- with a key-value pair or with only a key.
+--
 -- 'status', 'createQueue_status' - Initial state of the queue. If you create a paused queue, then jobs in
 -- that queue won\'t begin.
+--
+-- 'description', 'createQueue_description' - Optional. A description of the queue that you are creating.
 --
 -- 'pricingPlan', 'createQueue_pricingPlan' - Specifies whether the pricing plan for the queue is on-demand or
 -- reserved. For on-demand, you pay per minute, billed in increments of .01
@@ -96,13 +101,8 @@ data CreateQueue = CreateQueue'
 -- requires a 12-month commitment. When you use the API to create a queue,
 -- the default is on-demand.
 --
--- 'description', 'createQueue_description' - Optional. A description of the queue that you are creating.
---
 -- 'reservationPlanSettings', 'createQueue_reservationPlanSettings' - Details about the pricing plan for your reserved queue. Required for
 -- reserved queues and not applicable to on-demand queues.
---
--- 'tags', 'createQueue_tags' - The tags that you want to add to the resource. You can tag resources
--- with a key-value pair or with only a key.
 --
 -- 'name', 'createQueue_name' - The name of the queue that you are creating.
 newCreateQueue ::
@@ -111,18 +111,27 @@ newCreateQueue ::
   CreateQueue
 newCreateQueue pName_ =
   CreateQueue'
-    { status = Prelude.Nothing,
-      pricingPlan = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      status = Prelude.Nothing,
       description = Prelude.Nothing,
+      pricingPlan = Prelude.Nothing,
       reservationPlanSettings = Prelude.Nothing,
-      tags = Prelude.Nothing,
       name = pName_
     }
+
+-- | The tags that you want to add to the resource. You can tag resources
+-- with a key-value pair or with only a key.
+createQueue_tags :: Lens.Lens' CreateQueue (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createQueue_tags = Lens.lens (\CreateQueue' {tags} -> tags) (\s@CreateQueue' {} a -> s {tags = a} :: CreateQueue) Prelude.. Lens.mapping Lens.coerced
 
 -- | Initial state of the queue. If you create a paused queue, then jobs in
 -- that queue won\'t begin.
 createQueue_status :: Lens.Lens' CreateQueue (Prelude.Maybe QueueStatus)
 createQueue_status = Lens.lens (\CreateQueue' {status} -> status) (\s@CreateQueue' {} a -> s {status = a} :: CreateQueue)
+
+-- | Optional. A description of the queue that you are creating.
+createQueue_description :: Lens.Lens' CreateQueue (Prelude.Maybe Prelude.Text)
+createQueue_description = Lens.lens (\CreateQueue' {description} -> description) (\s@CreateQueue' {} a -> s {description = a} :: CreateQueue)
 
 -- | Specifies whether the pricing plan for the queue is on-demand or
 -- reserved. For on-demand, you pay per minute, billed in increments of .01
@@ -133,19 +142,10 @@ createQueue_status = Lens.lens (\CreateQueue' {status} -> status) (\s@CreateQueu
 createQueue_pricingPlan :: Lens.Lens' CreateQueue (Prelude.Maybe PricingPlan)
 createQueue_pricingPlan = Lens.lens (\CreateQueue' {pricingPlan} -> pricingPlan) (\s@CreateQueue' {} a -> s {pricingPlan = a} :: CreateQueue)
 
--- | Optional. A description of the queue that you are creating.
-createQueue_description :: Lens.Lens' CreateQueue (Prelude.Maybe Prelude.Text)
-createQueue_description = Lens.lens (\CreateQueue' {description} -> description) (\s@CreateQueue' {} a -> s {description = a} :: CreateQueue)
-
 -- | Details about the pricing plan for your reserved queue. Required for
 -- reserved queues and not applicable to on-demand queues.
 createQueue_reservationPlanSettings :: Lens.Lens' CreateQueue (Prelude.Maybe ReservationPlanSettings)
 createQueue_reservationPlanSettings = Lens.lens (\CreateQueue' {reservationPlanSettings} -> reservationPlanSettings) (\s@CreateQueue' {} a -> s {reservationPlanSettings = a} :: CreateQueue)
-
--- | The tags that you want to add to the resource. You can tag resources
--- with a key-value pair or with only a key.
-createQueue_tags :: Lens.Lens' CreateQueue (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createQueue_tags = Lens.lens (\CreateQueue' {tags} -> tags) (\s@CreateQueue' {} a -> s {tags = a} :: CreateQueue) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the queue that you are creating.
 createQueue_name :: Lens.Lens' CreateQueue Prelude.Text
@@ -164,20 +164,20 @@ instance Core.AWSRequest CreateQueue where
 
 instance Prelude.Hashable CreateQueue where
   hashWithSalt _salt CreateQueue' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` pricingPlan
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` pricingPlan
       `Prelude.hashWithSalt` reservationPlanSettings
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateQueue where
   rnf CreateQueue' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf pricingPlan
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf pricingPlan
       `Prelude.seq` Prelude.rnf reservationPlanSettings
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateQueue where
@@ -195,12 +195,12 @@ instance Core.ToJSON CreateQueue where
   toJSON CreateQueue' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("status" Core..=) Prelude.<$> status,
-            ("pricingPlan" Core..=) Prelude.<$> pricingPlan,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("status" Core..=) Prelude.<$> status,
             ("description" Core..=) Prelude.<$> description,
+            ("pricingPlan" Core..=) Prelude.<$> pricingPlan,
             ("reservationPlanSettings" Core..=)
               Prelude.<$> reservationPlanSettings,
-            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("name" Core..= name)
           ]
       )

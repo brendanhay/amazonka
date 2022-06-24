@@ -33,12 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMpdSettings' smart constructor.
 data MpdSettings = MpdSettings'
-  { -- | Use this setting only when you specify SCTE-35 markers from ESAM. Choose
-    -- INSERT to put SCTE-35 markers in this output at the insertion points
-    -- that you specify in an ESAM XML document. Provide the document in the
-    -- setting SCC XML (sccXml).
-    scte35Esam :: Prelude.Maybe MpdScte35Esam,
-    -- | Specify this setting only when your output will be consumed by a
+  { -- | Specify this setting only when your output will be consumed by a
     -- downstream repackaging workflow that is sensitive to very small duration
     -- differences between video and audio. For this situation, choose Match
     -- video duration (MATCH_VIDEO_DURATION). In all other cases, keep the
@@ -53,11 +48,11 @@ data MpdSettings = MpdSettings'
     -- the file. When you keep the default value, any minor discrepancies
     -- between audio and video duration will depend on your output audio codec.
     audioDuration :: Prelude.Maybe MpdAudioDuration,
-    -- | Ignore this setting unless you have SCTE-35 markers in your input video
-    -- file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that
-    -- appear in your input to also appear in this output. Choose None (NONE)
-    -- if you don\'t want those SCTE-35 markers in this output.
-    scte35Source :: Prelude.Maybe MpdScte35Source,
+    -- | Use this setting only when you specify SCTE-35 markers from ESAM. Choose
+    -- INSERT to put SCTE-35 markers in this output at the insertion points
+    -- that you specify in an ESAM XML document. Provide the document in the
+    -- setting SCC XML (sccXml).
+    scte35Esam :: Prelude.Maybe MpdScte35Esam,
     -- | Optional. Choose Include (INCLUDE) to have MediaConvert mark up your
     -- DASH manifest with elements for embedded 608 captions. This markup
     -- isn\'t generally required, but some video players require it to discover
@@ -72,7 +67,12 @@ data MpdSettings = MpdSettings'
     -- captions in XML format contained within fragmented MP4 files. This set
     -- of fragmented MP4 files is separate from your video and audio fragmented
     -- MP4 files.
-    captionContainerType :: Prelude.Maybe MpdCaptionContainerType
+    captionContainerType :: Prelude.Maybe MpdCaptionContainerType,
+    -- | Ignore this setting unless you have SCTE-35 markers in your input video
+    -- file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that
+    -- appear in your input to also appear in this output. Choose None (NONE)
+    -- if you don\'t want those SCTE-35 markers in this output.
+    scte35Source :: Prelude.Maybe MpdScte35Source
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,11 +83,6 @@ data MpdSettings = MpdSettings'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'scte35Esam', 'mpdSettings_scte35Esam' - Use this setting only when you specify SCTE-35 markers from ESAM. Choose
--- INSERT to put SCTE-35 markers in this output at the insertion points
--- that you specify in an ESAM XML document. Provide the document in the
--- setting SCC XML (sccXml).
 --
 -- 'audioDuration', 'mpdSettings_audioDuration' - Specify this setting only when your output will be consumed by a
 -- downstream repackaging workflow that is sensitive to very small duration
@@ -104,10 +99,10 @@ data MpdSettings = MpdSettings'
 -- the file. When you keep the default value, any minor discrepancies
 -- between audio and video duration will depend on your output audio codec.
 --
--- 'scte35Source', 'mpdSettings_scte35Source' - Ignore this setting unless you have SCTE-35 markers in your input video
--- file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that
--- appear in your input to also appear in this output. Choose None (NONE)
--- if you don\'t want those SCTE-35 markers in this output.
+-- 'scte35Esam', 'mpdSettings_scte35Esam' - Use this setting only when you specify SCTE-35 markers from ESAM. Choose
+-- INSERT to put SCTE-35 markers in this output at the insertion points
+-- that you specify in an ESAM XML document. Provide the document in the
+-- setting SCC XML (sccXml).
 --
 -- 'accessibilityCaptionHints', 'mpdSettings_accessibilityCaptionHints' - Optional. Choose Include (INCLUDE) to have MediaConvert mark up your
 -- DASH manifest with elements for embedded 608 captions. This markup
@@ -123,23 +118,21 @@ data MpdSettings = MpdSettings'
 -- captions in XML format contained within fragmented MP4 files. This set
 -- of fragmented MP4 files is separate from your video and audio fragmented
 -- MP4 files.
+--
+-- 'scte35Source', 'mpdSettings_scte35Source' - Ignore this setting unless you have SCTE-35 markers in your input video
+-- file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that
+-- appear in your input to also appear in this output. Choose None (NONE)
+-- if you don\'t want those SCTE-35 markers in this output.
 newMpdSettings ::
   MpdSettings
 newMpdSettings =
   MpdSettings'
-    { scte35Esam = Prelude.Nothing,
-      audioDuration = Prelude.Nothing,
-      scte35Source = Prelude.Nothing,
+    { audioDuration = Prelude.Nothing,
+      scte35Esam = Prelude.Nothing,
       accessibilityCaptionHints = Prelude.Nothing,
-      captionContainerType = Prelude.Nothing
+      captionContainerType = Prelude.Nothing,
+      scte35Source = Prelude.Nothing
     }
-
--- | Use this setting only when you specify SCTE-35 markers from ESAM. Choose
--- INSERT to put SCTE-35 markers in this output at the insertion points
--- that you specify in an ESAM XML document. Provide the document in the
--- setting SCC XML (sccXml).
-mpdSettings_scte35Esam :: Lens.Lens' MpdSettings (Prelude.Maybe MpdScte35Esam)
-mpdSettings_scte35Esam = Lens.lens (\MpdSettings' {scte35Esam} -> scte35Esam) (\s@MpdSettings' {} a -> s {scte35Esam = a} :: MpdSettings)
 
 -- | Specify this setting only when your output will be consumed by a
 -- downstream repackaging workflow that is sensitive to very small duration
@@ -158,12 +151,12 @@ mpdSettings_scte35Esam = Lens.lens (\MpdSettings' {scte35Esam} -> scte35Esam) (\
 mpdSettings_audioDuration :: Lens.Lens' MpdSettings (Prelude.Maybe MpdAudioDuration)
 mpdSettings_audioDuration = Lens.lens (\MpdSettings' {audioDuration} -> audioDuration) (\s@MpdSettings' {} a -> s {audioDuration = a} :: MpdSettings)
 
--- | Ignore this setting unless you have SCTE-35 markers in your input video
--- file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that
--- appear in your input to also appear in this output. Choose None (NONE)
--- if you don\'t want those SCTE-35 markers in this output.
-mpdSettings_scte35Source :: Lens.Lens' MpdSettings (Prelude.Maybe MpdScte35Source)
-mpdSettings_scte35Source = Lens.lens (\MpdSettings' {scte35Source} -> scte35Source) (\s@MpdSettings' {} a -> s {scte35Source = a} :: MpdSettings)
+-- | Use this setting only when you specify SCTE-35 markers from ESAM. Choose
+-- INSERT to put SCTE-35 markers in this output at the insertion points
+-- that you specify in an ESAM XML document. Provide the document in the
+-- setting SCC XML (sccXml).
+mpdSettings_scte35Esam :: Lens.Lens' MpdSettings (Prelude.Maybe MpdScte35Esam)
+mpdSettings_scte35Esam = Lens.lens (\MpdSettings' {scte35Esam} -> scte35Esam) (\s@MpdSettings' {} a -> s {scte35Esam = a} :: MpdSettings)
 
 -- | Optional. Choose Include (INCLUDE) to have MediaConvert mark up your
 -- DASH manifest with elements for embedded 608 captions. This markup
@@ -184,45 +177,52 @@ mpdSettings_accessibilityCaptionHints = Lens.lens (\MpdSettings' {accessibilityC
 mpdSettings_captionContainerType :: Lens.Lens' MpdSettings (Prelude.Maybe MpdCaptionContainerType)
 mpdSettings_captionContainerType = Lens.lens (\MpdSettings' {captionContainerType} -> captionContainerType) (\s@MpdSettings' {} a -> s {captionContainerType = a} :: MpdSettings)
 
+-- | Ignore this setting unless you have SCTE-35 markers in your input video
+-- file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that
+-- appear in your input to also appear in this output. Choose None (NONE)
+-- if you don\'t want those SCTE-35 markers in this output.
+mpdSettings_scte35Source :: Lens.Lens' MpdSettings (Prelude.Maybe MpdScte35Source)
+mpdSettings_scte35Source = Lens.lens (\MpdSettings' {scte35Source} -> scte35Source) (\s@MpdSettings' {} a -> s {scte35Source = a} :: MpdSettings)
+
 instance Core.FromJSON MpdSettings where
   parseJSON =
     Core.withObject
       "MpdSettings"
       ( \x ->
           MpdSettings'
-            Prelude.<$> (x Core..:? "scte35Esam")
-            Prelude.<*> (x Core..:? "audioDuration")
-            Prelude.<*> (x Core..:? "scte35Source")
+            Prelude.<$> (x Core..:? "audioDuration")
+            Prelude.<*> (x Core..:? "scte35Esam")
             Prelude.<*> (x Core..:? "accessibilityCaptionHints")
             Prelude.<*> (x Core..:? "captionContainerType")
+            Prelude.<*> (x Core..:? "scte35Source")
       )
 
 instance Prelude.Hashable MpdSettings where
   hashWithSalt _salt MpdSettings' {..} =
-    _salt `Prelude.hashWithSalt` scte35Esam
-      `Prelude.hashWithSalt` audioDuration
-      `Prelude.hashWithSalt` scte35Source
+    _salt `Prelude.hashWithSalt` audioDuration
+      `Prelude.hashWithSalt` scte35Esam
       `Prelude.hashWithSalt` accessibilityCaptionHints
       `Prelude.hashWithSalt` captionContainerType
+      `Prelude.hashWithSalt` scte35Source
 
 instance Prelude.NFData MpdSettings where
   rnf MpdSettings' {..} =
-    Prelude.rnf scte35Esam
-      `Prelude.seq` Prelude.rnf audioDuration
-      `Prelude.seq` Prelude.rnf scte35Source
+    Prelude.rnf audioDuration
+      `Prelude.seq` Prelude.rnf scte35Esam
       `Prelude.seq` Prelude.rnf accessibilityCaptionHints
       `Prelude.seq` Prelude.rnf captionContainerType
+      `Prelude.seq` Prelude.rnf scte35Source
 
 instance Core.ToJSON MpdSettings where
   toJSON MpdSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("scte35Esam" Core..=) Prelude.<$> scte35Esam,
-            ("audioDuration" Core..=) Prelude.<$> audioDuration,
-            ("scte35Source" Core..=) Prelude.<$> scte35Source,
+          [ ("audioDuration" Core..=) Prelude.<$> audioDuration,
+            ("scte35Esam" Core..=) Prelude.<$> scte35Esam,
             ("accessibilityCaptionHints" Core..=)
               Prelude.<$> accessibilityCaptionHints,
             ("captionContainerType" Core..=)
-              Prelude.<$> captionContainerType
+              Prelude.<$> captionContainerType,
+            ("scte35Source" Core..=) Prelude.<$> scte35Source
           ]
       )

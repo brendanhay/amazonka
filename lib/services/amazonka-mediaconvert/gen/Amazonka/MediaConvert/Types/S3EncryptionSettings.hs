@@ -29,7 +29,25 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3EncryptionSettings' smart constructor.
 data S3EncryptionSettings = S3EncryptionSettings'
-  { -- | Specify how you want your data keys managed. AWS uses data keys to
+  { -- | Optionally, specify the encryption context that you want to use
+    -- alongside your KMS key. AWS KMS uses this encryption context as
+    -- additional authenticated data (AAD) to support authenticated encryption.
+    -- This value must be a base64-encoded UTF-8 string holding JSON which
+    -- represents a string-string map. To use this setting, you must also set
+    -- Server-side encryption (S3ServerSideEncryptionType) to AWS KMS
+    -- (SERVER_SIDE_ENCRYPTION_KMS). For more information about encryption
+    -- context, see:
+    -- https:\/\/docs.aws.amazon.com\/kms\/latest\/developerguide\/concepts.html#encrypt_context.
+    kmsEncryptionContext :: Prelude.Maybe Prelude.Text,
+    -- | Optionally, specify the customer master key (CMK) that you want to use
+    -- to encrypt the data key that AWS uses to encrypt your output content.
+    -- Enter the Amazon Resource Name (ARN) of the CMK. To use this setting,
+    -- you must also set Server-side encryption (S3ServerSideEncryptionType) to
+    -- AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). If you set Server-side encryption
+    -- to AWS KMS but don\'t specify a CMK here, AWS uses the AWS managed CMK
+    -- associated with Amazon S3.
+    kmsKeyArn :: Prelude.Maybe Prelude.Text,
+    -- | Specify how you want your data keys managed. AWS uses data keys to
     -- encrypt your content. AWS also encrypts the data keys themselves, using
     -- a customer master key (CMK), and then stores the encrypted data keys
     -- alongside your encrypted content. Use this setting to specify which AWS
@@ -41,25 +59,7 @@ data S3EncryptionSettings = S3EncryptionSettings'
     -- to encrypt your data keys. You can optionally choose to specify a
     -- different, customer managed CMK. Do so by specifying the Amazon Resource
     -- Name (ARN) of the key for the setting KMS ARN (kmsKeyArn).
-    encryptionType :: Prelude.Maybe S3ServerSideEncryptionType,
-    -- | Optionally, specify the customer master key (CMK) that you want to use
-    -- to encrypt the data key that AWS uses to encrypt your output content.
-    -- Enter the Amazon Resource Name (ARN) of the CMK. To use this setting,
-    -- you must also set Server-side encryption (S3ServerSideEncryptionType) to
-    -- AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). If you set Server-side encryption
-    -- to AWS KMS but don\'t specify a CMK here, AWS uses the AWS managed CMK
-    -- associated with Amazon S3.
-    kmsKeyArn :: Prelude.Maybe Prelude.Text,
-    -- | Optionally, specify the encryption context that you want to use
-    -- alongside your KMS key. AWS KMS uses this encryption context as
-    -- additional authenticated data (AAD) to support authenticated encryption.
-    -- This value must be a base64-encoded UTF-8 string holding JSON which
-    -- represents a string-string map. To use this setting, you must also set
-    -- Server-side encryption (S3ServerSideEncryptionType) to AWS KMS
-    -- (SERVER_SIDE_ENCRYPTION_KMS). For more information about encryption
-    -- context, see:
-    -- https:\/\/docs.aws.amazon.com\/kms\/latest\/developerguide\/concepts.html#encrypt_context.
-    kmsEncryptionContext :: Prelude.Maybe Prelude.Text
+    encryptionType :: Prelude.Maybe S3ServerSideEncryptionType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,6 +70,24 @@ data S3EncryptionSettings = S3EncryptionSettings'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'kmsEncryptionContext', 's3EncryptionSettings_kmsEncryptionContext' - Optionally, specify the encryption context that you want to use
+-- alongside your KMS key. AWS KMS uses this encryption context as
+-- additional authenticated data (AAD) to support authenticated encryption.
+-- This value must be a base64-encoded UTF-8 string holding JSON which
+-- represents a string-string map. To use this setting, you must also set
+-- Server-side encryption (S3ServerSideEncryptionType) to AWS KMS
+-- (SERVER_SIDE_ENCRYPTION_KMS). For more information about encryption
+-- context, see:
+-- https:\/\/docs.aws.amazon.com\/kms\/latest\/developerguide\/concepts.html#encrypt_context.
+--
+-- 'kmsKeyArn', 's3EncryptionSettings_kmsKeyArn' - Optionally, specify the customer master key (CMK) that you want to use
+-- to encrypt the data key that AWS uses to encrypt your output content.
+-- Enter the Amazon Resource Name (ARN) of the CMK. To use this setting,
+-- you must also set Server-side encryption (S3ServerSideEncryptionType) to
+-- AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). If you set Server-side encryption
+-- to AWS KMS but don\'t specify a CMK here, AWS uses the AWS managed CMK
+-- associated with Amazon S3.
 --
 -- 'encryptionType', 's3EncryptionSettings_encryptionType' - Specify how you want your data keys managed. AWS uses data keys to
 -- encrypt your content. AWS also encrypts the data keys themselves, using
@@ -83,16 +101,17 @@ data S3EncryptionSettings = S3EncryptionSettings'
 -- to encrypt your data keys. You can optionally choose to specify a
 -- different, customer managed CMK. Do so by specifying the Amazon Resource
 -- Name (ARN) of the key for the setting KMS ARN (kmsKeyArn).
---
--- 'kmsKeyArn', 's3EncryptionSettings_kmsKeyArn' - Optionally, specify the customer master key (CMK) that you want to use
--- to encrypt the data key that AWS uses to encrypt your output content.
--- Enter the Amazon Resource Name (ARN) of the CMK. To use this setting,
--- you must also set Server-side encryption (S3ServerSideEncryptionType) to
--- AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). If you set Server-side encryption
--- to AWS KMS but don\'t specify a CMK here, AWS uses the AWS managed CMK
--- associated with Amazon S3.
---
--- 'kmsEncryptionContext', 's3EncryptionSettings_kmsEncryptionContext' - Optionally, specify the encryption context that you want to use
+newS3EncryptionSettings ::
+  S3EncryptionSettings
+newS3EncryptionSettings =
+  S3EncryptionSettings'
+    { kmsEncryptionContext =
+        Prelude.Nothing,
+      kmsKeyArn = Prelude.Nothing,
+      encryptionType = Prelude.Nothing
+    }
+
+-- | Optionally, specify the encryption context that you want to use
 -- alongside your KMS key. AWS KMS uses this encryption context as
 -- additional authenticated data (AAD) to support authenticated encryption.
 -- This value must be a base64-encoded UTF-8 string holding JSON which
@@ -101,15 +120,18 @@ data S3EncryptionSettings = S3EncryptionSettings'
 -- (SERVER_SIDE_ENCRYPTION_KMS). For more information about encryption
 -- context, see:
 -- https:\/\/docs.aws.amazon.com\/kms\/latest\/developerguide\/concepts.html#encrypt_context.
-newS3EncryptionSettings ::
-  S3EncryptionSettings
-newS3EncryptionSettings =
-  S3EncryptionSettings'
-    { encryptionType =
-        Prelude.Nothing,
-      kmsKeyArn = Prelude.Nothing,
-      kmsEncryptionContext = Prelude.Nothing
-    }
+s3EncryptionSettings_kmsEncryptionContext :: Lens.Lens' S3EncryptionSettings (Prelude.Maybe Prelude.Text)
+s3EncryptionSettings_kmsEncryptionContext = Lens.lens (\S3EncryptionSettings' {kmsEncryptionContext} -> kmsEncryptionContext) (\s@S3EncryptionSettings' {} a -> s {kmsEncryptionContext = a} :: S3EncryptionSettings)
+
+-- | Optionally, specify the customer master key (CMK) that you want to use
+-- to encrypt the data key that AWS uses to encrypt your output content.
+-- Enter the Amazon Resource Name (ARN) of the CMK. To use this setting,
+-- you must also set Server-side encryption (S3ServerSideEncryptionType) to
+-- AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). If you set Server-side encryption
+-- to AWS KMS but don\'t specify a CMK here, AWS uses the AWS managed CMK
+-- associated with Amazon S3.
+s3EncryptionSettings_kmsKeyArn :: Lens.Lens' S3EncryptionSettings (Prelude.Maybe Prelude.Text)
+s3EncryptionSettings_kmsKeyArn = Lens.lens (\S3EncryptionSettings' {kmsKeyArn} -> kmsKeyArn) (\s@S3EncryptionSettings' {} a -> s {kmsKeyArn = a} :: S3EncryptionSettings)
 
 -- | Specify how you want your data keys managed. AWS uses data keys to
 -- encrypt your content. AWS also encrypts the data keys themselves, using
@@ -126,59 +148,37 @@ newS3EncryptionSettings =
 s3EncryptionSettings_encryptionType :: Lens.Lens' S3EncryptionSettings (Prelude.Maybe S3ServerSideEncryptionType)
 s3EncryptionSettings_encryptionType = Lens.lens (\S3EncryptionSettings' {encryptionType} -> encryptionType) (\s@S3EncryptionSettings' {} a -> s {encryptionType = a} :: S3EncryptionSettings)
 
--- | Optionally, specify the customer master key (CMK) that you want to use
--- to encrypt the data key that AWS uses to encrypt your output content.
--- Enter the Amazon Resource Name (ARN) of the CMK. To use this setting,
--- you must also set Server-side encryption (S3ServerSideEncryptionType) to
--- AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). If you set Server-side encryption
--- to AWS KMS but don\'t specify a CMK here, AWS uses the AWS managed CMK
--- associated with Amazon S3.
-s3EncryptionSettings_kmsKeyArn :: Lens.Lens' S3EncryptionSettings (Prelude.Maybe Prelude.Text)
-s3EncryptionSettings_kmsKeyArn = Lens.lens (\S3EncryptionSettings' {kmsKeyArn} -> kmsKeyArn) (\s@S3EncryptionSettings' {} a -> s {kmsKeyArn = a} :: S3EncryptionSettings)
-
--- | Optionally, specify the encryption context that you want to use
--- alongside your KMS key. AWS KMS uses this encryption context as
--- additional authenticated data (AAD) to support authenticated encryption.
--- This value must be a base64-encoded UTF-8 string holding JSON which
--- represents a string-string map. To use this setting, you must also set
--- Server-side encryption (S3ServerSideEncryptionType) to AWS KMS
--- (SERVER_SIDE_ENCRYPTION_KMS). For more information about encryption
--- context, see:
--- https:\/\/docs.aws.amazon.com\/kms\/latest\/developerguide\/concepts.html#encrypt_context.
-s3EncryptionSettings_kmsEncryptionContext :: Lens.Lens' S3EncryptionSettings (Prelude.Maybe Prelude.Text)
-s3EncryptionSettings_kmsEncryptionContext = Lens.lens (\S3EncryptionSettings' {kmsEncryptionContext} -> kmsEncryptionContext) (\s@S3EncryptionSettings' {} a -> s {kmsEncryptionContext = a} :: S3EncryptionSettings)
-
 instance Core.FromJSON S3EncryptionSettings where
   parseJSON =
     Core.withObject
       "S3EncryptionSettings"
       ( \x ->
           S3EncryptionSettings'
-            Prelude.<$> (x Core..:? "encryptionType")
+            Prelude.<$> (x Core..:? "kmsEncryptionContext")
             Prelude.<*> (x Core..:? "kmsKeyArn")
-            Prelude.<*> (x Core..:? "kmsEncryptionContext")
+            Prelude.<*> (x Core..:? "encryptionType")
       )
 
 instance Prelude.Hashable S3EncryptionSettings where
   hashWithSalt _salt S3EncryptionSettings' {..} =
-    _salt `Prelude.hashWithSalt` encryptionType
+    _salt `Prelude.hashWithSalt` kmsEncryptionContext
       `Prelude.hashWithSalt` kmsKeyArn
-      `Prelude.hashWithSalt` kmsEncryptionContext
+      `Prelude.hashWithSalt` encryptionType
 
 instance Prelude.NFData S3EncryptionSettings where
   rnf S3EncryptionSettings' {..} =
-    Prelude.rnf encryptionType
+    Prelude.rnf kmsEncryptionContext
       `Prelude.seq` Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf kmsEncryptionContext
+      `Prelude.seq` Prelude.rnf encryptionType
 
 instance Core.ToJSON S3EncryptionSettings where
   toJSON S3EncryptionSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("encryptionType" Core..=)
-              Prelude.<$> encryptionType,
+          [ ("kmsEncryptionContext" Core..=)
+              Prelude.<$> kmsEncryptionContext,
             ("kmsKeyArn" Core..=) Prelude.<$> kmsKeyArn,
-            ("kmsEncryptionContext" Core..=)
-              Prelude.<$> kmsEncryptionContext
+            ("encryptionType" Core..=)
+              Prelude.<$> encryptionType
           ]
       )

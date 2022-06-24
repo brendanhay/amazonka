@@ -33,11 +33,11 @@ module Amazonka.MediaConvert.ListJobs
     newListJobs,
 
     -- * Request Lenses
-    listJobs_status,
-    listJobs_queue,
     listJobs_nextToken,
-    listJobs_order,
+    listJobs_status,
     listJobs_maxResults,
+    listJobs_order,
+    listJobs_queue,
 
     -- * Destructuring the Response
     ListJobsResponse (..),
@@ -59,21 +59,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListJobs' smart constructor.
 data ListJobs = ListJobs'
-  { -- | Optional. A job\'s status can be SUBMITTED, PROGRESSING, COMPLETE,
-    -- CANCELED, or ERROR.
-    status :: Prelude.Maybe JobStatus,
-    -- | Optional. Provide a queue name to get back only jobs from that queue.
-    queue :: Prelude.Maybe Prelude.Text,
-    -- | Optional. Use this string, provided with the response to a previous
+  { -- | Optional. Use this string, provided with the response to a previous
     -- request, to request the next batch of jobs.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Optional. A job\'s status can be SUBMITTED, PROGRESSING, COMPLETE,
+    -- CANCELED, or ERROR.
+    status :: Prelude.Maybe JobStatus,
+    -- | Optional. Number of jobs, up to twenty, that will be returned at one
+    -- time.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Optional. When you request lists of resources, you can specify whether
     -- they are sorted in ASCENDING or DESCENDING order. Default varies by
     -- resource.
     order :: Prelude.Maybe Order,
-    -- | Optional. Number of jobs, up to twenty, that will be returned at one
-    -- time.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    -- | Optional. Provide a queue name to get back only jobs from that queue.
+    queue :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,44 +85,45 @@ data ListJobs = ListJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listJobs_nextToken' - Optional. Use this string, provided with the response to a previous
+-- request, to request the next batch of jobs.
+--
 -- 'status', 'listJobs_status' - Optional. A job\'s status can be SUBMITTED, PROGRESSING, COMPLETE,
 -- CANCELED, or ERROR.
 --
--- 'queue', 'listJobs_queue' - Optional. Provide a queue name to get back only jobs from that queue.
---
--- 'nextToken', 'listJobs_nextToken' - Optional. Use this string, provided with the response to a previous
--- request, to request the next batch of jobs.
+-- 'maxResults', 'listJobs_maxResults' - Optional. Number of jobs, up to twenty, that will be returned at one
+-- time.
 --
 -- 'order', 'listJobs_order' - Optional. When you request lists of resources, you can specify whether
 -- they are sorted in ASCENDING or DESCENDING order. Default varies by
 -- resource.
 --
--- 'maxResults', 'listJobs_maxResults' - Optional. Number of jobs, up to twenty, that will be returned at one
--- time.
+-- 'queue', 'listJobs_queue' - Optional. Provide a queue name to get back only jobs from that queue.
 newListJobs ::
   ListJobs
 newListJobs =
   ListJobs'
-    { status = Prelude.Nothing,
-      queue = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      status = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       order = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      queue = Prelude.Nothing
     }
+
+-- | Optional. Use this string, provided with the response to a previous
+-- request, to request the next batch of jobs.
+listJobs_nextToken :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
+listJobs_nextToken = Lens.lens (\ListJobs' {nextToken} -> nextToken) (\s@ListJobs' {} a -> s {nextToken = a} :: ListJobs)
 
 -- | Optional. A job\'s status can be SUBMITTED, PROGRESSING, COMPLETE,
 -- CANCELED, or ERROR.
 listJobs_status :: Lens.Lens' ListJobs (Prelude.Maybe JobStatus)
 listJobs_status = Lens.lens (\ListJobs' {status} -> status) (\s@ListJobs' {} a -> s {status = a} :: ListJobs)
 
--- | Optional. Provide a queue name to get back only jobs from that queue.
-listJobs_queue :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
-listJobs_queue = Lens.lens (\ListJobs' {queue} -> queue) (\s@ListJobs' {} a -> s {queue = a} :: ListJobs)
-
--- | Optional. Use this string, provided with the response to a previous
--- request, to request the next batch of jobs.
-listJobs_nextToken :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
-listJobs_nextToken = Lens.lens (\ListJobs' {nextToken} -> nextToken) (\s@ListJobs' {} a -> s {nextToken = a} :: ListJobs)
+-- | Optional. Number of jobs, up to twenty, that will be returned at one
+-- time.
+listJobs_maxResults :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Natural)
+listJobs_maxResults = Lens.lens (\ListJobs' {maxResults} -> maxResults) (\s@ListJobs' {} a -> s {maxResults = a} :: ListJobs)
 
 -- | Optional. When you request lists of resources, you can specify whether
 -- they are sorted in ASCENDING or DESCENDING order. Default varies by
@@ -130,10 +131,9 @@ listJobs_nextToken = Lens.lens (\ListJobs' {nextToken} -> nextToken) (\s@ListJob
 listJobs_order :: Lens.Lens' ListJobs (Prelude.Maybe Order)
 listJobs_order = Lens.lens (\ListJobs' {order} -> order) (\s@ListJobs' {} a -> s {order = a} :: ListJobs)
 
--- | Optional. Number of jobs, up to twenty, that will be returned at one
--- time.
-listJobs_maxResults :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Natural)
-listJobs_maxResults = Lens.lens (\ListJobs' {maxResults} -> maxResults) (\s@ListJobs' {} a -> s {maxResults = a} :: ListJobs)
+-- | Optional. Provide a queue name to get back only jobs from that queue.
+listJobs_queue :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
+listJobs_queue = Lens.lens (\ListJobs' {queue} -> queue) (\s@ListJobs' {} a -> s {queue = a} :: ListJobs)
 
 instance Core.AWSPager ListJobs where
   page rq rs
@@ -168,19 +168,19 @@ instance Core.AWSRequest ListJobs where
 
 instance Prelude.Hashable ListJobs where
   hashWithSalt _salt ListJobs' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` queue
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` order
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` order
+      `Prelude.hashWithSalt` queue
 
 instance Prelude.NFData ListJobs where
   rnf ListJobs' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf queue
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf order
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf order
+      `Prelude.seq` Prelude.rnf queue
 
 instance Core.ToHeaders ListJobs where
   toHeaders =
@@ -199,11 +199,11 @@ instance Core.ToPath ListJobs where
 instance Core.ToQuery ListJobs where
   toQuery ListJobs' {..} =
     Prelude.mconcat
-      [ "status" Core.=: status,
-        "queue" Core.=: queue,
-        "nextToken" Core.=: nextToken,
+      [ "nextToken" Core.=: nextToken,
+        "status" Core.=: status,
+        "maxResults" Core.=: maxResults,
         "order" Core.=: order,
-        "maxResults" Core.=: maxResults
+        "queue" Core.=: queue
       ]
 
 -- | /See:/ 'newListJobsResponse' smart constructor.

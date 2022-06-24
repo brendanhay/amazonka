@@ -31,17 +31,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReservationPlan' smart constructor.
 data ReservationPlan = ReservationPlan'
-  { -- | Specifies whether the pricing plan for your reserved queue is ACTIVE or
-    -- EXPIRED.
-    status :: Prelude.Maybe ReservationPlanStatus,
+  { -- | The length of the term of your reserved queue pricing plan commitment.
+    commitment :: Prelude.Maybe Commitment,
     -- | The timestamp in epoch seconds for when the current pricing plan term
     -- for this reserved queue expires.
     expiresAt :: Prelude.Maybe Core.POSIX,
-    -- | The timestamp in epoch seconds for when you set up the current pricing
-    -- plan for this reserved queue.
-    purchasedAt :: Prelude.Maybe Core.POSIX,
-    -- | The length of the term of your reserved queue pricing plan commitment.
-    commitment :: Prelude.Maybe Commitment,
+    -- | Specifies whether the pricing plan for your reserved queue is ACTIVE or
+    -- EXPIRED.
+    status :: Prelude.Maybe ReservationPlanStatus,
+    -- | Specifies whether the term of your reserved queue pricing plan is
+    -- automatically extended (AUTO_RENEW) or expires (EXPIRE) at the end of
+    -- the term.
+    renewalType :: Prelude.Maybe RenewalType,
     -- | Specifies the number of reserved transcode slots (RTS) for this queue.
     -- The number of RTS determines how many jobs the queue can process in
     -- parallel; each RTS can process one job at a time. When you increase this
@@ -50,10 +51,9 @@ data ReservationPlan = ReservationPlan'
     -- you purchase the additional capacity. You can\'t decrease the number of
     -- RTS in your reserved queue.
     reservedSlots :: Prelude.Maybe Prelude.Int,
-    -- | Specifies whether the term of your reserved queue pricing plan is
-    -- automatically extended (AUTO_RENEW) or expires (EXPIRE) at the end of
-    -- the term.
-    renewalType :: Prelude.Maybe RenewalType
+    -- | The timestamp in epoch seconds for when you set up the current pricing
+    -- plan for this reserved queue.
+    purchasedAt :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,16 +65,17 @@ data ReservationPlan = ReservationPlan'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'reservationPlan_status' - Specifies whether the pricing plan for your reserved queue is ACTIVE or
--- EXPIRED.
+-- 'commitment', 'reservationPlan_commitment' - The length of the term of your reserved queue pricing plan commitment.
 --
 -- 'expiresAt', 'reservationPlan_expiresAt' - The timestamp in epoch seconds for when the current pricing plan term
 -- for this reserved queue expires.
 --
--- 'purchasedAt', 'reservationPlan_purchasedAt' - The timestamp in epoch seconds for when you set up the current pricing
--- plan for this reserved queue.
+-- 'status', 'reservationPlan_status' - Specifies whether the pricing plan for your reserved queue is ACTIVE or
+-- EXPIRED.
 --
--- 'commitment', 'reservationPlan_commitment' - The length of the term of your reserved queue pricing plan commitment.
+-- 'renewalType', 'reservationPlan_renewalType' - Specifies whether the term of your reserved queue pricing plan is
+-- automatically extended (AUTO_RENEW) or expires (EXPIRE) at the end of
+-- the term.
 --
 -- 'reservedSlots', 'reservationPlan_reservedSlots' - Specifies the number of reserved transcode slots (RTS) for this queue.
 -- The number of RTS determines how many jobs the queue can process in
@@ -84,39 +85,39 @@ data ReservationPlan = ReservationPlan'
 -- you purchase the additional capacity. You can\'t decrease the number of
 -- RTS in your reserved queue.
 --
--- 'renewalType', 'reservationPlan_renewalType' - Specifies whether the term of your reserved queue pricing plan is
--- automatically extended (AUTO_RENEW) or expires (EXPIRE) at the end of
--- the term.
+-- 'purchasedAt', 'reservationPlan_purchasedAt' - The timestamp in epoch seconds for when you set up the current pricing
+-- plan for this reserved queue.
 newReservationPlan ::
   ReservationPlan
 newReservationPlan =
   ReservationPlan'
-    { status = Prelude.Nothing,
+    { commitment = Prelude.Nothing,
       expiresAt = Prelude.Nothing,
-      purchasedAt = Prelude.Nothing,
-      commitment = Prelude.Nothing,
+      status = Prelude.Nothing,
+      renewalType = Prelude.Nothing,
       reservedSlots = Prelude.Nothing,
-      renewalType = Prelude.Nothing
+      purchasedAt = Prelude.Nothing
     }
 
--- | Specifies whether the pricing plan for your reserved queue is ACTIVE or
--- EXPIRED.
-reservationPlan_status :: Lens.Lens' ReservationPlan (Prelude.Maybe ReservationPlanStatus)
-reservationPlan_status = Lens.lens (\ReservationPlan' {status} -> status) (\s@ReservationPlan' {} a -> s {status = a} :: ReservationPlan)
+-- | The length of the term of your reserved queue pricing plan commitment.
+reservationPlan_commitment :: Lens.Lens' ReservationPlan (Prelude.Maybe Commitment)
+reservationPlan_commitment = Lens.lens (\ReservationPlan' {commitment} -> commitment) (\s@ReservationPlan' {} a -> s {commitment = a} :: ReservationPlan)
 
 -- | The timestamp in epoch seconds for when the current pricing plan term
 -- for this reserved queue expires.
 reservationPlan_expiresAt :: Lens.Lens' ReservationPlan (Prelude.Maybe Prelude.UTCTime)
 reservationPlan_expiresAt = Lens.lens (\ReservationPlan' {expiresAt} -> expiresAt) (\s@ReservationPlan' {} a -> s {expiresAt = a} :: ReservationPlan) Prelude.. Lens.mapping Core._Time
 
--- | The timestamp in epoch seconds for when you set up the current pricing
--- plan for this reserved queue.
-reservationPlan_purchasedAt :: Lens.Lens' ReservationPlan (Prelude.Maybe Prelude.UTCTime)
-reservationPlan_purchasedAt = Lens.lens (\ReservationPlan' {purchasedAt} -> purchasedAt) (\s@ReservationPlan' {} a -> s {purchasedAt = a} :: ReservationPlan) Prelude.. Lens.mapping Core._Time
+-- | Specifies whether the pricing plan for your reserved queue is ACTIVE or
+-- EXPIRED.
+reservationPlan_status :: Lens.Lens' ReservationPlan (Prelude.Maybe ReservationPlanStatus)
+reservationPlan_status = Lens.lens (\ReservationPlan' {status} -> status) (\s@ReservationPlan' {} a -> s {status = a} :: ReservationPlan)
 
--- | The length of the term of your reserved queue pricing plan commitment.
-reservationPlan_commitment :: Lens.Lens' ReservationPlan (Prelude.Maybe Commitment)
-reservationPlan_commitment = Lens.lens (\ReservationPlan' {commitment} -> commitment) (\s@ReservationPlan' {} a -> s {commitment = a} :: ReservationPlan)
+-- | Specifies whether the term of your reserved queue pricing plan is
+-- automatically extended (AUTO_RENEW) or expires (EXPIRE) at the end of
+-- the term.
+reservationPlan_renewalType :: Lens.Lens' ReservationPlan (Prelude.Maybe RenewalType)
+reservationPlan_renewalType = Lens.lens (\ReservationPlan' {renewalType} -> renewalType) (\s@ReservationPlan' {} a -> s {renewalType = a} :: ReservationPlan)
 
 -- | Specifies the number of reserved transcode slots (RTS) for this queue.
 -- The number of RTS determines how many jobs the queue can process in
@@ -128,11 +129,10 @@ reservationPlan_commitment = Lens.lens (\ReservationPlan' {commitment} -> commit
 reservationPlan_reservedSlots :: Lens.Lens' ReservationPlan (Prelude.Maybe Prelude.Int)
 reservationPlan_reservedSlots = Lens.lens (\ReservationPlan' {reservedSlots} -> reservedSlots) (\s@ReservationPlan' {} a -> s {reservedSlots = a} :: ReservationPlan)
 
--- | Specifies whether the term of your reserved queue pricing plan is
--- automatically extended (AUTO_RENEW) or expires (EXPIRE) at the end of
--- the term.
-reservationPlan_renewalType :: Lens.Lens' ReservationPlan (Prelude.Maybe RenewalType)
-reservationPlan_renewalType = Lens.lens (\ReservationPlan' {renewalType} -> renewalType) (\s@ReservationPlan' {} a -> s {renewalType = a} :: ReservationPlan)
+-- | The timestamp in epoch seconds for when you set up the current pricing
+-- plan for this reserved queue.
+reservationPlan_purchasedAt :: Lens.Lens' ReservationPlan (Prelude.Maybe Prelude.UTCTime)
+reservationPlan_purchasedAt = Lens.lens (\ReservationPlan' {purchasedAt} -> purchasedAt) (\s@ReservationPlan' {} a -> s {purchasedAt = a} :: ReservationPlan) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON ReservationPlan where
   parseJSON =
@@ -140,28 +140,28 @@ instance Core.FromJSON ReservationPlan where
       "ReservationPlan"
       ( \x ->
           ReservationPlan'
-            Prelude.<$> (x Core..:? "status")
+            Prelude.<$> (x Core..:? "commitment")
             Prelude.<*> (x Core..:? "expiresAt")
-            Prelude.<*> (x Core..:? "purchasedAt")
-            Prelude.<*> (x Core..:? "commitment")
-            Prelude.<*> (x Core..:? "reservedSlots")
+            Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "renewalType")
+            Prelude.<*> (x Core..:? "reservedSlots")
+            Prelude.<*> (x Core..:? "purchasedAt")
       )
 
 instance Prelude.Hashable ReservationPlan where
   hashWithSalt _salt ReservationPlan' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` commitment
       `Prelude.hashWithSalt` expiresAt
-      `Prelude.hashWithSalt` purchasedAt
-      `Prelude.hashWithSalt` commitment
-      `Prelude.hashWithSalt` reservedSlots
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` renewalType
+      `Prelude.hashWithSalt` reservedSlots
+      `Prelude.hashWithSalt` purchasedAt
 
 instance Prelude.NFData ReservationPlan where
   rnf ReservationPlan' {..} =
-    Prelude.rnf status
+    Prelude.rnf commitment
       `Prelude.seq` Prelude.rnf expiresAt
-      `Prelude.seq` Prelude.rnf purchasedAt
-      `Prelude.seq` Prelude.rnf commitment
-      `Prelude.seq` Prelude.rnf reservedSlots
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf renewalType
+      `Prelude.seq` Prelude.rnf reservedSlots
+      `Prelude.seq` Prelude.rnf purchasedAt

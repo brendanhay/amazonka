@@ -30,17 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeinterlacer' smart constructor.
 data Deinterlacer = Deinterlacer'
-  { -- | - When set to NORMAL (default), the deinterlacer does not convert frames
-    -- that are tagged in metadata as progressive. It will only convert those
-    -- that are tagged as some other type. - When set to FORCE_ALL_FRAMES, the
-    -- deinterlacer converts every frame to progressive - even those that are
-    -- already tagged as progressive. Turn Force mode on only if there is a
-    -- good chance that the metadata has tagged frames as progressive when they
-    -- are not progressive. Do not turn on otherwise; processing frames that
-    -- are already progressive into progressive will probably result in lower
-    -- quality video.
-    control :: Prelude.Maybe DeinterlacerControl,
-    -- | Use Deinterlacer (DeinterlaceMode) to choose how the service will do
+  { -- | Use Deinterlacer (DeinterlaceMode) to choose how the service will do
     -- deinterlacing. Default is Deinterlace. - Deinterlace converts interlaced
     -- to progressive. - Inverse telecine converts Hard Telecine 29.97i to
     -- progressive 23.976p. - Adaptive auto-detects and converts to
@@ -52,7 +42,17 @@ data Deinterlacer = Deinterlacer'
     -- smoother motion. Use (INTERPOLATE_TICKER) OR (BLEND_TICKER) if your
     -- source file includes a ticker, such as a scrolling headline at the
     -- bottom of the frame.
-    algorithm :: Prelude.Maybe DeinterlaceAlgorithm
+    algorithm :: Prelude.Maybe DeinterlaceAlgorithm,
+    -- | - When set to NORMAL (default), the deinterlacer does not convert frames
+    -- that are tagged in metadata as progressive. It will only convert those
+    -- that are tagged as some other type. - When set to FORCE_ALL_FRAMES, the
+    -- deinterlacer converts every frame to progressive - even those that are
+    -- already tagged as progressive. Turn Force mode on only if there is a
+    -- good chance that the metadata has tagged frames as progressive when they
+    -- are not progressive. Do not turn on otherwise; processing frames that
+    -- are already progressive into progressive will probably result in lower
+    -- quality video.
+    control :: Prelude.Maybe DeinterlacerControl
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,16 +63,6 @@ data Deinterlacer = Deinterlacer'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'control', 'deinterlacer_control' - - When set to NORMAL (default), the deinterlacer does not convert frames
--- that are tagged in metadata as progressive. It will only convert those
--- that are tagged as some other type. - When set to FORCE_ALL_FRAMES, the
--- deinterlacer converts every frame to progressive - even those that are
--- already tagged as progressive. Turn Force mode on only if there is a
--- good chance that the metadata has tagged frames as progressive when they
--- are not progressive. Do not turn on otherwise; processing frames that
--- are already progressive into progressive will probably result in lower
--- quality video.
 --
 -- 'mode', 'deinterlacer_mode' - Use Deinterlacer (DeinterlaceMode) to choose how the service will do
 -- deinterlacing. Default is Deinterlace. - Deinterlace converts interlaced
@@ -86,16 +76,8 @@ data Deinterlacer = Deinterlacer'
 -- smoother motion. Use (INTERPOLATE_TICKER) OR (BLEND_TICKER) if your
 -- source file includes a ticker, such as a scrolling headline at the
 -- bottom of the frame.
-newDeinterlacer ::
-  Deinterlacer
-newDeinterlacer =
-  Deinterlacer'
-    { control = Prelude.Nothing,
-      mode = Prelude.Nothing,
-      algorithm = Prelude.Nothing
-    }
-
--- | - When set to NORMAL (default), the deinterlacer does not convert frames
+--
+-- 'control', 'deinterlacer_control' - - When set to NORMAL (default), the deinterlacer does not convert frames
 -- that are tagged in metadata as progressive. It will only convert those
 -- that are tagged as some other type. - When set to FORCE_ALL_FRAMES, the
 -- deinterlacer converts every frame to progressive - even those that are
@@ -104,8 +86,14 @@ newDeinterlacer =
 -- are not progressive. Do not turn on otherwise; processing frames that
 -- are already progressive into progressive will probably result in lower
 -- quality video.
-deinterlacer_control :: Lens.Lens' Deinterlacer (Prelude.Maybe DeinterlacerControl)
-deinterlacer_control = Lens.lens (\Deinterlacer' {control} -> control) (\s@Deinterlacer' {} a -> s {control = a} :: Deinterlacer)
+newDeinterlacer ::
+  Deinterlacer
+newDeinterlacer =
+  Deinterlacer'
+    { mode = Prelude.Nothing,
+      algorithm = Prelude.Nothing,
+      control = Prelude.Nothing
+    }
 
 -- | Use Deinterlacer (DeinterlaceMode) to choose how the service will do
 -- deinterlacing. Default is Deinterlace. - Deinterlace converts interlaced
@@ -124,35 +112,47 @@ deinterlacer_mode = Lens.lens (\Deinterlacer' {mode} -> mode) (\s@Deinterlacer' 
 deinterlacer_algorithm :: Lens.Lens' Deinterlacer (Prelude.Maybe DeinterlaceAlgorithm)
 deinterlacer_algorithm = Lens.lens (\Deinterlacer' {algorithm} -> algorithm) (\s@Deinterlacer' {} a -> s {algorithm = a} :: Deinterlacer)
 
+-- | - When set to NORMAL (default), the deinterlacer does not convert frames
+-- that are tagged in metadata as progressive. It will only convert those
+-- that are tagged as some other type. - When set to FORCE_ALL_FRAMES, the
+-- deinterlacer converts every frame to progressive - even those that are
+-- already tagged as progressive. Turn Force mode on only if there is a
+-- good chance that the metadata has tagged frames as progressive when they
+-- are not progressive. Do not turn on otherwise; processing frames that
+-- are already progressive into progressive will probably result in lower
+-- quality video.
+deinterlacer_control :: Lens.Lens' Deinterlacer (Prelude.Maybe DeinterlacerControl)
+deinterlacer_control = Lens.lens (\Deinterlacer' {control} -> control) (\s@Deinterlacer' {} a -> s {control = a} :: Deinterlacer)
+
 instance Core.FromJSON Deinterlacer where
   parseJSON =
     Core.withObject
       "Deinterlacer"
       ( \x ->
           Deinterlacer'
-            Prelude.<$> (x Core..:? "control")
-            Prelude.<*> (x Core..:? "mode")
+            Prelude.<$> (x Core..:? "mode")
             Prelude.<*> (x Core..:? "algorithm")
+            Prelude.<*> (x Core..:? "control")
       )
 
 instance Prelude.Hashable Deinterlacer where
   hashWithSalt _salt Deinterlacer' {..} =
-    _salt `Prelude.hashWithSalt` control
-      `Prelude.hashWithSalt` mode
+    _salt `Prelude.hashWithSalt` mode
       `Prelude.hashWithSalt` algorithm
+      `Prelude.hashWithSalt` control
 
 instance Prelude.NFData Deinterlacer where
   rnf Deinterlacer' {..} =
-    Prelude.rnf control
-      `Prelude.seq` Prelude.rnf mode
+    Prelude.rnf mode
       `Prelude.seq` Prelude.rnf algorithm
+      `Prelude.seq` Prelude.rnf control
 
 instance Core.ToJSON Deinterlacer where
   toJSON Deinterlacer' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("control" Core..=) Prelude.<$> control,
-            ("mode" Core..=) Prelude.<$> mode,
-            ("algorithm" Core..=) Prelude.<$> algorithm
+          [ ("mode" Core..=) Prelude.<$> mode,
+            ("algorithm" Core..=) Prelude.<$> algorithm,
+            ("control" Core..=) Prelude.<$> control
           ]
       )

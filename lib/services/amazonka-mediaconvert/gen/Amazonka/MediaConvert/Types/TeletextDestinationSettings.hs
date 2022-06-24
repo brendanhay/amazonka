@@ -33,17 +33,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTeletextDestinationSettings' smart constructor.
 data TeletextDestinationSettings = TeletextDestinationSettings'
-  { -- | Specify the page types for this Teletext page. If you don\'t specify a
+  { -- | Set pageNumber to the Teletext page number for the destination captions
+    -- for this output. This value must be a three-digit hexadecimal string;
+    -- strings ending in -FF are invalid. If you are passing through the entire
+    -- set of Teletext data, do not use this field.
+    pageNumber :: Prelude.Maybe Prelude.Text,
+    -- | Specify the page types for this Teletext page. If you don\'t specify a
     -- value here, the service sets the page type to the default value Subtitle
     -- (PAGE_TYPE_SUBTITLE). If you pass through the entire set of Teletext
     -- data, don\'t use this field. When you pass through a set of Teletext
     -- pages, your output has the same page types as your input.
-    pageTypes :: Prelude.Maybe [TeletextPageType],
-    -- | Set pageNumber to the Teletext page number for the destination captions
-    -- for this output. This value must be a three-digit hexadecimal string;
-    -- strings ending in -FF are invalid. If you are passing through the entire
-    -- set of Teletext data, do not use this field.
-    pageNumber :: Prelude.Maybe Prelude.Text
+    pageTypes :: Prelude.Maybe [TeletextPageType]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,24 +55,31 @@ data TeletextDestinationSettings = TeletextDestinationSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'pageNumber', 'teletextDestinationSettings_pageNumber' - Set pageNumber to the Teletext page number for the destination captions
+-- for this output. This value must be a three-digit hexadecimal string;
+-- strings ending in -FF are invalid. If you are passing through the entire
+-- set of Teletext data, do not use this field.
+--
 -- 'pageTypes', 'teletextDestinationSettings_pageTypes' - Specify the page types for this Teletext page. If you don\'t specify a
 -- value here, the service sets the page type to the default value Subtitle
 -- (PAGE_TYPE_SUBTITLE). If you pass through the entire set of Teletext
 -- data, don\'t use this field. When you pass through a set of Teletext
 -- pages, your output has the same page types as your input.
---
--- 'pageNumber', 'teletextDestinationSettings_pageNumber' - Set pageNumber to the Teletext page number for the destination captions
--- for this output. This value must be a three-digit hexadecimal string;
--- strings ending in -FF are invalid. If you are passing through the entire
--- set of Teletext data, do not use this field.
 newTeletextDestinationSettings ::
   TeletextDestinationSettings
 newTeletextDestinationSettings =
   TeletextDestinationSettings'
-    { pageTypes =
+    { pageNumber =
         Prelude.Nothing,
-      pageNumber = Prelude.Nothing
+      pageTypes = Prelude.Nothing
     }
+
+-- | Set pageNumber to the Teletext page number for the destination captions
+-- for this output. This value must be a three-digit hexadecimal string;
+-- strings ending in -FF are invalid. If you are passing through the entire
+-- set of Teletext data, do not use this field.
+teletextDestinationSettings_pageNumber :: Lens.Lens' TeletextDestinationSettings (Prelude.Maybe Prelude.Text)
+teletextDestinationSettings_pageNumber = Lens.lens (\TeletextDestinationSettings' {pageNumber} -> pageNumber) (\s@TeletextDestinationSettings' {} a -> s {pageNumber = a} :: TeletextDestinationSettings)
 
 -- | Specify the page types for this Teletext page. If you don\'t specify a
 -- value here, the service sets the page type to the default value Subtitle
@@ -82,38 +89,31 @@ newTeletextDestinationSettings =
 teletextDestinationSettings_pageTypes :: Lens.Lens' TeletextDestinationSettings (Prelude.Maybe [TeletextPageType])
 teletextDestinationSettings_pageTypes = Lens.lens (\TeletextDestinationSettings' {pageTypes} -> pageTypes) (\s@TeletextDestinationSettings' {} a -> s {pageTypes = a} :: TeletextDestinationSettings) Prelude.. Lens.mapping Lens.coerced
 
--- | Set pageNumber to the Teletext page number for the destination captions
--- for this output. This value must be a three-digit hexadecimal string;
--- strings ending in -FF are invalid. If you are passing through the entire
--- set of Teletext data, do not use this field.
-teletextDestinationSettings_pageNumber :: Lens.Lens' TeletextDestinationSettings (Prelude.Maybe Prelude.Text)
-teletextDestinationSettings_pageNumber = Lens.lens (\TeletextDestinationSettings' {pageNumber} -> pageNumber) (\s@TeletextDestinationSettings' {} a -> s {pageNumber = a} :: TeletextDestinationSettings)
-
 instance Core.FromJSON TeletextDestinationSettings where
   parseJSON =
     Core.withObject
       "TeletextDestinationSettings"
       ( \x ->
           TeletextDestinationSettings'
-            Prelude.<$> (x Core..:? "pageTypes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "pageNumber")
+            Prelude.<$> (x Core..:? "pageNumber")
+            Prelude.<*> (x Core..:? "pageTypes" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TeletextDestinationSettings where
   hashWithSalt _salt TeletextDestinationSettings' {..} =
-    _salt `Prelude.hashWithSalt` pageTypes
-      `Prelude.hashWithSalt` pageNumber
+    _salt `Prelude.hashWithSalt` pageNumber
+      `Prelude.hashWithSalt` pageTypes
 
 instance Prelude.NFData TeletextDestinationSettings where
   rnf TeletextDestinationSettings' {..} =
-    Prelude.rnf pageTypes
-      `Prelude.seq` Prelude.rnf pageNumber
+    Prelude.rnf pageNumber
+      `Prelude.seq` Prelude.rnf pageTypes
 
 instance Core.ToJSON TeletextDestinationSettings where
   toJSON TeletextDestinationSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("pageTypes" Core..=) Prelude.<$> pageTypes,
-            ("pageNumber" Core..=) Prelude.<$> pageNumber
+          [ ("pageNumber" Core..=) Prelude.<$> pageNumber,
+            ("pageTypes" Core..=) Prelude.<$> pageTypes
           ]
       )

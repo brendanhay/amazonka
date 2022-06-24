@@ -41,7 +41,46 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newXavcSettings' smart constructor.
 data XavcSettings = XavcSettings'
-  { -- | The best way to set up adaptive quantization is to keep the default
+  { -- | When you use the API for transcode jobs that use frame rate conversion,
+    -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
+    -- 23.976 fps. Use FramerateDenominator to specify the denominator of this
+    -- fraction. In this example, use 1001 for the value of
+    -- FramerateDenominator. When you use the console for transcode jobs that
+    -- use frame rate conversion, provide the value as a decimal number for
+    -- Frame rate. In this example, specify 23.976.
+    framerateDenominator :: Prelude.Maybe Prelude.Natural,
+    -- | Required when you set (Profile) under
+    -- (VideoDescription)>(CodecSettings)>(XavcSettings) to the value
+    -- XAVC_4K_INTRA_VBR.
+    xavc4kIntraVbrProfileSettings :: Prelude.Maybe Xavc4kIntraVbrProfileSettings,
+    -- | If you are using the console, use the Frame rate setting to specify the
+    -- frame rate for this output. If you want to keep the same frame rate as
+    -- the input video, choose Follow source. If you want to do frame rate
+    -- conversion, choose a frame rate from the dropdown list. The framerates
+    -- shown in the dropdown list are decimal approximations of fractions. If
+    -- you are creating your transcoding job specification as a JSON file
+    -- without the console, use FramerateControl to specify which value the
+    -- service uses for the frame rate for this output. Choose
+    -- INITIALIZE_FROM_SOURCE if you want the service to use the frame rate
+    -- from the input. Choose SPECIFIED if you want the service to use the
+    -- frame rate that you specify in the settings FramerateNumerator and
+    -- FramerateDenominator.
+    framerateControl :: Prelude.Maybe XavcFramerateControl,
+    -- | Specify the XAVC profile for this output. For more information, see the
+    -- Sony documentation at https:\/\/www.xavc-info.org\/. Note that
+    -- MediaConvert doesn\'t support the interlaced video XAVC operating points
+    -- for XAVC_HD_INTRA_CBG. To create an interlaced XAVC output, choose the
+    -- profile XAVC_HD.
+    profile :: Prelude.Maybe XavcProfile,
+    -- | When you use the API for transcode jobs that use frame rate conversion,
+    -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
+    -- 23.976 fps. Use FramerateNumerator to specify the numerator of this
+    -- fraction. In this example, use 24000 for the value of
+    -- FramerateNumerator. When you use the console for transcode jobs that use
+    -- frame rate conversion, provide the value as a decimal number for
+    -- Framerate. In this example, specify 23.976.
+    framerateNumerator :: Prelude.Maybe Prelude.Natural,
+    -- | The best way to set up adaptive quantization is to keep the default
     -- value, Auto (AUTO), for the setting Adaptive quantization
     -- (adaptiveQuantization). When you do so, MediaConvert automatically
     -- applies the best types of quantization for your video content. Include
@@ -62,6 +101,10 @@ data XavcSettings = XavcSettings'
     -- temporal adaptive quantization, adjust the strength of the filter with
     -- the setting Adaptive quantization (adaptiveQuantization).
     temporalAdaptiveQuantization :: Prelude.Maybe XavcTemporalAdaptiveQuantization,
+    -- | Required when you set (Profile) under
+    -- (VideoDescription)>(CodecSettings)>(XavcSettings) to the value
+    -- XAVC_HD_INTRA_CBG.
+    xavcHdIntraCbgProfileSettings :: Prelude.Maybe XavcHdIntraCbgProfileSettings,
     -- | Ignore this setting unless your input frame rate is 23.976 or 24 frames
     -- per second (fps). Enable slow PAL to create a 25 fps output by
     -- relabeling the video frames and resampling your audio. Note that
@@ -71,26 +114,14 @@ data XavcSettings = XavcSettings'
     -- (framerateNumerator) to 25 and (framerateDenominator) to 1.
     slowPal :: Prelude.Maybe XavcSlowPal,
     -- | Required when you set (Profile) under
-    -- (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_4K.
-    xavc4kProfileSettings :: Prelude.Maybe Xavc4kProfileSettings,
-    -- | Required when you set (Profile) under
-    -- (VideoDescription)>(CodecSettings)>(XavcSettings) to the value
-    -- XAVC_HD_INTRA_CBG.
-    xavcHdIntraCbgProfileSettings :: Prelude.Maybe XavcHdIntraCbgProfileSettings,
-    -- | Required when you set (Profile) under
-    -- (VideoDescription)>(CodecSettings)>(XavcSettings) to the value
-    -- XAVC_4K_INTRA_VBR.
-    xavc4kIntraVbrProfileSettings :: Prelude.Maybe Xavc4kIntraVbrProfileSettings,
-    -- | Required when you set (Profile) under
     -- (VideoDescription)>(CodecSettings)>(XavcSettings) to the value
     -- XAVC_4K_INTRA_CBG.
     xavc4kIntraCbgProfileSettings :: Prelude.Maybe Xavc4kIntraCbgProfileSettings,
-    -- | Specify the XAVC profile for this output. For more information, see the
-    -- Sony documentation at https:\/\/www.xavc-info.org\/. Note that
-    -- MediaConvert doesn\'t support the interlaced video XAVC operating points
-    -- for XAVC_HD_INTRA_CBG. To create an interlaced XAVC output, choose the
-    -- profile XAVC_HD.
-    profile :: Prelude.Maybe XavcProfile,
+    -- | Optional. Choose a specific entropy encoding mode only when you want to
+    -- override XAVC recommendations. If you choose the value auto,
+    -- MediaConvert uses the mode that the XAVC file format specifies given
+    -- this output\'s operating point.
+    entropyEncoding :: Prelude.Maybe XavcEntropyEncoding,
     -- | Ignore this setting unless your downstream workflow requires that you
     -- specify it explicitly. Otherwise, we recommend that you adjust the
     -- softness of your output by using a lower value for the setting Sharpness
@@ -103,14 +134,12 @@ data XavcSettings = XavcSettings'
     -- increasing reduction of high-frequency data. The value 128 results in
     -- the softest video.
     softness :: Prelude.Maybe Prelude.Natural,
-    -- | When you use the API for transcode jobs that use frame rate conversion,
-    -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
-    -- 23.976 fps. Use FramerateDenominator to specify the denominator of this
-    -- fraction. In this example, use 1001 for the value of
-    -- FramerateDenominator. When you use the console for transcode jobs that
-    -- use frame rate conversion, provide the value as a decimal number for
-    -- Frame rate. In this example, specify 23.976.
-    framerateDenominator :: Prelude.Maybe Prelude.Natural,
+    -- | Required when you set (Profile) under
+    -- (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_HD.
+    xavcHdProfileSettings :: Prelude.Maybe XavcHdProfileSettings,
+    -- | Required when you set (Profile) under
+    -- (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_4K.
+    xavc4kProfileSettings :: Prelude.Maybe Xavc4kProfileSettings,
     -- | Choose the method that you want MediaConvert to use when increasing or
     -- decreasing the frame rate. We recommend using drop duplicate
     -- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to
@@ -123,24 +152,6 @@ data XavcSettings = XavcSettings'
     -- conversion method frame by frame. Note that using FrameFormer increases
     -- the transcoding time and incurs a significant add-on cost.
     framerateConversionAlgorithm :: Prelude.Maybe XavcFramerateConversionAlgorithm,
-    -- | Optional. Choose a specific entropy encoding mode only when you want to
-    -- override XAVC recommendations. If you choose the value auto,
-    -- MediaConvert uses the mode that the XAVC file format specifies given
-    -- this output\'s operating point.
-    entropyEncoding :: Prelude.Maybe XavcEntropyEncoding,
-    -- | If you are using the console, use the Frame rate setting to specify the
-    -- frame rate for this output. If you want to keep the same frame rate as
-    -- the input video, choose Follow source. If you want to do frame rate
-    -- conversion, choose a frame rate from the dropdown list. The framerates
-    -- shown in the dropdown list are decimal approximations of fractions. If
-    -- you are creating your transcoding job specification as a JSON file
-    -- without the console, use FramerateControl to specify which value the
-    -- service uses for the frame rate for this output. Choose
-    -- INITIALIZE_FROM_SOURCE if you want the service to use the frame rate
-    -- from the input. Choose SPECIFIED if you want the service to use the
-    -- frame rate that you specify in the settings FramerateNumerator and
-    -- FramerateDenominator.
-    framerateControl :: Prelude.Maybe XavcFramerateControl,
     -- | Keep the default value, Auto (AUTO), for this setting to have
     -- MediaConvert automatically apply the best types of quantization for your
     -- video content. When you want to apply your quantization settings
@@ -154,17 +165,6 @@ data XavcSettings = XavcSettings'
     -- quantization (spatialAdaptiveQuantization), and Temporal adaptive
     -- quantization (temporalAdaptiveQuantization).
     adaptiveQuantization :: Prelude.Maybe XavcAdaptiveQuantization,
-    -- | When you use the API for transcode jobs that use frame rate conversion,
-    -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
-    -- 23.976 fps. Use FramerateNumerator to specify the numerator of this
-    -- fraction. In this example, use 24000 for the value of
-    -- FramerateNumerator. When you use the console for transcode jobs that use
-    -- frame rate conversion, provide the value as a decimal number for
-    -- Framerate. In this example, specify 23.976.
-    framerateNumerator :: Prelude.Maybe Prelude.Natural,
-    -- | Required when you set (Profile) under
-    -- (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_HD.
-    xavcHdProfileSettings :: Prelude.Maybe XavcHdProfileSettings,
     -- | The best way to set up adaptive quantization is to keep the default
     -- value, Auto (AUTO), for the setting Adaptive quantization
     -- (adaptiveQuantization). When you do so, MediaConvert automatically
@@ -199,6 +199,45 @@ data XavcSettings = XavcSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'framerateDenominator', 'xavcSettings_framerateDenominator' - When you use the API for transcode jobs that use frame rate conversion,
+-- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
+-- 23.976 fps. Use FramerateDenominator to specify the denominator of this
+-- fraction. In this example, use 1001 for the value of
+-- FramerateDenominator. When you use the console for transcode jobs that
+-- use frame rate conversion, provide the value as a decimal number for
+-- Frame rate. In this example, specify 23.976.
+--
+-- 'xavc4kIntraVbrProfileSettings', 'xavcSettings_xavc4kIntraVbrProfileSettings' - Required when you set (Profile) under
+-- (VideoDescription)>(CodecSettings)>(XavcSettings) to the value
+-- XAVC_4K_INTRA_VBR.
+--
+-- 'framerateControl', 'xavcSettings_framerateControl' - If you are using the console, use the Frame rate setting to specify the
+-- frame rate for this output. If you want to keep the same frame rate as
+-- the input video, choose Follow source. If you want to do frame rate
+-- conversion, choose a frame rate from the dropdown list. The framerates
+-- shown in the dropdown list are decimal approximations of fractions. If
+-- you are creating your transcoding job specification as a JSON file
+-- without the console, use FramerateControl to specify which value the
+-- service uses for the frame rate for this output. Choose
+-- INITIALIZE_FROM_SOURCE if you want the service to use the frame rate
+-- from the input. Choose SPECIFIED if you want the service to use the
+-- frame rate that you specify in the settings FramerateNumerator and
+-- FramerateDenominator.
+--
+-- 'profile', 'xavcSettings_profile' - Specify the XAVC profile for this output. For more information, see the
+-- Sony documentation at https:\/\/www.xavc-info.org\/. Note that
+-- MediaConvert doesn\'t support the interlaced video XAVC operating points
+-- for XAVC_HD_INTRA_CBG. To create an interlaced XAVC output, choose the
+-- profile XAVC_HD.
+--
+-- 'framerateNumerator', 'xavcSettings_framerateNumerator' - When you use the API for transcode jobs that use frame rate conversion,
+-- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
+-- 23.976 fps. Use FramerateNumerator to specify the numerator of this
+-- fraction. In this example, use 24000 for the value of
+-- FramerateNumerator. When you use the console for transcode jobs that use
+-- frame rate conversion, provide the value as a decimal number for
+-- Framerate. In this example, specify 23.976.
+--
 -- 'temporalAdaptiveQuantization', 'xavcSettings_temporalAdaptiveQuantization' - The best way to set up adaptive quantization is to keep the default
 -- value, Auto (AUTO), for the setting Adaptive quantization
 -- (adaptiveQuantization). When you do so, MediaConvert automatically
@@ -220,6 +259,10 @@ data XavcSettings = XavcSettings'
 -- temporal adaptive quantization, adjust the strength of the filter with
 -- the setting Adaptive quantization (adaptiveQuantization).
 --
+-- 'xavcHdIntraCbgProfileSettings', 'xavcSettings_xavcHdIntraCbgProfileSettings' - Required when you set (Profile) under
+-- (VideoDescription)>(CodecSettings)>(XavcSettings) to the value
+-- XAVC_HD_INTRA_CBG.
+--
 -- 'slowPal', 'xavcSettings_slowPal' - Ignore this setting unless your input frame rate is 23.976 or 24 frames
 -- per second (fps). Enable slow PAL to create a 25 fps output by
 -- relabeling the video frames and resampling your audio. Note that
@@ -228,26 +271,14 @@ data XavcSettings = XavcSettings'
 -- specification, set (framerateControl) to (SPECIFIED),
 -- (framerateNumerator) to 25 and (framerateDenominator) to 1.
 --
--- 'xavc4kProfileSettings', 'xavcSettings_xavc4kProfileSettings' - Required when you set (Profile) under
--- (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_4K.
---
--- 'xavcHdIntraCbgProfileSettings', 'xavcSettings_xavcHdIntraCbgProfileSettings' - Required when you set (Profile) under
--- (VideoDescription)>(CodecSettings)>(XavcSettings) to the value
--- XAVC_HD_INTRA_CBG.
---
--- 'xavc4kIntraVbrProfileSettings', 'xavcSettings_xavc4kIntraVbrProfileSettings' - Required when you set (Profile) under
--- (VideoDescription)>(CodecSettings)>(XavcSettings) to the value
--- XAVC_4K_INTRA_VBR.
---
 -- 'xavc4kIntraCbgProfileSettings', 'xavcSettings_xavc4kIntraCbgProfileSettings' - Required when you set (Profile) under
 -- (VideoDescription)>(CodecSettings)>(XavcSettings) to the value
 -- XAVC_4K_INTRA_CBG.
 --
--- 'profile', 'xavcSettings_profile' - Specify the XAVC profile for this output. For more information, see the
--- Sony documentation at https:\/\/www.xavc-info.org\/. Note that
--- MediaConvert doesn\'t support the interlaced video XAVC operating points
--- for XAVC_HD_INTRA_CBG. To create an interlaced XAVC output, choose the
--- profile XAVC_HD.
+-- 'entropyEncoding', 'xavcSettings_entropyEncoding' - Optional. Choose a specific entropy encoding mode only when you want to
+-- override XAVC recommendations. If you choose the value auto,
+-- MediaConvert uses the mode that the XAVC file format specifies given
+-- this output\'s operating point.
 --
 -- 'softness', 'xavcSettings_softness' - Ignore this setting unless your downstream workflow requires that you
 -- specify it explicitly. Otherwise, we recommend that you adjust the
@@ -261,13 +292,11 @@ data XavcSettings = XavcSettings'
 -- increasing reduction of high-frequency data. The value 128 results in
 -- the softest video.
 --
--- 'framerateDenominator', 'xavcSettings_framerateDenominator' - When you use the API for transcode jobs that use frame rate conversion,
--- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
--- 23.976 fps. Use FramerateDenominator to specify the denominator of this
--- fraction. In this example, use 1001 for the value of
--- FramerateDenominator. When you use the console for transcode jobs that
--- use frame rate conversion, provide the value as a decimal number for
--- Frame rate. In this example, specify 23.976.
+-- 'xavcHdProfileSettings', 'xavcSettings_xavcHdProfileSettings' - Required when you set (Profile) under
+-- (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_HD.
+--
+-- 'xavc4kProfileSettings', 'xavcSettings_xavc4kProfileSettings' - Required when you set (Profile) under
+-- (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_4K.
 --
 -- 'framerateConversionAlgorithm', 'xavcSettings_framerateConversionAlgorithm' - Choose the method that you want MediaConvert to use when increasing or
 -- decreasing the frame rate. We recommend using drop duplicate
@@ -281,24 +310,6 @@ data XavcSettings = XavcSettings'
 -- conversion method frame by frame. Note that using FrameFormer increases
 -- the transcoding time and incurs a significant add-on cost.
 --
--- 'entropyEncoding', 'xavcSettings_entropyEncoding' - Optional. Choose a specific entropy encoding mode only when you want to
--- override XAVC recommendations. If you choose the value auto,
--- MediaConvert uses the mode that the XAVC file format specifies given
--- this output\'s operating point.
---
--- 'framerateControl', 'xavcSettings_framerateControl' - If you are using the console, use the Frame rate setting to specify the
--- frame rate for this output. If you want to keep the same frame rate as
--- the input video, choose Follow source. If you want to do frame rate
--- conversion, choose a frame rate from the dropdown list. The framerates
--- shown in the dropdown list are decimal approximations of fractions. If
--- you are creating your transcoding job specification as a JSON file
--- without the console, use FramerateControl to specify which value the
--- service uses for the frame rate for this output. Choose
--- INITIALIZE_FROM_SOURCE if you want the service to use the frame rate
--- from the input. Choose SPECIFIED if you want the service to use the
--- frame rate that you specify in the settings FramerateNumerator and
--- FramerateDenominator.
---
 -- 'adaptiveQuantization', 'xavcSettings_adaptiveQuantization' - Keep the default value, Auto (AUTO), for this setting to have
 -- MediaConvert automatically apply the best types of quantization for your
 -- video content. When you want to apply your quantization settings
@@ -311,17 +322,6 @@ data XavcSettings = XavcSettings'
 -- quantization (flickerAdaptiveQuantization), Spatial adaptive
 -- quantization (spatialAdaptiveQuantization), and Temporal adaptive
 -- quantization (temporalAdaptiveQuantization).
---
--- 'framerateNumerator', 'xavcSettings_framerateNumerator' - When you use the API for transcode jobs that use frame rate conversion,
--- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
--- 23.976 fps. Use FramerateNumerator to specify the numerator of this
--- fraction. In this example, use 24000 for the value of
--- FramerateNumerator. When you use the console for transcode jobs that use
--- frame rate conversion, provide the value as a decimal number for
--- Framerate. In this example, specify 23.976.
---
--- 'xavcHdProfileSettings', 'xavcSettings_xavcHdProfileSettings' - Required when you set (Profile) under
--- (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_HD.
 --
 -- 'spatialAdaptiveQuantization', 'xavcSettings_spatialAdaptiveQuantization' - The best way to set up adaptive quantization is to keep the default
 -- value, Auto (AUTO), for the setting Adaptive quantization
@@ -349,24 +349,73 @@ newXavcSettings ::
   XavcSettings
 newXavcSettings =
   XavcSettings'
-    { temporalAdaptiveQuantization =
+    { framerateDenominator =
         Prelude.Nothing,
-      slowPal = Prelude.Nothing,
-      xavc4kProfileSettings = Prelude.Nothing,
-      xavcHdIntraCbgProfileSettings = Prelude.Nothing,
       xavc4kIntraVbrProfileSettings = Prelude.Nothing,
-      xavc4kIntraCbgProfileSettings = Prelude.Nothing,
-      profile = Prelude.Nothing,
-      softness = Prelude.Nothing,
-      framerateDenominator = Prelude.Nothing,
-      framerateConversionAlgorithm = Prelude.Nothing,
-      entropyEncoding = Prelude.Nothing,
       framerateControl = Prelude.Nothing,
-      adaptiveQuantization = Prelude.Nothing,
+      profile = Prelude.Nothing,
       framerateNumerator = Prelude.Nothing,
+      temporalAdaptiveQuantization = Prelude.Nothing,
+      xavcHdIntraCbgProfileSettings = Prelude.Nothing,
+      slowPal = Prelude.Nothing,
+      xavc4kIntraCbgProfileSettings = Prelude.Nothing,
+      entropyEncoding = Prelude.Nothing,
+      softness = Prelude.Nothing,
       xavcHdProfileSettings = Prelude.Nothing,
+      xavc4kProfileSettings = Prelude.Nothing,
+      framerateConversionAlgorithm = Prelude.Nothing,
+      adaptiveQuantization = Prelude.Nothing,
       spatialAdaptiveQuantization = Prelude.Nothing
     }
+
+-- | When you use the API for transcode jobs that use frame rate conversion,
+-- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
+-- 23.976 fps. Use FramerateDenominator to specify the denominator of this
+-- fraction. In this example, use 1001 for the value of
+-- FramerateDenominator. When you use the console for transcode jobs that
+-- use frame rate conversion, provide the value as a decimal number for
+-- Frame rate. In this example, specify 23.976.
+xavcSettings_framerateDenominator :: Lens.Lens' XavcSettings (Prelude.Maybe Prelude.Natural)
+xavcSettings_framerateDenominator = Lens.lens (\XavcSettings' {framerateDenominator} -> framerateDenominator) (\s@XavcSettings' {} a -> s {framerateDenominator = a} :: XavcSettings)
+
+-- | Required when you set (Profile) under
+-- (VideoDescription)>(CodecSettings)>(XavcSettings) to the value
+-- XAVC_4K_INTRA_VBR.
+xavcSettings_xavc4kIntraVbrProfileSettings :: Lens.Lens' XavcSettings (Prelude.Maybe Xavc4kIntraVbrProfileSettings)
+xavcSettings_xavc4kIntraVbrProfileSettings = Lens.lens (\XavcSettings' {xavc4kIntraVbrProfileSettings} -> xavc4kIntraVbrProfileSettings) (\s@XavcSettings' {} a -> s {xavc4kIntraVbrProfileSettings = a} :: XavcSettings)
+
+-- | If you are using the console, use the Frame rate setting to specify the
+-- frame rate for this output. If you want to keep the same frame rate as
+-- the input video, choose Follow source. If you want to do frame rate
+-- conversion, choose a frame rate from the dropdown list. The framerates
+-- shown in the dropdown list are decimal approximations of fractions. If
+-- you are creating your transcoding job specification as a JSON file
+-- without the console, use FramerateControl to specify which value the
+-- service uses for the frame rate for this output. Choose
+-- INITIALIZE_FROM_SOURCE if you want the service to use the frame rate
+-- from the input. Choose SPECIFIED if you want the service to use the
+-- frame rate that you specify in the settings FramerateNumerator and
+-- FramerateDenominator.
+xavcSettings_framerateControl :: Lens.Lens' XavcSettings (Prelude.Maybe XavcFramerateControl)
+xavcSettings_framerateControl = Lens.lens (\XavcSettings' {framerateControl} -> framerateControl) (\s@XavcSettings' {} a -> s {framerateControl = a} :: XavcSettings)
+
+-- | Specify the XAVC profile for this output. For more information, see the
+-- Sony documentation at https:\/\/www.xavc-info.org\/. Note that
+-- MediaConvert doesn\'t support the interlaced video XAVC operating points
+-- for XAVC_HD_INTRA_CBG. To create an interlaced XAVC output, choose the
+-- profile XAVC_HD.
+xavcSettings_profile :: Lens.Lens' XavcSettings (Prelude.Maybe XavcProfile)
+xavcSettings_profile = Lens.lens (\XavcSettings' {profile} -> profile) (\s@XavcSettings' {} a -> s {profile = a} :: XavcSettings)
+
+-- | When you use the API for transcode jobs that use frame rate conversion,
+-- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
+-- 23.976 fps. Use FramerateNumerator to specify the numerator of this
+-- fraction. In this example, use 24000 for the value of
+-- FramerateNumerator. When you use the console for transcode jobs that use
+-- frame rate conversion, provide the value as a decimal number for
+-- Framerate. In this example, specify 23.976.
+xavcSettings_framerateNumerator :: Lens.Lens' XavcSettings (Prelude.Maybe Prelude.Natural)
+xavcSettings_framerateNumerator = Lens.lens (\XavcSettings' {framerateNumerator} -> framerateNumerator) (\s@XavcSettings' {} a -> s {framerateNumerator = a} :: XavcSettings)
 
 -- | The best way to set up adaptive quantization is to keep the default
 -- value, Auto (AUTO), for the setting Adaptive quantization
@@ -391,6 +440,12 @@ newXavcSettings =
 xavcSettings_temporalAdaptiveQuantization :: Lens.Lens' XavcSettings (Prelude.Maybe XavcTemporalAdaptiveQuantization)
 xavcSettings_temporalAdaptiveQuantization = Lens.lens (\XavcSettings' {temporalAdaptiveQuantization} -> temporalAdaptiveQuantization) (\s@XavcSettings' {} a -> s {temporalAdaptiveQuantization = a} :: XavcSettings)
 
+-- | Required when you set (Profile) under
+-- (VideoDescription)>(CodecSettings)>(XavcSettings) to the value
+-- XAVC_HD_INTRA_CBG.
+xavcSettings_xavcHdIntraCbgProfileSettings :: Lens.Lens' XavcSettings (Prelude.Maybe XavcHdIntraCbgProfileSettings)
+xavcSettings_xavcHdIntraCbgProfileSettings = Lens.lens (\XavcSettings' {xavcHdIntraCbgProfileSettings} -> xavcHdIntraCbgProfileSettings) (\s@XavcSettings' {} a -> s {xavcHdIntraCbgProfileSettings = a} :: XavcSettings)
+
 -- | Ignore this setting unless your input frame rate is 23.976 or 24 frames
 -- per second (fps). Enable slow PAL to create a 25 fps output by
 -- relabeling the video frames and resampling your audio. Note that
@@ -402,35 +457,17 @@ xavcSettings_slowPal :: Lens.Lens' XavcSettings (Prelude.Maybe XavcSlowPal)
 xavcSettings_slowPal = Lens.lens (\XavcSettings' {slowPal} -> slowPal) (\s@XavcSettings' {} a -> s {slowPal = a} :: XavcSettings)
 
 -- | Required when you set (Profile) under
--- (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_4K.
-xavcSettings_xavc4kProfileSettings :: Lens.Lens' XavcSettings (Prelude.Maybe Xavc4kProfileSettings)
-xavcSettings_xavc4kProfileSettings = Lens.lens (\XavcSettings' {xavc4kProfileSettings} -> xavc4kProfileSettings) (\s@XavcSettings' {} a -> s {xavc4kProfileSettings = a} :: XavcSettings)
-
--- | Required when you set (Profile) under
--- (VideoDescription)>(CodecSettings)>(XavcSettings) to the value
--- XAVC_HD_INTRA_CBG.
-xavcSettings_xavcHdIntraCbgProfileSettings :: Lens.Lens' XavcSettings (Prelude.Maybe XavcHdIntraCbgProfileSettings)
-xavcSettings_xavcHdIntraCbgProfileSettings = Lens.lens (\XavcSettings' {xavcHdIntraCbgProfileSettings} -> xavcHdIntraCbgProfileSettings) (\s@XavcSettings' {} a -> s {xavcHdIntraCbgProfileSettings = a} :: XavcSettings)
-
--- | Required when you set (Profile) under
--- (VideoDescription)>(CodecSettings)>(XavcSettings) to the value
--- XAVC_4K_INTRA_VBR.
-xavcSettings_xavc4kIntraVbrProfileSettings :: Lens.Lens' XavcSettings (Prelude.Maybe Xavc4kIntraVbrProfileSettings)
-xavcSettings_xavc4kIntraVbrProfileSettings = Lens.lens (\XavcSettings' {xavc4kIntraVbrProfileSettings} -> xavc4kIntraVbrProfileSettings) (\s@XavcSettings' {} a -> s {xavc4kIntraVbrProfileSettings = a} :: XavcSettings)
-
--- | Required when you set (Profile) under
 -- (VideoDescription)>(CodecSettings)>(XavcSettings) to the value
 -- XAVC_4K_INTRA_CBG.
 xavcSettings_xavc4kIntraCbgProfileSettings :: Lens.Lens' XavcSettings (Prelude.Maybe Xavc4kIntraCbgProfileSettings)
 xavcSettings_xavc4kIntraCbgProfileSettings = Lens.lens (\XavcSettings' {xavc4kIntraCbgProfileSettings} -> xavc4kIntraCbgProfileSettings) (\s@XavcSettings' {} a -> s {xavc4kIntraCbgProfileSettings = a} :: XavcSettings)
 
--- | Specify the XAVC profile for this output. For more information, see the
--- Sony documentation at https:\/\/www.xavc-info.org\/. Note that
--- MediaConvert doesn\'t support the interlaced video XAVC operating points
--- for XAVC_HD_INTRA_CBG. To create an interlaced XAVC output, choose the
--- profile XAVC_HD.
-xavcSettings_profile :: Lens.Lens' XavcSettings (Prelude.Maybe XavcProfile)
-xavcSettings_profile = Lens.lens (\XavcSettings' {profile} -> profile) (\s@XavcSettings' {} a -> s {profile = a} :: XavcSettings)
+-- | Optional. Choose a specific entropy encoding mode only when you want to
+-- override XAVC recommendations. If you choose the value auto,
+-- MediaConvert uses the mode that the XAVC file format specifies given
+-- this output\'s operating point.
+xavcSettings_entropyEncoding :: Lens.Lens' XavcSettings (Prelude.Maybe XavcEntropyEncoding)
+xavcSettings_entropyEncoding = Lens.lens (\XavcSettings' {entropyEncoding} -> entropyEncoding) (\s@XavcSettings' {} a -> s {entropyEncoding = a} :: XavcSettings)
 
 -- | Ignore this setting unless your downstream workflow requires that you
 -- specify it explicitly. Otherwise, we recommend that you adjust the
@@ -446,15 +483,15 @@ xavcSettings_profile = Lens.lens (\XavcSettings' {profile} -> profile) (\s@XavcS
 xavcSettings_softness :: Lens.Lens' XavcSettings (Prelude.Maybe Prelude.Natural)
 xavcSettings_softness = Lens.lens (\XavcSettings' {softness} -> softness) (\s@XavcSettings' {} a -> s {softness = a} :: XavcSettings)
 
--- | When you use the API for transcode jobs that use frame rate conversion,
--- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
--- 23.976 fps. Use FramerateDenominator to specify the denominator of this
--- fraction. In this example, use 1001 for the value of
--- FramerateDenominator. When you use the console for transcode jobs that
--- use frame rate conversion, provide the value as a decimal number for
--- Frame rate. In this example, specify 23.976.
-xavcSettings_framerateDenominator :: Lens.Lens' XavcSettings (Prelude.Maybe Prelude.Natural)
-xavcSettings_framerateDenominator = Lens.lens (\XavcSettings' {framerateDenominator} -> framerateDenominator) (\s@XavcSettings' {} a -> s {framerateDenominator = a} :: XavcSettings)
+-- | Required when you set (Profile) under
+-- (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_HD.
+xavcSettings_xavcHdProfileSettings :: Lens.Lens' XavcSettings (Prelude.Maybe XavcHdProfileSettings)
+xavcSettings_xavcHdProfileSettings = Lens.lens (\XavcSettings' {xavcHdProfileSettings} -> xavcHdProfileSettings) (\s@XavcSettings' {} a -> s {xavcHdProfileSettings = a} :: XavcSettings)
+
+-- | Required when you set (Profile) under
+-- (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_4K.
+xavcSettings_xavc4kProfileSettings :: Lens.Lens' XavcSettings (Prelude.Maybe Xavc4kProfileSettings)
+xavcSettings_xavc4kProfileSettings = Lens.lens (\XavcSettings' {xavc4kProfileSettings} -> xavc4kProfileSettings) (\s@XavcSettings' {} a -> s {xavc4kProfileSettings = a} :: XavcSettings)
 
 -- | Choose the method that you want MediaConvert to use when increasing or
 -- decreasing the frame rate. We recommend using drop duplicate
@@ -470,28 +507,6 @@ xavcSettings_framerateDenominator = Lens.lens (\XavcSettings' {framerateDenomina
 xavcSettings_framerateConversionAlgorithm :: Lens.Lens' XavcSettings (Prelude.Maybe XavcFramerateConversionAlgorithm)
 xavcSettings_framerateConversionAlgorithm = Lens.lens (\XavcSettings' {framerateConversionAlgorithm} -> framerateConversionAlgorithm) (\s@XavcSettings' {} a -> s {framerateConversionAlgorithm = a} :: XavcSettings)
 
--- | Optional. Choose a specific entropy encoding mode only when you want to
--- override XAVC recommendations. If you choose the value auto,
--- MediaConvert uses the mode that the XAVC file format specifies given
--- this output\'s operating point.
-xavcSettings_entropyEncoding :: Lens.Lens' XavcSettings (Prelude.Maybe XavcEntropyEncoding)
-xavcSettings_entropyEncoding = Lens.lens (\XavcSettings' {entropyEncoding} -> entropyEncoding) (\s@XavcSettings' {} a -> s {entropyEncoding = a} :: XavcSettings)
-
--- | If you are using the console, use the Frame rate setting to specify the
--- frame rate for this output. If you want to keep the same frame rate as
--- the input video, choose Follow source. If you want to do frame rate
--- conversion, choose a frame rate from the dropdown list. The framerates
--- shown in the dropdown list are decimal approximations of fractions. If
--- you are creating your transcoding job specification as a JSON file
--- without the console, use FramerateControl to specify which value the
--- service uses for the frame rate for this output. Choose
--- INITIALIZE_FROM_SOURCE if you want the service to use the frame rate
--- from the input. Choose SPECIFIED if you want the service to use the
--- frame rate that you specify in the settings FramerateNumerator and
--- FramerateDenominator.
-xavcSettings_framerateControl :: Lens.Lens' XavcSettings (Prelude.Maybe XavcFramerateControl)
-xavcSettings_framerateControl = Lens.lens (\XavcSettings' {framerateControl} -> framerateControl) (\s@XavcSettings' {} a -> s {framerateControl = a} :: XavcSettings)
-
 -- | Keep the default value, Auto (AUTO), for this setting to have
 -- MediaConvert automatically apply the best types of quantization for your
 -- video content. When you want to apply your quantization settings
@@ -506,21 +521,6 @@ xavcSettings_framerateControl = Lens.lens (\XavcSettings' {framerateControl} -> 
 -- quantization (temporalAdaptiveQuantization).
 xavcSettings_adaptiveQuantization :: Lens.Lens' XavcSettings (Prelude.Maybe XavcAdaptiveQuantization)
 xavcSettings_adaptiveQuantization = Lens.lens (\XavcSettings' {adaptiveQuantization} -> adaptiveQuantization) (\s@XavcSettings' {} a -> s {adaptiveQuantization = a} :: XavcSettings)
-
--- | When you use the API for transcode jobs that use frame rate conversion,
--- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
--- 23.976 fps. Use FramerateNumerator to specify the numerator of this
--- fraction. In this example, use 24000 for the value of
--- FramerateNumerator. When you use the console for transcode jobs that use
--- frame rate conversion, provide the value as a decimal number for
--- Framerate. In this example, specify 23.976.
-xavcSettings_framerateNumerator :: Lens.Lens' XavcSettings (Prelude.Maybe Prelude.Natural)
-xavcSettings_framerateNumerator = Lens.lens (\XavcSettings' {framerateNumerator} -> framerateNumerator) (\s@XavcSettings' {} a -> s {framerateNumerator = a} :: XavcSettings)
-
--- | Required when you set (Profile) under
--- (VideoDescription)>(CodecSettings)>(XavcSettings) to the value XAVC_HD.
-xavcSettings_xavcHdProfileSettings :: Lens.Lens' XavcSettings (Prelude.Maybe XavcHdProfileSettings)
-xavcSettings_xavcHdProfileSettings = Lens.lens (\XavcSettings' {xavcHdProfileSettings} -> xavcHdProfileSettings) (\s@XavcSettings' {} a -> s {xavcHdProfileSettings = a} :: XavcSettings)
 
 -- | The best way to set up adaptive quantization is to keep the default
 -- value, Auto (AUTO), for the setting Adaptive quantization
@@ -553,61 +553,60 @@ instance Core.FromJSON XavcSettings where
       "XavcSettings"
       ( \x ->
           XavcSettings'
-            Prelude.<$> (x Core..:? "temporalAdaptiveQuantization")
-            Prelude.<*> (x Core..:? "slowPal")
-            Prelude.<*> (x Core..:? "xavc4kProfileSettings")
-            Prelude.<*> (x Core..:? "xavcHdIntraCbgProfileSettings")
+            Prelude.<$> (x Core..:? "framerateDenominator")
             Prelude.<*> (x Core..:? "xavc4kIntraVbrProfileSettings")
-            Prelude.<*> (x Core..:? "xavc4kIntraCbgProfileSettings")
-            Prelude.<*> (x Core..:? "profile")
-            Prelude.<*> (x Core..:? "softness")
-            Prelude.<*> (x Core..:? "framerateDenominator")
-            Prelude.<*> (x Core..:? "framerateConversionAlgorithm")
-            Prelude.<*> (x Core..:? "entropyEncoding")
             Prelude.<*> (x Core..:? "framerateControl")
-            Prelude.<*> (x Core..:? "adaptiveQuantization")
+            Prelude.<*> (x Core..:? "profile")
             Prelude.<*> (x Core..:? "framerateNumerator")
+            Prelude.<*> (x Core..:? "temporalAdaptiveQuantization")
+            Prelude.<*> (x Core..:? "xavcHdIntraCbgProfileSettings")
+            Prelude.<*> (x Core..:? "slowPal")
+            Prelude.<*> (x Core..:? "xavc4kIntraCbgProfileSettings")
+            Prelude.<*> (x Core..:? "entropyEncoding")
+            Prelude.<*> (x Core..:? "softness")
             Prelude.<*> (x Core..:? "xavcHdProfileSettings")
+            Prelude.<*> (x Core..:? "xavc4kProfileSettings")
+            Prelude.<*> (x Core..:? "framerateConversionAlgorithm")
+            Prelude.<*> (x Core..:? "adaptiveQuantization")
             Prelude.<*> (x Core..:? "spatialAdaptiveQuantization")
       )
 
 instance Prelude.Hashable XavcSettings where
   hashWithSalt _salt XavcSettings' {..} =
-    _salt
-      `Prelude.hashWithSalt` temporalAdaptiveQuantization
-      `Prelude.hashWithSalt` slowPal
-      `Prelude.hashWithSalt` xavc4kProfileSettings
-      `Prelude.hashWithSalt` xavcHdIntraCbgProfileSettings
+    _salt `Prelude.hashWithSalt` framerateDenominator
       `Prelude.hashWithSalt` xavc4kIntraVbrProfileSettings
-      `Prelude.hashWithSalt` xavc4kIntraCbgProfileSettings
-      `Prelude.hashWithSalt` profile
-      `Prelude.hashWithSalt` softness
-      `Prelude.hashWithSalt` framerateDenominator
-      `Prelude.hashWithSalt` framerateConversionAlgorithm
-      `Prelude.hashWithSalt` entropyEncoding
       `Prelude.hashWithSalt` framerateControl
-      `Prelude.hashWithSalt` adaptiveQuantization
+      `Prelude.hashWithSalt` profile
       `Prelude.hashWithSalt` framerateNumerator
+      `Prelude.hashWithSalt` temporalAdaptiveQuantization
+      `Prelude.hashWithSalt` xavcHdIntraCbgProfileSettings
+      `Prelude.hashWithSalt` slowPal
+      `Prelude.hashWithSalt` xavc4kIntraCbgProfileSettings
+      `Prelude.hashWithSalt` entropyEncoding
+      `Prelude.hashWithSalt` softness
       `Prelude.hashWithSalt` xavcHdProfileSettings
+      `Prelude.hashWithSalt` xavc4kProfileSettings
+      `Prelude.hashWithSalt` framerateConversionAlgorithm
+      `Prelude.hashWithSalt` adaptiveQuantization
       `Prelude.hashWithSalt` spatialAdaptiveQuantization
 
 instance Prelude.NFData XavcSettings where
   rnf XavcSettings' {..} =
-    Prelude.rnf temporalAdaptiveQuantization
-      `Prelude.seq` Prelude.rnf slowPal
-      `Prelude.seq` Prelude.rnf xavc4kProfileSettings
-      `Prelude.seq` Prelude.rnf xavcHdIntraCbgProfileSettings
+    Prelude.rnf framerateDenominator
       `Prelude.seq` Prelude.rnf xavc4kIntraVbrProfileSettings
-      `Prelude.seq` Prelude.rnf xavc4kIntraCbgProfileSettings
-      `Prelude.seq` Prelude.rnf profile
-      `Prelude.seq` Prelude.rnf softness
-      `Prelude.seq` Prelude.rnf framerateDenominator
-      `Prelude.seq` Prelude.rnf framerateConversionAlgorithm
-      `Prelude.seq` Prelude.rnf entropyEncoding
       `Prelude.seq` Prelude.rnf framerateControl
-      `Prelude.seq` Prelude.rnf adaptiveQuantization
+      `Prelude.seq` Prelude.rnf profile
       `Prelude.seq` Prelude.rnf framerateNumerator
+      `Prelude.seq` Prelude.rnf temporalAdaptiveQuantization
+      `Prelude.seq` Prelude.rnf xavcHdIntraCbgProfileSettings
+      `Prelude.seq` Prelude.rnf slowPal
+      `Prelude.seq` Prelude.rnf xavc4kIntraCbgProfileSettings
+      `Prelude.seq` Prelude.rnf entropyEncoding
+      `Prelude.seq` Prelude.rnf softness
       `Prelude.seq` Prelude.rnf xavcHdProfileSettings
+      `Prelude.seq` Prelude.rnf xavc4kProfileSettings
+      `Prelude.seq` Prelude.rnf framerateConversionAlgorithm
+      `Prelude.seq` Prelude.rnf adaptiveQuantization
       `Prelude.seq` Prelude.rnf
         spatialAdaptiveQuantization
 
@@ -615,33 +614,33 @@ instance Core.ToJSON XavcSettings where
   toJSON XavcSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("temporalAdaptiveQuantization" Core..=)
-              Prelude.<$> temporalAdaptiveQuantization,
-            ("slowPal" Core..=) Prelude.<$> slowPal,
-            ("xavc4kProfileSettings" Core..=)
-              Prelude.<$> xavc4kProfileSettings,
-            ("xavcHdIntraCbgProfileSettings" Core..=)
-              Prelude.<$> xavcHdIntraCbgProfileSettings,
+          [ ("framerateDenominator" Core..=)
+              Prelude.<$> framerateDenominator,
             ("xavc4kIntraVbrProfileSettings" Core..=)
               Prelude.<$> xavc4kIntraVbrProfileSettings,
-            ("xavc4kIntraCbgProfileSettings" Core..=)
-              Prelude.<$> xavc4kIntraCbgProfileSettings,
-            ("profile" Core..=) Prelude.<$> profile,
-            ("softness" Core..=) Prelude.<$> softness,
-            ("framerateDenominator" Core..=)
-              Prelude.<$> framerateDenominator,
-            ("framerateConversionAlgorithm" Core..=)
-              Prelude.<$> framerateConversionAlgorithm,
-            ("entropyEncoding" Core..=)
-              Prelude.<$> entropyEncoding,
             ("framerateControl" Core..=)
               Prelude.<$> framerateControl,
-            ("adaptiveQuantization" Core..=)
-              Prelude.<$> adaptiveQuantization,
+            ("profile" Core..=) Prelude.<$> profile,
             ("framerateNumerator" Core..=)
               Prelude.<$> framerateNumerator,
+            ("temporalAdaptiveQuantization" Core..=)
+              Prelude.<$> temporalAdaptiveQuantization,
+            ("xavcHdIntraCbgProfileSettings" Core..=)
+              Prelude.<$> xavcHdIntraCbgProfileSettings,
+            ("slowPal" Core..=) Prelude.<$> slowPal,
+            ("xavc4kIntraCbgProfileSettings" Core..=)
+              Prelude.<$> xavc4kIntraCbgProfileSettings,
+            ("entropyEncoding" Core..=)
+              Prelude.<$> entropyEncoding,
+            ("softness" Core..=) Prelude.<$> softness,
             ("xavcHdProfileSettings" Core..=)
               Prelude.<$> xavcHdProfileSettings,
+            ("xavc4kProfileSettings" Core..=)
+              Prelude.<$> xavc4kProfileSettings,
+            ("framerateConversionAlgorithm" Core..=)
+              Prelude.<$> framerateConversionAlgorithm,
+            ("adaptiveQuantization" Core..=)
+              Prelude.<$> adaptiveQuantization,
             ("spatialAdaptiveQuantization" Core..=)
               Prelude.<$> spatialAdaptiveQuantization
           ]

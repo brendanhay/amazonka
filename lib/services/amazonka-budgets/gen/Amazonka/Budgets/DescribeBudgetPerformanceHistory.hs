@@ -30,9 +30,9 @@ module Amazonka.Budgets.DescribeBudgetPerformanceHistory
     newDescribeBudgetPerformanceHistory,
 
     -- * Request Lenses
-    describeBudgetPerformanceHistory_timePeriod,
     describeBudgetPerformanceHistory_nextToken,
     describeBudgetPerformanceHistory_maxResults,
+    describeBudgetPerformanceHistory_timePeriod,
     describeBudgetPerformanceHistory_accountId,
     describeBudgetPerformanceHistory_budgetName,
 
@@ -41,8 +41,8 @@ module Amazonka.Budgets.DescribeBudgetPerformanceHistory
     newDescribeBudgetPerformanceHistoryResponse,
 
     -- * Response Lenses
-    describeBudgetPerformanceHistoryResponse_budgetPerformanceHistory,
     describeBudgetPerformanceHistoryResponse_nextToken,
+    describeBudgetPerformanceHistoryResponse_budgetPerformanceHistory,
     describeBudgetPerformanceHistoryResponse_httpStatus,
   )
 where
@@ -56,11 +56,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeBudgetPerformanceHistory' smart constructor.
 data DescribeBudgetPerformanceHistory = DescribeBudgetPerformanceHistory'
-  { -- | Retrieves how often the budget went into an @ALARM@ state for the
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Retrieves how often the budget went into an @ALARM@ state for the
     -- specified time period.
     timePeriod :: Prelude.Maybe TimePeriod,
-    nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural,
     accountId :: Prelude.Text,
     budgetName :: Prelude.Text
   }
@@ -74,12 +74,12 @@ data DescribeBudgetPerformanceHistory = DescribeBudgetPerformanceHistory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timePeriod', 'describeBudgetPerformanceHistory_timePeriod' - Retrieves how often the budget went into an @ALARM@ state for the
--- specified time period.
---
 -- 'nextToken', 'describeBudgetPerformanceHistory_nextToken' - Undocumented member.
 --
 -- 'maxResults', 'describeBudgetPerformanceHistory_maxResults' - Undocumented member.
+--
+-- 'timePeriod', 'describeBudgetPerformanceHistory_timePeriod' - Retrieves how often the budget went into an @ALARM@ state for the
+-- specified time period.
 --
 -- 'accountId', 'describeBudgetPerformanceHistory_accountId' - Undocumented member.
 --
@@ -94,18 +94,13 @@ newDescribeBudgetPerformanceHistory
   pAccountId_
   pBudgetName_ =
     DescribeBudgetPerformanceHistory'
-      { timePeriod =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        timePeriod = Prelude.Nothing,
         accountId = pAccountId_,
         budgetName = pBudgetName_
       }
-
--- | Retrieves how often the budget went into an @ALARM@ state for the
--- specified time period.
-describeBudgetPerformanceHistory_timePeriod :: Lens.Lens' DescribeBudgetPerformanceHistory (Prelude.Maybe TimePeriod)
-describeBudgetPerformanceHistory_timePeriod = Lens.lens (\DescribeBudgetPerformanceHistory' {timePeriod} -> timePeriod) (\s@DescribeBudgetPerformanceHistory' {} a -> s {timePeriod = a} :: DescribeBudgetPerformanceHistory)
 
 -- | Undocumented member.
 describeBudgetPerformanceHistory_nextToken :: Lens.Lens' DescribeBudgetPerformanceHistory (Prelude.Maybe Prelude.Text)
@@ -114,6 +109,11 @@ describeBudgetPerformanceHistory_nextToken = Lens.lens (\DescribeBudgetPerforman
 -- | Undocumented member.
 describeBudgetPerformanceHistory_maxResults :: Lens.Lens' DescribeBudgetPerformanceHistory (Prelude.Maybe Prelude.Natural)
 describeBudgetPerformanceHistory_maxResults = Lens.lens (\DescribeBudgetPerformanceHistory' {maxResults} -> maxResults) (\s@DescribeBudgetPerformanceHistory' {} a -> s {maxResults = a} :: DescribeBudgetPerformanceHistory)
+
+-- | Retrieves how often the budget went into an @ALARM@ state for the
+-- specified time period.
+describeBudgetPerformanceHistory_timePeriod :: Lens.Lens' DescribeBudgetPerformanceHistory (Prelude.Maybe TimePeriod)
+describeBudgetPerformanceHistory_timePeriod = Lens.lens (\DescribeBudgetPerformanceHistory' {timePeriod} -> timePeriod) (\s@DescribeBudgetPerformanceHistory' {} a -> s {timePeriod = a} :: DescribeBudgetPerformanceHistory)
 
 -- | Undocumented member.
 describeBudgetPerformanceHistory_accountId :: Lens.Lens' DescribeBudgetPerformanceHistory Prelude.Text
@@ -160,8 +160,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeBudgetPerformanceHistoryResponse'
-            Prelude.<$> (x Core..?> "BudgetPerformanceHistory")
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "BudgetPerformanceHistory")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,9 +172,9 @@ instance
   hashWithSalt
     _salt
     DescribeBudgetPerformanceHistory' {..} =
-      _salt `Prelude.hashWithSalt` timePeriod
-        `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` timePeriod
         `Prelude.hashWithSalt` accountId
         `Prelude.hashWithSalt` budgetName
 
@@ -183,9 +183,9 @@ instance
     DescribeBudgetPerformanceHistory
   where
   rnf DescribeBudgetPerformanceHistory' {..} =
-    Prelude.rnf timePeriod
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf timePeriod
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf budgetName
 
@@ -211,9 +211,9 @@ instance Core.ToJSON DescribeBudgetPerformanceHistory where
   toJSON DescribeBudgetPerformanceHistory' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TimePeriod" Core..=) Prelude.<$> timePeriod,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("TimePeriod" Core..=) Prelude.<$> timePeriod,
             Prelude.Just ("AccountId" Core..= accountId),
             Prelude.Just ("BudgetName" Core..= budgetName)
           ]
@@ -230,7 +230,8 @@ instance
 
 -- | /See:/ 'newDescribeBudgetPerformanceHistoryResponse' smart constructor.
 data DescribeBudgetPerformanceHistoryResponse = DescribeBudgetPerformanceHistoryResponse'
-  { -- | The history of how often the budget has gone into an @ALARM@ state.
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The history of how often the budget has gone into an @ALARM@ state.
     --
     -- For @DAILY@ budgets, the history saves the state of the budget for the
     -- last 60 days. For @MONTHLY@ budgets, the history saves the state of the
@@ -238,7 +239,6 @@ data DescribeBudgetPerformanceHistoryResponse = DescribeBudgetPerformanceHistory
     -- budgets, the history saves the state of the budget for the last four
     -- quarters.
     budgetPerformanceHistory :: Prelude.Maybe BudgetPerformanceHistory,
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -252,6 +252,8 @@ data DescribeBudgetPerformanceHistoryResponse = DescribeBudgetPerformanceHistory
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describeBudgetPerformanceHistoryResponse_nextToken' - Undocumented member.
+--
 -- 'budgetPerformanceHistory', 'describeBudgetPerformanceHistoryResponse_budgetPerformanceHistory' - The history of how often the budget has gone into an @ALARM@ state.
 --
 -- For @DAILY@ budgets, the history saves the state of the budget for the
@@ -259,8 +261,6 @@ data DescribeBudgetPerformanceHistoryResponse = DescribeBudgetPerformanceHistory
 -- budget for the current month plus the last 12 months. For @QUARTERLY@
 -- budgets, the history saves the state of the budget for the last four
 -- quarters.
---
--- 'nextToken', 'describeBudgetPerformanceHistoryResponse_nextToken' - Undocumented member.
 --
 -- 'httpStatus', 'describeBudgetPerformanceHistoryResponse_httpStatus' - The response's http status code.
 newDescribeBudgetPerformanceHistoryResponse ::
@@ -270,11 +270,16 @@ newDescribeBudgetPerformanceHistoryResponse ::
 newDescribeBudgetPerformanceHistoryResponse
   pHttpStatus_ =
     DescribeBudgetPerformanceHistoryResponse'
-      { budgetPerformanceHistory =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        budgetPerformanceHistory =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | Undocumented member.
+describeBudgetPerformanceHistoryResponse_nextToken :: Lens.Lens' DescribeBudgetPerformanceHistoryResponse (Prelude.Maybe Prelude.Text)
+describeBudgetPerformanceHistoryResponse_nextToken = Lens.lens (\DescribeBudgetPerformanceHistoryResponse' {nextToken} -> nextToken) (\s@DescribeBudgetPerformanceHistoryResponse' {} a -> s {nextToken = a} :: DescribeBudgetPerformanceHistoryResponse)
 
 -- | The history of how often the budget has gone into an @ALARM@ state.
 --
@@ -286,10 +291,6 @@ newDescribeBudgetPerformanceHistoryResponse
 describeBudgetPerformanceHistoryResponse_budgetPerformanceHistory :: Lens.Lens' DescribeBudgetPerformanceHistoryResponse (Prelude.Maybe BudgetPerformanceHistory)
 describeBudgetPerformanceHistoryResponse_budgetPerformanceHistory = Lens.lens (\DescribeBudgetPerformanceHistoryResponse' {budgetPerformanceHistory} -> budgetPerformanceHistory) (\s@DescribeBudgetPerformanceHistoryResponse' {} a -> s {budgetPerformanceHistory = a} :: DescribeBudgetPerformanceHistoryResponse)
 
--- | Undocumented member.
-describeBudgetPerformanceHistoryResponse_nextToken :: Lens.Lens' DescribeBudgetPerformanceHistoryResponse (Prelude.Maybe Prelude.Text)
-describeBudgetPerformanceHistoryResponse_nextToken = Lens.lens (\DescribeBudgetPerformanceHistoryResponse' {nextToken} -> nextToken) (\s@DescribeBudgetPerformanceHistoryResponse' {} a -> s {nextToken = a} :: DescribeBudgetPerformanceHistoryResponse)
-
 -- | The response's http status code.
 describeBudgetPerformanceHistoryResponse_httpStatus :: Lens.Lens' DescribeBudgetPerformanceHistoryResponse Prelude.Int
 describeBudgetPerformanceHistoryResponse_httpStatus = Lens.lens (\DescribeBudgetPerformanceHistoryResponse' {httpStatus} -> httpStatus) (\s@DescribeBudgetPerformanceHistoryResponse' {} a -> s {httpStatus = a} :: DescribeBudgetPerformanceHistoryResponse)
@@ -299,6 +300,6 @@ instance
     DescribeBudgetPerformanceHistoryResponse
   where
   rnf DescribeBudgetPerformanceHistoryResponse' {..} =
-    Prelude.rnf budgetPerformanceHistory
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf budgetPerformanceHistory
       `Prelude.seq` Prelude.rnf httpStatus

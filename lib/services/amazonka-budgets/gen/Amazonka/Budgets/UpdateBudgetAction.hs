@@ -27,12 +27,12 @@ module Amazonka.Budgets.UpdateBudgetAction
     newUpdateBudgetAction,
 
     -- * Request Lenses
-    updateBudgetAction_definition,
-    updateBudgetAction_executionRoleArn,
-    updateBudgetAction_actionThreshold,
     updateBudgetAction_notificationType,
-    updateBudgetAction_approvalModel,
+    updateBudgetAction_actionThreshold,
     updateBudgetAction_subscribers,
+    updateBudgetAction_executionRoleArn,
+    updateBudgetAction_approvalModel,
+    updateBudgetAction_definition,
     updateBudgetAction_accountId,
     updateBudgetAction_budgetName,
     updateBudgetAction_actionId,
@@ -59,15 +59,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateBudgetAction' smart constructor.
 data UpdateBudgetAction = UpdateBudgetAction'
-  { definition :: Prelude.Maybe Definition,
+  { notificationType :: Prelude.Maybe NotificationType,
+    actionThreshold :: Prelude.Maybe ActionThreshold,
+    subscribers :: Prelude.Maybe (Prelude.NonEmpty Subscriber),
     -- | The role passed for action execution and reversion. Roles and actions
     -- must be in the same account.
     executionRoleArn :: Prelude.Maybe Prelude.Text,
-    actionThreshold :: Prelude.Maybe ActionThreshold,
-    notificationType :: Prelude.Maybe NotificationType,
     -- | This specifies if the action needs manual or automatic approval.
     approvalModel :: Prelude.Maybe ApprovalModel,
-    subscribers :: Prelude.Maybe (Prelude.NonEmpty Subscriber),
+    definition :: Prelude.Maybe Definition,
     accountId :: Prelude.Text,
     budgetName :: Prelude.Text,
     -- | A system-generated universally unique identifier (UUID) for the action.
@@ -83,18 +83,18 @@ data UpdateBudgetAction = UpdateBudgetAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'definition', 'updateBudgetAction_definition' - Undocumented member.
+-- 'notificationType', 'updateBudgetAction_notificationType' - Undocumented member.
+--
+-- 'actionThreshold', 'updateBudgetAction_actionThreshold' - Undocumented member.
+--
+-- 'subscribers', 'updateBudgetAction_subscribers' - Undocumented member.
 --
 -- 'executionRoleArn', 'updateBudgetAction_executionRoleArn' - The role passed for action execution and reversion. Roles and actions
 -- must be in the same account.
 --
--- 'actionThreshold', 'updateBudgetAction_actionThreshold' - Undocumented member.
---
--- 'notificationType', 'updateBudgetAction_notificationType' - Undocumented member.
---
 -- 'approvalModel', 'updateBudgetAction_approvalModel' - This specifies if the action needs manual or automatic approval.
 --
--- 'subscribers', 'updateBudgetAction_subscribers' - Undocumented member.
+-- 'definition', 'updateBudgetAction_definition' - Undocumented member.
 --
 -- 'accountId', 'updateBudgetAction_accountId' - Undocumented member.
 --
@@ -114,41 +114,42 @@ newUpdateBudgetAction
   pBudgetName_
   pActionId_ =
     UpdateBudgetAction'
-      { definition = Prelude.Nothing,
-        executionRoleArn = Prelude.Nothing,
+      { notificationType =
+          Prelude.Nothing,
         actionThreshold = Prelude.Nothing,
-        notificationType = Prelude.Nothing,
-        approvalModel = Prelude.Nothing,
         subscribers = Prelude.Nothing,
+        executionRoleArn = Prelude.Nothing,
+        approvalModel = Prelude.Nothing,
+        definition = Prelude.Nothing,
         accountId = pAccountId_,
         budgetName = pBudgetName_,
         actionId = pActionId_
       }
 
 -- | Undocumented member.
-updateBudgetAction_definition :: Lens.Lens' UpdateBudgetAction (Prelude.Maybe Definition)
-updateBudgetAction_definition = Lens.lens (\UpdateBudgetAction' {definition} -> definition) (\s@UpdateBudgetAction' {} a -> s {definition = a} :: UpdateBudgetAction)
-
--- | The role passed for action execution and reversion. Roles and actions
--- must be in the same account.
-updateBudgetAction_executionRoleArn :: Lens.Lens' UpdateBudgetAction (Prelude.Maybe Prelude.Text)
-updateBudgetAction_executionRoleArn = Lens.lens (\UpdateBudgetAction' {executionRoleArn} -> executionRoleArn) (\s@UpdateBudgetAction' {} a -> s {executionRoleArn = a} :: UpdateBudgetAction)
+updateBudgetAction_notificationType :: Lens.Lens' UpdateBudgetAction (Prelude.Maybe NotificationType)
+updateBudgetAction_notificationType = Lens.lens (\UpdateBudgetAction' {notificationType} -> notificationType) (\s@UpdateBudgetAction' {} a -> s {notificationType = a} :: UpdateBudgetAction)
 
 -- | Undocumented member.
 updateBudgetAction_actionThreshold :: Lens.Lens' UpdateBudgetAction (Prelude.Maybe ActionThreshold)
 updateBudgetAction_actionThreshold = Lens.lens (\UpdateBudgetAction' {actionThreshold} -> actionThreshold) (\s@UpdateBudgetAction' {} a -> s {actionThreshold = a} :: UpdateBudgetAction)
 
 -- | Undocumented member.
-updateBudgetAction_notificationType :: Lens.Lens' UpdateBudgetAction (Prelude.Maybe NotificationType)
-updateBudgetAction_notificationType = Lens.lens (\UpdateBudgetAction' {notificationType} -> notificationType) (\s@UpdateBudgetAction' {} a -> s {notificationType = a} :: UpdateBudgetAction)
+updateBudgetAction_subscribers :: Lens.Lens' UpdateBudgetAction (Prelude.Maybe (Prelude.NonEmpty Subscriber))
+updateBudgetAction_subscribers = Lens.lens (\UpdateBudgetAction' {subscribers} -> subscribers) (\s@UpdateBudgetAction' {} a -> s {subscribers = a} :: UpdateBudgetAction) Prelude.. Lens.mapping Lens.coerced
+
+-- | The role passed for action execution and reversion. Roles and actions
+-- must be in the same account.
+updateBudgetAction_executionRoleArn :: Lens.Lens' UpdateBudgetAction (Prelude.Maybe Prelude.Text)
+updateBudgetAction_executionRoleArn = Lens.lens (\UpdateBudgetAction' {executionRoleArn} -> executionRoleArn) (\s@UpdateBudgetAction' {} a -> s {executionRoleArn = a} :: UpdateBudgetAction)
 
 -- | This specifies if the action needs manual or automatic approval.
 updateBudgetAction_approvalModel :: Lens.Lens' UpdateBudgetAction (Prelude.Maybe ApprovalModel)
 updateBudgetAction_approvalModel = Lens.lens (\UpdateBudgetAction' {approvalModel} -> approvalModel) (\s@UpdateBudgetAction' {} a -> s {approvalModel = a} :: UpdateBudgetAction)
 
 -- | Undocumented member.
-updateBudgetAction_subscribers :: Lens.Lens' UpdateBudgetAction (Prelude.Maybe (Prelude.NonEmpty Subscriber))
-updateBudgetAction_subscribers = Lens.lens (\UpdateBudgetAction' {subscribers} -> subscribers) (\s@UpdateBudgetAction' {} a -> s {subscribers = a} :: UpdateBudgetAction) Prelude.. Lens.mapping Lens.coerced
+updateBudgetAction_definition :: Lens.Lens' UpdateBudgetAction (Prelude.Maybe Definition)
+updateBudgetAction_definition = Lens.lens (\UpdateBudgetAction' {definition} -> definition) (\s@UpdateBudgetAction' {} a -> s {definition = a} :: UpdateBudgetAction)
 
 -- | Undocumented member.
 updateBudgetAction_accountId :: Lens.Lens' UpdateBudgetAction Prelude.Text
@@ -180,24 +181,24 @@ instance Core.AWSRequest UpdateBudgetAction where
 
 instance Prelude.Hashable UpdateBudgetAction where
   hashWithSalt _salt UpdateBudgetAction' {..} =
-    _salt `Prelude.hashWithSalt` definition
-      `Prelude.hashWithSalt` executionRoleArn
+    _salt `Prelude.hashWithSalt` notificationType
       `Prelude.hashWithSalt` actionThreshold
-      `Prelude.hashWithSalt` notificationType
-      `Prelude.hashWithSalt` approvalModel
       `Prelude.hashWithSalt` subscribers
+      `Prelude.hashWithSalt` executionRoleArn
+      `Prelude.hashWithSalt` approvalModel
+      `Prelude.hashWithSalt` definition
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` budgetName
       `Prelude.hashWithSalt` actionId
 
 instance Prelude.NFData UpdateBudgetAction where
   rnf UpdateBudgetAction' {..} =
-    Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf executionRoleArn
+    Prelude.rnf notificationType
       `Prelude.seq` Prelude.rnf actionThreshold
-      `Prelude.seq` Prelude.rnf notificationType
-      `Prelude.seq` Prelude.rnf approvalModel
       `Prelude.seq` Prelude.rnf subscribers
+      `Prelude.seq` Prelude.rnf executionRoleArn
+      `Prelude.seq` Prelude.rnf approvalModel
+      `Prelude.seq` Prelude.rnf definition
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf budgetName
       `Prelude.seq` Prelude.rnf actionId
@@ -221,15 +222,15 @@ instance Core.ToJSON UpdateBudgetAction where
   toJSON UpdateBudgetAction' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Definition" Core..=) Prelude.<$> definition,
-            ("ExecutionRoleArn" Core..=)
-              Prelude.<$> executionRoleArn,
+          [ ("NotificationType" Core..=)
+              Prelude.<$> notificationType,
             ("ActionThreshold" Core..=)
               Prelude.<$> actionThreshold,
-            ("NotificationType" Core..=)
-              Prelude.<$> notificationType,
-            ("ApprovalModel" Core..=) Prelude.<$> approvalModel,
             ("Subscribers" Core..=) Prelude.<$> subscribers,
+            ("ExecutionRoleArn" Core..=)
+              Prelude.<$> executionRoleArn,
+            ("ApprovalModel" Core..=) Prelude.<$> approvalModel,
+            ("Definition" Core..=) Prelude.<$> definition,
             Prelude.Just ("AccountId" Core..= accountId),
             Prelude.Just ("BudgetName" Core..= budgetName),
             Prelude.Just ("ActionId" Core..= actionId)

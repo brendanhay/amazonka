@@ -27,9 +27,9 @@ module Amazonka.SSOAdmin.UpdatePermissionSet
     newUpdatePermissionSet,
 
     -- * Request Lenses
-    updatePermissionSet_relayState,
-    updatePermissionSet_sessionDuration,
     updatePermissionSet_description,
+    updatePermissionSet_sessionDuration,
+    updatePermissionSet_relayState,
     updatePermissionSet_instanceArn,
     updatePermissionSet_permissionSetArn,
 
@@ -51,14 +51,14 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newUpdatePermissionSet' smart constructor.
 data UpdatePermissionSet = UpdatePermissionSet'
-  { -- | Used to redirect users within the application during the federation
-    -- authentication process.
-    relayState :: Prelude.Maybe Prelude.Text,
+  { -- | The description of the PermissionSet.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The length of time that the application user sessions are valid for in
     -- the ISO-8601 standard.
     sessionDuration :: Prelude.Maybe Prelude.Text,
-    -- | The description of the PermissionSet.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | Used to redirect users within the application during the federation
+    -- authentication process.
+    relayState :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the SSO instance under which the operation will be executed.
     -- For more information about ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
@@ -77,13 +77,13 @@ data UpdatePermissionSet = UpdatePermissionSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'relayState', 'updatePermissionSet_relayState' - Used to redirect users within the application during the federation
--- authentication process.
+-- 'description', 'updatePermissionSet_description' - The description of the PermissionSet.
 --
 -- 'sessionDuration', 'updatePermissionSet_sessionDuration' - The length of time that the application user sessions are valid for in
 -- the ISO-8601 standard.
 --
--- 'description', 'updatePermissionSet_description' - The description of the PermissionSet.
+-- 'relayState', 'updatePermissionSet_relayState' - Used to redirect users within the application during the federation
+-- authentication process.
 --
 -- 'instanceArn', 'updatePermissionSet_instanceArn' - The ARN of the SSO instance under which the operation will be executed.
 -- For more information about ARNs, see
@@ -101,26 +101,26 @@ newUpdatePermissionSet
   pInstanceArn_
   pPermissionSetArn_ =
     UpdatePermissionSet'
-      { relayState = Prelude.Nothing,
+      { description = Prelude.Nothing,
         sessionDuration = Prelude.Nothing,
-        description = Prelude.Nothing,
+        relayState = Prelude.Nothing,
         instanceArn = pInstanceArn_,
         permissionSetArn = pPermissionSetArn_
       }
 
--- | Used to redirect users within the application during the federation
--- authentication process.
-updatePermissionSet_relayState :: Lens.Lens' UpdatePermissionSet (Prelude.Maybe Prelude.Text)
-updatePermissionSet_relayState = Lens.lens (\UpdatePermissionSet' {relayState} -> relayState) (\s@UpdatePermissionSet' {} a -> s {relayState = a} :: UpdatePermissionSet)
+-- | The description of the PermissionSet.
+updatePermissionSet_description :: Lens.Lens' UpdatePermissionSet (Prelude.Maybe Prelude.Text)
+updatePermissionSet_description = Lens.lens (\UpdatePermissionSet' {description} -> description) (\s@UpdatePermissionSet' {} a -> s {description = a} :: UpdatePermissionSet)
 
 -- | The length of time that the application user sessions are valid for in
 -- the ISO-8601 standard.
 updatePermissionSet_sessionDuration :: Lens.Lens' UpdatePermissionSet (Prelude.Maybe Prelude.Text)
 updatePermissionSet_sessionDuration = Lens.lens (\UpdatePermissionSet' {sessionDuration} -> sessionDuration) (\s@UpdatePermissionSet' {} a -> s {sessionDuration = a} :: UpdatePermissionSet)
 
--- | The description of the PermissionSet.
-updatePermissionSet_description :: Lens.Lens' UpdatePermissionSet (Prelude.Maybe Prelude.Text)
-updatePermissionSet_description = Lens.lens (\UpdatePermissionSet' {description} -> description) (\s@UpdatePermissionSet' {} a -> s {description = a} :: UpdatePermissionSet)
+-- | Used to redirect users within the application during the federation
+-- authentication process.
+updatePermissionSet_relayState :: Lens.Lens' UpdatePermissionSet (Prelude.Maybe Prelude.Text)
+updatePermissionSet_relayState = Lens.lens (\UpdatePermissionSet' {relayState} -> relayState) (\s@UpdatePermissionSet' {} a -> s {relayState = a} :: UpdatePermissionSet)
 
 -- | The ARN of the SSO instance under which the operation will be executed.
 -- For more information about ARNs, see
@@ -147,17 +147,17 @@ instance Core.AWSRequest UpdatePermissionSet where
 
 instance Prelude.Hashable UpdatePermissionSet where
   hashWithSalt _salt UpdatePermissionSet' {..} =
-    _salt `Prelude.hashWithSalt` relayState
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` sessionDuration
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` relayState
       `Prelude.hashWithSalt` instanceArn
       `Prelude.hashWithSalt` permissionSetArn
 
 instance Prelude.NFData UpdatePermissionSet where
   rnf UpdatePermissionSet' {..} =
-    Prelude.rnf relayState
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf sessionDuration
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf relayState
       `Prelude.seq` Prelude.rnf instanceArn
       `Prelude.seq` Prelude.rnf permissionSetArn
 
@@ -180,10 +180,10 @@ instance Core.ToJSON UpdatePermissionSet where
   toJSON UpdatePermissionSet' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RelayState" Core..=) Prelude.<$> relayState,
+          [ ("Description" Core..=) Prelude.<$> description,
             ("SessionDuration" Core..=)
               Prelude.<$> sessionDuration,
-            ("Description" Core..=) Prelude.<$> description,
+            ("RelayState" Core..=) Prelude.<$> relayState,
             Prelude.Just ("InstanceArn" Core..= instanceArn),
             Prelude.Just
               ("PermissionSetArn" Core..= permissionSetArn)

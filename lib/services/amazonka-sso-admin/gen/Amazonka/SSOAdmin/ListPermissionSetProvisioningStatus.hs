@@ -40,8 +40,8 @@ module Amazonka.SSOAdmin.ListPermissionSetProvisioningStatus
     newListPermissionSetProvisioningStatusResponse,
 
     -- * Response Lenses
-    listPermissionSetProvisioningStatusResponse_permissionSetsProvisioningStatus,
     listPermissionSetProvisioningStatusResponse_nextToken,
+    listPermissionSetProvisioningStatusResponse_permissionSetsProvisioningStatus,
     listPermissionSetProvisioningStatusResponse_httpStatus,
   )
 where
@@ -159,10 +159,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListPermissionSetProvisioningStatusResponse'
-            Prelude.<$> ( x Core..?> "PermissionSetsProvisioningStatus"
-                            Core..!@ Prelude.mempty
-                        )
-              Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+              Prelude.<*> ( x Core..?> "PermissionSetsProvisioningStatus"
+                              Core..!@ Prelude.mempty
+                          )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -234,11 +234,11 @@ instance
 
 -- | /See:/ 'newListPermissionSetProvisioningStatusResponse' smart constructor.
 data ListPermissionSetProvisioningStatusResponse = ListPermissionSetProvisioningStatusResponse'
-  { -- | The status object for the permission set provisioning operation.
-    permissionSetsProvisioningStatus :: Prelude.Maybe [PermissionSetProvisioningStatusMetadata],
-    -- | The pagination token for the list API. Initially the value is null. Use
+  { -- | The pagination token for the list API. Initially the value is null. Use
     -- the output of previous API calls to make subsequent calls.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The status object for the permission set provisioning operation.
+    permissionSetsProvisioningStatus :: Prelude.Maybe [PermissionSetProvisioningStatusMetadata],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -252,10 +252,10 @@ data ListPermissionSetProvisioningStatusResponse = ListPermissionSetProvisioning
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'permissionSetsProvisioningStatus', 'listPermissionSetProvisioningStatusResponse_permissionSetsProvisioningStatus' - The status object for the permission set provisioning operation.
---
 -- 'nextToken', 'listPermissionSetProvisioningStatusResponse_nextToken' - The pagination token for the list API. Initially the value is null. Use
 -- the output of previous API calls to make subsequent calls.
+--
+-- 'permissionSetsProvisioningStatus', 'listPermissionSetProvisioningStatusResponse_permissionSetsProvisioningStatus' - The status object for the permission set provisioning operation.
 --
 -- 'httpStatus', 'listPermissionSetProvisioningStatusResponse_httpStatus' - The response's http status code.
 newListPermissionSetProvisioningStatusResponse ::
@@ -265,20 +265,21 @@ newListPermissionSetProvisioningStatusResponse ::
 newListPermissionSetProvisioningStatusResponse
   pHttpStatus_ =
     ListPermissionSetProvisioningStatusResponse'
-      { permissionSetsProvisioningStatus =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        permissionSetsProvisioningStatus =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The status object for the permission set provisioning operation.
-listPermissionSetProvisioningStatusResponse_permissionSetsProvisioningStatus :: Lens.Lens' ListPermissionSetProvisioningStatusResponse (Prelude.Maybe [PermissionSetProvisioningStatusMetadata])
-listPermissionSetProvisioningStatusResponse_permissionSetsProvisioningStatus = Lens.lens (\ListPermissionSetProvisioningStatusResponse' {permissionSetsProvisioningStatus} -> permissionSetsProvisioningStatus) (\s@ListPermissionSetProvisioningStatusResponse' {} a -> s {permissionSetsProvisioningStatus = a} :: ListPermissionSetProvisioningStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token for the list API. Initially the value is null. Use
 -- the output of previous API calls to make subsequent calls.
 listPermissionSetProvisioningStatusResponse_nextToken :: Lens.Lens' ListPermissionSetProvisioningStatusResponse (Prelude.Maybe Prelude.Text)
 listPermissionSetProvisioningStatusResponse_nextToken = Lens.lens (\ListPermissionSetProvisioningStatusResponse' {nextToken} -> nextToken) (\s@ListPermissionSetProvisioningStatusResponse' {} a -> s {nextToken = a} :: ListPermissionSetProvisioningStatusResponse)
+
+-- | The status object for the permission set provisioning operation.
+listPermissionSetProvisioningStatusResponse_permissionSetsProvisioningStatus :: Lens.Lens' ListPermissionSetProvisioningStatusResponse (Prelude.Maybe [PermissionSetProvisioningStatusMetadata])
+listPermissionSetProvisioningStatusResponse_permissionSetsProvisioningStatus = Lens.lens (\ListPermissionSetProvisioningStatusResponse' {permissionSetsProvisioningStatus} -> permissionSetsProvisioningStatus) (\s@ListPermissionSetProvisioningStatusResponse' {} a -> s {permissionSetsProvisioningStatus = a} :: ListPermissionSetProvisioningStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listPermissionSetProvisioningStatusResponse_httpStatus :: Lens.Lens' ListPermissionSetProvisioningStatusResponse Prelude.Int
@@ -289,6 +290,6 @@ instance
     ListPermissionSetProvisioningStatusResponse
   where
   rnf ListPermissionSetProvisioningStatusResponse' {..} =
-    Prelude.rnf permissionSetsProvisioningStatus
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf permissionSetsProvisioningStatus
       `Prelude.seq` Prelude.rnf httpStatus

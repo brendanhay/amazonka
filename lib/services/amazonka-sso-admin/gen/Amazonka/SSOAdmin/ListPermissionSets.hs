@@ -38,8 +38,8 @@ module Amazonka.SSOAdmin.ListPermissionSets
     newListPermissionSetsResponse,
 
     -- * Response Lenses
-    listPermissionSetsResponse_permissionSets,
     listPermissionSetsResponse_nextToken,
+    listPermissionSetsResponse_permissionSets,
     listPermissionSetsResponse_httpStatus,
   )
 where
@@ -141,8 +141,8 @@ instance Core.AWSRequest ListPermissionSets where
     Response.receiveJSON
       ( \s h x ->
           ListPermissionSetsResponse'
-            Prelude.<$> (x Core..?> "PermissionSets" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "PermissionSets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -191,11 +191,11 @@ instance Core.ToQuery ListPermissionSets where
 
 -- | /See:/ 'newListPermissionSetsResponse' smart constructor.
 data ListPermissionSetsResponse = ListPermissionSetsResponse'
-  { -- | Defines the level of access on an Amazon Web Services account.
-    permissionSets :: Prelude.Maybe [Prelude.Text],
-    -- | The pagination token for the list API. Initially the value is null. Use
+  { -- | The pagination token for the list API. Initially the value is null. Use
     -- the output of previous API calls to make subsequent calls.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Defines the level of access on an Amazon Web Services account.
+    permissionSets :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -209,10 +209,10 @@ data ListPermissionSetsResponse = ListPermissionSetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'permissionSets', 'listPermissionSetsResponse_permissionSets' - Defines the level of access on an Amazon Web Services account.
---
 -- 'nextToken', 'listPermissionSetsResponse_nextToken' - The pagination token for the list API. Initially the value is null. Use
 -- the output of previous API calls to make subsequent calls.
+--
+-- 'permissionSets', 'listPermissionSetsResponse_permissionSets' - Defines the level of access on an Amazon Web Services account.
 --
 -- 'httpStatus', 'listPermissionSetsResponse_httpStatus' - The response's http status code.
 newListPermissionSetsResponse ::
@@ -221,20 +221,20 @@ newListPermissionSetsResponse ::
   ListPermissionSetsResponse
 newListPermissionSetsResponse pHttpStatus_ =
   ListPermissionSetsResponse'
-    { permissionSets =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      permissionSets = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Defines the level of access on an Amazon Web Services account.
-listPermissionSetsResponse_permissionSets :: Lens.Lens' ListPermissionSetsResponse (Prelude.Maybe [Prelude.Text])
-listPermissionSetsResponse_permissionSets = Lens.lens (\ListPermissionSetsResponse' {permissionSets} -> permissionSets) (\s@ListPermissionSetsResponse' {} a -> s {permissionSets = a} :: ListPermissionSetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token for the list API. Initially the value is null. Use
 -- the output of previous API calls to make subsequent calls.
 listPermissionSetsResponse_nextToken :: Lens.Lens' ListPermissionSetsResponse (Prelude.Maybe Prelude.Text)
 listPermissionSetsResponse_nextToken = Lens.lens (\ListPermissionSetsResponse' {nextToken} -> nextToken) (\s@ListPermissionSetsResponse' {} a -> s {nextToken = a} :: ListPermissionSetsResponse)
+
+-- | Defines the level of access on an Amazon Web Services account.
+listPermissionSetsResponse_permissionSets :: Lens.Lens' ListPermissionSetsResponse (Prelude.Maybe [Prelude.Text])
+listPermissionSetsResponse_permissionSets = Lens.lens (\ListPermissionSetsResponse' {permissionSets} -> permissionSets) (\s@ListPermissionSetsResponse' {} a -> s {permissionSets = a} :: ListPermissionSetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listPermissionSetsResponse_httpStatus :: Lens.Lens' ListPermissionSetsResponse Prelude.Int
@@ -242,6 +242,6 @@ listPermissionSetsResponse_httpStatus = Lens.lens (\ListPermissionSetsResponse' 
 
 instance Prelude.NFData ListPermissionSetsResponse where
   rnf ListPermissionSetsResponse' {..} =
-    Prelude.rnf permissionSets
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf permissionSets
       `Prelude.seq` Prelude.rnf httpStatus

@@ -30,10 +30,10 @@ module Amazonka.SSOAdmin.CreatePermissionSet
     newCreatePermissionSet,
 
     -- * Request Lenses
-    createPermissionSet_relayState,
-    createPermissionSet_sessionDuration,
-    createPermissionSet_description,
     createPermissionSet_tags,
+    createPermissionSet_description,
+    createPermissionSet_sessionDuration,
+    createPermissionSet_relayState,
     createPermissionSet_name,
     createPermissionSet_instanceArn,
 
@@ -56,16 +56,16 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newCreatePermissionSet' smart constructor.
 data CreatePermissionSet = CreatePermissionSet'
-  { -- | Used to redirect users within the application during the federation
-    -- authentication process.
-    relayState :: Prelude.Maybe Prelude.Text,
+  { -- | The tags to attach to the new PermissionSet.
+    tags :: Prelude.Maybe [Tag],
+    -- | The description of the PermissionSet.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The length of time that the application user sessions are valid in the
     -- ISO-8601 standard.
     sessionDuration :: Prelude.Maybe Prelude.Text,
-    -- | The description of the PermissionSet.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The tags to attach to the new PermissionSet.
-    tags :: Prelude.Maybe [Tag],
+    -- | Used to redirect users within the application during the federation
+    -- authentication process.
+    relayState :: Prelude.Maybe Prelude.Text,
     -- | The name of the PermissionSet.
     name :: Prelude.Text,
     -- | The ARN of the SSO instance under which the operation will be executed.
@@ -84,15 +84,15 @@ data CreatePermissionSet = CreatePermissionSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'relayState', 'createPermissionSet_relayState' - Used to redirect users within the application during the federation
--- authentication process.
+-- 'tags', 'createPermissionSet_tags' - The tags to attach to the new PermissionSet.
+--
+-- 'description', 'createPermissionSet_description' - The description of the PermissionSet.
 --
 -- 'sessionDuration', 'createPermissionSet_sessionDuration' - The length of time that the application user sessions are valid in the
 -- ISO-8601 standard.
 --
--- 'description', 'createPermissionSet_description' - The description of the PermissionSet.
---
--- 'tags', 'createPermissionSet_tags' - The tags to attach to the new PermissionSet.
+-- 'relayState', 'createPermissionSet_relayState' - Used to redirect users within the application during the federation
+-- authentication process.
 --
 -- 'name', 'createPermissionSet_name' - The name of the PermissionSet.
 --
@@ -108,31 +108,31 @@ newCreatePermissionSet ::
   CreatePermissionSet
 newCreatePermissionSet pName_ pInstanceArn_ =
   CreatePermissionSet'
-    { relayState = Prelude.Nothing,
-      sessionDuration = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      sessionDuration = Prelude.Nothing,
+      relayState = Prelude.Nothing,
       name = pName_,
       instanceArn = pInstanceArn_
     }
 
--- | Used to redirect users within the application during the federation
--- authentication process.
-createPermissionSet_relayState :: Lens.Lens' CreatePermissionSet (Prelude.Maybe Prelude.Text)
-createPermissionSet_relayState = Lens.lens (\CreatePermissionSet' {relayState} -> relayState) (\s@CreatePermissionSet' {} a -> s {relayState = a} :: CreatePermissionSet)
+-- | The tags to attach to the new PermissionSet.
+createPermissionSet_tags :: Lens.Lens' CreatePermissionSet (Prelude.Maybe [Tag])
+createPermissionSet_tags = Lens.lens (\CreatePermissionSet' {tags} -> tags) (\s@CreatePermissionSet' {} a -> s {tags = a} :: CreatePermissionSet) Prelude.. Lens.mapping Lens.coerced
+
+-- | The description of the PermissionSet.
+createPermissionSet_description :: Lens.Lens' CreatePermissionSet (Prelude.Maybe Prelude.Text)
+createPermissionSet_description = Lens.lens (\CreatePermissionSet' {description} -> description) (\s@CreatePermissionSet' {} a -> s {description = a} :: CreatePermissionSet)
 
 -- | The length of time that the application user sessions are valid in the
 -- ISO-8601 standard.
 createPermissionSet_sessionDuration :: Lens.Lens' CreatePermissionSet (Prelude.Maybe Prelude.Text)
 createPermissionSet_sessionDuration = Lens.lens (\CreatePermissionSet' {sessionDuration} -> sessionDuration) (\s@CreatePermissionSet' {} a -> s {sessionDuration = a} :: CreatePermissionSet)
 
--- | The description of the PermissionSet.
-createPermissionSet_description :: Lens.Lens' CreatePermissionSet (Prelude.Maybe Prelude.Text)
-createPermissionSet_description = Lens.lens (\CreatePermissionSet' {description} -> description) (\s@CreatePermissionSet' {} a -> s {description = a} :: CreatePermissionSet)
-
--- | The tags to attach to the new PermissionSet.
-createPermissionSet_tags :: Lens.Lens' CreatePermissionSet (Prelude.Maybe [Tag])
-createPermissionSet_tags = Lens.lens (\CreatePermissionSet' {tags} -> tags) (\s@CreatePermissionSet' {} a -> s {tags = a} :: CreatePermissionSet) Prelude.. Lens.mapping Lens.coerced
+-- | Used to redirect users within the application during the federation
+-- authentication process.
+createPermissionSet_relayState :: Lens.Lens' CreatePermissionSet (Prelude.Maybe Prelude.Text)
+createPermissionSet_relayState = Lens.lens (\CreatePermissionSet' {relayState} -> relayState) (\s@CreatePermissionSet' {} a -> s {relayState = a} :: CreatePermissionSet)
 
 -- | The name of the PermissionSet.
 createPermissionSet_name :: Lens.Lens' CreatePermissionSet Prelude.Text
@@ -160,19 +160,19 @@ instance Core.AWSRequest CreatePermissionSet where
 
 instance Prelude.Hashable CreatePermissionSet where
   hashWithSalt _salt CreatePermissionSet' {..} =
-    _salt `Prelude.hashWithSalt` relayState
-      `Prelude.hashWithSalt` sessionDuration
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` sessionDuration
+      `Prelude.hashWithSalt` relayState
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` instanceArn
 
 instance Prelude.NFData CreatePermissionSet where
   rnf CreatePermissionSet' {..} =
-    Prelude.rnf relayState
-      `Prelude.seq` Prelude.rnf sessionDuration
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf sessionDuration
+      `Prelude.seq` Prelude.rnf relayState
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf instanceArn
 
@@ -195,11 +195,11 @@ instance Core.ToJSON CreatePermissionSet where
   toJSON CreatePermissionSet' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RelayState" Core..=) Prelude.<$> relayState,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
             ("SessionDuration" Core..=)
               Prelude.<$> sessionDuration,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("RelayState" Core..=) Prelude.<$> relayState,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("InstanceArn" Core..= instanceArn)
           ]

@@ -27,41 +27,20 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDescribePermissionSet $
---             newDescribePermissionSet
+--         [ requestAttachManagedPolicyToPermissionSet $
+--             newAttachManagedPolicyToPermissionSet
 --
---         , requestListTagsForResource $
---             newListTagsForResource
+--         , requestCreateAccountAssignment $
+--             newCreateAccountAssignment
 --
 --         , requestCreateInstanceAccessControlAttributeConfiguration $
 --             newCreateInstanceAccessControlAttributeConfiguration
 --
---         , requestGetInlinePolicyForPermissionSet $
---             newGetInlinePolicyForPermissionSet
+--         , requestCreatePermissionSet $
+--             newCreatePermissionSet
 --
---         , requestListPermissionSets $
---             newListPermissionSets
---
---         , requestDeletePermissionSet $
---             newDeletePermissionSet
---
---         , requestUpdatePermissionSet $
---             newUpdatePermissionSet
---
---         , requestProvisionPermissionSet $
---             newProvisionPermissionSet
---
---         , requestListAccountAssignments $
---             newListAccountAssignments
---
---         , requestDescribePermissionSetProvisioningStatus $
---             newDescribePermissionSetProvisioningStatus
---
---         , requestAttachManagedPolicyToPermissionSet $
---             newAttachManagedPolicyToPermissionSet
---
---         , requestListManagedPoliciesInPermissionSet $
---             newListManagedPoliciesInPermissionSet
+--         , requestDeleteAccountAssignment $
+--             newDeleteAccountAssignment
 --
 --         , requestDeleteInlinePolicyFromPermissionSet $
 --             newDeleteInlinePolicyFromPermissionSet
@@ -69,95 +48,95 @@ import Test.Tasty
 --         , requestDeleteInstanceAccessControlAttributeConfiguration $
 --             newDeleteInstanceAccessControlAttributeConfiguration
 --
---         , requestUpdateInstanceAccessControlAttributeConfiguration $
---             newUpdateInstanceAccessControlAttributeConfiguration
---
---         , requestDescribeAccountAssignmentDeletionStatus $
---             newDescribeAccountAssignmentDeletionStatus
+--         , requestDeletePermissionSet $
+--             newDeletePermissionSet
 --
 --         , requestDescribeAccountAssignmentCreationStatus $
 --             newDescribeAccountAssignmentCreationStatus
 --
---         , requestPutInlinePolicyToPermissionSet $
---             newPutInlinePolicyToPermissionSet
---
---         , requestListAccountsForProvisionedPermissionSet $
---             newListAccountsForProvisionedPermissionSet
---
---         , requestListPermissionSetsProvisionedToAccount $
---             newListPermissionSetsProvisionedToAccount
---
---         , requestDetachManagedPolicyFromPermissionSet $
---             newDetachManagedPolicyFromPermissionSet
---
---         , requestListAccountAssignmentCreationStatus $
---             newListAccountAssignmentCreationStatus
---
---         , requestCreatePermissionSet $
---             newCreatePermissionSet
---
---         , requestListAccountAssignmentDeletionStatus $
---             newListAccountAssignmentDeletionStatus
---
---         , requestTagResource $
---             newTagResource
---
---         , requestListInstances $
---             newListInstances
+--         , requestDescribeAccountAssignmentDeletionStatus $
+--             newDescribeAccountAssignmentDeletionStatus
 --
 --         , requestDescribeInstanceAccessControlAttributeConfiguration $
 --             newDescribeInstanceAccessControlAttributeConfiguration
 --
---         , requestUntagResource $
---             newUntagResource
+--         , requestDescribePermissionSet $
+--             newDescribePermissionSet
 --
---         , requestDeleteAccountAssignment $
---             newDeleteAccountAssignment
+--         , requestDescribePermissionSetProvisioningStatus $
+--             newDescribePermissionSetProvisioningStatus
+--
+--         , requestDetachManagedPolicyFromPermissionSet $
+--             newDetachManagedPolicyFromPermissionSet
+--
+--         , requestGetInlinePolicyForPermissionSet $
+--             newGetInlinePolicyForPermissionSet
+--
+--         , requestListAccountAssignmentCreationStatus $
+--             newListAccountAssignmentCreationStatus
+--
+--         , requestListAccountAssignmentDeletionStatus $
+--             newListAccountAssignmentDeletionStatus
+--
+--         , requestListAccountAssignments $
+--             newListAccountAssignments
+--
+--         , requestListAccountsForProvisionedPermissionSet $
+--             newListAccountsForProvisionedPermissionSet
+--
+--         , requestListInstances $
+--             newListInstances
+--
+--         , requestListManagedPoliciesInPermissionSet $
+--             newListManagedPoliciesInPermissionSet
 --
 --         , requestListPermissionSetProvisioningStatus $
 --             newListPermissionSetProvisioningStatus
 --
---         , requestCreateAccountAssignment $
---             newCreateAccountAssignment
+--         , requestListPermissionSets $
+--             newListPermissionSets
+--
+--         , requestListPermissionSetsProvisionedToAccount $
+--             newListPermissionSetsProvisionedToAccount
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestProvisionPermissionSet $
+--             newProvisionPermissionSet
+--
+--         , requestPutInlinePolicyToPermissionSet $
+--             newPutInlinePolicyToPermissionSet
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateInstanceAccessControlAttributeConfiguration $
+--             newUpdateInstanceAccessControlAttributeConfiguration
+--
+--         , requestUpdatePermissionSet $
+--             newUpdatePermissionSet
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseDescribePermissionSet $
---             newDescribePermissionSetResponse
+--         [ responseAttachManagedPolicyToPermissionSet $
+--             newAttachManagedPolicyToPermissionSetResponse
 --
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
+--         , responseCreateAccountAssignment $
+--             newCreateAccountAssignmentResponse
 --
 --         , responseCreateInstanceAccessControlAttributeConfiguration $
 --             newCreateInstanceAccessControlAttributeConfigurationResponse
 --
---         , responseGetInlinePolicyForPermissionSet $
---             newGetInlinePolicyForPermissionSetResponse
+--         , responseCreatePermissionSet $
+--             newCreatePermissionSetResponse
 --
---         , responseListPermissionSets $
---             newListPermissionSetsResponse
---
---         , responseDeletePermissionSet $
---             newDeletePermissionSetResponse
---
---         , responseUpdatePermissionSet $
---             newUpdatePermissionSetResponse
---
---         , responseProvisionPermissionSet $
---             newProvisionPermissionSetResponse
---
---         , responseListAccountAssignments $
---             newListAccountAssignmentsResponse
---
---         , responseDescribePermissionSetProvisioningStatus $
---             newDescribePermissionSetProvisioningStatusResponse
---
---         , responseAttachManagedPolicyToPermissionSet $
---             newAttachManagedPolicyToPermissionSetResponse
---
---         , responseListManagedPoliciesInPermissionSet $
---             newListManagedPoliciesInPermissionSetResponse
+--         , responseDeleteAccountAssignment $
+--             newDeleteAccountAssignmentResponse
 --
 --         , responseDeleteInlinePolicyFromPermissionSet $
 --             newDeleteInlinePolicyFromPermissionSetResponse
@@ -165,121 +144,82 @@ import Test.Tasty
 --         , responseDeleteInstanceAccessControlAttributeConfiguration $
 --             newDeleteInstanceAccessControlAttributeConfigurationResponse
 --
---         , responseUpdateInstanceAccessControlAttributeConfiguration $
---             newUpdateInstanceAccessControlAttributeConfigurationResponse
---
---         , responseDescribeAccountAssignmentDeletionStatus $
---             newDescribeAccountAssignmentDeletionStatusResponse
+--         , responseDeletePermissionSet $
+--             newDeletePermissionSetResponse
 --
 --         , responseDescribeAccountAssignmentCreationStatus $
 --             newDescribeAccountAssignmentCreationStatusResponse
 --
---         , responsePutInlinePolicyToPermissionSet $
---             newPutInlinePolicyToPermissionSetResponse
---
---         , responseListAccountsForProvisionedPermissionSet $
---             newListAccountsForProvisionedPermissionSetResponse
---
---         , responseListPermissionSetsProvisionedToAccount $
---             newListPermissionSetsProvisionedToAccountResponse
---
---         , responseDetachManagedPolicyFromPermissionSet $
---             newDetachManagedPolicyFromPermissionSetResponse
---
---         , responseListAccountAssignmentCreationStatus $
---             newListAccountAssignmentCreationStatusResponse
---
---         , responseCreatePermissionSet $
---             newCreatePermissionSetResponse
---
---         , responseListAccountAssignmentDeletionStatus $
---             newListAccountAssignmentDeletionStatusResponse
---
---         , responseTagResource $
---             newTagResourceResponse
---
---         , responseListInstances $
---             newListInstancesResponse
+--         , responseDescribeAccountAssignmentDeletionStatus $
+--             newDescribeAccountAssignmentDeletionStatusResponse
 --
 --         , responseDescribeInstanceAccessControlAttributeConfiguration $
 --             newDescribeInstanceAccessControlAttributeConfigurationResponse
 --
---         , responseUntagResource $
---             newUntagResourceResponse
+--         , responseDescribePermissionSet $
+--             newDescribePermissionSetResponse
 --
---         , responseDeleteAccountAssignment $
---             newDeleteAccountAssignmentResponse
+--         , responseDescribePermissionSetProvisioningStatus $
+--             newDescribePermissionSetProvisioningStatusResponse
+--
+--         , responseDetachManagedPolicyFromPermissionSet $
+--             newDetachManagedPolicyFromPermissionSetResponse
+--
+--         , responseGetInlinePolicyForPermissionSet $
+--             newGetInlinePolicyForPermissionSetResponse
+--
+--         , responseListAccountAssignmentCreationStatus $
+--             newListAccountAssignmentCreationStatusResponse
+--
+--         , responseListAccountAssignmentDeletionStatus $
+--             newListAccountAssignmentDeletionStatusResponse
+--
+--         , responseListAccountAssignments $
+--             newListAccountAssignmentsResponse
+--
+--         , responseListAccountsForProvisionedPermissionSet $
+--             newListAccountsForProvisionedPermissionSetResponse
+--
+--         , responseListInstances $
+--             newListInstancesResponse
+--
+--         , responseListManagedPoliciesInPermissionSet $
+--             newListManagedPoliciesInPermissionSetResponse
 --
 --         , responseListPermissionSetProvisioningStatus $
 --             newListPermissionSetProvisioningStatusResponse
 --
---         , responseCreateAccountAssignment $
---             newCreateAccountAssignmentResponse
+--         , responseListPermissionSets $
+--             newListPermissionSetsResponse
+--
+--         , responseListPermissionSetsProvisionedToAccount $
+--             newListPermissionSetsProvisionedToAccountResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseProvisionPermissionSet $
+--             newProvisionPermissionSetResponse
+--
+--         , responsePutInlinePolicyToPermissionSet $
+--             newPutInlinePolicyToPermissionSetResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseUpdateInstanceAccessControlAttributeConfiguration $
+--             newUpdateInstanceAccessControlAttributeConfigurationResponse
+--
+--         , responseUpdatePermissionSet $
+--             newUpdatePermissionSetResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestDescribePermissionSet :: DescribePermissionSet -> TestTree
-requestDescribePermissionSet =
-  req
-    "DescribePermissionSet"
-    "fixture/DescribePermissionSet.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestCreateInstanceAccessControlAttributeConfiguration :: CreateInstanceAccessControlAttributeConfiguration -> TestTree
-requestCreateInstanceAccessControlAttributeConfiguration =
-  req
-    "CreateInstanceAccessControlAttributeConfiguration"
-    "fixture/CreateInstanceAccessControlAttributeConfiguration.yaml"
-
-requestGetInlinePolicyForPermissionSet :: GetInlinePolicyForPermissionSet -> TestTree
-requestGetInlinePolicyForPermissionSet =
-  req
-    "GetInlinePolicyForPermissionSet"
-    "fixture/GetInlinePolicyForPermissionSet.yaml"
-
-requestListPermissionSets :: ListPermissionSets -> TestTree
-requestListPermissionSets =
-  req
-    "ListPermissionSets"
-    "fixture/ListPermissionSets.yaml"
-
-requestDeletePermissionSet :: DeletePermissionSet -> TestTree
-requestDeletePermissionSet =
-  req
-    "DeletePermissionSet"
-    "fixture/DeletePermissionSet.yaml"
-
-requestUpdatePermissionSet :: UpdatePermissionSet -> TestTree
-requestUpdatePermissionSet =
-  req
-    "UpdatePermissionSet"
-    "fixture/UpdatePermissionSet.yaml"
-
-requestProvisionPermissionSet :: ProvisionPermissionSet -> TestTree
-requestProvisionPermissionSet =
-  req
-    "ProvisionPermissionSet"
-    "fixture/ProvisionPermissionSet.yaml"
-
-requestListAccountAssignments :: ListAccountAssignments -> TestTree
-requestListAccountAssignments =
-  req
-    "ListAccountAssignments"
-    "fixture/ListAccountAssignments.yaml"
-
-requestDescribePermissionSetProvisioningStatus :: DescribePermissionSetProvisioningStatus -> TestTree
-requestDescribePermissionSetProvisioningStatus =
-  req
-    "DescribePermissionSetProvisioningStatus"
-    "fixture/DescribePermissionSetProvisioningStatus.yaml"
 
 requestAttachManagedPolicyToPermissionSet :: AttachManagedPolicyToPermissionSet -> TestTree
 requestAttachManagedPolicyToPermissionSet =
@@ -287,11 +227,29 @@ requestAttachManagedPolicyToPermissionSet =
     "AttachManagedPolicyToPermissionSet"
     "fixture/AttachManagedPolicyToPermissionSet.yaml"
 
-requestListManagedPoliciesInPermissionSet :: ListManagedPoliciesInPermissionSet -> TestTree
-requestListManagedPoliciesInPermissionSet =
+requestCreateAccountAssignment :: CreateAccountAssignment -> TestTree
+requestCreateAccountAssignment =
   req
-    "ListManagedPoliciesInPermissionSet"
-    "fixture/ListManagedPoliciesInPermissionSet.yaml"
+    "CreateAccountAssignment"
+    "fixture/CreateAccountAssignment.yaml"
+
+requestCreateInstanceAccessControlAttributeConfiguration :: CreateInstanceAccessControlAttributeConfiguration -> TestTree
+requestCreateInstanceAccessControlAttributeConfiguration =
+  req
+    "CreateInstanceAccessControlAttributeConfiguration"
+    "fixture/CreateInstanceAccessControlAttributeConfiguration.yaml"
+
+requestCreatePermissionSet :: CreatePermissionSet -> TestTree
+requestCreatePermissionSet =
+  req
+    "CreatePermissionSet"
+    "fixture/CreatePermissionSet.yaml"
+
+requestDeleteAccountAssignment :: DeleteAccountAssignment -> TestTree
+requestDeleteAccountAssignment =
+  req
+    "DeleteAccountAssignment"
+    "fixture/DeleteAccountAssignment.yaml"
 
 requestDeleteInlinePolicyFromPermissionSet :: DeleteInlinePolicyFromPermissionSet -> TestTree
 requestDeleteInlinePolicyFromPermissionSet =
@@ -305,17 +263,11 @@ requestDeleteInstanceAccessControlAttributeConfiguration =
     "DeleteInstanceAccessControlAttributeConfiguration"
     "fixture/DeleteInstanceAccessControlAttributeConfiguration.yaml"
 
-requestUpdateInstanceAccessControlAttributeConfiguration :: UpdateInstanceAccessControlAttributeConfiguration -> TestTree
-requestUpdateInstanceAccessControlAttributeConfiguration =
+requestDeletePermissionSet :: DeletePermissionSet -> TestTree
+requestDeletePermissionSet =
   req
-    "UpdateInstanceAccessControlAttributeConfiguration"
-    "fixture/UpdateInstanceAccessControlAttributeConfiguration.yaml"
-
-requestDescribeAccountAssignmentDeletionStatus :: DescribeAccountAssignmentDeletionStatus -> TestTree
-requestDescribeAccountAssignmentDeletionStatus =
-  req
-    "DescribeAccountAssignmentDeletionStatus"
-    "fixture/DescribeAccountAssignmentDeletionStatus.yaml"
+    "DeletePermissionSet"
+    "fixture/DeletePermissionSet.yaml"
 
 requestDescribeAccountAssignmentCreationStatus :: DescribeAccountAssignmentCreationStatus -> TestTree
 requestDescribeAccountAssignmentCreationStatus =
@@ -323,59 +275,11 @@ requestDescribeAccountAssignmentCreationStatus =
     "DescribeAccountAssignmentCreationStatus"
     "fixture/DescribeAccountAssignmentCreationStatus.yaml"
 
-requestPutInlinePolicyToPermissionSet :: PutInlinePolicyToPermissionSet -> TestTree
-requestPutInlinePolicyToPermissionSet =
+requestDescribeAccountAssignmentDeletionStatus :: DescribeAccountAssignmentDeletionStatus -> TestTree
+requestDescribeAccountAssignmentDeletionStatus =
   req
-    "PutInlinePolicyToPermissionSet"
-    "fixture/PutInlinePolicyToPermissionSet.yaml"
-
-requestListAccountsForProvisionedPermissionSet :: ListAccountsForProvisionedPermissionSet -> TestTree
-requestListAccountsForProvisionedPermissionSet =
-  req
-    "ListAccountsForProvisionedPermissionSet"
-    "fixture/ListAccountsForProvisionedPermissionSet.yaml"
-
-requestListPermissionSetsProvisionedToAccount :: ListPermissionSetsProvisionedToAccount -> TestTree
-requestListPermissionSetsProvisionedToAccount =
-  req
-    "ListPermissionSetsProvisionedToAccount"
-    "fixture/ListPermissionSetsProvisionedToAccount.yaml"
-
-requestDetachManagedPolicyFromPermissionSet :: DetachManagedPolicyFromPermissionSet -> TestTree
-requestDetachManagedPolicyFromPermissionSet =
-  req
-    "DetachManagedPolicyFromPermissionSet"
-    "fixture/DetachManagedPolicyFromPermissionSet.yaml"
-
-requestListAccountAssignmentCreationStatus :: ListAccountAssignmentCreationStatus -> TestTree
-requestListAccountAssignmentCreationStatus =
-  req
-    "ListAccountAssignmentCreationStatus"
-    "fixture/ListAccountAssignmentCreationStatus.yaml"
-
-requestCreatePermissionSet :: CreatePermissionSet -> TestTree
-requestCreatePermissionSet =
-  req
-    "CreatePermissionSet"
-    "fixture/CreatePermissionSet.yaml"
-
-requestListAccountAssignmentDeletionStatus :: ListAccountAssignmentDeletionStatus -> TestTree
-requestListAccountAssignmentDeletionStatus =
-  req
-    "ListAccountAssignmentDeletionStatus"
-    "fixture/ListAccountAssignmentDeletionStatus.yaml"
-
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
-
-requestListInstances :: ListInstances -> TestTree
-requestListInstances =
-  req
-    "ListInstances"
-    "fixture/ListInstances.yaml"
+    "DescribeAccountAssignmentDeletionStatus"
+    "fixture/DescribeAccountAssignmentDeletionStatus.yaml"
 
 requestDescribeInstanceAccessControlAttributeConfiguration :: DescribeInstanceAccessControlAttributeConfiguration -> TestTree
 requestDescribeInstanceAccessControlAttributeConfiguration =
@@ -383,17 +287,65 @@ requestDescribeInstanceAccessControlAttributeConfiguration =
     "DescribeInstanceAccessControlAttributeConfiguration"
     "fixture/DescribeInstanceAccessControlAttributeConfiguration.yaml"
 
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
+requestDescribePermissionSet :: DescribePermissionSet -> TestTree
+requestDescribePermissionSet =
   req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
+    "DescribePermissionSet"
+    "fixture/DescribePermissionSet.yaml"
 
-requestDeleteAccountAssignment :: DeleteAccountAssignment -> TestTree
-requestDeleteAccountAssignment =
+requestDescribePermissionSetProvisioningStatus :: DescribePermissionSetProvisioningStatus -> TestTree
+requestDescribePermissionSetProvisioningStatus =
   req
-    "DeleteAccountAssignment"
-    "fixture/DeleteAccountAssignment.yaml"
+    "DescribePermissionSetProvisioningStatus"
+    "fixture/DescribePermissionSetProvisioningStatus.yaml"
+
+requestDetachManagedPolicyFromPermissionSet :: DetachManagedPolicyFromPermissionSet -> TestTree
+requestDetachManagedPolicyFromPermissionSet =
+  req
+    "DetachManagedPolicyFromPermissionSet"
+    "fixture/DetachManagedPolicyFromPermissionSet.yaml"
+
+requestGetInlinePolicyForPermissionSet :: GetInlinePolicyForPermissionSet -> TestTree
+requestGetInlinePolicyForPermissionSet =
+  req
+    "GetInlinePolicyForPermissionSet"
+    "fixture/GetInlinePolicyForPermissionSet.yaml"
+
+requestListAccountAssignmentCreationStatus :: ListAccountAssignmentCreationStatus -> TestTree
+requestListAccountAssignmentCreationStatus =
+  req
+    "ListAccountAssignmentCreationStatus"
+    "fixture/ListAccountAssignmentCreationStatus.yaml"
+
+requestListAccountAssignmentDeletionStatus :: ListAccountAssignmentDeletionStatus -> TestTree
+requestListAccountAssignmentDeletionStatus =
+  req
+    "ListAccountAssignmentDeletionStatus"
+    "fixture/ListAccountAssignmentDeletionStatus.yaml"
+
+requestListAccountAssignments :: ListAccountAssignments -> TestTree
+requestListAccountAssignments =
+  req
+    "ListAccountAssignments"
+    "fixture/ListAccountAssignments.yaml"
+
+requestListAccountsForProvisionedPermissionSet :: ListAccountsForProvisionedPermissionSet -> TestTree
+requestListAccountsForProvisionedPermissionSet =
+  req
+    "ListAccountsForProvisionedPermissionSet"
+    "fixture/ListAccountsForProvisionedPermissionSet.yaml"
+
+requestListInstances :: ListInstances -> TestTree
+requestListInstances =
+  req
+    "ListInstances"
+    "fixture/ListInstances.yaml"
+
+requestListManagedPoliciesInPermissionSet :: ListManagedPoliciesInPermissionSet -> TestTree
+requestListManagedPoliciesInPermissionSet =
+  req
+    "ListManagedPoliciesInPermissionSet"
+    "fixture/ListManagedPoliciesInPermissionSet.yaml"
 
 requestListPermissionSetProvisioningStatus :: ListPermissionSetProvisioningStatus -> TestTree
 requestListPermissionSetProvisioningStatus =
@@ -401,93 +353,61 @@ requestListPermissionSetProvisioningStatus =
     "ListPermissionSetProvisioningStatus"
     "fixture/ListPermissionSetProvisioningStatus.yaml"
 
-requestCreateAccountAssignment :: CreateAccountAssignment -> TestTree
-requestCreateAccountAssignment =
+requestListPermissionSets :: ListPermissionSets -> TestTree
+requestListPermissionSets =
   req
-    "CreateAccountAssignment"
-    "fixture/CreateAccountAssignment.yaml"
+    "ListPermissionSets"
+    "fixture/ListPermissionSets.yaml"
+
+requestListPermissionSetsProvisionedToAccount :: ListPermissionSetsProvisionedToAccount -> TestTree
+requestListPermissionSetsProvisionedToAccount =
+  req
+    "ListPermissionSetsProvisionedToAccount"
+    "fixture/ListPermissionSetsProvisionedToAccount.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestProvisionPermissionSet :: ProvisionPermissionSet -> TestTree
+requestProvisionPermissionSet =
+  req
+    "ProvisionPermissionSet"
+    "fixture/ProvisionPermissionSet.yaml"
+
+requestPutInlinePolicyToPermissionSet :: PutInlinePolicyToPermissionSet -> TestTree
+requestPutInlinePolicyToPermissionSet =
+  req
+    "PutInlinePolicyToPermissionSet"
+    "fixture/PutInlinePolicyToPermissionSet.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateInstanceAccessControlAttributeConfiguration :: UpdateInstanceAccessControlAttributeConfiguration -> TestTree
+requestUpdateInstanceAccessControlAttributeConfiguration =
+  req
+    "UpdateInstanceAccessControlAttributeConfiguration"
+    "fixture/UpdateInstanceAccessControlAttributeConfiguration.yaml"
+
+requestUpdatePermissionSet :: UpdatePermissionSet -> TestTree
+requestUpdatePermissionSet =
+  req
+    "UpdatePermissionSet"
+    "fixture/UpdatePermissionSet.yaml"
 
 -- Responses
-
-responseDescribePermissionSet :: DescribePermissionSetResponse -> TestTree
-responseDescribePermissionSet =
-  res
-    "DescribePermissionSetResponse"
-    "fixture/DescribePermissionSetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribePermissionSet)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseCreateInstanceAccessControlAttributeConfiguration :: CreateInstanceAccessControlAttributeConfigurationResponse -> TestTree
-responseCreateInstanceAccessControlAttributeConfiguration =
-  res
-    "CreateInstanceAccessControlAttributeConfigurationResponse"
-    "fixture/CreateInstanceAccessControlAttributeConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateInstanceAccessControlAttributeConfiguration)
-
-responseGetInlinePolicyForPermissionSet :: GetInlinePolicyForPermissionSetResponse -> TestTree
-responseGetInlinePolicyForPermissionSet =
-  res
-    "GetInlinePolicyForPermissionSetResponse"
-    "fixture/GetInlinePolicyForPermissionSetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetInlinePolicyForPermissionSet)
-
-responseListPermissionSets :: ListPermissionSetsResponse -> TestTree
-responseListPermissionSets =
-  res
-    "ListPermissionSetsResponse"
-    "fixture/ListPermissionSetsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListPermissionSets)
-
-responseDeletePermissionSet :: DeletePermissionSetResponse -> TestTree
-responseDeletePermissionSet =
-  res
-    "DeletePermissionSetResponse"
-    "fixture/DeletePermissionSetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeletePermissionSet)
-
-responseUpdatePermissionSet :: UpdatePermissionSetResponse -> TestTree
-responseUpdatePermissionSet =
-  res
-    "UpdatePermissionSetResponse"
-    "fixture/UpdatePermissionSetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdatePermissionSet)
-
-responseProvisionPermissionSet :: ProvisionPermissionSetResponse -> TestTree
-responseProvisionPermissionSet =
-  res
-    "ProvisionPermissionSetResponse"
-    "fixture/ProvisionPermissionSetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ProvisionPermissionSet)
-
-responseListAccountAssignments :: ListAccountAssignmentsResponse -> TestTree
-responseListAccountAssignments =
-  res
-    "ListAccountAssignmentsResponse"
-    "fixture/ListAccountAssignmentsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAccountAssignments)
-
-responseDescribePermissionSetProvisioningStatus :: DescribePermissionSetProvisioningStatusResponse -> TestTree
-responseDescribePermissionSetProvisioningStatus =
-  res
-    "DescribePermissionSetProvisioningStatusResponse"
-    "fixture/DescribePermissionSetProvisioningStatusResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribePermissionSetProvisioningStatus)
 
 responseAttachManagedPolicyToPermissionSet :: AttachManagedPolicyToPermissionSetResponse -> TestTree
 responseAttachManagedPolicyToPermissionSet =
@@ -497,13 +417,37 @@ responseAttachManagedPolicyToPermissionSet =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AttachManagedPolicyToPermissionSet)
 
-responseListManagedPoliciesInPermissionSet :: ListManagedPoliciesInPermissionSetResponse -> TestTree
-responseListManagedPoliciesInPermissionSet =
+responseCreateAccountAssignment :: CreateAccountAssignmentResponse -> TestTree
+responseCreateAccountAssignment =
   res
-    "ListManagedPoliciesInPermissionSetResponse"
-    "fixture/ListManagedPoliciesInPermissionSetResponse.proto"
+    "CreateAccountAssignmentResponse"
+    "fixture/CreateAccountAssignmentResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListManagedPoliciesInPermissionSet)
+    (Proxy.Proxy :: Proxy.Proxy CreateAccountAssignment)
+
+responseCreateInstanceAccessControlAttributeConfiguration :: CreateInstanceAccessControlAttributeConfigurationResponse -> TestTree
+responseCreateInstanceAccessControlAttributeConfiguration =
+  res
+    "CreateInstanceAccessControlAttributeConfigurationResponse"
+    "fixture/CreateInstanceAccessControlAttributeConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateInstanceAccessControlAttributeConfiguration)
+
+responseCreatePermissionSet :: CreatePermissionSetResponse -> TestTree
+responseCreatePermissionSet =
+  res
+    "CreatePermissionSetResponse"
+    "fixture/CreatePermissionSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreatePermissionSet)
+
+responseDeleteAccountAssignment :: DeleteAccountAssignmentResponse -> TestTree
+responseDeleteAccountAssignment =
+  res
+    "DeleteAccountAssignmentResponse"
+    "fixture/DeleteAccountAssignmentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAccountAssignment)
 
 responseDeleteInlinePolicyFromPermissionSet :: DeleteInlinePolicyFromPermissionSetResponse -> TestTree
 responseDeleteInlinePolicyFromPermissionSet =
@@ -521,21 +465,13 @@ responseDeleteInstanceAccessControlAttributeConfiguration =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteInstanceAccessControlAttributeConfiguration)
 
-responseUpdateInstanceAccessControlAttributeConfiguration :: UpdateInstanceAccessControlAttributeConfigurationResponse -> TestTree
-responseUpdateInstanceAccessControlAttributeConfiguration =
+responseDeletePermissionSet :: DeletePermissionSetResponse -> TestTree
+responseDeletePermissionSet =
   res
-    "UpdateInstanceAccessControlAttributeConfigurationResponse"
-    "fixture/UpdateInstanceAccessControlAttributeConfigurationResponse.proto"
+    "DeletePermissionSetResponse"
+    "fixture/DeletePermissionSetResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateInstanceAccessControlAttributeConfiguration)
-
-responseDescribeAccountAssignmentDeletionStatus :: DescribeAccountAssignmentDeletionStatusResponse -> TestTree
-responseDescribeAccountAssignmentDeletionStatus =
-  res
-    "DescribeAccountAssignmentDeletionStatusResponse"
-    "fixture/DescribeAccountAssignmentDeletionStatusResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeAccountAssignmentDeletionStatus)
+    (Proxy.Proxy :: Proxy.Proxy DeletePermissionSet)
 
 responseDescribeAccountAssignmentCreationStatus :: DescribeAccountAssignmentCreationStatusResponse -> TestTree
 responseDescribeAccountAssignmentCreationStatus =
@@ -545,77 +481,13 @@ responseDescribeAccountAssignmentCreationStatus =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeAccountAssignmentCreationStatus)
 
-responsePutInlinePolicyToPermissionSet :: PutInlinePolicyToPermissionSetResponse -> TestTree
-responsePutInlinePolicyToPermissionSet =
+responseDescribeAccountAssignmentDeletionStatus :: DescribeAccountAssignmentDeletionStatusResponse -> TestTree
+responseDescribeAccountAssignmentDeletionStatus =
   res
-    "PutInlinePolicyToPermissionSetResponse"
-    "fixture/PutInlinePolicyToPermissionSetResponse.proto"
+    "DescribeAccountAssignmentDeletionStatusResponse"
+    "fixture/DescribeAccountAssignmentDeletionStatusResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutInlinePolicyToPermissionSet)
-
-responseListAccountsForProvisionedPermissionSet :: ListAccountsForProvisionedPermissionSetResponse -> TestTree
-responseListAccountsForProvisionedPermissionSet =
-  res
-    "ListAccountsForProvisionedPermissionSetResponse"
-    "fixture/ListAccountsForProvisionedPermissionSetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAccountsForProvisionedPermissionSet)
-
-responseListPermissionSetsProvisionedToAccount :: ListPermissionSetsProvisionedToAccountResponse -> TestTree
-responseListPermissionSetsProvisionedToAccount =
-  res
-    "ListPermissionSetsProvisionedToAccountResponse"
-    "fixture/ListPermissionSetsProvisionedToAccountResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListPermissionSetsProvisionedToAccount)
-
-responseDetachManagedPolicyFromPermissionSet :: DetachManagedPolicyFromPermissionSetResponse -> TestTree
-responseDetachManagedPolicyFromPermissionSet =
-  res
-    "DetachManagedPolicyFromPermissionSetResponse"
-    "fixture/DetachManagedPolicyFromPermissionSetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DetachManagedPolicyFromPermissionSet)
-
-responseListAccountAssignmentCreationStatus :: ListAccountAssignmentCreationStatusResponse -> TestTree
-responseListAccountAssignmentCreationStatus =
-  res
-    "ListAccountAssignmentCreationStatusResponse"
-    "fixture/ListAccountAssignmentCreationStatusResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAccountAssignmentCreationStatus)
-
-responseCreatePermissionSet :: CreatePermissionSetResponse -> TestTree
-responseCreatePermissionSet =
-  res
-    "CreatePermissionSetResponse"
-    "fixture/CreatePermissionSetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreatePermissionSet)
-
-responseListAccountAssignmentDeletionStatus :: ListAccountAssignmentDeletionStatusResponse -> TestTree
-responseListAccountAssignmentDeletionStatus =
-  res
-    "ListAccountAssignmentDeletionStatusResponse"
-    "fixture/ListAccountAssignmentDeletionStatusResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAccountAssignmentDeletionStatus)
-
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
-
-responseListInstances :: ListInstancesResponse -> TestTree
-responseListInstances =
-  res
-    "ListInstancesResponse"
-    "fixture/ListInstancesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListInstances)
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccountAssignmentDeletionStatus)
 
 responseDescribeInstanceAccessControlAttributeConfiguration :: DescribeInstanceAccessControlAttributeConfigurationResponse -> TestTree
 responseDescribeInstanceAccessControlAttributeConfiguration =
@@ -625,21 +497,85 @@ responseDescribeInstanceAccessControlAttributeConfiguration =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeInstanceAccessControlAttributeConfiguration)
 
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
+responseDescribePermissionSet :: DescribePermissionSetResponse -> TestTree
+responseDescribePermissionSet =
   res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
+    "DescribePermissionSetResponse"
+    "fixture/DescribePermissionSetResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy DescribePermissionSet)
 
-responseDeleteAccountAssignment :: DeleteAccountAssignmentResponse -> TestTree
-responseDeleteAccountAssignment =
+responseDescribePermissionSetProvisioningStatus :: DescribePermissionSetProvisioningStatusResponse -> TestTree
+responseDescribePermissionSetProvisioningStatus =
   res
-    "DeleteAccountAssignmentResponse"
-    "fixture/DeleteAccountAssignmentResponse.proto"
+    "DescribePermissionSetProvisioningStatusResponse"
+    "fixture/DescribePermissionSetProvisioningStatusResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteAccountAssignment)
+    (Proxy.Proxy :: Proxy.Proxy DescribePermissionSetProvisioningStatus)
+
+responseDetachManagedPolicyFromPermissionSet :: DetachManagedPolicyFromPermissionSetResponse -> TestTree
+responseDetachManagedPolicyFromPermissionSet =
+  res
+    "DetachManagedPolicyFromPermissionSetResponse"
+    "fixture/DetachManagedPolicyFromPermissionSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DetachManagedPolicyFromPermissionSet)
+
+responseGetInlinePolicyForPermissionSet :: GetInlinePolicyForPermissionSetResponse -> TestTree
+responseGetInlinePolicyForPermissionSet =
+  res
+    "GetInlinePolicyForPermissionSetResponse"
+    "fixture/GetInlinePolicyForPermissionSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetInlinePolicyForPermissionSet)
+
+responseListAccountAssignmentCreationStatus :: ListAccountAssignmentCreationStatusResponse -> TestTree
+responseListAccountAssignmentCreationStatus =
+  res
+    "ListAccountAssignmentCreationStatusResponse"
+    "fixture/ListAccountAssignmentCreationStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAccountAssignmentCreationStatus)
+
+responseListAccountAssignmentDeletionStatus :: ListAccountAssignmentDeletionStatusResponse -> TestTree
+responseListAccountAssignmentDeletionStatus =
+  res
+    "ListAccountAssignmentDeletionStatusResponse"
+    "fixture/ListAccountAssignmentDeletionStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAccountAssignmentDeletionStatus)
+
+responseListAccountAssignments :: ListAccountAssignmentsResponse -> TestTree
+responseListAccountAssignments =
+  res
+    "ListAccountAssignmentsResponse"
+    "fixture/ListAccountAssignmentsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAccountAssignments)
+
+responseListAccountsForProvisionedPermissionSet :: ListAccountsForProvisionedPermissionSetResponse -> TestTree
+responseListAccountsForProvisionedPermissionSet =
+  res
+    "ListAccountsForProvisionedPermissionSetResponse"
+    "fixture/ListAccountsForProvisionedPermissionSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAccountsForProvisionedPermissionSet)
+
+responseListInstances :: ListInstancesResponse -> TestTree
+responseListInstances =
+  res
+    "ListInstancesResponse"
+    "fixture/ListInstancesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListInstances)
+
+responseListManagedPoliciesInPermissionSet :: ListManagedPoliciesInPermissionSetResponse -> TestTree
+responseListManagedPoliciesInPermissionSet =
+  res
+    "ListManagedPoliciesInPermissionSetResponse"
+    "fixture/ListManagedPoliciesInPermissionSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListManagedPoliciesInPermissionSet)
 
 responseListPermissionSetProvisioningStatus :: ListPermissionSetProvisioningStatusResponse -> TestTree
 responseListPermissionSetProvisioningStatus =
@@ -649,10 +585,74 @@ responseListPermissionSetProvisioningStatus =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListPermissionSetProvisioningStatus)
 
-responseCreateAccountAssignment :: CreateAccountAssignmentResponse -> TestTree
-responseCreateAccountAssignment =
+responseListPermissionSets :: ListPermissionSetsResponse -> TestTree
+responseListPermissionSets =
   res
-    "CreateAccountAssignmentResponse"
-    "fixture/CreateAccountAssignmentResponse.proto"
+    "ListPermissionSetsResponse"
+    "fixture/ListPermissionSetsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateAccountAssignment)
+    (Proxy.Proxy :: Proxy.Proxy ListPermissionSets)
+
+responseListPermissionSetsProvisionedToAccount :: ListPermissionSetsProvisionedToAccountResponse -> TestTree
+responseListPermissionSetsProvisionedToAccount =
+  res
+    "ListPermissionSetsProvisionedToAccountResponse"
+    "fixture/ListPermissionSetsProvisionedToAccountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListPermissionSetsProvisionedToAccount)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseProvisionPermissionSet :: ProvisionPermissionSetResponse -> TestTree
+responseProvisionPermissionSet =
+  res
+    "ProvisionPermissionSetResponse"
+    "fixture/ProvisionPermissionSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ProvisionPermissionSet)
+
+responsePutInlinePolicyToPermissionSet :: PutInlinePolicyToPermissionSetResponse -> TestTree
+responsePutInlinePolicyToPermissionSet =
+  res
+    "PutInlinePolicyToPermissionSetResponse"
+    "fixture/PutInlinePolicyToPermissionSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutInlinePolicyToPermissionSet)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateInstanceAccessControlAttributeConfiguration :: UpdateInstanceAccessControlAttributeConfigurationResponse -> TestTree
+responseUpdateInstanceAccessControlAttributeConfiguration =
+  res
+    "UpdateInstanceAccessControlAttributeConfigurationResponse"
+    "fixture/UpdateInstanceAccessControlAttributeConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateInstanceAccessControlAttributeConfiguration)
+
+responseUpdatePermissionSet :: UpdatePermissionSetResponse -> TestTree
+responseUpdatePermissionSet =
+  res
+    "UpdatePermissionSetResponse"
+    "fixture/UpdatePermissionSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdatePermissionSet)

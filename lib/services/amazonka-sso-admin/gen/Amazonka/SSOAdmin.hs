@@ -30,26 +30,26 @@ module Amazonka.SSOAdmin
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
 
     -- ** InternalServerException
     _InternalServerException,
 
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -57,17 +57,17 @@ module Amazonka.SSOAdmin
     -- * Operations
     -- $operations
 
-    -- ** DescribePermissionSet
-    DescribePermissionSet (DescribePermissionSet'),
-    newDescribePermissionSet,
-    DescribePermissionSetResponse (DescribePermissionSetResponse'),
-    newDescribePermissionSetResponse,
+    -- ** AttachManagedPolicyToPermissionSet
+    AttachManagedPolicyToPermissionSet (AttachManagedPolicyToPermissionSet'),
+    newAttachManagedPolicyToPermissionSet,
+    AttachManagedPolicyToPermissionSetResponse (AttachManagedPolicyToPermissionSetResponse'),
+    newAttachManagedPolicyToPermissionSetResponse,
 
-    -- ** ListTagsForResource (Paginated)
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** CreateAccountAssignment
+    CreateAccountAssignment (CreateAccountAssignment'),
+    newCreateAccountAssignment,
+    CreateAccountAssignmentResponse (CreateAccountAssignmentResponse'),
+    newCreateAccountAssignmentResponse,
 
     -- ** CreateInstanceAccessControlAttributeConfiguration
     CreateInstanceAccessControlAttributeConfiguration (CreateInstanceAccessControlAttributeConfiguration'),
@@ -75,59 +75,17 @@ module Amazonka.SSOAdmin
     CreateInstanceAccessControlAttributeConfigurationResponse (CreateInstanceAccessControlAttributeConfigurationResponse'),
     newCreateInstanceAccessControlAttributeConfigurationResponse,
 
-    -- ** GetInlinePolicyForPermissionSet
-    GetInlinePolicyForPermissionSet (GetInlinePolicyForPermissionSet'),
-    newGetInlinePolicyForPermissionSet,
-    GetInlinePolicyForPermissionSetResponse (GetInlinePolicyForPermissionSetResponse'),
-    newGetInlinePolicyForPermissionSetResponse,
+    -- ** CreatePermissionSet
+    CreatePermissionSet (CreatePermissionSet'),
+    newCreatePermissionSet,
+    CreatePermissionSetResponse (CreatePermissionSetResponse'),
+    newCreatePermissionSetResponse,
 
-    -- ** ListPermissionSets (Paginated)
-    ListPermissionSets (ListPermissionSets'),
-    newListPermissionSets,
-    ListPermissionSetsResponse (ListPermissionSetsResponse'),
-    newListPermissionSetsResponse,
-
-    -- ** DeletePermissionSet
-    DeletePermissionSet (DeletePermissionSet'),
-    newDeletePermissionSet,
-    DeletePermissionSetResponse (DeletePermissionSetResponse'),
-    newDeletePermissionSetResponse,
-
-    -- ** UpdatePermissionSet
-    UpdatePermissionSet (UpdatePermissionSet'),
-    newUpdatePermissionSet,
-    UpdatePermissionSetResponse (UpdatePermissionSetResponse'),
-    newUpdatePermissionSetResponse,
-
-    -- ** ProvisionPermissionSet
-    ProvisionPermissionSet (ProvisionPermissionSet'),
-    newProvisionPermissionSet,
-    ProvisionPermissionSetResponse (ProvisionPermissionSetResponse'),
-    newProvisionPermissionSetResponse,
-
-    -- ** ListAccountAssignments (Paginated)
-    ListAccountAssignments (ListAccountAssignments'),
-    newListAccountAssignments,
-    ListAccountAssignmentsResponse (ListAccountAssignmentsResponse'),
-    newListAccountAssignmentsResponse,
-
-    -- ** DescribePermissionSetProvisioningStatus
-    DescribePermissionSetProvisioningStatus (DescribePermissionSetProvisioningStatus'),
-    newDescribePermissionSetProvisioningStatus,
-    DescribePermissionSetProvisioningStatusResponse (DescribePermissionSetProvisioningStatusResponse'),
-    newDescribePermissionSetProvisioningStatusResponse,
-
-    -- ** AttachManagedPolicyToPermissionSet
-    AttachManagedPolicyToPermissionSet (AttachManagedPolicyToPermissionSet'),
-    newAttachManagedPolicyToPermissionSet,
-    AttachManagedPolicyToPermissionSetResponse (AttachManagedPolicyToPermissionSetResponse'),
-    newAttachManagedPolicyToPermissionSetResponse,
-
-    -- ** ListManagedPoliciesInPermissionSet (Paginated)
-    ListManagedPoliciesInPermissionSet (ListManagedPoliciesInPermissionSet'),
-    newListManagedPoliciesInPermissionSet,
-    ListManagedPoliciesInPermissionSetResponse (ListManagedPoliciesInPermissionSetResponse'),
-    newListManagedPoliciesInPermissionSetResponse,
+    -- ** DeleteAccountAssignment
+    DeleteAccountAssignment (DeleteAccountAssignment'),
+    newDeleteAccountAssignment,
+    DeleteAccountAssignmentResponse (DeleteAccountAssignmentResponse'),
+    newDeleteAccountAssignmentResponse,
 
     -- ** DeleteInlinePolicyFromPermissionSet
     DeleteInlinePolicyFromPermissionSet (DeleteInlinePolicyFromPermissionSet'),
@@ -141,17 +99,11 @@ module Amazonka.SSOAdmin
     DeleteInstanceAccessControlAttributeConfigurationResponse (DeleteInstanceAccessControlAttributeConfigurationResponse'),
     newDeleteInstanceAccessControlAttributeConfigurationResponse,
 
-    -- ** UpdateInstanceAccessControlAttributeConfiguration
-    UpdateInstanceAccessControlAttributeConfiguration (UpdateInstanceAccessControlAttributeConfiguration'),
-    newUpdateInstanceAccessControlAttributeConfiguration,
-    UpdateInstanceAccessControlAttributeConfigurationResponse (UpdateInstanceAccessControlAttributeConfigurationResponse'),
-    newUpdateInstanceAccessControlAttributeConfigurationResponse,
-
-    -- ** DescribeAccountAssignmentDeletionStatus
-    DescribeAccountAssignmentDeletionStatus (DescribeAccountAssignmentDeletionStatus'),
-    newDescribeAccountAssignmentDeletionStatus,
-    DescribeAccountAssignmentDeletionStatusResponse (DescribeAccountAssignmentDeletionStatusResponse'),
-    newDescribeAccountAssignmentDeletionStatusResponse,
+    -- ** DeletePermissionSet
+    DeletePermissionSet (DeletePermissionSet'),
+    newDeletePermissionSet,
+    DeletePermissionSetResponse (DeletePermissionSetResponse'),
+    newDeletePermissionSetResponse,
 
     -- ** DescribeAccountAssignmentCreationStatus
     DescribeAccountAssignmentCreationStatus (DescribeAccountAssignmentCreationStatus'),
@@ -159,59 +111,11 @@ module Amazonka.SSOAdmin
     DescribeAccountAssignmentCreationStatusResponse (DescribeAccountAssignmentCreationStatusResponse'),
     newDescribeAccountAssignmentCreationStatusResponse,
 
-    -- ** PutInlinePolicyToPermissionSet
-    PutInlinePolicyToPermissionSet (PutInlinePolicyToPermissionSet'),
-    newPutInlinePolicyToPermissionSet,
-    PutInlinePolicyToPermissionSetResponse (PutInlinePolicyToPermissionSetResponse'),
-    newPutInlinePolicyToPermissionSetResponse,
-
-    -- ** ListAccountsForProvisionedPermissionSet (Paginated)
-    ListAccountsForProvisionedPermissionSet (ListAccountsForProvisionedPermissionSet'),
-    newListAccountsForProvisionedPermissionSet,
-    ListAccountsForProvisionedPermissionSetResponse (ListAccountsForProvisionedPermissionSetResponse'),
-    newListAccountsForProvisionedPermissionSetResponse,
-
-    -- ** ListPermissionSetsProvisionedToAccount (Paginated)
-    ListPermissionSetsProvisionedToAccount (ListPermissionSetsProvisionedToAccount'),
-    newListPermissionSetsProvisionedToAccount,
-    ListPermissionSetsProvisionedToAccountResponse (ListPermissionSetsProvisionedToAccountResponse'),
-    newListPermissionSetsProvisionedToAccountResponse,
-
-    -- ** DetachManagedPolicyFromPermissionSet
-    DetachManagedPolicyFromPermissionSet (DetachManagedPolicyFromPermissionSet'),
-    newDetachManagedPolicyFromPermissionSet,
-    DetachManagedPolicyFromPermissionSetResponse (DetachManagedPolicyFromPermissionSetResponse'),
-    newDetachManagedPolicyFromPermissionSetResponse,
-
-    -- ** ListAccountAssignmentCreationStatus (Paginated)
-    ListAccountAssignmentCreationStatus (ListAccountAssignmentCreationStatus'),
-    newListAccountAssignmentCreationStatus,
-    ListAccountAssignmentCreationStatusResponse (ListAccountAssignmentCreationStatusResponse'),
-    newListAccountAssignmentCreationStatusResponse,
-
-    -- ** CreatePermissionSet
-    CreatePermissionSet (CreatePermissionSet'),
-    newCreatePermissionSet,
-    CreatePermissionSetResponse (CreatePermissionSetResponse'),
-    newCreatePermissionSetResponse,
-
-    -- ** ListAccountAssignmentDeletionStatus (Paginated)
-    ListAccountAssignmentDeletionStatus (ListAccountAssignmentDeletionStatus'),
-    newListAccountAssignmentDeletionStatus,
-    ListAccountAssignmentDeletionStatusResponse (ListAccountAssignmentDeletionStatusResponse'),
-    newListAccountAssignmentDeletionStatusResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** ListInstances (Paginated)
-    ListInstances (ListInstances'),
-    newListInstances,
-    ListInstancesResponse (ListInstancesResponse'),
-    newListInstancesResponse,
+    -- ** DescribeAccountAssignmentDeletionStatus
+    DescribeAccountAssignmentDeletionStatus (DescribeAccountAssignmentDeletionStatus'),
+    newDescribeAccountAssignmentDeletionStatus,
+    DescribeAccountAssignmentDeletionStatusResponse (DescribeAccountAssignmentDeletionStatusResponse'),
+    newDescribeAccountAssignmentDeletionStatusResponse,
 
     -- ** DescribeInstanceAccessControlAttributeConfiguration
     DescribeInstanceAccessControlAttributeConfiguration (DescribeInstanceAccessControlAttributeConfiguration'),
@@ -219,17 +123,65 @@ module Amazonka.SSOAdmin
     DescribeInstanceAccessControlAttributeConfigurationResponse (DescribeInstanceAccessControlAttributeConfigurationResponse'),
     newDescribeInstanceAccessControlAttributeConfigurationResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
+    -- ** DescribePermissionSet
+    DescribePermissionSet (DescribePermissionSet'),
+    newDescribePermissionSet,
+    DescribePermissionSetResponse (DescribePermissionSetResponse'),
+    newDescribePermissionSetResponse,
 
-    -- ** DeleteAccountAssignment
-    DeleteAccountAssignment (DeleteAccountAssignment'),
-    newDeleteAccountAssignment,
-    DeleteAccountAssignmentResponse (DeleteAccountAssignmentResponse'),
-    newDeleteAccountAssignmentResponse,
+    -- ** DescribePermissionSetProvisioningStatus
+    DescribePermissionSetProvisioningStatus (DescribePermissionSetProvisioningStatus'),
+    newDescribePermissionSetProvisioningStatus,
+    DescribePermissionSetProvisioningStatusResponse (DescribePermissionSetProvisioningStatusResponse'),
+    newDescribePermissionSetProvisioningStatusResponse,
+
+    -- ** DetachManagedPolicyFromPermissionSet
+    DetachManagedPolicyFromPermissionSet (DetachManagedPolicyFromPermissionSet'),
+    newDetachManagedPolicyFromPermissionSet,
+    DetachManagedPolicyFromPermissionSetResponse (DetachManagedPolicyFromPermissionSetResponse'),
+    newDetachManagedPolicyFromPermissionSetResponse,
+
+    -- ** GetInlinePolicyForPermissionSet
+    GetInlinePolicyForPermissionSet (GetInlinePolicyForPermissionSet'),
+    newGetInlinePolicyForPermissionSet,
+    GetInlinePolicyForPermissionSetResponse (GetInlinePolicyForPermissionSetResponse'),
+    newGetInlinePolicyForPermissionSetResponse,
+
+    -- ** ListAccountAssignmentCreationStatus (Paginated)
+    ListAccountAssignmentCreationStatus (ListAccountAssignmentCreationStatus'),
+    newListAccountAssignmentCreationStatus,
+    ListAccountAssignmentCreationStatusResponse (ListAccountAssignmentCreationStatusResponse'),
+    newListAccountAssignmentCreationStatusResponse,
+
+    -- ** ListAccountAssignmentDeletionStatus (Paginated)
+    ListAccountAssignmentDeletionStatus (ListAccountAssignmentDeletionStatus'),
+    newListAccountAssignmentDeletionStatus,
+    ListAccountAssignmentDeletionStatusResponse (ListAccountAssignmentDeletionStatusResponse'),
+    newListAccountAssignmentDeletionStatusResponse,
+
+    -- ** ListAccountAssignments (Paginated)
+    ListAccountAssignments (ListAccountAssignments'),
+    newListAccountAssignments,
+    ListAccountAssignmentsResponse (ListAccountAssignmentsResponse'),
+    newListAccountAssignmentsResponse,
+
+    -- ** ListAccountsForProvisionedPermissionSet (Paginated)
+    ListAccountsForProvisionedPermissionSet (ListAccountsForProvisionedPermissionSet'),
+    newListAccountsForProvisionedPermissionSet,
+    ListAccountsForProvisionedPermissionSetResponse (ListAccountsForProvisionedPermissionSetResponse'),
+    newListAccountsForProvisionedPermissionSetResponse,
+
+    -- ** ListInstances (Paginated)
+    ListInstances (ListInstances'),
+    newListInstances,
+    ListInstancesResponse (ListInstancesResponse'),
+    newListInstancesResponse,
+
+    -- ** ListManagedPoliciesInPermissionSet (Paginated)
+    ListManagedPoliciesInPermissionSet (ListManagedPoliciesInPermissionSet'),
+    newListManagedPoliciesInPermissionSet,
+    ListManagedPoliciesInPermissionSetResponse (ListManagedPoliciesInPermissionSetResponse'),
+    newListManagedPoliciesInPermissionSetResponse,
 
     -- ** ListPermissionSetProvisioningStatus (Paginated)
     ListPermissionSetProvisioningStatus (ListPermissionSetProvisioningStatus'),
@@ -237,11 +189,59 @@ module Amazonka.SSOAdmin
     ListPermissionSetProvisioningStatusResponse (ListPermissionSetProvisioningStatusResponse'),
     newListPermissionSetProvisioningStatusResponse,
 
-    -- ** CreateAccountAssignment
-    CreateAccountAssignment (CreateAccountAssignment'),
-    newCreateAccountAssignment,
-    CreateAccountAssignmentResponse (CreateAccountAssignmentResponse'),
-    newCreateAccountAssignmentResponse,
+    -- ** ListPermissionSets (Paginated)
+    ListPermissionSets (ListPermissionSets'),
+    newListPermissionSets,
+    ListPermissionSetsResponse (ListPermissionSetsResponse'),
+    newListPermissionSetsResponse,
+
+    -- ** ListPermissionSetsProvisionedToAccount (Paginated)
+    ListPermissionSetsProvisionedToAccount (ListPermissionSetsProvisionedToAccount'),
+    newListPermissionSetsProvisionedToAccount,
+    ListPermissionSetsProvisionedToAccountResponse (ListPermissionSetsProvisionedToAccountResponse'),
+    newListPermissionSetsProvisionedToAccountResponse,
+
+    -- ** ListTagsForResource (Paginated)
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** ProvisionPermissionSet
+    ProvisionPermissionSet (ProvisionPermissionSet'),
+    newProvisionPermissionSet,
+    ProvisionPermissionSetResponse (ProvisionPermissionSetResponse'),
+    newProvisionPermissionSetResponse,
+
+    -- ** PutInlinePolicyToPermissionSet
+    PutInlinePolicyToPermissionSet (PutInlinePolicyToPermissionSet'),
+    newPutInlinePolicyToPermissionSet,
+    PutInlinePolicyToPermissionSetResponse (PutInlinePolicyToPermissionSetResponse'),
+    newPutInlinePolicyToPermissionSetResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateInstanceAccessControlAttributeConfiguration
+    UpdateInstanceAccessControlAttributeConfiguration (UpdateInstanceAccessControlAttributeConfiguration'),
+    newUpdateInstanceAccessControlAttributeConfiguration,
+    UpdateInstanceAccessControlAttributeConfigurationResponse (UpdateInstanceAccessControlAttributeConfigurationResponse'),
+    newUpdateInstanceAccessControlAttributeConfigurationResponse,
+
+    -- ** UpdatePermissionSet
+    UpdatePermissionSet (UpdatePermissionSet'),
+    newUpdatePermissionSet,
+    UpdatePermissionSetResponse (UpdatePermissionSetResponse'),
+    newUpdatePermissionSetResponse,
 
     -- * Types
 

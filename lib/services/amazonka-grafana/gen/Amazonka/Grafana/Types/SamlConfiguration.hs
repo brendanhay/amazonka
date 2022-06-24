@@ -34,10 +34,6 @@ data SamlConfiguration = SamlConfiguration'
   { -- | How long a sign-on session by a SAML user is valid, before the user has
     -- to sign on again.
     loginValidityDuration :: Prelude.Maybe Prelude.Int,
-    -- | A structure that defines which attributes in the SAML assertion are to
-    -- be used to define information about the users authenticated by that IdP
-    -- to use the workspace.
-    assertionAttributes :: Prelude.Maybe AssertionAttributes,
     -- | Lists which organizations defined in the SAML assertion are allowed to
     -- use the Amazon Managed Grafana workspace. If this is empty, all
     -- organizations in the assertion attribute have access.
@@ -45,6 +41,10 @@ data SamlConfiguration = SamlConfiguration'
     -- | A structure containing arrays that map group names in the SAML assertion
     -- to the Grafana @Admin@ and @Editor@ roles in the workspace.
     roleValues :: Prelude.Maybe RoleValues,
+    -- | A structure that defines which attributes in the SAML assertion are to
+    -- be used to define information about the users authenticated by that IdP
+    -- to use the workspace.
+    assertionAttributes :: Prelude.Maybe AssertionAttributes,
     -- | A structure containing the identity provider (IdP) metadata used to
     -- integrate the identity provider with this workspace.
     idpMetadata :: IdpMetadata
@@ -62,16 +62,16 @@ data SamlConfiguration = SamlConfiguration'
 -- 'loginValidityDuration', 'samlConfiguration_loginValidityDuration' - How long a sign-on session by a SAML user is valid, before the user has
 -- to sign on again.
 --
--- 'assertionAttributes', 'samlConfiguration_assertionAttributes' - A structure that defines which attributes in the SAML assertion are to
--- be used to define information about the users authenticated by that IdP
--- to use the workspace.
---
 -- 'allowedOrganizations', 'samlConfiguration_allowedOrganizations' - Lists which organizations defined in the SAML assertion are allowed to
 -- use the Amazon Managed Grafana workspace. If this is empty, all
 -- organizations in the assertion attribute have access.
 --
 -- 'roleValues', 'samlConfiguration_roleValues' - A structure containing arrays that map group names in the SAML assertion
 -- to the Grafana @Admin@ and @Editor@ roles in the workspace.
+--
+-- 'assertionAttributes', 'samlConfiguration_assertionAttributes' - A structure that defines which attributes in the SAML assertion are to
+-- be used to define information about the users authenticated by that IdP
+-- to use the workspace.
 --
 -- 'idpMetadata', 'samlConfiguration_idpMetadata' - A structure containing the identity provider (IdP) metadata used to
 -- integrate the identity provider with this workspace.
@@ -83,9 +83,9 @@ newSamlConfiguration pIdpMetadata_ =
   SamlConfiguration'
     { loginValidityDuration =
         Prelude.Nothing,
-      assertionAttributes = Prelude.Nothing,
       allowedOrganizations = Prelude.Nothing,
       roleValues = Prelude.Nothing,
+      assertionAttributes = Prelude.Nothing,
       idpMetadata = pIdpMetadata_
     }
 
@@ -93,12 +93,6 @@ newSamlConfiguration pIdpMetadata_ =
 -- to sign on again.
 samlConfiguration_loginValidityDuration :: Lens.Lens' SamlConfiguration (Prelude.Maybe Prelude.Int)
 samlConfiguration_loginValidityDuration = Lens.lens (\SamlConfiguration' {loginValidityDuration} -> loginValidityDuration) (\s@SamlConfiguration' {} a -> s {loginValidityDuration = a} :: SamlConfiguration)
-
--- | A structure that defines which attributes in the SAML assertion are to
--- be used to define information about the users authenticated by that IdP
--- to use the workspace.
-samlConfiguration_assertionAttributes :: Lens.Lens' SamlConfiguration (Prelude.Maybe AssertionAttributes)
-samlConfiguration_assertionAttributes = Lens.lens (\SamlConfiguration' {assertionAttributes} -> assertionAttributes) (\s@SamlConfiguration' {} a -> s {assertionAttributes = a} :: SamlConfiguration)
 
 -- | Lists which organizations defined in the SAML assertion are allowed to
 -- use the Amazon Managed Grafana workspace. If this is empty, all
@@ -110,6 +104,12 @@ samlConfiguration_allowedOrganizations = Lens.lens (\SamlConfiguration' {allowed
 -- to the Grafana @Admin@ and @Editor@ roles in the workspace.
 samlConfiguration_roleValues :: Lens.Lens' SamlConfiguration (Prelude.Maybe RoleValues)
 samlConfiguration_roleValues = Lens.lens (\SamlConfiguration' {roleValues} -> roleValues) (\s@SamlConfiguration' {} a -> s {roleValues = a} :: SamlConfiguration)
+
+-- | A structure that defines which attributes in the SAML assertion are to
+-- be used to define information about the users authenticated by that IdP
+-- to use the workspace.
+samlConfiguration_assertionAttributes :: Lens.Lens' SamlConfiguration (Prelude.Maybe AssertionAttributes)
+samlConfiguration_assertionAttributes = Lens.lens (\SamlConfiguration' {assertionAttributes} -> assertionAttributes) (\s@SamlConfiguration' {} a -> s {assertionAttributes = a} :: SamlConfiguration)
 
 -- | A structure containing the identity provider (IdP) metadata used to
 -- integrate the identity provider with this workspace.
@@ -123,28 +123,28 @@ instance Core.FromJSON SamlConfiguration where
       ( \x ->
           SamlConfiguration'
             Prelude.<$> (x Core..:? "loginValidityDuration")
-            Prelude.<*> (x Core..:? "assertionAttributes")
             Prelude.<*> ( x Core..:? "allowedOrganizations"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "roleValues")
+            Prelude.<*> (x Core..:? "assertionAttributes")
             Prelude.<*> (x Core..: "idpMetadata")
       )
 
 instance Prelude.Hashable SamlConfiguration where
   hashWithSalt _salt SamlConfiguration' {..} =
     _salt `Prelude.hashWithSalt` loginValidityDuration
-      `Prelude.hashWithSalt` assertionAttributes
       `Prelude.hashWithSalt` allowedOrganizations
       `Prelude.hashWithSalt` roleValues
+      `Prelude.hashWithSalt` assertionAttributes
       `Prelude.hashWithSalt` idpMetadata
 
 instance Prelude.NFData SamlConfiguration where
   rnf SamlConfiguration' {..} =
     Prelude.rnf loginValidityDuration
-      `Prelude.seq` Prelude.rnf assertionAttributes
       `Prelude.seq` Prelude.rnf allowedOrganizations
       `Prelude.seq` Prelude.rnf roleValues
+      `Prelude.seq` Prelude.rnf assertionAttributes
       `Prelude.seq` Prelude.rnf idpMetadata
 
 instance Core.ToJSON SamlConfiguration where
@@ -153,11 +153,11 @@ instance Core.ToJSON SamlConfiguration where
       ( Prelude.catMaybes
           [ ("loginValidityDuration" Core..=)
               Prelude.<$> loginValidityDuration,
-            ("assertionAttributes" Core..=)
-              Prelude.<$> assertionAttributes,
             ("allowedOrganizations" Core..=)
               Prelude.<$> allowedOrganizations,
             ("roleValues" Core..=) Prelude.<$> roleValues,
+            ("assertionAttributes" Core..=)
+              Prelude.<$> assertionAttributes,
             Prelude.Just ("idpMetadata" Core..= idpMetadata)
           ]
       )

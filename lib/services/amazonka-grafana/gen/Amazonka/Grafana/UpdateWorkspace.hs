@@ -37,16 +37,16 @@ module Amazonka.Grafana.UpdateWorkspace
     newUpdateWorkspace,
 
     -- * Request Lenses
-    updateWorkspace_workspaceRoleArn,
-    updateWorkspace_workspaceDataSources,
     updateWorkspace_permissionType,
+    updateWorkspace_organizationRoleName,
+    updateWorkspace_workspaceOrganizationalUnits,
+    updateWorkspace_stackSetName,
+    updateWorkspace_workspaceRoleArn,
     updateWorkspace_workspaceNotificationDestinations,
+    updateWorkspace_workspaceDataSources,
     updateWorkspace_workspaceName,
     updateWorkspace_accountAccessType,
-    updateWorkspace_organizationRoleName,
     updateWorkspace_workspaceDescription,
-    updateWorkspace_stackSetName,
-    updateWorkspace_workspaceOrganizationalUnits,
     updateWorkspace_workspaceId,
 
     -- * Destructuring the Response
@@ -68,24 +68,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateWorkspace' smart constructor.
 data UpdateWorkspace = UpdateWorkspace'
-  { -- | The workspace needs an IAM role that grants permissions to the Amazon
-    -- Web Services resources that the workspace will view data from. If you
-    -- already have a role that you want to use, specify it here. If you omit
-    -- this field and you specify some Amazon Web Services resources in
-    -- @workspaceDataSources@ or @workspaceNotificationDestinations@, a new IAM
-    -- role with the necessary permissions is automatically created.
-    workspaceRoleArn :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | Specify the Amazon Web Services data sources that you want to be queried
-    -- in this workspace. Specifying these data sources here enables Amazon
-    -- Managed Grafana to create IAM roles and permissions that allow Amazon
-    -- Managed Grafana to read data from these sources. You must still add them
-    -- as data sources in the Grafana console in the workspace.
-    --
-    -- If you don\'t specify a data source here, you can still add it as a data
-    -- source later in the workspace console. However, you will then have to
-    -- manually configure permissions for it.
-    workspaceDataSources :: Prelude.Maybe [DataSourceType],
-    -- | If you specify @Service Managed@, Amazon Managed Grafana automatically
+  { -- | If you specify @Service Managed@, Amazon Managed Grafana automatically
     -- creates the IAM roles and provisions the permissions that the workspace
     -- needs to use Amazon Web Services data sources and notification channels.
     --
@@ -99,11 +82,38 @@ data UpdateWorkspace = UpdateWorkspace'
     -- For more information, see
     -- <https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html Amazon Managed Grafana permissions and policies for Amazon Web Services data sources and notification channels>
     permissionType :: Prelude.Maybe PermissionType,
+    -- | The name of an IAM role that already exists to use to access resources
+    -- through Organizations.
+    organizationRoleName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | Specifies the organizational units that this workspace is allowed to use
+    -- data sources from, if this workspace is in an account that is part of an
+    -- organization.
+    workspaceOrganizationalUnits :: Prelude.Maybe (Core.Sensitive [Prelude.Text]),
+    -- | The name of the CloudFormation stack set to use to generate IAM roles to
+    -- be used for this workspace.
+    stackSetName :: Prelude.Maybe Prelude.Text,
+    -- | The workspace needs an IAM role that grants permissions to the Amazon
+    -- Web Services resources that the workspace will view data from. If you
+    -- already have a role that you want to use, specify it here. If you omit
+    -- this field and you specify some Amazon Web Services resources in
+    -- @workspaceDataSources@ or @workspaceNotificationDestinations@, a new IAM
+    -- role with the necessary permissions is automatically created.
+    workspaceRoleArn :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Specify the Amazon Web Services notification channels that you plan to
     -- use in this workspace. Specifying these data sources here enables Amazon
     -- Managed Grafana to create IAM roles and permissions that allow Amazon
     -- Managed Grafana to use these channels.
     workspaceNotificationDestinations :: Prelude.Maybe [NotificationDestinationType],
+    -- | Specify the Amazon Web Services data sources that you want to be queried
+    -- in this workspace. Specifying these data sources here enables Amazon
+    -- Managed Grafana to create IAM roles and permissions that allow Amazon
+    -- Managed Grafana to read data from these sources. You must still add them
+    -- as data sources in the Grafana console in the workspace.
+    --
+    -- If you don\'t specify a data source here, you can still add it as a data
+    -- source later in the workspace console. However, you will then have to
+    -- manually configure permissions for it.
+    workspaceDataSources :: Prelude.Maybe [DataSourceType],
     -- | A new name for the workspace to update.
     workspaceName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Specifies whether the workspace can access Amazon Web Services resources
@@ -113,19 +123,9 @@ data UpdateWorkspace = UpdateWorkspace'
     -- organizational units the workspace can access in the
     -- @workspaceOrganizationalUnits@ parameter.
     accountAccessType :: Prelude.Maybe AccountAccessType,
-    -- | The name of an IAM role that already exists to use to access resources
-    -- through Organizations.
-    organizationRoleName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | A description for the workspace. This is used only to help you identify
     -- this workspace.
     workspaceDescription :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The name of the CloudFormation stack set to use to generate IAM roles to
-    -- be used for this workspace.
-    stackSetName :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the organizational units that this workspace is allowed to use
-    -- data sources from, if this workspace is in an account that is part of an
-    -- organization.
-    workspaceOrganizationalUnits :: Prelude.Maybe (Core.Sensitive [Prelude.Text]),
     -- | The ID of the workspace to update.
     workspaceId :: Prelude.Text
   }
@@ -138,23 +138,6 @@ data UpdateWorkspace = UpdateWorkspace'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'workspaceRoleArn', 'updateWorkspace_workspaceRoleArn' - The workspace needs an IAM role that grants permissions to the Amazon
--- Web Services resources that the workspace will view data from. If you
--- already have a role that you want to use, specify it here. If you omit
--- this field and you specify some Amazon Web Services resources in
--- @workspaceDataSources@ or @workspaceNotificationDestinations@, a new IAM
--- role with the necessary permissions is automatically created.
---
--- 'workspaceDataSources', 'updateWorkspace_workspaceDataSources' - Specify the Amazon Web Services data sources that you want to be queried
--- in this workspace. Specifying these data sources here enables Amazon
--- Managed Grafana to create IAM roles and permissions that allow Amazon
--- Managed Grafana to read data from these sources. You must still add them
--- as data sources in the Grafana console in the workspace.
---
--- If you don\'t specify a data source here, you can still add it as a data
--- source later in the workspace console. However, you will then have to
--- manually configure permissions for it.
 --
 -- 'permissionType', 'updateWorkspace_permissionType' - If you specify @Service Managed@, Amazon Managed Grafana automatically
 -- creates the IAM roles and provisions the permissions that the workspace
@@ -170,10 +153,37 @@ data UpdateWorkspace = UpdateWorkspace'
 -- For more information, see
 -- <https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html Amazon Managed Grafana permissions and policies for Amazon Web Services data sources and notification channels>
 --
+-- 'organizationRoleName', 'updateWorkspace_organizationRoleName' - The name of an IAM role that already exists to use to access resources
+-- through Organizations.
+--
+-- 'workspaceOrganizationalUnits', 'updateWorkspace_workspaceOrganizationalUnits' - Specifies the organizational units that this workspace is allowed to use
+-- data sources from, if this workspace is in an account that is part of an
+-- organization.
+--
+-- 'stackSetName', 'updateWorkspace_stackSetName' - The name of the CloudFormation stack set to use to generate IAM roles to
+-- be used for this workspace.
+--
+-- 'workspaceRoleArn', 'updateWorkspace_workspaceRoleArn' - The workspace needs an IAM role that grants permissions to the Amazon
+-- Web Services resources that the workspace will view data from. If you
+-- already have a role that you want to use, specify it here. If you omit
+-- this field and you specify some Amazon Web Services resources in
+-- @workspaceDataSources@ or @workspaceNotificationDestinations@, a new IAM
+-- role with the necessary permissions is automatically created.
+--
 -- 'workspaceNotificationDestinations', 'updateWorkspace_workspaceNotificationDestinations' - Specify the Amazon Web Services notification channels that you plan to
 -- use in this workspace. Specifying these data sources here enables Amazon
 -- Managed Grafana to create IAM roles and permissions that allow Amazon
 -- Managed Grafana to use these channels.
+--
+-- 'workspaceDataSources', 'updateWorkspace_workspaceDataSources' - Specify the Amazon Web Services data sources that you want to be queried
+-- in this workspace. Specifying these data sources here enables Amazon
+-- Managed Grafana to create IAM roles and permissions that allow Amazon
+-- Managed Grafana to read data from these sources. You must still add them
+-- as data sources in the Grafana console in the workspace.
+--
+-- If you don\'t specify a data source here, you can still add it as a data
+-- source later in the workspace console. However, you will then have to
+-- manually configure permissions for it.
 --
 -- 'workspaceName', 'updateWorkspace_workspaceName' - A new name for the workspace to update.
 --
@@ -184,18 +194,8 @@ data UpdateWorkspace = UpdateWorkspace'
 -- organizational units the workspace can access in the
 -- @workspaceOrganizationalUnits@ parameter.
 --
--- 'organizationRoleName', 'updateWorkspace_organizationRoleName' - The name of an IAM role that already exists to use to access resources
--- through Organizations.
---
 -- 'workspaceDescription', 'updateWorkspace_workspaceDescription' - A description for the workspace. This is used only to help you identify
 -- this workspace.
---
--- 'stackSetName', 'updateWorkspace_stackSetName' - The name of the CloudFormation stack set to use to generate IAM roles to
--- be used for this workspace.
---
--- 'workspaceOrganizationalUnits', 'updateWorkspace_workspaceOrganizationalUnits' - Specifies the organizational units that this workspace is allowed to use
--- data sources from, if this workspace is in an account that is part of an
--- organization.
 --
 -- 'workspaceId', 'updateWorkspace_workspaceId' - The ID of the workspace to update.
 newUpdateWorkspace ::
@@ -204,40 +204,18 @@ newUpdateWorkspace ::
   UpdateWorkspace
 newUpdateWorkspace pWorkspaceId_ =
   UpdateWorkspace'
-    { workspaceRoleArn =
-        Prelude.Nothing,
-      workspaceDataSources = Prelude.Nothing,
-      permissionType = Prelude.Nothing,
+    { permissionType = Prelude.Nothing,
+      organizationRoleName = Prelude.Nothing,
+      workspaceOrganizationalUnits = Prelude.Nothing,
+      stackSetName = Prelude.Nothing,
+      workspaceRoleArn = Prelude.Nothing,
       workspaceNotificationDestinations = Prelude.Nothing,
+      workspaceDataSources = Prelude.Nothing,
       workspaceName = Prelude.Nothing,
       accountAccessType = Prelude.Nothing,
-      organizationRoleName = Prelude.Nothing,
       workspaceDescription = Prelude.Nothing,
-      stackSetName = Prelude.Nothing,
-      workspaceOrganizationalUnits = Prelude.Nothing,
       workspaceId = pWorkspaceId_
     }
-
--- | The workspace needs an IAM role that grants permissions to the Amazon
--- Web Services resources that the workspace will view data from. If you
--- already have a role that you want to use, specify it here. If you omit
--- this field and you specify some Amazon Web Services resources in
--- @workspaceDataSources@ or @workspaceNotificationDestinations@, a new IAM
--- role with the necessary permissions is automatically created.
-updateWorkspace_workspaceRoleArn :: Lens.Lens' UpdateWorkspace (Prelude.Maybe Prelude.Text)
-updateWorkspace_workspaceRoleArn = Lens.lens (\UpdateWorkspace' {workspaceRoleArn} -> workspaceRoleArn) (\s@UpdateWorkspace' {} a -> s {workspaceRoleArn = a} :: UpdateWorkspace) Prelude.. Lens.mapping Core._Sensitive
-
--- | Specify the Amazon Web Services data sources that you want to be queried
--- in this workspace. Specifying these data sources here enables Amazon
--- Managed Grafana to create IAM roles and permissions that allow Amazon
--- Managed Grafana to read data from these sources. You must still add them
--- as data sources in the Grafana console in the workspace.
---
--- If you don\'t specify a data source here, you can still add it as a data
--- source later in the workspace console. However, you will then have to
--- manually configure permissions for it.
-updateWorkspace_workspaceDataSources :: Lens.Lens' UpdateWorkspace (Prelude.Maybe [DataSourceType])
-updateWorkspace_workspaceDataSources = Lens.lens (\UpdateWorkspace' {workspaceDataSources} -> workspaceDataSources) (\s@UpdateWorkspace' {} a -> s {workspaceDataSources = a} :: UpdateWorkspace) Prelude.. Lens.mapping Lens.coerced
 
 -- | If you specify @Service Managed@, Amazon Managed Grafana automatically
 -- creates the IAM roles and provisions the permissions that the workspace
@@ -255,12 +233,49 @@ updateWorkspace_workspaceDataSources = Lens.lens (\UpdateWorkspace' {workspaceDa
 updateWorkspace_permissionType :: Lens.Lens' UpdateWorkspace (Prelude.Maybe PermissionType)
 updateWorkspace_permissionType = Lens.lens (\UpdateWorkspace' {permissionType} -> permissionType) (\s@UpdateWorkspace' {} a -> s {permissionType = a} :: UpdateWorkspace)
 
+-- | The name of an IAM role that already exists to use to access resources
+-- through Organizations.
+updateWorkspace_organizationRoleName :: Lens.Lens' UpdateWorkspace (Prelude.Maybe Prelude.Text)
+updateWorkspace_organizationRoleName = Lens.lens (\UpdateWorkspace' {organizationRoleName} -> organizationRoleName) (\s@UpdateWorkspace' {} a -> s {organizationRoleName = a} :: UpdateWorkspace) Prelude.. Lens.mapping Core._Sensitive
+
+-- | Specifies the organizational units that this workspace is allowed to use
+-- data sources from, if this workspace is in an account that is part of an
+-- organization.
+updateWorkspace_workspaceOrganizationalUnits :: Lens.Lens' UpdateWorkspace (Prelude.Maybe [Prelude.Text])
+updateWorkspace_workspaceOrganizationalUnits = Lens.lens (\UpdateWorkspace' {workspaceOrganizationalUnits} -> workspaceOrganizationalUnits) (\s@UpdateWorkspace' {} a -> s {workspaceOrganizationalUnits = a} :: UpdateWorkspace) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+
+-- | The name of the CloudFormation stack set to use to generate IAM roles to
+-- be used for this workspace.
+updateWorkspace_stackSetName :: Lens.Lens' UpdateWorkspace (Prelude.Maybe Prelude.Text)
+updateWorkspace_stackSetName = Lens.lens (\UpdateWorkspace' {stackSetName} -> stackSetName) (\s@UpdateWorkspace' {} a -> s {stackSetName = a} :: UpdateWorkspace)
+
+-- | The workspace needs an IAM role that grants permissions to the Amazon
+-- Web Services resources that the workspace will view data from. If you
+-- already have a role that you want to use, specify it here. If you omit
+-- this field and you specify some Amazon Web Services resources in
+-- @workspaceDataSources@ or @workspaceNotificationDestinations@, a new IAM
+-- role with the necessary permissions is automatically created.
+updateWorkspace_workspaceRoleArn :: Lens.Lens' UpdateWorkspace (Prelude.Maybe Prelude.Text)
+updateWorkspace_workspaceRoleArn = Lens.lens (\UpdateWorkspace' {workspaceRoleArn} -> workspaceRoleArn) (\s@UpdateWorkspace' {} a -> s {workspaceRoleArn = a} :: UpdateWorkspace) Prelude.. Lens.mapping Core._Sensitive
+
 -- | Specify the Amazon Web Services notification channels that you plan to
 -- use in this workspace. Specifying these data sources here enables Amazon
 -- Managed Grafana to create IAM roles and permissions that allow Amazon
 -- Managed Grafana to use these channels.
 updateWorkspace_workspaceNotificationDestinations :: Lens.Lens' UpdateWorkspace (Prelude.Maybe [NotificationDestinationType])
 updateWorkspace_workspaceNotificationDestinations = Lens.lens (\UpdateWorkspace' {workspaceNotificationDestinations} -> workspaceNotificationDestinations) (\s@UpdateWorkspace' {} a -> s {workspaceNotificationDestinations = a} :: UpdateWorkspace) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specify the Amazon Web Services data sources that you want to be queried
+-- in this workspace. Specifying these data sources here enables Amazon
+-- Managed Grafana to create IAM roles and permissions that allow Amazon
+-- Managed Grafana to read data from these sources. You must still add them
+-- as data sources in the Grafana console in the workspace.
+--
+-- If you don\'t specify a data source here, you can still add it as a data
+-- source later in the workspace console. However, you will then have to
+-- manually configure permissions for it.
+updateWorkspace_workspaceDataSources :: Lens.Lens' UpdateWorkspace (Prelude.Maybe [DataSourceType])
+updateWorkspace_workspaceDataSources = Lens.lens (\UpdateWorkspace' {workspaceDataSources} -> workspaceDataSources) (\s@UpdateWorkspace' {} a -> s {workspaceDataSources = a} :: UpdateWorkspace) Prelude.. Lens.mapping Lens.coerced
 
 -- | A new name for the workspace to update.
 updateWorkspace_workspaceName :: Lens.Lens' UpdateWorkspace (Prelude.Maybe Prelude.Text)
@@ -275,26 +290,10 @@ updateWorkspace_workspaceName = Lens.lens (\UpdateWorkspace' {workspaceName} -> 
 updateWorkspace_accountAccessType :: Lens.Lens' UpdateWorkspace (Prelude.Maybe AccountAccessType)
 updateWorkspace_accountAccessType = Lens.lens (\UpdateWorkspace' {accountAccessType} -> accountAccessType) (\s@UpdateWorkspace' {} a -> s {accountAccessType = a} :: UpdateWorkspace)
 
--- | The name of an IAM role that already exists to use to access resources
--- through Organizations.
-updateWorkspace_organizationRoleName :: Lens.Lens' UpdateWorkspace (Prelude.Maybe Prelude.Text)
-updateWorkspace_organizationRoleName = Lens.lens (\UpdateWorkspace' {organizationRoleName} -> organizationRoleName) (\s@UpdateWorkspace' {} a -> s {organizationRoleName = a} :: UpdateWorkspace) Prelude.. Lens.mapping Core._Sensitive
-
 -- | A description for the workspace. This is used only to help you identify
 -- this workspace.
 updateWorkspace_workspaceDescription :: Lens.Lens' UpdateWorkspace (Prelude.Maybe Prelude.Text)
 updateWorkspace_workspaceDescription = Lens.lens (\UpdateWorkspace' {workspaceDescription} -> workspaceDescription) (\s@UpdateWorkspace' {} a -> s {workspaceDescription = a} :: UpdateWorkspace) Prelude.. Lens.mapping Core._Sensitive
-
--- | The name of the CloudFormation stack set to use to generate IAM roles to
--- be used for this workspace.
-updateWorkspace_stackSetName :: Lens.Lens' UpdateWorkspace (Prelude.Maybe Prelude.Text)
-updateWorkspace_stackSetName = Lens.lens (\UpdateWorkspace' {stackSetName} -> stackSetName) (\s@UpdateWorkspace' {} a -> s {stackSetName = a} :: UpdateWorkspace)
-
--- | Specifies the organizational units that this workspace is allowed to use
--- data sources from, if this workspace is in an account that is part of an
--- organization.
-updateWorkspace_workspaceOrganizationalUnits :: Lens.Lens' UpdateWorkspace (Prelude.Maybe [Prelude.Text])
-updateWorkspace_workspaceOrganizationalUnits = Lens.lens (\UpdateWorkspace' {workspaceOrganizationalUnits} -> workspaceOrganizationalUnits) (\s@UpdateWorkspace' {} a -> s {workspaceOrganizationalUnits = a} :: UpdateWorkspace) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 -- | The ID of the workspace to update.
 updateWorkspace_workspaceId :: Lens.Lens' UpdateWorkspace Prelude.Text
@@ -315,30 +314,30 @@ instance Core.AWSRequest UpdateWorkspace where
 
 instance Prelude.Hashable UpdateWorkspace where
   hashWithSalt _salt UpdateWorkspace' {..} =
-    _salt `Prelude.hashWithSalt` workspaceRoleArn
-      `Prelude.hashWithSalt` workspaceDataSources
-      `Prelude.hashWithSalt` permissionType
+    _salt `Prelude.hashWithSalt` permissionType
+      `Prelude.hashWithSalt` organizationRoleName
+      `Prelude.hashWithSalt` workspaceOrganizationalUnits
+      `Prelude.hashWithSalt` stackSetName
+      `Prelude.hashWithSalt` workspaceRoleArn
       `Prelude.hashWithSalt` workspaceNotificationDestinations
+      `Prelude.hashWithSalt` workspaceDataSources
       `Prelude.hashWithSalt` workspaceName
       `Prelude.hashWithSalt` accountAccessType
-      `Prelude.hashWithSalt` organizationRoleName
       `Prelude.hashWithSalt` workspaceDescription
-      `Prelude.hashWithSalt` stackSetName
-      `Prelude.hashWithSalt` workspaceOrganizationalUnits
       `Prelude.hashWithSalt` workspaceId
 
 instance Prelude.NFData UpdateWorkspace where
   rnf UpdateWorkspace' {..} =
-    Prelude.rnf workspaceRoleArn
-      `Prelude.seq` Prelude.rnf workspaceDataSources
-      `Prelude.seq` Prelude.rnf permissionType
+    Prelude.rnf permissionType
+      `Prelude.seq` Prelude.rnf organizationRoleName
+      `Prelude.seq` Prelude.rnf workspaceOrganizationalUnits
+      `Prelude.seq` Prelude.rnf stackSetName
+      `Prelude.seq` Prelude.rnf workspaceRoleArn
       `Prelude.seq` Prelude.rnf workspaceNotificationDestinations
+      `Prelude.seq` Prelude.rnf workspaceDataSources
       `Prelude.seq` Prelude.rnf workspaceName
       `Prelude.seq` Prelude.rnf accountAccessType
-      `Prelude.seq` Prelude.rnf organizationRoleName
       `Prelude.seq` Prelude.rnf workspaceDescription
-      `Prelude.seq` Prelude.rnf stackSetName
-      `Prelude.seq` Prelude.rnf workspaceOrganizationalUnits
       `Prelude.seq` Prelude.rnf workspaceId
 
 instance Core.ToHeaders UpdateWorkspace where
@@ -356,24 +355,24 @@ instance Core.ToJSON UpdateWorkspace where
   toJSON UpdateWorkspace' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("workspaceRoleArn" Core..=)
-              Prelude.<$> workspaceRoleArn,
-            ("workspaceDataSources" Core..=)
-              Prelude.<$> workspaceDataSources,
-            ("permissionType" Core..=)
+          [ ("permissionType" Core..=)
               Prelude.<$> permissionType,
+            ("organizationRoleName" Core..=)
+              Prelude.<$> organizationRoleName,
+            ("workspaceOrganizationalUnits" Core..=)
+              Prelude.<$> workspaceOrganizationalUnits,
+            ("stackSetName" Core..=) Prelude.<$> stackSetName,
+            ("workspaceRoleArn" Core..=)
+              Prelude.<$> workspaceRoleArn,
             ("workspaceNotificationDestinations" Core..=)
               Prelude.<$> workspaceNotificationDestinations,
+            ("workspaceDataSources" Core..=)
+              Prelude.<$> workspaceDataSources,
             ("workspaceName" Core..=) Prelude.<$> workspaceName,
             ("accountAccessType" Core..=)
               Prelude.<$> accountAccessType,
-            ("organizationRoleName" Core..=)
-              Prelude.<$> organizationRoleName,
             ("workspaceDescription" Core..=)
-              Prelude.<$> workspaceDescription,
-            ("stackSetName" Core..=) Prelude.<$> stackSetName,
-            ("workspaceOrganizationalUnits" Core..=)
-              Prelude.<$> workspaceOrganizationalUnits
+              Prelude.<$> workspaceDescription
           ]
       )
 

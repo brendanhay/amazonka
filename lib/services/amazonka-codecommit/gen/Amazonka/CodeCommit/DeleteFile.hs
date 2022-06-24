@@ -29,10 +29,10 @@ module Amazonka.CodeCommit.DeleteFile
     newDeleteFile,
 
     -- * Request Lenses
-    deleteFile_email,
-    deleteFile_name,
-    deleteFile_commitMessage,
     deleteFile_keepEmptyFolders,
+    deleteFile_name,
+    deleteFile_email,
+    deleteFile_commitMessage,
     deleteFile_repositoryName,
     deleteFile_branchName,
     deleteFile_filePath,
@@ -60,24 +60,24 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteFile' smart constructor.
 data DeleteFile = DeleteFile'
-  { -- | The email address for the commit that deletes the file. If no email
-    -- address is specified, the email address is left blank.
-    email :: Prelude.Maybe Prelude.Text,
-    -- | The name of the author of the commit that deletes the file. If no name
-    -- is specified, the user\'s ARN is used as the author name and committer
-    -- name.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The commit message you want to include as part of deleting the file.
-    -- Commit messages are limited to 256 KB. If no message is specified, a
-    -- default message is used.
-    commitMessage :: Prelude.Maybe Prelude.Text,
-    -- | If a file is the only object in the folder or directory, specifies
+  { -- | If a file is the only object in the folder or directory, specifies
     -- whether to delete the folder or directory that contains the file. By
     -- default, empty folders are deleted. This includes empty folders that are
     -- part of the directory structure. For example, if the path to a file is
     -- dir1\/dir2\/dir3\/dir4, and dir2 and dir3 are empty, deleting the last
     -- file in dir4 also deletes the empty folders dir4, dir3, and dir2.
     keepEmptyFolders :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the author of the commit that deletes the file. If no name
+    -- is specified, the user\'s ARN is used as the author name and committer
+    -- name.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The email address for the commit that deletes the file. If no email
+    -- address is specified, the email address is left blank.
+    email :: Prelude.Maybe Prelude.Text,
+    -- | The commit message you want to include as part of deleting the file.
+    -- Commit messages are limited to 256 KB. If no message is specified, a
+    -- default message is used.
+    commitMessage :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository that contains the file to delete.
     repositoryName :: Prelude.Text,
     -- | The name of the branch where the commit that deletes the file is made.
@@ -103,23 +103,23 @@ data DeleteFile = DeleteFile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'email', 'deleteFile_email' - The email address for the commit that deletes the file. If no email
--- address is specified, the email address is left blank.
---
--- 'name', 'deleteFile_name' - The name of the author of the commit that deletes the file. If no name
--- is specified, the user\'s ARN is used as the author name and committer
--- name.
---
--- 'commitMessage', 'deleteFile_commitMessage' - The commit message you want to include as part of deleting the file.
--- Commit messages are limited to 256 KB. If no message is specified, a
--- default message is used.
---
 -- 'keepEmptyFolders', 'deleteFile_keepEmptyFolders' - If a file is the only object in the folder or directory, specifies
 -- whether to delete the folder or directory that contains the file. By
 -- default, empty folders are deleted. This includes empty folders that are
 -- part of the directory structure. For example, if the path to a file is
 -- dir1\/dir2\/dir3\/dir4, and dir2 and dir3 are empty, deleting the last
 -- file in dir4 also deletes the empty folders dir4, dir3, and dir2.
+--
+-- 'name', 'deleteFile_name' - The name of the author of the commit that deletes the file. If no name
+-- is specified, the user\'s ARN is used as the author name and committer
+-- name.
+--
+-- 'email', 'deleteFile_email' - The email address for the commit that deletes the file. If no email
+-- address is specified, the email address is left blank.
+--
+-- 'commitMessage', 'deleteFile_commitMessage' - The commit message you want to include as part of deleting the file.
+-- Commit messages are limited to 256 KB. If no message is specified, a
+-- default message is used.
 --
 -- 'repositoryName', 'deleteFile_repositoryName' - The name of the repository that contains the file to delete.
 --
@@ -150,32 +150,15 @@ newDeleteFile
   pFilePath_
   pParentCommitId_ =
     DeleteFile'
-      { email = Prelude.Nothing,
+      { keepEmptyFolders = Prelude.Nothing,
         name = Prelude.Nothing,
+        email = Prelude.Nothing,
         commitMessage = Prelude.Nothing,
-        keepEmptyFolders = Prelude.Nothing,
         repositoryName = pRepositoryName_,
         branchName = pBranchName_,
         filePath = pFilePath_,
         parentCommitId = pParentCommitId_
       }
-
--- | The email address for the commit that deletes the file. If no email
--- address is specified, the email address is left blank.
-deleteFile_email :: Lens.Lens' DeleteFile (Prelude.Maybe Prelude.Text)
-deleteFile_email = Lens.lens (\DeleteFile' {email} -> email) (\s@DeleteFile' {} a -> s {email = a} :: DeleteFile)
-
--- | The name of the author of the commit that deletes the file. If no name
--- is specified, the user\'s ARN is used as the author name and committer
--- name.
-deleteFile_name :: Lens.Lens' DeleteFile (Prelude.Maybe Prelude.Text)
-deleteFile_name = Lens.lens (\DeleteFile' {name} -> name) (\s@DeleteFile' {} a -> s {name = a} :: DeleteFile)
-
--- | The commit message you want to include as part of deleting the file.
--- Commit messages are limited to 256 KB. If no message is specified, a
--- default message is used.
-deleteFile_commitMessage :: Lens.Lens' DeleteFile (Prelude.Maybe Prelude.Text)
-deleteFile_commitMessage = Lens.lens (\DeleteFile' {commitMessage} -> commitMessage) (\s@DeleteFile' {} a -> s {commitMessage = a} :: DeleteFile)
 
 -- | If a file is the only object in the folder or directory, specifies
 -- whether to delete the folder or directory that contains the file. By
@@ -185,6 +168,23 @@ deleteFile_commitMessage = Lens.lens (\DeleteFile' {commitMessage} -> commitMess
 -- file in dir4 also deletes the empty folders dir4, dir3, and dir2.
 deleteFile_keepEmptyFolders :: Lens.Lens' DeleteFile (Prelude.Maybe Prelude.Bool)
 deleteFile_keepEmptyFolders = Lens.lens (\DeleteFile' {keepEmptyFolders} -> keepEmptyFolders) (\s@DeleteFile' {} a -> s {keepEmptyFolders = a} :: DeleteFile)
+
+-- | The name of the author of the commit that deletes the file. If no name
+-- is specified, the user\'s ARN is used as the author name and committer
+-- name.
+deleteFile_name :: Lens.Lens' DeleteFile (Prelude.Maybe Prelude.Text)
+deleteFile_name = Lens.lens (\DeleteFile' {name} -> name) (\s@DeleteFile' {} a -> s {name = a} :: DeleteFile)
+
+-- | The email address for the commit that deletes the file. If no email
+-- address is specified, the email address is left blank.
+deleteFile_email :: Lens.Lens' DeleteFile (Prelude.Maybe Prelude.Text)
+deleteFile_email = Lens.lens (\DeleteFile' {email} -> email) (\s@DeleteFile' {} a -> s {email = a} :: DeleteFile)
+
+-- | The commit message you want to include as part of deleting the file.
+-- Commit messages are limited to 256 KB. If no message is specified, a
+-- default message is used.
+deleteFile_commitMessage :: Lens.Lens' DeleteFile (Prelude.Maybe Prelude.Text)
+deleteFile_commitMessage = Lens.lens (\DeleteFile' {commitMessage} -> commitMessage) (\s@DeleteFile' {} a -> s {commitMessage = a} :: DeleteFile)
 
 -- | The name of the repository that contains the file to delete.
 deleteFile_repositoryName :: Lens.Lens' DeleteFile Prelude.Text
@@ -224,10 +224,10 @@ instance Core.AWSRequest DeleteFile where
 
 instance Prelude.Hashable DeleteFile where
   hashWithSalt _salt DeleteFile' {..} =
-    _salt `Prelude.hashWithSalt` email
+    _salt `Prelude.hashWithSalt` keepEmptyFolders
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` email
       `Prelude.hashWithSalt` commitMessage
-      `Prelude.hashWithSalt` keepEmptyFolders
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` branchName
       `Prelude.hashWithSalt` filePath
@@ -235,10 +235,10 @@ instance Prelude.Hashable DeleteFile where
 
 instance Prelude.NFData DeleteFile where
   rnf DeleteFile' {..} =
-    Prelude.rnf email
+    Prelude.rnf keepEmptyFolders
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf email
       `Prelude.seq` Prelude.rnf commitMessage
-      `Prelude.seq` Prelude.rnf keepEmptyFolders
       `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf branchName
       `Prelude.seq` Prelude.rnf filePath
@@ -263,11 +263,11 @@ instance Core.ToJSON DeleteFile where
   toJSON DeleteFile' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("email" Core..=) Prelude.<$> email,
-            ("name" Core..=) Prelude.<$> name,
-            ("commitMessage" Core..=) Prelude.<$> commitMessage,
-            ("keepEmptyFolders" Core..=)
+          [ ("keepEmptyFolders" Core..=)
               Prelude.<$> keepEmptyFolders,
+            ("name" Core..=) Prelude.<$> name,
+            ("email" Core..=) Prelude.<$> email,
+            ("commitMessage" Core..=) Prelude.<$> commitMessage,
             Prelude.Just
               ("repositoryName" Core..= repositoryName),
             Prelude.Just ("branchName" Core..= branchName),

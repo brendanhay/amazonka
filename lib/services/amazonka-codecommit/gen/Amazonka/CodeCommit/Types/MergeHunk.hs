@@ -31,8 +31,6 @@ data MergeHunk = MergeHunk'
   { -- | Information about the merge hunk in the destination of a merge or pull
     -- request.
     destination :: Prelude.Maybe MergeHunkDetail,
-    -- | Information about the merge hunk in the base of a merge or pull request.
-    base :: Prelude.Maybe MergeHunkDetail,
     -- | A Boolean value indicating whether a combination of hunks contains a
     -- conflict. Conflicts occur when the same file or the same lines in a file
     -- were modified in both the source and destination of a merge or pull
@@ -40,6 +38,8 @@ data MergeHunk = MergeHunk'
     -- represents a conflict and one or more files contains a line conflict.
     -- File mode conflicts in a merge do not set this to true.
     isConflict :: Prelude.Maybe Prelude.Bool,
+    -- | Information about the merge hunk in the base of a merge or pull request.
+    base :: Prelude.Maybe MergeHunkDetail,
     -- | Information about the merge hunk in the source of a merge or pull
     -- request.
     source :: Prelude.Maybe MergeHunkDetail
@@ -57,14 +57,14 @@ data MergeHunk = MergeHunk'
 -- 'destination', 'mergeHunk_destination' - Information about the merge hunk in the destination of a merge or pull
 -- request.
 --
--- 'base', 'mergeHunk_base' - Information about the merge hunk in the base of a merge or pull request.
---
 -- 'isConflict', 'mergeHunk_isConflict' - A Boolean value indicating whether a combination of hunks contains a
 -- conflict. Conflicts occur when the same file or the same lines in a file
 -- were modified in both the source and destination of a merge or pull
 -- request. Valid values include true, false, and null. True when the hunk
 -- represents a conflict and one or more files contains a line conflict.
 -- File mode conflicts in a merge do not set this to true.
+--
+-- 'base', 'mergeHunk_base' - Information about the merge hunk in the base of a merge or pull request.
 --
 -- 'source', 'mergeHunk_source' - Information about the merge hunk in the source of a merge or pull
 -- request.
@@ -73,8 +73,8 @@ newMergeHunk ::
 newMergeHunk =
   MergeHunk'
     { destination = Prelude.Nothing,
-      base = Prelude.Nothing,
       isConflict = Prelude.Nothing,
+      base = Prelude.Nothing,
       source = Prelude.Nothing
     }
 
@@ -82,10 +82,6 @@ newMergeHunk =
 -- request.
 mergeHunk_destination :: Lens.Lens' MergeHunk (Prelude.Maybe MergeHunkDetail)
 mergeHunk_destination = Lens.lens (\MergeHunk' {destination} -> destination) (\s@MergeHunk' {} a -> s {destination = a} :: MergeHunk)
-
--- | Information about the merge hunk in the base of a merge or pull request.
-mergeHunk_base :: Lens.Lens' MergeHunk (Prelude.Maybe MergeHunkDetail)
-mergeHunk_base = Lens.lens (\MergeHunk' {base} -> base) (\s@MergeHunk' {} a -> s {base = a} :: MergeHunk)
 
 -- | A Boolean value indicating whether a combination of hunks contains a
 -- conflict. Conflicts occur when the same file or the same lines in a file
@@ -95,6 +91,10 @@ mergeHunk_base = Lens.lens (\MergeHunk' {base} -> base) (\s@MergeHunk' {} a -> s
 -- File mode conflicts in a merge do not set this to true.
 mergeHunk_isConflict :: Lens.Lens' MergeHunk (Prelude.Maybe Prelude.Bool)
 mergeHunk_isConflict = Lens.lens (\MergeHunk' {isConflict} -> isConflict) (\s@MergeHunk' {} a -> s {isConflict = a} :: MergeHunk)
+
+-- | Information about the merge hunk in the base of a merge or pull request.
+mergeHunk_base :: Lens.Lens' MergeHunk (Prelude.Maybe MergeHunkDetail)
+mergeHunk_base = Lens.lens (\MergeHunk' {base} -> base) (\s@MergeHunk' {} a -> s {base = a} :: MergeHunk)
 
 -- | Information about the merge hunk in the source of a merge or pull
 -- request.
@@ -108,21 +108,21 @@ instance Core.FromJSON MergeHunk where
       ( \x ->
           MergeHunk'
             Prelude.<$> (x Core..:? "destination")
-            Prelude.<*> (x Core..:? "base")
             Prelude.<*> (x Core..:? "isConflict")
+            Prelude.<*> (x Core..:? "base")
             Prelude.<*> (x Core..:? "source")
       )
 
 instance Prelude.Hashable MergeHunk where
   hashWithSalt _salt MergeHunk' {..} =
     _salt `Prelude.hashWithSalt` destination
-      `Prelude.hashWithSalt` base
       `Prelude.hashWithSalt` isConflict
+      `Prelude.hashWithSalt` base
       `Prelude.hashWithSalt` source
 
 instance Prelude.NFData MergeHunk where
   rnf MergeHunk' {..} =
     Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf base
       `Prelude.seq` Prelude.rnf isConflict
+      `Prelude.seq` Prelude.rnf base
       `Prelude.seq` Prelude.rnf source

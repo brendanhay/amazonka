@@ -35,8 +35,8 @@ module Amazonka.CodeCommit.GetCommentsForPullRequest
     -- * Request Lenses
     getCommentsForPullRequest_afterCommitId,
     getCommentsForPullRequest_nextToken,
-    getCommentsForPullRequest_beforeCommitId,
     getCommentsForPullRequest_repositoryName,
+    getCommentsForPullRequest_beforeCommitId,
     getCommentsForPullRequest_maxResults,
     getCommentsForPullRequest_pullRequestId,
 
@@ -66,11 +66,11 @@ data GetCommentsForPullRequest = GetCommentsForPullRequest'
     -- | An enumeration token that, when provided in a request, returns the next
     -- batch of the results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of the repository that contains the pull request.
+    repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The full commit ID of the commit in the destination branch that was the
     -- tip of the branch at the time the pull request was created.
     beforeCommitId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the repository that contains the pull request.
-    repositoryName :: Prelude.Maybe Prelude.Text,
     -- | A non-zero, non-negative integer used to limit the number of returned
     -- results. The default is 100 comments. You can return up to 500 comments
     -- with a single request.
@@ -95,10 +95,10 @@ data GetCommentsForPullRequest = GetCommentsForPullRequest'
 -- 'nextToken', 'getCommentsForPullRequest_nextToken' - An enumeration token that, when provided in a request, returns the next
 -- batch of the results.
 --
+-- 'repositoryName', 'getCommentsForPullRequest_repositoryName' - The name of the repository that contains the pull request.
+--
 -- 'beforeCommitId', 'getCommentsForPullRequest_beforeCommitId' - The full commit ID of the commit in the destination branch that was the
 -- tip of the branch at the time the pull request was created.
---
--- 'repositoryName', 'getCommentsForPullRequest_repositoryName' - The name of the repository that contains the pull request.
 --
 -- 'maxResults', 'getCommentsForPullRequest_maxResults' - A non-zero, non-negative integer used to limit the number of returned
 -- results. The default is 100 comments. You can return up to 500 comments
@@ -115,8 +115,8 @@ newGetCommentsForPullRequest pPullRequestId_ =
     { afterCommitId =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      beforeCommitId = Prelude.Nothing,
       repositoryName = Prelude.Nothing,
+      beforeCommitId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       pullRequestId = pPullRequestId_
     }
@@ -131,14 +131,14 @@ getCommentsForPullRequest_afterCommitId = Lens.lens (\GetCommentsForPullRequest'
 getCommentsForPullRequest_nextToken :: Lens.Lens' GetCommentsForPullRequest (Prelude.Maybe Prelude.Text)
 getCommentsForPullRequest_nextToken = Lens.lens (\GetCommentsForPullRequest' {nextToken} -> nextToken) (\s@GetCommentsForPullRequest' {} a -> s {nextToken = a} :: GetCommentsForPullRequest)
 
+-- | The name of the repository that contains the pull request.
+getCommentsForPullRequest_repositoryName :: Lens.Lens' GetCommentsForPullRequest (Prelude.Maybe Prelude.Text)
+getCommentsForPullRequest_repositoryName = Lens.lens (\GetCommentsForPullRequest' {repositoryName} -> repositoryName) (\s@GetCommentsForPullRequest' {} a -> s {repositoryName = a} :: GetCommentsForPullRequest)
+
 -- | The full commit ID of the commit in the destination branch that was the
 -- tip of the branch at the time the pull request was created.
 getCommentsForPullRequest_beforeCommitId :: Lens.Lens' GetCommentsForPullRequest (Prelude.Maybe Prelude.Text)
 getCommentsForPullRequest_beforeCommitId = Lens.lens (\GetCommentsForPullRequest' {beforeCommitId} -> beforeCommitId) (\s@GetCommentsForPullRequest' {} a -> s {beforeCommitId = a} :: GetCommentsForPullRequest)
-
--- | The name of the repository that contains the pull request.
-getCommentsForPullRequest_repositoryName :: Lens.Lens' GetCommentsForPullRequest (Prelude.Maybe Prelude.Text)
-getCommentsForPullRequest_repositoryName = Lens.lens (\GetCommentsForPullRequest' {repositoryName} -> repositoryName) (\s@GetCommentsForPullRequest' {} a -> s {repositoryName = a} :: GetCommentsForPullRequest)
 
 -- | A non-zero, non-negative integer used to limit the number of returned
 -- results. The default is 100 comments. You can return up to 500 comments
@@ -193,8 +193,8 @@ instance Prelude.Hashable GetCommentsForPullRequest where
   hashWithSalt _salt GetCommentsForPullRequest' {..} =
     _salt `Prelude.hashWithSalt` afterCommitId
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` beforeCommitId
       `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` beforeCommitId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` pullRequestId
 
@@ -202,8 +202,8 @@ instance Prelude.NFData GetCommentsForPullRequest where
   rnf GetCommentsForPullRequest' {..} =
     Prelude.rnf afterCommitId
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf beforeCommitId
       `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf beforeCommitId
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf pullRequestId
 
@@ -228,10 +228,10 @@ instance Core.ToJSON GetCommentsForPullRequest where
       ( Prelude.catMaybes
           [ ("afterCommitId" Core..=) Prelude.<$> afterCommitId,
             ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("beforeCommitId" Core..=)
-              Prelude.<$> beforeCommitId,
             ("repositoryName" Core..=)
               Prelude.<$> repositoryName,
+            ("beforeCommitId" Core..=)
+              Prelude.<$> beforeCommitId,
             ("maxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just
               ("pullRequestId" Core..= pullRequestId)

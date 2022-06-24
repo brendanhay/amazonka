@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFileMetadata' smart constructor.
 data FileMetadata = FileMetadata'
-  { -- | The full path to the file to be added or updated, including the name of
-    -- the file.
-    absolutePath :: Prelude.Maybe Prelude.Text,
-    -- | The extrapolated file mode permissions for the file. Valid values
+  { -- | The extrapolated file mode permissions for the file. Valid values
     -- include EXECUTABLE and NORMAL.
     fileMode :: Prelude.Maybe FileModeTypeEnum,
+    -- | The full path to the file to be added or updated, including the name of
+    -- the file.
+    absolutePath :: Prelude.Maybe Prelude.Text,
     -- | The blob ID that contains the file information.
     blobId :: Prelude.Maybe Prelude.Text
   }
@@ -47,31 +47,31 @@ data FileMetadata = FileMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'absolutePath', 'fileMetadata_absolutePath' - The full path to the file to be added or updated, including the name of
--- the file.
---
 -- 'fileMode', 'fileMetadata_fileMode' - The extrapolated file mode permissions for the file. Valid values
 -- include EXECUTABLE and NORMAL.
+--
+-- 'absolutePath', 'fileMetadata_absolutePath' - The full path to the file to be added or updated, including the name of
+-- the file.
 --
 -- 'blobId', 'fileMetadata_blobId' - The blob ID that contains the file information.
 newFileMetadata ::
   FileMetadata
 newFileMetadata =
   FileMetadata'
-    { absolutePath = Prelude.Nothing,
-      fileMode = Prelude.Nothing,
+    { fileMode = Prelude.Nothing,
+      absolutePath = Prelude.Nothing,
       blobId = Prelude.Nothing
     }
-
--- | The full path to the file to be added or updated, including the name of
--- the file.
-fileMetadata_absolutePath :: Lens.Lens' FileMetadata (Prelude.Maybe Prelude.Text)
-fileMetadata_absolutePath = Lens.lens (\FileMetadata' {absolutePath} -> absolutePath) (\s@FileMetadata' {} a -> s {absolutePath = a} :: FileMetadata)
 
 -- | The extrapolated file mode permissions for the file. Valid values
 -- include EXECUTABLE and NORMAL.
 fileMetadata_fileMode :: Lens.Lens' FileMetadata (Prelude.Maybe FileModeTypeEnum)
 fileMetadata_fileMode = Lens.lens (\FileMetadata' {fileMode} -> fileMode) (\s@FileMetadata' {} a -> s {fileMode = a} :: FileMetadata)
+
+-- | The full path to the file to be added or updated, including the name of
+-- the file.
+fileMetadata_absolutePath :: Lens.Lens' FileMetadata (Prelude.Maybe Prelude.Text)
+fileMetadata_absolutePath = Lens.lens (\FileMetadata' {absolutePath} -> absolutePath) (\s@FileMetadata' {} a -> s {absolutePath = a} :: FileMetadata)
 
 -- | The blob ID that contains the file information.
 fileMetadata_blobId :: Lens.Lens' FileMetadata (Prelude.Maybe Prelude.Text)
@@ -83,19 +83,19 @@ instance Core.FromJSON FileMetadata where
       "FileMetadata"
       ( \x ->
           FileMetadata'
-            Prelude.<$> (x Core..:? "absolutePath")
-            Prelude.<*> (x Core..:? "fileMode")
+            Prelude.<$> (x Core..:? "fileMode")
+            Prelude.<*> (x Core..:? "absolutePath")
             Prelude.<*> (x Core..:? "blobId")
       )
 
 instance Prelude.Hashable FileMetadata where
   hashWithSalt _salt FileMetadata' {..} =
-    _salt `Prelude.hashWithSalt` absolutePath
-      `Prelude.hashWithSalt` fileMode
+    _salt `Prelude.hashWithSalt` fileMode
+      `Prelude.hashWithSalt` absolutePath
       `Prelude.hashWithSalt` blobId
 
 instance Prelude.NFData FileMetadata where
   rnf FileMetadata' {..} =
-    Prelude.rnf absolutePath
-      `Prelude.seq` Prelude.rnf fileMode
+    Prelude.rnf fileMode
+      `Prelude.seq` Prelude.rnf absolutePath
       `Prelude.seq` Prelude.rnf blobId

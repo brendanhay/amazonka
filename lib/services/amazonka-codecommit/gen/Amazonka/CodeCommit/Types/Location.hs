@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLocation' smart constructor.
 data Location = Location'
-  { -- | In a comparison of commits or a pull request, whether the change is in
-    -- the before or after of that comparison.
-    relativeFileVersion :: Prelude.Maybe RelativeFileVersionEnum,
-    -- | The name of the file being compared, including its extension and
+  { -- | The name of the file being compared, including its extension and
     -- subdirectory, if any.
     filePath :: Prelude.Maybe Prelude.Text,
     -- | The position of a change in a compared file, in line number format.
-    filePosition :: Prelude.Maybe Prelude.Integer
+    filePosition :: Prelude.Maybe Prelude.Integer,
+    -- | In a comparison of commits or a pull request, whether the change is in
+    -- the before or after of that comparison.
+    relativeFileVersion :: Prelude.Maybe RelativeFileVersionEnum
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,26 +48,21 @@ data Location = Location'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'relativeFileVersion', 'location_relativeFileVersion' - In a comparison of commits or a pull request, whether the change is in
--- the before or after of that comparison.
---
 -- 'filePath', 'location_filePath' - The name of the file being compared, including its extension and
 -- subdirectory, if any.
 --
 -- 'filePosition', 'location_filePosition' - The position of a change in a compared file, in line number format.
+--
+-- 'relativeFileVersion', 'location_relativeFileVersion' - In a comparison of commits or a pull request, whether the change is in
+-- the before or after of that comparison.
 newLocation ::
   Location
 newLocation =
   Location'
-    { relativeFileVersion = Prelude.Nothing,
-      filePath = Prelude.Nothing,
-      filePosition = Prelude.Nothing
+    { filePath = Prelude.Nothing,
+      filePosition = Prelude.Nothing,
+      relativeFileVersion = Prelude.Nothing
     }
-
--- | In a comparison of commits or a pull request, whether the change is in
--- the before or after of that comparison.
-location_relativeFileVersion :: Lens.Lens' Location (Prelude.Maybe RelativeFileVersionEnum)
-location_relativeFileVersion = Lens.lens (\Location' {relativeFileVersion} -> relativeFileVersion) (\s@Location' {} a -> s {relativeFileVersion = a} :: Location)
 
 -- | The name of the file being compared, including its extension and
 -- subdirectory, if any.
@@ -78,36 +73,41 @@ location_filePath = Lens.lens (\Location' {filePath} -> filePath) (\s@Location' 
 location_filePosition :: Lens.Lens' Location (Prelude.Maybe Prelude.Integer)
 location_filePosition = Lens.lens (\Location' {filePosition} -> filePosition) (\s@Location' {} a -> s {filePosition = a} :: Location)
 
+-- | In a comparison of commits or a pull request, whether the change is in
+-- the before or after of that comparison.
+location_relativeFileVersion :: Lens.Lens' Location (Prelude.Maybe RelativeFileVersionEnum)
+location_relativeFileVersion = Lens.lens (\Location' {relativeFileVersion} -> relativeFileVersion) (\s@Location' {} a -> s {relativeFileVersion = a} :: Location)
+
 instance Core.FromJSON Location where
   parseJSON =
     Core.withObject
       "Location"
       ( \x ->
           Location'
-            Prelude.<$> (x Core..:? "relativeFileVersion")
-            Prelude.<*> (x Core..:? "filePath")
+            Prelude.<$> (x Core..:? "filePath")
             Prelude.<*> (x Core..:? "filePosition")
+            Prelude.<*> (x Core..:? "relativeFileVersion")
       )
 
 instance Prelude.Hashable Location where
   hashWithSalt _salt Location' {..} =
-    _salt `Prelude.hashWithSalt` relativeFileVersion
-      `Prelude.hashWithSalt` filePath
+    _salt `Prelude.hashWithSalt` filePath
       `Prelude.hashWithSalt` filePosition
+      `Prelude.hashWithSalt` relativeFileVersion
 
 instance Prelude.NFData Location where
   rnf Location' {..} =
-    Prelude.rnf relativeFileVersion
-      `Prelude.seq` Prelude.rnf filePath
+    Prelude.rnf filePath
       `Prelude.seq` Prelude.rnf filePosition
+      `Prelude.seq` Prelude.rnf relativeFileVersion
 
 instance Core.ToJSON Location where
   toJSON Location' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("relativeFileVersion" Core..=)
-              Prelude.<$> relativeFileVersion,
-            ("filePath" Core..=) Prelude.<$> filePath,
-            ("filePosition" Core..=) Prelude.<$> filePosition
+          [ ("filePath" Core..=) Prelude.<$> filePath,
+            ("filePosition" Core..=) Prelude.<$> filePosition,
+            ("relativeFileVersion" Core..=)
+              Prelude.<$> relativeFileVersion
           ]
       )

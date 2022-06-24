@@ -45,8 +45,8 @@ module Amazonka.CodeCommit.GetCommentsForComparedCommit
     newGetCommentsForComparedCommitResponse,
 
     -- * Response Lenses
-    getCommentsForComparedCommitResponse_commentsForComparedCommitData,
     getCommentsForComparedCommitResponse_nextToken,
+    getCommentsForComparedCommitResponse_commentsForComparedCommitData,
     getCommentsForComparedCommitResponse_httpStatus,
   )
 where
@@ -171,10 +171,10 @@ instance Core.AWSRequest GetCommentsForComparedCommit where
     Response.receiveJSON
       ( \s h x ->
           GetCommentsForComparedCommitResponse'
-            Prelude.<$> ( x Core..?> "commentsForComparedCommitData"
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "commentsForComparedCommitData"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -235,11 +235,11 @@ instance Core.ToQuery GetCommentsForComparedCommit where
 
 -- | /See:/ 'newGetCommentsForComparedCommitResponse' smart constructor.
 data GetCommentsForComparedCommitResponse = GetCommentsForComparedCommitResponse'
-  { -- | A list of comment objects on the compared commit.
-    commentsForComparedCommitData :: Prelude.Maybe [CommentsForComparedCommit],
-    -- | An enumeration token that can be used in a request to return the next
+  { -- | An enumeration token that can be used in a request to return the next
     -- batch of the results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of comment objects on the compared commit.
+    commentsForComparedCommitData :: Prelude.Maybe [CommentsForComparedCommit],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -253,10 +253,10 @@ data GetCommentsForComparedCommitResponse = GetCommentsForComparedCommitResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'commentsForComparedCommitData', 'getCommentsForComparedCommitResponse_commentsForComparedCommitData' - A list of comment objects on the compared commit.
---
 -- 'nextToken', 'getCommentsForComparedCommitResponse_nextToken' - An enumeration token that can be used in a request to return the next
 -- batch of the results.
+--
+-- 'commentsForComparedCommitData', 'getCommentsForComparedCommitResponse_commentsForComparedCommitData' - A list of comment objects on the compared commit.
 --
 -- 'httpStatus', 'getCommentsForComparedCommitResponse_httpStatus' - The response's http status code.
 newGetCommentsForComparedCommitResponse ::
@@ -265,20 +265,21 @@ newGetCommentsForComparedCommitResponse ::
   GetCommentsForComparedCommitResponse
 newGetCommentsForComparedCommitResponse pHttpStatus_ =
   GetCommentsForComparedCommitResponse'
-    { commentsForComparedCommitData =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      commentsForComparedCommitData =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of comment objects on the compared commit.
-getCommentsForComparedCommitResponse_commentsForComparedCommitData :: Lens.Lens' GetCommentsForComparedCommitResponse (Prelude.Maybe [CommentsForComparedCommit])
-getCommentsForComparedCommitResponse_commentsForComparedCommitData = Lens.lens (\GetCommentsForComparedCommitResponse' {commentsForComparedCommitData} -> commentsForComparedCommitData) (\s@GetCommentsForComparedCommitResponse' {} a -> s {commentsForComparedCommitData = a} :: GetCommentsForComparedCommitResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An enumeration token that can be used in a request to return the next
 -- batch of the results.
 getCommentsForComparedCommitResponse_nextToken :: Lens.Lens' GetCommentsForComparedCommitResponse (Prelude.Maybe Prelude.Text)
 getCommentsForComparedCommitResponse_nextToken = Lens.lens (\GetCommentsForComparedCommitResponse' {nextToken} -> nextToken) (\s@GetCommentsForComparedCommitResponse' {} a -> s {nextToken = a} :: GetCommentsForComparedCommitResponse)
+
+-- | A list of comment objects on the compared commit.
+getCommentsForComparedCommitResponse_commentsForComparedCommitData :: Lens.Lens' GetCommentsForComparedCommitResponse (Prelude.Maybe [CommentsForComparedCommit])
+getCommentsForComparedCommitResponse_commentsForComparedCommitData = Lens.lens (\GetCommentsForComparedCommitResponse' {commentsForComparedCommitData} -> commentsForComparedCommitData) (\s@GetCommentsForComparedCommitResponse' {} a -> s {commentsForComparedCommitData = a} :: GetCommentsForComparedCommitResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getCommentsForComparedCommitResponse_httpStatus :: Lens.Lens' GetCommentsForComparedCommitResponse Prelude.Int
@@ -289,6 +290,6 @@ instance
     GetCommentsForComparedCommitResponse
   where
   rnf GetCommentsForComparedCommitResponse' {..} =
-    Prelude.rnf commentsForComparedCommitData
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf commentsForComparedCommitData
       `Prelude.seq` Prelude.rnf httpStatus

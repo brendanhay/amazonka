@@ -38,10 +38,10 @@ module Amazonka.ElasticBeanstalk.ApplyEnvironmentManagedAction
     newApplyEnvironmentManagedActionResponse,
 
     -- * Response Lenses
+    applyEnvironmentManagedActionResponse_actionType,
     applyEnvironmentManagedActionResponse_status,
     applyEnvironmentManagedActionResponse_actionId,
     applyEnvironmentManagedActionResponse_actionDescription,
-    applyEnvironmentManagedActionResponse_actionType,
     applyEnvironmentManagedActionResponse_httpStatus,
   )
 where
@@ -116,10 +116,10 @@ instance
       "ApplyEnvironmentManagedActionResult"
       ( \s h x ->
           ApplyEnvironmentManagedActionResponse'
-            Prelude.<$> (x Core..@? "Status")
+            Prelude.<$> (x Core..@? "ActionType")
+            Prelude.<*> (x Core..@? "Status")
             Prelude.<*> (x Core..@? "ActionId")
             Prelude.<*> (x Core..@? "ActionDescription")
-            Prelude.<*> (x Core..@? "ActionType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,14 +162,14 @@ instance Core.ToQuery ApplyEnvironmentManagedAction where
 --
 -- /See:/ 'newApplyEnvironmentManagedActionResponse' smart constructor.
 data ApplyEnvironmentManagedActionResponse = ApplyEnvironmentManagedActionResponse'
-  { -- | The status of the managed action.
+  { -- | The type of managed action.
+    actionType :: Prelude.Maybe ActionType,
+    -- | The status of the managed action.
     status :: Prelude.Maybe Prelude.Text,
     -- | The action ID of the managed action.
     actionId :: Prelude.Maybe Prelude.Text,
     -- | A description of the managed action.
     actionDescription :: Prelude.Maybe Prelude.Text,
-    -- | The type of managed action.
-    actionType :: Prelude.Maybe ActionType,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -183,13 +183,13 @@ data ApplyEnvironmentManagedActionResponse = ApplyEnvironmentManagedActionRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'actionType', 'applyEnvironmentManagedActionResponse_actionType' - The type of managed action.
+--
 -- 'status', 'applyEnvironmentManagedActionResponse_status' - The status of the managed action.
 --
 -- 'actionId', 'applyEnvironmentManagedActionResponse_actionId' - The action ID of the managed action.
 --
 -- 'actionDescription', 'applyEnvironmentManagedActionResponse_actionDescription' - A description of the managed action.
---
--- 'actionType', 'applyEnvironmentManagedActionResponse_actionType' - The type of managed action.
 --
 -- 'httpStatus', 'applyEnvironmentManagedActionResponse_httpStatus' - The response's http status code.
 newApplyEnvironmentManagedActionResponse ::
@@ -198,13 +198,17 @@ newApplyEnvironmentManagedActionResponse ::
   ApplyEnvironmentManagedActionResponse
 newApplyEnvironmentManagedActionResponse pHttpStatus_ =
   ApplyEnvironmentManagedActionResponse'
-    { status =
+    { actionType =
         Prelude.Nothing,
+      status = Prelude.Nothing,
       actionId = Prelude.Nothing,
       actionDescription = Prelude.Nothing,
-      actionType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The type of managed action.
+applyEnvironmentManagedActionResponse_actionType :: Lens.Lens' ApplyEnvironmentManagedActionResponse (Prelude.Maybe ActionType)
+applyEnvironmentManagedActionResponse_actionType = Lens.lens (\ApplyEnvironmentManagedActionResponse' {actionType} -> actionType) (\s@ApplyEnvironmentManagedActionResponse' {} a -> s {actionType = a} :: ApplyEnvironmentManagedActionResponse)
 
 -- | The status of the managed action.
 applyEnvironmentManagedActionResponse_status :: Lens.Lens' ApplyEnvironmentManagedActionResponse (Prelude.Maybe Prelude.Text)
@@ -218,10 +222,6 @@ applyEnvironmentManagedActionResponse_actionId = Lens.lens (\ApplyEnvironmentMan
 applyEnvironmentManagedActionResponse_actionDescription :: Lens.Lens' ApplyEnvironmentManagedActionResponse (Prelude.Maybe Prelude.Text)
 applyEnvironmentManagedActionResponse_actionDescription = Lens.lens (\ApplyEnvironmentManagedActionResponse' {actionDescription} -> actionDescription) (\s@ApplyEnvironmentManagedActionResponse' {} a -> s {actionDescription = a} :: ApplyEnvironmentManagedActionResponse)
 
--- | The type of managed action.
-applyEnvironmentManagedActionResponse_actionType :: Lens.Lens' ApplyEnvironmentManagedActionResponse (Prelude.Maybe ActionType)
-applyEnvironmentManagedActionResponse_actionType = Lens.lens (\ApplyEnvironmentManagedActionResponse' {actionType} -> actionType) (\s@ApplyEnvironmentManagedActionResponse' {} a -> s {actionType = a} :: ApplyEnvironmentManagedActionResponse)
-
 -- | The response's http status code.
 applyEnvironmentManagedActionResponse_httpStatus :: Lens.Lens' ApplyEnvironmentManagedActionResponse Prelude.Int
 applyEnvironmentManagedActionResponse_httpStatus = Lens.lens (\ApplyEnvironmentManagedActionResponse' {httpStatus} -> httpStatus) (\s@ApplyEnvironmentManagedActionResponse' {} a -> s {httpStatus = a} :: ApplyEnvironmentManagedActionResponse)
@@ -231,8 +231,8 @@ instance
     ApplyEnvironmentManagedActionResponse
   where
   rnf ApplyEnvironmentManagedActionResponse' {..} =
-    Prelude.rnf status
+    Prelude.rnf actionType
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf actionId
       `Prelude.seq` Prelude.rnf actionDescription
-      `Prelude.seq` Prelude.rnf actionType
       `Prelude.seq` Prelude.rnf httpStatus

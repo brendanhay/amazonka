@@ -28,25 +28,25 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEventDescription' smart constructor.
 data EventDescription = EventDescription'
-  { -- | The web service request ID for the activity of this event.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the configuration associated with this event.
-    templateName :: Prelude.Maybe Prelude.Text,
+  { -- | The event message.
+    message :: Prelude.Maybe Prelude.Text,
     -- | The severity level of this event.
     severity :: Prelude.Maybe EventSeverity,
+    -- | The name of the configuration associated with this event.
+    templateName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the environment associated with this event.
+    environmentName :: Prelude.Maybe Prelude.Text,
+    -- | The web service request ID for the activity of this event.
+    requestId :: Prelude.Maybe Prelude.Text,
+    -- | The date when the event occurred.
+    eventDate :: Prelude.Maybe Core.ISO8601,
+    -- | The ARN of the platform version.
+    platformArn :: Prelude.Maybe Prelude.Text,
     -- | The release label for the application version associated with this
     -- event.
     versionLabel :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the platform version.
-    platformArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the environment associated with this event.
-    environmentName :: Prelude.Maybe Prelude.Text,
     -- | The application associated with the event.
-    applicationName :: Prelude.Maybe Prelude.Text,
-    -- | The date when the event occurred.
-    eventDate :: Prelude.Maybe Core.ISO8601,
-    -- | The event message.
-    message :: Prelude.Maybe Prelude.Text
+    applicationName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,109 +58,109 @@ data EventDescription = EventDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'eventDescription_requestId' - The web service request ID for the activity of this event.
+-- 'message', 'eventDescription_message' - The event message.
+--
+-- 'severity', 'eventDescription_severity' - The severity level of this event.
 --
 -- 'templateName', 'eventDescription_templateName' - The name of the configuration associated with this event.
 --
--- 'severity', 'eventDescription_severity' - The severity level of this event.
+-- 'environmentName', 'eventDescription_environmentName' - The name of the environment associated with this event.
+--
+-- 'requestId', 'eventDescription_requestId' - The web service request ID for the activity of this event.
+--
+-- 'eventDate', 'eventDescription_eventDate' - The date when the event occurred.
+--
+-- 'platformArn', 'eventDescription_platformArn' - The ARN of the platform version.
 --
 -- 'versionLabel', 'eventDescription_versionLabel' - The release label for the application version associated with this
 -- event.
 --
--- 'platformArn', 'eventDescription_platformArn' - The ARN of the platform version.
---
--- 'environmentName', 'eventDescription_environmentName' - The name of the environment associated with this event.
---
 -- 'applicationName', 'eventDescription_applicationName' - The application associated with the event.
---
--- 'eventDate', 'eventDescription_eventDate' - The date when the event occurred.
---
--- 'message', 'eventDescription_message' - The event message.
 newEventDescription ::
   EventDescription
 newEventDescription =
   EventDescription'
-    { requestId = Prelude.Nothing,
-      templateName = Prelude.Nothing,
+    { message = Prelude.Nothing,
       severity = Prelude.Nothing,
-      versionLabel = Prelude.Nothing,
-      platformArn = Prelude.Nothing,
+      templateName = Prelude.Nothing,
       environmentName = Prelude.Nothing,
-      applicationName = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       eventDate = Prelude.Nothing,
-      message = Prelude.Nothing
+      platformArn = Prelude.Nothing,
+      versionLabel = Prelude.Nothing,
+      applicationName = Prelude.Nothing
     }
 
--- | The web service request ID for the activity of this event.
-eventDescription_requestId :: Lens.Lens' EventDescription (Prelude.Maybe Prelude.Text)
-eventDescription_requestId = Lens.lens (\EventDescription' {requestId} -> requestId) (\s@EventDescription' {} a -> s {requestId = a} :: EventDescription)
+-- | The event message.
+eventDescription_message :: Lens.Lens' EventDescription (Prelude.Maybe Prelude.Text)
+eventDescription_message = Lens.lens (\EventDescription' {message} -> message) (\s@EventDescription' {} a -> s {message = a} :: EventDescription)
+
+-- | The severity level of this event.
+eventDescription_severity :: Lens.Lens' EventDescription (Prelude.Maybe EventSeverity)
+eventDescription_severity = Lens.lens (\EventDescription' {severity} -> severity) (\s@EventDescription' {} a -> s {severity = a} :: EventDescription)
 
 -- | The name of the configuration associated with this event.
 eventDescription_templateName :: Lens.Lens' EventDescription (Prelude.Maybe Prelude.Text)
 eventDescription_templateName = Lens.lens (\EventDescription' {templateName} -> templateName) (\s@EventDescription' {} a -> s {templateName = a} :: EventDescription)
 
--- | The severity level of this event.
-eventDescription_severity :: Lens.Lens' EventDescription (Prelude.Maybe EventSeverity)
-eventDescription_severity = Lens.lens (\EventDescription' {severity} -> severity) (\s@EventDescription' {} a -> s {severity = a} :: EventDescription)
+-- | The name of the environment associated with this event.
+eventDescription_environmentName :: Lens.Lens' EventDescription (Prelude.Maybe Prelude.Text)
+eventDescription_environmentName = Lens.lens (\EventDescription' {environmentName} -> environmentName) (\s@EventDescription' {} a -> s {environmentName = a} :: EventDescription)
+
+-- | The web service request ID for the activity of this event.
+eventDescription_requestId :: Lens.Lens' EventDescription (Prelude.Maybe Prelude.Text)
+eventDescription_requestId = Lens.lens (\EventDescription' {requestId} -> requestId) (\s@EventDescription' {} a -> s {requestId = a} :: EventDescription)
+
+-- | The date when the event occurred.
+eventDescription_eventDate :: Lens.Lens' EventDescription (Prelude.Maybe Prelude.UTCTime)
+eventDescription_eventDate = Lens.lens (\EventDescription' {eventDate} -> eventDate) (\s@EventDescription' {} a -> s {eventDate = a} :: EventDescription) Prelude.. Lens.mapping Core._Time
+
+-- | The ARN of the platform version.
+eventDescription_platformArn :: Lens.Lens' EventDescription (Prelude.Maybe Prelude.Text)
+eventDescription_platformArn = Lens.lens (\EventDescription' {platformArn} -> platformArn) (\s@EventDescription' {} a -> s {platformArn = a} :: EventDescription)
 
 -- | The release label for the application version associated with this
 -- event.
 eventDescription_versionLabel :: Lens.Lens' EventDescription (Prelude.Maybe Prelude.Text)
 eventDescription_versionLabel = Lens.lens (\EventDescription' {versionLabel} -> versionLabel) (\s@EventDescription' {} a -> s {versionLabel = a} :: EventDescription)
 
--- | The ARN of the platform version.
-eventDescription_platformArn :: Lens.Lens' EventDescription (Prelude.Maybe Prelude.Text)
-eventDescription_platformArn = Lens.lens (\EventDescription' {platformArn} -> platformArn) (\s@EventDescription' {} a -> s {platformArn = a} :: EventDescription)
-
--- | The name of the environment associated with this event.
-eventDescription_environmentName :: Lens.Lens' EventDescription (Prelude.Maybe Prelude.Text)
-eventDescription_environmentName = Lens.lens (\EventDescription' {environmentName} -> environmentName) (\s@EventDescription' {} a -> s {environmentName = a} :: EventDescription)
-
 -- | The application associated with the event.
 eventDescription_applicationName :: Lens.Lens' EventDescription (Prelude.Maybe Prelude.Text)
 eventDescription_applicationName = Lens.lens (\EventDescription' {applicationName} -> applicationName) (\s@EventDescription' {} a -> s {applicationName = a} :: EventDescription)
 
--- | The date when the event occurred.
-eventDescription_eventDate :: Lens.Lens' EventDescription (Prelude.Maybe Prelude.UTCTime)
-eventDescription_eventDate = Lens.lens (\EventDescription' {eventDate} -> eventDate) (\s@EventDescription' {} a -> s {eventDate = a} :: EventDescription) Prelude.. Lens.mapping Core._Time
-
--- | The event message.
-eventDescription_message :: Lens.Lens' EventDescription (Prelude.Maybe Prelude.Text)
-eventDescription_message = Lens.lens (\EventDescription' {message} -> message) (\s@EventDescription' {} a -> s {message = a} :: EventDescription)
-
 instance Core.FromXML EventDescription where
   parseXML x =
     EventDescription'
-      Prelude.<$> (x Core..@? "RequestId")
-      Prelude.<*> (x Core..@? "TemplateName")
+      Prelude.<$> (x Core..@? "Message")
       Prelude.<*> (x Core..@? "Severity")
-      Prelude.<*> (x Core..@? "VersionLabel")
-      Prelude.<*> (x Core..@? "PlatformArn")
+      Prelude.<*> (x Core..@? "TemplateName")
       Prelude.<*> (x Core..@? "EnvironmentName")
-      Prelude.<*> (x Core..@? "ApplicationName")
+      Prelude.<*> (x Core..@? "RequestId")
       Prelude.<*> (x Core..@? "EventDate")
-      Prelude.<*> (x Core..@? "Message")
+      Prelude.<*> (x Core..@? "PlatformArn")
+      Prelude.<*> (x Core..@? "VersionLabel")
+      Prelude.<*> (x Core..@? "ApplicationName")
 
 instance Prelude.Hashable EventDescription where
   hashWithSalt _salt EventDescription' {..} =
-    _salt `Prelude.hashWithSalt` requestId
-      `Prelude.hashWithSalt` templateName
+    _salt `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` severity
-      `Prelude.hashWithSalt` versionLabel
-      `Prelude.hashWithSalt` platformArn
+      `Prelude.hashWithSalt` templateName
       `Prelude.hashWithSalt` environmentName
-      `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` requestId
       `Prelude.hashWithSalt` eventDate
-      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` platformArn
+      `Prelude.hashWithSalt` versionLabel
+      `Prelude.hashWithSalt` applicationName
 
 instance Prelude.NFData EventDescription where
   rnf EventDescription' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf templateName
+    Prelude.rnf message
       `Prelude.seq` Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf versionLabel
-      `Prelude.seq` Prelude.rnf platformArn
+      `Prelude.seq` Prelude.rnf templateName
       `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf eventDate
-      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf platformArn
+      `Prelude.seq` Prelude.rnf versionLabel
+      `Prelude.seq` Prelude.rnf applicationName

@@ -39,8 +39,8 @@ module Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory
     newDescribeEnvironmentManagedActionHistoryResponse,
 
     -- * Response Lenses
-    describeEnvironmentManagedActionHistoryResponse_managedActionHistoryItems,
     describeEnvironmentManagedActionHistoryResponse_nextToken,
+    describeEnvironmentManagedActionHistoryResponse_managedActionHistoryItems,
     describeEnvironmentManagedActionHistoryResponse_httpStatus,
   )
 where
@@ -149,11 +149,11 @@ instance
       "DescribeEnvironmentManagedActionHistoryResult"
       ( \s h x ->
           DescribeEnvironmentManagedActionHistoryResponse'
-            Prelude.<$> ( x Core..@? "ManagedActionHistoryItems"
-                            Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList1 "member")
-                        )
-              Prelude.<*> (x Core..@? "NextToken")
+            Prelude.<$> (x Core..@? "NextToken")
+              Prelude.<*> ( x Core..@? "ManagedActionHistoryItems"
+                              Core..!@ Prelude.mempty
+                              Prelude.>>= Core.may (Core.parseXMLList1 "member")
+                          )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -214,11 +214,11 @@ instance
 --
 -- /See:/ 'newDescribeEnvironmentManagedActionHistoryResponse' smart constructor.
 data DescribeEnvironmentManagedActionHistoryResponse = DescribeEnvironmentManagedActionHistoryResponse'
-  { -- | A list of completed and failed managed actions.
-    managedActionHistoryItems :: Prelude.Maybe (Prelude.NonEmpty ManagedActionHistoryItem),
-    -- | A pagination token that you pass to
+  { -- | A pagination token that you pass to
     -- DescribeEnvironmentManagedActionHistory to get the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of completed and failed managed actions.
+    managedActionHistoryItems :: Prelude.Maybe (Prelude.NonEmpty ManagedActionHistoryItem),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -232,10 +232,10 @@ data DescribeEnvironmentManagedActionHistoryResponse = DescribeEnvironmentManage
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'managedActionHistoryItems', 'describeEnvironmentManagedActionHistoryResponse_managedActionHistoryItems' - A list of completed and failed managed actions.
---
 -- 'nextToken', 'describeEnvironmentManagedActionHistoryResponse_nextToken' - A pagination token that you pass to
 -- DescribeEnvironmentManagedActionHistory to get the next page of results.
+--
+-- 'managedActionHistoryItems', 'describeEnvironmentManagedActionHistoryResponse_managedActionHistoryItems' - A list of completed and failed managed actions.
 --
 -- 'httpStatus', 'describeEnvironmentManagedActionHistoryResponse_httpStatus' - The response's http status code.
 newDescribeEnvironmentManagedActionHistoryResponse ::
@@ -245,21 +245,21 @@ newDescribeEnvironmentManagedActionHistoryResponse ::
 newDescribeEnvironmentManagedActionHistoryResponse
   pHttpStatus_ =
     DescribeEnvironmentManagedActionHistoryResponse'
-      { managedActionHistoryItems =
+      { nextToken =
           Prelude.Nothing,
-        nextToken =
+        managedActionHistoryItems =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | A list of completed and failed managed actions.
-describeEnvironmentManagedActionHistoryResponse_managedActionHistoryItems :: Lens.Lens' DescribeEnvironmentManagedActionHistoryResponse (Prelude.Maybe (Prelude.NonEmpty ManagedActionHistoryItem))
-describeEnvironmentManagedActionHistoryResponse_managedActionHistoryItems = Lens.lens (\DescribeEnvironmentManagedActionHistoryResponse' {managedActionHistoryItems} -> managedActionHistoryItems) (\s@DescribeEnvironmentManagedActionHistoryResponse' {} a -> s {managedActionHistoryItems = a} :: DescribeEnvironmentManagedActionHistoryResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A pagination token that you pass to
 -- DescribeEnvironmentManagedActionHistory to get the next page of results.
 describeEnvironmentManagedActionHistoryResponse_nextToken :: Lens.Lens' DescribeEnvironmentManagedActionHistoryResponse (Prelude.Maybe Prelude.Text)
 describeEnvironmentManagedActionHistoryResponse_nextToken = Lens.lens (\DescribeEnvironmentManagedActionHistoryResponse' {nextToken} -> nextToken) (\s@DescribeEnvironmentManagedActionHistoryResponse' {} a -> s {nextToken = a} :: DescribeEnvironmentManagedActionHistoryResponse)
+
+-- | A list of completed and failed managed actions.
+describeEnvironmentManagedActionHistoryResponse_managedActionHistoryItems :: Lens.Lens' DescribeEnvironmentManagedActionHistoryResponse (Prelude.Maybe (Prelude.NonEmpty ManagedActionHistoryItem))
+describeEnvironmentManagedActionHistoryResponse_managedActionHistoryItems = Lens.lens (\DescribeEnvironmentManagedActionHistoryResponse' {managedActionHistoryItems} -> managedActionHistoryItems) (\s@DescribeEnvironmentManagedActionHistoryResponse' {} a -> s {managedActionHistoryItems = a} :: DescribeEnvironmentManagedActionHistoryResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeEnvironmentManagedActionHistoryResponse_httpStatus :: Lens.Lens' DescribeEnvironmentManagedActionHistoryResponse Prelude.Int
@@ -271,6 +271,6 @@ instance
   where
   rnf
     DescribeEnvironmentManagedActionHistoryResponse' {..} =
-      Prelude.rnf managedActionHistoryItems
-        `Prelude.seq` Prelude.rnf nextToken
+      Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf managedActionHistoryItems
         `Prelude.seq` Prelude.rnf httpStatus

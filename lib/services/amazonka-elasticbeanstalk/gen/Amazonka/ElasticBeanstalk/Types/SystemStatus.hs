@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSystemStatus' smart constructor.
 data SystemStatus = SystemStatus'
-  { -- | CPU utilization metrics for the instance.
-    cPUUtilization :: Prelude.Maybe CPUUtilization,
-    -- | Load average in the last 1-minute, 5-minute, and 15-minute periods. For
+  { -- | Load average in the last 1-minute, 5-minute, and 15-minute periods. For
     -- more information, see
     -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os Operating System Metrics>.
-    loadAverage :: Prelude.Maybe [Prelude.Double]
+    loadAverage :: Prelude.Maybe [Prelude.Double],
+    -- | CPU utilization metrics for the instance.
+    cPUUtilization :: Prelude.Maybe CPUUtilization
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,22 +45,18 @@ data SystemStatus = SystemStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cPUUtilization', 'systemStatus_cPUUtilization' - CPU utilization metrics for the instance.
---
 -- 'loadAverage', 'systemStatus_loadAverage' - Load average in the last 1-minute, 5-minute, and 15-minute periods. For
 -- more information, see
 -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os Operating System Metrics>.
+--
+-- 'cPUUtilization', 'systemStatus_cPUUtilization' - CPU utilization metrics for the instance.
 newSystemStatus ::
   SystemStatus
 newSystemStatus =
   SystemStatus'
-    { cPUUtilization = Prelude.Nothing,
-      loadAverage = Prelude.Nothing
+    { loadAverage = Prelude.Nothing,
+      cPUUtilization = Prelude.Nothing
     }
-
--- | CPU utilization metrics for the instance.
-systemStatus_cPUUtilization :: Lens.Lens' SystemStatus (Prelude.Maybe CPUUtilization)
-systemStatus_cPUUtilization = Lens.lens (\SystemStatus' {cPUUtilization} -> cPUUtilization) (\s@SystemStatus' {} a -> s {cPUUtilization = a} :: SystemStatus)
 
 -- | Load average in the last 1-minute, 5-minute, and 15-minute periods. For
 -- more information, see
@@ -68,20 +64,24 @@ systemStatus_cPUUtilization = Lens.lens (\SystemStatus' {cPUUtilization} -> cPUU
 systemStatus_loadAverage :: Lens.Lens' SystemStatus (Prelude.Maybe [Prelude.Double])
 systemStatus_loadAverage = Lens.lens (\SystemStatus' {loadAverage} -> loadAverage) (\s@SystemStatus' {} a -> s {loadAverage = a} :: SystemStatus) Prelude.. Lens.mapping Lens.coerced
 
+-- | CPU utilization metrics for the instance.
+systemStatus_cPUUtilization :: Lens.Lens' SystemStatus (Prelude.Maybe CPUUtilization)
+systemStatus_cPUUtilization = Lens.lens (\SystemStatus' {cPUUtilization} -> cPUUtilization) (\s@SystemStatus' {} a -> s {cPUUtilization = a} :: SystemStatus)
+
 instance Core.FromXML SystemStatus where
   parseXML x =
     SystemStatus'
-      Prelude.<$> (x Core..@? "CPUUtilization")
-      Prelude.<*> ( x Core..@? "LoadAverage" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Core..@? "LoadAverage" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
+      Prelude.<*> (x Core..@? "CPUUtilization")
 
 instance Prelude.Hashable SystemStatus where
   hashWithSalt _salt SystemStatus' {..} =
-    _salt `Prelude.hashWithSalt` cPUUtilization
-      `Prelude.hashWithSalt` loadAverage
+    _salt `Prelude.hashWithSalt` loadAverage
+      `Prelude.hashWithSalt` cPUUtilization
 
 instance Prelude.NFData SystemStatus where
   rnf SystemStatus' {..} =
-    Prelude.rnf cPUUtilization
-      `Prelude.seq` Prelude.rnf loadAverage
+    Prelude.rnf loadAverage
+      `Prelude.seq` Prelude.rnf cPUUtilization

@@ -37,8 +37,8 @@ module Amazonka.Greengrass.ListGroups
     newListGroupsResponse,
 
     -- * Response Lenses
-    listGroupsResponse_groups,
     listGroupsResponse_nextToken,
+    listGroupsResponse_groups,
     listGroupsResponse_httpStatus,
   )
 where
@@ -115,8 +115,8 @@ instance Core.AWSRequest ListGroups where
     Response.receiveJSON
       ( \s h x ->
           ListGroupsResponse'
-            Prelude.<$> (x Core..?> "Groups" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Groups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,11 +153,11 @@ instance Core.ToQuery ListGroups where
 
 -- | /See:/ 'newListGroupsResponse' smart constructor.
 data ListGroupsResponse = ListGroupsResponse'
-  { -- | Information about a group.
-    groups :: Prelude.Maybe [GroupInformation],
-    -- | The token for the next set of results, or \'\'null\'\' if there are no
+  { -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about a group.
+    groups :: Prelude.Maybe [GroupInformation],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -171,10 +171,10 @@ data ListGroupsResponse = ListGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groups', 'listGroupsResponse_groups' - Information about a group.
---
 -- 'nextToken', 'listGroupsResponse_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
+--
+-- 'groups', 'listGroupsResponse_groups' - Information about a group.
 --
 -- 'httpStatus', 'listGroupsResponse_httpStatus' - The response's http status code.
 newListGroupsResponse ::
@@ -183,19 +183,19 @@ newListGroupsResponse ::
   ListGroupsResponse
 newListGroupsResponse pHttpStatus_ =
   ListGroupsResponse'
-    { groups = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      groups = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about a group.
-listGroupsResponse_groups :: Lens.Lens' ListGroupsResponse (Prelude.Maybe [GroupInformation])
-listGroupsResponse_groups = Lens.lens (\ListGroupsResponse' {groups} -> groups) (\s@ListGroupsResponse' {} a -> s {groups = a} :: ListGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
 listGroupsResponse_nextToken :: Lens.Lens' ListGroupsResponse (Prelude.Maybe Prelude.Text)
 listGroupsResponse_nextToken = Lens.lens (\ListGroupsResponse' {nextToken} -> nextToken) (\s@ListGroupsResponse' {} a -> s {nextToken = a} :: ListGroupsResponse)
+
+-- | Information about a group.
+listGroupsResponse_groups :: Lens.Lens' ListGroupsResponse (Prelude.Maybe [GroupInformation])
+listGroupsResponse_groups = Lens.lens (\ListGroupsResponse' {groups} -> groups) (\s@ListGroupsResponse' {} a -> s {groups = a} :: ListGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listGroupsResponse_httpStatus :: Lens.Lens' ListGroupsResponse Prelude.Int
@@ -203,6 +203,6 @@ listGroupsResponse_httpStatus = Lens.lens (\ListGroupsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListGroupsResponse where
   rnf ListGroupsResponse' {..} =
-    Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf groups
       `Prelude.seq` Prelude.rnf httpStatus

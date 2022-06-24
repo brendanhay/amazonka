@@ -38,8 +38,8 @@ module Amazonka.Greengrass.ListResourceDefinitionVersions
     newListResourceDefinitionVersionsResponse,
 
     -- * Response Lenses
-    listResourceDefinitionVersionsResponse_versions,
     listResourceDefinitionVersionsResponse_nextToken,
+    listResourceDefinitionVersionsResponse_versions,
     listResourceDefinitionVersionsResponse_httpStatus,
   )
 where
@@ -138,8 +138,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListResourceDefinitionVersionsResponse'
-            Prelude.<$> (x Core..?> "Versions" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Versions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -194,11 +194,11 @@ instance Core.ToQuery ListResourceDefinitionVersions where
 
 -- | /See:/ 'newListResourceDefinitionVersionsResponse' smart constructor.
 data ListResourceDefinitionVersionsResponse = ListResourceDefinitionVersionsResponse'
-  { -- | Information about a version.
-    versions :: Prelude.Maybe [VersionInformation],
-    -- | The token for the next set of results, or \'\'null\'\' if there are no
+  { -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about a version.
+    versions :: Prelude.Maybe [VersionInformation],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -212,10 +212,10 @@ data ListResourceDefinitionVersionsResponse = ListResourceDefinitionVersionsResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versions', 'listResourceDefinitionVersionsResponse_versions' - Information about a version.
---
 -- 'nextToken', 'listResourceDefinitionVersionsResponse_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
+--
+-- 'versions', 'listResourceDefinitionVersionsResponse_versions' - Information about a version.
 --
 -- 'httpStatus', 'listResourceDefinitionVersionsResponse_httpStatus' - The response's http status code.
 newListResourceDefinitionVersionsResponse ::
@@ -225,20 +225,20 @@ newListResourceDefinitionVersionsResponse ::
 newListResourceDefinitionVersionsResponse
   pHttpStatus_ =
     ListResourceDefinitionVersionsResponse'
-      { versions =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        versions = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Information about a version.
-listResourceDefinitionVersionsResponse_versions :: Lens.Lens' ListResourceDefinitionVersionsResponse (Prelude.Maybe [VersionInformation])
-listResourceDefinitionVersionsResponse_versions = Lens.lens (\ListResourceDefinitionVersionsResponse' {versions} -> versions) (\s@ListResourceDefinitionVersionsResponse' {} a -> s {versions = a} :: ListResourceDefinitionVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
 listResourceDefinitionVersionsResponse_nextToken :: Lens.Lens' ListResourceDefinitionVersionsResponse (Prelude.Maybe Prelude.Text)
 listResourceDefinitionVersionsResponse_nextToken = Lens.lens (\ListResourceDefinitionVersionsResponse' {nextToken} -> nextToken) (\s@ListResourceDefinitionVersionsResponse' {} a -> s {nextToken = a} :: ListResourceDefinitionVersionsResponse)
+
+-- | Information about a version.
+listResourceDefinitionVersionsResponse_versions :: Lens.Lens' ListResourceDefinitionVersionsResponse (Prelude.Maybe [VersionInformation])
+listResourceDefinitionVersionsResponse_versions = Lens.lens (\ListResourceDefinitionVersionsResponse' {versions} -> versions) (\s@ListResourceDefinitionVersionsResponse' {} a -> s {versions = a} :: ListResourceDefinitionVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listResourceDefinitionVersionsResponse_httpStatus :: Lens.Lens' ListResourceDefinitionVersionsResponse Prelude.Int
@@ -249,6 +249,6 @@ instance
     ListResourceDefinitionVersionsResponse
   where
   rnf ListResourceDefinitionVersionsResponse' {..} =
-    Prelude.rnf versions
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf versions
       `Prelude.seq` Prelude.rnf httpStatus

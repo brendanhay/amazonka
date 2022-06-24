@@ -34,12 +34,12 @@ module Amazonka.Greengrass.GetBulkDeploymentStatus
     newGetBulkDeploymentStatusResponse,
 
     -- * Response Lenses
-    getBulkDeploymentStatusResponse_createdAt,
+    getBulkDeploymentStatusResponse_tags,
+    getBulkDeploymentStatusResponse_errorMessage,
     getBulkDeploymentStatusResponse_errorDetails,
     getBulkDeploymentStatusResponse_bulkDeploymentStatus,
-    getBulkDeploymentStatusResponse_errorMessage,
     getBulkDeploymentStatusResponse_bulkDeploymentMetrics,
-    getBulkDeploymentStatusResponse_tags,
+    getBulkDeploymentStatusResponse_createdAt,
     getBulkDeploymentStatusResponse_httpStatus,
   )
 where
@@ -90,12 +90,12 @@ instance Core.AWSRequest GetBulkDeploymentStatus where
     Response.receiveJSON
       ( \s h x ->
           GetBulkDeploymentStatusResponse'
-            Prelude.<$> (x Core..?> "CreatedAt")
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "ErrorMessage")
             Prelude.<*> (x Core..?> "ErrorDetails" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "BulkDeploymentStatus")
-            Prelude.<*> (x Core..?> "ErrorMessage")
             Prelude.<*> (x Core..?> "BulkDeploymentMetrics")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "CreatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,18 +131,18 @@ instance Core.ToQuery GetBulkDeploymentStatus where
 
 -- | /See:/ 'newGetBulkDeploymentStatusResponse' smart constructor.
 data GetBulkDeploymentStatusResponse = GetBulkDeploymentStatusResponse'
-  { -- | The time, in ISO format, when the deployment was created.
-    createdAt :: Prelude.Maybe Prelude.Text,
+  { -- | Tag(s) attached to the resource arn.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Error message
+    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | Error details
     errorDetails :: Prelude.Maybe [ErrorDetail],
     -- | The status of the bulk deployment.
     bulkDeploymentStatus :: Prelude.Maybe BulkDeploymentStatus,
-    -- | Error message
-    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | Relevant metrics on input records processed during bulk deployment.
     bulkDeploymentMetrics :: Prelude.Maybe BulkDeploymentMetrics,
-    -- | Tag(s) attached to the resource arn.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The time, in ISO format, when the deployment was created.
+    createdAt :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -156,17 +156,17 @@ data GetBulkDeploymentStatusResponse = GetBulkDeploymentStatusResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAt', 'getBulkDeploymentStatusResponse_createdAt' - The time, in ISO format, when the deployment was created.
+-- 'tags', 'getBulkDeploymentStatusResponse_tags' - Tag(s) attached to the resource arn.
+--
+-- 'errorMessage', 'getBulkDeploymentStatusResponse_errorMessage' - Error message
 --
 -- 'errorDetails', 'getBulkDeploymentStatusResponse_errorDetails' - Error details
 --
 -- 'bulkDeploymentStatus', 'getBulkDeploymentStatusResponse_bulkDeploymentStatus' - The status of the bulk deployment.
 --
--- 'errorMessage', 'getBulkDeploymentStatusResponse_errorMessage' - Error message
---
 -- 'bulkDeploymentMetrics', 'getBulkDeploymentStatusResponse_bulkDeploymentMetrics' - Relevant metrics on input records processed during bulk deployment.
 --
--- 'tags', 'getBulkDeploymentStatusResponse_tags' - Tag(s) attached to the resource arn.
+-- 'createdAt', 'getBulkDeploymentStatusResponse_createdAt' - The time, in ISO format, when the deployment was created.
 --
 -- 'httpStatus', 'getBulkDeploymentStatusResponse_httpStatus' - The response's http status code.
 newGetBulkDeploymentStatusResponse ::
@@ -175,19 +175,23 @@ newGetBulkDeploymentStatusResponse ::
   GetBulkDeploymentStatusResponse
 newGetBulkDeploymentStatusResponse pHttpStatus_ =
   GetBulkDeploymentStatusResponse'
-    { createdAt =
+    { tags =
         Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
       errorDetails = Prelude.Nothing,
       bulkDeploymentStatus = Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
       bulkDeploymentMetrics = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The time, in ISO format, when the deployment was created.
-getBulkDeploymentStatusResponse_createdAt :: Lens.Lens' GetBulkDeploymentStatusResponse (Prelude.Maybe Prelude.Text)
-getBulkDeploymentStatusResponse_createdAt = Lens.lens (\GetBulkDeploymentStatusResponse' {createdAt} -> createdAt) (\s@GetBulkDeploymentStatusResponse' {} a -> s {createdAt = a} :: GetBulkDeploymentStatusResponse)
+-- | Tag(s) attached to the resource arn.
+getBulkDeploymentStatusResponse_tags :: Lens.Lens' GetBulkDeploymentStatusResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getBulkDeploymentStatusResponse_tags = Lens.lens (\GetBulkDeploymentStatusResponse' {tags} -> tags) (\s@GetBulkDeploymentStatusResponse' {} a -> s {tags = a} :: GetBulkDeploymentStatusResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Error message
+getBulkDeploymentStatusResponse_errorMessage :: Lens.Lens' GetBulkDeploymentStatusResponse (Prelude.Maybe Prelude.Text)
+getBulkDeploymentStatusResponse_errorMessage = Lens.lens (\GetBulkDeploymentStatusResponse' {errorMessage} -> errorMessage) (\s@GetBulkDeploymentStatusResponse' {} a -> s {errorMessage = a} :: GetBulkDeploymentStatusResponse)
 
 -- | Error details
 getBulkDeploymentStatusResponse_errorDetails :: Lens.Lens' GetBulkDeploymentStatusResponse (Prelude.Maybe [ErrorDetail])
@@ -197,17 +201,13 @@ getBulkDeploymentStatusResponse_errorDetails = Lens.lens (\GetBulkDeploymentStat
 getBulkDeploymentStatusResponse_bulkDeploymentStatus :: Lens.Lens' GetBulkDeploymentStatusResponse (Prelude.Maybe BulkDeploymentStatus)
 getBulkDeploymentStatusResponse_bulkDeploymentStatus = Lens.lens (\GetBulkDeploymentStatusResponse' {bulkDeploymentStatus} -> bulkDeploymentStatus) (\s@GetBulkDeploymentStatusResponse' {} a -> s {bulkDeploymentStatus = a} :: GetBulkDeploymentStatusResponse)
 
--- | Error message
-getBulkDeploymentStatusResponse_errorMessage :: Lens.Lens' GetBulkDeploymentStatusResponse (Prelude.Maybe Prelude.Text)
-getBulkDeploymentStatusResponse_errorMessage = Lens.lens (\GetBulkDeploymentStatusResponse' {errorMessage} -> errorMessage) (\s@GetBulkDeploymentStatusResponse' {} a -> s {errorMessage = a} :: GetBulkDeploymentStatusResponse)
-
 -- | Relevant metrics on input records processed during bulk deployment.
 getBulkDeploymentStatusResponse_bulkDeploymentMetrics :: Lens.Lens' GetBulkDeploymentStatusResponse (Prelude.Maybe BulkDeploymentMetrics)
 getBulkDeploymentStatusResponse_bulkDeploymentMetrics = Lens.lens (\GetBulkDeploymentStatusResponse' {bulkDeploymentMetrics} -> bulkDeploymentMetrics) (\s@GetBulkDeploymentStatusResponse' {} a -> s {bulkDeploymentMetrics = a} :: GetBulkDeploymentStatusResponse)
 
--- | Tag(s) attached to the resource arn.
-getBulkDeploymentStatusResponse_tags :: Lens.Lens' GetBulkDeploymentStatusResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getBulkDeploymentStatusResponse_tags = Lens.lens (\GetBulkDeploymentStatusResponse' {tags} -> tags) (\s@GetBulkDeploymentStatusResponse' {} a -> s {tags = a} :: GetBulkDeploymentStatusResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The time, in ISO format, when the deployment was created.
+getBulkDeploymentStatusResponse_createdAt :: Lens.Lens' GetBulkDeploymentStatusResponse (Prelude.Maybe Prelude.Text)
+getBulkDeploymentStatusResponse_createdAt = Lens.lens (\GetBulkDeploymentStatusResponse' {createdAt} -> createdAt) (\s@GetBulkDeploymentStatusResponse' {} a -> s {createdAt = a} :: GetBulkDeploymentStatusResponse)
 
 -- | The response's http status code.
 getBulkDeploymentStatusResponse_httpStatus :: Lens.Lens' GetBulkDeploymentStatusResponse Prelude.Int
@@ -218,10 +218,10 @@ instance
     GetBulkDeploymentStatusResponse
   where
   rnf GetBulkDeploymentStatusResponse' {..} =
-    Prelude.rnf createdAt
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf errorDetails
       `Prelude.seq` Prelude.rnf bulkDeploymentStatus
-      `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf bulkDeploymentMetrics
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf httpStatus

@@ -35,12 +35,12 @@ module Amazonka.Greengrass.GetCoreDefinitionVersion
     newGetCoreDefinitionVersionResponse,
 
     -- * Response Lenses
-    getCoreDefinitionVersionResponse_definition,
-    getCoreDefinitionVersionResponse_arn,
     getCoreDefinitionVersionResponse_nextToken,
+    getCoreDefinitionVersionResponse_arn,
+    getCoreDefinitionVersionResponse_id,
     getCoreDefinitionVersionResponse_creationTimestamp,
     getCoreDefinitionVersionResponse_version,
-    getCoreDefinitionVersionResponse_id,
+    getCoreDefinitionVersionResponse_definition,
     getCoreDefinitionVersionResponse_httpStatus,
   )
 where
@@ -120,12 +120,12 @@ instance Core.AWSRequest GetCoreDefinitionVersion where
     Response.receiveJSON
       ( \s h x ->
           GetCoreDefinitionVersionResponse'
-            Prelude.<$> (x Core..?> "Definition")
+            Prelude.<$> (x Core..?> "NextToken")
             Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Id")
             Prelude.<*> (x Core..?> "CreationTimestamp")
             Prelude.<*> (x Core..?> "Version")
-            Prelude.<*> (x Core..?> "Id")
+            Prelude.<*> (x Core..?> "Definition")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,20 +164,20 @@ instance Core.ToQuery GetCoreDefinitionVersion where
 
 -- | /See:/ 'newGetCoreDefinitionVersionResponse' smart constructor.
 data GetCoreDefinitionVersionResponse = GetCoreDefinitionVersionResponse'
-  { -- | Information about the core definition version.
-    definition :: Prelude.Maybe CoreDefinitionVersion,
-    -- | The ARN of the core definition version.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The token for the next set of results, or \'\'null\'\' if there are no
+  { -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the core definition version.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the core definition version.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the core definition
     -- version was created.
     creationTimestamp :: Prelude.Maybe Prelude.Text,
     -- | The version of the core definition version.
     version :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the core definition version.
-    id :: Prelude.Maybe Prelude.Text,
+    -- | Information about the core definition version.
+    definition :: Prelude.Maybe CoreDefinitionVersion,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -191,19 +191,19 @@ data GetCoreDefinitionVersionResponse = GetCoreDefinitionVersionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'definition', 'getCoreDefinitionVersionResponse_definition' - Information about the core definition version.
+-- 'nextToken', 'getCoreDefinitionVersionResponse_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no
+-- additional results.
 --
 -- 'arn', 'getCoreDefinitionVersionResponse_arn' - The ARN of the core definition version.
 --
--- 'nextToken', 'getCoreDefinitionVersionResponse_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no
--- additional results.
+-- 'id', 'getCoreDefinitionVersionResponse_id' - The ID of the core definition version.
 --
 -- 'creationTimestamp', 'getCoreDefinitionVersionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the core definition
 -- version was created.
 --
 -- 'version', 'getCoreDefinitionVersionResponse_version' - The version of the core definition version.
 --
--- 'id', 'getCoreDefinitionVersionResponse_id' - The ID of the core definition version.
+-- 'definition', 'getCoreDefinitionVersionResponse_definition' - Information about the core definition version.
 --
 -- 'httpStatus', 'getCoreDefinitionVersionResponse_httpStatus' - The response's http status code.
 newGetCoreDefinitionVersionResponse ::
@@ -212,28 +212,28 @@ newGetCoreDefinitionVersionResponse ::
   GetCoreDefinitionVersionResponse
 newGetCoreDefinitionVersionResponse pHttpStatus_ =
   GetCoreDefinitionVersionResponse'
-    { definition =
+    { nextToken =
         Prelude.Nothing,
       arn = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      id = Prelude.Nothing,
       creationTimestamp = Prelude.Nothing,
       version = Prelude.Nothing,
-      id = Prelude.Nothing,
+      definition = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the core definition version.
-getCoreDefinitionVersionResponse_definition :: Lens.Lens' GetCoreDefinitionVersionResponse (Prelude.Maybe CoreDefinitionVersion)
-getCoreDefinitionVersionResponse_definition = Lens.lens (\GetCoreDefinitionVersionResponse' {definition} -> definition) (\s@GetCoreDefinitionVersionResponse' {} a -> s {definition = a} :: GetCoreDefinitionVersionResponse)
-
--- | The ARN of the core definition version.
-getCoreDefinitionVersionResponse_arn :: Lens.Lens' GetCoreDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
-getCoreDefinitionVersionResponse_arn = Lens.lens (\GetCoreDefinitionVersionResponse' {arn} -> arn) (\s@GetCoreDefinitionVersionResponse' {} a -> s {arn = a} :: GetCoreDefinitionVersionResponse)
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
 getCoreDefinitionVersionResponse_nextToken :: Lens.Lens' GetCoreDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
 getCoreDefinitionVersionResponse_nextToken = Lens.lens (\GetCoreDefinitionVersionResponse' {nextToken} -> nextToken) (\s@GetCoreDefinitionVersionResponse' {} a -> s {nextToken = a} :: GetCoreDefinitionVersionResponse)
+
+-- | The ARN of the core definition version.
+getCoreDefinitionVersionResponse_arn :: Lens.Lens' GetCoreDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
+getCoreDefinitionVersionResponse_arn = Lens.lens (\GetCoreDefinitionVersionResponse' {arn} -> arn) (\s@GetCoreDefinitionVersionResponse' {} a -> s {arn = a} :: GetCoreDefinitionVersionResponse)
+
+-- | The ID of the core definition version.
+getCoreDefinitionVersionResponse_id :: Lens.Lens' GetCoreDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
+getCoreDefinitionVersionResponse_id = Lens.lens (\GetCoreDefinitionVersionResponse' {id} -> id) (\s@GetCoreDefinitionVersionResponse' {} a -> s {id = a} :: GetCoreDefinitionVersionResponse)
 
 -- | The time, in milliseconds since the epoch, when the core definition
 -- version was created.
@@ -244,9 +244,9 @@ getCoreDefinitionVersionResponse_creationTimestamp = Lens.lens (\GetCoreDefiniti
 getCoreDefinitionVersionResponse_version :: Lens.Lens' GetCoreDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
 getCoreDefinitionVersionResponse_version = Lens.lens (\GetCoreDefinitionVersionResponse' {version} -> version) (\s@GetCoreDefinitionVersionResponse' {} a -> s {version = a} :: GetCoreDefinitionVersionResponse)
 
--- | The ID of the core definition version.
-getCoreDefinitionVersionResponse_id :: Lens.Lens' GetCoreDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
-getCoreDefinitionVersionResponse_id = Lens.lens (\GetCoreDefinitionVersionResponse' {id} -> id) (\s@GetCoreDefinitionVersionResponse' {} a -> s {id = a} :: GetCoreDefinitionVersionResponse)
+-- | Information about the core definition version.
+getCoreDefinitionVersionResponse_definition :: Lens.Lens' GetCoreDefinitionVersionResponse (Prelude.Maybe CoreDefinitionVersion)
+getCoreDefinitionVersionResponse_definition = Lens.lens (\GetCoreDefinitionVersionResponse' {definition} -> definition) (\s@GetCoreDefinitionVersionResponse' {} a -> s {definition = a} :: GetCoreDefinitionVersionResponse)
 
 -- | The response's http status code.
 getCoreDefinitionVersionResponse_httpStatus :: Lens.Lens' GetCoreDefinitionVersionResponse Prelude.Int
@@ -257,10 +257,10 @@ instance
     GetCoreDefinitionVersionResponse
   where
   rnf GetCoreDefinitionVersionResponse' {..} =
-    Prelude.rnf definition
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf creationTimestamp
       `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf definition
       `Prelude.seq` Prelude.rnf httpStatus

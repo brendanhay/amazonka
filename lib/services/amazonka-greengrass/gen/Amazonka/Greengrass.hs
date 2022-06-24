@@ -37,305 +37,11 @@ module Amazonka.Greengrass
     -- * Operations
     -- $operations
 
-    -- ** GetGroupCertificateConfiguration
-    GetGroupCertificateConfiguration (GetGroupCertificateConfiguration'),
-    newGetGroupCertificateConfiguration,
-    GetGroupCertificateConfigurationResponse (GetGroupCertificateConfigurationResponse'),
-    newGetGroupCertificateConfigurationResponse,
-
-    -- ** ListGroupVersions (Paginated)
-    ListGroupVersions (ListGroupVersions'),
-    newListGroupVersions,
-    ListGroupVersionsResponse (ListGroupVersionsResponse'),
-    newListGroupVersionsResponse,
-
-    -- ** ListFunctionDefinitionVersions (Paginated)
-    ListFunctionDefinitionVersions (ListFunctionDefinitionVersions'),
-    newListFunctionDefinitionVersions,
-    ListFunctionDefinitionVersionsResponse (ListFunctionDefinitionVersionsResponse'),
-    newListFunctionDefinitionVersionsResponse,
-
-    -- ** ListDeviceDefinitions (Paginated)
-    ListDeviceDefinitions (ListDeviceDefinitions'),
-    newListDeviceDefinitions,
-    ListDeviceDefinitionsResponse (ListDeviceDefinitionsResponse'),
-    newListDeviceDefinitionsResponse,
-
     -- ** AssociateRoleToGroup
     AssociateRoleToGroup (AssociateRoleToGroup'),
     newAssociateRoleToGroup,
     AssociateRoleToGroupResponse (AssociateRoleToGroupResponse'),
     newAssociateRoleToGroupResponse,
-
-    -- ** UpdateCoreDefinition
-    UpdateCoreDefinition (UpdateCoreDefinition'),
-    newUpdateCoreDefinition,
-    UpdateCoreDefinitionResponse (UpdateCoreDefinitionResponse'),
-    newUpdateCoreDefinitionResponse,
-
-    -- ** DeleteCoreDefinition
-    DeleteCoreDefinition (DeleteCoreDefinition'),
-    newDeleteCoreDefinition,
-    DeleteCoreDefinitionResponse (DeleteCoreDefinitionResponse'),
-    newDeleteCoreDefinitionResponse,
-
-    -- ** GetLoggerDefinition
-    GetLoggerDefinition (GetLoggerDefinition'),
-    newGetLoggerDefinition,
-    GetLoggerDefinitionResponse (GetLoggerDefinitionResponse'),
-    newGetLoggerDefinitionResponse,
-
-    -- ** ListGroupCertificateAuthorities
-    ListGroupCertificateAuthorities (ListGroupCertificateAuthorities'),
-    newListGroupCertificateAuthorities,
-    ListGroupCertificateAuthoritiesResponse (ListGroupCertificateAuthoritiesResponse'),
-    newListGroupCertificateAuthoritiesResponse,
-
-    -- ** DisassociateRoleFromGroup
-    DisassociateRoleFromGroup (DisassociateRoleFromGroup'),
-    newDisassociateRoleFromGroup,
-    DisassociateRoleFromGroupResponse (DisassociateRoleFromGroupResponse'),
-    newDisassociateRoleFromGroupResponse,
-
-    -- ** UpdateSubscriptionDefinition
-    UpdateSubscriptionDefinition (UpdateSubscriptionDefinition'),
-    newUpdateSubscriptionDefinition,
-    UpdateSubscriptionDefinitionResponse (UpdateSubscriptionDefinitionResponse'),
-    newUpdateSubscriptionDefinitionResponse,
-
-    -- ** DeleteSubscriptionDefinition
-    DeleteSubscriptionDefinition (DeleteSubscriptionDefinition'),
-    newDeleteSubscriptionDefinition,
-    DeleteSubscriptionDefinitionResponse (DeleteSubscriptionDefinitionResponse'),
-    newDeleteSubscriptionDefinitionResponse,
-
-    -- ** ListCoreDefinitions (Paginated)
-    ListCoreDefinitions (ListCoreDefinitions'),
-    newListCoreDefinitions,
-    ListCoreDefinitionsResponse (ListCoreDefinitionsResponse'),
-    newListCoreDefinitionsResponse,
-
-    -- ** ListSubscriptionDefinitions (Paginated)
-    ListSubscriptionDefinitions (ListSubscriptionDefinitions'),
-    newListSubscriptionDefinitions,
-    ListSubscriptionDefinitionsResponse (ListSubscriptionDefinitionsResponse'),
-    newListSubscriptionDefinitionsResponse,
-
-    -- ** CreateGroupCertificateAuthority
-    CreateGroupCertificateAuthority (CreateGroupCertificateAuthority'),
-    newCreateGroupCertificateAuthority,
-    CreateGroupCertificateAuthorityResponse (CreateGroupCertificateAuthorityResponse'),
-    newCreateGroupCertificateAuthorityResponse,
-
-    -- ** DeleteConnectorDefinition
-    DeleteConnectorDefinition (DeleteConnectorDefinition'),
-    newDeleteConnectorDefinition,
-    DeleteConnectorDefinitionResponse (DeleteConnectorDefinitionResponse'),
-    newDeleteConnectorDefinitionResponse,
-
-    -- ** UpdateConnectorDefinition
-    UpdateConnectorDefinition (UpdateConnectorDefinition'),
-    newUpdateConnectorDefinition,
-    UpdateConnectorDefinitionResponse (UpdateConnectorDefinitionResponse'),
-    newUpdateConnectorDefinitionResponse,
-
-    -- ** CreateLoggerDefinitionVersion
-    CreateLoggerDefinitionVersion (CreateLoggerDefinitionVersion'),
-    newCreateLoggerDefinitionVersion,
-    CreateLoggerDefinitionVersionResponse (CreateLoggerDefinitionVersionResponse'),
-    newCreateLoggerDefinitionVersionResponse,
-
-    -- ** CreateCoreDefinition
-    CreateCoreDefinition (CreateCoreDefinition'),
-    newCreateCoreDefinition,
-    CreateCoreDefinitionResponse (CreateCoreDefinitionResponse'),
-    newCreateCoreDefinitionResponse,
-
-    -- ** GetConnectorDefinitionVersion
-    GetConnectorDefinitionVersion (GetConnectorDefinitionVersion'),
-    newGetConnectorDefinitionVersion,
-    GetConnectorDefinitionVersionResponse (GetConnectorDefinitionVersionResponse'),
-    newGetConnectorDefinitionVersionResponse,
-
-    -- ** UpdateConnectivityInfo
-    UpdateConnectivityInfo (UpdateConnectivityInfo'),
-    newUpdateConnectivityInfo,
-    UpdateConnectivityInfoResponse (UpdateConnectivityInfoResponse'),
-    newUpdateConnectivityInfoResponse,
-
-    -- ** CreateSubscriptionDefinition
-    CreateSubscriptionDefinition (CreateSubscriptionDefinition'),
-    newCreateSubscriptionDefinition,
-    CreateSubscriptionDefinitionResponse (CreateSubscriptionDefinitionResponse'),
-    newCreateSubscriptionDefinitionResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** GetGroupCertificateAuthority
-    GetGroupCertificateAuthority (GetGroupCertificateAuthority'),
-    newGetGroupCertificateAuthority,
-    GetGroupCertificateAuthorityResponse (GetGroupCertificateAuthorityResponse'),
-    newGetGroupCertificateAuthorityResponse,
-
-    -- ** GetLoggerDefinitionVersion
-    GetLoggerDefinitionVersion (GetLoggerDefinitionVersion'),
-    newGetLoggerDefinitionVersion,
-    GetLoggerDefinitionVersionResponse (GetLoggerDefinitionVersionResponse'),
-    newGetLoggerDefinitionVersionResponse,
-
-    -- ** GetServiceRoleForAccount
-    GetServiceRoleForAccount (GetServiceRoleForAccount'),
-    newGetServiceRoleForAccount,
-    GetServiceRoleForAccountResponse (GetServiceRoleForAccountResponse'),
-    newGetServiceRoleForAccountResponse,
-
-    -- ** ListConnectorDefinitionVersions (Paginated)
-    ListConnectorDefinitionVersions (ListConnectorDefinitionVersions'),
-    newListConnectorDefinitionVersions,
-    ListConnectorDefinitionVersionsResponse (ListConnectorDefinitionVersionsResponse'),
-    newListConnectorDefinitionVersionsResponse,
-
-    -- ** CreateSoftwareUpdateJob
-    CreateSoftwareUpdateJob (CreateSoftwareUpdateJob'),
-    newCreateSoftwareUpdateJob,
-    CreateSoftwareUpdateJobResponse (CreateSoftwareUpdateJobResponse'),
-    newCreateSoftwareUpdateJobResponse,
-
-    -- ** CreateLoggerDefinition
-    CreateLoggerDefinition (CreateLoggerDefinition'),
-    newCreateLoggerDefinition,
-    CreateLoggerDefinitionResponse (CreateLoggerDefinitionResponse'),
-    newCreateLoggerDefinitionResponse,
-
-    -- ** GetConnectivityInfo
-    GetConnectivityInfo (GetConnectivityInfo'),
-    newGetConnectivityInfo,
-    GetConnectivityInfoResponse (GetConnectivityInfoResponse'),
-    newGetConnectivityInfoResponse,
-
-    -- ** CreateDeployment
-    CreateDeployment (CreateDeployment'),
-    newCreateDeployment,
-    CreateDeploymentResponse (CreateDeploymentResponse'),
-    newCreateDeploymentResponse,
-
-    -- ** DeleteLoggerDefinition
-    DeleteLoggerDefinition (DeleteLoggerDefinition'),
-    newDeleteLoggerDefinition,
-    DeleteLoggerDefinitionResponse (DeleteLoggerDefinitionResponse'),
-    newDeleteLoggerDefinitionResponse,
-
-    -- ** UpdateLoggerDefinition
-    UpdateLoggerDefinition (UpdateLoggerDefinition'),
-    newUpdateLoggerDefinition,
-    UpdateLoggerDefinitionResponse (UpdateLoggerDefinitionResponse'),
-    newUpdateLoggerDefinitionResponse,
-
-    -- ** GetSubscriptionDefinition
-    GetSubscriptionDefinition (GetSubscriptionDefinition'),
-    newGetSubscriptionDefinition,
-    GetSubscriptionDefinitionResponse (GetSubscriptionDefinitionResponse'),
-    newGetSubscriptionDefinitionResponse,
-
-    -- ** GetCoreDefinition
-    GetCoreDefinition (GetCoreDefinition'),
-    newGetCoreDefinition,
-    GetCoreDefinitionResponse (GetCoreDefinitionResponse'),
-    newGetCoreDefinitionResponse,
-
-    -- ** CreateConnectorDefinitionVersion
-    CreateConnectorDefinitionVersion (CreateConnectorDefinitionVersion'),
-    newCreateConnectorDefinitionVersion,
-    CreateConnectorDefinitionVersionResponse (CreateConnectorDefinitionVersionResponse'),
-    newCreateConnectorDefinitionVersionResponse,
-
-    -- ** GetDeploymentStatus
-    GetDeploymentStatus (GetDeploymentStatus'),
-    newGetDeploymentStatus,
-    GetDeploymentStatusResponse (GetDeploymentStatusResponse'),
-    newGetDeploymentStatusResponse,
-
-    -- ** GetBulkDeploymentStatus
-    GetBulkDeploymentStatus (GetBulkDeploymentStatus'),
-    newGetBulkDeploymentStatus,
-    GetBulkDeploymentStatusResponse (GetBulkDeploymentStatusResponse'),
-    newGetBulkDeploymentStatusResponse,
-
-    -- ** CreateResourceDefinition
-    CreateResourceDefinition (CreateResourceDefinition'),
-    newCreateResourceDefinition,
-    CreateResourceDefinitionResponse (CreateResourceDefinitionResponse'),
-    newCreateResourceDefinitionResponse,
-
-    -- ** GetResourceDefinitionVersion
-    GetResourceDefinitionVersion (GetResourceDefinitionVersion'),
-    newGetResourceDefinitionVersion,
-    GetResourceDefinitionVersionResponse (GetResourceDefinitionVersionResponse'),
-    newGetResourceDefinitionVersionResponse,
-
-    -- ** UpdateFunctionDefinition
-    UpdateFunctionDefinition (UpdateFunctionDefinition'),
-    newUpdateFunctionDefinition,
-    UpdateFunctionDefinitionResponse (UpdateFunctionDefinitionResponse'),
-    newUpdateFunctionDefinitionResponse,
-
-    -- ** DeleteFunctionDefinition
-    DeleteFunctionDefinition (DeleteFunctionDefinition'),
-    newDeleteFunctionDefinition,
-    DeleteFunctionDefinitionResponse (DeleteFunctionDefinitionResponse'),
-    newDeleteFunctionDefinitionResponse,
-
-    -- ** ListResourceDefinitions (Paginated)
-    ListResourceDefinitions (ListResourceDefinitions'),
-    newListResourceDefinitions,
-    ListResourceDefinitionsResponse (ListResourceDefinitionsResponse'),
-    newListResourceDefinitionsResponse,
-
-    -- ** StopBulkDeployment
-    StopBulkDeployment (StopBulkDeployment'),
-    newStopBulkDeployment,
-    StopBulkDeploymentResponse (StopBulkDeploymentResponse'),
-    newStopBulkDeploymentResponse,
-
-    -- ** CreateResourceDefinitionVersion
-    CreateResourceDefinitionVersion (CreateResourceDefinitionVersion'),
-    newCreateResourceDefinitionVersion,
-    CreateResourceDefinitionVersionResponse (CreateResourceDefinitionVersionResponse'),
-    newCreateResourceDefinitionVersionResponse,
-
-    -- ** GetResourceDefinition
-    GetResourceDefinition (GetResourceDefinition'),
-    newGetResourceDefinition,
-    GetResourceDefinitionResponse (GetResourceDefinitionResponse'),
-    newGetResourceDefinitionResponse,
-
-    -- ** ListResourceDefinitionVersions (Paginated)
-    ListResourceDefinitionVersions (ListResourceDefinitionVersions'),
-    newListResourceDefinitionVersions,
-    ListResourceDefinitionVersionsResponse (ListResourceDefinitionVersionsResponse'),
-    newListResourceDefinitionVersionsResponse,
-
-    -- ** DisassociateServiceRoleFromAccount
-    DisassociateServiceRoleFromAccount (DisassociateServiceRoleFromAccount'),
-    newDisassociateServiceRoleFromAccount,
-    DisassociateServiceRoleFromAccountResponse (DisassociateServiceRoleFromAccountResponse'),
-    newDisassociateServiceRoleFromAccountResponse,
-
-    -- ** DeleteDeviceDefinition
-    DeleteDeviceDefinition (DeleteDeviceDefinition'),
-    newDeleteDeviceDefinition,
-    DeleteDeviceDefinitionResponse (DeleteDeviceDefinitionResponse'),
-    newDeleteDeviceDefinitionResponse,
-
-    -- ** UpdateDeviceDefinition
-    UpdateDeviceDefinition (UpdateDeviceDefinition'),
-    newUpdateDeviceDefinition,
-    UpdateDeviceDefinitionResponse (UpdateDeviceDefinitionResponse'),
-    newUpdateDeviceDefinitionResponse,
 
     -- ** AssociateServiceRoleToAccount
     AssociateServiceRoleToAccount (AssociateServiceRoleToAccount'),
@@ -343,59 +49,23 @@ module Amazonka.Greengrass
     AssociateServiceRoleToAccountResponse (AssociateServiceRoleToAccountResponse'),
     newAssociateServiceRoleToAccountResponse,
 
-    -- ** ResetDeployments
-    ResetDeployments (ResetDeployments'),
-    newResetDeployments,
-    ResetDeploymentsResponse (ResetDeploymentsResponse'),
-    newResetDeploymentsResponse,
-
-    -- ** ListConnectorDefinitions (Paginated)
-    ListConnectorDefinitions (ListConnectorDefinitions'),
-    newListConnectorDefinitions,
-    ListConnectorDefinitionsResponse (ListConnectorDefinitionsResponse'),
-    newListConnectorDefinitionsResponse,
-
-    -- ** GetSubscriptionDefinitionVersion
-    GetSubscriptionDefinitionVersion (GetSubscriptionDefinitionVersion'),
-    newGetSubscriptionDefinitionVersion,
-    GetSubscriptionDefinitionVersionResponse (GetSubscriptionDefinitionVersionResponse'),
-    newGetSubscriptionDefinitionVersionResponse,
-
-    -- ** GetAssociatedRole
-    GetAssociatedRole (GetAssociatedRole'),
-    newGetAssociatedRole,
-    GetAssociatedRoleResponse (GetAssociatedRoleResponse'),
-    newGetAssociatedRoleResponse,
-
-    -- ** ListLoggerDefinitionVersions (Paginated)
-    ListLoggerDefinitionVersions (ListLoggerDefinitionVersions'),
-    newListLoggerDefinitionVersions,
-    ListLoggerDefinitionVersionsResponse (ListLoggerDefinitionVersionsResponse'),
-    newListLoggerDefinitionVersionsResponse,
-
     -- ** CreateConnectorDefinition
     CreateConnectorDefinition (CreateConnectorDefinition'),
     newCreateConnectorDefinition,
     CreateConnectorDefinitionResponse (CreateConnectorDefinitionResponse'),
     newCreateConnectorDefinitionResponse,
 
-    -- ** GetCoreDefinitionVersion
-    GetCoreDefinitionVersion (GetCoreDefinitionVersion'),
-    newGetCoreDefinitionVersion,
-    GetCoreDefinitionVersionResponse (GetCoreDefinitionVersionResponse'),
-    newGetCoreDefinitionVersionResponse,
+    -- ** CreateConnectorDefinitionVersion
+    CreateConnectorDefinitionVersion (CreateConnectorDefinitionVersion'),
+    newCreateConnectorDefinitionVersion,
+    CreateConnectorDefinitionVersionResponse (CreateConnectorDefinitionVersionResponse'),
+    newCreateConnectorDefinitionVersionResponse,
 
-    -- ** ListSubscriptionDefinitionVersions (Paginated)
-    ListSubscriptionDefinitionVersions (ListSubscriptionDefinitionVersions'),
-    newListSubscriptionDefinitionVersions,
-    ListSubscriptionDefinitionVersionsResponse (ListSubscriptionDefinitionVersionsResponse'),
-    newListSubscriptionDefinitionVersionsResponse,
-
-    -- ** ListCoreDefinitionVersions (Paginated)
-    ListCoreDefinitionVersions (ListCoreDefinitionVersions'),
-    newListCoreDefinitionVersions,
-    ListCoreDefinitionVersionsResponse (ListCoreDefinitionVersionsResponse'),
-    newListCoreDefinitionVersionsResponse,
+    -- ** CreateCoreDefinition
+    CreateCoreDefinition (CreateCoreDefinition'),
+    newCreateCoreDefinition,
+    CreateCoreDefinitionResponse (CreateCoreDefinitionResponse'),
+    newCreateCoreDefinitionResponse,
 
     -- ** CreateCoreDefinitionVersion
     CreateCoreDefinitionVersion (CreateCoreDefinitionVersion'),
@@ -403,155 +73,11 @@ module Amazonka.Greengrass
     CreateCoreDefinitionVersionResponse (CreateCoreDefinitionVersionResponse'),
     newCreateCoreDefinitionVersionResponse,
 
-    -- ** ListBulkDeployments (Paginated)
-    ListBulkDeployments (ListBulkDeployments'),
-    newListBulkDeployments,
-    ListBulkDeploymentsResponse (ListBulkDeploymentsResponse'),
-    newListBulkDeploymentsResponse,
-
-    -- ** ListDeployments (Paginated)
-    ListDeployments (ListDeployments'),
-    newListDeployments,
-    ListDeploymentsResponse (ListDeploymentsResponse'),
-    newListDeploymentsResponse,
-
-    -- ** GetConnectorDefinition
-    GetConnectorDefinition (GetConnectorDefinition'),
-    newGetConnectorDefinition,
-    GetConnectorDefinitionResponse (GetConnectorDefinitionResponse'),
-    newGetConnectorDefinitionResponse,
-
-    -- ** ListLoggerDefinitions (Paginated)
-    ListLoggerDefinitions (ListLoggerDefinitions'),
-    newListLoggerDefinitions,
-    ListLoggerDefinitionsResponse (ListLoggerDefinitionsResponse'),
-    newListLoggerDefinitionsResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** CreateSubscriptionDefinitionVersion
-    CreateSubscriptionDefinitionVersion (CreateSubscriptionDefinitionVersion'),
-    newCreateSubscriptionDefinitionVersion,
-    CreateSubscriptionDefinitionVersionResponse (CreateSubscriptionDefinitionVersionResponse'),
-    newCreateSubscriptionDefinitionVersionResponse,
-
-    -- ** GetGroupVersion
-    GetGroupVersion (GetGroupVersion'),
-    newGetGroupVersion,
-    GetGroupVersionResponse (GetGroupVersionResponse'),
-    newGetGroupVersionResponse,
-
-    -- ** UpdateGroupCertificateConfiguration
-    UpdateGroupCertificateConfiguration (UpdateGroupCertificateConfiguration'),
-    newUpdateGroupCertificateConfiguration,
-    UpdateGroupCertificateConfigurationResponse (UpdateGroupCertificateConfigurationResponse'),
-    newUpdateGroupCertificateConfigurationResponse,
-
-    -- ** GetFunctionDefinitionVersion
-    GetFunctionDefinitionVersion (GetFunctionDefinitionVersion'),
-    newGetFunctionDefinitionVersion,
-    GetFunctionDefinitionVersionResponse (GetFunctionDefinitionVersionResponse'),
-    newGetFunctionDefinitionVersionResponse,
-
-    -- ** GetDeviceDefinition
-    GetDeviceDefinition (GetDeviceDefinition'),
-    newGetDeviceDefinition,
-    GetDeviceDefinitionResponse (GetDeviceDefinitionResponse'),
-    newGetDeviceDefinitionResponse,
-
-    -- ** CreateGroup
-    CreateGroup (CreateGroup'),
-    newCreateGroup,
-    CreateGroupResponse (CreateGroupResponse'),
-    newCreateGroupResponse,
-
-    -- ** CreateFunctionDefinition
-    CreateFunctionDefinition (CreateFunctionDefinition'),
-    newCreateFunctionDefinition,
-    CreateFunctionDefinitionResponse (CreateFunctionDefinitionResponse'),
-    newCreateFunctionDefinitionResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** CreateDeviceDefinitionVersion
-    CreateDeviceDefinitionVersion (CreateDeviceDefinitionVersion'),
-    newCreateDeviceDefinitionVersion,
-    CreateDeviceDefinitionVersionResponse (CreateDeviceDefinitionVersionResponse'),
-    newCreateDeviceDefinitionVersionResponse,
-
-    -- ** DeleteGroup
-    DeleteGroup (DeleteGroup'),
-    newDeleteGroup,
-    DeleteGroupResponse (DeleteGroupResponse'),
-    newDeleteGroupResponse,
-
-    -- ** UpdateGroup
-    UpdateGroup (UpdateGroup'),
-    newUpdateGroup,
-    UpdateGroupResponse (UpdateGroupResponse'),
-    newUpdateGroupResponse,
-
-    -- ** ListGroups (Paginated)
-    ListGroups (ListGroups'),
-    newListGroups,
-    ListGroupsResponse (ListGroupsResponse'),
-    newListGroupsResponse,
-
-    -- ** ListBulkDeploymentDetailedReports (Paginated)
-    ListBulkDeploymentDetailedReports (ListBulkDeploymentDetailedReports'),
-    newListBulkDeploymentDetailedReports,
-    ListBulkDeploymentDetailedReportsResponse (ListBulkDeploymentDetailedReportsResponse'),
-    newListBulkDeploymentDetailedReportsResponse,
-
-    -- ** GetThingRuntimeConfiguration
-    GetThingRuntimeConfiguration (GetThingRuntimeConfiguration'),
-    newGetThingRuntimeConfiguration,
-    GetThingRuntimeConfigurationResponse (GetThingRuntimeConfigurationResponse'),
-    newGetThingRuntimeConfigurationResponse,
-
-    -- ** DeleteResourceDefinition
-    DeleteResourceDefinition (DeleteResourceDefinition'),
-    newDeleteResourceDefinition,
-    DeleteResourceDefinitionResponse (DeleteResourceDefinitionResponse'),
-    newDeleteResourceDefinitionResponse,
-
-    -- ** UpdateResourceDefinition
-    UpdateResourceDefinition (UpdateResourceDefinition'),
-    newUpdateResourceDefinition,
-    UpdateResourceDefinitionResponse (UpdateResourceDefinitionResponse'),
-    newUpdateResourceDefinitionResponse,
-
-    -- ** ListDeviceDefinitionVersions (Paginated)
-    ListDeviceDefinitionVersions (ListDeviceDefinitionVersions'),
-    newListDeviceDefinitionVersions,
-    ListDeviceDefinitionVersionsResponse (ListDeviceDefinitionVersionsResponse'),
-    newListDeviceDefinitionVersionsResponse,
-
-    -- ** ListFunctionDefinitions (Paginated)
-    ListFunctionDefinitions (ListFunctionDefinitions'),
-    newListFunctionDefinitions,
-    ListFunctionDefinitionsResponse (ListFunctionDefinitionsResponse'),
-    newListFunctionDefinitionsResponse,
-
-    -- ** GetFunctionDefinition
-    GetFunctionDefinition (GetFunctionDefinition'),
-    newGetFunctionDefinition,
-    GetFunctionDefinitionResponse (GetFunctionDefinitionResponse'),
-    newGetFunctionDefinitionResponse,
-
-    -- ** GetGroup
-    GetGroup (GetGroup'),
-    newGetGroup,
-    GetGroupResponse (GetGroupResponse'),
-    newGetGroupResponse,
+    -- ** CreateDeployment
+    CreateDeployment (CreateDeployment'),
+    newCreateDeployment,
+    CreateDeploymentResponse (CreateDeploymentResponse'),
+    newCreateDeploymentResponse,
 
     -- ** CreateDeviceDefinition
     CreateDeviceDefinition (CreateDeviceDefinition'),
@@ -559,11 +85,17 @@ module Amazonka.Greengrass
     CreateDeviceDefinitionResponse (CreateDeviceDefinitionResponse'),
     newCreateDeviceDefinitionResponse,
 
-    -- ** CreateGroupVersion
-    CreateGroupVersion (CreateGroupVersion'),
-    newCreateGroupVersion,
-    CreateGroupVersionResponse (CreateGroupVersionResponse'),
-    newCreateGroupVersionResponse,
+    -- ** CreateDeviceDefinitionVersion
+    CreateDeviceDefinitionVersion (CreateDeviceDefinitionVersion'),
+    newCreateDeviceDefinitionVersion,
+    CreateDeviceDefinitionVersionResponse (CreateDeviceDefinitionVersionResponse'),
+    newCreateDeviceDefinitionVersionResponse,
+
+    -- ** CreateFunctionDefinition
+    CreateFunctionDefinition (CreateFunctionDefinition'),
+    newCreateFunctionDefinition,
+    CreateFunctionDefinitionResponse (CreateFunctionDefinitionResponse'),
+    newCreateFunctionDefinitionResponse,
 
     -- ** CreateFunctionDefinitionVersion
     CreateFunctionDefinitionVersion (CreateFunctionDefinitionVersion'),
@@ -571,23 +103,491 @@ module Amazonka.Greengrass
     CreateFunctionDefinitionVersionResponse (CreateFunctionDefinitionVersionResponse'),
     newCreateFunctionDefinitionVersionResponse,
 
-    -- ** StartBulkDeployment
-    StartBulkDeployment (StartBulkDeployment'),
-    newStartBulkDeployment,
-    StartBulkDeploymentResponse (StartBulkDeploymentResponse'),
-    newStartBulkDeploymentResponse,
+    -- ** CreateGroup
+    CreateGroup (CreateGroup'),
+    newCreateGroup,
+    CreateGroupResponse (CreateGroupResponse'),
+    newCreateGroupResponse,
 
-    -- ** UpdateThingRuntimeConfiguration
-    UpdateThingRuntimeConfiguration (UpdateThingRuntimeConfiguration'),
-    newUpdateThingRuntimeConfiguration,
-    UpdateThingRuntimeConfigurationResponse (UpdateThingRuntimeConfigurationResponse'),
-    newUpdateThingRuntimeConfigurationResponse,
+    -- ** CreateGroupCertificateAuthority
+    CreateGroupCertificateAuthority (CreateGroupCertificateAuthority'),
+    newCreateGroupCertificateAuthority,
+    CreateGroupCertificateAuthorityResponse (CreateGroupCertificateAuthorityResponse'),
+    newCreateGroupCertificateAuthorityResponse,
+
+    -- ** CreateGroupVersion
+    CreateGroupVersion (CreateGroupVersion'),
+    newCreateGroupVersion,
+    CreateGroupVersionResponse (CreateGroupVersionResponse'),
+    newCreateGroupVersionResponse,
+
+    -- ** CreateLoggerDefinition
+    CreateLoggerDefinition (CreateLoggerDefinition'),
+    newCreateLoggerDefinition,
+    CreateLoggerDefinitionResponse (CreateLoggerDefinitionResponse'),
+    newCreateLoggerDefinitionResponse,
+
+    -- ** CreateLoggerDefinitionVersion
+    CreateLoggerDefinitionVersion (CreateLoggerDefinitionVersion'),
+    newCreateLoggerDefinitionVersion,
+    CreateLoggerDefinitionVersionResponse (CreateLoggerDefinitionVersionResponse'),
+    newCreateLoggerDefinitionVersionResponse,
+
+    -- ** CreateResourceDefinition
+    CreateResourceDefinition (CreateResourceDefinition'),
+    newCreateResourceDefinition,
+    CreateResourceDefinitionResponse (CreateResourceDefinitionResponse'),
+    newCreateResourceDefinitionResponse,
+
+    -- ** CreateResourceDefinitionVersion
+    CreateResourceDefinitionVersion (CreateResourceDefinitionVersion'),
+    newCreateResourceDefinitionVersion,
+    CreateResourceDefinitionVersionResponse (CreateResourceDefinitionVersionResponse'),
+    newCreateResourceDefinitionVersionResponse,
+
+    -- ** CreateSoftwareUpdateJob
+    CreateSoftwareUpdateJob (CreateSoftwareUpdateJob'),
+    newCreateSoftwareUpdateJob,
+    CreateSoftwareUpdateJobResponse (CreateSoftwareUpdateJobResponse'),
+    newCreateSoftwareUpdateJobResponse,
+
+    -- ** CreateSubscriptionDefinition
+    CreateSubscriptionDefinition (CreateSubscriptionDefinition'),
+    newCreateSubscriptionDefinition,
+    CreateSubscriptionDefinitionResponse (CreateSubscriptionDefinitionResponse'),
+    newCreateSubscriptionDefinitionResponse,
+
+    -- ** CreateSubscriptionDefinitionVersion
+    CreateSubscriptionDefinitionVersion (CreateSubscriptionDefinitionVersion'),
+    newCreateSubscriptionDefinitionVersion,
+    CreateSubscriptionDefinitionVersionResponse (CreateSubscriptionDefinitionVersionResponse'),
+    newCreateSubscriptionDefinitionVersionResponse,
+
+    -- ** DeleteConnectorDefinition
+    DeleteConnectorDefinition (DeleteConnectorDefinition'),
+    newDeleteConnectorDefinition,
+    DeleteConnectorDefinitionResponse (DeleteConnectorDefinitionResponse'),
+    newDeleteConnectorDefinitionResponse,
+
+    -- ** DeleteCoreDefinition
+    DeleteCoreDefinition (DeleteCoreDefinition'),
+    newDeleteCoreDefinition,
+    DeleteCoreDefinitionResponse (DeleteCoreDefinitionResponse'),
+    newDeleteCoreDefinitionResponse,
+
+    -- ** DeleteDeviceDefinition
+    DeleteDeviceDefinition (DeleteDeviceDefinition'),
+    newDeleteDeviceDefinition,
+    DeleteDeviceDefinitionResponse (DeleteDeviceDefinitionResponse'),
+    newDeleteDeviceDefinitionResponse,
+
+    -- ** DeleteFunctionDefinition
+    DeleteFunctionDefinition (DeleteFunctionDefinition'),
+    newDeleteFunctionDefinition,
+    DeleteFunctionDefinitionResponse (DeleteFunctionDefinitionResponse'),
+    newDeleteFunctionDefinitionResponse,
+
+    -- ** DeleteGroup
+    DeleteGroup (DeleteGroup'),
+    newDeleteGroup,
+    DeleteGroupResponse (DeleteGroupResponse'),
+    newDeleteGroupResponse,
+
+    -- ** DeleteLoggerDefinition
+    DeleteLoggerDefinition (DeleteLoggerDefinition'),
+    newDeleteLoggerDefinition,
+    DeleteLoggerDefinitionResponse (DeleteLoggerDefinitionResponse'),
+    newDeleteLoggerDefinitionResponse,
+
+    -- ** DeleteResourceDefinition
+    DeleteResourceDefinition (DeleteResourceDefinition'),
+    newDeleteResourceDefinition,
+    DeleteResourceDefinitionResponse (DeleteResourceDefinitionResponse'),
+    newDeleteResourceDefinitionResponse,
+
+    -- ** DeleteSubscriptionDefinition
+    DeleteSubscriptionDefinition (DeleteSubscriptionDefinition'),
+    newDeleteSubscriptionDefinition,
+    DeleteSubscriptionDefinitionResponse (DeleteSubscriptionDefinitionResponse'),
+    newDeleteSubscriptionDefinitionResponse,
+
+    -- ** DisassociateRoleFromGroup
+    DisassociateRoleFromGroup (DisassociateRoleFromGroup'),
+    newDisassociateRoleFromGroup,
+    DisassociateRoleFromGroupResponse (DisassociateRoleFromGroupResponse'),
+    newDisassociateRoleFromGroupResponse,
+
+    -- ** DisassociateServiceRoleFromAccount
+    DisassociateServiceRoleFromAccount (DisassociateServiceRoleFromAccount'),
+    newDisassociateServiceRoleFromAccount,
+    DisassociateServiceRoleFromAccountResponse (DisassociateServiceRoleFromAccountResponse'),
+    newDisassociateServiceRoleFromAccountResponse,
+
+    -- ** GetAssociatedRole
+    GetAssociatedRole (GetAssociatedRole'),
+    newGetAssociatedRole,
+    GetAssociatedRoleResponse (GetAssociatedRoleResponse'),
+    newGetAssociatedRoleResponse,
+
+    -- ** GetBulkDeploymentStatus
+    GetBulkDeploymentStatus (GetBulkDeploymentStatus'),
+    newGetBulkDeploymentStatus,
+    GetBulkDeploymentStatusResponse (GetBulkDeploymentStatusResponse'),
+    newGetBulkDeploymentStatusResponse,
+
+    -- ** GetConnectivityInfo
+    GetConnectivityInfo (GetConnectivityInfo'),
+    newGetConnectivityInfo,
+    GetConnectivityInfoResponse (GetConnectivityInfoResponse'),
+    newGetConnectivityInfoResponse,
+
+    -- ** GetConnectorDefinition
+    GetConnectorDefinition (GetConnectorDefinition'),
+    newGetConnectorDefinition,
+    GetConnectorDefinitionResponse (GetConnectorDefinitionResponse'),
+    newGetConnectorDefinitionResponse,
+
+    -- ** GetConnectorDefinitionVersion
+    GetConnectorDefinitionVersion (GetConnectorDefinitionVersion'),
+    newGetConnectorDefinitionVersion,
+    GetConnectorDefinitionVersionResponse (GetConnectorDefinitionVersionResponse'),
+    newGetConnectorDefinitionVersionResponse,
+
+    -- ** GetCoreDefinition
+    GetCoreDefinition (GetCoreDefinition'),
+    newGetCoreDefinition,
+    GetCoreDefinitionResponse (GetCoreDefinitionResponse'),
+    newGetCoreDefinitionResponse,
+
+    -- ** GetCoreDefinitionVersion
+    GetCoreDefinitionVersion (GetCoreDefinitionVersion'),
+    newGetCoreDefinitionVersion,
+    GetCoreDefinitionVersionResponse (GetCoreDefinitionVersionResponse'),
+    newGetCoreDefinitionVersionResponse,
+
+    -- ** GetDeploymentStatus
+    GetDeploymentStatus (GetDeploymentStatus'),
+    newGetDeploymentStatus,
+    GetDeploymentStatusResponse (GetDeploymentStatusResponse'),
+    newGetDeploymentStatusResponse,
+
+    -- ** GetDeviceDefinition
+    GetDeviceDefinition (GetDeviceDefinition'),
+    newGetDeviceDefinition,
+    GetDeviceDefinitionResponse (GetDeviceDefinitionResponse'),
+    newGetDeviceDefinitionResponse,
 
     -- ** GetDeviceDefinitionVersion
     GetDeviceDefinitionVersion (GetDeviceDefinitionVersion'),
     newGetDeviceDefinitionVersion,
     GetDeviceDefinitionVersionResponse (GetDeviceDefinitionVersionResponse'),
     newGetDeviceDefinitionVersionResponse,
+
+    -- ** GetFunctionDefinition
+    GetFunctionDefinition (GetFunctionDefinition'),
+    newGetFunctionDefinition,
+    GetFunctionDefinitionResponse (GetFunctionDefinitionResponse'),
+    newGetFunctionDefinitionResponse,
+
+    -- ** GetFunctionDefinitionVersion
+    GetFunctionDefinitionVersion (GetFunctionDefinitionVersion'),
+    newGetFunctionDefinitionVersion,
+    GetFunctionDefinitionVersionResponse (GetFunctionDefinitionVersionResponse'),
+    newGetFunctionDefinitionVersionResponse,
+
+    -- ** GetGroup
+    GetGroup (GetGroup'),
+    newGetGroup,
+    GetGroupResponse (GetGroupResponse'),
+    newGetGroupResponse,
+
+    -- ** GetGroupCertificateAuthority
+    GetGroupCertificateAuthority (GetGroupCertificateAuthority'),
+    newGetGroupCertificateAuthority,
+    GetGroupCertificateAuthorityResponse (GetGroupCertificateAuthorityResponse'),
+    newGetGroupCertificateAuthorityResponse,
+
+    -- ** GetGroupCertificateConfiguration
+    GetGroupCertificateConfiguration (GetGroupCertificateConfiguration'),
+    newGetGroupCertificateConfiguration,
+    GetGroupCertificateConfigurationResponse (GetGroupCertificateConfigurationResponse'),
+    newGetGroupCertificateConfigurationResponse,
+
+    -- ** GetGroupVersion
+    GetGroupVersion (GetGroupVersion'),
+    newGetGroupVersion,
+    GetGroupVersionResponse (GetGroupVersionResponse'),
+    newGetGroupVersionResponse,
+
+    -- ** GetLoggerDefinition
+    GetLoggerDefinition (GetLoggerDefinition'),
+    newGetLoggerDefinition,
+    GetLoggerDefinitionResponse (GetLoggerDefinitionResponse'),
+    newGetLoggerDefinitionResponse,
+
+    -- ** GetLoggerDefinitionVersion
+    GetLoggerDefinitionVersion (GetLoggerDefinitionVersion'),
+    newGetLoggerDefinitionVersion,
+    GetLoggerDefinitionVersionResponse (GetLoggerDefinitionVersionResponse'),
+    newGetLoggerDefinitionVersionResponse,
+
+    -- ** GetResourceDefinition
+    GetResourceDefinition (GetResourceDefinition'),
+    newGetResourceDefinition,
+    GetResourceDefinitionResponse (GetResourceDefinitionResponse'),
+    newGetResourceDefinitionResponse,
+
+    -- ** GetResourceDefinitionVersion
+    GetResourceDefinitionVersion (GetResourceDefinitionVersion'),
+    newGetResourceDefinitionVersion,
+    GetResourceDefinitionVersionResponse (GetResourceDefinitionVersionResponse'),
+    newGetResourceDefinitionVersionResponse,
+
+    -- ** GetServiceRoleForAccount
+    GetServiceRoleForAccount (GetServiceRoleForAccount'),
+    newGetServiceRoleForAccount,
+    GetServiceRoleForAccountResponse (GetServiceRoleForAccountResponse'),
+    newGetServiceRoleForAccountResponse,
+
+    -- ** GetSubscriptionDefinition
+    GetSubscriptionDefinition (GetSubscriptionDefinition'),
+    newGetSubscriptionDefinition,
+    GetSubscriptionDefinitionResponse (GetSubscriptionDefinitionResponse'),
+    newGetSubscriptionDefinitionResponse,
+
+    -- ** GetSubscriptionDefinitionVersion
+    GetSubscriptionDefinitionVersion (GetSubscriptionDefinitionVersion'),
+    newGetSubscriptionDefinitionVersion,
+    GetSubscriptionDefinitionVersionResponse (GetSubscriptionDefinitionVersionResponse'),
+    newGetSubscriptionDefinitionVersionResponse,
+
+    -- ** GetThingRuntimeConfiguration
+    GetThingRuntimeConfiguration (GetThingRuntimeConfiguration'),
+    newGetThingRuntimeConfiguration,
+    GetThingRuntimeConfigurationResponse (GetThingRuntimeConfigurationResponse'),
+    newGetThingRuntimeConfigurationResponse,
+
+    -- ** ListBulkDeploymentDetailedReports (Paginated)
+    ListBulkDeploymentDetailedReports (ListBulkDeploymentDetailedReports'),
+    newListBulkDeploymentDetailedReports,
+    ListBulkDeploymentDetailedReportsResponse (ListBulkDeploymentDetailedReportsResponse'),
+    newListBulkDeploymentDetailedReportsResponse,
+
+    -- ** ListBulkDeployments (Paginated)
+    ListBulkDeployments (ListBulkDeployments'),
+    newListBulkDeployments,
+    ListBulkDeploymentsResponse (ListBulkDeploymentsResponse'),
+    newListBulkDeploymentsResponse,
+
+    -- ** ListConnectorDefinitionVersions (Paginated)
+    ListConnectorDefinitionVersions (ListConnectorDefinitionVersions'),
+    newListConnectorDefinitionVersions,
+    ListConnectorDefinitionVersionsResponse (ListConnectorDefinitionVersionsResponse'),
+    newListConnectorDefinitionVersionsResponse,
+
+    -- ** ListConnectorDefinitions (Paginated)
+    ListConnectorDefinitions (ListConnectorDefinitions'),
+    newListConnectorDefinitions,
+    ListConnectorDefinitionsResponse (ListConnectorDefinitionsResponse'),
+    newListConnectorDefinitionsResponse,
+
+    -- ** ListCoreDefinitionVersions (Paginated)
+    ListCoreDefinitionVersions (ListCoreDefinitionVersions'),
+    newListCoreDefinitionVersions,
+    ListCoreDefinitionVersionsResponse (ListCoreDefinitionVersionsResponse'),
+    newListCoreDefinitionVersionsResponse,
+
+    -- ** ListCoreDefinitions (Paginated)
+    ListCoreDefinitions (ListCoreDefinitions'),
+    newListCoreDefinitions,
+    ListCoreDefinitionsResponse (ListCoreDefinitionsResponse'),
+    newListCoreDefinitionsResponse,
+
+    -- ** ListDeployments (Paginated)
+    ListDeployments (ListDeployments'),
+    newListDeployments,
+    ListDeploymentsResponse (ListDeploymentsResponse'),
+    newListDeploymentsResponse,
+
+    -- ** ListDeviceDefinitionVersions (Paginated)
+    ListDeviceDefinitionVersions (ListDeviceDefinitionVersions'),
+    newListDeviceDefinitionVersions,
+    ListDeviceDefinitionVersionsResponse (ListDeviceDefinitionVersionsResponse'),
+    newListDeviceDefinitionVersionsResponse,
+
+    -- ** ListDeviceDefinitions (Paginated)
+    ListDeviceDefinitions (ListDeviceDefinitions'),
+    newListDeviceDefinitions,
+    ListDeviceDefinitionsResponse (ListDeviceDefinitionsResponse'),
+    newListDeviceDefinitionsResponse,
+
+    -- ** ListFunctionDefinitionVersions (Paginated)
+    ListFunctionDefinitionVersions (ListFunctionDefinitionVersions'),
+    newListFunctionDefinitionVersions,
+    ListFunctionDefinitionVersionsResponse (ListFunctionDefinitionVersionsResponse'),
+    newListFunctionDefinitionVersionsResponse,
+
+    -- ** ListFunctionDefinitions (Paginated)
+    ListFunctionDefinitions (ListFunctionDefinitions'),
+    newListFunctionDefinitions,
+    ListFunctionDefinitionsResponse (ListFunctionDefinitionsResponse'),
+    newListFunctionDefinitionsResponse,
+
+    -- ** ListGroupCertificateAuthorities
+    ListGroupCertificateAuthorities (ListGroupCertificateAuthorities'),
+    newListGroupCertificateAuthorities,
+    ListGroupCertificateAuthoritiesResponse (ListGroupCertificateAuthoritiesResponse'),
+    newListGroupCertificateAuthoritiesResponse,
+
+    -- ** ListGroupVersions (Paginated)
+    ListGroupVersions (ListGroupVersions'),
+    newListGroupVersions,
+    ListGroupVersionsResponse (ListGroupVersionsResponse'),
+    newListGroupVersionsResponse,
+
+    -- ** ListGroups (Paginated)
+    ListGroups (ListGroups'),
+    newListGroups,
+    ListGroupsResponse (ListGroupsResponse'),
+    newListGroupsResponse,
+
+    -- ** ListLoggerDefinitionVersions (Paginated)
+    ListLoggerDefinitionVersions (ListLoggerDefinitionVersions'),
+    newListLoggerDefinitionVersions,
+    ListLoggerDefinitionVersionsResponse (ListLoggerDefinitionVersionsResponse'),
+    newListLoggerDefinitionVersionsResponse,
+
+    -- ** ListLoggerDefinitions (Paginated)
+    ListLoggerDefinitions (ListLoggerDefinitions'),
+    newListLoggerDefinitions,
+    ListLoggerDefinitionsResponse (ListLoggerDefinitionsResponse'),
+    newListLoggerDefinitionsResponse,
+
+    -- ** ListResourceDefinitionVersions (Paginated)
+    ListResourceDefinitionVersions (ListResourceDefinitionVersions'),
+    newListResourceDefinitionVersions,
+    ListResourceDefinitionVersionsResponse (ListResourceDefinitionVersionsResponse'),
+    newListResourceDefinitionVersionsResponse,
+
+    -- ** ListResourceDefinitions (Paginated)
+    ListResourceDefinitions (ListResourceDefinitions'),
+    newListResourceDefinitions,
+    ListResourceDefinitionsResponse (ListResourceDefinitionsResponse'),
+    newListResourceDefinitionsResponse,
+
+    -- ** ListSubscriptionDefinitionVersions (Paginated)
+    ListSubscriptionDefinitionVersions (ListSubscriptionDefinitionVersions'),
+    newListSubscriptionDefinitionVersions,
+    ListSubscriptionDefinitionVersionsResponse (ListSubscriptionDefinitionVersionsResponse'),
+    newListSubscriptionDefinitionVersionsResponse,
+
+    -- ** ListSubscriptionDefinitions (Paginated)
+    ListSubscriptionDefinitions (ListSubscriptionDefinitions'),
+    newListSubscriptionDefinitions,
+    ListSubscriptionDefinitionsResponse (ListSubscriptionDefinitionsResponse'),
+    newListSubscriptionDefinitionsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** ResetDeployments
+    ResetDeployments (ResetDeployments'),
+    newResetDeployments,
+    ResetDeploymentsResponse (ResetDeploymentsResponse'),
+    newResetDeploymentsResponse,
+
+    -- ** StartBulkDeployment
+    StartBulkDeployment (StartBulkDeployment'),
+    newStartBulkDeployment,
+    StartBulkDeploymentResponse (StartBulkDeploymentResponse'),
+    newStartBulkDeploymentResponse,
+
+    -- ** StopBulkDeployment
+    StopBulkDeployment (StopBulkDeployment'),
+    newStopBulkDeployment,
+    StopBulkDeploymentResponse (StopBulkDeploymentResponse'),
+    newStopBulkDeploymentResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateConnectivityInfo
+    UpdateConnectivityInfo (UpdateConnectivityInfo'),
+    newUpdateConnectivityInfo,
+    UpdateConnectivityInfoResponse (UpdateConnectivityInfoResponse'),
+    newUpdateConnectivityInfoResponse,
+
+    -- ** UpdateConnectorDefinition
+    UpdateConnectorDefinition (UpdateConnectorDefinition'),
+    newUpdateConnectorDefinition,
+    UpdateConnectorDefinitionResponse (UpdateConnectorDefinitionResponse'),
+    newUpdateConnectorDefinitionResponse,
+
+    -- ** UpdateCoreDefinition
+    UpdateCoreDefinition (UpdateCoreDefinition'),
+    newUpdateCoreDefinition,
+    UpdateCoreDefinitionResponse (UpdateCoreDefinitionResponse'),
+    newUpdateCoreDefinitionResponse,
+
+    -- ** UpdateDeviceDefinition
+    UpdateDeviceDefinition (UpdateDeviceDefinition'),
+    newUpdateDeviceDefinition,
+    UpdateDeviceDefinitionResponse (UpdateDeviceDefinitionResponse'),
+    newUpdateDeviceDefinitionResponse,
+
+    -- ** UpdateFunctionDefinition
+    UpdateFunctionDefinition (UpdateFunctionDefinition'),
+    newUpdateFunctionDefinition,
+    UpdateFunctionDefinitionResponse (UpdateFunctionDefinitionResponse'),
+    newUpdateFunctionDefinitionResponse,
+
+    -- ** UpdateGroup
+    UpdateGroup (UpdateGroup'),
+    newUpdateGroup,
+    UpdateGroupResponse (UpdateGroupResponse'),
+    newUpdateGroupResponse,
+
+    -- ** UpdateGroupCertificateConfiguration
+    UpdateGroupCertificateConfiguration (UpdateGroupCertificateConfiguration'),
+    newUpdateGroupCertificateConfiguration,
+    UpdateGroupCertificateConfigurationResponse (UpdateGroupCertificateConfigurationResponse'),
+    newUpdateGroupCertificateConfigurationResponse,
+
+    -- ** UpdateLoggerDefinition
+    UpdateLoggerDefinition (UpdateLoggerDefinition'),
+    newUpdateLoggerDefinition,
+    UpdateLoggerDefinitionResponse (UpdateLoggerDefinitionResponse'),
+    newUpdateLoggerDefinitionResponse,
+
+    -- ** UpdateResourceDefinition
+    UpdateResourceDefinition (UpdateResourceDefinition'),
+    newUpdateResourceDefinition,
+    UpdateResourceDefinitionResponse (UpdateResourceDefinitionResponse'),
+    newUpdateResourceDefinitionResponse,
+
+    -- ** UpdateSubscriptionDefinition
+    UpdateSubscriptionDefinition (UpdateSubscriptionDefinition'),
+    newUpdateSubscriptionDefinition,
+    UpdateSubscriptionDefinitionResponse (UpdateSubscriptionDefinitionResponse'),
+    newUpdateSubscriptionDefinitionResponse,
+
+    -- ** UpdateThingRuntimeConfiguration
+    UpdateThingRuntimeConfiguration (UpdateThingRuntimeConfiguration'),
+    newUpdateThingRuntimeConfiguration,
+    UpdateThingRuntimeConfigurationResponse (UpdateThingRuntimeConfigurationResponse'),
+    newUpdateThingRuntimeConfigurationResponse,
 
     -- * Types
 

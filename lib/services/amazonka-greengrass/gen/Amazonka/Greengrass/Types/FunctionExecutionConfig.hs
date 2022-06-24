@@ -29,8 +29,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFunctionExecutionConfig' smart constructor.
 data FunctionExecutionConfig = FunctionExecutionConfig'
-  { runAs :: Prelude.Maybe FunctionRunAsConfig,
-    isolationMode :: Prelude.Maybe FunctionIsolationMode
+  { isolationMode :: Prelude.Maybe FunctionIsolationMode,
+    runAs :: Prelude.Maybe FunctionRunAsConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,25 @@ data FunctionExecutionConfig = FunctionExecutionConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'runAs', 'functionExecutionConfig_runAs' - Undocumented member.
---
 -- 'isolationMode', 'functionExecutionConfig_isolationMode' - Undocumented member.
+--
+-- 'runAs', 'functionExecutionConfig_runAs' - Undocumented member.
 newFunctionExecutionConfig ::
   FunctionExecutionConfig
 newFunctionExecutionConfig =
   FunctionExecutionConfig'
-    { runAs = Prelude.Nothing,
-      isolationMode = Prelude.Nothing
+    { isolationMode =
+        Prelude.Nothing,
+      runAs = Prelude.Nothing
     }
-
--- | Undocumented member.
-functionExecutionConfig_runAs :: Lens.Lens' FunctionExecutionConfig (Prelude.Maybe FunctionRunAsConfig)
-functionExecutionConfig_runAs = Lens.lens (\FunctionExecutionConfig' {runAs} -> runAs) (\s@FunctionExecutionConfig' {} a -> s {runAs = a} :: FunctionExecutionConfig)
 
 -- | Undocumented member.
 functionExecutionConfig_isolationMode :: Lens.Lens' FunctionExecutionConfig (Prelude.Maybe FunctionIsolationMode)
 functionExecutionConfig_isolationMode = Lens.lens (\FunctionExecutionConfig' {isolationMode} -> isolationMode) (\s@FunctionExecutionConfig' {} a -> s {isolationMode = a} :: FunctionExecutionConfig)
+
+-- | Undocumented member.
+functionExecutionConfig_runAs :: Lens.Lens' FunctionExecutionConfig (Prelude.Maybe FunctionRunAsConfig)
+functionExecutionConfig_runAs = Lens.lens (\FunctionExecutionConfig' {runAs} -> runAs) (\s@FunctionExecutionConfig' {} a -> s {runAs = a} :: FunctionExecutionConfig)
 
 instance Core.FromJSON FunctionExecutionConfig where
   parseJSON =
@@ -67,25 +68,25 @@ instance Core.FromJSON FunctionExecutionConfig where
       "FunctionExecutionConfig"
       ( \x ->
           FunctionExecutionConfig'
-            Prelude.<$> (x Core..:? "RunAs")
-            Prelude.<*> (x Core..:? "IsolationMode")
+            Prelude.<$> (x Core..:? "IsolationMode")
+            Prelude.<*> (x Core..:? "RunAs")
       )
 
 instance Prelude.Hashable FunctionExecutionConfig where
   hashWithSalt _salt FunctionExecutionConfig' {..} =
-    _salt `Prelude.hashWithSalt` runAs
-      `Prelude.hashWithSalt` isolationMode
+    _salt `Prelude.hashWithSalt` isolationMode
+      `Prelude.hashWithSalt` runAs
 
 instance Prelude.NFData FunctionExecutionConfig where
   rnf FunctionExecutionConfig' {..} =
-    Prelude.rnf runAs
-      `Prelude.seq` Prelude.rnf isolationMode
+    Prelude.rnf isolationMode
+      `Prelude.seq` Prelude.rnf runAs
 
 instance Core.ToJSON FunctionExecutionConfig where
   toJSON FunctionExecutionConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RunAs" Core..=) Prelude.<$> runAs,
-            ("IsolationMode" Core..=) Prelude.<$> isolationMode
+          [ ("IsolationMode" Core..=) Prelude.<$> isolationMode,
+            ("RunAs" Core..=) Prelude.<$> runAs
           ]
       )

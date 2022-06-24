@@ -38,8 +38,8 @@ module Amazonka.Greengrass.ListLoggerDefinitionVersions
     newListLoggerDefinitionVersionsResponse,
 
     -- * Response Lenses
-    listLoggerDefinitionVersionsResponse_versions,
     listLoggerDefinitionVersionsResponse_nextToken,
+    listLoggerDefinitionVersionsResponse_versions,
     listLoggerDefinitionVersionsResponse_httpStatus,
   )
 where
@@ -133,8 +133,8 @@ instance Core.AWSRequest ListLoggerDefinitionVersions where
     Response.receiveJSON
       ( \s h x ->
           ListLoggerDefinitionVersionsResponse'
-            Prelude.<$> (x Core..?> "Versions" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Versions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,11 +181,11 @@ instance Core.ToQuery ListLoggerDefinitionVersions where
 
 -- | /See:/ 'newListLoggerDefinitionVersionsResponse' smart constructor.
 data ListLoggerDefinitionVersionsResponse = ListLoggerDefinitionVersionsResponse'
-  { -- | Information about a version.
-    versions :: Prelude.Maybe [VersionInformation],
-    -- | The token for the next set of results, or \'\'null\'\' if there are no
+  { -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about a version.
+    versions :: Prelude.Maybe [VersionInformation],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -199,10 +199,10 @@ data ListLoggerDefinitionVersionsResponse = ListLoggerDefinitionVersionsResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versions', 'listLoggerDefinitionVersionsResponse_versions' - Information about a version.
---
 -- 'nextToken', 'listLoggerDefinitionVersionsResponse_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
+--
+-- 'versions', 'listLoggerDefinitionVersionsResponse_versions' - Information about a version.
 --
 -- 'httpStatus', 'listLoggerDefinitionVersionsResponse_httpStatus' - The response's http status code.
 newListLoggerDefinitionVersionsResponse ::
@@ -211,20 +211,20 @@ newListLoggerDefinitionVersionsResponse ::
   ListLoggerDefinitionVersionsResponse
 newListLoggerDefinitionVersionsResponse pHttpStatus_ =
   ListLoggerDefinitionVersionsResponse'
-    { versions =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      versions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about a version.
-listLoggerDefinitionVersionsResponse_versions :: Lens.Lens' ListLoggerDefinitionVersionsResponse (Prelude.Maybe [VersionInformation])
-listLoggerDefinitionVersionsResponse_versions = Lens.lens (\ListLoggerDefinitionVersionsResponse' {versions} -> versions) (\s@ListLoggerDefinitionVersionsResponse' {} a -> s {versions = a} :: ListLoggerDefinitionVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
 listLoggerDefinitionVersionsResponse_nextToken :: Lens.Lens' ListLoggerDefinitionVersionsResponse (Prelude.Maybe Prelude.Text)
 listLoggerDefinitionVersionsResponse_nextToken = Lens.lens (\ListLoggerDefinitionVersionsResponse' {nextToken} -> nextToken) (\s@ListLoggerDefinitionVersionsResponse' {} a -> s {nextToken = a} :: ListLoggerDefinitionVersionsResponse)
+
+-- | Information about a version.
+listLoggerDefinitionVersionsResponse_versions :: Lens.Lens' ListLoggerDefinitionVersionsResponse (Prelude.Maybe [VersionInformation])
+listLoggerDefinitionVersionsResponse_versions = Lens.lens (\ListLoggerDefinitionVersionsResponse' {versions} -> versions) (\s@ListLoggerDefinitionVersionsResponse' {} a -> s {versions = a} :: ListLoggerDefinitionVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listLoggerDefinitionVersionsResponse_httpStatus :: Lens.Lens' ListLoggerDefinitionVersionsResponse Prelude.Int
@@ -235,6 +235,6 @@ instance
     ListLoggerDefinitionVersionsResponse
   where
   rnf ListLoggerDefinitionVersionsResponse' {..} =
-    Prelude.rnf versions
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf versions
       `Prelude.seq` Prelude.rnf httpStatus

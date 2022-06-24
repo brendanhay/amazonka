@@ -41,8 +41,8 @@ module Amazonka.Greengrass.ListConnectorDefinitionVersions
     newListConnectorDefinitionVersionsResponse,
 
     -- * Response Lenses
-    listConnectorDefinitionVersionsResponse_versions,
     listConnectorDefinitionVersionsResponse_nextToken,
+    listConnectorDefinitionVersionsResponse_versions,
     listConnectorDefinitionVersionsResponse_httpStatus,
   )
 where
@@ -144,8 +144,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListConnectorDefinitionVersionsResponse'
-            Prelude.<$> (x Core..?> "Versions" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Versions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -200,11 +200,11 @@ instance Core.ToQuery ListConnectorDefinitionVersions where
 
 -- | /See:/ 'newListConnectorDefinitionVersionsResponse' smart constructor.
 data ListConnectorDefinitionVersionsResponse = ListConnectorDefinitionVersionsResponse'
-  { -- | Information about a version.
-    versions :: Prelude.Maybe [VersionInformation],
-    -- | The token for the next set of results, or \'\'null\'\' if there are no
+  { -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about a version.
+    versions :: Prelude.Maybe [VersionInformation],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -218,10 +218,10 @@ data ListConnectorDefinitionVersionsResponse = ListConnectorDefinitionVersionsRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versions', 'listConnectorDefinitionVersionsResponse_versions' - Information about a version.
---
 -- 'nextToken', 'listConnectorDefinitionVersionsResponse_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
+--
+-- 'versions', 'listConnectorDefinitionVersionsResponse_versions' - Information about a version.
 --
 -- 'httpStatus', 'listConnectorDefinitionVersionsResponse_httpStatus' - The response's http status code.
 newListConnectorDefinitionVersionsResponse ::
@@ -231,20 +231,20 @@ newListConnectorDefinitionVersionsResponse ::
 newListConnectorDefinitionVersionsResponse
   pHttpStatus_ =
     ListConnectorDefinitionVersionsResponse'
-      { versions =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        versions = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Information about a version.
-listConnectorDefinitionVersionsResponse_versions :: Lens.Lens' ListConnectorDefinitionVersionsResponse (Prelude.Maybe [VersionInformation])
-listConnectorDefinitionVersionsResponse_versions = Lens.lens (\ListConnectorDefinitionVersionsResponse' {versions} -> versions) (\s@ListConnectorDefinitionVersionsResponse' {} a -> s {versions = a} :: ListConnectorDefinitionVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
 listConnectorDefinitionVersionsResponse_nextToken :: Lens.Lens' ListConnectorDefinitionVersionsResponse (Prelude.Maybe Prelude.Text)
 listConnectorDefinitionVersionsResponse_nextToken = Lens.lens (\ListConnectorDefinitionVersionsResponse' {nextToken} -> nextToken) (\s@ListConnectorDefinitionVersionsResponse' {} a -> s {nextToken = a} :: ListConnectorDefinitionVersionsResponse)
+
+-- | Information about a version.
+listConnectorDefinitionVersionsResponse_versions :: Lens.Lens' ListConnectorDefinitionVersionsResponse (Prelude.Maybe [VersionInformation])
+listConnectorDefinitionVersionsResponse_versions = Lens.lens (\ListConnectorDefinitionVersionsResponse' {versions} -> versions) (\s@ListConnectorDefinitionVersionsResponse' {} a -> s {versions = a} :: ListConnectorDefinitionVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listConnectorDefinitionVersionsResponse_httpStatus :: Lens.Lens' ListConnectorDefinitionVersionsResponse Prelude.Int
@@ -255,6 +255,6 @@ instance
     ListConnectorDefinitionVersionsResponse
   where
   rnf ListConnectorDefinitionVersionsResponse' {..} =
-    Prelude.rnf versions
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf versions
       `Prelude.seq` Prelude.rnf httpStatus

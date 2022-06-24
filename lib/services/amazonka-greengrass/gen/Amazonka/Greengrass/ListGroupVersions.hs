@@ -38,8 +38,8 @@ module Amazonka.Greengrass.ListGroupVersions
     newListGroupVersionsResponse,
 
     -- * Response Lenses
-    listGroupVersionsResponse_versions,
     listGroupVersionsResponse_nextToken,
+    listGroupVersionsResponse_versions,
     listGroupVersionsResponse_httpStatus,
   )
 where
@@ -132,8 +132,8 @@ instance Core.AWSRequest ListGroupVersions where
     Response.receiveJSON
       ( \s h x ->
           ListGroupVersionsResponse'
-            Prelude.<$> (x Core..?> "Versions" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Versions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,11 +177,11 @@ instance Core.ToQuery ListGroupVersions where
 
 -- | /See:/ 'newListGroupVersionsResponse' smart constructor.
 data ListGroupVersionsResponse = ListGroupVersionsResponse'
-  { -- | Information about a version.
-    versions :: Prelude.Maybe [VersionInformation],
-    -- | The token for the next set of results, or \'\'null\'\' if there are no
+  { -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about a version.
+    versions :: Prelude.Maybe [VersionInformation],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -195,10 +195,10 @@ data ListGroupVersionsResponse = ListGroupVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versions', 'listGroupVersionsResponse_versions' - Information about a version.
---
 -- 'nextToken', 'listGroupVersionsResponse_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
+--
+-- 'versions', 'listGroupVersionsResponse_versions' - Information about a version.
 --
 -- 'httpStatus', 'listGroupVersionsResponse_httpStatus' - The response's http status code.
 newListGroupVersionsResponse ::
@@ -207,20 +207,20 @@ newListGroupVersionsResponse ::
   ListGroupVersionsResponse
 newListGroupVersionsResponse pHttpStatus_ =
   ListGroupVersionsResponse'
-    { versions =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      versions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about a version.
-listGroupVersionsResponse_versions :: Lens.Lens' ListGroupVersionsResponse (Prelude.Maybe [VersionInformation])
-listGroupVersionsResponse_versions = Lens.lens (\ListGroupVersionsResponse' {versions} -> versions) (\s@ListGroupVersionsResponse' {} a -> s {versions = a} :: ListGroupVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
 listGroupVersionsResponse_nextToken :: Lens.Lens' ListGroupVersionsResponse (Prelude.Maybe Prelude.Text)
 listGroupVersionsResponse_nextToken = Lens.lens (\ListGroupVersionsResponse' {nextToken} -> nextToken) (\s@ListGroupVersionsResponse' {} a -> s {nextToken = a} :: ListGroupVersionsResponse)
+
+-- | Information about a version.
+listGroupVersionsResponse_versions :: Lens.Lens' ListGroupVersionsResponse (Prelude.Maybe [VersionInformation])
+listGroupVersionsResponse_versions = Lens.lens (\ListGroupVersionsResponse' {versions} -> versions) (\s@ListGroupVersionsResponse' {} a -> s {versions = a} :: ListGroupVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listGroupVersionsResponse_httpStatus :: Lens.Lens' ListGroupVersionsResponse Prelude.Int
@@ -228,6 +228,6 @@ listGroupVersionsResponse_httpStatus = Lens.lens (\ListGroupVersionsResponse' {h
 
 instance Prelude.NFData ListGroupVersionsResponse where
   rnf ListGroupVersionsResponse' {..} =
-    Prelude.rnf versions
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf versions
       `Prelude.seq` Prelude.rnf httpStatus

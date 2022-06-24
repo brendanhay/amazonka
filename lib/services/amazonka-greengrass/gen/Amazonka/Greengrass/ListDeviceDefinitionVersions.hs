@@ -38,8 +38,8 @@ module Amazonka.Greengrass.ListDeviceDefinitionVersions
     newListDeviceDefinitionVersionsResponse,
 
     -- * Response Lenses
-    listDeviceDefinitionVersionsResponse_versions,
     listDeviceDefinitionVersionsResponse_nextToken,
+    listDeviceDefinitionVersionsResponse_versions,
     listDeviceDefinitionVersionsResponse_httpStatus,
   )
 where
@@ -133,8 +133,8 @@ instance Core.AWSRequest ListDeviceDefinitionVersions where
     Response.receiveJSON
       ( \s h x ->
           ListDeviceDefinitionVersionsResponse'
-            Prelude.<$> (x Core..?> "Versions" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Versions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,11 +181,11 @@ instance Core.ToQuery ListDeviceDefinitionVersions where
 
 -- | /See:/ 'newListDeviceDefinitionVersionsResponse' smart constructor.
 data ListDeviceDefinitionVersionsResponse = ListDeviceDefinitionVersionsResponse'
-  { -- | Information about a version.
-    versions :: Prelude.Maybe [VersionInformation],
-    -- | The token for the next set of results, or \'\'null\'\' if there are no
+  { -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about a version.
+    versions :: Prelude.Maybe [VersionInformation],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -199,10 +199,10 @@ data ListDeviceDefinitionVersionsResponse = ListDeviceDefinitionVersionsResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versions', 'listDeviceDefinitionVersionsResponse_versions' - Information about a version.
---
 -- 'nextToken', 'listDeviceDefinitionVersionsResponse_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
+--
+-- 'versions', 'listDeviceDefinitionVersionsResponse_versions' - Information about a version.
 --
 -- 'httpStatus', 'listDeviceDefinitionVersionsResponse_httpStatus' - The response's http status code.
 newListDeviceDefinitionVersionsResponse ::
@@ -211,20 +211,20 @@ newListDeviceDefinitionVersionsResponse ::
   ListDeviceDefinitionVersionsResponse
 newListDeviceDefinitionVersionsResponse pHttpStatus_ =
   ListDeviceDefinitionVersionsResponse'
-    { versions =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      versions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about a version.
-listDeviceDefinitionVersionsResponse_versions :: Lens.Lens' ListDeviceDefinitionVersionsResponse (Prelude.Maybe [VersionInformation])
-listDeviceDefinitionVersionsResponse_versions = Lens.lens (\ListDeviceDefinitionVersionsResponse' {versions} -> versions) (\s@ListDeviceDefinitionVersionsResponse' {} a -> s {versions = a} :: ListDeviceDefinitionVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
 listDeviceDefinitionVersionsResponse_nextToken :: Lens.Lens' ListDeviceDefinitionVersionsResponse (Prelude.Maybe Prelude.Text)
 listDeviceDefinitionVersionsResponse_nextToken = Lens.lens (\ListDeviceDefinitionVersionsResponse' {nextToken} -> nextToken) (\s@ListDeviceDefinitionVersionsResponse' {} a -> s {nextToken = a} :: ListDeviceDefinitionVersionsResponse)
+
+-- | Information about a version.
+listDeviceDefinitionVersionsResponse_versions :: Lens.Lens' ListDeviceDefinitionVersionsResponse (Prelude.Maybe [VersionInformation])
+listDeviceDefinitionVersionsResponse_versions = Lens.lens (\ListDeviceDefinitionVersionsResponse' {versions} -> versions) (\s@ListDeviceDefinitionVersionsResponse' {} a -> s {versions = a} :: ListDeviceDefinitionVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDeviceDefinitionVersionsResponse_httpStatus :: Lens.Lens' ListDeviceDefinitionVersionsResponse Prelude.Int
@@ -235,6 +235,6 @@ instance
     ListDeviceDefinitionVersionsResponse
   where
   rnf ListDeviceDefinitionVersionsResponse' {..} =
-    Prelude.rnf versions
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf versions
       `Prelude.seq` Prelude.rnf httpStatus

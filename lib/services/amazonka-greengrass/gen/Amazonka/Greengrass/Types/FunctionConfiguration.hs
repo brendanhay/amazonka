@@ -29,7 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFunctionConfiguration' smart constructor.
 data FunctionConfiguration = FunctionConfiguration'
-  { -- | The memory size, in KB, which the function requires. This setting is not
+  { -- | The allowed function execution time, after which Lambda should terminate
+    -- the function. This timeout still applies to pinned Lambda functions for
+    -- each request.
+    timeout :: Prelude.Maybe Prelude.Int,
+    -- | The memory size, in KB, which the function requires. This setting is not
     -- applicable and should be cleared when you run the Lambda function
     -- without containerization.
     memorySize :: Prelude.Maybe Prelude.Int,
@@ -44,11 +48,7 @@ data FunctionConfiguration = FunctionConfiguration'
     pinned :: Prelude.Maybe Prelude.Bool,
     -- | The expected encoding type of the input payload for the function. The
     -- default is \'\'json\'\'.
-    encodingType :: Prelude.Maybe EncodingType,
-    -- | The allowed function execution time, after which Lambda should terminate
-    -- the function. This timeout still applies to pinned Lambda functions for
-    -- each request.
-    timeout :: Prelude.Maybe Prelude.Int
+    encodingType :: Prelude.Maybe EncodingType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,6 +59,10 @@ data FunctionConfiguration = FunctionConfiguration'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'timeout', 'functionConfiguration_timeout' - The allowed function execution time, after which Lambda should terminate
+-- the function. This timeout still applies to pinned Lambda functions for
+-- each request.
 --
 -- 'memorySize', 'functionConfiguration_memorySize' - The memory size, in KB, which the function requires. This setting is not
 -- applicable and should be cleared when you run the Lambda function
@@ -75,23 +79,24 @@ data FunctionConfiguration = FunctionConfiguration'
 --
 -- 'encodingType', 'functionConfiguration_encodingType' - The expected encoding type of the input payload for the function. The
 -- default is \'\'json\'\'.
---
--- 'timeout', 'functionConfiguration_timeout' - The allowed function execution time, after which Lambda should terminate
--- the function. This timeout still applies to pinned Lambda functions for
--- each request.
 newFunctionConfiguration ::
   FunctionConfiguration
 newFunctionConfiguration =
   FunctionConfiguration'
-    { memorySize =
-        Prelude.Nothing,
+    { timeout = Prelude.Nothing,
+      memorySize = Prelude.Nothing,
       execArgs = Prelude.Nothing,
       environment = Prelude.Nothing,
       executable = Prelude.Nothing,
       pinned = Prelude.Nothing,
-      encodingType = Prelude.Nothing,
-      timeout = Prelude.Nothing
+      encodingType = Prelude.Nothing
     }
+
+-- | The allowed function execution time, after which Lambda should terminate
+-- the function. This timeout still applies to pinned Lambda functions for
+-- each request.
+functionConfiguration_timeout :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Int)
+functionConfiguration_timeout = Lens.lens (\FunctionConfiguration' {timeout} -> timeout) (\s@FunctionConfiguration' {} a -> s {timeout = a} :: FunctionConfiguration)
 
 -- | The memory size, in KB, which the function requires. This setting is not
 -- applicable and should be cleared when you run the Lambda function
@@ -121,57 +126,51 @@ functionConfiguration_pinned = Lens.lens (\FunctionConfiguration' {pinned} -> pi
 functionConfiguration_encodingType :: Lens.Lens' FunctionConfiguration (Prelude.Maybe EncodingType)
 functionConfiguration_encodingType = Lens.lens (\FunctionConfiguration' {encodingType} -> encodingType) (\s@FunctionConfiguration' {} a -> s {encodingType = a} :: FunctionConfiguration)
 
--- | The allowed function execution time, after which Lambda should terminate
--- the function. This timeout still applies to pinned Lambda functions for
--- each request.
-functionConfiguration_timeout :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Int)
-functionConfiguration_timeout = Lens.lens (\FunctionConfiguration' {timeout} -> timeout) (\s@FunctionConfiguration' {} a -> s {timeout = a} :: FunctionConfiguration)
-
 instance Core.FromJSON FunctionConfiguration where
   parseJSON =
     Core.withObject
       "FunctionConfiguration"
       ( \x ->
           FunctionConfiguration'
-            Prelude.<$> (x Core..:? "MemorySize")
+            Prelude.<$> (x Core..:? "Timeout")
+            Prelude.<*> (x Core..:? "MemorySize")
             Prelude.<*> (x Core..:? "ExecArgs")
             Prelude.<*> (x Core..:? "Environment")
             Prelude.<*> (x Core..:? "Executable")
             Prelude.<*> (x Core..:? "Pinned")
             Prelude.<*> (x Core..:? "EncodingType")
-            Prelude.<*> (x Core..:? "Timeout")
       )
 
 instance Prelude.Hashable FunctionConfiguration where
   hashWithSalt _salt FunctionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` memorySize
+    _salt `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` memorySize
       `Prelude.hashWithSalt` execArgs
       `Prelude.hashWithSalt` environment
       `Prelude.hashWithSalt` executable
       `Prelude.hashWithSalt` pinned
       `Prelude.hashWithSalt` encodingType
-      `Prelude.hashWithSalt` timeout
 
 instance Prelude.NFData FunctionConfiguration where
   rnf FunctionConfiguration' {..} =
-    Prelude.rnf memorySize
+    Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf memorySize
       `Prelude.seq` Prelude.rnf execArgs
       `Prelude.seq` Prelude.rnf environment
       `Prelude.seq` Prelude.rnf executable
       `Prelude.seq` Prelude.rnf pinned
       `Prelude.seq` Prelude.rnf encodingType
-      `Prelude.seq` Prelude.rnf timeout
 
 instance Core.ToJSON FunctionConfiguration where
   toJSON FunctionConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MemorySize" Core..=) Prelude.<$> memorySize,
+          [ ("Timeout" Core..=) Prelude.<$> timeout,
+            ("MemorySize" Core..=) Prelude.<$> memorySize,
             ("ExecArgs" Core..=) Prelude.<$> execArgs,
             ("Environment" Core..=) Prelude.<$> environment,
             ("Executable" Core..=) Prelude.<$> executable,
             ("Pinned" Core..=) Prelude.<$> pinned,
-            ("EncodingType" Core..=) Prelude.<$> encodingType,
-            ("Timeout" Core..=) Prelude.<$> timeout
+            ("EncodingType" Core..=) Prelude.<$> encodingType
           ]
       )

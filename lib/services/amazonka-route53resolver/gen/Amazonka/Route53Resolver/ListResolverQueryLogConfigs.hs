@@ -31,20 +31,20 @@ module Amazonka.Route53Resolver.ListResolverQueryLogConfigs
     newListResolverQueryLogConfigs,
 
     -- * Request Lenses
-    listResolverQueryLogConfigs_filters,
-    listResolverQueryLogConfigs_nextToken,
     listResolverQueryLogConfigs_sortOrder,
-    listResolverQueryLogConfigs_maxResults,
+    listResolverQueryLogConfigs_nextToken,
+    listResolverQueryLogConfigs_filters,
     listResolverQueryLogConfigs_sortBy,
+    listResolverQueryLogConfigs_maxResults,
 
     -- * Destructuring the Response
     ListResolverQueryLogConfigsResponse (..),
     newListResolverQueryLogConfigsResponse,
 
     -- * Response Lenses
-    listResolverQueryLogConfigsResponse_totalFilteredCount,
-    listResolverQueryLogConfigsResponse_resolverQueryLogConfigs,
     listResolverQueryLogConfigsResponse_nextToken,
+    listResolverQueryLogConfigsResponse_resolverQueryLogConfigs,
+    listResolverQueryLogConfigsResponse_totalFilteredCount,
     listResolverQueryLogConfigsResponse_totalCount,
     listResolverQueryLogConfigsResponse_httpStatus,
   )
@@ -59,13 +59,13 @@ import Amazonka.Route53Resolver.Types
 
 -- | /See:/ 'newListResolverQueryLogConfigs' smart constructor.
 data ListResolverQueryLogConfigs = ListResolverQueryLogConfigs'
-  { -- | An optional specification to return a subset of query logging
-    -- configurations.
+  { -- | If you specified a value for @SortBy@, the order that you want query
+    -- logging configurations to be listed in, @ASCENDING@ or @DESCENDING@.
     --
     -- If you submit a second or subsequent @ListResolverQueryLogConfigs@
     -- request and specify the @NextToken@ parameter, you must use the same
-    -- values for @Filters@, if any, as in the previous request.
-    filters :: Prelude.Maybe [Filter],
+    -- value for @SortOrder@, if any, as in the previous request.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | For the first @ListResolverQueryLogConfigs@ request, omit this value.
     --
     -- If there are more than @MaxResults@ query logging configurations that
@@ -74,18 +74,13 @@ data ListResolverQueryLogConfigs = ListResolverQueryLogConfigs'
     -- configurations. In the next request, specify the value of @NextToken@
     -- from the previous response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | If you specified a value for @SortBy@, the order that you want query
-    -- logging configurations to be listed in, @ASCENDING@ or @DESCENDING@.
+    -- | An optional specification to return a subset of query logging
+    -- configurations.
     --
     -- If you submit a second or subsequent @ListResolverQueryLogConfigs@
     -- request and specify the @NextToken@ parameter, you must use the same
-    -- value for @SortOrder@, if any, as in the previous request.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | The maximum number of query logging configurations that you want to
-    -- return in the response to a @ListResolverQueryLogConfigs@ request. If
-    -- you don\'t specify a value for @MaxResults@, Resolver returns up to 100
-    -- query logging configurations.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- values for @Filters@, if any, as in the previous request.
+    filters :: Prelude.Maybe [Filter],
     -- | The element that you want Resolver to sort query logging configurations
     -- by.
     --
@@ -140,7 +135,12 @@ data ListResolverQueryLogConfigs = ListResolverQueryLogConfigs'
     --             was deleted.
     --
     --         -   Permissions don\'t allow sending logs to the destination.
-    sortBy :: Prelude.Maybe Prelude.Text
+    sortBy :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of query logging configurations that you want to
+    -- return in the response to a @ListResolverQueryLogConfigs@ request. If
+    -- you don\'t specify a value for @MaxResults@, Resolver returns up to 100
+    -- query logging configurations.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -152,12 +152,12 @@ data ListResolverQueryLogConfigs = ListResolverQueryLogConfigs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'listResolverQueryLogConfigs_filters' - An optional specification to return a subset of query logging
--- configurations.
+-- 'sortOrder', 'listResolverQueryLogConfigs_sortOrder' - If you specified a value for @SortBy@, the order that you want query
+-- logging configurations to be listed in, @ASCENDING@ or @DESCENDING@.
 --
 -- If you submit a second or subsequent @ListResolverQueryLogConfigs@
 -- request and specify the @NextToken@ parameter, you must use the same
--- values for @Filters@, if any, as in the previous request.
+-- value for @SortOrder@, if any, as in the previous request.
 --
 -- 'nextToken', 'listResolverQueryLogConfigs_nextToken' - For the first @ListResolverQueryLogConfigs@ request, omit this value.
 --
@@ -167,17 +167,12 @@ data ListResolverQueryLogConfigs = ListResolverQueryLogConfigs'
 -- configurations. In the next request, specify the value of @NextToken@
 -- from the previous response.
 --
--- 'sortOrder', 'listResolverQueryLogConfigs_sortOrder' - If you specified a value for @SortBy@, the order that you want query
--- logging configurations to be listed in, @ASCENDING@ or @DESCENDING@.
+-- 'filters', 'listResolverQueryLogConfigs_filters' - An optional specification to return a subset of query logging
+-- configurations.
 --
 -- If you submit a second or subsequent @ListResolverQueryLogConfigs@
 -- request and specify the @NextToken@ parameter, you must use the same
--- value for @SortOrder@, if any, as in the previous request.
---
--- 'maxResults', 'listResolverQueryLogConfigs_maxResults' - The maximum number of query logging configurations that you want to
--- return in the response to a @ListResolverQueryLogConfigs@ request. If
--- you don\'t specify a value for @MaxResults@, Resolver returns up to 100
--- query logging configurations.
+-- values for @Filters@, if any, as in the previous request.
 --
 -- 'sortBy', 'listResolverQueryLogConfigs_sortBy' - The element that you want Resolver to sort query logging configurations
 -- by.
@@ -233,26 +228,31 @@ data ListResolverQueryLogConfigs = ListResolverQueryLogConfigs'
 --             was deleted.
 --
 --         -   Permissions don\'t allow sending logs to the destination.
+--
+-- 'maxResults', 'listResolverQueryLogConfigs_maxResults' - The maximum number of query logging configurations that you want to
+-- return in the response to a @ListResolverQueryLogConfigs@ request. If
+-- you don\'t specify a value for @MaxResults@, Resolver returns up to 100
+-- query logging configurations.
 newListResolverQueryLogConfigs ::
   ListResolverQueryLogConfigs
 newListResolverQueryLogConfigs =
   ListResolverQueryLogConfigs'
-    { filters =
+    { sortOrder =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      sortBy = Prelude.Nothing
+      filters = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
--- | An optional specification to return a subset of query logging
--- configurations.
+-- | If you specified a value for @SortBy@, the order that you want query
+-- logging configurations to be listed in, @ASCENDING@ or @DESCENDING@.
 --
 -- If you submit a second or subsequent @ListResolverQueryLogConfigs@
 -- request and specify the @NextToken@ parameter, you must use the same
--- values for @Filters@, if any, as in the previous request.
-listResolverQueryLogConfigs_filters :: Lens.Lens' ListResolverQueryLogConfigs (Prelude.Maybe [Filter])
-listResolverQueryLogConfigs_filters = Lens.lens (\ListResolverQueryLogConfigs' {filters} -> filters) (\s@ListResolverQueryLogConfigs' {} a -> s {filters = a} :: ListResolverQueryLogConfigs) Prelude.. Lens.mapping Lens.coerced
+-- value for @SortOrder@, if any, as in the previous request.
+listResolverQueryLogConfigs_sortOrder :: Lens.Lens' ListResolverQueryLogConfigs (Prelude.Maybe SortOrder)
+listResolverQueryLogConfigs_sortOrder = Lens.lens (\ListResolverQueryLogConfigs' {sortOrder} -> sortOrder) (\s@ListResolverQueryLogConfigs' {} a -> s {sortOrder = a} :: ListResolverQueryLogConfigs)
 
 -- | For the first @ListResolverQueryLogConfigs@ request, omit this value.
 --
@@ -264,21 +264,14 @@ listResolverQueryLogConfigs_filters = Lens.lens (\ListResolverQueryLogConfigs' {
 listResolverQueryLogConfigs_nextToken :: Lens.Lens' ListResolverQueryLogConfigs (Prelude.Maybe Prelude.Text)
 listResolverQueryLogConfigs_nextToken = Lens.lens (\ListResolverQueryLogConfigs' {nextToken} -> nextToken) (\s@ListResolverQueryLogConfigs' {} a -> s {nextToken = a} :: ListResolverQueryLogConfigs)
 
--- | If you specified a value for @SortBy@, the order that you want query
--- logging configurations to be listed in, @ASCENDING@ or @DESCENDING@.
+-- | An optional specification to return a subset of query logging
+-- configurations.
 --
 -- If you submit a second or subsequent @ListResolverQueryLogConfigs@
 -- request and specify the @NextToken@ parameter, you must use the same
--- value for @SortOrder@, if any, as in the previous request.
-listResolverQueryLogConfigs_sortOrder :: Lens.Lens' ListResolverQueryLogConfigs (Prelude.Maybe SortOrder)
-listResolverQueryLogConfigs_sortOrder = Lens.lens (\ListResolverQueryLogConfigs' {sortOrder} -> sortOrder) (\s@ListResolverQueryLogConfigs' {} a -> s {sortOrder = a} :: ListResolverQueryLogConfigs)
-
--- | The maximum number of query logging configurations that you want to
--- return in the response to a @ListResolverQueryLogConfigs@ request. If
--- you don\'t specify a value for @MaxResults@, Resolver returns up to 100
--- query logging configurations.
-listResolverQueryLogConfigs_maxResults :: Lens.Lens' ListResolverQueryLogConfigs (Prelude.Maybe Prelude.Natural)
-listResolverQueryLogConfigs_maxResults = Lens.lens (\ListResolverQueryLogConfigs' {maxResults} -> maxResults) (\s@ListResolverQueryLogConfigs' {} a -> s {maxResults = a} :: ListResolverQueryLogConfigs)
+-- values for @Filters@, if any, as in the previous request.
+listResolverQueryLogConfigs_filters :: Lens.Lens' ListResolverQueryLogConfigs (Prelude.Maybe [Filter])
+listResolverQueryLogConfigs_filters = Lens.lens (\ListResolverQueryLogConfigs' {filters} -> filters) (\s@ListResolverQueryLogConfigs' {} a -> s {filters = a} :: ListResolverQueryLogConfigs) Prelude.. Lens.mapping Lens.coerced
 
 -- | The element that you want Resolver to sort query logging configurations
 -- by.
@@ -337,6 +330,13 @@ listResolverQueryLogConfigs_maxResults = Lens.lens (\ListResolverQueryLogConfigs
 listResolverQueryLogConfigs_sortBy :: Lens.Lens' ListResolverQueryLogConfigs (Prelude.Maybe Prelude.Text)
 listResolverQueryLogConfigs_sortBy = Lens.lens (\ListResolverQueryLogConfigs' {sortBy} -> sortBy) (\s@ListResolverQueryLogConfigs' {} a -> s {sortBy = a} :: ListResolverQueryLogConfigs)
 
+-- | The maximum number of query logging configurations that you want to
+-- return in the response to a @ListResolverQueryLogConfigs@ request. If
+-- you don\'t specify a value for @MaxResults@, Resolver returns up to 100
+-- query logging configurations.
+listResolverQueryLogConfigs_maxResults :: Lens.Lens' ListResolverQueryLogConfigs (Prelude.Maybe Prelude.Natural)
+listResolverQueryLogConfigs_maxResults = Lens.lens (\ListResolverQueryLogConfigs' {maxResults} -> maxResults) (\s@ListResolverQueryLogConfigs' {} a -> s {maxResults = a} :: ListResolverQueryLogConfigs)
+
 instance Core.AWSPager ListResolverQueryLogConfigs where
   page rq rs
     | Core.stop
@@ -368,30 +368,30 @@ instance Core.AWSRequest ListResolverQueryLogConfigs where
     Response.receiveJSON
       ( \s h x ->
           ListResolverQueryLogConfigsResponse'
-            Prelude.<$> (x Core..?> "TotalFilteredCount")
+            Prelude.<$> (x Core..?> "NextToken")
             Prelude.<*> ( x Core..?> "ResolverQueryLogConfigs"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "TotalFilteredCount")
             Prelude.<*> (x Core..?> "TotalCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListResolverQueryLogConfigs where
   hashWithSalt _salt ListResolverQueryLogConfigs' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListResolverQueryLogConfigs where
   rnf ListResolverQueryLogConfigs' {..} =
-    Prelude.rnf filters
+    Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListResolverQueryLogConfigs where
   toHeaders =
@@ -412,11 +412,11 @@ instance Core.ToJSON ListResolverQueryLogConfigs where
   toJSON ListResolverQueryLogConfigs' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
+          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("SortBy" Core..=) Prelude.<$> sortBy
+            ("Filters" Core..=) Prelude.<$> filters,
+            ("SortBy" Core..=) Prelude.<$> sortBy,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -428,21 +428,21 @@ instance Core.ToQuery ListResolverQueryLogConfigs where
 
 -- | /See:/ 'newListResolverQueryLogConfigsResponse' smart constructor.
 data ListResolverQueryLogConfigsResponse = ListResolverQueryLogConfigsResponse'
-  { -- | The total number of query logging configurations that were created by
+  { -- | If there are more than @MaxResults@ query logging configurations, you
+    -- can submit another @ListResolverQueryLogConfigs@ request to get the next
+    -- group of configurations. In the next request, specify the value of
+    -- @NextToken@ from the previous response.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list that contains one @ResolverQueryLogConfig@ element for each query
+    -- logging configuration that matches the values that you specified for
+    -- @Filter@.
+    resolverQueryLogConfigs :: Prelude.Maybe [ResolverQueryLogConfig],
+    -- | The total number of query logging configurations that were created by
     -- the current account in the specified Region and that match the filters
     -- that were specified in the @ListResolverQueryLogConfigs@ request. For
     -- the total number of query logging configurations that were created by
     -- the current account in the specified Region, see @TotalCount@.
     totalFilteredCount :: Prelude.Maybe Prelude.Int,
-    -- | A list that contains one @ResolverQueryLogConfig@ element for each query
-    -- logging configuration that matches the values that you specified for
-    -- @Filter@.
-    resolverQueryLogConfigs :: Prelude.Maybe [ResolverQueryLogConfig],
-    -- | If there are more than @MaxResults@ query logging configurations, you
-    -- can submit another @ListResolverQueryLogConfigs@ request to get the next
-    -- group of configurations. In the next request, specify the value of
-    -- @NextToken@ from the previous response.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The total number of query logging configurations that were created by
     -- the current account in the specified Region. This count can differ from
     -- the number of query logging configurations that are returned in a
@@ -462,20 +462,20 @@ data ListResolverQueryLogConfigsResponse = ListResolverQueryLogConfigsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'totalFilteredCount', 'listResolverQueryLogConfigsResponse_totalFilteredCount' - The total number of query logging configurations that were created by
--- the current account in the specified Region and that match the filters
--- that were specified in the @ListResolverQueryLogConfigs@ request. For
--- the total number of query logging configurations that were created by
--- the current account in the specified Region, see @TotalCount@.
+-- 'nextToken', 'listResolverQueryLogConfigsResponse_nextToken' - If there are more than @MaxResults@ query logging configurations, you
+-- can submit another @ListResolverQueryLogConfigs@ request to get the next
+-- group of configurations. In the next request, specify the value of
+-- @NextToken@ from the previous response.
 --
 -- 'resolverQueryLogConfigs', 'listResolverQueryLogConfigsResponse_resolverQueryLogConfigs' - A list that contains one @ResolverQueryLogConfig@ element for each query
 -- logging configuration that matches the values that you specified for
 -- @Filter@.
 --
--- 'nextToken', 'listResolverQueryLogConfigsResponse_nextToken' - If there are more than @MaxResults@ query logging configurations, you
--- can submit another @ListResolverQueryLogConfigs@ request to get the next
--- group of configurations. In the next request, specify the value of
--- @NextToken@ from the previous response.
+-- 'totalFilteredCount', 'listResolverQueryLogConfigsResponse_totalFilteredCount' - The total number of query logging configurations that were created by
+-- the current account in the specified Region and that match the filters
+-- that were specified in the @ListResolverQueryLogConfigs@ request. For
+-- the total number of query logging configurations that were created by
+-- the current account in the specified Region, see @TotalCount@.
 --
 -- 'totalCount', 'listResolverQueryLogConfigsResponse_totalCount' - The total number of query logging configurations that were created by
 -- the current account in the specified Region. This count can differ from
@@ -490,14 +490,27 @@ newListResolverQueryLogConfigsResponse ::
   ListResolverQueryLogConfigsResponse
 newListResolverQueryLogConfigsResponse pHttpStatus_ =
   ListResolverQueryLogConfigsResponse'
-    { totalFilteredCount =
+    { nextToken =
         Prelude.Nothing,
       resolverQueryLogConfigs =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      totalFilteredCount = Prelude.Nothing,
       totalCount = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | If there are more than @MaxResults@ query logging configurations, you
+-- can submit another @ListResolverQueryLogConfigs@ request to get the next
+-- group of configurations. In the next request, specify the value of
+-- @NextToken@ from the previous response.
+listResolverQueryLogConfigsResponse_nextToken :: Lens.Lens' ListResolverQueryLogConfigsResponse (Prelude.Maybe Prelude.Text)
+listResolverQueryLogConfigsResponse_nextToken = Lens.lens (\ListResolverQueryLogConfigsResponse' {nextToken} -> nextToken) (\s@ListResolverQueryLogConfigsResponse' {} a -> s {nextToken = a} :: ListResolverQueryLogConfigsResponse)
+
+-- | A list that contains one @ResolverQueryLogConfig@ element for each query
+-- logging configuration that matches the values that you specified for
+-- @Filter@.
+listResolverQueryLogConfigsResponse_resolverQueryLogConfigs :: Lens.Lens' ListResolverQueryLogConfigsResponse (Prelude.Maybe [ResolverQueryLogConfig])
+listResolverQueryLogConfigsResponse_resolverQueryLogConfigs = Lens.lens (\ListResolverQueryLogConfigsResponse' {resolverQueryLogConfigs} -> resolverQueryLogConfigs) (\s@ListResolverQueryLogConfigsResponse' {} a -> s {resolverQueryLogConfigs = a} :: ListResolverQueryLogConfigsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The total number of query logging configurations that were created by
 -- the current account in the specified Region and that match the filters
@@ -506,19 +519,6 @@ newListResolverQueryLogConfigsResponse pHttpStatus_ =
 -- the current account in the specified Region, see @TotalCount@.
 listResolverQueryLogConfigsResponse_totalFilteredCount :: Lens.Lens' ListResolverQueryLogConfigsResponse (Prelude.Maybe Prelude.Int)
 listResolverQueryLogConfigsResponse_totalFilteredCount = Lens.lens (\ListResolverQueryLogConfigsResponse' {totalFilteredCount} -> totalFilteredCount) (\s@ListResolverQueryLogConfigsResponse' {} a -> s {totalFilteredCount = a} :: ListResolverQueryLogConfigsResponse)
-
--- | A list that contains one @ResolverQueryLogConfig@ element for each query
--- logging configuration that matches the values that you specified for
--- @Filter@.
-listResolverQueryLogConfigsResponse_resolverQueryLogConfigs :: Lens.Lens' ListResolverQueryLogConfigsResponse (Prelude.Maybe [ResolverQueryLogConfig])
-listResolverQueryLogConfigsResponse_resolverQueryLogConfigs = Lens.lens (\ListResolverQueryLogConfigsResponse' {resolverQueryLogConfigs} -> resolverQueryLogConfigs) (\s@ListResolverQueryLogConfigsResponse' {} a -> s {resolverQueryLogConfigs = a} :: ListResolverQueryLogConfigsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | If there are more than @MaxResults@ query logging configurations, you
--- can submit another @ListResolverQueryLogConfigs@ request to get the next
--- group of configurations. In the next request, specify the value of
--- @NextToken@ from the previous response.
-listResolverQueryLogConfigsResponse_nextToken :: Lens.Lens' ListResolverQueryLogConfigsResponse (Prelude.Maybe Prelude.Text)
-listResolverQueryLogConfigsResponse_nextToken = Lens.lens (\ListResolverQueryLogConfigsResponse' {nextToken} -> nextToken) (\s@ListResolverQueryLogConfigsResponse' {} a -> s {nextToken = a} :: ListResolverQueryLogConfigsResponse)
 
 -- | The total number of query logging configurations that were created by
 -- the current account in the specified Region. This count can differ from
@@ -537,8 +537,8 @@ instance
     ListResolverQueryLogConfigsResponse
   where
   rnf ListResolverQueryLogConfigsResponse' {..} =
-    Prelude.rnf totalFilteredCount
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resolverQueryLogConfigs
-      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf totalFilteredCount
       `Prelude.seq` Prelude.rnf totalCount
       `Prelude.seq` Prelude.rnf httpStatus

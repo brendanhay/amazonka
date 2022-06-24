@@ -17,22 +17,22 @@ module Amazonka.Route53Resolver.Types
     defaultService,
 
     -- * Errors
-    _InvalidTagException,
-    _ValidationException,
-    _AccessDeniedException,
     _ResourceUnavailableException,
-    _InvalidParameterException,
-    _InvalidRequestException,
+    _AccessDeniedException,
+    _InvalidPolicyDocument,
+    _UnknownResourceException,
+    _ResourceNotFoundException,
+    _ResourceInUseException,
+    _LimitExceededException,
+    _InvalidNextTokenException,
     _ConflictException,
     _ThrottlingException,
-    _InvalidNextTokenException,
-    _InternalServiceErrorException,
     _ResourceExistsException,
-    _UnknownResourceException,
-    _InvalidPolicyDocument,
-    _ResourceNotFoundException,
-    _LimitExceededException,
-    _ResourceInUseException,
+    _ValidationException,
+    _InvalidTagException,
+    _InternalServiceErrorException,
+    _InvalidRequestException,
+    _InvalidParameterException,
 
     -- * Action
     Action (..),
@@ -106,97 +106,97 @@ module Amazonka.Route53Resolver.Types
     -- * Filter
     Filter (..),
     newFilter,
-    filter_values,
     filter_name,
+    filter_values,
 
     -- * FirewallConfig
     FirewallConfig (..),
     newFirewallConfig,
     firewallConfig_resourceId,
     firewallConfig_ownerId,
-    firewallConfig_id,
     firewallConfig_firewallFailOpen,
+    firewallConfig_id,
 
     -- * FirewallDomainList
     FirewallDomainList (..),
     newFirewallDomainList,
-    firewallDomainList_creationTime,
-    firewallDomainList_status,
-    firewallDomainList_arn,
-    firewallDomainList_creatorRequestId,
-    firewallDomainList_managedOwnerName,
+    firewallDomainList_name,
     firewallDomainList_domainCount,
     firewallDomainList_modificationTime,
-    firewallDomainList_statusMessage,
-    firewallDomainList_name,
+    firewallDomainList_managedOwnerName,
+    firewallDomainList_arn,
+    firewallDomainList_status,
     firewallDomainList_id,
+    firewallDomainList_creatorRequestId,
+    firewallDomainList_creationTime,
+    firewallDomainList_statusMessage,
 
     -- * FirewallDomainListMetadata
     FirewallDomainListMetadata (..),
     newFirewallDomainListMetadata,
-    firewallDomainListMetadata_arn,
-    firewallDomainListMetadata_creatorRequestId,
-    firewallDomainListMetadata_managedOwnerName,
     firewallDomainListMetadata_name,
+    firewallDomainListMetadata_managedOwnerName,
+    firewallDomainListMetadata_arn,
     firewallDomainListMetadata_id,
+    firewallDomainListMetadata_creatorRequestId,
 
     -- * FirewallRule
     FirewallRule (..),
     newFirewallRule,
-    firewallRule_creationTime,
-    firewallRule_blockOverrideDnsType,
-    firewallRule_firewallRuleGroupId,
-    firewallRule_priority,
-    firewallRule_blockResponse,
-    firewallRule_creatorRequestId,
-    firewallRule_modificationTime,
-    firewallRule_action,
-    firewallRule_blockOverrideTtl,
     firewallRule_name,
-    firewallRule_blockOverrideDomain,
+    firewallRule_blockResponse,
+    firewallRule_modificationTime,
+    firewallRule_firewallRuleGroupId,
+    firewallRule_blockOverrideTtl,
+    firewallRule_blockOverrideDnsType,
+    firewallRule_creatorRequestId,
     firewallRule_firewallDomainListId,
+    firewallRule_blockOverrideDomain,
+    firewallRule_priority,
+    firewallRule_action,
+    firewallRule_creationTime,
 
     -- * FirewallRuleGroup
     FirewallRuleGroup (..),
     newFirewallRuleGroup,
-    firewallRuleGroup_creationTime,
-    firewallRuleGroup_status,
-    firewallRuleGroup_arn,
-    firewallRuleGroup_creatorRequestId,
-    firewallRuleGroup_modificationTime,
-    firewallRuleGroup_shareStatus,
-    firewallRuleGroup_ownerId,
-    firewallRuleGroup_statusMessage,
     firewallRuleGroup_name,
+    firewallRuleGroup_ownerId,
+    firewallRuleGroup_shareStatus,
+    firewallRuleGroup_modificationTime,
+    firewallRuleGroup_arn,
+    firewallRuleGroup_status,
     firewallRuleGroup_id,
+    firewallRuleGroup_creatorRequestId,
     firewallRuleGroup_ruleCount,
+    firewallRuleGroup_creationTime,
+    firewallRuleGroup_statusMessage,
 
     -- * FirewallRuleGroupAssociation
     FirewallRuleGroupAssociation (..),
     newFirewallRuleGroupAssociation,
-    firewallRuleGroupAssociation_creationTime,
-    firewallRuleGroupAssociation_status,
-    firewallRuleGroupAssociation_mutationProtection,
-    firewallRuleGroupAssociation_firewallRuleGroupId,
-    firewallRuleGroupAssociation_priority,
-    firewallRuleGroupAssociation_arn,
-    firewallRuleGroupAssociation_vpcId,
-    firewallRuleGroupAssociation_creatorRequestId,
-    firewallRuleGroupAssociation_managedOwnerName,
-    firewallRuleGroupAssociation_modificationTime,
-    firewallRuleGroupAssociation_statusMessage,
     firewallRuleGroupAssociation_name,
+    firewallRuleGroupAssociation_modificationTime,
+    firewallRuleGroupAssociation_firewallRuleGroupId,
+    firewallRuleGroupAssociation_managedOwnerName,
+    firewallRuleGroupAssociation_arn,
+    firewallRuleGroupAssociation_status,
     firewallRuleGroupAssociation_id,
+    firewallRuleGroupAssociation_mutationProtection,
+    firewallRuleGroupAssociation_creatorRequestId,
+    firewallRuleGroupAssociation_priority,
+    firewallRuleGroupAssociation_creationTime,
+    firewallRuleGroupAssociation_vpcId,
+    firewallRuleGroupAssociation_statusMessage,
 
     -- * FirewallRuleGroupMetadata
     FirewallRuleGroupMetadata (..),
     newFirewallRuleGroupMetadata,
-    firewallRuleGroupMetadata_arn,
-    firewallRuleGroupMetadata_creatorRequestId,
-    firewallRuleGroupMetadata_shareStatus,
-    firewallRuleGroupMetadata_ownerId,
     firewallRuleGroupMetadata_name,
+    firewallRuleGroupMetadata_ownerId,
+    firewallRuleGroupMetadata_shareStatus,
+    firewallRuleGroupMetadata_arn,
     firewallRuleGroupMetadata_id,
+    firewallRuleGroupMetadata_creatorRequestId,
 
     -- * IpAddressRequest
     IpAddressRequest (..),
@@ -207,20 +207,20 @@ module Amazonka.Route53Resolver.Types
     -- * IpAddressResponse
     IpAddressResponse (..),
     newIpAddressResponse,
-    ipAddressResponse_creationTime,
-    ipAddressResponse_status,
-    ipAddressResponse_modificationTime,
-    ipAddressResponse_subnetId,
-    ipAddressResponse_ip,
     ipAddressResponse_ipId,
+    ipAddressResponse_subnetId,
+    ipAddressResponse_modificationTime,
+    ipAddressResponse_ip,
+    ipAddressResponse_status,
+    ipAddressResponse_creationTime,
     ipAddressResponse_statusMessage,
 
     -- * IpAddressUpdate
     IpAddressUpdate (..),
     newIpAddressUpdate,
+    ipAddressUpdate_ipId,
     ipAddressUpdate_subnetId,
     ipAddressUpdate_ip,
-    ipAddressUpdate_ipId,
 
     -- * ResolverDnssecConfig
     ResolverDnssecConfig (..),
@@ -233,78 +233,78 @@ module Amazonka.Route53Resolver.Types
     -- * ResolverEndpoint
     ResolverEndpoint (..),
     newResolverEndpoint,
-    resolverEndpoint_creationTime,
-    resolverEndpoint_status,
-    resolverEndpoint_securityGroupIds,
-    resolverEndpoint_direction,
-    resolverEndpoint_arn,
-    resolverEndpoint_creatorRequestId,
-    resolverEndpoint_modificationTime,
-    resolverEndpoint_ipAddressCount,
-    resolverEndpoint_statusMessage,
     resolverEndpoint_name,
+    resolverEndpoint_securityGroupIds,
+    resolverEndpoint_modificationTime,
+    resolverEndpoint_arn,
+    resolverEndpoint_ipAddressCount,
+    resolverEndpoint_status,
     resolverEndpoint_id,
+    resolverEndpoint_creatorRequestId,
+    resolverEndpoint_creationTime,
+    resolverEndpoint_statusMessage,
+    resolverEndpoint_direction,
     resolverEndpoint_hostVPCId,
 
     -- * ResolverQueryLogConfig
     ResolverQueryLogConfig (..),
     newResolverQueryLogConfig,
-    resolverQueryLogConfig_creationTime,
-    resolverQueryLogConfig_status,
-    resolverQueryLogConfig_associationCount,
-    resolverQueryLogConfig_arn,
-    resolverQueryLogConfig_creatorRequestId,
-    resolverQueryLogConfig_destinationArn,
-    resolverQueryLogConfig_shareStatus,
-    resolverQueryLogConfig_ownerId,
     resolverQueryLogConfig_name,
+    resolverQueryLogConfig_ownerId,
+    resolverQueryLogConfig_shareStatus,
+    resolverQueryLogConfig_arn,
+    resolverQueryLogConfig_associationCount,
+    resolverQueryLogConfig_status,
     resolverQueryLogConfig_id,
+    resolverQueryLogConfig_creatorRequestId,
+    resolverQueryLogConfig_creationTime,
+    resolverQueryLogConfig_destinationArn,
 
     -- * ResolverQueryLogConfigAssociation
     ResolverQueryLogConfigAssociation (..),
     newResolverQueryLogConfigAssociation,
-    resolverQueryLogConfigAssociation_creationTime,
+    resolverQueryLogConfigAssociation_resourceId,
+    resolverQueryLogConfigAssociation_errorMessage,
     resolverQueryLogConfigAssociation_status,
     resolverQueryLogConfigAssociation_resolverQueryLogConfigId,
-    resolverQueryLogConfigAssociation_resourceId,
-    resolverQueryLogConfigAssociation_error,
     resolverQueryLogConfigAssociation_id,
-    resolverQueryLogConfigAssociation_errorMessage,
+    resolverQueryLogConfigAssociation_creationTime,
+    resolverQueryLogConfigAssociation_error,
 
     -- * ResolverRule
     ResolverRule (..),
     newResolverRule,
-    resolverRule_creationTime,
-    resolverRule_status,
-    resolverRule_arn,
-    resolverRule_resolverEndpointId,
-    resolverRule_creatorRequestId,
-    resolverRule_targetIps,
-    resolverRule_modificationTime,
-    resolverRule_shareStatus,
-    resolverRule_ownerId,
-    resolverRule_domainName,
-    resolverRule_statusMessage,
     resolverRule_name,
+    resolverRule_ownerId,
+    resolverRule_shareStatus,
+    resolverRule_domainName,
+    resolverRule_modificationTime,
+    resolverRule_arn,
+    resolverRule_targetIps,
+    resolverRule_status,
     resolverRule_id,
+    resolverRule_creatorRequestId,
     resolverRule_ruleType,
+    resolverRule_creationTime,
+    resolverRule_statusMessage,
+    resolverRule_resolverEndpointId,
 
     -- * ResolverRuleAssociation
     ResolverRuleAssociation (..),
     newResolverRuleAssociation,
+    resolverRuleAssociation_name,
     resolverRuleAssociation_status,
+    resolverRuleAssociation_id,
     resolverRuleAssociation_resolverRuleId,
     resolverRuleAssociation_vPCId,
     resolverRuleAssociation_statusMessage,
-    resolverRuleAssociation_name,
-    resolverRuleAssociation_id,
 
     -- * ResolverRuleConfig
     ResolverRuleConfig (..),
     newResolverRuleConfig,
-    resolverRuleConfig_resolverEndpointId,
-    resolverRuleConfig_targetIps,
     resolverRuleConfig_name,
+    resolverRuleConfig_targetIps,
+    resolverRuleConfig_resolverEndpointId,
 
     -- * Tag
     Tag (..),
@@ -395,35 +395,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -432,27 +405,47 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The specified tag is invalid.
-_InvalidTagException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidTagException =
+-- | The specified resource isn\'t available.
+_ResourceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceUnavailableException =
   Core._MatchServiceError
     defaultService
-    "InvalidTagException"
-
--- |
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
+    "ResourceUnavailableException"
 
 -- | The current account doesn\'t have the IAM permissions required to
 -- perform the specified Resolver operation.
@@ -462,26 +455,48 @@ _AccessDeniedException =
     defaultService
     "AccessDeniedException"
 
--- | The specified resource isn\'t available.
-_ResourceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceUnavailableException =
+-- | The specified Resolver rule policy is invalid.
+_InvalidPolicyDocument :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPolicyDocument =
   Core._MatchServiceError
     defaultService
-    "ResourceUnavailableException"
+    "InvalidPolicyDocument"
 
--- | One or more parameters in this request are not valid.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterException =
+-- | The specified resource doesn\'t exist.
+_UnknownResourceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnknownResourceException =
   Core._MatchServiceError
     defaultService
-    "InvalidParameterException"
+    "UnknownResourceException"
 
--- | The request is invalid.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRequestException =
+-- | The specified resource doesn\'t exist.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
-    "InvalidRequestException"
+    "ResourceNotFoundException"
+
+-- | The resource that you tried to update or delete is currently in use.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUseException"
+
+-- | The request caused one or more limits to be exceeded.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
+
+-- | The value that you specified for @NextToken@ in a @List@ request isn\'t
+-- valid.
+_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidNextTokenException"
 
 -- |
 _ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -497,13 +512,26 @@ _ThrottlingException =
     defaultService
     "ThrottlingException"
 
--- | The value that you specified for @NextToken@ in a @List@ request isn\'t
--- valid.
-_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidNextTokenException =
+-- | The resource that you tried to create already exists.
+_ResourceExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceExistsException =
   Core._MatchServiceError
     defaultService
-    "InvalidNextTokenException"
+    "ResourceExistsException"
+
+-- |
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"
+
+-- | The specified tag is invalid.
+_InvalidTagException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTagException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidTagException"
 
 -- | We encountered an unknown error. Try again in a few minutes.
 _InternalServiceErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -512,44 +540,16 @@ _InternalServiceErrorException =
     defaultService
     "InternalServiceErrorException"
 
--- | The resource that you tried to create already exists.
-_ResourceExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceExistsException =
+-- | The request is invalid.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
   Core._MatchServiceError
     defaultService
-    "ResourceExistsException"
+    "InvalidRequestException"
 
--- | The specified resource doesn\'t exist.
-_UnknownResourceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnknownResourceException =
+-- | One or more parameters in this request are not valid.
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException =
   Core._MatchServiceError
     defaultService
-    "UnknownResourceException"
-
--- | The specified Resolver rule policy is invalid.
-_InvalidPolicyDocument :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidPolicyDocument =
-  Core._MatchServiceError
-    defaultService
-    "InvalidPolicyDocument"
-
--- | The specified resource doesn\'t exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-
--- | The request caused one or more limits to be exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
-
--- | The resource that you tried to update or delete is currently in use.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceInUseException"
+    "InvalidParameterException"

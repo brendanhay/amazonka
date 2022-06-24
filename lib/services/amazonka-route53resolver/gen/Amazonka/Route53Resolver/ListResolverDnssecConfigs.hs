@@ -30,8 +30,8 @@ module Amazonka.Route53Resolver.ListResolverDnssecConfigs
     newListResolverDnssecConfigs,
 
     -- * Request Lenses
-    listResolverDnssecConfigs_filters,
     listResolverDnssecConfigs_nextToken,
+    listResolverDnssecConfigs_filters,
     listResolverDnssecConfigs_maxResults,
 
     -- * Destructuring the Response
@@ -54,9 +54,7 @@ import Amazonka.Route53Resolver.Types
 
 -- | /See:/ 'newListResolverDnssecConfigs' smart constructor.
 data ListResolverDnssecConfigs = ListResolverDnssecConfigs'
-  { -- | An optional specification to return a subset of objects.
-    filters :: Prelude.Maybe [Filter],
-    -- | (Optional) If the current Amazon Web Services account has more than
+  { -- | (Optional) If the current Amazon Web Services account has more than
     -- @MaxResults@ DNSSEC configurations, use @NextToken@ to get the second
     -- and subsequent pages of results.
     --
@@ -66,6 +64,8 @@ data ListResolverDnssecConfigs = ListResolverDnssecConfigs'
     -- from the previous response and specify that value for @NextToken@ in the
     -- request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An optional specification to return a subset of objects.
+    filters :: Prelude.Maybe [Filter],
     -- | /Optional/: An integer that specifies the maximum number of DNSSEC
     -- configuration results that you want Amazon Route 53 to return. If you
     -- don\'t specify a value for @MaxResults@, Route 53 returns up to 100
@@ -82,8 +82,6 @@ data ListResolverDnssecConfigs = ListResolverDnssecConfigs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'listResolverDnssecConfigs_filters' - An optional specification to return a subset of objects.
---
 -- 'nextToken', 'listResolverDnssecConfigs_nextToken' - (Optional) If the current Amazon Web Services account has more than
 -- @MaxResults@ DNSSEC configurations, use @NextToken@ to get the second
 -- and subsequent pages of results.
@@ -94,6 +92,8 @@ data ListResolverDnssecConfigs = ListResolverDnssecConfigs'
 -- from the previous response and specify that value for @NextToken@ in the
 -- request.
 --
+-- 'filters', 'listResolverDnssecConfigs_filters' - An optional specification to return a subset of objects.
+--
 -- 'maxResults', 'listResolverDnssecConfigs_maxResults' - /Optional/: An integer that specifies the maximum number of DNSSEC
 -- configuration results that you want Amazon Route 53 to return. If you
 -- don\'t specify a value for @MaxResults@, Route 53 returns up to 100
@@ -102,15 +102,11 @@ newListResolverDnssecConfigs ::
   ListResolverDnssecConfigs
 newListResolverDnssecConfigs =
   ListResolverDnssecConfigs'
-    { filters =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | An optional specification to return a subset of objects.
-listResolverDnssecConfigs_filters :: Lens.Lens' ListResolverDnssecConfigs (Prelude.Maybe [Filter])
-listResolverDnssecConfigs_filters = Lens.lens (\ListResolverDnssecConfigs' {filters} -> filters) (\s@ListResolverDnssecConfigs' {} a -> s {filters = a} :: ListResolverDnssecConfigs) Prelude.. Lens.mapping Lens.coerced
 
 -- | (Optional) If the current Amazon Web Services account has more than
 -- @MaxResults@ DNSSEC configurations, use @NextToken@ to get the second
@@ -123,6 +119,10 @@ listResolverDnssecConfigs_filters = Lens.lens (\ListResolverDnssecConfigs' {filt
 -- request.
 listResolverDnssecConfigs_nextToken :: Lens.Lens' ListResolverDnssecConfigs (Prelude.Maybe Prelude.Text)
 listResolverDnssecConfigs_nextToken = Lens.lens (\ListResolverDnssecConfigs' {nextToken} -> nextToken) (\s@ListResolverDnssecConfigs' {} a -> s {nextToken = a} :: ListResolverDnssecConfigs)
+
+-- | An optional specification to return a subset of objects.
+listResolverDnssecConfigs_filters :: Lens.Lens' ListResolverDnssecConfigs (Prelude.Maybe [Filter])
+listResolverDnssecConfigs_filters = Lens.lens (\ListResolverDnssecConfigs' {filters} -> filters) (\s@ListResolverDnssecConfigs' {} a -> s {filters = a} :: ListResolverDnssecConfigs) Prelude.. Lens.mapping Lens.coerced
 
 -- | /Optional/: An integer that specifies the maximum number of DNSSEC
 -- configuration results that you want Amazon Route 53 to return. If you
@@ -171,14 +171,14 @@ instance Core.AWSRequest ListResolverDnssecConfigs where
 
 instance Prelude.Hashable ListResolverDnssecConfigs where
   hashWithSalt _salt ListResolverDnssecConfigs' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListResolverDnssecConfigs where
   rnf ListResolverDnssecConfigs' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListResolverDnssecConfigs where
@@ -200,8 +200,8 @@ instance Core.ToJSON ListResolverDnssecConfigs where
   toJSON ListResolverDnssecConfigs' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

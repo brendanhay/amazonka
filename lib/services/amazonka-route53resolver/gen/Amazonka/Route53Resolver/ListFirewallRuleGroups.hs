@@ -41,8 +41,8 @@ module Amazonka.Route53Resolver.ListFirewallRuleGroups
     newListFirewallRuleGroupsResponse,
 
     -- * Response Lenses
-    listFirewallRuleGroupsResponse_nextToken,
     listFirewallRuleGroupsResponse_firewallRuleGroups,
+    listFirewallRuleGroupsResponse_nextToken,
     listFirewallRuleGroupsResponse_httpStatus,
   )
 where
@@ -158,10 +158,10 @@ instance Core.AWSRequest ListFirewallRuleGroups where
     Response.receiveJSON
       ( \s h x ->
           ListFirewallRuleGroupsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "FirewallRuleGroups"
+            Prelude.<$> ( x Core..?> "FirewallRuleGroups"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -207,15 +207,15 @@ instance Core.ToQuery ListFirewallRuleGroups where
 
 -- | /See:/ 'newListFirewallRuleGroupsResponse' smart constructor.
 data ListFirewallRuleGroupsResponse = ListFirewallRuleGroupsResponse'
-  { -- | If objects are still available for retrieval, Resolver returns this
-    -- token in the response. To retrieve the next batch of objects, provide
-    -- this token in your next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of your firewall rule groups.
+  { -- | A list of your firewall rule groups.
     --
     -- This might be a partial list of the rule groups that you have defined.
     -- For information, see @MaxResults@.
     firewallRuleGroups :: Prelude.Maybe [FirewallRuleGroupMetadata],
+    -- | If objects are still available for retrieval, Resolver returns this
+    -- token in the response. To retrieve the next batch of objects, provide
+    -- this token in your next request.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -229,14 +229,14 @@ data ListFirewallRuleGroupsResponse = ListFirewallRuleGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listFirewallRuleGroupsResponse_nextToken' - If objects are still available for retrieval, Resolver returns this
--- token in the response. To retrieve the next batch of objects, provide
--- this token in your next request.
---
 -- 'firewallRuleGroups', 'listFirewallRuleGroupsResponse_firewallRuleGroups' - A list of your firewall rule groups.
 --
 -- This might be a partial list of the rule groups that you have defined.
 -- For information, see @MaxResults@.
+--
+-- 'nextToken', 'listFirewallRuleGroupsResponse_nextToken' - If objects are still available for retrieval, Resolver returns this
+-- token in the response. To retrieve the next batch of objects, provide
+-- this token in your next request.
 --
 -- 'httpStatus', 'listFirewallRuleGroupsResponse_httpStatus' - The response's http status code.
 newListFirewallRuleGroupsResponse ::
@@ -245,17 +245,11 @@ newListFirewallRuleGroupsResponse ::
   ListFirewallRuleGroupsResponse
 newListFirewallRuleGroupsResponse pHttpStatus_ =
   ListFirewallRuleGroupsResponse'
-    { nextToken =
+    { firewallRuleGroups =
         Prelude.Nothing,
-      firewallRuleGroups = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | If objects are still available for retrieval, Resolver returns this
--- token in the response. To retrieve the next batch of objects, provide
--- this token in your next request.
-listFirewallRuleGroupsResponse_nextToken :: Lens.Lens' ListFirewallRuleGroupsResponse (Prelude.Maybe Prelude.Text)
-listFirewallRuleGroupsResponse_nextToken = Lens.lens (\ListFirewallRuleGroupsResponse' {nextToken} -> nextToken) (\s@ListFirewallRuleGroupsResponse' {} a -> s {nextToken = a} :: ListFirewallRuleGroupsResponse)
 
 -- | A list of your firewall rule groups.
 --
@@ -263,6 +257,12 @@ listFirewallRuleGroupsResponse_nextToken = Lens.lens (\ListFirewallRuleGroupsRes
 -- For information, see @MaxResults@.
 listFirewallRuleGroupsResponse_firewallRuleGroups :: Lens.Lens' ListFirewallRuleGroupsResponse (Prelude.Maybe [FirewallRuleGroupMetadata])
 listFirewallRuleGroupsResponse_firewallRuleGroups = Lens.lens (\ListFirewallRuleGroupsResponse' {firewallRuleGroups} -> firewallRuleGroups) (\s@ListFirewallRuleGroupsResponse' {} a -> s {firewallRuleGroups = a} :: ListFirewallRuleGroupsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | If objects are still available for retrieval, Resolver returns this
+-- token in the response. To retrieve the next batch of objects, provide
+-- this token in your next request.
+listFirewallRuleGroupsResponse_nextToken :: Lens.Lens' ListFirewallRuleGroupsResponse (Prelude.Maybe Prelude.Text)
+listFirewallRuleGroupsResponse_nextToken = Lens.lens (\ListFirewallRuleGroupsResponse' {nextToken} -> nextToken) (\s@ListFirewallRuleGroupsResponse' {} a -> s {nextToken = a} :: ListFirewallRuleGroupsResponse)
 
 -- | The response's http status code.
 listFirewallRuleGroupsResponse_httpStatus :: Lens.Lens' ListFirewallRuleGroupsResponse Prelude.Int
@@ -273,6 +273,6 @@ instance
     ListFirewallRuleGroupsResponse
   where
   rnf ListFirewallRuleGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf firewallRuleGroups
+    Prelude.rnf firewallRuleGroups
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

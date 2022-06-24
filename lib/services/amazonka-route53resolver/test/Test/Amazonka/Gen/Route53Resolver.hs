@@ -27,113 +27,65 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestUpdateResolverEndpoint $
---             newUpdateResolverEndpoint
+--         [ requestAssociateFirewallRuleGroup $
+--             newAssociateFirewallRuleGroup
 --
---         , requestDeleteResolverEndpoint $
---             newDeleteResolverEndpoint
---
---         , requestCreateResolverRule $
---             newCreateResolverRule
---
---         , requestGetResolverQueryLogConfig $
---             newGetResolverQueryLogConfig
---
---         , requestCreateFirewallRule $
---             newCreateFirewallRule
---
---         , requestUpdateFirewallRuleGroupAssociation $
---             newUpdateFirewallRuleGroupAssociation
---
---         , requestListFirewallRuleGroupAssociations $
---             newListFirewallRuleGroupAssociations
---
---         , requestListResolverQueryLogConfigAssociations $
---             newListResolverQueryLogConfigAssociations
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestGetFirewallRuleGroupAssociation $
---             newGetFirewallRuleGroupAssociation
---
---         , requestDisassociateResolverEndpointIpAddress $
---             newDisassociateResolverEndpointIpAddress
---
---         , requestListResolverRuleAssociations $
---             newListResolverRuleAssociations
---
---         , requestDeleteResolverQueryLogConfig $
---             newDeleteResolverQueryLogConfig
---
---         , requestCreateFirewallRuleGroup $
---             newCreateFirewallRuleGroup
---
---         , requestGetResolverEndpoint $
---             newGetResolverEndpoint
---
---         , requestListResolverQueryLogConfigs $
---             newListResolverQueryLogConfigs
---
---         , requestDeleteFirewallRuleGroup $
---             newDeleteFirewallRuleGroup
---
---         , requestListResolverEndpointIpAddresses $
---             newListResolverEndpointIpAddresses
+--         , requestAssociateResolverEndpointIpAddress $
+--             newAssociateResolverEndpointIpAddress
 --
 --         , requestAssociateResolverQueryLogConfig $
 --             newAssociateResolverQueryLogConfig
 --
---         , requestGetResolverRulePolicy $
---             newGetResolverRulePolicy
+--         , requestAssociateResolverRule $
+--             newAssociateResolverRule
 --
---         , requestGetResolverDnssecConfig $
---             newGetResolverDnssecConfig
+--         , requestCreateFirewallDomainList $
+--             newCreateFirewallDomainList
 --
---         , requestListFirewallRuleGroups $
---             newListFirewallRuleGroups
+--         , requestCreateFirewallRule $
+--             newCreateFirewallRule
 --
---         , requestUpdateResolverRule $
---             newUpdateResolverRule
---
---         , requestDeleteResolverRule $
---             newDeleteResolverRule
---
---         , requestDeleteFirewallRule $
---             newDeleteFirewallRule
---
---         , requestUpdateFirewallRule $
---             newUpdateFirewallRule
---
---         , requestListFirewallRules $
---             newListFirewallRules
---
---         , requestGetFirewallRuleGroup $
---             newGetFirewallRuleGroup
---
---         , requestListResolverRules $
---             newListResolverRules
+--         , requestCreateFirewallRuleGroup $
+--             newCreateFirewallRuleGroup
 --
 --         , requestCreateResolverEndpoint $
 --             newCreateResolverEndpoint
 --
---         , requestAssociateResolverRule $
---             newAssociateResolverRule
+--         , requestCreateResolverQueryLogConfig $
+--             newCreateResolverQueryLogConfig
 --
---         , requestGetResolverQueryLogConfigPolicy $
---             newGetResolverQueryLogConfigPolicy
+--         , requestCreateResolverRule $
+--             newCreateResolverRule
 --
---         , requestUpdateFirewallDomains $
---             newUpdateFirewallDomains
+--         , requestDeleteFirewallDomainList $
+--             newDeleteFirewallDomainList
 --
---         , requestListResolverEndpoints $
---             newListResolverEndpoints
+--         , requestDeleteFirewallRule $
+--             newDeleteFirewallRule
 --
---         , requestListFirewallDomains $
---             newListFirewallDomains
+--         , requestDeleteFirewallRuleGroup $
+--             newDeleteFirewallRuleGroup
 --
---         , requestGetResolverRuleAssociation $
---             newGetResolverRuleAssociation
+--         , requestDeleteResolverEndpoint $
+--             newDeleteResolverEndpoint
+--
+--         , requestDeleteResolverQueryLogConfig $
+--             newDeleteResolverQueryLogConfig
+--
+--         , requestDeleteResolverRule $
+--             newDeleteResolverRule
+--
+--         , requestDisassociateFirewallRuleGroup $
+--             newDisassociateFirewallRuleGroup
+--
+--         , requestDisassociateResolverEndpointIpAddress $
+--             newDisassociateResolverEndpointIpAddress
+--
+--         , requestDisassociateResolverQueryLogConfig $
+--             newDisassociateResolverQueryLogConfig
+--
+--         , requestDisassociateResolverRule $
+--             newDisassociateResolverRule
 --
 --         , requestGetFirewallConfig $
 --             newGetFirewallConfig
@@ -141,182 +93,182 @@ import Test.Tasty
 --         , requestGetFirewallDomainList $
 --             newGetFirewallDomainList
 --
---         , requestDisassociateResolverRule $
---             newDisassociateResolverRule
+--         , requestGetFirewallRuleGroup $
+--             newGetFirewallRuleGroup
 --
---         , requestGetResolverQueryLogConfigAssociation $
---             newGetResolverQueryLogConfigAssociation
---
---         , requestListFirewallDomainLists $
---             newListFirewallDomainLists
---
---         , requestDisassociateFirewallRuleGroup $
---             newDisassociateFirewallRuleGroup
---
---         , requestUpdateFirewallConfig $
---             newUpdateFirewallConfig
---
---         , requestDeleteFirewallDomainList $
---             newDeleteFirewallDomainList
---
---         , requestListFirewallConfigs $
---             newListFirewallConfigs
---
---         , requestCreateFirewallDomainList $
---             newCreateFirewallDomainList
---
---         , requestImportFirewallDomains $
---             newImportFirewallDomains
---
---         , requestDisassociateResolverQueryLogConfig $
---             newDisassociateResolverQueryLogConfig
---
---         , requestTagResource $
---             newTagResource
---
---         , requestAssociateFirewallRuleGroup $
---             newAssociateFirewallRuleGroup
---
---         , requestUntagResource $
---             newUntagResource
---
---         , requestPutResolverQueryLogConfigPolicy $
---             newPutResolverQueryLogConfigPolicy
---
---         , requestAssociateResolverEndpointIpAddress $
---             newAssociateResolverEndpointIpAddress
---
---         , requestCreateResolverQueryLogConfig $
---             newCreateResolverQueryLogConfig
---
---         , requestGetResolverRule $
---             newGetResolverRule
---
---         , requestPutFirewallRuleGroupPolicy $
---             newPutFirewallRuleGroupPolicy
---
---         , requestPutResolverRulePolicy $
---             newPutResolverRulePolicy
---
---         , requestListResolverDnssecConfigs $
---             newListResolverDnssecConfigs
---
---         , requestUpdateResolverDnssecConfig $
---             newUpdateResolverDnssecConfig
+--         , requestGetFirewallRuleGroupAssociation $
+--             newGetFirewallRuleGroupAssociation
 --
 --         , requestGetFirewallRuleGroupPolicy $
 --             newGetFirewallRuleGroupPolicy
 --
+--         , requestGetResolverDnssecConfig $
+--             newGetResolverDnssecConfig
+--
+--         , requestGetResolverEndpoint $
+--             newGetResolverEndpoint
+--
+--         , requestGetResolverQueryLogConfig $
+--             newGetResolverQueryLogConfig
+--
+--         , requestGetResolverQueryLogConfigAssociation $
+--             newGetResolverQueryLogConfigAssociation
+--
+--         , requestGetResolverQueryLogConfigPolicy $
+--             newGetResolverQueryLogConfigPolicy
+--
+--         , requestGetResolverRule $
+--             newGetResolverRule
+--
+--         , requestGetResolverRuleAssociation $
+--             newGetResolverRuleAssociation
+--
+--         , requestGetResolverRulePolicy $
+--             newGetResolverRulePolicy
+--
+--         , requestImportFirewallDomains $
+--             newImportFirewallDomains
+--
+--         , requestListFirewallConfigs $
+--             newListFirewallConfigs
+--
+--         , requestListFirewallDomainLists $
+--             newListFirewallDomainLists
+--
+--         , requestListFirewallDomains $
+--             newListFirewallDomains
+--
+--         , requestListFirewallRuleGroupAssociations $
+--             newListFirewallRuleGroupAssociations
+--
+--         , requestListFirewallRuleGroups $
+--             newListFirewallRuleGroups
+--
+--         , requestListFirewallRules $
+--             newListFirewallRules
+--
+--         , requestListResolverDnssecConfigs $
+--             newListResolverDnssecConfigs
+--
+--         , requestListResolverEndpointIpAddresses $
+--             newListResolverEndpointIpAddresses
+--
+--         , requestListResolverEndpoints $
+--             newListResolverEndpoints
+--
+--         , requestListResolverQueryLogConfigAssociations $
+--             newListResolverQueryLogConfigAssociations
+--
+--         , requestListResolverQueryLogConfigs $
+--             newListResolverQueryLogConfigs
+--
+--         , requestListResolverRuleAssociations $
+--             newListResolverRuleAssociations
+--
+--         , requestListResolverRules $
+--             newListResolverRules
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestPutFirewallRuleGroupPolicy $
+--             newPutFirewallRuleGroupPolicy
+--
+--         , requestPutResolverQueryLogConfigPolicy $
+--             newPutResolverQueryLogConfigPolicy
+--
+--         , requestPutResolverRulePolicy $
+--             newPutResolverRulePolicy
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateFirewallConfig $
+--             newUpdateFirewallConfig
+--
+--         , requestUpdateFirewallDomains $
+--             newUpdateFirewallDomains
+--
+--         , requestUpdateFirewallRule $
+--             newUpdateFirewallRule
+--
+--         , requestUpdateFirewallRuleGroupAssociation $
+--             newUpdateFirewallRuleGroupAssociation
+--
+--         , requestUpdateResolverDnssecConfig $
+--             newUpdateResolverDnssecConfig
+--
+--         , requestUpdateResolverEndpoint $
+--             newUpdateResolverEndpoint
+--
+--         , requestUpdateResolverRule $
+--             newUpdateResolverRule
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseUpdateResolverEndpoint $
---             newUpdateResolverEndpointResponse
+--         [ responseAssociateFirewallRuleGroup $
+--             newAssociateFirewallRuleGroupResponse
 --
---         , responseDeleteResolverEndpoint $
---             newDeleteResolverEndpointResponse
---
---         , responseCreateResolverRule $
---             newCreateResolverRuleResponse
---
---         , responseGetResolverQueryLogConfig $
---             newGetResolverQueryLogConfigResponse
---
---         , responseCreateFirewallRule $
---             newCreateFirewallRuleResponse
---
---         , responseUpdateFirewallRuleGroupAssociation $
---             newUpdateFirewallRuleGroupAssociationResponse
---
---         , responseListFirewallRuleGroupAssociations $
---             newListFirewallRuleGroupAssociationsResponse
---
---         , responseListResolverQueryLogConfigAssociations $
---             newListResolverQueryLogConfigAssociationsResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseGetFirewallRuleGroupAssociation $
---             newGetFirewallRuleGroupAssociationResponse
---
---         , responseDisassociateResolverEndpointIpAddress $
---             newDisassociateResolverEndpointIpAddressResponse
---
---         , responseListResolverRuleAssociations $
---             newListResolverRuleAssociationsResponse
---
---         , responseDeleteResolverQueryLogConfig $
---             newDeleteResolverQueryLogConfigResponse
---
---         , responseCreateFirewallRuleGroup $
---             newCreateFirewallRuleGroupResponse
---
---         , responseGetResolverEndpoint $
---             newGetResolverEndpointResponse
---
---         , responseListResolverQueryLogConfigs $
---             newListResolverQueryLogConfigsResponse
---
---         , responseDeleteFirewallRuleGroup $
---             newDeleteFirewallRuleGroupResponse
---
---         , responseListResolverEndpointIpAddresses $
---             newListResolverEndpointIpAddressesResponse
+--         , responseAssociateResolverEndpointIpAddress $
+--             newAssociateResolverEndpointIpAddressResponse
 --
 --         , responseAssociateResolverQueryLogConfig $
 --             newAssociateResolverQueryLogConfigResponse
 --
---         , responseGetResolverRulePolicy $
---             newGetResolverRulePolicyResponse
+--         , responseAssociateResolverRule $
+--             newAssociateResolverRuleResponse
 --
---         , responseGetResolverDnssecConfig $
---             newGetResolverDnssecConfigResponse
+--         , responseCreateFirewallDomainList $
+--             newCreateFirewallDomainListResponse
 --
---         , responseListFirewallRuleGroups $
---             newListFirewallRuleGroupsResponse
+--         , responseCreateFirewallRule $
+--             newCreateFirewallRuleResponse
 --
---         , responseUpdateResolverRule $
---             newUpdateResolverRuleResponse
---
---         , responseDeleteResolverRule $
---             newDeleteResolverRuleResponse
---
---         , responseDeleteFirewallRule $
---             newDeleteFirewallRuleResponse
---
---         , responseUpdateFirewallRule $
---             newUpdateFirewallRuleResponse
---
---         , responseListFirewallRules $
---             newListFirewallRulesResponse
---
---         , responseGetFirewallRuleGroup $
---             newGetFirewallRuleGroupResponse
---
---         , responseListResolverRules $
---             newListResolverRulesResponse
+--         , responseCreateFirewallRuleGroup $
+--             newCreateFirewallRuleGroupResponse
 --
 --         , responseCreateResolverEndpoint $
 --             newCreateResolverEndpointResponse
 --
---         , responseAssociateResolverRule $
---             newAssociateResolverRuleResponse
+--         , responseCreateResolverQueryLogConfig $
+--             newCreateResolverQueryLogConfigResponse
 --
---         , responseGetResolverQueryLogConfigPolicy $
---             newGetResolverQueryLogConfigPolicyResponse
+--         , responseCreateResolverRule $
+--             newCreateResolverRuleResponse
 --
---         , responseUpdateFirewallDomains $
---             newUpdateFirewallDomainsResponse
+--         , responseDeleteFirewallDomainList $
+--             newDeleteFirewallDomainListResponse
 --
---         , responseListResolverEndpoints $
---             newListResolverEndpointsResponse
+--         , responseDeleteFirewallRule $
+--             newDeleteFirewallRuleResponse
 --
---         , responseListFirewallDomains $
---             newListFirewallDomainsResponse
+--         , responseDeleteFirewallRuleGroup $
+--             newDeleteFirewallRuleGroupResponse
 --
---         , responseGetResolverRuleAssociation $
---             newGetResolverRuleAssociationResponse
+--         , responseDeleteResolverEndpoint $
+--             newDeleteResolverEndpointResponse
+--
+--         , responseDeleteResolverQueryLogConfig $
+--             newDeleteResolverQueryLogConfigResponse
+--
+--         , responseDeleteResolverRule $
+--             newDeleteResolverRuleResponse
+--
+--         , responseDisassociateFirewallRuleGroup $
+--             newDisassociateFirewallRuleGroupResponse
+--
+--         , responseDisassociateResolverEndpointIpAddress $
+--             newDisassociateResolverEndpointIpAddressResponse
+--
+--         , responseDisassociateResolverQueryLogConfig $
+--             newDisassociateResolverQueryLogConfigResponse
+--
+--         , responseDisassociateResolverRule $
+--             newDisassociateResolverRuleResponse
 --
 --         , responseGetFirewallConfig $
 --             newGetFirewallConfigResponse
@@ -324,184 +276,136 @@ import Test.Tasty
 --         , responseGetFirewallDomainList $
 --             newGetFirewallDomainListResponse
 --
---         , responseDisassociateResolverRule $
---             newDisassociateResolverRuleResponse
+--         , responseGetFirewallRuleGroup $
+--             newGetFirewallRuleGroupResponse
+--
+--         , responseGetFirewallRuleGroupAssociation $
+--             newGetFirewallRuleGroupAssociationResponse
+--
+--         , responseGetFirewallRuleGroupPolicy $
+--             newGetFirewallRuleGroupPolicyResponse
+--
+--         , responseGetResolverDnssecConfig $
+--             newGetResolverDnssecConfigResponse
+--
+--         , responseGetResolverEndpoint $
+--             newGetResolverEndpointResponse
+--
+--         , responseGetResolverQueryLogConfig $
+--             newGetResolverQueryLogConfigResponse
 --
 --         , responseGetResolverQueryLogConfigAssociation $
 --             newGetResolverQueryLogConfigAssociationResponse
 --
---         , responseListFirewallDomainLists $
---             newListFirewallDomainListsResponse
---
---         , responseDisassociateFirewallRuleGroup $
---             newDisassociateFirewallRuleGroupResponse
---
---         , responseUpdateFirewallConfig $
---             newUpdateFirewallConfigResponse
---
---         , responseDeleteFirewallDomainList $
---             newDeleteFirewallDomainListResponse
---
---         , responseListFirewallConfigs $
---             newListFirewallConfigsResponse
---
---         , responseCreateFirewallDomainList $
---             newCreateFirewallDomainListResponse
---
---         , responseImportFirewallDomains $
---             newImportFirewallDomainsResponse
---
---         , responseDisassociateResolverQueryLogConfig $
---             newDisassociateResolverQueryLogConfigResponse
---
---         , responseTagResource $
---             newTagResourceResponse
---
---         , responseAssociateFirewallRuleGroup $
---             newAssociateFirewallRuleGroupResponse
---
---         , responseUntagResource $
---             newUntagResourceResponse
---
---         , responsePutResolverQueryLogConfigPolicy $
---             newPutResolverQueryLogConfigPolicyResponse
---
---         , responseAssociateResolverEndpointIpAddress $
---             newAssociateResolverEndpointIpAddressResponse
---
---         , responseCreateResolverQueryLogConfig $
---             newCreateResolverQueryLogConfigResponse
+--         , responseGetResolverQueryLogConfigPolicy $
+--             newGetResolverQueryLogConfigPolicyResponse
 --
 --         , responseGetResolverRule $
 --             newGetResolverRuleResponse
 --
---         , responsePutFirewallRuleGroupPolicy $
---             newPutFirewallRuleGroupPolicyResponse
+--         , responseGetResolverRuleAssociation $
+--             newGetResolverRuleAssociationResponse
 --
---         , responsePutResolverRulePolicy $
---             newPutResolverRulePolicyResponse
+--         , responseGetResolverRulePolicy $
+--             newGetResolverRulePolicyResponse
+--
+--         , responseImportFirewallDomains $
+--             newImportFirewallDomainsResponse
+--
+--         , responseListFirewallConfigs $
+--             newListFirewallConfigsResponse
+--
+--         , responseListFirewallDomainLists $
+--             newListFirewallDomainListsResponse
+--
+--         , responseListFirewallDomains $
+--             newListFirewallDomainsResponse
+--
+--         , responseListFirewallRuleGroupAssociations $
+--             newListFirewallRuleGroupAssociationsResponse
+--
+--         , responseListFirewallRuleGroups $
+--             newListFirewallRuleGroupsResponse
+--
+--         , responseListFirewallRules $
+--             newListFirewallRulesResponse
 --
 --         , responseListResolverDnssecConfigs $
 --             newListResolverDnssecConfigsResponse
 --
+--         , responseListResolverEndpointIpAddresses $
+--             newListResolverEndpointIpAddressesResponse
+--
+--         , responseListResolverEndpoints $
+--             newListResolverEndpointsResponse
+--
+--         , responseListResolverQueryLogConfigAssociations $
+--             newListResolverQueryLogConfigAssociationsResponse
+--
+--         , responseListResolverQueryLogConfigs $
+--             newListResolverQueryLogConfigsResponse
+--
+--         , responseListResolverRuleAssociations $
+--             newListResolverRuleAssociationsResponse
+--
+--         , responseListResolverRules $
+--             newListResolverRulesResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responsePutFirewallRuleGroupPolicy $
+--             newPutFirewallRuleGroupPolicyResponse
+--
+--         , responsePutResolverQueryLogConfigPolicy $
+--             newPutResolverQueryLogConfigPolicyResponse
+--
+--         , responsePutResolverRulePolicy $
+--             newPutResolverRulePolicyResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseUpdateFirewallConfig $
+--             newUpdateFirewallConfigResponse
+--
+--         , responseUpdateFirewallDomains $
+--             newUpdateFirewallDomainsResponse
+--
+--         , responseUpdateFirewallRule $
+--             newUpdateFirewallRuleResponse
+--
+--         , responseUpdateFirewallRuleGroupAssociation $
+--             newUpdateFirewallRuleGroupAssociationResponse
+--
 --         , responseUpdateResolverDnssecConfig $
 --             newUpdateResolverDnssecConfigResponse
 --
---         , responseGetFirewallRuleGroupPolicy $
---             newGetFirewallRuleGroupPolicyResponse
+--         , responseUpdateResolverEndpoint $
+--             newUpdateResolverEndpointResponse
+--
+--         , responseUpdateResolverRule $
+--             newUpdateResolverRuleResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestUpdateResolverEndpoint :: UpdateResolverEndpoint -> TestTree
-requestUpdateResolverEndpoint =
+requestAssociateFirewallRuleGroup :: AssociateFirewallRuleGroup -> TestTree
+requestAssociateFirewallRuleGroup =
   req
-    "UpdateResolverEndpoint"
-    "fixture/UpdateResolverEndpoint.yaml"
+    "AssociateFirewallRuleGroup"
+    "fixture/AssociateFirewallRuleGroup.yaml"
 
-requestDeleteResolverEndpoint :: DeleteResolverEndpoint -> TestTree
-requestDeleteResolverEndpoint =
+requestAssociateResolverEndpointIpAddress :: AssociateResolverEndpointIpAddress -> TestTree
+requestAssociateResolverEndpointIpAddress =
   req
-    "DeleteResolverEndpoint"
-    "fixture/DeleteResolverEndpoint.yaml"
-
-requestCreateResolverRule :: CreateResolverRule -> TestTree
-requestCreateResolverRule =
-  req
-    "CreateResolverRule"
-    "fixture/CreateResolverRule.yaml"
-
-requestGetResolverQueryLogConfig :: GetResolverQueryLogConfig -> TestTree
-requestGetResolverQueryLogConfig =
-  req
-    "GetResolverQueryLogConfig"
-    "fixture/GetResolverQueryLogConfig.yaml"
-
-requestCreateFirewallRule :: CreateFirewallRule -> TestTree
-requestCreateFirewallRule =
-  req
-    "CreateFirewallRule"
-    "fixture/CreateFirewallRule.yaml"
-
-requestUpdateFirewallRuleGroupAssociation :: UpdateFirewallRuleGroupAssociation -> TestTree
-requestUpdateFirewallRuleGroupAssociation =
-  req
-    "UpdateFirewallRuleGroupAssociation"
-    "fixture/UpdateFirewallRuleGroupAssociation.yaml"
-
-requestListFirewallRuleGroupAssociations :: ListFirewallRuleGroupAssociations -> TestTree
-requestListFirewallRuleGroupAssociations =
-  req
-    "ListFirewallRuleGroupAssociations"
-    "fixture/ListFirewallRuleGroupAssociations.yaml"
-
-requestListResolverQueryLogConfigAssociations :: ListResolverQueryLogConfigAssociations -> TestTree
-requestListResolverQueryLogConfigAssociations =
-  req
-    "ListResolverQueryLogConfigAssociations"
-    "fixture/ListResolverQueryLogConfigAssociations.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestGetFirewallRuleGroupAssociation :: GetFirewallRuleGroupAssociation -> TestTree
-requestGetFirewallRuleGroupAssociation =
-  req
-    "GetFirewallRuleGroupAssociation"
-    "fixture/GetFirewallRuleGroupAssociation.yaml"
-
-requestDisassociateResolverEndpointIpAddress :: DisassociateResolverEndpointIpAddress -> TestTree
-requestDisassociateResolverEndpointIpAddress =
-  req
-    "DisassociateResolverEndpointIpAddress"
-    "fixture/DisassociateResolverEndpointIpAddress.yaml"
-
-requestListResolverRuleAssociations :: ListResolverRuleAssociations -> TestTree
-requestListResolverRuleAssociations =
-  req
-    "ListResolverRuleAssociations"
-    "fixture/ListResolverRuleAssociations.yaml"
-
-requestDeleteResolverQueryLogConfig :: DeleteResolverQueryLogConfig -> TestTree
-requestDeleteResolverQueryLogConfig =
-  req
-    "DeleteResolverQueryLogConfig"
-    "fixture/DeleteResolverQueryLogConfig.yaml"
-
-requestCreateFirewallRuleGroup :: CreateFirewallRuleGroup -> TestTree
-requestCreateFirewallRuleGroup =
-  req
-    "CreateFirewallRuleGroup"
-    "fixture/CreateFirewallRuleGroup.yaml"
-
-requestGetResolverEndpoint :: GetResolverEndpoint -> TestTree
-requestGetResolverEndpoint =
-  req
-    "GetResolverEndpoint"
-    "fixture/GetResolverEndpoint.yaml"
-
-requestListResolverQueryLogConfigs :: ListResolverQueryLogConfigs -> TestTree
-requestListResolverQueryLogConfigs =
-  req
-    "ListResolverQueryLogConfigs"
-    "fixture/ListResolverQueryLogConfigs.yaml"
-
-requestDeleteFirewallRuleGroup :: DeleteFirewallRuleGroup -> TestTree
-requestDeleteFirewallRuleGroup =
-  req
-    "DeleteFirewallRuleGroup"
-    "fixture/DeleteFirewallRuleGroup.yaml"
-
-requestListResolverEndpointIpAddresses :: ListResolverEndpointIpAddresses -> TestTree
-requestListResolverEndpointIpAddresses =
-  req
-    "ListResolverEndpointIpAddresses"
-    "fixture/ListResolverEndpointIpAddresses.yaml"
+    "AssociateResolverEndpointIpAddress"
+    "fixture/AssociateResolverEndpointIpAddress.yaml"
 
 requestAssociateResolverQueryLogConfig :: AssociateResolverQueryLogConfig -> TestTree
 requestAssociateResolverQueryLogConfig =
@@ -509,65 +413,29 @@ requestAssociateResolverQueryLogConfig =
     "AssociateResolverQueryLogConfig"
     "fixture/AssociateResolverQueryLogConfig.yaml"
 
-requestGetResolverRulePolicy :: GetResolverRulePolicy -> TestTree
-requestGetResolverRulePolicy =
+requestAssociateResolverRule :: AssociateResolverRule -> TestTree
+requestAssociateResolverRule =
   req
-    "GetResolverRulePolicy"
-    "fixture/GetResolverRulePolicy.yaml"
+    "AssociateResolverRule"
+    "fixture/AssociateResolverRule.yaml"
 
-requestGetResolverDnssecConfig :: GetResolverDnssecConfig -> TestTree
-requestGetResolverDnssecConfig =
+requestCreateFirewallDomainList :: CreateFirewallDomainList -> TestTree
+requestCreateFirewallDomainList =
   req
-    "GetResolverDnssecConfig"
-    "fixture/GetResolverDnssecConfig.yaml"
+    "CreateFirewallDomainList"
+    "fixture/CreateFirewallDomainList.yaml"
 
-requestListFirewallRuleGroups :: ListFirewallRuleGroups -> TestTree
-requestListFirewallRuleGroups =
+requestCreateFirewallRule :: CreateFirewallRule -> TestTree
+requestCreateFirewallRule =
   req
-    "ListFirewallRuleGroups"
-    "fixture/ListFirewallRuleGroups.yaml"
+    "CreateFirewallRule"
+    "fixture/CreateFirewallRule.yaml"
 
-requestUpdateResolverRule :: UpdateResolverRule -> TestTree
-requestUpdateResolverRule =
+requestCreateFirewallRuleGroup :: CreateFirewallRuleGroup -> TestTree
+requestCreateFirewallRuleGroup =
   req
-    "UpdateResolverRule"
-    "fixture/UpdateResolverRule.yaml"
-
-requestDeleteResolverRule :: DeleteResolverRule -> TestTree
-requestDeleteResolverRule =
-  req
-    "DeleteResolverRule"
-    "fixture/DeleteResolverRule.yaml"
-
-requestDeleteFirewallRule :: DeleteFirewallRule -> TestTree
-requestDeleteFirewallRule =
-  req
-    "DeleteFirewallRule"
-    "fixture/DeleteFirewallRule.yaml"
-
-requestUpdateFirewallRule :: UpdateFirewallRule -> TestTree
-requestUpdateFirewallRule =
-  req
-    "UpdateFirewallRule"
-    "fixture/UpdateFirewallRule.yaml"
-
-requestListFirewallRules :: ListFirewallRules -> TestTree
-requestListFirewallRules =
-  req
-    "ListFirewallRules"
-    "fixture/ListFirewallRules.yaml"
-
-requestGetFirewallRuleGroup :: GetFirewallRuleGroup -> TestTree
-requestGetFirewallRuleGroup =
-  req
-    "GetFirewallRuleGroup"
-    "fixture/GetFirewallRuleGroup.yaml"
-
-requestListResolverRules :: ListResolverRules -> TestTree
-requestListResolverRules =
-  req
-    "ListResolverRules"
-    "fixture/ListResolverRules.yaml"
+    "CreateFirewallRuleGroup"
+    "fixture/CreateFirewallRuleGroup.yaml"
 
 requestCreateResolverEndpoint :: CreateResolverEndpoint -> TestTree
 requestCreateResolverEndpoint =
@@ -575,41 +443,77 @@ requestCreateResolverEndpoint =
     "CreateResolverEndpoint"
     "fixture/CreateResolverEndpoint.yaml"
 
-requestAssociateResolverRule :: AssociateResolverRule -> TestTree
-requestAssociateResolverRule =
+requestCreateResolverQueryLogConfig :: CreateResolverQueryLogConfig -> TestTree
+requestCreateResolverQueryLogConfig =
   req
-    "AssociateResolverRule"
-    "fixture/AssociateResolverRule.yaml"
+    "CreateResolverQueryLogConfig"
+    "fixture/CreateResolverQueryLogConfig.yaml"
 
-requestGetResolverQueryLogConfigPolicy :: GetResolverQueryLogConfigPolicy -> TestTree
-requestGetResolverQueryLogConfigPolicy =
+requestCreateResolverRule :: CreateResolverRule -> TestTree
+requestCreateResolverRule =
   req
-    "GetResolverQueryLogConfigPolicy"
-    "fixture/GetResolverQueryLogConfigPolicy.yaml"
+    "CreateResolverRule"
+    "fixture/CreateResolverRule.yaml"
 
-requestUpdateFirewallDomains :: UpdateFirewallDomains -> TestTree
-requestUpdateFirewallDomains =
+requestDeleteFirewallDomainList :: DeleteFirewallDomainList -> TestTree
+requestDeleteFirewallDomainList =
   req
-    "UpdateFirewallDomains"
-    "fixture/UpdateFirewallDomains.yaml"
+    "DeleteFirewallDomainList"
+    "fixture/DeleteFirewallDomainList.yaml"
 
-requestListResolverEndpoints :: ListResolverEndpoints -> TestTree
-requestListResolverEndpoints =
+requestDeleteFirewallRule :: DeleteFirewallRule -> TestTree
+requestDeleteFirewallRule =
   req
-    "ListResolverEndpoints"
-    "fixture/ListResolverEndpoints.yaml"
+    "DeleteFirewallRule"
+    "fixture/DeleteFirewallRule.yaml"
 
-requestListFirewallDomains :: ListFirewallDomains -> TestTree
-requestListFirewallDomains =
+requestDeleteFirewallRuleGroup :: DeleteFirewallRuleGroup -> TestTree
+requestDeleteFirewallRuleGroup =
   req
-    "ListFirewallDomains"
-    "fixture/ListFirewallDomains.yaml"
+    "DeleteFirewallRuleGroup"
+    "fixture/DeleteFirewallRuleGroup.yaml"
 
-requestGetResolverRuleAssociation :: GetResolverRuleAssociation -> TestTree
-requestGetResolverRuleAssociation =
+requestDeleteResolverEndpoint :: DeleteResolverEndpoint -> TestTree
+requestDeleteResolverEndpoint =
   req
-    "GetResolverRuleAssociation"
-    "fixture/GetResolverRuleAssociation.yaml"
+    "DeleteResolverEndpoint"
+    "fixture/DeleteResolverEndpoint.yaml"
+
+requestDeleteResolverQueryLogConfig :: DeleteResolverQueryLogConfig -> TestTree
+requestDeleteResolverQueryLogConfig =
+  req
+    "DeleteResolverQueryLogConfig"
+    "fixture/DeleteResolverQueryLogConfig.yaml"
+
+requestDeleteResolverRule :: DeleteResolverRule -> TestTree
+requestDeleteResolverRule =
+  req
+    "DeleteResolverRule"
+    "fixture/DeleteResolverRule.yaml"
+
+requestDisassociateFirewallRuleGroup :: DisassociateFirewallRuleGroup -> TestTree
+requestDisassociateFirewallRuleGroup =
+  req
+    "DisassociateFirewallRuleGroup"
+    "fixture/DisassociateFirewallRuleGroup.yaml"
+
+requestDisassociateResolverEndpointIpAddress :: DisassociateResolverEndpointIpAddress -> TestTree
+requestDisassociateResolverEndpointIpAddress =
+  req
+    "DisassociateResolverEndpointIpAddress"
+    "fixture/DisassociateResolverEndpointIpAddress.yaml"
+
+requestDisassociateResolverQueryLogConfig :: DisassociateResolverQueryLogConfig -> TestTree
+requestDisassociateResolverQueryLogConfig =
+  req
+    "DisassociateResolverQueryLogConfig"
+    "fixture/DisassociateResolverQueryLogConfig.yaml"
+
+requestDisassociateResolverRule :: DisassociateResolverRule -> TestTree
+requestDisassociateResolverRule =
+  req
+    "DisassociateResolverRule"
+    "fixture/DisassociateResolverRule.yaml"
 
 requestGetFirewallConfig :: GetFirewallConfig -> TestTree
 requestGetFirewallConfig =
@@ -623,131 +527,17 @@ requestGetFirewallDomainList =
     "GetFirewallDomainList"
     "fixture/GetFirewallDomainList.yaml"
 
-requestDisassociateResolverRule :: DisassociateResolverRule -> TestTree
-requestDisassociateResolverRule =
+requestGetFirewallRuleGroup :: GetFirewallRuleGroup -> TestTree
+requestGetFirewallRuleGroup =
   req
-    "DisassociateResolverRule"
-    "fixture/DisassociateResolverRule.yaml"
+    "GetFirewallRuleGroup"
+    "fixture/GetFirewallRuleGroup.yaml"
 
-requestGetResolverQueryLogConfigAssociation :: GetResolverQueryLogConfigAssociation -> TestTree
-requestGetResolverQueryLogConfigAssociation =
+requestGetFirewallRuleGroupAssociation :: GetFirewallRuleGroupAssociation -> TestTree
+requestGetFirewallRuleGroupAssociation =
   req
-    "GetResolverQueryLogConfigAssociation"
-    "fixture/GetResolverQueryLogConfigAssociation.yaml"
-
-requestListFirewallDomainLists :: ListFirewallDomainLists -> TestTree
-requestListFirewallDomainLists =
-  req
-    "ListFirewallDomainLists"
-    "fixture/ListFirewallDomainLists.yaml"
-
-requestDisassociateFirewallRuleGroup :: DisassociateFirewallRuleGroup -> TestTree
-requestDisassociateFirewallRuleGroup =
-  req
-    "DisassociateFirewallRuleGroup"
-    "fixture/DisassociateFirewallRuleGroup.yaml"
-
-requestUpdateFirewallConfig :: UpdateFirewallConfig -> TestTree
-requestUpdateFirewallConfig =
-  req
-    "UpdateFirewallConfig"
-    "fixture/UpdateFirewallConfig.yaml"
-
-requestDeleteFirewallDomainList :: DeleteFirewallDomainList -> TestTree
-requestDeleteFirewallDomainList =
-  req
-    "DeleteFirewallDomainList"
-    "fixture/DeleteFirewallDomainList.yaml"
-
-requestListFirewallConfigs :: ListFirewallConfigs -> TestTree
-requestListFirewallConfigs =
-  req
-    "ListFirewallConfigs"
-    "fixture/ListFirewallConfigs.yaml"
-
-requestCreateFirewallDomainList :: CreateFirewallDomainList -> TestTree
-requestCreateFirewallDomainList =
-  req
-    "CreateFirewallDomainList"
-    "fixture/CreateFirewallDomainList.yaml"
-
-requestImportFirewallDomains :: ImportFirewallDomains -> TestTree
-requestImportFirewallDomains =
-  req
-    "ImportFirewallDomains"
-    "fixture/ImportFirewallDomains.yaml"
-
-requestDisassociateResolverQueryLogConfig :: DisassociateResolverQueryLogConfig -> TestTree
-requestDisassociateResolverQueryLogConfig =
-  req
-    "DisassociateResolverQueryLogConfig"
-    "fixture/DisassociateResolverQueryLogConfig.yaml"
-
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
-
-requestAssociateFirewallRuleGroup :: AssociateFirewallRuleGroup -> TestTree
-requestAssociateFirewallRuleGroup =
-  req
-    "AssociateFirewallRuleGroup"
-    "fixture/AssociateFirewallRuleGroup.yaml"
-
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
-
-requestPutResolverQueryLogConfigPolicy :: PutResolverQueryLogConfigPolicy -> TestTree
-requestPutResolverQueryLogConfigPolicy =
-  req
-    "PutResolverQueryLogConfigPolicy"
-    "fixture/PutResolverQueryLogConfigPolicy.yaml"
-
-requestAssociateResolverEndpointIpAddress :: AssociateResolverEndpointIpAddress -> TestTree
-requestAssociateResolverEndpointIpAddress =
-  req
-    "AssociateResolverEndpointIpAddress"
-    "fixture/AssociateResolverEndpointIpAddress.yaml"
-
-requestCreateResolverQueryLogConfig :: CreateResolverQueryLogConfig -> TestTree
-requestCreateResolverQueryLogConfig =
-  req
-    "CreateResolverQueryLogConfig"
-    "fixture/CreateResolverQueryLogConfig.yaml"
-
-requestGetResolverRule :: GetResolverRule -> TestTree
-requestGetResolverRule =
-  req
-    "GetResolverRule"
-    "fixture/GetResolverRule.yaml"
-
-requestPutFirewallRuleGroupPolicy :: PutFirewallRuleGroupPolicy -> TestTree
-requestPutFirewallRuleGroupPolicy =
-  req
-    "PutFirewallRuleGroupPolicy"
-    "fixture/PutFirewallRuleGroupPolicy.yaml"
-
-requestPutResolverRulePolicy :: PutResolverRulePolicy -> TestTree
-requestPutResolverRulePolicy =
-  req
-    "PutResolverRulePolicy"
-    "fixture/PutResolverRulePolicy.yaml"
-
-requestListResolverDnssecConfigs :: ListResolverDnssecConfigs -> TestTree
-requestListResolverDnssecConfigs =
-  req
-    "ListResolverDnssecConfigs"
-    "fixture/ListResolverDnssecConfigs.yaml"
-
-requestUpdateResolverDnssecConfig :: UpdateResolverDnssecConfig -> TestTree
-requestUpdateResolverDnssecConfig =
-  req
-    "UpdateResolverDnssecConfig"
-    "fixture/UpdateResolverDnssecConfig.yaml"
+    "GetFirewallRuleGroupAssociation"
+    "fixture/GetFirewallRuleGroupAssociation.yaml"
 
 requestGetFirewallRuleGroupPolicy :: GetFirewallRuleGroupPolicy -> TestTree
 requestGetFirewallRuleGroupPolicy =
@@ -755,151 +545,233 @@ requestGetFirewallRuleGroupPolicy =
     "GetFirewallRuleGroupPolicy"
     "fixture/GetFirewallRuleGroupPolicy.yaml"
 
+requestGetResolverDnssecConfig :: GetResolverDnssecConfig -> TestTree
+requestGetResolverDnssecConfig =
+  req
+    "GetResolverDnssecConfig"
+    "fixture/GetResolverDnssecConfig.yaml"
+
+requestGetResolverEndpoint :: GetResolverEndpoint -> TestTree
+requestGetResolverEndpoint =
+  req
+    "GetResolverEndpoint"
+    "fixture/GetResolverEndpoint.yaml"
+
+requestGetResolverQueryLogConfig :: GetResolverQueryLogConfig -> TestTree
+requestGetResolverQueryLogConfig =
+  req
+    "GetResolverQueryLogConfig"
+    "fixture/GetResolverQueryLogConfig.yaml"
+
+requestGetResolverQueryLogConfigAssociation :: GetResolverQueryLogConfigAssociation -> TestTree
+requestGetResolverQueryLogConfigAssociation =
+  req
+    "GetResolverQueryLogConfigAssociation"
+    "fixture/GetResolverQueryLogConfigAssociation.yaml"
+
+requestGetResolverQueryLogConfigPolicy :: GetResolverQueryLogConfigPolicy -> TestTree
+requestGetResolverQueryLogConfigPolicy =
+  req
+    "GetResolverQueryLogConfigPolicy"
+    "fixture/GetResolverQueryLogConfigPolicy.yaml"
+
+requestGetResolverRule :: GetResolverRule -> TestTree
+requestGetResolverRule =
+  req
+    "GetResolverRule"
+    "fixture/GetResolverRule.yaml"
+
+requestGetResolverRuleAssociation :: GetResolverRuleAssociation -> TestTree
+requestGetResolverRuleAssociation =
+  req
+    "GetResolverRuleAssociation"
+    "fixture/GetResolverRuleAssociation.yaml"
+
+requestGetResolverRulePolicy :: GetResolverRulePolicy -> TestTree
+requestGetResolverRulePolicy =
+  req
+    "GetResolverRulePolicy"
+    "fixture/GetResolverRulePolicy.yaml"
+
+requestImportFirewallDomains :: ImportFirewallDomains -> TestTree
+requestImportFirewallDomains =
+  req
+    "ImportFirewallDomains"
+    "fixture/ImportFirewallDomains.yaml"
+
+requestListFirewallConfigs :: ListFirewallConfigs -> TestTree
+requestListFirewallConfigs =
+  req
+    "ListFirewallConfigs"
+    "fixture/ListFirewallConfigs.yaml"
+
+requestListFirewallDomainLists :: ListFirewallDomainLists -> TestTree
+requestListFirewallDomainLists =
+  req
+    "ListFirewallDomainLists"
+    "fixture/ListFirewallDomainLists.yaml"
+
+requestListFirewallDomains :: ListFirewallDomains -> TestTree
+requestListFirewallDomains =
+  req
+    "ListFirewallDomains"
+    "fixture/ListFirewallDomains.yaml"
+
+requestListFirewallRuleGroupAssociations :: ListFirewallRuleGroupAssociations -> TestTree
+requestListFirewallRuleGroupAssociations =
+  req
+    "ListFirewallRuleGroupAssociations"
+    "fixture/ListFirewallRuleGroupAssociations.yaml"
+
+requestListFirewallRuleGroups :: ListFirewallRuleGroups -> TestTree
+requestListFirewallRuleGroups =
+  req
+    "ListFirewallRuleGroups"
+    "fixture/ListFirewallRuleGroups.yaml"
+
+requestListFirewallRules :: ListFirewallRules -> TestTree
+requestListFirewallRules =
+  req
+    "ListFirewallRules"
+    "fixture/ListFirewallRules.yaml"
+
+requestListResolverDnssecConfigs :: ListResolverDnssecConfigs -> TestTree
+requestListResolverDnssecConfigs =
+  req
+    "ListResolverDnssecConfigs"
+    "fixture/ListResolverDnssecConfigs.yaml"
+
+requestListResolverEndpointIpAddresses :: ListResolverEndpointIpAddresses -> TestTree
+requestListResolverEndpointIpAddresses =
+  req
+    "ListResolverEndpointIpAddresses"
+    "fixture/ListResolverEndpointIpAddresses.yaml"
+
+requestListResolverEndpoints :: ListResolverEndpoints -> TestTree
+requestListResolverEndpoints =
+  req
+    "ListResolverEndpoints"
+    "fixture/ListResolverEndpoints.yaml"
+
+requestListResolverQueryLogConfigAssociations :: ListResolverQueryLogConfigAssociations -> TestTree
+requestListResolverQueryLogConfigAssociations =
+  req
+    "ListResolverQueryLogConfigAssociations"
+    "fixture/ListResolverQueryLogConfigAssociations.yaml"
+
+requestListResolverQueryLogConfigs :: ListResolverQueryLogConfigs -> TestTree
+requestListResolverQueryLogConfigs =
+  req
+    "ListResolverQueryLogConfigs"
+    "fixture/ListResolverQueryLogConfigs.yaml"
+
+requestListResolverRuleAssociations :: ListResolverRuleAssociations -> TestTree
+requestListResolverRuleAssociations =
+  req
+    "ListResolverRuleAssociations"
+    "fixture/ListResolverRuleAssociations.yaml"
+
+requestListResolverRules :: ListResolverRules -> TestTree
+requestListResolverRules =
+  req
+    "ListResolverRules"
+    "fixture/ListResolverRules.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestPutFirewallRuleGroupPolicy :: PutFirewallRuleGroupPolicy -> TestTree
+requestPutFirewallRuleGroupPolicy =
+  req
+    "PutFirewallRuleGroupPolicy"
+    "fixture/PutFirewallRuleGroupPolicy.yaml"
+
+requestPutResolverQueryLogConfigPolicy :: PutResolverQueryLogConfigPolicy -> TestTree
+requestPutResolverQueryLogConfigPolicy =
+  req
+    "PutResolverQueryLogConfigPolicy"
+    "fixture/PutResolverQueryLogConfigPolicy.yaml"
+
+requestPutResolverRulePolicy :: PutResolverRulePolicy -> TestTree
+requestPutResolverRulePolicy =
+  req
+    "PutResolverRulePolicy"
+    "fixture/PutResolverRulePolicy.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateFirewallConfig :: UpdateFirewallConfig -> TestTree
+requestUpdateFirewallConfig =
+  req
+    "UpdateFirewallConfig"
+    "fixture/UpdateFirewallConfig.yaml"
+
+requestUpdateFirewallDomains :: UpdateFirewallDomains -> TestTree
+requestUpdateFirewallDomains =
+  req
+    "UpdateFirewallDomains"
+    "fixture/UpdateFirewallDomains.yaml"
+
+requestUpdateFirewallRule :: UpdateFirewallRule -> TestTree
+requestUpdateFirewallRule =
+  req
+    "UpdateFirewallRule"
+    "fixture/UpdateFirewallRule.yaml"
+
+requestUpdateFirewallRuleGroupAssociation :: UpdateFirewallRuleGroupAssociation -> TestTree
+requestUpdateFirewallRuleGroupAssociation =
+  req
+    "UpdateFirewallRuleGroupAssociation"
+    "fixture/UpdateFirewallRuleGroupAssociation.yaml"
+
+requestUpdateResolverDnssecConfig :: UpdateResolverDnssecConfig -> TestTree
+requestUpdateResolverDnssecConfig =
+  req
+    "UpdateResolverDnssecConfig"
+    "fixture/UpdateResolverDnssecConfig.yaml"
+
+requestUpdateResolverEndpoint :: UpdateResolverEndpoint -> TestTree
+requestUpdateResolverEndpoint =
+  req
+    "UpdateResolverEndpoint"
+    "fixture/UpdateResolverEndpoint.yaml"
+
+requestUpdateResolverRule :: UpdateResolverRule -> TestTree
+requestUpdateResolverRule =
+  req
+    "UpdateResolverRule"
+    "fixture/UpdateResolverRule.yaml"
+
 -- Responses
 
-responseUpdateResolverEndpoint :: UpdateResolverEndpointResponse -> TestTree
-responseUpdateResolverEndpoint =
+responseAssociateFirewallRuleGroup :: AssociateFirewallRuleGroupResponse -> TestTree
+responseAssociateFirewallRuleGroup =
   res
-    "UpdateResolverEndpointResponse"
-    "fixture/UpdateResolverEndpointResponse.proto"
+    "AssociateFirewallRuleGroupResponse"
+    "fixture/AssociateFirewallRuleGroupResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateResolverEndpoint)
+    (Proxy.Proxy :: Proxy.Proxy AssociateFirewallRuleGroup)
 
-responseDeleteResolverEndpoint :: DeleteResolverEndpointResponse -> TestTree
-responseDeleteResolverEndpoint =
+responseAssociateResolverEndpointIpAddress :: AssociateResolverEndpointIpAddressResponse -> TestTree
+responseAssociateResolverEndpointIpAddress =
   res
-    "DeleteResolverEndpointResponse"
-    "fixture/DeleteResolverEndpointResponse.proto"
+    "AssociateResolverEndpointIpAddressResponse"
+    "fixture/AssociateResolverEndpointIpAddressResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteResolverEndpoint)
-
-responseCreateResolverRule :: CreateResolverRuleResponse -> TestTree
-responseCreateResolverRule =
-  res
-    "CreateResolverRuleResponse"
-    "fixture/CreateResolverRuleResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateResolverRule)
-
-responseGetResolverQueryLogConfig :: GetResolverQueryLogConfigResponse -> TestTree
-responseGetResolverQueryLogConfig =
-  res
-    "GetResolverQueryLogConfigResponse"
-    "fixture/GetResolverQueryLogConfigResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetResolverQueryLogConfig)
-
-responseCreateFirewallRule :: CreateFirewallRuleResponse -> TestTree
-responseCreateFirewallRule =
-  res
-    "CreateFirewallRuleResponse"
-    "fixture/CreateFirewallRuleResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateFirewallRule)
-
-responseUpdateFirewallRuleGroupAssociation :: UpdateFirewallRuleGroupAssociationResponse -> TestTree
-responseUpdateFirewallRuleGroupAssociation =
-  res
-    "UpdateFirewallRuleGroupAssociationResponse"
-    "fixture/UpdateFirewallRuleGroupAssociationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateFirewallRuleGroupAssociation)
-
-responseListFirewallRuleGroupAssociations :: ListFirewallRuleGroupAssociationsResponse -> TestTree
-responseListFirewallRuleGroupAssociations =
-  res
-    "ListFirewallRuleGroupAssociationsResponse"
-    "fixture/ListFirewallRuleGroupAssociationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListFirewallRuleGroupAssociations)
-
-responseListResolverQueryLogConfigAssociations :: ListResolverQueryLogConfigAssociationsResponse -> TestTree
-responseListResolverQueryLogConfigAssociations =
-  res
-    "ListResolverQueryLogConfigAssociationsResponse"
-    "fixture/ListResolverQueryLogConfigAssociationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListResolverQueryLogConfigAssociations)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseGetFirewallRuleGroupAssociation :: GetFirewallRuleGroupAssociationResponse -> TestTree
-responseGetFirewallRuleGroupAssociation =
-  res
-    "GetFirewallRuleGroupAssociationResponse"
-    "fixture/GetFirewallRuleGroupAssociationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetFirewallRuleGroupAssociation)
-
-responseDisassociateResolverEndpointIpAddress :: DisassociateResolverEndpointIpAddressResponse -> TestTree
-responseDisassociateResolverEndpointIpAddress =
-  res
-    "DisassociateResolverEndpointIpAddressResponse"
-    "fixture/DisassociateResolverEndpointIpAddressResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisassociateResolverEndpointIpAddress)
-
-responseListResolverRuleAssociations :: ListResolverRuleAssociationsResponse -> TestTree
-responseListResolverRuleAssociations =
-  res
-    "ListResolverRuleAssociationsResponse"
-    "fixture/ListResolverRuleAssociationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListResolverRuleAssociations)
-
-responseDeleteResolverQueryLogConfig :: DeleteResolverQueryLogConfigResponse -> TestTree
-responseDeleteResolverQueryLogConfig =
-  res
-    "DeleteResolverQueryLogConfigResponse"
-    "fixture/DeleteResolverQueryLogConfigResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteResolverQueryLogConfig)
-
-responseCreateFirewallRuleGroup :: CreateFirewallRuleGroupResponse -> TestTree
-responseCreateFirewallRuleGroup =
-  res
-    "CreateFirewallRuleGroupResponse"
-    "fixture/CreateFirewallRuleGroupResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateFirewallRuleGroup)
-
-responseGetResolverEndpoint :: GetResolverEndpointResponse -> TestTree
-responseGetResolverEndpoint =
-  res
-    "GetResolverEndpointResponse"
-    "fixture/GetResolverEndpointResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetResolverEndpoint)
-
-responseListResolverQueryLogConfigs :: ListResolverQueryLogConfigsResponse -> TestTree
-responseListResolverQueryLogConfigs =
-  res
-    "ListResolverQueryLogConfigsResponse"
-    "fixture/ListResolverQueryLogConfigsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListResolverQueryLogConfigs)
-
-responseDeleteFirewallRuleGroup :: DeleteFirewallRuleGroupResponse -> TestTree
-responseDeleteFirewallRuleGroup =
-  res
-    "DeleteFirewallRuleGroupResponse"
-    "fixture/DeleteFirewallRuleGroupResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteFirewallRuleGroup)
-
-responseListResolverEndpointIpAddresses :: ListResolverEndpointIpAddressesResponse -> TestTree
-responseListResolverEndpointIpAddresses =
-  res
-    "ListResolverEndpointIpAddressesResponse"
-    "fixture/ListResolverEndpointIpAddressesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListResolverEndpointIpAddresses)
+    (Proxy.Proxy :: Proxy.Proxy AssociateResolverEndpointIpAddress)
 
 responseAssociateResolverQueryLogConfig :: AssociateResolverQueryLogConfigResponse -> TestTree
 responseAssociateResolverQueryLogConfig =
@@ -909,85 +781,37 @@ responseAssociateResolverQueryLogConfig =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociateResolverQueryLogConfig)
 
-responseGetResolverRulePolicy :: GetResolverRulePolicyResponse -> TestTree
-responseGetResolverRulePolicy =
+responseAssociateResolverRule :: AssociateResolverRuleResponse -> TestTree
+responseAssociateResolverRule =
   res
-    "GetResolverRulePolicyResponse"
-    "fixture/GetResolverRulePolicyResponse.proto"
+    "AssociateResolverRuleResponse"
+    "fixture/AssociateResolverRuleResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetResolverRulePolicy)
+    (Proxy.Proxy :: Proxy.Proxy AssociateResolverRule)
 
-responseGetResolverDnssecConfig :: GetResolverDnssecConfigResponse -> TestTree
-responseGetResolverDnssecConfig =
+responseCreateFirewallDomainList :: CreateFirewallDomainListResponse -> TestTree
+responseCreateFirewallDomainList =
   res
-    "GetResolverDnssecConfigResponse"
-    "fixture/GetResolverDnssecConfigResponse.proto"
+    "CreateFirewallDomainListResponse"
+    "fixture/CreateFirewallDomainListResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetResolverDnssecConfig)
+    (Proxy.Proxy :: Proxy.Proxy CreateFirewallDomainList)
 
-responseListFirewallRuleGroups :: ListFirewallRuleGroupsResponse -> TestTree
-responseListFirewallRuleGroups =
+responseCreateFirewallRule :: CreateFirewallRuleResponse -> TestTree
+responseCreateFirewallRule =
   res
-    "ListFirewallRuleGroupsResponse"
-    "fixture/ListFirewallRuleGroupsResponse.proto"
+    "CreateFirewallRuleResponse"
+    "fixture/CreateFirewallRuleResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListFirewallRuleGroups)
+    (Proxy.Proxy :: Proxy.Proxy CreateFirewallRule)
 
-responseUpdateResolverRule :: UpdateResolverRuleResponse -> TestTree
-responseUpdateResolverRule =
+responseCreateFirewallRuleGroup :: CreateFirewallRuleGroupResponse -> TestTree
+responseCreateFirewallRuleGroup =
   res
-    "UpdateResolverRuleResponse"
-    "fixture/UpdateResolverRuleResponse.proto"
+    "CreateFirewallRuleGroupResponse"
+    "fixture/CreateFirewallRuleGroupResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateResolverRule)
-
-responseDeleteResolverRule :: DeleteResolverRuleResponse -> TestTree
-responseDeleteResolverRule =
-  res
-    "DeleteResolverRuleResponse"
-    "fixture/DeleteResolverRuleResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteResolverRule)
-
-responseDeleteFirewallRule :: DeleteFirewallRuleResponse -> TestTree
-responseDeleteFirewallRule =
-  res
-    "DeleteFirewallRuleResponse"
-    "fixture/DeleteFirewallRuleResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteFirewallRule)
-
-responseUpdateFirewallRule :: UpdateFirewallRuleResponse -> TestTree
-responseUpdateFirewallRule =
-  res
-    "UpdateFirewallRuleResponse"
-    "fixture/UpdateFirewallRuleResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateFirewallRule)
-
-responseListFirewallRules :: ListFirewallRulesResponse -> TestTree
-responseListFirewallRules =
-  res
-    "ListFirewallRulesResponse"
-    "fixture/ListFirewallRulesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListFirewallRules)
-
-responseGetFirewallRuleGroup :: GetFirewallRuleGroupResponse -> TestTree
-responseGetFirewallRuleGroup =
-  res
-    "GetFirewallRuleGroupResponse"
-    "fixture/GetFirewallRuleGroupResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetFirewallRuleGroup)
-
-responseListResolverRules :: ListResolverRulesResponse -> TestTree
-responseListResolverRules =
-  res
-    "ListResolverRulesResponse"
-    "fixture/ListResolverRulesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListResolverRules)
+    (Proxy.Proxy :: Proxy.Proxy CreateFirewallRuleGroup)
 
 responseCreateResolverEndpoint :: CreateResolverEndpointResponse -> TestTree
 responseCreateResolverEndpoint =
@@ -997,53 +821,101 @@ responseCreateResolverEndpoint =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateResolverEndpoint)
 
-responseAssociateResolverRule :: AssociateResolverRuleResponse -> TestTree
-responseAssociateResolverRule =
+responseCreateResolverQueryLogConfig :: CreateResolverQueryLogConfigResponse -> TestTree
+responseCreateResolverQueryLogConfig =
   res
-    "AssociateResolverRuleResponse"
-    "fixture/AssociateResolverRuleResponse.proto"
+    "CreateResolverQueryLogConfigResponse"
+    "fixture/CreateResolverQueryLogConfigResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy AssociateResolverRule)
+    (Proxy.Proxy :: Proxy.Proxy CreateResolverQueryLogConfig)
 
-responseGetResolverQueryLogConfigPolicy :: GetResolverQueryLogConfigPolicyResponse -> TestTree
-responseGetResolverQueryLogConfigPolicy =
+responseCreateResolverRule :: CreateResolverRuleResponse -> TestTree
+responseCreateResolverRule =
   res
-    "GetResolverQueryLogConfigPolicyResponse"
-    "fixture/GetResolverQueryLogConfigPolicyResponse.proto"
+    "CreateResolverRuleResponse"
+    "fixture/CreateResolverRuleResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetResolverQueryLogConfigPolicy)
+    (Proxy.Proxy :: Proxy.Proxy CreateResolverRule)
 
-responseUpdateFirewallDomains :: UpdateFirewallDomainsResponse -> TestTree
-responseUpdateFirewallDomains =
+responseDeleteFirewallDomainList :: DeleteFirewallDomainListResponse -> TestTree
+responseDeleteFirewallDomainList =
   res
-    "UpdateFirewallDomainsResponse"
-    "fixture/UpdateFirewallDomainsResponse.proto"
+    "DeleteFirewallDomainListResponse"
+    "fixture/DeleteFirewallDomainListResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateFirewallDomains)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFirewallDomainList)
 
-responseListResolverEndpoints :: ListResolverEndpointsResponse -> TestTree
-responseListResolverEndpoints =
+responseDeleteFirewallRule :: DeleteFirewallRuleResponse -> TestTree
+responseDeleteFirewallRule =
   res
-    "ListResolverEndpointsResponse"
-    "fixture/ListResolverEndpointsResponse.proto"
+    "DeleteFirewallRuleResponse"
+    "fixture/DeleteFirewallRuleResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListResolverEndpoints)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFirewallRule)
 
-responseListFirewallDomains :: ListFirewallDomainsResponse -> TestTree
-responseListFirewallDomains =
+responseDeleteFirewallRuleGroup :: DeleteFirewallRuleGroupResponse -> TestTree
+responseDeleteFirewallRuleGroup =
   res
-    "ListFirewallDomainsResponse"
-    "fixture/ListFirewallDomainsResponse.proto"
+    "DeleteFirewallRuleGroupResponse"
+    "fixture/DeleteFirewallRuleGroupResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListFirewallDomains)
+    (Proxy.Proxy :: Proxy.Proxy DeleteFirewallRuleGroup)
 
-responseGetResolverRuleAssociation :: GetResolverRuleAssociationResponse -> TestTree
-responseGetResolverRuleAssociation =
+responseDeleteResolverEndpoint :: DeleteResolverEndpointResponse -> TestTree
+responseDeleteResolverEndpoint =
   res
-    "GetResolverRuleAssociationResponse"
-    "fixture/GetResolverRuleAssociationResponse.proto"
+    "DeleteResolverEndpointResponse"
+    "fixture/DeleteResolverEndpointResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetResolverRuleAssociation)
+    (Proxy.Proxy :: Proxy.Proxy DeleteResolverEndpoint)
+
+responseDeleteResolverQueryLogConfig :: DeleteResolverQueryLogConfigResponse -> TestTree
+responseDeleteResolverQueryLogConfig =
+  res
+    "DeleteResolverQueryLogConfigResponse"
+    "fixture/DeleteResolverQueryLogConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteResolverQueryLogConfig)
+
+responseDeleteResolverRule :: DeleteResolverRuleResponse -> TestTree
+responseDeleteResolverRule =
+  res
+    "DeleteResolverRuleResponse"
+    "fixture/DeleteResolverRuleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteResolverRule)
+
+responseDisassociateFirewallRuleGroup :: DisassociateFirewallRuleGroupResponse -> TestTree
+responseDisassociateFirewallRuleGroup =
+  res
+    "DisassociateFirewallRuleGroupResponse"
+    "fixture/DisassociateFirewallRuleGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateFirewallRuleGroup)
+
+responseDisassociateResolverEndpointIpAddress :: DisassociateResolverEndpointIpAddressResponse -> TestTree
+responseDisassociateResolverEndpointIpAddress =
+  res
+    "DisassociateResolverEndpointIpAddressResponse"
+    "fixture/DisassociateResolverEndpointIpAddressResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateResolverEndpointIpAddress)
+
+responseDisassociateResolverQueryLogConfig :: DisassociateResolverQueryLogConfigResponse -> TestTree
+responseDisassociateResolverQueryLogConfig =
+  res
+    "DisassociateResolverQueryLogConfigResponse"
+    "fixture/DisassociateResolverQueryLogConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateResolverQueryLogConfig)
+
+responseDisassociateResolverRule :: DisassociateResolverRuleResponse -> TestTree
+responseDisassociateResolverRule =
+  res
+    "DisassociateResolverRuleResponse"
+    "fixture/DisassociateResolverRuleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateResolverRule)
 
 responseGetFirewallConfig :: GetFirewallConfigResponse -> TestTree
 responseGetFirewallConfig =
@@ -1061,13 +933,53 @@ responseGetFirewallDomainList =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetFirewallDomainList)
 
-responseDisassociateResolverRule :: DisassociateResolverRuleResponse -> TestTree
-responseDisassociateResolverRule =
+responseGetFirewallRuleGroup :: GetFirewallRuleGroupResponse -> TestTree
+responseGetFirewallRuleGroup =
   res
-    "DisassociateResolverRuleResponse"
-    "fixture/DisassociateResolverRuleResponse.proto"
+    "GetFirewallRuleGroupResponse"
+    "fixture/GetFirewallRuleGroupResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisassociateResolverRule)
+    (Proxy.Proxy :: Proxy.Proxy GetFirewallRuleGroup)
+
+responseGetFirewallRuleGroupAssociation :: GetFirewallRuleGroupAssociationResponse -> TestTree
+responseGetFirewallRuleGroupAssociation =
+  res
+    "GetFirewallRuleGroupAssociationResponse"
+    "fixture/GetFirewallRuleGroupAssociationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetFirewallRuleGroupAssociation)
+
+responseGetFirewallRuleGroupPolicy :: GetFirewallRuleGroupPolicyResponse -> TestTree
+responseGetFirewallRuleGroupPolicy =
+  res
+    "GetFirewallRuleGroupPolicyResponse"
+    "fixture/GetFirewallRuleGroupPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetFirewallRuleGroupPolicy)
+
+responseGetResolverDnssecConfig :: GetResolverDnssecConfigResponse -> TestTree
+responseGetResolverDnssecConfig =
+  res
+    "GetResolverDnssecConfigResponse"
+    "fixture/GetResolverDnssecConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetResolverDnssecConfig)
+
+responseGetResolverEndpoint :: GetResolverEndpointResponse -> TestTree
+responseGetResolverEndpoint =
+  res
+    "GetResolverEndpointResponse"
+    "fixture/GetResolverEndpointResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetResolverEndpoint)
+
+responseGetResolverQueryLogConfig :: GetResolverQueryLogConfigResponse -> TestTree
+responseGetResolverQueryLogConfig =
+  res
+    "GetResolverQueryLogConfigResponse"
+    "fixture/GetResolverQueryLogConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetResolverQueryLogConfig)
 
 responseGetResolverQueryLogConfigAssociation :: GetResolverQueryLogConfigAssociationResponse -> TestTree
 responseGetResolverQueryLogConfigAssociation =
@@ -1077,117 +989,13 @@ responseGetResolverQueryLogConfigAssociation =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetResolverQueryLogConfigAssociation)
 
-responseListFirewallDomainLists :: ListFirewallDomainListsResponse -> TestTree
-responseListFirewallDomainLists =
+responseGetResolverQueryLogConfigPolicy :: GetResolverQueryLogConfigPolicyResponse -> TestTree
+responseGetResolverQueryLogConfigPolicy =
   res
-    "ListFirewallDomainListsResponse"
-    "fixture/ListFirewallDomainListsResponse.proto"
+    "GetResolverQueryLogConfigPolicyResponse"
+    "fixture/GetResolverQueryLogConfigPolicyResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListFirewallDomainLists)
-
-responseDisassociateFirewallRuleGroup :: DisassociateFirewallRuleGroupResponse -> TestTree
-responseDisassociateFirewallRuleGroup =
-  res
-    "DisassociateFirewallRuleGroupResponse"
-    "fixture/DisassociateFirewallRuleGroupResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisassociateFirewallRuleGroup)
-
-responseUpdateFirewallConfig :: UpdateFirewallConfigResponse -> TestTree
-responseUpdateFirewallConfig =
-  res
-    "UpdateFirewallConfigResponse"
-    "fixture/UpdateFirewallConfigResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateFirewallConfig)
-
-responseDeleteFirewallDomainList :: DeleteFirewallDomainListResponse -> TestTree
-responseDeleteFirewallDomainList =
-  res
-    "DeleteFirewallDomainListResponse"
-    "fixture/DeleteFirewallDomainListResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteFirewallDomainList)
-
-responseListFirewallConfigs :: ListFirewallConfigsResponse -> TestTree
-responseListFirewallConfigs =
-  res
-    "ListFirewallConfigsResponse"
-    "fixture/ListFirewallConfigsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListFirewallConfigs)
-
-responseCreateFirewallDomainList :: CreateFirewallDomainListResponse -> TestTree
-responseCreateFirewallDomainList =
-  res
-    "CreateFirewallDomainListResponse"
-    "fixture/CreateFirewallDomainListResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateFirewallDomainList)
-
-responseImportFirewallDomains :: ImportFirewallDomainsResponse -> TestTree
-responseImportFirewallDomains =
-  res
-    "ImportFirewallDomainsResponse"
-    "fixture/ImportFirewallDomainsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ImportFirewallDomains)
-
-responseDisassociateResolverQueryLogConfig :: DisassociateResolverQueryLogConfigResponse -> TestTree
-responseDisassociateResolverQueryLogConfig =
-  res
-    "DisassociateResolverQueryLogConfigResponse"
-    "fixture/DisassociateResolverQueryLogConfigResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisassociateResolverQueryLogConfig)
-
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
-
-responseAssociateFirewallRuleGroup :: AssociateFirewallRuleGroupResponse -> TestTree
-responseAssociateFirewallRuleGroup =
-  res
-    "AssociateFirewallRuleGroupResponse"
-    "fixture/AssociateFirewallRuleGroupResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy AssociateFirewallRuleGroup)
-
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
-
-responsePutResolverQueryLogConfigPolicy :: PutResolverQueryLogConfigPolicyResponse -> TestTree
-responsePutResolverQueryLogConfigPolicy =
-  res
-    "PutResolverQueryLogConfigPolicyResponse"
-    "fixture/PutResolverQueryLogConfigPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutResolverQueryLogConfigPolicy)
-
-responseAssociateResolverEndpointIpAddress :: AssociateResolverEndpointIpAddressResponse -> TestTree
-responseAssociateResolverEndpointIpAddress =
-  res
-    "AssociateResolverEndpointIpAddressResponse"
-    "fixture/AssociateResolverEndpointIpAddressResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy AssociateResolverEndpointIpAddress)
-
-responseCreateResolverQueryLogConfig :: CreateResolverQueryLogConfigResponse -> TestTree
-responseCreateResolverQueryLogConfig =
-  res
-    "CreateResolverQueryLogConfigResponse"
-    "fixture/CreateResolverQueryLogConfigResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateResolverQueryLogConfig)
+    (Proxy.Proxy :: Proxy.Proxy GetResolverQueryLogConfigPolicy)
 
 responseGetResolverRule :: GetResolverRuleResponse -> TestTree
 responseGetResolverRule =
@@ -1197,21 +1005,77 @@ responseGetResolverRule =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetResolverRule)
 
-responsePutFirewallRuleGroupPolicy :: PutFirewallRuleGroupPolicyResponse -> TestTree
-responsePutFirewallRuleGroupPolicy =
+responseGetResolverRuleAssociation :: GetResolverRuleAssociationResponse -> TestTree
+responseGetResolverRuleAssociation =
   res
-    "PutFirewallRuleGroupPolicyResponse"
-    "fixture/PutFirewallRuleGroupPolicyResponse.proto"
+    "GetResolverRuleAssociationResponse"
+    "fixture/GetResolverRuleAssociationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutFirewallRuleGroupPolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetResolverRuleAssociation)
 
-responsePutResolverRulePolicy :: PutResolverRulePolicyResponse -> TestTree
-responsePutResolverRulePolicy =
+responseGetResolverRulePolicy :: GetResolverRulePolicyResponse -> TestTree
+responseGetResolverRulePolicy =
   res
-    "PutResolverRulePolicyResponse"
-    "fixture/PutResolverRulePolicyResponse.proto"
+    "GetResolverRulePolicyResponse"
+    "fixture/GetResolverRulePolicyResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutResolverRulePolicy)
+    (Proxy.Proxy :: Proxy.Proxy GetResolverRulePolicy)
+
+responseImportFirewallDomains :: ImportFirewallDomainsResponse -> TestTree
+responseImportFirewallDomains =
+  res
+    "ImportFirewallDomainsResponse"
+    "fixture/ImportFirewallDomainsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ImportFirewallDomains)
+
+responseListFirewallConfigs :: ListFirewallConfigsResponse -> TestTree
+responseListFirewallConfigs =
+  res
+    "ListFirewallConfigsResponse"
+    "fixture/ListFirewallConfigsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListFirewallConfigs)
+
+responseListFirewallDomainLists :: ListFirewallDomainListsResponse -> TestTree
+responseListFirewallDomainLists =
+  res
+    "ListFirewallDomainListsResponse"
+    "fixture/ListFirewallDomainListsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListFirewallDomainLists)
+
+responseListFirewallDomains :: ListFirewallDomainsResponse -> TestTree
+responseListFirewallDomains =
+  res
+    "ListFirewallDomainsResponse"
+    "fixture/ListFirewallDomainsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListFirewallDomains)
+
+responseListFirewallRuleGroupAssociations :: ListFirewallRuleGroupAssociationsResponse -> TestTree
+responseListFirewallRuleGroupAssociations =
+  res
+    "ListFirewallRuleGroupAssociationsResponse"
+    "fixture/ListFirewallRuleGroupAssociationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListFirewallRuleGroupAssociations)
+
+responseListFirewallRuleGroups :: ListFirewallRuleGroupsResponse -> TestTree
+responseListFirewallRuleGroups =
+  res
+    "ListFirewallRuleGroupsResponse"
+    "fixture/ListFirewallRuleGroupsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListFirewallRuleGroups)
+
+responseListFirewallRules :: ListFirewallRulesResponse -> TestTree
+responseListFirewallRules =
+  res
+    "ListFirewallRulesResponse"
+    "fixture/ListFirewallRulesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListFirewallRules)
 
 responseListResolverDnssecConfigs :: ListResolverDnssecConfigsResponse -> TestTree
 responseListResolverDnssecConfigs =
@@ -1221,6 +1085,134 @@ responseListResolverDnssecConfigs =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListResolverDnssecConfigs)
 
+responseListResolverEndpointIpAddresses :: ListResolverEndpointIpAddressesResponse -> TestTree
+responseListResolverEndpointIpAddresses =
+  res
+    "ListResolverEndpointIpAddressesResponse"
+    "fixture/ListResolverEndpointIpAddressesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListResolverEndpointIpAddresses)
+
+responseListResolverEndpoints :: ListResolverEndpointsResponse -> TestTree
+responseListResolverEndpoints =
+  res
+    "ListResolverEndpointsResponse"
+    "fixture/ListResolverEndpointsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListResolverEndpoints)
+
+responseListResolverQueryLogConfigAssociations :: ListResolverQueryLogConfigAssociationsResponse -> TestTree
+responseListResolverQueryLogConfigAssociations =
+  res
+    "ListResolverQueryLogConfigAssociationsResponse"
+    "fixture/ListResolverQueryLogConfigAssociationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListResolverQueryLogConfigAssociations)
+
+responseListResolverQueryLogConfigs :: ListResolverQueryLogConfigsResponse -> TestTree
+responseListResolverQueryLogConfigs =
+  res
+    "ListResolverQueryLogConfigsResponse"
+    "fixture/ListResolverQueryLogConfigsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListResolverQueryLogConfigs)
+
+responseListResolverRuleAssociations :: ListResolverRuleAssociationsResponse -> TestTree
+responseListResolverRuleAssociations =
+  res
+    "ListResolverRuleAssociationsResponse"
+    "fixture/ListResolverRuleAssociationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListResolverRuleAssociations)
+
+responseListResolverRules :: ListResolverRulesResponse -> TestTree
+responseListResolverRules =
+  res
+    "ListResolverRulesResponse"
+    "fixture/ListResolverRulesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListResolverRules)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responsePutFirewallRuleGroupPolicy :: PutFirewallRuleGroupPolicyResponse -> TestTree
+responsePutFirewallRuleGroupPolicy =
+  res
+    "PutFirewallRuleGroupPolicyResponse"
+    "fixture/PutFirewallRuleGroupPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutFirewallRuleGroupPolicy)
+
+responsePutResolverQueryLogConfigPolicy :: PutResolverQueryLogConfigPolicyResponse -> TestTree
+responsePutResolverQueryLogConfigPolicy =
+  res
+    "PutResolverQueryLogConfigPolicyResponse"
+    "fixture/PutResolverQueryLogConfigPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutResolverQueryLogConfigPolicy)
+
+responsePutResolverRulePolicy :: PutResolverRulePolicyResponse -> TestTree
+responsePutResolverRulePolicy =
+  res
+    "PutResolverRulePolicyResponse"
+    "fixture/PutResolverRulePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutResolverRulePolicy)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateFirewallConfig :: UpdateFirewallConfigResponse -> TestTree
+responseUpdateFirewallConfig =
+  res
+    "UpdateFirewallConfigResponse"
+    "fixture/UpdateFirewallConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateFirewallConfig)
+
+responseUpdateFirewallDomains :: UpdateFirewallDomainsResponse -> TestTree
+responseUpdateFirewallDomains =
+  res
+    "UpdateFirewallDomainsResponse"
+    "fixture/UpdateFirewallDomainsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateFirewallDomains)
+
+responseUpdateFirewallRule :: UpdateFirewallRuleResponse -> TestTree
+responseUpdateFirewallRule =
+  res
+    "UpdateFirewallRuleResponse"
+    "fixture/UpdateFirewallRuleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateFirewallRule)
+
+responseUpdateFirewallRuleGroupAssociation :: UpdateFirewallRuleGroupAssociationResponse -> TestTree
+responseUpdateFirewallRuleGroupAssociation =
+  res
+    "UpdateFirewallRuleGroupAssociationResponse"
+    "fixture/UpdateFirewallRuleGroupAssociationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateFirewallRuleGroupAssociation)
+
 responseUpdateResolverDnssecConfig :: UpdateResolverDnssecConfigResponse -> TestTree
 responseUpdateResolverDnssecConfig =
   res
@@ -1229,10 +1221,18 @@ responseUpdateResolverDnssecConfig =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateResolverDnssecConfig)
 
-responseGetFirewallRuleGroupPolicy :: GetFirewallRuleGroupPolicyResponse -> TestTree
-responseGetFirewallRuleGroupPolicy =
+responseUpdateResolverEndpoint :: UpdateResolverEndpointResponse -> TestTree
+responseUpdateResolverEndpoint =
   res
-    "GetFirewallRuleGroupPolicyResponse"
-    "fixture/GetFirewallRuleGroupPolicyResponse.proto"
+    "UpdateResolverEndpointResponse"
+    "fixture/UpdateResolverEndpointResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetFirewallRuleGroupPolicy)
+    (Proxy.Proxy :: Proxy.Proxy UpdateResolverEndpoint)
+
+responseUpdateResolverRule :: UpdateResolverRuleResponse -> TestTree
+responseUpdateResolverRule =
+  res
+    "UpdateResolverRuleResponse"
+    "fixture/UpdateResolverRuleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateResolverRule)

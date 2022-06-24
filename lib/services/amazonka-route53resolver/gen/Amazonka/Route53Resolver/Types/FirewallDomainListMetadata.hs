@@ -31,21 +31,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFirewallDomainListMetadata' smart constructor.
 data FirewallDomainListMetadata = FirewallDomainListMetadata'
-  { -- | The Amazon Resource Name (ARN) of the firewall domain list metadata.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | A unique string defined by you to identify the request. This allows you
-    -- to retry failed requests without the risk of running the operation
-    -- twice. This can be any unique string, for example, a timestamp.
-    creatorRequestId :: Prelude.Maybe Prelude.Text,
+  { -- | The name of the domain list.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The owner of the list, used only for lists that are not managed by you.
     -- For example, the managed domain list
     -- @AWSManagedDomainsMalwareDomainList@ has the managed owner name
     -- @Route 53 Resolver DNS Firewall@.
     managedOwnerName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the domain list.
-    name :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the firewall domain list metadata.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the domain list.
-    id :: Prelude.Maybe Prelude.Text
+    id :: Prelude.Maybe Prelude.Text,
+    -- | A unique string defined by you to identify the request. This allows you
+    -- to retry failed requests without the risk of running the operation
+    -- twice. This can be any unique string, for example, a timestamp.
+    creatorRequestId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,40 +57,34 @@ data FirewallDomainListMetadata = FirewallDomainListMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'firewallDomainListMetadata_arn' - The Amazon Resource Name (ARN) of the firewall domain list metadata.
---
--- 'creatorRequestId', 'firewallDomainListMetadata_creatorRequestId' - A unique string defined by you to identify the request. This allows you
--- to retry failed requests without the risk of running the operation
--- twice. This can be any unique string, for example, a timestamp.
+-- 'name', 'firewallDomainListMetadata_name' - The name of the domain list.
 --
 -- 'managedOwnerName', 'firewallDomainListMetadata_managedOwnerName' - The owner of the list, used only for lists that are not managed by you.
 -- For example, the managed domain list
 -- @AWSManagedDomainsMalwareDomainList@ has the managed owner name
 -- @Route 53 Resolver DNS Firewall@.
 --
--- 'name', 'firewallDomainListMetadata_name' - The name of the domain list.
+-- 'arn', 'firewallDomainListMetadata_arn' - The Amazon Resource Name (ARN) of the firewall domain list metadata.
 --
 -- 'id', 'firewallDomainListMetadata_id' - The ID of the domain list.
+--
+-- 'creatorRequestId', 'firewallDomainListMetadata_creatorRequestId' - A unique string defined by you to identify the request. This allows you
+-- to retry failed requests without the risk of running the operation
+-- twice. This can be any unique string, for example, a timestamp.
 newFirewallDomainListMetadata ::
   FirewallDomainListMetadata
 newFirewallDomainListMetadata =
   FirewallDomainListMetadata'
-    { arn = Prelude.Nothing,
-      creatorRequestId = Prelude.Nothing,
+    { name = Prelude.Nothing,
       managedOwnerName = Prelude.Nothing,
-      name = Prelude.Nothing,
-      id = Prelude.Nothing
+      arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      creatorRequestId = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the firewall domain list metadata.
-firewallDomainListMetadata_arn :: Lens.Lens' FirewallDomainListMetadata (Prelude.Maybe Prelude.Text)
-firewallDomainListMetadata_arn = Lens.lens (\FirewallDomainListMetadata' {arn} -> arn) (\s@FirewallDomainListMetadata' {} a -> s {arn = a} :: FirewallDomainListMetadata)
-
--- | A unique string defined by you to identify the request. This allows you
--- to retry failed requests without the risk of running the operation
--- twice. This can be any unique string, for example, a timestamp.
-firewallDomainListMetadata_creatorRequestId :: Lens.Lens' FirewallDomainListMetadata (Prelude.Maybe Prelude.Text)
-firewallDomainListMetadata_creatorRequestId = Lens.lens (\FirewallDomainListMetadata' {creatorRequestId} -> creatorRequestId) (\s@FirewallDomainListMetadata' {} a -> s {creatorRequestId = a} :: FirewallDomainListMetadata)
+-- | The name of the domain list.
+firewallDomainListMetadata_name :: Lens.Lens' FirewallDomainListMetadata (Prelude.Maybe Prelude.Text)
+firewallDomainListMetadata_name = Lens.lens (\FirewallDomainListMetadata' {name} -> name) (\s@FirewallDomainListMetadata' {} a -> s {name = a} :: FirewallDomainListMetadata)
 
 -- | The owner of the list, used only for lists that are not managed by you.
 -- For example, the managed domain list
@@ -99,13 +93,19 @@ firewallDomainListMetadata_creatorRequestId = Lens.lens (\FirewallDomainListMeta
 firewallDomainListMetadata_managedOwnerName :: Lens.Lens' FirewallDomainListMetadata (Prelude.Maybe Prelude.Text)
 firewallDomainListMetadata_managedOwnerName = Lens.lens (\FirewallDomainListMetadata' {managedOwnerName} -> managedOwnerName) (\s@FirewallDomainListMetadata' {} a -> s {managedOwnerName = a} :: FirewallDomainListMetadata)
 
--- | The name of the domain list.
-firewallDomainListMetadata_name :: Lens.Lens' FirewallDomainListMetadata (Prelude.Maybe Prelude.Text)
-firewallDomainListMetadata_name = Lens.lens (\FirewallDomainListMetadata' {name} -> name) (\s@FirewallDomainListMetadata' {} a -> s {name = a} :: FirewallDomainListMetadata)
+-- | The Amazon Resource Name (ARN) of the firewall domain list metadata.
+firewallDomainListMetadata_arn :: Lens.Lens' FirewallDomainListMetadata (Prelude.Maybe Prelude.Text)
+firewallDomainListMetadata_arn = Lens.lens (\FirewallDomainListMetadata' {arn} -> arn) (\s@FirewallDomainListMetadata' {} a -> s {arn = a} :: FirewallDomainListMetadata)
 
 -- | The ID of the domain list.
 firewallDomainListMetadata_id :: Lens.Lens' FirewallDomainListMetadata (Prelude.Maybe Prelude.Text)
 firewallDomainListMetadata_id = Lens.lens (\FirewallDomainListMetadata' {id} -> id) (\s@FirewallDomainListMetadata' {} a -> s {id = a} :: FirewallDomainListMetadata)
+
+-- | A unique string defined by you to identify the request. This allows you
+-- to retry failed requests without the risk of running the operation
+-- twice. This can be any unique string, for example, a timestamp.
+firewallDomainListMetadata_creatorRequestId :: Lens.Lens' FirewallDomainListMetadata (Prelude.Maybe Prelude.Text)
+firewallDomainListMetadata_creatorRequestId = Lens.lens (\FirewallDomainListMetadata' {creatorRequestId} -> creatorRequestId) (\s@FirewallDomainListMetadata' {} a -> s {creatorRequestId = a} :: FirewallDomainListMetadata)
 
 instance Core.FromJSON FirewallDomainListMetadata where
   parseJSON =
@@ -113,25 +113,25 @@ instance Core.FromJSON FirewallDomainListMetadata where
       "FirewallDomainListMetadata"
       ( \x ->
           FirewallDomainListMetadata'
-            Prelude.<$> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "CreatorRequestId")
+            Prelude.<$> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "ManagedOwnerName")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Arn")
             Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "CreatorRequestId")
       )
 
 instance Prelude.Hashable FirewallDomainListMetadata where
   hashWithSalt _salt FirewallDomainListMetadata' {..} =
-    _salt `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` creatorRequestId
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` managedOwnerName
-      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` creatorRequestId
 
 instance Prelude.NFData FirewallDomainListMetadata where
   rnf FirewallDomainListMetadata' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creatorRequestId
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf managedOwnerName
-      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf creatorRequestId

@@ -40,13 +40,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFilter' smart constructor.
 data Filter = Filter'
-  { -- | When you\'re using a @List@ operation and you want the operation to
-    -- return a subset of objects, such as Resolver endpoints or Resolver
-    -- rules, the value of the parameter that you want to use to filter
-    -- objects. For example, to list only inbound Resolver endpoints, specify
-    -- @Direction@ for @Name@ and specify @INBOUND@ for @Values@.
-    values :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the parameter that you want to use to filter objects.
+  { -- | The name of the parameter that you want to use to filter objects.
     --
     -- The valid values for @Name@ depend on the action that you\'re including
     -- the filter in,
@@ -217,7 +211,13 @@ data Filter = Filter'
     --     @Values@: @CREATING@, @CREATED@, @DELETING@, or @FAILED@. For more
     --     information, see
     --     <https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ResolverQueryLogConfigAssociation.html#Route53Resolver-Type-route53resolver_ResolverQueryLogConfigAssociation-Status Status>.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Prelude.Maybe Prelude.Text,
+    -- | When you\'re using a @List@ operation and you want the operation to
+    -- return a subset of objects, such as Resolver endpoints or Resolver
+    -- rules, the value of the parameter that you want to use to filter
+    -- objects. For example, to list only inbound Resolver endpoints, specify
+    -- @Direction@ for @Name@ and specify @INBOUND@ for @Values@.
+    values :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -228,12 +228,6 @@ data Filter = Filter'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'values', 'filter_values' - When you\'re using a @List@ operation and you want the operation to
--- return a subset of objects, such as Resolver endpoints or Resolver
--- rules, the value of the parameter that you want to use to filter
--- objects. For example, to list only inbound Resolver endpoints, specify
--- @Direction@ for @Name@ and specify @INBOUND@ for @Values@.
 --
 -- 'name', 'filter_name' - The name of the parameter that you want to use to filter objects.
 --
@@ -406,21 +400,19 @@ data Filter = Filter'
 --     @Values@: @CREATING@, @CREATED@, @DELETING@, or @FAILED@. For more
 --     information, see
 --     <https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ResolverQueryLogConfigAssociation.html#Route53Resolver-Type-route53resolver_ResolverQueryLogConfigAssociation-Status Status>.
-newFilter ::
-  Filter
-newFilter =
-  Filter'
-    { values = Prelude.Nothing,
-      name = Prelude.Nothing
-    }
-
--- | When you\'re using a @List@ operation and you want the operation to
+--
+-- 'values', 'filter_values' - When you\'re using a @List@ operation and you want the operation to
 -- return a subset of objects, such as Resolver endpoints or Resolver
 -- rules, the value of the parameter that you want to use to filter
 -- objects. For example, to list only inbound Resolver endpoints, specify
 -- @Direction@ for @Name@ and specify @INBOUND@ for @Values@.
-filter_values :: Lens.Lens' Filter (Prelude.Maybe [Prelude.Text])
-filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Prelude.. Lens.mapping Lens.coerced
+newFilter ::
+  Filter
+newFilter =
+  Filter'
+    { name = Prelude.Nothing,
+      values = Prelude.Nothing
+    }
 
 -- | The name of the parameter that you want to use to filter objects.
 --
@@ -596,20 +588,28 @@ filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {v
 filter_name :: Lens.Lens' Filter (Prelude.Maybe Prelude.Text)
 filter_name = Lens.lens (\Filter' {name} -> name) (\s@Filter' {} a -> s {name = a} :: Filter)
 
+-- | When you\'re using a @List@ operation and you want the operation to
+-- return a subset of objects, such as Resolver endpoints or Resolver
+-- rules, the value of the parameter that you want to use to filter
+-- objects. For example, to list only inbound Resolver endpoints, specify
+-- @Direction@ for @Name@ and specify @INBOUND@ for @Values@.
+filter_values :: Lens.Lens' Filter (Prelude.Maybe [Prelude.Text])
+filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Prelude.. Lens.mapping Lens.coerced
+
 instance Prelude.Hashable Filter where
   hashWithSalt _salt Filter' {..} =
-    _salt `Prelude.hashWithSalt` values
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` values
 
 instance Prelude.NFData Filter where
   rnf Filter' {..} =
-    Prelude.rnf values `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON Filter where
   toJSON Filter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Values" Core..=) Prelude.<$> values,
-            ("Name" Core..=) Prelude.<$> name
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("Values" Core..=) Prelude.<$> values
           ]
       )

@@ -36,9 +36,12 @@ import Amazonka.Route53Resolver.Types.ResolverQueryLogConfigAssociationStatus
 --
 -- /See:/ 'newResolverQueryLogConfigAssociation' smart constructor.
 data ResolverQueryLogConfigAssociation = ResolverQueryLogConfigAssociation'
-  { -- | The date and time that the VPC was associated with the query logging
-    -- configuration, in Unix time format and Coordinated Universal Time (UTC).
-    creationTime :: Prelude.Maybe Prelude.Text,
+  { -- | The ID of the Amazon VPC that is associated with the query logging
+    -- configuration.
+    resourceId :: Prelude.Maybe Prelude.Text,
+    -- | Contains additional information about the error. If the value or @Error@
+    -- is null, the value of @ErrorMessage@ also is null.
+    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The status of the specified query logging association. Valid values
     -- include the following:
     --
@@ -56,9 +59,11 @@ data ResolverQueryLogConfigAssociation = ResolverQueryLogConfigAssociation'
     status :: Prelude.Maybe ResolverQueryLogConfigAssociationStatus,
     -- | The ID of the query logging configuration that a VPC is associated with.
     resolverQueryLogConfigId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Amazon VPC that is associated with the query logging
-    -- configuration.
-    resourceId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the query logging association.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the VPC was associated with the query logging
+    -- configuration, in Unix time format and Coordinated Universal Time (UTC).
+    creationTime :: Prelude.Maybe Prelude.Text,
     -- | If the value of @Status@ is @FAILED@, the value of @Error@ indicates the
     -- cause:
     --
@@ -70,12 +75,7 @@ data ResolverQueryLogConfigAssociation = ResolverQueryLogConfigAssociation'
     --
     -- If the value of @Status@ is a value other than @FAILED@, @Error@ is
     -- null.
-    error :: Prelude.Maybe ResolverQueryLogConfigAssociationError,
-    -- | The ID of the query logging association.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | Contains additional information about the error. If the value or @Error@
-    -- is null, the value of @ErrorMessage@ also is null.
-    errorMessage :: Prelude.Maybe Prelude.Text
+    error :: Prelude.Maybe ResolverQueryLogConfigAssociationError
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,8 +87,11 @@ data ResolverQueryLogConfigAssociation = ResolverQueryLogConfigAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'resolverQueryLogConfigAssociation_creationTime' - The date and time that the VPC was associated with the query logging
--- configuration, in Unix time format and Coordinated Universal Time (UTC).
+-- 'resourceId', 'resolverQueryLogConfigAssociation_resourceId' - The ID of the Amazon VPC that is associated with the query logging
+-- configuration.
+--
+-- 'errorMessage', 'resolverQueryLogConfigAssociation_errorMessage' - Contains additional information about the error. If the value or @Error@
+-- is null, the value of @ErrorMessage@ also is null.
 --
 -- 'status', 'resolverQueryLogConfigAssociation_status' - The status of the specified query logging association. Valid values
 -- include the following:
@@ -107,8 +110,10 @@ data ResolverQueryLogConfigAssociation = ResolverQueryLogConfigAssociation'
 --
 -- 'resolverQueryLogConfigId', 'resolverQueryLogConfigAssociation_resolverQueryLogConfigId' - The ID of the query logging configuration that a VPC is associated with.
 --
--- 'resourceId', 'resolverQueryLogConfigAssociation_resourceId' - The ID of the Amazon VPC that is associated with the query logging
--- configuration.
+-- 'id', 'resolverQueryLogConfigAssociation_id' - The ID of the query logging association.
+--
+-- 'creationTime', 'resolverQueryLogConfigAssociation_creationTime' - The date and time that the VPC was associated with the query logging
+-- configuration, in Unix time format and Coordinated Universal Time (UTC).
 --
 -- 'error', 'resolverQueryLogConfigAssociation_error' - If the value of @Status@ is @FAILED@, the value of @Error@ indicates the
 -- cause:
@@ -121,30 +126,30 @@ data ResolverQueryLogConfigAssociation = ResolverQueryLogConfigAssociation'
 --
 -- If the value of @Status@ is a value other than @FAILED@, @Error@ is
 -- null.
---
--- 'id', 'resolverQueryLogConfigAssociation_id' - The ID of the query logging association.
---
--- 'errorMessage', 'resolverQueryLogConfigAssociation_errorMessage' - Contains additional information about the error. If the value or @Error@
--- is null, the value of @ErrorMessage@ also is null.
 newResolverQueryLogConfigAssociation ::
   ResolverQueryLogConfigAssociation
 newResolverQueryLogConfigAssociation =
   ResolverQueryLogConfigAssociation'
-    { creationTime =
+    { resourceId =
         Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
       status = Prelude.Nothing,
       resolverQueryLogConfigId =
         Prelude.Nothing,
-      resourceId = Prelude.Nothing,
-      error = Prelude.Nothing,
       id = Prelude.Nothing,
-      errorMessage = Prelude.Nothing
+      creationTime = Prelude.Nothing,
+      error = Prelude.Nothing
     }
 
--- | The date and time that the VPC was associated with the query logging
--- configuration, in Unix time format and Coordinated Universal Time (UTC).
-resolverQueryLogConfigAssociation_creationTime :: Lens.Lens' ResolverQueryLogConfigAssociation (Prelude.Maybe Prelude.Text)
-resolverQueryLogConfigAssociation_creationTime = Lens.lens (\ResolverQueryLogConfigAssociation' {creationTime} -> creationTime) (\s@ResolverQueryLogConfigAssociation' {} a -> s {creationTime = a} :: ResolverQueryLogConfigAssociation)
+-- | The ID of the Amazon VPC that is associated with the query logging
+-- configuration.
+resolverQueryLogConfigAssociation_resourceId :: Lens.Lens' ResolverQueryLogConfigAssociation (Prelude.Maybe Prelude.Text)
+resolverQueryLogConfigAssociation_resourceId = Lens.lens (\ResolverQueryLogConfigAssociation' {resourceId} -> resourceId) (\s@ResolverQueryLogConfigAssociation' {} a -> s {resourceId = a} :: ResolverQueryLogConfigAssociation)
+
+-- | Contains additional information about the error. If the value or @Error@
+-- is null, the value of @ErrorMessage@ also is null.
+resolverQueryLogConfigAssociation_errorMessage :: Lens.Lens' ResolverQueryLogConfigAssociation (Prelude.Maybe Prelude.Text)
+resolverQueryLogConfigAssociation_errorMessage = Lens.lens (\ResolverQueryLogConfigAssociation' {errorMessage} -> errorMessage) (\s@ResolverQueryLogConfigAssociation' {} a -> s {errorMessage = a} :: ResolverQueryLogConfigAssociation)
 
 -- | The status of the specified query logging association. Valid values
 -- include the following:
@@ -167,10 +172,14 @@ resolverQueryLogConfigAssociation_status = Lens.lens (\ResolverQueryLogConfigAss
 resolverQueryLogConfigAssociation_resolverQueryLogConfigId :: Lens.Lens' ResolverQueryLogConfigAssociation (Prelude.Maybe Prelude.Text)
 resolverQueryLogConfigAssociation_resolverQueryLogConfigId = Lens.lens (\ResolverQueryLogConfigAssociation' {resolverQueryLogConfigId} -> resolverQueryLogConfigId) (\s@ResolverQueryLogConfigAssociation' {} a -> s {resolverQueryLogConfigId = a} :: ResolverQueryLogConfigAssociation)
 
--- | The ID of the Amazon VPC that is associated with the query logging
--- configuration.
-resolverQueryLogConfigAssociation_resourceId :: Lens.Lens' ResolverQueryLogConfigAssociation (Prelude.Maybe Prelude.Text)
-resolverQueryLogConfigAssociation_resourceId = Lens.lens (\ResolverQueryLogConfigAssociation' {resourceId} -> resourceId) (\s@ResolverQueryLogConfigAssociation' {} a -> s {resourceId = a} :: ResolverQueryLogConfigAssociation)
+-- | The ID of the query logging association.
+resolverQueryLogConfigAssociation_id :: Lens.Lens' ResolverQueryLogConfigAssociation (Prelude.Maybe Prelude.Text)
+resolverQueryLogConfigAssociation_id = Lens.lens (\ResolverQueryLogConfigAssociation' {id} -> id) (\s@ResolverQueryLogConfigAssociation' {} a -> s {id = a} :: ResolverQueryLogConfigAssociation)
+
+-- | The date and time that the VPC was associated with the query logging
+-- configuration, in Unix time format and Coordinated Universal Time (UTC).
+resolverQueryLogConfigAssociation_creationTime :: Lens.Lens' ResolverQueryLogConfigAssociation (Prelude.Maybe Prelude.Text)
+resolverQueryLogConfigAssociation_creationTime = Lens.lens (\ResolverQueryLogConfigAssociation' {creationTime} -> creationTime) (\s@ResolverQueryLogConfigAssociation' {} a -> s {creationTime = a} :: ResolverQueryLogConfigAssociation)
 
 -- | If the value of @Status@ is @FAILED@, the value of @Error@ indicates the
 -- cause:
@@ -186,15 +195,6 @@ resolverQueryLogConfigAssociation_resourceId = Lens.lens (\ResolverQueryLogConfi
 resolverQueryLogConfigAssociation_error :: Lens.Lens' ResolverQueryLogConfigAssociation (Prelude.Maybe ResolverQueryLogConfigAssociationError)
 resolverQueryLogConfigAssociation_error = Lens.lens (\ResolverQueryLogConfigAssociation' {error} -> error) (\s@ResolverQueryLogConfigAssociation' {} a -> s {error = a} :: ResolverQueryLogConfigAssociation)
 
--- | The ID of the query logging association.
-resolverQueryLogConfigAssociation_id :: Lens.Lens' ResolverQueryLogConfigAssociation (Prelude.Maybe Prelude.Text)
-resolverQueryLogConfigAssociation_id = Lens.lens (\ResolverQueryLogConfigAssociation' {id} -> id) (\s@ResolverQueryLogConfigAssociation' {} a -> s {id = a} :: ResolverQueryLogConfigAssociation)
-
--- | Contains additional information about the error. If the value or @Error@
--- is null, the value of @ErrorMessage@ also is null.
-resolverQueryLogConfigAssociation_errorMessage :: Lens.Lens' ResolverQueryLogConfigAssociation (Prelude.Maybe Prelude.Text)
-resolverQueryLogConfigAssociation_errorMessage = Lens.lens (\ResolverQueryLogConfigAssociation' {errorMessage} -> errorMessage) (\s@ResolverQueryLogConfigAssociation' {} a -> s {errorMessage = a} :: ResolverQueryLogConfigAssociation)
-
 instance
   Core.FromJSON
     ResolverQueryLogConfigAssociation
@@ -204,13 +204,13 @@ instance
       "ResolverQueryLogConfigAssociation"
       ( \x ->
           ResolverQueryLogConfigAssociation'
-            Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<$> (x Core..:? "ResourceId")
+            Prelude.<*> (x Core..:? "ErrorMessage")
             Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "ResolverQueryLogConfigId")
-            Prelude.<*> (x Core..:? "ResourceId")
-            Prelude.<*> (x Core..:? "Error")
             Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "ErrorMessage")
+            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "Error")
       )
 
 instance
@@ -220,23 +220,23 @@ instance
   hashWithSalt
     _salt
     ResolverQueryLogConfigAssociation' {..} =
-      _salt `Prelude.hashWithSalt` creationTime
+      _salt `Prelude.hashWithSalt` resourceId
+        `Prelude.hashWithSalt` errorMessage
         `Prelude.hashWithSalt` status
         `Prelude.hashWithSalt` resolverQueryLogConfigId
-        `Prelude.hashWithSalt` resourceId
-        `Prelude.hashWithSalt` error
         `Prelude.hashWithSalt` id
-        `Prelude.hashWithSalt` errorMessage
+        `Prelude.hashWithSalt` creationTime
+        `Prelude.hashWithSalt` error
 
 instance
   Prelude.NFData
     ResolverQueryLogConfigAssociation
   where
   rnf ResolverQueryLogConfigAssociation' {..} =
-    Prelude.rnf creationTime
+    Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf resolverQueryLogConfigId
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf error
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf error

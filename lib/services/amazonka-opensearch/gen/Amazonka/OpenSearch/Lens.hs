@@ -14,129 +14,14 @@
 module Amazonka.OpenSearch.Lens
   ( -- * Operations
 
-    -- ** RejectInboundConnection
-    rejectInboundConnection_connectionId,
-    rejectInboundConnectionResponse_connection,
-    rejectInboundConnectionResponse_httpStatus,
+    -- ** AcceptInboundConnection
+    acceptInboundConnection_connectionId,
+    acceptInboundConnectionResponse_connection,
+    acceptInboundConnectionResponse_httpStatus,
 
-    -- ** DescribeOutboundConnections
-    describeOutboundConnections_filters,
-    describeOutboundConnections_nextToken,
-    describeOutboundConnections_maxResults,
-    describeOutboundConnectionsResponse_connections,
-    describeOutboundConnectionsResponse_nextToken,
-    describeOutboundConnectionsResponse_httpStatus,
-
-    -- ** RemoveTags
-    removeTags_arn,
-    removeTags_tagKeys,
-
-    -- ** DescribeInstanceTypeLimits
-    describeInstanceTypeLimits_domainName,
-    describeInstanceTypeLimits_instanceType,
-    describeInstanceTypeLimits_engineVersion,
-    describeInstanceTypeLimitsResponse_limitsByRole,
-    describeInstanceTypeLimitsResponse_httpStatus,
-
-    -- ** DescribeInboundConnections
-    describeInboundConnections_filters,
-    describeInboundConnections_nextToken,
-    describeInboundConnections_maxResults,
-    describeInboundConnectionsResponse_connections,
-    describeInboundConnectionsResponse_nextToken,
-    describeInboundConnectionsResponse_httpStatus,
-
-    -- ** CancelServiceSoftwareUpdate
-    cancelServiceSoftwareUpdate_domainName,
-    cancelServiceSoftwareUpdateResponse_serviceSoftwareOptions,
-    cancelServiceSoftwareUpdateResponse_httpStatus,
-
-    -- ** ListDomainsForPackage
-    listDomainsForPackage_nextToken,
-    listDomainsForPackage_maxResults,
-    listDomainsForPackage_packageID,
-    listDomainsForPackageResponse_domainPackageDetailsList,
-    listDomainsForPackageResponse_nextToken,
-    listDomainsForPackageResponse_httpStatus,
-
-    -- ** ListPackagesForDomain
-    listPackagesForDomain_nextToken,
-    listPackagesForDomain_maxResults,
-    listPackagesForDomain_domainName,
-    listPackagesForDomainResponse_domainPackageDetailsList,
-    listPackagesForDomainResponse_nextToken,
-    listPackagesForDomainResponse_httpStatus,
-
-    -- ** UpgradeDomain
-    upgradeDomain_performCheckOnly,
-    upgradeDomain_advancedOptions,
-    upgradeDomain_domainName,
-    upgradeDomain_targetVersion,
-    upgradeDomainResponse_domainName,
-    upgradeDomainResponse_upgradeId,
-    upgradeDomainResponse_performCheckOnly,
-    upgradeDomainResponse_targetVersion,
-    upgradeDomainResponse_advancedOptions,
-    upgradeDomainResponse_httpStatus,
-
-    -- ** DescribeDomainAutoTunes
-    describeDomainAutoTunes_nextToken,
-    describeDomainAutoTunes_maxResults,
-    describeDomainAutoTunes_domainName,
-    describeDomainAutoTunesResponse_nextToken,
-    describeDomainAutoTunesResponse_autoTunes,
-    describeDomainAutoTunesResponse_httpStatus,
-
-    -- ** DescribeReservedInstances
-    describeReservedInstances_nextToken,
-    describeReservedInstances_reservedInstanceId,
-    describeReservedInstances_maxResults,
-    describeReservedInstancesResponse_nextToken,
-    describeReservedInstancesResponse_reservedInstances,
-    describeReservedInstancesResponse_httpStatus,
-
-    -- ** StartServiceSoftwareUpdate
-    startServiceSoftwareUpdate_domainName,
-    startServiceSoftwareUpdateResponse_serviceSoftwareOptions,
-    startServiceSoftwareUpdateResponse_httpStatus,
-
-    -- ** DeleteOutboundConnection
-    deleteOutboundConnection_connectionId,
-    deleteOutboundConnectionResponse_connection,
-    deleteOutboundConnectionResponse_httpStatus,
-
-    -- ** ListVersions
-    listVersions_nextToken,
-    listVersions_maxResults,
-    listVersionsResponse_versions,
-    listVersionsResponse_nextToken,
-    listVersionsResponse_httpStatus,
-
-    -- ** DescribeReservedInstanceOfferings
-    describeReservedInstanceOfferings_nextToken,
-    describeReservedInstanceOfferings_reservedInstanceOfferingId,
-    describeReservedInstanceOfferings_maxResults,
-    describeReservedInstanceOfferingsResponse_nextToken,
-    describeReservedInstanceOfferingsResponse_reservedInstanceOfferings,
-    describeReservedInstanceOfferingsResponse_httpStatus,
-
-    -- ** ListDomainNames
-    listDomainNames_engineType,
-    listDomainNamesResponse_domainNames,
-    listDomainNamesResponse_httpStatus,
-
-    -- ** PurchaseReservedInstanceOffering
-    purchaseReservedInstanceOffering_instanceCount,
-    purchaseReservedInstanceOffering_reservedInstanceOfferingId,
-    purchaseReservedInstanceOffering_reservationName,
-    purchaseReservedInstanceOfferingResponse_reservationName,
-    purchaseReservedInstanceOfferingResponse_reservedInstanceId,
-    purchaseReservedInstanceOfferingResponse_httpStatus,
-
-    -- ** DescribeDomains
-    describeDomains_domainNames,
-    describeDomainsResponse_httpStatus,
-    describeDomainsResponse_domainStatusList,
+    -- ** AddTags
+    addTags_arn,
+    addTags_tagList,
 
     -- ** AssociatePackage
     associatePackage_packageID,
@@ -144,141 +29,39 @@ module Amazonka.OpenSearch.Lens
     associatePackageResponse_domainPackageDetails,
     associatePackageResponse_httpStatus,
 
-    -- ** ListInstanceTypeDetails
-    listInstanceTypeDetails_nextToken,
-    listInstanceTypeDetails_domainName,
-    listInstanceTypeDetails_maxResults,
-    listInstanceTypeDetails_engineVersion,
-    listInstanceTypeDetailsResponse_instanceTypeDetails,
-    listInstanceTypeDetailsResponse_nextToken,
-    listInstanceTypeDetailsResponse_httpStatus,
-
-    -- ** GetPackageVersionHistory
-    getPackageVersionHistory_nextToken,
-    getPackageVersionHistory_maxResults,
-    getPackageVersionHistory_packageID,
-    getPackageVersionHistoryResponse_packageID,
-    getPackageVersionHistoryResponse_packageVersionHistoryList,
-    getPackageVersionHistoryResponse_nextToken,
-    getPackageVersionHistoryResponse_httpStatus,
-
-    -- ** GetUpgradeHistory
-    getUpgradeHistory_nextToken,
-    getUpgradeHistory_maxResults,
-    getUpgradeHistory_domainName,
-    getUpgradeHistoryResponse_nextToken,
-    getUpgradeHistoryResponse_upgradeHistories,
-    getUpgradeHistoryResponse_httpStatus,
-
-    -- ** DescribePackages
-    describePackages_filters,
-    describePackages_nextToken,
-    describePackages_maxResults,
-    describePackagesResponse_packageDetailsList,
-    describePackagesResponse_nextToken,
-    describePackagesResponse_httpStatus,
+    -- ** CancelServiceSoftwareUpdate
+    cancelServiceSoftwareUpdate_domainName,
+    cancelServiceSoftwareUpdateResponse_serviceSoftwareOptions,
+    cancelServiceSoftwareUpdateResponse_httpStatus,
 
     -- ** CreateDomain
-    createDomain_eBSOptions,
-    createDomain_engineVersion,
     createDomain_nodeToNodeEncryptionOptions,
-    createDomain_accessPolicies,
-    createDomain_autoTuneOptions,
-    createDomain_logPublishingOptions,
     createDomain_clusterConfig,
-    createDomain_advancedSecurityOptions,
+    createDomain_advancedOptions,
     createDomain_tagList,
-    createDomain_snapshotOptions,
+    createDomain_advancedSecurityOptions,
     createDomain_cognitoOptions,
     createDomain_encryptionAtRestOptions,
+    createDomain_eBSOptions,
+    createDomain_accessPolicies,
     createDomain_vPCOptions,
+    createDomain_autoTuneOptions,
     createDomain_domainEndpointOptions,
-    createDomain_advancedOptions,
+    createDomain_snapshotOptions,
+    createDomain_logPublishingOptions,
+    createDomain_engineVersion,
     createDomain_domainName,
     createDomainResponse_domainStatus,
     createDomainResponse_httpStatus,
-
-    -- ** DescribeDomainConfig
-    describeDomainConfig_domainName,
-    describeDomainConfigResponse_httpStatus,
-    describeDomainConfigResponse_domainConfig,
-
-    -- ** GetUpgradeStatus
-    getUpgradeStatus_domainName,
-    getUpgradeStatusResponse_stepStatus,
-    getUpgradeStatusResponse_upgradeName,
-    getUpgradeStatusResponse_upgradeStep,
-    getUpgradeStatusResponse_httpStatus,
-
-    -- ** DeleteInboundConnection
-    deleteInboundConnection_connectionId,
-    deleteInboundConnectionResponse_connection,
-    deleteInboundConnectionResponse_httpStatus,
-
-    -- ** DissociatePackage
-    dissociatePackage_packageID,
-    dissociatePackage_domainName,
-    dissociatePackageResponse_domainPackageDetails,
-    dissociatePackageResponse_httpStatus,
-
-    -- ** DescribeDomain
-    describeDomain_domainName,
-    describeDomainResponse_httpStatus,
-    describeDomainResponse_domainStatus,
-
-    -- ** AddTags
-    addTags_arn,
-    addTags_tagList,
-
-    -- ** AcceptInboundConnection
-    acceptInboundConnection_connectionId,
-    acceptInboundConnectionResponse_connection,
-    acceptInboundConnectionResponse_httpStatus,
-
-    -- ** UpdateDomainConfig
-    updateDomainConfig_eBSOptions,
-    updateDomainConfig_nodeToNodeEncryptionOptions,
-    updateDomainConfig_accessPolicies,
-    updateDomainConfig_autoTuneOptions,
-    updateDomainConfig_logPublishingOptions,
-    updateDomainConfig_clusterConfig,
-    updateDomainConfig_advancedSecurityOptions,
-    updateDomainConfig_snapshotOptions,
-    updateDomainConfig_cognitoOptions,
-    updateDomainConfig_encryptionAtRestOptions,
-    updateDomainConfig_vPCOptions,
-    updateDomainConfig_domainEndpointOptions,
-    updateDomainConfig_advancedOptions,
-    updateDomainConfig_domainName,
-    updateDomainConfigResponse_httpStatus,
-    updateDomainConfigResponse_domainConfig,
-
-    -- ** ListTags
-    listTags_arn,
-    listTagsResponse_tagList,
-    listTagsResponse_httpStatus,
-
-    -- ** DeletePackage
-    deletePackage_packageID,
-    deletePackageResponse_packageDetails,
-    deletePackageResponse_httpStatus,
-
-    -- ** UpdatePackage
-    updatePackage_packageDescription,
-    updatePackage_commitMessage,
-    updatePackage_packageID,
-    updatePackage_packageSource,
-    updatePackageResponse_packageDetails,
-    updatePackageResponse_httpStatus,
 
     -- ** CreateOutboundConnection
     createOutboundConnection_localDomainInfo,
     createOutboundConnection_remoteDomainInfo,
     createOutboundConnection_connectionAlias,
-    createOutboundConnectionResponse_remoteDomainInfo,
     createOutboundConnectionResponse_connectionAlias,
-    createOutboundConnectionResponse_localDomainInfo,
+    createOutboundConnectionResponse_remoteDomainInfo,
     createOutboundConnectionResponse_connectionId,
+    createOutboundConnectionResponse_localDomainInfo,
     createOutboundConnectionResponse_connectionStatus,
     createOutboundConnectionResponse_httpStatus,
 
@@ -295,10 +78,227 @@ module Amazonka.OpenSearch.Lens
     deleteDomainResponse_domainStatus,
     deleteDomainResponse_httpStatus,
 
+    -- ** DeleteInboundConnection
+    deleteInboundConnection_connectionId,
+    deleteInboundConnectionResponse_connection,
+    deleteInboundConnectionResponse_httpStatus,
+
+    -- ** DeleteOutboundConnection
+    deleteOutboundConnection_connectionId,
+    deleteOutboundConnectionResponse_connection,
+    deleteOutboundConnectionResponse_httpStatus,
+
+    -- ** DeletePackage
+    deletePackage_packageID,
+    deletePackageResponse_packageDetails,
+    deletePackageResponse_httpStatus,
+
+    -- ** DescribeDomain
+    describeDomain_domainName,
+    describeDomainResponse_httpStatus,
+    describeDomainResponse_domainStatus,
+
+    -- ** DescribeDomainAutoTunes
+    describeDomainAutoTunes_nextToken,
+    describeDomainAutoTunes_maxResults,
+    describeDomainAutoTunes_domainName,
+    describeDomainAutoTunesResponse_nextToken,
+    describeDomainAutoTunesResponse_autoTunes,
+    describeDomainAutoTunesResponse_httpStatus,
+
+    -- ** DescribeDomainConfig
+    describeDomainConfig_domainName,
+    describeDomainConfigResponse_httpStatus,
+    describeDomainConfigResponse_domainConfig,
+
+    -- ** DescribeDomains
+    describeDomains_domainNames,
+    describeDomainsResponse_httpStatus,
+    describeDomainsResponse_domainStatusList,
+
+    -- ** DescribeInboundConnections
+    describeInboundConnections_nextToken,
+    describeInboundConnections_filters,
+    describeInboundConnections_maxResults,
+    describeInboundConnectionsResponse_nextToken,
+    describeInboundConnectionsResponse_connections,
+    describeInboundConnectionsResponse_httpStatus,
+
+    -- ** DescribeInstanceTypeLimits
+    describeInstanceTypeLimits_domainName,
+    describeInstanceTypeLimits_instanceType,
+    describeInstanceTypeLimits_engineVersion,
+    describeInstanceTypeLimitsResponse_limitsByRole,
+    describeInstanceTypeLimitsResponse_httpStatus,
+
+    -- ** DescribeOutboundConnections
+    describeOutboundConnections_nextToken,
+    describeOutboundConnections_filters,
+    describeOutboundConnections_maxResults,
+    describeOutboundConnectionsResponse_nextToken,
+    describeOutboundConnectionsResponse_connections,
+    describeOutboundConnectionsResponse_httpStatus,
+
+    -- ** DescribePackages
+    describePackages_nextToken,
+    describePackages_filters,
+    describePackages_maxResults,
+    describePackagesResponse_nextToken,
+    describePackagesResponse_packageDetailsList,
+    describePackagesResponse_httpStatus,
+
+    -- ** DescribeReservedInstanceOfferings
+    describeReservedInstanceOfferings_nextToken,
+    describeReservedInstanceOfferings_maxResults,
+    describeReservedInstanceOfferings_reservedInstanceOfferingId,
+    describeReservedInstanceOfferingsResponse_nextToken,
+    describeReservedInstanceOfferingsResponse_reservedInstanceOfferings,
+    describeReservedInstanceOfferingsResponse_httpStatus,
+
+    -- ** DescribeReservedInstances
+    describeReservedInstances_nextToken,
+    describeReservedInstances_reservedInstanceId,
+    describeReservedInstances_maxResults,
+    describeReservedInstancesResponse_nextToken,
+    describeReservedInstancesResponse_reservedInstances,
+    describeReservedInstancesResponse_httpStatus,
+
+    -- ** DissociatePackage
+    dissociatePackage_packageID,
+    dissociatePackage_domainName,
+    dissociatePackageResponse_domainPackageDetails,
+    dissociatePackageResponse_httpStatus,
+
     -- ** GetCompatibleVersions
     getCompatibleVersions_domainName,
     getCompatibleVersionsResponse_compatibleVersions,
     getCompatibleVersionsResponse_httpStatus,
+
+    -- ** GetPackageVersionHistory
+    getPackageVersionHistory_nextToken,
+    getPackageVersionHistory_maxResults,
+    getPackageVersionHistory_packageID,
+    getPackageVersionHistoryResponse_nextToken,
+    getPackageVersionHistoryResponse_packageID,
+    getPackageVersionHistoryResponse_packageVersionHistoryList,
+    getPackageVersionHistoryResponse_httpStatus,
+
+    -- ** GetUpgradeHistory
+    getUpgradeHistory_nextToken,
+    getUpgradeHistory_maxResults,
+    getUpgradeHistory_domainName,
+    getUpgradeHistoryResponse_nextToken,
+    getUpgradeHistoryResponse_upgradeHistories,
+    getUpgradeHistoryResponse_httpStatus,
+
+    -- ** GetUpgradeStatus
+    getUpgradeStatus_domainName,
+    getUpgradeStatusResponse_upgradeStep,
+    getUpgradeStatusResponse_upgradeName,
+    getUpgradeStatusResponse_stepStatus,
+    getUpgradeStatusResponse_httpStatus,
+
+    -- ** ListDomainNames
+    listDomainNames_engineType,
+    listDomainNamesResponse_domainNames,
+    listDomainNamesResponse_httpStatus,
+
+    -- ** ListDomainsForPackage
+    listDomainsForPackage_nextToken,
+    listDomainsForPackage_maxResults,
+    listDomainsForPackage_packageID,
+    listDomainsForPackageResponse_nextToken,
+    listDomainsForPackageResponse_domainPackageDetailsList,
+    listDomainsForPackageResponse_httpStatus,
+
+    -- ** ListInstanceTypeDetails
+    listInstanceTypeDetails_nextToken,
+    listInstanceTypeDetails_domainName,
+    listInstanceTypeDetails_maxResults,
+    listInstanceTypeDetails_engineVersion,
+    listInstanceTypeDetailsResponse_nextToken,
+    listInstanceTypeDetailsResponse_instanceTypeDetails,
+    listInstanceTypeDetailsResponse_httpStatus,
+
+    -- ** ListPackagesForDomain
+    listPackagesForDomain_nextToken,
+    listPackagesForDomain_maxResults,
+    listPackagesForDomain_domainName,
+    listPackagesForDomainResponse_nextToken,
+    listPackagesForDomainResponse_domainPackageDetailsList,
+    listPackagesForDomainResponse_httpStatus,
+
+    -- ** ListTags
+    listTags_arn,
+    listTagsResponse_tagList,
+    listTagsResponse_httpStatus,
+
+    -- ** ListVersions
+    listVersions_nextToken,
+    listVersions_maxResults,
+    listVersionsResponse_nextToken,
+    listVersionsResponse_versions,
+    listVersionsResponse_httpStatus,
+
+    -- ** PurchaseReservedInstanceOffering
+    purchaseReservedInstanceOffering_instanceCount,
+    purchaseReservedInstanceOffering_reservedInstanceOfferingId,
+    purchaseReservedInstanceOffering_reservationName,
+    purchaseReservedInstanceOfferingResponse_reservedInstanceId,
+    purchaseReservedInstanceOfferingResponse_reservationName,
+    purchaseReservedInstanceOfferingResponse_httpStatus,
+
+    -- ** RejectInboundConnection
+    rejectInboundConnection_connectionId,
+    rejectInboundConnectionResponse_connection,
+    rejectInboundConnectionResponse_httpStatus,
+
+    -- ** RemoveTags
+    removeTags_arn,
+    removeTags_tagKeys,
+
+    -- ** StartServiceSoftwareUpdate
+    startServiceSoftwareUpdate_domainName,
+    startServiceSoftwareUpdateResponse_serviceSoftwareOptions,
+    startServiceSoftwareUpdateResponse_httpStatus,
+
+    -- ** UpdateDomainConfig
+    updateDomainConfig_nodeToNodeEncryptionOptions,
+    updateDomainConfig_clusterConfig,
+    updateDomainConfig_advancedOptions,
+    updateDomainConfig_advancedSecurityOptions,
+    updateDomainConfig_cognitoOptions,
+    updateDomainConfig_encryptionAtRestOptions,
+    updateDomainConfig_eBSOptions,
+    updateDomainConfig_accessPolicies,
+    updateDomainConfig_vPCOptions,
+    updateDomainConfig_autoTuneOptions,
+    updateDomainConfig_domainEndpointOptions,
+    updateDomainConfig_snapshotOptions,
+    updateDomainConfig_logPublishingOptions,
+    updateDomainConfig_domainName,
+    updateDomainConfigResponse_httpStatus,
+    updateDomainConfigResponse_domainConfig,
+
+    -- ** UpdatePackage
+    updatePackage_packageDescription,
+    updatePackage_commitMessage,
+    updatePackage_packageID,
+    updatePackage_packageSource,
+    updatePackageResponse_packageDetails,
+    updatePackageResponse_httpStatus,
+
+    -- ** UpgradeDomain
+    upgradeDomain_advancedOptions,
+    upgradeDomain_performCheckOnly,
+    upgradeDomain_domainName,
+    upgradeDomain_targetVersion,
+    upgradeDomainResponse_advancedOptions,
+    upgradeDomainResponse_domainName,
+    upgradeDomainResponse_targetVersion,
+    upgradeDomainResponse_performCheckOnly,
+    upgradeDomainResponse_upgradeId,
+    upgradeDomainResponse_httpStatus,
 
     -- * Types
 
@@ -320,44 +320,44 @@ module Amazonka.OpenSearch.Lens
     advancedOptionsStatus_status,
 
     -- ** AdvancedSecurityOptions
-    advancedSecurityOptions_enabled,
     advancedSecurityOptions_internalUserDatabaseEnabled,
     advancedSecurityOptions_sAMLOptions,
+    advancedSecurityOptions_enabled,
 
     -- ** AdvancedSecurityOptionsInput
-    advancedSecurityOptionsInput_enabled,
     advancedSecurityOptionsInput_internalUserDatabaseEnabled,
-    advancedSecurityOptionsInput_masterUserOptions,
     advancedSecurityOptionsInput_sAMLOptions,
+    advancedSecurityOptionsInput_enabled,
+    advancedSecurityOptionsInput_masterUserOptions,
 
     -- ** AdvancedSecurityOptionsStatus
     advancedSecurityOptionsStatus_options,
     advancedSecurityOptionsStatus_status,
 
     -- ** AutoTune
-    autoTune_autoTuneDetails,
     autoTune_autoTuneType,
+    autoTune_autoTuneDetails,
 
     -- ** AutoTuneDetails
     autoTuneDetails_scheduledAutoTuneDetails,
 
     -- ** AutoTuneMaintenanceSchedule
-    autoTuneMaintenanceSchedule_startAt,
-    autoTuneMaintenanceSchedule_cronExpressionForRecurrence,
     autoTuneMaintenanceSchedule_duration,
+    autoTuneMaintenanceSchedule_cronExpressionForRecurrence,
+    autoTuneMaintenanceSchedule_startAt,
 
     -- ** AutoTuneOptions
+    autoTuneOptions_maintenanceSchedules,
     autoTuneOptions_desiredState,
     autoTuneOptions_rollbackOnDisable,
-    autoTuneOptions_maintenanceSchedules,
 
     -- ** AutoTuneOptionsInput
-    autoTuneOptionsInput_desiredState,
     autoTuneOptionsInput_maintenanceSchedules,
+    autoTuneOptionsInput_desiredState,
 
     -- ** AutoTuneOptionsOutput
-    autoTuneOptionsOutput_state,
     autoTuneOptionsOutput_errorMessage,
+    autoTuneOptionsOutput_state,
 
     -- ** AutoTuneOptionsStatus
     autoTuneOptionsStatus_status,
@@ -372,27 +372,27 @@ module Amazonka.OpenSearch.Lens
     autoTuneStatus_state,
 
     -- ** ClusterConfig
-    clusterConfig_dedicatedMasterCount,
-    clusterConfig_dedicatedMasterType,
-    clusterConfig_dedicatedMasterEnabled,
-    clusterConfig_instanceCount,
-    clusterConfig_coldStorageOptions,
-    clusterConfig_zoneAwarenessEnabled,
-    clusterConfig_instanceType,
-    clusterConfig_warmEnabled,
-    clusterConfig_zoneAwarenessConfig,
     clusterConfig_warmCount,
+    clusterConfig_coldStorageOptions,
+    clusterConfig_dedicatedMasterType,
+    clusterConfig_zoneAwarenessEnabled,
+    clusterConfig_dedicatedMasterEnabled,
     clusterConfig_warmType,
+    clusterConfig_instanceType,
+    clusterConfig_zoneAwarenessConfig,
+    clusterConfig_instanceCount,
+    clusterConfig_warmEnabled,
+    clusterConfig_dedicatedMasterCount,
 
     -- ** ClusterConfigStatus
     clusterConfigStatus_options,
     clusterConfigStatus_status,
 
     -- ** CognitoOptions
-    cognitoOptions_identityPoolId,
-    cognitoOptions_enabled,
-    cognitoOptions_userPoolId,
     cognitoOptions_roleArn,
+    cognitoOptions_enabled,
+    cognitoOptions_identityPoolId,
+    cognitoOptions_userPoolId,
 
     -- ** CognitoOptionsStatus
     cognitoOptionsStatus_options,
@@ -402,93 +402,93 @@ module Amazonka.OpenSearch.Lens
     coldStorageOptions_enabled,
 
     -- ** CompatibleVersionsMap
-    compatibleVersionsMap_sourceVersion,
     compatibleVersionsMap_targetVersions,
+    compatibleVersionsMap_sourceVersion,
 
     -- ** DescribePackagesFilter
-    describePackagesFilter_value,
     describePackagesFilter_name,
+    describePackagesFilter_value,
 
     -- ** DomainConfig
-    domainConfig_eBSOptions,
-    domainConfig_engineVersion,
     domainConfig_nodeToNodeEncryptionOptions,
-    domainConfig_accessPolicies,
-    domainConfig_autoTuneOptions,
-    domainConfig_logPublishingOptions,
     domainConfig_clusterConfig,
+    domainConfig_advancedOptions,
     domainConfig_advancedSecurityOptions,
-    domainConfig_snapshotOptions,
     domainConfig_cognitoOptions,
     domainConfig_encryptionAtRestOptions,
+    domainConfig_eBSOptions,
+    domainConfig_accessPolicies,
     domainConfig_vPCOptions,
+    domainConfig_autoTuneOptions,
     domainConfig_domainEndpointOptions,
-    domainConfig_advancedOptions,
+    domainConfig_snapshotOptions,
+    domainConfig_logPublishingOptions,
+    domainConfig_engineVersion,
 
     -- ** DomainEndpointOptions
-    domainEndpointOptions_enforceHTTPS,
+    domainEndpointOptions_customEndpointCertificateArn,
     domainEndpointOptions_tLSSecurityPolicy,
     domainEndpointOptions_customEndpointEnabled,
+    domainEndpointOptions_enforceHTTPS,
     domainEndpointOptions_customEndpoint,
-    domainEndpointOptions_customEndpointCertificateArn,
 
     -- ** DomainEndpointOptionsStatus
     domainEndpointOptionsStatus_options,
     domainEndpointOptionsStatus_status,
 
     -- ** DomainInfo
-    domainInfo_domainName,
     domainInfo_engineType,
+    domainInfo_domainName,
 
     -- ** DomainInformationContainer
     domainInformationContainer_aWSDomainInformation,
 
     -- ** DomainPackageDetails
-    domainPackageDetails_lastUpdated,
-    domainPackageDetails_packageID,
-    domainPackageDetails_packageType,
+    domainPackageDetails_referencePath,
     domainPackageDetails_packageName,
-    domainPackageDetails_packageVersion,
-    domainPackageDetails_domainPackageStatus,
     domainPackageDetails_domainName,
     domainPackageDetails_errorDetails,
-    domainPackageDetails_referencePath,
+    domainPackageDetails_domainPackageStatus,
+    domainPackageDetails_packageID,
+    domainPackageDetails_lastUpdated,
+    domainPackageDetails_packageVersion,
+    domainPackageDetails_packageType,
 
     -- ** DomainStatus
-    domainStatus_eBSOptions,
-    domainStatus_engineVersion,
     domainStatus_nodeToNodeEncryptionOptions,
-    domainStatus_accessPolicies,
-    domainStatus_serviceSoftwareOptions,
-    domainStatus_autoTuneOptions,
-    domainStatus_logPublishingOptions,
-    domainStatus_advancedSecurityOptions,
+    domainStatus_advancedOptions,
+    domainStatus_deleted,
     domainStatus_created,
-    domainStatus_snapshotOptions,
+    domainStatus_advancedSecurityOptions,
+    domainStatus_upgradeProcessing,
+    domainStatus_processing,
     domainStatus_cognitoOptions,
     domainStatus_encryptionAtRestOptions,
-    domainStatus_deleted,
-    domainStatus_vPCOptions,
     domainStatus_endpoints,
+    domainStatus_eBSOptions,
+    domainStatus_accessPolicies,
+    domainStatus_vPCOptions,
+    domainStatus_autoTuneOptions,
     domainStatus_domainEndpointOptions,
-    domainStatus_processing,
     domainStatus_endpoint,
-    domainStatus_upgradeProcessing,
-    domainStatus_advancedOptions,
+    domainStatus_serviceSoftwareOptions,
+    domainStatus_snapshotOptions,
+    domainStatus_logPublishingOptions,
+    domainStatus_engineVersion,
     domainStatus_domainId,
     domainStatus_domainName,
     domainStatus_arn,
     domainStatus_clusterConfig,
 
     -- ** Duration
-    duration_value,
     duration_unit,
+    duration_value,
 
     -- ** EBSOptions
-    eBSOptions_volumeSize,
-    eBSOptions_iops,
     eBSOptions_volumeType,
+    eBSOptions_volumeSize,
     eBSOptions_eBSEnabled,
+    eBSOptions_iops,
 
     -- ** EBSOptionsStatus
     eBSOptionsStatus_options,
@@ -503,17 +503,17 @@ module Amazonka.OpenSearch.Lens
     encryptionAtRestOptionsStatus_status,
 
     -- ** ErrorDetails
-    errorDetails_errorType,
     errorDetails_errorMessage,
+    errorDetails_errorType,
 
     -- ** Filter
-    filter_values,
     filter_name,
+    filter_values,
 
     -- ** InboundConnection
     inboundConnection_remoteDomainInfo,
-    inboundConnection_localDomainInfo,
     inboundConnection_connectionId,
+    inboundConnection_localDomainInfo,
     inboundConnection_connectionStatus,
 
     -- ** InboundConnectionStatus
@@ -521,25 +521,25 @@ module Amazonka.OpenSearch.Lens
     inboundConnectionStatus_statusCode,
 
     -- ** InstanceCountLimits
-    instanceCountLimits_maximumInstanceCount,
     instanceCountLimits_minimumInstanceCount,
+    instanceCountLimits_maximumInstanceCount,
 
     -- ** InstanceLimits
     instanceLimits_instanceCountLimits,
 
     -- ** InstanceTypeDetails
+    instanceTypeDetails_advancedSecurityEnabled,
     instanceTypeDetails_encryptionEnabled,
+    instanceTypeDetails_instanceType,
     instanceTypeDetails_cognitoEnabled,
     instanceTypeDetails_instanceRole,
-    instanceTypeDetails_instanceType,
-    instanceTypeDetails_warmEnabled,
-    instanceTypeDetails_advancedSecurityEnabled,
     instanceTypeDetails_appLogsEnabled,
+    instanceTypeDetails_warmEnabled,
 
     -- ** Limits
     limits_instanceLimits,
-    limits_additionalLimits,
     limits_storageTypes,
+    limits_additionalLimits,
 
     -- ** LogPublishingOption
     logPublishingOption_enabled,
@@ -550,9 +550,9 @@ module Amazonka.OpenSearch.Lens
     logPublishingOptionsStatus_options,
 
     -- ** MasterUserOptions
-    masterUserOptions_masterUserPassword,
-    masterUserOptions_masterUserName,
     masterUserOptions_masterUserARN,
+    masterUserOptions_masterUserName,
+    masterUserOptions_masterUserPassword,
 
     -- ** NodeToNodeEncryptionOptions
     nodeToNodeEncryptionOptions_enabled,
@@ -569,10 +569,10 @@ module Amazonka.OpenSearch.Lens
     optionStatus_state,
 
     -- ** OutboundConnection
-    outboundConnection_remoteDomainInfo,
     outboundConnection_connectionAlias,
-    outboundConnection_localDomainInfo,
+    outboundConnection_remoteDomainInfo,
     outboundConnection_connectionId,
+    outboundConnection_localDomainInfo,
     outboundConnection_connectionStatus,
 
     -- ** OutboundConnectionStatus
@@ -580,54 +580,54 @@ module Amazonka.OpenSearch.Lens
     outboundConnectionStatus_statusCode,
 
     -- ** PackageDetails
+    packageDetails_packageDescription,
+    packageDetails_packageName,
+    packageDetails_lastUpdatedAt,
+    packageDetails_errorDetails,
     packageDetails_packageID,
     packageDetails_packageType,
-    packageDetails_lastUpdatedAt,
-    packageDetails_createdAt,
-    packageDetails_packageName,
-    packageDetails_packageStatus,
-    packageDetails_packageDescription,
-    packageDetails_errorDetails,
     packageDetails_availablePackageVersion,
+    packageDetails_packageStatus,
+    packageDetails_createdAt,
 
     -- ** PackageSource
-    packageSource_s3Key,
     packageSource_s3BucketName,
+    packageSource_s3Key,
 
     -- ** PackageVersionHistory
-    packageVersionHistory_createdAt,
     packageVersionHistory_packageVersion,
     packageVersionHistory_commitMessage,
+    packageVersionHistory_createdAt,
 
     -- ** RecurringCharge
-    recurringCharge_recurringChargeFrequency,
     recurringCharge_recurringChargeAmount,
+    recurringCharge_recurringChargeFrequency,
 
     -- ** ReservedInstance
+    reservedInstance_billingSubscriptionId,
+    reservedInstance_reservedInstanceId,
+    reservedInstance_recurringCharges,
     reservedInstance_state,
+    reservedInstance_reservationName,
+    reservedInstance_instanceType,
+    reservedInstance_duration,
     reservedInstance_currencyCode,
     reservedInstance_instanceCount,
-    reservedInstance_startTime,
-    reservedInstance_instanceType,
-    reservedInstance_reservationName,
-    reservedInstance_billingSubscriptionId,
-    reservedInstance_recurringCharges,
-    reservedInstance_usagePrice,
-    reservedInstance_reservedInstanceId,
-    reservedInstance_reservedInstanceOfferingId,
     reservedInstance_fixedPrice,
-    reservedInstance_duration,
+    reservedInstance_reservedInstanceOfferingId,
+    reservedInstance_startTime,
     reservedInstance_paymentOption,
+    reservedInstance_usagePrice,
 
     -- ** ReservedInstanceOffering
-    reservedInstanceOffering_currencyCode,
-    reservedInstanceOffering_instanceType,
     reservedInstanceOffering_recurringCharges,
-    reservedInstanceOffering_usagePrice,
-    reservedInstanceOffering_reservedInstanceOfferingId,
-    reservedInstanceOffering_fixedPrice,
+    reservedInstanceOffering_instanceType,
     reservedInstanceOffering_duration,
+    reservedInstanceOffering_currencyCode,
+    reservedInstanceOffering_fixedPrice,
+    reservedInstanceOffering_reservedInstanceOfferingId,
     reservedInstanceOffering_paymentOption,
+    reservedInstanceOffering_usagePrice,
 
     -- ** SAMLIdp
     sAMLIdp_metadataContent,
@@ -636,34 +636,34 @@ module Amazonka.OpenSearch.Lens
     -- ** SAMLOptionsInput
     sAMLOptionsInput_masterUserName,
     sAMLOptionsInput_enabled,
-    sAMLOptionsInput_idp,
+    sAMLOptionsInput_sessionTimeoutMinutes,
     sAMLOptionsInput_rolesKey,
     sAMLOptionsInput_masterBackendRole,
-    sAMLOptionsInput_sessionTimeoutMinutes,
+    sAMLOptionsInput_idp,
     sAMLOptionsInput_subjectKey,
 
     -- ** SAMLOptionsOutput
     sAMLOptionsOutput_enabled,
-    sAMLOptionsOutput_idp,
-    sAMLOptionsOutput_rolesKey,
     sAMLOptionsOutput_sessionTimeoutMinutes,
+    sAMLOptionsOutput_rolesKey,
+    sAMLOptionsOutput_idp,
     sAMLOptionsOutput_subjectKey,
 
     -- ** ScheduledAutoTuneDetails
     scheduledAutoTuneDetails_severity,
-    scheduledAutoTuneDetails_action,
-    scheduledAutoTuneDetails_date,
     scheduledAutoTuneDetails_actionType,
+    scheduledAutoTuneDetails_date,
+    scheduledAutoTuneDetails_action,
 
     -- ** ServiceSoftwareOptions
-    serviceSoftwareOptions_automatedUpdateDate,
-    serviceSoftwareOptions_currentVersion,
     serviceSoftwareOptions_optionalDeployment,
-    serviceSoftwareOptions_updateStatus,
-    serviceSoftwareOptions_cancellable,
-    serviceSoftwareOptions_updateAvailable,
-    serviceSoftwareOptions_description,
     serviceSoftwareOptions_newVersion,
+    serviceSoftwareOptions_updateAvailable,
+    serviceSoftwareOptions_cancellable,
+    serviceSoftwareOptions_updateStatus,
+    serviceSoftwareOptions_automatedUpdateDate,
+    serviceSoftwareOptions_description,
+    serviceSoftwareOptions_currentVersion,
 
     -- ** SnapshotOptions
     snapshotOptions_automatedSnapshotStartHour,
@@ -673,8 +673,8 @@ module Amazonka.OpenSearch.Lens
     snapshotOptionsStatus_status,
 
     -- ** StorageType
-    storageType_storageTypeLimits,
     storageType_storageSubTypeName,
+    storageType_storageTypeLimits,
     storageType_storageTypeName,
 
     -- ** StorageTypeLimit
@@ -686,22 +686,22 @@ module Amazonka.OpenSearch.Lens
     tag_value,
 
     -- ** UpgradeHistory
-    upgradeHistory_upgradeStatus,
+    upgradeHistory_startTimestamp,
     upgradeHistory_stepsList,
     upgradeHistory_upgradeName,
-    upgradeHistory_startTimestamp,
+    upgradeHistory_upgradeStatus,
 
     -- ** UpgradeStepItem
-    upgradeStepItem_upgradeStepStatus,
-    upgradeStepItem_progressPercent,
-    upgradeStepItem_issues,
     upgradeStepItem_upgradeStep,
+    upgradeStepItem_issues,
+    upgradeStepItem_progressPercent,
+    upgradeStepItem_upgradeStepStatus,
 
     -- ** VPCDerivedInfo
     vPCDerivedInfo_securityGroupIds,
-    vPCDerivedInfo_subnetIds,
-    vPCDerivedInfo_vPCId,
     vPCDerivedInfo_availabilityZones,
+    vPCDerivedInfo_vPCId,
+    vPCDerivedInfo_subnetIds,
 
     -- ** VPCDerivedInfoStatus
     vPCDerivedInfoStatus_options,

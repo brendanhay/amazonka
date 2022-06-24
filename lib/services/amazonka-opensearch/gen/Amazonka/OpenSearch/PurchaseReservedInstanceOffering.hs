@@ -36,8 +36,8 @@ module Amazonka.OpenSearch.PurchaseReservedInstanceOffering
     newPurchaseReservedInstanceOfferingResponse,
 
     -- * Response Lenses
-    purchaseReservedInstanceOfferingResponse_reservationName,
     purchaseReservedInstanceOfferingResponse_reservedInstanceId,
+    purchaseReservedInstanceOfferingResponse_reservationName,
     purchaseReservedInstanceOfferingResponse_httpStatus,
   )
 where
@@ -116,8 +116,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           PurchaseReservedInstanceOfferingResponse'
-            Prelude.<$> (x Core..?> "ReservationName")
-            Prelude.<*> (x Core..?> "ReservedInstanceId")
+            Prelude.<$> (x Core..?> "ReservedInstanceId")
+            Prelude.<*> (x Core..?> "ReservationName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,10 +176,10 @@ instance
 --
 -- /See:/ 'newPurchaseReservedInstanceOfferingResponse' smart constructor.
 data PurchaseReservedInstanceOfferingResponse = PurchaseReservedInstanceOfferingResponse'
-  { -- | The customer-specified identifier used to track this reservation.
-    reservationName :: Prelude.Maybe Prelude.Text,
-    -- | Details of the reserved OpenSearch instance which was purchased.
+  { -- | Details of the reserved OpenSearch instance which was purchased.
     reservedInstanceId :: Prelude.Maybe Prelude.Text,
+    -- | The customer-specified identifier used to track this reservation.
+    reservationName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -193,9 +193,9 @@ data PurchaseReservedInstanceOfferingResponse = PurchaseReservedInstanceOffering
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reservationName', 'purchaseReservedInstanceOfferingResponse_reservationName' - The customer-specified identifier used to track this reservation.
---
 -- 'reservedInstanceId', 'purchaseReservedInstanceOfferingResponse_reservedInstanceId' - Details of the reserved OpenSearch instance which was purchased.
+--
+-- 'reservationName', 'purchaseReservedInstanceOfferingResponse_reservationName' - The customer-specified identifier used to track this reservation.
 --
 -- 'httpStatus', 'purchaseReservedInstanceOfferingResponse_httpStatus' - The response's http status code.
 newPurchaseReservedInstanceOfferingResponse ::
@@ -205,20 +205,19 @@ newPurchaseReservedInstanceOfferingResponse ::
 newPurchaseReservedInstanceOfferingResponse
   pHttpStatus_ =
     PurchaseReservedInstanceOfferingResponse'
-      { reservationName =
+      { reservedInstanceId =
           Prelude.Nothing,
-        reservedInstanceId =
-          Prelude.Nothing,
+        reservationName = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The customer-specified identifier used to track this reservation.
-purchaseReservedInstanceOfferingResponse_reservationName :: Lens.Lens' PurchaseReservedInstanceOfferingResponse (Prelude.Maybe Prelude.Text)
-purchaseReservedInstanceOfferingResponse_reservationName = Lens.lens (\PurchaseReservedInstanceOfferingResponse' {reservationName} -> reservationName) (\s@PurchaseReservedInstanceOfferingResponse' {} a -> s {reservationName = a} :: PurchaseReservedInstanceOfferingResponse)
 
 -- | Details of the reserved OpenSearch instance which was purchased.
 purchaseReservedInstanceOfferingResponse_reservedInstanceId :: Lens.Lens' PurchaseReservedInstanceOfferingResponse (Prelude.Maybe Prelude.Text)
 purchaseReservedInstanceOfferingResponse_reservedInstanceId = Lens.lens (\PurchaseReservedInstanceOfferingResponse' {reservedInstanceId} -> reservedInstanceId) (\s@PurchaseReservedInstanceOfferingResponse' {} a -> s {reservedInstanceId = a} :: PurchaseReservedInstanceOfferingResponse)
+
+-- | The customer-specified identifier used to track this reservation.
+purchaseReservedInstanceOfferingResponse_reservationName :: Lens.Lens' PurchaseReservedInstanceOfferingResponse (Prelude.Maybe Prelude.Text)
+purchaseReservedInstanceOfferingResponse_reservationName = Lens.lens (\PurchaseReservedInstanceOfferingResponse' {reservationName} -> reservationName) (\s@PurchaseReservedInstanceOfferingResponse' {} a -> s {reservationName = a} :: PurchaseReservedInstanceOfferingResponse)
 
 -- | The response's http status code.
 purchaseReservedInstanceOfferingResponse_httpStatus :: Lens.Lens' PurchaseReservedInstanceOfferingResponse Prelude.Int
@@ -229,6 +228,6 @@ instance
     PurchaseReservedInstanceOfferingResponse
   where
   rnf PurchaseReservedInstanceOfferingResponse' {..} =
-    Prelude.rnf reservationName
-      `Prelude.seq` Prelude.rnf reservedInstanceId
+    Prelude.rnf reservedInstanceId
+      `Prelude.seq` Prelude.rnf reservationName
       `Prelude.seq` Prelude.rnf httpStatus

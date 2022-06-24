@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAutoTuneOptionsOutput' smart constructor.
 data AutoTuneOptionsOutput = AutoTuneOptionsOutput'
-  { -- | The @AutoTuneState@ for the domain.
-    state :: Prelude.Maybe AutoTuneState,
-    -- | The error message while enabling or disabling Auto-Tune.
-    errorMessage :: Prelude.Maybe Prelude.Text
+  { -- | The error message while enabling or disabling Auto-Tune.
+    errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | The @AutoTuneState@ for the domain.
+    state :: Prelude.Maybe AutoTuneState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,25 @@ data AutoTuneOptionsOutput = AutoTuneOptionsOutput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'autoTuneOptionsOutput_state' - The @AutoTuneState@ for the domain.
---
 -- 'errorMessage', 'autoTuneOptionsOutput_errorMessage' - The error message while enabling or disabling Auto-Tune.
+--
+-- 'state', 'autoTuneOptionsOutput_state' - The @AutoTuneState@ for the domain.
 newAutoTuneOptionsOutput ::
   AutoTuneOptionsOutput
 newAutoTuneOptionsOutput =
   AutoTuneOptionsOutput'
-    { state = Prelude.Nothing,
-      errorMessage = Prelude.Nothing
+    { errorMessage =
+        Prelude.Nothing,
+      state = Prelude.Nothing
     }
-
--- | The @AutoTuneState@ for the domain.
-autoTuneOptionsOutput_state :: Lens.Lens' AutoTuneOptionsOutput (Prelude.Maybe AutoTuneState)
-autoTuneOptionsOutput_state = Lens.lens (\AutoTuneOptionsOutput' {state} -> state) (\s@AutoTuneOptionsOutput' {} a -> s {state = a} :: AutoTuneOptionsOutput)
 
 -- | The error message while enabling or disabling Auto-Tune.
 autoTuneOptionsOutput_errorMessage :: Lens.Lens' AutoTuneOptionsOutput (Prelude.Maybe Prelude.Text)
 autoTuneOptionsOutput_errorMessage = Lens.lens (\AutoTuneOptionsOutput' {errorMessage} -> errorMessage) (\s@AutoTuneOptionsOutput' {} a -> s {errorMessage = a} :: AutoTuneOptionsOutput)
+
+-- | The @AutoTuneState@ for the domain.
+autoTuneOptionsOutput_state :: Lens.Lens' AutoTuneOptionsOutput (Prelude.Maybe AutoTuneState)
+autoTuneOptionsOutput_state = Lens.lens (\AutoTuneOptionsOutput' {state} -> state) (\s@AutoTuneOptionsOutput' {} a -> s {state = a} :: AutoTuneOptionsOutput)
 
 instance Core.FromJSON AutoTuneOptionsOutput where
   parseJSON =
@@ -69,16 +70,16 @@ instance Core.FromJSON AutoTuneOptionsOutput where
       "AutoTuneOptionsOutput"
       ( \x ->
           AutoTuneOptionsOutput'
-            Prelude.<$> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "ErrorMessage")
+            Prelude.<$> (x Core..:? "ErrorMessage")
+            Prelude.<*> (x Core..:? "State")
       )
 
 instance Prelude.Hashable AutoTuneOptionsOutput where
   hashWithSalt _salt AutoTuneOptionsOutput' {..} =
-    _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` errorMessage
+    _salt `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` state
 
 instance Prelude.NFData AutoTuneOptionsOutput where
   rnf AutoTuneOptionsOutput' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf state

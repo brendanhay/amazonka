@@ -31,14 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 data VPCDerivedInfo = VPCDerivedInfo'
   { -- | The security groups for the VPC endpoint.
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The subnets for the VPC endpoint.
-    subnetIds :: Prelude.Maybe [Prelude.Text],
+    -- | The Availability Zones for the domain. Exists only if the domain was
+    -- created with @VPCOptions@.
+    availabilityZones :: Prelude.Maybe [Prelude.Text],
     -- | The VPC ID for the domain. Exists only if the domain was created with
     -- @VPCOptions@.
     vPCId :: Prelude.Maybe Prelude.Text,
-    -- | The Availability Zones for the domain. Exists only if the domain was
-    -- created with @VPCOptions@.
-    availabilityZones :: Prelude.Maybe [Prelude.Text]
+    -- | The subnets for the VPC endpoint.
+    subnetIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,40 +52,40 @@ data VPCDerivedInfo = VPCDerivedInfo'
 --
 -- 'securityGroupIds', 'vPCDerivedInfo_securityGroupIds' - The security groups for the VPC endpoint.
 --
--- 'subnetIds', 'vPCDerivedInfo_subnetIds' - The subnets for the VPC endpoint.
+-- 'availabilityZones', 'vPCDerivedInfo_availabilityZones' - The Availability Zones for the domain. Exists only if the domain was
+-- created with @VPCOptions@.
 --
 -- 'vPCId', 'vPCDerivedInfo_vPCId' - The VPC ID for the domain. Exists only if the domain was created with
 -- @VPCOptions@.
 --
--- 'availabilityZones', 'vPCDerivedInfo_availabilityZones' - The Availability Zones for the domain. Exists only if the domain was
--- created with @VPCOptions@.
+-- 'subnetIds', 'vPCDerivedInfo_subnetIds' - The subnets for the VPC endpoint.
 newVPCDerivedInfo ::
   VPCDerivedInfo
 newVPCDerivedInfo =
   VPCDerivedInfo'
     { securityGroupIds = Prelude.Nothing,
-      subnetIds = Prelude.Nothing,
+      availabilityZones = Prelude.Nothing,
       vPCId = Prelude.Nothing,
-      availabilityZones = Prelude.Nothing
+      subnetIds = Prelude.Nothing
     }
 
 -- | The security groups for the VPC endpoint.
 vPCDerivedInfo_securityGroupIds :: Lens.Lens' VPCDerivedInfo (Prelude.Maybe [Prelude.Text])
 vPCDerivedInfo_securityGroupIds = Lens.lens (\VPCDerivedInfo' {securityGroupIds} -> securityGroupIds) (\s@VPCDerivedInfo' {} a -> s {securityGroupIds = a} :: VPCDerivedInfo) Prelude.. Lens.mapping Lens.coerced
 
--- | The subnets for the VPC endpoint.
-vPCDerivedInfo_subnetIds :: Lens.Lens' VPCDerivedInfo (Prelude.Maybe [Prelude.Text])
-vPCDerivedInfo_subnetIds = Lens.lens (\VPCDerivedInfo' {subnetIds} -> subnetIds) (\s@VPCDerivedInfo' {} a -> s {subnetIds = a} :: VPCDerivedInfo) Prelude.. Lens.mapping Lens.coerced
+-- | The Availability Zones for the domain. Exists only if the domain was
+-- created with @VPCOptions@.
+vPCDerivedInfo_availabilityZones :: Lens.Lens' VPCDerivedInfo (Prelude.Maybe [Prelude.Text])
+vPCDerivedInfo_availabilityZones = Lens.lens (\VPCDerivedInfo' {availabilityZones} -> availabilityZones) (\s@VPCDerivedInfo' {} a -> s {availabilityZones = a} :: VPCDerivedInfo) Prelude.. Lens.mapping Lens.coerced
 
 -- | The VPC ID for the domain. Exists only if the domain was created with
 -- @VPCOptions@.
 vPCDerivedInfo_vPCId :: Lens.Lens' VPCDerivedInfo (Prelude.Maybe Prelude.Text)
 vPCDerivedInfo_vPCId = Lens.lens (\VPCDerivedInfo' {vPCId} -> vPCId) (\s@VPCDerivedInfo' {} a -> s {vPCId = a} :: VPCDerivedInfo)
 
--- | The Availability Zones for the domain. Exists only if the domain was
--- created with @VPCOptions@.
-vPCDerivedInfo_availabilityZones :: Lens.Lens' VPCDerivedInfo (Prelude.Maybe [Prelude.Text])
-vPCDerivedInfo_availabilityZones = Lens.lens (\VPCDerivedInfo' {availabilityZones} -> availabilityZones) (\s@VPCDerivedInfo' {} a -> s {availabilityZones = a} :: VPCDerivedInfo) Prelude.. Lens.mapping Lens.coerced
+-- | The subnets for the VPC endpoint.
+vPCDerivedInfo_subnetIds :: Lens.Lens' VPCDerivedInfo (Prelude.Maybe [Prelude.Text])
+vPCDerivedInfo_subnetIds = Lens.lens (\VPCDerivedInfo' {subnetIds} -> subnetIds) (\s@VPCDerivedInfo' {} a -> s {subnetIds = a} :: VPCDerivedInfo) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON VPCDerivedInfo where
   parseJSON =
@@ -96,23 +96,23 @@ instance Core.FromJSON VPCDerivedInfo where
             Prelude.<$> ( x Core..:? "SecurityGroupIds"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "VPCId")
             Prelude.<*> ( x Core..:? "AvailabilityZones"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "VPCId")
+            Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable VPCDerivedInfo where
   hashWithSalt _salt VPCDerivedInfo' {..} =
     _salt `Prelude.hashWithSalt` securityGroupIds
-      `Prelude.hashWithSalt` subnetIds
-      `Prelude.hashWithSalt` vPCId
       `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` vPCId
+      `Prelude.hashWithSalt` subnetIds
 
 instance Prelude.NFData VPCDerivedInfo where
   rnf VPCDerivedInfo' {..} =
     Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf vPCId
       `Prelude.seq` Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf vPCId
+      `Prelude.seq` Prelude.rnf subnetIds

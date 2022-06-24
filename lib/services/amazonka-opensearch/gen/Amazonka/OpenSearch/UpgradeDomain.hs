@@ -29,8 +29,8 @@ module Amazonka.OpenSearch.UpgradeDomain
     newUpgradeDomain,
 
     -- * Request Lenses
-    upgradeDomain_performCheckOnly,
     upgradeDomain_advancedOptions,
+    upgradeDomain_performCheckOnly,
     upgradeDomain_domainName,
     upgradeDomain_targetVersion,
 
@@ -39,11 +39,11 @@ module Amazonka.OpenSearch.UpgradeDomain
     newUpgradeDomainResponse,
 
     -- * Response Lenses
-    upgradeDomainResponse_domainName,
-    upgradeDomainResponse_upgradeId,
-    upgradeDomainResponse_performCheckOnly,
-    upgradeDomainResponse_targetVersion,
     upgradeDomainResponse_advancedOptions,
+    upgradeDomainResponse_domainName,
+    upgradeDomainResponse_targetVersion,
+    upgradeDomainResponse_performCheckOnly,
+    upgradeDomainResponse_upgradeId,
     upgradeDomainResponse_httpStatus,
   )
 where
@@ -59,10 +59,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpgradeDomain' smart constructor.
 data UpgradeDomain = UpgradeDomain'
-  { -- | When true, indicates that an upgrade eligibility check needs to be
+  { advancedOptions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | When true, indicates that an upgrade eligibility check needs to be
     -- performed. Does not actually perform the upgrade.
     performCheckOnly :: Prelude.Maybe Prelude.Bool,
-    advancedOptions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     domainName :: Prelude.Text,
     -- | The version of OpenSearch you intend to upgrade the domain to.
     targetVersion :: Prelude.Text
@@ -77,10 +77,10 @@ data UpgradeDomain = UpgradeDomain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'advancedOptions', 'upgradeDomain_advancedOptions' - Undocumented member.
+--
 -- 'performCheckOnly', 'upgradeDomain_performCheckOnly' - When true, indicates that an upgrade eligibility check needs to be
 -- performed. Does not actually perform the upgrade.
---
--- 'advancedOptions', 'upgradeDomain_advancedOptions' - Undocumented member.
 --
 -- 'domainName', 'upgradeDomain_domainName' - Undocumented member.
 --
@@ -93,20 +93,20 @@ newUpgradeDomain ::
   UpgradeDomain
 newUpgradeDomain pDomainName_ pTargetVersion_ =
   UpgradeDomain'
-    { performCheckOnly = Prelude.Nothing,
-      advancedOptions = Prelude.Nothing,
+    { advancedOptions = Prelude.Nothing,
+      performCheckOnly = Prelude.Nothing,
       domainName = pDomainName_,
       targetVersion = pTargetVersion_
     }
+
+-- | Undocumented member.
+upgradeDomain_advancedOptions :: Lens.Lens' UpgradeDomain (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+upgradeDomain_advancedOptions = Lens.lens (\UpgradeDomain' {advancedOptions} -> advancedOptions) (\s@UpgradeDomain' {} a -> s {advancedOptions = a} :: UpgradeDomain) Prelude.. Lens.mapping Lens.coerced
 
 -- | When true, indicates that an upgrade eligibility check needs to be
 -- performed. Does not actually perform the upgrade.
 upgradeDomain_performCheckOnly :: Lens.Lens' UpgradeDomain (Prelude.Maybe Prelude.Bool)
 upgradeDomain_performCheckOnly = Lens.lens (\UpgradeDomain' {performCheckOnly} -> performCheckOnly) (\s@UpgradeDomain' {} a -> s {performCheckOnly = a} :: UpgradeDomain)
-
--- | Undocumented member.
-upgradeDomain_advancedOptions :: Lens.Lens' UpgradeDomain (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-upgradeDomain_advancedOptions = Lens.lens (\UpgradeDomain' {advancedOptions} -> advancedOptions) (\s@UpgradeDomain' {} a -> s {advancedOptions = a} :: UpgradeDomain) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 upgradeDomain_domainName :: Lens.Lens' UpgradeDomain Prelude.Text
@@ -125,27 +125,27 @@ instance Core.AWSRequest UpgradeDomain where
     Response.receiveJSON
       ( \s h x ->
           UpgradeDomainResponse'
-            Prelude.<$> (x Core..?> "DomainName")
-            Prelude.<*> (x Core..?> "UpgradeId")
-            Prelude.<*> (x Core..?> "PerformCheckOnly")
-            Prelude.<*> (x Core..?> "TargetVersion")
-            Prelude.<*> ( x Core..?> "AdvancedOptions"
+            Prelude.<$> ( x Core..?> "AdvancedOptions"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "DomainName")
+            Prelude.<*> (x Core..?> "TargetVersion")
+            Prelude.<*> (x Core..?> "PerformCheckOnly")
+            Prelude.<*> (x Core..?> "UpgradeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpgradeDomain where
   hashWithSalt _salt UpgradeDomain' {..} =
-    _salt `Prelude.hashWithSalt` performCheckOnly
-      `Prelude.hashWithSalt` advancedOptions
+    _salt `Prelude.hashWithSalt` advancedOptions
+      `Prelude.hashWithSalt` performCheckOnly
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` targetVersion
 
 instance Prelude.NFData UpgradeDomain where
   rnf UpgradeDomain' {..} =
-    Prelude.rnf performCheckOnly
-      `Prelude.seq` Prelude.rnf advancedOptions
+    Prelude.rnf advancedOptions
+      `Prelude.seq` Prelude.rnf performCheckOnly
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf targetVersion
 
@@ -156,10 +156,10 @@ instance Core.ToJSON UpgradeDomain where
   toJSON UpgradeDomain' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PerformCheckOnly" Core..=)
-              Prelude.<$> performCheckOnly,
-            ("AdvancedOptions" Core..=)
+          [ ("AdvancedOptions" Core..=)
               Prelude.<$> advancedOptions,
+            ("PerformCheckOnly" Core..=)
+              Prelude.<$> performCheckOnly,
             Prelude.Just ("DomainName" Core..= domainName),
             Prelude.Just
               ("TargetVersion" Core..= targetVersion)
@@ -178,14 +178,14 @@ instance Core.ToQuery UpgradeDomain where
 --
 -- /See:/ 'newUpgradeDomainResponse' smart constructor.
 data UpgradeDomainResponse = UpgradeDomainResponse'
-  { domainName :: Prelude.Maybe Prelude.Text,
-    upgradeId :: Prelude.Maybe Prelude.Text,
+  { advancedOptions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    domainName :: Prelude.Maybe Prelude.Text,
+    -- | The version of OpenSearch that you intend to upgrade the domain to.
+    targetVersion :: Prelude.Maybe Prelude.Text,
     -- | When true, indicates that an upgrade eligibility check needs to be
     -- performed. Does not actually perform the upgrade.
     performCheckOnly :: Prelude.Maybe Prelude.Bool,
-    -- | The version of OpenSearch that you intend to upgrade the domain to.
-    targetVersion :: Prelude.Maybe Prelude.Text,
-    advancedOptions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    upgradeId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -199,16 +199,16 @@ data UpgradeDomainResponse = UpgradeDomainResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'advancedOptions', 'upgradeDomainResponse_advancedOptions' - Undocumented member.
+--
 -- 'domainName', 'upgradeDomainResponse_domainName' - Undocumented member.
 --
--- 'upgradeId', 'upgradeDomainResponse_upgradeId' - Undocumented member.
+-- 'targetVersion', 'upgradeDomainResponse_targetVersion' - The version of OpenSearch that you intend to upgrade the domain to.
 --
 -- 'performCheckOnly', 'upgradeDomainResponse_performCheckOnly' - When true, indicates that an upgrade eligibility check needs to be
 -- performed. Does not actually perform the upgrade.
 --
--- 'targetVersion', 'upgradeDomainResponse_targetVersion' - The version of OpenSearch that you intend to upgrade the domain to.
---
--- 'advancedOptions', 'upgradeDomainResponse_advancedOptions' - Undocumented member.
+-- 'upgradeId', 'upgradeDomainResponse_upgradeId' - Undocumented member.
 --
 -- 'httpStatus', 'upgradeDomainResponse_httpStatus' - The response's http status code.
 newUpgradeDomainResponse ::
@@ -217,35 +217,35 @@ newUpgradeDomainResponse ::
   UpgradeDomainResponse
 newUpgradeDomainResponse pHttpStatus_ =
   UpgradeDomainResponse'
-    { domainName =
+    { advancedOptions =
         Prelude.Nothing,
-      upgradeId = Prelude.Nothing,
-      performCheckOnly = Prelude.Nothing,
+      domainName = Prelude.Nothing,
       targetVersion = Prelude.Nothing,
-      advancedOptions = Prelude.Nothing,
+      performCheckOnly = Prelude.Nothing,
+      upgradeId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Undocumented member.
+upgradeDomainResponse_advancedOptions :: Lens.Lens' UpgradeDomainResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+upgradeDomainResponse_advancedOptions = Lens.lens (\UpgradeDomainResponse' {advancedOptions} -> advancedOptions) (\s@UpgradeDomainResponse' {} a -> s {advancedOptions = a} :: UpgradeDomainResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 upgradeDomainResponse_domainName :: Lens.Lens' UpgradeDomainResponse (Prelude.Maybe Prelude.Text)
 upgradeDomainResponse_domainName = Lens.lens (\UpgradeDomainResponse' {domainName} -> domainName) (\s@UpgradeDomainResponse' {} a -> s {domainName = a} :: UpgradeDomainResponse)
 
--- | Undocumented member.
-upgradeDomainResponse_upgradeId :: Lens.Lens' UpgradeDomainResponse (Prelude.Maybe Prelude.Text)
-upgradeDomainResponse_upgradeId = Lens.lens (\UpgradeDomainResponse' {upgradeId} -> upgradeId) (\s@UpgradeDomainResponse' {} a -> s {upgradeId = a} :: UpgradeDomainResponse)
+-- | The version of OpenSearch that you intend to upgrade the domain to.
+upgradeDomainResponse_targetVersion :: Lens.Lens' UpgradeDomainResponse (Prelude.Maybe Prelude.Text)
+upgradeDomainResponse_targetVersion = Lens.lens (\UpgradeDomainResponse' {targetVersion} -> targetVersion) (\s@UpgradeDomainResponse' {} a -> s {targetVersion = a} :: UpgradeDomainResponse)
 
 -- | When true, indicates that an upgrade eligibility check needs to be
 -- performed. Does not actually perform the upgrade.
 upgradeDomainResponse_performCheckOnly :: Lens.Lens' UpgradeDomainResponse (Prelude.Maybe Prelude.Bool)
 upgradeDomainResponse_performCheckOnly = Lens.lens (\UpgradeDomainResponse' {performCheckOnly} -> performCheckOnly) (\s@UpgradeDomainResponse' {} a -> s {performCheckOnly = a} :: UpgradeDomainResponse)
 
--- | The version of OpenSearch that you intend to upgrade the domain to.
-upgradeDomainResponse_targetVersion :: Lens.Lens' UpgradeDomainResponse (Prelude.Maybe Prelude.Text)
-upgradeDomainResponse_targetVersion = Lens.lens (\UpgradeDomainResponse' {targetVersion} -> targetVersion) (\s@UpgradeDomainResponse' {} a -> s {targetVersion = a} :: UpgradeDomainResponse)
-
 -- | Undocumented member.
-upgradeDomainResponse_advancedOptions :: Lens.Lens' UpgradeDomainResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-upgradeDomainResponse_advancedOptions = Lens.lens (\UpgradeDomainResponse' {advancedOptions} -> advancedOptions) (\s@UpgradeDomainResponse' {} a -> s {advancedOptions = a} :: UpgradeDomainResponse) Prelude.. Lens.mapping Lens.coerced
+upgradeDomainResponse_upgradeId :: Lens.Lens' UpgradeDomainResponse (Prelude.Maybe Prelude.Text)
+upgradeDomainResponse_upgradeId = Lens.lens (\UpgradeDomainResponse' {upgradeId} -> upgradeId) (\s@UpgradeDomainResponse' {} a -> s {upgradeId = a} :: UpgradeDomainResponse)
 
 -- | The response's http status code.
 upgradeDomainResponse_httpStatus :: Lens.Lens' UpgradeDomainResponse Prelude.Int
@@ -253,9 +253,9 @@ upgradeDomainResponse_httpStatus = Lens.lens (\UpgradeDomainResponse' {httpStatu
 
 instance Prelude.NFData UpgradeDomainResponse where
   rnf UpgradeDomainResponse' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf upgradeId
-      `Prelude.seq` Prelude.rnf performCheckOnly
+    Prelude.rnf advancedOptions
+      `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf targetVersion
-      `Prelude.seq` Prelude.rnf advancedOptions
+      `Prelude.seq` Prelude.rnf performCheckOnly
+      `Prelude.seq` Prelude.rnf upgradeId
       `Prelude.seq` Prelude.rnf httpStatus

@@ -27,110 +27,20 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestRejectInboundConnection $
---             newRejectInboundConnection
---
---         , requestDescribeOutboundConnections $
---             newDescribeOutboundConnections
---
---         , requestRemoveTags $
---             newRemoveTags
---
---         , requestDescribeInstanceTypeLimits $
---             newDescribeInstanceTypeLimits
---
---         , requestDescribeInboundConnections $
---             newDescribeInboundConnections
---
---         , requestCancelServiceSoftwareUpdate $
---             newCancelServiceSoftwareUpdate
---
---         , requestListDomainsForPackage $
---             newListDomainsForPackage
---
---         , requestListPackagesForDomain $
---             newListPackagesForDomain
---
---         , requestUpgradeDomain $
---             newUpgradeDomain
---
---         , requestDescribeDomainAutoTunes $
---             newDescribeDomainAutoTunes
---
---         , requestDescribeReservedInstances $
---             newDescribeReservedInstances
---
---         , requestStartServiceSoftwareUpdate $
---             newStartServiceSoftwareUpdate
---
---         , requestDeleteOutboundConnection $
---             newDeleteOutboundConnection
---
---         , requestListVersions $
---             newListVersions
---
---         , requestDescribeReservedInstanceOfferings $
---             newDescribeReservedInstanceOfferings
---
---         , requestListDomainNames $
---             newListDomainNames
---
---         , requestPurchaseReservedInstanceOffering $
---             newPurchaseReservedInstanceOffering
---
---         , requestDescribeDomains $
---             newDescribeDomains
---
---         , requestAssociatePackage $
---             newAssociatePackage
---
---         , requestListInstanceTypeDetails $
---             newListInstanceTypeDetails
---
---         , requestGetPackageVersionHistory $
---             newGetPackageVersionHistory
---
---         , requestGetUpgradeHistory $
---             newGetUpgradeHistory
---
---         , requestDescribePackages $
---             newDescribePackages
---
---         , requestCreateDomain $
---             newCreateDomain
---
---         , requestDescribeDomainConfig $
---             newDescribeDomainConfig
---
---         , requestGetUpgradeStatus $
---             newGetUpgradeStatus
---
---         , requestDeleteInboundConnection $
---             newDeleteInboundConnection
---
---         , requestDissociatePackage $
---             newDissociatePackage
---
---         , requestDescribeDomain $
---             newDescribeDomain
+--         [ requestAcceptInboundConnection $
+--             newAcceptInboundConnection
 --
 --         , requestAddTags $
 --             newAddTags
 --
---         , requestAcceptInboundConnection $
---             newAcceptInboundConnection
+--         , requestAssociatePackage $
+--             newAssociatePackage
 --
---         , requestUpdateDomainConfig $
---             newUpdateDomainConfig
+--         , requestCancelServiceSoftwareUpdate $
+--             newCancelServiceSoftwareUpdate
 --
---         , requestListTags $
---             newListTags
---
---         , requestDeletePackage $
---             newDeletePackage
---
---         , requestUpdatePackage $
---             newUpdatePackage
+--         , requestCreateDomain $
+--             newCreateDomain
 --
 --         , requestCreateOutboundConnection $
 --             newCreateOutboundConnection
@@ -141,116 +51,116 @@ import Test.Tasty
 --         , requestDeleteDomain $
 --             newDeleteDomain
 --
+--         , requestDeleteInboundConnection $
+--             newDeleteInboundConnection
+--
+--         , requestDeleteOutboundConnection $
+--             newDeleteOutboundConnection
+--
+--         , requestDeletePackage $
+--             newDeletePackage
+--
+--         , requestDescribeDomain $
+--             newDescribeDomain
+--
+--         , requestDescribeDomainAutoTunes $
+--             newDescribeDomainAutoTunes
+--
+--         , requestDescribeDomainConfig $
+--             newDescribeDomainConfig
+--
+--         , requestDescribeDomains $
+--             newDescribeDomains
+--
+--         , requestDescribeInboundConnections $
+--             newDescribeInboundConnections
+--
+--         , requestDescribeInstanceTypeLimits $
+--             newDescribeInstanceTypeLimits
+--
+--         , requestDescribeOutboundConnections $
+--             newDescribeOutboundConnections
+--
+--         , requestDescribePackages $
+--             newDescribePackages
+--
+--         , requestDescribeReservedInstanceOfferings $
+--             newDescribeReservedInstanceOfferings
+--
+--         , requestDescribeReservedInstances $
+--             newDescribeReservedInstances
+--
+--         , requestDissociatePackage $
+--             newDissociatePackage
+--
 --         , requestGetCompatibleVersions $
 --             newGetCompatibleVersions
+--
+--         , requestGetPackageVersionHistory $
+--             newGetPackageVersionHistory
+--
+--         , requestGetUpgradeHistory $
+--             newGetUpgradeHistory
+--
+--         , requestGetUpgradeStatus $
+--             newGetUpgradeStatus
+--
+--         , requestListDomainNames $
+--             newListDomainNames
+--
+--         , requestListDomainsForPackage $
+--             newListDomainsForPackage
+--
+--         , requestListInstanceTypeDetails $
+--             newListInstanceTypeDetails
+--
+--         , requestListPackagesForDomain $
+--             newListPackagesForDomain
+--
+--         , requestListTags $
+--             newListTags
+--
+--         , requestListVersions $
+--             newListVersions
+--
+--         , requestPurchaseReservedInstanceOffering $
+--             newPurchaseReservedInstanceOffering
+--
+--         , requestRejectInboundConnection $
+--             newRejectInboundConnection
+--
+--         , requestRemoveTags $
+--             newRemoveTags
+--
+--         , requestStartServiceSoftwareUpdate $
+--             newStartServiceSoftwareUpdate
+--
+--         , requestUpdateDomainConfig $
+--             newUpdateDomainConfig
+--
+--         , requestUpdatePackage $
+--             newUpdatePackage
+--
+--         , requestUpgradeDomain $
+--             newUpgradeDomain
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseRejectInboundConnection $
---             newRejectInboundConnectionResponse
---
---         , responseDescribeOutboundConnections $
---             newDescribeOutboundConnectionsResponse
---
---         , responseRemoveTags $
---             newRemoveTagsResponse
---
---         , responseDescribeInstanceTypeLimits $
---             newDescribeInstanceTypeLimitsResponse
---
---         , responseDescribeInboundConnections $
---             newDescribeInboundConnectionsResponse
---
---         , responseCancelServiceSoftwareUpdate $
---             newCancelServiceSoftwareUpdateResponse
---
---         , responseListDomainsForPackage $
---             newListDomainsForPackageResponse
---
---         , responseListPackagesForDomain $
---             newListPackagesForDomainResponse
---
---         , responseUpgradeDomain $
---             newUpgradeDomainResponse
---
---         , responseDescribeDomainAutoTunes $
---             newDescribeDomainAutoTunesResponse
---
---         , responseDescribeReservedInstances $
---             newDescribeReservedInstancesResponse
---
---         , responseStartServiceSoftwareUpdate $
---             newStartServiceSoftwareUpdateResponse
---
---         , responseDeleteOutboundConnection $
---             newDeleteOutboundConnectionResponse
---
---         , responseListVersions $
---             newListVersionsResponse
---
---         , responseDescribeReservedInstanceOfferings $
---             newDescribeReservedInstanceOfferingsResponse
---
---         , responseListDomainNames $
---             newListDomainNamesResponse
---
---         , responsePurchaseReservedInstanceOffering $
---             newPurchaseReservedInstanceOfferingResponse
---
---         , responseDescribeDomains $
---             newDescribeDomainsResponse
---
---         , responseAssociatePackage $
---             newAssociatePackageResponse
---
---         , responseListInstanceTypeDetails $
---             newListInstanceTypeDetailsResponse
---
---         , responseGetPackageVersionHistory $
---             newGetPackageVersionHistoryResponse
---
---         , responseGetUpgradeHistory $
---             newGetUpgradeHistoryResponse
---
---         , responseDescribePackages $
---             newDescribePackagesResponse
---
---         , responseCreateDomain $
---             newCreateDomainResponse
---
---         , responseDescribeDomainConfig $
---             newDescribeDomainConfigResponse
---
---         , responseGetUpgradeStatus $
---             newGetUpgradeStatusResponse
---
---         , responseDeleteInboundConnection $
---             newDeleteInboundConnectionResponse
---
---         , responseDissociatePackage $
---             newDissociatePackageResponse
---
---         , responseDescribeDomain $
---             newDescribeDomainResponse
+--         [ responseAcceptInboundConnection $
+--             newAcceptInboundConnectionResponse
 --
 --         , responseAddTags $
 --             newAddTagsResponse
 --
---         , responseAcceptInboundConnection $
---             newAcceptInboundConnectionResponse
+--         , responseAssociatePackage $
+--             newAssociatePackageResponse
 --
---         , responseUpdateDomainConfig $
---             newUpdateDomainConfigResponse
+--         , responseCancelServiceSoftwareUpdate $
+--             newCancelServiceSoftwareUpdateResponse
 --
---         , responseListTags $
---             newListTagsResponse
---
---         , responseDeletePackage $
---             newDeletePackageResponse
---
---         , responseUpdatePackage $
---             newUpdatePackageResponse
+--         , responseCreateDomain $
+--             newCreateDomainResponse
 --
 --         , responseCreateOutboundConnection $
 --             newCreateOutboundConnectionResponse
@@ -261,193 +171,103 @@ import Test.Tasty
 --         , responseDeleteDomain $
 --             newDeleteDomainResponse
 --
+--         , responseDeleteInboundConnection $
+--             newDeleteInboundConnectionResponse
+--
+--         , responseDeleteOutboundConnection $
+--             newDeleteOutboundConnectionResponse
+--
+--         , responseDeletePackage $
+--             newDeletePackageResponse
+--
+--         , responseDescribeDomain $
+--             newDescribeDomainResponse
+--
+--         , responseDescribeDomainAutoTunes $
+--             newDescribeDomainAutoTunesResponse
+--
+--         , responseDescribeDomainConfig $
+--             newDescribeDomainConfigResponse
+--
+--         , responseDescribeDomains $
+--             newDescribeDomainsResponse
+--
+--         , responseDescribeInboundConnections $
+--             newDescribeInboundConnectionsResponse
+--
+--         , responseDescribeInstanceTypeLimits $
+--             newDescribeInstanceTypeLimitsResponse
+--
+--         , responseDescribeOutboundConnections $
+--             newDescribeOutboundConnectionsResponse
+--
+--         , responseDescribePackages $
+--             newDescribePackagesResponse
+--
+--         , responseDescribeReservedInstanceOfferings $
+--             newDescribeReservedInstanceOfferingsResponse
+--
+--         , responseDescribeReservedInstances $
+--             newDescribeReservedInstancesResponse
+--
+--         , responseDissociatePackage $
+--             newDissociatePackageResponse
+--
 --         , responseGetCompatibleVersions $
 --             newGetCompatibleVersionsResponse
+--
+--         , responseGetPackageVersionHistory $
+--             newGetPackageVersionHistoryResponse
+--
+--         , responseGetUpgradeHistory $
+--             newGetUpgradeHistoryResponse
+--
+--         , responseGetUpgradeStatus $
+--             newGetUpgradeStatusResponse
+--
+--         , responseListDomainNames $
+--             newListDomainNamesResponse
+--
+--         , responseListDomainsForPackage $
+--             newListDomainsForPackageResponse
+--
+--         , responseListInstanceTypeDetails $
+--             newListInstanceTypeDetailsResponse
+--
+--         , responseListPackagesForDomain $
+--             newListPackagesForDomainResponse
+--
+--         , responseListTags $
+--             newListTagsResponse
+--
+--         , responseListVersions $
+--             newListVersionsResponse
+--
+--         , responsePurchaseReservedInstanceOffering $
+--             newPurchaseReservedInstanceOfferingResponse
+--
+--         , responseRejectInboundConnection $
+--             newRejectInboundConnectionResponse
+--
+--         , responseRemoveTags $
+--             newRemoveTagsResponse
+--
+--         , responseStartServiceSoftwareUpdate $
+--             newStartServiceSoftwareUpdateResponse
+--
+--         , responseUpdateDomainConfig $
+--             newUpdateDomainConfigResponse
+--
+--         , responseUpdatePackage $
+--             newUpdatePackageResponse
+--
+--         , responseUpgradeDomain $
+--             newUpgradeDomainResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestRejectInboundConnection :: RejectInboundConnection -> TestTree
-requestRejectInboundConnection =
-  req
-    "RejectInboundConnection"
-    "fixture/RejectInboundConnection.yaml"
-
-requestDescribeOutboundConnections :: DescribeOutboundConnections -> TestTree
-requestDescribeOutboundConnections =
-  req
-    "DescribeOutboundConnections"
-    "fixture/DescribeOutboundConnections.yaml"
-
-requestRemoveTags :: RemoveTags -> TestTree
-requestRemoveTags =
-  req
-    "RemoveTags"
-    "fixture/RemoveTags.yaml"
-
-requestDescribeInstanceTypeLimits :: DescribeInstanceTypeLimits -> TestTree
-requestDescribeInstanceTypeLimits =
-  req
-    "DescribeInstanceTypeLimits"
-    "fixture/DescribeInstanceTypeLimits.yaml"
-
-requestDescribeInboundConnections :: DescribeInboundConnections -> TestTree
-requestDescribeInboundConnections =
-  req
-    "DescribeInboundConnections"
-    "fixture/DescribeInboundConnections.yaml"
-
-requestCancelServiceSoftwareUpdate :: CancelServiceSoftwareUpdate -> TestTree
-requestCancelServiceSoftwareUpdate =
-  req
-    "CancelServiceSoftwareUpdate"
-    "fixture/CancelServiceSoftwareUpdate.yaml"
-
-requestListDomainsForPackage :: ListDomainsForPackage -> TestTree
-requestListDomainsForPackage =
-  req
-    "ListDomainsForPackage"
-    "fixture/ListDomainsForPackage.yaml"
-
-requestListPackagesForDomain :: ListPackagesForDomain -> TestTree
-requestListPackagesForDomain =
-  req
-    "ListPackagesForDomain"
-    "fixture/ListPackagesForDomain.yaml"
-
-requestUpgradeDomain :: UpgradeDomain -> TestTree
-requestUpgradeDomain =
-  req
-    "UpgradeDomain"
-    "fixture/UpgradeDomain.yaml"
-
-requestDescribeDomainAutoTunes :: DescribeDomainAutoTunes -> TestTree
-requestDescribeDomainAutoTunes =
-  req
-    "DescribeDomainAutoTunes"
-    "fixture/DescribeDomainAutoTunes.yaml"
-
-requestDescribeReservedInstances :: DescribeReservedInstances -> TestTree
-requestDescribeReservedInstances =
-  req
-    "DescribeReservedInstances"
-    "fixture/DescribeReservedInstances.yaml"
-
-requestStartServiceSoftwareUpdate :: StartServiceSoftwareUpdate -> TestTree
-requestStartServiceSoftwareUpdate =
-  req
-    "StartServiceSoftwareUpdate"
-    "fixture/StartServiceSoftwareUpdate.yaml"
-
-requestDeleteOutboundConnection :: DeleteOutboundConnection -> TestTree
-requestDeleteOutboundConnection =
-  req
-    "DeleteOutboundConnection"
-    "fixture/DeleteOutboundConnection.yaml"
-
-requestListVersions :: ListVersions -> TestTree
-requestListVersions =
-  req
-    "ListVersions"
-    "fixture/ListVersions.yaml"
-
-requestDescribeReservedInstanceOfferings :: DescribeReservedInstanceOfferings -> TestTree
-requestDescribeReservedInstanceOfferings =
-  req
-    "DescribeReservedInstanceOfferings"
-    "fixture/DescribeReservedInstanceOfferings.yaml"
-
-requestListDomainNames :: ListDomainNames -> TestTree
-requestListDomainNames =
-  req
-    "ListDomainNames"
-    "fixture/ListDomainNames.yaml"
-
-requestPurchaseReservedInstanceOffering :: PurchaseReservedInstanceOffering -> TestTree
-requestPurchaseReservedInstanceOffering =
-  req
-    "PurchaseReservedInstanceOffering"
-    "fixture/PurchaseReservedInstanceOffering.yaml"
-
-requestDescribeDomains :: DescribeDomains -> TestTree
-requestDescribeDomains =
-  req
-    "DescribeDomains"
-    "fixture/DescribeDomains.yaml"
-
-requestAssociatePackage :: AssociatePackage -> TestTree
-requestAssociatePackage =
-  req
-    "AssociatePackage"
-    "fixture/AssociatePackage.yaml"
-
-requestListInstanceTypeDetails :: ListInstanceTypeDetails -> TestTree
-requestListInstanceTypeDetails =
-  req
-    "ListInstanceTypeDetails"
-    "fixture/ListInstanceTypeDetails.yaml"
-
-requestGetPackageVersionHistory :: GetPackageVersionHistory -> TestTree
-requestGetPackageVersionHistory =
-  req
-    "GetPackageVersionHistory"
-    "fixture/GetPackageVersionHistory.yaml"
-
-requestGetUpgradeHistory :: GetUpgradeHistory -> TestTree
-requestGetUpgradeHistory =
-  req
-    "GetUpgradeHistory"
-    "fixture/GetUpgradeHistory.yaml"
-
-requestDescribePackages :: DescribePackages -> TestTree
-requestDescribePackages =
-  req
-    "DescribePackages"
-    "fixture/DescribePackages.yaml"
-
-requestCreateDomain :: CreateDomain -> TestTree
-requestCreateDomain =
-  req
-    "CreateDomain"
-    "fixture/CreateDomain.yaml"
-
-requestDescribeDomainConfig :: DescribeDomainConfig -> TestTree
-requestDescribeDomainConfig =
-  req
-    "DescribeDomainConfig"
-    "fixture/DescribeDomainConfig.yaml"
-
-requestGetUpgradeStatus :: GetUpgradeStatus -> TestTree
-requestGetUpgradeStatus =
-  req
-    "GetUpgradeStatus"
-    "fixture/GetUpgradeStatus.yaml"
-
-requestDeleteInboundConnection :: DeleteInboundConnection -> TestTree
-requestDeleteInboundConnection =
-  req
-    "DeleteInboundConnection"
-    "fixture/DeleteInboundConnection.yaml"
-
-requestDissociatePackage :: DissociatePackage -> TestTree
-requestDissociatePackage =
-  req
-    "DissociatePackage"
-    "fixture/DissociatePackage.yaml"
-
-requestDescribeDomain :: DescribeDomain -> TestTree
-requestDescribeDomain =
-  req
-    "DescribeDomain"
-    "fixture/DescribeDomain.yaml"
-
-requestAddTags :: AddTags -> TestTree
-requestAddTags =
-  req
-    "AddTags"
-    "fixture/AddTags.yaml"
 
 requestAcceptInboundConnection :: AcceptInboundConnection -> TestTree
 requestAcceptInboundConnection =
@@ -455,29 +275,29 @@ requestAcceptInboundConnection =
     "AcceptInboundConnection"
     "fixture/AcceptInboundConnection.yaml"
 
-requestUpdateDomainConfig :: UpdateDomainConfig -> TestTree
-requestUpdateDomainConfig =
+requestAddTags :: AddTags -> TestTree
+requestAddTags =
   req
-    "UpdateDomainConfig"
-    "fixture/UpdateDomainConfig.yaml"
+    "AddTags"
+    "fixture/AddTags.yaml"
 
-requestListTags :: ListTags -> TestTree
-requestListTags =
+requestAssociatePackage :: AssociatePackage -> TestTree
+requestAssociatePackage =
   req
-    "ListTags"
-    "fixture/ListTags.yaml"
+    "AssociatePackage"
+    "fixture/AssociatePackage.yaml"
 
-requestDeletePackage :: DeletePackage -> TestTree
-requestDeletePackage =
+requestCancelServiceSoftwareUpdate :: CancelServiceSoftwareUpdate -> TestTree
+requestCancelServiceSoftwareUpdate =
   req
-    "DeletePackage"
-    "fixture/DeletePackage.yaml"
+    "CancelServiceSoftwareUpdate"
+    "fixture/CancelServiceSoftwareUpdate.yaml"
 
-requestUpdatePackage :: UpdatePackage -> TestTree
-requestUpdatePackage =
+requestCreateDomain :: CreateDomain -> TestTree
+requestCreateDomain =
   req
-    "UpdatePackage"
-    "fixture/UpdatePackage.yaml"
+    "CreateDomain"
+    "fixture/CreateDomain.yaml"
 
 requestCreateOutboundConnection :: CreateOutboundConnection -> TestTree
 requestCreateOutboundConnection =
@@ -497,253 +317,193 @@ requestDeleteDomain =
     "DeleteDomain"
     "fixture/DeleteDomain.yaml"
 
+requestDeleteInboundConnection :: DeleteInboundConnection -> TestTree
+requestDeleteInboundConnection =
+  req
+    "DeleteInboundConnection"
+    "fixture/DeleteInboundConnection.yaml"
+
+requestDeleteOutboundConnection :: DeleteOutboundConnection -> TestTree
+requestDeleteOutboundConnection =
+  req
+    "DeleteOutboundConnection"
+    "fixture/DeleteOutboundConnection.yaml"
+
+requestDeletePackage :: DeletePackage -> TestTree
+requestDeletePackage =
+  req
+    "DeletePackage"
+    "fixture/DeletePackage.yaml"
+
+requestDescribeDomain :: DescribeDomain -> TestTree
+requestDescribeDomain =
+  req
+    "DescribeDomain"
+    "fixture/DescribeDomain.yaml"
+
+requestDescribeDomainAutoTunes :: DescribeDomainAutoTunes -> TestTree
+requestDescribeDomainAutoTunes =
+  req
+    "DescribeDomainAutoTunes"
+    "fixture/DescribeDomainAutoTunes.yaml"
+
+requestDescribeDomainConfig :: DescribeDomainConfig -> TestTree
+requestDescribeDomainConfig =
+  req
+    "DescribeDomainConfig"
+    "fixture/DescribeDomainConfig.yaml"
+
+requestDescribeDomains :: DescribeDomains -> TestTree
+requestDescribeDomains =
+  req
+    "DescribeDomains"
+    "fixture/DescribeDomains.yaml"
+
+requestDescribeInboundConnections :: DescribeInboundConnections -> TestTree
+requestDescribeInboundConnections =
+  req
+    "DescribeInboundConnections"
+    "fixture/DescribeInboundConnections.yaml"
+
+requestDescribeInstanceTypeLimits :: DescribeInstanceTypeLimits -> TestTree
+requestDescribeInstanceTypeLimits =
+  req
+    "DescribeInstanceTypeLimits"
+    "fixture/DescribeInstanceTypeLimits.yaml"
+
+requestDescribeOutboundConnections :: DescribeOutboundConnections -> TestTree
+requestDescribeOutboundConnections =
+  req
+    "DescribeOutboundConnections"
+    "fixture/DescribeOutboundConnections.yaml"
+
+requestDescribePackages :: DescribePackages -> TestTree
+requestDescribePackages =
+  req
+    "DescribePackages"
+    "fixture/DescribePackages.yaml"
+
+requestDescribeReservedInstanceOfferings :: DescribeReservedInstanceOfferings -> TestTree
+requestDescribeReservedInstanceOfferings =
+  req
+    "DescribeReservedInstanceOfferings"
+    "fixture/DescribeReservedInstanceOfferings.yaml"
+
+requestDescribeReservedInstances :: DescribeReservedInstances -> TestTree
+requestDescribeReservedInstances =
+  req
+    "DescribeReservedInstances"
+    "fixture/DescribeReservedInstances.yaml"
+
+requestDissociatePackage :: DissociatePackage -> TestTree
+requestDissociatePackage =
+  req
+    "DissociatePackage"
+    "fixture/DissociatePackage.yaml"
+
 requestGetCompatibleVersions :: GetCompatibleVersions -> TestTree
 requestGetCompatibleVersions =
   req
     "GetCompatibleVersions"
     "fixture/GetCompatibleVersions.yaml"
 
+requestGetPackageVersionHistory :: GetPackageVersionHistory -> TestTree
+requestGetPackageVersionHistory =
+  req
+    "GetPackageVersionHistory"
+    "fixture/GetPackageVersionHistory.yaml"
+
+requestGetUpgradeHistory :: GetUpgradeHistory -> TestTree
+requestGetUpgradeHistory =
+  req
+    "GetUpgradeHistory"
+    "fixture/GetUpgradeHistory.yaml"
+
+requestGetUpgradeStatus :: GetUpgradeStatus -> TestTree
+requestGetUpgradeStatus =
+  req
+    "GetUpgradeStatus"
+    "fixture/GetUpgradeStatus.yaml"
+
+requestListDomainNames :: ListDomainNames -> TestTree
+requestListDomainNames =
+  req
+    "ListDomainNames"
+    "fixture/ListDomainNames.yaml"
+
+requestListDomainsForPackage :: ListDomainsForPackage -> TestTree
+requestListDomainsForPackage =
+  req
+    "ListDomainsForPackage"
+    "fixture/ListDomainsForPackage.yaml"
+
+requestListInstanceTypeDetails :: ListInstanceTypeDetails -> TestTree
+requestListInstanceTypeDetails =
+  req
+    "ListInstanceTypeDetails"
+    "fixture/ListInstanceTypeDetails.yaml"
+
+requestListPackagesForDomain :: ListPackagesForDomain -> TestTree
+requestListPackagesForDomain =
+  req
+    "ListPackagesForDomain"
+    "fixture/ListPackagesForDomain.yaml"
+
+requestListTags :: ListTags -> TestTree
+requestListTags =
+  req
+    "ListTags"
+    "fixture/ListTags.yaml"
+
+requestListVersions :: ListVersions -> TestTree
+requestListVersions =
+  req
+    "ListVersions"
+    "fixture/ListVersions.yaml"
+
+requestPurchaseReservedInstanceOffering :: PurchaseReservedInstanceOffering -> TestTree
+requestPurchaseReservedInstanceOffering =
+  req
+    "PurchaseReservedInstanceOffering"
+    "fixture/PurchaseReservedInstanceOffering.yaml"
+
+requestRejectInboundConnection :: RejectInboundConnection -> TestTree
+requestRejectInboundConnection =
+  req
+    "RejectInboundConnection"
+    "fixture/RejectInboundConnection.yaml"
+
+requestRemoveTags :: RemoveTags -> TestTree
+requestRemoveTags =
+  req
+    "RemoveTags"
+    "fixture/RemoveTags.yaml"
+
+requestStartServiceSoftwareUpdate :: StartServiceSoftwareUpdate -> TestTree
+requestStartServiceSoftwareUpdate =
+  req
+    "StartServiceSoftwareUpdate"
+    "fixture/StartServiceSoftwareUpdate.yaml"
+
+requestUpdateDomainConfig :: UpdateDomainConfig -> TestTree
+requestUpdateDomainConfig =
+  req
+    "UpdateDomainConfig"
+    "fixture/UpdateDomainConfig.yaml"
+
+requestUpdatePackage :: UpdatePackage -> TestTree
+requestUpdatePackage =
+  req
+    "UpdatePackage"
+    "fixture/UpdatePackage.yaml"
+
+requestUpgradeDomain :: UpgradeDomain -> TestTree
+requestUpgradeDomain =
+  req
+    "UpgradeDomain"
+    "fixture/UpgradeDomain.yaml"
+
 -- Responses
-
-responseRejectInboundConnection :: RejectInboundConnectionResponse -> TestTree
-responseRejectInboundConnection =
-  res
-    "RejectInboundConnectionResponse"
-    "fixture/RejectInboundConnectionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RejectInboundConnection)
-
-responseDescribeOutboundConnections :: DescribeOutboundConnectionsResponse -> TestTree
-responseDescribeOutboundConnections =
-  res
-    "DescribeOutboundConnectionsResponse"
-    "fixture/DescribeOutboundConnectionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeOutboundConnections)
-
-responseRemoveTags :: RemoveTagsResponse -> TestTree
-responseRemoveTags =
-  res
-    "RemoveTagsResponse"
-    "fixture/RemoveTagsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RemoveTags)
-
-responseDescribeInstanceTypeLimits :: DescribeInstanceTypeLimitsResponse -> TestTree
-responseDescribeInstanceTypeLimits =
-  res
-    "DescribeInstanceTypeLimitsResponse"
-    "fixture/DescribeInstanceTypeLimitsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeInstanceTypeLimits)
-
-responseDescribeInboundConnections :: DescribeInboundConnectionsResponse -> TestTree
-responseDescribeInboundConnections =
-  res
-    "DescribeInboundConnectionsResponse"
-    "fixture/DescribeInboundConnectionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeInboundConnections)
-
-responseCancelServiceSoftwareUpdate :: CancelServiceSoftwareUpdateResponse -> TestTree
-responseCancelServiceSoftwareUpdate =
-  res
-    "CancelServiceSoftwareUpdateResponse"
-    "fixture/CancelServiceSoftwareUpdateResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CancelServiceSoftwareUpdate)
-
-responseListDomainsForPackage :: ListDomainsForPackageResponse -> TestTree
-responseListDomainsForPackage =
-  res
-    "ListDomainsForPackageResponse"
-    "fixture/ListDomainsForPackageResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDomainsForPackage)
-
-responseListPackagesForDomain :: ListPackagesForDomainResponse -> TestTree
-responseListPackagesForDomain =
-  res
-    "ListPackagesForDomainResponse"
-    "fixture/ListPackagesForDomainResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListPackagesForDomain)
-
-responseUpgradeDomain :: UpgradeDomainResponse -> TestTree
-responseUpgradeDomain =
-  res
-    "UpgradeDomainResponse"
-    "fixture/UpgradeDomainResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpgradeDomain)
-
-responseDescribeDomainAutoTunes :: DescribeDomainAutoTunesResponse -> TestTree
-responseDescribeDomainAutoTunes =
-  res
-    "DescribeDomainAutoTunesResponse"
-    "fixture/DescribeDomainAutoTunesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeDomainAutoTunes)
-
-responseDescribeReservedInstances :: DescribeReservedInstancesResponse -> TestTree
-responseDescribeReservedInstances =
-  res
-    "DescribeReservedInstancesResponse"
-    "fixture/DescribeReservedInstancesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeReservedInstances)
-
-responseStartServiceSoftwareUpdate :: StartServiceSoftwareUpdateResponse -> TestTree
-responseStartServiceSoftwareUpdate =
-  res
-    "StartServiceSoftwareUpdateResponse"
-    "fixture/StartServiceSoftwareUpdateResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartServiceSoftwareUpdate)
-
-responseDeleteOutboundConnection :: DeleteOutboundConnectionResponse -> TestTree
-responseDeleteOutboundConnection =
-  res
-    "DeleteOutboundConnectionResponse"
-    "fixture/DeleteOutboundConnectionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteOutboundConnection)
-
-responseListVersions :: ListVersionsResponse -> TestTree
-responseListVersions =
-  res
-    "ListVersionsResponse"
-    "fixture/ListVersionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListVersions)
-
-responseDescribeReservedInstanceOfferings :: DescribeReservedInstanceOfferingsResponse -> TestTree
-responseDescribeReservedInstanceOfferings =
-  res
-    "DescribeReservedInstanceOfferingsResponse"
-    "fixture/DescribeReservedInstanceOfferingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeReservedInstanceOfferings)
-
-responseListDomainNames :: ListDomainNamesResponse -> TestTree
-responseListDomainNames =
-  res
-    "ListDomainNamesResponse"
-    "fixture/ListDomainNamesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDomainNames)
-
-responsePurchaseReservedInstanceOffering :: PurchaseReservedInstanceOfferingResponse -> TestTree
-responsePurchaseReservedInstanceOffering =
-  res
-    "PurchaseReservedInstanceOfferingResponse"
-    "fixture/PurchaseReservedInstanceOfferingResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PurchaseReservedInstanceOffering)
-
-responseDescribeDomains :: DescribeDomainsResponse -> TestTree
-responseDescribeDomains =
-  res
-    "DescribeDomainsResponse"
-    "fixture/DescribeDomainsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeDomains)
-
-responseAssociatePackage :: AssociatePackageResponse -> TestTree
-responseAssociatePackage =
-  res
-    "AssociatePackageResponse"
-    "fixture/AssociatePackageResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy AssociatePackage)
-
-responseListInstanceTypeDetails :: ListInstanceTypeDetailsResponse -> TestTree
-responseListInstanceTypeDetails =
-  res
-    "ListInstanceTypeDetailsResponse"
-    "fixture/ListInstanceTypeDetailsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListInstanceTypeDetails)
-
-responseGetPackageVersionHistory :: GetPackageVersionHistoryResponse -> TestTree
-responseGetPackageVersionHistory =
-  res
-    "GetPackageVersionHistoryResponse"
-    "fixture/GetPackageVersionHistoryResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetPackageVersionHistory)
-
-responseGetUpgradeHistory :: GetUpgradeHistoryResponse -> TestTree
-responseGetUpgradeHistory =
-  res
-    "GetUpgradeHistoryResponse"
-    "fixture/GetUpgradeHistoryResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetUpgradeHistory)
-
-responseDescribePackages :: DescribePackagesResponse -> TestTree
-responseDescribePackages =
-  res
-    "DescribePackagesResponse"
-    "fixture/DescribePackagesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribePackages)
-
-responseCreateDomain :: CreateDomainResponse -> TestTree
-responseCreateDomain =
-  res
-    "CreateDomainResponse"
-    "fixture/CreateDomainResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateDomain)
-
-responseDescribeDomainConfig :: DescribeDomainConfigResponse -> TestTree
-responseDescribeDomainConfig =
-  res
-    "DescribeDomainConfigResponse"
-    "fixture/DescribeDomainConfigResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeDomainConfig)
-
-responseGetUpgradeStatus :: GetUpgradeStatusResponse -> TestTree
-responseGetUpgradeStatus =
-  res
-    "GetUpgradeStatusResponse"
-    "fixture/GetUpgradeStatusResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetUpgradeStatus)
-
-responseDeleteInboundConnection :: DeleteInboundConnectionResponse -> TestTree
-responseDeleteInboundConnection =
-  res
-    "DeleteInboundConnectionResponse"
-    "fixture/DeleteInboundConnectionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteInboundConnection)
-
-responseDissociatePackage :: DissociatePackageResponse -> TestTree
-responseDissociatePackage =
-  res
-    "DissociatePackageResponse"
-    "fixture/DissociatePackageResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DissociatePackage)
-
-responseDescribeDomain :: DescribeDomainResponse -> TestTree
-responseDescribeDomain =
-  res
-    "DescribeDomainResponse"
-    "fixture/DescribeDomainResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeDomain)
-
-responseAddTags :: AddTagsResponse -> TestTree
-responseAddTags =
-  res
-    "AddTagsResponse"
-    "fixture/AddTagsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy AddTags)
 
 responseAcceptInboundConnection :: AcceptInboundConnectionResponse -> TestTree
 responseAcceptInboundConnection =
@@ -753,37 +513,37 @@ responseAcceptInboundConnection =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AcceptInboundConnection)
 
-responseUpdateDomainConfig :: UpdateDomainConfigResponse -> TestTree
-responseUpdateDomainConfig =
+responseAddTags :: AddTagsResponse -> TestTree
+responseAddTags =
   res
-    "UpdateDomainConfigResponse"
-    "fixture/UpdateDomainConfigResponse.proto"
+    "AddTagsResponse"
+    "fixture/AddTagsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateDomainConfig)
+    (Proxy.Proxy :: Proxy.Proxy AddTags)
 
-responseListTags :: ListTagsResponse -> TestTree
-responseListTags =
+responseAssociatePackage :: AssociatePackageResponse -> TestTree
+responseAssociatePackage =
   res
-    "ListTagsResponse"
-    "fixture/ListTagsResponse.proto"
+    "AssociatePackageResponse"
+    "fixture/AssociatePackageResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTags)
+    (Proxy.Proxy :: Proxy.Proxy AssociatePackage)
 
-responseDeletePackage :: DeletePackageResponse -> TestTree
-responseDeletePackage =
+responseCancelServiceSoftwareUpdate :: CancelServiceSoftwareUpdateResponse -> TestTree
+responseCancelServiceSoftwareUpdate =
   res
-    "DeletePackageResponse"
-    "fixture/DeletePackageResponse.proto"
+    "CancelServiceSoftwareUpdateResponse"
+    "fixture/CancelServiceSoftwareUpdateResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeletePackage)
+    (Proxy.Proxy :: Proxy.Proxy CancelServiceSoftwareUpdate)
 
-responseUpdatePackage :: UpdatePackageResponse -> TestTree
-responseUpdatePackage =
+responseCreateDomain :: CreateDomainResponse -> TestTree
+responseCreateDomain =
   res
-    "UpdatePackageResponse"
-    "fixture/UpdatePackageResponse.proto"
+    "CreateDomainResponse"
+    "fixture/CreateDomainResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdatePackage)
+    (Proxy.Proxy :: Proxy.Proxy CreateDomain)
 
 responseCreateOutboundConnection :: CreateOutboundConnectionResponse -> TestTree
 responseCreateOutboundConnection =
@@ -809,6 +569,118 @@ responseDeleteDomain =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteDomain)
 
+responseDeleteInboundConnection :: DeleteInboundConnectionResponse -> TestTree
+responseDeleteInboundConnection =
+  res
+    "DeleteInboundConnectionResponse"
+    "fixture/DeleteInboundConnectionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteInboundConnection)
+
+responseDeleteOutboundConnection :: DeleteOutboundConnectionResponse -> TestTree
+responseDeleteOutboundConnection =
+  res
+    "DeleteOutboundConnectionResponse"
+    "fixture/DeleteOutboundConnectionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteOutboundConnection)
+
+responseDeletePackage :: DeletePackageResponse -> TestTree
+responseDeletePackage =
+  res
+    "DeletePackageResponse"
+    "fixture/DeletePackageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeletePackage)
+
+responseDescribeDomain :: DescribeDomainResponse -> TestTree
+responseDescribeDomain =
+  res
+    "DescribeDomainResponse"
+    "fixture/DescribeDomainResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeDomain)
+
+responseDescribeDomainAutoTunes :: DescribeDomainAutoTunesResponse -> TestTree
+responseDescribeDomainAutoTunes =
+  res
+    "DescribeDomainAutoTunesResponse"
+    "fixture/DescribeDomainAutoTunesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeDomainAutoTunes)
+
+responseDescribeDomainConfig :: DescribeDomainConfigResponse -> TestTree
+responseDescribeDomainConfig =
+  res
+    "DescribeDomainConfigResponse"
+    "fixture/DescribeDomainConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeDomainConfig)
+
+responseDescribeDomains :: DescribeDomainsResponse -> TestTree
+responseDescribeDomains =
+  res
+    "DescribeDomainsResponse"
+    "fixture/DescribeDomainsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeDomains)
+
+responseDescribeInboundConnections :: DescribeInboundConnectionsResponse -> TestTree
+responseDescribeInboundConnections =
+  res
+    "DescribeInboundConnectionsResponse"
+    "fixture/DescribeInboundConnectionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeInboundConnections)
+
+responseDescribeInstanceTypeLimits :: DescribeInstanceTypeLimitsResponse -> TestTree
+responseDescribeInstanceTypeLimits =
+  res
+    "DescribeInstanceTypeLimitsResponse"
+    "fixture/DescribeInstanceTypeLimitsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeInstanceTypeLimits)
+
+responseDescribeOutboundConnections :: DescribeOutboundConnectionsResponse -> TestTree
+responseDescribeOutboundConnections =
+  res
+    "DescribeOutboundConnectionsResponse"
+    "fixture/DescribeOutboundConnectionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeOutboundConnections)
+
+responseDescribePackages :: DescribePackagesResponse -> TestTree
+responseDescribePackages =
+  res
+    "DescribePackagesResponse"
+    "fixture/DescribePackagesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribePackages)
+
+responseDescribeReservedInstanceOfferings :: DescribeReservedInstanceOfferingsResponse -> TestTree
+responseDescribeReservedInstanceOfferings =
+  res
+    "DescribeReservedInstanceOfferingsResponse"
+    "fixture/DescribeReservedInstanceOfferingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeReservedInstanceOfferings)
+
+responseDescribeReservedInstances :: DescribeReservedInstancesResponse -> TestTree
+responseDescribeReservedInstances =
+  res
+    "DescribeReservedInstancesResponse"
+    "fixture/DescribeReservedInstancesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeReservedInstances)
+
+responseDissociatePackage :: DissociatePackageResponse -> TestTree
+responseDissociatePackage =
+  res
+    "DissociatePackageResponse"
+    "fixture/DissociatePackageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DissociatePackage)
+
 responseGetCompatibleVersions :: GetCompatibleVersionsResponse -> TestTree
 responseGetCompatibleVersions =
   res
@@ -816,3 +688,131 @@ responseGetCompatibleVersions =
     "fixture/GetCompatibleVersionsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetCompatibleVersions)
+
+responseGetPackageVersionHistory :: GetPackageVersionHistoryResponse -> TestTree
+responseGetPackageVersionHistory =
+  res
+    "GetPackageVersionHistoryResponse"
+    "fixture/GetPackageVersionHistoryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetPackageVersionHistory)
+
+responseGetUpgradeHistory :: GetUpgradeHistoryResponse -> TestTree
+responseGetUpgradeHistory =
+  res
+    "GetUpgradeHistoryResponse"
+    "fixture/GetUpgradeHistoryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetUpgradeHistory)
+
+responseGetUpgradeStatus :: GetUpgradeStatusResponse -> TestTree
+responseGetUpgradeStatus =
+  res
+    "GetUpgradeStatusResponse"
+    "fixture/GetUpgradeStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetUpgradeStatus)
+
+responseListDomainNames :: ListDomainNamesResponse -> TestTree
+responseListDomainNames =
+  res
+    "ListDomainNamesResponse"
+    "fixture/ListDomainNamesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDomainNames)
+
+responseListDomainsForPackage :: ListDomainsForPackageResponse -> TestTree
+responseListDomainsForPackage =
+  res
+    "ListDomainsForPackageResponse"
+    "fixture/ListDomainsForPackageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDomainsForPackage)
+
+responseListInstanceTypeDetails :: ListInstanceTypeDetailsResponse -> TestTree
+responseListInstanceTypeDetails =
+  res
+    "ListInstanceTypeDetailsResponse"
+    "fixture/ListInstanceTypeDetailsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListInstanceTypeDetails)
+
+responseListPackagesForDomain :: ListPackagesForDomainResponse -> TestTree
+responseListPackagesForDomain =
+  res
+    "ListPackagesForDomainResponse"
+    "fixture/ListPackagesForDomainResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListPackagesForDomain)
+
+responseListTags :: ListTagsResponse -> TestTree
+responseListTags =
+  res
+    "ListTagsResponse"
+    "fixture/ListTagsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTags)
+
+responseListVersions :: ListVersionsResponse -> TestTree
+responseListVersions =
+  res
+    "ListVersionsResponse"
+    "fixture/ListVersionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListVersions)
+
+responsePurchaseReservedInstanceOffering :: PurchaseReservedInstanceOfferingResponse -> TestTree
+responsePurchaseReservedInstanceOffering =
+  res
+    "PurchaseReservedInstanceOfferingResponse"
+    "fixture/PurchaseReservedInstanceOfferingResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PurchaseReservedInstanceOffering)
+
+responseRejectInboundConnection :: RejectInboundConnectionResponse -> TestTree
+responseRejectInboundConnection =
+  res
+    "RejectInboundConnectionResponse"
+    "fixture/RejectInboundConnectionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RejectInboundConnection)
+
+responseRemoveTags :: RemoveTagsResponse -> TestTree
+responseRemoveTags =
+  res
+    "RemoveTagsResponse"
+    "fixture/RemoveTagsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RemoveTags)
+
+responseStartServiceSoftwareUpdate :: StartServiceSoftwareUpdateResponse -> TestTree
+responseStartServiceSoftwareUpdate =
+  res
+    "StartServiceSoftwareUpdateResponse"
+    "fixture/StartServiceSoftwareUpdateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartServiceSoftwareUpdate)
+
+responseUpdateDomainConfig :: UpdateDomainConfigResponse -> TestTree
+responseUpdateDomainConfig =
+  res
+    "UpdateDomainConfigResponse"
+    "fixture/UpdateDomainConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateDomainConfig)
+
+responseUpdatePackage :: UpdatePackageResponse -> TestTree
+responseUpdatePackage =
+  res
+    "UpdatePackageResponse"
+    "fixture/UpdatePackageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdatePackage)
+
+responseUpgradeDomain :: UpgradeDomainResponse -> TestTree
+responseUpgradeDomain =
+  res
+    "UpgradeDomainResponse"
+    "fixture/UpgradeDomainResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpgradeDomain)

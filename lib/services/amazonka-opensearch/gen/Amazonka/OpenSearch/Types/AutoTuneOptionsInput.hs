@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAutoTuneOptionsInput' smart constructor.
 data AutoTuneOptionsInput = AutoTuneOptionsInput'
-  { -- | The Auto-Tune desired state. Valid values are ENABLED and DISABLED.
-    desiredState :: Prelude.Maybe AutoTuneDesiredState,
-    -- | A list of maintenance schedules. See
+  { -- | A list of maintenance schedules. See
     -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html Auto-Tune for Amazon OpenSearch Service>
     -- for more information.
-    maintenanceSchedules :: Prelude.Maybe [AutoTuneMaintenanceSchedule]
+    maintenanceSchedules :: Prelude.Maybe [AutoTuneMaintenanceSchedule],
+    -- | The Auto-Tune desired state. Valid values are ENABLED and DISABLED.
+    desiredState :: Prelude.Maybe AutoTuneDesiredState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,23 +47,19 @@ data AutoTuneOptionsInput = AutoTuneOptionsInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'desiredState', 'autoTuneOptionsInput_desiredState' - The Auto-Tune desired state. Valid values are ENABLED and DISABLED.
---
 -- 'maintenanceSchedules', 'autoTuneOptionsInput_maintenanceSchedules' - A list of maintenance schedules. See
 -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html Auto-Tune for Amazon OpenSearch Service>
 -- for more information.
+--
+-- 'desiredState', 'autoTuneOptionsInput_desiredState' - The Auto-Tune desired state. Valid values are ENABLED and DISABLED.
 newAutoTuneOptionsInput ::
   AutoTuneOptionsInput
 newAutoTuneOptionsInput =
   AutoTuneOptionsInput'
-    { desiredState =
+    { maintenanceSchedules =
         Prelude.Nothing,
-      maintenanceSchedules = Prelude.Nothing
+      desiredState = Prelude.Nothing
     }
-
--- | The Auto-Tune desired state. Valid values are ENABLED and DISABLED.
-autoTuneOptionsInput_desiredState :: Lens.Lens' AutoTuneOptionsInput (Prelude.Maybe AutoTuneDesiredState)
-autoTuneOptionsInput_desiredState = Lens.lens (\AutoTuneOptionsInput' {desiredState} -> desiredState) (\s@AutoTuneOptionsInput' {} a -> s {desiredState = a} :: AutoTuneOptionsInput)
 
 -- | A list of maintenance schedules. See
 -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html Auto-Tune for Amazon OpenSearch Service>
@@ -71,22 +67,26 @@ autoTuneOptionsInput_desiredState = Lens.lens (\AutoTuneOptionsInput' {desiredSt
 autoTuneOptionsInput_maintenanceSchedules :: Lens.Lens' AutoTuneOptionsInput (Prelude.Maybe [AutoTuneMaintenanceSchedule])
 autoTuneOptionsInput_maintenanceSchedules = Lens.lens (\AutoTuneOptionsInput' {maintenanceSchedules} -> maintenanceSchedules) (\s@AutoTuneOptionsInput' {} a -> s {maintenanceSchedules = a} :: AutoTuneOptionsInput) Prelude.. Lens.mapping Lens.coerced
 
+-- | The Auto-Tune desired state. Valid values are ENABLED and DISABLED.
+autoTuneOptionsInput_desiredState :: Lens.Lens' AutoTuneOptionsInput (Prelude.Maybe AutoTuneDesiredState)
+autoTuneOptionsInput_desiredState = Lens.lens (\AutoTuneOptionsInput' {desiredState} -> desiredState) (\s@AutoTuneOptionsInput' {} a -> s {desiredState = a} :: AutoTuneOptionsInput)
+
 instance Prelude.Hashable AutoTuneOptionsInput where
   hashWithSalt _salt AutoTuneOptionsInput' {..} =
-    _salt `Prelude.hashWithSalt` desiredState
-      `Prelude.hashWithSalt` maintenanceSchedules
+    _salt `Prelude.hashWithSalt` maintenanceSchedules
+      `Prelude.hashWithSalt` desiredState
 
 instance Prelude.NFData AutoTuneOptionsInput where
   rnf AutoTuneOptionsInput' {..} =
-    Prelude.rnf desiredState
-      `Prelude.seq` Prelude.rnf maintenanceSchedules
+    Prelude.rnf maintenanceSchedules
+      `Prelude.seq` Prelude.rnf desiredState
 
 instance Core.ToJSON AutoTuneOptionsInput where
   toJSON AutoTuneOptionsInput' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DesiredState" Core..=) Prelude.<$> desiredState,
-            ("MaintenanceSchedules" Core..=)
-              Prelude.<$> maintenanceSchedules
+          [ ("MaintenanceSchedules" Core..=)
+              Prelude.<$> maintenanceSchedules,
+            ("DesiredState" Core..=) Prelude.<$> desiredState
           ]
       )

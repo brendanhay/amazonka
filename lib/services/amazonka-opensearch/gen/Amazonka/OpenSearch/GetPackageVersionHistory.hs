@@ -37,9 +37,9 @@ module Amazonka.OpenSearch.GetPackageVersionHistory
     newGetPackageVersionHistoryResponse,
 
     -- * Response Lenses
+    getPackageVersionHistoryResponse_nextToken,
     getPackageVersionHistoryResponse_packageID,
     getPackageVersionHistoryResponse_packageVersionHistoryList,
-    getPackageVersionHistoryResponse_nextToken,
     getPackageVersionHistoryResponse_httpStatus,
   )
 where
@@ -117,11 +117,11 @@ instance Core.AWSRequest GetPackageVersionHistory where
     Response.receiveJSON
       ( \s h x ->
           GetPackageVersionHistoryResponse'
-            Prelude.<$> (x Core..?> "PackageID")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "PackageID")
             Prelude.<*> ( x Core..?> "PackageVersionHistoryList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,10 +160,10 @@ instance Core.ToQuery GetPackageVersionHistory where
 --
 -- /See:/ 'newGetPackageVersionHistoryResponse' smart constructor.
 data GetPackageVersionHistoryResponse = GetPackageVersionHistoryResponse'
-  { packageID :: Prelude.Maybe Prelude.Text,
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    packageID :: Prelude.Maybe Prelude.Text,
     -- | List of @PackageVersionHistory@ objects.
     packageVersionHistoryList :: Prelude.Maybe [PackageVersionHistory],
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -177,11 +177,11 @@ data GetPackageVersionHistoryResponse = GetPackageVersionHistoryResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'getPackageVersionHistoryResponse_nextToken' - Undocumented member.
+--
 -- 'packageID', 'getPackageVersionHistoryResponse_packageID' - Undocumented member.
 --
 -- 'packageVersionHistoryList', 'getPackageVersionHistoryResponse_packageVersionHistoryList' - List of @PackageVersionHistory@ objects.
---
--- 'nextToken', 'getPackageVersionHistoryResponse_nextToken' - Undocumented member.
 --
 -- 'httpStatus', 'getPackageVersionHistoryResponse_httpStatus' - The response's http status code.
 newGetPackageVersionHistoryResponse ::
@@ -190,13 +190,17 @@ newGetPackageVersionHistoryResponse ::
   GetPackageVersionHistoryResponse
 newGetPackageVersionHistoryResponse pHttpStatus_ =
   GetPackageVersionHistoryResponse'
-    { packageID =
+    { nextToken =
         Prelude.Nothing,
+      packageID = Prelude.Nothing,
       packageVersionHistoryList =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Undocumented member.
+getPackageVersionHistoryResponse_nextToken :: Lens.Lens' GetPackageVersionHistoryResponse (Prelude.Maybe Prelude.Text)
+getPackageVersionHistoryResponse_nextToken = Lens.lens (\GetPackageVersionHistoryResponse' {nextToken} -> nextToken) (\s@GetPackageVersionHistoryResponse' {} a -> s {nextToken = a} :: GetPackageVersionHistoryResponse)
 
 -- | Undocumented member.
 getPackageVersionHistoryResponse_packageID :: Lens.Lens' GetPackageVersionHistoryResponse (Prelude.Maybe Prelude.Text)
@@ -205,10 +209,6 @@ getPackageVersionHistoryResponse_packageID = Lens.lens (\GetPackageVersionHistor
 -- | List of @PackageVersionHistory@ objects.
 getPackageVersionHistoryResponse_packageVersionHistoryList :: Lens.Lens' GetPackageVersionHistoryResponse (Prelude.Maybe [PackageVersionHistory])
 getPackageVersionHistoryResponse_packageVersionHistoryList = Lens.lens (\GetPackageVersionHistoryResponse' {packageVersionHistoryList} -> packageVersionHistoryList) (\s@GetPackageVersionHistoryResponse' {} a -> s {packageVersionHistoryList = a} :: GetPackageVersionHistoryResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
-getPackageVersionHistoryResponse_nextToken :: Lens.Lens' GetPackageVersionHistoryResponse (Prelude.Maybe Prelude.Text)
-getPackageVersionHistoryResponse_nextToken = Lens.lens (\GetPackageVersionHistoryResponse' {nextToken} -> nextToken) (\s@GetPackageVersionHistoryResponse' {} a -> s {nextToken = a} :: GetPackageVersionHistoryResponse)
 
 -- | The response's http status code.
 getPackageVersionHistoryResponse_httpStatus :: Lens.Lens' GetPackageVersionHistoryResponse Prelude.Int
@@ -219,7 +219,7 @@ instance
     GetPackageVersionHistoryResponse
   where
   rnf GetPackageVersionHistoryResponse' {..} =
-    Prelude.rnf packageID
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf packageID
       `Prelude.seq` Prelude.rnf packageVersionHistoryList
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

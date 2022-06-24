@@ -35,8 +35,8 @@ module Amazonka.OpenSearch.ListVersions
     newListVersionsResponse,
 
     -- * Response Lenses
-    listVersionsResponse_versions,
     listVersionsResponse_nextToken,
+    listVersionsResponse_versions,
     listVersionsResponse_httpStatus,
   )
 where
@@ -102,8 +102,8 @@ instance Core.AWSRequest ListVersions where
     Response.receiveJSON
       ( \s h x ->
           ListVersionsResponse'
-            Prelude.<$> (x Core..?> "Versions" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Versions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,8 +136,8 @@ instance Core.ToQuery ListVersions where
 --
 -- /See:/ 'newListVersionsResponse' smart constructor.
 data ListVersionsResponse = ListVersionsResponse'
-  { versions :: Prelude.Maybe [Prelude.Text],
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    versions :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -151,9 +151,9 @@ data ListVersionsResponse = ListVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versions', 'listVersionsResponse_versions' - Undocumented member.
---
 -- 'nextToken', 'listVersionsResponse_nextToken' - Undocumented member.
+--
+-- 'versions', 'listVersionsResponse_versions' - Undocumented member.
 --
 -- 'httpStatus', 'listVersionsResponse_httpStatus' - The response's http status code.
 newListVersionsResponse ::
@@ -162,18 +162,18 @@ newListVersionsResponse ::
   ListVersionsResponse
 newListVersionsResponse pHttpStatus_ =
   ListVersionsResponse'
-    { versions = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      versions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-listVersionsResponse_versions :: Lens.Lens' ListVersionsResponse (Prelude.Maybe [Prelude.Text])
-listVersionsResponse_versions = Lens.lens (\ListVersionsResponse' {versions} -> versions) (\s@ListVersionsResponse' {} a -> s {versions = a} :: ListVersionsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
 listVersionsResponse_nextToken :: Lens.Lens' ListVersionsResponse (Prelude.Maybe Prelude.Text)
 listVersionsResponse_nextToken = Lens.lens (\ListVersionsResponse' {nextToken} -> nextToken) (\s@ListVersionsResponse' {} a -> s {nextToken = a} :: ListVersionsResponse)
+
+-- | Undocumented member.
+listVersionsResponse_versions :: Lens.Lens' ListVersionsResponse (Prelude.Maybe [Prelude.Text])
+listVersionsResponse_versions = Lens.lens (\ListVersionsResponse' {versions} -> versions) (\s@ListVersionsResponse' {} a -> s {versions = a} :: ListVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listVersionsResponse_httpStatus :: Lens.Lens' ListVersionsResponse Prelude.Int
@@ -181,6 +181,6 @@ listVersionsResponse_httpStatus = Lens.lens (\ListVersionsResponse' {httpStatus}
 
 instance Prelude.NFData ListVersionsResponse where
   rnf ListVersionsResponse' {..} =
-    Prelude.rnf versions
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf versions
       `Prelude.seq` Prelude.rnf httpStatus

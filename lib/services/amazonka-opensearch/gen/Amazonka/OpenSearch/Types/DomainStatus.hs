@@ -40,57 +40,57 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDomainStatus' smart constructor.
 data DomainStatus = DomainStatus'
-  { -- | The @EBSOptions@ for the specified domain.
-    eBSOptions :: Prelude.Maybe EBSOptions,
-    engineVersion :: Prelude.Maybe Prelude.Text,
-    -- | The status of the @NodeToNodeEncryptionOptions@.
+  { -- | The status of the @NodeToNodeEncryptionOptions@.
     nodeToNodeEncryptionOptions :: Prelude.Maybe NodeToNodeEncryptionOptions,
-    -- | IAM access policy as a JSON-formatted string.
-    accessPolicies :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the domain\'s service software.
-    serviceSoftwareOptions :: Prelude.Maybe ServiceSoftwareOptions,
-    -- | The current status of the domain\'s Auto-Tune options.
-    autoTuneOptions :: Prelude.Maybe AutoTuneOptionsOutput,
-    -- | Log publishing options for the given domain.
-    logPublishingOptions :: Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption),
-    -- | The current status of the domain\'s advanced security options.
-    advancedSecurityOptions :: Prelude.Maybe AdvancedSecurityOptions,
-    -- | The domain creation status. @True@ if the creation of a domain is
-    -- complete. @ False @ if domain creation is still in progress.
-    created :: Prelude.Maybe Prelude.Bool,
-    -- | The status of the @SnapshotOptions@.
-    snapshotOptions :: Prelude.Maybe SnapshotOptions,
-    -- | The @CognitoOptions@ for the specified domain. For more information, see
-    -- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html Configuring Amazon Cognito authentication for OpenSearch Dashboards>.
-    cognitoOptions :: Prelude.Maybe CognitoOptions,
-    -- | The status of the @EncryptionAtRestOptions@.
-    encryptionAtRestOptions :: Prelude.Maybe EncryptionAtRestOptions,
+    -- | The status of the @AdvancedOptions@.
+    advancedOptions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The domain deletion status. @True@ if a delete request has been received
     -- for the domain but resource cleanup is still in progress. @False@ if the
     -- domain has not been deleted. Once domain deletion is complete, the
     -- status of the domain is no longer returned.
     deleted :: Prelude.Maybe Prelude.Bool,
-    -- | The @VPCOptions@ for the specified domain. For more information, see
-    -- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html Launching your Amazon OpenSearch Service domains using a VPC>.
-    vPCOptions :: Prelude.Maybe VPCDerivedInfo,
-    -- | Map containing the domain endpoints used to submit index and search
-    -- requests. Example @key, value@:
-    -- @\'vpc\',\'vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com\'@.
-    endpoints :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The current status of the domain\'s endpoint options.
-    domainEndpointOptions :: Prelude.Maybe DomainEndpointOptions,
-    -- | The status of the domain configuration. @True@ if Amazon OpenSearch
-    -- Service is processing configuration changes. @False@ if the
-    -- configuration is active.
-    processing :: Prelude.Maybe Prelude.Bool,
-    -- | The domain endpoint that you use to submit index and search requests.
-    endpoint :: Prelude.Maybe Prelude.Text,
+    -- | The domain creation status. @True@ if the creation of a domain is
+    -- complete. @ False @ if domain creation is still in progress.
+    created :: Prelude.Maybe Prelude.Bool,
+    -- | The current status of the domain\'s advanced security options.
+    advancedSecurityOptions :: Prelude.Maybe AdvancedSecurityOptions,
     -- | The status of a domain version upgrade. @True@ if Amazon OpenSearch
     -- Service is undergoing a version upgrade. @False@ if the configuration is
     -- active.
     upgradeProcessing :: Prelude.Maybe Prelude.Bool,
-    -- | The status of the @AdvancedOptions@.
-    advancedOptions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The status of the domain configuration. @True@ if Amazon OpenSearch
+    -- Service is processing configuration changes. @False@ if the
+    -- configuration is active.
+    processing :: Prelude.Maybe Prelude.Bool,
+    -- | The @CognitoOptions@ for the specified domain. For more information, see
+    -- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html Configuring Amazon Cognito authentication for OpenSearch Dashboards>.
+    cognitoOptions :: Prelude.Maybe CognitoOptions,
+    -- | The status of the @EncryptionAtRestOptions@.
+    encryptionAtRestOptions :: Prelude.Maybe EncryptionAtRestOptions,
+    -- | Map containing the domain endpoints used to submit index and search
+    -- requests. Example @key, value@:
+    -- @\'vpc\',\'vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com\'@.
+    endpoints :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The @EBSOptions@ for the specified domain.
+    eBSOptions :: Prelude.Maybe EBSOptions,
+    -- | IAM access policy as a JSON-formatted string.
+    accessPolicies :: Prelude.Maybe Prelude.Text,
+    -- | The @VPCOptions@ for the specified domain. For more information, see
+    -- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html Launching your Amazon OpenSearch Service domains using a VPC>.
+    vPCOptions :: Prelude.Maybe VPCDerivedInfo,
+    -- | The current status of the domain\'s Auto-Tune options.
+    autoTuneOptions :: Prelude.Maybe AutoTuneOptionsOutput,
+    -- | The current status of the domain\'s endpoint options.
+    domainEndpointOptions :: Prelude.Maybe DomainEndpointOptions,
+    -- | The domain endpoint that you use to submit index and search requests.
+    endpoint :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the domain\'s service software.
+    serviceSoftwareOptions :: Prelude.Maybe ServiceSoftwareOptions,
+    -- | The status of the @SnapshotOptions@.
+    snapshotOptions :: Prelude.Maybe SnapshotOptions,
+    -- | Log publishing options for the given domain.
+    logPublishingOptions :: Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption),
+    engineVersion :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the specified domain.
     domainId :: Prelude.Text,
     -- | The name of a domain. Domain names are unique across the domains owned
@@ -116,57 +116,57 @@ data DomainStatus = DomainStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eBSOptions', 'domainStatus_eBSOptions' - The @EBSOptions@ for the specified domain.
---
--- 'engineVersion', 'domainStatus_engineVersion' - Undocumented member.
---
 -- 'nodeToNodeEncryptionOptions', 'domainStatus_nodeToNodeEncryptionOptions' - The status of the @NodeToNodeEncryptionOptions@.
 --
--- 'accessPolicies', 'domainStatus_accessPolicies' - IAM access policy as a JSON-formatted string.
---
--- 'serviceSoftwareOptions', 'domainStatus_serviceSoftwareOptions' - The current status of the domain\'s service software.
---
--- 'autoTuneOptions', 'domainStatus_autoTuneOptions' - The current status of the domain\'s Auto-Tune options.
---
--- 'logPublishingOptions', 'domainStatus_logPublishingOptions' - Log publishing options for the given domain.
---
--- 'advancedSecurityOptions', 'domainStatus_advancedSecurityOptions' - The current status of the domain\'s advanced security options.
---
--- 'created', 'domainStatus_created' - The domain creation status. @True@ if the creation of a domain is
--- complete. @ False @ if domain creation is still in progress.
---
--- 'snapshotOptions', 'domainStatus_snapshotOptions' - The status of the @SnapshotOptions@.
---
--- 'cognitoOptions', 'domainStatus_cognitoOptions' - The @CognitoOptions@ for the specified domain. For more information, see
--- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html Configuring Amazon Cognito authentication for OpenSearch Dashboards>.
---
--- 'encryptionAtRestOptions', 'domainStatus_encryptionAtRestOptions' - The status of the @EncryptionAtRestOptions@.
+-- 'advancedOptions', 'domainStatus_advancedOptions' - The status of the @AdvancedOptions@.
 --
 -- 'deleted', 'domainStatus_deleted' - The domain deletion status. @True@ if a delete request has been received
 -- for the domain but resource cleanup is still in progress. @False@ if the
 -- domain has not been deleted. Once domain deletion is complete, the
 -- status of the domain is no longer returned.
 --
--- 'vPCOptions', 'domainStatus_vPCOptions' - The @VPCOptions@ for the specified domain. For more information, see
--- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html Launching your Amazon OpenSearch Service domains using a VPC>.
+-- 'created', 'domainStatus_created' - The domain creation status. @True@ if the creation of a domain is
+-- complete. @ False @ if domain creation is still in progress.
 --
--- 'endpoints', 'domainStatus_endpoints' - Map containing the domain endpoints used to submit index and search
--- requests. Example @key, value@:
--- @\'vpc\',\'vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com\'@.
---
--- 'domainEndpointOptions', 'domainStatus_domainEndpointOptions' - The current status of the domain\'s endpoint options.
---
--- 'processing', 'domainStatus_processing' - The status of the domain configuration. @True@ if Amazon OpenSearch
--- Service is processing configuration changes. @False@ if the
--- configuration is active.
---
--- 'endpoint', 'domainStatus_endpoint' - The domain endpoint that you use to submit index and search requests.
+-- 'advancedSecurityOptions', 'domainStatus_advancedSecurityOptions' - The current status of the domain\'s advanced security options.
 --
 -- 'upgradeProcessing', 'domainStatus_upgradeProcessing' - The status of a domain version upgrade. @True@ if Amazon OpenSearch
 -- Service is undergoing a version upgrade. @False@ if the configuration is
 -- active.
 --
--- 'advancedOptions', 'domainStatus_advancedOptions' - The status of the @AdvancedOptions@.
+-- 'processing', 'domainStatus_processing' - The status of the domain configuration. @True@ if Amazon OpenSearch
+-- Service is processing configuration changes. @False@ if the
+-- configuration is active.
+--
+-- 'cognitoOptions', 'domainStatus_cognitoOptions' - The @CognitoOptions@ for the specified domain. For more information, see
+-- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html Configuring Amazon Cognito authentication for OpenSearch Dashboards>.
+--
+-- 'encryptionAtRestOptions', 'domainStatus_encryptionAtRestOptions' - The status of the @EncryptionAtRestOptions@.
+--
+-- 'endpoints', 'domainStatus_endpoints' - Map containing the domain endpoints used to submit index and search
+-- requests. Example @key, value@:
+-- @\'vpc\',\'vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com\'@.
+--
+-- 'eBSOptions', 'domainStatus_eBSOptions' - The @EBSOptions@ for the specified domain.
+--
+-- 'accessPolicies', 'domainStatus_accessPolicies' - IAM access policy as a JSON-formatted string.
+--
+-- 'vPCOptions', 'domainStatus_vPCOptions' - The @VPCOptions@ for the specified domain. For more information, see
+-- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html Launching your Amazon OpenSearch Service domains using a VPC>.
+--
+-- 'autoTuneOptions', 'domainStatus_autoTuneOptions' - The current status of the domain\'s Auto-Tune options.
+--
+-- 'domainEndpointOptions', 'domainStatus_domainEndpointOptions' - The current status of the domain\'s endpoint options.
+--
+-- 'endpoint', 'domainStatus_endpoint' - The domain endpoint that you use to submit index and search requests.
+--
+-- 'serviceSoftwareOptions', 'domainStatus_serviceSoftwareOptions' - The current status of the domain\'s service software.
+--
+-- 'snapshotOptions', 'domainStatus_snapshotOptions' - The status of the @SnapshotOptions@.
+--
+-- 'logPublishingOptions', 'domainStatus_logPublishingOptions' - Log publishing options for the given domain.
+--
+-- 'engineVersion', 'domainStatus_engineVersion' - Undocumented member.
 --
 -- 'domainId', 'domainStatus_domainId' - The unique identifier for the specified domain.
 --
@@ -197,72 +197,68 @@ newDomainStatus
   pARN_
   pClusterConfig_ =
     DomainStatus'
-      { eBSOptions = Prelude.Nothing,
-        engineVersion = Prelude.Nothing,
-        nodeToNodeEncryptionOptions = Prelude.Nothing,
-        accessPolicies = Prelude.Nothing,
-        serviceSoftwareOptions = Prelude.Nothing,
-        autoTuneOptions = Prelude.Nothing,
-        logPublishingOptions = Prelude.Nothing,
-        advancedSecurityOptions = Prelude.Nothing,
+      { nodeToNodeEncryptionOptions =
+          Prelude.Nothing,
+        advancedOptions = Prelude.Nothing,
+        deleted = Prelude.Nothing,
         created = Prelude.Nothing,
-        snapshotOptions = Prelude.Nothing,
+        advancedSecurityOptions = Prelude.Nothing,
+        upgradeProcessing = Prelude.Nothing,
+        processing = Prelude.Nothing,
         cognitoOptions = Prelude.Nothing,
         encryptionAtRestOptions = Prelude.Nothing,
-        deleted = Prelude.Nothing,
-        vPCOptions = Prelude.Nothing,
         endpoints = Prelude.Nothing,
+        eBSOptions = Prelude.Nothing,
+        accessPolicies = Prelude.Nothing,
+        vPCOptions = Prelude.Nothing,
+        autoTuneOptions = Prelude.Nothing,
         domainEndpointOptions = Prelude.Nothing,
-        processing = Prelude.Nothing,
         endpoint = Prelude.Nothing,
-        upgradeProcessing = Prelude.Nothing,
-        advancedOptions = Prelude.Nothing,
+        serviceSoftwareOptions = Prelude.Nothing,
+        snapshotOptions = Prelude.Nothing,
+        logPublishingOptions = Prelude.Nothing,
+        engineVersion = Prelude.Nothing,
         domainId = pDomainId_,
         domainName = pDomainName_,
         arn = pARN_,
         clusterConfig = pClusterConfig_
       }
 
--- | The @EBSOptions@ for the specified domain.
-domainStatus_eBSOptions :: Lens.Lens' DomainStatus (Prelude.Maybe EBSOptions)
-domainStatus_eBSOptions = Lens.lens (\DomainStatus' {eBSOptions} -> eBSOptions) (\s@DomainStatus' {} a -> s {eBSOptions = a} :: DomainStatus)
-
--- | Undocumented member.
-domainStatus_engineVersion :: Lens.Lens' DomainStatus (Prelude.Maybe Prelude.Text)
-domainStatus_engineVersion = Lens.lens (\DomainStatus' {engineVersion} -> engineVersion) (\s@DomainStatus' {} a -> s {engineVersion = a} :: DomainStatus)
-
 -- | The status of the @NodeToNodeEncryptionOptions@.
 domainStatus_nodeToNodeEncryptionOptions :: Lens.Lens' DomainStatus (Prelude.Maybe NodeToNodeEncryptionOptions)
 domainStatus_nodeToNodeEncryptionOptions = Lens.lens (\DomainStatus' {nodeToNodeEncryptionOptions} -> nodeToNodeEncryptionOptions) (\s@DomainStatus' {} a -> s {nodeToNodeEncryptionOptions = a} :: DomainStatus)
 
--- | IAM access policy as a JSON-formatted string.
-domainStatus_accessPolicies :: Lens.Lens' DomainStatus (Prelude.Maybe Prelude.Text)
-domainStatus_accessPolicies = Lens.lens (\DomainStatus' {accessPolicies} -> accessPolicies) (\s@DomainStatus' {} a -> s {accessPolicies = a} :: DomainStatus)
+-- | The status of the @AdvancedOptions@.
+domainStatus_advancedOptions :: Lens.Lens' DomainStatus (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+domainStatus_advancedOptions = Lens.lens (\DomainStatus' {advancedOptions} -> advancedOptions) (\s@DomainStatus' {} a -> s {advancedOptions = a} :: DomainStatus) Prelude.. Lens.mapping Lens.coerced
 
--- | The current status of the domain\'s service software.
-domainStatus_serviceSoftwareOptions :: Lens.Lens' DomainStatus (Prelude.Maybe ServiceSoftwareOptions)
-domainStatus_serviceSoftwareOptions = Lens.lens (\DomainStatus' {serviceSoftwareOptions} -> serviceSoftwareOptions) (\s@DomainStatus' {} a -> s {serviceSoftwareOptions = a} :: DomainStatus)
-
--- | The current status of the domain\'s Auto-Tune options.
-domainStatus_autoTuneOptions :: Lens.Lens' DomainStatus (Prelude.Maybe AutoTuneOptionsOutput)
-domainStatus_autoTuneOptions = Lens.lens (\DomainStatus' {autoTuneOptions} -> autoTuneOptions) (\s@DomainStatus' {} a -> s {autoTuneOptions = a} :: DomainStatus)
-
--- | Log publishing options for the given domain.
-domainStatus_logPublishingOptions :: Lens.Lens' DomainStatus (Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption))
-domainStatus_logPublishingOptions = Lens.lens (\DomainStatus' {logPublishingOptions} -> logPublishingOptions) (\s@DomainStatus' {} a -> s {logPublishingOptions = a} :: DomainStatus) Prelude.. Lens.mapping Lens.coerced
-
--- | The current status of the domain\'s advanced security options.
-domainStatus_advancedSecurityOptions :: Lens.Lens' DomainStatus (Prelude.Maybe AdvancedSecurityOptions)
-domainStatus_advancedSecurityOptions = Lens.lens (\DomainStatus' {advancedSecurityOptions} -> advancedSecurityOptions) (\s@DomainStatus' {} a -> s {advancedSecurityOptions = a} :: DomainStatus)
+-- | The domain deletion status. @True@ if a delete request has been received
+-- for the domain but resource cleanup is still in progress. @False@ if the
+-- domain has not been deleted. Once domain deletion is complete, the
+-- status of the domain is no longer returned.
+domainStatus_deleted :: Lens.Lens' DomainStatus (Prelude.Maybe Prelude.Bool)
+domainStatus_deleted = Lens.lens (\DomainStatus' {deleted} -> deleted) (\s@DomainStatus' {} a -> s {deleted = a} :: DomainStatus)
 
 -- | The domain creation status. @True@ if the creation of a domain is
 -- complete. @ False @ if domain creation is still in progress.
 domainStatus_created :: Lens.Lens' DomainStatus (Prelude.Maybe Prelude.Bool)
 domainStatus_created = Lens.lens (\DomainStatus' {created} -> created) (\s@DomainStatus' {} a -> s {created = a} :: DomainStatus)
 
--- | The status of the @SnapshotOptions@.
-domainStatus_snapshotOptions :: Lens.Lens' DomainStatus (Prelude.Maybe SnapshotOptions)
-domainStatus_snapshotOptions = Lens.lens (\DomainStatus' {snapshotOptions} -> snapshotOptions) (\s@DomainStatus' {} a -> s {snapshotOptions = a} :: DomainStatus)
+-- | The current status of the domain\'s advanced security options.
+domainStatus_advancedSecurityOptions :: Lens.Lens' DomainStatus (Prelude.Maybe AdvancedSecurityOptions)
+domainStatus_advancedSecurityOptions = Lens.lens (\DomainStatus' {advancedSecurityOptions} -> advancedSecurityOptions) (\s@DomainStatus' {} a -> s {advancedSecurityOptions = a} :: DomainStatus)
+
+-- | The status of a domain version upgrade. @True@ if Amazon OpenSearch
+-- Service is undergoing a version upgrade. @False@ if the configuration is
+-- active.
+domainStatus_upgradeProcessing :: Lens.Lens' DomainStatus (Prelude.Maybe Prelude.Bool)
+domainStatus_upgradeProcessing = Lens.lens (\DomainStatus' {upgradeProcessing} -> upgradeProcessing) (\s@DomainStatus' {} a -> s {upgradeProcessing = a} :: DomainStatus)
+
+-- | The status of the domain configuration. @True@ if Amazon OpenSearch
+-- Service is processing configuration changes. @False@ if the
+-- configuration is active.
+domainStatus_processing :: Lens.Lens' DomainStatus (Prelude.Maybe Prelude.Bool)
+domainStatus_processing = Lens.lens (\DomainStatus' {processing} -> processing) (\s@DomainStatus' {} a -> s {processing = a} :: DomainStatus)
 
 -- | The @CognitoOptions@ for the specified domain. For more information, see
 -- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html Configuring Amazon Cognito authentication for OpenSearch Dashboards>.
@@ -273,47 +269,52 @@ domainStatus_cognitoOptions = Lens.lens (\DomainStatus' {cognitoOptions} -> cogn
 domainStatus_encryptionAtRestOptions :: Lens.Lens' DomainStatus (Prelude.Maybe EncryptionAtRestOptions)
 domainStatus_encryptionAtRestOptions = Lens.lens (\DomainStatus' {encryptionAtRestOptions} -> encryptionAtRestOptions) (\s@DomainStatus' {} a -> s {encryptionAtRestOptions = a} :: DomainStatus)
 
--- | The domain deletion status. @True@ if a delete request has been received
--- for the domain but resource cleanup is still in progress. @False@ if the
--- domain has not been deleted. Once domain deletion is complete, the
--- status of the domain is no longer returned.
-domainStatus_deleted :: Lens.Lens' DomainStatus (Prelude.Maybe Prelude.Bool)
-domainStatus_deleted = Lens.lens (\DomainStatus' {deleted} -> deleted) (\s@DomainStatus' {} a -> s {deleted = a} :: DomainStatus)
-
--- | The @VPCOptions@ for the specified domain. For more information, see
--- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html Launching your Amazon OpenSearch Service domains using a VPC>.
-domainStatus_vPCOptions :: Lens.Lens' DomainStatus (Prelude.Maybe VPCDerivedInfo)
-domainStatus_vPCOptions = Lens.lens (\DomainStatus' {vPCOptions} -> vPCOptions) (\s@DomainStatus' {} a -> s {vPCOptions = a} :: DomainStatus)
-
 -- | Map containing the domain endpoints used to submit index and search
 -- requests. Example @key, value@:
 -- @\'vpc\',\'vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com\'@.
 domainStatus_endpoints :: Lens.Lens' DomainStatus (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 domainStatus_endpoints = Lens.lens (\DomainStatus' {endpoints} -> endpoints) (\s@DomainStatus' {} a -> s {endpoints = a} :: DomainStatus) Prelude.. Lens.mapping Lens.coerced
 
+-- | The @EBSOptions@ for the specified domain.
+domainStatus_eBSOptions :: Lens.Lens' DomainStatus (Prelude.Maybe EBSOptions)
+domainStatus_eBSOptions = Lens.lens (\DomainStatus' {eBSOptions} -> eBSOptions) (\s@DomainStatus' {} a -> s {eBSOptions = a} :: DomainStatus)
+
+-- | IAM access policy as a JSON-formatted string.
+domainStatus_accessPolicies :: Lens.Lens' DomainStatus (Prelude.Maybe Prelude.Text)
+domainStatus_accessPolicies = Lens.lens (\DomainStatus' {accessPolicies} -> accessPolicies) (\s@DomainStatus' {} a -> s {accessPolicies = a} :: DomainStatus)
+
+-- | The @VPCOptions@ for the specified domain. For more information, see
+-- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html Launching your Amazon OpenSearch Service domains using a VPC>.
+domainStatus_vPCOptions :: Lens.Lens' DomainStatus (Prelude.Maybe VPCDerivedInfo)
+domainStatus_vPCOptions = Lens.lens (\DomainStatus' {vPCOptions} -> vPCOptions) (\s@DomainStatus' {} a -> s {vPCOptions = a} :: DomainStatus)
+
+-- | The current status of the domain\'s Auto-Tune options.
+domainStatus_autoTuneOptions :: Lens.Lens' DomainStatus (Prelude.Maybe AutoTuneOptionsOutput)
+domainStatus_autoTuneOptions = Lens.lens (\DomainStatus' {autoTuneOptions} -> autoTuneOptions) (\s@DomainStatus' {} a -> s {autoTuneOptions = a} :: DomainStatus)
+
 -- | The current status of the domain\'s endpoint options.
 domainStatus_domainEndpointOptions :: Lens.Lens' DomainStatus (Prelude.Maybe DomainEndpointOptions)
 domainStatus_domainEndpointOptions = Lens.lens (\DomainStatus' {domainEndpointOptions} -> domainEndpointOptions) (\s@DomainStatus' {} a -> s {domainEndpointOptions = a} :: DomainStatus)
-
--- | The status of the domain configuration. @True@ if Amazon OpenSearch
--- Service is processing configuration changes. @False@ if the
--- configuration is active.
-domainStatus_processing :: Lens.Lens' DomainStatus (Prelude.Maybe Prelude.Bool)
-domainStatus_processing = Lens.lens (\DomainStatus' {processing} -> processing) (\s@DomainStatus' {} a -> s {processing = a} :: DomainStatus)
 
 -- | The domain endpoint that you use to submit index and search requests.
 domainStatus_endpoint :: Lens.Lens' DomainStatus (Prelude.Maybe Prelude.Text)
 domainStatus_endpoint = Lens.lens (\DomainStatus' {endpoint} -> endpoint) (\s@DomainStatus' {} a -> s {endpoint = a} :: DomainStatus)
 
--- | The status of a domain version upgrade. @True@ if Amazon OpenSearch
--- Service is undergoing a version upgrade. @False@ if the configuration is
--- active.
-domainStatus_upgradeProcessing :: Lens.Lens' DomainStatus (Prelude.Maybe Prelude.Bool)
-domainStatus_upgradeProcessing = Lens.lens (\DomainStatus' {upgradeProcessing} -> upgradeProcessing) (\s@DomainStatus' {} a -> s {upgradeProcessing = a} :: DomainStatus)
+-- | The current status of the domain\'s service software.
+domainStatus_serviceSoftwareOptions :: Lens.Lens' DomainStatus (Prelude.Maybe ServiceSoftwareOptions)
+domainStatus_serviceSoftwareOptions = Lens.lens (\DomainStatus' {serviceSoftwareOptions} -> serviceSoftwareOptions) (\s@DomainStatus' {} a -> s {serviceSoftwareOptions = a} :: DomainStatus)
 
--- | The status of the @AdvancedOptions@.
-domainStatus_advancedOptions :: Lens.Lens' DomainStatus (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-domainStatus_advancedOptions = Lens.lens (\DomainStatus' {advancedOptions} -> advancedOptions) (\s@DomainStatus' {} a -> s {advancedOptions = a} :: DomainStatus) Prelude.. Lens.mapping Lens.coerced
+-- | The status of the @SnapshotOptions@.
+domainStatus_snapshotOptions :: Lens.Lens' DomainStatus (Prelude.Maybe SnapshotOptions)
+domainStatus_snapshotOptions = Lens.lens (\DomainStatus' {snapshotOptions} -> snapshotOptions) (\s@DomainStatus' {} a -> s {snapshotOptions = a} :: DomainStatus)
+
+-- | Log publishing options for the given domain.
+domainStatus_logPublishingOptions :: Lens.Lens' DomainStatus (Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption))
+domainStatus_logPublishingOptions = Lens.lens (\DomainStatus' {logPublishingOptions} -> logPublishingOptions) (\s@DomainStatus' {} a -> s {logPublishingOptions = a} :: DomainStatus) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+domainStatus_engineVersion :: Lens.Lens' DomainStatus (Prelude.Maybe Prelude.Text)
+domainStatus_engineVersion = Lens.lens (\DomainStatus' {engineVersion} -> engineVersion) (\s@DomainStatus' {} a -> s {engineVersion = a} :: DomainStatus)
 
 -- | The unique identifier for the specified domain.
 domainStatus_domainId :: Lens.Lens' DomainStatus Prelude.Text
@@ -343,30 +344,30 @@ instance Core.FromJSON DomainStatus where
       "DomainStatus"
       ( \x ->
           DomainStatus'
-            Prelude.<$> (x Core..:? "EBSOptions")
-            Prelude.<*> (x Core..:? "EngineVersion")
-            Prelude.<*> (x Core..:? "NodeToNodeEncryptionOptions")
-            Prelude.<*> (x Core..:? "AccessPolicies")
-            Prelude.<*> (x Core..:? "ServiceSoftwareOptions")
-            Prelude.<*> (x Core..:? "AutoTuneOptions")
-            Prelude.<*> ( x Core..:? "LogPublishingOptions"
-                            Core..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Core..:? "AdvancedSecurityOptions")
-            Prelude.<*> (x Core..:? "Created")
-            Prelude.<*> (x Core..:? "SnapshotOptions")
-            Prelude.<*> (x Core..:? "CognitoOptions")
-            Prelude.<*> (x Core..:? "EncryptionAtRestOptions")
-            Prelude.<*> (x Core..:? "Deleted")
-            Prelude.<*> (x Core..:? "VPCOptions")
-            Prelude.<*> (x Core..:? "Endpoints" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "DomainEndpointOptions")
-            Prelude.<*> (x Core..:? "Processing")
-            Prelude.<*> (x Core..:? "Endpoint")
-            Prelude.<*> (x Core..:? "UpgradeProcessing")
+            Prelude.<$> (x Core..:? "NodeToNodeEncryptionOptions")
             Prelude.<*> ( x Core..:? "AdvancedOptions"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "Deleted")
+            Prelude.<*> (x Core..:? "Created")
+            Prelude.<*> (x Core..:? "AdvancedSecurityOptions")
+            Prelude.<*> (x Core..:? "UpgradeProcessing")
+            Prelude.<*> (x Core..:? "Processing")
+            Prelude.<*> (x Core..:? "CognitoOptions")
+            Prelude.<*> (x Core..:? "EncryptionAtRestOptions")
+            Prelude.<*> (x Core..:? "Endpoints" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "EBSOptions")
+            Prelude.<*> (x Core..:? "AccessPolicies")
+            Prelude.<*> (x Core..:? "VPCOptions")
+            Prelude.<*> (x Core..:? "AutoTuneOptions")
+            Prelude.<*> (x Core..:? "DomainEndpointOptions")
+            Prelude.<*> (x Core..:? "Endpoint")
+            Prelude.<*> (x Core..:? "ServiceSoftwareOptions")
+            Prelude.<*> (x Core..:? "SnapshotOptions")
+            Prelude.<*> ( x Core..:? "LogPublishingOptions"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "EngineVersion")
             Prelude.<*> (x Core..: "DomainId")
             Prelude.<*> (x Core..: "DomainName")
             Prelude.<*> (x Core..: "ARN")
@@ -375,26 +376,27 @@ instance Core.FromJSON DomainStatus where
 
 instance Prelude.Hashable DomainStatus where
   hashWithSalt _salt DomainStatus' {..} =
-    _salt `Prelude.hashWithSalt` eBSOptions
-      `Prelude.hashWithSalt` engineVersion
+    _salt
       `Prelude.hashWithSalt` nodeToNodeEncryptionOptions
-      `Prelude.hashWithSalt` accessPolicies
-      `Prelude.hashWithSalt` serviceSoftwareOptions
-      `Prelude.hashWithSalt` autoTuneOptions
-      `Prelude.hashWithSalt` logPublishingOptions
-      `Prelude.hashWithSalt` advancedSecurityOptions
+      `Prelude.hashWithSalt` advancedOptions
+      `Prelude.hashWithSalt` deleted
       `Prelude.hashWithSalt` created
-      `Prelude.hashWithSalt` snapshotOptions
+      `Prelude.hashWithSalt` advancedSecurityOptions
+      `Prelude.hashWithSalt` upgradeProcessing
+      `Prelude.hashWithSalt` processing
       `Prelude.hashWithSalt` cognitoOptions
       `Prelude.hashWithSalt` encryptionAtRestOptions
-      `Prelude.hashWithSalt` deleted
-      `Prelude.hashWithSalt` vPCOptions
       `Prelude.hashWithSalt` endpoints
+      `Prelude.hashWithSalt` eBSOptions
+      `Prelude.hashWithSalt` accessPolicies
+      `Prelude.hashWithSalt` vPCOptions
+      `Prelude.hashWithSalt` autoTuneOptions
       `Prelude.hashWithSalt` domainEndpointOptions
-      `Prelude.hashWithSalt` processing
       `Prelude.hashWithSalt` endpoint
-      `Prelude.hashWithSalt` upgradeProcessing
-      `Prelude.hashWithSalt` advancedOptions
+      `Prelude.hashWithSalt` serviceSoftwareOptions
+      `Prelude.hashWithSalt` snapshotOptions
+      `Prelude.hashWithSalt` logPublishingOptions
+      `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` arn
@@ -402,26 +404,26 @@ instance Prelude.Hashable DomainStatus where
 
 instance Prelude.NFData DomainStatus where
   rnf DomainStatus' {..} =
-    Prelude.rnf eBSOptions
-      `Prelude.seq` Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf nodeToNodeEncryptionOptions
-      `Prelude.seq` Prelude.rnf accessPolicies
-      `Prelude.seq` Prelude.rnf serviceSoftwareOptions
-      `Prelude.seq` Prelude.rnf autoTuneOptions
-      `Prelude.seq` Prelude.rnf logPublishingOptions
-      `Prelude.seq` Prelude.rnf advancedSecurityOptions
+    Prelude.rnf nodeToNodeEncryptionOptions
+      `Prelude.seq` Prelude.rnf advancedOptions
+      `Prelude.seq` Prelude.rnf deleted
       `Prelude.seq` Prelude.rnf created
-      `Prelude.seq` Prelude.rnf snapshotOptions
+      `Prelude.seq` Prelude.rnf advancedSecurityOptions
+      `Prelude.seq` Prelude.rnf upgradeProcessing
+      `Prelude.seq` Prelude.rnf processing
       `Prelude.seq` Prelude.rnf cognitoOptions
       `Prelude.seq` Prelude.rnf encryptionAtRestOptions
-      `Prelude.seq` Prelude.rnf deleted
-      `Prelude.seq` Prelude.rnf vPCOptions
       `Prelude.seq` Prelude.rnf endpoints
+      `Prelude.seq` Prelude.rnf eBSOptions
+      `Prelude.seq` Prelude.rnf accessPolicies
+      `Prelude.seq` Prelude.rnf vPCOptions
+      `Prelude.seq` Prelude.rnf autoTuneOptions
       `Prelude.seq` Prelude.rnf domainEndpointOptions
-      `Prelude.seq` Prelude.rnf processing
       `Prelude.seq` Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf upgradeProcessing
-      `Prelude.seq` Prelude.rnf advancedOptions
+      `Prelude.seq` Prelude.rnf serviceSoftwareOptions
+      `Prelude.seq` Prelude.rnf snapshotOptions
+      `Prelude.seq` Prelude.rnf logPublishingOptions
+      `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf arn

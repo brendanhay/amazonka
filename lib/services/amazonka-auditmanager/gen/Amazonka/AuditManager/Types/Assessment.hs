@@ -32,16 +32,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAssessment' smart constructor.
 data Assessment = Assessment'
-  { -- | The framework from which the assessment was created.
-    framework :: Prelude.Maybe AssessmentFramework,
-    -- | The Amazon Resource Name (ARN) of the assessment.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services account associated with the assessment.
-    awsAccount :: Prelude.Maybe AWSAccount,
+  { -- | The tags associated with the assessment.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The metadata for the specified assessment.
     metadata :: Prelude.Maybe AssessmentMetadata,
-    -- | The tags associated with the assessment.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    -- | The Amazon Web Services account associated with the assessment.
+    awsAccount :: Prelude.Maybe AWSAccount,
+    -- | The Amazon Resource Name (ARN) of the assessment.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The framework from which the assessment was created.
+    framework :: Prelude.Maybe AssessmentFramework
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,45 +53,45 @@ data Assessment = Assessment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'framework', 'assessment_framework' - The framework from which the assessment was created.
---
--- 'arn', 'assessment_arn' - The Amazon Resource Name (ARN) of the assessment.
---
--- 'awsAccount', 'assessment_awsAccount' - The Amazon Web Services account associated with the assessment.
+-- 'tags', 'assessment_tags' - The tags associated with the assessment.
 --
 -- 'metadata', 'assessment_metadata' - The metadata for the specified assessment.
 --
--- 'tags', 'assessment_tags' - The tags associated with the assessment.
+-- 'awsAccount', 'assessment_awsAccount' - The Amazon Web Services account associated with the assessment.
+--
+-- 'arn', 'assessment_arn' - The Amazon Resource Name (ARN) of the assessment.
+--
+-- 'framework', 'assessment_framework' - The framework from which the assessment was created.
 newAssessment ::
   Assessment
 newAssessment =
   Assessment'
-    { framework = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      awsAccount = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       metadata = Prelude.Nothing,
-      tags = Prelude.Nothing
+      awsAccount = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      framework = Prelude.Nothing
     }
 
--- | The framework from which the assessment was created.
-assessment_framework :: Lens.Lens' Assessment (Prelude.Maybe AssessmentFramework)
-assessment_framework = Lens.lens (\Assessment' {framework} -> framework) (\s@Assessment' {} a -> s {framework = a} :: Assessment)
-
--- | The Amazon Resource Name (ARN) of the assessment.
-assessment_arn :: Lens.Lens' Assessment (Prelude.Maybe Prelude.Text)
-assessment_arn = Lens.lens (\Assessment' {arn} -> arn) (\s@Assessment' {} a -> s {arn = a} :: Assessment)
-
--- | The Amazon Web Services account associated with the assessment.
-assessment_awsAccount :: Lens.Lens' Assessment (Prelude.Maybe AWSAccount)
-assessment_awsAccount = Lens.lens (\Assessment' {awsAccount} -> awsAccount) (\s@Assessment' {} a -> s {awsAccount = a} :: Assessment)
+-- | The tags associated with the assessment.
+assessment_tags :: Lens.Lens' Assessment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+assessment_tags = Lens.lens (\Assessment' {tags} -> tags) (\s@Assessment' {} a -> s {tags = a} :: Assessment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The metadata for the specified assessment.
 assessment_metadata :: Lens.Lens' Assessment (Prelude.Maybe AssessmentMetadata)
 assessment_metadata = Lens.lens (\Assessment' {metadata} -> metadata) (\s@Assessment' {} a -> s {metadata = a} :: Assessment)
 
--- | The tags associated with the assessment.
-assessment_tags :: Lens.Lens' Assessment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-assessment_tags = Lens.lens (\Assessment' {tags} -> tags) (\s@Assessment' {} a -> s {tags = a} :: Assessment) Prelude.. Lens.mapping Lens.coerced
+-- | The Amazon Web Services account associated with the assessment.
+assessment_awsAccount :: Lens.Lens' Assessment (Prelude.Maybe AWSAccount)
+assessment_awsAccount = Lens.lens (\Assessment' {awsAccount} -> awsAccount) (\s@Assessment' {} a -> s {awsAccount = a} :: Assessment)
+
+-- | The Amazon Resource Name (ARN) of the assessment.
+assessment_arn :: Lens.Lens' Assessment (Prelude.Maybe Prelude.Text)
+assessment_arn = Lens.lens (\Assessment' {arn} -> arn) (\s@Assessment' {} a -> s {arn = a} :: Assessment)
+
+-- | The framework from which the assessment was created.
+assessment_framework :: Lens.Lens' Assessment (Prelude.Maybe AssessmentFramework)
+assessment_framework = Lens.lens (\Assessment' {framework} -> framework) (\s@Assessment' {} a -> s {framework = a} :: Assessment)
 
 instance Core.FromJSON Assessment where
   parseJSON =
@@ -99,25 +99,25 @@ instance Core.FromJSON Assessment where
       "Assessment"
       ( \x ->
           Assessment'
-            Prelude.<$> (x Core..:? "framework")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "awsAccount")
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "metadata")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "awsAccount")
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "framework")
       )
 
 instance Prelude.Hashable Assessment where
   hashWithSalt _salt Assessment' {..} =
-    _salt `Prelude.hashWithSalt` framework
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` awsAccount
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` metadata
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` awsAccount
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` framework
 
 instance Prelude.NFData Assessment where
   rnf Assessment' {..} =
-    Prelude.rnf framework
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf awsAccount
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf awsAccount
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf framework

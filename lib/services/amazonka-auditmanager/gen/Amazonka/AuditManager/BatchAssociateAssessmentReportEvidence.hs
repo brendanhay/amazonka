@@ -37,8 +37,8 @@ module Amazonka.AuditManager.BatchAssociateAssessmentReportEvidence
     newBatchAssociateAssessmentReportEvidenceResponse,
 
     -- * Response Lenses
-    batchAssociateAssessmentReportEvidenceResponse_evidenceIds,
     batchAssociateAssessmentReportEvidenceResponse_errors,
+    batchAssociateAssessmentReportEvidenceResponse_evidenceIds,
     batchAssociateAssessmentReportEvidenceResponse_httpStatus,
   )
 where
@@ -116,8 +116,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchAssociateAssessmentReportEvidenceResponse'
-            Prelude.<$> (x Core..?> "evidenceIds" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Core..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "errors" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Core..?> "evidenceIds" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,11 +187,11 @@ instance
 
 -- | /See:/ 'newBatchAssociateAssessmentReportEvidenceResponse' smart constructor.
 data BatchAssociateAssessmentReportEvidenceResponse = BatchAssociateAssessmentReportEvidenceResponse'
-  { -- | The identifier for the evidence.
-    evidenceIds :: Prelude.Maybe [Prelude.Text],
-    -- | A list of errors returned by the
+  { -- | A list of errors returned by the
     -- @BatchAssociateAssessmentReportEvidence@ API.
     errors :: Prelude.Maybe [AssessmentReportEvidenceError],
+    -- | The identifier for the evidence.
+    evidenceIds :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -205,10 +205,10 @@ data BatchAssociateAssessmentReportEvidenceResponse = BatchAssociateAssessmentRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'evidenceIds', 'batchAssociateAssessmentReportEvidenceResponse_evidenceIds' - The identifier for the evidence.
---
 -- 'errors', 'batchAssociateAssessmentReportEvidenceResponse_errors' - A list of errors returned by the
 -- @BatchAssociateAssessmentReportEvidence@ API.
+--
+-- 'evidenceIds', 'batchAssociateAssessmentReportEvidenceResponse_evidenceIds' - The identifier for the evidence.
 --
 -- 'httpStatus', 'batchAssociateAssessmentReportEvidenceResponse_httpStatus' - The response's http status code.
 newBatchAssociateAssessmentReportEvidenceResponse ::
@@ -218,20 +218,21 @@ newBatchAssociateAssessmentReportEvidenceResponse ::
 newBatchAssociateAssessmentReportEvidenceResponse
   pHttpStatus_ =
     BatchAssociateAssessmentReportEvidenceResponse'
-      { evidenceIds =
+      { errors =
           Prelude.Nothing,
-        errors = Prelude.Nothing,
+        evidenceIds =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The identifier for the evidence.
-batchAssociateAssessmentReportEvidenceResponse_evidenceIds :: Lens.Lens' BatchAssociateAssessmentReportEvidenceResponse (Prelude.Maybe [Prelude.Text])
-batchAssociateAssessmentReportEvidenceResponse_evidenceIds = Lens.lens (\BatchAssociateAssessmentReportEvidenceResponse' {evidenceIds} -> evidenceIds) (\s@BatchAssociateAssessmentReportEvidenceResponse' {} a -> s {evidenceIds = a} :: BatchAssociateAssessmentReportEvidenceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of errors returned by the
 -- @BatchAssociateAssessmentReportEvidence@ API.
 batchAssociateAssessmentReportEvidenceResponse_errors :: Lens.Lens' BatchAssociateAssessmentReportEvidenceResponse (Prelude.Maybe [AssessmentReportEvidenceError])
 batchAssociateAssessmentReportEvidenceResponse_errors = Lens.lens (\BatchAssociateAssessmentReportEvidenceResponse' {errors} -> errors) (\s@BatchAssociateAssessmentReportEvidenceResponse' {} a -> s {errors = a} :: BatchAssociateAssessmentReportEvidenceResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The identifier for the evidence.
+batchAssociateAssessmentReportEvidenceResponse_evidenceIds :: Lens.Lens' BatchAssociateAssessmentReportEvidenceResponse (Prelude.Maybe [Prelude.Text])
+batchAssociateAssessmentReportEvidenceResponse_evidenceIds = Lens.lens (\BatchAssociateAssessmentReportEvidenceResponse' {evidenceIds} -> evidenceIds) (\s@BatchAssociateAssessmentReportEvidenceResponse' {} a -> s {evidenceIds = a} :: BatchAssociateAssessmentReportEvidenceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchAssociateAssessmentReportEvidenceResponse_httpStatus :: Lens.Lens' BatchAssociateAssessmentReportEvidenceResponse Prelude.Int
@@ -243,6 +244,6 @@ instance
   where
   rnf
     BatchAssociateAssessmentReportEvidenceResponse' {..} =
-      Prelude.rnf evidenceIds
-        `Prelude.seq` Prelude.rnf errors
+      Prelude.rnf errors
+        `Prelude.seq` Prelude.rnf evidenceIds
         `Prelude.seq` Prelude.rnf httpStatus

@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAssessmentReportEvidenceError' smart constructor.
 data AssessmentReportEvidenceError = AssessmentReportEvidenceError'
-  { -- | The error code returned by the @AssessmentReportEvidence@ API.
-    errorCode :: Prelude.Maybe Prelude.Text,
-    -- | The error message returned by the @AssessmentReportEvidence@ API.
+  { -- | The error message returned by the @AssessmentReportEvidence@ API.
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the evidence.
-    evidenceId :: Prelude.Maybe Prelude.Text
+    evidenceId :: Prelude.Maybe Prelude.Text,
+    -- | The error code returned by the @AssessmentReportEvidence@ API.
+    errorCode :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,20 @@ data AssessmentReportEvidenceError = AssessmentReportEvidenceError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorCode', 'assessmentReportEvidenceError_errorCode' - The error code returned by the @AssessmentReportEvidence@ API.
---
 -- 'errorMessage', 'assessmentReportEvidenceError_errorMessage' - The error message returned by the @AssessmentReportEvidence@ API.
 --
 -- 'evidenceId', 'assessmentReportEvidenceError_evidenceId' - The identifier for the evidence.
+--
+-- 'errorCode', 'assessmentReportEvidenceError_errorCode' - The error code returned by the @AssessmentReportEvidence@ API.
 newAssessmentReportEvidenceError ::
   AssessmentReportEvidenceError
 newAssessmentReportEvidenceError =
   AssessmentReportEvidenceError'
-    { errorCode =
+    { errorMessage =
         Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      evidenceId = Prelude.Nothing
+      evidenceId = Prelude.Nothing,
+      errorCode = Prelude.Nothing
     }
-
--- | The error code returned by the @AssessmentReportEvidence@ API.
-assessmentReportEvidenceError_errorCode :: Lens.Lens' AssessmentReportEvidenceError (Prelude.Maybe Prelude.Text)
-assessmentReportEvidenceError_errorCode = Lens.lens (\AssessmentReportEvidenceError' {errorCode} -> errorCode) (\s@AssessmentReportEvidenceError' {} a -> s {errorCode = a} :: AssessmentReportEvidenceError)
 
 -- | The error message returned by the @AssessmentReportEvidence@ API.
 assessmentReportEvidenceError_errorMessage :: Lens.Lens' AssessmentReportEvidenceError (Prelude.Maybe Prelude.Text)
@@ -72,15 +68,19 @@ assessmentReportEvidenceError_errorMessage = Lens.lens (\AssessmentReportEvidenc
 assessmentReportEvidenceError_evidenceId :: Lens.Lens' AssessmentReportEvidenceError (Prelude.Maybe Prelude.Text)
 assessmentReportEvidenceError_evidenceId = Lens.lens (\AssessmentReportEvidenceError' {evidenceId} -> evidenceId) (\s@AssessmentReportEvidenceError' {} a -> s {evidenceId = a} :: AssessmentReportEvidenceError)
 
+-- | The error code returned by the @AssessmentReportEvidence@ API.
+assessmentReportEvidenceError_errorCode :: Lens.Lens' AssessmentReportEvidenceError (Prelude.Maybe Prelude.Text)
+assessmentReportEvidenceError_errorCode = Lens.lens (\AssessmentReportEvidenceError' {errorCode} -> errorCode) (\s@AssessmentReportEvidenceError' {} a -> s {errorCode = a} :: AssessmentReportEvidenceError)
+
 instance Core.FromJSON AssessmentReportEvidenceError where
   parseJSON =
     Core.withObject
       "AssessmentReportEvidenceError"
       ( \x ->
           AssessmentReportEvidenceError'
-            Prelude.<$> (x Core..:? "errorCode")
-            Prelude.<*> (x Core..:? "errorMessage")
+            Prelude.<$> (x Core..:? "errorMessage")
             Prelude.<*> (x Core..:? "evidenceId")
+            Prelude.<*> (x Core..:? "errorCode")
       )
 
 instance
@@ -88,12 +88,12 @@ instance
     AssessmentReportEvidenceError
   where
   hashWithSalt _salt AssessmentReportEvidenceError' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
-      `Prelude.hashWithSalt` errorMessage
+    _salt `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` evidenceId
+      `Prelude.hashWithSalt` errorCode
 
 instance Prelude.NFData AssessmentReportEvidenceError where
   rnf AssessmentReportEvidenceError' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf evidenceId
+      `Prelude.seq` Prelude.rnf errorCode

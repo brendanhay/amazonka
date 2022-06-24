@@ -34,8 +34,8 @@ module Amazonka.AuditManager.GetAssessment
     newGetAssessmentResponse,
 
     -- * Response Lenses
-    getAssessmentResponse_userRole,
     getAssessmentResponse_assessment,
+    getAssessmentResponse_userRole,
     getAssessmentResponse_httpStatus,
   )
 where
@@ -83,8 +83,8 @@ instance Core.AWSRequest GetAssessment where
     Response.receiveJSON
       ( \s h x ->
           GetAssessmentResponse'
-            Prelude.<$> (x Core..?> "userRole")
-            Prelude.<*> (x Core..?> "assessment")
+            Prelude.<$> (x Core..?> "assessment")
+            Prelude.<*> (x Core..?> "userRole")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,8 +116,8 @@ instance Core.ToQuery GetAssessment where
 
 -- | /See:/ 'newGetAssessmentResponse' smart constructor.
 data GetAssessmentResponse = GetAssessmentResponse'
-  { userRole :: Prelude.Maybe Role,
-    assessment :: Prelude.Maybe Assessment,
+  { assessment :: Prelude.Maybe Assessment,
+    userRole :: Prelude.Maybe Role,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -131,9 +131,9 @@ data GetAssessmentResponse = GetAssessmentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userRole', 'getAssessmentResponse_userRole' - Undocumented member.
---
 -- 'assessment', 'getAssessmentResponse_assessment' - Undocumented member.
+--
+-- 'userRole', 'getAssessmentResponse_userRole' - Undocumented member.
 --
 -- 'httpStatus', 'getAssessmentResponse_httpStatus' - The response's http status code.
 newGetAssessmentResponse ::
@@ -142,18 +142,19 @@ newGetAssessmentResponse ::
   GetAssessmentResponse
 newGetAssessmentResponse pHttpStatus_ =
   GetAssessmentResponse'
-    { userRole = Prelude.Nothing,
-      assessment = Prelude.Nothing,
+    { assessment =
+        Prelude.Nothing,
+      userRole = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-getAssessmentResponse_userRole :: Lens.Lens' GetAssessmentResponse (Prelude.Maybe Role)
-getAssessmentResponse_userRole = Lens.lens (\GetAssessmentResponse' {userRole} -> userRole) (\s@GetAssessmentResponse' {} a -> s {userRole = a} :: GetAssessmentResponse)
-
--- | Undocumented member.
 getAssessmentResponse_assessment :: Lens.Lens' GetAssessmentResponse (Prelude.Maybe Assessment)
 getAssessmentResponse_assessment = Lens.lens (\GetAssessmentResponse' {assessment} -> assessment) (\s@GetAssessmentResponse' {} a -> s {assessment = a} :: GetAssessmentResponse)
+
+-- | Undocumented member.
+getAssessmentResponse_userRole :: Lens.Lens' GetAssessmentResponse (Prelude.Maybe Role)
+getAssessmentResponse_userRole = Lens.lens (\GetAssessmentResponse' {userRole} -> userRole) (\s@GetAssessmentResponse' {} a -> s {userRole = a} :: GetAssessmentResponse)
 
 -- | The response's http status code.
 getAssessmentResponse_httpStatus :: Lens.Lens' GetAssessmentResponse Prelude.Int
@@ -161,6 +162,6 @@ getAssessmentResponse_httpStatus = Lens.lens (\GetAssessmentResponse' {httpStatu
 
 instance Prelude.NFData GetAssessmentResponse where
   rnf GetAssessmentResponse' {..} =
-    Prelude.rnf userRole
-      `Prelude.seq` Prelude.rnf assessment
+    Prelude.rnf assessment
+      `Prelude.seq` Prelude.rnf userRole
       `Prelude.seq` Prelude.rnf httpStatus

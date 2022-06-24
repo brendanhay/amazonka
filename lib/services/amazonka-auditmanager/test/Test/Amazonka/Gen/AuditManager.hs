@@ -27,613 +27,319 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCreateAssessmentReport $
---             newCreateAssessmentReport
---
---         , requestRegisterOrganizationAdminAccount $
---             newRegisterOrganizationAdminAccount
---
---         , requestListNotifications $
---             newListNotifications
---
---         , requestBatchCreateDelegationByAssessment $
---             newBatchCreateDelegationByAssessment
---
---         , requestGetEvidenceFoldersByAssessmentControl $
---             newGetEvidenceFoldersByAssessmentControl
---
---         , requestBatchDeleteDelegationByAssessment $
---             newBatchDeleteDelegationByAssessment
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestGetEvidence $
---             newGetEvidence
---
---         , requestGetServicesInScope $
---             newGetServicesInScope
---
---         , requestBatchDisassociateAssessmentReportEvidence $
---             newBatchDisassociateAssessmentReportEvidence
---
---         , requestDeregisterOrganizationAdminAccount $
---             newDeregisterOrganizationAdminAccount
---
---         , requestGetAssessmentReportUrl $
---             newGetAssessmentReportUrl
---
---         , requestUpdateAssessmentControl $
---             newUpdateAssessmentControl
---
---         , requestDeleteAssessmentFramework $
---             newDeleteAssessmentFramework
---
---         , requestUpdateAssessmentFramework $
---             newUpdateAssessmentFramework
+--         [ requestAssociateAssessmentReportEvidenceFolder $
+--             newAssociateAssessmentReportEvidenceFolder
 --
 --         , requestBatchAssociateAssessmentReportEvidence $
 --             newBatchAssociateAssessmentReportEvidence
 --
---         , requestGetEvidenceByEvidenceFolder $
---             newGetEvidenceByEvidenceFolder
+--         , requestBatchCreateDelegationByAssessment $
+--             newBatchCreateDelegationByAssessment
 --
---         , requestCreateAssessmentFramework $
---             newCreateAssessmentFramework
+--         , requestBatchDeleteDelegationByAssessment $
+--             newBatchDeleteDelegationByAssessment
 --
---         , requestListKeywordsForDataSource $
---             newListKeywordsForDataSource
---
---         , requestListAssessmentReports $
---             newListAssessmentReports
---
---         , requestValidateAssessmentReportIntegrity $
---             newValidateAssessmentReportIntegrity
---
---         , requestDeregisterAccount $
---             newDeregisterAccount
---
---         , requestDeleteAssessmentReport $
---             newDeleteAssessmentReport
---
---         , requestUpdateSettings $
---             newUpdateSettings
---
---         , requestGetAssessmentFramework $
---             newGetAssessmentFramework
---
---         , requestDeleteAssessment $
---             newDeleteAssessment
---
---         , requestGetChangeLogs $
---             newGetChangeLogs
---
---         , requestUpdateAssessment $
---             newUpdateAssessment
---
---         , requestGetDelegations $
---             newGetDelegations
---
---         , requestDisassociateAssessmentReportEvidenceFolder $
---             newDisassociateAssessmentReportEvidenceFolder
---
---         , requestListAssessments $
---             newListAssessments
---
---         , requestCreateAssessment $
---             newCreateAssessment
---
---         , requestGetEvidenceFoldersByAssessment $
---             newGetEvidenceFoldersByAssessment
---
---         , requestRegisterAccount $
---             newRegisterAccount
---
---         , requestGetAssessment $
---             newGetAssessment
+--         , requestBatchDisassociateAssessmentReportEvidence $
+--             newBatchDisassociateAssessmentReportEvidence
 --
 --         , requestBatchImportEvidenceToAssessmentControl $
 --             newBatchImportEvidenceToAssessmentControl
 --
---         , requestTagResource $
---             newTagResource
+--         , requestCreateAssessment $
+--             newCreateAssessment
 --
---         , requestGetEvidenceFolder $
---             newGetEvidenceFolder
+--         , requestCreateAssessmentFramework $
+--             newCreateAssessmentFramework
 --
---         , requestListAssessmentFrameworks $
---             newListAssessmentFrameworks
+--         , requestCreateAssessmentReport $
+--             newCreateAssessmentReport
 --
 --         , requestCreateControl $
 --             newCreateControl
 --
---         , requestUpdateAssessmentStatus $
---             newUpdateAssessmentStatus
+--         , requestDeleteAssessment $
+--             newDeleteAssessment
 --
---         , requestGetAccountStatus $
---             newGetAccountStatus
+--         , requestDeleteAssessmentFramework $
+--             newDeleteAssessmentFramework
 --
---         , requestUntagResource $
---             newUntagResource
---
---         , requestGetSettings $
---             newGetSettings
---
---         , requestGetOrganizationAdminAccount $
---             newGetOrganizationAdminAccount
+--         , requestDeleteAssessmentReport $
+--             newDeleteAssessmentReport
 --
 --         , requestDeleteControl $
 --             newDeleteControl
 --
---         , requestUpdateControl $
---             newUpdateControl
+--         , requestDeregisterAccount $
+--             newDeregisterAccount
 --
---         , requestUpdateAssessmentControlSetStatus $
---             newUpdateAssessmentControlSetStatus
+--         , requestDeregisterOrganizationAdminAccount $
+--             newDeregisterOrganizationAdminAccount
 --
---         , requestListControls $
---             newListControls
+--         , requestDisassociateAssessmentReportEvidenceFolder $
+--             newDisassociateAssessmentReportEvidenceFolder
 --
---         , requestAssociateAssessmentReportEvidenceFolder $
---             newAssociateAssessmentReportEvidenceFolder
+--         , requestGetAccountStatus $
+--             newGetAccountStatus
+--
+--         , requestGetAssessment $
+--             newGetAssessment
+--
+--         , requestGetAssessmentFramework $
+--             newGetAssessmentFramework
+--
+--         , requestGetAssessmentReportUrl $
+--             newGetAssessmentReportUrl
+--
+--         , requestGetChangeLogs $
+--             newGetChangeLogs
 --
 --         , requestGetControl $
 --             newGetControl
 --
+--         , requestGetDelegations $
+--             newGetDelegations
+--
+--         , requestGetEvidence $
+--             newGetEvidence
+--
+--         , requestGetEvidenceByEvidenceFolder $
+--             newGetEvidenceByEvidenceFolder
+--
+--         , requestGetEvidenceFolder $
+--             newGetEvidenceFolder
+--
+--         , requestGetEvidenceFoldersByAssessment $
+--             newGetEvidenceFoldersByAssessment
+--
+--         , requestGetEvidenceFoldersByAssessmentControl $
+--             newGetEvidenceFoldersByAssessmentControl
+--
+--         , requestGetOrganizationAdminAccount $
+--             newGetOrganizationAdminAccount
+--
+--         , requestGetServicesInScope $
+--             newGetServicesInScope
+--
+--         , requestGetSettings $
+--             newGetSettings
+--
+--         , requestListAssessmentFrameworks $
+--             newListAssessmentFrameworks
+--
+--         , requestListAssessmentReports $
+--             newListAssessmentReports
+--
+--         , requestListAssessments $
+--             newListAssessments
+--
+--         , requestListControls $
+--             newListControls
+--
+--         , requestListKeywordsForDataSource $
+--             newListKeywordsForDataSource
+--
+--         , requestListNotifications $
+--             newListNotifications
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestRegisterAccount $
+--             newRegisterAccount
+--
+--         , requestRegisterOrganizationAdminAccount $
+--             newRegisterOrganizationAdminAccount
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateAssessment $
+--             newUpdateAssessment
+--
+--         , requestUpdateAssessmentControl $
+--             newUpdateAssessmentControl
+--
+--         , requestUpdateAssessmentControlSetStatus $
+--             newUpdateAssessmentControlSetStatus
+--
+--         , requestUpdateAssessmentFramework $
+--             newUpdateAssessmentFramework
+--
+--         , requestUpdateAssessmentStatus $
+--             newUpdateAssessmentStatus
+--
+--         , requestUpdateControl $
+--             newUpdateControl
+--
+--         , requestUpdateSettings $
+--             newUpdateSettings
+--
+--         , requestValidateAssessmentReportIntegrity $
+--             newValidateAssessmentReportIntegrity
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseCreateAssessmentReport $
---             newCreateAssessmentReportResponse
---
---         , responseRegisterOrganizationAdminAccount $
---             newRegisterOrganizationAdminAccountResponse
---
---         , responseListNotifications $
---             newListNotificationsResponse
---
---         , responseBatchCreateDelegationByAssessment $
---             newBatchCreateDelegationByAssessmentResponse
---
---         , responseGetEvidenceFoldersByAssessmentControl $
---             newGetEvidenceFoldersByAssessmentControlResponse
---
---         , responseBatchDeleteDelegationByAssessment $
---             newBatchDeleteDelegationByAssessmentResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseGetEvidence $
---             newGetEvidenceResponse
---
---         , responseGetServicesInScope $
---             newGetServicesInScopeResponse
---
---         , responseBatchDisassociateAssessmentReportEvidence $
---             newBatchDisassociateAssessmentReportEvidenceResponse
---
---         , responseDeregisterOrganizationAdminAccount $
---             newDeregisterOrganizationAdminAccountResponse
---
---         , responseGetAssessmentReportUrl $
---             newGetAssessmentReportUrlResponse
---
---         , responseUpdateAssessmentControl $
---             newUpdateAssessmentControlResponse
---
---         , responseDeleteAssessmentFramework $
---             newDeleteAssessmentFrameworkResponse
---
---         , responseUpdateAssessmentFramework $
---             newUpdateAssessmentFrameworkResponse
+--         [ responseAssociateAssessmentReportEvidenceFolder $
+--             newAssociateAssessmentReportEvidenceFolderResponse
 --
 --         , responseBatchAssociateAssessmentReportEvidence $
 --             newBatchAssociateAssessmentReportEvidenceResponse
 --
---         , responseGetEvidenceByEvidenceFolder $
---             newGetEvidenceByEvidenceFolderResponse
+--         , responseBatchCreateDelegationByAssessment $
+--             newBatchCreateDelegationByAssessmentResponse
 --
---         , responseCreateAssessmentFramework $
---             newCreateAssessmentFrameworkResponse
+--         , responseBatchDeleteDelegationByAssessment $
+--             newBatchDeleteDelegationByAssessmentResponse
 --
---         , responseListKeywordsForDataSource $
---             newListKeywordsForDataSourceResponse
---
---         , responseListAssessmentReports $
---             newListAssessmentReportsResponse
---
---         , responseValidateAssessmentReportIntegrity $
---             newValidateAssessmentReportIntegrityResponse
---
---         , responseDeregisterAccount $
---             newDeregisterAccountResponse
---
---         , responseDeleteAssessmentReport $
---             newDeleteAssessmentReportResponse
---
---         , responseUpdateSettings $
---             newUpdateSettingsResponse
---
---         , responseGetAssessmentFramework $
---             newGetAssessmentFrameworkResponse
---
---         , responseDeleteAssessment $
---             newDeleteAssessmentResponse
---
---         , responseGetChangeLogs $
---             newGetChangeLogsResponse
---
---         , responseUpdateAssessment $
---             newUpdateAssessmentResponse
---
---         , responseGetDelegations $
---             newGetDelegationsResponse
---
---         , responseDisassociateAssessmentReportEvidenceFolder $
---             newDisassociateAssessmentReportEvidenceFolderResponse
---
---         , responseListAssessments $
---             newListAssessmentsResponse
---
---         , responseCreateAssessment $
---             newCreateAssessmentResponse
---
---         , responseGetEvidenceFoldersByAssessment $
---             newGetEvidenceFoldersByAssessmentResponse
---
---         , responseRegisterAccount $
---             newRegisterAccountResponse
---
---         , responseGetAssessment $
---             newGetAssessmentResponse
+--         , responseBatchDisassociateAssessmentReportEvidence $
+--             newBatchDisassociateAssessmentReportEvidenceResponse
 --
 --         , responseBatchImportEvidenceToAssessmentControl $
 --             newBatchImportEvidenceToAssessmentControlResponse
 --
---         , responseTagResource $
---             newTagResourceResponse
+--         , responseCreateAssessment $
+--             newCreateAssessmentResponse
 --
---         , responseGetEvidenceFolder $
---             newGetEvidenceFolderResponse
+--         , responseCreateAssessmentFramework $
+--             newCreateAssessmentFrameworkResponse
 --
---         , responseListAssessmentFrameworks $
---             newListAssessmentFrameworksResponse
+--         , responseCreateAssessmentReport $
+--             newCreateAssessmentReportResponse
 --
 --         , responseCreateControl $
 --             newCreateControlResponse
 --
---         , responseUpdateAssessmentStatus $
---             newUpdateAssessmentStatusResponse
+--         , responseDeleteAssessment $
+--             newDeleteAssessmentResponse
 --
---         , responseGetAccountStatus $
---             newGetAccountStatusResponse
+--         , responseDeleteAssessmentFramework $
+--             newDeleteAssessmentFrameworkResponse
 --
---         , responseUntagResource $
---             newUntagResourceResponse
---
---         , responseGetSettings $
---             newGetSettingsResponse
---
---         , responseGetOrganizationAdminAccount $
---             newGetOrganizationAdminAccountResponse
+--         , responseDeleteAssessmentReport $
+--             newDeleteAssessmentReportResponse
 --
 --         , responseDeleteControl $
 --             newDeleteControlResponse
 --
---         , responseUpdateControl $
---             newUpdateControlResponse
+--         , responseDeregisterAccount $
+--             newDeregisterAccountResponse
 --
---         , responseUpdateAssessmentControlSetStatus $
---             newUpdateAssessmentControlSetStatusResponse
+--         , responseDeregisterOrganizationAdminAccount $
+--             newDeregisterOrganizationAdminAccountResponse
+--
+--         , responseDisassociateAssessmentReportEvidenceFolder $
+--             newDisassociateAssessmentReportEvidenceFolderResponse
+--
+--         , responseGetAccountStatus $
+--             newGetAccountStatusResponse
+--
+--         , responseGetAssessment $
+--             newGetAssessmentResponse
+--
+--         , responseGetAssessmentFramework $
+--             newGetAssessmentFrameworkResponse
+--
+--         , responseGetAssessmentReportUrl $
+--             newGetAssessmentReportUrlResponse
+--
+--         , responseGetChangeLogs $
+--             newGetChangeLogsResponse
+--
+--         , responseGetControl $
+--             newGetControlResponse
+--
+--         , responseGetDelegations $
+--             newGetDelegationsResponse
+--
+--         , responseGetEvidence $
+--             newGetEvidenceResponse
+--
+--         , responseGetEvidenceByEvidenceFolder $
+--             newGetEvidenceByEvidenceFolderResponse
+--
+--         , responseGetEvidenceFolder $
+--             newGetEvidenceFolderResponse
+--
+--         , responseGetEvidenceFoldersByAssessment $
+--             newGetEvidenceFoldersByAssessmentResponse
+--
+--         , responseGetEvidenceFoldersByAssessmentControl $
+--             newGetEvidenceFoldersByAssessmentControlResponse
+--
+--         , responseGetOrganizationAdminAccount $
+--             newGetOrganizationAdminAccountResponse
+--
+--         , responseGetServicesInScope $
+--             newGetServicesInScopeResponse
+--
+--         , responseGetSettings $
+--             newGetSettingsResponse
+--
+--         , responseListAssessmentFrameworks $
+--             newListAssessmentFrameworksResponse
+--
+--         , responseListAssessmentReports $
+--             newListAssessmentReportsResponse
+--
+--         , responseListAssessments $
+--             newListAssessmentsResponse
 --
 --         , responseListControls $
 --             newListControlsResponse
 --
---         , responseAssociateAssessmentReportEvidenceFolder $
---             newAssociateAssessmentReportEvidenceFolderResponse
+--         , responseListKeywordsForDataSource $
+--             newListKeywordsForDataSourceResponse
 --
---         , responseGetControl $
---             newGetControlResponse
+--         , responseListNotifications $
+--             newListNotificationsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseRegisterAccount $
+--             newRegisterAccountResponse
+--
+--         , responseRegisterOrganizationAdminAccount $
+--             newRegisterOrganizationAdminAccountResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseUpdateAssessment $
+--             newUpdateAssessmentResponse
+--
+--         , responseUpdateAssessmentControl $
+--             newUpdateAssessmentControlResponse
+--
+--         , responseUpdateAssessmentControlSetStatus $
+--             newUpdateAssessmentControlSetStatusResponse
+--
+--         , responseUpdateAssessmentFramework $
+--             newUpdateAssessmentFrameworkResponse
+--
+--         , responseUpdateAssessmentStatus $
+--             newUpdateAssessmentStatusResponse
+--
+--         , responseUpdateControl $
+--             newUpdateControlResponse
+--
+--         , responseUpdateSettings $
+--             newUpdateSettingsResponse
+--
+--         , responseValidateAssessmentReportIntegrity $
+--             newValidateAssessmentReportIntegrityResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestCreateAssessmentReport :: CreateAssessmentReport -> TestTree
-requestCreateAssessmentReport =
-  req
-    "CreateAssessmentReport"
-    "fixture/CreateAssessmentReport.yaml"
-
-requestRegisterOrganizationAdminAccount :: RegisterOrganizationAdminAccount -> TestTree
-requestRegisterOrganizationAdminAccount =
-  req
-    "RegisterOrganizationAdminAccount"
-    "fixture/RegisterOrganizationAdminAccount.yaml"
-
-requestListNotifications :: ListNotifications -> TestTree
-requestListNotifications =
-  req
-    "ListNotifications"
-    "fixture/ListNotifications.yaml"
-
-requestBatchCreateDelegationByAssessment :: BatchCreateDelegationByAssessment -> TestTree
-requestBatchCreateDelegationByAssessment =
-  req
-    "BatchCreateDelegationByAssessment"
-    "fixture/BatchCreateDelegationByAssessment.yaml"
-
-requestGetEvidenceFoldersByAssessmentControl :: GetEvidenceFoldersByAssessmentControl -> TestTree
-requestGetEvidenceFoldersByAssessmentControl =
-  req
-    "GetEvidenceFoldersByAssessmentControl"
-    "fixture/GetEvidenceFoldersByAssessmentControl.yaml"
-
-requestBatchDeleteDelegationByAssessment :: BatchDeleteDelegationByAssessment -> TestTree
-requestBatchDeleteDelegationByAssessment =
-  req
-    "BatchDeleteDelegationByAssessment"
-    "fixture/BatchDeleteDelegationByAssessment.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestGetEvidence :: GetEvidence -> TestTree
-requestGetEvidence =
-  req
-    "GetEvidence"
-    "fixture/GetEvidence.yaml"
-
-requestGetServicesInScope :: GetServicesInScope -> TestTree
-requestGetServicesInScope =
-  req
-    "GetServicesInScope"
-    "fixture/GetServicesInScope.yaml"
-
-requestBatchDisassociateAssessmentReportEvidence :: BatchDisassociateAssessmentReportEvidence -> TestTree
-requestBatchDisassociateAssessmentReportEvidence =
-  req
-    "BatchDisassociateAssessmentReportEvidence"
-    "fixture/BatchDisassociateAssessmentReportEvidence.yaml"
-
-requestDeregisterOrganizationAdminAccount :: DeregisterOrganizationAdminAccount -> TestTree
-requestDeregisterOrganizationAdminAccount =
-  req
-    "DeregisterOrganizationAdminAccount"
-    "fixture/DeregisterOrganizationAdminAccount.yaml"
-
-requestGetAssessmentReportUrl :: GetAssessmentReportUrl -> TestTree
-requestGetAssessmentReportUrl =
-  req
-    "GetAssessmentReportUrl"
-    "fixture/GetAssessmentReportUrl.yaml"
-
-requestUpdateAssessmentControl :: UpdateAssessmentControl -> TestTree
-requestUpdateAssessmentControl =
-  req
-    "UpdateAssessmentControl"
-    "fixture/UpdateAssessmentControl.yaml"
-
-requestDeleteAssessmentFramework :: DeleteAssessmentFramework -> TestTree
-requestDeleteAssessmentFramework =
-  req
-    "DeleteAssessmentFramework"
-    "fixture/DeleteAssessmentFramework.yaml"
-
-requestUpdateAssessmentFramework :: UpdateAssessmentFramework -> TestTree
-requestUpdateAssessmentFramework =
-  req
-    "UpdateAssessmentFramework"
-    "fixture/UpdateAssessmentFramework.yaml"
-
-requestBatchAssociateAssessmentReportEvidence :: BatchAssociateAssessmentReportEvidence -> TestTree
-requestBatchAssociateAssessmentReportEvidence =
-  req
-    "BatchAssociateAssessmentReportEvidence"
-    "fixture/BatchAssociateAssessmentReportEvidence.yaml"
-
-requestGetEvidenceByEvidenceFolder :: GetEvidenceByEvidenceFolder -> TestTree
-requestGetEvidenceByEvidenceFolder =
-  req
-    "GetEvidenceByEvidenceFolder"
-    "fixture/GetEvidenceByEvidenceFolder.yaml"
-
-requestCreateAssessmentFramework :: CreateAssessmentFramework -> TestTree
-requestCreateAssessmentFramework =
-  req
-    "CreateAssessmentFramework"
-    "fixture/CreateAssessmentFramework.yaml"
-
-requestListKeywordsForDataSource :: ListKeywordsForDataSource -> TestTree
-requestListKeywordsForDataSource =
-  req
-    "ListKeywordsForDataSource"
-    "fixture/ListKeywordsForDataSource.yaml"
-
-requestListAssessmentReports :: ListAssessmentReports -> TestTree
-requestListAssessmentReports =
-  req
-    "ListAssessmentReports"
-    "fixture/ListAssessmentReports.yaml"
-
-requestValidateAssessmentReportIntegrity :: ValidateAssessmentReportIntegrity -> TestTree
-requestValidateAssessmentReportIntegrity =
-  req
-    "ValidateAssessmentReportIntegrity"
-    "fixture/ValidateAssessmentReportIntegrity.yaml"
-
-requestDeregisterAccount :: DeregisterAccount -> TestTree
-requestDeregisterAccount =
-  req
-    "DeregisterAccount"
-    "fixture/DeregisterAccount.yaml"
-
-requestDeleteAssessmentReport :: DeleteAssessmentReport -> TestTree
-requestDeleteAssessmentReport =
-  req
-    "DeleteAssessmentReport"
-    "fixture/DeleteAssessmentReport.yaml"
-
-requestUpdateSettings :: UpdateSettings -> TestTree
-requestUpdateSettings =
-  req
-    "UpdateSettings"
-    "fixture/UpdateSettings.yaml"
-
-requestGetAssessmentFramework :: GetAssessmentFramework -> TestTree
-requestGetAssessmentFramework =
-  req
-    "GetAssessmentFramework"
-    "fixture/GetAssessmentFramework.yaml"
-
-requestDeleteAssessment :: DeleteAssessment -> TestTree
-requestDeleteAssessment =
-  req
-    "DeleteAssessment"
-    "fixture/DeleteAssessment.yaml"
-
-requestGetChangeLogs :: GetChangeLogs -> TestTree
-requestGetChangeLogs =
-  req
-    "GetChangeLogs"
-    "fixture/GetChangeLogs.yaml"
-
-requestUpdateAssessment :: UpdateAssessment -> TestTree
-requestUpdateAssessment =
-  req
-    "UpdateAssessment"
-    "fixture/UpdateAssessment.yaml"
-
-requestGetDelegations :: GetDelegations -> TestTree
-requestGetDelegations =
-  req
-    "GetDelegations"
-    "fixture/GetDelegations.yaml"
-
-requestDisassociateAssessmentReportEvidenceFolder :: DisassociateAssessmentReportEvidenceFolder -> TestTree
-requestDisassociateAssessmentReportEvidenceFolder =
-  req
-    "DisassociateAssessmentReportEvidenceFolder"
-    "fixture/DisassociateAssessmentReportEvidenceFolder.yaml"
-
-requestListAssessments :: ListAssessments -> TestTree
-requestListAssessments =
-  req
-    "ListAssessments"
-    "fixture/ListAssessments.yaml"
-
-requestCreateAssessment :: CreateAssessment -> TestTree
-requestCreateAssessment =
-  req
-    "CreateAssessment"
-    "fixture/CreateAssessment.yaml"
-
-requestGetEvidenceFoldersByAssessment :: GetEvidenceFoldersByAssessment -> TestTree
-requestGetEvidenceFoldersByAssessment =
-  req
-    "GetEvidenceFoldersByAssessment"
-    "fixture/GetEvidenceFoldersByAssessment.yaml"
-
-requestRegisterAccount :: RegisterAccount -> TestTree
-requestRegisterAccount =
-  req
-    "RegisterAccount"
-    "fixture/RegisterAccount.yaml"
-
-requestGetAssessment :: GetAssessment -> TestTree
-requestGetAssessment =
-  req
-    "GetAssessment"
-    "fixture/GetAssessment.yaml"
-
-requestBatchImportEvidenceToAssessmentControl :: BatchImportEvidenceToAssessmentControl -> TestTree
-requestBatchImportEvidenceToAssessmentControl =
-  req
-    "BatchImportEvidenceToAssessmentControl"
-    "fixture/BatchImportEvidenceToAssessmentControl.yaml"
-
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
-
-requestGetEvidenceFolder :: GetEvidenceFolder -> TestTree
-requestGetEvidenceFolder =
-  req
-    "GetEvidenceFolder"
-    "fixture/GetEvidenceFolder.yaml"
-
-requestListAssessmentFrameworks :: ListAssessmentFrameworks -> TestTree
-requestListAssessmentFrameworks =
-  req
-    "ListAssessmentFrameworks"
-    "fixture/ListAssessmentFrameworks.yaml"
-
-requestCreateControl :: CreateControl -> TestTree
-requestCreateControl =
-  req
-    "CreateControl"
-    "fixture/CreateControl.yaml"
-
-requestUpdateAssessmentStatus :: UpdateAssessmentStatus -> TestTree
-requestUpdateAssessmentStatus =
-  req
-    "UpdateAssessmentStatus"
-    "fixture/UpdateAssessmentStatus.yaml"
-
-requestGetAccountStatus :: GetAccountStatus -> TestTree
-requestGetAccountStatus =
-  req
-    "GetAccountStatus"
-    "fixture/GetAccountStatus.yaml"
-
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
-
-requestGetSettings :: GetSettings -> TestTree
-requestGetSettings =
-  req
-    "GetSettings"
-    "fixture/GetSettings.yaml"
-
-requestGetOrganizationAdminAccount :: GetOrganizationAdminAccount -> TestTree
-requestGetOrganizationAdminAccount =
-  req
-    "GetOrganizationAdminAccount"
-    "fixture/GetOrganizationAdminAccount.yaml"
-
-requestDeleteControl :: DeleteControl -> TestTree
-requestDeleteControl =
-  req
-    "DeleteControl"
-    "fixture/DeleteControl.yaml"
-
-requestUpdateControl :: UpdateControl -> TestTree
-requestUpdateControl =
-  req
-    "UpdateControl"
-    "fixture/UpdateControl.yaml"
-
-requestUpdateAssessmentControlSetStatus :: UpdateAssessmentControlSetStatus -> TestTree
-requestUpdateAssessmentControlSetStatus =
-  req
-    "UpdateAssessmentControlSetStatus"
-    "fixture/UpdateAssessmentControlSetStatus.yaml"
-
-requestListControls :: ListControls -> TestTree
-requestListControls =
-  req
-    "ListControls"
-    "fixture/ListControls.yaml"
 
 requestAssociateAssessmentReportEvidenceFolder :: AssociateAssessmentReportEvidenceFolder -> TestTree
 requestAssociateAssessmentReportEvidenceFolder =
@@ -641,405 +347,307 @@ requestAssociateAssessmentReportEvidenceFolder =
     "AssociateAssessmentReportEvidenceFolder"
     "fixture/AssociateAssessmentReportEvidenceFolder.yaml"
 
+requestBatchAssociateAssessmentReportEvidence :: BatchAssociateAssessmentReportEvidence -> TestTree
+requestBatchAssociateAssessmentReportEvidence =
+  req
+    "BatchAssociateAssessmentReportEvidence"
+    "fixture/BatchAssociateAssessmentReportEvidence.yaml"
+
+requestBatchCreateDelegationByAssessment :: BatchCreateDelegationByAssessment -> TestTree
+requestBatchCreateDelegationByAssessment =
+  req
+    "BatchCreateDelegationByAssessment"
+    "fixture/BatchCreateDelegationByAssessment.yaml"
+
+requestBatchDeleteDelegationByAssessment :: BatchDeleteDelegationByAssessment -> TestTree
+requestBatchDeleteDelegationByAssessment =
+  req
+    "BatchDeleteDelegationByAssessment"
+    "fixture/BatchDeleteDelegationByAssessment.yaml"
+
+requestBatchDisassociateAssessmentReportEvidence :: BatchDisassociateAssessmentReportEvidence -> TestTree
+requestBatchDisassociateAssessmentReportEvidence =
+  req
+    "BatchDisassociateAssessmentReportEvidence"
+    "fixture/BatchDisassociateAssessmentReportEvidence.yaml"
+
+requestBatchImportEvidenceToAssessmentControl :: BatchImportEvidenceToAssessmentControl -> TestTree
+requestBatchImportEvidenceToAssessmentControl =
+  req
+    "BatchImportEvidenceToAssessmentControl"
+    "fixture/BatchImportEvidenceToAssessmentControl.yaml"
+
+requestCreateAssessment :: CreateAssessment -> TestTree
+requestCreateAssessment =
+  req
+    "CreateAssessment"
+    "fixture/CreateAssessment.yaml"
+
+requestCreateAssessmentFramework :: CreateAssessmentFramework -> TestTree
+requestCreateAssessmentFramework =
+  req
+    "CreateAssessmentFramework"
+    "fixture/CreateAssessmentFramework.yaml"
+
+requestCreateAssessmentReport :: CreateAssessmentReport -> TestTree
+requestCreateAssessmentReport =
+  req
+    "CreateAssessmentReport"
+    "fixture/CreateAssessmentReport.yaml"
+
+requestCreateControl :: CreateControl -> TestTree
+requestCreateControl =
+  req
+    "CreateControl"
+    "fixture/CreateControl.yaml"
+
+requestDeleteAssessment :: DeleteAssessment -> TestTree
+requestDeleteAssessment =
+  req
+    "DeleteAssessment"
+    "fixture/DeleteAssessment.yaml"
+
+requestDeleteAssessmentFramework :: DeleteAssessmentFramework -> TestTree
+requestDeleteAssessmentFramework =
+  req
+    "DeleteAssessmentFramework"
+    "fixture/DeleteAssessmentFramework.yaml"
+
+requestDeleteAssessmentReport :: DeleteAssessmentReport -> TestTree
+requestDeleteAssessmentReport =
+  req
+    "DeleteAssessmentReport"
+    "fixture/DeleteAssessmentReport.yaml"
+
+requestDeleteControl :: DeleteControl -> TestTree
+requestDeleteControl =
+  req
+    "DeleteControl"
+    "fixture/DeleteControl.yaml"
+
+requestDeregisterAccount :: DeregisterAccount -> TestTree
+requestDeregisterAccount =
+  req
+    "DeregisterAccount"
+    "fixture/DeregisterAccount.yaml"
+
+requestDeregisterOrganizationAdminAccount :: DeregisterOrganizationAdminAccount -> TestTree
+requestDeregisterOrganizationAdminAccount =
+  req
+    "DeregisterOrganizationAdminAccount"
+    "fixture/DeregisterOrganizationAdminAccount.yaml"
+
+requestDisassociateAssessmentReportEvidenceFolder :: DisassociateAssessmentReportEvidenceFolder -> TestTree
+requestDisassociateAssessmentReportEvidenceFolder =
+  req
+    "DisassociateAssessmentReportEvidenceFolder"
+    "fixture/DisassociateAssessmentReportEvidenceFolder.yaml"
+
+requestGetAccountStatus :: GetAccountStatus -> TestTree
+requestGetAccountStatus =
+  req
+    "GetAccountStatus"
+    "fixture/GetAccountStatus.yaml"
+
+requestGetAssessment :: GetAssessment -> TestTree
+requestGetAssessment =
+  req
+    "GetAssessment"
+    "fixture/GetAssessment.yaml"
+
+requestGetAssessmentFramework :: GetAssessmentFramework -> TestTree
+requestGetAssessmentFramework =
+  req
+    "GetAssessmentFramework"
+    "fixture/GetAssessmentFramework.yaml"
+
+requestGetAssessmentReportUrl :: GetAssessmentReportUrl -> TestTree
+requestGetAssessmentReportUrl =
+  req
+    "GetAssessmentReportUrl"
+    "fixture/GetAssessmentReportUrl.yaml"
+
+requestGetChangeLogs :: GetChangeLogs -> TestTree
+requestGetChangeLogs =
+  req
+    "GetChangeLogs"
+    "fixture/GetChangeLogs.yaml"
+
 requestGetControl :: GetControl -> TestTree
 requestGetControl =
   req
     "GetControl"
     "fixture/GetControl.yaml"
 
+requestGetDelegations :: GetDelegations -> TestTree
+requestGetDelegations =
+  req
+    "GetDelegations"
+    "fixture/GetDelegations.yaml"
+
+requestGetEvidence :: GetEvidence -> TestTree
+requestGetEvidence =
+  req
+    "GetEvidence"
+    "fixture/GetEvidence.yaml"
+
+requestGetEvidenceByEvidenceFolder :: GetEvidenceByEvidenceFolder -> TestTree
+requestGetEvidenceByEvidenceFolder =
+  req
+    "GetEvidenceByEvidenceFolder"
+    "fixture/GetEvidenceByEvidenceFolder.yaml"
+
+requestGetEvidenceFolder :: GetEvidenceFolder -> TestTree
+requestGetEvidenceFolder =
+  req
+    "GetEvidenceFolder"
+    "fixture/GetEvidenceFolder.yaml"
+
+requestGetEvidenceFoldersByAssessment :: GetEvidenceFoldersByAssessment -> TestTree
+requestGetEvidenceFoldersByAssessment =
+  req
+    "GetEvidenceFoldersByAssessment"
+    "fixture/GetEvidenceFoldersByAssessment.yaml"
+
+requestGetEvidenceFoldersByAssessmentControl :: GetEvidenceFoldersByAssessmentControl -> TestTree
+requestGetEvidenceFoldersByAssessmentControl =
+  req
+    "GetEvidenceFoldersByAssessmentControl"
+    "fixture/GetEvidenceFoldersByAssessmentControl.yaml"
+
+requestGetOrganizationAdminAccount :: GetOrganizationAdminAccount -> TestTree
+requestGetOrganizationAdminAccount =
+  req
+    "GetOrganizationAdminAccount"
+    "fixture/GetOrganizationAdminAccount.yaml"
+
+requestGetServicesInScope :: GetServicesInScope -> TestTree
+requestGetServicesInScope =
+  req
+    "GetServicesInScope"
+    "fixture/GetServicesInScope.yaml"
+
+requestGetSettings :: GetSettings -> TestTree
+requestGetSettings =
+  req
+    "GetSettings"
+    "fixture/GetSettings.yaml"
+
+requestListAssessmentFrameworks :: ListAssessmentFrameworks -> TestTree
+requestListAssessmentFrameworks =
+  req
+    "ListAssessmentFrameworks"
+    "fixture/ListAssessmentFrameworks.yaml"
+
+requestListAssessmentReports :: ListAssessmentReports -> TestTree
+requestListAssessmentReports =
+  req
+    "ListAssessmentReports"
+    "fixture/ListAssessmentReports.yaml"
+
+requestListAssessments :: ListAssessments -> TestTree
+requestListAssessments =
+  req
+    "ListAssessments"
+    "fixture/ListAssessments.yaml"
+
+requestListControls :: ListControls -> TestTree
+requestListControls =
+  req
+    "ListControls"
+    "fixture/ListControls.yaml"
+
+requestListKeywordsForDataSource :: ListKeywordsForDataSource -> TestTree
+requestListKeywordsForDataSource =
+  req
+    "ListKeywordsForDataSource"
+    "fixture/ListKeywordsForDataSource.yaml"
+
+requestListNotifications :: ListNotifications -> TestTree
+requestListNotifications =
+  req
+    "ListNotifications"
+    "fixture/ListNotifications.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestRegisterAccount :: RegisterAccount -> TestTree
+requestRegisterAccount =
+  req
+    "RegisterAccount"
+    "fixture/RegisterAccount.yaml"
+
+requestRegisterOrganizationAdminAccount :: RegisterOrganizationAdminAccount -> TestTree
+requestRegisterOrganizationAdminAccount =
+  req
+    "RegisterOrganizationAdminAccount"
+    "fixture/RegisterOrganizationAdminAccount.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateAssessment :: UpdateAssessment -> TestTree
+requestUpdateAssessment =
+  req
+    "UpdateAssessment"
+    "fixture/UpdateAssessment.yaml"
+
+requestUpdateAssessmentControl :: UpdateAssessmentControl -> TestTree
+requestUpdateAssessmentControl =
+  req
+    "UpdateAssessmentControl"
+    "fixture/UpdateAssessmentControl.yaml"
+
+requestUpdateAssessmentControlSetStatus :: UpdateAssessmentControlSetStatus -> TestTree
+requestUpdateAssessmentControlSetStatus =
+  req
+    "UpdateAssessmentControlSetStatus"
+    "fixture/UpdateAssessmentControlSetStatus.yaml"
+
+requestUpdateAssessmentFramework :: UpdateAssessmentFramework -> TestTree
+requestUpdateAssessmentFramework =
+  req
+    "UpdateAssessmentFramework"
+    "fixture/UpdateAssessmentFramework.yaml"
+
+requestUpdateAssessmentStatus :: UpdateAssessmentStatus -> TestTree
+requestUpdateAssessmentStatus =
+  req
+    "UpdateAssessmentStatus"
+    "fixture/UpdateAssessmentStatus.yaml"
+
+requestUpdateControl :: UpdateControl -> TestTree
+requestUpdateControl =
+  req
+    "UpdateControl"
+    "fixture/UpdateControl.yaml"
+
+requestUpdateSettings :: UpdateSettings -> TestTree
+requestUpdateSettings =
+  req
+    "UpdateSettings"
+    "fixture/UpdateSettings.yaml"
+
+requestValidateAssessmentReportIntegrity :: ValidateAssessmentReportIntegrity -> TestTree
+requestValidateAssessmentReportIntegrity =
+  req
+    "ValidateAssessmentReportIntegrity"
+    "fixture/ValidateAssessmentReportIntegrity.yaml"
+
 -- Responses
-
-responseCreateAssessmentReport :: CreateAssessmentReportResponse -> TestTree
-responseCreateAssessmentReport =
-  res
-    "CreateAssessmentReportResponse"
-    "fixture/CreateAssessmentReportResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateAssessmentReport)
-
-responseRegisterOrganizationAdminAccount :: RegisterOrganizationAdminAccountResponse -> TestTree
-responseRegisterOrganizationAdminAccount =
-  res
-    "RegisterOrganizationAdminAccountResponse"
-    "fixture/RegisterOrganizationAdminAccountResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RegisterOrganizationAdminAccount)
-
-responseListNotifications :: ListNotificationsResponse -> TestTree
-responseListNotifications =
-  res
-    "ListNotificationsResponse"
-    "fixture/ListNotificationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListNotifications)
-
-responseBatchCreateDelegationByAssessment :: BatchCreateDelegationByAssessmentResponse -> TestTree
-responseBatchCreateDelegationByAssessment =
-  res
-    "BatchCreateDelegationByAssessmentResponse"
-    "fixture/BatchCreateDelegationByAssessmentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchCreateDelegationByAssessment)
-
-responseGetEvidenceFoldersByAssessmentControl :: GetEvidenceFoldersByAssessmentControlResponse -> TestTree
-responseGetEvidenceFoldersByAssessmentControl =
-  res
-    "GetEvidenceFoldersByAssessmentControlResponse"
-    "fixture/GetEvidenceFoldersByAssessmentControlResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetEvidenceFoldersByAssessmentControl)
-
-responseBatchDeleteDelegationByAssessment :: BatchDeleteDelegationByAssessmentResponse -> TestTree
-responseBatchDeleteDelegationByAssessment =
-  res
-    "BatchDeleteDelegationByAssessmentResponse"
-    "fixture/BatchDeleteDelegationByAssessmentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchDeleteDelegationByAssessment)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseGetEvidence :: GetEvidenceResponse -> TestTree
-responseGetEvidence =
-  res
-    "GetEvidenceResponse"
-    "fixture/GetEvidenceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetEvidence)
-
-responseGetServicesInScope :: GetServicesInScopeResponse -> TestTree
-responseGetServicesInScope =
-  res
-    "GetServicesInScopeResponse"
-    "fixture/GetServicesInScopeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetServicesInScope)
-
-responseBatchDisassociateAssessmentReportEvidence :: BatchDisassociateAssessmentReportEvidenceResponse -> TestTree
-responseBatchDisassociateAssessmentReportEvidence =
-  res
-    "BatchDisassociateAssessmentReportEvidenceResponse"
-    "fixture/BatchDisassociateAssessmentReportEvidenceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchDisassociateAssessmentReportEvidence)
-
-responseDeregisterOrganizationAdminAccount :: DeregisterOrganizationAdminAccountResponse -> TestTree
-responseDeregisterOrganizationAdminAccount =
-  res
-    "DeregisterOrganizationAdminAccountResponse"
-    "fixture/DeregisterOrganizationAdminAccountResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeregisterOrganizationAdminAccount)
-
-responseGetAssessmentReportUrl :: GetAssessmentReportUrlResponse -> TestTree
-responseGetAssessmentReportUrl =
-  res
-    "GetAssessmentReportUrlResponse"
-    "fixture/GetAssessmentReportUrlResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetAssessmentReportUrl)
-
-responseUpdateAssessmentControl :: UpdateAssessmentControlResponse -> TestTree
-responseUpdateAssessmentControl =
-  res
-    "UpdateAssessmentControlResponse"
-    "fixture/UpdateAssessmentControlResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateAssessmentControl)
-
-responseDeleteAssessmentFramework :: DeleteAssessmentFrameworkResponse -> TestTree
-responseDeleteAssessmentFramework =
-  res
-    "DeleteAssessmentFrameworkResponse"
-    "fixture/DeleteAssessmentFrameworkResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteAssessmentFramework)
-
-responseUpdateAssessmentFramework :: UpdateAssessmentFrameworkResponse -> TestTree
-responseUpdateAssessmentFramework =
-  res
-    "UpdateAssessmentFrameworkResponse"
-    "fixture/UpdateAssessmentFrameworkResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateAssessmentFramework)
-
-responseBatchAssociateAssessmentReportEvidence :: BatchAssociateAssessmentReportEvidenceResponse -> TestTree
-responseBatchAssociateAssessmentReportEvidence =
-  res
-    "BatchAssociateAssessmentReportEvidenceResponse"
-    "fixture/BatchAssociateAssessmentReportEvidenceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchAssociateAssessmentReportEvidence)
-
-responseGetEvidenceByEvidenceFolder :: GetEvidenceByEvidenceFolderResponse -> TestTree
-responseGetEvidenceByEvidenceFolder =
-  res
-    "GetEvidenceByEvidenceFolderResponse"
-    "fixture/GetEvidenceByEvidenceFolderResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetEvidenceByEvidenceFolder)
-
-responseCreateAssessmentFramework :: CreateAssessmentFrameworkResponse -> TestTree
-responseCreateAssessmentFramework =
-  res
-    "CreateAssessmentFrameworkResponse"
-    "fixture/CreateAssessmentFrameworkResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateAssessmentFramework)
-
-responseListKeywordsForDataSource :: ListKeywordsForDataSourceResponse -> TestTree
-responseListKeywordsForDataSource =
-  res
-    "ListKeywordsForDataSourceResponse"
-    "fixture/ListKeywordsForDataSourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListKeywordsForDataSource)
-
-responseListAssessmentReports :: ListAssessmentReportsResponse -> TestTree
-responseListAssessmentReports =
-  res
-    "ListAssessmentReportsResponse"
-    "fixture/ListAssessmentReportsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAssessmentReports)
-
-responseValidateAssessmentReportIntegrity :: ValidateAssessmentReportIntegrityResponse -> TestTree
-responseValidateAssessmentReportIntegrity =
-  res
-    "ValidateAssessmentReportIntegrityResponse"
-    "fixture/ValidateAssessmentReportIntegrityResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ValidateAssessmentReportIntegrity)
-
-responseDeregisterAccount :: DeregisterAccountResponse -> TestTree
-responseDeregisterAccount =
-  res
-    "DeregisterAccountResponse"
-    "fixture/DeregisterAccountResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeregisterAccount)
-
-responseDeleteAssessmentReport :: DeleteAssessmentReportResponse -> TestTree
-responseDeleteAssessmentReport =
-  res
-    "DeleteAssessmentReportResponse"
-    "fixture/DeleteAssessmentReportResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteAssessmentReport)
-
-responseUpdateSettings :: UpdateSettingsResponse -> TestTree
-responseUpdateSettings =
-  res
-    "UpdateSettingsResponse"
-    "fixture/UpdateSettingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateSettings)
-
-responseGetAssessmentFramework :: GetAssessmentFrameworkResponse -> TestTree
-responseGetAssessmentFramework =
-  res
-    "GetAssessmentFrameworkResponse"
-    "fixture/GetAssessmentFrameworkResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetAssessmentFramework)
-
-responseDeleteAssessment :: DeleteAssessmentResponse -> TestTree
-responseDeleteAssessment =
-  res
-    "DeleteAssessmentResponse"
-    "fixture/DeleteAssessmentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteAssessment)
-
-responseGetChangeLogs :: GetChangeLogsResponse -> TestTree
-responseGetChangeLogs =
-  res
-    "GetChangeLogsResponse"
-    "fixture/GetChangeLogsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetChangeLogs)
-
-responseUpdateAssessment :: UpdateAssessmentResponse -> TestTree
-responseUpdateAssessment =
-  res
-    "UpdateAssessmentResponse"
-    "fixture/UpdateAssessmentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateAssessment)
-
-responseGetDelegations :: GetDelegationsResponse -> TestTree
-responseGetDelegations =
-  res
-    "GetDelegationsResponse"
-    "fixture/GetDelegationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetDelegations)
-
-responseDisassociateAssessmentReportEvidenceFolder :: DisassociateAssessmentReportEvidenceFolderResponse -> TestTree
-responseDisassociateAssessmentReportEvidenceFolder =
-  res
-    "DisassociateAssessmentReportEvidenceFolderResponse"
-    "fixture/DisassociateAssessmentReportEvidenceFolderResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisassociateAssessmentReportEvidenceFolder)
-
-responseListAssessments :: ListAssessmentsResponse -> TestTree
-responseListAssessments =
-  res
-    "ListAssessmentsResponse"
-    "fixture/ListAssessmentsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAssessments)
-
-responseCreateAssessment :: CreateAssessmentResponse -> TestTree
-responseCreateAssessment =
-  res
-    "CreateAssessmentResponse"
-    "fixture/CreateAssessmentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateAssessment)
-
-responseGetEvidenceFoldersByAssessment :: GetEvidenceFoldersByAssessmentResponse -> TestTree
-responseGetEvidenceFoldersByAssessment =
-  res
-    "GetEvidenceFoldersByAssessmentResponse"
-    "fixture/GetEvidenceFoldersByAssessmentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetEvidenceFoldersByAssessment)
-
-responseRegisterAccount :: RegisterAccountResponse -> TestTree
-responseRegisterAccount =
-  res
-    "RegisterAccountResponse"
-    "fixture/RegisterAccountResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RegisterAccount)
-
-responseGetAssessment :: GetAssessmentResponse -> TestTree
-responseGetAssessment =
-  res
-    "GetAssessmentResponse"
-    "fixture/GetAssessmentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetAssessment)
-
-responseBatchImportEvidenceToAssessmentControl :: BatchImportEvidenceToAssessmentControlResponse -> TestTree
-responseBatchImportEvidenceToAssessmentControl =
-  res
-    "BatchImportEvidenceToAssessmentControlResponse"
-    "fixture/BatchImportEvidenceToAssessmentControlResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchImportEvidenceToAssessmentControl)
-
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
-
-responseGetEvidenceFolder :: GetEvidenceFolderResponse -> TestTree
-responseGetEvidenceFolder =
-  res
-    "GetEvidenceFolderResponse"
-    "fixture/GetEvidenceFolderResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetEvidenceFolder)
-
-responseListAssessmentFrameworks :: ListAssessmentFrameworksResponse -> TestTree
-responseListAssessmentFrameworks =
-  res
-    "ListAssessmentFrameworksResponse"
-    "fixture/ListAssessmentFrameworksResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAssessmentFrameworks)
-
-responseCreateControl :: CreateControlResponse -> TestTree
-responseCreateControl =
-  res
-    "CreateControlResponse"
-    "fixture/CreateControlResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateControl)
-
-responseUpdateAssessmentStatus :: UpdateAssessmentStatusResponse -> TestTree
-responseUpdateAssessmentStatus =
-  res
-    "UpdateAssessmentStatusResponse"
-    "fixture/UpdateAssessmentStatusResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateAssessmentStatus)
-
-responseGetAccountStatus :: GetAccountStatusResponse -> TestTree
-responseGetAccountStatus =
-  res
-    "GetAccountStatusResponse"
-    "fixture/GetAccountStatusResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetAccountStatus)
-
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
-
-responseGetSettings :: GetSettingsResponse -> TestTree
-responseGetSettings =
-  res
-    "GetSettingsResponse"
-    "fixture/GetSettingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetSettings)
-
-responseGetOrganizationAdminAccount :: GetOrganizationAdminAccountResponse -> TestTree
-responseGetOrganizationAdminAccount =
-  res
-    "GetOrganizationAdminAccountResponse"
-    "fixture/GetOrganizationAdminAccountResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetOrganizationAdminAccount)
-
-responseDeleteControl :: DeleteControlResponse -> TestTree
-responseDeleteControl =
-  res
-    "DeleteControlResponse"
-    "fixture/DeleteControlResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteControl)
-
-responseUpdateControl :: UpdateControlResponse -> TestTree
-responseUpdateControl =
-  res
-    "UpdateControlResponse"
-    "fixture/UpdateControlResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateControl)
-
-responseUpdateAssessmentControlSetStatus :: UpdateAssessmentControlSetStatusResponse -> TestTree
-responseUpdateAssessmentControlSetStatus =
-  res
-    "UpdateAssessmentControlSetStatusResponse"
-    "fixture/UpdateAssessmentControlSetStatusResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateAssessmentControlSetStatus)
-
-responseListControls :: ListControlsResponse -> TestTree
-responseListControls =
-  res
-    "ListControlsResponse"
-    "fixture/ListControlsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListControls)
 
 responseAssociateAssessmentReportEvidenceFolder :: AssociateAssessmentReportEvidenceFolderResponse -> TestTree
 responseAssociateAssessmentReportEvidenceFolder =
@@ -1049,6 +657,174 @@ responseAssociateAssessmentReportEvidenceFolder =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociateAssessmentReportEvidenceFolder)
 
+responseBatchAssociateAssessmentReportEvidence :: BatchAssociateAssessmentReportEvidenceResponse -> TestTree
+responseBatchAssociateAssessmentReportEvidence =
+  res
+    "BatchAssociateAssessmentReportEvidenceResponse"
+    "fixture/BatchAssociateAssessmentReportEvidenceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchAssociateAssessmentReportEvidence)
+
+responseBatchCreateDelegationByAssessment :: BatchCreateDelegationByAssessmentResponse -> TestTree
+responseBatchCreateDelegationByAssessment =
+  res
+    "BatchCreateDelegationByAssessmentResponse"
+    "fixture/BatchCreateDelegationByAssessmentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchCreateDelegationByAssessment)
+
+responseBatchDeleteDelegationByAssessment :: BatchDeleteDelegationByAssessmentResponse -> TestTree
+responseBatchDeleteDelegationByAssessment =
+  res
+    "BatchDeleteDelegationByAssessmentResponse"
+    "fixture/BatchDeleteDelegationByAssessmentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchDeleteDelegationByAssessment)
+
+responseBatchDisassociateAssessmentReportEvidence :: BatchDisassociateAssessmentReportEvidenceResponse -> TestTree
+responseBatchDisassociateAssessmentReportEvidence =
+  res
+    "BatchDisassociateAssessmentReportEvidenceResponse"
+    "fixture/BatchDisassociateAssessmentReportEvidenceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchDisassociateAssessmentReportEvidence)
+
+responseBatchImportEvidenceToAssessmentControl :: BatchImportEvidenceToAssessmentControlResponse -> TestTree
+responseBatchImportEvidenceToAssessmentControl =
+  res
+    "BatchImportEvidenceToAssessmentControlResponse"
+    "fixture/BatchImportEvidenceToAssessmentControlResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchImportEvidenceToAssessmentControl)
+
+responseCreateAssessment :: CreateAssessmentResponse -> TestTree
+responseCreateAssessment =
+  res
+    "CreateAssessmentResponse"
+    "fixture/CreateAssessmentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateAssessment)
+
+responseCreateAssessmentFramework :: CreateAssessmentFrameworkResponse -> TestTree
+responseCreateAssessmentFramework =
+  res
+    "CreateAssessmentFrameworkResponse"
+    "fixture/CreateAssessmentFrameworkResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateAssessmentFramework)
+
+responseCreateAssessmentReport :: CreateAssessmentReportResponse -> TestTree
+responseCreateAssessmentReport =
+  res
+    "CreateAssessmentReportResponse"
+    "fixture/CreateAssessmentReportResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateAssessmentReport)
+
+responseCreateControl :: CreateControlResponse -> TestTree
+responseCreateControl =
+  res
+    "CreateControlResponse"
+    "fixture/CreateControlResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateControl)
+
+responseDeleteAssessment :: DeleteAssessmentResponse -> TestTree
+responseDeleteAssessment =
+  res
+    "DeleteAssessmentResponse"
+    "fixture/DeleteAssessmentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAssessment)
+
+responseDeleteAssessmentFramework :: DeleteAssessmentFrameworkResponse -> TestTree
+responseDeleteAssessmentFramework =
+  res
+    "DeleteAssessmentFrameworkResponse"
+    "fixture/DeleteAssessmentFrameworkResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAssessmentFramework)
+
+responseDeleteAssessmentReport :: DeleteAssessmentReportResponse -> TestTree
+responseDeleteAssessmentReport =
+  res
+    "DeleteAssessmentReportResponse"
+    "fixture/DeleteAssessmentReportResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAssessmentReport)
+
+responseDeleteControl :: DeleteControlResponse -> TestTree
+responseDeleteControl =
+  res
+    "DeleteControlResponse"
+    "fixture/DeleteControlResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteControl)
+
+responseDeregisterAccount :: DeregisterAccountResponse -> TestTree
+responseDeregisterAccount =
+  res
+    "DeregisterAccountResponse"
+    "fixture/DeregisterAccountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeregisterAccount)
+
+responseDeregisterOrganizationAdminAccount :: DeregisterOrganizationAdminAccountResponse -> TestTree
+responseDeregisterOrganizationAdminAccount =
+  res
+    "DeregisterOrganizationAdminAccountResponse"
+    "fixture/DeregisterOrganizationAdminAccountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeregisterOrganizationAdminAccount)
+
+responseDisassociateAssessmentReportEvidenceFolder :: DisassociateAssessmentReportEvidenceFolderResponse -> TestTree
+responseDisassociateAssessmentReportEvidenceFolder =
+  res
+    "DisassociateAssessmentReportEvidenceFolderResponse"
+    "fixture/DisassociateAssessmentReportEvidenceFolderResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateAssessmentReportEvidenceFolder)
+
+responseGetAccountStatus :: GetAccountStatusResponse -> TestTree
+responseGetAccountStatus =
+  res
+    "GetAccountStatusResponse"
+    "fixture/GetAccountStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAccountStatus)
+
+responseGetAssessment :: GetAssessmentResponse -> TestTree
+responseGetAssessment =
+  res
+    "GetAssessmentResponse"
+    "fixture/GetAssessmentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAssessment)
+
+responseGetAssessmentFramework :: GetAssessmentFrameworkResponse -> TestTree
+responseGetAssessmentFramework =
+  res
+    "GetAssessmentFrameworkResponse"
+    "fixture/GetAssessmentFrameworkResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAssessmentFramework)
+
+responseGetAssessmentReportUrl :: GetAssessmentReportUrlResponse -> TestTree
+responseGetAssessmentReportUrl =
+  res
+    "GetAssessmentReportUrlResponse"
+    "fixture/GetAssessmentReportUrlResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAssessmentReportUrl)
+
+responseGetChangeLogs :: GetChangeLogsResponse -> TestTree
+responseGetChangeLogs =
+  res
+    "GetChangeLogsResponse"
+    "fixture/GetChangeLogsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetChangeLogs)
+
 responseGetControl :: GetControlResponse -> TestTree
 responseGetControl =
   res
@@ -1056,3 +832,227 @@ responseGetControl =
     "fixture/GetControlResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetControl)
+
+responseGetDelegations :: GetDelegationsResponse -> TestTree
+responseGetDelegations =
+  res
+    "GetDelegationsResponse"
+    "fixture/GetDelegationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDelegations)
+
+responseGetEvidence :: GetEvidenceResponse -> TestTree
+responseGetEvidence =
+  res
+    "GetEvidenceResponse"
+    "fixture/GetEvidenceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetEvidence)
+
+responseGetEvidenceByEvidenceFolder :: GetEvidenceByEvidenceFolderResponse -> TestTree
+responseGetEvidenceByEvidenceFolder =
+  res
+    "GetEvidenceByEvidenceFolderResponse"
+    "fixture/GetEvidenceByEvidenceFolderResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetEvidenceByEvidenceFolder)
+
+responseGetEvidenceFolder :: GetEvidenceFolderResponse -> TestTree
+responseGetEvidenceFolder =
+  res
+    "GetEvidenceFolderResponse"
+    "fixture/GetEvidenceFolderResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetEvidenceFolder)
+
+responseGetEvidenceFoldersByAssessment :: GetEvidenceFoldersByAssessmentResponse -> TestTree
+responseGetEvidenceFoldersByAssessment =
+  res
+    "GetEvidenceFoldersByAssessmentResponse"
+    "fixture/GetEvidenceFoldersByAssessmentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetEvidenceFoldersByAssessment)
+
+responseGetEvidenceFoldersByAssessmentControl :: GetEvidenceFoldersByAssessmentControlResponse -> TestTree
+responseGetEvidenceFoldersByAssessmentControl =
+  res
+    "GetEvidenceFoldersByAssessmentControlResponse"
+    "fixture/GetEvidenceFoldersByAssessmentControlResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetEvidenceFoldersByAssessmentControl)
+
+responseGetOrganizationAdminAccount :: GetOrganizationAdminAccountResponse -> TestTree
+responseGetOrganizationAdminAccount =
+  res
+    "GetOrganizationAdminAccountResponse"
+    "fixture/GetOrganizationAdminAccountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetOrganizationAdminAccount)
+
+responseGetServicesInScope :: GetServicesInScopeResponse -> TestTree
+responseGetServicesInScope =
+  res
+    "GetServicesInScopeResponse"
+    "fixture/GetServicesInScopeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetServicesInScope)
+
+responseGetSettings :: GetSettingsResponse -> TestTree
+responseGetSettings =
+  res
+    "GetSettingsResponse"
+    "fixture/GetSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetSettings)
+
+responseListAssessmentFrameworks :: ListAssessmentFrameworksResponse -> TestTree
+responseListAssessmentFrameworks =
+  res
+    "ListAssessmentFrameworksResponse"
+    "fixture/ListAssessmentFrameworksResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAssessmentFrameworks)
+
+responseListAssessmentReports :: ListAssessmentReportsResponse -> TestTree
+responseListAssessmentReports =
+  res
+    "ListAssessmentReportsResponse"
+    "fixture/ListAssessmentReportsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAssessmentReports)
+
+responseListAssessments :: ListAssessmentsResponse -> TestTree
+responseListAssessments =
+  res
+    "ListAssessmentsResponse"
+    "fixture/ListAssessmentsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAssessments)
+
+responseListControls :: ListControlsResponse -> TestTree
+responseListControls =
+  res
+    "ListControlsResponse"
+    "fixture/ListControlsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListControls)
+
+responseListKeywordsForDataSource :: ListKeywordsForDataSourceResponse -> TestTree
+responseListKeywordsForDataSource =
+  res
+    "ListKeywordsForDataSourceResponse"
+    "fixture/ListKeywordsForDataSourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListKeywordsForDataSource)
+
+responseListNotifications :: ListNotificationsResponse -> TestTree
+responseListNotifications =
+  res
+    "ListNotificationsResponse"
+    "fixture/ListNotificationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListNotifications)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseRegisterAccount :: RegisterAccountResponse -> TestTree
+responseRegisterAccount =
+  res
+    "RegisterAccountResponse"
+    "fixture/RegisterAccountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RegisterAccount)
+
+responseRegisterOrganizationAdminAccount :: RegisterOrganizationAdminAccountResponse -> TestTree
+responseRegisterOrganizationAdminAccount =
+  res
+    "RegisterOrganizationAdminAccountResponse"
+    "fixture/RegisterOrganizationAdminAccountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RegisterOrganizationAdminAccount)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateAssessment :: UpdateAssessmentResponse -> TestTree
+responseUpdateAssessment =
+  res
+    "UpdateAssessmentResponse"
+    "fixture/UpdateAssessmentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAssessment)
+
+responseUpdateAssessmentControl :: UpdateAssessmentControlResponse -> TestTree
+responseUpdateAssessmentControl =
+  res
+    "UpdateAssessmentControlResponse"
+    "fixture/UpdateAssessmentControlResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAssessmentControl)
+
+responseUpdateAssessmentControlSetStatus :: UpdateAssessmentControlSetStatusResponse -> TestTree
+responseUpdateAssessmentControlSetStatus =
+  res
+    "UpdateAssessmentControlSetStatusResponse"
+    "fixture/UpdateAssessmentControlSetStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAssessmentControlSetStatus)
+
+responseUpdateAssessmentFramework :: UpdateAssessmentFrameworkResponse -> TestTree
+responseUpdateAssessmentFramework =
+  res
+    "UpdateAssessmentFrameworkResponse"
+    "fixture/UpdateAssessmentFrameworkResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAssessmentFramework)
+
+responseUpdateAssessmentStatus :: UpdateAssessmentStatusResponse -> TestTree
+responseUpdateAssessmentStatus =
+  res
+    "UpdateAssessmentStatusResponse"
+    "fixture/UpdateAssessmentStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAssessmentStatus)
+
+responseUpdateControl :: UpdateControlResponse -> TestTree
+responseUpdateControl =
+  res
+    "UpdateControlResponse"
+    "fixture/UpdateControlResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateControl)
+
+responseUpdateSettings :: UpdateSettingsResponse -> TestTree
+responseUpdateSettings =
+  res
+    "UpdateSettingsResponse"
+    "fixture/UpdateSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateSettings)
+
+responseValidateAssessmentReportIntegrity :: ValidateAssessmentReportIntegrityResponse -> TestTree
+responseValidateAssessmentReportIntegrity =
+  res
+    "ValidateAssessmentReportIntegrityResponse"
+    "fixture/ValidateAssessmentReportIntegrityResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ValidateAssessmentReportIntegrity)

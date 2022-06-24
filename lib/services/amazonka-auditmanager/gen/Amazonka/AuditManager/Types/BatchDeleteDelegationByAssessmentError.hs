@@ -28,13 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchDeleteDelegationByAssessmentError' smart constructor.
 data BatchDeleteDelegationByAssessmentError = BatchDeleteDelegationByAssessmentError'
-  { -- | The identifier for the specified delegation.
+  { -- | The error message returned by the @BatchDeleteDelegationByAssessment@
+    -- API.
+    errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | The identifier for the specified delegation.
     delegationId :: Prelude.Maybe Prelude.Text,
     -- | The error code returned by the @BatchDeleteDelegationByAssessment@ API.
-    errorCode :: Prelude.Maybe Prelude.Text,
-    -- | The error message returned by the @BatchDeleteDelegationByAssessment@
-    -- API.
-    errorMessage :: Prelude.Maybe Prelude.Text
+    errorCode :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,21 +46,26 @@ data BatchDeleteDelegationByAssessmentError = BatchDeleteDelegationByAssessmentE
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'errorMessage', 'batchDeleteDelegationByAssessmentError_errorMessage' - The error message returned by the @BatchDeleteDelegationByAssessment@
+-- API.
+--
 -- 'delegationId', 'batchDeleteDelegationByAssessmentError_delegationId' - The identifier for the specified delegation.
 --
 -- 'errorCode', 'batchDeleteDelegationByAssessmentError_errorCode' - The error code returned by the @BatchDeleteDelegationByAssessment@ API.
---
--- 'errorMessage', 'batchDeleteDelegationByAssessmentError_errorMessage' - The error message returned by the @BatchDeleteDelegationByAssessment@
--- API.
 newBatchDeleteDelegationByAssessmentError ::
   BatchDeleteDelegationByAssessmentError
 newBatchDeleteDelegationByAssessmentError =
   BatchDeleteDelegationByAssessmentError'
-    { delegationId =
+    { errorMessage =
         Prelude.Nothing,
-      errorCode = Prelude.Nothing,
-      errorMessage = Prelude.Nothing
+      delegationId = Prelude.Nothing,
+      errorCode = Prelude.Nothing
     }
+
+-- | The error message returned by the @BatchDeleteDelegationByAssessment@
+-- API.
+batchDeleteDelegationByAssessmentError_errorMessage :: Lens.Lens' BatchDeleteDelegationByAssessmentError (Prelude.Maybe Prelude.Text)
+batchDeleteDelegationByAssessmentError_errorMessage = Lens.lens (\BatchDeleteDelegationByAssessmentError' {errorMessage} -> errorMessage) (\s@BatchDeleteDelegationByAssessmentError' {} a -> s {errorMessage = a} :: BatchDeleteDelegationByAssessmentError)
 
 -- | The identifier for the specified delegation.
 batchDeleteDelegationByAssessmentError_delegationId :: Lens.Lens' BatchDeleteDelegationByAssessmentError (Prelude.Maybe Prelude.Text)
@@ -69,11 +74,6 @@ batchDeleteDelegationByAssessmentError_delegationId = Lens.lens (\BatchDeleteDel
 -- | The error code returned by the @BatchDeleteDelegationByAssessment@ API.
 batchDeleteDelegationByAssessmentError_errorCode :: Lens.Lens' BatchDeleteDelegationByAssessmentError (Prelude.Maybe Prelude.Text)
 batchDeleteDelegationByAssessmentError_errorCode = Lens.lens (\BatchDeleteDelegationByAssessmentError' {errorCode} -> errorCode) (\s@BatchDeleteDelegationByAssessmentError' {} a -> s {errorCode = a} :: BatchDeleteDelegationByAssessmentError)
-
--- | The error message returned by the @BatchDeleteDelegationByAssessment@
--- API.
-batchDeleteDelegationByAssessmentError_errorMessage :: Lens.Lens' BatchDeleteDelegationByAssessmentError (Prelude.Maybe Prelude.Text)
-batchDeleteDelegationByAssessmentError_errorMessage = Lens.lens (\BatchDeleteDelegationByAssessmentError' {errorMessage} -> errorMessage) (\s@BatchDeleteDelegationByAssessmentError' {} a -> s {errorMessage = a} :: BatchDeleteDelegationByAssessmentError)
 
 instance
   Core.FromJSON
@@ -84,9 +84,9 @@ instance
       "BatchDeleteDelegationByAssessmentError"
       ( \x ->
           BatchDeleteDelegationByAssessmentError'
-            Prelude.<$> (x Core..:? "delegationId")
+            Prelude.<$> (x Core..:? "errorMessage")
+            Prelude.<*> (x Core..:? "delegationId")
             Prelude.<*> (x Core..:? "errorCode")
-            Prelude.<*> (x Core..:? "errorMessage")
       )
 
 instance
@@ -96,15 +96,15 @@ instance
   hashWithSalt
     _salt
     BatchDeleteDelegationByAssessmentError' {..} =
-      _salt `Prelude.hashWithSalt` delegationId
+      _salt `Prelude.hashWithSalt` errorMessage
+        `Prelude.hashWithSalt` delegationId
         `Prelude.hashWithSalt` errorCode
-        `Prelude.hashWithSalt` errorMessage
 
 instance
   Prelude.NFData
     BatchDeleteDelegationByAssessmentError
   where
   rnf BatchDeleteDelegationByAssessmentError' {..} =
-    Prelude.rnf delegationId
+    Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf delegationId
       `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage

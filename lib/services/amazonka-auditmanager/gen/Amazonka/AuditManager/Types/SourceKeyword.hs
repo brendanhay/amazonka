@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSourceKeyword' smart constructor.
 data SourceKeyword = SourceKeyword'
-  { -- | The method of input for the specified keyword.
-    keywordInputType :: Prelude.Maybe KeywordInputType,
-    -- | The value of the keyword used to search CloudTrail logs, Config rules,
+  { -- | The value of the keyword used to search CloudTrail logs, Config rules,
     -- Security Hub checks, and Amazon Web Services API names when mapping a
     -- control data source.
-    keywordValue :: Prelude.Maybe Prelude.Text
+    keywordValue :: Prelude.Maybe Prelude.Text,
+    -- | The method of input for the specified keyword.
+    keywordInputType :: Prelude.Maybe KeywordInputType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,22 +46,18 @@ data SourceKeyword = SourceKeyword'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keywordInputType', 'sourceKeyword_keywordInputType' - The method of input for the specified keyword.
---
 -- 'keywordValue', 'sourceKeyword_keywordValue' - The value of the keyword used to search CloudTrail logs, Config rules,
 -- Security Hub checks, and Amazon Web Services API names when mapping a
 -- control data source.
+--
+-- 'keywordInputType', 'sourceKeyword_keywordInputType' - The method of input for the specified keyword.
 newSourceKeyword ::
   SourceKeyword
 newSourceKeyword =
   SourceKeyword'
-    { keywordInputType = Prelude.Nothing,
-      keywordValue = Prelude.Nothing
+    { keywordValue = Prelude.Nothing,
+      keywordInputType = Prelude.Nothing
     }
-
--- | The method of input for the specified keyword.
-sourceKeyword_keywordInputType :: Lens.Lens' SourceKeyword (Prelude.Maybe KeywordInputType)
-sourceKeyword_keywordInputType = Lens.lens (\SourceKeyword' {keywordInputType} -> keywordInputType) (\s@SourceKeyword' {} a -> s {keywordInputType = a} :: SourceKeyword)
 
 -- | The value of the keyword used to search CloudTrail logs, Config rules,
 -- Security Hub checks, and Amazon Web Services API names when mapping a
@@ -69,32 +65,36 @@ sourceKeyword_keywordInputType = Lens.lens (\SourceKeyword' {keywordInputType} -
 sourceKeyword_keywordValue :: Lens.Lens' SourceKeyword (Prelude.Maybe Prelude.Text)
 sourceKeyword_keywordValue = Lens.lens (\SourceKeyword' {keywordValue} -> keywordValue) (\s@SourceKeyword' {} a -> s {keywordValue = a} :: SourceKeyword)
 
+-- | The method of input for the specified keyword.
+sourceKeyword_keywordInputType :: Lens.Lens' SourceKeyword (Prelude.Maybe KeywordInputType)
+sourceKeyword_keywordInputType = Lens.lens (\SourceKeyword' {keywordInputType} -> keywordInputType) (\s@SourceKeyword' {} a -> s {keywordInputType = a} :: SourceKeyword)
+
 instance Core.FromJSON SourceKeyword where
   parseJSON =
     Core.withObject
       "SourceKeyword"
       ( \x ->
           SourceKeyword'
-            Prelude.<$> (x Core..:? "keywordInputType")
-            Prelude.<*> (x Core..:? "keywordValue")
+            Prelude.<$> (x Core..:? "keywordValue")
+            Prelude.<*> (x Core..:? "keywordInputType")
       )
 
 instance Prelude.Hashable SourceKeyword where
   hashWithSalt _salt SourceKeyword' {..} =
-    _salt `Prelude.hashWithSalt` keywordInputType
-      `Prelude.hashWithSalt` keywordValue
+    _salt `Prelude.hashWithSalt` keywordValue
+      `Prelude.hashWithSalt` keywordInputType
 
 instance Prelude.NFData SourceKeyword where
   rnf SourceKeyword' {..} =
-    Prelude.rnf keywordInputType
-      `Prelude.seq` Prelude.rnf keywordValue
+    Prelude.rnf keywordValue
+      `Prelude.seq` Prelude.rnf keywordInputType
 
 instance Core.ToJSON SourceKeyword where
   toJSON SourceKeyword' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("keywordInputType" Core..=)
-              Prelude.<$> keywordInputType,
-            ("keywordValue" Core..=) Prelude.<$> keywordValue
+          [ ("keywordValue" Core..=) Prelude.<$> keywordValue,
+            ("keywordInputType" Core..=)
+              Prelude.<$> keywordInputType
           ]
       )

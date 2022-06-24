@@ -35,8 +35,8 @@ module Amazonka.AuditManager.GetDelegations
     newGetDelegationsResponse,
 
     -- * Response Lenses
-    getDelegationsResponse_delegations,
     getDelegationsResponse_nextToken,
+    getDelegationsResponse_delegations,
     getDelegationsResponse_httpStatus,
   )
 where
@@ -96,8 +96,8 @@ instance Core.AWSRequest GetDelegations where
     Response.receiveJSON
       ( \s h x ->
           GetDelegationsResponse'
-            Prelude.<$> (x Core..?> "delegations" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "delegations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,10 +134,10 @@ instance Core.ToQuery GetDelegations where
 
 -- | /See:/ 'newGetDelegationsResponse' smart constructor.
 data GetDelegationsResponse = GetDelegationsResponse'
-  { -- | The list of delegations returned by the @GetDelegations@ API.
-    delegations :: Prelude.Maybe [DelegationMetadata],
-    -- | The pagination token used to fetch the next set of results.
+  { -- | The pagination token used to fetch the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of delegations returned by the @GetDelegations@ API.
+    delegations :: Prelude.Maybe [DelegationMetadata],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -151,9 +151,9 @@ data GetDelegationsResponse = GetDelegationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'delegations', 'getDelegationsResponse_delegations' - The list of delegations returned by the @GetDelegations@ API.
---
 -- 'nextToken', 'getDelegationsResponse_nextToken' - The pagination token used to fetch the next set of results.
+--
+-- 'delegations', 'getDelegationsResponse_delegations' - The list of delegations returned by the @GetDelegations@ API.
 --
 -- 'httpStatus', 'getDelegationsResponse_httpStatus' - The response's http status code.
 newGetDelegationsResponse ::
@@ -162,19 +162,19 @@ newGetDelegationsResponse ::
   GetDelegationsResponse
 newGetDelegationsResponse pHttpStatus_ =
   GetDelegationsResponse'
-    { delegations =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      delegations = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The list of delegations returned by the @GetDelegations@ API.
-getDelegationsResponse_delegations :: Lens.Lens' GetDelegationsResponse (Prelude.Maybe [DelegationMetadata])
-getDelegationsResponse_delegations = Lens.lens (\GetDelegationsResponse' {delegations} -> delegations) (\s@GetDelegationsResponse' {} a -> s {delegations = a} :: GetDelegationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token used to fetch the next set of results.
 getDelegationsResponse_nextToken :: Lens.Lens' GetDelegationsResponse (Prelude.Maybe Prelude.Text)
 getDelegationsResponse_nextToken = Lens.lens (\GetDelegationsResponse' {nextToken} -> nextToken) (\s@GetDelegationsResponse' {} a -> s {nextToken = a} :: GetDelegationsResponse)
+
+-- | The list of delegations returned by the @GetDelegations@ API.
+getDelegationsResponse_delegations :: Lens.Lens' GetDelegationsResponse (Prelude.Maybe [DelegationMetadata])
+getDelegationsResponse_delegations = Lens.lens (\GetDelegationsResponse' {delegations} -> delegations) (\s@GetDelegationsResponse' {} a -> s {delegations = a} :: GetDelegationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getDelegationsResponse_httpStatus :: Lens.Lens' GetDelegationsResponse Prelude.Int
@@ -182,6 +182,6 @@ getDelegationsResponse_httpStatus = Lens.lens (\GetDelegationsResponse' {httpSta
 
 instance Prelude.NFData GetDelegationsResponse where
   rnf GetDelegationsResponse' {..} =
-    Prelude.rnf delegations
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf delegations
       `Prelude.seq` Prelude.rnf httpStatus

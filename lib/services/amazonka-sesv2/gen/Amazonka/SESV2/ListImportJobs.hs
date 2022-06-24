@@ -36,8 +36,8 @@ module Amazonka.SESV2.ListImportJobs
     newListImportJobsResponse,
 
     -- * Response Lenses
-    listImportJobsResponse_importJobs,
     listImportJobsResponse_nextToken,
+    listImportJobsResponse_importJobs,
     listImportJobsResponse_httpStatus,
   )
 where
@@ -130,8 +130,8 @@ instance Core.AWSRequest ListImportJobs where
     Response.receiveJSON
       ( \s h x ->
           ListImportJobsResponse'
-            Prelude.<$> (x Core..?> "ImportJobs" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "ImportJobs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,13 +173,13 @@ instance Core.ToQuery ListImportJobs where
 --
 -- /See:/ 'newListImportJobsResponse' smart constructor.
 data ListImportJobsResponse = ListImportJobsResponse'
-  { -- | A list of the import job summaries.
-    importJobs :: Prelude.Maybe [ImportJobSummary],
-    -- | A string token indicating that there might be additional import jobs
+  { -- | A string token indicating that there might be additional import jobs
     -- available to be listed. Copy this token to a subsequent call to
     -- @ListImportJobs@ with the same parameters to retrieve the next page of
     -- import jobs.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of the import job summaries.
+    importJobs :: Prelude.Maybe [ImportJobSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -193,12 +193,12 @@ data ListImportJobsResponse = ListImportJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'importJobs', 'listImportJobsResponse_importJobs' - A list of the import job summaries.
---
 -- 'nextToken', 'listImportJobsResponse_nextToken' - A string token indicating that there might be additional import jobs
 -- available to be listed. Copy this token to a subsequent call to
 -- @ListImportJobs@ with the same parameters to retrieve the next page of
 -- import jobs.
+--
+-- 'importJobs', 'listImportJobsResponse_importJobs' - A list of the import job summaries.
 --
 -- 'httpStatus', 'listImportJobsResponse_httpStatus' - The response's http status code.
 newListImportJobsResponse ::
@@ -207,15 +207,11 @@ newListImportJobsResponse ::
   ListImportJobsResponse
 newListImportJobsResponse pHttpStatus_ =
   ListImportJobsResponse'
-    { importJobs =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      importJobs = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of the import job summaries.
-listImportJobsResponse_importJobs :: Lens.Lens' ListImportJobsResponse (Prelude.Maybe [ImportJobSummary])
-listImportJobsResponse_importJobs = Lens.lens (\ListImportJobsResponse' {importJobs} -> importJobs) (\s@ListImportJobsResponse' {} a -> s {importJobs = a} :: ListImportJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A string token indicating that there might be additional import jobs
 -- available to be listed. Copy this token to a subsequent call to
@@ -224,12 +220,16 @@ listImportJobsResponse_importJobs = Lens.lens (\ListImportJobsResponse' {importJ
 listImportJobsResponse_nextToken :: Lens.Lens' ListImportJobsResponse (Prelude.Maybe Prelude.Text)
 listImportJobsResponse_nextToken = Lens.lens (\ListImportJobsResponse' {nextToken} -> nextToken) (\s@ListImportJobsResponse' {} a -> s {nextToken = a} :: ListImportJobsResponse)
 
+-- | A list of the import job summaries.
+listImportJobsResponse_importJobs :: Lens.Lens' ListImportJobsResponse (Prelude.Maybe [ImportJobSummary])
+listImportJobsResponse_importJobs = Lens.lens (\ListImportJobsResponse' {importJobs} -> importJobs) (\s@ListImportJobsResponse' {} a -> s {importJobs = a} :: ListImportJobsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listImportJobsResponse_httpStatus :: Lens.Lens' ListImportJobsResponse Prelude.Int
 listImportJobsResponse_httpStatus = Lens.lens (\ListImportJobsResponse' {httpStatus} -> httpStatus) (\s@ListImportJobsResponse' {} a -> s {httpStatus = a} :: ListImportJobsResponse)
 
 instance Prelude.NFData ListImportJobsResponse where
   rnf ListImportJobsResponse' {..} =
-    Prelude.rnf importJobs
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf importJobs
       `Prelude.seq` Prelude.rnf httpStatus

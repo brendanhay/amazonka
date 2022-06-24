@@ -27,11 +27,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFailureInfo' smart constructor.
 data FailureInfo = FailureInfo'
-  { -- | An Amazon S3 presigned URL that contains all the failed records and
+  { -- | A message about why the import job failed.
+    errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | An Amazon S3 presigned URL that contains all the failed records and
     -- related information.
-    failedRecordsS3Url :: Prelude.Maybe Prelude.Text,
-    -- | A message about why the import job failed.
-    errorMessage :: Prelude.Maybe Prelude.Text
+    failedRecordsS3Url :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,26 +43,26 @@ data FailureInfo = FailureInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'errorMessage', 'failureInfo_errorMessage' - A message about why the import job failed.
+--
 -- 'failedRecordsS3Url', 'failureInfo_failedRecordsS3Url' - An Amazon S3 presigned URL that contains all the failed records and
 -- related information.
---
--- 'errorMessage', 'failureInfo_errorMessage' - A message about why the import job failed.
 newFailureInfo ::
   FailureInfo
 newFailureInfo =
   FailureInfo'
-    { failedRecordsS3Url = Prelude.Nothing,
-      errorMessage = Prelude.Nothing
+    { errorMessage = Prelude.Nothing,
+      failedRecordsS3Url = Prelude.Nothing
     }
+
+-- | A message about why the import job failed.
+failureInfo_errorMessage :: Lens.Lens' FailureInfo (Prelude.Maybe Prelude.Text)
+failureInfo_errorMessage = Lens.lens (\FailureInfo' {errorMessage} -> errorMessage) (\s@FailureInfo' {} a -> s {errorMessage = a} :: FailureInfo)
 
 -- | An Amazon S3 presigned URL that contains all the failed records and
 -- related information.
 failureInfo_failedRecordsS3Url :: Lens.Lens' FailureInfo (Prelude.Maybe Prelude.Text)
 failureInfo_failedRecordsS3Url = Lens.lens (\FailureInfo' {failedRecordsS3Url} -> failedRecordsS3Url) (\s@FailureInfo' {} a -> s {failedRecordsS3Url = a} :: FailureInfo)
-
--- | A message about why the import job failed.
-failureInfo_errorMessage :: Lens.Lens' FailureInfo (Prelude.Maybe Prelude.Text)
-failureInfo_errorMessage = Lens.lens (\FailureInfo' {errorMessage} -> errorMessage) (\s@FailureInfo' {} a -> s {errorMessage = a} :: FailureInfo)
 
 instance Core.FromJSON FailureInfo where
   parseJSON =
@@ -70,16 +70,16 @@ instance Core.FromJSON FailureInfo where
       "FailureInfo"
       ( \x ->
           FailureInfo'
-            Prelude.<$> (x Core..:? "FailedRecordsS3Url")
-            Prelude.<*> (x Core..:? "ErrorMessage")
+            Prelude.<$> (x Core..:? "ErrorMessage")
+            Prelude.<*> (x Core..:? "FailedRecordsS3Url")
       )
 
 instance Prelude.Hashable FailureInfo where
   hashWithSalt _salt FailureInfo' {..} =
-    _salt `Prelude.hashWithSalt` failedRecordsS3Url
-      `Prelude.hashWithSalt` errorMessage
+    _salt `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` failedRecordsS3Url
 
 instance Prelude.NFData FailureInfo where
   rnf FailureInfo' {..} =
-    Prelude.rnf failedRecordsS3Url
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf failedRecordsS3Url

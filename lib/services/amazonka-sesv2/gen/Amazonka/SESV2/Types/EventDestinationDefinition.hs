@@ -45,6 +45,9 @@ data EventDestinationDefinition = EventDestinationDefinition'
     -- <https://docs.aws.amazon.com/pinpoint/latest/userguide/analytics-transactional-messages.html Transactional Messaging Charts>
     -- in the /Amazon Pinpoint User Guide/.
     pinpointDestination :: Prelude.Maybe PinpointDestination,
+    -- | An object that defines an Amazon SNS destination for email events. You
+    -- can use Amazon SNS to send notification when certain email events occur.
+    snsDestination :: Prelude.Maybe SnsDestination,
     -- | If @true@, the event destination is enabled. When the event destination
     -- is enabled, the specified event types are sent to the destinations in
     -- this @EventDestinationDefinition@.
@@ -53,17 +56,14 @@ data EventDestinationDefinition = EventDestinationDefinition'
     -- destination is disabled, events aren\'t sent to the specified
     -- destinations.
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | An object that defines an Amazon Kinesis Data Firehose destination for
-    -- email events. You can use Amazon Kinesis Data Firehose to stream data to
-    -- other services, such as Amazon S3 and Amazon Redshift.
-    kinesisFirehoseDestination :: Prelude.Maybe KinesisFirehoseDestination,
     -- | An object that defines an Amazon CloudWatch destination for email
     -- events. You can use Amazon CloudWatch to monitor and gain insights on
     -- your email sending metrics.
     cloudWatchDestination :: Prelude.Maybe CloudWatchDestination,
-    -- | An object that defines an Amazon SNS destination for email events. You
-    -- can use Amazon SNS to send notification when certain email events occur.
-    snsDestination :: Prelude.Maybe SnsDestination
+    -- | An object that defines an Amazon Kinesis Data Firehose destination for
+    -- email events. You can use Amazon Kinesis Data Firehose to stream data to
+    -- other services, such as Amazon S3 and Amazon Redshift.
+    kinesisFirehoseDestination :: Prelude.Maybe KinesisFirehoseDestination
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,6 +85,9 @@ data EventDestinationDefinition = EventDestinationDefinition'
 -- <https://docs.aws.amazon.com/pinpoint/latest/userguide/analytics-transactional-messages.html Transactional Messaging Charts>
 -- in the /Amazon Pinpoint User Guide/.
 --
+-- 'snsDestination', 'eventDestinationDefinition_snsDestination' - An object that defines an Amazon SNS destination for email events. You
+-- can use Amazon SNS to send notification when certain email events occur.
+--
 -- 'enabled', 'eventDestinationDefinition_enabled' - If @true@, the event destination is enabled. When the event destination
 -- is enabled, the specified event types are sent to the destinations in
 -- this @EventDestinationDefinition@.
@@ -93,16 +96,13 @@ data EventDestinationDefinition = EventDestinationDefinition'
 -- destination is disabled, events aren\'t sent to the specified
 -- destinations.
 --
--- 'kinesisFirehoseDestination', 'eventDestinationDefinition_kinesisFirehoseDestination' - An object that defines an Amazon Kinesis Data Firehose destination for
--- email events. You can use Amazon Kinesis Data Firehose to stream data to
--- other services, such as Amazon S3 and Amazon Redshift.
---
 -- 'cloudWatchDestination', 'eventDestinationDefinition_cloudWatchDestination' - An object that defines an Amazon CloudWatch destination for email
 -- events. You can use Amazon CloudWatch to monitor and gain insights on
 -- your email sending metrics.
 --
--- 'snsDestination', 'eventDestinationDefinition_snsDestination' - An object that defines an Amazon SNS destination for email events. You
--- can use Amazon SNS to send notification when certain email events occur.
+-- 'kinesisFirehoseDestination', 'eventDestinationDefinition_kinesisFirehoseDestination' - An object that defines an Amazon Kinesis Data Firehose destination for
+-- email events. You can use Amazon Kinesis Data Firehose to stream data to
+-- other services, such as Amazon S3 and Amazon Redshift.
 newEventDestinationDefinition ::
   EventDestinationDefinition
 newEventDestinationDefinition =
@@ -110,10 +110,10 @@ newEventDestinationDefinition =
     { matchingEventTypes =
         Prelude.Nothing,
       pinpointDestination = Prelude.Nothing,
+      snsDestination = Prelude.Nothing,
       enabled = Prelude.Nothing,
-      kinesisFirehoseDestination = Prelude.Nothing,
       cloudWatchDestination = Prelude.Nothing,
-      snsDestination = Prelude.Nothing
+      kinesisFirehoseDestination = Prelude.Nothing
     }
 
 -- | An array that specifies which events the Amazon SES API v2 should send
@@ -130,6 +130,11 @@ eventDestinationDefinition_matchingEventTypes = Lens.lens (\EventDestinationDefi
 eventDestinationDefinition_pinpointDestination :: Lens.Lens' EventDestinationDefinition (Prelude.Maybe PinpointDestination)
 eventDestinationDefinition_pinpointDestination = Lens.lens (\EventDestinationDefinition' {pinpointDestination} -> pinpointDestination) (\s@EventDestinationDefinition' {} a -> s {pinpointDestination = a} :: EventDestinationDefinition)
 
+-- | An object that defines an Amazon SNS destination for email events. You
+-- can use Amazon SNS to send notification when certain email events occur.
+eventDestinationDefinition_snsDestination :: Lens.Lens' EventDestinationDefinition (Prelude.Maybe SnsDestination)
+eventDestinationDefinition_snsDestination = Lens.lens (\EventDestinationDefinition' {snsDestination} -> snsDestination) (\s@EventDestinationDefinition' {} a -> s {snsDestination = a} :: EventDestinationDefinition)
+
 -- | If @true@, the event destination is enabled. When the event destination
 -- is enabled, the specified event types are sent to the destinations in
 -- this @EventDestinationDefinition@.
@@ -140,40 +145,35 @@ eventDestinationDefinition_pinpointDestination = Lens.lens (\EventDestinationDef
 eventDestinationDefinition_enabled :: Lens.Lens' EventDestinationDefinition (Prelude.Maybe Prelude.Bool)
 eventDestinationDefinition_enabled = Lens.lens (\EventDestinationDefinition' {enabled} -> enabled) (\s@EventDestinationDefinition' {} a -> s {enabled = a} :: EventDestinationDefinition)
 
--- | An object that defines an Amazon Kinesis Data Firehose destination for
--- email events. You can use Amazon Kinesis Data Firehose to stream data to
--- other services, such as Amazon S3 and Amazon Redshift.
-eventDestinationDefinition_kinesisFirehoseDestination :: Lens.Lens' EventDestinationDefinition (Prelude.Maybe KinesisFirehoseDestination)
-eventDestinationDefinition_kinesisFirehoseDestination = Lens.lens (\EventDestinationDefinition' {kinesisFirehoseDestination} -> kinesisFirehoseDestination) (\s@EventDestinationDefinition' {} a -> s {kinesisFirehoseDestination = a} :: EventDestinationDefinition)
-
 -- | An object that defines an Amazon CloudWatch destination for email
 -- events. You can use Amazon CloudWatch to monitor and gain insights on
 -- your email sending metrics.
 eventDestinationDefinition_cloudWatchDestination :: Lens.Lens' EventDestinationDefinition (Prelude.Maybe CloudWatchDestination)
 eventDestinationDefinition_cloudWatchDestination = Lens.lens (\EventDestinationDefinition' {cloudWatchDestination} -> cloudWatchDestination) (\s@EventDestinationDefinition' {} a -> s {cloudWatchDestination = a} :: EventDestinationDefinition)
 
--- | An object that defines an Amazon SNS destination for email events. You
--- can use Amazon SNS to send notification when certain email events occur.
-eventDestinationDefinition_snsDestination :: Lens.Lens' EventDestinationDefinition (Prelude.Maybe SnsDestination)
-eventDestinationDefinition_snsDestination = Lens.lens (\EventDestinationDefinition' {snsDestination} -> snsDestination) (\s@EventDestinationDefinition' {} a -> s {snsDestination = a} :: EventDestinationDefinition)
+-- | An object that defines an Amazon Kinesis Data Firehose destination for
+-- email events. You can use Amazon Kinesis Data Firehose to stream data to
+-- other services, such as Amazon S3 and Amazon Redshift.
+eventDestinationDefinition_kinesisFirehoseDestination :: Lens.Lens' EventDestinationDefinition (Prelude.Maybe KinesisFirehoseDestination)
+eventDestinationDefinition_kinesisFirehoseDestination = Lens.lens (\EventDestinationDefinition' {kinesisFirehoseDestination} -> kinesisFirehoseDestination) (\s@EventDestinationDefinition' {} a -> s {kinesisFirehoseDestination = a} :: EventDestinationDefinition)
 
 instance Prelude.Hashable EventDestinationDefinition where
   hashWithSalt _salt EventDestinationDefinition' {..} =
     _salt `Prelude.hashWithSalt` matchingEventTypes
       `Prelude.hashWithSalt` pinpointDestination
-      `Prelude.hashWithSalt` enabled
-      `Prelude.hashWithSalt` kinesisFirehoseDestination
-      `Prelude.hashWithSalt` cloudWatchDestination
       `Prelude.hashWithSalt` snsDestination
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` cloudWatchDestination
+      `Prelude.hashWithSalt` kinesisFirehoseDestination
 
 instance Prelude.NFData EventDestinationDefinition where
   rnf EventDestinationDefinition' {..} =
     Prelude.rnf matchingEventTypes
       `Prelude.seq` Prelude.rnf pinpointDestination
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf kinesisFirehoseDestination
-      `Prelude.seq` Prelude.rnf cloudWatchDestination
       `Prelude.seq` Prelude.rnf snsDestination
+      `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf cloudWatchDestination
+      `Prelude.seq` Prelude.rnf kinesisFirehoseDestination
 
 instance Core.ToJSON EventDestinationDefinition where
   toJSON EventDestinationDefinition' {..} =
@@ -183,12 +183,12 @@ instance Core.ToJSON EventDestinationDefinition where
               Prelude.<$> matchingEventTypes,
             ("PinpointDestination" Core..=)
               Prelude.<$> pinpointDestination,
+            ("SnsDestination" Core..=)
+              Prelude.<$> snsDestination,
             ("Enabled" Core..=) Prelude.<$> enabled,
-            ("KinesisFirehoseDestination" Core..=)
-              Prelude.<$> kinesisFirehoseDestination,
             ("CloudWatchDestination" Core..=)
               Prelude.<$> cloudWatchDestination,
-            ("SnsDestination" Core..=)
-              Prelude.<$> snsDestination
+            ("KinesisFirehoseDestination" Core..=)
+              Prelude.<$> kinesisFirehoseDestination
           ]
       )

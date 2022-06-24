@@ -42,15 +42,15 @@ module Amazonka.SESV2.SendEmail
     newSendEmail,
 
     -- * Request Lenses
-    sendEmail_fromEmailAddress,
     sendEmail_destination,
-    sendEmail_fromEmailAddressIdentityArn,
-    sendEmail_configurationSetName,
-    sendEmail_listManagementOptions,
-    sendEmail_emailTags,
-    sendEmail_feedbackForwardingEmailAddress,
     sendEmail_feedbackForwardingEmailAddressIdentityArn,
     sendEmail_replyToAddresses,
+    sendEmail_emailTags,
+    sendEmail_fromEmailAddress,
+    sendEmail_configurationSetName,
+    sendEmail_fromEmailAddressIdentityArn,
+    sendEmail_feedbackForwardingEmailAddress,
+    sendEmail_listManagementOptions,
     sendEmail_content,
 
     -- * Destructuring the Response
@@ -76,11 +76,36 @@ import Amazonka.SESV2.Types
 --
 -- /See:/ 'newSendEmail' smart constructor.
 data SendEmail = SendEmail'
-  { -- | The email address to use as the \"From\" address for the email. The
+  { -- | An object that contains the recipients of the email message.
+    destination :: Prelude.Maybe Destination,
+    -- | This parameter is used only for sending authorization. It is the ARN of
+    -- the identity that is associated with the sending authorization policy
+    -- that permits you to use the email address specified in the
+    -- @FeedbackForwardingEmailAddress@ parameter.
+    --
+    -- For example, if the owner of example.com (which has ARN
+    -- arn:aws:ses:us-east-1:123456789012:identity\/example.com) attaches a
+    -- policy to it that authorizes you to use feedback\@example.com, then you
+    -- would specify the @FeedbackForwardingEmailAddressIdentityArn@ to be
+    -- arn:aws:ses:us-east-1:123456789012:identity\/example.com, and the
+    -- @FeedbackForwardingEmailAddress@ to be feedback\@example.com.
+    --
+    -- For more information about sending authorization, see the
+    -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+    feedbackForwardingEmailAddressIdentityArn :: Prelude.Maybe Prelude.Text,
+    -- | The \"Reply-to\" email addresses for the message. When the recipient
+    -- replies to the message, each Reply-to address receives the reply.
+    replyToAddresses :: Prelude.Maybe [Prelude.Text],
+    -- | A list of tags, in the form of name\/value pairs, to apply to an email
+    -- that you send using the @SendEmail@ operation. Tags correspond to
+    -- characteristics of the email that you define, so that you can publish
+    -- email sending events.
+    emailTags :: Prelude.Maybe [MessageTag],
+    -- | The email address to use as the \"From\" address for the email. The
     -- address that you specify has to be verified.
     fromEmailAddress :: Prelude.Maybe Prelude.Text,
-    -- | An object that contains the recipients of the email message.
-    destination :: Prelude.Maybe Destination,
+    -- | The name of the configuration set to use when sending the email.
+    configurationSetName :: Prelude.Maybe Prelude.Text,
     -- | This parameter is used only for sending authorization. It is the ARN of
     -- the identity that is associated with the sending authorization policy
     -- that permits you to use the email address specified in the
@@ -100,37 +125,12 @@ data SendEmail = SendEmail'
     -- X-SES-SOURCE-ARN and X-SES-FROM-ARN headers specified in raw email
     -- message content.
     fromEmailAddressIdentityArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the configuration set to use when sending the email.
-    configurationSetName :: Prelude.Maybe Prelude.Text,
-    -- | An object used to specify a list or topic to which an email belongs,
-    -- which will be used when a contact chooses to unsubscribe.
-    listManagementOptions :: Prelude.Maybe ListManagementOptions,
-    -- | A list of tags, in the form of name\/value pairs, to apply to an email
-    -- that you send using the @SendEmail@ operation. Tags correspond to
-    -- characteristics of the email that you define, so that you can publish
-    -- email sending events.
-    emailTags :: Prelude.Maybe [MessageTag],
     -- | The address that you want bounce and complaint notifications to be sent
     -- to.
     feedbackForwardingEmailAddress :: Prelude.Maybe Prelude.Text,
-    -- | This parameter is used only for sending authorization. It is the ARN of
-    -- the identity that is associated with the sending authorization policy
-    -- that permits you to use the email address specified in the
-    -- @FeedbackForwardingEmailAddress@ parameter.
-    --
-    -- For example, if the owner of example.com (which has ARN
-    -- arn:aws:ses:us-east-1:123456789012:identity\/example.com) attaches a
-    -- policy to it that authorizes you to use feedback\@example.com, then you
-    -- would specify the @FeedbackForwardingEmailAddressIdentityArn@ to be
-    -- arn:aws:ses:us-east-1:123456789012:identity\/example.com, and the
-    -- @FeedbackForwardingEmailAddress@ to be feedback\@example.com.
-    --
-    -- For more information about sending authorization, see the
-    -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
-    feedbackForwardingEmailAddressIdentityArn :: Prelude.Maybe Prelude.Text,
-    -- | The \"Reply-to\" email addresses for the message. When the recipient
-    -- replies to the message, each Reply-to address receives the reply.
-    replyToAddresses :: Prelude.Maybe [Prelude.Text],
+    -- | An object used to specify a list or topic to which an email belongs,
+    -- which will be used when a contact chooses to unsubscribe.
+    listManagementOptions :: Prelude.Maybe ListManagementOptions,
     -- | An object that contains the body of the message. You can send either a
     -- Simple message Raw message or a template Message.
     content :: EmailContent
@@ -145,10 +145,35 @@ data SendEmail = SendEmail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'destination', 'sendEmail_destination' - An object that contains the recipients of the email message.
+--
+-- 'feedbackForwardingEmailAddressIdentityArn', 'sendEmail_feedbackForwardingEmailAddressIdentityArn' - This parameter is used only for sending authorization. It is the ARN of
+-- the identity that is associated with the sending authorization policy
+-- that permits you to use the email address specified in the
+-- @FeedbackForwardingEmailAddress@ parameter.
+--
+-- For example, if the owner of example.com (which has ARN
+-- arn:aws:ses:us-east-1:123456789012:identity\/example.com) attaches a
+-- policy to it that authorizes you to use feedback\@example.com, then you
+-- would specify the @FeedbackForwardingEmailAddressIdentityArn@ to be
+-- arn:aws:ses:us-east-1:123456789012:identity\/example.com, and the
+-- @FeedbackForwardingEmailAddress@ to be feedback\@example.com.
+--
+-- For more information about sending authorization, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+--
+-- 'replyToAddresses', 'sendEmail_replyToAddresses' - The \"Reply-to\" email addresses for the message. When the recipient
+-- replies to the message, each Reply-to address receives the reply.
+--
+-- 'emailTags', 'sendEmail_emailTags' - A list of tags, in the form of name\/value pairs, to apply to an email
+-- that you send using the @SendEmail@ operation. Tags correspond to
+-- characteristics of the email that you define, so that you can publish
+-- email sending events.
+--
 -- 'fromEmailAddress', 'sendEmail_fromEmailAddress' - The email address to use as the \"From\" address for the email. The
 -- address that you specify has to be verified.
 --
--- 'destination', 'sendEmail_destination' - An object that contains the recipients of the email message.
+-- 'configurationSetName', 'sendEmail_configurationSetName' - The name of the configuration set to use when sending the email.
 --
 -- 'fromEmailAddressIdentityArn', 'sendEmail_fromEmailAddressIdentityArn' - This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy
@@ -169,36 +194,11 @@ data SendEmail = SendEmail'
 -- X-SES-SOURCE-ARN and X-SES-FROM-ARN headers specified in raw email
 -- message content.
 --
--- 'configurationSetName', 'sendEmail_configurationSetName' - The name of the configuration set to use when sending the email.
---
--- 'listManagementOptions', 'sendEmail_listManagementOptions' - An object used to specify a list or topic to which an email belongs,
--- which will be used when a contact chooses to unsubscribe.
---
--- 'emailTags', 'sendEmail_emailTags' - A list of tags, in the form of name\/value pairs, to apply to an email
--- that you send using the @SendEmail@ operation. Tags correspond to
--- characteristics of the email that you define, so that you can publish
--- email sending events.
---
 -- 'feedbackForwardingEmailAddress', 'sendEmail_feedbackForwardingEmailAddress' - The address that you want bounce and complaint notifications to be sent
 -- to.
 --
--- 'feedbackForwardingEmailAddressIdentityArn', 'sendEmail_feedbackForwardingEmailAddressIdentityArn' - This parameter is used only for sending authorization. It is the ARN of
--- the identity that is associated with the sending authorization policy
--- that permits you to use the email address specified in the
--- @FeedbackForwardingEmailAddress@ parameter.
---
--- For example, if the owner of example.com (which has ARN
--- arn:aws:ses:us-east-1:123456789012:identity\/example.com) attaches a
--- policy to it that authorizes you to use feedback\@example.com, then you
--- would specify the @FeedbackForwardingEmailAddressIdentityArn@ to be
--- arn:aws:ses:us-east-1:123456789012:identity\/example.com, and the
--- @FeedbackForwardingEmailAddress@ to be feedback\@example.com.
---
--- For more information about sending authorization, see the
--- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
---
--- 'replyToAddresses', 'sendEmail_replyToAddresses' - The \"Reply-to\" email addresses for the message. When the recipient
--- replies to the message, each Reply-to address receives the reply.
+-- 'listManagementOptions', 'sendEmail_listManagementOptions' - An object used to specify a list or topic to which an email belongs,
+-- which will be used when a contact chooses to unsubscribe.
 --
 -- 'content', 'sendEmail_content' - An object that contains the body of the message. You can send either a
 -- Simple message Raw message or a template Message.
@@ -208,69 +208,22 @@ newSendEmail ::
   SendEmail
 newSendEmail pContent_ =
   SendEmail'
-    { fromEmailAddress = Prelude.Nothing,
-      destination = Prelude.Nothing,
-      fromEmailAddressIdentityArn = Prelude.Nothing,
-      configurationSetName = Prelude.Nothing,
-      listManagementOptions = Prelude.Nothing,
-      emailTags = Prelude.Nothing,
-      feedbackForwardingEmailAddress = Prelude.Nothing,
+    { destination = Prelude.Nothing,
       feedbackForwardingEmailAddressIdentityArn =
         Prelude.Nothing,
       replyToAddresses = Prelude.Nothing,
+      emailTags = Prelude.Nothing,
+      fromEmailAddress = Prelude.Nothing,
+      configurationSetName = Prelude.Nothing,
+      fromEmailAddressIdentityArn = Prelude.Nothing,
+      feedbackForwardingEmailAddress = Prelude.Nothing,
+      listManagementOptions = Prelude.Nothing,
       content = pContent_
     }
-
--- | The email address to use as the \"From\" address for the email. The
--- address that you specify has to be verified.
-sendEmail_fromEmailAddress :: Lens.Lens' SendEmail (Prelude.Maybe Prelude.Text)
-sendEmail_fromEmailAddress = Lens.lens (\SendEmail' {fromEmailAddress} -> fromEmailAddress) (\s@SendEmail' {} a -> s {fromEmailAddress = a} :: SendEmail)
 
 -- | An object that contains the recipients of the email message.
 sendEmail_destination :: Lens.Lens' SendEmail (Prelude.Maybe Destination)
 sendEmail_destination = Lens.lens (\SendEmail' {destination} -> destination) (\s@SendEmail' {} a -> s {destination = a} :: SendEmail)
-
--- | This parameter is used only for sending authorization. It is the ARN of
--- the identity that is associated with the sending authorization policy
--- that permits you to use the email address specified in the
--- @FromEmailAddress@ parameter.
---
--- For example, if the owner of example.com (which has ARN
--- arn:aws:ses:us-east-1:123456789012:identity\/example.com) attaches a
--- policy to it that authorizes you to use sender\@example.com, then you
--- would specify the @FromEmailAddressIdentityArn@ to be
--- arn:aws:ses:us-east-1:123456789012:identity\/example.com, and the
--- @FromEmailAddress@ to be sender\@example.com.
---
--- For more information about sending authorization, see the
--- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
---
--- For Raw emails, the @FromEmailAddressIdentityArn@ value overrides the
--- X-SES-SOURCE-ARN and X-SES-FROM-ARN headers specified in raw email
--- message content.
-sendEmail_fromEmailAddressIdentityArn :: Lens.Lens' SendEmail (Prelude.Maybe Prelude.Text)
-sendEmail_fromEmailAddressIdentityArn = Lens.lens (\SendEmail' {fromEmailAddressIdentityArn} -> fromEmailAddressIdentityArn) (\s@SendEmail' {} a -> s {fromEmailAddressIdentityArn = a} :: SendEmail)
-
--- | The name of the configuration set to use when sending the email.
-sendEmail_configurationSetName :: Lens.Lens' SendEmail (Prelude.Maybe Prelude.Text)
-sendEmail_configurationSetName = Lens.lens (\SendEmail' {configurationSetName} -> configurationSetName) (\s@SendEmail' {} a -> s {configurationSetName = a} :: SendEmail)
-
--- | An object used to specify a list or topic to which an email belongs,
--- which will be used when a contact chooses to unsubscribe.
-sendEmail_listManagementOptions :: Lens.Lens' SendEmail (Prelude.Maybe ListManagementOptions)
-sendEmail_listManagementOptions = Lens.lens (\SendEmail' {listManagementOptions} -> listManagementOptions) (\s@SendEmail' {} a -> s {listManagementOptions = a} :: SendEmail)
-
--- | A list of tags, in the form of name\/value pairs, to apply to an email
--- that you send using the @SendEmail@ operation. Tags correspond to
--- characteristics of the email that you define, so that you can publish
--- email sending events.
-sendEmail_emailTags :: Lens.Lens' SendEmail (Prelude.Maybe [MessageTag])
-sendEmail_emailTags = Lens.lens (\SendEmail' {emailTags} -> emailTags) (\s@SendEmail' {} a -> s {emailTags = a} :: SendEmail) Prelude.. Lens.mapping Lens.coerced
-
--- | The address that you want bounce and complaint notifications to be sent
--- to.
-sendEmail_feedbackForwardingEmailAddress :: Lens.Lens' SendEmail (Prelude.Maybe Prelude.Text)
-sendEmail_feedbackForwardingEmailAddress = Lens.lens (\SendEmail' {feedbackForwardingEmailAddress} -> feedbackForwardingEmailAddress) (\s@SendEmail' {} a -> s {feedbackForwardingEmailAddress = a} :: SendEmail)
 
 -- | This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy
@@ -294,6 +247,53 @@ sendEmail_feedbackForwardingEmailAddressIdentityArn = Lens.lens (\SendEmail' {fe
 sendEmail_replyToAddresses :: Lens.Lens' SendEmail (Prelude.Maybe [Prelude.Text])
 sendEmail_replyToAddresses = Lens.lens (\SendEmail' {replyToAddresses} -> replyToAddresses) (\s@SendEmail' {} a -> s {replyToAddresses = a} :: SendEmail) Prelude.. Lens.mapping Lens.coerced
 
+-- | A list of tags, in the form of name\/value pairs, to apply to an email
+-- that you send using the @SendEmail@ operation. Tags correspond to
+-- characteristics of the email that you define, so that you can publish
+-- email sending events.
+sendEmail_emailTags :: Lens.Lens' SendEmail (Prelude.Maybe [MessageTag])
+sendEmail_emailTags = Lens.lens (\SendEmail' {emailTags} -> emailTags) (\s@SendEmail' {} a -> s {emailTags = a} :: SendEmail) Prelude.. Lens.mapping Lens.coerced
+
+-- | The email address to use as the \"From\" address for the email. The
+-- address that you specify has to be verified.
+sendEmail_fromEmailAddress :: Lens.Lens' SendEmail (Prelude.Maybe Prelude.Text)
+sendEmail_fromEmailAddress = Lens.lens (\SendEmail' {fromEmailAddress} -> fromEmailAddress) (\s@SendEmail' {} a -> s {fromEmailAddress = a} :: SendEmail)
+
+-- | The name of the configuration set to use when sending the email.
+sendEmail_configurationSetName :: Lens.Lens' SendEmail (Prelude.Maybe Prelude.Text)
+sendEmail_configurationSetName = Lens.lens (\SendEmail' {configurationSetName} -> configurationSetName) (\s@SendEmail' {} a -> s {configurationSetName = a} :: SendEmail)
+
+-- | This parameter is used only for sending authorization. It is the ARN of
+-- the identity that is associated with the sending authorization policy
+-- that permits you to use the email address specified in the
+-- @FromEmailAddress@ parameter.
+--
+-- For example, if the owner of example.com (which has ARN
+-- arn:aws:ses:us-east-1:123456789012:identity\/example.com) attaches a
+-- policy to it that authorizes you to use sender\@example.com, then you
+-- would specify the @FromEmailAddressIdentityArn@ to be
+-- arn:aws:ses:us-east-1:123456789012:identity\/example.com, and the
+-- @FromEmailAddress@ to be sender\@example.com.
+--
+-- For more information about sending authorization, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+--
+-- For Raw emails, the @FromEmailAddressIdentityArn@ value overrides the
+-- X-SES-SOURCE-ARN and X-SES-FROM-ARN headers specified in raw email
+-- message content.
+sendEmail_fromEmailAddressIdentityArn :: Lens.Lens' SendEmail (Prelude.Maybe Prelude.Text)
+sendEmail_fromEmailAddressIdentityArn = Lens.lens (\SendEmail' {fromEmailAddressIdentityArn} -> fromEmailAddressIdentityArn) (\s@SendEmail' {} a -> s {fromEmailAddressIdentityArn = a} :: SendEmail)
+
+-- | The address that you want bounce and complaint notifications to be sent
+-- to.
+sendEmail_feedbackForwardingEmailAddress :: Lens.Lens' SendEmail (Prelude.Maybe Prelude.Text)
+sendEmail_feedbackForwardingEmailAddress = Lens.lens (\SendEmail' {feedbackForwardingEmailAddress} -> feedbackForwardingEmailAddress) (\s@SendEmail' {} a -> s {feedbackForwardingEmailAddress = a} :: SendEmail)
+
+-- | An object used to specify a list or topic to which an email belongs,
+-- which will be used when a contact chooses to unsubscribe.
+sendEmail_listManagementOptions :: Lens.Lens' SendEmail (Prelude.Maybe ListManagementOptions)
+sendEmail_listManagementOptions = Lens.lens (\SendEmail' {listManagementOptions} -> listManagementOptions) (\s@SendEmail' {} a -> s {listManagementOptions = a} :: SendEmail)
+
 -- | An object that contains the body of the message. You can send either a
 -- Simple message Raw message or a template Message.
 sendEmail_content :: Lens.Lens' SendEmail EmailContent
@@ -312,28 +312,28 @@ instance Core.AWSRequest SendEmail where
 
 instance Prelude.Hashable SendEmail where
   hashWithSalt _salt SendEmail' {..} =
-    _salt `Prelude.hashWithSalt` fromEmailAddress
-      `Prelude.hashWithSalt` destination
-      `Prelude.hashWithSalt` fromEmailAddressIdentityArn
-      `Prelude.hashWithSalt` configurationSetName
-      `Prelude.hashWithSalt` listManagementOptions
-      `Prelude.hashWithSalt` emailTags
-      `Prelude.hashWithSalt` feedbackForwardingEmailAddress
+    _salt `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` feedbackForwardingEmailAddressIdentityArn
       `Prelude.hashWithSalt` replyToAddresses
+      `Prelude.hashWithSalt` emailTags
+      `Prelude.hashWithSalt` fromEmailAddress
+      `Prelude.hashWithSalt` configurationSetName
+      `Prelude.hashWithSalt` fromEmailAddressIdentityArn
+      `Prelude.hashWithSalt` feedbackForwardingEmailAddress
+      `Prelude.hashWithSalt` listManagementOptions
       `Prelude.hashWithSalt` content
 
 instance Prelude.NFData SendEmail where
   rnf SendEmail' {..} =
-    Prelude.rnf fromEmailAddress
-      `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf fromEmailAddressIdentityArn
-      `Prelude.seq` Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf listManagementOptions
-      `Prelude.seq` Prelude.rnf emailTags
-      `Prelude.seq` Prelude.rnf feedbackForwardingEmailAddress
+    Prelude.rnf destination
       `Prelude.seq` Prelude.rnf feedbackForwardingEmailAddressIdentityArn
       `Prelude.seq` Prelude.rnf replyToAddresses
+      `Prelude.seq` Prelude.rnf emailTags
+      `Prelude.seq` Prelude.rnf fromEmailAddress
+      `Prelude.seq` Prelude.rnf configurationSetName
+      `Prelude.seq` Prelude.rnf fromEmailAddressIdentityArn
+      `Prelude.seq` Prelude.rnf feedbackForwardingEmailAddress
+      `Prelude.seq` Prelude.rnf listManagementOptions
       `Prelude.seq` Prelude.rnf content
 
 instance Core.ToHeaders SendEmail where
@@ -351,22 +351,22 @@ instance Core.ToJSON SendEmail where
   toJSON SendEmail' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("FromEmailAddress" Core..=)
-              Prelude.<$> fromEmailAddress,
-            ("Destination" Core..=) Prelude.<$> destination,
-            ("FromEmailAddressIdentityArn" Core..=)
-              Prelude.<$> fromEmailAddressIdentityArn,
-            ("ConfigurationSetName" Core..=)
-              Prelude.<$> configurationSetName,
-            ("ListManagementOptions" Core..=)
-              Prelude.<$> listManagementOptions,
-            ("EmailTags" Core..=) Prelude.<$> emailTags,
-            ("FeedbackForwardingEmailAddress" Core..=)
-              Prelude.<$> feedbackForwardingEmailAddress,
+          [ ("Destination" Core..=) Prelude.<$> destination,
             ("FeedbackForwardingEmailAddressIdentityArn" Core..=)
               Prelude.<$> feedbackForwardingEmailAddressIdentityArn,
             ("ReplyToAddresses" Core..=)
               Prelude.<$> replyToAddresses,
+            ("EmailTags" Core..=) Prelude.<$> emailTags,
+            ("FromEmailAddress" Core..=)
+              Prelude.<$> fromEmailAddress,
+            ("ConfigurationSetName" Core..=)
+              Prelude.<$> configurationSetName,
+            ("FromEmailAddressIdentityArn" Core..=)
+              Prelude.<$> fromEmailAddressIdentityArn,
+            ("FeedbackForwardingEmailAddress" Core..=)
+              Prelude.<$> feedbackForwardingEmailAddress,
+            ("ListManagementOptions" Core..=)
+              Prelude.<$> listManagementOptions,
             Prelude.Just ("Content" Core..= content)
           ]
       )

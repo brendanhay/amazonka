@@ -28,8 +28,8 @@ module Amazonka.SESV2.UpdateContactList
     newUpdateContactList,
 
     -- * Request Lenses
-    updateContactList_topics,
     updateContactList_description,
+    updateContactList_topics,
     updateContactList_contactListName,
 
     -- * Destructuring the Response
@@ -50,11 +50,11 @@ import Amazonka.SESV2.Types
 
 -- | /See:/ 'newUpdateContactList' smart constructor.
 data UpdateContactList = UpdateContactList'
-  { -- | An interest group, theme, or label within a list. A contact list can
+  { -- | A description of what the contact list is about.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | An interest group, theme, or label within a list. A contact list can
     -- have multiple topics.
     topics :: Prelude.Maybe [Topic],
-    -- | A description of what the contact list is about.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the contact list.
     contactListName :: Prelude.Text
   }
@@ -68,10 +68,10 @@ data UpdateContactList = UpdateContactList'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'updateContactList_description' - A description of what the contact list is about.
+--
 -- 'topics', 'updateContactList_topics' - An interest group, theme, or label within a list. A contact list can
 -- have multiple topics.
---
--- 'description', 'updateContactList_description' - A description of what the contact list is about.
 --
 -- 'contactListName', 'updateContactList_contactListName' - The name of the contact list.
 newUpdateContactList ::
@@ -80,19 +80,19 @@ newUpdateContactList ::
   UpdateContactList
 newUpdateContactList pContactListName_ =
   UpdateContactList'
-    { topics = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      topics = Prelude.Nothing,
       contactListName = pContactListName_
     }
+
+-- | A description of what the contact list is about.
+updateContactList_description :: Lens.Lens' UpdateContactList (Prelude.Maybe Prelude.Text)
+updateContactList_description = Lens.lens (\UpdateContactList' {description} -> description) (\s@UpdateContactList' {} a -> s {description = a} :: UpdateContactList)
 
 -- | An interest group, theme, or label within a list. A contact list can
 -- have multiple topics.
 updateContactList_topics :: Lens.Lens' UpdateContactList (Prelude.Maybe [Topic])
 updateContactList_topics = Lens.lens (\UpdateContactList' {topics} -> topics) (\s@UpdateContactList' {} a -> s {topics = a} :: UpdateContactList) Prelude.. Lens.mapping Lens.coerced
-
--- | A description of what the contact list is about.
-updateContactList_description :: Lens.Lens' UpdateContactList (Prelude.Maybe Prelude.Text)
-updateContactList_description = Lens.lens (\UpdateContactList' {description} -> description) (\s@UpdateContactList' {} a -> s {description = a} :: UpdateContactList)
 
 -- | The name of the contact list.
 updateContactList_contactListName :: Lens.Lens' UpdateContactList Prelude.Text
@@ -112,14 +112,14 @@ instance Core.AWSRequest UpdateContactList where
 
 instance Prelude.Hashable UpdateContactList where
   hashWithSalt _salt UpdateContactList' {..} =
-    _salt `Prelude.hashWithSalt` topics
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` topics
       `Prelude.hashWithSalt` contactListName
 
 instance Prelude.NFData UpdateContactList where
   rnf UpdateContactList' {..} =
-    Prelude.rnf topics
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf topics
       `Prelude.seq` Prelude.rnf contactListName
 
 instance Core.ToHeaders UpdateContactList where
@@ -137,8 +137,8 @@ instance Core.ToJSON UpdateContactList where
   toJSON UpdateContactList' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Topics" Core..=) Prelude.<$> topics,
-            ("Description" Core..=) Prelude.<$> description
+          [ ("Description" Core..=) Prelude.<$> description,
+            ("Topics" Core..=) Prelude.<$> topics
           ]
       )
 

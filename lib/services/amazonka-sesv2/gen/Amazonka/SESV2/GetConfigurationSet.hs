@@ -42,13 +42,13 @@ module Amazonka.SESV2.GetConfigurationSet
     newGetConfigurationSetResponse,
 
     -- * Response Lenses
-    getConfigurationSetResponse_sendingOptions,
+    getConfigurationSetResponse_tags,
+    getConfigurationSetResponse_reputationOptions,
     getConfigurationSetResponse_configurationSetName,
     getConfigurationSetResponse_deliveryOptions,
     getConfigurationSetResponse_trackingOptions,
-    getConfigurationSetResponse_reputationOptions,
-    getConfigurationSetResponse_tags,
     getConfigurationSetResponse_suppressionOptions,
+    getConfigurationSetResponse_sendingOptions,
     getConfigurationSetResponse_httpStatus,
   )
 where
@@ -101,13 +101,13 @@ instance Core.AWSRequest GetConfigurationSet where
     Response.receiveJSON
       ( \s h x ->
           GetConfigurationSetResponse'
-            Prelude.<$> (x Core..?> "SendingOptions")
+            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "ReputationOptions")
             Prelude.<*> (x Core..?> "ConfigurationSetName")
             Prelude.<*> (x Core..?> "DeliveryOptions")
             Prelude.<*> (x Core..?> "TrackingOptions")
-            Prelude.<*> (x Core..?> "ReputationOptions")
-            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "SuppressionOptions")
+            Prelude.<*> (x Core..?> "SendingOptions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,9 +144,12 @@ instance Core.ToQuery GetConfigurationSet where
 --
 -- /See:/ 'newGetConfigurationSetResponse' smart constructor.
 data GetConfigurationSetResponse = GetConfigurationSetResponse'
-  { -- | An object that defines whether or not Amazon SES can send email that you
-    -- send using the configuration set.
-    sendingOptions :: Prelude.Maybe SendingOptions,
+  { -- | An array of objects that define the tags (keys and values) that are
+    -- associated with the configuration set.
+    tags :: Prelude.Maybe [Tag],
+    -- | An object that defines whether or not Amazon SES collects reputation
+    -- metrics for the emails that you send that use the configuration set.
+    reputationOptions :: Prelude.Maybe ReputationOptions,
     -- | The name of the configuration set.
     configurationSetName :: Prelude.Maybe Prelude.Text,
     -- | An object that defines the dedicated IP pool that is used to send emails
@@ -155,15 +158,12 @@ data GetConfigurationSetResponse = GetConfigurationSetResponse'
     -- | An object that defines the open and click tracking options for emails
     -- that you send using the configuration set.
     trackingOptions :: Prelude.Maybe TrackingOptions,
-    -- | An object that defines whether or not Amazon SES collects reputation
-    -- metrics for the emails that you send that use the configuration set.
-    reputationOptions :: Prelude.Maybe ReputationOptions,
-    -- | An array of objects that define the tags (keys and values) that are
-    -- associated with the configuration set.
-    tags :: Prelude.Maybe [Tag],
     -- | An object that contains information about the suppression list
     -- preferences for your account.
     suppressionOptions :: Prelude.Maybe SuppressionOptions,
+    -- | An object that defines whether or not Amazon SES can send email that you
+    -- send using the configuration set.
+    sendingOptions :: Prelude.Maybe SendingOptions,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -177,8 +177,11 @@ data GetConfigurationSetResponse = GetConfigurationSetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sendingOptions', 'getConfigurationSetResponse_sendingOptions' - An object that defines whether or not Amazon SES can send email that you
--- send using the configuration set.
+-- 'tags', 'getConfigurationSetResponse_tags' - An array of objects that define the tags (keys and values) that are
+-- associated with the configuration set.
+--
+-- 'reputationOptions', 'getConfigurationSetResponse_reputationOptions' - An object that defines whether or not Amazon SES collects reputation
+-- metrics for the emails that you send that use the configuration set.
 --
 -- 'configurationSetName', 'getConfigurationSetResponse_configurationSetName' - The name of the configuration set.
 --
@@ -188,14 +191,11 @@ data GetConfigurationSetResponse = GetConfigurationSetResponse'
 -- 'trackingOptions', 'getConfigurationSetResponse_trackingOptions' - An object that defines the open and click tracking options for emails
 -- that you send using the configuration set.
 --
--- 'reputationOptions', 'getConfigurationSetResponse_reputationOptions' - An object that defines whether or not Amazon SES collects reputation
--- metrics for the emails that you send that use the configuration set.
---
--- 'tags', 'getConfigurationSetResponse_tags' - An array of objects that define the tags (keys and values) that are
--- associated with the configuration set.
---
 -- 'suppressionOptions', 'getConfigurationSetResponse_suppressionOptions' - An object that contains information about the suppression list
 -- preferences for your account.
+--
+-- 'sendingOptions', 'getConfigurationSetResponse_sendingOptions' - An object that defines whether or not Amazon SES can send email that you
+-- send using the configuration set.
 --
 -- 'httpStatus', 'getConfigurationSetResponse_httpStatus' - The response's http status code.
 newGetConfigurationSetResponse ::
@@ -204,21 +204,26 @@ newGetConfigurationSetResponse ::
   GetConfigurationSetResponse
 newGetConfigurationSetResponse pHttpStatus_ =
   GetConfigurationSetResponse'
-    { sendingOptions =
+    { tags =
         Prelude.Nothing,
+      reputationOptions = Prelude.Nothing,
       configurationSetName = Prelude.Nothing,
       deliveryOptions = Prelude.Nothing,
       trackingOptions = Prelude.Nothing,
-      reputationOptions = Prelude.Nothing,
-      tags = Prelude.Nothing,
       suppressionOptions = Prelude.Nothing,
+      sendingOptions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | An object that defines whether or not Amazon SES can send email that you
--- send using the configuration set.
-getConfigurationSetResponse_sendingOptions :: Lens.Lens' GetConfigurationSetResponse (Prelude.Maybe SendingOptions)
-getConfigurationSetResponse_sendingOptions = Lens.lens (\GetConfigurationSetResponse' {sendingOptions} -> sendingOptions) (\s@GetConfigurationSetResponse' {} a -> s {sendingOptions = a} :: GetConfigurationSetResponse)
+-- | An array of objects that define the tags (keys and values) that are
+-- associated with the configuration set.
+getConfigurationSetResponse_tags :: Lens.Lens' GetConfigurationSetResponse (Prelude.Maybe [Tag])
+getConfigurationSetResponse_tags = Lens.lens (\GetConfigurationSetResponse' {tags} -> tags) (\s@GetConfigurationSetResponse' {} a -> s {tags = a} :: GetConfigurationSetResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | An object that defines whether or not Amazon SES collects reputation
+-- metrics for the emails that you send that use the configuration set.
+getConfigurationSetResponse_reputationOptions :: Lens.Lens' GetConfigurationSetResponse (Prelude.Maybe ReputationOptions)
+getConfigurationSetResponse_reputationOptions = Lens.lens (\GetConfigurationSetResponse' {reputationOptions} -> reputationOptions) (\s@GetConfigurationSetResponse' {} a -> s {reputationOptions = a} :: GetConfigurationSetResponse)
 
 -- | The name of the configuration set.
 getConfigurationSetResponse_configurationSetName :: Lens.Lens' GetConfigurationSetResponse (Prelude.Maybe Prelude.Text)
@@ -234,20 +239,15 @@ getConfigurationSetResponse_deliveryOptions = Lens.lens (\GetConfigurationSetRes
 getConfigurationSetResponse_trackingOptions :: Lens.Lens' GetConfigurationSetResponse (Prelude.Maybe TrackingOptions)
 getConfigurationSetResponse_trackingOptions = Lens.lens (\GetConfigurationSetResponse' {trackingOptions} -> trackingOptions) (\s@GetConfigurationSetResponse' {} a -> s {trackingOptions = a} :: GetConfigurationSetResponse)
 
--- | An object that defines whether or not Amazon SES collects reputation
--- metrics for the emails that you send that use the configuration set.
-getConfigurationSetResponse_reputationOptions :: Lens.Lens' GetConfigurationSetResponse (Prelude.Maybe ReputationOptions)
-getConfigurationSetResponse_reputationOptions = Lens.lens (\GetConfigurationSetResponse' {reputationOptions} -> reputationOptions) (\s@GetConfigurationSetResponse' {} a -> s {reputationOptions = a} :: GetConfigurationSetResponse)
-
--- | An array of objects that define the tags (keys and values) that are
--- associated with the configuration set.
-getConfigurationSetResponse_tags :: Lens.Lens' GetConfigurationSetResponse (Prelude.Maybe [Tag])
-getConfigurationSetResponse_tags = Lens.lens (\GetConfigurationSetResponse' {tags} -> tags) (\s@GetConfigurationSetResponse' {} a -> s {tags = a} :: GetConfigurationSetResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | An object that contains information about the suppression list
 -- preferences for your account.
 getConfigurationSetResponse_suppressionOptions :: Lens.Lens' GetConfigurationSetResponse (Prelude.Maybe SuppressionOptions)
 getConfigurationSetResponse_suppressionOptions = Lens.lens (\GetConfigurationSetResponse' {suppressionOptions} -> suppressionOptions) (\s@GetConfigurationSetResponse' {} a -> s {suppressionOptions = a} :: GetConfigurationSetResponse)
+
+-- | An object that defines whether or not Amazon SES can send email that you
+-- send using the configuration set.
+getConfigurationSetResponse_sendingOptions :: Lens.Lens' GetConfigurationSetResponse (Prelude.Maybe SendingOptions)
+getConfigurationSetResponse_sendingOptions = Lens.lens (\GetConfigurationSetResponse' {sendingOptions} -> sendingOptions) (\s@GetConfigurationSetResponse' {} a -> s {sendingOptions = a} :: GetConfigurationSetResponse)
 
 -- | The response's http status code.
 getConfigurationSetResponse_httpStatus :: Lens.Lens' GetConfigurationSetResponse Prelude.Int
@@ -255,11 +255,11 @@ getConfigurationSetResponse_httpStatus = Lens.lens (\GetConfigurationSetResponse
 
 instance Prelude.NFData GetConfigurationSetResponse where
   rnf GetConfigurationSetResponse' {..} =
-    Prelude.rnf sendingOptions
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf reputationOptions
       `Prelude.seq` Prelude.rnf configurationSetName
       `Prelude.seq` Prelude.rnf deliveryOptions
       `Prelude.seq` Prelude.rnf trackingOptions
-      `Prelude.seq` Prelude.rnf reputationOptions
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf suppressionOptions
+      `Prelude.seq` Prelude.rnf sendingOptions
       `Prelude.seq` Prelude.rnf httpStatus

@@ -17,18 +17,18 @@ module Amazonka.AppStream.Types
     defaultService,
 
     -- * Errors
-    _InvalidRoleException,
-    _RequestLimitExceededException,
     _ResourceAlreadyExistsException,
+    _RequestLimitExceededException,
     _IncompatibleImageException,
     _ConcurrentModificationException,
+    _InvalidRoleException,
+    _ResourceNotFoundException,
+    _ResourceNotAvailableException,
+    _InvalidParameterCombinationException,
+    _ResourceInUseException,
+    _LimitExceededException,
     _OperationNotPermittedException,
     _InvalidAccountStatusException,
-    _ResourceNotFoundException,
-    _InvalidParameterCombinationException,
-    _ResourceNotAvailableException,
-    _LimitExceededException,
-    _ResourceInUseException,
 
     -- * AccessEndpointType
     AccessEndpointType (..),
@@ -111,13 +111,13 @@ module Amazonka.AppStream.Types
     -- * Application
     Application (..),
     newApplication,
-    application_enabled,
-    application_launchPath,
-    application_launchParameters,
     application_name,
-    application_displayName,
+    application_launchPath,
     application_metadata,
+    application_displayName,
+    application_enabled,
     application_iconURL,
+    application_launchParameters,
 
     -- * ApplicationSettings
     ApplicationSettings (..),
@@ -128,9 +128,9 @@ module Amazonka.AppStream.Types
     -- * ApplicationSettingsResponse
     ApplicationSettingsResponse (..),
     newApplicationSettingsResponse,
+    applicationSettingsResponse_s3BucketName,
     applicationSettingsResponse_enabled,
     applicationSettingsResponse_settingsGroup,
-    applicationSettingsResponse_s3BucketName,
 
     -- * ComputeCapacity
     ComputeCapacity (..),
@@ -140,43 +140,43 @@ module Amazonka.AppStream.Types
     -- * ComputeCapacityStatus
     ComputeCapacityStatus (..),
     newComputeCapacityStatus,
-    computeCapacityStatus_inUse,
-    computeCapacityStatus_running,
     computeCapacityStatus_available,
+    computeCapacityStatus_running,
+    computeCapacityStatus_inUse,
     computeCapacityStatus_desired,
 
     -- * DirectoryConfig
     DirectoryConfig (..),
     newDirectoryConfig,
-    directoryConfig_createdTime,
     directoryConfig_serviceAccountCredentials,
     directoryConfig_organizationalUnitDistinguishedNames,
+    directoryConfig_createdTime,
     directoryConfig_directoryName,
 
     -- * DomainJoinInfo
     DomainJoinInfo (..),
     newDomainJoinInfo,
-    domainJoinInfo_organizationalUnitDistinguishedName,
     domainJoinInfo_directoryName,
+    domainJoinInfo_organizationalUnitDistinguishedName,
 
     -- * Fleet
     Fleet (..),
     newFleet,
-    fleet_domainJoinInfo,
-    fleet_iamRoleArn,
-    fleet_disconnectTimeoutInSeconds,
-    fleet_maxUserDurationInSeconds,
     fleet_createdTime,
-    fleet_idleDisconnectTimeoutInSeconds,
     fleet_fleetType,
     fleet_vpcConfig,
-    fleet_imageArn,
     fleet_fleetErrors,
     fleet_displayName,
+    fleet_imageArn,
+    fleet_description,
+    fleet_disconnectTimeoutInSeconds,
+    fleet_idleDisconnectTimeoutInSeconds,
+    fleet_iamRoleArn,
+    fleet_domainJoinInfo,
+    fleet_streamView,
     fleet_enableDefaultInternetAccess,
     fleet_imageName,
-    fleet_description,
-    fleet_streamView,
+    fleet_maxUserDurationInSeconds,
     fleet_arn,
     fleet_name,
     fleet_instanceType,
@@ -186,57 +186,57 @@ module Amazonka.AppStream.Types
     -- * FleetError
     FleetError (..),
     newFleetError,
-    fleetError_errorCode,
     fleetError_errorMessage,
+    fleetError_errorCode,
 
     -- * Image
     Image (..),
     newImage,
-    image_state,
-    image_imagePermissions,
-    image_platform,
-    image_publicBaseImageReleasedDate,
-    image_stateChangeReason,
-    image_arn,
     image_createdTime,
+    image_stateChangeReason,
+    image_applications,
     image_imageBuilderSupported,
     image_visibility,
-    image_imageBuilderName,
+    image_arn,
+    image_displayName,
+    image_state,
+    image_platform,
+    image_description,
+    image_publicBaseImageReleasedDate,
+    image_imagePermissions,
+    image_appstreamAgentVersion,
     image_imageErrors,
     image_baseImageArn,
-    image_displayName,
-    image_description,
-    image_appstreamAgentVersion,
-    image_applications,
+    image_imageBuilderName,
     image_name,
 
     -- * ImageBuilder
     ImageBuilder (..),
     newImageBuilder,
-    imageBuilder_domainJoinInfo,
-    imageBuilder_iamRoleArn,
-    imageBuilder_state,
-    imageBuilder_platform,
-    imageBuilder_networkAccessConfiguration,
-    imageBuilder_stateChangeReason,
-    imageBuilder_arn,
     imageBuilder_createdTime,
-    imageBuilder_imageBuilderErrors,
-    imageBuilder_instanceType,
-    imageBuilder_accessEndpoints,
+    imageBuilder_stateChangeReason,
     imageBuilder_vpcConfig,
-    imageBuilder_imageArn,
+    imageBuilder_networkAccessConfiguration,
+    imageBuilder_arn,
     imageBuilder_displayName,
-    imageBuilder_enableDefaultInternetAccess,
+    imageBuilder_state,
+    imageBuilder_accessEndpoints,
+    imageBuilder_imageArn,
+    imageBuilder_platform,
     imageBuilder_description,
+    imageBuilder_instanceType,
+    imageBuilder_iamRoleArn,
+    imageBuilder_domainJoinInfo,
+    imageBuilder_imageBuilderErrors,
     imageBuilder_appstreamAgentVersion,
+    imageBuilder_enableDefaultInternetAccess,
     imageBuilder_name,
 
     -- * ImageBuilderStateChangeReason
     ImageBuilderStateChangeReason (..),
     newImageBuilderStateChangeReason,
-    imageBuilderStateChangeReason_code,
     imageBuilderStateChangeReason_message,
+    imageBuilderStateChangeReason_code,
 
     -- * ImagePermissions
     ImagePermissions (..),
@@ -247,27 +247,27 @@ module Amazonka.AppStream.Types
     -- * ImageStateChangeReason
     ImageStateChangeReason (..),
     newImageStateChangeReason,
-    imageStateChangeReason_code,
     imageStateChangeReason_message,
+    imageStateChangeReason_code,
 
     -- * LastReportGenerationExecutionError
     LastReportGenerationExecutionError (..),
     newLastReportGenerationExecutionError,
-    lastReportGenerationExecutionError_errorCode,
     lastReportGenerationExecutionError_errorMessage,
+    lastReportGenerationExecutionError_errorCode,
 
     -- * NetworkAccessConfiguration
     NetworkAccessConfiguration (..),
     newNetworkAccessConfiguration,
-    networkAccessConfiguration_eniId,
     networkAccessConfiguration_eniPrivateIpAddress,
+    networkAccessConfiguration_eniId,
 
     -- * ResourceError
     ResourceError (..),
     newResourceError,
-    resourceError_errorCode,
     resourceError_errorMessage,
     resourceError_errorTimestamp,
+    resourceError_errorCode,
 
     -- * ServiceAccountCredentials
     ServiceAccountCredentials (..),
@@ -278,11 +278,11 @@ module Amazonka.AppStream.Types
     -- * Session
     Session (..),
     newSession,
+    session_authenticationType,
     session_networkAccessConfiguration,
+    session_connectionState,
     session_maxExpirationTime,
     session_startTime,
-    session_authenticationType,
-    session_connectionState,
     session_id,
     session_userId,
     session_stackName,
@@ -298,25 +298,25 @@ module Amazonka.AppStream.Types
     -- * Stack
     Stack (..),
     newStack,
-    stack_userSettings,
-    stack_applicationSettings,
-    stack_feedbackURL,
-    stack_arn,
-    stack_createdTime,
     stack_storageConnectors,
-    stack_accessEndpoints,
-    stack_displayName,
-    stack_stackErrors,
+    stack_createdTime,
     stack_embedHostDomains,
+    stack_applicationSettings,
+    stack_arn,
+    stack_stackErrors,
+    stack_displayName,
+    stack_accessEndpoints,
     stack_description,
     stack_redirectURL,
+    stack_feedbackURL,
+    stack_userSettings,
     stack_name,
 
     -- * StackError
     StackError (..),
     newStackError,
-    stackError_errorCode,
     stackError_errorMessage,
+    stackError_errorCode,
 
     -- * StorageConnector
     StorageConnector (..),
@@ -328,21 +328,21 @@ module Amazonka.AppStream.Types
     -- * UsageReportSubscription
     UsageReportSubscription (..),
     newUsageReportSubscription,
-    usageReportSubscription_lastGeneratedReportDate,
     usageReportSubscription_schedule,
-    usageReportSubscription_subscriptionErrors,
     usageReportSubscription_s3BucketName,
+    usageReportSubscription_lastGeneratedReportDate,
+    usageReportSubscription_subscriptionErrors,
 
     -- * User
     User (..),
     newUser,
+    user_createdTime,
+    user_firstName,
+    user_userName,
+    user_arn,
     user_status,
     user_enabled,
     user_lastName,
-    user_arn,
-    user_createdTime,
-    user_userName,
-    user_firstName,
     user_authenticationType,
 
     -- * UserSetting
@@ -363,8 +363,8 @@ module Amazonka.AppStream.Types
     UserStackAssociationError (..),
     newUserStackAssociationError,
     userStackAssociationError_userStackAssociation,
-    userStackAssociationError_errorCode,
     userStackAssociationError_errorMessage,
+    userStackAssociationError_errorCode,
 
     -- * VpcConfig
     VpcConfig (..),
@@ -458,35 +458,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -495,20 +468,47 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The specified role is invalid.
-_InvalidRoleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRoleException =
+-- | The specified resource already exists.
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
-    "InvalidRoleException"
+    "ResourceAlreadyExistsException"
 
 -- | AppStream 2.0 can’t process the request right now because the Describe
 -- calls from your AWS account are being throttled by Amazon EC2. Try again
@@ -518,13 +518,6 @@ _RequestLimitExceededException =
   Core._MatchServiceError
     defaultService
     "RequestLimitExceededException"
-
--- | The specified resource already exists.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceAlreadyExistsException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceAlreadyExistsException"
 
 -- | The image can\'t be updated because it\'s not compatible for updates.
 _IncompatibleImageException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -540,6 +533,49 @@ _ConcurrentModificationException =
     defaultService
     "ConcurrentModificationException"
 
+-- | The specified role is invalid.
+_InvalidRoleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRoleException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRoleException"
+
+-- | The specified resource was not found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+
+-- | The specified resource exists and is not in use, but isn\'t available.
+_ResourceNotAvailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotAvailableException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotAvailableException"
+
+-- | Indicates an incorrect combination of parameters, or a missing
+-- parameter.
+_InvalidParameterCombinationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterCombinationException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidParameterCombinationException"
+
+-- | The specified resource is in use.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUseException"
+
+-- | The requested limit exceeds the permitted limit for an account.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
+
 -- | The attempted operation is not permitted.
 _OperationNotPermittedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _OperationNotPermittedException =
@@ -554,39 +590,3 @@ _InvalidAccountStatusException =
   Core._MatchServiceError
     defaultService
     "InvalidAccountStatusException"
-
--- | The specified resource was not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-
--- | Indicates an incorrect combination of parameters, or a missing
--- parameter.
-_InvalidParameterCombinationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterCombinationException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidParameterCombinationException"
-
--- | The specified resource exists and is not in use, but isn\'t available.
-_ResourceNotAvailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotAvailableException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotAvailableException"
-
--- | The requested limit exceeds the permitted limit for an account.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
-
--- | The specified resource is in use.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceInUseException"

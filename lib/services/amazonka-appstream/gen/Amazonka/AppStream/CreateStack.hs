@@ -29,16 +29,16 @@ module Amazonka.AppStream.CreateStack
     newCreateStack,
 
     -- * Request Lenses
-    createStack_userSettings,
-    createStack_applicationSettings,
-    createStack_feedbackURL,
-    createStack_storageConnectors,
-    createStack_accessEndpoints,
-    createStack_displayName,
-    createStack_embedHostDomains,
-    createStack_description,
     createStack_tags,
+    createStack_storageConnectors,
+    createStack_embedHostDomains,
+    createStack_applicationSettings,
+    createStack_displayName,
+    createStack_accessEndpoints,
+    createStack_description,
     createStack_redirectURL,
+    createStack_feedbackURL,
+    createStack_userSettings,
     createStack_name,
 
     -- * Destructuring the Response
@@ -60,32 +60,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateStack' smart constructor.
 data CreateStack = CreateStack'
-  { -- | The actions that are enabled or disabled for users during their
-    -- streaming sessions. By default, these actions are enabled.
-    userSettings :: Prelude.Maybe (Prelude.NonEmpty UserSetting),
-    -- | The persistent application settings for users of a stack. When these
-    -- settings are enabled, changes that users make to applications and
-    -- Windows settings are automatically saved after each session and applied
-    -- to the next session.
-    applicationSettings :: Prelude.Maybe ApplicationSettings,
-    -- | The URL that users are redirected to after they click the Send Feedback
-    -- link. If no URL is specified, no Send Feedback link is displayed.
-    feedbackURL :: Prelude.Maybe Prelude.Text,
-    -- | The storage connectors to enable.
-    storageConnectors :: Prelude.Maybe [StorageConnector],
-    -- | The list of interface VPC endpoint (interface endpoint) objects. Users
-    -- of the stack can connect to AppStream 2.0 only through the specified
-    -- endpoints.
-    accessEndpoints :: Prelude.Maybe (Prelude.NonEmpty AccessEndpoint),
-    -- | The stack name to display.
-    displayName :: Prelude.Maybe Prelude.Text,
-    -- | The domains where AppStream 2.0 streaming sessions can be embedded in an
-    -- iframe. You must approve the domains that you want to host embedded
-    -- AppStream 2.0 streaming sessions.
-    embedHostDomains :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The description to display.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The tags to associate with the stack. A tag is a key-value pair, and the
+  { -- | The tags to associate with the stack. A tag is a key-value pair, and the
     -- value is optional. For example, Environment=Test. If you do not specify
     -- a value, Environment=.
     --
@@ -100,8 +75,33 @@ data CreateStack = CreateStack'
     -- <https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html Tagging Your Resources>
     -- in the /Amazon AppStream 2.0 Administration Guide/.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The storage connectors to enable.
+    storageConnectors :: Prelude.Maybe [StorageConnector],
+    -- | The domains where AppStream 2.0 streaming sessions can be embedded in an
+    -- iframe. You must approve the domains that you want to host embedded
+    -- AppStream 2.0 streaming sessions.
+    embedHostDomains :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The persistent application settings for users of a stack. When these
+    -- settings are enabled, changes that users make to applications and
+    -- Windows settings are automatically saved after each session and applied
+    -- to the next session.
+    applicationSettings :: Prelude.Maybe ApplicationSettings,
+    -- | The stack name to display.
+    displayName :: Prelude.Maybe Prelude.Text,
+    -- | The list of interface VPC endpoint (interface endpoint) objects. Users
+    -- of the stack can connect to AppStream 2.0 only through the specified
+    -- endpoints.
+    accessEndpoints :: Prelude.Maybe (Prelude.NonEmpty AccessEndpoint),
+    -- | The description to display.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The URL that users are redirected to after their streaming session ends.
     redirectURL :: Prelude.Maybe Prelude.Text,
+    -- | The URL that users are redirected to after they click the Send Feedback
+    -- link. If no URL is specified, no Send Feedback link is displayed.
+    feedbackURL :: Prelude.Maybe Prelude.Text,
+    -- | The actions that are enabled or disabled for users during their
+    -- streaming sessions. By default, these actions are enabled.
+    userSettings :: Prelude.Maybe (Prelude.NonEmpty UserSetting),
     -- | The name of the stack.
     name :: Prelude.Text
   }
@@ -114,31 +114,6 @@ data CreateStack = CreateStack'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'userSettings', 'createStack_userSettings' - The actions that are enabled or disabled for users during their
--- streaming sessions. By default, these actions are enabled.
---
--- 'applicationSettings', 'createStack_applicationSettings' - The persistent application settings for users of a stack. When these
--- settings are enabled, changes that users make to applications and
--- Windows settings are automatically saved after each session and applied
--- to the next session.
---
--- 'feedbackURL', 'createStack_feedbackURL' - The URL that users are redirected to after they click the Send Feedback
--- link. If no URL is specified, no Send Feedback link is displayed.
---
--- 'storageConnectors', 'createStack_storageConnectors' - The storage connectors to enable.
---
--- 'accessEndpoints', 'createStack_accessEndpoints' - The list of interface VPC endpoint (interface endpoint) objects. Users
--- of the stack can connect to AppStream 2.0 only through the specified
--- endpoints.
---
--- 'displayName', 'createStack_displayName' - The stack name to display.
---
--- 'embedHostDomains', 'createStack_embedHostDomains' - The domains where AppStream 2.0 streaming sessions can be embedded in an
--- iframe. You must approve the domains that you want to host embedded
--- AppStream 2.0 streaming sessions.
---
--- 'description', 'createStack_description' - The description to display.
 --
 -- 'tags', 'createStack_tags' - The tags to associate with the stack. A tag is a key-value pair, and the
 -- value is optional. For example, Environment=Test. If you do not specify
@@ -155,7 +130,32 @@ data CreateStack = CreateStack'
 -- <https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html Tagging Your Resources>
 -- in the /Amazon AppStream 2.0 Administration Guide/.
 --
+-- 'storageConnectors', 'createStack_storageConnectors' - The storage connectors to enable.
+--
+-- 'embedHostDomains', 'createStack_embedHostDomains' - The domains where AppStream 2.0 streaming sessions can be embedded in an
+-- iframe. You must approve the domains that you want to host embedded
+-- AppStream 2.0 streaming sessions.
+--
+-- 'applicationSettings', 'createStack_applicationSettings' - The persistent application settings for users of a stack. When these
+-- settings are enabled, changes that users make to applications and
+-- Windows settings are automatically saved after each session and applied
+-- to the next session.
+--
+-- 'displayName', 'createStack_displayName' - The stack name to display.
+--
+-- 'accessEndpoints', 'createStack_accessEndpoints' - The list of interface VPC endpoint (interface endpoint) objects. Users
+-- of the stack can connect to AppStream 2.0 only through the specified
+-- endpoints.
+--
+-- 'description', 'createStack_description' - The description to display.
+--
 -- 'redirectURL', 'createStack_redirectURL' - The URL that users are redirected to after their streaming session ends.
+--
+-- 'feedbackURL', 'createStack_feedbackURL' - The URL that users are redirected to after they click the Send Feedback
+-- link. If no URL is specified, no Send Feedback link is displayed.
+--
+-- 'userSettings', 'createStack_userSettings' - The actions that are enabled or disabled for users during their
+-- streaming sessions. By default, these actions are enabled.
 --
 -- 'name', 'createStack_name' - The name of the stack.
 newCreateStack ::
@@ -164,59 +164,18 @@ newCreateStack ::
   CreateStack
 newCreateStack pName_ =
   CreateStack'
-    { userSettings = Prelude.Nothing,
-      applicationSettings = Prelude.Nothing,
-      feedbackURL = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       storageConnectors = Prelude.Nothing,
-      accessEndpoints = Prelude.Nothing,
-      displayName = Prelude.Nothing,
       embedHostDomains = Prelude.Nothing,
+      applicationSettings = Prelude.Nothing,
+      displayName = Prelude.Nothing,
+      accessEndpoints = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing,
       redirectURL = Prelude.Nothing,
+      feedbackURL = Prelude.Nothing,
+      userSettings = Prelude.Nothing,
       name = pName_
     }
-
--- | The actions that are enabled or disabled for users during their
--- streaming sessions. By default, these actions are enabled.
-createStack_userSettings :: Lens.Lens' CreateStack (Prelude.Maybe (Prelude.NonEmpty UserSetting))
-createStack_userSettings = Lens.lens (\CreateStack' {userSettings} -> userSettings) (\s@CreateStack' {} a -> s {userSettings = a} :: CreateStack) Prelude.. Lens.mapping Lens.coerced
-
--- | The persistent application settings for users of a stack. When these
--- settings are enabled, changes that users make to applications and
--- Windows settings are automatically saved after each session and applied
--- to the next session.
-createStack_applicationSettings :: Lens.Lens' CreateStack (Prelude.Maybe ApplicationSettings)
-createStack_applicationSettings = Lens.lens (\CreateStack' {applicationSettings} -> applicationSettings) (\s@CreateStack' {} a -> s {applicationSettings = a} :: CreateStack)
-
--- | The URL that users are redirected to after they click the Send Feedback
--- link. If no URL is specified, no Send Feedback link is displayed.
-createStack_feedbackURL :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
-createStack_feedbackURL = Lens.lens (\CreateStack' {feedbackURL} -> feedbackURL) (\s@CreateStack' {} a -> s {feedbackURL = a} :: CreateStack)
-
--- | The storage connectors to enable.
-createStack_storageConnectors :: Lens.Lens' CreateStack (Prelude.Maybe [StorageConnector])
-createStack_storageConnectors = Lens.lens (\CreateStack' {storageConnectors} -> storageConnectors) (\s@CreateStack' {} a -> s {storageConnectors = a} :: CreateStack) Prelude.. Lens.mapping Lens.coerced
-
--- | The list of interface VPC endpoint (interface endpoint) objects. Users
--- of the stack can connect to AppStream 2.0 only through the specified
--- endpoints.
-createStack_accessEndpoints :: Lens.Lens' CreateStack (Prelude.Maybe (Prelude.NonEmpty AccessEndpoint))
-createStack_accessEndpoints = Lens.lens (\CreateStack' {accessEndpoints} -> accessEndpoints) (\s@CreateStack' {} a -> s {accessEndpoints = a} :: CreateStack) Prelude.. Lens.mapping Lens.coerced
-
--- | The stack name to display.
-createStack_displayName :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
-createStack_displayName = Lens.lens (\CreateStack' {displayName} -> displayName) (\s@CreateStack' {} a -> s {displayName = a} :: CreateStack)
-
--- | The domains where AppStream 2.0 streaming sessions can be embedded in an
--- iframe. You must approve the domains that you want to host embedded
--- AppStream 2.0 streaming sessions.
-createStack_embedHostDomains :: Lens.Lens' CreateStack (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-createStack_embedHostDomains = Lens.lens (\CreateStack' {embedHostDomains} -> embedHostDomains) (\s@CreateStack' {} a -> s {embedHostDomains = a} :: CreateStack) Prelude.. Lens.mapping Lens.coerced
-
--- | The description to display.
-createStack_description :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
-createStack_description = Lens.lens (\CreateStack' {description} -> description) (\s@CreateStack' {} a -> s {description = a} :: CreateStack)
 
 -- | The tags to associate with the stack. A tag is a key-value pair, and the
 -- value is optional. For example, Environment=Test. If you do not specify
@@ -235,9 +194,50 @@ createStack_description = Lens.lens (\CreateStack' {description} -> description)
 createStack_tags :: Lens.Lens' CreateStack (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createStack_tags = Lens.lens (\CreateStack' {tags} -> tags) (\s@CreateStack' {} a -> s {tags = a} :: CreateStack) Prelude.. Lens.mapping Lens.coerced
 
+-- | The storage connectors to enable.
+createStack_storageConnectors :: Lens.Lens' CreateStack (Prelude.Maybe [StorageConnector])
+createStack_storageConnectors = Lens.lens (\CreateStack' {storageConnectors} -> storageConnectors) (\s@CreateStack' {} a -> s {storageConnectors = a} :: CreateStack) Prelude.. Lens.mapping Lens.coerced
+
+-- | The domains where AppStream 2.0 streaming sessions can be embedded in an
+-- iframe. You must approve the domains that you want to host embedded
+-- AppStream 2.0 streaming sessions.
+createStack_embedHostDomains :: Lens.Lens' CreateStack (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+createStack_embedHostDomains = Lens.lens (\CreateStack' {embedHostDomains} -> embedHostDomains) (\s@CreateStack' {} a -> s {embedHostDomains = a} :: CreateStack) Prelude.. Lens.mapping Lens.coerced
+
+-- | The persistent application settings for users of a stack. When these
+-- settings are enabled, changes that users make to applications and
+-- Windows settings are automatically saved after each session and applied
+-- to the next session.
+createStack_applicationSettings :: Lens.Lens' CreateStack (Prelude.Maybe ApplicationSettings)
+createStack_applicationSettings = Lens.lens (\CreateStack' {applicationSettings} -> applicationSettings) (\s@CreateStack' {} a -> s {applicationSettings = a} :: CreateStack)
+
+-- | The stack name to display.
+createStack_displayName :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
+createStack_displayName = Lens.lens (\CreateStack' {displayName} -> displayName) (\s@CreateStack' {} a -> s {displayName = a} :: CreateStack)
+
+-- | The list of interface VPC endpoint (interface endpoint) objects. Users
+-- of the stack can connect to AppStream 2.0 only through the specified
+-- endpoints.
+createStack_accessEndpoints :: Lens.Lens' CreateStack (Prelude.Maybe (Prelude.NonEmpty AccessEndpoint))
+createStack_accessEndpoints = Lens.lens (\CreateStack' {accessEndpoints} -> accessEndpoints) (\s@CreateStack' {} a -> s {accessEndpoints = a} :: CreateStack) Prelude.. Lens.mapping Lens.coerced
+
+-- | The description to display.
+createStack_description :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
+createStack_description = Lens.lens (\CreateStack' {description} -> description) (\s@CreateStack' {} a -> s {description = a} :: CreateStack)
+
 -- | The URL that users are redirected to after their streaming session ends.
 createStack_redirectURL :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
 createStack_redirectURL = Lens.lens (\CreateStack' {redirectURL} -> redirectURL) (\s@CreateStack' {} a -> s {redirectURL = a} :: CreateStack)
+
+-- | The URL that users are redirected to after they click the Send Feedback
+-- link. If no URL is specified, no Send Feedback link is displayed.
+createStack_feedbackURL :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
+createStack_feedbackURL = Lens.lens (\CreateStack' {feedbackURL} -> feedbackURL) (\s@CreateStack' {} a -> s {feedbackURL = a} :: CreateStack)
+
+-- | The actions that are enabled or disabled for users during their
+-- streaming sessions. By default, these actions are enabled.
+createStack_userSettings :: Lens.Lens' CreateStack (Prelude.Maybe (Prelude.NonEmpty UserSetting))
+createStack_userSettings = Lens.lens (\CreateStack' {userSettings} -> userSettings) (\s@CreateStack' {} a -> s {userSettings = a} :: CreateStack) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the stack.
 createStack_name :: Lens.Lens' CreateStack Prelude.Text
@@ -256,30 +256,30 @@ instance Core.AWSRequest CreateStack where
 
 instance Prelude.Hashable CreateStack where
   hashWithSalt _salt CreateStack' {..} =
-    _salt `Prelude.hashWithSalt` userSettings
-      `Prelude.hashWithSalt` applicationSettings
-      `Prelude.hashWithSalt` feedbackURL
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` storageConnectors
-      `Prelude.hashWithSalt` accessEndpoints
-      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` embedHostDomains
+      `Prelude.hashWithSalt` applicationSettings
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` accessEndpoints
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` redirectURL
+      `Prelude.hashWithSalt` feedbackURL
+      `Prelude.hashWithSalt` userSettings
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateStack where
   rnf CreateStack' {..} =
-    Prelude.rnf userSettings
-      `Prelude.seq` Prelude.rnf applicationSettings
-      `Prelude.seq` Prelude.rnf feedbackURL
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf storageConnectors
-      `Prelude.seq` Prelude.rnf accessEndpoints
-      `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf embedHostDomains
+      `Prelude.seq` Prelude.rnf applicationSettings
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf accessEndpoints
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf redirectURL
+      `Prelude.seq` Prelude.rnf feedbackURL
+      `Prelude.seq` Prelude.rnf userSettings
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateStack where
@@ -301,20 +301,20 @@ instance Core.ToJSON CreateStack where
   toJSON CreateStack' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("UserSettings" Core..=) Prelude.<$> userSettings,
-            ("ApplicationSettings" Core..=)
-              Prelude.<$> applicationSettings,
-            ("FeedbackURL" Core..=) Prelude.<$> feedbackURL,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("StorageConnectors" Core..=)
               Prelude.<$> storageConnectors,
-            ("AccessEndpoints" Core..=)
-              Prelude.<$> accessEndpoints,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
             ("EmbedHostDomains" Core..=)
               Prelude.<$> embedHostDomains,
+            ("ApplicationSettings" Core..=)
+              Prelude.<$> applicationSettings,
+            ("DisplayName" Core..=) Prelude.<$> displayName,
+            ("AccessEndpoints" Core..=)
+              Prelude.<$> accessEndpoints,
             ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
             ("RedirectURL" Core..=) Prelude.<$> redirectURL,
+            ("FeedbackURL" Core..=) Prelude.<$> feedbackURL,
+            ("UserSettings" Core..=) Prelude.<$> userSettings,
             Prelude.Just ("Name" Core..= name)
           ]
       )

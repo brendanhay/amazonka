@@ -14,16 +14,35 @@
 module Amazonka.IVS.Lens
   ( -- * Operations
 
-    -- ** PutMetadata
-    putMetadata_channelArn,
-    putMetadata_metadata,
+    -- ** BatchGetChannel
+    batchGetChannel_arns,
+    batchGetChannelResponse_channels,
+    batchGetChannelResponse_errors,
+    batchGetChannelResponse_httpStatus,
 
-    -- ** ListRecordingConfigurations
-    listRecordingConfigurations_nextToken,
-    listRecordingConfigurations_maxResults,
-    listRecordingConfigurationsResponse_nextToken,
-    listRecordingConfigurationsResponse_httpStatus,
-    listRecordingConfigurationsResponse_recordingConfigurations,
+    -- ** BatchGetStreamKey
+    batchGetStreamKey_arns,
+    batchGetStreamKeyResponse_errors,
+    batchGetStreamKeyResponse_streamKeys,
+    batchGetStreamKeyResponse_httpStatus,
+
+    -- ** CreateChannel
+    createChannel_tags,
+    createChannel_name,
+    createChannel_type,
+    createChannel_latencyMode,
+    createChannel_authorized,
+    createChannel_recordingConfigurationArn,
+    createChannelResponse_channel,
+    createChannelResponse_streamKey,
+    createChannelResponse_httpStatus,
+
+    -- ** CreateRecordingConfiguration
+    createRecordingConfiguration_tags,
+    createRecordingConfiguration_name,
+    createRecordingConfiguration_destinationConfiguration,
+    createRecordingConfigurationResponse_recordingConfiguration,
+    createRecordingConfigurationResponse_httpStatus,
 
     -- ** CreateStreamKey
     createStreamKey_tags,
@@ -31,85 +50,73 @@ module Amazonka.IVS.Lens
     createStreamKeyResponse_streamKey,
     createStreamKeyResponse_httpStatus,
 
-    -- ** ImportPlaybackKeyPair
-    importPlaybackKeyPair_name,
-    importPlaybackKeyPair_tags,
-    importPlaybackKeyPair_publicKeyMaterial,
-    importPlaybackKeyPairResponse_keyPair,
-    importPlaybackKeyPairResponse_httpStatus,
-
-    -- ** ListChannels
-    listChannels_filterByName,
-    listChannels_nextToken,
-    listChannels_filterByRecordingConfigurationArn,
-    listChannels_maxResults,
-    listChannelsResponse_nextToken,
-    listChannelsResponse_httpStatus,
-    listChannelsResponse_channels,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_httpStatus,
-    listTagsForResourceResponse_tags,
-
     -- ** DeleteChannel
     deleteChannel_arn,
-
-    -- ** UpdateChannel
-    updateChannel_authorized,
-    updateChannel_latencyMode,
-    updateChannel_name,
-    updateChannel_recordingConfigurationArn,
-    updateChannel_type,
-    updateChannel_arn,
-    updateChannelResponse_channel,
-    updateChannelResponse_httpStatus,
-
-    -- ** GetStreamKey
-    getStreamKey_arn,
-    getStreamKeyResponse_streamKey,
-    getStreamKeyResponse_httpStatus,
 
     -- ** DeletePlaybackKeyPair
     deletePlaybackKeyPair_arn,
     deletePlaybackKeyPairResponse_httpStatus,
 
-    -- ** BatchGetStreamKey
-    batchGetStreamKey_arns,
-    batchGetStreamKeyResponse_streamKeys,
-    batchGetStreamKeyResponse_errors,
-    batchGetStreamKeyResponse_httpStatus,
+    -- ** DeleteRecordingConfiguration
+    deleteRecordingConfiguration_arn,
+
+    -- ** DeleteStreamKey
+    deleteStreamKey_arn,
+
+    -- ** GetChannel
+    getChannel_arn,
+    getChannelResponse_channel,
+    getChannelResponse_httpStatus,
 
     -- ** GetPlaybackKeyPair
     getPlaybackKeyPair_arn,
     getPlaybackKeyPairResponse_keyPair,
     getPlaybackKeyPairResponse_httpStatus,
 
-    -- ** DeleteRecordingConfiguration
-    deleteRecordingConfiguration_arn,
-
-    -- ** StopStream
-    stopStream_channelArn,
-    stopStreamResponse_httpStatus,
-
-    -- ** CreateChannel
-    createChannel_authorized,
-    createChannel_latencyMode,
-    createChannel_name,
-    createChannel_recordingConfigurationArn,
-    createChannel_type,
-    createChannel_tags,
-    createChannelResponse_channel,
-    createChannelResponse_streamKey,
-    createChannelResponse_httpStatus,
-
-    -- ** DeleteStreamKey
-    deleteStreamKey_arn,
+    -- ** GetRecordingConfiguration
+    getRecordingConfiguration_arn,
+    getRecordingConfigurationResponse_recordingConfiguration,
+    getRecordingConfigurationResponse_httpStatus,
 
     -- ** GetStream
     getStream_channelArn,
     getStreamResponse_stream,
     getStreamResponse_httpStatus,
+
+    -- ** GetStreamKey
+    getStreamKey_arn,
+    getStreamKeyResponse_streamKey,
+    getStreamKeyResponse_httpStatus,
+
+    -- ** ImportPlaybackKeyPair
+    importPlaybackKeyPair_tags,
+    importPlaybackKeyPair_name,
+    importPlaybackKeyPair_publicKeyMaterial,
+    importPlaybackKeyPairResponse_keyPair,
+    importPlaybackKeyPairResponse_httpStatus,
+
+    -- ** ListChannels
+    listChannels_nextToken,
+    listChannels_filterByName,
+    listChannels_maxResults,
+    listChannels_filterByRecordingConfigurationArn,
+    listChannelsResponse_nextToken,
+    listChannelsResponse_httpStatus,
+    listChannelsResponse_channels,
+
+    -- ** ListPlaybackKeyPairs
+    listPlaybackKeyPairs_nextToken,
+    listPlaybackKeyPairs_maxResults,
+    listPlaybackKeyPairsResponse_nextToken,
+    listPlaybackKeyPairsResponse_httpStatus,
+    listPlaybackKeyPairsResponse_keyPairs,
+
+    -- ** ListRecordingConfigurations
+    listRecordingConfigurations_nextToken,
+    listRecordingConfigurations_maxResults,
+    listRecordingConfigurationsResponse_nextToken,
+    listRecordingConfigurationsResponse_httpStatus,
+    listRecordingConfigurationsResponse_recordingConfigurations,
 
     -- ** ListStreamKeys
     listStreamKeys_nextToken,
@@ -119,11 +126,6 @@ module Amazonka.IVS.Lens
     listStreamKeysResponse_httpStatus,
     listStreamKeysResponse_streamKeys,
 
-    -- ** GetChannel
-    getChannel_arn,
-    getChannelResponse_channel,
-    getChannelResponse_httpStatus,
-
     -- ** ListStreams
     listStreams_nextToken,
     listStreams_maxResults,
@@ -131,91 +133,89 @@ module Amazonka.IVS.Lens
     listStreamsResponse_httpStatus,
     listStreamsResponse_streams,
 
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_httpStatus,
+    listTagsForResourceResponse_tags,
+
+    -- ** PutMetadata
+    putMetadata_channelArn,
+    putMetadata_metadata,
+
+    -- ** StopStream
+    stopStream_channelArn,
+    stopStreamResponse_httpStatus,
+
     -- ** TagResource
     tagResource_resourceArn,
     tagResource_tags,
     tagResourceResponse_httpStatus,
-
-    -- ** GetRecordingConfiguration
-    getRecordingConfiguration_arn,
-    getRecordingConfigurationResponse_recordingConfiguration,
-    getRecordingConfigurationResponse_httpStatus,
-
-    -- ** ListPlaybackKeyPairs
-    listPlaybackKeyPairs_nextToken,
-    listPlaybackKeyPairs_maxResults,
-    listPlaybackKeyPairsResponse_nextToken,
-    listPlaybackKeyPairsResponse_httpStatus,
-    listPlaybackKeyPairsResponse_keyPairs,
 
     -- ** UntagResource
     untagResource_resourceArn,
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
-    -- ** CreateRecordingConfiguration
-    createRecordingConfiguration_name,
-    createRecordingConfiguration_tags,
-    createRecordingConfiguration_destinationConfiguration,
-    createRecordingConfigurationResponse_recordingConfiguration,
-    createRecordingConfigurationResponse_httpStatus,
-
-    -- ** BatchGetChannel
-    batchGetChannel_arns,
-    batchGetChannelResponse_channels,
-    batchGetChannelResponse_errors,
-    batchGetChannelResponse_httpStatus,
+    -- ** UpdateChannel
+    updateChannel_name,
+    updateChannel_type,
+    updateChannel_latencyMode,
+    updateChannel_authorized,
+    updateChannel_recordingConfigurationArn,
+    updateChannel_arn,
+    updateChannelResponse_channel,
+    updateChannelResponse_httpStatus,
 
     -- * Types
 
     -- ** BatchError
-    batchError_arn,
-    batchError_code,
     batchError_message,
+    batchError_code,
+    batchError_arn,
 
     -- ** Channel
-    channel_playbackUrl,
-    channel_authorized,
-    channel_arn,
-    channel_latencyMode,
-    channel_name,
-    channel_recordingConfigurationArn,
-    channel_type,
     channel_tags,
+    channel_name,
+    channel_type,
+    channel_latencyMode,
+    channel_arn,
+    channel_authorized,
+    channel_playbackUrl,
     channel_ingestEndpoint,
+    channel_recordingConfigurationArn,
 
     -- ** ChannelSummary
-    channelSummary_authorized,
-    channelSummary_arn,
-    channelSummary_latencyMode,
-    channelSummary_name,
-    channelSummary_recordingConfigurationArn,
     channelSummary_tags,
+    channelSummary_name,
+    channelSummary_latencyMode,
+    channelSummary_arn,
+    channelSummary_authorized,
+    channelSummary_recordingConfigurationArn,
 
     -- ** DestinationConfiguration
     destinationConfiguration_s3,
 
     -- ** PlaybackKeyPair
+    playbackKeyPair_tags,
+    playbackKeyPair_name,
     playbackKeyPair_arn,
     playbackKeyPair_fingerprint,
-    playbackKeyPair_name,
-    playbackKeyPair_tags,
 
     -- ** PlaybackKeyPairSummary
-    playbackKeyPairSummary_arn,
-    playbackKeyPairSummary_name,
     playbackKeyPairSummary_tags,
+    playbackKeyPairSummary_name,
+    playbackKeyPairSummary_arn,
 
     -- ** RecordingConfiguration
-    recordingConfiguration_name,
     recordingConfiguration_tags,
+    recordingConfiguration_name,
     recordingConfiguration_arn,
     recordingConfiguration_destinationConfiguration,
     recordingConfiguration_state,
 
     -- ** RecordingConfigurationSummary
-    recordingConfigurationSummary_name,
     recordingConfigurationSummary_tags,
+    recordingConfigurationSummary_name,
     recordingConfigurationSummary_arn,
     recordingConfigurationSummary_destinationConfiguration,
     recordingConfigurationSummary_state,
@@ -224,30 +224,30 @@ module Amazonka.IVS.Lens
     s3DestinationConfiguration_bucketName,
 
     -- ** Stream
-    stream_playbackUrl,
-    stream_state,
-    stream_startTime,
-    stream_channelArn,
     stream_viewerCount,
+    stream_channelArn,
+    stream_state,
+    stream_playbackUrl,
     stream_health,
+    stream_startTime,
 
     -- ** StreamKey
-    streamKey_arn,
-    streamKey_value,
-    streamKey_channelArn,
     streamKey_tags,
+    streamKey_arn,
+    streamKey_channelArn,
+    streamKey_value,
 
     -- ** StreamKeySummary
+    streamKeySummary_tags,
     streamKeySummary_arn,
     streamKeySummary_channelArn,
-    streamKeySummary_tags,
 
     -- ** StreamSummary
-    streamSummary_state,
-    streamSummary_startTime,
-    streamSummary_channelArn,
     streamSummary_viewerCount,
+    streamSummary_channelArn,
+    streamSummary_state,
     streamSummary_health,
+    streamSummary_startTime,
   )
 where
 

@@ -29,24 +29,24 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStream' smart constructor.
 data Stream = Stream'
-  { -- | URL of the master playlist, required by the video player to play the HLS
-    -- stream.
-    playbackUrl :: Prelude.Maybe Prelude.Text,
-    -- | The stream’s state.
-    state :: Prelude.Maybe StreamState,
-    -- | Time of the stream’s start. This is an ISO 8601 timestamp returned as a
-    -- string.
-    startTime :: Prelude.Maybe Core.POSIX,
-    -- | Channel ARN for the stream.
-    channelArn :: Prelude.Maybe Prelude.Text,
-    -- | A count of concurrent views of the stream. Typically, a new view appears
+  { -- | A count of concurrent views of the stream. Typically, a new view appears
     -- in @viewerCount@ within 15 seconds of when video playback starts and a
     -- view is removed from @viewerCount@ within 1 minute of when video
     -- playback ends. A value of -1 indicates that the request timed out; in
     -- this case, retry.
     viewerCount :: Prelude.Maybe Prelude.Integer,
+    -- | Channel ARN for the stream.
+    channelArn :: Prelude.Maybe Prelude.Text,
+    -- | The stream’s state.
+    state :: Prelude.Maybe StreamState,
+    -- | URL of the master playlist, required by the video player to play the HLS
+    -- stream.
+    playbackUrl :: Prelude.Maybe Prelude.Text,
     -- | The stream’s health.
-    health :: Prelude.Maybe StreamHealth
+    health :: Prelude.Maybe StreamHealth,
+    -- | Time of the stream’s start. This is an ISO 8601 timestamp returned as a
+    -- string.
+    startTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,52 +58,34 @@ data Stream = Stream'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'playbackUrl', 'stream_playbackUrl' - URL of the master playlist, required by the video player to play the HLS
--- stream.
---
--- 'state', 'stream_state' - The stream’s state.
---
--- 'startTime', 'stream_startTime' - Time of the stream’s start. This is an ISO 8601 timestamp returned as a
--- string.
---
--- 'channelArn', 'stream_channelArn' - Channel ARN for the stream.
---
 -- 'viewerCount', 'stream_viewerCount' - A count of concurrent views of the stream. Typically, a new view appears
 -- in @viewerCount@ within 15 seconds of when video playback starts and a
 -- view is removed from @viewerCount@ within 1 minute of when video
 -- playback ends. A value of -1 indicates that the request timed out; in
 -- this case, retry.
 --
+-- 'channelArn', 'stream_channelArn' - Channel ARN for the stream.
+--
+-- 'state', 'stream_state' - The stream’s state.
+--
+-- 'playbackUrl', 'stream_playbackUrl' - URL of the master playlist, required by the video player to play the HLS
+-- stream.
+--
 -- 'health', 'stream_health' - The stream’s health.
+--
+-- 'startTime', 'stream_startTime' - Time of the stream’s start. This is an ISO 8601 timestamp returned as a
+-- string.
 newStream ::
   Stream
 newStream =
   Stream'
-    { playbackUrl = Prelude.Nothing,
-      state = Prelude.Nothing,
-      startTime = Prelude.Nothing,
+    { viewerCount = Prelude.Nothing,
       channelArn = Prelude.Nothing,
-      viewerCount = Prelude.Nothing,
-      health = Prelude.Nothing
+      state = Prelude.Nothing,
+      playbackUrl = Prelude.Nothing,
+      health = Prelude.Nothing,
+      startTime = Prelude.Nothing
     }
-
--- | URL of the master playlist, required by the video player to play the HLS
--- stream.
-stream_playbackUrl :: Lens.Lens' Stream (Prelude.Maybe Prelude.Text)
-stream_playbackUrl = Lens.lens (\Stream' {playbackUrl} -> playbackUrl) (\s@Stream' {} a -> s {playbackUrl = a} :: Stream)
-
--- | The stream’s state.
-stream_state :: Lens.Lens' Stream (Prelude.Maybe StreamState)
-stream_state = Lens.lens (\Stream' {state} -> state) (\s@Stream' {} a -> s {state = a} :: Stream)
-
--- | Time of the stream’s start. This is an ISO 8601 timestamp returned as a
--- string.
-stream_startTime :: Lens.Lens' Stream (Prelude.Maybe Prelude.UTCTime)
-stream_startTime = Lens.lens (\Stream' {startTime} -> startTime) (\s@Stream' {} a -> s {startTime = a} :: Stream) Prelude.. Lens.mapping Core._Time
-
--- | Channel ARN for the stream.
-stream_channelArn :: Lens.Lens' Stream (Prelude.Maybe Prelude.Text)
-stream_channelArn = Lens.lens (\Stream' {channelArn} -> channelArn) (\s@Stream' {} a -> s {channelArn = a} :: Stream)
 
 -- | A count of concurrent views of the stream. Typically, a new view appears
 -- in @viewerCount@ within 15 seconds of when video playback starts and a
@@ -113,9 +95,27 @@ stream_channelArn = Lens.lens (\Stream' {channelArn} -> channelArn) (\s@Stream' 
 stream_viewerCount :: Lens.Lens' Stream (Prelude.Maybe Prelude.Integer)
 stream_viewerCount = Lens.lens (\Stream' {viewerCount} -> viewerCount) (\s@Stream' {} a -> s {viewerCount = a} :: Stream)
 
+-- | Channel ARN for the stream.
+stream_channelArn :: Lens.Lens' Stream (Prelude.Maybe Prelude.Text)
+stream_channelArn = Lens.lens (\Stream' {channelArn} -> channelArn) (\s@Stream' {} a -> s {channelArn = a} :: Stream)
+
+-- | The stream’s state.
+stream_state :: Lens.Lens' Stream (Prelude.Maybe StreamState)
+stream_state = Lens.lens (\Stream' {state} -> state) (\s@Stream' {} a -> s {state = a} :: Stream)
+
+-- | URL of the master playlist, required by the video player to play the HLS
+-- stream.
+stream_playbackUrl :: Lens.Lens' Stream (Prelude.Maybe Prelude.Text)
+stream_playbackUrl = Lens.lens (\Stream' {playbackUrl} -> playbackUrl) (\s@Stream' {} a -> s {playbackUrl = a} :: Stream)
+
 -- | The stream’s health.
 stream_health :: Lens.Lens' Stream (Prelude.Maybe StreamHealth)
 stream_health = Lens.lens (\Stream' {health} -> health) (\s@Stream' {} a -> s {health = a} :: Stream)
+
+-- | Time of the stream’s start. This is an ISO 8601 timestamp returned as a
+-- string.
+stream_startTime :: Lens.Lens' Stream (Prelude.Maybe Prelude.UTCTime)
+stream_startTime = Lens.lens (\Stream' {startTime} -> startTime) (\s@Stream' {} a -> s {startTime = a} :: Stream) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON Stream where
   parseJSON =
@@ -123,28 +123,28 @@ instance Core.FromJSON Stream where
       "Stream"
       ( \x ->
           Stream'
-            Prelude.<$> (x Core..:? "playbackUrl")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "startTime")
+            Prelude.<$> (x Core..:? "viewerCount")
             Prelude.<*> (x Core..:? "channelArn")
-            Prelude.<*> (x Core..:? "viewerCount")
+            Prelude.<*> (x Core..:? "state")
+            Prelude.<*> (x Core..:? "playbackUrl")
             Prelude.<*> (x Core..:? "health")
+            Prelude.<*> (x Core..:? "startTime")
       )
 
 instance Prelude.Hashable Stream where
   hashWithSalt _salt Stream' {..} =
-    _salt `Prelude.hashWithSalt` playbackUrl
-      `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` startTime
+    _salt `Prelude.hashWithSalt` viewerCount
       `Prelude.hashWithSalt` channelArn
-      `Prelude.hashWithSalt` viewerCount
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` playbackUrl
       `Prelude.hashWithSalt` health
+      `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData Stream where
   rnf Stream' {..} =
-    Prelude.rnf playbackUrl
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf viewerCount
       `Prelude.seq` Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf viewerCount
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf playbackUrl
       `Prelude.seq` Prelude.rnf health
+      `Prelude.seq` Prelude.rnf startTime

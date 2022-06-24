@@ -36,35 +36,35 @@ module Amazonka.IVS
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** StreamUnavailable
-    _StreamUnavailable,
-
-    -- ** PendingVerification
-    _PendingVerification,
-
-    -- ** ChannelNotBroadcasting
-    _ChannelNotBroadcasting,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
 
     -- ** InternalServerException
     _InternalServerException,
 
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
+    -- ** StreamUnavailable
+    _StreamUnavailable,
+
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** PendingVerification
+    _PendingVerification,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** ChannelNotBroadcasting
+    _ChannelNotBroadcasting,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -72,23 +72,89 @@ module Amazonka.IVS
     -- * Operations
     -- $operations
 
-    -- ** PutMetadata
-    PutMetadata (PutMetadata'),
-    newPutMetadata,
-    PutMetadataResponse (PutMetadataResponse'),
-    newPutMetadataResponse,
+    -- ** BatchGetChannel
+    BatchGetChannel (BatchGetChannel'),
+    newBatchGetChannel,
+    BatchGetChannelResponse (BatchGetChannelResponse'),
+    newBatchGetChannelResponse,
 
-    -- ** ListRecordingConfigurations (Paginated)
-    ListRecordingConfigurations (ListRecordingConfigurations'),
-    newListRecordingConfigurations,
-    ListRecordingConfigurationsResponse (ListRecordingConfigurationsResponse'),
-    newListRecordingConfigurationsResponse,
+    -- ** BatchGetStreamKey
+    BatchGetStreamKey (BatchGetStreamKey'),
+    newBatchGetStreamKey,
+    BatchGetStreamKeyResponse (BatchGetStreamKeyResponse'),
+    newBatchGetStreamKeyResponse,
+
+    -- ** CreateChannel
+    CreateChannel (CreateChannel'),
+    newCreateChannel,
+    CreateChannelResponse (CreateChannelResponse'),
+    newCreateChannelResponse,
+
+    -- ** CreateRecordingConfiguration
+    CreateRecordingConfiguration (CreateRecordingConfiguration'),
+    newCreateRecordingConfiguration,
+    CreateRecordingConfigurationResponse (CreateRecordingConfigurationResponse'),
+    newCreateRecordingConfigurationResponse,
 
     -- ** CreateStreamKey
     CreateStreamKey (CreateStreamKey'),
     newCreateStreamKey,
     CreateStreamKeyResponse (CreateStreamKeyResponse'),
     newCreateStreamKeyResponse,
+
+    -- ** DeleteChannel
+    DeleteChannel (DeleteChannel'),
+    newDeleteChannel,
+    DeleteChannelResponse (DeleteChannelResponse'),
+    newDeleteChannelResponse,
+
+    -- ** DeletePlaybackKeyPair
+    DeletePlaybackKeyPair (DeletePlaybackKeyPair'),
+    newDeletePlaybackKeyPair,
+    DeletePlaybackKeyPairResponse (DeletePlaybackKeyPairResponse'),
+    newDeletePlaybackKeyPairResponse,
+
+    -- ** DeleteRecordingConfiguration
+    DeleteRecordingConfiguration (DeleteRecordingConfiguration'),
+    newDeleteRecordingConfiguration,
+    DeleteRecordingConfigurationResponse (DeleteRecordingConfigurationResponse'),
+    newDeleteRecordingConfigurationResponse,
+
+    -- ** DeleteStreamKey
+    DeleteStreamKey (DeleteStreamKey'),
+    newDeleteStreamKey,
+    DeleteStreamKeyResponse (DeleteStreamKeyResponse'),
+    newDeleteStreamKeyResponse,
+
+    -- ** GetChannel
+    GetChannel (GetChannel'),
+    newGetChannel,
+    GetChannelResponse (GetChannelResponse'),
+    newGetChannelResponse,
+
+    -- ** GetPlaybackKeyPair
+    GetPlaybackKeyPair (GetPlaybackKeyPair'),
+    newGetPlaybackKeyPair,
+    GetPlaybackKeyPairResponse (GetPlaybackKeyPairResponse'),
+    newGetPlaybackKeyPairResponse,
+
+    -- ** GetRecordingConfiguration
+    GetRecordingConfiguration (GetRecordingConfiguration'),
+    newGetRecordingConfiguration,
+    GetRecordingConfigurationResponse (GetRecordingConfigurationResponse'),
+    newGetRecordingConfigurationResponse,
+
+    -- ** GetStream
+    GetStream (GetStream'),
+    newGetStream,
+    GetStreamResponse (GetStreamResponse'),
+    newGetStreamResponse,
+
+    -- ** GetStreamKey
+    GetStreamKey (GetStreamKey'),
+    newGetStreamKey,
+    GetStreamKeyResponse (GetStreamKeyResponse'),
+    newGetStreamKeyResponse,
 
     -- ** ImportPlaybackKeyPair
     ImportPlaybackKeyPair (ImportPlaybackKeyPair'),
@@ -102,77 +168,17 @@ module Amazonka.IVS
     ListChannelsResponse (ListChannelsResponse'),
     newListChannelsResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** ListPlaybackKeyPairs (Paginated)
+    ListPlaybackKeyPairs (ListPlaybackKeyPairs'),
+    newListPlaybackKeyPairs,
+    ListPlaybackKeyPairsResponse (ListPlaybackKeyPairsResponse'),
+    newListPlaybackKeyPairsResponse,
 
-    -- ** DeleteChannel
-    DeleteChannel (DeleteChannel'),
-    newDeleteChannel,
-    DeleteChannelResponse (DeleteChannelResponse'),
-    newDeleteChannelResponse,
-
-    -- ** UpdateChannel
-    UpdateChannel (UpdateChannel'),
-    newUpdateChannel,
-    UpdateChannelResponse (UpdateChannelResponse'),
-    newUpdateChannelResponse,
-
-    -- ** GetStreamKey
-    GetStreamKey (GetStreamKey'),
-    newGetStreamKey,
-    GetStreamKeyResponse (GetStreamKeyResponse'),
-    newGetStreamKeyResponse,
-
-    -- ** DeletePlaybackKeyPair
-    DeletePlaybackKeyPair (DeletePlaybackKeyPair'),
-    newDeletePlaybackKeyPair,
-    DeletePlaybackKeyPairResponse (DeletePlaybackKeyPairResponse'),
-    newDeletePlaybackKeyPairResponse,
-
-    -- ** BatchGetStreamKey
-    BatchGetStreamKey (BatchGetStreamKey'),
-    newBatchGetStreamKey,
-    BatchGetStreamKeyResponse (BatchGetStreamKeyResponse'),
-    newBatchGetStreamKeyResponse,
-
-    -- ** GetPlaybackKeyPair
-    GetPlaybackKeyPair (GetPlaybackKeyPair'),
-    newGetPlaybackKeyPair,
-    GetPlaybackKeyPairResponse (GetPlaybackKeyPairResponse'),
-    newGetPlaybackKeyPairResponse,
-
-    -- ** DeleteRecordingConfiguration
-    DeleteRecordingConfiguration (DeleteRecordingConfiguration'),
-    newDeleteRecordingConfiguration,
-    DeleteRecordingConfigurationResponse (DeleteRecordingConfigurationResponse'),
-    newDeleteRecordingConfigurationResponse,
-
-    -- ** StopStream
-    StopStream (StopStream'),
-    newStopStream,
-    StopStreamResponse (StopStreamResponse'),
-    newStopStreamResponse,
-
-    -- ** CreateChannel
-    CreateChannel (CreateChannel'),
-    newCreateChannel,
-    CreateChannelResponse (CreateChannelResponse'),
-    newCreateChannelResponse,
-
-    -- ** DeleteStreamKey
-    DeleteStreamKey (DeleteStreamKey'),
-    newDeleteStreamKey,
-    DeleteStreamKeyResponse (DeleteStreamKeyResponse'),
-    newDeleteStreamKeyResponse,
-
-    -- ** GetStream
-    GetStream (GetStream'),
-    newGetStream,
-    GetStreamResponse (GetStreamResponse'),
-    newGetStreamResponse,
+    -- ** ListRecordingConfigurations (Paginated)
+    ListRecordingConfigurations (ListRecordingConfigurations'),
+    newListRecordingConfigurations,
+    ListRecordingConfigurationsResponse (ListRecordingConfigurationsResponse'),
+    newListRecordingConfigurationsResponse,
 
     -- ** ListStreamKeys (Paginated)
     ListStreamKeys (ListStreamKeys'),
@@ -180,17 +186,29 @@ module Amazonka.IVS
     ListStreamKeysResponse (ListStreamKeysResponse'),
     newListStreamKeysResponse,
 
-    -- ** GetChannel
-    GetChannel (GetChannel'),
-    newGetChannel,
-    GetChannelResponse (GetChannelResponse'),
-    newGetChannelResponse,
-
     -- ** ListStreams (Paginated)
     ListStreams (ListStreams'),
     newListStreams,
     ListStreamsResponse (ListStreamsResponse'),
     newListStreamsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** PutMetadata
+    PutMetadata (PutMetadata'),
+    newPutMetadata,
+    PutMetadataResponse (PutMetadataResponse'),
+    newPutMetadataResponse,
+
+    -- ** StopStream
+    StopStream (StopStream'),
+    newStopStream,
+    StopStreamResponse (StopStreamResponse'),
+    newStopStreamResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -198,35 +216,17 @@ module Amazonka.IVS
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
-    -- ** GetRecordingConfiguration
-    GetRecordingConfiguration (GetRecordingConfiguration'),
-    newGetRecordingConfiguration,
-    GetRecordingConfigurationResponse (GetRecordingConfigurationResponse'),
-    newGetRecordingConfigurationResponse,
-
-    -- ** ListPlaybackKeyPairs (Paginated)
-    ListPlaybackKeyPairs (ListPlaybackKeyPairs'),
-    newListPlaybackKeyPairs,
-    ListPlaybackKeyPairsResponse (ListPlaybackKeyPairsResponse'),
-    newListPlaybackKeyPairsResponse,
-
     -- ** UntagResource
     UntagResource (UntagResource'),
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** CreateRecordingConfiguration
-    CreateRecordingConfiguration (CreateRecordingConfiguration'),
-    newCreateRecordingConfiguration,
-    CreateRecordingConfigurationResponse (CreateRecordingConfigurationResponse'),
-    newCreateRecordingConfigurationResponse,
-
-    -- ** BatchGetChannel
-    BatchGetChannel (BatchGetChannel'),
-    newBatchGetChannel,
-    BatchGetChannelResponse (BatchGetChannelResponse'),
-    newBatchGetChannelResponse,
+    -- ** UpdateChannel
+    UpdateChannel (UpdateChannel'),
+    newUpdateChannel,
+    UpdateChannelResponse (UpdateChannelResponse'),
+    newUpdateChannelResponse,
 
     -- * Types
 

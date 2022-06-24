@@ -27,14 +27,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPlaybackKeyPair' smart constructor.
 data PlaybackKeyPair = PlaybackKeyPair'
-  { -- | Key-pair ARN.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | Key-pair identifier.
-    fingerprint :: Prelude.Maybe Prelude.Text,
+  { -- | Array of 1-50 maps, each of the form @string:string (key:value)@.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Playback-key-pair name. The value does not need to be unique.
     name :: Prelude.Maybe Prelude.Text,
-    -- | Array of 1-50 maps, each of the form @string:string (key:value)@.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    -- | Key-pair ARN.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | Key-pair identifier.
+    fingerprint :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,22 +46,30 @@ data PlaybackKeyPair = PlaybackKeyPair'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'playbackKeyPair_arn' - Key-pair ARN.
---
--- 'fingerprint', 'playbackKeyPair_fingerprint' - Key-pair identifier.
+-- 'tags', 'playbackKeyPair_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@.
 --
 -- 'name', 'playbackKeyPair_name' - Playback-key-pair name. The value does not need to be unique.
 --
--- 'tags', 'playbackKeyPair_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@.
+-- 'arn', 'playbackKeyPair_arn' - Key-pair ARN.
+--
+-- 'fingerprint', 'playbackKeyPair_fingerprint' - Key-pair identifier.
 newPlaybackKeyPair ::
   PlaybackKeyPair
 newPlaybackKeyPair =
   PlaybackKeyPair'
-    { arn = Prelude.Nothing,
-      fingerprint = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       name = Prelude.Nothing,
-      tags = Prelude.Nothing
+      arn = Prelude.Nothing,
+      fingerprint = Prelude.Nothing
     }
+
+-- | Array of 1-50 maps, each of the form @string:string (key:value)@.
+playbackKeyPair_tags :: Lens.Lens' PlaybackKeyPair (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+playbackKeyPair_tags = Lens.lens (\PlaybackKeyPair' {tags} -> tags) (\s@PlaybackKeyPair' {} a -> s {tags = a} :: PlaybackKeyPair) Prelude.. Lens.mapping Lens.coerced
+
+-- | Playback-key-pair name. The value does not need to be unique.
+playbackKeyPair_name :: Lens.Lens' PlaybackKeyPair (Prelude.Maybe Prelude.Text)
+playbackKeyPair_name = Lens.lens (\PlaybackKeyPair' {name} -> name) (\s@PlaybackKeyPair' {} a -> s {name = a} :: PlaybackKeyPair)
 
 -- | Key-pair ARN.
 playbackKeyPair_arn :: Lens.Lens' PlaybackKeyPair (Prelude.Maybe Prelude.Text)
@@ -71,36 +79,28 @@ playbackKeyPair_arn = Lens.lens (\PlaybackKeyPair' {arn} -> arn) (\s@PlaybackKey
 playbackKeyPair_fingerprint :: Lens.Lens' PlaybackKeyPair (Prelude.Maybe Prelude.Text)
 playbackKeyPair_fingerprint = Lens.lens (\PlaybackKeyPair' {fingerprint} -> fingerprint) (\s@PlaybackKeyPair' {} a -> s {fingerprint = a} :: PlaybackKeyPair)
 
--- | Playback-key-pair name. The value does not need to be unique.
-playbackKeyPair_name :: Lens.Lens' PlaybackKeyPair (Prelude.Maybe Prelude.Text)
-playbackKeyPair_name = Lens.lens (\PlaybackKeyPair' {name} -> name) (\s@PlaybackKeyPair' {} a -> s {name = a} :: PlaybackKeyPair)
-
--- | Array of 1-50 maps, each of the form @string:string (key:value)@.
-playbackKeyPair_tags :: Lens.Lens' PlaybackKeyPair (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-playbackKeyPair_tags = Lens.lens (\PlaybackKeyPair' {tags} -> tags) (\s@PlaybackKeyPair' {} a -> s {tags = a} :: PlaybackKeyPair) Prelude.. Lens.mapping Lens.coerced
-
 instance Core.FromJSON PlaybackKeyPair where
   parseJSON =
     Core.withObject
       "PlaybackKeyPair"
       ( \x ->
           PlaybackKeyPair'
-            Prelude.<$> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "fingerprint")
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "fingerprint")
       )
 
 instance Prelude.Hashable PlaybackKeyPair where
   hashWithSalt _salt PlaybackKeyPair' {..} =
-    _salt `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` fingerprint
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` fingerprint
 
 instance Prelude.NFData PlaybackKeyPair where
   rnf PlaybackKeyPair' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf fingerprint
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf fingerprint

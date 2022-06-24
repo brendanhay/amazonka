@@ -27,14 +27,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStreamKey' smart constructor.
 data StreamKey = StreamKey'
-  { -- | Stream-key ARN.
+  { -- | Array of 1-50 maps, each of the form @string:string (key:value)@.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Stream-key ARN.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | Stream-key value.
-    value :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Channel ARN for the stream.
     channelArn :: Prelude.Maybe Prelude.Text,
-    -- | Array of 1-50 maps, each of the form @string:string (key:value)@.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    -- | Stream-key value.
+    value :: Prelude.Maybe (Core.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -46,38 +46,38 @@ data StreamKey = StreamKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'streamKey_arn' - Stream-key ARN.
+-- 'tags', 'streamKey_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@.
 --
--- 'value', 'streamKey_value' - Stream-key value.
+-- 'arn', 'streamKey_arn' - Stream-key ARN.
 --
 -- 'channelArn', 'streamKey_channelArn' - Channel ARN for the stream.
 --
--- 'tags', 'streamKey_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@.
+-- 'value', 'streamKey_value' - Stream-key value.
 newStreamKey ::
   StreamKey
 newStreamKey =
   StreamKey'
-    { arn = Prelude.Nothing,
-      value = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      arn = Prelude.Nothing,
       channelArn = Prelude.Nothing,
-      tags = Prelude.Nothing
+      value = Prelude.Nothing
     }
+
+-- | Array of 1-50 maps, each of the form @string:string (key:value)@.
+streamKey_tags :: Lens.Lens' StreamKey (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+streamKey_tags = Lens.lens (\StreamKey' {tags} -> tags) (\s@StreamKey' {} a -> s {tags = a} :: StreamKey) Prelude.. Lens.mapping Lens.coerced
 
 -- | Stream-key ARN.
 streamKey_arn :: Lens.Lens' StreamKey (Prelude.Maybe Prelude.Text)
 streamKey_arn = Lens.lens (\StreamKey' {arn} -> arn) (\s@StreamKey' {} a -> s {arn = a} :: StreamKey)
 
--- | Stream-key value.
-streamKey_value :: Lens.Lens' StreamKey (Prelude.Maybe Prelude.Text)
-streamKey_value = Lens.lens (\StreamKey' {value} -> value) (\s@StreamKey' {} a -> s {value = a} :: StreamKey) Prelude.. Lens.mapping Core._Sensitive
-
 -- | Channel ARN for the stream.
 streamKey_channelArn :: Lens.Lens' StreamKey (Prelude.Maybe Prelude.Text)
 streamKey_channelArn = Lens.lens (\StreamKey' {channelArn} -> channelArn) (\s@StreamKey' {} a -> s {channelArn = a} :: StreamKey)
 
--- | Array of 1-50 maps, each of the form @string:string (key:value)@.
-streamKey_tags :: Lens.Lens' StreamKey (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-streamKey_tags = Lens.lens (\StreamKey' {tags} -> tags) (\s@StreamKey' {} a -> s {tags = a} :: StreamKey) Prelude.. Lens.mapping Lens.coerced
+-- | Stream-key value.
+streamKey_value :: Lens.Lens' StreamKey (Prelude.Maybe Prelude.Text)
+streamKey_value = Lens.lens (\StreamKey' {value} -> value) (\s@StreamKey' {} a -> s {value = a} :: StreamKey) Prelude.. Lens.mapping Core._Sensitive
 
 instance Core.FromJSON StreamKey where
   parseJSON =
@@ -85,22 +85,22 @@ instance Core.FromJSON StreamKey where
       "StreamKey"
       ( \x ->
           StreamKey'
-            Prelude.<$> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "channelArn")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "value")
       )
 
 instance Prelude.Hashable StreamKey where
   hashWithSalt _salt StreamKey' {..} =
-    _salt `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` value
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` channelArn
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData StreamKey where
   rnf StreamKey' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf value

@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecordingConfigurationSummary' smart constructor.
 data RecordingConfigurationSummary = RecordingConfigurationSummary'
-  { -- | Recording-configuration name. The value does not need to be unique.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Array of 1-50 maps, each of the form @string:string (key:value)@.
+  { -- | Array of 1-50 maps, each of the form @string:string (key:value)@.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Recording-configuration name. The value does not need to be unique.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Recording-configuration ARN.
     arn :: Prelude.Text,
     -- | A complex type that contains information about where recorded video will
@@ -53,9 +53,9 @@ data RecordingConfigurationSummary = RecordingConfigurationSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'recordingConfigurationSummary_name' - Recording-configuration name. The value does not need to be unique.
---
 -- 'tags', 'recordingConfigurationSummary_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@.
+--
+-- 'name', 'recordingConfigurationSummary_name' - Recording-configuration name. The value does not need to be unique.
 --
 -- 'arn', 'recordingConfigurationSummary_arn' - Recording-configuration ARN.
 --
@@ -78,22 +78,22 @@ newRecordingConfigurationSummary
   pDestinationConfiguration_
   pState_ =
     RecordingConfigurationSummary'
-      { name =
+      { tags =
           Prelude.Nothing,
-        tags = Prelude.Nothing,
+        name = Prelude.Nothing,
         arn = pArn_,
         destinationConfiguration =
           pDestinationConfiguration_,
         state = pState_
       }
 
--- | Recording-configuration name. The value does not need to be unique.
-recordingConfigurationSummary_name :: Lens.Lens' RecordingConfigurationSummary (Prelude.Maybe Prelude.Text)
-recordingConfigurationSummary_name = Lens.lens (\RecordingConfigurationSummary' {name} -> name) (\s@RecordingConfigurationSummary' {} a -> s {name = a} :: RecordingConfigurationSummary)
-
 -- | Array of 1-50 maps, each of the form @string:string (key:value)@.
 recordingConfigurationSummary_tags :: Lens.Lens' RecordingConfigurationSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 recordingConfigurationSummary_tags = Lens.lens (\RecordingConfigurationSummary' {tags} -> tags) (\s@RecordingConfigurationSummary' {} a -> s {tags = a} :: RecordingConfigurationSummary) Prelude.. Lens.mapping Lens.coerced
+
+-- | Recording-configuration name. The value does not need to be unique.
+recordingConfigurationSummary_name :: Lens.Lens' RecordingConfigurationSummary (Prelude.Maybe Prelude.Text)
+recordingConfigurationSummary_name = Lens.lens (\RecordingConfigurationSummary' {name} -> name) (\s@RecordingConfigurationSummary' {} a -> s {name = a} :: RecordingConfigurationSummary)
 
 -- | Recording-configuration ARN.
 recordingConfigurationSummary_arn :: Lens.Lens' RecordingConfigurationSummary Prelude.Text
@@ -116,8 +116,8 @@ instance Core.FromJSON RecordingConfigurationSummary where
       "RecordingConfigurationSummary"
       ( \x ->
           RecordingConfigurationSummary'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..: "arn")
             Prelude.<*> (x Core..: "destinationConfiguration")
             Prelude.<*> (x Core..: "state")
@@ -128,16 +128,16 @@ instance
     RecordingConfigurationSummary
   where
   hashWithSalt _salt RecordingConfigurationSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` destinationConfiguration
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData RecordingConfigurationSummary where
   rnf RecordingConfigurationSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf destinationConfiguration
       `Prelude.seq` Prelude.rnf state

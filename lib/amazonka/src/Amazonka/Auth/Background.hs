@@ -53,9 +53,13 @@ fetchAuthInBackground menv =
     loop :: IO AuthEnv -> Weak (IORef AuthEnv) -> ThreadId -> ISO8601 -> IO ()
     loop ma w p x = do
       untilExpiry <- diff x <$> Time.getCurrentTime
-      -- Refresh the token conservatively -- within half its lifespan --
-      -- to account for execution time of the refresh action
-      Concurrent.threadDelay $ untilExpiry `div` 2
+      -- Refresh the token within 5 minutes of expiry, or half its lifetime if
+      -- sooner than that. This is to account for execution time of the refresh action.
+      let fiveMinutes = 5 * 60 * 1000000
+      Concurrent.threadDelay $
+        if untilExpiry > fiveMinutes
+          then untilExpiry - fiveMinutes
+          else untilExpiry `div` 2
 
       env <- Exception.try ma
       case env of
@@ -68,6 +72,7 @@ fetchAuthInBackground menv =
               IORef.atomicWriteIORef r a
               maybe (pure ()) (loop ma w p) (_authExpiration a)
 
-    diff (Time x) y = (* 1000000) $ if n > 0 then n else 1
+    diff (Time x) y = picoToMicro $ if n > 0 then n else 1
       where
         n = truncate (Time.diffUTCTime x y) - 60
+        picoToMicro = (* 1000000)

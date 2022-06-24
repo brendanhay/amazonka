@@ -29,17 +29,17 @@ module Amazonka.PersonalizeRuntime
     -- * Operations
     -- $operations
 
-    -- ** GetRecommendations
-    GetRecommendations (GetRecommendations'),
-    newGetRecommendations,
-    GetRecommendationsResponse (GetRecommendationsResponse'),
-    newGetRecommendationsResponse,
-
     -- ** GetPersonalizedRanking
     GetPersonalizedRanking (GetPersonalizedRanking'),
     newGetPersonalizedRanking,
     GetPersonalizedRankingResponse (GetPersonalizedRankingResponse'),
     newGetPersonalizedRankingResponse,
+
+    -- ** GetRecommendations
+    GetRecommendations (GetRecommendations'),
+    newGetRecommendations,
+    GetRecommendationsResponse (GetRecommendationsResponse'),
+    newGetRecommendationsResponse,
 
     -- * Types
 

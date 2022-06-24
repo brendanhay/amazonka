@@ -31,9 +31,9 @@ module Amazonka.ApplicationAutoScaling.DescribeScalableTargets
     newDescribeScalableTargets,
 
     -- * Request Lenses
-    describeScalableTargets_resourceIds,
-    describeScalableTargets_scalableDimension,
     describeScalableTargets_nextToken,
+    describeScalableTargets_scalableDimension,
+    describeScalableTargets_resourceIds,
     describeScalableTargets_maxResults,
     describeScalableTargets_serviceNamespace,
 
@@ -57,74 +57,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeScalableTargets' smart constructor.
 data DescribeScalableTargets = DescribeScalableTargets'
-  { -- | The identifier of the resource associated with the scalable target. This
-    -- string consists of the resource type and unique identifier.
-    --
-    -- -   ECS service - The resource type is @service@ and the unique
-    --     identifier is the cluster name and service name. Example:
-    --     @service\/default\/sample-webapp@.
-    --
-    -- -   Spot Fleet - The resource type is @spot-fleet-request@ and the
-    --     unique identifier is the Spot Fleet request ID. Example:
-    --     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.
-    --
-    -- -   EMR cluster - The resource type is @instancegroup@ and the unique
-    --     identifier is the cluster ID and instance group ID. Example:
-    --     @instancegroup\/j-2EEZNYKUA1NTV\/ig-1791Y4E1L8YI0@.
-    --
-    -- -   AppStream 2.0 fleet - The resource type is @fleet@ and the unique
-    --     identifier is the fleet name. Example: @fleet\/sample-fleet@.
-    --
-    -- -   DynamoDB table - The resource type is @table@ and the unique
-    --     identifier is the table name. Example: @table\/my-table@.
-    --
-    -- -   DynamoDB global secondary index - The resource type is @index@ and
-    --     the unique identifier is the index name. Example:
-    --     @table\/my-table\/index\/my-table-index@.
-    --
-    -- -   Aurora DB cluster - The resource type is @cluster@ and the unique
-    --     identifier is the cluster name. Example: @cluster:my-db-cluster@.
-    --
-    -- -   SageMaker endpoint variant - The resource type is @variant@ and the
-    --     unique identifier is the resource ID. Example:
-    --     @endpoint\/my-end-point\/variant\/KMeansClustering@.
-    --
-    -- -   Custom resources are not supported with a resource type. This
-    --     parameter must specify the @OutputValue@ from the CloudFormation
-    --     template stack used to access the resources. The unique identifier
-    --     is defined by the service provider. More information is available in
-    --     our
-    --     <https://github.com/aws/aws-auto-scaling-custom-resource GitHub repository>.
-    --
-    -- -   Amazon Comprehend document classification endpoint - The resource
-    --     type and unique identifier are specified using the endpoint ARN.
-    --     Example:
-    --     @arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint\/EXAMPLE@.
-    --
-    -- -   Amazon Comprehend entity recognizer endpoint - The resource type and
-    --     unique identifier are specified using the endpoint ARN. Example:
-    --     @arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint\/EXAMPLE@.
-    --
-    -- -   Lambda provisioned concurrency - The resource type is @function@ and
-    --     the unique identifier is the function name with a function version
-    --     or alias name suffix that is not @$LATEST@. Example:
-    --     @function:my-function:prod@ or @function:my-function:1@.
-    --
-    -- -   Amazon Keyspaces table - The resource type is @table@ and the unique
-    --     identifier is the table name. Example:
-    --     @keyspace\/mykeyspace\/table\/mytable@.
-    --
-    -- -   Amazon MSK cluster - The resource type and unique identifier are
-    --     specified using the cluster ARN. Example:
-    --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-    --
-    -- -   Amazon ElastiCache replication group - The resource type is
-    --     @replication-group@ and the unique identifier is the replication
-    --     group name. Example: @replication-group\/mycluster@.
-    --
-    -- -   Neptune cluster - The resource type is @cluster@ and the unique
-    --     identifier is the cluster name. Example: @cluster:mycluster@.
-    resourceIds :: Prelude.Maybe [Prelude.Text],
+  { -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The scalable dimension associated with the scalable target. This string
     -- consists of the service namespace, resource type, and scaling property.
     -- If you specify a scalable dimension, you must also specify a resource
@@ -193,8 +127,74 @@ data DescribeScalableTargets = DescribeScalableTargets'
     -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
     --     an Amazon Neptune DB cluster.
     scalableDimension :: Prelude.Maybe ScalableDimension,
-    -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the resource associated with the scalable target. This
+    -- string consists of the resource type and unique identifier.
+    --
+    -- -   ECS service - The resource type is @service@ and the unique
+    --     identifier is the cluster name and service name. Example:
+    --     @service\/default\/sample-webapp@.
+    --
+    -- -   Spot Fleet - The resource type is @spot-fleet-request@ and the
+    --     unique identifier is the Spot Fleet request ID. Example:
+    --     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.
+    --
+    -- -   EMR cluster - The resource type is @instancegroup@ and the unique
+    --     identifier is the cluster ID and instance group ID. Example:
+    --     @instancegroup\/j-2EEZNYKUA1NTV\/ig-1791Y4E1L8YI0@.
+    --
+    -- -   AppStream 2.0 fleet - The resource type is @fleet@ and the unique
+    --     identifier is the fleet name. Example: @fleet\/sample-fleet@.
+    --
+    -- -   DynamoDB table - The resource type is @table@ and the unique
+    --     identifier is the table name. Example: @table\/my-table@.
+    --
+    -- -   DynamoDB global secondary index - The resource type is @index@ and
+    --     the unique identifier is the index name. Example:
+    --     @table\/my-table\/index\/my-table-index@.
+    --
+    -- -   Aurora DB cluster - The resource type is @cluster@ and the unique
+    --     identifier is the cluster name. Example: @cluster:my-db-cluster@.
+    --
+    -- -   SageMaker endpoint variant - The resource type is @variant@ and the
+    --     unique identifier is the resource ID. Example:
+    --     @endpoint\/my-end-point\/variant\/KMeansClustering@.
+    --
+    -- -   Custom resources are not supported with a resource type. This
+    --     parameter must specify the @OutputValue@ from the CloudFormation
+    --     template stack used to access the resources. The unique identifier
+    --     is defined by the service provider. More information is available in
+    --     our
+    --     <https://github.com/aws/aws-auto-scaling-custom-resource GitHub repository>.
+    --
+    -- -   Amazon Comprehend document classification endpoint - The resource
+    --     type and unique identifier are specified using the endpoint ARN.
+    --     Example:
+    --     @arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint\/EXAMPLE@.
+    --
+    -- -   Amazon Comprehend entity recognizer endpoint - The resource type and
+    --     unique identifier are specified using the endpoint ARN. Example:
+    --     @arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint\/EXAMPLE@.
+    --
+    -- -   Lambda provisioned concurrency - The resource type is @function@ and
+    --     the unique identifier is the function name with a function version
+    --     or alias name suffix that is not @$LATEST@. Example:
+    --     @function:my-function:prod@ or @function:my-function:1@.
+    --
+    -- -   Amazon Keyspaces table - The resource type is @table@ and the unique
+    --     identifier is the table name. Example:
+    --     @keyspace\/mykeyspace\/table\/mytable@.
+    --
+    -- -   Amazon MSK cluster - The resource type and unique identifier are
+    --     specified using the cluster ARN. Example:
+    --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
+    --
+    -- -   Amazon ElastiCache replication group - The resource type is
+    --     @replication-group@ and the unique identifier is the replication
+    --     group name. Example: @replication-group\/mycluster@.
+    --
+    -- -   Neptune cluster - The resource type is @cluster@ and the unique
+    --     identifier is the cluster name. Example: @cluster:mycluster@.
+    resourceIds :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of scalable targets. This value can be between 1 and
     -- 50. The default value is 50.
     --
@@ -219,73 +219,7 @@ data DescribeScalableTargets = DescribeScalableTargets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceIds', 'describeScalableTargets_resourceIds' - The identifier of the resource associated with the scalable target. This
--- string consists of the resource type and unique identifier.
---
--- -   ECS service - The resource type is @service@ and the unique
---     identifier is the cluster name and service name. Example:
---     @service\/default\/sample-webapp@.
---
--- -   Spot Fleet - The resource type is @spot-fleet-request@ and the
---     unique identifier is the Spot Fleet request ID. Example:
---     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.
---
--- -   EMR cluster - The resource type is @instancegroup@ and the unique
---     identifier is the cluster ID and instance group ID. Example:
---     @instancegroup\/j-2EEZNYKUA1NTV\/ig-1791Y4E1L8YI0@.
---
--- -   AppStream 2.0 fleet - The resource type is @fleet@ and the unique
---     identifier is the fleet name. Example: @fleet\/sample-fleet@.
---
--- -   DynamoDB table - The resource type is @table@ and the unique
---     identifier is the table name. Example: @table\/my-table@.
---
--- -   DynamoDB global secondary index - The resource type is @index@ and
---     the unique identifier is the index name. Example:
---     @table\/my-table\/index\/my-table-index@.
---
--- -   Aurora DB cluster - The resource type is @cluster@ and the unique
---     identifier is the cluster name. Example: @cluster:my-db-cluster@.
---
--- -   SageMaker endpoint variant - The resource type is @variant@ and the
---     unique identifier is the resource ID. Example:
---     @endpoint\/my-end-point\/variant\/KMeansClustering@.
---
--- -   Custom resources are not supported with a resource type. This
---     parameter must specify the @OutputValue@ from the CloudFormation
---     template stack used to access the resources. The unique identifier
---     is defined by the service provider. More information is available in
---     our
---     <https://github.com/aws/aws-auto-scaling-custom-resource GitHub repository>.
---
--- -   Amazon Comprehend document classification endpoint - The resource
---     type and unique identifier are specified using the endpoint ARN.
---     Example:
---     @arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint\/EXAMPLE@.
---
--- -   Amazon Comprehend entity recognizer endpoint - The resource type and
---     unique identifier are specified using the endpoint ARN. Example:
---     @arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint\/EXAMPLE@.
---
--- -   Lambda provisioned concurrency - The resource type is @function@ and
---     the unique identifier is the function name with a function version
---     or alias name suffix that is not @$LATEST@. Example:
---     @function:my-function:prod@ or @function:my-function:1@.
---
--- -   Amazon Keyspaces table - The resource type is @table@ and the unique
---     identifier is the table name. Example:
---     @keyspace\/mykeyspace\/table\/mytable@.
---
--- -   Amazon MSK cluster - The resource type and unique identifier are
---     specified using the cluster ARN. Example:
---     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
---
--- -   Amazon ElastiCache replication group - The resource type is
---     @replication-group@ and the unique identifier is the replication
---     group name. Example: @replication-group\/mycluster@.
---
--- -   Neptune cluster - The resource type is @cluster@ and the unique
---     identifier is the cluster name. Example: @cluster:mycluster@.
+-- 'nextToken', 'describeScalableTargets_nextToken' - The token for the next set of results.
 --
 -- 'scalableDimension', 'describeScalableTargets_scalableDimension' - The scalable dimension associated with the scalable target. This string
 -- consists of the service namespace, resource type, and scaling property.
@@ -355,35 +289,7 @@ data DescribeScalableTargets = DescribeScalableTargets'
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
 --
--- 'nextToken', 'describeScalableTargets_nextToken' - The token for the next set of results.
---
--- 'maxResults', 'describeScalableTargets_maxResults' - The maximum number of scalable targets. This value can be between 1 and
--- 50. The default value is 50.
---
--- If this parameter is used, the operation returns up to @MaxResults@
--- results at a time, along with a @NextToken@ value. To get the next set
--- of results, include the @NextToken@ value in a subsequent call. If this
--- parameter is not used, the operation returns up to 50 results and a
--- @NextToken@ value, if applicable.
---
--- 'serviceNamespace', 'describeScalableTargets_serviceNamespace' - The namespace of the Amazon Web Services service that provides the
--- resource. For a resource provided by your own application or service,
--- use @custom-resource@ instead.
-newDescribeScalableTargets ::
-  -- | 'serviceNamespace'
-  ServiceNamespace ->
-  DescribeScalableTargets
-newDescribeScalableTargets pServiceNamespace_ =
-  DescribeScalableTargets'
-    { resourceIds =
-        Prelude.Nothing,
-      scalableDimension = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      serviceNamespace = pServiceNamespace_
-    }
-
--- | The identifier of the resource associated with the scalable target. This
+-- 'resourceIds', 'describeScalableTargets_resourceIds' - The identifier of the resource associated with the scalable target. This
 -- string consists of the resource type and unique identifier.
 --
 -- -   ECS service - The resource type is @service@ and the unique
@@ -450,8 +356,36 @@ newDescribeScalableTargets pServiceNamespace_ =
 --
 -- -   Neptune cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:mycluster@.
-describeScalableTargets_resourceIds :: Lens.Lens' DescribeScalableTargets (Prelude.Maybe [Prelude.Text])
-describeScalableTargets_resourceIds = Lens.lens (\DescribeScalableTargets' {resourceIds} -> resourceIds) (\s@DescribeScalableTargets' {} a -> s {resourceIds = a} :: DescribeScalableTargets) Prelude.. Lens.mapping Lens.coerced
+--
+-- 'maxResults', 'describeScalableTargets_maxResults' - The maximum number of scalable targets. This value can be between 1 and
+-- 50. The default value is 50.
+--
+-- If this parameter is used, the operation returns up to @MaxResults@
+-- results at a time, along with a @NextToken@ value. To get the next set
+-- of results, include the @NextToken@ value in a subsequent call. If this
+-- parameter is not used, the operation returns up to 50 results and a
+-- @NextToken@ value, if applicable.
+--
+-- 'serviceNamespace', 'describeScalableTargets_serviceNamespace' - The namespace of the Amazon Web Services service that provides the
+-- resource. For a resource provided by your own application or service,
+-- use @custom-resource@ instead.
+newDescribeScalableTargets ::
+  -- | 'serviceNamespace'
+  ServiceNamespace ->
+  DescribeScalableTargets
+newDescribeScalableTargets pServiceNamespace_ =
+  DescribeScalableTargets'
+    { nextToken =
+        Prelude.Nothing,
+      scalableDimension = Prelude.Nothing,
+      resourceIds = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      serviceNamespace = pServiceNamespace_
+    }
+
+-- | The token for the next set of results.
+describeScalableTargets_nextToken :: Lens.Lens' DescribeScalableTargets (Prelude.Maybe Prelude.Text)
+describeScalableTargets_nextToken = Lens.lens (\DescribeScalableTargets' {nextToken} -> nextToken) (\s@DescribeScalableTargets' {} a -> s {nextToken = a} :: DescribeScalableTargets)
 
 -- | The scalable dimension associated with the scalable target. This string
 -- consists of the service namespace, resource type, and scaling property.
@@ -523,9 +457,75 @@ describeScalableTargets_resourceIds = Lens.lens (\DescribeScalableTargets' {reso
 describeScalableTargets_scalableDimension :: Lens.Lens' DescribeScalableTargets (Prelude.Maybe ScalableDimension)
 describeScalableTargets_scalableDimension = Lens.lens (\DescribeScalableTargets' {scalableDimension} -> scalableDimension) (\s@DescribeScalableTargets' {} a -> s {scalableDimension = a} :: DescribeScalableTargets)
 
--- | The token for the next set of results.
-describeScalableTargets_nextToken :: Lens.Lens' DescribeScalableTargets (Prelude.Maybe Prelude.Text)
-describeScalableTargets_nextToken = Lens.lens (\DescribeScalableTargets' {nextToken} -> nextToken) (\s@DescribeScalableTargets' {} a -> s {nextToken = a} :: DescribeScalableTargets)
+-- | The identifier of the resource associated with the scalable target. This
+-- string consists of the resource type and unique identifier.
+--
+-- -   ECS service - The resource type is @service@ and the unique
+--     identifier is the cluster name and service name. Example:
+--     @service\/default\/sample-webapp@.
+--
+-- -   Spot Fleet - The resource type is @spot-fleet-request@ and the
+--     unique identifier is the Spot Fleet request ID. Example:
+--     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.
+--
+-- -   EMR cluster - The resource type is @instancegroup@ and the unique
+--     identifier is the cluster ID and instance group ID. Example:
+--     @instancegroup\/j-2EEZNYKUA1NTV\/ig-1791Y4E1L8YI0@.
+--
+-- -   AppStream 2.0 fleet - The resource type is @fleet@ and the unique
+--     identifier is the fleet name. Example: @fleet\/sample-fleet@.
+--
+-- -   DynamoDB table - The resource type is @table@ and the unique
+--     identifier is the table name. Example: @table\/my-table@.
+--
+-- -   DynamoDB global secondary index - The resource type is @index@ and
+--     the unique identifier is the index name. Example:
+--     @table\/my-table\/index\/my-table-index@.
+--
+-- -   Aurora DB cluster - The resource type is @cluster@ and the unique
+--     identifier is the cluster name. Example: @cluster:my-db-cluster@.
+--
+-- -   SageMaker endpoint variant - The resource type is @variant@ and the
+--     unique identifier is the resource ID. Example:
+--     @endpoint\/my-end-point\/variant\/KMeansClustering@.
+--
+-- -   Custom resources are not supported with a resource type. This
+--     parameter must specify the @OutputValue@ from the CloudFormation
+--     template stack used to access the resources. The unique identifier
+--     is defined by the service provider. More information is available in
+--     our
+--     <https://github.com/aws/aws-auto-scaling-custom-resource GitHub repository>.
+--
+-- -   Amazon Comprehend document classification endpoint - The resource
+--     type and unique identifier are specified using the endpoint ARN.
+--     Example:
+--     @arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint\/EXAMPLE@.
+--
+-- -   Amazon Comprehend entity recognizer endpoint - The resource type and
+--     unique identifier are specified using the endpoint ARN. Example:
+--     @arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint\/EXAMPLE@.
+--
+-- -   Lambda provisioned concurrency - The resource type is @function@ and
+--     the unique identifier is the function name with a function version
+--     or alias name suffix that is not @$LATEST@. Example:
+--     @function:my-function:prod@ or @function:my-function:1@.
+--
+-- -   Amazon Keyspaces table - The resource type is @table@ and the unique
+--     identifier is the table name. Example:
+--     @keyspace\/mykeyspace\/table\/mytable@.
+--
+-- -   Amazon MSK cluster - The resource type and unique identifier are
+--     specified using the cluster ARN. Example:
+--     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
+--
+-- -   Amazon ElastiCache replication group - The resource type is
+--     @replication-group@ and the unique identifier is the replication
+--     group name. Example: @replication-group\/mycluster@.
+--
+-- -   Neptune cluster - The resource type is @cluster@ and the unique
+--     identifier is the cluster name. Example: @cluster:mycluster@.
+describeScalableTargets_resourceIds :: Lens.Lens' DescribeScalableTargets (Prelude.Maybe [Prelude.Text])
+describeScalableTargets_resourceIds = Lens.lens (\DescribeScalableTargets' {resourceIds} -> resourceIds) (\s@DescribeScalableTargets' {} a -> s {resourceIds = a} :: DescribeScalableTargets) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of scalable targets. This value can be between 1 and
 -- 50. The default value is 50.
@@ -584,17 +584,17 @@ instance Core.AWSRequest DescribeScalableTargets where
 
 instance Prelude.Hashable DescribeScalableTargets where
   hashWithSalt _salt DescribeScalableTargets' {..} =
-    _salt `Prelude.hashWithSalt` resourceIds
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` scalableDimension
-      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` resourceIds
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` serviceNamespace
 
 instance Prelude.NFData DescribeScalableTargets where
   rnf DescribeScalableTargets' {..} =
-    Prelude.rnf resourceIds
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf scalableDimension
-      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceIds
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf serviceNamespace
 
@@ -617,10 +617,10 @@ instance Core.ToJSON DescribeScalableTargets where
   toJSON DescribeScalableTargets' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ResourceIds" Core..=) Prelude.<$> resourceIds,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("ScalableDimension" Core..=)
               Prelude.<$> scalableDimension,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("ResourceIds" Core..=) Prelude.<$> resourceIds,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just
               ("ServiceNamespace" Core..= serviceNamespace)

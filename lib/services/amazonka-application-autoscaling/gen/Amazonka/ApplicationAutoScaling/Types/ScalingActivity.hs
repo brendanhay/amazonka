@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newScalingActivity' smart constructor.
 data ScalingActivity = ScalingActivity'
-  { -- | A simple message about the current status of the scaling activity.
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The Unix timestamp for when the scaling activity ended.
+  { -- | The Unix timestamp for when the scaling activity ended.
     endTime :: Prelude.Maybe Core.POSIX,
     -- | The details about the scaling activity.
     details :: Prelude.Maybe Prelude.Text,
+    -- | A simple message about the current status of the scaling activity.
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the scaling activity.
     activityId :: Prelude.Text,
     -- | The namespace of the Amazon Web Services service that provides the
@@ -195,11 +195,11 @@ data ScalingActivity = ScalingActivity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusMessage', 'scalingActivity_statusMessage' - A simple message about the current status of the scaling activity.
---
 -- 'endTime', 'scalingActivity_endTime' - The Unix timestamp for when the scaling activity ended.
 --
 -- 'details', 'scalingActivity_details' - The details about the scaling activity.
+--
+-- 'statusMessage', 'scalingActivity_statusMessage' - A simple message about the current status of the scaling activity.
 --
 -- 'activityId', 'scalingActivity_activityId' - The unique identifier of the scaling activity.
 --
@@ -376,9 +376,9 @@ newScalingActivity
   pStartTime_
   pStatusCode_ =
     ScalingActivity'
-      { statusMessage = Prelude.Nothing,
-        endTime = Prelude.Nothing,
+      { endTime = Prelude.Nothing,
         details = Prelude.Nothing,
+        statusMessage = Prelude.Nothing,
         activityId = pActivityId_,
         serviceNamespace = pServiceNamespace_,
         resourceId = pResourceId_,
@@ -389,10 +389,6 @@ newScalingActivity
         statusCode = pStatusCode_
       }
 
--- | A simple message about the current status of the scaling activity.
-scalingActivity_statusMessage :: Lens.Lens' ScalingActivity (Prelude.Maybe Prelude.Text)
-scalingActivity_statusMessage = Lens.lens (\ScalingActivity' {statusMessage} -> statusMessage) (\s@ScalingActivity' {} a -> s {statusMessage = a} :: ScalingActivity)
-
 -- | The Unix timestamp for when the scaling activity ended.
 scalingActivity_endTime :: Lens.Lens' ScalingActivity (Prelude.Maybe Prelude.UTCTime)
 scalingActivity_endTime = Lens.lens (\ScalingActivity' {endTime} -> endTime) (\s@ScalingActivity' {} a -> s {endTime = a} :: ScalingActivity) Prelude.. Lens.mapping Core._Time
@@ -400,6 +396,10 @@ scalingActivity_endTime = Lens.lens (\ScalingActivity' {endTime} -> endTime) (\s
 -- | The details about the scaling activity.
 scalingActivity_details :: Lens.Lens' ScalingActivity (Prelude.Maybe Prelude.Text)
 scalingActivity_details = Lens.lens (\ScalingActivity' {details} -> details) (\s@ScalingActivity' {} a -> s {details = a} :: ScalingActivity)
+
+-- | A simple message about the current status of the scaling activity.
+scalingActivity_statusMessage :: Lens.Lens' ScalingActivity (Prelude.Maybe Prelude.Text)
+scalingActivity_statusMessage = Lens.lens (\ScalingActivity' {statusMessage} -> statusMessage) (\s@ScalingActivity' {} a -> s {statusMessage = a} :: ScalingActivity)
 
 -- | The unique identifier of the scaling activity.
 scalingActivity_activityId :: Lens.Lens' ScalingActivity Prelude.Text
@@ -571,9 +571,9 @@ instance Core.FromJSON ScalingActivity where
       "ScalingActivity"
       ( \x ->
           ScalingActivity'
-            Prelude.<$> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "EndTime")
+            Prelude.<$> (x Core..:? "EndTime")
             Prelude.<*> (x Core..:? "Details")
+            Prelude.<*> (x Core..:? "StatusMessage")
             Prelude.<*> (x Core..: "ActivityId")
             Prelude.<*> (x Core..: "ServiceNamespace")
             Prelude.<*> (x Core..: "ResourceId")
@@ -586,9 +586,9 @@ instance Core.FromJSON ScalingActivity where
 
 instance Prelude.Hashable ScalingActivity where
   hashWithSalt _salt ScalingActivity' {..} =
-    _salt `Prelude.hashWithSalt` statusMessage
-      `Prelude.hashWithSalt` endTime
+    _salt `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` details
+      `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` activityId
       `Prelude.hashWithSalt` serviceNamespace
       `Prelude.hashWithSalt` resourceId
@@ -600,9 +600,9 @@ instance Prelude.Hashable ScalingActivity where
 
 instance Prelude.NFData ScalingActivity where
   rnf ScalingActivity' {..} =
-    Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf details
+      `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf activityId
       `Prelude.seq` Prelude.rnf serviceNamespace
       `Prelude.seq` Prelude.rnf resourceId

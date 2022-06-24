@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNodegroupResources' smart constructor.
 data NodegroupResources = NodegroupResources'
-  { -- | The remote access security group associated with the node group. This
+  { -- | The Auto Scaling groups associated with the node group.
+    autoScalingGroups :: Prelude.Maybe [AutoScalingGroup],
+    -- | The remote access security group associated with the node group. This
     -- security group controls SSH access to the nodes.
-    remoteAccessSecurityGroup :: Prelude.Maybe Prelude.Text,
-    -- | The Auto Scaling groups associated with the node group.
-    autoScalingGroups :: Prelude.Maybe [AutoScalingGroup]
+    remoteAccessSecurityGroup :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,27 +45,27 @@ data NodegroupResources = NodegroupResources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'autoScalingGroups', 'nodegroupResources_autoScalingGroups' - The Auto Scaling groups associated with the node group.
+--
 -- 'remoteAccessSecurityGroup', 'nodegroupResources_remoteAccessSecurityGroup' - The remote access security group associated with the node group. This
 -- security group controls SSH access to the nodes.
---
--- 'autoScalingGroups', 'nodegroupResources_autoScalingGroups' - The Auto Scaling groups associated with the node group.
 newNodegroupResources ::
   NodegroupResources
 newNodegroupResources =
   NodegroupResources'
-    { remoteAccessSecurityGroup =
+    { autoScalingGroups =
         Prelude.Nothing,
-      autoScalingGroups = Prelude.Nothing
+      remoteAccessSecurityGroup = Prelude.Nothing
     }
+
+-- | The Auto Scaling groups associated with the node group.
+nodegroupResources_autoScalingGroups :: Lens.Lens' NodegroupResources (Prelude.Maybe [AutoScalingGroup])
+nodegroupResources_autoScalingGroups = Lens.lens (\NodegroupResources' {autoScalingGroups} -> autoScalingGroups) (\s@NodegroupResources' {} a -> s {autoScalingGroups = a} :: NodegroupResources) Prelude.. Lens.mapping Lens.coerced
 
 -- | The remote access security group associated with the node group. This
 -- security group controls SSH access to the nodes.
 nodegroupResources_remoteAccessSecurityGroup :: Lens.Lens' NodegroupResources (Prelude.Maybe Prelude.Text)
 nodegroupResources_remoteAccessSecurityGroup = Lens.lens (\NodegroupResources' {remoteAccessSecurityGroup} -> remoteAccessSecurityGroup) (\s@NodegroupResources' {} a -> s {remoteAccessSecurityGroup = a} :: NodegroupResources)
-
--- | The Auto Scaling groups associated with the node group.
-nodegroupResources_autoScalingGroups :: Lens.Lens' NodegroupResources (Prelude.Maybe [AutoScalingGroup])
-nodegroupResources_autoScalingGroups = Lens.lens (\NodegroupResources' {autoScalingGroups} -> autoScalingGroups) (\s@NodegroupResources' {} a -> s {autoScalingGroups = a} :: NodegroupResources) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON NodegroupResources where
   parseJSON =
@@ -73,19 +73,18 @@ instance Core.FromJSON NodegroupResources where
       "NodegroupResources"
       ( \x ->
           NodegroupResources'
-            Prelude.<$> (x Core..:? "remoteAccessSecurityGroup")
-            Prelude.<*> ( x Core..:? "autoScalingGroups"
+            Prelude.<$> ( x Core..:? "autoScalingGroups"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "remoteAccessSecurityGroup")
       )
 
 instance Prelude.Hashable NodegroupResources where
   hashWithSalt _salt NodegroupResources' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` autoScalingGroups
       `Prelude.hashWithSalt` remoteAccessSecurityGroup
-      `Prelude.hashWithSalt` autoScalingGroups
 
 instance Prelude.NFData NodegroupResources where
   rnf NodegroupResources' {..} =
-    Prelude.rnf remoteAccessSecurityGroup
-      `Prelude.seq` Prelude.rnf autoScalingGroups
+    Prelude.rnf autoScalingGroups
+      `Prelude.seq` Prelude.rnf remoteAccessSecurityGroup

@@ -31,18 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOidcIdentityProviderConfigRequest' smart constructor.
 data OidcIdentityProviderConfigRequest = OidcIdentityProviderConfigRequest'
-  { -- | The prefix that is prepended to group claims to prevent clashes with
-    -- existing names (such as @system:@ groups). For example, the
-    -- value@ oidc:@ will create group names like @oidc:engineering@ and
-    -- @oidc:infra@.
-    groupsPrefix :: Prelude.Maybe Prelude.Text,
-    -- | The JSON Web Token (JWT) claim to use as the username. The default is
-    -- @sub@, which is expected to be a unique identifier of the end user. You
-    -- can choose other claims, such as @email@ or @name@, depending on the
-    -- OpenID identity provider. Claims other than @email@ are prefixed with
-    -- the issuer URL to prevent naming clashes with other plug-ins.
-    usernameClaim :: Prelude.Maybe Prelude.Text,
-    -- | The key value pairs that describe required claims in the identity token.
+  { -- | The key value pairs that describe required claims in the identity token.
     -- If set, each claim is verified to be present in the token with a
     -- matching value. For the maximum number of claims that you can require,
     -- see
@@ -56,6 +45,17 @@ data OidcIdentityProviderConfigRequest = OidcIdentityProviderConfigRequest'
     usernamePrefix :: Prelude.Maybe Prelude.Text,
     -- | The JWT claim that the provider uses to return your groups.
     groupsClaim :: Prelude.Maybe Prelude.Text,
+    -- | The prefix that is prepended to group claims to prevent clashes with
+    -- existing names (such as @system:@ groups). For example, the
+    -- value@ oidc:@ will create group names like @oidc:engineering@ and
+    -- @oidc:infra@.
+    groupsPrefix :: Prelude.Maybe Prelude.Text,
+    -- | The JSON Web Token (JWT) claim to use as the username. The default is
+    -- @sub@, which is expected to be a unique identifier of the end user. You
+    -- can choose other claims, such as @email@ or @name@, depending on the
+    -- OpenID identity provider. Claims other than @email@ are prefixed with
+    -- the issuer URL to prevent naming clashes with other plug-ins.
+    usernameClaim :: Prelude.Maybe Prelude.Text,
     -- | The name of the OIDC provider configuration.
     identityProviderConfigName :: Prelude.Text,
     -- | The URL of the OpenID identity provider that allows the API server to
@@ -82,17 +82,6 @@ data OidcIdentityProviderConfigRequest = OidcIdentityProviderConfigRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groupsPrefix', 'oidcIdentityProviderConfigRequest_groupsPrefix' - The prefix that is prepended to group claims to prevent clashes with
--- existing names (such as @system:@ groups). For example, the
--- value@ oidc:@ will create group names like @oidc:engineering@ and
--- @oidc:infra@.
---
--- 'usernameClaim', 'oidcIdentityProviderConfigRequest_usernameClaim' - The JSON Web Token (JWT) claim to use as the username. The default is
--- @sub@, which is expected to be a unique identifier of the end user. You
--- can choose other claims, such as @email@ or @name@, depending on the
--- OpenID identity provider. Claims other than @email@ are prefixed with
--- the issuer URL to prevent naming clashes with other plug-ins.
---
 -- 'requiredClaims', 'oidcIdentityProviderConfigRequest_requiredClaims' - The key value pairs that describe required claims in the identity token.
 -- If set, each claim is verified to be present in the token with a
 -- matching value. For the maximum number of claims that you can require,
@@ -106,6 +95,17 @@ data OidcIdentityProviderConfigRequest = OidcIdentityProviderConfigRequest'
 -- use the value @-@ to disable all prefixing.
 --
 -- 'groupsClaim', 'oidcIdentityProviderConfigRequest_groupsClaim' - The JWT claim that the provider uses to return your groups.
+--
+-- 'groupsPrefix', 'oidcIdentityProviderConfigRequest_groupsPrefix' - The prefix that is prepended to group claims to prevent clashes with
+-- existing names (such as @system:@ groups). For example, the
+-- value@ oidc:@ will create group names like @oidc:engineering@ and
+-- @oidc:infra@.
+--
+-- 'usernameClaim', 'oidcIdentityProviderConfigRequest_usernameClaim' - The JSON Web Token (JWT) claim to use as the username. The default is
+-- @sub@, which is expected to be a unique identifier of the end user. You
+-- can choose other claims, such as @email@ or @name@, depending on the
+-- OpenID identity provider. Claims other than @email@ are prefixed with
+-- the issuer URL to prevent naming clashes with other plug-ins.
 --
 -- 'identityProviderConfigName', 'oidcIdentityProviderConfigRequest_identityProviderConfigName' - The name of the OIDC provider configuration.
 --
@@ -134,32 +134,17 @@ newOidcIdentityProviderConfigRequest
   pIssuerUrl_
   pClientId_ =
     OidcIdentityProviderConfigRequest'
-      { groupsPrefix =
+      { requiredClaims =
           Prelude.Nothing,
-        usernameClaim = Prelude.Nothing,
-        requiredClaims = Prelude.Nothing,
         usernamePrefix = Prelude.Nothing,
         groupsClaim = Prelude.Nothing,
+        groupsPrefix = Prelude.Nothing,
+        usernameClaim = Prelude.Nothing,
         identityProviderConfigName =
           pIdentityProviderConfigName_,
         issuerUrl = pIssuerUrl_,
         clientId = pClientId_
       }
-
--- | The prefix that is prepended to group claims to prevent clashes with
--- existing names (such as @system:@ groups). For example, the
--- value@ oidc:@ will create group names like @oidc:engineering@ and
--- @oidc:infra@.
-oidcIdentityProviderConfigRequest_groupsPrefix :: Lens.Lens' OidcIdentityProviderConfigRequest (Prelude.Maybe Prelude.Text)
-oidcIdentityProviderConfigRequest_groupsPrefix = Lens.lens (\OidcIdentityProviderConfigRequest' {groupsPrefix} -> groupsPrefix) (\s@OidcIdentityProviderConfigRequest' {} a -> s {groupsPrefix = a} :: OidcIdentityProviderConfigRequest)
-
--- | The JSON Web Token (JWT) claim to use as the username. The default is
--- @sub@, which is expected to be a unique identifier of the end user. You
--- can choose other claims, such as @email@ or @name@, depending on the
--- OpenID identity provider. Claims other than @email@ are prefixed with
--- the issuer URL to prevent naming clashes with other plug-ins.
-oidcIdentityProviderConfigRequest_usernameClaim :: Lens.Lens' OidcIdentityProviderConfigRequest (Prelude.Maybe Prelude.Text)
-oidcIdentityProviderConfigRequest_usernameClaim = Lens.lens (\OidcIdentityProviderConfigRequest' {usernameClaim} -> usernameClaim) (\s@OidcIdentityProviderConfigRequest' {} a -> s {usernameClaim = a} :: OidcIdentityProviderConfigRequest)
 
 -- | The key value pairs that describe required claims in the identity token.
 -- If set, each claim is verified to be present in the token with a
@@ -180,6 +165,21 @@ oidcIdentityProviderConfigRequest_usernamePrefix = Lens.lens (\OidcIdentityProvi
 -- | The JWT claim that the provider uses to return your groups.
 oidcIdentityProviderConfigRequest_groupsClaim :: Lens.Lens' OidcIdentityProviderConfigRequest (Prelude.Maybe Prelude.Text)
 oidcIdentityProviderConfigRequest_groupsClaim = Lens.lens (\OidcIdentityProviderConfigRequest' {groupsClaim} -> groupsClaim) (\s@OidcIdentityProviderConfigRequest' {} a -> s {groupsClaim = a} :: OidcIdentityProviderConfigRequest)
+
+-- | The prefix that is prepended to group claims to prevent clashes with
+-- existing names (such as @system:@ groups). For example, the
+-- value@ oidc:@ will create group names like @oidc:engineering@ and
+-- @oidc:infra@.
+oidcIdentityProviderConfigRequest_groupsPrefix :: Lens.Lens' OidcIdentityProviderConfigRequest (Prelude.Maybe Prelude.Text)
+oidcIdentityProviderConfigRequest_groupsPrefix = Lens.lens (\OidcIdentityProviderConfigRequest' {groupsPrefix} -> groupsPrefix) (\s@OidcIdentityProviderConfigRequest' {} a -> s {groupsPrefix = a} :: OidcIdentityProviderConfigRequest)
+
+-- | The JSON Web Token (JWT) claim to use as the username. The default is
+-- @sub@, which is expected to be a unique identifier of the end user. You
+-- can choose other claims, such as @email@ or @name@, depending on the
+-- OpenID identity provider. Claims other than @email@ are prefixed with
+-- the issuer URL to prevent naming clashes with other plug-ins.
+oidcIdentityProviderConfigRequest_usernameClaim :: Lens.Lens' OidcIdentityProviderConfigRequest (Prelude.Maybe Prelude.Text)
+oidcIdentityProviderConfigRequest_usernameClaim = Lens.lens (\OidcIdentityProviderConfigRequest' {usernameClaim} -> usernameClaim) (\s@OidcIdentityProviderConfigRequest' {} a -> s {usernameClaim = a} :: OidcIdentityProviderConfigRequest)
 
 -- | The name of the OIDC provider configuration.
 oidcIdentityProviderConfigRequest_identityProviderConfigName :: Lens.Lens' OidcIdentityProviderConfigRequest Prelude.Text
@@ -209,11 +209,11 @@ instance
   hashWithSalt
     _salt
     OidcIdentityProviderConfigRequest' {..} =
-      _salt `Prelude.hashWithSalt` groupsPrefix
-        `Prelude.hashWithSalt` usernameClaim
-        `Prelude.hashWithSalt` requiredClaims
+      _salt `Prelude.hashWithSalt` requiredClaims
         `Prelude.hashWithSalt` usernamePrefix
         `Prelude.hashWithSalt` groupsClaim
+        `Prelude.hashWithSalt` groupsPrefix
+        `Prelude.hashWithSalt` usernameClaim
         `Prelude.hashWithSalt` identityProviderConfigName
         `Prelude.hashWithSalt` issuerUrl
         `Prelude.hashWithSalt` clientId
@@ -223,11 +223,11 @@ instance
     OidcIdentityProviderConfigRequest
   where
   rnf OidcIdentityProviderConfigRequest' {..} =
-    Prelude.rnf groupsPrefix
-      `Prelude.seq` Prelude.rnf usernameClaim
-      `Prelude.seq` Prelude.rnf requiredClaims
+    Prelude.rnf requiredClaims
       `Prelude.seq` Prelude.rnf usernamePrefix
       `Prelude.seq` Prelude.rnf groupsClaim
+      `Prelude.seq` Prelude.rnf groupsPrefix
+      `Prelude.seq` Prelude.rnf usernameClaim
       `Prelude.seq` Prelude.rnf identityProviderConfigName
       `Prelude.seq` Prelude.rnf issuerUrl
       `Prelude.seq` Prelude.rnf clientId
@@ -239,13 +239,13 @@ instance
   toJSON OidcIdentityProviderConfigRequest' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("groupsPrefix" Core..=) Prelude.<$> groupsPrefix,
-            ("usernameClaim" Core..=) Prelude.<$> usernameClaim,
-            ("requiredClaims" Core..=)
+          [ ("requiredClaims" Core..=)
               Prelude.<$> requiredClaims,
             ("usernamePrefix" Core..=)
               Prelude.<$> usernamePrefix,
             ("groupsClaim" Core..=) Prelude.<$> groupsClaim,
+            ("groupsPrefix" Core..=) Prelude.<$> groupsPrefix,
+            ("usernameClaim" Core..=) Prelude.<$> usernameClaim,
             Prelude.Just
               ( "identityProviderConfigName"
                   Core..= identityProviderConfigName

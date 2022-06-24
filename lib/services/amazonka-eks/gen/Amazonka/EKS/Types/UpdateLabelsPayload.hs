@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpdateLabelsPayload' smart constructor.
 data UpdateLabelsPayload = UpdateLabelsPayload'
-  { -- | Kubernetes labels to be removed.
-    removeLabels :: Prelude.Maybe [Prelude.Text],
-    -- | Kubernetes labels to be added or updated.
-    addOrUpdateLabels :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+  { -- | Kubernetes labels to be added or updated.
+    addOrUpdateLabels :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Kubernetes labels to be removed.
+    removeLabels :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,42 +43,42 @@ data UpdateLabelsPayload = UpdateLabelsPayload'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'removeLabels', 'updateLabelsPayload_removeLabels' - Kubernetes labels to be removed.
---
 -- 'addOrUpdateLabels', 'updateLabelsPayload_addOrUpdateLabels' - Kubernetes labels to be added or updated.
+--
+-- 'removeLabels', 'updateLabelsPayload_removeLabels' - Kubernetes labels to be removed.
 newUpdateLabelsPayload ::
   UpdateLabelsPayload
 newUpdateLabelsPayload =
   UpdateLabelsPayload'
-    { removeLabels =
+    { addOrUpdateLabels =
         Prelude.Nothing,
-      addOrUpdateLabels = Prelude.Nothing
+      removeLabels = Prelude.Nothing
     }
-
--- | Kubernetes labels to be removed.
-updateLabelsPayload_removeLabels :: Lens.Lens' UpdateLabelsPayload (Prelude.Maybe [Prelude.Text])
-updateLabelsPayload_removeLabels = Lens.lens (\UpdateLabelsPayload' {removeLabels} -> removeLabels) (\s@UpdateLabelsPayload' {} a -> s {removeLabels = a} :: UpdateLabelsPayload) Prelude.. Lens.mapping Lens.coerced
 
 -- | Kubernetes labels to be added or updated.
 updateLabelsPayload_addOrUpdateLabels :: Lens.Lens' UpdateLabelsPayload (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateLabelsPayload_addOrUpdateLabels = Lens.lens (\UpdateLabelsPayload' {addOrUpdateLabels} -> addOrUpdateLabels) (\s@UpdateLabelsPayload' {} a -> s {addOrUpdateLabels = a} :: UpdateLabelsPayload) Prelude.. Lens.mapping Lens.coerced
 
+-- | Kubernetes labels to be removed.
+updateLabelsPayload_removeLabels :: Lens.Lens' UpdateLabelsPayload (Prelude.Maybe [Prelude.Text])
+updateLabelsPayload_removeLabels = Lens.lens (\UpdateLabelsPayload' {removeLabels} -> removeLabels) (\s@UpdateLabelsPayload' {} a -> s {removeLabels = a} :: UpdateLabelsPayload) Prelude.. Lens.mapping Lens.coerced
+
 instance Prelude.Hashable UpdateLabelsPayload where
   hashWithSalt _salt UpdateLabelsPayload' {..} =
-    _salt `Prelude.hashWithSalt` removeLabels
-      `Prelude.hashWithSalt` addOrUpdateLabels
+    _salt `Prelude.hashWithSalt` addOrUpdateLabels
+      `Prelude.hashWithSalt` removeLabels
 
 instance Prelude.NFData UpdateLabelsPayload where
   rnf UpdateLabelsPayload' {..} =
-    Prelude.rnf removeLabels
-      `Prelude.seq` Prelude.rnf addOrUpdateLabels
+    Prelude.rnf addOrUpdateLabels
+      `Prelude.seq` Prelude.rnf removeLabels
 
 instance Core.ToJSON UpdateLabelsPayload where
   toJSON UpdateLabelsPayload' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("removeLabels" Core..=) Prelude.<$> removeLabels,
-            ("addOrUpdateLabels" Core..=)
-              Prelude.<$> addOrUpdateLabels
+          [ ("addOrUpdateLabels" Core..=)
+              Prelude.<$> addOrUpdateLabels,
+            ("removeLabels" Core..=) Prelude.<$> removeLabels
           ]
       )

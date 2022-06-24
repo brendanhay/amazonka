@@ -32,8 +32,8 @@ module Amazonka.EKS.DescribeUpdate
     newDescribeUpdate,
 
     -- * Request Lenses
-    describeUpdate_addonName,
     describeUpdate_nodegroupName,
+    describeUpdate_addonName,
     describeUpdate_name,
     describeUpdate_updateId,
 
@@ -56,12 +56,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeUpdate' smart constructor.
 data DescribeUpdate = DescribeUpdate'
-  { -- | The name of the add-on. The name must match one of the names returned by
+  { -- | The name of the Amazon EKS node group associated with the update.
+    nodegroupName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the add-on. The name must match one of the names returned by
     -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons>
     -- .
     addonName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Amazon EKS node group associated with the update.
-    nodegroupName :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon EKS cluster associated with the update.
     name :: Prelude.Text,
     -- | The ID of the update to describe.
@@ -77,11 +77,11 @@ data DescribeUpdate = DescribeUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nodegroupName', 'describeUpdate_nodegroupName' - The name of the Amazon EKS node group associated with the update.
+--
 -- 'addonName', 'describeUpdate_addonName' - The name of the add-on. The name must match one of the names returned by
 -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons>
 -- .
---
--- 'nodegroupName', 'describeUpdate_nodegroupName' - The name of the Amazon EKS node group associated with the update.
 --
 -- 'name', 'describeUpdate_name' - The name of the Amazon EKS cluster associated with the update.
 --
@@ -94,21 +94,21 @@ newDescribeUpdate ::
   DescribeUpdate
 newDescribeUpdate pName_ pUpdateId_ =
   DescribeUpdate'
-    { addonName = Prelude.Nothing,
-      nodegroupName = Prelude.Nothing,
+    { nodegroupName = Prelude.Nothing,
+      addonName = Prelude.Nothing,
       name = pName_,
       updateId = pUpdateId_
     }
+
+-- | The name of the Amazon EKS node group associated with the update.
+describeUpdate_nodegroupName :: Lens.Lens' DescribeUpdate (Prelude.Maybe Prelude.Text)
+describeUpdate_nodegroupName = Lens.lens (\DescribeUpdate' {nodegroupName} -> nodegroupName) (\s@DescribeUpdate' {} a -> s {nodegroupName = a} :: DescribeUpdate)
 
 -- | The name of the add-on. The name must match one of the names returned by
 -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons>
 -- .
 describeUpdate_addonName :: Lens.Lens' DescribeUpdate (Prelude.Maybe Prelude.Text)
 describeUpdate_addonName = Lens.lens (\DescribeUpdate' {addonName} -> addonName) (\s@DescribeUpdate' {} a -> s {addonName = a} :: DescribeUpdate)
-
--- | The name of the Amazon EKS node group associated with the update.
-describeUpdate_nodegroupName :: Lens.Lens' DescribeUpdate (Prelude.Maybe Prelude.Text)
-describeUpdate_nodegroupName = Lens.lens (\DescribeUpdate' {nodegroupName} -> nodegroupName) (\s@DescribeUpdate' {} a -> s {nodegroupName = a} :: DescribeUpdate)
 
 -- | The name of the Amazon EKS cluster associated with the update.
 describeUpdate_name :: Lens.Lens' DescribeUpdate Prelude.Text
@@ -133,15 +133,15 @@ instance Core.AWSRequest DescribeUpdate where
 
 instance Prelude.Hashable DescribeUpdate where
   hashWithSalt _salt DescribeUpdate' {..} =
-    _salt `Prelude.hashWithSalt` addonName
-      `Prelude.hashWithSalt` nodegroupName
+    _salt `Prelude.hashWithSalt` nodegroupName
+      `Prelude.hashWithSalt` addonName
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` updateId
 
 instance Prelude.NFData DescribeUpdate where
   rnf DescribeUpdate' {..} =
-    Prelude.rnf addonName
-      `Prelude.seq` Prelude.rnf nodegroupName
+    Prelude.rnf nodegroupName
+      `Prelude.seq` Prelude.rnf addonName
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf updateId
 
@@ -168,8 +168,8 @@ instance Core.ToPath DescribeUpdate where
 instance Core.ToQuery DescribeUpdate where
   toQuery DescribeUpdate' {..} =
     Prelude.mconcat
-      [ "addonName" Core.=: addonName,
-        "nodegroupName" Core.=: nodegroupName
+      [ "nodegroupName" Core.=: nodegroupName,
+        "addonName" Core.=: addonName
       ]
 
 -- | /See:/ 'newDescribeUpdateResponse' smart constructor.

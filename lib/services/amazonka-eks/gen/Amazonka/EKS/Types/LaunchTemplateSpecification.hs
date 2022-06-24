@@ -48,11 +48,11 @@ import qualified Amazonka.Prelude as Prelude
 data LaunchTemplateSpecification = LaunchTemplateSpecification'
   { -- | The name of the launch template.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the launch template.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The version of the launch template to use. If no version is specified,
     -- then the template\'s default version is used.
-    version :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the launch template.
-    id :: Prelude.Maybe Prelude.Text
+    version :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,32 +66,32 @@ data LaunchTemplateSpecification = LaunchTemplateSpecification'
 --
 -- 'name', 'launchTemplateSpecification_name' - The name of the launch template.
 --
+-- 'id', 'launchTemplateSpecification_id' - The ID of the launch template.
+--
 -- 'version', 'launchTemplateSpecification_version' - The version of the launch template to use. If no version is specified,
 -- then the template\'s default version is used.
---
--- 'id', 'launchTemplateSpecification_id' - The ID of the launch template.
 newLaunchTemplateSpecification ::
   LaunchTemplateSpecification
 newLaunchTemplateSpecification =
   LaunchTemplateSpecification'
     { name =
         Prelude.Nothing,
-      version = Prelude.Nothing,
-      id = Prelude.Nothing
+      id = Prelude.Nothing,
+      version = Prelude.Nothing
     }
 
 -- | The name of the launch template.
 launchTemplateSpecification_name :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 launchTemplateSpecification_name = Lens.lens (\LaunchTemplateSpecification' {name} -> name) (\s@LaunchTemplateSpecification' {} a -> s {name = a} :: LaunchTemplateSpecification)
 
+-- | The ID of the launch template.
+launchTemplateSpecification_id :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
+launchTemplateSpecification_id = Lens.lens (\LaunchTemplateSpecification' {id} -> id) (\s@LaunchTemplateSpecification' {} a -> s {id = a} :: LaunchTemplateSpecification)
+
 -- | The version of the launch template to use. If no version is specified,
 -- then the template\'s default version is used.
 launchTemplateSpecification_version :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 launchTemplateSpecification_version = Lens.lens (\LaunchTemplateSpecification' {version} -> version) (\s@LaunchTemplateSpecification' {} a -> s {version = a} :: LaunchTemplateSpecification)
-
--- | The ID of the launch template.
-launchTemplateSpecification_id :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
-launchTemplateSpecification_id = Lens.lens (\LaunchTemplateSpecification' {id} -> id) (\s@LaunchTemplateSpecification' {} a -> s {id = a} :: LaunchTemplateSpecification)
 
 instance Core.FromJSON LaunchTemplateSpecification where
   parseJSON =
@@ -100,28 +100,28 @@ instance Core.FromJSON LaunchTemplateSpecification where
       ( \x ->
           LaunchTemplateSpecification'
             Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "version")
             Prelude.<*> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "version")
       )
 
 instance Prelude.Hashable LaunchTemplateSpecification where
   hashWithSalt _salt LaunchTemplateSpecification' {..} =
     _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` version
 
 instance Prelude.NFData LaunchTemplateSpecification where
   rnf LaunchTemplateSpecification' {..} =
     Prelude.rnf name
-      `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf version
 
 instance Core.ToJSON LaunchTemplateSpecification where
   toJSON LaunchTemplateSpecification' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("name" Core..=) Prelude.<$> name,
-            ("version" Core..=) Prelude.<$> version,
-            ("id" Core..=) Prelude.<$> id
+            ("id" Core..=) Prelude.<$> id,
+            ("version" Core..=) Prelude.<$> version
           ]
       )

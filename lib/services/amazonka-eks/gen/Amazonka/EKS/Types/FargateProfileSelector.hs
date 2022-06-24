@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFargateProfileSelector' smart constructor.
 data FargateProfileSelector = FargateProfileSelector'
-  { -- | The Kubernetes namespace that the selector should match.
-    namespace :: Prelude.Maybe Prelude.Text,
-    -- | The Kubernetes labels that the selector should match. A pod must contain
+  { -- | The Kubernetes labels that the selector should match. A pod must contain
     -- all of the labels that are specified in the selector for it to be
     -- considered a match.
-    labels :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    labels :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The Kubernetes namespace that the selector should match.
+    namespace :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,23 +44,18 @@ data FargateProfileSelector = FargateProfileSelector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'namespace', 'fargateProfileSelector_namespace' - The Kubernetes namespace that the selector should match.
---
 -- 'labels', 'fargateProfileSelector_labels' - The Kubernetes labels that the selector should match. A pod must contain
 -- all of the labels that are specified in the selector for it to be
 -- considered a match.
+--
+-- 'namespace', 'fargateProfileSelector_namespace' - The Kubernetes namespace that the selector should match.
 newFargateProfileSelector ::
   FargateProfileSelector
 newFargateProfileSelector =
   FargateProfileSelector'
-    { namespace =
-        Prelude.Nothing,
-      labels = Prelude.Nothing
+    { labels = Prelude.Nothing,
+      namespace = Prelude.Nothing
     }
-
--- | The Kubernetes namespace that the selector should match.
-fargateProfileSelector_namespace :: Lens.Lens' FargateProfileSelector (Prelude.Maybe Prelude.Text)
-fargateProfileSelector_namespace = Lens.lens (\FargateProfileSelector' {namespace} -> namespace) (\s@FargateProfileSelector' {} a -> s {namespace = a} :: FargateProfileSelector)
 
 -- | The Kubernetes labels that the selector should match. A pod must contain
 -- all of the labels that are specified in the selector for it to be
@@ -68,31 +63,35 @@ fargateProfileSelector_namespace = Lens.lens (\FargateProfileSelector' {namespac
 fargateProfileSelector_labels :: Lens.Lens' FargateProfileSelector (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 fargateProfileSelector_labels = Lens.lens (\FargateProfileSelector' {labels} -> labels) (\s@FargateProfileSelector' {} a -> s {labels = a} :: FargateProfileSelector) Prelude.. Lens.mapping Lens.coerced
 
+-- | The Kubernetes namespace that the selector should match.
+fargateProfileSelector_namespace :: Lens.Lens' FargateProfileSelector (Prelude.Maybe Prelude.Text)
+fargateProfileSelector_namespace = Lens.lens (\FargateProfileSelector' {namespace} -> namespace) (\s@FargateProfileSelector' {} a -> s {namespace = a} :: FargateProfileSelector)
+
 instance Core.FromJSON FargateProfileSelector where
   parseJSON =
     Core.withObject
       "FargateProfileSelector"
       ( \x ->
           FargateProfileSelector'
-            Prelude.<$> (x Core..:? "namespace")
-            Prelude.<*> (x Core..:? "labels" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "labels" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "namespace")
       )
 
 instance Prelude.Hashable FargateProfileSelector where
   hashWithSalt _salt FargateProfileSelector' {..} =
-    _salt `Prelude.hashWithSalt` namespace
-      `Prelude.hashWithSalt` labels
+    _salt `Prelude.hashWithSalt` labels
+      `Prelude.hashWithSalt` namespace
 
 instance Prelude.NFData FargateProfileSelector where
   rnf FargateProfileSelector' {..} =
-    Prelude.rnf namespace
-      `Prelude.seq` Prelude.rnf labels
+    Prelude.rnf labels
+      `Prelude.seq` Prelude.rnf namespace
 
 instance Core.ToJSON FargateProfileSelector where
   toJSON FargateProfileSelector' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("namespace" Core..=) Prelude.<$> namespace,
-            ("labels" Core..=) Prelude.<$> labels
+          [ ("labels" Core..=) Prelude.<$> labels,
+            ("namespace" Core..=) Prelude.<$> namespace
           ]
       )

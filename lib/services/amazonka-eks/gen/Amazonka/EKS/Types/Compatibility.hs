@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCompatibility' smart constructor.
 data Compatibility = Compatibility'
-  { -- | The supported default version.
-    defaultVersion :: Prelude.Maybe Prelude.Bool,
-    -- | The supported Kubernetes version of the cluster.
+  { -- | The supported Kubernetes version of the cluster.
     clusterVersion :: Prelude.Maybe Prelude.Text,
+    -- | The supported default version.
+    defaultVersion :: Prelude.Maybe Prelude.Bool,
     -- | The supported compute platform.
     platformVersions :: Prelude.Maybe [Prelude.Text]
   }
@@ -44,27 +44,27 @@ data Compatibility = Compatibility'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'defaultVersion', 'compatibility_defaultVersion' - The supported default version.
---
 -- 'clusterVersion', 'compatibility_clusterVersion' - The supported Kubernetes version of the cluster.
+--
+-- 'defaultVersion', 'compatibility_defaultVersion' - The supported default version.
 --
 -- 'platformVersions', 'compatibility_platformVersions' - The supported compute platform.
 newCompatibility ::
   Compatibility
 newCompatibility =
   Compatibility'
-    { defaultVersion = Prelude.Nothing,
-      clusterVersion = Prelude.Nothing,
+    { clusterVersion = Prelude.Nothing,
+      defaultVersion = Prelude.Nothing,
       platformVersions = Prelude.Nothing
     }
-
--- | The supported default version.
-compatibility_defaultVersion :: Lens.Lens' Compatibility (Prelude.Maybe Prelude.Bool)
-compatibility_defaultVersion = Lens.lens (\Compatibility' {defaultVersion} -> defaultVersion) (\s@Compatibility' {} a -> s {defaultVersion = a} :: Compatibility)
 
 -- | The supported Kubernetes version of the cluster.
 compatibility_clusterVersion :: Lens.Lens' Compatibility (Prelude.Maybe Prelude.Text)
 compatibility_clusterVersion = Lens.lens (\Compatibility' {clusterVersion} -> clusterVersion) (\s@Compatibility' {} a -> s {clusterVersion = a} :: Compatibility)
+
+-- | The supported default version.
+compatibility_defaultVersion :: Lens.Lens' Compatibility (Prelude.Maybe Prelude.Bool)
+compatibility_defaultVersion = Lens.lens (\Compatibility' {defaultVersion} -> defaultVersion) (\s@Compatibility' {} a -> s {defaultVersion = a} :: Compatibility)
 
 -- | The supported compute platform.
 compatibility_platformVersions :: Lens.Lens' Compatibility (Prelude.Maybe [Prelude.Text])
@@ -76,8 +76,8 @@ instance Core.FromJSON Compatibility where
       "Compatibility"
       ( \x ->
           Compatibility'
-            Prelude.<$> (x Core..:? "defaultVersion")
-            Prelude.<*> (x Core..:? "clusterVersion")
+            Prelude.<$> (x Core..:? "clusterVersion")
+            Prelude.<*> (x Core..:? "defaultVersion")
             Prelude.<*> ( x Core..:? "platformVersions"
                             Core..!= Prelude.mempty
                         )
@@ -85,12 +85,12 @@ instance Core.FromJSON Compatibility where
 
 instance Prelude.Hashable Compatibility where
   hashWithSalt _salt Compatibility' {..} =
-    _salt `Prelude.hashWithSalt` defaultVersion
-      `Prelude.hashWithSalt` clusterVersion
+    _salt `Prelude.hashWithSalt` clusterVersion
+      `Prelude.hashWithSalt` defaultVersion
       `Prelude.hashWithSalt` platformVersions
 
 instance Prelude.NFData Compatibility where
   rnf Compatibility' {..} =
-    Prelude.rnf defaultVersion
-      `Prelude.seq` Prelude.rnf clusterVersion
+    Prelude.rnf clusterVersion
+      `Prelude.seq` Prelude.rnf defaultVersion
       `Prelude.seq` Prelude.rnf platformVersions

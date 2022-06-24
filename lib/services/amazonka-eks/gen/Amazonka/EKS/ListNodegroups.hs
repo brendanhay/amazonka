@@ -40,8 +40,8 @@ module Amazonka.EKS.ListNodegroups
     newListNodegroupsResponse,
 
     -- * Response Lenses
-    listNodegroupsResponse_nodegroups,
     listNodegroupsResponse_nextToken,
+    listNodegroupsResponse_nodegroups,
     listNodegroupsResponse_httpStatus,
   )
 where
@@ -163,8 +163,8 @@ instance Core.AWSRequest ListNodegroups where
     Response.receiveJSON
       ( \s h x ->
           ListNodegroupsResponse'
-            Prelude.<$> (x Core..?> "nodegroups" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "nodegroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -205,13 +205,13 @@ instance Core.ToQuery ListNodegroups where
 
 -- | /See:/ 'newListNodegroupsResponse' smart constructor.
 data ListNodegroupsResponse = ListNodegroupsResponse'
-  { -- | A list of all of the node groups associated with the specified cluster.
-    nodegroups :: Prelude.Maybe [Prelude.Text],
-    -- | The @nextToken@ value to include in a future @ListNodegroups@ request.
+  { -- | The @nextToken@ value to include in a future @ListNodegroups@ request.
     -- When the results of a @ListNodegroups@ request exceed @maxResults@, you
     -- can use this value to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of all of the node groups associated with the specified cluster.
+    nodegroups :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -225,12 +225,12 @@ data ListNodegroupsResponse = ListNodegroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nodegroups', 'listNodegroupsResponse_nodegroups' - A list of all of the node groups associated with the specified cluster.
---
 -- 'nextToken', 'listNodegroupsResponse_nextToken' - The @nextToken@ value to include in a future @ListNodegroups@ request.
 -- When the results of a @ListNodegroups@ request exceed @maxResults@, you
 -- can use this value to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
+--
+-- 'nodegroups', 'listNodegroupsResponse_nodegroups' - A list of all of the node groups associated with the specified cluster.
 --
 -- 'httpStatus', 'listNodegroupsResponse_httpStatus' - The response's http status code.
 newListNodegroupsResponse ::
@@ -239,15 +239,11 @@ newListNodegroupsResponse ::
   ListNodegroupsResponse
 newListNodegroupsResponse pHttpStatus_ =
   ListNodegroupsResponse'
-    { nodegroups =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      nodegroups = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of all of the node groups associated with the specified cluster.
-listNodegroupsResponse_nodegroups :: Lens.Lens' ListNodegroupsResponse (Prelude.Maybe [Prelude.Text])
-listNodegroupsResponse_nodegroups = Lens.lens (\ListNodegroupsResponse' {nodegroups} -> nodegroups) (\s@ListNodegroupsResponse' {} a -> s {nodegroups = a} :: ListNodegroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @nextToken@ value to include in a future @ListNodegroups@ request.
 -- When the results of a @ListNodegroups@ request exceed @maxResults@, you
@@ -256,12 +252,16 @@ listNodegroupsResponse_nodegroups = Lens.lens (\ListNodegroupsResponse' {nodegro
 listNodegroupsResponse_nextToken :: Lens.Lens' ListNodegroupsResponse (Prelude.Maybe Prelude.Text)
 listNodegroupsResponse_nextToken = Lens.lens (\ListNodegroupsResponse' {nextToken} -> nextToken) (\s@ListNodegroupsResponse' {} a -> s {nextToken = a} :: ListNodegroupsResponse)
 
+-- | A list of all of the node groups associated with the specified cluster.
+listNodegroupsResponse_nodegroups :: Lens.Lens' ListNodegroupsResponse (Prelude.Maybe [Prelude.Text])
+listNodegroupsResponse_nodegroups = Lens.lens (\ListNodegroupsResponse' {nodegroups} -> nodegroups) (\s@ListNodegroupsResponse' {} a -> s {nodegroups = a} :: ListNodegroupsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listNodegroupsResponse_httpStatus :: Lens.Lens' ListNodegroupsResponse Prelude.Int
 listNodegroupsResponse_httpStatus = Lens.lens (\ListNodegroupsResponse' {httpStatus} -> httpStatus) (\s@ListNodegroupsResponse' {} a -> s {httpStatus = a} :: ListNodegroupsResponse)
 
 instance Prelude.NFData ListNodegroupsResponse where
   rnf ListNodegroupsResponse' {..} =
-    Prelude.rnf nodegroups
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf nodegroups
       `Prelude.seq` Prelude.rnf httpStatus

@@ -27,68 +27,32 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDisposePackageVersions $
---             newDisposePackageVersions
+--         [ requestAssociateExternalConnection $
+--             newAssociateExternalConnection
 --
---         , requestGetRepositoryEndpoint $
---             newGetRepositoryEndpoint
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestListPackageVersionDependencies $
---             newListPackageVersionDependencies
---
---         , requestListPackages $
---             newListPackages
---
---         , requestPutRepositoryPermissionsPolicy $
---             newPutRepositoryPermissionsPolicy
---
---         , requestDeleteRepositoryPermissionsPolicy $
---             newDeleteRepositoryPermissionsPolicy
---
---         , requestGetDomainPermissionsPolicy $
---             newGetDomainPermissionsPolicy
---
---         , requestListRepositories $
---             newListRepositories
---
---         , requestUpdatePackageVersionsStatus $
---             newUpdatePackageVersionsStatus
---
---         , requestCreateRepository $
---             newCreateRepository
---
---         , requestGetPackageVersionAsset $
---             newGetPackageVersionAsset
---
---         , requestListRepositoriesInDomain $
---             newListRepositoriesInDomain
---
---         , requestPutDomainPermissionsPolicy $
---             newPutDomainPermissionsPolicy
---
---         , requestDeleteDomainPermissionsPolicy $
---             newDeleteDomainPermissionsPolicy
---
---         , requestGetPackageVersionReadme $
---             newGetPackageVersionReadme
+--         , requestCopyPackageVersions $
+--             newCopyPackageVersions
 --
 --         , requestCreateDomain $
 --             newCreateDomain
 --
---         , requestGetRepositoryPermissionsPolicy $
---             newGetRepositoryPermissionsPolicy
+--         , requestCreateRepository $
+--             newCreateRepository
 --
---         , requestAssociateExternalConnection $
---             newAssociateExternalConnection
+--         , requestDeleteDomain $
+--             newDeleteDomain
 --
---         , requestDescribeRepository $
---             newDescribeRepository
+--         , requestDeleteDomainPermissionsPolicy $
+--             newDeleteDomainPermissionsPolicy
 --
 --         , requestDeletePackageVersions $
 --             newDeletePackageVersions
+--
+--         , requestDeleteRepository $
+--             newDeleteRepository
+--
+--         , requestDeleteRepositoryPermissionsPolicy $
+--             newDeleteRepositoryPermissionsPolicy
 --
 --         , requestDescribeDomain $
 --             newDescribeDomain
@@ -96,104 +60,104 @@ import Test.Tasty
 --         , requestDescribePackageVersion $
 --             newDescribePackageVersion
 --
+--         , requestDescribeRepository $
+--             newDescribeRepository
+--
+--         , requestDisassociateExternalConnection $
+--             newDisassociateExternalConnection
+--
+--         , requestDisposePackageVersions $
+--             newDisposePackageVersions
+--
+--         , requestGetAuthorizationToken $
+--             newGetAuthorizationToken
+--
+--         , requestGetDomainPermissionsPolicy $
+--             newGetDomainPermissionsPolicy
+--
+--         , requestGetPackageVersionAsset $
+--             newGetPackageVersionAsset
+--
+--         , requestGetPackageVersionReadme $
+--             newGetPackageVersionReadme
+--
+--         , requestGetRepositoryEndpoint $
+--             newGetRepositoryEndpoint
+--
+--         , requestGetRepositoryPermissionsPolicy $
+--             newGetRepositoryPermissionsPolicy
+--
+--         , requestListDomains $
+--             newListDomains
+--
+--         , requestListPackageVersionAssets $
+--             newListPackageVersionAssets
+--
+--         , requestListPackageVersionDependencies $
+--             newListPackageVersionDependencies
+--
+--         , requestListPackageVersions $
+--             newListPackageVersions
+--
+--         , requestListPackages $
+--             newListPackages
+--
+--         , requestListRepositories $
+--             newListRepositories
+--
+--         , requestListRepositoriesInDomain $
+--             newListRepositoriesInDomain
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestPutDomainPermissionsPolicy $
+--             newPutDomainPermissionsPolicy
+--
+--         , requestPutRepositoryPermissionsPolicy $
+--             newPutRepositoryPermissionsPolicy
+--
 --         , requestTagResource $
 --             newTagResource
 --
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestDeleteRepository $
---             newDeleteRepository
+--         , requestUpdatePackageVersionsStatus $
+--             newUpdatePackageVersionsStatus
 --
 --         , requestUpdateRepository $
 --             newUpdateRepository
 --
---         , requestCopyPackageVersions $
---             newCopyPackageVersions
---
---         , requestGetAuthorizationToken $
---             newGetAuthorizationToken
---
---         , requestDisassociateExternalConnection $
---             newDisassociateExternalConnection
---
---         , requestDeleteDomain $
---             newDeleteDomain
---
---         , requestListDomains $
---             newListDomains
---
---         , requestListPackageVersions $
---             newListPackageVersions
---
---         , requestListPackageVersionAssets $
---             newListPackageVersionAssets
---
 --           ]
 
 --     , testGroup "response"
---         [ responseDisposePackageVersions $
---             newDisposePackageVersionsResponse
+--         [ responseAssociateExternalConnection $
+--             newAssociateExternalConnectionResponse
 --
---         , responseGetRepositoryEndpoint $
---             newGetRepositoryEndpointResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseListPackageVersionDependencies $
---             newListPackageVersionDependenciesResponse
---
---         , responseListPackages $
---             newListPackagesResponse
---
---         , responsePutRepositoryPermissionsPolicy $
---             newPutRepositoryPermissionsPolicyResponse
---
---         , responseDeleteRepositoryPermissionsPolicy $
---             newDeleteRepositoryPermissionsPolicyResponse
---
---         , responseGetDomainPermissionsPolicy $
---             newGetDomainPermissionsPolicyResponse
---
---         , responseListRepositories $
---             newListRepositoriesResponse
---
---         , responseUpdatePackageVersionsStatus $
---             newUpdatePackageVersionsStatusResponse
---
---         , responseCreateRepository $
---             newCreateRepositoryResponse
---
---         , responseGetPackageVersionAsset $
---             newGetPackageVersionAssetResponse
---
---         , responseListRepositoriesInDomain $
---             newListRepositoriesInDomainResponse
---
---         , responsePutDomainPermissionsPolicy $
---             newPutDomainPermissionsPolicyResponse
---
---         , responseDeleteDomainPermissionsPolicy $
---             newDeleteDomainPermissionsPolicyResponse
---
---         , responseGetPackageVersionReadme $
---             newGetPackageVersionReadmeResponse
+--         , responseCopyPackageVersions $
+--             newCopyPackageVersionsResponse
 --
 --         , responseCreateDomain $
 --             newCreateDomainResponse
 --
---         , responseGetRepositoryPermissionsPolicy $
---             newGetRepositoryPermissionsPolicyResponse
+--         , responseCreateRepository $
+--             newCreateRepositoryResponse
 --
---         , responseAssociateExternalConnection $
---             newAssociateExternalConnectionResponse
+--         , responseDeleteDomain $
+--             newDeleteDomainResponse
 --
---         , responseDescribeRepository $
---             newDescribeRepositoryResponse
+--         , responseDeleteDomainPermissionsPolicy $
+--             newDeleteDomainPermissionsPolicyResponse
 --
 --         , responseDeletePackageVersions $
 --             newDeletePackageVersionsResponse
+--
+--         , responseDeleteRepository $
+--             newDeleteRepositoryResponse
+--
+--         , responseDeleteRepositoryPermissionsPolicy $
+--             newDeleteRepositoryPermissionsPolicyResponse
 --
 --         , responseDescribeDomain $
 --             newDescribeDomainResponse
@@ -201,151 +165,79 @@ import Test.Tasty
 --         , responseDescribePackageVersion $
 --             newDescribePackageVersionResponse
 --
+--         , responseDescribeRepository $
+--             newDescribeRepositoryResponse
+--
+--         , responseDisassociateExternalConnection $
+--             newDisassociateExternalConnectionResponse
+--
+--         , responseDisposePackageVersions $
+--             newDisposePackageVersionsResponse
+--
+--         , responseGetAuthorizationToken $
+--             newGetAuthorizationTokenResponse
+--
+--         , responseGetDomainPermissionsPolicy $
+--             newGetDomainPermissionsPolicyResponse
+--
+--         , responseGetPackageVersionAsset $
+--             newGetPackageVersionAssetResponse
+--
+--         , responseGetPackageVersionReadme $
+--             newGetPackageVersionReadmeResponse
+--
+--         , responseGetRepositoryEndpoint $
+--             newGetRepositoryEndpointResponse
+--
+--         , responseGetRepositoryPermissionsPolicy $
+--             newGetRepositoryPermissionsPolicyResponse
+--
+--         , responseListDomains $
+--             newListDomainsResponse
+--
+--         , responseListPackageVersionAssets $
+--             newListPackageVersionAssetsResponse
+--
+--         , responseListPackageVersionDependencies $
+--             newListPackageVersionDependenciesResponse
+--
+--         , responseListPackageVersions $
+--             newListPackageVersionsResponse
+--
+--         , responseListPackages $
+--             newListPackagesResponse
+--
+--         , responseListRepositories $
+--             newListRepositoriesResponse
+--
+--         , responseListRepositoriesInDomain $
+--             newListRepositoriesInDomainResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responsePutDomainPermissionsPolicy $
+--             newPutDomainPermissionsPolicyResponse
+--
+--         , responsePutRepositoryPermissionsPolicy $
+--             newPutRepositoryPermissionsPolicyResponse
+--
 --         , responseTagResource $
 --             newTagResourceResponse
 --
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseDeleteRepository $
---             newDeleteRepositoryResponse
+--         , responseUpdatePackageVersionsStatus $
+--             newUpdatePackageVersionsStatusResponse
 --
 --         , responseUpdateRepository $
 --             newUpdateRepositoryResponse
---
---         , responseCopyPackageVersions $
---             newCopyPackageVersionsResponse
---
---         , responseGetAuthorizationToken $
---             newGetAuthorizationTokenResponse
---
---         , responseDisassociateExternalConnection $
---             newDisassociateExternalConnectionResponse
---
---         , responseDeleteDomain $
---             newDeleteDomainResponse
---
---         , responseListDomains $
---             newListDomainsResponse
---
---         , responseListPackageVersions $
---             newListPackageVersionsResponse
---
---         , responseListPackageVersionAssets $
---             newListPackageVersionAssetsResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestDisposePackageVersions :: DisposePackageVersions -> TestTree
-requestDisposePackageVersions =
-  req
-    "DisposePackageVersions"
-    "fixture/DisposePackageVersions.yaml"
-
-requestGetRepositoryEndpoint :: GetRepositoryEndpoint -> TestTree
-requestGetRepositoryEndpoint =
-  req
-    "GetRepositoryEndpoint"
-    "fixture/GetRepositoryEndpoint.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestListPackageVersionDependencies :: ListPackageVersionDependencies -> TestTree
-requestListPackageVersionDependencies =
-  req
-    "ListPackageVersionDependencies"
-    "fixture/ListPackageVersionDependencies.yaml"
-
-requestListPackages :: ListPackages -> TestTree
-requestListPackages =
-  req
-    "ListPackages"
-    "fixture/ListPackages.yaml"
-
-requestPutRepositoryPermissionsPolicy :: PutRepositoryPermissionsPolicy -> TestTree
-requestPutRepositoryPermissionsPolicy =
-  req
-    "PutRepositoryPermissionsPolicy"
-    "fixture/PutRepositoryPermissionsPolicy.yaml"
-
-requestDeleteRepositoryPermissionsPolicy :: DeleteRepositoryPermissionsPolicy -> TestTree
-requestDeleteRepositoryPermissionsPolicy =
-  req
-    "DeleteRepositoryPermissionsPolicy"
-    "fixture/DeleteRepositoryPermissionsPolicy.yaml"
-
-requestGetDomainPermissionsPolicy :: GetDomainPermissionsPolicy -> TestTree
-requestGetDomainPermissionsPolicy =
-  req
-    "GetDomainPermissionsPolicy"
-    "fixture/GetDomainPermissionsPolicy.yaml"
-
-requestListRepositories :: ListRepositories -> TestTree
-requestListRepositories =
-  req
-    "ListRepositories"
-    "fixture/ListRepositories.yaml"
-
-requestUpdatePackageVersionsStatus :: UpdatePackageVersionsStatus -> TestTree
-requestUpdatePackageVersionsStatus =
-  req
-    "UpdatePackageVersionsStatus"
-    "fixture/UpdatePackageVersionsStatus.yaml"
-
-requestCreateRepository :: CreateRepository -> TestTree
-requestCreateRepository =
-  req
-    "CreateRepository"
-    "fixture/CreateRepository.yaml"
-
-requestGetPackageVersionAsset :: GetPackageVersionAsset -> TestTree
-requestGetPackageVersionAsset =
-  req
-    "GetPackageVersionAsset"
-    "fixture/GetPackageVersionAsset.yaml"
-
-requestListRepositoriesInDomain :: ListRepositoriesInDomain -> TestTree
-requestListRepositoriesInDomain =
-  req
-    "ListRepositoriesInDomain"
-    "fixture/ListRepositoriesInDomain.yaml"
-
-requestPutDomainPermissionsPolicy :: PutDomainPermissionsPolicy -> TestTree
-requestPutDomainPermissionsPolicy =
-  req
-    "PutDomainPermissionsPolicy"
-    "fixture/PutDomainPermissionsPolicy.yaml"
-
-requestDeleteDomainPermissionsPolicy :: DeleteDomainPermissionsPolicy -> TestTree
-requestDeleteDomainPermissionsPolicy =
-  req
-    "DeleteDomainPermissionsPolicy"
-    "fixture/DeleteDomainPermissionsPolicy.yaml"
-
-requestGetPackageVersionReadme :: GetPackageVersionReadme -> TestTree
-requestGetPackageVersionReadme =
-  req
-    "GetPackageVersionReadme"
-    "fixture/GetPackageVersionReadme.yaml"
-
-requestCreateDomain :: CreateDomain -> TestTree
-requestCreateDomain =
-  req
-    "CreateDomain"
-    "fixture/CreateDomain.yaml"
-
-requestGetRepositoryPermissionsPolicy :: GetRepositoryPermissionsPolicy -> TestTree
-requestGetRepositoryPermissionsPolicy =
-  req
-    "GetRepositoryPermissionsPolicy"
-    "fixture/GetRepositoryPermissionsPolicy.yaml"
 
 requestAssociateExternalConnection :: AssociateExternalConnection -> TestTree
 requestAssociateExternalConnection =
@@ -353,17 +245,53 @@ requestAssociateExternalConnection =
     "AssociateExternalConnection"
     "fixture/AssociateExternalConnection.yaml"
 
-requestDescribeRepository :: DescribeRepository -> TestTree
-requestDescribeRepository =
+requestCopyPackageVersions :: CopyPackageVersions -> TestTree
+requestCopyPackageVersions =
   req
-    "DescribeRepository"
-    "fixture/DescribeRepository.yaml"
+    "CopyPackageVersions"
+    "fixture/CopyPackageVersions.yaml"
+
+requestCreateDomain :: CreateDomain -> TestTree
+requestCreateDomain =
+  req
+    "CreateDomain"
+    "fixture/CreateDomain.yaml"
+
+requestCreateRepository :: CreateRepository -> TestTree
+requestCreateRepository =
+  req
+    "CreateRepository"
+    "fixture/CreateRepository.yaml"
+
+requestDeleteDomain :: DeleteDomain -> TestTree
+requestDeleteDomain =
+  req
+    "DeleteDomain"
+    "fixture/DeleteDomain.yaml"
+
+requestDeleteDomainPermissionsPolicy :: DeleteDomainPermissionsPolicy -> TestTree
+requestDeleteDomainPermissionsPolicy =
+  req
+    "DeleteDomainPermissionsPolicy"
+    "fixture/DeleteDomainPermissionsPolicy.yaml"
 
 requestDeletePackageVersions :: DeletePackageVersions -> TestTree
 requestDeletePackageVersions =
   req
     "DeletePackageVersions"
     "fixture/DeletePackageVersions.yaml"
+
+requestDeleteRepository :: DeleteRepository -> TestTree
+requestDeleteRepository =
+  req
+    "DeleteRepository"
+    "fixture/DeleteRepository.yaml"
+
+requestDeleteRepositoryPermissionsPolicy :: DeleteRepositoryPermissionsPolicy -> TestTree
+requestDeleteRepositoryPermissionsPolicy =
+  req
+    "DeleteRepositoryPermissionsPolicy"
+    "fixture/DeleteRepositoryPermissionsPolicy.yaml"
 
 requestDescribeDomain :: DescribeDomain -> TestTree
 requestDescribeDomain =
@@ -377,6 +305,120 @@ requestDescribePackageVersion =
     "DescribePackageVersion"
     "fixture/DescribePackageVersion.yaml"
 
+requestDescribeRepository :: DescribeRepository -> TestTree
+requestDescribeRepository =
+  req
+    "DescribeRepository"
+    "fixture/DescribeRepository.yaml"
+
+requestDisassociateExternalConnection :: DisassociateExternalConnection -> TestTree
+requestDisassociateExternalConnection =
+  req
+    "DisassociateExternalConnection"
+    "fixture/DisassociateExternalConnection.yaml"
+
+requestDisposePackageVersions :: DisposePackageVersions -> TestTree
+requestDisposePackageVersions =
+  req
+    "DisposePackageVersions"
+    "fixture/DisposePackageVersions.yaml"
+
+requestGetAuthorizationToken :: GetAuthorizationToken -> TestTree
+requestGetAuthorizationToken =
+  req
+    "GetAuthorizationToken"
+    "fixture/GetAuthorizationToken.yaml"
+
+requestGetDomainPermissionsPolicy :: GetDomainPermissionsPolicy -> TestTree
+requestGetDomainPermissionsPolicy =
+  req
+    "GetDomainPermissionsPolicy"
+    "fixture/GetDomainPermissionsPolicy.yaml"
+
+requestGetPackageVersionAsset :: GetPackageVersionAsset -> TestTree
+requestGetPackageVersionAsset =
+  req
+    "GetPackageVersionAsset"
+    "fixture/GetPackageVersionAsset.yaml"
+
+requestGetPackageVersionReadme :: GetPackageVersionReadme -> TestTree
+requestGetPackageVersionReadme =
+  req
+    "GetPackageVersionReadme"
+    "fixture/GetPackageVersionReadme.yaml"
+
+requestGetRepositoryEndpoint :: GetRepositoryEndpoint -> TestTree
+requestGetRepositoryEndpoint =
+  req
+    "GetRepositoryEndpoint"
+    "fixture/GetRepositoryEndpoint.yaml"
+
+requestGetRepositoryPermissionsPolicy :: GetRepositoryPermissionsPolicy -> TestTree
+requestGetRepositoryPermissionsPolicy =
+  req
+    "GetRepositoryPermissionsPolicy"
+    "fixture/GetRepositoryPermissionsPolicy.yaml"
+
+requestListDomains :: ListDomains -> TestTree
+requestListDomains =
+  req
+    "ListDomains"
+    "fixture/ListDomains.yaml"
+
+requestListPackageVersionAssets :: ListPackageVersionAssets -> TestTree
+requestListPackageVersionAssets =
+  req
+    "ListPackageVersionAssets"
+    "fixture/ListPackageVersionAssets.yaml"
+
+requestListPackageVersionDependencies :: ListPackageVersionDependencies -> TestTree
+requestListPackageVersionDependencies =
+  req
+    "ListPackageVersionDependencies"
+    "fixture/ListPackageVersionDependencies.yaml"
+
+requestListPackageVersions :: ListPackageVersions -> TestTree
+requestListPackageVersions =
+  req
+    "ListPackageVersions"
+    "fixture/ListPackageVersions.yaml"
+
+requestListPackages :: ListPackages -> TestTree
+requestListPackages =
+  req
+    "ListPackages"
+    "fixture/ListPackages.yaml"
+
+requestListRepositories :: ListRepositories -> TestTree
+requestListRepositories =
+  req
+    "ListRepositories"
+    "fixture/ListRepositories.yaml"
+
+requestListRepositoriesInDomain :: ListRepositoriesInDomain -> TestTree
+requestListRepositoriesInDomain =
+  req
+    "ListRepositoriesInDomain"
+    "fixture/ListRepositoriesInDomain.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestPutDomainPermissionsPolicy :: PutDomainPermissionsPolicy -> TestTree
+requestPutDomainPermissionsPolicy =
+  req
+    "PutDomainPermissionsPolicy"
+    "fixture/PutDomainPermissionsPolicy.yaml"
+
+requestPutRepositoryPermissionsPolicy :: PutRepositoryPermissionsPolicy -> TestTree
+requestPutRepositoryPermissionsPolicy =
+  req
+    "PutRepositoryPermissionsPolicy"
+    "fixture/PutRepositoryPermissionsPolicy.yaml"
+
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
   req
@@ -389,11 +431,11 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestDeleteRepository :: DeleteRepository -> TestTree
-requestDeleteRepository =
+requestUpdatePackageVersionsStatus :: UpdatePackageVersionsStatus -> TestTree
+requestUpdatePackageVersionsStatus =
   req
-    "DeleteRepository"
-    "fixture/DeleteRepository.yaml"
+    "UpdatePackageVersionsStatus"
+    "fixture/UpdatePackageVersionsStatus.yaml"
 
 requestUpdateRepository :: UpdateRepository -> TestTree
 requestUpdateRepository =
@@ -401,185 +443,7 @@ requestUpdateRepository =
     "UpdateRepository"
     "fixture/UpdateRepository.yaml"
 
-requestCopyPackageVersions :: CopyPackageVersions -> TestTree
-requestCopyPackageVersions =
-  req
-    "CopyPackageVersions"
-    "fixture/CopyPackageVersions.yaml"
-
-requestGetAuthorizationToken :: GetAuthorizationToken -> TestTree
-requestGetAuthorizationToken =
-  req
-    "GetAuthorizationToken"
-    "fixture/GetAuthorizationToken.yaml"
-
-requestDisassociateExternalConnection :: DisassociateExternalConnection -> TestTree
-requestDisassociateExternalConnection =
-  req
-    "DisassociateExternalConnection"
-    "fixture/DisassociateExternalConnection.yaml"
-
-requestDeleteDomain :: DeleteDomain -> TestTree
-requestDeleteDomain =
-  req
-    "DeleteDomain"
-    "fixture/DeleteDomain.yaml"
-
-requestListDomains :: ListDomains -> TestTree
-requestListDomains =
-  req
-    "ListDomains"
-    "fixture/ListDomains.yaml"
-
-requestListPackageVersions :: ListPackageVersions -> TestTree
-requestListPackageVersions =
-  req
-    "ListPackageVersions"
-    "fixture/ListPackageVersions.yaml"
-
-requestListPackageVersionAssets :: ListPackageVersionAssets -> TestTree
-requestListPackageVersionAssets =
-  req
-    "ListPackageVersionAssets"
-    "fixture/ListPackageVersionAssets.yaml"
-
 -- Responses
-
-responseDisposePackageVersions :: DisposePackageVersionsResponse -> TestTree
-responseDisposePackageVersions =
-  res
-    "DisposePackageVersionsResponse"
-    "fixture/DisposePackageVersionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisposePackageVersions)
-
-responseGetRepositoryEndpoint :: GetRepositoryEndpointResponse -> TestTree
-responseGetRepositoryEndpoint =
-  res
-    "GetRepositoryEndpointResponse"
-    "fixture/GetRepositoryEndpointResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetRepositoryEndpoint)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseListPackageVersionDependencies :: ListPackageVersionDependenciesResponse -> TestTree
-responseListPackageVersionDependencies =
-  res
-    "ListPackageVersionDependenciesResponse"
-    "fixture/ListPackageVersionDependenciesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListPackageVersionDependencies)
-
-responseListPackages :: ListPackagesResponse -> TestTree
-responseListPackages =
-  res
-    "ListPackagesResponse"
-    "fixture/ListPackagesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListPackages)
-
-responsePutRepositoryPermissionsPolicy :: PutRepositoryPermissionsPolicyResponse -> TestTree
-responsePutRepositoryPermissionsPolicy =
-  res
-    "PutRepositoryPermissionsPolicyResponse"
-    "fixture/PutRepositoryPermissionsPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutRepositoryPermissionsPolicy)
-
-responseDeleteRepositoryPermissionsPolicy :: DeleteRepositoryPermissionsPolicyResponse -> TestTree
-responseDeleteRepositoryPermissionsPolicy =
-  res
-    "DeleteRepositoryPermissionsPolicyResponse"
-    "fixture/DeleteRepositoryPermissionsPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteRepositoryPermissionsPolicy)
-
-responseGetDomainPermissionsPolicy :: GetDomainPermissionsPolicyResponse -> TestTree
-responseGetDomainPermissionsPolicy =
-  res
-    "GetDomainPermissionsPolicyResponse"
-    "fixture/GetDomainPermissionsPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetDomainPermissionsPolicy)
-
-responseListRepositories :: ListRepositoriesResponse -> TestTree
-responseListRepositories =
-  res
-    "ListRepositoriesResponse"
-    "fixture/ListRepositoriesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListRepositories)
-
-responseUpdatePackageVersionsStatus :: UpdatePackageVersionsStatusResponse -> TestTree
-responseUpdatePackageVersionsStatus =
-  res
-    "UpdatePackageVersionsStatusResponse"
-    "fixture/UpdatePackageVersionsStatusResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdatePackageVersionsStatus)
-
-responseCreateRepository :: CreateRepositoryResponse -> TestTree
-responseCreateRepository =
-  res
-    "CreateRepositoryResponse"
-    "fixture/CreateRepositoryResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateRepository)
-
-responseListRepositoriesInDomain :: ListRepositoriesInDomainResponse -> TestTree
-responseListRepositoriesInDomain =
-  res
-    "ListRepositoriesInDomainResponse"
-    "fixture/ListRepositoriesInDomainResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListRepositoriesInDomain)
-
-responsePutDomainPermissionsPolicy :: PutDomainPermissionsPolicyResponse -> TestTree
-responsePutDomainPermissionsPolicy =
-  res
-    "PutDomainPermissionsPolicyResponse"
-    "fixture/PutDomainPermissionsPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutDomainPermissionsPolicy)
-
-responseDeleteDomainPermissionsPolicy :: DeleteDomainPermissionsPolicyResponse -> TestTree
-responseDeleteDomainPermissionsPolicy =
-  res
-    "DeleteDomainPermissionsPolicyResponse"
-    "fixture/DeleteDomainPermissionsPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteDomainPermissionsPolicy)
-
-responseGetPackageVersionReadme :: GetPackageVersionReadmeResponse -> TestTree
-responseGetPackageVersionReadme =
-  res
-    "GetPackageVersionReadmeResponse"
-    "fixture/GetPackageVersionReadmeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetPackageVersionReadme)
-
-responseCreateDomain :: CreateDomainResponse -> TestTree
-responseCreateDomain =
-  res
-    "CreateDomainResponse"
-    "fixture/CreateDomainResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateDomain)
-
-responseGetRepositoryPermissionsPolicy :: GetRepositoryPermissionsPolicyResponse -> TestTree
-responseGetRepositoryPermissionsPolicy =
-  res
-    "GetRepositoryPermissionsPolicyResponse"
-    "fixture/GetRepositoryPermissionsPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetRepositoryPermissionsPolicy)
 
 responseAssociateExternalConnection :: AssociateExternalConnectionResponse -> TestTree
 responseAssociateExternalConnection =
@@ -589,13 +453,45 @@ responseAssociateExternalConnection =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociateExternalConnection)
 
-responseDescribeRepository :: DescribeRepositoryResponse -> TestTree
-responseDescribeRepository =
+responseCopyPackageVersions :: CopyPackageVersionsResponse -> TestTree
+responseCopyPackageVersions =
   res
-    "DescribeRepositoryResponse"
-    "fixture/DescribeRepositoryResponse.proto"
+    "CopyPackageVersionsResponse"
+    "fixture/CopyPackageVersionsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeRepository)
+    (Proxy.Proxy :: Proxy.Proxy CopyPackageVersions)
+
+responseCreateDomain :: CreateDomainResponse -> TestTree
+responseCreateDomain =
+  res
+    "CreateDomainResponse"
+    "fixture/CreateDomainResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateDomain)
+
+responseCreateRepository :: CreateRepositoryResponse -> TestTree
+responseCreateRepository =
+  res
+    "CreateRepositoryResponse"
+    "fixture/CreateRepositoryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateRepository)
+
+responseDeleteDomain :: DeleteDomainResponse -> TestTree
+responseDeleteDomain =
+  res
+    "DeleteDomainResponse"
+    "fixture/DeleteDomainResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteDomain)
+
+responseDeleteDomainPermissionsPolicy :: DeleteDomainPermissionsPolicyResponse -> TestTree
+responseDeleteDomainPermissionsPolicy =
+  res
+    "DeleteDomainPermissionsPolicyResponse"
+    "fixture/DeleteDomainPermissionsPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteDomainPermissionsPolicy)
 
 responseDeletePackageVersions :: DeletePackageVersionsResponse -> TestTree
 responseDeletePackageVersions =
@@ -604,6 +500,22 @@ responseDeletePackageVersions =
     "fixture/DeletePackageVersionsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeletePackageVersions)
+
+responseDeleteRepository :: DeleteRepositoryResponse -> TestTree
+responseDeleteRepository =
+  res
+    "DeleteRepositoryResponse"
+    "fixture/DeleteRepositoryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteRepository)
+
+responseDeleteRepositoryPermissionsPolicy :: DeleteRepositoryPermissionsPolicyResponse -> TestTree
+responseDeleteRepositoryPermissionsPolicy =
+  res
+    "DeleteRepositoryPermissionsPolicyResponse"
+    "fixture/DeleteRepositoryPermissionsPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteRepositoryPermissionsPolicy)
 
 responseDescribeDomain :: DescribeDomainResponse -> TestTree
 responseDescribeDomain =
@@ -621,6 +533,150 @@ responseDescribePackageVersion =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribePackageVersion)
 
+responseDescribeRepository :: DescribeRepositoryResponse -> TestTree
+responseDescribeRepository =
+  res
+    "DescribeRepositoryResponse"
+    "fixture/DescribeRepositoryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeRepository)
+
+responseDisassociateExternalConnection :: DisassociateExternalConnectionResponse -> TestTree
+responseDisassociateExternalConnection =
+  res
+    "DisassociateExternalConnectionResponse"
+    "fixture/DisassociateExternalConnectionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateExternalConnection)
+
+responseDisposePackageVersions :: DisposePackageVersionsResponse -> TestTree
+responseDisposePackageVersions =
+  res
+    "DisposePackageVersionsResponse"
+    "fixture/DisposePackageVersionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisposePackageVersions)
+
+responseGetAuthorizationToken :: GetAuthorizationTokenResponse -> TestTree
+responseGetAuthorizationToken =
+  res
+    "GetAuthorizationTokenResponse"
+    "fixture/GetAuthorizationTokenResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAuthorizationToken)
+
+responseGetDomainPermissionsPolicy :: GetDomainPermissionsPolicyResponse -> TestTree
+responseGetDomainPermissionsPolicy =
+  res
+    "GetDomainPermissionsPolicyResponse"
+    "fixture/GetDomainPermissionsPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDomainPermissionsPolicy)
+
+responseGetPackageVersionReadme :: GetPackageVersionReadmeResponse -> TestTree
+responseGetPackageVersionReadme =
+  res
+    "GetPackageVersionReadmeResponse"
+    "fixture/GetPackageVersionReadmeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetPackageVersionReadme)
+
+responseGetRepositoryEndpoint :: GetRepositoryEndpointResponse -> TestTree
+responseGetRepositoryEndpoint =
+  res
+    "GetRepositoryEndpointResponse"
+    "fixture/GetRepositoryEndpointResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetRepositoryEndpoint)
+
+responseGetRepositoryPermissionsPolicy :: GetRepositoryPermissionsPolicyResponse -> TestTree
+responseGetRepositoryPermissionsPolicy =
+  res
+    "GetRepositoryPermissionsPolicyResponse"
+    "fixture/GetRepositoryPermissionsPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetRepositoryPermissionsPolicy)
+
+responseListDomains :: ListDomainsResponse -> TestTree
+responseListDomains =
+  res
+    "ListDomainsResponse"
+    "fixture/ListDomainsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDomains)
+
+responseListPackageVersionAssets :: ListPackageVersionAssetsResponse -> TestTree
+responseListPackageVersionAssets =
+  res
+    "ListPackageVersionAssetsResponse"
+    "fixture/ListPackageVersionAssetsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListPackageVersionAssets)
+
+responseListPackageVersionDependencies :: ListPackageVersionDependenciesResponse -> TestTree
+responseListPackageVersionDependencies =
+  res
+    "ListPackageVersionDependenciesResponse"
+    "fixture/ListPackageVersionDependenciesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListPackageVersionDependencies)
+
+responseListPackageVersions :: ListPackageVersionsResponse -> TestTree
+responseListPackageVersions =
+  res
+    "ListPackageVersionsResponse"
+    "fixture/ListPackageVersionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListPackageVersions)
+
+responseListPackages :: ListPackagesResponse -> TestTree
+responseListPackages =
+  res
+    "ListPackagesResponse"
+    "fixture/ListPackagesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListPackages)
+
+responseListRepositories :: ListRepositoriesResponse -> TestTree
+responseListRepositories =
+  res
+    "ListRepositoriesResponse"
+    "fixture/ListRepositoriesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRepositories)
+
+responseListRepositoriesInDomain :: ListRepositoriesInDomainResponse -> TestTree
+responseListRepositoriesInDomain =
+  res
+    "ListRepositoriesInDomainResponse"
+    "fixture/ListRepositoriesInDomainResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRepositoriesInDomain)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responsePutDomainPermissionsPolicy :: PutDomainPermissionsPolicyResponse -> TestTree
+responsePutDomainPermissionsPolicy =
+  res
+    "PutDomainPermissionsPolicyResponse"
+    "fixture/PutDomainPermissionsPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutDomainPermissionsPolicy)
+
+responsePutRepositoryPermissionsPolicy :: PutRepositoryPermissionsPolicyResponse -> TestTree
+responsePutRepositoryPermissionsPolicy =
+  res
+    "PutRepositoryPermissionsPolicyResponse"
+    "fixture/PutRepositoryPermissionsPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutRepositoryPermissionsPolicy)
+
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
   res
@@ -637,13 +693,13 @@ responseUntagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
-responseDeleteRepository :: DeleteRepositoryResponse -> TestTree
-responseDeleteRepository =
+responseUpdatePackageVersionsStatus :: UpdatePackageVersionsStatusResponse -> TestTree
+responseUpdatePackageVersionsStatus =
   res
-    "DeleteRepositoryResponse"
-    "fixture/DeleteRepositoryResponse.proto"
+    "UpdatePackageVersionsStatusResponse"
+    "fixture/UpdatePackageVersionsStatusResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteRepository)
+    (Proxy.Proxy :: Proxy.Proxy UpdatePackageVersionsStatus)
 
 responseUpdateRepository :: UpdateRepositoryResponse -> TestTree
 responseUpdateRepository =
@@ -652,59 +708,3 @@ responseUpdateRepository =
     "fixture/UpdateRepositoryResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateRepository)
-
-responseCopyPackageVersions :: CopyPackageVersionsResponse -> TestTree
-responseCopyPackageVersions =
-  res
-    "CopyPackageVersionsResponse"
-    "fixture/CopyPackageVersionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CopyPackageVersions)
-
-responseGetAuthorizationToken :: GetAuthorizationTokenResponse -> TestTree
-responseGetAuthorizationToken =
-  res
-    "GetAuthorizationTokenResponse"
-    "fixture/GetAuthorizationTokenResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetAuthorizationToken)
-
-responseDisassociateExternalConnection :: DisassociateExternalConnectionResponse -> TestTree
-responseDisassociateExternalConnection =
-  res
-    "DisassociateExternalConnectionResponse"
-    "fixture/DisassociateExternalConnectionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisassociateExternalConnection)
-
-responseDeleteDomain :: DeleteDomainResponse -> TestTree
-responseDeleteDomain =
-  res
-    "DeleteDomainResponse"
-    "fixture/DeleteDomainResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteDomain)
-
-responseListDomains :: ListDomainsResponse -> TestTree
-responseListDomains =
-  res
-    "ListDomainsResponse"
-    "fixture/ListDomainsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDomains)
-
-responseListPackageVersions :: ListPackageVersionsResponse -> TestTree
-responseListPackageVersions =
-  res
-    "ListPackageVersionsResponse"
-    "fixture/ListPackageVersionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListPackageVersions)
-
-responseListPackageVersionAssets :: ListPackageVersionAssetsResponse -> TestTree
-responseListPackageVersionAssets =
-  res
-    "ListPackageVersionAssetsResponse"
-    "fixture/ListPackageVersionAssetsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListPackageVersionAssets)

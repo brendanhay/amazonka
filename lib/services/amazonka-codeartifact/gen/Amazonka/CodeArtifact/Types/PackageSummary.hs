@@ -38,6 +38,8 @@ data PackageSummary = PackageSummary'
     --
     -- -   @maven@
     format :: Prelude.Maybe PackageFormat,
+    -- | The name of the package.
+    package :: Prelude.Maybe Prelude.Text,
     -- | The namespace of the package. The package component that specifies its
     -- namespace depends on its type. For example:
     --
@@ -47,9 +49,7 @@ data PackageSummary = PackageSummary'
     --
     -- -   A Python package does not contain a corresponding component, so
     --     Python packages do not have a namespace.
-    namespace :: Prelude.Maybe Prelude.Text,
-    -- | The name of the package.
-    package :: Prelude.Maybe Prelude.Text
+    namespace :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,6 +69,8 @@ data PackageSummary = PackageSummary'
 --
 -- -   @maven@
 --
+-- 'package', 'packageSummary_package' - The name of the package.
+--
 -- 'namespace', 'packageSummary_namespace' - The namespace of the package. The package component that specifies its
 -- namespace depends on its type. For example:
 --
@@ -78,15 +80,13 @@ data PackageSummary = PackageSummary'
 --
 -- -   A Python package does not contain a corresponding component, so
 --     Python packages do not have a namespace.
---
--- 'package', 'packageSummary_package' - The name of the package.
 newPackageSummary ::
   PackageSummary
 newPackageSummary =
   PackageSummary'
     { format = Prelude.Nothing,
-      namespace = Prelude.Nothing,
-      package = Prelude.Nothing
+      package = Prelude.Nothing,
+      namespace = Prelude.Nothing
     }
 
 -- | The format of the package. Valid values are:
@@ -98,6 +98,10 @@ newPackageSummary =
 -- -   @maven@
 packageSummary_format :: Lens.Lens' PackageSummary (Prelude.Maybe PackageFormat)
 packageSummary_format = Lens.lens (\PackageSummary' {format} -> format) (\s@PackageSummary' {} a -> s {format = a} :: PackageSummary)
+
+-- | The name of the package.
+packageSummary_package :: Lens.Lens' PackageSummary (Prelude.Maybe Prelude.Text)
+packageSummary_package = Lens.lens (\PackageSummary' {package} -> package) (\s@PackageSummary' {} a -> s {package = a} :: PackageSummary)
 
 -- | The namespace of the package. The package component that specifies its
 -- namespace depends on its type. For example:
@@ -111,10 +115,6 @@ packageSummary_format = Lens.lens (\PackageSummary' {format} -> format) (\s@Pack
 packageSummary_namespace :: Lens.Lens' PackageSummary (Prelude.Maybe Prelude.Text)
 packageSummary_namespace = Lens.lens (\PackageSummary' {namespace} -> namespace) (\s@PackageSummary' {} a -> s {namespace = a} :: PackageSummary)
 
--- | The name of the package.
-packageSummary_package :: Lens.Lens' PackageSummary (Prelude.Maybe Prelude.Text)
-packageSummary_package = Lens.lens (\PackageSummary' {package} -> package) (\s@PackageSummary' {} a -> s {package = a} :: PackageSummary)
-
 instance Core.FromJSON PackageSummary where
   parseJSON =
     Core.withObject
@@ -122,18 +122,18 @@ instance Core.FromJSON PackageSummary where
       ( \x ->
           PackageSummary'
             Prelude.<$> (x Core..:? "format")
-            Prelude.<*> (x Core..:? "namespace")
             Prelude.<*> (x Core..:? "package")
+            Prelude.<*> (x Core..:? "namespace")
       )
 
 instance Prelude.Hashable PackageSummary where
   hashWithSalt _salt PackageSummary' {..} =
     _salt `Prelude.hashWithSalt` format
-      `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` package
+      `Prelude.hashWithSalt` namespace
 
 instance Prelude.NFData PackageSummary where
   rnf PackageSummary' {..} =
     Prelude.rnf format
-      `Prelude.seq` Prelude.rnf namespace
       `Prelude.seq` Prelude.rnf package
+      `Prelude.seq` Prelude.rnf namespace

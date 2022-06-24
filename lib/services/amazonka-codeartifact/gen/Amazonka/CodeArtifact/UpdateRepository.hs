@@ -28,8 +28,8 @@ module Amazonka.CodeArtifact.UpdateRepository
 
     -- * Request Lenses
     updateRepository_upstreams,
-    updateRepository_domainOwner,
     updateRepository_description,
+    updateRepository_domainOwner,
     updateRepository_domain,
     updateRepository_repository,
 
@@ -58,11 +58,11 @@ data UpdateRepository = UpdateRepository'
     -- more information, see
     -- <https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html Working with upstream repositories>.
     upstreams :: Prelude.Maybe [UpstreamRepository],
+    -- | An updated repository description.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The 12-digit account number of the AWS account that owns the domain. It
     -- does not include dashes or spaces.
     domainOwner :: Prelude.Maybe Prelude.Text,
-    -- | An updated repository description.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain associated with the repository to update.
     domain :: Prelude.Text,
     -- | The name of the repository to update.
@@ -84,10 +84,10 @@ data UpdateRepository = UpdateRepository'
 -- more information, see
 -- <https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html Working with upstream repositories>.
 --
+-- 'description', 'updateRepository_description' - An updated repository description.
+--
 -- 'domainOwner', 'updateRepository_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
 -- does not include dashes or spaces.
---
--- 'description', 'updateRepository_description' - An updated repository description.
 --
 -- 'domain', 'updateRepository_domain' - The name of the domain associated with the repository to update.
 --
@@ -101,8 +101,8 @@ newUpdateRepository ::
 newUpdateRepository pDomain_ pRepository_ =
   UpdateRepository'
     { upstreams = Prelude.Nothing,
-      domainOwner = Prelude.Nothing,
       description = Prelude.Nothing,
+      domainOwner = Prelude.Nothing,
       domain = pDomain_,
       repository = pRepository_
     }
@@ -115,14 +115,14 @@ newUpdateRepository pDomain_ pRepository_ =
 updateRepository_upstreams :: Lens.Lens' UpdateRepository (Prelude.Maybe [UpstreamRepository])
 updateRepository_upstreams = Lens.lens (\UpdateRepository' {upstreams} -> upstreams) (\s@UpdateRepository' {} a -> s {upstreams = a} :: UpdateRepository) Prelude.. Lens.mapping Lens.coerced
 
+-- | An updated repository description.
+updateRepository_description :: Lens.Lens' UpdateRepository (Prelude.Maybe Prelude.Text)
+updateRepository_description = Lens.lens (\UpdateRepository' {description} -> description) (\s@UpdateRepository' {} a -> s {description = a} :: UpdateRepository)
+
 -- | The 12-digit account number of the AWS account that owns the domain. It
 -- does not include dashes or spaces.
 updateRepository_domainOwner :: Lens.Lens' UpdateRepository (Prelude.Maybe Prelude.Text)
 updateRepository_domainOwner = Lens.lens (\UpdateRepository' {domainOwner} -> domainOwner) (\s@UpdateRepository' {} a -> s {domainOwner = a} :: UpdateRepository)
-
--- | An updated repository description.
-updateRepository_description :: Lens.Lens' UpdateRepository (Prelude.Maybe Prelude.Text)
-updateRepository_description = Lens.lens (\UpdateRepository' {description} -> description) (\s@UpdateRepository' {} a -> s {description = a} :: UpdateRepository)
 
 -- | The name of the domain associated with the repository to update.
 updateRepository_domain :: Lens.Lens' UpdateRepository Prelude.Text
@@ -148,16 +148,16 @@ instance Core.AWSRequest UpdateRepository where
 instance Prelude.Hashable UpdateRepository where
   hashWithSalt _salt UpdateRepository' {..} =
     _salt `Prelude.hashWithSalt` upstreams
-      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` repository
 
 instance Prelude.NFData UpdateRepository where
   rnf UpdateRepository' {..} =
     Prelude.rnf upstreams
-      `Prelude.seq` Prelude.rnf domainOwner
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf domainOwner
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf repository
 

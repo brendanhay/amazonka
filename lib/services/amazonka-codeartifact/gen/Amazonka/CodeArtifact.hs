@@ -203,26 +203,26 @@ module Amazonka.CodeArtifact
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
 
     -- ** InternalServerException
     _InternalServerException,
 
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -230,101 +230,17 @@ module Amazonka.CodeArtifact
     -- * Operations
     -- $operations
 
-    -- ** DisposePackageVersions
-    DisposePackageVersions (DisposePackageVersions'),
-    newDisposePackageVersions,
-    DisposePackageVersionsResponse (DisposePackageVersionsResponse'),
-    newDisposePackageVersionsResponse,
+    -- ** AssociateExternalConnection
+    AssociateExternalConnection (AssociateExternalConnection'),
+    newAssociateExternalConnection,
+    AssociateExternalConnectionResponse (AssociateExternalConnectionResponse'),
+    newAssociateExternalConnectionResponse,
 
-    -- ** GetRepositoryEndpoint
-    GetRepositoryEndpoint (GetRepositoryEndpoint'),
-    newGetRepositoryEndpoint,
-    GetRepositoryEndpointResponse (GetRepositoryEndpointResponse'),
-    newGetRepositoryEndpointResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** ListPackageVersionDependencies
-    ListPackageVersionDependencies (ListPackageVersionDependencies'),
-    newListPackageVersionDependencies,
-    ListPackageVersionDependenciesResponse (ListPackageVersionDependenciesResponse'),
-    newListPackageVersionDependenciesResponse,
-
-    -- ** ListPackages (Paginated)
-    ListPackages (ListPackages'),
-    newListPackages,
-    ListPackagesResponse (ListPackagesResponse'),
-    newListPackagesResponse,
-
-    -- ** PutRepositoryPermissionsPolicy
-    PutRepositoryPermissionsPolicy (PutRepositoryPermissionsPolicy'),
-    newPutRepositoryPermissionsPolicy,
-    PutRepositoryPermissionsPolicyResponse (PutRepositoryPermissionsPolicyResponse'),
-    newPutRepositoryPermissionsPolicyResponse,
-
-    -- ** DeleteRepositoryPermissionsPolicy
-    DeleteRepositoryPermissionsPolicy (DeleteRepositoryPermissionsPolicy'),
-    newDeleteRepositoryPermissionsPolicy,
-    DeleteRepositoryPermissionsPolicyResponse (DeleteRepositoryPermissionsPolicyResponse'),
-    newDeleteRepositoryPermissionsPolicyResponse,
-
-    -- ** GetDomainPermissionsPolicy
-    GetDomainPermissionsPolicy (GetDomainPermissionsPolicy'),
-    newGetDomainPermissionsPolicy,
-    GetDomainPermissionsPolicyResponse (GetDomainPermissionsPolicyResponse'),
-    newGetDomainPermissionsPolicyResponse,
-
-    -- ** ListRepositories (Paginated)
-    ListRepositories (ListRepositories'),
-    newListRepositories,
-    ListRepositoriesResponse (ListRepositoriesResponse'),
-    newListRepositoriesResponse,
-
-    -- ** UpdatePackageVersionsStatus
-    UpdatePackageVersionsStatus (UpdatePackageVersionsStatus'),
-    newUpdatePackageVersionsStatus,
-    UpdatePackageVersionsStatusResponse (UpdatePackageVersionsStatusResponse'),
-    newUpdatePackageVersionsStatusResponse,
-
-    -- ** CreateRepository
-    CreateRepository (CreateRepository'),
-    newCreateRepository,
-    CreateRepositoryResponse (CreateRepositoryResponse'),
-    newCreateRepositoryResponse,
-
-    -- ** GetPackageVersionAsset
-    GetPackageVersionAsset (GetPackageVersionAsset'),
-    newGetPackageVersionAsset,
-    GetPackageVersionAssetResponse (GetPackageVersionAssetResponse'),
-    newGetPackageVersionAssetResponse,
-
-    -- ** ListRepositoriesInDomain (Paginated)
-    ListRepositoriesInDomain (ListRepositoriesInDomain'),
-    newListRepositoriesInDomain,
-    ListRepositoriesInDomainResponse (ListRepositoriesInDomainResponse'),
-    newListRepositoriesInDomainResponse,
-
-    -- ** PutDomainPermissionsPolicy
-    PutDomainPermissionsPolicy (PutDomainPermissionsPolicy'),
-    newPutDomainPermissionsPolicy,
-    PutDomainPermissionsPolicyResponse (PutDomainPermissionsPolicyResponse'),
-    newPutDomainPermissionsPolicyResponse,
-
-    -- ** DeleteDomainPermissionsPolicy
-    DeleteDomainPermissionsPolicy (DeleteDomainPermissionsPolicy'),
-    newDeleteDomainPermissionsPolicy,
-    DeleteDomainPermissionsPolicyResponse (DeleteDomainPermissionsPolicyResponse'),
-    newDeleteDomainPermissionsPolicyResponse,
-
-    -- ** GetPackageVersionReadme
-    GetPackageVersionReadme (GetPackageVersionReadme'),
-    newGetPackageVersionReadme,
-    GetPackageVersionReadmeResponse (GetPackageVersionReadmeResponse'),
-    newGetPackageVersionReadmeResponse,
+    -- ** CopyPackageVersions
+    CopyPackageVersions (CopyPackageVersions'),
+    newCopyPackageVersions,
+    CopyPackageVersionsResponse (CopyPackageVersionsResponse'),
+    newCopyPackageVersionsResponse,
 
     -- ** CreateDomain
     CreateDomain (CreateDomain'),
@@ -332,29 +248,41 @@ module Amazonka.CodeArtifact
     CreateDomainResponse (CreateDomainResponse'),
     newCreateDomainResponse,
 
-    -- ** GetRepositoryPermissionsPolicy
-    GetRepositoryPermissionsPolicy (GetRepositoryPermissionsPolicy'),
-    newGetRepositoryPermissionsPolicy,
-    GetRepositoryPermissionsPolicyResponse (GetRepositoryPermissionsPolicyResponse'),
-    newGetRepositoryPermissionsPolicyResponse,
+    -- ** CreateRepository
+    CreateRepository (CreateRepository'),
+    newCreateRepository,
+    CreateRepositoryResponse (CreateRepositoryResponse'),
+    newCreateRepositoryResponse,
 
-    -- ** AssociateExternalConnection
-    AssociateExternalConnection (AssociateExternalConnection'),
-    newAssociateExternalConnection,
-    AssociateExternalConnectionResponse (AssociateExternalConnectionResponse'),
-    newAssociateExternalConnectionResponse,
+    -- ** DeleteDomain
+    DeleteDomain (DeleteDomain'),
+    newDeleteDomain,
+    DeleteDomainResponse (DeleteDomainResponse'),
+    newDeleteDomainResponse,
 
-    -- ** DescribeRepository
-    DescribeRepository (DescribeRepository'),
-    newDescribeRepository,
-    DescribeRepositoryResponse (DescribeRepositoryResponse'),
-    newDescribeRepositoryResponse,
+    -- ** DeleteDomainPermissionsPolicy
+    DeleteDomainPermissionsPolicy (DeleteDomainPermissionsPolicy'),
+    newDeleteDomainPermissionsPolicy,
+    DeleteDomainPermissionsPolicyResponse (DeleteDomainPermissionsPolicyResponse'),
+    newDeleteDomainPermissionsPolicyResponse,
 
     -- ** DeletePackageVersions
     DeletePackageVersions (DeletePackageVersions'),
     newDeletePackageVersions,
     DeletePackageVersionsResponse (DeletePackageVersionsResponse'),
     newDeletePackageVersionsResponse,
+
+    -- ** DeleteRepository
+    DeleteRepository (DeleteRepository'),
+    newDeleteRepository,
+    DeleteRepositoryResponse (DeleteRepositoryResponse'),
+    newDeleteRepositoryResponse,
+
+    -- ** DeleteRepositoryPermissionsPolicy
+    DeleteRepositoryPermissionsPolicy (DeleteRepositoryPermissionsPolicy'),
+    newDeleteRepositoryPermissionsPolicy,
+    DeleteRepositoryPermissionsPolicyResponse (DeleteRepositoryPermissionsPolicyResponse'),
+    newDeleteRepositoryPermissionsPolicyResponse,
 
     -- ** DescribeDomain
     DescribeDomain (DescribeDomain'),
@@ -368,6 +296,120 @@ module Amazonka.CodeArtifact
     DescribePackageVersionResponse (DescribePackageVersionResponse'),
     newDescribePackageVersionResponse,
 
+    -- ** DescribeRepository
+    DescribeRepository (DescribeRepository'),
+    newDescribeRepository,
+    DescribeRepositoryResponse (DescribeRepositoryResponse'),
+    newDescribeRepositoryResponse,
+
+    -- ** DisassociateExternalConnection
+    DisassociateExternalConnection (DisassociateExternalConnection'),
+    newDisassociateExternalConnection,
+    DisassociateExternalConnectionResponse (DisassociateExternalConnectionResponse'),
+    newDisassociateExternalConnectionResponse,
+
+    -- ** DisposePackageVersions
+    DisposePackageVersions (DisposePackageVersions'),
+    newDisposePackageVersions,
+    DisposePackageVersionsResponse (DisposePackageVersionsResponse'),
+    newDisposePackageVersionsResponse,
+
+    -- ** GetAuthorizationToken
+    GetAuthorizationToken (GetAuthorizationToken'),
+    newGetAuthorizationToken,
+    GetAuthorizationTokenResponse (GetAuthorizationTokenResponse'),
+    newGetAuthorizationTokenResponse,
+
+    -- ** GetDomainPermissionsPolicy
+    GetDomainPermissionsPolicy (GetDomainPermissionsPolicy'),
+    newGetDomainPermissionsPolicy,
+    GetDomainPermissionsPolicyResponse (GetDomainPermissionsPolicyResponse'),
+    newGetDomainPermissionsPolicyResponse,
+
+    -- ** GetPackageVersionAsset
+    GetPackageVersionAsset (GetPackageVersionAsset'),
+    newGetPackageVersionAsset,
+    GetPackageVersionAssetResponse (GetPackageVersionAssetResponse'),
+    newGetPackageVersionAssetResponse,
+
+    -- ** GetPackageVersionReadme
+    GetPackageVersionReadme (GetPackageVersionReadme'),
+    newGetPackageVersionReadme,
+    GetPackageVersionReadmeResponse (GetPackageVersionReadmeResponse'),
+    newGetPackageVersionReadmeResponse,
+
+    -- ** GetRepositoryEndpoint
+    GetRepositoryEndpoint (GetRepositoryEndpoint'),
+    newGetRepositoryEndpoint,
+    GetRepositoryEndpointResponse (GetRepositoryEndpointResponse'),
+    newGetRepositoryEndpointResponse,
+
+    -- ** GetRepositoryPermissionsPolicy
+    GetRepositoryPermissionsPolicy (GetRepositoryPermissionsPolicy'),
+    newGetRepositoryPermissionsPolicy,
+    GetRepositoryPermissionsPolicyResponse (GetRepositoryPermissionsPolicyResponse'),
+    newGetRepositoryPermissionsPolicyResponse,
+
+    -- ** ListDomains (Paginated)
+    ListDomains (ListDomains'),
+    newListDomains,
+    ListDomainsResponse (ListDomainsResponse'),
+    newListDomainsResponse,
+
+    -- ** ListPackageVersionAssets (Paginated)
+    ListPackageVersionAssets (ListPackageVersionAssets'),
+    newListPackageVersionAssets,
+    ListPackageVersionAssetsResponse (ListPackageVersionAssetsResponse'),
+    newListPackageVersionAssetsResponse,
+
+    -- ** ListPackageVersionDependencies
+    ListPackageVersionDependencies (ListPackageVersionDependencies'),
+    newListPackageVersionDependencies,
+    ListPackageVersionDependenciesResponse (ListPackageVersionDependenciesResponse'),
+    newListPackageVersionDependenciesResponse,
+
+    -- ** ListPackageVersions (Paginated)
+    ListPackageVersions (ListPackageVersions'),
+    newListPackageVersions,
+    ListPackageVersionsResponse (ListPackageVersionsResponse'),
+    newListPackageVersionsResponse,
+
+    -- ** ListPackages (Paginated)
+    ListPackages (ListPackages'),
+    newListPackages,
+    ListPackagesResponse (ListPackagesResponse'),
+    newListPackagesResponse,
+
+    -- ** ListRepositories (Paginated)
+    ListRepositories (ListRepositories'),
+    newListRepositories,
+    ListRepositoriesResponse (ListRepositoriesResponse'),
+    newListRepositoriesResponse,
+
+    -- ** ListRepositoriesInDomain (Paginated)
+    ListRepositoriesInDomain (ListRepositoriesInDomain'),
+    newListRepositoriesInDomain,
+    ListRepositoriesInDomainResponse (ListRepositoriesInDomainResponse'),
+    newListRepositoriesInDomainResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** PutDomainPermissionsPolicy
+    PutDomainPermissionsPolicy (PutDomainPermissionsPolicy'),
+    newPutDomainPermissionsPolicy,
+    PutDomainPermissionsPolicyResponse (PutDomainPermissionsPolicyResponse'),
+    newPutDomainPermissionsPolicyResponse,
+
+    -- ** PutRepositoryPermissionsPolicy
+    PutRepositoryPermissionsPolicy (PutRepositoryPermissionsPolicy'),
+    newPutRepositoryPermissionsPolicy,
+    PutRepositoryPermissionsPolicyResponse (PutRepositoryPermissionsPolicyResponse'),
+    newPutRepositoryPermissionsPolicyResponse,
+
     -- ** TagResource
     TagResource (TagResource'),
     newTagResource,
@@ -380,59 +422,17 @@ module Amazonka.CodeArtifact
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** DeleteRepository
-    DeleteRepository (DeleteRepository'),
-    newDeleteRepository,
-    DeleteRepositoryResponse (DeleteRepositoryResponse'),
-    newDeleteRepositoryResponse,
+    -- ** UpdatePackageVersionsStatus
+    UpdatePackageVersionsStatus (UpdatePackageVersionsStatus'),
+    newUpdatePackageVersionsStatus,
+    UpdatePackageVersionsStatusResponse (UpdatePackageVersionsStatusResponse'),
+    newUpdatePackageVersionsStatusResponse,
 
     -- ** UpdateRepository
     UpdateRepository (UpdateRepository'),
     newUpdateRepository,
     UpdateRepositoryResponse (UpdateRepositoryResponse'),
     newUpdateRepositoryResponse,
-
-    -- ** CopyPackageVersions
-    CopyPackageVersions (CopyPackageVersions'),
-    newCopyPackageVersions,
-    CopyPackageVersionsResponse (CopyPackageVersionsResponse'),
-    newCopyPackageVersionsResponse,
-
-    -- ** GetAuthorizationToken
-    GetAuthorizationToken (GetAuthorizationToken'),
-    newGetAuthorizationToken,
-    GetAuthorizationTokenResponse (GetAuthorizationTokenResponse'),
-    newGetAuthorizationTokenResponse,
-
-    -- ** DisassociateExternalConnection
-    DisassociateExternalConnection (DisassociateExternalConnection'),
-    newDisassociateExternalConnection,
-    DisassociateExternalConnectionResponse (DisassociateExternalConnectionResponse'),
-    newDisassociateExternalConnectionResponse,
-
-    -- ** DeleteDomain
-    DeleteDomain (DeleteDomain'),
-    newDeleteDomain,
-    DeleteDomainResponse (DeleteDomainResponse'),
-    newDeleteDomainResponse,
-
-    -- ** ListDomains (Paginated)
-    ListDomains (ListDomains'),
-    newListDomains,
-    ListDomainsResponse (ListDomainsResponse'),
-    newListDomainsResponse,
-
-    -- ** ListPackageVersions (Paginated)
-    ListPackageVersions (ListPackageVersions'),
-    newListPackageVersions,
-    ListPackageVersionsResponse (ListPackageVersionsResponse'),
-    newListPackageVersionsResponse,
-
-    -- ** ListPackageVersionAssets (Paginated)
-    ListPackageVersionAssets (ListPackageVersionAssets'),
-    newListPackageVersionAssets,
-    ListPackageVersionAssetsResponse (ListPackageVersionAssetsResponse'),
-    newListPackageVersionAssetsResponse,
 
     -- * Types
 

@@ -33,11 +33,11 @@ module Amazonka.CodeArtifact.ListRepositoriesInDomain
     newListRepositoriesInDomain,
 
     -- * Request Lenses
-    listRepositoriesInDomain_repositoryPrefix,
-    listRepositoriesInDomain_domainOwner,
-    listRepositoriesInDomain_nextToken,
     listRepositoriesInDomain_administratorAccount,
+    listRepositoriesInDomain_nextToken,
+    listRepositoriesInDomain_repositoryPrefix,
     listRepositoriesInDomain_maxResults,
+    listRepositoriesInDomain_domainOwner,
     listRepositoriesInDomain_domain,
 
     -- * Destructuring the Response
@@ -45,8 +45,8 @@ module Amazonka.CodeArtifact.ListRepositoriesInDomain
     newListRepositoriesInDomainResponse,
 
     -- * Response Lenses
-    listRepositoriesInDomainResponse_repositories,
     listRepositoriesInDomainResponse_nextToken,
+    listRepositoriesInDomainResponse_repositories,
     listRepositoriesInDomainResponse_httpStatus,
   )
 where
@@ -60,21 +60,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRepositoriesInDomain' smart constructor.
 data ListRepositoriesInDomain = ListRepositoriesInDomain'
-  { -- | A prefix used to filter returned repositories. Only repositories with
-    -- names that start with @repositoryPrefix@ are returned.
-    repositoryPrefix :: Prelude.Maybe Prelude.Text,
-    -- | The 12-digit account number of the AWS account that owns the domain. It
-    -- does not include dashes or spaces.
-    domainOwner :: Prelude.Maybe Prelude.Text,
+  { -- | Filter the list of repositories to only include those that are managed
+    -- by the AWS account ID.
+    administratorAccount :: Prelude.Maybe Prelude.Text,
     -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filter the list of repositories to only include those that are managed
-    -- by the AWS account ID.
-    administratorAccount :: Prelude.Maybe Prelude.Text,
+    -- | A prefix used to filter returned repositories. Only repositories with
+    -- names that start with @repositoryPrefix@ are returned.
+    repositoryPrefix :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The 12-digit account number of the AWS account that owns the domain. It
+    -- does not include dashes or spaces.
+    domainOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain that contains the returned list of repositories.
     domain :: Prelude.Text
   }
@@ -88,20 +88,20 @@ data ListRepositoriesInDomain = ListRepositoriesInDomain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'repositoryPrefix', 'listRepositoriesInDomain_repositoryPrefix' - A prefix used to filter returned repositories. Only repositories with
--- names that start with @repositoryPrefix@ are returned.
---
--- 'domainOwner', 'listRepositoriesInDomain_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- 'administratorAccount', 'listRepositoriesInDomain_administratorAccount' - Filter the list of repositories to only include those that are managed
+-- by the AWS account ID.
 --
 -- 'nextToken', 'listRepositoriesInDomain_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'administratorAccount', 'listRepositoriesInDomain_administratorAccount' - Filter the list of repositories to only include those that are managed
--- by the AWS account ID.
+-- 'repositoryPrefix', 'listRepositoriesInDomain_repositoryPrefix' - A prefix used to filter returned repositories. Only repositories with
+-- names that start with @repositoryPrefix@ are returned.
 --
 -- 'maxResults', 'listRepositoriesInDomain_maxResults' - The maximum number of results to return per page.
+--
+-- 'domainOwner', 'listRepositoriesInDomain_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
+-- does not include dashes or spaces.
 --
 -- 'domain', 'listRepositoriesInDomain_domain' - The name of the domain that contains the returned list of repositories.
 newListRepositoriesInDomain ::
@@ -110,24 +110,19 @@ newListRepositoriesInDomain ::
   ListRepositoriesInDomain
 newListRepositoriesInDomain pDomain_ =
   ListRepositoriesInDomain'
-    { repositoryPrefix =
+    { administratorAccount =
         Prelude.Nothing,
-      domainOwner = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      administratorAccount = Prelude.Nothing,
+      repositoryPrefix = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      domainOwner = Prelude.Nothing,
       domain = pDomain_
     }
 
--- | A prefix used to filter returned repositories. Only repositories with
--- names that start with @repositoryPrefix@ are returned.
-listRepositoriesInDomain_repositoryPrefix :: Lens.Lens' ListRepositoriesInDomain (Prelude.Maybe Prelude.Text)
-listRepositoriesInDomain_repositoryPrefix = Lens.lens (\ListRepositoriesInDomain' {repositoryPrefix} -> repositoryPrefix) (\s@ListRepositoriesInDomain' {} a -> s {repositoryPrefix = a} :: ListRepositoriesInDomain)
-
--- | The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
-listRepositoriesInDomain_domainOwner :: Lens.Lens' ListRepositoriesInDomain (Prelude.Maybe Prelude.Text)
-listRepositoriesInDomain_domainOwner = Lens.lens (\ListRepositoriesInDomain' {domainOwner} -> domainOwner) (\s@ListRepositoriesInDomain' {} a -> s {domainOwner = a} :: ListRepositoriesInDomain)
+-- | Filter the list of repositories to only include those that are managed
+-- by the AWS account ID.
+listRepositoriesInDomain_administratorAccount :: Lens.Lens' ListRepositoriesInDomain (Prelude.Maybe Prelude.Text)
+listRepositoriesInDomain_administratorAccount = Lens.lens (\ListRepositoriesInDomain' {administratorAccount} -> administratorAccount) (\s@ListRepositoriesInDomain' {} a -> s {administratorAccount = a} :: ListRepositoriesInDomain)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
@@ -135,14 +130,19 @@ listRepositoriesInDomain_domainOwner = Lens.lens (\ListRepositoriesInDomain' {do
 listRepositoriesInDomain_nextToken :: Lens.Lens' ListRepositoriesInDomain (Prelude.Maybe Prelude.Text)
 listRepositoriesInDomain_nextToken = Lens.lens (\ListRepositoriesInDomain' {nextToken} -> nextToken) (\s@ListRepositoriesInDomain' {} a -> s {nextToken = a} :: ListRepositoriesInDomain)
 
--- | Filter the list of repositories to only include those that are managed
--- by the AWS account ID.
-listRepositoriesInDomain_administratorAccount :: Lens.Lens' ListRepositoriesInDomain (Prelude.Maybe Prelude.Text)
-listRepositoriesInDomain_administratorAccount = Lens.lens (\ListRepositoriesInDomain' {administratorAccount} -> administratorAccount) (\s@ListRepositoriesInDomain' {} a -> s {administratorAccount = a} :: ListRepositoriesInDomain)
+-- | A prefix used to filter returned repositories. Only repositories with
+-- names that start with @repositoryPrefix@ are returned.
+listRepositoriesInDomain_repositoryPrefix :: Lens.Lens' ListRepositoriesInDomain (Prelude.Maybe Prelude.Text)
+listRepositoriesInDomain_repositoryPrefix = Lens.lens (\ListRepositoriesInDomain' {repositoryPrefix} -> repositoryPrefix) (\s@ListRepositoriesInDomain' {} a -> s {repositoryPrefix = a} :: ListRepositoriesInDomain)
 
 -- | The maximum number of results to return per page.
 listRepositoriesInDomain_maxResults :: Lens.Lens' ListRepositoriesInDomain (Prelude.Maybe Prelude.Natural)
 listRepositoriesInDomain_maxResults = Lens.lens (\ListRepositoriesInDomain' {maxResults} -> maxResults) (\s@ListRepositoriesInDomain' {} a -> s {maxResults = a} :: ListRepositoriesInDomain)
+
+-- | The 12-digit account number of the AWS account that owns the domain. It
+-- does not include dashes or spaces.
+listRepositoriesInDomain_domainOwner :: Lens.Lens' ListRepositoriesInDomain (Prelude.Maybe Prelude.Text)
+listRepositoriesInDomain_domainOwner = Lens.lens (\ListRepositoriesInDomain' {domainOwner} -> domainOwner) (\s@ListRepositoriesInDomain' {} a -> s {domainOwner = a} :: ListRepositoriesInDomain)
 
 -- | The name of the domain that contains the returned list of repositories.
 listRepositoriesInDomain_domain :: Lens.Lens' ListRepositoriesInDomain Prelude.Text
@@ -179,27 +179,27 @@ instance Core.AWSRequest ListRepositoriesInDomain where
     Response.receiveJSON
       ( \s h x ->
           ListRepositoriesInDomainResponse'
-            Prelude.<$> (x Core..?> "repositories" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "repositories" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListRepositoriesInDomain where
   hashWithSalt _salt ListRepositoriesInDomain' {..} =
-    _salt `Prelude.hashWithSalt` repositoryPrefix
-      `Prelude.hashWithSalt` domainOwner
+    _salt `Prelude.hashWithSalt` administratorAccount
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` administratorAccount
+      `Prelude.hashWithSalt` repositoryPrefix
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` domain
 
 instance Prelude.NFData ListRepositoriesInDomain where
   rnf ListRepositoriesInDomain' {..} =
-    Prelude.rnf repositoryPrefix
-      `Prelude.seq` Prelude.rnf domainOwner
+    Prelude.rnf administratorAccount
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf administratorAccount
+      `Prelude.seq` Prelude.rnf repositoryPrefix
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf domainOwner
       `Prelude.seq` Prelude.rnf domain
 
 instance Core.ToHeaders ListRepositoriesInDomain where
@@ -222,21 +222,22 @@ instance Core.ToPath ListRepositoriesInDomain where
 instance Core.ToQuery ListRepositoriesInDomain where
   toQuery ListRepositoriesInDomain' {..} =
     Prelude.mconcat
-      [ "repository-prefix" Core.=: repositoryPrefix,
-        "domain-owner" Core.=: domainOwner,
+      [ "administrator-account"
+          Core.=: administratorAccount,
         "next-token" Core.=: nextToken,
-        "administrator-account" Core.=: administratorAccount,
+        "repository-prefix" Core.=: repositoryPrefix,
         "max-results" Core.=: maxResults,
+        "domain-owner" Core.=: domainOwner,
         "domain" Core.=: domain
       ]
 
 -- | /See:/ 'newListRepositoriesInDomainResponse' smart constructor.
 data ListRepositoriesInDomainResponse = ListRepositoriesInDomainResponse'
-  { -- | The returned list of repositories.
-    repositories :: Prelude.Maybe [RepositorySummary],
-    -- | If there are additional results, this is the token for the next set of
+  { -- | If there are additional results, this is the token for the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The returned list of repositories.
+    repositories :: Prelude.Maybe [RepositorySummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -250,10 +251,10 @@ data ListRepositoriesInDomainResponse = ListRepositoriesInDomainResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'repositories', 'listRepositoriesInDomainResponse_repositories' - The returned list of repositories.
---
 -- 'nextToken', 'listRepositoriesInDomainResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
+--
+-- 'repositories', 'listRepositoriesInDomainResponse_repositories' - The returned list of repositories.
 --
 -- 'httpStatus', 'listRepositoriesInDomainResponse_httpStatus' - The response's http status code.
 newListRepositoriesInDomainResponse ::
@@ -262,20 +263,20 @@ newListRepositoriesInDomainResponse ::
   ListRepositoriesInDomainResponse
 newListRepositoriesInDomainResponse pHttpStatus_ =
   ListRepositoriesInDomainResponse'
-    { repositories =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      repositories = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The returned list of repositories.
-listRepositoriesInDomainResponse_repositories :: Lens.Lens' ListRepositoriesInDomainResponse (Prelude.Maybe [RepositorySummary])
-listRepositoriesInDomainResponse_repositories = Lens.lens (\ListRepositoriesInDomainResponse' {repositories} -> repositories) (\s@ListRepositoriesInDomainResponse' {} a -> s {repositories = a} :: ListRepositoriesInDomainResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
 listRepositoriesInDomainResponse_nextToken :: Lens.Lens' ListRepositoriesInDomainResponse (Prelude.Maybe Prelude.Text)
 listRepositoriesInDomainResponse_nextToken = Lens.lens (\ListRepositoriesInDomainResponse' {nextToken} -> nextToken) (\s@ListRepositoriesInDomainResponse' {} a -> s {nextToken = a} :: ListRepositoriesInDomainResponse)
+
+-- | The returned list of repositories.
+listRepositoriesInDomainResponse_repositories :: Lens.Lens' ListRepositoriesInDomainResponse (Prelude.Maybe [RepositorySummary])
+listRepositoriesInDomainResponse_repositories = Lens.lens (\ListRepositoriesInDomainResponse' {repositories} -> repositories) (\s@ListRepositoriesInDomainResponse' {} a -> s {repositories = a} :: ListRepositoriesInDomainResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listRepositoriesInDomainResponse_httpStatus :: Lens.Lens' ListRepositoriesInDomainResponse Prelude.Int
@@ -286,6 +287,6 @@ instance
     ListRepositoriesInDomainResponse
   where
   rnf ListRepositoriesInDomainResponse' {..} =
-    Prelude.rnf repositories
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf repositories
       `Prelude.seq` Prelude.rnf httpStatus

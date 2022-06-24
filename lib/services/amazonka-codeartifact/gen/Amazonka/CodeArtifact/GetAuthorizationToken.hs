@@ -50,8 +50,8 @@ module Amazonka.CodeArtifact.GetAuthorizationToken
     newGetAuthorizationToken,
 
     -- * Request Lenses
-    getAuthorizationToken_domainOwner,
     getAuthorizationToken_durationSeconds,
+    getAuthorizationToken_domainOwner,
     getAuthorizationToken_domain,
 
     -- * Destructuring the Response
@@ -74,15 +74,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetAuthorizationToken' smart constructor.
 data GetAuthorizationToken = GetAuthorizationToken'
-  { -- | The 12-digit account number of the AWS account that owns the domain. It
-    -- does not include dashes or spaces.
-    domainOwner :: Prelude.Maybe Prelude.Text,
-    -- | The time, in seconds, that the generated authorization token is valid.
+  { -- | The time, in seconds, that the generated authorization token is valid.
     -- Valid values are @0@ and any number between @900@ (15 minutes) and
     -- @43200@ (12 hours). A value of @0@ will set the expiration of the
     -- authorization token to the same expiration of the user\'s role\'s
     -- temporary credentials.
     durationSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | The 12-digit account number of the AWS account that owns the domain. It
+    -- does not include dashes or spaces.
+    domainOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain that is in scope for the generated authorization
     -- token.
     domain :: Prelude.Text
@@ -97,14 +97,14 @@ data GetAuthorizationToken = GetAuthorizationToken'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainOwner', 'getAuthorizationToken_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
---
 -- 'durationSeconds', 'getAuthorizationToken_durationSeconds' - The time, in seconds, that the generated authorization token is valid.
 -- Valid values are @0@ and any number between @900@ (15 minutes) and
 -- @43200@ (12 hours). A value of @0@ will set the expiration of the
 -- authorization token to the same expiration of the user\'s role\'s
 -- temporary credentials.
+--
+-- 'domainOwner', 'getAuthorizationToken_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
+-- does not include dashes or spaces.
 --
 -- 'domain', 'getAuthorizationToken_domain' - The name of the domain that is in scope for the generated authorization
 -- token.
@@ -114,16 +114,11 @@ newGetAuthorizationToken ::
   GetAuthorizationToken
 newGetAuthorizationToken pDomain_ =
   GetAuthorizationToken'
-    { domainOwner =
+    { durationSeconds =
         Prelude.Nothing,
-      durationSeconds = Prelude.Nothing,
+      domainOwner = Prelude.Nothing,
       domain = pDomain_
     }
-
--- | The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
-getAuthorizationToken_domainOwner :: Lens.Lens' GetAuthorizationToken (Prelude.Maybe Prelude.Text)
-getAuthorizationToken_domainOwner = Lens.lens (\GetAuthorizationToken' {domainOwner} -> domainOwner) (\s@GetAuthorizationToken' {} a -> s {domainOwner = a} :: GetAuthorizationToken)
 
 -- | The time, in seconds, that the generated authorization token is valid.
 -- Valid values are @0@ and any number between @900@ (15 minutes) and
@@ -132,6 +127,11 @@ getAuthorizationToken_domainOwner = Lens.lens (\GetAuthorizationToken' {domainOw
 -- temporary credentials.
 getAuthorizationToken_durationSeconds :: Lens.Lens' GetAuthorizationToken (Prelude.Maybe Prelude.Natural)
 getAuthorizationToken_durationSeconds = Lens.lens (\GetAuthorizationToken' {durationSeconds} -> durationSeconds) (\s@GetAuthorizationToken' {} a -> s {durationSeconds = a} :: GetAuthorizationToken)
+
+-- | The 12-digit account number of the AWS account that owns the domain. It
+-- does not include dashes or spaces.
+getAuthorizationToken_domainOwner :: Lens.Lens' GetAuthorizationToken (Prelude.Maybe Prelude.Text)
+getAuthorizationToken_domainOwner = Lens.lens (\GetAuthorizationToken' {domainOwner} -> domainOwner) (\s@GetAuthorizationToken' {} a -> s {domainOwner = a} :: GetAuthorizationToken)
 
 -- | The name of the domain that is in scope for the generated authorization
 -- token.
@@ -154,14 +154,14 @@ instance Core.AWSRequest GetAuthorizationToken where
 
 instance Prelude.Hashable GetAuthorizationToken where
   hashWithSalt _salt GetAuthorizationToken' {..} =
-    _salt `Prelude.hashWithSalt` domainOwner
-      `Prelude.hashWithSalt` durationSeconds
+    _salt `Prelude.hashWithSalt` durationSeconds
+      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` domain
 
 instance Prelude.NFData GetAuthorizationToken where
   rnf GetAuthorizationToken' {..} =
-    Prelude.rnf domainOwner
-      `Prelude.seq` Prelude.rnf durationSeconds
+    Prelude.rnf durationSeconds
+      `Prelude.seq` Prelude.rnf domainOwner
       `Prelude.seq` Prelude.rnf domain
 
 instance Core.ToHeaders GetAuthorizationToken where
@@ -184,8 +184,8 @@ instance Core.ToPath GetAuthorizationToken where
 instance Core.ToQuery GetAuthorizationToken where
   toQuery GetAuthorizationToken' {..} =
     Prelude.mconcat
-      [ "domain-owner" Core.=: domainOwner,
-        "duration" Core.=: durationSeconds,
+      [ "duration" Core.=: durationSeconds,
+        "domain-owner" Core.=: domainOwner,
         "domain" Core.=: domain
       ]
 

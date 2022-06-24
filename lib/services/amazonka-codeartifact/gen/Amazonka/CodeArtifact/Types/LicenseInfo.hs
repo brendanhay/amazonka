@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLicenseInfo' smart constructor.
 data LicenseInfo = LicenseInfo'
-  { -- | The URL for license data.
-    url :: Prelude.Maybe Prelude.Text,
-    -- | Name of the license.
-    name :: Prelude.Maybe Prelude.Text
+  { -- | Name of the license.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The URL for license data.
+    url :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data LicenseInfo = LicenseInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'url', 'licenseInfo_url' - The URL for license data.
---
 -- 'name', 'licenseInfo_name' - Name of the license.
+--
+-- 'url', 'licenseInfo_url' - The URL for license data.
 newLicenseInfo ::
   LicenseInfo
 newLicenseInfo =
   LicenseInfo'
-    { url = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      url = Prelude.Nothing
     }
-
--- | The URL for license data.
-licenseInfo_url :: Lens.Lens' LicenseInfo (Prelude.Maybe Prelude.Text)
-licenseInfo_url = Lens.lens (\LicenseInfo' {url} -> url) (\s@LicenseInfo' {} a -> s {url = a} :: LicenseInfo)
 
 -- | Name of the license.
 licenseInfo_name :: Lens.Lens' LicenseInfo (Prelude.Maybe Prelude.Text)
 licenseInfo_name = Lens.lens (\LicenseInfo' {name} -> name) (\s@LicenseInfo' {} a -> s {name = a} :: LicenseInfo)
+
+-- | The URL for license data.
+licenseInfo_url :: Lens.Lens' LicenseInfo (Prelude.Maybe Prelude.Text)
+licenseInfo_url = Lens.lens (\LicenseInfo' {url} -> url) (\s@LicenseInfo' {} a -> s {url = a} :: LicenseInfo)
 
 instance Core.FromJSON LicenseInfo where
   parseJSON =
@@ -67,14 +67,14 @@ instance Core.FromJSON LicenseInfo where
       "LicenseInfo"
       ( \x ->
           LicenseInfo'
-            Prelude.<$> (x Core..:? "url") Prelude.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "url")
       )
 
 instance Prelude.Hashable LicenseInfo where
   hashWithSalt _salt LicenseInfo' {..} =
-    _salt `Prelude.hashWithSalt` url
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` url
 
 instance Prelude.NFData LicenseInfo where
   rnf LicenseInfo' {..} =
-    Prelude.rnf url `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf url

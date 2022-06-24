@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchListIncomingTypedLinksResponse' smart constructor.
 data BatchListIncomingTypedLinksResponse = BatchListIncomingTypedLinksResponse'
-  { -- | Returns one or more typed link specifiers as output.
-    linkSpecifiers :: Prelude.Maybe [TypedLinkSpecifier],
-    -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text
+  { -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Returns one or more typed link specifiers as output.
+    linkSpecifiers :: Prelude.Maybe [TypedLinkSpecifier]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data BatchListIncomingTypedLinksResponse = BatchListIncomingTypedLinksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'linkSpecifiers', 'batchListIncomingTypedLinksResponse_linkSpecifiers' - Returns one or more typed link specifiers as output.
---
 -- 'nextToken', 'batchListIncomingTypedLinksResponse_nextToken' - The pagination token.
+--
+-- 'linkSpecifiers', 'batchListIncomingTypedLinksResponse_linkSpecifiers' - Returns one or more typed link specifiers as output.
 newBatchListIncomingTypedLinksResponse ::
   BatchListIncomingTypedLinksResponse
 newBatchListIncomingTypedLinksResponse =
   BatchListIncomingTypedLinksResponse'
-    { linkSpecifiers =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing
+      linkSpecifiers = Prelude.Nothing
     }
-
--- | Returns one or more typed link specifiers as output.
-batchListIncomingTypedLinksResponse_linkSpecifiers :: Lens.Lens' BatchListIncomingTypedLinksResponse (Prelude.Maybe [TypedLinkSpecifier])
-batchListIncomingTypedLinksResponse_linkSpecifiers = Lens.lens (\BatchListIncomingTypedLinksResponse' {linkSpecifiers} -> linkSpecifiers) (\s@BatchListIncomingTypedLinksResponse' {} a -> s {linkSpecifiers = a} :: BatchListIncomingTypedLinksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token.
 batchListIncomingTypedLinksResponse_nextToken :: Lens.Lens' BatchListIncomingTypedLinksResponse (Prelude.Maybe Prelude.Text)
 batchListIncomingTypedLinksResponse_nextToken = Lens.lens (\BatchListIncomingTypedLinksResponse' {nextToken} -> nextToken) (\s@BatchListIncomingTypedLinksResponse' {} a -> s {nextToken = a} :: BatchListIncomingTypedLinksResponse)
+
+-- | Returns one or more typed link specifiers as output.
+batchListIncomingTypedLinksResponse_linkSpecifiers :: Lens.Lens' BatchListIncomingTypedLinksResponse (Prelude.Maybe [TypedLinkSpecifier])
+batchListIncomingTypedLinksResponse_linkSpecifiers = Lens.lens (\BatchListIncomingTypedLinksResponse' {linkSpecifiers} -> linkSpecifiers) (\s@BatchListIncomingTypedLinksResponse' {} a -> s {linkSpecifiers = a} :: BatchListIncomingTypedLinksResponse) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.FromJSON
@@ -72,8 +72,10 @@ instance
       "BatchListIncomingTypedLinksResponse"
       ( \x ->
           BatchListIncomingTypedLinksResponse'
-            Prelude.<$> (x Core..:? "LinkSpecifiers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "NextToken")
+            Prelude.<$> (x Core..:? "NextToken")
+            Prelude.<*> ( x Core..:? "LinkSpecifiers"
+                            Core..!= Prelude.mempty
+                        )
       )
 
 instance
@@ -83,13 +85,13 @@ instance
   hashWithSalt
     _salt
     BatchListIncomingTypedLinksResponse' {..} =
-      _salt `Prelude.hashWithSalt` linkSpecifiers
-        `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` linkSpecifiers
 
 instance
   Prelude.NFData
     BatchListIncomingTypedLinksResponse
   where
   rnf BatchListIncomingTypedLinksResponse' {..} =
-    Prelude.rnf linkSpecifiers
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf linkSpecifiers

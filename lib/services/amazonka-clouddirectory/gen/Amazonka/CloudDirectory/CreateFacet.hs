@@ -29,8 +29,8 @@ module Amazonka.CloudDirectory.CreateFacet
 
     -- * Request Lenses
     createFacet_facetStyle,
-    createFacet_objectType,
     createFacet_attributes,
+    createFacet_objectType,
     createFacet_schemaArn,
     createFacet_name,
 
@@ -57,6 +57,8 @@ data CreateFacet = CreateFacet'
     -- defined in the schema. For dynamic facets, attributes can be defined
     -- during data plane operations.
     facetStyle :: Prelude.Maybe FacetStyle,
+    -- | The attributes that are associated with the Facet.
+    attributes :: Prelude.Maybe [FacetAttribute],
     -- | Specifies whether a given object created from this facet is of type
     -- node, leaf node, policy or index.
     --
@@ -70,8 +72,6 @@ data CreateFacet = CreateFacet'
     --
     -- -   Index: Can be created with the Index API.
     objectType :: Prelude.Maybe ObjectType,
-    -- | The attributes that are associated with the Facet.
-    attributes :: Prelude.Maybe [FacetAttribute],
     -- | The schema ARN in which the new Facet will be created. For more
     -- information, see arns.
     schemaArn :: Prelude.Text,
@@ -93,6 +93,8 @@ data CreateFacet = CreateFacet'
 -- defined in the schema. For dynamic facets, attributes can be defined
 -- during data plane operations.
 --
+-- 'attributes', 'createFacet_attributes' - The attributes that are associated with the Facet.
+--
 -- 'objectType', 'createFacet_objectType' - Specifies whether a given object created from this facet is of type
 -- node, leaf node, policy or index.
 --
@@ -105,8 +107,6 @@ data CreateFacet = CreateFacet'
 --     <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies Policies>.
 --
 -- -   Index: Can be created with the Index API.
---
--- 'attributes', 'createFacet_attributes' - The attributes that are associated with the Facet.
 --
 -- 'schemaArn', 'createFacet_schemaArn' - The schema ARN in which the new Facet will be created. For more
 -- information, see arns.
@@ -121,8 +121,8 @@ newCreateFacet ::
 newCreateFacet pSchemaArn_ pName_ =
   CreateFacet'
     { facetStyle = Prelude.Nothing,
-      objectType = Prelude.Nothing,
       attributes = Prelude.Nothing,
+      objectType = Prelude.Nothing,
       schemaArn = pSchemaArn_,
       name = pName_
     }
@@ -133,6 +133,10 @@ newCreateFacet pSchemaArn_ pName_ =
 -- during data plane operations.
 createFacet_facetStyle :: Lens.Lens' CreateFacet (Prelude.Maybe FacetStyle)
 createFacet_facetStyle = Lens.lens (\CreateFacet' {facetStyle} -> facetStyle) (\s@CreateFacet' {} a -> s {facetStyle = a} :: CreateFacet)
+
+-- | The attributes that are associated with the Facet.
+createFacet_attributes :: Lens.Lens' CreateFacet (Prelude.Maybe [FacetAttribute])
+createFacet_attributes = Lens.lens (\CreateFacet' {attributes} -> attributes) (\s@CreateFacet' {} a -> s {attributes = a} :: CreateFacet) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies whether a given object created from this facet is of type
 -- node, leaf node, policy or index.
@@ -148,10 +152,6 @@ createFacet_facetStyle = Lens.lens (\CreateFacet' {facetStyle} -> facetStyle) (\
 -- -   Index: Can be created with the Index API.
 createFacet_objectType :: Lens.Lens' CreateFacet (Prelude.Maybe ObjectType)
 createFacet_objectType = Lens.lens (\CreateFacet' {objectType} -> objectType) (\s@CreateFacet' {} a -> s {objectType = a} :: CreateFacet)
-
--- | The attributes that are associated with the Facet.
-createFacet_attributes :: Lens.Lens' CreateFacet (Prelude.Maybe [FacetAttribute])
-createFacet_attributes = Lens.lens (\CreateFacet' {attributes} -> attributes) (\s@CreateFacet' {} a -> s {attributes = a} :: CreateFacet) Prelude.. Lens.mapping Lens.coerced
 
 -- | The schema ARN in which the new Facet will be created. For more
 -- information, see arns.
@@ -175,16 +175,16 @@ instance Core.AWSRequest CreateFacet where
 instance Prelude.Hashable CreateFacet where
   hashWithSalt _salt CreateFacet' {..} =
     _salt `Prelude.hashWithSalt` facetStyle
-      `Prelude.hashWithSalt` objectType
       `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` objectType
       `Prelude.hashWithSalt` schemaArn
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateFacet where
   rnf CreateFacet' {..} =
     Prelude.rnf facetStyle
-      `Prelude.seq` Prelude.rnf objectType
       `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf objectType
       `Prelude.seq` Prelude.rnf schemaArn
       `Prelude.seq` Prelude.rnf name
 
@@ -198,8 +198,8 @@ instance Core.ToJSON CreateFacet where
     Core.object
       ( Prelude.catMaybes
           [ ("FacetStyle" Core..=) Prelude.<$> facetStyle,
-            ("ObjectType" Core..=) Prelude.<$> objectType,
             ("Attributes" Core..=) Prelude.<$> attributes,
+            ("ObjectType" Core..=) Prelude.<$> objectType,
             Prelude.Just ("Name" Core..= name)
           ]
       )

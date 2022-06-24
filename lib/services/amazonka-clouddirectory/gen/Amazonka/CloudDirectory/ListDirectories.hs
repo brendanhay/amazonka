@@ -29,8 +29,8 @@ module Amazonka.CloudDirectory.ListDirectories
     newListDirectories,
 
     -- * Request Lenses
-    listDirectories_state,
     listDirectories_nextToken,
+    listDirectories_state,
     listDirectories_maxResults,
 
     -- * Destructuring the Response
@@ -53,11 +53,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDirectories' smart constructor.
 data ListDirectories = ListDirectories'
-  { -- | The state of the directories in the list. Can be either Enabled,
+  { -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The state of the directories in the list. Can be either Enabled,
     -- Disabled, or Deleted.
     state :: Prelude.Maybe DirectoryState,
-    -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to retrieve.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -71,29 +71,29 @@ data ListDirectories = ListDirectories'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listDirectories_nextToken' - The pagination token.
+--
 -- 'state', 'listDirectories_state' - The state of the directories in the list. Can be either Enabled,
 -- Disabled, or Deleted.
---
--- 'nextToken', 'listDirectories_nextToken' - The pagination token.
 --
 -- 'maxResults', 'listDirectories_maxResults' - The maximum number of results to retrieve.
 newListDirectories ::
   ListDirectories
 newListDirectories =
   ListDirectories'
-    { state = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      state = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | The pagination token.
+listDirectories_nextToken :: Lens.Lens' ListDirectories (Prelude.Maybe Prelude.Text)
+listDirectories_nextToken = Lens.lens (\ListDirectories' {nextToken} -> nextToken) (\s@ListDirectories' {} a -> s {nextToken = a} :: ListDirectories)
 
 -- | The state of the directories in the list. Can be either Enabled,
 -- Disabled, or Deleted.
 listDirectories_state :: Lens.Lens' ListDirectories (Prelude.Maybe DirectoryState)
 listDirectories_state = Lens.lens (\ListDirectories' {state} -> state) (\s@ListDirectories' {} a -> s {state = a} :: ListDirectories)
-
--- | The pagination token.
-listDirectories_nextToken :: Lens.Lens' ListDirectories (Prelude.Maybe Prelude.Text)
-listDirectories_nextToken = Lens.lens (\ListDirectories' {nextToken} -> nextToken) (\s@ListDirectories' {} a -> s {nextToken = a} :: ListDirectories)
 
 -- | The maximum number of results to retrieve.
 listDirectories_maxResults :: Lens.Lens' ListDirectories (Prelude.Maybe Prelude.Natural)
@@ -134,14 +134,14 @@ instance Core.AWSRequest ListDirectories where
 
 instance Prelude.Hashable ListDirectories where
   hashWithSalt _salt ListDirectories' {..} =
-    _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListDirectories where
   rnf ListDirectories' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListDirectories where
@@ -151,8 +151,8 @@ instance Core.ToJSON ListDirectories where
   toJSON ListDirectories' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("state" Core..=) Prelude.<$> state,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("state" Core..=) Prelude.<$> state,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

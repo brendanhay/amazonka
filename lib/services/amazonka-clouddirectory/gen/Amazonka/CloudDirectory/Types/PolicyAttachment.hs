@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 data PolicyAttachment = PolicyAttachment'
   { -- | The ID of @PolicyAttachment@.
     policyId :: Prelude.Maybe Prelude.Text,
-    -- | The type of policy that can be associated with @PolicyAttachment@.
-    policyType :: Prelude.Maybe Prelude.Text,
     -- | The @ObjectIdentifier@ that is associated with @PolicyAttachment@.
-    objectIdentifier :: Prelude.Maybe Prelude.Text
+    objectIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The type of policy that can be associated with @PolicyAttachment@.
+    policyType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,29 +48,29 @@ data PolicyAttachment = PolicyAttachment'
 --
 -- 'policyId', 'policyAttachment_policyId' - The ID of @PolicyAttachment@.
 --
--- 'policyType', 'policyAttachment_policyType' - The type of policy that can be associated with @PolicyAttachment@.
---
 -- 'objectIdentifier', 'policyAttachment_objectIdentifier' - The @ObjectIdentifier@ that is associated with @PolicyAttachment@.
+--
+-- 'policyType', 'policyAttachment_policyType' - The type of policy that can be associated with @PolicyAttachment@.
 newPolicyAttachment ::
   PolicyAttachment
 newPolicyAttachment =
   PolicyAttachment'
     { policyId = Prelude.Nothing,
-      policyType = Prelude.Nothing,
-      objectIdentifier = Prelude.Nothing
+      objectIdentifier = Prelude.Nothing,
+      policyType = Prelude.Nothing
     }
 
 -- | The ID of @PolicyAttachment@.
 policyAttachment_policyId :: Lens.Lens' PolicyAttachment (Prelude.Maybe Prelude.Text)
 policyAttachment_policyId = Lens.lens (\PolicyAttachment' {policyId} -> policyId) (\s@PolicyAttachment' {} a -> s {policyId = a} :: PolicyAttachment)
 
--- | The type of policy that can be associated with @PolicyAttachment@.
-policyAttachment_policyType :: Lens.Lens' PolicyAttachment (Prelude.Maybe Prelude.Text)
-policyAttachment_policyType = Lens.lens (\PolicyAttachment' {policyType} -> policyType) (\s@PolicyAttachment' {} a -> s {policyType = a} :: PolicyAttachment)
-
 -- | The @ObjectIdentifier@ that is associated with @PolicyAttachment@.
 policyAttachment_objectIdentifier :: Lens.Lens' PolicyAttachment (Prelude.Maybe Prelude.Text)
 policyAttachment_objectIdentifier = Lens.lens (\PolicyAttachment' {objectIdentifier} -> objectIdentifier) (\s@PolicyAttachment' {} a -> s {objectIdentifier = a} :: PolicyAttachment)
+
+-- | The type of policy that can be associated with @PolicyAttachment@.
+policyAttachment_policyType :: Lens.Lens' PolicyAttachment (Prelude.Maybe Prelude.Text)
+policyAttachment_policyType = Lens.lens (\PolicyAttachment' {policyType} -> policyType) (\s@PolicyAttachment' {} a -> s {policyType = a} :: PolicyAttachment)
 
 instance Core.FromJSON PolicyAttachment where
   parseJSON =
@@ -79,18 +79,18 @@ instance Core.FromJSON PolicyAttachment where
       ( \x ->
           PolicyAttachment'
             Prelude.<$> (x Core..:? "PolicyId")
-            Prelude.<*> (x Core..:? "PolicyType")
             Prelude.<*> (x Core..:? "ObjectIdentifier")
+            Prelude.<*> (x Core..:? "PolicyType")
       )
 
 instance Prelude.Hashable PolicyAttachment where
   hashWithSalt _salt PolicyAttachment' {..} =
     _salt `Prelude.hashWithSalt` policyId
-      `Prelude.hashWithSalt` policyType
       `Prelude.hashWithSalt` objectIdentifier
+      `Prelude.hashWithSalt` policyType
 
 instance Prelude.NFData PolicyAttachment where
   rnf PolicyAttachment' {..} =
     Prelude.rnf policyId
-      `Prelude.seq` Prelude.rnf policyType
       `Prelude.seq` Prelude.rnf objectIdentifier
+      `Prelude.seq` Prelude.rnf policyType

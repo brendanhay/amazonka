@@ -28,8 +28,8 @@ module Amazonka.CloudDirectory.ListObjectChildren
     newListObjectChildren,
 
     -- * Request Lenses
-    listObjectChildren_consistencyLevel,
     listObjectChildren_nextToken,
+    listObjectChildren_consistencyLevel,
     listObjectChildren_maxResults,
     listObjectChildren_directoryArn,
     listObjectChildren_objectReference,
@@ -39,8 +39,8 @@ module Amazonka.CloudDirectory.ListObjectChildren
     newListObjectChildrenResponse,
 
     -- * Response Lenses
-    listObjectChildrenResponse_children,
     listObjectChildrenResponse_nextToken,
+    listObjectChildrenResponse_children,
     listObjectChildrenResponse_httpStatus,
   )
 where
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListObjectChildren' smart constructor.
 data ListObjectChildren = ListObjectChildren'
-  { -- | Represents the manner and timing in which the successful write or update
+  { -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Represents the manner and timing in which the successful write or update
     -- of an object is reflected in a subsequent read operation of that same
     -- object.
     consistencyLevel :: Prelude.Maybe ConsistencyLevel,
-    -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to be retrieved in a single call. This is an
     -- approximate number.
     maxResults :: Prelude.Maybe Prelude.Natural,
@@ -80,11 +80,11 @@ data ListObjectChildren = ListObjectChildren'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listObjectChildren_nextToken' - The pagination token.
+--
 -- 'consistencyLevel', 'listObjectChildren_consistencyLevel' - Represents the manner and timing in which the successful write or update
 -- of an object is reflected in a subsequent read operation of that same
 -- object.
---
--- 'nextToken', 'listObjectChildren_nextToken' - The pagination token.
 --
 -- 'maxResults', 'listObjectChildren_maxResults' - The maximum number of items to be retrieved in a single call. This is an
 -- approximate number.
@@ -104,23 +104,22 @@ newListObjectChildren
   pDirectoryArn_
   pObjectReference_ =
     ListObjectChildren'
-      { consistencyLevel =
-          Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+      { nextToken = Prelude.Nothing,
+        consistencyLevel = Prelude.Nothing,
         maxResults = Prelude.Nothing,
         directoryArn = pDirectoryArn_,
         objectReference = pObjectReference_
       }
+
+-- | The pagination token.
+listObjectChildren_nextToken :: Lens.Lens' ListObjectChildren (Prelude.Maybe Prelude.Text)
+listObjectChildren_nextToken = Lens.lens (\ListObjectChildren' {nextToken} -> nextToken) (\s@ListObjectChildren' {} a -> s {nextToken = a} :: ListObjectChildren)
 
 -- | Represents the manner and timing in which the successful write or update
 -- of an object is reflected in a subsequent read operation of that same
 -- object.
 listObjectChildren_consistencyLevel :: Lens.Lens' ListObjectChildren (Prelude.Maybe ConsistencyLevel)
 listObjectChildren_consistencyLevel = Lens.lens (\ListObjectChildren' {consistencyLevel} -> consistencyLevel) (\s@ListObjectChildren' {} a -> s {consistencyLevel = a} :: ListObjectChildren)
-
--- | The pagination token.
-listObjectChildren_nextToken :: Lens.Lens' ListObjectChildren (Prelude.Maybe Prelude.Text)
-listObjectChildren_nextToken = Lens.lens (\ListObjectChildren' {nextToken} -> nextToken) (\s@ListObjectChildren' {} a -> s {nextToken = a} :: ListObjectChildren)
 
 -- | The maximum number of items to be retrieved in a single call. This is an
 -- approximate number.
@@ -146,23 +145,23 @@ instance Core.AWSRequest ListObjectChildren where
     Response.receiveJSON
       ( \s h x ->
           ListObjectChildrenResponse'
-            Prelude.<$> (x Core..?> "Children" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Children" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListObjectChildren where
   hashWithSalt _salt ListObjectChildren' {..} =
-    _salt `Prelude.hashWithSalt` consistencyLevel
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` consistencyLevel
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` directoryArn
       `Prelude.hashWithSalt` objectReference
 
 instance Prelude.NFData ListObjectChildren where
   rnf ListObjectChildren' {..} =
-    Prelude.rnf consistencyLevel
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf consistencyLevel
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf directoryArn
       `Prelude.seq` Prelude.rnf objectReference
@@ -195,11 +194,11 @@ instance Core.ToQuery ListObjectChildren where
 
 -- | /See:/ 'newListObjectChildrenResponse' smart constructor.
 data ListObjectChildrenResponse = ListObjectChildrenResponse'
-  { -- | Children structure, which is a map with key as the @LinkName@ and
+  { -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Children structure, which is a map with key as the @LinkName@ and
     -- @ObjectIdentifier@ as the value.
     children :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -213,10 +212,10 @@ data ListObjectChildrenResponse = ListObjectChildrenResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listObjectChildrenResponse_nextToken' - The pagination token.
+--
 -- 'children', 'listObjectChildrenResponse_children' - Children structure, which is a map with key as the @LinkName@ and
 -- @ObjectIdentifier@ as the value.
---
--- 'nextToken', 'listObjectChildrenResponse_nextToken' - The pagination token.
 --
 -- 'httpStatus', 'listObjectChildrenResponse_httpStatus' - The response's http status code.
 newListObjectChildrenResponse ::
@@ -225,20 +224,20 @@ newListObjectChildrenResponse ::
   ListObjectChildrenResponse
 newListObjectChildrenResponse pHttpStatus_ =
   ListObjectChildrenResponse'
-    { children =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      children = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The pagination token.
+listObjectChildrenResponse_nextToken :: Lens.Lens' ListObjectChildrenResponse (Prelude.Maybe Prelude.Text)
+listObjectChildrenResponse_nextToken = Lens.lens (\ListObjectChildrenResponse' {nextToken} -> nextToken) (\s@ListObjectChildrenResponse' {} a -> s {nextToken = a} :: ListObjectChildrenResponse)
 
 -- | Children structure, which is a map with key as the @LinkName@ and
 -- @ObjectIdentifier@ as the value.
 listObjectChildrenResponse_children :: Lens.Lens' ListObjectChildrenResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 listObjectChildrenResponse_children = Lens.lens (\ListObjectChildrenResponse' {children} -> children) (\s@ListObjectChildrenResponse' {} a -> s {children = a} :: ListObjectChildrenResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The pagination token.
-listObjectChildrenResponse_nextToken :: Lens.Lens' ListObjectChildrenResponse (Prelude.Maybe Prelude.Text)
-listObjectChildrenResponse_nextToken = Lens.lens (\ListObjectChildrenResponse' {nextToken} -> nextToken) (\s@ListObjectChildrenResponse' {} a -> s {nextToken = a} :: ListObjectChildrenResponse)
 
 -- | The response's http status code.
 listObjectChildrenResponse_httpStatus :: Lens.Lens' ListObjectChildrenResponse Prelude.Int
@@ -246,6 +245,6 @@ listObjectChildrenResponse_httpStatus = Lens.lens (\ListObjectChildrenResponse' 
 
 instance Prelude.NFData ListObjectChildrenResponse where
   rnf ListObjectChildrenResponse' {..} =
-    Prelude.rnf children
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf children
       `Prelude.seq` Prelude.rnf httpStatus

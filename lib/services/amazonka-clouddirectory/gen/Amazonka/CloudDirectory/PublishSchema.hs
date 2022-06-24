@@ -28,8 +28,8 @@ module Amazonka.CloudDirectory.PublishSchema
     newPublishSchema,
 
     -- * Request Lenses
-    publishSchema_minorVersion,
     publishSchema_name,
+    publishSchema_minorVersion,
     publishSchema_developmentSchemaArn,
     publishSchema_version,
 
@@ -52,13 +52,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPublishSchema' smart constructor.
 data PublishSchema = PublishSchema'
-  { -- | The minor version under which the schema will be published. This
+  { -- | The new name under which the schema will be published. If this is not
+    -- provided, the development schema is considered.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The minor version under which the schema will be published. This
     -- parameter is recommended. Schemas have both a major and minor version
     -- associated with them.
     minorVersion :: Prelude.Maybe Prelude.Text,
-    -- | The new name under which the schema will be published. If this is not
-    -- provided, the development schema is considered.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) that is associated with the development
     -- schema. For more information, see arns.
     developmentSchemaArn :: Prelude.Text,
@@ -76,12 +76,12 @@ data PublishSchema = PublishSchema'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'publishSchema_name' - The new name under which the schema will be published. If this is not
+-- provided, the development schema is considered.
+--
 -- 'minorVersion', 'publishSchema_minorVersion' - The minor version under which the schema will be published. This
 -- parameter is recommended. Schemas have both a major and minor version
 -- associated with them.
---
--- 'name', 'publishSchema_name' - The new name under which the schema will be published. If this is not
--- provided, the development schema is considered.
 --
 -- 'developmentSchemaArn', 'publishSchema_developmentSchemaArn' - The Amazon Resource Name (ARN) that is associated with the development
 -- schema. For more information, see arns.
@@ -96,22 +96,22 @@ newPublishSchema ::
   PublishSchema
 newPublishSchema pDevelopmentSchemaArn_ pVersion_ =
   PublishSchema'
-    { minorVersion = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      minorVersion = Prelude.Nothing,
       developmentSchemaArn = pDevelopmentSchemaArn_,
       version = pVersion_
     }
+
+-- | The new name under which the schema will be published. If this is not
+-- provided, the development schema is considered.
+publishSchema_name :: Lens.Lens' PublishSchema (Prelude.Maybe Prelude.Text)
+publishSchema_name = Lens.lens (\PublishSchema' {name} -> name) (\s@PublishSchema' {} a -> s {name = a} :: PublishSchema)
 
 -- | The minor version under which the schema will be published. This
 -- parameter is recommended. Schemas have both a major and minor version
 -- associated with them.
 publishSchema_minorVersion :: Lens.Lens' PublishSchema (Prelude.Maybe Prelude.Text)
 publishSchema_minorVersion = Lens.lens (\PublishSchema' {minorVersion} -> minorVersion) (\s@PublishSchema' {} a -> s {minorVersion = a} :: PublishSchema)
-
--- | The new name under which the schema will be published. If this is not
--- provided, the development schema is considered.
-publishSchema_name :: Lens.Lens' PublishSchema (Prelude.Maybe Prelude.Text)
-publishSchema_name = Lens.lens (\PublishSchema' {name} -> name) (\s@PublishSchema' {} a -> s {name = a} :: PublishSchema)
 
 -- | The Amazon Resource Name (ARN) that is associated with the development
 -- schema. For more information, see arns.
@@ -138,15 +138,15 @@ instance Core.AWSRequest PublishSchema where
 
 instance Prelude.Hashable PublishSchema where
   hashWithSalt _salt PublishSchema' {..} =
-    _salt `Prelude.hashWithSalt` minorVersion
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` minorVersion
       `Prelude.hashWithSalt` developmentSchemaArn
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData PublishSchema where
   rnf PublishSchema' {..} =
-    Prelude.rnf minorVersion
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf minorVersion
       `Prelude.seq` Prelude.rnf developmentSchemaArn
       `Prelude.seq` Prelude.rnf version
 
@@ -159,8 +159,8 @@ instance Core.ToJSON PublishSchema where
   toJSON PublishSchema' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MinorVersion" Core..=) Prelude.<$> minorVersion,
-            ("Name" Core..=) Prelude.<$> name,
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("MinorVersion" Core..=) Prelude.<$> minorVersion,
             Prelude.Just ("Version" Core..= version)
           ]
       )

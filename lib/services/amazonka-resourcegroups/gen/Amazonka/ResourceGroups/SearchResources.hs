@@ -52,9 +52,9 @@ module Amazonka.ResourceGroups.SearchResources
     newSearchResourcesResponse,
 
     -- * Response Lenses
-    searchResourcesResponse_queryErrors,
-    searchResourcesResponse_nextToken,
     searchResourcesResponse_resourceIdentifiers,
+    searchResourcesResponse_nextToken,
+    searchResourcesResponse_queryErrors,
     searchResourcesResponse_httpStatus,
   )
 where
@@ -186,11 +186,11 @@ instance Core.AWSRequest SearchResources where
     Response.receiveJSON
       ( \s h x ->
           SearchResourcesResponse'
-            Prelude.<$> (x Core..?> "QueryErrors" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ResourceIdentifiers"
+            Prelude.<$> ( x Core..?> "ResourceIdentifiers"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "QueryErrors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -228,20 +228,20 @@ instance Core.ToQuery SearchResources where
 
 -- | /See:/ 'newSearchResourcesResponse' smart constructor.
 data SearchResourcesResponse = SearchResourcesResponse'
-  { -- | A list of @QueryError@ objects. Each error is an object that contains
-    -- @ErrorCode@ and @Message@ structures. Possible values for @ErrorCode@
-    -- are @CLOUDFORMATION_STACK_INACTIVE@ and
-    -- @CLOUDFORMATION_STACK_NOT_EXISTING@.
-    queryErrors :: Prelude.Maybe [QueryError],
+  { -- | The ARNs and resource types of resources that are members of the group
+    -- that you specified.
+    resourceIdentifiers :: Prelude.Maybe [ResourceIdentifier],
     -- | If present, indicates that more output is available than is included in
     -- the current response. Use this value in the @NextToken@ request
     -- parameter in a subsequent call to the operation to get the next part of
     -- the output. You should repeat this until the @NextToken@ response
     -- element comes back as @null@.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ARNs and resource types of resources that are members of the group
-    -- that you specified.
-    resourceIdentifiers :: Prelude.Maybe [ResourceIdentifier],
+    -- | A list of @QueryError@ objects. Each error is an object that contains
+    -- @ErrorCode@ and @Message@ structures. Possible values for @ErrorCode@
+    -- are @CLOUDFORMATION_STACK_INACTIVE@ and
+    -- @CLOUDFORMATION_STACK_NOT_EXISTING@.
+    queryErrors :: Prelude.Maybe [QueryError],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -255,10 +255,8 @@ data SearchResourcesResponse = SearchResourcesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'queryErrors', 'searchResourcesResponse_queryErrors' - A list of @QueryError@ objects. Each error is an object that contains
--- @ErrorCode@ and @Message@ structures. Possible values for @ErrorCode@
--- are @CLOUDFORMATION_STACK_INACTIVE@ and
--- @CLOUDFORMATION_STACK_NOT_EXISTING@.
+-- 'resourceIdentifiers', 'searchResourcesResponse_resourceIdentifiers' - The ARNs and resource types of resources that are members of the group
+-- that you specified.
 --
 -- 'nextToken', 'searchResourcesResponse_nextToken' - If present, indicates that more output is available than is included in
 -- the current response. Use this value in the @NextToken@ request
@@ -266,8 +264,10 @@ data SearchResourcesResponse = SearchResourcesResponse'
 -- the output. You should repeat this until the @NextToken@ response
 -- element comes back as @null@.
 --
--- 'resourceIdentifiers', 'searchResourcesResponse_resourceIdentifiers' - The ARNs and resource types of resources that are members of the group
--- that you specified.
+-- 'queryErrors', 'searchResourcesResponse_queryErrors' - A list of @QueryError@ objects. Each error is an object that contains
+-- @ErrorCode@ and @Message@ structures. Possible values for @ErrorCode@
+-- are @CLOUDFORMATION_STACK_INACTIVE@ and
+-- @CLOUDFORMATION_STACK_NOT_EXISTING@.
 --
 -- 'httpStatus', 'searchResourcesResponse_httpStatus' - The response's http status code.
 newSearchResourcesResponse ::
@@ -276,19 +276,17 @@ newSearchResourcesResponse ::
   SearchResourcesResponse
 newSearchResourcesResponse pHttpStatus_ =
   SearchResourcesResponse'
-    { queryErrors =
+    { resourceIdentifiers =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      resourceIdentifiers = Prelude.Nothing,
+      queryErrors = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | A list of @QueryError@ objects. Each error is an object that contains
--- @ErrorCode@ and @Message@ structures. Possible values for @ErrorCode@
--- are @CLOUDFORMATION_STACK_INACTIVE@ and
--- @CLOUDFORMATION_STACK_NOT_EXISTING@.
-searchResourcesResponse_queryErrors :: Lens.Lens' SearchResourcesResponse (Prelude.Maybe [QueryError])
-searchResourcesResponse_queryErrors = Lens.lens (\SearchResourcesResponse' {queryErrors} -> queryErrors) (\s@SearchResourcesResponse' {} a -> s {queryErrors = a} :: SearchResourcesResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The ARNs and resource types of resources that are members of the group
+-- that you specified.
+searchResourcesResponse_resourceIdentifiers :: Lens.Lens' SearchResourcesResponse (Prelude.Maybe [ResourceIdentifier])
+searchResourcesResponse_resourceIdentifiers = Lens.lens (\SearchResourcesResponse' {resourceIdentifiers} -> resourceIdentifiers) (\s@SearchResourcesResponse' {} a -> s {resourceIdentifiers = a} :: SearchResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If present, indicates that more output is available than is included in
 -- the current response. Use this value in the @NextToken@ request
@@ -298,10 +296,12 @@ searchResourcesResponse_queryErrors = Lens.lens (\SearchResourcesResponse' {quer
 searchResourcesResponse_nextToken :: Lens.Lens' SearchResourcesResponse (Prelude.Maybe Prelude.Text)
 searchResourcesResponse_nextToken = Lens.lens (\SearchResourcesResponse' {nextToken} -> nextToken) (\s@SearchResourcesResponse' {} a -> s {nextToken = a} :: SearchResourcesResponse)
 
--- | The ARNs and resource types of resources that are members of the group
--- that you specified.
-searchResourcesResponse_resourceIdentifiers :: Lens.Lens' SearchResourcesResponse (Prelude.Maybe [ResourceIdentifier])
-searchResourcesResponse_resourceIdentifiers = Lens.lens (\SearchResourcesResponse' {resourceIdentifiers} -> resourceIdentifiers) (\s@SearchResourcesResponse' {} a -> s {resourceIdentifiers = a} :: SearchResourcesResponse) Prelude.. Lens.mapping Lens.coerced
+-- | A list of @QueryError@ objects. Each error is an object that contains
+-- @ErrorCode@ and @Message@ structures. Possible values for @ErrorCode@
+-- are @CLOUDFORMATION_STACK_INACTIVE@ and
+-- @CLOUDFORMATION_STACK_NOT_EXISTING@.
+searchResourcesResponse_queryErrors :: Lens.Lens' SearchResourcesResponse (Prelude.Maybe [QueryError])
+searchResourcesResponse_queryErrors = Lens.lens (\SearchResourcesResponse' {queryErrors} -> queryErrors) (\s@SearchResourcesResponse' {} a -> s {queryErrors = a} :: SearchResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 searchResourcesResponse_httpStatus :: Lens.Lens' SearchResourcesResponse Prelude.Int
@@ -309,7 +309,7 @@ searchResourcesResponse_httpStatus = Lens.lens (\SearchResourcesResponse' {httpS
 
 instance Prelude.NFData SearchResourcesResponse where
   rnf SearchResourcesResponse' {..} =
-    Prelude.rnf queryErrors
+    Prelude.rnf resourceIdentifiers
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceIdentifiers
+      `Prelude.seq` Prelude.rnf queryErrors
       `Prelude.seq` Prelude.rnf httpStatus

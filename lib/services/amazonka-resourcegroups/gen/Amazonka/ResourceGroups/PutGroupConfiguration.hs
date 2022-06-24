@@ -35,8 +35,8 @@ module Amazonka.ResourceGroups.PutGroupConfiguration
     newPutGroupConfiguration,
 
     -- * Request Lenses
-    putGroupConfiguration_group,
     putGroupConfiguration_configuration,
+    putGroupConfiguration_group,
 
     -- * Destructuring the Response
     PutGroupConfigurationResponse (..),
@@ -56,10 +56,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutGroupConfiguration' smart constructor.
 data PutGroupConfiguration = PutGroupConfiguration'
-  { -- | The name or ARN of the resource group with the configuration that you
-    -- want to update.
-    group' :: Prelude.Maybe Prelude.Text,
-    -- | The new configuration to associate with the specified group. A
+  { -- | The new configuration to associate with the specified group. A
     -- configuration associates the resource group with an AWS service and
     -- specifies how the service can interact with the resources in the group.
     -- A configuration is an array of GroupConfigurationItem elements.
@@ -69,7 +66,10 @@ data PutGroupConfiguration = PutGroupConfiguration'
     --
     -- A resource group can contain either a @Configuration@ or a
     -- @ResourceQuery@, but not both.
-    configuration :: Prelude.Maybe [GroupConfigurationItem]
+    configuration :: Prelude.Maybe [GroupConfigurationItem],
+    -- | The name or ARN of the resource group with the configuration that you
+    -- want to update.
+    group' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,9 +81,6 @@ data PutGroupConfiguration = PutGroupConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'group'', 'putGroupConfiguration_group' - The name or ARN of the resource group with the configuration that you
--- want to update.
---
 -- 'configuration', 'putGroupConfiguration_configuration' - The new configuration to associate with the specified group. A
 -- configuration associates the resource group with an AWS service and
 -- specifies how the service can interact with the resources in the group.
@@ -94,18 +91,17 @@ data PutGroupConfiguration = PutGroupConfiguration'
 --
 -- A resource group can contain either a @Configuration@ or a
 -- @ResourceQuery@, but not both.
+--
+-- 'group'', 'putGroupConfiguration_group' - The name or ARN of the resource group with the configuration that you
+-- want to update.
 newPutGroupConfiguration ::
   PutGroupConfiguration
 newPutGroupConfiguration =
   PutGroupConfiguration'
-    { group' = Prelude.Nothing,
-      configuration = Prelude.Nothing
+    { configuration =
+        Prelude.Nothing,
+      group' = Prelude.Nothing
     }
-
--- | The name or ARN of the resource group with the configuration that you
--- want to update.
-putGroupConfiguration_group :: Lens.Lens' PutGroupConfiguration (Prelude.Maybe Prelude.Text)
-putGroupConfiguration_group = Lens.lens (\PutGroupConfiguration' {group'} -> group') (\s@PutGroupConfiguration' {} a -> s {group' = a} :: PutGroupConfiguration)
 
 -- | The new configuration to associate with the specified group. A
 -- configuration associates the resource group with an AWS service and
@@ -119,6 +115,11 @@ putGroupConfiguration_group = Lens.lens (\PutGroupConfiguration' {group'} -> gro
 -- @ResourceQuery@, but not both.
 putGroupConfiguration_configuration :: Lens.Lens' PutGroupConfiguration (Prelude.Maybe [GroupConfigurationItem])
 putGroupConfiguration_configuration = Lens.lens (\PutGroupConfiguration' {configuration} -> configuration) (\s@PutGroupConfiguration' {} a -> s {configuration = a} :: PutGroupConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name or ARN of the resource group with the configuration that you
+-- want to update.
+putGroupConfiguration_group :: Lens.Lens' PutGroupConfiguration (Prelude.Maybe Prelude.Text)
+putGroupConfiguration_group = Lens.lens (\PutGroupConfiguration' {group'} -> group') (\s@PutGroupConfiguration' {} a -> s {group' = a} :: PutGroupConfiguration)
 
 instance Core.AWSRequest PutGroupConfiguration where
   type
@@ -134,13 +135,13 @@ instance Core.AWSRequest PutGroupConfiguration where
 
 instance Prelude.Hashable PutGroupConfiguration where
   hashWithSalt _salt PutGroupConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` group'
-      `Prelude.hashWithSalt` configuration
+    _salt `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` group'
 
 instance Prelude.NFData PutGroupConfiguration where
   rnf PutGroupConfiguration' {..} =
-    Prelude.rnf group'
-      `Prelude.seq` Prelude.rnf configuration
+    Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf group'
 
 instance Core.ToHeaders PutGroupConfiguration where
   toHeaders = Prelude.const Prelude.mempty
@@ -149,8 +150,8 @@ instance Core.ToJSON PutGroupConfiguration where
   toJSON PutGroupConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Group" Core..=) Prelude.<$> group',
-            ("Configuration" Core..=) Prelude.<$> configuration
+          [ ("Configuration" Core..=) Prelude.<$> configuration,
+            ("Group" Core..=) Prelude.<$> group'
           ]
       )
 

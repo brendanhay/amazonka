@@ -34,9 +34,9 @@ module Amazonka.ResourceGroups.UpdateGroup
     newUpdateGroup,
 
     -- * Request Lenses
-    updateGroup_group,
     updateGroup_groupName,
     updateGroup_description,
+    updateGroup_group,
 
     -- * Destructuring the Response
     UpdateGroupResponse (..),
@@ -57,14 +57,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateGroup' smart constructor.
 data UpdateGroup = UpdateGroup'
-  { -- | The name or the ARN of the resource group to modify.
-    group' :: Prelude.Maybe Prelude.Text,
-    -- | Don\'t use this parameter. Use @Group@ instead.
+  { -- | Don\'t use this parameter. Use @Group@ instead.
     groupName :: Prelude.Maybe Prelude.Text,
     -- | The new description that you want to update the resource group with.
     -- Descriptions can contain letters, numbers, hyphens, underscores,
     -- periods, and spaces.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The name or the ARN of the resource group to modify.
+    group' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,25 +76,21 @@ data UpdateGroup = UpdateGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'group'', 'updateGroup_group' - The name or the ARN of the resource group to modify.
---
 -- 'groupName', 'updateGroup_groupName' - Don\'t use this parameter. Use @Group@ instead.
 --
 -- 'description', 'updateGroup_description' - The new description that you want to update the resource group with.
 -- Descriptions can contain letters, numbers, hyphens, underscores,
 -- periods, and spaces.
+--
+-- 'group'', 'updateGroup_group' - The name or the ARN of the resource group to modify.
 newUpdateGroup ::
   UpdateGroup
 newUpdateGroup =
   UpdateGroup'
-    { group' = Prelude.Nothing,
-      groupName = Prelude.Nothing,
-      description = Prelude.Nothing
+    { groupName = Prelude.Nothing,
+      description = Prelude.Nothing,
+      group' = Prelude.Nothing
     }
-
--- | The name or the ARN of the resource group to modify.
-updateGroup_group :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Text)
-updateGroup_group = Lens.lens (\UpdateGroup' {group'} -> group') (\s@UpdateGroup' {} a -> s {group' = a} :: UpdateGroup)
 
 -- | Don\'t use this parameter. Use @Group@ instead.
 updateGroup_groupName :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Text)
@@ -105,6 +101,10 @@ updateGroup_groupName = Lens.lens (\UpdateGroup' {groupName} -> groupName) (\s@U
 -- periods, and spaces.
 updateGroup_description :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Text)
 updateGroup_description = Lens.lens (\UpdateGroup' {description} -> description) (\s@UpdateGroup' {} a -> s {description = a} :: UpdateGroup)
+
+-- | The name or the ARN of the resource group to modify.
+updateGroup_group :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Text)
+updateGroup_group = Lens.lens (\UpdateGroup' {group'} -> group') (\s@UpdateGroup' {} a -> s {group' = a} :: UpdateGroup)
 
 instance Core.AWSRequest UpdateGroup where
   type AWSResponse UpdateGroup = UpdateGroupResponse
@@ -119,15 +119,15 @@ instance Core.AWSRequest UpdateGroup where
 
 instance Prelude.Hashable UpdateGroup where
   hashWithSalt _salt UpdateGroup' {..} =
-    _salt `Prelude.hashWithSalt` group'
-      `Prelude.hashWithSalt` groupName
+    _salt `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` group'
 
 instance Prelude.NFData UpdateGroup where
   rnf UpdateGroup' {..} =
-    Prelude.rnf group'
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf groupName
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf group'
 
 instance Core.ToHeaders UpdateGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -136,9 +136,9 @@ instance Core.ToJSON UpdateGroup where
   toJSON UpdateGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Group" Core..=) Prelude.<$> group',
-            ("GroupName" Core..=) Prelude.<$> groupName,
-            ("Description" Core..=) Prelude.<$> description
+          [ ("GroupName" Core..=) Prelude.<$> groupName,
+            ("Description" Core..=) Prelude.<$> description,
+            ("Group" Core..=) Prelude.<$> group'
           ]
       )
 

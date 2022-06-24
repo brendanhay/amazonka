@@ -33,8 +33,8 @@ module Amazonka.ResourceGroups.GetGroup
     newGetGroup,
 
     -- * Request Lenses
-    getGroup_group,
     getGroup_groupName,
+    getGroup_group,
 
     -- * Destructuring the Response
     GetGroupResponse (..),
@@ -55,10 +55,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetGroup' smart constructor.
 data GetGroup = GetGroup'
-  { -- | The name or the ARN of the resource group to retrieve.
-    group' :: Prelude.Maybe Prelude.Text,
-    -- | Deprecated - don\'t use this parameter. Use @Group@ instead.
-    groupName :: Prelude.Maybe Prelude.Text
+  { -- | Deprecated - don\'t use this parameter. Use @Group@ instead.
+    groupName :: Prelude.Maybe Prelude.Text,
+    -- | The name or the ARN of the resource group to retrieve.
+    group' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,24 +70,24 @@ data GetGroup = GetGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'group'', 'getGroup_group' - The name or the ARN of the resource group to retrieve.
---
 -- 'groupName', 'getGroup_groupName' - Deprecated - don\'t use this parameter. Use @Group@ instead.
+--
+-- 'group'', 'getGroup_group' - The name or the ARN of the resource group to retrieve.
 newGetGroup ::
   GetGroup
 newGetGroup =
   GetGroup'
-    { group' = Prelude.Nothing,
-      groupName = Prelude.Nothing
+    { groupName = Prelude.Nothing,
+      group' = Prelude.Nothing
     }
-
--- | The name or the ARN of the resource group to retrieve.
-getGroup_group :: Lens.Lens' GetGroup (Prelude.Maybe Prelude.Text)
-getGroup_group = Lens.lens (\GetGroup' {group'} -> group') (\s@GetGroup' {} a -> s {group' = a} :: GetGroup)
 
 -- | Deprecated - don\'t use this parameter. Use @Group@ instead.
 getGroup_groupName :: Lens.Lens' GetGroup (Prelude.Maybe Prelude.Text)
 getGroup_groupName = Lens.lens (\GetGroup' {groupName} -> groupName) (\s@GetGroup' {} a -> s {groupName = a} :: GetGroup)
+
+-- | The name or the ARN of the resource group to retrieve.
+getGroup_group :: Lens.Lens' GetGroup (Prelude.Maybe Prelude.Text)
+getGroup_group = Lens.lens (\GetGroup' {group'} -> group') (\s@GetGroup' {} a -> s {group' = a} :: GetGroup)
 
 instance Core.AWSRequest GetGroup where
   type AWSResponse GetGroup = GetGroupResponse
@@ -102,13 +102,13 @@ instance Core.AWSRequest GetGroup where
 
 instance Prelude.Hashable GetGroup where
   hashWithSalt _salt GetGroup' {..} =
-    _salt `Prelude.hashWithSalt` group'
-      `Prelude.hashWithSalt` groupName
+    _salt `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` group'
 
 instance Prelude.NFData GetGroup where
   rnf GetGroup' {..} =
-    Prelude.rnf group'
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf group'
 
 instance Core.ToHeaders GetGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -117,8 +117,8 @@ instance Core.ToJSON GetGroup where
   toJSON GetGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Group" Core..=) Prelude.<$> group',
-            ("GroupName" Core..=) Prelude.<$> groupName
+          [ ("GroupName" Core..=) Prelude.<$> groupName,
+            ("Group" Core..=) Prelude.<$> group'
           ]
       )
 

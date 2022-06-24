@@ -31,6 +31,8 @@ data RevisionEntry = RevisionEntry'
     -- revision being viewed. This parameter is returned when a revision owner
     -- is viewing the entitled copy of its owned revision.
     sourceId :: Prelude.Maybe Prelude.Text,
+    -- | An optional comment about the revision.
+    comment :: Prelude.Maybe Prelude.Text,
     -- | To publish a revision to a data set in a product, the revision must
     -- first be finalized. Finalizing a revision tells AWS Data Exchange that
     -- your changes to the assets in the revision are complete. After it\'s in
@@ -41,8 +43,6 @@ data RevisionEntry = RevisionEntry'
     -- Marketplace Catalog API action. When using the API, revisions are
     -- uniquely identified by their ARN.
     finalized :: Prelude.Maybe Prelude.Bool,
-    -- | An optional comment about the revision.
-    comment :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the revision was created, in ISO 8601 format.
     createdAt :: Core.POSIX,
     -- | The unique identifier for the data set associated with this revision.
@@ -69,6 +69,8 @@ data RevisionEntry = RevisionEntry'
 -- revision being viewed. This parameter is returned when a revision owner
 -- is viewing the entitled copy of its owned revision.
 --
+-- 'comment', 'revisionEntry_comment' - An optional comment about the revision.
+--
 -- 'finalized', 'revisionEntry_finalized' - To publish a revision to a data set in a product, the revision must
 -- first be finalized. Finalizing a revision tells AWS Data Exchange that
 -- your changes to the assets in the revision are complete. After it\'s in
@@ -78,8 +80,6 @@ data RevisionEntry = RevisionEntry'
 -- console or the AWS Marketplace Catalog API, using the StartChangeSet AWS
 -- Marketplace Catalog API action. When using the API, revisions are
 -- uniquely identified by their ARN.
---
--- 'comment', 'revisionEntry_comment' - An optional comment about the revision.
 --
 -- 'createdAt', 'revisionEntry_createdAt' - The date and time that the revision was created, in ISO 8601 format.
 --
@@ -111,8 +111,8 @@ newRevisionEntry
   pUpdatedAt_ =
     RevisionEntry'
       { sourceId = Prelude.Nothing,
-        finalized = Prelude.Nothing,
         comment = Prelude.Nothing,
+        finalized = Prelude.Nothing,
         createdAt = Core._Time Lens.# pCreatedAt_,
         dataSetId = pDataSetId_,
         id = pId_,
@@ -126,6 +126,10 @@ newRevisionEntry
 revisionEntry_sourceId :: Lens.Lens' RevisionEntry (Prelude.Maybe Prelude.Text)
 revisionEntry_sourceId = Lens.lens (\RevisionEntry' {sourceId} -> sourceId) (\s@RevisionEntry' {} a -> s {sourceId = a} :: RevisionEntry)
 
+-- | An optional comment about the revision.
+revisionEntry_comment :: Lens.Lens' RevisionEntry (Prelude.Maybe Prelude.Text)
+revisionEntry_comment = Lens.lens (\RevisionEntry' {comment} -> comment) (\s@RevisionEntry' {} a -> s {comment = a} :: RevisionEntry)
+
 -- | To publish a revision to a data set in a product, the revision must
 -- first be finalized. Finalizing a revision tells AWS Data Exchange that
 -- your changes to the assets in the revision are complete. After it\'s in
@@ -137,10 +141,6 @@ revisionEntry_sourceId = Lens.lens (\RevisionEntry' {sourceId} -> sourceId) (\s@
 -- uniquely identified by their ARN.
 revisionEntry_finalized :: Lens.Lens' RevisionEntry (Prelude.Maybe Prelude.Bool)
 revisionEntry_finalized = Lens.lens (\RevisionEntry' {finalized} -> finalized) (\s@RevisionEntry' {} a -> s {finalized = a} :: RevisionEntry)
-
--- | An optional comment about the revision.
-revisionEntry_comment :: Lens.Lens' RevisionEntry (Prelude.Maybe Prelude.Text)
-revisionEntry_comment = Lens.lens (\RevisionEntry' {comment} -> comment) (\s@RevisionEntry' {} a -> s {comment = a} :: RevisionEntry)
 
 -- | The date and time that the revision was created, in ISO 8601 format.
 revisionEntry_createdAt :: Lens.Lens' RevisionEntry Prelude.UTCTime
@@ -170,8 +170,8 @@ instance Core.FromJSON RevisionEntry where
       ( \x ->
           RevisionEntry'
             Prelude.<$> (x Core..:? "SourceId")
-            Prelude.<*> (x Core..:? "Finalized")
             Prelude.<*> (x Core..:? "Comment")
+            Prelude.<*> (x Core..:? "Finalized")
             Prelude.<*> (x Core..: "CreatedAt")
             Prelude.<*> (x Core..: "DataSetId")
             Prelude.<*> (x Core..: "Id")
@@ -182,8 +182,8 @@ instance Core.FromJSON RevisionEntry where
 instance Prelude.Hashable RevisionEntry where
   hashWithSalt _salt RevisionEntry' {..} =
     _salt `Prelude.hashWithSalt` sourceId
-      `Prelude.hashWithSalt` finalized
       `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` finalized
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` dataSetId
       `Prelude.hashWithSalt` id
@@ -193,8 +193,8 @@ instance Prelude.Hashable RevisionEntry where
 instance Prelude.NFData RevisionEntry where
   rnf RevisionEntry' {..} =
     Prelude.rnf sourceId
-      `Prelude.seq` Prelude.rnf finalized
       `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf finalized
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf dataSetId
       `Prelude.seq` Prelude.rnf id

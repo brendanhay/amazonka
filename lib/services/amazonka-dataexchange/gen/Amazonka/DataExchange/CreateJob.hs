@@ -35,14 +35,14 @@ module Amazonka.DataExchange.CreateJob
     newCreateJobResponse,
 
     -- * Response Lenses
-    createJobResponse_state,
-    createJobResponse_arn,
-    createJobResponse_createdAt,
-    createJobResponse_details,
-    createJobResponse_id,
     createJobResponse_type,
-    createJobResponse_updatedAt,
+    createJobResponse_arn,
+    createJobResponse_state,
+    createJobResponse_id,
+    createJobResponse_details,
     createJobResponse_errors,
+    createJobResponse_createdAt,
+    createJobResponse_updatedAt,
     createJobResponse_httpStatus,
   )
 where
@@ -100,14 +100,14 @@ instance Core.AWSRequest CreateJob where
     Response.receiveJSON
       ( \s h x ->
           CreateJobResponse'
-            Prelude.<$> (x Core..?> "State")
+            Prelude.<$> (x Core..?> "Type")
             Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "CreatedAt")
-            Prelude.<*> (x Core..?> "Details")
+            Prelude.<*> (x Core..?> "State")
             Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "Type")
-            Prelude.<*> (x Core..?> "UpdatedAt")
+            Prelude.<*> (x Core..?> "Details")
             Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "CreatedAt")
+            Prelude.<*> (x Core..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,22 +148,22 @@ instance Core.ToQuery CreateJob where
 
 -- | /See:/ 'newCreateJobResponse' smart constructor.
 data CreateJobResponse = CreateJobResponse'
-  { -- | The state of the job.
-    state :: Prelude.Maybe State,
+  { -- | The job type.
+    type' :: Prelude.Maybe Type,
     -- | The ARN for the job.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that the job was created, in ISO 8601 format.
-    createdAt :: Prelude.Maybe Core.POSIX,
-    -- | Details about the job.
-    details :: Prelude.Maybe ResponseDetails,
+    -- | The state of the job.
+    state :: Prelude.Maybe State,
     -- | The unique identifier for the job.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The job type.
-    type' :: Prelude.Maybe Type,
-    -- | The date and time that the job was last updated, in ISO 8601 format.
-    updatedAt :: Prelude.Maybe Core.POSIX,
+    -- | Details about the job.
+    details :: Prelude.Maybe ResponseDetails,
     -- | The errors associated with jobs.
     errors :: Prelude.Maybe [JobError],
+    -- | The date and time that the job was created, in ISO 8601 format.
+    createdAt :: Prelude.Maybe Core.POSIX,
+    -- | The date and time that the job was last updated, in ISO 8601 format.
+    updatedAt :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -177,21 +177,21 @@ data CreateJobResponse = CreateJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'createJobResponse_state' - The state of the job.
+-- 'type'', 'createJobResponse_type' - The job type.
 --
 -- 'arn', 'createJobResponse_arn' - The ARN for the job.
 --
--- 'createdAt', 'createJobResponse_createdAt' - The date and time that the job was created, in ISO 8601 format.
---
--- 'details', 'createJobResponse_details' - Details about the job.
+-- 'state', 'createJobResponse_state' - The state of the job.
 --
 -- 'id', 'createJobResponse_id' - The unique identifier for the job.
 --
--- 'type'', 'createJobResponse_type' - The job type.
---
--- 'updatedAt', 'createJobResponse_updatedAt' - The date and time that the job was last updated, in ISO 8601 format.
+-- 'details', 'createJobResponse_details' - Details about the job.
 --
 -- 'errors', 'createJobResponse_errors' - The errors associated with jobs.
+--
+-- 'createdAt', 'createJobResponse_createdAt' - The date and time that the job was created, in ISO 8601 format.
+--
+-- 'updatedAt', 'createJobResponse_updatedAt' - The date and time that the job was last updated, in ISO 8601 format.
 --
 -- 'httpStatus', 'createJobResponse_httpStatus' - The response's http status code.
 newCreateJobResponse ::
@@ -200,48 +200,48 @@ newCreateJobResponse ::
   CreateJobResponse
 newCreateJobResponse pHttpStatus_ =
   CreateJobResponse'
-    { state = Prelude.Nothing,
+    { type' = Prelude.Nothing,
       arn = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      details = Prelude.Nothing,
+      state = Prelude.Nothing,
       id = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      updatedAt = Prelude.Nothing,
+      details = Prelude.Nothing,
       errors = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      updatedAt = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The state of the job.
-createJobResponse_state :: Lens.Lens' CreateJobResponse (Prelude.Maybe State)
-createJobResponse_state = Lens.lens (\CreateJobResponse' {state} -> state) (\s@CreateJobResponse' {} a -> s {state = a} :: CreateJobResponse)
-
--- | The ARN for the job.
-createJobResponse_arn :: Lens.Lens' CreateJobResponse (Prelude.Maybe Prelude.Text)
-createJobResponse_arn = Lens.lens (\CreateJobResponse' {arn} -> arn) (\s@CreateJobResponse' {} a -> s {arn = a} :: CreateJobResponse)
-
--- | The date and time that the job was created, in ISO 8601 format.
-createJobResponse_createdAt :: Lens.Lens' CreateJobResponse (Prelude.Maybe Prelude.UTCTime)
-createJobResponse_createdAt = Lens.lens (\CreateJobResponse' {createdAt} -> createdAt) (\s@CreateJobResponse' {} a -> s {createdAt = a} :: CreateJobResponse) Prelude.. Lens.mapping Core._Time
-
--- | Details about the job.
-createJobResponse_details :: Lens.Lens' CreateJobResponse (Prelude.Maybe ResponseDetails)
-createJobResponse_details = Lens.lens (\CreateJobResponse' {details} -> details) (\s@CreateJobResponse' {} a -> s {details = a} :: CreateJobResponse)
-
--- | The unique identifier for the job.
-createJobResponse_id :: Lens.Lens' CreateJobResponse (Prelude.Maybe Prelude.Text)
-createJobResponse_id = Lens.lens (\CreateJobResponse' {id} -> id) (\s@CreateJobResponse' {} a -> s {id = a} :: CreateJobResponse)
 
 -- | The job type.
 createJobResponse_type :: Lens.Lens' CreateJobResponse (Prelude.Maybe Type)
 createJobResponse_type = Lens.lens (\CreateJobResponse' {type'} -> type') (\s@CreateJobResponse' {} a -> s {type' = a} :: CreateJobResponse)
 
--- | The date and time that the job was last updated, in ISO 8601 format.
-createJobResponse_updatedAt :: Lens.Lens' CreateJobResponse (Prelude.Maybe Prelude.UTCTime)
-createJobResponse_updatedAt = Lens.lens (\CreateJobResponse' {updatedAt} -> updatedAt) (\s@CreateJobResponse' {} a -> s {updatedAt = a} :: CreateJobResponse) Prelude.. Lens.mapping Core._Time
+-- | The ARN for the job.
+createJobResponse_arn :: Lens.Lens' CreateJobResponse (Prelude.Maybe Prelude.Text)
+createJobResponse_arn = Lens.lens (\CreateJobResponse' {arn} -> arn) (\s@CreateJobResponse' {} a -> s {arn = a} :: CreateJobResponse)
+
+-- | The state of the job.
+createJobResponse_state :: Lens.Lens' CreateJobResponse (Prelude.Maybe State)
+createJobResponse_state = Lens.lens (\CreateJobResponse' {state} -> state) (\s@CreateJobResponse' {} a -> s {state = a} :: CreateJobResponse)
+
+-- | The unique identifier for the job.
+createJobResponse_id :: Lens.Lens' CreateJobResponse (Prelude.Maybe Prelude.Text)
+createJobResponse_id = Lens.lens (\CreateJobResponse' {id} -> id) (\s@CreateJobResponse' {} a -> s {id = a} :: CreateJobResponse)
+
+-- | Details about the job.
+createJobResponse_details :: Lens.Lens' CreateJobResponse (Prelude.Maybe ResponseDetails)
+createJobResponse_details = Lens.lens (\CreateJobResponse' {details} -> details) (\s@CreateJobResponse' {} a -> s {details = a} :: CreateJobResponse)
 
 -- | The errors associated with jobs.
 createJobResponse_errors :: Lens.Lens' CreateJobResponse (Prelude.Maybe [JobError])
 createJobResponse_errors = Lens.lens (\CreateJobResponse' {errors} -> errors) (\s@CreateJobResponse' {} a -> s {errors = a} :: CreateJobResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The date and time that the job was created, in ISO 8601 format.
+createJobResponse_createdAt :: Lens.Lens' CreateJobResponse (Prelude.Maybe Prelude.UTCTime)
+createJobResponse_createdAt = Lens.lens (\CreateJobResponse' {createdAt} -> createdAt) (\s@CreateJobResponse' {} a -> s {createdAt = a} :: CreateJobResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The date and time that the job was last updated, in ISO 8601 format.
+createJobResponse_updatedAt :: Lens.Lens' CreateJobResponse (Prelude.Maybe Prelude.UTCTime)
+createJobResponse_updatedAt = Lens.lens (\CreateJobResponse' {updatedAt} -> updatedAt) (\s@CreateJobResponse' {} a -> s {updatedAt = a} :: CreateJobResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
 createJobResponse_httpStatus :: Lens.Lens' CreateJobResponse Prelude.Int
@@ -249,12 +249,12 @@ createJobResponse_httpStatus = Lens.lens (\CreateJobResponse' {httpStatus} -> ht
 
 instance Prelude.NFData CreateJobResponse where
   rnf CreateJobResponse' {..} =
-    Prelude.rnf state
+    Prelude.rnf type'
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf details
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf details
       `Prelude.seq` Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf updatedAt
       `Prelude.seq` Prelude.rnf httpStatus

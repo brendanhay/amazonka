@@ -29,17 +29,17 @@ module Amazonka.DataExchange.ListEventActions
     newListEventActions,
 
     -- * Request Lenses
-    listEventActions_eventSourceId,
     listEventActions_nextToken,
     listEventActions_maxResults,
+    listEventActions_eventSourceId,
 
     -- * Destructuring the Response
     ListEventActionsResponse (..),
     newListEventActionsResponse,
 
     -- * Response Lenses
-    listEventActionsResponse_eventActions,
     listEventActionsResponse_nextToken,
+    listEventActionsResponse_eventActions,
     listEventActionsResponse_httpStatus,
   )
 where
@@ -53,13 +53,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEventActions' smart constructor.
 data ListEventActions = ListEventActions'
-  { -- | The unique identifier for the event source.
-    eventSourceId :: Prelude.Maybe Prelude.Text,
-    -- | The token value retrieved from a previous call to access the next page
+  { -- | The token value retrieved from a previous call to access the next page
     -- of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results returned by a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The unique identifier for the event source.
+    eventSourceId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,24 +71,20 @@ data ListEventActions = ListEventActions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eventSourceId', 'listEventActions_eventSourceId' - The unique identifier for the event source.
---
 -- 'nextToken', 'listEventActions_nextToken' - The token value retrieved from a previous call to access the next page
 -- of results.
 --
 -- 'maxResults', 'listEventActions_maxResults' - The maximum number of results returned by a single call.
+--
+-- 'eventSourceId', 'listEventActions_eventSourceId' - The unique identifier for the event source.
 newListEventActions ::
   ListEventActions
 newListEventActions =
   ListEventActions'
-    { eventSourceId = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      eventSourceId = Prelude.Nothing
     }
-
--- | The unique identifier for the event source.
-listEventActions_eventSourceId :: Lens.Lens' ListEventActions (Prelude.Maybe Prelude.Text)
-listEventActions_eventSourceId = Lens.lens (\ListEventActions' {eventSourceId} -> eventSourceId) (\s@ListEventActions' {} a -> s {eventSourceId = a} :: ListEventActions)
 
 -- | The token value retrieved from a previous call to access the next page
 -- of results.
@@ -98,6 +94,10 @@ listEventActions_nextToken = Lens.lens (\ListEventActions' {nextToken} -> nextTo
 -- | The maximum number of results returned by a single call.
 listEventActions_maxResults :: Lens.Lens' ListEventActions (Prelude.Maybe Prelude.Natural)
 listEventActions_maxResults = Lens.lens (\ListEventActions' {maxResults} -> maxResults) (\s@ListEventActions' {} a -> s {maxResults = a} :: ListEventActions)
+
+-- | The unique identifier for the event source.
+listEventActions_eventSourceId :: Lens.Lens' ListEventActions (Prelude.Maybe Prelude.Text)
+listEventActions_eventSourceId = Lens.lens (\ListEventActions' {eventSourceId} -> eventSourceId) (\s@ListEventActions' {} a -> s {eventSourceId = a} :: ListEventActions)
 
 instance Core.AWSPager ListEventActions where
   page rq rs
@@ -130,22 +130,22 @@ instance Core.AWSRequest ListEventActions where
     Response.receiveJSON
       ( \s h x ->
           ListEventActionsResponse'
-            Prelude.<$> (x Core..?> "EventActions" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "EventActions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListEventActions where
   hashWithSalt _salt ListEventActions' {..} =
-    _salt `Prelude.hashWithSalt` eventSourceId
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` eventSourceId
 
 instance Prelude.NFData ListEventActions where
   rnf ListEventActions' {..} =
-    Prelude.rnf eventSourceId
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf eventSourceId
 
 instance Core.ToHeaders ListEventActions where
   toHeaders =
@@ -164,18 +164,18 @@ instance Core.ToPath ListEventActions where
 instance Core.ToQuery ListEventActions where
   toQuery ListEventActions' {..} =
     Prelude.mconcat
-      [ "eventSourceId" Core.=: eventSourceId,
-        "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults,
+        "eventSourceId" Core.=: eventSourceId
       ]
 
 -- | /See:/ 'newListEventActionsResponse' smart constructor.
 data ListEventActionsResponse = ListEventActionsResponse'
-  { -- | The event action objects listed by the request.
-    eventActions :: Prelude.Maybe [EventActionEntry],
-    -- | The token value retrieved from a previous call to access the next page
+  { -- | The token value retrieved from a previous call to access the next page
     -- of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The event action objects listed by the request.
+    eventActions :: Prelude.Maybe [EventActionEntry],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -189,10 +189,10 @@ data ListEventActionsResponse = ListEventActionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eventActions', 'listEventActionsResponse_eventActions' - The event action objects listed by the request.
---
 -- 'nextToken', 'listEventActionsResponse_nextToken' - The token value retrieved from a previous call to access the next page
 -- of results.
+--
+-- 'eventActions', 'listEventActionsResponse_eventActions' - The event action objects listed by the request.
 --
 -- 'httpStatus', 'listEventActionsResponse_httpStatus' - The response's http status code.
 newListEventActionsResponse ::
@@ -201,20 +201,20 @@ newListEventActionsResponse ::
   ListEventActionsResponse
 newListEventActionsResponse pHttpStatus_ =
   ListEventActionsResponse'
-    { eventActions =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      eventActions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The event action objects listed by the request.
-listEventActionsResponse_eventActions :: Lens.Lens' ListEventActionsResponse (Prelude.Maybe [EventActionEntry])
-listEventActionsResponse_eventActions = Lens.lens (\ListEventActionsResponse' {eventActions} -> eventActions) (\s@ListEventActionsResponse' {} a -> s {eventActions = a} :: ListEventActionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token value retrieved from a previous call to access the next page
 -- of results.
 listEventActionsResponse_nextToken :: Lens.Lens' ListEventActionsResponse (Prelude.Maybe Prelude.Text)
 listEventActionsResponse_nextToken = Lens.lens (\ListEventActionsResponse' {nextToken} -> nextToken) (\s@ListEventActionsResponse' {} a -> s {nextToken = a} :: ListEventActionsResponse)
+
+-- | The event action objects listed by the request.
+listEventActionsResponse_eventActions :: Lens.Lens' ListEventActionsResponse (Prelude.Maybe [EventActionEntry])
+listEventActionsResponse_eventActions = Lens.lens (\ListEventActionsResponse' {eventActions} -> eventActions) (\s@ListEventActionsResponse' {} a -> s {eventActions = a} :: ListEventActionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listEventActionsResponse_httpStatus :: Lens.Lens' ListEventActionsResponse Prelude.Int
@@ -222,6 +222,6 @@ listEventActionsResponse_httpStatus = Lens.lens (\ListEventActionsResponse' {htt
 
 instance Prelude.NFData ListEventActionsResponse where
   rnf ListEventActionsResponse' {..} =
-    Prelude.rnf eventActions
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf eventActions
       `Prelude.seq` Prelude.rnf httpStatus

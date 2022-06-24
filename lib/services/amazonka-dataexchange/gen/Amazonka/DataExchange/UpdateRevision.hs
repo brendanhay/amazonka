@@ -27,8 +27,8 @@ module Amazonka.DataExchange.UpdateRevision
     newUpdateRevision,
 
     -- * Request Lenses
-    updateRevision_finalized,
     updateRevision_comment,
+    updateRevision_finalized,
     updateRevision_revisionId,
     updateRevision_dataSetId,
 
@@ -37,14 +37,14 @@ module Amazonka.DataExchange.UpdateRevision
     newUpdateRevisionResponse,
 
     -- * Response Lenses
-    updateRevisionResponse_arn,
-    updateRevisionResponse_createdAt,
     updateRevisionResponse_sourceId,
+    updateRevisionResponse_arn,
+    updateRevisionResponse_id,
+    updateRevisionResponse_comment,
     updateRevisionResponse_finalized,
     updateRevisionResponse_dataSetId,
-    updateRevisionResponse_id,
+    updateRevisionResponse_createdAt,
     updateRevisionResponse_updatedAt,
-    updateRevisionResponse_comment,
     updateRevisionResponse_httpStatus,
   )
 where
@@ -60,12 +60,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateRevision' smart constructor.
 data UpdateRevision = UpdateRevision'
-  { -- | Finalizing a revision tells AWS Data Exchange that your changes to the
+  { -- | An optional comment about the revision.
+    comment :: Prelude.Maybe Prelude.Text,
+    -- | Finalizing a revision tells AWS Data Exchange that your changes to the
     -- assets in the revision are complete. After it\'s in this read-only
     -- state, you can publish the revision to your products.
     finalized :: Prelude.Maybe Prelude.Bool,
-    -- | An optional comment about the revision.
-    comment :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for a revision.
     revisionId :: Prelude.Text,
     -- | The unique identifier for a data set.
@@ -81,11 +81,11 @@ data UpdateRevision = UpdateRevision'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'comment', 'updateRevision_comment' - An optional comment about the revision.
+--
 -- 'finalized', 'updateRevision_finalized' - Finalizing a revision tells AWS Data Exchange that your changes to the
 -- assets in the revision are complete. After it\'s in this read-only
 -- state, you can publish the revision to your products.
---
--- 'comment', 'updateRevision_comment' - An optional comment about the revision.
 --
 -- 'revisionId', 'updateRevision_revisionId' - The unique identifier for a revision.
 --
@@ -98,21 +98,21 @@ newUpdateRevision ::
   UpdateRevision
 newUpdateRevision pRevisionId_ pDataSetId_ =
   UpdateRevision'
-    { finalized = Prelude.Nothing,
-      comment = Prelude.Nothing,
+    { comment = Prelude.Nothing,
+      finalized = Prelude.Nothing,
       revisionId = pRevisionId_,
       dataSetId = pDataSetId_
     }
+
+-- | An optional comment about the revision.
+updateRevision_comment :: Lens.Lens' UpdateRevision (Prelude.Maybe Prelude.Text)
+updateRevision_comment = Lens.lens (\UpdateRevision' {comment} -> comment) (\s@UpdateRevision' {} a -> s {comment = a} :: UpdateRevision)
 
 -- | Finalizing a revision tells AWS Data Exchange that your changes to the
 -- assets in the revision are complete. After it\'s in this read-only
 -- state, you can publish the revision to your products.
 updateRevision_finalized :: Lens.Lens' UpdateRevision (Prelude.Maybe Prelude.Bool)
 updateRevision_finalized = Lens.lens (\UpdateRevision' {finalized} -> finalized) (\s@UpdateRevision' {} a -> s {finalized = a} :: UpdateRevision)
-
--- | An optional comment about the revision.
-updateRevision_comment :: Lens.Lens' UpdateRevision (Prelude.Maybe Prelude.Text)
-updateRevision_comment = Lens.lens (\UpdateRevision' {comment} -> comment) (\s@UpdateRevision' {} a -> s {comment = a} :: UpdateRevision)
 
 -- | The unique identifier for a revision.
 updateRevision_revisionId :: Lens.Lens' UpdateRevision Prelude.Text
@@ -131,28 +131,28 @@ instance Core.AWSRequest UpdateRevision where
     Response.receiveJSON
       ( \s h x ->
           UpdateRevisionResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "CreatedAt")
-            Prelude.<*> (x Core..?> "SourceId")
+            Prelude.<$> (x Core..?> "SourceId")
+            Prelude.<*> (x Core..?> "Arn")
+            Prelude.<*> (x Core..?> "Id")
+            Prelude.<*> (x Core..?> "Comment")
             Prelude.<*> (x Core..?> "Finalized")
             Prelude.<*> (x Core..?> "DataSetId")
-            Prelude.<*> (x Core..?> "Id")
+            Prelude.<*> (x Core..?> "CreatedAt")
             Prelude.<*> (x Core..?> "UpdatedAt")
-            Prelude.<*> (x Core..?> "Comment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateRevision where
   hashWithSalt _salt UpdateRevision' {..} =
-    _salt `Prelude.hashWithSalt` finalized
-      `Prelude.hashWithSalt` comment
+    _salt `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` finalized
       `Prelude.hashWithSalt` revisionId
       `Prelude.hashWithSalt` dataSetId
 
 instance Prelude.NFData UpdateRevision where
   rnf UpdateRevision' {..} =
-    Prelude.rnf finalized
-      `Prelude.seq` Prelude.rnf comment
+    Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf finalized
       `Prelude.seq` Prelude.rnf revisionId
       `Prelude.seq` Prelude.rnf dataSetId
 
@@ -171,8 +171,8 @@ instance Core.ToJSON UpdateRevision where
   toJSON UpdateRevision' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Finalized" Core..=) Prelude.<$> finalized,
-            ("Comment" Core..=) Prelude.<$> comment
+          [ ("Comment" Core..=) Prelude.<$> comment,
+            ("Finalized" Core..=) Prelude.<$> finalized
           ]
       )
 
@@ -190,14 +190,16 @@ instance Core.ToQuery UpdateRevision where
 
 -- | /See:/ 'newUpdateRevisionResponse' smart constructor.
 data UpdateRevisionResponse = UpdateRevisionResponse'
-  { -- | The ARN for the revision.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that the revision was created, in ISO 8601 format.
-    createdAt :: Prelude.Maybe Core.POSIX,
-    -- | The revision ID of the owned revision corresponding to the entitled
+  { -- | The revision ID of the owned revision corresponding to the entitled
     -- revision being viewed. This parameter is returned when a revision owner
     -- is viewing the entitled copy of its owned revision.
     sourceId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN for the revision.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the revision.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | An optional comment about the revision.
+    comment :: Prelude.Maybe Prelude.Text,
     -- | To publish a revision to a data set in a product, the revision must
     -- first be finalized. Finalizing a revision tells AWS Data Exchange that
     -- changes to the assets in the revision are complete. After it\'s in this
@@ -210,13 +212,11 @@ data UpdateRevisionResponse = UpdateRevisionResponse'
     finalized :: Prelude.Maybe Prelude.Bool,
     -- | The unique identifier for the data set associated with this revision.
     dataSetId :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the revision.
-    id :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the revision was created, in ISO 8601 format.
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The date and time that the revision was last updated, in ISO 8601
     -- format.
     updatedAt :: Prelude.Maybe Core.POSIX,
-    -- | An optional comment about the revision.
-    comment :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -230,13 +230,15 @@ data UpdateRevisionResponse = UpdateRevisionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'updateRevisionResponse_arn' - The ARN for the revision.
---
--- 'createdAt', 'updateRevisionResponse_createdAt' - The date and time that the revision was created, in ISO 8601 format.
---
 -- 'sourceId', 'updateRevisionResponse_sourceId' - The revision ID of the owned revision corresponding to the entitled
 -- revision being viewed. This parameter is returned when a revision owner
 -- is viewing the entitled copy of its owned revision.
+--
+-- 'arn', 'updateRevisionResponse_arn' - The ARN for the revision.
+--
+-- 'id', 'updateRevisionResponse_id' - The unique identifier for the revision.
+--
+-- 'comment', 'updateRevisionResponse_comment' - An optional comment about the revision.
 --
 -- 'finalized', 'updateRevisionResponse_finalized' - To publish a revision to a data set in a product, the revision must
 -- first be finalized. Finalizing a revision tells AWS Data Exchange that
@@ -250,12 +252,10 @@ data UpdateRevisionResponse = UpdateRevisionResponse'
 --
 -- 'dataSetId', 'updateRevisionResponse_dataSetId' - The unique identifier for the data set associated with this revision.
 --
--- 'id', 'updateRevisionResponse_id' - The unique identifier for the revision.
+-- 'createdAt', 'updateRevisionResponse_createdAt' - The date and time that the revision was created, in ISO 8601 format.
 --
 -- 'updatedAt', 'updateRevisionResponse_updatedAt' - The date and time that the revision was last updated, in ISO 8601
 -- format.
---
--- 'comment', 'updateRevisionResponse_comment' - An optional comment about the revision.
 --
 -- 'httpStatus', 'updateRevisionResponse_httpStatus' - The response's http status code.
 newUpdateRevisionResponse ::
@@ -264,30 +264,34 @@ newUpdateRevisionResponse ::
   UpdateRevisionResponse
 newUpdateRevisionResponse pHttpStatus_ =
   UpdateRevisionResponse'
-    { arn = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      sourceId = Prelude.Nothing,
+    { sourceId = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      comment = Prelude.Nothing,
       finalized = Prelude.Nothing,
       dataSetId = Prelude.Nothing,
-      id = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       updatedAt = Prelude.Nothing,
-      comment = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARN for the revision.
-updateRevisionResponse_arn :: Lens.Lens' UpdateRevisionResponse (Prelude.Maybe Prelude.Text)
-updateRevisionResponse_arn = Lens.lens (\UpdateRevisionResponse' {arn} -> arn) (\s@UpdateRevisionResponse' {} a -> s {arn = a} :: UpdateRevisionResponse)
-
--- | The date and time that the revision was created, in ISO 8601 format.
-updateRevisionResponse_createdAt :: Lens.Lens' UpdateRevisionResponse (Prelude.Maybe Prelude.UTCTime)
-updateRevisionResponse_createdAt = Lens.lens (\UpdateRevisionResponse' {createdAt} -> createdAt) (\s@UpdateRevisionResponse' {} a -> s {createdAt = a} :: UpdateRevisionResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The revision ID of the owned revision corresponding to the entitled
 -- revision being viewed. This parameter is returned when a revision owner
 -- is viewing the entitled copy of its owned revision.
 updateRevisionResponse_sourceId :: Lens.Lens' UpdateRevisionResponse (Prelude.Maybe Prelude.Text)
 updateRevisionResponse_sourceId = Lens.lens (\UpdateRevisionResponse' {sourceId} -> sourceId) (\s@UpdateRevisionResponse' {} a -> s {sourceId = a} :: UpdateRevisionResponse)
+
+-- | The ARN for the revision.
+updateRevisionResponse_arn :: Lens.Lens' UpdateRevisionResponse (Prelude.Maybe Prelude.Text)
+updateRevisionResponse_arn = Lens.lens (\UpdateRevisionResponse' {arn} -> arn) (\s@UpdateRevisionResponse' {} a -> s {arn = a} :: UpdateRevisionResponse)
+
+-- | The unique identifier for the revision.
+updateRevisionResponse_id :: Lens.Lens' UpdateRevisionResponse (Prelude.Maybe Prelude.Text)
+updateRevisionResponse_id = Lens.lens (\UpdateRevisionResponse' {id} -> id) (\s@UpdateRevisionResponse' {} a -> s {id = a} :: UpdateRevisionResponse)
+
+-- | An optional comment about the revision.
+updateRevisionResponse_comment :: Lens.Lens' UpdateRevisionResponse (Prelude.Maybe Prelude.Text)
+updateRevisionResponse_comment = Lens.lens (\UpdateRevisionResponse' {comment} -> comment) (\s@UpdateRevisionResponse' {} a -> s {comment = a} :: UpdateRevisionResponse)
 
 -- | To publish a revision to a data set in a product, the revision must
 -- first be finalized. Finalizing a revision tells AWS Data Exchange that
@@ -305,18 +309,14 @@ updateRevisionResponse_finalized = Lens.lens (\UpdateRevisionResponse' {finalize
 updateRevisionResponse_dataSetId :: Lens.Lens' UpdateRevisionResponse (Prelude.Maybe Prelude.Text)
 updateRevisionResponse_dataSetId = Lens.lens (\UpdateRevisionResponse' {dataSetId} -> dataSetId) (\s@UpdateRevisionResponse' {} a -> s {dataSetId = a} :: UpdateRevisionResponse)
 
--- | The unique identifier for the revision.
-updateRevisionResponse_id :: Lens.Lens' UpdateRevisionResponse (Prelude.Maybe Prelude.Text)
-updateRevisionResponse_id = Lens.lens (\UpdateRevisionResponse' {id} -> id) (\s@UpdateRevisionResponse' {} a -> s {id = a} :: UpdateRevisionResponse)
+-- | The date and time that the revision was created, in ISO 8601 format.
+updateRevisionResponse_createdAt :: Lens.Lens' UpdateRevisionResponse (Prelude.Maybe Prelude.UTCTime)
+updateRevisionResponse_createdAt = Lens.lens (\UpdateRevisionResponse' {createdAt} -> createdAt) (\s@UpdateRevisionResponse' {} a -> s {createdAt = a} :: UpdateRevisionResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The date and time that the revision was last updated, in ISO 8601
 -- format.
 updateRevisionResponse_updatedAt :: Lens.Lens' UpdateRevisionResponse (Prelude.Maybe Prelude.UTCTime)
 updateRevisionResponse_updatedAt = Lens.lens (\UpdateRevisionResponse' {updatedAt} -> updatedAt) (\s@UpdateRevisionResponse' {} a -> s {updatedAt = a} :: UpdateRevisionResponse) Prelude.. Lens.mapping Core._Time
-
--- | An optional comment about the revision.
-updateRevisionResponse_comment :: Lens.Lens' UpdateRevisionResponse (Prelude.Maybe Prelude.Text)
-updateRevisionResponse_comment = Lens.lens (\UpdateRevisionResponse' {comment} -> comment) (\s@UpdateRevisionResponse' {} a -> s {comment = a} :: UpdateRevisionResponse)
 
 -- | The response's http status code.
 updateRevisionResponse_httpStatus :: Lens.Lens' UpdateRevisionResponse Prelude.Int
@@ -324,12 +324,12 @@ updateRevisionResponse_httpStatus = Lens.lens (\UpdateRevisionResponse' {httpSta
 
 instance Prelude.NFData UpdateRevisionResponse where
   rnf UpdateRevisionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf sourceId
+    Prelude.rnf sourceId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf comment
       `Prelude.seq` Prelude.rnf finalized
       `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf comment
       `Prelude.seq` Prelude.rnf httpStatus

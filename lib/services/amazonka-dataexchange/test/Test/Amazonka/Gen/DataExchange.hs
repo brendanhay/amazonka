@@ -27,59 +27,65 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGetEventAction $
---             newGetEventAction
---
---         , requestCreateRevision $
---             newCreateRevision
---
---         , requestListRevisionAssets $
---             newListRevisionAssets
---
---         , requestDeleteRevision $
---             newDeleteRevision
---
---         , requestUpdateRevision $
---             newUpdateRevision
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestGetRevision $
---             newGetRevision
---
---         , requestDeleteDataSet $
---             newDeleteDataSet
---
---         , requestUpdateDataSet $
---             newUpdateDataSet
---
---         , requestCreateJob $
---             newCreateJob
---
---         , requestListEventActions $
---             newListEventActions
---
---         , requestGetAsset $
---             newGetAsset
---
---         , requestListJobs $
---             newListJobs
+--         [ requestCancelJob $
+--             newCancelJob
 --
 --         , requestCreateDataSet $
 --             newCreateDataSet
 --
+--         , requestCreateEventAction $
+--             newCreateEventAction
+--
+--         , requestCreateJob $
+--             newCreateJob
+--
+--         , requestCreateRevision $
+--             newCreateRevision
+--
 --         , requestDeleteAsset $
 --             newDeleteAsset
 --
---         , requestUpdateAsset $
---             newUpdateAsset
+--         , requestDeleteDataSet $
+--             newDeleteDataSet
+--
+--         , requestDeleteEventAction $
+--             newDeleteEventAction
+--
+--         , requestDeleteRevision $
+--             newDeleteRevision
+--
+--         , requestGetAsset $
+--             newGetAsset
+--
+--         , requestGetDataSet $
+--             newGetDataSet
+--
+--         , requestGetEventAction $
+--             newGetEventAction
 --
 --         , requestGetJob $
 --             newGetJob
 --
---         , requestGetDataSet $
---             newGetDataSet
+--         , requestGetRevision $
+--             newGetRevision
+--
+--         , requestListDataSetRevisions $
+--             newListDataSetRevisions
+--
+--         , requestListDataSets $
+--             newListDataSets
+--
+--         , requestListEventActions $
+--             newListEventActions
+--
+--         , requestListJobs $
+--             newListJobs
+--
+--         , requestListRevisionAssets $
+--             newListRevisionAssets
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
 --
 --         , requestStartJob $
 --             newStartJob
@@ -87,83 +93,83 @@ import Test.Tasty
 --         , requestTagResource $
 --             newTagResource
 --
---         , requestListDataSetRevisions $
---             newListDataSetRevisions
+--         , requestUntagResource $
+--             newUntagResource
 --
---         , requestDeleteEventAction $
---             newDeleteEventAction
+--         , requestUpdateAsset $
+--             newUpdateAsset
+--
+--         , requestUpdateDataSet $
+--             newUpdateDataSet
 --
 --         , requestUpdateEventAction $
 --             newUpdateEventAction
 --
---         , requestUntagResource $
---             newUntagResource
---
---         , requestListDataSets $
---             newListDataSets
---
---         , requestCreateEventAction $
---             newCreateEventAction
---
---         , requestCancelJob $
---             newCancelJob
+--         , requestUpdateRevision $
+--             newUpdateRevision
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseGetEventAction $
---             newGetEventActionResponse
---
---         , responseCreateRevision $
---             newCreateRevisionResponse
---
---         , responseListRevisionAssets $
---             newListRevisionAssetsResponse
---
---         , responseDeleteRevision $
---             newDeleteRevisionResponse
---
---         , responseUpdateRevision $
---             newUpdateRevisionResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseGetRevision $
---             newGetRevisionResponse
---
---         , responseDeleteDataSet $
---             newDeleteDataSetResponse
---
---         , responseUpdateDataSet $
---             newUpdateDataSetResponse
---
---         , responseCreateJob $
---             newCreateJobResponse
---
---         , responseListEventActions $
---             newListEventActionsResponse
---
---         , responseGetAsset $
---             newGetAssetResponse
---
---         , responseListJobs $
---             newListJobsResponse
+--         [ responseCancelJob $
+--             newCancelJobResponse
 --
 --         , responseCreateDataSet $
 --             newCreateDataSetResponse
 --
+--         , responseCreateEventAction $
+--             newCreateEventActionResponse
+--
+--         , responseCreateJob $
+--             newCreateJobResponse
+--
+--         , responseCreateRevision $
+--             newCreateRevisionResponse
+--
 --         , responseDeleteAsset $
 --             newDeleteAssetResponse
 --
---         , responseUpdateAsset $
---             newUpdateAssetResponse
+--         , responseDeleteDataSet $
+--             newDeleteDataSetResponse
+--
+--         , responseDeleteEventAction $
+--             newDeleteEventActionResponse
+--
+--         , responseDeleteRevision $
+--             newDeleteRevisionResponse
+--
+--         , responseGetAsset $
+--             newGetAssetResponse
+--
+--         , responseGetDataSet $
+--             newGetDataSetResponse
+--
+--         , responseGetEventAction $
+--             newGetEventActionResponse
 --
 --         , responseGetJob $
 --             newGetJobResponse
 --
---         , responseGetDataSet $
---             newGetDataSetResponse
+--         , responseGetRevision $
+--             newGetRevisionResponse
+--
+--         , responseListDataSetRevisions $
+--             newListDataSetRevisionsResponse
+--
+--         , responseListDataSets $
+--             newListDataSetsResponse
+--
+--         , responseListEventActions $
+--             newListEventActionsResponse
+--
+--         , responseListJobs $
+--             newListJobsResponse
+--
+--         , responseListRevisionAssets $
+--             newListRevisionAssetsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
 --
 --         , responseStartJob $
 --             newStartJobResponse
@@ -171,109 +177,31 @@ import Test.Tasty
 --         , responseTagResource $
 --             newTagResourceResponse
 --
---         , responseListDataSetRevisions $
---             newListDataSetRevisionsResponse
+--         , responseUntagResource $
+--             newUntagResourceResponse
 --
---         , responseDeleteEventAction $
---             newDeleteEventActionResponse
+--         , responseUpdateAsset $
+--             newUpdateAssetResponse
+--
+--         , responseUpdateDataSet $
+--             newUpdateDataSetResponse
 --
 --         , responseUpdateEventAction $
 --             newUpdateEventActionResponse
 --
---         , responseUntagResource $
---             newUntagResourceResponse
---
---         , responseListDataSets $
---             newListDataSetsResponse
---
---         , responseCreateEventAction $
---             newCreateEventActionResponse
---
---         , responseCancelJob $
---             newCancelJobResponse
+--         , responseUpdateRevision $
+--             newUpdateRevisionResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestGetEventAction :: GetEventAction -> TestTree
-requestGetEventAction =
+requestCancelJob :: CancelJob -> TestTree
+requestCancelJob =
   req
-    "GetEventAction"
-    "fixture/GetEventAction.yaml"
-
-requestCreateRevision :: CreateRevision -> TestTree
-requestCreateRevision =
-  req
-    "CreateRevision"
-    "fixture/CreateRevision.yaml"
-
-requestListRevisionAssets :: ListRevisionAssets -> TestTree
-requestListRevisionAssets =
-  req
-    "ListRevisionAssets"
-    "fixture/ListRevisionAssets.yaml"
-
-requestDeleteRevision :: DeleteRevision -> TestTree
-requestDeleteRevision =
-  req
-    "DeleteRevision"
-    "fixture/DeleteRevision.yaml"
-
-requestUpdateRevision :: UpdateRevision -> TestTree
-requestUpdateRevision =
-  req
-    "UpdateRevision"
-    "fixture/UpdateRevision.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestGetRevision :: GetRevision -> TestTree
-requestGetRevision =
-  req
-    "GetRevision"
-    "fixture/GetRevision.yaml"
-
-requestDeleteDataSet :: DeleteDataSet -> TestTree
-requestDeleteDataSet =
-  req
-    "DeleteDataSet"
-    "fixture/DeleteDataSet.yaml"
-
-requestUpdateDataSet :: UpdateDataSet -> TestTree
-requestUpdateDataSet =
-  req
-    "UpdateDataSet"
-    "fixture/UpdateDataSet.yaml"
-
-requestCreateJob :: CreateJob -> TestTree
-requestCreateJob =
-  req
-    "CreateJob"
-    "fixture/CreateJob.yaml"
-
-requestListEventActions :: ListEventActions -> TestTree
-requestListEventActions =
-  req
-    "ListEventActions"
-    "fixture/ListEventActions.yaml"
-
-requestGetAsset :: GetAsset -> TestTree
-requestGetAsset =
-  req
-    "GetAsset"
-    "fixture/GetAsset.yaml"
-
-requestListJobs :: ListJobs -> TestTree
-requestListJobs =
-  req
-    "ListJobs"
-    "fixture/ListJobs.yaml"
+    "CancelJob"
+    "fixture/CancelJob.yaml"
 
 requestCreateDataSet :: CreateDataSet -> TestTree
 requestCreateDataSet =
@@ -281,17 +209,65 @@ requestCreateDataSet =
     "CreateDataSet"
     "fixture/CreateDataSet.yaml"
 
+requestCreateEventAction :: CreateEventAction -> TestTree
+requestCreateEventAction =
+  req
+    "CreateEventAction"
+    "fixture/CreateEventAction.yaml"
+
+requestCreateJob :: CreateJob -> TestTree
+requestCreateJob =
+  req
+    "CreateJob"
+    "fixture/CreateJob.yaml"
+
+requestCreateRevision :: CreateRevision -> TestTree
+requestCreateRevision =
+  req
+    "CreateRevision"
+    "fixture/CreateRevision.yaml"
+
 requestDeleteAsset :: DeleteAsset -> TestTree
 requestDeleteAsset =
   req
     "DeleteAsset"
     "fixture/DeleteAsset.yaml"
 
-requestUpdateAsset :: UpdateAsset -> TestTree
-requestUpdateAsset =
+requestDeleteDataSet :: DeleteDataSet -> TestTree
+requestDeleteDataSet =
   req
-    "UpdateAsset"
-    "fixture/UpdateAsset.yaml"
+    "DeleteDataSet"
+    "fixture/DeleteDataSet.yaml"
+
+requestDeleteEventAction :: DeleteEventAction -> TestTree
+requestDeleteEventAction =
+  req
+    "DeleteEventAction"
+    "fixture/DeleteEventAction.yaml"
+
+requestDeleteRevision :: DeleteRevision -> TestTree
+requestDeleteRevision =
+  req
+    "DeleteRevision"
+    "fixture/DeleteRevision.yaml"
+
+requestGetAsset :: GetAsset -> TestTree
+requestGetAsset =
+  req
+    "GetAsset"
+    "fixture/GetAsset.yaml"
+
+requestGetDataSet :: GetDataSet -> TestTree
+requestGetDataSet =
+  req
+    "GetDataSet"
+    "fixture/GetDataSet.yaml"
+
+requestGetEventAction :: GetEventAction -> TestTree
+requestGetEventAction =
+  req
+    "GetEventAction"
+    "fixture/GetEventAction.yaml"
 
 requestGetJob :: GetJob -> TestTree
 requestGetJob =
@@ -299,11 +275,47 @@ requestGetJob =
     "GetJob"
     "fixture/GetJob.yaml"
 
-requestGetDataSet :: GetDataSet -> TestTree
-requestGetDataSet =
+requestGetRevision :: GetRevision -> TestTree
+requestGetRevision =
   req
-    "GetDataSet"
-    "fixture/GetDataSet.yaml"
+    "GetRevision"
+    "fixture/GetRevision.yaml"
+
+requestListDataSetRevisions :: ListDataSetRevisions -> TestTree
+requestListDataSetRevisions =
+  req
+    "ListDataSetRevisions"
+    "fixture/ListDataSetRevisions.yaml"
+
+requestListDataSets :: ListDataSets -> TestTree
+requestListDataSets =
+  req
+    "ListDataSets"
+    "fixture/ListDataSets.yaml"
+
+requestListEventActions :: ListEventActions -> TestTree
+requestListEventActions =
+  req
+    "ListEventActions"
+    "fixture/ListEventActions.yaml"
+
+requestListJobs :: ListJobs -> TestTree
+requestListJobs =
+  req
+    "ListJobs"
+    "fixture/ListJobs.yaml"
+
+requestListRevisionAssets :: ListRevisionAssets -> TestTree
+requestListRevisionAssets =
+  req
+    "ListRevisionAssets"
+    "fixture/ListRevisionAssets.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
 requestStartJob :: StartJob -> TestTree
 requestStartJob =
@@ -317,17 +329,23 @@ requestTagResource =
     "TagResource"
     "fixture/TagResource.yaml"
 
-requestListDataSetRevisions :: ListDataSetRevisions -> TestTree
-requestListDataSetRevisions =
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
   req
-    "ListDataSetRevisions"
-    "fixture/ListDataSetRevisions.yaml"
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
-requestDeleteEventAction :: DeleteEventAction -> TestTree
-requestDeleteEventAction =
+requestUpdateAsset :: UpdateAsset -> TestTree
+requestUpdateAsset =
   req
-    "DeleteEventAction"
-    "fixture/DeleteEventAction.yaml"
+    "UpdateAsset"
+    "fixture/UpdateAsset.yaml"
+
+requestUpdateDataSet :: UpdateDataSet -> TestTree
+requestUpdateDataSet =
+  req
+    "UpdateDataSet"
+    "fixture/UpdateDataSet.yaml"
 
 requestUpdateEventAction :: UpdateEventAction -> TestTree
 requestUpdateEventAction =
@@ -335,135 +353,21 @@ requestUpdateEventAction =
     "UpdateEventAction"
     "fixture/UpdateEventAction.yaml"
 
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
+requestUpdateRevision :: UpdateRevision -> TestTree
+requestUpdateRevision =
   req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
-
-requestListDataSets :: ListDataSets -> TestTree
-requestListDataSets =
-  req
-    "ListDataSets"
-    "fixture/ListDataSets.yaml"
-
-requestCreateEventAction :: CreateEventAction -> TestTree
-requestCreateEventAction =
-  req
-    "CreateEventAction"
-    "fixture/CreateEventAction.yaml"
-
-requestCancelJob :: CancelJob -> TestTree
-requestCancelJob =
-  req
-    "CancelJob"
-    "fixture/CancelJob.yaml"
+    "UpdateRevision"
+    "fixture/UpdateRevision.yaml"
 
 -- Responses
 
-responseGetEventAction :: GetEventActionResponse -> TestTree
-responseGetEventAction =
+responseCancelJob :: CancelJobResponse -> TestTree
+responseCancelJob =
   res
-    "GetEventActionResponse"
-    "fixture/GetEventActionResponse.proto"
+    "CancelJobResponse"
+    "fixture/CancelJobResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetEventAction)
-
-responseCreateRevision :: CreateRevisionResponse -> TestTree
-responseCreateRevision =
-  res
-    "CreateRevisionResponse"
-    "fixture/CreateRevisionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateRevision)
-
-responseListRevisionAssets :: ListRevisionAssetsResponse -> TestTree
-responseListRevisionAssets =
-  res
-    "ListRevisionAssetsResponse"
-    "fixture/ListRevisionAssetsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListRevisionAssets)
-
-responseDeleteRevision :: DeleteRevisionResponse -> TestTree
-responseDeleteRevision =
-  res
-    "DeleteRevisionResponse"
-    "fixture/DeleteRevisionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteRevision)
-
-responseUpdateRevision :: UpdateRevisionResponse -> TestTree
-responseUpdateRevision =
-  res
-    "UpdateRevisionResponse"
-    "fixture/UpdateRevisionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateRevision)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseGetRevision :: GetRevisionResponse -> TestTree
-responseGetRevision =
-  res
-    "GetRevisionResponse"
-    "fixture/GetRevisionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetRevision)
-
-responseDeleteDataSet :: DeleteDataSetResponse -> TestTree
-responseDeleteDataSet =
-  res
-    "DeleteDataSetResponse"
-    "fixture/DeleteDataSetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteDataSet)
-
-responseUpdateDataSet :: UpdateDataSetResponse -> TestTree
-responseUpdateDataSet =
-  res
-    "UpdateDataSetResponse"
-    "fixture/UpdateDataSetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateDataSet)
-
-responseCreateJob :: CreateJobResponse -> TestTree
-responseCreateJob =
-  res
-    "CreateJobResponse"
-    "fixture/CreateJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateJob)
-
-responseListEventActions :: ListEventActionsResponse -> TestTree
-responseListEventActions =
-  res
-    "ListEventActionsResponse"
-    "fixture/ListEventActionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListEventActions)
-
-responseGetAsset :: GetAssetResponse -> TestTree
-responseGetAsset =
-  res
-    "GetAssetResponse"
-    "fixture/GetAssetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetAsset)
-
-responseListJobs :: ListJobsResponse -> TestTree
-responseListJobs =
-  res
-    "ListJobsResponse"
-    "fixture/ListJobsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListJobs)
+    (Proxy.Proxy :: Proxy.Proxy CancelJob)
 
 responseCreateDataSet :: CreateDataSetResponse -> TestTree
 responseCreateDataSet =
@@ -473,6 +377,30 @@ responseCreateDataSet =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateDataSet)
 
+responseCreateEventAction :: CreateEventActionResponse -> TestTree
+responseCreateEventAction =
+  res
+    "CreateEventActionResponse"
+    "fixture/CreateEventActionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateEventAction)
+
+responseCreateJob :: CreateJobResponse -> TestTree
+responseCreateJob =
+  res
+    "CreateJobResponse"
+    "fixture/CreateJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateJob)
+
+responseCreateRevision :: CreateRevisionResponse -> TestTree
+responseCreateRevision =
+  res
+    "CreateRevisionResponse"
+    "fixture/CreateRevisionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateRevision)
+
 responseDeleteAsset :: DeleteAssetResponse -> TestTree
 responseDeleteAsset =
   res
@@ -481,13 +409,53 @@ responseDeleteAsset =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteAsset)
 
-responseUpdateAsset :: UpdateAssetResponse -> TestTree
-responseUpdateAsset =
+responseDeleteDataSet :: DeleteDataSetResponse -> TestTree
+responseDeleteDataSet =
   res
-    "UpdateAssetResponse"
-    "fixture/UpdateAssetResponse.proto"
+    "DeleteDataSetResponse"
+    "fixture/DeleteDataSetResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateAsset)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDataSet)
+
+responseDeleteEventAction :: DeleteEventActionResponse -> TestTree
+responseDeleteEventAction =
+  res
+    "DeleteEventActionResponse"
+    "fixture/DeleteEventActionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteEventAction)
+
+responseDeleteRevision :: DeleteRevisionResponse -> TestTree
+responseDeleteRevision =
+  res
+    "DeleteRevisionResponse"
+    "fixture/DeleteRevisionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteRevision)
+
+responseGetAsset :: GetAssetResponse -> TestTree
+responseGetAsset =
+  res
+    "GetAssetResponse"
+    "fixture/GetAssetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAsset)
+
+responseGetDataSet :: GetDataSetResponse -> TestTree
+responseGetDataSet =
+  res
+    "GetDataSetResponse"
+    "fixture/GetDataSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDataSet)
+
+responseGetEventAction :: GetEventActionResponse -> TestTree
+responseGetEventAction =
+  res
+    "GetEventActionResponse"
+    "fixture/GetEventActionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetEventAction)
 
 responseGetJob :: GetJobResponse -> TestTree
 responseGetJob =
@@ -497,13 +465,61 @@ responseGetJob =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetJob)
 
-responseGetDataSet :: GetDataSetResponse -> TestTree
-responseGetDataSet =
+responseGetRevision :: GetRevisionResponse -> TestTree
+responseGetRevision =
   res
-    "GetDataSetResponse"
-    "fixture/GetDataSetResponse.proto"
+    "GetRevisionResponse"
+    "fixture/GetRevisionResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetDataSet)
+    (Proxy.Proxy :: Proxy.Proxy GetRevision)
+
+responseListDataSetRevisions :: ListDataSetRevisionsResponse -> TestTree
+responseListDataSetRevisions =
+  res
+    "ListDataSetRevisionsResponse"
+    "fixture/ListDataSetRevisionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDataSetRevisions)
+
+responseListDataSets :: ListDataSetsResponse -> TestTree
+responseListDataSets =
+  res
+    "ListDataSetsResponse"
+    "fixture/ListDataSetsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDataSets)
+
+responseListEventActions :: ListEventActionsResponse -> TestTree
+responseListEventActions =
+  res
+    "ListEventActionsResponse"
+    "fixture/ListEventActionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListEventActions)
+
+responseListJobs :: ListJobsResponse -> TestTree
+responseListJobs =
+  res
+    "ListJobsResponse"
+    "fixture/ListJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListJobs)
+
+responseListRevisionAssets :: ListRevisionAssetsResponse -> TestTree
+responseListRevisionAssets =
+  res
+    "ListRevisionAssetsResponse"
+    "fixture/ListRevisionAssetsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRevisionAssets)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseStartJob :: StartJobResponse -> TestTree
 responseStartJob =
@@ -521,21 +537,29 @@ responseTagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy TagResource)
 
-responseListDataSetRevisions :: ListDataSetRevisionsResponse -> TestTree
-responseListDataSetRevisions =
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
   res
-    "ListDataSetRevisionsResponse"
-    "fixture/ListDataSetRevisionsResponse.proto"
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDataSetRevisions)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
-responseDeleteEventAction :: DeleteEventActionResponse -> TestTree
-responseDeleteEventAction =
+responseUpdateAsset :: UpdateAssetResponse -> TestTree
+responseUpdateAsset =
   res
-    "DeleteEventActionResponse"
-    "fixture/DeleteEventActionResponse.proto"
+    "UpdateAssetResponse"
+    "fixture/UpdateAssetResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteEventAction)
+    (Proxy.Proxy :: Proxy.Proxy UpdateAsset)
+
+responseUpdateDataSet :: UpdateDataSetResponse -> TestTree
+responseUpdateDataSet =
+  res
+    "UpdateDataSetResponse"
+    "fixture/UpdateDataSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateDataSet)
 
 responseUpdateEventAction :: UpdateEventActionResponse -> TestTree
 responseUpdateEventAction =
@@ -545,34 +569,10 @@ responseUpdateEventAction =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateEventAction)
 
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
+responseUpdateRevision :: UpdateRevisionResponse -> TestTree
+responseUpdateRevision =
   res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
+    "UpdateRevisionResponse"
+    "fixture/UpdateRevisionResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
-
-responseListDataSets :: ListDataSetsResponse -> TestTree
-responseListDataSets =
-  res
-    "ListDataSetsResponse"
-    "fixture/ListDataSetsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDataSets)
-
-responseCreateEventAction :: CreateEventActionResponse -> TestTree
-responseCreateEventAction =
-  res
-    "CreateEventActionResponse"
-    "fixture/CreateEventActionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateEventAction)
-
-responseCancelJob :: CancelJobResponse -> TestTree
-responseCancelJob =
-  res
-    "CancelJobResponse"
-    "fixture/CancelJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CancelJob)
+    (Proxy.Proxy :: Proxy.Proxy UpdateRevision)

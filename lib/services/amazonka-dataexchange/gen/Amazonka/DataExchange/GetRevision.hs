@@ -35,15 +35,15 @@ module Amazonka.DataExchange.GetRevision
     newGetRevisionResponse,
 
     -- * Response Lenses
-    getRevisionResponse_arn,
-    getRevisionResponse_createdAt,
+    getRevisionResponse_tags,
     getRevisionResponse_sourceId,
+    getRevisionResponse_arn,
+    getRevisionResponse_id,
+    getRevisionResponse_comment,
     getRevisionResponse_finalized,
     getRevisionResponse_dataSetId,
-    getRevisionResponse_id,
+    getRevisionResponse_createdAt,
     getRevisionResponse_updatedAt,
-    getRevisionResponse_comment,
-    getRevisionResponse_tags,
     getRevisionResponse_httpStatus,
   )
 where
@@ -102,15 +102,15 @@ instance Core.AWSRequest GetRevision where
     Response.receiveJSON
       ( \s h x ->
           GetRevisionResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "CreatedAt")
+            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "SourceId")
+            Prelude.<*> (x Core..?> "Arn")
+            Prelude.<*> (x Core..?> "Id")
+            Prelude.<*> (x Core..?> "Comment")
             Prelude.<*> (x Core..?> "Finalized")
             Prelude.<*> (x Core..?> "DataSetId")
-            Prelude.<*> (x Core..?> "Id")
+            Prelude.<*> (x Core..?> "CreatedAt")
             Prelude.<*> (x Core..?> "UpdatedAt")
-            Prelude.<*> (x Core..?> "Comment")
-            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,14 +149,18 @@ instance Core.ToQuery GetRevision where
 
 -- | /See:/ 'newGetRevisionResponse' smart constructor.
 data GetRevisionResponse = GetRevisionResponse'
-  { -- | The ARN for the revision.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that the revision was created, in ISO 8601 format.
-    createdAt :: Prelude.Maybe Core.POSIX,
+  { -- | The tags for the revision.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The revision ID of the owned revision corresponding to the entitled
     -- revision being viewed. This parameter is returned when a revision owner
     -- is viewing the entitled copy of its owned revision.
     sourceId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN for the revision.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the revision.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | An optional comment about the revision.
+    comment :: Prelude.Maybe Prelude.Text,
     -- | To publish a revision to a data set in a product, the revision must
     -- first be finalized. Finalizing a revision tells AWS Data Exchange that
     -- your changes to the assets in the revision are complete. After it\'s in
@@ -169,15 +173,11 @@ data GetRevisionResponse = GetRevisionResponse'
     finalized :: Prelude.Maybe Prelude.Bool,
     -- | The unique identifier for the data set associated with this revision.
     dataSetId :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the revision.
-    id :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the revision was created, in ISO 8601 format.
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The date and time that the revision was last updated, in ISO 8601
     -- format.
     updatedAt :: Prelude.Maybe Core.POSIX,
-    -- | An optional comment about the revision.
-    comment :: Prelude.Maybe Prelude.Text,
-    -- | The tags for the revision.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -191,13 +191,17 @@ data GetRevisionResponse = GetRevisionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'getRevisionResponse_arn' - The ARN for the revision.
---
--- 'createdAt', 'getRevisionResponse_createdAt' - The date and time that the revision was created, in ISO 8601 format.
+-- 'tags', 'getRevisionResponse_tags' - The tags for the revision.
 --
 -- 'sourceId', 'getRevisionResponse_sourceId' - The revision ID of the owned revision corresponding to the entitled
 -- revision being viewed. This parameter is returned when a revision owner
 -- is viewing the entitled copy of its owned revision.
+--
+-- 'arn', 'getRevisionResponse_arn' - The ARN for the revision.
+--
+-- 'id', 'getRevisionResponse_id' - The unique identifier for the revision.
+--
+-- 'comment', 'getRevisionResponse_comment' - An optional comment about the revision.
 --
 -- 'finalized', 'getRevisionResponse_finalized' - To publish a revision to a data set in a product, the revision must
 -- first be finalized. Finalizing a revision tells AWS Data Exchange that
@@ -211,14 +215,10 @@ data GetRevisionResponse = GetRevisionResponse'
 --
 -- 'dataSetId', 'getRevisionResponse_dataSetId' - The unique identifier for the data set associated with this revision.
 --
--- 'id', 'getRevisionResponse_id' - The unique identifier for the revision.
+-- 'createdAt', 'getRevisionResponse_createdAt' - The date and time that the revision was created, in ISO 8601 format.
 --
 -- 'updatedAt', 'getRevisionResponse_updatedAt' - The date and time that the revision was last updated, in ISO 8601
 -- format.
---
--- 'comment', 'getRevisionResponse_comment' - An optional comment about the revision.
---
--- 'tags', 'getRevisionResponse_tags' - The tags for the revision.
 --
 -- 'httpStatus', 'getRevisionResponse_httpStatus' - The response's http status code.
 newGetRevisionResponse ::
@@ -227,31 +227,39 @@ newGetRevisionResponse ::
   GetRevisionResponse
 newGetRevisionResponse pHttpStatus_ =
   GetRevisionResponse'
-    { arn = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       sourceId = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      comment = Prelude.Nothing,
       finalized = Prelude.Nothing,
       dataSetId = Prelude.Nothing,
-      id = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       updatedAt = Prelude.Nothing,
-      comment = Prelude.Nothing,
-      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The ARN for the revision.
-getRevisionResponse_arn :: Lens.Lens' GetRevisionResponse (Prelude.Maybe Prelude.Text)
-getRevisionResponse_arn = Lens.lens (\GetRevisionResponse' {arn} -> arn) (\s@GetRevisionResponse' {} a -> s {arn = a} :: GetRevisionResponse)
-
--- | The date and time that the revision was created, in ISO 8601 format.
-getRevisionResponse_createdAt :: Lens.Lens' GetRevisionResponse (Prelude.Maybe Prelude.UTCTime)
-getRevisionResponse_createdAt = Lens.lens (\GetRevisionResponse' {createdAt} -> createdAt) (\s@GetRevisionResponse' {} a -> s {createdAt = a} :: GetRevisionResponse) Prelude.. Lens.mapping Core._Time
+-- | The tags for the revision.
+getRevisionResponse_tags :: Lens.Lens' GetRevisionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getRevisionResponse_tags = Lens.lens (\GetRevisionResponse' {tags} -> tags) (\s@GetRevisionResponse' {} a -> s {tags = a} :: GetRevisionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The revision ID of the owned revision corresponding to the entitled
 -- revision being viewed. This parameter is returned when a revision owner
 -- is viewing the entitled copy of its owned revision.
 getRevisionResponse_sourceId :: Lens.Lens' GetRevisionResponse (Prelude.Maybe Prelude.Text)
 getRevisionResponse_sourceId = Lens.lens (\GetRevisionResponse' {sourceId} -> sourceId) (\s@GetRevisionResponse' {} a -> s {sourceId = a} :: GetRevisionResponse)
+
+-- | The ARN for the revision.
+getRevisionResponse_arn :: Lens.Lens' GetRevisionResponse (Prelude.Maybe Prelude.Text)
+getRevisionResponse_arn = Lens.lens (\GetRevisionResponse' {arn} -> arn) (\s@GetRevisionResponse' {} a -> s {arn = a} :: GetRevisionResponse)
+
+-- | The unique identifier for the revision.
+getRevisionResponse_id :: Lens.Lens' GetRevisionResponse (Prelude.Maybe Prelude.Text)
+getRevisionResponse_id = Lens.lens (\GetRevisionResponse' {id} -> id) (\s@GetRevisionResponse' {} a -> s {id = a} :: GetRevisionResponse)
+
+-- | An optional comment about the revision.
+getRevisionResponse_comment :: Lens.Lens' GetRevisionResponse (Prelude.Maybe Prelude.Text)
+getRevisionResponse_comment = Lens.lens (\GetRevisionResponse' {comment} -> comment) (\s@GetRevisionResponse' {} a -> s {comment = a} :: GetRevisionResponse)
 
 -- | To publish a revision to a data set in a product, the revision must
 -- first be finalized. Finalizing a revision tells AWS Data Exchange that
@@ -269,22 +277,14 @@ getRevisionResponse_finalized = Lens.lens (\GetRevisionResponse' {finalized} -> 
 getRevisionResponse_dataSetId :: Lens.Lens' GetRevisionResponse (Prelude.Maybe Prelude.Text)
 getRevisionResponse_dataSetId = Lens.lens (\GetRevisionResponse' {dataSetId} -> dataSetId) (\s@GetRevisionResponse' {} a -> s {dataSetId = a} :: GetRevisionResponse)
 
--- | The unique identifier for the revision.
-getRevisionResponse_id :: Lens.Lens' GetRevisionResponse (Prelude.Maybe Prelude.Text)
-getRevisionResponse_id = Lens.lens (\GetRevisionResponse' {id} -> id) (\s@GetRevisionResponse' {} a -> s {id = a} :: GetRevisionResponse)
+-- | The date and time that the revision was created, in ISO 8601 format.
+getRevisionResponse_createdAt :: Lens.Lens' GetRevisionResponse (Prelude.Maybe Prelude.UTCTime)
+getRevisionResponse_createdAt = Lens.lens (\GetRevisionResponse' {createdAt} -> createdAt) (\s@GetRevisionResponse' {} a -> s {createdAt = a} :: GetRevisionResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The date and time that the revision was last updated, in ISO 8601
 -- format.
 getRevisionResponse_updatedAt :: Lens.Lens' GetRevisionResponse (Prelude.Maybe Prelude.UTCTime)
 getRevisionResponse_updatedAt = Lens.lens (\GetRevisionResponse' {updatedAt} -> updatedAt) (\s@GetRevisionResponse' {} a -> s {updatedAt = a} :: GetRevisionResponse) Prelude.. Lens.mapping Core._Time
-
--- | An optional comment about the revision.
-getRevisionResponse_comment :: Lens.Lens' GetRevisionResponse (Prelude.Maybe Prelude.Text)
-getRevisionResponse_comment = Lens.lens (\GetRevisionResponse' {comment} -> comment) (\s@GetRevisionResponse' {} a -> s {comment = a} :: GetRevisionResponse)
-
--- | The tags for the revision.
-getRevisionResponse_tags :: Lens.Lens' GetRevisionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getRevisionResponse_tags = Lens.lens (\GetRevisionResponse' {tags} -> tags) (\s@GetRevisionResponse' {} a -> s {tags = a} :: GetRevisionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getRevisionResponse_httpStatus :: Lens.Lens' GetRevisionResponse Prelude.Int
@@ -292,13 +292,13 @@ getRevisionResponse_httpStatus = Lens.lens (\GetRevisionResponse' {httpStatus} -
 
 instance Prelude.NFData GetRevisionResponse where
   rnf GetRevisionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf sourceId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf comment
       `Prelude.seq` Prelude.rnf finalized
       `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

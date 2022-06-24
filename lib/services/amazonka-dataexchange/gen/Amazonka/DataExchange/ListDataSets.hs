@@ -32,9 +32,9 @@ module Amazonka.DataExchange.ListDataSets
     newListDataSets,
 
     -- * Request Lenses
-    listDataSets_origin,
     listDataSets_nextToken,
     listDataSets_maxResults,
+    listDataSets_origin,
 
     -- * Destructuring the Response
     ListDataSetsResponse (..),
@@ -56,14 +56,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDataSets' smart constructor.
 data ListDataSets = ListDataSets'
-  { -- | A property that defines the data set as OWNED by the account (for
-    -- providers) or ENTITLED to the account (for subscribers).
-    origin :: Prelude.Maybe Prelude.Text,
-    -- | The token value retrieved from a previous call to access the next page
+  { -- | The token value retrieved from a previous call to access the next page
     -- of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results returned by a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A property that defines the data set as OWNED by the account (for
+    -- providers) or ENTITLED to the account (for subscribers).
+    origin :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,26 +75,21 @@ data ListDataSets = ListDataSets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'origin', 'listDataSets_origin' - A property that defines the data set as OWNED by the account (for
--- providers) or ENTITLED to the account (for subscribers).
---
 -- 'nextToken', 'listDataSets_nextToken' - The token value retrieved from a previous call to access the next page
 -- of results.
 --
 -- 'maxResults', 'listDataSets_maxResults' - The maximum number of results returned by a single call.
+--
+-- 'origin', 'listDataSets_origin' - A property that defines the data set as OWNED by the account (for
+-- providers) or ENTITLED to the account (for subscribers).
 newListDataSets ::
   ListDataSets
 newListDataSets =
   ListDataSets'
-    { origin = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      origin = Prelude.Nothing
     }
-
--- | A property that defines the data set as OWNED by the account (for
--- providers) or ENTITLED to the account (for subscribers).
-listDataSets_origin :: Lens.Lens' ListDataSets (Prelude.Maybe Prelude.Text)
-listDataSets_origin = Lens.lens (\ListDataSets' {origin} -> origin) (\s@ListDataSets' {} a -> s {origin = a} :: ListDataSets)
 
 -- | The token value retrieved from a previous call to access the next page
 -- of results.
@@ -104,6 +99,11 @@ listDataSets_nextToken = Lens.lens (\ListDataSets' {nextToken} -> nextToken) (\s
 -- | The maximum number of results returned by a single call.
 listDataSets_maxResults :: Lens.Lens' ListDataSets (Prelude.Maybe Prelude.Natural)
 listDataSets_maxResults = Lens.lens (\ListDataSets' {maxResults} -> maxResults) (\s@ListDataSets' {} a -> s {maxResults = a} :: ListDataSets)
+
+-- | A property that defines the data set as OWNED by the account (for
+-- providers) or ENTITLED to the account (for subscribers).
+listDataSets_origin :: Lens.Lens' ListDataSets (Prelude.Maybe Prelude.Text)
+listDataSets_origin = Lens.lens (\ListDataSets' {origin} -> origin) (\s@ListDataSets' {} a -> s {origin = a} :: ListDataSets)
 
 instance Core.AWSPager ListDataSets where
   page rq rs
@@ -138,15 +138,15 @@ instance Core.AWSRequest ListDataSets where
 
 instance Prelude.Hashable ListDataSets where
   hashWithSalt _salt ListDataSets' {..} =
-    _salt `Prelude.hashWithSalt` origin
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` origin
 
 instance Prelude.NFData ListDataSets where
   rnf ListDataSets' {..} =
-    Prelude.rnf origin
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf origin
 
 instance Core.ToHeaders ListDataSets where
   toHeaders =
@@ -165,9 +165,9 @@ instance Core.ToPath ListDataSets where
 instance Core.ToQuery ListDataSets where
   toQuery ListDataSets' {..} =
     Prelude.mconcat
-      [ "origin" Core.=: origin,
-        "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults,
+        "origin" Core.=: origin
       ]
 
 -- | /See:/ 'newListDataSetsResponse' smart constructor.

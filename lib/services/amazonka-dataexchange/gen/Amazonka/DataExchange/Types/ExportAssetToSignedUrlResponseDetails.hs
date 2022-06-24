@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExportAssetToSignedUrlResponseDetails' smart constructor.
 data ExportAssetToSignedUrlResponseDetails = ExportAssetToSignedUrlResponseDetails'
-  { -- | The signed URL for the export request.
-    signedUrl :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that the signed URL expires, in ISO 8601 format.
+  { -- | The date and time that the signed URL expires, in ISO 8601 format.
     signedUrlExpiresAt :: Prelude.Maybe Core.POSIX,
+    -- | The signed URL for the export request.
+    signedUrl :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the data set associated with this export job.
     dataSetId :: Prelude.Text,
     -- | The unique identifier for the asset associated with this export job.
@@ -49,9 +49,9 @@ data ExportAssetToSignedUrlResponseDetails = ExportAssetToSignedUrlResponseDetai
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'signedUrl', 'exportAssetToSignedUrlResponseDetails_signedUrl' - The signed URL for the export request.
---
 -- 'signedUrlExpiresAt', 'exportAssetToSignedUrlResponseDetails_signedUrlExpiresAt' - The date and time that the signed URL expires, in ISO 8601 format.
+--
+-- 'signedUrl', 'exportAssetToSignedUrlResponseDetails_signedUrl' - The signed URL for the export request.
 --
 -- 'dataSetId', 'exportAssetToSignedUrlResponseDetails_dataSetId' - The unique identifier for the data set associated with this export job.
 --
@@ -72,21 +72,21 @@ newExportAssetToSignedUrlResponseDetails
   pAssetId_
   pRevisionId_ =
     ExportAssetToSignedUrlResponseDetails'
-      { signedUrl =
+      { signedUrlExpiresAt =
           Prelude.Nothing,
-        signedUrlExpiresAt = Prelude.Nothing,
+        signedUrl = Prelude.Nothing,
         dataSetId = pDataSetId_,
         assetId = pAssetId_,
         revisionId = pRevisionId_
       }
 
--- | The signed URL for the export request.
-exportAssetToSignedUrlResponseDetails_signedUrl :: Lens.Lens' ExportAssetToSignedUrlResponseDetails (Prelude.Maybe Prelude.Text)
-exportAssetToSignedUrlResponseDetails_signedUrl = Lens.lens (\ExportAssetToSignedUrlResponseDetails' {signedUrl} -> signedUrl) (\s@ExportAssetToSignedUrlResponseDetails' {} a -> s {signedUrl = a} :: ExportAssetToSignedUrlResponseDetails)
-
 -- | The date and time that the signed URL expires, in ISO 8601 format.
 exportAssetToSignedUrlResponseDetails_signedUrlExpiresAt :: Lens.Lens' ExportAssetToSignedUrlResponseDetails (Prelude.Maybe Prelude.UTCTime)
 exportAssetToSignedUrlResponseDetails_signedUrlExpiresAt = Lens.lens (\ExportAssetToSignedUrlResponseDetails' {signedUrlExpiresAt} -> signedUrlExpiresAt) (\s@ExportAssetToSignedUrlResponseDetails' {} a -> s {signedUrlExpiresAt = a} :: ExportAssetToSignedUrlResponseDetails) Prelude.. Lens.mapping Core._Time
+
+-- | The signed URL for the export request.
+exportAssetToSignedUrlResponseDetails_signedUrl :: Lens.Lens' ExportAssetToSignedUrlResponseDetails (Prelude.Maybe Prelude.Text)
+exportAssetToSignedUrlResponseDetails_signedUrl = Lens.lens (\ExportAssetToSignedUrlResponseDetails' {signedUrl} -> signedUrl) (\s@ExportAssetToSignedUrlResponseDetails' {} a -> s {signedUrl = a} :: ExportAssetToSignedUrlResponseDetails)
 
 -- | The unique identifier for the data set associated with this export job.
 exportAssetToSignedUrlResponseDetails_dataSetId :: Lens.Lens' ExportAssetToSignedUrlResponseDetails Prelude.Text
@@ -110,8 +110,8 @@ instance
       "ExportAssetToSignedUrlResponseDetails"
       ( \x ->
           ExportAssetToSignedUrlResponseDetails'
-            Prelude.<$> (x Core..:? "SignedUrl")
-            Prelude.<*> (x Core..:? "SignedUrlExpiresAt")
+            Prelude.<$> (x Core..:? "SignedUrlExpiresAt")
+            Prelude.<*> (x Core..:? "SignedUrl")
             Prelude.<*> (x Core..: "DataSetId")
             Prelude.<*> (x Core..: "AssetId")
             Prelude.<*> (x Core..: "RevisionId")
@@ -124,8 +124,8 @@ instance
   hashWithSalt
     _salt
     ExportAssetToSignedUrlResponseDetails' {..} =
-      _salt `Prelude.hashWithSalt` signedUrl
-        `Prelude.hashWithSalt` signedUrlExpiresAt
+      _salt `Prelude.hashWithSalt` signedUrlExpiresAt
+        `Prelude.hashWithSalt` signedUrl
         `Prelude.hashWithSalt` dataSetId
         `Prelude.hashWithSalt` assetId
         `Prelude.hashWithSalt` revisionId
@@ -135,8 +135,8 @@ instance
     ExportAssetToSignedUrlResponseDetails
   where
   rnf ExportAssetToSignedUrlResponseDetails' {..} =
-    Prelude.rnf signedUrl
-      `Prelude.seq` Prelude.rnf signedUrlExpiresAt
+    Prelude.rnf signedUrlExpiresAt
+      `Prelude.seq` Prelude.rnf signedUrl
       `Prelude.seq` Prelude.rnf dataSetId
       `Prelude.seq` Prelude.rnf assetId
       `Prelude.seq` Prelude.rnf revisionId

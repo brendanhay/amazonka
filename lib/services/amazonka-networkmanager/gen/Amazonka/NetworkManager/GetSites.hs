@@ -39,8 +39,8 @@ module Amazonka.NetworkManager.GetSites
     newGetSitesResponse,
 
     -- * Response Lenses
-    getSitesResponse_nextToken,
     getSitesResponse_sites,
+    getSitesResponse_nextToken,
     getSitesResponse_httpStatus,
   )
 where
@@ -134,8 +134,8 @@ instance Core.AWSRequest GetSites where
     Response.receiveJSON
       ( \s h x ->
           GetSitesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Sites" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Sites" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,10 +184,10 @@ instance Core.ToQuery GetSites where
 
 -- | /See:/ 'newGetSitesResponse' smart constructor.
 data GetSitesResponse = GetSitesResponse'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The sites.
+  { -- | The sites.
     sites :: Prelude.Maybe [Site],
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -201,9 +201,9 @@ data GetSitesResponse = GetSitesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getSitesResponse_nextToken' - The token for the next page of results.
---
 -- 'sites', 'getSitesResponse_sites' - The sites.
+--
+-- 'nextToken', 'getSitesResponse_nextToken' - The token for the next page of results.
 --
 -- 'httpStatus', 'getSitesResponse_httpStatus' - The response's http status code.
 newGetSitesResponse ::
@@ -212,18 +212,18 @@ newGetSitesResponse ::
   GetSitesResponse
 newGetSitesResponse pHttpStatus_ =
   GetSitesResponse'
-    { nextToken = Prelude.Nothing,
-      sites = Prelude.Nothing,
+    { sites = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token for the next page of results.
-getSitesResponse_nextToken :: Lens.Lens' GetSitesResponse (Prelude.Maybe Prelude.Text)
-getSitesResponse_nextToken = Lens.lens (\GetSitesResponse' {nextToken} -> nextToken) (\s@GetSitesResponse' {} a -> s {nextToken = a} :: GetSitesResponse)
 
 -- | The sites.
 getSitesResponse_sites :: Lens.Lens' GetSitesResponse (Prelude.Maybe [Site])
 getSitesResponse_sites = Lens.lens (\GetSitesResponse' {sites} -> sites) (\s@GetSitesResponse' {} a -> s {sites = a} :: GetSitesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next page of results.
+getSitesResponse_nextToken :: Lens.Lens' GetSitesResponse (Prelude.Maybe Prelude.Text)
+getSitesResponse_nextToken = Lens.lens (\GetSitesResponse' {nextToken} -> nextToken) (\s@GetSitesResponse' {} a -> s {nextToken = a} :: GetSitesResponse)
 
 -- | The response's http status code.
 getSitesResponse_httpStatus :: Lens.Lens' GetSitesResponse Prelude.Int
@@ -231,6 +231,6 @@ getSitesResponse_httpStatus = Lens.lens (\GetSitesResponse' {httpStatus} -> http
 
 instance Prelude.NFData GetSitesResponse where
   rnf GetSitesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sites
+    Prelude.rnf sites
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

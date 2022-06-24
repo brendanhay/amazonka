@@ -27,9 +27,9 @@ module Amazonka.NetworkManager.CreateSite
     newCreateSite,
 
     -- * Request Lenses
-    createSite_location,
-    createSite_description,
     createSite_tags,
+    createSite_description,
+    createSite_location,
     createSite_globalNetworkId,
 
     -- * Destructuring the Response
@@ -51,7 +51,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSite' smart constructor.
 data CreateSite = CreateSite'
-  { -- | The site location. This information is used for visualization in the
+  { -- | The tags to apply to the resource during creation.
+    tags :: Prelude.Maybe [Tag],
+    -- | A description of your site.
+    --
+    -- Length Constraints: Maximum length of 256 characters.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The site location. This information is used for visualization in the
     -- Network Manager console. If you specify the address, the latitude and
     -- longitude are automatically calculated.
     --
@@ -61,12 +67,6 @@ data CreateSite = CreateSite'
     --
     -- -   @Longitude@: The longitude of the site.
     location :: Prelude.Maybe (Core.Sensitive Location),
-    -- | A description of your site.
-    --
-    -- Length Constraints: Maximum length of 256 characters.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The tags to apply to the resource during creation.
-    tags :: Prelude.Maybe [Tag],
     -- | The ID of the global network.
     globalNetworkId :: Prelude.Text
   }
@@ -80,6 +80,12 @@ data CreateSite = CreateSite'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createSite_tags' - The tags to apply to the resource during creation.
+--
+-- 'description', 'createSite_description' - A description of your site.
+--
+-- Length Constraints: Maximum length of 256 characters.
+--
 -- 'location', 'createSite_location' - The site location. This information is used for visualization in the
 -- Network Manager console. If you specify the address, the latitude and
 -- longitude are automatically calculated.
@@ -90,12 +96,6 @@ data CreateSite = CreateSite'
 --
 -- -   @Longitude@: The longitude of the site.
 --
--- 'description', 'createSite_description' - A description of your site.
---
--- Length Constraints: Maximum length of 256 characters.
---
--- 'tags', 'createSite_tags' - The tags to apply to the resource during creation.
---
 -- 'globalNetworkId', 'createSite_globalNetworkId' - The ID of the global network.
 newCreateSite ::
   -- | 'globalNetworkId'
@@ -103,11 +103,21 @@ newCreateSite ::
   CreateSite
 newCreateSite pGlobalNetworkId_ =
   CreateSite'
-    { location = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      location = Prelude.Nothing,
       globalNetworkId = pGlobalNetworkId_
     }
+
+-- | The tags to apply to the resource during creation.
+createSite_tags :: Lens.Lens' CreateSite (Prelude.Maybe [Tag])
+createSite_tags = Lens.lens (\CreateSite' {tags} -> tags) (\s@CreateSite' {} a -> s {tags = a} :: CreateSite) Prelude.. Lens.mapping Lens.coerced
+
+-- | A description of your site.
+--
+-- Length Constraints: Maximum length of 256 characters.
+createSite_description :: Lens.Lens' CreateSite (Prelude.Maybe Prelude.Text)
+createSite_description = Lens.lens (\CreateSite' {description} -> description) (\s@CreateSite' {} a -> s {description = a} :: CreateSite)
 
 -- | The site location. This information is used for visualization in the
 -- Network Manager console. If you specify the address, the latitude and
@@ -120,16 +130,6 @@ newCreateSite pGlobalNetworkId_ =
 -- -   @Longitude@: The longitude of the site.
 createSite_location :: Lens.Lens' CreateSite (Prelude.Maybe Location)
 createSite_location = Lens.lens (\CreateSite' {location} -> location) (\s@CreateSite' {} a -> s {location = a} :: CreateSite) Prelude.. Lens.mapping Core._Sensitive
-
--- | A description of your site.
---
--- Length Constraints: Maximum length of 256 characters.
-createSite_description :: Lens.Lens' CreateSite (Prelude.Maybe Prelude.Text)
-createSite_description = Lens.lens (\CreateSite' {description} -> description) (\s@CreateSite' {} a -> s {description = a} :: CreateSite)
-
--- | The tags to apply to the resource during creation.
-createSite_tags :: Lens.Lens' CreateSite (Prelude.Maybe [Tag])
-createSite_tags = Lens.lens (\CreateSite' {tags} -> tags) (\s@CreateSite' {} a -> s {tags = a} :: CreateSite) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the global network.
 createSite_globalNetworkId :: Lens.Lens' CreateSite Prelude.Text
@@ -148,16 +148,16 @@ instance Core.AWSRequest CreateSite where
 
 instance Prelude.Hashable CreateSite where
   hashWithSalt _salt CreateSite' {..} =
-    _salt `Prelude.hashWithSalt` location
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` globalNetworkId
 
 instance Prelude.NFData CreateSite where
   rnf CreateSite' {..} =
-    Prelude.rnf location
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf globalNetworkId
 
 instance Core.ToHeaders CreateSite where
@@ -175,9 +175,9 @@ instance Core.ToJSON CreateSite where
   toJSON CreateSite' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Location" Core..=) Prelude.<$> location,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags
+            ("Location" Core..=) Prelude.<$> location
           ]
       )
 

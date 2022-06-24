@@ -25,26 +25,26 @@ module Amazonka.NetworkManager
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
 
     -- ** InternalServerException
     _InternalServerException,
 
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -52,11 +52,11 @@ module Amazonka.NetworkManager
     -- * Operations
     -- $operations
 
-    -- ** GetLinkAssociations (Paginated)
-    GetLinkAssociations (GetLinkAssociations'),
-    newGetLinkAssociations,
-    GetLinkAssociationsResponse (GetLinkAssociationsResponse'),
-    newGetLinkAssociationsResponse,
+    -- ** AssociateCustomerGateway
+    AssociateCustomerGateway (AssociateCustomerGateway'),
+    newAssociateCustomerGateway,
+    AssociateCustomerGatewayResponse (AssociateCustomerGatewayResponse'),
+    newAssociateCustomerGatewayResponse,
 
     -- ** AssociateLink
     AssociateLink (AssociateLink'),
@@ -70,95 +70,17 @@ module Amazonka.NetworkManager
     AssociateTransitGatewayConnectPeerResponse (AssociateTransitGatewayConnectPeerResponse'),
     newAssociateTransitGatewayConnectPeerResponse,
 
-    -- ** CreateSite
-    CreateSite (CreateSite'),
-    newCreateSite,
-    CreateSiteResponse (CreateSiteResponse'),
-    newCreateSiteResponse,
-
-    -- ** DeleteConnection
-    DeleteConnection (DeleteConnection'),
-    newDeleteConnection,
-    DeleteConnectionResponse (DeleteConnectionResponse'),
-    newDeleteConnectionResponse,
-
-    -- ** UpdateConnection
-    UpdateConnection (UpdateConnection'),
-    newUpdateConnection,
-    UpdateConnectionResponse (UpdateConnectionResponse'),
-    newUpdateConnectionResponse,
-
-    -- ** DeregisterTransitGateway
-    DeregisterTransitGateway (DeregisterTransitGateway'),
-    newDeregisterTransitGateway,
-    DeregisterTransitGatewayResponse (DeregisterTransitGatewayResponse'),
-    newDeregisterTransitGatewayResponse,
-
-    -- ** GetTransitGatewayConnectPeerAssociations (Paginated)
-    GetTransitGatewayConnectPeerAssociations (GetTransitGatewayConnectPeerAssociations'),
-    newGetTransitGatewayConnectPeerAssociations,
-    GetTransitGatewayConnectPeerAssociationsResponse (GetTransitGatewayConnectPeerAssociationsResponse'),
-    newGetTransitGatewayConnectPeerAssociationsResponse,
-
-    -- ** UpdateSite
-    UpdateSite (UpdateSite'),
-    newUpdateSite,
-    UpdateSiteResponse (UpdateSiteResponse'),
-    newUpdateSiteResponse,
-
-    -- ** DeleteSite
-    DeleteSite (DeleteSite'),
-    newDeleteSite,
-    DeleteSiteResponse (DeleteSiteResponse'),
-    newDeleteSiteResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** DisassociateLink
-    DisassociateLink (DisassociateLink'),
-    newDisassociateLink,
-    DisassociateLinkResponse (DisassociateLinkResponse'),
-    newDisassociateLinkResponse,
-
     -- ** CreateConnection
     CreateConnection (CreateConnection'),
     newCreateConnection,
     CreateConnectionResponse (CreateConnectionResponse'),
     newCreateConnectionResponse,
 
-    -- ** GetDevices (Paginated)
-    GetDevices (GetDevices'),
-    newGetDevices,
-    GetDevicesResponse (GetDevicesResponse'),
-    newGetDevicesResponse,
-
-    -- ** GetLinks (Paginated)
-    GetLinks (GetLinks'),
-    newGetLinks,
-    GetLinksResponse (GetLinksResponse'),
-    newGetLinksResponse,
-
-    -- ** DescribeGlobalNetworks (Paginated)
-    DescribeGlobalNetworks (DescribeGlobalNetworks'),
-    newDescribeGlobalNetworks,
-    DescribeGlobalNetworksResponse (DescribeGlobalNetworksResponse'),
-    newDescribeGlobalNetworksResponse,
-
-    -- ** DisassociateCustomerGateway
-    DisassociateCustomerGateway (DisassociateCustomerGateway'),
-    newDisassociateCustomerGateway,
-    DisassociateCustomerGatewayResponse (DisassociateCustomerGatewayResponse'),
-    newDisassociateCustomerGatewayResponse,
-
-    -- ** DisassociateTransitGatewayConnectPeer
-    DisassociateTransitGatewayConnectPeer (DisassociateTransitGatewayConnectPeer'),
-    newDisassociateTransitGatewayConnectPeer,
-    DisassociateTransitGatewayConnectPeerResponse (DisassociateTransitGatewayConnectPeerResponse'),
-    newDisassociateTransitGatewayConnectPeerResponse,
+    -- ** CreateDevice
+    CreateDevice (CreateDevice'),
+    newCreateDevice,
+    CreateDeviceResponse (CreateDeviceResponse'),
+    newCreateDeviceResponse,
 
     -- ** CreateGlobalNetwork
     CreateGlobalNetwork (CreateGlobalNetwork'),
@@ -172,71 +94,17 @@ module Amazonka.NetworkManager
     CreateLinkResponse (CreateLinkResponse'),
     newCreateLinkResponse,
 
-    -- ** DeleteGlobalNetwork
-    DeleteGlobalNetwork (DeleteGlobalNetwork'),
-    newDeleteGlobalNetwork,
-    DeleteGlobalNetworkResponse (DeleteGlobalNetworkResponse'),
-    newDeleteGlobalNetworkResponse,
+    -- ** CreateSite
+    CreateSite (CreateSite'),
+    newCreateSite,
+    CreateSiteResponse (CreateSiteResponse'),
+    newCreateSiteResponse,
 
-    -- ** UpdateGlobalNetwork
-    UpdateGlobalNetwork (UpdateGlobalNetwork'),
-    newUpdateGlobalNetwork,
-    UpdateGlobalNetworkResponse (UpdateGlobalNetworkResponse'),
-    newUpdateGlobalNetworkResponse,
-
-    -- ** CreateDevice
-    CreateDevice (CreateDevice'),
-    newCreateDevice,
-    CreateDeviceResponse (CreateDeviceResponse'),
-    newCreateDeviceResponse,
-
-    -- ** AssociateCustomerGateway
-    AssociateCustomerGateway (AssociateCustomerGateway'),
-    newAssociateCustomerGateway,
-    AssociateCustomerGatewayResponse (AssociateCustomerGatewayResponse'),
-    newAssociateCustomerGatewayResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** GetCustomerGatewayAssociations (Paginated)
-    GetCustomerGatewayAssociations (GetCustomerGatewayAssociations'),
-    newGetCustomerGatewayAssociations,
-    GetCustomerGatewayAssociationsResponse (GetCustomerGatewayAssociationsResponse'),
-    newGetCustomerGatewayAssociationsResponse,
-
-    -- ** GetTransitGatewayRegistrations (Paginated)
-    GetTransitGatewayRegistrations (GetTransitGatewayRegistrations'),
-    newGetTransitGatewayRegistrations,
-    GetTransitGatewayRegistrationsResponse (GetTransitGatewayRegistrationsResponse'),
-    newGetTransitGatewayRegistrationsResponse,
-
-    -- ** GetConnections (Paginated)
-    GetConnections (GetConnections'),
-    newGetConnections,
-    GetConnectionsResponse (GetConnectionsResponse'),
-    newGetConnectionsResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** GetSites (Paginated)
-    GetSites (GetSites'),
-    newGetSites,
-    GetSitesResponse (GetSitesResponse'),
-    newGetSitesResponse,
-
-    -- ** RegisterTransitGateway
-    RegisterTransitGateway (RegisterTransitGateway'),
-    newRegisterTransitGateway,
-    RegisterTransitGatewayResponse (RegisterTransitGatewayResponse'),
-    newRegisterTransitGatewayResponse,
+    -- ** DeleteConnection
+    DeleteConnection (DeleteConnection'),
+    newDeleteConnection,
+    DeleteConnectionResponse (DeleteConnectionResponse'),
+    newDeleteConnectionResponse,
 
     -- ** DeleteDevice
     DeleteDevice (DeleteDevice'),
@@ -244,11 +112,11 @@ module Amazonka.NetworkManager
     DeleteDeviceResponse (DeleteDeviceResponse'),
     newDeleteDeviceResponse,
 
-    -- ** UpdateDevice
-    UpdateDevice (UpdateDevice'),
-    newUpdateDevice,
-    UpdateDeviceResponse (UpdateDeviceResponse'),
-    newUpdateDeviceResponse,
+    -- ** DeleteGlobalNetwork
+    DeleteGlobalNetwork (DeleteGlobalNetwork'),
+    newDeleteGlobalNetwork,
+    DeleteGlobalNetworkResponse (DeleteGlobalNetworkResponse'),
+    newDeleteGlobalNetworkResponse,
 
     -- ** DeleteLink
     DeleteLink (DeleteLink'),
@@ -256,11 +124,143 @@ module Amazonka.NetworkManager
     DeleteLinkResponse (DeleteLinkResponse'),
     newDeleteLinkResponse,
 
+    -- ** DeleteSite
+    DeleteSite (DeleteSite'),
+    newDeleteSite,
+    DeleteSiteResponse (DeleteSiteResponse'),
+    newDeleteSiteResponse,
+
+    -- ** DeregisterTransitGateway
+    DeregisterTransitGateway (DeregisterTransitGateway'),
+    newDeregisterTransitGateway,
+    DeregisterTransitGatewayResponse (DeregisterTransitGatewayResponse'),
+    newDeregisterTransitGatewayResponse,
+
+    -- ** DescribeGlobalNetworks (Paginated)
+    DescribeGlobalNetworks (DescribeGlobalNetworks'),
+    newDescribeGlobalNetworks,
+    DescribeGlobalNetworksResponse (DescribeGlobalNetworksResponse'),
+    newDescribeGlobalNetworksResponse,
+
+    -- ** DisassociateCustomerGateway
+    DisassociateCustomerGateway (DisassociateCustomerGateway'),
+    newDisassociateCustomerGateway,
+    DisassociateCustomerGatewayResponse (DisassociateCustomerGatewayResponse'),
+    newDisassociateCustomerGatewayResponse,
+
+    -- ** DisassociateLink
+    DisassociateLink (DisassociateLink'),
+    newDisassociateLink,
+    DisassociateLinkResponse (DisassociateLinkResponse'),
+    newDisassociateLinkResponse,
+
+    -- ** DisassociateTransitGatewayConnectPeer
+    DisassociateTransitGatewayConnectPeer (DisassociateTransitGatewayConnectPeer'),
+    newDisassociateTransitGatewayConnectPeer,
+    DisassociateTransitGatewayConnectPeerResponse (DisassociateTransitGatewayConnectPeerResponse'),
+    newDisassociateTransitGatewayConnectPeerResponse,
+
+    -- ** GetConnections (Paginated)
+    GetConnections (GetConnections'),
+    newGetConnections,
+    GetConnectionsResponse (GetConnectionsResponse'),
+    newGetConnectionsResponse,
+
+    -- ** GetCustomerGatewayAssociations (Paginated)
+    GetCustomerGatewayAssociations (GetCustomerGatewayAssociations'),
+    newGetCustomerGatewayAssociations,
+    GetCustomerGatewayAssociationsResponse (GetCustomerGatewayAssociationsResponse'),
+    newGetCustomerGatewayAssociationsResponse,
+
+    -- ** GetDevices (Paginated)
+    GetDevices (GetDevices'),
+    newGetDevices,
+    GetDevicesResponse (GetDevicesResponse'),
+    newGetDevicesResponse,
+
+    -- ** GetLinkAssociations (Paginated)
+    GetLinkAssociations (GetLinkAssociations'),
+    newGetLinkAssociations,
+    GetLinkAssociationsResponse (GetLinkAssociationsResponse'),
+    newGetLinkAssociationsResponse,
+
+    -- ** GetLinks (Paginated)
+    GetLinks (GetLinks'),
+    newGetLinks,
+    GetLinksResponse (GetLinksResponse'),
+    newGetLinksResponse,
+
+    -- ** GetSites (Paginated)
+    GetSites (GetSites'),
+    newGetSites,
+    GetSitesResponse (GetSitesResponse'),
+    newGetSitesResponse,
+
+    -- ** GetTransitGatewayConnectPeerAssociations (Paginated)
+    GetTransitGatewayConnectPeerAssociations (GetTransitGatewayConnectPeerAssociations'),
+    newGetTransitGatewayConnectPeerAssociations,
+    GetTransitGatewayConnectPeerAssociationsResponse (GetTransitGatewayConnectPeerAssociationsResponse'),
+    newGetTransitGatewayConnectPeerAssociationsResponse,
+
+    -- ** GetTransitGatewayRegistrations (Paginated)
+    GetTransitGatewayRegistrations (GetTransitGatewayRegistrations'),
+    newGetTransitGatewayRegistrations,
+    GetTransitGatewayRegistrationsResponse (GetTransitGatewayRegistrationsResponse'),
+    newGetTransitGatewayRegistrationsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** RegisterTransitGateway
+    RegisterTransitGateway (RegisterTransitGateway'),
+    newRegisterTransitGateway,
+    RegisterTransitGatewayResponse (RegisterTransitGatewayResponse'),
+    newRegisterTransitGatewayResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateConnection
+    UpdateConnection (UpdateConnection'),
+    newUpdateConnection,
+    UpdateConnectionResponse (UpdateConnectionResponse'),
+    newUpdateConnectionResponse,
+
+    -- ** UpdateDevice
+    UpdateDevice (UpdateDevice'),
+    newUpdateDevice,
+    UpdateDeviceResponse (UpdateDeviceResponse'),
+    newUpdateDeviceResponse,
+
+    -- ** UpdateGlobalNetwork
+    UpdateGlobalNetwork (UpdateGlobalNetwork'),
+    newUpdateGlobalNetwork,
+    UpdateGlobalNetworkResponse (UpdateGlobalNetworkResponse'),
+    newUpdateGlobalNetworkResponse,
+
     -- ** UpdateLink
     UpdateLink (UpdateLink'),
     newUpdateLink,
     UpdateLinkResponse (UpdateLinkResponse'),
     newUpdateLinkResponse,
+
+    -- ** UpdateSite
+    UpdateSite (UpdateSite'),
+    newUpdateSite,
+    UpdateSiteResponse (UpdateSiteResponse'),
+    newUpdateSiteResponse,
 
     -- * Types
 

@@ -27,10 +27,10 @@ module Amazonka.NetworkManager.CreateLink
     newCreateLink,
 
     -- * Request Lenses
-    createLink_type,
-    createLink_description,
-    createLink_provider,
     createLink_tags,
+    createLink_type,
+    createLink_provider,
+    createLink_description,
     createLink_globalNetworkId,
     createLink_bandwidth,
     createLink_siteId,
@@ -54,24 +54,24 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateLink' smart constructor.
 data CreateLink = CreateLink'
-  { -- | The type of the link.
+  { -- | The tags to apply to the resource during creation.
+    tags :: Prelude.Maybe [Tag],
+    -- | The type of the link.
     --
     -- Constraints: Cannot include the following characters: | \\ ^
     --
     -- Length Constraints: Maximum length of 128 characters.
     type' :: Prelude.Maybe Prelude.Text,
-    -- | A description of the link.
-    --
-    -- Length Constraints: Maximum length of 256 characters.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The provider of the link.
     --
     -- Constraints: Cannot include the following characters: | \\ ^
     --
     -- Length Constraints: Maximum length of 128 characters.
     provider :: Prelude.Maybe Prelude.Text,
-    -- | The tags to apply to the resource during creation.
-    tags :: Prelude.Maybe [Tag],
+    -- | A description of the link.
+    --
+    -- Length Constraints: Maximum length of 256 characters.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the global network.
     globalNetworkId :: Prelude.Text,
     -- | The upload speed and download speed in Mbps.
@@ -89,7 +89,15 @@ data CreateLink = CreateLink'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createLink_tags' - The tags to apply to the resource during creation.
+--
 -- 'type'', 'createLink_type' - The type of the link.
+--
+-- Constraints: Cannot include the following characters: | \\ ^
+--
+-- Length Constraints: Maximum length of 128 characters.
+--
+-- 'provider', 'createLink_provider' - The provider of the link.
 --
 -- Constraints: Cannot include the following characters: | \\ ^
 --
@@ -98,14 +106,6 @@ data CreateLink = CreateLink'
 -- 'description', 'createLink_description' - A description of the link.
 --
 -- Length Constraints: Maximum length of 256 characters.
---
--- 'provider', 'createLink_provider' - The provider of the link.
---
--- Constraints: Cannot include the following characters: | \\ ^
---
--- Length Constraints: Maximum length of 128 characters.
---
--- 'tags', 'createLink_tags' - The tags to apply to the resource during creation.
 --
 -- 'globalNetworkId', 'createLink_globalNetworkId' - The ID of the global network.
 --
@@ -122,14 +122,18 @@ newCreateLink ::
   CreateLink
 newCreateLink pGlobalNetworkId_ pBandwidth_ pSiteId_ =
   CreateLink'
-    { type' = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      type' = Prelude.Nothing,
       provider = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      description = Prelude.Nothing,
       globalNetworkId = pGlobalNetworkId_,
       bandwidth = pBandwidth_,
       siteId = pSiteId_
     }
+
+-- | The tags to apply to the resource during creation.
+createLink_tags :: Lens.Lens' CreateLink (Prelude.Maybe [Tag])
+createLink_tags = Lens.lens (\CreateLink' {tags} -> tags) (\s@CreateLink' {} a -> s {tags = a} :: CreateLink) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of the link.
 --
@@ -139,12 +143,6 @@ newCreateLink pGlobalNetworkId_ pBandwidth_ pSiteId_ =
 createLink_type :: Lens.Lens' CreateLink (Prelude.Maybe Prelude.Text)
 createLink_type = Lens.lens (\CreateLink' {type'} -> type') (\s@CreateLink' {} a -> s {type' = a} :: CreateLink)
 
--- | A description of the link.
---
--- Length Constraints: Maximum length of 256 characters.
-createLink_description :: Lens.Lens' CreateLink (Prelude.Maybe Prelude.Text)
-createLink_description = Lens.lens (\CreateLink' {description} -> description) (\s@CreateLink' {} a -> s {description = a} :: CreateLink)
-
 -- | The provider of the link.
 --
 -- Constraints: Cannot include the following characters: | \\ ^
@@ -153,9 +151,11 @@ createLink_description = Lens.lens (\CreateLink' {description} -> description) (
 createLink_provider :: Lens.Lens' CreateLink (Prelude.Maybe Prelude.Text)
 createLink_provider = Lens.lens (\CreateLink' {provider} -> provider) (\s@CreateLink' {} a -> s {provider = a} :: CreateLink)
 
--- | The tags to apply to the resource during creation.
-createLink_tags :: Lens.Lens' CreateLink (Prelude.Maybe [Tag])
-createLink_tags = Lens.lens (\CreateLink' {tags} -> tags) (\s@CreateLink' {} a -> s {tags = a} :: CreateLink) Prelude.. Lens.mapping Lens.coerced
+-- | A description of the link.
+--
+-- Length Constraints: Maximum length of 256 characters.
+createLink_description :: Lens.Lens' CreateLink (Prelude.Maybe Prelude.Text)
+createLink_description = Lens.lens (\CreateLink' {description} -> description) (\s@CreateLink' {} a -> s {description = a} :: CreateLink)
 
 -- | The ID of the global network.
 createLink_globalNetworkId :: Lens.Lens' CreateLink Prelude.Text
@@ -182,20 +182,20 @@ instance Core.AWSRequest CreateLink where
 
 instance Prelude.Hashable CreateLink where
   hashWithSalt _salt CreateLink' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` provider
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` globalNetworkId
       `Prelude.hashWithSalt` bandwidth
       `Prelude.hashWithSalt` siteId
 
 instance Prelude.NFData CreateLink where
   rnf CreateLink' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf provider
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf globalNetworkId
       `Prelude.seq` Prelude.rnf bandwidth
       `Prelude.seq` Prelude.rnf siteId
@@ -215,10 +215,10 @@ instance Core.ToJSON CreateLink where
   toJSON CreateLink' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("Description" Core..=) Prelude.<$> description,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Type" Core..=) Prelude.<$> type',
             ("Provider" Core..=) Prelude.<$> provider,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
             Prelude.Just ("Bandwidth" Core..= bandwidth),
             Prelude.Just ("SiteId" Core..= siteId)
           ]

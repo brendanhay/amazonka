@@ -41,8 +41,8 @@ module Amazonka.NetworkManager.DescribeGlobalNetworks
     newDescribeGlobalNetworksResponse,
 
     -- * Response Lenses
-    describeGlobalNetworksResponse_globalNetworks,
     describeGlobalNetworksResponse_nextToken,
+    describeGlobalNetworksResponse_globalNetworks,
     describeGlobalNetworksResponse_httpStatus,
   )
 where
@@ -131,8 +131,8 @@ instance Core.AWSRequest DescribeGlobalNetworks where
     Response.receiveJSON
       ( \s h x ->
           DescribeGlobalNetworksResponse'
-            Prelude.<$> (x Core..?> "GlobalNetworks" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "GlobalNetworks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,10 +176,10 @@ instance Core.ToQuery DescribeGlobalNetworks where
 
 -- | /See:/ 'newDescribeGlobalNetworksResponse' smart constructor.
 data DescribeGlobalNetworksResponse = DescribeGlobalNetworksResponse'
-  { -- | Information about the global networks.
-    globalNetworks :: Prelude.Maybe [GlobalNetwork],
-    -- | The token for the next page of results.
+  { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the global networks.
+    globalNetworks :: Prelude.Maybe [GlobalNetwork],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -193,9 +193,9 @@ data DescribeGlobalNetworksResponse = DescribeGlobalNetworksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'globalNetworks', 'describeGlobalNetworksResponse_globalNetworks' - Information about the global networks.
---
 -- 'nextToken', 'describeGlobalNetworksResponse_nextToken' - The token for the next page of results.
+--
+-- 'globalNetworks', 'describeGlobalNetworksResponse_globalNetworks' - Information about the global networks.
 --
 -- 'httpStatus', 'describeGlobalNetworksResponse_httpStatus' - The response's http status code.
 newDescribeGlobalNetworksResponse ::
@@ -204,19 +204,19 @@ newDescribeGlobalNetworksResponse ::
   DescribeGlobalNetworksResponse
 newDescribeGlobalNetworksResponse pHttpStatus_ =
   DescribeGlobalNetworksResponse'
-    { globalNetworks =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      globalNetworks = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the global networks.
-describeGlobalNetworksResponse_globalNetworks :: Lens.Lens' DescribeGlobalNetworksResponse (Prelude.Maybe [GlobalNetwork])
-describeGlobalNetworksResponse_globalNetworks = Lens.lens (\DescribeGlobalNetworksResponse' {globalNetworks} -> globalNetworks) (\s@DescribeGlobalNetworksResponse' {} a -> s {globalNetworks = a} :: DescribeGlobalNetworksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next page of results.
 describeGlobalNetworksResponse_nextToken :: Lens.Lens' DescribeGlobalNetworksResponse (Prelude.Maybe Prelude.Text)
 describeGlobalNetworksResponse_nextToken = Lens.lens (\DescribeGlobalNetworksResponse' {nextToken} -> nextToken) (\s@DescribeGlobalNetworksResponse' {} a -> s {nextToken = a} :: DescribeGlobalNetworksResponse)
+
+-- | Information about the global networks.
+describeGlobalNetworksResponse_globalNetworks :: Lens.Lens' DescribeGlobalNetworksResponse (Prelude.Maybe [GlobalNetwork])
+describeGlobalNetworksResponse_globalNetworks = Lens.lens (\DescribeGlobalNetworksResponse' {globalNetworks} -> globalNetworks) (\s@DescribeGlobalNetworksResponse' {} a -> s {globalNetworks = a} :: DescribeGlobalNetworksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeGlobalNetworksResponse_httpStatus :: Lens.Lens' DescribeGlobalNetworksResponse Prelude.Int
@@ -227,6 +227,6 @@ instance
     DescribeGlobalNetworksResponse
   where
   rnf DescribeGlobalNetworksResponse' {..} =
-    Prelude.rnf globalNetworks
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf globalNetworks
       `Prelude.seq` Prelude.rnf httpStatus

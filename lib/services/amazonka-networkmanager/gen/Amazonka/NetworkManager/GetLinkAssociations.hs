@@ -30,8 +30,8 @@ module Amazonka.NetworkManager.GetLinkAssociations
     newGetLinkAssociations,
 
     -- * Request Lenses
-    getLinkAssociations_nextToken,
     getLinkAssociations_linkId,
+    getLinkAssociations_nextToken,
     getLinkAssociations_deviceId,
     getLinkAssociations_maxResults,
     getLinkAssociations_globalNetworkId,
@@ -56,10 +56,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetLinkAssociations' smart constructor.
 data GetLinkAssociations = GetLinkAssociations'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the link.
+  { -- | The ID of the link.
     linkId :: Prelude.Maybe Prelude.Text,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the device.
     deviceId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return.
@@ -77,9 +77,9 @@ data GetLinkAssociations = GetLinkAssociations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getLinkAssociations_nextToken' - The token for the next page of results.
---
 -- 'linkId', 'getLinkAssociations_linkId' - The ID of the link.
+--
+-- 'nextToken', 'getLinkAssociations_nextToken' - The token for the next page of results.
 --
 -- 'deviceId', 'getLinkAssociations_deviceId' - The ID of the device.
 --
@@ -92,20 +92,20 @@ newGetLinkAssociations ::
   GetLinkAssociations
 newGetLinkAssociations pGlobalNetworkId_ =
   GetLinkAssociations'
-    { nextToken = Prelude.Nothing,
-      linkId = Prelude.Nothing,
+    { linkId = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       deviceId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       globalNetworkId = pGlobalNetworkId_
     }
 
--- | The token for the next page of results.
-getLinkAssociations_nextToken :: Lens.Lens' GetLinkAssociations (Prelude.Maybe Prelude.Text)
-getLinkAssociations_nextToken = Lens.lens (\GetLinkAssociations' {nextToken} -> nextToken) (\s@GetLinkAssociations' {} a -> s {nextToken = a} :: GetLinkAssociations)
-
 -- | The ID of the link.
 getLinkAssociations_linkId :: Lens.Lens' GetLinkAssociations (Prelude.Maybe Prelude.Text)
 getLinkAssociations_linkId = Lens.lens (\GetLinkAssociations' {linkId} -> linkId) (\s@GetLinkAssociations' {} a -> s {linkId = a} :: GetLinkAssociations)
+
+-- | The token for the next page of results.
+getLinkAssociations_nextToken :: Lens.Lens' GetLinkAssociations (Prelude.Maybe Prelude.Text)
+getLinkAssociations_nextToken = Lens.lens (\GetLinkAssociations' {nextToken} -> nextToken) (\s@GetLinkAssociations' {} a -> s {nextToken = a} :: GetLinkAssociations)
 
 -- | The ID of the device.
 getLinkAssociations_deviceId :: Lens.Lens' GetLinkAssociations (Prelude.Maybe Prelude.Text)
@@ -159,16 +159,16 @@ instance Core.AWSRequest GetLinkAssociations where
 
 instance Prelude.Hashable GetLinkAssociations where
   hashWithSalt _salt GetLinkAssociations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` linkId
+    _salt `Prelude.hashWithSalt` linkId
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` deviceId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` globalNetworkId
 
 instance Prelude.NFData GetLinkAssociations where
   rnf GetLinkAssociations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf linkId
+    Prelude.rnf linkId
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf deviceId
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf globalNetworkId
@@ -195,8 +195,8 @@ instance Core.ToPath GetLinkAssociations where
 instance Core.ToQuery GetLinkAssociations where
   toQuery GetLinkAssociations' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "linkId" Core.=: linkId,
+      [ "linkId" Core.=: linkId,
+        "nextToken" Core.=: nextToken,
         "deviceId" Core.=: deviceId,
         "maxResults" Core.=: maxResults
       ]

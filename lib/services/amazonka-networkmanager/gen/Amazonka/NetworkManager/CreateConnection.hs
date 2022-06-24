@@ -30,10 +30,10 @@ module Amazonka.NetworkManager.CreateConnection
     newCreateConnection,
 
     -- * Request Lenses
-    createConnection_connectedLinkId,
+    createConnection_tags,
     createConnection_linkId,
     createConnection_description,
-    createConnection_tags,
+    createConnection_connectedLinkId,
     createConnection_globalNetworkId,
     createConnection_deviceId,
     createConnection_connectedDeviceId,
@@ -57,16 +57,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateConnection' smart constructor.
 data CreateConnection = CreateConnection'
-  { -- | The ID of the link for the second device.
-    connectedLinkId :: Prelude.Maybe Prelude.Text,
+  { -- | The tags to apply to the resource during creation.
+    tags :: Prelude.Maybe [Tag],
     -- | The ID of the link for the first device.
     linkId :: Prelude.Maybe Prelude.Text,
     -- | A description of the connection.
     --
     -- Length Constraints: Maximum length of 256 characters.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The tags to apply to the resource during creation.
-    tags :: Prelude.Maybe [Tag],
+    -- | The ID of the link for the second device.
+    connectedLinkId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the global network.
     globalNetworkId :: Prelude.Text,
     -- | The ID of the first device in the connection.
@@ -84,7 +84,7 @@ data CreateConnection = CreateConnection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connectedLinkId', 'createConnection_connectedLinkId' - The ID of the link for the second device.
+-- 'tags', 'createConnection_tags' - The tags to apply to the resource during creation.
 --
 -- 'linkId', 'createConnection_linkId' - The ID of the link for the first device.
 --
@@ -92,7 +92,7 @@ data CreateConnection = CreateConnection'
 --
 -- Length Constraints: Maximum length of 256 characters.
 --
--- 'tags', 'createConnection_tags' - The tags to apply to the resource during creation.
+-- 'connectedLinkId', 'createConnection_connectedLinkId' - The ID of the link for the second device.
 --
 -- 'globalNetworkId', 'createConnection_globalNetworkId' - The ID of the global network.
 --
@@ -112,19 +112,18 @@ newCreateConnection
   pDeviceId_
   pConnectedDeviceId_ =
     CreateConnection'
-      { connectedLinkId =
-          Prelude.Nothing,
+      { tags = Prelude.Nothing,
         linkId = Prelude.Nothing,
         description = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        connectedLinkId = Prelude.Nothing,
         globalNetworkId = pGlobalNetworkId_,
         deviceId = pDeviceId_,
         connectedDeviceId = pConnectedDeviceId_
       }
 
--- | The ID of the link for the second device.
-createConnection_connectedLinkId :: Lens.Lens' CreateConnection (Prelude.Maybe Prelude.Text)
-createConnection_connectedLinkId = Lens.lens (\CreateConnection' {connectedLinkId} -> connectedLinkId) (\s@CreateConnection' {} a -> s {connectedLinkId = a} :: CreateConnection)
+-- | The tags to apply to the resource during creation.
+createConnection_tags :: Lens.Lens' CreateConnection (Prelude.Maybe [Tag])
+createConnection_tags = Lens.lens (\CreateConnection' {tags} -> tags) (\s@CreateConnection' {} a -> s {tags = a} :: CreateConnection) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the link for the first device.
 createConnection_linkId :: Lens.Lens' CreateConnection (Prelude.Maybe Prelude.Text)
@@ -136,9 +135,9 @@ createConnection_linkId = Lens.lens (\CreateConnection' {linkId} -> linkId) (\s@
 createConnection_description :: Lens.Lens' CreateConnection (Prelude.Maybe Prelude.Text)
 createConnection_description = Lens.lens (\CreateConnection' {description} -> description) (\s@CreateConnection' {} a -> s {description = a} :: CreateConnection)
 
--- | The tags to apply to the resource during creation.
-createConnection_tags :: Lens.Lens' CreateConnection (Prelude.Maybe [Tag])
-createConnection_tags = Lens.lens (\CreateConnection' {tags} -> tags) (\s@CreateConnection' {} a -> s {tags = a} :: CreateConnection) Prelude.. Lens.mapping Lens.coerced
+-- | The ID of the link for the second device.
+createConnection_connectedLinkId :: Lens.Lens' CreateConnection (Prelude.Maybe Prelude.Text)
+createConnection_connectedLinkId = Lens.lens (\CreateConnection' {connectedLinkId} -> connectedLinkId) (\s@CreateConnection' {} a -> s {connectedLinkId = a} :: CreateConnection)
 
 -- | The ID of the global network.
 createConnection_globalNetworkId :: Lens.Lens' CreateConnection Prelude.Text
@@ -167,20 +166,20 @@ instance Core.AWSRequest CreateConnection where
 
 instance Prelude.Hashable CreateConnection where
   hashWithSalt _salt CreateConnection' {..} =
-    _salt `Prelude.hashWithSalt` connectedLinkId
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` linkId
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` connectedLinkId
       `Prelude.hashWithSalt` globalNetworkId
       `Prelude.hashWithSalt` deviceId
       `Prelude.hashWithSalt` connectedDeviceId
 
 instance Prelude.NFData CreateConnection where
   rnf CreateConnection' {..} =
-    Prelude.rnf connectedLinkId
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf linkId
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf connectedLinkId
       `Prelude.seq` Prelude.rnf globalNetworkId
       `Prelude.seq` Prelude.rnf deviceId
       `Prelude.seq` Prelude.rnf connectedDeviceId
@@ -200,11 +199,11 @@ instance Core.ToJSON CreateConnection where
   toJSON CreateConnection' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ConnectedLinkId" Core..=)
-              Prelude.<$> connectedLinkId,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("LinkId" Core..=) Prelude.<$> linkId,
             ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("ConnectedLinkId" Core..=)
+              Prelude.<$> connectedLinkId,
             Prelude.Just ("DeviceId" Core..= deviceId),
             Prelude.Just
               ("ConnectedDeviceId" Core..= connectedDeviceId)

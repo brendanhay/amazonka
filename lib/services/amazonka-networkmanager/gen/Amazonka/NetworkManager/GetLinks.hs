@@ -36,9 +36,9 @@ module Amazonka.NetworkManager.GetLinks
     getLinks_linkIds,
     getLinks_nextToken,
     getLinks_type,
+    getLinks_provider,
     getLinks_siteId,
     getLinks_maxResults,
-    getLinks_provider,
     getLinks_globalNetworkId,
 
     -- * Destructuring the Response
@@ -67,12 +67,12 @@ data GetLinks = GetLinks'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The link type.
     type' :: Prelude.Maybe Prelude.Text,
+    -- | The link provider.
+    provider :: Prelude.Maybe Prelude.Text,
     -- | The ID of the site.
     siteId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The link provider.
-    provider :: Prelude.Maybe Prelude.Text,
     -- | The ID of the global network.
     globalNetworkId :: Prelude.Text
   }
@@ -92,11 +92,11 @@ data GetLinks = GetLinks'
 --
 -- 'type'', 'getLinks_type' - The link type.
 --
+-- 'provider', 'getLinks_provider' - The link provider.
+--
 -- 'siteId', 'getLinks_siteId' - The ID of the site.
 --
 -- 'maxResults', 'getLinks_maxResults' - The maximum number of results to return.
---
--- 'provider', 'getLinks_provider' - The link provider.
 --
 -- 'globalNetworkId', 'getLinks_globalNetworkId' - The ID of the global network.
 newGetLinks ::
@@ -108,9 +108,9 @@ newGetLinks pGlobalNetworkId_ =
     { linkIds = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       type' = Prelude.Nothing,
+      provider = Prelude.Nothing,
       siteId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      provider = Prelude.Nothing,
       globalNetworkId = pGlobalNetworkId_
     }
 
@@ -126,6 +126,10 @@ getLinks_nextToken = Lens.lens (\GetLinks' {nextToken} -> nextToken) (\s@GetLink
 getLinks_type :: Lens.Lens' GetLinks (Prelude.Maybe Prelude.Text)
 getLinks_type = Lens.lens (\GetLinks' {type'} -> type') (\s@GetLinks' {} a -> s {type' = a} :: GetLinks)
 
+-- | The link provider.
+getLinks_provider :: Lens.Lens' GetLinks (Prelude.Maybe Prelude.Text)
+getLinks_provider = Lens.lens (\GetLinks' {provider} -> provider) (\s@GetLinks' {} a -> s {provider = a} :: GetLinks)
+
 -- | The ID of the site.
 getLinks_siteId :: Lens.Lens' GetLinks (Prelude.Maybe Prelude.Text)
 getLinks_siteId = Lens.lens (\GetLinks' {siteId} -> siteId) (\s@GetLinks' {} a -> s {siteId = a} :: GetLinks)
@@ -133,10 +137,6 @@ getLinks_siteId = Lens.lens (\GetLinks' {siteId} -> siteId) (\s@GetLinks' {} a -
 -- | The maximum number of results to return.
 getLinks_maxResults :: Lens.Lens' GetLinks (Prelude.Maybe Prelude.Natural)
 getLinks_maxResults = Lens.lens (\GetLinks' {maxResults} -> maxResults) (\s@GetLinks' {} a -> s {maxResults = a} :: GetLinks)
-
--- | The link provider.
-getLinks_provider :: Lens.Lens' GetLinks (Prelude.Maybe Prelude.Text)
-getLinks_provider = Lens.lens (\GetLinks' {provider} -> provider) (\s@GetLinks' {} a -> s {provider = a} :: GetLinks)
 
 -- | The ID of the global network.
 getLinks_globalNetworkId :: Lens.Lens' GetLinks Prelude.Text
@@ -178,9 +178,9 @@ instance Prelude.Hashable GetLinks where
     _salt `Prelude.hashWithSalt` linkIds
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` provider
       `Prelude.hashWithSalt` siteId
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` provider
       `Prelude.hashWithSalt` globalNetworkId
 
 instance Prelude.NFData GetLinks where
@@ -188,9 +188,9 @@ instance Prelude.NFData GetLinks where
     Prelude.rnf linkIds
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf provider
       `Prelude.seq` Prelude.rnf siteId
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf provider
       `Prelude.seq` Prelude.rnf globalNetworkId
 
 instance Core.ToHeaders GetLinks where
@@ -220,9 +220,9 @@ instance Core.ToQuery GetLinks where
             (Core.toQueryList "member" Prelude.<$> linkIds),
         "nextToken" Core.=: nextToken,
         "type" Core.=: type',
+        "provider" Core.=: provider,
         "siteId" Core.=: siteId,
-        "maxResults" Core.=: maxResults,
-        "provider" Core.=: provider
+        "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newGetLinksResponse' smart constructor.

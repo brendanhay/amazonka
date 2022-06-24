@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIdentityDescription' smart constructor.
 data IdentityDescription = IdentityDescription'
-  { -- | Date on which the identity was last modified.
+  { -- | The provider names.
+    logins :: Prelude.Maybe [Prelude.Text],
+    -- | Date on which the identity was last modified.
     lastModifiedDate :: Prelude.Maybe Core.POSIX,
     -- | Date on which the identity was created.
     creationDate :: Prelude.Maybe Core.POSIX,
-    -- | The provider names.
-    logins :: Prelude.Maybe [Prelude.Text],
     -- | A unique identifier in the format REGION:GUID.
     identityId :: Prelude.Maybe Prelude.Text
   }
@@ -46,23 +46,26 @@ data IdentityDescription = IdentityDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'logins', 'identityDescription_logins' - The provider names.
+--
 -- 'lastModifiedDate', 'identityDescription_lastModifiedDate' - Date on which the identity was last modified.
 --
 -- 'creationDate', 'identityDescription_creationDate' - Date on which the identity was created.
---
--- 'logins', 'identityDescription_logins' - The provider names.
 --
 -- 'identityId', 'identityDescription_identityId' - A unique identifier in the format REGION:GUID.
 newIdentityDescription ::
   IdentityDescription
 newIdentityDescription =
   IdentityDescription'
-    { lastModifiedDate =
-        Prelude.Nothing,
+    { logins = Prelude.Nothing,
+      lastModifiedDate = Prelude.Nothing,
       creationDate = Prelude.Nothing,
-      logins = Prelude.Nothing,
       identityId = Prelude.Nothing
     }
+
+-- | The provider names.
+identityDescription_logins :: Lens.Lens' IdentityDescription (Prelude.Maybe [Prelude.Text])
+identityDescription_logins = Lens.lens (\IdentityDescription' {logins} -> logins) (\s@IdentityDescription' {} a -> s {logins = a} :: IdentityDescription) Prelude.. Lens.mapping Lens.coerced
 
 -- | Date on which the identity was last modified.
 identityDescription_lastModifiedDate :: Lens.Lens' IdentityDescription (Prelude.Maybe Prelude.UTCTime)
@@ -71,10 +74,6 @@ identityDescription_lastModifiedDate = Lens.lens (\IdentityDescription' {lastMod
 -- | Date on which the identity was created.
 identityDescription_creationDate :: Lens.Lens' IdentityDescription (Prelude.Maybe Prelude.UTCTime)
 identityDescription_creationDate = Lens.lens (\IdentityDescription' {creationDate} -> creationDate) (\s@IdentityDescription' {} a -> s {creationDate = a} :: IdentityDescription) Prelude.. Lens.mapping Core._Time
-
--- | The provider names.
-identityDescription_logins :: Lens.Lens' IdentityDescription (Prelude.Maybe [Prelude.Text])
-identityDescription_logins = Lens.lens (\IdentityDescription' {logins} -> logins) (\s@IdentityDescription' {} a -> s {logins = a} :: IdentityDescription) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique identifier in the format REGION:GUID.
 identityDescription_identityId :: Lens.Lens' IdentityDescription (Prelude.Maybe Prelude.Text)
@@ -86,22 +85,22 @@ instance Core.FromJSON IdentityDescription where
       "IdentityDescription"
       ( \x ->
           IdentityDescription'
-            Prelude.<$> (x Core..:? "LastModifiedDate")
+            Prelude.<$> (x Core..:? "Logins" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "LastModifiedDate")
             Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "Logins" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "IdentityId")
       )
 
 instance Prelude.Hashable IdentityDescription where
   hashWithSalt _salt IdentityDescription' {..} =
-    _salt `Prelude.hashWithSalt` lastModifiedDate
+    _salt `Prelude.hashWithSalt` logins
+      `Prelude.hashWithSalt` lastModifiedDate
       `Prelude.hashWithSalt` creationDate
-      `Prelude.hashWithSalt` logins
       `Prelude.hashWithSalt` identityId
 
 instance Prelude.NFData IdentityDescription where
   rnf IdentityDescription' {..} =
-    Prelude.rnf lastModifiedDate
+    Prelude.rnf logins
+      `Prelude.seq` Prelude.rnf lastModifiedDate
       `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf logins
       `Prelude.seq` Prelude.rnf identityId

@@ -41,13 +41,13 @@ module Amazonka.CognitoIdentity.CreateIdentityPool
     newCreateIdentityPool,
 
     -- * Request Lenses
+    createIdentityPool_allowClassicFlow,
+    createIdentityPool_identityPoolTags,
+    createIdentityPool_cognitoIdentityProviders,
     createIdentityPool_samlProviderARNs,
     createIdentityPool_supportedLoginProviders,
-    createIdentityPool_allowClassicFlow,
-    createIdentityPool_developerProviderName,
-    createIdentityPool_identityPoolTags,
     createIdentityPool_openIdConnectProviderARNs,
-    createIdentityPool_cognitoIdentityProviders,
+    createIdentityPool_developerProviderName,
     createIdentityPool_identityPoolName,
     createIdentityPool_allowUnauthenticatedIdentities,
 
@@ -56,13 +56,13 @@ module Amazonka.CognitoIdentity.CreateIdentityPool
     newIdentityPool,
 
     -- * Response Lenses
+    identityPool_allowClassicFlow,
+    identityPool_identityPoolTags,
+    identityPool_cognitoIdentityProviders,
     identityPool_samlProviderARNs,
     identityPool_supportedLoginProviders,
-    identityPool_allowClassicFlow,
-    identityPool_developerProviderName,
-    identityPool_identityPoolTags,
     identityPool_openIdConnectProviderARNs,
-    identityPool_cognitoIdentityProviders,
+    identityPool_developerProviderName,
     identityPool_identityPoolId,
     identityPool_identityPoolName,
     identityPool_allowUnauthenticatedIdentities,
@@ -80,16 +80,24 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateIdentityPool' smart constructor.
 data CreateIdentityPool = CreateIdentityPool'
-  { -- | An array of Amazon Resource Names (ARNs) of the SAML provider for your
-    -- identity pool.
-    samlProviderARNs :: Prelude.Maybe [Prelude.Text],
-    -- | Optional key:value pairs mapping provider names to provider app IDs.
-    supportedLoginProviders :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Enables or disables the Basic (Classic) authentication flow. For more
+  { -- | Enables or disables the Basic (Classic) authentication flow. For more
     -- information, see
     -- <https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html Identity Pools (Federated Identities) Authentication Flow>
     -- in the /Amazon Cognito Developer Guide/.
     allowClassicFlow :: Prelude.Maybe Prelude.Bool,
+    -- | Tags to assign to the identity pool. A tag is a label that you can apply
+    -- to identity pools to categorize and manage them in different ways, such
+    -- as by purpose, owner, environment, or other criteria.
+    identityPoolTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | An array of Amazon Cognito user pools and their client IDs.
+    cognitoIdentityProviders :: Prelude.Maybe [CognitoIdentityProvider],
+    -- | An array of Amazon Resource Names (ARNs) of the SAML provider for your
+    -- identity pool.
+    samlProviderARNs :: Prelude.Maybe [Prelude.Text],
+    -- | Optional key:value pairs mapping provider names to provider app IDs.
+    supportedLoginProviders :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The Amazon Resource Names (ARN) of the OpenID Connect providers.
+    openIdConnectProviderARNs :: Prelude.Maybe [Prelude.Text],
     -- | The \"domain\" by which Cognito will refer to your users. This name acts
     -- as a placeholder that allows your backend and the Cognito service to
     -- communicate about the developer provider. For the
@@ -99,14 +107,6 @@ data CreateIdentityPool = CreateIdentityPool'
     -- Once you have set a developer provider name, you cannot change it.
     -- Please take care in setting this parameter.
     developerProviderName :: Prelude.Maybe Prelude.Text,
-    -- | Tags to assign to the identity pool. A tag is a label that you can apply
-    -- to identity pools to categorize and manage them in different ways, such
-    -- as by purpose, owner, environment, or other criteria.
-    identityPoolTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The Amazon Resource Names (ARN) of the OpenID Connect providers.
-    openIdConnectProviderARNs :: Prelude.Maybe [Prelude.Text],
-    -- | An array of Amazon Cognito user pools and their client IDs.
-    cognitoIdentityProviders :: Prelude.Maybe [CognitoIdentityProvider],
     -- | A string that you provide.
     identityPoolName :: Prelude.Text,
     -- | TRUE if the identity pool supports unauthenticated logins.
@@ -122,15 +122,23 @@ data CreateIdentityPool = CreateIdentityPool'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'allowClassicFlow', 'createIdentityPool_allowClassicFlow' - Enables or disables the Basic (Classic) authentication flow. For more
+-- information, see
+-- <https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html Identity Pools (Federated Identities) Authentication Flow>
+-- in the /Amazon Cognito Developer Guide/.
+--
+-- 'identityPoolTags', 'createIdentityPool_identityPoolTags' - Tags to assign to the identity pool. A tag is a label that you can apply
+-- to identity pools to categorize and manage them in different ways, such
+-- as by purpose, owner, environment, or other criteria.
+--
+-- 'cognitoIdentityProviders', 'createIdentityPool_cognitoIdentityProviders' - An array of Amazon Cognito user pools and their client IDs.
+--
 -- 'samlProviderARNs', 'createIdentityPool_samlProviderARNs' - An array of Amazon Resource Names (ARNs) of the SAML provider for your
 -- identity pool.
 --
 -- 'supportedLoginProviders', 'createIdentityPool_supportedLoginProviders' - Optional key:value pairs mapping provider names to provider app IDs.
 --
--- 'allowClassicFlow', 'createIdentityPool_allowClassicFlow' - Enables or disables the Basic (Classic) authentication flow. For more
--- information, see
--- <https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html Identity Pools (Federated Identities) Authentication Flow>
--- in the /Amazon Cognito Developer Guide/.
+-- 'openIdConnectProviderARNs', 'createIdentityPool_openIdConnectProviderARNs' - The Amazon Resource Names (ARN) of the OpenID Connect providers.
 --
 -- 'developerProviderName', 'createIdentityPool_developerProviderName' - The \"domain\" by which Cognito will refer to your users. This name acts
 -- as a placeholder that allows your backend and the Cognito service to
@@ -140,14 +148,6 @@ data CreateIdentityPool = CreateIdentityPool'
 --
 -- Once you have set a developer provider name, you cannot change it.
 -- Please take care in setting this parameter.
---
--- 'identityPoolTags', 'createIdentityPool_identityPoolTags' - Tags to assign to the identity pool. A tag is a label that you can apply
--- to identity pools to categorize and manage them in different ways, such
--- as by purpose, owner, environment, or other criteria.
---
--- 'openIdConnectProviderARNs', 'createIdentityPool_openIdConnectProviderARNs' - The Amazon Resource Names (ARN) of the OpenID Connect providers.
---
--- 'cognitoIdentityProviders', 'createIdentityPool_cognitoIdentityProviders' - An array of Amazon Cognito user pools and their client IDs.
 --
 -- 'identityPoolName', 'createIdentityPool_identityPoolName' - A string that you provide.
 --
@@ -162,18 +162,35 @@ newCreateIdentityPool
   pIdentityPoolName_
   pAllowUnauthenticatedIdentities_ =
     CreateIdentityPool'
-      { samlProviderARNs =
+      { allowClassicFlow =
           Prelude.Nothing,
-        supportedLoginProviders = Prelude.Nothing,
-        allowClassicFlow = Prelude.Nothing,
-        developerProviderName = Prelude.Nothing,
         identityPoolTags = Prelude.Nothing,
-        openIdConnectProviderARNs = Prelude.Nothing,
         cognitoIdentityProviders = Prelude.Nothing,
+        samlProviderARNs = Prelude.Nothing,
+        supportedLoginProviders = Prelude.Nothing,
+        openIdConnectProviderARNs = Prelude.Nothing,
+        developerProviderName = Prelude.Nothing,
         identityPoolName = pIdentityPoolName_,
         allowUnauthenticatedIdentities =
           pAllowUnauthenticatedIdentities_
       }
+
+-- | Enables or disables the Basic (Classic) authentication flow. For more
+-- information, see
+-- <https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html Identity Pools (Federated Identities) Authentication Flow>
+-- in the /Amazon Cognito Developer Guide/.
+createIdentityPool_allowClassicFlow :: Lens.Lens' CreateIdentityPool (Prelude.Maybe Prelude.Bool)
+createIdentityPool_allowClassicFlow = Lens.lens (\CreateIdentityPool' {allowClassicFlow} -> allowClassicFlow) (\s@CreateIdentityPool' {} a -> s {allowClassicFlow = a} :: CreateIdentityPool)
+
+-- | Tags to assign to the identity pool. A tag is a label that you can apply
+-- to identity pools to categorize and manage them in different ways, such
+-- as by purpose, owner, environment, or other criteria.
+createIdentityPool_identityPoolTags :: Lens.Lens' CreateIdentityPool (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createIdentityPool_identityPoolTags = Lens.lens (\CreateIdentityPool' {identityPoolTags} -> identityPoolTags) (\s@CreateIdentityPool' {} a -> s {identityPoolTags = a} :: CreateIdentityPool) Prelude.. Lens.mapping Lens.coerced
+
+-- | An array of Amazon Cognito user pools and their client IDs.
+createIdentityPool_cognitoIdentityProviders :: Lens.Lens' CreateIdentityPool (Prelude.Maybe [CognitoIdentityProvider])
+createIdentityPool_cognitoIdentityProviders = Lens.lens (\CreateIdentityPool' {cognitoIdentityProviders} -> cognitoIdentityProviders) (\s@CreateIdentityPool' {} a -> s {cognitoIdentityProviders = a} :: CreateIdentityPool) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of Amazon Resource Names (ARNs) of the SAML provider for your
 -- identity pool.
@@ -184,12 +201,9 @@ createIdentityPool_samlProviderARNs = Lens.lens (\CreateIdentityPool' {samlProvi
 createIdentityPool_supportedLoginProviders :: Lens.Lens' CreateIdentityPool (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createIdentityPool_supportedLoginProviders = Lens.lens (\CreateIdentityPool' {supportedLoginProviders} -> supportedLoginProviders) (\s@CreateIdentityPool' {} a -> s {supportedLoginProviders = a} :: CreateIdentityPool) Prelude.. Lens.mapping Lens.coerced
 
--- | Enables or disables the Basic (Classic) authentication flow. For more
--- information, see
--- <https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html Identity Pools (Federated Identities) Authentication Flow>
--- in the /Amazon Cognito Developer Guide/.
-createIdentityPool_allowClassicFlow :: Lens.Lens' CreateIdentityPool (Prelude.Maybe Prelude.Bool)
-createIdentityPool_allowClassicFlow = Lens.lens (\CreateIdentityPool' {allowClassicFlow} -> allowClassicFlow) (\s@CreateIdentityPool' {} a -> s {allowClassicFlow = a} :: CreateIdentityPool)
+-- | The Amazon Resource Names (ARN) of the OpenID Connect providers.
+createIdentityPool_openIdConnectProviderARNs :: Lens.Lens' CreateIdentityPool (Prelude.Maybe [Prelude.Text])
+createIdentityPool_openIdConnectProviderARNs = Lens.lens (\CreateIdentityPool' {openIdConnectProviderARNs} -> openIdConnectProviderARNs) (\s@CreateIdentityPool' {} a -> s {openIdConnectProviderARNs = a} :: CreateIdentityPool) Prelude.. Lens.mapping Lens.coerced
 
 -- | The \"domain\" by which Cognito will refer to your users. This name acts
 -- as a placeholder that allows your backend and the Cognito service to
@@ -201,20 +215,6 @@ createIdentityPool_allowClassicFlow = Lens.lens (\CreateIdentityPool' {allowClas
 -- Please take care in setting this parameter.
 createIdentityPool_developerProviderName :: Lens.Lens' CreateIdentityPool (Prelude.Maybe Prelude.Text)
 createIdentityPool_developerProviderName = Lens.lens (\CreateIdentityPool' {developerProviderName} -> developerProviderName) (\s@CreateIdentityPool' {} a -> s {developerProviderName = a} :: CreateIdentityPool)
-
--- | Tags to assign to the identity pool. A tag is a label that you can apply
--- to identity pools to categorize and manage them in different ways, such
--- as by purpose, owner, environment, or other criteria.
-createIdentityPool_identityPoolTags :: Lens.Lens' CreateIdentityPool (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createIdentityPool_identityPoolTags = Lens.lens (\CreateIdentityPool' {identityPoolTags} -> identityPoolTags) (\s@CreateIdentityPool' {} a -> s {identityPoolTags = a} :: CreateIdentityPool) Prelude.. Lens.mapping Lens.coerced
-
--- | The Amazon Resource Names (ARN) of the OpenID Connect providers.
-createIdentityPool_openIdConnectProviderARNs :: Lens.Lens' CreateIdentityPool (Prelude.Maybe [Prelude.Text])
-createIdentityPool_openIdConnectProviderARNs = Lens.lens (\CreateIdentityPool' {openIdConnectProviderARNs} -> openIdConnectProviderARNs) (\s@CreateIdentityPool' {} a -> s {openIdConnectProviderARNs = a} :: CreateIdentityPool) Prelude.. Lens.mapping Lens.coerced
-
--- | An array of Amazon Cognito user pools and their client IDs.
-createIdentityPool_cognitoIdentityProviders :: Lens.Lens' CreateIdentityPool (Prelude.Maybe [CognitoIdentityProvider])
-createIdentityPool_cognitoIdentityProviders = Lens.lens (\CreateIdentityPool' {cognitoIdentityProviders} -> cognitoIdentityProviders) (\s@CreateIdentityPool' {} a -> s {cognitoIdentityProviders = a} :: CreateIdentityPool) Prelude.. Lens.mapping Lens.coerced
 
 -- | A string that you provide.
 createIdentityPool_identityPoolName :: Lens.Lens' CreateIdentityPool Prelude.Text
@@ -233,25 +233,25 @@ instance Core.AWSRequest CreateIdentityPool where
 
 instance Prelude.Hashable CreateIdentityPool where
   hashWithSalt _salt CreateIdentityPool' {..} =
-    _salt `Prelude.hashWithSalt` samlProviderARNs
-      `Prelude.hashWithSalt` supportedLoginProviders
-      `Prelude.hashWithSalt` allowClassicFlow
-      `Prelude.hashWithSalt` developerProviderName
+    _salt `Prelude.hashWithSalt` allowClassicFlow
       `Prelude.hashWithSalt` identityPoolTags
-      `Prelude.hashWithSalt` openIdConnectProviderARNs
       `Prelude.hashWithSalt` cognitoIdentityProviders
+      `Prelude.hashWithSalt` samlProviderARNs
+      `Prelude.hashWithSalt` supportedLoginProviders
+      `Prelude.hashWithSalt` openIdConnectProviderARNs
+      `Prelude.hashWithSalt` developerProviderName
       `Prelude.hashWithSalt` identityPoolName
       `Prelude.hashWithSalt` allowUnauthenticatedIdentities
 
 instance Prelude.NFData CreateIdentityPool where
   rnf CreateIdentityPool' {..} =
-    Prelude.rnf samlProviderARNs
-      `Prelude.seq` Prelude.rnf supportedLoginProviders
-      `Prelude.seq` Prelude.rnf allowClassicFlow
-      `Prelude.seq` Prelude.rnf developerProviderName
+    Prelude.rnf allowClassicFlow
       `Prelude.seq` Prelude.rnf identityPoolTags
-      `Prelude.seq` Prelude.rnf openIdConnectProviderARNs
       `Prelude.seq` Prelude.rnf cognitoIdentityProviders
+      `Prelude.seq` Prelude.rnf samlProviderARNs
+      `Prelude.seq` Prelude.rnf supportedLoginProviders
+      `Prelude.seq` Prelude.rnf openIdConnectProviderARNs
+      `Prelude.seq` Prelude.rnf developerProviderName
       `Prelude.seq` Prelude.rnf identityPoolName
       `Prelude.seq` Prelude.rnf allowUnauthenticatedIdentities
 
@@ -274,20 +274,20 @@ instance Core.ToJSON CreateIdentityPool where
   toJSON CreateIdentityPool' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SamlProviderARNs" Core..=)
+          [ ("AllowClassicFlow" Core..=)
+              Prelude.<$> allowClassicFlow,
+            ("IdentityPoolTags" Core..=)
+              Prelude.<$> identityPoolTags,
+            ("CognitoIdentityProviders" Core..=)
+              Prelude.<$> cognitoIdentityProviders,
+            ("SamlProviderARNs" Core..=)
               Prelude.<$> samlProviderARNs,
             ("SupportedLoginProviders" Core..=)
               Prelude.<$> supportedLoginProviders,
-            ("AllowClassicFlow" Core..=)
-              Prelude.<$> allowClassicFlow,
-            ("DeveloperProviderName" Core..=)
-              Prelude.<$> developerProviderName,
-            ("IdentityPoolTags" Core..=)
-              Prelude.<$> identityPoolTags,
             ("OpenIdConnectProviderARNs" Core..=)
               Prelude.<$> openIdConnectProviderARNs,
-            ("CognitoIdentityProviders" Core..=)
-              Prelude.<$> cognitoIdentityProviders,
+            ("DeveloperProviderName" Core..=)
+              Prelude.<$> developerProviderName,
             Prelude.Just
               ("IdentityPoolName" Core..= identityPoolName),
             Prelude.Just

@@ -30,8 +30,8 @@ module Amazonka.CognitoIdentity.GetId
     newGetId,
 
     -- * Request Lenses
-    getId_accountId,
     getId_logins,
+    getId_accountId,
     getId_identityPoolId,
 
     -- * Destructuring the Response
@@ -55,9 +55,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetId' smart constructor.
 data GetId = GetId'
-  { -- | A standard AWS account ID (9+ digits).
-    accountId :: Prelude.Maybe Prelude.Text,
-    -- | A set of optional name-value pairs that map provider names to provider
+  { -- | A set of optional name-value pairs that map provider names to provider
     -- tokens. The available provider names for @Logins@ are as follows:
     --
     -- -   Facebook: @graph.facebook.com@
@@ -74,6 +72,8 @@ data GetId = GetId'
     --
     -- -   Digits: @www.digits.com@
     logins :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A standard AWS account ID (9+ digits).
+    accountId :: Prelude.Maybe Prelude.Text,
     -- | An identity pool ID in the format REGION:GUID.
     identityPoolId :: Prelude.Text
   }
@@ -86,8 +86,6 @@ data GetId = GetId'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'accountId', 'getId_accountId' - A standard AWS account ID (9+ digits).
 --
 -- 'logins', 'getId_logins' - A set of optional name-value pairs that map provider names to provider
 -- tokens. The available provider names for @Logins@ are as follows:
@@ -106,6 +104,8 @@ data GetId = GetId'
 --
 -- -   Digits: @www.digits.com@
 --
+-- 'accountId', 'getId_accountId' - A standard AWS account ID (9+ digits).
+--
 -- 'identityPoolId', 'getId_identityPoolId' - An identity pool ID in the format REGION:GUID.
 newGetId ::
   -- | 'identityPoolId'
@@ -113,14 +113,10 @@ newGetId ::
   GetId
 newGetId pIdentityPoolId_ =
   GetId'
-    { accountId = Prelude.Nothing,
-      logins = Prelude.Nothing,
+    { logins = Prelude.Nothing,
+      accountId = Prelude.Nothing,
       identityPoolId = pIdentityPoolId_
     }
-
--- | A standard AWS account ID (9+ digits).
-getId_accountId :: Lens.Lens' GetId (Prelude.Maybe Prelude.Text)
-getId_accountId = Lens.lens (\GetId' {accountId} -> accountId) (\s@GetId' {} a -> s {accountId = a} :: GetId)
 
 -- | A set of optional name-value pairs that map provider names to provider
 -- tokens. The available provider names for @Logins@ are as follows:
@@ -141,6 +137,10 @@ getId_accountId = Lens.lens (\GetId' {accountId} -> accountId) (\s@GetId' {} a -
 getId_logins :: Lens.Lens' GetId (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getId_logins = Lens.lens (\GetId' {logins} -> logins) (\s@GetId' {} a -> s {logins = a} :: GetId) Prelude.. Lens.mapping Lens.coerced
 
+-- | A standard AWS account ID (9+ digits).
+getId_accountId :: Lens.Lens' GetId (Prelude.Maybe Prelude.Text)
+getId_accountId = Lens.lens (\GetId' {accountId} -> accountId) (\s@GetId' {} a -> s {accountId = a} :: GetId)
+
 -- | An identity pool ID in the format REGION:GUID.
 getId_identityPoolId :: Lens.Lens' GetId Prelude.Text
 getId_identityPoolId = Lens.lens (\GetId' {identityPoolId} -> identityPoolId) (\s@GetId' {} a -> s {identityPoolId = a} :: GetId)
@@ -158,14 +158,14 @@ instance Core.AWSRequest GetId where
 
 instance Prelude.Hashable GetId where
   hashWithSalt _salt GetId' {..} =
-    _salt `Prelude.hashWithSalt` accountId
-      `Prelude.hashWithSalt` logins
+    _salt `Prelude.hashWithSalt` logins
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` identityPoolId
 
 instance Prelude.NFData GetId where
   rnf GetId' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf logins
+    Prelude.rnf logins
+      `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf identityPoolId
 
 instance Core.ToHeaders GetId where
@@ -187,8 +187,8 @@ instance Core.ToJSON GetId where
   toJSON GetId' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AccountId" Core..=) Prelude.<$> accountId,
-            ("Logins" Core..=) Prelude.<$> logins,
+          [ ("Logins" Core..=) Prelude.<$> logins,
+            ("AccountId" Core..=) Prelude.<$> accountId,
             Prelude.Just
               ("IdentityPoolId" Core..= identityPoolId)
           ]

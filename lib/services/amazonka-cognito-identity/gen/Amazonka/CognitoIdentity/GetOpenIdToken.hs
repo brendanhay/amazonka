@@ -41,8 +41,8 @@ module Amazonka.CognitoIdentity.GetOpenIdToken
     newGetOpenIdTokenResponse,
 
     -- * Response Lenses
-    getOpenIdTokenResponse_token,
     getOpenIdTokenResponse_identityId,
+    getOpenIdTokenResponse_token,
     getOpenIdTokenResponse_httpStatus,
   )
 where
@@ -115,8 +115,8 @@ instance Core.AWSRequest GetOpenIdToken where
     Response.receiveJSON
       ( \s h x ->
           GetOpenIdTokenResponse'
-            Prelude.<$> (x Core..?> "Token")
-            Prelude.<*> (x Core..?> "IdentityId")
+            Prelude.<$> (x Core..?> "IdentityId")
+            Prelude.<*> (x Core..?> "Token")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,11 +164,11 @@ instance Core.ToQuery GetOpenIdToken where
 --
 -- /See:/ 'newGetOpenIdTokenResponse' smart constructor.
 data GetOpenIdTokenResponse = GetOpenIdTokenResponse'
-  { -- | An OpenID token, valid for 10 minutes.
-    token :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier in the format REGION:GUID. Note that the IdentityId
+  { -- | A unique identifier in the format REGION:GUID. Note that the IdentityId
     -- returned may not match the one passed on input.
     identityId :: Prelude.Maybe Prelude.Text,
+    -- | An OpenID token, valid for 10 minutes.
+    token :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -182,10 +182,10 @@ data GetOpenIdTokenResponse = GetOpenIdTokenResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'token', 'getOpenIdTokenResponse_token' - An OpenID token, valid for 10 minutes.
---
 -- 'identityId', 'getOpenIdTokenResponse_identityId' - A unique identifier in the format REGION:GUID. Note that the IdentityId
 -- returned may not match the one passed on input.
+--
+-- 'token', 'getOpenIdTokenResponse_token' - An OpenID token, valid for 10 minutes.
 --
 -- 'httpStatus', 'getOpenIdTokenResponse_httpStatus' - The response's http status code.
 newGetOpenIdTokenResponse ::
@@ -194,19 +194,20 @@ newGetOpenIdTokenResponse ::
   GetOpenIdTokenResponse
 newGetOpenIdTokenResponse pHttpStatus_ =
   GetOpenIdTokenResponse'
-    { token = Prelude.Nothing,
-      identityId = Prelude.Nothing,
+    { identityId =
+        Prelude.Nothing,
+      token = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An OpenID token, valid for 10 minutes.
-getOpenIdTokenResponse_token :: Lens.Lens' GetOpenIdTokenResponse (Prelude.Maybe Prelude.Text)
-getOpenIdTokenResponse_token = Lens.lens (\GetOpenIdTokenResponse' {token} -> token) (\s@GetOpenIdTokenResponse' {} a -> s {token = a} :: GetOpenIdTokenResponse)
 
 -- | A unique identifier in the format REGION:GUID. Note that the IdentityId
 -- returned may not match the one passed on input.
 getOpenIdTokenResponse_identityId :: Lens.Lens' GetOpenIdTokenResponse (Prelude.Maybe Prelude.Text)
 getOpenIdTokenResponse_identityId = Lens.lens (\GetOpenIdTokenResponse' {identityId} -> identityId) (\s@GetOpenIdTokenResponse' {} a -> s {identityId = a} :: GetOpenIdTokenResponse)
+
+-- | An OpenID token, valid for 10 minutes.
+getOpenIdTokenResponse_token :: Lens.Lens' GetOpenIdTokenResponse (Prelude.Maybe Prelude.Text)
+getOpenIdTokenResponse_token = Lens.lens (\GetOpenIdTokenResponse' {token} -> token) (\s@GetOpenIdTokenResponse' {} a -> s {token = a} :: GetOpenIdTokenResponse)
 
 -- | The response's http status code.
 getOpenIdTokenResponse_httpStatus :: Lens.Lens' GetOpenIdTokenResponse Prelude.Int
@@ -214,6 +215,6 @@ getOpenIdTokenResponse_httpStatus = Lens.lens (\GetOpenIdTokenResponse' {httpSta
 
 instance Prelude.NFData GetOpenIdTokenResponse where
   rnf GetOpenIdTokenResponse' {..} =
-    Prelude.rnf token
-      `Prelude.seq` Prelude.rnf identityId
+    Prelude.rnf identityId
+      `Prelude.seq` Prelude.rnf token
       `Prelude.seq` Prelude.rnf httpStatus

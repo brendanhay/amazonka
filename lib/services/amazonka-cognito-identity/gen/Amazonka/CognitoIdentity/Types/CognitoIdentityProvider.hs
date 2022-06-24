@@ -29,6 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 data CognitoIdentityProvider = CognitoIdentityProvider'
   { -- | The client ID for the Amazon Cognito user pool.
     clientId :: Prelude.Maybe Prelude.Text,
+    -- | The provider name for an Amazon Cognito user pool. For example,
+    -- @cognito-idp.us-east-1.amazonaws.com\/us-east-1_123456789@.
+    providerName :: Prelude.Maybe Prelude.Text,
     -- | TRUE if server-side token validation is enabled for the identity
     -- provider’s token.
     --
@@ -39,10 +42,7 @@ data CognitoIdentityProvider = CognitoIdentityProvider'
     --
     -- If the user is signed out or deleted, the identity pool will return a
     -- 400 Not Authorized error.
-    serverSideTokenCheck :: Prelude.Maybe Prelude.Bool,
-    -- | The provider name for an Amazon Cognito user pool. For example,
-    -- @cognito-idp.us-east-1.amazonaws.com\/us-east-1_123456789@.
-    providerName :: Prelude.Maybe Prelude.Text
+    serverSideTokenCheck :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,6 +56,9 @@ data CognitoIdentityProvider = CognitoIdentityProvider'
 --
 -- 'clientId', 'cognitoIdentityProvider_clientId' - The client ID for the Amazon Cognito user pool.
 --
+-- 'providerName', 'cognitoIdentityProvider_providerName' - The provider name for an Amazon Cognito user pool. For example,
+-- @cognito-idp.us-east-1.amazonaws.com\/us-east-1_123456789@.
+--
 -- 'serverSideTokenCheck', 'cognitoIdentityProvider_serverSideTokenCheck' - TRUE if server-side token validation is enabled for the identity
 -- provider’s token.
 --
@@ -66,22 +69,24 @@ data CognitoIdentityProvider = CognitoIdentityProvider'
 --
 -- If the user is signed out or deleted, the identity pool will return a
 -- 400 Not Authorized error.
---
--- 'providerName', 'cognitoIdentityProvider_providerName' - The provider name for an Amazon Cognito user pool. For example,
--- @cognito-idp.us-east-1.amazonaws.com\/us-east-1_123456789@.
 newCognitoIdentityProvider ::
   CognitoIdentityProvider
 newCognitoIdentityProvider =
   CognitoIdentityProvider'
     { clientId =
         Prelude.Nothing,
-      serverSideTokenCheck = Prelude.Nothing,
-      providerName = Prelude.Nothing
+      providerName = Prelude.Nothing,
+      serverSideTokenCheck = Prelude.Nothing
     }
 
 -- | The client ID for the Amazon Cognito user pool.
 cognitoIdentityProvider_clientId :: Lens.Lens' CognitoIdentityProvider (Prelude.Maybe Prelude.Text)
 cognitoIdentityProvider_clientId = Lens.lens (\CognitoIdentityProvider' {clientId} -> clientId) (\s@CognitoIdentityProvider' {} a -> s {clientId = a} :: CognitoIdentityProvider)
+
+-- | The provider name for an Amazon Cognito user pool. For example,
+-- @cognito-idp.us-east-1.amazonaws.com\/us-east-1_123456789@.
+cognitoIdentityProvider_providerName :: Lens.Lens' CognitoIdentityProvider (Prelude.Maybe Prelude.Text)
+cognitoIdentityProvider_providerName = Lens.lens (\CognitoIdentityProvider' {providerName} -> providerName) (\s@CognitoIdentityProvider' {} a -> s {providerName = a} :: CognitoIdentityProvider)
 
 -- | TRUE if server-side token validation is enabled for the identity
 -- provider’s token.
@@ -96,11 +101,6 @@ cognitoIdentityProvider_clientId = Lens.lens (\CognitoIdentityProvider' {clientI
 cognitoIdentityProvider_serverSideTokenCheck :: Lens.Lens' CognitoIdentityProvider (Prelude.Maybe Prelude.Bool)
 cognitoIdentityProvider_serverSideTokenCheck = Lens.lens (\CognitoIdentityProvider' {serverSideTokenCheck} -> serverSideTokenCheck) (\s@CognitoIdentityProvider' {} a -> s {serverSideTokenCheck = a} :: CognitoIdentityProvider)
 
--- | The provider name for an Amazon Cognito user pool. For example,
--- @cognito-idp.us-east-1.amazonaws.com\/us-east-1_123456789@.
-cognitoIdentityProvider_providerName :: Lens.Lens' CognitoIdentityProvider (Prelude.Maybe Prelude.Text)
-cognitoIdentityProvider_providerName = Lens.lens (\CognitoIdentityProvider' {providerName} -> providerName) (\s@CognitoIdentityProvider' {} a -> s {providerName = a} :: CognitoIdentityProvider)
-
 instance Core.FromJSON CognitoIdentityProvider where
   parseJSON =
     Core.withObject
@@ -108,29 +108,29 @@ instance Core.FromJSON CognitoIdentityProvider where
       ( \x ->
           CognitoIdentityProvider'
             Prelude.<$> (x Core..:? "ClientId")
-            Prelude.<*> (x Core..:? "ServerSideTokenCheck")
             Prelude.<*> (x Core..:? "ProviderName")
+            Prelude.<*> (x Core..:? "ServerSideTokenCheck")
       )
 
 instance Prelude.Hashable CognitoIdentityProvider where
   hashWithSalt _salt CognitoIdentityProvider' {..} =
     _salt `Prelude.hashWithSalt` clientId
-      `Prelude.hashWithSalt` serverSideTokenCheck
       `Prelude.hashWithSalt` providerName
+      `Prelude.hashWithSalt` serverSideTokenCheck
 
 instance Prelude.NFData CognitoIdentityProvider where
   rnf CognitoIdentityProvider' {..} =
     Prelude.rnf clientId
-      `Prelude.seq` Prelude.rnf serverSideTokenCheck
       `Prelude.seq` Prelude.rnf providerName
+      `Prelude.seq` Prelude.rnf serverSideTokenCheck
 
 instance Core.ToJSON CognitoIdentityProvider where
   toJSON CognitoIdentityProvider' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("ClientId" Core..=) Prelude.<$> clientId,
+            ("ProviderName" Core..=) Prelude.<$> providerName,
             ("ServerSideTokenCheck" Core..=)
-              Prelude.<$> serverSideTokenCheck,
-            ("ProviderName" Core..=) Prelude.<$> providerName
+              Prelude.<$> serverSideTokenCheck
           ]
       )

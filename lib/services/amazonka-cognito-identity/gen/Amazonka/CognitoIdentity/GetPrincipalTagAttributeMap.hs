@@ -36,10 +36,10 @@ module Amazonka.CognitoIdentity.GetPrincipalTagAttributeMap
     newGetPrincipalTagAttributeMapResponse,
 
     -- * Response Lenses
-    getPrincipalTagAttributeMapResponse_identityPoolId,
-    getPrincipalTagAttributeMapResponse_identityProviderName,
-    getPrincipalTagAttributeMapResponse_principalTags,
     getPrincipalTagAttributeMapResponse_useDefaults,
+    getPrincipalTagAttributeMapResponse_identityProviderName,
+    getPrincipalTagAttributeMapResponse_identityPoolId,
+    getPrincipalTagAttributeMapResponse_principalTags,
     getPrincipalTagAttributeMapResponse_httpStatus,
   )
 where
@@ -106,10 +106,10 @@ instance Core.AWSRequest GetPrincipalTagAttributeMap where
     Response.receiveJSON
       ( \s h x ->
           GetPrincipalTagAttributeMapResponse'
-            Prelude.<$> (x Core..?> "IdentityPoolId")
+            Prelude.<$> (x Core..?> "UseDefaults")
             Prelude.<*> (x Core..?> "IdentityProviderName")
+            Prelude.<*> (x Core..?> "IdentityPoolId")
             Prelude.<*> (x Core..?> "PrincipalTags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "UseDefaults")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,17 +159,17 @@ instance Core.ToQuery GetPrincipalTagAttributeMap where
 
 -- | /See:/ 'newGetPrincipalTagAttributeMapResponse' smart constructor.
 data GetPrincipalTagAttributeMapResponse = GetPrincipalTagAttributeMapResponse'
-  { -- | You can use this operation to get the ID of the Identity Pool you setup
-    -- attribute mappings for.
-    identityPoolId :: Prelude.Maybe Prelude.Text,
+  { -- | You can use this operation to list
+    useDefaults :: Prelude.Maybe Prelude.Bool,
     -- | You can use this operation to get the provider name.
     identityProviderName :: Prelude.Maybe Prelude.Text,
+    -- | You can use this operation to get the ID of the Identity Pool you setup
+    -- attribute mappings for.
+    identityPoolId :: Prelude.Maybe Prelude.Text,
     -- | You can use this operation to add principal tags. The
     -- @PrincipalTags@operation enables you to reference user attributes in
     -- your IAM permissions policy.
     principalTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | You can use this operation to list
-    useDefaults :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -183,16 +183,16 @@ data GetPrincipalTagAttributeMapResponse = GetPrincipalTagAttributeMapResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'identityPoolId', 'getPrincipalTagAttributeMapResponse_identityPoolId' - You can use this operation to get the ID of the Identity Pool you setup
--- attribute mappings for.
+-- 'useDefaults', 'getPrincipalTagAttributeMapResponse_useDefaults' - You can use this operation to list
 --
 -- 'identityProviderName', 'getPrincipalTagAttributeMapResponse_identityProviderName' - You can use this operation to get the provider name.
+--
+-- 'identityPoolId', 'getPrincipalTagAttributeMapResponse_identityPoolId' - You can use this operation to get the ID of the Identity Pool you setup
+-- attribute mappings for.
 --
 -- 'principalTags', 'getPrincipalTagAttributeMapResponse_principalTags' - You can use this operation to add principal tags. The
 -- @PrincipalTags@operation enables you to reference user attributes in
 -- your IAM permissions policy.
---
--- 'useDefaults', 'getPrincipalTagAttributeMapResponse_useDefaults' - You can use this operation to list
 --
 -- 'httpStatus', 'getPrincipalTagAttributeMapResponse_httpStatus' - The response's http status code.
 newGetPrincipalTagAttributeMapResponse ::
@@ -201,32 +201,32 @@ newGetPrincipalTagAttributeMapResponse ::
   GetPrincipalTagAttributeMapResponse
 newGetPrincipalTagAttributeMapResponse pHttpStatus_ =
   GetPrincipalTagAttributeMapResponse'
-    { identityPoolId =
+    { useDefaults =
         Prelude.Nothing,
       identityProviderName = Prelude.Nothing,
+      identityPoolId = Prelude.Nothing,
       principalTags = Prelude.Nothing,
-      useDefaults = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | You can use this operation to list
+getPrincipalTagAttributeMapResponse_useDefaults :: Lens.Lens' GetPrincipalTagAttributeMapResponse (Prelude.Maybe Prelude.Bool)
+getPrincipalTagAttributeMapResponse_useDefaults = Lens.lens (\GetPrincipalTagAttributeMapResponse' {useDefaults} -> useDefaults) (\s@GetPrincipalTagAttributeMapResponse' {} a -> s {useDefaults = a} :: GetPrincipalTagAttributeMapResponse)
+
+-- | You can use this operation to get the provider name.
+getPrincipalTagAttributeMapResponse_identityProviderName :: Lens.Lens' GetPrincipalTagAttributeMapResponse (Prelude.Maybe Prelude.Text)
+getPrincipalTagAttributeMapResponse_identityProviderName = Lens.lens (\GetPrincipalTagAttributeMapResponse' {identityProviderName} -> identityProviderName) (\s@GetPrincipalTagAttributeMapResponse' {} a -> s {identityProviderName = a} :: GetPrincipalTagAttributeMapResponse)
 
 -- | You can use this operation to get the ID of the Identity Pool you setup
 -- attribute mappings for.
 getPrincipalTagAttributeMapResponse_identityPoolId :: Lens.Lens' GetPrincipalTagAttributeMapResponse (Prelude.Maybe Prelude.Text)
 getPrincipalTagAttributeMapResponse_identityPoolId = Lens.lens (\GetPrincipalTagAttributeMapResponse' {identityPoolId} -> identityPoolId) (\s@GetPrincipalTagAttributeMapResponse' {} a -> s {identityPoolId = a} :: GetPrincipalTagAttributeMapResponse)
 
--- | You can use this operation to get the provider name.
-getPrincipalTagAttributeMapResponse_identityProviderName :: Lens.Lens' GetPrincipalTagAttributeMapResponse (Prelude.Maybe Prelude.Text)
-getPrincipalTagAttributeMapResponse_identityProviderName = Lens.lens (\GetPrincipalTagAttributeMapResponse' {identityProviderName} -> identityProviderName) (\s@GetPrincipalTagAttributeMapResponse' {} a -> s {identityProviderName = a} :: GetPrincipalTagAttributeMapResponse)
-
 -- | You can use this operation to add principal tags. The
 -- @PrincipalTags@operation enables you to reference user attributes in
 -- your IAM permissions policy.
 getPrincipalTagAttributeMapResponse_principalTags :: Lens.Lens' GetPrincipalTagAttributeMapResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getPrincipalTagAttributeMapResponse_principalTags = Lens.lens (\GetPrincipalTagAttributeMapResponse' {principalTags} -> principalTags) (\s@GetPrincipalTagAttributeMapResponse' {} a -> s {principalTags = a} :: GetPrincipalTagAttributeMapResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | You can use this operation to list
-getPrincipalTagAttributeMapResponse_useDefaults :: Lens.Lens' GetPrincipalTagAttributeMapResponse (Prelude.Maybe Prelude.Bool)
-getPrincipalTagAttributeMapResponse_useDefaults = Lens.lens (\GetPrincipalTagAttributeMapResponse' {useDefaults} -> useDefaults) (\s@GetPrincipalTagAttributeMapResponse' {} a -> s {useDefaults = a} :: GetPrincipalTagAttributeMapResponse)
 
 -- | The response's http status code.
 getPrincipalTagAttributeMapResponse_httpStatus :: Lens.Lens' GetPrincipalTagAttributeMapResponse Prelude.Int
@@ -237,8 +237,8 @@ instance
     GetPrincipalTagAttributeMapResponse
   where
   rnf GetPrincipalTagAttributeMapResponse' {..} =
-    Prelude.rnf identityPoolId
+    Prelude.rnf useDefaults
       `Prelude.seq` Prelude.rnf identityProviderName
+      `Prelude.seq` Prelude.rnf identityPoolId
       `Prelude.seq` Prelude.rnf principalTags
-      `Prelude.seq` Prelude.rnf useDefaults
       `Prelude.seq` Prelude.rnf httpStatus

@@ -38,8 +38,8 @@ module Amazonka.Redshift.DeletePartner
     newPartnerIntegrationOutputMessage,
 
     -- * Response Lenses
-    partnerIntegrationOutputMessage_partnerName,
     partnerIntegrationOutputMessage_databaseName,
+    partnerIntegrationOutputMessage_partnerName,
   )
 where
 

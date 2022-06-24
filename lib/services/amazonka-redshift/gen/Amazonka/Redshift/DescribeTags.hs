@@ -52,11 +52,11 @@ module Amazonka.Redshift.DescribeTags
     newDescribeTags,
 
     -- * Request Lenses
-    describeTags_tagValues,
     describeTags_resourceType,
-    describeTags_resourceName,
     describeTags_tagKeys,
     describeTags_marker,
+    describeTags_resourceName,
+    describeTags_tagValues,
     describeTags_maxRecords,
 
     -- * Destructuring the Response
@@ -81,14 +81,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeTags' smart constructor.
 data DescribeTags = DescribeTags'
-  { -- | A tag value or values for which you want to return all matching
-    -- resources that are associated with the specified value or values. For
-    -- example, suppose that you have resources tagged with values called
-    -- @admin@ and @test@. If you specify both of these tag values in the
-    -- request, Amazon Redshift returns a response with all resources that have
-    -- either or both of these tag values associated with them.
-    tagValues :: Prelude.Maybe [Prelude.Text],
-    -- | The type of resource with which you want to view tags. Valid resource
+  { -- | The type of resource with which you want to view tags. Valid resource
     -- types are:
     --
     -- -   Cluster
@@ -116,9 +109,6 @@ data DescribeTags = DescribeTags'
     -- <https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions Specifying Policy Elements: Actions, Effects, Resources, and Principals>
     -- in the Amazon Redshift Cluster Management Guide.
     resourceType :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for which you want to describe the tag or
-    -- tags. For example, @arn:aws:redshift:us-east-2:123456789:cluster:t1@.
-    resourceName :: Prelude.Maybe Prelude.Text,
     -- | A tag key or keys for which you want to return all matching resources
     -- that are associated with the specified key or keys. For example, suppose
     -- that you have resources tagged with keys called @owner@ and
@@ -133,6 +123,16 @@ data DescribeTags = DescribeTags'
     -- @marker@ field is empty, all response records have been retrieved for
     -- the request.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) for which you want to describe the tag or
+    -- tags. For example, @arn:aws:redshift:us-east-2:123456789:cluster:t1@.
+    resourceName :: Prelude.Maybe Prelude.Text,
+    -- | A tag value or values for which you want to return all matching
+    -- resources that are associated with the specified value or values. For
+    -- example, suppose that you have resources tagged with values called
+    -- @admin@ and @test@. If you specify both of these tag values in the
+    -- request, Amazon Redshift returns a response with all resources that have
+    -- either or both of these tag values associated with them.
+    tagValues :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number or response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -149,13 +149,6 @@ data DescribeTags = DescribeTags'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'tagValues', 'describeTags_tagValues' - A tag value or values for which you want to return all matching
--- resources that are associated with the specified value or values. For
--- example, suppose that you have resources tagged with values called
--- @admin@ and @test@. If you specify both of these tag values in the
--- request, Amazon Redshift returns a response with all resources that have
--- either or both of these tag values associated with them.
 --
 -- 'resourceType', 'describeTags_resourceType' - The type of resource with which you want to view tags. Valid resource
 -- types are:
@@ -185,9 +178,6 @@ data DescribeTags = DescribeTags'
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions Specifying Policy Elements: Actions, Effects, Resources, and Principals>
 -- in the Amazon Redshift Cluster Management Guide.
 --
--- 'resourceName', 'describeTags_resourceName' - The Amazon Resource Name (ARN) for which you want to describe the tag or
--- tags. For example, @arn:aws:redshift:us-east-2:123456789:cluster:t1@.
---
 -- 'tagKeys', 'describeTags_tagKeys' - A tag key or keys for which you want to return all matching resources
 -- that are associated with the specified key or keys. For example, suppose
 -- that you have resources tagged with keys called @owner@ and
@@ -202,6 +192,16 @@ data DescribeTags = DescribeTags'
 -- @marker@ field is empty, all response records have been retrieved for
 -- the request.
 --
+-- 'resourceName', 'describeTags_resourceName' - The Amazon Resource Name (ARN) for which you want to describe the tag or
+-- tags. For example, @arn:aws:redshift:us-east-2:123456789:cluster:t1@.
+--
+-- 'tagValues', 'describeTags_tagValues' - A tag value or values for which you want to return all matching
+-- resources that are associated with the specified value or values. For
+-- example, suppose that you have resources tagged with values called
+-- @admin@ and @test@. If you specify both of these tag values in the
+-- request, Amazon Redshift returns a response with all resources that have
+-- either or both of these tag values associated with them.
+--
 -- 'maxRecords', 'describeTags_maxRecords' - The maximum number or response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
@@ -211,22 +211,13 @@ newDescribeTags ::
   DescribeTags
 newDescribeTags =
   DescribeTags'
-    { tagValues = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
-      resourceName = Prelude.Nothing,
+    { resourceType = Prelude.Nothing,
       tagKeys = Prelude.Nothing,
       marker = Prelude.Nothing,
+      resourceName = Prelude.Nothing,
+      tagValues = Prelude.Nothing,
       maxRecords = Prelude.Nothing
     }
-
--- | A tag value or values for which you want to return all matching
--- resources that are associated with the specified value or values. For
--- example, suppose that you have resources tagged with values called
--- @admin@ and @test@. If you specify both of these tag values in the
--- request, Amazon Redshift returns a response with all resources that have
--- either or both of these tag values associated with them.
-describeTags_tagValues :: Lens.Lens' DescribeTags (Prelude.Maybe [Prelude.Text])
-describeTags_tagValues = Lens.lens (\DescribeTags' {tagValues} -> tagValues) (\s@DescribeTags' {} a -> s {tagValues = a} :: DescribeTags) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of resource with which you want to view tags. Valid resource
 -- types are:
@@ -258,11 +249,6 @@ describeTags_tagValues = Lens.lens (\DescribeTags' {tagValues} -> tagValues) (\s
 describeTags_resourceType :: Lens.Lens' DescribeTags (Prelude.Maybe Prelude.Text)
 describeTags_resourceType = Lens.lens (\DescribeTags' {resourceType} -> resourceType) (\s@DescribeTags' {} a -> s {resourceType = a} :: DescribeTags)
 
--- | The Amazon Resource Name (ARN) for which you want to describe the tag or
--- tags. For example, @arn:aws:redshift:us-east-2:123456789:cluster:t1@.
-describeTags_resourceName :: Lens.Lens' DescribeTags (Prelude.Maybe Prelude.Text)
-describeTags_resourceName = Lens.lens (\DescribeTags' {resourceName} -> resourceName) (\s@DescribeTags' {} a -> s {resourceName = a} :: DescribeTags)
-
 -- | A tag key or keys for which you want to return all matching resources
 -- that are associated with the specified key or keys. For example, suppose
 -- that you have resources tagged with keys called @owner@ and
@@ -280,6 +266,20 @@ describeTags_tagKeys = Lens.lens (\DescribeTags' {tagKeys} -> tagKeys) (\s@Descr
 -- the request.
 describeTags_marker :: Lens.Lens' DescribeTags (Prelude.Maybe Prelude.Text)
 describeTags_marker = Lens.lens (\DescribeTags' {marker} -> marker) (\s@DescribeTags' {} a -> s {marker = a} :: DescribeTags)
+
+-- | The Amazon Resource Name (ARN) for which you want to describe the tag or
+-- tags. For example, @arn:aws:redshift:us-east-2:123456789:cluster:t1@.
+describeTags_resourceName :: Lens.Lens' DescribeTags (Prelude.Maybe Prelude.Text)
+describeTags_resourceName = Lens.lens (\DescribeTags' {resourceName} -> resourceName) (\s@DescribeTags' {} a -> s {resourceName = a} :: DescribeTags)
+
+-- | A tag value or values for which you want to return all matching
+-- resources that are associated with the specified value or values. For
+-- example, suppose that you have resources tagged with values called
+-- @admin@ and @test@. If you specify both of these tag values in the
+-- request, Amazon Redshift returns a response with all resources that have
+-- either or both of these tag values associated with them.
+describeTags_tagValues :: Lens.Lens' DescribeTags (Prelude.Maybe [Prelude.Text])
+describeTags_tagValues = Lens.lens (\DescribeTags' {tagValues} -> tagValues) (\s@DescribeTags' {} a -> s {tagValues = a} :: DescribeTags) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number or response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -326,20 +326,20 @@ instance Core.AWSRequest DescribeTags where
 
 instance Prelude.Hashable DescribeTags where
   hashWithSalt _salt DescribeTags' {..} =
-    _salt `Prelude.hashWithSalt` tagValues
-      `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` resourceName
+    _salt `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` tagKeys
       `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` resourceName
+      `Prelude.hashWithSalt` tagValues
       `Prelude.hashWithSalt` maxRecords
 
 instance Prelude.NFData DescribeTags where
   rnf DescribeTags' {..} =
-    Prelude.rnf tagValues
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf resourceName
+    Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf tagKeys
       `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf resourceName
+      `Prelude.seq` Prelude.rnf tagValues
       `Prelude.seq` Prelude.rnf maxRecords
 
 instance Core.ToHeaders DescribeTags where
@@ -355,15 +355,15 @@ instance Core.ToQuery DescribeTags where
           Core.=: ("DescribeTags" :: Prelude.ByteString),
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "TagValues"
-          Core.=: Core.toQuery
-            (Core.toQueryList "TagValue" Prelude.<$> tagValues),
         "ResourceType" Core.=: resourceType,
-        "ResourceName" Core.=: resourceName,
         "TagKeys"
           Core.=: Core.toQuery
             (Core.toQueryList "TagKey" Prelude.<$> tagKeys),
         "Marker" Core.=: marker,
+        "ResourceName" Core.=: resourceName,
+        "TagValues"
+          Core.=: Core.toQuery
+            (Core.toQueryList "TagValue" Prelude.<$> tagValues),
         "MaxRecords" Core.=: maxRecords
       ]
 

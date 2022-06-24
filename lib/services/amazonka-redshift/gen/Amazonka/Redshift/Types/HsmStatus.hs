@@ -33,13 +33,13 @@ data HsmStatus = HsmStatus'
     --
     -- Values: active, applying
     status :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the name of the HSM client certificate the Amazon Redshift
+    -- cluster uses to retrieve the data encryption keys stored in an HSM.
+    hsmClientCertificateIdentifier :: Prelude.Maybe Prelude.Text,
     -- | Specifies the name of the HSM configuration that contains the
     -- information the Amazon Redshift cluster can use to retrieve and store
     -- keys in an HSM.
-    hsmConfigurationIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the name of the HSM client certificate the Amazon Redshift
-    -- cluster uses to retrieve the data encryption keys stored in an HSM.
-    hsmClientCertificateIdentifier :: Prelude.Maybe Prelude.Text
+    hsmConfigurationIdentifier :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,19 +56,19 @@ data HsmStatus = HsmStatus'
 --
 -- Values: active, applying
 --
+-- 'hsmClientCertificateIdentifier', 'hsmStatus_hsmClientCertificateIdentifier' - Specifies the name of the HSM client certificate the Amazon Redshift
+-- cluster uses to retrieve the data encryption keys stored in an HSM.
+--
 -- 'hsmConfigurationIdentifier', 'hsmStatus_hsmConfigurationIdentifier' - Specifies the name of the HSM configuration that contains the
 -- information the Amazon Redshift cluster can use to retrieve and store
 -- keys in an HSM.
---
--- 'hsmClientCertificateIdentifier', 'hsmStatus_hsmClientCertificateIdentifier' - Specifies the name of the HSM client certificate the Amazon Redshift
--- cluster uses to retrieve the data encryption keys stored in an HSM.
 newHsmStatus ::
   HsmStatus
 newHsmStatus =
   HsmStatus'
     { status = Prelude.Nothing,
-      hsmConfigurationIdentifier = Prelude.Nothing,
-      hsmClientCertificateIdentifier = Prelude.Nothing
+      hsmClientCertificateIdentifier = Prelude.Nothing,
+      hsmConfigurationIdentifier = Prelude.Nothing
     }
 
 -- | Reports whether the Amazon Redshift cluster has finished applying any
@@ -78,32 +78,32 @@ newHsmStatus =
 hsmStatus_status :: Lens.Lens' HsmStatus (Prelude.Maybe Prelude.Text)
 hsmStatus_status = Lens.lens (\HsmStatus' {status} -> status) (\s@HsmStatus' {} a -> s {status = a} :: HsmStatus)
 
+-- | Specifies the name of the HSM client certificate the Amazon Redshift
+-- cluster uses to retrieve the data encryption keys stored in an HSM.
+hsmStatus_hsmClientCertificateIdentifier :: Lens.Lens' HsmStatus (Prelude.Maybe Prelude.Text)
+hsmStatus_hsmClientCertificateIdentifier = Lens.lens (\HsmStatus' {hsmClientCertificateIdentifier} -> hsmClientCertificateIdentifier) (\s@HsmStatus' {} a -> s {hsmClientCertificateIdentifier = a} :: HsmStatus)
+
 -- | Specifies the name of the HSM configuration that contains the
 -- information the Amazon Redshift cluster can use to retrieve and store
 -- keys in an HSM.
 hsmStatus_hsmConfigurationIdentifier :: Lens.Lens' HsmStatus (Prelude.Maybe Prelude.Text)
 hsmStatus_hsmConfigurationIdentifier = Lens.lens (\HsmStatus' {hsmConfigurationIdentifier} -> hsmConfigurationIdentifier) (\s@HsmStatus' {} a -> s {hsmConfigurationIdentifier = a} :: HsmStatus)
 
--- | Specifies the name of the HSM client certificate the Amazon Redshift
--- cluster uses to retrieve the data encryption keys stored in an HSM.
-hsmStatus_hsmClientCertificateIdentifier :: Lens.Lens' HsmStatus (Prelude.Maybe Prelude.Text)
-hsmStatus_hsmClientCertificateIdentifier = Lens.lens (\HsmStatus' {hsmClientCertificateIdentifier} -> hsmClientCertificateIdentifier) (\s@HsmStatus' {} a -> s {hsmClientCertificateIdentifier = a} :: HsmStatus)
-
 instance Core.FromXML HsmStatus where
   parseXML x =
     HsmStatus'
       Prelude.<$> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "HsmConfigurationIdentifier")
       Prelude.<*> (x Core..@? "HsmClientCertificateIdentifier")
+      Prelude.<*> (x Core..@? "HsmConfigurationIdentifier")
 
 instance Prelude.Hashable HsmStatus where
   hashWithSalt _salt HsmStatus' {..} =
     _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` hsmConfigurationIdentifier
       `Prelude.hashWithSalt` hsmClientCertificateIdentifier
+      `Prelude.hashWithSalt` hsmConfigurationIdentifier
 
 instance Prelude.NFData HsmStatus where
   rnf HsmStatus' {..} =
     Prelude.rnf status
-      `Prelude.seq` Prelude.rnf hsmConfigurationIdentifier
       `Prelude.seq` Prelude.rnf hsmClientCertificateIdentifier
+      `Prelude.seq` Prelude.rnf hsmConfigurationIdentifier

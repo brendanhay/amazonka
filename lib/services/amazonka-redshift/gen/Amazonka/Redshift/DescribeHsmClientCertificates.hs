@@ -42,10 +42,10 @@ module Amazonka.Redshift.DescribeHsmClientCertificates
     newDescribeHsmClientCertificates,
 
     -- * Request Lenses
-    describeHsmClientCertificates_tagValues,
     describeHsmClientCertificates_tagKeys,
-    describeHsmClientCertificates_hsmClientCertificateIdentifier,
     describeHsmClientCertificates_marker,
+    describeHsmClientCertificates_tagValues,
+    describeHsmClientCertificates_hsmClientCertificateIdentifier,
     describeHsmClientCertificates_maxRecords,
 
     -- * Destructuring the Response
@@ -70,15 +70,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeHsmClientCertificates' smart constructor.
 data DescribeHsmClientCertificates = DescribeHsmClientCertificates'
-  { -- | A tag value or values for which you want to return all matching HSM
-    -- client certificates that are associated with the specified tag value or
-    -- values. For example, suppose that you have HSM client certificates that
-    -- are tagged with values called @admin@ and @test@. If you specify both of
-    -- these tag values in the request, Amazon Redshift returns a response with
-    -- the HSM client certificates that have either or both of these tag values
-    -- associated with them.
-    tagValues :: Prelude.Maybe [Prelude.Text],
-    -- | A tag key or keys for which you want to return all matching HSM client
+  { -- | A tag key or keys for which you want to return all matching HSM client
     -- certificates that are associated with the specified key or keys. For
     -- example, suppose that you have HSM client certificates that are tagged
     -- with keys called @owner@ and @environment@. If you specify both of these
@@ -86,10 +78,6 @@ data DescribeHsmClientCertificates = DescribeHsmClientCertificates'
     -- client certificates that have either or both of these tag keys
     -- associated with them.
     tagKeys :: Prelude.Maybe [Prelude.Text],
-    -- | The identifier of a specific HSM client certificate for which you want
-    -- information. If no identifier is specified, information is returned for
-    -- all HSM client certificates owned by your Amazon Web Services account.
-    hsmClientCertificateIdentifier :: Prelude.Maybe Prelude.Text,
     -- | An optional parameter that specifies the starting point to return a set
     -- of response records. When the results of a DescribeHsmClientCertificates
     -- request exceed the value specified in @MaxRecords@, Amazon Web Services
@@ -97,6 +85,18 @@ data DescribeHsmClientCertificates = DescribeHsmClientCertificates'
     -- the next set of response records by providing the returned marker value
     -- in the @Marker@ parameter and retrying the request.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | A tag value or values for which you want to return all matching HSM
+    -- client certificates that are associated with the specified tag value or
+    -- values. For example, suppose that you have HSM client certificates that
+    -- are tagged with values called @admin@ and @test@. If you specify both of
+    -- these tag values in the request, Amazon Redshift returns a response with
+    -- the HSM client certificates that have either or both of these tag values
+    -- associated with them.
+    tagValues :: Prelude.Maybe [Prelude.Text],
+    -- | The identifier of a specific HSM client certificate for which you want
+    -- information. If no identifier is specified, information is returned for
+    -- all HSM client certificates owned by your Amazon Web Services account.
+    hsmClientCertificateIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -118,14 +118,6 @@ data DescribeHsmClientCertificates = DescribeHsmClientCertificates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagValues', 'describeHsmClientCertificates_tagValues' - A tag value or values for which you want to return all matching HSM
--- client certificates that are associated with the specified tag value or
--- values. For example, suppose that you have HSM client certificates that
--- are tagged with values called @admin@ and @test@. If you specify both of
--- these tag values in the request, Amazon Redshift returns a response with
--- the HSM client certificates that have either or both of these tag values
--- associated with them.
---
 -- 'tagKeys', 'describeHsmClientCertificates_tagKeys' - A tag key or keys for which you want to return all matching HSM client
 -- certificates that are associated with the specified key or keys. For
 -- example, suppose that you have HSM client certificates that are tagged
@@ -134,16 +126,24 @@ data DescribeHsmClientCertificates = DescribeHsmClientCertificates'
 -- client certificates that have either or both of these tag keys
 -- associated with them.
 --
--- 'hsmClientCertificateIdentifier', 'describeHsmClientCertificates_hsmClientCertificateIdentifier' - The identifier of a specific HSM client certificate for which you want
--- information. If no identifier is specified, information is returned for
--- all HSM client certificates owned by your Amazon Web Services account.
---
 -- 'marker', 'describeHsmClientCertificates_marker' - An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeHsmClientCertificates
 -- request exceed the value specified in @MaxRecords@, Amazon Web Services
 -- returns a value in the @Marker@ field of the response. You can retrieve
 -- the next set of response records by providing the returned marker value
 -- in the @Marker@ parameter and retrying the request.
+--
+-- 'tagValues', 'describeHsmClientCertificates_tagValues' - A tag value or values for which you want to return all matching HSM
+-- client certificates that are associated with the specified tag value or
+-- values. For example, suppose that you have HSM client certificates that
+-- are tagged with values called @admin@ and @test@. If you specify both of
+-- these tag values in the request, Amazon Redshift returns a response with
+-- the HSM client certificates that have either or both of these tag values
+-- associated with them.
+--
+-- 'hsmClientCertificateIdentifier', 'describeHsmClientCertificates_hsmClientCertificateIdentifier' - The identifier of a specific HSM client certificate for which you want
+-- information. If no identifier is specified, information is returned for
+-- all HSM client certificates owned by your Amazon Web Services account.
 --
 -- 'maxRecords', 'describeHsmClientCertificates_maxRecords' - The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -158,24 +158,14 @@ newDescribeHsmClientCertificates ::
   DescribeHsmClientCertificates
 newDescribeHsmClientCertificates =
   DescribeHsmClientCertificates'
-    { tagValues =
-        Prelude.Nothing,
-      tagKeys = Prelude.Nothing,
-      hsmClientCertificateIdentifier =
+    { tagKeys =
         Prelude.Nothing,
       marker = Prelude.Nothing,
+      tagValues = Prelude.Nothing,
+      hsmClientCertificateIdentifier =
+        Prelude.Nothing,
       maxRecords = Prelude.Nothing
     }
-
--- | A tag value or values for which you want to return all matching HSM
--- client certificates that are associated with the specified tag value or
--- values. For example, suppose that you have HSM client certificates that
--- are tagged with values called @admin@ and @test@. If you specify both of
--- these tag values in the request, Amazon Redshift returns a response with
--- the HSM client certificates that have either or both of these tag values
--- associated with them.
-describeHsmClientCertificates_tagValues :: Lens.Lens' DescribeHsmClientCertificates (Prelude.Maybe [Prelude.Text])
-describeHsmClientCertificates_tagValues = Lens.lens (\DescribeHsmClientCertificates' {tagValues} -> tagValues) (\s@DescribeHsmClientCertificates' {} a -> s {tagValues = a} :: DescribeHsmClientCertificates) Prelude.. Lens.mapping Lens.coerced
 
 -- | A tag key or keys for which you want to return all matching HSM client
 -- certificates that are associated with the specified key or keys. For
@@ -187,12 +177,6 @@ describeHsmClientCertificates_tagValues = Lens.lens (\DescribeHsmClientCertifica
 describeHsmClientCertificates_tagKeys :: Lens.Lens' DescribeHsmClientCertificates (Prelude.Maybe [Prelude.Text])
 describeHsmClientCertificates_tagKeys = Lens.lens (\DescribeHsmClientCertificates' {tagKeys} -> tagKeys) (\s@DescribeHsmClientCertificates' {} a -> s {tagKeys = a} :: DescribeHsmClientCertificates) Prelude.. Lens.mapping Lens.coerced
 
--- | The identifier of a specific HSM client certificate for which you want
--- information. If no identifier is specified, information is returned for
--- all HSM client certificates owned by your Amazon Web Services account.
-describeHsmClientCertificates_hsmClientCertificateIdentifier :: Lens.Lens' DescribeHsmClientCertificates (Prelude.Maybe Prelude.Text)
-describeHsmClientCertificates_hsmClientCertificateIdentifier = Lens.lens (\DescribeHsmClientCertificates' {hsmClientCertificateIdentifier} -> hsmClientCertificateIdentifier) (\s@DescribeHsmClientCertificates' {} a -> s {hsmClientCertificateIdentifier = a} :: DescribeHsmClientCertificates)
-
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeHsmClientCertificates
 -- request exceed the value specified in @MaxRecords@, Amazon Web Services
@@ -201,6 +185,22 @@ describeHsmClientCertificates_hsmClientCertificateIdentifier = Lens.lens (\Descr
 -- in the @Marker@ parameter and retrying the request.
 describeHsmClientCertificates_marker :: Lens.Lens' DescribeHsmClientCertificates (Prelude.Maybe Prelude.Text)
 describeHsmClientCertificates_marker = Lens.lens (\DescribeHsmClientCertificates' {marker} -> marker) (\s@DescribeHsmClientCertificates' {} a -> s {marker = a} :: DescribeHsmClientCertificates)
+
+-- | A tag value or values for which you want to return all matching HSM
+-- client certificates that are associated with the specified tag value or
+-- values. For example, suppose that you have HSM client certificates that
+-- are tagged with values called @admin@ and @test@. If you specify both of
+-- these tag values in the request, Amazon Redshift returns a response with
+-- the HSM client certificates that have either or both of these tag values
+-- associated with them.
+describeHsmClientCertificates_tagValues :: Lens.Lens' DescribeHsmClientCertificates (Prelude.Maybe [Prelude.Text])
+describeHsmClientCertificates_tagValues = Lens.lens (\DescribeHsmClientCertificates' {tagValues} -> tagValues) (\s@DescribeHsmClientCertificates' {} a -> s {tagValues = a} :: DescribeHsmClientCertificates) Prelude.. Lens.mapping Lens.coerced
+
+-- | The identifier of a specific HSM client certificate for which you want
+-- information. If no identifier is specified, information is returned for
+-- all HSM client certificates owned by your Amazon Web Services account.
+describeHsmClientCertificates_hsmClientCertificateIdentifier :: Lens.Lens' DescribeHsmClientCertificates (Prelude.Maybe Prelude.Text)
+describeHsmClientCertificates_hsmClientCertificateIdentifier = Lens.lens (\DescribeHsmClientCertificates' {hsmClientCertificateIdentifier} -> hsmClientCertificateIdentifier) (\s@DescribeHsmClientCertificates' {} a -> s {hsmClientCertificateIdentifier = a} :: DescribeHsmClientCertificates)
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -262,18 +262,18 @@ instance
     DescribeHsmClientCertificates
   where
   hashWithSalt _salt DescribeHsmClientCertificates' {..} =
-    _salt `Prelude.hashWithSalt` tagValues
-      `Prelude.hashWithSalt` tagKeys
-      `Prelude.hashWithSalt` hsmClientCertificateIdentifier
+    _salt `Prelude.hashWithSalt` tagKeys
       `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` tagValues
+      `Prelude.hashWithSalt` hsmClientCertificateIdentifier
       `Prelude.hashWithSalt` maxRecords
 
 instance Prelude.NFData DescribeHsmClientCertificates where
   rnf DescribeHsmClientCertificates' {..} =
-    Prelude.rnf tagValues
-      `Prelude.seq` Prelude.rnf tagKeys
-      `Prelude.seq` Prelude.rnf hsmClientCertificateIdentifier
+    Prelude.rnf tagKeys
       `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf tagValues
+      `Prelude.seq` Prelude.rnf hsmClientCertificateIdentifier
       `Prelude.seq` Prelude.rnf maxRecords
 
 instance Core.ToHeaders DescribeHsmClientCertificates where
@@ -291,15 +291,15 @@ instance Core.ToQuery DescribeHsmClientCertificates where
                   ),
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "TagValues"
-          Core.=: Core.toQuery
-            (Core.toQueryList "TagValue" Prelude.<$> tagValues),
         "TagKeys"
           Core.=: Core.toQuery
             (Core.toQueryList "TagKey" Prelude.<$> tagKeys),
+        "Marker" Core.=: marker,
+        "TagValues"
+          Core.=: Core.toQuery
+            (Core.toQueryList "TagValue" Prelude.<$> tagValues),
         "HsmClientCertificateIdentifier"
           Core.=: hsmClientCertificateIdentifier,
-        "Marker" Core.=: marker,
         "MaxRecords" Core.=: maxRecords
       ]
 

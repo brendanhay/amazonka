@@ -39,8 +39,8 @@ module Amazonka.Redshift.UpdatePartnerStatus
     newPartnerIntegrationOutputMessage,
 
     -- * Response Lenses
-    partnerIntegrationOutputMessage_partnerName,
     partnerIntegrationOutputMessage_databaseName,
+    partnerIntegrationOutputMessage_partnerName,
   )
 where
 

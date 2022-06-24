@@ -41,9 +41,9 @@ module Amazonka.Redshift.RestoreTableFromClusterSnapshot
 
     -- * Request Lenses
     restoreTableFromClusterSnapshot_targetSchemaName,
-    restoreTableFromClusterSnapshot_enableCaseSensitiveIdentifier,
-    restoreTableFromClusterSnapshot_targetDatabaseName,
     restoreTableFromClusterSnapshot_sourceSchemaName,
+    restoreTableFromClusterSnapshot_targetDatabaseName,
+    restoreTableFromClusterSnapshot_enableCaseSensitiveIdentifier,
     restoreTableFromClusterSnapshot_clusterIdentifier,
     restoreTableFromClusterSnapshot_snapshotIdentifier,
     restoreTableFromClusterSnapshot_sourceDatabaseName,
@@ -73,16 +73,16 @@ import qualified Amazonka.Response as Response
 data RestoreTableFromClusterSnapshot = RestoreTableFromClusterSnapshot'
   { -- | The name of the schema to restore the table to.
     targetSchemaName :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether name identifiers for database, schema, and table are
-    -- case sensitive. If @true@, the names are case sensitive. If @false@
-    -- (default), the names are not case sensitive.
-    enableCaseSensitiveIdentifier :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the database to restore the table to.
-    targetDatabaseName :: Prelude.Maybe Prelude.Text,
     -- | The name of the source schema that contains the table to restore from.
     -- If you do not specify a @SourceSchemaName@ value, the default is
     -- @public@.
     sourceSchemaName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the database to restore the table to.
+    targetDatabaseName :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether name identifiers for database, schema, and table are
+    -- case sensitive. If @true@, the names are case sensitive. If @false@
+    -- (default), the names are not case sensitive.
+    enableCaseSensitiveIdentifier :: Prelude.Maybe Prelude.Bool,
     -- | The identifier of the Amazon Redshift cluster to restore the table to.
     clusterIdentifier :: Prelude.Text,
     -- | The identifier of the snapshot to restore the table from. This snapshot
@@ -108,15 +108,15 @@ data RestoreTableFromClusterSnapshot = RestoreTableFromClusterSnapshot'
 --
 -- 'targetSchemaName', 'restoreTableFromClusterSnapshot_targetSchemaName' - The name of the schema to restore the table to.
 --
--- 'enableCaseSensitiveIdentifier', 'restoreTableFromClusterSnapshot_enableCaseSensitiveIdentifier' - Indicates whether name identifiers for database, schema, and table are
--- case sensitive. If @true@, the names are case sensitive. If @false@
--- (default), the names are not case sensitive.
---
--- 'targetDatabaseName', 'restoreTableFromClusterSnapshot_targetDatabaseName' - The name of the database to restore the table to.
---
 -- 'sourceSchemaName', 'restoreTableFromClusterSnapshot_sourceSchemaName' - The name of the source schema that contains the table to restore from.
 -- If you do not specify a @SourceSchemaName@ value, the default is
 -- @public@.
+--
+-- 'targetDatabaseName', 'restoreTableFromClusterSnapshot_targetDatabaseName' - The name of the database to restore the table to.
+--
+-- 'enableCaseSensitiveIdentifier', 'restoreTableFromClusterSnapshot_enableCaseSensitiveIdentifier' - Indicates whether name identifiers for database, schema, and table are
+-- case sensitive. If @true@, the names are case sensitive. If @false@
+-- (default), the names are not case sensitive.
 --
 -- 'clusterIdentifier', 'restoreTableFromClusterSnapshot_clusterIdentifier' - The identifier of the Amazon Redshift cluster to restore the table to.
 --
@@ -150,10 +150,10 @@ newRestoreTableFromClusterSnapshot
     RestoreTableFromClusterSnapshot'
       { targetSchemaName =
           Prelude.Nothing,
+        sourceSchemaName = Prelude.Nothing,
+        targetDatabaseName = Prelude.Nothing,
         enableCaseSensitiveIdentifier =
           Prelude.Nothing,
-        targetDatabaseName = Prelude.Nothing,
-        sourceSchemaName = Prelude.Nothing,
         clusterIdentifier = pClusterIdentifier_,
         snapshotIdentifier = pSnapshotIdentifier_,
         sourceDatabaseName = pSourceDatabaseName_,
@@ -165,21 +165,21 @@ newRestoreTableFromClusterSnapshot
 restoreTableFromClusterSnapshot_targetSchemaName :: Lens.Lens' RestoreTableFromClusterSnapshot (Prelude.Maybe Prelude.Text)
 restoreTableFromClusterSnapshot_targetSchemaName = Lens.lens (\RestoreTableFromClusterSnapshot' {targetSchemaName} -> targetSchemaName) (\s@RestoreTableFromClusterSnapshot' {} a -> s {targetSchemaName = a} :: RestoreTableFromClusterSnapshot)
 
--- | Indicates whether name identifiers for database, schema, and table are
--- case sensitive. If @true@, the names are case sensitive. If @false@
--- (default), the names are not case sensitive.
-restoreTableFromClusterSnapshot_enableCaseSensitiveIdentifier :: Lens.Lens' RestoreTableFromClusterSnapshot (Prelude.Maybe Prelude.Bool)
-restoreTableFromClusterSnapshot_enableCaseSensitiveIdentifier = Lens.lens (\RestoreTableFromClusterSnapshot' {enableCaseSensitiveIdentifier} -> enableCaseSensitiveIdentifier) (\s@RestoreTableFromClusterSnapshot' {} a -> s {enableCaseSensitiveIdentifier = a} :: RestoreTableFromClusterSnapshot)
-
--- | The name of the database to restore the table to.
-restoreTableFromClusterSnapshot_targetDatabaseName :: Lens.Lens' RestoreTableFromClusterSnapshot (Prelude.Maybe Prelude.Text)
-restoreTableFromClusterSnapshot_targetDatabaseName = Lens.lens (\RestoreTableFromClusterSnapshot' {targetDatabaseName} -> targetDatabaseName) (\s@RestoreTableFromClusterSnapshot' {} a -> s {targetDatabaseName = a} :: RestoreTableFromClusterSnapshot)
-
 -- | The name of the source schema that contains the table to restore from.
 -- If you do not specify a @SourceSchemaName@ value, the default is
 -- @public@.
 restoreTableFromClusterSnapshot_sourceSchemaName :: Lens.Lens' RestoreTableFromClusterSnapshot (Prelude.Maybe Prelude.Text)
 restoreTableFromClusterSnapshot_sourceSchemaName = Lens.lens (\RestoreTableFromClusterSnapshot' {sourceSchemaName} -> sourceSchemaName) (\s@RestoreTableFromClusterSnapshot' {} a -> s {sourceSchemaName = a} :: RestoreTableFromClusterSnapshot)
+
+-- | The name of the database to restore the table to.
+restoreTableFromClusterSnapshot_targetDatabaseName :: Lens.Lens' RestoreTableFromClusterSnapshot (Prelude.Maybe Prelude.Text)
+restoreTableFromClusterSnapshot_targetDatabaseName = Lens.lens (\RestoreTableFromClusterSnapshot' {targetDatabaseName} -> targetDatabaseName) (\s@RestoreTableFromClusterSnapshot' {} a -> s {targetDatabaseName = a} :: RestoreTableFromClusterSnapshot)
+
+-- | Indicates whether name identifiers for database, schema, and table are
+-- case sensitive. If @true@, the names are case sensitive. If @false@
+-- (default), the names are not case sensitive.
+restoreTableFromClusterSnapshot_enableCaseSensitiveIdentifier :: Lens.Lens' RestoreTableFromClusterSnapshot (Prelude.Maybe Prelude.Bool)
+restoreTableFromClusterSnapshot_enableCaseSensitiveIdentifier = Lens.lens (\RestoreTableFromClusterSnapshot' {enableCaseSensitiveIdentifier} -> enableCaseSensitiveIdentifier) (\s@RestoreTableFromClusterSnapshot' {} a -> s {enableCaseSensitiveIdentifier = a} :: RestoreTableFromClusterSnapshot)
 
 -- | The identifier of the Amazon Redshift cluster to restore the table to.
 restoreTableFromClusterSnapshot_clusterIdentifier :: Lens.Lens' RestoreTableFromClusterSnapshot Prelude.Text
@@ -228,9 +228,9 @@ instance
     _salt
     RestoreTableFromClusterSnapshot' {..} =
       _salt `Prelude.hashWithSalt` targetSchemaName
-        `Prelude.hashWithSalt` enableCaseSensitiveIdentifier
-        `Prelude.hashWithSalt` targetDatabaseName
         `Prelude.hashWithSalt` sourceSchemaName
+        `Prelude.hashWithSalt` targetDatabaseName
+        `Prelude.hashWithSalt` enableCaseSensitiveIdentifier
         `Prelude.hashWithSalt` clusterIdentifier
         `Prelude.hashWithSalt` snapshotIdentifier
         `Prelude.hashWithSalt` sourceDatabaseName
@@ -243,9 +243,9 @@ instance
   where
   rnf RestoreTableFromClusterSnapshot' {..} =
     Prelude.rnf targetSchemaName
-      `Prelude.seq` Prelude.rnf enableCaseSensitiveIdentifier
-      `Prelude.seq` Prelude.rnf targetDatabaseName
       `Prelude.seq` Prelude.rnf sourceSchemaName
+      `Prelude.seq` Prelude.rnf targetDatabaseName
+      `Prelude.seq` Prelude.rnf enableCaseSensitiveIdentifier
       `Prelude.seq` Prelude.rnf clusterIdentifier
       `Prelude.seq` Prelude.rnf snapshotIdentifier
       `Prelude.seq` Prelude.rnf sourceDatabaseName
@@ -271,10 +271,10 @@ instance Core.ToQuery RestoreTableFromClusterSnapshot where
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
         "TargetSchemaName" Core.=: targetSchemaName,
+        "SourceSchemaName" Core.=: sourceSchemaName,
+        "TargetDatabaseName" Core.=: targetDatabaseName,
         "EnableCaseSensitiveIdentifier"
           Core.=: enableCaseSensitiveIdentifier,
-        "TargetDatabaseName" Core.=: targetDatabaseName,
-        "SourceSchemaName" Core.=: sourceSchemaName,
         "ClusterIdentifier" Core.=: clusterIdentifier,
         "SnapshotIdentifier" Core.=: snapshotIdentifier,
         "SourceDatabaseName" Core.=: sourceDatabaseName,

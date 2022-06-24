@@ -39,9 +39,9 @@ module Amazonka.Redshift.DescribeOrderableClusterOptions
 
     -- * Request Lenses
     describeOrderableClusterOptions_marker,
-    describeOrderableClusterOptions_maxRecords,
     describeOrderableClusterOptions_clusterVersion,
     describeOrderableClusterOptions_nodeType,
+    describeOrderableClusterOptions_maxRecords,
 
     -- * Destructuring the Response
     DescribeOrderableClusterOptionsResponse (..),
@@ -73,16 +73,6 @@ data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions'
     -- providing the returned marker value in the @Marker@ parameter and
     -- retrying the request.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of response records to return in each call. If the
-    -- number of remaining response records exceeds the specified @MaxRecords@
-    -- value, a value is returned in a @marker@ field of the response. You can
-    -- retrieve the next set of records by retrying the command with the
-    -- returned marker value.
-    --
-    -- Default: @100@
-    --
-    -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int,
     -- | The version filter value. Specify this parameter to show only the
     -- available offerings matching the specified version.
     --
@@ -93,7 +83,17 @@ data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions'
     clusterVersion :: Prelude.Maybe Prelude.Text,
     -- | The node type filter value. Specify this parameter to show only the
     -- available offerings matching the specified node type.
-    nodeType :: Prelude.Maybe Prelude.Text
+    nodeType :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of response records to return in each call. If the
+    -- number of remaining response records exceeds the specified @MaxRecords@
+    -- value, a value is returned in a @marker@ field of the response. You can
+    -- retrieve the next set of records by retrying the command with the
+    -- returned marker value.
+    --
+    -- Default: @100@
+    --
+    -- Constraints: minimum 20, maximum 100.
+    maxRecords :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -113,16 +113,6 @@ data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions'
 -- providing the returned marker value in the @Marker@ parameter and
 -- retrying the request.
 --
--- 'maxRecords', 'describeOrderableClusterOptions_maxRecords' - The maximum number of response records to return in each call. If the
--- number of remaining response records exceeds the specified @MaxRecords@
--- value, a value is returned in a @marker@ field of the response. You can
--- retrieve the next set of records by retrying the command with the
--- returned marker value.
---
--- Default: @100@
---
--- Constraints: minimum 20, maximum 100.
---
 -- 'clusterVersion', 'describeOrderableClusterOptions_clusterVersion' - The version filter value. Specify this parameter to show only the
 -- available offerings matching the specified version.
 --
@@ -133,15 +123,25 @@ data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions'
 --
 -- 'nodeType', 'describeOrderableClusterOptions_nodeType' - The node type filter value. Specify this parameter to show only the
 -- available offerings matching the specified node type.
+--
+-- 'maxRecords', 'describeOrderableClusterOptions_maxRecords' - The maximum number of response records to return in each call. If the
+-- number of remaining response records exceeds the specified @MaxRecords@
+-- value, a value is returned in a @marker@ field of the response. You can
+-- retrieve the next set of records by retrying the command with the
+-- returned marker value.
+--
+-- Default: @100@
+--
+-- Constraints: minimum 20, maximum 100.
 newDescribeOrderableClusterOptions ::
   DescribeOrderableClusterOptions
 newDescribeOrderableClusterOptions =
   DescribeOrderableClusterOptions'
     { marker =
         Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
       clusterVersion = Prelude.Nothing,
-      nodeType = Prelude.Nothing
+      nodeType = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
 -- | An optional parameter that specifies the starting point to return a set
@@ -153,18 +153,6 @@ newDescribeOrderableClusterOptions =
 -- retrying the request.
 describeOrderableClusterOptions_marker :: Lens.Lens' DescribeOrderableClusterOptions (Prelude.Maybe Prelude.Text)
 describeOrderableClusterOptions_marker = Lens.lens (\DescribeOrderableClusterOptions' {marker} -> marker) (\s@DescribeOrderableClusterOptions' {} a -> s {marker = a} :: DescribeOrderableClusterOptions)
-
--- | The maximum number of response records to return in each call. If the
--- number of remaining response records exceeds the specified @MaxRecords@
--- value, a value is returned in a @marker@ field of the response. You can
--- retrieve the next set of records by retrying the command with the
--- returned marker value.
---
--- Default: @100@
---
--- Constraints: minimum 20, maximum 100.
-describeOrderableClusterOptions_maxRecords :: Lens.Lens' DescribeOrderableClusterOptions (Prelude.Maybe Prelude.Int)
-describeOrderableClusterOptions_maxRecords = Lens.lens (\DescribeOrderableClusterOptions' {maxRecords} -> maxRecords) (\s@DescribeOrderableClusterOptions' {} a -> s {maxRecords = a} :: DescribeOrderableClusterOptions)
 
 -- | The version filter value. Specify this parameter to show only the
 -- available offerings matching the specified version.
@@ -180,6 +168,18 @@ describeOrderableClusterOptions_clusterVersion = Lens.lens (\DescribeOrderableCl
 -- available offerings matching the specified node type.
 describeOrderableClusterOptions_nodeType :: Lens.Lens' DescribeOrderableClusterOptions (Prelude.Maybe Prelude.Text)
 describeOrderableClusterOptions_nodeType = Lens.lens (\DescribeOrderableClusterOptions' {nodeType} -> nodeType) (\s@DescribeOrderableClusterOptions' {} a -> s {nodeType = a} :: DescribeOrderableClusterOptions)
+
+-- | The maximum number of response records to return in each call. If the
+-- number of remaining response records exceeds the specified @MaxRecords@
+-- value, a value is returned in a @marker@ field of the response. You can
+-- retrieve the next set of records by retrying the command with the
+-- returned marker value.
+--
+-- Default: @100@
+--
+-- Constraints: minimum 20, maximum 100.
+describeOrderableClusterOptions_maxRecords :: Lens.Lens' DescribeOrderableClusterOptions (Prelude.Maybe Prelude.Int)
+describeOrderableClusterOptions_maxRecords = Lens.lens (\DescribeOrderableClusterOptions' {maxRecords} -> maxRecords) (\s@DescribeOrderableClusterOptions' {} a -> s {maxRecords = a} :: DescribeOrderableClusterOptions)
 
 instance
   Core.AWSPager
@@ -236,9 +236,9 @@ instance
     _salt
     DescribeOrderableClusterOptions' {..} =
       _salt `Prelude.hashWithSalt` marker
-        `Prelude.hashWithSalt` maxRecords
         `Prelude.hashWithSalt` clusterVersion
         `Prelude.hashWithSalt` nodeType
+        `Prelude.hashWithSalt` maxRecords
 
 instance
   Prelude.NFData
@@ -246,9 +246,9 @@ instance
   where
   rnf DescribeOrderableClusterOptions' {..} =
     Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf clusterVersion
       `Prelude.seq` Prelude.rnf nodeType
+      `Prelude.seq` Prelude.rnf maxRecords
 
 instance
   Core.ToHeaders
@@ -269,9 +269,9 @@ instance Core.ToQuery DescribeOrderableClusterOptions where
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
         "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords,
         "ClusterVersion" Core.=: clusterVersion,
-        "NodeType" Core.=: nodeType
+        "NodeType" Core.=: nodeType,
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- | Contains the output from the DescribeOrderableClusterOptions action.

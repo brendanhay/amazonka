@@ -40,8 +40,8 @@ module Amazonka.Redshift.ResetClusterParameterGroup
     newClusterParameterGroupNameMessage,
 
     -- * Response Lenses
-    clusterParameterGroupNameMessage_parameterGroupStatus,
     clusterParameterGroupNameMessage_parameterGroupName,
+    clusterParameterGroupNameMessage_parameterGroupStatus,
   )
 where
 

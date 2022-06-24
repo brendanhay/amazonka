@@ -27,20 +27,20 @@ import Amazonka.Redshift.Types.DataShareAssociation
 
 -- | /See:/ 'newDataShare' smart constructor.
 data DataShare = DataShare'
-  { -- | The Amazon Resource Name (ARN) of the producer.
-    producerArn :: Prelude.Maybe Prelude.Text,
-    -- | A value that specifies when the datashare has an association between a
+  { -- | A value that specifies when the datashare has an association between a
     -- producer and data consumers.
     dataShareAssociations :: Prelude.Maybe [DataShareAssociation],
+    -- | The Amazon Resource Name (ARN) of the producer.
+    producerArn :: Prelude.Maybe Prelude.Text,
+    -- | A value that specifies whether the datashare can be shared to a publicly
+    -- accessible cluster.
+    allowPubliclyAccessibleConsumers :: Prelude.Maybe Prelude.Bool,
     -- | An Amazon Resource Name (ARN) that references the datashare that is
     -- owned by a specific namespace of the producer cluster. A datashare ARN
     -- is in the
     -- @arn:aws:redshift:{region}:{account-id}:{datashare}:{namespace-guid}\/{datashare-name}@
     -- format.
-    dataShareArn :: Prelude.Maybe Prelude.Text,
-    -- | A value that specifies whether the datashare can be shared to a publicly
-    -- accessible cluster.
-    allowPubliclyAccessibleConsumers :: Prelude.Maybe Prelude.Bool
+    dataShareArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,37 +52,42 @@ data DataShare = DataShare'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'producerArn', 'dataShare_producerArn' - The Amazon Resource Name (ARN) of the producer.
---
 -- 'dataShareAssociations', 'dataShare_dataShareAssociations' - A value that specifies when the datashare has an association between a
 -- producer and data consumers.
+--
+-- 'producerArn', 'dataShare_producerArn' - The Amazon Resource Name (ARN) of the producer.
+--
+-- 'allowPubliclyAccessibleConsumers', 'dataShare_allowPubliclyAccessibleConsumers' - A value that specifies whether the datashare can be shared to a publicly
+-- accessible cluster.
 --
 -- 'dataShareArn', 'dataShare_dataShareArn' - An Amazon Resource Name (ARN) that references the datashare that is
 -- owned by a specific namespace of the producer cluster. A datashare ARN
 -- is in the
 -- @arn:aws:redshift:{region}:{account-id}:{datashare}:{namespace-guid}\/{datashare-name}@
 -- format.
---
--- 'allowPubliclyAccessibleConsumers', 'dataShare_allowPubliclyAccessibleConsumers' - A value that specifies whether the datashare can be shared to a publicly
--- accessible cluster.
 newDataShare ::
   DataShare
 newDataShare =
   DataShare'
-    { producerArn = Prelude.Nothing,
-      dataShareAssociations = Prelude.Nothing,
-      dataShareArn = Prelude.Nothing,
-      allowPubliclyAccessibleConsumers = Prelude.Nothing
+    { dataShareAssociations = Prelude.Nothing,
+      producerArn = Prelude.Nothing,
+      allowPubliclyAccessibleConsumers = Prelude.Nothing,
+      dataShareArn = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the producer.
-dataShare_producerArn :: Lens.Lens' DataShare (Prelude.Maybe Prelude.Text)
-dataShare_producerArn = Lens.lens (\DataShare' {producerArn} -> producerArn) (\s@DataShare' {} a -> s {producerArn = a} :: DataShare)
 
 -- | A value that specifies when the datashare has an association between a
 -- producer and data consumers.
 dataShare_dataShareAssociations :: Lens.Lens' DataShare (Prelude.Maybe [DataShareAssociation])
 dataShare_dataShareAssociations = Lens.lens (\DataShare' {dataShareAssociations} -> dataShareAssociations) (\s@DataShare' {} a -> s {dataShareAssociations = a} :: DataShare) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Name (ARN) of the producer.
+dataShare_producerArn :: Lens.Lens' DataShare (Prelude.Maybe Prelude.Text)
+dataShare_producerArn = Lens.lens (\DataShare' {producerArn} -> producerArn) (\s@DataShare' {} a -> s {producerArn = a} :: DataShare)
+
+-- | A value that specifies whether the datashare can be shared to a publicly
+-- accessible cluster.
+dataShare_allowPubliclyAccessibleConsumers :: Lens.Lens' DataShare (Prelude.Maybe Prelude.Bool)
+dataShare_allowPubliclyAccessibleConsumers = Lens.lens (\DataShare' {allowPubliclyAccessibleConsumers} -> allowPubliclyAccessibleConsumers) (\s@DataShare' {} a -> s {allowPubliclyAccessibleConsumers = a} :: DataShare)
 
 -- | An Amazon Resource Name (ARN) that references the datashare that is
 -- owned by a specific namespace of the producer cluster. A datashare ARN
@@ -92,32 +97,27 @@ dataShare_dataShareAssociations = Lens.lens (\DataShare' {dataShareAssociations}
 dataShare_dataShareArn :: Lens.Lens' DataShare (Prelude.Maybe Prelude.Text)
 dataShare_dataShareArn = Lens.lens (\DataShare' {dataShareArn} -> dataShareArn) (\s@DataShare' {} a -> s {dataShareArn = a} :: DataShare)
 
--- | A value that specifies whether the datashare can be shared to a publicly
--- accessible cluster.
-dataShare_allowPubliclyAccessibleConsumers :: Lens.Lens' DataShare (Prelude.Maybe Prelude.Bool)
-dataShare_allowPubliclyAccessibleConsumers = Lens.lens (\DataShare' {allowPubliclyAccessibleConsumers} -> allowPubliclyAccessibleConsumers) (\s@DataShare' {} a -> s {allowPubliclyAccessibleConsumers = a} :: DataShare)
-
 instance Core.FromXML DataShare where
   parseXML x =
     DataShare'
-      Prelude.<$> (x Core..@? "ProducerArn")
-      Prelude.<*> ( x Core..@? "DataShareAssociations"
+      Prelude.<$> ( x Core..@? "DataShareAssociations"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "DataShareArn")
+      Prelude.<*> (x Core..@? "ProducerArn")
       Prelude.<*> (x Core..@? "AllowPubliclyAccessibleConsumers")
+      Prelude.<*> (x Core..@? "DataShareArn")
 
 instance Prelude.Hashable DataShare where
   hashWithSalt _salt DataShare' {..} =
-    _salt `Prelude.hashWithSalt` producerArn
-      `Prelude.hashWithSalt` dataShareAssociations
-      `Prelude.hashWithSalt` dataShareArn
+    _salt `Prelude.hashWithSalt` dataShareAssociations
+      `Prelude.hashWithSalt` producerArn
       `Prelude.hashWithSalt` allowPubliclyAccessibleConsumers
+      `Prelude.hashWithSalt` dataShareArn
 
 instance Prelude.NFData DataShare where
   rnf DataShare' {..} =
-    Prelude.rnf producerArn
-      `Prelude.seq` Prelude.rnf dataShareAssociations
-      `Prelude.seq` Prelude.rnf dataShareArn
+    Prelude.rnf dataShareAssociations
+      `Prelude.seq` Prelude.rnf producerArn
       `Prelude.seq` Prelude.rnf allowPubliclyAccessibleConsumers
+      `Prelude.seq` Prelude.rnf dataShareArn

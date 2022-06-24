@@ -31,8 +31,8 @@ module Amazonka.Redshift.DescribeStorage
     newDescribeStorageResponse,
 
     -- * Response Lenses
-    describeStorageResponse_totalProvisionedStorageInMegaBytes,
     describeStorageResponse_totalBackupSizeInMegaBytes,
+    describeStorageResponse_totalProvisionedStorageInMegaBytes,
     describeStorageResponse_httpStatus,
   )
 where
@@ -68,8 +68,8 @@ instance Core.AWSRequest DescribeStorage where
       "DescribeStorageResult"
       ( \s h x ->
           DescribeStorageResponse'
-            Prelude.<$> (x Core..@? "TotalProvisionedStorageInMegaBytes")
-            Prelude.<*> (x Core..@? "TotalBackupSizeInMegaBytes")
+            Prelude.<$> (x Core..@? "TotalBackupSizeInMegaBytes")
+            Prelude.<*> (x Core..@? "TotalProvisionedStorageInMegaBytes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,10 +99,10 @@ instance Core.ToQuery DescribeStorage where
 
 -- | /See:/ 'newDescribeStorageResponse' smart constructor.
 data DescribeStorageResponse = DescribeStorageResponse'
-  { -- | The total amount of storage currently provisioned.
-    totalProvisionedStorageInMegaBytes :: Prelude.Maybe Prelude.Double,
-    -- | The total amount of storage currently used for snapshots.
+  { -- | The total amount of storage currently used for snapshots.
     totalBackupSizeInMegaBytes :: Prelude.Maybe Prelude.Double,
+    -- | The total amount of storage currently provisioned.
+    totalProvisionedStorageInMegaBytes :: Prelude.Maybe Prelude.Double,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -116,9 +116,9 @@ data DescribeStorageResponse = DescribeStorageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'totalProvisionedStorageInMegaBytes', 'describeStorageResponse_totalProvisionedStorageInMegaBytes' - The total amount of storage currently provisioned.
---
 -- 'totalBackupSizeInMegaBytes', 'describeStorageResponse_totalBackupSizeInMegaBytes' - The total amount of storage currently used for snapshots.
+--
+-- 'totalProvisionedStorageInMegaBytes', 'describeStorageResponse_totalProvisionedStorageInMegaBytes' - The total amount of storage currently provisioned.
 --
 -- 'httpStatus', 'describeStorageResponse_httpStatus' - The response's http status code.
 newDescribeStorageResponse ::
@@ -127,19 +127,20 @@ newDescribeStorageResponse ::
   DescribeStorageResponse
 newDescribeStorageResponse pHttpStatus_ =
   DescribeStorageResponse'
-    { totalProvisionedStorageInMegaBytes =
+    { totalBackupSizeInMegaBytes =
         Prelude.Nothing,
-      totalBackupSizeInMegaBytes = Prelude.Nothing,
+      totalProvisionedStorageInMegaBytes =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The total amount of storage currently provisioned.
-describeStorageResponse_totalProvisionedStorageInMegaBytes :: Lens.Lens' DescribeStorageResponse (Prelude.Maybe Prelude.Double)
-describeStorageResponse_totalProvisionedStorageInMegaBytes = Lens.lens (\DescribeStorageResponse' {totalProvisionedStorageInMegaBytes} -> totalProvisionedStorageInMegaBytes) (\s@DescribeStorageResponse' {} a -> s {totalProvisionedStorageInMegaBytes = a} :: DescribeStorageResponse)
 
 -- | The total amount of storage currently used for snapshots.
 describeStorageResponse_totalBackupSizeInMegaBytes :: Lens.Lens' DescribeStorageResponse (Prelude.Maybe Prelude.Double)
 describeStorageResponse_totalBackupSizeInMegaBytes = Lens.lens (\DescribeStorageResponse' {totalBackupSizeInMegaBytes} -> totalBackupSizeInMegaBytes) (\s@DescribeStorageResponse' {} a -> s {totalBackupSizeInMegaBytes = a} :: DescribeStorageResponse)
+
+-- | The total amount of storage currently provisioned.
+describeStorageResponse_totalProvisionedStorageInMegaBytes :: Lens.Lens' DescribeStorageResponse (Prelude.Maybe Prelude.Double)
+describeStorageResponse_totalProvisionedStorageInMegaBytes = Lens.lens (\DescribeStorageResponse' {totalProvisionedStorageInMegaBytes} -> totalProvisionedStorageInMegaBytes) (\s@DescribeStorageResponse' {} a -> s {totalProvisionedStorageInMegaBytes = a} :: DescribeStorageResponse)
 
 -- | The response's http status code.
 describeStorageResponse_httpStatus :: Lens.Lens' DescribeStorageResponse Prelude.Int
@@ -147,6 +148,6 @@ describeStorageResponse_httpStatus = Lens.lens (\DescribeStorageResponse' {httpS
 
 instance Prelude.NFData DescribeStorageResponse where
   rnf DescribeStorageResponse' {..} =
-    Prelude.rnf totalProvisionedStorageInMegaBytes
-      `Prelude.seq` Prelude.rnf totalBackupSizeInMegaBytes
+    Prelude.rnf totalBackupSizeInMegaBytes
+      `Prelude.seq` Prelude.rnf totalProvisionedStorageInMegaBytes
       `Prelude.seq` Prelude.rnf httpStatus

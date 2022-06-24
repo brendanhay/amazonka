@@ -34,10 +34,10 @@ module Amazonka.Redshift.DescribeClusterVersions
     newDescribeClusterVersions,
 
     -- * Request Lenses
-    describeClusterVersions_clusterParameterGroupFamily,
     describeClusterVersions_marker,
-    describeClusterVersions_maxRecords,
     describeClusterVersions_clusterVersion,
+    describeClusterVersions_clusterParameterGroupFamily,
+    describeClusterVersions_maxRecords,
 
     -- * Destructuring the Response
     DescribeClusterVersionsResponse (..),
@@ -61,7 +61,18 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeClusterVersions' smart constructor.
 data DescribeClusterVersions = DescribeClusterVersions'
-  { -- | The name of a specific cluster parameter group family to return details
+  { -- | An optional parameter that specifies the starting point to return a set
+    -- of response records. When the results of a DescribeClusterVersions
+    -- request exceed the value specified in @MaxRecords@, Amazon Web Services
+    -- returns a value in the @Marker@ field of the response. You can retrieve
+    -- the next set of response records by providing the returned marker value
+    -- in the @Marker@ parameter and retrying the request.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The specific cluster version to return.
+    --
+    -- Example: @1.0@
+    clusterVersion :: Prelude.Maybe Prelude.Text,
+    -- | The name of a specific cluster parameter group family to return details
     -- for.
     --
     -- Constraints:
@@ -72,13 +83,6 @@ data DescribeClusterVersions = DescribeClusterVersions'
     --
     -- -   Cannot end with a hyphen or contain two consecutive hyphens
     clusterParameterGroupFamily :: Prelude.Maybe Prelude.Text,
-    -- | An optional parameter that specifies the starting point to return a set
-    -- of response records. When the results of a DescribeClusterVersions
-    -- request exceed the value specified in @MaxRecords@, Amazon Web Services
-    -- returns a value in the @Marker@ field of the response. You can retrieve
-    -- the next set of response records by providing the returned marker value
-    -- in the @Marker@ parameter and retrying the request.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -88,11 +92,7 @@ data DescribeClusterVersions = DescribeClusterVersions'
     -- Default: @100@
     --
     -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int,
-    -- | The specific cluster version to return.
-    --
-    -- Example: @1.0@
-    clusterVersion :: Prelude.Maybe Prelude.Text
+    maxRecords :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -103,6 +103,17 @@ data DescribeClusterVersions = DescribeClusterVersions'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'marker', 'describeClusterVersions_marker' - An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeClusterVersions
+-- request exceed the value specified in @MaxRecords@, Amazon Web Services
+-- returns a value in the @Marker@ field of the response. You can retrieve
+-- the next set of response records by providing the returned marker value
+-- in the @Marker@ parameter and retrying the request.
+--
+-- 'clusterVersion', 'describeClusterVersions_clusterVersion' - The specific cluster version to return.
+--
+-- Example: @1.0@
 --
 -- 'clusterParameterGroupFamily', 'describeClusterVersions_clusterParameterGroupFamily' - The name of a specific cluster parameter group family to return details
 -- for.
@@ -115,13 +126,6 @@ data DescribeClusterVersions = DescribeClusterVersions'
 --
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
--- 'marker', 'describeClusterVersions_marker' - An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeClusterVersions
--- request exceed the value specified in @MaxRecords@, Amazon Web Services
--- returns a value in the @Marker@ field of the response. You can retrieve
--- the next set of response records by providing the returned marker value
--- in the @Marker@ parameter and retrying the request.
---
 -- 'maxRecords', 'describeClusterVersions_maxRecords' - The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
@@ -131,20 +135,30 @@ data DescribeClusterVersions = DescribeClusterVersions'
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
---
--- 'clusterVersion', 'describeClusterVersions_clusterVersion' - The specific cluster version to return.
---
--- Example: @1.0@
 newDescribeClusterVersions ::
   DescribeClusterVersions
 newDescribeClusterVersions =
   DescribeClusterVersions'
-    { clusterParameterGroupFamily =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
-      clusterVersion = Prelude.Nothing
+    { marker = Prelude.Nothing,
+      clusterVersion = Prelude.Nothing,
+      clusterParameterGroupFamily = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
+
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeClusterVersions
+-- request exceed the value specified in @MaxRecords@, Amazon Web Services
+-- returns a value in the @Marker@ field of the response. You can retrieve
+-- the next set of response records by providing the returned marker value
+-- in the @Marker@ parameter and retrying the request.
+describeClusterVersions_marker :: Lens.Lens' DescribeClusterVersions (Prelude.Maybe Prelude.Text)
+describeClusterVersions_marker = Lens.lens (\DescribeClusterVersions' {marker} -> marker) (\s@DescribeClusterVersions' {} a -> s {marker = a} :: DescribeClusterVersions)
+
+-- | The specific cluster version to return.
+--
+-- Example: @1.0@
+describeClusterVersions_clusterVersion :: Lens.Lens' DescribeClusterVersions (Prelude.Maybe Prelude.Text)
+describeClusterVersions_clusterVersion = Lens.lens (\DescribeClusterVersions' {clusterVersion} -> clusterVersion) (\s@DescribeClusterVersions' {} a -> s {clusterVersion = a} :: DescribeClusterVersions)
 
 -- | The name of a specific cluster parameter group family to return details
 -- for.
@@ -159,15 +173,6 @@ newDescribeClusterVersions =
 describeClusterVersions_clusterParameterGroupFamily :: Lens.Lens' DescribeClusterVersions (Prelude.Maybe Prelude.Text)
 describeClusterVersions_clusterParameterGroupFamily = Lens.lens (\DescribeClusterVersions' {clusterParameterGroupFamily} -> clusterParameterGroupFamily) (\s@DescribeClusterVersions' {} a -> s {clusterParameterGroupFamily = a} :: DescribeClusterVersions)
 
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeClusterVersions
--- request exceed the value specified in @MaxRecords@, Amazon Web Services
--- returns a value in the @Marker@ field of the response. You can retrieve
--- the next set of response records by providing the returned marker value
--- in the @Marker@ parameter and retrying the request.
-describeClusterVersions_marker :: Lens.Lens' DescribeClusterVersions (Prelude.Maybe Prelude.Text)
-describeClusterVersions_marker = Lens.lens (\DescribeClusterVersions' {marker} -> marker) (\s@DescribeClusterVersions' {} a -> s {marker = a} :: DescribeClusterVersions)
-
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
@@ -179,12 +184,6 @@ describeClusterVersions_marker = Lens.lens (\DescribeClusterVersions' {marker} -
 -- Constraints: minimum 20, maximum 100.
 describeClusterVersions_maxRecords :: Lens.Lens' DescribeClusterVersions (Prelude.Maybe Prelude.Int)
 describeClusterVersions_maxRecords = Lens.lens (\DescribeClusterVersions' {maxRecords} -> maxRecords) (\s@DescribeClusterVersions' {} a -> s {maxRecords = a} :: DescribeClusterVersions)
-
--- | The specific cluster version to return.
---
--- Example: @1.0@
-describeClusterVersions_clusterVersion :: Lens.Lens' DescribeClusterVersions (Prelude.Maybe Prelude.Text)
-describeClusterVersions_clusterVersion = Lens.lens (\DescribeClusterVersions' {clusterVersion} -> clusterVersion) (\s@DescribeClusterVersions' {} a -> s {clusterVersion = a} :: DescribeClusterVersions)
 
 instance Core.AWSPager DescribeClusterVersions where
   page rq rs
@@ -227,18 +226,17 @@ instance Core.AWSRequest DescribeClusterVersions where
 
 instance Prelude.Hashable DescribeClusterVersions where
   hashWithSalt _salt DescribeClusterVersions' {..} =
-    _salt
-      `Prelude.hashWithSalt` clusterParameterGroupFamily
-      `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` maxRecords
+    _salt `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` clusterVersion
+      `Prelude.hashWithSalt` clusterParameterGroupFamily
+      `Prelude.hashWithSalt` maxRecords
 
 instance Prelude.NFData DescribeClusterVersions where
   rnf DescribeClusterVersions' {..} =
-    Prelude.rnf clusterParameterGroupFamily
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf maxRecords
+    Prelude.rnf marker
       `Prelude.seq` Prelude.rnf clusterVersion
+      `Prelude.seq` Prelude.rnf clusterParameterGroupFamily
+      `Prelude.seq` Prelude.rnf maxRecords
 
 instance Core.ToHeaders DescribeClusterVersions where
   toHeaders = Prelude.const Prelude.mempty
@@ -253,11 +251,11 @@ instance Core.ToQuery DescribeClusterVersions where
           Core.=: ("DescribeClusterVersions" :: Prelude.ByteString),
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
+        "Marker" Core.=: marker,
+        "ClusterVersion" Core.=: clusterVersion,
         "ClusterParameterGroupFamily"
           Core.=: clusterParameterGroupFamily,
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords,
-        "ClusterVersion" Core.=: clusterVersion
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- | Contains the output from the DescribeClusterVersions action.

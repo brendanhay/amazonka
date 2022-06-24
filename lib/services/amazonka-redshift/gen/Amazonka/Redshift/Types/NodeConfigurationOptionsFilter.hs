@@ -30,18 +30,18 @@ import Amazonka.Redshift.Types.OperatorType
 --
 -- /See:/ 'newNodeConfigurationOptionsFilter' smart constructor.
 data NodeConfigurationOptionsFilter = NodeConfigurationOptionsFilter'
-  { -- | List of values. Compare Name using Operator to Values. If filter Name is
-    -- NumberOfNodes, then values can range from 0 to 200. If filter Name is
-    -- EstimatedDiskUtilizationPercent, then values can range from 0 to 100.
-    -- For example, filter NumberOfNodes (name) GT (operator) 3 (values).
-    values :: Prelude.Maybe [Prelude.Text],
+  { -- | The name of the element to filter.
+    name :: Prelude.Maybe NodeConfigurationOptionsFilterName,
     -- | The filter operator. If filter Name is NodeType only the \'in\' operator
     -- is supported. Provide one value to evaluate for \'eq\', \'lt\', \'le\',
     -- \'gt\', and \'ge\'. Provide two values to evaluate for \'between\'.
     -- Provide a list of values for \'in\'.
     operator :: Prelude.Maybe OperatorType,
-    -- | The name of the element to filter.
-    name :: Prelude.Maybe NodeConfigurationOptionsFilterName
+    -- | List of values. Compare Name using Operator to Values. If filter Name is
+    -- NumberOfNodes, then values can range from 0 to 200. If filter Name is
+    -- EstimatedDiskUtilizationPercent, then values can range from 0 to 100.
+    -- For example, filter NumberOfNodes (name) GT (operator) 3 (values).
+    values :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,33 +53,30 @@ data NodeConfigurationOptionsFilter = NodeConfigurationOptionsFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'values', 'nodeConfigurationOptionsFilter_values' - List of values. Compare Name using Operator to Values. If filter Name is
--- NumberOfNodes, then values can range from 0 to 200. If filter Name is
--- EstimatedDiskUtilizationPercent, then values can range from 0 to 100.
--- For example, filter NumberOfNodes (name) GT (operator) 3 (values).
+-- 'name', 'nodeConfigurationOptionsFilter_name' - The name of the element to filter.
 --
 -- 'operator', 'nodeConfigurationOptionsFilter_operator' - The filter operator. If filter Name is NodeType only the \'in\' operator
 -- is supported. Provide one value to evaluate for \'eq\', \'lt\', \'le\',
 -- \'gt\', and \'ge\'. Provide two values to evaluate for \'between\'.
 -- Provide a list of values for \'in\'.
 --
--- 'name', 'nodeConfigurationOptionsFilter_name' - The name of the element to filter.
+-- 'values', 'nodeConfigurationOptionsFilter_values' - List of values. Compare Name using Operator to Values. If filter Name is
+-- NumberOfNodes, then values can range from 0 to 200. If filter Name is
+-- EstimatedDiskUtilizationPercent, then values can range from 0 to 100.
+-- For example, filter NumberOfNodes (name) GT (operator) 3 (values).
 newNodeConfigurationOptionsFilter ::
   NodeConfigurationOptionsFilter
 newNodeConfigurationOptionsFilter =
   NodeConfigurationOptionsFilter'
-    { values =
+    { name =
         Prelude.Nothing,
       operator = Prelude.Nothing,
-      name = Prelude.Nothing
+      values = Prelude.Nothing
     }
 
--- | List of values. Compare Name using Operator to Values. If filter Name is
--- NumberOfNodes, then values can range from 0 to 200. If filter Name is
--- EstimatedDiskUtilizationPercent, then values can range from 0 to 100.
--- For example, filter NumberOfNodes (name) GT (operator) 3 (values).
-nodeConfigurationOptionsFilter_values :: Lens.Lens' NodeConfigurationOptionsFilter (Prelude.Maybe [Prelude.Text])
-nodeConfigurationOptionsFilter_values = Lens.lens (\NodeConfigurationOptionsFilter' {values} -> values) (\s@NodeConfigurationOptionsFilter' {} a -> s {values = a} :: NodeConfigurationOptionsFilter) Prelude.. Lens.mapping Lens.coerced
+-- | The name of the element to filter.
+nodeConfigurationOptionsFilter_name :: Lens.Lens' NodeConfigurationOptionsFilter (Prelude.Maybe NodeConfigurationOptionsFilterName)
+nodeConfigurationOptionsFilter_name = Lens.lens (\NodeConfigurationOptionsFilter' {name} -> name) (\s@NodeConfigurationOptionsFilter' {} a -> s {name = a} :: NodeConfigurationOptionsFilter)
 
 -- | The filter operator. If filter Name is NodeType only the \'in\' operator
 -- is supported. Provide one value to evaluate for \'eq\', \'lt\', \'le\',
@@ -88,9 +85,12 @@ nodeConfigurationOptionsFilter_values = Lens.lens (\NodeConfigurationOptionsFilt
 nodeConfigurationOptionsFilter_operator :: Lens.Lens' NodeConfigurationOptionsFilter (Prelude.Maybe OperatorType)
 nodeConfigurationOptionsFilter_operator = Lens.lens (\NodeConfigurationOptionsFilter' {operator} -> operator) (\s@NodeConfigurationOptionsFilter' {} a -> s {operator = a} :: NodeConfigurationOptionsFilter)
 
--- | The name of the element to filter.
-nodeConfigurationOptionsFilter_name :: Lens.Lens' NodeConfigurationOptionsFilter (Prelude.Maybe NodeConfigurationOptionsFilterName)
-nodeConfigurationOptionsFilter_name = Lens.lens (\NodeConfigurationOptionsFilter' {name} -> name) (\s@NodeConfigurationOptionsFilter' {} a -> s {name = a} :: NodeConfigurationOptionsFilter)
+-- | List of values. Compare Name using Operator to Values. If filter Name is
+-- NumberOfNodes, then values can range from 0 to 200. If filter Name is
+-- EstimatedDiskUtilizationPercent, then values can range from 0 to 100.
+-- For example, filter NumberOfNodes (name) GT (operator) 3 (values).
+nodeConfigurationOptionsFilter_values :: Lens.Lens' NodeConfigurationOptionsFilter (Prelude.Maybe [Prelude.Text])
+nodeConfigurationOptionsFilter_values = Lens.lens (\NodeConfigurationOptionsFilter' {values} -> values) (\s@NodeConfigurationOptionsFilter' {} a -> s {values = a} :: NodeConfigurationOptionsFilter) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Prelude.Hashable
@@ -99,25 +99,25 @@ instance
   hashWithSalt
     _salt
     NodeConfigurationOptionsFilter' {..} =
-      _salt `Prelude.hashWithSalt` values
+      _salt `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` operator
-        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` values
 
 instance
   Prelude.NFData
     NodeConfigurationOptionsFilter
   where
   rnf NodeConfigurationOptionsFilter' {..} =
-    Prelude.rnf values
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf operator
-      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf values
 
 instance Core.ToQuery NodeConfigurationOptionsFilter where
   toQuery NodeConfigurationOptionsFilter' {..} =
     Prelude.mconcat
-      [ "Value"
-          Core.=: Core.toQuery
-            (Core.toQueryList "item" Prelude.<$> values),
+      [ "Name" Core.=: name,
         "Operator" Core.=: operator,
-        "Name" Core.=: name
+        "Value"
+          Core.=: Core.toQuery
+            (Core.toQueryList "item" Prelude.<$> values)
       ]

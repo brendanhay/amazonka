@@ -29,10 +29,10 @@ import Amazonka.Redshift.Internal
 --
 -- /See:/ 'newClusterVersion' smart constructor.
 data ClusterVersion = ClusterVersion'
-  { -- | The name of the cluster parameter group family for the cluster.
-    clusterParameterGroupFamily :: Prelude.Maybe Prelude.Text,
-    -- | The version number used by the cluster.
+  { -- | The version number used by the cluster.
     clusterVersion :: Prelude.Maybe Prelude.Text,
+    -- | The name of the cluster parameter group family for the cluster.
+    clusterParameterGroupFamily :: Prelude.Maybe Prelude.Text,
     -- | The description of the cluster version.
     description :: Prelude.Maybe Prelude.Text
   }
@@ -46,28 +46,27 @@ data ClusterVersion = ClusterVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clusterParameterGroupFamily', 'clusterVersion_clusterParameterGroupFamily' - The name of the cluster parameter group family for the cluster.
---
 -- 'clusterVersion', 'clusterVersion_clusterVersion' - The version number used by the cluster.
+--
+-- 'clusterParameterGroupFamily', 'clusterVersion_clusterParameterGroupFamily' - The name of the cluster parameter group family for the cluster.
 --
 -- 'description', 'clusterVersion_description' - The description of the cluster version.
 newClusterVersion ::
   ClusterVersion
 newClusterVersion =
   ClusterVersion'
-    { clusterParameterGroupFamily =
-        Prelude.Nothing,
-      clusterVersion = Prelude.Nothing,
+    { clusterVersion = Prelude.Nothing,
+      clusterParameterGroupFamily = Prelude.Nothing,
       description = Prelude.Nothing
     }
-
--- | The name of the cluster parameter group family for the cluster.
-clusterVersion_clusterParameterGroupFamily :: Lens.Lens' ClusterVersion (Prelude.Maybe Prelude.Text)
-clusterVersion_clusterParameterGroupFamily = Lens.lens (\ClusterVersion' {clusterParameterGroupFamily} -> clusterParameterGroupFamily) (\s@ClusterVersion' {} a -> s {clusterParameterGroupFamily = a} :: ClusterVersion)
 
 -- | The version number used by the cluster.
 clusterVersion_clusterVersion :: Lens.Lens' ClusterVersion (Prelude.Maybe Prelude.Text)
 clusterVersion_clusterVersion = Lens.lens (\ClusterVersion' {clusterVersion} -> clusterVersion) (\s@ClusterVersion' {} a -> s {clusterVersion = a} :: ClusterVersion)
+
+-- | The name of the cluster parameter group family for the cluster.
+clusterVersion_clusterParameterGroupFamily :: Lens.Lens' ClusterVersion (Prelude.Maybe Prelude.Text)
+clusterVersion_clusterParameterGroupFamily = Lens.lens (\ClusterVersion' {clusterParameterGroupFamily} -> clusterParameterGroupFamily) (\s@ClusterVersion' {} a -> s {clusterParameterGroupFamily = a} :: ClusterVersion)
 
 -- | The description of the cluster version.
 clusterVersion_description :: Lens.Lens' ClusterVersion (Prelude.Maybe Prelude.Text)
@@ -76,19 +75,18 @@ clusterVersion_description = Lens.lens (\ClusterVersion' {description} -> descri
 instance Core.FromXML ClusterVersion where
   parseXML x =
     ClusterVersion'
-      Prelude.<$> (x Core..@? "ClusterParameterGroupFamily")
-      Prelude.<*> (x Core..@? "ClusterVersion")
+      Prelude.<$> (x Core..@? "ClusterVersion")
+      Prelude.<*> (x Core..@? "ClusterParameterGroupFamily")
       Prelude.<*> (x Core..@? "Description")
 
 instance Prelude.Hashable ClusterVersion where
   hashWithSalt _salt ClusterVersion' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` clusterVersion
       `Prelude.hashWithSalt` clusterParameterGroupFamily
-      `Prelude.hashWithSalt` clusterVersion
       `Prelude.hashWithSalt` description
 
 instance Prelude.NFData ClusterVersion where
   rnf ClusterVersion' {..} =
-    Prelude.rnf clusterParameterGroupFamily
-      `Prelude.seq` Prelude.rnf clusterVersion
+    Prelude.rnf clusterVersion
+      `Prelude.seq` Prelude.rnf clusterParameterGroupFamily
       `Prelude.seq` Prelude.rnf description

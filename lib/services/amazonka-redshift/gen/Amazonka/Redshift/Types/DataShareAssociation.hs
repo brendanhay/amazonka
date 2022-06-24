@@ -30,15 +30,15 @@ import Amazonka.Redshift.Types.DataShareStatus
 --
 -- /See:/ 'newDataShareAssociation' smart constructor.
 data DataShareAssociation = DataShareAssociation'
-  { -- | The status of the datashare that is associated.
-    status :: Prelude.Maybe DataShareStatus,
-    -- | The name of the consumer accounts that have an association with a
+  { -- | The name of the consumer accounts that have an association with a
     -- producer datashare.
     consumerIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The creation date of the datashare that is associated.
-    createdDate :: Prelude.Maybe Core.ISO8601,
     -- | The status change data of the datashare that is associated.
-    statusChangeDate :: Prelude.Maybe Core.ISO8601
+    statusChangeDate :: Prelude.Maybe Core.ISO8601,
+    -- | The status of the datashare that is associated.
+    status :: Prelude.Maybe DataShareStatus,
+    -- | The creation date of the datashare that is associated.
+    createdDate :: Prelude.Maybe Core.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,59 +50,60 @@ data DataShareAssociation = DataShareAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'dataShareAssociation_status' - The status of the datashare that is associated.
---
 -- 'consumerIdentifier', 'dataShareAssociation_consumerIdentifier' - The name of the consumer accounts that have an association with a
 -- producer datashare.
 --
--- 'createdDate', 'dataShareAssociation_createdDate' - The creation date of the datashare that is associated.
---
 -- 'statusChangeDate', 'dataShareAssociation_statusChangeDate' - The status change data of the datashare that is associated.
+--
+-- 'status', 'dataShareAssociation_status' - The status of the datashare that is associated.
+--
+-- 'createdDate', 'dataShareAssociation_createdDate' - The creation date of the datashare that is associated.
 newDataShareAssociation ::
   DataShareAssociation
 newDataShareAssociation =
   DataShareAssociation'
-    { status = Prelude.Nothing,
-      consumerIdentifier = Prelude.Nothing,
-      createdDate = Prelude.Nothing,
-      statusChangeDate = Prelude.Nothing
+    { consumerIdentifier =
+        Prelude.Nothing,
+      statusChangeDate = Prelude.Nothing,
+      status = Prelude.Nothing,
+      createdDate = Prelude.Nothing
     }
-
--- | The status of the datashare that is associated.
-dataShareAssociation_status :: Lens.Lens' DataShareAssociation (Prelude.Maybe DataShareStatus)
-dataShareAssociation_status = Lens.lens (\DataShareAssociation' {status} -> status) (\s@DataShareAssociation' {} a -> s {status = a} :: DataShareAssociation)
 
 -- | The name of the consumer accounts that have an association with a
 -- producer datashare.
 dataShareAssociation_consumerIdentifier :: Lens.Lens' DataShareAssociation (Prelude.Maybe Prelude.Text)
 dataShareAssociation_consumerIdentifier = Lens.lens (\DataShareAssociation' {consumerIdentifier} -> consumerIdentifier) (\s@DataShareAssociation' {} a -> s {consumerIdentifier = a} :: DataShareAssociation)
 
--- | The creation date of the datashare that is associated.
-dataShareAssociation_createdDate :: Lens.Lens' DataShareAssociation (Prelude.Maybe Prelude.UTCTime)
-dataShareAssociation_createdDate = Lens.lens (\DataShareAssociation' {createdDate} -> createdDate) (\s@DataShareAssociation' {} a -> s {createdDate = a} :: DataShareAssociation) Prelude.. Lens.mapping Core._Time
-
 -- | The status change data of the datashare that is associated.
 dataShareAssociation_statusChangeDate :: Lens.Lens' DataShareAssociation (Prelude.Maybe Prelude.UTCTime)
 dataShareAssociation_statusChangeDate = Lens.lens (\DataShareAssociation' {statusChangeDate} -> statusChangeDate) (\s@DataShareAssociation' {} a -> s {statusChangeDate = a} :: DataShareAssociation) Prelude.. Lens.mapping Core._Time
 
+-- | The status of the datashare that is associated.
+dataShareAssociation_status :: Lens.Lens' DataShareAssociation (Prelude.Maybe DataShareStatus)
+dataShareAssociation_status = Lens.lens (\DataShareAssociation' {status} -> status) (\s@DataShareAssociation' {} a -> s {status = a} :: DataShareAssociation)
+
+-- | The creation date of the datashare that is associated.
+dataShareAssociation_createdDate :: Lens.Lens' DataShareAssociation (Prelude.Maybe Prelude.UTCTime)
+dataShareAssociation_createdDate = Lens.lens (\DataShareAssociation' {createdDate} -> createdDate) (\s@DataShareAssociation' {} a -> s {createdDate = a} :: DataShareAssociation) Prelude.. Lens.mapping Core._Time
+
 instance Core.FromXML DataShareAssociation where
   parseXML x =
     DataShareAssociation'
-      Prelude.<$> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "ConsumerIdentifier")
-      Prelude.<*> (x Core..@? "CreatedDate")
+      Prelude.<$> (x Core..@? "ConsumerIdentifier")
       Prelude.<*> (x Core..@? "StatusChangeDate")
+      Prelude.<*> (x Core..@? "Status")
+      Prelude.<*> (x Core..@? "CreatedDate")
 
 instance Prelude.Hashable DataShareAssociation where
   hashWithSalt _salt DataShareAssociation' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` consumerIdentifier
-      `Prelude.hashWithSalt` createdDate
+    _salt `Prelude.hashWithSalt` consumerIdentifier
       `Prelude.hashWithSalt` statusChangeDate
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` createdDate
 
 instance Prelude.NFData DataShareAssociation where
   rnf DataShareAssociation' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf consumerIdentifier
-      `Prelude.seq` Prelude.rnf createdDate
+    Prelude.rnf consumerIdentifier
       `Prelude.seq` Prelude.rnf statusChangeDate
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf createdDate

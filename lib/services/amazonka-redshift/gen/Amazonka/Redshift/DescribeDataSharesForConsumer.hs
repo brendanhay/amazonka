@@ -28,10 +28,10 @@ module Amazonka.Redshift.DescribeDataSharesForConsumer
     newDescribeDataSharesForConsumer,
 
     -- * Request Lenses
-    describeDataSharesForConsumer_status,
-    describeDataSharesForConsumer_consumerArn,
     describeDataSharesForConsumer_marker,
+    describeDataSharesForConsumer_status,
     describeDataSharesForConsumer_maxRecords,
+    describeDataSharesForConsumer_consumerArn,
 
     -- * Destructuring the Response
     DescribeDataSharesForConsumerResponse (..),
@@ -53,26 +53,26 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeDataSharesForConsumer' smart constructor.
 data DescribeDataSharesForConsumer = DescribeDataSharesForConsumer'
-  { -- | An identifier giving the status of a datashare in the consumer cluster.
-    -- If this field is specified, Amazon Redshift returns the list of
-    -- datashares that have the specified status.
-    status :: Prelude.Maybe DataShareStatusForConsumer,
-    -- | The Amazon Resource Name (ARN) of the consumer that returns in the list
-    -- of datashares.
-    consumerArn :: Prelude.Maybe Prelude.Text,
-    -- | An optional parameter that specifies the starting point to return a set
+  { -- | An optional parameter that specifies the starting point to return a set
     -- of response records. When the results of a DescribeDataSharesForConsumer
     -- request exceed the value specified in @MaxRecords@, AWS returns a value
     -- in the @Marker@ field of the response. You can retrieve the next set of
     -- response records by providing the returned marker value in the @Marker@
     -- parameter and retrying the request.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | An identifier giving the status of a datashare in the consumer cluster.
+    -- If this field is specified, Amazon Redshift returns the list of
+    -- datashares that have the specified status.
+    status :: Prelude.Maybe DataShareStatusForConsumer,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
     -- retrieve the next set of records by retrying the command with the
     -- returned marker value.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | The Amazon Resource Name (ARN) of the consumer that returns in the list
+    -- of datashares.
+    consumerArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,13 +84,6 @@ data DescribeDataSharesForConsumer = DescribeDataSharesForConsumer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'describeDataSharesForConsumer_status' - An identifier giving the status of a datashare in the consumer cluster.
--- If this field is specified, Amazon Redshift returns the list of
--- datashares that have the specified status.
---
--- 'consumerArn', 'describeDataSharesForConsumer_consumerArn' - The Amazon Resource Name (ARN) of the consumer that returns in the list
--- of datashares.
---
 -- 'marker', 'describeDataSharesForConsumer_marker' - An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeDataSharesForConsumer
 -- request exceed the value specified in @MaxRecords@, AWS returns a value
@@ -98,32 +91,28 @@ data DescribeDataSharesForConsumer = DescribeDataSharesForConsumer'
 -- response records by providing the returned marker value in the @Marker@
 -- parameter and retrying the request.
 --
+-- 'status', 'describeDataSharesForConsumer_status' - An identifier giving the status of a datashare in the consumer cluster.
+-- If this field is specified, Amazon Redshift returns the list of
+-- datashares that have the specified status.
+--
 -- 'maxRecords', 'describeDataSharesForConsumer_maxRecords' - The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
 -- retrieve the next set of records by retrying the command with the
 -- returned marker value.
+--
+-- 'consumerArn', 'describeDataSharesForConsumer_consumerArn' - The Amazon Resource Name (ARN) of the consumer that returns in the list
+-- of datashares.
 newDescribeDataSharesForConsumer ::
   DescribeDataSharesForConsumer
 newDescribeDataSharesForConsumer =
   DescribeDataSharesForConsumer'
-    { status =
+    { marker =
         Prelude.Nothing,
-      consumerArn = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      status = Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
+      consumerArn = Prelude.Nothing
     }
-
--- | An identifier giving the status of a datashare in the consumer cluster.
--- If this field is specified, Amazon Redshift returns the list of
--- datashares that have the specified status.
-describeDataSharesForConsumer_status :: Lens.Lens' DescribeDataSharesForConsumer (Prelude.Maybe DataShareStatusForConsumer)
-describeDataSharesForConsumer_status = Lens.lens (\DescribeDataSharesForConsumer' {status} -> status) (\s@DescribeDataSharesForConsumer' {} a -> s {status = a} :: DescribeDataSharesForConsumer)
-
--- | The Amazon Resource Name (ARN) of the consumer that returns in the list
--- of datashares.
-describeDataSharesForConsumer_consumerArn :: Lens.Lens' DescribeDataSharesForConsumer (Prelude.Maybe Prelude.Text)
-describeDataSharesForConsumer_consumerArn = Lens.lens (\DescribeDataSharesForConsumer' {consumerArn} -> consumerArn) (\s@DescribeDataSharesForConsumer' {} a -> s {consumerArn = a} :: DescribeDataSharesForConsumer)
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeDataSharesForConsumer
@@ -134,6 +123,12 @@ describeDataSharesForConsumer_consumerArn = Lens.lens (\DescribeDataSharesForCon
 describeDataSharesForConsumer_marker :: Lens.Lens' DescribeDataSharesForConsumer (Prelude.Maybe Prelude.Text)
 describeDataSharesForConsumer_marker = Lens.lens (\DescribeDataSharesForConsumer' {marker} -> marker) (\s@DescribeDataSharesForConsumer' {} a -> s {marker = a} :: DescribeDataSharesForConsumer)
 
+-- | An identifier giving the status of a datashare in the consumer cluster.
+-- If this field is specified, Amazon Redshift returns the list of
+-- datashares that have the specified status.
+describeDataSharesForConsumer_status :: Lens.Lens' DescribeDataSharesForConsumer (Prelude.Maybe DataShareStatusForConsumer)
+describeDataSharesForConsumer_status = Lens.lens (\DescribeDataSharesForConsumer' {status} -> status) (\s@DescribeDataSharesForConsumer' {} a -> s {status = a} :: DescribeDataSharesForConsumer)
+
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
@@ -141,6 +136,11 @@ describeDataSharesForConsumer_marker = Lens.lens (\DescribeDataSharesForConsumer
 -- returned marker value.
 describeDataSharesForConsumer_maxRecords :: Lens.Lens' DescribeDataSharesForConsumer (Prelude.Maybe Prelude.Int)
 describeDataSharesForConsumer_maxRecords = Lens.lens (\DescribeDataSharesForConsumer' {maxRecords} -> maxRecords) (\s@DescribeDataSharesForConsumer' {} a -> s {maxRecords = a} :: DescribeDataSharesForConsumer)
+
+-- | The Amazon Resource Name (ARN) of the consumer that returns in the list
+-- of datashares.
+describeDataSharesForConsumer_consumerArn :: Lens.Lens' DescribeDataSharesForConsumer (Prelude.Maybe Prelude.Text)
+describeDataSharesForConsumer_consumerArn = Lens.lens (\DescribeDataSharesForConsumer' {consumerArn} -> consumerArn) (\s@DescribeDataSharesForConsumer' {} a -> s {consumerArn = a} :: DescribeDataSharesForConsumer)
 
 instance
   Core.AWSRequest
@@ -167,17 +167,17 @@ instance
     DescribeDataSharesForConsumer
   where
   hashWithSalt _salt DescribeDataSharesForConsumer' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` consumerArn
-      `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` consumerArn
 
 instance Prelude.NFData DescribeDataSharesForConsumer where
   rnf DescribeDataSharesForConsumer' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf consumerArn
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf consumerArn
 
 instance Core.ToHeaders DescribeDataSharesForConsumer where
   toHeaders = Prelude.const Prelude.mempty
@@ -194,10 +194,10 @@ instance Core.ToQuery DescribeDataSharesForConsumer where
                   ),
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "Status" Core.=: status,
-        "ConsumerArn" Core.=: consumerArn,
         "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "Status" Core.=: status,
+        "MaxRecords" Core.=: maxRecords,
+        "ConsumerArn" Core.=: consumerArn
       ]
 
 -- | /See:/ 'newDescribeDataSharesForConsumerResponse' smart constructor.

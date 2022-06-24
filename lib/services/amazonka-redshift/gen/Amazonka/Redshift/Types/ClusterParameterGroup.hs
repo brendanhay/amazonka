@@ -29,15 +29,15 @@ import Amazonka.Redshift.Types.Tag
 --
 -- /See:/ 'newClusterParameterGroup' smart constructor.
 data ClusterParameterGroup = ClusterParameterGroup'
-  { -- | The name of the cluster parameter group family that this cluster
+  { -- | The list of tags for the cluster parameter group.
+    tags :: Prelude.Maybe [Tag],
+    -- | The name of the cluster parameter group.
+    parameterGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the cluster parameter group family that this cluster
     -- parameter group is compatible with.
     parameterGroupFamily :: Prelude.Maybe Prelude.Text,
     -- | The description of the parameter group.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The list of tags for the cluster parameter group.
-    tags :: Prelude.Maybe [Tag],
-    -- | The name of the cluster parameter group.
-    parameterGroupName :: Prelude.Maybe Prelude.Text
+    description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,24 +49,31 @@ data ClusterParameterGroup = ClusterParameterGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'clusterParameterGroup_tags' - The list of tags for the cluster parameter group.
+--
+-- 'parameterGroupName', 'clusterParameterGroup_parameterGroupName' - The name of the cluster parameter group.
+--
 -- 'parameterGroupFamily', 'clusterParameterGroup_parameterGroupFamily' - The name of the cluster parameter group family that this cluster
 -- parameter group is compatible with.
 --
 -- 'description', 'clusterParameterGroup_description' - The description of the parameter group.
---
--- 'tags', 'clusterParameterGroup_tags' - The list of tags for the cluster parameter group.
---
--- 'parameterGroupName', 'clusterParameterGroup_parameterGroupName' - The name of the cluster parameter group.
 newClusterParameterGroup ::
   ClusterParameterGroup
 newClusterParameterGroup =
   ClusterParameterGroup'
-    { parameterGroupFamily =
-        Prelude.Nothing,
-      description = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      parameterGroupName = Prelude.Nothing
+    { tags = Prelude.Nothing,
+      parameterGroupName = Prelude.Nothing,
+      parameterGroupFamily = Prelude.Nothing,
+      description = Prelude.Nothing
     }
+
+-- | The list of tags for the cluster parameter group.
+clusterParameterGroup_tags :: Lens.Lens' ClusterParameterGroup (Prelude.Maybe [Tag])
+clusterParameterGroup_tags = Lens.lens (\ClusterParameterGroup' {tags} -> tags) (\s@ClusterParameterGroup' {} a -> s {tags = a} :: ClusterParameterGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the cluster parameter group.
+clusterParameterGroup_parameterGroupName :: Lens.Lens' ClusterParameterGroup (Prelude.Maybe Prelude.Text)
+clusterParameterGroup_parameterGroupName = Lens.lens (\ClusterParameterGroup' {parameterGroupName} -> parameterGroupName) (\s@ClusterParameterGroup' {} a -> s {parameterGroupName = a} :: ClusterParameterGroup)
 
 -- | The name of the cluster parameter group family that this cluster
 -- parameter group is compatible with.
@@ -77,34 +84,26 @@ clusterParameterGroup_parameterGroupFamily = Lens.lens (\ClusterParameterGroup' 
 clusterParameterGroup_description :: Lens.Lens' ClusterParameterGroup (Prelude.Maybe Prelude.Text)
 clusterParameterGroup_description = Lens.lens (\ClusterParameterGroup' {description} -> description) (\s@ClusterParameterGroup' {} a -> s {description = a} :: ClusterParameterGroup)
 
--- | The list of tags for the cluster parameter group.
-clusterParameterGroup_tags :: Lens.Lens' ClusterParameterGroup (Prelude.Maybe [Tag])
-clusterParameterGroup_tags = Lens.lens (\ClusterParameterGroup' {tags} -> tags) (\s@ClusterParameterGroup' {} a -> s {tags = a} :: ClusterParameterGroup) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the cluster parameter group.
-clusterParameterGroup_parameterGroupName :: Lens.Lens' ClusterParameterGroup (Prelude.Maybe Prelude.Text)
-clusterParameterGroup_parameterGroupName = Lens.lens (\ClusterParameterGroup' {parameterGroupName} -> parameterGroupName) (\s@ClusterParameterGroup' {} a -> s {parameterGroupName = a} :: ClusterParameterGroup)
-
 instance Core.FromXML ClusterParameterGroup where
   parseXML x =
     ClusterParameterGroup'
-      Prelude.<$> (x Core..@? "ParameterGroupFamily")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "Tag")
                   )
       Prelude.<*> (x Core..@? "ParameterGroupName")
+      Prelude.<*> (x Core..@? "ParameterGroupFamily")
+      Prelude.<*> (x Core..@? "Description")
 
 instance Prelude.Hashable ClusterParameterGroup where
   hashWithSalt _salt ClusterParameterGroup' {..} =
-    _salt `Prelude.hashWithSalt` parameterGroupFamily
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` parameterGroupName
+      `Prelude.hashWithSalt` parameterGroupFamily
+      `Prelude.hashWithSalt` description
 
 instance Prelude.NFData ClusterParameterGroup where
   rnf ClusterParameterGroup' {..} =
-    Prelude.rnf parameterGroupFamily
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf parameterGroupName
+      `Prelude.seq` Prelude.rnf parameterGroupFamily
+      `Prelude.seq` Prelude.rnf description

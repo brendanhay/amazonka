@@ -36,8 +36,8 @@ module Amazonka.Redshift.BatchModifyClusterSnapshots
     newBatchModifyClusterSnapshotsResponse,
 
     -- * Response Lenses
-    batchModifyClusterSnapshotsResponse_resources,
     batchModifyClusterSnapshotsResponse_errors,
+    batchModifyClusterSnapshotsResponse_resources,
     batchModifyClusterSnapshotsResponse_httpStatus,
   )
 where
@@ -132,11 +132,11 @@ instance Core.AWSRequest BatchModifyClusterSnapshots where
       "BatchModifyClusterSnapshotsResult"
       ( \s h x ->
           BatchModifyClusterSnapshotsResponse'
-            Prelude.<$> ( x Core..@? "Resources" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "String")
-                        )
-            Prelude.<*> ( x Core..@? "Errors" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Core..@? "Errors" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "SnapshotErrorMessage")
+                        )
+            Prelude.<*> ( x Core..@? "Resources" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "String")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -178,10 +178,10 @@ instance Core.ToQuery BatchModifyClusterSnapshots where
 
 -- | /See:/ 'newBatchModifyClusterSnapshotsResponse' smart constructor.
 data BatchModifyClusterSnapshotsResponse = BatchModifyClusterSnapshotsResponse'
-  { -- | A list of the snapshots that were modified.
-    resources :: Prelude.Maybe [Prelude.Text],
-    -- | A list of any errors returned.
+  { -- | A list of any errors returned.
     errors :: Prelude.Maybe [SnapshotErrorMessage],
+    -- | A list of the snapshots that were modified.
+    resources :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -195,9 +195,9 @@ data BatchModifyClusterSnapshotsResponse = BatchModifyClusterSnapshotsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resources', 'batchModifyClusterSnapshotsResponse_resources' - A list of the snapshots that were modified.
---
 -- 'errors', 'batchModifyClusterSnapshotsResponse_errors' - A list of any errors returned.
+--
+-- 'resources', 'batchModifyClusterSnapshotsResponse_resources' - A list of the snapshots that were modified.
 --
 -- 'httpStatus', 'batchModifyClusterSnapshotsResponse_httpStatus' - The response's http status code.
 newBatchModifyClusterSnapshotsResponse ::
@@ -206,19 +206,19 @@ newBatchModifyClusterSnapshotsResponse ::
   BatchModifyClusterSnapshotsResponse
 newBatchModifyClusterSnapshotsResponse pHttpStatus_ =
   BatchModifyClusterSnapshotsResponse'
-    { resources =
+    { errors =
         Prelude.Nothing,
-      errors = Prelude.Nothing,
+      resources = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of the snapshots that were modified.
-batchModifyClusterSnapshotsResponse_resources :: Lens.Lens' BatchModifyClusterSnapshotsResponse (Prelude.Maybe [Prelude.Text])
-batchModifyClusterSnapshotsResponse_resources = Lens.lens (\BatchModifyClusterSnapshotsResponse' {resources} -> resources) (\s@BatchModifyClusterSnapshotsResponse' {} a -> s {resources = a} :: BatchModifyClusterSnapshotsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of any errors returned.
 batchModifyClusterSnapshotsResponse_errors :: Lens.Lens' BatchModifyClusterSnapshotsResponse (Prelude.Maybe [SnapshotErrorMessage])
 batchModifyClusterSnapshotsResponse_errors = Lens.lens (\BatchModifyClusterSnapshotsResponse' {errors} -> errors) (\s@BatchModifyClusterSnapshotsResponse' {} a -> s {errors = a} :: BatchModifyClusterSnapshotsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of the snapshots that were modified.
+batchModifyClusterSnapshotsResponse_resources :: Lens.Lens' BatchModifyClusterSnapshotsResponse (Prelude.Maybe [Prelude.Text])
+batchModifyClusterSnapshotsResponse_resources = Lens.lens (\BatchModifyClusterSnapshotsResponse' {resources} -> resources) (\s@BatchModifyClusterSnapshotsResponse' {} a -> s {resources = a} :: BatchModifyClusterSnapshotsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchModifyClusterSnapshotsResponse_httpStatus :: Lens.Lens' BatchModifyClusterSnapshotsResponse Prelude.Int
@@ -229,6 +229,6 @@ instance
     BatchModifyClusterSnapshotsResponse
   where
   rnf BatchModifyClusterSnapshotsResponse' {..} =
-    Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf errors
+    Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf resources
       `Prelude.seq` Prelude.rnf httpStatus

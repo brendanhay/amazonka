@@ -28,12 +28,12 @@ import Amazonka.Redshift.Internal
 --
 -- /See:/ 'newClusterParameterGroupNameMessage' smart constructor.
 data ClusterParameterGroupNameMessage = ClusterParameterGroupNameMessage'
-  { -- | The status of the parameter group. For example, if you made a change to
+  { -- | The name of the cluster parameter group.
+    parameterGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The status of the parameter group. For example, if you made a change to
     -- a parameter group name-value pair, then the change could be pending a
     -- reboot of an associated cluster.
-    parameterGroupStatus :: Prelude.Maybe Prelude.Text,
-    -- | The name of the cluster parameter group.
-    parameterGroupName :: Prelude.Maybe Prelude.Text
+    parameterGroupStatus :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,19 +45,23 @@ data ClusterParameterGroupNameMessage = ClusterParameterGroupNameMessage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'parameterGroupName', 'clusterParameterGroupNameMessage_parameterGroupName' - The name of the cluster parameter group.
+--
 -- 'parameterGroupStatus', 'clusterParameterGroupNameMessage_parameterGroupStatus' - The status of the parameter group. For example, if you made a change to
 -- a parameter group name-value pair, then the change could be pending a
 -- reboot of an associated cluster.
---
--- 'parameterGroupName', 'clusterParameterGroupNameMessage_parameterGroupName' - The name of the cluster parameter group.
 newClusterParameterGroupNameMessage ::
   ClusterParameterGroupNameMessage
 newClusterParameterGroupNameMessage =
   ClusterParameterGroupNameMessage'
-    { parameterGroupStatus =
+    { parameterGroupName =
         Prelude.Nothing,
-      parameterGroupName = Prelude.Nothing
+      parameterGroupStatus = Prelude.Nothing
     }
+
+-- | The name of the cluster parameter group.
+clusterParameterGroupNameMessage_parameterGroupName :: Lens.Lens' ClusterParameterGroupNameMessage (Prelude.Maybe Prelude.Text)
+clusterParameterGroupNameMessage_parameterGroupName = Lens.lens (\ClusterParameterGroupNameMessage' {parameterGroupName} -> parameterGroupName) (\s@ClusterParameterGroupNameMessage' {} a -> s {parameterGroupName = a} :: ClusterParameterGroupNameMessage)
 
 -- | The status of the parameter group. For example, if you made a change to
 -- a parameter group name-value pair, then the change could be pending a
@@ -65,18 +69,14 @@ newClusterParameterGroupNameMessage =
 clusterParameterGroupNameMessage_parameterGroupStatus :: Lens.Lens' ClusterParameterGroupNameMessage (Prelude.Maybe Prelude.Text)
 clusterParameterGroupNameMessage_parameterGroupStatus = Lens.lens (\ClusterParameterGroupNameMessage' {parameterGroupStatus} -> parameterGroupStatus) (\s@ClusterParameterGroupNameMessage' {} a -> s {parameterGroupStatus = a} :: ClusterParameterGroupNameMessage)
 
--- | The name of the cluster parameter group.
-clusterParameterGroupNameMessage_parameterGroupName :: Lens.Lens' ClusterParameterGroupNameMessage (Prelude.Maybe Prelude.Text)
-clusterParameterGroupNameMessage_parameterGroupName = Lens.lens (\ClusterParameterGroupNameMessage' {parameterGroupName} -> parameterGroupName) (\s@ClusterParameterGroupNameMessage' {} a -> s {parameterGroupName = a} :: ClusterParameterGroupNameMessage)
-
 instance
   Core.FromXML
     ClusterParameterGroupNameMessage
   where
   parseXML x =
     ClusterParameterGroupNameMessage'
-      Prelude.<$> (x Core..@? "ParameterGroupStatus")
-      Prelude.<*> (x Core..@? "ParameterGroupName")
+      Prelude.<$> (x Core..@? "ParameterGroupName")
+      Prelude.<*> (x Core..@? "ParameterGroupStatus")
 
 instance
   Prelude.Hashable
@@ -85,13 +85,13 @@ instance
   hashWithSalt
     _salt
     ClusterParameterGroupNameMessage' {..} =
-      _salt `Prelude.hashWithSalt` parameterGroupStatus
-        `Prelude.hashWithSalt` parameterGroupName
+      _salt `Prelude.hashWithSalt` parameterGroupName
+        `Prelude.hashWithSalt` parameterGroupStatus
 
 instance
   Prelude.NFData
     ClusterParameterGroupNameMessage
   where
   rnf ClusterParameterGroupNameMessage' {..} =
-    Prelude.rnf parameterGroupStatus
-      `Prelude.seq` Prelude.rnf parameterGroupName
+    Prelude.rnf parameterGroupName
+      `Prelude.seq` Prelude.rnf parameterGroupStatus

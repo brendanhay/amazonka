@@ -38,8 +38,8 @@ module Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule
     newUpdateSafetyRuleResponse,
 
     -- * Response Lenses
-    updateSafetyRuleResponse_assertionRule,
     updateSafetyRuleResponse_gatingRule,
+    updateSafetyRuleResponse_assertionRule,
     updateSafetyRuleResponse_httpStatus,
   )
 where
@@ -95,8 +95,8 @@ instance Core.AWSRequest UpdateSafetyRule where
     Response.receiveJSON
       ( \s h x ->
           UpdateSafetyRuleResponse'
-            Prelude.<$> (x Core..?> "AssertionRule")
-            Prelude.<*> (x Core..?> "GatingRule")
+            Prelude.<$> (x Core..?> "GatingRule")
+            Prelude.<*> (x Core..?> "AssertionRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,8 +140,8 @@ instance Core.ToQuery UpdateSafetyRule where
 
 -- | /See:/ 'newUpdateSafetyRuleResponse' smart constructor.
 data UpdateSafetyRuleResponse = UpdateSafetyRuleResponse'
-  { assertionRule :: Prelude.Maybe AssertionRule,
-    gatingRule :: Prelude.Maybe GatingRule,
+  { gatingRule :: Prelude.Maybe GatingRule,
+    assertionRule :: Prelude.Maybe AssertionRule,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -155,9 +155,9 @@ data UpdateSafetyRuleResponse = UpdateSafetyRuleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assertionRule', 'updateSafetyRuleResponse_assertionRule' - Undocumented member.
---
 -- 'gatingRule', 'updateSafetyRuleResponse_gatingRule' - Undocumented member.
+--
+-- 'assertionRule', 'updateSafetyRuleResponse_assertionRule' - Undocumented member.
 --
 -- 'httpStatus', 'updateSafetyRuleResponse_httpStatus' - The response's http status code.
 newUpdateSafetyRuleResponse ::
@@ -166,19 +166,19 @@ newUpdateSafetyRuleResponse ::
   UpdateSafetyRuleResponse
 newUpdateSafetyRuleResponse pHttpStatus_ =
   UpdateSafetyRuleResponse'
-    { assertionRule =
+    { gatingRule =
         Prelude.Nothing,
-      gatingRule = Prelude.Nothing,
+      assertionRule = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-updateSafetyRuleResponse_assertionRule :: Lens.Lens' UpdateSafetyRuleResponse (Prelude.Maybe AssertionRule)
-updateSafetyRuleResponse_assertionRule = Lens.lens (\UpdateSafetyRuleResponse' {assertionRule} -> assertionRule) (\s@UpdateSafetyRuleResponse' {} a -> s {assertionRule = a} :: UpdateSafetyRuleResponse)
-
--- | Undocumented member.
 updateSafetyRuleResponse_gatingRule :: Lens.Lens' UpdateSafetyRuleResponse (Prelude.Maybe GatingRule)
 updateSafetyRuleResponse_gatingRule = Lens.lens (\UpdateSafetyRuleResponse' {gatingRule} -> gatingRule) (\s@UpdateSafetyRuleResponse' {} a -> s {gatingRule = a} :: UpdateSafetyRuleResponse)
+
+-- | Undocumented member.
+updateSafetyRuleResponse_assertionRule :: Lens.Lens' UpdateSafetyRuleResponse (Prelude.Maybe AssertionRule)
+updateSafetyRuleResponse_assertionRule = Lens.lens (\UpdateSafetyRuleResponse' {assertionRule} -> assertionRule) (\s@UpdateSafetyRuleResponse' {} a -> s {assertionRule = a} :: UpdateSafetyRuleResponse)
 
 -- | The response's http status code.
 updateSafetyRuleResponse_httpStatus :: Lens.Lens' UpdateSafetyRuleResponse Prelude.Int
@@ -186,6 +186,6 @@ updateSafetyRuleResponse_httpStatus = Lens.lens (\UpdateSafetyRuleResponse' {htt
 
 instance Prelude.NFData UpdateSafetyRuleResponse where
   rnf UpdateSafetyRuleResponse' {..} =
-    Prelude.rnf assertionRule
-      `Prelude.seq` Prelude.rnf gatingRule
+    Prelude.rnf gatingRule
+      `Prelude.seq` Prelude.rnf assertionRule
       `Prelude.seq` Prelude.rnf httpStatus

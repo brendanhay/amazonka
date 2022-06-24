@@ -41,17 +41,17 @@ module Amazonka.Route53RecoveryControlConfig.CreateSafetyRule
     newCreateSafetyRule,
 
     -- * Request Lenses
-    createSafetyRule_assertionRule,
     createSafetyRule_clientToken,
     createSafetyRule_gatingRule,
+    createSafetyRule_assertionRule,
 
     -- * Destructuring the Response
     CreateSafetyRuleResponse (..),
     newCreateSafetyRuleResponse,
 
     -- * Response Lenses
-    createSafetyRuleResponse_assertionRule,
     createSafetyRuleResponse_gatingRule,
+    createSafetyRuleResponse_assertionRule,
     createSafetyRuleResponse_httpStatus,
   )
 where
@@ -67,10 +67,10 @@ import Amazonka.Route53RecoveryControlConfig.Types
 --
 -- /See:/ 'newCreateSafetyRule' smart constructor.
 data CreateSafetyRule = CreateSafetyRule'
-  { assertionRule :: Prelude.Maybe NewAssertionRule,
-    -- | Unique client idempotency token.
+  { -- | Unique client idempotency token.
     clientToken :: Prelude.Maybe Prelude.Text,
-    gatingRule :: Prelude.Maybe NewGatingRule
+    gatingRule :: Prelude.Maybe NewGatingRule,
+    assertionRule :: Prelude.Maybe NewAssertionRule
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,23 +82,19 @@ data CreateSafetyRule = CreateSafetyRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assertionRule', 'createSafetyRule_assertionRule' - Undocumented member.
---
 -- 'clientToken', 'createSafetyRule_clientToken' - Unique client idempotency token.
 --
 -- 'gatingRule', 'createSafetyRule_gatingRule' - Undocumented member.
+--
+-- 'assertionRule', 'createSafetyRule_assertionRule' - Undocumented member.
 newCreateSafetyRule ::
   CreateSafetyRule
 newCreateSafetyRule =
   CreateSafetyRule'
-    { assertionRule = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
-      gatingRule = Prelude.Nothing
+    { clientToken = Prelude.Nothing,
+      gatingRule = Prelude.Nothing,
+      assertionRule = Prelude.Nothing
     }
-
--- | Undocumented member.
-createSafetyRule_assertionRule :: Lens.Lens' CreateSafetyRule (Prelude.Maybe NewAssertionRule)
-createSafetyRule_assertionRule = Lens.lens (\CreateSafetyRule' {assertionRule} -> assertionRule) (\s@CreateSafetyRule' {} a -> s {assertionRule = a} :: CreateSafetyRule)
 
 -- | Unique client idempotency token.
 createSafetyRule_clientToken :: Lens.Lens' CreateSafetyRule (Prelude.Maybe Prelude.Text)
@@ -107,6 +103,10 @@ createSafetyRule_clientToken = Lens.lens (\CreateSafetyRule' {clientToken} -> cl
 -- | Undocumented member.
 createSafetyRule_gatingRule :: Lens.Lens' CreateSafetyRule (Prelude.Maybe NewGatingRule)
 createSafetyRule_gatingRule = Lens.lens (\CreateSafetyRule' {gatingRule} -> gatingRule) (\s@CreateSafetyRule' {} a -> s {gatingRule = a} :: CreateSafetyRule)
+
+-- | Undocumented member.
+createSafetyRule_assertionRule :: Lens.Lens' CreateSafetyRule (Prelude.Maybe NewAssertionRule)
+createSafetyRule_assertionRule = Lens.lens (\CreateSafetyRule' {assertionRule} -> assertionRule) (\s@CreateSafetyRule' {} a -> s {assertionRule = a} :: CreateSafetyRule)
 
 instance Core.AWSRequest CreateSafetyRule where
   type
@@ -117,22 +117,22 @@ instance Core.AWSRequest CreateSafetyRule where
     Response.receiveJSON
       ( \s h x ->
           CreateSafetyRuleResponse'
-            Prelude.<$> (x Core..?> "AssertionRule")
-            Prelude.<*> (x Core..?> "GatingRule")
+            Prelude.<$> (x Core..?> "GatingRule")
+            Prelude.<*> (x Core..?> "AssertionRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateSafetyRule where
   hashWithSalt _salt CreateSafetyRule' {..} =
-    _salt `Prelude.hashWithSalt` assertionRule
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` gatingRule
+      `Prelude.hashWithSalt` assertionRule
 
 instance Prelude.NFData CreateSafetyRule where
   rnf CreateSafetyRule' {..} =
-    Prelude.rnf assertionRule
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf gatingRule
+      `Prelude.seq` Prelude.rnf assertionRule
 
 instance Core.ToHeaders CreateSafetyRule where
   toHeaders =
@@ -149,9 +149,9 @@ instance Core.ToJSON CreateSafetyRule where
   toJSON CreateSafetyRule' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AssertionRule" Core..=) Prelude.<$> assertionRule,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("GatingRule" Core..=) Prelude.<$> gatingRule
+          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
+            ("GatingRule" Core..=) Prelude.<$> gatingRule,
+            ("AssertionRule" Core..=) Prelude.<$> assertionRule
           ]
       )
 
@@ -163,8 +163,8 @@ instance Core.ToQuery CreateSafetyRule where
 
 -- | /See:/ 'newCreateSafetyRuleResponse' smart constructor.
 data CreateSafetyRuleResponse = CreateSafetyRuleResponse'
-  { assertionRule :: Prelude.Maybe AssertionRule,
-    gatingRule :: Prelude.Maybe GatingRule,
+  { gatingRule :: Prelude.Maybe GatingRule,
+    assertionRule :: Prelude.Maybe AssertionRule,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -178,9 +178,9 @@ data CreateSafetyRuleResponse = CreateSafetyRuleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assertionRule', 'createSafetyRuleResponse_assertionRule' - Undocumented member.
---
 -- 'gatingRule', 'createSafetyRuleResponse_gatingRule' - Undocumented member.
+--
+-- 'assertionRule', 'createSafetyRuleResponse_assertionRule' - Undocumented member.
 --
 -- 'httpStatus', 'createSafetyRuleResponse_httpStatus' - The response's http status code.
 newCreateSafetyRuleResponse ::
@@ -189,19 +189,19 @@ newCreateSafetyRuleResponse ::
   CreateSafetyRuleResponse
 newCreateSafetyRuleResponse pHttpStatus_ =
   CreateSafetyRuleResponse'
-    { assertionRule =
+    { gatingRule =
         Prelude.Nothing,
-      gatingRule = Prelude.Nothing,
+      assertionRule = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-createSafetyRuleResponse_assertionRule :: Lens.Lens' CreateSafetyRuleResponse (Prelude.Maybe AssertionRule)
-createSafetyRuleResponse_assertionRule = Lens.lens (\CreateSafetyRuleResponse' {assertionRule} -> assertionRule) (\s@CreateSafetyRuleResponse' {} a -> s {assertionRule = a} :: CreateSafetyRuleResponse)
-
--- | Undocumented member.
 createSafetyRuleResponse_gatingRule :: Lens.Lens' CreateSafetyRuleResponse (Prelude.Maybe GatingRule)
 createSafetyRuleResponse_gatingRule = Lens.lens (\CreateSafetyRuleResponse' {gatingRule} -> gatingRule) (\s@CreateSafetyRuleResponse' {} a -> s {gatingRule = a} :: CreateSafetyRuleResponse)
+
+-- | Undocumented member.
+createSafetyRuleResponse_assertionRule :: Lens.Lens' CreateSafetyRuleResponse (Prelude.Maybe AssertionRule)
+createSafetyRuleResponse_assertionRule = Lens.lens (\CreateSafetyRuleResponse' {assertionRule} -> assertionRule) (\s@CreateSafetyRuleResponse' {} a -> s {assertionRule = a} :: CreateSafetyRuleResponse)
 
 -- | The response's http status code.
 createSafetyRuleResponse_httpStatus :: Lens.Lens' CreateSafetyRuleResponse Prelude.Int
@@ -209,6 +209,6 @@ createSafetyRuleResponse_httpStatus = Lens.lens (\CreateSafetyRuleResponse' {htt
 
 instance Prelude.NFData CreateSafetyRuleResponse where
   rnf CreateSafetyRuleResponse' {..} =
-    Prelude.rnf assertionRule
-      `Prelude.seq` Prelude.rnf gatingRule
+    Prelude.rnf gatingRule
+      `Prelude.seq` Prelude.rnf assertionRule
       `Prelude.seq` Prelude.rnf httpStatus

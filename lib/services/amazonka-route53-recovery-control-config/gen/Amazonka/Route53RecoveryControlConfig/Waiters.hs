@@ -24,6 +24,28 @@ import Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl
 import Amazonka.Route53RecoveryControlConfig.Lens
 import Amazonka.Route53RecoveryControlConfig.Types
 
+-- | Polls 'Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl' every 5 seconds until a successful state is reached. An error is returned after 26 failed checks.
+newRoutingControlDeleted :: Core.Wait DescribeRoutingControl
+newRoutingControlDeleted =
+  Core.Wait
+    { Core._waitName = "RoutingControlDeleted",
+      Core._waitAttempts = 26,
+      Core._waitDelay = 5,
+      Core._waitAcceptors =
+        [ Core.matchStatus 404 Core.AcceptSuccess,
+          Core.matchAll
+            "PENDING_DELETION"
+            Core.AcceptRetry
+            ( describeRoutingControlResponse_routingControl
+                Prelude.. Lens._Just
+                Prelude.. routingControl_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchStatus 500 Core.AcceptRetry
+        ]
+    }
+
 -- | Polls 'Amazonka.Route53RecoveryControlConfig.DescribeCluster' every 5 seconds until a successful state is reached. An error is returned after 26 failed checks.
 newClusterCreated :: Core.Wait DescribeCluster
 newClusterCreated =
@@ -45,58 +67,6 @@ newClusterCreated =
             Core.AcceptRetry
             ( describeClusterResponse_cluster Prelude.. Lens._Just
                 Prelude.. cluster_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchStatus 500 Core.AcceptRetry
-        ]
-    }
-
--- | Polls 'Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl' every 5 seconds until a successful state is reached. An error is returned after 26 failed checks.
-newRoutingControlCreated :: Core.Wait DescribeRoutingControl
-newRoutingControlCreated =
-  Core.Wait
-    { Core._waitName = "RoutingControlCreated",
-      Core._waitAttempts = 26,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "DEPLOYED"
-            Core.AcceptSuccess
-            ( describeRoutingControlResponse_routingControl
-                Prelude.. Lens._Just
-                Prelude.. routingControl_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAll
-            "PENDING"
-            Core.AcceptRetry
-            ( describeRoutingControlResponse_routingControl
-                Prelude.. Lens._Just
-                Prelude.. routingControl_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchStatus 500 Core.AcceptRetry
-        ]
-    }
-
--- | Polls 'Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl' every 5 seconds until a successful state is reached. An error is returned after 26 failed checks.
-newRoutingControlDeleted :: Core.Wait DescribeRoutingControl
-newRoutingControlDeleted =
-  Core.Wait
-    { Core._waitName = "RoutingControlDeleted",
-      Core._waitAttempts = 26,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
-        [ Core.matchStatus 404 Core.AcceptSuccess,
-          Core.matchAll
-            "PENDING_DELETION"
-            Core.AcceptRetry
-            ( describeRoutingControlResponse_routingControl
-                Prelude.. Lens._Just
-                Prelude.. routingControl_status
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             ),
@@ -170,6 +140,36 @@ newClusterDeleted =
             Core.AcceptRetry
             ( describeClusterResponse_cluster Prelude.. Lens._Just
                 Prelude.. cluster_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchStatus 500 Core.AcceptRetry
+        ]
+    }
+
+-- | Polls 'Amazonka.Route53RecoveryControlConfig.DescribeRoutingControl' every 5 seconds until a successful state is reached. An error is returned after 26 failed checks.
+newRoutingControlCreated :: Core.Wait DescribeRoutingControl
+newRoutingControlCreated =
+  Core.Wait
+    { Core._waitName = "RoutingControlCreated",
+      Core._waitAttempts = 26,
+      Core._waitDelay = 5,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "DEPLOYED"
+            Core.AcceptSuccess
+            ( describeRoutingControlResponse_routingControl
+                Prelude.. Lens._Just
+                Prelude.. routingControl_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "PENDING"
+            Core.AcceptRetry
+            ( describeRoutingControlResponse_routingControl
+                Prelude.. Lens._Just
+                Prelude.. routingControl_status
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             ),

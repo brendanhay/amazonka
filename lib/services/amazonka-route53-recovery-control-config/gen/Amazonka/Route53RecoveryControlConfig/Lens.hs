@@ -14,33 +14,11 @@
 module Amazonka.Route53RecoveryControlConfig.Lens
   ( -- * Operations
 
-    -- ** DescribeControlPanel
-    describeControlPanel_controlPanelArn,
-    describeControlPanelResponse_controlPanel,
-    describeControlPanelResponse_httpStatus,
-
-    -- ** CreateRoutingControl
-    createRoutingControl_controlPanelArn,
-    createRoutingControl_clientToken,
-    createRoutingControl_clusterArn,
-    createRoutingControl_routingControlName,
-    createRoutingControlResponse_routingControl,
-    createRoutingControlResponse_httpStatus,
-
-    -- ** DescribeCluster
-    describeCluster_clusterArn,
-    describeClusterResponse_cluster,
-    describeClusterResponse_httpStatus,
-
-    -- ** DeleteRoutingControl
-    deleteRoutingControl_routingControlArn,
-    deleteRoutingControlResponse_httpStatus,
-
-    -- ** UpdateRoutingControl
-    updateRoutingControl_routingControlName,
-    updateRoutingControl_routingControlArn,
-    updateRoutingControlResponse_routingControl,
-    updateRoutingControlResponse_httpStatus,
+    -- ** CreateCluster
+    createCluster_clientToken,
+    createCluster_clusterName,
+    createClusterResponse_cluster,
+    createClusterResponse_httpStatus,
 
     -- ** CreateControlPanel
     createControlPanel_clientToken,
@@ -49,33 +27,58 @@ module Amazonka.Route53RecoveryControlConfig.Lens
     createControlPanelResponse_controlPanel,
     createControlPanelResponse_httpStatus,
 
-    -- ** UpdateControlPanel
-    updateControlPanel_controlPanelArn,
-    updateControlPanel_controlPanelName,
-    updateControlPanelResponse_controlPanel,
-    updateControlPanelResponse_httpStatus,
+    -- ** CreateRoutingControl
+    createRoutingControl_clientToken,
+    createRoutingControl_controlPanelArn,
+    createRoutingControl_clusterArn,
+    createRoutingControl_routingControlName,
+    createRoutingControlResponse_routingControl,
+    createRoutingControlResponse_httpStatus,
 
-    -- ** DeleteControlPanel
-    deleteControlPanel_controlPanelArn,
-    deleteControlPanelResponse_httpStatus,
+    -- ** CreateSafetyRule
+    createSafetyRule_clientToken,
+    createSafetyRule_gatingRule,
+    createSafetyRule_assertionRule,
+    createSafetyRuleResponse_gatingRule,
+    createSafetyRuleResponse_assertionRule,
+    createSafetyRuleResponse_httpStatus,
 
     -- ** DeleteCluster
     deleteCluster_clusterArn,
     deleteClusterResponse_httpStatus,
 
-    -- ** CreateSafetyRule
-    createSafetyRule_assertionRule,
-    createSafetyRule_clientToken,
-    createSafetyRule_gatingRule,
-    createSafetyRuleResponse_assertionRule,
-    createSafetyRuleResponse_gatingRule,
-    createSafetyRuleResponse_httpStatus,
+    -- ** DeleteControlPanel
+    deleteControlPanel_controlPanelArn,
+    deleteControlPanelResponse_httpStatus,
 
-    -- ** CreateCluster
-    createCluster_clientToken,
-    createCluster_clusterName,
-    createClusterResponse_cluster,
-    createClusterResponse_httpStatus,
+    -- ** DeleteRoutingControl
+    deleteRoutingControl_routingControlArn,
+    deleteRoutingControlResponse_httpStatus,
+
+    -- ** DeleteSafetyRule
+    deleteSafetyRule_safetyRuleArn,
+    deleteSafetyRuleResponse_httpStatus,
+
+    -- ** DescribeCluster
+    describeCluster_clusterArn,
+    describeClusterResponse_cluster,
+    describeClusterResponse_httpStatus,
+
+    -- ** DescribeControlPanel
+    describeControlPanel_controlPanelArn,
+    describeControlPanelResponse_controlPanel,
+    describeControlPanelResponse_httpStatus,
+
+    -- ** DescribeRoutingControl
+    describeRoutingControl_routingControlArn,
+    describeRoutingControlResponse_routingControl,
+    describeRoutingControlResponse_httpStatus,
+
+    -- ** DescribeSafetyRule
+    describeSafetyRule_safetyRuleArn,
+    describeSafetyRuleResponse_gatingRule,
+    describeSafetyRuleResponse_assertionRule,
+    describeSafetyRuleResponse_httpStatus,
 
     -- ** ListAssociatedRoute53HealthChecks
     listAssociatedRoute53HealthChecks_nextToken,
@@ -85,19 +88,12 @@ module Amazonka.Route53RecoveryControlConfig.Lens
     listAssociatedRoute53HealthChecksResponse_healthCheckIds,
     listAssociatedRoute53HealthChecksResponse_httpStatus,
 
-    -- ** DescribeSafetyRule
-    describeSafetyRule_safetyRuleArn,
-    describeSafetyRuleResponse_assertionRule,
-    describeSafetyRuleResponse_gatingRule,
-    describeSafetyRuleResponse_httpStatus,
-
-    -- ** ListRoutingControls
-    listRoutingControls_nextToken,
-    listRoutingControls_maxResults,
-    listRoutingControls_controlPanelArn,
-    listRoutingControlsResponse_nextToken,
-    listRoutingControlsResponse_routingControls,
-    listRoutingControlsResponse_httpStatus,
+    -- ** ListClusters
+    listClusters_nextToken,
+    listClusters_maxResults,
+    listClustersResponse_nextToken,
+    listClustersResponse_clusters,
+    listClustersResponse_httpStatus,
 
     -- ** ListControlPanels
     listControlPanels_clusterArn,
@@ -107,23 +103,13 @@ module Amazonka.Route53RecoveryControlConfig.Lens
     listControlPanelsResponse_controlPanels,
     listControlPanelsResponse_httpStatus,
 
-    -- ** UpdateSafetyRule
-    updateSafetyRule_gatingRuleUpdate,
-    updateSafetyRule_assertionRuleUpdate,
-    updateSafetyRuleResponse_assertionRule,
-    updateSafetyRuleResponse_gatingRule,
-    updateSafetyRuleResponse_httpStatus,
-
-    -- ** DeleteSafetyRule
-    deleteSafetyRule_safetyRuleArn,
-    deleteSafetyRuleResponse_httpStatus,
-
-    -- ** ListClusters
-    listClusters_nextToken,
-    listClusters_maxResults,
-    listClustersResponse_nextToken,
-    listClustersResponse_clusters,
-    listClustersResponse_httpStatus,
+    -- ** ListRoutingControls
+    listRoutingControls_nextToken,
+    listRoutingControls_maxResults,
+    listRoutingControls_controlPanelArn,
+    listRoutingControlsResponse_nextToken,
+    listRoutingControlsResponse_routingControls,
+    listRoutingControlsResponse_httpStatus,
 
     -- ** ListSafetyRules
     listSafetyRules_nextToken,
@@ -133,10 +119,24 @@ module Amazonka.Route53RecoveryControlConfig.Lens
     listSafetyRulesResponse_safetyRules,
     listSafetyRulesResponse_httpStatus,
 
-    -- ** DescribeRoutingControl
-    describeRoutingControl_routingControlArn,
-    describeRoutingControlResponse_routingControl,
-    describeRoutingControlResponse_httpStatus,
+    -- ** UpdateControlPanel
+    updateControlPanel_controlPanelArn,
+    updateControlPanel_controlPanelName,
+    updateControlPanelResponse_controlPanel,
+    updateControlPanelResponse_httpStatus,
+
+    -- ** UpdateRoutingControl
+    updateRoutingControl_routingControlName,
+    updateRoutingControl_routingControlArn,
+    updateRoutingControlResponse_routingControl,
+    updateRoutingControlResponse_httpStatus,
+
+    -- ** UpdateSafetyRule
+    updateSafetyRule_gatingRuleUpdate,
+    updateSafetyRule_assertionRuleUpdate,
+    updateSafetyRuleResponse_gatingRule,
+    updateSafetyRuleResponse_assertionRule,
+    updateSafetyRuleResponse_httpStatus,
 
     -- * Types
 
@@ -155,9 +155,9 @@ module Amazonka.Route53RecoveryControlConfig.Lens
     assertionRuleUpdate_name,
 
     -- ** Cluster
-    cluster_status,
     cluster_clusterArn,
     cluster_name,
+    cluster_status,
     cluster_clusterEndpoints,
 
     -- ** ClusterEndpoint
@@ -165,12 +165,12 @@ module Amazonka.Route53RecoveryControlConfig.Lens
     clusterEndpoint_endpoint,
 
     -- ** ControlPanel
-    controlPanel_status,
-    controlPanel_controlPanelArn,
     controlPanel_clusterArn,
-    controlPanel_routingControlCount,
-    controlPanel_name,
     controlPanel_defaultControlPanel,
+    controlPanel_name,
+    controlPanel_controlPanelArn,
+    controlPanel_status,
+    controlPanel_routingControlCount,
 
     -- ** GatingRule
     gatingRule_status,
@@ -203,14 +203,14 @@ module Amazonka.Route53RecoveryControlConfig.Lens
     newGatingRule_name,
 
     -- ** RoutingControl
-    routingControl_status,
-    routingControl_controlPanelArn,
     routingControl_name,
+    routingControl_controlPanelArn,
+    routingControl_status,
     routingControl_routingControlArn,
 
     -- ** Rule
-    rule_gating,
     rule_assertion,
+    rule_gating,
 
     -- ** RuleConfig
     ruleConfig_type,

@@ -35,41 +35,41 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newElasticsearchDestinationDescription' smart constructor.
 data ElasticsearchDestinationDescription = ElasticsearchDestinationDescription'
-  { -- | The Elasticsearch index rotation period
-    indexRotationPeriod :: Prelude.Maybe ElasticsearchIndexRotationPeriod,
-    -- | The Elasticsearch type name. This applies to Elasticsearch 6.x and lower
-    -- versions. For Elasticsearch 7.x, there\'s no value for @TypeName@.
-    typeName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon S3 backup mode.
-    s3BackupMode :: Prelude.Maybe ElasticsearchS3BackupMode,
+  { -- | The data processing configuration.
+    processingConfiguration :: Prelude.Maybe ProcessingConfiguration,
+    -- | The Amazon Resource Name (ARN) of the AWS credentials. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+    roleARN :: Prelude.Maybe Prelude.Text,
+    -- | The buffering options.
+    bufferingHints :: Prelude.Maybe ElasticsearchBufferingHints,
+    -- | The endpoint to use when communicating with the cluster. Kinesis Data
+    -- Firehose uses either this @ClusterEndpoint@ or the @DomainARN@ field to
+    -- send data to Amazon ES.
+    clusterEndpoint :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the Amazon ES domain. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
     --
     -- Kinesis Data Firehose uses either @ClusterEndpoint@ or @DomainARN@ to
     -- send data to Amazon ES.
     domainARN :: Prelude.Maybe Prelude.Text,
-    -- | The details of the VPC of the Amazon ES destination.
-    vpcConfigurationDescription :: Prelude.Maybe VpcConfigurationDescription,
+    -- | The Elasticsearch type name. This applies to Elasticsearch 6.x and lower
+    -- versions. For Elasticsearch 7.x, there\'s no value for @TypeName@.
+    typeName :: Prelude.Maybe Prelude.Text,
+    -- | The Elasticsearch index name.
+    indexName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon CloudWatch logging options.
     cloudWatchLoggingOptions :: Prelude.Maybe CloudWatchLoggingOptions,
-    -- | The Amazon S3 destination.
-    s3DestinationDescription :: Prelude.Maybe S3DestinationDescription,
-    -- | The buffering options.
-    bufferingHints :: Prelude.Maybe ElasticsearchBufferingHints,
+    -- | The Amazon S3 backup mode.
+    s3BackupMode :: Prelude.Maybe ElasticsearchS3BackupMode,
+    -- | The details of the VPC of the Amazon ES destination.
+    vpcConfigurationDescription :: Prelude.Maybe VpcConfigurationDescription,
+    -- | The Elasticsearch index rotation period
+    indexRotationPeriod :: Prelude.Maybe ElasticsearchIndexRotationPeriod,
     -- | The Amazon ES retry options.
     retryOptions :: Prelude.Maybe ElasticsearchRetryOptions,
-    -- | The data processing configuration.
-    processingConfiguration :: Prelude.Maybe ProcessingConfiguration,
-    -- | The Amazon Resource Name (ARN) of the AWS credentials. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
-    roleARN :: Prelude.Maybe Prelude.Text,
-    -- | The endpoint to use when communicating with the cluster. Kinesis Data
-    -- Firehose uses either this @ClusterEndpoint@ or the @DomainARN@ field to
-    -- send data to Amazon ES.
-    clusterEndpoint :: Prelude.Maybe Prelude.Text,
-    -- | The Elasticsearch index name.
-    indexName :: Prelude.Maybe Prelude.Text
+    -- | The Amazon S3 destination.
+    s3DestinationDescription :: Prelude.Maybe S3DestinationDescription
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,12 +81,17 @@ data ElasticsearchDestinationDescription = ElasticsearchDestinationDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'indexRotationPeriod', 'elasticsearchDestinationDescription_indexRotationPeriod' - The Elasticsearch index rotation period
+-- 'processingConfiguration', 'elasticsearchDestinationDescription_processingConfiguration' - The data processing configuration.
 --
--- 'typeName', 'elasticsearchDestinationDescription_typeName' - The Elasticsearch type name. This applies to Elasticsearch 6.x and lower
--- versions. For Elasticsearch 7.x, there\'s no value for @TypeName@.
+-- 'roleARN', 'elasticsearchDestinationDescription_roleARN' - The Amazon Resource Name (ARN) of the AWS credentials. For more
+-- information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
 --
--- 's3BackupMode', 'elasticsearchDestinationDescription_s3BackupMode' - The Amazon S3 backup mode.
+-- 'bufferingHints', 'elasticsearchDestinationDescription_bufferingHints' - The buffering options.
+--
+-- 'clusterEndpoint', 'elasticsearchDestinationDescription_clusterEndpoint' - The endpoint to use when communicating with the cluster. Kinesis Data
+-- Firehose uses either this @ClusterEndpoint@ or the @DomainARN@ field to
+-- send data to Amazon ES.
 --
 -- 'domainARN', 'elasticsearchDestinationDescription_domainARN' - The ARN of the Amazon ES domain. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
@@ -94,91 +99,44 @@ data ElasticsearchDestinationDescription = ElasticsearchDestinationDescription'
 -- Kinesis Data Firehose uses either @ClusterEndpoint@ or @DomainARN@ to
 -- send data to Amazon ES.
 --
--- 'vpcConfigurationDescription', 'elasticsearchDestinationDescription_vpcConfigurationDescription' - The details of the VPC of the Amazon ES destination.
+-- 'typeName', 'elasticsearchDestinationDescription_typeName' - The Elasticsearch type name. This applies to Elasticsearch 6.x and lower
+-- versions. For Elasticsearch 7.x, there\'s no value for @TypeName@.
+--
+-- 'indexName', 'elasticsearchDestinationDescription_indexName' - The Elasticsearch index name.
 --
 -- 'cloudWatchLoggingOptions', 'elasticsearchDestinationDescription_cloudWatchLoggingOptions' - The Amazon CloudWatch logging options.
 --
--- 's3DestinationDescription', 'elasticsearchDestinationDescription_s3DestinationDescription' - The Amazon S3 destination.
+-- 's3BackupMode', 'elasticsearchDestinationDescription_s3BackupMode' - The Amazon S3 backup mode.
 --
--- 'bufferingHints', 'elasticsearchDestinationDescription_bufferingHints' - The buffering options.
+-- 'vpcConfigurationDescription', 'elasticsearchDestinationDescription_vpcConfigurationDescription' - The details of the VPC of the Amazon ES destination.
+--
+-- 'indexRotationPeriod', 'elasticsearchDestinationDescription_indexRotationPeriod' - The Elasticsearch index rotation period
 --
 -- 'retryOptions', 'elasticsearchDestinationDescription_retryOptions' - The Amazon ES retry options.
 --
--- 'processingConfiguration', 'elasticsearchDestinationDescription_processingConfiguration' - The data processing configuration.
---
--- 'roleARN', 'elasticsearchDestinationDescription_roleARN' - The Amazon Resource Name (ARN) of the AWS credentials. For more
--- information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
---
--- 'clusterEndpoint', 'elasticsearchDestinationDescription_clusterEndpoint' - The endpoint to use when communicating with the cluster. Kinesis Data
--- Firehose uses either this @ClusterEndpoint@ or the @DomainARN@ field to
--- send data to Amazon ES.
---
--- 'indexName', 'elasticsearchDestinationDescription_indexName' - The Elasticsearch index name.
+-- 's3DestinationDescription', 'elasticsearchDestinationDescription_s3DestinationDescription' - The Amazon S3 destination.
 newElasticsearchDestinationDescription ::
   ElasticsearchDestinationDescription
 newElasticsearchDestinationDescription =
   ElasticsearchDestinationDescription'
-    { indexRotationPeriod =
-        Prelude.Nothing,
-      typeName = Prelude.Nothing,
-      s3BackupMode = Prelude.Nothing,
-      domainARN = Prelude.Nothing,
-      vpcConfigurationDescription =
-        Prelude.Nothing,
-      cloudWatchLoggingOptions =
-        Prelude.Nothing,
-      s3DestinationDescription =
-        Prelude.Nothing,
-      bufferingHints = Prelude.Nothing,
-      retryOptions = Prelude.Nothing,
-      processingConfiguration =
+    { processingConfiguration =
         Prelude.Nothing,
       roleARN = Prelude.Nothing,
+      bufferingHints = Prelude.Nothing,
       clusterEndpoint = Prelude.Nothing,
-      indexName = Prelude.Nothing
+      domainARN = Prelude.Nothing,
+      typeName = Prelude.Nothing,
+      indexName = Prelude.Nothing,
+      cloudWatchLoggingOptions =
+        Prelude.Nothing,
+      s3BackupMode = Prelude.Nothing,
+      vpcConfigurationDescription =
+        Prelude.Nothing,
+      indexRotationPeriod = Prelude.Nothing,
+      retryOptions = Prelude.Nothing,
+      s3DestinationDescription =
+        Prelude.Nothing
     }
-
--- | The Elasticsearch index rotation period
-elasticsearchDestinationDescription_indexRotationPeriod :: Lens.Lens' ElasticsearchDestinationDescription (Prelude.Maybe ElasticsearchIndexRotationPeriod)
-elasticsearchDestinationDescription_indexRotationPeriod = Lens.lens (\ElasticsearchDestinationDescription' {indexRotationPeriod} -> indexRotationPeriod) (\s@ElasticsearchDestinationDescription' {} a -> s {indexRotationPeriod = a} :: ElasticsearchDestinationDescription)
-
--- | The Elasticsearch type name. This applies to Elasticsearch 6.x and lower
--- versions. For Elasticsearch 7.x, there\'s no value for @TypeName@.
-elasticsearchDestinationDescription_typeName :: Lens.Lens' ElasticsearchDestinationDescription (Prelude.Maybe Prelude.Text)
-elasticsearchDestinationDescription_typeName = Lens.lens (\ElasticsearchDestinationDescription' {typeName} -> typeName) (\s@ElasticsearchDestinationDescription' {} a -> s {typeName = a} :: ElasticsearchDestinationDescription)
-
--- | The Amazon S3 backup mode.
-elasticsearchDestinationDescription_s3BackupMode :: Lens.Lens' ElasticsearchDestinationDescription (Prelude.Maybe ElasticsearchS3BackupMode)
-elasticsearchDestinationDescription_s3BackupMode = Lens.lens (\ElasticsearchDestinationDescription' {s3BackupMode} -> s3BackupMode) (\s@ElasticsearchDestinationDescription' {} a -> s {s3BackupMode = a} :: ElasticsearchDestinationDescription)
-
--- | The ARN of the Amazon ES domain. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
---
--- Kinesis Data Firehose uses either @ClusterEndpoint@ or @DomainARN@ to
--- send data to Amazon ES.
-elasticsearchDestinationDescription_domainARN :: Lens.Lens' ElasticsearchDestinationDescription (Prelude.Maybe Prelude.Text)
-elasticsearchDestinationDescription_domainARN = Lens.lens (\ElasticsearchDestinationDescription' {domainARN} -> domainARN) (\s@ElasticsearchDestinationDescription' {} a -> s {domainARN = a} :: ElasticsearchDestinationDescription)
-
--- | The details of the VPC of the Amazon ES destination.
-elasticsearchDestinationDescription_vpcConfigurationDescription :: Lens.Lens' ElasticsearchDestinationDescription (Prelude.Maybe VpcConfigurationDescription)
-elasticsearchDestinationDescription_vpcConfigurationDescription = Lens.lens (\ElasticsearchDestinationDescription' {vpcConfigurationDescription} -> vpcConfigurationDescription) (\s@ElasticsearchDestinationDescription' {} a -> s {vpcConfigurationDescription = a} :: ElasticsearchDestinationDescription)
-
--- | The Amazon CloudWatch logging options.
-elasticsearchDestinationDescription_cloudWatchLoggingOptions :: Lens.Lens' ElasticsearchDestinationDescription (Prelude.Maybe CloudWatchLoggingOptions)
-elasticsearchDestinationDescription_cloudWatchLoggingOptions = Lens.lens (\ElasticsearchDestinationDescription' {cloudWatchLoggingOptions} -> cloudWatchLoggingOptions) (\s@ElasticsearchDestinationDescription' {} a -> s {cloudWatchLoggingOptions = a} :: ElasticsearchDestinationDescription)
-
--- | The Amazon S3 destination.
-elasticsearchDestinationDescription_s3DestinationDescription :: Lens.Lens' ElasticsearchDestinationDescription (Prelude.Maybe S3DestinationDescription)
-elasticsearchDestinationDescription_s3DestinationDescription = Lens.lens (\ElasticsearchDestinationDescription' {s3DestinationDescription} -> s3DestinationDescription) (\s@ElasticsearchDestinationDescription' {} a -> s {s3DestinationDescription = a} :: ElasticsearchDestinationDescription)
-
--- | The buffering options.
-elasticsearchDestinationDescription_bufferingHints :: Lens.Lens' ElasticsearchDestinationDescription (Prelude.Maybe ElasticsearchBufferingHints)
-elasticsearchDestinationDescription_bufferingHints = Lens.lens (\ElasticsearchDestinationDescription' {bufferingHints} -> bufferingHints) (\s@ElasticsearchDestinationDescription' {} a -> s {bufferingHints = a} :: ElasticsearchDestinationDescription)
-
--- | The Amazon ES retry options.
-elasticsearchDestinationDescription_retryOptions :: Lens.Lens' ElasticsearchDestinationDescription (Prelude.Maybe ElasticsearchRetryOptions)
-elasticsearchDestinationDescription_retryOptions = Lens.lens (\ElasticsearchDestinationDescription' {retryOptions} -> retryOptions) (\s@ElasticsearchDestinationDescription' {} a -> s {retryOptions = a} :: ElasticsearchDestinationDescription)
 
 -- | The data processing configuration.
 elasticsearchDestinationDescription_processingConfiguration :: Lens.Lens' ElasticsearchDestinationDescription (Prelude.Maybe ProcessingConfiguration)
@@ -190,15 +148,56 @@ elasticsearchDestinationDescription_processingConfiguration = Lens.lens (\Elasti
 elasticsearchDestinationDescription_roleARN :: Lens.Lens' ElasticsearchDestinationDescription (Prelude.Maybe Prelude.Text)
 elasticsearchDestinationDescription_roleARN = Lens.lens (\ElasticsearchDestinationDescription' {roleARN} -> roleARN) (\s@ElasticsearchDestinationDescription' {} a -> s {roleARN = a} :: ElasticsearchDestinationDescription)
 
+-- | The buffering options.
+elasticsearchDestinationDescription_bufferingHints :: Lens.Lens' ElasticsearchDestinationDescription (Prelude.Maybe ElasticsearchBufferingHints)
+elasticsearchDestinationDescription_bufferingHints = Lens.lens (\ElasticsearchDestinationDescription' {bufferingHints} -> bufferingHints) (\s@ElasticsearchDestinationDescription' {} a -> s {bufferingHints = a} :: ElasticsearchDestinationDescription)
+
 -- | The endpoint to use when communicating with the cluster. Kinesis Data
 -- Firehose uses either this @ClusterEndpoint@ or the @DomainARN@ field to
 -- send data to Amazon ES.
 elasticsearchDestinationDescription_clusterEndpoint :: Lens.Lens' ElasticsearchDestinationDescription (Prelude.Maybe Prelude.Text)
 elasticsearchDestinationDescription_clusterEndpoint = Lens.lens (\ElasticsearchDestinationDescription' {clusterEndpoint} -> clusterEndpoint) (\s@ElasticsearchDestinationDescription' {} a -> s {clusterEndpoint = a} :: ElasticsearchDestinationDescription)
 
+-- | The ARN of the Amazon ES domain. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+--
+-- Kinesis Data Firehose uses either @ClusterEndpoint@ or @DomainARN@ to
+-- send data to Amazon ES.
+elasticsearchDestinationDescription_domainARN :: Lens.Lens' ElasticsearchDestinationDescription (Prelude.Maybe Prelude.Text)
+elasticsearchDestinationDescription_domainARN = Lens.lens (\ElasticsearchDestinationDescription' {domainARN} -> domainARN) (\s@ElasticsearchDestinationDescription' {} a -> s {domainARN = a} :: ElasticsearchDestinationDescription)
+
+-- | The Elasticsearch type name. This applies to Elasticsearch 6.x and lower
+-- versions. For Elasticsearch 7.x, there\'s no value for @TypeName@.
+elasticsearchDestinationDescription_typeName :: Lens.Lens' ElasticsearchDestinationDescription (Prelude.Maybe Prelude.Text)
+elasticsearchDestinationDescription_typeName = Lens.lens (\ElasticsearchDestinationDescription' {typeName} -> typeName) (\s@ElasticsearchDestinationDescription' {} a -> s {typeName = a} :: ElasticsearchDestinationDescription)
+
 -- | The Elasticsearch index name.
 elasticsearchDestinationDescription_indexName :: Lens.Lens' ElasticsearchDestinationDescription (Prelude.Maybe Prelude.Text)
 elasticsearchDestinationDescription_indexName = Lens.lens (\ElasticsearchDestinationDescription' {indexName} -> indexName) (\s@ElasticsearchDestinationDescription' {} a -> s {indexName = a} :: ElasticsearchDestinationDescription)
+
+-- | The Amazon CloudWatch logging options.
+elasticsearchDestinationDescription_cloudWatchLoggingOptions :: Lens.Lens' ElasticsearchDestinationDescription (Prelude.Maybe CloudWatchLoggingOptions)
+elasticsearchDestinationDescription_cloudWatchLoggingOptions = Lens.lens (\ElasticsearchDestinationDescription' {cloudWatchLoggingOptions} -> cloudWatchLoggingOptions) (\s@ElasticsearchDestinationDescription' {} a -> s {cloudWatchLoggingOptions = a} :: ElasticsearchDestinationDescription)
+
+-- | The Amazon S3 backup mode.
+elasticsearchDestinationDescription_s3BackupMode :: Lens.Lens' ElasticsearchDestinationDescription (Prelude.Maybe ElasticsearchS3BackupMode)
+elasticsearchDestinationDescription_s3BackupMode = Lens.lens (\ElasticsearchDestinationDescription' {s3BackupMode} -> s3BackupMode) (\s@ElasticsearchDestinationDescription' {} a -> s {s3BackupMode = a} :: ElasticsearchDestinationDescription)
+
+-- | The details of the VPC of the Amazon ES destination.
+elasticsearchDestinationDescription_vpcConfigurationDescription :: Lens.Lens' ElasticsearchDestinationDescription (Prelude.Maybe VpcConfigurationDescription)
+elasticsearchDestinationDescription_vpcConfigurationDescription = Lens.lens (\ElasticsearchDestinationDescription' {vpcConfigurationDescription} -> vpcConfigurationDescription) (\s@ElasticsearchDestinationDescription' {} a -> s {vpcConfigurationDescription = a} :: ElasticsearchDestinationDescription)
+
+-- | The Elasticsearch index rotation period
+elasticsearchDestinationDescription_indexRotationPeriod :: Lens.Lens' ElasticsearchDestinationDescription (Prelude.Maybe ElasticsearchIndexRotationPeriod)
+elasticsearchDestinationDescription_indexRotationPeriod = Lens.lens (\ElasticsearchDestinationDescription' {indexRotationPeriod} -> indexRotationPeriod) (\s@ElasticsearchDestinationDescription' {} a -> s {indexRotationPeriod = a} :: ElasticsearchDestinationDescription)
+
+-- | The Amazon ES retry options.
+elasticsearchDestinationDescription_retryOptions :: Lens.Lens' ElasticsearchDestinationDescription (Prelude.Maybe ElasticsearchRetryOptions)
+elasticsearchDestinationDescription_retryOptions = Lens.lens (\ElasticsearchDestinationDescription' {retryOptions} -> retryOptions) (\s@ElasticsearchDestinationDescription' {} a -> s {retryOptions = a} :: ElasticsearchDestinationDescription)
+
+-- | The Amazon S3 destination.
+elasticsearchDestinationDescription_s3DestinationDescription :: Lens.Lens' ElasticsearchDestinationDescription (Prelude.Maybe S3DestinationDescription)
+elasticsearchDestinationDescription_s3DestinationDescription = Lens.lens (\ElasticsearchDestinationDescription' {s3DestinationDescription} -> s3DestinationDescription) (\s@ElasticsearchDestinationDescription' {} a -> s {s3DestinationDescription = a} :: ElasticsearchDestinationDescription)
 
 instance
   Core.FromJSON
@@ -209,19 +208,19 @@ instance
       "ElasticsearchDestinationDescription"
       ( \x ->
           ElasticsearchDestinationDescription'
-            Prelude.<$> (x Core..:? "IndexRotationPeriod")
-            Prelude.<*> (x Core..:? "TypeName")
-            Prelude.<*> (x Core..:? "S3BackupMode")
-            Prelude.<*> (x Core..:? "DomainARN")
-            Prelude.<*> (x Core..:? "VpcConfigurationDescription")
-            Prelude.<*> (x Core..:? "CloudWatchLoggingOptions")
-            Prelude.<*> (x Core..:? "S3DestinationDescription")
-            Prelude.<*> (x Core..:? "BufferingHints")
-            Prelude.<*> (x Core..:? "RetryOptions")
-            Prelude.<*> (x Core..:? "ProcessingConfiguration")
+            Prelude.<$> (x Core..:? "ProcessingConfiguration")
             Prelude.<*> (x Core..:? "RoleARN")
+            Prelude.<*> (x Core..:? "BufferingHints")
             Prelude.<*> (x Core..:? "ClusterEndpoint")
+            Prelude.<*> (x Core..:? "DomainARN")
+            Prelude.<*> (x Core..:? "TypeName")
             Prelude.<*> (x Core..:? "IndexName")
+            Prelude.<*> (x Core..:? "CloudWatchLoggingOptions")
+            Prelude.<*> (x Core..:? "S3BackupMode")
+            Prelude.<*> (x Core..:? "VpcConfigurationDescription")
+            Prelude.<*> (x Core..:? "IndexRotationPeriod")
+            Prelude.<*> (x Core..:? "RetryOptions")
+            Prelude.<*> (x Core..:? "S3DestinationDescription")
       )
 
 instance
@@ -231,35 +230,36 @@ instance
   hashWithSalt
     _salt
     ElasticsearchDestinationDescription' {..} =
-      _salt `Prelude.hashWithSalt` indexRotationPeriod
-        `Prelude.hashWithSalt` typeName
-        `Prelude.hashWithSalt` s3BackupMode
-        `Prelude.hashWithSalt` domainARN
-        `Prelude.hashWithSalt` vpcConfigurationDescription
-        `Prelude.hashWithSalt` cloudWatchLoggingOptions
-        `Prelude.hashWithSalt` s3DestinationDescription
-        `Prelude.hashWithSalt` bufferingHints
-        `Prelude.hashWithSalt` retryOptions
+      _salt
         `Prelude.hashWithSalt` processingConfiguration
         `Prelude.hashWithSalt` roleARN
+        `Prelude.hashWithSalt` bufferingHints
         `Prelude.hashWithSalt` clusterEndpoint
+        `Prelude.hashWithSalt` domainARN
+        `Prelude.hashWithSalt` typeName
         `Prelude.hashWithSalt` indexName
+        `Prelude.hashWithSalt` cloudWatchLoggingOptions
+        `Prelude.hashWithSalt` s3BackupMode
+        `Prelude.hashWithSalt` vpcConfigurationDescription
+        `Prelude.hashWithSalt` indexRotationPeriod
+        `Prelude.hashWithSalt` retryOptions
+        `Prelude.hashWithSalt` s3DestinationDescription
 
 instance
   Prelude.NFData
     ElasticsearchDestinationDescription
   where
   rnf ElasticsearchDestinationDescription' {..} =
-    Prelude.rnf indexRotationPeriod
-      `Prelude.seq` Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf s3BackupMode
-      `Prelude.seq` Prelude.rnf domainARN
-      `Prelude.seq` Prelude.rnf vpcConfigurationDescription
-      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions
-      `Prelude.seq` Prelude.rnf s3DestinationDescription
-      `Prelude.seq` Prelude.rnf bufferingHints
-      `Prelude.seq` Prelude.rnf retryOptions
-      `Prelude.seq` Prelude.rnf processingConfiguration
+    Prelude.rnf processingConfiguration
       `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf bufferingHints
       `Prelude.seq` Prelude.rnf clusterEndpoint
+      `Prelude.seq` Prelude.rnf domainARN
+      `Prelude.seq` Prelude.rnf typeName
       `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions
+      `Prelude.seq` Prelude.rnf s3BackupMode
+      `Prelude.seq` Prelude.rnf vpcConfigurationDescription
+      `Prelude.seq` Prelude.rnf indexRotationPeriod
+      `Prelude.seq` Prelude.rnf retryOptions
+      `Prelude.seq` Prelude.rnf s3DestinationDescription

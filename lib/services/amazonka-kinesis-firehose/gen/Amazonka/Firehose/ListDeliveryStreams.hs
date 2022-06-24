@@ -36,8 +36,8 @@ module Amazonka.Firehose.ListDeliveryStreams
     newListDeliveryStreams,
 
     -- * Request Lenses
-    listDeliveryStreams_limit,
     listDeliveryStreams_deliveryStreamType,
+    listDeliveryStreams_limit,
     listDeliveryStreams_exclusiveStartDeliveryStreamName,
 
     -- * Destructuring the Response
@@ -60,9 +60,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDeliveryStreams' smart constructor.
 data ListDeliveryStreams = ListDeliveryStreams'
-  { -- | The maximum number of delivery streams to list. The default value is 10.
-    limit :: Prelude.Maybe Prelude.Natural,
-    -- | The delivery stream type. This can be one of the following values:
+  { -- | The delivery stream type. This can be one of the following values:
     --
     -- -   @DirectPut@: Provider applications access the delivery stream
     --     directly.
@@ -73,6 +71,8 @@ data ListDeliveryStreams = ListDeliveryStreams'
     -- This parameter is optional. If this parameter is omitted, delivery
     -- streams of all types are returned.
     deliveryStreamType :: Prelude.Maybe DeliveryStreamType,
+    -- | The maximum number of delivery streams to list. The default value is 10.
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | The list of delivery streams returned by this call to
     -- @ListDeliveryStreams@ will start with the delivery stream whose name
     -- comes alphabetically immediately after the name you specify in
@@ -89,8 +89,6 @@ data ListDeliveryStreams = ListDeliveryStreams'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'limit', 'listDeliveryStreams_limit' - The maximum number of delivery streams to list. The default value is 10.
---
 -- 'deliveryStreamType', 'listDeliveryStreams_deliveryStreamType' - The delivery stream type. This can be one of the following values:
 --
 -- -   @DirectPut@: Provider applications access the delivery stream
@@ -102,6 +100,8 @@ data ListDeliveryStreams = ListDeliveryStreams'
 -- This parameter is optional. If this parameter is omitted, delivery
 -- streams of all types are returned.
 --
+-- 'limit', 'listDeliveryStreams_limit' - The maximum number of delivery streams to list. The default value is 10.
+--
 -- 'exclusiveStartDeliveryStreamName', 'listDeliveryStreams_exclusiveStartDeliveryStreamName' - The list of delivery streams returned by this call to
 -- @ListDeliveryStreams@ will start with the delivery stream whose name
 -- comes alphabetically immediately after the name you specify in
@@ -110,14 +110,11 @@ newListDeliveryStreams ::
   ListDeliveryStreams
 newListDeliveryStreams =
   ListDeliveryStreams'
-    { limit = Prelude.Nothing,
-      deliveryStreamType = Prelude.Nothing,
+    { deliveryStreamType =
+        Prelude.Nothing,
+      limit = Prelude.Nothing,
       exclusiveStartDeliveryStreamName = Prelude.Nothing
     }
-
--- | The maximum number of delivery streams to list. The default value is 10.
-listDeliveryStreams_limit :: Lens.Lens' ListDeliveryStreams (Prelude.Maybe Prelude.Natural)
-listDeliveryStreams_limit = Lens.lens (\ListDeliveryStreams' {limit} -> limit) (\s@ListDeliveryStreams' {} a -> s {limit = a} :: ListDeliveryStreams)
 
 -- | The delivery stream type. This can be one of the following values:
 --
@@ -131,6 +128,10 @@ listDeliveryStreams_limit = Lens.lens (\ListDeliveryStreams' {limit} -> limit) (
 -- streams of all types are returned.
 listDeliveryStreams_deliveryStreamType :: Lens.Lens' ListDeliveryStreams (Prelude.Maybe DeliveryStreamType)
 listDeliveryStreams_deliveryStreamType = Lens.lens (\ListDeliveryStreams' {deliveryStreamType} -> deliveryStreamType) (\s@ListDeliveryStreams' {} a -> s {deliveryStreamType = a} :: ListDeliveryStreams)
+
+-- | The maximum number of delivery streams to list. The default value is 10.
+listDeliveryStreams_limit :: Lens.Lens' ListDeliveryStreams (Prelude.Maybe Prelude.Natural)
+listDeliveryStreams_limit = Lens.lens (\ListDeliveryStreams' {limit} -> limit) (\s@ListDeliveryStreams' {} a -> s {limit = a} :: ListDeliveryStreams)
 
 -- | The list of delivery streams returned by this call to
 -- @ListDeliveryStreams@ will start with the delivery stream whose name
@@ -157,14 +158,14 @@ instance Core.AWSRequest ListDeliveryStreams where
 
 instance Prelude.Hashable ListDeliveryStreams where
   hashWithSalt _salt ListDeliveryStreams' {..} =
-    _salt `Prelude.hashWithSalt` limit
-      `Prelude.hashWithSalt` deliveryStreamType
+    _salt `Prelude.hashWithSalt` deliveryStreamType
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` exclusiveStartDeliveryStreamName
 
 instance Prelude.NFData ListDeliveryStreams where
   rnf ListDeliveryStreams' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf deliveryStreamType
+    Prelude.rnf deliveryStreamType
+      `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf exclusiveStartDeliveryStreamName
 
 instance Core.ToHeaders ListDeliveryStreams where
@@ -186,9 +187,9 @@ instance Core.ToJSON ListDeliveryStreams where
   toJSON ListDeliveryStreams' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Limit" Core..=) Prelude.<$> limit,
-            ("DeliveryStreamType" Core..=)
+          [ ("DeliveryStreamType" Core..=)
               Prelude.<$> deliveryStreamType,
+            ("Limit" Core..=) Prelude.<$> limit,
             ("ExclusiveStartDeliveryStreamName" Core..=)
               Prelude.<$> exclusiveStartDeliveryStreamName
           ]

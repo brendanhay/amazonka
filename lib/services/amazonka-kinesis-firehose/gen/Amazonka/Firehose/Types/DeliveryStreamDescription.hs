@@ -37,6 +37,8 @@ data DeliveryStreamDescription = DeliveryStreamDescription'
     -- error related to KMS: CreateDeliveryStream, DeleteDeliveryStream,
     -- StartDeliveryStreamEncryption, StopDeliveryStreamEncryption.
     failureDescription :: Prelude.Maybe FailureDescription,
+    -- | The date and time that the delivery stream was last updated.
+    lastUpdateTimestamp :: Prelude.Maybe Core.POSIX,
     -- | Indicates the server-side encryption (SSE) status for the delivery
     -- stream.
     deliveryStreamEncryptionConfiguration :: Prelude.Maybe DeliveryStreamEncryptionConfiguration,
@@ -45,8 +47,6 @@ data DeliveryStreamDescription = DeliveryStreamDescription'
     -- | If the @DeliveryStreamType@ parameter is @KinesisStreamAsSource@, a
     -- SourceDescription object describing the source Kinesis data stream.
     source :: Prelude.Maybe SourceDescription,
-    -- | The date and time that the delivery stream was last updated.
-    lastUpdateTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The name of the delivery stream.
     deliveryStreamName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the delivery stream. For more
@@ -90,6 +90,8 @@ data DeliveryStreamDescription = DeliveryStreamDescription'
 -- error related to KMS: CreateDeliveryStream, DeleteDeliveryStream,
 -- StartDeliveryStreamEncryption, StopDeliveryStreamEncryption.
 --
+-- 'lastUpdateTimestamp', 'deliveryStreamDescription_lastUpdateTimestamp' - The date and time that the delivery stream was last updated.
+--
 -- 'deliveryStreamEncryptionConfiguration', 'deliveryStreamDescription_deliveryStreamEncryptionConfiguration' - Indicates the server-side encryption (SSE) status for the delivery
 -- stream.
 --
@@ -97,8 +99,6 @@ data DeliveryStreamDescription = DeliveryStreamDescription'
 --
 -- 'source', 'deliveryStreamDescription_source' - If the @DeliveryStreamType@ parameter is @KinesisStreamAsSource@, a
 -- SourceDescription object describing the source Kinesis data stream.
---
--- 'lastUpdateTimestamp', 'deliveryStreamDescription_lastUpdateTimestamp' - The date and time that the delivery stream was last updated.
 --
 -- 'deliveryStreamName', 'deliveryStreamDescription_deliveryStreamName' - The name of the delivery stream.
 --
@@ -151,11 +151,11 @@ newDeliveryStreamDescription
     DeliveryStreamDescription'
       { failureDescription =
           Prelude.Nothing,
+        lastUpdateTimestamp = Prelude.Nothing,
         deliveryStreamEncryptionConfiguration =
           Prelude.Nothing,
         createTimestamp = Prelude.Nothing,
         source = Prelude.Nothing,
-        lastUpdateTimestamp = Prelude.Nothing,
         deliveryStreamName = pDeliveryStreamName_,
         deliveryStreamARN = pDeliveryStreamARN_,
         deliveryStreamStatus = pDeliveryStreamStatus_,
@@ -171,6 +171,10 @@ newDeliveryStreamDescription
 deliveryStreamDescription_failureDescription :: Lens.Lens' DeliveryStreamDescription (Prelude.Maybe FailureDescription)
 deliveryStreamDescription_failureDescription = Lens.lens (\DeliveryStreamDescription' {failureDescription} -> failureDescription) (\s@DeliveryStreamDescription' {} a -> s {failureDescription = a} :: DeliveryStreamDescription)
 
+-- | The date and time that the delivery stream was last updated.
+deliveryStreamDescription_lastUpdateTimestamp :: Lens.Lens' DeliveryStreamDescription (Prelude.Maybe Prelude.UTCTime)
+deliveryStreamDescription_lastUpdateTimestamp = Lens.lens (\DeliveryStreamDescription' {lastUpdateTimestamp} -> lastUpdateTimestamp) (\s@DeliveryStreamDescription' {} a -> s {lastUpdateTimestamp = a} :: DeliveryStreamDescription) Prelude.. Lens.mapping Core._Time
+
 -- | Indicates the server-side encryption (SSE) status for the delivery
 -- stream.
 deliveryStreamDescription_deliveryStreamEncryptionConfiguration :: Lens.Lens' DeliveryStreamDescription (Prelude.Maybe DeliveryStreamEncryptionConfiguration)
@@ -184,10 +188,6 @@ deliveryStreamDescription_createTimestamp = Lens.lens (\DeliveryStreamDescriptio
 -- SourceDescription object describing the source Kinesis data stream.
 deliveryStreamDescription_source :: Lens.Lens' DeliveryStreamDescription (Prelude.Maybe SourceDescription)
 deliveryStreamDescription_source = Lens.lens (\DeliveryStreamDescription' {source} -> source) (\s@DeliveryStreamDescription' {} a -> s {source = a} :: DeliveryStreamDescription)
-
--- | The date and time that the delivery stream was last updated.
-deliveryStreamDescription_lastUpdateTimestamp :: Lens.Lens' DeliveryStreamDescription (Prelude.Maybe Prelude.UTCTime)
-deliveryStreamDescription_lastUpdateTimestamp = Lens.lens (\DeliveryStreamDescription' {lastUpdateTimestamp} -> lastUpdateTimestamp) (\s@DeliveryStreamDescription' {} a -> s {lastUpdateTimestamp = a} :: DeliveryStreamDescription) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the delivery stream.
 deliveryStreamDescription_deliveryStreamName :: Lens.Lens' DeliveryStreamDescription Prelude.Text
@@ -238,10 +238,10 @@ instance Core.FromJSON DeliveryStreamDescription where
       ( \x ->
           DeliveryStreamDescription'
             Prelude.<$> (x Core..:? "FailureDescription")
+            Prelude.<*> (x Core..:? "LastUpdateTimestamp")
             Prelude.<*> (x Core..:? "DeliveryStreamEncryptionConfiguration")
             Prelude.<*> (x Core..:? "CreateTimestamp")
             Prelude.<*> (x Core..:? "Source")
-            Prelude.<*> (x Core..:? "LastUpdateTimestamp")
             Prelude.<*> (x Core..: "DeliveryStreamName")
             Prelude.<*> (x Core..: "DeliveryStreamARN")
             Prelude.<*> (x Core..: "DeliveryStreamStatus")
@@ -254,10 +254,10 @@ instance Core.FromJSON DeliveryStreamDescription where
 instance Prelude.Hashable DeliveryStreamDescription where
   hashWithSalt _salt DeliveryStreamDescription' {..} =
     _salt `Prelude.hashWithSalt` failureDescription
+      `Prelude.hashWithSalt` lastUpdateTimestamp
       `Prelude.hashWithSalt` deliveryStreamEncryptionConfiguration
       `Prelude.hashWithSalt` createTimestamp
       `Prelude.hashWithSalt` source
-      `Prelude.hashWithSalt` lastUpdateTimestamp
       `Prelude.hashWithSalt` deliveryStreamName
       `Prelude.hashWithSalt` deliveryStreamARN
       `Prelude.hashWithSalt` deliveryStreamStatus
@@ -269,10 +269,10 @@ instance Prelude.Hashable DeliveryStreamDescription where
 instance Prelude.NFData DeliveryStreamDescription where
   rnf DeliveryStreamDescription' {..} =
     Prelude.rnf failureDescription
+      `Prelude.seq` Prelude.rnf lastUpdateTimestamp
       `Prelude.seq` Prelude.rnf deliveryStreamEncryptionConfiguration
       `Prelude.seq` Prelude.rnf createTimestamp
       `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf lastUpdateTimestamp
       `Prelude.seq` Prelude.rnf deliveryStreamName
       `Prelude.seq` Prelude.rnf deliveryStreamARN
       `Prelude.seq` Prelude.rnf deliveryStreamStatus

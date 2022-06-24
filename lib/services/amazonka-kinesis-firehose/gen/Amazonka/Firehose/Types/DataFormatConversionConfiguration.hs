@@ -36,20 +36,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDataFormatConversionConfiguration' smart constructor.
 data DataFormatConversionConfiguration = DataFormatConversionConfiguration'
-  { -- | Specifies the serializer that you want Kinesis Data Firehose to use to
-    -- convert the format of your data to the Parquet or ORC format. This
-    -- parameter is required if @Enabled@ is set to true.
-    outputFormatConfiguration :: Prelude.Maybe OutputFormatConfiguration,
+  { -- | Specifies the deserializer that you want Kinesis Data Firehose to use to
+    -- convert the format of your data from JSON. This parameter is required if
+    -- @Enabled@ is set to true.
+    inputFormatConfiguration :: Prelude.Maybe InputFormatConfiguration,
     -- | Defaults to @true@. Set it to @false@ if you want to disable format
     -- conversion while preserving the configuration details.
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the AWS Glue Data Catalog table that contains the column
     -- information. This parameter is required if @Enabled@ is set to true.
     schemaConfiguration :: Prelude.Maybe SchemaConfiguration,
-    -- | Specifies the deserializer that you want Kinesis Data Firehose to use to
-    -- convert the format of your data from JSON. This parameter is required if
-    -- @Enabled@ is set to true.
-    inputFormatConfiguration :: Prelude.Maybe InputFormatConfiguration
+    -- | Specifies the serializer that you want Kinesis Data Firehose to use to
+    -- convert the format of your data to the Parquet or ORC format. This
+    -- parameter is required if @Enabled@ is set to true.
+    outputFormatConfiguration :: Prelude.Maybe OutputFormatConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,9 +61,9 @@ data DataFormatConversionConfiguration = DataFormatConversionConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outputFormatConfiguration', 'dataFormatConversionConfiguration_outputFormatConfiguration' - Specifies the serializer that you want Kinesis Data Firehose to use to
--- convert the format of your data to the Parquet or ORC format. This
--- parameter is required if @Enabled@ is set to true.
+-- 'inputFormatConfiguration', 'dataFormatConversionConfiguration_inputFormatConfiguration' - Specifies the deserializer that you want Kinesis Data Firehose to use to
+-- convert the format of your data from JSON. This parameter is required if
+-- @Enabled@ is set to true.
 --
 -- 'enabled', 'dataFormatConversionConfiguration_enabled' - Defaults to @true@. Set it to @false@ if you want to disable format
 -- conversion while preserving the configuration details.
@@ -71,26 +71,26 @@ data DataFormatConversionConfiguration = DataFormatConversionConfiguration'
 -- 'schemaConfiguration', 'dataFormatConversionConfiguration_schemaConfiguration' - Specifies the AWS Glue Data Catalog table that contains the column
 -- information. This parameter is required if @Enabled@ is set to true.
 --
--- 'inputFormatConfiguration', 'dataFormatConversionConfiguration_inputFormatConfiguration' - Specifies the deserializer that you want Kinesis Data Firehose to use to
--- convert the format of your data from JSON. This parameter is required if
--- @Enabled@ is set to true.
+-- 'outputFormatConfiguration', 'dataFormatConversionConfiguration_outputFormatConfiguration' - Specifies the serializer that you want Kinesis Data Firehose to use to
+-- convert the format of your data to the Parquet or ORC format. This
+-- parameter is required if @Enabled@ is set to true.
 newDataFormatConversionConfiguration ::
   DataFormatConversionConfiguration
 newDataFormatConversionConfiguration =
   DataFormatConversionConfiguration'
-    { outputFormatConfiguration =
+    { inputFormatConfiguration =
         Prelude.Nothing,
       enabled = Prelude.Nothing,
       schemaConfiguration = Prelude.Nothing,
-      inputFormatConfiguration =
+      outputFormatConfiguration =
         Prelude.Nothing
     }
 
--- | Specifies the serializer that you want Kinesis Data Firehose to use to
--- convert the format of your data to the Parquet or ORC format. This
--- parameter is required if @Enabled@ is set to true.
-dataFormatConversionConfiguration_outputFormatConfiguration :: Lens.Lens' DataFormatConversionConfiguration (Prelude.Maybe OutputFormatConfiguration)
-dataFormatConversionConfiguration_outputFormatConfiguration = Lens.lens (\DataFormatConversionConfiguration' {outputFormatConfiguration} -> outputFormatConfiguration) (\s@DataFormatConversionConfiguration' {} a -> s {outputFormatConfiguration = a} :: DataFormatConversionConfiguration)
+-- | Specifies the deserializer that you want Kinesis Data Firehose to use to
+-- convert the format of your data from JSON. This parameter is required if
+-- @Enabled@ is set to true.
+dataFormatConversionConfiguration_inputFormatConfiguration :: Lens.Lens' DataFormatConversionConfiguration (Prelude.Maybe InputFormatConfiguration)
+dataFormatConversionConfiguration_inputFormatConfiguration = Lens.lens (\DataFormatConversionConfiguration' {inputFormatConfiguration} -> inputFormatConfiguration) (\s@DataFormatConversionConfiguration' {} a -> s {inputFormatConfiguration = a} :: DataFormatConversionConfiguration)
 
 -- | Defaults to @true@. Set it to @false@ if you want to disable format
 -- conversion while preserving the configuration details.
@@ -102,11 +102,11 @@ dataFormatConversionConfiguration_enabled = Lens.lens (\DataFormatConversionConf
 dataFormatConversionConfiguration_schemaConfiguration :: Lens.Lens' DataFormatConversionConfiguration (Prelude.Maybe SchemaConfiguration)
 dataFormatConversionConfiguration_schemaConfiguration = Lens.lens (\DataFormatConversionConfiguration' {schemaConfiguration} -> schemaConfiguration) (\s@DataFormatConversionConfiguration' {} a -> s {schemaConfiguration = a} :: DataFormatConversionConfiguration)
 
--- | Specifies the deserializer that you want Kinesis Data Firehose to use to
--- convert the format of your data from JSON. This parameter is required if
--- @Enabled@ is set to true.
-dataFormatConversionConfiguration_inputFormatConfiguration :: Lens.Lens' DataFormatConversionConfiguration (Prelude.Maybe InputFormatConfiguration)
-dataFormatConversionConfiguration_inputFormatConfiguration = Lens.lens (\DataFormatConversionConfiguration' {inputFormatConfiguration} -> inputFormatConfiguration) (\s@DataFormatConversionConfiguration' {} a -> s {inputFormatConfiguration = a} :: DataFormatConversionConfiguration)
+-- | Specifies the serializer that you want Kinesis Data Firehose to use to
+-- convert the format of your data to the Parquet or ORC format. This
+-- parameter is required if @Enabled@ is set to true.
+dataFormatConversionConfiguration_outputFormatConfiguration :: Lens.Lens' DataFormatConversionConfiguration (Prelude.Maybe OutputFormatConfiguration)
+dataFormatConversionConfiguration_outputFormatConfiguration = Lens.lens (\DataFormatConversionConfiguration' {outputFormatConfiguration} -> outputFormatConfiguration) (\s@DataFormatConversionConfiguration' {} a -> s {outputFormatConfiguration = a} :: DataFormatConversionConfiguration)
 
 instance
   Core.FromJSON
@@ -117,10 +117,10 @@ instance
       "DataFormatConversionConfiguration"
       ( \x ->
           DataFormatConversionConfiguration'
-            Prelude.<$> (x Core..:? "OutputFormatConfiguration")
+            Prelude.<$> (x Core..:? "InputFormatConfiguration")
             Prelude.<*> (x Core..:? "Enabled")
             Prelude.<*> (x Core..:? "SchemaConfiguration")
-            Prelude.<*> (x Core..:? "InputFormatConfiguration")
+            Prelude.<*> (x Core..:? "OutputFormatConfiguration")
       )
 
 instance
@@ -131,20 +131,20 @@ instance
     _salt
     DataFormatConversionConfiguration' {..} =
       _salt
-        `Prelude.hashWithSalt` outputFormatConfiguration
+        `Prelude.hashWithSalt` inputFormatConfiguration
         `Prelude.hashWithSalt` enabled
         `Prelude.hashWithSalt` schemaConfiguration
-        `Prelude.hashWithSalt` inputFormatConfiguration
+        `Prelude.hashWithSalt` outputFormatConfiguration
 
 instance
   Prelude.NFData
     DataFormatConversionConfiguration
   where
   rnf DataFormatConversionConfiguration' {..} =
-    Prelude.rnf outputFormatConfiguration
+    Prelude.rnf inputFormatConfiguration
       `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf schemaConfiguration
-      `Prelude.seq` Prelude.rnf inputFormatConfiguration
+      `Prelude.seq` Prelude.rnf outputFormatConfiguration
 
 instance
   Core.ToJSON
@@ -153,12 +153,12 @@ instance
   toJSON DataFormatConversionConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("OutputFormatConfiguration" Core..=)
-              Prelude.<$> outputFormatConfiguration,
+          [ ("InputFormatConfiguration" Core..=)
+              Prelude.<$> inputFormatConfiguration,
             ("Enabled" Core..=) Prelude.<$> enabled,
             ("SchemaConfiguration" Core..=)
               Prelude.<$> schemaConfiguration,
-            ("InputFormatConfiguration" Core..=)
-              Prelude.<$> inputFormatConfiguration
+            ("OutputFormatConfiguration" Core..=)
+              Prelude.<$> outputFormatConfiguration
           ]
       )

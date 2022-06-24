@@ -27,11 +27,11 @@ module Amazonka.Firehose
     -- ** InvalidArgumentException
     _InvalidArgumentException,
 
-    -- ** InvalidKMSResourceException
-    _InvalidKMSResourceException,
-
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
+
+    -- ** InvalidKMSResourceException
+    _InvalidKMSResourceException,
 
     -- ** ServiceUnavailableException
     _ServiceUnavailableException,
@@ -39,11 +39,11 @@ module Amazonka.Firehose
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
-
     -- ** ResourceInUseException
     _ResourceInUseException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -51,11 +51,53 @@ module Amazonka.Firehose
     -- * Operations
     -- $operations
 
+    -- ** CreateDeliveryStream
+    CreateDeliveryStream (CreateDeliveryStream'),
+    newCreateDeliveryStream,
+    CreateDeliveryStreamResponse (CreateDeliveryStreamResponse'),
+    newCreateDeliveryStreamResponse,
+
+    -- ** DeleteDeliveryStream
+    DeleteDeliveryStream (DeleteDeliveryStream'),
+    newDeleteDeliveryStream,
+    DeleteDeliveryStreamResponse (DeleteDeliveryStreamResponse'),
+    newDeleteDeliveryStreamResponse,
+
+    -- ** DescribeDeliveryStream
+    DescribeDeliveryStream (DescribeDeliveryStream'),
+    newDescribeDeliveryStream,
+    DescribeDeliveryStreamResponse (DescribeDeliveryStreamResponse'),
+    newDescribeDeliveryStreamResponse,
+
+    -- ** ListDeliveryStreams
+    ListDeliveryStreams (ListDeliveryStreams'),
+    newListDeliveryStreams,
+    ListDeliveryStreamsResponse (ListDeliveryStreamsResponse'),
+    newListDeliveryStreamsResponse,
+
+    -- ** ListTagsForDeliveryStream
+    ListTagsForDeliveryStream (ListTagsForDeliveryStream'),
+    newListTagsForDeliveryStream,
+    ListTagsForDeliveryStreamResponse (ListTagsForDeliveryStreamResponse'),
+    newListTagsForDeliveryStreamResponse,
+
     -- ** PutRecord
     PutRecord (PutRecord'),
     newPutRecord,
     PutRecordResponse (PutRecordResponse'),
     newPutRecordResponse,
+
+    -- ** PutRecordBatch
+    PutRecordBatch (PutRecordBatch'),
+    newPutRecordBatch,
+    PutRecordBatchResponse (PutRecordBatchResponse'),
+    newPutRecordBatchResponse,
+
+    -- ** StartDeliveryStreamEncryption
+    StartDeliveryStreamEncryption (StartDeliveryStreamEncryption'),
+    newStartDeliveryStreamEncryption,
+    StartDeliveryStreamEncryptionResponse (StartDeliveryStreamEncryptionResponse'),
+    newStartDeliveryStreamEncryptionResponse,
 
     -- ** StopDeliveryStreamEncryption
     StopDeliveryStreamEncryption (StopDeliveryStreamEncryption'),
@@ -69,59 +111,17 @@ module Amazonka.Firehose
     TagDeliveryStreamResponse (TagDeliveryStreamResponse'),
     newTagDeliveryStreamResponse,
 
-    -- ** UpdateDestination
-    UpdateDestination (UpdateDestination'),
-    newUpdateDestination,
-    UpdateDestinationResponse (UpdateDestinationResponse'),
-    newUpdateDestinationResponse,
-
-    -- ** PutRecordBatch
-    PutRecordBatch (PutRecordBatch'),
-    newPutRecordBatch,
-    PutRecordBatchResponse (PutRecordBatchResponse'),
-    newPutRecordBatchResponse,
-
     -- ** UntagDeliveryStream
     UntagDeliveryStream (UntagDeliveryStream'),
     newUntagDeliveryStream,
     UntagDeliveryStreamResponse (UntagDeliveryStreamResponse'),
     newUntagDeliveryStreamResponse,
 
-    -- ** CreateDeliveryStream
-    CreateDeliveryStream (CreateDeliveryStream'),
-    newCreateDeliveryStream,
-    CreateDeliveryStreamResponse (CreateDeliveryStreamResponse'),
-    newCreateDeliveryStreamResponse,
-
-    -- ** StartDeliveryStreamEncryption
-    StartDeliveryStreamEncryption (StartDeliveryStreamEncryption'),
-    newStartDeliveryStreamEncryption,
-    StartDeliveryStreamEncryptionResponse (StartDeliveryStreamEncryptionResponse'),
-    newStartDeliveryStreamEncryptionResponse,
-
-    -- ** DescribeDeliveryStream
-    DescribeDeliveryStream (DescribeDeliveryStream'),
-    newDescribeDeliveryStream,
-    DescribeDeliveryStreamResponse (DescribeDeliveryStreamResponse'),
-    newDescribeDeliveryStreamResponse,
-
-    -- ** ListTagsForDeliveryStream
-    ListTagsForDeliveryStream (ListTagsForDeliveryStream'),
-    newListTagsForDeliveryStream,
-    ListTagsForDeliveryStreamResponse (ListTagsForDeliveryStreamResponse'),
-    newListTagsForDeliveryStreamResponse,
-
-    -- ** ListDeliveryStreams
-    ListDeliveryStreams (ListDeliveryStreams'),
-    newListDeliveryStreams,
-    ListDeliveryStreamsResponse (ListDeliveryStreamsResponse'),
-    newListDeliveryStreamsResponse,
-
-    -- ** DeleteDeliveryStream
-    DeleteDeliveryStream (DeleteDeliveryStream'),
-    newDeleteDeliveryStream,
-    DeleteDeliveryStreamResponse (DeleteDeliveryStreamResponse'),
-    newDeleteDeliveryStreamResponse,
+    -- ** UpdateDestination
+    UpdateDestination (UpdateDestination'),
+    newUpdateDestination,
+    UpdateDestinationResponse (UpdateDestinationResponse'),
+    newUpdateDestinationResponse,
 
     -- * Types
 

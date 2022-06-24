@@ -29,8 +29,8 @@ module Amazonka.EC2.DescribeElasticGpus
     newDescribeElasticGpus,
 
     -- * Request Lenses
-    describeElasticGpus_filters,
     describeElasticGpus_nextToken,
+    describeElasticGpus_filters,
     describeElasticGpus_dryRun,
     describeElasticGpus_maxResults,
     describeElasticGpus_elasticGpuIds,
@@ -56,7 +56,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeElasticGpus' smart constructor.
 data DescribeElasticGpus = DescribeElasticGpus'
-  { -- | The filters.
+  { -- | The token to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The filters.
     --
     -- -   @availability-zone@ - The Availability Zone in which the Elastic
     --     Graphics accelerator resides.
@@ -73,8 +75,6 @@ data DescribeElasticGpus = DescribeElasticGpus'
     -- -   @instance-id@ - The ID of the instance to which the Elastic Graphics
     --     accelerator is associated.
     filters :: Prelude.Maybe [Filter],
-    -- | The token to request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -97,6 +97,8 @@ data DescribeElasticGpus = DescribeElasticGpus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describeElasticGpus_nextToken' - The token to request the next page of results.
+--
 -- 'filters', 'describeElasticGpus_filters' - The filters.
 --
 -- -   @availability-zone@ - The Availability Zone in which the Elastic
@@ -114,8 +116,6 @@ data DescribeElasticGpus = DescribeElasticGpus'
 -- -   @instance-id@ - The ID of the instance to which the Elastic Graphics
 --     accelerator is associated.
 --
--- 'nextToken', 'describeElasticGpus_nextToken' - The token to request the next page of results.
---
 -- 'dryRun', 'describeElasticGpus_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -130,12 +130,16 @@ newDescribeElasticGpus ::
   DescribeElasticGpus
 newDescribeElasticGpus =
   DescribeElasticGpus'
-    { filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       elasticGpuIds = Prelude.Nothing
     }
+
+-- | The token to request the next page of results.
+describeElasticGpus_nextToken :: Lens.Lens' DescribeElasticGpus (Prelude.Maybe Prelude.Text)
+describeElasticGpus_nextToken = Lens.lens (\DescribeElasticGpus' {nextToken} -> nextToken) (\s@DescribeElasticGpus' {} a -> s {nextToken = a} :: DescribeElasticGpus)
 
 -- | The filters.
 --
@@ -155,10 +159,6 @@ newDescribeElasticGpus =
 --     accelerator is associated.
 describeElasticGpus_filters :: Lens.Lens' DescribeElasticGpus (Prelude.Maybe [Filter])
 describeElasticGpus_filters = Lens.lens (\DescribeElasticGpus' {filters} -> filters) (\s@DescribeElasticGpus' {} a -> s {filters = a} :: DescribeElasticGpus) Prelude.. Lens.mapping Lens.coerced
-
--- | The token to request the next page of results.
-describeElasticGpus_nextToken :: Lens.Lens' DescribeElasticGpus (Prelude.Maybe Prelude.Text)
-describeElasticGpus_nextToken = Lens.lens (\DescribeElasticGpus' {nextToken} -> nextToken) (\s@DescribeElasticGpus' {} a -> s {nextToken = a} :: DescribeElasticGpus)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -196,16 +196,16 @@ instance Core.AWSRequest DescribeElasticGpus where
 
 instance Prelude.Hashable DescribeElasticGpus where
   hashWithSalt _salt DescribeElasticGpus' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` elasticGpuIds
 
 instance Prelude.NFData DescribeElasticGpus where
   rnf DescribeElasticGpus' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf elasticGpuIds
@@ -223,9 +223,9 @@ instance Core.ToQuery DescribeElasticGpus where
           Core.=: ("DescribeElasticGpus" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
-        "NextToken" Core.=: nextToken,
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
         Core.toQuery

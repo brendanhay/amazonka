@@ -49,10 +49,10 @@ module Amazonka.EC2.CreateTransitGateway
     newCreateTransitGateway,
 
     -- * Request Lenses
-    createTransitGateway_tagSpecifications,
-    createTransitGateway_options,
     createTransitGateway_description,
     createTransitGateway_dryRun,
+    createTransitGateway_options,
+    createTransitGateway_tagSpecifications,
 
     -- * Destructuring the Response
     CreateTransitGatewayResponse (..),
@@ -73,17 +73,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateTransitGateway' smart constructor.
 data CreateTransitGateway = CreateTransitGateway'
-  { -- | The tags to apply to the transit gateway.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | The transit gateway options.
-    options :: Prelude.Maybe TransitGatewayRequestOptions,
-    -- | A description of the transit gateway.
+  { -- | A description of the transit gateway.
     description :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The transit gateway options.
+    options :: Prelude.Maybe TransitGatewayRequestOptions,
+    -- | The tags to apply to the transit gateway.
+    tagSpecifications :: Prelude.Maybe [TagSpecification]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -95,34 +95,26 @@ data CreateTransitGateway = CreateTransitGateway'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagSpecifications', 'createTransitGateway_tagSpecifications' - The tags to apply to the transit gateway.
---
--- 'options', 'createTransitGateway_options' - The transit gateway options.
---
 -- 'description', 'createTransitGateway_description' - A description of the transit gateway.
 --
 -- 'dryRun', 'createTransitGateway_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'options', 'createTransitGateway_options' - The transit gateway options.
+--
+-- 'tagSpecifications', 'createTransitGateway_tagSpecifications' - The tags to apply to the transit gateway.
 newCreateTransitGateway ::
   CreateTransitGateway
 newCreateTransitGateway =
   CreateTransitGateway'
-    { tagSpecifications =
+    { description =
         Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       options = Prelude.Nothing,
-      description = Prelude.Nothing,
-      dryRun = Prelude.Nothing
+      tagSpecifications = Prelude.Nothing
     }
-
--- | The tags to apply to the transit gateway.
-createTransitGateway_tagSpecifications :: Lens.Lens' CreateTransitGateway (Prelude.Maybe [TagSpecification])
-createTransitGateway_tagSpecifications = Lens.lens (\CreateTransitGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateTransitGateway' {} a -> s {tagSpecifications = a} :: CreateTransitGateway) Prelude.. Lens.mapping Lens.coerced
-
--- | The transit gateway options.
-createTransitGateway_options :: Lens.Lens' CreateTransitGateway (Prelude.Maybe TransitGatewayRequestOptions)
-createTransitGateway_options = Lens.lens (\CreateTransitGateway' {options} -> options) (\s@CreateTransitGateway' {} a -> s {options = a} :: CreateTransitGateway)
 
 -- | A description of the transit gateway.
 createTransitGateway_description :: Lens.Lens' CreateTransitGateway (Prelude.Maybe Prelude.Text)
@@ -134,6 +126,14 @@ createTransitGateway_description = Lens.lens (\CreateTransitGateway' {descriptio
 -- Otherwise, it is @UnauthorizedOperation@.
 createTransitGateway_dryRun :: Lens.Lens' CreateTransitGateway (Prelude.Maybe Prelude.Bool)
 createTransitGateway_dryRun = Lens.lens (\CreateTransitGateway' {dryRun} -> dryRun) (\s@CreateTransitGateway' {} a -> s {dryRun = a} :: CreateTransitGateway)
+
+-- | The transit gateway options.
+createTransitGateway_options :: Lens.Lens' CreateTransitGateway (Prelude.Maybe TransitGatewayRequestOptions)
+createTransitGateway_options = Lens.lens (\CreateTransitGateway' {options} -> options) (\s@CreateTransitGateway' {} a -> s {options = a} :: CreateTransitGateway)
+
+-- | The tags to apply to the transit gateway.
+createTransitGateway_tagSpecifications :: Lens.Lens' CreateTransitGateway (Prelude.Maybe [TagSpecification])
+createTransitGateway_tagSpecifications = Lens.lens (\CreateTransitGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateTransitGateway' {} a -> s {tagSpecifications = a} :: CreateTransitGateway) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest CreateTransitGateway where
   type
@@ -150,17 +150,17 @@ instance Core.AWSRequest CreateTransitGateway where
 
 instance Prelude.Hashable CreateTransitGateway where
   hashWithSalt _salt CreateTransitGateway' {..} =
-    _salt `Prelude.hashWithSalt` tagSpecifications
-      `Prelude.hashWithSalt` options
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` tagSpecifications
 
 instance Prelude.NFData CreateTransitGateway where
   rnf CreateTransitGateway' {..} =
-    Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf options
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf options
+      `Prelude.seq` Prelude.rnf tagSpecifications
 
 instance Core.ToHeaders CreateTransitGateway where
   toHeaders = Prelude.const Prelude.mempty
@@ -175,13 +175,13 @@ instance Core.ToQuery CreateTransitGateway where
           Core.=: ("CreateTransitGateway" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "Description" Core.=: description,
+        "DryRun" Core.=: dryRun,
+        "Options" Core.=: options,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
-          ),
-        "Options" Core.=: options,
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun
+          )
       ]
 
 -- | /See:/ 'newCreateTransitGatewayResponse' smart constructor.

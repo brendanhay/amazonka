@@ -36,8 +36,8 @@ module Amazonka.EC2.CreateStoreImageTask
     newCreateStoreImageTask,
 
     -- * Request Lenses
-    createStoreImageTask_s3ObjectTags,
     createStoreImageTask_dryRun,
+    createStoreImageTask_s3ObjectTags,
     createStoreImageTask_imageId,
     createStoreImageTask_bucket,
 
@@ -60,14 +60,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateStoreImageTask' smart constructor.
 data CreateStoreImageTask = CreateStoreImageTask'
-  { -- | The tags to apply to the AMI object that will be stored in the Amazon S3
-    -- bucket.
-    s3ObjectTags :: Prelude.Maybe [S3ObjectTag],
-    -- | Checks whether you have the required permissions for the action, without
+  { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The tags to apply to the AMI object that will be stored in the Amazon S3
+    -- bucket.
+    s3ObjectTags :: Prelude.Maybe [S3ObjectTag],
     -- | The ID of the AMI.
     imageId :: Prelude.Text,
     -- | The name of the Amazon S3 bucket in which the AMI object will be stored.
@@ -86,13 +86,13 @@ data CreateStoreImageTask = CreateStoreImageTask'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3ObjectTags', 'createStoreImageTask_s3ObjectTags' - The tags to apply to the AMI object that will be stored in the Amazon S3
--- bucket.
---
 -- 'dryRun', 'createStoreImageTask_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 's3ObjectTags', 'createStoreImageTask_s3ObjectTags' - The tags to apply to the AMI object that will be stored in the Amazon S3
+-- bucket.
 --
 -- 'imageId', 'createStoreImageTask_imageId' - The ID of the AMI.
 --
@@ -108,17 +108,11 @@ newCreateStoreImageTask ::
   CreateStoreImageTask
 newCreateStoreImageTask pImageId_ pBucket_ =
   CreateStoreImageTask'
-    { s3ObjectTags =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+    { dryRun = Prelude.Nothing,
+      s3ObjectTags = Prelude.Nothing,
       imageId = pImageId_,
       bucket = pBucket_
     }
-
--- | The tags to apply to the AMI object that will be stored in the Amazon S3
--- bucket.
-createStoreImageTask_s3ObjectTags :: Lens.Lens' CreateStoreImageTask (Prelude.Maybe [S3ObjectTag])
-createStoreImageTask_s3ObjectTags = Lens.lens (\CreateStoreImageTask' {s3ObjectTags} -> s3ObjectTags) (\s@CreateStoreImageTask' {} a -> s {s3ObjectTags = a} :: CreateStoreImageTask) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -126,6 +120,11 @@ createStoreImageTask_s3ObjectTags = Lens.lens (\CreateStoreImageTask' {s3ObjectT
 -- Otherwise, it is @UnauthorizedOperation@.
 createStoreImageTask_dryRun :: Lens.Lens' CreateStoreImageTask (Prelude.Maybe Prelude.Bool)
 createStoreImageTask_dryRun = Lens.lens (\CreateStoreImageTask' {dryRun} -> dryRun) (\s@CreateStoreImageTask' {} a -> s {dryRun = a} :: CreateStoreImageTask)
+
+-- | The tags to apply to the AMI object that will be stored in the Amazon S3
+-- bucket.
+createStoreImageTask_s3ObjectTags :: Lens.Lens' CreateStoreImageTask (Prelude.Maybe [S3ObjectTag])
+createStoreImageTask_s3ObjectTags = Lens.lens (\CreateStoreImageTask' {s3ObjectTags} -> s3ObjectTags) (\s@CreateStoreImageTask' {} a -> s {s3ObjectTags = a} :: CreateStoreImageTask) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the AMI.
 createStoreImageTask_imageId :: Lens.Lens' CreateStoreImageTask Prelude.Text
@@ -153,15 +152,15 @@ instance Core.AWSRequest CreateStoreImageTask where
 
 instance Prelude.Hashable CreateStoreImageTask where
   hashWithSalt _salt CreateStoreImageTask' {..} =
-    _salt `Prelude.hashWithSalt` s3ObjectTags
-      `Prelude.hashWithSalt` dryRun
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` s3ObjectTags
       `Prelude.hashWithSalt` imageId
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData CreateStoreImageTask where
   rnf CreateStoreImageTask' {..} =
-    Prelude.rnf s3ObjectTags
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf s3ObjectTags
       `Prelude.seq` Prelude.rnf imageId
       `Prelude.seq` Prelude.rnf bucket
 
@@ -178,11 +177,11 @@ instance Core.ToQuery CreateStoreImageTask where
           Core.=: ("CreateStoreImageTask" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "S3ObjectTag"
               Prelude.<$> s3ObjectTags
           ),
-        "DryRun" Core.=: dryRun,
         "ImageId" Core.=: imageId,
         "Bucket" Core.=: bucket
       ]

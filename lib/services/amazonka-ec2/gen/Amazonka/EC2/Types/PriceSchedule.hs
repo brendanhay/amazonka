@@ -29,13 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPriceSchedule' smart constructor.
 data PriceSchedule = PriceSchedule'
-  { -- | The currency for transacting the Reserved Instance resale. At this time,
-    -- the only supported currency is @USD@.
-    currencyCode :: Prelude.Maybe CurrencyCodeValues,
-    -- | The number of months remaining in the reservation. For example, 2 is the
-    -- second to the last month before the capacity reservation expires.
-    term :: Prelude.Maybe Prelude.Integer,
-    -- | The current price schedule, as determined by the term remaining for the
+  { -- | The current price schedule, as determined by the term remaining for the
     -- Reserved Instance in the listing.
     --
     -- A specific price schedule is always in effect, but only one price
@@ -46,8 +40,14 @@ data PriceSchedule = PriceSchedule'
     -- be active during months 5, 4, and 3. Then schedule 2, covering the last
     -- two months of the term, will be active for months 2 and 1.
     active :: Prelude.Maybe Prelude.Bool,
+    -- | The currency for transacting the Reserved Instance resale. At this time,
+    -- the only supported currency is @USD@.
+    currencyCode :: Prelude.Maybe CurrencyCodeValues,
     -- | The fixed price for the term.
-    price :: Prelude.Maybe Prelude.Double
+    price :: Prelude.Maybe Prelude.Double,
+    -- | The number of months remaining in the reservation. For example, 2 is the
+    -- second to the last month before the capacity reservation expires.
+    term :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,12 +58,6 @@ data PriceSchedule = PriceSchedule'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'currencyCode', 'priceSchedule_currencyCode' - The currency for transacting the Reserved Instance resale. At this time,
--- the only supported currency is @USD@.
---
--- 'term', 'priceSchedule_term' - The number of months remaining in the reservation. For example, 2 is the
--- second to the last month before the capacity reservation expires.
 --
 -- 'active', 'priceSchedule_active' - The current price schedule, as determined by the term remaining for the
 -- Reserved Instance in the listing.
@@ -76,26 +70,22 @@ data PriceSchedule = PriceSchedule'
 -- be active during months 5, 4, and 3. Then schedule 2, covering the last
 -- two months of the term, will be active for months 2 and 1.
 --
+-- 'currencyCode', 'priceSchedule_currencyCode' - The currency for transacting the Reserved Instance resale. At this time,
+-- the only supported currency is @USD@.
+--
 -- 'price', 'priceSchedule_price' - The fixed price for the term.
+--
+-- 'term', 'priceSchedule_term' - The number of months remaining in the reservation. For example, 2 is the
+-- second to the last month before the capacity reservation expires.
 newPriceSchedule ::
   PriceSchedule
 newPriceSchedule =
   PriceSchedule'
-    { currencyCode = Prelude.Nothing,
-      term = Prelude.Nothing,
-      active = Prelude.Nothing,
-      price = Prelude.Nothing
+    { active = Prelude.Nothing,
+      currencyCode = Prelude.Nothing,
+      price = Prelude.Nothing,
+      term = Prelude.Nothing
     }
-
--- | The currency for transacting the Reserved Instance resale. At this time,
--- the only supported currency is @USD@.
-priceSchedule_currencyCode :: Lens.Lens' PriceSchedule (Prelude.Maybe CurrencyCodeValues)
-priceSchedule_currencyCode = Lens.lens (\PriceSchedule' {currencyCode} -> currencyCode) (\s@PriceSchedule' {} a -> s {currencyCode = a} :: PriceSchedule)
-
--- | The number of months remaining in the reservation. For example, 2 is the
--- second to the last month before the capacity reservation expires.
-priceSchedule_term :: Lens.Lens' PriceSchedule (Prelude.Maybe Prelude.Integer)
-priceSchedule_term = Lens.lens (\PriceSchedule' {term} -> term) (\s@PriceSchedule' {} a -> s {term = a} :: PriceSchedule)
 
 -- | The current price schedule, as determined by the term remaining for the
 -- Reserved Instance in the listing.
@@ -110,28 +100,38 @@ priceSchedule_term = Lens.lens (\PriceSchedule' {term} -> term) (\s@PriceSchedul
 priceSchedule_active :: Lens.Lens' PriceSchedule (Prelude.Maybe Prelude.Bool)
 priceSchedule_active = Lens.lens (\PriceSchedule' {active} -> active) (\s@PriceSchedule' {} a -> s {active = a} :: PriceSchedule)
 
+-- | The currency for transacting the Reserved Instance resale. At this time,
+-- the only supported currency is @USD@.
+priceSchedule_currencyCode :: Lens.Lens' PriceSchedule (Prelude.Maybe CurrencyCodeValues)
+priceSchedule_currencyCode = Lens.lens (\PriceSchedule' {currencyCode} -> currencyCode) (\s@PriceSchedule' {} a -> s {currencyCode = a} :: PriceSchedule)
+
 -- | The fixed price for the term.
 priceSchedule_price :: Lens.Lens' PriceSchedule (Prelude.Maybe Prelude.Double)
 priceSchedule_price = Lens.lens (\PriceSchedule' {price} -> price) (\s@PriceSchedule' {} a -> s {price = a} :: PriceSchedule)
 
+-- | The number of months remaining in the reservation. For example, 2 is the
+-- second to the last month before the capacity reservation expires.
+priceSchedule_term :: Lens.Lens' PriceSchedule (Prelude.Maybe Prelude.Integer)
+priceSchedule_term = Lens.lens (\PriceSchedule' {term} -> term) (\s@PriceSchedule' {} a -> s {term = a} :: PriceSchedule)
+
 instance Core.FromXML PriceSchedule where
   parseXML x =
     PriceSchedule'
-      Prelude.<$> (x Core..@? "currencyCode")
-      Prelude.<*> (x Core..@? "term")
-      Prelude.<*> (x Core..@? "active")
+      Prelude.<$> (x Core..@? "active")
+      Prelude.<*> (x Core..@? "currencyCode")
       Prelude.<*> (x Core..@? "price")
+      Prelude.<*> (x Core..@? "term")
 
 instance Prelude.Hashable PriceSchedule where
   hashWithSalt _salt PriceSchedule' {..} =
-    _salt `Prelude.hashWithSalt` currencyCode
-      `Prelude.hashWithSalt` term
-      `Prelude.hashWithSalt` active
+    _salt `Prelude.hashWithSalt` active
+      `Prelude.hashWithSalt` currencyCode
       `Prelude.hashWithSalt` price
+      `Prelude.hashWithSalt` term
 
 instance Prelude.NFData PriceSchedule where
   rnf PriceSchedule' {..} =
-    Prelude.rnf currencyCode
-      `Prelude.seq` Prelude.rnf term
-      `Prelude.seq` Prelude.rnf active
+    Prelude.rnf active
+      `Prelude.seq` Prelude.rnf currencyCode
       `Prelude.seq` Prelude.rnf price
+      `Prelude.seq` Prelude.rnf term

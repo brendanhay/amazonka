@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCancelSpotFleetRequestsErrorItem' smart constructor.
 data CancelSpotFleetRequestsErrorItem = CancelSpotFleetRequestsErrorItem'
-  { -- | The error.
-    error :: Prelude.Maybe CancelSpotFleetRequestsError,
-    -- | The ID of the Spot Fleet request.
-    spotFleetRequestId :: Prelude.Maybe Prelude.Text
+  { -- | The ID of the Spot Fleet request.
+    spotFleetRequestId :: Prelude.Maybe Prelude.Text,
+    -- | The error.
+    error :: Prelude.Maybe CancelSpotFleetRequestsError
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data CancelSpotFleetRequestsErrorItem = CancelSpotFleetRequestsErrorItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'error', 'cancelSpotFleetRequestsErrorItem_error' - The error.
---
 -- 'spotFleetRequestId', 'cancelSpotFleetRequestsErrorItem_spotFleetRequestId' - The ID of the Spot Fleet request.
+--
+-- 'error', 'cancelSpotFleetRequestsErrorItem_error' - The error.
 newCancelSpotFleetRequestsErrorItem ::
   CancelSpotFleetRequestsErrorItem
 newCancelSpotFleetRequestsErrorItem =
   CancelSpotFleetRequestsErrorItem'
-    { error =
+    { spotFleetRequestId =
         Prelude.Nothing,
-      spotFleetRequestId = Prelude.Nothing
+      error = Prelude.Nothing
     }
-
--- | The error.
-cancelSpotFleetRequestsErrorItem_error :: Lens.Lens' CancelSpotFleetRequestsErrorItem (Prelude.Maybe CancelSpotFleetRequestsError)
-cancelSpotFleetRequestsErrorItem_error = Lens.lens (\CancelSpotFleetRequestsErrorItem' {error} -> error) (\s@CancelSpotFleetRequestsErrorItem' {} a -> s {error = a} :: CancelSpotFleetRequestsErrorItem)
 
 -- | The ID of the Spot Fleet request.
 cancelSpotFleetRequestsErrorItem_spotFleetRequestId :: Lens.Lens' CancelSpotFleetRequestsErrorItem (Prelude.Maybe Prelude.Text)
 cancelSpotFleetRequestsErrorItem_spotFleetRequestId = Lens.lens (\CancelSpotFleetRequestsErrorItem' {spotFleetRequestId} -> spotFleetRequestId) (\s@CancelSpotFleetRequestsErrorItem' {} a -> s {spotFleetRequestId = a} :: CancelSpotFleetRequestsErrorItem)
+
+-- | The error.
+cancelSpotFleetRequestsErrorItem_error :: Lens.Lens' CancelSpotFleetRequestsErrorItem (Prelude.Maybe CancelSpotFleetRequestsError)
+cancelSpotFleetRequestsErrorItem_error = Lens.lens (\CancelSpotFleetRequestsErrorItem' {error} -> error) (\s@CancelSpotFleetRequestsErrorItem' {} a -> s {error = a} :: CancelSpotFleetRequestsErrorItem)
 
 instance
   Core.FromXML
@@ -70,8 +70,8 @@ instance
   where
   parseXML x =
     CancelSpotFleetRequestsErrorItem'
-      Prelude.<$> (x Core..@? "error")
-      Prelude.<*> (x Core..@? "spotFleetRequestId")
+      Prelude.<$> (x Core..@? "spotFleetRequestId")
+      Prelude.<*> (x Core..@? "error")
 
 instance
   Prelude.Hashable
@@ -80,13 +80,13 @@ instance
   hashWithSalt
     _salt
     CancelSpotFleetRequestsErrorItem' {..} =
-      _salt `Prelude.hashWithSalt` error
-        `Prelude.hashWithSalt` spotFleetRequestId
+      _salt `Prelude.hashWithSalt` spotFleetRequestId
+        `Prelude.hashWithSalt` error
 
 instance
   Prelude.NFData
     CancelSpotFleetRequestsErrorItem
   where
   rnf CancelSpotFleetRequestsErrorItem' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf spotFleetRequestId
+    Prelude.rnf spotFleetRequestId
+      `Prelude.seq` Prelude.rnf error

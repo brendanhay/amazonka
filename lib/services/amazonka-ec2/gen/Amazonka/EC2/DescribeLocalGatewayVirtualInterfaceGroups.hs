@@ -29,11 +29,11 @@ module Amazonka.EC2.DescribeLocalGatewayVirtualInterfaceGroups
     newDescribeLocalGatewayVirtualInterfaceGroups,
 
     -- * Request Lenses
-    describeLocalGatewayVirtualInterfaceGroups_filters,
     describeLocalGatewayVirtualInterfaceGroups_nextToken,
-    describeLocalGatewayVirtualInterfaceGroups_localGatewayVirtualInterfaceGroupIds,
+    describeLocalGatewayVirtualInterfaceGroups_filters,
     describeLocalGatewayVirtualInterfaceGroups_dryRun,
     describeLocalGatewayVirtualInterfaceGroups_maxResults,
+    describeLocalGatewayVirtualInterfaceGroups_localGatewayVirtualInterfaceGroupIds,
 
     -- * Destructuring the Response
     DescribeLocalGatewayVirtualInterfaceGroupsResponse (..),
@@ -55,7 +55,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeLocalGatewayVirtualInterfaceGroups' smart constructor.
 data DescribeLocalGatewayVirtualInterfaceGroups = DescribeLocalGatewayVirtualInterfaceGroups'
-  { -- | One or more filters.
+  { -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters.
     --
     -- -   @local-gateway-id@ - The ID of a local gateway.
     --
@@ -65,10 +67,6 @@ data DescribeLocalGatewayVirtualInterfaceGroups = DescribeLocalGatewayVirtualInt
     -- -   @local-gateway-virtual-interface-group-id@ - The ID of the virtual
     --     interface group.
     filters :: Prelude.Maybe [Filter],
-    -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The IDs of the virtual interface groups.
-    localGatewayVirtualInterfaceGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -77,7 +75,9 @@ data DescribeLocalGatewayVirtualInterfaceGroups = DescribeLocalGatewayVirtualInt
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The IDs of the virtual interface groups.
+    localGatewayVirtualInterfaceGroupIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,6 +89,8 @@ data DescribeLocalGatewayVirtualInterfaceGroups = DescribeLocalGatewayVirtualInt
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describeLocalGatewayVirtualInterfaceGroups_nextToken' - The token for the next page of results.
+--
 -- 'filters', 'describeLocalGatewayVirtualInterfaceGroups_filters' - One or more filters.
 --
 -- -   @local-gateway-id@ - The ID of a local gateway.
@@ -99,10 +101,6 @@ data DescribeLocalGatewayVirtualInterfaceGroups = DescribeLocalGatewayVirtualInt
 -- -   @local-gateway-virtual-interface-group-id@ - The ID of the virtual
 --     interface group.
 --
--- 'nextToken', 'describeLocalGatewayVirtualInterfaceGroups_nextToken' - The token for the next page of results.
---
--- 'localGatewayVirtualInterfaceGroupIds', 'describeLocalGatewayVirtualInterfaceGroups_localGatewayVirtualInterfaceGroupIds' - The IDs of the virtual interface groups.
---
 -- 'dryRun', 'describeLocalGatewayVirtualInterfaceGroups_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -111,18 +109,24 @@ data DescribeLocalGatewayVirtualInterfaceGroups = DescribeLocalGatewayVirtualInt
 -- 'maxResults', 'describeLocalGatewayVirtualInterfaceGroups_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
+--
+-- 'localGatewayVirtualInterfaceGroupIds', 'describeLocalGatewayVirtualInterfaceGroups_localGatewayVirtualInterfaceGroupIds' - The IDs of the virtual interface groups.
 newDescribeLocalGatewayVirtualInterfaceGroups ::
   DescribeLocalGatewayVirtualInterfaceGroups
 newDescribeLocalGatewayVirtualInterfaceGroups =
   DescribeLocalGatewayVirtualInterfaceGroups'
-    { filters =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      localGatewayVirtualInterfaceGroupIds =
-        Prelude.Nothing,
+      filters = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      localGatewayVirtualInterfaceGroupIds =
+        Prelude.Nothing
     }
+
+-- | The token for the next page of results.
+describeLocalGatewayVirtualInterfaceGroups_nextToken :: Lens.Lens' DescribeLocalGatewayVirtualInterfaceGroups (Prelude.Maybe Prelude.Text)
+describeLocalGatewayVirtualInterfaceGroups_nextToken = Lens.lens (\DescribeLocalGatewayVirtualInterfaceGroups' {nextToken} -> nextToken) (\s@DescribeLocalGatewayVirtualInterfaceGroups' {} a -> s {nextToken = a} :: DescribeLocalGatewayVirtualInterfaceGroups)
 
 -- | One or more filters.
 --
@@ -136,14 +140,6 @@ newDescribeLocalGatewayVirtualInterfaceGroups =
 describeLocalGatewayVirtualInterfaceGroups_filters :: Lens.Lens' DescribeLocalGatewayVirtualInterfaceGroups (Prelude.Maybe [Filter])
 describeLocalGatewayVirtualInterfaceGroups_filters = Lens.lens (\DescribeLocalGatewayVirtualInterfaceGroups' {filters} -> filters) (\s@DescribeLocalGatewayVirtualInterfaceGroups' {} a -> s {filters = a} :: DescribeLocalGatewayVirtualInterfaceGroups) Prelude.. Lens.mapping Lens.coerced
 
--- | The token for the next page of results.
-describeLocalGatewayVirtualInterfaceGroups_nextToken :: Lens.Lens' DescribeLocalGatewayVirtualInterfaceGroups (Prelude.Maybe Prelude.Text)
-describeLocalGatewayVirtualInterfaceGroups_nextToken = Lens.lens (\DescribeLocalGatewayVirtualInterfaceGroups' {nextToken} -> nextToken) (\s@DescribeLocalGatewayVirtualInterfaceGroups' {} a -> s {nextToken = a} :: DescribeLocalGatewayVirtualInterfaceGroups)
-
--- | The IDs of the virtual interface groups.
-describeLocalGatewayVirtualInterfaceGroups_localGatewayVirtualInterfaceGroupIds :: Lens.Lens' DescribeLocalGatewayVirtualInterfaceGroups (Prelude.Maybe [Prelude.Text])
-describeLocalGatewayVirtualInterfaceGroups_localGatewayVirtualInterfaceGroupIds = Lens.lens (\DescribeLocalGatewayVirtualInterfaceGroups' {localGatewayVirtualInterfaceGroupIds} -> localGatewayVirtualInterfaceGroupIds) (\s@DescribeLocalGatewayVirtualInterfaceGroups' {} a -> s {localGatewayVirtualInterfaceGroupIds = a} :: DescribeLocalGatewayVirtualInterfaceGroups) Prelude.. Lens.mapping Lens.coerced
-
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -156,6 +152,10 @@ describeLocalGatewayVirtualInterfaceGroups_dryRun = Lens.lens (\DescribeLocalGat
 -- value.
 describeLocalGatewayVirtualInterfaceGroups_maxResults :: Lens.Lens' DescribeLocalGatewayVirtualInterfaceGroups (Prelude.Maybe Prelude.Natural)
 describeLocalGatewayVirtualInterfaceGroups_maxResults = Lens.lens (\DescribeLocalGatewayVirtualInterfaceGroups' {maxResults} -> maxResults) (\s@DescribeLocalGatewayVirtualInterfaceGroups' {} a -> s {maxResults = a} :: DescribeLocalGatewayVirtualInterfaceGroups)
+
+-- | The IDs of the virtual interface groups.
+describeLocalGatewayVirtualInterfaceGroups_localGatewayVirtualInterfaceGroupIds :: Lens.Lens' DescribeLocalGatewayVirtualInterfaceGroups (Prelude.Maybe [Prelude.Text])
+describeLocalGatewayVirtualInterfaceGroups_localGatewayVirtualInterfaceGroupIds = Lens.lens (\DescribeLocalGatewayVirtualInterfaceGroups' {localGatewayVirtualInterfaceGroupIds} -> localGatewayVirtualInterfaceGroupIds) (\s@DescribeLocalGatewayVirtualInterfaceGroups' {} a -> s {localGatewayVirtualInterfaceGroupIds = a} :: DescribeLocalGatewayVirtualInterfaceGroups) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.AWSPager
@@ -210,22 +210,22 @@ instance
   hashWithSalt
     _salt
     DescribeLocalGatewayVirtualInterfaceGroups' {..} =
-      _salt `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` localGatewayVirtualInterfaceGroupIds
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` localGatewayVirtualInterfaceGroupIds
 
 instance
   Prelude.NFData
     DescribeLocalGatewayVirtualInterfaceGroups
   where
   rnf DescribeLocalGatewayVirtualInterfaceGroups' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf localGatewayVirtualInterfaceGroupIds
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf localGatewayVirtualInterfaceGroupIds
 
 instance
   Core.ToHeaders
@@ -252,16 +252,16 @@ instance
                     ),
           "Version"
             Core.=: ("2016-11-15" :: Prelude.ByteString),
+          "NextToken" Core.=: nextToken,
           Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
-          "NextToken" Core.=: nextToken,
+          "DryRun" Core.=: dryRun,
+          "MaxResults" Core.=: maxResults,
           Core.toQuery
             ( Core.toQueryList
                 "LocalGatewayVirtualInterfaceGroupId"
                 Prelude.<$> localGatewayVirtualInterfaceGroupIds
-            ),
-          "DryRun" Core.=: dryRun,
-          "MaxResults" Core.=: maxResults
+            )
         ]
 
 -- | /See:/ 'newDescribeLocalGatewayVirtualInterfaceGroupsResponse' smart constructor.

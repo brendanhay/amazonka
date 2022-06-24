@@ -32,21 +32,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTransitGatewayPeeringAttachment' smart constructor.
 data TransitGatewayPeeringAttachment = TransitGatewayPeeringAttachment'
-  { -- | The time the transit gateway peering attachment was created.
-    creationTime :: Prelude.Maybe Core.ISO8601,
-    -- | Information about the requester transit gateway.
-    requesterTgwInfo :: Prelude.Maybe PeeringTgwInfo,
-    -- | The status of the transit gateway peering attachment.
-    status :: Prelude.Maybe PeeringAttachmentStatus,
+  { -- | The tags for the transit gateway peering attachment.
+    tags :: Prelude.Maybe [Tag],
+    -- | Information about the accepter transit gateway.
+    accepterTgwInfo :: Prelude.Maybe PeeringTgwInfo,
     -- | The state of the transit gateway peering attachment. Note that the
     -- @initiating@ state has been deprecated.
     state :: Prelude.Maybe TransitGatewayAttachmentState,
-    -- | Information about the accepter transit gateway.
-    accepterTgwInfo :: Prelude.Maybe PeeringTgwInfo,
     -- | The ID of the transit gateway peering attachment.
     transitGatewayAttachmentId :: Prelude.Maybe Prelude.Text,
-    -- | The tags for the transit gateway peering attachment.
-    tags :: Prelude.Maybe [Tag]
+    -- | The status of the transit gateway peering attachment.
+    status :: Prelude.Maybe PeeringAttachmentStatus,
+    -- | The time the transit gateway peering attachment was created.
+    creationTime :: Prelude.Maybe Core.ISO8601,
+    -- | Information about the requester transit gateway.
+    requesterTgwInfo :: Prelude.Maybe PeeringTgwInfo
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,34 +58,55 @@ data TransitGatewayPeeringAttachment = TransitGatewayPeeringAttachment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'transitGatewayPeeringAttachment_creationTime' - The time the transit gateway peering attachment was created.
+-- 'tags', 'transitGatewayPeeringAttachment_tags' - The tags for the transit gateway peering attachment.
 --
--- 'requesterTgwInfo', 'transitGatewayPeeringAttachment_requesterTgwInfo' - Information about the requester transit gateway.
---
--- 'status', 'transitGatewayPeeringAttachment_status' - The status of the transit gateway peering attachment.
+-- 'accepterTgwInfo', 'transitGatewayPeeringAttachment_accepterTgwInfo' - Information about the accepter transit gateway.
 --
 -- 'state', 'transitGatewayPeeringAttachment_state' - The state of the transit gateway peering attachment. Note that the
 -- @initiating@ state has been deprecated.
 --
--- 'accepterTgwInfo', 'transitGatewayPeeringAttachment_accepterTgwInfo' - Information about the accepter transit gateway.
---
 -- 'transitGatewayAttachmentId', 'transitGatewayPeeringAttachment_transitGatewayAttachmentId' - The ID of the transit gateway peering attachment.
 --
--- 'tags', 'transitGatewayPeeringAttachment_tags' - The tags for the transit gateway peering attachment.
+-- 'status', 'transitGatewayPeeringAttachment_status' - The status of the transit gateway peering attachment.
+--
+-- 'creationTime', 'transitGatewayPeeringAttachment_creationTime' - The time the transit gateway peering attachment was created.
+--
+-- 'requesterTgwInfo', 'transitGatewayPeeringAttachment_requesterTgwInfo' - Information about the requester transit gateway.
 newTransitGatewayPeeringAttachment ::
   TransitGatewayPeeringAttachment
 newTransitGatewayPeeringAttachment =
   TransitGatewayPeeringAttachment'
-    { creationTime =
+    { tags =
         Prelude.Nothing,
-      requesterTgwInfo = Prelude.Nothing,
-      status = Prelude.Nothing,
-      state = Prelude.Nothing,
       accepterTgwInfo = Prelude.Nothing,
+      state = Prelude.Nothing,
       transitGatewayAttachmentId =
         Prelude.Nothing,
-      tags = Prelude.Nothing
+      status = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      requesterTgwInfo = Prelude.Nothing
     }
+
+-- | The tags for the transit gateway peering attachment.
+transitGatewayPeeringAttachment_tags :: Lens.Lens' TransitGatewayPeeringAttachment (Prelude.Maybe [Tag])
+transitGatewayPeeringAttachment_tags = Lens.lens (\TransitGatewayPeeringAttachment' {tags} -> tags) (\s@TransitGatewayPeeringAttachment' {} a -> s {tags = a} :: TransitGatewayPeeringAttachment) Prelude.. Lens.mapping Lens.coerced
+
+-- | Information about the accepter transit gateway.
+transitGatewayPeeringAttachment_accepterTgwInfo :: Lens.Lens' TransitGatewayPeeringAttachment (Prelude.Maybe PeeringTgwInfo)
+transitGatewayPeeringAttachment_accepterTgwInfo = Lens.lens (\TransitGatewayPeeringAttachment' {accepterTgwInfo} -> accepterTgwInfo) (\s@TransitGatewayPeeringAttachment' {} a -> s {accepterTgwInfo = a} :: TransitGatewayPeeringAttachment)
+
+-- | The state of the transit gateway peering attachment. Note that the
+-- @initiating@ state has been deprecated.
+transitGatewayPeeringAttachment_state :: Lens.Lens' TransitGatewayPeeringAttachment (Prelude.Maybe TransitGatewayAttachmentState)
+transitGatewayPeeringAttachment_state = Lens.lens (\TransitGatewayPeeringAttachment' {state} -> state) (\s@TransitGatewayPeeringAttachment' {} a -> s {state = a} :: TransitGatewayPeeringAttachment)
+
+-- | The ID of the transit gateway peering attachment.
+transitGatewayPeeringAttachment_transitGatewayAttachmentId :: Lens.Lens' TransitGatewayPeeringAttachment (Prelude.Maybe Prelude.Text)
+transitGatewayPeeringAttachment_transitGatewayAttachmentId = Lens.lens (\TransitGatewayPeeringAttachment' {transitGatewayAttachmentId} -> transitGatewayAttachmentId) (\s@TransitGatewayPeeringAttachment' {} a -> s {transitGatewayAttachmentId = a} :: TransitGatewayPeeringAttachment)
+
+-- | The status of the transit gateway peering attachment.
+transitGatewayPeeringAttachment_status :: Lens.Lens' TransitGatewayPeeringAttachment (Prelude.Maybe PeeringAttachmentStatus)
+transitGatewayPeeringAttachment_status = Lens.lens (\TransitGatewayPeeringAttachment' {status} -> status) (\s@TransitGatewayPeeringAttachment' {} a -> s {status = a} :: TransitGatewayPeeringAttachment)
 
 -- | The time the transit gateway peering attachment was created.
 transitGatewayPeeringAttachment_creationTime :: Lens.Lens' TransitGatewayPeeringAttachment (Prelude.Maybe Prelude.UTCTime)
@@ -95,39 +116,18 @@ transitGatewayPeeringAttachment_creationTime = Lens.lens (\TransitGatewayPeering
 transitGatewayPeeringAttachment_requesterTgwInfo :: Lens.Lens' TransitGatewayPeeringAttachment (Prelude.Maybe PeeringTgwInfo)
 transitGatewayPeeringAttachment_requesterTgwInfo = Lens.lens (\TransitGatewayPeeringAttachment' {requesterTgwInfo} -> requesterTgwInfo) (\s@TransitGatewayPeeringAttachment' {} a -> s {requesterTgwInfo = a} :: TransitGatewayPeeringAttachment)
 
--- | The status of the transit gateway peering attachment.
-transitGatewayPeeringAttachment_status :: Lens.Lens' TransitGatewayPeeringAttachment (Prelude.Maybe PeeringAttachmentStatus)
-transitGatewayPeeringAttachment_status = Lens.lens (\TransitGatewayPeeringAttachment' {status} -> status) (\s@TransitGatewayPeeringAttachment' {} a -> s {status = a} :: TransitGatewayPeeringAttachment)
-
--- | The state of the transit gateway peering attachment. Note that the
--- @initiating@ state has been deprecated.
-transitGatewayPeeringAttachment_state :: Lens.Lens' TransitGatewayPeeringAttachment (Prelude.Maybe TransitGatewayAttachmentState)
-transitGatewayPeeringAttachment_state = Lens.lens (\TransitGatewayPeeringAttachment' {state} -> state) (\s@TransitGatewayPeeringAttachment' {} a -> s {state = a} :: TransitGatewayPeeringAttachment)
-
--- | Information about the accepter transit gateway.
-transitGatewayPeeringAttachment_accepterTgwInfo :: Lens.Lens' TransitGatewayPeeringAttachment (Prelude.Maybe PeeringTgwInfo)
-transitGatewayPeeringAttachment_accepterTgwInfo = Lens.lens (\TransitGatewayPeeringAttachment' {accepterTgwInfo} -> accepterTgwInfo) (\s@TransitGatewayPeeringAttachment' {} a -> s {accepterTgwInfo = a} :: TransitGatewayPeeringAttachment)
-
--- | The ID of the transit gateway peering attachment.
-transitGatewayPeeringAttachment_transitGatewayAttachmentId :: Lens.Lens' TransitGatewayPeeringAttachment (Prelude.Maybe Prelude.Text)
-transitGatewayPeeringAttachment_transitGatewayAttachmentId = Lens.lens (\TransitGatewayPeeringAttachment' {transitGatewayAttachmentId} -> transitGatewayAttachmentId) (\s@TransitGatewayPeeringAttachment' {} a -> s {transitGatewayAttachmentId = a} :: TransitGatewayPeeringAttachment)
-
--- | The tags for the transit gateway peering attachment.
-transitGatewayPeeringAttachment_tags :: Lens.Lens' TransitGatewayPeeringAttachment (Prelude.Maybe [Tag])
-transitGatewayPeeringAttachment_tags = Lens.lens (\TransitGatewayPeeringAttachment' {tags} -> tags) (\s@TransitGatewayPeeringAttachment' {} a -> s {tags = a} :: TransitGatewayPeeringAttachment) Prelude.. Lens.mapping Lens.coerced
-
 instance Core.FromXML TransitGatewayPeeringAttachment where
   parseXML x =
     TransitGatewayPeeringAttachment'
-      Prelude.<$> (x Core..@? "creationTime")
-      Prelude.<*> (x Core..@? "requesterTgwInfo")
-      Prelude.<*> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "accepterTgwInfo")
-      Prelude.<*> (x Core..@? "transitGatewayAttachmentId")
-      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
+      Prelude.<*> (x Core..@? "accepterTgwInfo")
+      Prelude.<*> (x Core..@? "state")
+      Prelude.<*> (x Core..@? "transitGatewayAttachmentId")
+      Prelude.<*> (x Core..@? "status")
+      Prelude.<*> (x Core..@? "creationTime")
+      Prelude.<*> (x Core..@? "requesterTgwInfo")
 
 instance
   Prelude.Hashable
@@ -136,23 +136,23 @@ instance
   hashWithSalt
     _salt
     TransitGatewayPeeringAttachment' {..} =
-      _salt `Prelude.hashWithSalt` creationTime
-        `Prelude.hashWithSalt` requesterTgwInfo
-        `Prelude.hashWithSalt` status
-        `Prelude.hashWithSalt` state
+      _salt `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` accepterTgwInfo
+        `Prelude.hashWithSalt` state
         `Prelude.hashWithSalt` transitGatewayAttachmentId
-        `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` creationTime
+        `Prelude.hashWithSalt` requesterTgwInfo
 
 instance
   Prelude.NFData
     TransitGatewayPeeringAttachment
   where
   rnf TransitGatewayPeeringAttachment' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf requesterTgwInfo
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf accepterTgwInfo
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf requesterTgwInfo

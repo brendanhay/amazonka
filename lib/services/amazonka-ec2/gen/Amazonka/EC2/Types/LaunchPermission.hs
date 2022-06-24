@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLaunchPermission' smart constructor.
 data LaunchPermission = LaunchPermission'
-  { -- | The name of the group.
-    group' :: Prelude.Maybe PermissionGroup,
-    -- | The Amazon Web Services account ID.
+  { -- | The Amazon Web Services account ID.
     --
     -- Constraints: Up to 10 000 account IDs can be specified in a single
     -- request.
-    userId :: Prelude.Maybe Prelude.Text
+    userId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the group.
+    group' :: Prelude.Maybe PermissionGroup
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,23 +47,19 @@ data LaunchPermission = LaunchPermission'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'group'', 'launchPermission_group' - The name of the group.
---
 -- 'userId', 'launchPermission_userId' - The Amazon Web Services account ID.
 --
 -- Constraints: Up to 10 000 account IDs can be specified in a single
 -- request.
+--
+-- 'group'', 'launchPermission_group' - The name of the group.
 newLaunchPermission ::
   LaunchPermission
 newLaunchPermission =
   LaunchPermission'
-    { group' = Prelude.Nothing,
-      userId = Prelude.Nothing
+    { userId = Prelude.Nothing,
+      group' = Prelude.Nothing
     }
-
--- | The name of the group.
-launchPermission_group :: Lens.Lens' LaunchPermission (Prelude.Maybe PermissionGroup)
-launchPermission_group = Lens.lens (\LaunchPermission' {group'} -> group') (\s@LaunchPermission' {} a -> s {group' = a} :: LaunchPermission)
 
 -- | The Amazon Web Services account ID.
 --
@@ -72,22 +68,26 @@ launchPermission_group = Lens.lens (\LaunchPermission' {group'} -> group') (\s@L
 launchPermission_userId :: Lens.Lens' LaunchPermission (Prelude.Maybe Prelude.Text)
 launchPermission_userId = Lens.lens (\LaunchPermission' {userId} -> userId) (\s@LaunchPermission' {} a -> s {userId = a} :: LaunchPermission)
 
+-- | The name of the group.
+launchPermission_group :: Lens.Lens' LaunchPermission (Prelude.Maybe PermissionGroup)
+launchPermission_group = Lens.lens (\LaunchPermission' {group'} -> group') (\s@LaunchPermission' {} a -> s {group' = a} :: LaunchPermission)
+
 instance Core.FromXML LaunchPermission where
   parseXML x =
     LaunchPermission'
-      Prelude.<$> (x Core..@? "group")
-      Prelude.<*> (x Core..@? "userId")
+      Prelude.<$> (x Core..@? "userId")
+      Prelude.<*> (x Core..@? "group")
 
 instance Prelude.Hashable LaunchPermission where
   hashWithSalt _salt LaunchPermission' {..} =
-    _salt `Prelude.hashWithSalt` group'
-      `Prelude.hashWithSalt` userId
+    _salt `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` group'
 
 instance Prelude.NFData LaunchPermission where
   rnf LaunchPermission' {..} =
-    Prelude.rnf group' `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf userId `Prelude.seq` Prelude.rnf group'
 
 instance Core.ToQuery LaunchPermission where
   toQuery LaunchPermission' {..} =
     Prelude.mconcat
-      ["Group" Core.=: group', "UserId" Core.=: userId]
+      ["UserId" Core.=: userId, "Group" Core.=: group']

@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLocalGateway' smart constructor.
 data LocalGateway = LocalGateway'
-  { -- | The state of the local gateway.
-    state :: Prelude.Maybe Prelude.Text,
+  { -- | The tags assigned to the local gateway.
+    tags :: Prelude.Maybe [Tag],
     -- | The ID of the local gateway.
     localGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Outpost.
     outpostArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon Web Services account that owns the local gateway.
     ownerId :: Prelude.Maybe Prelude.Text,
-    -- | The tags assigned to the local gateway.
-    tags :: Prelude.Maybe [Tag]
+    -- | The state of the local gateway.
+    state :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,7 +50,7 @@ data LocalGateway = LocalGateway'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'localGateway_state' - The state of the local gateway.
+-- 'tags', 'localGateway_tags' - The tags assigned to the local gateway.
 --
 -- 'localGatewayId', 'localGateway_localGatewayId' - The ID of the local gateway.
 --
@@ -58,21 +58,21 @@ data LocalGateway = LocalGateway'
 --
 -- 'ownerId', 'localGateway_ownerId' - The ID of the Amazon Web Services account that owns the local gateway.
 --
--- 'tags', 'localGateway_tags' - The tags assigned to the local gateway.
+-- 'state', 'localGateway_state' - The state of the local gateway.
 newLocalGateway ::
   LocalGateway
 newLocalGateway =
   LocalGateway'
-    { state = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       localGatewayId = Prelude.Nothing,
       outpostArn = Prelude.Nothing,
       ownerId = Prelude.Nothing,
-      tags = Prelude.Nothing
+      state = Prelude.Nothing
     }
 
--- | The state of the local gateway.
-localGateway_state :: Lens.Lens' LocalGateway (Prelude.Maybe Prelude.Text)
-localGateway_state = Lens.lens (\LocalGateway' {state} -> state) (\s@LocalGateway' {} a -> s {state = a} :: LocalGateway)
+-- | The tags assigned to the local gateway.
+localGateway_tags :: Lens.Lens' LocalGateway (Prelude.Maybe [Tag])
+localGateway_tags = Lens.lens (\LocalGateway' {tags} -> tags) (\s@LocalGateway' {} a -> s {tags = a} :: LocalGateway) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the local gateway.
 localGateway_localGatewayId :: Lens.Lens' LocalGateway (Prelude.Maybe Prelude.Text)
@@ -86,33 +86,33 @@ localGateway_outpostArn = Lens.lens (\LocalGateway' {outpostArn} -> outpostArn) 
 localGateway_ownerId :: Lens.Lens' LocalGateway (Prelude.Maybe Prelude.Text)
 localGateway_ownerId = Lens.lens (\LocalGateway' {ownerId} -> ownerId) (\s@LocalGateway' {} a -> s {ownerId = a} :: LocalGateway)
 
--- | The tags assigned to the local gateway.
-localGateway_tags :: Lens.Lens' LocalGateway (Prelude.Maybe [Tag])
-localGateway_tags = Lens.lens (\LocalGateway' {tags} -> tags) (\s@LocalGateway' {} a -> s {tags = a} :: LocalGateway) Prelude.. Lens.mapping Lens.coerced
+-- | The state of the local gateway.
+localGateway_state :: Lens.Lens' LocalGateway (Prelude.Maybe Prelude.Text)
+localGateway_state = Lens.lens (\LocalGateway' {state} -> state) (\s@LocalGateway' {} a -> s {state = a} :: LocalGateway)
 
 instance Core.FromXML LocalGateway where
   parseXML x =
     LocalGateway'
-      Prelude.<$> (x Core..@? "state")
+      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
       Prelude.<*> (x Core..@? "localGatewayId")
       Prelude.<*> (x Core..@? "outpostArn")
       Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
-                  )
+      Prelude.<*> (x Core..@? "state")
 
 instance Prelude.Hashable LocalGateway where
   hashWithSalt _salt LocalGateway' {..} =
-    _salt `Prelude.hashWithSalt` state
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` localGatewayId
       `Prelude.hashWithSalt` outpostArn
       `Prelude.hashWithSalt` ownerId
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` state
 
 instance Prelude.NFData LocalGateway where
   rnf LocalGateway' {..} =
-    Prelude.rnf state
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf localGatewayId
       `Prelude.seq` Prelude.rnf outpostArn
       `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf state

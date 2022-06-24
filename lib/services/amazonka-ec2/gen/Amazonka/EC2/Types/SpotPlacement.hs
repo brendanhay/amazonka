@@ -34,12 +34,12 @@ data SpotPlacement = SpotPlacement'
     -- [Spot Fleet only] To specify multiple Availability Zones, separate them
     -- using commas; for example, \"us-west-2a, us-west-2b\".
     availabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | The name of the placement group.
+    groupName :: Prelude.Maybe Prelude.Text,
     -- | The tenancy of the instance (if the instance is running in a VPC). An
     -- instance with a tenancy of @dedicated@ runs on single-tenant hardware.
     -- The @host@ tenancy is not supported for Spot Instances.
-    tenancy :: Prelude.Maybe Tenancy,
-    -- | The name of the placement group.
-    groupName :: Prelude.Maybe Prelude.Text
+    tenancy :: Prelude.Maybe Tenancy
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,18 +56,18 @@ data SpotPlacement = SpotPlacement'
 -- [Spot Fleet only] To specify multiple Availability Zones, separate them
 -- using commas; for example, \"us-west-2a, us-west-2b\".
 --
+-- 'groupName', 'spotPlacement_groupName' - The name of the placement group.
+--
 -- 'tenancy', 'spotPlacement_tenancy' - The tenancy of the instance (if the instance is running in a VPC). An
 -- instance with a tenancy of @dedicated@ runs on single-tenant hardware.
 -- The @host@ tenancy is not supported for Spot Instances.
---
--- 'groupName', 'spotPlacement_groupName' - The name of the placement group.
 newSpotPlacement ::
   SpotPlacement
 newSpotPlacement =
   SpotPlacement'
     { availabilityZone = Prelude.Nothing,
-      tenancy = Prelude.Nothing,
-      groupName = Prelude.Nothing
+      groupName = Prelude.Nothing,
+      tenancy = Prelude.Nothing
     }
 
 -- | The Availability Zone.
@@ -77,39 +77,39 @@ newSpotPlacement =
 spotPlacement_availabilityZone :: Lens.Lens' SpotPlacement (Prelude.Maybe Prelude.Text)
 spotPlacement_availabilityZone = Lens.lens (\SpotPlacement' {availabilityZone} -> availabilityZone) (\s@SpotPlacement' {} a -> s {availabilityZone = a} :: SpotPlacement)
 
+-- | The name of the placement group.
+spotPlacement_groupName :: Lens.Lens' SpotPlacement (Prelude.Maybe Prelude.Text)
+spotPlacement_groupName = Lens.lens (\SpotPlacement' {groupName} -> groupName) (\s@SpotPlacement' {} a -> s {groupName = a} :: SpotPlacement)
+
 -- | The tenancy of the instance (if the instance is running in a VPC). An
 -- instance with a tenancy of @dedicated@ runs on single-tenant hardware.
 -- The @host@ tenancy is not supported for Spot Instances.
 spotPlacement_tenancy :: Lens.Lens' SpotPlacement (Prelude.Maybe Tenancy)
 spotPlacement_tenancy = Lens.lens (\SpotPlacement' {tenancy} -> tenancy) (\s@SpotPlacement' {} a -> s {tenancy = a} :: SpotPlacement)
 
--- | The name of the placement group.
-spotPlacement_groupName :: Lens.Lens' SpotPlacement (Prelude.Maybe Prelude.Text)
-spotPlacement_groupName = Lens.lens (\SpotPlacement' {groupName} -> groupName) (\s@SpotPlacement' {} a -> s {groupName = a} :: SpotPlacement)
-
 instance Core.FromXML SpotPlacement where
   parseXML x =
     SpotPlacement'
       Prelude.<$> (x Core..@? "availabilityZone")
-      Prelude.<*> (x Core..@? "tenancy")
       Prelude.<*> (x Core..@? "groupName")
+      Prelude.<*> (x Core..@? "tenancy")
 
 instance Prelude.Hashable SpotPlacement where
   hashWithSalt _salt SpotPlacement' {..} =
     _salt `Prelude.hashWithSalt` availabilityZone
-      `Prelude.hashWithSalt` tenancy
       `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` tenancy
 
 instance Prelude.NFData SpotPlacement where
   rnf SpotPlacement' {..} =
     Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf tenancy
       `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf tenancy
 
 instance Core.ToQuery SpotPlacement where
   toQuery SpotPlacement' {..} =
     Prelude.mconcat
       [ "AvailabilityZone" Core.=: availabilityZone,
-        "Tenancy" Core.=: tenancy,
-        "GroupName" Core.=: groupName
+        "GroupName" Core.=: groupName,
+        "Tenancy" Core.=: tenancy
       ]

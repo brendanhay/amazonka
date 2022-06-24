@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCancelSpotFleetRequestsError' smart constructor.
 data CancelSpotFleetRequestsError = CancelSpotFleetRequestsError'
-  { -- | The error code.
-    code :: Prelude.Maybe CancelBatchErrorCode,
-    -- | The description for the error code.
-    message :: Prelude.Maybe Prelude.Text
+  { -- | The description for the error code.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The error code.
+    code :: Prelude.Maybe CancelBatchErrorCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,40 +44,40 @@ data CancelSpotFleetRequestsError = CancelSpotFleetRequestsError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'code', 'cancelSpotFleetRequestsError_code' - The error code.
---
 -- 'message', 'cancelSpotFleetRequestsError_message' - The description for the error code.
+--
+-- 'code', 'cancelSpotFleetRequestsError_code' - The error code.
 newCancelSpotFleetRequestsError ::
   CancelSpotFleetRequestsError
 newCancelSpotFleetRequestsError =
   CancelSpotFleetRequestsError'
-    { code =
+    { message =
         Prelude.Nothing,
-      message = Prelude.Nothing
+      code = Prelude.Nothing
     }
-
--- | The error code.
-cancelSpotFleetRequestsError_code :: Lens.Lens' CancelSpotFleetRequestsError (Prelude.Maybe CancelBatchErrorCode)
-cancelSpotFleetRequestsError_code = Lens.lens (\CancelSpotFleetRequestsError' {code} -> code) (\s@CancelSpotFleetRequestsError' {} a -> s {code = a} :: CancelSpotFleetRequestsError)
 
 -- | The description for the error code.
 cancelSpotFleetRequestsError_message :: Lens.Lens' CancelSpotFleetRequestsError (Prelude.Maybe Prelude.Text)
 cancelSpotFleetRequestsError_message = Lens.lens (\CancelSpotFleetRequestsError' {message} -> message) (\s@CancelSpotFleetRequestsError' {} a -> s {message = a} :: CancelSpotFleetRequestsError)
 
+-- | The error code.
+cancelSpotFleetRequestsError_code :: Lens.Lens' CancelSpotFleetRequestsError (Prelude.Maybe CancelBatchErrorCode)
+cancelSpotFleetRequestsError_code = Lens.lens (\CancelSpotFleetRequestsError' {code} -> code) (\s@CancelSpotFleetRequestsError' {} a -> s {code = a} :: CancelSpotFleetRequestsError)
+
 instance Core.FromXML CancelSpotFleetRequestsError where
   parseXML x =
     CancelSpotFleetRequestsError'
-      Prelude.<$> (x Core..@? "code")
-      Prelude.<*> (x Core..@? "message")
+      Prelude.<$> (x Core..@? "message")
+      Prelude.<*> (x Core..@? "code")
 
 instance
   Prelude.Hashable
     CancelSpotFleetRequestsError
   where
   hashWithSalt _salt CancelSpotFleetRequestsError' {..} =
-    _salt `Prelude.hashWithSalt` code
-      `Prelude.hashWithSalt` message
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
 
 instance Prelude.NFData CancelSpotFleetRequestsError where
   rnf CancelSpotFleetRequestsError' {..} =
-    Prelude.rnf code `Prelude.seq` Prelude.rnf message
+    Prelude.rnf message `Prelude.seq` Prelude.rnf code

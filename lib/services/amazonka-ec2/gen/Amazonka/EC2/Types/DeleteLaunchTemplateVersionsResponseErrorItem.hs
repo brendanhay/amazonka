@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeleteLaunchTemplateVersionsResponseErrorItem' smart constructor.
 data DeleteLaunchTemplateVersionsResponseErrorItem = DeleteLaunchTemplateVersionsResponseErrorItem'
-  { -- | The name of the launch template.
-    launchTemplateName :: Prelude.Maybe Prelude.Text,
+  { -- | Information about the error.
+    responseError :: Prelude.Maybe ResponseError,
     -- | The ID of the launch template.
     launchTemplateId :: Prelude.Maybe Prelude.Text,
     -- | The version number of the launch template.
     versionNumber :: Prelude.Maybe Prelude.Integer,
-    -- | Information about the error.
-    responseError :: Prelude.Maybe ResponseError
+    -- | The name of the launch template.
+    launchTemplateName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,30 +48,30 @@ data DeleteLaunchTemplateVersionsResponseErrorItem = DeleteLaunchTemplateVersion
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'launchTemplateName', 'deleteLaunchTemplateVersionsResponseErrorItem_launchTemplateName' - The name of the launch template.
+-- 'responseError', 'deleteLaunchTemplateVersionsResponseErrorItem_responseError' - Information about the error.
 --
 -- 'launchTemplateId', 'deleteLaunchTemplateVersionsResponseErrorItem_launchTemplateId' - The ID of the launch template.
 --
 -- 'versionNumber', 'deleteLaunchTemplateVersionsResponseErrorItem_versionNumber' - The version number of the launch template.
 --
--- 'responseError', 'deleteLaunchTemplateVersionsResponseErrorItem_responseError' - Information about the error.
+-- 'launchTemplateName', 'deleteLaunchTemplateVersionsResponseErrorItem_launchTemplateName' - The name of the launch template.
 newDeleteLaunchTemplateVersionsResponseErrorItem ::
   DeleteLaunchTemplateVersionsResponseErrorItem
 newDeleteLaunchTemplateVersionsResponseErrorItem =
   DeleteLaunchTemplateVersionsResponseErrorItem'
-    { launchTemplateName =
+    { responseError =
         Prelude.Nothing,
       launchTemplateId =
         Prelude.Nothing,
       versionNumber =
         Prelude.Nothing,
-      responseError =
+      launchTemplateName =
         Prelude.Nothing
     }
 
--- | The name of the launch template.
-deleteLaunchTemplateVersionsResponseErrorItem_launchTemplateName :: Lens.Lens' DeleteLaunchTemplateVersionsResponseErrorItem (Prelude.Maybe Prelude.Text)
-deleteLaunchTemplateVersionsResponseErrorItem_launchTemplateName = Lens.lens (\DeleteLaunchTemplateVersionsResponseErrorItem' {launchTemplateName} -> launchTemplateName) (\s@DeleteLaunchTemplateVersionsResponseErrorItem' {} a -> s {launchTemplateName = a} :: DeleteLaunchTemplateVersionsResponseErrorItem)
+-- | Information about the error.
+deleteLaunchTemplateVersionsResponseErrorItem_responseError :: Lens.Lens' DeleteLaunchTemplateVersionsResponseErrorItem (Prelude.Maybe ResponseError)
+deleteLaunchTemplateVersionsResponseErrorItem_responseError = Lens.lens (\DeleteLaunchTemplateVersionsResponseErrorItem' {responseError} -> responseError) (\s@DeleteLaunchTemplateVersionsResponseErrorItem' {} a -> s {responseError = a} :: DeleteLaunchTemplateVersionsResponseErrorItem)
 
 -- | The ID of the launch template.
 deleteLaunchTemplateVersionsResponseErrorItem_launchTemplateId :: Lens.Lens' DeleteLaunchTemplateVersionsResponseErrorItem (Prelude.Maybe Prelude.Text)
@@ -81,9 +81,9 @@ deleteLaunchTemplateVersionsResponseErrorItem_launchTemplateId = Lens.lens (\Del
 deleteLaunchTemplateVersionsResponseErrorItem_versionNumber :: Lens.Lens' DeleteLaunchTemplateVersionsResponseErrorItem (Prelude.Maybe Prelude.Integer)
 deleteLaunchTemplateVersionsResponseErrorItem_versionNumber = Lens.lens (\DeleteLaunchTemplateVersionsResponseErrorItem' {versionNumber} -> versionNumber) (\s@DeleteLaunchTemplateVersionsResponseErrorItem' {} a -> s {versionNumber = a} :: DeleteLaunchTemplateVersionsResponseErrorItem)
 
--- | Information about the error.
-deleteLaunchTemplateVersionsResponseErrorItem_responseError :: Lens.Lens' DeleteLaunchTemplateVersionsResponseErrorItem (Prelude.Maybe ResponseError)
-deleteLaunchTemplateVersionsResponseErrorItem_responseError = Lens.lens (\DeleteLaunchTemplateVersionsResponseErrorItem' {responseError} -> responseError) (\s@DeleteLaunchTemplateVersionsResponseErrorItem' {} a -> s {responseError = a} :: DeleteLaunchTemplateVersionsResponseErrorItem)
+-- | The name of the launch template.
+deleteLaunchTemplateVersionsResponseErrorItem_launchTemplateName :: Lens.Lens' DeleteLaunchTemplateVersionsResponseErrorItem (Prelude.Maybe Prelude.Text)
+deleteLaunchTemplateVersionsResponseErrorItem_launchTemplateName = Lens.lens (\DeleteLaunchTemplateVersionsResponseErrorItem' {launchTemplateName} -> launchTemplateName) (\s@DeleteLaunchTemplateVersionsResponseErrorItem' {} a -> s {launchTemplateName = a} :: DeleteLaunchTemplateVersionsResponseErrorItem)
 
 instance
   Core.FromXML
@@ -91,10 +91,10 @@ instance
   where
   parseXML x =
     DeleteLaunchTemplateVersionsResponseErrorItem'
-      Prelude.<$> (x Core..@? "launchTemplateName")
+      Prelude.<$> (x Core..@? "responseError")
         Prelude.<*> (x Core..@? "launchTemplateId")
         Prelude.<*> (x Core..@? "versionNumber")
-        Prelude.<*> (x Core..@? "responseError")
+        Prelude.<*> (x Core..@? "launchTemplateName")
 
 instance
   Prelude.Hashable
@@ -103,10 +103,10 @@ instance
   hashWithSalt
     _salt
     DeleteLaunchTemplateVersionsResponseErrorItem' {..} =
-      _salt `Prelude.hashWithSalt` launchTemplateName
+      _salt `Prelude.hashWithSalt` responseError
         `Prelude.hashWithSalt` launchTemplateId
         `Prelude.hashWithSalt` versionNumber
-        `Prelude.hashWithSalt` responseError
+        `Prelude.hashWithSalt` launchTemplateName
 
 instance
   Prelude.NFData
@@ -114,7 +114,7 @@ instance
   where
   rnf
     DeleteLaunchTemplateVersionsResponseErrorItem' {..} =
-      Prelude.rnf launchTemplateName
+      Prelude.rnf responseError
         `Prelude.seq` Prelude.rnf launchTemplateId
         `Prelude.seq` Prelude.rnf versionNumber
-        `Prelude.seq` Prelude.rnf responseError
+        `Prelude.seq` Prelude.rnf launchTemplateName

@@ -32,11 +32,11 @@ data DestinationOptionsRequest = DestinationOptionsRequest'
   { -- | Indicates whether to partition the flow log per hour. This reduces the
     -- cost and response time for queries. The default is @false@.
     perHourPartition :: Prelude.Maybe Prelude.Bool,
-    -- | The format for the flow log. The default is @plain-text@.
-    fileFormat :: Prelude.Maybe DestinationFileFormat,
     -- | Indicates whether to use Hive-compatible prefixes for flow logs stored
     -- in Amazon S3. The default is @false@.
-    hiveCompatiblePartitions :: Prelude.Maybe Prelude.Bool
+    hiveCompatiblePartitions :: Prelude.Maybe Prelude.Bool,
+    -- | The format for the flow log. The default is @plain-text@.
+    fileFormat :: Prelude.Maybe DestinationFileFormat
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,18 +51,18 @@ data DestinationOptionsRequest = DestinationOptionsRequest'
 -- 'perHourPartition', 'destinationOptionsRequest_perHourPartition' - Indicates whether to partition the flow log per hour. This reduces the
 -- cost and response time for queries. The default is @false@.
 --
--- 'fileFormat', 'destinationOptionsRequest_fileFormat' - The format for the flow log. The default is @plain-text@.
---
 -- 'hiveCompatiblePartitions', 'destinationOptionsRequest_hiveCompatiblePartitions' - Indicates whether to use Hive-compatible prefixes for flow logs stored
 -- in Amazon S3. The default is @false@.
+--
+-- 'fileFormat', 'destinationOptionsRequest_fileFormat' - The format for the flow log. The default is @plain-text@.
 newDestinationOptionsRequest ::
   DestinationOptionsRequest
 newDestinationOptionsRequest =
   DestinationOptionsRequest'
     { perHourPartition =
         Prelude.Nothing,
-      fileFormat = Prelude.Nothing,
-      hiveCompatiblePartitions = Prelude.Nothing
+      hiveCompatiblePartitions = Prelude.Nothing,
+      fileFormat = Prelude.Nothing
     }
 
 -- | Indicates whether to partition the flow log per hour. This reduces the
@@ -70,32 +70,32 @@ newDestinationOptionsRequest =
 destinationOptionsRequest_perHourPartition :: Lens.Lens' DestinationOptionsRequest (Prelude.Maybe Prelude.Bool)
 destinationOptionsRequest_perHourPartition = Lens.lens (\DestinationOptionsRequest' {perHourPartition} -> perHourPartition) (\s@DestinationOptionsRequest' {} a -> s {perHourPartition = a} :: DestinationOptionsRequest)
 
--- | The format for the flow log. The default is @plain-text@.
-destinationOptionsRequest_fileFormat :: Lens.Lens' DestinationOptionsRequest (Prelude.Maybe DestinationFileFormat)
-destinationOptionsRequest_fileFormat = Lens.lens (\DestinationOptionsRequest' {fileFormat} -> fileFormat) (\s@DestinationOptionsRequest' {} a -> s {fileFormat = a} :: DestinationOptionsRequest)
-
 -- | Indicates whether to use Hive-compatible prefixes for flow logs stored
 -- in Amazon S3. The default is @false@.
 destinationOptionsRequest_hiveCompatiblePartitions :: Lens.Lens' DestinationOptionsRequest (Prelude.Maybe Prelude.Bool)
 destinationOptionsRequest_hiveCompatiblePartitions = Lens.lens (\DestinationOptionsRequest' {hiveCompatiblePartitions} -> hiveCompatiblePartitions) (\s@DestinationOptionsRequest' {} a -> s {hiveCompatiblePartitions = a} :: DestinationOptionsRequest)
 
+-- | The format for the flow log. The default is @plain-text@.
+destinationOptionsRequest_fileFormat :: Lens.Lens' DestinationOptionsRequest (Prelude.Maybe DestinationFileFormat)
+destinationOptionsRequest_fileFormat = Lens.lens (\DestinationOptionsRequest' {fileFormat} -> fileFormat) (\s@DestinationOptionsRequest' {} a -> s {fileFormat = a} :: DestinationOptionsRequest)
+
 instance Prelude.Hashable DestinationOptionsRequest where
   hashWithSalt _salt DestinationOptionsRequest' {..} =
     _salt `Prelude.hashWithSalt` perHourPartition
-      `Prelude.hashWithSalt` fileFormat
       `Prelude.hashWithSalt` hiveCompatiblePartitions
+      `Prelude.hashWithSalt` fileFormat
 
 instance Prelude.NFData DestinationOptionsRequest where
   rnf DestinationOptionsRequest' {..} =
     Prelude.rnf perHourPartition
-      `Prelude.seq` Prelude.rnf fileFormat
       `Prelude.seq` Prelude.rnf hiveCompatiblePartitions
+      `Prelude.seq` Prelude.rnf fileFormat
 
 instance Core.ToQuery DestinationOptionsRequest where
   toQuery DestinationOptionsRequest' {..} =
     Prelude.mconcat
       [ "PerHourPartition" Core.=: perHourPartition,
-        "FileFormat" Core.=: fileFormat,
         "HiveCompatiblePartitions"
-          Core.=: hiveCompatiblePartitions
+          Core.=: hiveCompatiblePartitions,
+        "FileFormat" Core.=: fileFormat
       ]

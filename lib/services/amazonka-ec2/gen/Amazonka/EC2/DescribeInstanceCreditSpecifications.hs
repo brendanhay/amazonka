@@ -55,11 +55,11 @@ module Amazonka.EC2.DescribeInstanceCreditSpecifications
     newDescribeInstanceCreditSpecifications,
 
     -- * Request Lenses
-    describeInstanceCreditSpecifications_filters,
     describeInstanceCreditSpecifications_nextToken,
-    describeInstanceCreditSpecifications_instanceIds,
+    describeInstanceCreditSpecifications_filters,
     describeInstanceCreditSpecifications_dryRun,
     describeInstanceCreditSpecifications_maxResults,
+    describeInstanceCreditSpecifications_instanceIds,
 
     -- * Destructuring the Response
     DescribeInstanceCreditSpecificationsResponse (..),
@@ -81,18 +81,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeInstanceCreditSpecifications' smart constructor.
 data DescribeInstanceCreditSpecifications = DescribeInstanceCreditSpecifications'
-  { -- | The filters.
+  { -- | The token to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The filters.
     --
     -- -   @instance-id@ - The ID of the instance.
     filters :: Prelude.Maybe [Filter],
-    -- | The token to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The instance IDs.
-    --
-    -- Default: Describes all your instances.
-    --
-    -- Constraints: Maximum 1000 explicitly specified instance IDs.
-    instanceIds :: Prelude.Maybe [Prelude.Text],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -102,7 +96,13 @@ data DescribeInstanceCreditSpecifications = DescribeInstanceCreditSpecifications
     -- the remaining results, make another call with the returned @NextToken@
     -- value. This value can be between 5 and 1000. You cannot specify this
     -- parameter and the instance IDs parameter in the same call.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The instance IDs.
+    --
+    -- Default: Describes all your instances.
+    --
+    -- Constraints: Maximum 1000 explicitly specified instance IDs.
+    instanceIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -114,17 +114,11 @@ data DescribeInstanceCreditSpecifications = DescribeInstanceCreditSpecifications
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describeInstanceCreditSpecifications_nextToken' - The token to retrieve the next page of results.
+--
 -- 'filters', 'describeInstanceCreditSpecifications_filters' - The filters.
 --
 -- -   @instance-id@ - The ID of the instance.
---
--- 'nextToken', 'describeInstanceCreditSpecifications_nextToken' - The token to retrieve the next page of results.
---
--- 'instanceIds', 'describeInstanceCreditSpecifications_instanceIds' - The instance IDs.
---
--- Default: Describes all your instances.
---
--- Constraints: Maximum 1000 explicitly specified instance IDs.
 --
 -- 'dryRun', 'describeInstanceCreditSpecifications_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -135,35 +129,33 @@ data DescribeInstanceCreditSpecifications = DescribeInstanceCreditSpecifications
 -- the remaining results, make another call with the returned @NextToken@
 -- value. This value can be between 5 and 1000. You cannot specify this
 -- parameter and the instance IDs parameter in the same call.
+--
+-- 'instanceIds', 'describeInstanceCreditSpecifications_instanceIds' - The instance IDs.
+--
+-- Default: Describes all your instances.
+--
+-- Constraints: Maximum 1000 explicitly specified instance IDs.
 newDescribeInstanceCreditSpecifications ::
   DescribeInstanceCreditSpecifications
 newDescribeInstanceCreditSpecifications =
   DescribeInstanceCreditSpecifications'
-    { filters =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      instanceIds = Prelude.Nothing,
+      filters = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      instanceIds = Prelude.Nothing
     }
+
+-- | The token to retrieve the next page of results.
+describeInstanceCreditSpecifications_nextToken :: Lens.Lens' DescribeInstanceCreditSpecifications (Prelude.Maybe Prelude.Text)
+describeInstanceCreditSpecifications_nextToken = Lens.lens (\DescribeInstanceCreditSpecifications' {nextToken} -> nextToken) (\s@DescribeInstanceCreditSpecifications' {} a -> s {nextToken = a} :: DescribeInstanceCreditSpecifications)
 
 -- | The filters.
 --
 -- -   @instance-id@ - The ID of the instance.
 describeInstanceCreditSpecifications_filters :: Lens.Lens' DescribeInstanceCreditSpecifications (Prelude.Maybe [Filter])
 describeInstanceCreditSpecifications_filters = Lens.lens (\DescribeInstanceCreditSpecifications' {filters} -> filters) (\s@DescribeInstanceCreditSpecifications' {} a -> s {filters = a} :: DescribeInstanceCreditSpecifications) Prelude.. Lens.mapping Lens.coerced
-
--- | The token to retrieve the next page of results.
-describeInstanceCreditSpecifications_nextToken :: Lens.Lens' DescribeInstanceCreditSpecifications (Prelude.Maybe Prelude.Text)
-describeInstanceCreditSpecifications_nextToken = Lens.lens (\DescribeInstanceCreditSpecifications' {nextToken} -> nextToken) (\s@DescribeInstanceCreditSpecifications' {} a -> s {nextToken = a} :: DescribeInstanceCreditSpecifications)
-
--- | The instance IDs.
---
--- Default: Describes all your instances.
---
--- Constraints: Maximum 1000 explicitly specified instance IDs.
-describeInstanceCreditSpecifications_instanceIds :: Lens.Lens' DescribeInstanceCreditSpecifications (Prelude.Maybe [Prelude.Text])
-describeInstanceCreditSpecifications_instanceIds = Lens.lens (\DescribeInstanceCreditSpecifications' {instanceIds} -> instanceIds) (\s@DescribeInstanceCreditSpecifications' {} a -> s {instanceIds = a} :: DescribeInstanceCreditSpecifications) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -178,6 +170,14 @@ describeInstanceCreditSpecifications_dryRun = Lens.lens (\DescribeInstanceCredit
 -- parameter and the instance IDs parameter in the same call.
 describeInstanceCreditSpecifications_maxResults :: Lens.Lens' DescribeInstanceCreditSpecifications (Prelude.Maybe Prelude.Natural)
 describeInstanceCreditSpecifications_maxResults = Lens.lens (\DescribeInstanceCreditSpecifications' {maxResults} -> maxResults) (\s@DescribeInstanceCreditSpecifications' {} a -> s {maxResults = a} :: DescribeInstanceCreditSpecifications)
+
+-- | The instance IDs.
+--
+-- Default: Describes all your instances.
+--
+-- Constraints: Maximum 1000 explicitly specified instance IDs.
+describeInstanceCreditSpecifications_instanceIds :: Lens.Lens' DescribeInstanceCreditSpecifications (Prelude.Maybe [Prelude.Text])
+describeInstanceCreditSpecifications_instanceIds = Lens.lens (\DescribeInstanceCreditSpecifications' {instanceIds} -> instanceIds) (\s@DescribeInstanceCreditSpecifications' {} a -> s {instanceIds = a} :: DescribeInstanceCreditSpecifications) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.AWSPager
@@ -231,22 +231,22 @@ instance
   hashWithSalt
     _salt
     DescribeInstanceCreditSpecifications' {..} =
-      _salt `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` instanceIds
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` instanceIds
 
 instance
   Prelude.NFData
     DescribeInstanceCreditSpecifications
   where
   rnf DescribeInstanceCreditSpecifications' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceIds
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf instanceIds
 
 instance
   Core.ToHeaders
@@ -272,15 +272,15 @@ instance
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
-        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
         Core.toQuery
           ( Core.toQueryList "InstanceId"
               Prelude.<$> instanceIds
-          ),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults
+          )
       ]
 
 -- | /See:/ 'newDescribeInstanceCreditSpecificationsResponse' smart constructor.

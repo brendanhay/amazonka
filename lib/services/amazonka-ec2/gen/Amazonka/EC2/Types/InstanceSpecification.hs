@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceSpecification' smart constructor.
 data InstanceSpecification = InstanceSpecification'
-  { -- | The instance to specify which volumes should be snapshotted.
-    instanceId :: Prelude.Maybe Prelude.Text,
-    -- | Excludes the root volume from being snapshotted.
-    excludeBootVolume :: Prelude.Maybe Prelude.Bool
+  { -- | Excludes the root volume from being snapshotted.
+    excludeBootVolume :: Prelude.Maybe Prelude.Bool,
+    -- | The instance to specify which volumes should be snapshotted.
+    instanceId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,39 +43,39 @@ data InstanceSpecification = InstanceSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'instanceSpecification_instanceId' - The instance to specify which volumes should be snapshotted.
---
 -- 'excludeBootVolume', 'instanceSpecification_excludeBootVolume' - Excludes the root volume from being snapshotted.
+--
+-- 'instanceId', 'instanceSpecification_instanceId' - The instance to specify which volumes should be snapshotted.
 newInstanceSpecification ::
   InstanceSpecification
 newInstanceSpecification =
   InstanceSpecification'
-    { instanceId =
+    { excludeBootVolume =
         Prelude.Nothing,
-      excludeBootVolume = Prelude.Nothing
+      instanceId = Prelude.Nothing
     }
-
--- | The instance to specify which volumes should be snapshotted.
-instanceSpecification_instanceId :: Lens.Lens' InstanceSpecification (Prelude.Maybe Prelude.Text)
-instanceSpecification_instanceId = Lens.lens (\InstanceSpecification' {instanceId} -> instanceId) (\s@InstanceSpecification' {} a -> s {instanceId = a} :: InstanceSpecification)
 
 -- | Excludes the root volume from being snapshotted.
 instanceSpecification_excludeBootVolume :: Lens.Lens' InstanceSpecification (Prelude.Maybe Prelude.Bool)
 instanceSpecification_excludeBootVolume = Lens.lens (\InstanceSpecification' {excludeBootVolume} -> excludeBootVolume) (\s@InstanceSpecification' {} a -> s {excludeBootVolume = a} :: InstanceSpecification)
 
+-- | The instance to specify which volumes should be snapshotted.
+instanceSpecification_instanceId :: Lens.Lens' InstanceSpecification (Prelude.Maybe Prelude.Text)
+instanceSpecification_instanceId = Lens.lens (\InstanceSpecification' {instanceId} -> instanceId) (\s@InstanceSpecification' {} a -> s {instanceId = a} :: InstanceSpecification)
+
 instance Prelude.Hashable InstanceSpecification where
   hashWithSalt _salt InstanceSpecification' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
-      `Prelude.hashWithSalt` excludeBootVolume
+    _salt `Prelude.hashWithSalt` excludeBootVolume
+      `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData InstanceSpecification where
   rnf InstanceSpecification' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf excludeBootVolume
+    Prelude.rnf excludeBootVolume
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Core.ToQuery InstanceSpecification where
   toQuery InstanceSpecification' {..} =
     Prelude.mconcat
-      [ "InstanceId" Core.=: instanceId,
-        "ExcludeBootVolume" Core.=: excludeBootVolume
+      [ "ExcludeBootVolume" Core.=: excludeBootVolume,
+        "InstanceId" Core.=: instanceId
       ]

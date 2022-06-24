@@ -32,9 +32,9 @@ module Amazonka.EC2.DescribeMovingAddresses
     newDescribeMovingAddresses,
 
     -- * Request Lenses
+    describeMovingAddresses_nextToken,
     describeMovingAddresses_filters,
     describeMovingAddresses_publicIps,
-    describeMovingAddresses_nextToken,
     describeMovingAddresses_dryRun,
     describeMovingAddresses_maxResults,
 
@@ -43,8 +43,8 @@ module Amazonka.EC2.DescribeMovingAddresses
     newDescribeMovingAddressesResponse,
 
     -- * Response Lenses
-    describeMovingAddressesResponse_movingAddressStatuses,
     describeMovingAddressesResponse_nextToken,
+    describeMovingAddressesResponse_movingAddressStatuses,
     describeMovingAddressesResponse_httpStatus,
   )
 where
@@ -58,15 +58,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeMovingAddresses' smart constructor.
 data DescribeMovingAddresses = DescribeMovingAddresses'
-  { -- | One or more filters.
+  { -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters.
     --
     -- -   @moving-status@ - The status of the Elastic IP address
     --     (@MovingToVpc@ | @RestoringToClassic@).
     filters :: Prelude.Maybe [Filter],
     -- | One or more Elastic IP addresses.
     publicIps :: Prelude.Maybe [Prelude.Text],
-    -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -91,14 +91,14 @@ data DescribeMovingAddresses = DescribeMovingAddresses'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describeMovingAddresses_nextToken' - The token for the next page of results.
+--
 -- 'filters', 'describeMovingAddresses_filters' - One or more filters.
 --
 -- -   @moving-status@ - The status of the Elastic IP address
 --     (@MovingToVpc@ | @RestoringToClassic@).
 --
 -- 'publicIps', 'describeMovingAddresses_publicIps' - One or more Elastic IP addresses.
---
--- 'nextToken', 'describeMovingAddresses_nextToken' - The token for the next page of results.
 --
 -- 'dryRun', 'describeMovingAddresses_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -116,12 +116,17 @@ newDescribeMovingAddresses ::
   DescribeMovingAddresses
 newDescribeMovingAddresses =
   DescribeMovingAddresses'
-    { filters = Prelude.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      filters = Prelude.Nothing,
       publicIps = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | The token for the next page of results.
+describeMovingAddresses_nextToken :: Lens.Lens' DescribeMovingAddresses (Prelude.Maybe Prelude.Text)
+describeMovingAddresses_nextToken = Lens.lens (\DescribeMovingAddresses' {nextToken} -> nextToken) (\s@DescribeMovingAddresses' {} a -> s {nextToken = a} :: DescribeMovingAddresses)
 
 -- | One or more filters.
 --
@@ -133,10 +138,6 @@ describeMovingAddresses_filters = Lens.lens (\DescribeMovingAddresses' {filters}
 -- | One or more Elastic IP addresses.
 describeMovingAddresses_publicIps :: Lens.Lens' DescribeMovingAddresses (Prelude.Maybe [Prelude.Text])
 describeMovingAddresses_publicIps = Lens.lens (\DescribeMovingAddresses' {publicIps} -> publicIps) (\s@DescribeMovingAddresses' {} a -> s {publicIps = a} :: DescribeMovingAddresses) Prelude.. Lens.mapping Lens.coerced
-
--- | The token for the next page of results.
-describeMovingAddresses_nextToken :: Lens.Lens' DescribeMovingAddresses (Prelude.Maybe Prelude.Text)
-describeMovingAddresses_nextToken = Lens.lens (\DescribeMovingAddresses' {nextToken} -> nextToken) (\s@DescribeMovingAddresses' {} a -> s {nextToken = a} :: DescribeMovingAddresses)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -186,27 +187,27 @@ instance Core.AWSRequest DescribeMovingAddresses where
     Response.receiveXML
       ( \s h x ->
           DescribeMovingAddressesResponse'
-            Prelude.<$> ( x Core..@? "movingAddressStatusSet"
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "movingAddressStatusSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeMovingAddresses where
   hashWithSalt _salt DescribeMovingAddresses' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` publicIps
-      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeMovingAddresses where
   rnf DescribeMovingAddresses' {..} =
-    Prelude.rnf filters
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf publicIps
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
 
@@ -223,22 +224,22 @@ instance Core.ToQuery DescribeMovingAddresses where
           Core.=: ("DescribeMovingAddresses" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
         Core.toQuery
           (Core.toQueryList "PublicIp" Prelude.<$> publicIps),
-        "NextToken" Core.=: nextToken,
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeMovingAddressesResponse' smart constructor.
 data DescribeMovingAddressesResponse = DescribeMovingAddressesResponse'
-  { -- | The status for each Elastic IP address.
-    movingAddressStatuses :: Prelude.Maybe [MovingAddressStatus],
-    -- | The token to use to retrieve the next page of results. This value is
+  { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The status for each Elastic IP address.
+    movingAddressStatuses :: Prelude.Maybe [MovingAddressStatus],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -252,10 +253,10 @@ data DescribeMovingAddressesResponse = DescribeMovingAddressesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'movingAddressStatuses', 'describeMovingAddressesResponse_movingAddressStatuses' - The status for each Elastic IP address.
---
 -- 'nextToken', 'describeMovingAddressesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
+--
+-- 'movingAddressStatuses', 'describeMovingAddressesResponse_movingAddressStatuses' - The status for each Elastic IP address.
 --
 -- 'httpStatus', 'describeMovingAddressesResponse_httpStatus' - The response's http status code.
 newDescribeMovingAddressesResponse ::
@@ -264,20 +265,20 @@ newDescribeMovingAddressesResponse ::
   DescribeMovingAddressesResponse
 newDescribeMovingAddressesResponse pHttpStatus_ =
   DescribeMovingAddressesResponse'
-    { movingAddressStatuses =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      movingAddressStatuses = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The status for each Elastic IP address.
-describeMovingAddressesResponse_movingAddressStatuses :: Lens.Lens' DescribeMovingAddressesResponse (Prelude.Maybe [MovingAddressStatus])
-describeMovingAddressesResponse_movingAddressStatuses = Lens.lens (\DescribeMovingAddressesResponse' {movingAddressStatuses} -> movingAddressStatuses) (\s@DescribeMovingAddressesResponse' {} a -> s {movingAddressStatuses = a} :: DescribeMovingAddressesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 describeMovingAddressesResponse_nextToken :: Lens.Lens' DescribeMovingAddressesResponse (Prelude.Maybe Prelude.Text)
 describeMovingAddressesResponse_nextToken = Lens.lens (\DescribeMovingAddressesResponse' {nextToken} -> nextToken) (\s@DescribeMovingAddressesResponse' {} a -> s {nextToken = a} :: DescribeMovingAddressesResponse)
+
+-- | The status for each Elastic IP address.
+describeMovingAddressesResponse_movingAddressStatuses :: Lens.Lens' DescribeMovingAddressesResponse (Prelude.Maybe [MovingAddressStatus])
+describeMovingAddressesResponse_movingAddressStatuses = Lens.lens (\DescribeMovingAddressesResponse' {movingAddressStatuses} -> movingAddressStatuses) (\s@DescribeMovingAddressesResponse' {} a -> s {movingAddressStatuses = a} :: DescribeMovingAddressesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeMovingAddressesResponse_httpStatus :: Lens.Lens' DescribeMovingAddressesResponse Prelude.Int
@@ -288,6 +289,6 @@ instance
     DescribeMovingAddressesResponse
   where
   rnf DescribeMovingAddressesResponse' {..} =
-    Prelude.rnf movingAddressStatuses
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf movingAddressStatuses
       `Prelude.seq` Prelude.rnf httpStatus

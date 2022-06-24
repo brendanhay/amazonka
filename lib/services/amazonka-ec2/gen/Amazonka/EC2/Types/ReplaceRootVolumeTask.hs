@@ -30,9 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReplaceRootVolumeTask' smart constructor.
 data ReplaceRootVolumeTask = ReplaceRootVolumeTask'
-  { -- | The ID of the instance for which the root volume replacement task was
-    -- created.
-    instanceId :: Prelude.Maybe Prelude.Text,
+  { -- | The tags assigned to the task.
+    tags :: Prelude.Maybe [Tag],
     -- | The state of the task. The task can be in one of the following states:
     --
     -- -   @pending@ - the replacement volume is being created.
@@ -54,14 +53,15 @@ data ReplaceRootVolumeTask = ReplaceRootVolumeTask'
     -- -   @failed-detached@ - the replacement task has failed and the instance
     --     has no root volume attached.
     taskState :: Prelude.Maybe ReplaceRootVolumeTaskState,
-    -- | The time the task was started.
-    startTime :: Prelude.Maybe Prelude.Text,
-    -- | The time the task completed.
-    completeTime :: Prelude.Maybe Prelude.Text,
     -- | The ID of the root volume replacement task.
     replaceRootVolumeTaskId :: Prelude.Maybe Prelude.Text,
-    -- | The tags assigned to the task.
-    tags :: Prelude.Maybe [Tag]
+    -- | The time the task completed.
+    completeTime :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the instance for which the root volume replacement task was
+    -- created.
+    instanceId :: Prelude.Maybe Prelude.Text,
+    -- | The time the task was started.
+    startTime :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,8 +73,7 @@ data ReplaceRootVolumeTask = ReplaceRootVolumeTask'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'replaceRootVolumeTask_instanceId' - The ID of the instance for which the root volume replacement task was
--- created.
+-- 'tags', 'replaceRootVolumeTask_tags' - The tags assigned to the task.
 --
 -- 'taskState', 'replaceRootVolumeTask_taskState' - The state of the task. The task can be in one of the following states:
 --
@@ -97,30 +96,29 @@ data ReplaceRootVolumeTask = ReplaceRootVolumeTask'
 -- -   @failed-detached@ - the replacement task has failed and the instance
 --     has no root volume attached.
 --
--- 'startTime', 'replaceRootVolumeTask_startTime' - The time the task was started.
+-- 'replaceRootVolumeTaskId', 'replaceRootVolumeTask_replaceRootVolumeTaskId' - The ID of the root volume replacement task.
 --
 -- 'completeTime', 'replaceRootVolumeTask_completeTime' - The time the task completed.
 --
--- 'replaceRootVolumeTaskId', 'replaceRootVolumeTask_replaceRootVolumeTaskId' - The ID of the root volume replacement task.
+-- 'instanceId', 'replaceRootVolumeTask_instanceId' - The ID of the instance for which the root volume replacement task was
+-- created.
 --
--- 'tags', 'replaceRootVolumeTask_tags' - The tags assigned to the task.
+-- 'startTime', 'replaceRootVolumeTask_startTime' - The time the task was started.
 newReplaceRootVolumeTask ::
   ReplaceRootVolumeTask
 newReplaceRootVolumeTask =
   ReplaceRootVolumeTask'
-    { instanceId =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
       taskState = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      completeTime = Prelude.Nothing,
       replaceRootVolumeTaskId = Prelude.Nothing,
-      tags = Prelude.Nothing
+      completeTime = Prelude.Nothing,
+      instanceId = Prelude.Nothing,
+      startTime = Prelude.Nothing
     }
 
--- | The ID of the instance for which the root volume replacement task was
--- created.
-replaceRootVolumeTask_instanceId :: Lens.Lens' ReplaceRootVolumeTask (Prelude.Maybe Prelude.Text)
-replaceRootVolumeTask_instanceId = Lens.lens (\ReplaceRootVolumeTask' {instanceId} -> instanceId) (\s@ReplaceRootVolumeTask' {} a -> s {instanceId = a} :: ReplaceRootVolumeTask)
+-- | The tags assigned to the task.
+replaceRootVolumeTask_tags :: Lens.Lens' ReplaceRootVolumeTask (Prelude.Maybe [Tag])
+replaceRootVolumeTask_tags = Lens.lens (\ReplaceRootVolumeTask' {tags} -> tags) (\s@ReplaceRootVolumeTask' {} a -> s {tags = a} :: ReplaceRootVolumeTask) Prelude.. Lens.mapping Lens.coerced
 
 -- | The state of the task. The task can be in one of the following states:
 --
@@ -145,48 +143,49 @@ replaceRootVolumeTask_instanceId = Lens.lens (\ReplaceRootVolumeTask' {instanceI
 replaceRootVolumeTask_taskState :: Lens.Lens' ReplaceRootVolumeTask (Prelude.Maybe ReplaceRootVolumeTaskState)
 replaceRootVolumeTask_taskState = Lens.lens (\ReplaceRootVolumeTask' {taskState} -> taskState) (\s@ReplaceRootVolumeTask' {} a -> s {taskState = a} :: ReplaceRootVolumeTask)
 
--- | The time the task was started.
-replaceRootVolumeTask_startTime :: Lens.Lens' ReplaceRootVolumeTask (Prelude.Maybe Prelude.Text)
-replaceRootVolumeTask_startTime = Lens.lens (\ReplaceRootVolumeTask' {startTime} -> startTime) (\s@ReplaceRootVolumeTask' {} a -> s {startTime = a} :: ReplaceRootVolumeTask)
+-- | The ID of the root volume replacement task.
+replaceRootVolumeTask_replaceRootVolumeTaskId :: Lens.Lens' ReplaceRootVolumeTask (Prelude.Maybe Prelude.Text)
+replaceRootVolumeTask_replaceRootVolumeTaskId = Lens.lens (\ReplaceRootVolumeTask' {replaceRootVolumeTaskId} -> replaceRootVolumeTaskId) (\s@ReplaceRootVolumeTask' {} a -> s {replaceRootVolumeTaskId = a} :: ReplaceRootVolumeTask)
 
 -- | The time the task completed.
 replaceRootVolumeTask_completeTime :: Lens.Lens' ReplaceRootVolumeTask (Prelude.Maybe Prelude.Text)
 replaceRootVolumeTask_completeTime = Lens.lens (\ReplaceRootVolumeTask' {completeTime} -> completeTime) (\s@ReplaceRootVolumeTask' {} a -> s {completeTime = a} :: ReplaceRootVolumeTask)
 
--- | The ID of the root volume replacement task.
-replaceRootVolumeTask_replaceRootVolumeTaskId :: Lens.Lens' ReplaceRootVolumeTask (Prelude.Maybe Prelude.Text)
-replaceRootVolumeTask_replaceRootVolumeTaskId = Lens.lens (\ReplaceRootVolumeTask' {replaceRootVolumeTaskId} -> replaceRootVolumeTaskId) (\s@ReplaceRootVolumeTask' {} a -> s {replaceRootVolumeTaskId = a} :: ReplaceRootVolumeTask)
+-- | The ID of the instance for which the root volume replacement task was
+-- created.
+replaceRootVolumeTask_instanceId :: Lens.Lens' ReplaceRootVolumeTask (Prelude.Maybe Prelude.Text)
+replaceRootVolumeTask_instanceId = Lens.lens (\ReplaceRootVolumeTask' {instanceId} -> instanceId) (\s@ReplaceRootVolumeTask' {} a -> s {instanceId = a} :: ReplaceRootVolumeTask)
 
--- | The tags assigned to the task.
-replaceRootVolumeTask_tags :: Lens.Lens' ReplaceRootVolumeTask (Prelude.Maybe [Tag])
-replaceRootVolumeTask_tags = Lens.lens (\ReplaceRootVolumeTask' {tags} -> tags) (\s@ReplaceRootVolumeTask' {} a -> s {tags = a} :: ReplaceRootVolumeTask) Prelude.. Lens.mapping Lens.coerced
+-- | The time the task was started.
+replaceRootVolumeTask_startTime :: Lens.Lens' ReplaceRootVolumeTask (Prelude.Maybe Prelude.Text)
+replaceRootVolumeTask_startTime = Lens.lens (\ReplaceRootVolumeTask' {startTime} -> startTime) (\s@ReplaceRootVolumeTask' {} a -> s {startTime = a} :: ReplaceRootVolumeTask)
 
 instance Core.FromXML ReplaceRootVolumeTask where
   parseXML x =
     ReplaceRootVolumeTask'
-      Prelude.<$> (x Core..@? "instanceId")
-      Prelude.<*> (x Core..@? "taskState")
-      Prelude.<*> (x Core..@? "startTime")
-      Prelude.<*> (x Core..@? "completeTime")
-      Prelude.<*> (x Core..@? "replaceRootVolumeTaskId")
-      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
+      Prelude.<*> (x Core..@? "taskState")
+      Prelude.<*> (x Core..@? "replaceRootVolumeTaskId")
+      Prelude.<*> (x Core..@? "completeTime")
+      Prelude.<*> (x Core..@? "instanceId")
+      Prelude.<*> (x Core..@? "startTime")
 
 instance Prelude.Hashable ReplaceRootVolumeTask where
   hashWithSalt _salt ReplaceRootVolumeTask' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` taskState
-      `Prelude.hashWithSalt` startTime
-      `Prelude.hashWithSalt` completeTime
       `Prelude.hashWithSalt` replaceRootVolumeTaskId
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` completeTime
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData ReplaceRootVolumeTask where
   rnf ReplaceRootVolumeTask' {..} =
-    Prelude.rnf instanceId
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf taskState
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf completeTime
       `Prelude.seq` Prelude.rnf replaceRootVolumeTaskId
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf completeTime
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf startTime

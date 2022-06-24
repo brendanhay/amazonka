@@ -31,20 +31,20 @@ module Amazonka.EC2.CreateNetworkInterface
     newCreateNetworkInterface,
 
     -- * Request Lenses
-    createNetworkInterface_groups,
-    createNetworkInterface_privateIpAddresses,
-    createNetworkInterface_clientToken,
-    createNetworkInterface_ipv4Prefixes,
-    createNetworkInterface_interfaceType,
     createNetworkInterface_ipv4PrefixCount,
-    createNetworkInterface_tagSpecifications,
+    createNetworkInterface_interfaceType,
+    createNetworkInterface_clientToken,
+    createNetworkInterface_privateIpAddresses,
+    createNetworkInterface_description,
+    createNetworkInterface_dryRun,
     createNetworkInterface_ipv6AddressCount,
-    createNetworkInterface_ipv6Prefixes,
+    createNetworkInterface_ipv4Prefixes,
     createNetworkInterface_privateIpAddress,
     createNetworkInterface_ipv6PrefixCount,
     createNetworkInterface_secondaryPrivateIpAddressCount,
-    createNetworkInterface_description,
-    createNetworkInterface_dryRun,
+    createNetworkInterface_ipv6Prefixes,
+    createNetworkInterface_tagSpecifications,
+    createNetworkInterface_groups,
     createNetworkInterface_ipv6Addresses,
     createNetworkInterface_subnetId,
 
@@ -70,17 +70,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateNetworkInterface' smart constructor.
 data CreateNetworkInterface = CreateNetworkInterface'
-  { -- | The IDs of one or more security groups.
-    groups :: Prelude.Maybe [Prelude.Text],
-    -- | One or more private IPv4 addresses.
-    privateIpAddresses :: Prelude.Maybe [PrivateIpAddressSpecification],
-    -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-    clientToken :: Prelude.Maybe Prelude.Text,
-    -- | One or more IPv4 prefixes assigned to the network interface. You cannot
-    -- use this option if you use the @Ipv4PrefixCount@ option.
-    ipv4Prefixes :: Prelude.Maybe [Ipv4PrefixSpecificationRequest],
+  { -- | The number of IPv4 prefixes that Amazon Web Services automatically
+    -- assigns to the network interface. You cannot use this option if you use
+    -- the @Ipv4 Prefixes@ option.
+    ipv4PrefixCount :: Prelude.Maybe Prelude.Int,
     -- | Indicates the type of network interface. To create an Elastic Fabric
     -- Adapter (EFA), specify @efa@. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html Elastic Fabric Adapter>
@@ -89,21 +82,28 @@ data CreateNetworkInterface = CreateNetworkInterface'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/eni-trunking.html Network interface trunking>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
     interfaceType :: Prelude.Maybe NetworkInterfaceCreationType,
-    -- | The number of IPv4 prefixes that Amazon Web Services automatically
-    -- assigns to the network interface. You cannot use this option if you use
-    -- the @Ipv4 Prefixes@ option.
-    ipv4PrefixCount :: Prelude.Maybe Prelude.Int,
-    -- | The tags to apply to the new network interface.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more private IPv4 addresses.
+    privateIpAddresses :: Prelude.Maybe [PrivateIpAddressSpecification],
+    -- | A description for the network interface.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The number of IPv6 addresses to assign to a network interface. Amazon
     -- EC2 automatically selects the IPv6 addresses from the subnet range. You
     -- can\'t use this option if specifying specific IPv6 addresses. If your
     -- subnet has the @AssignIpv6AddressOnCreation@ attribute set to @true@,
     -- you can specify @0@ to override this setting.
     ipv6AddressCount :: Prelude.Maybe Prelude.Int,
-    -- | One or more IPv6 prefixes assigned to the network interface. You cannot
-    -- use this option if you use the @Ipv6PrefixCount@ option.
-    ipv6Prefixes :: Prelude.Maybe [Ipv6PrefixSpecificationRequest],
+    -- | One or more IPv4 prefixes assigned to the network interface. You cannot
+    -- use this option if you use the @Ipv4PrefixCount@ option.
+    ipv4Prefixes :: Prelude.Maybe [Ipv4PrefixSpecificationRequest],
     -- | The primary private IPv4 address of the network interface. If you don\'t
     -- specify an IPv4 address, Amazon EC2 selects one for you from the
     -- subnet\'s IPv4 CIDR range. If you specify an IP address, you cannot
@@ -125,13 +125,13 @@ data CreateNetworkInterface = CreateNetworkInterface'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI IP Addresses Per ENI Per Instance Type>
     -- in the /Amazon Virtual Private Cloud User Guide/.
     secondaryPrivateIpAddressCount :: Prelude.Maybe Prelude.Int,
-    -- | A description for the network interface.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | One or more IPv6 prefixes assigned to the network interface. You cannot
+    -- use this option if you use the @Ipv6PrefixCount@ option.
+    ipv6Prefixes :: Prelude.Maybe [Ipv6PrefixSpecificationRequest],
+    -- | The tags to apply to the new network interface.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    -- | The IDs of one or more security groups.
+    groups :: Prelude.Maybe [Prelude.Text],
     -- | One or more specific IPv6 addresses from the IPv6 CIDR block range of
     -- your subnet. You can\'t use this option if you\'re specifying a number
     -- of IPv6 addresses.
@@ -149,16 +149,9 @@ data CreateNetworkInterface = CreateNetworkInterface'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groups', 'createNetworkInterface_groups' - The IDs of one or more security groups.
---
--- 'privateIpAddresses', 'createNetworkInterface_privateIpAddresses' - One or more private IPv4 addresses.
---
--- 'clientToken', 'createNetworkInterface_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
---
--- 'ipv4Prefixes', 'createNetworkInterface_ipv4Prefixes' - One or more IPv4 prefixes assigned to the network interface. You cannot
--- use this option if you use the @Ipv4PrefixCount@ option.
+-- 'ipv4PrefixCount', 'createNetworkInterface_ipv4PrefixCount' - The number of IPv4 prefixes that Amazon Web Services automatically
+-- assigns to the network interface. You cannot use this option if you use
+-- the @Ipv4 Prefixes@ option.
 --
 -- 'interfaceType', 'createNetworkInterface_interfaceType' - Indicates the type of network interface. To create an Elastic Fabric
 -- Adapter (EFA), specify @efa@. For more information, see
@@ -168,11 +161,18 @@ data CreateNetworkInterface = CreateNetworkInterface'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/eni-trunking.html Network interface trunking>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- 'ipv4PrefixCount', 'createNetworkInterface_ipv4PrefixCount' - The number of IPv4 prefixes that Amazon Web Services automatically
--- assigns to the network interface. You cannot use this option if you use
--- the @Ipv4 Prefixes@ option.
+-- 'clientToken', 'createNetworkInterface_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 --
--- 'tagSpecifications', 'createNetworkInterface_tagSpecifications' - The tags to apply to the new network interface.
+-- 'privateIpAddresses', 'createNetworkInterface_privateIpAddresses' - One or more private IPv4 addresses.
+--
+-- 'description', 'createNetworkInterface_description' - A description for the network interface.
+--
+-- 'dryRun', 'createNetworkInterface_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'ipv6AddressCount', 'createNetworkInterface_ipv6AddressCount' - The number of IPv6 addresses to assign to a network interface. Amazon
 -- EC2 automatically selects the IPv6 addresses from the subnet range. You
@@ -180,8 +180,8 @@ data CreateNetworkInterface = CreateNetworkInterface'
 -- subnet has the @AssignIpv6AddressOnCreation@ attribute set to @true@,
 -- you can specify @0@ to override this setting.
 --
--- 'ipv6Prefixes', 'createNetworkInterface_ipv6Prefixes' - One or more IPv6 prefixes assigned to the network interface. You cannot
--- use this option if you use the @Ipv6PrefixCount@ option.
+-- 'ipv4Prefixes', 'createNetworkInterface_ipv4Prefixes' - One or more IPv4 prefixes assigned to the network interface. You cannot
+-- use this option if you use the @Ipv4PrefixCount@ option.
 --
 -- 'privateIpAddress', 'createNetworkInterface_privateIpAddress' - The primary private IPv4 address of the network interface. If you don\'t
 -- specify an IPv4 address, Amazon EC2 selects one for you from the
@@ -204,12 +204,12 @@ data CreateNetworkInterface = CreateNetworkInterface'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI IP Addresses Per ENI Per Instance Type>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
--- 'description', 'createNetworkInterface_description' - A description for the network interface.
+-- 'ipv6Prefixes', 'createNetworkInterface_ipv6Prefixes' - One or more IPv6 prefixes assigned to the network interface. You cannot
+-- use this option if you use the @Ipv6PrefixCount@ option.
 --
--- 'dryRun', 'createNetworkInterface_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- 'tagSpecifications', 'createNetworkInterface_tagSpecifications' - The tags to apply to the new network interface.
+--
+-- 'groups', 'createNetworkInterface_groups' - The IDs of one or more security groups.
 --
 -- 'ipv6Addresses', 'createNetworkInterface_ipv6Addresses' - One or more specific IPv6 addresses from the IPv6 CIDR block range of
 -- your subnet. You can\'t use this option if you\'re specifying a number
@@ -222,42 +222,30 @@ newCreateNetworkInterface ::
   CreateNetworkInterface
 newCreateNetworkInterface pSubnetId_ =
   CreateNetworkInterface'
-    { groups = Prelude.Nothing,
-      privateIpAddresses = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
-      ipv4Prefixes = Prelude.Nothing,
+    { ipv4PrefixCount =
+        Prelude.Nothing,
       interfaceType = Prelude.Nothing,
-      ipv4PrefixCount = Prelude.Nothing,
-      tagSpecifications = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
+      privateIpAddresses = Prelude.Nothing,
+      description = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       ipv6AddressCount = Prelude.Nothing,
-      ipv6Prefixes = Prelude.Nothing,
+      ipv4Prefixes = Prelude.Nothing,
       privateIpAddress = Prelude.Nothing,
       ipv6PrefixCount = Prelude.Nothing,
       secondaryPrivateIpAddressCount = Prelude.Nothing,
-      description = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+      ipv6Prefixes = Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
+      groups = Prelude.Nothing,
       ipv6Addresses = Prelude.Nothing,
       subnetId = pSubnetId_
     }
 
--- | The IDs of one or more security groups.
-createNetworkInterface_groups :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe [Prelude.Text])
-createNetworkInterface_groups = Lens.lens (\CreateNetworkInterface' {groups} -> groups) (\s@CreateNetworkInterface' {} a -> s {groups = a} :: CreateNetworkInterface) Prelude.. Lens.mapping Lens.coerced
-
--- | One or more private IPv4 addresses.
-createNetworkInterface_privateIpAddresses :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe [PrivateIpAddressSpecification])
-createNetworkInterface_privateIpAddresses = Lens.lens (\CreateNetworkInterface' {privateIpAddresses} -> privateIpAddresses) (\s@CreateNetworkInterface' {} a -> s {privateIpAddresses = a} :: CreateNetworkInterface) Prelude.. Lens.mapping Lens.coerced
-
--- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-createNetworkInterface_clientToken :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe Prelude.Text)
-createNetworkInterface_clientToken = Lens.lens (\CreateNetworkInterface' {clientToken} -> clientToken) (\s@CreateNetworkInterface' {} a -> s {clientToken = a} :: CreateNetworkInterface)
-
--- | One or more IPv4 prefixes assigned to the network interface. You cannot
--- use this option if you use the @Ipv4PrefixCount@ option.
-createNetworkInterface_ipv4Prefixes :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe [Ipv4PrefixSpecificationRequest])
-createNetworkInterface_ipv4Prefixes = Lens.lens (\CreateNetworkInterface' {ipv4Prefixes} -> ipv4Prefixes) (\s@CreateNetworkInterface' {} a -> s {ipv4Prefixes = a} :: CreateNetworkInterface) Prelude.. Lens.mapping Lens.coerced
+-- | The number of IPv4 prefixes that Amazon Web Services automatically
+-- assigns to the network interface. You cannot use this option if you use
+-- the @Ipv4 Prefixes@ option.
+createNetworkInterface_ipv4PrefixCount :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe Prelude.Int)
+createNetworkInterface_ipv4PrefixCount = Lens.lens (\CreateNetworkInterface' {ipv4PrefixCount} -> ipv4PrefixCount) (\s@CreateNetworkInterface' {} a -> s {ipv4PrefixCount = a} :: CreateNetworkInterface)
 
 -- | Indicates the type of network interface. To create an Elastic Fabric
 -- Adapter (EFA), specify @efa@. For more information, see
@@ -269,15 +257,26 @@ createNetworkInterface_ipv4Prefixes = Lens.lens (\CreateNetworkInterface' {ipv4P
 createNetworkInterface_interfaceType :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe NetworkInterfaceCreationType)
 createNetworkInterface_interfaceType = Lens.lens (\CreateNetworkInterface' {interfaceType} -> interfaceType) (\s@CreateNetworkInterface' {} a -> s {interfaceType = a} :: CreateNetworkInterface)
 
--- | The number of IPv4 prefixes that Amazon Web Services automatically
--- assigns to the network interface. You cannot use this option if you use
--- the @Ipv4 Prefixes@ option.
-createNetworkInterface_ipv4PrefixCount :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe Prelude.Int)
-createNetworkInterface_ipv4PrefixCount = Lens.lens (\CreateNetworkInterface' {ipv4PrefixCount} -> ipv4PrefixCount) (\s@CreateNetworkInterface' {} a -> s {ipv4PrefixCount = a} :: CreateNetworkInterface)
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+createNetworkInterface_clientToken :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe Prelude.Text)
+createNetworkInterface_clientToken = Lens.lens (\CreateNetworkInterface' {clientToken} -> clientToken) (\s@CreateNetworkInterface' {} a -> s {clientToken = a} :: CreateNetworkInterface)
 
--- | The tags to apply to the new network interface.
-createNetworkInterface_tagSpecifications :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe [TagSpecification])
-createNetworkInterface_tagSpecifications = Lens.lens (\CreateNetworkInterface' {tagSpecifications} -> tagSpecifications) (\s@CreateNetworkInterface' {} a -> s {tagSpecifications = a} :: CreateNetworkInterface) Prelude.. Lens.mapping Lens.coerced
+-- | One or more private IPv4 addresses.
+createNetworkInterface_privateIpAddresses :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe [PrivateIpAddressSpecification])
+createNetworkInterface_privateIpAddresses = Lens.lens (\CreateNetworkInterface' {privateIpAddresses} -> privateIpAddresses) (\s@CreateNetworkInterface' {} a -> s {privateIpAddresses = a} :: CreateNetworkInterface) Prelude.. Lens.mapping Lens.coerced
+
+-- | A description for the network interface.
+createNetworkInterface_description :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe Prelude.Text)
+createNetworkInterface_description = Lens.lens (\CreateNetworkInterface' {description} -> description) (\s@CreateNetworkInterface' {} a -> s {description = a} :: CreateNetworkInterface)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+createNetworkInterface_dryRun :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe Prelude.Bool)
+createNetworkInterface_dryRun = Lens.lens (\CreateNetworkInterface' {dryRun} -> dryRun) (\s@CreateNetworkInterface' {} a -> s {dryRun = a} :: CreateNetworkInterface)
 
 -- | The number of IPv6 addresses to assign to a network interface. Amazon
 -- EC2 automatically selects the IPv6 addresses from the subnet range. You
@@ -287,10 +286,10 @@ createNetworkInterface_tagSpecifications = Lens.lens (\CreateNetworkInterface' {
 createNetworkInterface_ipv6AddressCount :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe Prelude.Int)
 createNetworkInterface_ipv6AddressCount = Lens.lens (\CreateNetworkInterface' {ipv6AddressCount} -> ipv6AddressCount) (\s@CreateNetworkInterface' {} a -> s {ipv6AddressCount = a} :: CreateNetworkInterface)
 
--- | One or more IPv6 prefixes assigned to the network interface. You cannot
--- use this option if you use the @Ipv6PrefixCount@ option.
-createNetworkInterface_ipv6Prefixes :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe [Ipv6PrefixSpecificationRequest])
-createNetworkInterface_ipv6Prefixes = Lens.lens (\CreateNetworkInterface' {ipv6Prefixes} -> ipv6Prefixes) (\s@CreateNetworkInterface' {} a -> s {ipv6Prefixes = a} :: CreateNetworkInterface) Prelude.. Lens.mapping Lens.coerced
+-- | One or more IPv4 prefixes assigned to the network interface. You cannot
+-- use this option if you use the @Ipv4PrefixCount@ option.
+createNetworkInterface_ipv4Prefixes :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe [Ipv4PrefixSpecificationRequest])
+createNetworkInterface_ipv4Prefixes = Lens.lens (\CreateNetworkInterface' {ipv4Prefixes} -> ipv4Prefixes) (\s@CreateNetworkInterface' {} a -> s {ipv4Prefixes = a} :: CreateNetworkInterface) Prelude.. Lens.mapping Lens.coerced
 
 -- | The primary private IPv4 address of the network interface. If you don\'t
 -- specify an IPv4 address, Amazon EC2 selects one for you from the
@@ -319,16 +318,18 @@ createNetworkInterface_ipv6PrefixCount = Lens.lens (\CreateNetworkInterface' {ip
 createNetworkInterface_secondaryPrivateIpAddressCount :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe Prelude.Int)
 createNetworkInterface_secondaryPrivateIpAddressCount = Lens.lens (\CreateNetworkInterface' {secondaryPrivateIpAddressCount} -> secondaryPrivateIpAddressCount) (\s@CreateNetworkInterface' {} a -> s {secondaryPrivateIpAddressCount = a} :: CreateNetworkInterface)
 
--- | A description for the network interface.
-createNetworkInterface_description :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe Prelude.Text)
-createNetworkInterface_description = Lens.lens (\CreateNetworkInterface' {description} -> description) (\s@CreateNetworkInterface' {} a -> s {description = a} :: CreateNetworkInterface)
+-- | One or more IPv6 prefixes assigned to the network interface. You cannot
+-- use this option if you use the @Ipv6PrefixCount@ option.
+createNetworkInterface_ipv6Prefixes :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe [Ipv6PrefixSpecificationRequest])
+createNetworkInterface_ipv6Prefixes = Lens.lens (\CreateNetworkInterface' {ipv6Prefixes} -> ipv6Prefixes) (\s@CreateNetworkInterface' {} a -> s {ipv6Prefixes = a} :: CreateNetworkInterface) Prelude.. Lens.mapping Lens.coerced
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-createNetworkInterface_dryRun :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe Prelude.Bool)
-createNetworkInterface_dryRun = Lens.lens (\CreateNetworkInterface' {dryRun} -> dryRun) (\s@CreateNetworkInterface' {} a -> s {dryRun = a} :: CreateNetworkInterface)
+-- | The tags to apply to the new network interface.
+createNetworkInterface_tagSpecifications :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe [TagSpecification])
+createNetworkInterface_tagSpecifications = Lens.lens (\CreateNetworkInterface' {tagSpecifications} -> tagSpecifications) (\s@CreateNetworkInterface' {} a -> s {tagSpecifications = a} :: CreateNetworkInterface) Prelude.. Lens.mapping Lens.coerced
+
+-- | The IDs of one or more security groups.
+createNetworkInterface_groups :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe [Prelude.Text])
+createNetworkInterface_groups = Lens.lens (\CreateNetworkInterface' {groups} -> groups) (\s@CreateNetworkInterface' {} a -> s {groups = a} :: CreateNetworkInterface) Prelude.. Lens.mapping Lens.coerced
 
 -- | One or more specific IPv6 addresses from the IPv6 CIDR block range of
 -- your subnet. You can\'t use this option if you\'re specifying a number
@@ -356,39 +357,39 @@ instance Core.AWSRequest CreateNetworkInterface where
 
 instance Prelude.Hashable CreateNetworkInterface where
   hashWithSalt _salt CreateNetworkInterface' {..} =
-    _salt `Prelude.hashWithSalt` groups
-      `Prelude.hashWithSalt` privateIpAddresses
-      `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` ipv4Prefixes
+    _salt `Prelude.hashWithSalt` ipv4PrefixCount
       `Prelude.hashWithSalt` interfaceType
-      `Prelude.hashWithSalt` ipv4PrefixCount
-      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` privateIpAddresses
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` ipv6AddressCount
-      `Prelude.hashWithSalt` ipv6Prefixes
+      `Prelude.hashWithSalt` ipv4Prefixes
       `Prelude.hashWithSalt` privateIpAddress
       `Prelude.hashWithSalt` ipv6PrefixCount
       `Prelude.hashWithSalt` secondaryPrivateIpAddressCount
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` ipv6Prefixes
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` groups
       `Prelude.hashWithSalt` ipv6Addresses
       `Prelude.hashWithSalt` subnetId
 
 instance Prelude.NFData CreateNetworkInterface where
   rnf CreateNetworkInterface' {..} =
-    Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf privateIpAddresses
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf ipv4Prefixes
+    Prelude.rnf ipv4PrefixCount
       `Prelude.seq` Prelude.rnf interfaceType
-      `Prelude.seq` Prelude.rnf ipv4PrefixCount
-      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf privateIpAddresses
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf ipv6AddressCount
-      `Prelude.seq` Prelude.rnf ipv6Prefixes
+      `Prelude.seq` Prelude.rnf ipv4Prefixes
       `Prelude.seq` Prelude.rnf privateIpAddress
       `Prelude.seq` Prelude.rnf ipv6PrefixCount
       `Prelude.seq` Prelude.rnf secondaryPrivateIpAddressCount
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf ipv6Prefixes
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf groups
       `Prelude.seq` Prelude.rnf ipv6Addresses
       `Prelude.seq` Prelude.rnf subnetId
 
@@ -405,36 +406,36 @@ instance Core.ToQuery CreateNetworkInterface where
           Core.=: ("CreateNetworkInterface" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          ( Core.toQueryList "SecurityGroupId"
-              Prelude.<$> groups
-          ),
+        "Ipv4PrefixCount" Core.=: ipv4PrefixCount,
+        "InterfaceType" Core.=: interfaceType,
+        "ClientToken" Core.=: clientToken,
         Core.toQuery
           ( Core.toQueryList "PrivateIpAddresses"
               Prelude.<$> privateIpAddresses
           ),
-        "ClientToken" Core.=: clientToken,
+        "Description" Core.=: description,
+        "DryRun" Core.=: dryRun,
+        "Ipv6AddressCount" Core.=: ipv6AddressCount,
         Core.toQuery
           ( Core.toQueryList "Ipv4Prefix"
               Prelude.<$> ipv4Prefixes
-          ),
-        "InterfaceType" Core.=: interfaceType,
-        "Ipv4PrefixCount" Core.=: ipv4PrefixCount,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
-              Prelude.<$> tagSpecifications
-          ),
-        "Ipv6AddressCount" Core.=: ipv6AddressCount,
-        Core.toQuery
-          ( Core.toQueryList "Ipv6Prefix"
-              Prelude.<$> ipv6Prefixes
           ),
         "PrivateIpAddress" Core.=: privateIpAddress,
         "Ipv6PrefixCount" Core.=: ipv6PrefixCount,
         "SecondaryPrivateIpAddressCount"
           Core.=: secondaryPrivateIpAddressCount,
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
+        Core.toQuery
+          ( Core.toQueryList "Ipv6Prefix"
+              Prelude.<$> ipv6Prefixes
+          ),
+        Core.toQuery
+          ( Core.toQueryList "TagSpecification"
+              Prelude.<$> tagSpecifications
+          ),
+        Core.toQuery
+          ( Core.toQueryList "SecurityGroupId"
+              Prelude.<$> groups
+          ),
         Core.toQuery
           ( Core.toQueryList "Ipv6Addresses"
               Prelude.<$> ipv6Addresses

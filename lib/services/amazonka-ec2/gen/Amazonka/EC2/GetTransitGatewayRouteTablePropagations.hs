@@ -30,8 +30,8 @@ module Amazonka.EC2.GetTransitGatewayRouteTablePropagations
     newGetTransitGatewayRouteTablePropagations,
 
     -- * Request Lenses
-    getTransitGatewayRouteTablePropagations_filters,
     getTransitGatewayRouteTablePropagations_nextToken,
+    getTransitGatewayRouteTablePropagations_filters,
     getTransitGatewayRouteTablePropagations_dryRun,
     getTransitGatewayRouteTablePropagations_maxResults,
     getTransitGatewayRouteTablePropagations_transitGatewayRouteTableId,
@@ -41,8 +41,8 @@ module Amazonka.EC2.GetTransitGatewayRouteTablePropagations
     newGetTransitGatewayRouteTablePropagationsResponse,
 
     -- * Response Lenses
-    getTransitGatewayRouteTablePropagationsResponse_transitGatewayRouteTablePropagations,
     getTransitGatewayRouteTablePropagationsResponse_nextToken,
+    getTransitGatewayRouteTablePropagationsResponse_transitGatewayRouteTablePropagations,
     getTransitGatewayRouteTablePropagationsResponse_httpStatus,
   )
 where
@@ -56,7 +56,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetTransitGatewayRouteTablePropagations' smart constructor.
 data GetTransitGatewayRouteTablePropagations = GetTransitGatewayRouteTablePropagations'
-  { -- | One or more filters. The possible values are:
+  { -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters. The possible values are:
     --
     -- -   @resource-id@ - The ID of the resource.
     --
@@ -65,8 +67,6 @@ data GetTransitGatewayRouteTablePropagations = GetTransitGatewayRouteTablePropag
     --
     -- -   @transit-gateway-attachment-id@ - The ID of the attachment.
     filters :: Prelude.Maybe [Filter],
-    -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -89,6 +89,8 @@ data GetTransitGatewayRouteTablePropagations = GetTransitGatewayRouteTablePropag
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'getTransitGatewayRouteTablePropagations_nextToken' - The token for the next page of results.
+--
 -- 'filters', 'getTransitGatewayRouteTablePropagations_filters' - One or more filters. The possible values are:
 --
 -- -   @resource-id@ - The ID of the resource.
@@ -97,8 +99,6 @@ data GetTransitGatewayRouteTablePropagations = GetTransitGatewayRouteTablePropag
 --     | @direct-connect-gateway@ | @peering@ | @connect@.
 --
 -- -   @transit-gateway-attachment-id@ - The ID of the attachment.
---
--- 'nextToken', 'getTransitGatewayRouteTablePropagations_nextToken' - The token for the next page of results.
 --
 -- 'dryRun', 'getTransitGatewayRouteTablePropagations_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -117,14 +117,18 @@ newGetTransitGatewayRouteTablePropagations ::
 newGetTransitGatewayRouteTablePropagations
   pTransitGatewayRouteTableId_ =
     GetTransitGatewayRouteTablePropagations'
-      { filters =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        filters = Prelude.Nothing,
         dryRun = Prelude.Nothing,
         maxResults = Prelude.Nothing,
         transitGatewayRouteTableId =
           pTransitGatewayRouteTableId_
       }
+
+-- | The token for the next page of results.
+getTransitGatewayRouteTablePropagations_nextToken :: Lens.Lens' GetTransitGatewayRouteTablePropagations (Prelude.Maybe Prelude.Text)
+getTransitGatewayRouteTablePropagations_nextToken = Lens.lens (\GetTransitGatewayRouteTablePropagations' {nextToken} -> nextToken) (\s@GetTransitGatewayRouteTablePropagations' {} a -> s {nextToken = a} :: GetTransitGatewayRouteTablePropagations)
 
 -- | One or more filters. The possible values are:
 --
@@ -136,10 +140,6 @@ newGetTransitGatewayRouteTablePropagations
 -- -   @transit-gateway-attachment-id@ - The ID of the attachment.
 getTransitGatewayRouteTablePropagations_filters :: Lens.Lens' GetTransitGatewayRouteTablePropagations (Prelude.Maybe [Filter])
 getTransitGatewayRouteTablePropagations_filters = Lens.lens (\GetTransitGatewayRouteTablePropagations' {filters} -> filters) (\s@GetTransitGatewayRouteTablePropagations' {} a -> s {filters = a} :: GetTransitGatewayRouteTablePropagations) Prelude.. Lens.mapping Lens.coerced
-
--- | The token for the next page of results.
-getTransitGatewayRouteTablePropagations_nextToken :: Lens.Lens' GetTransitGatewayRouteTablePropagations (Prelude.Maybe Prelude.Text)
-getTransitGatewayRouteTablePropagations_nextToken = Lens.lens (\GetTransitGatewayRouteTablePropagations' {nextToken} -> nextToken) (\s@GetTransitGatewayRouteTablePropagations' {} a -> s {nextToken = a} :: GetTransitGatewayRouteTablePropagations)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -196,11 +196,11 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetTransitGatewayRouteTablePropagationsResponse'
-            Prelude.<$> ( x Core..@? "transitGatewayRouteTablePropagations"
-                            Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
-                        )
-              Prelude.<*> (x Core..@? "nextToken")
+            Prelude.<$> (x Core..@? "nextToken")
+              Prelude.<*> ( x Core..@? "transitGatewayRouteTablePropagations"
+                              Core..!@ Prelude.mempty
+                              Prelude.>>= Core.may (Core.parseXMLList "item")
+                          )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -211,8 +211,8 @@ instance
   hashWithSalt
     _salt
     GetTransitGatewayRouteTablePropagations' {..} =
-      _salt `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` transitGatewayRouteTableId
@@ -222,8 +222,8 @@ instance
     GetTransitGatewayRouteTablePropagations
   where
   rnf GetTransitGatewayRouteTablePropagations' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
@@ -252,9 +252,9 @@ instance
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
-        "NextToken" Core.=: nextToken,
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
         "TransitGatewayRouteTableId"
@@ -263,11 +263,11 @@ instance
 
 -- | /See:/ 'newGetTransitGatewayRouteTablePropagationsResponse' smart constructor.
 data GetTransitGatewayRouteTablePropagationsResponse = GetTransitGatewayRouteTablePropagationsResponse'
-  { -- | Information about the route table propagations.
-    transitGatewayRouteTablePropagations :: Prelude.Maybe [TransitGatewayRouteTablePropagation],
-    -- | The token to use to retrieve the next page of results. This value is
+  { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the route table propagations.
+    transitGatewayRouteTablePropagations :: Prelude.Maybe [TransitGatewayRouteTablePropagation],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -281,10 +281,10 @@ data GetTransitGatewayRouteTablePropagationsResponse = GetTransitGatewayRouteTab
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'transitGatewayRouteTablePropagations', 'getTransitGatewayRouteTablePropagationsResponse_transitGatewayRouteTablePropagations' - Information about the route table propagations.
---
 -- 'nextToken', 'getTransitGatewayRouteTablePropagationsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
+--
+-- 'transitGatewayRouteTablePropagations', 'getTransitGatewayRouteTablePropagationsResponse_transitGatewayRouteTablePropagations' - Information about the route table propagations.
 --
 -- 'httpStatus', 'getTransitGatewayRouteTablePropagationsResponse_httpStatus' - The response's http status code.
 newGetTransitGatewayRouteTablePropagationsResponse ::
@@ -294,21 +294,21 @@ newGetTransitGatewayRouteTablePropagationsResponse ::
 newGetTransitGatewayRouteTablePropagationsResponse
   pHttpStatus_ =
     GetTransitGatewayRouteTablePropagationsResponse'
-      { transitGatewayRouteTablePropagations =
+      { nextToken =
           Prelude.Nothing,
-        nextToken =
+        transitGatewayRouteTablePropagations =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Information about the route table propagations.
-getTransitGatewayRouteTablePropagationsResponse_transitGatewayRouteTablePropagations :: Lens.Lens' GetTransitGatewayRouteTablePropagationsResponse (Prelude.Maybe [TransitGatewayRouteTablePropagation])
-getTransitGatewayRouteTablePropagationsResponse_transitGatewayRouteTablePropagations = Lens.lens (\GetTransitGatewayRouteTablePropagationsResponse' {transitGatewayRouteTablePropagations} -> transitGatewayRouteTablePropagations) (\s@GetTransitGatewayRouteTablePropagationsResponse' {} a -> s {transitGatewayRouteTablePropagations = a} :: GetTransitGatewayRouteTablePropagationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 getTransitGatewayRouteTablePropagationsResponse_nextToken :: Lens.Lens' GetTransitGatewayRouteTablePropagationsResponse (Prelude.Maybe Prelude.Text)
 getTransitGatewayRouteTablePropagationsResponse_nextToken = Lens.lens (\GetTransitGatewayRouteTablePropagationsResponse' {nextToken} -> nextToken) (\s@GetTransitGatewayRouteTablePropagationsResponse' {} a -> s {nextToken = a} :: GetTransitGatewayRouteTablePropagationsResponse)
+
+-- | Information about the route table propagations.
+getTransitGatewayRouteTablePropagationsResponse_transitGatewayRouteTablePropagations :: Lens.Lens' GetTransitGatewayRouteTablePropagationsResponse (Prelude.Maybe [TransitGatewayRouteTablePropagation])
+getTransitGatewayRouteTablePropagationsResponse_transitGatewayRouteTablePropagations = Lens.lens (\GetTransitGatewayRouteTablePropagationsResponse' {transitGatewayRouteTablePropagations} -> transitGatewayRouteTablePropagations) (\s@GetTransitGatewayRouteTablePropagationsResponse' {} a -> s {transitGatewayRouteTablePropagations = a} :: GetTransitGatewayRouteTablePropagationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getTransitGatewayRouteTablePropagationsResponse_httpStatus :: Lens.Lens' GetTransitGatewayRouteTablePropagationsResponse Prelude.Int
@@ -320,6 +320,6 @@ instance
   where
   rnf
     GetTransitGatewayRouteTablePropagationsResponse' {..} =
-      Prelude.rnf transitGatewayRouteTablePropagations
-        `Prelude.seq` Prelude.rnf nextToken
+      Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf transitGatewayRouteTablePropagations
         `Prelude.seq` Prelude.rnf httpStatus

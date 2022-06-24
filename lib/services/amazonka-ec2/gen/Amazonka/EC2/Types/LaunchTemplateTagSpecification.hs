@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLaunchTemplateTagSpecification' smart constructor.
 data LaunchTemplateTagSpecification = LaunchTemplateTagSpecification'
-  { -- | The type of resource.
-    resourceType :: Prelude.Maybe ResourceType,
-    -- | The tags for the resource.
-    tags :: Prelude.Maybe [Tag]
+  { -- | The tags for the resource.
+    tags :: Prelude.Maybe [Tag],
+    -- | The type of resource.
+    resourceType :: Prelude.Maybe ResourceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,33 +45,33 @@ data LaunchTemplateTagSpecification = LaunchTemplateTagSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'launchTemplateTagSpecification_resourceType' - The type of resource.
---
 -- 'tags', 'launchTemplateTagSpecification_tags' - The tags for the resource.
+--
+-- 'resourceType', 'launchTemplateTagSpecification_resourceType' - The type of resource.
 newLaunchTemplateTagSpecification ::
   LaunchTemplateTagSpecification
 newLaunchTemplateTagSpecification =
   LaunchTemplateTagSpecification'
-    { resourceType =
+    { tags =
         Prelude.Nothing,
-      tags = Prelude.Nothing
+      resourceType = Prelude.Nothing
     }
-
--- | The type of resource.
-launchTemplateTagSpecification_resourceType :: Lens.Lens' LaunchTemplateTagSpecification (Prelude.Maybe ResourceType)
-launchTemplateTagSpecification_resourceType = Lens.lens (\LaunchTemplateTagSpecification' {resourceType} -> resourceType) (\s@LaunchTemplateTagSpecification' {} a -> s {resourceType = a} :: LaunchTemplateTagSpecification)
 
 -- | The tags for the resource.
 launchTemplateTagSpecification_tags :: Lens.Lens' LaunchTemplateTagSpecification (Prelude.Maybe [Tag])
 launchTemplateTagSpecification_tags = Lens.lens (\LaunchTemplateTagSpecification' {tags} -> tags) (\s@LaunchTemplateTagSpecification' {} a -> s {tags = a} :: LaunchTemplateTagSpecification) Prelude.. Lens.mapping Lens.coerced
 
+-- | The type of resource.
+launchTemplateTagSpecification_resourceType :: Lens.Lens' LaunchTemplateTagSpecification (Prelude.Maybe ResourceType)
+launchTemplateTagSpecification_resourceType = Lens.lens (\LaunchTemplateTagSpecification' {resourceType} -> resourceType) (\s@LaunchTemplateTagSpecification' {} a -> s {resourceType = a} :: LaunchTemplateTagSpecification)
+
 instance Core.FromXML LaunchTemplateTagSpecification where
   parseXML x =
     LaunchTemplateTagSpecification'
-      Prelude.<$> (x Core..@? "resourceType")
-      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
+      Prelude.<*> (x Core..@? "resourceType")
 
 instance
   Prelude.Hashable
@@ -80,13 +80,13 @@ instance
   hashWithSalt
     _salt
     LaunchTemplateTagSpecification' {..} =
-      _salt `Prelude.hashWithSalt` resourceType
-        `Prelude.hashWithSalt` tags
+      _salt `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` resourceType
 
 instance
   Prelude.NFData
     LaunchTemplateTagSpecification
   where
   rnf LaunchTemplateTagSpecification' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf resourceType

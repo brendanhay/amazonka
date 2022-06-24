@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTrafficMirrorPortRangeRequest' smart constructor.
 data TrafficMirrorPortRangeRequest = TrafficMirrorPortRangeRequest'
-  { -- | The first port in the Traffic Mirror port range. This applies to the TCP
+  { -- | The last port in the Traffic Mirror port range. This applies to the TCP
     -- and UDP protocols.
-    fromPort :: Prelude.Maybe Prelude.Int,
-    -- | The last port in the Traffic Mirror port range. This applies to the TCP
+    toPort :: Prelude.Maybe Prelude.Int,
+    -- | The first port in the Traffic Mirror port range. This applies to the TCP
     -- and UDP protocols.
-    toPort :: Prelude.Maybe Prelude.Int
+    fromPort :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,46 +45,46 @@ data TrafficMirrorPortRangeRequest = TrafficMirrorPortRangeRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fromPort', 'trafficMirrorPortRangeRequest_fromPort' - The first port in the Traffic Mirror port range. This applies to the TCP
+-- 'toPort', 'trafficMirrorPortRangeRequest_toPort' - The last port in the Traffic Mirror port range. This applies to the TCP
 -- and UDP protocols.
 --
--- 'toPort', 'trafficMirrorPortRangeRequest_toPort' - The last port in the Traffic Mirror port range. This applies to the TCP
+-- 'fromPort', 'trafficMirrorPortRangeRequest_fromPort' - The first port in the Traffic Mirror port range. This applies to the TCP
 -- and UDP protocols.
 newTrafficMirrorPortRangeRequest ::
   TrafficMirrorPortRangeRequest
 newTrafficMirrorPortRangeRequest =
   TrafficMirrorPortRangeRequest'
-    { fromPort =
+    { toPort =
         Prelude.Nothing,
-      toPort = Prelude.Nothing
+      fromPort = Prelude.Nothing
     }
-
--- | The first port in the Traffic Mirror port range. This applies to the TCP
--- and UDP protocols.
-trafficMirrorPortRangeRequest_fromPort :: Lens.Lens' TrafficMirrorPortRangeRequest (Prelude.Maybe Prelude.Int)
-trafficMirrorPortRangeRequest_fromPort = Lens.lens (\TrafficMirrorPortRangeRequest' {fromPort} -> fromPort) (\s@TrafficMirrorPortRangeRequest' {} a -> s {fromPort = a} :: TrafficMirrorPortRangeRequest)
 
 -- | The last port in the Traffic Mirror port range. This applies to the TCP
 -- and UDP protocols.
 trafficMirrorPortRangeRequest_toPort :: Lens.Lens' TrafficMirrorPortRangeRequest (Prelude.Maybe Prelude.Int)
 trafficMirrorPortRangeRequest_toPort = Lens.lens (\TrafficMirrorPortRangeRequest' {toPort} -> toPort) (\s@TrafficMirrorPortRangeRequest' {} a -> s {toPort = a} :: TrafficMirrorPortRangeRequest)
 
+-- | The first port in the Traffic Mirror port range. This applies to the TCP
+-- and UDP protocols.
+trafficMirrorPortRangeRequest_fromPort :: Lens.Lens' TrafficMirrorPortRangeRequest (Prelude.Maybe Prelude.Int)
+trafficMirrorPortRangeRequest_fromPort = Lens.lens (\TrafficMirrorPortRangeRequest' {fromPort} -> fromPort) (\s@TrafficMirrorPortRangeRequest' {} a -> s {fromPort = a} :: TrafficMirrorPortRangeRequest)
+
 instance
   Prelude.Hashable
     TrafficMirrorPortRangeRequest
   where
   hashWithSalt _salt TrafficMirrorPortRangeRequest' {..} =
-    _salt `Prelude.hashWithSalt` fromPort
-      `Prelude.hashWithSalt` toPort
+    _salt `Prelude.hashWithSalt` toPort
+      `Prelude.hashWithSalt` fromPort
 
 instance Prelude.NFData TrafficMirrorPortRangeRequest where
   rnf TrafficMirrorPortRangeRequest' {..} =
-    Prelude.rnf fromPort
-      `Prelude.seq` Prelude.rnf toPort
+    Prelude.rnf toPort
+      `Prelude.seq` Prelude.rnf fromPort
 
 instance Core.ToQuery TrafficMirrorPortRangeRequest where
   toQuery TrafficMirrorPortRangeRequest' {..} =
     Prelude.mconcat
-      [ "FromPort" Core.=: fromPort,
-        "ToPort" Core.=: toPort
+      [ "ToPort" Core.=: toPort,
+        "FromPort" Core.=: fromPort
       ]

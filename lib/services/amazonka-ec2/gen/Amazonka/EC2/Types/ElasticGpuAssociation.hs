@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newElasticGpuAssociation' smart constructor.
 data ElasticGpuAssociation = ElasticGpuAssociation'
-  { -- | The ID of the Elastic Graphics accelerator.
+  { -- | The state of the association between the instance and the Elastic
+    -- Graphics accelerator.
+    elasticGpuAssociationState :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Elastic Graphics accelerator.
     elasticGpuId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the association.
-    elasticGpuAssociationId :: Prelude.Maybe Prelude.Text,
     -- | The time the Elastic Graphics accelerator was associated with the
     -- instance.
     elasticGpuAssociationTime :: Prelude.Maybe Prelude.Text,
-    -- | The state of the association between the instance and the Elastic
-    -- Graphics accelerator.
-    elasticGpuAssociationState :: Prelude.Maybe Prelude.Text
+    -- | The ID of the association.
+    elasticGpuAssociationId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,62 +50,63 @@ data ElasticGpuAssociation = ElasticGpuAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'elasticGpuId', 'elasticGpuAssociation_elasticGpuId' - The ID of the Elastic Graphics accelerator.
+-- 'elasticGpuAssociationState', 'elasticGpuAssociation_elasticGpuAssociationState' - The state of the association between the instance and the Elastic
+-- Graphics accelerator.
 --
--- 'elasticGpuAssociationId', 'elasticGpuAssociation_elasticGpuAssociationId' - The ID of the association.
+-- 'elasticGpuId', 'elasticGpuAssociation_elasticGpuId' - The ID of the Elastic Graphics accelerator.
 --
 -- 'elasticGpuAssociationTime', 'elasticGpuAssociation_elasticGpuAssociationTime' - The time the Elastic Graphics accelerator was associated with the
 -- instance.
 --
--- 'elasticGpuAssociationState', 'elasticGpuAssociation_elasticGpuAssociationState' - The state of the association between the instance and the Elastic
--- Graphics accelerator.
+-- 'elasticGpuAssociationId', 'elasticGpuAssociation_elasticGpuAssociationId' - The ID of the association.
 newElasticGpuAssociation ::
   ElasticGpuAssociation
 newElasticGpuAssociation =
   ElasticGpuAssociation'
-    { elasticGpuId =
+    { elasticGpuAssociationState =
         Prelude.Nothing,
-      elasticGpuAssociationId = Prelude.Nothing,
+      elasticGpuId = Prelude.Nothing,
       elasticGpuAssociationTime = Prelude.Nothing,
-      elasticGpuAssociationState = Prelude.Nothing
+      elasticGpuAssociationId = Prelude.Nothing
     }
-
--- | The ID of the Elastic Graphics accelerator.
-elasticGpuAssociation_elasticGpuId :: Lens.Lens' ElasticGpuAssociation (Prelude.Maybe Prelude.Text)
-elasticGpuAssociation_elasticGpuId = Lens.lens (\ElasticGpuAssociation' {elasticGpuId} -> elasticGpuId) (\s@ElasticGpuAssociation' {} a -> s {elasticGpuId = a} :: ElasticGpuAssociation)
-
--- | The ID of the association.
-elasticGpuAssociation_elasticGpuAssociationId :: Lens.Lens' ElasticGpuAssociation (Prelude.Maybe Prelude.Text)
-elasticGpuAssociation_elasticGpuAssociationId = Lens.lens (\ElasticGpuAssociation' {elasticGpuAssociationId} -> elasticGpuAssociationId) (\s@ElasticGpuAssociation' {} a -> s {elasticGpuAssociationId = a} :: ElasticGpuAssociation)
-
--- | The time the Elastic Graphics accelerator was associated with the
--- instance.
-elasticGpuAssociation_elasticGpuAssociationTime :: Lens.Lens' ElasticGpuAssociation (Prelude.Maybe Prelude.Text)
-elasticGpuAssociation_elasticGpuAssociationTime = Lens.lens (\ElasticGpuAssociation' {elasticGpuAssociationTime} -> elasticGpuAssociationTime) (\s@ElasticGpuAssociation' {} a -> s {elasticGpuAssociationTime = a} :: ElasticGpuAssociation)
 
 -- | The state of the association between the instance and the Elastic
 -- Graphics accelerator.
 elasticGpuAssociation_elasticGpuAssociationState :: Lens.Lens' ElasticGpuAssociation (Prelude.Maybe Prelude.Text)
 elasticGpuAssociation_elasticGpuAssociationState = Lens.lens (\ElasticGpuAssociation' {elasticGpuAssociationState} -> elasticGpuAssociationState) (\s@ElasticGpuAssociation' {} a -> s {elasticGpuAssociationState = a} :: ElasticGpuAssociation)
 
+-- | The ID of the Elastic Graphics accelerator.
+elasticGpuAssociation_elasticGpuId :: Lens.Lens' ElasticGpuAssociation (Prelude.Maybe Prelude.Text)
+elasticGpuAssociation_elasticGpuId = Lens.lens (\ElasticGpuAssociation' {elasticGpuId} -> elasticGpuId) (\s@ElasticGpuAssociation' {} a -> s {elasticGpuId = a} :: ElasticGpuAssociation)
+
+-- | The time the Elastic Graphics accelerator was associated with the
+-- instance.
+elasticGpuAssociation_elasticGpuAssociationTime :: Lens.Lens' ElasticGpuAssociation (Prelude.Maybe Prelude.Text)
+elasticGpuAssociation_elasticGpuAssociationTime = Lens.lens (\ElasticGpuAssociation' {elasticGpuAssociationTime} -> elasticGpuAssociationTime) (\s@ElasticGpuAssociation' {} a -> s {elasticGpuAssociationTime = a} :: ElasticGpuAssociation)
+
+-- | The ID of the association.
+elasticGpuAssociation_elasticGpuAssociationId :: Lens.Lens' ElasticGpuAssociation (Prelude.Maybe Prelude.Text)
+elasticGpuAssociation_elasticGpuAssociationId = Lens.lens (\ElasticGpuAssociation' {elasticGpuAssociationId} -> elasticGpuAssociationId) (\s@ElasticGpuAssociation' {} a -> s {elasticGpuAssociationId = a} :: ElasticGpuAssociation)
+
 instance Core.FromXML ElasticGpuAssociation where
   parseXML x =
     ElasticGpuAssociation'
-      Prelude.<$> (x Core..@? "elasticGpuId")
-      Prelude.<*> (x Core..@? "elasticGpuAssociationId")
+      Prelude.<$> (x Core..@? "elasticGpuAssociationState")
+      Prelude.<*> (x Core..@? "elasticGpuId")
       Prelude.<*> (x Core..@? "elasticGpuAssociationTime")
-      Prelude.<*> (x Core..@? "elasticGpuAssociationState")
+      Prelude.<*> (x Core..@? "elasticGpuAssociationId")
 
 instance Prelude.Hashable ElasticGpuAssociation where
   hashWithSalt _salt ElasticGpuAssociation' {..} =
-    _salt `Prelude.hashWithSalt` elasticGpuId
-      `Prelude.hashWithSalt` elasticGpuAssociationId
-      `Prelude.hashWithSalt` elasticGpuAssociationTime
+    _salt
       `Prelude.hashWithSalt` elasticGpuAssociationState
+      `Prelude.hashWithSalt` elasticGpuId
+      `Prelude.hashWithSalt` elasticGpuAssociationTime
+      `Prelude.hashWithSalt` elasticGpuAssociationId
 
 instance Prelude.NFData ElasticGpuAssociation where
   rnf ElasticGpuAssociation' {..} =
-    Prelude.rnf elasticGpuId
-      `Prelude.seq` Prelude.rnf elasticGpuAssociationId
+    Prelude.rnf elasticGpuAssociationState
+      `Prelude.seq` Prelude.rnf elasticGpuId
       `Prelude.seq` Prelude.rnf elasticGpuAssociationTime
-      `Prelude.seq` Prelude.rnf elasticGpuAssociationState
+      `Prelude.seq` Prelude.rnf elasticGpuAssociationId

@@ -30,8 +30,8 @@ module Amazonka.EC2.DescribeVpcEndpointConnections
     newDescribeVpcEndpointConnections,
 
     -- * Request Lenses
-    describeVpcEndpointConnections_filters,
     describeVpcEndpointConnections_nextToken,
+    describeVpcEndpointConnections_filters,
     describeVpcEndpointConnections_dryRun,
     describeVpcEndpointConnections_maxResults,
 
@@ -40,8 +40,8 @@ module Amazonka.EC2.DescribeVpcEndpointConnections
     newDescribeVpcEndpointConnectionsResponse,
 
     -- * Response Lenses
-    describeVpcEndpointConnectionsResponse_vpcEndpointConnections,
     describeVpcEndpointConnectionsResponse_nextToken,
+    describeVpcEndpointConnectionsResponse_vpcEndpointConnections,
     describeVpcEndpointConnectionsResponse_httpStatus,
   )
 where
@@ -55,7 +55,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeVpcEndpointConnections' smart constructor.
 data DescribeVpcEndpointConnections = DescribeVpcEndpointConnections'
-  { -- | One or more filters.
+  { -- | The token to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters.
     --
     -- -   @service-id@ - The ID of the service.
     --
@@ -68,8 +70,6 @@ data DescribeVpcEndpointConnections = DescribeVpcEndpointConnections'
     --
     -- -   @vpc-endpoint-id@ - The ID of the endpoint.
     filters :: Prelude.Maybe [Filter],
-    -- | The token to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -92,6 +92,8 @@ data DescribeVpcEndpointConnections = DescribeVpcEndpointConnections'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describeVpcEndpointConnections_nextToken' - The token to retrieve the next page of results.
+--
 -- 'filters', 'describeVpcEndpointConnections_filters' - One or more filters.
 --
 -- -   @service-id@ - The ID of the service.
@@ -104,8 +106,6 @@ data DescribeVpcEndpointConnections = DescribeVpcEndpointConnections'
 --     @deleted@ | @rejected@ | @failed@).
 --
 -- -   @vpc-endpoint-id@ - The ID of the endpoint.
---
--- 'nextToken', 'describeVpcEndpointConnections_nextToken' - The token to retrieve the next page of results.
 --
 -- 'dryRun', 'describeVpcEndpointConnections_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -121,12 +121,16 @@ newDescribeVpcEndpointConnections ::
   DescribeVpcEndpointConnections
 newDescribeVpcEndpointConnections =
   DescribeVpcEndpointConnections'
-    { filters =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | The token to retrieve the next page of results.
+describeVpcEndpointConnections_nextToken :: Lens.Lens' DescribeVpcEndpointConnections (Prelude.Maybe Prelude.Text)
+describeVpcEndpointConnections_nextToken = Lens.lens (\DescribeVpcEndpointConnections' {nextToken} -> nextToken) (\s@DescribeVpcEndpointConnections' {} a -> s {nextToken = a} :: DescribeVpcEndpointConnections)
 
 -- | One or more filters.
 --
@@ -142,10 +146,6 @@ newDescribeVpcEndpointConnections =
 -- -   @vpc-endpoint-id@ - The ID of the endpoint.
 describeVpcEndpointConnections_filters :: Lens.Lens' DescribeVpcEndpointConnections (Prelude.Maybe [Filter])
 describeVpcEndpointConnections_filters = Lens.lens (\DescribeVpcEndpointConnections' {filters} -> filters) (\s@DescribeVpcEndpointConnections' {} a -> s {filters = a} :: DescribeVpcEndpointConnections) Prelude.. Lens.mapping Lens.coerced
-
--- | The token to retrieve the next page of results.
-describeVpcEndpointConnections_nextToken :: Lens.Lens' DescribeVpcEndpointConnections (Prelude.Maybe Prelude.Text)
-describeVpcEndpointConnections_nextToken = Lens.lens (\DescribeVpcEndpointConnections' {nextToken} -> nextToken) (\s@DescribeVpcEndpointConnections' {} a -> s {nextToken = a} :: DescribeVpcEndpointConnections)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -196,11 +196,11 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeVpcEndpointConnectionsResponse'
-            Prelude.<$> ( x Core..@? "vpcEndpointConnectionSet"
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "vpcEndpointConnectionSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -211,8 +211,8 @@ instance
   hashWithSalt
     _salt
     DescribeVpcEndpointConnections' {..} =
-      _salt `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
 
@@ -221,8 +221,8 @@ instance
     DescribeVpcEndpointConnections
   where
   rnf DescribeVpcEndpointConnections' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
 
@@ -244,20 +244,20 @@ instance Core.ToQuery DescribeVpcEndpointConnections where
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
-        "NextToken" Core.=: nextToken,
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeVpcEndpointConnectionsResponse' smart constructor.
 data DescribeVpcEndpointConnectionsResponse = DescribeVpcEndpointConnectionsResponse'
-  { -- | Information about one or more VPC endpoint connections.
-    vpcEndpointConnections :: Prelude.Maybe [VpcEndpointConnection],
-    -- | The token to use to retrieve the next page of results. This value is
+  { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about one or more VPC endpoint connections.
+    vpcEndpointConnections :: Prelude.Maybe [VpcEndpointConnection],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -271,10 +271,10 @@ data DescribeVpcEndpointConnectionsResponse = DescribeVpcEndpointConnectionsResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcEndpointConnections', 'describeVpcEndpointConnectionsResponse_vpcEndpointConnections' - Information about one or more VPC endpoint connections.
---
 -- 'nextToken', 'describeVpcEndpointConnectionsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
+--
+-- 'vpcEndpointConnections', 'describeVpcEndpointConnectionsResponse_vpcEndpointConnections' - Information about one or more VPC endpoint connections.
 --
 -- 'httpStatus', 'describeVpcEndpointConnectionsResponse_httpStatus' - The response's http status code.
 newDescribeVpcEndpointConnectionsResponse ::
@@ -284,20 +284,21 @@ newDescribeVpcEndpointConnectionsResponse ::
 newDescribeVpcEndpointConnectionsResponse
   pHttpStatus_ =
     DescribeVpcEndpointConnectionsResponse'
-      { vpcEndpointConnections =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        vpcEndpointConnections =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Information about one or more VPC endpoint connections.
-describeVpcEndpointConnectionsResponse_vpcEndpointConnections :: Lens.Lens' DescribeVpcEndpointConnectionsResponse (Prelude.Maybe [VpcEndpointConnection])
-describeVpcEndpointConnectionsResponse_vpcEndpointConnections = Lens.lens (\DescribeVpcEndpointConnectionsResponse' {vpcEndpointConnections} -> vpcEndpointConnections) (\s@DescribeVpcEndpointConnectionsResponse' {} a -> s {vpcEndpointConnections = a} :: DescribeVpcEndpointConnectionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 describeVpcEndpointConnectionsResponse_nextToken :: Lens.Lens' DescribeVpcEndpointConnectionsResponse (Prelude.Maybe Prelude.Text)
 describeVpcEndpointConnectionsResponse_nextToken = Lens.lens (\DescribeVpcEndpointConnectionsResponse' {nextToken} -> nextToken) (\s@DescribeVpcEndpointConnectionsResponse' {} a -> s {nextToken = a} :: DescribeVpcEndpointConnectionsResponse)
+
+-- | Information about one or more VPC endpoint connections.
+describeVpcEndpointConnectionsResponse_vpcEndpointConnections :: Lens.Lens' DescribeVpcEndpointConnectionsResponse (Prelude.Maybe [VpcEndpointConnection])
+describeVpcEndpointConnectionsResponse_vpcEndpointConnections = Lens.lens (\DescribeVpcEndpointConnectionsResponse' {vpcEndpointConnections} -> vpcEndpointConnections) (\s@DescribeVpcEndpointConnectionsResponse' {} a -> s {vpcEndpointConnections = a} :: DescribeVpcEndpointConnectionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeVpcEndpointConnectionsResponse_httpStatus :: Lens.Lens' DescribeVpcEndpointConnectionsResponse Prelude.Int
@@ -308,6 +309,6 @@ instance
     DescribeVpcEndpointConnectionsResponse
   where
   rnf DescribeVpcEndpointConnectionsResponse' {..} =
-    Prelude.rnf vpcEndpointConnections
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf vpcEndpointConnections
       `Prelude.seq` Prelude.rnf httpStatus

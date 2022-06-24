@@ -35,8 +35,8 @@ module Amazonka.EC2.DescribeHosts
 
     -- * Request Lenses
     describeHosts_nextToken,
-    describeHosts_filter,
     describeHosts_hostIds,
+    describeHosts_filter,
     describeHosts_maxResults,
 
     -- * Destructuring the Response
@@ -44,8 +44,8 @@ module Amazonka.EC2.DescribeHosts
     newDescribeHostsResponse,
 
     -- * Response Lenses
-    describeHostsResponse_hosts,
     describeHostsResponse_nextToken,
+    describeHostsResponse_hosts,
     describeHostsResponse_httpStatus,
   )
 where
@@ -61,6 +61,9 @@ import qualified Amazonka.Response as Response
 data DescribeHosts = DescribeHosts'
   { -- | The token to use to retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The IDs of the Dedicated Hosts. The IDs are used for targeted instance
+    -- launches.
+    hostIds :: Prelude.Maybe [Prelude.Text],
     -- | The filters.
     --
     -- -   @auto-placement@ - Whether auto-placement is enabled or disabled
@@ -85,9 +88,6 @@ data DescribeHosts = DescribeHosts'
     --     filter to find all resources assigned a tag with a specific key,
     --     regardless of the tag value.
     filter' :: Prelude.Maybe [Filter],
-    -- | The IDs of the Dedicated Hosts. The IDs are used for targeted instance
-    -- launches.
-    hostIds :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to return for the request in a single
     -- page. The remaining results can be seen by sending another request with
     -- the returned @nextToken@ value. This value can be between 5 and 500. If
@@ -108,6 +108,9 @@ data DescribeHosts = DescribeHosts'
 -- for backwards compatibility:
 --
 -- 'nextToken', 'describeHosts_nextToken' - The token to use to retrieve the next page of results.
+--
+-- 'hostIds', 'describeHosts_hostIds' - The IDs of the Dedicated Hosts. The IDs are used for targeted instance
+-- launches.
 --
 -- 'filter'', 'describeHosts_filter' - The filters.
 --
@@ -133,9 +136,6 @@ data DescribeHosts = DescribeHosts'
 --     filter to find all resources assigned a tag with a specific key,
 --     regardless of the tag value.
 --
--- 'hostIds', 'describeHosts_hostIds' - The IDs of the Dedicated Hosts. The IDs are used for targeted instance
--- launches.
---
 -- 'maxResults', 'describeHosts_maxResults' - The maximum number of results to return for the request in a single
 -- page. The remaining results can be seen by sending another request with
 -- the returned @nextToken@ value. This value can be between 5 and 500. If
@@ -148,14 +148,19 @@ newDescribeHosts ::
 newDescribeHosts =
   DescribeHosts'
     { nextToken = Prelude.Nothing,
-      filter' = Prelude.Nothing,
       hostIds = Prelude.Nothing,
+      filter' = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
 
 -- | The token to use to retrieve the next page of results.
 describeHosts_nextToken :: Lens.Lens' DescribeHosts (Prelude.Maybe Prelude.Text)
 describeHosts_nextToken = Lens.lens (\DescribeHosts' {nextToken} -> nextToken) (\s@DescribeHosts' {} a -> s {nextToken = a} :: DescribeHosts)
+
+-- | The IDs of the Dedicated Hosts. The IDs are used for targeted instance
+-- launches.
+describeHosts_hostIds :: Lens.Lens' DescribeHosts (Prelude.Maybe [Prelude.Text])
+describeHosts_hostIds = Lens.lens (\DescribeHosts' {hostIds} -> hostIds) (\s@DescribeHosts' {} a -> s {hostIds = a} :: DescribeHosts) Prelude.. Lens.mapping Lens.coerced
 
 -- | The filters.
 --
@@ -182,11 +187,6 @@ describeHosts_nextToken = Lens.lens (\DescribeHosts' {nextToken} -> nextToken) (
 --     regardless of the tag value.
 describeHosts_filter :: Lens.Lens' DescribeHosts (Prelude.Maybe [Filter])
 describeHosts_filter = Lens.lens (\DescribeHosts' {filter'} -> filter') (\s@DescribeHosts' {} a -> s {filter' = a} :: DescribeHosts) Prelude.. Lens.mapping Lens.coerced
-
--- | The IDs of the Dedicated Hosts. The IDs are used for targeted instance
--- launches.
-describeHosts_hostIds :: Lens.Lens' DescribeHosts (Prelude.Maybe [Prelude.Text])
-describeHosts_hostIds = Lens.lens (\DescribeHosts' {hostIds} -> hostIds) (\s@DescribeHosts' {} a -> s {hostIds = a} :: DescribeHosts) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of results to return for the request in a single
 -- page. The remaining results can be seen by sending another request with
@@ -226,25 +226,25 @@ instance Core.AWSRequest DescribeHosts where
     Response.receiveXML
       ( \s h x ->
           DescribeHostsResponse'
-            Prelude.<$> ( x Core..@? "hostSet" Core..!@ Prelude.mempty
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "hostSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeHosts where
   hashWithSalt _salt DescribeHosts' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` hostIds
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeHosts where
   rnf DescribeHosts' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf hostIds
+      `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeHosts where
@@ -262,19 +262,19 @@ instance Core.ToQuery DescribeHosts where
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filter'),
-        Core.toQuery
           (Core.toQueryList "HostId" Prelude.<$> hostIds),
+        Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filter'),
         "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeHostsResponse' smart constructor.
 data DescribeHostsResponse = DescribeHostsResponse'
-  { -- | Information about the Dedicated Hosts.
-    hosts :: Prelude.Maybe [Host],
-    -- | The token to use to retrieve the next page of results. This value is
+  { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the Dedicated Hosts.
+    hosts :: Prelude.Maybe [Host],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -288,10 +288,10 @@ data DescribeHostsResponse = DescribeHostsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hosts', 'describeHostsResponse_hosts' - Information about the Dedicated Hosts.
---
 -- 'nextToken', 'describeHostsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
+--
+-- 'hosts', 'describeHostsResponse_hosts' - Information about the Dedicated Hosts.
 --
 -- 'httpStatus', 'describeHostsResponse_httpStatus' - The response's http status code.
 newDescribeHostsResponse ::
@@ -300,19 +300,19 @@ newDescribeHostsResponse ::
   DescribeHostsResponse
 newDescribeHostsResponse pHttpStatus_ =
   DescribeHostsResponse'
-    { hosts = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      hosts = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the Dedicated Hosts.
-describeHostsResponse_hosts :: Lens.Lens' DescribeHostsResponse (Prelude.Maybe [Host])
-describeHostsResponse_hosts = Lens.lens (\DescribeHostsResponse' {hosts} -> hosts) (\s@DescribeHostsResponse' {} a -> s {hosts = a} :: DescribeHostsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 describeHostsResponse_nextToken :: Lens.Lens' DescribeHostsResponse (Prelude.Maybe Prelude.Text)
 describeHostsResponse_nextToken = Lens.lens (\DescribeHostsResponse' {nextToken} -> nextToken) (\s@DescribeHostsResponse' {} a -> s {nextToken = a} :: DescribeHostsResponse)
+
+-- | Information about the Dedicated Hosts.
+describeHostsResponse_hosts :: Lens.Lens' DescribeHostsResponse (Prelude.Maybe [Host])
+describeHostsResponse_hosts = Lens.lens (\DescribeHostsResponse' {hosts} -> hosts) (\s@DescribeHostsResponse' {} a -> s {hosts = a} :: DescribeHostsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeHostsResponse_httpStatus :: Lens.Lens' DescribeHostsResponse Prelude.Int
@@ -320,6 +320,6 @@ describeHostsResponse_httpStatus = Lens.lens (\DescribeHostsResponse' {httpStatu
 
 instance Prelude.NFData DescribeHostsResponse where
   rnf DescribeHostsResponse' {..} =
-    Prelude.rnf hosts
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf hosts
       `Prelude.seq` Prelude.rnf httpStatus

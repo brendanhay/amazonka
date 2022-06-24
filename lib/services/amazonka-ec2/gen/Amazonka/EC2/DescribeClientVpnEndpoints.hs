@@ -29,19 +29,19 @@ module Amazonka.EC2.DescribeClientVpnEndpoints
     newDescribeClientVpnEndpoints,
 
     -- * Request Lenses
-    describeClientVpnEndpoints_filters,
-    describeClientVpnEndpoints_clientVpnEndpointIds,
     describeClientVpnEndpoints_nextToken,
+    describeClientVpnEndpoints_filters,
     describeClientVpnEndpoints_dryRun,
     describeClientVpnEndpoints_maxResults,
+    describeClientVpnEndpoints_clientVpnEndpointIds,
 
     -- * Destructuring the Response
     DescribeClientVpnEndpointsResponse (..),
     newDescribeClientVpnEndpointsResponse,
 
     -- * Response Lenses
-    describeClientVpnEndpointsResponse_nextToken,
     describeClientVpnEndpointsResponse_clientVpnEndpoints,
+    describeClientVpnEndpointsResponse_nextToken,
     describeClientVpnEndpointsResponse_httpStatus,
   )
 where
@@ -55,16 +55,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeClientVpnEndpoints' smart constructor.
 data DescribeClientVpnEndpoints = DescribeClientVpnEndpoints'
-  { -- | One or more filters. Filter names and values are case-sensitive.
+  { -- | The token to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters. Filter names and values are case-sensitive.
     --
     -- -   @endpoint-id@ - The ID of the Client VPN endpoint.
     --
     -- -   @transport-protocol@ - The transport protocol (@tcp@ | @udp@).
     filters :: Prelude.Maybe [Filter],
-    -- | The ID of the Client VPN endpoint.
-    clientVpnEndpointIds :: Prelude.Maybe [Prelude.Text],
-    -- | The token to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -73,7 +71,9 @@ data DescribeClientVpnEndpoints = DescribeClientVpnEndpoints'
     -- | The maximum number of results to return for the request in a single
     -- page. The remaining results can be seen by sending another request with
     -- the nextToken value.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The ID of the Client VPN endpoint.
+    clientVpnEndpointIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,15 +85,13 @@ data DescribeClientVpnEndpoints = DescribeClientVpnEndpoints'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describeClientVpnEndpoints_nextToken' - The token to retrieve the next page of results.
+--
 -- 'filters', 'describeClientVpnEndpoints_filters' - One or more filters. Filter names and values are case-sensitive.
 --
 -- -   @endpoint-id@ - The ID of the Client VPN endpoint.
 --
 -- -   @transport-protocol@ - The transport protocol (@tcp@ | @udp@).
---
--- 'clientVpnEndpointIds', 'describeClientVpnEndpoints_clientVpnEndpointIds' - The ID of the Client VPN endpoint.
---
--- 'nextToken', 'describeClientVpnEndpoints_nextToken' - The token to retrieve the next page of results.
 --
 -- 'dryRun', 'describeClientVpnEndpoints_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -103,17 +101,23 @@ data DescribeClientVpnEndpoints = DescribeClientVpnEndpoints'
 -- 'maxResults', 'describeClientVpnEndpoints_maxResults' - The maximum number of results to return for the request in a single
 -- page. The remaining results can be seen by sending another request with
 -- the nextToken value.
+--
+-- 'clientVpnEndpointIds', 'describeClientVpnEndpoints_clientVpnEndpointIds' - The ID of the Client VPN endpoint.
 newDescribeClientVpnEndpoints ::
   DescribeClientVpnEndpoints
 newDescribeClientVpnEndpoints =
   DescribeClientVpnEndpoints'
-    { filters =
+    { nextToken =
         Prelude.Nothing,
-      clientVpnEndpointIds = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      clientVpnEndpointIds = Prelude.Nothing
     }
+
+-- | The token to retrieve the next page of results.
+describeClientVpnEndpoints_nextToken :: Lens.Lens' DescribeClientVpnEndpoints (Prelude.Maybe Prelude.Text)
+describeClientVpnEndpoints_nextToken = Lens.lens (\DescribeClientVpnEndpoints' {nextToken} -> nextToken) (\s@DescribeClientVpnEndpoints' {} a -> s {nextToken = a} :: DescribeClientVpnEndpoints)
 
 -- | One or more filters. Filter names and values are case-sensitive.
 --
@@ -122,14 +126,6 @@ newDescribeClientVpnEndpoints =
 -- -   @transport-protocol@ - The transport protocol (@tcp@ | @udp@).
 describeClientVpnEndpoints_filters :: Lens.Lens' DescribeClientVpnEndpoints (Prelude.Maybe [Filter])
 describeClientVpnEndpoints_filters = Lens.lens (\DescribeClientVpnEndpoints' {filters} -> filters) (\s@DescribeClientVpnEndpoints' {} a -> s {filters = a} :: DescribeClientVpnEndpoints) Prelude.. Lens.mapping Lens.coerced
-
--- | The ID of the Client VPN endpoint.
-describeClientVpnEndpoints_clientVpnEndpointIds :: Lens.Lens' DescribeClientVpnEndpoints (Prelude.Maybe [Prelude.Text])
-describeClientVpnEndpoints_clientVpnEndpointIds = Lens.lens (\DescribeClientVpnEndpoints' {clientVpnEndpointIds} -> clientVpnEndpointIds) (\s@DescribeClientVpnEndpoints' {} a -> s {clientVpnEndpointIds = a} :: DescribeClientVpnEndpoints) Prelude.. Lens.mapping Lens.coerced
-
--- | The token to retrieve the next page of results.
-describeClientVpnEndpoints_nextToken :: Lens.Lens' DescribeClientVpnEndpoints (Prelude.Maybe Prelude.Text)
-describeClientVpnEndpoints_nextToken = Lens.lens (\DescribeClientVpnEndpoints' {nextToken} -> nextToken) (\s@DescribeClientVpnEndpoints' {} a -> s {nextToken = a} :: DescribeClientVpnEndpoints)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -143,6 +139,10 @@ describeClientVpnEndpoints_dryRun = Lens.lens (\DescribeClientVpnEndpoints' {dry
 -- the nextToken value.
 describeClientVpnEndpoints_maxResults :: Lens.Lens' DescribeClientVpnEndpoints (Prelude.Maybe Prelude.Natural)
 describeClientVpnEndpoints_maxResults = Lens.lens (\DescribeClientVpnEndpoints' {maxResults} -> maxResults) (\s@DescribeClientVpnEndpoints' {} a -> s {maxResults = a} :: DescribeClientVpnEndpoints)
+
+-- | The ID of the Client VPN endpoint.
+describeClientVpnEndpoints_clientVpnEndpointIds :: Lens.Lens' DescribeClientVpnEndpoints (Prelude.Maybe [Prelude.Text])
+describeClientVpnEndpoints_clientVpnEndpointIds = Lens.lens (\DescribeClientVpnEndpoints' {clientVpnEndpointIds} -> clientVpnEndpointIds) (\s@DescribeClientVpnEndpoints' {} a -> s {clientVpnEndpointIds = a} :: DescribeClientVpnEndpoints) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager DescribeClientVpnEndpoints where
   page rq rs
@@ -175,29 +175,29 @@ instance Core.AWSRequest DescribeClientVpnEndpoints where
     Response.receiveXML
       ( \s h x ->
           DescribeClientVpnEndpointsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "clientVpnEndpoint"
+            Prelude.<$> ( x Core..@? "clientVpnEndpoint"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
+            Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeClientVpnEndpoints where
   hashWithSalt _salt DescribeClientVpnEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` clientVpnEndpointIds
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` clientVpnEndpointIds
 
 instance Prelude.NFData DescribeClientVpnEndpoints where
   rnf DescribeClientVpnEndpoints' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf clientVpnEndpointIds
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf clientVpnEndpointIds
 
 instance Core.ToHeaders DescribeClientVpnEndpoints where
   toHeaders = Prelude.const Prelude.mempty
@@ -212,24 +212,24 @@ instance Core.ToQuery DescribeClientVpnEndpoints where
           Core.=: ("DescribeClientVpnEndpoints" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
         Core.toQuery
           ( Core.toQueryList "ClientVpnEndpointId"
               Prelude.<$> clientVpnEndpointIds
-          ),
-        "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults
+          )
       ]
 
 -- | /See:/ 'newDescribeClientVpnEndpointsResponse' smart constructor.
 data DescribeClientVpnEndpointsResponse = DescribeClientVpnEndpointsResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
+  { -- | Information about the Client VPN endpoints.
+    clientVpnEndpoints :: Prelude.Maybe [ClientVpnEndpoint],
+    -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the Client VPN endpoints.
-    clientVpnEndpoints :: Prelude.Maybe [ClientVpnEndpoint],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -243,10 +243,10 @@ data DescribeClientVpnEndpointsResponse = DescribeClientVpnEndpointsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientVpnEndpoints', 'describeClientVpnEndpointsResponse_clientVpnEndpoints' - Information about the Client VPN endpoints.
+--
 -- 'nextToken', 'describeClientVpnEndpointsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
---
--- 'clientVpnEndpoints', 'describeClientVpnEndpointsResponse_clientVpnEndpoints' - Information about the Client VPN endpoints.
 --
 -- 'httpStatus', 'describeClientVpnEndpointsResponse_httpStatus' - The response's http status code.
 newDescribeClientVpnEndpointsResponse ::
@@ -255,20 +255,20 @@ newDescribeClientVpnEndpointsResponse ::
   DescribeClientVpnEndpointsResponse
 newDescribeClientVpnEndpointsResponse pHttpStatus_ =
   DescribeClientVpnEndpointsResponse'
-    { nextToken =
+    { clientVpnEndpoints =
         Prelude.Nothing,
-      clientVpnEndpoints = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the Client VPN endpoints.
+describeClientVpnEndpointsResponse_clientVpnEndpoints :: Lens.Lens' DescribeClientVpnEndpointsResponse (Prelude.Maybe [ClientVpnEndpoint])
+describeClientVpnEndpointsResponse_clientVpnEndpoints = Lens.lens (\DescribeClientVpnEndpointsResponse' {clientVpnEndpoints} -> clientVpnEndpoints) (\s@DescribeClientVpnEndpointsResponse' {} a -> s {clientVpnEndpoints = a} :: DescribeClientVpnEndpointsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 describeClientVpnEndpointsResponse_nextToken :: Lens.Lens' DescribeClientVpnEndpointsResponse (Prelude.Maybe Prelude.Text)
 describeClientVpnEndpointsResponse_nextToken = Lens.lens (\DescribeClientVpnEndpointsResponse' {nextToken} -> nextToken) (\s@DescribeClientVpnEndpointsResponse' {} a -> s {nextToken = a} :: DescribeClientVpnEndpointsResponse)
-
--- | Information about the Client VPN endpoints.
-describeClientVpnEndpointsResponse_clientVpnEndpoints :: Lens.Lens' DescribeClientVpnEndpointsResponse (Prelude.Maybe [ClientVpnEndpoint])
-describeClientVpnEndpointsResponse_clientVpnEndpoints = Lens.lens (\DescribeClientVpnEndpointsResponse' {clientVpnEndpoints} -> clientVpnEndpoints) (\s@DescribeClientVpnEndpointsResponse' {} a -> s {clientVpnEndpoints = a} :: DescribeClientVpnEndpointsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeClientVpnEndpointsResponse_httpStatus :: Lens.Lens' DescribeClientVpnEndpointsResponse Prelude.Int
@@ -279,6 +279,6 @@ instance
     DescribeClientVpnEndpointsResponse
   where
   rnf DescribeClientVpnEndpointsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf clientVpnEndpoints
+    Prelude.rnf clientVpnEndpoints
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

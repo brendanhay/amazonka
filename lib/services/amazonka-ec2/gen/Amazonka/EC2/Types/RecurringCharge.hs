@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecurringCharge' smart constructor.
 data RecurringCharge = RecurringCharge'
-  { -- | The amount of the recurring charge.
-    amount :: Prelude.Maybe Prelude.Double,
-    -- | The frequency of the recurring charge.
-    frequency :: Prelude.Maybe RecurringChargeFrequency
+  { -- | The frequency of the recurring charge.
+    frequency :: Prelude.Maybe RecurringChargeFrequency,
+    -- | The amount of the recurring charge.
+    amount :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,37 +44,37 @@ data RecurringCharge = RecurringCharge'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'amount', 'recurringCharge_amount' - The amount of the recurring charge.
---
 -- 'frequency', 'recurringCharge_frequency' - The frequency of the recurring charge.
+--
+-- 'amount', 'recurringCharge_amount' - The amount of the recurring charge.
 newRecurringCharge ::
   RecurringCharge
 newRecurringCharge =
   RecurringCharge'
-    { amount = Prelude.Nothing,
-      frequency = Prelude.Nothing
+    { frequency = Prelude.Nothing,
+      amount = Prelude.Nothing
     }
-
--- | The amount of the recurring charge.
-recurringCharge_amount :: Lens.Lens' RecurringCharge (Prelude.Maybe Prelude.Double)
-recurringCharge_amount = Lens.lens (\RecurringCharge' {amount} -> amount) (\s@RecurringCharge' {} a -> s {amount = a} :: RecurringCharge)
 
 -- | The frequency of the recurring charge.
 recurringCharge_frequency :: Lens.Lens' RecurringCharge (Prelude.Maybe RecurringChargeFrequency)
 recurringCharge_frequency = Lens.lens (\RecurringCharge' {frequency} -> frequency) (\s@RecurringCharge' {} a -> s {frequency = a} :: RecurringCharge)
 
+-- | The amount of the recurring charge.
+recurringCharge_amount :: Lens.Lens' RecurringCharge (Prelude.Maybe Prelude.Double)
+recurringCharge_amount = Lens.lens (\RecurringCharge' {amount} -> amount) (\s@RecurringCharge' {} a -> s {amount = a} :: RecurringCharge)
+
 instance Core.FromXML RecurringCharge where
   parseXML x =
     RecurringCharge'
-      Prelude.<$> (x Core..@? "amount")
-      Prelude.<*> (x Core..@? "frequency")
+      Prelude.<$> (x Core..@? "frequency")
+      Prelude.<*> (x Core..@? "amount")
 
 instance Prelude.Hashable RecurringCharge where
   hashWithSalt _salt RecurringCharge' {..} =
-    _salt `Prelude.hashWithSalt` amount
-      `Prelude.hashWithSalt` frequency
+    _salt `Prelude.hashWithSalt` frequency
+      `Prelude.hashWithSalt` amount
 
 instance Prelude.NFData RecurringCharge where
   rnf RecurringCharge' {..} =
-    Prelude.rnf amount
-      `Prelude.seq` Prelude.rnf frequency
+    Prelude.rnf frequency
+      `Prelude.seq` Prelude.rnf amount

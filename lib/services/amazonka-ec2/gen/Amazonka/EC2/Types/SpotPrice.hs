@@ -31,18 +31,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSpotPrice' smart constructor.
 data SpotPrice = SpotPrice'
-  { -- | A general description of the AMI.
+  { -- | The date and time the request was created, in UTC format (for example,
+    -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
+    timestamp :: Prelude.Maybe Core.ISO8601,
+    -- | The Availability Zone.
+    availabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | The instance type.
+    instanceType :: Prelude.Maybe InstanceType,
+    -- | A general description of the AMI.
     productDescription :: Prelude.Maybe RIProductDescription,
     -- | The maximum price per hour that you are willing to pay for a Spot
     -- Instance.
-    spotPrice :: Prelude.Maybe Prelude.Text,
-    -- | The instance type.
-    instanceType :: Prelude.Maybe InstanceType,
-    -- | The Availability Zone.
-    availabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | The date and time the request was created, in UTC format (for example,
-    -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-    timestamp :: Prelude.Maybe Core.ISO8601
+    spotPrice :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,27 +54,40 @@ data SpotPrice = SpotPrice'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'timestamp', 'spotPrice_timestamp' - The date and time the request was created, in UTC format (for example,
+-- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
+--
+-- 'availabilityZone', 'spotPrice_availabilityZone' - The Availability Zone.
+--
+-- 'instanceType', 'spotPrice_instanceType' - The instance type.
+--
 -- 'productDescription', 'spotPrice_productDescription' - A general description of the AMI.
 --
 -- 'spotPrice', 'spotPrice_spotPrice' - The maximum price per hour that you are willing to pay for a Spot
 -- Instance.
---
--- 'instanceType', 'spotPrice_instanceType' - The instance type.
---
--- 'availabilityZone', 'spotPrice_availabilityZone' - The Availability Zone.
---
--- 'timestamp', 'spotPrice_timestamp' - The date and time the request was created, in UTC format (for example,
--- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
 newSpotPrice ::
   SpotPrice
 newSpotPrice =
   SpotPrice'
-    { productDescription = Prelude.Nothing,
-      spotPrice = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
+    { timestamp = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
-      timestamp = Prelude.Nothing
+      instanceType = Prelude.Nothing,
+      productDescription = Prelude.Nothing,
+      spotPrice = Prelude.Nothing
     }
+
+-- | The date and time the request was created, in UTC format (for example,
+-- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
+spotPrice_timestamp :: Lens.Lens' SpotPrice (Prelude.Maybe Prelude.UTCTime)
+spotPrice_timestamp = Lens.lens (\SpotPrice' {timestamp} -> timestamp) (\s@SpotPrice' {} a -> s {timestamp = a} :: SpotPrice) Prelude.. Lens.mapping Core._Time
+
+-- | The Availability Zone.
+spotPrice_availabilityZone :: Lens.Lens' SpotPrice (Prelude.Maybe Prelude.Text)
+spotPrice_availabilityZone = Lens.lens (\SpotPrice' {availabilityZone} -> availabilityZone) (\s@SpotPrice' {} a -> s {availabilityZone = a} :: SpotPrice)
+
+-- | The instance type.
+spotPrice_instanceType :: Lens.Lens' SpotPrice (Prelude.Maybe InstanceType)
+spotPrice_instanceType = Lens.lens (\SpotPrice' {instanceType} -> instanceType) (\s@SpotPrice' {} a -> s {instanceType = a} :: SpotPrice)
 
 -- | A general description of the AMI.
 spotPrice_productDescription :: Lens.Lens' SpotPrice (Prelude.Maybe RIProductDescription)
@@ -85,40 +98,27 @@ spotPrice_productDescription = Lens.lens (\SpotPrice' {productDescription} -> pr
 spotPrice_spotPrice :: Lens.Lens' SpotPrice (Prelude.Maybe Prelude.Text)
 spotPrice_spotPrice = Lens.lens (\SpotPrice' {spotPrice} -> spotPrice) (\s@SpotPrice' {} a -> s {spotPrice = a} :: SpotPrice)
 
--- | The instance type.
-spotPrice_instanceType :: Lens.Lens' SpotPrice (Prelude.Maybe InstanceType)
-spotPrice_instanceType = Lens.lens (\SpotPrice' {instanceType} -> instanceType) (\s@SpotPrice' {} a -> s {instanceType = a} :: SpotPrice)
-
--- | The Availability Zone.
-spotPrice_availabilityZone :: Lens.Lens' SpotPrice (Prelude.Maybe Prelude.Text)
-spotPrice_availabilityZone = Lens.lens (\SpotPrice' {availabilityZone} -> availabilityZone) (\s@SpotPrice' {} a -> s {availabilityZone = a} :: SpotPrice)
-
--- | The date and time the request was created, in UTC format (for example,
--- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-spotPrice_timestamp :: Lens.Lens' SpotPrice (Prelude.Maybe Prelude.UTCTime)
-spotPrice_timestamp = Lens.lens (\SpotPrice' {timestamp} -> timestamp) (\s@SpotPrice' {} a -> s {timestamp = a} :: SpotPrice) Prelude.. Lens.mapping Core._Time
-
 instance Core.FromXML SpotPrice where
   parseXML x =
     SpotPrice'
-      Prelude.<$> (x Core..@? "productDescription")
-      Prelude.<*> (x Core..@? "spotPrice")
-      Prelude.<*> (x Core..@? "instanceType")
+      Prelude.<$> (x Core..@? "timestamp")
       Prelude.<*> (x Core..@? "availabilityZone")
-      Prelude.<*> (x Core..@? "timestamp")
+      Prelude.<*> (x Core..@? "instanceType")
+      Prelude.<*> (x Core..@? "productDescription")
+      Prelude.<*> (x Core..@? "spotPrice")
 
 instance Prelude.Hashable SpotPrice where
   hashWithSalt _salt SpotPrice' {..} =
-    _salt `Prelude.hashWithSalt` productDescription
-      `Prelude.hashWithSalt` spotPrice
-      `Prelude.hashWithSalt` instanceType
+    _salt `Prelude.hashWithSalt` timestamp
       `Prelude.hashWithSalt` availabilityZone
-      `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` productDescription
+      `Prelude.hashWithSalt` spotPrice
 
 instance Prelude.NFData SpotPrice where
   rnf SpotPrice' {..} =
-    Prelude.rnf productDescription
-      `Prelude.seq` Prelude.rnf spotPrice
-      `Prelude.seq` Prelude.rnf instanceType
+    Prelude.rnf timestamp
       `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf productDescription
+      `Prelude.seq` Prelude.rnf spotPrice

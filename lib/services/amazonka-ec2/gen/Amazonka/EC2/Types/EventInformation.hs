@@ -31,8 +31,6 @@ data EventInformation = EventInformation'
   { -- | The ID of the instance. This information is available only for
     -- @instanceChange@ events.
     instanceId :: Prelude.Maybe Prelude.Text,
-    -- | The description of the event.
-    eventDescription :: Prelude.Maybe Prelude.Text,
     -- | The event.
     --
     -- @error@ events:
@@ -117,7 +115,9 @@ data EventInformation = EventInformation'
     -- -   @registerWithLoadBalancersFailed@ - An attempt to register instances
     --     with load balancers failed. For more information, see the
     --     description of the event.
-    eventSubType :: Prelude.Maybe Prelude.Text
+    eventSubType :: Prelude.Maybe Prelude.Text,
+    -- | The description of the event.
+    eventDescription :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -131,8 +131,6 @@ data EventInformation = EventInformation'
 --
 -- 'instanceId', 'eventInformation_instanceId' - The ID of the instance. This information is available only for
 -- @instanceChange@ events.
---
--- 'eventDescription', 'eventInformation_eventDescription' - The description of the event.
 --
 -- 'eventSubType', 'eventInformation_eventSubType' - The event.
 --
@@ -218,23 +216,21 @@ data EventInformation = EventInformation'
 -- -   @registerWithLoadBalancersFailed@ - An attempt to register instances
 --     with load balancers failed. For more information, see the
 --     description of the event.
+--
+-- 'eventDescription', 'eventInformation_eventDescription' - The description of the event.
 newEventInformation ::
   EventInformation
 newEventInformation =
   EventInformation'
     { instanceId = Prelude.Nothing,
-      eventDescription = Prelude.Nothing,
-      eventSubType = Prelude.Nothing
+      eventSubType = Prelude.Nothing,
+      eventDescription = Prelude.Nothing
     }
 
 -- | The ID of the instance. This information is available only for
 -- @instanceChange@ events.
 eventInformation_instanceId :: Lens.Lens' EventInformation (Prelude.Maybe Prelude.Text)
 eventInformation_instanceId = Lens.lens (\EventInformation' {instanceId} -> instanceId) (\s@EventInformation' {} a -> s {instanceId = a} :: EventInformation)
-
--- | The description of the event.
-eventInformation_eventDescription :: Lens.Lens' EventInformation (Prelude.Maybe Prelude.Text)
-eventInformation_eventDescription = Lens.lens (\EventInformation' {eventDescription} -> eventDescription) (\s@EventInformation' {} a -> s {eventDescription = a} :: EventInformation)
 
 -- | The event.
 --
@@ -323,21 +319,25 @@ eventInformation_eventDescription = Lens.lens (\EventInformation' {eventDescript
 eventInformation_eventSubType :: Lens.Lens' EventInformation (Prelude.Maybe Prelude.Text)
 eventInformation_eventSubType = Lens.lens (\EventInformation' {eventSubType} -> eventSubType) (\s@EventInformation' {} a -> s {eventSubType = a} :: EventInformation)
 
+-- | The description of the event.
+eventInformation_eventDescription :: Lens.Lens' EventInformation (Prelude.Maybe Prelude.Text)
+eventInformation_eventDescription = Lens.lens (\EventInformation' {eventDescription} -> eventDescription) (\s@EventInformation' {} a -> s {eventDescription = a} :: EventInformation)
+
 instance Core.FromXML EventInformation where
   parseXML x =
     EventInformation'
       Prelude.<$> (x Core..@? "instanceId")
-      Prelude.<*> (x Core..@? "eventDescription")
       Prelude.<*> (x Core..@? "eventSubType")
+      Prelude.<*> (x Core..@? "eventDescription")
 
 instance Prelude.Hashable EventInformation where
   hashWithSalt _salt EventInformation' {..} =
     _salt `Prelude.hashWithSalt` instanceId
-      `Prelude.hashWithSalt` eventDescription
       `Prelude.hashWithSalt` eventSubType
+      `Prelude.hashWithSalt` eventDescription
 
 instance Prelude.NFData EventInformation where
   rnf EventInformation' {..} =
     Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf eventDescription
       `Prelude.seq` Prelude.rnf eventSubType
+      `Prelude.seq` Prelude.rnf eventDescription

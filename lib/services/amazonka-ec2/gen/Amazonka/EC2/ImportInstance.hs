@@ -40,10 +40,10 @@ module Amazonka.EC2.ImportInstance
     newImportInstance,
 
     -- * Request Lenses
-    importInstance_launchSpecification,
     importInstance_diskImages,
     importInstance_description,
     importInstance_dryRun,
+    importInstance_launchSpecification,
     importInstance_platform,
 
     -- * Destructuring the Response
@@ -65,9 +65,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newImportInstance' smart constructor.
 data ImportInstance = ImportInstance'
-  { -- | The launch specification.
-    launchSpecification :: Prelude.Maybe ImportInstanceLaunchSpecification,
-    -- | The disk image.
+  { -- | The disk image.
     diskImages :: Prelude.Maybe [DiskImage],
     -- | A description for the instance being imported.
     description :: Prelude.Maybe Prelude.Text,
@@ -76,6 +74,8 @@ data ImportInstance = ImportInstance'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The launch specification.
+    launchSpecification :: Prelude.Maybe ImportInstanceLaunchSpecification,
     -- | The instance operating system.
     platform :: PlatformValues
   }
@@ -89,8 +89,6 @@ data ImportInstance = ImportInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'launchSpecification', 'importInstance_launchSpecification' - The launch specification.
---
 -- 'diskImages', 'importInstance_diskImages' - The disk image.
 --
 -- 'description', 'importInstance_description' - A description for the instance being imported.
@@ -100,6 +98,8 @@ data ImportInstance = ImportInstance'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
+-- 'launchSpecification', 'importInstance_launchSpecification' - The launch specification.
+--
 -- 'platform', 'importInstance_platform' - The instance operating system.
 newImportInstance ::
   -- | 'platform'
@@ -107,17 +107,12 @@ newImportInstance ::
   ImportInstance
 newImportInstance pPlatform_ =
   ImportInstance'
-    { launchSpecification =
-        Prelude.Nothing,
-      diskImages = Prelude.Nothing,
+    { diskImages = Prelude.Nothing,
       description = Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      launchSpecification = Prelude.Nothing,
       platform = pPlatform_
     }
-
--- | The launch specification.
-importInstance_launchSpecification :: Lens.Lens' ImportInstance (Prelude.Maybe ImportInstanceLaunchSpecification)
-importInstance_launchSpecification = Lens.lens (\ImportInstance' {launchSpecification} -> launchSpecification) (\s@ImportInstance' {} a -> s {launchSpecification = a} :: ImportInstance)
 
 -- | The disk image.
 importInstance_diskImages :: Lens.Lens' ImportInstance (Prelude.Maybe [DiskImage])
@@ -133,6 +128,10 @@ importInstance_description = Lens.lens (\ImportInstance' {description} -> descri
 -- Otherwise, it is @UnauthorizedOperation@.
 importInstance_dryRun :: Lens.Lens' ImportInstance (Prelude.Maybe Prelude.Bool)
 importInstance_dryRun = Lens.lens (\ImportInstance' {dryRun} -> dryRun) (\s@ImportInstance' {} a -> s {dryRun = a} :: ImportInstance)
+
+-- | The launch specification.
+importInstance_launchSpecification :: Lens.Lens' ImportInstance (Prelude.Maybe ImportInstanceLaunchSpecification)
+importInstance_launchSpecification = Lens.lens (\ImportInstance' {launchSpecification} -> launchSpecification) (\s@ImportInstance' {} a -> s {launchSpecification = a} :: ImportInstance)
 
 -- | The instance operating system.
 importInstance_platform :: Lens.Lens' ImportInstance PlatformValues
@@ -153,18 +152,18 @@ instance Core.AWSRequest ImportInstance where
 
 instance Prelude.Hashable ImportInstance where
   hashWithSalt _salt ImportInstance' {..} =
-    _salt `Prelude.hashWithSalt` launchSpecification
-      `Prelude.hashWithSalt` diskImages
+    _salt `Prelude.hashWithSalt` diskImages
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` launchSpecification
       `Prelude.hashWithSalt` platform
 
 instance Prelude.NFData ImportInstance where
   rnf ImportInstance' {..} =
-    Prelude.rnf launchSpecification
-      `Prelude.seq` Prelude.rnf diskImages
+    Prelude.rnf diskImages
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf launchSpecification
       `Prelude.seq` Prelude.rnf platform
 
 instance Core.ToHeaders ImportInstance where
@@ -180,13 +179,13 @@ instance Core.ToQuery ImportInstance where
           Core.=: ("ImportInstance" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "LaunchSpecification" Core.=: launchSpecification,
         Core.toQuery
           ( Core.toQueryList "DiskImage"
               Prelude.<$> diskImages
           ),
         "Description" Core.=: description,
         "DryRun" Core.=: dryRun,
+        "LaunchSpecification" Core.=: launchSpecification,
         "Platform" Core.=: platform
       ]
 

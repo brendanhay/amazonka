@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInferenceDeviceInfo' smart constructor.
 data InferenceDeviceInfo = InferenceDeviceInfo'
-  { -- | The manufacturer of the Inference accelerator.
-    manufacturer :: Prelude.Maybe Prelude.Text,
+  { -- | The name of the Inference accelerator.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The number of Inference accelerators for the instance type.
     count :: Prelude.Maybe Prelude.Int,
-    -- | The name of the Inference accelerator.
-    name :: Prelude.Maybe Prelude.Text
+    -- | The manufacturer of the Inference accelerator.
+    manufacturer :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,48 +45,47 @@ data InferenceDeviceInfo = InferenceDeviceInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'manufacturer', 'inferenceDeviceInfo_manufacturer' - The manufacturer of the Inference accelerator.
+-- 'name', 'inferenceDeviceInfo_name' - The name of the Inference accelerator.
 --
 -- 'count', 'inferenceDeviceInfo_count' - The number of Inference accelerators for the instance type.
 --
--- 'name', 'inferenceDeviceInfo_name' - The name of the Inference accelerator.
+-- 'manufacturer', 'inferenceDeviceInfo_manufacturer' - The manufacturer of the Inference accelerator.
 newInferenceDeviceInfo ::
   InferenceDeviceInfo
 newInferenceDeviceInfo =
   InferenceDeviceInfo'
-    { manufacturer =
-        Prelude.Nothing,
+    { name = Prelude.Nothing,
       count = Prelude.Nothing,
-      name = Prelude.Nothing
+      manufacturer = Prelude.Nothing
     }
-
--- | The manufacturer of the Inference accelerator.
-inferenceDeviceInfo_manufacturer :: Lens.Lens' InferenceDeviceInfo (Prelude.Maybe Prelude.Text)
-inferenceDeviceInfo_manufacturer = Lens.lens (\InferenceDeviceInfo' {manufacturer} -> manufacturer) (\s@InferenceDeviceInfo' {} a -> s {manufacturer = a} :: InferenceDeviceInfo)
-
--- | The number of Inference accelerators for the instance type.
-inferenceDeviceInfo_count :: Lens.Lens' InferenceDeviceInfo (Prelude.Maybe Prelude.Int)
-inferenceDeviceInfo_count = Lens.lens (\InferenceDeviceInfo' {count} -> count) (\s@InferenceDeviceInfo' {} a -> s {count = a} :: InferenceDeviceInfo)
 
 -- | The name of the Inference accelerator.
 inferenceDeviceInfo_name :: Lens.Lens' InferenceDeviceInfo (Prelude.Maybe Prelude.Text)
 inferenceDeviceInfo_name = Lens.lens (\InferenceDeviceInfo' {name} -> name) (\s@InferenceDeviceInfo' {} a -> s {name = a} :: InferenceDeviceInfo)
 
+-- | The number of Inference accelerators for the instance type.
+inferenceDeviceInfo_count :: Lens.Lens' InferenceDeviceInfo (Prelude.Maybe Prelude.Int)
+inferenceDeviceInfo_count = Lens.lens (\InferenceDeviceInfo' {count} -> count) (\s@InferenceDeviceInfo' {} a -> s {count = a} :: InferenceDeviceInfo)
+
+-- | The manufacturer of the Inference accelerator.
+inferenceDeviceInfo_manufacturer :: Lens.Lens' InferenceDeviceInfo (Prelude.Maybe Prelude.Text)
+inferenceDeviceInfo_manufacturer = Lens.lens (\InferenceDeviceInfo' {manufacturer} -> manufacturer) (\s@InferenceDeviceInfo' {} a -> s {manufacturer = a} :: InferenceDeviceInfo)
+
 instance Core.FromXML InferenceDeviceInfo where
   parseXML x =
     InferenceDeviceInfo'
-      Prelude.<$> (x Core..@? "manufacturer")
+      Prelude.<$> (x Core..@? "name")
       Prelude.<*> (x Core..@? "count")
-      Prelude.<*> (x Core..@? "name")
+      Prelude.<*> (x Core..@? "manufacturer")
 
 instance Prelude.Hashable InferenceDeviceInfo where
   hashWithSalt _salt InferenceDeviceInfo' {..} =
-    _salt `Prelude.hashWithSalt` manufacturer
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` count
-      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` manufacturer
 
 instance Prelude.NFData InferenceDeviceInfo where
   rnf InferenceDeviceInfo' {..} =
-    Prelude.rnf manufacturer
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf count
-      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf manufacturer

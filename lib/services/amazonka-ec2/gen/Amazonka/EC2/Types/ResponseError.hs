@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResponseError' smart constructor.
 data ResponseError = ResponseError'
-  { -- | The error code.
-    code :: Prelude.Maybe LaunchTemplateErrorCode,
-    -- | The error message, if applicable.
-    message :: Prelude.Maybe Prelude.Text
+  { -- | The error message, if applicable.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The error code.
+    code :: Prelude.Maybe LaunchTemplateErrorCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,36 +45,36 @@ data ResponseError = ResponseError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'code', 'responseError_code' - The error code.
---
 -- 'message', 'responseError_message' - The error message, if applicable.
+--
+-- 'code', 'responseError_code' - The error code.
 newResponseError ::
   ResponseError
 newResponseError =
   ResponseError'
-    { code = Prelude.Nothing,
-      message = Prelude.Nothing
+    { message = Prelude.Nothing,
+      code = Prelude.Nothing
     }
-
--- | The error code.
-responseError_code :: Lens.Lens' ResponseError (Prelude.Maybe LaunchTemplateErrorCode)
-responseError_code = Lens.lens (\ResponseError' {code} -> code) (\s@ResponseError' {} a -> s {code = a} :: ResponseError)
 
 -- | The error message, if applicable.
 responseError_message :: Lens.Lens' ResponseError (Prelude.Maybe Prelude.Text)
 responseError_message = Lens.lens (\ResponseError' {message} -> message) (\s@ResponseError' {} a -> s {message = a} :: ResponseError)
 
+-- | The error code.
+responseError_code :: Lens.Lens' ResponseError (Prelude.Maybe LaunchTemplateErrorCode)
+responseError_code = Lens.lens (\ResponseError' {code} -> code) (\s@ResponseError' {} a -> s {code = a} :: ResponseError)
+
 instance Core.FromXML ResponseError where
   parseXML x =
     ResponseError'
-      Prelude.<$> (x Core..@? "code")
-      Prelude.<*> (x Core..@? "message")
+      Prelude.<$> (x Core..@? "message")
+      Prelude.<*> (x Core..@? "code")
 
 instance Prelude.Hashable ResponseError where
   hashWithSalt _salt ResponseError' {..} =
-    _salt `Prelude.hashWithSalt` code
-      `Prelude.hashWithSalt` message
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
 
 instance Prelude.NFData ResponseError where
   rnf ResponseError' {..} =
-    Prelude.rnf code `Prelude.seq` Prelude.rnf message
+    Prelude.rnf message `Prelude.seq` Prelude.rnf code

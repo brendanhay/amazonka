@@ -36,9 +36,9 @@ module Amazonka.EC2.CancelImportTask
     newCancelImportTaskResponse,
 
     -- * Response Lenses
+    cancelImportTaskResponse_previousState,
     cancelImportTaskResponse_state,
     cancelImportTaskResponse_importTaskId,
-    cancelImportTaskResponse_previousState,
     cancelImportTaskResponse_httpStatus,
   )
 where
@@ -113,9 +113,9 @@ instance Core.AWSRequest CancelImportTask where
     Response.receiveXML
       ( \s h x ->
           CancelImportTaskResponse'
-            Prelude.<$> (x Core..@? "state")
+            Prelude.<$> (x Core..@? "previousState")
+            Prelude.<*> (x Core..@? "state")
             Prelude.<*> (x Core..@? "importTaskId")
-            Prelude.<*> (x Core..@? "previousState")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,11 +152,11 @@ instance Core.ToQuery CancelImportTask where
 -- | /See:/ 'newCancelImportTaskResponse' smart constructor.
 data CancelImportTaskResponse = CancelImportTaskResponse'
   { -- | The current state of the task being canceled.
+    previousState :: Prelude.Maybe Prelude.Text,
+    -- | The current state of the task being canceled.
     state :: Prelude.Maybe Prelude.Text,
     -- | The ID of the task being canceled.
     importTaskId :: Prelude.Maybe Prelude.Text,
-    -- | The current state of the task being canceled.
-    previousState :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -170,11 +170,11 @@ data CancelImportTaskResponse = CancelImportTaskResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'previousState', 'cancelImportTaskResponse_previousState' - The current state of the task being canceled.
+--
 -- 'state', 'cancelImportTaskResponse_state' - The current state of the task being canceled.
 --
 -- 'importTaskId', 'cancelImportTaskResponse_importTaskId' - The ID of the task being canceled.
---
--- 'previousState', 'cancelImportTaskResponse_previousState' - The current state of the task being canceled.
 --
 -- 'httpStatus', 'cancelImportTaskResponse_httpStatus' - The response's http status code.
 newCancelImportTaskResponse ::
@@ -183,11 +183,16 @@ newCancelImportTaskResponse ::
   CancelImportTaskResponse
 newCancelImportTaskResponse pHttpStatus_ =
   CancelImportTaskResponse'
-    { state = Prelude.Nothing,
+    { previousState =
+        Prelude.Nothing,
+      state = Prelude.Nothing,
       importTaskId = Prelude.Nothing,
-      previousState = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The current state of the task being canceled.
+cancelImportTaskResponse_previousState :: Lens.Lens' CancelImportTaskResponse (Prelude.Maybe Prelude.Text)
+cancelImportTaskResponse_previousState = Lens.lens (\CancelImportTaskResponse' {previousState} -> previousState) (\s@CancelImportTaskResponse' {} a -> s {previousState = a} :: CancelImportTaskResponse)
 
 -- | The current state of the task being canceled.
 cancelImportTaskResponse_state :: Lens.Lens' CancelImportTaskResponse (Prelude.Maybe Prelude.Text)
@@ -197,17 +202,13 @@ cancelImportTaskResponse_state = Lens.lens (\CancelImportTaskResponse' {state} -
 cancelImportTaskResponse_importTaskId :: Lens.Lens' CancelImportTaskResponse (Prelude.Maybe Prelude.Text)
 cancelImportTaskResponse_importTaskId = Lens.lens (\CancelImportTaskResponse' {importTaskId} -> importTaskId) (\s@CancelImportTaskResponse' {} a -> s {importTaskId = a} :: CancelImportTaskResponse)
 
--- | The current state of the task being canceled.
-cancelImportTaskResponse_previousState :: Lens.Lens' CancelImportTaskResponse (Prelude.Maybe Prelude.Text)
-cancelImportTaskResponse_previousState = Lens.lens (\CancelImportTaskResponse' {previousState} -> previousState) (\s@CancelImportTaskResponse' {} a -> s {previousState = a} :: CancelImportTaskResponse)
-
 -- | The response's http status code.
 cancelImportTaskResponse_httpStatus :: Lens.Lens' CancelImportTaskResponse Prelude.Int
 cancelImportTaskResponse_httpStatus = Lens.lens (\CancelImportTaskResponse' {httpStatus} -> httpStatus) (\s@CancelImportTaskResponse' {} a -> s {httpStatus = a} :: CancelImportTaskResponse)
 
 instance Prelude.NFData CancelImportTaskResponse where
   rnf CancelImportTaskResponse' {..} =
-    Prelude.rnf state
+    Prelude.rnf previousState
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf importTaskId
-      `Prelude.seq` Prelude.rnf previousState
       `Prelude.seq` Prelude.rnf httpStatus

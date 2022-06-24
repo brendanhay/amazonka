@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRegionInfo' smart constructor.
 data RegionInfo = RegionInfo'
-  { -- | The name of the Region.
-    regionName :: Prelude.Maybe Prelude.Text,
-    -- | The Region opt-in status. The possible values are @opt-in-not-required@,
+  { -- | The Region opt-in status. The possible values are @opt-in-not-required@,
     -- @opted-in@, and @not-opted-in@.
     optInStatus :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Region.
+    regionName :: Prelude.Maybe Prelude.Text,
     -- | The Region service endpoint.
     endpoint :: Prelude.Maybe Prelude.Text
   }
@@ -46,29 +46,29 @@ data RegionInfo = RegionInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'regionName', 'regionInfo_regionName' - The name of the Region.
---
 -- 'optInStatus', 'regionInfo_optInStatus' - The Region opt-in status. The possible values are @opt-in-not-required@,
 -- @opted-in@, and @not-opted-in@.
+--
+-- 'regionName', 'regionInfo_regionName' - The name of the Region.
 --
 -- 'endpoint', 'regionInfo_endpoint' - The Region service endpoint.
 newRegionInfo ::
   RegionInfo
 newRegionInfo =
   RegionInfo'
-    { regionName = Prelude.Nothing,
-      optInStatus = Prelude.Nothing,
+    { optInStatus = Prelude.Nothing,
+      regionName = Prelude.Nothing,
       endpoint = Prelude.Nothing
     }
-
--- | The name of the Region.
-regionInfo_regionName :: Lens.Lens' RegionInfo (Prelude.Maybe Prelude.Text)
-regionInfo_regionName = Lens.lens (\RegionInfo' {regionName} -> regionName) (\s@RegionInfo' {} a -> s {regionName = a} :: RegionInfo)
 
 -- | The Region opt-in status. The possible values are @opt-in-not-required@,
 -- @opted-in@, and @not-opted-in@.
 regionInfo_optInStatus :: Lens.Lens' RegionInfo (Prelude.Maybe Prelude.Text)
 regionInfo_optInStatus = Lens.lens (\RegionInfo' {optInStatus} -> optInStatus) (\s@RegionInfo' {} a -> s {optInStatus = a} :: RegionInfo)
+
+-- | The name of the Region.
+regionInfo_regionName :: Lens.Lens' RegionInfo (Prelude.Maybe Prelude.Text)
+regionInfo_regionName = Lens.lens (\RegionInfo' {regionName} -> regionName) (\s@RegionInfo' {} a -> s {regionName = a} :: RegionInfo)
 
 -- | The Region service endpoint.
 regionInfo_endpoint :: Lens.Lens' RegionInfo (Prelude.Maybe Prelude.Text)
@@ -77,18 +77,18 @@ regionInfo_endpoint = Lens.lens (\RegionInfo' {endpoint} -> endpoint) (\s@Region
 instance Core.FromXML RegionInfo where
   parseXML x =
     RegionInfo'
-      Prelude.<$> (x Core..@? "regionName")
-      Prelude.<*> (x Core..@? "optInStatus")
+      Prelude.<$> (x Core..@? "optInStatus")
+      Prelude.<*> (x Core..@? "regionName")
       Prelude.<*> (x Core..@? "regionEndpoint")
 
 instance Prelude.Hashable RegionInfo where
   hashWithSalt _salt RegionInfo' {..} =
-    _salt `Prelude.hashWithSalt` regionName
-      `Prelude.hashWithSalt` optInStatus
+    _salt `Prelude.hashWithSalt` optInStatus
+      `Prelude.hashWithSalt` regionName
       `Prelude.hashWithSalt` endpoint
 
 instance Prelude.NFData RegionInfo where
   rnf RegionInfo' {..} =
-    Prelude.rnf regionName
-      `Prelude.seq` Prelude.rnf optInStatus
+    Prelude.rnf optInStatus
+      `Prelude.seq` Prelude.rnf regionName
       `Prelude.seq` Prelude.rnf endpoint

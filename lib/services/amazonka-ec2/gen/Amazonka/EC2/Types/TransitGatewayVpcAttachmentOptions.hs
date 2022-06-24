@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTransitGatewayVpcAttachmentOptions' smart constructor.
 data TransitGatewayVpcAttachmentOptions = TransitGatewayVpcAttachmentOptions'
-  { -- | Indicates whether IPv6 support is disabled.
+  { -- | Indicates whether DNS support is enabled.
+    dnsSupport :: Prelude.Maybe DnsSupportValue,
+    -- | Indicates whether IPv6 support is disabled.
     ipv6Support :: Prelude.Maybe Ipv6SupportValue,
     -- | Indicates whether appliance mode support is enabled.
-    applianceModeSupport :: Prelude.Maybe ApplianceModeSupportValue,
-    -- | Indicates whether DNS support is enabled.
-    dnsSupport :: Prelude.Maybe DnsSupportValue
+    applianceModeSupport :: Prelude.Maybe ApplianceModeSupportValue
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,20 +48,24 @@ data TransitGatewayVpcAttachmentOptions = TransitGatewayVpcAttachmentOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dnsSupport', 'transitGatewayVpcAttachmentOptions_dnsSupport' - Indicates whether DNS support is enabled.
+--
 -- 'ipv6Support', 'transitGatewayVpcAttachmentOptions_ipv6Support' - Indicates whether IPv6 support is disabled.
 --
 -- 'applianceModeSupport', 'transitGatewayVpcAttachmentOptions_applianceModeSupport' - Indicates whether appliance mode support is enabled.
---
--- 'dnsSupport', 'transitGatewayVpcAttachmentOptions_dnsSupport' - Indicates whether DNS support is enabled.
 newTransitGatewayVpcAttachmentOptions ::
   TransitGatewayVpcAttachmentOptions
 newTransitGatewayVpcAttachmentOptions =
   TransitGatewayVpcAttachmentOptions'
-    { ipv6Support =
+    { dnsSupport =
         Prelude.Nothing,
-      applianceModeSupport = Prelude.Nothing,
-      dnsSupport = Prelude.Nothing
+      ipv6Support = Prelude.Nothing,
+      applianceModeSupport = Prelude.Nothing
     }
+
+-- | Indicates whether DNS support is enabled.
+transitGatewayVpcAttachmentOptions_dnsSupport :: Lens.Lens' TransitGatewayVpcAttachmentOptions (Prelude.Maybe DnsSupportValue)
+transitGatewayVpcAttachmentOptions_dnsSupport = Lens.lens (\TransitGatewayVpcAttachmentOptions' {dnsSupport} -> dnsSupport) (\s@TransitGatewayVpcAttachmentOptions' {} a -> s {dnsSupport = a} :: TransitGatewayVpcAttachmentOptions)
 
 -- | Indicates whether IPv6 support is disabled.
 transitGatewayVpcAttachmentOptions_ipv6Support :: Lens.Lens' TransitGatewayVpcAttachmentOptions (Prelude.Maybe Ipv6SupportValue)
@@ -71,19 +75,15 @@ transitGatewayVpcAttachmentOptions_ipv6Support = Lens.lens (\TransitGatewayVpcAt
 transitGatewayVpcAttachmentOptions_applianceModeSupport :: Lens.Lens' TransitGatewayVpcAttachmentOptions (Prelude.Maybe ApplianceModeSupportValue)
 transitGatewayVpcAttachmentOptions_applianceModeSupport = Lens.lens (\TransitGatewayVpcAttachmentOptions' {applianceModeSupport} -> applianceModeSupport) (\s@TransitGatewayVpcAttachmentOptions' {} a -> s {applianceModeSupport = a} :: TransitGatewayVpcAttachmentOptions)
 
--- | Indicates whether DNS support is enabled.
-transitGatewayVpcAttachmentOptions_dnsSupport :: Lens.Lens' TransitGatewayVpcAttachmentOptions (Prelude.Maybe DnsSupportValue)
-transitGatewayVpcAttachmentOptions_dnsSupport = Lens.lens (\TransitGatewayVpcAttachmentOptions' {dnsSupport} -> dnsSupport) (\s@TransitGatewayVpcAttachmentOptions' {} a -> s {dnsSupport = a} :: TransitGatewayVpcAttachmentOptions)
-
 instance
   Core.FromXML
     TransitGatewayVpcAttachmentOptions
   where
   parseXML x =
     TransitGatewayVpcAttachmentOptions'
-      Prelude.<$> (x Core..@? "ipv6Support")
+      Prelude.<$> (x Core..@? "dnsSupport")
+      Prelude.<*> (x Core..@? "ipv6Support")
       Prelude.<*> (x Core..@? "applianceModeSupport")
-      Prelude.<*> (x Core..@? "dnsSupport")
 
 instance
   Prelude.Hashable
@@ -92,15 +92,15 @@ instance
   hashWithSalt
     _salt
     TransitGatewayVpcAttachmentOptions' {..} =
-      _salt `Prelude.hashWithSalt` ipv6Support
+      _salt `Prelude.hashWithSalt` dnsSupport
+        `Prelude.hashWithSalt` ipv6Support
         `Prelude.hashWithSalt` applianceModeSupport
-        `Prelude.hashWithSalt` dnsSupport
 
 instance
   Prelude.NFData
     TransitGatewayVpcAttachmentOptions
   where
   rnf TransitGatewayVpcAttachmentOptions' {..} =
-    Prelude.rnf ipv6Support
+    Prelude.rnf dnsSupport
+      `Prelude.seq` Prelude.rnf ipv6Support
       `Prelude.seq` Prelude.rnf applianceModeSupport
-      `Prelude.seq` Prelude.rnf dnsSupport

@@ -32,8 +32,8 @@ module Amazonka.EC2.CreateEgressOnlyInternetGateway
 
     -- * Request Lenses
     createEgressOnlyInternetGateway_clientToken,
-    createEgressOnlyInternetGateway_tagSpecifications,
     createEgressOnlyInternetGateway_dryRun,
+    createEgressOnlyInternetGateway_tagSpecifications,
     createEgressOnlyInternetGateway_vpcId,
 
     -- * Destructuring the Response
@@ -60,13 +60,13 @@ data CreateEgressOnlyInternetGateway = CreateEgressOnlyInternetGateway'
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The tags to assign to the egress-only internet gateway.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The tags to assign to the egress-only internet gateway.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The ID of the VPC for which to create the egress-only internet gateway.
     vpcId :: Prelude.Text
   }
@@ -84,12 +84,12 @@ data CreateEgressOnlyInternetGateway = CreateEgressOnlyInternetGateway'
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
 --
--- 'tagSpecifications', 'createEgressOnlyInternetGateway_tagSpecifications' - The tags to assign to the egress-only internet gateway.
---
 -- 'dryRun', 'createEgressOnlyInternetGateway_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'tagSpecifications', 'createEgressOnlyInternetGateway_tagSpecifications' - The tags to assign to the egress-only internet gateway.
 --
 -- 'vpcId', 'createEgressOnlyInternetGateway_vpcId' - The ID of the VPC for which to create the egress-only internet gateway.
 newCreateEgressOnlyInternetGateway ::
@@ -100,8 +100,8 @@ newCreateEgressOnlyInternetGateway pVpcId_ =
   CreateEgressOnlyInternetGateway'
     { clientToken =
         Prelude.Nothing,
-      tagSpecifications = Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
       vpcId = pVpcId_
     }
 
@@ -111,16 +111,16 @@ newCreateEgressOnlyInternetGateway pVpcId_ =
 createEgressOnlyInternetGateway_clientToken :: Lens.Lens' CreateEgressOnlyInternetGateway (Prelude.Maybe Prelude.Text)
 createEgressOnlyInternetGateway_clientToken = Lens.lens (\CreateEgressOnlyInternetGateway' {clientToken} -> clientToken) (\s@CreateEgressOnlyInternetGateway' {} a -> s {clientToken = a} :: CreateEgressOnlyInternetGateway)
 
--- | The tags to assign to the egress-only internet gateway.
-createEgressOnlyInternetGateway_tagSpecifications :: Lens.Lens' CreateEgressOnlyInternetGateway (Prelude.Maybe [TagSpecification])
-createEgressOnlyInternetGateway_tagSpecifications = Lens.lens (\CreateEgressOnlyInternetGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateEgressOnlyInternetGateway' {} a -> s {tagSpecifications = a} :: CreateEgressOnlyInternetGateway) Prelude.. Lens.mapping Lens.coerced
-
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 createEgressOnlyInternetGateway_dryRun :: Lens.Lens' CreateEgressOnlyInternetGateway (Prelude.Maybe Prelude.Bool)
 createEgressOnlyInternetGateway_dryRun = Lens.lens (\CreateEgressOnlyInternetGateway' {dryRun} -> dryRun) (\s@CreateEgressOnlyInternetGateway' {} a -> s {dryRun = a} :: CreateEgressOnlyInternetGateway)
+
+-- | The tags to assign to the egress-only internet gateway.
+createEgressOnlyInternetGateway_tagSpecifications :: Lens.Lens' CreateEgressOnlyInternetGateway (Prelude.Maybe [TagSpecification])
+createEgressOnlyInternetGateway_tagSpecifications = Lens.lens (\CreateEgressOnlyInternetGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateEgressOnlyInternetGateway' {} a -> s {tagSpecifications = a} :: CreateEgressOnlyInternetGateway) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the VPC for which to create the egress-only internet gateway.
 createEgressOnlyInternetGateway_vpcId :: Lens.Lens' CreateEgressOnlyInternetGateway Prelude.Text
@@ -151,8 +151,8 @@ instance
     _salt
     CreateEgressOnlyInternetGateway' {..} =
       _salt `Prelude.hashWithSalt` clientToken
-        `Prelude.hashWithSalt` tagSpecifications
         `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` tagSpecifications
         `Prelude.hashWithSalt` vpcId
 
 instance
@@ -161,8 +161,8 @@ instance
   where
   rnf CreateEgressOnlyInternetGateway' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf vpcId
 
 instance
@@ -184,11 +184,11 @@ instance Core.ToQuery CreateEgressOnlyInternetGateway where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "ClientToken" Core.=: clientToken,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "DryRun" Core.=: dryRun,
         "VpcId" Core.=: vpcId
       ]
 

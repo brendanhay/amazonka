@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTerminateConnectionStatus' smart constructor.
 data TerminateConnectionStatus = TerminateConnectionStatus'
-  { -- | A message about the status of the client connection, if applicable.
-    currentStatus :: Prelude.Maybe ClientVpnConnectionStatus,
+  { -- | The state of the client connection.
+    previousStatus :: Prelude.Maybe ClientVpnConnectionStatus,
     -- | The ID of the client connection.
     connectionId :: Prelude.Maybe Prelude.Text,
-    -- | The state of the client connection.
-    previousStatus :: Prelude.Maybe ClientVpnConnectionStatus
+    -- | A message about the status of the client connection, if applicable.
+    currentStatus :: Prelude.Maybe ClientVpnConnectionStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,48 +46,48 @@ data TerminateConnectionStatus = TerminateConnectionStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'currentStatus', 'terminateConnectionStatus_currentStatus' - A message about the status of the client connection, if applicable.
+-- 'previousStatus', 'terminateConnectionStatus_previousStatus' - The state of the client connection.
 --
 -- 'connectionId', 'terminateConnectionStatus_connectionId' - The ID of the client connection.
 --
--- 'previousStatus', 'terminateConnectionStatus_previousStatus' - The state of the client connection.
+-- 'currentStatus', 'terminateConnectionStatus_currentStatus' - A message about the status of the client connection, if applicable.
 newTerminateConnectionStatus ::
   TerminateConnectionStatus
 newTerminateConnectionStatus =
   TerminateConnectionStatus'
-    { currentStatus =
+    { previousStatus =
         Prelude.Nothing,
       connectionId = Prelude.Nothing,
-      previousStatus = Prelude.Nothing
+      currentStatus = Prelude.Nothing
     }
-
--- | A message about the status of the client connection, if applicable.
-terminateConnectionStatus_currentStatus :: Lens.Lens' TerminateConnectionStatus (Prelude.Maybe ClientVpnConnectionStatus)
-terminateConnectionStatus_currentStatus = Lens.lens (\TerminateConnectionStatus' {currentStatus} -> currentStatus) (\s@TerminateConnectionStatus' {} a -> s {currentStatus = a} :: TerminateConnectionStatus)
-
--- | The ID of the client connection.
-terminateConnectionStatus_connectionId :: Lens.Lens' TerminateConnectionStatus (Prelude.Maybe Prelude.Text)
-terminateConnectionStatus_connectionId = Lens.lens (\TerminateConnectionStatus' {connectionId} -> connectionId) (\s@TerminateConnectionStatus' {} a -> s {connectionId = a} :: TerminateConnectionStatus)
 
 -- | The state of the client connection.
 terminateConnectionStatus_previousStatus :: Lens.Lens' TerminateConnectionStatus (Prelude.Maybe ClientVpnConnectionStatus)
 terminateConnectionStatus_previousStatus = Lens.lens (\TerminateConnectionStatus' {previousStatus} -> previousStatus) (\s@TerminateConnectionStatus' {} a -> s {previousStatus = a} :: TerminateConnectionStatus)
 
+-- | The ID of the client connection.
+terminateConnectionStatus_connectionId :: Lens.Lens' TerminateConnectionStatus (Prelude.Maybe Prelude.Text)
+terminateConnectionStatus_connectionId = Lens.lens (\TerminateConnectionStatus' {connectionId} -> connectionId) (\s@TerminateConnectionStatus' {} a -> s {connectionId = a} :: TerminateConnectionStatus)
+
+-- | A message about the status of the client connection, if applicable.
+terminateConnectionStatus_currentStatus :: Lens.Lens' TerminateConnectionStatus (Prelude.Maybe ClientVpnConnectionStatus)
+terminateConnectionStatus_currentStatus = Lens.lens (\TerminateConnectionStatus' {currentStatus} -> currentStatus) (\s@TerminateConnectionStatus' {} a -> s {currentStatus = a} :: TerminateConnectionStatus)
+
 instance Core.FromXML TerminateConnectionStatus where
   parseXML x =
     TerminateConnectionStatus'
-      Prelude.<$> (x Core..@? "currentStatus")
+      Prelude.<$> (x Core..@? "previousStatus")
       Prelude.<*> (x Core..@? "connectionId")
-      Prelude.<*> (x Core..@? "previousStatus")
+      Prelude.<*> (x Core..@? "currentStatus")
 
 instance Prelude.Hashable TerminateConnectionStatus where
   hashWithSalt _salt TerminateConnectionStatus' {..} =
-    _salt `Prelude.hashWithSalt` currentStatus
+    _salt `Prelude.hashWithSalt` previousStatus
       `Prelude.hashWithSalt` connectionId
-      `Prelude.hashWithSalt` previousStatus
+      `Prelude.hashWithSalt` currentStatus
 
 instance Prelude.NFData TerminateConnectionStatus where
   rnf TerminateConnectionStatus' {..} =
-    Prelude.rnf currentStatus
+    Prelude.rnf previousStatus
       `Prelude.seq` Prelude.rnf connectionId
-      `Prelude.seq` Prelude.rnf previousStatus
+      `Prelude.seq` Prelude.rnf currentStatus

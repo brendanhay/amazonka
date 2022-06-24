@@ -28,8 +28,8 @@ module Amazonka.EC2.AcceptReservedInstancesExchangeQuote
     newAcceptReservedInstancesExchangeQuote,
 
     -- * Request Lenses
-    acceptReservedInstancesExchangeQuote_targetConfigurations,
     acceptReservedInstancesExchangeQuote_dryRun,
+    acceptReservedInstancesExchangeQuote_targetConfigurations,
     acceptReservedInstancesExchangeQuote_reservedInstanceIds,
 
     -- * Destructuring the Response
@@ -53,14 +53,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newAcceptReservedInstancesExchangeQuote' smart constructor.
 data AcceptReservedInstancesExchangeQuote = AcceptReservedInstancesExchangeQuote'
-  { -- | The configuration of the target Convertible Reserved Instance to
-    -- exchange for your current Convertible Reserved Instances.
-    targetConfigurations :: Prelude.Maybe [TargetConfigurationRequest],
-    -- | Checks whether you have the required permissions for the action, without
+  { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The configuration of the target Convertible Reserved Instance to
+    -- exchange for your current Convertible Reserved Instances.
+    targetConfigurations :: Prelude.Maybe [TargetConfigurationRequest],
     -- | The IDs of the Convertible Reserved Instances to exchange for another
     -- Convertible Reserved Instance of the same or higher value.
     reservedInstanceIds :: [Prelude.Text]
@@ -75,13 +75,13 @@ data AcceptReservedInstancesExchangeQuote = AcceptReservedInstancesExchangeQuote
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetConfigurations', 'acceptReservedInstancesExchangeQuote_targetConfigurations' - The configuration of the target Convertible Reserved Instance to
--- exchange for your current Convertible Reserved Instances.
---
 -- 'dryRun', 'acceptReservedInstancesExchangeQuote_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'targetConfigurations', 'acceptReservedInstancesExchangeQuote_targetConfigurations' - The configuration of the target Convertible Reserved Instance to
+-- exchange for your current Convertible Reserved Instances.
 --
 -- 'reservedInstanceIds', 'acceptReservedInstancesExchangeQuote_reservedInstanceIds' - The IDs of the Convertible Reserved Instances to exchange for another
 -- Convertible Reserved Instance of the same or higher value.
@@ -89,16 +89,12 @@ newAcceptReservedInstancesExchangeQuote ::
   AcceptReservedInstancesExchangeQuote
 newAcceptReservedInstancesExchangeQuote =
   AcceptReservedInstancesExchangeQuote'
-    { targetConfigurations =
+    { dryRun =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+      targetConfigurations =
+        Prelude.Nothing,
       reservedInstanceIds = Prelude.mempty
     }
-
--- | The configuration of the target Convertible Reserved Instance to
--- exchange for your current Convertible Reserved Instances.
-acceptReservedInstancesExchangeQuote_targetConfigurations :: Lens.Lens' AcceptReservedInstancesExchangeQuote (Prelude.Maybe [TargetConfigurationRequest])
-acceptReservedInstancesExchangeQuote_targetConfigurations = Lens.lens (\AcceptReservedInstancesExchangeQuote' {targetConfigurations} -> targetConfigurations) (\s@AcceptReservedInstancesExchangeQuote' {} a -> s {targetConfigurations = a} :: AcceptReservedInstancesExchangeQuote) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -106,6 +102,11 @@ acceptReservedInstancesExchangeQuote_targetConfigurations = Lens.lens (\AcceptRe
 -- Otherwise, it is @UnauthorizedOperation@.
 acceptReservedInstancesExchangeQuote_dryRun :: Lens.Lens' AcceptReservedInstancesExchangeQuote (Prelude.Maybe Prelude.Bool)
 acceptReservedInstancesExchangeQuote_dryRun = Lens.lens (\AcceptReservedInstancesExchangeQuote' {dryRun} -> dryRun) (\s@AcceptReservedInstancesExchangeQuote' {} a -> s {dryRun = a} :: AcceptReservedInstancesExchangeQuote)
+
+-- | The configuration of the target Convertible Reserved Instance to
+-- exchange for your current Convertible Reserved Instances.
+acceptReservedInstancesExchangeQuote_targetConfigurations :: Lens.Lens' AcceptReservedInstancesExchangeQuote (Prelude.Maybe [TargetConfigurationRequest])
+acceptReservedInstancesExchangeQuote_targetConfigurations = Lens.lens (\AcceptReservedInstancesExchangeQuote' {targetConfigurations} -> targetConfigurations) (\s@AcceptReservedInstancesExchangeQuote' {} a -> s {targetConfigurations = a} :: AcceptReservedInstancesExchangeQuote) Prelude.. Lens.mapping Lens.coerced
 
 -- | The IDs of the Convertible Reserved Instances to exchange for another
 -- Convertible Reserved Instance of the same or higher value.
@@ -135,8 +136,8 @@ instance
   hashWithSalt
     _salt
     AcceptReservedInstancesExchangeQuote' {..} =
-      _salt `Prelude.hashWithSalt` targetConfigurations
-        `Prelude.hashWithSalt` dryRun
+      _salt `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` targetConfigurations
         `Prelude.hashWithSalt` reservedInstanceIds
 
 instance
@@ -144,8 +145,8 @@ instance
     AcceptReservedInstancesExchangeQuote
   where
   rnf AcceptReservedInstancesExchangeQuote' {..} =
-    Prelude.rnf targetConfigurations
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf targetConfigurations
       `Prelude.seq` Prelude.rnf reservedInstanceIds
 
 instance
@@ -172,11 +173,11 @@ instance
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "TargetConfiguration"
               Prelude.<$> targetConfigurations
           ),
-        "DryRun" Core.=: dryRun,
         Core.toQueryList
           "ReservedInstanceId"
           reservedInstanceIds

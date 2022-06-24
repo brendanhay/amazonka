@@ -29,8 +29,8 @@ module Amazonka.EC2.SearchLocalGatewayRoutes
     newSearchLocalGatewayRoutes,
 
     -- * Request Lenses
-    searchLocalGatewayRoutes_filters,
     searchLocalGatewayRoutes_nextToken,
+    searchLocalGatewayRoutes_filters,
     searchLocalGatewayRoutes_dryRun,
     searchLocalGatewayRoutes_maxResults,
     searchLocalGatewayRoutes_localGatewayRouteTableId,
@@ -40,8 +40,8 @@ module Amazonka.EC2.SearchLocalGatewayRoutes
     newSearchLocalGatewayRoutesResponse,
 
     -- * Response Lenses
-    searchLocalGatewayRoutesResponse_routes,
     searchLocalGatewayRoutesResponse_nextToken,
+    searchLocalGatewayRoutesResponse_routes,
     searchLocalGatewayRoutesResponse_httpStatus,
   )
 where
@@ -55,10 +55,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchLocalGatewayRoutes' smart constructor.
 data SearchLocalGatewayRoutes = SearchLocalGatewayRoutes'
-  { -- | One or more filters.
-    filters :: Prelude.Maybe [Filter],
-    -- | The token for the next page of results.
+  { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters.
+    filters :: Prelude.Maybe [Filter],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -81,9 +81,9 @@ data SearchLocalGatewayRoutes = SearchLocalGatewayRoutes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'searchLocalGatewayRoutes_filters' - One or more filters.
---
 -- 'nextToken', 'searchLocalGatewayRoutes_nextToken' - The token for the next page of results.
+--
+-- 'filters', 'searchLocalGatewayRoutes_filters' - One or more filters.
 --
 -- 'dryRun', 'searchLocalGatewayRoutes_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -102,22 +102,22 @@ newSearchLocalGatewayRoutes ::
 newSearchLocalGatewayRoutes
   pLocalGatewayRouteTableId_ =
     SearchLocalGatewayRoutes'
-      { filters =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        filters = Prelude.Nothing,
         dryRun = Prelude.Nothing,
         maxResults = Prelude.Nothing,
         localGatewayRouteTableId =
           pLocalGatewayRouteTableId_
       }
 
--- | One or more filters.
-searchLocalGatewayRoutes_filters :: Lens.Lens' SearchLocalGatewayRoutes (Prelude.Maybe [Filter])
-searchLocalGatewayRoutes_filters = Lens.lens (\SearchLocalGatewayRoutes' {filters} -> filters) (\s@SearchLocalGatewayRoutes' {} a -> s {filters = a} :: SearchLocalGatewayRoutes) Prelude.. Lens.mapping Lens.coerced
-
 -- | The token for the next page of results.
 searchLocalGatewayRoutes_nextToken :: Lens.Lens' SearchLocalGatewayRoutes (Prelude.Maybe Prelude.Text)
 searchLocalGatewayRoutes_nextToken = Lens.lens (\SearchLocalGatewayRoutes' {nextToken} -> nextToken) (\s@SearchLocalGatewayRoutes' {} a -> s {nextToken = a} :: SearchLocalGatewayRoutes)
+
+-- | One or more filters.
+searchLocalGatewayRoutes_filters :: Lens.Lens' SearchLocalGatewayRoutes (Prelude.Maybe [Filter])
+searchLocalGatewayRoutes_filters = Lens.lens (\SearchLocalGatewayRoutes' {filters} -> filters) (\s@SearchLocalGatewayRoutes' {} a -> s {filters = a} :: SearchLocalGatewayRoutes) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -167,25 +167,25 @@ instance Core.AWSRequest SearchLocalGatewayRoutes where
     Response.receiveXML
       ( \s h x ->
           SearchLocalGatewayRoutesResponse'
-            Prelude.<$> ( x Core..@? "routeSet" Core..!@ Prelude.mempty
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "routeSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable SearchLocalGatewayRoutes where
   hashWithSalt _salt SearchLocalGatewayRoutes' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` localGatewayRouteTableId
 
 instance Prelude.NFData SearchLocalGatewayRoutes where
   rnf SearchLocalGatewayRoutes' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf localGatewayRouteTableId
@@ -203,9 +203,9 @@ instance Core.ToQuery SearchLocalGatewayRoutes where
           Core.=: ("SearchLocalGatewayRoutes" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
-        "NextToken" Core.=: nextToken,
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
         "LocalGatewayRouteTableId"
@@ -214,11 +214,11 @@ instance Core.ToQuery SearchLocalGatewayRoutes where
 
 -- | /See:/ 'newSearchLocalGatewayRoutesResponse' smart constructor.
 data SearchLocalGatewayRoutesResponse = SearchLocalGatewayRoutesResponse'
-  { -- | Information about the routes.
-    routes :: Prelude.Maybe [LocalGatewayRoute],
-    -- | The token to use to retrieve the next page of results. This value is
+  { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the routes.
+    routes :: Prelude.Maybe [LocalGatewayRoute],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -232,10 +232,10 @@ data SearchLocalGatewayRoutesResponse = SearchLocalGatewayRoutesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'routes', 'searchLocalGatewayRoutesResponse_routes' - Information about the routes.
---
 -- 'nextToken', 'searchLocalGatewayRoutesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
+--
+-- 'routes', 'searchLocalGatewayRoutesResponse_routes' - Information about the routes.
 --
 -- 'httpStatus', 'searchLocalGatewayRoutesResponse_httpStatus' - The response's http status code.
 newSearchLocalGatewayRoutesResponse ::
@@ -244,20 +244,20 @@ newSearchLocalGatewayRoutesResponse ::
   SearchLocalGatewayRoutesResponse
 newSearchLocalGatewayRoutesResponse pHttpStatus_ =
   SearchLocalGatewayRoutesResponse'
-    { routes =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      routes = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the routes.
-searchLocalGatewayRoutesResponse_routes :: Lens.Lens' SearchLocalGatewayRoutesResponse (Prelude.Maybe [LocalGatewayRoute])
-searchLocalGatewayRoutesResponse_routes = Lens.lens (\SearchLocalGatewayRoutesResponse' {routes} -> routes) (\s@SearchLocalGatewayRoutesResponse' {} a -> s {routes = a} :: SearchLocalGatewayRoutesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 searchLocalGatewayRoutesResponse_nextToken :: Lens.Lens' SearchLocalGatewayRoutesResponse (Prelude.Maybe Prelude.Text)
 searchLocalGatewayRoutesResponse_nextToken = Lens.lens (\SearchLocalGatewayRoutesResponse' {nextToken} -> nextToken) (\s@SearchLocalGatewayRoutesResponse' {} a -> s {nextToken = a} :: SearchLocalGatewayRoutesResponse)
+
+-- | Information about the routes.
+searchLocalGatewayRoutesResponse_routes :: Lens.Lens' SearchLocalGatewayRoutesResponse (Prelude.Maybe [LocalGatewayRoute])
+searchLocalGatewayRoutesResponse_routes = Lens.lens (\SearchLocalGatewayRoutesResponse' {routes} -> routes) (\s@SearchLocalGatewayRoutesResponse' {} a -> s {routes = a} :: SearchLocalGatewayRoutesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 searchLocalGatewayRoutesResponse_httpStatus :: Lens.Lens' SearchLocalGatewayRoutesResponse Prelude.Int
@@ -268,6 +268,6 @@ instance
     SearchLocalGatewayRoutesResponse
   where
   rnf SearchLocalGatewayRoutesResponse' {..} =
-    Prelude.rnf routes
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf routes
       `Prelude.seq` Prelude.rnf httpStatus

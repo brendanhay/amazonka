@@ -33,8 +33,8 @@ module Amazonka.EC2.DescribeTags
     newDescribeTags,
 
     -- * Request Lenses
-    describeTags_filters,
     describeTags_nextToken,
+    describeTags_filters,
     describeTags_dryRun,
     describeTags_maxResults,
 
@@ -43,8 +43,8 @@ module Amazonka.EC2.DescribeTags
     newDescribeTagsResponse,
 
     -- * Response Lenses
-    describeTagsResponse_nextToken,
     describeTagsResponse_tags,
+    describeTagsResponse_nextToken,
     describeTagsResponse_httpStatus,
   )
 where
@@ -58,7 +58,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeTags' smart constructor.
 data DescribeTags = DescribeTags'
-  { -- | The filters.
+  { -- | The token to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The filters.
     --
     -- -   @key@ - The tag key.
     --
@@ -80,8 +82,6 @@ data DescribeTags = DescribeTags'
     --
     -- -   @value@ - The tag value.
     filters :: Prelude.Maybe [Filter],
-    -- | The token to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -101,6 +101,8 @@ data DescribeTags = DescribeTags'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'nextToken', 'describeTags_nextToken' - The token to retrieve the next page of results.
 --
 -- 'filters', 'describeTags_filters' - The filters.
 --
@@ -124,8 +126,6 @@ data DescribeTags = DescribeTags'
 --
 -- -   @value@ - The tag value.
 --
--- 'nextToken', 'describeTags_nextToken' - The token to retrieve the next page of results.
---
 -- 'dryRun', 'describeTags_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -138,11 +138,15 @@ newDescribeTags ::
   DescribeTags
 newDescribeTags =
   DescribeTags'
-    { filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | The token to retrieve the next page of results.
+describeTags_nextToken :: Lens.Lens' DescribeTags (Prelude.Maybe Prelude.Text)
+describeTags_nextToken = Lens.lens (\DescribeTags' {nextToken} -> nextToken) (\s@DescribeTags' {} a -> s {nextToken = a} :: DescribeTags)
 
 -- | The filters.
 --
@@ -167,10 +171,6 @@ newDescribeTags =
 -- -   @value@ - The tag value.
 describeTags_filters :: Lens.Lens' DescribeTags (Prelude.Maybe [Filter])
 describeTags_filters = Lens.lens (\DescribeTags' {filters} -> filters) (\s@DescribeTags' {} a -> s {filters = a} :: DescribeTags) Prelude.. Lens.mapping Lens.coerced
-
--- | The token to retrieve the next page of results.
-describeTags_nextToken :: Lens.Lens' DescribeTags (Prelude.Maybe Prelude.Text)
-describeTags_nextToken = Lens.lens (\DescribeTags' {nextToken} -> nextToken) (\s@DescribeTags' {} a -> s {nextToken = a} :: DescribeTags)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -211,24 +211,24 @@ instance Core.AWSRequest DescribeTags where
     Response.receiveXML
       ( \s h x ->
           DescribeTagsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
+            Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeTags where
   hashWithSalt _salt DescribeTags' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeTags where
   rnf DescribeTags' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
 
@@ -245,20 +245,20 @@ instance Core.ToQuery DescribeTags where
           Core.=: ("DescribeTags" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
-        "NextToken" Core.=: nextToken,
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
+  { -- | The tags.
+    tags :: Prelude.Maybe [TagDescription],
+    -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The tags.
-    tags :: Prelude.Maybe [TagDescription],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -272,10 +272,10 @@ data DescribeTagsResponse = DescribeTagsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'describeTagsResponse_tags' - The tags.
+--
 -- 'nextToken', 'describeTagsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
---
--- 'tags', 'describeTagsResponse_tags' - The tags.
 --
 -- 'httpStatus', 'describeTagsResponse_httpStatus' - The response's http status code.
 newDescribeTagsResponse ::
@@ -284,19 +284,19 @@ newDescribeTagsResponse ::
   DescribeTagsResponse
 newDescribeTagsResponse pHttpStatus_ =
   DescribeTagsResponse'
-    { nextToken = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The tags.
+describeTagsResponse_tags :: Lens.Lens' DescribeTagsResponse (Prelude.Maybe [TagDescription])
+describeTagsResponse_tags = Lens.lens (\DescribeTagsResponse' {tags} -> tags) (\s@DescribeTagsResponse' {} a -> s {tags = a} :: DescribeTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 describeTagsResponse_nextToken :: Lens.Lens' DescribeTagsResponse (Prelude.Maybe Prelude.Text)
 describeTagsResponse_nextToken = Lens.lens (\DescribeTagsResponse' {nextToken} -> nextToken) (\s@DescribeTagsResponse' {} a -> s {nextToken = a} :: DescribeTagsResponse)
-
--- | The tags.
-describeTagsResponse_tags :: Lens.Lens' DescribeTagsResponse (Prelude.Maybe [TagDescription])
-describeTagsResponse_tags = Lens.lens (\DescribeTagsResponse' {tags} -> tags) (\s@DescribeTagsResponse' {} a -> s {tags = a} :: DescribeTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeTagsResponse_httpStatus :: Lens.Lens' DescribeTagsResponse Prelude.Int
@@ -304,6 +304,6 @@ describeTagsResponse_httpStatus = Lens.lens (\DescribeTagsResponse' {httpStatus}
 
 instance Prelude.NFData DescribeTagsResponse where
   rnf DescribeTagsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

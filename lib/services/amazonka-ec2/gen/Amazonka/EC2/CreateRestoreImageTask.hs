@@ -38,9 +38,9 @@ module Amazonka.EC2.CreateRestoreImageTask
     newCreateRestoreImageTask,
 
     -- * Request Lenses
-    createRestoreImageTask_tagSpecifications,
     createRestoreImageTask_name,
     createRestoreImageTask_dryRun,
+    createRestoreImageTask_tagSpecifications,
     createRestoreImageTask_bucket,
     createRestoreImageTask_objectKey,
 
@@ -63,16 +63,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateRestoreImageTask' smart constructor.
 data CreateRestoreImageTask = CreateRestoreImageTask'
-  { -- | The tags to apply to the AMI and snapshots on restoration. You can tag
-    -- the AMI, the snapshots, or both.
-    --
-    -- -   To tag the AMI, the value for @ResourceType@ must be @image@.
-    --
-    -- -   To tag the snapshots, the value for @ResourceType@ must be
-    --     @snapshot@. The same tag is applied to all of the snapshots that are
-    --     created.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | The name for the restored AMI. The name must be unique for AMIs in the
+  { -- | The name for the restored AMI. The name must be unique for AMIs in the
     -- Region for this account. If you do not provide a name, the new AMI gets
     -- the same name as the original AMI.
     name :: Prelude.Maybe Prelude.Text,
@@ -81,6 +72,15 @@ data CreateRestoreImageTask = CreateRestoreImageTask'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The tags to apply to the AMI and snapshots on restoration. You can tag
+    -- the AMI, the snapshots, or both.
+    --
+    -- -   To tag the AMI, the value for @ResourceType@ must be @image@.
+    --
+    -- -   To tag the snapshots, the value for @ResourceType@ must be
+    --     @snapshot@. The same tag is applied to all of the snapshots that are
+    --     created.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The name of the Amazon S3 bucket that contains the stored AMI object.
     bucket :: Prelude.Text,
     -- | The name of the stored AMI object in the bucket.
@@ -96,15 +96,6 @@ data CreateRestoreImageTask = CreateRestoreImageTask'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagSpecifications', 'createRestoreImageTask_tagSpecifications' - The tags to apply to the AMI and snapshots on restoration. You can tag
--- the AMI, the snapshots, or both.
---
--- -   To tag the AMI, the value for @ResourceType@ must be @image@.
---
--- -   To tag the snapshots, the value for @ResourceType@ must be
---     @snapshot@. The same tag is applied to all of the snapshots that are
---     created.
---
 -- 'name', 'createRestoreImageTask_name' - The name for the restored AMI. The name must be unique for AMIs in the
 -- Region for this account. If you do not provide a name, the new AMI gets
 -- the same name as the original AMI.
@@ -113,6 +104,15 @@ data CreateRestoreImageTask = CreateRestoreImageTask'
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'tagSpecifications', 'createRestoreImageTask_tagSpecifications' - The tags to apply to the AMI and snapshots on restoration. You can tag
+-- the AMI, the snapshots, or both.
+--
+-- -   To tag the AMI, the value for @ResourceType@ must be @image@.
+--
+-- -   To tag the snapshots, the value for @ResourceType@ must be
+--     @snapshot@. The same tag is applied to all of the snapshots that are
+--     created.
 --
 -- 'bucket', 'createRestoreImageTask_bucket' - The name of the Amazon S3 bucket that contains the stored AMI object.
 --
@@ -125,24 +125,12 @@ newCreateRestoreImageTask ::
   CreateRestoreImageTask
 newCreateRestoreImageTask pBucket_ pObjectKey_ =
   CreateRestoreImageTask'
-    { tagSpecifications =
-        Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
       bucket = pBucket_,
       objectKey = pObjectKey_
     }
-
--- | The tags to apply to the AMI and snapshots on restoration. You can tag
--- the AMI, the snapshots, or both.
---
--- -   To tag the AMI, the value for @ResourceType@ must be @image@.
---
--- -   To tag the snapshots, the value for @ResourceType@ must be
---     @snapshot@. The same tag is applied to all of the snapshots that are
---     created.
-createRestoreImageTask_tagSpecifications :: Lens.Lens' CreateRestoreImageTask (Prelude.Maybe [TagSpecification])
-createRestoreImageTask_tagSpecifications = Lens.lens (\CreateRestoreImageTask' {tagSpecifications} -> tagSpecifications) (\s@CreateRestoreImageTask' {} a -> s {tagSpecifications = a} :: CreateRestoreImageTask) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for the restored AMI. The name must be unique for AMIs in the
 -- Region for this account. If you do not provide a name, the new AMI gets
@@ -156,6 +144,17 @@ createRestoreImageTask_name = Lens.lens (\CreateRestoreImageTask' {name} -> name
 -- Otherwise, it is @UnauthorizedOperation@.
 createRestoreImageTask_dryRun :: Lens.Lens' CreateRestoreImageTask (Prelude.Maybe Prelude.Bool)
 createRestoreImageTask_dryRun = Lens.lens (\CreateRestoreImageTask' {dryRun} -> dryRun) (\s@CreateRestoreImageTask' {} a -> s {dryRun = a} :: CreateRestoreImageTask)
+
+-- | The tags to apply to the AMI and snapshots on restoration. You can tag
+-- the AMI, the snapshots, or both.
+--
+-- -   To tag the AMI, the value for @ResourceType@ must be @image@.
+--
+-- -   To tag the snapshots, the value for @ResourceType@ must be
+--     @snapshot@. The same tag is applied to all of the snapshots that are
+--     created.
+createRestoreImageTask_tagSpecifications :: Lens.Lens' CreateRestoreImageTask (Prelude.Maybe [TagSpecification])
+createRestoreImageTask_tagSpecifications = Lens.lens (\CreateRestoreImageTask' {tagSpecifications} -> tagSpecifications) (\s@CreateRestoreImageTask' {} a -> s {tagSpecifications = a} :: CreateRestoreImageTask) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the Amazon S3 bucket that contains the stored AMI object.
 createRestoreImageTask_bucket :: Lens.Lens' CreateRestoreImageTask Prelude.Text
@@ -180,17 +179,17 @@ instance Core.AWSRequest CreateRestoreImageTask where
 
 instance Prelude.Hashable CreateRestoreImageTask where
   hashWithSalt _salt CreateRestoreImageTask' {..} =
-    _salt `Prelude.hashWithSalt` tagSpecifications
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` objectKey
 
 instance Prelude.NFData CreateRestoreImageTask where
   rnf CreateRestoreImageTask' {..} =
-    Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf objectKey
 
@@ -207,12 +206,12 @@ instance Core.ToQuery CreateRestoreImageTask where
           Core.=: ("CreateRestoreImageTask" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "Name" Core.=: name,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "Name" Core.=: name,
-        "DryRun" Core.=: dryRun,
         "Bucket" Core.=: bucket,
         "ObjectKey" Core.=: objectKey
       ]

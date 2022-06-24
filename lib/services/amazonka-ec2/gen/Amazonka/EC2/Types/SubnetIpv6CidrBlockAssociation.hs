@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSubnetIpv6CidrBlockAssociation' smart constructor.
 data SubnetIpv6CidrBlockAssociation = SubnetIpv6CidrBlockAssociation'
-  { -- | The association ID for the CIDR block.
+  { -- | Information about the state of the CIDR block.
+    ipv6CidrBlockState :: Prelude.Maybe SubnetCidrBlockState,
+    -- | The association ID for the CIDR block.
     associationId :: Prelude.Maybe Prelude.Text,
     -- | The IPv6 CIDR block.
-    ipv6CidrBlock :: Prelude.Maybe Prelude.Text,
-    -- | Information about the state of the CIDR block.
-    ipv6CidrBlockState :: Prelude.Maybe SubnetCidrBlockState
+    ipv6CidrBlock :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,20 +46,24 @@ data SubnetIpv6CidrBlockAssociation = SubnetIpv6CidrBlockAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ipv6CidrBlockState', 'subnetIpv6CidrBlockAssociation_ipv6CidrBlockState' - Information about the state of the CIDR block.
+--
 -- 'associationId', 'subnetIpv6CidrBlockAssociation_associationId' - The association ID for the CIDR block.
 --
 -- 'ipv6CidrBlock', 'subnetIpv6CidrBlockAssociation_ipv6CidrBlock' - The IPv6 CIDR block.
---
--- 'ipv6CidrBlockState', 'subnetIpv6CidrBlockAssociation_ipv6CidrBlockState' - Information about the state of the CIDR block.
 newSubnetIpv6CidrBlockAssociation ::
   SubnetIpv6CidrBlockAssociation
 newSubnetIpv6CidrBlockAssociation =
   SubnetIpv6CidrBlockAssociation'
-    { associationId =
+    { ipv6CidrBlockState =
         Prelude.Nothing,
-      ipv6CidrBlock = Prelude.Nothing,
-      ipv6CidrBlockState = Prelude.Nothing
+      associationId = Prelude.Nothing,
+      ipv6CidrBlock = Prelude.Nothing
     }
+
+-- | Information about the state of the CIDR block.
+subnetIpv6CidrBlockAssociation_ipv6CidrBlockState :: Lens.Lens' SubnetIpv6CidrBlockAssociation (Prelude.Maybe SubnetCidrBlockState)
+subnetIpv6CidrBlockAssociation_ipv6CidrBlockState = Lens.lens (\SubnetIpv6CidrBlockAssociation' {ipv6CidrBlockState} -> ipv6CidrBlockState) (\s@SubnetIpv6CidrBlockAssociation' {} a -> s {ipv6CidrBlockState = a} :: SubnetIpv6CidrBlockAssociation)
 
 -- | The association ID for the CIDR block.
 subnetIpv6CidrBlockAssociation_associationId :: Lens.Lens' SubnetIpv6CidrBlockAssociation (Prelude.Maybe Prelude.Text)
@@ -69,16 +73,12 @@ subnetIpv6CidrBlockAssociation_associationId = Lens.lens (\SubnetIpv6CidrBlockAs
 subnetIpv6CidrBlockAssociation_ipv6CidrBlock :: Lens.Lens' SubnetIpv6CidrBlockAssociation (Prelude.Maybe Prelude.Text)
 subnetIpv6CidrBlockAssociation_ipv6CidrBlock = Lens.lens (\SubnetIpv6CidrBlockAssociation' {ipv6CidrBlock} -> ipv6CidrBlock) (\s@SubnetIpv6CidrBlockAssociation' {} a -> s {ipv6CidrBlock = a} :: SubnetIpv6CidrBlockAssociation)
 
--- | Information about the state of the CIDR block.
-subnetIpv6CidrBlockAssociation_ipv6CidrBlockState :: Lens.Lens' SubnetIpv6CidrBlockAssociation (Prelude.Maybe SubnetCidrBlockState)
-subnetIpv6CidrBlockAssociation_ipv6CidrBlockState = Lens.lens (\SubnetIpv6CidrBlockAssociation' {ipv6CidrBlockState} -> ipv6CidrBlockState) (\s@SubnetIpv6CidrBlockAssociation' {} a -> s {ipv6CidrBlockState = a} :: SubnetIpv6CidrBlockAssociation)
-
 instance Core.FromXML SubnetIpv6CidrBlockAssociation where
   parseXML x =
     SubnetIpv6CidrBlockAssociation'
-      Prelude.<$> (x Core..@? "associationId")
+      Prelude.<$> (x Core..@? "ipv6CidrBlockState")
+      Prelude.<*> (x Core..@? "associationId")
       Prelude.<*> (x Core..@? "ipv6CidrBlock")
-      Prelude.<*> (x Core..@? "ipv6CidrBlockState")
 
 instance
   Prelude.Hashable
@@ -87,15 +87,15 @@ instance
   hashWithSalt
     _salt
     SubnetIpv6CidrBlockAssociation' {..} =
-      _salt `Prelude.hashWithSalt` associationId
+      _salt `Prelude.hashWithSalt` ipv6CidrBlockState
+        `Prelude.hashWithSalt` associationId
         `Prelude.hashWithSalt` ipv6CidrBlock
-        `Prelude.hashWithSalt` ipv6CidrBlockState
 
 instance
   Prelude.NFData
     SubnetIpv6CidrBlockAssociation
   where
   rnf SubnetIpv6CidrBlockAssociation' {..} =
-    Prelude.rnf associationId
+    Prelude.rnf ipv6CidrBlockState
+      `Prelude.seq` Prelude.rnf associationId
       `Prelude.seq` Prelude.rnf ipv6CidrBlock
-      `Prelude.seq` Prelude.rnf ipv6CidrBlockState

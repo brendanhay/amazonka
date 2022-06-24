@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPortRange' smart constructor.
 data PortRange = PortRange'
-  { -- | The last port in the range.
-    to :: Prelude.Maybe Prelude.Int,
-    -- | The first port in the range.
-    from :: Prelude.Maybe Prelude.Int
+  { -- | The first port in the range.
+    from :: Prelude.Maybe Prelude.Int,
+    -- | The last port in the range.
+    to :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,40 +43,40 @@ data PortRange = PortRange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'to', 'portRange_to' - The last port in the range.
---
 -- 'from', 'portRange_from' - The first port in the range.
+--
+-- 'to', 'portRange_to' - The last port in the range.
 newPortRange ::
   PortRange
 newPortRange =
   PortRange'
-    { to = Prelude.Nothing,
-      from = Prelude.Nothing
+    { from = Prelude.Nothing,
+      to = Prelude.Nothing
     }
-
--- | The last port in the range.
-portRange_to :: Lens.Lens' PortRange (Prelude.Maybe Prelude.Int)
-portRange_to = Lens.lens (\PortRange' {to} -> to) (\s@PortRange' {} a -> s {to = a} :: PortRange)
 
 -- | The first port in the range.
 portRange_from :: Lens.Lens' PortRange (Prelude.Maybe Prelude.Int)
 portRange_from = Lens.lens (\PortRange' {from} -> from) (\s@PortRange' {} a -> s {from = a} :: PortRange)
 
+-- | The last port in the range.
+portRange_to :: Lens.Lens' PortRange (Prelude.Maybe Prelude.Int)
+portRange_to = Lens.lens (\PortRange' {to} -> to) (\s@PortRange' {} a -> s {to = a} :: PortRange)
+
 instance Core.FromXML PortRange where
   parseXML x =
     PortRange'
-      Prelude.<$> (x Core..@? "to") Prelude.<*> (x Core..@? "from")
+      Prelude.<$> (x Core..@? "from") Prelude.<*> (x Core..@? "to")
 
 instance Prelude.Hashable PortRange where
   hashWithSalt _salt PortRange' {..} =
-    _salt `Prelude.hashWithSalt` to
-      `Prelude.hashWithSalt` from
+    _salt `Prelude.hashWithSalt` from
+      `Prelude.hashWithSalt` to
 
 instance Prelude.NFData PortRange where
   rnf PortRange' {..} =
-    Prelude.rnf to `Prelude.seq` Prelude.rnf from
+    Prelude.rnf from `Prelude.seq` Prelude.rnf to
 
 instance Core.ToQuery PortRange where
   toQuery PortRange' {..} =
     Prelude.mconcat
-      ["To" Core.=: to, "From" Core.=: from]
+      ["From" Core.=: from, "To" Core.=: to]

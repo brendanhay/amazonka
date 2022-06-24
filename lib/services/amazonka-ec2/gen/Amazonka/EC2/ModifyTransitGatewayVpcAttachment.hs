@@ -28,9 +28,9 @@ module Amazonka.EC2.ModifyTransitGatewayVpcAttachment
 
     -- * Request Lenses
     modifyTransitGatewayVpcAttachment_addSubnetIds,
+    modifyTransitGatewayVpcAttachment_dryRun,
     modifyTransitGatewayVpcAttachment_options,
     modifyTransitGatewayVpcAttachment_removeSubnetIds,
-    modifyTransitGatewayVpcAttachment_dryRun,
     modifyTransitGatewayVpcAttachment_transitGatewayAttachmentId,
 
     -- * Destructuring the Response
@@ -55,15 +55,15 @@ data ModifyTransitGatewayVpcAttachment = ModifyTransitGatewayVpcAttachment'
   { -- | The IDs of one or more subnets to add. You can specify at most one
     -- subnet per Availability Zone.
     addSubnetIds :: Prelude.Maybe [Prelude.Text],
-    -- | The new VPC attachment options.
-    options :: Prelude.Maybe ModifyTransitGatewayVpcAttachmentRequestOptions,
-    -- | The IDs of one or more subnets to remove.
-    removeSubnetIds :: Prelude.Maybe [Prelude.Text],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The new VPC attachment options.
+    options :: Prelude.Maybe ModifyTransitGatewayVpcAttachmentRequestOptions,
+    -- | The IDs of one or more subnets to remove.
+    removeSubnetIds :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the attachment.
     transitGatewayAttachmentId :: Prelude.Text
   }
@@ -80,14 +80,14 @@ data ModifyTransitGatewayVpcAttachment = ModifyTransitGatewayVpcAttachment'
 -- 'addSubnetIds', 'modifyTransitGatewayVpcAttachment_addSubnetIds' - The IDs of one or more subnets to add. You can specify at most one
 -- subnet per Availability Zone.
 --
--- 'options', 'modifyTransitGatewayVpcAttachment_options' - The new VPC attachment options.
---
--- 'removeSubnetIds', 'modifyTransitGatewayVpcAttachment_removeSubnetIds' - The IDs of one or more subnets to remove.
---
 -- 'dryRun', 'modifyTransitGatewayVpcAttachment_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'options', 'modifyTransitGatewayVpcAttachment_options' - The new VPC attachment options.
+--
+-- 'removeSubnetIds', 'modifyTransitGatewayVpcAttachment_removeSubnetIds' - The IDs of one or more subnets to remove.
 --
 -- 'transitGatewayAttachmentId', 'modifyTransitGatewayVpcAttachment_transitGatewayAttachmentId' - The ID of the attachment.
 newModifyTransitGatewayVpcAttachment ::
@@ -99,9 +99,9 @@ newModifyTransitGatewayVpcAttachment
     ModifyTransitGatewayVpcAttachment'
       { addSubnetIds =
           Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         options = Prelude.Nothing,
         removeSubnetIds = Prelude.Nothing,
-        dryRun = Prelude.Nothing,
         transitGatewayAttachmentId =
           pTransitGatewayAttachmentId_
       }
@@ -111,6 +111,13 @@ newModifyTransitGatewayVpcAttachment
 modifyTransitGatewayVpcAttachment_addSubnetIds :: Lens.Lens' ModifyTransitGatewayVpcAttachment (Prelude.Maybe [Prelude.Text])
 modifyTransitGatewayVpcAttachment_addSubnetIds = Lens.lens (\ModifyTransitGatewayVpcAttachment' {addSubnetIds} -> addSubnetIds) (\s@ModifyTransitGatewayVpcAttachment' {} a -> s {addSubnetIds = a} :: ModifyTransitGatewayVpcAttachment) Prelude.. Lens.mapping Lens.coerced
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+modifyTransitGatewayVpcAttachment_dryRun :: Lens.Lens' ModifyTransitGatewayVpcAttachment (Prelude.Maybe Prelude.Bool)
+modifyTransitGatewayVpcAttachment_dryRun = Lens.lens (\ModifyTransitGatewayVpcAttachment' {dryRun} -> dryRun) (\s@ModifyTransitGatewayVpcAttachment' {} a -> s {dryRun = a} :: ModifyTransitGatewayVpcAttachment)
+
 -- | The new VPC attachment options.
 modifyTransitGatewayVpcAttachment_options :: Lens.Lens' ModifyTransitGatewayVpcAttachment (Prelude.Maybe ModifyTransitGatewayVpcAttachmentRequestOptions)
 modifyTransitGatewayVpcAttachment_options = Lens.lens (\ModifyTransitGatewayVpcAttachment' {options} -> options) (\s@ModifyTransitGatewayVpcAttachment' {} a -> s {options = a} :: ModifyTransitGatewayVpcAttachment)
@@ -118,13 +125,6 @@ modifyTransitGatewayVpcAttachment_options = Lens.lens (\ModifyTransitGatewayVpcA
 -- | The IDs of one or more subnets to remove.
 modifyTransitGatewayVpcAttachment_removeSubnetIds :: Lens.Lens' ModifyTransitGatewayVpcAttachment (Prelude.Maybe [Prelude.Text])
 modifyTransitGatewayVpcAttachment_removeSubnetIds = Lens.lens (\ModifyTransitGatewayVpcAttachment' {removeSubnetIds} -> removeSubnetIds) (\s@ModifyTransitGatewayVpcAttachment' {} a -> s {removeSubnetIds = a} :: ModifyTransitGatewayVpcAttachment) Prelude.. Lens.mapping Lens.coerced
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-modifyTransitGatewayVpcAttachment_dryRun :: Lens.Lens' ModifyTransitGatewayVpcAttachment (Prelude.Maybe Prelude.Bool)
-modifyTransitGatewayVpcAttachment_dryRun = Lens.lens (\ModifyTransitGatewayVpcAttachment' {dryRun} -> dryRun) (\s@ModifyTransitGatewayVpcAttachment' {} a -> s {dryRun = a} :: ModifyTransitGatewayVpcAttachment)
 
 -- | The ID of the attachment.
 modifyTransitGatewayVpcAttachment_transitGatewayAttachmentId :: Lens.Lens' ModifyTransitGatewayVpcAttachment Prelude.Text
@@ -154,9 +154,9 @@ instance
     _salt
     ModifyTransitGatewayVpcAttachment' {..} =
       _salt `Prelude.hashWithSalt` addSubnetIds
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` options
         `Prelude.hashWithSalt` removeSubnetIds
-        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` transitGatewayAttachmentId
 
 instance
@@ -165,9 +165,9 @@ instance
   where
   rnf ModifyTransitGatewayVpcAttachment' {..} =
     Prelude.rnf addSubnetIds
+      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf options
       `Prelude.seq` Prelude.rnf removeSubnetIds
-      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
 
 instance
@@ -198,12 +198,12 @@ instance
           ( Core.toQueryList "AddSubnetIds"
               Prelude.<$> addSubnetIds
           ),
+        "DryRun" Core.=: dryRun,
         "Options" Core.=: options,
         Core.toQuery
           ( Core.toQueryList "RemoveSubnetIds"
               Prelude.<$> removeSubnetIds
           ),
-        "DryRun" Core.=: dryRun,
         "TransitGatewayAttachmentId"
           Core.=: transitGatewayAttachmentId
       ]

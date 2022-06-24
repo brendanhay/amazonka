@@ -33,10 +33,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImportInstanceLaunchSpecification' smart constructor.
 data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification'
-  { -- | Reserved.
+  { -- | The placement information for the instance.
+    placement :: Prelude.Maybe Placement,
+    -- | The Base64-encoded user data to make available to the instance.
+    userData :: Prelude.Maybe (Core.Sensitive UserData),
+    -- | Reserved.
     additionalInfo :: Prelude.Maybe Prelude.Text,
-    -- | The security group names.
-    groupNames :: Prelude.Maybe [Prelude.Text],
+    -- | Indicates whether an instance stops or terminates when you initiate
+    -- shutdown from the instance (using the operating system command for
+    -- system shutdown).
+    instanceInitiatedShutdownBehavior :: Prelude.Maybe ShutdownBehavior,
+    -- | Indicates whether monitoring is enabled.
+    monitoring :: Prelude.Maybe Prelude.Bool,
     -- | [EC2-VPC] The ID of the subnet in which to launch the instance.
     subnetId :: Prelude.Maybe Prelude.Text,
     -- | The instance type. For more information about the instance types that
@@ -46,21 +54,13 @@ data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification'
     instanceType :: Prelude.Maybe InstanceType,
     -- | The security group IDs.
     groupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The Base64-encoded user data to make available to the instance.
-    userData :: Prelude.Maybe (Core.Sensitive UserData),
-    -- | Indicates whether monitoring is enabled.
-    monitoring :: Prelude.Maybe Prelude.Bool,
+    -- | The security group names.
+    groupNames :: Prelude.Maybe [Prelude.Text],
     -- | [EC2-VPC] An available IP address from the IP address range of the
     -- subnet.
     privateIpAddress :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether an instance stops or terminates when you initiate
-    -- shutdown from the instance (using the operating system command for
-    -- system shutdown).
-    instanceInitiatedShutdownBehavior :: Prelude.Maybe ShutdownBehavior,
     -- | The architecture of the instance.
-    architecture :: Prelude.Maybe ArchitectureValues,
-    -- | The placement information for the instance.
-    placement :: Prelude.Maybe Placement
+    architecture :: Prelude.Maybe ArchitectureValues
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -72,9 +72,17 @@ data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'placement', 'importInstanceLaunchSpecification_placement' - The placement information for the instance.
+--
+-- 'userData', 'importInstanceLaunchSpecification_userData' - The Base64-encoded user data to make available to the instance.
+--
 -- 'additionalInfo', 'importInstanceLaunchSpecification_additionalInfo' - Reserved.
 --
--- 'groupNames', 'importInstanceLaunchSpecification_groupNames' - The security group names.
+-- 'instanceInitiatedShutdownBehavior', 'importInstanceLaunchSpecification_instanceInitiatedShutdownBehavior' - Indicates whether an instance stops or terminates when you initiate
+-- shutdown from the instance (using the operating system command for
+-- system shutdown).
+--
+-- 'monitoring', 'importInstanceLaunchSpecification_monitoring' - Indicates whether monitoring is enabled.
 --
 -- 'subnetId', 'importInstanceLaunchSpecification_subnetId' - [EC2-VPC] The ID of the subnet in which to launch the instance.
 --
@@ -85,46 +93,52 @@ data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification'
 --
 -- 'groupIds', 'importInstanceLaunchSpecification_groupIds' - The security group IDs.
 --
--- 'userData', 'importInstanceLaunchSpecification_userData' - The Base64-encoded user data to make available to the instance.
---
--- 'monitoring', 'importInstanceLaunchSpecification_monitoring' - Indicates whether monitoring is enabled.
+-- 'groupNames', 'importInstanceLaunchSpecification_groupNames' - The security group names.
 --
 -- 'privateIpAddress', 'importInstanceLaunchSpecification_privateIpAddress' - [EC2-VPC] An available IP address from the IP address range of the
 -- subnet.
 --
--- 'instanceInitiatedShutdownBehavior', 'importInstanceLaunchSpecification_instanceInitiatedShutdownBehavior' - Indicates whether an instance stops or terminates when you initiate
--- shutdown from the instance (using the operating system command for
--- system shutdown).
---
 -- 'architecture', 'importInstanceLaunchSpecification_architecture' - The architecture of the instance.
---
--- 'placement', 'importInstanceLaunchSpecification_placement' - The placement information for the instance.
 newImportInstanceLaunchSpecification ::
   ImportInstanceLaunchSpecification
 newImportInstanceLaunchSpecification =
   ImportInstanceLaunchSpecification'
-    { additionalInfo =
+    { placement =
         Prelude.Nothing,
-      groupNames = Prelude.Nothing,
+      userData = Prelude.Nothing,
+      additionalInfo = Prelude.Nothing,
+      instanceInitiatedShutdownBehavior =
+        Prelude.Nothing,
+      monitoring = Prelude.Nothing,
       subnetId = Prelude.Nothing,
       instanceType = Prelude.Nothing,
       groupIds = Prelude.Nothing,
-      userData = Prelude.Nothing,
-      monitoring = Prelude.Nothing,
+      groupNames = Prelude.Nothing,
       privateIpAddress = Prelude.Nothing,
-      instanceInitiatedShutdownBehavior =
-        Prelude.Nothing,
-      architecture = Prelude.Nothing,
-      placement = Prelude.Nothing
+      architecture = Prelude.Nothing
     }
+
+-- | The placement information for the instance.
+importInstanceLaunchSpecification_placement :: Lens.Lens' ImportInstanceLaunchSpecification (Prelude.Maybe Placement)
+importInstanceLaunchSpecification_placement = Lens.lens (\ImportInstanceLaunchSpecification' {placement} -> placement) (\s@ImportInstanceLaunchSpecification' {} a -> s {placement = a} :: ImportInstanceLaunchSpecification)
+
+-- | The Base64-encoded user data to make available to the instance.
+importInstanceLaunchSpecification_userData :: Lens.Lens' ImportInstanceLaunchSpecification (Prelude.Maybe UserData)
+importInstanceLaunchSpecification_userData = Lens.lens (\ImportInstanceLaunchSpecification' {userData} -> userData) (\s@ImportInstanceLaunchSpecification' {} a -> s {userData = a} :: ImportInstanceLaunchSpecification) Prelude.. Lens.mapping Core._Sensitive
 
 -- | Reserved.
 importInstanceLaunchSpecification_additionalInfo :: Lens.Lens' ImportInstanceLaunchSpecification (Prelude.Maybe Prelude.Text)
 importInstanceLaunchSpecification_additionalInfo = Lens.lens (\ImportInstanceLaunchSpecification' {additionalInfo} -> additionalInfo) (\s@ImportInstanceLaunchSpecification' {} a -> s {additionalInfo = a} :: ImportInstanceLaunchSpecification)
 
--- | The security group names.
-importInstanceLaunchSpecification_groupNames :: Lens.Lens' ImportInstanceLaunchSpecification (Prelude.Maybe [Prelude.Text])
-importInstanceLaunchSpecification_groupNames = Lens.lens (\ImportInstanceLaunchSpecification' {groupNames} -> groupNames) (\s@ImportInstanceLaunchSpecification' {} a -> s {groupNames = a} :: ImportInstanceLaunchSpecification) Prelude.. Lens.mapping Lens.coerced
+-- | Indicates whether an instance stops or terminates when you initiate
+-- shutdown from the instance (using the operating system command for
+-- system shutdown).
+importInstanceLaunchSpecification_instanceInitiatedShutdownBehavior :: Lens.Lens' ImportInstanceLaunchSpecification (Prelude.Maybe ShutdownBehavior)
+importInstanceLaunchSpecification_instanceInitiatedShutdownBehavior = Lens.lens (\ImportInstanceLaunchSpecification' {instanceInitiatedShutdownBehavior} -> instanceInitiatedShutdownBehavior) (\s@ImportInstanceLaunchSpecification' {} a -> s {instanceInitiatedShutdownBehavior = a} :: ImportInstanceLaunchSpecification)
+
+-- | Indicates whether monitoring is enabled.
+importInstanceLaunchSpecification_monitoring :: Lens.Lens' ImportInstanceLaunchSpecification (Prelude.Maybe Prelude.Bool)
+importInstanceLaunchSpecification_monitoring = Lens.lens (\ImportInstanceLaunchSpecification' {monitoring} -> monitoring) (\s@ImportInstanceLaunchSpecification' {} a -> s {monitoring = a} :: ImportInstanceLaunchSpecification)
 
 -- | [EC2-VPC] The ID of the subnet in which to launch the instance.
 importInstanceLaunchSpecification_subnetId :: Lens.Lens' ImportInstanceLaunchSpecification (Prelude.Maybe Prelude.Text)
@@ -141,32 +155,18 @@ importInstanceLaunchSpecification_instanceType = Lens.lens (\ImportInstanceLaunc
 importInstanceLaunchSpecification_groupIds :: Lens.Lens' ImportInstanceLaunchSpecification (Prelude.Maybe [Prelude.Text])
 importInstanceLaunchSpecification_groupIds = Lens.lens (\ImportInstanceLaunchSpecification' {groupIds} -> groupIds) (\s@ImportInstanceLaunchSpecification' {} a -> s {groupIds = a} :: ImportInstanceLaunchSpecification) Prelude.. Lens.mapping Lens.coerced
 
--- | The Base64-encoded user data to make available to the instance.
-importInstanceLaunchSpecification_userData :: Lens.Lens' ImportInstanceLaunchSpecification (Prelude.Maybe UserData)
-importInstanceLaunchSpecification_userData = Lens.lens (\ImportInstanceLaunchSpecification' {userData} -> userData) (\s@ImportInstanceLaunchSpecification' {} a -> s {userData = a} :: ImportInstanceLaunchSpecification) Prelude.. Lens.mapping Core._Sensitive
-
--- | Indicates whether monitoring is enabled.
-importInstanceLaunchSpecification_monitoring :: Lens.Lens' ImportInstanceLaunchSpecification (Prelude.Maybe Prelude.Bool)
-importInstanceLaunchSpecification_monitoring = Lens.lens (\ImportInstanceLaunchSpecification' {monitoring} -> monitoring) (\s@ImportInstanceLaunchSpecification' {} a -> s {monitoring = a} :: ImportInstanceLaunchSpecification)
+-- | The security group names.
+importInstanceLaunchSpecification_groupNames :: Lens.Lens' ImportInstanceLaunchSpecification (Prelude.Maybe [Prelude.Text])
+importInstanceLaunchSpecification_groupNames = Lens.lens (\ImportInstanceLaunchSpecification' {groupNames} -> groupNames) (\s@ImportInstanceLaunchSpecification' {} a -> s {groupNames = a} :: ImportInstanceLaunchSpecification) Prelude.. Lens.mapping Lens.coerced
 
 -- | [EC2-VPC] An available IP address from the IP address range of the
 -- subnet.
 importInstanceLaunchSpecification_privateIpAddress :: Lens.Lens' ImportInstanceLaunchSpecification (Prelude.Maybe Prelude.Text)
 importInstanceLaunchSpecification_privateIpAddress = Lens.lens (\ImportInstanceLaunchSpecification' {privateIpAddress} -> privateIpAddress) (\s@ImportInstanceLaunchSpecification' {} a -> s {privateIpAddress = a} :: ImportInstanceLaunchSpecification)
 
--- | Indicates whether an instance stops or terminates when you initiate
--- shutdown from the instance (using the operating system command for
--- system shutdown).
-importInstanceLaunchSpecification_instanceInitiatedShutdownBehavior :: Lens.Lens' ImportInstanceLaunchSpecification (Prelude.Maybe ShutdownBehavior)
-importInstanceLaunchSpecification_instanceInitiatedShutdownBehavior = Lens.lens (\ImportInstanceLaunchSpecification' {instanceInitiatedShutdownBehavior} -> instanceInitiatedShutdownBehavior) (\s@ImportInstanceLaunchSpecification' {} a -> s {instanceInitiatedShutdownBehavior = a} :: ImportInstanceLaunchSpecification)
-
 -- | The architecture of the instance.
 importInstanceLaunchSpecification_architecture :: Lens.Lens' ImportInstanceLaunchSpecification (Prelude.Maybe ArchitectureValues)
 importInstanceLaunchSpecification_architecture = Lens.lens (\ImportInstanceLaunchSpecification' {architecture} -> architecture) (\s@ImportInstanceLaunchSpecification' {} a -> s {architecture = a} :: ImportInstanceLaunchSpecification)
-
--- | The placement information for the instance.
-importInstanceLaunchSpecification_placement :: Lens.Lens' ImportInstanceLaunchSpecification (Prelude.Maybe Placement)
-importInstanceLaunchSpecification_placement = Lens.lens (\ImportInstanceLaunchSpecification' {placement} -> placement) (\s@ImportInstanceLaunchSpecification' {} a -> s {placement = a} :: ImportInstanceLaunchSpecification)
 
 instance
   Prelude.Hashable
@@ -175,34 +175,34 @@ instance
   hashWithSalt
     _salt
     ImportInstanceLaunchSpecification' {..} =
-      _salt `Prelude.hashWithSalt` additionalInfo
-        `Prelude.hashWithSalt` groupNames
+      _salt `Prelude.hashWithSalt` placement
+        `Prelude.hashWithSalt` userData
+        `Prelude.hashWithSalt` additionalInfo
+        `Prelude.hashWithSalt` instanceInitiatedShutdownBehavior
+        `Prelude.hashWithSalt` monitoring
         `Prelude.hashWithSalt` subnetId
         `Prelude.hashWithSalt` instanceType
         `Prelude.hashWithSalt` groupIds
-        `Prelude.hashWithSalt` userData
-        `Prelude.hashWithSalt` monitoring
+        `Prelude.hashWithSalt` groupNames
         `Prelude.hashWithSalt` privateIpAddress
-        `Prelude.hashWithSalt` instanceInitiatedShutdownBehavior
         `Prelude.hashWithSalt` architecture
-        `Prelude.hashWithSalt` placement
 
 instance
   Prelude.NFData
     ImportInstanceLaunchSpecification
   where
   rnf ImportInstanceLaunchSpecification' {..} =
-    Prelude.rnf additionalInfo
-      `Prelude.seq` Prelude.rnf groupNames
+    Prelude.rnf placement
+      `Prelude.seq` Prelude.rnf userData
+      `Prelude.seq` Prelude.rnf additionalInfo
+      `Prelude.seq` Prelude.rnf instanceInitiatedShutdownBehavior
+      `Prelude.seq` Prelude.rnf monitoring
       `Prelude.seq` Prelude.rnf subnetId
       `Prelude.seq` Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf groupIds
-      `Prelude.seq` Prelude.rnf userData
-      `Prelude.seq` Prelude.rnf monitoring
+      `Prelude.seq` Prelude.rnf groupNames
       `Prelude.seq` Prelude.rnf privateIpAddress
-      `Prelude.seq` Prelude.rnf instanceInitiatedShutdownBehavior
       `Prelude.seq` Prelude.rnf architecture
-      `Prelude.seq` Prelude.rnf placement
 
 instance
   Core.ToQuery
@@ -210,20 +210,20 @@ instance
   where
   toQuery ImportInstanceLaunchSpecification' {..} =
     Prelude.mconcat
-      [ "AdditionalInfo" Core.=: additionalInfo,
-        Core.toQuery
-          ( Core.toQueryList "GroupName"
-              Prelude.<$> groupNames
-          ),
+      [ "Placement" Core.=: placement,
+        "UserData" Core.=: userData,
+        "AdditionalInfo" Core.=: additionalInfo,
+        "InstanceInitiatedShutdownBehavior"
+          Core.=: instanceInitiatedShutdownBehavior,
+        "Monitoring" Core.=: monitoring,
         "SubnetId" Core.=: subnetId,
         "InstanceType" Core.=: instanceType,
         Core.toQuery
           (Core.toQueryList "GroupId" Prelude.<$> groupIds),
-        "UserData" Core.=: userData,
-        "Monitoring" Core.=: monitoring,
+        Core.toQuery
+          ( Core.toQueryList "GroupName"
+              Prelude.<$> groupNames
+          ),
         "PrivateIpAddress" Core.=: privateIpAddress,
-        "InstanceInitiatedShutdownBehavior"
-          Core.=: instanceInitiatedShutdownBehavior,
-        "Architecture" Core.=: architecture,
-        "Placement" Core.=: placement
+        "Architecture" Core.=: architecture
       ]

@@ -37,8 +37,8 @@ module Amazonka.EC2.DescribeRegions
     -- * Request Lenses
     describeRegions_regionNames,
     describeRegions_filters,
-    describeRegions_allRegions,
     describeRegions_dryRun,
+    describeRegions_allRegions,
 
     -- * Destructuring the Response
     DescribeRegionsResponse (..),
@@ -72,14 +72,14 @@ data DescribeRegions = DescribeRegions'
     --
     -- -   @region-name@ - The name of the Region (for example, @us-east-1@).
     filters :: Prelude.Maybe [Filter],
-    -- | Indicates whether to display all Regions, including Regions that are
-    -- disabled for your account.
-    allRegions :: Prelude.Maybe Prelude.Bool,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates whether to display all Regions, including Regions that are
+    -- disabled for your account.
+    allRegions :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -104,21 +104,21 @@ data DescribeRegions = DescribeRegions'
 --
 -- -   @region-name@ - The name of the Region (for example, @us-east-1@).
 --
--- 'allRegions', 'describeRegions_allRegions' - Indicates whether to display all Regions, including Regions that are
--- disabled for your account.
---
 -- 'dryRun', 'describeRegions_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'allRegions', 'describeRegions_allRegions' - Indicates whether to display all Regions, including Regions that are
+-- disabled for your account.
 newDescribeRegions ::
   DescribeRegions
 newDescribeRegions =
   DescribeRegions'
     { regionNames = Prelude.Nothing,
       filters = Prelude.Nothing,
-      allRegions = Prelude.Nothing,
-      dryRun = Prelude.Nothing
+      dryRun = Prelude.Nothing,
+      allRegions = Prelude.Nothing
     }
 
 -- | The names of the Regions. You can specify any Regions, whether they are
@@ -138,17 +138,17 @@ describeRegions_regionNames = Lens.lens (\DescribeRegions' {regionNames} -> regi
 describeRegions_filters :: Lens.Lens' DescribeRegions (Prelude.Maybe [Filter])
 describeRegions_filters = Lens.lens (\DescribeRegions' {filters} -> filters) (\s@DescribeRegions' {} a -> s {filters = a} :: DescribeRegions) Prelude.. Lens.mapping Lens.coerced
 
--- | Indicates whether to display all Regions, including Regions that are
--- disabled for your account.
-describeRegions_allRegions :: Lens.Lens' DescribeRegions (Prelude.Maybe Prelude.Bool)
-describeRegions_allRegions = Lens.lens (\DescribeRegions' {allRegions} -> allRegions) (\s@DescribeRegions' {} a -> s {allRegions = a} :: DescribeRegions)
-
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 describeRegions_dryRun :: Lens.Lens' DescribeRegions (Prelude.Maybe Prelude.Bool)
 describeRegions_dryRun = Lens.lens (\DescribeRegions' {dryRun} -> dryRun) (\s@DescribeRegions' {} a -> s {dryRun = a} :: DescribeRegions)
+
+-- | Indicates whether to display all Regions, including Regions that are
+-- disabled for your account.
+describeRegions_allRegions :: Lens.Lens' DescribeRegions (Prelude.Maybe Prelude.Bool)
+describeRegions_allRegions = Lens.lens (\DescribeRegions' {allRegions} -> allRegions) (\s@DescribeRegions' {} a -> s {allRegions = a} :: DescribeRegions)
 
 instance Core.AWSRequest DescribeRegions where
   type
@@ -169,15 +169,15 @@ instance Prelude.Hashable DescribeRegions where
   hashWithSalt _salt DescribeRegions' {..} =
     _salt `Prelude.hashWithSalt` regionNames
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` allRegions
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` allRegions
 
 instance Prelude.NFData DescribeRegions where
   rnf DescribeRegions' {..} =
     Prelude.rnf regionNames
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf allRegions
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf allRegions
 
 instance Core.ToHeaders DescribeRegions where
   toHeaders = Prelude.const Prelude.mempty
@@ -198,8 +198,8 @@ instance Core.ToQuery DescribeRegions where
           ),
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
-        "AllRegions" Core.=: allRegions,
-        "DryRun" Core.=: dryRun
+        "DryRun" Core.=: dryRun,
+        "AllRegions" Core.=: allRegions
       ]
 
 -- | /See:/ 'newDescribeRegionsResponse' smart constructor.

@@ -58,11 +58,11 @@ module Amazonka.EC2.CreateCustomerGateway
     newCreateCustomerGateway,
 
     -- * Request Lenses
-    createCustomerGateway_certificateArn,
-    createCustomerGateway_tagSpecifications,
     createCustomerGateway_deviceName,
     createCustomerGateway_publicIp,
     createCustomerGateway_dryRun,
+    createCustomerGateway_certificateArn,
+    createCustomerGateway_tagSpecifications,
     createCustomerGateway_bgpAsn,
     createCustomerGateway_type,
 
@@ -87,11 +87,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateCustomerGateway' smart constructor.
 data CreateCustomerGateway = CreateCustomerGateway'
-  { -- | The Amazon Resource Name (ARN) for the customer gateway certificate.
-    certificateArn :: Prelude.Maybe Prelude.Text,
-    -- | The tags to apply to the customer gateway.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | A name for the customer gateway device.
+  { -- | A name for the customer gateway device.
     --
     -- Length Constraints: Up to 255 characters.
     deviceName :: Prelude.Maybe Prelude.Text,
@@ -103,6 +99,10 @@ data CreateCustomerGateway = CreateCustomerGateway'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Resource Name (ARN) for the customer gateway certificate.
+    certificateArn :: Prelude.Maybe Prelude.Text,
+    -- | The tags to apply to the customer gateway.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | For devices that support BGP, the customer gateway\'s BGP ASN.
     --
     -- Default: 65000
@@ -121,10 +121,6 @@ data CreateCustomerGateway = CreateCustomerGateway'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'certificateArn', 'createCustomerGateway_certificateArn' - The Amazon Resource Name (ARN) for the customer gateway certificate.
---
--- 'tagSpecifications', 'createCustomerGateway_tagSpecifications' - The tags to apply to the customer gateway.
---
 -- 'deviceName', 'createCustomerGateway_deviceName' - A name for the customer gateway device.
 --
 -- Length Constraints: Up to 255 characters.
@@ -136,6 +132,10 @@ data CreateCustomerGateway = CreateCustomerGateway'
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'certificateArn', 'createCustomerGateway_certificateArn' - The Amazon Resource Name (ARN) for the customer gateway certificate.
+--
+-- 'tagSpecifications', 'createCustomerGateway_tagSpecifications' - The tags to apply to the customer gateway.
 --
 -- 'bgpAsn', 'createCustomerGateway_bgpAsn' - For devices that support BGP, the customer gateway\'s BGP ASN.
 --
@@ -151,23 +151,15 @@ newCreateCustomerGateway ::
   CreateCustomerGateway
 newCreateCustomerGateway pBgpAsn_ pType_ =
   CreateCustomerGateway'
-    { certificateArn =
+    { deviceName =
         Prelude.Nothing,
-      tagSpecifications = Prelude.Nothing,
-      deviceName = Prelude.Nothing,
       publicIp = Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      certificateArn = Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
       bgpAsn = pBgpAsn_,
       type' = pType_
     }
-
--- | The Amazon Resource Name (ARN) for the customer gateway certificate.
-createCustomerGateway_certificateArn :: Lens.Lens' CreateCustomerGateway (Prelude.Maybe Prelude.Text)
-createCustomerGateway_certificateArn = Lens.lens (\CreateCustomerGateway' {certificateArn} -> certificateArn) (\s@CreateCustomerGateway' {} a -> s {certificateArn = a} :: CreateCustomerGateway)
-
--- | The tags to apply to the customer gateway.
-createCustomerGateway_tagSpecifications :: Lens.Lens' CreateCustomerGateway (Prelude.Maybe [TagSpecification])
-createCustomerGateway_tagSpecifications = Lens.lens (\CreateCustomerGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateCustomerGateway' {} a -> s {tagSpecifications = a} :: CreateCustomerGateway) Prelude.. Lens.mapping Lens.coerced
 
 -- | A name for the customer gateway device.
 --
@@ -186,6 +178,14 @@ createCustomerGateway_publicIp = Lens.lens (\CreateCustomerGateway' {publicIp} -
 -- Otherwise, it is @UnauthorizedOperation@.
 createCustomerGateway_dryRun :: Lens.Lens' CreateCustomerGateway (Prelude.Maybe Prelude.Bool)
 createCustomerGateway_dryRun = Lens.lens (\CreateCustomerGateway' {dryRun} -> dryRun) (\s@CreateCustomerGateway' {} a -> s {dryRun = a} :: CreateCustomerGateway)
+
+-- | The Amazon Resource Name (ARN) for the customer gateway certificate.
+createCustomerGateway_certificateArn :: Lens.Lens' CreateCustomerGateway (Prelude.Maybe Prelude.Text)
+createCustomerGateway_certificateArn = Lens.lens (\CreateCustomerGateway' {certificateArn} -> certificateArn) (\s@CreateCustomerGateway' {} a -> s {certificateArn = a} :: CreateCustomerGateway)
+
+-- | The tags to apply to the customer gateway.
+createCustomerGateway_tagSpecifications :: Lens.Lens' CreateCustomerGateway (Prelude.Maybe [TagSpecification])
+createCustomerGateway_tagSpecifications = Lens.lens (\CreateCustomerGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateCustomerGateway' {} a -> s {tagSpecifications = a} :: CreateCustomerGateway) Prelude.. Lens.mapping Lens.coerced
 
 -- | For devices that support BGP, the customer gateway\'s BGP ASN.
 --
@@ -213,21 +213,21 @@ instance Core.AWSRequest CreateCustomerGateway where
 
 instance Prelude.Hashable CreateCustomerGateway where
   hashWithSalt _salt CreateCustomerGateway' {..} =
-    _salt `Prelude.hashWithSalt` certificateArn
-      `Prelude.hashWithSalt` tagSpecifications
-      `Prelude.hashWithSalt` deviceName
+    _salt `Prelude.hashWithSalt` deviceName
       `Prelude.hashWithSalt` publicIp
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` bgpAsn
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData CreateCustomerGateway where
   rnf CreateCustomerGateway' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf deviceName
+    Prelude.rnf deviceName
       `Prelude.seq` Prelude.rnf publicIp
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf bgpAsn
       `Prelude.seq` Prelude.rnf type'
 
@@ -244,14 +244,14 @@ instance Core.ToQuery CreateCustomerGateway where
           Core.=: ("CreateCustomerGateway" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "DeviceName" Core.=: deviceName,
+        "IpAddress" Core.=: publicIp,
+        "DryRun" Core.=: dryRun,
         "CertificateArn" Core.=: certificateArn,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "DeviceName" Core.=: deviceName,
-        "IpAddress" Core.=: publicIp,
-        "DryRun" Core.=: dryRun,
         "BgpAsn" Core.=: bgpAsn,
         "Type" Core.=: type'
       ]

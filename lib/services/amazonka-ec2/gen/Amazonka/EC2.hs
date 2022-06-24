@@ -47,302 +47,104 @@ module Amazonka.EC2
     -- * Waiters
     -- $waiters
 
-    -- ** InstanceTerminated
-    newInstanceTerminated,
-
-    -- ** VolumeInUse
-    newVolumeInUse,
-
-    -- ** ImageExists
-    newImageExists,
-
-    -- ** NatGatewayAvailable
-    newNatGatewayAvailable,
-
-    -- ** SubnetAvailable
-    newSubnetAvailable,
-
-    -- ** NetworkInterfaceAvailable
-    newNetworkInterfaceAvailable,
-
-    -- ** KeyPairExists
-    newKeyPairExists,
-
-    -- ** SystemStatusOk
-    newSystemStatusOk,
-
-    -- ** CustomerGatewayAvailable
-    newCustomerGatewayAvailable,
-
-    -- ** ConversionTaskCompleted
-    newConversionTaskCompleted,
-
     -- ** InstanceStopped
     newInstanceStopped,
-
-    -- ** ConversionTaskDeleted
-    newConversionTaskDeleted,
-
-    -- ** PasswordDataAvailable
-    newPasswordDataAvailable,
-
-    -- ** InstanceRunning
-    newInstanceRunning,
-
-    -- ** SecurityGroupExists
-    newSecurityGroupExists,
-
-    -- ** SpotInstanceRequestFulfilled
-    newSpotInstanceRequestFulfilled,
-
-    -- ** VpcAvailable
-    newVpcAvailable,
 
     -- ** ExportTaskCompleted
     newExportTaskCompleted,
 
-    -- ** VpcPeeringConnectionDeleted
-    newVpcPeeringConnectionDeleted,
+    -- ** SpotInstanceRequestFulfilled
+    newSpotInstanceRequestFulfilled,
 
-    -- ** VpnConnectionAvailable
-    newVpnConnectionAvailable,
+    -- ** ImageExists
+    newImageExists,
+
+    -- ** KeyPairExists
+    newKeyPairExists,
 
     -- ** ExportTaskCancelled
     newExportTaskCancelled,
 
-    -- ** VolumeDeleted
-    newVolumeDeleted,
-
-    -- ** VpcExists
-    newVpcExists,
+    -- ** InstanceStatusOk
+    newInstanceStatusOk,
 
     -- ** BundleTaskComplete
     newBundleTaskComplete,
 
-    -- ** VpnConnectionDeleted
-    newVpnConnectionDeleted,
-
-    -- ** ConversionTaskCancelled
-    newConversionTaskCancelled,
+    -- ** InstanceExists
+    newInstanceExists,
 
     -- ** ImageAvailable
     newImageAvailable,
 
-    -- ** VpcPeeringConnectionExists
-    newVpcPeeringConnectionExists,
+    -- ** VolumeDeleted
+    newVolumeDeleted,
 
-    -- ** SnapshotCompleted
-    newSnapshotCompleted,
-
-    -- ** InstanceExists
-    newInstanceExists,
-
-    -- ** InstanceStatusOk
-    newInstanceStatusOk,
+    -- ** InstanceRunning
+    newInstanceRunning,
 
     -- ** VolumeAvailable
     newVolumeAvailable,
 
+    -- ** SubnetAvailable
+    newSubnetAvailable,
+
+    -- ** VpnConnectionDeleted
+    newVpnConnectionDeleted,
+
+    -- ** CustomerGatewayAvailable
+    newCustomerGatewayAvailable,
+
+    -- ** VolumeInUse
+    newVolumeInUse,
+
+    -- ** PasswordDataAvailable
+    newPasswordDataAvailable,
+
+    -- ** SystemStatusOk
+    newSystemStatusOk,
+
+    -- ** VpnConnectionAvailable
+    newVpnConnectionAvailable,
+
+    -- ** VpcExists
+    newVpcExists,
+
+    -- ** NetworkInterfaceAvailable
+    newNetworkInterfaceAvailable,
+
+    -- ** ConversionTaskCompleted
+    newConversionTaskCompleted,
+
+    -- ** VpcPeeringConnectionDeleted
+    newVpcPeeringConnectionDeleted,
+
+    -- ** InstanceTerminated
+    newInstanceTerminated,
+
+    -- ** SnapshotCompleted
+    newSnapshotCompleted,
+
+    -- ** NatGatewayAvailable
+    newNatGatewayAvailable,
+
+    -- ** VpcPeeringConnectionExists
+    newVpcPeeringConnectionExists,
+
+    -- ** ConversionTaskCancelled
+    newConversionTaskCancelled,
+
+    -- ** ConversionTaskDeleted
+    newConversionTaskDeleted,
+
+    -- ** SecurityGroupExists
+    newSecurityGroupExists,
+
+    -- ** VpcAvailable
+    newVpcAvailable,
+
     -- * Operations
     -- $operations
-
-    -- ** ModifyCapacityReservation
-    ModifyCapacityReservation (ModifyCapacityReservation'),
-    newModifyCapacityReservation,
-    ModifyCapacityReservationResponse (ModifyCapacityReservationResponse'),
-    newModifyCapacityReservationResponse,
-
-    -- ** GetAssociatedIpv6PoolCidrs (Paginated)
-    GetAssociatedIpv6PoolCidrs (GetAssociatedIpv6PoolCidrs'),
-    newGetAssociatedIpv6PoolCidrs,
-    GetAssociatedIpv6PoolCidrsResponse (GetAssociatedIpv6PoolCidrsResponse'),
-    newGetAssociatedIpv6PoolCidrsResponse,
-
-    -- ** ImportInstance
-    ImportInstance (ImportInstance'),
-    newImportInstance,
-    ImportInstanceResponse (ImportInstanceResponse'),
-    newImportInstanceResponse,
-
-    -- ** DescribeCapacityReservationFleets (Paginated)
-    DescribeCapacityReservationFleets (DescribeCapacityReservationFleets'),
-    newDescribeCapacityReservationFleets,
-    DescribeCapacityReservationFleetsResponse (DescribeCapacityReservationFleetsResponse'),
-    newDescribeCapacityReservationFleetsResponse,
-
-    -- ** ModifySecurityGroupRules
-    ModifySecurityGroupRules (ModifySecurityGroupRules'),
-    newModifySecurityGroupRules,
-    ModifySecurityGroupRulesResponse (ModifySecurityGroupRulesResponse'),
-    newModifySecurityGroupRulesResponse,
-
-    -- ** RevokeSecurityGroupEgress
-    RevokeSecurityGroupEgress (RevokeSecurityGroupEgress'),
-    newRevokeSecurityGroupEgress,
-    RevokeSecurityGroupEgressResponse (RevokeSecurityGroupEgressResponse'),
-    newRevokeSecurityGroupEgressResponse,
-
-    -- ** CreateNetworkInterfacePermission
-    CreateNetworkInterfacePermission (CreateNetworkInterfacePermission'),
-    newCreateNetworkInterfacePermission,
-    CreateNetworkInterfacePermissionResponse (CreateNetworkInterfacePermissionResponse'),
-    newCreateNetworkInterfacePermissionResponse,
-
-    -- ** SendDiagnosticInterrupt
-    SendDiagnosticInterrupt (SendDiagnosticInterrupt'),
-    newSendDiagnosticInterrupt,
-    SendDiagnosticInterruptResponse (SendDiagnosticInterruptResponse'),
-    newSendDiagnosticInterruptResponse,
-
-    -- ** DeleteLaunchTemplate
-    DeleteLaunchTemplate (DeleteLaunchTemplate'),
-    newDeleteLaunchTemplate,
-    DeleteLaunchTemplateResponse (DeleteLaunchTemplateResponse'),
-    newDeleteLaunchTemplateResponse,
-
-    -- ** RejectVpcEndpointConnections
-    RejectVpcEndpointConnections (RejectVpcEndpointConnections'),
-    newRejectVpcEndpointConnections,
-    RejectVpcEndpointConnectionsResponse (RejectVpcEndpointConnectionsResponse'),
-    newRejectVpcEndpointConnectionsResponse,
-
-    -- ** CreateVpnGateway
-    CreateVpnGateway (CreateVpnGateway'),
-    newCreateVpnGateway,
-    CreateVpnGatewayResponse (CreateVpnGatewayResponse'),
-    newCreateVpnGatewayResponse,
-
-    -- ** CreateNetworkAcl
-    CreateNetworkAcl (CreateNetworkAcl'),
-    newCreateNetworkAcl,
-    CreateNetworkAclResponse (CreateNetworkAclResponse'),
-    newCreateNetworkAclResponse,
-
-    -- ** DeleteKeyPair
-    DeleteKeyPair (DeleteKeyPair'),
-    newDeleteKeyPair,
-    DeleteKeyPairResponse (DeleteKeyPairResponse'),
-    newDeleteKeyPairResponse,
-
-    -- ** DescribeSecurityGroupReferences
-    DescribeSecurityGroupReferences (DescribeSecurityGroupReferences'),
-    newDescribeSecurityGroupReferences,
-    DescribeSecurityGroupReferencesResponse (DescribeSecurityGroupReferencesResponse'),
-    newDescribeSecurityGroupReferencesResponse,
-
-    -- ** DeleteFleets
-    DeleteFleets (DeleteFleets'),
-    newDeleteFleets,
-    DeleteFleetsResponse (DeleteFleetsResponse'),
-    newDeleteFleetsResponse,
-
-    -- ** DescribeTags (Paginated)
-    DescribeTags (DescribeTags'),
-    newDescribeTags,
-    DescribeTagsResponse (DescribeTagsResponse'),
-    newDescribeTagsResponse,
-
-    -- ** CreateTransitGatewayRouteTable
-    CreateTransitGatewayRouteTable (CreateTransitGatewayRouteTable'),
-    newCreateTransitGatewayRouteTable,
-    CreateTransitGatewayRouteTableResponse (CreateTransitGatewayRouteTableResponse'),
-    newCreateTransitGatewayRouteTableResponse,
-
-    -- ** ModifyInstanceMetadataOptions
-    ModifyInstanceMetadataOptions (ModifyInstanceMetadataOptions'),
-    newModifyInstanceMetadataOptions,
-    ModifyInstanceMetadataOptionsResponse (ModifyInstanceMetadataOptionsResponse'),
-    newModifyInstanceMetadataOptionsResponse,
-
-    -- ** UpdateSecurityGroupRuleDescriptionsIngress
-    UpdateSecurityGroupRuleDescriptionsIngress (UpdateSecurityGroupRuleDescriptionsIngress'),
-    newUpdateSecurityGroupRuleDescriptionsIngress,
-    UpdateSecurityGroupRuleDescriptionsIngressResponse (UpdateSecurityGroupRuleDescriptionsIngressResponse'),
-    newUpdateSecurityGroupRuleDescriptionsIngressResponse,
-
-    -- ** DisassociateSubnetCidrBlock
-    DisassociateSubnetCidrBlock (DisassociateSubnetCidrBlock'),
-    newDisassociateSubnetCidrBlock,
-    DisassociateSubnetCidrBlockResponse (DisassociateSubnetCidrBlockResponse'),
-    newDisassociateSubnetCidrBlockResponse,
-
-    -- ** DetachNetworkInterface
-    DetachNetworkInterface (DetachNetworkInterface'),
-    newDetachNetworkInterface,
-    DetachNetworkInterfaceResponse (DetachNetworkInterfaceResponse'),
-    newDetachNetworkInterfaceResponse,
-
-    -- ** DetachInternetGateway
-    DetachInternetGateway (DetachInternetGateway'),
-    newDetachInternetGateway,
-    DetachInternetGatewayResponse (DetachInternetGatewayResponse'),
-    newDetachInternetGatewayResponse,
-
-    -- ** DeleteVpcEndpoints
-    DeleteVpcEndpoints (DeleteVpcEndpoints'),
-    newDeleteVpcEndpoints,
-    DeleteVpcEndpointsResponse (DeleteVpcEndpointsResponse'),
-    newDeleteVpcEndpointsResponse,
-
-    -- ** DescribeClientVpnEndpoints (Paginated)
-    DescribeClientVpnEndpoints (DescribeClientVpnEndpoints'),
-    newDescribeClientVpnEndpoints,
-    DescribeClientVpnEndpointsResponse (DescribeClientVpnEndpointsResponse'),
-    newDescribeClientVpnEndpointsResponse,
-
-    -- ** DeleteFlowLogs
-    DeleteFlowLogs (DeleteFlowLogs'),
-    newDeleteFlowLogs,
-    DeleteFlowLogsResponse (DeleteFlowLogsResponse'),
-    newDeleteFlowLogsResponse,
-
-    -- ** DescribeVpcClassicLink
-    DescribeVpcClassicLink (DescribeVpcClassicLink'),
-    newDescribeVpcClassicLink,
-    DescribeVpcClassicLinkResponse (DescribeVpcClassicLinkResponse'),
-    newDescribeVpcClassicLinkResponse,
-
-    -- ** GetAssociatedEnclaveCertificateIamRoles
-    GetAssociatedEnclaveCertificateIamRoles (GetAssociatedEnclaveCertificateIamRoles'),
-    newGetAssociatedEnclaveCertificateIamRoles,
-    GetAssociatedEnclaveCertificateIamRolesResponse (GetAssociatedEnclaveCertificateIamRolesResponse'),
-    newGetAssociatedEnclaveCertificateIamRolesResponse,
-
-    -- ** AssociateTransitGatewayMulticastDomain
-    AssociateTransitGatewayMulticastDomain (AssociateTransitGatewayMulticastDomain'),
-    newAssociateTransitGatewayMulticastDomain,
-    AssociateTransitGatewayMulticastDomainResponse (AssociateTransitGatewayMulticastDomainResponse'),
-    newAssociateTransitGatewayMulticastDomainResponse,
-
-    -- ** ModifySubnetAttribute
-    ModifySubnetAttribute (ModifySubnetAttribute'),
-    newModifySubnetAttribute,
-    ModifySubnetAttributeResponse (ModifySubnetAttributeResponse'),
-    newModifySubnetAttributeResponse,
-
-    -- ** DetachVolume
-    DetachVolume (DetachVolume'),
-    newDetachVolume,
-    VolumeAttachment (VolumeAttachment'),
-    newVolumeAttachment,
-
-    -- ** DescribeInstanceCreditSpecifications (Paginated)
-    DescribeInstanceCreditSpecifications (DescribeInstanceCreditSpecifications'),
-    newDescribeInstanceCreditSpecifications,
-    DescribeInstanceCreditSpecificationsResponse (DescribeInstanceCreditSpecificationsResponse'),
-    newDescribeInstanceCreditSpecificationsResponse,
-
-    -- ** CancelBundleTask
-    CancelBundleTask (CancelBundleTask'),
-    newCancelBundleTask,
-    CancelBundleTaskResponse (CancelBundleTaskResponse'),
-    newCancelBundleTaskResponse,
-
-    -- ** DescribeByoipCidrs (Paginated)
-    DescribeByoipCidrs (DescribeByoipCidrs'),
-    newDescribeByoipCidrs,
-    DescribeByoipCidrsResponse (DescribeByoipCidrsResponse'),
-    newDescribeByoipCidrsResponse,
 
     -- ** AcceptReservedInstancesExchangeQuote
     AcceptReservedInstancesExchangeQuote (AcceptReservedInstancesExchangeQuote'),
@@ -350,1163 +152,11 @@ module Amazonka.EC2
     AcceptReservedInstancesExchangeQuoteResponse (AcceptReservedInstancesExchangeQuoteResponse'),
     newAcceptReservedInstancesExchangeQuoteResponse,
 
-    -- ** ReleaseAddress
-    ReleaseAddress (ReleaseAddress'),
-    newReleaseAddress,
-    ReleaseAddressResponse (ReleaseAddressResponse'),
-    newReleaseAddressResponse,
-
-    -- ** DescribeInstanceTypeOfferings (Paginated)
-    DescribeInstanceTypeOfferings (DescribeInstanceTypeOfferings'),
-    newDescribeInstanceTypeOfferings,
-    DescribeInstanceTypeOfferingsResponse (DescribeInstanceTypeOfferingsResponse'),
-    newDescribeInstanceTypeOfferingsResponse,
-
-    -- ** CreateInternetGateway
-    CreateInternetGateway (CreateInternetGateway'),
-    newCreateInternetGateway,
-    CreateInternetGatewayResponse (CreateInternetGatewayResponse'),
-    newCreateInternetGatewayResponse,
-
-    -- ** DeleteVpnConnection
-    DeleteVpnConnection (DeleteVpnConnection'),
-    newDeleteVpnConnection,
-    DeleteVpnConnectionResponse (DeleteVpnConnectionResponse'),
-    newDeleteVpnConnectionResponse,
-
-    -- ** DescribeBundleTasks
-    DescribeBundleTasks (DescribeBundleTasks'),
-    newDescribeBundleTasks,
-    DescribeBundleTasksResponse (DescribeBundleTasksResponse'),
-    newDescribeBundleTasksResponse,
-
-    -- ** AuthorizeSecurityGroupEgress
-    AuthorizeSecurityGroupEgress (AuthorizeSecurityGroupEgress'),
-    newAuthorizeSecurityGroupEgress,
-    AuthorizeSecurityGroupEgressResponse (AuthorizeSecurityGroupEgressResponse'),
-    newAuthorizeSecurityGroupEgressResponse,
-
-    -- ** EnableTransitGatewayRouteTablePropagation
-    EnableTransitGatewayRouteTablePropagation (EnableTransitGatewayRouteTablePropagation'),
-    newEnableTransitGatewayRouteTablePropagation,
-    EnableTransitGatewayRouteTablePropagationResponse (EnableTransitGatewayRouteTablePropagationResponse'),
-    newEnableTransitGatewayRouteTablePropagationResponse,
-
-    -- ** DeregisterImage
-    DeregisterImage (DeregisterImage'),
-    newDeregisterImage,
-    DeregisterImageResponse (DeregisterImageResponse'),
-    newDeregisterImageResponse,
-
-    -- ** DeleteVpcEndpointConnectionNotifications
-    DeleteVpcEndpointConnectionNotifications (DeleteVpcEndpointConnectionNotifications'),
-    newDeleteVpcEndpointConnectionNotifications,
-    DeleteVpcEndpointConnectionNotificationsResponse (DeleteVpcEndpointConnectionNotificationsResponse'),
-    newDeleteVpcEndpointConnectionNotificationsResponse,
-
-    -- ** DescribeCoipPools (Paginated)
-    DescribeCoipPools (DescribeCoipPools'),
-    newDescribeCoipPools,
-    DescribeCoipPoolsResponse (DescribeCoipPoolsResponse'),
-    newDescribeCoipPoolsResponse,
-
-    -- ** ResetAddressAttribute
-    ResetAddressAttribute (ResetAddressAttribute'),
-    newResetAddressAttribute,
-    ResetAddressAttributeResponse (ResetAddressAttributeResponse'),
-    newResetAddressAttributeResponse,
-
-    -- ** GetTransitGatewayMulticastDomainAssociations (Paginated)
-    GetTransitGatewayMulticastDomainAssociations (GetTransitGatewayMulticastDomainAssociations'),
-    newGetTransitGatewayMulticastDomainAssociations,
-    GetTransitGatewayMulticastDomainAssociationsResponse (GetTransitGatewayMulticastDomainAssociationsResponse'),
-    newGetTransitGatewayMulticastDomainAssociationsResponse,
-
-    -- ** DeleteLocalGatewayRouteTableVpcAssociation
-    DeleteLocalGatewayRouteTableVpcAssociation (DeleteLocalGatewayRouteTableVpcAssociation'),
-    newDeleteLocalGatewayRouteTableVpcAssociation,
-    DeleteLocalGatewayRouteTableVpcAssociationResponse (DeleteLocalGatewayRouteTableVpcAssociationResponse'),
-    newDeleteLocalGatewayRouteTableVpcAssociationResponse,
-
-    -- ** ModifyNetworkInterfaceAttribute
-    ModifyNetworkInterfaceAttribute (ModifyNetworkInterfaceAttribute'),
-    newModifyNetworkInterfaceAttribute,
-    ModifyNetworkInterfaceAttributeResponse (ModifyNetworkInterfaceAttributeResponse'),
-    newModifyNetworkInterfaceAttributeResponse,
-
-    -- ** ModifyVpcTenancy
-    ModifyVpcTenancy (ModifyVpcTenancy'),
-    newModifyVpcTenancy,
-    ModifyVpcTenancyResponse (ModifyVpcTenancyResponse'),
-    newModifyVpcTenancyResponse,
-
-    -- ** DescribeInstanceTypes (Paginated)
-    DescribeInstanceTypes (DescribeInstanceTypes'),
-    newDescribeInstanceTypes,
-    DescribeInstanceTypesResponse (DescribeInstanceTypesResponse'),
-    newDescribeInstanceTypesResponse,
-
-    -- ** CancelCapacityReservationFleets
-    CancelCapacityReservationFleets (CancelCapacityReservationFleets'),
-    newCancelCapacityReservationFleets,
-    CancelCapacityReservationFleetsResponse (CancelCapacityReservationFleetsResponse'),
-    newCancelCapacityReservationFleetsResponse,
-
-    -- ** DescribeClientVpnAuthorizationRules (Paginated)
-    DescribeClientVpnAuthorizationRules (DescribeClientVpnAuthorizationRules'),
-    newDescribeClientVpnAuthorizationRules,
-    DescribeClientVpnAuthorizationRulesResponse (DescribeClientVpnAuthorizationRulesResponse'),
-    newDescribeClientVpnAuthorizationRulesResponse,
-
-    -- ** DeleteTransitGatewayVpcAttachment
-    DeleteTransitGatewayVpcAttachment (DeleteTransitGatewayVpcAttachment'),
-    newDeleteTransitGatewayVpcAttachment,
-    DeleteTransitGatewayVpcAttachmentResponse (DeleteTransitGatewayVpcAttachmentResponse'),
-    newDeleteTransitGatewayVpcAttachmentResponse,
-
-    -- ** DeleteTransitGatewayMulticastDomain
-    DeleteTransitGatewayMulticastDomain (DeleteTransitGatewayMulticastDomain'),
-    newDeleteTransitGatewayMulticastDomain,
-    DeleteTransitGatewayMulticastDomainResponse (DeleteTransitGatewayMulticastDomainResponse'),
-    newDeleteTransitGatewayMulticastDomainResponse,
-
-    -- ** CancelReservedInstancesListing
-    CancelReservedInstancesListing (CancelReservedInstancesListing'),
-    newCancelReservedInstancesListing,
-    CancelReservedInstancesListingResponse (CancelReservedInstancesListingResponse'),
-    newCancelReservedInstancesListingResponse,
-
-    -- ** AttachClassicLinkVpc
-    AttachClassicLinkVpc (AttachClassicLinkVpc'),
-    newAttachClassicLinkVpc,
-    AttachClassicLinkVpcResponse (AttachClassicLinkVpcResponse'),
-    newAttachClassicLinkVpcResponse,
-
-    -- ** DisableTransitGatewayRouteTablePropagation
-    DisableTransitGatewayRouteTablePropagation (DisableTransitGatewayRouteTablePropagation'),
-    newDisableTransitGatewayRouteTablePropagation,
-    DisableTransitGatewayRouteTablePropagationResponse (DisableTransitGatewayRouteTablePropagationResponse'),
-    newDisableTransitGatewayRouteTablePropagationResponse,
-
-    -- ** DescribeVpcClassicLinkDnsSupport (Paginated)
-    DescribeVpcClassicLinkDnsSupport (DescribeVpcClassicLinkDnsSupport'),
-    newDescribeVpcClassicLinkDnsSupport,
-    DescribeVpcClassicLinkDnsSupportResponse (DescribeVpcClassicLinkDnsSupportResponse'),
-    newDescribeVpcClassicLinkDnsSupportResponse,
-
-    -- ** AssociateSubnetCidrBlock
-    AssociateSubnetCidrBlock (AssociateSubnetCidrBlock'),
-    newAssociateSubnetCidrBlock,
-    AssociateSubnetCidrBlockResponse (AssociateSubnetCidrBlockResponse'),
-    newAssociateSubnetCidrBlockResponse,
-
-    -- ** CreateNetworkInsightsPath
-    CreateNetworkInsightsPath (CreateNetworkInsightsPath'),
-    newCreateNetworkInsightsPath,
-    CreateNetworkInsightsPathResponse (CreateNetworkInsightsPathResponse'),
-    newCreateNetworkInsightsPathResponse,
-
-    -- ** RunScheduledInstances
-    RunScheduledInstances (RunScheduledInstances'),
-    newRunScheduledInstances,
-    RunScheduledInstancesResponse (RunScheduledInstancesResponse'),
-    newRunScheduledInstancesResponse,
-
-    -- ** CreateTransitGatewayRoute
-    CreateTransitGatewayRoute (CreateTransitGatewayRoute'),
-    newCreateTransitGatewayRoute,
-    CreateTransitGatewayRouteResponse (CreateTransitGatewayRouteResponse'),
-    newCreateTransitGatewayRouteResponse,
-
-    -- ** CreateTransitGatewayPrefixListReference
-    CreateTransitGatewayPrefixListReference (CreateTransitGatewayPrefixListReference'),
-    newCreateTransitGatewayPrefixListReference,
-    CreateTransitGatewayPrefixListReferenceResponse (CreateTransitGatewayPrefixListReferenceResponse'),
-    newCreateTransitGatewayPrefixListReferenceResponse,
-
-    -- ** CancelSpotFleetRequests
-    CancelSpotFleetRequests (CancelSpotFleetRequests'),
-    newCancelSpotFleetRequests,
-    CancelSpotFleetRequestsResponse (CancelSpotFleetRequestsResponse'),
-    newCancelSpotFleetRequestsResponse,
-
-    -- ** ModifyCapacityReservationFleet
-    ModifyCapacityReservationFleet (ModifyCapacityReservationFleet'),
-    newModifyCapacityReservationFleet,
-    ModifyCapacityReservationFleetResponse (ModifyCapacityReservationFleetResponse'),
-    newModifyCapacityReservationFleetResponse,
-
-    -- ** DescribeSpotPriceHistory (Paginated)
-    DescribeSpotPriceHistory (DescribeSpotPriceHistory'),
-    newDescribeSpotPriceHistory,
-    DescribeSpotPriceHistoryResponse (DescribeSpotPriceHistoryResponse'),
-    newDescribeSpotPriceHistoryResponse,
-
-    -- ** DeleteTransitGatewayConnectPeer
-    DeleteTransitGatewayConnectPeer (DeleteTransitGatewayConnectPeer'),
-    newDeleteTransitGatewayConnectPeer,
-    DeleteTransitGatewayConnectPeerResponse (DeleteTransitGatewayConnectPeerResponse'),
-    newDeleteTransitGatewayConnectPeerResponse,
-
-    -- ** DescribeDhcpOptions (Paginated)
-    DescribeDhcpOptions (DescribeDhcpOptions'),
-    newDescribeDhcpOptions,
-    DescribeDhcpOptionsResponse (DescribeDhcpOptionsResponse'),
-    newDescribeDhcpOptionsResponse,
-
-    -- ** ImportImage
-    ImportImage (ImportImage'),
-    newImportImage,
-    ImportImageResponse (ImportImageResponse'),
-    newImportImageResponse,
-
-    -- ** CreateLocalGatewayRouteTableVpcAssociation
-    CreateLocalGatewayRouteTableVpcAssociation (CreateLocalGatewayRouteTableVpcAssociation'),
-    newCreateLocalGatewayRouteTableVpcAssociation,
-    CreateLocalGatewayRouteTableVpcAssociationResponse (CreateLocalGatewayRouteTableVpcAssociationResponse'),
-    newCreateLocalGatewayRouteTableVpcAssociationResponse,
-
-    -- ** CopyFpgaImage
-    CopyFpgaImage (CopyFpgaImage'),
-    newCopyFpgaImage,
-    CopyFpgaImageResponse (CopyFpgaImageResponse'),
-    newCopyFpgaImageResponse,
-
-    -- ** ImportClientVpnClientCertificateRevocationList
-    ImportClientVpnClientCertificateRevocationList (ImportClientVpnClientCertificateRevocationList'),
-    newImportClientVpnClientCertificateRevocationList,
-    ImportClientVpnClientCertificateRevocationListResponse (ImportClientVpnClientCertificateRevocationListResponse'),
-    newImportClientVpnClientCertificateRevocationListResponse,
-
-    -- ** StopInstances
-    StopInstances (StopInstances'),
-    newStopInstances,
-    StopInstancesResponse (StopInstancesResponse'),
-    newStopInstancesResponse,
-
-    -- ** EnableEbsEncryptionByDefault
-    EnableEbsEncryptionByDefault (EnableEbsEncryptionByDefault'),
-    newEnableEbsEncryptionByDefault,
-    EnableEbsEncryptionByDefaultResponse (EnableEbsEncryptionByDefaultResponse'),
-    newEnableEbsEncryptionByDefaultResponse,
-
-    -- ** ModifyAddressAttribute
-    ModifyAddressAttribute (ModifyAddressAttribute'),
-    newModifyAddressAttribute,
-    ModifyAddressAttributeResponse (ModifyAddressAttributeResponse'),
-    newModifyAddressAttributeResponse,
-
-    -- ** DeregisterTransitGatewayMulticastGroupSources
-    DeregisterTransitGatewayMulticastGroupSources (DeregisterTransitGatewayMulticastGroupSources'),
-    newDeregisterTransitGatewayMulticastGroupSources,
-    DeregisterTransitGatewayMulticastGroupSourcesResponse (DeregisterTransitGatewayMulticastGroupSourcesResponse'),
-    newDeregisterTransitGatewayMulticastGroupSourcesResponse,
-
-    -- ** ModifyLaunchTemplate
-    ModifyLaunchTemplate (ModifyLaunchTemplate'),
-    newModifyLaunchTemplate,
-    ModifyLaunchTemplateResponse (ModifyLaunchTemplateResponse'),
-    newModifyLaunchTemplateResponse,
-
-    -- ** ModifyVpcEndpointConnectionNotification
-    ModifyVpcEndpointConnectionNotification (ModifyVpcEndpointConnectionNotification'),
-    newModifyVpcEndpointConnectionNotification,
-    ModifyVpcEndpointConnectionNotificationResponse (ModifyVpcEndpointConnectionNotificationResponse'),
-    newModifyVpcEndpointConnectionNotificationResponse,
-
-    -- ** DescribeInternetGateways (Paginated)
-    DescribeInternetGateways (DescribeInternetGateways'),
-    newDescribeInternetGateways,
-    DescribeInternetGatewaysResponse (DescribeInternetGatewaysResponse'),
-    newDescribeInternetGatewaysResponse,
-
-    -- ** DisableVpcClassicLink
-    DisableVpcClassicLink (DisableVpcClassicLink'),
-    newDisableVpcClassicLink,
-    DisableVpcClassicLinkResponse (DisableVpcClassicLinkResponse'),
-    newDisableVpcClassicLinkResponse,
-
-    -- ** GetGroupsForCapacityReservation (Paginated)
-    GetGroupsForCapacityReservation (GetGroupsForCapacityReservation'),
-    newGetGroupsForCapacityReservation,
-    GetGroupsForCapacityReservationResponse (GetGroupsForCapacityReservationResponse'),
-    newGetGroupsForCapacityReservationResponse,
-
-    -- ** DeleteLaunchTemplateVersions
-    DeleteLaunchTemplateVersions (DeleteLaunchTemplateVersions'),
-    newDeleteLaunchTemplateVersions,
-    DeleteLaunchTemplateVersionsResponse (DeleteLaunchTemplateVersionsResponse'),
-    newDeleteLaunchTemplateVersionsResponse,
-
-    -- ** BundleInstance
-    BundleInstance (BundleInstance'),
-    newBundleInstance,
-    BundleInstanceResponse (BundleInstanceResponse'),
-    newBundleInstanceResponse,
-
-    -- ** DescribeNetworkInterfaces (Paginated)
-    DescribeNetworkInterfaces (DescribeNetworkInterfaces'),
-    newDescribeNetworkInterfaces,
-    DescribeNetworkInterfacesResponse (DescribeNetworkInterfacesResponse'),
-    newDescribeNetworkInterfacesResponse,
-
-    -- ** ReplaceNetworkAclAssociation
-    ReplaceNetworkAclAssociation (ReplaceNetworkAclAssociation'),
-    newReplaceNetworkAclAssociation,
-    ReplaceNetworkAclAssociationResponse (ReplaceNetworkAclAssociationResponse'),
-    newReplaceNetworkAclAssociationResponse,
-
-    -- ** AssociateInstanceEventWindow
-    AssociateInstanceEventWindow (AssociateInstanceEventWindow'),
-    newAssociateInstanceEventWindow,
-    AssociateInstanceEventWindowResponse (AssociateInstanceEventWindowResponse'),
-    newAssociateInstanceEventWindowResponse,
-
-    -- ** DescribeNatGateways (Paginated)
-    DescribeNatGateways (DescribeNatGateways'),
-    newDescribeNatGateways,
-    DescribeNatGatewaysResponse (DescribeNatGatewaysResponse'),
-    newDescribeNatGatewaysResponse,
-
-    -- ** DescribeAddresses
-    DescribeAddresses (DescribeAddresses'),
-    newDescribeAddresses,
-    DescribeAddressesResponse (DescribeAddressesResponse'),
-    newDescribeAddressesResponse,
-
-    -- ** RestoreManagedPrefixListVersion
-    RestoreManagedPrefixListVersion (RestoreManagedPrefixListVersion'),
-    newRestoreManagedPrefixListVersion,
-    RestoreManagedPrefixListVersionResponse (RestoreManagedPrefixListVersionResponse'),
-    newRestoreManagedPrefixListVersionResponse,
-
-    -- ** DescribeSnapshotAttribute
-    DescribeSnapshotAttribute (DescribeSnapshotAttribute'),
-    newDescribeSnapshotAttribute,
-    DescribeSnapshotAttributeResponse (DescribeSnapshotAttributeResponse'),
-    newDescribeSnapshotAttributeResponse,
-
-    -- ** DescribeIdentityIdFormat
-    DescribeIdentityIdFormat (DescribeIdentityIdFormat'),
-    newDescribeIdentityIdFormat,
-    DescribeIdentityIdFormatResponse (DescribeIdentityIdFormatResponse'),
-    newDescribeIdentityIdFormatResponse,
-
-    -- ** ReplaceRoute
-    ReplaceRoute (ReplaceRoute'),
-    newReplaceRoute,
-    ReplaceRouteResponse (ReplaceRouteResponse'),
-    newReplaceRouteResponse,
-
-    -- ** DescribeVpcEndpointServices (Paginated)
-    DescribeVpcEndpointServices (DescribeVpcEndpointServices'),
-    newDescribeVpcEndpointServices,
-    DescribeVpcEndpointServicesResponse (DescribeVpcEndpointServicesResponse'),
-    newDescribeVpcEndpointServicesResponse,
-
-    -- ** DeleteLocalGatewayRoute
-    DeleteLocalGatewayRoute (DeleteLocalGatewayRoute'),
-    newDeleteLocalGatewayRoute,
-    DeleteLocalGatewayRouteResponse (DeleteLocalGatewayRouteResponse'),
-    newDeleteLocalGatewayRouteResponse,
-
-    -- ** AuthorizeSecurityGroupIngress
-    AuthorizeSecurityGroupIngress (AuthorizeSecurityGroupIngress'),
-    newAuthorizeSecurityGroupIngress,
-    AuthorizeSecurityGroupIngressResponse (AuthorizeSecurityGroupIngressResponse'),
-    newAuthorizeSecurityGroupIngressResponse,
-
-    -- ** CreateVpcPeeringConnection
-    CreateVpcPeeringConnection (CreateVpcPeeringConnection'),
-    newCreateVpcPeeringConnection,
-    CreateVpcPeeringConnectionResponse (CreateVpcPeeringConnectionResponse'),
-    newCreateVpcPeeringConnectionResponse,
-
-    -- ** DescribeSubnets (Paginated)
-    DescribeSubnets (DescribeSubnets'),
-    newDescribeSubnets,
-    DescribeSubnetsResponse (DescribeSubnetsResponse'),
-    newDescribeSubnetsResponse,
-
-    -- ** GetTransitGatewayAttachmentPropagations (Paginated)
-    GetTransitGatewayAttachmentPropagations (GetTransitGatewayAttachmentPropagations'),
-    newGetTransitGatewayAttachmentPropagations,
-    GetTransitGatewayAttachmentPropagationsResponse (GetTransitGatewayAttachmentPropagationsResponse'),
-    newGetTransitGatewayAttachmentPropagationsResponse,
-
-    -- ** CreateTags
-    CreateTags (CreateTags'),
-    newCreateTags,
-    CreateTagsResponse (CreateTagsResponse'),
-    newCreateTagsResponse,
-
-    -- ** PurchaseReservedInstancesOffering
-    PurchaseReservedInstancesOffering (PurchaseReservedInstancesOffering'),
-    newPurchaseReservedInstancesOffering,
-    PurchaseReservedInstancesOfferingResponse (PurchaseReservedInstancesOfferingResponse'),
-    newPurchaseReservedInstancesOfferingResponse,
-
-    -- ** DeleteNetworkAclEntry
-    DeleteNetworkAclEntry (DeleteNetworkAclEntry'),
-    newDeleteNetworkAclEntry,
-    DeleteNetworkAclEntryResponse (DeleteNetworkAclEntryResponse'),
-    newDeleteNetworkAclEntryResponse,
-
-    -- ** ResetSnapshotAttribute
-    ResetSnapshotAttribute (ResetSnapshotAttribute'),
-    newResetSnapshotAttribute,
-    ResetSnapshotAttributeResponse (ResetSnapshotAttributeResponse'),
-    newResetSnapshotAttributeResponse,
-
-    -- ** DescribeVpnConnections
-    DescribeVpnConnections (DescribeVpnConnections'),
-    newDescribeVpnConnections,
-    DescribeVpnConnectionsResponse (DescribeVpnConnectionsResponse'),
-    newDescribeVpnConnectionsResponse,
-
-    -- ** ModifyInstanceEventStartTime
-    ModifyInstanceEventStartTime (ModifyInstanceEventStartTime'),
-    newModifyInstanceEventStartTime,
-    ModifyInstanceEventStartTimeResponse (ModifyInstanceEventStartTimeResponse'),
-    newModifyInstanceEventStartTimeResponse,
-
-    -- ** DeleteRoute
-    DeleteRoute (DeleteRoute'),
-    newDeleteRoute,
-    DeleteRouteResponse (DeleteRouteResponse'),
-    newDeleteRouteResponse,
-
-    -- ** ReplaceNetworkAclEntry
-    ReplaceNetworkAclEntry (ReplaceNetworkAclEntry'),
-    newReplaceNetworkAclEntry,
-    ReplaceNetworkAclEntryResponse (ReplaceNetworkAclEntryResponse'),
-    newReplaceNetworkAclEntryResponse,
-
-    -- ** DeleteInstanceEventWindow
-    DeleteInstanceEventWindow (DeleteInstanceEventWindow'),
-    newDeleteInstanceEventWindow,
-    DeleteInstanceEventWindowResponse (DeleteInstanceEventWindowResponse'),
-    newDeleteInstanceEventWindowResponse,
-
-    -- ** DescribeVpcEndpoints (Paginated)
-    DescribeVpcEndpoints (DescribeVpcEndpoints'),
-    newDescribeVpcEndpoints,
-    DescribeVpcEndpointsResponse (DescribeVpcEndpointsResponse'),
-    newDescribeVpcEndpointsResponse,
-
-    -- ** CreateTrafficMirrorFilter
-    CreateTrafficMirrorFilter (CreateTrafficMirrorFilter'),
-    newCreateTrafficMirrorFilter,
-    CreateTrafficMirrorFilterResponse (CreateTrafficMirrorFilterResponse'),
-    newCreateTrafficMirrorFilterResponse,
-
-    -- ** ResetInstanceAttribute
-    ResetInstanceAttribute (ResetInstanceAttribute'),
-    newResetInstanceAttribute,
-    ResetInstanceAttributeResponse (ResetInstanceAttributeResponse'),
-    newResetInstanceAttributeResponse,
-
-    -- ** ModifyIdentityIdFormat
-    ModifyIdentityIdFormat (ModifyIdentityIdFormat'),
-    newModifyIdentityIdFormat,
-    ModifyIdentityIdFormatResponse (ModifyIdentityIdFormatResponse'),
-    newModifyIdentityIdFormatResponse,
-
-    -- ** AttachNetworkInterface
-    AttachNetworkInterface (AttachNetworkInterface'),
-    newAttachNetworkInterface,
-    AttachNetworkInterfaceResponse (AttachNetworkInterfaceResponse'),
-    newAttachNetworkInterfaceResponse,
-
-    -- ** CreateCapacityReservation
-    CreateCapacityReservation (CreateCapacityReservation'),
-    newCreateCapacityReservation,
-    CreateCapacityReservationResponse (CreateCapacityReservationResponse'),
-    newCreateCapacityReservationResponse,
-
-    -- ** DescribeInstanceStatus (Paginated)
-    DescribeInstanceStatus (DescribeInstanceStatus'),
-    newDescribeInstanceStatus,
-    DescribeInstanceStatusResponse (DescribeInstanceStatusResponse'),
-    newDescribeInstanceStatusResponse,
-
-    -- ** ImportKeyPair
-    ImportKeyPair (ImportKeyPair'),
-    newImportKeyPair,
-    ImportKeyPairResponse (ImportKeyPairResponse'),
-    newImportKeyPairResponse,
-
-    -- ** DeleteTags
-    DeleteTags (DeleteTags'),
-    newDeleteTags,
-    DeleteTagsResponse (DeleteTagsResponse'),
-    newDeleteTagsResponse,
-
-    -- ** ConfirmProductInstance
-    ConfirmProductInstance (ConfirmProductInstance'),
-    newConfirmProductInstance,
-    ConfirmProductInstanceResponse (ConfirmProductInstanceResponse'),
-    newConfirmProductInstanceResponse,
-
-    -- ** DescribeInstanceAttribute
-    DescribeInstanceAttribute (DescribeInstanceAttribute'),
-    newDescribeInstanceAttribute,
-    DescribeInstanceAttributeResponse (DescribeInstanceAttributeResponse'),
-    newDescribeInstanceAttributeResponse,
-
-    -- ** DescribeReservedInstancesOfferings (Paginated)
-    DescribeReservedInstancesOfferings (DescribeReservedInstancesOfferings'),
-    newDescribeReservedInstancesOfferings,
-    DescribeReservedInstancesOfferingsResponse (DescribeReservedInstancesOfferingsResponse'),
-    newDescribeReservedInstancesOfferingsResponse,
-
-    -- ** CreateCustomerGateway
-    CreateCustomerGateway (CreateCustomerGateway'),
-    newCreateCustomerGateway,
-    CreateCustomerGatewayResponse (CreateCustomerGatewayResponse'),
-    newCreateCustomerGatewayResponse,
-
-    -- ** DescribeNetworkInsightsAnalyses (Paginated)
-    DescribeNetworkInsightsAnalyses (DescribeNetworkInsightsAnalyses'),
-    newDescribeNetworkInsightsAnalyses,
-    DescribeNetworkInsightsAnalysesResponse (DescribeNetworkInsightsAnalysesResponse'),
-    newDescribeNetworkInsightsAnalysesResponse,
-
-    -- ** DescribeFleets (Paginated)
-    DescribeFleets (DescribeFleets'),
-    newDescribeFleets,
-    DescribeFleetsResponse (DescribeFleetsResponse'),
-    newDescribeFleetsResponse,
-
-    -- ** DeleteNetworkInsightsAnalysis
-    DeleteNetworkInsightsAnalysis (DeleteNetworkInsightsAnalysis'),
-    newDeleteNetworkInsightsAnalysis,
-    DeleteNetworkInsightsAnalysisResponse (DeleteNetworkInsightsAnalysisResponse'),
-    newDeleteNetworkInsightsAnalysisResponse,
-
-    -- ** CreateTransitGatewayPeeringAttachment
-    CreateTransitGatewayPeeringAttachment (CreateTransitGatewayPeeringAttachment'),
-    newCreateTransitGatewayPeeringAttachment,
-    CreateTransitGatewayPeeringAttachmentResponse (CreateTransitGatewayPeeringAttachmentResponse'),
-    newCreateTransitGatewayPeeringAttachmentResponse,
-
-    -- ** DeleteSecurityGroup
-    DeleteSecurityGroup (DeleteSecurityGroup'),
-    newDeleteSecurityGroup,
-    DeleteSecurityGroupResponse (DeleteSecurityGroupResponse'),
-    newDeleteSecurityGroupResponse,
-
-    -- ** DescribePublicIpv4Pools (Paginated)
-    DescribePublicIpv4Pools (DescribePublicIpv4Pools'),
-    newDescribePublicIpv4Pools,
-    DescribePublicIpv4PoolsResponse (DescribePublicIpv4PoolsResponse'),
-    newDescribePublicIpv4PoolsResponse,
-
-    -- ** DescribeClientVpnTargetNetworks (Paginated)
-    DescribeClientVpnTargetNetworks (DescribeClientVpnTargetNetworks'),
-    newDescribeClientVpnTargetNetworks,
-    DescribeClientVpnTargetNetworksResponse (DescribeClientVpnTargetNetworksResponse'),
-    newDescribeClientVpnTargetNetworksResponse,
-
-    -- ** DeleteVpcPeeringConnection
-    DeleteVpcPeeringConnection (DeleteVpcPeeringConnection'),
-    newDeleteVpcPeeringConnection,
-    DeleteVpcPeeringConnectionResponse (DeleteVpcPeeringConnectionResponse'),
-    newDeleteVpcPeeringConnectionResponse,
-
-    -- ** AttachInternetGateway
-    AttachInternetGateway (AttachInternetGateway'),
-    newAttachInternetGateway,
-    AttachInternetGatewayResponse (AttachInternetGatewayResponse'),
-    newAttachInternetGatewayResponse,
-
-    -- ** ModifyInstancePlacement
-    ModifyInstancePlacement (ModifyInstancePlacement'),
-    newModifyInstancePlacement,
-    ModifyInstancePlacementResponse (ModifyInstancePlacementResponse'),
-    newModifyInstancePlacementResponse,
-
-    -- ** DescribeFlowLogs (Paginated)
-    DescribeFlowLogs (DescribeFlowLogs'),
-    newDescribeFlowLogs,
-    DescribeFlowLogsResponse (DescribeFlowLogsResponse'),
-    newDescribeFlowLogsResponse,
-
-    -- ** DescribeLocalGatewayVirtualInterfaceGroups (Paginated)
-    DescribeLocalGatewayVirtualInterfaceGroups (DescribeLocalGatewayVirtualInterfaceGroups'),
-    newDescribeLocalGatewayVirtualInterfaceGroups,
-    DescribeLocalGatewayVirtualInterfaceGroupsResponse (DescribeLocalGatewayVirtualInterfaceGroupsResponse'),
-    newDescribeLocalGatewayVirtualInterfaceGroupsResponse,
-
-    -- ** DeleteTransitGatewayConnect
-    DeleteTransitGatewayConnect (DeleteTransitGatewayConnect'),
-    newDeleteTransitGatewayConnect,
-    DeleteTransitGatewayConnectResponse (DeleteTransitGatewayConnectResponse'),
-    newDeleteTransitGatewayConnectResponse,
-
-    -- ** DescribeLocalGatewayRouteTableVpcAssociations (Paginated)
-    DescribeLocalGatewayRouteTableVpcAssociations (DescribeLocalGatewayRouteTableVpcAssociations'),
-    newDescribeLocalGatewayRouteTableVpcAssociations,
-    DescribeLocalGatewayRouteTableVpcAssociationsResponse (DescribeLocalGatewayRouteTableVpcAssociationsResponse'),
-    newDescribeLocalGatewayRouteTableVpcAssociationsResponse,
-
-    -- ** DescribeVpcEndpointConnectionNotifications (Paginated)
-    DescribeVpcEndpointConnectionNotifications (DescribeVpcEndpointConnectionNotifications'),
-    newDescribeVpcEndpointConnectionNotifications,
-    DescribeVpcEndpointConnectionNotificationsResponse (DescribeVpcEndpointConnectionNotificationsResponse'),
-    newDescribeVpcEndpointConnectionNotificationsResponse,
-
-    -- ** GetManagedPrefixListEntries (Paginated)
-    GetManagedPrefixListEntries (GetManagedPrefixListEntries'),
-    newGetManagedPrefixListEntries,
-    GetManagedPrefixListEntriesResponse (GetManagedPrefixListEntriesResponse'),
-    newGetManagedPrefixListEntriesResponse,
-
-    -- ** DisassociateInstanceEventWindow
-    DisassociateInstanceEventWindow (DisassociateInstanceEventWindow'),
-    newDisassociateInstanceEventWindow,
-    DisassociateInstanceEventWindowResponse (DisassociateInstanceEventWindowResponse'),
-    newDisassociateInstanceEventWindowResponse,
-
-    -- ** RunInstances
-    RunInstances (RunInstances'),
-    newRunInstances,
-    Reservation (Reservation'),
-    newReservation,
-
-    -- ** CreateSnapshots
-    CreateSnapshots (CreateSnapshots'),
-    newCreateSnapshots,
-    CreateSnapshotsResponse (CreateSnapshotsResponse'),
-    newCreateSnapshotsResponse,
-
-    -- ** AssociateDhcpOptions
-    AssociateDhcpOptions (AssociateDhcpOptions'),
-    newAssociateDhcpOptions,
-    AssociateDhcpOptionsResponse (AssociateDhcpOptionsResponse'),
-    newAssociateDhcpOptionsResponse,
-
-    -- ** DeleteTrafficMirrorFilterRule
-    DeleteTrafficMirrorFilterRule (DeleteTrafficMirrorFilterRule'),
-    newDeleteTrafficMirrorFilterRule,
-    DeleteTrafficMirrorFilterRuleResponse (DeleteTrafficMirrorFilterRuleResponse'),
-    newDeleteTrafficMirrorFilterRuleResponse,
-
-    -- ** DescribeReservedInstances
-    DescribeReservedInstances (DescribeReservedInstances'),
-    newDescribeReservedInstances,
-    DescribeReservedInstancesResponse (DescribeReservedInstancesResponse'),
-    newDescribeReservedInstancesResponse,
-
-    -- ** DescribeIdFormat
-    DescribeIdFormat (DescribeIdFormat'),
-    newDescribeIdFormat,
-    DescribeIdFormatResponse (DescribeIdFormatResponse'),
-    newDescribeIdFormatResponse,
-
-    -- ** DescribeVpcs (Paginated)
-    DescribeVpcs (DescribeVpcs'),
-    newDescribeVpcs,
-    DescribeVpcsResponse (DescribeVpcsResponse'),
-    newDescribeVpcsResponse,
-
-    -- ** DescribeConversionTasks
-    DescribeConversionTasks (DescribeConversionTasks'),
-    newDescribeConversionTasks,
-    DescribeConversionTasksResponse (DescribeConversionTasksResponse'),
-    newDescribeConversionTasksResponse,
-
-    -- ** DisableImageDeprecation
-    DisableImageDeprecation (DisableImageDeprecation'),
-    newDisableImageDeprecation,
-    DisableImageDeprecationResponse (DisableImageDeprecationResponse'),
-    newDisableImageDeprecationResponse,
-
-    -- ** CreateLaunchTemplateVersion
-    CreateLaunchTemplateVersion (CreateLaunchTemplateVersion'),
-    newCreateLaunchTemplateVersion,
-    CreateLaunchTemplateVersionResponse (CreateLaunchTemplateVersionResponse'),
-    newCreateLaunchTemplateVersionResponse,
-
-    -- ** GetManagedPrefixListAssociations (Paginated)
-    GetManagedPrefixListAssociations (GetManagedPrefixListAssociations'),
-    newGetManagedPrefixListAssociations,
-    GetManagedPrefixListAssociationsResponse (GetManagedPrefixListAssociationsResponse'),
-    newGetManagedPrefixListAssociationsResponse,
-
-    -- ** DisableVpcClassicLinkDnsSupport
-    DisableVpcClassicLinkDnsSupport (DisableVpcClassicLinkDnsSupport'),
-    newDisableVpcClassicLinkDnsSupport,
-    DisableVpcClassicLinkDnsSupportResponse (DisableVpcClassicLinkDnsSupportResponse'),
-    newDisableVpcClassicLinkDnsSupportResponse,
-
-    -- ** ApplySecurityGroupsToClientVpnTargetNetwork
-    ApplySecurityGroupsToClientVpnTargetNetwork (ApplySecurityGroupsToClientVpnTargetNetwork'),
-    newApplySecurityGroupsToClientVpnTargetNetwork,
-    ApplySecurityGroupsToClientVpnTargetNetworkResponse (ApplySecurityGroupsToClientVpnTargetNetworkResponse'),
-    newApplySecurityGroupsToClientVpnTargetNetworkResponse,
-
-    -- ** DescribeTrafficMirrorTargets (Paginated)
-    DescribeTrafficMirrorTargets (DescribeTrafficMirrorTargets'),
-    newDescribeTrafficMirrorTargets,
-    DescribeTrafficMirrorTargetsResponse (DescribeTrafficMirrorTargetsResponse'),
-    newDescribeTrafficMirrorTargetsResponse,
-
-    -- ** DescribeVolumesModifications (Paginated)
-    DescribeVolumesModifications (DescribeVolumesModifications'),
-    newDescribeVolumesModifications,
-    DescribeVolumesModificationsResponse (DescribeVolumesModificationsResponse'),
-    newDescribeVolumesModificationsResponse,
-
-    -- ** ExportImage
-    ExportImage (ExportImage'),
-    newExportImage,
-    ExportImageResponse (ExportImageResponse'),
-    newExportImageResponse,
-
-    -- ** CreateFpgaImage
-    CreateFpgaImage (CreateFpgaImage'),
-    newCreateFpgaImage,
-    CreateFpgaImageResponse (CreateFpgaImageResponse'),
-    newCreateFpgaImageResponse,
-
-    -- ** AcceptVpcEndpointConnections
-    AcceptVpcEndpointConnections (AcceptVpcEndpointConnections'),
-    newAcceptVpcEndpointConnections,
-    AcceptVpcEndpointConnectionsResponse (AcceptVpcEndpointConnectionsResponse'),
-    newAcceptVpcEndpointConnectionsResponse,
-
-    -- ** DeleteClientVpnEndpoint
-    DeleteClientVpnEndpoint (DeleteClientVpnEndpoint'),
-    newDeleteClientVpnEndpoint,
-    DeleteClientVpnEndpointResponse (DeleteClientVpnEndpointResponse'),
-    newDeleteClientVpnEndpointResponse,
-
-    -- ** SearchTransitGatewayRoutes
-    SearchTransitGatewayRoutes (SearchTransitGatewayRoutes'),
-    newSearchTransitGatewayRoutes,
-    SearchTransitGatewayRoutesResponse (SearchTransitGatewayRoutesResponse'),
-    newSearchTransitGatewayRoutesResponse,
-
-    -- ** GetLaunchTemplateData
-    GetLaunchTemplateData (GetLaunchTemplateData'),
-    newGetLaunchTemplateData,
-    GetLaunchTemplateDataResponse (GetLaunchTemplateDataResponse'),
-    newGetLaunchTemplateDataResponse,
-
-    -- ** AllocateAddress
-    AllocateAddress (AllocateAddress'),
-    newAllocateAddress,
-    AllocateAddressResponse (AllocateAddressResponse'),
-    newAllocateAddressResponse,
-
-    -- ** AcceptTransitGatewayVpcAttachment
-    AcceptTransitGatewayVpcAttachment (AcceptTransitGatewayVpcAttachment'),
-    newAcceptTransitGatewayVpcAttachment,
-    AcceptTransitGatewayVpcAttachmentResponse (AcceptTransitGatewayVpcAttachmentResponse'),
-    newAcceptTransitGatewayVpcAttachmentResponse,
-
-    -- ** CancelConversionTask
-    CancelConversionTask (CancelConversionTask'),
-    newCancelConversionTask,
-    CancelConversionTaskResponse (CancelConversionTaskResponse'),
-    newCancelConversionTaskResponse,
-
-    -- ** ModifyImageAttribute
-    ModifyImageAttribute (ModifyImageAttribute'),
-    newModifyImageAttribute,
-    ModifyImageAttributeResponse (ModifyImageAttributeResponse'),
-    newModifyImageAttributeResponse,
-
-    -- ** CreateRouteTable
-    CreateRouteTable (CreateRouteTable'),
-    newCreateRouteTable,
-    CreateRouteTableResponse (CreateRouteTableResponse'),
-    newCreateRouteTableResponse,
-
-    -- ** RejectTransitGatewayPeeringAttachment
-    RejectTransitGatewayPeeringAttachment (RejectTransitGatewayPeeringAttachment'),
-    newRejectTransitGatewayPeeringAttachment,
-    RejectTransitGatewayPeeringAttachmentResponse (RejectTransitGatewayPeeringAttachmentResponse'),
-    newRejectTransitGatewayPeeringAttachmentResponse,
-
-    -- ** ReportInstanceStatus
-    ReportInstanceStatus (ReportInstanceStatus'),
-    newReportInstanceStatus,
-    ReportInstanceStatusResponse (ReportInstanceStatusResponse'),
-    newReportInstanceStatusResponse,
-
-    -- ** AttachVolume
-    AttachVolume (AttachVolume'),
-    newAttachVolume,
-    VolumeAttachment (VolumeAttachment'),
-    newVolumeAttachment,
-
-    -- ** RequestSpotInstances
-    RequestSpotInstances (RequestSpotInstances'),
-    newRequestSpotInstances,
-    RequestSpotInstancesResponse (RequestSpotInstancesResponse'),
-    newRequestSpotInstancesResponse,
-
-    -- ** WithdrawByoipCidr
-    WithdrawByoipCidr (WithdrawByoipCidr'),
-    newWithdrawByoipCidr,
-    WithdrawByoipCidrResponse (WithdrawByoipCidrResponse'),
-    newWithdrawByoipCidrResponse,
-
-    -- ** DescribeHostReservationOfferings (Paginated)
-    DescribeHostReservationOfferings (DescribeHostReservationOfferings'),
-    newDescribeHostReservationOfferings,
-    DescribeHostReservationOfferingsResponse (DescribeHostReservationOfferingsResponse'),
-    newDescribeHostReservationOfferingsResponse,
-
-    -- ** ResetFpgaImageAttribute
-    ResetFpgaImageAttribute (ResetFpgaImageAttribute'),
-    newResetFpgaImageAttribute,
-    ResetFpgaImageAttributeResponse (ResetFpgaImageAttributeResponse'),
-    newResetFpgaImageAttributeResponse,
-
-    -- ** ModifyVpnConnection
-    ModifyVpnConnection (ModifyVpnConnection'),
-    newModifyVpnConnection,
-    ModifyVpnConnectionResponse (ModifyVpnConnectionResponse'),
-    newModifyVpnConnectionResponse,
-
-    -- ** CreateTrafficMirrorFilterRule
-    CreateTrafficMirrorFilterRule (CreateTrafficMirrorFilterRule'),
-    newCreateTrafficMirrorFilterRule,
-    CreateTrafficMirrorFilterRuleResponse (CreateTrafficMirrorFilterRuleResponse'),
-    newCreateTrafficMirrorFilterRuleResponse,
-
-    -- ** DeleteTransitGateway
-    DeleteTransitGateway (DeleteTransitGateway'),
-    newDeleteTransitGateway,
-    DeleteTransitGatewayResponse (DeleteTransitGatewayResponse'),
-    newDeleteTransitGatewayResponse,
-
-    -- ** StartVpcEndpointServicePrivateDnsVerification
-    StartVpcEndpointServicePrivateDnsVerification (StartVpcEndpointServicePrivateDnsVerification'),
-    newStartVpcEndpointServicePrivateDnsVerification,
-    StartVpcEndpointServicePrivateDnsVerificationResponse (StartVpcEndpointServicePrivateDnsVerificationResponse'),
-    newStartVpcEndpointServicePrivateDnsVerificationResponse,
-
-    -- ** DescribeVolumes (Paginated)
-    DescribeVolumes (DescribeVolumes'),
-    newDescribeVolumes,
-    DescribeVolumesResponse (DescribeVolumesResponse'),
-    newDescribeVolumesResponse,
-
-    -- ** RejectVpcPeeringConnection
-    RejectVpcPeeringConnection (RejectVpcPeeringConnection'),
-    newRejectVpcPeeringConnection,
-    RejectVpcPeeringConnectionResponse (RejectVpcPeeringConnectionResponse'),
-    newRejectVpcPeeringConnectionResponse,
-
-    -- ** DescribeClientVpnRoutes (Paginated)
-    DescribeClientVpnRoutes (DescribeClientVpnRoutes'),
-    newDescribeClientVpnRoutes,
-    DescribeClientVpnRoutesResponse (DescribeClientVpnRoutesResponse'),
-    newDescribeClientVpnRoutesResponse,
-
-    -- ** DeleteVpnConnectionRoute
-    DeleteVpnConnectionRoute (DeleteVpnConnectionRoute'),
-    newDeleteVpnConnectionRoute,
-    DeleteVpnConnectionRouteResponse (DeleteVpnConnectionRouteResponse'),
-    newDeleteVpnConnectionRouteResponse,
-
-    -- ** AssociateEnclaveCertificateIamRole
-    AssociateEnclaveCertificateIamRole (AssociateEnclaveCertificateIamRole'),
-    newAssociateEnclaveCertificateIamRole,
-    AssociateEnclaveCertificateIamRoleResponse (AssociateEnclaveCertificateIamRoleResponse'),
-    newAssociateEnclaveCertificateIamRoleResponse,
-
-    -- ** ModifyVpcEndpoint
-    ModifyVpcEndpoint (ModifyVpcEndpoint'),
-    newModifyVpcEndpoint,
-    ModifyVpcEndpointResponse (ModifyVpcEndpointResponse'),
-    newModifyVpcEndpointResponse,
-
-    -- ** DescribeFpgaImageAttribute
-    DescribeFpgaImageAttribute (DescribeFpgaImageAttribute'),
-    newDescribeFpgaImageAttribute,
-    DescribeFpgaImageAttributeResponse (DescribeFpgaImageAttributeResponse'),
-    newDescribeFpgaImageAttributeResponse,
-
-    -- ** AllocateHosts
-    AllocateHosts (AllocateHosts'),
-    newAllocateHosts,
-    AllocateHostsResponse (AllocateHostsResponse'),
-    newAllocateHostsResponse,
-
-    -- ** CreateClientVpnEndpoint
-    CreateClientVpnEndpoint (CreateClientVpnEndpoint'),
-    newCreateClientVpnEndpoint,
-    CreateClientVpnEndpointResponse (CreateClientVpnEndpointResponse'),
-    newCreateClientVpnEndpointResponse,
-
-    -- ** CreateTrafficMirrorSession
-    CreateTrafficMirrorSession (CreateTrafficMirrorSession'),
-    newCreateTrafficMirrorSession,
-    CreateTrafficMirrorSessionResponse (CreateTrafficMirrorSessionResponse'),
-    newCreateTrafficMirrorSessionResponse,
-
-    -- ** RegisterImage
-    RegisterImage (RegisterImage'),
-    newRegisterImage,
-    RegisterImageResponse (RegisterImageResponse'),
-    newRegisterImageResponse,
-
-    -- ** AdvertiseByoipCidr
-    AdvertiseByoipCidr (AdvertiseByoipCidr'),
-    newAdvertiseByoipCidr,
-    AdvertiseByoipCidrResponse (AdvertiseByoipCidrResponse'),
-    newAdvertiseByoipCidrResponse,
-
-    -- ** ModifyFleet
-    ModifyFleet (ModifyFleet'),
-    newModifyFleet,
-    ModifyFleetResponse (ModifyFleetResponse'),
-    newModifyFleetResponse,
-
-    -- ** RevokeSecurityGroupIngress
-    RevokeSecurityGroupIngress (RevokeSecurityGroupIngress'),
-    newRevokeSecurityGroupIngress,
-    RevokeSecurityGroupIngressResponse (RevokeSecurityGroupIngressResponse'),
-    newRevokeSecurityGroupIngressResponse,
-
-    -- ** GetEbsDefaultKmsKeyId
-    GetEbsDefaultKmsKeyId (GetEbsDefaultKmsKeyId'),
-    newGetEbsDefaultKmsKeyId,
-    GetEbsDefaultKmsKeyIdResponse (GetEbsDefaultKmsKeyIdResponse'),
-    newGetEbsDefaultKmsKeyIdResponse,
-
-    -- ** DescribeHostReservations (Paginated)
-    DescribeHostReservations (DescribeHostReservations'),
-    newDescribeHostReservations,
-    DescribeHostReservationsResponse (DescribeHostReservationsResponse'),
-    newDescribeHostReservationsResponse,
-
-    -- ** UpdateSecurityGroupRuleDescriptionsEgress
-    UpdateSecurityGroupRuleDescriptionsEgress (UpdateSecurityGroupRuleDescriptionsEgress'),
-    newUpdateSecurityGroupRuleDescriptionsEgress,
-    UpdateSecurityGroupRuleDescriptionsEgressResponse (UpdateSecurityGroupRuleDescriptionsEgressResponse'),
-    newUpdateSecurityGroupRuleDescriptionsEgressResponse,
-
-    -- ** EnableVpcClassicLinkDnsSupport
-    EnableVpcClassicLinkDnsSupport (EnableVpcClassicLinkDnsSupport'),
-    newEnableVpcClassicLinkDnsSupport,
-    EnableVpcClassicLinkDnsSupportResponse (EnableVpcClassicLinkDnsSupportResponse'),
-    newEnableVpcClassicLinkDnsSupportResponse,
-
-    -- ** DescribeVpcEndpointConnections (Paginated)
-    DescribeVpcEndpointConnections (DescribeVpcEndpointConnections'),
-    newDescribeVpcEndpointConnections,
-    DescribeVpcEndpointConnectionsResponse (DescribeVpcEndpointConnectionsResponse'),
-    newDescribeVpcEndpointConnectionsResponse,
-
-    -- ** ModifyReservedInstances
-    ModifyReservedInstances (ModifyReservedInstances'),
-    newModifyReservedInstances,
-    ModifyReservedInstancesResponse (ModifyReservedInstancesResponse'),
-    newModifyReservedInstancesResponse,
-
-    -- ** DeleteFpgaImage
-    DeleteFpgaImage (DeleteFpgaImage'),
-    newDeleteFpgaImage,
-    DeleteFpgaImageResponse (DeleteFpgaImageResponse'),
-    newDeleteFpgaImageResponse,
-
-    -- ** DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations (Paginated)
-    DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations (DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations'),
-    newDescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations,
-    DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse (DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse'),
-    newDescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse,
-
-    -- ** EnableImageDeprecation
-    EnableImageDeprecation (EnableImageDeprecation'),
-    newEnableImageDeprecation,
-    EnableImageDeprecationResponse (EnableImageDeprecationResponse'),
-    newEnableImageDeprecationResponse,
-
-    -- ** DescribeScheduledInstances (Paginated)
-    DescribeScheduledInstances (DescribeScheduledInstances'),
-    newDescribeScheduledInstances,
-    DescribeScheduledInstancesResponse (DescribeScheduledInstancesResponse'),
-    newDescribeScheduledInstancesResponse,
-
-    -- ** SearchTransitGatewayMulticastGroups (Paginated)
-    SearchTransitGatewayMulticastGroups (SearchTransitGatewayMulticastGroups'),
-    newSearchTransitGatewayMulticastGroups,
-    SearchTransitGatewayMulticastGroupsResponse (SearchTransitGatewayMulticastGroupsResponse'),
-    newSearchTransitGatewayMulticastGroupsResponse,
-
-    -- ** CreateFlowLogs
-    CreateFlowLogs (CreateFlowLogs'),
-    newCreateFlowLogs,
-    CreateFlowLogsResponse (CreateFlowLogsResponse'),
-    newCreateFlowLogsResponse,
-
-    -- ** DescribeSpotFleetRequests (Paginated)
-    DescribeSpotFleetRequests (DescribeSpotFleetRequests'),
-    newDescribeSpotFleetRequests,
-    DescribeSpotFleetRequestsResponse (DescribeSpotFleetRequestsResponse'),
-    newDescribeSpotFleetRequestsResponse,
-
-    -- ** MoveAddressToVpc
-    MoveAddressToVpc (MoveAddressToVpc'),
-    newMoveAddressToVpc,
-    MoveAddressToVpcResponse (MoveAddressToVpcResponse'),
-    newMoveAddressToVpcResponse,
-
-    -- ** DescribeFleetInstances
-    DescribeFleetInstances (DescribeFleetInstances'),
-    newDescribeFleetInstances,
-    DescribeFleetInstancesResponse (DescribeFleetInstancesResponse'),
-    newDescribeFleetInstancesResponse,
-
-    -- ** DescribeLaunchTemplateVersions (Paginated)
-    DescribeLaunchTemplateVersions (DescribeLaunchTemplateVersions'),
-    newDescribeLaunchTemplateVersions,
-    DescribeLaunchTemplateVersionsResponse (DescribeLaunchTemplateVersionsResponse'),
-    newDescribeLaunchTemplateVersionsResponse,
-
-    -- ** StartNetworkInsightsAnalysis
-    StartNetworkInsightsAnalysis (StartNetworkInsightsAnalysis'),
-    newStartNetworkInsightsAnalysis,
-    StartNetworkInsightsAnalysisResponse (StartNetworkInsightsAnalysisResponse'),
-    newStartNetworkInsightsAnalysisResponse,
-
-    -- ** ModifyInstanceCreditSpecification
-    ModifyInstanceCreditSpecification (ModifyInstanceCreditSpecification'),
-    newModifyInstanceCreditSpecification,
-    ModifyInstanceCreditSpecificationResponse (ModifyInstanceCreditSpecificationResponse'),
-    newModifyInstanceCreditSpecificationResponse,
-
-    -- ** DescribePrincipalIdFormat (Paginated)
-    DescribePrincipalIdFormat (DescribePrincipalIdFormat'),
-    newDescribePrincipalIdFormat,
-    DescribePrincipalIdFormatResponse (DescribePrincipalIdFormatResponse'),
-    newDescribePrincipalIdFormatResponse,
-
-    -- ** DescribeTransitGateways (Paginated)
-    DescribeTransitGateways (DescribeTransitGateways'),
-    newDescribeTransitGateways,
-    DescribeTransitGatewaysResponse (DescribeTransitGatewaysResponse'),
-    newDescribeTransitGatewaysResponse,
-
-    -- ** DeleteNetworkAcl
-    DeleteNetworkAcl (DeleteNetworkAcl'),
-    newDeleteNetworkAcl,
-    DeleteNetworkAclResponse (DeleteNetworkAclResponse'),
-    newDeleteNetworkAclResponse,
-
-    -- ** DisassociateTransitGatewayMulticastDomain
-    DisassociateTransitGatewayMulticastDomain (DisassociateTransitGatewayMulticastDomain'),
-    newDisassociateTransitGatewayMulticastDomain,
-    DisassociateTransitGatewayMulticastDomainResponse (DisassociateTransitGatewayMulticastDomainResponse'),
-    newDisassociateTransitGatewayMulticastDomainResponse,
-
-    -- ** DeleteTransitGatewayRouteTable
-    DeleteTransitGatewayRouteTable (DeleteTransitGatewayRouteTable'),
-    newDeleteTransitGatewayRouteTable,
-    DeleteTransitGatewayRouteTableResponse (DeleteTransitGatewayRouteTableResponse'),
-    newDeleteTransitGatewayRouteTableResponse,
-
-    -- ** DescribeSecurityGroupRules (Paginated)
-    DescribeSecurityGroupRules (DescribeSecurityGroupRules'),
-    newDescribeSecurityGroupRules,
-    DescribeSecurityGroupRulesResponse (DescribeSecurityGroupRulesResponse'),
-    newDescribeSecurityGroupRulesResponse,
-
-    -- ** CreateLaunchTemplate
-    CreateLaunchTemplate (CreateLaunchTemplate'),
-    newCreateLaunchTemplate,
-    CreateLaunchTemplateResponse (CreateLaunchTemplateResponse'),
-    newCreateLaunchTemplateResponse,
-
-    -- ** CreateVpcEndpointConnectionNotification
-    CreateVpcEndpointConnectionNotification (CreateVpcEndpointConnectionNotification'),
-    newCreateVpcEndpointConnectionNotification,
-    CreateVpcEndpointConnectionNotificationResponse (CreateVpcEndpointConnectionNotificationResponse'),
-    newCreateVpcEndpointConnectionNotificationResponse,
-
-    -- ** DeleteNetworkInterfacePermission
-    DeleteNetworkInterfacePermission (DeleteNetworkInterfacePermission'),
-    newDeleteNetworkInterfacePermission,
-    DeleteNetworkInterfacePermissionResponse (DeleteNetworkInterfacePermissionResponse'),
-    newDeleteNetworkInterfacePermissionResponse,
-
-    -- ** DeleteVpnGateway
-    DeleteVpnGateway (DeleteVpnGateway'),
-    newDeleteVpnGateway,
-    DeleteVpnGatewayResponse (DeleteVpnGatewayResponse'),
-    newDeleteVpnGatewayResponse,
-
-    -- ** CreateStoreImageTask
-    CreateStoreImageTask (CreateStoreImageTask'),
-    newCreateStoreImageTask,
-    CreateStoreImageTaskResponse (CreateStoreImageTaskResponse'),
-    newCreateStoreImageTaskResponse,
-
-    -- ** CreateTrafficMirrorTarget
-    CreateTrafficMirrorTarget (CreateTrafficMirrorTarget'),
-    newCreateTrafficMirrorTarget,
-    CreateTrafficMirrorTargetResponse (CreateTrafficMirrorTargetResponse'),
-    newCreateTrafficMirrorTargetResponse,
-
-    -- ** DescribeImportImageTasks (Paginated)
-    DescribeImportImageTasks (DescribeImportImageTasks'),
-    newDescribeImportImageTasks,
-    DescribeImportImageTasksResponse (DescribeImportImageTasksResponse'),
-    newDescribeImportImageTasksResponse,
-
-    -- ** DescribeVolumeAttribute
-    DescribeVolumeAttribute (DescribeVolumeAttribute'),
-    newDescribeVolumeAttribute,
-    DescribeVolumeAttributeResponse (DescribeVolumeAttributeResponse'),
-    newDescribeVolumeAttributeResponse,
-
-    -- ** DescribeMovingAddresses (Paginated)
-    DescribeMovingAddresses (DescribeMovingAddresses'),
-    newDescribeMovingAddresses,
-    DescribeMovingAddressesResponse (DescribeMovingAddressesResponse'),
-    newDescribeMovingAddressesResponse,
-
-    -- ** ExportTransitGatewayRoutes
-    ExportTransitGatewayRoutes (ExportTransitGatewayRoutes'),
-    newExportTransitGatewayRoutes,
-    ExportTransitGatewayRoutesResponse (ExportTransitGatewayRoutesResponse'),
-    newExportTransitGatewayRoutesResponse,
-
-    -- ** GetPasswordData
-    GetPasswordData (GetPasswordData'),
-    newGetPasswordData,
-    GetPasswordDataResponse (GetPasswordDataResponse'),
-    newGetPasswordDataResponse,
-
-    -- ** CreateVpc
-    CreateVpc (CreateVpc'),
-    newCreateVpc,
-    CreateVpcResponse (CreateVpcResponse'),
-    newCreateVpcResponse,
-
-    -- ** ModifyVpcPeeringConnectionOptions
-    ModifyVpcPeeringConnectionOptions (ModifyVpcPeeringConnectionOptions'),
-    newModifyVpcPeeringConnectionOptions,
-    ModifyVpcPeeringConnectionOptionsResponse (ModifyVpcPeeringConnectionOptionsResponse'),
-    newModifyVpcPeeringConnectionOptionsResponse,
-
-    -- ** DescribeFpgaImages (Paginated)
-    DescribeFpgaImages (DescribeFpgaImages'),
-    newDescribeFpgaImages,
-    DescribeFpgaImagesResponse (DescribeFpgaImagesResponse'),
-    newDescribeFpgaImagesResponse,
-
-    -- ** CopySnapshot
-    CopySnapshot (CopySnapshot'),
-    newCopySnapshot,
-    CopySnapshotResponse (CopySnapshotResponse'),
-    newCopySnapshotResponse,
+    -- ** AcceptTransitGatewayMulticastDomainAssociations
+    AcceptTransitGatewayMulticastDomainAssociations (AcceptTransitGatewayMulticastDomainAssociations'),
+    newAcceptTransitGatewayMulticastDomainAssociations,
+    AcceptTransitGatewayMulticastDomainAssociationsResponse (AcceptTransitGatewayMulticastDomainAssociationsResponse'),
+    newAcceptTransitGatewayMulticastDomainAssociationsResponse,
 
     -- ** AcceptTransitGatewayPeeringAttachment
     AcceptTransitGatewayPeeringAttachment (AcceptTransitGatewayPeeringAttachment'),
@@ -1514,761 +164,47 @@ module Amazonka.EC2
     AcceptTransitGatewayPeeringAttachmentResponse (AcceptTransitGatewayPeeringAttachmentResponse'),
     newAcceptTransitGatewayPeeringAttachmentResponse,
 
-    -- ** DisassociateAddress
-    DisassociateAddress (DisassociateAddress'),
-    newDisassociateAddress,
-    DisassociateAddressResponse (DisassociateAddressResponse'),
-    newDisassociateAddressResponse,
-
-    -- ** ModifyTrafficMirrorFilterNetworkServices
-    ModifyTrafficMirrorFilterNetworkServices (ModifyTrafficMirrorFilterNetworkServices'),
-    newModifyTrafficMirrorFilterNetworkServices,
-    ModifyTrafficMirrorFilterNetworkServicesResponse (ModifyTrafficMirrorFilterNetworkServicesResponse'),
-    newModifyTrafficMirrorFilterNetworkServicesResponse,
-
-    -- ** DescribeEgressOnlyInternetGateways (Paginated)
-    DescribeEgressOnlyInternetGateways (DescribeEgressOnlyInternetGateways'),
-    newDescribeEgressOnlyInternetGateways,
-    DescribeEgressOnlyInternetGatewaysResponse (DescribeEgressOnlyInternetGatewaysResponse'),
-    newDescribeEgressOnlyInternetGatewaysResponse,
-
-    -- ** DeleteVpc
-    DeleteVpc (DeleteVpc'),
-    newDeleteVpc,
-    DeleteVpcResponse (DeleteVpcResponse'),
-    newDeleteVpcResponse,
-
-    -- ** CreateInstanceExportTask
-    CreateInstanceExportTask (CreateInstanceExportTask'),
-    newCreateInstanceExportTask,
-    CreateInstanceExportTaskResponse (CreateInstanceExportTaskResponse'),
-    newCreateInstanceExportTaskResponse,
-
-    -- ** RejectTransitGatewayVpcAttachment
-    RejectTransitGatewayVpcAttachment (RejectTransitGatewayVpcAttachment'),
-    newRejectTransitGatewayVpcAttachment,
-    RejectTransitGatewayVpcAttachmentResponse (RejectTransitGatewayVpcAttachmentResponse'),
-    newRejectTransitGatewayVpcAttachmentResponse,
-
-    -- ** DescribeTrafficMirrorSessions (Paginated)
-    DescribeTrafficMirrorSessions (DescribeTrafficMirrorSessions'),
-    newDescribeTrafficMirrorSessions,
-    DescribeTrafficMirrorSessionsResponse (DescribeTrafficMirrorSessionsResponse'),
-    newDescribeTrafficMirrorSessionsResponse,
-
-    -- ** GetTransitGatewayRouteTableAssociations (Paginated)
-    GetTransitGatewayRouteTableAssociations (GetTransitGatewayRouteTableAssociations'),
-    newGetTransitGatewayRouteTableAssociations,
-    GetTransitGatewayRouteTableAssociationsResponse (GetTransitGatewayRouteTableAssociationsResponse'),
-    newGetTransitGatewayRouteTableAssociationsResponse,
-
-    -- ** AssociateVpcCidrBlock
-    AssociateVpcCidrBlock (AssociateVpcCidrBlock'),
-    newAssociateVpcCidrBlock,
-    AssociateVpcCidrBlockResponse (AssociateVpcCidrBlockResponse'),
-    newAssociateVpcCidrBlockResponse,
-
-    -- ** DescribeVpcAttribute
-    DescribeVpcAttribute (DescribeVpcAttribute'),
-    newDescribeVpcAttribute,
-    DescribeVpcAttributeResponse (DescribeVpcAttributeResponse'),
-    newDescribeVpcAttributeResponse,
-
-    -- ** CreateVolume
-    CreateVolume (CreateVolume'),
-    newCreateVolume,
-    Volume (Volume'),
-    newVolume,
-
-    -- ** CreateDefaultSubnet
-    CreateDefaultSubnet (CreateDefaultSubnet'),
-    newCreateDefaultSubnet,
-    CreateDefaultSubnetResponse (CreateDefaultSubnetResponse'),
-    newCreateDefaultSubnetResponse,
-
-    -- ** DescribeScheduledInstanceAvailability (Paginated)
-    DescribeScheduledInstanceAvailability (DescribeScheduledInstanceAvailability'),
-    newDescribeScheduledInstanceAvailability,
-    DescribeScheduledInstanceAvailabilityResponse (DescribeScheduledInstanceAvailabilityResponse'),
-    newDescribeScheduledInstanceAvailabilityResponse,
-
-    -- ** DisassociateClientVpnTargetNetwork
-    DisassociateClientVpnTargetNetwork (DisassociateClientVpnTargetNetwork'),
-    newDisassociateClientVpnTargetNetwork,
-    DisassociateClientVpnTargetNetworkResponse (DisassociateClientVpnTargetNetworkResponse'),
-    newDisassociateClientVpnTargetNetworkResponse,
-
-    -- ** CreateClientVpnRoute
-    CreateClientVpnRoute (CreateClientVpnRoute'),
-    newCreateClientVpnRoute,
-    CreateClientVpnRouteResponse (CreateClientVpnRouteResponse'),
-    newCreateClientVpnRouteResponse,
-
-    -- ** ModifyVolumeAttribute
-    ModifyVolumeAttribute (ModifyVolumeAttribute'),
-    newModifyVolumeAttribute,
-    ModifyVolumeAttributeResponse (ModifyVolumeAttributeResponse'),
-    newModifyVolumeAttributeResponse,
-
-    -- ** ExportClientVpnClientConfiguration
-    ExportClientVpnClientConfiguration (ExportClientVpnClientConfiguration'),
-    newExportClientVpnClientConfiguration,
-    ExportClientVpnClientConfigurationResponse (ExportClientVpnClientConfigurationResponse'),
-    newExportClientVpnClientConfigurationResponse,
-
-    -- ** DescribeTrunkInterfaceAssociations (Paginated)
-    DescribeTrunkInterfaceAssociations (DescribeTrunkInterfaceAssociations'),
-    newDescribeTrunkInterfaceAssociations,
-    DescribeTrunkInterfaceAssociationsResponse (DescribeTrunkInterfaceAssociationsResponse'),
-    newDescribeTrunkInterfaceAssociationsResponse,
-
-    -- ** DeleteTrafficMirrorTarget
-    DeleteTrafficMirrorTarget (DeleteTrafficMirrorTarget'),
-    newDeleteTrafficMirrorTarget,
-    DeleteTrafficMirrorTargetResponse (DeleteTrafficMirrorTargetResponse'),
-    newDeleteTrafficMirrorTargetResponse,
-
-    -- ** DescribeSpotDatafeedSubscription
-    DescribeSpotDatafeedSubscription (DescribeSpotDatafeedSubscription'),
-    newDescribeSpotDatafeedSubscription,
-    DescribeSpotDatafeedSubscriptionResponse (DescribeSpotDatafeedSubscriptionResponse'),
-    newDescribeSpotDatafeedSubscriptionResponse,
-
-    -- ** DescribeLocalGatewayRouteTables (Paginated)
-    DescribeLocalGatewayRouteTables (DescribeLocalGatewayRouteTables'),
-    newDescribeLocalGatewayRouteTables,
-    DescribeLocalGatewayRouteTablesResponse (DescribeLocalGatewayRouteTablesResponse'),
-    newDescribeLocalGatewayRouteTablesResponse,
-
-    -- ** DescribePrefixLists (Paginated)
-    DescribePrefixLists (DescribePrefixLists'),
-    newDescribePrefixLists,
-    DescribePrefixListsResponse (DescribePrefixListsResponse'),
-    newDescribePrefixListsResponse,
-
-    -- ** AssociateTransitGatewayRouteTable
-    AssociateTransitGatewayRouteTable (AssociateTransitGatewayRouteTable'),
-    newAssociateTransitGatewayRouteTable,
-    AssociateTransitGatewayRouteTableResponse (AssociateTransitGatewayRouteTableResponse'),
-    newAssociateTransitGatewayRouteTableResponse,
-
-    -- ** DeletePlacementGroup
-    DeletePlacementGroup (DeletePlacementGroup'),
-    newDeletePlacementGroup,
-    DeletePlacementGroupResponse (DeletePlacementGroupResponse'),
-    newDeletePlacementGroupResponse,
-
-    -- ** ModifyTransitGateway
-    ModifyTransitGateway (ModifyTransitGateway'),
-    newModifyTransitGateway,
-    ModifyTransitGatewayResponse (ModifyTransitGatewayResponse'),
-    newModifyTransitGatewayResponse,
-
-    -- ** DeleteTransitGatewayPrefixListReference
-    DeleteTransitGatewayPrefixListReference (DeleteTransitGatewayPrefixListReference'),
-    newDeleteTransitGatewayPrefixListReference,
-    DeleteTransitGatewayPrefixListReferenceResponse (DeleteTransitGatewayPrefixListReferenceResponse'),
-    newDeleteTransitGatewayPrefixListReferenceResponse,
-
-    -- ** CreateTransitGatewayMulticastDomain
-    CreateTransitGatewayMulticastDomain (CreateTransitGatewayMulticastDomain'),
-    newCreateTransitGatewayMulticastDomain,
-    CreateTransitGatewayMulticastDomainResponse (CreateTransitGatewayMulticastDomainResponse'),
-    newCreateTransitGatewayMulticastDomainResponse,
-
-    -- ** DeregisterInstanceEventNotificationAttributes
-    DeregisterInstanceEventNotificationAttributes (DeregisterInstanceEventNotificationAttributes'),
-    newDeregisterInstanceEventNotificationAttributes,
-    DeregisterInstanceEventNotificationAttributesResponse (DeregisterInstanceEventNotificationAttributesResponse'),
-    newDeregisterInstanceEventNotificationAttributesResponse,
-
-    -- ** RequestSpotFleet
-    RequestSpotFleet (RequestSpotFleet'),
-    newRequestSpotFleet,
-    RequestSpotFleetResponse (RequestSpotFleetResponse'),
-    newRequestSpotFleetResponse,
-
-    -- ** DeleteNetworkInsightsPath
-    DeleteNetworkInsightsPath (DeleteNetworkInsightsPath'),
-    newDeleteNetworkInsightsPath,
-    DeleteNetworkInsightsPathResponse (DeleteNetworkInsightsPathResponse'),
-    newDeleteNetworkInsightsPathResponse,
-
-    -- ** DescribeTransitGatewayConnects (Paginated)
-    DescribeTransitGatewayConnects (DescribeTransitGatewayConnects'),
-    newDescribeTransitGatewayConnects,
-    DescribeTransitGatewayConnectsResponse (DescribeTransitGatewayConnectsResponse'),
-    newDescribeTransitGatewayConnectsResponse,
-
-    -- ** DeleteTransitGatewayRoute
-    DeleteTransitGatewayRoute (DeleteTransitGatewayRoute'),
-    newDeleteTransitGatewayRoute,
-    DeleteTransitGatewayRouteResponse (DeleteTransitGatewayRouteResponse'),
-    newDeleteTransitGatewayRouteResponse,
-
-    -- ** CreateTransitGatewayConnectPeer
-    CreateTransitGatewayConnectPeer (CreateTransitGatewayConnectPeer'),
-    newCreateTransitGatewayConnectPeer,
-    CreateTransitGatewayConnectPeerResponse (CreateTransitGatewayConnectPeerResponse'),
-    newCreateTransitGatewayConnectPeerResponse,
-
-    -- ** DisableEbsEncryptionByDefault
-    DisableEbsEncryptionByDefault (DisableEbsEncryptionByDefault'),
-    newDisableEbsEncryptionByDefault,
-    DisableEbsEncryptionByDefaultResponse (DisableEbsEncryptionByDefaultResponse'),
-    newDisableEbsEncryptionByDefaultResponse,
-
-    -- ** DeregisterTransitGatewayMulticastGroupMembers
-    DeregisterTransitGatewayMulticastGroupMembers (DeregisterTransitGatewayMulticastGroupMembers'),
-    newDeregisterTransitGatewayMulticastGroupMembers,
-    DeregisterTransitGatewayMulticastGroupMembersResponse (DeregisterTransitGatewayMulticastGroupMembersResponse'),
-    newDeregisterTransitGatewayMulticastGroupMembersResponse,
-
-    -- ** AssociateTrunkInterface
-    AssociateTrunkInterface (AssociateTrunkInterface'),
-    newAssociateTrunkInterface,
-    AssociateTrunkInterfaceResponse (AssociateTrunkInterfaceResponse'),
-    newAssociateTrunkInterfaceResponse,
-
-    -- ** CreateSubnet
-    CreateSubnet (CreateSubnet'),
-    newCreateSubnet,
-    CreateSubnetResponse (CreateSubnetResponse'),
-    newCreateSubnetResponse,
-
-    -- ** CreateNetworkInterface
-    CreateNetworkInterface (CreateNetworkInterface'),
-    newCreateNetworkInterface,
-    CreateNetworkInterfaceResponse (CreateNetworkInterfaceResponse'),
-    newCreateNetworkInterfaceResponse,
-
-    -- ** DescribeSecurityGroups (Paginated)
-    DescribeSecurityGroups (DescribeSecurityGroups'),
-    newDescribeSecurityGroups,
-    DescribeSecurityGroupsResponse (DescribeSecurityGroupsResponse'),
-    newDescribeSecurityGroupsResponse,
-
-    -- ** GetCapacityReservationUsage
-    GetCapacityReservationUsage (GetCapacityReservationUsage'),
-    newGetCapacityReservationUsage,
-    GetCapacityReservationUsageResponse (GetCapacityReservationUsageResponse'),
-    newGetCapacityReservationUsageResponse,
-
-    -- ** CreateTransitGatewayVpcAttachment
-    CreateTransitGatewayVpcAttachment (CreateTransitGatewayVpcAttachment'),
-    newCreateTransitGatewayVpcAttachment,
-    CreateTransitGatewayVpcAttachmentResponse (CreateTransitGatewayVpcAttachmentResponse'),
-    newCreateTransitGatewayVpcAttachmentResponse,
-
-    -- ** DescribeExportTasks
-    DescribeExportTasks (DescribeExportTasks'),
-    newDescribeExportTasks,
-    DescribeExportTasksResponse (DescribeExportTasksResponse'),
-    newDescribeExportTasksResponse,
-
-    -- ** ModifySpotFleetRequest
-    ModifySpotFleetRequest (ModifySpotFleetRequest'),
-    newModifySpotFleetRequest,
-    ModifySpotFleetRequestResponse (ModifySpotFleetRequestResponse'),
-    newModifySpotFleetRequestResponse,
-
-    -- ** DetachVpnGateway
-    DetachVpnGateway (DetachVpnGateway'),
-    newDetachVpnGateway,
-    DetachVpnGatewayResponse (DetachVpnGatewayResponse'),
-    newDetachVpnGatewayResponse,
-
-    -- ** ModifyManagedPrefixList
-    ModifyManagedPrefixList (ModifyManagedPrefixList'),
-    newModifyManagedPrefixList,
-    ModifyManagedPrefixListResponse (ModifyManagedPrefixListResponse'),
-    newModifyManagedPrefixListResponse,
-
-    -- ** GetHostReservationPurchasePreview
-    GetHostReservationPurchasePreview (GetHostReservationPurchasePreview'),
-    newGetHostReservationPurchasePreview,
-    GetHostReservationPurchasePreviewResponse (GetHostReservationPurchasePreviewResponse'),
-    newGetHostReservationPurchasePreviewResponse,
-
-    -- ** EnableVolumeIO
-    EnableVolumeIO (EnableVolumeIO'),
-    newEnableVolumeIO,
-    EnableVolumeIOResponse (EnableVolumeIOResponse'),
-    newEnableVolumeIOResponse,
-
-    -- ** DescribeInstances (Paginated)
-    DescribeInstances (DescribeInstances'),
-    newDescribeInstances,
-    DescribeInstancesResponse (DescribeInstancesResponse'),
-    newDescribeInstancesResponse,
-
-    -- ** DescribeInstanceEventWindows (Paginated)
-    DescribeInstanceEventWindows (DescribeInstanceEventWindows'),
-    newDescribeInstanceEventWindows,
-    DescribeInstanceEventWindowsResponse (DescribeInstanceEventWindowsResponse'),
-    newDescribeInstanceEventWindowsResponse,
-
-    -- ** DisableSerialConsoleAccess
-    DisableSerialConsoleAccess (DisableSerialConsoleAccess'),
-    newDisableSerialConsoleAccess,
-    DisableSerialConsoleAccessResponse (DisableSerialConsoleAccessResponse'),
-    newDisableSerialConsoleAccessResponse,
-
-    -- ** CreateNatGateway
-    CreateNatGateway (CreateNatGateway'),
-    newCreateNatGateway,
-    CreateNatGatewayResponse (CreateNatGatewayResponse'),
-    newCreateNatGatewayResponse,
-
-    -- ** DescribeLocalGatewayVirtualInterfaces (Paginated)
-    DescribeLocalGatewayVirtualInterfaces (DescribeLocalGatewayVirtualInterfaces'),
-    newDescribeLocalGatewayVirtualInterfaces,
-    DescribeLocalGatewayVirtualInterfacesResponse (DescribeLocalGatewayVirtualInterfacesResponse'),
-    newDescribeLocalGatewayVirtualInterfacesResponse,
-
-    -- ** DescribeVpcPeeringConnections (Paginated)
-    DescribeVpcPeeringConnections (DescribeVpcPeeringConnections'),
-    newDescribeVpcPeeringConnections,
-    DescribeVpcPeeringConnectionsResponse (DescribeVpcPeeringConnectionsResponse'),
-    newDescribeVpcPeeringConnectionsResponse,
-
-    -- ** CancelExportTask
-    CancelExportTask (CancelExportTask'),
-    newCancelExportTask,
-    CancelExportTaskResponse (CancelExportTaskResponse'),
-    newCancelExportTaskResponse,
-
-    -- ** CreateVpcEndpointServiceConfiguration
-    CreateVpcEndpointServiceConfiguration (CreateVpcEndpointServiceConfiguration'),
-    newCreateVpcEndpointServiceConfiguration,
-    CreateVpcEndpointServiceConfigurationResponse (CreateVpcEndpointServiceConfigurationResponse'),
-    newCreateVpcEndpointServiceConfigurationResponse,
-
-    -- ** CreateDefaultVpc
-    CreateDefaultVpc (CreateDefaultVpc'),
-    newCreateDefaultVpc,
-    CreateDefaultVpcResponse (CreateDefaultVpcResponse'),
-    newCreateDefaultVpcResponse,
-
-    -- ** DisassociateVpcCidrBlock
-    DisassociateVpcCidrBlock (DisassociateVpcCidrBlock'),
-    newDisassociateVpcCidrBlock,
-    DisassociateVpcCidrBlockResponse (DisassociateVpcCidrBlockResponse'),
-    newDisassociateVpcCidrBlockResponse,
-
-    -- ** DescribeTrafficMirrorFilters (Paginated)
-    DescribeTrafficMirrorFilters (DescribeTrafficMirrorFilters'),
-    newDescribeTrafficMirrorFilters,
-    DescribeTrafficMirrorFiltersResponse (DescribeTrafficMirrorFiltersResponse'),
-    newDescribeTrafficMirrorFiltersResponse,
-
-    -- ** DescribeFastSnapshotRestores (Paginated)
-    DescribeFastSnapshotRestores (DescribeFastSnapshotRestores'),
-    newDescribeFastSnapshotRestores,
-    DescribeFastSnapshotRestoresResponse (DescribeFastSnapshotRestoresResponse'),
-    newDescribeFastSnapshotRestoresResponse,
-
-    -- ** CancelCapacityReservation
-    CancelCapacityReservation (CancelCapacityReservation'),
-    newCancelCapacityReservation,
-    CancelCapacityReservationResponse (CancelCapacityReservationResponse'),
-    newCancelCapacityReservationResponse,
-
-    -- ** DeleteNetworkInterface
-    DeleteNetworkInterface (DeleteNetworkInterface'),
-    newDeleteNetworkInterface,
-    DeleteNetworkInterfaceResponse (DeleteNetworkInterfaceResponse'),
-    newDeleteNetworkInterfaceResponse,
-
-    -- ** DisassociateTransitGatewayRouteTable
-    DisassociateTransitGatewayRouteTable (DisassociateTransitGatewayRouteTable'),
-    newDisassociateTransitGatewayRouteTable,
-    DisassociateTransitGatewayRouteTableResponse (DisassociateTransitGatewayRouteTableResponse'),
-    newDisassociateTransitGatewayRouteTableResponse,
-
-    -- ** ReplaceRouteTableAssociation
-    ReplaceRouteTableAssociation (ReplaceRouteTableAssociation'),
-    newReplaceRouteTableAssociation,
-    ReplaceRouteTableAssociationResponse (ReplaceRouteTableAssociationResponse'),
-    newReplaceRouteTableAssociationResponse,
-
-    -- ** StartInstances
-    StartInstances (StartInstances'),
-    newStartInstances,
-    StartInstancesResponse (StartInstancesResponse'),
-    newStartInstancesResponse,
-
-    -- ** CreatePlacementGroup
-    CreatePlacementGroup (CreatePlacementGroup'),
-    newCreatePlacementGroup,
-    CreatePlacementGroupResponse (CreatePlacementGroupResponse'),
-    newCreatePlacementGroupResponse,
-
-    -- ** DescribeInstanceEventNotificationAttributes
-    DescribeInstanceEventNotificationAttributes (DescribeInstanceEventNotificationAttributes'),
-    newDescribeInstanceEventNotificationAttributes,
-    DescribeInstanceEventNotificationAttributesResponse (DescribeInstanceEventNotificationAttributesResponse'),
-    newDescribeInstanceEventNotificationAttributesResponse,
-
-    -- ** DescribeCapacityReservations (Paginated)
-    DescribeCapacityReservations (DescribeCapacityReservations'),
-    newDescribeCapacityReservations,
-    DescribeCapacityReservationsResponse (DescribeCapacityReservationsResponse'),
-    newDescribeCapacityReservationsResponse,
-
-    -- ** ModifyClientVpnEndpoint
-    ModifyClientVpnEndpoint (ModifyClientVpnEndpoint'),
-    newModifyClientVpnEndpoint,
-    ModifyClientVpnEndpointResponse (ModifyClientVpnEndpointResponse'),
-    newModifyClientVpnEndpointResponse,
-
-    -- ** ModifyInstanceCapacityReservationAttributes
-    ModifyInstanceCapacityReservationAttributes (ModifyInstanceCapacityReservationAttributes'),
-    newModifyInstanceCapacityReservationAttributes,
-    ModifyInstanceCapacityReservationAttributesResponse (ModifyInstanceCapacityReservationAttributesResponse'),
-    newModifyInstanceCapacityReservationAttributesResponse,
-
-    -- ** DescribeAggregateIdFormat
-    DescribeAggregateIdFormat (DescribeAggregateIdFormat'),
-    newDescribeAggregateIdFormat,
-    DescribeAggregateIdFormatResponse (DescribeAggregateIdFormatResponse'),
-    newDescribeAggregateIdFormatResponse,
-
-    -- ** DescribeSnapshots (Paginated)
-    DescribeSnapshots (DescribeSnapshots'),
-    newDescribeSnapshots,
-    DescribeSnapshotsResponse (DescribeSnapshotsResponse'),
-    newDescribeSnapshotsResponse,
-
-    -- ** GetSubnetCidrReservations
-    GetSubnetCidrReservations (GetSubnetCidrReservations'),
-    newGetSubnetCidrReservations,
-    GetSubnetCidrReservationsResponse (GetSubnetCidrReservationsResponse'),
-    newGetSubnetCidrReservationsResponse,
-
-    -- ** AssociateAddress
-    AssociateAddress (AssociateAddress'),
-    newAssociateAddress,
-    AssociateAddressResponse (AssociateAddressResponse'),
-    newAssociateAddressResponse,
-
-    -- ** ModifyTrafficMirrorFilterRule
-    ModifyTrafficMirrorFilterRule (ModifyTrafficMirrorFilterRule'),
-    newModifyTrafficMirrorFilterRule,
-    ModifyTrafficMirrorFilterRuleResponse (ModifyTrafficMirrorFilterRuleResponse'),
-    newModifyTrafficMirrorFilterRuleResponse,
-
-    -- ** DescribeNetworkInterfaceAttribute
-    DescribeNetworkInterfaceAttribute (DescribeNetworkInterfaceAttribute'),
-    newDescribeNetworkInterfaceAttribute,
-    DescribeNetworkInterfaceAttributeResponse (DescribeNetworkInterfaceAttributeResponse'),
-    newDescribeNetworkInterfaceAttributeResponse,
-
-    -- ** ReplaceIamInstanceProfileAssociation
-    ReplaceIamInstanceProfileAssociation (ReplaceIamInstanceProfileAssociation'),
-    newReplaceIamInstanceProfileAssociation,
-    ReplaceIamInstanceProfileAssociationResponse (ReplaceIamInstanceProfileAssociationResponse'),
-    newReplaceIamInstanceProfileAssociationResponse,
-
-    -- ** AssociateClientVpnTargetNetwork
-    AssociateClientVpnTargetNetwork (AssociateClientVpnTargetNetwork'),
-    newAssociateClientVpnTargetNetwork,
-    AssociateClientVpnTargetNetworkResponse (AssociateClientVpnTargetNetworkResponse'),
-    newAssociateClientVpnTargetNetworkResponse,
-
-    -- ** ReleaseHosts
-    ReleaseHosts (ReleaseHosts'),
-    newReleaseHosts,
-    ReleaseHostsResponse (ReleaseHostsResponse'),
-    newReleaseHostsResponse,
-
-    -- ** EnableSerialConsoleAccess
-    EnableSerialConsoleAccess (EnableSerialConsoleAccess'),
-    newEnableSerialConsoleAccess,
-    EnableSerialConsoleAccessResponse (EnableSerialConsoleAccessResponse'),
-    newEnableSerialConsoleAccessResponse,
-
-    -- ** ResetNetworkInterfaceAttribute
-    ResetNetworkInterfaceAttribute (ResetNetworkInterfaceAttribute'),
-    newResetNetworkInterfaceAttribute,
-    ResetNetworkInterfaceAttributeResponse (ResetNetworkInterfaceAttributeResponse'),
-    newResetNetworkInterfaceAttributeResponse,
-
-    -- ** DeleteInternetGateway
-    DeleteInternetGateway (DeleteInternetGateway'),
-    newDeleteInternetGateway,
-    DeleteInternetGatewayResponse (DeleteInternetGatewayResponse'),
-    newDeleteInternetGatewayResponse,
-
-    -- ** DescribeReservedInstancesListings
-    DescribeReservedInstancesListings (DescribeReservedInstancesListings'),
-    newDescribeReservedInstancesListings,
-    DescribeReservedInstancesListingsResponse (DescribeReservedInstancesListingsResponse'),
-    newDescribeReservedInstancesListingsResponse,
-
-    -- ** CreateVpnConnection
-    CreateVpnConnection (CreateVpnConnection'),
-    newCreateVpnConnection,
-    CreateVpnConnectionResponse (CreateVpnConnectionResponse'),
-    newCreateVpnConnectionResponse,
-
-    -- ** ReplaceTransitGatewayRoute
-    ReplaceTransitGatewayRoute (ReplaceTransitGatewayRoute'),
-    newReplaceTransitGatewayRoute,
-    ReplaceTransitGatewayRouteResponse (ReplaceTransitGatewayRouteResponse'),
-    newReplaceTransitGatewayRouteResponse,
-
-    -- ** CreateFleet
-    CreateFleet (CreateFleet'),
-    newCreateFleet,
-    CreateFleetResponse (CreateFleetResponse'),
-    newCreateFleetResponse,
-
-    -- ** DeleteNatGateway
-    DeleteNatGateway (DeleteNatGateway'),
-    newDeleteNatGateway,
-    DeleteNatGatewayResponse (DeleteNatGatewayResponse'),
-    newDeleteNatGatewayResponse,
-
-    -- ** DescribeImportSnapshotTasks (Paginated)
-    DescribeImportSnapshotTasks (DescribeImportSnapshotTasks'),
-    newDescribeImportSnapshotTasks,
-    DescribeImportSnapshotTasksResponse (DescribeImportSnapshotTasksResponse'),
-    newDescribeImportSnapshotTasksResponse,
-
-    -- ** GetCoipPoolUsage
-    GetCoipPoolUsage (GetCoipPoolUsage'),
-    newGetCoipPoolUsage,
-    GetCoipPoolUsageResponse (GetCoipPoolUsageResponse'),
-    newGetCoipPoolUsageResponse,
-
-    -- ** DescribeCustomerGateways
-    DescribeCustomerGateways (DescribeCustomerGateways'),
-    newDescribeCustomerGateways,
-    DescribeCustomerGatewaysResponse (DescribeCustomerGatewaysResponse'),
-    newDescribeCustomerGatewaysResponse,
-
-    -- ** DeleteSubnet
-    DeleteSubnet (DeleteSubnet'),
-    newDeleteSubnet,
-    DeleteSubnetResponse (DeleteSubnetResponse'),
-    newDeleteSubnetResponse,
-
-    -- ** CopyImage
-    CopyImage (CopyImage'),
-    newCopyImage,
-    CopyImageResponse (CopyImageResponse'),
-    newCopyImageResponse,
-
-    -- ** CreateVpcEndpoint
-    CreateVpcEndpoint (CreateVpcEndpoint'),
-    newCreateVpcEndpoint,
-    CreateVpcEndpointResponse (CreateVpcEndpointResponse'),
-    newCreateVpcEndpointResponse,
-
-    -- ** ModifyTrafficMirrorSession
-    ModifyTrafficMirrorSession (ModifyTrafficMirrorSession'),
-    newModifyTrafficMirrorSession,
-    ModifyTrafficMirrorSessionResponse (ModifyTrafficMirrorSessionResponse'),
-    newModifyTrafficMirrorSessionResponse,
-
-    -- ** DescribeCarrierGateways (Paginated)
-    DescribeCarrierGateways (DescribeCarrierGateways'),
-    newDescribeCarrierGateways,
-    DescribeCarrierGatewaysResponse (DescribeCarrierGatewaysResponse'),
-    newDescribeCarrierGatewaysResponse,
-
-    -- ** DescribeTransitGatewayPeeringAttachments (Paginated)
-    DescribeTransitGatewayPeeringAttachments (DescribeTransitGatewayPeeringAttachments'),
-    newDescribeTransitGatewayPeeringAttachments,
-    DescribeTransitGatewayPeeringAttachmentsResponse (DescribeTransitGatewayPeeringAttachmentsResponse'),
-    newDescribeTransitGatewayPeeringAttachmentsResponse,
-
-    -- ** DeleteQueuedReservedInstances
-    DeleteQueuedReservedInstances (DeleteQueuedReservedInstances'),
-    newDeleteQueuedReservedInstances,
-    DeleteQueuedReservedInstancesResponse (DeleteQueuedReservedInstancesResponse'),
-    newDeleteQueuedReservedInstancesResponse,
-
-    -- ** DescribeTransitGatewayMulticastDomains (Paginated)
-    DescribeTransitGatewayMulticastDomains (DescribeTransitGatewayMulticastDomains'),
-    newDescribeTransitGatewayMulticastDomains,
-    DescribeTransitGatewayMulticastDomainsResponse (DescribeTransitGatewayMulticastDomainsResponse'),
-    newDescribeTransitGatewayMulticastDomainsResponse,
-
-    -- ** GetDefaultCreditSpecification
-    GetDefaultCreditSpecification (GetDefaultCreditSpecification'),
-    newGetDefaultCreditSpecification,
-    GetDefaultCreditSpecificationResponse (GetDefaultCreditSpecificationResponse'),
-    newGetDefaultCreditSpecificationResponse,
-
-    -- ** UnmonitorInstances
-    UnmonitorInstances (UnmonitorInstances'),
-    newUnmonitorInstances,
-    UnmonitorInstancesResponse (UnmonitorInstancesResponse'),
-    newUnmonitorInstancesResponse,
-
-    -- ** DescribeTransitGatewayVpcAttachments (Paginated)
-    DescribeTransitGatewayVpcAttachments (DescribeTransitGatewayVpcAttachments'),
-    newDescribeTransitGatewayVpcAttachments,
-    DescribeTransitGatewayVpcAttachmentsResponse (DescribeTransitGatewayVpcAttachmentsResponse'),
-    newDescribeTransitGatewayVpcAttachmentsResponse,
-
-    -- ** DescribeTransitGatewayConnectPeers (Paginated)
-    DescribeTransitGatewayConnectPeers (DescribeTransitGatewayConnectPeers'),
-    newDescribeTransitGatewayConnectPeers,
-    DescribeTransitGatewayConnectPeersResponse (DescribeTransitGatewayConnectPeersResponse'),
-    newDescribeTransitGatewayConnectPeersResponse,
-
-    -- ** CreateSecurityGroup
-    CreateSecurityGroup (CreateSecurityGroup'),
-    newCreateSecurityGroup,
-    CreateSecurityGroupResponse (CreateSecurityGroupResponse'),
-    newCreateSecurityGroupResponse,
-
-    -- ** CreateInstanceEventWindow
-    CreateInstanceEventWindow (CreateInstanceEventWindow'),
-    newCreateInstanceEventWindow,
-    CreateInstanceEventWindowResponse (CreateInstanceEventWindowResponse'),
-    newCreateInstanceEventWindowResponse,
-
-    -- ** GetEbsEncryptionByDefault
-    GetEbsEncryptionByDefault (GetEbsEncryptionByDefault'),
-    newGetEbsEncryptionByDefault,
-    GetEbsEncryptionByDefaultResponse (GetEbsEncryptionByDefaultResponse'),
-    newGetEbsEncryptionByDefaultResponse,
-
-    -- ** ImportVolume
-    ImportVolume (ImportVolume'),
-    newImportVolume,
-    ImportVolumeResponse (ImportVolumeResponse'),
-    newImportVolumeResponse,
-
-    -- ** DeleteCarrierGateway
-    DeleteCarrierGateway (DeleteCarrierGateway'),
-    newDeleteCarrierGateway,
-    DeleteCarrierGatewayResponse (DeleteCarrierGatewayResponse'),
-    newDeleteCarrierGatewayResponse,
-
-    -- ** DisableVgwRoutePropagation
-    DisableVgwRoutePropagation (DisableVgwRoutePropagation'),
-    newDisableVgwRoutePropagation,
-    DisableVgwRoutePropagationResponse (DisableVgwRoutePropagationResponse'),
-    newDisableVgwRoutePropagationResponse,
-
-    -- ** DeleteTrafficMirrorFilter
-    DeleteTrafficMirrorFilter (DeleteTrafficMirrorFilter'),
-    newDeleteTrafficMirrorFilter,
-    DeleteTrafficMirrorFilterResponse (DeleteTrafficMirrorFilterResponse'),
-    newDeleteTrafficMirrorFilterResponse,
-
-    -- ** ModifyVpnTunnelCertificate
-    ModifyVpnTunnelCertificate (ModifyVpnTunnelCertificate'),
-    newModifyVpnTunnelCertificate,
-    ModifyVpnTunnelCertificateResponse (ModifyVpnTunnelCertificateResponse'),
-    newModifyVpnTunnelCertificateResponse,
-
-    -- ** CreateSpotDatafeedSubscription
-    CreateSpotDatafeedSubscription (CreateSpotDatafeedSubscription'),
-    newCreateSpotDatafeedSubscription,
-    CreateSpotDatafeedSubscriptionResponse (CreateSpotDatafeedSubscriptionResponse'),
-    newCreateSpotDatafeedSubscriptionResponse,
-
-    -- ** CancelSpotInstanceRequests
-    CancelSpotInstanceRequests (CancelSpotInstanceRequests'),
-    newCancelSpotInstanceRequests,
-    CancelSpotInstanceRequestsResponse (CancelSpotInstanceRequestsResponse'),
-    newCancelSpotInstanceRequestsResponse,
-
-    -- ** CreateRoute
-    CreateRoute (CreateRoute'),
-    newCreateRoute,
-    CreateRouteResponse (CreateRouteResponse'),
-    newCreateRouteResponse,
-
-    -- ** DescribeVpcEndpointServiceConfigurations (Paginated)
-    DescribeVpcEndpointServiceConfigurations (DescribeVpcEndpointServiceConfigurations'),
-    newDescribeVpcEndpointServiceConfigurations,
-    DescribeVpcEndpointServiceConfigurationsResponse (DescribeVpcEndpointServiceConfigurationsResponse'),
-    newDescribeVpcEndpointServiceConfigurationsResponse,
-
-    -- ** DeleteSnapshot
-    DeleteSnapshot (DeleteSnapshot'),
-    newDeleteSnapshot,
-    DeleteSnapshotResponse (DeleteSnapshotResponse'),
-    newDeleteSnapshotResponse,
-
-    -- ** AssignPrivateIpAddresses
-    AssignPrivateIpAddresses (AssignPrivateIpAddresses'),
-    newAssignPrivateIpAddresses,
-    AssignPrivateIpAddressesResponse (AssignPrivateIpAddressesResponse'),
-    newAssignPrivateIpAddressesResponse,
-
-    -- ** AuthorizeClientVpnIngress
-    AuthorizeClientVpnIngress (AuthorizeClientVpnIngress'),
-    newAuthorizeClientVpnIngress,
-    AuthorizeClientVpnIngressResponse (AuthorizeClientVpnIngressResponse'),
-    newAuthorizeClientVpnIngressResponse,
-
-    -- ** DeleteTransitGatewayPeeringAttachment
-    DeleteTransitGatewayPeeringAttachment (DeleteTransitGatewayPeeringAttachment'),
-    newDeleteTransitGatewayPeeringAttachment,
-    DeleteTransitGatewayPeeringAttachmentResponse (DeleteTransitGatewayPeeringAttachmentResponse'),
-    newDeleteTransitGatewayPeeringAttachmentResponse,
-
-    -- ** ModifyInstanceAttribute
-    ModifyInstanceAttribute (ModifyInstanceAttribute'),
-    newModifyInstanceAttribute,
-    ModifyInstanceAttributeResponse (ModifyInstanceAttributeResponse'),
-    newModifyInstanceAttributeResponse,
-
-    -- ** DeleteCustomerGateway
-    DeleteCustomerGateway (DeleteCustomerGateway'),
-    newDeleteCustomerGateway,
-    DeleteCustomerGatewayResponse (DeleteCustomerGatewayResponse'),
-    newDeleteCustomerGatewayResponse,
-
-    -- ** DisassociateIamInstanceProfile
-    DisassociateIamInstanceProfile (DisassociateIamInstanceProfile'),
-    newDisassociateIamInstanceProfile,
-    DisassociateIamInstanceProfileResponse (DisassociateIamInstanceProfileResponse'),
-    newDisassociateIamInstanceProfileResponse,
-
-    -- ** TerminateClientVpnConnections
-    TerminateClientVpnConnections (TerminateClientVpnConnections'),
-    newTerminateClientVpnConnections,
-    TerminateClientVpnConnectionsResponse (TerminateClientVpnConnectionsResponse'),
-    newTerminateClientVpnConnectionsResponse,
-
-    -- ** CreateTransitGatewayConnect
-    CreateTransitGatewayConnect (CreateTransitGatewayConnect'),
-    newCreateTransitGatewayConnect,
-    CreateTransitGatewayConnectResponse (CreateTransitGatewayConnectResponse'),
-    newCreateTransitGatewayConnectResponse,
-
-    -- ** DisassociateRouteTable
-    DisassociateRouteTable (DisassociateRouteTable'),
-    newDisassociateRouteTable,
-    DisassociateRouteTableResponse (DisassociateRouteTableResponse'),
-    newDisassociateRouteTableResponse,
-
-    -- ** GetConsoleScreenshot
-    GetConsoleScreenshot (GetConsoleScreenshot'),
-    newGetConsoleScreenshot,
-    GetConsoleScreenshotResponse (GetConsoleScreenshotResponse'),
-    newGetConsoleScreenshotResponse,
-
-    -- ** GetFlowLogsIntegrationTemplate
-    GetFlowLogsIntegrationTemplate (GetFlowLogsIntegrationTemplate'),
-    newGetFlowLogsIntegrationTemplate,
-    GetFlowLogsIntegrationTemplateResponse (GetFlowLogsIntegrationTemplateResponse'),
-    newGetFlowLogsIntegrationTemplateResponse,
-
-    -- ** ResetEbsDefaultKmsKeyId
-    ResetEbsDefaultKmsKeyId (ResetEbsDefaultKmsKeyId'),
-    newResetEbsDefaultKmsKeyId,
-    ResetEbsDefaultKmsKeyIdResponse (ResetEbsDefaultKmsKeyIdResponse'),
-    newResetEbsDefaultKmsKeyIdResponse,
+    -- ** AcceptTransitGatewayVpcAttachment
+    AcceptTransitGatewayVpcAttachment (AcceptTransitGatewayVpcAttachment'),
+    newAcceptTransitGatewayVpcAttachment,
+    AcceptTransitGatewayVpcAttachmentResponse (AcceptTransitGatewayVpcAttachmentResponse'),
+    newAcceptTransitGatewayVpcAttachmentResponse,
+
+    -- ** AcceptVpcEndpointConnections
+    AcceptVpcEndpointConnections (AcceptVpcEndpointConnections'),
+    newAcceptVpcEndpointConnections,
+    AcceptVpcEndpointConnectionsResponse (AcceptVpcEndpointConnectionsResponse'),
+    newAcceptVpcEndpointConnectionsResponse,
+
+    -- ** AcceptVpcPeeringConnection
+    AcceptVpcPeeringConnection (AcceptVpcPeeringConnection'),
+    newAcceptVpcPeeringConnection,
+    AcceptVpcPeeringConnectionResponse (AcceptVpcPeeringConnectionResponse'),
+    newAcceptVpcPeeringConnectionResponse,
+
+    -- ** AdvertiseByoipCidr
+    AdvertiseByoipCidr (AdvertiseByoipCidr'),
+    newAdvertiseByoipCidr,
+    AdvertiseByoipCidrResponse (AdvertiseByoipCidrResponse'),
+    newAdvertiseByoipCidrResponse,
+
+    -- ** AllocateAddress
+    AllocateAddress (AllocateAddress'),
+    newAllocateAddress,
+    AllocateAddressResponse (AllocateAddressResponse'),
+    newAllocateAddressResponse,
+
+    -- ** AllocateHosts
+    AllocateHosts (AllocateHosts'),
+    newAllocateHosts,
+    AllocateHostsResponse (AllocateHostsResponse'),
+    newAllocateHostsResponse,
+
+    -- ** ApplySecurityGroupsToClientVpnTargetNetwork
+    ApplySecurityGroupsToClientVpnTargetNetwork (ApplySecurityGroupsToClientVpnTargetNetwork'),
+    newApplySecurityGroupsToClientVpnTargetNetwork,
+    ApplySecurityGroupsToClientVpnTargetNetworkResponse (ApplySecurityGroupsToClientVpnTargetNetworkResponse'),
+    newApplySecurityGroupsToClientVpnTargetNetworkResponse,
 
     -- ** AssignIpv6Addresses
     AssignIpv6Addresses (AssignIpv6Addresses'),
@@ -2276,149 +212,107 @@ module Amazonka.EC2
     AssignIpv6AddressesResponse (AssignIpv6AddressesResponse'),
     newAssignIpv6AddressesResponse,
 
-    -- ** ModifyVpnTunnelOptions
-    ModifyVpnTunnelOptions (ModifyVpnTunnelOptions'),
-    newModifyVpnTunnelOptions,
-    ModifyVpnTunnelOptionsResponse (ModifyVpnTunnelOptionsResponse'),
-    newModifyVpnTunnelOptionsResponse,
+    -- ** AssignPrivateIpAddresses
+    AssignPrivateIpAddresses (AssignPrivateIpAddresses'),
+    newAssignPrivateIpAddresses,
+    AssignPrivateIpAddressesResponse (AssignPrivateIpAddressesResponse'),
+    newAssignPrivateIpAddressesResponse,
 
-    -- ** ModifyEbsDefaultKmsKeyId
-    ModifyEbsDefaultKmsKeyId (ModifyEbsDefaultKmsKeyId'),
-    newModifyEbsDefaultKmsKeyId,
-    ModifyEbsDefaultKmsKeyIdResponse (ModifyEbsDefaultKmsKeyIdResponse'),
-    newModifyEbsDefaultKmsKeyIdResponse,
+    -- ** AssociateAddress
+    AssociateAddress (AssociateAddress'),
+    newAssociateAddress,
+    AssociateAddressResponse (AssociateAddressResponse'),
+    newAssociateAddressResponse,
 
-    -- ** DeleteSpotDatafeedSubscription
-    DeleteSpotDatafeedSubscription (DeleteSpotDatafeedSubscription'),
-    newDeleteSpotDatafeedSubscription,
-    DeleteSpotDatafeedSubscriptionResponse (DeleteSpotDatafeedSubscriptionResponse'),
-    newDeleteSpotDatafeedSubscriptionResponse,
+    -- ** AssociateClientVpnTargetNetwork
+    AssociateClientVpnTargetNetwork (AssociateClientVpnTargetNetwork'),
+    newAssociateClientVpnTargetNetwork,
+    AssociateClientVpnTargetNetworkResponse (AssociateClientVpnTargetNetworkResponse'),
+    newAssociateClientVpnTargetNetworkResponse,
 
-    -- ** ModifyVolume
-    ModifyVolume (ModifyVolume'),
-    newModifyVolume,
-    ModifyVolumeResponse (ModifyVolumeResponse'),
-    newModifyVolumeResponse,
+    -- ** AssociateDhcpOptions
+    AssociateDhcpOptions (AssociateDhcpOptions'),
+    newAssociateDhcpOptions,
+    AssociateDhcpOptionsResponse (AssociateDhcpOptionsResponse'),
+    newAssociateDhcpOptionsResponse,
 
-    -- ** EnableVpcClassicLink
-    EnableVpcClassicLink (EnableVpcClassicLink'),
-    newEnableVpcClassicLink,
-    EnableVpcClassicLinkResponse (EnableVpcClassicLinkResponse'),
-    newEnableVpcClassicLinkResponse,
+    -- ** AssociateEnclaveCertificateIamRole
+    AssociateEnclaveCertificateIamRole (AssociateEnclaveCertificateIamRole'),
+    newAssociateEnclaveCertificateIamRole,
+    AssociateEnclaveCertificateIamRoleResponse (AssociateEnclaveCertificateIamRoleResponse'),
+    newAssociateEnclaveCertificateIamRoleResponse,
 
-    -- ** DescribePlacementGroups
-    DescribePlacementGroups (DescribePlacementGroups'),
-    newDescribePlacementGroups,
-    DescribePlacementGroupsResponse (DescribePlacementGroupsResponse'),
-    newDescribePlacementGroupsResponse,
+    -- ** AssociateIamInstanceProfile
+    AssociateIamInstanceProfile (AssociateIamInstanceProfile'),
+    newAssociateIamInstanceProfile,
+    AssociateIamInstanceProfileResponse (AssociateIamInstanceProfileResponse'),
+    newAssociateIamInstanceProfileResponse,
 
-    -- ** ProvisionByoipCidr
-    ProvisionByoipCidr (ProvisionByoipCidr'),
-    newProvisionByoipCidr,
-    ProvisionByoipCidrResponse (ProvisionByoipCidrResponse'),
-    newProvisionByoipCidrResponse,
+    -- ** AssociateInstanceEventWindow
+    AssociateInstanceEventWindow (AssociateInstanceEventWindow'),
+    newAssociateInstanceEventWindow,
+    AssociateInstanceEventWindowResponse (AssociateInstanceEventWindowResponse'),
+    newAssociateInstanceEventWindowResponse,
 
-    -- ** DisassociateEnclaveCertificateIamRole
-    DisassociateEnclaveCertificateIamRole (DisassociateEnclaveCertificateIamRole'),
-    newDisassociateEnclaveCertificateIamRole,
-    DisassociateEnclaveCertificateIamRoleResponse (DisassociateEnclaveCertificateIamRoleResponse'),
-    newDisassociateEnclaveCertificateIamRoleResponse,
+    -- ** AssociateRouteTable
+    AssociateRouteTable (AssociateRouteTable'),
+    newAssociateRouteTable,
+    AssociateRouteTableResponse (AssociateRouteTableResponse'),
+    newAssociateRouteTableResponse,
 
-    -- ** ModifyAvailabilityZoneGroup
-    ModifyAvailabilityZoneGroup (ModifyAvailabilityZoneGroup'),
-    newModifyAvailabilityZoneGroup,
-    ModifyAvailabilityZoneGroupResponse (ModifyAvailabilityZoneGroupResponse'),
-    newModifyAvailabilityZoneGroupResponse,
+    -- ** AssociateSubnetCidrBlock
+    AssociateSubnetCidrBlock (AssociateSubnetCidrBlock'),
+    newAssociateSubnetCidrBlock,
+    AssociateSubnetCidrBlockResponse (AssociateSubnetCidrBlockResponse'),
+    newAssociateSubnetCidrBlockResponse,
 
-    -- ** DescribeStaleSecurityGroups (Paginated)
-    DescribeStaleSecurityGroups (DescribeStaleSecurityGroups'),
-    newDescribeStaleSecurityGroups,
-    DescribeStaleSecurityGroupsResponse (DescribeStaleSecurityGroupsResponse'),
-    newDescribeStaleSecurityGroupsResponse,
+    -- ** AssociateTransitGatewayMulticastDomain
+    AssociateTransitGatewayMulticastDomain (AssociateTransitGatewayMulticastDomain'),
+    newAssociateTransitGatewayMulticastDomain,
+    AssociateTransitGatewayMulticastDomainResponse (AssociateTransitGatewayMulticastDomainResponse'),
+    newAssociateTransitGatewayMulticastDomainResponse,
 
-    -- ** CreateCarrierGateway
-    CreateCarrierGateway (CreateCarrierGateway'),
-    newCreateCarrierGateway,
-    CreateCarrierGatewayResponse (CreateCarrierGatewayResponse'),
-    newCreateCarrierGatewayResponse,
+    -- ** AssociateTransitGatewayRouteTable
+    AssociateTransitGatewayRouteTable (AssociateTransitGatewayRouteTable'),
+    newAssociateTransitGatewayRouteTable,
+    AssociateTransitGatewayRouteTableResponse (AssociateTransitGatewayRouteTableResponse'),
+    newAssociateTransitGatewayRouteTableResponse,
 
-    -- ** DescribeExportImageTasks (Paginated)
-    DescribeExportImageTasks (DescribeExportImageTasks'),
-    newDescribeExportImageTasks,
-    DescribeExportImageTasksResponse (DescribeExportImageTasksResponse'),
-    newDescribeExportImageTasksResponse,
+    -- ** AssociateTrunkInterface
+    AssociateTrunkInterface (AssociateTrunkInterface'),
+    newAssociateTrunkInterface,
+    AssociateTrunkInterfaceResponse (AssociateTrunkInterfaceResponse'),
+    newAssociateTrunkInterfaceResponse,
 
-    -- ** PurchaseScheduledInstances
-    PurchaseScheduledInstances (PurchaseScheduledInstances'),
-    newPurchaseScheduledInstances,
-    PurchaseScheduledInstancesResponse (PurchaseScheduledInstancesResponse'),
-    newPurchaseScheduledInstancesResponse,
+    -- ** AssociateVpcCidrBlock
+    AssociateVpcCidrBlock (AssociateVpcCidrBlock'),
+    newAssociateVpcCidrBlock,
+    AssociateVpcCidrBlockResponse (AssociateVpcCidrBlockResponse'),
+    newAssociateVpcCidrBlockResponse,
 
-    -- ** EnableVgwRoutePropagation
-    EnableVgwRoutePropagation (EnableVgwRoutePropagation'),
-    newEnableVgwRoutePropagation,
-    EnableVgwRoutePropagationResponse (EnableVgwRoutePropagationResponse'),
-    newEnableVgwRoutePropagationResponse,
+    -- ** AttachClassicLinkVpc
+    AttachClassicLinkVpc (AttachClassicLinkVpc'),
+    newAttachClassicLinkVpc,
+    AttachClassicLinkVpcResponse (AttachClassicLinkVpcResponse'),
+    newAttachClassicLinkVpcResponse,
 
-    -- ** DescribeSpotFleetRequestHistory
-    DescribeSpotFleetRequestHistory (DescribeSpotFleetRequestHistory'),
-    newDescribeSpotFleetRequestHistory,
-    DescribeSpotFleetRequestHistoryResponse (DescribeSpotFleetRequestHistoryResponse'),
-    newDescribeSpotFleetRequestHistoryResponse,
+    -- ** AttachInternetGateway
+    AttachInternetGateway (AttachInternetGateway'),
+    newAttachInternetGateway,
+    AttachInternetGatewayResponse (AttachInternetGatewayResponse'),
+    newAttachInternetGatewayResponse,
 
-    -- ** ModifySnapshotAttribute
-    ModifySnapshotAttribute (ModifySnapshotAttribute'),
-    newModifySnapshotAttribute,
-    ModifySnapshotAttributeResponse (ModifySnapshotAttributeResponse'),
-    newModifySnapshotAttributeResponse,
+    -- ** AttachNetworkInterface
+    AttachNetworkInterface (AttachNetworkInterface'),
+    newAttachNetworkInterface,
+    AttachNetworkInterfaceResponse (AttachNetworkInterfaceResponse'),
+    newAttachNetworkInterfaceResponse,
 
-    -- ** DescribeIamInstanceProfileAssociations (Paginated)
-    DescribeIamInstanceProfileAssociations (DescribeIamInstanceProfileAssociations'),
-    newDescribeIamInstanceProfileAssociations,
-    DescribeIamInstanceProfileAssociationsResponse (DescribeIamInstanceProfileAssociationsResponse'),
-    newDescribeIamInstanceProfileAssociationsResponse,
-
-    -- ** DescribeNetworkInsightsPaths (Paginated)
-    DescribeNetworkInsightsPaths (DescribeNetworkInsightsPaths'),
-    newDescribeNetworkInsightsPaths,
-    DescribeNetworkInsightsPathsResponse (DescribeNetworkInsightsPathsResponse'),
-    newDescribeNetworkInsightsPathsResponse,
-
-    -- ** CreateSnapshot
-    CreateSnapshot (CreateSnapshot'),
-    newCreateSnapshot,
-    Snapshot (Snapshot'),
-    newSnapshot,
-
-    -- ** CreateLocalGatewayRoute
-    CreateLocalGatewayRoute (CreateLocalGatewayRoute'),
-    newCreateLocalGatewayRoute,
-    CreateLocalGatewayRouteResponse (CreateLocalGatewayRouteResponse'),
-    newCreateLocalGatewayRouteResponse,
-
-    -- ** CreateNetworkAclEntry
-    CreateNetworkAclEntry (CreateNetworkAclEntry'),
-    newCreateNetworkAclEntry,
-    CreateNetworkAclEntryResponse (CreateNetworkAclEntryResponse'),
-    newCreateNetworkAclEntryResponse,
-
-    -- ** DescribeTransitGatewayAttachments (Paginated)
-    DescribeTransitGatewayAttachments (DescribeTransitGatewayAttachments'),
-    newDescribeTransitGatewayAttachments,
-    DescribeTransitGatewayAttachmentsResponse (DescribeTransitGatewayAttachmentsResponse'),
-    newDescribeTransitGatewayAttachmentsResponse,
-
-    -- ** CreateReservedInstancesListing
-    CreateReservedInstancesListing (CreateReservedInstancesListing'),
-    newCreateReservedInstancesListing,
-    CreateReservedInstancesListingResponse (CreateReservedInstancesListingResponse'),
-    newCreateReservedInstancesListingResponse,
-
-    -- ** DescribeIpv6Pools (Paginated)
-    DescribeIpv6Pools (DescribeIpv6Pools'),
-    newDescribeIpv6Pools,
-    DescribeIpv6PoolsResponse (DescribeIpv6PoolsResponse'),
-    newDescribeIpv6PoolsResponse,
+    -- ** AttachVolume
+    AttachVolume (AttachVolume'),
+    newAttachVolume,
+    VolumeAttachment (VolumeAttachment'),
+    newVolumeAttachment,
 
     -- ** AttachVpnGateway
     AttachVpnGateway (AttachVpnGateway'),
@@ -2426,23 +320,155 @@ module Amazonka.EC2
     AttachVpnGatewayResponse (AttachVpnGatewayResponse'),
     newAttachVpnGatewayResponse,
 
-    -- ** DescribeLocalGateways (Paginated)
-    DescribeLocalGateways (DescribeLocalGateways'),
-    newDescribeLocalGateways,
-    DescribeLocalGatewaysResponse (DescribeLocalGatewaysResponse'),
-    newDescribeLocalGatewaysResponse,
+    -- ** AuthorizeClientVpnIngress
+    AuthorizeClientVpnIngress (AuthorizeClientVpnIngress'),
+    newAuthorizeClientVpnIngress,
+    AuthorizeClientVpnIngressResponse (AuthorizeClientVpnIngressResponse'),
+    newAuthorizeClientVpnIngressResponse,
 
-    -- ** ModifyVpcEndpointServicePermissions
-    ModifyVpcEndpointServicePermissions (ModifyVpcEndpointServicePermissions'),
-    newModifyVpcEndpointServicePermissions,
-    ModifyVpcEndpointServicePermissionsResponse (ModifyVpcEndpointServicePermissionsResponse'),
-    newModifyVpcEndpointServicePermissionsResponse,
+    -- ** AuthorizeSecurityGroupEgress
+    AuthorizeSecurityGroupEgress (AuthorizeSecurityGroupEgress'),
+    newAuthorizeSecurityGroupEgress,
+    AuthorizeSecurityGroupEgressResponse (AuthorizeSecurityGroupEgressResponse'),
+    newAuthorizeSecurityGroupEgressResponse,
 
-    -- ** ExportClientVpnClientCertificateRevocationList
-    ExportClientVpnClientCertificateRevocationList (ExportClientVpnClientCertificateRevocationList'),
-    newExportClientVpnClientCertificateRevocationList,
-    ExportClientVpnClientCertificateRevocationListResponse (ExportClientVpnClientCertificateRevocationListResponse'),
-    newExportClientVpnClientCertificateRevocationListResponse,
+    -- ** AuthorizeSecurityGroupIngress
+    AuthorizeSecurityGroupIngress (AuthorizeSecurityGroupIngress'),
+    newAuthorizeSecurityGroupIngress,
+    AuthorizeSecurityGroupIngressResponse (AuthorizeSecurityGroupIngressResponse'),
+    newAuthorizeSecurityGroupIngressResponse,
+
+    -- ** BundleInstance
+    BundleInstance (BundleInstance'),
+    newBundleInstance,
+    BundleInstanceResponse (BundleInstanceResponse'),
+    newBundleInstanceResponse,
+
+    -- ** CancelBundleTask
+    CancelBundleTask (CancelBundleTask'),
+    newCancelBundleTask,
+    CancelBundleTaskResponse (CancelBundleTaskResponse'),
+    newCancelBundleTaskResponse,
+
+    -- ** CancelCapacityReservation
+    CancelCapacityReservation (CancelCapacityReservation'),
+    newCancelCapacityReservation,
+    CancelCapacityReservationResponse (CancelCapacityReservationResponse'),
+    newCancelCapacityReservationResponse,
+
+    -- ** CancelCapacityReservationFleets
+    CancelCapacityReservationFleets (CancelCapacityReservationFleets'),
+    newCancelCapacityReservationFleets,
+    CancelCapacityReservationFleetsResponse (CancelCapacityReservationFleetsResponse'),
+    newCancelCapacityReservationFleetsResponse,
+
+    -- ** CancelConversionTask
+    CancelConversionTask (CancelConversionTask'),
+    newCancelConversionTask,
+    CancelConversionTaskResponse (CancelConversionTaskResponse'),
+    newCancelConversionTaskResponse,
+
+    -- ** CancelExportTask
+    CancelExportTask (CancelExportTask'),
+    newCancelExportTask,
+    CancelExportTaskResponse (CancelExportTaskResponse'),
+    newCancelExportTaskResponse,
+
+    -- ** CancelImportTask
+    CancelImportTask (CancelImportTask'),
+    newCancelImportTask,
+    CancelImportTaskResponse (CancelImportTaskResponse'),
+    newCancelImportTaskResponse,
+
+    -- ** CancelReservedInstancesListing
+    CancelReservedInstancesListing (CancelReservedInstancesListing'),
+    newCancelReservedInstancesListing,
+    CancelReservedInstancesListingResponse (CancelReservedInstancesListingResponse'),
+    newCancelReservedInstancesListingResponse,
+
+    -- ** CancelSpotFleetRequests
+    CancelSpotFleetRequests (CancelSpotFleetRequests'),
+    newCancelSpotFleetRequests,
+    CancelSpotFleetRequestsResponse (CancelSpotFleetRequestsResponse'),
+    newCancelSpotFleetRequestsResponse,
+
+    -- ** CancelSpotInstanceRequests
+    CancelSpotInstanceRequests (CancelSpotInstanceRequests'),
+    newCancelSpotInstanceRequests,
+    CancelSpotInstanceRequestsResponse (CancelSpotInstanceRequestsResponse'),
+    newCancelSpotInstanceRequestsResponse,
+
+    -- ** ConfirmProductInstance
+    ConfirmProductInstance (ConfirmProductInstance'),
+    newConfirmProductInstance,
+    ConfirmProductInstanceResponse (ConfirmProductInstanceResponse'),
+    newConfirmProductInstanceResponse,
+
+    -- ** CopyFpgaImage
+    CopyFpgaImage (CopyFpgaImage'),
+    newCopyFpgaImage,
+    CopyFpgaImageResponse (CopyFpgaImageResponse'),
+    newCopyFpgaImageResponse,
+
+    -- ** CopyImage
+    CopyImage (CopyImage'),
+    newCopyImage,
+    CopyImageResponse (CopyImageResponse'),
+    newCopyImageResponse,
+
+    -- ** CopySnapshot
+    CopySnapshot (CopySnapshot'),
+    newCopySnapshot,
+    CopySnapshotResponse (CopySnapshotResponse'),
+    newCopySnapshotResponse,
+
+    -- ** CreateCapacityReservation
+    CreateCapacityReservation (CreateCapacityReservation'),
+    newCreateCapacityReservation,
+    CreateCapacityReservationResponse (CreateCapacityReservationResponse'),
+    newCreateCapacityReservationResponse,
+
+    -- ** CreateCapacityReservationFleet
+    CreateCapacityReservationFleet (CreateCapacityReservationFleet'),
+    newCreateCapacityReservationFleet,
+    CreateCapacityReservationFleetResponse (CreateCapacityReservationFleetResponse'),
+    newCreateCapacityReservationFleetResponse,
+
+    -- ** CreateCarrierGateway
+    CreateCarrierGateway (CreateCarrierGateway'),
+    newCreateCarrierGateway,
+    CreateCarrierGatewayResponse (CreateCarrierGatewayResponse'),
+    newCreateCarrierGatewayResponse,
+
+    -- ** CreateClientVpnEndpoint
+    CreateClientVpnEndpoint (CreateClientVpnEndpoint'),
+    newCreateClientVpnEndpoint,
+    CreateClientVpnEndpointResponse (CreateClientVpnEndpointResponse'),
+    newCreateClientVpnEndpointResponse,
+
+    -- ** CreateClientVpnRoute
+    CreateClientVpnRoute (CreateClientVpnRoute'),
+    newCreateClientVpnRoute,
+    CreateClientVpnRouteResponse (CreateClientVpnRouteResponse'),
+    newCreateClientVpnRouteResponse,
+
+    -- ** CreateCustomerGateway
+    CreateCustomerGateway (CreateCustomerGateway'),
+    newCreateCustomerGateway,
+    CreateCustomerGatewayResponse (CreateCustomerGatewayResponse'),
+    newCreateCustomerGatewayResponse,
+
+    -- ** CreateDefaultSubnet
+    CreateDefaultSubnet (CreateDefaultSubnet'),
+    newCreateDefaultSubnet,
+    CreateDefaultSubnetResponse (CreateDefaultSubnetResponse'),
+    newCreateDefaultSubnetResponse,
+
+    -- ** CreateDefaultVpc
+    CreateDefaultVpc (CreateDefaultVpc'),
+    newCreateDefaultVpc,
+    CreateDefaultVpcResponse (CreateDefaultVpcResponse'),
+    newCreateDefaultVpcResponse,
 
     -- ** CreateDhcpOptions
     CreateDhcpOptions (CreateDhcpOptions'),
@@ -2450,11 +476,707 @@ module Amazonka.EC2
     CreateDhcpOptionsResponse (CreateDhcpOptionsResponse'),
     newCreateDhcpOptionsResponse,
 
-    -- ** RegisterTransitGatewayMulticastGroupSources
-    RegisterTransitGatewayMulticastGroupSources (RegisterTransitGatewayMulticastGroupSources'),
-    newRegisterTransitGatewayMulticastGroupSources,
-    RegisterTransitGatewayMulticastGroupSourcesResponse (RegisterTransitGatewayMulticastGroupSourcesResponse'),
-    newRegisterTransitGatewayMulticastGroupSourcesResponse,
+    -- ** CreateEgressOnlyInternetGateway
+    CreateEgressOnlyInternetGateway (CreateEgressOnlyInternetGateway'),
+    newCreateEgressOnlyInternetGateway,
+    CreateEgressOnlyInternetGatewayResponse (CreateEgressOnlyInternetGatewayResponse'),
+    newCreateEgressOnlyInternetGatewayResponse,
+
+    -- ** CreateFleet
+    CreateFleet (CreateFleet'),
+    newCreateFleet,
+    CreateFleetResponse (CreateFleetResponse'),
+    newCreateFleetResponse,
+
+    -- ** CreateFlowLogs
+    CreateFlowLogs (CreateFlowLogs'),
+    newCreateFlowLogs,
+    CreateFlowLogsResponse (CreateFlowLogsResponse'),
+    newCreateFlowLogsResponse,
+
+    -- ** CreateFpgaImage
+    CreateFpgaImage (CreateFpgaImage'),
+    newCreateFpgaImage,
+    CreateFpgaImageResponse (CreateFpgaImageResponse'),
+    newCreateFpgaImageResponse,
+
+    -- ** CreateImage
+    CreateImage (CreateImage'),
+    newCreateImage,
+    CreateImageResponse (CreateImageResponse'),
+    newCreateImageResponse,
+
+    -- ** CreateInstanceEventWindow
+    CreateInstanceEventWindow (CreateInstanceEventWindow'),
+    newCreateInstanceEventWindow,
+    CreateInstanceEventWindowResponse (CreateInstanceEventWindowResponse'),
+    newCreateInstanceEventWindowResponse,
+
+    -- ** CreateInstanceExportTask
+    CreateInstanceExportTask (CreateInstanceExportTask'),
+    newCreateInstanceExportTask,
+    CreateInstanceExportTaskResponse (CreateInstanceExportTaskResponse'),
+    newCreateInstanceExportTaskResponse,
+
+    -- ** CreateInternetGateway
+    CreateInternetGateway (CreateInternetGateway'),
+    newCreateInternetGateway,
+    CreateInternetGatewayResponse (CreateInternetGatewayResponse'),
+    newCreateInternetGatewayResponse,
+
+    -- ** CreateKeyPair
+    CreateKeyPair (CreateKeyPair'),
+    newCreateKeyPair,
+    CreateKeyPairResponse (CreateKeyPairResponse'),
+    newCreateKeyPairResponse,
+
+    -- ** CreateLaunchTemplate
+    CreateLaunchTemplate (CreateLaunchTemplate'),
+    newCreateLaunchTemplate,
+    CreateLaunchTemplateResponse (CreateLaunchTemplateResponse'),
+    newCreateLaunchTemplateResponse,
+
+    -- ** CreateLaunchTemplateVersion
+    CreateLaunchTemplateVersion (CreateLaunchTemplateVersion'),
+    newCreateLaunchTemplateVersion,
+    CreateLaunchTemplateVersionResponse (CreateLaunchTemplateVersionResponse'),
+    newCreateLaunchTemplateVersionResponse,
+
+    -- ** CreateLocalGatewayRoute
+    CreateLocalGatewayRoute (CreateLocalGatewayRoute'),
+    newCreateLocalGatewayRoute,
+    CreateLocalGatewayRouteResponse (CreateLocalGatewayRouteResponse'),
+    newCreateLocalGatewayRouteResponse,
+
+    -- ** CreateLocalGatewayRouteTableVpcAssociation
+    CreateLocalGatewayRouteTableVpcAssociation (CreateLocalGatewayRouteTableVpcAssociation'),
+    newCreateLocalGatewayRouteTableVpcAssociation,
+    CreateLocalGatewayRouteTableVpcAssociationResponse (CreateLocalGatewayRouteTableVpcAssociationResponse'),
+    newCreateLocalGatewayRouteTableVpcAssociationResponse,
+
+    -- ** CreateManagedPrefixList
+    CreateManagedPrefixList (CreateManagedPrefixList'),
+    newCreateManagedPrefixList,
+    CreateManagedPrefixListResponse (CreateManagedPrefixListResponse'),
+    newCreateManagedPrefixListResponse,
+
+    -- ** CreateNatGateway
+    CreateNatGateway (CreateNatGateway'),
+    newCreateNatGateway,
+    CreateNatGatewayResponse (CreateNatGatewayResponse'),
+    newCreateNatGatewayResponse,
+
+    -- ** CreateNetworkAcl
+    CreateNetworkAcl (CreateNetworkAcl'),
+    newCreateNetworkAcl,
+    CreateNetworkAclResponse (CreateNetworkAclResponse'),
+    newCreateNetworkAclResponse,
+
+    -- ** CreateNetworkAclEntry
+    CreateNetworkAclEntry (CreateNetworkAclEntry'),
+    newCreateNetworkAclEntry,
+    CreateNetworkAclEntryResponse (CreateNetworkAclEntryResponse'),
+    newCreateNetworkAclEntryResponse,
+
+    -- ** CreateNetworkInsightsPath
+    CreateNetworkInsightsPath (CreateNetworkInsightsPath'),
+    newCreateNetworkInsightsPath,
+    CreateNetworkInsightsPathResponse (CreateNetworkInsightsPathResponse'),
+    newCreateNetworkInsightsPathResponse,
+
+    -- ** CreateNetworkInterface
+    CreateNetworkInterface (CreateNetworkInterface'),
+    newCreateNetworkInterface,
+    CreateNetworkInterfaceResponse (CreateNetworkInterfaceResponse'),
+    newCreateNetworkInterfaceResponse,
+
+    -- ** CreateNetworkInterfacePermission
+    CreateNetworkInterfacePermission (CreateNetworkInterfacePermission'),
+    newCreateNetworkInterfacePermission,
+    CreateNetworkInterfacePermissionResponse (CreateNetworkInterfacePermissionResponse'),
+    newCreateNetworkInterfacePermissionResponse,
+
+    -- ** CreatePlacementGroup
+    CreatePlacementGroup (CreatePlacementGroup'),
+    newCreatePlacementGroup,
+    CreatePlacementGroupResponse (CreatePlacementGroupResponse'),
+    newCreatePlacementGroupResponse,
+
+    -- ** CreateReplaceRootVolumeTask
+    CreateReplaceRootVolumeTask (CreateReplaceRootVolumeTask'),
+    newCreateReplaceRootVolumeTask,
+    CreateReplaceRootVolumeTaskResponse (CreateReplaceRootVolumeTaskResponse'),
+    newCreateReplaceRootVolumeTaskResponse,
+
+    -- ** CreateReservedInstancesListing
+    CreateReservedInstancesListing (CreateReservedInstancesListing'),
+    newCreateReservedInstancesListing,
+    CreateReservedInstancesListingResponse (CreateReservedInstancesListingResponse'),
+    newCreateReservedInstancesListingResponse,
+
+    -- ** CreateRestoreImageTask
+    CreateRestoreImageTask (CreateRestoreImageTask'),
+    newCreateRestoreImageTask,
+    CreateRestoreImageTaskResponse (CreateRestoreImageTaskResponse'),
+    newCreateRestoreImageTaskResponse,
+
+    -- ** CreateRoute
+    CreateRoute (CreateRoute'),
+    newCreateRoute,
+    CreateRouteResponse (CreateRouteResponse'),
+    newCreateRouteResponse,
+
+    -- ** CreateRouteTable
+    CreateRouteTable (CreateRouteTable'),
+    newCreateRouteTable,
+    CreateRouteTableResponse (CreateRouteTableResponse'),
+    newCreateRouteTableResponse,
+
+    -- ** CreateSecurityGroup
+    CreateSecurityGroup (CreateSecurityGroup'),
+    newCreateSecurityGroup,
+    CreateSecurityGroupResponse (CreateSecurityGroupResponse'),
+    newCreateSecurityGroupResponse,
+
+    -- ** CreateSnapshot
+    CreateSnapshot (CreateSnapshot'),
+    newCreateSnapshot,
+    Snapshot (Snapshot'),
+    newSnapshot,
+
+    -- ** CreateSnapshots
+    CreateSnapshots (CreateSnapshots'),
+    newCreateSnapshots,
+    CreateSnapshotsResponse (CreateSnapshotsResponse'),
+    newCreateSnapshotsResponse,
+
+    -- ** CreateSpotDatafeedSubscription
+    CreateSpotDatafeedSubscription (CreateSpotDatafeedSubscription'),
+    newCreateSpotDatafeedSubscription,
+    CreateSpotDatafeedSubscriptionResponse (CreateSpotDatafeedSubscriptionResponse'),
+    newCreateSpotDatafeedSubscriptionResponse,
+
+    -- ** CreateStoreImageTask
+    CreateStoreImageTask (CreateStoreImageTask'),
+    newCreateStoreImageTask,
+    CreateStoreImageTaskResponse (CreateStoreImageTaskResponse'),
+    newCreateStoreImageTaskResponse,
+
+    -- ** CreateSubnet
+    CreateSubnet (CreateSubnet'),
+    newCreateSubnet,
+    CreateSubnetResponse (CreateSubnetResponse'),
+    newCreateSubnetResponse,
+
+    -- ** CreateSubnetCidrReservation
+    CreateSubnetCidrReservation (CreateSubnetCidrReservation'),
+    newCreateSubnetCidrReservation,
+    CreateSubnetCidrReservationResponse (CreateSubnetCidrReservationResponse'),
+    newCreateSubnetCidrReservationResponse,
+
+    -- ** CreateTags
+    CreateTags (CreateTags'),
+    newCreateTags,
+    CreateTagsResponse (CreateTagsResponse'),
+    newCreateTagsResponse,
+
+    -- ** CreateTrafficMirrorFilter
+    CreateTrafficMirrorFilter (CreateTrafficMirrorFilter'),
+    newCreateTrafficMirrorFilter,
+    CreateTrafficMirrorFilterResponse (CreateTrafficMirrorFilterResponse'),
+    newCreateTrafficMirrorFilterResponse,
+
+    -- ** CreateTrafficMirrorFilterRule
+    CreateTrafficMirrorFilterRule (CreateTrafficMirrorFilterRule'),
+    newCreateTrafficMirrorFilterRule,
+    CreateTrafficMirrorFilterRuleResponse (CreateTrafficMirrorFilterRuleResponse'),
+    newCreateTrafficMirrorFilterRuleResponse,
+
+    -- ** CreateTrafficMirrorSession
+    CreateTrafficMirrorSession (CreateTrafficMirrorSession'),
+    newCreateTrafficMirrorSession,
+    CreateTrafficMirrorSessionResponse (CreateTrafficMirrorSessionResponse'),
+    newCreateTrafficMirrorSessionResponse,
+
+    -- ** CreateTrafficMirrorTarget
+    CreateTrafficMirrorTarget (CreateTrafficMirrorTarget'),
+    newCreateTrafficMirrorTarget,
+    CreateTrafficMirrorTargetResponse (CreateTrafficMirrorTargetResponse'),
+    newCreateTrafficMirrorTargetResponse,
+
+    -- ** CreateTransitGateway
+    CreateTransitGateway (CreateTransitGateway'),
+    newCreateTransitGateway,
+    CreateTransitGatewayResponse (CreateTransitGatewayResponse'),
+    newCreateTransitGatewayResponse,
+
+    -- ** CreateTransitGatewayConnect
+    CreateTransitGatewayConnect (CreateTransitGatewayConnect'),
+    newCreateTransitGatewayConnect,
+    CreateTransitGatewayConnectResponse (CreateTransitGatewayConnectResponse'),
+    newCreateTransitGatewayConnectResponse,
+
+    -- ** CreateTransitGatewayConnectPeer
+    CreateTransitGatewayConnectPeer (CreateTransitGatewayConnectPeer'),
+    newCreateTransitGatewayConnectPeer,
+    CreateTransitGatewayConnectPeerResponse (CreateTransitGatewayConnectPeerResponse'),
+    newCreateTransitGatewayConnectPeerResponse,
+
+    -- ** CreateTransitGatewayMulticastDomain
+    CreateTransitGatewayMulticastDomain (CreateTransitGatewayMulticastDomain'),
+    newCreateTransitGatewayMulticastDomain,
+    CreateTransitGatewayMulticastDomainResponse (CreateTransitGatewayMulticastDomainResponse'),
+    newCreateTransitGatewayMulticastDomainResponse,
+
+    -- ** CreateTransitGatewayPeeringAttachment
+    CreateTransitGatewayPeeringAttachment (CreateTransitGatewayPeeringAttachment'),
+    newCreateTransitGatewayPeeringAttachment,
+    CreateTransitGatewayPeeringAttachmentResponse (CreateTransitGatewayPeeringAttachmentResponse'),
+    newCreateTransitGatewayPeeringAttachmentResponse,
+
+    -- ** CreateTransitGatewayPrefixListReference
+    CreateTransitGatewayPrefixListReference (CreateTransitGatewayPrefixListReference'),
+    newCreateTransitGatewayPrefixListReference,
+    CreateTransitGatewayPrefixListReferenceResponse (CreateTransitGatewayPrefixListReferenceResponse'),
+    newCreateTransitGatewayPrefixListReferenceResponse,
+
+    -- ** CreateTransitGatewayRoute
+    CreateTransitGatewayRoute (CreateTransitGatewayRoute'),
+    newCreateTransitGatewayRoute,
+    CreateTransitGatewayRouteResponse (CreateTransitGatewayRouteResponse'),
+    newCreateTransitGatewayRouteResponse,
+
+    -- ** CreateTransitGatewayRouteTable
+    CreateTransitGatewayRouteTable (CreateTransitGatewayRouteTable'),
+    newCreateTransitGatewayRouteTable,
+    CreateTransitGatewayRouteTableResponse (CreateTransitGatewayRouteTableResponse'),
+    newCreateTransitGatewayRouteTableResponse,
+
+    -- ** CreateTransitGatewayVpcAttachment
+    CreateTransitGatewayVpcAttachment (CreateTransitGatewayVpcAttachment'),
+    newCreateTransitGatewayVpcAttachment,
+    CreateTransitGatewayVpcAttachmentResponse (CreateTransitGatewayVpcAttachmentResponse'),
+    newCreateTransitGatewayVpcAttachmentResponse,
+
+    -- ** CreateVolume
+    CreateVolume (CreateVolume'),
+    newCreateVolume,
+    Volume (Volume'),
+    newVolume,
+
+    -- ** CreateVpc
+    CreateVpc (CreateVpc'),
+    newCreateVpc,
+    CreateVpcResponse (CreateVpcResponse'),
+    newCreateVpcResponse,
+
+    -- ** CreateVpcEndpoint
+    CreateVpcEndpoint (CreateVpcEndpoint'),
+    newCreateVpcEndpoint,
+    CreateVpcEndpointResponse (CreateVpcEndpointResponse'),
+    newCreateVpcEndpointResponse,
+
+    -- ** CreateVpcEndpointConnectionNotification
+    CreateVpcEndpointConnectionNotification (CreateVpcEndpointConnectionNotification'),
+    newCreateVpcEndpointConnectionNotification,
+    CreateVpcEndpointConnectionNotificationResponse (CreateVpcEndpointConnectionNotificationResponse'),
+    newCreateVpcEndpointConnectionNotificationResponse,
+
+    -- ** CreateVpcEndpointServiceConfiguration
+    CreateVpcEndpointServiceConfiguration (CreateVpcEndpointServiceConfiguration'),
+    newCreateVpcEndpointServiceConfiguration,
+    CreateVpcEndpointServiceConfigurationResponse (CreateVpcEndpointServiceConfigurationResponse'),
+    newCreateVpcEndpointServiceConfigurationResponse,
+
+    -- ** CreateVpcPeeringConnection
+    CreateVpcPeeringConnection (CreateVpcPeeringConnection'),
+    newCreateVpcPeeringConnection,
+    CreateVpcPeeringConnectionResponse (CreateVpcPeeringConnectionResponse'),
+    newCreateVpcPeeringConnectionResponse,
+
+    -- ** CreateVpnConnection
+    CreateVpnConnection (CreateVpnConnection'),
+    newCreateVpnConnection,
+    CreateVpnConnectionResponse (CreateVpnConnectionResponse'),
+    newCreateVpnConnectionResponse,
+
+    -- ** CreateVpnConnectionRoute
+    CreateVpnConnectionRoute (CreateVpnConnectionRoute'),
+    newCreateVpnConnectionRoute,
+    CreateVpnConnectionRouteResponse (CreateVpnConnectionRouteResponse'),
+    newCreateVpnConnectionRouteResponse,
+
+    -- ** CreateVpnGateway
+    CreateVpnGateway (CreateVpnGateway'),
+    newCreateVpnGateway,
+    CreateVpnGatewayResponse (CreateVpnGatewayResponse'),
+    newCreateVpnGatewayResponse,
+
+    -- ** DeleteCarrierGateway
+    DeleteCarrierGateway (DeleteCarrierGateway'),
+    newDeleteCarrierGateway,
+    DeleteCarrierGatewayResponse (DeleteCarrierGatewayResponse'),
+    newDeleteCarrierGatewayResponse,
+
+    -- ** DeleteClientVpnEndpoint
+    DeleteClientVpnEndpoint (DeleteClientVpnEndpoint'),
+    newDeleteClientVpnEndpoint,
+    DeleteClientVpnEndpointResponse (DeleteClientVpnEndpointResponse'),
+    newDeleteClientVpnEndpointResponse,
+
+    -- ** DeleteClientVpnRoute
+    DeleteClientVpnRoute (DeleteClientVpnRoute'),
+    newDeleteClientVpnRoute,
+    DeleteClientVpnRouteResponse (DeleteClientVpnRouteResponse'),
+    newDeleteClientVpnRouteResponse,
+
+    -- ** DeleteCustomerGateway
+    DeleteCustomerGateway (DeleteCustomerGateway'),
+    newDeleteCustomerGateway,
+    DeleteCustomerGatewayResponse (DeleteCustomerGatewayResponse'),
+    newDeleteCustomerGatewayResponse,
+
+    -- ** DeleteDhcpOptions
+    DeleteDhcpOptions (DeleteDhcpOptions'),
+    newDeleteDhcpOptions,
+    DeleteDhcpOptionsResponse (DeleteDhcpOptionsResponse'),
+    newDeleteDhcpOptionsResponse,
+
+    -- ** DeleteEgressOnlyInternetGateway
+    DeleteEgressOnlyInternetGateway (DeleteEgressOnlyInternetGateway'),
+    newDeleteEgressOnlyInternetGateway,
+    DeleteEgressOnlyInternetGatewayResponse (DeleteEgressOnlyInternetGatewayResponse'),
+    newDeleteEgressOnlyInternetGatewayResponse,
+
+    -- ** DeleteFleets
+    DeleteFleets (DeleteFleets'),
+    newDeleteFleets,
+    DeleteFleetsResponse (DeleteFleetsResponse'),
+    newDeleteFleetsResponse,
+
+    -- ** DeleteFlowLogs
+    DeleteFlowLogs (DeleteFlowLogs'),
+    newDeleteFlowLogs,
+    DeleteFlowLogsResponse (DeleteFlowLogsResponse'),
+    newDeleteFlowLogsResponse,
+
+    -- ** DeleteFpgaImage
+    DeleteFpgaImage (DeleteFpgaImage'),
+    newDeleteFpgaImage,
+    DeleteFpgaImageResponse (DeleteFpgaImageResponse'),
+    newDeleteFpgaImageResponse,
+
+    -- ** DeleteInstanceEventWindow
+    DeleteInstanceEventWindow (DeleteInstanceEventWindow'),
+    newDeleteInstanceEventWindow,
+    DeleteInstanceEventWindowResponse (DeleteInstanceEventWindowResponse'),
+    newDeleteInstanceEventWindowResponse,
+
+    -- ** DeleteInternetGateway
+    DeleteInternetGateway (DeleteInternetGateway'),
+    newDeleteInternetGateway,
+    DeleteInternetGatewayResponse (DeleteInternetGatewayResponse'),
+    newDeleteInternetGatewayResponse,
+
+    -- ** DeleteKeyPair
+    DeleteKeyPair (DeleteKeyPair'),
+    newDeleteKeyPair,
+    DeleteKeyPairResponse (DeleteKeyPairResponse'),
+    newDeleteKeyPairResponse,
+
+    -- ** DeleteLaunchTemplate
+    DeleteLaunchTemplate (DeleteLaunchTemplate'),
+    newDeleteLaunchTemplate,
+    DeleteLaunchTemplateResponse (DeleteLaunchTemplateResponse'),
+    newDeleteLaunchTemplateResponse,
+
+    -- ** DeleteLaunchTemplateVersions
+    DeleteLaunchTemplateVersions (DeleteLaunchTemplateVersions'),
+    newDeleteLaunchTemplateVersions,
+    DeleteLaunchTemplateVersionsResponse (DeleteLaunchTemplateVersionsResponse'),
+    newDeleteLaunchTemplateVersionsResponse,
+
+    -- ** DeleteLocalGatewayRoute
+    DeleteLocalGatewayRoute (DeleteLocalGatewayRoute'),
+    newDeleteLocalGatewayRoute,
+    DeleteLocalGatewayRouteResponse (DeleteLocalGatewayRouteResponse'),
+    newDeleteLocalGatewayRouteResponse,
+
+    -- ** DeleteLocalGatewayRouteTableVpcAssociation
+    DeleteLocalGatewayRouteTableVpcAssociation (DeleteLocalGatewayRouteTableVpcAssociation'),
+    newDeleteLocalGatewayRouteTableVpcAssociation,
+    DeleteLocalGatewayRouteTableVpcAssociationResponse (DeleteLocalGatewayRouteTableVpcAssociationResponse'),
+    newDeleteLocalGatewayRouteTableVpcAssociationResponse,
+
+    -- ** DeleteManagedPrefixList
+    DeleteManagedPrefixList (DeleteManagedPrefixList'),
+    newDeleteManagedPrefixList,
+    DeleteManagedPrefixListResponse (DeleteManagedPrefixListResponse'),
+    newDeleteManagedPrefixListResponse,
+
+    -- ** DeleteNatGateway
+    DeleteNatGateway (DeleteNatGateway'),
+    newDeleteNatGateway,
+    DeleteNatGatewayResponse (DeleteNatGatewayResponse'),
+    newDeleteNatGatewayResponse,
+
+    -- ** DeleteNetworkAcl
+    DeleteNetworkAcl (DeleteNetworkAcl'),
+    newDeleteNetworkAcl,
+    DeleteNetworkAclResponse (DeleteNetworkAclResponse'),
+    newDeleteNetworkAclResponse,
+
+    -- ** DeleteNetworkAclEntry
+    DeleteNetworkAclEntry (DeleteNetworkAclEntry'),
+    newDeleteNetworkAclEntry,
+    DeleteNetworkAclEntryResponse (DeleteNetworkAclEntryResponse'),
+    newDeleteNetworkAclEntryResponse,
+
+    -- ** DeleteNetworkInsightsAnalysis
+    DeleteNetworkInsightsAnalysis (DeleteNetworkInsightsAnalysis'),
+    newDeleteNetworkInsightsAnalysis,
+    DeleteNetworkInsightsAnalysisResponse (DeleteNetworkInsightsAnalysisResponse'),
+    newDeleteNetworkInsightsAnalysisResponse,
+
+    -- ** DeleteNetworkInsightsPath
+    DeleteNetworkInsightsPath (DeleteNetworkInsightsPath'),
+    newDeleteNetworkInsightsPath,
+    DeleteNetworkInsightsPathResponse (DeleteNetworkInsightsPathResponse'),
+    newDeleteNetworkInsightsPathResponse,
+
+    -- ** DeleteNetworkInterface
+    DeleteNetworkInterface (DeleteNetworkInterface'),
+    newDeleteNetworkInterface,
+    DeleteNetworkInterfaceResponse (DeleteNetworkInterfaceResponse'),
+    newDeleteNetworkInterfaceResponse,
+
+    -- ** DeleteNetworkInterfacePermission
+    DeleteNetworkInterfacePermission (DeleteNetworkInterfacePermission'),
+    newDeleteNetworkInterfacePermission,
+    DeleteNetworkInterfacePermissionResponse (DeleteNetworkInterfacePermissionResponse'),
+    newDeleteNetworkInterfacePermissionResponse,
+
+    -- ** DeletePlacementGroup
+    DeletePlacementGroup (DeletePlacementGroup'),
+    newDeletePlacementGroup,
+    DeletePlacementGroupResponse (DeletePlacementGroupResponse'),
+    newDeletePlacementGroupResponse,
+
+    -- ** DeleteQueuedReservedInstances
+    DeleteQueuedReservedInstances (DeleteQueuedReservedInstances'),
+    newDeleteQueuedReservedInstances,
+    DeleteQueuedReservedInstancesResponse (DeleteQueuedReservedInstancesResponse'),
+    newDeleteQueuedReservedInstancesResponse,
+
+    -- ** DeleteRoute
+    DeleteRoute (DeleteRoute'),
+    newDeleteRoute,
+    DeleteRouteResponse (DeleteRouteResponse'),
+    newDeleteRouteResponse,
+
+    -- ** DeleteRouteTable
+    DeleteRouteTable (DeleteRouteTable'),
+    newDeleteRouteTable,
+    DeleteRouteTableResponse (DeleteRouteTableResponse'),
+    newDeleteRouteTableResponse,
+
+    -- ** DeleteSecurityGroup
+    DeleteSecurityGroup (DeleteSecurityGroup'),
+    newDeleteSecurityGroup,
+    DeleteSecurityGroupResponse (DeleteSecurityGroupResponse'),
+    newDeleteSecurityGroupResponse,
+
+    -- ** DeleteSnapshot
+    DeleteSnapshot (DeleteSnapshot'),
+    newDeleteSnapshot,
+    DeleteSnapshotResponse (DeleteSnapshotResponse'),
+    newDeleteSnapshotResponse,
+
+    -- ** DeleteSpotDatafeedSubscription
+    DeleteSpotDatafeedSubscription (DeleteSpotDatafeedSubscription'),
+    newDeleteSpotDatafeedSubscription,
+    DeleteSpotDatafeedSubscriptionResponse (DeleteSpotDatafeedSubscriptionResponse'),
+    newDeleteSpotDatafeedSubscriptionResponse,
+
+    -- ** DeleteSubnet
+    DeleteSubnet (DeleteSubnet'),
+    newDeleteSubnet,
+    DeleteSubnetResponse (DeleteSubnetResponse'),
+    newDeleteSubnetResponse,
+
+    -- ** DeleteSubnetCidrReservation
+    DeleteSubnetCidrReservation (DeleteSubnetCidrReservation'),
+    newDeleteSubnetCidrReservation,
+    DeleteSubnetCidrReservationResponse (DeleteSubnetCidrReservationResponse'),
+    newDeleteSubnetCidrReservationResponse,
+
+    -- ** DeleteTags
+    DeleteTags (DeleteTags'),
+    newDeleteTags,
+    DeleteTagsResponse (DeleteTagsResponse'),
+    newDeleteTagsResponse,
+
+    -- ** DeleteTrafficMirrorFilter
+    DeleteTrafficMirrorFilter (DeleteTrafficMirrorFilter'),
+    newDeleteTrafficMirrorFilter,
+    DeleteTrafficMirrorFilterResponse (DeleteTrafficMirrorFilterResponse'),
+    newDeleteTrafficMirrorFilterResponse,
+
+    -- ** DeleteTrafficMirrorFilterRule
+    DeleteTrafficMirrorFilterRule (DeleteTrafficMirrorFilterRule'),
+    newDeleteTrafficMirrorFilterRule,
+    DeleteTrafficMirrorFilterRuleResponse (DeleteTrafficMirrorFilterRuleResponse'),
+    newDeleteTrafficMirrorFilterRuleResponse,
+
+    -- ** DeleteTrafficMirrorSession
+    DeleteTrafficMirrorSession (DeleteTrafficMirrorSession'),
+    newDeleteTrafficMirrorSession,
+    DeleteTrafficMirrorSessionResponse (DeleteTrafficMirrorSessionResponse'),
+    newDeleteTrafficMirrorSessionResponse,
+
+    -- ** DeleteTrafficMirrorTarget
+    DeleteTrafficMirrorTarget (DeleteTrafficMirrorTarget'),
+    newDeleteTrafficMirrorTarget,
+    DeleteTrafficMirrorTargetResponse (DeleteTrafficMirrorTargetResponse'),
+    newDeleteTrafficMirrorTargetResponse,
+
+    -- ** DeleteTransitGateway
+    DeleteTransitGateway (DeleteTransitGateway'),
+    newDeleteTransitGateway,
+    DeleteTransitGatewayResponse (DeleteTransitGatewayResponse'),
+    newDeleteTransitGatewayResponse,
+
+    -- ** DeleteTransitGatewayConnect
+    DeleteTransitGatewayConnect (DeleteTransitGatewayConnect'),
+    newDeleteTransitGatewayConnect,
+    DeleteTransitGatewayConnectResponse (DeleteTransitGatewayConnectResponse'),
+    newDeleteTransitGatewayConnectResponse,
+
+    -- ** DeleteTransitGatewayConnectPeer
+    DeleteTransitGatewayConnectPeer (DeleteTransitGatewayConnectPeer'),
+    newDeleteTransitGatewayConnectPeer,
+    DeleteTransitGatewayConnectPeerResponse (DeleteTransitGatewayConnectPeerResponse'),
+    newDeleteTransitGatewayConnectPeerResponse,
+
+    -- ** DeleteTransitGatewayMulticastDomain
+    DeleteTransitGatewayMulticastDomain (DeleteTransitGatewayMulticastDomain'),
+    newDeleteTransitGatewayMulticastDomain,
+    DeleteTransitGatewayMulticastDomainResponse (DeleteTransitGatewayMulticastDomainResponse'),
+    newDeleteTransitGatewayMulticastDomainResponse,
+
+    -- ** DeleteTransitGatewayPeeringAttachment
+    DeleteTransitGatewayPeeringAttachment (DeleteTransitGatewayPeeringAttachment'),
+    newDeleteTransitGatewayPeeringAttachment,
+    DeleteTransitGatewayPeeringAttachmentResponse (DeleteTransitGatewayPeeringAttachmentResponse'),
+    newDeleteTransitGatewayPeeringAttachmentResponse,
+
+    -- ** DeleteTransitGatewayPrefixListReference
+    DeleteTransitGatewayPrefixListReference (DeleteTransitGatewayPrefixListReference'),
+    newDeleteTransitGatewayPrefixListReference,
+    DeleteTransitGatewayPrefixListReferenceResponse (DeleteTransitGatewayPrefixListReferenceResponse'),
+    newDeleteTransitGatewayPrefixListReferenceResponse,
+
+    -- ** DeleteTransitGatewayRoute
+    DeleteTransitGatewayRoute (DeleteTransitGatewayRoute'),
+    newDeleteTransitGatewayRoute,
+    DeleteTransitGatewayRouteResponse (DeleteTransitGatewayRouteResponse'),
+    newDeleteTransitGatewayRouteResponse,
+
+    -- ** DeleteTransitGatewayRouteTable
+    DeleteTransitGatewayRouteTable (DeleteTransitGatewayRouteTable'),
+    newDeleteTransitGatewayRouteTable,
+    DeleteTransitGatewayRouteTableResponse (DeleteTransitGatewayRouteTableResponse'),
+    newDeleteTransitGatewayRouteTableResponse,
+
+    -- ** DeleteTransitGatewayVpcAttachment
+    DeleteTransitGatewayVpcAttachment (DeleteTransitGatewayVpcAttachment'),
+    newDeleteTransitGatewayVpcAttachment,
+    DeleteTransitGatewayVpcAttachmentResponse (DeleteTransitGatewayVpcAttachmentResponse'),
+    newDeleteTransitGatewayVpcAttachmentResponse,
+
+    -- ** DeleteVolume
+    DeleteVolume (DeleteVolume'),
+    newDeleteVolume,
+    DeleteVolumeResponse (DeleteVolumeResponse'),
+    newDeleteVolumeResponse,
+
+    -- ** DeleteVpc
+    DeleteVpc (DeleteVpc'),
+    newDeleteVpc,
+    DeleteVpcResponse (DeleteVpcResponse'),
+    newDeleteVpcResponse,
+
+    -- ** DeleteVpcEndpointConnectionNotifications
+    DeleteVpcEndpointConnectionNotifications (DeleteVpcEndpointConnectionNotifications'),
+    newDeleteVpcEndpointConnectionNotifications,
+    DeleteVpcEndpointConnectionNotificationsResponse (DeleteVpcEndpointConnectionNotificationsResponse'),
+    newDeleteVpcEndpointConnectionNotificationsResponse,
+
+    -- ** DeleteVpcEndpointServiceConfigurations
+    DeleteVpcEndpointServiceConfigurations (DeleteVpcEndpointServiceConfigurations'),
+    newDeleteVpcEndpointServiceConfigurations,
+    DeleteVpcEndpointServiceConfigurationsResponse (DeleteVpcEndpointServiceConfigurationsResponse'),
+    newDeleteVpcEndpointServiceConfigurationsResponse,
+
+    -- ** DeleteVpcEndpoints
+    DeleteVpcEndpoints (DeleteVpcEndpoints'),
+    newDeleteVpcEndpoints,
+    DeleteVpcEndpointsResponse (DeleteVpcEndpointsResponse'),
+    newDeleteVpcEndpointsResponse,
+
+    -- ** DeleteVpcPeeringConnection
+    DeleteVpcPeeringConnection (DeleteVpcPeeringConnection'),
+    newDeleteVpcPeeringConnection,
+    DeleteVpcPeeringConnectionResponse (DeleteVpcPeeringConnectionResponse'),
+    newDeleteVpcPeeringConnectionResponse,
+
+    -- ** DeleteVpnConnection
+    DeleteVpnConnection (DeleteVpnConnection'),
+    newDeleteVpnConnection,
+    DeleteVpnConnectionResponse (DeleteVpnConnectionResponse'),
+    newDeleteVpnConnectionResponse,
+
+    -- ** DeleteVpnConnectionRoute
+    DeleteVpnConnectionRoute (DeleteVpnConnectionRoute'),
+    newDeleteVpnConnectionRoute,
+    DeleteVpnConnectionRouteResponse (DeleteVpnConnectionRouteResponse'),
+    newDeleteVpnConnectionRouteResponse,
+
+    -- ** DeleteVpnGateway
+    DeleteVpnGateway (DeleteVpnGateway'),
+    newDeleteVpnGateway,
+    DeleteVpnGatewayResponse (DeleteVpnGatewayResponse'),
+    newDeleteVpnGatewayResponse,
+
+    -- ** DeprovisionByoipCidr
+    DeprovisionByoipCidr (DeprovisionByoipCidr'),
+    newDeprovisionByoipCidr,
+    DeprovisionByoipCidrResponse (DeprovisionByoipCidrResponse'),
+    newDeprovisionByoipCidrResponse,
+
+    -- ** DeregisterImage
+    DeregisterImage (DeregisterImage'),
+    newDeregisterImage,
+    DeregisterImageResponse (DeregisterImageResponse'),
+    newDeregisterImageResponse,
+
+    -- ** DeregisterInstanceEventNotificationAttributes
+    DeregisterInstanceEventNotificationAttributes (DeregisterInstanceEventNotificationAttributes'),
+    newDeregisterInstanceEventNotificationAttributes,
+    DeregisterInstanceEventNotificationAttributesResponse (DeregisterInstanceEventNotificationAttributesResponse'),
+    newDeregisterInstanceEventNotificationAttributesResponse,
+
+    -- ** DeregisterTransitGatewayMulticastGroupMembers
+    DeregisterTransitGatewayMulticastGroupMembers (DeregisterTransitGatewayMulticastGroupMembers'),
+    newDeregisterTransitGatewayMulticastGroupMembers,
+    DeregisterTransitGatewayMulticastGroupMembersResponse (DeregisterTransitGatewayMulticastGroupMembersResponse'),
+    newDeregisterTransitGatewayMulticastGroupMembersResponse,
+
+    -- ** DeregisterTransitGatewayMulticastGroupSources
+    DeregisterTransitGatewayMulticastGroupSources (DeregisterTransitGatewayMulticastGroupSources'),
+    newDeregisterTransitGatewayMulticastGroupSources,
+    DeregisterTransitGatewayMulticastGroupSourcesResponse (DeregisterTransitGatewayMulticastGroupSourcesResponse'),
+    newDeregisterTransitGatewayMulticastGroupSourcesResponse,
 
     -- ** DescribeAccountAttributes
     DescribeAccountAttributes (DescribeAccountAttributes'),
@@ -2462,11 +1184,1217 @@ module Amazonka.EC2
     DescribeAccountAttributesResponse (DescribeAccountAttributesResponse'),
     newDescribeAccountAttributesResponse,
 
+    -- ** DescribeAddresses
+    DescribeAddresses (DescribeAddresses'),
+    newDescribeAddresses,
+    DescribeAddressesResponse (DescribeAddressesResponse'),
+    newDescribeAddressesResponse,
+
+    -- ** DescribeAddressesAttribute (Paginated)
+    DescribeAddressesAttribute (DescribeAddressesAttribute'),
+    newDescribeAddressesAttribute,
+    DescribeAddressesAttributeResponse (DescribeAddressesAttributeResponse'),
+    newDescribeAddressesAttributeResponse,
+
+    -- ** DescribeAggregateIdFormat
+    DescribeAggregateIdFormat (DescribeAggregateIdFormat'),
+    newDescribeAggregateIdFormat,
+    DescribeAggregateIdFormatResponse (DescribeAggregateIdFormatResponse'),
+    newDescribeAggregateIdFormatResponse,
+
+    -- ** DescribeAvailabilityZones
+    DescribeAvailabilityZones (DescribeAvailabilityZones'),
+    newDescribeAvailabilityZones,
+    DescribeAvailabilityZonesResponse (DescribeAvailabilityZonesResponse'),
+    newDescribeAvailabilityZonesResponse,
+
+    -- ** DescribeBundleTasks
+    DescribeBundleTasks (DescribeBundleTasks'),
+    newDescribeBundleTasks,
+    DescribeBundleTasksResponse (DescribeBundleTasksResponse'),
+    newDescribeBundleTasksResponse,
+
+    -- ** DescribeByoipCidrs (Paginated)
+    DescribeByoipCidrs (DescribeByoipCidrs'),
+    newDescribeByoipCidrs,
+    DescribeByoipCidrsResponse (DescribeByoipCidrsResponse'),
+    newDescribeByoipCidrsResponse,
+
+    -- ** DescribeCapacityReservationFleets (Paginated)
+    DescribeCapacityReservationFleets (DescribeCapacityReservationFleets'),
+    newDescribeCapacityReservationFleets,
+    DescribeCapacityReservationFleetsResponse (DescribeCapacityReservationFleetsResponse'),
+    newDescribeCapacityReservationFleetsResponse,
+
+    -- ** DescribeCapacityReservations (Paginated)
+    DescribeCapacityReservations (DescribeCapacityReservations'),
+    newDescribeCapacityReservations,
+    DescribeCapacityReservationsResponse (DescribeCapacityReservationsResponse'),
+    newDescribeCapacityReservationsResponse,
+
+    -- ** DescribeCarrierGateways (Paginated)
+    DescribeCarrierGateways (DescribeCarrierGateways'),
+    newDescribeCarrierGateways,
+    DescribeCarrierGatewaysResponse (DescribeCarrierGatewaysResponse'),
+    newDescribeCarrierGatewaysResponse,
+
+    -- ** DescribeClassicLinkInstances (Paginated)
+    DescribeClassicLinkInstances (DescribeClassicLinkInstances'),
+    newDescribeClassicLinkInstances,
+    DescribeClassicLinkInstancesResponse (DescribeClassicLinkInstancesResponse'),
+    newDescribeClassicLinkInstancesResponse,
+
+    -- ** DescribeClientVpnAuthorizationRules (Paginated)
+    DescribeClientVpnAuthorizationRules (DescribeClientVpnAuthorizationRules'),
+    newDescribeClientVpnAuthorizationRules,
+    DescribeClientVpnAuthorizationRulesResponse (DescribeClientVpnAuthorizationRulesResponse'),
+    newDescribeClientVpnAuthorizationRulesResponse,
+
+    -- ** DescribeClientVpnConnections (Paginated)
+    DescribeClientVpnConnections (DescribeClientVpnConnections'),
+    newDescribeClientVpnConnections,
+    DescribeClientVpnConnectionsResponse (DescribeClientVpnConnectionsResponse'),
+    newDescribeClientVpnConnectionsResponse,
+
+    -- ** DescribeClientVpnEndpoints (Paginated)
+    DescribeClientVpnEndpoints (DescribeClientVpnEndpoints'),
+    newDescribeClientVpnEndpoints,
+    DescribeClientVpnEndpointsResponse (DescribeClientVpnEndpointsResponse'),
+    newDescribeClientVpnEndpointsResponse,
+
+    -- ** DescribeClientVpnRoutes (Paginated)
+    DescribeClientVpnRoutes (DescribeClientVpnRoutes'),
+    newDescribeClientVpnRoutes,
+    DescribeClientVpnRoutesResponse (DescribeClientVpnRoutesResponse'),
+    newDescribeClientVpnRoutesResponse,
+
+    -- ** DescribeClientVpnTargetNetworks (Paginated)
+    DescribeClientVpnTargetNetworks (DescribeClientVpnTargetNetworks'),
+    newDescribeClientVpnTargetNetworks,
+    DescribeClientVpnTargetNetworksResponse (DescribeClientVpnTargetNetworksResponse'),
+    newDescribeClientVpnTargetNetworksResponse,
+
+    -- ** DescribeCoipPools (Paginated)
+    DescribeCoipPools (DescribeCoipPools'),
+    newDescribeCoipPools,
+    DescribeCoipPoolsResponse (DescribeCoipPoolsResponse'),
+    newDescribeCoipPoolsResponse,
+
+    -- ** DescribeConversionTasks
+    DescribeConversionTasks (DescribeConversionTasks'),
+    newDescribeConversionTasks,
+    DescribeConversionTasksResponse (DescribeConversionTasksResponse'),
+    newDescribeConversionTasksResponse,
+
+    -- ** DescribeCustomerGateways
+    DescribeCustomerGateways (DescribeCustomerGateways'),
+    newDescribeCustomerGateways,
+    DescribeCustomerGatewaysResponse (DescribeCustomerGatewaysResponse'),
+    newDescribeCustomerGatewaysResponse,
+
+    -- ** DescribeDhcpOptions (Paginated)
+    DescribeDhcpOptions (DescribeDhcpOptions'),
+    newDescribeDhcpOptions,
+    DescribeDhcpOptionsResponse (DescribeDhcpOptionsResponse'),
+    newDescribeDhcpOptionsResponse,
+
+    -- ** DescribeEgressOnlyInternetGateways (Paginated)
+    DescribeEgressOnlyInternetGateways (DescribeEgressOnlyInternetGateways'),
+    newDescribeEgressOnlyInternetGateways,
+    DescribeEgressOnlyInternetGatewaysResponse (DescribeEgressOnlyInternetGatewaysResponse'),
+    newDescribeEgressOnlyInternetGatewaysResponse,
+
+    -- ** DescribeElasticGpus
+    DescribeElasticGpus (DescribeElasticGpus'),
+    newDescribeElasticGpus,
+    DescribeElasticGpusResponse (DescribeElasticGpusResponse'),
+    newDescribeElasticGpusResponse,
+
+    -- ** DescribeExportImageTasks (Paginated)
+    DescribeExportImageTasks (DescribeExportImageTasks'),
+    newDescribeExportImageTasks,
+    DescribeExportImageTasksResponse (DescribeExportImageTasksResponse'),
+    newDescribeExportImageTasksResponse,
+
+    -- ** DescribeExportTasks
+    DescribeExportTasks (DescribeExportTasks'),
+    newDescribeExportTasks,
+    DescribeExportTasksResponse (DescribeExportTasksResponse'),
+    newDescribeExportTasksResponse,
+
+    -- ** DescribeFastSnapshotRestores (Paginated)
+    DescribeFastSnapshotRestores (DescribeFastSnapshotRestores'),
+    newDescribeFastSnapshotRestores,
+    DescribeFastSnapshotRestoresResponse (DescribeFastSnapshotRestoresResponse'),
+    newDescribeFastSnapshotRestoresResponse,
+
+    -- ** DescribeFleetHistory
+    DescribeFleetHistory (DescribeFleetHistory'),
+    newDescribeFleetHistory,
+    DescribeFleetHistoryResponse (DescribeFleetHistoryResponse'),
+    newDescribeFleetHistoryResponse,
+
+    -- ** DescribeFleetInstances
+    DescribeFleetInstances (DescribeFleetInstances'),
+    newDescribeFleetInstances,
+    DescribeFleetInstancesResponse (DescribeFleetInstancesResponse'),
+    newDescribeFleetInstancesResponse,
+
+    -- ** DescribeFleets (Paginated)
+    DescribeFleets (DescribeFleets'),
+    newDescribeFleets,
+    DescribeFleetsResponse (DescribeFleetsResponse'),
+    newDescribeFleetsResponse,
+
+    -- ** DescribeFlowLogs (Paginated)
+    DescribeFlowLogs (DescribeFlowLogs'),
+    newDescribeFlowLogs,
+    DescribeFlowLogsResponse (DescribeFlowLogsResponse'),
+    newDescribeFlowLogsResponse,
+
+    -- ** DescribeFpgaImageAttribute
+    DescribeFpgaImageAttribute (DescribeFpgaImageAttribute'),
+    newDescribeFpgaImageAttribute,
+    DescribeFpgaImageAttributeResponse (DescribeFpgaImageAttributeResponse'),
+    newDescribeFpgaImageAttributeResponse,
+
+    -- ** DescribeFpgaImages (Paginated)
+    DescribeFpgaImages (DescribeFpgaImages'),
+    newDescribeFpgaImages,
+    DescribeFpgaImagesResponse (DescribeFpgaImagesResponse'),
+    newDescribeFpgaImagesResponse,
+
+    -- ** DescribeHostReservationOfferings (Paginated)
+    DescribeHostReservationOfferings (DescribeHostReservationOfferings'),
+    newDescribeHostReservationOfferings,
+    DescribeHostReservationOfferingsResponse (DescribeHostReservationOfferingsResponse'),
+    newDescribeHostReservationOfferingsResponse,
+
+    -- ** DescribeHostReservations (Paginated)
+    DescribeHostReservations (DescribeHostReservations'),
+    newDescribeHostReservations,
+    DescribeHostReservationsResponse (DescribeHostReservationsResponse'),
+    newDescribeHostReservationsResponse,
+
+    -- ** DescribeHosts (Paginated)
+    DescribeHosts (DescribeHosts'),
+    newDescribeHosts,
+    DescribeHostsResponse (DescribeHostsResponse'),
+    newDescribeHostsResponse,
+
+    -- ** DescribeIamInstanceProfileAssociations (Paginated)
+    DescribeIamInstanceProfileAssociations (DescribeIamInstanceProfileAssociations'),
+    newDescribeIamInstanceProfileAssociations,
+    DescribeIamInstanceProfileAssociationsResponse (DescribeIamInstanceProfileAssociationsResponse'),
+    newDescribeIamInstanceProfileAssociationsResponse,
+
+    -- ** DescribeIdFormat
+    DescribeIdFormat (DescribeIdFormat'),
+    newDescribeIdFormat,
+    DescribeIdFormatResponse (DescribeIdFormatResponse'),
+    newDescribeIdFormatResponse,
+
+    -- ** DescribeIdentityIdFormat
+    DescribeIdentityIdFormat (DescribeIdentityIdFormat'),
+    newDescribeIdentityIdFormat,
+    DescribeIdentityIdFormatResponse (DescribeIdentityIdFormatResponse'),
+    newDescribeIdentityIdFormatResponse,
+
+    -- ** DescribeImageAttribute
+    DescribeImageAttribute (DescribeImageAttribute'),
+    newDescribeImageAttribute,
+    DescribeImageAttributeResponse (DescribeImageAttributeResponse'),
+    newDescribeImageAttributeResponse,
+
+    -- ** DescribeImages
+    DescribeImages (DescribeImages'),
+    newDescribeImages,
+    DescribeImagesResponse (DescribeImagesResponse'),
+    newDescribeImagesResponse,
+
+    -- ** DescribeImportImageTasks (Paginated)
+    DescribeImportImageTasks (DescribeImportImageTasks'),
+    newDescribeImportImageTasks,
+    DescribeImportImageTasksResponse (DescribeImportImageTasksResponse'),
+    newDescribeImportImageTasksResponse,
+
+    -- ** DescribeImportSnapshotTasks (Paginated)
+    DescribeImportSnapshotTasks (DescribeImportSnapshotTasks'),
+    newDescribeImportSnapshotTasks,
+    DescribeImportSnapshotTasksResponse (DescribeImportSnapshotTasksResponse'),
+    newDescribeImportSnapshotTasksResponse,
+
+    -- ** DescribeInstanceAttribute
+    DescribeInstanceAttribute (DescribeInstanceAttribute'),
+    newDescribeInstanceAttribute,
+    DescribeInstanceAttributeResponse (DescribeInstanceAttributeResponse'),
+    newDescribeInstanceAttributeResponse,
+
+    -- ** DescribeInstanceCreditSpecifications (Paginated)
+    DescribeInstanceCreditSpecifications (DescribeInstanceCreditSpecifications'),
+    newDescribeInstanceCreditSpecifications,
+    DescribeInstanceCreditSpecificationsResponse (DescribeInstanceCreditSpecificationsResponse'),
+    newDescribeInstanceCreditSpecificationsResponse,
+
+    -- ** DescribeInstanceEventNotificationAttributes
+    DescribeInstanceEventNotificationAttributes (DescribeInstanceEventNotificationAttributes'),
+    newDescribeInstanceEventNotificationAttributes,
+    DescribeInstanceEventNotificationAttributesResponse (DescribeInstanceEventNotificationAttributesResponse'),
+    newDescribeInstanceEventNotificationAttributesResponse,
+
+    -- ** DescribeInstanceEventWindows (Paginated)
+    DescribeInstanceEventWindows (DescribeInstanceEventWindows'),
+    newDescribeInstanceEventWindows,
+    DescribeInstanceEventWindowsResponse (DescribeInstanceEventWindowsResponse'),
+    newDescribeInstanceEventWindowsResponse,
+
+    -- ** DescribeInstanceStatus (Paginated)
+    DescribeInstanceStatus (DescribeInstanceStatus'),
+    newDescribeInstanceStatus,
+    DescribeInstanceStatusResponse (DescribeInstanceStatusResponse'),
+    newDescribeInstanceStatusResponse,
+
+    -- ** DescribeInstanceTypeOfferings (Paginated)
+    DescribeInstanceTypeOfferings (DescribeInstanceTypeOfferings'),
+    newDescribeInstanceTypeOfferings,
+    DescribeInstanceTypeOfferingsResponse (DescribeInstanceTypeOfferingsResponse'),
+    newDescribeInstanceTypeOfferingsResponse,
+
+    -- ** DescribeInstanceTypes (Paginated)
+    DescribeInstanceTypes (DescribeInstanceTypes'),
+    newDescribeInstanceTypes,
+    DescribeInstanceTypesResponse (DescribeInstanceTypesResponse'),
+    newDescribeInstanceTypesResponse,
+
+    -- ** DescribeInstances (Paginated)
+    DescribeInstances (DescribeInstances'),
+    newDescribeInstances,
+    DescribeInstancesResponse (DescribeInstancesResponse'),
+    newDescribeInstancesResponse,
+
+    -- ** DescribeInternetGateways (Paginated)
+    DescribeInternetGateways (DescribeInternetGateways'),
+    newDescribeInternetGateways,
+    DescribeInternetGatewaysResponse (DescribeInternetGatewaysResponse'),
+    newDescribeInternetGatewaysResponse,
+
+    -- ** DescribeIpv6Pools (Paginated)
+    DescribeIpv6Pools (DescribeIpv6Pools'),
+    newDescribeIpv6Pools,
+    DescribeIpv6PoolsResponse (DescribeIpv6PoolsResponse'),
+    newDescribeIpv6PoolsResponse,
+
+    -- ** DescribeKeyPairs
+    DescribeKeyPairs (DescribeKeyPairs'),
+    newDescribeKeyPairs,
+    DescribeKeyPairsResponse (DescribeKeyPairsResponse'),
+    newDescribeKeyPairsResponse,
+
+    -- ** DescribeLaunchTemplateVersions (Paginated)
+    DescribeLaunchTemplateVersions (DescribeLaunchTemplateVersions'),
+    newDescribeLaunchTemplateVersions,
+    DescribeLaunchTemplateVersionsResponse (DescribeLaunchTemplateVersionsResponse'),
+    newDescribeLaunchTemplateVersionsResponse,
+
+    -- ** DescribeLaunchTemplates (Paginated)
+    DescribeLaunchTemplates (DescribeLaunchTemplates'),
+    newDescribeLaunchTemplates,
+    DescribeLaunchTemplatesResponse (DescribeLaunchTemplatesResponse'),
+    newDescribeLaunchTemplatesResponse,
+
+    -- ** DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations (Paginated)
+    DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations (DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations'),
+    newDescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations,
+    DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse (DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse'),
+    newDescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse,
+
+    -- ** DescribeLocalGatewayRouteTableVpcAssociations (Paginated)
+    DescribeLocalGatewayRouteTableVpcAssociations (DescribeLocalGatewayRouteTableVpcAssociations'),
+    newDescribeLocalGatewayRouteTableVpcAssociations,
+    DescribeLocalGatewayRouteTableVpcAssociationsResponse (DescribeLocalGatewayRouteTableVpcAssociationsResponse'),
+    newDescribeLocalGatewayRouteTableVpcAssociationsResponse,
+
+    -- ** DescribeLocalGatewayRouteTables (Paginated)
+    DescribeLocalGatewayRouteTables (DescribeLocalGatewayRouteTables'),
+    newDescribeLocalGatewayRouteTables,
+    DescribeLocalGatewayRouteTablesResponse (DescribeLocalGatewayRouteTablesResponse'),
+    newDescribeLocalGatewayRouteTablesResponse,
+
+    -- ** DescribeLocalGatewayVirtualInterfaceGroups (Paginated)
+    DescribeLocalGatewayVirtualInterfaceGroups (DescribeLocalGatewayVirtualInterfaceGroups'),
+    newDescribeLocalGatewayVirtualInterfaceGroups,
+    DescribeLocalGatewayVirtualInterfaceGroupsResponse (DescribeLocalGatewayVirtualInterfaceGroupsResponse'),
+    newDescribeLocalGatewayVirtualInterfaceGroupsResponse,
+
+    -- ** DescribeLocalGatewayVirtualInterfaces (Paginated)
+    DescribeLocalGatewayVirtualInterfaces (DescribeLocalGatewayVirtualInterfaces'),
+    newDescribeLocalGatewayVirtualInterfaces,
+    DescribeLocalGatewayVirtualInterfacesResponse (DescribeLocalGatewayVirtualInterfacesResponse'),
+    newDescribeLocalGatewayVirtualInterfacesResponse,
+
+    -- ** DescribeLocalGateways (Paginated)
+    DescribeLocalGateways (DescribeLocalGateways'),
+    newDescribeLocalGateways,
+    DescribeLocalGatewaysResponse (DescribeLocalGatewaysResponse'),
+    newDescribeLocalGatewaysResponse,
+
+    -- ** DescribeManagedPrefixLists (Paginated)
+    DescribeManagedPrefixLists (DescribeManagedPrefixLists'),
+    newDescribeManagedPrefixLists,
+    DescribeManagedPrefixListsResponse (DescribeManagedPrefixListsResponse'),
+    newDescribeManagedPrefixListsResponse,
+
+    -- ** DescribeMovingAddresses (Paginated)
+    DescribeMovingAddresses (DescribeMovingAddresses'),
+    newDescribeMovingAddresses,
+    DescribeMovingAddressesResponse (DescribeMovingAddressesResponse'),
+    newDescribeMovingAddressesResponse,
+
+    -- ** DescribeNatGateways (Paginated)
+    DescribeNatGateways (DescribeNatGateways'),
+    newDescribeNatGateways,
+    DescribeNatGatewaysResponse (DescribeNatGatewaysResponse'),
+    newDescribeNatGatewaysResponse,
+
+    -- ** DescribeNetworkAcls (Paginated)
+    DescribeNetworkAcls (DescribeNetworkAcls'),
+    newDescribeNetworkAcls,
+    DescribeNetworkAclsResponse (DescribeNetworkAclsResponse'),
+    newDescribeNetworkAclsResponse,
+
+    -- ** DescribeNetworkInsightsAnalyses (Paginated)
+    DescribeNetworkInsightsAnalyses (DescribeNetworkInsightsAnalyses'),
+    newDescribeNetworkInsightsAnalyses,
+    DescribeNetworkInsightsAnalysesResponse (DescribeNetworkInsightsAnalysesResponse'),
+    newDescribeNetworkInsightsAnalysesResponse,
+
+    -- ** DescribeNetworkInsightsPaths (Paginated)
+    DescribeNetworkInsightsPaths (DescribeNetworkInsightsPaths'),
+    newDescribeNetworkInsightsPaths,
+    DescribeNetworkInsightsPathsResponse (DescribeNetworkInsightsPathsResponse'),
+    newDescribeNetworkInsightsPathsResponse,
+
+    -- ** DescribeNetworkInterfaceAttribute
+    DescribeNetworkInterfaceAttribute (DescribeNetworkInterfaceAttribute'),
+    newDescribeNetworkInterfaceAttribute,
+    DescribeNetworkInterfaceAttributeResponse (DescribeNetworkInterfaceAttributeResponse'),
+    newDescribeNetworkInterfaceAttributeResponse,
+
+    -- ** DescribeNetworkInterfacePermissions (Paginated)
+    DescribeNetworkInterfacePermissions (DescribeNetworkInterfacePermissions'),
+    newDescribeNetworkInterfacePermissions,
+    DescribeNetworkInterfacePermissionsResponse (DescribeNetworkInterfacePermissionsResponse'),
+    newDescribeNetworkInterfacePermissionsResponse,
+
+    -- ** DescribeNetworkInterfaces (Paginated)
+    DescribeNetworkInterfaces (DescribeNetworkInterfaces'),
+    newDescribeNetworkInterfaces,
+    DescribeNetworkInterfacesResponse (DescribeNetworkInterfacesResponse'),
+    newDescribeNetworkInterfacesResponse,
+
+    -- ** DescribePlacementGroups
+    DescribePlacementGroups (DescribePlacementGroups'),
+    newDescribePlacementGroups,
+    DescribePlacementGroupsResponse (DescribePlacementGroupsResponse'),
+    newDescribePlacementGroupsResponse,
+
+    -- ** DescribePrefixLists (Paginated)
+    DescribePrefixLists (DescribePrefixLists'),
+    newDescribePrefixLists,
+    DescribePrefixListsResponse (DescribePrefixListsResponse'),
+    newDescribePrefixListsResponse,
+
+    -- ** DescribePrincipalIdFormat (Paginated)
+    DescribePrincipalIdFormat (DescribePrincipalIdFormat'),
+    newDescribePrincipalIdFormat,
+    DescribePrincipalIdFormatResponse (DescribePrincipalIdFormatResponse'),
+    newDescribePrincipalIdFormatResponse,
+
+    -- ** DescribePublicIpv4Pools (Paginated)
+    DescribePublicIpv4Pools (DescribePublicIpv4Pools'),
+    newDescribePublicIpv4Pools,
+    DescribePublicIpv4PoolsResponse (DescribePublicIpv4PoolsResponse'),
+    newDescribePublicIpv4PoolsResponse,
+
+    -- ** DescribeRegions
+    DescribeRegions (DescribeRegions'),
+    newDescribeRegions,
+    DescribeRegionsResponse (DescribeRegionsResponse'),
+    newDescribeRegionsResponse,
+
+    -- ** DescribeReplaceRootVolumeTasks (Paginated)
+    DescribeReplaceRootVolumeTasks (DescribeReplaceRootVolumeTasks'),
+    newDescribeReplaceRootVolumeTasks,
+    DescribeReplaceRootVolumeTasksResponse (DescribeReplaceRootVolumeTasksResponse'),
+    newDescribeReplaceRootVolumeTasksResponse,
+
+    -- ** DescribeReservedInstances
+    DescribeReservedInstances (DescribeReservedInstances'),
+    newDescribeReservedInstances,
+    DescribeReservedInstancesResponse (DescribeReservedInstancesResponse'),
+    newDescribeReservedInstancesResponse,
+
+    -- ** DescribeReservedInstancesListings
+    DescribeReservedInstancesListings (DescribeReservedInstancesListings'),
+    newDescribeReservedInstancesListings,
+    DescribeReservedInstancesListingsResponse (DescribeReservedInstancesListingsResponse'),
+    newDescribeReservedInstancesListingsResponse,
+
+    -- ** DescribeReservedInstancesModifications (Paginated)
+    DescribeReservedInstancesModifications (DescribeReservedInstancesModifications'),
+    newDescribeReservedInstancesModifications,
+    DescribeReservedInstancesModificationsResponse (DescribeReservedInstancesModificationsResponse'),
+    newDescribeReservedInstancesModificationsResponse,
+
+    -- ** DescribeReservedInstancesOfferings (Paginated)
+    DescribeReservedInstancesOfferings (DescribeReservedInstancesOfferings'),
+    newDescribeReservedInstancesOfferings,
+    DescribeReservedInstancesOfferingsResponse (DescribeReservedInstancesOfferingsResponse'),
+    newDescribeReservedInstancesOfferingsResponse,
+
+    -- ** DescribeRouteTables (Paginated)
+    DescribeRouteTables (DescribeRouteTables'),
+    newDescribeRouteTables,
+    DescribeRouteTablesResponse (DescribeRouteTablesResponse'),
+    newDescribeRouteTablesResponse,
+
+    -- ** DescribeScheduledInstanceAvailability (Paginated)
+    DescribeScheduledInstanceAvailability (DescribeScheduledInstanceAvailability'),
+    newDescribeScheduledInstanceAvailability,
+    DescribeScheduledInstanceAvailabilityResponse (DescribeScheduledInstanceAvailabilityResponse'),
+    newDescribeScheduledInstanceAvailabilityResponse,
+
+    -- ** DescribeScheduledInstances (Paginated)
+    DescribeScheduledInstances (DescribeScheduledInstances'),
+    newDescribeScheduledInstances,
+    DescribeScheduledInstancesResponse (DescribeScheduledInstancesResponse'),
+    newDescribeScheduledInstancesResponse,
+
+    -- ** DescribeSecurityGroupReferences
+    DescribeSecurityGroupReferences (DescribeSecurityGroupReferences'),
+    newDescribeSecurityGroupReferences,
+    DescribeSecurityGroupReferencesResponse (DescribeSecurityGroupReferencesResponse'),
+    newDescribeSecurityGroupReferencesResponse,
+
+    -- ** DescribeSecurityGroupRules (Paginated)
+    DescribeSecurityGroupRules (DescribeSecurityGroupRules'),
+    newDescribeSecurityGroupRules,
+    DescribeSecurityGroupRulesResponse (DescribeSecurityGroupRulesResponse'),
+    newDescribeSecurityGroupRulesResponse,
+
+    -- ** DescribeSecurityGroups (Paginated)
+    DescribeSecurityGroups (DescribeSecurityGroups'),
+    newDescribeSecurityGroups,
+    DescribeSecurityGroupsResponse (DescribeSecurityGroupsResponse'),
+    newDescribeSecurityGroupsResponse,
+
+    -- ** DescribeSnapshotAttribute
+    DescribeSnapshotAttribute (DescribeSnapshotAttribute'),
+    newDescribeSnapshotAttribute,
+    DescribeSnapshotAttributeResponse (DescribeSnapshotAttributeResponse'),
+    newDescribeSnapshotAttributeResponse,
+
+    -- ** DescribeSnapshots (Paginated)
+    DescribeSnapshots (DescribeSnapshots'),
+    newDescribeSnapshots,
+    DescribeSnapshotsResponse (DescribeSnapshotsResponse'),
+    newDescribeSnapshotsResponse,
+
+    -- ** DescribeSpotDatafeedSubscription
+    DescribeSpotDatafeedSubscription (DescribeSpotDatafeedSubscription'),
+    newDescribeSpotDatafeedSubscription,
+    DescribeSpotDatafeedSubscriptionResponse (DescribeSpotDatafeedSubscriptionResponse'),
+    newDescribeSpotDatafeedSubscriptionResponse,
+
+    -- ** DescribeSpotFleetInstances (Paginated)
+    DescribeSpotFleetInstances (DescribeSpotFleetInstances'),
+    newDescribeSpotFleetInstances,
+    DescribeSpotFleetInstancesResponse (DescribeSpotFleetInstancesResponse'),
+    newDescribeSpotFleetInstancesResponse,
+
+    -- ** DescribeSpotFleetRequestHistory
+    DescribeSpotFleetRequestHistory (DescribeSpotFleetRequestHistory'),
+    newDescribeSpotFleetRequestHistory,
+    DescribeSpotFleetRequestHistoryResponse (DescribeSpotFleetRequestHistoryResponse'),
+    newDescribeSpotFleetRequestHistoryResponse,
+
+    -- ** DescribeSpotFleetRequests (Paginated)
+    DescribeSpotFleetRequests (DescribeSpotFleetRequests'),
+    newDescribeSpotFleetRequests,
+    DescribeSpotFleetRequestsResponse (DescribeSpotFleetRequestsResponse'),
+    newDescribeSpotFleetRequestsResponse,
+
+    -- ** DescribeSpotInstanceRequests (Paginated)
+    DescribeSpotInstanceRequests (DescribeSpotInstanceRequests'),
+    newDescribeSpotInstanceRequests,
+    DescribeSpotInstanceRequestsResponse (DescribeSpotInstanceRequestsResponse'),
+    newDescribeSpotInstanceRequestsResponse,
+
+    -- ** DescribeSpotPriceHistory (Paginated)
+    DescribeSpotPriceHistory (DescribeSpotPriceHistory'),
+    newDescribeSpotPriceHistory,
+    DescribeSpotPriceHistoryResponse (DescribeSpotPriceHistoryResponse'),
+    newDescribeSpotPriceHistoryResponse,
+
+    -- ** DescribeStaleSecurityGroups (Paginated)
+    DescribeStaleSecurityGroups (DescribeStaleSecurityGroups'),
+    newDescribeStaleSecurityGroups,
+    DescribeStaleSecurityGroupsResponse (DescribeStaleSecurityGroupsResponse'),
+    newDescribeStaleSecurityGroupsResponse,
+
+    -- ** DescribeStoreImageTasks (Paginated)
+    DescribeStoreImageTasks (DescribeStoreImageTasks'),
+    newDescribeStoreImageTasks,
+    DescribeStoreImageTasksResponse (DescribeStoreImageTasksResponse'),
+    newDescribeStoreImageTasksResponse,
+
+    -- ** DescribeSubnets (Paginated)
+    DescribeSubnets (DescribeSubnets'),
+    newDescribeSubnets,
+    DescribeSubnetsResponse (DescribeSubnetsResponse'),
+    newDescribeSubnetsResponse,
+
+    -- ** DescribeTags (Paginated)
+    DescribeTags (DescribeTags'),
+    newDescribeTags,
+    DescribeTagsResponse (DescribeTagsResponse'),
+    newDescribeTagsResponse,
+
+    -- ** DescribeTrafficMirrorFilters (Paginated)
+    DescribeTrafficMirrorFilters (DescribeTrafficMirrorFilters'),
+    newDescribeTrafficMirrorFilters,
+    DescribeTrafficMirrorFiltersResponse (DescribeTrafficMirrorFiltersResponse'),
+    newDescribeTrafficMirrorFiltersResponse,
+
+    -- ** DescribeTrafficMirrorSessions (Paginated)
+    DescribeTrafficMirrorSessions (DescribeTrafficMirrorSessions'),
+    newDescribeTrafficMirrorSessions,
+    DescribeTrafficMirrorSessionsResponse (DescribeTrafficMirrorSessionsResponse'),
+    newDescribeTrafficMirrorSessionsResponse,
+
+    -- ** DescribeTrafficMirrorTargets (Paginated)
+    DescribeTrafficMirrorTargets (DescribeTrafficMirrorTargets'),
+    newDescribeTrafficMirrorTargets,
+    DescribeTrafficMirrorTargetsResponse (DescribeTrafficMirrorTargetsResponse'),
+    newDescribeTrafficMirrorTargetsResponse,
+
+    -- ** DescribeTransitGatewayAttachments (Paginated)
+    DescribeTransitGatewayAttachments (DescribeTransitGatewayAttachments'),
+    newDescribeTransitGatewayAttachments,
+    DescribeTransitGatewayAttachmentsResponse (DescribeTransitGatewayAttachmentsResponse'),
+    newDescribeTransitGatewayAttachmentsResponse,
+
+    -- ** DescribeTransitGatewayConnectPeers (Paginated)
+    DescribeTransitGatewayConnectPeers (DescribeTransitGatewayConnectPeers'),
+    newDescribeTransitGatewayConnectPeers,
+    DescribeTransitGatewayConnectPeersResponse (DescribeTransitGatewayConnectPeersResponse'),
+    newDescribeTransitGatewayConnectPeersResponse,
+
+    -- ** DescribeTransitGatewayConnects (Paginated)
+    DescribeTransitGatewayConnects (DescribeTransitGatewayConnects'),
+    newDescribeTransitGatewayConnects,
+    DescribeTransitGatewayConnectsResponse (DescribeTransitGatewayConnectsResponse'),
+    newDescribeTransitGatewayConnectsResponse,
+
+    -- ** DescribeTransitGatewayMulticastDomains (Paginated)
+    DescribeTransitGatewayMulticastDomains (DescribeTransitGatewayMulticastDomains'),
+    newDescribeTransitGatewayMulticastDomains,
+    DescribeTransitGatewayMulticastDomainsResponse (DescribeTransitGatewayMulticastDomainsResponse'),
+    newDescribeTransitGatewayMulticastDomainsResponse,
+
+    -- ** DescribeTransitGatewayPeeringAttachments (Paginated)
+    DescribeTransitGatewayPeeringAttachments (DescribeTransitGatewayPeeringAttachments'),
+    newDescribeTransitGatewayPeeringAttachments,
+    DescribeTransitGatewayPeeringAttachmentsResponse (DescribeTransitGatewayPeeringAttachmentsResponse'),
+    newDescribeTransitGatewayPeeringAttachmentsResponse,
+
+    -- ** DescribeTransitGatewayRouteTables (Paginated)
+    DescribeTransitGatewayRouteTables (DescribeTransitGatewayRouteTables'),
+    newDescribeTransitGatewayRouteTables,
+    DescribeTransitGatewayRouteTablesResponse (DescribeTransitGatewayRouteTablesResponse'),
+    newDescribeTransitGatewayRouteTablesResponse,
+
+    -- ** DescribeTransitGatewayVpcAttachments (Paginated)
+    DescribeTransitGatewayVpcAttachments (DescribeTransitGatewayVpcAttachments'),
+    newDescribeTransitGatewayVpcAttachments,
+    DescribeTransitGatewayVpcAttachmentsResponse (DescribeTransitGatewayVpcAttachmentsResponse'),
+    newDescribeTransitGatewayVpcAttachmentsResponse,
+
+    -- ** DescribeTransitGateways (Paginated)
+    DescribeTransitGateways (DescribeTransitGateways'),
+    newDescribeTransitGateways,
+    DescribeTransitGatewaysResponse (DescribeTransitGatewaysResponse'),
+    newDescribeTransitGatewaysResponse,
+
+    -- ** DescribeTrunkInterfaceAssociations (Paginated)
+    DescribeTrunkInterfaceAssociations (DescribeTrunkInterfaceAssociations'),
+    newDescribeTrunkInterfaceAssociations,
+    DescribeTrunkInterfaceAssociationsResponse (DescribeTrunkInterfaceAssociationsResponse'),
+    newDescribeTrunkInterfaceAssociationsResponse,
+
+    -- ** DescribeVolumeAttribute
+    DescribeVolumeAttribute (DescribeVolumeAttribute'),
+    newDescribeVolumeAttribute,
+    DescribeVolumeAttributeResponse (DescribeVolumeAttributeResponse'),
+    newDescribeVolumeAttributeResponse,
+
+    -- ** DescribeVolumeStatus (Paginated)
+    DescribeVolumeStatus (DescribeVolumeStatus'),
+    newDescribeVolumeStatus,
+    DescribeVolumeStatusResponse (DescribeVolumeStatusResponse'),
+    newDescribeVolumeStatusResponse,
+
+    -- ** DescribeVolumes (Paginated)
+    DescribeVolumes (DescribeVolumes'),
+    newDescribeVolumes,
+    DescribeVolumesResponse (DescribeVolumesResponse'),
+    newDescribeVolumesResponse,
+
+    -- ** DescribeVolumesModifications (Paginated)
+    DescribeVolumesModifications (DescribeVolumesModifications'),
+    newDescribeVolumesModifications,
+    DescribeVolumesModificationsResponse (DescribeVolumesModificationsResponse'),
+    newDescribeVolumesModificationsResponse,
+
+    -- ** DescribeVpcAttribute
+    DescribeVpcAttribute (DescribeVpcAttribute'),
+    newDescribeVpcAttribute,
+    DescribeVpcAttributeResponse (DescribeVpcAttributeResponse'),
+    newDescribeVpcAttributeResponse,
+
+    -- ** DescribeVpcClassicLink
+    DescribeVpcClassicLink (DescribeVpcClassicLink'),
+    newDescribeVpcClassicLink,
+    DescribeVpcClassicLinkResponse (DescribeVpcClassicLinkResponse'),
+    newDescribeVpcClassicLinkResponse,
+
+    -- ** DescribeVpcClassicLinkDnsSupport (Paginated)
+    DescribeVpcClassicLinkDnsSupport (DescribeVpcClassicLinkDnsSupport'),
+    newDescribeVpcClassicLinkDnsSupport,
+    DescribeVpcClassicLinkDnsSupportResponse (DescribeVpcClassicLinkDnsSupportResponse'),
+    newDescribeVpcClassicLinkDnsSupportResponse,
+
+    -- ** DescribeVpcEndpointConnectionNotifications (Paginated)
+    DescribeVpcEndpointConnectionNotifications (DescribeVpcEndpointConnectionNotifications'),
+    newDescribeVpcEndpointConnectionNotifications,
+    DescribeVpcEndpointConnectionNotificationsResponse (DescribeVpcEndpointConnectionNotificationsResponse'),
+    newDescribeVpcEndpointConnectionNotificationsResponse,
+
+    -- ** DescribeVpcEndpointConnections (Paginated)
+    DescribeVpcEndpointConnections (DescribeVpcEndpointConnections'),
+    newDescribeVpcEndpointConnections,
+    DescribeVpcEndpointConnectionsResponse (DescribeVpcEndpointConnectionsResponse'),
+    newDescribeVpcEndpointConnectionsResponse,
+
+    -- ** DescribeVpcEndpointServiceConfigurations (Paginated)
+    DescribeVpcEndpointServiceConfigurations (DescribeVpcEndpointServiceConfigurations'),
+    newDescribeVpcEndpointServiceConfigurations,
+    DescribeVpcEndpointServiceConfigurationsResponse (DescribeVpcEndpointServiceConfigurationsResponse'),
+    newDescribeVpcEndpointServiceConfigurationsResponse,
+
+    -- ** DescribeVpcEndpointServicePermissions (Paginated)
+    DescribeVpcEndpointServicePermissions (DescribeVpcEndpointServicePermissions'),
+    newDescribeVpcEndpointServicePermissions,
+    DescribeVpcEndpointServicePermissionsResponse (DescribeVpcEndpointServicePermissionsResponse'),
+    newDescribeVpcEndpointServicePermissionsResponse,
+
+    -- ** DescribeVpcEndpointServices (Paginated)
+    DescribeVpcEndpointServices (DescribeVpcEndpointServices'),
+    newDescribeVpcEndpointServices,
+    DescribeVpcEndpointServicesResponse (DescribeVpcEndpointServicesResponse'),
+    newDescribeVpcEndpointServicesResponse,
+
+    -- ** DescribeVpcEndpoints (Paginated)
+    DescribeVpcEndpoints (DescribeVpcEndpoints'),
+    newDescribeVpcEndpoints,
+    DescribeVpcEndpointsResponse (DescribeVpcEndpointsResponse'),
+    newDescribeVpcEndpointsResponse,
+
+    -- ** DescribeVpcPeeringConnections (Paginated)
+    DescribeVpcPeeringConnections (DescribeVpcPeeringConnections'),
+    newDescribeVpcPeeringConnections,
+    DescribeVpcPeeringConnectionsResponse (DescribeVpcPeeringConnectionsResponse'),
+    newDescribeVpcPeeringConnectionsResponse,
+
+    -- ** DescribeVpcs (Paginated)
+    DescribeVpcs (DescribeVpcs'),
+    newDescribeVpcs,
+    DescribeVpcsResponse (DescribeVpcsResponse'),
+    newDescribeVpcsResponse,
+
+    -- ** DescribeVpnConnections
+    DescribeVpnConnections (DescribeVpnConnections'),
+    newDescribeVpnConnections,
+    DescribeVpnConnectionsResponse (DescribeVpnConnectionsResponse'),
+    newDescribeVpnConnectionsResponse,
+
+    -- ** DescribeVpnGateways
+    DescribeVpnGateways (DescribeVpnGateways'),
+    newDescribeVpnGateways,
+    DescribeVpnGatewaysResponse (DescribeVpnGatewaysResponse'),
+    newDescribeVpnGatewaysResponse,
+
+    -- ** DetachClassicLinkVpc
+    DetachClassicLinkVpc (DetachClassicLinkVpc'),
+    newDetachClassicLinkVpc,
+    DetachClassicLinkVpcResponse (DetachClassicLinkVpcResponse'),
+    newDetachClassicLinkVpcResponse,
+
+    -- ** DetachInternetGateway
+    DetachInternetGateway (DetachInternetGateway'),
+    newDetachInternetGateway,
+    DetachInternetGatewayResponse (DetachInternetGatewayResponse'),
+    newDetachInternetGatewayResponse,
+
+    -- ** DetachNetworkInterface
+    DetachNetworkInterface (DetachNetworkInterface'),
+    newDetachNetworkInterface,
+    DetachNetworkInterfaceResponse (DetachNetworkInterfaceResponse'),
+    newDetachNetworkInterfaceResponse,
+
+    -- ** DetachVolume
+    DetachVolume (DetachVolume'),
+    newDetachVolume,
+    VolumeAttachment (VolumeAttachment'),
+    newVolumeAttachment,
+
+    -- ** DetachVpnGateway
+    DetachVpnGateway (DetachVpnGateway'),
+    newDetachVpnGateway,
+    DetachVpnGatewayResponse (DetachVpnGatewayResponse'),
+    newDetachVpnGatewayResponse,
+
+    -- ** DisableEbsEncryptionByDefault
+    DisableEbsEncryptionByDefault (DisableEbsEncryptionByDefault'),
+    newDisableEbsEncryptionByDefault,
+    DisableEbsEncryptionByDefaultResponse (DisableEbsEncryptionByDefaultResponse'),
+    newDisableEbsEncryptionByDefaultResponse,
+
+    -- ** DisableFastSnapshotRestores
+    DisableFastSnapshotRestores (DisableFastSnapshotRestores'),
+    newDisableFastSnapshotRestores,
+    DisableFastSnapshotRestoresResponse (DisableFastSnapshotRestoresResponse'),
+    newDisableFastSnapshotRestoresResponse,
+
+    -- ** DisableImageDeprecation
+    DisableImageDeprecation (DisableImageDeprecation'),
+    newDisableImageDeprecation,
+    DisableImageDeprecationResponse (DisableImageDeprecationResponse'),
+    newDisableImageDeprecationResponse,
+
+    -- ** DisableSerialConsoleAccess
+    DisableSerialConsoleAccess (DisableSerialConsoleAccess'),
+    newDisableSerialConsoleAccess,
+    DisableSerialConsoleAccessResponse (DisableSerialConsoleAccessResponse'),
+    newDisableSerialConsoleAccessResponse,
+
+    -- ** DisableTransitGatewayRouteTablePropagation
+    DisableTransitGatewayRouteTablePropagation (DisableTransitGatewayRouteTablePropagation'),
+    newDisableTransitGatewayRouteTablePropagation,
+    DisableTransitGatewayRouteTablePropagationResponse (DisableTransitGatewayRouteTablePropagationResponse'),
+    newDisableTransitGatewayRouteTablePropagationResponse,
+
+    -- ** DisableVgwRoutePropagation
+    DisableVgwRoutePropagation (DisableVgwRoutePropagation'),
+    newDisableVgwRoutePropagation,
+    DisableVgwRoutePropagationResponse (DisableVgwRoutePropagationResponse'),
+    newDisableVgwRoutePropagationResponse,
+
+    -- ** DisableVpcClassicLink
+    DisableVpcClassicLink (DisableVpcClassicLink'),
+    newDisableVpcClassicLink,
+    DisableVpcClassicLinkResponse (DisableVpcClassicLinkResponse'),
+    newDisableVpcClassicLinkResponse,
+
+    -- ** DisableVpcClassicLinkDnsSupport
+    DisableVpcClassicLinkDnsSupport (DisableVpcClassicLinkDnsSupport'),
+    newDisableVpcClassicLinkDnsSupport,
+    DisableVpcClassicLinkDnsSupportResponse (DisableVpcClassicLinkDnsSupportResponse'),
+    newDisableVpcClassicLinkDnsSupportResponse,
+
+    -- ** DisassociateAddress
+    DisassociateAddress (DisassociateAddress'),
+    newDisassociateAddress,
+    DisassociateAddressResponse (DisassociateAddressResponse'),
+    newDisassociateAddressResponse,
+
+    -- ** DisassociateClientVpnTargetNetwork
+    DisassociateClientVpnTargetNetwork (DisassociateClientVpnTargetNetwork'),
+    newDisassociateClientVpnTargetNetwork,
+    DisassociateClientVpnTargetNetworkResponse (DisassociateClientVpnTargetNetworkResponse'),
+    newDisassociateClientVpnTargetNetworkResponse,
+
+    -- ** DisassociateEnclaveCertificateIamRole
+    DisassociateEnclaveCertificateIamRole (DisassociateEnclaveCertificateIamRole'),
+    newDisassociateEnclaveCertificateIamRole,
+    DisassociateEnclaveCertificateIamRoleResponse (DisassociateEnclaveCertificateIamRoleResponse'),
+    newDisassociateEnclaveCertificateIamRoleResponse,
+
+    -- ** DisassociateIamInstanceProfile
+    DisassociateIamInstanceProfile (DisassociateIamInstanceProfile'),
+    newDisassociateIamInstanceProfile,
+    DisassociateIamInstanceProfileResponse (DisassociateIamInstanceProfileResponse'),
+    newDisassociateIamInstanceProfileResponse,
+
+    -- ** DisassociateInstanceEventWindow
+    DisassociateInstanceEventWindow (DisassociateInstanceEventWindow'),
+    newDisassociateInstanceEventWindow,
+    DisassociateInstanceEventWindowResponse (DisassociateInstanceEventWindowResponse'),
+    newDisassociateInstanceEventWindowResponse,
+
+    -- ** DisassociateRouteTable
+    DisassociateRouteTable (DisassociateRouteTable'),
+    newDisassociateRouteTable,
+    DisassociateRouteTableResponse (DisassociateRouteTableResponse'),
+    newDisassociateRouteTableResponse,
+
+    -- ** DisassociateSubnetCidrBlock
+    DisassociateSubnetCidrBlock (DisassociateSubnetCidrBlock'),
+    newDisassociateSubnetCidrBlock,
+    DisassociateSubnetCidrBlockResponse (DisassociateSubnetCidrBlockResponse'),
+    newDisassociateSubnetCidrBlockResponse,
+
+    -- ** DisassociateTransitGatewayMulticastDomain
+    DisassociateTransitGatewayMulticastDomain (DisassociateTransitGatewayMulticastDomain'),
+    newDisassociateTransitGatewayMulticastDomain,
+    DisassociateTransitGatewayMulticastDomainResponse (DisassociateTransitGatewayMulticastDomainResponse'),
+    newDisassociateTransitGatewayMulticastDomainResponse,
+
+    -- ** DisassociateTransitGatewayRouteTable
+    DisassociateTransitGatewayRouteTable (DisassociateTransitGatewayRouteTable'),
+    newDisassociateTransitGatewayRouteTable,
+    DisassociateTransitGatewayRouteTableResponse (DisassociateTransitGatewayRouteTableResponse'),
+    newDisassociateTransitGatewayRouteTableResponse,
+
+    -- ** DisassociateTrunkInterface
+    DisassociateTrunkInterface (DisassociateTrunkInterface'),
+    newDisassociateTrunkInterface,
+    DisassociateTrunkInterfaceResponse (DisassociateTrunkInterfaceResponse'),
+    newDisassociateTrunkInterfaceResponse,
+
+    -- ** DisassociateVpcCidrBlock
+    DisassociateVpcCidrBlock (DisassociateVpcCidrBlock'),
+    newDisassociateVpcCidrBlock,
+    DisassociateVpcCidrBlockResponse (DisassociateVpcCidrBlockResponse'),
+    newDisassociateVpcCidrBlockResponse,
+
+    -- ** EnableEbsEncryptionByDefault
+    EnableEbsEncryptionByDefault (EnableEbsEncryptionByDefault'),
+    newEnableEbsEncryptionByDefault,
+    EnableEbsEncryptionByDefaultResponse (EnableEbsEncryptionByDefaultResponse'),
+    newEnableEbsEncryptionByDefaultResponse,
+
+    -- ** EnableFastSnapshotRestores
+    EnableFastSnapshotRestores (EnableFastSnapshotRestores'),
+    newEnableFastSnapshotRestores,
+    EnableFastSnapshotRestoresResponse (EnableFastSnapshotRestoresResponse'),
+    newEnableFastSnapshotRestoresResponse,
+
+    -- ** EnableImageDeprecation
+    EnableImageDeprecation (EnableImageDeprecation'),
+    newEnableImageDeprecation,
+    EnableImageDeprecationResponse (EnableImageDeprecationResponse'),
+    newEnableImageDeprecationResponse,
+
+    -- ** EnableSerialConsoleAccess
+    EnableSerialConsoleAccess (EnableSerialConsoleAccess'),
+    newEnableSerialConsoleAccess,
+    EnableSerialConsoleAccessResponse (EnableSerialConsoleAccessResponse'),
+    newEnableSerialConsoleAccessResponse,
+
+    -- ** EnableTransitGatewayRouteTablePropagation
+    EnableTransitGatewayRouteTablePropagation (EnableTransitGatewayRouteTablePropagation'),
+    newEnableTransitGatewayRouteTablePropagation,
+    EnableTransitGatewayRouteTablePropagationResponse (EnableTransitGatewayRouteTablePropagationResponse'),
+    newEnableTransitGatewayRouteTablePropagationResponse,
+
+    -- ** EnableVgwRoutePropagation
+    EnableVgwRoutePropagation (EnableVgwRoutePropagation'),
+    newEnableVgwRoutePropagation,
+    EnableVgwRoutePropagationResponse (EnableVgwRoutePropagationResponse'),
+    newEnableVgwRoutePropagationResponse,
+
+    -- ** EnableVolumeIO
+    EnableVolumeIO (EnableVolumeIO'),
+    newEnableVolumeIO,
+    EnableVolumeIOResponse (EnableVolumeIOResponse'),
+    newEnableVolumeIOResponse,
+
+    -- ** EnableVpcClassicLink
+    EnableVpcClassicLink (EnableVpcClassicLink'),
+    newEnableVpcClassicLink,
+    EnableVpcClassicLinkResponse (EnableVpcClassicLinkResponse'),
+    newEnableVpcClassicLinkResponse,
+
+    -- ** EnableVpcClassicLinkDnsSupport
+    EnableVpcClassicLinkDnsSupport (EnableVpcClassicLinkDnsSupport'),
+    newEnableVpcClassicLinkDnsSupport,
+    EnableVpcClassicLinkDnsSupportResponse (EnableVpcClassicLinkDnsSupportResponse'),
+    newEnableVpcClassicLinkDnsSupportResponse,
+
+    -- ** ExportClientVpnClientCertificateRevocationList
+    ExportClientVpnClientCertificateRevocationList (ExportClientVpnClientCertificateRevocationList'),
+    newExportClientVpnClientCertificateRevocationList,
+    ExportClientVpnClientCertificateRevocationListResponse (ExportClientVpnClientCertificateRevocationListResponse'),
+    newExportClientVpnClientCertificateRevocationListResponse,
+
+    -- ** ExportClientVpnClientConfiguration
+    ExportClientVpnClientConfiguration (ExportClientVpnClientConfiguration'),
+    newExportClientVpnClientConfiguration,
+    ExportClientVpnClientConfigurationResponse (ExportClientVpnClientConfigurationResponse'),
+    newExportClientVpnClientConfigurationResponse,
+
+    -- ** ExportImage
+    ExportImage (ExportImage'),
+    newExportImage,
+    ExportImageResponse (ExportImageResponse'),
+    newExportImageResponse,
+
+    -- ** ExportTransitGatewayRoutes
+    ExportTransitGatewayRoutes (ExportTransitGatewayRoutes'),
+    newExportTransitGatewayRoutes,
+    ExportTransitGatewayRoutesResponse (ExportTransitGatewayRoutesResponse'),
+    newExportTransitGatewayRoutesResponse,
+
+    -- ** GetAssociatedEnclaveCertificateIamRoles
+    GetAssociatedEnclaveCertificateIamRoles (GetAssociatedEnclaveCertificateIamRoles'),
+    newGetAssociatedEnclaveCertificateIamRoles,
+    GetAssociatedEnclaveCertificateIamRolesResponse (GetAssociatedEnclaveCertificateIamRolesResponse'),
+    newGetAssociatedEnclaveCertificateIamRolesResponse,
+
+    -- ** GetAssociatedIpv6PoolCidrs (Paginated)
+    GetAssociatedIpv6PoolCidrs (GetAssociatedIpv6PoolCidrs'),
+    newGetAssociatedIpv6PoolCidrs,
+    GetAssociatedIpv6PoolCidrsResponse (GetAssociatedIpv6PoolCidrsResponse'),
+    newGetAssociatedIpv6PoolCidrsResponse,
+
+    -- ** GetCapacityReservationUsage
+    GetCapacityReservationUsage (GetCapacityReservationUsage'),
+    newGetCapacityReservationUsage,
+    GetCapacityReservationUsageResponse (GetCapacityReservationUsageResponse'),
+    newGetCapacityReservationUsageResponse,
+
+    -- ** GetCoipPoolUsage
+    GetCoipPoolUsage (GetCoipPoolUsage'),
+    newGetCoipPoolUsage,
+    GetCoipPoolUsageResponse (GetCoipPoolUsageResponse'),
+    newGetCoipPoolUsageResponse,
+
+    -- ** GetConsoleOutput
+    GetConsoleOutput (GetConsoleOutput'),
+    newGetConsoleOutput,
+    GetConsoleOutputResponse (GetConsoleOutputResponse'),
+    newGetConsoleOutputResponse,
+
+    -- ** GetConsoleScreenshot
+    GetConsoleScreenshot (GetConsoleScreenshot'),
+    newGetConsoleScreenshot,
+    GetConsoleScreenshotResponse (GetConsoleScreenshotResponse'),
+    newGetConsoleScreenshotResponse,
+
+    -- ** GetDefaultCreditSpecification
+    GetDefaultCreditSpecification (GetDefaultCreditSpecification'),
+    newGetDefaultCreditSpecification,
+    GetDefaultCreditSpecificationResponse (GetDefaultCreditSpecificationResponse'),
+    newGetDefaultCreditSpecificationResponse,
+
+    -- ** GetEbsDefaultKmsKeyId
+    GetEbsDefaultKmsKeyId (GetEbsDefaultKmsKeyId'),
+    newGetEbsDefaultKmsKeyId,
+    GetEbsDefaultKmsKeyIdResponse (GetEbsDefaultKmsKeyIdResponse'),
+    newGetEbsDefaultKmsKeyIdResponse,
+
+    -- ** GetEbsEncryptionByDefault
+    GetEbsEncryptionByDefault (GetEbsEncryptionByDefault'),
+    newGetEbsEncryptionByDefault,
+    GetEbsEncryptionByDefaultResponse (GetEbsEncryptionByDefaultResponse'),
+    newGetEbsEncryptionByDefaultResponse,
+
+    -- ** GetFlowLogsIntegrationTemplate
+    GetFlowLogsIntegrationTemplate (GetFlowLogsIntegrationTemplate'),
+    newGetFlowLogsIntegrationTemplate,
+    GetFlowLogsIntegrationTemplateResponse (GetFlowLogsIntegrationTemplateResponse'),
+    newGetFlowLogsIntegrationTemplateResponse,
+
+    -- ** GetGroupsForCapacityReservation (Paginated)
+    GetGroupsForCapacityReservation (GetGroupsForCapacityReservation'),
+    newGetGroupsForCapacityReservation,
+    GetGroupsForCapacityReservationResponse (GetGroupsForCapacityReservationResponse'),
+    newGetGroupsForCapacityReservationResponse,
+
+    -- ** GetHostReservationPurchasePreview
+    GetHostReservationPurchasePreview (GetHostReservationPurchasePreview'),
+    newGetHostReservationPurchasePreview,
+    GetHostReservationPurchasePreviewResponse (GetHostReservationPurchasePreviewResponse'),
+    newGetHostReservationPurchasePreviewResponse,
+
+    -- ** GetLaunchTemplateData
+    GetLaunchTemplateData (GetLaunchTemplateData'),
+    newGetLaunchTemplateData,
+    GetLaunchTemplateDataResponse (GetLaunchTemplateDataResponse'),
+    newGetLaunchTemplateDataResponse,
+
+    -- ** GetManagedPrefixListAssociations (Paginated)
+    GetManagedPrefixListAssociations (GetManagedPrefixListAssociations'),
+    newGetManagedPrefixListAssociations,
+    GetManagedPrefixListAssociationsResponse (GetManagedPrefixListAssociationsResponse'),
+    newGetManagedPrefixListAssociationsResponse,
+
+    -- ** GetManagedPrefixListEntries (Paginated)
+    GetManagedPrefixListEntries (GetManagedPrefixListEntries'),
+    newGetManagedPrefixListEntries,
+    GetManagedPrefixListEntriesResponse (GetManagedPrefixListEntriesResponse'),
+    newGetManagedPrefixListEntriesResponse,
+
+    -- ** GetPasswordData
+    GetPasswordData (GetPasswordData'),
+    newGetPasswordData,
+    GetPasswordDataResponse (GetPasswordDataResponse'),
+    newGetPasswordDataResponse,
+
+    -- ** GetReservedInstancesExchangeQuote
+    GetReservedInstancesExchangeQuote (GetReservedInstancesExchangeQuote'),
+    newGetReservedInstancesExchangeQuote,
+    GetReservedInstancesExchangeQuoteResponse (GetReservedInstancesExchangeQuoteResponse'),
+    newGetReservedInstancesExchangeQuoteResponse,
+
+    -- ** GetSerialConsoleAccessStatus
+    GetSerialConsoleAccessStatus (GetSerialConsoleAccessStatus'),
+    newGetSerialConsoleAccessStatus,
+    GetSerialConsoleAccessStatusResponse (GetSerialConsoleAccessStatusResponse'),
+    newGetSerialConsoleAccessStatusResponse,
+
+    -- ** GetSubnetCidrReservations
+    GetSubnetCidrReservations (GetSubnetCidrReservations'),
+    newGetSubnetCidrReservations,
+    GetSubnetCidrReservationsResponse (GetSubnetCidrReservationsResponse'),
+    newGetSubnetCidrReservationsResponse,
+
+    -- ** GetTransitGatewayAttachmentPropagations (Paginated)
+    GetTransitGatewayAttachmentPropagations (GetTransitGatewayAttachmentPropagations'),
+    newGetTransitGatewayAttachmentPropagations,
+    GetTransitGatewayAttachmentPropagationsResponse (GetTransitGatewayAttachmentPropagationsResponse'),
+    newGetTransitGatewayAttachmentPropagationsResponse,
+
+    -- ** GetTransitGatewayMulticastDomainAssociations (Paginated)
+    GetTransitGatewayMulticastDomainAssociations (GetTransitGatewayMulticastDomainAssociations'),
+    newGetTransitGatewayMulticastDomainAssociations,
+    GetTransitGatewayMulticastDomainAssociationsResponse (GetTransitGatewayMulticastDomainAssociationsResponse'),
+    newGetTransitGatewayMulticastDomainAssociationsResponse,
+
+    -- ** GetTransitGatewayPrefixListReferences (Paginated)
+    GetTransitGatewayPrefixListReferences (GetTransitGatewayPrefixListReferences'),
+    newGetTransitGatewayPrefixListReferences,
+    GetTransitGatewayPrefixListReferencesResponse (GetTransitGatewayPrefixListReferencesResponse'),
+    newGetTransitGatewayPrefixListReferencesResponse,
+
+    -- ** GetTransitGatewayRouteTableAssociations (Paginated)
+    GetTransitGatewayRouteTableAssociations (GetTransitGatewayRouteTableAssociations'),
+    newGetTransitGatewayRouteTableAssociations,
+    GetTransitGatewayRouteTableAssociationsResponse (GetTransitGatewayRouteTableAssociationsResponse'),
+    newGetTransitGatewayRouteTableAssociationsResponse,
+
     -- ** GetTransitGatewayRouteTablePropagations (Paginated)
     GetTransitGatewayRouteTablePropagations (GetTransitGatewayRouteTablePropagations'),
     newGetTransitGatewayRouteTablePropagations,
     GetTransitGatewayRouteTablePropagationsResponse (GetTransitGatewayRouteTablePropagationsResponse'),
     newGetTransitGatewayRouteTablePropagationsResponse,
+
+    -- ** GetVpnConnectionDeviceSampleConfiguration
+    GetVpnConnectionDeviceSampleConfiguration (GetVpnConnectionDeviceSampleConfiguration'),
+    newGetVpnConnectionDeviceSampleConfiguration,
+    GetVpnConnectionDeviceSampleConfigurationResponse (GetVpnConnectionDeviceSampleConfigurationResponse'),
+    newGetVpnConnectionDeviceSampleConfigurationResponse,
+
+    -- ** GetVpnConnectionDeviceTypes (Paginated)
+    GetVpnConnectionDeviceTypes (GetVpnConnectionDeviceTypes'),
+    newGetVpnConnectionDeviceTypes,
+    GetVpnConnectionDeviceTypesResponse (GetVpnConnectionDeviceTypesResponse'),
+    newGetVpnConnectionDeviceTypesResponse,
+
+    -- ** ImportClientVpnClientCertificateRevocationList
+    ImportClientVpnClientCertificateRevocationList (ImportClientVpnClientCertificateRevocationList'),
+    newImportClientVpnClientCertificateRevocationList,
+    ImportClientVpnClientCertificateRevocationListResponse (ImportClientVpnClientCertificateRevocationListResponse'),
+    newImportClientVpnClientCertificateRevocationListResponse,
+
+    -- ** ImportImage
+    ImportImage (ImportImage'),
+    newImportImage,
+    ImportImageResponse (ImportImageResponse'),
+    newImportImageResponse,
+
+    -- ** ImportInstance
+    ImportInstance (ImportInstance'),
+    newImportInstance,
+    ImportInstanceResponse (ImportInstanceResponse'),
+    newImportInstanceResponse,
+
+    -- ** ImportKeyPair
+    ImportKeyPair (ImportKeyPair'),
+    newImportKeyPair,
+    ImportKeyPairResponse (ImportKeyPairResponse'),
+    newImportKeyPairResponse,
+
+    -- ** ImportSnapshot
+    ImportSnapshot (ImportSnapshot'),
+    newImportSnapshot,
+    ImportSnapshotResponse (ImportSnapshotResponse'),
+    newImportSnapshotResponse,
+
+    -- ** ImportVolume
+    ImportVolume (ImportVolume'),
+    newImportVolume,
+    ImportVolumeResponse (ImportVolumeResponse'),
+    newImportVolumeResponse,
+
+    -- ** ModifyAddressAttribute
+    ModifyAddressAttribute (ModifyAddressAttribute'),
+    newModifyAddressAttribute,
+    ModifyAddressAttributeResponse (ModifyAddressAttributeResponse'),
+    newModifyAddressAttributeResponse,
+
+    -- ** ModifyAvailabilityZoneGroup
+    ModifyAvailabilityZoneGroup (ModifyAvailabilityZoneGroup'),
+    newModifyAvailabilityZoneGroup,
+    ModifyAvailabilityZoneGroupResponse (ModifyAvailabilityZoneGroupResponse'),
+    newModifyAvailabilityZoneGroupResponse,
+
+    -- ** ModifyCapacityReservation
+    ModifyCapacityReservation (ModifyCapacityReservation'),
+    newModifyCapacityReservation,
+    ModifyCapacityReservationResponse (ModifyCapacityReservationResponse'),
+    newModifyCapacityReservationResponse,
+
+    -- ** ModifyCapacityReservationFleet
+    ModifyCapacityReservationFleet (ModifyCapacityReservationFleet'),
+    newModifyCapacityReservationFleet,
+    ModifyCapacityReservationFleetResponse (ModifyCapacityReservationFleetResponse'),
+    newModifyCapacityReservationFleetResponse,
+
+    -- ** ModifyClientVpnEndpoint
+    ModifyClientVpnEndpoint (ModifyClientVpnEndpoint'),
+    newModifyClientVpnEndpoint,
+    ModifyClientVpnEndpointResponse (ModifyClientVpnEndpointResponse'),
+    newModifyClientVpnEndpointResponse,
+
+    -- ** ModifyDefaultCreditSpecification
+    ModifyDefaultCreditSpecification (ModifyDefaultCreditSpecification'),
+    newModifyDefaultCreditSpecification,
+    ModifyDefaultCreditSpecificationResponse (ModifyDefaultCreditSpecificationResponse'),
+    newModifyDefaultCreditSpecificationResponse,
+
+    -- ** ModifyEbsDefaultKmsKeyId
+    ModifyEbsDefaultKmsKeyId (ModifyEbsDefaultKmsKeyId'),
+    newModifyEbsDefaultKmsKeyId,
+    ModifyEbsDefaultKmsKeyIdResponse (ModifyEbsDefaultKmsKeyIdResponse'),
+    newModifyEbsDefaultKmsKeyIdResponse,
+
+    -- ** ModifyFleet
+    ModifyFleet (ModifyFleet'),
+    newModifyFleet,
+    ModifyFleetResponse (ModifyFleetResponse'),
+    newModifyFleetResponse,
 
     -- ** ModifyFpgaImageAttribute
     ModifyFpgaImageAttribute (ModifyFpgaImageAttribute'),
@@ -2480,389 +2408,47 @@ module Amazonka.EC2
     ModifyHostsResponse (ModifyHostsResponse'),
     newModifyHostsResponse,
 
-    -- ** RebootInstances
-    RebootInstances (RebootInstances'),
-    newRebootInstances,
-    RebootInstancesResponse (RebootInstancesResponse'),
-    newRebootInstancesResponse,
-
-    -- ** ModifyVpcEndpointServiceConfiguration
-    ModifyVpcEndpointServiceConfiguration (ModifyVpcEndpointServiceConfiguration'),
-    newModifyVpcEndpointServiceConfiguration,
-    ModifyVpcEndpointServiceConfigurationResponse (ModifyVpcEndpointServiceConfigurationResponse'),
-    newModifyVpcEndpointServiceConfigurationResponse,
-
-    -- ** CreateTransitGateway
-    CreateTransitGateway (CreateTransitGateway'),
-    newCreateTransitGateway,
-    CreateTransitGatewayResponse (CreateTransitGatewayResponse'),
-    newCreateTransitGatewayResponse,
-
-    -- ** UnassignIpv6Addresses
-    UnassignIpv6Addresses (UnassignIpv6Addresses'),
-    newUnassignIpv6Addresses,
-    UnassignIpv6AddressesResponse (UnassignIpv6AddressesResponse'),
-    newUnassignIpv6AddressesResponse,
-
-    -- ** DeleteTrafficMirrorSession
-    DeleteTrafficMirrorSession (DeleteTrafficMirrorSession'),
-    newDeleteTrafficMirrorSession,
-    DeleteTrafficMirrorSessionResponse (DeleteTrafficMirrorSessionResponse'),
-    newDeleteTrafficMirrorSessionResponse,
-
-    -- ** CreateManagedPrefixList
-    CreateManagedPrefixList (CreateManagedPrefixList'),
-    newCreateManagedPrefixList,
-    CreateManagedPrefixListResponse (CreateManagedPrefixListResponse'),
-    newCreateManagedPrefixListResponse,
-
-    -- ** CreateReplaceRootVolumeTask
-    CreateReplaceRootVolumeTask (CreateReplaceRootVolumeTask'),
-    newCreateReplaceRootVolumeTask,
-    CreateReplaceRootVolumeTaskResponse (CreateReplaceRootVolumeTaskResponse'),
-    newCreateReplaceRootVolumeTaskResponse,
-
-    -- ** AssociateIamInstanceProfile
-    AssociateIamInstanceProfile (AssociateIamInstanceProfile'),
-    newAssociateIamInstanceProfile,
-    AssociateIamInstanceProfileResponse (AssociateIamInstanceProfileResponse'),
-    newAssociateIamInstanceProfileResponse,
-
-    -- ** ModifyDefaultCreditSpecification
-    ModifyDefaultCreditSpecification (ModifyDefaultCreditSpecification'),
-    newModifyDefaultCreditSpecification,
-    ModifyDefaultCreditSpecificationResponse (ModifyDefaultCreditSpecificationResponse'),
-    newModifyDefaultCreditSpecificationResponse,
-
-    -- ** DeleteEgressOnlyInternetGateway
-    DeleteEgressOnlyInternetGateway (DeleteEgressOnlyInternetGateway'),
-    newDeleteEgressOnlyInternetGateway,
-    DeleteEgressOnlyInternetGatewayResponse (DeleteEgressOnlyInternetGatewayResponse'),
-    newDeleteEgressOnlyInternetGatewayResponse,
-
-    -- ** PurchaseHostReservation
-    PurchaseHostReservation (PurchaseHostReservation'),
-    newPurchaseHostReservation,
-    PurchaseHostReservationResponse (PurchaseHostReservationResponse'),
-    newPurchaseHostReservationResponse,
-
-    -- ** ModifyTransitGatewayVpcAttachment
-    ModifyTransitGatewayVpcAttachment (ModifyTransitGatewayVpcAttachment'),
-    newModifyTransitGatewayVpcAttachment,
-    ModifyTransitGatewayVpcAttachmentResponse (ModifyTransitGatewayVpcAttachmentResponse'),
-    newModifyTransitGatewayVpcAttachmentResponse,
-
-    -- ** CreateImage
-    CreateImage (CreateImage'),
-    newCreateImage,
-    CreateImageResponse (CreateImageResponse'),
-    newCreateImageResponse,
-
-    -- ** DescribeClassicLinkInstances (Paginated)
-    DescribeClassicLinkInstances (DescribeClassicLinkInstances'),
-    newDescribeClassicLinkInstances,
-    DescribeClassicLinkInstancesResponse (DescribeClassicLinkInstancesResponse'),
-    newDescribeClassicLinkInstancesResponse,
-
-    -- ** TerminateInstances
-    TerminateInstances (TerminateInstances'),
-    newTerminateInstances,
-    TerminateInstancesResponse (TerminateInstancesResponse'),
-    newTerminateInstancesResponse,
-
-    -- ** DescribeStoreImageTasks (Paginated)
-    DescribeStoreImageTasks (DescribeStoreImageTasks'),
-    newDescribeStoreImageTasks,
-    DescribeStoreImageTasksResponse (DescribeStoreImageTasksResponse'),
-    newDescribeStoreImageTasksResponse,
-
-    -- ** GetVpnConnectionDeviceTypes (Paginated)
-    GetVpnConnectionDeviceTypes (GetVpnConnectionDeviceTypes'),
-    newGetVpnConnectionDeviceTypes,
-    GetVpnConnectionDeviceTypesResponse (GetVpnConnectionDeviceTypesResponse'),
-    newGetVpnConnectionDeviceTypesResponse,
-
-    -- ** GetTransitGatewayPrefixListReferences (Paginated)
-    GetTransitGatewayPrefixListReferences (GetTransitGatewayPrefixListReferences'),
-    newGetTransitGatewayPrefixListReferences,
-    GetTransitGatewayPrefixListReferencesResponse (GetTransitGatewayPrefixListReferencesResponse'),
-    newGetTransitGatewayPrefixListReferencesResponse,
-
-    -- ** DescribeKeyPairs
-    DescribeKeyPairs (DescribeKeyPairs'),
-    newDescribeKeyPairs,
-    DescribeKeyPairsResponse (DescribeKeyPairsResponse'),
-    newDescribeKeyPairsResponse,
-
-    -- ** DisableFastSnapshotRestores
-    DisableFastSnapshotRestores (DisableFastSnapshotRestores'),
-    newDisableFastSnapshotRestores,
-    DisableFastSnapshotRestoresResponse (DisableFastSnapshotRestoresResponse'),
-    newDisableFastSnapshotRestoresResponse,
-
-    -- ** DescribeLaunchTemplates (Paginated)
-    DescribeLaunchTemplates (DescribeLaunchTemplates'),
-    newDescribeLaunchTemplates,
-    DescribeLaunchTemplatesResponse (DescribeLaunchTemplatesResponse'),
-    newDescribeLaunchTemplatesResponse,
-
-    -- ** CreateVpnConnectionRoute
-    CreateVpnConnectionRoute (CreateVpnConnectionRoute'),
-    newCreateVpnConnectionRoute,
-    CreateVpnConnectionRouteResponse (CreateVpnConnectionRouteResponse'),
-    newCreateVpnConnectionRouteResponse,
-
-    -- ** AssociateRouteTable
-    AssociateRouteTable (AssociateRouteTable'),
-    newAssociateRouteTable,
-    AssociateRouteTableResponse (AssociateRouteTableResponse'),
-    newAssociateRouteTableResponse,
-
-    -- ** CreateSubnetCidrReservation
-    CreateSubnetCidrReservation (CreateSubnetCidrReservation'),
-    newCreateSubnetCidrReservation,
-    CreateSubnetCidrReservationResponse (CreateSubnetCidrReservationResponse'),
-    newCreateSubnetCidrReservationResponse,
-
-    -- ** DescribeVpnGateways
-    DescribeVpnGateways (DescribeVpnGateways'),
-    newDescribeVpnGateways,
-    DescribeVpnGatewaysResponse (DescribeVpnGatewaysResponse'),
-    newDescribeVpnGatewaysResponse,
-
-    -- ** ModifyVpnConnectionOptions
-    ModifyVpnConnectionOptions (ModifyVpnConnectionOptions'),
-    newModifyVpnConnectionOptions,
-    ModifyVpnConnectionOptionsResponse (ModifyVpnConnectionOptionsResponse'),
-    newModifyVpnConnectionOptionsResponse,
-
-    -- ** GetConsoleOutput
-    GetConsoleOutput (GetConsoleOutput'),
-    newGetConsoleOutput,
-    GetConsoleOutputResponse (GetConsoleOutputResponse'),
-    newGetConsoleOutputResponse,
-
-    -- ** DescribeHosts (Paginated)
-    DescribeHosts (DescribeHosts'),
-    newDescribeHosts,
-    DescribeHostsResponse (DescribeHostsResponse'),
-    newDescribeHostsResponse,
-
-    -- ** DescribeImageAttribute
-    DescribeImageAttribute (DescribeImageAttribute'),
-    newDescribeImageAttribute,
-    DescribeImageAttributeResponse (DescribeImageAttributeResponse'),
-    newDescribeImageAttributeResponse,
-
     -- ** ModifyIdFormat
     ModifyIdFormat (ModifyIdFormat'),
     newModifyIdFormat,
     ModifyIdFormatResponse (ModifyIdFormatResponse'),
     newModifyIdFormatResponse,
 
-    -- ** RegisterTransitGatewayMulticastGroupMembers
-    RegisterTransitGatewayMulticastGroupMembers (RegisterTransitGatewayMulticastGroupMembers'),
-    newRegisterTransitGatewayMulticastGroupMembers,
-    RegisterTransitGatewayMulticastGroupMembersResponse (RegisterTransitGatewayMulticastGroupMembersResponse'),
-    newRegisterTransitGatewayMulticastGroupMembersResponse,
+    -- ** ModifyIdentityIdFormat
+    ModifyIdentityIdFormat (ModifyIdentityIdFormat'),
+    newModifyIdentityIdFormat,
+    ModifyIdentityIdFormatResponse (ModifyIdentityIdFormatResponse'),
+    newModifyIdentityIdFormatResponse,
 
-    -- ** DeleteManagedPrefixList
-    DeleteManagedPrefixList (DeleteManagedPrefixList'),
-    newDeleteManagedPrefixList,
-    DeleteManagedPrefixListResponse (DeleteManagedPrefixListResponse'),
-    newDeleteManagedPrefixListResponse,
+    -- ** ModifyImageAttribute
+    ModifyImageAttribute (ModifyImageAttribute'),
+    newModifyImageAttribute,
+    ModifyImageAttributeResponse (ModifyImageAttributeResponse'),
+    newModifyImageAttributeResponse,
 
-    -- ** DeleteRouteTable
-    DeleteRouteTable (DeleteRouteTable'),
-    newDeleteRouteTable,
-    DeleteRouteTableResponse (DeleteRouteTableResponse'),
-    newDeleteRouteTableResponse,
+    -- ** ModifyInstanceAttribute
+    ModifyInstanceAttribute (ModifyInstanceAttribute'),
+    newModifyInstanceAttribute,
+    ModifyInstanceAttributeResponse (ModifyInstanceAttributeResponse'),
+    newModifyInstanceAttributeResponse,
 
-    -- ** ResetImageAttribute
-    ResetImageAttribute (ResetImageAttribute'),
-    newResetImageAttribute,
-    ResetImageAttributeResponse (ResetImageAttributeResponse'),
-    newResetImageAttributeResponse,
+    -- ** ModifyInstanceCapacityReservationAttributes
+    ModifyInstanceCapacityReservationAttributes (ModifyInstanceCapacityReservationAttributes'),
+    newModifyInstanceCapacityReservationAttributes,
+    ModifyInstanceCapacityReservationAttributesResponse (ModifyInstanceCapacityReservationAttributesResponse'),
+    newModifyInstanceCapacityReservationAttributesResponse,
 
-    -- ** ModifyTransitGatewayPrefixListReference
-    ModifyTransitGatewayPrefixListReference (ModifyTransitGatewayPrefixListReference'),
-    newModifyTransitGatewayPrefixListReference,
-    ModifyTransitGatewayPrefixListReferenceResponse (ModifyTransitGatewayPrefixListReferenceResponse'),
-    newModifyTransitGatewayPrefixListReferenceResponse,
+    -- ** ModifyInstanceCreditSpecification
+    ModifyInstanceCreditSpecification (ModifyInstanceCreditSpecification'),
+    newModifyInstanceCreditSpecification,
+    ModifyInstanceCreditSpecificationResponse (ModifyInstanceCreditSpecificationResponse'),
+    newModifyInstanceCreditSpecificationResponse,
 
-    -- ** DescribeTransitGatewayRouteTables (Paginated)
-    DescribeTransitGatewayRouteTables (DescribeTransitGatewayRouteTables'),
-    newDescribeTransitGatewayRouteTables,
-    DescribeTransitGatewayRouteTablesResponse (DescribeTransitGatewayRouteTablesResponse'),
-    newDescribeTransitGatewayRouteTablesResponse,
-
-    -- ** CreateEgressOnlyInternetGateway
-    CreateEgressOnlyInternetGateway (CreateEgressOnlyInternetGateway'),
-    newCreateEgressOnlyInternetGateway,
-    CreateEgressOnlyInternetGatewayResponse (CreateEgressOnlyInternetGatewayResponse'),
-    newCreateEgressOnlyInternetGatewayResponse,
-
-    -- ** DescribeReservedInstancesModifications (Paginated)
-    DescribeReservedInstancesModifications (DescribeReservedInstancesModifications'),
-    newDescribeReservedInstancesModifications,
-    DescribeReservedInstancesModificationsResponse (DescribeReservedInstancesModificationsResponse'),
-    newDescribeReservedInstancesModificationsResponse,
-
-    -- ** DescribeSpotInstanceRequests (Paginated)
-    DescribeSpotInstanceRequests (DescribeSpotInstanceRequests'),
-    newDescribeSpotInstanceRequests,
-    DescribeSpotInstanceRequestsResponse (DescribeSpotInstanceRequestsResponse'),
-    newDescribeSpotInstanceRequestsResponse,
-
-    -- ** RevokeClientVpnIngress
-    RevokeClientVpnIngress (RevokeClientVpnIngress'),
-    newRevokeClientVpnIngress,
-    RevokeClientVpnIngressResponse (RevokeClientVpnIngressResponse'),
-    newRevokeClientVpnIngressResponse,
-
-    -- ** UnassignPrivateIpAddresses
-    UnassignPrivateIpAddresses (UnassignPrivateIpAddresses'),
-    newUnassignPrivateIpAddresses,
-    UnassignPrivateIpAddressesResponse (UnassignPrivateIpAddressesResponse'),
-    newUnassignPrivateIpAddressesResponse,
-
-    -- ** DescribeNetworkInterfacePermissions (Paginated)
-    DescribeNetworkInterfacePermissions (DescribeNetworkInterfacePermissions'),
-    newDescribeNetworkInterfacePermissions,
-    DescribeNetworkInterfacePermissionsResponse (DescribeNetworkInterfacePermissionsResponse'),
-    newDescribeNetworkInterfacePermissionsResponse,
-
-    -- ** EnableFastSnapshotRestores
-    EnableFastSnapshotRestores (EnableFastSnapshotRestores'),
-    newEnableFastSnapshotRestores,
-    EnableFastSnapshotRestoresResponse (EnableFastSnapshotRestoresResponse'),
-    newEnableFastSnapshotRestoresResponse,
-
-    -- ** DescribeVpcEndpointServicePermissions (Paginated)
-    DescribeVpcEndpointServicePermissions (DescribeVpcEndpointServicePermissions'),
-    newDescribeVpcEndpointServicePermissions,
-    DescribeVpcEndpointServicePermissionsResponse (DescribeVpcEndpointServicePermissionsResponse'),
-    newDescribeVpcEndpointServicePermissionsResponse,
-
-    -- ** DeleteDhcpOptions
-    DeleteDhcpOptions (DeleteDhcpOptions'),
-    newDeleteDhcpOptions,
-    DeleteDhcpOptionsResponse (DeleteDhcpOptionsResponse'),
-    newDeleteDhcpOptionsResponse,
-
-    -- ** CreateRestoreImageTask
-    CreateRestoreImageTask (CreateRestoreImageTask'),
-    newCreateRestoreImageTask,
-    CreateRestoreImageTaskResponse (CreateRestoreImageTaskResponse'),
-    newCreateRestoreImageTaskResponse,
-
-    -- ** RegisterInstanceEventNotificationAttributes
-    RegisterInstanceEventNotificationAttributes (RegisterInstanceEventNotificationAttributes'),
-    newRegisterInstanceEventNotificationAttributes,
-    RegisterInstanceEventNotificationAttributesResponse (RegisterInstanceEventNotificationAttributesResponse'),
-    newRegisterInstanceEventNotificationAttributesResponse,
-
-    -- ** GetVpnConnectionDeviceSampleConfiguration
-    GetVpnConnectionDeviceSampleConfiguration (GetVpnConnectionDeviceSampleConfiguration'),
-    newGetVpnConnectionDeviceSampleConfiguration,
-    GetVpnConnectionDeviceSampleConfigurationResponse (GetVpnConnectionDeviceSampleConfigurationResponse'),
-    newGetVpnConnectionDeviceSampleConfigurationResponse,
-
-    -- ** DeleteSubnetCidrReservation
-    DeleteSubnetCidrReservation (DeleteSubnetCidrReservation'),
-    newDeleteSubnetCidrReservation,
-    DeleteSubnetCidrReservationResponse (DeleteSubnetCidrReservationResponse'),
-    newDeleteSubnetCidrReservationResponse,
-
-    -- ** DescribeNetworkAcls (Paginated)
-    DescribeNetworkAcls (DescribeNetworkAcls'),
-    newDescribeNetworkAcls,
-    DescribeNetworkAclsResponse (DescribeNetworkAclsResponse'),
-    newDescribeNetworkAclsResponse,
-
-    -- ** CancelImportTask
-    CancelImportTask (CancelImportTask'),
-    newCancelImportTask,
-    CancelImportTaskResponse (CancelImportTaskResponse'),
-    newCancelImportTaskResponse,
-
-    -- ** DetachClassicLinkVpc
-    DetachClassicLinkVpc (DetachClassicLinkVpc'),
-    newDetachClassicLinkVpc,
-    DetachClassicLinkVpcResponse (DetachClassicLinkVpcResponse'),
-    newDetachClassicLinkVpcResponse,
-
-    -- ** CreateCapacityReservationFleet
-    CreateCapacityReservationFleet (CreateCapacityReservationFleet'),
-    newCreateCapacityReservationFleet,
-    CreateCapacityReservationFleetResponse (CreateCapacityReservationFleetResponse'),
-    newCreateCapacityReservationFleetResponse,
-
-    -- ** DescribeRegions
-    DescribeRegions (DescribeRegions'),
-    newDescribeRegions,
-    DescribeRegionsResponse (DescribeRegionsResponse'),
-    newDescribeRegionsResponse,
-
-    -- ** MonitorInstances
-    MonitorInstances (MonitorInstances'),
-    newMonitorInstances,
-    MonitorInstancesResponse (MonitorInstancesResponse'),
-    newMonitorInstancesResponse,
-
-    -- ** RejectTransitGatewayMulticastDomainAssociations
-    RejectTransitGatewayMulticastDomainAssociations (RejectTransitGatewayMulticastDomainAssociations'),
-    newRejectTransitGatewayMulticastDomainAssociations,
-    RejectTransitGatewayMulticastDomainAssociationsResponse (RejectTransitGatewayMulticastDomainAssociationsResponse'),
-    newRejectTransitGatewayMulticastDomainAssociationsResponse,
-
-    -- ** AcceptTransitGatewayMulticastDomainAssociations
-    AcceptTransitGatewayMulticastDomainAssociations (AcceptTransitGatewayMulticastDomainAssociations'),
-    newAcceptTransitGatewayMulticastDomainAssociations,
-    AcceptTransitGatewayMulticastDomainAssociationsResponse (AcceptTransitGatewayMulticastDomainAssociationsResponse'),
-    newAcceptTransitGatewayMulticastDomainAssociationsResponse,
-
-    -- ** SearchLocalGatewayRoutes (Paginated)
-    SearchLocalGatewayRoutes (SearchLocalGatewayRoutes'),
-    newSearchLocalGatewayRoutes,
-    SearchLocalGatewayRoutesResponse (SearchLocalGatewayRoutesResponse'),
-    newSearchLocalGatewayRoutesResponse,
-
-    -- ** DeleteClientVpnRoute
-    DeleteClientVpnRoute (DeleteClientVpnRoute'),
-    newDeleteClientVpnRoute,
-    DeleteClientVpnRouteResponse (DeleteClientVpnRouteResponse'),
-    newDeleteClientVpnRouteResponse,
-
-    -- ** AcceptVpcPeeringConnection
-    AcceptVpcPeeringConnection (AcceptVpcPeeringConnection'),
-    newAcceptVpcPeeringConnection,
-    AcceptVpcPeeringConnectionResponse (AcceptVpcPeeringConnectionResponse'),
-    newAcceptVpcPeeringConnectionResponse,
-
-    -- ** ImportSnapshot
-    ImportSnapshot (ImportSnapshot'),
-    newImportSnapshot,
-    ImportSnapshotResponse (ImportSnapshotResponse'),
-    newImportSnapshotResponse,
-
-    -- ** DescribeAddressesAttribute (Paginated)
-    DescribeAddressesAttribute (DescribeAddressesAttribute'),
-    newDescribeAddressesAttribute,
-    DescribeAddressesAttributeResponse (DescribeAddressesAttributeResponse'),
-    newDescribeAddressesAttributeResponse,
-
-    -- ** DescribeVolumeStatus (Paginated)
-    DescribeVolumeStatus (DescribeVolumeStatus'),
-    newDescribeVolumeStatus,
-    DescribeVolumeStatusResponse (DescribeVolumeStatusResponse'),
-    newDescribeVolumeStatusResponse,
-
-    -- ** DescribeReplaceRootVolumeTasks (Paginated)
-    DescribeReplaceRootVolumeTasks (DescribeReplaceRootVolumeTasks'),
-    newDescribeReplaceRootVolumeTasks,
-    DescribeReplaceRootVolumeTasksResponse (DescribeReplaceRootVolumeTasksResponse'),
-    newDescribeReplaceRootVolumeTasksResponse,
+    -- ** ModifyInstanceEventStartTime
+    ModifyInstanceEventStartTime (ModifyInstanceEventStartTime'),
+    newModifyInstanceEventStartTime,
+    ModifyInstanceEventStartTimeResponse (ModifyInstanceEventStartTimeResponse'),
+    newModifyInstanceEventStartTimeResponse,
 
     -- ** ModifyInstanceEventWindow
     ModifyInstanceEventWindow (ModifyInstanceEventWindow'),
@@ -2870,17 +2456,113 @@ module Amazonka.EC2
     ModifyInstanceEventWindowResponse (ModifyInstanceEventWindowResponse'),
     newModifyInstanceEventWindowResponse,
 
-    -- ** DescribeRouteTables (Paginated)
-    DescribeRouteTables (DescribeRouteTables'),
-    newDescribeRouteTables,
-    DescribeRouteTablesResponse (DescribeRouteTablesResponse'),
-    newDescribeRouteTablesResponse,
+    -- ** ModifyInstanceMetadataOptions
+    ModifyInstanceMetadataOptions (ModifyInstanceMetadataOptions'),
+    newModifyInstanceMetadataOptions,
+    ModifyInstanceMetadataOptionsResponse (ModifyInstanceMetadataOptionsResponse'),
+    newModifyInstanceMetadataOptionsResponse,
 
-    -- ** DescribeAvailabilityZones
-    DescribeAvailabilityZones (DescribeAvailabilityZones'),
-    newDescribeAvailabilityZones,
-    DescribeAvailabilityZonesResponse (DescribeAvailabilityZonesResponse'),
-    newDescribeAvailabilityZonesResponse,
+    -- ** ModifyInstancePlacement
+    ModifyInstancePlacement (ModifyInstancePlacement'),
+    newModifyInstancePlacement,
+    ModifyInstancePlacementResponse (ModifyInstancePlacementResponse'),
+    newModifyInstancePlacementResponse,
+
+    -- ** ModifyLaunchTemplate
+    ModifyLaunchTemplate (ModifyLaunchTemplate'),
+    newModifyLaunchTemplate,
+    ModifyLaunchTemplateResponse (ModifyLaunchTemplateResponse'),
+    newModifyLaunchTemplateResponse,
+
+    -- ** ModifyManagedPrefixList
+    ModifyManagedPrefixList (ModifyManagedPrefixList'),
+    newModifyManagedPrefixList,
+    ModifyManagedPrefixListResponse (ModifyManagedPrefixListResponse'),
+    newModifyManagedPrefixListResponse,
+
+    -- ** ModifyNetworkInterfaceAttribute
+    ModifyNetworkInterfaceAttribute (ModifyNetworkInterfaceAttribute'),
+    newModifyNetworkInterfaceAttribute,
+    ModifyNetworkInterfaceAttributeResponse (ModifyNetworkInterfaceAttributeResponse'),
+    newModifyNetworkInterfaceAttributeResponse,
+
+    -- ** ModifyReservedInstances
+    ModifyReservedInstances (ModifyReservedInstances'),
+    newModifyReservedInstances,
+    ModifyReservedInstancesResponse (ModifyReservedInstancesResponse'),
+    newModifyReservedInstancesResponse,
+
+    -- ** ModifySecurityGroupRules
+    ModifySecurityGroupRules (ModifySecurityGroupRules'),
+    newModifySecurityGroupRules,
+    ModifySecurityGroupRulesResponse (ModifySecurityGroupRulesResponse'),
+    newModifySecurityGroupRulesResponse,
+
+    -- ** ModifySnapshotAttribute
+    ModifySnapshotAttribute (ModifySnapshotAttribute'),
+    newModifySnapshotAttribute,
+    ModifySnapshotAttributeResponse (ModifySnapshotAttributeResponse'),
+    newModifySnapshotAttributeResponse,
+
+    -- ** ModifySpotFleetRequest
+    ModifySpotFleetRequest (ModifySpotFleetRequest'),
+    newModifySpotFleetRequest,
+    ModifySpotFleetRequestResponse (ModifySpotFleetRequestResponse'),
+    newModifySpotFleetRequestResponse,
+
+    -- ** ModifySubnetAttribute
+    ModifySubnetAttribute (ModifySubnetAttribute'),
+    newModifySubnetAttribute,
+    ModifySubnetAttributeResponse (ModifySubnetAttributeResponse'),
+    newModifySubnetAttributeResponse,
+
+    -- ** ModifyTrafficMirrorFilterNetworkServices
+    ModifyTrafficMirrorFilterNetworkServices (ModifyTrafficMirrorFilterNetworkServices'),
+    newModifyTrafficMirrorFilterNetworkServices,
+    ModifyTrafficMirrorFilterNetworkServicesResponse (ModifyTrafficMirrorFilterNetworkServicesResponse'),
+    newModifyTrafficMirrorFilterNetworkServicesResponse,
+
+    -- ** ModifyTrafficMirrorFilterRule
+    ModifyTrafficMirrorFilterRule (ModifyTrafficMirrorFilterRule'),
+    newModifyTrafficMirrorFilterRule,
+    ModifyTrafficMirrorFilterRuleResponse (ModifyTrafficMirrorFilterRuleResponse'),
+    newModifyTrafficMirrorFilterRuleResponse,
+
+    -- ** ModifyTrafficMirrorSession
+    ModifyTrafficMirrorSession (ModifyTrafficMirrorSession'),
+    newModifyTrafficMirrorSession,
+    ModifyTrafficMirrorSessionResponse (ModifyTrafficMirrorSessionResponse'),
+    newModifyTrafficMirrorSessionResponse,
+
+    -- ** ModifyTransitGateway
+    ModifyTransitGateway (ModifyTransitGateway'),
+    newModifyTransitGateway,
+    ModifyTransitGatewayResponse (ModifyTransitGatewayResponse'),
+    newModifyTransitGatewayResponse,
+
+    -- ** ModifyTransitGatewayPrefixListReference
+    ModifyTransitGatewayPrefixListReference (ModifyTransitGatewayPrefixListReference'),
+    newModifyTransitGatewayPrefixListReference,
+    ModifyTransitGatewayPrefixListReferenceResponse (ModifyTransitGatewayPrefixListReferenceResponse'),
+    newModifyTransitGatewayPrefixListReferenceResponse,
+
+    -- ** ModifyTransitGatewayVpcAttachment
+    ModifyTransitGatewayVpcAttachment (ModifyTransitGatewayVpcAttachment'),
+    newModifyTransitGatewayVpcAttachment,
+    ModifyTransitGatewayVpcAttachmentResponse (ModifyTransitGatewayVpcAttachmentResponse'),
+    newModifyTransitGatewayVpcAttachmentResponse,
+
+    -- ** ModifyVolume
+    ModifyVolume (ModifyVolume'),
+    newModifyVolume,
+    ModifyVolumeResponse (ModifyVolumeResponse'),
+    newModifyVolumeResponse,
+
+    -- ** ModifyVolumeAttribute
+    ModifyVolumeAttribute (ModifyVolumeAttribute'),
+    newModifyVolumeAttribute,
+    ModifyVolumeAttributeResponse (ModifyVolumeAttributeResponse'),
+    newModifyVolumeAttributeResponse,
 
     -- ** ModifyVpcAttribute
     ModifyVpcAttribute (ModifyVpcAttribute'),
@@ -2888,35 +2570,269 @@ module Amazonka.EC2
     ModifyVpcAttributeResponse (ModifyVpcAttributeResponse'),
     newModifyVpcAttributeResponse,
 
-    -- ** DescribeClientVpnConnections (Paginated)
-    DescribeClientVpnConnections (DescribeClientVpnConnections'),
-    newDescribeClientVpnConnections,
-    DescribeClientVpnConnectionsResponse (DescribeClientVpnConnectionsResponse'),
-    newDescribeClientVpnConnectionsResponse,
+    -- ** ModifyVpcEndpoint
+    ModifyVpcEndpoint (ModifyVpcEndpoint'),
+    newModifyVpcEndpoint,
+    ModifyVpcEndpointResponse (ModifyVpcEndpointResponse'),
+    newModifyVpcEndpointResponse,
 
-    -- ** DescribeFleetHistory
-    DescribeFleetHistory (DescribeFleetHistory'),
-    newDescribeFleetHistory,
-    DescribeFleetHistoryResponse (DescribeFleetHistoryResponse'),
-    newDescribeFleetHistoryResponse,
+    -- ** ModifyVpcEndpointConnectionNotification
+    ModifyVpcEndpointConnectionNotification (ModifyVpcEndpointConnectionNotification'),
+    newModifyVpcEndpointConnectionNotification,
+    ModifyVpcEndpointConnectionNotificationResponse (ModifyVpcEndpointConnectionNotificationResponse'),
+    newModifyVpcEndpointConnectionNotificationResponse,
 
-    -- ** DescribeImages
-    DescribeImages (DescribeImages'),
-    newDescribeImages,
-    DescribeImagesResponse (DescribeImagesResponse'),
-    newDescribeImagesResponse,
+    -- ** ModifyVpcEndpointServiceConfiguration
+    ModifyVpcEndpointServiceConfiguration (ModifyVpcEndpointServiceConfiguration'),
+    newModifyVpcEndpointServiceConfiguration,
+    ModifyVpcEndpointServiceConfigurationResponse (ModifyVpcEndpointServiceConfigurationResponse'),
+    newModifyVpcEndpointServiceConfigurationResponse,
 
-    -- ** DescribeElasticGpus
-    DescribeElasticGpus (DescribeElasticGpus'),
-    newDescribeElasticGpus,
-    DescribeElasticGpusResponse (DescribeElasticGpusResponse'),
-    newDescribeElasticGpusResponse,
+    -- ** ModifyVpcEndpointServicePermissions
+    ModifyVpcEndpointServicePermissions (ModifyVpcEndpointServicePermissions'),
+    newModifyVpcEndpointServicePermissions,
+    ModifyVpcEndpointServicePermissionsResponse (ModifyVpcEndpointServicePermissionsResponse'),
+    newModifyVpcEndpointServicePermissionsResponse,
 
-    -- ** DisassociateTrunkInterface
-    DisassociateTrunkInterface (DisassociateTrunkInterface'),
-    newDisassociateTrunkInterface,
-    DisassociateTrunkInterfaceResponse (DisassociateTrunkInterfaceResponse'),
-    newDisassociateTrunkInterfaceResponse,
+    -- ** ModifyVpcPeeringConnectionOptions
+    ModifyVpcPeeringConnectionOptions (ModifyVpcPeeringConnectionOptions'),
+    newModifyVpcPeeringConnectionOptions,
+    ModifyVpcPeeringConnectionOptionsResponse (ModifyVpcPeeringConnectionOptionsResponse'),
+    newModifyVpcPeeringConnectionOptionsResponse,
+
+    -- ** ModifyVpcTenancy
+    ModifyVpcTenancy (ModifyVpcTenancy'),
+    newModifyVpcTenancy,
+    ModifyVpcTenancyResponse (ModifyVpcTenancyResponse'),
+    newModifyVpcTenancyResponse,
+
+    -- ** ModifyVpnConnection
+    ModifyVpnConnection (ModifyVpnConnection'),
+    newModifyVpnConnection,
+    ModifyVpnConnectionResponse (ModifyVpnConnectionResponse'),
+    newModifyVpnConnectionResponse,
+
+    -- ** ModifyVpnConnectionOptions
+    ModifyVpnConnectionOptions (ModifyVpnConnectionOptions'),
+    newModifyVpnConnectionOptions,
+    ModifyVpnConnectionOptionsResponse (ModifyVpnConnectionOptionsResponse'),
+    newModifyVpnConnectionOptionsResponse,
+
+    -- ** ModifyVpnTunnelCertificate
+    ModifyVpnTunnelCertificate (ModifyVpnTunnelCertificate'),
+    newModifyVpnTunnelCertificate,
+    ModifyVpnTunnelCertificateResponse (ModifyVpnTunnelCertificateResponse'),
+    newModifyVpnTunnelCertificateResponse,
+
+    -- ** ModifyVpnTunnelOptions
+    ModifyVpnTunnelOptions (ModifyVpnTunnelOptions'),
+    newModifyVpnTunnelOptions,
+    ModifyVpnTunnelOptionsResponse (ModifyVpnTunnelOptionsResponse'),
+    newModifyVpnTunnelOptionsResponse,
+
+    -- ** MonitorInstances
+    MonitorInstances (MonitorInstances'),
+    newMonitorInstances,
+    MonitorInstancesResponse (MonitorInstancesResponse'),
+    newMonitorInstancesResponse,
+
+    -- ** MoveAddressToVpc
+    MoveAddressToVpc (MoveAddressToVpc'),
+    newMoveAddressToVpc,
+    MoveAddressToVpcResponse (MoveAddressToVpcResponse'),
+    newMoveAddressToVpcResponse,
+
+    -- ** ProvisionByoipCidr
+    ProvisionByoipCidr (ProvisionByoipCidr'),
+    newProvisionByoipCidr,
+    ProvisionByoipCidrResponse (ProvisionByoipCidrResponse'),
+    newProvisionByoipCidrResponse,
+
+    -- ** PurchaseHostReservation
+    PurchaseHostReservation (PurchaseHostReservation'),
+    newPurchaseHostReservation,
+    PurchaseHostReservationResponse (PurchaseHostReservationResponse'),
+    newPurchaseHostReservationResponse,
+
+    -- ** PurchaseReservedInstancesOffering
+    PurchaseReservedInstancesOffering (PurchaseReservedInstancesOffering'),
+    newPurchaseReservedInstancesOffering,
+    PurchaseReservedInstancesOfferingResponse (PurchaseReservedInstancesOfferingResponse'),
+    newPurchaseReservedInstancesOfferingResponse,
+
+    -- ** PurchaseScheduledInstances
+    PurchaseScheduledInstances (PurchaseScheduledInstances'),
+    newPurchaseScheduledInstances,
+    PurchaseScheduledInstancesResponse (PurchaseScheduledInstancesResponse'),
+    newPurchaseScheduledInstancesResponse,
+
+    -- ** RebootInstances
+    RebootInstances (RebootInstances'),
+    newRebootInstances,
+    RebootInstancesResponse (RebootInstancesResponse'),
+    newRebootInstancesResponse,
+
+    -- ** RegisterImage
+    RegisterImage (RegisterImage'),
+    newRegisterImage,
+    RegisterImageResponse (RegisterImageResponse'),
+    newRegisterImageResponse,
+
+    -- ** RegisterInstanceEventNotificationAttributes
+    RegisterInstanceEventNotificationAttributes (RegisterInstanceEventNotificationAttributes'),
+    newRegisterInstanceEventNotificationAttributes,
+    RegisterInstanceEventNotificationAttributesResponse (RegisterInstanceEventNotificationAttributesResponse'),
+    newRegisterInstanceEventNotificationAttributesResponse,
+
+    -- ** RegisterTransitGatewayMulticastGroupMembers
+    RegisterTransitGatewayMulticastGroupMembers (RegisterTransitGatewayMulticastGroupMembers'),
+    newRegisterTransitGatewayMulticastGroupMembers,
+    RegisterTransitGatewayMulticastGroupMembersResponse (RegisterTransitGatewayMulticastGroupMembersResponse'),
+    newRegisterTransitGatewayMulticastGroupMembersResponse,
+
+    -- ** RegisterTransitGatewayMulticastGroupSources
+    RegisterTransitGatewayMulticastGroupSources (RegisterTransitGatewayMulticastGroupSources'),
+    newRegisterTransitGatewayMulticastGroupSources,
+    RegisterTransitGatewayMulticastGroupSourcesResponse (RegisterTransitGatewayMulticastGroupSourcesResponse'),
+    newRegisterTransitGatewayMulticastGroupSourcesResponse,
+
+    -- ** RejectTransitGatewayMulticastDomainAssociations
+    RejectTransitGatewayMulticastDomainAssociations (RejectTransitGatewayMulticastDomainAssociations'),
+    newRejectTransitGatewayMulticastDomainAssociations,
+    RejectTransitGatewayMulticastDomainAssociationsResponse (RejectTransitGatewayMulticastDomainAssociationsResponse'),
+    newRejectTransitGatewayMulticastDomainAssociationsResponse,
+
+    -- ** RejectTransitGatewayPeeringAttachment
+    RejectTransitGatewayPeeringAttachment (RejectTransitGatewayPeeringAttachment'),
+    newRejectTransitGatewayPeeringAttachment,
+    RejectTransitGatewayPeeringAttachmentResponse (RejectTransitGatewayPeeringAttachmentResponse'),
+    newRejectTransitGatewayPeeringAttachmentResponse,
+
+    -- ** RejectTransitGatewayVpcAttachment
+    RejectTransitGatewayVpcAttachment (RejectTransitGatewayVpcAttachment'),
+    newRejectTransitGatewayVpcAttachment,
+    RejectTransitGatewayVpcAttachmentResponse (RejectTransitGatewayVpcAttachmentResponse'),
+    newRejectTransitGatewayVpcAttachmentResponse,
+
+    -- ** RejectVpcEndpointConnections
+    RejectVpcEndpointConnections (RejectVpcEndpointConnections'),
+    newRejectVpcEndpointConnections,
+    RejectVpcEndpointConnectionsResponse (RejectVpcEndpointConnectionsResponse'),
+    newRejectVpcEndpointConnectionsResponse,
+
+    -- ** RejectVpcPeeringConnection
+    RejectVpcPeeringConnection (RejectVpcPeeringConnection'),
+    newRejectVpcPeeringConnection,
+    RejectVpcPeeringConnectionResponse (RejectVpcPeeringConnectionResponse'),
+    newRejectVpcPeeringConnectionResponse,
+
+    -- ** ReleaseAddress
+    ReleaseAddress (ReleaseAddress'),
+    newReleaseAddress,
+    ReleaseAddressResponse (ReleaseAddressResponse'),
+    newReleaseAddressResponse,
+
+    -- ** ReleaseHosts
+    ReleaseHosts (ReleaseHosts'),
+    newReleaseHosts,
+    ReleaseHostsResponse (ReleaseHostsResponse'),
+    newReleaseHostsResponse,
+
+    -- ** ReplaceIamInstanceProfileAssociation
+    ReplaceIamInstanceProfileAssociation (ReplaceIamInstanceProfileAssociation'),
+    newReplaceIamInstanceProfileAssociation,
+    ReplaceIamInstanceProfileAssociationResponse (ReplaceIamInstanceProfileAssociationResponse'),
+    newReplaceIamInstanceProfileAssociationResponse,
+
+    -- ** ReplaceNetworkAclAssociation
+    ReplaceNetworkAclAssociation (ReplaceNetworkAclAssociation'),
+    newReplaceNetworkAclAssociation,
+    ReplaceNetworkAclAssociationResponse (ReplaceNetworkAclAssociationResponse'),
+    newReplaceNetworkAclAssociationResponse,
+
+    -- ** ReplaceNetworkAclEntry
+    ReplaceNetworkAclEntry (ReplaceNetworkAclEntry'),
+    newReplaceNetworkAclEntry,
+    ReplaceNetworkAclEntryResponse (ReplaceNetworkAclEntryResponse'),
+    newReplaceNetworkAclEntryResponse,
+
+    -- ** ReplaceRoute
+    ReplaceRoute (ReplaceRoute'),
+    newReplaceRoute,
+    ReplaceRouteResponse (ReplaceRouteResponse'),
+    newReplaceRouteResponse,
+
+    -- ** ReplaceRouteTableAssociation
+    ReplaceRouteTableAssociation (ReplaceRouteTableAssociation'),
+    newReplaceRouteTableAssociation,
+    ReplaceRouteTableAssociationResponse (ReplaceRouteTableAssociationResponse'),
+    newReplaceRouteTableAssociationResponse,
+
+    -- ** ReplaceTransitGatewayRoute
+    ReplaceTransitGatewayRoute (ReplaceTransitGatewayRoute'),
+    newReplaceTransitGatewayRoute,
+    ReplaceTransitGatewayRouteResponse (ReplaceTransitGatewayRouteResponse'),
+    newReplaceTransitGatewayRouteResponse,
+
+    -- ** ReportInstanceStatus
+    ReportInstanceStatus (ReportInstanceStatus'),
+    newReportInstanceStatus,
+    ReportInstanceStatusResponse (ReportInstanceStatusResponse'),
+    newReportInstanceStatusResponse,
+
+    -- ** RequestSpotFleet
+    RequestSpotFleet (RequestSpotFleet'),
+    newRequestSpotFleet,
+    RequestSpotFleetResponse (RequestSpotFleetResponse'),
+    newRequestSpotFleetResponse,
+
+    -- ** RequestSpotInstances
+    RequestSpotInstances (RequestSpotInstances'),
+    newRequestSpotInstances,
+    RequestSpotInstancesResponse (RequestSpotInstancesResponse'),
+    newRequestSpotInstancesResponse,
+
+    -- ** ResetAddressAttribute
+    ResetAddressAttribute (ResetAddressAttribute'),
+    newResetAddressAttribute,
+    ResetAddressAttributeResponse (ResetAddressAttributeResponse'),
+    newResetAddressAttributeResponse,
+
+    -- ** ResetEbsDefaultKmsKeyId
+    ResetEbsDefaultKmsKeyId (ResetEbsDefaultKmsKeyId'),
+    newResetEbsDefaultKmsKeyId,
+    ResetEbsDefaultKmsKeyIdResponse (ResetEbsDefaultKmsKeyIdResponse'),
+    newResetEbsDefaultKmsKeyIdResponse,
+
+    -- ** ResetFpgaImageAttribute
+    ResetFpgaImageAttribute (ResetFpgaImageAttribute'),
+    newResetFpgaImageAttribute,
+    ResetFpgaImageAttributeResponse (ResetFpgaImageAttributeResponse'),
+    newResetFpgaImageAttributeResponse,
+
+    -- ** ResetImageAttribute
+    ResetImageAttribute (ResetImageAttribute'),
+    newResetImageAttribute,
+    ResetImageAttributeResponse (ResetImageAttributeResponse'),
+    newResetImageAttributeResponse,
+
+    -- ** ResetInstanceAttribute
+    ResetInstanceAttribute (ResetInstanceAttribute'),
+    newResetInstanceAttribute,
+    ResetInstanceAttributeResponse (ResetInstanceAttributeResponse'),
+    newResetInstanceAttributeResponse,
+
+    -- ** ResetNetworkInterfaceAttribute
+    ResetNetworkInterfaceAttribute (ResetNetworkInterfaceAttribute'),
+    newResetNetworkInterfaceAttribute,
+    ResetNetworkInterfaceAttributeResponse (ResetNetworkInterfaceAttributeResponse'),
+    newResetNetworkInterfaceAttributeResponse,
+
+    -- ** ResetSnapshotAttribute
+    ResetSnapshotAttribute (ResetSnapshotAttribute'),
+    newResetSnapshotAttribute,
+    ResetSnapshotAttributeResponse (ResetSnapshotAttributeResponse'),
+    newResetSnapshotAttributeResponse,
 
     -- ** RestoreAddressToClassic
     RestoreAddressToClassic (RestoreAddressToClassic'),
@@ -2924,53 +2840,137 @@ module Amazonka.EC2
     RestoreAddressToClassicResponse (RestoreAddressToClassicResponse'),
     newRestoreAddressToClassicResponse,
 
-    -- ** DescribeManagedPrefixLists (Paginated)
-    DescribeManagedPrefixLists (DescribeManagedPrefixLists'),
-    newDescribeManagedPrefixLists,
-    DescribeManagedPrefixListsResponse (DescribeManagedPrefixListsResponse'),
-    newDescribeManagedPrefixListsResponse,
+    -- ** RestoreManagedPrefixListVersion
+    RestoreManagedPrefixListVersion (RestoreManagedPrefixListVersion'),
+    newRestoreManagedPrefixListVersion,
+    RestoreManagedPrefixListVersionResponse (RestoreManagedPrefixListVersionResponse'),
+    newRestoreManagedPrefixListVersionResponse,
 
-    -- ** CreateKeyPair
-    CreateKeyPair (CreateKeyPair'),
-    newCreateKeyPair,
-    CreateKeyPairResponse (CreateKeyPairResponse'),
-    newCreateKeyPairResponse,
+    -- ** RevokeClientVpnIngress
+    RevokeClientVpnIngress (RevokeClientVpnIngress'),
+    newRevokeClientVpnIngress,
+    RevokeClientVpnIngressResponse (RevokeClientVpnIngressResponse'),
+    newRevokeClientVpnIngressResponse,
 
-    -- ** GetReservedInstancesExchangeQuote
-    GetReservedInstancesExchangeQuote (GetReservedInstancesExchangeQuote'),
-    newGetReservedInstancesExchangeQuote,
-    GetReservedInstancesExchangeQuoteResponse (GetReservedInstancesExchangeQuoteResponse'),
-    newGetReservedInstancesExchangeQuoteResponse,
+    -- ** RevokeSecurityGroupEgress
+    RevokeSecurityGroupEgress (RevokeSecurityGroupEgress'),
+    newRevokeSecurityGroupEgress,
+    RevokeSecurityGroupEgressResponse (RevokeSecurityGroupEgressResponse'),
+    newRevokeSecurityGroupEgressResponse,
 
-    -- ** DeleteVolume
-    DeleteVolume (DeleteVolume'),
-    newDeleteVolume,
-    DeleteVolumeResponse (DeleteVolumeResponse'),
-    newDeleteVolumeResponse,
+    -- ** RevokeSecurityGroupIngress
+    RevokeSecurityGroupIngress (RevokeSecurityGroupIngress'),
+    newRevokeSecurityGroupIngress,
+    RevokeSecurityGroupIngressResponse (RevokeSecurityGroupIngressResponse'),
+    newRevokeSecurityGroupIngressResponse,
 
-    -- ** DeprovisionByoipCidr
-    DeprovisionByoipCidr (DeprovisionByoipCidr'),
-    newDeprovisionByoipCidr,
-    DeprovisionByoipCidrResponse (DeprovisionByoipCidrResponse'),
-    newDeprovisionByoipCidrResponse,
+    -- ** RunInstances
+    RunInstances (RunInstances'),
+    newRunInstances,
+    Reservation (Reservation'),
+    newReservation,
 
-    -- ** GetSerialConsoleAccessStatus
-    GetSerialConsoleAccessStatus (GetSerialConsoleAccessStatus'),
-    newGetSerialConsoleAccessStatus,
-    GetSerialConsoleAccessStatusResponse (GetSerialConsoleAccessStatusResponse'),
-    newGetSerialConsoleAccessStatusResponse,
+    -- ** RunScheduledInstances
+    RunScheduledInstances (RunScheduledInstances'),
+    newRunScheduledInstances,
+    RunScheduledInstancesResponse (RunScheduledInstancesResponse'),
+    newRunScheduledInstancesResponse,
 
-    -- ** DeleteVpcEndpointServiceConfigurations
-    DeleteVpcEndpointServiceConfigurations (DeleteVpcEndpointServiceConfigurations'),
-    newDeleteVpcEndpointServiceConfigurations,
-    DeleteVpcEndpointServiceConfigurationsResponse (DeleteVpcEndpointServiceConfigurationsResponse'),
-    newDeleteVpcEndpointServiceConfigurationsResponse,
+    -- ** SearchLocalGatewayRoutes (Paginated)
+    SearchLocalGatewayRoutes (SearchLocalGatewayRoutes'),
+    newSearchLocalGatewayRoutes,
+    SearchLocalGatewayRoutesResponse (SearchLocalGatewayRoutesResponse'),
+    newSearchLocalGatewayRoutesResponse,
 
-    -- ** DescribeSpotFleetInstances (Paginated)
-    DescribeSpotFleetInstances (DescribeSpotFleetInstances'),
-    newDescribeSpotFleetInstances,
-    DescribeSpotFleetInstancesResponse (DescribeSpotFleetInstancesResponse'),
-    newDescribeSpotFleetInstancesResponse,
+    -- ** SearchTransitGatewayMulticastGroups (Paginated)
+    SearchTransitGatewayMulticastGroups (SearchTransitGatewayMulticastGroups'),
+    newSearchTransitGatewayMulticastGroups,
+    SearchTransitGatewayMulticastGroupsResponse (SearchTransitGatewayMulticastGroupsResponse'),
+    newSearchTransitGatewayMulticastGroupsResponse,
+
+    -- ** SearchTransitGatewayRoutes
+    SearchTransitGatewayRoutes (SearchTransitGatewayRoutes'),
+    newSearchTransitGatewayRoutes,
+    SearchTransitGatewayRoutesResponse (SearchTransitGatewayRoutesResponse'),
+    newSearchTransitGatewayRoutesResponse,
+
+    -- ** SendDiagnosticInterrupt
+    SendDiagnosticInterrupt (SendDiagnosticInterrupt'),
+    newSendDiagnosticInterrupt,
+    SendDiagnosticInterruptResponse (SendDiagnosticInterruptResponse'),
+    newSendDiagnosticInterruptResponse,
+
+    -- ** StartInstances
+    StartInstances (StartInstances'),
+    newStartInstances,
+    StartInstancesResponse (StartInstancesResponse'),
+    newStartInstancesResponse,
+
+    -- ** StartNetworkInsightsAnalysis
+    StartNetworkInsightsAnalysis (StartNetworkInsightsAnalysis'),
+    newStartNetworkInsightsAnalysis,
+    StartNetworkInsightsAnalysisResponse (StartNetworkInsightsAnalysisResponse'),
+    newStartNetworkInsightsAnalysisResponse,
+
+    -- ** StartVpcEndpointServicePrivateDnsVerification
+    StartVpcEndpointServicePrivateDnsVerification (StartVpcEndpointServicePrivateDnsVerification'),
+    newStartVpcEndpointServicePrivateDnsVerification,
+    StartVpcEndpointServicePrivateDnsVerificationResponse (StartVpcEndpointServicePrivateDnsVerificationResponse'),
+    newStartVpcEndpointServicePrivateDnsVerificationResponse,
+
+    -- ** StopInstances
+    StopInstances (StopInstances'),
+    newStopInstances,
+    StopInstancesResponse (StopInstancesResponse'),
+    newStopInstancesResponse,
+
+    -- ** TerminateClientVpnConnections
+    TerminateClientVpnConnections (TerminateClientVpnConnections'),
+    newTerminateClientVpnConnections,
+    TerminateClientVpnConnectionsResponse (TerminateClientVpnConnectionsResponse'),
+    newTerminateClientVpnConnectionsResponse,
+
+    -- ** TerminateInstances
+    TerminateInstances (TerminateInstances'),
+    newTerminateInstances,
+    TerminateInstancesResponse (TerminateInstancesResponse'),
+    newTerminateInstancesResponse,
+
+    -- ** UnassignIpv6Addresses
+    UnassignIpv6Addresses (UnassignIpv6Addresses'),
+    newUnassignIpv6Addresses,
+    UnassignIpv6AddressesResponse (UnassignIpv6AddressesResponse'),
+    newUnassignIpv6AddressesResponse,
+
+    -- ** UnassignPrivateIpAddresses
+    UnassignPrivateIpAddresses (UnassignPrivateIpAddresses'),
+    newUnassignPrivateIpAddresses,
+    UnassignPrivateIpAddressesResponse (UnassignPrivateIpAddressesResponse'),
+    newUnassignPrivateIpAddressesResponse,
+
+    -- ** UnmonitorInstances
+    UnmonitorInstances (UnmonitorInstances'),
+    newUnmonitorInstances,
+    UnmonitorInstancesResponse (UnmonitorInstancesResponse'),
+    newUnmonitorInstancesResponse,
+
+    -- ** UpdateSecurityGroupRuleDescriptionsEgress
+    UpdateSecurityGroupRuleDescriptionsEgress (UpdateSecurityGroupRuleDescriptionsEgress'),
+    newUpdateSecurityGroupRuleDescriptionsEgress,
+    UpdateSecurityGroupRuleDescriptionsEgressResponse (UpdateSecurityGroupRuleDescriptionsEgressResponse'),
+    newUpdateSecurityGroupRuleDescriptionsEgressResponse,
+
+    -- ** UpdateSecurityGroupRuleDescriptionsIngress
+    UpdateSecurityGroupRuleDescriptionsIngress (UpdateSecurityGroupRuleDescriptionsIngress'),
+    newUpdateSecurityGroupRuleDescriptionsIngress,
+    UpdateSecurityGroupRuleDescriptionsIngressResponse (UpdateSecurityGroupRuleDescriptionsIngressResponse'),
+    newUpdateSecurityGroupRuleDescriptionsIngressResponse,
+
+    -- ** WithdrawByoipCidr
+    WithdrawByoipCidr (WithdrawByoipCidr'),
+    newWithdrawByoipCidr,
+    WithdrawByoipCidrResponse (WithdrawByoipCidrResponse'),
+    newWithdrawByoipCidrResponse,
 
     -- * Types
 

@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLoadPermission' smart constructor.
 data LoadPermission = LoadPermission'
-  { -- | The name of the group.
-    group' :: Prelude.Maybe PermissionGroup,
-    -- | The Amazon Web Services account ID.
-    userId :: Prelude.Maybe Prelude.Text
+  { -- | The Amazon Web Services account ID.
+    userId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the group.
+    group' :: Prelude.Maybe PermissionGroup
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,36 +44,36 @@ data LoadPermission = LoadPermission'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'group'', 'loadPermission_group' - The name of the group.
---
 -- 'userId', 'loadPermission_userId' - The Amazon Web Services account ID.
+--
+-- 'group'', 'loadPermission_group' - The name of the group.
 newLoadPermission ::
   LoadPermission
 newLoadPermission =
   LoadPermission'
-    { group' = Prelude.Nothing,
-      userId = Prelude.Nothing
+    { userId = Prelude.Nothing,
+      group' = Prelude.Nothing
     }
-
--- | The name of the group.
-loadPermission_group :: Lens.Lens' LoadPermission (Prelude.Maybe PermissionGroup)
-loadPermission_group = Lens.lens (\LoadPermission' {group'} -> group') (\s@LoadPermission' {} a -> s {group' = a} :: LoadPermission)
 
 -- | The Amazon Web Services account ID.
 loadPermission_userId :: Lens.Lens' LoadPermission (Prelude.Maybe Prelude.Text)
 loadPermission_userId = Lens.lens (\LoadPermission' {userId} -> userId) (\s@LoadPermission' {} a -> s {userId = a} :: LoadPermission)
 
+-- | The name of the group.
+loadPermission_group :: Lens.Lens' LoadPermission (Prelude.Maybe PermissionGroup)
+loadPermission_group = Lens.lens (\LoadPermission' {group'} -> group') (\s@LoadPermission' {} a -> s {group' = a} :: LoadPermission)
+
 instance Core.FromXML LoadPermission where
   parseXML x =
     LoadPermission'
-      Prelude.<$> (x Core..@? "group")
-      Prelude.<*> (x Core..@? "userId")
+      Prelude.<$> (x Core..@? "userId")
+      Prelude.<*> (x Core..@? "group")
 
 instance Prelude.Hashable LoadPermission where
   hashWithSalt _salt LoadPermission' {..} =
-    _salt `Prelude.hashWithSalt` group'
-      `Prelude.hashWithSalt` userId
+    _salt `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` group'
 
 instance Prelude.NFData LoadPermission where
   rnf LoadPermission' {..} =
-    Prelude.rnf group' `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf userId `Prelude.seq` Prelude.rnf group'

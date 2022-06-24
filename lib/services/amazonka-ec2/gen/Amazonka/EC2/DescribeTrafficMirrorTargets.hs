@@ -29,10 +29,10 @@ module Amazonka.EC2.DescribeTrafficMirrorTargets
     newDescribeTrafficMirrorTargets,
 
     -- * Request Lenses
-    describeTrafficMirrorTargets_filters,
     describeTrafficMirrorTargets_nextToken,
-    describeTrafficMirrorTargets_trafficMirrorTargetIds,
+    describeTrafficMirrorTargets_filters,
     describeTrafficMirrorTargets_dryRun,
+    describeTrafficMirrorTargets_trafficMirrorTargetIds,
     describeTrafficMirrorTargets_maxResults,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Amazonka.EC2.DescribeTrafficMirrorTargets
     newDescribeTrafficMirrorTargetsResponse,
 
     -- * Response Lenses
-    describeTrafficMirrorTargetsResponse_trafficMirrorTargets,
     describeTrafficMirrorTargetsResponse_nextToken,
+    describeTrafficMirrorTargetsResponse_trafficMirrorTargets,
     describeTrafficMirrorTargetsResponse_httpStatus,
   )
 where
@@ -55,7 +55,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeTrafficMirrorTargets' smart constructor.
 data DescribeTrafficMirrorTargets = DescribeTrafficMirrorTargets'
-  { -- | One or more filters. The possible values are:
+  { -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters. The possible values are:
     --
     -- -   @description@: The Traffic Mirror target description.
     --
@@ -70,15 +72,13 @@ data DescribeTrafficMirrorTargets = DescribeTrafficMirrorTargets'
     --
     -- -   @traffic-mirror-target-id@: The ID of the Traffic Mirror target.
     filters :: Prelude.Maybe [Filter],
-    -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Traffic Mirror targets.
-    trafficMirrorTargetIds :: Prelude.Maybe [Prelude.Text],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the Traffic Mirror targets.
+    trafficMirrorTargetIds :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
@@ -93,6 +93,8 @@ data DescribeTrafficMirrorTargets = DescribeTrafficMirrorTargets'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'nextToken', 'describeTrafficMirrorTargets_nextToken' - The token for the next page of results.
 --
 -- 'filters', 'describeTrafficMirrorTargets_filters' - One or more filters. The possible values are:
 --
@@ -109,14 +111,12 @@ data DescribeTrafficMirrorTargets = DescribeTrafficMirrorTargets'
 --
 -- -   @traffic-mirror-target-id@: The ID of the Traffic Mirror target.
 --
--- 'nextToken', 'describeTrafficMirrorTargets_nextToken' - The token for the next page of results.
---
--- 'trafficMirrorTargetIds', 'describeTrafficMirrorTargets_trafficMirrorTargetIds' - The ID of the Traffic Mirror targets.
---
 -- 'dryRun', 'describeTrafficMirrorTargets_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'trafficMirrorTargetIds', 'describeTrafficMirrorTargets_trafficMirrorTargetIds' - The ID of the Traffic Mirror targets.
 --
 -- 'maxResults', 'describeTrafficMirrorTargets_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
@@ -125,13 +125,17 @@ newDescribeTrafficMirrorTargets ::
   DescribeTrafficMirrorTargets
 newDescribeTrafficMirrorTargets =
   DescribeTrafficMirrorTargets'
-    { filters =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      trafficMirrorTargetIds = Prelude.Nothing,
+      filters = Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      trafficMirrorTargetIds = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | The token for the next page of results.
+describeTrafficMirrorTargets_nextToken :: Lens.Lens' DescribeTrafficMirrorTargets (Prelude.Maybe Prelude.Text)
+describeTrafficMirrorTargets_nextToken = Lens.lens (\DescribeTrafficMirrorTargets' {nextToken} -> nextToken) (\s@DescribeTrafficMirrorTargets' {} a -> s {nextToken = a} :: DescribeTrafficMirrorTargets)
 
 -- | One or more filters. The possible values are:
 --
@@ -150,20 +154,16 @@ newDescribeTrafficMirrorTargets =
 describeTrafficMirrorTargets_filters :: Lens.Lens' DescribeTrafficMirrorTargets (Prelude.Maybe [Filter])
 describeTrafficMirrorTargets_filters = Lens.lens (\DescribeTrafficMirrorTargets' {filters} -> filters) (\s@DescribeTrafficMirrorTargets' {} a -> s {filters = a} :: DescribeTrafficMirrorTargets) Prelude.. Lens.mapping Lens.coerced
 
--- | The token for the next page of results.
-describeTrafficMirrorTargets_nextToken :: Lens.Lens' DescribeTrafficMirrorTargets (Prelude.Maybe Prelude.Text)
-describeTrafficMirrorTargets_nextToken = Lens.lens (\DescribeTrafficMirrorTargets' {nextToken} -> nextToken) (\s@DescribeTrafficMirrorTargets' {} a -> s {nextToken = a} :: DescribeTrafficMirrorTargets)
-
--- | The ID of the Traffic Mirror targets.
-describeTrafficMirrorTargets_trafficMirrorTargetIds :: Lens.Lens' DescribeTrafficMirrorTargets (Prelude.Maybe [Prelude.Text])
-describeTrafficMirrorTargets_trafficMirrorTargetIds = Lens.lens (\DescribeTrafficMirrorTargets' {trafficMirrorTargetIds} -> trafficMirrorTargetIds) (\s@DescribeTrafficMirrorTargets' {} a -> s {trafficMirrorTargetIds = a} :: DescribeTrafficMirrorTargets) Prelude.. Lens.mapping Lens.coerced
-
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 describeTrafficMirrorTargets_dryRun :: Lens.Lens' DescribeTrafficMirrorTargets (Prelude.Maybe Prelude.Bool)
 describeTrafficMirrorTargets_dryRun = Lens.lens (\DescribeTrafficMirrorTargets' {dryRun} -> dryRun) (\s@DescribeTrafficMirrorTargets' {} a -> s {dryRun = a} :: DescribeTrafficMirrorTargets)
+
+-- | The ID of the Traffic Mirror targets.
+describeTrafficMirrorTargets_trafficMirrorTargetIds :: Lens.Lens' DescribeTrafficMirrorTargets (Prelude.Maybe [Prelude.Text])
+describeTrafficMirrorTargets_trafficMirrorTargetIds = Lens.lens (\DescribeTrafficMirrorTargets' {trafficMirrorTargetIds} -> trafficMirrorTargetIds) (\s@DescribeTrafficMirrorTargets' {} a -> s {trafficMirrorTargetIds = a} :: DescribeTrafficMirrorTargets) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
@@ -202,11 +202,11 @@ instance Core.AWSRequest DescribeTrafficMirrorTargets where
     Response.receiveXML
       ( \s h x ->
           DescribeTrafficMirrorTargetsResponse'
-            Prelude.<$> ( x Core..@? "trafficMirrorTargetSet"
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "trafficMirrorTargetSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -215,18 +215,18 @@ instance
     DescribeTrafficMirrorTargets
   where
   hashWithSalt _salt DescribeTrafficMirrorTargets' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` trafficMirrorTargetIds
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` trafficMirrorTargetIds
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeTrafficMirrorTargets where
   rnf DescribeTrafficMirrorTargets' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf trafficMirrorTargetIds
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf trafficMirrorTargetIds
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeTrafficMirrorTargets where
@@ -244,24 +244,24 @@ instance Core.ToQuery DescribeTrafficMirrorTargets where
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
-        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "TrafficMirrorTargetId"
               Prelude.<$> trafficMirrorTargetIds
           ),
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeTrafficMirrorTargetsResponse' smart constructor.
 data DescribeTrafficMirrorTargetsResponse = DescribeTrafficMirrorTargetsResponse'
-  { -- | Information about one or more Traffic Mirror targets.
-    trafficMirrorTargets :: Prelude.Maybe [TrafficMirrorTarget],
-    -- | The token to use to retrieve the next page of results. The value is
+  { -- | The token to use to retrieve the next page of results. The value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about one or more Traffic Mirror targets.
+    trafficMirrorTargets :: Prelude.Maybe [TrafficMirrorTarget],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -275,10 +275,10 @@ data DescribeTrafficMirrorTargetsResponse = DescribeTrafficMirrorTargetsResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'trafficMirrorTargets', 'describeTrafficMirrorTargetsResponse_trafficMirrorTargets' - Information about one or more Traffic Mirror targets.
---
 -- 'nextToken', 'describeTrafficMirrorTargetsResponse_nextToken' - The token to use to retrieve the next page of results. The value is
 -- @null@ when there are no more results to return.
+--
+-- 'trafficMirrorTargets', 'describeTrafficMirrorTargetsResponse_trafficMirrorTargets' - Information about one or more Traffic Mirror targets.
 --
 -- 'httpStatus', 'describeTrafficMirrorTargetsResponse_httpStatus' - The response's http status code.
 newDescribeTrafficMirrorTargetsResponse ::
@@ -287,20 +287,21 @@ newDescribeTrafficMirrorTargetsResponse ::
   DescribeTrafficMirrorTargetsResponse
 newDescribeTrafficMirrorTargetsResponse pHttpStatus_ =
   DescribeTrafficMirrorTargetsResponse'
-    { trafficMirrorTargets =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      trafficMirrorTargets =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about one or more Traffic Mirror targets.
-describeTrafficMirrorTargetsResponse_trafficMirrorTargets :: Lens.Lens' DescribeTrafficMirrorTargetsResponse (Prelude.Maybe [TrafficMirrorTarget])
-describeTrafficMirrorTargetsResponse_trafficMirrorTargets = Lens.lens (\DescribeTrafficMirrorTargetsResponse' {trafficMirrorTargets} -> trafficMirrorTargets) (\s@DescribeTrafficMirrorTargetsResponse' {} a -> s {trafficMirrorTargets = a} :: DescribeTrafficMirrorTargetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. The value is
 -- @null@ when there are no more results to return.
 describeTrafficMirrorTargetsResponse_nextToken :: Lens.Lens' DescribeTrafficMirrorTargetsResponse (Prelude.Maybe Prelude.Text)
 describeTrafficMirrorTargetsResponse_nextToken = Lens.lens (\DescribeTrafficMirrorTargetsResponse' {nextToken} -> nextToken) (\s@DescribeTrafficMirrorTargetsResponse' {} a -> s {nextToken = a} :: DescribeTrafficMirrorTargetsResponse)
+
+-- | Information about one or more Traffic Mirror targets.
+describeTrafficMirrorTargetsResponse_trafficMirrorTargets :: Lens.Lens' DescribeTrafficMirrorTargetsResponse (Prelude.Maybe [TrafficMirrorTarget])
+describeTrafficMirrorTargetsResponse_trafficMirrorTargets = Lens.lens (\DescribeTrafficMirrorTargetsResponse' {trafficMirrorTargets} -> trafficMirrorTargets) (\s@DescribeTrafficMirrorTargetsResponse' {} a -> s {trafficMirrorTargets = a} :: DescribeTrafficMirrorTargetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeTrafficMirrorTargetsResponse_httpStatus :: Lens.Lens' DescribeTrafficMirrorTargetsResponse Prelude.Int
@@ -311,6 +312,6 @@ instance
     DescribeTrafficMirrorTargetsResponse
   where
   rnf DescribeTrafficMirrorTargetsResponse' {..} =
-    Prelude.rnf trafficMirrorTargets
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf trafficMirrorTargets
       `Prelude.seq` Prelude.rnf httpStatus

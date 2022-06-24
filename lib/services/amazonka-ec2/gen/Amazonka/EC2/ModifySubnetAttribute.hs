@@ -28,10 +28,10 @@ module Amazonka.EC2.ModifySubnetAttribute
     newModifySubnetAttribute,
 
     -- * Request Lenses
-    modifySubnetAttribute_assignIpv6AddressOnCreation,
+    modifySubnetAttribute_mapPublicIpOnLaunch,
     modifySubnetAttribute_customerOwnedIpv4Pool,
     modifySubnetAttribute_mapCustomerOwnedIpOnLaunch,
-    modifySubnetAttribute_mapPublicIpOnLaunch,
+    modifySubnetAttribute_assignIpv6AddressOnCreation,
     modifySubnetAttribute_subnetId,
 
     -- * Destructuring the Response
@@ -49,15 +49,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifySubnetAttribute' smart constructor.
 data ModifySubnetAttribute = ModifySubnetAttribute'
-  { -- | Specify @true@ to indicate that network interfaces created in the
-    -- specified subnet should be assigned an IPv6 address. This includes a
-    -- network interface that\'s created when launching an instance into the
-    -- subnet (the instance therefore receives an IPv6 address).
-    --
-    -- If you enable the IPv6 addressing feature for your subnet, your network
-    -- interface or instance only receives an IPv6 address if it\'s created
-    -- using version @2016-11-15@ or later of the Amazon EC2 API.
-    assignIpv6AddressOnCreation :: Prelude.Maybe AttributeBooleanValue,
+  { -- | Specify @true@ to indicate that network interfaces attached to instances
+    -- created in the specified subnet should be assigned a public IPv4
+    -- address.
+    mapPublicIpOnLaunch :: Prelude.Maybe AttributeBooleanValue,
     -- | The customer-owned IPv4 address pool associated with the subnet.
     --
     -- You must set this value when you specify @true@ for
@@ -70,10 +65,15 @@ data ModifySubnetAttribute = ModifySubnetAttribute'
     -- When this value is @true@, you must specify the customer-owned IP pool
     -- using @CustomerOwnedIpv4Pool@.
     mapCustomerOwnedIpOnLaunch :: Prelude.Maybe AttributeBooleanValue,
-    -- | Specify @true@ to indicate that network interfaces attached to instances
-    -- created in the specified subnet should be assigned a public IPv4
-    -- address.
-    mapPublicIpOnLaunch :: Prelude.Maybe AttributeBooleanValue,
+    -- | Specify @true@ to indicate that network interfaces created in the
+    -- specified subnet should be assigned an IPv6 address. This includes a
+    -- network interface that\'s created when launching an instance into the
+    -- subnet (the instance therefore receives an IPv6 address).
+    --
+    -- If you enable the IPv6 addressing feature for your subnet, your network
+    -- interface or instance only receives an IPv6 address if it\'s created
+    -- using version @2016-11-15@ or later of the Amazon EC2 API.
+    assignIpv6AddressOnCreation :: Prelude.Maybe AttributeBooleanValue,
     -- | The ID of the subnet.
     subnetId :: Prelude.Text
   }
@@ -87,14 +87,9 @@ data ModifySubnetAttribute = ModifySubnetAttribute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assignIpv6AddressOnCreation', 'modifySubnetAttribute_assignIpv6AddressOnCreation' - Specify @true@ to indicate that network interfaces created in the
--- specified subnet should be assigned an IPv6 address. This includes a
--- network interface that\'s created when launching an instance into the
--- subnet (the instance therefore receives an IPv6 address).
---
--- If you enable the IPv6 addressing feature for your subnet, your network
--- interface or instance only receives an IPv6 address if it\'s created
--- using version @2016-11-15@ or later of the Amazon EC2 API.
+-- 'mapPublicIpOnLaunch', 'modifySubnetAttribute_mapPublicIpOnLaunch' - Specify @true@ to indicate that network interfaces attached to instances
+-- created in the specified subnet should be assigned a public IPv4
+-- address.
 --
 -- 'customerOwnedIpv4Pool', 'modifySubnetAttribute_customerOwnedIpv4Pool' - The customer-owned IPv4 address pool associated with the subnet.
 --
@@ -108,9 +103,14 @@ data ModifySubnetAttribute = ModifySubnetAttribute'
 -- When this value is @true@, you must specify the customer-owned IP pool
 -- using @CustomerOwnedIpv4Pool@.
 --
--- 'mapPublicIpOnLaunch', 'modifySubnetAttribute_mapPublicIpOnLaunch' - Specify @true@ to indicate that network interfaces attached to instances
--- created in the specified subnet should be assigned a public IPv4
--- address.
+-- 'assignIpv6AddressOnCreation', 'modifySubnetAttribute_assignIpv6AddressOnCreation' - Specify @true@ to indicate that network interfaces created in the
+-- specified subnet should be assigned an IPv6 address. This includes a
+-- network interface that\'s created when launching an instance into the
+-- subnet (the instance therefore receives an IPv6 address).
+--
+-- If you enable the IPv6 addressing feature for your subnet, your network
+-- interface or instance only receives an IPv6 address if it\'s created
+-- using version @2016-11-15@ or later of the Amazon EC2 API.
 --
 -- 'subnetId', 'modifySubnetAttribute_subnetId' - The ID of the subnet.
 newModifySubnetAttribute ::
@@ -119,24 +119,19 @@ newModifySubnetAttribute ::
   ModifySubnetAttribute
 newModifySubnetAttribute pSubnetId_ =
   ModifySubnetAttribute'
-    { assignIpv6AddressOnCreation =
+    { mapPublicIpOnLaunch =
         Prelude.Nothing,
       customerOwnedIpv4Pool = Prelude.Nothing,
       mapCustomerOwnedIpOnLaunch = Prelude.Nothing,
-      mapPublicIpOnLaunch = Prelude.Nothing,
+      assignIpv6AddressOnCreation = Prelude.Nothing,
       subnetId = pSubnetId_
     }
 
--- | Specify @true@ to indicate that network interfaces created in the
--- specified subnet should be assigned an IPv6 address. This includes a
--- network interface that\'s created when launching an instance into the
--- subnet (the instance therefore receives an IPv6 address).
---
--- If you enable the IPv6 addressing feature for your subnet, your network
--- interface or instance only receives an IPv6 address if it\'s created
--- using version @2016-11-15@ or later of the Amazon EC2 API.
-modifySubnetAttribute_assignIpv6AddressOnCreation :: Lens.Lens' ModifySubnetAttribute (Prelude.Maybe AttributeBooleanValue)
-modifySubnetAttribute_assignIpv6AddressOnCreation = Lens.lens (\ModifySubnetAttribute' {assignIpv6AddressOnCreation} -> assignIpv6AddressOnCreation) (\s@ModifySubnetAttribute' {} a -> s {assignIpv6AddressOnCreation = a} :: ModifySubnetAttribute)
+-- | Specify @true@ to indicate that network interfaces attached to instances
+-- created in the specified subnet should be assigned a public IPv4
+-- address.
+modifySubnetAttribute_mapPublicIpOnLaunch :: Lens.Lens' ModifySubnetAttribute (Prelude.Maybe AttributeBooleanValue)
+modifySubnetAttribute_mapPublicIpOnLaunch = Lens.lens (\ModifySubnetAttribute' {mapPublicIpOnLaunch} -> mapPublicIpOnLaunch) (\s@ModifySubnetAttribute' {} a -> s {mapPublicIpOnLaunch = a} :: ModifySubnetAttribute)
 
 -- | The customer-owned IPv4 address pool associated with the subnet.
 --
@@ -154,11 +149,16 @@ modifySubnetAttribute_customerOwnedIpv4Pool = Lens.lens (\ModifySubnetAttribute'
 modifySubnetAttribute_mapCustomerOwnedIpOnLaunch :: Lens.Lens' ModifySubnetAttribute (Prelude.Maybe AttributeBooleanValue)
 modifySubnetAttribute_mapCustomerOwnedIpOnLaunch = Lens.lens (\ModifySubnetAttribute' {mapCustomerOwnedIpOnLaunch} -> mapCustomerOwnedIpOnLaunch) (\s@ModifySubnetAttribute' {} a -> s {mapCustomerOwnedIpOnLaunch = a} :: ModifySubnetAttribute)
 
--- | Specify @true@ to indicate that network interfaces attached to instances
--- created in the specified subnet should be assigned a public IPv4
--- address.
-modifySubnetAttribute_mapPublicIpOnLaunch :: Lens.Lens' ModifySubnetAttribute (Prelude.Maybe AttributeBooleanValue)
-modifySubnetAttribute_mapPublicIpOnLaunch = Lens.lens (\ModifySubnetAttribute' {mapPublicIpOnLaunch} -> mapPublicIpOnLaunch) (\s@ModifySubnetAttribute' {} a -> s {mapPublicIpOnLaunch = a} :: ModifySubnetAttribute)
+-- | Specify @true@ to indicate that network interfaces created in the
+-- specified subnet should be assigned an IPv6 address. This includes a
+-- network interface that\'s created when launching an instance into the
+-- subnet (the instance therefore receives an IPv6 address).
+--
+-- If you enable the IPv6 addressing feature for your subnet, your network
+-- interface or instance only receives an IPv6 address if it\'s created
+-- using version @2016-11-15@ or later of the Amazon EC2 API.
+modifySubnetAttribute_assignIpv6AddressOnCreation :: Lens.Lens' ModifySubnetAttribute (Prelude.Maybe AttributeBooleanValue)
+modifySubnetAttribute_assignIpv6AddressOnCreation = Lens.lens (\ModifySubnetAttribute' {assignIpv6AddressOnCreation} -> assignIpv6AddressOnCreation) (\s@ModifySubnetAttribute' {} a -> s {assignIpv6AddressOnCreation = a} :: ModifySubnetAttribute)
 
 -- | The ID of the subnet.
 modifySubnetAttribute_subnetId :: Lens.Lens' ModifySubnetAttribute Prelude.Text
@@ -174,19 +174,18 @@ instance Core.AWSRequest ModifySubnetAttribute where
 
 instance Prelude.Hashable ModifySubnetAttribute where
   hashWithSalt _salt ModifySubnetAttribute' {..} =
-    _salt
-      `Prelude.hashWithSalt` assignIpv6AddressOnCreation
+    _salt `Prelude.hashWithSalt` mapPublicIpOnLaunch
       `Prelude.hashWithSalt` customerOwnedIpv4Pool
       `Prelude.hashWithSalt` mapCustomerOwnedIpOnLaunch
-      `Prelude.hashWithSalt` mapPublicIpOnLaunch
+      `Prelude.hashWithSalt` assignIpv6AddressOnCreation
       `Prelude.hashWithSalt` subnetId
 
 instance Prelude.NFData ModifySubnetAttribute where
   rnf ModifySubnetAttribute' {..} =
-    Prelude.rnf assignIpv6AddressOnCreation
+    Prelude.rnf mapPublicIpOnLaunch
       `Prelude.seq` Prelude.rnf customerOwnedIpv4Pool
       `Prelude.seq` Prelude.rnf mapCustomerOwnedIpOnLaunch
-      `Prelude.seq` Prelude.rnf mapPublicIpOnLaunch
+      `Prelude.seq` Prelude.rnf assignIpv6AddressOnCreation
       `Prelude.seq` Prelude.rnf subnetId
 
 instance Core.ToHeaders ModifySubnetAttribute where
@@ -202,13 +201,13 @@ instance Core.ToQuery ModifySubnetAttribute where
           Core.=: ("ModifySubnetAttribute" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "AssignIpv6AddressOnCreation"
-          Core.=: assignIpv6AddressOnCreation,
+        "MapPublicIpOnLaunch" Core.=: mapPublicIpOnLaunch,
         "CustomerOwnedIpv4Pool"
           Core.=: customerOwnedIpv4Pool,
         "MapCustomerOwnedIpOnLaunch"
           Core.=: mapCustomerOwnedIpOnLaunch,
-        "MapPublicIpOnLaunch" Core.=: mapPublicIpOnLaunch,
+        "AssignIpv6AddressOnCreation"
+          Core.=: assignIpv6AddressOnCreation,
         "SubnetId" Core.=: subnetId
       ]
 

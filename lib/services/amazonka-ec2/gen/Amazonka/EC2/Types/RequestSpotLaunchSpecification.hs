@@ -34,28 +34,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRequestSpotLaunchSpecification' smart constructor.
 data RequestSpotLaunchSpecification = RequestSpotLaunchSpecification'
-  { -- | One or more security group IDs.
-    securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | One or more security groups. When requesting instances in a VPC, you
-    -- must specify the IDs of the security groups. When requesting instances
-    -- in EC2-Classic, you can specify the names or the IDs of the security
-    -- groups.
-    securityGroups :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the key pair.
-    keyName :: Prelude.Maybe Prelude.Text,
-    -- | One or more network interfaces. If you specify a network interface, you
-    -- must specify subnet IDs and security group IDs using the network
-    -- interface.
-    networkInterfaces :: Prelude.Maybe [InstanceNetworkInterfaceSpecification],
-    -- | The ID of the RAM disk.
-    ramdiskId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the subnet in which to launch the instance.
-    subnetId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the kernel.
-    kernelId :: Prelude.Maybe Prelude.Text,
-    -- | The instance type.
-    instanceType :: Prelude.Maybe InstanceType,
-    -- | Indicates whether the instance is optimized for EBS I\/O. This
+  { -- | Indicates whether the instance is optimized for EBS I\/O. This
     -- optimization provides dedicated throughput to Amazon EBS and an
     -- optimized configuration stack to provide optimal EBS I\/O performance.
     -- This optimization isn\'t available with all instance types. Additional
@@ -63,28 +42,49 @@ data RequestSpotLaunchSpecification = RequestSpotLaunchSpecification'
     --
     -- Default: @false@
     ebsOptimized :: Prelude.Maybe Prelude.Bool,
+    -- | The IAM instance profile.
+    iamInstanceProfile :: Prelude.Maybe IamInstanceProfileSpecification,
+    -- | The placement information for the instance.
+    placement :: Prelude.Maybe SpotPlacement,
     -- | The Base64-encoded user data for the instance. User data is limited to
     -- 16 KB.
     userData :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether basic or detailed monitoring is enabled for the
-    -- instance.
-    --
-    -- Default: Disabled
-    monitoring :: Prelude.Maybe RunInstancesMonitoringEnabled,
-    -- | The IAM instance profile.
-    iamInstanceProfile :: Prelude.Maybe IamInstanceProfileSpecification,
-    -- | The ID of the AMI.
-    imageId :: Prelude.Maybe Prelude.Text,
-    -- | Deprecated.
-    addressingType :: Prelude.Maybe Prelude.Text,
     -- | One or more block device mapping entries. You can\'t specify both a
     -- snapshot ID and an encryption value. This is because only blank volumes
     -- can be encrypted on creation. If a snapshot is the basis for a volume,
     -- it is not blank and its encryption status is used for the volume
     -- encryption status.
     blockDeviceMappings :: Prelude.Maybe [BlockDeviceMapping],
-    -- | The placement information for the instance.
-    placement :: Prelude.Maybe SpotPlacement
+    -- | One or more security group IDs.
+    securityGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- | Deprecated.
+    addressingType :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether basic or detailed monitoring is enabled for the
+    -- instance.
+    --
+    -- Default: Disabled
+    monitoring :: Prelude.Maybe RunInstancesMonitoringEnabled,
+    -- | The ID of the subnet in which to launch the instance.
+    subnetId :: Prelude.Maybe Prelude.Text,
+    -- | The instance type.
+    instanceType :: Prelude.Maybe InstanceType,
+    -- | One or more security groups. When requesting instances in a VPC, you
+    -- must specify the IDs of the security groups. When requesting instances
+    -- in EC2-Classic, you can specify the names or the IDs of the security
+    -- groups.
+    securityGroups :: Prelude.Maybe [Prelude.Text],
+    -- | The ID of the RAM disk.
+    ramdiskId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the key pair.
+    keyName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the kernel.
+    kernelId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the AMI.
+    imageId :: Prelude.Maybe Prelude.Text,
+    -- | One or more network interfaces. If you specify a network interface, you
+    -- must specify subnet IDs and security group IDs using the network
+    -- interface.
+    networkInterfaces :: Prelude.Maybe [InstanceNetworkInterfaceSpecification]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -96,27 +96,6 @@ data RequestSpotLaunchSpecification = RequestSpotLaunchSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'securityGroupIds', 'requestSpotLaunchSpecification_securityGroupIds' - One or more security group IDs.
---
--- 'securityGroups', 'requestSpotLaunchSpecification_securityGroups' - One or more security groups. When requesting instances in a VPC, you
--- must specify the IDs of the security groups. When requesting instances
--- in EC2-Classic, you can specify the names or the IDs of the security
--- groups.
---
--- 'keyName', 'requestSpotLaunchSpecification_keyName' - The name of the key pair.
---
--- 'networkInterfaces', 'requestSpotLaunchSpecification_networkInterfaces' - One or more network interfaces. If you specify a network interface, you
--- must specify subnet IDs and security group IDs using the network
--- interface.
---
--- 'ramdiskId', 'requestSpotLaunchSpecification_ramdiskId' - The ID of the RAM disk.
---
--- 'subnetId', 'requestSpotLaunchSpecification_subnetId' - The ID of the subnet in which to launch the instance.
---
--- 'kernelId', 'requestSpotLaunchSpecification_kernelId' - The ID of the kernel.
---
--- 'instanceType', 'requestSpotLaunchSpecification_instanceType' - The instance type.
---
 -- 'ebsOptimized', 'requestSpotLaunchSpecification_ebsOptimized' - Indicates whether the instance is optimized for EBS I\/O. This
 -- optimization provides dedicated throughput to Amazon EBS and an
 -- optimized configuration stack to provide optimal EBS I\/O performance.
@@ -125,19 +104,12 @@ data RequestSpotLaunchSpecification = RequestSpotLaunchSpecification'
 --
 -- Default: @false@
 --
--- 'userData', 'requestSpotLaunchSpecification_userData' - The Base64-encoded user data for the instance. User data is limited to
--- 16 KB.
---
--- 'monitoring', 'requestSpotLaunchSpecification_monitoring' - Indicates whether basic or detailed monitoring is enabled for the
--- instance.
---
--- Default: Disabled
---
 -- 'iamInstanceProfile', 'requestSpotLaunchSpecification_iamInstanceProfile' - The IAM instance profile.
 --
--- 'imageId', 'requestSpotLaunchSpecification_imageId' - The ID of the AMI.
+-- 'placement', 'requestSpotLaunchSpecification_placement' - The placement information for the instance.
 --
--- 'addressingType', 'requestSpotLaunchSpecification_addressingType' - Deprecated.
+-- 'userData', 'requestSpotLaunchSpecification_userData' - The Base64-encoded user data for the instance. User data is limited to
+-- 16 KB.
 --
 -- 'blockDeviceMappings', 'requestSpotLaunchSpecification_blockDeviceMappings' - One or more block device mapping entries. You can\'t specify both a
 -- snapshot ID and an encryption value. This is because only blank volumes
@@ -145,66 +117,57 @@ data RequestSpotLaunchSpecification = RequestSpotLaunchSpecification'
 -- it is not blank and its encryption status is used for the volume
 -- encryption status.
 --
--- 'placement', 'requestSpotLaunchSpecification_placement' - The placement information for the instance.
+-- 'securityGroupIds', 'requestSpotLaunchSpecification_securityGroupIds' - One or more security group IDs.
+--
+-- 'addressingType', 'requestSpotLaunchSpecification_addressingType' - Deprecated.
+--
+-- 'monitoring', 'requestSpotLaunchSpecification_monitoring' - Indicates whether basic or detailed monitoring is enabled for the
+-- instance.
+--
+-- Default: Disabled
+--
+-- 'subnetId', 'requestSpotLaunchSpecification_subnetId' - The ID of the subnet in which to launch the instance.
+--
+-- 'instanceType', 'requestSpotLaunchSpecification_instanceType' - The instance type.
+--
+-- 'securityGroups', 'requestSpotLaunchSpecification_securityGroups' - One or more security groups. When requesting instances in a VPC, you
+-- must specify the IDs of the security groups. When requesting instances
+-- in EC2-Classic, you can specify the names or the IDs of the security
+-- groups.
+--
+-- 'ramdiskId', 'requestSpotLaunchSpecification_ramdiskId' - The ID of the RAM disk.
+--
+-- 'keyName', 'requestSpotLaunchSpecification_keyName' - The name of the key pair.
+--
+-- 'kernelId', 'requestSpotLaunchSpecification_kernelId' - The ID of the kernel.
+--
+-- 'imageId', 'requestSpotLaunchSpecification_imageId' - The ID of the AMI.
+--
+-- 'networkInterfaces', 'requestSpotLaunchSpecification_networkInterfaces' - One or more network interfaces. If you specify a network interface, you
+-- must specify subnet IDs and security group IDs using the network
+-- interface.
 newRequestSpotLaunchSpecification ::
   RequestSpotLaunchSpecification
 newRequestSpotLaunchSpecification =
   RequestSpotLaunchSpecification'
-    { securityGroupIds =
+    { ebsOptimized =
         Prelude.Nothing,
-      securityGroups = Prelude.Nothing,
-      keyName = Prelude.Nothing,
-      networkInterfaces = Prelude.Nothing,
-      ramdiskId = Prelude.Nothing,
-      subnetId = Prelude.Nothing,
-      kernelId = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
-      ebsOptimized = Prelude.Nothing,
-      userData = Prelude.Nothing,
-      monitoring = Prelude.Nothing,
       iamInstanceProfile = Prelude.Nothing,
-      imageId = Prelude.Nothing,
-      addressingType = Prelude.Nothing,
+      placement = Prelude.Nothing,
+      userData = Prelude.Nothing,
       blockDeviceMappings = Prelude.Nothing,
-      placement = Prelude.Nothing
+      securityGroupIds = Prelude.Nothing,
+      addressingType = Prelude.Nothing,
+      monitoring = Prelude.Nothing,
+      subnetId = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
+      securityGroups = Prelude.Nothing,
+      ramdiskId = Prelude.Nothing,
+      keyName = Prelude.Nothing,
+      kernelId = Prelude.Nothing,
+      imageId = Prelude.Nothing,
+      networkInterfaces = Prelude.Nothing
     }
-
--- | One or more security group IDs.
-requestSpotLaunchSpecification_securityGroupIds :: Lens.Lens' RequestSpotLaunchSpecification (Prelude.Maybe [Prelude.Text])
-requestSpotLaunchSpecification_securityGroupIds = Lens.lens (\RequestSpotLaunchSpecification' {securityGroupIds} -> securityGroupIds) (\s@RequestSpotLaunchSpecification' {} a -> s {securityGroupIds = a} :: RequestSpotLaunchSpecification) Prelude.. Lens.mapping Lens.coerced
-
--- | One or more security groups. When requesting instances in a VPC, you
--- must specify the IDs of the security groups. When requesting instances
--- in EC2-Classic, you can specify the names or the IDs of the security
--- groups.
-requestSpotLaunchSpecification_securityGroups :: Lens.Lens' RequestSpotLaunchSpecification (Prelude.Maybe [Prelude.Text])
-requestSpotLaunchSpecification_securityGroups = Lens.lens (\RequestSpotLaunchSpecification' {securityGroups} -> securityGroups) (\s@RequestSpotLaunchSpecification' {} a -> s {securityGroups = a} :: RequestSpotLaunchSpecification) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the key pair.
-requestSpotLaunchSpecification_keyName :: Lens.Lens' RequestSpotLaunchSpecification (Prelude.Maybe Prelude.Text)
-requestSpotLaunchSpecification_keyName = Lens.lens (\RequestSpotLaunchSpecification' {keyName} -> keyName) (\s@RequestSpotLaunchSpecification' {} a -> s {keyName = a} :: RequestSpotLaunchSpecification)
-
--- | One or more network interfaces. If you specify a network interface, you
--- must specify subnet IDs and security group IDs using the network
--- interface.
-requestSpotLaunchSpecification_networkInterfaces :: Lens.Lens' RequestSpotLaunchSpecification (Prelude.Maybe [InstanceNetworkInterfaceSpecification])
-requestSpotLaunchSpecification_networkInterfaces = Lens.lens (\RequestSpotLaunchSpecification' {networkInterfaces} -> networkInterfaces) (\s@RequestSpotLaunchSpecification' {} a -> s {networkInterfaces = a} :: RequestSpotLaunchSpecification) Prelude.. Lens.mapping Lens.coerced
-
--- | The ID of the RAM disk.
-requestSpotLaunchSpecification_ramdiskId :: Lens.Lens' RequestSpotLaunchSpecification (Prelude.Maybe Prelude.Text)
-requestSpotLaunchSpecification_ramdiskId = Lens.lens (\RequestSpotLaunchSpecification' {ramdiskId} -> ramdiskId) (\s@RequestSpotLaunchSpecification' {} a -> s {ramdiskId = a} :: RequestSpotLaunchSpecification)
-
--- | The ID of the subnet in which to launch the instance.
-requestSpotLaunchSpecification_subnetId :: Lens.Lens' RequestSpotLaunchSpecification (Prelude.Maybe Prelude.Text)
-requestSpotLaunchSpecification_subnetId = Lens.lens (\RequestSpotLaunchSpecification' {subnetId} -> subnetId) (\s@RequestSpotLaunchSpecification' {} a -> s {subnetId = a} :: RequestSpotLaunchSpecification)
-
--- | The ID of the kernel.
-requestSpotLaunchSpecification_kernelId :: Lens.Lens' RequestSpotLaunchSpecification (Prelude.Maybe Prelude.Text)
-requestSpotLaunchSpecification_kernelId = Lens.lens (\RequestSpotLaunchSpecification' {kernelId} -> kernelId) (\s@RequestSpotLaunchSpecification' {} a -> s {kernelId = a} :: RequestSpotLaunchSpecification)
-
--- | The instance type.
-requestSpotLaunchSpecification_instanceType :: Lens.Lens' RequestSpotLaunchSpecification (Prelude.Maybe InstanceType)
-requestSpotLaunchSpecification_instanceType = Lens.lens (\RequestSpotLaunchSpecification' {instanceType} -> instanceType) (\s@RequestSpotLaunchSpecification' {} a -> s {instanceType = a} :: RequestSpotLaunchSpecification)
 
 -- | Indicates whether the instance is optimized for EBS I\/O. This
 -- optimization provides dedicated throughput to Amazon EBS and an
@@ -216,29 +179,18 @@ requestSpotLaunchSpecification_instanceType = Lens.lens (\RequestSpotLaunchSpeci
 requestSpotLaunchSpecification_ebsOptimized :: Lens.Lens' RequestSpotLaunchSpecification (Prelude.Maybe Prelude.Bool)
 requestSpotLaunchSpecification_ebsOptimized = Lens.lens (\RequestSpotLaunchSpecification' {ebsOptimized} -> ebsOptimized) (\s@RequestSpotLaunchSpecification' {} a -> s {ebsOptimized = a} :: RequestSpotLaunchSpecification)
 
--- | The Base64-encoded user data for the instance. User data is limited to
--- 16 KB.
-requestSpotLaunchSpecification_userData :: Lens.Lens' RequestSpotLaunchSpecification (Prelude.Maybe Prelude.Text)
-requestSpotLaunchSpecification_userData = Lens.lens (\RequestSpotLaunchSpecification' {userData} -> userData) (\s@RequestSpotLaunchSpecification' {} a -> s {userData = a} :: RequestSpotLaunchSpecification)
-
--- | Indicates whether basic or detailed monitoring is enabled for the
--- instance.
---
--- Default: Disabled
-requestSpotLaunchSpecification_monitoring :: Lens.Lens' RequestSpotLaunchSpecification (Prelude.Maybe RunInstancesMonitoringEnabled)
-requestSpotLaunchSpecification_monitoring = Lens.lens (\RequestSpotLaunchSpecification' {monitoring} -> monitoring) (\s@RequestSpotLaunchSpecification' {} a -> s {monitoring = a} :: RequestSpotLaunchSpecification)
-
 -- | The IAM instance profile.
 requestSpotLaunchSpecification_iamInstanceProfile :: Lens.Lens' RequestSpotLaunchSpecification (Prelude.Maybe IamInstanceProfileSpecification)
 requestSpotLaunchSpecification_iamInstanceProfile = Lens.lens (\RequestSpotLaunchSpecification' {iamInstanceProfile} -> iamInstanceProfile) (\s@RequestSpotLaunchSpecification' {} a -> s {iamInstanceProfile = a} :: RequestSpotLaunchSpecification)
 
--- | The ID of the AMI.
-requestSpotLaunchSpecification_imageId :: Lens.Lens' RequestSpotLaunchSpecification (Prelude.Maybe Prelude.Text)
-requestSpotLaunchSpecification_imageId = Lens.lens (\RequestSpotLaunchSpecification' {imageId} -> imageId) (\s@RequestSpotLaunchSpecification' {} a -> s {imageId = a} :: RequestSpotLaunchSpecification)
+-- | The placement information for the instance.
+requestSpotLaunchSpecification_placement :: Lens.Lens' RequestSpotLaunchSpecification (Prelude.Maybe SpotPlacement)
+requestSpotLaunchSpecification_placement = Lens.lens (\RequestSpotLaunchSpecification' {placement} -> placement) (\s@RequestSpotLaunchSpecification' {} a -> s {placement = a} :: RequestSpotLaunchSpecification)
 
--- | Deprecated.
-requestSpotLaunchSpecification_addressingType :: Lens.Lens' RequestSpotLaunchSpecification (Prelude.Maybe Prelude.Text)
-requestSpotLaunchSpecification_addressingType = Lens.lens (\RequestSpotLaunchSpecification' {addressingType} -> addressingType) (\s@RequestSpotLaunchSpecification' {} a -> s {addressingType = a} :: RequestSpotLaunchSpecification)
+-- | The Base64-encoded user data for the instance. User data is limited to
+-- 16 KB.
+requestSpotLaunchSpecification_userData :: Lens.Lens' RequestSpotLaunchSpecification (Prelude.Maybe Prelude.Text)
+requestSpotLaunchSpecification_userData = Lens.lens (\RequestSpotLaunchSpecification' {userData} -> userData) (\s@RequestSpotLaunchSpecification' {} a -> s {userData = a} :: RequestSpotLaunchSpecification)
 
 -- | One or more block device mapping entries. You can\'t specify both a
 -- snapshot ID and an encryption value. This is because only blank volumes
@@ -248,9 +200,57 @@ requestSpotLaunchSpecification_addressingType = Lens.lens (\RequestSpotLaunchSpe
 requestSpotLaunchSpecification_blockDeviceMappings :: Lens.Lens' RequestSpotLaunchSpecification (Prelude.Maybe [BlockDeviceMapping])
 requestSpotLaunchSpecification_blockDeviceMappings = Lens.lens (\RequestSpotLaunchSpecification' {blockDeviceMappings} -> blockDeviceMappings) (\s@RequestSpotLaunchSpecification' {} a -> s {blockDeviceMappings = a} :: RequestSpotLaunchSpecification) Prelude.. Lens.mapping Lens.coerced
 
--- | The placement information for the instance.
-requestSpotLaunchSpecification_placement :: Lens.Lens' RequestSpotLaunchSpecification (Prelude.Maybe SpotPlacement)
-requestSpotLaunchSpecification_placement = Lens.lens (\RequestSpotLaunchSpecification' {placement} -> placement) (\s@RequestSpotLaunchSpecification' {} a -> s {placement = a} :: RequestSpotLaunchSpecification)
+-- | One or more security group IDs.
+requestSpotLaunchSpecification_securityGroupIds :: Lens.Lens' RequestSpotLaunchSpecification (Prelude.Maybe [Prelude.Text])
+requestSpotLaunchSpecification_securityGroupIds = Lens.lens (\RequestSpotLaunchSpecification' {securityGroupIds} -> securityGroupIds) (\s@RequestSpotLaunchSpecification' {} a -> s {securityGroupIds = a} :: RequestSpotLaunchSpecification) Prelude.. Lens.mapping Lens.coerced
+
+-- | Deprecated.
+requestSpotLaunchSpecification_addressingType :: Lens.Lens' RequestSpotLaunchSpecification (Prelude.Maybe Prelude.Text)
+requestSpotLaunchSpecification_addressingType = Lens.lens (\RequestSpotLaunchSpecification' {addressingType} -> addressingType) (\s@RequestSpotLaunchSpecification' {} a -> s {addressingType = a} :: RequestSpotLaunchSpecification)
+
+-- | Indicates whether basic or detailed monitoring is enabled for the
+-- instance.
+--
+-- Default: Disabled
+requestSpotLaunchSpecification_monitoring :: Lens.Lens' RequestSpotLaunchSpecification (Prelude.Maybe RunInstancesMonitoringEnabled)
+requestSpotLaunchSpecification_monitoring = Lens.lens (\RequestSpotLaunchSpecification' {monitoring} -> monitoring) (\s@RequestSpotLaunchSpecification' {} a -> s {monitoring = a} :: RequestSpotLaunchSpecification)
+
+-- | The ID of the subnet in which to launch the instance.
+requestSpotLaunchSpecification_subnetId :: Lens.Lens' RequestSpotLaunchSpecification (Prelude.Maybe Prelude.Text)
+requestSpotLaunchSpecification_subnetId = Lens.lens (\RequestSpotLaunchSpecification' {subnetId} -> subnetId) (\s@RequestSpotLaunchSpecification' {} a -> s {subnetId = a} :: RequestSpotLaunchSpecification)
+
+-- | The instance type.
+requestSpotLaunchSpecification_instanceType :: Lens.Lens' RequestSpotLaunchSpecification (Prelude.Maybe InstanceType)
+requestSpotLaunchSpecification_instanceType = Lens.lens (\RequestSpotLaunchSpecification' {instanceType} -> instanceType) (\s@RequestSpotLaunchSpecification' {} a -> s {instanceType = a} :: RequestSpotLaunchSpecification)
+
+-- | One or more security groups. When requesting instances in a VPC, you
+-- must specify the IDs of the security groups. When requesting instances
+-- in EC2-Classic, you can specify the names or the IDs of the security
+-- groups.
+requestSpotLaunchSpecification_securityGroups :: Lens.Lens' RequestSpotLaunchSpecification (Prelude.Maybe [Prelude.Text])
+requestSpotLaunchSpecification_securityGroups = Lens.lens (\RequestSpotLaunchSpecification' {securityGroups} -> securityGroups) (\s@RequestSpotLaunchSpecification' {} a -> s {securityGroups = a} :: RequestSpotLaunchSpecification) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID of the RAM disk.
+requestSpotLaunchSpecification_ramdiskId :: Lens.Lens' RequestSpotLaunchSpecification (Prelude.Maybe Prelude.Text)
+requestSpotLaunchSpecification_ramdiskId = Lens.lens (\RequestSpotLaunchSpecification' {ramdiskId} -> ramdiskId) (\s@RequestSpotLaunchSpecification' {} a -> s {ramdiskId = a} :: RequestSpotLaunchSpecification)
+
+-- | The name of the key pair.
+requestSpotLaunchSpecification_keyName :: Lens.Lens' RequestSpotLaunchSpecification (Prelude.Maybe Prelude.Text)
+requestSpotLaunchSpecification_keyName = Lens.lens (\RequestSpotLaunchSpecification' {keyName} -> keyName) (\s@RequestSpotLaunchSpecification' {} a -> s {keyName = a} :: RequestSpotLaunchSpecification)
+
+-- | The ID of the kernel.
+requestSpotLaunchSpecification_kernelId :: Lens.Lens' RequestSpotLaunchSpecification (Prelude.Maybe Prelude.Text)
+requestSpotLaunchSpecification_kernelId = Lens.lens (\RequestSpotLaunchSpecification' {kernelId} -> kernelId) (\s@RequestSpotLaunchSpecification' {} a -> s {kernelId = a} :: RequestSpotLaunchSpecification)
+
+-- | The ID of the AMI.
+requestSpotLaunchSpecification_imageId :: Lens.Lens' RequestSpotLaunchSpecification (Prelude.Maybe Prelude.Text)
+requestSpotLaunchSpecification_imageId = Lens.lens (\RequestSpotLaunchSpecification' {imageId} -> imageId) (\s@RequestSpotLaunchSpecification' {} a -> s {imageId = a} :: RequestSpotLaunchSpecification)
+
+-- | One or more network interfaces. If you specify a network interface, you
+-- must specify subnet IDs and security group IDs using the network
+-- interface.
+requestSpotLaunchSpecification_networkInterfaces :: Lens.Lens' RequestSpotLaunchSpecification (Prelude.Maybe [InstanceNetworkInterfaceSpecification])
+requestSpotLaunchSpecification_networkInterfaces = Lens.lens (\RequestSpotLaunchSpecification' {networkInterfaces} -> networkInterfaces) (\s@RequestSpotLaunchSpecification' {} a -> s {networkInterfaces = a} :: RequestSpotLaunchSpecification) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Prelude.Hashable
@@ -259,74 +259,74 @@ instance
   hashWithSalt
     _salt
     RequestSpotLaunchSpecification' {..} =
-      _salt `Prelude.hashWithSalt` securityGroupIds
-        `Prelude.hashWithSalt` securityGroups
-        `Prelude.hashWithSalt` keyName
-        `Prelude.hashWithSalt` networkInterfaces
-        `Prelude.hashWithSalt` ramdiskId
-        `Prelude.hashWithSalt` subnetId
-        `Prelude.hashWithSalt` kernelId
-        `Prelude.hashWithSalt` instanceType
-        `Prelude.hashWithSalt` ebsOptimized
-        `Prelude.hashWithSalt` userData
-        `Prelude.hashWithSalt` monitoring
+      _salt `Prelude.hashWithSalt` ebsOptimized
         `Prelude.hashWithSalt` iamInstanceProfile
-        `Prelude.hashWithSalt` imageId
-        `Prelude.hashWithSalt` addressingType
-        `Prelude.hashWithSalt` blockDeviceMappings
         `Prelude.hashWithSalt` placement
+        `Prelude.hashWithSalt` userData
+        `Prelude.hashWithSalt` blockDeviceMappings
+        `Prelude.hashWithSalt` securityGroupIds
+        `Prelude.hashWithSalt` addressingType
+        `Prelude.hashWithSalt` monitoring
+        `Prelude.hashWithSalt` subnetId
+        `Prelude.hashWithSalt` instanceType
+        `Prelude.hashWithSalt` securityGroups
+        `Prelude.hashWithSalt` ramdiskId
+        `Prelude.hashWithSalt` keyName
+        `Prelude.hashWithSalt` kernelId
+        `Prelude.hashWithSalt` imageId
+        `Prelude.hashWithSalt` networkInterfaces
 
 instance
   Prelude.NFData
     RequestSpotLaunchSpecification
   where
   rnf RequestSpotLaunchSpecification' {..} =
-    Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf keyName
-      `Prelude.seq` Prelude.rnf networkInterfaces
-      `Prelude.seq` Prelude.rnf ramdiskId
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf kernelId
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf ebsOptimized
-      `Prelude.seq` Prelude.rnf userData
-      `Prelude.seq` Prelude.rnf monitoring
+    Prelude.rnf ebsOptimized
       `Prelude.seq` Prelude.rnf iamInstanceProfile
-      `Prelude.seq` Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf addressingType
-      `Prelude.seq` Prelude.rnf blockDeviceMappings
       `Prelude.seq` Prelude.rnf placement
+      `Prelude.seq` Prelude.rnf userData
+      `Prelude.seq` Prelude.rnf blockDeviceMappings
+      `Prelude.seq` Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf addressingType
+      `Prelude.seq` Prelude.rnf monitoring
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf ramdiskId
+      `Prelude.seq` Prelude.rnf keyName
+      `Prelude.seq` Prelude.rnf kernelId
+      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf networkInterfaces
 
 instance Core.ToQuery RequestSpotLaunchSpecification where
   toQuery RequestSpotLaunchSpecification' {..} =
     Prelude.mconcat
-      [ Core.toQuery
-          ( Core.toQueryList "SecurityGroupId"
-              Prelude.<$> securityGroupIds
-          ),
-        Core.toQuery
-          ( Core.toQueryList "SecurityGroup"
-              Prelude.<$> securityGroups
-          ),
-        "KeyName" Core.=: keyName,
-        Core.toQuery
-          ( Core.toQueryList "NetworkInterface"
-              Prelude.<$> networkInterfaces
-          ),
-        "RamdiskId" Core.=: ramdiskId,
-        "SubnetId" Core.=: subnetId,
-        "KernelId" Core.=: kernelId,
-        "InstanceType" Core.=: instanceType,
-        "EbsOptimized" Core.=: ebsOptimized,
-        "UserData" Core.=: userData,
-        "Monitoring" Core.=: monitoring,
+      [ "EbsOptimized" Core.=: ebsOptimized,
         "IamInstanceProfile" Core.=: iamInstanceProfile,
-        "ImageId" Core.=: imageId,
-        "AddressingType" Core.=: addressingType,
+        "Placement" Core.=: placement,
+        "UserData" Core.=: userData,
         Core.toQuery
           ( Core.toQueryList "BlockDeviceMapping"
               Prelude.<$> blockDeviceMappings
           ),
-        "Placement" Core.=: placement
+        Core.toQuery
+          ( Core.toQueryList "SecurityGroupId"
+              Prelude.<$> securityGroupIds
+          ),
+        "AddressingType" Core.=: addressingType,
+        "Monitoring" Core.=: monitoring,
+        "SubnetId" Core.=: subnetId,
+        "InstanceType" Core.=: instanceType,
+        Core.toQuery
+          ( Core.toQueryList "SecurityGroup"
+              Prelude.<$> securityGroups
+          ),
+        "RamdiskId" Core.=: ramdiskId,
+        "KeyName" Core.=: keyName,
+        "KernelId" Core.=: kernelId,
+        "ImageId" Core.=: imageId,
+        Core.toQuery
+          ( Core.toQueryList "NetworkInterface"
+              Prelude.<$> networkInterfaces
+          )
       ]

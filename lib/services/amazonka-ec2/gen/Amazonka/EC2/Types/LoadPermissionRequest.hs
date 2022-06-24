@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLoadPermissionRequest' smart constructor.
 data LoadPermissionRequest = LoadPermissionRequest'
-  { -- | The name of the group.
-    group' :: Prelude.Maybe PermissionGroup,
-    -- | The Amazon Web Services account ID.
-    userId :: Prelude.Maybe Prelude.Text
+  { -- | The Amazon Web Services account ID.
+    userId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the group.
+    group' :: Prelude.Maybe PermissionGroup
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,35 +44,35 @@ data LoadPermissionRequest = LoadPermissionRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'group'', 'loadPermissionRequest_group' - The name of the group.
---
 -- 'userId', 'loadPermissionRequest_userId' - The Amazon Web Services account ID.
+--
+-- 'group'', 'loadPermissionRequest_group' - The name of the group.
 newLoadPermissionRequest ::
   LoadPermissionRequest
 newLoadPermissionRequest =
   LoadPermissionRequest'
-    { group' = Prelude.Nothing,
-      userId = Prelude.Nothing
+    { userId = Prelude.Nothing,
+      group' = Prelude.Nothing
     }
-
--- | The name of the group.
-loadPermissionRequest_group :: Lens.Lens' LoadPermissionRequest (Prelude.Maybe PermissionGroup)
-loadPermissionRequest_group = Lens.lens (\LoadPermissionRequest' {group'} -> group') (\s@LoadPermissionRequest' {} a -> s {group' = a} :: LoadPermissionRequest)
 
 -- | The Amazon Web Services account ID.
 loadPermissionRequest_userId :: Lens.Lens' LoadPermissionRequest (Prelude.Maybe Prelude.Text)
 loadPermissionRequest_userId = Lens.lens (\LoadPermissionRequest' {userId} -> userId) (\s@LoadPermissionRequest' {} a -> s {userId = a} :: LoadPermissionRequest)
 
+-- | The name of the group.
+loadPermissionRequest_group :: Lens.Lens' LoadPermissionRequest (Prelude.Maybe PermissionGroup)
+loadPermissionRequest_group = Lens.lens (\LoadPermissionRequest' {group'} -> group') (\s@LoadPermissionRequest' {} a -> s {group' = a} :: LoadPermissionRequest)
+
 instance Prelude.Hashable LoadPermissionRequest where
   hashWithSalt _salt LoadPermissionRequest' {..} =
-    _salt `Prelude.hashWithSalt` group'
-      `Prelude.hashWithSalt` userId
+    _salt `Prelude.hashWithSalt` userId
+      `Prelude.hashWithSalt` group'
 
 instance Prelude.NFData LoadPermissionRequest where
   rnf LoadPermissionRequest' {..} =
-    Prelude.rnf group' `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf userId `Prelude.seq` Prelude.rnf group'
 
 instance Core.ToQuery LoadPermissionRequest where
   toQuery LoadPermissionRequest' {..} =
     Prelude.mconcat
-      ["Group" Core.=: group', "UserId" Core.=: userId]
+      ["UserId" Core.=: userId, "Group" Core.=: group']

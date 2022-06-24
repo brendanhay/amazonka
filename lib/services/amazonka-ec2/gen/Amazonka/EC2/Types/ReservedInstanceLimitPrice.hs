@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReservedInstanceLimitPrice' smart constructor.
 data ReservedInstanceLimitPrice = ReservedInstanceLimitPrice'
-  { -- | Used for Reserved Instance Marketplace offerings. Specifies the limit
-    -- price on the total order (instanceCount * price).
-    amount :: Prelude.Maybe Prelude.Double,
-    -- | The currency in which the @limitPrice@ amount is specified. At this
+  { -- | The currency in which the @limitPrice@ amount is specified. At this
     -- time, the only supported currency is @USD@.
-    currencyCode :: Prelude.Maybe CurrencyCodeValues
+    currencyCode :: Prelude.Maybe CurrencyCodeValues,
+    -- | Used for Reserved Instance Marketplace offerings. Specifies the limit
+    -- price on the total order (instanceCount * price).
+    amount :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,43 +46,43 @@ data ReservedInstanceLimitPrice = ReservedInstanceLimitPrice'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'amount', 'reservedInstanceLimitPrice_amount' - Used for Reserved Instance Marketplace offerings. Specifies the limit
--- price on the total order (instanceCount * price).
---
 -- 'currencyCode', 'reservedInstanceLimitPrice_currencyCode' - The currency in which the @limitPrice@ amount is specified. At this
 -- time, the only supported currency is @USD@.
+--
+-- 'amount', 'reservedInstanceLimitPrice_amount' - Used for Reserved Instance Marketplace offerings. Specifies the limit
+-- price on the total order (instanceCount * price).
 newReservedInstanceLimitPrice ::
   ReservedInstanceLimitPrice
 newReservedInstanceLimitPrice =
   ReservedInstanceLimitPrice'
-    { amount =
+    { currencyCode =
         Prelude.Nothing,
-      currencyCode = Prelude.Nothing
+      amount = Prelude.Nothing
     }
-
--- | Used for Reserved Instance Marketplace offerings. Specifies the limit
--- price on the total order (instanceCount * price).
-reservedInstanceLimitPrice_amount :: Lens.Lens' ReservedInstanceLimitPrice (Prelude.Maybe Prelude.Double)
-reservedInstanceLimitPrice_amount = Lens.lens (\ReservedInstanceLimitPrice' {amount} -> amount) (\s@ReservedInstanceLimitPrice' {} a -> s {amount = a} :: ReservedInstanceLimitPrice)
 
 -- | The currency in which the @limitPrice@ amount is specified. At this
 -- time, the only supported currency is @USD@.
 reservedInstanceLimitPrice_currencyCode :: Lens.Lens' ReservedInstanceLimitPrice (Prelude.Maybe CurrencyCodeValues)
 reservedInstanceLimitPrice_currencyCode = Lens.lens (\ReservedInstanceLimitPrice' {currencyCode} -> currencyCode) (\s@ReservedInstanceLimitPrice' {} a -> s {currencyCode = a} :: ReservedInstanceLimitPrice)
 
+-- | Used for Reserved Instance Marketplace offerings. Specifies the limit
+-- price on the total order (instanceCount * price).
+reservedInstanceLimitPrice_amount :: Lens.Lens' ReservedInstanceLimitPrice (Prelude.Maybe Prelude.Double)
+reservedInstanceLimitPrice_amount = Lens.lens (\ReservedInstanceLimitPrice' {amount} -> amount) (\s@ReservedInstanceLimitPrice' {} a -> s {amount = a} :: ReservedInstanceLimitPrice)
+
 instance Prelude.Hashable ReservedInstanceLimitPrice where
   hashWithSalt _salt ReservedInstanceLimitPrice' {..} =
-    _salt `Prelude.hashWithSalt` amount
-      `Prelude.hashWithSalt` currencyCode
+    _salt `Prelude.hashWithSalt` currencyCode
+      `Prelude.hashWithSalt` amount
 
 instance Prelude.NFData ReservedInstanceLimitPrice where
   rnf ReservedInstanceLimitPrice' {..} =
-    Prelude.rnf amount
-      `Prelude.seq` Prelude.rnf currencyCode
+    Prelude.rnf currencyCode
+      `Prelude.seq` Prelude.rnf amount
 
 instance Core.ToQuery ReservedInstanceLimitPrice where
   toQuery ReservedInstanceLimitPrice' {..} =
     Prelude.mconcat
-      [ "Amount" Core.=: amount,
-        "CurrencyCode" Core.=: currencyCode
+      [ "CurrencyCode" Core.=: currencyCode,
+        "Amount" Core.=: amount
       ]

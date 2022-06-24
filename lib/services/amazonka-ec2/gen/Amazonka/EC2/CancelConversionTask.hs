@@ -34,8 +34,8 @@ module Amazonka.EC2.CancelConversionTask
     newCancelConversionTask,
 
     -- * Request Lenses
-    cancelConversionTask_reasonMessage,
     cancelConversionTask_dryRun,
+    cancelConversionTask_reasonMessage,
     cancelConversionTask_conversionTaskId,
 
     -- * Destructuring the Response
@@ -53,13 +53,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCancelConversionTask' smart constructor.
 data CancelConversionTask = CancelConversionTask'
-  { -- | The reason for canceling the conversion task.
-    reasonMessage :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
+  { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The reason for canceling the conversion task.
+    reasonMessage :: Prelude.Maybe Prelude.Text,
     -- | The ID of the conversion task.
     conversionTaskId :: Prelude.Text
   }
@@ -73,12 +73,12 @@ data CancelConversionTask = CancelConversionTask'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reasonMessage', 'cancelConversionTask_reasonMessage' - The reason for canceling the conversion task.
---
 -- 'dryRun', 'cancelConversionTask_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'reasonMessage', 'cancelConversionTask_reasonMessage' - The reason for canceling the conversion task.
 --
 -- 'conversionTaskId', 'cancelConversionTask_conversionTaskId' - The ID of the conversion task.
 newCancelConversionTask ::
@@ -87,15 +87,10 @@ newCancelConversionTask ::
   CancelConversionTask
 newCancelConversionTask pConversionTaskId_ =
   CancelConversionTask'
-    { reasonMessage =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+    { dryRun = Prelude.Nothing,
+      reasonMessage = Prelude.Nothing,
       conversionTaskId = pConversionTaskId_
     }
-
--- | The reason for canceling the conversion task.
-cancelConversionTask_reasonMessage :: Lens.Lens' CancelConversionTask (Prelude.Maybe Prelude.Text)
-cancelConversionTask_reasonMessage = Lens.lens (\CancelConversionTask' {reasonMessage} -> reasonMessage) (\s@CancelConversionTask' {} a -> s {reasonMessage = a} :: CancelConversionTask)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -103,6 +98,10 @@ cancelConversionTask_reasonMessage = Lens.lens (\CancelConversionTask' {reasonMe
 -- Otherwise, it is @UnauthorizedOperation@.
 cancelConversionTask_dryRun :: Lens.Lens' CancelConversionTask (Prelude.Maybe Prelude.Bool)
 cancelConversionTask_dryRun = Lens.lens (\CancelConversionTask' {dryRun} -> dryRun) (\s@CancelConversionTask' {} a -> s {dryRun = a} :: CancelConversionTask)
+
+-- | The reason for canceling the conversion task.
+cancelConversionTask_reasonMessage :: Lens.Lens' CancelConversionTask (Prelude.Maybe Prelude.Text)
+cancelConversionTask_reasonMessage = Lens.lens (\CancelConversionTask' {reasonMessage} -> reasonMessage) (\s@CancelConversionTask' {} a -> s {reasonMessage = a} :: CancelConversionTask)
 
 -- | The ID of the conversion task.
 cancelConversionTask_conversionTaskId :: Lens.Lens' CancelConversionTask Prelude.Text
@@ -118,14 +117,14 @@ instance Core.AWSRequest CancelConversionTask where
 
 instance Prelude.Hashable CancelConversionTask where
   hashWithSalt _salt CancelConversionTask' {..} =
-    _salt `Prelude.hashWithSalt` reasonMessage
-      `Prelude.hashWithSalt` dryRun
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` reasonMessage
       `Prelude.hashWithSalt` conversionTaskId
 
 instance Prelude.NFData CancelConversionTask where
   rnf CancelConversionTask' {..} =
-    Prelude.rnf reasonMessage
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf reasonMessage
       `Prelude.seq` Prelude.rnf conversionTaskId
 
 instance Core.ToHeaders CancelConversionTask where
@@ -141,8 +140,8 @@ instance Core.ToQuery CancelConversionTask where
           Core.=: ("CancelConversionTask" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "ReasonMessage" Core.=: reasonMessage,
         "DryRun" Core.=: dryRun,
+        "ReasonMessage" Core.=: reasonMessage,
         "ConversionTaskId" Core.=: conversionTaskId
       ]
 

@@ -32,11 +32,11 @@ module Amazonka.EC2.DescribeTransitGatewayAttachments
     newDescribeTransitGatewayAttachments,
 
     -- * Request Lenses
-    describeTransitGatewayAttachments_filters,
     describeTransitGatewayAttachments_nextToken,
-    describeTransitGatewayAttachments_transitGatewayAttachmentIds,
+    describeTransitGatewayAttachments_filters,
     describeTransitGatewayAttachments_dryRun,
     describeTransitGatewayAttachments_maxResults,
+    describeTransitGatewayAttachments_transitGatewayAttachmentIds,
 
     -- * Destructuring the Response
     DescribeTransitGatewayAttachmentsResponse (..),
@@ -58,7 +58,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeTransitGatewayAttachments' smart constructor.
 data DescribeTransitGatewayAttachments = DescribeTransitGatewayAttachments'
-  { -- | One or more filters. The possible values are:
+  { -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters. The possible values are:
     --
     -- -   @association.state@ - The state of the association (@associating@ |
     --     @associated@ | @disassociating@).
@@ -86,10 +88,6 @@ data DescribeTransitGatewayAttachments = DescribeTransitGatewayAttachments'
     -- -   @transit-gateway-owner-id@ - The ID of the Amazon Web Services
     --     account that owns the transit gateway.
     filters :: Prelude.Maybe [Filter],
-    -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The IDs of the attachments.
-    transitGatewayAttachmentIds :: Prelude.Maybe [Prelude.Text],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -98,7 +96,9 @@ data DescribeTransitGatewayAttachments = DescribeTransitGatewayAttachments'
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The IDs of the attachments.
+    transitGatewayAttachmentIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -109,6 +109,8 @@ data DescribeTransitGatewayAttachments = DescribeTransitGatewayAttachments'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'nextToken', 'describeTransitGatewayAttachments_nextToken' - The token for the next page of results.
 --
 -- 'filters', 'describeTransitGatewayAttachments_filters' - One or more filters. The possible values are:
 --
@@ -138,10 +140,6 @@ data DescribeTransitGatewayAttachments = DescribeTransitGatewayAttachments'
 -- -   @transit-gateway-owner-id@ - The ID of the Amazon Web Services
 --     account that owns the transit gateway.
 --
--- 'nextToken', 'describeTransitGatewayAttachments_nextToken' - The token for the next page of results.
---
--- 'transitGatewayAttachmentIds', 'describeTransitGatewayAttachments_transitGatewayAttachmentIds' - The IDs of the attachments.
---
 -- 'dryRun', 'describeTransitGatewayAttachments_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -150,18 +148,24 @@ data DescribeTransitGatewayAttachments = DescribeTransitGatewayAttachments'
 -- 'maxResults', 'describeTransitGatewayAttachments_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
+--
+-- 'transitGatewayAttachmentIds', 'describeTransitGatewayAttachments_transitGatewayAttachmentIds' - The IDs of the attachments.
 newDescribeTransitGatewayAttachments ::
   DescribeTransitGatewayAttachments
 newDescribeTransitGatewayAttachments =
   DescribeTransitGatewayAttachments'
-    { filters =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      transitGatewayAttachmentIds =
-        Prelude.Nothing,
+      filters = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      transitGatewayAttachmentIds =
+        Prelude.Nothing
     }
+
+-- | The token for the next page of results.
+describeTransitGatewayAttachments_nextToken :: Lens.Lens' DescribeTransitGatewayAttachments (Prelude.Maybe Prelude.Text)
+describeTransitGatewayAttachments_nextToken = Lens.lens (\DescribeTransitGatewayAttachments' {nextToken} -> nextToken) (\s@DescribeTransitGatewayAttachments' {} a -> s {nextToken = a} :: DescribeTransitGatewayAttachments)
 
 -- | One or more filters. The possible values are:
 --
@@ -193,14 +197,6 @@ newDescribeTransitGatewayAttachments =
 describeTransitGatewayAttachments_filters :: Lens.Lens' DescribeTransitGatewayAttachments (Prelude.Maybe [Filter])
 describeTransitGatewayAttachments_filters = Lens.lens (\DescribeTransitGatewayAttachments' {filters} -> filters) (\s@DescribeTransitGatewayAttachments' {} a -> s {filters = a} :: DescribeTransitGatewayAttachments) Prelude.. Lens.mapping Lens.coerced
 
--- | The token for the next page of results.
-describeTransitGatewayAttachments_nextToken :: Lens.Lens' DescribeTransitGatewayAttachments (Prelude.Maybe Prelude.Text)
-describeTransitGatewayAttachments_nextToken = Lens.lens (\DescribeTransitGatewayAttachments' {nextToken} -> nextToken) (\s@DescribeTransitGatewayAttachments' {} a -> s {nextToken = a} :: DescribeTransitGatewayAttachments)
-
--- | The IDs of the attachments.
-describeTransitGatewayAttachments_transitGatewayAttachmentIds :: Lens.Lens' DescribeTransitGatewayAttachments (Prelude.Maybe [Prelude.Text])
-describeTransitGatewayAttachments_transitGatewayAttachmentIds = Lens.lens (\DescribeTransitGatewayAttachments' {transitGatewayAttachmentIds} -> transitGatewayAttachmentIds) (\s@DescribeTransitGatewayAttachments' {} a -> s {transitGatewayAttachmentIds = a} :: DescribeTransitGatewayAttachments) Prelude.. Lens.mapping Lens.coerced
-
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -213,6 +209,10 @@ describeTransitGatewayAttachments_dryRun = Lens.lens (\DescribeTransitGatewayAtt
 -- value.
 describeTransitGatewayAttachments_maxResults :: Lens.Lens' DescribeTransitGatewayAttachments (Prelude.Maybe Prelude.Natural)
 describeTransitGatewayAttachments_maxResults = Lens.lens (\DescribeTransitGatewayAttachments' {maxResults} -> maxResults) (\s@DescribeTransitGatewayAttachments' {} a -> s {maxResults = a} :: DescribeTransitGatewayAttachments)
+
+-- | The IDs of the attachments.
+describeTransitGatewayAttachments_transitGatewayAttachmentIds :: Lens.Lens' DescribeTransitGatewayAttachments (Prelude.Maybe [Prelude.Text])
+describeTransitGatewayAttachments_transitGatewayAttachmentIds = Lens.lens (\DescribeTransitGatewayAttachments' {transitGatewayAttachmentIds} -> transitGatewayAttachmentIds) (\s@DescribeTransitGatewayAttachments' {} a -> s {transitGatewayAttachmentIds = a} :: DescribeTransitGatewayAttachments) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.AWSPager
@@ -266,22 +266,22 @@ instance
   hashWithSalt
     _salt
     DescribeTransitGatewayAttachments' {..} =
-      _salt `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` transitGatewayAttachmentIds
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` transitGatewayAttachmentIds
 
 instance
   Prelude.NFData
     DescribeTransitGatewayAttachments
   where
   rnf DescribeTransitGatewayAttachments' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf transitGatewayAttachmentIds
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf transitGatewayAttachmentIds
 
 instance
   Core.ToHeaders
@@ -307,15 +307,15 @@ instance
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
-        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
         Core.toQuery
           ( Core.toQueryList "TransitGatewayAttachmentIds"
               Prelude.<$> transitGatewayAttachmentIds
-          ),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults
+          )
       ]
 
 -- | /See:/ 'newDescribeTransitGatewayAttachmentsResponse' smart constructor.

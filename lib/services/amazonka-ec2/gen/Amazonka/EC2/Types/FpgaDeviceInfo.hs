@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 data FpgaDeviceInfo = FpgaDeviceInfo'
   { -- | Describes the memory for the FPGA accelerator for the instance type.
     memoryInfo :: Prelude.Maybe FpgaDeviceMemoryInfo,
-    -- | The manufacturer of the FPGA accelerator.
-    manufacturer :: Prelude.Maybe Prelude.Text,
+    -- | The name of the FPGA accelerator.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The count of FPGA accelerators for the instance type.
     count :: Prelude.Maybe Prelude.Int,
-    -- | The name of the FPGA accelerator.
-    name :: Prelude.Maybe Prelude.Text
+    -- | The manufacturer of the FPGA accelerator.
+    manufacturer :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,55 +50,55 @@ data FpgaDeviceInfo = FpgaDeviceInfo'
 --
 -- 'memoryInfo', 'fpgaDeviceInfo_memoryInfo' - Describes the memory for the FPGA accelerator for the instance type.
 --
--- 'manufacturer', 'fpgaDeviceInfo_manufacturer' - The manufacturer of the FPGA accelerator.
+-- 'name', 'fpgaDeviceInfo_name' - The name of the FPGA accelerator.
 --
 -- 'count', 'fpgaDeviceInfo_count' - The count of FPGA accelerators for the instance type.
 --
--- 'name', 'fpgaDeviceInfo_name' - The name of the FPGA accelerator.
+-- 'manufacturer', 'fpgaDeviceInfo_manufacturer' - The manufacturer of the FPGA accelerator.
 newFpgaDeviceInfo ::
   FpgaDeviceInfo
 newFpgaDeviceInfo =
   FpgaDeviceInfo'
     { memoryInfo = Prelude.Nothing,
-      manufacturer = Prelude.Nothing,
+      name = Prelude.Nothing,
       count = Prelude.Nothing,
-      name = Prelude.Nothing
+      manufacturer = Prelude.Nothing
     }
 
 -- | Describes the memory for the FPGA accelerator for the instance type.
 fpgaDeviceInfo_memoryInfo :: Lens.Lens' FpgaDeviceInfo (Prelude.Maybe FpgaDeviceMemoryInfo)
 fpgaDeviceInfo_memoryInfo = Lens.lens (\FpgaDeviceInfo' {memoryInfo} -> memoryInfo) (\s@FpgaDeviceInfo' {} a -> s {memoryInfo = a} :: FpgaDeviceInfo)
 
--- | The manufacturer of the FPGA accelerator.
-fpgaDeviceInfo_manufacturer :: Lens.Lens' FpgaDeviceInfo (Prelude.Maybe Prelude.Text)
-fpgaDeviceInfo_manufacturer = Lens.lens (\FpgaDeviceInfo' {manufacturer} -> manufacturer) (\s@FpgaDeviceInfo' {} a -> s {manufacturer = a} :: FpgaDeviceInfo)
+-- | The name of the FPGA accelerator.
+fpgaDeviceInfo_name :: Lens.Lens' FpgaDeviceInfo (Prelude.Maybe Prelude.Text)
+fpgaDeviceInfo_name = Lens.lens (\FpgaDeviceInfo' {name} -> name) (\s@FpgaDeviceInfo' {} a -> s {name = a} :: FpgaDeviceInfo)
 
 -- | The count of FPGA accelerators for the instance type.
 fpgaDeviceInfo_count :: Lens.Lens' FpgaDeviceInfo (Prelude.Maybe Prelude.Int)
 fpgaDeviceInfo_count = Lens.lens (\FpgaDeviceInfo' {count} -> count) (\s@FpgaDeviceInfo' {} a -> s {count = a} :: FpgaDeviceInfo)
 
--- | The name of the FPGA accelerator.
-fpgaDeviceInfo_name :: Lens.Lens' FpgaDeviceInfo (Prelude.Maybe Prelude.Text)
-fpgaDeviceInfo_name = Lens.lens (\FpgaDeviceInfo' {name} -> name) (\s@FpgaDeviceInfo' {} a -> s {name = a} :: FpgaDeviceInfo)
+-- | The manufacturer of the FPGA accelerator.
+fpgaDeviceInfo_manufacturer :: Lens.Lens' FpgaDeviceInfo (Prelude.Maybe Prelude.Text)
+fpgaDeviceInfo_manufacturer = Lens.lens (\FpgaDeviceInfo' {manufacturer} -> manufacturer) (\s@FpgaDeviceInfo' {} a -> s {manufacturer = a} :: FpgaDeviceInfo)
 
 instance Core.FromXML FpgaDeviceInfo where
   parseXML x =
     FpgaDeviceInfo'
       Prelude.<$> (x Core..@? "memoryInfo")
-      Prelude.<*> (x Core..@? "manufacturer")
-      Prelude.<*> (x Core..@? "count")
       Prelude.<*> (x Core..@? "name")
+      Prelude.<*> (x Core..@? "count")
+      Prelude.<*> (x Core..@? "manufacturer")
 
 instance Prelude.Hashable FpgaDeviceInfo where
   hashWithSalt _salt FpgaDeviceInfo' {..} =
     _salt `Prelude.hashWithSalt` memoryInfo
-      `Prelude.hashWithSalt` manufacturer
-      `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` manufacturer
 
 instance Prelude.NFData FpgaDeviceInfo where
   rnf FpgaDeviceInfo' {..} =
     Prelude.rnf memoryInfo
-      `Prelude.seq` Prelude.rnf manufacturer
-      `Prelude.seq` Prelude.rnf count
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf count
+      `Prelude.seq` Prelude.rnf manufacturer

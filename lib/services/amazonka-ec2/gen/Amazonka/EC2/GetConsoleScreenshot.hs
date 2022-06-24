@@ -39,8 +39,8 @@ module Amazonka.EC2.GetConsoleScreenshot
     newGetConsoleScreenshotResponse,
 
     -- * Response Lenses
-    getConsoleScreenshotResponse_instanceId,
     getConsoleScreenshotResponse_imageData,
+    getConsoleScreenshotResponse_instanceId,
     getConsoleScreenshotResponse_httpStatus,
   )
 where
@@ -120,8 +120,8 @@ instance Core.AWSRequest GetConsoleScreenshot where
     Response.receiveXML
       ( \s h x ->
           GetConsoleScreenshotResponse'
-            Prelude.<$> (x Core..@? "instanceId")
-            Prelude.<*> (x Core..@? "imageData")
+            Prelude.<$> (x Core..@? "imageData")
+            Prelude.<*> (x Core..@? "instanceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,10 +157,10 @@ instance Core.ToQuery GetConsoleScreenshot where
 
 -- | /See:/ 'newGetConsoleScreenshotResponse' smart constructor.
 data GetConsoleScreenshotResponse = GetConsoleScreenshotResponse'
-  { -- | The ID of the instance.
-    instanceId :: Prelude.Maybe Prelude.Text,
-    -- | The data that comprises the image.
+  { -- | The data that comprises the image.
     imageData :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the instance.
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -174,9 +174,9 @@ data GetConsoleScreenshotResponse = GetConsoleScreenshotResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'getConsoleScreenshotResponse_instanceId' - The ID of the instance.
---
 -- 'imageData', 'getConsoleScreenshotResponse_imageData' - The data that comprises the image.
+--
+-- 'instanceId', 'getConsoleScreenshotResponse_instanceId' - The ID of the instance.
 --
 -- 'httpStatus', 'getConsoleScreenshotResponse_httpStatus' - The response's http status code.
 newGetConsoleScreenshotResponse ::
@@ -185,19 +185,19 @@ newGetConsoleScreenshotResponse ::
   GetConsoleScreenshotResponse
 newGetConsoleScreenshotResponse pHttpStatus_ =
   GetConsoleScreenshotResponse'
-    { instanceId =
+    { imageData =
         Prelude.Nothing,
-      imageData = Prelude.Nothing,
+      instanceId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ID of the instance.
-getConsoleScreenshotResponse_instanceId :: Lens.Lens' GetConsoleScreenshotResponse (Prelude.Maybe Prelude.Text)
-getConsoleScreenshotResponse_instanceId = Lens.lens (\GetConsoleScreenshotResponse' {instanceId} -> instanceId) (\s@GetConsoleScreenshotResponse' {} a -> s {instanceId = a} :: GetConsoleScreenshotResponse)
 
 -- | The data that comprises the image.
 getConsoleScreenshotResponse_imageData :: Lens.Lens' GetConsoleScreenshotResponse (Prelude.Maybe Prelude.Text)
 getConsoleScreenshotResponse_imageData = Lens.lens (\GetConsoleScreenshotResponse' {imageData} -> imageData) (\s@GetConsoleScreenshotResponse' {} a -> s {imageData = a} :: GetConsoleScreenshotResponse)
+
+-- | The ID of the instance.
+getConsoleScreenshotResponse_instanceId :: Lens.Lens' GetConsoleScreenshotResponse (Prelude.Maybe Prelude.Text)
+getConsoleScreenshotResponse_instanceId = Lens.lens (\GetConsoleScreenshotResponse' {instanceId} -> instanceId) (\s@GetConsoleScreenshotResponse' {} a -> s {instanceId = a} :: GetConsoleScreenshotResponse)
 
 -- | The response's http status code.
 getConsoleScreenshotResponse_httpStatus :: Lens.Lens' GetConsoleScreenshotResponse Prelude.Int
@@ -205,6 +205,6 @@ getConsoleScreenshotResponse_httpStatus = Lens.lens (\GetConsoleScreenshotRespon
 
 instance Prelude.NFData GetConsoleScreenshotResponse where
   rnf GetConsoleScreenshotResponse' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf imageData
+    Prelude.rnf imageData
+      `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf httpStatus

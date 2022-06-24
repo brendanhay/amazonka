@@ -37,8 +37,8 @@ module Amazonka.EC2.ModifyVolumeAttribute
     newModifyVolumeAttribute,
 
     -- * Request Lenses
-    modifyVolumeAttribute_autoEnableIO,
     modifyVolumeAttribute_dryRun,
+    modifyVolumeAttribute_autoEnableIO,
     modifyVolumeAttribute_volumeId,
 
     -- * Destructuring the Response
@@ -56,13 +56,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyVolumeAttribute' smart constructor.
 data ModifyVolumeAttribute = ModifyVolumeAttribute'
-  { -- | Indicates whether the volume should be auto-enabled for I\/O operations.
-    autoEnableIO :: Prelude.Maybe AttributeBooleanValue,
-    -- | Checks whether you have the required permissions for the action, without
+  { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates whether the volume should be auto-enabled for I\/O operations.
+    autoEnableIO :: Prelude.Maybe AttributeBooleanValue,
     -- | The ID of the volume.
     volumeId :: Prelude.Text
   }
@@ -76,12 +76,12 @@ data ModifyVolumeAttribute = ModifyVolumeAttribute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'autoEnableIO', 'modifyVolumeAttribute_autoEnableIO' - Indicates whether the volume should be auto-enabled for I\/O operations.
---
 -- 'dryRun', 'modifyVolumeAttribute_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'autoEnableIO', 'modifyVolumeAttribute_autoEnableIO' - Indicates whether the volume should be auto-enabled for I\/O operations.
 --
 -- 'volumeId', 'modifyVolumeAttribute_volumeId' - The ID of the volume.
 newModifyVolumeAttribute ::
@@ -90,15 +90,10 @@ newModifyVolumeAttribute ::
   ModifyVolumeAttribute
 newModifyVolumeAttribute pVolumeId_ =
   ModifyVolumeAttribute'
-    { autoEnableIO =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+    { dryRun = Prelude.Nothing,
+      autoEnableIO = Prelude.Nothing,
       volumeId = pVolumeId_
     }
-
--- | Indicates whether the volume should be auto-enabled for I\/O operations.
-modifyVolumeAttribute_autoEnableIO :: Lens.Lens' ModifyVolumeAttribute (Prelude.Maybe AttributeBooleanValue)
-modifyVolumeAttribute_autoEnableIO = Lens.lens (\ModifyVolumeAttribute' {autoEnableIO} -> autoEnableIO) (\s@ModifyVolumeAttribute' {} a -> s {autoEnableIO = a} :: ModifyVolumeAttribute)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -106,6 +101,10 @@ modifyVolumeAttribute_autoEnableIO = Lens.lens (\ModifyVolumeAttribute' {autoEna
 -- Otherwise, it is @UnauthorizedOperation@.
 modifyVolumeAttribute_dryRun :: Lens.Lens' ModifyVolumeAttribute (Prelude.Maybe Prelude.Bool)
 modifyVolumeAttribute_dryRun = Lens.lens (\ModifyVolumeAttribute' {dryRun} -> dryRun) (\s@ModifyVolumeAttribute' {} a -> s {dryRun = a} :: ModifyVolumeAttribute)
+
+-- | Indicates whether the volume should be auto-enabled for I\/O operations.
+modifyVolumeAttribute_autoEnableIO :: Lens.Lens' ModifyVolumeAttribute (Prelude.Maybe AttributeBooleanValue)
+modifyVolumeAttribute_autoEnableIO = Lens.lens (\ModifyVolumeAttribute' {autoEnableIO} -> autoEnableIO) (\s@ModifyVolumeAttribute' {} a -> s {autoEnableIO = a} :: ModifyVolumeAttribute)
 
 -- | The ID of the volume.
 modifyVolumeAttribute_volumeId :: Lens.Lens' ModifyVolumeAttribute Prelude.Text
@@ -121,14 +120,14 @@ instance Core.AWSRequest ModifyVolumeAttribute where
 
 instance Prelude.Hashable ModifyVolumeAttribute where
   hashWithSalt _salt ModifyVolumeAttribute' {..} =
-    _salt `Prelude.hashWithSalt` autoEnableIO
-      `Prelude.hashWithSalt` dryRun
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` autoEnableIO
       `Prelude.hashWithSalt` volumeId
 
 instance Prelude.NFData ModifyVolumeAttribute where
   rnf ModifyVolumeAttribute' {..} =
-    Prelude.rnf autoEnableIO
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf autoEnableIO
       `Prelude.seq` Prelude.rnf volumeId
 
 instance Core.ToHeaders ModifyVolumeAttribute where
@@ -144,8 +143,8 @@ instance Core.ToQuery ModifyVolumeAttribute where
           Core.=: ("ModifyVolumeAttribute" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "AutoEnableIO" Core.=: autoEnableIO,
         "DryRun" Core.=: dryRun,
+        "AutoEnableIO" Core.=: autoEnableIO,
         "VolumeId" Core.=: volumeId
       ]
 

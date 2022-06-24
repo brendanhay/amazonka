@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEnableFastSnapshotRestoreErrorItem' smart constructor.
 data EnableFastSnapshotRestoreErrorItem = EnableFastSnapshotRestoreErrorItem'
-  { -- | The errors.
-    fastSnapshotRestoreStateErrors :: Prelude.Maybe [EnableFastSnapshotRestoreStateErrorItem],
-    -- | The ID of the snapshot.
-    snapshotId :: Prelude.Maybe Prelude.Text
+  { -- | The ID of the snapshot.
+    snapshotId :: Prelude.Maybe Prelude.Text,
+    -- | The errors.
+    fastSnapshotRestoreStateErrors :: Prelude.Maybe [EnableFastSnapshotRestoreStateErrorItem]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,25 +45,26 @@ data EnableFastSnapshotRestoreErrorItem = EnableFastSnapshotRestoreErrorItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fastSnapshotRestoreStateErrors', 'enableFastSnapshotRestoreErrorItem_fastSnapshotRestoreStateErrors' - The errors.
---
 -- 'snapshotId', 'enableFastSnapshotRestoreErrorItem_snapshotId' - The ID of the snapshot.
+--
+-- 'fastSnapshotRestoreStateErrors', 'enableFastSnapshotRestoreErrorItem_fastSnapshotRestoreStateErrors' - The errors.
 newEnableFastSnapshotRestoreErrorItem ::
   EnableFastSnapshotRestoreErrorItem
 newEnableFastSnapshotRestoreErrorItem =
   EnableFastSnapshotRestoreErrorItem'
-    { fastSnapshotRestoreStateErrors =
+    { snapshotId =
         Prelude.Nothing,
-      snapshotId = Prelude.Nothing
+      fastSnapshotRestoreStateErrors =
+        Prelude.Nothing
     }
-
--- | The errors.
-enableFastSnapshotRestoreErrorItem_fastSnapshotRestoreStateErrors :: Lens.Lens' EnableFastSnapshotRestoreErrorItem (Prelude.Maybe [EnableFastSnapshotRestoreStateErrorItem])
-enableFastSnapshotRestoreErrorItem_fastSnapshotRestoreStateErrors = Lens.lens (\EnableFastSnapshotRestoreErrorItem' {fastSnapshotRestoreStateErrors} -> fastSnapshotRestoreStateErrors) (\s@EnableFastSnapshotRestoreErrorItem' {} a -> s {fastSnapshotRestoreStateErrors = a} :: EnableFastSnapshotRestoreErrorItem) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the snapshot.
 enableFastSnapshotRestoreErrorItem_snapshotId :: Lens.Lens' EnableFastSnapshotRestoreErrorItem (Prelude.Maybe Prelude.Text)
 enableFastSnapshotRestoreErrorItem_snapshotId = Lens.lens (\EnableFastSnapshotRestoreErrorItem' {snapshotId} -> snapshotId) (\s@EnableFastSnapshotRestoreErrorItem' {} a -> s {snapshotId = a} :: EnableFastSnapshotRestoreErrorItem)
+
+-- | The errors.
+enableFastSnapshotRestoreErrorItem_fastSnapshotRestoreStateErrors :: Lens.Lens' EnableFastSnapshotRestoreErrorItem (Prelude.Maybe [EnableFastSnapshotRestoreStateErrorItem])
+enableFastSnapshotRestoreErrorItem_fastSnapshotRestoreStateErrors = Lens.lens (\EnableFastSnapshotRestoreErrorItem' {fastSnapshotRestoreStateErrors} -> fastSnapshotRestoreStateErrors) (\s@EnableFastSnapshotRestoreErrorItem' {} a -> s {fastSnapshotRestoreStateErrors = a} :: EnableFastSnapshotRestoreErrorItem) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.FromXML
@@ -71,11 +72,11 @@ instance
   where
   parseXML x =
     EnableFastSnapshotRestoreErrorItem'
-      Prelude.<$> ( x Core..@? "fastSnapshotRestoreStateErrorSet"
+      Prelude.<$> (x Core..@? "snapshotId")
+      Prelude.<*> ( x Core..@? "fastSnapshotRestoreStateErrorSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "snapshotId")
 
 instance
   Prelude.Hashable
@@ -84,14 +85,13 @@ instance
   hashWithSalt
     _salt
     EnableFastSnapshotRestoreErrorItem' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` snapshotId
         `Prelude.hashWithSalt` fastSnapshotRestoreStateErrors
-        `Prelude.hashWithSalt` snapshotId
 
 instance
   Prelude.NFData
     EnableFastSnapshotRestoreErrorItem
   where
   rnf EnableFastSnapshotRestoreErrorItem' {..} =
-    Prelude.rnf fastSnapshotRestoreStateErrors
-      `Prelude.seq` Prelude.rnf snapshotId
+    Prelude.rnf snapshotId
+      `Prelude.seq` Prelude.rnf fastSnapshotRestoreStateErrors

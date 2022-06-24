@@ -31,14 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCreateTransitGatewayVpcAttachmentRequestOptions' smart constructor.
 data CreateTransitGatewayVpcAttachmentRequestOptions = CreateTransitGatewayVpcAttachmentRequestOptions'
-  { -- | Enable or disable IPv6 support. The default is @disable@.
+  { -- | Enable or disable DNS support. The default is @enable@.
+    dnsSupport :: Prelude.Maybe DnsSupportValue,
+    -- | Enable or disable IPv6 support. The default is @disable@.
     ipv6Support :: Prelude.Maybe Ipv6SupportValue,
     -- | Enable or disable support for appliance mode. If enabled, a traffic flow
     -- between a source and destination uses the same Availability Zone for the
     -- VPC attachment for the lifetime of that flow. The default is @disable@.
-    applianceModeSupport :: Prelude.Maybe ApplianceModeSupportValue,
-    -- | Enable or disable DNS support. The default is @enable@.
-    dnsSupport :: Prelude.Maybe DnsSupportValue
+    applianceModeSupport :: Prelude.Maybe ApplianceModeSupportValue
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,24 +50,28 @@ data CreateTransitGatewayVpcAttachmentRequestOptions = CreateTransitGatewayVpcAt
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dnsSupport', 'createTransitGatewayVpcAttachmentRequestOptions_dnsSupport' - Enable or disable DNS support. The default is @enable@.
+--
 -- 'ipv6Support', 'createTransitGatewayVpcAttachmentRequestOptions_ipv6Support' - Enable or disable IPv6 support. The default is @disable@.
 --
 -- 'applianceModeSupport', 'createTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport' - Enable or disable support for appliance mode. If enabled, a traffic flow
 -- between a source and destination uses the same Availability Zone for the
 -- VPC attachment for the lifetime of that flow. The default is @disable@.
---
--- 'dnsSupport', 'createTransitGatewayVpcAttachmentRequestOptions_dnsSupport' - Enable or disable DNS support. The default is @enable@.
 newCreateTransitGatewayVpcAttachmentRequestOptions ::
   CreateTransitGatewayVpcAttachmentRequestOptions
 newCreateTransitGatewayVpcAttachmentRequestOptions =
   CreateTransitGatewayVpcAttachmentRequestOptions'
-    { ipv6Support =
+    { dnsSupport =
+        Prelude.Nothing,
+      ipv6Support =
         Prelude.Nothing,
       applianceModeSupport =
-        Prelude.Nothing,
-      dnsSupport =
         Prelude.Nothing
     }
+
+-- | Enable or disable DNS support. The default is @enable@.
+createTransitGatewayVpcAttachmentRequestOptions_dnsSupport :: Lens.Lens' CreateTransitGatewayVpcAttachmentRequestOptions (Prelude.Maybe DnsSupportValue)
+createTransitGatewayVpcAttachmentRequestOptions_dnsSupport = Lens.lens (\CreateTransitGatewayVpcAttachmentRequestOptions' {dnsSupport} -> dnsSupport) (\s@CreateTransitGatewayVpcAttachmentRequestOptions' {} a -> s {dnsSupport = a} :: CreateTransitGatewayVpcAttachmentRequestOptions)
 
 -- | Enable or disable IPv6 support. The default is @disable@.
 createTransitGatewayVpcAttachmentRequestOptions_ipv6Support :: Lens.Lens' CreateTransitGatewayVpcAttachmentRequestOptions (Prelude.Maybe Ipv6SupportValue)
@@ -79,10 +83,6 @@ createTransitGatewayVpcAttachmentRequestOptions_ipv6Support = Lens.lens (\Create
 createTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport :: Lens.Lens' CreateTransitGatewayVpcAttachmentRequestOptions (Prelude.Maybe ApplianceModeSupportValue)
 createTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport = Lens.lens (\CreateTransitGatewayVpcAttachmentRequestOptions' {applianceModeSupport} -> applianceModeSupport) (\s@CreateTransitGatewayVpcAttachmentRequestOptions' {} a -> s {applianceModeSupport = a} :: CreateTransitGatewayVpcAttachmentRequestOptions)
 
--- | Enable or disable DNS support. The default is @enable@.
-createTransitGatewayVpcAttachmentRequestOptions_dnsSupport :: Lens.Lens' CreateTransitGatewayVpcAttachmentRequestOptions (Prelude.Maybe DnsSupportValue)
-createTransitGatewayVpcAttachmentRequestOptions_dnsSupport = Lens.lens (\CreateTransitGatewayVpcAttachmentRequestOptions' {dnsSupport} -> dnsSupport) (\s@CreateTransitGatewayVpcAttachmentRequestOptions' {} a -> s {dnsSupport = a} :: CreateTransitGatewayVpcAttachmentRequestOptions)
-
 instance
   Prelude.Hashable
     CreateTransitGatewayVpcAttachmentRequestOptions
@@ -90,9 +90,9 @@ instance
   hashWithSalt
     _salt
     CreateTransitGatewayVpcAttachmentRequestOptions' {..} =
-      _salt `Prelude.hashWithSalt` ipv6Support
+      _salt `Prelude.hashWithSalt` dnsSupport
+        `Prelude.hashWithSalt` ipv6Support
         `Prelude.hashWithSalt` applianceModeSupport
-        `Prelude.hashWithSalt` dnsSupport
 
 instance
   Prelude.NFData
@@ -100,9 +100,9 @@ instance
   where
   rnf
     CreateTransitGatewayVpcAttachmentRequestOptions' {..} =
-      Prelude.rnf ipv6Support
+      Prelude.rnf dnsSupport
+        `Prelude.seq` Prelude.rnf ipv6Support
         `Prelude.seq` Prelude.rnf applianceModeSupport
-        `Prelude.seq` Prelude.rnf dnsSupport
 
 instance
   Core.ToQuery
@@ -111,7 +111,7 @@ instance
   toQuery
     CreateTransitGatewayVpcAttachmentRequestOptions' {..} =
       Prelude.mconcat
-        [ "Ipv6Support" Core.=: ipv6Support,
-          "ApplianceModeSupport" Core.=: applianceModeSupport,
-          "DnsSupport" Core.=: dnsSupport
+        [ "DnsSupport" Core.=: dnsSupport,
+          "Ipv6Support" Core.=: ipv6Support,
+          "ApplianceModeSupport" Core.=: applianceModeSupport
         ]

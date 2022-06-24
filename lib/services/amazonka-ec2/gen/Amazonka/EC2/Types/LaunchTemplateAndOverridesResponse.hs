@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLaunchTemplateAndOverridesResponse' smart constructor.
 data LaunchTemplateAndOverridesResponse = LaunchTemplateAndOverridesResponse'
-  { -- | Any parameters that you specify override the same parameters in the
+  { -- | The launch template.
+    launchTemplateSpecification :: Prelude.Maybe FleetLaunchTemplateSpecification,
+    -- | Any parameters that you specify override the same parameters in the
     -- launch template.
-    overrides :: Prelude.Maybe FleetLaunchTemplateOverrides,
-    -- | The launch template.
-    launchTemplateSpecification :: Prelude.Maybe FleetLaunchTemplateSpecification
+    overrides :: Prelude.Maybe FleetLaunchTemplateOverrides
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,28 +46,27 @@ data LaunchTemplateAndOverridesResponse = LaunchTemplateAndOverridesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'launchTemplateSpecification', 'launchTemplateAndOverridesResponse_launchTemplateSpecification' - The launch template.
+--
 -- 'overrides', 'launchTemplateAndOverridesResponse_overrides' - Any parameters that you specify override the same parameters in the
 -- launch template.
---
--- 'launchTemplateSpecification', 'launchTemplateAndOverridesResponse_launchTemplateSpecification' - The launch template.
 newLaunchTemplateAndOverridesResponse ::
   LaunchTemplateAndOverridesResponse
 newLaunchTemplateAndOverridesResponse =
   LaunchTemplateAndOverridesResponse'
-    { overrides =
+    { launchTemplateSpecification =
         Prelude.Nothing,
-      launchTemplateSpecification =
-        Prelude.Nothing
+      overrides = Prelude.Nothing
     }
+
+-- | The launch template.
+launchTemplateAndOverridesResponse_launchTemplateSpecification :: Lens.Lens' LaunchTemplateAndOverridesResponse (Prelude.Maybe FleetLaunchTemplateSpecification)
+launchTemplateAndOverridesResponse_launchTemplateSpecification = Lens.lens (\LaunchTemplateAndOverridesResponse' {launchTemplateSpecification} -> launchTemplateSpecification) (\s@LaunchTemplateAndOverridesResponse' {} a -> s {launchTemplateSpecification = a} :: LaunchTemplateAndOverridesResponse)
 
 -- | Any parameters that you specify override the same parameters in the
 -- launch template.
 launchTemplateAndOverridesResponse_overrides :: Lens.Lens' LaunchTemplateAndOverridesResponse (Prelude.Maybe FleetLaunchTemplateOverrides)
 launchTemplateAndOverridesResponse_overrides = Lens.lens (\LaunchTemplateAndOverridesResponse' {overrides} -> overrides) (\s@LaunchTemplateAndOverridesResponse' {} a -> s {overrides = a} :: LaunchTemplateAndOverridesResponse)
-
--- | The launch template.
-launchTemplateAndOverridesResponse_launchTemplateSpecification :: Lens.Lens' LaunchTemplateAndOverridesResponse (Prelude.Maybe FleetLaunchTemplateSpecification)
-launchTemplateAndOverridesResponse_launchTemplateSpecification = Lens.lens (\LaunchTemplateAndOverridesResponse' {launchTemplateSpecification} -> launchTemplateSpecification) (\s@LaunchTemplateAndOverridesResponse' {} a -> s {launchTemplateSpecification = a} :: LaunchTemplateAndOverridesResponse)
 
 instance
   Core.FromXML
@@ -75,8 +74,8 @@ instance
   where
   parseXML x =
     LaunchTemplateAndOverridesResponse'
-      Prelude.<$> (x Core..@? "overrides")
-      Prelude.<*> (x Core..@? "launchTemplateSpecification")
+      Prelude.<$> (x Core..@? "launchTemplateSpecification")
+      Prelude.<*> (x Core..@? "overrides")
 
 instance
   Prelude.Hashable
@@ -85,13 +84,14 @@ instance
   hashWithSalt
     _salt
     LaunchTemplateAndOverridesResponse' {..} =
-      _salt `Prelude.hashWithSalt` overrides
+      _salt
         `Prelude.hashWithSalt` launchTemplateSpecification
+        `Prelude.hashWithSalt` overrides
 
 instance
   Prelude.NFData
     LaunchTemplateAndOverridesResponse
   where
   rnf LaunchTemplateAndOverridesResponse' {..} =
-    Prelude.rnf overrides
-      `Prelude.seq` Prelude.rnf launchTemplateSpecification
+    Prelude.rnf launchTemplateSpecification
+      `Prelude.seq` Prelude.rnf overrides

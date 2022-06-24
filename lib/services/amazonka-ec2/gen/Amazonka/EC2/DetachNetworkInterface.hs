@@ -27,8 +27,8 @@ module Amazonka.EC2.DetachNetworkInterface
     newDetachNetworkInterface,
 
     -- * Request Lenses
-    detachNetworkInterface_force,
     detachNetworkInterface_dryRun,
+    detachNetworkInterface_force,
     detachNetworkInterface_attachmentId,
 
     -- * Destructuring the Response
@@ -48,7 +48,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDetachNetworkInterface' smart constructor.
 data DetachNetworkInterface = DetachNetworkInterface'
-  { -- | Specifies whether to force a detachment.
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies whether to force a detachment.
     --
     -- -   Use the @Force@ parameter only as a last resort to detach a network
     --     interface from a failed instance.
@@ -65,11 +70,6 @@ data DetachNetworkInterface = DetachNetworkInterface'
     --     instance metadata will get updated when you stop and start the
     --     instance.
     force :: Prelude.Maybe Prelude.Bool,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the attachment.
     attachmentId :: Prelude.Text
   }
@@ -82,6 +82,11 @@ data DetachNetworkInterface = DetachNetworkInterface'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'dryRun', 'detachNetworkInterface_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'force', 'detachNetworkInterface_force' - Specifies whether to force a detachment.
 --
@@ -100,11 +105,6 @@ data DetachNetworkInterface = DetachNetworkInterface'
 --     instance metadata will get updated when you stop and start the
 --     instance.
 --
--- 'dryRun', 'detachNetworkInterface_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'attachmentId', 'detachNetworkInterface_attachmentId' - The ID of the attachment.
 newDetachNetworkInterface ::
   -- | 'attachmentId'
@@ -112,10 +112,17 @@ newDetachNetworkInterface ::
   DetachNetworkInterface
 newDetachNetworkInterface pAttachmentId_ =
   DetachNetworkInterface'
-    { force = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+    { dryRun = Prelude.Nothing,
+      force = Prelude.Nothing,
       attachmentId = pAttachmentId_
     }
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+detachNetworkInterface_dryRun :: Lens.Lens' DetachNetworkInterface (Prelude.Maybe Prelude.Bool)
+detachNetworkInterface_dryRun = Lens.lens (\DetachNetworkInterface' {dryRun} -> dryRun) (\s@DetachNetworkInterface' {} a -> s {dryRun = a} :: DetachNetworkInterface)
 
 -- | Specifies whether to force a detachment.
 --
@@ -136,13 +143,6 @@ newDetachNetworkInterface pAttachmentId_ =
 detachNetworkInterface_force :: Lens.Lens' DetachNetworkInterface (Prelude.Maybe Prelude.Bool)
 detachNetworkInterface_force = Lens.lens (\DetachNetworkInterface' {force} -> force) (\s@DetachNetworkInterface' {} a -> s {force = a} :: DetachNetworkInterface)
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-detachNetworkInterface_dryRun :: Lens.Lens' DetachNetworkInterface (Prelude.Maybe Prelude.Bool)
-detachNetworkInterface_dryRun = Lens.lens (\DetachNetworkInterface' {dryRun} -> dryRun) (\s@DetachNetworkInterface' {} a -> s {dryRun = a} :: DetachNetworkInterface)
-
 -- | The ID of the attachment.
 detachNetworkInterface_attachmentId :: Lens.Lens' DetachNetworkInterface Prelude.Text
 detachNetworkInterface_attachmentId = Lens.lens (\DetachNetworkInterface' {attachmentId} -> attachmentId) (\s@DetachNetworkInterface' {} a -> s {attachmentId = a} :: DetachNetworkInterface)
@@ -158,14 +158,14 @@ instance Core.AWSRequest DetachNetworkInterface where
 
 instance Prelude.Hashable DetachNetworkInterface where
   hashWithSalt _salt DetachNetworkInterface' {..} =
-    _salt `Prelude.hashWithSalt` force
-      `Prelude.hashWithSalt` dryRun
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` attachmentId
 
 instance Prelude.NFData DetachNetworkInterface where
   rnf DetachNetworkInterface' {..} =
-    Prelude.rnf force
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf force
       `Prelude.seq` Prelude.rnf attachmentId
 
 instance Core.ToHeaders DetachNetworkInterface where
@@ -181,8 +181,8 @@ instance Core.ToQuery DetachNetworkInterface where
           Core.=: ("DetachNetworkInterface" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Force" Core.=: force,
         "DryRun" Core.=: dryRun,
+        "Force" Core.=: force,
         "AttachmentId" Core.=: attachmentId
       ]
 

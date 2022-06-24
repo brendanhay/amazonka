@@ -69,9 +69,9 @@ module Amazonka.EC2.CreateSnapshot
 
     -- * Request Lenses
     createSnapshot_outpostArn,
-    createSnapshot_tagSpecifications,
     createSnapshot_description,
     createSnapshot_dryRun,
+    createSnapshot_tagSpecifications,
     createSnapshot_volumeId,
 
     -- * Destructuring the Response
@@ -79,12 +79,12 @@ module Amazonka.EC2.CreateSnapshot
     newSnapshot,
 
     -- * Response Lenses
-    snapshot_stateMessage,
-    snapshot_ownerAlias,
-    snapshot_dataEncryptionKeyId,
-    snapshot_outpostArn,
-    snapshot_kmsKeyId,
     snapshot_tags,
+    snapshot_ownerAlias,
+    snapshot_outpostArn,
+    snapshot_dataEncryptionKeyId,
+    snapshot_kmsKeyId,
+    snapshot_stateMessage,
     snapshot_snapshotId,
     snapshot_ownerId,
     snapshot_volumeId,
@@ -124,8 +124,6 @@ data CreateSnapshot = CreateSnapshot'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-snapshot Create local snapshots from volumes on an Outpost>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
     outpostArn :: Prelude.Maybe Prelude.Text,
-    -- | The tags to apply to the snapshot during creation.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | A description for the snapshot.
     description :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
@@ -133,6 +131,8 @@ data CreateSnapshot = CreateSnapshot'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The tags to apply to the snapshot during creation.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The ID of the Amazon EBS volume.
     volumeId :: Prelude.Text
   }
@@ -164,14 +164,14 @@ data CreateSnapshot = CreateSnapshot'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-snapshot Create local snapshots from volumes on an Outpost>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- 'tagSpecifications', 'createSnapshot_tagSpecifications' - The tags to apply to the snapshot during creation.
---
 -- 'description', 'createSnapshot_description' - A description for the snapshot.
 --
 -- 'dryRun', 'createSnapshot_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'tagSpecifications', 'createSnapshot_tagSpecifications' - The tags to apply to the snapshot during creation.
 --
 -- 'volumeId', 'createSnapshot_volumeId' - The ID of the Amazon EBS volume.
 newCreateSnapshot ::
@@ -181,9 +181,9 @@ newCreateSnapshot ::
 newCreateSnapshot pVolumeId_ =
   CreateSnapshot'
     { outpostArn = Prelude.Nothing,
-      tagSpecifications = Prelude.Nothing,
       description = Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
       volumeId = pVolumeId_
     }
 
@@ -207,10 +207,6 @@ newCreateSnapshot pVolumeId_ =
 createSnapshot_outpostArn :: Lens.Lens' CreateSnapshot (Prelude.Maybe Prelude.Text)
 createSnapshot_outpostArn = Lens.lens (\CreateSnapshot' {outpostArn} -> outpostArn) (\s@CreateSnapshot' {} a -> s {outpostArn = a} :: CreateSnapshot)
 
--- | The tags to apply to the snapshot during creation.
-createSnapshot_tagSpecifications :: Lens.Lens' CreateSnapshot (Prelude.Maybe [TagSpecification])
-createSnapshot_tagSpecifications = Lens.lens (\CreateSnapshot' {tagSpecifications} -> tagSpecifications) (\s@CreateSnapshot' {} a -> s {tagSpecifications = a} :: CreateSnapshot) Prelude.. Lens.mapping Lens.coerced
-
 -- | A description for the snapshot.
 createSnapshot_description :: Lens.Lens' CreateSnapshot (Prelude.Maybe Prelude.Text)
 createSnapshot_description = Lens.lens (\CreateSnapshot' {description} -> description) (\s@CreateSnapshot' {} a -> s {description = a} :: CreateSnapshot)
@@ -221,6 +217,10 @@ createSnapshot_description = Lens.lens (\CreateSnapshot' {description} -> descri
 -- Otherwise, it is @UnauthorizedOperation@.
 createSnapshot_dryRun :: Lens.Lens' CreateSnapshot (Prelude.Maybe Prelude.Bool)
 createSnapshot_dryRun = Lens.lens (\CreateSnapshot' {dryRun} -> dryRun) (\s@CreateSnapshot' {} a -> s {dryRun = a} :: CreateSnapshot)
+
+-- | The tags to apply to the snapshot during creation.
+createSnapshot_tagSpecifications :: Lens.Lens' CreateSnapshot (Prelude.Maybe [TagSpecification])
+createSnapshot_tagSpecifications = Lens.lens (\CreateSnapshot' {tagSpecifications} -> tagSpecifications) (\s@CreateSnapshot' {} a -> s {tagSpecifications = a} :: CreateSnapshot) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the Amazon EBS volume.
 createSnapshot_volumeId :: Lens.Lens' CreateSnapshot Prelude.Text
@@ -235,17 +235,17 @@ instance Core.AWSRequest CreateSnapshot where
 instance Prelude.Hashable CreateSnapshot where
   hashWithSalt _salt CreateSnapshot' {..} =
     _salt `Prelude.hashWithSalt` outpostArn
-      `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` volumeId
 
 instance Prelude.NFData CreateSnapshot where
   rnf CreateSnapshot' {..} =
     Prelude.rnf outpostArn
-      `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf volumeId
 
 instance Core.ToHeaders CreateSnapshot where
@@ -262,11 +262,11 @@ instance Core.ToQuery CreateSnapshot where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "OutpostArn" Core.=: outpostArn,
+        "Description" Core.=: description,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
         "VolumeId" Core.=: volumeId
       ]

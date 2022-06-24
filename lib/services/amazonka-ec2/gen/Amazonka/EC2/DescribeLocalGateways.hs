@@ -30,8 +30,8 @@ module Amazonka.EC2.DescribeLocalGateways
     newDescribeLocalGateways,
 
     -- * Request Lenses
-    describeLocalGateways_filters,
     describeLocalGateways_nextToken,
+    describeLocalGateways_filters,
     describeLocalGateways_localGatewayIds,
     describeLocalGateways_dryRun,
     describeLocalGateways_maxResults,
@@ -41,8 +41,8 @@ module Amazonka.EC2.DescribeLocalGateways
     newDescribeLocalGatewaysResponse,
 
     -- * Response Lenses
-    describeLocalGatewaysResponse_localGateways,
     describeLocalGatewaysResponse_nextToken,
+    describeLocalGatewaysResponse_localGateways,
     describeLocalGatewaysResponse_httpStatus,
   )
 where
@@ -56,10 +56,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeLocalGateways' smart constructor.
 data DescribeLocalGateways = DescribeLocalGateways'
-  { -- | One or more filters.
-    filters :: Prelude.Maybe [Filter],
-    -- | The token for the next page of results.
+  { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters.
+    filters :: Prelude.Maybe [Filter],
     -- | One or more filters.
     --
     -- -   @local-gateway-id@ - The ID of a local gateway.
@@ -97,9 +97,9 @@ data DescribeLocalGateways = DescribeLocalGateways'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'describeLocalGateways_filters' - One or more filters.
---
 -- 'nextToken', 'describeLocalGateways_nextToken' - The token for the next page of results.
+--
+-- 'filters', 'describeLocalGateways_filters' - One or more filters.
 --
 -- 'localGatewayIds', 'describeLocalGateways_localGatewayIds' - One or more filters.
 --
@@ -130,20 +130,20 @@ newDescribeLocalGateways ::
   DescribeLocalGateways
 newDescribeLocalGateways =
   DescribeLocalGateways'
-    { filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       localGatewayIds = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
 
--- | One or more filters.
-describeLocalGateways_filters :: Lens.Lens' DescribeLocalGateways (Prelude.Maybe [Filter])
-describeLocalGateways_filters = Lens.lens (\DescribeLocalGateways' {filters} -> filters) (\s@DescribeLocalGateways' {} a -> s {filters = a} :: DescribeLocalGateways) Prelude.. Lens.mapping Lens.coerced
-
 -- | The token for the next page of results.
 describeLocalGateways_nextToken :: Lens.Lens' DescribeLocalGateways (Prelude.Maybe Prelude.Text)
 describeLocalGateways_nextToken = Lens.lens (\DescribeLocalGateways' {nextToken} -> nextToken) (\s@DescribeLocalGateways' {} a -> s {nextToken = a} :: DescribeLocalGateways)
+
+-- | One or more filters.
+describeLocalGateways_filters :: Lens.Lens' DescribeLocalGateways (Prelude.Maybe [Filter])
+describeLocalGateways_filters = Lens.lens (\DescribeLocalGateways' {filters} -> filters) (\s@DescribeLocalGateways' {} a -> s {filters = a} :: DescribeLocalGateways) Prelude.. Lens.mapping Lens.coerced
 
 -- | One or more filters.
 --
@@ -208,25 +208,25 @@ instance Core.AWSRequest DescribeLocalGateways where
     Response.receiveXML
       ( \s h x ->
           DescribeLocalGatewaysResponse'
-            Prelude.<$> ( x Core..@? "localGatewaySet" Core..!@ Prelude.mempty
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "localGatewaySet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeLocalGateways where
   hashWithSalt _salt DescribeLocalGateways' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` localGatewayIds
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeLocalGateways where
   rnf DescribeLocalGateways' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf localGatewayIds
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
@@ -244,9 +244,9 @@ instance Core.ToQuery DescribeLocalGateways where
           Core.=: ("DescribeLocalGateways" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
-        "NextToken" Core.=: nextToken,
         Core.toQuery
           ( Core.toQueryList "LocalGatewayId"
               Prelude.<$> localGatewayIds
@@ -257,11 +257,11 @@ instance Core.ToQuery DescribeLocalGateways where
 
 -- | /See:/ 'newDescribeLocalGatewaysResponse' smart constructor.
 data DescribeLocalGatewaysResponse = DescribeLocalGatewaysResponse'
-  { -- | Information about the local gateways.
-    localGateways :: Prelude.Maybe [LocalGateway],
-    -- | The token to use to retrieve the next page of results. This value is
+  { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the local gateways.
+    localGateways :: Prelude.Maybe [LocalGateway],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -275,10 +275,10 @@ data DescribeLocalGatewaysResponse = DescribeLocalGatewaysResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'localGateways', 'describeLocalGatewaysResponse_localGateways' - Information about the local gateways.
---
 -- 'nextToken', 'describeLocalGatewaysResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
+--
+-- 'localGateways', 'describeLocalGatewaysResponse_localGateways' - Information about the local gateways.
 --
 -- 'httpStatus', 'describeLocalGatewaysResponse_httpStatus' - The response's http status code.
 newDescribeLocalGatewaysResponse ::
@@ -287,20 +287,20 @@ newDescribeLocalGatewaysResponse ::
   DescribeLocalGatewaysResponse
 newDescribeLocalGatewaysResponse pHttpStatus_ =
   DescribeLocalGatewaysResponse'
-    { localGateways =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      localGateways = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the local gateways.
-describeLocalGatewaysResponse_localGateways :: Lens.Lens' DescribeLocalGatewaysResponse (Prelude.Maybe [LocalGateway])
-describeLocalGatewaysResponse_localGateways = Lens.lens (\DescribeLocalGatewaysResponse' {localGateways} -> localGateways) (\s@DescribeLocalGatewaysResponse' {} a -> s {localGateways = a} :: DescribeLocalGatewaysResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 describeLocalGatewaysResponse_nextToken :: Lens.Lens' DescribeLocalGatewaysResponse (Prelude.Maybe Prelude.Text)
 describeLocalGatewaysResponse_nextToken = Lens.lens (\DescribeLocalGatewaysResponse' {nextToken} -> nextToken) (\s@DescribeLocalGatewaysResponse' {} a -> s {nextToken = a} :: DescribeLocalGatewaysResponse)
+
+-- | Information about the local gateways.
+describeLocalGatewaysResponse_localGateways :: Lens.Lens' DescribeLocalGatewaysResponse (Prelude.Maybe [LocalGateway])
+describeLocalGatewaysResponse_localGateways = Lens.lens (\DescribeLocalGatewaysResponse' {localGateways} -> localGateways) (\s@DescribeLocalGatewaysResponse' {} a -> s {localGateways = a} :: DescribeLocalGatewaysResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeLocalGatewaysResponse_httpStatus :: Lens.Lens' DescribeLocalGatewaysResponse Prelude.Int
@@ -308,6 +308,6 @@ describeLocalGatewaysResponse_httpStatus = Lens.lens (\DescribeLocalGatewaysResp
 
 instance Prelude.NFData DescribeLocalGatewaysResponse where
   rnf DescribeLocalGatewaysResponse' {..} =
-    Prelude.rnf localGateways
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf localGateways
       `Prelude.seq` Prelude.rnf httpStatus

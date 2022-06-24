@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAnalysisLoadBalancerTarget' smart constructor.
 data AnalysisLoadBalancerTarget = AnalysisLoadBalancerTarget'
-  { -- | The IP address.
-    address :: Prelude.Maybe Prelude.Text,
+  { -- | The port on which the target is listening.
+    port :: Prelude.Maybe Prelude.Natural,
     -- | The Availability Zone.
     availabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | The port on which the target is listening.
-    port :: Prelude.Maybe Prelude.Natural,
+    -- | The IP address.
+    address :: Prelude.Maybe Prelude.Text,
     -- | Information about the instance.
     instance' :: Prelude.Maybe AnalysisComponent
   }
@@ -48,35 +48,34 @@ data AnalysisLoadBalancerTarget = AnalysisLoadBalancerTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'address', 'analysisLoadBalancerTarget_address' - The IP address.
+-- 'port', 'analysisLoadBalancerTarget_port' - The port on which the target is listening.
 --
 -- 'availabilityZone', 'analysisLoadBalancerTarget_availabilityZone' - The Availability Zone.
 --
--- 'port', 'analysisLoadBalancerTarget_port' - The port on which the target is listening.
+-- 'address', 'analysisLoadBalancerTarget_address' - The IP address.
 --
 -- 'instance'', 'analysisLoadBalancerTarget_instance' - Information about the instance.
 newAnalysisLoadBalancerTarget ::
   AnalysisLoadBalancerTarget
 newAnalysisLoadBalancerTarget =
   AnalysisLoadBalancerTarget'
-    { address =
-        Prelude.Nothing,
+    { port = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
-      port = Prelude.Nothing,
+      address = Prelude.Nothing,
       instance' = Prelude.Nothing
     }
 
--- | The IP address.
-analysisLoadBalancerTarget_address :: Lens.Lens' AnalysisLoadBalancerTarget (Prelude.Maybe Prelude.Text)
-analysisLoadBalancerTarget_address = Lens.lens (\AnalysisLoadBalancerTarget' {address} -> address) (\s@AnalysisLoadBalancerTarget' {} a -> s {address = a} :: AnalysisLoadBalancerTarget)
+-- | The port on which the target is listening.
+analysisLoadBalancerTarget_port :: Lens.Lens' AnalysisLoadBalancerTarget (Prelude.Maybe Prelude.Natural)
+analysisLoadBalancerTarget_port = Lens.lens (\AnalysisLoadBalancerTarget' {port} -> port) (\s@AnalysisLoadBalancerTarget' {} a -> s {port = a} :: AnalysisLoadBalancerTarget)
 
 -- | The Availability Zone.
 analysisLoadBalancerTarget_availabilityZone :: Lens.Lens' AnalysisLoadBalancerTarget (Prelude.Maybe Prelude.Text)
 analysisLoadBalancerTarget_availabilityZone = Lens.lens (\AnalysisLoadBalancerTarget' {availabilityZone} -> availabilityZone) (\s@AnalysisLoadBalancerTarget' {} a -> s {availabilityZone = a} :: AnalysisLoadBalancerTarget)
 
--- | The port on which the target is listening.
-analysisLoadBalancerTarget_port :: Lens.Lens' AnalysisLoadBalancerTarget (Prelude.Maybe Prelude.Natural)
-analysisLoadBalancerTarget_port = Lens.lens (\AnalysisLoadBalancerTarget' {port} -> port) (\s@AnalysisLoadBalancerTarget' {} a -> s {port = a} :: AnalysisLoadBalancerTarget)
+-- | The IP address.
+analysisLoadBalancerTarget_address :: Lens.Lens' AnalysisLoadBalancerTarget (Prelude.Maybe Prelude.Text)
+analysisLoadBalancerTarget_address = Lens.lens (\AnalysisLoadBalancerTarget' {address} -> address) (\s@AnalysisLoadBalancerTarget' {} a -> s {address = a} :: AnalysisLoadBalancerTarget)
 
 -- | Information about the instance.
 analysisLoadBalancerTarget_instance :: Lens.Lens' AnalysisLoadBalancerTarget (Prelude.Maybe AnalysisComponent)
@@ -85,21 +84,21 @@ analysisLoadBalancerTarget_instance = Lens.lens (\AnalysisLoadBalancerTarget' {i
 instance Core.FromXML AnalysisLoadBalancerTarget where
   parseXML x =
     AnalysisLoadBalancerTarget'
-      Prelude.<$> (x Core..@? "address")
+      Prelude.<$> (x Core..@? "port")
       Prelude.<*> (x Core..@? "availabilityZone")
-      Prelude.<*> (x Core..@? "port")
+      Prelude.<*> (x Core..@? "address")
       Prelude.<*> (x Core..@? "instance")
 
 instance Prelude.Hashable AnalysisLoadBalancerTarget where
   hashWithSalt _salt AnalysisLoadBalancerTarget' {..} =
-    _salt `Prelude.hashWithSalt` address
+    _salt `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` availabilityZone
-      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` instance'
 
 instance Prelude.NFData AnalysisLoadBalancerTarget where
   rnf AnalysisLoadBalancerTarget' {..} =
-    Prelude.rnf address
+    Prelude.rnf port
       `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf address
       `Prelude.seq` Prelude.rnf instance'

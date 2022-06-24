@@ -29,19 +29,19 @@ module Amazonka.EC2.DescribeTransitGatewayPeeringAttachments
     newDescribeTransitGatewayPeeringAttachments,
 
     -- * Request Lenses
-    describeTransitGatewayPeeringAttachments_filters,
     describeTransitGatewayPeeringAttachments_nextToken,
-    describeTransitGatewayPeeringAttachments_transitGatewayAttachmentIds,
+    describeTransitGatewayPeeringAttachments_filters,
     describeTransitGatewayPeeringAttachments_dryRun,
     describeTransitGatewayPeeringAttachments_maxResults,
+    describeTransitGatewayPeeringAttachments_transitGatewayAttachmentIds,
 
     -- * Destructuring the Response
     DescribeTransitGatewayPeeringAttachmentsResponse (..),
     newDescribeTransitGatewayPeeringAttachmentsResponse,
 
     -- * Response Lenses
-    describeTransitGatewayPeeringAttachmentsResponse_transitGatewayPeeringAttachments,
     describeTransitGatewayPeeringAttachmentsResponse_nextToken,
+    describeTransitGatewayPeeringAttachmentsResponse_transitGatewayPeeringAttachments,
     describeTransitGatewayPeeringAttachmentsResponse_httpStatus,
   )
 where
@@ -55,7 +55,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeTransitGatewayPeeringAttachments' smart constructor.
 data DescribeTransitGatewayPeeringAttachments = DescribeTransitGatewayPeeringAttachments'
-  { -- | One or more filters. The possible values are:
+  { -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters. The possible values are:
     --
     -- -   @transit-gateway-attachment-id@ - The ID of the transit gateway
     --     attachment.
@@ -82,10 +84,6 @@ data DescribeTransitGatewayPeeringAttachments = DescribeTransitGatewayPeeringAtt
     --
     -- -   @transit-gateway-id@ - The ID of the transit gateway.
     filters :: Prelude.Maybe [Filter],
-    -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | One or more IDs of the transit gateway peering attachments.
-    transitGatewayAttachmentIds :: Prelude.Maybe [Prelude.Text],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -94,7 +92,9 @@ data DescribeTransitGatewayPeeringAttachments = DescribeTransitGatewayPeeringAtt
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | One or more IDs of the transit gateway peering attachments.
+    transitGatewayAttachmentIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -105,6 +105,8 @@ data DescribeTransitGatewayPeeringAttachments = DescribeTransitGatewayPeeringAtt
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'nextToken', 'describeTransitGatewayPeeringAttachments_nextToken' - The token for the next page of results.
 --
 -- 'filters', 'describeTransitGatewayPeeringAttachments_filters' - One or more filters. The possible values are:
 --
@@ -133,10 +135,6 @@ data DescribeTransitGatewayPeeringAttachments = DescribeTransitGatewayPeeringAtt
 --
 -- -   @transit-gateway-id@ - The ID of the transit gateway.
 --
--- 'nextToken', 'describeTransitGatewayPeeringAttachments_nextToken' - The token for the next page of results.
---
--- 'transitGatewayAttachmentIds', 'describeTransitGatewayPeeringAttachments_transitGatewayAttachmentIds' - One or more IDs of the transit gateway peering attachments.
---
 -- 'dryRun', 'describeTransitGatewayPeeringAttachments_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -145,18 +143,24 @@ data DescribeTransitGatewayPeeringAttachments = DescribeTransitGatewayPeeringAtt
 -- 'maxResults', 'describeTransitGatewayPeeringAttachments_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
+--
+-- 'transitGatewayAttachmentIds', 'describeTransitGatewayPeeringAttachments_transitGatewayAttachmentIds' - One or more IDs of the transit gateway peering attachments.
 newDescribeTransitGatewayPeeringAttachments ::
   DescribeTransitGatewayPeeringAttachments
 newDescribeTransitGatewayPeeringAttachments =
   DescribeTransitGatewayPeeringAttachments'
-    { filters =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      transitGatewayAttachmentIds =
-        Prelude.Nothing,
+      filters = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      transitGatewayAttachmentIds =
+        Prelude.Nothing
     }
+
+-- | The token for the next page of results.
+describeTransitGatewayPeeringAttachments_nextToken :: Lens.Lens' DescribeTransitGatewayPeeringAttachments (Prelude.Maybe Prelude.Text)
+describeTransitGatewayPeeringAttachments_nextToken = Lens.lens (\DescribeTransitGatewayPeeringAttachments' {nextToken} -> nextToken) (\s@DescribeTransitGatewayPeeringAttachments' {} a -> s {nextToken = a} :: DescribeTransitGatewayPeeringAttachments)
 
 -- | One or more filters. The possible values are:
 --
@@ -187,14 +191,6 @@ newDescribeTransitGatewayPeeringAttachments =
 describeTransitGatewayPeeringAttachments_filters :: Lens.Lens' DescribeTransitGatewayPeeringAttachments (Prelude.Maybe [Filter])
 describeTransitGatewayPeeringAttachments_filters = Lens.lens (\DescribeTransitGatewayPeeringAttachments' {filters} -> filters) (\s@DescribeTransitGatewayPeeringAttachments' {} a -> s {filters = a} :: DescribeTransitGatewayPeeringAttachments) Prelude.. Lens.mapping Lens.coerced
 
--- | The token for the next page of results.
-describeTransitGatewayPeeringAttachments_nextToken :: Lens.Lens' DescribeTransitGatewayPeeringAttachments (Prelude.Maybe Prelude.Text)
-describeTransitGatewayPeeringAttachments_nextToken = Lens.lens (\DescribeTransitGatewayPeeringAttachments' {nextToken} -> nextToken) (\s@DescribeTransitGatewayPeeringAttachments' {} a -> s {nextToken = a} :: DescribeTransitGatewayPeeringAttachments)
-
--- | One or more IDs of the transit gateway peering attachments.
-describeTransitGatewayPeeringAttachments_transitGatewayAttachmentIds :: Lens.Lens' DescribeTransitGatewayPeeringAttachments (Prelude.Maybe [Prelude.Text])
-describeTransitGatewayPeeringAttachments_transitGatewayAttachmentIds = Lens.lens (\DescribeTransitGatewayPeeringAttachments' {transitGatewayAttachmentIds} -> transitGatewayAttachmentIds) (\s@DescribeTransitGatewayPeeringAttachments' {} a -> s {transitGatewayAttachmentIds = a} :: DescribeTransitGatewayPeeringAttachments) Prelude.. Lens.mapping Lens.coerced
-
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -207,6 +203,10 @@ describeTransitGatewayPeeringAttachments_dryRun = Lens.lens (\DescribeTransitGat
 -- value.
 describeTransitGatewayPeeringAttachments_maxResults :: Lens.Lens' DescribeTransitGatewayPeeringAttachments (Prelude.Maybe Prelude.Natural)
 describeTransitGatewayPeeringAttachments_maxResults = Lens.lens (\DescribeTransitGatewayPeeringAttachments' {maxResults} -> maxResults) (\s@DescribeTransitGatewayPeeringAttachments' {} a -> s {maxResults = a} :: DescribeTransitGatewayPeeringAttachments)
+
+-- | One or more IDs of the transit gateway peering attachments.
+describeTransitGatewayPeeringAttachments_transitGatewayAttachmentIds :: Lens.Lens' DescribeTransitGatewayPeeringAttachments (Prelude.Maybe [Prelude.Text])
+describeTransitGatewayPeeringAttachments_transitGatewayAttachmentIds = Lens.lens (\DescribeTransitGatewayPeeringAttachments' {transitGatewayAttachmentIds} -> transitGatewayAttachmentIds) (\s@DescribeTransitGatewayPeeringAttachments' {} a -> s {transitGatewayAttachmentIds = a} :: DescribeTransitGatewayPeeringAttachments) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.AWSPager
@@ -246,11 +246,11 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeTransitGatewayPeeringAttachmentsResponse'
-            Prelude.<$> ( x Core..@? "transitGatewayPeeringAttachments"
-                            Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
-                        )
-              Prelude.<*> (x Core..@? "nextToken")
+            Prelude.<$> (x Core..@? "nextToken")
+              Prelude.<*> ( x Core..@? "transitGatewayPeeringAttachments"
+                              Core..!@ Prelude.mempty
+                              Prelude.>>= Core.may (Core.parseXMLList "item")
+                          )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -261,22 +261,22 @@ instance
   hashWithSalt
     _salt
     DescribeTransitGatewayPeeringAttachments' {..} =
-      _salt `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` transitGatewayAttachmentIds
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` transitGatewayAttachmentIds
 
 instance
   Prelude.NFData
     DescribeTransitGatewayPeeringAttachments
   where
   rnf DescribeTransitGatewayPeeringAttachments' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf transitGatewayAttachmentIds
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf transitGatewayAttachmentIds
 
 instance
   Core.ToHeaders
@@ -302,24 +302,24 @@ instance
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
-        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
         Core.toQuery
           ( Core.toQueryList "TransitGatewayAttachmentIds"
               Prelude.<$> transitGatewayAttachmentIds
-          ),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults
+          )
       ]
 
 -- | /See:/ 'newDescribeTransitGatewayPeeringAttachmentsResponse' smart constructor.
 data DescribeTransitGatewayPeeringAttachmentsResponse = DescribeTransitGatewayPeeringAttachmentsResponse'
-  { -- | The transit gateway peering attachments.
-    transitGatewayPeeringAttachments :: Prelude.Maybe [TransitGatewayPeeringAttachment],
-    -- | The token to use to retrieve the next page of results. This value is
+  { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The transit gateway peering attachments.
+    transitGatewayPeeringAttachments :: Prelude.Maybe [TransitGatewayPeeringAttachment],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -333,10 +333,10 @@ data DescribeTransitGatewayPeeringAttachmentsResponse = DescribeTransitGatewayPe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'transitGatewayPeeringAttachments', 'describeTransitGatewayPeeringAttachmentsResponse_transitGatewayPeeringAttachments' - The transit gateway peering attachments.
---
 -- 'nextToken', 'describeTransitGatewayPeeringAttachmentsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
+--
+-- 'transitGatewayPeeringAttachments', 'describeTransitGatewayPeeringAttachmentsResponse_transitGatewayPeeringAttachments' - The transit gateway peering attachments.
 --
 -- 'httpStatus', 'describeTransitGatewayPeeringAttachmentsResponse_httpStatus' - The response's http status code.
 newDescribeTransitGatewayPeeringAttachmentsResponse ::
@@ -346,21 +346,21 @@ newDescribeTransitGatewayPeeringAttachmentsResponse ::
 newDescribeTransitGatewayPeeringAttachmentsResponse
   pHttpStatus_ =
     DescribeTransitGatewayPeeringAttachmentsResponse'
-      { transitGatewayPeeringAttachments =
+      { nextToken =
           Prelude.Nothing,
-        nextToken =
+        transitGatewayPeeringAttachments =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The transit gateway peering attachments.
-describeTransitGatewayPeeringAttachmentsResponse_transitGatewayPeeringAttachments :: Lens.Lens' DescribeTransitGatewayPeeringAttachmentsResponse (Prelude.Maybe [TransitGatewayPeeringAttachment])
-describeTransitGatewayPeeringAttachmentsResponse_transitGatewayPeeringAttachments = Lens.lens (\DescribeTransitGatewayPeeringAttachmentsResponse' {transitGatewayPeeringAttachments} -> transitGatewayPeeringAttachments) (\s@DescribeTransitGatewayPeeringAttachmentsResponse' {} a -> s {transitGatewayPeeringAttachments = a} :: DescribeTransitGatewayPeeringAttachmentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 describeTransitGatewayPeeringAttachmentsResponse_nextToken :: Lens.Lens' DescribeTransitGatewayPeeringAttachmentsResponse (Prelude.Maybe Prelude.Text)
 describeTransitGatewayPeeringAttachmentsResponse_nextToken = Lens.lens (\DescribeTransitGatewayPeeringAttachmentsResponse' {nextToken} -> nextToken) (\s@DescribeTransitGatewayPeeringAttachmentsResponse' {} a -> s {nextToken = a} :: DescribeTransitGatewayPeeringAttachmentsResponse)
+
+-- | The transit gateway peering attachments.
+describeTransitGatewayPeeringAttachmentsResponse_transitGatewayPeeringAttachments :: Lens.Lens' DescribeTransitGatewayPeeringAttachmentsResponse (Prelude.Maybe [TransitGatewayPeeringAttachment])
+describeTransitGatewayPeeringAttachmentsResponse_transitGatewayPeeringAttachments = Lens.lens (\DescribeTransitGatewayPeeringAttachmentsResponse' {transitGatewayPeeringAttachments} -> transitGatewayPeeringAttachments) (\s@DescribeTransitGatewayPeeringAttachmentsResponse' {} a -> s {transitGatewayPeeringAttachments = a} :: DescribeTransitGatewayPeeringAttachmentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeTransitGatewayPeeringAttachmentsResponse_httpStatus :: Lens.Lens' DescribeTransitGatewayPeeringAttachmentsResponse Prelude.Int
@@ -372,6 +372,6 @@ instance
   where
   rnf
     DescribeTransitGatewayPeeringAttachmentsResponse' {..} =
-      Prelude.rnf transitGatewayPeeringAttachments
-        `Prelude.seq` Prelude.rnf nextToken
+      Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf transitGatewayPeeringAttachments
         `Prelude.seq` Prelude.rnf httpStatus

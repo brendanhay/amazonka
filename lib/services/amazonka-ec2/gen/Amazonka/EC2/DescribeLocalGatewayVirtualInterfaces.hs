@@ -29,8 +29,8 @@ module Amazonka.EC2.DescribeLocalGatewayVirtualInterfaces
     newDescribeLocalGatewayVirtualInterfaces,
 
     -- * Request Lenses
-    describeLocalGatewayVirtualInterfaces_filters,
     describeLocalGatewayVirtualInterfaces_nextToken,
+    describeLocalGatewayVirtualInterfaces_filters,
     describeLocalGatewayVirtualInterfaces_localGatewayVirtualInterfaceIds,
     describeLocalGatewayVirtualInterfaces_dryRun,
     describeLocalGatewayVirtualInterfaces_maxResults,
@@ -55,10 +55,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeLocalGatewayVirtualInterfaces' smart constructor.
 data DescribeLocalGatewayVirtualInterfaces = DescribeLocalGatewayVirtualInterfaces'
-  { -- | One or more filters.
-    filters :: Prelude.Maybe [Filter],
-    -- | The token for the next page of results.
+  { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters.
+    filters :: Prelude.Maybe [Filter],
     -- | The IDs of the virtual interfaces.
     localGatewayVirtualInterfaceIds :: Prelude.Maybe [Prelude.Text],
     -- | Checks whether you have the required permissions for the action, without
@@ -81,9 +81,9 @@ data DescribeLocalGatewayVirtualInterfaces = DescribeLocalGatewayVirtualInterfac
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'describeLocalGatewayVirtualInterfaces_filters' - One or more filters.
---
 -- 'nextToken', 'describeLocalGatewayVirtualInterfaces_nextToken' - The token for the next page of results.
+--
+-- 'filters', 'describeLocalGatewayVirtualInterfaces_filters' - One or more filters.
 --
 -- 'localGatewayVirtualInterfaceIds', 'describeLocalGatewayVirtualInterfaces_localGatewayVirtualInterfaceIds' - The IDs of the virtual interfaces.
 --
@@ -99,22 +99,22 @@ newDescribeLocalGatewayVirtualInterfaces ::
   DescribeLocalGatewayVirtualInterfaces
 newDescribeLocalGatewayVirtualInterfaces =
   DescribeLocalGatewayVirtualInterfaces'
-    { filters =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       localGatewayVirtualInterfaceIds =
         Prelude.Nothing,
       dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
 
--- | One or more filters.
-describeLocalGatewayVirtualInterfaces_filters :: Lens.Lens' DescribeLocalGatewayVirtualInterfaces (Prelude.Maybe [Filter])
-describeLocalGatewayVirtualInterfaces_filters = Lens.lens (\DescribeLocalGatewayVirtualInterfaces' {filters} -> filters) (\s@DescribeLocalGatewayVirtualInterfaces' {} a -> s {filters = a} :: DescribeLocalGatewayVirtualInterfaces) Prelude.. Lens.mapping Lens.coerced
-
 -- | The token for the next page of results.
 describeLocalGatewayVirtualInterfaces_nextToken :: Lens.Lens' DescribeLocalGatewayVirtualInterfaces (Prelude.Maybe Prelude.Text)
 describeLocalGatewayVirtualInterfaces_nextToken = Lens.lens (\DescribeLocalGatewayVirtualInterfaces' {nextToken} -> nextToken) (\s@DescribeLocalGatewayVirtualInterfaces' {} a -> s {nextToken = a} :: DescribeLocalGatewayVirtualInterfaces)
+
+-- | One or more filters.
+describeLocalGatewayVirtualInterfaces_filters :: Lens.Lens' DescribeLocalGatewayVirtualInterfaces (Prelude.Maybe [Filter])
+describeLocalGatewayVirtualInterfaces_filters = Lens.lens (\DescribeLocalGatewayVirtualInterfaces' {filters} -> filters) (\s@DescribeLocalGatewayVirtualInterfaces' {} a -> s {filters = a} :: DescribeLocalGatewayVirtualInterfaces) Prelude.. Lens.mapping Lens.coerced
 
 -- | The IDs of the virtual interfaces.
 describeLocalGatewayVirtualInterfaces_localGatewayVirtualInterfaceIds :: Lens.Lens' DescribeLocalGatewayVirtualInterfaces (Prelude.Maybe [Prelude.Text])
@@ -186,8 +186,8 @@ instance
   hashWithSalt
     _salt
     DescribeLocalGatewayVirtualInterfaces' {..} =
-      _salt `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` localGatewayVirtualInterfaceIds
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
@@ -197,8 +197,8 @@ instance
     DescribeLocalGatewayVirtualInterfaces
   where
   rnf DescribeLocalGatewayVirtualInterfaces' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf localGatewayVirtualInterfaceIds
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
@@ -227,9 +227,9 @@ instance
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
-        "NextToken" Core.=: nextToken,
         Core.toQuery
           ( Core.toQueryList "LocalGatewayVirtualInterfaceId"
               Prelude.<$> localGatewayVirtualInterfaceIds

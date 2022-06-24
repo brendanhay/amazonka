@@ -32,23 +32,23 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIpPermission' smart constructor.
 data IpPermission = IpPermission'
-  { -- | The start of port range for the TCP and UDP protocols, or an
-    -- ICMP\/ICMPv6 type number. A value of @-1@ indicates all ICMP\/ICMPv6
-    -- types. If you specify all ICMP\/ICMPv6 types, you must specify all
-    -- codes.
-    fromPort :: Prelude.Maybe Prelude.Int,
-    -- | The security group and Amazon Web Services account ID pairs.
-    userIdGroupPairs :: Prelude.Maybe [UserIdGroupPair],
-    -- | [VPC only] The prefix list IDs.
-    prefixListIds :: Prelude.Maybe [PrefixListId],
-    -- | The end of port range for the TCP and UDP protocols, or an ICMP\/ICMPv6
+  { -- | The end of port range for the TCP and UDP protocols, or an ICMP\/ICMPv6
     -- code. A value of @-1@ indicates all ICMP\/ICMPv6 codes. If you specify
     -- all ICMP\/ICMPv6 types, you must specify all codes.
     toPort :: Prelude.Maybe Prelude.Int,
     -- | [VPC only] The IPv6 ranges.
     ipv6Ranges :: Prelude.Maybe [Ipv6Range],
+    -- | [VPC only] The prefix list IDs.
+    prefixListIds :: Prelude.Maybe [PrefixListId],
     -- | The IPv4 ranges.
     ipRanges :: Prelude.Maybe [IpRange],
+    -- | The security group and Amazon Web Services account ID pairs.
+    userIdGroupPairs :: Prelude.Maybe [UserIdGroupPair],
+    -- | The start of port range for the TCP and UDP protocols, or an
+    -- ICMP\/ICMPv6 type number. A value of @-1@ indicates all ICMP\/ICMPv6
+    -- types. If you specify all ICMP\/ICMPv6 types, you must specify all
+    -- codes.
+    fromPort :: Prelude.Maybe Prelude.Int,
     -- | The IP protocol name (@tcp@, @udp@, @icmp@, @icmpv6@) or number (see
     -- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>).
     --
@@ -70,22 +70,22 @@ data IpPermission = IpPermission'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fromPort', 'ipPermission_fromPort' - The start of port range for the TCP and UDP protocols, or an
--- ICMP\/ICMPv6 type number. A value of @-1@ indicates all ICMP\/ICMPv6
--- types. If you specify all ICMP\/ICMPv6 types, you must specify all
--- codes.
---
--- 'userIdGroupPairs', 'ipPermission_userIdGroupPairs' - The security group and Amazon Web Services account ID pairs.
---
--- 'prefixListIds', 'ipPermission_prefixListIds' - [VPC only] The prefix list IDs.
---
 -- 'toPort', 'ipPermission_toPort' - The end of port range for the TCP and UDP protocols, or an ICMP\/ICMPv6
 -- code. A value of @-1@ indicates all ICMP\/ICMPv6 codes. If you specify
 -- all ICMP\/ICMPv6 types, you must specify all codes.
 --
 -- 'ipv6Ranges', 'ipPermission_ipv6Ranges' - [VPC only] The IPv6 ranges.
 --
+-- 'prefixListIds', 'ipPermission_prefixListIds' - [VPC only] The prefix list IDs.
+--
 -- 'ipRanges', 'ipPermission_ipRanges' - The IPv4 ranges.
+--
+-- 'userIdGroupPairs', 'ipPermission_userIdGroupPairs' - The security group and Amazon Web Services account ID pairs.
+--
+-- 'fromPort', 'ipPermission_fromPort' - The start of port range for the TCP and UDP protocols, or an
+-- ICMP\/ICMPv6 type number. A value of @-1@ indicates all ICMP\/ICMPv6
+-- types. If you specify all ICMP\/ICMPv6 types, you must specify all
+-- codes.
 --
 -- 'ipProtocol', 'ipPermission_ipProtocol' - The IP protocol name (@tcp@, @udp@, @icmp@, @icmpv6@) or number (see
 -- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>).
@@ -102,29 +102,14 @@ newIpPermission ::
   IpPermission
 newIpPermission pIpProtocol_ =
   IpPermission'
-    { fromPort = Prelude.Nothing,
-      userIdGroupPairs = Prelude.Nothing,
-      prefixListIds = Prelude.Nothing,
-      toPort = Prelude.Nothing,
+    { toPort = Prelude.Nothing,
       ipv6Ranges = Prelude.Nothing,
+      prefixListIds = Prelude.Nothing,
       ipRanges = Prelude.Nothing,
+      userIdGroupPairs = Prelude.Nothing,
+      fromPort = Prelude.Nothing,
       ipProtocol = pIpProtocol_
     }
-
--- | The start of port range for the TCP and UDP protocols, or an
--- ICMP\/ICMPv6 type number. A value of @-1@ indicates all ICMP\/ICMPv6
--- types. If you specify all ICMP\/ICMPv6 types, you must specify all
--- codes.
-ipPermission_fromPort :: Lens.Lens' IpPermission (Prelude.Maybe Prelude.Int)
-ipPermission_fromPort = Lens.lens (\IpPermission' {fromPort} -> fromPort) (\s@IpPermission' {} a -> s {fromPort = a} :: IpPermission)
-
--- | The security group and Amazon Web Services account ID pairs.
-ipPermission_userIdGroupPairs :: Lens.Lens' IpPermission (Prelude.Maybe [UserIdGroupPair])
-ipPermission_userIdGroupPairs = Lens.lens (\IpPermission' {userIdGroupPairs} -> userIdGroupPairs) (\s@IpPermission' {} a -> s {userIdGroupPairs = a} :: IpPermission) Prelude.. Lens.mapping Lens.coerced
-
--- | [VPC only] The prefix list IDs.
-ipPermission_prefixListIds :: Lens.Lens' IpPermission (Prelude.Maybe [PrefixListId])
-ipPermission_prefixListIds = Lens.lens (\IpPermission' {prefixListIds} -> prefixListIds) (\s@IpPermission' {} a -> s {prefixListIds = a} :: IpPermission) Prelude.. Lens.mapping Lens.coerced
 
 -- | The end of port range for the TCP and UDP protocols, or an ICMP\/ICMPv6
 -- code. A value of @-1@ indicates all ICMP\/ICMPv6 codes. If you specify
@@ -136,9 +121,24 @@ ipPermission_toPort = Lens.lens (\IpPermission' {toPort} -> toPort) (\s@IpPermis
 ipPermission_ipv6Ranges :: Lens.Lens' IpPermission (Prelude.Maybe [Ipv6Range])
 ipPermission_ipv6Ranges = Lens.lens (\IpPermission' {ipv6Ranges} -> ipv6Ranges) (\s@IpPermission' {} a -> s {ipv6Ranges = a} :: IpPermission) Prelude.. Lens.mapping Lens.coerced
 
+-- | [VPC only] The prefix list IDs.
+ipPermission_prefixListIds :: Lens.Lens' IpPermission (Prelude.Maybe [PrefixListId])
+ipPermission_prefixListIds = Lens.lens (\IpPermission' {prefixListIds} -> prefixListIds) (\s@IpPermission' {} a -> s {prefixListIds = a} :: IpPermission) Prelude.. Lens.mapping Lens.coerced
+
 -- | The IPv4 ranges.
 ipPermission_ipRanges :: Lens.Lens' IpPermission (Prelude.Maybe [IpRange])
 ipPermission_ipRanges = Lens.lens (\IpPermission' {ipRanges} -> ipRanges) (\s@IpPermission' {} a -> s {ipRanges = a} :: IpPermission) Prelude.. Lens.mapping Lens.coerced
+
+-- | The security group and Amazon Web Services account ID pairs.
+ipPermission_userIdGroupPairs :: Lens.Lens' IpPermission (Prelude.Maybe [UserIdGroupPair])
+ipPermission_userIdGroupPairs = Lens.lens (\IpPermission' {userIdGroupPairs} -> userIdGroupPairs) (\s@IpPermission' {} a -> s {userIdGroupPairs = a} :: IpPermission) Prelude.. Lens.mapping Lens.coerced
+
+-- | The start of port range for the TCP and UDP protocols, or an
+-- ICMP\/ICMPv6 type number. A value of @-1@ indicates all ICMP\/ICMPv6
+-- types. If you specify all ICMP\/ICMPv6 types, you must specify all
+-- codes.
+ipPermission_fromPort :: Lens.Lens' IpPermission (Prelude.Maybe Prelude.Int)
+ipPermission_fromPort = Lens.lens (\IpPermission' {fromPort} -> fromPort) (\s@IpPermission' {} a -> s {fromPort = a} :: IpPermission)
 
 -- | The IP protocol name (@tcp@, @udp@, @icmp@, @icmpv6@) or number (see
 -- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>).
@@ -155,60 +155,60 @@ ipPermission_ipProtocol = Lens.lens (\IpPermission' {ipProtocol} -> ipProtocol) 
 instance Core.FromXML IpPermission where
   parseXML x =
     IpPermission'
-      Prelude.<$> (x Core..@? "fromPort")
-      Prelude.<*> ( x Core..@? "groups" Core..!@ Prelude.mempty
+      Prelude.<$> (x Core..@? "toPort")
+      Prelude.<*> ( x Core..@? "ipv6Ranges" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
       Prelude.<*> ( x Core..@? "prefixListIds" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "toPort")
-      Prelude.<*> ( x Core..@? "ipv6Ranges" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
-                  )
       Prelude.<*> ( x Core..@? "ipRanges" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
+      Prelude.<*> ( x Core..@? "groups" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> (x Core..@? "fromPort")
       Prelude.<*> (x Core..@ "ipProtocol")
 
 instance Prelude.Hashable IpPermission where
   hashWithSalt _salt IpPermission' {..} =
-    _salt `Prelude.hashWithSalt` fromPort
-      `Prelude.hashWithSalt` userIdGroupPairs
-      `Prelude.hashWithSalt` prefixListIds
-      `Prelude.hashWithSalt` toPort
+    _salt `Prelude.hashWithSalt` toPort
       `Prelude.hashWithSalt` ipv6Ranges
+      `Prelude.hashWithSalt` prefixListIds
       `Prelude.hashWithSalt` ipRanges
+      `Prelude.hashWithSalt` userIdGroupPairs
+      `Prelude.hashWithSalt` fromPort
       `Prelude.hashWithSalt` ipProtocol
 
 instance Prelude.NFData IpPermission where
   rnf IpPermission' {..} =
-    Prelude.rnf fromPort
-      `Prelude.seq` Prelude.rnf userIdGroupPairs
-      `Prelude.seq` Prelude.rnf prefixListIds
-      `Prelude.seq` Prelude.rnf toPort
+    Prelude.rnf toPort
       `Prelude.seq` Prelude.rnf ipv6Ranges
+      `Prelude.seq` Prelude.rnf prefixListIds
       `Prelude.seq` Prelude.rnf ipRanges
+      `Prelude.seq` Prelude.rnf userIdGroupPairs
+      `Prelude.seq` Prelude.rnf fromPort
       `Prelude.seq` Prelude.rnf ipProtocol
 
 instance Core.ToQuery IpPermission where
   toQuery IpPermission' {..} =
     Prelude.mconcat
-      [ "FromPort" Core.=: fromPort,
-        Core.toQuery
-          ( Core.toQueryList "Groups"
-              Prelude.<$> userIdGroupPairs
-          ),
-        Core.toQuery
-          ( Core.toQueryList "PrefixListIds"
-              Prelude.<$> prefixListIds
-          ),
-        "ToPort" Core.=: toPort,
+      [ "ToPort" Core.=: toPort,
         Core.toQuery
           ( Core.toQueryList "Ipv6Ranges"
               Prelude.<$> ipv6Ranges
           ),
         Core.toQuery
+          ( Core.toQueryList "PrefixListIds"
+              Prelude.<$> prefixListIds
+          ),
+        Core.toQuery
           (Core.toQueryList "IpRanges" Prelude.<$> ipRanges),
+        Core.toQuery
+          ( Core.toQueryList "Groups"
+              Prelude.<$> userIdGroupPairs
+          ),
+        "FromPort" Core.=: fromPort,
         "IpProtocol" Core.=: ipProtocol
       ]

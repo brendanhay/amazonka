@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLaunchTemplateSpecification' smart constructor.
 data LaunchTemplateSpecification = LaunchTemplateSpecification'
-  { -- | The name of the launch template.
-    launchTemplateName :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the launch template.
+  { -- | The ID of the launch template.
     launchTemplateId :: Prelude.Maybe Prelude.Text,
     -- | The version number of the launch template.
     --
     -- Default: The default version for the launch template.
-    version :: Prelude.Maybe Prelude.Text
+    version :: Prelude.Maybe Prelude.Text,
+    -- | The name of the launch template.
+    launchTemplateName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,26 +48,22 @@ data LaunchTemplateSpecification = LaunchTemplateSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'launchTemplateName', 'launchTemplateSpecification_launchTemplateName' - The name of the launch template.
---
 -- 'launchTemplateId', 'launchTemplateSpecification_launchTemplateId' - The ID of the launch template.
 --
 -- 'version', 'launchTemplateSpecification_version' - The version number of the launch template.
 --
 -- Default: The default version for the launch template.
+--
+-- 'launchTemplateName', 'launchTemplateSpecification_launchTemplateName' - The name of the launch template.
 newLaunchTemplateSpecification ::
   LaunchTemplateSpecification
 newLaunchTemplateSpecification =
   LaunchTemplateSpecification'
-    { launchTemplateName =
+    { launchTemplateId =
         Prelude.Nothing,
-      launchTemplateId = Prelude.Nothing,
-      version = Prelude.Nothing
+      version = Prelude.Nothing,
+      launchTemplateName = Prelude.Nothing
     }
-
--- | The name of the launch template.
-launchTemplateSpecification_launchTemplateName :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
-launchTemplateSpecification_launchTemplateName = Lens.lens (\LaunchTemplateSpecification' {launchTemplateName} -> launchTemplateName) (\s@LaunchTemplateSpecification' {} a -> s {launchTemplateName = a} :: LaunchTemplateSpecification)
 
 -- | The ID of the launch template.
 launchTemplateSpecification_launchTemplateId :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
@@ -79,22 +75,26 @@ launchTemplateSpecification_launchTemplateId = Lens.lens (\LaunchTemplateSpecifi
 launchTemplateSpecification_version :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 launchTemplateSpecification_version = Lens.lens (\LaunchTemplateSpecification' {version} -> version) (\s@LaunchTemplateSpecification' {} a -> s {version = a} :: LaunchTemplateSpecification)
 
+-- | The name of the launch template.
+launchTemplateSpecification_launchTemplateName :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
+launchTemplateSpecification_launchTemplateName = Lens.lens (\LaunchTemplateSpecification' {launchTemplateName} -> launchTemplateName) (\s@LaunchTemplateSpecification' {} a -> s {launchTemplateName = a} :: LaunchTemplateSpecification)
+
 instance Prelude.Hashable LaunchTemplateSpecification where
   hashWithSalt _salt LaunchTemplateSpecification' {..} =
-    _salt `Prelude.hashWithSalt` launchTemplateName
-      `Prelude.hashWithSalt` launchTemplateId
+    _salt `Prelude.hashWithSalt` launchTemplateId
       `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` launchTemplateName
 
 instance Prelude.NFData LaunchTemplateSpecification where
   rnf LaunchTemplateSpecification' {..} =
-    Prelude.rnf launchTemplateName
-      `Prelude.seq` Prelude.rnf launchTemplateId
+    Prelude.rnf launchTemplateId
       `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf launchTemplateName
 
 instance Core.ToQuery LaunchTemplateSpecification where
   toQuery LaunchTemplateSpecification' {..} =
     Prelude.mconcat
-      [ "LaunchTemplateName" Core.=: launchTemplateName,
-        "LaunchTemplateId" Core.=: launchTemplateId,
-        "Version" Core.=: version
+      [ "LaunchTemplateId" Core.=: launchTemplateId,
+        "Version" Core.=: version,
+        "LaunchTemplateName" Core.=: launchTemplateName
       ]

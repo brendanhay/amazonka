@@ -29,9 +29,9 @@ module Amazonka.EC2.DescribeNetworkInterfacePermissions
     newDescribeNetworkInterfacePermissions,
 
     -- * Request Lenses
-    describeNetworkInterfacePermissions_filters,
-    describeNetworkInterfacePermissions_nextToken,
     describeNetworkInterfacePermissions_networkInterfacePermissionIds,
+    describeNetworkInterfacePermissions_nextToken,
+    describeNetworkInterfacePermissions_filters,
     describeNetworkInterfacePermissions_maxResults,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Amazonka.EC2.DescribeNetworkInterfacePermissions
     newDescribeNetworkInterfacePermissionsResponse,
 
     -- * Response Lenses
-    describeNetworkInterfacePermissionsResponse_networkInterfacePermissions,
     describeNetworkInterfacePermissionsResponse_nextToken,
+    describeNetworkInterfacePermissionsResponse_networkInterfacePermissions,
     describeNetworkInterfacePermissionsResponse_httpStatus,
   )
 where
@@ -56,7 +56,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeNetworkInterfacePermissions' smart constructor.
 data DescribeNetworkInterfacePermissions = DescribeNetworkInterfacePermissions'
-  { -- | One or more filters.
+  { -- | One or more network interface permission IDs.
+    networkInterfacePermissionIds :: Prelude.Maybe [Prelude.Text],
+    -- | The token to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters.
     --
     -- -   @network-interface-permission.network-interface-permission-id@ - The
     --     ID of the permission.
@@ -72,10 +76,6 @@ data DescribeNetworkInterfacePermissions = DescribeNetworkInterfacePermissions'
     -- -   @network-interface-permission.permission@ - The type of permission
     --     (@INSTANCE-ATTACH@ | @EIP-ASSOCIATE@).
     filters :: Prelude.Maybe [Filter],
-    -- | The token to request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | One or more network interface permission IDs.
-    networkInterfacePermissionIds :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to return in a single call. To retrieve
     -- the remaining results, make another call with the returned @NextToken@
     -- value. If this parameter is not specified, up to 50 results are returned
@@ -91,6 +91,10 @@ data DescribeNetworkInterfacePermissions = DescribeNetworkInterfacePermissions'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'networkInterfacePermissionIds', 'describeNetworkInterfacePermissions_networkInterfacePermissionIds' - One or more network interface permission IDs.
+--
+-- 'nextToken', 'describeNetworkInterfacePermissions_nextToken' - The token to request the next page of results.
 --
 -- 'filters', 'describeNetworkInterfacePermissions_filters' - One or more filters.
 --
@@ -108,10 +112,6 @@ data DescribeNetworkInterfacePermissions = DescribeNetworkInterfacePermissions'
 -- -   @network-interface-permission.permission@ - The type of permission
 --     (@INSTANCE-ATTACH@ | @EIP-ASSOCIATE@).
 --
--- 'nextToken', 'describeNetworkInterfacePermissions_nextToken' - The token to request the next page of results.
---
--- 'networkInterfacePermissionIds', 'describeNetworkInterfacePermissions_networkInterfacePermissionIds' - One or more network interface permission IDs.
---
 -- 'maxResults', 'describeNetworkInterfacePermissions_maxResults' - The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another call with the returned @NextToken@
 -- value. If this parameter is not specified, up to 50 results are returned
@@ -120,13 +120,20 @@ newDescribeNetworkInterfacePermissions ::
   DescribeNetworkInterfacePermissions
 newDescribeNetworkInterfacePermissions =
   DescribeNetworkInterfacePermissions'
-    { filters =
+    { networkInterfacePermissionIds =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      networkInterfacePermissionIds =
-        Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | One or more network interface permission IDs.
+describeNetworkInterfacePermissions_networkInterfacePermissionIds :: Lens.Lens' DescribeNetworkInterfacePermissions (Prelude.Maybe [Prelude.Text])
+describeNetworkInterfacePermissions_networkInterfacePermissionIds = Lens.lens (\DescribeNetworkInterfacePermissions' {networkInterfacePermissionIds} -> networkInterfacePermissionIds) (\s@DescribeNetworkInterfacePermissions' {} a -> s {networkInterfacePermissionIds = a} :: DescribeNetworkInterfacePermissions) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to request the next page of results.
+describeNetworkInterfacePermissions_nextToken :: Lens.Lens' DescribeNetworkInterfacePermissions (Prelude.Maybe Prelude.Text)
+describeNetworkInterfacePermissions_nextToken = Lens.lens (\DescribeNetworkInterfacePermissions' {nextToken} -> nextToken) (\s@DescribeNetworkInterfacePermissions' {} a -> s {nextToken = a} :: DescribeNetworkInterfacePermissions)
 
 -- | One or more filters.
 --
@@ -145,14 +152,6 @@ newDescribeNetworkInterfacePermissions =
 --     (@INSTANCE-ATTACH@ | @EIP-ASSOCIATE@).
 describeNetworkInterfacePermissions_filters :: Lens.Lens' DescribeNetworkInterfacePermissions (Prelude.Maybe [Filter])
 describeNetworkInterfacePermissions_filters = Lens.lens (\DescribeNetworkInterfacePermissions' {filters} -> filters) (\s@DescribeNetworkInterfacePermissions' {} a -> s {filters = a} :: DescribeNetworkInterfacePermissions) Prelude.. Lens.mapping Lens.coerced
-
--- | The token to request the next page of results.
-describeNetworkInterfacePermissions_nextToken :: Lens.Lens' DescribeNetworkInterfacePermissions (Prelude.Maybe Prelude.Text)
-describeNetworkInterfacePermissions_nextToken = Lens.lens (\DescribeNetworkInterfacePermissions' {nextToken} -> nextToken) (\s@DescribeNetworkInterfacePermissions' {} a -> s {nextToken = a} :: DescribeNetworkInterfacePermissions)
-
--- | One or more network interface permission IDs.
-describeNetworkInterfacePermissions_networkInterfacePermissionIds :: Lens.Lens' DescribeNetworkInterfacePermissions (Prelude.Maybe [Prelude.Text])
-describeNetworkInterfacePermissions_networkInterfacePermissionIds = Lens.lens (\DescribeNetworkInterfacePermissions' {networkInterfacePermissionIds} -> networkInterfacePermissionIds) (\s@DescribeNetworkInterfacePermissions' {} a -> s {networkInterfacePermissionIds = a} :: DescribeNetworkInterfacePermissions) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another call with the returned @NextToken@
@@ -198,11 +197,11 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeNetworkInterfacePermissionsResponse'
-            Prelude.<$> ( x Core..@? "networkInterfacePermissions"
-                            Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
-                        )
-              Prelude.<*> (x Core..@? "nextToken")
+            Prelude.<$> (x Core..@? "nextToken")
+              Prelude.<*> ( x Core..@? "networkInterfacePermissions"
+                              Core..!@ Prelude.mempty
+                              Prelude.>>= Core.may (Core.parseXMLList "item")
+                          )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -213,9 +212,10 @@ instance
   hashWithSalt
     _salt
     DescribeNetworkInterfacePermissions' {..} =
-      _salt `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` nextToken
+      _salt
         `Prelude.hashWithSalt` networkInterfacePermissionIds
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
 
 instance
@@ -223,9 +223,9 @@ instance
     DescribeNetworkInterfacePermissions
   where
   rnf DescribeNetworkInterfacePermissions' {..} =
-    Prelude.rnf filters
+    Prelude.rnf networkInterfacePermissionIds
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf networkInterfacePermissionIds
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance
@@ -253,12 +253,12 @@ instance
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
           ( Core.toQueryList "NetworkInterfacePermissionId"
               Prelude.<$> networkInterfacePermissionIds
           ),
+        "NextToken" Core.=: nextToken,
+        Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters),
         "MaxResults" Core.=: maxResults
       ]
 
@@ -266,10 +266,10 @@ instance
 --
 -- /See:/ 'newDescribeNetworkInterfacePermissionsResponse' smart constructor.
 data DescribeNetworkInterfacePermissionsResponse = DescribeNetworkInterfacePermissionsResponse'
-  { -- | The network interface permissions.
-    networkInterfacePermissions :: Prelude.Maybe [NetworkInterfacePermission],
-    -- | The token to use to retrieve the next page of results.
+  { -- | The token to use to retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The network interface permissions.
+    networkInterfacePermissions :: Prelude.Maybe [NetworkInterfacePermission],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -283,9 +283,9 @@ data DescribeNetworkInterfacePermissionsResponse = DescribeNetworkInterfacePermi
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'networkInterfacePermissions', 'describeNetworkInterfacePermissionsResponse_networkInterfacePermissions' - The network interface permissions.
---
 -- 'nextToken', 'describeNetworkInterfacePermissionsResponse_nextToken' - The token to use to retrieve the next page of results.
+--
+-- 'networkInterfacePermissions', 'describeNetworkInterfacePermissionsResponse_networkInterfacePermissions' - The network interface permissions.
 --
 -- 'httpStatus', 'describeNetworkInterfacePermissionsResponse_httpStatus' - The response's http status code.
 newDescribeNetworkInterfacePermissionsResponse ::
@@ -295,19 +295,20 @@ newDescribeNetworkInterfacePermissionsResponse ::
 newDescribeNetworkInterfacePermissionsResponse
   pHttpStatus_ =
     DescribeNetworkInterfacePermissionsResponse'
-      { networkInterfacePermissions =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        networkInterfacePermissions =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The network interface permissions.
-describeNetworkInterfacePermissionsResponse_networkInterfacePermissions :: Lens.Lens' DescribeNetworkInterfacePermissionsResponse (Prelude.Maybe [NetworkInterfacePermission])
-describeNetworkInterfacePermissionsResponse_networkInterfacePermissions = Lens.lens (\DescribeNetworkInterfacePermissionsResponse' {networkInterfacePermissions} -> networkInterfacePermissions) (\s@DescribeNetworkInterfacePermissionsResponse' {} a -> s {networkInterfacePermissions = a} :: DescribeNetworkInterfacePermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results.
 describeNetworkInterfacePermissionsResponse_nextToken :: Lens.Lens' DescribeNetworkInterfacePermissionsResponse (Prelude.Maybe Prelude.Text)
 describeNetworkInterfacePermissionsResponse_nextToken = Lens.lens (\DescribeNetworkInterfacePermissionsResponse' {nextToken} -> nextToken) (\s@DescribeNetworkInterfacePermissionsResponse' {} a -> s {nextToken = a} :: DescribeNetworkInterfacePermissionsResponse)
+
+-- | The network interface permissions.
+describeNetworkInterfacePermissionsResponse_networkInterfacePermissions :: Lens.Lens' DescribeNetworkInterfacePermissionsResponse (Prelude.Maybe [NetworkInterfacePermission])
+describeNetworkInterfacePermissionsResponse_networkInterfacePermissions = Lens.lens (\DescribeNetworkInterfacePermissionsResponse' {networkInterfacePermissions} -> networkInterfacePermissions) (\s@DescribeNetworkInterfacePermissionsResponse' {} a -> s {networkInterfacePermissions = a} :: DescribeNetworkInterfacePermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeNetworkInterfacePermissionsResponse_httpStatus :: Lens.Lens' DescribeNetworkInterfacePermissionsResponse Prelude.Int
@@ -318,6 +319,6 @@ instance
     DescribeNetworkInterfacePermissionsResponse
   where
   rnf DescribeNetworkInterfacePermissionsResponse' {..} =
-    Prelude.rnf networkInterfacePermissions
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf networkInterfacePermissions
       `Prelude.seq` Prelude.rnf httpStatus

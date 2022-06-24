@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newClientConnectOptions' smart constructor.
 data ClientConnectOptions = ClientConnectOptions'
-  { -- | Indicates whether client connect options are enabled. The default is
-    -- @false@ (not enabled).
-    enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Resource Name (ARN) of the Lambda function used for
+  { -- | The Amazon Resource Name (ARN) of the Lambda function used for
     -- connection authorization.
-    lambdaFunctionArn :: Prelude.Maybe Prelude.Text
+    lambdaFunctionArn :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether client connect options are enabled. The default is
+    -- @false@ (not enabled).
+    enabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,42 +46,43 @@ data ClientConnectOptions = ClientConnectOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enabled', 'clientConnectOptions_enabled' - Indicates whether client connect options are enabled. The default is
--- @false@ (not enabled).
---
 -- 'lambdaFunctionArn', 'clientConnectOptions_lambdaFunctionArn' - The Amazon Resource Name (ARN) of the Lambda function used for
 -- connection authorization.
+--
+-- 'enabled', 'clientConnectOptions_enabled' - Indicates whether client connect options are enabled. The default is
+-- @false@ (not enabled).
 newClientConnectOptions ::
   ClientConnectOptions
 newClientConnectOptions =
   ClientConnectOptions'
-    { enabled = Prelude.Nothing,
-      lambdaFunctionArn = Prelude.Nothing
+    { lambdaFunctionArn =
+        Prelude.Nothing,
+      enabled = Prelude.Nothing
     }
-
--- | Indicates whether client connect options are enabled. The default is
--- @false@ (not enabled).
-clientConnectOptions_enabled :: Lens.Lens' ClientConnectOptions (Prelude.Maybe Prelude.Bool)
-clientConnectOptions_enabled = Lens.lens (\ClientConnectOptions' {enabled} -> enabled) (\s@ClientConnectOptions' {} a -> s {enabled = a} :: ClientConnectOptions)
 
 -- | The Amazon Resource Name (ARN) of the Lambda function used for
 -- connection authorization.
 clientConnectOptions_lambdaFunctionArn :: Lens.Lens' ClientConnectOptions (Prelude.Maybe Prelude.Text)
 clientConnectOptions_lambdaFunctionArn = Lens.lens (\ClientConnectOptions' {lambdaFunctionArn} -> lambdaFunctionArn) (\s@ClientConnectOptions' {} a -> s {lambdaFunctionArn = a} :: ClientConnectOptions)
 
+-- | Indicates whether client connect options are enabled. The default is
+-- @false@ (not enabled).
+clientConnectOptions_enabled :: Lens.Lens' ClientConnectOptions (Prelude.Maybe Prelude.Bool)
+clientConnectOptions_enabled = Lens.lens (\ClientConnectOptions' {enabled} -> enabled) (\s@ClientConnectOptions' {} a -> s {enabled = a} :: ClientConnectOptions)
+
 instance Prelude.Hashable ClientConnectOptions where
   hashWithSalt _salt ClientConnectOptions' {..} =
-    _salt `Prelude.hashWithSalt` enabled
-      `Prelude.hashWithSalt` lambdaFunctionArn
+    _salt `Prelude.hashWithSalt` lambdaFunctionArn
+      `Prelude.hashWithSalt` enabled
 
 instance Prelude.NFData ClientConnectOptions where
   rnf ClientConnectOptions' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf lambdaFunctionArn
+    Prelude.rnf lambdaFunctionArn
+      `Prelude.seq` Prelude.rnf enabled
 
 instance Core.ToQuery ClientConnectOptions where
   toQuery ClientConnectOptions' {..} =
     Prelude.mconcat
-      [ "Enabled" Core.=: enabled,
-        "LambdaFunctionArn" Core.=: lambdaFunctionArn
+      [ "LambdaFunctionArn" Core.=: lambdaFunctionArn,
+        "Enabled" Core.=: enabled
       ]

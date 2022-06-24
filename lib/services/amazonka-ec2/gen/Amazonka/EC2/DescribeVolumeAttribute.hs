@@ -41,8 +41,8 @@ module Amazonka.EC2.DescribeVolumeAttribute
     newDescribeVolumeAttributeResponse,
 
     -- * Response Lenses
-    describeVolumeAttributeResponse_volumeId,
     describeVolumeAttributeResponse_productCodes,
+    describeVolumeAttributeResponse_volumeId,
     describeVolumeAttributeResponse_autoEnableIO,
     describeVolumeAttributeResponse_httpStatus,
   )
@@ -122,10 +122,10 @@ instance Core.AWSRequest DescribeVolumeAttribute where
     Response.receiveXML
       ( \s h x ->
           DescribeVolumeAttributeResponse'
-            Prelude.<$> (x Core..@? "volumeId")
-            Prelude.<*> ( x Core..@? "productCodes" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Core..@? "productCodes" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
+            Prelude.<*> (x Core..@? "volumeId")
             Prelude.<*> (x Core..@? "autoEnableIO")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -162,10 +162,10 @@ instance Core.ToQuery DescribeVolumeAttribute where
 
 -- | /See:/ 'newDescribeVolumeAttributeResponse' smart constructor.
 data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'
-  { -- | The ID of the volume.
-    volumeId :: Prelude.Maybe Prelude.Text,
-    -- | A list of product codes.
+  { -- | A list of product codes.
     productCodes :: Prelude.Maybe [ProductCode],
+    -- | The ID of the volume.
+    volumeId :: Prelude.Maybe Prelude.Text,
     -- | The state of @autoEnableIO@ attribute.
     autoEnableIO :: Prelude.Maybe AttributeBooleanValue,
     -- | The response's http status code.
@@ -181,9 +181,9 @@ data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'volumeId', 'describeVolumeAttributeResponse_volumeId' - The ID of the volume.
---
 -- 'productCodes', 'describeVolumeAttributeResponse_productCodes' - A list of product codes.
+--
+-- 'volumeId', 'describeVolumeAttributeResponse_volumeId' - The ID of the volume.
 --
 -- 'autoEnableIO', 'describeVolumeAttributeResponse_autoEnableIO' - The state of @autoEnableIO@ attribute.
 --
@@ -194,20 +194,20 @@ newDescribeVolumeAttributeResponse ::
   DescribeVolumeAttributeResponse
 newDescribeVolumeAttributeResponse pHttpStatus_ =
   DescribeVolumeAttributeResponse'
-    { volumeId =
+    { productCodes =
         Prelude.Nothing,
-      productCodes = Prelude.Nothing,
+      volumeId = Prelude.Nothing,
       autoEnableIO = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The ID of the volume.
-describeVolumeAttributeResponse_volumeId :: Lens.Lens' DescribeVolumeAttributeResponse (Prelude.Maybe Prelude.Text)
-describeVolumeAttributeResponse_volumeId = Lens.lens (\DescribeVolumeAttributeResponse' {volumeId} -> volumeId) (\s@DescribeVolumeAttributeResponse' {} a -> s {volumeId = a} :: DescribeVolumeAttributeResponse)
-
 -- | A list of product codes.
 describeVolumeAttributeResponse_productCodes :: Lens.Lens' DescribeVolumeAttributeResponse (Prelude.Maybe [ProductCode])
 describeVolumeAttributeResponse_productCodes = Lens.lens (\DescribeVolumeAttributeResponse' {productCodes} -> productCodes) (\s@DescribeVolumeAttributeResponse' {} a -> s {productCodes = a} :: DescribeVolumeAttributeResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID of the volume.
+describeVolumeAttributeResponse_volumeId :: Lens.Lens' DescribeVolumeAttributeResponse (Prelude.Maybe Prelude.Text)
+describeVolumeAttributeResponse_volumeId = Lens.lens (\DescribeVolumeAttributeResponse' {volumeId} -> volumeId) (\s@DescribeVolumeAttributeResponse' {} a -> s {volumeId = a} :: DescribeVolumeAttributeResponse)
 
 -- | The state of @autoEnableIO@ attribute.
 describeVolumeAttributeResponse_autoEnableIO :: Lens.Lens' DescribeVolumeAttributeResponse (Prelude.Maybe AttributeBooleanValue)
@@ -222,7 +222,7 @@ instance
     DescribeVolumeAttributeResponse
   where
   rnf DescribeVolumeAttributeResponse' {..} =
-    Prelude.rnf volumeId
-      `Prelude.seq` Prelude.rnf productCodes
+    Prelude.rnf productCodes
+      `Prelude.seq` Prelude.rnf volumeId
       `Prelude.seq` Prelude.rnf autoEnableIO
       `Prelude.seq` Prelude.rnf httpStatus

@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFederatedAuthenticationRequest' smart constructor.
 data FederatedAuthenticationRequest = FederatedAuthenticationRequest'
-  { -- | The Amazon Resource Name (ARN) of the IAM SAML identity provider.
-    sAMLProviderArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the IAM SAML identity provider for the
+  { -- | The Amazon Resource Name (ARN) of the IAM SAML identity provider for the
     -- self-service portal.
-    selfServiceSAMLProviderArn :: Prelude.Maybe Prelude.Text
+    selfServiceSAMLProviderArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM SAML identity provider.
+    sAMLProviderArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,28 +44,27 @@ data FederatedAuthenticationRequest = FederatedAuthenticationRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sAMLProviderArn', 'federatedAuthenticationRequest_sAMLProviderArn' - The Amazon Resource Name (ARN) of the IAM SAML identity provider.
---
 -- 'selfServiceSAMLProviderArn', 'federatedAuthenticationRequest_selfServiceSAMLProviderArn' - The Amazon Resource Name (ARN) of the IAM SAML identity provider for the
 -- self-service portal.
+--
+-- 'sAMLProviderArn', 'federatedAuthenticationRequest_sAMLProviderArn' - The Amazon Resource Name (ARN) of the IAM SAML identity provider.
 newFederatedAuthenticationRequest ::
   FederatedAuthenticationRequest
 newFederatedAuthenticationRequest =
   FederatedAuthenticationRequest'
-    { sAMLProviderArn =
+    { selfServiceSAMLProviderArn =
         Prelude.Nothing,
-      selfServiceSAMLProviderArn =
-        Prelude.Nothing
+      sAMLProviderArn = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the IAM SAML identity provider.
-federatedAuthenticationRequest_sAMLProviderArn :: Lens.Lens' FederatedAuthenticationRequest (Prelude.Maybe Prelude.Text)
-federatedAuthenticationRequest_sAMLProviderArn = Lens.lens (\FederatedAuthenticationRequest' {sAMLProviderArn} -> sAMLProviderArn) (\s@FederatedAuthenticationRequest' {} a -> s {sAMLProviderArn = a} :: FederatedAuthenticationRequest)
 
 -- | The Amazon Resource Name (ARN) of the IAM SAML identity provider for the
 -- self-service portal.
 federatedAuthenticationRequest_selfServiceSAMLProviderArn :: Lens.Lens' FederatedAuthenticationRequest (Prelude.Maybe Prelude.Text)
 federatedAuthenticationRequest_selfServiceSAMLProviderArn = Lens.lens (\FederatedAuthenticationRequest' {selfServiceSAMLProviderArn} -> selfServiceSAMLProviderArn) (\s@FederatedAuthenticationRequest' {} a -> s {selfServiceSAMLProviderArn = a} :: FederatedAuthenticationRequest)
+
+-- | The Amazon Resource Name (ARN) of the IAM SAML identity provider.
+federatedAuthenticationRequest_sAMLProviderArn :: Lens.Lens' FederatedAuthenticationRequest (Prelude.Maybe Prelude.Text)
+federatedAuthenticationRequest_sAMLProviderArn = Lens.lens (\FederatedAuthenticationRequest' {sAMLProviderArn} -> sAMLProviderArn) (\s@FederatedAuthenticationRequest' {} a -> s {sAMLProviderArn = a} :: FederatedAuthenticationRequest)
 
 instance
   Prelude.Hashable
@@ -74,21 +73,22 @@ instance
   hashWithSalt
     _salt
     FederatedAuthenticationRequest' {..} =
-      _salt `Prelude.hashWithSalt` sAMLProviderArn
+      _salt
         `Prelude.hashWithSalt` selfServiceSAMLProviderArn
+        `Prelude.hashWithSalt` sAMLProviderArn
 
 instance
   Prelude.NFData
     FederatedAuthenticationRequest
   where
   rnf FederatedAuthenticationRequest' {..} =
-    Prelude.rnf sAMLProviderArn
-      `Prelude.seq` Prelude.rnf selfServiceSAMLProviderArn
+    Prelude.rnf selfServiceSAMLProviderArn
+      `Prelude.seq` Prelude.rnf sAMLProviderArn
 
 instance Core.ToQuery FederatedAuthenticationRequest where
   toQuery FederatedAuthenticationRequest' {..} =
     Prelude.mconcat
-      [ "SAMLProviderArn" Core.=: sAMLProviderArn,
-        "SelfServiceSAMLProviderArn"
-          Core.=: selfServiceSAMLProviderArn
+      [ "SelfServiceSAMLProviderArn"
+          Core.=: selfServiceSAMLProviderArn,
+        "SAMLProviderArn" Core.=: sAMLProviderArn
       ]

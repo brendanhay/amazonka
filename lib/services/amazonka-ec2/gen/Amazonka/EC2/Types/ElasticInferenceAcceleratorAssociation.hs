@@ -29,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newElasticInferenceAcceleratorAssociation' smart constructor.
 data ElasticInferenceAcceleratorAssociation = ElasticInferenceAcceleratorAssociation'
-  { -- | The state of the elastic inference accelerator.
+  { -- | The Amazon Resource Name (ARN) of the elastic inference accelerator.
+    elasticInferenceAcceleratorArn :: Prelude.Maybe Prelude.Text,
+    -- | The state of the elastic inference accelerator.
     elasticInferenceAcceleratorAssociationState :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the association.
+    elasticInferenceAcceleratorAssociationId :: Prelude.Maybe Prelude.Text,
     -- | The time at which the elastic inference accelerator is associated with
     -- an instance.
-    elasticInferenceAcceleratorAssociationTime :: Prelude.Maybe Core.ISO8601,
-    -- | The Amazon Resource Name (ARN) of the elastic inference accelerator.
-    elasticInferenceAcceleratorArn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the association.
-    elasticInferenceAcceleratorAssociationId :: Prelude.Maybe Prelude.Text
+    elasticInferenceAcceleratorAssociationTime :: Prelude.Maybe Core.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,44 +49,44 @@ data ElasticInferenceAcceleratorAssociation = ElasticInferenceAcceleratorAssocia
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'elasticInferenceAcceleratorArn', 'elasticInferenceAcceleratorAssociation_elasticInferenceAcceleratorArn' - The Amazon Resource Name (ARN) of the elastic inference accelerator.
+--
 -- 'elasticInferenceAcceleratorAssociationState', 'elasticInferenceAcceleratorAssociation_elasticInferenceAcceleratorAssociationState' - The state of the elastic inference accelerator.
+--
+-- 'elasticInferenceAcceleratorAssociationId', 'elasticInferenceAcceleratorAssociation_elasticInferenceAcceleratorAssociationId' - The ID of the association.
 --
 -- 'elasticInferenceAcceleratorAssociationTime', 'elasticInferenceAcceleratorAssociation_elasticInferenceAcceleratorAssociationTime' - The time at which the elastic inference accelerator is associated with
 -- an instance.
---
--- 'elasticInferenceAcceleratorArn', 'elasticInferenceAcceleratorAssociation_elasticInferenceAcceleratorArn' - The Amazon Resource Name (ARN) of the elastic inference accelerator.
---
--- 'elasticInferenceAcceleratorAssociationId', 'elasticInferenceAcceleratorAssociation_elasticInferenceAcceleratorAssociationId' - The ID of the association.
 newElasticInferenceAcceleratorAssociation ::
   ElasticInferenceAcceleratorAssociation
 newElasticInferenceAcceleratorAssociation =
   ElasticInferenceAcceleratorAssociation'
-    { elasticInferenceAcceleratorAssociationState =
+    { elasticInferenceAcceleratorArn =
         Prelude.Nothing,
-      elasticInferenceAcceleratorAssociationTime =
-        Prelude.Nothing,
-      elasticInferenceAcceleratorArn =
+      elasticInferenceAcceleratorAssociationState =
         Prelude.Nothing,
       elasticInferenceAcceleratorAssociationId =
+        Prelude.Nothing,
+      elasticInferenceAcceleratorAssociationTime =
         Prelude.Nothing
     }
-
--- | The state of the elastic inference accelerator.
-elasticInferenceAcceleratorAssociation_elasticInferenceAcceleratorAssociationState :: Lens.Lens' ElasticInferenceAcceleratorAssociation (Prelude.Maybe Prelude.Text)
-elasticInferenceAcceleratorAssociation_elasticInferenceAcceleratorAssociationState = Lens.lens (\ElasticInferenceAcceleratorAssociation' {elasticInferenceAcceleratorAssociationState} -> elasticInferenceAcceleratorAssociationState) (\s@ElasticInferenceAcceleratorAssociation' {} a -> s {elasticInferenceAcceleratorAssociationState = a} :: ElasticInferenceAcceleratorAssociation)
-
--- | The time at which the elastic inference accelerator is associated with
--- an instance.
-elasticInferenceAcceleratorAssociation_elasticInferenceAcceleratorAssociationTime :: Lens.Lens' ElasticInferenceAcceleratorAssociation (Prelude.Maybe Prelude.UTCTime)
-elasticInferenceAcceleratorAssociation_elasticInferenceAcceleratorAssociationTime = Lens.lens (\ElasticInferenceAcceleratorAssociation' {elasticInferenceAcceleratorAssociationTime} -> elasticInferenceAcceleratorAssociationTime) (\s@ElasticInferenceAcceleratorAssociation' {} a -> s {elasticInferenceAcceleratorAssociationTime = a} :: ElasticInferenceAcceleratorAssociation) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the elastic inference accelerator.
 elasticInferenceAcceleratorAssociation_elasticInferenceAcceleratorArn :: Lens.Lens' ElasticInferenceAcceleratorAssociation (Prelude.Maybe Prelude.Text)
 elasticInferenceAcceleratorAssociation_elasticInferenceAcceleratorArn = Lens.lens (\ElasticInferenceAcceleratorAssociation' {elasticInferenceAcceleratorArn} -> elasticInferenceAcceleratorArn) (\s@ElasticInferenceAcceleratorAssociation' {} a -> s {elasticInferenceAcceleratorArn = a} :: ElasticInferenceAcceleratorAssociation)
 
+-- | The state of the elastic inference accelerator.
+elasticInferenceAcceleratorAssociation_elasticInferenceAcceleratorAssociationState :: Lens.Lens' ElasticInferenceAcceleratorAssociation (Prelude.Maybe Prelude.Text)
+elasticInferenceAcceleratorAssociation_elasticInferenceAcceleratorAssociationState = Lens.lens (\ElasticInferenceAcceleratorAssociation' {elasticInferenceAcceleratorAssociationState} -> elasticInferenceAcceleratorAssociationState) (\s@ElasticInferenceAcceleratorAssociation' {} a -> s {elasticInferenceAcceleratorAssociationState = a} :: ElasticInferenceAcceleratorAssociation)
+
 -- | The ID of the association.
 elasticInferenceAcceleratorAssociation_elasticInferenceAcceleratorAssociationId :: Lens.Lens' ElasticInferenceAcceleratorAssociation (Prelude.Maybe Prelude.Text)
 elasticInferenceAcceleratorAssociation_elasticInferenceAcceleratorAssociationId = Lens.lens (\ElasticInferenceAcceleratorAssociation' {elasticInferenceAcceleratorAssociationId} -> elasticInferenceAcceleratorAssociationId) (\s@ElasticInferenceAcceleratorAssociation' {} a -> s {elasticInferenceAcceleratorAssociationId = a} :: ElasticInferenceAcceleratorAssociation)
+
+-- | The time at which the elastic inference accelerator is associated with
+-- an instance.
+elasticInferenceAcceleratorAssociation_elasticInferenceAcceleratorAssociationTime :: Lens.Lens' ElasticInferenceAcceleratorAssociation (Prelude.Maybe Prelude.UTCTime)
+elasticInferenceAcceleratorAssociation_elasticInferenceAcceleratorAssociationTime = Lens.lens (\ElasticInferenceAcceleratorAssociation' {elasticInferenceAcceleratorAssociationTime} -> elasticInferenceAcceleratorAssociationTime) (\s@ElasticInferenceAcceleratorAssociation' {} a -> s {elasticInferenceAcceleratorAssociationTime = a} :: ElasticInferenceAcceleratorAssociation) Prelude.. Lens.mapping Core._Time
 
 instance
   Core.FromXML
@@ -94,15 +94,15 @@ instance
   where
   parseXML x =
     ElasticInferenceAcceleratorAssociation'
-      Prelude.<$> ( x
+      Prelude.<$> (x Core..@? "elasticInferenceAcceleratorArn")
+      Prelude.<*> ( x
                       Core..@? "elasticInferenceAcceleratorAssociationState"
                   )
       Prelude.<*> ( x
-                      Core..@? "elasticInferenceAcceleratorAssociationTime"
-                  )
-      Prelude.<*> (x Core..@? "elasticInferenceAcceleratorArn")
-      Prelude.<*> ( x
                       Core..@? "elasticInferenceAcceleratorAssociationId"
+                  )
+      Prelude.<*> ( x
+                      Core..@? "elasticInferenceAcceleratorAssociationTime"
                   )
 
 instance
@@ -113,19 +113,19 @@ instance
     _salt
     ElasticInferenceAcceleratorAssociation' {..} =
       _salt
-        `Prelude.hashWithSalt` elasticInferenceAcceleratorAssociationState
-        `Prelude.hashWithSalt` elasticInferenceAcceleratorAssociationTime
         `Prelude.hashWithSalt` elasticInferenceAcceleratorArn
+        `Prelude.hashWithSalt` elasticInferenceAcceleratorAssociationState
         `Prelude.hashWithSalt` elasticInferenceAcceleratorAssociationId
+        `Prelude.hashWithSalt` elasticInferenceAcceleratorAssociationTime
 
 instance
   Prelude.NFData
     ElasticInferenceAcceleratorAssociation
   where
   rnf ElasticInferenceAcceleratorAssociation' {..} =
-    Prelude.rnf
-      elasticInferenceAcceleratorAssociationState
+    Prelude.rnf elasticInferenceAcceleratorArn
+      `Prelude.seq` Prelude.rnf
+        elasticInferenceAcceleratorAssociationState
+      `Prelude.seq` Prelude.rnf elasticInferenceAcceleratorAssociationId
       `Prelude.seq` Prelude.rnf
         elasticInferenceAcceleratorAssociationTime
-      `Prelude.seq` Prelude.rnf elasticInferenceAcceleratorArn
-      `Prelude.seq` Prelude.rnf elasticInferenceAcceleratorAssociationId

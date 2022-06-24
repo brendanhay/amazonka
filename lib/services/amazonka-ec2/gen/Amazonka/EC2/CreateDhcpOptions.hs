@@ -72,8 +72,8 @@ module Amazonka.EC2.CreateDhcpOptions
     newCreateDhcpOptions,
 
     -- * Request Lenses
-    createDhcpOptions_tagSpecifications,
     createDhcpOptions_dryRun,
+    createDhcpOptions_tagSpecifications,
     createDhcpOptions_dhcpConfigurations,
 
     -- * Destructuring the Response
@@ -95,13 +95,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDhcpOptions' smart constructor.
 data CreateDhcpOptions = CreateDhcpOptions'
-  { -- | The tags to assign to the DHCP option.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | Checks whether you have the required permissions for the action, without
+  { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The tags to assign to the DHCP option.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | A DHCP configuration option.
     dhcpConfigurations :: [NewDhcpConfiguration]
   }
@@ -115,27 +115,22 @@ data CreateDhcpOptions = CreateDhcpOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagSpecifications', 'createDhcpOptions_tagSpecifications' - The tags to assign to the DHCP option.
---
 -- 'dryRun', 'createDhcpOptions_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'tagSpecifications', 'createDhcpOptions_tagSpecifications' - The tags to assign to the DHCP option.
 --
 -- 'dhcpConfigurations', 'createDhcpOptions_dhcpConfigurations' - A DHCP configuration option.
 newCreateDhcpOptions ::
   CreateDhcpOptions
 newCreateDhcpOptions =
   CreateDhcpOptions'
-    { tagSpecifications =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+    { dryRun = Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
       dhcpConfigurations = Prelude.mempty
     }
-
--- | The tags to assign to the DHCP option.
-createDhcpOptions_tagSpecifications :: Lens.Lens' CreateDhcpOptions (Prelude.Maybe [TagSpecification])
-createDhcpOptions_tagSpecifications = Lens.lens (\CreateDhcpOptions' {tagSpecifications} -> tagSpecifications) (\s@CreateDhcpOptions' {} a -> s {tagSpecifications = a} :: CreateDhcpOptions) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -143,6 +138,10 @@ createDhcpOptions_tagSpecifications = Lens.lens (\CreateDhcpOptions' {tagSpecifi
 -- Otherwise, it is @UnauthorizedOperation@.
 createDhcpOptions_dryRun :: Lens.Lens' CreateDhcpOptions (Prelude.Maybe Prelude.Bool)
 createDhcpOptions_dryRun = Lens.lens (\CreateDhcpOptions' {dryRun} -> dryRun) (\s@CreateDhcpOptions' {} a -> s {dryRun = a} :: CreateDhcpOptions)
+
+-- | The tags to assign to the DHCP option.
+createDhcpOptions_tagSpecifications :: Lens.Lens' CreateDhcpOptions (Prelude.Maybe [TagSpecification])
+createDhcpOptions_tagSpecifications = Lens.lens (\CreateDhcpOptions' {tagSpecifications} -> tagSpecifications) (\s@CreateDhcpOptions' {} a -> s {tagSpecifications = a} :: CreateDhcpOptions) Prelude.. Lens.mapping Lens.coerced
 
 -- | A DHCP configuration option.
 createDhcpOptions_dhcpConfigurations :: Lens.Lens' CreateDhcpOptions [NewDhcpConfiguration]
@@ -163,14 +162,14 @@ instance Core.AWSRequest CreateDhcpOptions where
 
 instance Prelude.Hashable CreateDhcpOptions where
   hashWithSalt _salt CreateDhcpOptions' {..} =
-    _salt `Prelude.hashWithSalt` tagSpecifications
-      `Prelude.hashWithSalt` dryRun
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` dhcpConfigurations
 
 instance Prelude.NFData CreateDhcpOptions where
   rnf CreateDhcpOptions' {..} =
-    Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf dhcpConfigurations
 
 instance Core.ToHeaders CreateDhcpOptions where
@@ -186,11 +185,11 @@ instance Core.ToQuery CreateDhcpOptions where
           Core.=: ("CreateDhcpOptions" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "DryRun" Core.=: dryRun,
         Core.toQueryList
           "DhcpConfiguration"
           dhcpConfigurations

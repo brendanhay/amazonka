@@ -30,9 +30,9 @@ module Amazonka.EC2.DescribeCoipPools
     newDescribeCoipPools,
 
     -- * Request Lenses
+    describeCoipPools_nextToken,
     describeCoipPools_poolIds,
     describeCoipPools_filters,
-    describeCoipPools_nextToken,
     describeCoipPools_dryRun,
     describeCoipPools_maxResults,
 
@@ -41,8 +41,8 @@ module Amazonka.EC2.DescribeCoipPools
     newDescribeCoipPoolsResponse,
 
     -- * Response Lenses
-    describeCoipPoolsResponse_coipPools,
     describeCoipPoolsResponse_nextToken,
+    describeCoipPoolsResponse_coipPools,
     describeCoipPoolsResponse_httpStatus,
   )
 where
@@ -56,7 +56,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeCoipPools' smart constructor.
 data DescribeCoipPools = DescribeCoipPools'
-  { -- | The IDs of the address pools.
+  { -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The IDs of the address pools.
     poolIds :: Prelude.Maybe [Prelude.Text],
     -- | The filters. The following are the possible values:
     --
@@ -64,8 +66,6 @@ data DescribeCoipPools = DescribeCoipPools'
     --
     -- -   @coip-pool.local-gateway-route-table-id@
     filters :: Prelude.Maybe [Filter],
-    -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -86,6 +86,8 @@ data DescribeCoipPools = DescribeCoipPools'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describeCoipPools_nextToken' - The token for the next page of results.
+--
 -- 'poolIds', 'describeCoipPools_poolIds' - The IDs of the address pools.
 --
 -- 'filters', 'describeCoipPools_filters' - The filters. The following are the possible values:
@@ -93,8 +95,6 @@ data DescribeCoipPools = DescribeCoipPools'
 -- -   @coip-pool.pool-id@
 --
 -- -   @coip-pool.local-gateway-route-table-id@
---
--- 'nextToken', 'describeCoipPools_nextToken' - The token for the next page of results.
 --
 -- 'dryRun', 'describeCoipPools_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -108,12 +108,16 @@ newDescribeCoipPools ::
   DescribeCoipPools
 newDescribeCoipPools =
   DescribeCoipPools'
-    { poolIds = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      poolIds = Prelude.Nothing,
       filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | The token for the next page of results.
+describeCoipPools_nextToken :: Lens.Lens' DescribeCoipPools (Prelude.Maybe Prelude.Text)
+describeCoipPools_nextToken = Lens.lens (\DescribeCoipPools' {nextToken} -> nextToken) (\s@DescribeCoipPools' {} a -> s {nextToken = a} :: DescribeCoipPools)
 
 -- | The IDs of the address pools.
 describeCoipPools_poolIds :: Lens.Lens' DescribeCoipPools (Prelude.Maybe [Prelude.Text])
@@ -126,10 +130,6 @@ describeCoipPools_poolIds = Lens.lens (\DescribeCoipPools' {poolIds} -> poolIds)
 -- -   @coip-pool.local-gateway-route-table-id@
 describeCoipPools_filters :: Lens.Lens' DescribeCoipPools (Prelude.Maybe [Filter])
 describeCoipPools_filters = Lens.lens (\DescribeCoipPools' {filters} -> filters) (\s@DescribeCoipPools' {} a -> s {filters = a} :: DescribeCoipPools) Prelude.. Lens.mapping Lens.coerced
-
--- | The token for the next page of results.
-describeCoipPools_nextToken :: Lens.Lens' DescribeCoipPools (Prelude.Maybe Prelude.Text)
-describeCoipPools_nextToken = Lens.lens (\DescribeCoipPools' {nextToken} -> nextToken) (\s@DescribeCoipPools' {} a -> s {nextToken = a} :: DescribeCoipPools)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -175,26 +175,26 @@ instance Core.AWSRequest DescribeCoipPools where
     Response.receiveXML
       ( \s h x ->
           DescribeCoipPoolsResponse'
-            Prelude.<$> ( x Core..@? "coipPoolSet" Core..!@ Prelude.mempty
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "coipPoolSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeCoipPools where
   hashWithSalt _salt DescribeCoipPools' {..} =
-    _salt `Prelude.hashWithSalt` poolIds
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` poolIds
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeCoipPools where
   rnf DescribeCoipPools' {..} =
-    Prelude.rnf poolIds
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf poolIds
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
 
@@ -211,22 +211,22 @@ instance Core.ToQuery DescribeCoipPools where
           Core.=: ("DescribeCoipPools" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
         Core.toQuery
           (Core.toQueryList "PoolId" Prelude.<$> poolIds),
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
-        "NextToken" Core.=: nextToken,
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeCoipPoolsResponse' smart constructor.
 data DescribeCoipPoolsResponse = DescribeCoipPoolsResponse'
-  { -- | Information about the address pools.
-    coipPools :: Prelude.Maybe [CoipPool],
-    -- | The token to use to retrieve the next page of results. This value is
+  { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the address pools.
+    coipPools :: Prelude.Maybe [CoipPool],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -240,10 +240,10 @@ data DescribeCoipPoolsResponse = DescribeCoipPoolsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'coipPools', 'describeCoipPoolsResponse_coipPools' - Information about the address pools.
---
 -- 'nextToken', 'describeCoipPoolsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
+--
+-- 'coipPools', 'describeCoipPoolsResponse_coipPools' - Information about the address pools.
 --
 -- 'httpStatus', 'describeCoipPoolsResponse_httpStatus' - The response's http status code.
 newDescribeCoipPoolsResponse ::
@@ -252,20 +252,20 @@ newDescribeCoipPoolsResponse ::
   DescribeCoipPoolsResponse
 newDescribeCoipPoolsResponse pHttpStatus_ =
   DescribeCoipPoolsResponse'
-    { coipPools =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      coipPools = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the address pools.
-describeCoipPoolsResponse_coipPools :: Lens.Lens' DescribeCoipPoolsResponse (Prelude.Maybe [CoipPool])
-describeCoipPoolsResponse_coipPools = Lens.lens (\DescribeCoipPoolsResponse' {coipPools} -> coipPools) (\s@DescribeCoipPoolsResponse' {} a -> s {coipPools = a} :: DescribeCoipPoolsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 describeCoipPoolsResponse_nextToken :: Lens.Lens' DescribeCoipPoolsResponse (Prelude.Maybe Prelude.Text)
 describeCoipPoolsResponse_nextToken = Lens.lens (\DescribeCoipPoolsResponse' {nextToken} -> nextToken) (\s@DescribeCoipPoolsResponse' {} a -> s {nextToken = a} :: DescribeCoipPoolsResponse)
+
+-- | Information about the address pools.
+describeCoipPoolsResponse_coipPools :: Lens.Lens' DescribeCoipPoolsResponse (Prelude.Maybe [CoipPool])
+describeCoipPoolsResponse_coipPools = Lens.lens (\DescribeCoipPoolsResponse' {coipPools} -> coipPools) (\s@DescribeCoipPoolsResponse' {} a -> s {coipPools = a} :: DescribeCoipPoolsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeCoipPoolsResponse_httpStatus :: Lens.Lens' DescribeCoipPoolsResponse Prelude.Int
@@ -273,6 +273,6 @@ describeCoipPoolsResponse_httpStatus = Lens.lens (\DescribeCoipPoolsResponse' {h
 
 instance Prelude.NFData DescribeCoipPoolsResponse where
   rnf DescribeCoipPoolsResponse' {..} =
-    Prelude.rnf coipPools
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf coipPools
       `Prelude.seq` Prelude.rnf httpStatus

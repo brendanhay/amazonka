@@ -30,8 +30,8 @@ module Amazonka.EC2.GetTransitGatewayRouteTableAssociations
     newGetTransitGatewayRouteTableAssociations,
 
     -- * Request Lenses
-    getTransitGatewayRouteTableAssociations_filters,
     getTransitGatewayRouteTableAssociations_nextToken,
+    getTransitGatewayRouteTableAssociations_filters,
     getTransitGatewayRouteTableAssociations_dryRun,
     getTransitGatewayRouteTableAssociations_maxResults,
     getTransitGatewayRouteTableAssociations_transitGatewayRouteTableId,
@@ -56,7 +56,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetTransitGatewayRouteTableAssociations' smart constructor.
 data GetTransitGatewayRouteTableAssociations = GetTransitGatewayRouteTableAssociations'
-  { -- | One or more filters. The possible values are:
+  { -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters. The possible values are:
     --
     -- -   @resource-id@ - The ID of the resource.
     --
@@ -65,8 +67,6 @@ data GetTransitGatewayRouteTableAssociations = GetTransitGatewayRouteTableAssoci
     --
     -- -   @transit-gateway-attachment-id@ - The ID of the attachment.
     filters :: Prelude.Maybe [Filter],
-    -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -89,6 +89,8 @@ data GetTransitGatewayRouteTableAssociations = GetTransitGatewayRouteTableAssoci
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'getTransitGatewayRouteTableAssociations_nextToken' - The token for the next page of results.
+--
 -- 'filters', 'getTransitGatewayRouteTableAssociations_filters' - One or more filters. The possible values are:
 --
 -- -   @resource-id@ - The ID of the resource.
@@ -97,8 +99,6 @@ data GetTransitGatewayRouteTableAssociations = GetTransitGatewayRouteTableAssoci
 --     | @direct-connect-gateway@ | @peering@ | @connect@.
 --
 -- -   @transit-gateway-attachment-id@ - The ID of the attachment.
---
--- 'nextToken', 'getTransitGatewayRouteTableAssociations_nextToken' - The token for the next page of results.
 --
 -- 'dryRun', 'getTransitGatewayRouteTableAssociations_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -117,14 +117,18 @@ newGetTransitGatewayRouteTableAssociations ::
 newGetTransitGatewayRouteTableAssociations
   pTransitGatewayRouteTableId_ =
     GetTransitGatewayRouteTableAssociations'
-      { filters =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        filters = Prelude.Nothing,
         dryRun = Prelude.Nothing,
         maxResults = Prelude.Nothing,
         transitGatewayRouteTableId =
           pTransitGatewayRouteTableId_
       }
+
+-- | The token for the next page of results.
+getTransitGatewayRouteTableAssociations_nextToken :: Lens.Lens' GetTransitGatewayRouteTableAssociations (Prelude.Maybe Prelude.Text)
+getTransitGatewayRouteTableAssociations_nextToken = Lens.lens (\GetTransitGatewayRouteTableAssociations' {nextToken} -> nextToken) (\s@GetTransitGatewayRouteTableAssociations' {} a -> s {nextToken = a} :: GetTransitGatewayRouteTableAssociations)
 
 -- | One or more filters. The possible values are:
 --
@@ -136,10 +140,6 @@ newGetTransitGatewayRouteTableAssociations
 -- -   @transit-gateway-attachment-id@ - The ID of the attachment.
 getTransitGatewayRouteTableAssociations_filters :: Lens.Lens' GetTransitGatewayRouteTableAssociations (Prelude.Maybe [Filter])
 getTransitGatewayRouteTableAssociations_filters = Lens.lens (\GetTransitGatewayRouteTableAssociations' {filters} -> filters) (\s@GetTransitGatewayRouteTableAssociations' {} a -> s {filters = a} :: GetTransitGatewayRouteTableAssociations) Prelude.. Lens.mapping Lens.coerced
-
--- | The token for the next page of results.
-getTransitGatewayRouteTableAssociations_nextToken :: Lens.Lens' GetTransitGatewayRouteTableAssociations (Prelude.Maybe Prelude.Text)
-getTransitGatewayRouteTableAssociations_nextToken = Lens.lens (\GetTransitGatewayRouteTableAssociations' {nextToken} -> nextToken) (\s@GetTransitGatewayRouteTableAssociations' {} a -> s {nextToken = a} :: GetTransitGatewayRouteTableAssociations)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -210,8 +210,8 @@ instance
   hashWithSalt
     _salt
     GetTransitGatewayRouteTableAssociations' {..} =
-      _salt `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` transitGatewayRouteTableId
@@ -221,8 +221,8 @@ instance
     GetTransitGatewayRouteTableAssociations
   where
   rnf GetTransitGatewayRouteTableAssociations' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
@@ -251,9 +251,9 @@ instance
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Core.=: nextToken,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
-        "NextToken" Core.=: nextToken,
         "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults,
         "TransitGatewayRouteTableId"

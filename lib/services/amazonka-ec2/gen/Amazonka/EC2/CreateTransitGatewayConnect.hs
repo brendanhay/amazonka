@@ -33,8 +33,8 @@ module Amazonka.EC2.CreateTransitGatewayConnect
     newCreateTransitGatewayConnect,
 
     -- * Request Lenses
-    createTransitGatewayConnect_tagSpecifications,
     createTransitGatewayConnect_dryRun,
+    createTransitGatewayConnect_tagSpecifications,
     createTransitGatewayConnect_transportTransitGatewayAttachmentId,
     createTransitGatewayConnect_options,
 
@@ -57,13 +57,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateTransitGatewayConnect' smart constructor.
 data CreateTransitGatewayConnect = CreateTransitGatewayConnect'
-  { -- | The tags to apply to the Connect attachment.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | Checks whether you have the required permissions for the action, without
+  { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The tags to apply to the Connect attachment.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The ID of the transit gateway attachment. You can specify a VPC
     -- attachment or Amazon Web Services Direct Connect attachment.
     transportTransitGatewayAttachmentId :: Prelude.Text,
@@ -80,12 +80,12 @@ data CreateTransitGatewayConnect = CreateTransitGatewayConnect'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagSpecifications', 'createTransitGatewayConnect_tagSpecifications' - The tags to apply to the Connect attachment.
---
 -- 'dryRun', 'createTransitGatewayConnect_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'tagSpecifications', 'createTransitGatewayConnect_tagSpecifications' - The tags to apply to the Connect attachment.
 --
 -- 'transportTransitGatewayAttachmentId', 'createTransitGatewayConnect_transportTransitGatewayAttachmentId' - The ID of the transit gateway attachment. You can specify a VPC
 -- attachment or Amazon Web Services Direct Connect attachment.
@@ -101,17 +101,13 @@ newCreateTransitGatewayConnect
   pTransportTransitGatewayAttachmentId_
   pOptions_ =
     CreateTransitGatewayConnect'
-      { tagSpecifications =
+      { dryRun =
           Prelude.Nothing,
-        dryRun = Prelude.Nothing,
+        tagSpecifications = Prelude.Nothing,
         transportTransitGatewayAttachmentId =
           pTransportTransitGatewayAttachmentId_,
         options = pOptions_
       }
-
--- | The tags to apply to the Connect attachment.
-createTransitGatewayConnect_tagSpecifications :: Lens.Lens' CreateTransitGatewayConnect (Prelude.Maybe [TagSpecification])
-createTransitGatewayConnect_tagSpecifications = Lens.lens (\CreateTransitGatewayConnect' {tagSpecifications} -> tagSpecifications) (\s@CreateTransitGatewayConnect' {} a -> s {tagSpecifications = a} :: CreateTransitGatewayConnect) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -119,6 +115,10 @@ createTransitGatewayConnect_tagSpecifications = Lens.lens (\CreateTransitGateway
 -- Otherwise, it is @UnauthorizedOperation@.
 createTransitGatewayConnect_dryRun :: Lens.Lens' CreateTransitGatewayConnect (Prelude.Maybe Prelude.Bool)
 createTransitGatewayConnect_dryRun = Lens.lens (\CreateTransitGatewayConnect' {dryRun} -> dryRun) (\s@CreateTransitGatewayConnect' {} a -> s {dryRun = a} :: CreateTransitGatewayConnect)
+
+-- | The tags to apply to the Connect attachment.
+createTransitGatewayConnect_tagSpecifications :: Lens.Lens' CreateTransitGatewayConnect (Prelude.Maybe [TagSpecification])
+createTransitGatewayConnect_tagSpecifications = Lens.lens (\CreateTransitGatewayConnect' {tagSpecifications} -> tagSpecifications) (\s@CreateTransitGatewayConnect' {} a -> s {tagSpecifications = a} :: CreateTransitGatewayConnect) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the transit gateway attachment. You can specify a VPC
 -- attachment or Amazon Web Services Direct Connect attachment.
@@ -144,15 +144,15 @@ instance Core.AWSRequest CreateTransitGatewayConnect where
 
 instance Prelude.Hashable CreateTransitGatewayConnect where
   hashWithSalt _salt CreateTransitGatewayConnect' {..} =
-    _salt `Prelude.hashWithSalt` tagSpecifications
-      `Prelude.hashWithSalt` dryRun
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` transportTransitGatewayAttachmentId
       `Prelude.hashWithSalt` options
 
 instance Prelude.NFData CreateTransitGatewayConnect where
   rnf CreateTransitGatewayConnect' {..} =
-    Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf transportTransitGatewayAttachmentId
       `Prelude.seq` Prelude.rnf options
 
@@ -171,11 +171,11 @@ instance Core.ToQuery CreateTransitGatewayConnect where
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "DryRun" Core.=: dryRun,
         "TransportTransitGatewayAttachmentId"
           Core.=: transportTransitGatewayAttachmentId,
         "Options" Core.=: options

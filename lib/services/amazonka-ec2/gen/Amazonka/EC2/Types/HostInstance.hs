@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHostInstance' smart constructor.
 data HostInstance = HostInstance'
-  { -- | The ID of instance that is running on the Dedicated Host.
-    instanceId :: Prelude.Maybe Prelude.Text,
+  { -- | The ID of the Amazon Web Services account that owns the instance.
+    ownerId :: Prelude.Maybe Prelude.Text,
     -- | The instance type (for example, @m3.medium@) of the running instance.
     instanceType :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Amazon Web Services account that owns the instance.
-    ownerId :: Prelude.Maybe Prelude.Text
+    -- | The ID of instance that is running on the Dedicated Host.
+    instanceId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,47 +45,47 @@ data HostInstance = HostInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'hostInstance_instanceId' - The ID of instance that is running on the Dedicated Host.
+-- 'ownerId', 'hostInstance_ownerId' - The ID of the Amazon Web Services account that owns the instance.
 --
 -- 'instanceType', 'hostInstance_instanceType' - The instance type (for example, @m3.medium@) of the running instance.
 --
--- 'ownerId', 'hostInstance_ownerId' - The ID of the Amazon Web Services account that owns the instance.
+-- 'instanceId', 'hostInstance_instanceId' - The ID of instance that is running on the Dedicated Host.
 newHostInstance ::
   HostInstance
 newHostInstance =
   HostInstance'
-    { instanceId = Prelude.Nothing,
+    { ownerId = Prelude.Nothing,
       instanceType = Prelude.Nothing,
-      ownerId = Prelude.Nothing
+      instanceId = Prelude.Nothing
     }
-
--- | The ID of instance that is running on the Dedicated Host.
-hostInstance_instanceId :: Lens.Lens' HostInstance (Prelude.Maybe Prelude.Text)
-hostInstance_instanceId = Lens.lens (\HostInstance' {instanceId} -> instanceId) (\s@HostInstance' {} a -> s {instanceId = a} :: HostInstance)
-
--- | The instance type (for example, @m3.medium@) of the running instance.
-hostInstance_instanceType :: Lens.Lens' HostInstance (Prelude.Maybe Prelude.Text)
-hostInstance_instanceType = Lens.lens (\HostInstance' {instanceType} -> instanceType) (\s@HostInstance' {} a -> s {instanceType = a} :: HostInstance)
 
 -- | The ID of the Amazon Web Services account that owns the instance.
 hostInstance_ownerId :: Lens.Lens' HostInstance (Prelude.Maybe Prelude.Text)
 hostInstance_ownerId = Lens.lens (\HostInstance' {ownerId} -> ownerId) (\s@HostInstance' {} a -> s {ownerId = a} :: HostInstance)
 
+-- | The instance type (for example, @m3.medium@) of the running instance.
+hostInstance_instanceType :: Lens.Lens' HostInstance (Prelude.Maybe Prelude.Text)
+hostInstance_instanceType = Lens.lens (\HostInstance' {instanceType} -> instanceType) (\s@HostInstance' {} a -> s {instanceType = a} :: HostInstance)
+
+-- | The ID of instance that is running on the Dedicated Host.
+hostInstance_instanceId :: Lens.Lens' HostInstance (Prelude.Maybe Prelude.Text)
+hostInstance_instanceId = Lens.lens (\HostInstance' {instanceId} -> instanceId) (\s@HostInstance' {} a -> s {instanceId = a} :: HostInstance)
+
 instance Core.FromXML HostInstance where
   parseXML x =
     HostInstance'
-      Prelude.<$> (x Core..@? "instanceId")
+      Prelude.<$> (x Core..@? "ownerId")
       Prelude.<*> (x Core..@? "instanceType")
-      Prelude.<*> (x Core..@? "ownerId")
+      Prelude.<*> (x Core..@? "instanceId")
 
 instance Prelude.Hashable HostInstance where
   hashWithSalt _salt HostInstance' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt `Prelude.hashWithSalt` ownerId
       `Prelude.hashWithSalt` instanceType
-      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData HostInstance where
   rnf HostInstance' {..} =
-    Prelude.rnf instanceId
+    Prelude.rnf ownerId
       `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf instanceId

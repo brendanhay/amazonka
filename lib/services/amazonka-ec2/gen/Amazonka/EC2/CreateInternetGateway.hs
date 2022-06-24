@@ -31,8 +31,8 @@ module Amazonka.EC2.CreateInternetGateway
     newCreateInternetGateway,
 
     -- * Request Lenses
-    createInternetGateway_tagSpecifications,
     createInternetGateway_dryRun,
+    createInternetGateway_tagSpecifications,
 
     -- * Destructuring the Response
     CreateInternetGatewayResponse (..),
@@ -53,13 +53,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateInternetGateway' smart constructor.
 data CreateInternetGateway = CreateInternetGateway'
-  { -- | The tags to assign to the internet gateway.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | Checks whether you have the required permissions for the action, without
+  { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The tags to assign to the internet gateway.
+    tagSpecifications :: Prelude.Maybe [TagSpecification]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,24 +71,19 @@ data CreateInternetGateway = CreateInternetGateway'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagSpecifications', 'createInternetGateway_tagSpecifications' - The tags to assign to the internet gateway.
---
 -- 'dryRun', 'createInternetGateway_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'tagSpecifications', 'createInternetGateway_tagSpecifications' - The tags to assign to the internet gateway.
 newCreateInternetGateway ::
   CreateInternetGateway
 newCreateInternetGateway =
   CreateInternetGateway'
-    { tagSpecifications =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing
+    { dryRun = Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing
     }
-
--- | The tags to assign to the internet gateway.
-createInternetGateway_tagSpecifications :: Lens.Lens' CreateInternetGateway (Prelude.Maybe [TagSpecification])
-createInternetGateway_tagSpecifications = Lens.lens (\CreateInternetGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateInternetGateway' {} a -> s {tagSpecifications = a} :: CreateInternetGateway) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -96,6 +91,10 @@ createInternetGateway_tagSpecifications = Lens.lens (\CreateInternetGateway' {ta
 -- Otherwise, it is @UnauthorizedOperation@.
 createInternetGateway_dryRun :: Lens.Lens' CreateInternetGateway (Prelude.Maybe Prelude.Bool)
 createInternetGateway_dryRun = Lens.lens (\CreateInternetGateway' {dryRun} -> dryRun) (\s@CreateInternetGateway' {} a -> s {dryRun = a} :: CreateInternetGateway)
+
+-- | The tags to assign to the internet gateway.
+createInternetGateway_tagSpecifications :: Lens.Lens' CreateInternetGateway (Prelude.Maybe [TagSpecification])
+createInternetGateway_tagSpecifications = Lens.lens (\CreateInternetGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateInternetGateway' {} a -> s {tagSpecifications = a} :: CreateInternetGateway) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest CreateInternetGateway where
   type
@@ -112,13 +111,13 @@ instance Core.AWSRequest CreateInternetGateway where
 
 instance Prelude.Hashable CreateInternetGateway where
   hashWithSalt _salt CreateInternetGateway' {..} =
-    _salt `Prelude.hashWithSalt` tagSpecifications
-      `Prelude.hashWithSalt` dryRun
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` tagSpecifications
 
 instance Prelude.NFData CreateInternetGateway where
   rnf CreateInternetGateway' {..} =
-    Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf tagSpecifications
 
 instance Core.ToHeaders CreateInternetGateway where
   toHeaders = Prelude.const Prelude.mempty
@@ -133,11 +132,11 @@ instance Core.ToQuery CreateInternetGateway where
           Core.=: ("CreateInternetGateway" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
-          ),
-        "DryRun" Core.=: dryRun
+          )
       ]
 
 -- | /See:/ 'newCreateInternetGatewayResponse' smart constructor.

@@ -46,8 +46,8 @@ module Amazonka.EC2.DisassociateClientVpnTargetNetwork
     newDisassociateClientVpnTargetNetworkResponse,
 
     -- * Response Lenses
-    disassociateClientVpnTargetNetworkResponse_associationId,
     disassociateClientVpnTargetNetworkResponse_status,
+    disassociateClientVpnTargetNetworkResponse_associationId,
     disassociateClientVpnTargetNetworkResponse_httpStatus,
   )
 where
@@ -136,8 +136,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           DisassociateClientVpnTargetNetworkResponse'
-            Prelude.<$> (x Core..@? "associationId")
-              Prelude.<*> (x Core..@? "status")
+            Prelude.<$> (x Core..@? "status")
+              Prelude.<*> (x Core..@? "associationId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -192,10 +192,10 @@ instance
 
 -- | /See:/ 'newDisassociateClientVpnTargetNetworkResponse' smart constructor.
 data DisassociateClientVpnTargetNetworkResponse = DisassociateClientVpnTargetNetworkResponse'
-  { -- | The ID of the target network association.
-    associationId :: Prelude.Maybe Prelude.Text,
-    -- | The current state of the target network association.
+  { -- | The current state of the target network association.
     status :: Prelude.Maybe AssociationStatus,
+    -- | The ID of the target network association.
+    associationId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -209,9 +209,9 @@ data DisassociateClientVpnTargetNetworkResponse = DisassociateClientVpnTargetNet
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'associationId', 'disassociateClientVpnTargetNetworkResponse_associationId' - The ID of the target network association.
---
 -- 'status', 'disassociateClientVpnTargetNetworkResponse_status' - The current state of the target network association.
+--
+-- 'associationId', 'disassociateClientVpnTargetNetworkResponse_associationId' - The ID of the target network association.
 --
 -- 'httpStatus', 'disassociateClientVpnTargetNetworkResponse_httpStatus' - The response's http status code.
 newDisassociateClientVpnTargetNetworkResponse ::
@@ -221,19 +221,19 @@ newDisassociateClientVpnTargetNetworkResponse ::
 newDisassociateClientVpnTargetNetworkResponse
   pHttpStatus_ =
     DisassociateClientVpnTargetNetworkResponse'
-      { associationId =
+      { status =
           Prelude.Nothing,
-        status = Prelude.Nothing,
+        associationId = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The ID of the target network association.
-disassociateClientVpnTargetNetworkResponse_associationId :: Lens.Lens' DisassociateClientVpnTargetNetworkResponse (Prelude.Maybe Prelude.Text)
-disassociateClientVpnTargetNetworkResponse_associationId = Lens.lens (\DisassociateClientVpnTargetNetworkResponse' {associationId} -> associationId) (\s@DisassociateClientVpnTargetNetworkResponse' {} a -> s {associationId = a} :: DisassociateClientVpnTargetNetworkResponse)
 
 -- | The current state of the target network association.
 disassociateClientVpnTargetNetworkResponse_status :: Lens.Lens' DisassociateClientVpnTargetNetworkResponse (Prelude.Maybe AssociationStatus)
 disassociateClientVpnTargetNetworkResponse_status = Lens.lens (\DisassociateClientVpnTargetNetworkResponse' {status} -> status) (\s@DisassociateClientVpnTargetNetworkResponse' {} a -> s {status = a} :: DisassociateClientVpnTargetNetworkResponse)
+
+-- | The ID of the target network association.
+disassociateClientVpnTargetNetworkResponse_associationId :: Lens.Lens' DisassociateClientVpnTargetNetworkResponse (Prelude.Maybe Prelude.Text)
+disassociateClientVpnTargetNetworkResponse_associationId = Lens.lens (\DisassociateClientVpnTargetNetworkResponse' {associationId} -> associationId) (\s@DisassociateClientVpnTargetNetworkResponse' {} a -> s {associationId = a} :: DisassociateClientVpnTargetNetworkResponse)
 
 -- | The response's http status code.
 disassociateClientVpnTargetNetworkResponse_httpStatus :: Lens.Lens' DisassociateClientVpnTargetNetworkResponse Prelude.Int
@@ -244,6 +244,6 @@ instance
     DisassociateClientVpnTargetNetworkResponse
   where
   rnf DisassociateClientVpnTargetNetworkResponse' {..} =
-    Prelude.rnf associationId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf associationId
       `Prelude.seq` Prelude.rnf httpStatus

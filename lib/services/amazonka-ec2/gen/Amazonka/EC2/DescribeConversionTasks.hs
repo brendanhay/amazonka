@@ -33,8 +33,8 @@ module Amazonka.EC2.DescribeConversionTasks
     newDescribeConversionTasks,
 
     -- * Request Lenses
-    describeConversionTasks_conversionTaskIds,
     describeConversionTasks_dryRun,
+    describeConversionTasks_conversionTaskIds,
 
     -- * Destructuring the Response
     DescribeConversionTasksResponse (..),
@@ -55,13 +55,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeConversionTasks' smart constructor.
 data DescribeConversionTasks = DescribeConversionTasks'
-  { -- | The conversion task IDs.
-    conversionTaskIds :: Prelude.Maybe [Prelude.Text],
-    -- | Checks whether you have the required permissions for the action, without
+  { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The conversion task IDs.
+    conversionTaskIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,24 +73,19 @@ data DescribeConversionTasks = DescribeConversionTasks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'conversionTaskIds', 'describeConversionTasks_conversionTaskIds' - The conversion task IDs.
---
 -- 'dryRun', 'describeConversionTasks_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'conversionTaskIds', 'describeConversionTasks_conversionTaskIds' - The conversion task IDs.
 newDescribeConversionTasks ::
   DescribeConversionTasks
 newDescribeConversionTasks =
   DescribeConversionTasks'
-    { conversionTaskIds =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing
+    { dryRun = Prelude.Nothing,
+      conversionTaskIds = Prelude.Nothing
     }
-
--- | The conversion task IDs.
-describeConversionTasks_conversionTaskIds :: Lens.Lens' DescribeConversionTasks (Prelude.Maybe [Prelude.Text])
-describeConversionTasks_conversionTaskIds = Lens.lens (\DescribeConversionTasks' {conversionTaskIds} -> conversionTaskIds) (\s@DescribeConversionTasks' {} a -> s {conversionTaskIds = a} :: DescribeConversionTasks) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -98,6 +93,10 @@ describeConversionTasks_conversionTaskIds = Lens.lens (\DescribeConversionTasks'
 -- Otherwise, it is @UnauthorizedOperation@.
 describeConversionTasks_dryRun :: Lens.Lens' DescribeConversionTasks (Prelude.Maybe Prelude.Bool)
 describeConversionTasks_dryRun = Lens.lens (\DescribeConversionTasks' {dryRun} -> dryRun) (\s@DescribeConversionTasks' {} a -> s {dryRun = a} :: DescribeConversionTasks)
+
+-- | The conversion task IDs.
+describeConversionTasks_conversionTaskIds :: Lens.Lens' DescribeConversionTasks (Prelude.Maybe [Prelude.Text])
+describeConversionTasks_conversionTaskIds = Lens.lens (\DescribeConversionTasks' {conversionTaskIds} -> conversionTaskIds) (\s@DescribeConversionTasks' {} a -> s {conversionTaskIds = a} :: DescribeConversionTasks) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest DescribeConversionTasks where
   type
@@ -116,13 +115,13 @@ instance Core.AWSRequest DescribeConversionTasks where
 
 instance Prelude.Hashable DescribeConversionTasks where
   hashWithSalt _salt DescribeConversionTasks' {..} =
-    _salt `Prelude.hashWithSalt` conversionTaskIds
-      `Prelude.hashWithSalt` dryRun
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` conversionTaskIds
 
 instance Prelude.NFData DescribeConversionTasks where
   rnf DescribeConversionTasks' {..} =
-    Prelude.rnf conversionTaskIds
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf conversionTaskIds
 
 instance Core.ToHeaders DescribeConversionTasks where
   toHeaders = Prelude.const Prelude.mempty
@@ -137,11 +136,11 @@ instance Core.ToQuery DescribeConversionTasks where
           Core.=: ("DescribeConversionTasks" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "ConversionTaskId"
               Prelude.<$> conversionTaskIds
-          ),
-        "DryRun" Core.=: dryRun
+          )
       ]
 
 -- | /See:/ 'newDescribeConversionTasksResponse' smart constructor.

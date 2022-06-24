@@ -47,11 +47,11 @@ module Amazonka.EC2.CreateVpnConnection
     newCreateVpnConnection,
 
     -- * Request Lenses
+    createVpnConnection_transitGatewayId,
+    createVpnConnection_dryRun,
+    createVpnConnection_options,
     createVpnConnection_vpnGatewayId,
     createVpnConnection_tagSpecifications,
-    createVpnConnection_transitGatewayId,
-    createVpnConnection_options,
-    createVpnConnection_dryRun,
     createVpnConnection_customerGatewayId,
     createVpnConnection_type,
 
@@ -76,21 +76,21 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateVpnConnection' smart constructor.
 data CreateVpnConnection = CreateVpnConnection'
-  { -- | The ID of the virtual private gateway. If you specify a virtual private
-    -- gateway, you cannot specify a transit gateway.
-    vpnGatewayId :: Prelude.Maybe Prelude.Text,
-    -- | The tags to apply to the VPN connection.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | The ID of the transit gateway. If you specify a transit gateway, you
+  { -- | The ID of the transit gateway. If you specify a transit gateway, you
     -- cannot specify a virtual private gateway.
     transitGatewayId :: Prelude.Maybe Prelude.Text,
-    -- | The options for the VPN connection.
-    options :: Prelude.Maybe VpnConnectionOptionsSpecification,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The options for the VPN connection.
+    options :: Prelude.Maybe VpnConnectionOptionsSpecification,
+    -- | The ID of the virtual private gateway. If you specify a virtual private
+    -- gateway, you cannot specify a transit gateway.
+    vpnGatewayId :: Prelude.Maybe Prelude.Text,
+    -- | The tags to apply to the VPN connection.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The ID of the customer gateway.
     customerGatewayId :: Prelude.Text,
     -- | The type of VPN connection (@ipsec.1@).
@@ -106,20 +106,20 @@ data CreateVpnConnection = CreateVpnConnection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpnGatewayId', 'createVpnConnection_vpnGatewayId' - The ID of the virtual private gateway. If you specify a virtual private
--- gateway, you cannot specify a transit gateway.
---
--- 'tagSpecifications', 'createVpnConnection_tagSpecifications' - The tags to apply to the VPN connection.
---
 -- 'transitGatewayId', 'createVpnConnection_transitGatewayId' - The ID of the transit gateway. If you specify a transit gateway, you
 -- cannot specify a virtual private gateway.
---
--- 'options', 'createVpnConnection_options' - The options for the VPN connection.
 --
 -- 'dryRun', 'createVpnConnection_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'options', 'createVpnConnection_options' - The options for the VPN connection.
+--
+-- 'vpnGatewayId', 'createVpnConnection_vpnGatewayId' - The ID of the virtual private gateway. If you specify a virtual private
+-- gateway, you cannot specify a transit gateway.
+--
+-- 'tagSpecifications', 'createVpnConnection_tagSpecifications' - The tags to apply to the VPN connection.
 --
 -- 'customerGatewayId', 'createVpnConnection_customerGatewayId' - The ID of the customer gateway.
 --
@@ -132,15 +132,31 @@ newCreateVpnConnection ::
   CreateVpnConnection
 newCreateVpnConnection pCustomerGatewayId_ pType_ =
   CreateVpnConnection'
-    { vpnGatewayId =
+    { transitGatewayId =
         Prelude.Nothing,
-      tagSpecifications = Prelude.Nothing,
-      transitGatewayId = Prelude.Nothing,
-      options = Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      options = Prelude.Nothing,
+      vpnGatewayId = Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
       customerGatewayId = pCustomerGatewayId_,
       type' = pType_
     }
+
+-- | The ID of the transit gateway. If you specify a transit gateway, you
+-- cannot specify a virtual private gateway.
+createVpnConnection_transitGatewayId :: Lens.Lens' CreateVpnConnection (Prelude.Maybe Prelude.Text)
+createVpnConnection_transitGatewayId = Lens.lens (\CreateVpnConnection' {transitGatewayId} -> transitGatewayId) (\s@CreateVpnConnection' {} a -> s {transitGatewayId = a} :: CreateVpnConnection)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+createVpnConnection_dryRun :: Lens.Lens' CreateVpnConnection (Prelude.Maybe Prelude.Bool)
+createVpnConnection_dryRun = Lens.lens (\CreateVpnConnection' {dryRun} -> dryRun) (\s@CreateVpnConnection' {} a -> s {dryRun = a} :: CreateVpnConnection)
+
+-- | The options for the VPN connection.
+createVpnConnection_options :: Lens.Lens' CreateVpnConnection (Prelude.Maybe VpnConnectionOptionsSpecification)
+createVpnConnection_options = Lens.lens (\CreateVpnConnection' {options} -> options) (\s@CreateVpnConnection' {} a -> s {options = a} :: CreateVpnConnection)
 
 -- | The ID of the virtual private gateway. If you specify a virtual private
 -- gateway, you cannot specify a transit gateway.
@@ -150,22 +166,6 @@ createVpnConnection_vpnGatewayId = Lens.lens (\CreateVpnConnection' {vpnGatewayI
 -- | The tags to apply to the VPN connection.
 createVpnConnection_tagSpecifications :: Lens.Lens' CreateVpnConnection (Prelude.Maybe [TagSpecification])
 createVpnConnection_tagSpecifications = Lens.lens (\CreateVpnConnection' {tagSpecifications} -> tagSpecifications) (\s@CreateVpnConnection' {} a -> s {tagSpecifications = a} :: CreateVpnConnection) Prelude.. Lens.mapping Lens.coerced
-
--- | The ID of the transit gateway. If you specify a transit gateway, you
--- cannot specify a virtual private gateway.
-createVpnConnection_transitGatewayId :: Lens.Lens' CreateVpnConnection (Prelude.Maybe Prelude.Text)
-createVpnConnection_transitGatewayId = Lens.lens (\CreateVpnConnection' {transitGatewayId} -> transitGatewayId) (\s@CreateVpnConnection' {} a -> s {transitGatewayId = a} :: CreateVpnConnection)
-
--- | The options for the VPN connection.
-createVpnConnection_options :: Lens.Lens' CreateVpnConnection (Prelude.Maybe VpnConnectionOptionsSpecification)
-createVpnConnection_options = Lens.lens (\CreateVpnConnection' {options} -> options) (\s@CreateVpnConnection' {} a -> s {options = a} :: CreateVpnConnection)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-createVpnConnection_dryRun :: Lens.Lens' CreateVpnConnection (Prelude.Maybe Prelude.Bool)
-createVpnConnection_dryRun = Lens.lens (\CreateVpnConnection' {dryRun} -> dryRun) (\s@CreateVpnConnection' {} a -> s {dryRun = a} :: CreateVpnConnection)
 
 -- | The ID of the customer gateway.
 createVpnConnection_customerGatewayId :: Lens.Lens' CreateVpnConnection Prelude.Text
@@ -190,21 +190,21 @@ instance Core.AWSRequest CreateVpnConnection where
 
 instance Prelude.Hashable CreateVpnConnection where
   hashWithSalt _salt CreateVpnConnection' {..} =
-    _salt `Prelude.hashWithSalt` vpnGatewayId
-      `Prelude.hashWithSalt` tagSpecifications
-      `Prelude.hashWithSalt` transitGatewayId
-      `Prelude.hashWithSalt` options
+    _salt `Prelude.hashWithSalt` transitGatewayId
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` vpnGatewayId
+      `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` customerGatewayId
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData CreateVpnConnection where
   rnf CreateVpnConnection' {..} =
-    Prelude.rnf vpnGatewayId
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf transitGatewayId
-      `Prelude.seq` Prelude.rnf options
+    Prelude.rnf transitGatewayId
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf options
+      `Prelude.seq` Prelude.rnf vpnGatewayId
+      `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf customerGatewayId
       `Prelude.seq` Prelude.rnf type'
 
@@ -221,14 +221,14 @@ instance Core.ToQuery CreateVpnConnection where
           Core.=: ("CreateVpnConnection" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "TransitGatewayId" Core.=: transitGatewayId,
+        "DryRun" Core.=: dryRun,
+        "Options" Core.=: options,
         "VpnGatewayId" Core.=: vpnGatewayId,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "TransitGatewayId" Core.=: transitGatewayId,
-        "Options" Core.=: options,
-        "DryRun" Core.=: dryRun,
         "CustomerGatewayId" Core.=: customerGatewayId,
         "Type" Core.=: type'
       ]

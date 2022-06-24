@@ -33,8 +33,8 @@ module Amazonka.EC2.DescribeFlowLogs
     -- * Request Lenses
     describeFlowLogs_nextToken,
     describeFlowLogs_flowLogIds,
-    describeFlowLogs_filter,
     describeFlowLogs_dryRun,
+    describeFlowLogs_filter,
     describeFlowLogs_maxResults,
 
     -- * Destructuring the Response
@@ -63,6 +63,11 @@ data DescribeFlowLogs = DescribeFlowLogs'
     --
     -- Constraint: Maximum of 1000 flow log IDs.
     flowLogIds :: Prelude.Maybe [Prelude.Text],
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | One or more filters.
     --
     -- -   @deliver-log-status@ - The status of the logs delivery (@SUCCESS@ |
@@ -90,11 +95,6 @@ data DescribeFlowLogs = DescribeFlowLogs'
     --     filter to find all resources assigned a tag with a specific key,
     --     regardless of the tag value.
     filter' :: Prelude.Maybe [Filter],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
@@ -115,6 +115,11 @@ data DescribeFlowLogs = DescribeFlowLogs'
 -- 'flowLogIds', 'describeFlowLogs_flowLogIds' - One or more flow log IDs.
 --
 -- Constraint: Maximum of 1000 flow log IDs.
+--
+-- 'dryRun', 'describeFlowLogs_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filter'', 'describeFlowLogs_filter' - One or more filters.
 --
@@ -143,11 +148,6 @@ data DescribeFlowLogs = DescribeFlowLogs'
 --     filter to find all resources assigned a tag with a specific key,
 --     regardless of the tag value.
 --
--- 'dryRun', 'describeFlowLogs_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'maxResults', 'describeFlowLogs_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
@@ -157,8 +157,8 @@ newDescribeFlowLogs =
   DescribeFlowLogs'
     { nextToken = Prelude.Nothing,
       flowLogIds = Prelude.Nothing,
-      filter' = Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      filter' = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
 
@@ -171,6 +171,13 @@ describeFlowLogs_nextToken = Lens.lens (\DescribeFlowLogs' {nextToken} -> nextTo
 -- Constraint: Maximum of 1000 flow log IDs.
 describeFlowLogs_flowLogIds :: Lens.Lens' DescribeFlowLogs (Prelude.Maybe [Prelude.Text])
 describeFlowLogs_flowLogIds = Lens.lens (\DescribeFlowLogs' {flowLogIds} -> flowLogIds) (\s@DescribeFlowLogs' {} a -> s {flowLogIds = a} :: DescribeFlowLogs) Prelude.. Lens.mapping Lens.coerced
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeFlowLogs_dryRun :: Lens.Lens' DescribeFlowLogs (Prelude.Maybe Prelude.Bool)
+describeFlowLogs_dryRun = Lens.lens (\DescribeFlowLogs' {dryRun} -> dryRun) (\s@DescribeFlowLogs' {} a -> s {dryRun = a} :: DescribeFlowLogs)
 
 -- | One or more filters.
 --
@@ -200,13 +207,6 @@ describeFlowLogs_flowLogIds = Lens.lens (\DescribeFlowLogs' {flowLogIds} -> flow
 --     regardless of the tag value.
 describeFlowLogs_filter :: Lens.Lens' DescribeFlowLogs (Prelude.Maybe [Filter])
 describeFlowLogs_filter = Lens.lens (\DescribeFlowLogs' {filter'} -> filter') (\s@DescribeFlowLogs' {} a -> s {filter' = a} :: DescribeFlowLogs) Prelude.. Lens.mapping Lens.coerced
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeFlowLogs_dryRun :: Lens.Lens' DescribeFlowLogs (Prelude.Maybe Prelude.Bool)
-describeFlowLogs_dryRun = Lens.lens (\DescribeFlowLogs' {dryRun} -> dryRun) (\s@DescribeFlowLogs' {} a -> s {dryRun = a} :: DescribeFlowLogs)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
@@ -256,16 +256,16 @@ instance Prelude.Hashable DescribeFlowLogs where
   hashWithSalt _salt DescribeFlowLogs' {..} =
     _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` flowLogIds
-      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeFlowLogs where
   rnf DescribeFlowLogs' {..} =
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf flowLogIds
-      `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeFlowLogs where
@@ -286,9 +286,9 @@ instance Core.ToQuery DescribeFlowLogs where
           ( Core.toQueryList "FlowLogId"
               Prelude.<$> flowLogIds
           ),
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filter'),
-        "DryRun" Core.=: dryRun,
         "MaxResults" Core.=: maxResults
       ]
 

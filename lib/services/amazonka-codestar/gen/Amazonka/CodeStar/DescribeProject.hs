@@ -34,15 +34,15 @@ module Amazonka.CodeStar.DescribeProject
     newDescribeProjectResponse,
 
     -- * Response Lenses
-    describeProjectResponse_status,
-    describeProjectResponse_arn,
-    describeProjectResponse_projectTemplateId,
-    describeProjectResponse_name,
-    describeProjectResponse_id,
     describeProjectResponse_stackId,
+    describeProjectResponse_name,
     describeProjectResponse_clientRequestToken,
     describeProjectResponse_createdTimeStamp,
+    describeProjectResponse_arn,
+    describeProjectResponse_status,
     describeProjectResponse_description,
+    describeProjectResponse_id,
+    describeProjectResponse_projectTemplateId,
     describeProjectResponse_httpStatus,
   )
 where
@@ -89,15 +89,15 @@ instance Core.AWSRequest DescribeProject where
     Response.receiveJSON
       ( \s h x ->
           DescribeProjectResponse'
-            Prelude.<$> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "projectTemplateId")
+            Prelude.<$> (x Core..?> "stackId")
             Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "stackId")
             Prelude.<*> (x Core..?> "clientRequestToken")
             Prelude.<*> (x Core..?> "createdTimeStamp")
+            Prelude.<*> (x Core..?> "arn")
+            Prelude.<*> (x Core..?> "status")
             Prelude.<*> (x Core..?> "description")
+            Prelude.<*> (x Core..?> "id")
+            Prelude.<*> (x Core..?> "projectTemplateId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,26 +136,26 @@ instance Core.ToQuery DescribeProject where
 
 -- | /See:/ 'newDescribeProjectResponse' smart constructor.
 data DescribeProjectResponse = DescribeProjectResponse'
-  { -- | The project creation or deletion status.
-    status :: Prelude.Maybe ProjectStatus,
-    -- | The Amazon Resource Name (ARN) for the project.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The ID for the AWS CodeStar project template used to create the project.
-    projectTemplateId :: Prelude.Maybe Prelude.Text,
-    -- | The display name for the project.
-    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The ID of the project.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the primary stack in AWS CloudFormation used to generate
+  { -- | The ID of the primary stack in AWS CloudFormation used to generate
     -- resources for the project.
     stackId :: Prelude.Maybe Prelude.Text,
+    -- | The display name for the project.
+    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | A user- or system-generated token that identifies the entity that
     -- requested project creation.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The date and time the project was created, in timestamp format.
     createdTimeStamp :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN) for the project.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The project creation or deletion status.
+    status :: Prelude.Maybe ProjectStatus,
     -- | The description of the project, if any.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The ID of the project.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The ID for the AWS CodeStar project template used to create the project.
+    projectTemplateId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -169,25 +169,25 @@ data DescribeProjectResponse = DescribeProjectResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'describeProjectResponse_status' - The project creation or deletion status.
---
--- 'arn', 'describeProjectResponse_arn' - The Amazon Resource Name (ARN) for the project.
---
--- 'projectTemplateId', 'describeProjectResponse_projectTemplateId' - The ID for the AWS CodeStar project template used to create the project.
---
--- 'name', 'describeProjectResponse_name' - The display name for the project.
---
--- 'id', 'describeProjectResponse_id' - The ID of the project.
---
 -- 'stackId', 'describeProjectResponse_stackId' - The ID of the primary stack in AWS CloudFormation used to generate
 -- resources for the project.
+--
+-- 'name', 'describeProjectResponse_name' - The display name for the project.
 --
 -- 'clientRequestToken', 'describeProjectResponse_clientRequestToken' - A user- or system-generated token that identifies the entity that
 -- requested project creation.
 --
 -- 'createdTimeStamp', 'describeProjectResponse_createdTimeStamp' - The date and time the project was created, in timestamp format.
 --
+-- 'arn', 'describeProjectResponse_arn' - The Amazon Resource Name (ARN) for the project.
+--
+-- 'status', 'describeProjectResponse_status' - The project creation or deletion status.
+--
 -- 'description', 'describeProjectResponse_description' - The description of the project, if any.
+--
+-- 'id', 'describeProjectResponse_id' - The ID of the project.
+--
+-- 'projectTemplateId', 'describeProjectResponse_projectTemplateId' - The ID for the AWS CodeStar project template used to create the project.
 --
 -- 'httpStatus', 'describeProjectResponse_httpStatus' - The response's http status code.
 newDescribeProjectResponse ::
@@ -196,42 +196,26 @@ newDescribeProjectResponse ::
   DescribeProjectResponse
 newDescribeProjectResponse pHttpStatus_ =
   DescribeProjectResponse'
-    { status = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      projectTemplateId = Prelude.Nothing,
+    { stackId = Prelude.Nothing,
       name = Prelude.Nothing,
-      id = Prelude.Nothing,
-      stackId = Prelude.Nothing,
       clientRequestToken = Prelude.Nothing,
       createdTimeStamp = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      status = Prelude.Nothing,
       description = Prelude.Nothing,
+      id = Prelude.Nothing,
+      projectTemplateId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The project creation or deletion status.
-describeProjectResponse_status :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe ProjectStatus)
-describeProjectResponse_status = Lens.lens (\DescribeProjectResponse' {status} -> status) (\s@DescribeProjectResponse' {} a -> s {status = a} :: DescribeProjectResponse)
-
--- | The Amazon Resource Name (ARN) for the project.
-describeProjectResponse_arn :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)
-describeProjectResponse_arn = Lens.lens (\DescribeProjectResponse' {arn} -> arn) (\s@DescribeProjectResponse' {} a -> s {arn = a} :: DescribeProjectResponse)
-
--- | The ID for the AWS CodeStar project template used to create the project.
-describeProjectResponse_projectTemplateId :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)
-describeProjectResponse_projectTemplateId = Lens.lens (\DescribeProjectResponse' {projectTemplateId} -> projectTemplateId) (\s@DescribeProjectResponse' {} a -> s {projectTemplateId = a} :: DescribeProjectResponse)
-
--- | The display name for the project.
-describeProjectResponse_name :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)
-describeProjectResponse_name = Lens.lens (\DescribeProjectResponse' {name} -> name) (\s@DescribeProjectResponse' {} a -> s {name = a} :: DescribeProjectResponse) Prelude.. Lens.mapping Core._Sensitive
-
--- | The ID of the project.
-describeProjectResponse_id :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)
-describeProjectResponse_id = Lens.lens (\DescribeProjectResponse' {id} -> id) (\s@DescribeProjectResponse' {} a -> s {id = a} :: DescribeProjectResponse)
 
 -- | The ID of the primary stack in AWS CloudFormation used to generate
 -- resources for the project.
 describeProjectResponse_stackId :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)
 describeProjectResponse_stackId = Lens.lens (\DescribeProjectResponse' {stackId} -> stackId) (\s@DescribeProjectResponse' {} a -> s {stackId = a} :: DescribeProjectResponse)
+
+-- | The display name for the project.
+describeProjectResponse_name :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)
+describeProjectResponse_name = Lens.lens (\DescribeProjectResponse' {name} -> name) (\s@DescribeProjectResponse' {} a -> s {name = a} :: DescribeProjectResponse) Prelude.. Lens.mapping Core._Sensitive
 
 -- | A user- or system-generated token that identifies the entity that
 -- requested project creation.
@@ -242,9 +226,25 @@ describeProjectResponse_clientRequestToken = Lens.lens (\DescribeProjectResponse
 describeProjectResponse_createdTimeStamp :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.UTCTime)
 describeProjectResponse_createdTimeStamp = Lens.lens (\DescribeProjectResponse' {createdTimeStamp} -> createdTimeStamp) (\s@DescribeProjectResponse' {} a -> s {createdTimeStamp = a} :: DescribeProjectResponse) Prelude.. Lens.mapping Core._Time
 
+-- | The Amazon Resource Name (ARN) for the project.
+describeProjectResponse_arn :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)
+describeProjectResponse_arn = Lens.lens (\DescribeProjectResponse' {arn} -> arn) (\s@DescribeProjectResponse' {} a -> s {arn = a} :: DescribeProjectResponse)
+
+-- | The project creation or deletion status.
+describeProjectResponse_status :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe ProjectStatus)
+describeProjectResponse_status = Lens.lens (\DescribeProjectResponse' {status} -> status) (\s@DescribeProjectResponse' {} a -> s {status = a} :: DescribeProjectResponse)
+
 -- | The description of the project, if any.
 describeProjectResponse_description :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)
 describeProjectResponse_description = Lens.lens (\DescribeProjectResponse' {description} -> description) (\s@DescribeProjectResponse' {} a -> s {description = a} :: DescribeProjectResponse) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The ID of the project.
+describeProjectResponse_id :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)
+describeProjectResponse_id = Lens.lens (\DescribeProjectResponse' {id} -> id) (\s@DescribeProjectResponse' {} a -> s {id = a} :: DescribeProjectResponse)
+
+-- | The ID for the AWS CodeStar project template used to create the project.
+describeProjectResponse_projectTemplateId :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)
+describeProjectResponse_projectTemplateId = Lens.lens (\DescribeProjectResponse' {projectTemplateId} -> projectTemplateId) (\s@DescribeProjectResponse' {} a -> s {projectTemplateId = a} :: DescribeProjectResponse)
 
 -- | The response's http status code.
 describeProjectResponse_httpStatus :: Lens.Lens' DescribeProjectResponse Prelude.Int
@@ -252,13 +252,13 @@ describeProjectResponse_httpStatus = Lens.lens (\DescribeProjectResponse' {httpS
 
 instance Prelude.NFData DescribeProjectResponse where
   rnf DescribeProjectResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf projectTemplateId
+    Prelude.rnf stackId
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf stackId
       `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf createdTimeStamp
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf projectTemplateId
       `Prelude.seq` Prelude.rnf httpStatus

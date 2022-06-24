@@ -28,24 +28,24 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBotAliasMetadata' smart constructor.
 data BotAliasMetadata = BotAliasMetadata'
-  { -- | Checksum of the bot alias.
-    checksum :: Prelude.Maybe Prelude.Text,
+  { -- | The name of the bot alias.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The version of the Amazon Lex bot to which the alias points.
     botVersion :: Prelude.Maybe Prelude.Text,
-    -- | The name of the bot to which the alias points.
-    botName :: Prelude.Maybe Prelude.Text,
-    -- | The date that the bot alias was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
-    -- | The name of the bot alias.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Settings that determine how Amazon Lex uses conversation logs for the
-    -- alias.
-    conversationLogs :: Prelude.Maybe ConversationLogsResponse,
     -- | The date that the bot alias was updated. When you create a resource, the
     -- creation date and last updated date are the same.
     lastUpdatedDate :: Prelude.Maybe Core.POSIX,
     -- | A description of the bot alias.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Checksum of the bot alias.
+    checksum :: Prelude.Maybe Prelude.Text,
+    -- | The name of the bot to which the alias points.
+    botName :: Prelude.Maybe Prelude.Text,
+    -- | Settings that determine how Amazon Lex uses conversation logs for the
+    -- alias.
+    conversationLogs :: Prelude.Maybe ConversationLogsResponse,
+    -- | The date that the bot alias was created.
+    createdDate :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,61 +57,44 @@ data BotAliasMetadata = BotAliasMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'checksum', 'botAliasMetadata_checksum' - Checksum of the bot alias.
---
--- 'botVersion', 'botAliasMetadata_botVersion' - The version of the Amazon Lex bot to which the alias points.
---
--- 'botName', 'botAliasMetadata_botName' - The name of the bot to which the alias points.
---
--- 'createdDate', 'botAliasMetadata_createdDate' - The date that the bot alias was created.
---
 -- 'name', 'botAliasMetadata_name' - The name of the bot alias.
 --
--- 'conversationLogs', 'botAliasMetadata_conversationLogs' - Settings that determine how Amazon Lex uses conversation logs for the
--- alias.
+-- 'botVersion', 'botAliasMetadata_botVersion' - The version of the Amazon Lex bot to which the alias points.
 --
 -- 'lastUpdatedDate', 'botAliasMetadata_lastUpdatedDate' - The date that the bot alias was updated. When you create a resource, the
 -- creation date and last updated date are the same.
 --
 -- 'description', 'botAliasMetadata_description' - A description of the bot alias.
+--
+-- 'checksum', 'botAliasMetadata_checksum' - Checksum of the bot alias.
+--
+-- 'botName', 'botAliasMetadata_botName' - The name of the bot to which the alias points.
+--
+-- 'conversationLogs', 'botAliasMetadata_conversationLogs' - Settings that determine how Amazon Lex uses conversation logs for the
+-- alias.
+--
+-- 'createdDate', 'botAliasMetadata_createdDate' - The date that the bot alias was created.
 newBotAliasMetadata ::
   BotAliasMetadata
 newBotAliasMetadata =
   BotAliasMetadata'
-    { checksum = Prelude.Nothing,
+    { name = Prelude.Nothing,
       botVersion = Prelude.Nothing,
-      botName = Prelude.Nothing,
-      createdDate = Prelude.Nothing,
-      name = Prelude.Nothing,
-      conversationLogs = Prelude.Nothing,
       lastUpdatedDate = Prelude.Nothing,
-      description = Prelude.Nothing
+      description = Prelude.Nothing,
+      checksum = Prelude.Nothing,
+      botName = Prelude.Nothing,
+      conversationLogs = Prelude.Nothing,
+      createdDate = Prelude.Nothing
     }
-
--- | Checksum of the bot alias.
-botAliasMetadata_checksum :: Lens.Lens' BotAliasMetadata (Prelude.Maybe Prelude.Text)
-botAliasMetadata_checksum = Lens.lens (\BotAliasMetadata' {checksum} -> checksum) (\s@BotAliasMetadata' {} a -> s {checksum = a} :: BotAliasMetadata)
-
--- | The version of the Amazon Lex bot to which the alias points.
-botAliasMetadata_botVersion :: Lens.Lens' BotAliasMetadata (Prelude.Maybe Prelude.Text)
-botAliasMetadata_botVersion = Lens.lens (\BotAliasMetadata' {botVersion} -> botVersion) (\s@BotAliasMetadata' {} a -> s {botVersion = a} :: BotAliasMetadata)
-
--- | The name of the bot to which the alias points.
-botAliasMetadata_botName :: Lens.Lens' BotAliasMetadata (Prelude.Maybe Prelude.Text)
-botAliasMetadata_botName = Lens.lens (\BotAliasMetadata' {botName} -> botName) (\s@BotAliasMetadata' {} a -> s {botName = a} :: BotAliasMetadata)
-
--- | The date that the bot alias was created.
-botAliasMetadata_createdDate :: Lens.Lens' BotAliasMetadata (Prelude.Maybe Prelude.UTCTime)
-botAliasMetadata_createdDate = Lens.lens (\BotAliasMetadata' {createdDate} -> createdDate) (\s@BotAliasMetadata' {} a -> s {createdDate = a} :: BotAliasMetadata) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the bot alias.
 botAliasMetadata_name :: Lens.Lens' BotAliasMetadata (Prelude.Maybe Prelude.Text)
 botAliasMetadata_name = Lens.lens (\BotAliasMetadata' {name} -> name) (\s@BotAliasMetadata' {} a -> s {name = a} :: BotAliasMetadata)
 
--- | Settings that determine how Amazon Lex uses conversation logs for the
--- alias.
-botAliasMetadata_conversationLogs :: Lens.Lens' BotAliasMetadata (Prelude.Maybe ConversationLogsResponse)
-botAliasMetadata_conversationLogs = Lens.lens (\BotAliasMetadata' {conversationLogs} -> conversationLogs) (\s@BotAliasMetadata' {} a -> s {conversationLogs = a} :: BotAliasMetadata)
+-- | The version of the Amazon Lex bot to which the alias points.
+botAliasMetadata_botVersion :: Lens.Lens' BotAliasMetadata (Prelude.Maybe Prelude.Text)
+botAliasMetadata_botVersion = Lens.lens (\BotAliasMetadata' {botVersion} -> botVersion) (\s@BotAliasMetadata' {} a -> s {botVersion = a} :: BotAliasMetadata)
 
 -- | The date that the bot alias was updated. When you create a resource, the
 -- creation date and last updated date are the same.
@@ -122,40 +105,57 @@ botAliasMetadata_lastUpdatedDate = Lens.lens (\BotAliasMetadata' {lastUpdatedDat
 botAliasMetadata_description :: Lens.Lens' BotAliasMetadata (Prelude.Maybe Prelude.Text)
 botAliasMetadata_description = Lens.lens (\BotAliasMetadata' {description} -> description) (\s@BotAliasMetadata' {} a -> s {description = a} :: BotAliasMetadata)
 
+-- | Checksum of the bot alias.
+botAliasMetadata_checksum :: Lens.Lens' BotAliasMetadata (Prelude.Maybe Prelude.Text)
+botAliasMetadata_checksum = Lens.lens (\BotAliasMetadata' {checksum} -> checksum) (\s@BotAliasMetadata' {} a -> s {checksum = a} :: BotAliasMetadata)
+
+-- | The name of the bot to which the alias points.
+botAliasMetadata_botName :: Lens.Lens' BotAliasMetadata (Prelude.Maybe Prelude.Text)
+botAliasMetadata_botName = Lens.lens (\BotAliasMetadata' {botName} -> botName) (\s@BotAliasMetadata' {} a -> s {botName = a} :: BotAliasMetadata)
+
+-- | Settings that determine how Amazon Lex uses conversation logs for the
+-- alias.
+botAliasMetadata_conversationLogs :: Lens.Lens' BotAliasMetadata (Prelude.Maybe ConversationLogsResponse)
+botAliasMetadata_conversationLogs = Lens.lens (\BotAliasMetadata' {conversationLogs} -> conversationLogs) (\s@BotAliasMetadata' {} a -> s {conversationLogs = a} :: BotAliasMetadata)
+
+-- | The date that the bot alias was created.
+botAliasMetadata_createdDate :: Lens.Lens' BotAliasMetadata (Prelude.Maybe Prelude.UTCTime)
+botAliasMetadata_createdDate = Lens.lens (\BotAliasMetadata' {createdDate} -> createdDate) (\s@BotAliasMetadata' {} a -> s {createdDate = a} :: BotAliasMetadata) Prelude.. Lens.mapping Core._Time
+
 instance Core.FromJSON BotAliasMetadata where
   parseJSON =
     Core.withObject
       "BotAliasMetadata"
       ( \x ->
           BotAliasMetadata'
-            Prelude.<$> (x Core..:? "checksum")
+            Prelude.<$> (x Core..:? "name")
             Prelude.<*> (x Core..:? "botVersion")
-            Prelude.<*> (x Core..:? "botName")
-            Prelude.<*> (x Core..:? "createdDate")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "conversationLogs")
             Prelude.<*> (x Core..:? "lastUpdatedDate")
             Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "checksum")
+            Prelude.<*> (x Core..:? "botName")
+            Prelude.<*> (x Core..:? "conversationLogs")
+            Prelude.<*> (x Core..:? "createdDate")
       )
 
 instance Prelude.Hashable BotAliasMetadata where
   hashWithSalt _salt BotAliasMetadata' {..} =
-    _salt `Prelude.hashWithSalt` checksum
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` botVersion
-      `Prelude.hashWithSalt` botName
-      `Prelude.hashWithSalt` createdDate
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` conversationLogs
       `Prelude.hashWithSalt` lastUpdatedDate
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` checksum
+      `Prelude.hashWithSalt` botName
+      `Prelude.hashWithSalt` conversationLogs
+      `Prelude.hashWithSalt` createdDate
 
 instance Prelude.NFData BotAliasMetadata where
   rnf BotAliasMetadata' {..} =
-    Prelude.rnf checksum
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf botName
-      `Prelude.seq` Prelude.rnf createdDate
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf conversationLogs
       `Prelude.seq` Prelude.rnf lastUpdatedDate
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf checksum
+      `Prelude.seq` Prelude.rnf botName
+      `Prelude.seq` Prelude.rnf conversationLogs
+      `Prelude.seq` Prelude.rnf createdDate

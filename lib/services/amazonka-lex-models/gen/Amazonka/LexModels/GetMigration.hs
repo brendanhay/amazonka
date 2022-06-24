@@ -36,15 +36,15 @@ module Amazonka.LexModels.GetMigration
     newGetMigrationResponse,
 
     -- * Response Lenses
-    getMigrationResponse_v1BotVersion,
-    getMigrationResponse_migrationStrategy,
-    getMigrationResponse_migrationTimestamp,
+    getMigrationResponse_v2BotRole,
     getMigrationResponse_alerts,
     getMigrationResponse_migrationStatus,
-    getMigrationResponse_v2BotId,
     getMigrationResponse_v1BotLocale,
+    getMigrationResponse_v1BotVersion,
+    getMigrationResponse_migrationStrategy,
+    getMigrationResponse_v2BotId,
     getMigrationResponse_v1BotName,
-    getMigrationResponse_v2BotRole,
+    getMigrationResponse_migrationTimestamp,
     getMigrationResponse_migrationId,
     getMigrationResponse_httpStatus,
   )
@@ -94,15 +94,15 @@ instance Core.AWSRequest GetMigration where
     Response.receiveJSON
       ( \s h x ->
           GetMigrationResponse'
-            Prelude.<$> (x Core..?> "v1BotVersion")
-            Prelude.<*> (x Core..?> "migrationStrategy")
-            Prelude.<*> (x Core..?> "migrationTimestamp")
+            Prelude.<$> (x Core..?> "v2BotRole")
             Prelude.<*> (x Core..?> "alerts" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "migrationStatus")
-            Prelude.<*> (x Core..?> "v2BotId")
             Prelude.<*> (x Core..?> "v1BotLocale")
+            Prelude.<*> (x Core..?> "v1BotVersion")
+            Prelude.<*> (x Core..?> "migrationStrategy")
+            Prelude.<*> (x Core..?> "v2BotId")
             Prelude.<*> (x Core..?> "v1BotName")
-            Prelude.<*> (x Core..?> "v2BotRole")
+            Prelude.<*> (x Core..?> "migrationTimestamp")
             Prelude.<*> (x Core..?> "migrationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -135,20 +135,8 @@ instance Core.ToQuery GetMigration where
 
 -- | /See:/ 'newGetMigrationResponse' smart constructor.
 data GetMigrationResponse = GetMigrationResponse'
-  { -- | The version of the Amazon Lex V1 bot migrated to Amazon Lex V2.
-    v1BotVersion :: Prelude.Maybe Prelude.Text,
-    -- | The strategy used to conduct the migration.
-    --
-    -- -   @CREATE_NEW@ - Creates a new Amazon Lex V2 bot and migrates the
-    --     Amazon Lex V1 bot to the new bot.
-    --
-    -- -   @UPDATE_EXISTING@ - Overwrites the existing Amazon Lex V2 bot
-    --     metadata and the locale being migrated. It doesn\'t change any other
-    --     locales in the Amazon Lex V2 bot. If the locale doesn\'t exist, a
-    --     new locale is created in the Amazon Lex V2 bot.
-    migrationStrategy :: Prelude.Maybe MigrationStrategy,
-    -- | The date and time that the migration started.
-    migrationTimestamp :: Prelude.Maybe Core.POSIX,
+  { -- | The IAM role that Amazon Lex uses to run the Amazon Lex V2 bot.
+    v2BotRole :: Prelude.Maybe Prelude.Text,
     -- | A list of alerts and warnings that indicate issues with the migration
     -- for the Amazon Lex V1 bot to Amazon Lex V2. You receive a warning when
     -- an Amazon Lex V1 feature has a different implementation if Amazon Lex
@@ -163,15 +151,27 @@ data GetMigrationResponse = GetMigrationResponse'
     -- may be alerts and warnings that need to be resolved to complete the
     -- migration.
     migrationStatus :: Prelude.Maybe MigrationStatus,
+    -- | The locale of the Amazon Lex V1 bot migrated to Amazon Lex V2.
+    v1BotLocale :: Prelude.Maybe Locale,
+    -- | The version of the Amazon Lex V1 bot migrated to Amazon Lex V2.
+    v1BotVersion :: Prelude.Maybe Prelude.Text,
+    -- | The strategy used to conduct the migration.
+    --
+    -- -   @CREATE_NEW@ - Creates a new Amazon Lex V2 bot and migrates the
+    --     Amazon Lex V1 bot to the new bot.
+    --
+    -- -   @UPDATE_EXISTING@ - Overwrites the existing Amazon Lex V2 bot
+    --     metadata and the locale being migrated. It doesn\'t change any other
+    --     locales in the Amazon Lex V2 bot. If the locale doesn\'t exist, a
+    --     new locale is created in the Amazon Lex V2 bot.
+    migrationStrategy :: Prelude.Maybe MigrationStrategy,
     -- | The unique identifier of the Amazon Lex V2 bot that the Amazon Lex V1 is
     -- being migrated to.
     v2BotId :: Prelude.Maybe Prelude.Text,
-    -- | The locale of the Amazon Lex V1 bot migrated to Amazon Lex V2.
-    v1BotLocale :: Prelude.Maybe Locale,
     -- | The name of the Amazon Lex V1 bot migrated to Amazon Lex V2.
     v1BotName :: Prelude.Maybe Prelude.Text,
-    -- | The IAM role that Amazon Lex uses to run the Amazon Lex V2 bot.
-    v2BotRole :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the migration started.
+    migrationTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The unique identifier of the migration. This is the same as the
     -- identifier used when calling the @GetMigration@ operation.
     migrationId :: Prelude.Maybe Prelude.Text,
@@ -188,19 +188,7 @@ data GetMigrationResponse = GetMigrationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'v1BotVersion', 'getMigrationResponse_v1BotVersion' - The version of the Amazon Lex V1 bot migrated to Amazon Lex V2.
---
--- 'migrationStrategy', 'getMigrationResponse_migrationStrategy' - The strategy used to conduct the migration.
---
--- -   @CREATE_NEW@ - Creates a new Amazon Lex V2 bot and migrates the
---     Amazon Lex V1 bot to the new bot.
---
--- -   @UPDATE_EXISTING@ - Overwrites the existing Amazon Lex V2 bot
---     metadata and the locale being migrated. It doesn\'t change any other
---     locales in the Amazon Lex V2 bot. If the locale doesn\'t exist, a
---     new locale is created in the Amazon Lex V2 bot.
---
--- 'migrationTimestamp', 'getMigrationResponse_migrationTimestamp' - The date and time that the migration started.
+-- 'v2BotRole', 'getMigrationResponse_v2BotRole' - The IAM role that Amazon Lex uses to run the Amazon Lex V2 bot.
 --
 -- 'alerts', 'getMigrationResponse_alerts' - A list of alerts and warnings that indicate issues with the migration
 -- for the Amazon Lex V1 bot to Amazon Lex V2. You receive a warning when
@@ -216,14 +204,26 @@ data GetMigrationResponse = GetMigrationResponse'
 -- may be alerts and warnings that need to be resolved to complete the
 -- migration.
 --
+-- 'v1BotLocale', 'getMigrationResponse_v1BotLocale' - The locale of the Amazon Lex V1 bot migrated to Amazon Lex V2.
+--
+-- 'v1BotVersion', 'getMigrationResponse_v1BotVersion' - The version of the Amazon Lex V1 bot migrated to Amazon Lex V2.
+--
+-- 'migrationStrategy', 'getMigrationResponse_migrationStrategy' - The strategy used to conduct the migration.
+--
+-- -   @CREATE_NEW@ - Creates a new Amazon Lex V2 bot and migrates the
+--     Amazon Lex V1 bot to the new bot.
+--
+-- -   @UPDATE_EXISTING@ - Overwrites the existing Amazon Lex V2 bot
+--     metadata and the locale being migrated. It doesn\'t change any other
+--     locales in the Amazon Lex V2 bot. If the locale doesn\'t exist, a
+--     new locale is created in the Amazon Lex V2 bot.
+--
 -- 'v2BotId', 'getMigrationResponse_v2BotId' - The unique identifier of the Amazon Lex V2 bot that the Amazon Lex V1 is
 -- being migrated to.
 --
--- 'v1BotLocale', 'getMigrationResponse_v1BotLocale' - The locale of the Amazon Lex V1 bot migrated to Amazon Lex V2.
---
 -- 'v1BotName', 'getMigrationResponse_v1BotName' - The name of the Amazon Lex V1 bot migrated to Amazon Lex V2.
 --
--- 'v2BotRole', 'getMigrationResponse_v2BotRole' - The IAM role that Amazon Lex uses to run the Amazon Lex V2 bot.
+-- 'migrationTimestamp', 'getMigrationResponse_migrationTimestamp' - The date and time that the migration started.
 --
 -- 'migrationId', 'getMigrationResponse_migrationId' - The unique identifier of the migration. This is the same as the
 -- identifier used when calling the @GetMigration@ operation.
@@ -235,39 +235,22 @@ newGetMigrationResponse ::
   GetMigrationResponse
 newGetMigrationResponse pHttpStatus_ =
   GetMigrationResponse'
-    { v1BotVersion =
-        Prelude.Nothing,
-      migrationStrategy = Prelude.Nothing,
-      migrationTimestamp = Prelude.Nothing,
+    { v2BotRole = Prelude.Nothing,
       alerts = Prelude.Nothing,
       migrationStatus = Prelude.Nothing,
-      v2BotId = Prelude.Nothing,
       v1BotLocale = Prelude.Nothing,
+      v1BotVersion = Prelude.Nothing,
+      migrationStrategy = Prelude.Nothing,
+      v2BotId = Prelude.Nothing,
       v1BotName = Prelude.Nothing,
-      v2BotRole = Prelude.Nothing,
+      migrationTimestamp = Prelude.Nothing,
       migrationId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The version of the Amazon Lex V1 bot migrated to Amazon Lex V2.
-getMigrationResponse_v1BotVersion :: Lens.Lens' GetMigrationResponse (Prelude.Maybe Prelude.Text)
-getMigrationResponse_v1BotVersion = Lens.lens (\GetMigrationResponse' {v1BotVersion} -> v1BotVersion) (\s@GetMigrationResponse' {} a -> s {v1BotVersion = a} :: GetMigrationResponse)
-
--- | The strategy used to conduct the migration.
---
--- -   @CREATE_NEW@ - Creates a new Amazon Lex V2 bot and migrates the
---     Amazon Lex V1 bot to the new bot.
---
--- -   @UPDATE_EXISTING@ - Overwrites the existing Amazon Lex V2 bot
---     metadata and the locale being migrated. It doesn\'t change any other
---     locales in the Amazon Lex V2 bot. If the locale doesn\'t exist, a
---     new locale is created in the Amazon Lex V2 bot.
-getMigrationResponse_migrationStrategy :: Lens.Lens' GetMigrationResponse (Prelude.Maybe MigrationStrategy)
-getMigrationResponse_migrationStrategy = Lens.lens (\GetMigrationResponse' {migrationStrategy} -> migrationStrategy) (\s@GetMigrationResponse' {} a -> s {migrationStrategy = a} :: GetMigrationResponse)
-
--- | The date and time that the migration started.
-getMigrationResponse_migrationTimestamp :: Lens.Lens' GetMigrationResponse (Prelude.Maybe Prelude.UTCTime)
-getMigrationResponse_migrationTimestamp = Lens.lens (\GetMigrationResponse' {migrationTimestamp} -> migrationTimestamp) (\s@GetMigrationResponse' {} a -> s {migrationTimestamp = a} :: GetMigrationResponse) Prelude.. Lens.mapping Core._Time
+-- | The IAM role that Amazon Lex uses to run the Amazon Lex V2 bot.
+getMigrationResponse_v2BotRole :: Lens.Lens' GetMigrationResponse (Prelude.Maybe Prelude.Text)
+getMigrationResponse_v2BotRole = Lens.lens (\GetMigrationResponse' {v2BotRole} -> v2BotRole) (\s@GetMigrationResponse' {} a -> s {v2BotRole = a} :: GetMigrationResponse)
 
 -- | A list of alerts and warnings that indicate issues with the migration
 -- for the Amazon Lex V1 bot to Amazon Lex V2. You receive a warning when
@@ -287,22 +270,38 @@ getMigrationResponse_alerts = Lens.lens (\GetMigrationResponse' {alerts} -> aler
 getMigrationResponse_migrationStatus :: Lens.Lens' GetMigrationResponse (Prelude.Maybe MigrationStatus)
 getMigrationResponse_migrationStatus = Lens.lens (\GetMigrationResponse' {migrationStatus} -> migrationStatus) (\s@GetMigrationResponse' {} a -> s {migrationStatus = a} :: GetMigrationResponse)
 
+-- | The locale of the Amazon Lex V1 bot migrated to Amazon Lex V2.
+getMigrationResponse_v1BotLocale :: Lens.Lens' GetMigrationResponse (Prelude.Maybe Locale)
+getMigrationResponse_v1BotLocale = Lens.lens (\GetMigrationResponse' {v1BotLocale} -> v1BotLocale) (\s@GetMigrationResponse' {} a -> s {v1BotLocale = a} :: GetMigrationResponse)
+
+-- | The version of the Amazon Lex V1 bot migrated to Amazon Lex V2.
+getMigrationResponse_v1BotVersion :: Lens.Lens' GetMigrationResponse (Prelude.Maybe Prelude.Text)
+getMigrationResponse_v1BotVersion = Lens.lens (\GetMigrationResponse' {v1BotVersion} -> v1BotVersion) (\s@GetMigrationResponse' {} a -> s {v1BotVersion = a} :: GetMigrationResponse)
+
+-- | The strategy used to conduct the migration.
+--
+-- -   @CREATE_NEW@ - Creates a new Amazon Lex V2 bot and migrates the
+--     Amazon Lex V1 bot to the new bot.
+--
+-- -   @UPDATE_EXISTING@ - Overwrites the existing Amazon Lex V2 bot
+--     metadata and the locale being migrated. It doesn\'t change any other
+--     locales in the Amazon Lex V2 bot. If the locale doesn\'t exist, a
+--     new locale is created in the Amazon Lex V2 bot.
+getMigrationResponse_migrationStrategy :: Lens.Lens' GetMigrationResponse (Prelude.Maybe MigrationStrategy)
+getMigrationResponse_migrationStrategy = Lens.lens (\GetMigrationResponse' {migrationStrategy} -> migrationStrategy) (\s@GetMigrationResponse' {} a -> s {migrationStrategy = a} :: GetMigrationResponse)
+
 -- | The unique identifier of the Amazon Lex V2 bot that the Amazon Lex V1 is
 -- being migrated to.
 getMigrationResponse_v2BotId :: Lens.Lens' GetMigrationResponse (Prelude.Maybe Prelude.Text)
 getMigrationResponse_v2BotId = Lens.lens (\GetMigrationResponse' {v2BotId} -> v2BotId) (\s@GetMigrationResponse' {} a -> s {v2BotId = a} :: GetMigrationResponse)
 
--- | The locale of the Amazon Lex V1 bot migrated to Amazon Lex V2.
-getMigrationResponse_v1BotLocale :: Lens.Lens' GetMigrationResponse (Prelude.Maybe Locale)
-getMigrationResponse_v1BotLocale = Lens.lens (\GetMigrationResponse' {v1BotLocale} -> v1BotLocale) (\s@GetMigrationResponse' {} a -> s {v1BotLocale = a} :: GetMigrationResponse)
-
 -- | The name of the Amazon Lex V1 bot migrated to Amazon Lex V2.
 getMigrationResponse_v1BotName :: Lens.Lens' GetMigrationResponse (Prelude.Maybe Prelude.Text)
 getMigrationResponse_v1BotName = Lens.lens (\GetMigrationResponse' {v1BotName} -> v1BotName) (\s@GetMigrationResponse' {} a -> s {v1BotName = a} :: GetMigrationResponse)
 
--- | The IAM role that Amazon Lex uses to run the Amazon Lex V2 bot.
-getMigrationResponse_v2BotRole :: Lens.Lens' GetMigrationResponse (Prelude.Maybe Prelude.Text)
-getMigrationResponse_v2BotRole = Lens.lens (\GetMigrationResponse' {v2BotRole} -> v2BotRole) (\s@GetMigrationResponse' {} a -> s {v2BotRole = a} :: GetMigrationResponse)
+-- | The date and time that the migration started.
+getMigrationResponse_migrationTimestamp :: Lens.Lens' GetMigrationResponse (Prelude.Maybe Prelude.UTCTime)
+getMigrationResponse_migrationTimestamp = Lens.lens (\GetMigrationResponse' {migrationTimestamp} -> migrationTimestamp) (\s@GetMigrationResponse' {} a -> s {migrationTimestamp = a} :: GetMigrationResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The unique identifier of the migration. This is the same as the
 -- identifier used when calling the @GetMigration@ operation.
@@ -315,14 +314,14 @@ getMigrationResponse_httpStatus = Lens.lens (\GetMigrationResponse' {httpStatus}
 
 instance Prelude.NFData GetMigrationResponse where
   rnf GetMigrationResponse' {..} =
-    Prelude.rnf v1BotVersion
-      `Prelude.seq` Prelude.rnf migrationStrategy
-      `Prelude.seq` Prelude.rnf migrationTimestamp
+    Prelude.rnf v2BotRole
       `Prelude.seq` Prelude.rnf alerts
       `Prelude.seq` Prelude.rnf migrationStatus
-      `Prelude.seq` Prelude.rnf v2BotId
       `Prelude.seq` Prelude.rnf v1BotLocale
+      `Prelude.seq` Prelude.rnf v1BotVersion
+      `Prelude.seq` Prelude.rnf migrationStrategy
+      `Prelude.seq` Prelude.rnf v2BotId
       `Prelude.seq` Prelude.rnf v1BotName
-      `Prelude.seq` Prelude.rnf v2BotRole
+      `Prelude.seq` Prelude.rnf migrationTimestamp
       `Prelude.seq` Prelude.rnf migrationId
       `Prelude.seq` Prelude.rnf httpStatus

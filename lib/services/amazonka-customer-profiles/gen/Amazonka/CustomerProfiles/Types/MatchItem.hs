@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMatchItem' smart constructor.
 data MatchItem = MatchItem'
-  { -- | A list of identifiers for profiles that match.
-    profileIds :: Prelude.Maybe [Prelude.Text],
-    -- | The unique identifiers for this group of profiles that match.
-    matchId :: Prelude.Maybe Prelude.Text
+  { -- | The unique identifiers for this group of profiles that match.
+    matchId :: Prelude.Maybe Prelude.Text,
+    -- | A list of identifiers for profiles that match.
+    profileIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data MatchItem = MatchItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'profileIds', 'matchItem_profileIds' - A list of identifiers for profiles that match.
---
 -- 'matchId', 'matchItem_matchId' - The unique identifiers for this group of profiles that match.
+--
+-- 'profileIds', 'matchItem_profileIds' - A list of identifiers for profiles that match.
 newMatchItem ::
   MatchItem
 newMatchItem =
   MatchItem'
-    { profileIds = Prelude.Nothing,
-      matchId = Prelude.Nothing
+    { matchId = Prelude.Nothing,
+      profileIds = Prelude.Nothing
     }
-
--- | A list of identifiers for profiles that match.
-matchItem_profileIds :: Lens.Lens' MatchItem (Prelude.Maybe [Prelude.Text])
-matchItem_profileIds = Lens.lens (\MatchItem' {profileIds} -> profileIds) (\s@MatchItem' {} a -> s {profileIds = a} :: MatchItem) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique identifiers for this group of profiles that match.
 matchItem_matchId :: Lens.Lens' MatchItem (Prelude.Maybe Prelude.Text)
 matchItem_matchId = Lens.lens (\MatchItem' {matchId} -> matchId) (\s@MatchItem' {} a -> s {matchId = a} :: MatchItem)
+
+-- | A list of identifiers for profiles that match.
+matchItem_profileIds :: Lens.Lens' MatchItem (Prelude.Maybe [Prelude.Text])
+matchItem_profileIds = Lens.lens (\MatchItem' {profileIds} -> profileIds) (\s@MatchItem' {} a -> s {profileIds = a} :: MatchItem) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON MatchItem where
   parseJSON =
@@ -67,16 +67,16 @@ instance Core.FromJSON MatchItem where
       "MatchItem"
       ( \x ->
           MatchItem'
-            Prelude.<$> (x Core..:? "ProfileIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "MatchId")
+            Prelude.<$> (x Core..:? "MatchId")
+            Prelude.<*> (x Core..:? "ProfileIds" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable MatchItem where
   hashWithSalt _salt MatchItem' {..} =
-    _salt `Prelude.hashWithSalt` profileIds
-      `Prelude.hashWithSalt` matchId
+    _salt `Prelude.hashWithSalt` matchId
+      `Prelude.hashWithSalt` profileIds
 
 instance Prelude.NFData MatchItem where
   rnf MatchItem' {..} =
-    Prelude.rnf profileIds
-      `Prelude.seq` Prelude.rnf matchId
+    Prelude.rnf matchId
+      `Prelude.seq` Prelude.rnf profileIds

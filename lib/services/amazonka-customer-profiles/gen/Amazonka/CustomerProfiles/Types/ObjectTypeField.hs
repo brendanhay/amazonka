@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newObjectTypeField' smart constructor.
 data ObjectTypeField = ObjectTypeField'
-  { -- | A field of a ProfileObject. For example: _source.FirstName, where
+  { -- | The location of the data in the standard ProfileObject model. For
+    -- example: _profile.Address.PostalCode.
+    target :: Prelude.Maybe Prelude.Text,
+    -- | A field of a ProfileObject. For example: _source.FirstName, where
     -- “_source” is a ProfileObjectType of a Zendesk user and “FirstName” is a
     -- field in that ObjectType.
     source :: Prelude.Maybe Prelude.Text,
     -- | The content type of the field. Used for determining equality when
     -- searching.
-    contentType :: Prelude.Maybe FieldContentType,
-    -- | The location of the data in the standard ProfileObject model. For
-    -- example: _profile.Address.PostalCode.
-    target :: Prelude.Maybe Prelude.Text
+    contentType :: Prelude.Maybe FieldContentType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,23 +49,28 @@ data ObjectTypeField = ObjectTypeField'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'target', 'objectTypeField_target' - The location of the data in the standard ProfileObject model. For
+-- example: _profile.Address.PostalCode.
+--
 -- 'source', 'objectTypeField_source' - A field of a ProfileObject. For example: _source.FirstName, where
 -- “_source” is a ProfileObjectType of a Zendesk user and “FirstName” is a
 -- field in that ObjectType.
 --
 -- 'contentType', 'objectTypeField_contentType' - The content type of the field. Used for determining equality when
 -- searching.
---
--- 'target', 'objectTypeField_target' - The location of the data in the standard ProfileObject model. For
--- example: _profile.Address.PostalCode.
 newObjectTypeField ::
   ObjectTypeField
 newObjectTypeField =
   ObjectTypeField'
-    { source = Prelude.Nothing,
-      contentType = Prelude.Nothing,
-      target = Prelude.Nothing
+    { target = Prelude.Nothing,
+      source = Prelude.Nothing,
+      contentType = Prelude.Nothing
     }
+
+-- | The location of the data in the standard ProfileObject model. For
+-- example: _profile.Address.PostalCode.
+objectTypeField_target :: Lens.Lens' ObjectTypeField (Prelude.Maybe Prelude.Text)
+objectTypeField_target = Lens.lens (\ObjectTypeField' {target} -> target) (\s@ObjectTypeField' {} a -> s {target = a} :: ObjectTypeField)
 
 -- | A field of a ProfileObject. For example: _source.FirstName, where
 -- “_source” is a ProfileObjectType of a Zendesk user and “FirstName” is a
@@ -78,40 +83,35 @@ objectTypeField_source = Lens.lens (\ObjectTypeField' {source} -> source) (\s@Ob
 objectTypeField_contentType :: Lens.Lens' ObjectTypeField (Prelude.Maybe FieldContentType)
 objectTypeField_contentType = Lens.lens (\ObjectTypeField' {contentType} -> contentType) (\s@ObjectTypeField' {} a -> s {contentType = a} :: ObjectTypeField)
 
--- | The location of the data in the standard ProfileObject model. For
--- example: _profile.Address.PostalCode.
-objectTypeField_target :: Lens.Lens' ObjectTypeField (Prelude.Maybe Prelude.Text)
-objectTypeField_target = Lens.lens (\ObjectTypeField' {target} -> target) (\s@ObjectTypeField' {} a -> s {target = a} :: ObjectTypeField)
-
 instance Core.FromJSON ObjectTypeField where
   parseJSON =
     Core.withObject
       "ObjectTypeField"
       ( \x ->
           ObjectTypeField'
-            Prelude.<$> (x Core..:? "Source")
+            Prelude.<$> (x Core..:? "Target")
+            Prelude.<*> (x Core..:? "Source")
             Prelude.<*> (x Core..:? "ContentType")
-            Prelude.<*> (x Core..:? "Target")
       )
 
 instance Prelude.Hashable ObjectTypeField where
   hashWithSalt _salt ObjectTypeField' {..} =
-    _salt `Prelude.hashWithSalt` source
+    _salt `Prelude.hashWithSalt` target
+      `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` contentType
-      `Prelude.hashWithSalt` target
 
 instance Prelude.NFData ObjectTypeField where
   rnf ObjectTypeField' {..} =
-    Prelude.rnf source
+    Prelude.rnf target
+      `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf contentType
-      `Prelude.seq` Prelude.rnf target
 
 instance Core.ToJSON ObjectTypeField where
   toJSON ObjectTypeField' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Source" Core..=) Prelude.<$> source,
-            ("ContentType" Core..=) Prelude.<$> contentType,
-            ("Target" Core..=) Prelude.<$> target
+          [ ("Target" Core..=) Prelude.<$> target,
+            ("Source" Core..=) Prelude.<$> source,
+            ("ContentType" Core..=) Prelude.<$> contentType
           ]
       )

@@ -32,12 +32,12 @@ data DomainStats = DomainStats'
     -- profile counts as two profiles. If you have more than 200 objects, that
     -- profile counts as three, and so on.
     meteringProfileCount :: Prelude.Maybe Prelude.Integer,
-    -- | The total size, in bytes, of all objects in the domain.
-    totalSize :: Prelude.Maybe Prelude.Integer,
     -- | The total number of profiles currently in the domain.
     profileCount :: Prelude.Maybe Prelude.Integer,
     -- | The total number of objects in domain.
-    objectCount :: Prelude.Maybe Prelude.Integer
+    objectCount :: Prelude.Maybe Prelude.Integer,
+    -- | The total size, in bytes, of all objects in the domain.
+    totalSize :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,20 +54,20 @@ data DomainStats = DomainStats'
 -- profile counts as two profiles. If you have more than 200 objects, that
 -- profile counts as three, and so on.
 --
--- 'totalSize', 'domainStats_totalSize' - The total size, in bytes, of all objects in the domain.
---
 -- 'profileCount', 'domainStats_profileCount' - The total number of profiles currently in the domain.
 --
 -- 'objectCount', 'domainStats_objectCount' - The total number of objects in domain.
+--
+-- 'totalSize', 'domainStats_totalSize' - The total size, in bytes, of all objects in the domain.
 newDomainStats ::
   DomainStats
 newDomainStats =
   DomainStats'
     { meteringProfileCount =
         Prelude.Nothing,
-      totalSize = Prelude.Nothing,
       profileCount = Prelude.Nothing,
-      objectCount = Prelude.Nothing
+      objectCount = Prelude.Nothing,
+      totalSize = Prelude.Nothing
     }
 
 -- | The number of profiles that you are currently paying for in the domain.
@@ -77,10 +77,6 @@ newDomainStats =
 domainStats_meteringProfileCount :: Lens.Lens' DomainStats (Prelude.Maybe Prelude.Integer)
 domainStats_meteringProfileCount = Lens.lens (\DomainStats' {meteringProfileCount} -> meteringProfileCount) (\s@DomainStats' {} a -> s {meteringProfileCount = a} :: DomainStats)
 
--- | The total size, in bytes, of all objects in the domain.
-domainStats_totalSize :: Lens.Lens' DomainStats (Prelude.Maybe Prelude.Integer)
-domainStats_totalSize = Lens.lens (\DomainStats' {totalSize} -> totalSize) (\s@DomainStats' {} a -> s {totalSize = a} :: DomainStats)
-
 -- | The total number of profiles currently in the domain.
 domainStats_profileCount :: Lens.Lens' DomainStats (Prelude.Maybe Prelude.Integer)
 domainStats_profileCount = Lens.lens (\DomainStats' {profileCount} -> profileCount) (\s@DomainStats' {} a -> s {profileCount = a} :: DomainStats)
@@ -89,6 +85,10 @@ domainStats_profileCount = Lens.lens (\DomainStats' {profileCount} -> profileCou
 domainStats_objectCount :: Lens.Lens' DomainStats (Prelude.Maybe Prelude.Integer)
 domainStats_objectCount = Lens.lens (\DomainStats' {objectCount} -> objectCount) (\s@DomainStats' {} a -> s {objectCount = a} :: DomainStats)
 
+-- | The total size, in bytes, of all objects in the domain.
+domainStats_totalSize :: Lens.Lens' DomainStats (Prelude.Maybe Prelude.Integer)
+domainStats_totalSize = Lens.lens (\DomainStats' {totalSize} -> totalSize) (\s@DomainStats' {} a -> s {totalSize = a} :: DomainStats)
+
 instance Core.FromJSON DomainStats where
   parseJSON =
     Core.withObject
@@ -96,21 +96,21 @@ instance Core.FromJSON DomainStats where
       ( \x ->
           DomainStats'
             Prelude.<$> (x Core..:? "MeteringProfileCount")
-            Prelude.<*> (x Core..:? "TotalSize")
             Prelude.<*> (x Core..:? "ProfileCount")
             Prelude.<*> (x Core..:? "ObjectCount")
+            Prelude.<*> (x Core..:? "TotalSize")
       )
 
 instance Prelude.Hashable DomainStats where
   hashWithSalt _salt DomainStats' {..} =
     _salt `Prelude.hashWithSalt` meteringProfileCount
-      `Prelude.hashWithSalt` totalSize
       `Prelude.hashWithSalt` profileCount
       `Prelude.hashWithSalt` objectCount
+      `Prelude.hashWithSalt` totalSize
 
 instance Prelude.NFData DomainStats where
   rnf DomainStats' {..} =
     Prelude.rnf meteringProfileCount
-      `Prelude.seq` Prelude.rnf totalSize
       `Prelude.seq` Prelude.rnf profileCount
       `Prelude.seq` Prelude.rnf objectCount
+      `Prelude.seq` Prelude.rnf totalSize

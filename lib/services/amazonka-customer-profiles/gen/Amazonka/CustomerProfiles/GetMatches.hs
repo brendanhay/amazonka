@@ -77,10 +77,10 @@ module Amazonka.CustomerProfiles.GetMatches
     newGetMatchesResponse,
 
     -- * Response Lenses
-    getMatchesResponse_matches,
-    getMatchesResponse_matchGenerationDate,
     getMatchesResponse_nextToken,
+    getMatchesResponse_matches,
     getMatchesResponse_potentialMatches,
+    getMatchesResponse_matchGenerationDate,
     getMatchesResponse_httpStatus,
   )
 where
@@ -152,10 +152,10 @@ instance Core.AWSRequest GetMatches where
     Response.receiveJSON
       ( \s h x ->
           GetMatchesResponse'
-            Prelude.<$> (x Core..?> "Matches" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "MatchGenerationDate")
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Matches" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "PotentialMatches")
+            Prelude.<*> (x Core..?> "MatchGenerationDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -196,15 +196,15 @@ instance Core.ToQuery GetMatches where
 
 -- | /See:/ 'newGetMatchesResponse' smart constructor.
 data GetMatchesResponse = GetMatchesResponse'
-  { -- | The list of matched profiles for this instance.
-    matches :: Prelude.Maybe [MatchItem],
-    -- | The timestamp this version of Match Result generated.
-    matchGenerationDate :: Prelude.Maybe Core.POSIX,
-    -- | If there are additional results, this is the token for the next set of
+  { -- | If there are additional results, this is the token for the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of matched profiles for this instance.
+    matches :: Prelude.Maybe [MatchItem],
     -- | The number of potential matches found.
     potentialMatches :: Prelude.Maybe Prelude.Natural,
+    -- | The timestamp this version of Match Result generated.
+    matchGenerationDate :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -218,14 +218,14 @@ data GetMatchesResponse = GetMatchesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'matches', 'getMatchesResponse_matches' - The list of matched profiles for this instance.
---
--- 'matchGenerationDate', 'getMatchesResponse_matchGenerationDate' - The timestamp this version of Match Result generated.
---
 -- 'nextToken', 'getMatchesResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
 --
+-- 'matches', 'getMatchesResponse_matches' - The list of matched profiles for this instance.
+--
 -- 'potentialMatches', 'getMatchesResponse_potentialMatches' - The number of potential matches found.
+--
+-- 'matchGenerationDate', 'getMatchesResponse_matchGenerationDate' - The timestamp this version of Match Result generated.
 --
 -- 'httpStatus', 'getMatchesResponse_httpStatus' - The response's http status code.
 newGetMatchesResponse ::
@@ -234,29 +234,29 @@ newGetMatchesResponse ::
   GetMatchesResponse
 newGetMatchesResponse pHttpStatus_ =
   GetMatchesResponse'
-    { matches = Prelude.Nothing,
-      matchGenerationDate = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      matches = Prelude.Nothing,
       potentialMatches = Prelude.Nothing,
+      matchGenerationDate = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The list of matched profiles for this instance.
-getMatchesResponse_matches :: Lens.Lens' GetMatchesResponse (Prelude.Maybe [MatchItem])
-getMatchesResponse_matches = Lens.lens (\GetMatchesResponse' {matches} -> matches) (\s@GetMatchesResponse' {} a -> s {matches = a} :: GetMatchesResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The timestamp this version of Match Result generated.
-getMatchesResponse_matchGenerationDate :: Lens.Lens' GetMatchesResponse (Prelude.Maybe Prelude.UTCTime)
-getMatchesResponse_matchGenerationDate = Lens.lens (\GetMatchesResponse' {matchGenerationDate} -> matchGenerationDate) (\s@GetMatchesResponse' {} a -> s {matchGenerationDate = a} :: GetMatchesResponse) Prelude.. Lens.mapping Core._Time
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
 getMatchesResponse_nextToken :: Lens.Lens' GetMatchesResponse (Prelude.Maybe Prelude.Text)
 getMatchesResponse_nextToken = Lens.lens (\GetMatchesResponse' {nextToken} -> nextToken) (\s@GetMatchesResponse' {} a -> s {nextToken = a} :: GetMatchesResponse)
 
+-- | The list of matched profiles for this instance.
+getMatchesResponse_matches :: Lens.Lens' GetMatchesResponse (Prelude.Maybe [MatchItem])
+getMatchesResponse_matches = Lens.lens (\GetMatchesResponse' {matches} -> matches) (\s@GetMatchesResponse' {} a -> s {matches = a} :: GetMatchesResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The number of potential matches found.
 getMatchesResponse_potentialMatches :: Lens.Lens' GetMatchesResponse (Prelude.Maybe Prelude.Natural)
 getMatchesResponse_potentialMatches = Lens.lens (\GetMatchesResponse' {potentialMatches} -> potentialMatches) (\s@GetMatchesResponse' {} a -> s {potentialMatches = a} :: GetMatchesResponse)
+
+-- | The timestamp this version of Match Result generated.
+getMatchesResponse_matchGenerationDate :: Lens.Lens' GetMatchesResponse (Prelude.Maybe Prelude.UTCTime)
+getMatchesResponse_matchGenerationDate = Lens.lens (\GetMatchesResponse' {matchGenerationDate} -> matchGenerationDate) (\s@GetMatchesResponse' {} a -> s {matchGenerationDate = a} :: GetMatchesResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
 getMatchesResponse_httpStatus :: Lens.Lens' GetMatchesResponse Prelude.Int
@@ -264,8 +264,8 @@ getMatchesResponse_httpStatus = Lens.lens (\GetMatchesResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetMatchesResponse where
   rnf GetMatchesResponse' {..} =
-    Prelude.rnf matches
-      `Prelude.seq` Prelude.rnf matchGenerationDate
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf matches
       `Prelude.seq` Prelude.rnf potentialMatches
+      `Prelude.seq` Prelude.rnf matchGenerationDate
       `Prelude.seq` Prelude.rnf httpStatus

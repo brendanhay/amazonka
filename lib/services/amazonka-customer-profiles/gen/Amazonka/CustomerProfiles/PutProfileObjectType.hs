@@ -27,13 +27,13 @@ module Amazonka.CustomerProfiles.PutProfileObjectType
     newPutProfileObjectType,
 
     -- * Request Lenses
-    putProfileObjectType_expirationDays,
+    putProfileObjectType_tags,
+    putProfileObjectType_fields,
     putProfileObjectType_templateId,
+    putProfileObjectType_expirationDays,
     putProfileObjectType_keys,
     putProfileObjectType_encryptionKey,
     putProfileObjectType_allowProfileCreation,
-    putProfileObjectType_fields,
-    putProfileObjectType_tags,
     putProfileObjectType_domainName,
     putProfileObjectType_objectTypeName,
     putProfileObjectType_description,
@@ -43,15 +43,15 @@ module Amazonka.CustomerProfiles.PutProfileObjectType
     newPutProfileObjectTypeResponse,
 
     -- * Response Lenses
-    putProfileObjectTypeResponse_expirationDays,
+    putProfileObjectTypeResponse_tags,
     putProfileObjectTypeResponse_lastUpdatedAt,
-    putProfileObjectTypeResponse_createdAt,
+    putProfileObjectTypeResponse_fields,
     putProfileObjectTypeResponse_templateId,
+    putProfileObjectTypeResponse_expirationDays,
     putProfileObjectTypeResponse_keys,
     putProfileObjectTypeResponse_encryptionKey,
+    putProfileObjectTypeResponse_createdAt,
     putProfileObjectTypeResponse_allowProfileCreation,
-    putProfileObjectTypeResponse_fields,
-    putProfileObjectTypeResponse_tags,
     putProfileObjectTypeResponse_httpStatus,
     putProfileObjectTypeResponse_objectTypeName,
     putProfileObjectTypeResponse_description,
@@ -67,10 +67,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutProfileObjectType' smart constructor.
 data PutProfileObjectType = PutProfileObjectType'
-  { -- | The number of days until the data in the object expires.
-    expirationDays :: Prelude.Maybe Prelude.Natural,
+  { -- | The tags used to organize, track, or control access for this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A map of the name and ObjectType field.
+    fields :: Prelude.Maybe (Prelude.HashMap Prelude.Text ObjectTypeField),
     -- | A unique identifier for the object template.
     templateId :: Prelude.Maybe Prelude.Text,
+    -- | The number of days until the data in the object expires.
+    expirationDays :: Prelude.Maybe Prelude.Natural,
     -- | A list of unique keys that can be used to map data to the profile.
     keys :: Prelude.Maybe (Prelude.HashMap Prelude.Text [ObjectTypeKey]),
     -- | The customer-provided key to encrypt the profile object that will be
@@ -83,10 +87,6 @@ data PutProfileObjectType = PutProfileObjectType'
     -- If it is set to @TRUE@, and if no match is found, then the service
     -- creates a new standard profile.
     allowProfileCreation :: Prelude.Maybe Prelude.Bool,
-    -- | A map of the name and ObjectType field.
-    fields :: Prelude.Maybe (Prelude.HashMap Prelude.Text ObjectTypeField),
-    -- | The tags used to organize, track, or control access for this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The unique name of the domain.
     domainName :: Prelude.Text,
     -- | The name of the profile object type.
@@ -104,9 +104,13 @@ data PutProfileObjectType = PutProfileObjectType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expirationDays', 'putProfileObjectType_expirationDays' - The number of days until the data in the object expires.
+-- 'tags', 'putProfileObjectType_tags' - The tags used to organize, track, or control access for this resource.
+--
+-- 'fields', 'putProfileObjectType_fields' - A map of the name and ObjectType field.
 --
 -- 'templateId', 'putProfileObjectType_templateId' - A unique identifier for the object template.
+--
+-- 'expirationDays', 'putProfileObjectType_expirationDays' - The number of days until the data in the object expires.
 --
 -- 'keys', 'putProfileObjectType_keys' - A list of unique keys that can be used to map data to the profile.
 --
@@ -119,10 +123,6 @@ data PutProfileObjectType = PutProfileObjectType'
 -- to fetch a standard profile and associate this object with the profile.
 -- If it is set to @TRUE@, and if no match is found, then the service
 -- creates a new standard profile.
---
--- 'fields', 'putProfileObjectType_fields' - A map of the name and ObjectType field.
---
--- 'tags', 'putProfileObjectType_tags' - The tags used to organize, track, or control access for this resource.
 --
 -- 'domainName', 'putProfileObjectType_domainName' - The unique name of the domain.
 --
@@ -142,26 +142,33 @@ newPutProfileObjectType
   pObjectTypeName_
   pDescription_ =
     PutProfileObjectType'
-      { expirationDays =
-          Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        fields = Prelude.Nothing,
         templateId = Prelude.Nothing,
+        expirationDays = Prelude.Nothing,
         keys = Prelude.Nothing,
         encryptionKey = Prelude.Nothing,
         allowProfileCreation = Prelude.Nothing,
-        fields = Prelude.Nothing,
-        tags = Prelude.Nothing,
         domainName = pDomainName_,
         objectTypeName = pObjectTypeName_,
         description = pDescription_
       }
 
--- | The number of days until the data in the object expires.
-putProfileObjectType_expirationDays :: Lens.Lens' PutProfileObjectType (Prelude.Maybe Prelude.Natural)
-putProfileObjectType_expirationDays = Lens.lens (\PutProfileObjectType' {expirationDays} -> expirationDays) (\s@PutProfileObjectType' {} a -> s {expirationDays = a} :: PutProfileObjectType)
+-- | The tags used to organize, track, or control access for this resource.
+putProfileObjectType_tags :: Lens.Lens' PutProfileObjectType (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+putProfileObjectType_tags = Lens.lens (\PutProfileObjectType' {tags} -> tags) (\s@PutProfileObjectType' {} a -> s {tags = a} :: PutProfileObjectType) Prelude.. Lens.mapping Lens.coerced
+
+-- | A map of the name and ObjectType field.
+putProfileObjectType_fields :: Lens.Lens' PutProfileObjectType (Prelude.Maybe (Prelude.HashMap Prelude.Text ObjectTypeField))
+putProfileObjectType_fields = Lens.lens (\PutProfileObjectType' {fields} -> fields) (\s@PutProfileObjectType' {} a -> s {fields = a} :: PutProfileObjectType) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique identifier for the object template.
 putProfileObjectType_templateId :: Lens.Lens' PutProfileObjectType (Prelude.Maybe Prelude.Text)
 putProfileObjectType_templateId = Lens.lens (\PutProfileObjectType' {templateId} -> templateId) (\s@PutProfileObjectType' {} a -> s {templateId = a} :: PutProfileObjectType)
+
+-- | The number of days until the data in the object expires.
+putProfileObjectType_expirationDays :: Lens.Lens' PutProfileObjectType (Prelude.Maybe Prelude.Natural)
+putProfileObjectType_expirationDays = Lens.lens (\PutProfileObjectType' {expirationDays} -> expirationDays) (\s@PutProfileObjectType' {} a -> s {expirationDays = a} :: PutProfileObjectType)
 
 -- | A list of unique keys that can be used to map data to the profile.
 putProfileObjectType_keys :: Lens.Lens' PutProfileObjectType (Prelude.Maybe (Prelude.HashMap Prelude.Text [ObjectTypeKey]))
@@ -180,14 +187,6 @@ putProfileObjectType_encryptionKey = Lens.lens (\PutProfileObjectType' {encrypti
 -- creates a new standard profile.
 putProfileObjectType_allowProfileCreation :: Lens.Lens' PutProfileObjectType (Prelude.Maybe Prelude.Bool)
 putProfileObjectType_allowProfileCreation = Lens.lens (\PutProfileObjectType' {allowProfileCreation} -> allowProfileCreation) (\s@PutProfileObjectType' {} a -> s {allowProfileCreation = a} :: PutProfileObjectType)
-
--- | A map of the name and ObjectType field.
-putProfileObjectType_fields :: Lens.Lens' PutProfileObjectType (Prelude.Maybe (Prelude.HashMap Prelude.Text ObjectTypeField))
-putProfileObjectType_fields = Lens.lens (\PutProfileObjectType' {fields} -> fields) (\s@PutProfileObjectType' {} a -> s {fields = a} :: PutProfileObjectType) Prelude.. Lens.mapping Lens.coerced
-
--- | The tags used to organize, track, or control access for this resource.
-putProfileObjectType_tags :: Lens.Lens' PutProfileObjectType (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-putProfileObjectType_tags = Lens.lens (\PutProfileObjectType' {tags} -> tags) (\s@PutProfileObjectType' {} a -> s {tags = a} :: PutProfileObjectType) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique name of the domain.
 putProfileObjectType_domainName :: Lens.Lens' PutProfileObjectType Prelude.Text
@@ -210,15 +209,15 @@ instance Core.AWSRequest PutProfileObjectType where
     Response.receiveJSON
       ( \s h x ->
           PutProfileObjectTypeResponse'
-            Prelude.<$> (x Core..?> "ExpirationDays")
+            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "LastUpdatedAt")
-            Prelude.<*> (x Core..?> "CreatedAt")
+            Prelude.<*> (x Core..?> "Fields" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "TemplateId")
+            Prelude.<*> (x Core..?> "ExpirationDays")
             Prelude.<*> (x Core..?> "Keys" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "EncryptionKey")
+            Prelude.<*> (x Core..?> "CreatedAt")
             Prelude.<*> (x Core..?> "AllowProfileCreation")
-            Prelude.<*> (x Core..?> "Fields" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "ObjectTypeName")
             Prelude.<*> (x Core..:> "Description")
@@ -226,26 +225,26 @@ instance Core.AWSRequest PutProfileObjectType where
 
 instance Prelude.Hashable PutProfileObjectType where
   hashWithSalt _salt PutProfileObjectType' {..} =
-    _salt `Prelude.hashWithSalt` expirationDays
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` fields
       `Prelude.hashWithSalt` templateId
+      `Prelude.hashWithSalt` expirationDays
       `Prelude.hashWithSalt` keys
       `Prelude.hashWithSalt` encryptionKey
       `Prelude.hashWithSalt` allowProfileCreation
-      `Prelude.hashWithSalt` fields
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` objectTypeName
       `Prelude.hashWithSalt` description
 
 instance Prelude.NFData PutProfileObjectType where
   rnf PutProfileObjectType' {..} =
-    Prelude.rnf expirationDays
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf fields
       `Prelude.seq` Prelude.rnf templateId
+      `Prelude.seq` Prelude.rnf expirationDays
       `Prelude.seq` Prelude.rnf keys
       `Prelude.seq` Prelude.rnf encryptionKey
       `Prelude.seq` Prelude.rnf allowProfileCreation
-      `Prelude.seq` Prelude.rnf fields
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf objectTypeName
       `Prelude.seq` Prelude.rnf description
@@ -265,15 +264,15 @@ instance Core.ToJSON PutProfileObjectType where
   toJSON PutProfileObjectType' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ExpirationDays" Core..=)
-              Prelude.<$> expirationDays,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Fields" Core..=) Prelude.<$> fields,
             ("TemplateId" Core..=) Prelude.<$> templateId,
+            ("ExpirationDays" Core..=)
+              Prelude.<$> expirationDays,
             ("Keys" Core..=) Prelude.<$> keys,
             ("EncryptionKey" Core..=) Prelude.<$> encryptionKey,
             ("AllowProfileCreation" Core..=)
               Prelude.<$> allowProfileCreation,
-            ("Fields" Core..=) Prelude.<$> fields,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("Description" Core..= description)
           ]
       )
@@ -292,19 +291,23 @@ instance Core.ToQuery PutProfileObjectType where
 
 -- | /See:/ 'newPutProfileObjectTypeResponse' smart constructor.
 data PutProfileObjectTypeResponse = PutProfileObjectTypeResponse'
-  { -- | The number of days until the data in the object expires.
-    expirationDays :: Prelude.Maybe Prelude.Natural,
+  { -- | The tags used to organize, track, or control access for this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The timestamp of when the domain was most recently edited.
     lastUpdatedAt :: Prelude.Maybe Core.POSIX,
-    -- | The timestamp of when the domain was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    -- | A map of the name and ObjectType field.
+    fields :: Prelude.Maybe (Prelude.HashMap Prelude.Text ObjectTypeField),
     -- | A unique identifier for the object template.
     templateId :: Prelude.Maybe Prelude.Text,
+    -- | The number of days until the data in the object expires.
+    expirationDays :: Prelude.Maybe Prelude.Natural,
     -- | A list of unique keys that can be used to map data to the profile.
     keys :: Prelude.Maybe (Prelude.HashMap Prelude.Text [ObjectTypeKey]),
     -- | The customer-provided key to encrypt the profile object that will be
     -- created in this profile object type.
     encryptionKey :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp of when the domain was created.
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | Indicates whether a profile should be created when data is received if
     -- one doesn’t exist for an object of this type. The default is @FALSE@. If
     -- the AllowProfileCreation flag is set to @FALSE@, then the service tries
@@ -312,10 +315,6 @@ data PutProfileObjectTypeResponse = PutProfileObjectTypeResponse'
     -- If it is set to @TRUE@, and if no match is found, then the service
     -- creates a new standard profile.
     allowProfileCreation :: Prelude.Maybe Prelude.Bool,
-    -- | A map of the name and ObjectType field.
-    fields :: Prelude.Maybe (Prelude.HashMap Prelude.Text ObjectTypeField),
-    -- | The tags used to organize, track, or control access for this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The name of the profile object type.
@@ -333,18 +332,22 @@ data PutProfileObjectTypeResponse = PutProfileObjectTypeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expirationDays', 'putProfileObjectTypeResponse_expirationDays' - The number of days until the data in the object expires.
+-- 'tags', 'putProfileObjectTypeResponse_tags' - The tags used to organize, track, or control access for this resource.
 --
 -- 'lastUpdatedAt', 'putProfileObjectTypeResponse_lastUpdatedAt' - The timestamp of when the domain was most recently edited.
 --
--- 'createdAt', 'putProfileObjectTypeResponse_createdAt' - The timestamp of when the domain was created.
+-- 'fields', 'putProfileObjectTypeResponse_fields' - A map of the name and ObjectType field.
 --
 -- 'templateId', 'putProfileObjectTypeResponse_templateId' - A unique identifier for the object template.
+--
+-- 'expirationDays', 'putProfileObjectTypeResponse_expirationDays' - The number of days until the data in the object expires.
 --
 -- 'keys', 'putProfileObjectTypeResponse_keys' - A list of unique keys that can be used to map data to the profile.
 --
 -- 'encryptionKey', 'putProfileObjectTypeResponse_encryptionKey' - The customer-provided key to encrypt the profile object that will be
 -- created in this profile object type.
+--
+-- 'createdAt', 'putProfileObjectTypeResponse_createdAt' - The timestamp of when the domain was created.
 --
 -- 'allowProfileCreation', 'putProfileObjectTypeResponse_allowProfileCreation' - Indicates whether a profile should be created when data is received if
 -- one doesn’t exist for an object of this type. The default is @FALSE@. If
@@ -352,10 +355,6 @@ data PutProfileObjectTypeResponse = PutProfileObjectTypeResponse'
 -- to fetch a standard profile and associate this object with the profile.
 -- If it is set to @TRUE@, and if no match is found, then the service
 -- creates a new standard profile.
---
--- 'fields', 'putProfileObjectTypeResponse_fields' - A map of the name and ObjectType field.
---
--- 'tags', 'putProfileObjectTypeResponse_tags' - The tags used to organize, track, or control access for this resource.
 --
 -- 'httpStatus', 'putProfileObjectTypeResponse_httpStatus' - The response's http status code.
 --
@@ -375,36 +374,40 @@ newPutProfileObjectTypeResponse
   pObjectTypeName_
   pDescription_ =
     PutProfileObjectTypeResponse'
-      { expirationDays =
+      { tags =
           Prelude.Nothing,
         lastUpdatedAt = Prelude.Nothing,
-        createdAt = Prelude.Nothing,
+        fields = Prelude.Nothing,
         templateId = Prelude.Nothing,
+        expirationDays = Prelude.Nothing,
         keys = Prelude.Nothing,
         encryptionKey = Prelude.Nothing,
+        createdAt = Prelude.Nothing,
         allowProfileCreation = Prelude.Nothing,
-        fields = Prelude.Nothing,
-        tags = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         objectTypeName = pObjectTypeName_,
         description = pDescription_
       }
 
--- | The number of days until the data in the object expires.
-putProfileObjectTypeResponse_expirationDays :: Lens.Lens' PutProfileObjectTypeResponse (Prelude.Maybe Prelude.Natural)
-putProfileObjectTypeResponse_expirationDays = Lens.lens (\PutProfileObjectTypeResponse' {expirationDays} -> expirationDays) (\s@PutProfileObjectTypeResponse' {} a -> s {expirationDays = a} :: PutProfileObjectTypeResponse)
+-- | The tags used to organize, track, or control access for this resource.
+putProfileObjectTypeResponse_tags :: Lens.Lens' PutProfileObjectTypeResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+putProfileObjectTypeResponse_tags = Lens.lens (\PutProfileObjectTypeResponse' {tags} -> tags) (\s@PutProfileObjectTypeResponse' {} a -> s {tags = a} :: PutProfileObjectTypeResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The timestamp of when the domain was most recently edited.
 putProfileObjectTypeResponse_lastUpdatedAt :: Lens.Lens' PutProfileObjectTypeResponse (Prelude.Maybe Prelude.UTCTime)
 putProfileObjectTypeResponse_lastUpdatedAt = Lens.lens (\PutProfileObjectTypeResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@PutProfileObjectTypeResponse' {} a -> s {lastUpdatedAt = a} :: PutProfileObjectTypeResponse) Prelude.. Lens.mapping Core._Time
 
--- | The timestamp of when the domain was created.
-putProfileObjectTypeResponse_createdAt :: Lens.Lens' PutProfileObjectTypeResponse (Prelude.Maybe Prelude.UTCTime)
-putProfileObjectTypeResponse_createdAt = Lens.lens (\PutProfileObjectTypeResponse' {createdAt} -> createdAt) (\s@PutProfileObjectTypeResponse' {} a -> s {createdAt = a} :: PutProfileObjectTypeResponse) Prelude.. Lens.mapping Core._Time
+-- | A map of the name and ObjectType field.
+putProfileObjectTypeResponse_fields :: Lens.Lens' PutProfileObjectTypeResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text ObjectTypeField))
+putProfileObjectTypeResponse_fields = Lens.lens (\PutProfileObjectTypeResponse' {fields} -> fields) (\s@PutProfileObjectTypeResponse' {} a -> s {fields = a} :: PutProfileObjectTypeResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique identifier for the object template.
 putProfileObjectTypeResponse_templateId :: Lens.Lens' PutProfileObjectTypeResponse (Prelude.Maybe Prelude.Text)
 putProfileObjectTypeResponse_templateId = Lens.lens (\PutProfileObjectTypeResponse' {templateId} -> templateId) (\s@PutProfileObjectTypeResponse' {} a -> s {templateId = a} :: PutProfileObjectTypeResponse)
+
+-- | The number of days until the data in the object expires.
+putProfileObjectTypeResponse_expirationDays :: Lens.Lens' PutProfileObjectTypeResponse (Prelude.Maybe Prelude.Natural)
+putProfileObjectTypeResponse_expirationDays = Lens.lens (\PutProfileObjectTypeResponse' {expirationDays} -> expirationDays) (\s@PutProfileObjectTypeResponse' {} a -> s {expirationDays = a} :: PutProfileObjectTypeResponse)
 
 -- | A list of unique keys that can be used to map data to the profile.
 putProfileObjectTypeResponse_keys :: Lens.Lens' PutProfileObjectTypeResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text [ObjectTypeKey]))
@@ -415,6 +418,10 @@ putProfileObjectTypeResponse_keys = Lens.lens (\PutProfileObjectTypeResponse' {k
 putProfileObjectTypeResponse_encryptionKey :: Lens.Lens' PutProfileObjectTypeResponse (Prelude.Maybe Prelude.Text)
 putProfileObjectTypeResponse_encryptionKey = Lens.lens (\PutProfileObjectTypeResponse' {encryptionKey} -> encryptionKey) (\s@PutProfileObjectTypeResponse' {} a -> s {encryptionKey = a} :: PutProfileObjectTypeResponse)
 
+-- | The timestamp of when the domain was created.
+putProfileObjectTypeResponse_createdAt :: Lens.Lens' PutProfileObjectTypeResponse (Prelude.Maybe Prelude.UTCTime)
+putProfileObjectTypeResponse_createdAt = Lens.lens (\PutProfileObjectTypeResponse' {createdAt} -> createdAt) (\s@PutProfileObjectTypeResponse' {} a -> s {createdAt = a} :: PutProfileObjectTypeResponse) Prelude.. Lens.mapping Core._Time
+
 -- | Indicates whether a profile should be created when data is received if
 -- one doesn’t exist for an object of this type. The default is @FALSE@. If
 -- the AllowProfileCreation flag is set to @FALSE@, then the service tries
@@ -423,14 +430,6 @@ putProfileObjectTypeResponse_encryptionKey = Lens.lens (\PutProfileObjectTypeRes
 -- creates a new standard profile.
 putProfileObjectTypeResponse_allowProfileCreation :: Lens.Lens' PutProfileObjectTypeResponse (Prelude.Maybe Prelude.Bool)
 putProfileObjectTypeResponse_allowProfileCreation = Lens.lens (\PutProfileObjectTypeResponse' {allowProfileCreation} -> allowProfileCreation) (\s@PutProfileObjectTypeResponse' {} a -> s {allowProfileCreation = a} :: PutProfileObjectTypeResponse)
-
--- | A map of the name and ObjectType field.
-putProfileObjectTypeResponse_fields :: Lens.Lens' PutProfileObjectTypeResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text ObjectTypeField))
-putProfileObjectTypeResponse_fields = Lens.lens (\PutProfileObjectTypeResponse' {fields} -> fields) (\s@PutProfileObjectTypeResponse' {} a -> s {fields = a} :: PutProfileObjectTypeResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The tags used to organize, track, or control access for this resource.
-putProfileObjectTypeResponse_tags :: Lens.Lens' PutProfileObjectTypeResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-putProfileObjectTypeResponse_tags = Lens.lens (\PutProfileObjectTypeResponse' {tags} -> tags) (\s@PutProfileObjectTypeResponse' {} a -> s {tags = a} :: PutProfileObjectTypeResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 putProfileObjectTypeResponse_httpStatus :: Lens.Lens' PutProfileObjectTypeResponse Prelude.Int
@@ -446,15 +445,15 @@ putProfileObjectTypeResponse_description = Lens.lens (\PutProfileObjectTypeRespo
 
 instance Prelude.NFData PutProfileObjectTypeResponse where
   rnf PutProfileObjectTypeResponse' {..} =
-    Prelude.rnf expirationDays
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf fields
       `Prelude.seq` Prelude.rnf templateId
+      `Prelude.seq` Prelude.rnf expirationDays
       `Prelude.seq` Prelude.rnf keys
       `Prelude.seq` Prelude.rnf encryptionKey
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf allowProfileCreation
-      `Prelude.seq` Prelude.rnf fields
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf objectTypeName
       `Prelude.seq` Prelude.rnf description

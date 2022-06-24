@@ -36,11 +36,11 @@ module Amazonka.CustomerProfiles.UpdateDomain
     newUpdateDomain,
 
     -- * Request Lenses
+    updateDomain_tags,
     updateDomain_defaultExpirationDays,
-    updateDomain_defaultEncryptionKey,
     updateDomain_matching,
     updateDomain_deadLetterQueueUrl,
-    updateDomain_tags,
+    updateDomain_defaultEncryptionKey,
     updateDomain_domainName,
 
     -- * Destructuring the Response
@@ -48,11 +48,11 @@ module Amazonka.CustomerProfiles.UpdateDomain
     newUpdateDomainResponse,
 
     -- * Response Lenses
+    updateDomainResponse_tags,
     updateDomainResponse_defaultExpirationDays,
-    updateDomainResponse_defaultEncryptionKey,
     updateDomainResponse_matching,
     updateDomainResponse_deadLetterQueueUrl,
-    updateDomainResponse_tags,
+    updateDomainResponse_defaultEncryptionKey,
     updateDomainResponse_httpStatus,
     updateDomainResponse_domainName,
     updateDomainResponse_createdAt,
@@ -69,13 +69,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateDomain' smart constructor.
 data UpdateDomain = UpdateDomain'
-  { -- | The default number of days until the data within the domain expires.
+  { -- | The tags used to organize, track, or control access for this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The default number of days until the data within the domain expires.
     defaultExpirationDays :: Prelude.Maybe Prelude.Natural,
-    -- | The default encryption key, which is an AWS managed key, is used when no
-    -- specific type of encryption key is specified. It is used to encrypt all
-    -- data before it is placed in permanent or semi-permanent storage. If
-    -- specified as an empty string, it will clear any existing value.
-    defaultEncryptionKey :: Prelude.Maybe Prelude.Text,
     -- | The process of matching duplicate profiles. If Matching = true, Amazon
     -- Connect Customer Profiles starts a weekly batch process every Saturday
     -- at 12AM UTC to detect duplicate profiles in your domains. After that
@@ -90,8 +87,11 @@ data UpdateDomain = UpdateDomain'
     -- enable Amazon Connect Customer Profiles to send messages to the
     -- DeadLetterQueue.
     deadLetterQueueUrl :: Prelude.Maybe Prelude.Text,
-    -- | The tags used to organize, track, or control access for this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The default encryption key, which is an AWS managed key, is used when no
+    -- specific type of encryption key is specified. It is used to encrypt all
+    -- data before it is placed in permanent or semi-permanent storage. If
+    -- specified as an empty string, it will clear any existing value.
+    defaultEncryptionKey :: Prelude.Maybe Prelude.Text,
     -- | The unique name of the domain.
     domainName :: Prelude.Text
   }
@@ -105,12 +105,9 @@ data UpdateDomain = UpdateDomain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'defaultExpirationDays', 'updateDomain_defaultExpirationDays' - The default number of days until the data within the domain expires.
+-- 'tags', 'updateDomain_tags' - The tags used to organize, track, or control access for this resource.
 --
--- 'defaultEncryptionKey', 'updateDomain_defaultEncryptionKey' - The default encryption key, which is an AWS managed key, is used when no
--- specific type of encryption key is specified. It is used to encrypt all
--- data before it is placed in permanent or semi-permanent storage. If
--- specified as an empty string, it will clear any existing value.
+-- 'defaultExpirationDays', 'updateDomain_defaultExpirationDays' - The default number of days until the data within the domain expires.
 --
 -- 'matching', 'updateDomain_matching' - The process of matching duplicate profiles. If Matching = true, Amazon
 -- Connect Customer Profiles starts a weekly batch process every Saturday
@@ -126,7 +123,10 @@ data UpdateDomain = UpdateDomain'
 -- enable Amazon Connect Customer Profiles to send messages to the
 -- DeadLetterQueue.
 --
--- 'tags', 'updateDomain_tags' - The tags used to organize, track, or control access for this resource.
+-- 'defaultEncryptionKey', 'updateDomain_defaultEncryptionKey' - The default encryption key, which is an AWS managed key, is used when no
+-- specific type of encryption key is specified. It is used to encrypt all
+-- data before it is placed in permanent or semi-permanent storage. If
+-- specified as an empty string, it will clear any existing value.
 --
 -- 'domainName', 'updateDomain_domainName' - The unique name of the domain.
 newUpdateDomain ::
@@ -135,25 +135,21 @@ newUpdateDomain ::
   UpdateDomain
 newUpdateDomain pDomainName_ =
   UpdateDomain'
-    { defaultExpirationDays =
-        Prelude.Nothing,
-      defaultEncryptionKey = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      defaultExpirationDays = Prelude.Nothing,
       matching = Prelude.Nothing,
       deadLetterQueueUrl = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      defaultEncryptionKey = Prelude.Nothing,
       domainName = pDomainName_
     }
+
+-- | The tags used to organize, track, or control access for this resource.
+updateDomain_tags :: Lens.Lens' UpdateDomain (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updateDomain_tags = Lens.lens (\UpdateDomain' {tags} -> tags) (\s@UpdateDomain' {} a -> s {tags = a} :: UpdateDomain) Prelude.. Lens.mapping Lens.coerced
 
 -- | The default number of days until the data within the domain expires.
 updateDomain_defaultExpirationDays :: Lens.Lens' UpdateDomain (Prelude.Maybe Prelude.Natural)
 updateDomain_defaultExpirationDays = Lens.lens (\UpdateDomain' {defaultExpirationDays} -> defaultExpirationDays) (\s@UpdateDomain' {} a -> s {defaultExpirationDays = a} :: UpdateDomain)
-
--- | The default encryption key, which is an AWS managed key, is used when no
--- specific type of encryption key is specified. It is used to encrypt all
--- data before it is placed in permanent or semi-permanent storage. If
--- specified as an empty string, it will clear any existing value.
-updateDomain_defaultEncryptionKey :: Lens.Lens' UpdateDomain (Prelude.Maybe Prelude.Text)
-updateDomain_defaultEncryptionKey = Lens.lens (\UpdateDomain' {defaultEncryptionKey} -> defaultEncryptionKey) (\s@UpdateDomain' {} a -> s {defaultEncryptionKey = a} :: UpdateDomain)
 
 -- | The process of matching duplicate profiles. If Matching = true, Amazon
 -- Connect Customer Profiles starts a weekly batch process every Saturday
@@ -173,9 +169,12 @@ updateDomain_matching = Lens.lens (\UpdateDomain' {matching} -> matching) (\s@Up
 updateDomain_deadLetterQueueUrl :: Lens.Lens' UpdateDomain (Prelude.Maybe Prelude.Text)
 updateDomain_deadLetterQueueUrl = Lens.lens (\UpdateDomain' {deadLetterQueueUrl} -> deadLetterQueueUrl) (\s@UpdateDomain' {} a -> s {deadLetterQueueUrl = a} :: UpdateDomain)
 
--- | The tags used to organize, track, or control access for this resource.
-updateDomain_tags :: Lens.Lens' UpdateDomain (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateDomain_tags = Lens.lens (\UpdateDomain' {tags} -> tags) (\s@UpdateDomain' {} a -> s {tags = a} :: UpdateDomain) Prelude.. Lens.mapping Lens.coerced
+-- | The default encryption key, which is an AWS managed key, is used when no
+-- specific type of encryption key is specified. It is used to encrypt all
+-- data before it is placed in permanent or semi-permanent storage. If
+-- specified as an empty string, it will clear any existing value.
+updateDomain_defaultEncryptionKey :: Lens.Lens' UpdateDomain (Prelude.Maybe Prelude.Text)
+updateDomain_defaultEncryptionKey = Lens.lens (\UpdateDomain' {defaultEncryptionKey} -> defaultEncryptionKey) (\s@UpdateDomain' {} a -> s {defaultEncryptionKey = a} :: UpdateDomain)
 
 -- | The unique name of the domain.
 updateDomain_domainName :: Lens.Lens' UpdateDomain Prelude.Text
@@ -188,11 +187,11 @@ instance Core.AWSRequest UpdateDomain where
     Response.receiveJSON
       ( \s h x ->
           UpdateDomainResponse'
-            Prelude.<$> (x Core..?> "DefaultExpirationDays")
-            Prelude.<*> (x Core..?> "DefaultEncryptionKey")
+            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "DefaultExpirationDays")
             Prelude.<*> (x Core..?> "Matching")
             Prelude.<*> (x Core..?> "DeadLetterQueueUrl")
-            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "DefaultEncryptionKey")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "DomainName")
             Prelude.<*> (x Core..:> "CreatedAt")
@@ -201,20 +200,20 @@ instance Core.AWSRequest UpdateDomain where
 
 instance Prelude.Hashable UpdateDomain where
   hashWithSalt _salt UpdateDomain' {..} =
-    _salt `Prelude.hashWithSalt` defaultExpirationDays
-      `Prelude.hashWithSalt` defaultEncryptionKey
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` defaultExpirationDays
       `Prelude.hashWithSalt` matching
       `Prelude.hashWithSalt` deadLetterQueueUrl
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` defaultEncryptionKey
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData UpdateDomain where
   rnf UpdateDomain' {..} =
-    Prelude.rnf defaultExpirationDays
-      `Prelude.seq` Prelude.rnf defaultEncryptionKey
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf defaultExpirationDays
       `Prelude.seq` Prelude.rnf matching
       `Prelude.seq` Prelude.rnf deadLetterQueueUrl
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf defaultEncryptionKey
       `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders UpdateDomain where
@@ -232,14 +231,14 @@ instance Core.ToJSON UpdateDomain where
   toJSON UpdateDomain' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DefaultExpirationDays" Core..=)
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("DefaultExpirationDays" Core..=)
               Prelude.<$> defaultExpirationDays,
-            ("DefaultEncryptionKey" Core..=)
-              Prelude.<$> defaultEncryptionKey,
             ("Matching" Core..=) Prelude.<$> matching,
             ("DeadLetterQueueUrl" Core..=)
               Prelude.<$> deadLetterQueueUrl,
-            ("Tags" Core..=) Prelude.<$> tags
+            ("DefaultEncryptionKey" Core..=)
+              Prelude.<$> defaultEncryptionKey
           ]
       )
 
@@ -252,12 +251,10 @@ instance Core.ToQuery UpdateDomain where
 
 -- | /See:/ 'newUpdateDomainResponse' smart constructor.
 data UpdateDomainResponse = UpdateDomainResponse'
-  { -- | The default number of days until the data within the domain expires.
+  { -- | The tags used to organize, track, or control access for this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The default number of days until the data within the domain expires.
     defaultExpirationDays :: Prelude.Maybe Prelude.Natural,
-    -- | The default encryption key, which is an AWS managed key, is used when no
-    -- specific type of encryption key is specified. It is used to encrypt all
-    -- data before it is placed in permanent or semi-permanent storage.
-    defaultEncryptionKey :: Prelude.Maybe Prelude.Text,
     -- | The process of matching duplicate profiles. If Matching = true, Amazon
     -- Connect Customer Profiles starts a weekly batch process every Saturday
     -- at 12AM UTC to detect duplicate profiles in your domains. After that
@@ -268,8 +265,10 @@ data UpdateDomainResponse = UpdateDomainResponse'
     -- | The URL of the SQS dead letter queue, which is used for reporting errors
     -- associated with ingesting data from third party applications.
     deadLetterQueueUrl :: Prelude.Maybe Prelude.Text,
-    -- | The tags used to organize, track, or control access for this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The default encryption key, which is an AWS managed key, is used when no
+    -- specific type of encryption key is specified. It is used to encrypt all
+    -- data before it is placed in permanent or semi-permanent storage.
+    defaultEncryptionKey :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The unique name of the domain.
@@ -289,11 +288,9 @@ data UpdateDomainResponse = UpdateDomainResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'defaultExpirationDays', 'updateDomainResponse_defaultExpirationDays' - The default number of days until the data within the domain expires.
+-- 'tags', 'updateDomainResponse_tags' - The tags used to organize, track, or control access for this resource.
 --
--- 'defaultEncryptionKey', 'updateDomainResponse_defaultEncryptionKey' - The default encryption key, which is an AWS managed key, is used when no
--- specific type of encryption key is specified. It is used to encrypt all
--- data before it is placed in permanent or semi-permanent storage.
+-- 'defaultExpirationDays', 'updateDomainResponse_defaultExpirationDays' - The default number of days until the data within the domain expires.
 --
 -- 'matching', 'updateDomainResponse_matching' - The process of matching duplicate profiles. If Matching = true, Amazon
 -- Connect Customer Profiles starts a weekly batch process every Saturday
@@ -305,7 +302,9 @@ data UpdateDomainResponse = UpdateDomainResponse'
 -- 'deadLetterQueueUrl', 'updateDomainResponse_deadLetterQueueUrl' - The URL of the SQS dead letter queue, which is used for reporting errors
 -- associated with ingesting data from third party applications.
 --
--- 'tags', 'updateDomainResponse_tags' - The tags used to organize, track, or control access for this resource.
+-- 'defaultEncryptionKey', 'updateDomainResponse_defaultEncryptionKey' - The default encryption key, which is an AWS managed key, is used when no
+-- specific type of encryption key is specified. It is used to encrypt all
+-- data before it is placed in permanent or semi-permanent storage.
 --
 -- 'httpStatus', 'updateDomainResponse_httpStatus' - The response's http status code.
 --
@@ -330,27 +329,24 @@ newUpdateDomainResponse
   pCreatedAt_
   pLastUpdatedAt_ =
     UpdateDomainResponse'
-      { defaultExpirationDays =
-          Prelude.Nothing,
-        defaultEncryptionKey = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        defaultExpirationDays = Prelude.Nothing,
         matching = Prelude.Nothing,
         deadLetterQueueUrl = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        defaultEncryptionKey = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         domainName = pDomainName_,
         createdAt = Core._Time Lens.# pCreatedAt_,
         lastUpdatedAt = Core._Time Lens.# pLastUpdatedAt_
       }
 
+-- | The tags used to organize, track, or control access for this resource.
+updateDomainResponse_tags :: Lens.Lens' UpdateDomainResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updateDomainResponse_tags = Lens.lens (\UpdateDomainResponse' {tags} -> tags) (\s@UpdateDomainResponse' {} a -> s {tags = a} :: UpdateDomainResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The default number of days until the data within the domain expires.
 updateDomainResponse_defaultExpirationDays :: Lens.Lens' UpdateDomainResponse (Prelude.Maybe Prelude.Natural)
 updateDomainResponse_defaultExpirationDays = Lens.lens (\UpdateDomainResponse' {defaultExpirationDays} -> defaultExpirationDays) (\s@UpdateDomainResponse' {} a -> s {defaultExpirationDays = a} :: UpdateDomainResponse)
-
--- | The default encryption key, which is an AWS managed key, is used when no
--- specific type of encryption key is specified. It is used to encrypt all
--- data before it is placed in permanent or semi-permanent storage.
-updateDomainResponse_defaultEncryptionKey :: Lens.Lens' UpdateDomainResponse (Prelude.Maybe Prelude.Text)
-updateDomainResponse_defaultEncryptionKey = Lens.lens (\UpdateDomainResponse' {defaultEncryptionKey} -> defaultEncryptionKey) (\s@UpdateDomainResponse' {} a -> s {defaultEncryptionKey = a} :: UpdateDomainResponse)
 
 -- | The process of matching duplicate profiles. If Matching = true, Amazon
 -- Connect Customer Profiles starts a weekly batch process every Saturday
@@ -366,9 +362,11 @@ updateDomainResponse_matching = Lens.lens (\UpdateDomainResponse' {matching} -> 
 updateDomainResponse_deadLetterQueueUrl :: Lens.Lens' UpdateDomainResponse (Prelude.Maybe Prelude.Text)
 updateDomainResponse_deadLetterQueueUrl = Lens.lens (\UpdateDomainResponse' {deadLetterQueueUrl} -> deadLetterQueueUrl) (\s@UpdateDomainResponse' {} a -> s {deadLetterQueueUrl = a} :: UpdateDomainResponse)
 
--- | The tags used to organize, track, or control access for this resource.
-updateDomainResponse_tags :: Lens.Lens' UpdateDomainResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateDomainResponse_tags = Lens.lens (\UpdateDomainResponse' {tags} -> tags) (\s@UpdateDomainResponse' {} a -> s {tags = a} :: UpdateDomainResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The default encryption key, which is an AWS managed key, is used when no
+-- specific type of encryption key is specified. It is used to encrypt all
+-- data before it is placed in permanent or semi-permanent storage.
+updateDomainResponse_defaultEncryptionKey :: Lens.Lens' UpdateDomainResponse (Prelude.Maybe Prelude.Text)
+updateDomainResponse_defaultEncryptionKey = Lens.lens (\UpdateDomainResponse' {defaultEncryptionKey} -> defaultEncryptionKey) (\s@UpdateDomainResponse' {} a -> s {defaultEncryptionKey = a} :: UpdateDomainResponse)
 
 -- | The response's http status code.
 updateDomainResponse_httpStatus :: Lens.Lens' UpdateDomainResponse Prelude.Int
@@ -388,11 +386,11 @@ updateDomainResponse_lastUpdatedAt = Lens.lens (\UpdateDomainResponse' {lastUpda
 
 instance Prelude.NFData UpdateDomainResponse where
   rnf UpdateDomainResponse' {..} =
-    Prelude.rnf defaultExpirationDays
-      `Prelude.seq` Prelude.rnf defaultEncryptionKey
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf defaultExpirationDays
       `Prelude.seq` Prelude.rnf matching
       `Prelude.seq` Prelude.rnf deadLetterQueueUrl
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf defaultEncryptionKey
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf createdAt

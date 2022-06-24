@@ -42,8 +42,8 @@ module Amazonka.CustomerProfiles.AddProfileKey
     newAddProfileKeyResponse,
 
     -- * Response Lenses
-    addProfileKeyResponse_values,
     addProfileKeyResponse_keyName,
+    addProfileKeyResponse_values,
     addProfileKeyResponse_httpStatus,
   )
 where
@@ -124,8 +124,8 @@ instance Core.AWSRequest AddProfileKey where
     Response.receiveJSON
       ( \s h x ->
           AddProfileKeyResponse'
-            Prelude.<$> (x Core..?> "Values" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "KeyName")
+            Prelude.<$> (x Core..?> "KeyName")
+            Prelude.<*> (x Core..?> "Values" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,10 +174,10 @@ instance Core.ToQuery AddProfileKey where
 
 -- | /See:/ 'newAddProfileKeyResponse' smart constructor.
 data AddProfileKeyResponse = AddProfileKeyResponse'
-  { -- | A list of key values.
-    values :: Prelude.Maybe [Prelude.Text],
-    -- | A searchable identifier of a customer profile.
+  { -- | A searchable identifier of a customer profile.
     keyName :: Prelude.Maybe Prelude.Text,
+    -- | A list of key values.
+    values :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -191,9 +191,9 @@ data AddProfileKeyResponse = AddProfileKeyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'values', 'addProfileKeyResponse_values' - A list of key values.
---
 -- 'keyName', 'addProfileKeyResponse_keyName' - A searchable identifier of a customer profile.
+--
+-- 'values', 'addProfileKeyResponse_values' - A list of key values.
 --
 -- 'httpStatus', 'addProfileKeyResponse_httpStatus' - The response's http status code.
 newAddProfileKeyResponse ::
@@ -202,18 +202,18 @@ newAddProfileKeyResponse ::
   AddProfileKeyResponse
 newAddProfileKeyResponse pHttpStatus_ =
   AddProfileKeyResponse'
-    { values = Prelude.Nothing,
-      keyName = Prelude.Nothing,
+    { keyName = Prelude.Nothing,
+      values = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of key values.
-addProfileKeyResponse_values :: Lens.Lens' AddProfileKeyResponse (Prelude.Maybe [Prelude.Text])
-addProfileKeyResponse_values = Lens.lens (\AddProfileKeyResponse' {values} -> values) (\s@AddProfileKeyResponse' {} a -> s {values = a} :: AddProfileKeyResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A searchable identifier of a customer profile.
 addProfileKeyResponse_keyName :: Lens.Lens' AddProfileKeyResponse (Prelude.Maybe Prelude.Text)
 addProfileKeyResponse_keyName = Lens.lens (\AddProfileKeyResponse' {keyName} -> keyName) (\s@AddProfileKeyResponse' {} a -> s {keyName = a} :: AddProfileKeyResponse)
+
+-- | A list of key values.
+addProfileKeyResponse_values :: Lens.Lens' AddProfileKeyResponse (Prelude.Maybe [Prelude.Text])
+addProfileKeyResponse_values = Lens.lens (\AddProfileKeyResponse' {values} -> values) (\s@AddProfileKeyResponse' {} a -> s {values = a} :: AddProfileKeyResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 addProfileKeyResponse_httpStatus :: Lens.Lens' AddProfileKeyResponse Prelude.Int
@@ -221,6 +221,6 @@ addProfileKeyResponse_httpStatus = Lens.lens (\AddProfileKeyResponse' {httpStatu
 
 instance Prelude.NFData AddProfileKeyResponse where
   rnf AddProfileKeyResponse' {..} =
-    Prelude.rnf values
-      `Prelude.seq` Prelude.rnf keyName
+    Prelude.rnf keyName
+      `Prelude.seq` Prelude.rnf values
       `Prelude.seq` Prelude.rnf httpStatus

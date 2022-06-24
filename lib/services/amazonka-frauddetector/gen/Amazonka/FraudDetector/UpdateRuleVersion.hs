@@ -28,8 +28,8 @@ module Amazonka.FraudDetector.UpdateRuleVersion
     newUpdateRuleVersion,
 
     -- * Request Lenses
-    updateRuleVersion_description,
     updateRuleVersion_tags,
+    updateRuleVersion_description,
     updateRuleVersion_rule,
     updateRuleVersion_expression,
     updateRuleVersion_language,
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateRuleVersion' smart constructor.
 data UpdateRuleVersion = UpdateRuleVersion'
-  { -- | The description.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The tags to assign to the rule version.
+  { -- | The tags to assign to the rule version.
     tags :: Prelude.Maybe [Tag],
+    -- | The description.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The rule to update.
     rule :: Rule,
     -- | The rule expression.
@@ -77,9 +77,9 @@ data UpdateRuleVersion = UpdateRuleVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'updateRuleVersion_description' - The description.
---
 -- 'tags', 'updateRuleVersion_tags' - The tags to assign to the rule version.
+--
+-- 'description', 'updateRuleVersion_description' - The description.
 --
 -- 'rule', 'updateRuleVersion_rule' - The rule to update.
 --
@@ -104,21 +104,21 @@ newUpdateRuleVersion
   pLanguage_
   pOutcomes_ =
     UpdateRuleVersion'
-      { description = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        description = Prelude.Nothing,
         rule = pRule_,
         expression = Core._Sensitive Lens.# pExpression_,
         language = pLanguage_,
         outcomes = Lens.coerced Lens.# pOutcomes_
       }
 
--- | The description.
-updateRuleVersion_description :: Lens.Lens' UpdateRuleVersion (Prelude.Maybe Prelude.Text)
-updateRuleVersion_description = Lens.lens (\UpdateRuleVersion' {description} -> description) (\s@UpdateRuleVersion' {} a -> s {description = a} :: UpdateRuleVersion)
-
 -- | The tags to assign to the rule version.
 updateRuleVersion_tags :: Lens.Lens' UpdateRuleVersion (Prelude.Maybe [Tag])
 updateRuleVersion_tags = Lens.lens (\UpdateRuleVersion' {tags} -> tags) (\s@UpdateRuleVersion' {} a -> s {tags = a} :: UpdateRuleVersion) Prelude.. Lens.mapping Lens.coerced
+
+-- | The description.
+updateRuleVersion_description :: Lens.Lens' UpdateRuleVersion (Prelude.Maybe Prelude.Text)
+updateRuleVersion_description = Lens.lens (\UpdateRuleVersion' {description} -> description) (\s@UpdateRuleVersion' {} a -> s {description = a} :: UpdateRuleVersion)
 
 -- | The rule to update.
 updateRuleVersion_rule :: Lens.Lens' UpdateRuleVersion Rule
@@ -151,8 +151,8 @@ instance Core.AWSRequest UpdateRuleVersion where
 
 instance Prelude.Hashable UpdateRuleVersion where
   hashWithSalt _salt UpdateRuleVersion' {..} =
-    _salt `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` rule
       `Prelude.hashWithSalt` expression
       `Prelude.hashWithSalt` language
@@ -160,8 +160,8 @@ instance Prelude.Hashable UpdateRuleVersion where
 
 instance Prelude.NFData UpdateRuleVersion where
   rnf UpdateRuleVersion' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf rule
       `Prelude.seq` Prelude.rnf expression
       `Prelude.seq` Prelude.rnf language
@@ -186,8 +186,8 @@ instance Core.ToJSON UpdateRuleVersion where
   toJSON UpdateRuleVersion' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("description" Core..=) Prelude.<$> description,
             Prelude.Just ("rule" Core..= rule),
             Prelude.Just ("expression" Core..= expression),
             Prelude.Just ("language" Core..= language),

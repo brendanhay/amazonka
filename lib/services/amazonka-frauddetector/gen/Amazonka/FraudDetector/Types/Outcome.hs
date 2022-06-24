@@ -27,16 +27,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOutcome' smart constructor.
 data Outcome = Outcome'
-  { -- | The timestamp when the outcome was last updated.
-    lastUpdatedTime :: Prelude.Maybe Prelude.Text,
-    -- | The outcome ARN.
-    arn :: Prelude.Maybe Prelude.Text,
+  { -- | The outcome name.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the outcome was created.
     createdTime :: Prelude.Maybe Prelude.Text,
-    -- | The outcome name.
-    name :: Prelude.Maybe Prelude.Text,
+    -- | The outcome ARN.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The outcome description.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp when the outcome was last updated.
+    lastUpdatedTime :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,45 +48,45 @@ data Outcome = Outcome'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastUpdatedTime', 'outcome_lastUpdatedTime' - The timestamp when the outcome was last updated.
---
--- 'arn', 'outcome_arn' - The outcome ARN.
+-- 'name', 'outcome_name' - The outcome name.
 --
 -- 'createdTime', 'outcome_createdTime' - The timestamp when the outcome was created.
 --
--- 'name', 'outcome_name' - The outcome name.
+-- 'arn', 'outcome_arn' - The outcome ARN.
 --
 -- 'description', 'outcome_description' - The outcome description.
+--
+-- 'lastUpdatedTime', 'outcome_lastUpdatedTime' - The timestamp when the outcome was last updated.
 newOutcome ::
   Outcome
 newOutcome =
   Outcome'
-    { lastUpdatedTime = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { name = Prelude.Nothing,
       createdTime = Prelude.Nothing,
-      name = Prelude.Nothing,
-      description = Prelude.Nothing
+      arn = Prelude.Nothing,
+      description = Prelude.Nothing,
+      lastUpdatedTime = Prelude.Nothing
     }
-
--- | The timestamp when the outcome was last updated.
-outcome_lastUpdatedTime :: Lens.Lens' Outcome (Prelude.Maybe Prelude.Text)
-outcome_lastUpdatedTime = Lens.lens (\Outcome' {lastUpdatedTime} -> lastUpdatedTime) (\s@Outcome' {} a -> s {lastUpdatedTime = a} :: Outcome)
-
--- | The outcome ARN.
-outcome_arn :: Lens.Lens' Outcome (Prelude.Maybe Prelude.Text)
-outcome_arn = Lens.lens (\Outcome' {arn} -> arn) (\s@Outcome' {} a -> s {arn = a} :: Outcome)
-
--- | The timestamp when the outcome was created.
-outcome_createdTime :: Lens.Lens' Outcome (Prelude.Maybe Prelude.Text)
-outcome_createdTime = Lens.lens (\Outcome' {createdTime} -> createdTime) (\s@Outcome' {} a -> s {createdTime = a} :: Outcome)
 
 -- | The outcome name.
 outcome_name :: Lens.Lens' Outcome (Prelude.Maybe Prelude.Text)
 outcome_name = Lens.lens (\Outcome' {name} -> name) (\s@Outcome' {} a -> s {name = a} :: Outcome)
 
+-- | The timestamp when the outcome was created.
+outcome_createdTime :: Lens.Lens' Outcome (Prelude.Maybe Prelude.Text)
+outcome_createdTime = Lens.lens (\Outcome' {createdTime} -> createdTime) (\s@Outcome' {} a -> s {createdTime = a} :: Outcome)
+
+-- | The outcome ARN.
+outcome_arn :: Lens.Lens' Outcome (Prelude.Maybe Prelude.Text)
+outcome_arn = Lens.lens (\Outcome' {arn} -> arn) (\s@Outcome' {} a -> s {arn = a} :: Outcome)
+
 -- | The outcome description.
 outcome_description :: Lens.Lens' Outcome (Prelude.Maybe Prelude.Text)
 outcome_description = Lens.lens (\Outcome' {description} -> description) (\s@Outcome' {} a -> s {description = a} :: Outcome)
+
+-- | The timestamp when the outcome was last updated.
+outcome_lastUpdatedTime :: Lens.Lens' Outcome (Prelude.Maybe Prelude.Text)
+outcome_lastUpdatedTime = Lens.lens (\Outcome' {lastUpdatedTime} -> lastUpdatedTime) (\s@Outcome' {} a -> s {lastUpdatedTime = a} :: Outcome)
 
 instance Core.FromJSON Outcome where
   parseJSON =
@@ -94,25 +94,25 @@ instance Core.FromJSON Outcome where
       "Outcome"
       ( \x ->
           Outcome'
-            Prelude.<$> (x Core..:? "lastUpdatedTime")
-            Prelude.<*> (x Core..:? "arn")
+            Prelude.<$> (x Core..:? "name")
             Prelude.<*> (x Core..:? "createdTime")
-            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "lastUpdatedTime")
       )
 
 instance Prelude.Hashable Outcome where
   hashWithSalt _salt Outcome' {..} =
-    _salt `Prelude.hashWithSalt` lastUpdatedTime
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` lastUpdatedTime
 
 instance Prelude.NFData Outcome where
   rnf Outcome' {..} =
-    Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lastUpdatedTime

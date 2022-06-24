@@ -29,8 +29,8 @@ module Amazonka.FraudDetector.PutLabel
     newPutLabel,
 
     -- * Request Lenses
-    putLabel_description,
     putLabel_tags,
+    putLabel_description,
     putLabel_name,
 
     -- * Destructuring the Response
@@ -51,9 +51,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutLabel' smart constructor.
 data PutLabel = PutLabel'
-  { -- | The label description.
+  { tags :: Prelude.Maybe [Tag],
+    -- | The label description.
     description :: Prelude.Maybe Prelude.Text,
-    tags :: Prelude.Maybe [Tag],
     -- | The label name.
     name :: Prelude.Text
   }
@@ -67,9 +67,9 @@ data PutLabel = PutLabel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'putLabel_description' - The label description.
---
 -- 'tags', 'putLabel_tags' -
+--
+-- 'description', 'putLabel_description' - The label description.
 --
 -- 'name', 'putLabel_name' - The label name.
 newPutLabel ::
@@ -78,18 +78,18 @@ newPutLabel ::
   PutLabel
 newPutLabel pName_ =
   PutLabel'
-    { description = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      description = Prelude.Nothing,
       name = pName_
     }
-
--- | The label description.
-putLabel_description :: Lens.Lens' PutLabel (Prelude.Maybe Prelude.Text)
-putLabel_description = Lens.lens (\PutLabel' {description} -> description) (\s@PutLabel' {} a -> s {description = a} :: PutLabel)
 
 -- |
 putLabel_tags :: Lens.Lens' PutLabel (Prelude.Maybe [Tag])
 putLabel_tags = Lens.lens (\PutLabel' {tags} -> tags) (\s@PutLabel' {} a -> s {tags = a} :: PutLabel) Prelude.. Lens.mapping Lens.coerced
+
+-- | The label description.
+putLabel_description :: Lens.Lens' PutLabel (Prelude.Maybe Prelude.Text)
+putLabel_description = Lens.lens (\PutLabel' {description} -> description) (\s@PutLabel' {} a -> s {description = a} :: PutLabel)
 
 -- | The label name.
 putLabel_name :: Lens.Lens' PutLabel Prelude.Text
@@ -107,14 +107,14 @@ instance Core.AWSRequest PutLabel where
 
 instance Prelude.Hashable PutLabel where
   hashWithSalt _salt PutLabel' {..} =
-    _salt `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData PutLabel where
   rnf PutLabel' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders PutLabel where
@@ -136,8 +136,8 @@ instance Core.ToJSON PutLabel where
   toJSON PutLabel' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("description" Core..=) Prelude.<$> description,
             Prelude.Just ("name" Core..= name)
           ]
       )

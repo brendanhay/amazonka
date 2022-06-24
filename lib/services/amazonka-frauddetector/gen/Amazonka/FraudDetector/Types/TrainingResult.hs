@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTrainingResult' smart constructor.
 data TrainingResult = TrainingResult'
-  { -- | The validation metrics.
+  { -- | The variable importance metrics.
+    variableImportanceMetrics :: Prelude.Maybe VariableImportanceMetrics,
+    -- | The validation metrics.
     dataValidationMetrics :: Prelude.Maybe DataValidationMetrics,
     -- | The training metric details.
-    trainingMetrics :: Prelude.Maybe TrainingMetrics,
-    -- | The variable importance metrics.
-    variableImportanceMetrics :: Prelude.Maybe VariableImportanceMetrics
+    trainingMetrics :: Prelude.Maybe TrainingMetrics
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,20 +47,24 @@ data TrainingResult = TrainingResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'variableImportanceMetrics', 'trainingResult_variableImportanceMetrics' - The variable importance metrics.
+--
 -- 'dataValidationMetrics', 'trainingResult_dataValidationMetrics' - The validation metrics.
 --
 -- 'trainingMetrics', 'trainingResult_trainingMetrics' - The training metric details.
---
--- 'variableImportanceMetrics', 'trainingResult_variableImportanceMetrics' - The variable importance metrics.
 newTrainingResult ::
   TrainingResult
 newTrainingResult =
   TrainingResult'
-    { dataValidationMetrics =
+    { variableImportanceMetrics =
         Prelude.Nothing,
-      trainingMetrics = Prelude.Nothing,
-      variableImportanceMetrics = Prelude.Nothing
+      dataValidationMetrics = Prelude.Nothing,
+      trainingMetrics = Prelude.Nothing
     }
+
+-- | The variable importance metrics.
+trainingResult_variableImportanceMetrics :: Lens.Lens' TrainingResult (Prelude.Maybe VariableImportanceMetrics)
+trainingResult_variableImportanceMetrics = Lens.lens (\TrainingResult' {variableImportanceMetrics} -> variableImportanceMetrics) (\s@TrainingResult' {} a -> s {variableImportanceMetrics = a} :: TrainingResult)
 
 -- | The validation metrics.
 trainingResult_dataValidationMetrics :: Lens.Lens' TrainingResult (Prelude.Maybe DataValidationMetrics)
@@ -70,29 +74,26 @@ trainingResult_dataValidationMetrics = Lens.lens (\TrainingResult' {dataValidati
 trainingResult_trainingMetrics :: Lens.Lens' TrainingResult (Prelude.Maybe TrainingMetrics)
 trainingResult_trainingMetrics = Lens.lens (\TrainingResult' {trainingMetrics} -> trainingMetrics) (\s@TrainingResult' {} a -> s {trainingMetrics = a} :: TrainingResult)
 
--- | The variable importance metrics.
-trainingResult_variableImportanceMetrics :: Lens.Lens' TrainingResult (Prelude.Maybe VariableImportanceMetrics)
-trainingResult_variableImportanceMetrics = Lens.lens (\TrainingResult' {variableImportanceMetrics} -> variableImportanceMetrics) (\s@TrainingResult' {} a -> s {variableImportanceMetrics = a} :: TrainingResult)
-
 instance Core.FromJSON TrainingResult where
   parseJSON =
     Core.withObject
       "TrainingResult"
       ( \x ->
           TrainingResult'
-            Prelude.<$> (x Core..:? "dataValidationMetrics")
+            Prelude.<$> (x Core..:? "variableImportanceMetrics")
+            Prelude.<*> (x Core..:? "dataValidationMetrics")
             Prelude.<*> (x Core..:? "trainingMetrics")
-            Prelude.<*> (x Core..:? "variableImportanceMetrics")
       )
 
 instance Prelude.Hashable TrainingResult where
   hashWithSalt _salt TrainingResult' {..} =
-    _salt `Prelude.hashWithSalt` dataValidationMetrics
-      `Prelude.hashWithSalt` trainingMetrics
+    _salt
       `Prelude.hashWithSalt` variableImportanceMetrics
+      `Prelude.hashWithSalt` dataValidationMetrics
+      `Prelude.hashWithSalt` trainingMetrics
 
 instance Prelude.NFData TrainingResult where
   rnf TrainingResult' {..} =
-    Prelude.rnf dataValidationMetrics
+    Prelude.rnf variableImportanceMetrics
+      `Prelude.seq` Prelude.rnf dataValidationMetrics
       `Prelude.seq` Prelude.rnf trainingMetrics
-      `Prelude.seq` Prelude.rnf variableImportanceMetrics

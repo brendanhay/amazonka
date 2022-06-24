@@ -33,8 +33,8 @@ module Amazonka.FraudDetector.GetBatchImportJobs
     newGetBatchImportJobs,
 
     -- * Request Lenses
-    getBatchImportJobs_jobId,
     getBatchImportJobs_nextToken,
+    getBatchImportJobs_jobId,
     getBatchImportJobs_maxResults,
 
     -- * Destructuring the Response
@@ -57,10 +57,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetBatchImportJobs' smart constructor.
 data GetBatchImportJobs = GetBatchImportJobs'
-  { -- | The ID of the batch import job to get.
-    jobId :: Prelude.Maybe Prelude.Text,
-    -- | The next token from the previous request.
+  { -- | The next token from the previous request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the batch import job to get.
+    jobId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of objects to return for request.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -74,27 +74,27 @@ data GetBatchImportJobs = GetBatchImportJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobId', 'getBatchImportJobs_jobId' - The ID of the batch import job to get.
---
 -- 'nextToken', 'getBatchImportJobs_nextToken' - The next token from the previous request.
+--
+-- 'jobId', 'getBatchImportJobs_jobId' - The ID of the batch import job to get.
 --
 -- 'maxResults', 'getBatchImportJobs_maxResults' - The maximum number of objects to return for request.
 newGetBatchImportJobs ::
   GetBatchImportJobs
 newGetBatchImportJobs =
   GetBatchImportJobs'
-    { jobId = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      jobId = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | The ID of the batch import job to get.
-getBatchImportJobs_jobId :: Lens.Lens' GetBatchImportJobs (Prelude.Maybe Prelude.Text)
-getBatchImportJobs_jobId = Lens.lens (\GetBatchImportJobs' {jobId} -> jobId) (\s@GetBatchImportJobs' {} a -> s {jobId = a} :: GetBatchImportJobs)
 
 -- | The next token from the previous request.
 getBatchImportJobs_nextToken :: Lens.Lens' GetBatchImportJobs (Prelude.Maybe Prelude.Text)
 getBatchImportJobs_nextToken = Lens.lens (\GetBatchImportJobs' {nextToken} -> nextToken) (\s@GetBatchImportJobs' {} a -> s {nextToken = a} :: GetBatchImportJobs)
+
+-- | The ID of the batch import job to get.
+getBatchImportJobs_jobId :: Lens.Lens' GetBatchImportJobs (Prelude.Maybe Prelude.Text)
+getBatchImportJobs_jobId = Lens.lens (\GetBatchImportJobs' {jobId} -> jobId) (\s@GetBatchImportJobs' {} a -> s {jobId = a} :: GetBatchImportJobs)
 
 -- | The maximum number of objects to return for request.
 getBatchImportJobs_maxResults :: Lens.Lens' GetBatchImportJobs (Prelude.Maybe Prelude.Natural)
@@ -116,14 +116,14 @@ instance Core.AWSRequest GetBatchImportJobs where
 
 instance Prelude.Hashable GetBatchImportJobs where
   hashWithSalt _salt GetBatchImportJobs' {..} =
-    _salt `Prelude.hashWithSalt` jobId
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData GetBatchImportJobs where
   rnf GetBatchImportJobs' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetBatchImportJobs where
@@ -145,8 +145,8 @@ instance Core.ToJSON GetBatchImportJobs where
   toJSON GetBatchImportJobs' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("jobId" Core..=) Prelude.<$> jobId,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("jobId" Core..=) Prelude.<$> jobId,
             ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )

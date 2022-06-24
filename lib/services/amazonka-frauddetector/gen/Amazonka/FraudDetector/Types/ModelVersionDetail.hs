@@ -33,34 +33,34 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newModelVersionDetail' smart constructor.
 data ModelVersionDetail = ModelVersionDetail'
-  { -- | The status of the model version.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The model type.
-    modelType :: Prelude.Maybe ModelTypeEnum,
-    -- | The timestamp when the model was last updated.
-    lastUpdatedTime :: Prelude.Maybe Prelude.Text,
-    -- | The model ID.
-    modelId :: Prelude.Maybe Prelude.Text,
-    -- | The model version ARN.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The model version training data source.
-    trainingDataSource :: Prelude.Maybe TrainingDataSourceEnum,
-    -- | The timestamp when the model was created.
+  { -- | The timestamp when the model was created.
     createdTime :: Prelude.Maybe Prelude.Text,
-    -- | The external events data details. This will be populated if the
-    -- @trainingDataSource@ for the model version is specified as
-    -- @EXTERNAL_EVENTS@.
-    externalEventsDetail :: Prelude.Maybe ExternalEventsDetail,
     -- | The ingested events data details. This will be populated if the
     -- @trainingDataSource@ for the model version is specified as
     -- @INGESTED_EVENTS@.
     ingestedEventsDetail :: Prelude.Maybe IngestedEventsDetail,
     -- | The model version number.
     modelVersionNumber :: Prelude.Maybe Prelude.Text,
+    -- | The model version ARN.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The status of the model version.
+    status :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp when the model was last updated.
+    lastUpdatedTime :: Prelude.Maybe Prelude.Text,
+    -- | The model type.
+    modelType :: Prelude.Maybe ModelTypeEnum,
+    -- | The training data schema.
+    trainingDataSchema :: Prelude.Maybe TrainingDataSchema,
     -- | The training results.
     trainingResult :: Prelude.Maybe TrainingResult,
-    -- | The training data schema.
-    trainingDataSchema :: Prelude.Maybe TrainingDataSchema
+    -- | The external events data details. This will be populated if the
+    -- @trainingDataSource@ for the model version is specified as
+    -- @EXTERNAL_EVENTS@.
+    externalEventsDetail :: Prelude.Maybe ExternalEventsDetail,
+    -- | The model version training data source.
+    trainingDataSource :: Prelude.Maybe TrainingDataSourceEnum,
+    -- | The model ID.
+    modelId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,23 +72,7 @@ data ModelVersionDetail = ModelVersionDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'modelVersionDetail_status' - The status of the model version.
---
--- 'modelType', 'modelVersionDetail_modelType' - The model type.
---
--- 'lastUpdatedTime', 'modelVersionDetail_lastUpdatedTime' - The timestamp when the model was last updated.
---
--- 'modelId', 'modelVersionDetail_modelId' - The model ID.
---
--- 'arn', 'modelVersionDetail_arn' - The model version ARN.
---
--- 'trainingDataSource', 'modelVersionDetail_trainingDataSource' - The model version training data source.
---
 -- 'createdTime', 'modelVersionDetail_createdTime' - The timestamp when the model was created.
---
--- 'externalEventsDetail', 'modelVersionDetail_externalEventsDetail' - The external events data details. This will be populated if the
--- @trainingDataSource@ for the model version is specified as
--- @EXTERNAL_EVENTS@.
 --
 -- 'ingestedEventsDetail', 'modelVersionDetail_ingestedEventsDetail' - The ingested events data details. This will be populated if the
 -- @trainingDataSource@ for the model version is specified as
@@ -96,60 +80,46 @@ data ModelVersionDetail = ModelVersionDetail'
 --
 -- 'modelVersionNumber', 'modelVersionDetail_modelVersionNumber' - The model version number.
 --
--- 'trainingResult', 'modelVersionDetail_trainingResult' - The training results.
+-- 'arn', 'modelVersionDetail_arn' - The model version ARN.
+--
+-- 'status', 'modelVersionDetail_status' - The status of the model version.
+--
+-- 'lastUpdatedTime', 'modelVersionDetail_lastUpdatedTime' - The timestamp when the model was last updated.
+--
+-- 'modelType', 'modelVersionDetail_modelType' - The model type.
 --
 -- 'trainingDataSchema', 'modelVersionDetail_trainingDataSchema' - The training data schema.
+--
+-- 'trainingResult', 'modelVersionDetail_trainingResult' - The training results.
+--
+-- 'externalEventsDetail', 'modelVersionDetail_externalEventsDetail' - The external events data details. This will be populated if the
+-- @trainingDataSource@ for the model version is specified as
+-- @EXTERNAL_EVENTS@.
+--
+-- 'trainingDataSource', 'modelVersionDetail_trainingDataSource' - The model version training data source.
+--
+-- 'modelId', 'modelVersionDetail_modelId' - The model ID.
 newModelVersionDetail ::
   ModelVersionDetail
 newModelVersionDetail =
   ModelVersionDetail'
-    { status = Prelude.Nothing,
-      modelType = Prelude.Nothing,
-      lastUpdatedTime = Prelude.Nothing,
-      modelId = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      trainingDataSource = Prelude.Nothing,
-      createdTime = Prelude.Nothing,
-      externalEventsDetail = Prelude.Nothing,
+    { createdTime = Prelude.Nothing,
       ingestedEventsDetail = Prelude.Nothing,
       modelVersionNumber = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      status = Prelude.Nothing,
+      lastUpdatedTime = Prelude.Nothing,
+      modelType = Prelude.Nothing,
+      trainingDataSchema = Prelude.Nothing,
       trainingResult = Prelude.Nothing,
-      trainingDataSchema = Prelude.Nothing
+      externalEventsDetail = Prelude.Nothing,
+      trainingDataSource = Prelude.Nothing,
+      modelId = Prelude.Nothing
     }
-
--- | The status of the model version.
-modelVersionDetail_status :: Lens.Lens' ModelVersionDetail (Prelude.Maybe Prelude.Text)
-modelVersionDetail_status = Lens.lens (\ModelVersionDetail' {status} -> status) (\s@ModelVersionDetail' {} a -> s {status = a} :: ModelVersionDetail)
-
--- | The model type.
-modelVersionDetail_modelType :: Lens.Lens' ModelVersionDetail (Prelude.Maybe ModelTypeEnum)
-modelVersionDetail_modelType = Lens.lens (\ModelVersionDetail' {modelType} -> modelType) (\s@ModelVersionDetail' {} a -> s {modelType = a} :: ModelVersionDetail)
-
--- | The timestamp when the model was last updated.
-modelVersionDetail_lastUpdatedTime :: Lens.Lens' ModelVersionDetail (Prelude.Maybe Prelude.Text)
-modelVersionDetail_lastUpdatedTime = Lens.lens (\ModelVersionDetail' {lastUpdatedTime} -> lastUpdatedTime) (\s@ModelVersionDetail' {} a -> s {lastUpdatedTime = a} :: ModelVersionDetail)
-
--- | The model ID.
-modelVersionDetail_modelId :: Lens.Lens' ModelVersionDetail (Prelude.Maybe Prelude.Text)
-modelVersionDetail_modelId = Lens.lens (\ModelVersionDetail' {modelId} -> modelId) (\s@ModelVersionDetail' {} a -> s {modelId = a} :: ModelVersionDetail)
-
--- | The model version ARN.
-modelVersionDetail_arn :: Lens.Lens' ModelVersionDetail (Prelude.Maybe Prelude.Text)
-modelVersionDetail_arn = Lens.lens (\ModelVersionDetail' {arn} -> arn) (\s@ModelVersionDetail' {} a -> s {arn = a} :: ModelVersionDetail)
-
--- | The model version training data source.
-modelVersionDetail_trainingDataSource :: Lens.Lens' ModelVersionDetail (Prelude.Maybe TrainingDataSourceEnum)
-modelVersionDetail_trainingDataSource = Lens.lens (\ModelVersionDetail' {trainingDataSource} -> trainingDataSource) (\s@ModelVersionDetail' {} a -> s {trainingDataSource = a} :: ModelVersionDetail)
 
 -- | The timestamp when the model was created.
 modelVersionDetail_createdTime :: Lens.Lens' ModelVersionDetail (Prelude.Maybe Prelude.Text)
 modelVersionDetail_createdTime = Lens.lens (\ModelVersionDetail' {createdTime} -> createdTime) (\s@ModelVersionDetail' {} a -> s {createdTime = a} :: ModelVersionDetail)
-
--- | The external events data details. This will be populated if the
--- @trainingDataSource@ for the model version is specified as
--- @EXTERNAL_EVENTS@.
-modelVersionDetail_externalEventsDetail :: Lens.Lens' ModelVersionDetail (Prelude.Maybe ExternalEventsDetail)
-modelVersionDetail_externalEventsDetail = Lens.lens (\ModelVersionDetail' {externalEventsDetail} -> externalEventsDetail) (\s@ModelVersionDetail' {} a -> s {externalEventsDetail = a} :: ModelVersionDetail)
 
 -- | The ingested events data details. This will be populated if the
 -- @trainingDataSource@ for the model version is specified as
@@ -161,13 +131,43 @@ modelVersionDetail_ingestedEventsDetail = Lens.lens (\ModelVersionDetail' {inges
 modelVersionDetail_modelVersionNumber :: Lens.Lens' ModelVersionDetail (Prelude.Maybe Prelude.Text)
 modelVersionDetail_modelVersionNumber = Lens.lens (\ModelVersionDetail' {modelVersionNumber} -> modelVersionNumber) (\s@ModelVersionDetail' {} a -> s {modelVersionNumber = a} :: ModelVersionDetail)
 
--- | The training results.
-modelVersionDetail_trainingResult :: Lens.Lens' ModelVersionDetail (Prelude.Maybe TrainingResult)
-modelVersionDetail_trainingResult = Lens.lens (\ModelVersionDetail' {trainingResult} -> trainingResult) (\s@ModelVersionDetail' {} a -> s {trainingResult = a} :: ModelVersionDetail)
+-- | The model version ARN.
+modelVersionDetail_arn :: Lens.Lens' ModelVersionDetail (Prelude.Maybe Prelude.Text)
+modelVersionDetail_arn = Lens.lens (\ModelVersionDetail' {arn} -> arn) (\s@ModelVersionDetail' {} a -> s {arn = a} :: ModelVersionDetail)
+
+-- | The status of the model version.
+modelVersionDetail_status :: Lens.Lens' ModelVersionDetail (Prelude.Maybe Prelude.Text)
+modelVersionDetail_status = Lens.lens (\ModelVersionDetail' {status} -> status) (\s@ModelVersionDetail' {} a -> s {status = a} :: ModelVersionDetail)
+
+-- | The timestamp when the model was last updated.
+modelVersionDetail_lastUpdatedTime :: Lens.Lens' ModelVersionDetail (Prelude.Maybe Prelude.Text)
+modelVersionDetail_lastUpdatedTime = Lens.lens (\ModelVersionDetail' {lastUpdatedTime} -> lastUpdatedTime) (\s@ModelVersionDetail' {} a -> s {lastUpdatedTime = a} :: ModelVersionDetail)
+
+-- | The model type.
+modelVersionDetail_modelType :: Lens.Lens' ModelVersionDetail (Prelude.Maybe ModelTypeEnum)
+modelVersionDetail_modelType = Lens.lens (\ModelVersionDetail' {modelType} -> modelType) (\s@ModelVersionDetail' {} a -> s {modelType = a} :: ModelVersionDetail)
 
 -- | The training data schema.
 modelVersionDetail_trainingDataSchema :: Lens.Lens' ModelVersionDetail (Prelude.Maybe TrainingDataSchema)
 modelVersionDetail_trainingDataSchema = Lens.lens (\ModelVersionDetail' {trainingDataSchema} -> trainingDataSchema) (\s@ModelVersionDetail' {} a -> s {trainingDataSchema = a} :: ModelVersionDetail)
+
+-- | The training results.
+modelVersionDetail_trainingResult :: Lens.Lens' ModelVersionDetail (Prelude.Maybe TrainingResult)
+modelVersionDetail_trainingResult = Lens.lens (\ModelVersionDetail' {trainingResult} -> trainingResult) (\s@ModelVersionDetail' {} a -> s {trainingResult = a} :: ModelVersionDetail)
+
+-- | The external events data details. This will be populated if the
+-- @trainingDataSource@ for the model version is specified as
+-- @EXTERNAL_EVENTS@.
+modelVersionDetail_externalEventsDetail :: Lens.Lens' ModelVersionDetail (Prelude.Maybe ExternalEventsDetail)
+modelVersionDetail_externalEventsDetail = Lens.lens (\ModelVersionDetail' {externalEventsDetail} -> externalEventsDetail) (\s@ModelVersionDetail' {} a -> s {externalEventsDetail = a} :: ModelVersionDetail)
+
+-- | The model version training data source.
+modelVersionDetail_trainingDataSource :: Lens.Lens' ModelVersionDetail (Prelude.Maybe TrainingDataSourceEnum)
+modelVersionDetail_trainingDataSource = Lens.lens (\ModelVersionDetail' {trainingDataSource} -> trainingDataSource) (\s@ModelVersionDetail' {} a -> s {trainingDataSource = a} :: ModelVersionDetail)
+
+-- | The model ID.
+modelVersionDetail_modelId :: Lens.Lens' ModelVersionDetail (Prelude.Maybe Prelude.Text)
+modelVersionDetail_modelId = Lens.lens (\ModelVersionDetail' {modelId} -> modelId) (\s@ModelVersionDetail' {} a -> s {modelId = a} :: ModelVersionDetail)
 
 instance Core.FromJSON ModelVersionDetail where
   parseJSON =
@@ -175,46 +175,46 @@ instance Core.FromJSON ModelVersionDetail where
       "ModelVersionDetail"
       ( \x ->
           ModelVersionDetail'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "modelType")
-            Prelude.<*> (x Core..:? "lastUpdatedTime")
-            Prelude.<*> (x Core..:? "modelId")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "trainingDataSource")
-            Prelude.<*> (x Core..:? "createdTime")
-            Prelude.<*> (x Core..:? "externalEventsDetail")
+            Prelude.<$> (x Core..:? "createdTime")
             Prelude.<*> (x Core..:? "ingestedEventsDetail")
             Prelude.<*> (x Core..:? "modelVersionNumber")
-            Prelude.<*> (x Core..:? "trainingResult")
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "lastUpdatedTime")
+            Prelude.<*> (x Core..:? "modelType")
             Prelude.<*> (x Core..:? "trainingDataSchema")
+            Prelude.<*> (x Core..:? "trainingResult")
+            Prelude.<*> (x Core..:? "externalEventsDetail")
+            Prelude.<*> (x Core..:? "trainingDataSource")
+            Prelude.<*> (x Core..:? "modelId")
       )
 
 instance Prelude.Hashable ModelVersionDetail where
   hashWithSalt _salt ModelVersionDetail' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` modelType
-      `Prelude.hashWithSalt` lastUpdatedTime
-      `Prelude.hashWithSalt` modelId
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` trainingDataSource
-      `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` externalEventsDetail
+    _salt `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` ingestedEventsDetail
       `Prelude.hashWithSalt` modelVersionNumber
-      `Prelude.hashWithSalt` trainingResult
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` modelType
       `Prelude.hashWithSalt` trainingDataSchema
+      `Prelude.hashWithSalt` trainingResult
+      `Prelude.hashWithSalt` externalEventsDetail
+      `Prelude.hashWithSalt` trainingDataSource
+      `Prelude.hashWithSalt` modelId
 
 instance Prelude.NFData ModelVersionDetail where
   rnf ModelVersionDetail' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf modelType
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf modelId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf trainingDataSource
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf externalEventsDetail
+    Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf ingestedEventsDetail
       `Prelude.seq` Prelude.rnf modelVersionNumber
-      `Prelude.seq` Prelude.rnf trainingResult
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf modelType
       `Prelude.seq` Prelude.rnf trainingDataSchema
+      `Prelude.seq` Prelude.rnf trainingResult
+      `Prelude.seq` Prelude.rnf externalEventsDetail
+      `Prelude.seq` Prelude.rnf trainingDataSource
+      `Prelude.seq` Prelude.rnf modelId

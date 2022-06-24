@@ -29,11 +29,11 @@ module Amazonka.FraudDetector.DescribeModelVersions
     newDescribeModelVersions,
 
     -- * Request Lenses
-    describeModelVersions_modelType,
-    describeModelVersions_modelId,
     describeModelVersions_nextToken,
     describeModelVersions_modelVersionNumber,
+    describeModelVersions_modelType,
     describeModelVersions_maxResults,
+    describeModelVersions_modelId,
 
     -- * Destructuring the Response
     DescribeModelVersionsResponse (..),
@@ -55,16 +55,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeModelVersions' smart constructor.
 data DescribeModelVersions = DescribeModelVersions'
-  { -- | The model type.
-    modelType :: Prelude.Maybe ModelTypeEnum,
-    -- | The model ID.
-    modelId :: Prelude.Maybe Prelude.Text,
-    -- | The next token from the previous results.
+  { -- | The next token from the previous results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The model version number.
     modelVersionNumber :: Prelude.Maybe Prelude.Text,
+    -- | The model type.
+    modelType :: Prelude.Maybe ModelTypeEnum,
     -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The model ID.
+    modelId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,33 +76,25 @@ data DescribeModelVersions = DescribeModelVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'modelType', 'describeModelVersions_modelType' - The model type.
---
--- 'modelId', 'describeModelVersions_modelId' - The model ID.
---
 -- 'nextToken', 'describeModelVersions_nextToken' - The next token from the previous results.
 --
 -- 'modelVersionNumber', 'describeModelVersions_modelVersionNumber' - The model version number.
 --
+-- 'modelType', 'describeModelVersions_modelType' - The model type.
+--
 -- 'maxResults', 'describeModelVersions_maxResults' - The maximum number of results to return.
+--
+-- 'modelId', 'describeModelVersions_modelId' - The model ID.
 newDescribeModelVersions ::
   DescribeModelVersions
 newDescribeModelVersions =
   DescribeModelVersions'
-    { modelType = Prelude.Nothing,
-      modelId = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       modelVersionNumber = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      modelType = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      modelId = Prelude.Nothing
     }
-
--- | The model type.
-describeModelVersions_modelType :: Lens.Lens' DescribeModelVersions (Prelude.Maybe ModelTypeEnum)
-describeModelVersions_modelType = Lens.lens (\DescribeModelVersions' {modelType} -> modelType) (\s@DescribeModelVersions' {} a -> s {modelType = a} :: DescribeModelVersions)
-
--- | The model ID.
-describeModelVersions_modelId :: Lens.Lens' DescribeModelVersions (Prelude.Maybe Prelude.Text)
-describeModelVersions_modelId = Lens.lens (\DescribeModelVersions' {modelId} -> modelId) (\s@DescribeModelVersions' {} a -> s {modelId = a} :: DescribeModelVersions)
 
 -- | The next token from the previous results.
 describeModelVersions_nextToken :: Lens.Lens' DescribeModelVersions (Prelude.Maybe Prelude.Text)
@@ -112,9 +104,17 @@ describeModelVersions_nextToken = Lens.lens (\DescribeModelVersions' {nextToken}
 describeModelVersions_modelVersionNumber :: Lens.Lens' DescribeModelVersions (Prelude.Maybe Prelude.Text)
 describeModelVersions_modelVersionNumber = Lens.lens (\DescribeModelVersions' {modelVersionNumber} -> modelVersionNumber) (\s@DescribeModelVersions' {} a -> s {modelVersionNumber = a} :: DescribeModelVersions)
 
+-- | The model type.
+describeModelVersions_modelType :: Lens.Lens' DescribeModelVersions (Prelude.Maybe ModelTypeEnum)
+describeModelVersions_modelType = Lens.lens (\DescribeModelVersions' {modelType} -> modelType) (\s@DescribeModelVersions' {} a -> s {modelType = a} :: DescribeModelVersions)
+
 -- | The maximum number of results to return.
 describeModelVersions_maxResults :: Lens.Lens' DescribeModelVersions (Prelude.Maybe Prelude.Natural)
 describeModelVersions_maxResults = Lens.lens (\DescribeModelVersions' {maxResults} -> maxResults) (\s@DescribeModelVersions' {} a -> s {maxResults = a} :: DescribeModelVersions)
+
+-- | The model ID.
+describeModelVersions_modelId :: Lens.Lens' DescribeModelVersions (Prelude.Maybe Prelude.Text)
+describeModelVersions_modelId = Lens.lens (\DescribeModelVersions' {modelId} -> modelId) (\s@DescribeModelVersions' {} a -> s {modelId = a} :: DescribeModelVersions)
 
 instance Core.AWSRequest DescribeModelVersions where
   type
@@ -134,19 +134,19 @@ instance Core.AWSRequest DescribeModelVersions where
 
 instance Prelude.Hashable DescribeModelVersions where
   hashWithSalt _salt DescribeModelVersions' {..} =
-    _salt `Prelude.hashWithSalt` modelType
-      `Prelude.hashWithSalt` modelId
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` modelVersionNumber
+      `Prelude.hashWithSalt` modelType
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` modelId
 
 instance Prelude.NFData DescribeModelVersions where
   rnf DescribeModelVersions' {..} =
-    Prelude.rnf modelType
-      `Prelude.seq` Prelude.rnf modelId
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf modelVersionNumber
+      `Prelude.seq` Prelude.rnf modelType
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf modelId
 
 instance Core.ToHeaders DescribeModelVersions where
   toHeaders =
@@ -167,12 +167,12 @@ instance Core.ToJSON DescribeModelVersions where
   toJSON DescribeModelVersions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("modelType" Core..=) Prelude.<$> modelType,
-            ("modelId" Core..=) Prelude.<$> modelId,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
             ("modelVersionNumber" Core..=)
               Prelude.<$> modelVersionNumber,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+            ("modelType" Core..=) Prelude.<$> modelType,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("modelId" Core..=) Prelude.<$> modelId
           ]
       )
 

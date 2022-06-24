@@ -31,24 +31,24 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExternalModel' smart constructor.
 data ExternalModel = ExternalModel'
-  { -- | The Amazon SageMaker model endpoints.
+  { -- | The output configuration.
+    outputConfiguration :: Prelude.Maybe ModelOutputConfiguration,
+    -- | Timestamp of when the model was last created.
+    createdTime :: Prelude.Maybe Prelude.Text,
+    -- | The model ARN.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The input configuration.
+    inputConfiguration :: Prelude.Maybe ModelInputConfiguration,
+    -- | The Amazon Fraud Detector status for the external model endpoint
+    modelEndpointStatus :: Prelude.Maybe ModelEndpointStatus,
+    -- | Timestamp of when the model was last updated.
+    lastUpdatedTime :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon SageMaker model endpoints.
     modelEndpoint :: Prelude.Maybe Prelude.Text,
     -- | The source of the model.
     modelSource :: Prelude.Maybe ModelSource,
-    -- | Timestamp of when the model was last updated.
-    lastUpdatedTime :: Prelude.Maybe Prelude.Text,
-    -- | The model ARN.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | Timestamp of when the model was last created.
-    createdTime :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Fraud Detector status for the external model endpoint
-    modelEndpointStatus :: Prelude.Maybe ModelEndpointStatus,
-    -- | The output configuration.
-    outputConfiguration :: Prelude.Maybe ModelOutputConfiguration,
     -- | The role used to invoke the model.
-    invokeModelEndpointRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The input configuration.
-    inputConfiguration :: Prelude.Maybe ModelInputConfiguration
+    invokeModelEndpointRoleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,37 +60,62 @@ data ExternalModel = ExternalModel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'outputConfiguration', 'externalModel_outputConfiguration' - The output configuration.
+--
+-- 'createdTime', 'externalModel_createdTime' - Timestamp of when the model was last created.
+--
+-- 'arn', 'externalModel_arn' - The model ARN.
+--
+-- 'inputConfiguration', 'externalModel_inputConfiguration' - The input configuration.
+--
+-- 'modelEndpointStatus', 'externalModel_modelEndpointStatus' - The Amazon Fraud Detector status for the external model endpoint
+--
+-- 'lastUpdatedTime', 'externalModel_lastUpdatedTime' - Timestamp of when the model was last updated.
+--
 -- 'modelEndpoint', 'externalModel_modelEndpoint' - The Amazon SageMaker model endpoints.
 --
 -- 'modelSource', 'externalModel_modelSource' - The source of the model.
 --
--- 'lastUpdatedTime', 'externalModel_lastUpdatedTime' - Timestamp of when the model was last updated.
---
--- 'arn', 'externalModel_arn' - The model ARN.
---
--- 'createdTime', 'externalModel_createdTime' - Timestamp of when the model was last created.
---
--- 'modelEndpointStatus', 'externalModel_modelEndpointStatus' - The Amazon Fraud Detector status for the external model endpoint
---
--- 'outputConfiguration', 'externalModel_outputConfiguration' - The output configuration.
---
 -- 'invokeModelEndpointRoleArn', 'externalModel_invokeModelEndpointRoleArn' - The role used to invoke the model.
---
--- 'inputConfiguration', 'externalModel_inputConfiguration' - The input configuration.
 newExternalModel ::
   ExternalModel
 newExternalModel =
   ExternalModel'
-    { modelEndpoint = Prelude.Nothing,
-      modelSource = Prelude.Nothing,
-      lastUpdatedTime = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { outputConfiguration =
+        Prelude.Nothing,
       createdTime = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      inputConfiguration = Prelude.Nothing,
       modelEndpointStatus = Prelude.Nothing,
-      outputConfiguration = Prelude.Nothing,
-      invokeModelEndpointRoleArn = Prelude.Nothing,
-      inputConfiguration = Prelude.Nothing
+      lastUpdatedTime = Prelude.Nothing,
+      modelEndpoint = Prelude.Nothing,
+      modelSource = Prelude.Nothing,
+      invokeModelEndpointRoleArn = Prelude.Nothing
     }
+
+-- | The output configuration.
+externalModel_outputConfiguration :: Lens.Lens' ExternalModel (Prelude.Maybe ModelOutputConfiguration)
+externalModel_outputConfiguration = Lens.lens (\ExternalModel' {outputConfiguration} -> outputConfiguration) (\s@ExternalModel' {} a -> s {outputConfiguration = a} :: ExternalModel)
+
+-- | Timestamp of when the model was last created.
+externalModel_createdTime :: Lens.Lens' ExternalModel (Prelude.Maybe Prelude.Text)
+externalModel_createdTime = Lens.lens (\ExternalModel' {createdTime} -> createdTime) (\s@ExternalModel' {} a -> s {createdTime = a} :: ExternalModel)
+
+-- | The model ARN.
+externalModel_arn :: Lens.Lens' ExternalModel (Prelude.Maybe Prelude.Text)
+externalModel_arn = Lens.lens (\ExternalModel' {arn} -> arn) (\s@ExternalModel' {} a -> s {arn = a} :: ExternalModel)
+
+-- | The input configuration.
+externalModel_inputConfiguration :: Lens.Lens' ExternalModel (Prelude.Maybe ModelInputConfiguration)
+externalModel_inputConfiguration = Lens.lens (\ExternalModel' {inputConfiguration} -> inputConfiguration) (\s@ExternalModel' {} a -> s {inputConfiguration = a} :: ExternalModel)
+
+-- | The Amazon Fraud Detector status for the external model endpoint
+externalModel_modelEndpointStatus :: Lens.Lens' ExternalModel (Prelude.Maybe ModelEndpointStatus)
+externalModel_modelEndpointStatus = Lens.lens (\ExternalModel' {modelEndpointStatus} -> modelEndpointStatus) (\s@ExternalModel' {} a -> s {modelEndpointStatus = a} :: ExternalModel)
+
+-- | Timestamp of when the model was last updated.
+externalModel_lastUpdatedTime :: Lens.Lens' ExternalModel (Prelude.Maybe Prelude.Text)
+externalModel_lastUpdatedTime = Lens.lens (\ExternalModel' {lastUpdatedTime} -> lastUpdatedTime) (\s@ExternalModel' {} a -> s {lastUpdatedTime = a} :: ExternalModel)
 
 -- | The Amazon SageMaker model endpoints.
 externalModel_modelEndpoint :: Lens.Lens' ExternalModel (Prelude.Maybe Prelude.Text)
@@ -100,33 +125,9 @@ externalModel_modelEndpoint = Lens.lens (\ExternalModel' {modelEndpoint} -> mode
 externalModel_modelSource :: Lens.Lens' ExternalModel (Prelude.Maybe ModelSource)
 externalModel_modelSource = Lens.lens (\ExternalModel' {modelSource} -> modelSource) (\s@ExternalModel' {} a -> s {modelSource = a} :: ExternalModel)
 
--- | Timestamp of when the model was last updated.
-externalModel_lastUpdatedTime :: Lens.Lens' ExternalModel (Prelude.Maybe Prelude.Text)
-externalModel_lastUpdatedTime = Lens.lens (\ExternalModel' {lastUpdatedTime} -> lastUpdatedTime) (\s@ExternalModel' {} a -> s {lastUpdatedTime = a} :: ExternalModel)
-
--- | The model ARN.
-externalModel_arn :: Lens.Lens' ExternalModel (Prelude.Maybe Prelude.Text)
-externalModel_arn = Lens.lens (\ExternalModel' {arn} -> arn) (\s@ExternalModel' {} a -> s {arn = a} :: ExternalModel)
-
--- | Timestamp of when the model was last created.
-externalModel_createdTime :: Lens.Lens' ExternalModel (Prelude.Maybe Prelude.Text)
-externalModel_createdTime = Lens.lens (\ExternalModel' {createdTime} -> createdTime) (\s@ExternalModel' {} a -> s {createdTime = a} :: ExternalModel)
-
--- | The Amazon Fraud Detector status for the external model endpoint
-externalModel_modelEndpointStatus :: Lens.Lens' ExternalModel (Prelude.Maybe ModelEndpointStatus)
-externalModel_modelEndpointStatus = Lens.lens (\ExternalModel' {modelEndpointStatus} -> modelEndpointStatus) (\s@ExternalModel' {} a -> s {modelEndpointStatus = a} :: ExternalModel)
-
--- | The output configuration.
-externalModel_outputConfiguration :: Lens.Lens' ExternalModel (Prelude.Maybe ModelOutputConfiguration)
-externalModel_outputConfiguration = Lens.lens (\ExternalModel' {outputConfiguration} -> outputConfiguration) (\s@ExternalModel' {} a -> s {outputConfiguration = a} :: ExternalModel)
-
 -- | The role used to invoke the model.
 externalModel_invokeModelEndpointRoleArn :: Lens.Lens' ExternalModel (Prelude.Maybe Prelude.Text)
 externalModel_invokeModelEndpointRoleArn = Lens.lens (\ExternalModel' {invokeModelEndpointRoleArn} -> invokeModelEndpointRoleArn) (\s@ExternalModel' {} a -> s {invokeModelEndpointRoleArn = a} :: ExternalModel)
-
--- | The input configuration.
-externalModel_inputConfiguration :: Lens.Lens' ExternalModel (Prelude.Maybe ModelInputConfiguration)
-externalModel_inputConfiguration = Lens.lens (\ExternalModel' {inputConfiguration} -> inputConfiguration) (\s@ExternalModel' {} a -> s {inputConfiguration = a} :: ExternalModel)
 
 instance Core.FromJSON ExternalModel where
   parseJSON =
@@ -134,37 +135,37 @@ instance Core.FromJSON ExternalModel where
       "ExternalModel"
       ( \x ->
           ExternalModel'
-            Prelude.<$> (x Core..:? "modelEndpoint")
-            Prelude.<*> (x Core..:? "modelSource")
-            Prelude.<*> (x Core..:? "lastUpdatedTime")
-            Prelude.<*> (x Core..:? "arn")
+            Prelude.<$> (x Core..:? "outputConfiguration")
             Prelude.<*> (x Core..:? "createdTime")
-            Prelude.<*> (x Core..:? "modelEndpointStatus")
-            Prelude.<*> (x Core..:? "outputConfiguration")
-            Prelude.<*> (x Core..:? "invokeModelEndpointRoleArn")
+            Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "inputConfiguration")
+            Prelude.<*> (x Core..:? "modelEndpointStatus")
+            Prelude.<*> (x Core..:? "lastUpdatedTime")
+            Prelude.<*> (x Core..:? "modelEndpoint")
+            Prelude.<*> (x Core..:? "modelSource")
+            Prelude.<*> (x Core..:? "invokeModelEndpointRoleArn")
       )
 
 instance Prelude.Hashable ExternalModel where
   hashWithSalt _salt ExternalModel' {..} =
-    _salt `Prelude.hashWithSalt` modelEndpoint
-      `Prelude.hashWithSalt` modelSource
-      `Prelude.hashWithSalt` lastUpdatedTime
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` outputConfiguration
       `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` modelEndpointStatus
-      `Prelude.hashWithSalt` outputConfiguration
-      `Prelude.hashWithSalt` invokeModelEndpointRoleArn
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` inputConfiguration
+      `Prelude.hashWithSalt` modelEndpointStatus
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` modelEndpoint
+      `Prelude.hashWithSalt` modelSource
+      `Prelude.hashWithSalt` invokeModelEndpointRoleArn
 
 instance Prelude.NFData ExternalModel where
   rnf ExternalModel' {..} =
-    Prelude.rnf modelEndpoint
-      `Prelude.seq` Prelude.rnf modelSource
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf outputConfiguration
       `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf modelEndpointStatus
-      `Prelude.seq` Prelude.rnf outputConfiguration
-      `Prelude.seq` Prelude.rnf invokeModelEndpointRoleArn
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf inputConfiguration
+      `Prelude.seq` Prelude.rnf modelEndpointStatus
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf modelEndpoint
+      `Prelude.seq` Prelude.rnf modelSource
+      `Prelude.seq` Prelude.rnf invokeModelEndpointRoleArn

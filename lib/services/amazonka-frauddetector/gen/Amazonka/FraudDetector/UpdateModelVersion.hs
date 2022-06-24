@@ -32,9 +32,9 @@ module Amazonka.FraudDetector.UpdateModelVersion
     newUpdateModelVersion,
 
     -- * Request Lenses
-    updateModelVersion_externalEventsDetail,
-    updateModelVersion_ingestedEventsDetail,
     updateModelVersion_tags,
+    updateModelVersion_ingestedEventsDetail,
+    updateModelVersion_externalEventsDetail,
     updateModelVersion_modelId,
     updateModelVersion_modelType,
     updateModelVersion_majorVersionNumber,
@@ -44,10 +44,10 @@ module Amazonka.FraudDetector.UpdateModelVersion
     newUpdateModelVersionResponse,
 
     -- * Response Lenses
+    updateModelVersionResponse_modelVersionNumber,
     updateModelVersionResponse_status,
     updateModelVersionResponse_modelType,
     updateModelVersionResponse_modelId,
-    updateModelVersionResponse_modelVersionNumber,
     updateModelVersionResponse_httpStatus,
   )
 where
@@ -61,14 +61,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateModelVersion' smart constructor.
 data UpdateModelVersion = UpdateModelVersion'
-  { -- | The details of the external events data used for training the model
-    -- version. Required if @trainingDataSource@ is @EXTERNAL_EVENTS@.
-    externalEventsDetail :: Prelude.Maybe ExternalEventsDetail,
+  { -- | A collection of key and value pairs.
+    tags :: Prelude.Maybe [Tag],
     -- | The details of the ingested event used for training the model version.
     -- Required if your @trainingDataSource@ is @INGESTED_EVENTS@.
     ingestedEventsDetail :: Prelude.Maybe IngestedEventsDetail,
-    -- | A collection of key and value pairs.
-    tags :: Prelude.Maybe [Tag],
+    -- | The details of the external events data used for training the model
+    -- version. Required if @trainingDataSource@ is @EXTERNAL_EVENTS@.
+    externalEventsDetail :: Prelude.Maybe ExternalEventsDetail,
     -- | The model ID.
     modelId :: Prelude.Text,
     -- | The model type.
@@ -86,13 +86,13 @@ data UpdateModelVersion = UpdateModelVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'externalEventsDetail', 'updateModelVersion_externalEventsDetail' - The details of the external events data used for training the model
--- version. Required if @trainingDataSource@ is @EXTERNAL_EVENTS@.
+-- 'tags', 'updateModelVersion_tags' - A collection of key and value pairs.
 --
 -- 'ingestedEventsDetail', 'updateModelVersion_ingestedEventsDetail' - The details of the ingested event used for training the model version.
 -- Required if your @trainingDataSource@ is @INGESTED_EVENTS@.
 --
--- 'tags', 'updateModelVersion_tags' - A collection of key and value pairs.
+-- 'externalEventsDetail', 'updateModelVersion_externalEventsDetail' - The details of the external events data used for training the model
+-- version. Required if @trainingDataSource@ is @EXTERNAL_EVENTS@.
 --
 -- 'modelId', 'updateModelVersion_modelId' - The model ID.
 --
@@ -112,28 +112,27 @@ newUpdateModelVersion
   pModelType_
   pMajorVersionNumber_ =
     UpdateModelVersion'
-      { externalEventsDetail =
-          Prelude.Nothing,
+      { tags = Prelude.Nothing,
         ingestedEventsDetail = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        externalEventsDetail = Prelude.Nothing,
         modelId = pModelId_,
         modelType = pModelType_,
         majorVersionNumber = pMajorVersionNumber_
       }
 
--- | The details of the external events data used for training the model
--- version. Required if @trainingDataSource@ is @EXTERNAL_EVENTS@.
-updateModelVersion_externalEventsDetail :: Lens.Lens' UpdateModelVersion (Prelude.Maybe ExternalEventsDetail)
-updateModelVersion_externalEventsDetail = Lens.lens (\UpdateModelVersion' {externalEventsDetail} -> externalEventsDetail) (\s@UpdateModelVersion' {} a -> s {externalEventsDetail = a} :: UpdateModelVersion)
+-- | A collection of key and value pairs.
+updateModelVersion_tags :: Lens.Lens' UpdateModelVersion (Prelude.Maybe [Tag])
+updateModelVersion_tags = Lens.lens (\UpdateModelVersion' {tags} -> tags) (\s@UpdateModelVersion' {} a -> s {tags = a} :: UpdateModelVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | The details of the ingested event used for training the model version.
 -- Required if your @trainingDataSource@ is @INGESTED_EVENTS@.
 updateModelVersion_ingestedEventsDetail :: Lens.Lens' UpdateModelVersion (Prelude.Maybe IngestedEventsDetail)
 updateModelVersion_ingestedEventsDetail = Lens.lens (\UpdateModelVersion' {ingestedEventsDetail} -> ingestedEventsDetail) (\s@UpdateModelVersion' {} a -> s {ingestedEventsDetail = a} :: UpdateModelVersion)
 
--- | A collection of key and value pairs.
-updateModelVersion_tags :: Lens.Lens' UpdateModelVersion (Prelude.Maybe [Tag])
-updateModelVersion_tags = Lens.lens (\UpdateModelVersion' {tags} -> tags) (\s@UpdateModelVersion' {} a -> s {tags = a} :: UpdateModelVersion) Prelude.. Lens.mapping Lens.coerced
+-- | The details of the external events data used for training the model
+-- version. Required if @trainingDataSource@ is @EXTERNAL_EVENTS@.
+updateModelVersion_externalEventsDetail :: Lens.Lens' UpdateModelVersion (Prelude.Maybe ExternalEventsDetail)
+updateModelVersion_externalEventsDetail = Lens.lens (\UpdateModelVersion' {externalEventsDetail} -> externalEventsDetail) (\s@UpdateModelVersion' {} a -> s {externalEventsDetail = a} :: UpdateModelVersion)
 
 -- | The model ID.
 updateModelVersion_modelId :: Lens.Lens' UpdateModelVersion Prelude.Text
@@ -156,27 +155,27 @@ instance Core.AWSRequest UpdateModelVersion where
     Response.receiveJSON
       ( \s h x ->
           UpdateModelVersionResponse'
-            Prelude.<$> (x Core..?> "status")
+            Prelude.<$> (x Core..?> "modelVersionNumber")
+            Prelude.<*> (x Core..?> "status")
             Prelude.<*> (x Core..?> "modelType")
             Prelude.<*> (x Core..?> "modelId")
-            Prelude.<*> (x Core..?> "modelVersionNumber")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateModelVersion where
   hashWithSalt _salt UpdateModelVersion' {..} =
-    _salt `Prelude.hashWithSalt` externalEventsDetail
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` ingestedEventsDetail
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` externalEventsDetail
       `Prelude.hashWithSalt` modelId
       `Prelude.hashWithSalt` modelType
       `Prelude.hashWithSalt` majorVersionNumber
 
 instance Prelude.NFData UpdateModelVersion where
   rnf UpdateModelVersion' {..} =
-    Prelude.rnf externalEventsDetail
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf ingestedEventsDetail
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf externalEventsDetail
       `Prelude.seq` Prelude.rnf modelId
       `Prelude.seq` Prelude.rnf modelType
       `Prelude.seq` Prelude.rnf majorVersionNumber
@@ -200,11 +199,11 @@ instance Core.ToJSON UpdateModelVersion where
   toJSON UpdateModelVersion' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("externalEventsDetail" Core..=)
-              Prelude.<$> externalEventsDetail,
+          [ ("tags" Core..=) Prelude.<$> tags,
             ("ingestedEventsDetail" Core..=)
               Prelude.<$> ingestedEventsDetail,
-            ("tags" Core..=) Prelude.<$> tags,
+            ("externalEventsDetail" Core..=)
+              Prelude.<$> externalEventsDetail,
             Prelude.Just ("modelId" Core..= modelId),
             Prelude.Just ("modelType" Core..= modelType),
             Prelude.Just
@@ -220,14 +219,14 @@ instance Core.ToQuery UpdateModelVersion where
 
 -- | /See:/ 'newUpdateModelVersionResponse' smart constructor.
 data UpdateModelVersionResponse = UpdateModelVersionResponse'
-  { -- | The status of the updated model version.
+  { -- | The model version number of the model version updated.
+    modelVersionNumber :: Prelude.Maybe Prelude.Text,
+    -- | The status of the updated model version.
     status :: Prelude.Maybe Prelude.Text,
     -- | The model type.
     modelType :: Prelude.Maybe ModelTypeEnum,
     -- | The model ID.
     modelId :: Prelude.Maybe Prelude.Text,
-    -- | The model version number of the model version updated.
-    modelVersionNumber :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -241,13 +240,13 @@ data UpdateModelVersionResponse = UpdateModelVersionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'modelVersionNumber', 'updateModelVersionResponse_modelVersionNumber' - The model version number of the model version updated.
+--
 -- 'status', 'updateModelVersionResponse_status' - The status of the updated model version.
 --
 -- 'modelType', 'updateModelVersionResponse_modelType' - The model type.
 --
 -- 'modelId', 'updateModelVersionResponse_modelId' - The model ID.
---
--- 'modelVersionNumber', 'updateModelVersionResponse_modelVersionNumber' - The model version number of the model version updated.
 --
 -- 'httpStatus', 'updateModelVersionResponse_httpStatus' - The response's http status code.
 newUpdateModelVersionResponse ::
@@ -256,13 +255,17 @@ newUpdateModelVersionResponse ::
   UpdateModelVersionResponse
 newUpdateModelVersionResponse pHttpStatus_ =
   UpdateModelVersionResponse'
-    { status =
+    { modelVersionNumber =
         Prelude.Nothing,
+      status = Prelude.Nothing,
       modelType = Prelude.Nothing,
       modelId = Prelude.Nothing,
-      modelVersionNumber = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The model version number of the model version updated.
+updateModelVersionResponse_modelVersionNumber :: Lens.Lens' UpdateModelVersionResponse (Prelude.Maybe Prelude.Text)
+updateModelVersionResponse_modelVersionNumber = Lens.lens (\UpdateModelVersionResponse' {modelVersionNumber} -> modelVersionNumber) (\s@UpdateModelVersionResponse' {} a -> s {modelVersionNumber = a} :: UpdateModelVersionResponse)
 
 -- | The status of the updated model version.
 updateModelVersionResponse_status :: Lens.Lens' UpdateModelVersionResponse (Prelude.Maybe Prelude.Text)
@@ -276,18 +279,14 @@ updateModelVersionResponse_modelType = Lens.lens (\UpdateModelVersionResponse' {
 updateModelVersionResponse_modelId :: Lens.Lens' UpdateModelVersionResponse (Prelude.Maybe Prelude.Text)
 updateModelVersionResponse_modelId = Lens.lens (\UpdateModelVersionResponse' {modelId} -> modelId) (\s@UpdateModelVersionResponse' {} a -> s {modelId = a} :: UpdateModelVersionResponse)
 
--- | The model version number of the model version updated.
-updateModelVersionResponse_modelVersionNumber :: Lens.Lens' UpdateModelVersionResponse (Prelude.Maybe Prelude.Text)
-updateModelVersionResponse_modelVersionNumber = Lens.lens (\UpdateModelVersionResponse' {modelVersionNumber} -> modelVersionNumber) (\s@UpdateModelVersionResponse' {} a -> s {modelVersionNumber = a} :: UpdateModelVersionResponse)
-
 -- | The response's http status code.
 updateModelVersionResponse_httpStatus :: Lens.Lens' UpdateModelVersionResponse Prelude.Int
 updateModelVersionResponse_httpStatus = Lens.lens (\UpdateModelVersionResponse' {httpStatus} -> httpStatus) (\s@UpdateModelVersionResponse' {} a -> s {httpStatus = a} :: UpdateModelVersionResponse)
 
 instance Prelude.NFData UpdateModelVersionResponse where
   rnf UpdateModelVersionResponse' {..} =
-    Prelude.rnf status
+    Prelude.rnf modelVersionNumber
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf modelType
       `Prelude.seq` Prelude.rnf modelId
-      `Prelude.seq` Prelude.rnf modelVersionNumber
       `Prelude.seq` Prelude.rnf httpStatus

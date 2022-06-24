@@ -33,10 +33,10 @@ module Amazonka.FraudDetector.PutEventType
     newPutEventType,
 
     -- * Request Lenses
+    putEventType_tags,
+    putEventType_description,
     putEventType_labels,
     putEventType_eventIngestion,
-    putEventType_description,
-    putEventType_tags,
     putEventType_name,
     putEventType_eventVariables,
     putEventType_entityTypes,
@@ -59,14 +59,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutEventType' smart constructor.
 data PutEventType = PutEventType'
-  { -- | The event type labels.
+  { -- | A collection of key and value pairs.
+    tags :: Prelude.Maybe [Tag],
+    -- | The description of the event type.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The event type labels.
     labels :: Prelude.Maybe [Prelude.Text],
     -- | Specifies if ingenstion is enabled or disabled.
     eventIngestion :: Prelude.Maybe EventIngestion,
-    -- | The description of the event type.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A collection of key and value pairs.
-    tags :: Prelude.Maybe [Tag],
     -- | The name.
     name :: Prelude.Text,
     -- | The event type variables.
@@ -85,13 +85,13 @@ data PutEventType = PutEventType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'labels', 'putEventType_labels' - The event type labels.
---
--- 'eventIngestion', 'putEventType_eventIngestion' - Specifies if ingenstion is enabled or disabled.
+-- 'tags', 'putEventType_tags' - A collection of key and value pairs.
 --
 -- 'description', 'putEventType_description' - The description of the event type.
 --
--- 'tags', 'putEventType_tags' - A collection of key and value pairs.
+-- 'labels', 'putEventType_labels' - The event type labels.
+--
+-- 'eventIngestion', 'putEventType_eventIngestion' - Specifies if ingenstion is enabled or disabled.
 --
 -- 'name', 'putEventType_name' - The name.
 --
@@ -109,15 +109,23 @@ newPutEventType ::
   PutEventType
 newPutEventType pName_ pEventVariables_ pEntityTypes_ =
   PutEventType'
-    { labels = Prelude.Nothing,
-      eventIngestion = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      labels = Prelude.Nothing,
+      eventIngestion = Prelude.Nothing,
       name = pName_,
       eventVariables =
         Lens.coerced Lens.# pEventVariables_,
       entityTypes = Lens.coerced Lens.# pEntityTypes_
     }
+
+-- | A collection of key and value pairs.
+putEventType_tags :: Lens.Lens' PutEventType (Prelude.Maybe [Tag])
+putEventType_tags = Lens.lens (\PutEventType' {tags} -> tags) (\s@PutEventType' {} a -> s {tags = a} :: PutEventType) Prelude.. Lens.mapping Lens.coerced
+
+-- | The description of the event type.
+putEventType_description :: Lens.Lens' PutEventType (Prelude.Maybe Prelude.Text)
+putEventType_description = Lens.lens (\PutEventType' {description} -> description) (\s@PutEventType' {} a -> s {description = a} :: PutEventType)
 
 -- | The event type labels.
 putEventType_labels :: Lens.Lens' PutEventType (Prelude.Maybe [Prelude.Text])
@@ -126,14 +134,6 @@ putEventType_labels = Lens.lens (\PutEventType' {labels} -> labels) (\s@PutEvent
 -- | Specifies if ingenstion is enabled or disabled.
 putEventType_eventIngestion :: Lens.Lens' PutEventType (Prelude.Maybe EventIngestion)
 putEventType_eventIngestion = Lens.lens (\PutEventType' {eventIngestion} -> eventIngestion) (\s@PutEventType' {} a -> s {eventIngestion = a} :: PutEventType)
-
--- | The description of the event type.
-putEventType_description :: Lens.Lens' PutEventType (Prelude.Maybe Prelude.Text)
-putEventType_description = Lens.lens (\PutEventType' {description} -> description) (\s@PutEventType' {} a -> s {description = a} :: PutEventType)
-
--- | A collection of key and value pairs.
-putEventType_tags :: Lens.Lens' PutEventType (Prelude.Maybe [Tag])
-putEventType_tags = Lens.lens (\PutEventType' {tags} -> tags) (\s@PutEventType' {} a -> s {tags = a} :: PutEventType) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name.
 putEventType_name :: Lens.Lens' PutEventType Prelude.Text
@@ -160,20 +160,20 @@ instance Core.AWSRequest PutEventType where
 
 instance Prelude.Hashable PutEventType where
   hashWithSalt _salt PutEventType' {..} =
-    _salt `Prelude.hashWithSalt` labels
-      `Prelude.hashWithSalt` eventIngestion
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` labels
+      `Prelude.hashWithSalt` eventIngestion
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` eventVariables
       `Prelude.hashWithSalt` entityTypes
 
 instance Prelude.NFData PutEventType where
   rnf PutEventType' {..} =
-    Prelude.rnf labels
-      `Prelude.seq` Prelude.rnf eventIngestion
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf labels
+      `Prelude.seq` Prelude.rnf eventIngestion
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf eventVariables
       `Prelude.seq` Prelude.rnf entityTypes
@@ -197,11 +197,11 @@ instance Core.ToJSON PutEventType where
   toJSON PutEventType' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("labels" Core..=) Prelude.<$> labels,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("description" Core..=) Prelude.<$> description,
+            ("labels" Core..=) Prelude.<$> labels,
             ("eventIngestion" Core..=)
               Prelude.<$> eventIngestion,
-            ("description" Core..=) Prelude.<$> description,
-            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("name" Core..= name),
             Prelude.Just
               ("eventVariables" Core..= eventVariables),

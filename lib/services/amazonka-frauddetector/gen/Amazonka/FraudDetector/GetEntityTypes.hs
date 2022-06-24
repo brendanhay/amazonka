@@ -33,8 +33,8 @@ module Amazonka.FraudDetector.GetEntityTypes
     newGetEntityTypes,
 
     -- * Request Lenses
-    getEntityTypes_nextToken,
     getEntityTypes_name,
+    getEntityTypes_nextToken,
     getEntityTypes_maxResults,
 
     -- * Destructuring the Response
@@ -42,8 +42,8 @@ module Amazonka.FraudDetector.GetEntityTypes
     newGetEntityTypesResponse,
 
     -- * Response Lenses
-    getEntityTypesResponse_entityTypes,
     getEntityTypesResponse_nextToken,
+    getEntityTypesResponse_entityTypes,
     getEntityTypesResponse_httpStatus,
   )
 where
@@ -57,10 +57,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetEntityTypes' smart constructor.
 data GetEntityTypes = GetEntityTypes'
-  { -- | The next token for the subsequent request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name.
+  { -- | The name.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The next token for the subsequent request.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of objects to return for the request.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -74,27 +74,27 @@ data GetEntityTypes = GetEntityTypes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getEntityTypes_nextToken' - The next token for the subsequent request.
---
 -- 'name', 'getEntityTypes_name' - The name.
+--
+-- 'nextToken', 'getEntityTypes_nextToken' - The next token for the subsequent request.
 --
 -- 'maxResults', 'getEntityTypes_maxResults' - The maximum number of objects to return for the request.
 newGetEntityTypes ::
   GetEntityTypes
 newGetEntityTypes =
   GetEntityTypes'
-    { nextToken = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | The next token for the subsequent request.
-getEntityTypes_nextToken :: Lens.Lens' GetEntityTypes (Prelude.Maybe Prelude.Text)
-getEntityTypes_nextToken = Lens.lens (\GetEntityTypes' {nextToken} -> nextToken) (\s@GetEntityTypes' {} a -> s {nextToken = a} :: GetEntityTypes)
 
 -- | The name.
 getEntityTypes_name :: Lens.Lens' GetEntityTypes (Prelude.Maybe Prelude.Text)
 getEntityTypes_name = Lens.lens (\GetEntityTypes' {name} -> name) (\s@GetEntityTypes' {} a -> s {name = a} :: GetEntityTypes)
+
+-- | The next token for the subsequent request.
+getEntityTypes_nextToken :: Lens.Lens' GetEntityTypes (Prelude.Maybe Prelude.Text)
+getEntityTypes_nextToken = Lens.lens (\GetEntityTypes' {nextToken} -> nextToken) (\s@GetEntityTypes' {} a -> s {nextToken = a} :: GetEntityTypes)
 
 -- | The maximum number of objects to return for the request.
 getEntityTypes_maxResults :: Lens.Lens' GetEntityTypes (Prelude.Maybe Prelude.Natural)
@@ -109,21 +109,21 @@ instance Core.AWSRequest GetEntityTypes where
     Response.receiveJSON
       ( \s h x ->
           GetEntityTypesResponse'
-            Prelude.<$> (x Core..?> "entityTypes" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "entityTypes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetEntityTypes where
   hashWithSalt _salt GetEntityTypes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData GetEntityTypes where
   rnf GetEntityTypes' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders GetEntityTypes where
@@ -145,8 +145,8 @@ instance Core.ToJSON GetEntityTypes where
   toJSON GetEntityTypes' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("name" Core..=) Prelude.<$> name,
+          [ ("name" Core..=) Prelude.<$> name,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
             ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )
@@ -159,10 +159,10 @@ instance Core.ToQuery GetEntityTypes where
 
 -- | /See:/ 'newGetEntityTypesResponse' smart constructor.
 data GetEntityTypesResponse = GetEntityTypesResponse'
-  { -- | An array of entity types.
-    entityTypes :: Prelude.Maybe [EntityType],
-    -- | The next page token.
+  { -- | The next page token.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of entity types.
+    entityTypes :: Prelude.Maybe [EntityType],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -176,9 +176,9 @@ data GetEntityTypesResponse = GetEntityTypesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'entityTypes', 'getEntityTypesResponse_entityTypes' - An array of entity types.
---
 -- 'nextToken', 'getEntityTypesResponse_nextToken' - The next page token.
+--
+-- 'entityTypes', 'getEntityTypesResponse_entityTypes' - An array of entity types.
 --
 -- 'httpStatus', 'getEntityTypesResponse_httpStatus' - The response's http status code.
 newGetEntityTypesResponse ::
@@ -187,19 +187,19 @@ newGetEntityTypesResponse ::
   GetEntityTypesResponse
 newGetEntityTypesResponse pHttpStatus_ =
   GetEntityTypesResponse'
-    { entityTypes =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      entityTypes = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of entity types.
-getEntityTypesResponse_entityTypes :: Lens.Lens' GetEntityTypesResponse (Prelude.Maybe [EntityType])
-getEntityTypesResponse_entityTypes = Lens.lens (\GetEntityTypesResponse' {entityTypes} -> entityTypes) (\s@GetEntityTypesResponse' {} a -> s {entityTypes = a} :: GetEntityTypesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The next page token.
 getEntityTypesResponse_nextToken :: Lens.Lens' GetEntityTypesResponse (Prelude.Maybe Prelude.Text)
 getEntityTypesResponse_nextToken = Lens.lens (\GetEntityTypesResponse' {nextToken} -> nextToken) (\s@GetEntityTypesResponse' {} a -> s {nextToken = a} :: GetEntityTypesResponse)
+
+-- | An array of entity types.
+getEntityTypesResponse_entityTypes :: Lens.Lens' GetEntityTypesResponse (Prelude.Maybe [EntityType])
+getEntityTypesResponse_entityTypes = Lens.lens (\GetEntityTypesResponse' {entityTypes} -> entityTypes) (\s@GetEntityTypesResponse' {} a -> s {entityTypes = a} :: GetEntityTypesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getEntityTypesResponse_httpStatus :: Lens.Lens' GetEntityTypesResponse Prelude.Int
@@ -207,6 +207,6 @@ getEntityTypesResponse_httpStatus = Lens.lens (\GetEntityTypesResponse' {httpSta
 
 instance Prelude.NFData GetEntityTypesResponse where
   rnf GetEntityTypesResponse' {..} =
-    Prelude.rnf entityTypes
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf entityTypes
       `Prelude.seq` Prelude.rnf httpStatus

@@ -37,8 +37,8 @@ module Amazonka.SSO.GetRoleCredentials
     newGetRoleCredentialsResponse,
 
     -- * Response Lenses
-    getRoleCredentialsResponse_roleCredentials,
     getRoleCredentialsResponse_httpStatus,
+    getRoleCredentialsResponse_roleCredentials,
   )
 where
 
@@ -121,8 +121,8 @@ instance Core.AWSRequest GetRoleCredentials where
     Response.receiveJSON
       ( \s h x ->
           GetRoleCredentialsResponse'
-            Prelude.<$> (x Core..?> "roleCredentials")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "roleCredentials")
       )
 
 instance Prelude.Hashable GetRoleCredentials where
@@ -157,10 +157,10 @@ instance Core.ToQuery GetRoleCredentials where
 
 -- | /See:/ 'newGetRoleCredentialsResponse' smart constructor.
 data GetRoleCredentialsResponse = GetRoleCredentialsResponse'
-  { -- | The credentials for the role that is assigned to the user.
-    roleCredentials :: Prelude.Maybe RoleCredentials,
-    -- | The response's http status code.
-    httpStatus :: Prelude.Int
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The credentials for the role that is assigned to the user.
+    roleCredentials :: RoleCredentials
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -172,29 +172,33 @@ data GetRoleCredentialsResponse = GetRoleCredentialsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleCredentials', 'getRoleCredentialsResponse_roleCredentials' - The credentials for the role that is assigned to the user.
---
 -- 'httpStatus', 'getRoleCredentialsResponse_httpStatus' - The response's http status code.
+--
+-- 'roleCredentials', 'getRoleCredentialsResponse_roleCredentials' - The credentials for the role that is assigned to the user.
 newGetRoleCredentialsResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
+  -- | 'roleCredentials'
+  RoleCredentials ->
   GetRoleCredentialsResponse
-newGetRoleCredentialsResponse pHttpStatus_ =
-  GetRoleCredentialsResponse'
-    { roleCredentials =
-        Prelude.Nothing,
-      httpStatus = pHttpStatus_
-    }
-
--- | The credentials for the role that is assigned to the user.
-getRoleCredentialsResponse_roleCredentials :: Lens.Lens' GetRoleCredentialsResponse (Prelude.Maybe RoleCredentials)
-getRoleCredentialsResponse_roleCredentials = Lens.lens (\GetRoleCredentialsResponse' {roleCredentials} -> roleCredentials) (\s@GetRoleCredentialsResponse' {} a -> s {roleCredentials = a} :: GetRoleCredentialsResponse)
+newGetRoleCredentialsResponse
+  pHttpStatus_
+  pRoleCredentials_ =
+    GetRoleCredentialsResponse'
+      { httpStatus =
+          pHttpStatus_,
+        roleCredentials = pRoleCredentials_
+      }
 
 -- | The response's http status code.
 getRoleCredentialsResponse_httpStatus :: Lens.Lens' GetRoleCredentialsResponse Prelude.Int
 getRoleCredentialsResponse_httpStatus = Lens.lens (\GetRoleCredentialsResponse' {httpStatus} -> httpStatus) (\s@GetRoleCredentialsResponse' {} a -> s {httpStatus = a} :: GetRoleCredentialsResponse)
 
+-- | The credentials for the role that is assigned to the user.
+getRoleCredentialsResponse_roleCredentials :: Lens.Lens' GetRoleCredentialsResponse RoleCredentials
+getRoleCredentialsResponse_roleCredentials = Lens.lens (\GetRoleCredentialsResponse' {roleCredentials} -> roleCredentials) (\s@GetRoleCredentialsResponse' {} a -> s {roleCredentials = a} :: GetRoleCredentialsResponse)
+
 instance Prelude.NFData GetRoleCredentialsResponse where
   rnf GetRoleCredentialsResponse' {..} =
-    Prelude.rnf roleCredentials
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf roleCredentials

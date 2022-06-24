@@ -39,8 +39,8 @@ module Amazonka.SSO.ListAccountRoles
     newListAccountRolesResponse,
 
     -- * Response Lenses
-    listAccountRolesResponse_roleList,
     listAccountRolesResponse_nextToken,
+    listAccountRolesResponse_roleList,
     listAccountRolesResponse_httpStatus,
   )
 where
@@ -153,8 +153,8 @@ instance Core.AWSRequest ListAccountRoles where
     Response.receiveJSON
       ( \s h x ->
           ListAccountRolesResponse'
-            Prelude.<$> (x Core..?> "roleList" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "roleList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -193,11 +193,11 @@ instance Core.ToQuery ListAccountRoles where
 
 -- | /See:/ 'newListAccountRolesResponse' smart constructor.
 data ListAccountRolesResponse = ListAccountRolesResponse'
-  { -- | A paginated response with the list of roles and the next token if more
+  { -- | The page token client that is used to retrieve the list of accounts.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A paginated response with the list of roles and the next token if more
     -- results are available.
     roleList :: Prelude.Maybe [RoleInfo],
-    -- | The page token client that is used to retrieve the list of accounts.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -211,10 +211,10 @@ data ListAccountRolesResponse = ListAccountRolesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listAccountRolesResponse_nextToken' - The page token client that is used to retrieve the list of accounts.
+--
 -- 'roleList', 'listAccountRolesResponse_roleList' - A paginated response with the list of roles and the next token if more
 -- results are available.
---
--- 'nextToken', 'listAccountRolesResponse_nextToken' - The page token client that is used to retrieve the list of accounts.
 --
 -- 'httpStatus', 'listAccountRolesResponse_httpStatus' - The response's http status code.
 newListAccountRolesResponse ::
@@ -223,20 +223,20 @@ newListAccountRolesResponse ::
   ListAccountRolesResponse
 newListAccountRolesResponse pHttpStatus_ =
   ListAccountRolesResponse'
-    { roleList =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      roleList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The page token client that is used to retrieve the list of accounts.
+listAccountRolesResponse_nextToken :: Lens.Lens' ListAccountRolesResponse (Prelude.Maybe Prelude.Text)
+listAccountRolesResponse_nextToken = Lens.lens (\ListAccountRolesResponse' {nextToken} -> nextToken) (\s@ListAccountRolesResponse' {} a -> s {nextToken = a} :: ListAccountRolesResponse)
 
 -- | A paginated response with the list of roles and the next token if more
 -- results are available.
 listAccountRolesResponse_roleList :: Lens.Lens' ListAccountRolesResponse (Prelude.Maybe [RoleInfo])
 listAccountRolesResponse_roleList = Lens.lens (\ListAccountRolesResponse' {roleList} -> roleList) (\s@ListAccountRolesResponse' {} a -> s {roleList = a} :: ListAccountRolesResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The page token client that is used to retrieve the list of accounts.
-listAccountRolesResponse_nextToken :: Lens.Lens' ListAccountRolesResponse (Prelude.Maybe Prelude.Text)
-listAccountRolesResponse_nextToken = Lens.lens (\ListAccountRolesResponse' {nextToken} -> nextToken) (\s@ListAccountRolesResponse' {} a -> s {nextToken = a} :: ListAccountRolesResponse)
 
 -- | The response's http status code.
 listAccountRolesResponse_httpStatus :: Lens.Lens' ListAccountRolesResponse Prelude.Int
@@ -244,6 +244,6 @@ listAccountRolesResponse_httpStatus = Lens.lens (\ListAccountRolesResponse' {htt
 
 instance Prelude.NFData ListAccountRolesResponse where
   rnf ListAccountRolesResponse' {..} =
-    Prelude.rnf roleList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf roleList
       `Prelude.seq` Prelude.rnf httpStatus

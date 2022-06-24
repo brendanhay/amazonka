@@ -27,43 +27,37 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestLogout $
---             newLogout
---
---         , requestGetRoleCredentials $
+--         [ requestGetRoleCredentials $
 --             newGetRoleCredentials
---
---         , requestListAccounts $
---             newListAccounts
 --
 --         , requestListAccountRoles $
 --             newListAccountRoles
 --
+--         , requestListAccounts $
+--             newListAccounts
+--
+--         , requestLogout $
+--             newLogout
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseLogout $
---             newLogoutResponse
---
---         , responseGetRoleCredentials $
+--         [ responseGetRoleCredentials $
 --             newGetRoleCredentialsResponse
+--
+--         , responseListAccountRoles $
+--             newListAccountRolesResponse
 --
 --         , responseListAccounts $
 --             newListAccountsResponse
 --
---         , responseListAccountRoles $
---             newListAccountRolesResponse
+--         , responseLogout $
+--             newLogoutResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestLogout :: Logout -> TestTree
-requestLogout =
-  req
-    "Logout"
-    "fixture/Logout.yaml"
 
 requestGetRoleCredentials :: GetRoleCredentials -> TestTree
 requestGetRoleCredentials =
@@ -71,27 +65,25 @@ requestGetRoleCredentials =
     "GetRoleCredentials"
     "fixture/GetRoleCredentials.yaml"
 
-requestListAccounts :: ListAccounts -> TestTree
-requestListAccounts =
-  req
-    "ListAccounts"
-    "fixture/ListAccounts.yaml"
-
 requestListAccountRoles :: ListAccountRoles -> TestTree
 requestListAccountRoles =
   req
     "ListAccountRoles"
     "fixture/ListAccountRoles.yaml"
 
--- Responses
+requestListAccounts :: ListAccounts -> TestTree
+requestListAccounts =
+  req
+    "ListAccounts"
+    "fixture/ListAccounts.yaml"
 
-responseLogout :: LogoutResponse -> TestTree
-responseLogout =
-  res
-    "LogoutResponse"
-    "fixture/LogoutResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy Logout)
+requestLogout :: Logout -> TestTree
+requestLogout =
+  req
+    "Logout"
+    "fixture/Logout.yaml"
+
+-- Responses
 
 responseGetRoleCredentials :: GetRoleCredentialsResponse -> TestTree
 responseGetRoleCredentials =
@@ -101,6 +93,14 @@ responseGetRoleCredentials =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetRoleCredentials)
 
+responseListAccountRoles :: ListAccountRolesResponse -> TestTree
+responseListAccountRoles =
+  res
+    "ListAccountRolesResponse"
+    "fixture/ListAccountRolesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAccountRoles)
+
 responseListAccounts :: ListAccountsResponse -> TestTree
 responseListAccounts =
   res
@@ -109,10 +109,10 @@ responseListAccounts =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListAccounts)
 
-responseListAccountRoles :: ListAccountRolesResponse -> TestTree
-responseListAccountRoles =
+responseLogout :: LogoutResponse -> TestTree
+responseLogout =
   res
-    "ListAccountRolesResponse"
-    "fixture/ListAccountRolesResponse.proto"
+    "LogoutResponse"
+    "fixture/LogoutResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAccountRoles)
+    (Proxy.Proxy :: Proxy.Proxy Logout)

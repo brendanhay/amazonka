@@ -14,45 +14,45 @@
 module Amazonka.SSO.Lens
   ( -- * Operations
 
-    -- ** Logout
-    logout_accessToken,
-
     -- ** GetRoleCredentials
     getRoleCredentials_roleName,
     getRoleCredentials_accountId,
     getRoleCredentials_accessToken,
-    getRoleCredentialsResponse_roleCredentials,
     getRoleCredentialsResponse_httpStatus,
-
-    -- ** ListAccounts
-    listAccounts_nextToken,
-    listAccounts_maxResults,
-    listAccounts_accessToken,
-    listAccountsResponse_accountList,
-    listAccountsResponse_nextToken,
-    listAccountsResponse_httpStatus,
+    getRoleCredentialsResponse_roleCredentials,
 
     -- ** ListAccountRoles
     listAccountRoles_nextToken,
     listAccountRoles_maxResults,
     listAccountRoles_accessToken,
     listAccountRoles_accountId,
-    listAccountRolesResponse_roleList,
     listAccountRolesResponse_nextToken,
+    listAccountRolesResponse_roleList,
     listAccountRolesResponse_httpStatus,
+
+    -- ** ListAccounts
+    listAccounts_nextToken,
+    listAccounts_maxResults,
+    listAccounts_accessToken,
+    listAccountsResponse_nextToken,
+    listAccountsResponse_accountList,
+    listAccountsResponse_httpStatus,
+
+    -- ** Logout
+    logout_accessToken,
 
     -- * Types
 
     -- ** AccountInfo
-    accountInfo_accountName,
     accountInfo_accountId,
+    accountInfo_accountName,
     accountInfo_emailAddress,
 
     -- ** RoleCredentials
-    roleCredentials_secretAccessKey,
-    roleCredentials_sessionToken,
     roleCredentials_expiration,
+    roleCredentials_sessionToken,
     roleCredentials_accessKeyId,
+    roleCredentials_secretAccessKey,
 
     -- ** RoleInfo
     roleInfo_roleName,

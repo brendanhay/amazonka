@@ -30,41 +30,41 @@ import Test.Tasty
 --         [ requestCreateNotificationRule $
 --             newCreateNotificationRule
 --
---         , requestUpdateNotificationRule $
---             newUpdateNotificationRule
---
 --         , requestDeleteNotificationRule $
 --             newDeleteNotificationRule
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestListEventTypes $
---             newListEventTypes
 --
 --         , requestDeleteTarget $
 --             newDeleteTarget
 --
+--         , requestDescribeNotificationRule $
+--             newDescribeNotificationRule
+--
+--         , requestListEventTypes $
+--             newListEventTypes
+--
 --         , requestListNotificationRules $
 --             newListNotificationRules
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
 --
 --         , requestListTargets $
 --             newListTargets
 --
---         , requestTagResource $
---             newTagResource
---
 --         , requestSubscribe $
 --             newSubscribe
 --
---         , requestUntagResource $
---             newUntagResource
+--         , requestTagResource $
+--             newTagResource
 --
 --         , requestUnsubscribe $
 --             newUnsubscribe
 --
---         , requestDescribeNotificationRule $
---             newDescribeNotificationRule
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateNotificationRule $
+--             newUpdateNotificationRule
 --
 --           ]
 
@@ -72,41 +72,41 @@ import Test.Tasty
 --         [ responseCreateNotificationRule $
 --             newCreateNotificationRuleResponse
 --
---         , responseUpdateNotificationRule $
---             newUpdateNotificationRuleResponse
---
 --         , responseDeleteNotificationRule $
 --             newDeleteNotificationRuleResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseListEventTypes $
---             newListEventTypesResponse
 --
 --         , responseDeleteTarget $
 --             newDeleteTargetResponse
 --
+--         , responseDescribeNotificationRule $
+--             newDescribeNotificationRuleResponse
+--
+--         , responseListEventTypes $
+--             newListEventTypesResponse
+--
 --         , responseListNotificationRules $
 --             newListNotificationRulesResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
 --
 --         , responseListTargets $
 --             newListTargetsResponse
 --
---         , responseTagResource $
---             newTagResourceResponse
---
 --         , responseSubscribe $
 --             newSubscribeResponse
 --
---         , responseUntagResource $
---             newUntagResourceResponse
+--         , responseTagResource $
+--             newTagResourceResponse
 --
 --         , responseUnsubscribe $
 --             newUnsubscribeResponse
 --
---         , responseDescribeNotificationRule $
---             newDescribeNotificationRuleResponse
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseUpdateNotificationRule $
+--             newUpdateNotificationRuleResponse
 --
 --           ]
 --     ]
@@ -119,29 +119,11 @@ requestCreateNotificationRule =
     "CreateNotificationRule"
     "fixture/CreateNotificationRule.yaml"
 
-requestUpdateNotificationRule :: UpdateNotificationRule -> TestTree
-requestUpdateNotificationRule =
-  req
-    "UpdateNotificationRule"
-    "fixture/UpdateNotificationRule.yaml"
-
 requestDeleteNotificationRule :: DeleteNotificationRule -> TestTree
 requestDeleteNotificationRule =
   req
     "DeleteNotificationRule"
     "fixture/DeleteNotificationRule.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestListEventTypes :: ListEventTypes -> TestTree
-requestListEventTypes =
-  req
-    "ListEventTypes"
-    "fixture/ListEventTypes.yaml"
 
 requestDeleteTarget :: DeleteTarget -> TestTree
 requestDeleteTarget =
@@ -149,11 +131,29 @@ requestDeleteTarget =
     "DeleteTarget"
     "fixture/DeleteTarget.yaml"
 
+requestDescribeNotificationRule :: DescribeNotificationRule -> TestTree
+requestDescribeNotificationRule =
+  req
+    "DescribeNotificationRule"
+    "fixture/DescribeNotificationRule.yaml"
+
+requestListEventTypes :: ListEventTypes -> TestTree
+requestListEventTypes =
+  req
+    "ListEventTypes"
+    "fixture/ListEventTypes.yaml"
+
 requestListNotificationRules :: ListNotificationRules -> TestTree
 requestListNotificationRules =
   req
     "ListNotificationRules"
     "fixture/ListNotificationRules.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
 requestListTargets :: ListTargets -> TestTree
 requestListTargets =
@@ -161,23 +161,17 @@ requestListTargets =
     "ListTargets"
     "fixture/ListTargets.yaml"
 
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
-
 requestSubscribe :: Subscribe -> TestTree
 requestSubscribe =
   req
     "Subscribe"
     "fixture/Subscribe.yaml"
 
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
   req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
+    "TagResource"
+    "fixture/TagResource.yaml"
 
 requestUnsubscribe :: Unsubscribe -> TestTree
 requestUnsubscribe =
@@ -185,11 +179,17 @@ requestUnsubscribe =
     "Unsubscribe"
     "fixture/Unsubscribe.yaml"
 
-requestDescribeNotificationRule :: DescribeNotificationRule -> TestTree
-requestDescribeNotificationRule =
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
   req
-    "DescribeNotificationRule"
-    "fixture/DescribeNotificationRule.yaml"
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateNotificationRule :: UpdateNotificationRule -> TestTree
+requestUpdateNotificationRule =
+  req
+    "UpdateNotificationRule"
+    "fixture/UpdateNotificationRule.yaml"
 
 -- Responses
 
@@ -201,14 +201,6 @@ responseCreateNotificationRule =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateNotificationRule)
 
-responseUpdateNotificationRule :: UpdateNotificationRuleResponse -> TestTree
-responseUpdateNotificationRule =
-  res
-    "UpdateNotificationRuleResponse"
-    "fixture/UpdateNotificationRuleResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateNotificationRule)
-
 responseDeleteNotificationRule :: DeleteNotificationRuleResponse -> TestTree
 responseDeleteNotificationRule =
   res
@@ -216,22 +208,6 @@ responseDeleteNotificationRule =
     "fixture/DeleteNotificationRuleResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteNotificationRule)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseListEventTypes :: ListEventTypesResponse -> TestTree
-responseListEventTypes =
-  res
-    "ListEventTypesResponse"
-    "fixture/ListEventTypesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListEventTypes)
 
 responseDeleteTarget :: DeleteTargetResponse -> TestTree
 responseDeleteTarget =
@@ -241,6 +217,22 @@ responseDeleteTarget =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteTarget)
 
+responseDescribeNotificationRule :: DescribeNotificationRuleResponse -> TestTree
+responseDescribeNotificationRule =
+  res
+    "DescribeNotificationRuleResponse"
+    "fixture/DescribeNotificationRuleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeNotificationRule)
+
+responseListEventTypes :: ListEventTypesResponse -> TestTree
+responseListEventTypes =
+  res
+    "ListEventTypesResponse"
+    "fixture/ListEventTypesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListEventTypes)
+
 responseListNotificationRules :: ListNotificationRulesResponse -> TestTree
 responseListNotificationRules =
   res
@@ -248,6 +240,14 @@ responseListNotificationRules =
     "fixture/ListNotificationRulesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListNotificationRules)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responseListTargets :: ListTargetsResponse -> TestTree
 responseListTargets =
@@ -257,14 +257,6 @@ responseListTargets =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTargets)
 
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
-
 responseSubscribe :: SubscribeResponse -> TestTree
 responseSubscribe =
   res
@@ -273,13 +265,13 @@ responseSubscribe =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy Subscribe)
 
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
   res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUnsubscribe :: UnsubscribeResponse -> TestTree
 responseUnsubscribe =
@@ -289,10 +281,18 @@ responseUnsubscribe =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy Unsubscribe)
 
-responseDescribeNotificationRule :: DescribeNotificationRuleResponse -> TestTree
-responseDescribeNotificationRule =
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
   res
-    "DescribeNotificationRuleResponse"
-    "fixture/DescribeNotificationRuleResponse.proto"
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeNotificationRule)
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateNotificationRule :: UpdateNotificationRuleResponse -> TestTree
+responseUpdateNotificationRule =
+  res
+    "UpdateNotificationRuleResponse"
+    "fixture/UpdateNotificationRuleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateNotificationRule)

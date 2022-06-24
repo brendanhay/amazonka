@@ -29,8 +29,8 @@ module Amazonka.CodeStarNotifications.ListTargets
     newListTargets,
 
     -- * Request Lenses
-    listTargets_filters,
     listTargets_nextToken,
+    listTargets_filters,
     listTargets_maxResults,
 
     -- * Destructuring the Response
@@ -53,16 +53,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTargets' smart constructor.
 data ListTargets = ListTargets'
-  { -- | The filters to use to return information by service or resource type.
+  { -- | An enumeration token that, when provided in a request, returns the next
+    -- batch of the results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The filters to use to return information by service or resource type.
     -- Valid filters include target type, target address, and target status.
     --
     -- A filter with the same name can appear more than once when used with OR
     -- statements. Filters with different names should be applied with AND
     -- statements.
     filters :: Prelude.Maybe [ListTargetsFilter],
-    -- | An enumeration token that, when provided in a request, returns the next
-    -- batch of the results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A non-negative integer used to limit the number of returned results. The
     -- maximum number of results that can be returned is 100.
     maxResults :: Prelude.Maybe Prelude.Natural
@@ -77,6 +77,9 @@ data ListTargets = ListTargets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listTargets_nextToken' - An enumeration token that, when provided in a request, returns the next
+-- batch of the results.
+--
 -- 'filters', 'listTargets_filters' - The filters to use to return information by service or resource type.
 -- Valid filters include target type, target address, and target status.
 --
@@ -84,19 +87,21 @@ data ListTargets = ListTargets'
 -- statements. Filters with different names should be applied with AND
 -- statements.
 --
--- 'nextToken', 'listTargets_nextToken' - An enumeration token that, when provided in a request, returns the next
--- batch of the results.
---
 -- 'maxResults', 'listTargets_maxResults' - A non-negative integer used to limit the number of returned results. The
 -- maximum number of results that can be returned is 100.
 newListTargets ::
   ListTargets
 newListTargets =
   ListTargets'
-    { filters = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | An enumeration token that, when provided in a request, returns the next
+-- batch of the results.
+listTargets_nextToken :: Lens.Lens' ListTargets (Prelude.Maybe Prelude.Text)
+listTargets_nextToken = Lens.lens (\ListTargets' {nextToken} -> nextToken) (\s@ListTargets' {} a -> s {nextToken = a} :: ListTargets)
 
 -- | The filters to use to return information by service or resource type.
 -- Valid filters include target type, target address, and target status.
@@ -106,11 +111,6 @@ newListTargets =
 -- statements.
 listTargets_filters :: Lens.Lens' ListTargets (Prelude.Maybe [ListTargetsFilter])
 listTargets_filters = Lens.lens (\ListTargets' {filters} -> filters) (\s@ListTargets' {} a -> s {filters = a} :: ListTargets) Prelude.. Lens.mapping Lens.coerced
-
--- | An enumeration token that, when provided in a request, returns the next
--- batch of the results.
-listTargets_nextToken :: Lens.Lens' ListTargets (Prelude.Maybe Prelude.Text)
-listTargets_nextToken = Lens.lens (\ListTargets' {nextToken} -> nextToken) (\s@ListTargets' {} a -> s {nextToken = a} :: ListTargets)
 
 -- | A non-negative integer used to limit the number of returned results. The
 -- maximum number of results that can be returned is 100.
@@ -150,14 +150,14 @@ instance Core.AWSRequest ListTargets where
 
 instance Prelude.Hashable ListTargets where
   hashWithSalt _salt ListTargets' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListTargets where
   rnf ListTargets' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListTargets where
@@ -175,8 +175,8 @@ instance Core.ToJSON ListTargets where
   toJSON ListTargets' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

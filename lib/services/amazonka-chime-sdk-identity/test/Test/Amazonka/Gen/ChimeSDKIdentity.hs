@@ -30,50 +30,50 @@ import Test.Tasty
 --         [ requestCreateAppInstance $
 --             newCreateAppInstance
 --
---         , requestGetAppInstanceRetentionSettings $
---             newGetAppInstanceRetentionSettings
---
---         , requestDescribeAppInstanceAdmin $
---             newDescribeAppInstanceAdmin
+--         , requestCreateAppInstanceAdmin $
+--             newCreateAppInstanceAdmin
 --
 --         , requestCreateAppInstanceUser $
 --             newCreateAppInstanceUser
 --
---         , requestPutAppInstanceRetentionSettings $
---             newPutAppInstanceRetentionSettings
---
---         , requestCreateAppInstanceAdmin $
---             newCreateAppInstanceAdmin
---
---         , requestListAppInstanceAdmins $
---             newListAppInstanceAdmins
---
---         , requestListAppInstances $
---             newListAppInstances
---
---         , requestDescribeAppInstanceUser $
---             newDescribeAppInstanceUser
---
---         , requestDescribeAppInstance $
---             newDescribeAppInstance
---
---         , requestListAppInstanceUsers $
---             newListAppInstanceUsers
---
---         , requestDeleteAppInstanceUser $
---             newDeleteAppInstanceUser
---
---         , requestUpdateAppInstanceUser $
---             newUpdateAppInstanceUser
+--         , requestDeleteAppInstance $
+--             newDeleteAppInstance
 --
 --         , requestDeleteAppInstanceAdmin $
 --             newDeleteAppInstanceAdmin
 --
---         , requestDeleteAppInstance $
---             newDeleteAppInstance
+--         , requestDeleteAppInstanceUser $
+--             newDeleteAppInstanceUser
+--
+--         , requestDescribeAppInstance $
+--             newDescribeAppInstance
+--
+--         , requestDescribeAppInstanceAdmin $
+--             newDescribeAppInstanceAdmin
+--
+--         , requestDescribeAppInstanceUser $
+--             newDescribeAppInstanceUser
+--
+--         , requestGetAppInstanceRetentionSettings $
+--             newGetAppInstanceRetentionSettings
+--
+--         , requestListAppInstanceAdmins $
+--             newListAppInstanceAdmins
+--
+--         , requestListAppInstanceUsers $
+--             newListAppInstanceUsers
+--
+--         , requestListAppInstances $
+--             newListAppInstances
+--
+--         , requestPutAppInstanceRetentionSettings $
+--             newPutAppInstanceRetentionSettings
 --
 --         , requestUpdateAppInstance $
 --             newUpdateAppInstance
+--
+--         , requestUpdateAppInstanceUser $
+--             newUpdateAppInstanceUser
 --
 --           ]
 
@@ -81,50 +81,50 @@ import Test.Tasty
 --         [ responseCreateAppInstance $
 --             newCreateAppInstanceResponse
 --
---         , responseGetAppInstanceRetentionSettings $
---             newGetAppInstanceRetentionSettingsResponse
---
---         , responseDescribeAppInstanceAdmin $
---             newDescribeAppInstanceAdminResponse
+--         , responseCreateAppInstanceAdmin $
+--             newCreateAppInstanceAdminResponse
 --
 --         , responseCreateAppInstanceUser $
 --             newCreateAppInstanceUserResponse
 --
---         , responsePutAppInstanceRetentionSettings $
---             newPutAppInstanceRetentionSettingsResponse
---
---         , responseCreateAppInstanceAdmin $
---             newCreateAppInstanceAdminResponse
---
---         , responseListAppInstanceAdmins $
---             newListAppInstanceAdminsResponse
---
---         , responseListAppInstances $
---             newListAppInstancesResponse
---
---         , responseDescribeAppInstanceUser $
---             newDescribeAppInstanceUserResponse
---
---         , responseDescribeAppInstance $
---             newDescribeAppInstanceResponse
---
---         , responseListAppInstanceUsers $
---             newListAppInstanceUsersResponse
---
---         , responseDeleteAppInstanceUser $
---             newDeleteAppInstanceUserResponse
---
---         , responseUpdateAppInstanceUser $
---             newUpdateAppInstanceUserResponse
+--         , responseDeleteAppInstance $
+--             newDeleteAppInstanceResponse
 --
 --         , responseDeleteAppInstanceAdmin $
 --             newDeleteAppInstanceAdminResponse
 --
---         , responseDeleteAppInstance $
---             newDeleteAppInstanceResponse
+--         , responseDeleteAppInstanceUser $
+--             newDeleteAppInstanceUserResponse
+--
+--         , responseDescribeAppInstance $
+--             newDescribeAppInstanceResponse
+--
+--         , responseDescribeAppInstanceAdmin $
+--             newDescribeAppInstanceAdminResponse
+--
+--         , responseDescribeAppInstanceUser $
+--             newDescribeAppInstanceUserResponse
+--
+--         , responseGetAppInstanceRetentionSettings $
+--             newGetAppInstanceRetentionSettingsResponse
+--
+--         , responseListAppInstanceAdmins $
+--             newListAppInstanceAdminsResponse
+--
+--         , responseListAppInstanceUsers $
+--             newListAppInstanceUsersResponse
+--
+--         , responseListAppInstances $
+--             newListAppInstancesResponse
+--
+--         , responsePutAppInstanceRetentionSettings $
+--             newPutAppInstanceRetentionSettingsResponse
 --
 --         , responseUpdateAppInstance $
 --             newUpdateAppInstanceResponse
+--
+--         , responseUpdateAppInstanceUser $
+--             newUpdateAppInstanceUserResponse
 --
 --           ]
 --     ]
@@ -137,17 +137,11 @@ requestCreateAppInstance =
     "CreateAppInstance"
     "fixture/CreateAppInstance.yaml"
 
-requestGetAppInstanceRetentionSettings :: GetAppInstanceRetentionSettings -> TestTree
-requestGetAppInstanceRetentionSettings =
+requestCreateAppInstanceAdmin :: CreateAppInstanceAdmin -> TestTree
+requestCreateAppInstanceAdmin =
   req
-    "GetAppInstanceRetentionSettings"
-    "fixture/GetAppInstanceRetentionSettings.yaml"
-
-requestDescribeAppInstanceAdmin :: DescribeAppInstanceAdmin -> TestTree
-requestDescribeAppInstanceAdmin =
-  req
-    "DescribeAppInstanceAdmin"
-    "fixture/DescribeAppInstanceAdmin.yaml"
+    "CreateAppInstanceAdmin"
+    "fixture/CreateAppInstanceAdmin.yaml"
 
 requestCreateAppInstanceUser :: CreateAppInstanceUser -> TestTree
 requestCreateAppInstanceUser =
@@ -155,59 +149,11 @@ requestCreateAppInstanceUser =
     "CreateAppInstanceUser"
     "fixture/CreateAppInstanceUser.yaml"
 
-requestPutAppInstanceRetentionSettings :: PutAppInstanceRetentionSettings -> TestTree
-requestPutAppInstanceRetentionSettings =
+requestDeleteAppInstance :: DeleteAppInstance -> TestTree
+requestDeleteAppInstance =
   req
-    "PutAppInstanceRetentionSettings"
-    "fixture/PutAppInstanceRetentionSettings.yaml"
-
-requestCreateAppInstanceAdmin :: CreateAppInstanceAdmin -> TestTree
-requestCreateAppInstanceAdmin =
-  req
-    "CreateAppInstanceAdmin"
-    "fixture/CreateAppInstanceAdmin.yaml"
-
-requestListAppInstanceAdmins :: ListAppInstanceAdmins -> TestTree
-requestListAppInstanceAdmins =
-  req
-    "ListAppInstanceAdmins"
-    "fixture/ListAppInstanceAdmins.yaml"
-
-requestListAppInstances :: ListAppInstances -> TestTree
-requestListAppInstances =
-  req
-    "ListAppInstances"
-    "fixture/ListAppInstances.yaml"
-
-requestDescribeAppInstanceUser :: DescribeAppInstanceUser -> TestTree
-requestDescribeAppInstanceUser =
-  req
-    "DescribeAppInstanceUser"
-    "fixture/DescribeAppInstanceUser.yaml"
-
-requestDescribeAppInstance :: DescribeAppInstance -> TestTree
-requestDescribeAppInstance =
-  req
-    "DescribeAppInstance"
-    "fixture/DescribeAppInstance.yaml"
-
-requestListAppInstanceUsers :: ListAppInstanceUsers -> TestTree
-requestListAppInstanceUsers =
-  req
-    "ListAppInstanceUsers"
-    "fixture/ListAppInstanceUsers.yaml"
-
-requestDeleteAppInstanceUser :: DeleteAppInstanceUser -> TestTree
-requestDeleteAppInstanceUser =
-  req
-    "DeleteAppInstanceUser"
-    "fixture/DeleteAppInstanceUser.yaml"
-
-requestUpdateAppInstanceUser :: UpdateAppInstanceUser -> TestTree
-requestUpdateAppInstanceUser =
-  req
-    "UpdateAppInstanceUser"
-    "fixture/UpdateAppInstanceUser.yaml"
+    "DeleteAppInstance"
+    "fixture/DeleteAppInstance.yaml"
 
 requestDeleteAppInstanceAdmin :: DeleteAppInstanceAdmin -> TestTree
 requestDeleteAppInstanceAdmin =
@@ -215,17 +161,71 @@ requestDeleteAppInstanceAdmin =
     "DeleteAppInstanceAdmin"
     "fixture/DeleteAppInstanceAdmin.yaml"
 
-requestDeleteAppInstance :: DeleteAppInstance -> TestTree
-requestDeleteAppInstance =
+requestDeleteAppInstanceUser :: DeleteAppInstanceUser -> TestTree
+requestDeleteAppInstanceUser =
   req
-    "DeleteAppInstance"
-    "fixture/DeleteAppInstance.yaml"
+    "DeleteAppInstanceUser"
+    "fixture/DeleteAppInstanceUser.yaml"
+
+requestDescribeAppInstance :: DescribeAppInstance -> TestTree
+requestDescribeAppInstance =
+  req
+    "DescribeAppInstance"
+    "fixture/DescribeAppInstance.yaml"
+
+requestDescribeAppInstanceAdmin :: DescribeAppInstanceAdmin -> TestTree
+requestDescribeAppInstanceAdmin =
+  req
+    "DescribeAppInstanceAdmin"
+    "fixture/DescribeAppInstanceAdmin.yaml"
+
+requestDescribeAppInstanceUser :: DescribeAppInstanceUser -> TestTree
+requestDescribeAppInstanceUser =
+  req
+    "DescribeAppInstanceUser"
+    "fixture/DescribeAppInstanceUser.yaml"
+
+requestGetAppInstanceRetentionSettings :: GetAppInstanceRetentionSettings -> TestTree
+requestGetAppInstanceRetentionSettings =
+  req
+    "GetAppInstanceRetentionSettings"
+    "fixture/GetAppInstanceRetentionSettings.yaml"
+
+requestListAppInstanceAdmins :: ListAppInstanceAdmins -> TestTree
+requestListAppInstanceAdmins =
+  req
+    "ListAppInstanceAdmins"
+    "fixture/ListAppInstanceAdmins.yaml"
+
+requestListAppInstanceUsers :: ListAppInstanceUsers -> TestTree
+requestListAppInstanceUsers =
+  req
+    "ListAppInstanceUsers"
+    "fixture/ListAppInstanceUsers.yaml"
+
+requestListAppInstances :: ListAppInstances -> TestTree
+requestListAppInstances =
+  req
+    "ListAppInstances"
+    "fixture/ListAppInstances.yaml"
+
+requestPutAppInstanceRetentionSettings :: PutAppInstanceRetentionSettings -> TestTree
+requestPutAppInstanceRetentionSettings =
+  req
+    "PutAppInstanceRetentionSettings"
+    "fixture/PutAppInstanceRetentionSettings.yaml"
 
 requestUpdateAppInstance :: UpdateAppInstance -> TestTree
 requestUpdateAppInstance =
   req
     "UpdateAppInstance"
     "fixture/UpdateAppInstance.yaml"
+
+requestUpdateAppInstanceUser :: UpdateAppInstanceUser -> TestTree
+requestUpdateAppInstanceUser =
+  req
+    "UpdateAppInstanceUser"
+    "fixture/UpdateAppInstanceUser.yaml"
 
 -- Responses
 
@@ -237,21 +237,13 @@ responseCreateAppInstance =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateAppInstance)
 
-responseGetAppInstanceRetentionSettings :: GetAppInstanceRetentionSettingsResponse -> TestTree
-responseGetAppInstanceRetentionSettings =
+responseCreateAppInstanceAdmin :: CreateAppInstanceAdminResponse -> TestTree
+responseCreateAppInstanceAdmin =
   res
-    "GetAppInstanceRetentionSettingsResponse"
-    "fixture/GetAppInstanceRetentionSettingsResponse.proto"
+    "CreateAppInstanceAdminResponse"
+    "fixture/CreateAppInstanceAdminResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetAppInstanceRetentionSettings)
-
-responseDescribeAppInstanceAdmin :: DescribeAppInstanceAdminResponse -> TestTree
-responseDescribeAppInstanceAdmin =
-  res
-    "DescribeAppInstanceAdminResponse"
-    "fixture/DescribeAppInstanceAdminResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeAppInstanceAdmin)
+    (Proxy.Proxy :: Proxy.Proxy CreateAppInstanceAdmin)
 
 responseCreateAppInstanceUser :: CreateAppInstanceUserResponse -> TestTree
 responseCreateAppInstanceUser =
@@ -261,77 +253,13 @@ responseCreateAppInstanceUser =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateAppInstanceUser)
 
-responsePutAppInstanceRetentionSettings :: PutAppInstanceRetentionSettingsResponse -> TestTree
-responsePutAppInstanceRetentionSettings =
+responseDeleteAppInstance :: DeleteAppInstanceResponse -> TestTree
+responseDeleteAppInstance =
   res
-    "PutAppInstanceRetentionSettingsResponse"
-    "fixture/PutAppInstanceRetentionSettingsResponse.proto"
+    "DeleteAppInstanceResponse"
+    "fixture/DeleteAppInstanceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutAppInstanceRetentionSettings)
-
-responseCreateAppInstanceAdmin :: CreateAppInstanceAdminResponse -> TestTree
-responseCreateAppInstanceAdmin =
-  res
-    "CreateAppInstanceAdminResponse"
-    "fixture/CreateAppInstanceAdminResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateAppInstanceAdmin)
-
-responseListAppInstanceAdmins :: ListAppInstanceAdminsResponse -> TestTree
-responseListAppInstanceAdmins =
-  res
-    "ListAppInstanceAdminsResponse"
-    "fixture/ListAppInstanceAdminsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAppInstanceAdmins)
-
-responseListAppInstances :: ListAppInstancesResponse -> TestTree
-responseListAppInstances =
-  res
-    "ListAppInstancesResponse"
-    "fixture/ListAppInstancesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAppInstances)
-
-responseDescribeAppInstanceUser :: DescribeAppInstanceUserResponse -> TestTree
-responseDescribeAppInstanceUser =
-  res
-    "DescribeAppInstanceUserResponse"
-    "fixture/DescribeAppInstanceUserResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeAppInstanceUser)
-
-responseDescribeAppInstance :: DescribeAppInstanceResponse -> TestTree
-responseDescribeAppInstance =
-  res
-    "DescribeAppInstanceResponse"
-    "fixture/DescribeAppInstanceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeAppInstance)
-
-responseListAppInstanceUsers :: ListAppInstanceUsersResponse -> TestTree
-responseListAppInstanceUsers =
-  res
-    "ListAppInstanceUsersResponse"
-    "fixture/ListAppInstanceUsersResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAppInstanceUsers)
-
-responseDeleteAppInstanceUser :: DeleteAppInstanceUserResponse -> TestTree
-responseDeleteAppInstanceUser =
-  res
-    "DeleteAppInstanceUserResponse"
-    "fixture/DeleteAppInstanceUserResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteAppInstanceUser)
-
-responseUpdateAppInstanceUser :: UpdateAppInstanceUserResponse -> TestTree
-responseUpdateAppInstanceUser =
-  res
-    "UpdateAppInstanceUserResponse"
-    "fixture/UpdateAppInstanceUserResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateAppInstanceUser)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAppInstance)
 
 responseDeleteAppInstanceAdmin :: DeleteAppInstanceAdminResponse -> TestTree
 responseDeleteAppInstanceAdmin =
@@ -341,13 +269,77 @@ responseDeleteAppInstanceAdmin =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteAppInstanceAdmin)
 
-responseDeleteAppInstance :: DeleteAppInstanceResponse -> TestTree
-responseDeleteAppInstance =
+responseDeleteAppInstanceUser :: DeleteAppInstanceUserResponse -> TestTree
+responseDeleteAppInstanceUser =
   res
-    "DeleteAppInstanceResponse"
-    "fixture/DeleteAppInstanceResponse.proto"
+    "DeleteAppInstanceUserResponse"
+    "fixture/DeleteAppInstanceUserResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteAppInstance)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAppInstanceUser)
+
+responseDescribeAppInstance :: DescribeAppInstanceResponse -> TestTree
+responseDescribeAppInstance =
+  res
+    "DescribeAppInstanceResponse"
+    "fixture/DescribeAppInstanceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAppInstance)
+
+responseDescribeAppInstanceAdmin :: DescribeAppInstanceAdminResponse -> TestTree
+responseDescribeAppInstanceAdmin =
+  res
+    "DescribeAppInstanceAdminResponse"
+    "fixture/DescribeAppInstanceAdminResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAppInstanceAdmin)
+
+responseDescribeAppInstanceUser :: DescribeAppInstanceUserResponse -> TestTree
+responseDescribeAppInstanceUser =
+  res
+    "DescribeAppInstanceUserResponse"
+    "fixture/DescribeAppInstanceUserResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAppInstanceUser)
+
+responseGetAppInstanceRetentionSettings :: GetAppInstanceRetentionSettingsResponse -> TestTree
+responseGetAppInstanceRetentionSettings =
+  res
+    "GetAppInstanceRetentionSettingsResponse"
+    "fixture/GetAppInstanceRetentionSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAppInstanceRetentionSettings)
+
+responseListAppInstanceAdmins :: ListAppInstanceAdminsResponse -> TestTree
+responseListAppInstanceAdmins =
+  res
+    "ListAppInstanceAdminsResponse"
+    "fixture/ListAppInstanceAdminsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAppInstanceAdmins)
+
+responseListAppInstanceUsers :: ListAppInstanceUsersResponse -> TestTree
+responseListAppInstanceUsers =
+  res
+    "ListAppInstanceUsersResponse"
+    "fixture/ListAppInstanceUsersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAppInstanceUsers)
+
+responseListAppInstances :: ListAppInstancesResponse -> TestTree
+responseListAppInstances =
+  res
+    "ListAppInstancesResponse"
+    "fixture/ListAppInstancesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAppInstances)
+
+responsePutAppInstanceRetentionSettings :: PutAppInstanceRetentionSettingsResponse -> TestTree
+responsePutAppInstanceRetentionSettings =
+  res
+    "PutAppInstanceRetentionSettingsResponse"
+    "fixture/PutAppInstanceRetentionSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutAppInstanceRetentionSettings)
 
 responseUpdateAppInstance :: UpdateAppInstanceResponse -> TestTree
 responseUpdateAppInstance =
@@ -356,3 +348,11 @@ responseUpdateAppInstance =
     "fixture/UpdateAppInstanceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateAppInstance)
+
+responseUpdateAppInstanceUser :: UpdateAppInstanceUserResponse -> TestTree
+responseUpdateAppInstanceUser =
+  res
+    "UpdateAppInstanceUserResponse"
+    "fixture/UpdateAppInstanceUserResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAppInstanceUser)

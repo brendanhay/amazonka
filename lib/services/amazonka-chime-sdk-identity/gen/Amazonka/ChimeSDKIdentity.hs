@@ -27,26 +27,26 @@ module Amazonka.ChimeSDKIdentity
     -- ** ThrottledClientException
     _ThrottledClientException,
 
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
     -- ** ResourceLimitExceededException
     _ResourceLimitExceededException,
-
-    -- ** ConflictException
-    _ConflictException,
 
     -- ** ForbiddenException
     _ForbiddenException,
 
-    -- ** ServiceFailureException
-    _ServiceFailureException,
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** BadRequestException
+    _BadRequestException,
 
     -- ** UnauthorizedClientException
     _UnauthorizedClientException,
 
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
-
-    -- ** BadRequestException
-    _BadRequestException,
+    -- ** ServiceFailureException
+    _ServiceFailureException,
 
     -- * Waiters
     -- $waiters
@@ -60,17 +60,11 @@ module Amazonka.ChimeSDKIdentity
     CreateAppInstanceResponse (CreateAppInstanceResponse'),
     newCreateAppInstanceResponse,
 
-    -- ** GetAppInstanceRetentionSettings
-    GetAppInstanceRetentionSettings (GetAppInstanceRetentionSettings'),
-    newGetAppInstanceRetentionSettings,
-    GetAppInstanceRetentionSettingsResponse (GetAppInstanceRetentionSettingsResponse'),
-    newGetAppInstanceRetentionSettingsResponse,
-
-    -- ** DescribeAppInstanceAdmin
-    DescribeAppInstanceAdmin (DescribeAppInstanceAdmin'),
-    newDescribeAppInstanceAdmin,
-    DescribeAppInstanceAdminResponse (DescribeAppInstanceAdminResponse'),
-    newDescribeAppInstanceAdminResponse,
+    -- ** CreateAppInstanceAdmin
+    CreateAppInstanceAdmin (CreateAppInstanceAdmin'),
+    newCreateAppInstanceAdmin,
+    CreateAppInstanceAdminResponse (CreateAppInstanceAdminResponse'),
+    newCreateAppInstanceAdminResponse,
 
     -- ** CreateAppInstanceUser
     CreateAppInstanceUser (CreateAppInstanceUser'),
@@ -78,59 +72,11 @@ module Amazonka.ChimeSDKIdentity
     CreateAppInstanceUserResponse (CreateAppInstanceUserResponse'),
     newCreateAppInstanceUserResponse,
 
-    -- ** PutAppInstanceRetentionSettings
-    PutAppInstanceRetentionSettings (PutAppInstanceRetentionSettings'),
-    newPutAppInstanceRetentionSettings,
-    PutAppInstanceRetentionSettingsResponse (PutAppInstanceRetentionSettingsResponse'),
-    newPutAppInstanceRetentionSettingsResponse,
-
-    -- ** CreateAppInstanceAdmin
-    CreateAppInstanceAdmin (CreateAppInstanceAdmin'),
-    newCreateAppInstanceAdmin,
-    CreateAppInstanceAdminResponse (CreateAppInstanceAdminResponse'),
-    newCreateAppInstanceAdminResponse,
-
-    -- ** ListAppInstanceAdmins
-    ListAppInstanceAdmins (ListAppInstanceAdmins'),
-    newListAppInstanceAdmins,
-    ListAppInstanceAdminsResponse (ListAppInstanceAdminsResponse'),
-    newListAppInstanceAdminsResponse,
-
-    -- ** ListAppInstances
-    ListAppInstances (ListAppInstances'),
-    newListAppInstances,
-    ListAppInstancesResponse (ListAppInstancesResponse'),
-    newListAppInstancesResponse,
-
-    -- ** DescribeAppInstanceUser
-    DescribeAppInstanceUser (DescribeAppInstanceUser'),
-    newDescribeAppInstanceUser,
-    DescribeAppInstanceUserResponse (DescribeAppInstanceUserResponse'),
-    newDescribeAppInstanceUserResponse,
-
-    -- ** DescribeAppInstance
-    DescribeAppInstance (DescribeAppInstance'),
-    newDescribeAppInstance,
-    DescribeAppInstanceResponse (DescribeAppInstanceResponse'),
-    newDescribeAppInstanceResponse,
-
-    -- ** ListAppInstanceUsers
-    ListAppInstanceUsers (ListAppInstanceUsers'),
-    newListAppInstanceUsers,
-    ListAppInstanceUsersResponse (ListAppInstanceUsersResponse'),
-    newListAppInstanceUsersResponse,
-
-    -- ** DeleteAppInstanceUser
-    DeleteAppInstanceUser (DeleteAppInstanceUser'),
-    newDeleteAppInstanceUser,
-    DeleteAppInstanceUserResponse (DeleteAppInstanceUserResponse'),
-    newDeleteAppInstanceUserResponse,
-
-    -- ** UpdateAppInstanceUser
-    UpdateAppInstanceUser (UpdateAppInstanceUser'),
-    newUpdateAppInstanceUser,
-    UpdateAppInstanceUserResponse (UpdateAppInstanceUserResponse'),
-    newUpdateAppInstanceUserResponse,
+    -- ** DeleteAppInstance
+    DeleteAppInstance (DeleteAppInstance'),
+    newDeleteAppInstance,
+    DeleteAppInstanceResponse (DeleteAppInstanceResponse'),
+    newDeleteAppInstanceResponse,
 
     -- ** DeleteAppInstanceAdmin
     DeleteAppInstanceAdmin (DeleteAppInstanceAdmin'),
@@ -138,17 +84,71 @@ module Amazonka.ChimeSDKIdentity
     DeleteAppInstanceAdminResponse (DeleteAppInstanceAdminResponse'),
     newDeleteAppInstanceAdminResponse,
 
-    -- ** DeleteAppInstance
-    DeleteAppInstance (DeleteAppInstance'),
-    newDeleteAppInstance,
-    DeleteAppInstanceResponse (DeleteAppInstanceResponse'),
-    newDeleteAppInstanceResponse,
+    -- ** DeleteAppInstanceUser
+    DeleteAppInstanceUser (DeleteAppInstanceUser'),
+    newDeleteAppInstanceUser,
+    DeleteAppInstanceUserResponse (DeleteAppInstanceUserResponse'),
+    newDeleteAppInstanceUserResponse,
+
+    -- ** DescribeAppInstance
+    DescribeAppInstance (DescribeAppInstance'),
+    newDescribeAppInstance,
+    DescribeAppInstanceResponse (DescribeAppInstanceResponse'),
+    newDescribeAppInstanceResponse,
+
+    -- ** DescribeAppInstanceAdmin
+    DescribeAppInstanceAdmin (DescribeAppInstanceAdmin'),
+    newDescribeAppInstanceAdmin,
+    DescribeAppInstanceAdminResponse (DescribeAppInstanceAdminResponse'),
+    newDescribeAppInstanceAdminResponse,
+
+    -- ** DescribeAppInstanceUser
+    DescribeAppInstanceUser (DescribeAppInstanceUser'),
+    newDescribeAppInstanceUser,
+    DescribeAppInstanceUserResponse (DescribeAppInstanceUserResponse'),
+    newDescribeAppInstanceUserResponse,
+
+    -- ** GetAppInstanceRetentionSettings
+    GetAppInstanceRetentionSettings (GetAppInstanceRetentionSettings'),
+    newGetAppInstanceRetentionSettings,
+    GetAppInstanceRetentionSettingsResponse (GetAppInstanceRetentionSettingsResponse'),
+    newGetAppInstanceRetentionSettingsResponse,
+
+    -- ** ListAppInstanceAdmins
+    ListAppInstanceAdmins (ListAppInstanceAdmins'),
+    newListAppInstanceAdmins,
+    ListAppInstanceAdminsResponse (ListAppInstanceAdminsResponse'),
+    newListAppInstanceAdminsResponse,
+
+    -- ** ListAppInstanceUsers
+    ListAppInstanceUsers (ListAppInstanceUsers'),
+    newListAppInstanceUsers,
+    ListAppInstanceUsersResponse (ListAppInstanceUsersResponse'),
+    newListAppInstanceUsersResponse,
+
+    -- ** ListAppInstances
+    ListAppInstances (ListAppInstances'),
+    newListAppInstances,
+    ListAppInstancesResponse (ListAppInstancesResponse'),
+    newListAppInstancesResponse,
+
+    -- ** PutAppInstanceRetentionSettings
+    PutAppInstanceRetentionSettings (PutAppInstanceRetentionSettings'),
+    newPutAppInstanceRetentionSettings,
+    PutAppInstanceRetentionSettingsResponse (PutAppInstanceRetentionSettingsResponse'),
+    newPutAppInstanceRetentionSettingsResponse,
 
     -- ** UpdateAppInstance
     UpdateAppInstance (UpdateAppInstance'),
     newUpdateAppInstance,
     UpdateAppInstanceResponse (UpdateAppInstanceResponse'),
     newUpdateAppInstanceResponse,
+
+    -- ** UpdateAppInstanceUser
+    UpdateAppInstanceUser (UpdateAppInstanceUser'),
+    newUpdateAppInstanceUser,
+    UpdateAppInstanceUserResponse (UpdateAppInstanceUserResponse'),
+    newUpdateAppInstanceUserResponse,
 
     -- * Types
 

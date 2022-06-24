@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAppInstance' smart constructor.
 data AppInstance = AppInstance'
-  { -- | The name of an @AppInstance@.
+  { -- | The time an @AppInstance@ was last updated. In epoch milliseconds.
+    lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | The name of an @AppInstance@.
     name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The metadata of an @AppInstance@.
     metadata :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The ARN of the messaging instance.
-    appInstanceArn :: Prelude.Maybe Prelude.Text,
     -- | The time at which an @AppInstance@ was created. In epoch milliseconds.
     createdTimestamp :: Prelude.Maybe Core.POSIX,
-    -- | The time an @AppInstance@ was last updated. In epoch milliseconds.
-    lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX
+    -- | The ARN of the messaging instance.
+    appInstanceArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -49,25 +49,30 @@ data AppInstance = AppInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lastUpdatedTimestamp', 'appInstance_lastUpdatedTimestamp' - The time an @AppInstance@ was last updated. In epoch milliseconds.
+--
 -- 'name', 'appInstance_name' - The name of an @AppInstance@.
 --
 -- 'metadata', 'appInstance_metadata' - The metadata of an @AppInstance@.
 --
--- 'appInstanceArn', 'appInstance_appInstanceArn' - The ARN of the messaging instance.
---
 -- 'createdTimestamp', 'appInstance_createdTimestamp' - The time at which an @AppInstance@ was created. In epoch milliseconds.
 --
--- 'lastUpdatedTimestamp', 'appInstance_lastUpdatedTimestamp' - The time an @AppInstance@ was last updated. In epoch milliseconds.
+-- 'appInstanceArn', 'appInstance_appInstanceArn' - The ARN of the messaging instance.
 newAppInstance ::
   AppInstance
 newAppInstance =
   AppInstance'
-    { name = Prelude.Nothing,
+    { lastUpdatedTimestamp =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
       metadata = Prelude.Nothing,
-      appInstanceArn = Prelude.Nothing,
       createdTimestamp = Prelude.Nothing,
-      lastUpdatedTimestamp = Prelude.Nothing
+      appInstanceArn = Prelude.Nothing
     }
+
+-- | The time an @AppInstance@ was last updated. In epoch milliseconds.
+appInstance_lastUpdatedTimestamp :: Lens.Lens' AppInstance (Prelude.Maybe Prelude.UTCTime)
+appInstance_lastUpdatedTimestamp = Lens.lens (\AppInstance' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@AppInstance' {} a -> s {lastUpdatedTimestamp = a} :: AppInstance) Prelude.. Lens.mapping Core._Time
 
 -- | The name of an @AppInstance@.
 appInstance_name :: Lens.Lens' AppInstance (Prelude.Maybe Prelude.Text)
@@ -77,17 +82,13 @@ appInstance_name = Lens.lens (\AppInstance' {name} -> name) (\s@AppInstance' {} 
 appInstance_metadata :: Lens.Lens' AppInstance (Prelude.Maybe Prelude.Text)
 appInstance_metadata = Lens.lens (\AppInstance' {metadata} -> metadata) (\s@AppInstance' {} a -> s {metadata = a} :: AppInstance) Prelude.. Lens.mapping Core._Sensitive
 
--- | The ARN of the messaging instance.
-appInstance_appInstanceArn :: Lens.Lens' AppInstance (Prelude.Maybe Prelude.Text)
-appInstance_appInstanceArn = Lens.lens (\AppInstance' {appInstanceArn} -> appInstanceArn) (\s@AppInstance' {} a -> s {appInstanceArn = a} :: AppInstance)
-
 -- | The time at which an @AppInstance@ was created. In epoch milliseconds.
 appInstance_createdTimestamp :: Lens.Lens' AppInstance (Prelude.Maybe Prelude.UTCTime)
 appInstance_createdTimestamp = Lens.lens (\AppInstance' {createdTimestamp} -> createdTimestamp) (\s@AppInstance' {} a -> s {createdTimestamp = a} :: AppInstance) Prelude.. Lens.mapping Core._Time
 
--- | The time an @AppInstance@ was last updated. In epoch milliseconds.
-appInstance_lastUpdatedTimestamp :: Lens.Lens' AppInstance (Prelude.Maybe Prelude.UTCTime)
-appInstance_lastUpdatedTimestamp = Lens.lens (\AppInstance' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@AppInstance' {} a -> s {lastUpdatedTimestamp = a} :: AppInstance) Prelude.. Lens.mapping Core._Time
+-- | The ARN of the messaging instance.
+appInstance_appInstanceArn :: Lens.Lens' AppInstance (Prelude.Maybe Prelude.Text)
+appInstance_appInstanceArn = Lens.lens (\AppInstance' {appInstanceArn} -> appInstanceArn) (\s@AppInstance' {} a -> s {appInstanceArn = a} :: AppInstance)
 
 instance Core.FromJSON AppInstance where
   parseJSON =
@@ -95,25 +96,25 @@ instance Core.FromJSON AppInstance where
       "AppInstance"
       ( \x ->
           AppInstance'
-            Prelude.<$> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "LastUpdatedTimestamp")
+            Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "Metadata")
-            Prelude.<*> (x Core..:? "AppInstanceArn")
             Prelude.<*> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "LastUpdatedTimestamp")
+            Prelude.<*> (x Core..:? "AppInstanceArn")
       )
 
 instance Prelude.Hashable AppInstance where
   hashWithSalt _salt AppInstance' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` lastUpdatedTimestamp
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` metadata
-      `Prelude.hashWithSalt` appInstanceArn
       `Prelude.hashWithSalt` createdTimestamp
-      `Prelude.hashWithSalt` lastUpdatedTimestamp
+      `Prelude.hashWithSalt` appInstanceArn
 
 instance Prelude.NFData AppInstance where
   rnf AppInstance' {..} =
-    Prelude.rnf name
+    Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf appInstanceArn
       `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf appInstanceArn

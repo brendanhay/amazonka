@@ -26,44 +26,44 @@ module Amazonka.Shield
     -- * Errors
     -- $errors
 
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
+
+    -- ** NoAssociatedRoleException
+    _NoAssociatedRoleException,
+
+    -- ** InvalidOperationException
+    _InvalidOperationException,
+
     -- ** InvalidResourceException
     _InvalidResourceException,
 
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** InvalidParameterException
-    _InvalidParameterException,
-
-    -- ** LimitsExceededException
-    _LimitsExceededException,
-
     -- ** InternalErrorException
     _InternalErrorException,
 
-    -- ** ResourceAlreadyExistsException
-    _ResourceAlreadyExistsException,
-
-    -- ** OptimisticLockException
-    _OptimisticLockException,
-
-    -- ** NoAssociatedRoleException
-    _NoAssociatedRoleException,
-
-    -- ** AccessDeniedForDependencyException
-    _AccessDeniedForDependencyException,
-
-    -- ** InvalidOperationException
-    _InvalidOperationException,
-
-    -- ** LockedSubscriptionException
-    _LockedSubscriptionException,
+    -- ** InvalidPaginationTokenException
+    _InvalidPaginationTokenException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** InvalidPaginationTokenException
-    _InvalidPaginationTokenException,
+    -- ** AccessDeniedForDependencyException
+    _AccessDeniedForDependencyException,
+
+    -- ** OptimisticLockException
+    _OptimisticLockException,
+
+    -- ** LimitsExceededException
+    _LimitsExceededException,
+
+    -- ** LockedSubscriptionException
+    _LockedSubscriptionException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
 
     -- * Waiters
     -- $waiters
@@ -77,179 +77,11 @@ module Amazonka.Shield
     AssociateDRTLogBucketResponse (AssociateDRTLogBucketResponse'),
     newAssociateDRTLogBucketResponse,
 
-    -- ** DisassociateDRTRole
-    DisassociateDRTRole (DisassociateDRTRole'),
-    newDisassociateDRTRole,
-    DisassociateDRTRoleResponse (DisassociateDRTRoleResponse'),
-    newDisassociateDRTRoleResponse,
-
-    -- ** CreateSubscription
-    CreateSubscription (CreateSubscription'),
-    newCreateSubscription,
-    CreateSubscriptionResponse (CreateSubscriptionResponse'),
-    newCreateSubscriptionResponse,
-
-    -- ** ListProtections (Paginated)
-    ListProtections (ListProtections'),
-    newListProtections,
-    ListProtectionsResponse (ListProtectionsResponse'),
-    newListProtectionsResponse,
-
     -- ** AssociateDRTRole
     AssociateDRTRole (AssociateDRTRole'),
     newAssociateDRTRole,
     AssociateDRTRoleResponse (AssociateDRTRoleResponse'),
     newAssociateDRTRoleResponse,
-
-    -- ** UpdateSubscription
-    UpdateSubscription (UpdateSubscription'),
-    newUpdateSubscription,
-    UpdateSubscriptionResponse (UpdateSubscriptionResponse'),
-    newUpdateSubscriptionResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** DisassociateDRTLogBucket
-    DisassociateDRTLogBucket (DisassociateDRTLogBucket'),
-    newDisassociateDRTLogBucket,
-    DisassociateDRTLogBucketResponse (DisassociateDRTLogBucketResponse'),
-    newDisassociateDRTLogBucketResponse,
-
-    -- ** AssociateProactiveEngagementDetails
-    AssociateProactiveEngagementDetails (AssociateProactiveEngagementDetails'),
-    newAssociateProactiveEngagementDetails,
-    AssociateProactiveEngagementDetailsResponse (AssociateProactiveEngagementDetailsResponse'),
-    newAssociateProactiveEngagementDetailsResponse,
-
-    -- ** DescribeAttack
-    DescribeAttack (DescribeAttack'),
-    newDescribeAttack,
-    DescribeAttackResponse (DescribeAttackResponse'),
-    newDescribeAttackResponse,
-
-    -- ** ListProtectionGroups
-    ListProtectionGroups (ListProtectionGroups'),
-    newListProtectionGroups,
-    ListProtectionGroupsResponse (ListProtectionGroupsResponse'),
-    newListProtectionGroupsResponse,
-
-    -- ** EnableProactiveEngagement
-    EnableProactiveEngagement (EnableProactiveEngagement'),
-    newEnableProactiveEngagement,
-    EnableProactiveEngagementResponse (EnableProactiveEngagementResponse'),
-    newEnableProactiveEngagementResponse,
-
-    -- ** UpdateEmergencyContactSettings
-    UpdateEmergencyContactSettings (UpdateEmergencyContactSettings'),
-    newUpdateEmergencyContactSettings,
-    UpdateEmergencyContactSettingsResponse (UpdateEmergencyContactSettingsResponse'),
-    newUpdateEmergencyContactSettingsResponse,
-
-    -- ** CreateProtectionGroup
-    CreateProtectionGroup (CreateProtectionGroup'),
-    newCreateProtectionGroup,
-    CreateProtectionGroupResponse (CreateProtectionGroupResponse'),
-    newCreateProtectionGroupResponse,
-
-    -- ** DisableProactiveEngagement
-    DisableProactiveEngagement (DisableProactiveEngagement'),
-    newDisableProactiveEngagement,
-    DisableProactiveEngagementResponse (DisableProactiveEngagementResponse'),
-    newDisableProactiveEngagementResponse,
-
-    -- ** DisassociateHealthCheck
-    DisassociateHealthCheck (DisassociateHealthCheck'),
-    newDisassociateHealthCheck,
-    DisassociateHealthCheckResponse (DisassociateHealthCheckResponse'),
-    newDisassociateHealthCheckResponse,
-
-    -- ** ListResourcesInProtectionGroup
-    ListResourcesInProtectionGroup (ListResourcesInProtectionGroup'),
-    newListResourcesInProtectionGroup,
-    ListResourcesInProtectionGroupResponse (ListResourcesInProtectionGroupResponse'),
-    newListResourcesInProtectionGroupResponse,
-
-    -- ** DescribeProtection
-    DescribeProtection (DescribeProtection'),
-    newDescribeProtection,
-    DescribeProtectionResponse (DescribeProtectionResponse'),
-    newDescribeProtectionResponse,
-
-    -- ** ListAttacks (Paginated)
-    ListAttacks (ListAttacks'),
-    newListAttacks,
-    ListAttacksResponse (ListAttacksResponse'),
-    newListAttacksResponse,
-
-    -- ** DescribeEmergencyContactSettings
-    DescribeEmergencyContactSettings (DescribeEmergencyContactSettings'),
-    newDescribeEmergencyContactSettings,
-    DescribeEmergencyContactSettingsResponse (DescribeEmergencyContactSettingsResponse'),
-    newDescribeEmergencyContactSettingsResponse,
-
-    -- ** CreateProtection
-    CreateProtection (CreateProtection'),
-    newCreateProtection,
-    CreateProtectionResponse (CreateProtectionResponse'),
-    newCreateProtectionResponse,
-
-    -- ** DeleteProtection
-    DeleteProtection (DeleteProtection'),
-    newDeleteProtection,
-    DeleteProtectionResponse (DeleteProtectionResponse'),
-    newDeleteProtectionResponse,
-
-    -- ** GetSubscriptionState
-    GetSubscriptionState (GetSubscriptionState'),
-    newGetSubscriptionState,
-    GetSubscriptionStateResponse (GetSubscriptionStateResponse'),
-    newGetSubscriptionStateResponse,
-
-    -- ** DeleteProtectionGroup
-    DeleteProtectionGroup (DeleteProtectionGroup'),
-    newDeleteProtectionGroup,
-    DeleteProtectionGroupResponse (DeleteProtectionGroupResponse'),
-    newDeleteProtectionGroupResponse,
-
-    -- ** UpdateProtectionGroup
-    UpdateProtectionGroup (UpdateProtectionGroup'),
-    newUpdateProtectionGroup,
-    UpdateProtectionGroupResponse (UpdateProtectionGroupResponse'),
-    newUpdateProtectionGroupResponse,
-
-    -- ** DescribeAttackStatistics
-    DescribeAttackStatistics (DescribeAttackStatistics'),
-    newDescribeAttackStatistics,
-    DescribeAttackStatisticsResponse (DescribeAttackStatisticsResponse'),
-    newDescribeAttackStatisticsResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** DescribeDRTAccess
-    DescribeDRTAccess (DescribeDRTAccess'),
-    newDescribeDRTAccess,
-    DescribeDRTAccessResponse (DescribeDRTAccessResponse'),
-    newDescribeDRTAccessResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** DescribeSubscription
-    DescribeSubscription (DescribeSubscription'),
-    newDescribeSubscription,
-    DescribeSubscriptionResponse (DescribeSubscriptionResponse'),
-    newDescribeSubscriptionResponse,
 
     -- ** AssociateHealthCheck
     AssociateHealthCheck (AssociateHealthCheck'),
@@ -257,11 +89,179 @@ module Amazonka.Shield
     AssociateHealthCheckResponse (AssociateHealthCheckResponse'),
     newAssociateHealthCheckResponse,
 
+    -- ** AssociateProactiveEngagementDetails
+    AssociateProactiveEngagementDetails (AssociateProactiveEngagementDetails'),
+    newAssociateProactiveEngagementDetails,
+    AssociateProactiveEngagementDetailsResponse (AssociateProactiveEngagementDetailsResponse'),
+    newAssociateProactiveEngagementDetailsResponse,
+
+    -- ** CreateProtection
+    CreateProtection (CreateProtection'),
+    newCreateProtection,
+    CreateProtectionResponse (CreateProtectionResponse'),
+    newCreateProtectionResponse,
+
+    -- ** CreateProtectionGroup
+    CreateProtectionGroup (CreateProtectionGroup'),
+    newCreateProtectionGroup,
+    CreateProtectionGroupResponse (CreateProtectionGroupResponse'),
+    newCreateProtectionGroupResponse,
+
+    -- ** CreateSubscription
+    CreateSubscription (CreateSubscription'),
+    newCreateSubscription,
+    CreateSubscriptionResponse (CreateSubscriptionResponse'),
+    newCreateSubscriptionResponse,
+
+    -- ** DeleteProtection
+    DeleteProtection (DeleteProtection'),
+    newDeleteProtection,
+    DeleteProtectionResponse (DeleteProtectionResponse'),
+    newDeleteProtectionResponse,
+
+    -- ** DeleteProtectionGroup
+    DeleteProtectionGroup (DeleteProtectionGroup'),
+    newDeleteProtectionGroup,
+    DeleteProtectionGroupResponse (DeleteProtectionGroupResponse'),
+    newDeleteProtectionGroupResponse,
+
+    -- ** DescribeAttack
+    DescribeAttack (DescribeAttack'),
+    newDescribeAttack,
+    DescribeAttackResponse (DescribeAttackResponse'),
+    newDescribeAttackResponse,
+
+    -- ** DescribeAttackStatistics
+    DescribeAttackStatistics (DescribeAttackStatistics'),
+    newDescribeAttackStatistics,
+    DescribeAttackStatisticsResponse (DescribeAttackStatisticsResponse'),
+    newDescribeAttackStatisticsResponse,
+
+    -- ** DescribeDRTAccess
+    DescribeDRTAccess (DescribeDRTAccess'),
+    newDescribeDRTAccess,
+    DescribeDRTAccessResponse (DescribeDRTAccessResponse'),
+    newDescribeDRTAccessResponse,
+
+    -- ** DescribeEmergencyContactSettings
+    DescribeEmergencyContactSettings (DescribeEmergencyContactSettings'),
+    newDescribeEmergencyContactSettings,
+    DescribeEmergencyContactSettingsResponse (DescribeEmergencyContactSettingsResponse'),
+    newDescribeEmergencyContactSettingsResponse,
+
+    -- ** DescribeProtection
+    DescribeProtection (DescribeProtection'),
+    newDescribeProtection,
+    DescribeProtectionResponse (DescribeProtectionResponse'),
+    newDescribeProtectionResponse,
+
     -- ** DescribeProtectionGroup
     DescribeProtectionGroup (DescribeProtectionGroup'),
     newDescribeProtectionGroup,
     DescribeProtectionGroupResponse (DescribeProtectionGroupResponse'),
     newDescribeProtectionGroupResponse,
+
+    -- ** DescribeSubscription
+    DescribeSubscription (DescribeSubscription'),
+    newDescribeSubscription,
+    DescribeSubscriptionResponse (DescribeSubscriptionResponse'),
+    newDescribeSubscriptionResponse,
+
+    -- ** DisableProactiveEngagement
+    DisableProactiveEngagement (DisableProactiveEngagement'),
+    newDisableProactiveEngagement,
+    DisableProactiveEngagementResponse (DisableProactiveEngagementResponse'),
+    newDisableProactiveEngagementResponse,
+
+    -- ** DisassociateDRTLogBucket
+    DisassociateDRTLogBucket (DisassociateDRTLogBucket'),
+    newDisassociateDRTLogBucket,
+    DisassociateDRTLogBucketResponse (DisassociateDRTLogBucketResponse'),
+    newDisassociateDRTLogBucketResponse,
+
+    -- ** DisassociateDRTRole
+    DisassociateDRTRole (DisassociateDRTRole'),
+    newDisassociateDRTRole,
+    DisassociateDRTRoleResponse (DisassociateDRTRoleResponse'),
+    newDisassociateDRTRoleResponse,
+
+    -- ** DisassociateHealthCheck
+    DisassociateHealthCheck (DisassociateHealthCheck'),
+    newDisassociateHealthCheck,
+    DisassociateHealthCheckResponse (DisassociateHealthCheckResponse'),
+    newDisassociateHealthCheckResponse,
+
+    -- ** EnableProactiveEngagement
+    EnableProactiveEngagement (EnableProactiveEngagement'),
+    newEnableProactiveEngagement,
+    EnableProactiveEngagementResponse (EnableProactiveEngagementResponse'),
+    newEnableProactiveEngagementResponse,
+
+    -- ** GetSubscriptionState
+    GetSubscriptionState (GetSubscriptionState'),
+    newGetSubscriptionState,
+    GetSubscriptionStateResponse (GetSubscriptionStateResponse'),
+    newGetSubscriptionStateResponse,
+
+    -- ** ListAttacks (Paginated)
+    ListAttacks (ListAttacks'),
+    newListAttacks,
+    ListAttacksResponse (ListAttacksResponse'),
+    newListAttacksResponse,
+
+    -- ** ListProtectionGroups
+    ListProtectionGroups (ListProtectionGroups'),
+    newListProtectionGroups,
+    ListProtectionGroupsResponse (ListProtectionGroupsResponse'),
+    newListProtectionGroupsResponse,
+
+    -- ** ListProtections (Paginated)
+    ListProtections (ListProtections'),
+    newListProtections,
+    ListProtectionsResponse (ListProtectionsResponse'),
+    newListProtectionsResponse,
+
+    -- ** ListResourcesInProtectionGroup
+    ListResourcesInProtectionGroup (ListResourcesInProtectionGroup'),
+    newListResourcesInProtectionGroup,
+    ListResourcesInProtectionGroupResponse (ListResourcesInProtectionGroupResponse'),
+    newListResourcesInProtectionGroupResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateEmergencyContactSettings
+    UpdateEmergencyContactSettings (UpdateEmergencyContactSettings'),
+    newUpdateEmergencyContactSettings,
+    UpdateEmergencyContactSettingsResponse (UpdateEmergencyContactSettingsResponse'),
+    newUpdateEmergencyContactSettingsResponse,
+
+    -- ** UpdateProtectionGroup
+    UpdateProtectionGroup (UpdateProtectionGroup'),
+    newUpdateProtectionGroup,
+    UpdateProtectionGroupResponse (UpdateProtectionGroupResponse'),
+    newUpdateProtectionGroupResponse,
+
+    -- ** UpdateSubscription
+    UpdateSubscription (UpdateSubscription'),
+    newUpdateSubscription,
+    UpdateSubscriptionResponse (UpdateSubscriptionResponse'),
+    newUpdateSubscriptionResponse,
 
     -- * Types
 

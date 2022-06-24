@@ -18,44 +18,111 @@ module Amazonka.Shield.Lens
     associateDRTLogBucket_logBucket,
     associateDRTLogBucketResponse_httpStatus,
 
-    -- ** DisassociateDRTRole
-    disassociateDRTRoleResponse_httpStatus,
-
-    -- ** CreateSubscription
-    createSubscriptionResponse_httpStatus,
-
-    -- ** ListProtections
-    listProtections_nextToken,
-    listProtections_maxResults,
-    listProtectionsResponse_protections,
-    listProtectionsResponse_nextToken,
-    listProtectionsResponse_httpStatus,
-
     -- ** AssociateDRTRole
     associateDRTRole_roleArn,
     associateDRTRoleResponse_httpStatus,
 
-    -- ** UpdateSubscription
-    updateSubscription_autoRenew,
-    updateSubscriptionResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceARN,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** DisassociateDRTLogBucket
-    disassociateDRTLogBucket_logBucket,
-    disassociateDRTLogBucketResponse_httpStatus,
+    -- ** AssociateHealthCheck
+    associateHealthCheck_protectionId,
+    associateHealthCheck_healthCheckArn,
+    associateHealthCheckResponse_httpStatus,
 
     -- ** AssociateProactiveEngagementDetails
     associateProactiveEngagementDetails_emergencyContactList,
     associateProactiveEngagementDetailsResponse_httpStatus,
 
+    -- ** CreateProtection
+    createProtection_tags,
+    createProtection_name,
+    createProtection_resourceArn,
+    createProtectionResponse_protectionId,
+    createProtectionResponse_httpStatus,
+
+    -- ** CreateProtectionGroup
+    createProtectionGroup_tags,
+    createProtectionGroup_resourceType,
+    createProtectionGroup_members,
+    createProtectionGroup_protectionGroupId,
+    createProtectionGroup_aggregation,
+    createProtectionGroup_pattern,
+    createProtectionGroupResponse_httpStatus,
+
+    -- ** CreateSubscription
+    createSubscriptionResponse_httpStatus,
+
+    -- ** DeleteProtection
+    deleteProtection_protectionId,
+    deleteProtectionResponse_httpStatus,
+
+    -- ** DeleteProtectionGroup
+    deleteProtectionGroup_protectionGroupId,
+    deleteProtectionGroupResponse_httpStatus,
+
     -- ** DescribeAttack
     describeAttack_attackId,
     describeAttackResponse_attack,
     describeAttackResponse_httpStatus,
+
+    -- ** DescribeAttackStatistics
+    describeAttackStatisticsResponse_httpStatus,
+    describeAttackStatisticsResponse_timeRange,
+    describeAttackStatisticsResponse_dataItems,
+
+    -- ** DescribeDRTAccess
+    describeDRTAccessResponse_roleArn,
+    describeDRTAccessResponse_logBucketList,
+    describeDRTAccessResponse_httpStatus,
+
+    -- ** DescribeEmergencyContactSettings
+    describeEmergencyContactSettingsResponse_emergencyContactList,
+    describeEmergencyContactSettingsResponse_httpStatus,
+
+    -- ** DescribeProtection
+    describeProtection_protectionId,
+    describeProtection_resourceArn,
+    describeProtectionResponse_protection,
+    describeProtectionResponse_httpStatus,
+
+    -- ** DescribeProtectionGroup
+    describeProtectionGroup_protectionGroupId,
+    describeProtectionGroupResponse_httpStatus,
+    describeProtectionGroupResponse_protectionGroup,
+
+    -- ** DescribeSubscription
+    describeSubscriptionResponse_subscription,
+    describeSubscriptionResponse_httpStatus,
+
+    -- ** DisableProactiveEngagement
+    disableProactiveEngagementResponse_httpStatus,
+
+    -- ** DisassociateDRTLogBucket
+    disassociateDRTLogBucket_logBucket,
+    disassociateDRTLogBucketResponse_httpStatus,
+
+    -- ** DisassociateDRTRole
+    disassociateDRTRoleResponse_httpStatus,
+
+    -- ** DisassociateHealthCheck
+    disassociateHealthCheck_protectionId,
+    disassociateHealthCheck_healthCheckArn,
+    disassociateHealthCheckResponse_httpStatus,
+
+    -- ** EnableProactiveEngagement
+    enableProactiveEngagementResponse_httpStatus,
+
+    -- ** GetSubscriptionState
+    getSubscriptionStateResponse_httpStatus,
+    getSubscriptionStateResponse_subscriptionState,
+
+    -- ** ListAttacks
+    listAttacks_nextToken,
+    listAttacks_endTime,
+    listAttacks_maxResults,
+    listAttacks_startTime,
+    listAttacks_resourceArns,
+    listAttacksResponse_nextToken,
+    listAttacksResponse_attackSummaries,
+    listAttacksResponse_httpStatus,
 
     -- ** ListProtectionGroups
     listProtectionGroups_nextToken,
@@ -64,29 +131,12 @@ module Amazonka.Shield.Lens
     listProtectionGroupsResponse_httpStatus,
     listProtectionGroupsResponse_protectionGroups,
 
-    -- ** EnableProactiveEngagement
-    enableProactiveEngagementResponse_httpStatus,
-
-    -- ** UpdateEmergencyContactSettings
-    updateEmergencyContactSettings_emergencyContactList,
-    updateEmergencyContactSettingsResponse_httpStatus,
-
-    -- ** CreateProtectionGroup
-    createProtectionGroup_resourceType,
-    createProtectionGroup_members,
-    createProtectionGroup_tags,
-    createProtectionGroup_protectionGroupId,
-    createProtectionGroup_aggregation,
-    createProtectionGroup_pattern,
-    createProtectionGroupResponse_httpStatus,
-
-    -- ** DisableProactiveEngagement
-    disableProactiveEngagementResponse_httpStatus,
-
-    -- ** DisassociateHealthCheck
-    disassociateHealthCheck_protectionId,
-    disassociateHealthCheck_healthCheckArn,
-    disassociateHealthCheckResponse_httpStatus,
+    -- ** ListProtections
+    listProtections_nextToken,
+    listProtections_maxResults,
+    listProtectionsResponse_nextToken,
+    listProtectionsResponse_protections,
+    listProtectionsResponse_httpStatus,
 
     -- ** ListResourcesInProtectionGroup
     listResourcesInProtectionGroup_nextToken,
@@ -96,44 +146,24 @@ module Amazonka.Shield.Lens
     listResourcesInProtectionGroupResponse_httpStatus,
     listResourcesInProtectionGroupResponse_resourceArns,
 
-    -- ** DescribeProtection
-    describeProtection_protectionId,
-    describeProtection_resourceArn,
-    describeProtectionResponse_protection,
-    describeProtectionResponse_httpStatus,
+    -- ** ListTagsForResource
+    listTagsForResource_resourceARN,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
-    -- ** ListAttacks
-    listAttacks_startTime,
-    listAttacks_resourceArns,
-    listAttacks_nextToken,
-    listAttacks_endTime,
-    listAttacks_maxResults,
-    listAttacksResponse_attackSummaries,
-    listAttacksResponse_nextToken,
-    listAttacksResponse_httpStatus,
+    -- ** TagResource
+    tagResource_resourceARN,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
 
-    -- ** DescribeEmergencyContactSettings
-    describeEmergencyContactSettingsResponse_emergencyContactList,
-    describeEmergencyContactSettingsResponse_httpStatus,
+    -- ** UntagResource
+    untagResource_resourceARN,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
 
-    -- ** CreateProtection
-    createProtection_tags,
-    createProtection_name,
-    createProtection_resourceArn,
-    createProtectionResponse_protectionId,
-    createProtectionResponse_httpStatus,
-
-    -- ** DeleteProtection
-    deleteProtection_protectionId,
-    deleteProtectionResponse_httpStatus,
-
-    -- ** GetSubscriptionState
-    getSubscriptionStateResponse_httpStatus,
-    getSubscriptionStateResponse_subscriptionState,
-
-    -- ** DeleteProtectionGroup
-    deleteProtectionGroup_protectionGroupId,
-    deleteProtectionGroupResponse_httpStatus,
+    -- ** UpdateEmergencyContactSettings
+    updateEmergencyContactSettings_emergencyContactList,
+    updateEmergencyContactSettingsResponse_httpStatus,
 
     -- ** UpdateProtectionGroup
     updateProtectionGroup_resourceType,
@@ -143,57 +173,27 @@ module Amazonka.Shield.Lens
     updateProtectionGroup_pattern,
     updateProtectionGroupResponse_httpStatus,
 
-    -- ** DescribeAttackStatistics
-    describeAttackStatisticsResponse_httpStatus,
-    describeAttackStatisticsResponse_timeRange,
-    describeAttackStatisticsResponse_dataItems,
-
-    -- ** TagResource
-    tagResource_resourceARN,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
-    -- ** DescribeDRTAccess
-    describeDRTAccessResponse_logBucketList,
-    describeDRTAccessResponse_roleArn,
-    describeDRTAccessResponse_httpStatus,
-
-    -- ** UntagResource
-    untagResource_resourceARN,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
-
-    -- ** DescribeSubscription
-    describeSubscriptionResponse_subscription,
-    describeSubscriptionResponse_httpStatus,
-
-    -- ** AssociateHealthCheck
-    associateHealthCheck_protectionId,
-    associateHealthCheck_healthCheckArn,
-    associateHealthCheckResponse_httpStatus,
-
-    -- ** DescribeProtectionGroup
-    describeProtectionGroup_protectionGroupId,
-    describeProtectionGroupResponse_httpStatus,
-    describeProtectionGroupResponse_protectionGroup,
+    -- ** UpdateSubscription
+    updateSubscription_autoRenew,
+    updateSubscriptionResponse_httpStatus,
 
     -- * Types
 
     -- ** AttackDetail
     attackDetail_attackId,
-    attackDetail_startTime,
     attackDetail_subResources,
-    attackDetail_mitigations,
-    attackDetail_attackProperties,
-    attackDetail_attackCounters,
-    attackDetail_resourceArn,
     attackDetail_endTime,
+    attackDetail_mitigations,
+    attackDetail_resourceArn,
+    attackDetail_attackCounters,
+    attackDetail_attackProperties,
+    attackDetail_startTime,
 
     -- ** AttackProperty
+    attackProperty_total,
     attackProperty_attackLayer,
     attackProperty_topContributors,
     attackProperty_attackPropertyIdentifier,
-    attackProperty_total,
     attackProperty_unit,
 
     -- ** AttackStatisticsDataItem
@@ -201,45 +201,45 @@ module Amazonka.Shield.Lens
     attackStatisticsDataItem_attackCount,
 
     -- ** AttackSummary
-    attackSummary_attackVectors,
     attackSummary_attackId,
-    attackSummary_startTime,
-    attackSummary_resourceArn,
     attackSummary_endTime,
+    attackSummary_attackVectors,
+    attackSummary_resourceArn,
+    attackSummary_startTime,
 
     -- ** AttackVectorDescription
     attackVectorDescription_vectorType,
 
     -- ** AttackVolume
-    attackVolume_packetsPerSecond,
     attackVolume_requestsPerSecond,
     attackVolume_bitsPerSecond,
+    attackVolume_packetsPerSecond,
 
     -- ** AttackVolumeStatistics
     attackVolumeStatistics_max,
 
     -- ** Contributor
-    contributor_value,
     contributor_name,
+    contributor_value,
 
     -- ** EmergencyContact
-    emergencyContact_phoneNumber,
     emergencyContact_contactNotes,
+    emergencyContact_phoneNumber,
     emergencyContact_emailAddress,
 
     -- ** Limit
-    limit_max,
     limit_type,
+    limit_max,
 
     -- ** Mitigation
     mitigation_mitigationName,
 
     -- ** Protection
-    protection_protectionArn,
-    protection_healthCheckIds,
-    protection_resourceArn,
     protection_name,
     protection_id,
+    protection_protectionArn,
+    protection_resourceArn,
+    protection_healthCheckIds,
 
     -- ** ProtectionGroup
     protectionGroup_resourceType,
@@ -263,19 +263,19 @@ module Amazonka.Shield.Lens
     protectionLimits_protectedResourceTypeLimits,
 
     -- ** SubResourceSummary
-    subResourceSummary_counters,
-    subResourceSummary_attackVectors,
-    subResourceSummary_id,
     subResourceSummary_type,
+    subResourceSummary_counters,
+    subResourceSummary_id,
+    subResourceSummary_attackVectors,
 
     -- ** Subscription
+    subscription_subscriptionArn,
+    subscription_autoRenew,
+    subscription_limits,
+    subscription_endTime,
     subscription_timeCommitmentInSeconds,
     subscription_startTime,
-    subscription_limits,
-    subscription_autoRenew,
-    subscription_endTime,
     subscription_proactiveEngagementStatus,
-    subscription_subscriptionArn,
     subscription_subscriptionLimits,
 
     -- ** SubscriptionLimits
@@ -287,20 +287,20 @@ module Amazonka.Shield.Lens
     summarizedAttackVector_vectorType,
 
     -- ** SummarizedCounter
+    summarizedCounter_name,
     summarizedCounter_max,
     summarizedCounter_average,
-    summarizedCounter_n,
-    summarizedCounter_name,
     summarizedCounter_sum,
+    summarizedCounter_n,
     summarizedCounter_unit,
 
     -- ** Tag
-    tag_value,
     tag_key,
+    tag_value,
 
     -- ** TimeRange
-    timeRange_fromInclusive,
     timeRange_toExclusive,
+    timeRange_fromInclusive,
   )
 where
 

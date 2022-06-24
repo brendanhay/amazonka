@@ -31,7 +31,9 @@ import Amazonka.Shield.Types.Unit
 --
 -- /See:/ 'newAttackProperty' smart constructor.
 data AttackProperty = AttackProperty'
-  { -- | The type of Shield event that was observed. @NETWORK@ indicates layer 3
+  { -- | The total contributions made to this Shield event by all contributors.
+    total :: Prelude.Maybe Prelude.Integer,
+    -- | The type of Shield event that was observed. @NETWORK@ indicates layer 3
     -- and layer 4 events and @APPLICATION@ indicates layer 7 events.
     --
     -- For infrastructure layer events (L3 and L4 events) after January 25,
@@ -46,8 +48,6 @@ data AttackProperty = AttackProperty'
     -- @WORDPRESS_PINGBACK_REFLECTOR@ and @WORDPRESS_PINGBACK_SOURCE@ values
     -- are valid only for WordPress reflective pingback events.
     attackPropertyIdentifier :: Prelude.Maybe AttackPropertyIdentifier,
-    -- | The total contributions made to this Shield event by all contributors.
-    total :: Prelude.Maybe Prelude.Integer,
     -- | The unit used for the @Contributor@ @Value@ property.
     unit :: Prelude.Maybe Unit
   }
@@ -60,6 +60,8 @@ data AttackProperty = AttackProperty'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'total', 'attackProperty_total' - The total contributions made to this Shield event by all contributors.
 --
 -- 'attackLayer', 'attackProperty_attackLayer' - The type of Shield event that was observed. @NETWORK@ indicates layer 3
 -- and layer 4 events and @APPLICATION@ indicates layer 7 events.
@@ -76,19 +78,21 @@ data AttackProperty = AttackProperty'
 -- @WORDPRESS_PINGBACK_REFLECTOR@ and @WORDPRESS_PINGBACK_SOURCE@ values
 -- are valid only for WordPress reflective pingback events.
 --
--- 'total', 'attackProperty_total' - The total contributions made to this Shield event by all contributors.
---
 -- 'unit', 'attackProperty_unit' - The unit used for the @Contributor@ @Value@ property.
 newAttackProperty ::
   AttackProperty
 newAttackProperty =
   AttackProperty'
-    { attackLayer = Prelude.Nothing,
+    { total = Prelude.Nothing,
+      attackLayer = Prelude.Nothing,
       topContributors = Prelude.Nothing,
       attackPropertyIdentifier = Prelude.Nothing,
-      total = Prelude.Nothing,
       unit = Prelude.Nothing
     }
+
+-- | The total contributions made to this Shield event by all contributors.
+attackProperty_total :: Lens.Lens' AttackProperty (Prelude.Maybe Prelude.Integer)
+attackProperty_total = Lens.lens (\AttackProperty' {total} -> total) (\s@AttackProperty' {} a -> s {total = a} :: AttackProperty)
 
 -- | The type of Shield event that was observed. @NETWORK@ indicates layer 3
 -- and layer 4 events and @APPLICATION@ indicates layer 7 events.
@@ -111,10 +115,6 @@ attackProperty_topContributors = Lens.lens (\AttackProperty' {topContributors} -
 attackProperty_attackPropertyIdentifier :: Lens.Lens' AttackProperty (Prelude.Maybe AttackPropertyIdentifier)
 attackProperty_attackPropertyIdentifier = Lens.lens (\AttackProperty' {attackPropertyIdentifier} -> attackPropertyIdentifier) (\s@AttackProperty' {} a -> s {attackPropertyIdentifier = a} :: AttackProperty)
 
--- | The total contributions made to this Shield event by all contributors.
-attackProperty_total :: Lens.Lens' AttackProperty (Prelude.Maybe Prelude.Integer)
-attackProperty_total = Lens.lens (\AttackProperty' {total} -> total) (\s@AttackProperty' {} a -> s {total = a} :: AttackProperty)
-
 -- | The unit used for the @Contributor@ @Value@ property.
 attackProperty_unit :: Lens.Lens' AttackProperty (Prelude.Maybe Unit)
 attackProperty_unit = Lens.lens (\AttackProperty' {unit} -> unit) (\s@AttackProperty' {} a -> s {unit = a} :: AttackProperty)
@@ -125,27 +125,27 @@ instance Core.FromJSON AttackProperty where
       "AttackProperty"
       ( \x ->
           AttackProperty'
-            Prelude.<$> (x Core..:? "AttackLayer")
+            Prelude.<$> (x Core..:? "Total")
+            Prelude.<*> (x Core..:? "AttackLayer")
             Prelude.<*> ( x Core..:? "TopContributors"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "AttackPropertyIdentifier")
-            Prelude.<*> (x Core..:? "Total")
             Prelude.<*> (x Core..:? "Unit")
       )
 
 instance Prelude.Hashable AttackProperty where
   hashWithSalt _salt AttackProperty' {..} =
-    _salt `Prelude.hashWithSalt` attackLayer
+    _salt `Prelude.hashWithSalt` total
+      `Prelude.hashWithSalt` attackLayer
       `Prelude.hashWithSalt` topContributors
       `Prelude.hashWithSalt` attackPropertyIdentifier
-      `Prelude.hashWithSalt` total
       `Prelude.hashWithSalt` unit
 
 instance Prelude.NFData AttackProperty where
   rnf AttackProperty' {..} =
-    Prelude.rnf attackLayer
+    Prelude.rnf total
+      `Prelude.seq` Prelude.rnf attackLayer
       `Prelude.seq` Prelude.rnf topContributors
       `Prelude.seq` Prelude.rnf attackPropertyIdentifier
-      `Prelude.seq` Prelude.rnf total
       `Prelude.seq` Prelude.rnf unit

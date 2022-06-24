@@ -17,19 +17,19 @@ module Amazonka.Shield.Types
     defaultService,
 
     -- * Errors
+    _ResourceAlreadyExistsException,
+    _NoAssociatedRoleException,
+    _InvalidOperationException,
     _InvalidResourceException,
     _AccessDeniedException,
-    _InvalidParameterException,
-    _LimitsExceededException,
     _InternalErrorException,
-    _ResourceAlreadyExistsException,
-    _OptimisticLockException,
-    _NoAssociatedRoleException,
-    _AccessDeniedForDependencyException,
-    _InvalidOperationException,
-    _LockedSubscriptionException,
-    _ResourceNotFoundException,
     _InvalidPaginationTokenException,
+    _ResourceNotFoundException,
+    _AccessDeniedForDependencyException,
+    _OptimisticLockException,
+    _LimitsExceededException,
+    _LockedSubscriptionException,
+    _InvalidParameterException,
 
     -- * AttackLayer
     AttackLayer (..),
@@ -65,21 +65,21 @@ module Amazonka.Shield.Types
     AttackDetail (..),
     newAttackDetail,
     attackDetail_attackId,
-    attackDetail_startTime,
     attackDetail_subResources,
-    attackDetail_mitigations,
-    attackDetail_attackProperties,
-    attackDetail_attackCounters,
-    attackDetail_resourceArn,
     attackDetail_endTime,
+    attackDetail_mitigations,
+    attackDetail_resourceArn,
+    attackDetail_attackCounters,
+    attackDetail_attackProperties,
+    attackDetail_startTime,
 
     -- * AttackProperty
     AttackProperty (..),
     newAttackProperty,
+    attackProperty_total,
     attackProperty_attackLayer,
     attackProperty_topContributors,
     attackProperty_attackPropertyIdentifier,
-    attackProperty_total,
     attackProperty_unit,
 
     -- * AttackStatisticsDataItem
@@ -91,11 +91,11 @@ module Amazonka.Shield.Types
     -- * AttackSummary
     AttackSummary (..),
     newAttackSummary,
-    attackSummary_attackVectors,
     attackSummary_attackId,
-    attackSummary_startTime,
-    attackSummary_resourceArn,
     attackSummary_endTime,
+    attackSummary_attackVectors,
+    attackSummary_resourceArn,
+    attackSummary_startTime,
 
     -- * AttackVectorDescription
     AttackVectorDescription (..),
@@ -105,9 +105,9 @@ module Amazonka.Shield.Types
     -- * AttackVolume
     AttackVolume (..),
     newAttackVolume,
-    attackVolume_packetsPerSecond,
     attackVolume_requestsPerSecond,
     attackVolume_bitsPerSecond,
+    attackVolume_packetsPerSecond,
 
     -- * AttackVolumeStatistics
     AttackVolumeStatistics (..),
@@ -117,21 +117,21 @@ module Amazonka.Shield.Types
     -- * Contributor
     Contributor (..),
     newContributor,
-    contributor_value,
     contributor_name,
+    contributor_value,
 
     -- * EmergencyContact
     EmergencyContact (..),
     newEmergencyContact,
-    emergencyContact_phoneNumber,
     emergencyContact_contactNotes,
+    emergencyContact_phoneNumber,
     emergencyContact_emailAddress,
 
     -- * Limit
     Limit (..),
     newLimit,
-    limit_max,
     limit_type,
+    limit_max,
 
     -- * Mitigation
     Mitigation (..),
@@ -141,11 +141,11 @@ module Amazonka.Shield.Types
     -- * Protection
     Protection (..),
     newProtection,
-    protection_protectionArn,
-    protection_healthCheckIds,
-    protection_resourceArn,
     protection_name,
     protection_id,
+    protection_protectionArn,
+    protection_resourceArn,
+    protection_healthCheckIds,
 
     -- * ProtectionGroup
     ProtectionGroup (..),
@@ -181,21 +181,21 @@ module Amazonka.Shield.Types
     -- * SubResourceSummary
     SubResourceSummary (..),
     newSubResourceSummary,
-    subResourceSummary_counters,
-    subResourceSummary_attackVectors,
-    subResourceSummary_id,
     subResourceSummary_type,
+    subResourceSummary_counters,
+    subResourceSummary_id,
+    subResourceSummary_attackVectors,
 
     -- * Subscription
     Subscription (..),
     newSubscription,
+    subscription_subscriptionArn,
+    subscription_autoRenew,
+    subscription_limits,
+    subscription_endTime,
     subscription_timeCommitmentInSeconds,
     subscription_startTime,
-    subscription_limits,
-    subscription_autoRenew,
-    subscription_endTime,
     subscription_proactiveEngagementStatus,
-    subscription_subscriptionArn,
     subscription_subscriptionLimits,
 
     -- * SubscriptionLimits
@@ -213,24 +213,24 @@ module Amazonka.Shield.Types
     -- * SummarizedCounter
     SummarizedCounter (..),
     newSummarizedCounter,
+    summarizedCounter_name,
     summarizedCounter_max,
     summarizedCounter_average,
-    summarizedCounter_n,
-    summarizedCounter_name,
     summarizedCounter_sum,
+    summarizedCounter_n,
     summarizedCounter_unit,
 
     -- * Tag
     Tag (..),
     newTag,
-    tag_value,
     tag_key,
+    tag_value,
 
     -- * TimeRange
     TimeRange (..),
     newTimeRange,
-    timeRange_fromInclusive,
     timeRange_toExclusive,
+    timeRange_fromInclusive,
   )
 where
 
@@ -298,35 +298,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -335,13 +308,63 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | Exception indicating the specified resource already exists. If
+-- available, this exception includes details in additional properties.
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceAlreadyExistsException"
+
+-- | The ARN of the role that you specifed does not exist.
+_NoAssociatedRoleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoAssociatedRoleException =
+  Core._MatchServiceError
+    defaultService
+    "NoAssociatedRoleException"
+
+-- | Exception that indicates that the operation would not cause any change
+-- to occur.
+_InvalidOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidOperationException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidOperationException"
 
 -- | Exception that indicates that the resource is invalid. You might not
 -- have access to the resource, or the resource might not exist.
@@ -360,22 +383,6 @@ _AccessDeniedException =
     defaultService
     "AccessDeniedException"
 
--- | Exception that indicates that the parameters passed to the API are
--- invalid. If available, this exception includes details in additional
--- properties.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidParameterException"
-
--- | Exception that indicates that the operation would exceed a limit.
-_LimitsExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitsExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitsExceededException"
-
 -- | Exception that indicates that a problem occurred with the service
 -- infrastructure. You can retry the request.
 _InternalErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -384,28 +391,22 @@ _InternalErrorException =
     defaultService
     "InternalErrorException"
 
--- | Exception indicating the specified resource already exists. If
+-- | Exception that indicates that the NextToken specified in the request is
+-- invalid. Submit the request using the NextToken value that was returned
+-- in the response.
+_InvalidPaginationTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPaginationTokenException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidPaginationTokenException"
+
+-- | Exception indicating the specified resource does not exist. If
 -- available, this exception includes details in additional properties.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceAlreadyExistsException =
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
-    "ResourceAlreadyExistsException"
-
--- | Exception that indicates that the resource state has been modified by
--- another client. Retrieve the resource and then retry your request.
-_OptimisticLockException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OptimisticLockException =
-  Core._MatchServiceError
-    defaultService
-    "OptimisticLockException"
-
--- | The ARN of the role that you specifed does not exist.
-_NoAssociatedRoleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NoAssociatedRoleException =
-  Core._MatchServiceError
-    defaultService
-    "NoAssociatedRoleException"
+    "ResourceNotFoundException"
 
 -- | In order to grant the necessary access to the Shield Response Team (SRT)
 -- the user submitting the request must have the @iam:PassRole@ permission.
@@ -418,13 +419,20 @@ _AccessDeniedForDependencyException =
     defaultService
     "AccessDeniedForDependencyException"
 
--- | Exception that indicates that the operation would not cause any change
--- to occur.
-_InvalidOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidOperationException =
+-- | Exception that indicates that the resource state has been modified by
+-- another client. Retrieve the resource and then retry your request.
+_OptimisticLockException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OptimisticLockException =
   Core._MatchServiceError
     defaultService
-    "InvalidOperationException"
+    "OptimisticLockException"
+
+-- | Exception that indicates that the operation would exceed a limit.
+_LimitsExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitsExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitsExceededException"
 
 -- | You are trying to update a subscription that has not yet completed the
 -- 1-year commitment. You can change the @AutoRenew@ parameter during the
@@ -436,19 +444,11 @@ _LockedSubscriptionException =
     defaultService
     "LockedSubscriptionException"
 
--- | Exception indicating the specified resource does not exist. If
--- available, this exception includes details in additional properties.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
+-- | Exception that indicates that the parameters passed to the API are
+-- invalid. If available, this exception includes details in additional
+-- properties.
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException =
   Core._MatchServiceError
     defaultService
-    "ResourceNotFoundException"
-
--- | Exception that indicates that the NextToken specified in the request is
--- invalid. Submit the request using the NextToken value that was returned
--- in the response.
-_InvalidPaginationTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidPaginationTokenException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidPaginationTokenException"
+    "InvalidParameterException"

@@ -37,14 +37,14 @@ module Amazonka.MediaTailor.UpdateSourceLocation
     newUpdateSourceLocationResponse,
 
     -- * Response Lenses
-    updateSourceLocationResponse_creationTime,
-    updateSourceLocationResponse_sourceLocationName,
+    updateSourceLocationResponse_tags,
     updateSourceLocationResponse_arn,
-    updateSourceLocationResponse_httpConfiguration,
-    updateSourceLocationResponse_lastModifiedTime,
     updateSourceLocationResponse_accessConfiguration,
     updateSourceLocationResponse_defaultSegmentDeliveryConfiguration,
-    updateSourceLocationResponse_tags,
+    updateSourceLocationResponse_lastModifiedTime,
+    updateSourceLocationResponse_creationTime,
+    updateSourceLocationResponse_sourceLocationName,
+    updateSourceLocationResponse_httpConfiguration,
     updateSourceLocationResponse_httpStatus,
   )
 where
@@ -130,14 +130,14 @@ instance Core.AWSRequest UpdateSourceLocation where
     Response.receiveJSON
       ( \s h x ->
           UpdateSourceLocationResponse'
-            Prelude.<$> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "SourceLocationName")
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "HttpConfiguration")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
             Prelude.<*> (x Core..?> "AccessConfiguration")
             Prelude.<*> (x Core..?> "DefaultSegmentDeliveryConfiguration")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<*> (x Core..?> "CreationTime")
+            Prelude.<*> (x Core..?> "SourceLocationName")
+            Prelude.<*> (x Core..?> "HttpConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -189,22 +189,22 @@ instance Core.ToQuery UpdateSourceLocation where
 
 -- | /See:/ 'newUpdateSourceLocationResponse' smart constructor.
 data UpdateSourceLocationResponse = UpdateSourceLocationResponse'
-  { -- | The timestamp that indicates when the source location was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The name of the source location.
-    sourceLocationName :: Prelude.Maybe Prelude.Text,
+  { -- | The tags assigned to the source location.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ARN of the source location.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The HTTP package configuration settings for the source location.
-    httpConfiguration :: Prelude.Maybe HttpConfiguration,
-    -- | The timestamp that indicates when the source location was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The access configuration for the source location.
     accessConfiguration :: Prelude.Maybe AccessConfiguration,
     -- | The default segment delivery configuration settings.
     defaultSegmentDeliveryConfiguration :: Prelude.Maybe DefaultSegmentDeliveryConfiguration,
-    -- | The tags assigned to the source location.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The timestamp that indicates when the source location was last modified.
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | The timestamp that indicates when the source location was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
+    -- | The name of the source location.
+    sourceLocationName :: Prelude.Maybe Prelude.Text,
+    -- | The HTTP package configuration settings for the source location.
+    httpConfiguration :: Prelude.Maybe HttpConfiguration,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -218,21 +218,21 @@ data UpdateSourceLocationResponse = UpdateSourceLocationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'updateSourceLocationResponse_creationTime' - The timestamp that indicates when the source location was created.
---
--- 'sourceLocationName', 'updateSourceLocationResponse_sourceLocationName' - The name of the source location.
+-- 'tags', 'updateSourceLocationResponse_tags' - The tags assigned to the source location.
 --
 -- 'arn', 'updateSourceLocationResponse_arn' - The ARN of the source location.
---
--- 'httpConfiguration', 'updateSourceLocationResponse_httpConfiguration' - The HTTP package configuration settings for the source location.
---
--- 'lastModifiedTime', 'updateSourceLocationResponse_lastModifiedTime' - The timestamp that indicates when the source location was last modified.
 --
 -- 'accessConfiguration', 'updateSourceLocationResponse_accessConfiguration' - The access configuration for the source location.
 --
 -- 'defaultSegmentDeliveryConfiguration', 'updateSourceLocationResponse_defaultSegmentDeliveryConfiguration' - The default segment delivery configuration settings.
 --
--- 'tags', 'updateSourceLocationResponse_tags' - The tags assigned to the source location.
+-- 'lastModifiedTime', 'updateSourceLocationResponse_lastModifiedTime' - The timestamp that indicates when the source location was last modified.
+--
+-- 'creationTime', 'updateSourceLocationResponse_creationTime' - The timestamp that indicates when the source location was created.
+--
+-- 'sourceLocationName', 'updateSourceLocationResponse_sourceLocationName' - The name of the source location.
+--
+-- 'httpConfiguration', 'updateSourceLocationResponse_httpConfiguration' - The HTTP package configuration settings for the source location.
 --
 -- 'httpStatus', 'updateSourceLocationResponse_httpStatus' - The response's http status code.
 newUpdateSourceLocationResponse ::
@@ -241,38 +241,26 @@ newUpdateSourceLocationResponse ::
   UpdateSourceLocationResponse
 newUpdateSourceLocationResponse pHttpStatus_ =
   UpdateSourceLocationResponse'
-    { creationTime =
+    { tags =
         Prelude.Nothing,
-      sourceLocationName = Prelude.Nothing,
       arn = Prelude.Nothing,
-      httpConfiguration = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
       accessConfiguration = Prelude.Nothing,
       defaultSegmentDeliveryConfiguration =
         Prelude.Nothing,
-      tags = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      sourceLocationName = Prelude.Nothing,
+      httpConfiguration = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The timestamp that indicates when the source location was created.
-updateSourceLocationResponse_creationTime :: Lens.Lens' UpdateSourceLocationResponse (Prelude.Maybe Prelude.UTCTime)
-updateSourceLocationResponse_creationTime = Lens.lens (\UpdateSourceLocationResponse' {creationTime} -> creationTime) (\s@UpdateSourceLocationResponse' {} a -> s {creationTime = a} :: UpdateSourceLocationResponse) Prelude.. Lens.mapping Core._Time
-
--- | The name of the source location.
-updateSourceLocationResponse_sourceLocationName :: Lens.Lens' UpdateSourceLocationResponse (Prelude.Maybe Prelude.Text)
-updateSourceLocationResponse_sourceLocationName = Lens.lens (\UpdateSourceLocationResponse' {sourceLocationName} -> sourceLocationName) (\s@UpdateSourceLocationResponse' {} a -> s {sourceLocationName = a} :: UpdateSourceLocationResponse)
+-- | The tags assigned to the source location.
+updateSourceLocationResponse_tags :: Lens.Lens' UpdateSourceLocationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updateSourceLocationResponse_tags = Lens.lens (\UpdateSourceLocationResponse' {tags} -> tags) (\s@UpdateSourceLocationResponse' {} a -> s {tags = a} :: UpdateSourceLocationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the source location.
 updateSourceLocationResponse_arn :: Lens.Lens' UpdateSourceLocationResponse (Prelude.Maybe Prelude.Text)
 updateSourceLocationResponse_arn = Lens.lens (\UpdateSourceLocationResponse' {arn} -> arn) (\s@UpdateSourceLocationResponse' {} a -> s {arn = a} :: UpdateSourceLocationResponse)
-
--- | The HTTP package configuration settings for the source location.
-updateSourceLocationResponse_httpConfiguration :: Lens.Lens' UpdateSourceLocationResponse (Prelude.Maybe HttpConfiguration)
-updateSourceLocationResponse_httpConfiguration = Lens.lens (\UpdateSourceLocationResponse' {httpConfiguration} -> httpConfiguration) (\s@UpdateSourceLocationResponse' {} a -> s {httpConfiguration = a} :: UpdateSourceLocationResponse)
-
--- | The timestamp that indicates when the source location was last modified.
-updateSourceLocationResponse_lastModifiedTime :: Lens.Lens' UpdateSourceLocationResponse (Prelude.Maybe Prelude.UTCTime)
-updateSourceLocationResponse_lastModifiedTime = Lens.lens (\UpdateSourceLocationResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateSourceLocationResponse' {} a -> s {lastModifiedTime = a} :: UpdateSourceLocationResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The access configuration for the source location.
 updateSourceLocationResponse_accessConfiguration :: Lens.Lens' UpdateSourceLocationResponse (Prelude.Maybe AccessConfiguration)
@@ -282,9 +270,21 @@ updateSourceLocationResponse_accessConfiguration = Lens.lens (\UpdateSourceLocat
 updateSourceLocationResponse_defaultSegmentDeliveryConfiguration :: Lens.Lens' UpdateSourceLocationResponse (Prelude.Maybe DefaultSegmentDeliveryConfiguration)
 updateSourceLocationResponse_defaultSegmentDeliveryConfiguration = Lens.lens (\UpdateSourceLocationResponse' {defaultSegmentDeliveryConfiguration} -> defaultSegmentDeliveryConfiguration) (\s@UpdateSourceLocationResponse' {} a -> s {defaultSegmentDeliveryConfiguration = a} :: UpdateSourceLocationResponse)
 
--- | The tags assigned to the source location.
-updateSourceLocationResponse_tags :: Lens.Lens' UpdateSourceLocationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateSourceLocationResponse_tags = Lens.lens (\UpdateSourceLocationResponse' {tags} -> tags) (\s@UpdateSourceLocationResponse' {} a -> s {tags = a} :: UpdateSourceLocationResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The timestamp that indicates when the source location was last modified.
+updateSourceLocationResponse_lastModifiedTime :: Lens.Lens' UpdateSourceLocationResponse (Prelude.Maybe Prelude.UTCTime)
+updateSourceLocationResponse_lastModifiedTime = Lens.lens (\UpdateSourceLocationResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateSourceLocationResponse' {} a -> s {lastModifiedTime = a} :: UpdateSourceLocationResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The timestamp that indicates when the source location was created.
+updateSourceLocationResponse_creationTime :: Lens.Lens' UpdateSourceLocationResponse (Prelude.Maybe Prelude.UTCTime)
+updateSourceLocationResponse_creationTime = Lens.lens (\UpdateSourceLocationResponse' {creationTime} -> creationTime) (\s@UpdateSourceLocationResponse' {} a -> s {creationTime = a} :: UpdateSourceLocationResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The name of the source location.
+updateSourceLocationResponse_sourceLocationName :: Lens.Lens' UpdateSourceLocationResponse (Prelude.Maybe Prelude.Text)
+updateSourceLocationResponse_sourceLocationName = Lens.lens (\UpdateSourceLocationResponse' {sourceLocationName} -> sourceLocationName) (\s@UpdateSourceLocationResponse' {} a -> s {sourceLocationName = a} :: UpdateSourceLocationResponse)
+
+-- | The HTTP package configuration settings for the source location.
+updateSourceLocationResponse_httpConfiguration :: Lens.Lens' UpdateSourceLocationResponse (Prelude.Maybe HttpConfiguration)
+updateSourceLocationResponse_httpConfiguration = Lens.lens (\UpdateSourceLocationResponse' {httpConfiguration} -> httpConfiguration) (\s@UpdateSourceLocationResponse' {} a -> s {httpConfiguration = a} :: UpdateSourceLocationResponse)
 
 -- | The response's http status code.
 updateSourceLocationResponse_httpStatus :: Lens.Lens' UpdateSourceLocationResponse Prelude.Int
@@ -292,12 +292,12 @@ updateSourceLocationResponse_httpStatus = Lens.lens (\UpdateSourceLocationRespon
 
 instance Prelude.NFData UpdateSourceLocationResponse where
   rnf UpdateSourceLocationResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf sourceLocationName
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf httpConfiguration
-      `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf accessConfiguration
       `Prelude.seq` Prelude.rnf defaultSegmentDeliveryConfiguration
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf sourceLocationName
+      `Prelude.seq` Prelude.rnf httpConfiguration
       `Prelude.seq` Prelude.rnf httpStatus

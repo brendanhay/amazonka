@@ -35,15 +35,15 @@ module Amazonka.MediaTailor.UpdateChannel
     newUpdateChannelResponse,
 
     -- * Response Lenses
-    updateChannelResponse_creationTime,
+    updateChannelResponse_tags,
+    updateChannelResponse_channelName,
+    updateChannelResponse_fillerSlate,
     updateChannelResponse_arn,
     updateChannelResponse_lastModifiedTime,
-    updateChannelResponse_playbackMode,
-    updateChannelResponse_channelName,
     updateChannelResponse_outputs,
+    updateChannelResponse_creationTime,
+    updateChannelResponse_playbackMode,
     updateChannelResponse_channelState,
-    updateChannelResponse_fillerSlate,
-    updateChannelResponse_tags,
     updateChannelResponse_httpStatus,
   )
 where
@@ -102,15 +102,15 @@ instance Core.AWSRequest UpdateChannel where
     Response.receiveJSON
       ( \s h x ->
           UpdateChannelResponse'
-            Prelude.<$> (x Core..?> "CreationTime")
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "ChannelName")
+            Prelude.<*> (x Core..?> "FillerSlate")
             Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "PlaybackMode")
-            Prelude.<*> (x Core..?> "ChannelName")
             Prelude.<*> (x Core..?> "Outputs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "CreationTime")
+            Prelude.<*> (x Core..?> "PlaybackMode")
             Prelude.<*> (x Core..?> "ChannelState")
-            Prelude.<*> (x Core..?> "FillerSlate")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,25 +152,25 @@ instance Core.ToQuery UpdateChannel where
 
 -- | /See:/ 'newUpdateChannelResponse' smart constructor.
 data UpdateChannelResponse = UpdateChannelResponse'
-  { -- | The timestamp of when the channel was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+  { -- | The tags assigned to the channel.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The name of the channel.
+    channelName :: Prelude.Maybe Prelude.Text,
+    -- | Contains information about the slate used to fill gaps between programs
+    -- in the schedule.
+    fillerSlate :: Prelude.Maybe SlateSource,
     -- | The ARN of the channel.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of when the channel was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
-    -- | The channel\'s playback mode.
-    playbackMode :: Prelude.Maybe Prelude.Text,
-    -- | The name of the channel.
-    channelName :: Prelude.Maybe Prelude.Text,
     -- | The channel\'s output properties.
     outputs :: Prelude.Maybe [ResponseOutputItem],
+    -- | The timestamp of when the channel was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
+    -- | The channel\'s playback mode.
+    playbackMode :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the channel is in a running state or not.
     channelState :: Prelude.Maybe ChannelState,
-    -- | Contains information about the slate used to fill gaps between programs
-    -- in the schedule.
-    fillerSlate :: Prelude.Maybe SlateSource,
-    -- | The tags assigned to the channel.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -184,24 +184,24 @@ data UpdateChannelResponse = UpdateChannelResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'updateChannelResponse_creationTime' - The timestamp of when the channel was created.
+-- 'tags', 'updateChannelResponse_tags' - The tags assigned to the channel.
+--
+-- 'channelName', 'updateChannelResponse_channelName' - The name of the channel.
+--
+-- 'fillerSlate', 'updateChannelResponse_fillerSlate' - Contains information about the slate used to fill gaps between programs
+-- in the schedule.
 --
 -- 'arn', 'updateChannelResponse_arn' - The ARN of the channel.
 --
 -- 'lastModifiedTime', 'updateChannelResponse_lastModifiedTime' - The timestamp of when the channel was last modified.
 --
--- 'playbackMode', 'updateChannelResponse_playbackMode' - The channel\'s playback mode.
---
--- 'channelName', 'updateChannelResponse_channelName' - The name of the channel.
---
 -- 'outputs', 'updateChannelResponse_outputs' - The channel\'s output properties.
 --
+-- 'creationTime', 'updateChannelResponse_creationTime' - The timestamp of when the channel was created.
+--
+-- 'playbackMode', 'updateChannelResponse_playbackMode' - The channel\'s playback mode.
+--
 -- 'channelState', 'updateChannelResponse_channelState' - Indicates whether the channel is in a running state or not.
---
--- 'fillerSlate', 'updateChannelResponse_fillerSlate' - Contains information about the slate used to fill gaps between programs
--- in the schedule.
---
--- 'tags', 'updateChannelResponse_tags' - The tags assigned to the channel.
 --
 -- 'httpStatus', 'updateChannelResponse_httpStatus' - The response's http status code.
 newUpdateChannelResponse ::
@@ -210,22 +210,30 @@ newUpdateChannelResponse ::
   UpdateChannelResponse
 newUpdateChannelResponse pHttpStatus_ =
   UpdateChannelResponse'
-    { creationTime =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      channelName = Prelude.Nothing,
+      fillerSlate = Prelude.Nothing,
       arn = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
-      playbackMode = Prelude.Nothing,
-      channelName = Prelude.Nothing,
       outputs = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      playbackMode = Prelude.Nothing,
       channelState = Prelude.Nothing,
-      fillerSlate = Prelude.Nothing,
-      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The timestamp of when the channel was created.
-updateChannelResponse_creationTime :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe Prelude.UTCTime)
-updateChannelResponse_creationTime = Lens.lens (\UpdateChannelResponse' {creationTime} -> creationTime) (\s@UpdateChannelResponse' {} a -> s {creationTime = a} :: UpdateChannelResponse) Prelude.. Lens.mapping Core._Time
+-- | The tags assigned to the channel.
+updateChannelResponse_tags :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updateChannelResponse_tags = Lens.lens (\UpdateChannelResponse' {tags} -> tags) (\s@UpdateChannelResponse' {} a -> s {tags = a} :: UpdateChannelResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the channel.
+updateChannelResponse_channelName :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe Prelude.Text)
+updateChannelResponse_channelName = Lens.lens (\UpdateChannelResponse' {channelName} -> channelName) (\s@UpdateChannelResponse' {} a -> s {channelName = a} :: UpdateChannelResponse)
+
+-- | Contains information about the slate used to fill gaps between programs
+-- in the schedule.
+updateChannelResponse_fillerSlate :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe SlateSource)
+updateChannelResponse_fillerSlate = Lens.lens (\UpdateChannelResponse' {fillerSlate} -> fillerSlate) (\s@UpdateChannelResponse' {} a -> s {fillerSlate = a} :: UpdateChannelResponse)
 
 -- | The ARN of the channel.
 updateChannelResponse_arn :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe Prelude.Text)
@@ -235,30 +243,21 @@ updateChannelResponse_arn = Lens.lens (\UpdateChannelResponse' {arn} -> arn) (\s
 updateChannelResponse_lastModifiedTime :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe Prelude.UTCTime)
 updateChannelResponse_lastModifiedTime = Lens.lens (\UpdateChannelResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateChannelResponse' {} a -> s {lastModifiedTime = a} :: UpdateChannelResponse) Prelude.. Lens.mapping Core._Time
 
--- | The channel\'s playback mode.
-updateChannelResponse_playbackMode :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe Prelude.Text)
-updateChannelResponse_playbackMode = Lens.lens (\UpdateChannelResponse' {playbackMode} -> playbackMode) (\s@UpdateChannelResponse' {} a -> s {playbackMode = a} :: UpdateChannelResponse)
-
--- | The name of the channel.
-updateChannelResponse_channelName :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe Prelude.Text)
-updateChannelResponse_channelName = Lens.lens (\UpdateChannelResponse' {channelName} -> channelName) (\s@UpdateChannelResponse' {} a -> s {channelName = a} :: UpdateChannelResponse)
-
 -- | The channel\'s output properties.
 updateChannelResponse_outputs :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe [ResponseOutputItem])
 updateChannelResponse_outputs = Lens.lens (\UpdateChannelResponse' {outputs} -> outputs) (\s@UpdateChannelResponse' {} a -> s {outputs = a} :: UpdateChannelResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The timestamp of when the channel was created.
+updateChannelResponse_creationTime :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe Prelude.UTCTime)
+updateChannelResponse_creationTime = Lens.lens (\UpdateChannelResponse' {creationTime} -> creationTime) (\s@UpdateChannelResponse' {} a -> s {creationTime = a} :: UpdateChannelResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The channel\'s playback mode.
+updateChannelResponse_playbackMode :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe Prelude.Text)
+updateChannelResponse_playbackMode = Lens.lens (\UpdateChannelResponse' {playbackMode} -> playbackMode) (\s@UpdateChannelResponse' {} a -> s {playbackMode = a} :: UpdateChannelResponse)
+
 -- | Indicates whether the channel is in a running state or not.
 updateChannelResponse_channelState :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe ChannelState)
 updateChannelResponse_channelState = Lens.lens (\UpdateChannelResponse' {channelState} -> channelState) (\s@UpdateChannelResponse' {} a -> s {channelState = a} :: UpdateChannelResponse)
-
--- | Contains information about the slate used to fill gaps between programs
--- in the schedule.
-updateChannelResponse_fillerSlate :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe SlateSource)
-updateChannelResponse_fillerSlate = Lens.lens (\UpdateChannelResponse' {fillerSlate} -> fillerSlate) (\s@UpdateChannelResponse' {} a -> s {fillerSlate = a} :: UpdateChannelResponse)
-
--- | The tags assigned to the channel.
-updateChannelResponse_tags :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateChannelResponse_tags = Lens.lens (\UpdateChannelResponse' {tags} -> tags) (\s@UpdateChannelResponse' {} a -> s {tags = a} :: UpdateChannelResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 updateChannelResponse_httpStatus :: Lens.Lens' UpdateChannelResponse Prelude.Int
@@ -266,13 +265,13 @@ updateChannelResponse_httpStatus = Lens.lens (\UpdateChannelResponse' {httpStatu
 
 instance Prelude.NFData UpdateChannelResponse where
   rnf UpdateChannelResponse' {..} =
-    Prelude.rnf creationTime
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf channelName
+      `Prelude.seq` Prelude.rnf fillerSlate
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf playbackMode
-      `Prelude.seq` Prelude.rnf channelName
       `Prelude.seq` Prelude.rnf outputs
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf playbackMode
       `Prelude.seq` Prelude.rnf channelState
-      `Prelude.seq` Prelude.rnf fillerSlate
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

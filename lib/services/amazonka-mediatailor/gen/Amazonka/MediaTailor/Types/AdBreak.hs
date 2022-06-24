@@ -30,18 +30,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAdBreak' smart constructor.
 data AdBreak = AdBreak'
-  { -- | This defines the SCTE-35 splice_insert() message inserted around the ad.
-    -- For information about using splice_insert(), see the SCTE-35
-    -- specficiaiton, section 9.7.3.1.
-    spliceInsertMessage :: Prelude.Maybe SpliceInsertMessage,
-    -- | The SCTE-35 ad insertion type. Accepted value: SPLICE_INSERT.
+  { -- | The SCTE-35 ad insertion type. Accepted value: SPLICE_INSERT.
     messageType :: Prelude.Maybe MessageType,
-    -- | Ad break slate configuration.
-    slate :: Prelude.Maybe SlateSource,
     -- | How long (in milliseconds) after the beginning of the program that an ad
     -- starts. This value must fall within 100ms of a segment boundary,
     -- otherwise the ad break will be skipped.
-    offsetMillis :: Prelude.Maybe Prelude.Integer
+    offsetMillis :: Prelude.Maybe Prelude.Integer,
+    -- | This defines the SCTE-35 splice_insert() message inserted around the ad.
+    -- For information about using splice_insert(), see the SCTE-35
+    -- specficiaiton, section 9.7.3.1.
+    spliceInsertMessage :: Prelude.Maybe SpliceInsertMessage,
+    -- | Ad break slate configuration.
+    slate :: Prelude.Maybe SlateSource
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,40 +53,30 @@ data AdBreak = AdBreak'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'spliceInsertMessage', 'adBreak_spliceInsertMessage' - This defines the SCTE-35 splice_insert() message inserted around the ad.
--- For information about using splice_insert(), see the SCTE-35
--- specficiaiton, section 9.7.3.1.
---
 -- 'messageType', 'adBreak_messageType' - The SCTE-35 ad insertion type. Accepted value: SPLICE_INSERT.
---
--- 'slate', 'adBreak_slate' - Ad break slate configuration.
 --
 -- 'offsetMillis', 'adBreak_offsetMillis' - How long (in milliseconds) after the beginning of the program that an ad
 -- starts. This value must fall within 100ms of a segment boundary,
 -- otherwise the ad break will be skipped.
+--
+-- 'spliceInsertMessage', 'adBreak_spliceInsertMessage' - This defines the SCTE-35 splice_insert() message inserted around the ad.
+-- For information about using splice_insert(), see the SCTE-35
+-- specficiaiton, section 9.7.3.1.
+--
+-- 'slate', 'adBreak_slate' - Ad break slate configuration.
 newAdBreak ::
   AdBreak
 newAdBreak =
   AdBreak'
-    { spliceInsertMessage = Prelude.Nothing,
-      messageType = Prelude.Nothing,
-      slate = Prelude.Nothing,
-      offsetMillis = Prelude.Nothing
+    { messageType = Prelude.Nothing,
+      offsetMillis = Prelude.Nothing,
+      spliceInsertMessage = Prelude.Nothing,
+      slate = Prelude.Nothing
     }
-
--- | This defines the SCTE-35 splice_insert() message inserted around the ad.
--- For information about using splice_insert(), see the SCTE-35
--- specficiaiton, section 9.7.3.1.
-adBreak_spliceInsertMessage :: Lens.Lens' AdBreak (Prelude.Maybe SpliceInsertMessage)
-adBreak_spliceInsertMessage = Lens.lens (\AdBreak' {spliceInsertMessage} -> spliceInsertMessage) (\s@AdBreak' {} a -> s {spliceInsertMessage = a} :: AdBreak)
 
 -- | The SCTE-35 ad insertion type. Accepted value: SPLICE_INSERT.
 adBreak_messageType :: Lens.Lens' AdBreak (Prelude.Maybe MessageType)
 adBreak_messageType = Lens.lens (\AdBreak' {messageType} -> messageType) (\s@AdBreak' {} a -> s {messageType = a} :: AdBreak)
-
--- | Ad break slate configuration.
-adBreak_slate :: Lens.Lens' AdBreak (Prelude.Maybe SlateSource)
-adBreak_slate = Lens.lens (\AdBreak' {slate} -> slate) (\s@AdBreak' {} a -> s {slate = a} :: AdBreak)
 
 -- | How long (in milliseconds) after the beginning of the program that an ad
 -- starts. This value must fall within 100ms of a segment boundary,
@@ -94,40 +84,50 @@ adBreak_slate = Lens.lens (\AdBreak' {slate} -> slate) (\s@AdBreak' {} a -> s {s
 adBreak_offsetMillis :: Lens.Lens' AdBreak (Prelude.Maybe Prelude.Integer)
 adBreak_offsetMillis = Lens.lens (\AdBreak' {offsetMillis} -> offsetMillis) (\s@AdBreak' {} a -> s {offsetMillis = a} :: AdBreak)
 
+-- | This defines the SCTE-35 splice_insert() message inserted around the ad.
+-- For information about using splice_insert(), see the SCTE-35
+-- specficiaiton, section 9.7.3.1.
+adBreak_spliceInsertMessage :: Lens.Lens' AdBreak (Prelude.Maybe SpliceInsertMessage)
+adBreak_spliceInsertMessage = Lens.lens (\AdBreak' {spliceInsertMessage} -> spliceInsertMessage) (\s@AdBreak' {} a -> s {spliceInsertMessage = a} :: AdBreak)
+
+-- | Ad break slate configuration.
+adBreak_slate :: Lens.Lens' AdBreak (Prelude.Maybe SlateSource)
+adBreak_slate = Lens.lens (\AdBreak' {slate} -> slate) (\s@AdBreak' {} a -> s {slate = a} :: AdBreak)
+
 instance Core.FromJSON AdBreak where
   parseJSON =
     Core.withObject
       "AdBreak"
       ( \x ->
           AdBreak'
-            Prelude.<$> (x Core..:? "SpliceInsertMessage")
-            Prelude.<*> (x Core..:? "MessageType")
-            Prelude.<*> (x Core..:? "Slate")
+            Prelude.<$> (x Core..:? "MessageType")
             Prelude.<*> (x Core..:? "OffsetMillis")
+            Prelude.<*> (x Core..:? "SpliceInsertMessage")
+            Prelude.<*> (x Core..:? "Slate")
       )
 
 instance Prelude.Hashable AdBreak where
   hashWithSalt _salt AdBreak' {..} =
-    _salt `Prelude.hashWithSalt` spliceInsertMessage
-      `Prelude.hashWithSalt` messageType
-      `Prelude.hashWithSalt` slate
+    _salt `Prelude.hashWithSalt` messageType
       `Prelude.hashWithSalt` offsetMillis
+      `Prelude.hashWithSalt` spliceInsertMessage
+      `Prelude.hashWithSalt` slate
 
 instance Prelude.NFData AdBreak where
   rnf AdBreak' {..} =
-    Prelude.rnf spliceInsertMessage
-      `Prelude.seq` Prelude.rnf messageType
-      `Prelude.seq` Prelude.rnf slate
+    Prelude.rnf messageType
       `Prelude.seq` Prelude.rnf offsetMillis
+      `Prelude.seq` Prelude.rnf spliceInsertMessage
+      `Prelude.seq` Prelude.rnf slate
 
 instance Core.ToJSON AdBreak where
   toJSON AdBreak' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SpliceInsertMessage" Core..=)
+          [ ("MessageType" Core..=) Prelude.<$> messageType,
+            ("OffsetMillis" Core..=) Prelude.<$> offsetMillis,
+            ("SpliceInsertMessage" Core..=)
               Prelude.<$> spliceInsertMessage,
-            ("MessageType" Core..=) Prelude.<$> messageType,
-            ("Slate" Core..=) Prelude.<$> slate,
-            ("OffsetMillis" Core..=) Prelude.<$> offsetMillis
+            ("Slate" Core..=) Prelude.<$> slate
           ]
       )

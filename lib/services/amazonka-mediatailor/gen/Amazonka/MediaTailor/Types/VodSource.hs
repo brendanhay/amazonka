@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVodSource' smart constructor.
 data VodSource = VodSource'
-  { -- | The timestamp that indicates when the VOD source was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+  { -- | The tags assigned to the VOD source.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The timestamp that indicates when the VOD source was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
-    -- | The tags assigned to the VOD source.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The timestamp that indicates when the VOD source was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the VOD source.
     vodSourceName :: Prelude.Text,
     -- | The name of the source location that the VOD source is associated with.
@@ -53,11 +53,11 @@ data VodSource = VodSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'vodSource_creationTime' - The timestamp that indicates when the VOD source was created.
+-- 'tags', 'vodSource_tags' - The tags assigned to the VOD source.
 --
 -- 'lastModifiedTime', 'vodSource_lastModifiedTime' - The timestamp that indicates when the VOD source was last modified.
 --
--- 'tags', 'vodSource_tags' - The tags assigned to the VOD source.
+-- 'creationTime', 'vodSource_creationTime' - The timestamp that indicates when the VOD source was created.
 --
 -- 'vodSourceName', 'vodSource_vodSourceName' - The name of the VOD source.
 --
@@ -79,26 +79,26 @@ newVodSource
   pSourceLocationName_
   pArn_ =
     VodSource'
-      { creationTime = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         lastModifiedTime = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        creationTime = Prelude.Nothing,
         vodSourceName = pVodSourceName_,
         sourceLocationName = pSourceLocationName_,
         httpPackageConfigurations = Prelude.mempty,
         arn = pArn_
       }
 
--- | The timestamp that indicates when the VOD source was created.
-vodSource_creationTime :: Lens.Lens' VodSource (Prelude.Maybe Prelude.UTCTime)
-vodSource_creationTime = Lens.lens (\VodSource' {creationTime} -> creationTime) (\s@VodSource' {} a -> s {creationTime = a} :: VodSource) Prelude.. Lens.mapping Core._Time
+-- | The tags assigned to the VOD source.
+vodSource_tags :: Lens.Lens' VodSource (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+vodSource_tags = Lens.lens (\VodSource' {tags} -> tags) (\s@VodSource' {} a -> s {tags = a} :: VodSource) Prelude.. Lens.mapping Lens.coerced
 
 -- | The timestamp that indicates when the VOD source was last modified.
 vodSource_lastModifiedTime :: Lens.Lens' VodSource (Prelude.Maybe Prelude.UTCTime)
 vodSource_lastModifiedTime = Lens.lens (\VodSource' {lastModifiedTime} -> lastModifiedTime) (\s@VodSource' {} a -> s {lastModifiedTime = a} :: VodSource) Prelude.. Lens.mapping Core._Time
 
--- | The tags assigned to the VOD source.
-vodSource_tags :: Lens.Lens' VodSource (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-vodSource_tags = Lens.lens (\VodSource' {tags} -> tags) (\s@VodSource' {} a -> s {tags = a} :: VodSource) Prelude.. Lens.mapping Lens.coerced
+-- | The timestamp that indicates when the VOD source was created.
+vodSource_creationTime :: Lens.Lens' VodSource (Prelude.Maybe Prelude.UTCTime)
+vodSource_creationTime = Lens.lens (\VodSource' {creationTime} -> creationTime) (\s@VodSource' {} a -> s {creationTime = a} :: VodSource) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the VOD source.
 vodSource_vodSourceName :: Lens.Lens' VodSource Prelude.Text
@@ -122,9 +122,9 @@ instance Core.FromJSON VodSource where
       "VodSource"
       ( \x ->
           VodSource'
-            Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "CreationTime")
             Prelude.<*> (x Core..: "VodSourceName")
             Prelude.<*> (x Core..: "SourceLocationName")
             Prelude.<*> ( x Core..:? "HttpPackageConfigurations"
@@ -135,9 +135,9 @@ instance Core.FromJSON VodSource where
 
 instance Prelude.Hashable VodSource where
   hashWithSalt _salt VodSource' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` lastModifiedTime
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` vodSourceName
       `Prelude.hashWithSalt` sourceLocationName
       `Prelude.hashWithSalt` httpPackageConfigurations
@@ -145,9 +145,9 @@ instance Prelude.Hashable VodSource where
 
 instance Prelude.NFData VodSource where
   rnf VodSource' {..} =
-    Prelude.rnf creationTime
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf vodSourceName
       `Prelude.seq` Prelude.rnf sourceLocationName
       `Prelude.seq` Prelude.rnf httpPackageConfigurations

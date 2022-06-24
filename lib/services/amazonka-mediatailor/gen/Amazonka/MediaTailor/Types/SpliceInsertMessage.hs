@@ -27,21 +27,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSpliceInsertMessage' smart constructor.
 data SpliceInsertMessage = SpliceInsertMessage'
-  { -- | This is written to splice_insert.avail_num, as defined in section
+  { -- | This is written to splice_insert.avails_expected, as defined in section
+    -- 9.7.3.1 of the SCTE-35 specification. The default value is 0. Values
+    -- must be between 0 and 256, inclusive.
+    availsExpected :: Prelude.Maybe Prelude.Int,
+    -- | This is written to splice_insert.splice_event_id, as defined in section
+    -- 9.7.3.1 of the SCTE-35 specification. The default value is 1.
+    spliceEventId :: Prelude.Maybe Prelude.Int,
+    -- | This is written to splice_insert.avail_num, as defined in section
     -- 9.7.3.1 of the SCTE-35 specification. The default value is 0. Values
     -- must be between 0 and 256, inclusive.
     availNum :: Prelude.Maybe Prelude.Int,
     -- | This is written to splice_insert.unique_program_id, as defined in
     -- section 9.7.3.1 of the SCTE-35 specification. The default value is 0.
     -- Values must be between 0 and 256, inclusive.
-    uniqueProgramId :: Prelude.Maybe Prelude.Int,
-    -- | This is written to splice_insert.avails_expected, as defined in section
-    -- 9.7.3.1 of the SCTE-35 specification. The default value is 0. Values
-    -- must be between 0 and 256, inclusive.
-    availsExpected :: Prelude.Maybe Prelude.Int,
-    -- | This is written to splice_insert.splice_event_id, as defined in section
-    -- 9.7.3.1 of the SCTE-35 specification. The default value is 1.
-    spliceEventId :: Prelude.Maybe Prelude.Int
+    uniqueProgramId :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,6 +53,13 @@ data SpliceInsertMessage = SpliceInsertMessage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'availsExpected', 'spliceInsertMessage_availsExpected' - This is written to splice_insert.avails_expected, as defined in section
+-- 9.7.3.1 of the SCTE-35 specification. The default value is 0. Values
+-- must be between 0 and 256, inclusive.
+--
+-- 'spliceEventId', 'spliceInsertMessage_spliceEventId' - This is written to splice_insert.splice_event_id, as defined in section
+-- 9.7.3.1 of the SCTE-35 specification. The default value is 1.
+--
 -- 'availNum', 'spliceInsertMessage_availNum' - This is written to splice_insert.avail_num, as defined in section
 -- 9.7.3.1 of the SCTE-35 specification. The default value is 0. Values
 -- must be between 0 and 256, inclusive.
@@ -60,22 +67,27 @@ data SpliceInsertMessage = SpliceInsertMessage'
 -- 'uniqueProgramId', 'spliceInsertMessage_uniqueProgramId' - This is written to splice_insert.unique_program_id, as defined in
 -- section 9.7.3.1 of the SCTE-35 specification. The default value is 0.
 -- Values must be between 0 and 256, inclusive.
---
--- 'availsExpected', 'spliceInsertMessage_availsExpected' - This is written to splice_insert.avails_expected, as defined in section
--- 9.7.3.1 of the SCTE-35 specification. The default value is 0. Values
--- must be between 0 and 256, inclusive.
---
--- 'spliceEventId', 'spliceInsertMessage_spliceEventId' - This is written to splice_insert.splice_event_id, as defined in section
--- 9.7.3.1 of the SCTE-35 specification. The default value is 1.
 newSpliceInsertMessage ::
   SpliceInsertMessage
 newSpliceInsertMessage =
   SpliceInsertMessage'
-    { availNum = Prelude.Nothing,
-      uniqueProgramId = Prelude.Nothing,
-      availsExpected = Prelude.Nothing,
-      spliceEventId = Prelude.Nothing
+    { availsExpected =
+        Prelude.Nothing,
+      spliceEventId = Prelude.Nothing,
+      availNum = Prelude.Nothing,
+      uniqueProgramId = Prelude.Nothing
     }
+
+-- | This is written to splice_insert.avails_expected, as defined in section
+-- 9.7.3.1 of the SCTE-35 specification. The default value is 0. Values
+-- must be between 0 and 256, inclusive.
+spliceInsertMessage_availsExpected :: Lens.Lens' SpliceInsertMessage (Prelude.Maybe Prelude.Int)
+spliceInsertMessage_availsExpected = Lens.lens (\SpliceInsertMessage' {availsExpected} -> availsExpected) (\s@SpliceInsertMessage' {} a -> s {availsExpected = a} :: SpliceInsertMessage)
+
+-- | This is written to splice_insert.splice_event_id, as defined in section
+-- 9.7.3.1 of the SCTE-35 specification. The default value is 1.
+spliceInsertMessage_spliceEventId :: Lens.Lens' SpliceInsertMessage (Prelude.Maybe Prelude.Int)
+spliceInsertMessage_spliceEventId = Lens.lens (\SpliceInsertMessage' {spliceEventId} -> spliceEventId) (\s@SpliceInsertMessage' {} a -> s {spliceEventId = a} :: SpliceInsertMessage)
 
 -- | This is written to splice_insert.avail_num, as defined in section
 -- 9.7.3.1 of the SCTE-35 specification. The default value is 0. Values
@@ -89,52 +101,41 @@ spliceInsertMessage_availNum = Lens.lens (\SpliceInsertMessage' {availNum} -> av
 spliceInsertMessage_uniqueProgramId :: Lens.Lens' SpliceInsertMessage (Prelude.Maybe Prelude.Int)
 spliceInsertMessage_uniqueProgramId = Lens.lens (\SpliceInsertMessage' {uniqueProgramId} -> uniqueProgramId) (\s@SpliceInsertMessage' {} a -> s {uniqueProgramId = a} :: SpliceInsertMessage)
 
--- | This is written to splice_insert.avails_expected, as defined in section
--- 9.7.3.1 of the SCTE-35 specification. The default value is 0. Values
--- must be between 0 and 256, inclusive.
-spliceInsertMessage_availsExpected :: Lens.Lens' SpliceInsertMessage (Prelude.Maybe Prelude.Int)
-spliceInsertMessage_availsExpected = Lens.lens (\SpliceInsertMessage' {availsExpected} -> availsExpected) (\s@SpliceInsertMessage' {} a -> s {availsExpected = a} :: SpliceInsertMessage)
-
--- | This is written to splice_insert.splice_event_id, as defined in section
--- 9.7.3.1 of the SCTE-35 specification. The default value is 1.
-spliceInsertMessage_spliceEventId :: Lens.Lens' SpliceInsertMessage (Prelude.Maybe Prelude.Int)
-spliceInsertMessage_spliceEventId = Lens.lens (\SpliceInsertMessage' {spliceEventId} -> spliceEventId) (\s@SpliceInsertMessage' {} a -> s {spliceEventId = a} :: SpliceInsertMessage)
-
 instance Core.FromJSON SpliceInsertMessage where
   parseJSON =
     Core.withObject
       "SpliceInsertMessage"
       ( \x ->
           SpliceInsertMessage'
-            Prelude.<$> (x Core..:? "AvailNum")
-            Prelude.<*> (x Core..:? "UniqueProgramId")
-            Prelude.<*> (x Core..:? "AvailsExpected")
+            Prelude.<$> (x Core..:? "AvailsExpected")
             Prelude.<*> (x Core..:? "SpliceEventId")
+            Prelude.<*> (x Core..:? "AvailNum")
+            Prelude.<*> (x Core..:? "UniqueProgramId")
       )
 
 instance Prelude.Hashable SpliceInsertMessage where
   hashWithSalt _salt SpliceInsertMessage' {..} =
-    _salt `Prelude.hashWithSalt` availNum
-      `Prelude.hashWithSalt` uniqueProgramId
-      `Prelude.hashWithSalt` availsExpected
+    _salt `Prelude.hashWithSalt` availsExpected
       `Prelude.hashWithSalt` spliceEventId
+      `Prelude.hashWithSalt` availNum
+      `Prelude.hashWithSalt` uniqueProgramId
 
 instance Prelude.NFData SpliceInsertMessage where
   rnf SpliceInsertMessage' {..} =
-    Prelude.rnf availNum
-      `Prelude.seq` Prelude.rnf uniqueProgramId
-      `Prelude.seq` Prelude.rnf availsExpected
+    Prelude.rnf availsExpected
       `Prelude.seq` Prelude.rnf spliceEventId
+      `Prelude.seq` Prelude.rnf availNum
+      `Prelude.seq` Prelude.rnf uniqueProgramId
 
 instance Core.ToJSON SpliceInsertMessage where
   toJSON SpliceInsertMessage' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AvailNum" Core..=) Prelude.<$> availNum,
-            ("UniqueProgramId" Core..=)
-              Prelude.<$> uniqueProgramId,
-            ("AvailsExpected" Core..=)
+          [ ("AvailsExpected" Core..=)
               Prelude.<$> availsExpected,
-            ("SpliceEventId" Core..=) Prelude.<$> spliceEventId
+            ("SpliceEventId" Core..=) Prelude.<$> spliceEventId,
+            ("AvailNum" Core..=) Prelude.<$> availNum,
+            ("UniqueProgramId" Core..=)
+              Prelude.<$> uniqueProgramId
           ]
       )

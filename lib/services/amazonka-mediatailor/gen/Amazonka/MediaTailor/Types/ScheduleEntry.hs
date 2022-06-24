@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newScheduleEntry' smart constructor.
 data ScheduleEntry = ScheduleEntry'
-  { -- | The schedule\'s ad break properties.
-    scheduleAdBreaks :: Prelude.Maybe [ScheduleAdBreak],
+  { -- | The approximate time that the program will start playing.
+    approximateStartTime :: Prelude.Maybe Core.POSIX,
     -- | The approximate duration of this program, in seconds.
     approximateDurationSeconds :: Prelude.Maybe Prelude.Integer,
-    -- | The approximate time that the program will start playing.
-    approximateStartTime :: Prelude.Maybe Core.POSIX,
     -- | The type of schedule entry.
     --
     -- Valid values: PROGRAM or FILLER_SLATE.
     scheduleEntryType :: Prelude.Maybe ScheduleEntryType,
+    -- | The schedule\'s ad break properties.
+    scheduleAdBreaks :: Prelude.Maybe [ScheduleAdBreak],
     -- | The name of the VOD source.
     vodSourceName :: Prelude.Text,
     -- | The name of the channel that uses this schedule.
@@ -60,15 +60,15 @@ data ScheduleEntry = ScheduleEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'scheduleAdBreaks', 'scheduleEntry_scheduleAdBreaks' - The schedule\'s ad break properties.
+-- 'approximateStartTime', 'scheduleEntry_approximateStartTime' - The approximate time that the program will start playing.
 --
 -- 'approximateDurationSeconds', 'scheduleEntry_approximateDurationSeconds' - The approximate duration of this program, in seconds.
---
--- 'approximateStartTime', 'scheduleEntry_approximateStartTime' - The approximate time that the program will start playing.
 --
 -- 'scheduleEntryType', 'scheduleEntry_scheduleEntryType' - The type of schedule entry.
 --
 -- Valid values: PROGRAM or FILLER_SLATE.
+--
+-- 'scheduleAdBreaks', 'scheduleEntry_scheduleAdBreaks' - The schedule\'s ad break properties.
 --
 -- 'vodSourceName', 'scheduleEntry_vodSourceName' - The name of the VOD source.
 --
@@ -98,10 +98,11 @@ newScheduleEntry
   pArn_
   pProgramName_ =
     ScheduleEntry'
-      { scheduleAdBreaks = Prelude.Nothing,
+      { approximateStartTime =
+          Prelude.Nothing,
         approximateDurationSeconds = Prelude.Nothing,
-        approximateStartTime = Prelude.Nothing,
         scheduleEntryType = Prelude.Nothing,
+        scheduleAdBreaks = Prelude.Nothing,
         vodSourceName = pVodSourceName_,
         channelName = pChannelName_,
         sourceLocationName = pSourceLocationName_,
@@ -109,23 +110,23 @@ newScheduleEntry
         programName = pProgramName_
       }
 
--- | The schedule\'s ad break properties.
-scheduleEntry_scheduleAdBreaks :: Lens.Lens' ScheduleEntry (Prelude.Maybe [ScheduleAdBreak])
-scheduleEntry_scheduleAdBreaks = Lens.lens (\ScheduleEntry' {scheduleAdBreaks} -> scheduleAdBreaks) (\s@ScheduleEntry' {} a -> s {scheduleAdBreaks = a} :: ScheduleEntry) Prelude.. Lens.mapping Lens.coerced
+-- | The approximate time that the program will start playing.
+scheduleEntry_approximateStartTime :: Lens.Lens' ScheduleEntry (Prelude.Maybe Prelude.UTCTime)
+scheduleEntry_approximateStartTime = Lens.lens (\ScheduleEntry' {approximateStartTime} -> approximateStartTime) (\s@ScheduleEntry' {} a -> s {approximateStartTime = a} :: ScheduleEntry) Prelude.. Lens.mapping Core._Time
 
 -- | The approximate duration of this program, in seconds.
 scheduleEntry_approximateDurationSeconds :: Lens.Lens' ScheduleEntry (Prelude.Maybe Prelude.Integer)
 scheduleEntry_approximateDurationSeconds = Lens.lens (\ScheduleEntry' {approximateDurationSeconds} -> approximateDurationSeconds) (\s@ScheduleEntry' {} a -> s {approximateDurationSeconds = a} :: ScheduleEntry)
-
--- | The approximate time that the program will start playing.
-scheduleEntry_approximateStartTime :: Lens.Lens' ScheduleEntry (Prelude.Maybe Prelude.UTCTime)
-scheduleEntry_approximateStartTime = Lens.lens (\ScheduleEntry' {approximateStartTime} -> approximateStartTime) (\s@ScheduleEntry' {} a -> s {approximateStartTime = a} :: ScheduleEntry) Prelude.. Lens.mapping Core._Time
 
 -- | The type of schedule entry.
 --
 -- Valid values: PROGRAM or FILLER_SLATE.
 scheduleEntry_scheduleEntryType :: Lens.Lens' ScheduleEntry (Prelude.Maybe ScheduleEntryType)
 scheduleEntry_scheduleEntryType = Lens.lens (\ScheduleEntry' {scheduleEntryType} -> scheduleEntryType) (\s@ScheduleEntry' {} a -> s {scheduleEntryType = a} :: ScheduleEntry)
+
+-- | The schedule\'s ad break properties.
+scheduleEntry_scheduleAdBreaks :: Lens.Lens' ScheduleEntry (Prelude.Maybe [ScheduleAdBreak])
+scheduleEntry_scheduleAdBreaks = Lens.lens (\ScheduleEntry' {scheduleAdBreaks} -> scheduleAdBreaks) (\s@ScheduleEntry' {} a -> s {scheduleAdBreaks = a} :: ScheduleEntry) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the VOD source.
 scheduleEntry_vodSourceName :: Lens.Lens' ScheduleEntry Prelude.Text
@@ -153,12 +154,12 @@ instance Core.FromJSON ScheduleEntry where
       "ScheduleEntry"
       ( \x ->
           ScheduleEntry'
-            Prelude.<$> ( x Core..:? "ScheduleAdBreaks"
+            Prelude.<$> (x Core..:? "ApproximateStartTime")
+            Prelude.<*> (x Core..:? "ApproximateDurationSeconds")
+            Prelude.<*> (x Core..:? "ScheduleEntryType")
+            Prelude.<*> ( x Core..:? "ScheduleAdBreaks"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ApproximateDurationSeconds")
-            Prelude.<*> (x Core..:? "ApproximateStartTime")
-            Prelude.<*> (x Core..:? "ScheduleEntryType")
             Prelude.<*> (x Core..: "VodSourceName")
             Prelude.<*> (x Core..: "ChannelName")
             Prelude.<*> (x Core..: "SourceLocationName")
@@ -168,10 +169,10 @@ instance Core.FromJSON ScheduleEntry where
 
 instance Prelude.Hashable ScheduleEntry where
   hashWithSalt _salt ScheduleEntry' {..} =
-    _salt `Prelude.hashWithSalt` scheduleAdBreaks
+    _salt `Prelude.hashWithSalt` approximateStartTime
       `Prelude.hashWithSalt` approximateDurationSeconds
-      `Prelude.hashWithSalt` approximateStartTime
       `Prelude.hashWithSalt` scheduleEntryType
+      `Prelude.hashWithSalt` scheduleAdBreaks
       `Prelude.hashWithSalt` vodSourceName
       `Prelude.hashWithSalt` channelName
       `Prelude.hashWithSalt` sourceLocationName
@@ -180,10 +181,10 @@ instance Prelude.Hashable ScheduleEntry where
 
 instance Prelude.NFData ScheduleEntry where
   rnf ScheduleEntry' {..} =
-    Prelude.rnf scheduleAdBreaks
+    Prelude.rnf approximateStartTime
       `Prelude.seq` Prelude.rnf approximateDurationSeconds
-      `Prelude.seq` Prelude.rnf approximateStartTime
       `Prelude.seq` Prelude.rnf scheduleEntryType
+      `Prelude.seq` Prelude.rnf scheduleAdBreaks
       `Prelude.seq` Prelude.rnf vodSourceName
       `Prelude.seq` Prelude.rnf channelName
       `Prelude.seq` Prelude.rnf sourceLocationName

@@ -14,35 +14,219 @@
 module Amazonka.MediaTailor.Lens
   ( -- * Operations
 
+    -- ** ConfigureLogsForPlaybackConfiguration
+    configureLogsForPlaybackConfiguration_percentEnabled,
+    configureLogsForPlaybackConfiguration_playbackConfigurationName,
+    configureLogsForPlaybackConfigurationResponse_percentEnabled,
+    configureLogsForPlaybackConfigurationResponse_playbackConfigurationName,
+    configureLogsForPlaybackConfigurationResponse_httpStatus,
+
+    -- ** CreateChannel
+    createChannel_tags,
+    createChannel_fillerSlate,
+    createChannel_channelName,
+    createChannel_outputs,
+    createChannel_playbackMode,
+    createChannelResponse_tags,
+    createChannelResponse_channelName,
+    createChannelResponse_fillerSlate,
+    createChannelResponse_arn,
+    createChannelResponse_lastModifiedTime,
+    createChannelResponse_outputs,
+    createChannelResponse_creationTime,
+    createChannelResponse_playbackMode,
+    createChannelResponse_channelState,
+    createChannelResponse_httpStatus,
+
+    -- ** CreatePrefetchSchedule
+    createPrefetchSchedule_streamId,
+    createPrefetchSchedule_name,
+    createPrefetchSchedule_playbackConfigurationName,
+    createPrefetchSchedule_consumption,
+    createPrefetchSchedule_retrieval,
+    createPrefetchScheduleResponse_name,
+    createPrefetchScheduleResponse_arn,
+    createPrefetchScheduleResponse_streamId,
+    createPrefetchScheduleResponse_retrieval,
+    createPrefetchScheduleResponse_playbackConfigurationName,
+    createPrefetchScheduleResponse_consumption,
+    createPrefetchScheduleResponse_httpStatus,
+
+    -- ** CreateProgram
+    createProgram_adBreaks,
+    createProgram_channelName,
+    createProgram_programName,
+    createProgram_vodSourceName,
+    createProgram_scheduleConfiguration,
+    createProgram_sourceLocationName,
+    createProgramResponse_scheduledStartTime,
+    createProgramResponse_programName,
+    createProgramResponse_channelName,
+    createProgramResponse_vodSourceName,
+    createProgramResponse_arn,
+    createProgramResponse_adBreaks,
+    createProgramResponse_creationTime,
+    createProgramResponse_sourceLocationName,
+    createProgramResponse_httpStatus,
+
     -- ** CreateSourceLocation
+    createSourceLocation_tags,
     createSourceLocation_accessConfiguration,
     createSourceLocation_defaultSegmentDeliveryConfiguration,
-    createSourceLocation_tags,
     createSourceLocation_sourceLocationName,
     createSourceLocation_httpConfiguration,
-    createSourceLocationResponse_creationTime,
-    createSourceLocationResponse_sourceLocationName,
+    createSourceLocationResponse_tags,
     createSourceLocationResponse_arn,
-    createSourceLocationResponse_httpConfiguration,
-    createSourceLocationResponse_lastModifiedTime,
     createSourceLocationResponse_accessConfiguration,
     createSourceLocationResponse_defaultSegmentDeliveryConfiguration,
-    createSourceLocationResponse_tags,
+    createSourceLocationResponse_lastModifiedTime,
+    createSourceLocationResponse_creationTime,
+    createSourceLocationResponse_sourceLocationName,
+    createSourceLocationResponse_httpConfiguration,
     createSourceLocationResponse_httpStatus,
 
-    -- ** ListPrefetchSchedules
-    listPrefetchSchedules_nextToken,
-    listPrefetchSchedules_maxResults,
-    listPrefetchSchedules_streamId,
-    listPrefetchSchedules_playbackConfigurationName,
-    listPrefetchSchedulesResponse_items,
-    listPrefetchSchedulesResponse_nextToken,
-    listPrefetchSchedulesResponse_httpStatus,
+    -- ** CreateVodSource
+    createVodSource_tags,
+    createVodSource_sourceLocationName,
+    createVodSource_vodSourceName,
+    createVodSource_httpPackageConfigurations,
+    createVodSourceResponse_tags,
+    createVodSourceResponse_vodSourceName,
+    createVodSourceResponse_arn,
+    createVodSourceResponse_lastModifiedTime,
+    createVodSourceResponse_creationTime,
+    createVodSourceResponse_sourceLocationName,
+    createVodSourceResponse_httpPackageConfigurations,
+    createVodSourceResponse_httpStatus,
+
+    -- ** DeleteChannel
+    deleteChannel_channelName,
+    deleteChannelResponse_httpStatus,
+
+    -- ** DeleteChannelPolicy
+    deleteChannelPolicy_channelName,
+    deleteChannelPolicyResponse_httpStatus,
+
+    -- ** DeletePlaybackConfiguration
+    deletePlaybackConfiguration_name,
+    deletePlaybackConfigurationResponse_httpStatus,
 
     -- ** DeletePrefetchSchedule
     deletePrefetchSchedule_name,
     deletePrefetchSchedule_playbackConfigurationName,
     deletePrefetchScheduleResponse_httpStatus,
+
+    -- ** DeleteProgram
+    deleteProgram_channelName,
+    deleteProgram_programName,
+    deleteProgramResponse_httpStatus,
+
+    -- ** DeleteSourceLocation
+    deleteSourceLocation_sourceLocationName,
+    deleteSourceLocationResponse_httpStatus,
+
+    -- ** DeleteVodSource
+    deleteVodSource_sourceLocationName,
+    deleteVodSource_vodSourceName,
+    deleteVodSourceResponse_httpStatus,
+
+    -- ** DescribeChannel
+    describeChannel_channelName,
+    describeChannelResponse_tags,
+    describeChannelResponse_channelName,
+    describeChannelResponse_fillerSlate,
+    describeChannelResponse_arn,
+    describeChannelResponse_lastModifiedTime,
+    describeChannelResponse_outputs,
+    describeChannelResponse_creationTime,
+    describeChannelResponse_playbackMode,
+    describeChannelResponse_channelState,
+    describeChannelResponse_httpStatus,
+
+    -- ** DescribeProgram
+    describeProgram_channelName,
+    describeProgram_programName,
+    describeProgramResponse_scheduledStartTime,
+    describeProgramResponse_programName,
+    describeProgramResponse_channelName,
+    describeProgramResponse_vodSourceName,
+    describeProgramResponse_arn,
+    describeProgramResponse_adBreaks,
+    describeProgramResponse_creationTime,
+    describeProgramResponse_sourceLocationName,
+    describeProgramResponse_httpStatus,
+
+    -- ** DescribeSourceLocation
+    describeSourceLocation_sourceLocationName,
+    describeSourceLocationResponse_tags,
+    describeSourceLocationResponse_arn,
+    describeSourceLocationResponse_accessConfiguration,
+    describeSourceLocationResponse_defaultSegmentDeliveryConfiguration,
+    describeSourceLocationResponse_lastModifiedTime,
+    describeSourceLocationResponse_creationTime,
+    describeSourceLocationResponse_sourceLocationName,
+    describeSourceLocationResponse_httpConfiguration,
+    describeSourceLocationResponse_httpStatus,
+
+    -- ** DescribeVodSource
+    describeVodSource_sourceLocationName,
+    describeVodSource_vodSourceName,
+    describeVodSourceResponse_tags,
+    describeVodSourceResponse_vodSourceName,
+    describeVodSourceResponse_arn,
+    describeVodSourceResponse_lastModifiedTime,
+    describeVodSourceResponse_creationTime,
+    describeVodSourceResponse_sourceLocationName,
+    describeVodSourceResponse_httpPackageConfigurations,
+    describeVodSourceResponse_httpStatus,
+
+    -- ** GetChannelPolicy
+    getChannelPolicy_channelName,
+    getChannelPolicyResponse_policy,
+    getChannelPolicyResponse_httpStatus,
+
+    -- ** GetChannelSchedule
+    getChannelSchedule_nextToken,
+    getChannelSchedule_maxResults,
+    getChannelSchedule_durationMinutes,
+    getChannelSchedule_channelName,
+    getChannelScheduleResponse_items,
+    getChannelScheduleResponse_nextToken,
+    getChannelScheduleResponse_httpStatus,
+
+    -- ** GetPlaybackConfiguration
+    getPlaybackConfiguration_name,
+    getPlaybackConfigurationResponse_tags,
+    getPlaybackConfigurationResponse_name,
+    getPlaybackConfigurationResponse_configurationAliases,
+    getPlaybackConfigurationResponse_logConfiguration,
+    getPlaybackConfigurationResponse_sessionInitializationEndpointPrefix,
+    getPlaybackConfigurationResponse_cdnConfiguration,
+    getPlaybackConfigurationResponse_bumper,
+    getPlaybackConfigurationResponse_manifestProcessingRules,
+    getPlaybackConfigurationResponse_livePreRollConfiguration,
+    getPlaybackConfigurationResponse_dashConfiguration,
+    getPlaybackConfigurationResponse_adDecisionServerUrl,
+    getPlaybackConfigurationResponse_transcodeProfileName,
+    getPlaybackConfigurationResponse_videoContentSourceUrl,
+    getPlaybackConfigurationResponse_playbackConfigurationArn,
+    getPlaybackConfigurationResponse_hlsConfiguration,
+    getPlaybackConfigurationResponse_slateAdUrl,
+    getPlaybackConfigurationResponse_availSuppression,
+    getPlaybackConfigurationResponse_playbackEndpointPrefix,
+    getPlaybackConfigurationResponse_personalizationThresholdSeconds,
+    getPlaybackConfigurationResponse_httpStatus,
+
+    -- ** GetPrefetchSchedule
+    getPrefetchSchedule_name,
+    getPrefetchSchedule_playbackConfigurationName,
+    getPrefetchScheduleResponse_name,
+    getPrefetchScheduleResponse_arn,
+    getPrefetchScheduleResponse_streamId,
+    getPrefetchScheduleResponse_retrieval,
+    getPrefetchScheduleResponse_playbackConfigurationName,
+    getPrefetchScheduleResponse_consumption,
+    getPrefetchScheduleResponse_httpStatus,
 
     -- ** ListAlerts
     listAlerts_nextToken,
@@ -59,104 +243,6 @@ module Amazonka.MediaTailor.Lens
     listChannelsResponse_nextToken,
     listChannelsResponse_httpStatus,
 
-    -- ** CreatePrefetchSchedule
-    createPrefetchSchedule_streamId,
-    createPrefetchSchedule_name,
-    createPrefetchSchedule_playbackConfigurationName,
-    createPrefetchSchedule_consumption,
-    createPrefetchSchedule_retrieval,
-    createPrefetchScheduleResponse_arn,
-    createPrefetchScheduleResponse_playbackConfigurationName,
-    createPrefetchScheduleResponse_retrieval,
-    createPrefetchScheduleResponse_name,
-    createPrefetchScheduleResponse_consumption,
-    createPrefetchScheduleResponse_streamId,
-    createPrefetchScheduleResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** DeleteChannel
-    deleteChannel_channelName,
-    deleteChannelResponse_httpStatus,
-
-    -- ** UpdateChannel
-    updateChannel_channelName,
-    updateChannel_outputs,
-    updateChannelResponse_creationTime,
-    updateChannelResponse_arn,
-    updateChannelResponse_lastModifiedTime,
-    updateChannelResponse_playbackMode,
-    updateChannelResponse_channelName,
-    updateChannelResponse_outputs,
-    updateChannelResponse_channelState,
-    updateChannelResponse_fillerSlate,
-    updateChannelResponse_tags,
-    updateChannelResponse_httpStatus,
-
-    -- ** GetChannelPolicy
-    getChannelPolicy_channelName,
-    getChannelPolicyResponse_policy,
-    getChannelPolicyResponse_httpStatus,
-
-    -- ** DescribeVodSource
-    describeVodSource_sourceLocationName,
-    describeVodSource_vodSourceName,
-    describeVodSourceResponse_creationTime,
-    describeVodSourceResponse_sourceLocationName,
-    describeVodSourceResponse_arn,
-    describeVodSourceResponse_lastModifiedTime,
-    describeVodSourceResponse_httpPackageConfigurations,
-    describeVodSourceResponse_vodSourceName,
-    describeVodSourceResponse_tags,
-    describeVodSourceResponse_httpStatus,
-
-    -- ** DescribeSourceLocation
-    describeSourceLocation_sourceLocationName,
-    describeSourceLocationResponse_creationTime,
-    describeSourceLocationResponse_sourceLocationName,
-    describeSourceLocationResponse_arn,
-    describeSourceLocationResponse_httpConfiguration,
-    describeSourceLocationResponse_lastModifiedTime,
-    describeSourceLocationResponse_accessConfiguration,
-    describeSourceLocationResponse_defaultSegmentDeliveryConfiguration,
-    describeSourceLocationResponse_tags,
-    describeSourceLocationResponse_httpStatus,
-
-    -- ** GetPrefetchSchedule
-    getPrefetchSchedule_name,
-    getPrefetchSchedule_playbackConfigurationName,
-    getPrefetchScheduleResponse_arn,
-    getPrefetchScheduleResponse_playbackConfigurationName,
-    getPrefetchScheduleResponse_retrieval,
-    getPrefetchScheduleResponse_name,
-    getPrefetchScheduleResponse_consumption,
-    getPrefetchScheduleResponse_streamId,
-    getPrefetchScheduleResponse_httpStatus,
-
-    -- ** CreateProgram
-    createProgram_adBreaks,
-    createProgram_channelName,
-    createProgram_programName,
-    createProgram_vodSourceName,
-    createProgram_scheduleConfiguration,
-    createProgram_sourceLocationName,
-    createProgramResponse_creationTime,
-    createProgramResponse_sourceLocationName,
-    createProgramResponse_arn,
-    createProgramResponse_programName,
-    createProgramResponse_adBreaks,
-    createProgramResponse_channelName,
-    createProgramResponse_scheduledStartTime,
-    createProgramResponse_vodSourceName,
-    createProgramResponse_httpStatus,
-
-    -- ** StartChannel
-    startChannel_channelName,
-    startChannelResponse_httpStatus,
-
     -- ** ListPlaybackConfigurations
     listPlaybackConfigurations_nextToken,
     listPlaybackConfigurations_maxResults,
@@ -164,45 +250,14 @@ module Amazonka.MediaTailor.Lens
     listPlaybackConfigurationsResponse_nextToken,
     listPlaybackConfigurationsResponse_httpStatus,
 
-    -- ** DeletePlaybackConfiguration
-    deletePlaybackConfiguration_name,
-    deletePlaybackConfigurationResponse_httpStatus,
-
-    -- ** PutPlaybackConfiguration
-    putPlaybackConfiguration_personalizationThresholdSeconds,
-    putPlaybackConfiguration_availSuppression,
-    putPlaybackConfiguration_bumper,
-    putPlaybackConfiguration_adDecisionServerUrl,
-    putPlaybackConfiguration_videoContentSourceUrl,
-    putPlaybackConfiguration_dashConfiguration,
-    putPlaybackConfiguration_manifestProcessingRules,
-    putPlaybackConfiguration_livePreRollConfiguration,
-    putPlaybackConfiguration_name,
-    putPlaybackConfiguration_configurationAliases,
-    putPlaybackConfiguration_transcodeProfileName,
-    putPlaybackConfiguration_tags,
-    putPlaybackConfiguration_slateAdUrl,
-    putPlaybackConfiguration_cdnConfiguration,
-    putPlaybackConfigurationResponse_playbackEndpointPrefix,
-    putPlaybackConfigurationResponse_hlsConfiguration,
-    putPlaybackConfigurationResponse_personalizationThresholdSeconds,
-    putPlaybackConfigurationResponse_playbackConfigurationArn,
-    putPlaybackConfigurationResponse_availSuppression,
-    putPlaybackConfigurationResponse_bumper,
-    putPlaybackConfigurationResponse_adDecisionServerUrl,
-    putPlaybackConfigurationResponse_videoContentSourceUrl,
-    putPlaybackConfigurationResponse_dashConfiguration,
-    putPlaybackConfigurationResponse_manifestProcessingRules,
-    putPlaybackConfigurationResponse_logConfiguration,
-    putPlaybackConfigurationResponse_livePreRollConfiguration,
-    putPlaybackConfigurationResponse_name,
-    putPlaybackConfigurationResponse_sessionInitializationEndpointPrefix,
-    putPlaybackConfigurationResponse_configurationAliases,
-    putPlaybackConfigurationResponse_transcodeProfileName,
-    putPlaybackConfigurationResponse_tags,
-    putPlaybackConfigurationResponse_slateAdUrl,
-    putPlaybackConfigurationResponse_cdnConfiguration,
-    putPlaybackConfigurationResponse_httpStatus,
+    -- ** ListPrefetchSchedules
+    listPrefetchSchedules_nextToken,
+    listPrefetchSchedules_streamId,
+    listPrefetchSchedules_maxResults,
+    listPrefetchSchedules_playbackConfigurationName,
+    listPrefetchSchedulesResponse_items,
+    listPrefetchSchedulesResponse_nextToken,
+    listPrefetchSchedulesResponse_httpStatus,
 
     -- ** ListSourceLocations
     listSourceLocations_nextToken,
@@ -211,151 +266,10 @@ module Amazonka.MediaTailor.Lens
     listSourceLocationsResponse_nextToken,
     listSourceLocationsResponse_httpStatus,
 
-    -- ** UpdateSourceLocation
-    updateSourceLocation_accessConfiguration,
-    updateSourceLocation_defaultSegmentDeliveryConfiguration,
-    updateSourceLocation_sourceLocationName,
-    updateSourceLocation_httpConfiguration,
-    updateSourceLocationResponse_creationTime,
-    updateSourceLocationResponse_sourceLocationName,
-    updateSourceLocationResponse_arn,
-    updateSourceLocationResponse_httpConfiguration,
-    updateSourceLocationResponse_lastModifiedTime,
-    updateSourceLocationResponse_accessConfiguration,
-    updateSourceLocationResponse_defaultSegmentDeliveryConfiguration,
-    updateSourceLocationResponse_tags,
-    updateSourceLocationResponse_httpStatus,
-
-    -- ** DeleteSourceLocation
-    deleteSourceLocation_sourceLocationName,
-    deleteSourceLocationResponse_httpStatus,
-
-    -- ** GetPlaybackConfiguration
-    getPlaybackConfiguration_name,
-    getPlaybackConfigurationResponse_playbackEndpointPrefix,
-    getPlaybackConfigurationResponse_hlsConfiguration,
-    getPlaybackConfigurationResponse_personalizationThresholdSeconds,
-    getPlaybackConfigurationResponse_playbackConfigurationArn,
-    getPlaybackConfigurationResponse_availSuppression,
-    getPlaybackConfigurationResponse_bumper,
-    getPlaybackConfigurationResponse_adDecisionServerUrl,
-    getPlaybackConfigurationResponse_videoContentSourceUrl,
-    getPlaybackConfigurationResponse_dashConfiguration,
-    getPlaybackConfigurationResponse_manifestProcessingRules,
-    getPlaybackConfigurationResponse_logConfiguration,
-    getPlaybackConfigurationResponse_livePreRollConfiguration,
-    getPlaybackConfigurationResponse_name,
-    getPlaybackConfigurationResponse_sessionInitializationEndpointPrefix,
-    getPlaybackConfigurationResponse_configurationAliases,
-    getPlaybackConfigurationResponse_transcodeProfileName,
-    getPlaybackConfigurationResponse_tags,
-    getPlaybackConfigurationResponse_slateAdUrl,
-    getPlaybackConfigurationResponse_cdnConfiguration,
-    getPlaybackConfigurationResponse_httpStatus,
-
-    -- ** DeleteVodSource
-    deleteVodSource_sourceLocationName,
-    deleteVodSource_vodSourceName,
-    deleteVodSourceResponse_httpStatus,
-
-    -- ** UpdateVodSource
-    updateVodSource_sourceLocationName,
-    updateVodSource_vodSourceName,
-    updateVodSource_httpPackageConfigurations,
-    updateVodSourceResponse_creationTime,
-    updateVodSourceResponse_sourceLocationName,
-    updateVodSourceResponse_arn,
-    updateVodSourceResponse_lastModifiedTime,
-    updateVodSourceResponse_httpPackageConfigurations,
-    updateVodSourceResponse_vodSourceName,
-    updateVodSourceResponse_tags,
-    updateVodSourceResponse_httpStatus,
-
-    -- ** CreateVodSource
-    createVodSource_tags,
-    createVodSource_sourceLocationName,
-    createVodSource_vodSourceName,
-    createVodSource_httpPackageConfigurations,
-    createVodSourceResponse_creationTime,
-    createVodSourceResponse_sourceLocationName,
-    createVodSourceResponse_arn,
-    createVodSourceResponse_lastModifiedTime,
-    createVodSourceResponse_httpPackageConfigurations,
-    createVodSourceResponse_vodSourceName,
-    createVodSourceResponse_tags,
-    createVodSourceResponse_httpStatus,
-
-    -- ** CreateChannel
-    createChannel_fillerSlate,
-    createChannel_tags,
-    createChannel_channelName,
-    createChannel_outputs,
-    createChannel_playbackMode,
-    createChannelResponse_creationTime,
-    createChannelResponse_arn,
-    createChannelResponse_lastModifiedTime,
-    createChannelResponse_playbackMode,
-    createChannelResponse_channelName,
-    createChannelResponse_outputs,
-    createChannelResponse_channelState,
-    createChannelResponse_fillerSlate,
-    createChannelResponse_tags,
-    createChannelResponse_httpStatus,
-
-    -- ** DeleteChannelPolicy
-    deleteChannelPolicy_channelName,
-    deleteChannelPolicyResponse_httpStatus,
-
-    -- ** PutChannelPolicy
-    putChannelPolicy_channelName,
-    putChannelPolicy_policy,
-    putChannelPolicyResponse_httpStatus,
-
-    -- ** DeleteProgram
-    deleteProgram_channelName,
-    deleteProgram_programName,
-    deleteProgramResponse_httpStatus,
-
-    -- ** GetChannelSchedule
-    getChannelSchedule_nextToken,
-    getChannelSchedule_durationMinutes,
-    getChannelSchedule_maxResults,
-    getChannelSchedule_channelName,
-    getChannelScheduleResponse_items,
-    getChannelScheduleResponse_nextToken,
-    getChannelScheduleResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-
-    -- ** ConfigureLogsForPlaybackConfiguration
-    configureLogsForPlaybackConfiguration_percentEnabled,
-    configureLogsForPlaybackConfiguration_playbackConfigurationName,
-    configureLogsForPlaybackConfigurationResponse_playbackConfigurationName,
-    configureLogsForPlaybackConfigurationResponse_percentEnabled,
-    configureLogsForPlaybackConfigurationResponse_httpStatus,
-
-    -- ** StopChannel
-    stopChannel_channelName,
-    stopChannelResponse_httpStatus,
-
-    -- ** UntagResource
-    untagResource_resourceArn,
-    untagResource_tagKeys,
-
-    -- ** DescribeChannel
-    describeChannel_channelName,
-    describeChannelResponse_creationTime,
-    describeChannelResponse_arn,
-    describeChannelResponse_lastModifiedTime,
-    describeChannelResponse_playbackMode,
-    describeChannelResponse_channelName,
-    describeChannelResponse_outputs,
-    describeChannelResponse_channelState,
-    describeChannelResponse_fillerSlate,
-    describeChannelResponse_tags,
-    describeChannelResponse_httpStatus,
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
     -- ** ListVodSources
     listVodSources_nextToken,
@@ -365,30 +279,116 @@ module Amazonka.MediaTailor.Lens
     listVodSourcesResponse_nextToken,
     listVodSourcesResponse_httpStatus,
 
-    -- ** DescribeProgram
-    describeProgram_channelName,
-    describeProgram_programName,
-    describeProgramResponse_creationTime,
-    describeProgramResponse_sourceLocationName,
-    describeProgramResponse_arn,
-    describeProgramResponse_programName,
-    describeProgramResponse_adBreaks,
-    describeProgramResponse_channelName,
-    describeProgramResponse_scheduledStartTime,
-    describeProgramResponse_vodSourceName,
-    describeProgramResponse_httpStatus,
+    -- ** PutChannelPolicy
+    putChannelPolicy_channelName,
+    putChannelPolicy_policy,
+    putChannelPolicyResponse_httpStatus,
+
+    -- ** PutPlaybackConfiguration
+    putPlaybackConfiguration_tags,
+    putPlaybackConfiguration_name,
+    putPlaybackConfiguration_configurationAliases,
+    putPlaybackConfiguration_cdnConfiguration,
+    putPlaybackConfiguration_bumper,
+    putPlaybackConfiguration_manifestProcessingRules,
+    putPlaybackConfiguration_livePreRollConfiguration,
+    putPlaybackConfiguration_dashConfiguration,
+    putPlaybackConfiguration_adDecisionServerUrl,
+    putPlaybackConfiguration_transcodeProfileName,
+    putPlaybackConfiguration_videoContentSourceUrl,
+    putPlaybackConfiguration_slateAdUrl,
+    putPlaybackConfiguration_availSuppression,
+    putPlaybackConfiguration_personalizationThresholdSeconds,
+    putPlaybackConfigurationResponse_tags,
+    putPlaybackConfigurationResponse_name,
+    putPlaybackConfigurationResponse_configurationAliases,
+    putPlaybackConfigurationResponse_logConfiguration,
+    putPlaybackConfigurationResponse_sessionInitializationEndpointPrefix,
+    putPlaybackConfigurationResponse_cdnConfiguration,
+    putPlaybackConfigurationResponse_bumper,
+    putPlaybackConfigurationResponse_manifestProcessingRules,
+    putPlaybackConfigurationResponse_livePreRollConfiguration,
+    putPlaybackConfigurationResponse_dashConfiguration,
+    putPlaybackConfigurationResponse_adDecisionServerUrl,
+    putPlaybackConfigurationResponse_transcodeProfileName,
+    putPlaybackConfigurationResponse_videoContentSourceUrl,
+    putPlaybackConfigurationResponse_playbackConfigurationArn,
+    putPlaybackConfigurationResponse_hlsConfiguration,
+    putPlaybackConfigurationResponse_slateAdUrl,
+    putPlaybackConfigurationResponse_availSuppression,
+    putPlaybackConfigurationResponse_playbackEndpointPrefix,
+    putPlaybackConfigurationResponse_personalizationThresholdSeconds,
+    putPlaybackConfigurationResponse_httpStatus,
+
+    -- ** StartChannel
+    startChannel_channelName,
+    startChannelResponse_httpStatus,
+
+    -- ** StopChannel
+    stopChannel_channelName,
+    stopChannelResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+
+    -- ** UpdateChannel
+    updateChannel_channelName,
+    updateChannel_outputs,
+    updateChannelResponse_tags,
+    updateChannelResponse_channelName,
+    updateChannelResponse_fillerSlate,
+    updateChannelResponse_arn,
+    updateChannelResponse_lastModifiedTime,
+    updateChannelResponse_outputs,
+    updateChannelResponse_creationTime,
+    updateChannelResponse_playbackMode,
+    updateChannelResponse_channelState,
+    updateChannelResponse_httpStatus,
+
+    -- ** UpdateSourceLocation
+    updateSourceLocation_accessConfiguration,
+    updateSourceLocation_defaultSegmentDeliveryConfiguration,
+    updateSourceLocation_sourceLocationName,
+    updateSourceLocation_httpConfiguration,
+    updateSourceLocationResponse_tags,
+    updateSourceLocationResponse_arn,
+    updateSourceLocationResponse_accessConfiguration,
+    updateSourceLocationResponse_defaultSegmentDeliveryConfiguration,
+    updateSourceLocationResponse_lastModifiedTime,
+    updateSourceLocationResponse_creationTime,
+    updateSourceLocationResponse_sourceLocationName,
+    updateSourceLocationResponse_httpConfiguration,
+    updateSourceLocationResponse_httpStatus,
+
+    -- ** UpdateVodSource
+    updateVodSource_sourceLocationName,
+    updateVodSource_vodSourceName,
+    updateVodSource_httpPackageConfigurations,
+    updateVodSourceResponse_tags,
+    updateVodSourceResponse_vodSourceName,
+    updateVodSourceResponse_arn,
+    updateVodSourceResponse_lastModifiedTime,
+    updateVodSourceResponse_creationTime,
+    updateVodSourceResponse_sourceLocationName,
+    updateVodSourceResponse_httpPackageConfigurations,
+    updateVodSourceResponse_httpStatus,
 
     -- * Types
 
     -- ** AccessConfiguration
-    accessConfiguration_accessType,
     accessConfiguration_secretsManagerAccessTokenConfiguration,
+    accessConfiguration_accessType,
 
     -- ** AdBreak
-    adBreak_spliceInsertMessage,
     adBreak_messageType,
-    adBreak_slate,
     adBreak_offsetMillis,
+    adBreak_spliceInsertMessage,
+    adBreak_slate,
 
     -- ** AdMarkerPassthrough
     adMarkerPassthrough_enabled,
@@ -405,22 +405,22 @@ module Amazonka.MediaTailor.Lens
     availMatchingCriteria_dynamicVariable,
 
     -- ** AvailSuppression
-    availSuppression_value,
     availSuppression_mode,
+    availSuppression_value,
 
     -- ** Bumper
-    bumper_endUrl,
     bumper_startUrl,
+    bumper_endUrl,
 
     -- ** CdnConfiguration
     cdnConfiguration_adSegmentUrlPrefix,
     cdnConfiguration_contentSegmentUrlPrefix,
 
     -- ** Channel
-    channel_creationTime,
-    channel_lastModifiedTime,
-    channel_fillerSlate,
     channel_tags,
+    channel_fillerSlate,
+    channel_lastModifiedTime,
+    channel_creationTime,
     channel_channelState,
     channel_channelName,
     channel_outputs,
@@ -429,18 +429,18 @@ module Amazonka.MediaTailor.Lens
 
     -- ** DashConfiguration
     dashConfiguration_manifestEndpointPrefix,
-    dashConfiguration_originManifestType,
     dashConfiguration_mpdLocation,
+    dashConfiguration_originManifestType,
 
     -- ** DashConfigurationForPut
-    dashConfigurationForPut_originManifestType,
     dashConfigurationForPut_mpdLocation,
+    dashConfigurationForPut_originManifestType,
 
     -- ** DashPlaylistSettings
-    dashPlaylistSettings_minBufferTimeSeconds,
-    dashPlaylistSettings_minUpdatePeriodSeconds,
     dashPlaylistSettings_suggestedPresentationDelaySeconds,
     dashPlaylistSettings_manifestWindowSeconds,
+    dashPlaylistSettings_minUpdatePeriodSeconds,
+    dashPlaylistSettings_minBufferTimeSeconds,
 
     -- ** DefaultSegmentDeliveryConfiguration
     defaultSegmentDeliveryConfiguration_baseUrl,
@@ -470,34 +470,34 @@ module Amazonka.MediaTailor.Lens
     manifestProcessingRules_adMarkerPassthrough,
 
     -- ** PlaybackConfiguration
-    playbackConfiguration_playbackEndpointPrefix,
-    playbackConfiguration_hlsConfiguration,
-    playbackConfiguration_personalizationThresholdSeconds,
-    playbackConfiguration_playbackConfigurationArn,
-    playbackConfiguration_availSuppression,
-    playbackConfiguration_bumper,
-    playbackConfiguration_adDecisionServerUrl,
-    playbackConfiguration_videoContentSourceUrl,
-    playbackConfiguration_dashConfiguration,
-    playbackConfiguration_manifestProcessingRules,
-    playbackConfiguration_logConfiguration,
-    playbackConfiguration_livePreRollConfiguration,
-    playbackConfiguration_name,
-    playbackConfiguration_sessionInitializationEndpointPrefix,
-    playbackConfiguration_configurationAliases,
-    playbackConfiguration_transcodeProfileName,
     playbackConfiguration_tags,
-    playbackConfiguration_slateAdUrl,
+    playbackConfiguration_name,
+    playbackConfiguration_configurationAliases,
+    playbackConfiguration_logConfiguration,
+    playbackConfiguration_sessionInitializationEndpointPrefix,
     playbackConfiguration_cdnConfiguration,
+    playbackConfiguration_bumper,
+    playbackConfiguration_manifestProcessingRules,
+    playbackConfiguration_livePreRollConfiguration,
+    playbackConfiguration_dashConfiguration,
+    playbackConfiguration_adDecisionServerUrl,
+    playbackConfiguration_transcodeProfileName,
+    playbackConfiguration_videoContentSourceUrl,
+    playbackConfiguration_playbackConfigurationArn,
+    playbackConfiguration_hlsConfiguration,
+    playbackConfiguration_slateAdUrl,
+    playbackConfiguration_availSuppression,
+    playbackConfiguration_playbackEndpointPrefix,
+    playbackConfiguration_personalizationThresholdSeconds,
 
     -- ** PrefetchConsumption
-    prefetchConsumption_startTime,
     prefetchConsumption_availMatchingCriteria,
+    prefetchConsumption_startTime,
     prefetchConsumption_endTime,
 
     -- ** PrefetchRetrieval
-    prefetchRetrieval_startTime,
     prefetchRetrieval_dynamicVariables,
+    prefetchRetrieval_startTime,
     prefetchRetrieval_endTime,
 
     -- ** PrefetchSchedule
@@ -522,19 +522,19 @@ module Amazonka.MediaTailor.Lens
     responseOutputItem_sourceGroup,
 
     -- ** ScheduleAdBreak
-    scheduleAdBreak_sourceLocationName,
-    scheduleAdBreak_approximateDurationSeconds,
-    scheduleAdBreak_vodSourceName,
     scheduleAdBreak_approximateStartTime,
+    scheduleAdBreak_vodSourceName,
+    scheduleAdBreak_approximateDurationSeconds,
+    scheduleAdBreak_sourceLocationName,
 
     -- ** ScheduleConfiguration
     scheduleConfiguration_transition,
 
     -- ** ScheduleEntry
-    scheduleEntry_scheduleAdBreaks,
-    scheduleEntry_approximateDurationSeconds,
     scheduleEntry_approximateStartTime,
+    scheduleEntry_approximateDurationSeconds,
     scheduleEntry_scheduleEntryType,
+    scheduleEntry_scheduleAdBreaks,
     scheduleEntry_vodSourceName,
     scheduleEntry_channelName,
     scheduleEntry_sourceLocationName,
@@ -543,39 +543,39 @@ module Amazonka.MediaTailor.Lens
 
     -- ** SecretsManagerAccessTokenConfiguration
     secretsManagerAccessTokenConfiguration_headerName,
-    secretsManagerAccessTokenConfiguration_secretStringKey,
     secretsManagerAccessTokenConfiguration_secretArn,
+    secretsManagerAccessTokenConfiguration_secretStringKey,
 
     -- ** SlateSource
-    slateSource_sourceLocationName,
     slateSource_vodSourceName,
+    slateSource_sourceLocationName,
 
     -- ** SourceLocation
-    sourceLocation_creationTime,
-    sourceLocation_lastModifiedTime,
+    sourceLocation_tags,
     sourceLocation_accessConfiguration,
     sourceLocation_defaultSegmentDeliveryConfiguration,
-    sourceLocation_tags,
+    sourceLocation_lastModifiedTime,
+    sourceLocation_creationTime,
     sourceLocation_sourceLocationName,
     sourceLocation_httpConfiguration,
     sourceLocation_arn,
 
     -- ** SpliceInsertMessage
-    spliceInsertMessage_availNum,
-    spliceInsertMessage_uniqueProgramId,
     spliceInsertMessage_availsExpected,
     spliceInsertMessage_spliceEventId,
+    spliceInsertMessage_availNum,
+    spliceInsertMessage_uniqueProgramId,
 
     -- ** Transition
-    transition_scheduledStartTimeMillis,
     transition_relativeProgram,
+    transition_scheduledStartTimeMillis,
     transition_type,
     transition_relativePosition,
 
     -- ** VodSource
-    vodSource_creationTime,
-    vodSource_lastModifiedTime,
     vodSource_tags,
+    vodSource_lastModifiedTime,
+    vodSource_creationTime,
     vodSource_vodSourceName,
     vodSource_sourceLocationName,
     vodSource_httpPackageConfigurations,

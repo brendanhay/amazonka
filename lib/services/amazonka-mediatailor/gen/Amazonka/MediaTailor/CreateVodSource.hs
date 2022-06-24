@@ -37,13 +37,13 @@ module Amazonka.MediaTailor.CreateVodSource
     newCreateVodSourceResponse,
 
     -- * Response Lenses
-    createVodSourceResponse_creationTime,
-    createVodSourceResponse_sourceLocationName,
+    createVodSourceResponse_tags,
+    createVodSourceResponse_vodSourceName,
     createVodSourceResponse_arn,
     createVodSourceResponse_lastModifiedTime,
+    createVodSourceResponse_creationTime,
+    createVodSourceResponse_sourceLocationName,
     createVodSourceResponse_httpPackageConfigurations,
-    createVodSourceResponse_vodSourceName,
-    createVodSourceResponse_tags,
     createVodSourceResponse_httpStatus,
   )
 where
@@ -124,15 +124,15 @@ instance Core.AWSRequest CreateVodSource where
     Response.receiveJSON
       ( \s h x ->
           CreateVodSourceResponse'
-            Prelude.<$> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "SourceLocationName")
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "VodSourceName")
             Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<*> (x Core..?> "CreationTime")
+            Prelude.<*> (x Core..?> "SourceLocationName")
             Prelude.<*> ( x Core..?> "HttpPackageConfigurations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "VodSourceName")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,20 +187,20 @@ instance Core.ToQuery CreateVodSource where
 
 -- | /See:/ 'newCreateVodSourceResponse' smart constructor.
 data CreateVodSourceResponse = CreateVodSourceResponse'
-  { -- | The timestamp that indicates when the VOD source was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The name of the source location associated with the VOD source.
-    sourceLocationName :: Prelude.Maybe Prelude.Text,
+  { -- | The tags assigned to the VOD source.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The name of the VOD source.
+    vodSourceName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the VOD source.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The ARN for the VOD source.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | The timestamp that indicates when the VOD source was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
+    -- | The name of the source location associated with the VOD source.
+    sourceLocationName :: Prelude.Maybe Prelude.Text,
     -- | The HTTP package configurations.
     httpPackageConfigurations :: Prelude.Maybe [HttpPackageConfiguration],
-    -- | The name of the VOD source.
-    vodSourceName :: Prelude.Maybe Prelude.Text,
-    -- | The tags assigned to the VOD source.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -214,19 +214,19 @@ data CreateVodSourceResponse = CreateVodSourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'createVodSourceResponse_creationTime' - The timestamp that indicates when the VOD source was created.
+-- 'tags', 'createVodSourceResponse_tags' - The tags assigned to the VOD source.
 --
--- 'sourceLocationName', 'createVodSourceResponse_sourceLocationName' - The name of the source location associated with the VOD source.
+-- 'vodSourceName', 'createVodSourceResponse_vodSourceName' - The name of the VOD source.
 --
 -- 'arn', 'createVodSourceResponse_arn' - The ARN of the VOD source.
 --
 -- 'lastModifiedTime', 'createVodSourceResponse_lastModifiedTime' - The ARN for the VOD source.
 --
+-- 'creationTime', 'createVodSourceResponse_creationTime' - The timestamp that indicates when the VOD source was created.
+--
+-- 'sourceLocationName', 'createVodSourceResponse_sourceLocationName' - The name of the source location associated with the VOD source.
+--
 -- 'httpPackageConfigurations', 'createVodSourceResponse_httpPackageConfigurations' - The HTTP package configurations.
---
--- 'vodSourceName', 'createVodSourceResponse_vodSourceName' - The name of the VOD source.
---
--- 'tags', 'createVodSourceResponse_tags' - The tags assigned to the VOD source.
 --
 -- 'httpStatus', 'createVodSourceResponse_httpStatus' - The response's http status code.
 newCreateVodSourceResponse ::
@@ -235,24 +235,23 @@ newCreateVodSourceResponse ::
   CreateVodSourceResponse
 newCreateVodSourceResponse pHttpStatus_ =
   CreateVodSourceResponse'
-    { creationTime =
-        Prelude.Nothing,
-      sourceLocationName = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      vodSourceName = Prelude.Nothing,
       arn = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      sourceLocationName = Prelude.Nothing,
       httpPackageConfigurations = Prelude.Nothing,
-      vodSourceName = Prelude.Nothing,
-      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The timestamp that indicates when the VOD source was created.
-createVodSourceResponse_creationTime :: Lens.Lens' CreateVodSourceResponse (Prelude.Maybe Prelude.UTCTime)
-createVodSourceResponse_creationTime = Lens.lens (\CreateVodSourceResponse' {creationTime} -> creationTime) (\s@CreateVodSourceResponse' {} a -> s {creationTime = a} :: CreateVodSourceResponse) Prelude.. Lens.mapping Core._Time
+-- | The tags assigned to the VOD source.
+createVodSourceResponse_tags :: Lens.Lens' CreateVodSourceResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createVodSourceResponse_tags = Lens.lens (\CreateVodSourceResponse' {tags} -> tags) (\s@CreateVodSourceResponse' {} a -> s {tags = a} :: CreateVodSourceResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the source location associated with the VOD source.
-createVodSourceResponse_sourceLocationName :: Lens.Lens' CreateVodSourceResponse (Prelude.Maybe Prelude.Text)
-createVodSourceResponse_sourceLocationName = Lens.lens (\CreateVodSourceResponse' {sourceLocationName} -> sourceLocationName) (\s@CreateVodSourceResponse' {} a -> s {sourceLocationName = a} :: CreateVodSourceResponse)
+-- | The name of the VOD source.
+createVodSourceResponse_vodSourceName :: Lens.Lens' CreateVodSourceResponse (Prelude.Maybe Prelude.Text)
+createVodSourceResponse_vodSourceName = Lens.lens (\CreateVodSourceResponse' {vodSourceName} -> vodSourceName) (\s@CreateVodSourceResponse' {} a -> s {vodSourceName = a} :: CreateVodSourceResponse)
 
 -- | The ARN of the VOD source.
 createVodSourceResponse_arn :: Lens.Lens' CreateVodSourceResponse (Prelude.Maybe Prelude.Text)
@@ -262,17 +261,17 @@ createVodSourceResponse_arn = Lens.lens (\CreateVodSourceResponse' {arn} -> arn)
 createVodSourceResponse_lastModifiedTime :: Lens.Lens' CreateVodSourceResponse (Prelude.Maybe Prelude.UTCTime)
 createVodSourceResponse_lastModifiedTime = Lens.lens (\CreateVodSourceResponse' {lastModifiedTime} -> lastModifiedTime) (\s@CreateVodSourceResponse' {} a -> s {lastModifiedTime = a} :: CreateVodSourceResponse) Prelude.. Lens.mapping Core._Time
 
+-- | The timestamp that indicates when the VOD source was created.
+createVodSourceResponse_creationTime :: Lens.Lens' CreateVodSourceResponse (Prelude.Maybe Prelude.UTCTime)
+createVodSourceResponse_creationTime = Lens.lens (\CreateVodSourceResponse' {creationTime} -> creationTime) (\s@CreateVodSourceResponse' {} a -> s {creationTime = a} :: CreateVodSourceResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The name of the source location associated with the VOD source.
+createVodSourceResponse_sourceLocationName :: Lens.Lens' CreateVodSourceResponse (Prelude.Maybe Prelude.Text)
+createVodSourceResponse_sourceLocationName = Lens.lens (\CreateVodSourceResponse' {sourceLocationName} -> sourceLocationName) (\s@CreateVodSourceResponse' {} a -> s {sourceLocationName = a} :: CreateVodSourceResponse)
+
 -- | The HTTP package configurations.
 createVodSourceResponse_httpPackageConfigurations :: Lens.Lens' CreateVodSourceResponse (Prelude.Maybe [HttpPackageConfiguration])
 createVodSourceResponse_httpPackageConfigurations = Lens.lens (\CreateVodSourceResponse' {httpPackageConfigurations} -> httpPackageConfigurations) (\s@CreateVodSourceResponse' {} a -> s {httpPackageConfigurations = a} :: CreateVodSourceResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the VOD source.
-createVodSourceResponse_vodSourceName :: Lens.Lens' CreateVodSourceResponse (Prelude.Maybe Prelude.Text)
-createVodSourceResponse_vodSourceName = Lens.lens (\CreateVodSourceResponse' {vodSourceName} -> vodSourceName) (\s@CreateVodSourceResponse' {} a -> s {vodSourceName = a} :: CreateVodSourceResponse)
-
--- | The tags assigned to the VOD source.
-createVodSourceResponse_tags :: Lens.Lens' CreateVodSourceResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createVodSourceResponse_tags = Lens.lens (\CreateVodSourceResponse' {tags} -> tags) (\s@CreateVodSourceResponse' {} a -> s {tags = a} :: CreateVodSourceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createVodSourceResponse_httpStatus :: Lens.Lens' CreateVodSourceResponse Prelude.Int
@@ -280,11 +279,11 @@ createVodSourceResponse_httpStatus = Lens.lens (\CreateVodSourceResponse' {httpS
 
 instance Prelude.NFData CreateVodSourceResponse where
   rnf CreateVodSourceResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf sourceLocationName
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vodSourceName
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf sourceLocationName
       `Prelude.seq` Prelude.rnf httpPackageConfigurations
-      `Prelude.seq` Prelude.rnf vodSourceName
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

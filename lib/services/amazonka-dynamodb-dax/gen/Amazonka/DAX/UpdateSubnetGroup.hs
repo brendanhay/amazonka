@@ -27,8 +27,8 @@ module Amazonka.DAX.UpdateSubnetGroup
     newUpdateSubnetGroup,
 
     -- * Request Lenses
-    updateSubnetGroup_subnetIds,
     updateSubnetGroup_description,
+    updateSubnetGroup_subnetIds,
     updateSubnetGroup_subnetGroupName,
 
     -- * Destructuring the Response
@@ -50,10 +50,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateSubnetGroup' smart constructor.
 data UpdateSubnetGroup = UpdateSubnetGroup'
-  { -- | A list of subnet IDs in the subnet group.
-    subnetIds :: Prelude.Maybe [Prelude.Text],
-    -- | A description of the subnet group.
+  { -- | A description of the subnet group.
     description :: Prelude.Maybe Prelude.Text,
+    -- | A list of subnet IDs in the subnet group.
+    subnetIds :: Prelude.Maybe [Prelude.Text],
     -- | The name of the subnet group.
     subnetGroupName :: Prelude.Text
   }
@@ -67,9 +67,9 @@ data UpdateSubnetGroup = UpdateSubnetGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'subnetIds', 'updateSubnetGroup_subnetIds' - A list of subnet IDs in the subnet group.
---
 -- 'description', 'updateSubnetGroup_description' - A description of the subnet group.
+--
+-- 'subnetIds', 'updateSubnetGroup_subnetIds' - A list of subnet IDs in the subnet group.
 --
 -- 'subnetGroupName', 'updateSubnetGroup_subnetGroupName' - The name of the subnet group.
 newUpdateSubnetGroup ::
@@ -78,18 +78,18 @@ newUpdateSubnetGroup ::
   UpdateSubnetGroup
 newUpdateSubnetGroup pSubnetGroupName_ =
   UpdateSubnetGroup'
-    { subnetIds = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      subnetIds = Prelude.Nothing,
       subnetGroupName = pSubnetGroupName_
     }
-
--- | A list of subnet IDs in the subnet group.
-updateSubnetGroup_subnetIds :: Lens.Lens' UpdateSubnetGroup (Prelude.Maybe [Prelude.Text])
-updateSubnetGroup_subnetIds = Lens.lens (\UpdateSubnetGroup' {subnetIds} -> subnetIds) (\s@UpdateSubnetGroup' {} a -> s {subnetIds = a} :: UpdateSubnetGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | A description of the subnet group.
 updateSubnetGroup_description :: Lens.Lens' UpdateSubnetGroup (Prelude.Maybe Prelude.Text)
 updateSubnetGroup_description = Lens.lens (\UpdateSubnetGroup' {description} -> description) (\s@UpdateSubnetGroup' {} a -> s {description = a} :: UpdateSubnetGroup)
+
+-- | A list of subnet IDs in the subnet group.
+updateSubnetGroup_subnetIds :: Lens.Lens' UpdateSubnetGroup (Prelude.Maybe [Prelude.Text])
+updateSubnetGroup_subnetIds = Lens.lens (\UpdateSubnetGroup' {subnetIds} -> subnetIds) (\s@UpdateSubnetGroup' {} a -> s {subnetIds = a} :: UpdateSubnetGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the subnet group.
 updateSubnetGroup_subnetGroupName :: Lens.Lens' UpdateSubnetGroup Prelude.Text
@@ -110,14 +110,14 @@ instance Core.AWSRequest UpdateSubnetGroup where
 
 instance Prelude.Hashable UpdateSubnetGroup where
   hashWithSalt _salt UpdateSubnetGroup' {..} =
-    _salt `Prelude.hashWithSalt` subnetIds
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` subnetIds
       `Prelude.hashWithSalt` subnetGroupName
 
 instance Prelude.NFData UpdateSubnetGroup where
   rnf UpdateSubnetGroup' {..} =
-    Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf subnetIds
       `Prelude.seq` Prelude.rnf subnetGroupName
 
 instance Core.ToHeaders UpdateSubnetGroup where
@@ -139,8 +139,8 @@ instance Core.ToJSON UpdateSubnetGroup where
   toJSON UpdateSubnetGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SubnetIds" Core..=) Prelude.<$> subnetIds,
-            ("Description" Core..=) Prelude.<$> description,
+          [ ("Description" Core..=) Prelude.<$> description,
+            ("SubnetIds" Core..=) Prelude.<$> subnetIds,
             Prelude.Just
               ("SubnetGroupName" Core..= subnetGroupName)
           ]

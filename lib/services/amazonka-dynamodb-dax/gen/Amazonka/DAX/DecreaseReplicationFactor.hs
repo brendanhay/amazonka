@@ -30,8 +30,8 @@ module Amazonka.DAX.DecreaseReplicationFactor
     newDecreaseReplicationFactor,
 
     -- * Request Lenses
-    decreaseReplicationFactor_nodeIdsToRemove,
     decreaseReplicationFactor_availabilityZones,
+    decreaseReplicationFactor_nodeIdsToRemove,
     decreaseReplicationFactor_clusterName,
     decreaseReplicationFactor_newReplicationFactor,
 
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDecreaseReplicationFactor' smart constructor.
 data DecreaseReplicationFactor = DecreaseReplicationFactor'
-  { -- | The unique identifiers of the nodes to be removed from the cluster.
-    nodeIdsToRemove :: Prelude.Maybe [Prelude.Text],
-    -- | The Availability Zone(s) from which to remove nodes.
+  { -- | The Availability Zone(s) from which to remove nodes.
     availabilityZones :: Prelude.Maybe [Prelude.Text],
+    -- | The unique identifiers of the nodes to be removed from the cluster.
+    nodeIdsToRemove :: Prelude.Maybe [Prelude.Text],
     -- | The name of the DAX cluster from which you want to remove nodes.
     clusterName :: Prelude.Text,
     -- | The new number of nodes for the DAX cluster.
@@ -73,9 +73,9 @@ data DecreaseReplicationFactor = DecreaseReplicationFactor'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nodeIdsToRemove', 'decreaseReplicationFactor_nodeIdsToRemove' - The unique identifiers of the nodes to be removed from the cluster.
---
 -- 'availabilityZones', 'decreaseReplicationFactor_availabilityZones' - The Availability Zone(s) from which to remove nodes.
+--
+-- 'nodeIdsToRemove', 'decreaseReplicationFactor_nodeIdsToRemove' - The unique identifiers of the nodes to be removed from the cluster.
 --
 -- 'clusterName', 'decreaseReplicationFactor_clusterName' - The name of the DAX cluster from which you want to remove nodes.
 --
@@ -90,20 +90,20 @@ newDecreaseReplicationFactor
   pClusterName_
   pNewReplicationFactor_ =
     DecreaseReplicationFactor'
-      { nodeIdsToRemove =
+      { availabilityZones =
           Prelude.Nothing,
-        availabilityZones = Prelude.Nothing,
+        nodeIdsToRemove = Prelude.Nothing,
         clusterName = pClusterName_,
         newReplicationFactor' = pNewReplicationFactor_
       }
 
--- | The unique identifiers of the nodes to be removed from the cluster.
-decreaseReplicationFactor_nodeIdsToRemove :: Lens.Lens' DecreaseReplicationFactor (Prelude.Maybe [Prelude.Text])
-decreaseReplicationFactor_nodeIdsToRemove = Lens.lens (\DecreaseReplicationFactor' {nodeIdsToRemove} -> nodeIdsToRemove) (\s@DecreaseReplicationFactor' {} a -> s {nodeIdsToRemove = a} :: DecreaseReplicationFactor) Prelude.. Lens.mapping Lens.coerced
-
 -- | The Availability Zone(s) from which to remove nodes.
 decreaseReplicationFactor_availabilityZones :: Lens.Lens' DecreaseReplicationFactor (Prelude.Maybe [Prelude.Text])
 decreaseReplicationFactor_availabilityZones = Lens.lens (\DecreaseReplicationFactor' {availabilityZones} -> availabilityZones) (\s@DecreaseReplicationFactor' {} a -> s {availabilityZones = a} :: DecreaseReplicationFactor) Prelude.. Lens.mapping Lens.coerced
+
+-- | The unique identifiers of the nodes to be removed from the cluster.
+decreaseReplicationFactor_nodeIdsToRemove :: Lens.Lens' DecreaseReplicationFactor (Prelude.Maybe [Prelude.Text])
+decreaseReplicationFactor_nodeIdsToRemove = Lens.lens (\DecreaseReplicationFactor' {nodeIdsToRemove} -> nodeIdsToRemove) (\s@DecreaseReplicationFactor' {} a -> s {nodeIdsToRemove = a} :: DecreaseReplicationFactor) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the DAX cluster from which you want to remove nodes.
 decreaseReplicationFactor_clusterName :: Lens.Lens' DecreaseReplicationFactor Prelude.Text
@@ -128,15 +128,15 @@ instance Core.AWSRequest DecreaseReplicationFactor where
 
 instance Prelude.Hashable DecreaseReplicationFactor where
   hashWithSalt _salt DecreaseReplicationFactor' {..} =
-    _salt `Prelude.hashWithSalt` nodeIdsToRemove
-      `Prelude.hashWithSalt` availabilityZones
+    _salt `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` nodeIdsToRemove
       `Prelude.hashWithSalt` clusterName
       `Prelude.hashWithSalt` newReplicationFactor'
 
 instance Prelude.NFData DecreaseReplicationFactor where
   rnf DecreaseReplicationFactor' {..} =
-    Prelude.rnf nodeIdsToRemove
-      `Prelude.seq` Prelude.rnf availabilityZones
+    Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf nodeIdsToRemove
       `Prelude.seq` Prelude.rnf clusterName
       `Prelude.seq` Prelude.rnf newReplicationFactor'
 
@@ -159,10 +159,10 @@ instance Core.ToJSON DecreaseReplicationFactor where
   toJSON DecreaseReplicationFactor' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NodeIdsToRemove" Core..=)
-              Prelude.<$> nodeIdsToRemove,
-            ("AvailabilityZones" Core..=)
+          [ ("AvailabilityZones" Core..=)
               Prelude.<$> availabilityZones,
+            ("NodeIdsToRemove" Core..=)
+              Prelude.<$> nodeIdsToRemove,
             Prelude.Just ("ClusterName" Core..= clusterName),
             Prelude.Just
               ( "NewReplicationFactor"

@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNodeTypeSpecificValue' smart constructor.
 data NodeTypeSpecificValue = NodeTypeSpecificValue'
-  { -- | The parameter value for this node type.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | A node type to which the parameter value applies.
-    nodeType :: Prelude.Maybe Prelude.Text
+  { -- | A node type to which the parameter value applies.
+    nodeType :: Prelude.Maybe Prelude.Text,
+    -- | The parameter value for this node type.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data NodeTypeSpecificValue = NodeTypeSpecificValue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'nodeTypeSpecificValue_value' - The parameter value for this node type.
---
 -- 'nodeType', 'nodeTypeSpecificValue_nodeType' - A node type to which the parameter value applies.
+--
+-- 'value', 'nodeTypeSpecificValue_value' - The parameter value for this node type.
 newNodeTypeSpecificValue ::
   NodeTypeSpecificValue
 newNodeTypeSpecificValue =
   NodeTypeSpecificValue'
-    { value = Prelude.Nothing,
-      nodeType = Prelude.Nothing
+    { nodeType = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The parameter value for this node type.
-nodeTypeSpecificValue_value :: Lens.Lens' NodeTypeSpecificValue (Prelude.Maybe Prelude.Text)
-nodeTypeSpecificValue_value = Lens.lens (\NodeTypeSpecificValue' {value} -> value) (\s@NodeTypeSpecificValue' {} a -> s {value = a} :: NodeTypeSpecificValue)
 
 -- | A node type to which the parameter value applies.
 nodeTypeSpecificValue_nodeType :: Lens.Lens' NodeTypeSpecificValue (Prelude.Maybe Prelude.Text)
 nodeTypeSpecificValue_nodeType = Lens.lens (\NodeTypeSpecificValue' {nodeType} -> nodeType) (\s@NodeTypeSpecificValue' {} a -> s {nodeType = a} :: NodeTypeSpecificValue)
+
+-- | The parameter value for this node type.
+nodeTypeSpecificValue_value :: Lens.Lens' NodeTypeSpecificValue (Prelude.Maybe Prelude.Text)
+nodeTypeSpecificValue_value = Lens.lens (\NodeTypeSpecificValue' {value} -> value) (\s@NodeTypeSpecificValue' {} a -> s {value = a} :: NodeTypeSpecificValue)
 
 instance Core.FromJSON NodeTypeSpecificValue where
   parseJSON =
@@ -68,16 +68,16 @@ instance Core.FromJSON NodeTypeSpecificValue where
       "NodeTypeSpecificValue"
       ( \x ->
           NodeTypeSpecificValue'
-            Prelude.<$> (x Core..:? "Value")
-            Prelude.<*> (x Core..:? "NodeType")
+            Prelude.<$> (x Core..:? "NodeType")
+            Prelude.<*> (x Core..:? "Value")
       )
 
 instance Prelude.Hashable NodeTypeSpecificValue where
   hashWithSalt _salt NodeTypeSpecificValue' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` nodeType
+    _salt `Prelude.hashWithSalt` nodeType
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData NodeTypeSpecificValue where
   rnf NodeTypeSpecificValue' {..} =
-    Prelude.rnf value
-      `Prelude.seq` Prelude.rnf nodeType
+    Prelude.rnf nodeType
+      `Prelude.seq` Prelude.rnf value

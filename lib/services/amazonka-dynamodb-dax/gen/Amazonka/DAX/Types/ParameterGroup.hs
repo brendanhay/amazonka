@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newParameterGroup' smart constructor.
 data ParameterGroup = ParameterGroup'
-  { -- | A description of the parameter group.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The name of the parameter group.
-    parameterGroupName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the parameter group.
+    parameterGroupName :: Prelude.Maybe Prelude.Text,
+    -- | A description of the parameter group.
+    description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,25 @@ data ParameterGroup = ParameterGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'parameterGroup_description' - A description of the parameter group.
---
 -- 'parameterGroupName', 'parameterGroup_parameterGroupName' - The name of the parameter group.
+--
+-- 'description', 'parameterGroup_description' - A description of the parameter group.
 newParameterGroup ::
   ParameterGroup
 newParameterGroup =
   ParameterGroup'
-    { description = Prelude.Nothing,
-      parameterGroupName = Prelude.Nothing
+    { parameterGroupName =
+        Prelude.Nothing,
+      description = Prelude.Nothing
     }
-
--- | A description of the parameter group.
-parameterGroup_description :: Lens.Lens' ParameterGroup (Prelude.Maybe Prelude.Text)
-parameterGroup_description = Lens.lens (\ParameterGroup' {description} -> description) (\s@ParameterGroup' {} a -> s {description = a} :: ParameterGroup)
 
 -- | The name of the parameter group.
 parameterGroup_parameterGroupName :: Lens.Lens' ParameterGroup (Prelude.Maybe Prelude.Text)
 parameterGroup_parameterGroupName = Lens.lens (\ParameterGroup' {parameterGroupName} -> parameterGroupName) (\s@ParameterGroup' {} a -> s {parameterGroupName = a} :: ParameterGroup)
+
+-- | A description of the parameter group.
+parameterGroup_description :: Lens.Lens' ParameterGroup (Prelude.Maybe Prelude.Text)
+parameterGroup_description = Lens.lens (\ParameterGroup' {description} -> description) (\s@ParameterGroup' {} a -> s {description = a} :: ParameterGroup)
 
 instance Core.FromJSON ParameterGroup where
   parseJSON =
@@ -68,16 +69,16 @@ instance Core.FromJSON ParameterGroup where
       "ParameterGroup"
       ( \x ->
           ParameterGroup'
-            Prelude.<$> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "ParameterGroupName")
+            Prelude.<$> (x Core..:? "ParameterGroupName")
+            Prelude.<*> (x Core..:? "Description")
       )
 
 instance Prelude.Hashable ParameterGroup where
   hashWithSalt _salt ParameterGroup' {..} =
-    _salt `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` parameterGroupName
+    _salt `Prelude.hashWithSalt` parameterGroupName
+      `Prelude.hashWithSalt` description
 
 instance Prelude.NFData ParameterGroup where
   rnf ParameterGroup' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf parameterGroupName
+    Prelude.rnf parameterGroupName
+      `Prelude.seq` Prelude.rnf description

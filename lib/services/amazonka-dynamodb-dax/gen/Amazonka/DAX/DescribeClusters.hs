@@ -45,9 +45,9 @@ module Amazonka.DAX.DescribeClusters
     newDescribeClusters,
 
     -- * Request Lenses
-    describeClusters_clusterNames,
     describeClusters_nextToken,
     describeClusters_maxResults,
+    describeClusters_clusterNames,
 
     -- * Destructuring the Response
     DescribeClustersResponse (..),
@@ -69,9 +69,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeClusters' smart constructor.
 data DescribeClusters = DescribeClusters'
-  { -- | The names of the DAX clusters being described.
-    clusterNames :: Prelude.Maybe [Prelude.Text],
-    -- | An optional token returned from a prior request. Use this token for
+  { -- | An optional token returned from a prior request. Use this token for
     -- pagination of results from this action. If this parameter is specified,
     -- the response includes only results beyond the token, up to the value
     -- specified by @MaxResults@.
@@ -81,7 +79,9 @@ data DescribeClusters = DescribeClusters'
     -- in the response so that the remaining results can be retrieved.
     --
     -- The value for @MaxResults@ must be between 20 and 100.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The names of the DAX clusters being described.
+    clusterNames :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,8 +93,6 @@ data DescribeClusters = DescribeClusters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clusterNames', 'describeClusters_clusterNames' - The names of the DAX clusters being described.
---
 -- 'nextToken', 'describeClusters_nextToken' - An optional token returned from a prior request. Use this token for
 -- pagination of results from this action. If this parameter is specified,
 -- the response includes only results beyond the token, up to the value
@@ -105,18 +103,16 @@ data DescribeClusters = DescribeClusters'
 -- in the response so that the remaining results can be retrieved.
 --
 -- The value for @MaxResults@ must be between 20 and 100.
+--
+-- 'clusterNames', 'describeClusters_clusterNames' - The names of the DAX clusters being described.
 newDescribeClusters ::
   DescribeClusters
 newDescribeClusters =
   DescribeClusters'
-    { clusterNames = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      clusterNames = Prelude.Nothing
     }
-
--- | The names of the DAX clusters being described.
-describeClusters_clusterNames :: Lens.Lens' DescribeClusters (Prelude.Maybe [Prelude.Text])
-describeClusters_clusterNames = Lens.lens (\DescribeClusters' {clusterNames} -> clusterNames) (\s@DescribeClusters' {} a -> s {clusterNames = a} :: DescribeClusters) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional token returned from a prior request. Use this token for
 -- pagination of results from this action. If this parameter is specified,
@@ -132,6 +128,10 @@ describeClusters_nextToken = Lens.lens (\DescribeClusters' {nextToken} -> nextTo
 -- The value for @MaxResults@ must be between 20 and 100.
 describeClusters_maxResults :: Lens.Lens' DescribeClusters (Prelude.Maybe Prelude.Int)
 describeClusters_maxResults = Lens.lens (\DescribeClusters' {maxResults} -> maxResults) (\s@DescribeClusters' {} a -> s {maxResults = a} :: DescribeClusters)
+
+-- | The names of the DAX clusters being described.
+describeClusters_clusterNames :: Lens.Lens' DescribeClusters (Prelude.Maybe [Prelude.Text])
+describeClusters_clusterNames = Lens.lens (\DescribeClusters' {clusterNames} -> clusterNames) (\s@DescribeClusters' {} a -> s {clusterNames = a} :: DescribeClusters) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager DescribeClusters where
   page rq rs
@@ -171,15 +171,15 @@ instance Core.AWSRequest DescribeClusters where
 
 instance Prelude.Hashable DescribeClusters where
   hashWithSalt _salt DescribeClusters' {..} =
-    _salt `Prelude.hashWithSalt` clusterNames
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` clusterNames
 
 instance Prelude.NFData DescribeClusters where
   rnf DescribeClusters' {..} =
-    Prelude.rnf clusterNames
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf clusterNames
 
 instance Core.ToHeaders DescribeClusters where
   toHeaders =
@@ -200,9 +200,9 @@ instance Core.ToJSON DescribeClusters where
   toJSON DescribeClusters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ClusterNames" Core..=) Prelude.<$> clusterNames,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("ClusterNames" Core..=) Prelude.<$> clusterNames
           ]
       )
 

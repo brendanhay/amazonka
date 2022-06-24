@@ -27,14 +27,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBrokerSoftwareInfo' smart constructor.
 data BrokerSoftwareInfo = BrokerSoftwareInfo'
-  { -- | The revision of the configuration to use. This field isn\'t visible in
-    -- this preview release.
-    configurationRevision :: Prelude.Maybe Prelude.Integer,
+  { -- | The Amazon Resource Name (ARN) of the configuration used for the
+    -- cluster. This field isn\'t visible in this preview release.
+    configurationArn :: Prelude.Maybe Prelude.Text,
     -- | The version of Apache Kafka.
     kafkaVersion :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the configuration used for the
-    -- cluster. This field isn\'t visible in this preview release.
-    configurationArn :: Prelude.Maybe Prelude.Text
+    -- | The revision of the configuration to use. This field isn\'t visible in
+    -- this preview release.
+    configurationRevision :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,36 +46,36 @@ data BrokerSoftwareInfo = BrokerSoftwareInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configurationRevision', 'brokerSoftwareInfo_configurationRevision' - The revision of the configuration to use. This field isn\'t visible in
--- this preview release.
+-- 'configurationArn', 'brokerSoftwareInfo_configurationArn' - The Amazon Resource Name (ARN) of the configuration used for the
+-- cluster. This field isn\'t visible in this preview release.
 --
 -- 'kafkaVersion', 'brokerSoftwareInfo_kafkaVersion' - The version of Apache Kafka.
 --
--- 'configurationArn', 'brokerSoftwareInfo_configurationArn' - The Amazon Resource Name (ARN) of the configuration used for the
--- cluster. This field isn\'t visible in this preview release.
+-- 'configurationRevision', 'brokerSoftwareInfo_configurationRevision' - The revision of the configuration to use. This field isn\'t visible in
+-- this preview release.
 newBrokerSoftwareInfo ::
   BrokerSoftwareInfo
 newBrokerSoftwareInfo =
   BrokerSoftwareInfo'
-    { configurationRevision =
+    { configurationArn =
         Prelude.Nothing,
       kafkaVersion = Prelude.Nothing,
-      configurationArn = Prelude.Nothing
+      configurationRevision = Prelude.Nothing
     }
-
--- | The revision of the configuration to use. This field isn\'t visible in
--- this preview release.
-brokerSoftwareInfo_configurationRevision :: Lens.Lens' BrokerSoftwareInfo (Prelude.Maybe Prelude.Integer)
-brokerSoftwareInfo_configurationRevision = Lens.lens (\BrokerSoftwareInfo' {configurationRevision} -> configurationRevision) (\s@BrokerSoftwareInfo' {} a -> s {configurationRevision = a} :: BrokerSoftwareInfo)
-
--- | The version of Apache Kafka.
-brokerSoftwareInfo_kafkaVersion :: Lens.Lens' BrokerSoftwareInfo (Prelude.Maybe Prelude.Text)
-brokerSoftwareInfo_kafkaVersion = Lens.lens (\BrokerSoftwareInfo' {kafkaVersion} -> kafkaVersion) (\s@BrokerSoftwareInfo' {} a -> s {kafkaVersion = a} :: BrokerSoftwareInfo)
 
 -- | The Amazon Resource Name (ARN) of the configuration used for the
 -- cluster. This field isn\'t visible in this preview release.
 brokerSoftwareInfo_configurationArn :: Lens.Lens' BrokerSoftwareInfo (Prelude.Maybe Prelude.Text)
 brokerSoftwareInfo_configurationArn = Lens.lens (\BrokerSoftwareInfo' {configurationArn} -> configurationArn) (\s@BrokerSoftwareInfo' {} a -> s {configurationArn = a} :: BrokerSoftwareInfo)
+
+-- | The version of Apache Kafka.
+brokerSoftwareInfo_kafkaVersion :: Lens.Lens' BrokerSoftwareInfo (Prelude.Maybe Prelude.Text)
+brokerSoftwareInfo_kafkaVersion = Lens.lens (\BrokerSoftwareInfo' {kafkaVersion} -> kafkaVersion) (\s@BrokerSoftwareInfo' {} a -> s {kafkaVersion = a} :: BrokerSoftwareInfo)
+
+-- | The revision of the configuration to use. This field isn\'t visible in
+-- this preview release.
+brokerSoftwareInfo_configurationRevision :: Lens.Lens' BrokerSoftwareInfo (Prelude.Maybe Prelude.Integer)
+brokerSoftwareInfo_configurationRevision = Lens.lens (\BrokerSoftwareInfo' {configurationRevision} -> configurationRevision) (\s@BrokerSoftwareInfo' {} a -> s {configurationRevision = a} :: BrokerSoftwareInfo)
 
 instance Core.FromJSON BrokerSoftwareInfo where
   parseJSON =
@@ -83,19 +83,19 @@ instance Core.FromJSON BrokerSoftwareInfo where
       "BrokerSoftwareInfo"
       ( \x ->
           BrokerSoftwareInfo'
-            Prelude.<$> (x Core..:? "configurationRevision")
+            Prelude.<$> (x Core..:? "configurationArn")
             Prelude.<*> (x Core..:? "kafkaVersion")
-            Prelude.<*> (x Core..:? "configurationArn")
+            Prelude.<*> (x Core..:? "configurationRevision")
       )
 
 instance Prelude.Hashable BrokerSoftwareInfo where
   hashWithSalt _salt BrokerSoftwareInfo' {..} =
-    _salt `Prelude.hashWithSalt` configurationRevision
+    _salt `Prelude.hashWithSalt` configurationArn
       `Prelude.hashWithSalt` kafkaVersion
-      `Prelude.hashWithSalt` configurationArn
+      `Prelude.hashWithSalt` configurationRevision
 
 instance Prelude.NFData BrokerSoftwareInfo where
   rnf BrokerSoftwareInfo' {..} =
-    Prelude.rnf configurationRevision
+    Prelude.rnf configurationArn
       `Prelude.seq` Prelude.rnf kafkaVersion
-      `Prelude.seq` Prelude.rnf configurationArn
+      `Prelude.seq` Prelude.rnf configurationRevision

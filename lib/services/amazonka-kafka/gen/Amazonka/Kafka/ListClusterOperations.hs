@@ -39,8 +39,8 @@ module Amazonka.Kafka.ListClusterOperations
     newListClusterOperationsResponse,
 
     -- * Response Lenses
-    listClusterOperationsResponse_clusterOperationInfoList,
     listClusterOperationsResponse_nextToken,
+    listClusterOperationsResponse_clusterOperationInfoList,
     listClusterOperationsResponse_httpStatus,
   )
 where
@@ -139,10 +139,10 @@ instance Core.AWSRequest ListClusterOperations where
     Response.receiveJSON
       ( \s h x ->
           ListClusterOperationsResponse'
-            Prelude.<$> ( x Core..?> "clusterOperationInfoList"
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "clusterOperationInfoList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -186,12 +186,12 @@ instance Core.ToQuery ListClusterOperations where
 
 -- | /See:/ 'newListClusterOperationsResponse' smart constructor.
 data ListClusterOperationsResponse = ListClusterOperationsResponse'
-  { -- | An array of cluster operation information objects.
-    clusterOperationInfoList :: Prelude.Maybe [ClusterOperationInfo],
-    -- | If the response of ListClusterOperations is truncated, it returns a
+  { -- | If the response of ListClusterOperations is truncated, it returns a
     -- NextToken in the response. This Nexttoken should be sent in the
     -- subsequent request to ListClusterOperations.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of cluster operation information objects.
+    clusterOperationInfoList :: Prelude.Maybe [ClusterOperationInfo],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -205,11 +205,11 @@ data ListClusterOperationsResponse = ListClusterOperationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clusterOperationInfoList', 'listClusterOperationsResponse_clusterOperationInfoList' - An array of cluster operation information objects.
---
 -- 'nextToken', 'listClusterOperationsResponse_nextToken' - If the response of ListClusterOperations is truncated, it returns a
 -- NextToken in the response. This Nexttoken should be sent in the
 -- subsequent request to ListClusterOperations.
+--
+-- 'clusterOperationInfoList', 'listClusterOperationsResponse_clusterOperationInfoList' - An array of cluster operation information objects.
 --
 -- 'httpStatus', 'listClusterOperationsResponse_httpStatus' - The response's http status code.
 newListClusterOperationsResponse ::
@@ -218,15 +218,11 @@ newListClusterOperationsResponse ::
   ListClusterOperationsResponse
 newListClusterOperationsResponse pHttpStatus_ =
   ListClusterOperationsResponse'
-    { clusterOperationInfoList =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      clusterOperationInfoList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of cluster operation information objects.
-listClusterOperationsResponse_clusterOperationInfoList :: Lens.Lens' ListClusterOperationsResponse (Prelude.Maybe [ClusterOperationInfo])
-listClusterOperationsResponse_clusterOperationInfoList = Lens.lens (\ListClusterOperationsResponse' {clusterOperationInfoList} -> clusterOperationInfoList) (\s@ListClusterOperationsResponse' {} a -> s {clusterOperationInfoList = a} :: ListClusterOperationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the response of ListClusterOperations is truncated, it returns a
 -- NextToken in the response. This Nexttoken should be sent in the
@@ -234,12 +230,16 @@ listClusterOperationsResponse_clusterOperationInfoList = Lens.lens (\ListCluster
 listClusterOperationsResponse_nextToken :: Lens.Lens' ListClusterOperationsResponse (Prelude.Maybe Prelude.Text)
 listClusterOperationsResponse_nextToken = Lens.lens (\ListClusterOperationsResponse' {nextToken} -> nextToken) (\s@ListClusterOperationsResponse' {} a -> s {nextToken = a} :: ListClusterOperationsResponse)
 
+-- | An array of cluster operation information objects.
+listClusterOperationsResponse_clusterOperationInfoList :: Lens.Lens' ListClusterOperationsResponse (Prelude.Maybe [ClusterOperationInfo])
+listClusterOperationsResponse_clusterOperationInfoList = Lens.lens (\ListClusterOperationsResponse' {clusterOperationInfoList} -> clusterOperationInfoList) (\s@ListClusterOperationsResponse' {} a -> s {clusterOperationInfoList = a} :: ListClusterOperationsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listClusterOperationsResponse_httpStatus :: Lens.Lens' ListClusterOperationsResponse Prelude.Int
 listClusterOperationsResponse_httpStatus = Lens.lens (\ListClusterOperationsResponse' {httpStatus} -> httpStatus) (\s@ListClusterOperationsResponse' {} a -> s {httpStatus = a} :: ListClusterOperationsResponse)
 
 instance Prelude.NFData ListClusterOperationsResponse where
   rnf ListClusterOperationsResponse' {..} =
-    Prelude.rnf clusterOperationInfoList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf clusterOperationInfoList
       `Prelude.seq` Prelude.rnf httpStatus

@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEncryptionInfo' smart constructor.
 data EncryptionInfo = EncryptionInfo'
-  { -- | The data-volume encryption details.
-    encryptionAtRest :: Prelude.Maybe EncryptionAtRest,
-    -- | The details for encryption in transit.
-    encryptionInTransit :: Prelude.Maybe EncryptionInTransit
+  { -- | The details for encryption in transit.
+    encryptionInTransit :: Prelude.Maybe EncryptionInTransit,
+    -- | The data-volume encryption details.
+    encryptionAtRest :: Prelude.Maybe EncryptionAtRest
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,24 +46,25 @@ data EncryptionInfo = EncryptionInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'encryptionAtRest', 'encryptionInfo_encryptionAtRest' - The data-volume encryption details.
---
 -- 'encryptionInTransit', 'encryptionInfo_encryptionInTransit' - The details for encryption in transit.
+--
+-- 'encryptionAtRest', 'encryptionInfo_encryptionAtRest' - The data-volume encryption details.
 newEncryptionInfo ::
   EncryptionInfo
 newEncryptionInfo =
   EncryptionInfo'
-    { encryptionAtRest = Prelude.Nothing,
-      encryptionInTransit = Prelude.Nothing
+    { encryptionInTransit =
+        Prelude.Nothing,
+      encryptionAtRest = Prelude.Nothing
     }
-
--- | The data-volume encryption details.
-encryptionInfo_encryptionAtRest :: Lens.Lens' EncryptionInfo (Prelude.Maybe EncryptionAtRest)
-encryptionInfo_encryptionAtRest = Lens.lens (\EncryptionInfo' {encryptionAtRest} -> encryptionAtRest) (\s@EncryptionInfo' {} a -> s {encryptionAtRest = a} :: EncryptionInfo)
 
 -- | The details for encryption in transit.
 encryptionInfo_encryptionInTransit :: Lens.Lens' EncryptionInfo (Prelude.Maybe EncryptionInTransit)
 encryptionInfo_encryptionInTransit = Lens.lens (\EncryptionInfo' {encryptionInTransit} -> encryptionInTransit) (\s@EncryptionInfo' {} a -> s {encryptionInTransit = a} :: EncryptionInfo)
+
+-- | The data-volume encryption details.
+encryptionInfo_encryptionAtRest :: Lens.Lens' EncryptionInfo (Prelude.Maybe EncryptionAtRest)
+encryptionInfo_encryptionAtRest = Lens.lens (\EncryptionInfo' {encryptionAtRest} -> encryptionAtRest) (\s@EncryptionInfo' {} a -> s {encryptionAtRest = a} :: EncryptionInfo)
 
 instance Core.FromJSON EncryptionInfo where
   parseJSON =
@@ -71,27 +72,27 @@ instance Core.FromJSON EncryptionInfo where
       "EncryptionInfo"
       ( \x ->
           EncryptionInfo'
-            Prelude.<$> (x Core..:? "encryptionAtRest")
-            Prelude.<*> (x Core..:? "encryptionInTransit")
+            Prelude.<$> (x Core..:? "encryptionInTransit")
+            Prelude.<*> (x Core..:? "encryptionAtRest")
       )
 
 instance Prelude.Hashable EncryptionInfo where
   hashWithSalt _salt EncryptionInfo' {..} =
-    _salt `Prelude.hashWithSalt` encryptionAtRest
-      `Prelude.hashWithSalt` encryptionInTransit
+    _salt `Prelude.hashWithSalt` encryptionInTransit
+      `Prelude.hashWithSalt` encryptionAtRest
 
 instance Prelude.NFData EncryptionInfo where
   rnf EncryptionInfo' {..} =
-    Prelude.rnf encryptionAtRest
-      `Prelude.seq` Prelude.rnf encryptionInTransit
+    Prelude.rnf encryptionInTransit
+      `Prelude.seq` Prelude.rnf encryptionAtRest
 
 instance Core.ToJSON EncryptionInfo where
   toJSON EncryptionInfo' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("encryptionAtRest" Core..=)
-              Prelude.<$> encryptionAtRest,
-            ("encryptionInTransit" Core..=)
-              Prelude.<$> encryptionInTransit
+          [ ("encryptionInTransit" Core..=)
+              Prelude.<$> encryptionInTransit,
+            ("encryptionAtRest" Core..=)
+              Prelude.<$> encryptionAtRest
           ]
       )

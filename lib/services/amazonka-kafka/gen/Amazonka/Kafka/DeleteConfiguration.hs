@@ -34,8 +34,8 @@ module Amazonka.Kafka.DeleteConfiguration
     newDeleteConfigurationResponse,
 
     -- * Response Lenses
-    deleteConfigurationResponse_state,
     deleteConfigurationResponse_arn,
+    deleteConfigurationResponse_state,
     deleteConfigurationResponse_httpStatus,
   )
 where
@@ -86,8 +86,8 @@ instance Core.AWSRequest DeleteConfiguration where
     Response.receiveJSON
       ( \s h x ->
           DeleteConfigurationResponse'
-            Prelude.<$> (x Core..?> "state")
-            Prelude.<*> (x Core..?> "arn")
+            Prelude.<$> (x Core..?> "arn")
+            Prelude.<*> (x Core..?> "state")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,12 +119,12 @@ instance Core.ToQuery DeleteConfiguration where
 
 -- | /See:/ 'newDeleteConfigurationResponse' smart constructor.
 data DeleteConfigurationResponse = DeleteConfigurationResponse'
-  { -- | The state of the configuration. The possible states are ACTIVE,
-    -- DELETING, and DELETE_FAILED.
-    state :: Prelude.Maybe ConfigurationState,
-    -- | The Amazon Resource Name (ARN) that uniquely identifies an MSK
+  { -- | The Amazon Resource Name (ARN) that uniquely identifies an MSK
     -- configuration.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The state of the configuration. The possible states are ACTIVE,
+    -- DELETING, and DELETE_FAILED.
+    state :: Prelude.Maybe ConfigurationState,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -138,11 +138,11 @@ data DeleteConfigurationResponse = DeleteConfigurationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'deleteConfigurationResponse_state' - The state of the configuration. The possible states are ACTIVE,
--- DELETING, and DELETE_FAILED.
---
 -- 'arn', 'deleteConfigurationResponse_arn' - The Amazon Resource Name (ARN) that uniquely identifies an MSK
 -- configuration.
+--
+-- 'state', 'deleteConfigurationResponse_state' - The state of the configuration. The possible states are ACTIVE,
+-- DELETING, and DELETE_FAILED.
 --
 -- 'httpStatus', 'deleteConfigurationResponse_httpStatus' - The response's http status code.
 newDeleteConfigurationResponse ::
@@ -151,21 +151,20 @@ newDeleteConfigurationResponse ::
   DeleteConfigurationResponse
 newDeleteConfigurationResponse pHttpStatus_ =
   DeleteConfigurationResponse'
-    { state =
-        Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      state = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The state of the configuration. The possible states are ACTIVE,
--- DELETING, and DELETE_FAILED.
-deleteConfigurationResponse_state :: Lens.Lens' DeleteConfigurationResponse (Prelude.Maybe ConfigurationState)
-deleteConfigurationResponse_state = Lens.lens (\DeleteConfigurationResponse' {state} -> state) (\s@DeleteConfigurationResponse' {} a -> s {state = a} :: DeleteConfigurationResponse)
 
 -- | The Amazon Resource Name (ARN) that uniquely identifies an MSK
 -- configuration.
 deleteConfigurationResponse_arn :: Lens.Lens' DeleteConfigurationResponse (Prelude.Maybe Prelude.Text)
 deleteConfigurationResponse_arn = Lens.lens (\DeleteConfigurationResponse' {arn} -> arn) (\s@DeleteConfigurationResponse' {} a -> s {arn = a} :: DeleteConfigurationResponse)
+
+-- | The state of the configuration. The possible states are ACTIVE,
+-- DELETING, and DELETE_FAILED.
+deleteConfigurationResponse_state :: Lens.Lens' DeleteConfigurationResponse (Prelude.Maybe ConfigurationState)
+deleteConfigurationResponse_state = Lens.lens (\DeleteConfigurationResponse' {state} -> state) (\s@DeleteConfigurationResponse' {} a -> s {state = a} :: DeleteConfigurationResponse)
 
 -- | The response's http status code.
 deleteConfigurationResponse_httpStatus :: Lens.Lens' DeleteConfigurationResponse Prelude.Int
@@ -173,6 +172,6 @@ deleteConfigurationResponse_httpStatus = Lens.lens (\DeleteConfigurationResponse
 
 instance Prelude.NFData DeleteConfigurationResponse where
   rnf DeleteConfigurationResponse' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf httpStatus

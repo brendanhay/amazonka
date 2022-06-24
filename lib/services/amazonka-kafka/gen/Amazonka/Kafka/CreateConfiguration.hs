@@ -37,11 +37,11 @@ module Amazonka.Kafka.CreateConfiguration
     newCreateConfigurationResponse,
 
     -- * Response Lenses
-    createConfigurationResponse_creationTime,
-    createConfigurationResponse_state,
-    createConfigurationResponse_arn,
     createConfigurationResponse_latestRevision,
     createConfigurationResponse_name,
+    createConfigurationResponse_arn,
+    createConfigurationResponse_state,
+    createConfigurationResponse_creationTime,
     createConfigurationResponse_httpStatus,
   )
 where
@@ -142,11 +142,11 @@ instance Core.AWSRequest CreateConfiguration where
     Response.receiveJSON
       ( \s h x ->
           CreateConfigurationResponse'
-            Prelude.<$> (x Core..?> "creationTime")
-            Prelude.<*> (x Core..?> "state")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "latestRevision")
+            Prelude.<$> (x Core..?> "latestRevision")
             Prelude.<*> (x Core..?> "name")
+            Prelude.<*> (x Core..?> "arn")
+            Prelude.<*> (x Core..?> "state")
+            Prelude.<*> (x Core..?> "creationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -195,17 +195,17 @@ instance Core.ToQuery CreateConfiguration where
 
 -- | /See:/ 'newCreateConfigurationResponse' smart constructor.
 data CreateConfigurationResponse = CreateConfigurationResponse'
-  { -- | The time when the configuration was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The state of the configuration. The possible states are ACTIVE,
-    -- DELETING, and DELETE_FAILED.
-    state :: Prelude.Maybe ConfigurationState,
-    -- | The Amazon Resource Name (ARN) of the configuration.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | Latest revision of the configuration.
+  { -- | Latest revision of the configuration.
     latestRevision :: Prelude.Maybe ConfigurationRevision,
     -- | The name of the configuration.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the configuration.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The state of the configuration. The possible states are ACTIVE,
+    -- DELETING, and DELETE_FAILED.
+    state :: Prelude.Maybe ConfigurationState,
+    -- | The time when the configuration was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -219,16 +219,16 @@ data CreateConfigurationResponse = CreateConfigurationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'createConfigurationResponse_creationTime' - The time when the configuration was created.
+-- 'latestRevision', 'createConfigurationResponse_latestRevision' - Latest revision of the configuration.
+--
+-- 'name', 'createConfigurationResponse_name' - The name of the configuration.
+--
+-- 'arn', 'createConfigurationResponse_arn' - The Amazon Resource Name (ARN) of the configuration.
 --
 -- 'state', 'createConfigurationResponse_state' - The state of the configuration. The possible states are ACTIVE,
 -- DELETING, and DELETE_FAILED.
 --
--- 'arn', 'createConfigurationResponse_arn' - The Amazon Resource Name (ARN) of the configuration.
---
--- 'latestRevision', 'createConfigurationResponse_latestRevision' - Latest revision of the configuration.
---
--- 'name', 'createConfigurationResponse_name' - The name of the configuration.
+-- 'creationTime', 'createConfigurationResponse_creationTime' - The time when the configuration was created.
 --
 -- 'httpStatus', 'createConfigurationResponse_httpStatus' - The response's http status code.
 newCreateConfigurationResponse ::
@@ -237,27 +237,14 @@ newCreateConfigurationResponse ::
   CreateConfigurationResponse
 newCreateConfigurationResponse pHttpStatus_ =
   CreateConfigurationResponse'
-    { creationTime =
+    { latestRevision =
         Prelude.Nothing,
-      state = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      latestRevision = Prelude.Nothing,
       name = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      state = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The time when the configuration was created.
-createConfigurationResponse_creationTime :: Lens.Lens' CreateConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
-createConfigurationResponse_creationTime = Lens.lens (\CreateConfigurationResponse' {creationTime} -> creationTime) (\s@CreateConfigurationResponse' {} a -> s {creationTime = a} :: CreateConfigurationResponse) Prelude.. Lens.mapping Core._Time
-
--- | The state of the configuration. The possible states are ACTIVE,
--- DELETING, and DELETE_FAILED.
-createConfigurationResponse_state :: Lens.Lens' CreateConfigurationResponse (Prelude.Maybe ConfigurationState)
-createConfigurationResponse_state = Lens.lens (\CreateConfigurationResponse' {state} -> state) (\s@CreateConfigurationResponse' {} a -> s {state = a} :: CreateConfigurationResponse)
-
--- | The Amazon Resource Name (ARN) of the configuration.
-createConfigurationResponse_arn :: Lens.Lens' CreateConfigurationResponse (Prelude.Maybe Prelude.Text)
-createConfigurationResponse_arn = Lens.lens (\CreateConfigurationResponse' {arn} -> arn) (\s@CreateConfigurationResponse' {} a -> s {arn = a} :: CreateConfigurationResponse)
 
 -- | Latest revision of the configuration.
 createConfigurationResponse_latestRevision :: Lens.Lens' CreateConfigurationResponse (Prelude.Maybe ConfigurationRevision)
@@ -267,15 +254,28 @@ createConfigurationResponse_latestRevision = Lens.lens (\CreateConfigurationResp
 createConfigurationResponse_name :: Lens.Lens' CreateConfigurationResponse (Prelude.Maybe Prelude.Text)
 createConfigurationResponse_name = Lens.lens (\CreateConfigurationResponse' {name} -> name) (\s@CreateConfigurationResponse' {} a -> s {name = a} :: CreateConfigurationResponse)
 
+-- | The Amazon Resource Name (ARN) of the configuration.
+createConfigurationResponse_arn :: Lens.Lens' CreateConfigurationResponse (Prelude.Maybe Prelude.Text)
+createConfigurationResponse_arn = Lens.lens (\CreateConfigurationResponse' {arn} -> arn) (\s@CreateConfigurationResponse' {} a -> s {arn = a} :: CreateConfigurationResponse)
+
+-- | The state of the configuration. The possible states are ACTIVE,
+-- DELETING, and DELETE_FAILED.
+createConfigurationResponse_state :: Lens.Lens' CreateConfigurationResponse (Prelude.Maybe ConfigurationState)
+createConfigurationResponse_state = Lens.lens (\CreateConfigurationResponse' {state} -> state) (\s@CreateConfigurationResponse' {} a -> s {state = a} :: CreateConfigurationResponse)
+
+-- | The time when the configuration was created.
+createConfigurationResponse_creationTime :: Lens.Lens' CreateConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
+createConfigurationResponse_creationTime = Lens.lens (\CreateConfigurationResponse' {creationTime} -> creationTime) (\s@CreateConfigurationResponse' {} a -> s {creationTime = a} :: CreateConfigurationResponse) Prelude.. Lens.mapping Core._Time
+
 -- | The response's http status code.
 createConfigurationResponse_httpStatus :: Lens.Lens' CreateConfigurationResponse Prelude.Int
 createConfigurationResponse_httpStatus = Lens.lens (\CreateConfigurationResponse' {httpStatus} -> httpStatus) (\s@CreateConfigurationResponse' {} a -> s {httpStatus = a} :: CreateConfigurationResponse)
 
 instance Prelude.NFData CreateConfigurationResponse where
   rnf CreateConfigurationResponse' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf latestRevision
+    Prelude.rnf latestRevision
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf httpStatus

@@ -37,8 +37,8 @@ module Amazonka.Kafka.ListKafkaVersions
     newListKafkaVersionsResponse,
 
     -- * Response Lenses
-    listKafkaVersionsResponse_kafkaVersions,
     listKafkaVersionsResponse_nextToken,
+    listKafkaVersionsResponse_kafkaVersions,
     listKafkaVersionsResponse_httpStatus,
   )
 where
@@ -126,8 +126,8 @@ instance Core.AWSRequest ListKafkaVersions where
     Response.receiveJSON
       ( \s h x ->
           ListKafkaVersionsResponse'
-            Prelude.<$> (x Core..?> "kafkaVersions" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "kafkaVersions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,8 +164,8 @@ instance Core.ToQuery ListKafkaVersions where
 
 -- | /See:/ 'newListKafkaVersionsResponse' smart constructor.
 data ListKafkaVersionsResponse = ListKafkaVersionsResponse'
-  { kafkaVersions :: Prelude.Maybe [KafkaVersion],
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    kafkaVersions :: Prelude.Maybe [KafkaVersion],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -179,9 +179,9 @@ data ListKafkaVersionsResponse = ListKafkaVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kafkaVersions', 'listKafkaVersionsResponse_kafkaVersions' - Undocumented member.
---
 -- 'nextToken', 'listKafkaVersionsResponse_nextToken' - Undocumented member.
+--
+-- 'kafkaVersions', 'listKafkaVersionsResponse_kafkaVersions' - Undocumented member.
 --
 -- 'httpStatus', 'listKafkaVersionsResponse_httpStatus' - The response's http status code.
 newListKafkaVersionsResponse ::
@@ -190,19 +190,19 @@ newListKafkaVersionsResponse ::
   ListKafkaVersionsResponse
 newListKafkaVersionsResponse pHttpStatus_ =
   ListKafkaVersionsResponse'
-    { kafkaVersions =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      kafkaVersions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-listKafkaVersionsResponse_kafkaVersions :: Lens.Lens' ListKafkaVersionsResponse (Prelude.Maybe [KafkaVersion])
-listKafkaVersionsResponse_kafkaVersions = Lens.lens (\ListKafkaVersionsResponse' {kafkaVersions} -> kafkaVersions) (\s@ListKafkaVersionsResponse' {} a -> s {kafkaVersions = a} :: ListKafkaVersionsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
 listKafkaVersionsResponse_nextToken :: Lens.Lens' ListKafkaVersionsResponse (Prelude.Maybe Prelude.Text)
 listKafkaVersionsResponse_nextToken = Lens.lens (\ListKafkaVersionsResponse' {nextToken} -> nextToken) (\s@ListKafkaVersionsResponse' {} a -> s {nextToken = a} :: ListKafkaVersionsResponse)
+
+-- | Undocumented member.
+listKafkaVersionsResponse_kafkaVersions :: Lens.Lens' ListKafkaVersionsResponse (Prelude.Maybe [KafkaVersion])
+listKafkaVersionsResponse_kafkaVersions = Lens.lens (\ListKafkaVersionsResponse' {kafkaVersions} -> kafkaVersions) (\s@ListKafkaVersionsResponse' {} a -> s {kafkaVersions = a} :: ListKafkaVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listKafkaVersionsResponse_httpStatus :: Lens.Lens' ListKafkaVersionsResponse Prelude.Int
@@ -210,6 +210,6 @@ listKafkaVersionsResponse_httpStatus = Lens.lens (\ListKafkaVersionsResponse' {h
 
 instance Prelude.NFData ListKafkaVersionsResponse where
   rnf ListKafkaVersionsResponse' {..} =
-    Prelude.rnf kafkaVersions
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf kafkaVersions
       `Prelude.seq` Prelude.rnf httpStatus

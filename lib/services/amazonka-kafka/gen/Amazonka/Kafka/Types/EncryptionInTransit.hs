@@ -28,7 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEncryptionInTransit' smart constructor.
 data EncryptionInTransit = EncryptionInTransit'
-  { -- | Indicates the encryption setting for data in transit between clients and
+  { -- | When set to true, it indicates that data communication among the broker
+    -- nodes of the cluster is encrypted. When set to false, the communication
+    -- happens in plaintext.
+    --
+    -- The default value is true.
+    inCluster :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates the encryption setting for data in transit between clients and
     -- brokers. The following are the possible values.
     --
     -- TLS means that client-broker communication is enabled with TLS only.
@@ -40,13 +46,7 @@ data EncryptionInTransit = EncryptionInTransit'
     -- only.
     --
     -- The default value is TLS_PLAINTEXT.
-    clientBroker :: Prelude.Maybe ClientBroker,
-    -- | When set to true, it indicates that data communication among the broker
-    -- nodes of the cluster is encrypted. When set to false, the communication
-    -- happens in plaintext.
-    --
-    -- The default value is true.
-    inCluster :: Prelude.Maybe Prelude.Bool
+    clientBroker :: Prelude.Maybe ClientBroker
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,6 +57,12 @@ data EncryptionInTransit = EncryptionInTransit'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'inCluster', 'encryptionInTransit_inCluster' - When set to true, it indicates that data communication among the broker
+-- nodes of the cluster is encrypted. When set to false, the communication
+-- happens in plaintext.
+--
+-- The default value is true.
 --
 -- 'clientBroker', 'encryptionInTransit_clientBroker' - Indicates the encryption setting for data in transit between clients and
 -- brokers. The following are the possible values.
@@ -70,20 +76,21 @@ data EncryptionInTransit = EncryptionInTransit'
 -- only.
 --
 -- The default value is TLS_PLAINTEXT.
---
--- 'inCluster', 'encryptionInTransit_inCluster' - When set to true, it indicates that data communication among the broker
--- nodes of the cluster is encrypted. When set to false, the communication
--- happens in plaintext.
---
--- The default value is true.
 newEncryptionInTransit ::
   EncryptionInTransit
 newEncryptionInTransit =
   EncryptionInTransit'
-    { clientBroker =
-        Prelude.Nothing,
-      inCluster = Prelude.Nothing
+    { inCluster = Prelude.Nothing,
+      clientBroker = Prelude.Nothing
     }
+
+-- | When set to true, it indicates that data communication among the broker
+-- nodes of the cluster is encrypted. When set to false, the communication
+-- happens in plaintext.
+--
+-- The default value is true.
+encryptionInTransit_inCluster :: Lens.Lens' EncryptionInTransit (Prelude.Maybe Prelude.Bool)
+encryptionInTransit_inCluster = Lens.lens (\EncryptionInTransit' {inCluster} -> inCluster) (\s@EncryptionInTransit' {} a -> s {inCluster = a} :: EncryptionInTransit)
 
 -- | Indicates the encryption setting for data in transit between clients and
 -- brokers. The following are the possible values.
@@ -100,39 +107,31 @@ newEncryptionInTransit =
 encryptionInTransit_clientBroker :: Lens.Lens' EncryptionInTransit (Prelude.Maybe ClientBroker)
 encryptionInTransit_clientBroker = Lens.lens (\EncryptionInTransit' {clientBroker} -> clientBroker) (\s@EncryptionInTransit' {} a -> s {clientBroker = a} :: EncryptionInTransit)
 
--- | When set to true, it indicates that data communication among the broker
--- nodes of the cluster is encrypted. When set to false, the communication
--- happens in plaintext.
---
--- The default value is true.
-encryptionInTransit_inCluster :: Lens.Lens' EncryptionInTransit (Prelude.Maybe Prelude.Bool)
-encryptionInTransit_inCluster = Lens.lens (\EncryptionInTransit' {inCluster} -> inCluster) (\s@EncryptionInTransit' {} a -> s {inCluster = a} :: EncryptionInTransit)
-
 instance Core.FromJSON EncryptionInTransit where
   parseJSON =
     Core.withObject
       "EncryptionInTransit"
       ( \x ->
           EncryptionInTransit'
-            Prelude.<$> (x Core..:? "clientBroker")
-            Prelude.<*> (x Core..:? "inCluster")
+            Prelude.<$> (x Core..:? "inCluster")
+            Prelude.<*> (x Core..:? "clientBroker")
       )
 
 instance Prelude.Hashable EncryptionInTransit where
   hashWithSalt _salt EncryptionInTransit' {..} =
-    _salt `Prelude.hashWithSalt` clientBroker
-      `Prelude.hashWithSalt` inCluster
+    _salt `Prelude.hashWithSalt` inCluster
+      `Prelude.hashWithSalt` clientBroker
 
 instance Prelude.NFData EncryptionInTransit where
   rnf EncryptionInTransit' {..} =
-    Prelude.rnf clientBroker
-      `Prelude.seq` Prelude.rnf inCluster
+    Prelude.rnf inCluster
+      `Prelude.seq` Prelude.rnf clientBroker
 
 instance Core.ToJSON EncryptionInTransit where
   toJSON EncryptionInTransit' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("clientBroker" Core..=) Prelude.<$> clientBroker,
-            ("inCluster" Core..=) Prelude.<$> inCluster
+          [ ("inCluster" Core..=) Prelude.<$> inCluster,
+            ("clientBroker" Core..=) Prelude.<$> clientBroker
           ]
       )

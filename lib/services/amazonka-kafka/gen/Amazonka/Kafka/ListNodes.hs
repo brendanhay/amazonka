@@ -38,8 +38,8 @@ module Amazonka.Kafka.ListNodes
     newListNodesResponse,
 
     -- * Response Lenses
-    listNodesResponse_nodeInfoList,
     listNodesResponse_nextToken,
+    listNodesResponse_nodeInfoList,
     listNodesResponse_httpStatus,
   )
 where
@@ -133,8 +133,8 @@ instance Core.AWSRequest ListNodes where
     Response.receiveJSON
       ( \s h x ->
           ListNodesResponse'
-            Prelude.<$> (x Core..?> "nodeInfoList" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "nodeInfoList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -175,12 +175,12 @@ instance Core.ToQuery ListNodes where
 
 -- | /See:/ 'newListNodesResponse' smart constructor.
 data ListNodesResponse = ListNodesResponse'
-  { -- | List containing a NodeInfo object.
-    nodeInfoList :: Prelude.Maybe [NodeInfo],
-    -- | The paginated results marker. When the result of a ListNodes operation
+  { -- | The paginated results marker. When the result of a ListNodes operation
     -- is truncated, the call returns NextToken in the response. To get another
     -- batch of nodes, provide this token in your next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | List containing a NodeInfo object.
+    nodeInfoList :: Prelude.Maybe [NodeInfo],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -194,11 +194,11 @@ data ListNodesResponse = ListNodesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nodeInfoList', 'listNodesResponse_nodeInfoList' - List containing a NodeInfo object.
---
 -- 'nextToken', 'listNodesResponse_nextToken' - The paginated results marker. When the result of a ListNodes operation
 -- is truncated, the call returns NextToken in the response. To get another
 -- batch of nodes, provide this token in your next request.
+--
+-- 'nodeInfoList', 'listNodesResponse_nodeInfoList' - List containing a NodeInfo object.
 --
 -- 'httpStatus', 'listNodesResponse_httpStatus' - The response's http status code.
 newListNodesResponse ::
@@ -207,14 +207,10 @@ newListNodesResponse ::
   ListNodesResponse
 newListNodesResponse pHttpStatus_ =
   ListNodesResponse'
-    { nodeInfoList = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      nodeInfoList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | List containing a NodeInfo object.
-listNodesResponse_nodeInfoList :: Lens.Lens' ListNodesResponse (Prelude.Maybe [NodeInfo])
-listNodesResponse_nodeInfoList = Lens.lens (\ListNodesResponse' {nodeInfoList} -> nodeInfoList) (\s@ListNodesResponse' {} a -> s {nodeInfoList = a} :: ListNodesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The paginated results marker. When the result of a ListNodes operation
 -- is truncated, the call returns NextToken in the response. To get another
@@ -222,12 +218,16 @@ listNodesResponse_nodeInfoList = Lens.lens (\ListNodesResponse' {nodeInfoList} -
 listNodesResponse_nextToken :: Lens.Lens' ListNodesResponse (Prelude.Maybe Prelude.Text)
 listNodesResponse_nextToken = Lens.lens (\ListNodesResponse' {nextToken} -> nextToken) (\s@ListNodesResponse' {} a -> s {nextToken = a} :: ListNodesResponse)
 
+-- | List containing a NodeInfo object.
+listNodesResponse_nodeInfoList :: Lens.Lens' ListNodesResponse (Prelude.Maybe [NodeInfo])
+listNodesResponse_nodeInfoList = Lens.lens (\ListNodesResponse' {nodeInfoList} -> nodeInfoList) (\s@ListNodesResponse' {} a -> s {nodeInfoList = a} :: ListNodesResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listNodesResponse_httpStatus :: Lens.Lens' ListNodesResponse Prelude.Int
 listNodesResponse_httpStatus = Lens.lens (\ListNodesResponse' {httpStatus} -> httpStatus) (\s@ListNodesResponse' {} a -> s {httpStatus = a} :: ListNodesResponse)
 
 instance Prelude.NFData ListNodesResponse where
   rnf ListNodesResponse' {..} =
-    Prelude.rnf nodeInfoList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf nodeInfoList
       `Prelude.seq` Prelude.rnf httpStatus

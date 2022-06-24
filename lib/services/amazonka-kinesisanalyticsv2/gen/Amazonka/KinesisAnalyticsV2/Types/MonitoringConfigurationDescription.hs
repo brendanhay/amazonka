@@ -33,11 +33,11 @@ import qualified Amazonka.Prelude as Prelude
 data MonitoringConfigurationDescription = MonitoringConfigurationDescription'
   { -- | Describes the verbosity of the CloudWatch Logs for an application.
     logLevel :: Prelude.Maybe LogLevel,
+    -- | Describes the granularity of the CloudWatch Logs for an application.
+    metricsLevel :: Prelude.Maybe MetricsLevel,
     -- | Describes whether to use the default CloudWatch logging configuration
     -- for an application.
-    configurationType :: Prelude.Maybe ConfigurationType,
-    -- | Describes the granularity of the CloudWatch Logs for an application.
-    metricsLevel :: Prelude.Maybe MetricsLevel
+    configurationType :: Prelude.Maybe ConfigurationType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,32 +51,32 @@ data MonitoringConfigurationDescription = MonitoringConfigurationDescription'
 --
 -- 'logLevel', 'monitoringConfigurationDescription_logLevel' - Describes the verbosity of the CloudWatch Logs for an application.
 --
+-- 'metricsLevel', 'monitoringConfigurationDescription_metricsLevel' - Describes the granularity of the CloudWatch Logs for an application.
+--
 -- 'configurationType', 'monitoringConfigurationDescription_configurationType' - Describes whether to use the default CloudWatch logging configuration
 -- for an application.
---
--- 'metricsLevel', 'monitoringConfigurationDescription_metricsLevel' - Describes the granularity of the CloudWatch Logs for an application.
 newMonitoringConfigurationDescription ::
   MonitoringConfigurationDescription
 newMonitoringConfigurationDescription =
   MonitoringConfigurationDescription'
     { logLevel =
         Prelude.Nothing,
-      configurationType = Prelude.Nothing,
-      metricsLevel = Prelude.Nothing
+      metricsLevel = Prelude.Nothing,
+      configurationType = Prelude.Nothing
     }
 
 -- | Describes the verbosity of the CloudWatch Logs for an application.
 monitoringConfigurationDescription_logLevel :: Lens.Lens' MonitoringConfigurationDescription (Prelude.Maybe LogLevel)
 monitoringConfigurationDescription_logLevel = Lens.lens (\MonitoringConfigurationDescription' {logLevel} -> logLevel) (\s@MonitoringConfigurationDescription' {} a -> s {logLevel = a} :: MonitoringConfigurationDescription)
 
+-- | Describes the granularity of the CloudWatch Logs for an application.
+monitoringConfigurationDescription_metricsLevel :: Lens.Lens' MonitoringConfigurationDescription (Prelude.Maybe MetricsLevel)
+monitoringConfigurationDescription_metricsLevel = Lens.lens (\MonitoringConfigurationDescription' {metricsLevel} -> metricsLevel) (\s@MonitoringConfigurationDescription' {} a -> s {metricsLevel = a} :: MonitoringConfigurationDescription)
+
 -- | Describes whether to use the default CloudWatch logging configuration
 -- for an application.
 monitoringConfigurationDescription_configurationType :: Lens.Lens' MonitoringConfigurationDescription (Prelude.Maybe ConfigurationType)
 monitoringConfigurationDescription_configurationType = Lens.lens (\MonitoringConfigurationDescription' {configurationType} -> configurationType) (\s@MonitoringConfigurationDescription' {} a -> s {configurationType = a} :: MonitoringConfigurationDescription)
-
--- | Describes the granularity of the CloudWatch Logs for an application.
-monitoringConfigurationDescription_metricsLevel :: Lens.Lens' MonitoringConfigurationDescription (Prelude.Maybe MetricsLevel)
-monitoringConfigurationDescription_metricsLevel = Lens.lens (\MonitoringConfigurationDescription' {metricsLevel} -> metricsLevel) (\s@MonitoringConfigurationDescription' {} a -> s {metricsLevel = a} :: MonitoringConfigurationDescription)
 
 instance
   Core.FromJSON
@@ -88,8 +88,8 @@ instance
       ( \x ->
           MonitoringConfigurationDescription'
             Prelude.<$> (x Core..:? "LogLevel")
-            Prelude.<*> (x Core..:? "ConfigurationType")
             Prelude.<*> (x Core..:? "MetricsLevel")
+            Prelude.<*> (x Core..:? "ConfigurationType")
       )
 
 instance
@@ -100,8 +100,8 @@ instance
     _salt
     MonitoringConfigurationDescription' {..} =
       _salt `Prelude.hashWithSalt` logLevel
-        `Prelude.hashWithSalt` configurationType
         `Prelude.hashWithSalt` metricsLevel
+        `Prelude.hashWithSalt` configurationType
 
 instance
   Prelude.NFData
@@ -109,5 +109,5 @@ instance
   where
   rnf MonitoringConfigurationDescription' {..} =
     Prelude.rnf logLevel
-      `Prelude.seq` Prelude.rnf configurationType
       `Prelude.seq` Prelude.rnf metricsLevel
+      `Prelude.seq` Prelude.rnf configurationType

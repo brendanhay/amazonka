@@ -32,15 +32,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSqlApplicationConfigurationUpdate' smart constructor.
 data SqlApplicationConfigurationUpdate = SqlApplicationConfigurationUpdate'
-  { -- | The array of ReferenceDataSourceUpdate objects describing the new
-    -- reference data sources used by the application.
-    referenceDataSourceUpdates :: Prelude.Maybe [ReferenceDataSourceUpdate],
-    -- | The array of InputUpdate objects describing the new input streams used
+  { -- | The array of InputUpdate objects describing the new input streams used
     -- by the application.
     inputUpdates :: Prelude.Maybe [InputUpdate],
     -- | The array of OutputUpdate objects describing the new destination streams
     -- used by the application.
-    outputUpdates :: Prelude.Maybe [OutputUpdate]
+    outputUpdates :: Prelude.Maybe [OutputUpdate],
+    -- | The array of ReferenceDataSourceUpdate objects describing the new
+    -- reference data sources used by the application.
+    referenceDataSourceUpdates :: Prelude.Maybe [ReferenceDataSourceUpdate]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,28 +52,24 @@ data SqlApplicationConfigurationUpdate = SqlApplicationConfigurationUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'referenceDataSourceUpdates', 'sqlApplicationConfigurationUpdate_referenceDataSourceUpdates' - The array of ReferenceDataSourceUpdate objects describing the new
--- reference data sources used by the application.
---
 -- 'inputUpdates', 'sqlApplicationConfigurationUpdate_inputUpdates' - The array of InputUpdate objects describing the new input streams used
 -- by the application.
 --
 -- 'outputUpdates', 'sqlApplicationConfigurationUpdate_outputUpdates' - The array of OutputUpdate objects describing the new destination streams
 -- used by the application.
+--
+-- 'referenceDataSourceUpdates', 'sqlApplicationConfigurationUpdate_referenceDataSourceUpdates' - The array of ReferenceDataSourceUpdate objects describing the new
+-- reference data sources used by the application.
 newSqlApplicationConfigurationUpdate ::
   SqlApplicationConfigurationUpdate
 newSqlApplicationConfigurationUpdate =
   SqlApplicationConfigurationUpdate'
-    { referenceDataSourceUpdates =
+    { inputUpdates =
         Prelude.Nothing,
-      inputUpdates = Prelude.Nothing,
-      outputUpdates = Prelude.Nothing
+      outputUpdates = Prelude.Nothing,
+      referenceDataSourceUpdates =
+        Prelude.Nothing
     }
-
--- | The array of ReferenceDataSourceUpdate objects describing the new
--- reference data sources used by the application.
-sqlApplicationConfigurationUpdate_referenceDataSourceUpdates :: Lens.Lens' SqlApplicationConfigurationUpdate (Prelude.Maybe [ReferenceDataSourceUpdate])
-sqlApplicationConfigurationUpdate_referenceDataSourceUpdates = Lens.lens (\SqlApplicationConfigurationUpdate' {referenceDataSourceUpdates} -> referenceDataSourceUpdates) (\s@SqlApplicationConfigurationUpdate' {} a -> s {referenceDataSourceUpdates = a} :: SqlApplicationConfigurationUpdate) Prelude.. Lens.mapping Lens.coerced
 
 -- | The array of InputUpdate objects describing the new input streams used
 -- by the application.
@@ -85,6 +81,11 @@ sqlApplicationConfigurationUpdate_inputUpdates = Lens.lens (\SqlApplicationConfi
 sqlApplicationConfigurationUpdate_outputUpdates :: Lens.Lens' SqlApplicationConfigurationUpdate (Prelude.Maybe [OutputUpdate])
 sqlApplicationConfigurationUpdate_outputUpdates = Lens.lens (\SqlApplicationConfigurationUpdate' {outputUpdates} -> outputUpdates) (\s@SqlApplicationConfigurationUpdate' {} a -> s {outputUpdates = a} :: SqlApplicationConfigurationUpdate) Prelude.. Lens.mapping Lens.coerced
 
+-- | The array of ReferenceDataSourceUpdate objects describing the new
+-- reference data sources used by the application.
+sqlApplicationConfigurationUpdate_referenceDataSourceUpdates :: Lens.Lens' SqlApplicationConfigurationUpdate (Prelude.Maybe [ReferenceDataSourceUpdate])
+sqlApplicationConfigurationUpdate_referenceDataSourceUpdates = Lens.lens (\SqlApplicationConfigurationUpdate' {referenceDataSourceUpdates} -> referenceDataSourceUpdates) (\s@SqlApplicationConfigurationUpdate' {} a -> s {referenceDataSourceUpdates = a} :: SqlApplicationConfigurationUpdate) Prelude.. Lens.mapping Lens.coerced
+
 instance
   Prelude.Hashable
     SqlApplicationConfigurationUpdate
@@ -92,19 +93,18 @@ instance
   hashWithSalt
     _salt
     SqlApplicationConfigurationUpdate' {..} =
-      _salt
-        `Prelude.hashWithSalt` referenceDataSourceUpdates
-        `Prelude.hashWithSalt` inputUpdates
+      _salt `Prelude.hashWithSalt` inputUpdates
         `Prelude.hashWithSalt` outputUpdates
+        `Prelude.hashWithSalt` referenceDataSourceUpdates
 
 instance
   Prelude.NFData
     SqlApplicationConfigurationUpdate
   where
   rnf SqlApplicationConfigurationUpdate' {..} =
-    Prelude.rnf referenceDataSourceUpdates
-      `Prelude.seq` Prelude.rnf inputUpdates
+    Prelude.rnf inputUpdates
       `Prelude.seq` Prelude.rnf outputUpdates
+      `Prelude.seq` Prelude.rnf referenceDataSourceUpdates
 
 instance
   Core.ToJSON
@@ -113,9 +113,9 @@ instance
   toJSON SqlApplicationConfigurationUpdate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ReferenceDataSourceUpdates" Core..=)
-              Prelude.<$> referenceDataSourceUpdates,
-            ("InputUpdates" Core..=) Prelude.<$> inputUpdates,
-            ("OutputUpdates" Core..=) Prelude.<$> outputUpdates
+          [ ("InputUpdates" Core..=) Prelude.<$> inputUpdates,
+            ("OutputUpdates" Core..=) Prelude.<$> outputUpdates,
+            ("ReferenceDataSourceUpdates" Core..=)
+              Prelude.<$> referenceDataSourceUpdates
           ]
       )

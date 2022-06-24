@@ -36,14 +36,6 @@ data CheckpointConfigurationUpdate = CheckpointConfigurationUpdate'
     -- application will use a @CheckpointInterval@ value of 60000, even if this
     -- value is set to another value using this API or in application code.
     checkpointIntervalUpdate :: Prelude.Maybe Prelude.Natural,
-    -- | Describes updates to whether checkpointing is enabled for an
-    -- application.
-    --
-    -- If @CheckpointConfiguration.ConfigurationType@ is @DEFAULT@, the
-    -- application will use a @CheckpointingEnabled@ value of @true@, even if
-    -- this value is set to another value using this API or in application
-    -- code.
-    checkpointingEnabledUpdate :: Prelude.Maybe Prelude.Bool,
     -- | Describes updates to the minimum time in milliseconds after a checkpoint
     -- operation completes that a new checkpoint operation can start.
     --
@@ -65,7 +57,15 @@ data CheckpointConfigurationUpdate = CheckpointConfigurationUpdate'
     -- -   __CheckpointInterval:__ 60000
     --
     -- -   __MinPauseBetweenCheckpoints:__ 5000
-    configurationTypeUpdate :: Prelude.Maybe ConfigurationType
+    configurationTypeUpdate :: Prelude.Maybe ConfigurationType,
+    -- | Describes updates to whether checkpointing is enabled for an
+    -- application.
+    --
+    -- If @CheckpointConfiguration.ConfigurationType@ is @DEFAULT@, the
+    -- application will use a @CheckpointingEnabled@ value of @true@, even if
+    -- this value is set to another value using this API or in application
+    -- code.
+    checkpointingEnabledUpdate :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,14 +83,6 @@ data CheckpointConfigurationUpdate = CheckpointConfigurationUpdate'
 -- If @CheckpointConfiguration.ConfigurationType@ is @DEFAULT@, the
 -- application will use a @CheckpointInterval@ value of 60000, even if this
 -- value is set to another value using this API or in application code.
---
--- 'checkpointingEnabledUpdate', 'checkpointConfigurationUpdate_checkpointingEnabledUpdate' - Describes updates to whether checkpointing is enabled for an
--- application.
---
--- If @CheckpointConfiguration.ConfigurationType@ is @DEFAULT@, the
--- application will use a @CheckpointingEnabled@ value of @true@, even if
--- this value is set to another value using this API or in application
--- code.
 --
 -- 'minPauseBetweenCheckpointsUpdate', 'checkpointConfigurationUpdate_minPauseBetweenCheckpointsUpdate' - Describes updates to the minimum time in milliseconds after a checkpoint
 -- operation completes that a new checkpoint operation can start.
@@ -113,16 +105,24 @@ data CheckpointConfigurationUpdate = CheckpointConfigurationUpdate'
 -- -   __CheckpointInterval:__ 60000
 --
 -- -   __MinPauseBetweenCheckpoints:__ 5000
+--
+-- 'checkpointingEnabledUpdate', 'checkpointConfigurationUpdate_checkpointingEnabledUpdate' - Describes updates to whether checkpointing is enabled for an
+-- application.
+--
+-- If @CheckpointConfiguration.ConfigurationType@ is @DEFAULT@, the
+-- application will use a @CheckpointingEnabled@ value of @true@, even if
+-- this value is set to another value using this API or in application
+-- code.
 newCheckpointConfigurationUpdate ::
   CheckpointConfigurationUpdate
 newCheckpointConfigurationUpdate =
   CheckpointConfigurationUpdate'
     { checkpointIntervalUpdate =
         Prelude.Nothing,
-      checkpointingEnabledUpdate = Prelude.Nothing,
       minPauseBetweenCheckpointsUpdate =
         Prelude.Nothing,
-      configurationTypeUpdate = Prelude.Nothing
+      configurationTypeUpdate = Prelude.Nothing,
+      checkpointingEnabledUpdate = Prelude.Nothing
     }
 
 -- | Describes updates to the interval in milliseconds between checkpoint
@@ -133,16 +133,6 @@ newCheckpointConfigurationUpdate =
 -- value is set to another value using this API or in application code.
 checkpointConfigurationUpdate_checkpointIntervalUpdate :: Lens.Lens' CheckpointConfigurationUpdate (Prelude.Maybe Prelude.Natural)
 checkpointConfigurationUpdate_checkpointIntervalUpdate = Lens.lens (\CheckpointConfigurationUpdate' {checkpointIntervalUpdate} -> checkpointIntervalUpdate) (\s@CheckpointConfigurationUpdate' {} a -> s {checkpointIntervalUpdate = a} :: CheckpointConfigurationUpdate)
-
--- | Describes updates to whether checkpointing is enabled for an
--- application.
---
--- If @CheckpointConfiguration.ConfigurationType@ is @DEFAULT@, the
--- application will use a @CheckpointingEnabled@ value of @true@, even if
--- this value is set to another value using this API or in application
--- code.
-checkpointConfigurationUpdate_checkpointingEnabledUpdate :: Lens.Lens' CheckpointConfigurationUpdate (Prelude.Maybe Prelude.Bool)
-checkpointConfigurationUpdate_checkpointingEnabledUpdate = Lens.lens (\CheckpointConfigurationUpdate' {checkpointingEnabledUpdate} -> checkpointingEnabledUpdate) (\s@CheckpointConfigurationUpdate' {} a -> s {checkpointingEnabledUpdate = a} :: CheckpointConfigurationUpdate)
 
 -- | Describes updates to the minimum time in milliseconds after a checkpoint
 -- operation completes that a new checkpoint operation can start.
@@ -170,6 +160,16 @@ checkpointConfigurationUpdate_minPauseBetweenCheckpointsUpdate = Lens.lens (\Che
 checkpointConfigurationUpdate_configurationTypeUpdate :: Lens.Lens' CheckpointConfigurationUpdate (Prelude.Maybe ConfigurationType)
 checkpointConfigurationUpdate_configurationTypeUpdate = Lens.lens (\CheckpointConfigurationUpdate' {configurationTypeUpdate} -> configurationTypeUpdate) (\s@CheckpointConfigurationUpdate' {} a -> s {configurationTypeUpdate = a} :: CheckpointConfigurationUpdate)
 
+-- | Describes updates to whether checkpointing is enabled for an
+-- application.
+--
+-- If @CheckpointConfiguration.ConfigurationType@ is @DEFAULT@, the
+-- application will use a @CheckpointingEnabled@ value of @true@, even if
+-- this value is set to another value using this API or in application
+-- code.
+checkpointConfigurationUpdate_checkpointingEnabledUpdate :: Lens.Lens' CheckpointConfigurationUpdate (Prelude.Maybe Prelude.Bool)
+checkpointConfigurationUpdate_checkpointingEnabledUpdate = Lens.lens (\CheckpointConfigurationUpdate' {checkpointingEnabledUpdate} -> checkpointingEnabledUpdate) (\s@CheckpointConfigurationUpdate' {} a -> s {checkpointingEnabledUpdate = a} :: CheckpointConfigurationUpdate)
+
 instance
   Prelude.Hashable
     CheckpointConfigurationUpdate
@@ -177,16 +177,16 @@ instance
   hashWithSalt _salt CheckpointConfigurationUpdate' {..} =
     _salt
       `Prelude.hashWithSalt` checkpointIntervalUpdate
-      `Prelude.hashWithSalt` checkpointingEnabledUpdate
       `Prelude.hashWithSalt` minPauseBetweenCheckpointsUpdate
       `Prelude.hashWithSalt` configurationTypeUpdate
+      `Prelude.hashWithSalt` checkpointingEnabledUpdate
 
 instance Prelude.NFData CheckpointConfigurationUpdate where
   rnf CheckpointConfigurationUpdate' {..} =
     Prelude.rnf checkpointIntervalUpdate
-      `Prelude.seq` Prelude.rnf checkpointingEnabledUpdate
       `Prelude.seq` Prelude.rnf minPauseBetweenCheckpointsUpdate
       `Prelude.seq` Prelude.rnf configurationTypeUpdate
+      `Prelude.seq` Prelude.rnf checkpointingEnabledUpdate
 
 instance Core.ToJSON CheckpointConfigurationUpdate where
   toJSON CheckpointConfigurationUpdate' {..} =
@@ -194,11 +194,11 @@ instance Core.ToJSON CheckpointConfigurationUpdate where
       ( Prelude.catMaybes
           [ ("CheckpointIntervalUpdate" Core..=)
               Prelude.<$> checkpointIntervalUpdate,
-            ("CheckpointingEnabledUpdate" Core..=)
-              Prelude.<$> checkpointingEnabledUpdate,
             ("MinPauseBetweenCheckpointsUpdate" Core..=)
               Prelude.<$> minPauseBetweenCheckpointsUpdate,
             ("ConfigurationTypeUpdate" Core..=)
-              Prelude.<$> configurationTypeUpdate
+              Prelude.<$> configurationTypeUpdate,
+            ("CheckpointingEnabledUpdate" Core..=)
+              Prelude.<$> checkpointingEnabledUpdate
           ]
       )

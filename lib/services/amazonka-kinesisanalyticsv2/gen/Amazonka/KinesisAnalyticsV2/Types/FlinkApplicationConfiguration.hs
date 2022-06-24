@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFlinkApplicationConfiguration' smart constructor.
 data FlinkApplicationConfiguration = FlinkApplicationConfiguration'
-  { -- | Describes configuration parameters for Amazon CloudWatch logging for an
-    -- application.
-    monitoringConfiguration :: Prelude.Maybe MonitoringConfiguration,
-    -- | Describes parameters for how an application executes multiple tasks
+  { -- | Describes parameters for how an application executes multiple tasks
     -- simultaneously.
     parallelismConfiguration :: Prelude.Maybe ParallelismConfiguration,
+    -- | Describes configuration parameters for Amazon CloudWatch logging for an
+    -- application.
+    monitoringConfiguration :: Prelude.Maybe MonitoringConfiguration,
     -- | Describes an application\'s checkpointing configuration. Checkpointing
     -- is the process of persisting application state for fault tolerance. For
     -- more information, see
@@ -55,11 +55,11 @@ data FlinkApplicationConfiguration = FlinkApplicationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'monitoringConfiguration', 'flinkApplicationConfiguration_monitoringConfiguration' - Describes configuration parameters for Amazon CloudWatch logging for an
--- application.
---
 -- 'parallelismConfiguration', 'flinkApplicationConfiguration_parallelismConfiguration' - Describes parameters for how an application executes multiple tasks
 -- simultaneously.
+--
+-- 'monitoringConfiguration', 'flinkApplicationConfiguration_monitoringConfiguration' - Describes configuration parameters for Amazon CloudWatch logging for an
+-- application.
 --
 -- 'checkpointConfiguration', 'flinkApplicationConfiguration_checkpointConfiguration' - Describes an application\'s checkpointing configuration. Checkpointing
 -- is the process of persisting application state for fault tolerance. For
@@ -71,21 +71,21 @@ newFlinkApplicationConfiguration ::
   FlinkApplicationConfiguration
 newFlinkApplicationConfiguration =
   FlinkApplicationConfiguration'
-    { monitoringConfiguration =
+    { parallelismConfiguration =
         Prelude.Nothing,
-      parallelismConfiguration = Prelude.Nothing,
+      monitoringConfiguration = Prelude.Nothing,
       checkpointConfiguration = Prelude.Nothing
     }
-
--- | Describes configuration parameters for Amazon CloudWatch logging for an
--- application.
-flinkApplicationConfiguration_monitoringConfiguration :: Lens.Lens' FlinkApplicationConfiguration (Prelude.Maybe MonitoringConfiguration)
-flinkApplicationConfiguration_monitoringConfiguration = Lens.lens (\FlinkApplicationConfiguration' {monitoringConfiguration} -> monitoringConfiguration) (\s@FlinkApplicationConfiguration' {} a -> s {monitoringConfiguration = a} :: FlinkApplicationConfiguration)
 
 -- | Describes parameters for how an application executes multiple tasks
 -- simultaneously.
 flinkApplicationConfiguration_parallelismConfiguration :: Lens.Lens' FlinkApplicationConfiguration (Prelude.Maybe ParallelismConfiguration)
 flinkApplicationConfiguration_parallelismConfiguration = Lens.lens (\FlinkApplicationConfiguration' {parallelismConfiguration} -> parallelismConfiguration) (\s@FlinkApplicationConfiguration' {} a -> s {parallelismConfiguration = a} :: FlinkApplicationConfiguration)
+
+-- | Describes configuration parameters for Amazon CloudWatch logging for an
+-- application.
+flinkApplicationConfiguration_monitoringConfiguration :: Lens.Lens' FlinkApplicationConfiguration (Prelude.Maybe MonitoringConfiguration)
+flinkApplicationConfiguration_monitoringConfiguration = Lens.lens (\FlinkApplicationConfiguration' {monitoringConfiguration} -> monitoringConfiguration) (\s@FlinkApplicationConfiguration' {} a -> s {monitoringConfiguration = a} :: FlinkApplicationConfiguration)
 
 -- | Describes an application\'s checkpointing configuration. Checkpointing
 -- is the process of persisting application state for fault tolerance. For
@@ -102,24 +102,24 @@ instance
   where
   hashWithSalt _salt FlinkApplicationConfiguration' {..} =
     _salt
-      `Prelude.hashWithSalt` monitoringConfiguration
       `Prelude.hashWithSalt` parallelismConfiguration
+      `Prelude.hashWithSalt` monitoringConfiguration
       `Prelude.hashWithSalt` checkpointConfiguration
 
 instance Prelude.NFData FlinkApplicationConfiguration where
   rnf FlinkApplicationConfiguration' {..} =
-    Prelude.rnf monitoringConfiguration
-      `Prelude.seq` Prelude.rnf parallelismConfiguration
+    Prelude.rnf parallelismConfiguration
+      `Prelude.seq` Prelude.rnf monitoringConfiguration
       `Prelude.seq` Prelude.rnf checkpointConfiguration
 
 instance Core.ToJSON FlinkApplicationConfiguration where
   toJSON FlinkApplicationConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MonitoringConfiguration" Core..=)
-              Prelude.<$> monitoringConfiguration,
-            ("ParallelismConfiguration" Core..=)
+          [ ("ParallelismConfiguration" Core..=)
               Prelude.<$> parallelismConfiguration,
+            ("MonitoringConfiguration" Core..=)
+              Prelude.<$> monitoringConfiguration,
             ("CheckpointConfiguration" Core..=)
               Prelude.<$> checkpointConfiguration
           ]

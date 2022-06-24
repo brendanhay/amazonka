@@ -29,11 +29,11 @@ module Amazonka.KinesisAnalyticsV2.CreateApplication
     newCreateApplication,
 
     -- * Request Lenses
-    createApplication_applicationDescription,
-    createApplication_cloudWatchLoggingOptions,
+    createApplication_tags,
     createApplication_applicationMode,
     createApplication_applicationConfiguration,
-    createApplication_tags,
+    createApplication_cloudWatchLoggingOptions,
+    createApplication_applicationDescription,
     createApplication_applicationName,
     createApplication_runtimeEnvironment,
     createApplication_serviceExecutionRole,
@@ -57,23 +57,23 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateApplication' smart constructor.
 data CreateApplication = CreateApplication'
-  { -- | A summary description of the application.
-    applicationDescription :: Prelude.Maybe Prelude.Text,
-    -- | Use this parameter to configure an Amazon CloudWatch log stream to
-    -- monitor application configuration errors.
-    cloudWatchLoggingOptions :: Prelude.Maybe [CloudWatchLoggingOption],
+  { -- | A list of one or more tags to assign to the application. A tag is a
+    -- key-value pair that identifies an application. Note that the maximum
+    -- number of application tags includes system tags. The maximum number of
+    -- user-defined application tags is 50. For more information, see
+    -- <https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html Using Tagging>.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | Use the @STREAMING@ mode to create a Kinesis Data Analytics Studio
     -- notebook. To create a Kinesis Data Analytics Studio notebook, use the
     -- @INTERACTIVE@ mode.
     applicationMode :: Prelude.Maybe ApplicationMode,
     -- | Use this parameter to configure the application.
     applicationConfiguration :: Prelude.Maybe ApplicationConfiguration,
-    -- | A list of one or more tags to assign to the application. A tag is a
-    -- key-value pair that identifies an application. Note that the maximum
-    -- number of application tags includes system tags. The maximum number of
-    -- user-defined application tags is 50. For more information, see
-    -- <https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html Using Tagging>.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | Use this parameter to configure an Amazon CloudWatch log stream to
+    -- monitor application configuration errors.
+    cloudWatchLoggingOptions :: Prelude.Maybe [CloudWatchLoggingOption],
+    -- | A summary description of the application.
+    applicationDescription :: Prelude.Maybe Prelude.Text,
     -- | The name of your application (for example, @sample-app@).
     applicationName :: Prelude.Text,
     -- | The runtime environment for the application (@SQL-1_0@, @FLINK-1_6@,
@@ -94,10 +94,11 @@ data CreateApplication = CreateApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationDescription', 'createApplication_applicationDescription' - A summary description of the application.
---
--- 'cloudWatchLoggingOptions', 'createApplication_cloudWatchLoggingOptions' - Use this parameter to configure an Amazon CloudWatch log stream to
--- monitor application configuration errors.
+-- 'tags', 'createApplication_tags' - A list of one or more tags to assign to the application. A tag is a
+-- key-value pair that identifies an application. Note that the maximum
+-- number of application tags includes system tags. The maximum number of
+-- user-defined application tags is 50. For more information, see
+-- <https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html Using Tagging>.
 --
 -- 'applicationMode', 'createApplication_applicationMode' - Use the @STREAMING@ mode to create a Kinesis Data Analytics Studio
 -- notebook. To create a Kinesis Data Analytics Studio notebook, use the
@@ -105,11 +106,10 @@ data CreateApplication = CreateApplication'
 --
 -- 'applicationConfiguration', 'createApplication_applicationConfiguration' - Use this parameter to configure the application.
 --
--- 'tags', 'createApplication_tags' - A list of one or more tags to assign to the application. A tag is a
--- key-value pair that identifies an application. Note that the maximum
--- number of application tags includes system tags. The maximum number of
--- user-defined application tags is 50. For more information, see
--- <https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html Using Tagging>.
+-- 'cloudWatchLoggingOptions', 'createApplication_cloudWatchLoggingOptions' - Use this parameter to configure an Amazon CloudWatch log stream to
+-- monitor application configuration errors.
+--
+-- 'applicationDescription', 'createApplication_applicationDescription' - A summary description of the application.
 --
 -- 'applicationName', 'createApplication_applicationName' - The name of your application (for example, @sample-app@).
 --
@@ -132,25 +132,23 @@ newCreateApplication
   pRuntimeEnvironment_
   pServiceExecutionRole_ =
     CreateApplication'
-      { applicationDescription =
-          Prelude.Nothing,
-        cloudWatchLoggingOptions = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         applicationMode = Prelude.Nothing,
         applicationConfiguration = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        cloudWatchLoggingOptions = Prelude.Nothing,
+        applicationDescription = Prelude.Nothing,
         applicationName = pApplicationName_,
         runtimeEnvironment = pRuntimeEnvironment_,
         serviceExecutionRole = pServiceExecutionRole_
       }
 
--- | A summary description of the application.
-createApplication_applicationDescription :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
-createApplication_applicationDescription = Lens.lens (\CreateApplication' {applicationDescription} -> applicationDescription) (\s@CreateApplication' {} a -> s {applicationDescription = a} :: CreateApplication)
-
--- | Use this parameter to configure an Amazon CloudWatch log stream to
--- monitor application configuration errors.
-createApplication_cloudWatchLoggingOptions :: Lens.Lens' CreateApplication (Prelude.Maybe [CloudWatchLoggingOption])
-createApplication_cloudWatchLoggingOptions = Lens.lens (\CreateApplication' {cloudWatchLoggingOptions} -> cloudWatchLoggingOptions) (\s@CreateApplication' {} a -> s {cloudWatchLoggingOptions = a} :: CreateApplication) Prelude.. Lens.mapping Lens.coerced
+-- | A list of one or more tags to assign to the application. A tag is a
+-- key-value pair that identifies an application. Note that the maximum
+-- number of application tags includes system tags. The maximum number of
+-- user-defined application tags is 50. For more information, see
+-- <https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html Using Tagging>.
+createApplication_tags :: Lens.Lens' CreateApplication (Prelude.Maybe (Prelude.NonEmpty Tag))
+createApplication_tags = Lens.lens (\CreateApplication' {tags} -> tags) (\s@CreateApplication' {} a -> s {tags = a} :: CreateApplication) Prelude.. Lens.mapping Lens.coerced
 
 -- | Use the @STREAMING@ mode to create a Kinesis Data Analytics Studio
 -- notebook. To create a Kinesis Data Analytics Studio notebook, use the
@@ -162,13 +160,14 @@ createApplication_applicationMode = Lens.lens (\CreateApplication' {applicationM
 createApplication_applicationConfiguration :: Lens.Lens' CreateApplication (Prelude.Maybe ApplicationConfiguration)
 createApplication_applicationConfiguration = Lens.lens (\CreateApplication' {applicationConfiguration} -> applicationConfiguration) (\s@CreateApplication' {} a -> s {applicationConfiguration = a} :: CreateApplication)
 
--- | A list of one or more tags to assign to the application. A tag is a
--- key-value pair that identifies an application. Note that the maximum
--- number of application tags includes system tags. The maximum number of
--- user-defined application tags is 50. For more information, see
--- <https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html Using Tagging>.
-createApplication_tags :: Lens.Lens' CreateApplication (Prelude.Maybe (Prelude.NonEmpty Tag))
-createApplication_tags = Lens.lens (\CreateApplication' {tags} -> tags) (\s@CreateApplication' {} a -> s {tags = a} :: CreateApplication) Prelude.. Lens.mapping Lens.coerced
+-- | Use this parameter to configure an Amazon CloudWatch log stream to
+-- monitor application configuration errors.
+createApplication_cloudWatchLoggingOptions :: Lens.Lens' CreateApplication (Prelude.Maybe [CloudWatchLoggingOption])
+createApplication_cloudWatchLoggingOptions = Lens.lens (\CreateApplication' {cloudWatchLoggingOptions} -> cloudWatchLoggingOptions) (\s@CreateApplication' {} a -> s {cloudWatchLoggingOptions = a} :: CreateApplication) Prelude.. Lens.mapping Lens.coerced
+
+-- | A summary description of the application.
+createApplication_applicationDescription :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
+createApplication_applicationDescription = Lens.lens (\CreateApplication' {applicationDescription} -> applicationDescription) (\s@CreateApplication' {} a -> s {applicationDescription = a} :: CreateApplication)
 
 -- | The name of your application (for example, @sample-app@).
 createApplication_applicationName :: Lens.Lens' CreateApplication Prelude.Text
@@ -200,22 +199,22 @@ instance Core.AWSRequest CreateApplication where
 
 instance Prelude.Hashable CreateApplication where
   hashWithSalt _salt CreateApplication' {..} =
-    _salt `Prelude.hashWithSalt` applicationDescription
-      `Prelude.hashWithSalt` cloudWatchLoggingOptions
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` applicationMode
       `Prelude.hashWithSalt` applicationConfiguration
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` cloudWatchLoggingOptions
+      `Prelude.hashWithSalt` applicationDescription
       `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` runtimeEnvironment
       `Prelude.hashWithSalt` serviceExecutionRole
 
 instance Prelude.NFData CreateApplication where
   rnf CreateApplication' {..} =
-    Prelude.rnf applicationDescription
-      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf applicationMode
       `Prelude.seq` Prelude.rnf applicationConfiguration
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions
+      `Prelude.seq` Prelude.rnf applicationDescription
       `Prelude.seq` Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf runtimeEnvironment
       `Prelude.seq` Prelude.rnf serviceExecutionRole
@@ -239,15 +238,15 @@ instance Core.ToJSON CreateApplication where
   toJSON CreateApplication' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ApplicationDescription" Core..=)
-              Prelude.<$> applicationDescription,
-            ("CloudWatchLoggingOptions" Core..=)
-              Prelude.<$> cloudWatchLoggingOptions,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("ApplicationMode" Core..=)
               Prelude.<$> applicationMode,
             ("ApplicationConfiguration" Core..=)
               Prelude.<$> applicationConfiguration,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("CloudWatchLoggingOptions" Core..=)
+              Prelude.<$> cloudWatchLoggingOptions,
+            ("ApplicationDescription" Core..=)
+              Prelude.<$> applicationDescription,
             Prelude.Just
               ("ApplicationName" Core..= applicationName),
             Prelude.Just

@@ -17,19 +17,19 @@ module Amazonka.KinesisAnalyticsV2.Types
     defaultService,
 
     -- * Errors
-    _InvalidApplicationConfigurationException,
-    _ResourceProvisionedThroughputExceededException,
-    _InvalidRequestException,
-    _UnsupportedOperationException,
     _InvalidArgumentException,
+    _InvalidApplicationConfigurationException,
+    _UnsupportedOperationException,
+    _ConcurrentModificationException,
     _TooManyTagsException,
     _CodeValidationException,
-    _ConcurrentModificationException,
     _ServiceUnavailableException,
-    _UnableToDetectSchemaException,
     _ResourceNotFoundException,
-    _LimitExceededException,
     _ResourceInUseException,
+    _LimitExceededException,
+    _UnableToDetectSchemaException,
+    _ResourceProvisionedThroughputExceededException,
+    _InvalidRequestException,
 
     -- * ApplicationMode
     ApplicationMode (..),
@@ -92,51 +92,51 @@ module Amazonka.KinesisAnalyticsV2.Types
     ApplicationConfiguration (..),
     newApplicationConfiguration,
     applicationConfiguration_applicationSnapshotConfiguration,
-    applicationConfiguration_vpcConfigurations,
-    applicationConfiguration_environmentProperties,
+    applicationConfiguration_zeppelinApplicationConfiguration,
     applicationConfiguration_flinkApplicationConfiguration,
     applicationConfiguration_sqlApplicationConfiguration,
     applicationConfiguration_applicationCodeConfiguration,
-    applicationConfiguration_zeppelinApplicationConfiguration,
+    applicationConfiguration_vpcConfigurations,
+    applicationConfiguration_environmentProperties,
 
     -- * ApplicationConfigurationDescription
     ApplicationConfigurationDescription (..),
     newApplicationConfigurationDescription,
-    applicationConfigurationDescription_zeppelinApplicationConfigurationDescription,
-    applicationConfigurationDescription_vpcConfigurationDescriptions,
-    applicationConfigurationDescription_applicationCodeConfigurationDescription,
-    applicationConfigurationDescription_environmentPropertyDescriptions,
-    applicationConfigurationDescription_runConfigurationDescription,
     applicationConfigurationDescription_sqlApplicationConfigurationDescription,
-    applicationConfigurationDescription_flinkApplicationConfigurationDescription,
     applicationConfigurationDescription_applicationSnapshotConfigurationDescription,
+    applicationConfigurationDescription_vpcConfigurationDescriptions,
+    applicationConfigurationDescription_zeppelinApplicationConfigurationDescription,
+    applicationConfigurationDescription_runConfigurationDescription,
+    applicationConfigurationDescription_applicationCodeConfigurationDescription,
+    applicationConfigurationDescription_flinkApplicationConfigurationDescription,
+    applicationConfigurationDescription_environmentPropertyDescriptions,
 
     -- * ApplicationConfigurationUpdate
     ApplicationConfigurationUpdate (..),
     newApplicationConfigurationUpdate,
+    applicationConfigurationUpdate_vpcConfigurationUpdates,
+    applicationConfigurationUpdate_applicationCodeConfigurationUpdate,
     applicationConfigurationUpdate_applicationSnapshotConfigurationUpdate,
+    applicationConfigurationUpdate_environmentPropertyUpdates,
+    applicationConfigurationUpdate_sqlApplicationConfigurationUpdate,
     applicationConfigurationUpdate_zeppelinApplicationConfigurationUpdate,
     applicationConfigurationUpdate_flinkApplicationConfigurationUpdate,
-    applicationConfigurationUpdate_sqlApplicationConfigurationUpdate,
-    applicationConfigurationUpdate_vpcConfigurationUpdates,
-    applicationConfigurationUpdate_environmentPropertyUpdates,
-    applicationConfigurationUpdate_applicationCodeConfigurationUpdate,
 
     -- * ApplicationDetail
     ApplicationDetail (..),
     newApplicationDetail,
-    applicationDetail_applicationDescription,
+    applicationDetail_lastUpdateTimestamp,
+    applicationDetail_applicationMode,
+    applicationDetail_createTimestamp,
+    applicationDetail_applicationMaintenanceConfigurationDescription,
     applicationDetail_conditionalToken,
     applicationDetail_cloudWatchLoggingOptionDescriptions,
-    applicationDetail_applicationVersionRolledBackFrom,
-    applicationDetail_applicationMode,
-    applicationDetail_applicationConfigurationDescription,
     applicationDetail_applicationVersionRolledBackTo,
-    applicationDetail_createTimestamp,
-    applicationDetail_lastUpdateTimestamp,
-    applicationDetail_serviceExecutionRole,
     applicationDetail_applicationVersionUpdatedFrom,
-    applicationDetail_applicationMaintenanceConfigurationDescription,
+    applicationDetail_applicationConfigurationDescription,
+    applicationDetail_applicationVersionRolledBackFrom,
+    applicationDetail_applicationDescription,
+    applicationDetail_serviceExecutionRole,
     applicationDetail_applicationARN,
     applicationDetail_applicationName,
     applicationDetail_runtimeEnvironment,
@@ -224,17 +224,17 @@ module Amazonka.KinesisAnalyticsV2.Types
     CheckpointConfigurationDescription (..),
     newCheckpointConfigurationDescription,
     checkpointConfigurationDescription_checkpointingEnabled,
-    checkpointConfigurationDescription_configurationType,
     checkpointConfigurationDescription_minPauseBetweenCheckpoints,
+    checkpointConfigurationDescription_configurationType,
     checkpointConfigurationDescription_checkpointInterval,
 
     -- * CheckpointConfigurationUpdate
     CheckpointConfigurationUpdate (..),
     newCheckpointConfigurationUpdate,
     checkpointConfigurationUpdate_checkpointIntervalUpdate,
-    checkpointConfigurationUpdate_checkpointingEnabledUpdate,
     checkpointConfigurationUpdate_minPauseBetweenCheckpointsUpdate,
     checkpointConfigurationUpdate_configurationTypeUpdate,
+    checkpointConfigurationUpdate_checkpointingEnabledUpdate,
 
     -- * CloudWatchLoggingOption
     CloudWatchLoggingOption (..),
@@ -244,8 +244,8 @@ module Amazonka.KinesisAnalyticsV2.Types
     -- * CloudWatchLoggingOptionDescription
     CloudWatchLoggingOptionDescription (..),
     newCloudWatchLoggingOptionDescription,
-    cloudWatchLoggingOptionDescription_cloudWatchLoggingOptionId,
     cloudWatchLoggingOptionDescription_roleARN,
+    cloudWatchLoggingOptionDescription_cloudWatchLoggingOptionId,
     cloudWatchLoggingOptionDescription_logStreamARN,
 
     -- * CloudWatchLoggingOptionUpdate
@@ -264,17 +264,17 @@ module Amazonka.KinesisAnalyticsV2.Types
     -- * CodeContentDescription
     CodeContentDescription (..),
     newCodeContentDescription,
-    codeContentDescription_s3ApplicationCodeLocationDescription,
-    codeContentDescription_codeMD5,
     codeContentDescription_textContent,
+    codeContentDescription_codeMD5,
+    codeContentDescription_s3ApplicationCodeLocationDescription,
     codeContentDescription_codeSize,
 
     -- * CodeContentUpdate
     CodeContentUpdate (..),
     newCodeContentUpdate,
+    codeContentUpdate_s3ContentLocationUpdate,
     codeContentUpdate_textContentUpdate,
     codeContentUpdate_zipFileContentUpdate,
-    codeContentUpdate_s3ContentLocationUpdate,
 
     -- * CustomArtifactConfiguration
     CustomArtifactConfiguration (..),
@@ -286,9 +286,9 @@ module Amazonka.KinesisAnalyticsV2.Types
     -- * CustomArtifactConfigurationDescription
     CustomArtifactConfigurationDescription (..),
     newCustomArtifactConfigurationDescription,
+    customArtifactConfigurationDescription_artifactType,
     customArtifactConfigurationDescription_mavenReferenceDescription,
     customArtifactConfigurationDescription_s3ContentLocationDescription,
-    customArtifactConfigurationDescription_artifactType,
 
     -- * DeployAsApplicationConfiguration
     DeployAsApplicationConfiguration (..),
@@ -328,24 +328,24 @@ module Amazonka.KinesisAnalyticsV2.Types
     -- * FlinkApplicationConfiguration
     FlinkApplicationConfiguration (..),
     newFlinkApplicationConfiguration,
-    flinkApplicationConfiguration_monitoringConfiguration,
     flinkApplicationConfiguration_parallelismConfiguration,
+    flinkApplicationConfiguration_monitoringConfiguration,
     flinkApplicationConfiguration_checkpointConfiguration,
 
     -- * FlinkApplicationConfigurationDescription
     FlinkApplicationConfigurationDescription (..),
     newFlinkApplicationConfigurationDescription,
-    flinkApplicationConfigurationDescription_monitoringConfigurationDescription,
-    flinkApplicationConfigurationDescription_parallelismConfigurationDescription,
     flinkApplicationConfigurationDescription_checkpointConfigurationDescription,
     flinkApplicationConfigurationDescription_jobPlanDescription,
+    flinkApplicationConfigurationDescription_parallelismConfigurationDescription,
+    flinkApplicationConfigurationDescription_monitoringConfigurationDescription,
 
     -- * FlinkApplicationConfigurationUpdate
     FlinkApplicationConfigurationUpdate (..),
     newFlinkApplicationConfigurationUpdate,
-    flinkApplicationConfigurationUpdate_checkpointConfigurationUpdate,
-    flinkApplicationConfigurationUpdate_parallelismConfigurationUpdate,
     flinkApplicationConfigurationUpdate_monitoringConfigurationUpdate,
+    flinkApplicationConfigurationUpdate_parallelismConfigurationUpdate,
+    flinkApplicationConfigurationUpdate_checkpointConfigurationUpdate,
 
     -- * FlinkRunConfiguration
     FlinkRunConfiguration (..),
@@ -370,25 +370,25 @@ module Amazonka.KinesisAnalyticsV2.Types
     -- * Input
     Input (..),
     newInput,
-    input_inputParallelism,
-    input_inputProcessingConfiguration,
-    input_kinesisStreamsInput,
     input_kinesisFirehoseInput,
+    input_inputProcessingConfiguration,
+    input_inputParallelism,
+    input_kinesisStreamsInput,
     input_namePrefix,
     input_inputSchema,
 
     -- * InputDescription
     InputDescription (..),
     newInputDescription,
-    inputDescription_inputStartingPositionConfiguration,
-    inputDescription_inputParallelism,
-    inputDescription_inputId,
     inputDescription_inAppStreamNames,
     inputDescription_kinesisFirehoseInputDescription,
-    inputDescription_inputSchema,
     inputDescription_kinesisStreamsInputDescription,
-    inputDescription_namePrefix,
+    inputDescription_inputParallelism,
     inputDescription_inputProcessingConfigurationDescription,
+    inputDescription_namePrefix,
+    inputDescription_inputStartingPositionConfiguration,
+    inputDescription_inputId,
+    inputDescription_inputSchema,
 
     -- * InputLambdaProcessor
     InputLambdaProcessor (..),
@@ -434,9 +434,9 @@ module Amazonka.KinesisAnalyticsV2.Types
     -- * InputSchemaUpdate
     InputSchemaUpdate (..),
     newInputSchemaUpdate,
-    inputSchemaUpdate_recordFormatUpdate,
     inputSchemaUpdate_recordEncodingUpdate,
     inputSchemaUpdate_recordColumnUpdates,
+    inputSchemaUpdate_recordFormatUpdate,
 
     -- * InputStartingPositionConfiguration
     InputStartingPositionConfiguration (..),
@@ -446,12 +446,12 @@ module Amazonka.KinesisAnalyticsV2.Types
     -- * InputUpdate
     InputUpdate (..),
     newInputUpdate,
-    inputUpdate_inputProcessingConfigurationUpdate,
-    inputUpdate_kinesisStreamsInputUpdate,
     inputUpdate_inputParallelismUpdate,
+    inputUpdate_inputProcessingConfigurationUpdate,
     inputUpdate_namePrefixUpdate,
-    inputUpdate_inputSchemaUpdate,
     inputUpdate_kinesisFirehoseInputUpdate,
+    inputUpdate_inputSchemaUpdate,
+    inputUpdate_kinesisStreamsInputUpdate,
     inputUpdate_inputId,
 
     -- * JSONMappingParameters
@@ -563,69 +563,69 @@ module Amazonka.KinesisAnalyticsV2.Types
     MonitoringConfigurationDescription (..),
     newMonitoringConfigurationDescription,
     monitoringConfigurationDescription_logLevel,
-    monitoringConfigurationDescription_configurationType,
     monitoringConfigurationDescription_metricsLevel,
+    monitoringConfigurationDescription_configurationType,
 
     -- * MonitoringConfigurationUpdate
     MonitoringConfigurationUpdate (..),
     newMonitoringConfigurationUpdate,
     monitoringConfigurationUpdate_metricsLevelUpdate,
-    monitoringConfigurationUpdate_logLevelUpdate,
     monitoringConfigurationUpdate_configurationTypeUpdate,
+    monitoringConfigurationUpdate_logLevelUpdate,
 
     -- * Output
     Output (..),
     newOutput,
+    output_kinesisFirehoseOutput,
     output_lambdaOutput,
     output_kinesisStreamsOutput,
-    output_kinesisFirehoseOutput,
     output_name,
     output_destinationSchema,
 
     -- * OutputDescription
     OutputDescription (..),
     newOutputDescription,
-    outputDescription_outputId,
-    outputDescription_destinationSchema,
-    outputDescription_kinesisFirehoseOutputDescription,
-    outputDescription_kinesisStreamsOutputDescription,
     outputDescription_name,
+    outputDescription_outputId,
+    outputDescription_kinesisStreamsOutputDescription,
     outputDescription_lambdaOutputDescription,
+    outputDescription_kinesisFirehoseOutputDescription,
+    outputDescription_destinationSchema,
 
     -- * OutputUpdate
     OutputUpdate (..),
     newOutputUpdate,
-    outputUpdate_kinesisStreamsOutputUpdate,
+    outputUpdate_lambdaOutputUpdate,
+    outputUpdate_nameUpdate,
     outputUpdate_destinationSchemaUpdate,
     outputUpdate_kinesisFirehoseOutputUpdate,
-    outputUpdate_nameUpdate,
-    outputUpdate_lambdaOutputUpdate,
+    outputUpdate_kinesisStreamsOutputUpdate,
     outputUpdate_outputId,
 
     -- * ParallelismConfiguration
     ParallelismConfiguration (..),
     newParallelismConfiguration,
-    parallelismConfiguration_autoScalingEnabled,
     parallelismConfiguration_parallelismPerKPU,
+    parallelismConfiguration_autoScalingEnabled,
     parallelismConfiguration_parallelism,
     parallelismConfiguration_configurationType,
 
     -- * ParallelismConfigurationDescription
     ParallelismConfigurationDescription (..),
     newParallelismConfigurationDescription,
-    parallelismConfigurationDescription_autoScalingEnabled,
-    parallelismConfigurationDescription_currentParallelism,
     parallelismConfigurationDescription_parallelismPerKPU,
-    parallelismConfigurationDescription_configurationType,
+    parallelismConfigurationDescription_currentParallelism,
+    parallelismConfigurationDescription_autoScalingEnabled,
     parallelismConfigurationDescription_parallelism,
+    parallelismConfigurationDescription_configurationType,
 
     -- * ParallelismConfigurationUpdate
     ParallelismConfigurationUpdate (..),
     newParallelismConfigurationUpdate,
+    parallelismConfigurationUpdate_configurationTypeUpdate,
+    parallelismConfigurationUpdate_parallelismPerKPUUpdate,
     parallelismConfigurationUpdate_parallelismUpdate,
     parallelismConfigurationUpdate_autoScalingEnabledUpdate,
-    parallelismConfigurationUpdate_parallelismPerKPUUpdate,
-    parallelismConfigurationUpdate_configurationTypeUpdate,
 
     -- * PropertyGroup
     PropertyGroup (..),
@@ -665,22 +665,22 @@ module Amazonka.KinesisAnalyticsV2.Types
     ReferenceDataSourceUpdate (..),
     newReferenceDataSourceUpdate,
     referenceDataSourceUpdate_tableNameUpdate,
-    referenceDataSourceUpdate_s3ReferenceDataSourceUpdate,
     referenceDataSourceUpdate_referenceSchemaUpdate,
+    referenceDataSourceUpdate_s3ReferenceDataSourceUpdate,
     referenceDataSourceUpdate_referenceId,
 
     -- * RunConfiguration
     RunConfiguration (..),
     newRunConfiguration,
-    runConfiguration_sqlRunConfigurations,
     runConfiguration_flinkRunConfiguration,
     runConfiguration_applicationRestoreConfiguration,
+    runConfiguration_sqlRunConfigurations,
 
     -- * RunConfigurationDescription
     RunConfigurationDescription (..),
     newRunConfigurationDescription,
-    runConfigurationDescription_applicationRestoreConfigurationDescription,
     runConfigurationDescription_flinkRunConfigurationDescription,
+    runConfigurationDescription_applicationRestoreConfigurationDescription,
 
     -- * RunConfigurationUpdate
     RunConfigurationUpdate (..),
@@ -729,15 +729,15 @@ module Amazonka.KinesisAnalyticsV2.Types
     -- * S3ContentLocationUpdate
     S3ContentLocationUpdate (..),
     newS3ContentLocationUpdate,
+    s3ContentLocationUpdate_objectVersionUpdate,
     s3ContentLocationUpdate_bucketARNUpdate,
     s3ContentLocationUpdate_fileKeyUpdate,
-    s3ContentLocationUpdate_objectVersionUpdate,
 
     -- * S3ReferenceDataSource
     S3ReferenceDataSource (..),
     newS3ReferenceDataSource,
-    s3ReferenceDataSource_bucketARN,
     s3ReferenceDataSource_fileKey,
+    s3ReferenceDataSource_bucketARN,
 
     -- * S3ReferenceDataSourceDescription
     S3ReferenceDataSourceDescription (..),
@@ -770,23 +770,23 @@ module Amazonka.KinesisAnalyticsV2.Types
     -- * SqlApplicationConfiguration
     SqlApplicationConfiguration (..),
     newSqlApplicationConfiguration,
+    sqlApplicationConfiguration_outputs,
     sqlApplicationConfiguration_inputs,
     sqlApplicationConfiguration_referenceDataSources,
-    sqlApplicationConfiguration_outputs,
 
     -- * SqlApplicationConfigurationDescription
     SqlApplicationConfigurationDescription (..),
     newSqlApplicationConfigurationDescription,
-    sqlApplicationConfigurationDescription_outputDescriptions,
     sqlApplicationConfigurationDescription_referenceDataSourceDescriptions,
     sqlApplicationConfigurationDescription_inputDescriptions,
+    sqlApplicationConfigurationDescription_outputDescriptions,
 
     -- * SqlApplicationConfigurationUpdate
     SqlApplicationConfigurationUpdate (..),
     newSqlApplicationConfigurationUpdate,
-    sqlApplicationConfigurationUpdate_referenceDataSourceUpdates,
     sqlApplicationConfigurationUpdate_inputUpdates,
     sqlApplicationConfigurationUpdate_outputUpdates,
+    sqlApplicationConfigurationUpdate_referenceDataSourceUpdates,
 
     -- * SqlRunConfiguration
     SqlRunConfiguration (..),
@@ -824,10 +824,10 @@ module Amazonka.KinesisAnalyticsV2.Types
     -- * ZeppelinApplicationConfiguration
     ZeppelinApplicationConfiguration (..),
     newZeppelinApplicationConfiguration,
-    zeppelinApplicationConfiguration_monitoringConfiguration,
+    zeppelinApplicationConfiguration_customArtifactsConfiguration,
     zeppelinApplicationConfiguration_catalogConfiguration,
     zeppelinApplicationConfiguration_deployAsApplicationConfiguration,
-    zeppelinApplicationConfiguration_customArtifactsConfiguration,
+    zeppelinApplicationConfiguration_monitoringConfiguration,
 
     -- * ZeppelinApplicationConfigurationDescription
     ZeppelinApplicationConfigurationDescription (..),
@@ -840,10 +840,10 @@ module Amazonka.KinesisAnalyticsV2.Types
     -- * ZeppelinApplicationConfigurationUpdate
     ZeppelinApplicationConfigurationUpdate (..),
     newZeppelinApplicationConfigurationUpdate,
-    zeppelinApplicationConfigurationUpdate_customArtifactsConfigurationUpdate,
-    zeppelinApplicationConfigurationUpdate_catalogConfigurationUpdate,
-    zeppelinApplicationConfigurationUpdate_deployAsApplicationConfigurationUpdate,
     zeppelinApplicationConfigurationUpdate_monitoringConfigurationUpdate,
+    zeppelinApplicationConfigurationUpdate_catalogConfigurationUpdate,
+    zeppelinApplicationConfigurationUpdate_customArtifactsConfigurationUpdate,
+    zeppelinApplicationConfigurationUpdate_deployAsApplicationConfigurationUpdate,
 
     -- * ZeppelinMonitoringConfiguration
     ZeppelinMonitoringConfiguration (..),
@@ -1026,35 +1026,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -1063,13 +1036,47 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | The specified input parameter value is not valid.
+_InvalidArgumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidArgumentException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidArgumentException"
 
 -- | The user-provided application configuration is not valid.
 _InvalidApplicationConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1077,24 +1084,6 @@ _InvalidApplicationConfigurationException =
   Core._MatchServiceError
     defaultService
     "InvalidApplicationConfigurationException"
-
--- | Discovery failed to get a record from the streaming source because of
--- the Kinesis Streams @ProvisionedThroughputExceededException@. For more
--- information, see
--- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html GetRecords>
--- in the Amazon Kinesis Streams API Reference.
-_ResourceProvisionedThroughputExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceProvisionedThroughputExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceProvisionedThroughputExceededException"
-
--- | The request JSON is not valid for the operation.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRequestException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidRequestException"
 
 -- | The request was rejected because a specified parameter is not supported
 -- or a specified resource is not valid for this operation.
@@ -1104,12 +1093,14 @@ _UnsupportedOperationException =
     defaultService
     "UnsupportedOperationException"
 
--- | The specified input parameter value is not valid.
-_InvalidArgumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidArgumentException =
+-- | Exception thrown as a result of concurrent modifications to an
+-- application. This error can be the result of attempting to modify an
+-- application without using the current application ID.
+_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
-    "InvalidArgumentException"
+    "ConcurrentModificationException"
 
 -- | Application created with too many tags, or too many tags added to an
 -- application. Note that the maximum number of application tags includes
@@ -1128,21 +1119,33 @@ _CodeValidationException =
     defaultService
     "CodeValidationException"
 
--- | Exception thrown as a result of concurrent modifications to an
--- application. This error can be the result of attempting to modify an
--- application without using the current application ID.
-_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConcurrentModificationException =
-  Core._MatchServiceError
-    defaultService
-    "ConcurrentModificationException"
-
 -- | The service cannot complete the request.
 _ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
     "ServiceUnavailableException"
+
+-- | Specified application can\'t be found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+
+-- | The application is not available for this operation.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUseException"
+
+-- | The number of allowed resources has been exceeded.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
 
 -- | The data format is not valid. Kinesis Data Analytics cannot detect the
 -- schema for the given streaming source.
@@ -1152,23 +1155,20 @@ _UnableToDetectSchemaException =
     defaultService
     "UnableToDetectSchemaException"
 
--- | Specified application can\'t be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
+-- | Discovery failed to get a record from the streaming source because of
+-- the Kinesis Streams @ProvisionedThroughputExceededException@. For more
+-- information, see
+-- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html GetRecords>
+-- in the Amazon Kinesis Streams API Reference.
+_ResourceProvisionedThroughputExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceProvisionedThroughputExceededException =
   Core._MatchServiceError
     defaultService
-    "ResourceNotFoundException"
+    "ResourceProvisionedThroughputExceededException"
 
--- | The number of allowed resources has been exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
+-- | The request JSON is not valid for the operation.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
   Core._MatchServiceError
     defaultService
-    "LimitExceededException"
-
--- | The application is not available for this operation.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceInUseException"
+    "InvalidRequestException"

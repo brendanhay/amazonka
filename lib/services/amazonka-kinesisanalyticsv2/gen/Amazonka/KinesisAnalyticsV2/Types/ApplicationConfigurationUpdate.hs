@@ -34,26 +34,26 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newApplicationConfigurationUpdate' smart constructor.
 data ApplicationConfigurationUpdate = ApplicationConfigurationUpdate'
-  { -- | Describes whether snapshots are enabled for a Flink-based Kinesis Data
+  { -- | Updates to the array of descriptions of VPC configurations available to
+    -- the application.
+    vpcConfigurationUpdates :: Prelude.Maybe [VpcConfigurationUpdate],
+    -- | Describes updates to an application\'s code configuration.
+    applicationCodeConfigurationUpdate :: Prelude.Maybe ApplicationCodeConfigurationUpdate,
+    -- | Describes whether snapshots are enabled for a Flink-based Kinesis Data
     -- Analytics application.
     applicationSnapshotConfigurationUpdate :: Prelude.Maybe ApplicationSnapshotConfigurationUpdate,
+    -- | Describes updates to the environment properties for a Flink-based
+    -- Kinesis Data Analytics application.
+    environmentPropertyUpdates :: Prelude.Maybe EnvironmentPropertyUpdates,
+    -- | Describes updates to a SQL-based Kinesis Data Analytics application\'s
+    -- configuration.
+    sqlApplicationConfigurationUpdate :: Prelude.Maybe SqlApplicationConfigurationUpdate,
     -- | Updates to the configuration of a Kinesis Data Analytics Studio
     -- notebook.
     zeppelinApplicationConfigurationUpdate :: Prelude.Maybe ZeppelinApplicationConfigurationUpdate,
     -- | Describes updates to a Flink-based Kinesis Data Analytics application\'s
     -- configuration.
-    flinkApplicationConfigurationUpdate :: Prelude.Maybe FlinkApplicationConfigurationUpdate,
-    -- | Describes updates to a SQL-based Kinesis Data Analytics application\'s
-    -- configuration.
-    sqlApplicationConfigurationUpdate :: Prelude.Maybe SqlApplicationConfigurationUpdate,
-    -- | Updates to the array of descriptions of VPC configurations available to
-    -- the application.
-    vpcConfigurationUpdates :: Prelude.Maybe [VpcConfigurationUpdate],
-    -- | Describes updates to the environment properties for a Flink-based
-    -- Kinesis Data Analytics application.
-    environmentPropertyUpdates :: Prelude.Maybe EnvironmentPropertyUpdates,
-    -- | Describes updates to an application\'s code configuration.
-    applicationCodeConfigurationUpdate :: Prelude.Maybe ApplicationCodeConfigurationUpdate
+    flinkApplicationConfigurationUpdate :: Prelude.Maybe FlinkApplicationConfigurationUpdate
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,48 +65,68 @@ data ApplicationConfigurationUpdate = ApplicationConfigurationUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'vpcConfigurationUpdates', 'applicationConfigurationUpdate_vpcConfigurationUpdates' - Updates to the array of descriptions of VPC configurations available to
+-- the application.
+--
+-- 'applicationCodeConfigurationUpdate', 'applicationConfigurationUpdate_applicationCodeConfigurationUpdate' - Describes updates to an application\'s code configuration.
+--
 -- 'applicationSnapshotConfigurationUpdate', 'applicationConfigurationUpdate_applicationSnapshotConfigurationUpdate' - Describes whether snapshots are enabled for a Flink-based Kinesis Data
 -- Analytics application.
+--
+-- 'environmentPropertyUpdates', 'applicationConfigurationUpdate_environmentPropertyUpdates' - Describes updates to the environment properties for a Flink-based
+-- Kinesis Data Analytics application.
+--
+-- 'sqlApplicationConfigurationUpdate', 'applicationConfigurationUpdate_sqlApplicationConfigurationUpdate' - Describes updates to a SQL-based Kinesis Data Analytics application\'s
+-- configuration.
 --
 -- 'zeppelinApplicationConfigurationUpdate', 'applicationConfigurationUpdate_zeppelinApplicationConfigurationUpdate' - Updates to the configuration of a Kinesis Data Analytics Studio
 -- notebook.
 --
 -- 'flinkApplicationConfigurationUpdate', 'applicationConfigurationUpdate_flinkApplicationConfigurationUpdate' - Describes updates to a Flink-based Kinesis Data Analytics application\'s
 -- configuration.
---
--- 'sqlApplicationConfigurationUpdate', 'applicationConfigurationUpdate_sqlApplicationConfigurationUpdate' - Describes updates to a SQL-based Kinesis Data Analytics application\'s
--- configuration.
---
--- 'vpcConfigurationUpdates', 'applicationConfigurationUpdate_vpcConfigurationUpdates' - Updates to the array of descriptions of VPC configurations available to
--- the application.
---
--- 'environmentPropertyUpdates', 'applicationConfigurationUpdate_environmentPropertyUpdates' - Describes updates to the environment properties for a Flink-based
--- Kinesis Data Analytics application.
---
--- 'applicationCodeConfigurationUpdate', 'applicationConfigurationUpdate_applicationCodeConfigurationUpdate' - Describes updates to an application\'s code configuration.
 newApplicationConfigurationUpdate ::
   ApplicationConfigurationUpdate
 newApplicationConfigurationUpdate =
   ApplicationConfigurationUpdate'
-    { applicationSnapshotConfigurationUpdate =
+    { vpcConfigurationUpdates =
+        Prelude.Nothing,
+      applicationCodeConfigurationUpdate =
+        Prelude.Nothing,
+      applicationSnapshotConfigurationUpdate =
+        Prelude.Nothing,
+      environmentPropertyUpdates =
+        Prelude.Nothing,
+      sqlApplicationConfigurationUpdate =
         Prelude.Nothing,
       zeppelinApplicationConfigurationUpdate =
         Prelude.Nothing,
       flinkApplicationConfigurationUpdate =
-        Prelude.Nothing,
-      sqlApplicationConfigurationUpdate =
-        Prelude.Nothing,
-      vpcConfigurationUpdates = Prelude.Nothing,
-      environmentPropertyUpdates =
-        Prelude.Nothing,
-      applicationCodeConfigurationUpdate =
         Prelude.Nothing
     }
+
+-- | Updates to the array of descriptions of VPC configurations available to
+-- the application.
+applicationConfigurationUpdate_vpcConfigurationUpdates :: Lens.Lens' ApplicationConfigurationUpdate (Prelude.Maybe [VpcConfigurationUpdate])
+applicationConfigurationUpdate_vpcConfigurationUpdates = Lens.lens (\ApplicationConfigurationUpdate' {vpcConfigurationUpdates} -> vpcConfigurationUpdates) (\s@ApplicationConfigurationUpdate' {} a -> s {vpcConfigurationUpdates = a} :: ApplicationConfigurationUpdate) Prelude.. Lens.mapping Lens.coerced
+
+-- | Describes updates to an application\'s code configuration.
+applicationConfigurationUpdate_applicationCodeConfigurationUpdate :: Lens.Lens' ApplicationConfigurationUpdate (Prelude.Maybe ApplicationCodeConfigurationUpdate)
+applicationConfigurationUpdate_applicationCodeConfigurationUpdate = Lens.lens (\ApplicationConfigurationUpdate' {applicationCodeConfigurationUpdate} -> applicationCodeConfigurationUpdate) (\s@ApplicationConfigurationUpdate' {} a -> s {applicationCodeConfigurationUpdate = a} :: ApplicationConfigurationUpdate)
 
 -- | Describes whether snapshots are enabled for a Flink-based Kinesis Data
 -- Analytics application.
 applicationConfigurationUpdate_applicationSnapshotConfigurationUpdate :: Lens.Lens' ApplicationConfigurationUpdate (Prelude.Maybe ApplicationSnapshotConfigurationUpdate)
 applicationConfigurationUpdate_applicationSnapshotConfigurationUpdate = Lens.lens (\ApplicationConfigurationUpdate' {applicationSnapshotConfigurationUpdate} -> applicationSnapshotConfigurationUpdate) (\s@ApplicationConfigurationUpdate' {} a -> s {applicationSnapshotConfigurationUpdate = a} :: ApplicationConfigurationUpdate)
+
+-- | Describes updates to the environment properties for a Flink-based
+-- Kinesis Data Analytics application.
+applicationConfigurationUpdate_environmentPropertyUpdates :: Lens.Lens' ApplicationConfigurationUpdate (Prelude.Maybe EnvironmentPropertyUpdates)
+applicationConfigurationUpdate_environmentPropertyUpdates = Lens.lens (\ApplicationConfigurationUpdate' {environmentPropertyUpdates} -> environmentPropertyUpdates) (\s@ApplicationConfigurationUpdate' {} a -> s {environmentPropertyUpdates = a} :: ApplicationConfigurationUpdate)
+
+-- | Describes updates to a SQL-based Kinesis Data Analytics application\'s
+-- configuration.
+applicationConfigurationUpdate_sqlApplicationConfigurationUpdate :: Lens.Lens' ApplicationConfigurationUpdate (Prelude.Maybe SqlApplicationConfigurationUpdate)
+applicationConfigurationUpdate_sqlApplicationConfigurationUpdate = Lens.lens (\ApplicationConfigurationUpdate' {sqlApplicationConfigurationUpdate} -> sqlApplicationConfigurationUpdate) (\s@ApplicationConfigurationUpdate' {} a -> s {sqlApplicationConfigurationUpdate = a} :: ApplicationConfigurationUpdate)
 
 -- | Updates to the configuration of a Kinesis Data Analytics Studio
 -- notebook.
@@ -118,25 +138,6 @@ applicationConfigurationUpdate_zeppelinApplicationConfigurationUpdate = Lens.len
 applicationConfigurationUpdate_flinkApplicationConfigurationUpdate :: Lens.Lens' ApplicationConfigurationUpdate (Prelude.Maybe FlinkApplicationConfigurationUpdate)
 applicationConfigurationUpdate_flinkApplicationConfigurationUpdate = Lens.lens (\ApplicationConfigurationUpdate' {flinkApplicationConfigurationUpdate} -> flinkApplicationConfigurationUpdate) (\s@ApplicationConfigurationUpdate' {} a -> s {flinkApplicationConfigurationUpdate = a} :: ApplicationConfigurationUpdate)
 
--- | Describes updates to a SQL-based Kinesis Data Analytics application\'s
--- configuration.
-applicationConfigurationUpdate_sqlApplicationConfigurationUpdate :: Lens.Lens' ApplicationConfigurationUpdate (Prelude.Maybe SqlApplicationConfigurationUpdate)
-applicationConfigurationUpdate_sqlApplicationConfigurationUpdate = Lens.lens (\ApplicationConfigurationUpdate' {sqlApplicationConfigurationUpdate} -> sqlApplicationConfigurationUpdate) (\s@ApplicationConfigurationUpdate' {} a -> s {sqlApplicationConfigurationUpdate = a} :: ApplicationConfigurationUpdate)
-
--- | Updates to the array of descriptions of VPC configurations available to
--- the application.
-applicationConfigurationUpdate_vpcConfigurationUpdates :: Lens.Lens' ApplicationConfigurationUpdate (Prelude.Maybe [VpcConfigurationUpdate])
-applicationConfigurationUpdate_vpcConfigurationUpdates = Lens.lens (\ApplicationConfigurationUpdate' {vpcConfigurationUpdates} -> vpcConfigurationUpdates) (\s@ApplicationConfigurationUpdate' {} a -> s {vpcConfigurationUpdates = a} :: ApplicationConfigurationUpdate) Prelude.. Lens.mapping Lens.coerced
-
--- | Describes updates to the environment properties for a Flink-based
--- Kinesis Data Analytics application.
-applicationConfigurationUpdate_environmentPropertyUpdates :: Lens.Lens' ApplicationConfigurationUpdate (Prelude.Maybe EnvironmentPropertyUpdates)
-applicationConfigurationUpdate_environmentPropertyUpdates = Lens.lens (\ApplicationConfigurationUpdate' {environmentPropertyUpdates} -> environmentPropertyUpdates) (\s@ApplicationConfigurationUpdate' {} a -> s {environmentPropertyUpdates = a} :: ApplicationConfigurationUpdate)
-
--- | Describes updates to an application\'s code configuration.
-applicationConfigurationUpdate_applicationCodeConfigurationUpdate :: Lens.Lens' ApplicationConfigurationUpdate (Prelude.Maybe ApplicationCodeConfigurationUpdate)
-applicationConfigurationUpdate_applicationCodeConfigurationUpdate = Lens.lens (\ApplicationConfigurationUpdate' {applicationCodeConfigurationUpdate} -> applicationCodeConfigurationUpdate) (\s@ApplicationConfigurationUpdate' {} a -> s {applicationCodeConfigurationUpdate = a} :: ApplicationConfigurationUpdate)
-
 instance
   Prelude.Hashable
     ApplicationConfigurationUpdate
@@ -145,44 +146,44 @@ instance
     _salt
     ApplicationConfigurationUpdate' {..} =
       _salt
+        `Prelude.hashWithSalt` vpcConfigurationUpdates
+        `Prelude.hashWithSalt` applicationCodeConfigurationUpdate
         `Prelude.hashWithSalt` applicationSnapshotConfigurationUpdate
+        `Prelude.hashWithSalt` environmentPropertyUpdates
+        `Prelude.hashWithSalt` sqlApplicationConfigurationUpdate
         `Prelude.hashWithSalt` zeppelinApplicationConfigurationUpdate
         `Prelude.hashWithSalt` flinkApplicationConfigurationUpdate
-        `Prelude.hashWithSalt` sqlApplicationConfigurationUpdate
-        `Prelude.hashWithSalt` vpcConfigurationUpdates
-        `Prelude.hashWithSalt` environmentPropertyUpdates
-        `Prelude.hashWithSalt` applicationCodeConfigurationUpdate
 
 instance
   Prelude.NFData
     ApplicationConfigurationUpdate
   where
   rnf ApplicationConfigurationUpdate' {..} =
-    Prelude.rnf applicationSnapshotConfigurationUpdate
+    Prelude.rnf vpcConfigurationUpdates
+      `Prelude.seq` Prelude.rnf applicationCodeConfigurationUpdate
+      `Prelude.seq` Prelude.rnf applicationSnapshotConfigurationUpdate
+      `Prelude.seq` Prelude.rnf environmentPropertyUpdates
+      `Prelude.seq` Prelude.rnf sqlApplicationConfigurationUpdate
       `Prelude.seq` Prelude.rnf zeppelinApplicationConfigurationUpdate
       `Prelude.seq` Prelude.rnf flinkApplicationConfigurationUpdate
-      `Prelude.seq` Prelude.rnf sqlApplicationConfigurationUpdate
-      `Prelude.seq` Prelude.rnf vpcConfigurationUpdates
-      `Prelude.seq` Prelude.rnf environmentPropertyUpdates
-      `Prelude.seq` Prelude.rnf applicationCodeConfigurationUpdate
 
 instance Core.ToJSON ApplicationConfigurationUpdate where
   toJSON ApplicationConfigurationUpdate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ApplicationSnapshotConfigurationUpdate" Core..=)
+          [ ("VpcConfigurationUpdates" Core..=)
+              Prelude.<$> vpcConfigurationUpdates,
+            ("ApplicationCodeConfigurationUpdate" Core..=)
+              Prelude.<$> applicationCodeConfigurationUpdate,
+            ("ApplicationSnapshotConfigurationUpdate" Core..=)
               Prelude.<$> applicationSnapshotConfigurationUpdate,
+            ("EnvironmentPropertyUpdates" Core..=)
+              Prelude.<$> environmentPropertyUpdates,
+            ("SqlApplicationConfigurationUpdate" Core..=)
+              Prelude.<$> sqlApplicationConfigurationUpdate,
             ("ZeppelinApplicationConfigurationUpdate" Core..=)
               Prelude.<$> zeppelinApplicationConfigurationUpdate,
             ("FlinkApplicationConfigurationUpdate" Core..=)
-              Prelude.<$> flinkApplicationConfigurationUpdate,
-            ("SqlApplicationConfigurationUpdate" Core..=)
-              Prelude.<$> sqlApplicationConfigurationUpdate,
-            ("VpcConfigurationUpdates" Core..=)
-              Prelude.<$> vpcConfigurationUpdates,
-            ("EnvironmentPropertyUpdates" Core..=)
-              Prelude.<$> environmentPropertyUpdates,
-            ("ApplicationCodeConfigurationUpdate" Core..=)
-              Prelude.<$> applicationCodeConfigurationUpdate
+              Prelude.<$> flinkApplicationConfigurationUpdate
           ]
       )

@@ -44,9 +44,9 @@ module Amazonka.KinesisAnalyticsV2.AddApplicationReferenceDataSource
     newAddApplicationReferenceDataSourceResponse,
 
     -- * Response Lenses
+    addApplicationReferenceDataSourceResponse_referenceDataSourceDescriptions,
     addApplicationReferenceDataSourceResponse_applicationARN,
     addApplicationReferenceDataSourceResponse_applicationVersionId,
-    addApplicationReferenceDataSourceResponse_referenceDataSourceDescriptions,
     addApplicationReferenceDataSourceResponse_httpStatus,
   )
 where
@@ -145,11 +145,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           AddApplicationReferenceDataSourceResponse'
-            Prelude.<$> (x Core..?> "ApplicationARN")
+            Prelude.<$> ( x Core..?> "ReferenceDataSourceDescriptions"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Core..?> "ApplicationARN")
               Prelude.<*> (x Core..?> "ApplicationVersionId")
-              Prelude.<*> ( x Core..?> "ReferenceDataSourceDescriptions"
-                              Core..!@ Prelude.mempty
-                          )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -223,13 +223,13 @@ instance
 
 -- | /See:/ 'newAddApplicationReferenceDataSourceResponse' smart constructor.
 data AddApplicationReferenceDataSourceResponse = AddApplicationReferenceDataSourceResponse'
-  { -- | The application Amazon Resource Name (ARN).
+  { -- | Describes reference data sources configured for the application.
+    referenceDataSourceDescriptions :: Prelude.Maybe [ReferenceDataSourceDescription],
+    -- | The application Amazon Resource Name (ARN).
     applicationARN :: Prelude.Maybe Prelude.Text,
     -- | The updated application version ID. Kinesis Data Analytics increments
     -- this ID when the application is updated.
     applicationVersionId :: Prelude.Maybe Prelude.Natural,
-    -- | Describes reference data sources configured for the application.
-    referenceDataSourceDescriptions :: Prelude.Maybe [ReferenceDataSourceDescription],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -243,12 +243,12 @@ data AddApplicationReferenceDataSourceResponse = AddApplicationReferenceDataSour
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'referenceDataSourceDescriptions', 'addApplicationReferenceDataSourceResponse_referenceDataSourceDescriptions' - Describes reference data sources configured for the application.
+--
 -- 'applicationARN', 'addApplicationReferenceDataSourceResponse_applicationARN' - The application Amazon Resource Name (ARN).
 --
 -- 'applicationVersionId', 'addApplicationReferenceDataSourceResponse_applicationVersionId' - The updated application version ID. Kinesis Data Analytics increments
 -- this ID when the application is updated.
---
--- 'referenceDataSourceDescriptions', 'addApplicationReferenceDataSourceResponse_referenceDataSourceDescriptions' - Describes reference data sources configured for the application.
 --
 -- 'httpStatus', 'addApplicationReferenceDataSourceResponse_httpStatus' - The response's http status code.
 newAddApplicationReferenceDataSourceResponse ::
@@ -258,14 +258,17 @@ newAddApplicationReferenceDataSourceResponse ::
 newAddApplicationReferenceDataSourceResponse
   pHttpStatus_ =
     AddApplicationReferenceDataSourceResponse'
-      { applicationARN =
+      { referenceDataSourceDescriptions =
           Prelude.Nothing,
+        applicationARN = Prelude.Nothing,
         applicationVersionId =
-          Prelude.Nothing,
-        referenceDataSourceDescriptions =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | Describes reference data sources configured for the application.
+addApplicationReferenceDataSourceResponse_referenceDataSourceDescriptions :: Lens.Lens' AddApplicationReferenceDataSourceResponse (Prelude.Maybe [ReferenceDataSourceDescription])
+addApplicationReferenceDataSourceResponse_referenceDataSourceDescriptions = Lens.lens (\AddApplicationReferenceDataSourceResponse' {referenceDataSourceDescriptions} -> referenceDataSourceDescriptions) (\s@AddApplicationReferenceDataSourceResponse' {} a -> s {referenceDataSourceDescriptions = a} :: AddApplicationReferenceDataSourceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The application Amazon Resource Name (ARN).
 addApplicationReferenceDataSourceResponse_applicationARN :: Lens.Lens' AddApplicationReferenceDataSourceResponse (Prelude.Maybe Prelude.Text)
@@ -276,10 +279,6 @@ addApplicationReferenceDataSourceResponse_applicationARN = Lens.lens (\AddApplic
 addApplicationReferenceDataSourceResponse_applicationVersionId :: Lens.Lens' AddApplicationReferenceDataSourceResponse (Prelude.Maybe Prelude.Natural)
 addApplicationReferenceDataSourceResponse_applicationVersionId = Lens.lens (\AddApplicationReferenceDataSourceResponse' {applicationVersionId} -> applicationVersionId) (\s@AddApplicationReferenceDataSourceResponse' {} a -> s {applicationVersionId = a} :: AddApplicationReferenceDataSourceResponse)
 
--- | Describes reference data sources configured for the application.
-addApplicationReferenceDataSourceResponse_referenceDataSourceDescriptions :: Lens.Lens' AddApplicationReferenceDataSourceResponse (Prelude.Maybe [ReferenceDataSourceDescription])
-addApplicationReferenceDataSourceResponse_referenceDataSourceDescriptions = Lens.lens (\AddApplicationReferenceDataSourceResponse' {referenceDataSourceDescriptions} -> referenceDataSourceDescriptions) (\s@AddApplicationReferenceDataSourceResponse' {} a -> s {referenceDataSourceDescriptions = a} :: AddApplicationReferenceDataSourceResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 addApplicationReferenceDataSourceResponse_httpStatus :: Lens.Lens' AddApplicationReferenceDataSourceResponse Prelude.Int
 addApplicationReferenceDataSourceResponse_httpStatus = Lens.lens (\AddApplicationReferenceDataSourceResponse' {httpStatus} -> httpStatus) (\s@AddApplicationReferenceDataSourceResponse' {} a -> s {httpStatus = a} :: AddApplicationReferenceDataSourceResponse)
@@ -289,7 +288,7 @@ instance
     AddApplicationReferenceDataSourceResponse
   where
   rnf AddApplicationReferenceDataSourceResponse' {..} =
-    Prelude.rnf applicationARN
+    Prelude.rnf referenceDataSourceDescriptions
+      `Prelude.seq` Prelude.rnf applicationARN
       `Prelude.seq` Prelude.rnf applicationVersionId
-      `Prelude.seq` Prelude.rnf referenceDataSourceDescriptions
       `Prelude.seq` Prelude.rnf httpStatus

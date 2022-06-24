@@ -14,110 +14,24 @@
 module Amazonka.KinesisAnalyticsV2.Lens
   ( -- * Operations
 
-    -- ** AddApplicationOutput
-    addApplicationOutput_applicationName,
-    addApplicationOutput_currentApplicationVersionId,
-    addApplicationOutput_output,
-    addApplicationOutputResponse_applicationARN,
-    addApplicationOutputResponse_outputDescriptions,
-    addApplicationOutputResponse_applicationVersionId,
-    addApplicationOutputResponse_httpStatus,
+    -- ** AddApplicationCloudWatchLoggingOption
+    addApplicationCloudWatchLoggingOption_conditionalToken,
+    addApplicationCloudWatchLoggingOption_currentApplicationVersionId,
+    addApplicationCloudWatchLoggingOption_applicationName,
+    addApplicationCloudWatchLoggingOption_cloudWatchLoggingOption,
+    addApplicationCloudWatchLoggingOptionResponse_applicationARN,
+    addApplicationCloudWatchLoggingOptionResponse_cloudWatchLoggingOptionDescriptions,
+    addApplicationCloudWatchLoggingOptionResponse_applicationVersionId,
+    addApplicationCloudWatchLoggingOptionResponse_httpStatus,
 
-    -- ** DiscoverInputSchema
-    discoverInputSchema_inputStartingPositionConfiguration,
-    discoverInputSchema_inputProcessingConfiguration,
-    discoverInputSchema_s3Configuration,
-    discoverInputSchema_resourceARN,
-    discoverInputSchema_serviceExecutionRole,
-    discoverInputSchemaResponse_rawInputRecords,
-    discoverInputSchemaResponse_inputSchema,
-    discoverInputSchemaResponse_processedInputRecords,
-    discoverInputSchemaResponse_parsedInputRecords,
-    discoverInputSchemaResponse_httpStatus,
-
-    -- ** DescribeApplication
-    describeApplication_includeAdditionalDetails,
-    describeApplication_applicationName,
-    describeApplicationResponse_httpStatus,
-    describeApplicationResponse_applicationDetail,
-
-    -- ** DeleteApplicationSnapshot
-    deleteApplicationSnapshot_applicationName,
-    deleteApplicationSnapshot_snapshotName,
-    deleteApplicationSnapshot_snapshotCreationTimestamp,
-    deleteApplicationSnapshotResponse_httpStatus,
-
-    -- ** StartApplication
-    startApplication_runConfiguration,
-    startApplication_applicationName,
-    startApplicationResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceARN,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** DescribeApplicationVersion
-    describeApplicationVersion_applicationName,
-    describeApplicationVersion_applicationVersionId,
-    describeApplicationVersionResponse_applicationVersionDetail,
-    describeApplicationVersionResponse_httpStatus,
-
-    -- ** DeleteApplicationReferenceDataSource
-    deleteApplicationReferenceDataSource_applicationName,
-    deleteApplicationReferenceDataSource_currentApplicationVersionId,
-    deleteApplicationReferenceDataSource_referenceId,
-    deleteApplicationReferenceDataSourceResponse_applicationARN,
-    deleteApplicationReferenceDataSourceResponse_applicationVersionId,
-    deleteApplicationReferenceDataSourceResponse_httpStatus,
-
-    -- ** CreateApplicationPresignedUrl
-    createApplicationPresignedUrl_sessionExpirationDurationInSeconds,
-    createApplicationPresignedUrl_applicationName,
-    createApplicationPresignedUrl_urlType,
-    createApplicationPresignedUrlResponse_authorizedUrl,
-    createApplicationPresignedUrlResponse_httpStatus,
-
-    -- ** DeleteApplication
-    deleteApplication_applicationName,
-    deleteApplication_createTimestamp,
-    deleteApplicationResponse_httpStatus,
-
-    -- ** UpdateApplication
-    updateApplication_currentApplicationVersionId,
-    updateApplication_serviceExecutionRoleUpdate,
-    updateApplication_cloudWatchLoggingOptionUpdates,
-    updateApplication_conditionalToken,
-    updateApplication_applicationConfigurationUpdate,
-    updateApplication_runConfigurationUpdate,
-    updateApplication_applicationName,
-    updateApplicationResponse_httpStatus,
-    updateApplicationResponse_applicationDetail,
-
-    -- ** DeleteApplicationCloudWatchLoggingOption
-    deleteApplicationCloudWatchLoggingOption_currentApplicationVersionId,
-    deleteApplicationCloudWatchLoggingOption_conditionalToken,
-    deleteApplicationCloudWatchLoggingOption_applicationName,
-    deleteApplicationCloudWatchLoggingOption_cloudWatchLoggingOptionId,
-    deleteApplicationCloudWatchLoggingOptionResponse_applicationARN,
-    deleteApplicationCloudWatchLoggingOptionResponse_applicationVersionId,
-    deleteApplicationCloudWatchLoggingOptionResponse_cloudWatchLoggingOptionDescriptions,
-    deleteApplicationCloudWatchLoggingOptionResponse_httpStatus,
-
-    -- ** DescribeApplicationSnapshot
-    describeApplicationSnapshot_applicationName,
-    describeApplicationSnapshot_snapshotName,
-    describeApplicationSnapshotResponse_httpStatus,
-    describeApplicationSnapshotResponse_snapshotDetails,
-
-    -- ** DeleteApplicationVpcConfiguration
-    deleteApplicationVpcConfiguration_currentApplicationVersionId,
-    deleteApplicationVpcConfiguration_conditionalToken,
-    deleteApplicationVpcConfiguration_applicationName,
-    deleteApplicationVpcConfiguration_vpcConfigurationId,
-    deleteApplicationVpcConfigurationResponse_applicationARN,
-    deleteApplicationVpcConfigurationResponse_applicationVersionId,
-    deleteApplicationVpcConfigurationResponse_httpStatus,
+    -- ** AddApplicationInput
+    addApplicationInput_applicationName,
+    addApplicationInput_currentApplicationVersionId,
+    addApplicationInput_input,
+    addApplicationInputResponse_inputDescriptions,
+    addApplicationInputResponse_applicationARN,
+    addApplicationInputResponse_applicationVersionId,
+    addApplicationInputResponse_httpStatus,
 
     -- ** AddApplicationInputProcessingConfiguration
     addApplicationInputProcessingConfiguration_applicationName,
@@ -126,106 +40,76 @@ module Amazonka.KinesisAnalyticsV2.Lens
     addApplicationInputProcessingConfiguration_inputProcessingConfiguration,
     addApplicationInputProcessingConfigurationResponse_applicationARN,
     addApplicationInputProcessingConfigurationResponse_applicationVersionId,
-    addApplicationInputProcessingConfigurationResponse_inputId,
     addApplicationInputProcessingConfigurationResponse_inputProcessingConfigurationDescription,
+    addApplicationInputProcessingConfigurationResponse_inputId,
     addApplicationInputProcessingConfigurationResponse_httpStatus,
 
+    -- ** AddApplicationOutput
+    addApplicationOutput_applicationName,
+    addApplicationOutput_currentApplicationVersionId,
+    addApplicationOutput_output,
+    addApplicationOutputResponse_applicationARN,
+    addApplicationOutputResponse_applicationVersionId,
+    addApplicationOutputResponse_outputDescriptions,
+    addApplicationOutputResponse_httpStatus,
+
+    -- ** AddApplicationReferenceDataSource
+    addApplicationReferenceDataSource_applicationName,
+    addApplicationReferenceDataSource_currentApplicationVersionId,
+    addApplicationReferenceDataSource_referenceDataSource,
+    addApplicationReferenceDataSourceResponse_referenceDataSourceDescriptions,
+    addApplicationReferenceDataSourceResponse_applicationARN,
+    addApplicationReferenceDataSourceResponse_applicationVersionId,
+    addApplicationReferenceDataSourceResponse_httpStatus,
+
+    -- ** AddApplicationVpcConfiguration
+    addApplicationVpcConfiguration_conditionalToken,
+    addApplicationVpcConfiguration_currentApplicationVersionId,
+    addApplicationVpcConfiguration_applicationName,
+    addApplicationVpcConfiguration_vpcConfiguration,
+    addApplicationVpcConfigurationResponse_applicationARN,
+    addApplicationVpcConfigurationResponse_applicationVersionId,
+    addApplicationVpcConfigurationResponse_vpcConfigurationDescription,
+    addApplicationVpcConfigurationResponse_httpStatus,
+
     -- ** CreateApplication
-    createApplication_applicationDescription,
-    createApplication_cloudWatchLoggingOptions,
+    createApplication_tags,
     createApplication_applicationMode,
     createApplication_applicationConfiguration,
-    createApplication_tags,
+    createApplication_cloudWatchLoggingOptions,
+    createApplication_applicationDescription,
     createApplication_applicationName,
     createApplication_runtimeEnvironment,
     createApplication_serviceExecutionRole,
     createApplicationResponse_httpStatus,
     createApplicationResponse_applicationDetail,
 
-    -- ** ListApplicationVersions
-    listApplicationVersions_nextToken,
-    listApplicationVersions_limit,
-    listApplicationVersions_applicationName,
-    listApplicationVersionsResponse_applicationVersionSummaries,
-    listApplicationVersionsResponse_nextToken,
-    listApplicationVersionsResponse_httpStatus,
-
-    -- ** DeleteApplicationOutput
-    deleteApplicationOutput_applicationName,
-    deleteApplicationOutput_currentApplicationVersionId,
-    deleteApplicationOutput_outputId,
-    deleteApplicationOutputResponse_applicationARN,
-    deleteApplicationOutputResponse_applicationVersionId,
-    deleteApplicationOutputResponse_httpStatus,
-
-    -- ** RollbackApplication
-    rollbackApplication_applicationName,
-    rollbackApplication_currentApplicationVersionId,
-    rollbackApplicationResponse_httpStatus,
-    rollbackApplicationResponse_applicationDetail,
-
-    -- ** ListApplicationSnapshots
-    listApplicationSnapshots_nextToken,
-    listApplicationSnapshots_limit,
-    listApplicationSnapshots_applicationName,
-    listApplicationSnapshotsResponse_snapshotSummaries,
-    listApplicationSnapshotsResponse_nextToken,
-    listApplicationSnapshotsResponse_httpStatus,
-
-    -- ** StopApplication
-    stopApplication_force,
-    stopApplication_applicationName,
-    stopApplicationResponse_httpStatus,
+    -- ** CreateApplicationPresignedUrl
+    createApplicationPresignedUrl_sessionExpirationDurationInSeconds,
+    createApplicationPresignedUrl_applicationName,
+    createApplicationPresignedUrl_urlType,
+    createApplicationPresignedUrlResponse_authorizedUrl,
+    createApplicationPresignedUrlResponse_httpStatus,
 
     -- ** CreateApplicationSnapshot
     createApplicationSnapshot_applicationName,
     createApplicationSnapshot_snapshotName,
     createApplicationSnapshotResponse_httpStatus,
 
-    -- ** AddApplicationReferenceDataSource
-    addApplicationReferenceDataSource_applicationName,
-    addApplicationReferenceDataSource_currentApplicationVersionId,
-    addApplicationReferenceDataSource_referenceDataSource,
-    addApplicationReferenceDataSourceResponse_applicationARN,
-    addApplicationReferenceDataSourceResponse_applicationVersionId,
-    addApplicationReferenceDataSourceResponse_referenceDataSourceDescriptions,
-    addApplicationReferenceDataSourceResponse_httpStatus,
+    -- ** DeleteApplication
+    deleteApplication_applicationName,
+    deleteApplication_createTimestamp,
+    deleteApplicationResponse_httpStatus,
 
-    -- ** AddApplicationInput
-    addApplicationInput_applicationName,
-    addApplicationInput_currentApplicationVersionId,
-    addApplicationInput_input,
-    addApplicationInputResponse_applicationARN,
-    addApplicationInputResponse_applicationVersionId,
-    addApplicationInputResponse_inputDescriptions,
-    addApplicationInputResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceARN,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
-    -- ** AddApplicationCloudWatchLoggingOption
-    addApplicationCloudWatchLoggingOption_currentApplicationVersionId,
-    addApplicationCloudWatchLoggingOption_conditionalToken,
-    addApplicationCloudWatchLoggingOption_applicationName,
-    addApplicationCloudWatchLoggingOption_cloudWatchLoggingOption,
-    addApplicationCloudWatchLoggingOptionResponse_applicationARN,
-    addApplicationCloudWatchLoggingOptionResponse_applicationVersionId,
-    addApplicationCloudWatchLoggingOptionResponse_cloudWatchLoggingOptionDescriptions,
-    addApplicationCloudWatchLoggingOptionResponse_httpStatus,
-
-    -- ** ListApplications
-    listApplications_nextToken,
-    listApplications_limit,
-    listApplicationsResponse_nextToken,
-    listApplicationsResponse_httpStatus,
-    listApplicationsResponse_applicationSummaries,
-
-    -- ** UntagResource
-    untagResource_resourceARN,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
+    -- ** DeleteApplicationCloudWatchLoggingOption
+    deleteApplicationCloudWatchLoggingOption_conditionalToken,
+    deleteApplicationCloudWatchLoggingOption_currentApplicationVersionId,
+    deleteApplicationCloudWatchLoggingOption_applicationName,
+    deleteApplicationCloudWatchLoggingOption_cloudWatchLoggingOptionId,
+    deleteApplicationCloudWatchLoggingOptionResponse_applicationARN,
+    deleteApplicationCloudWatchLoggingOptionResponse_cloudWatchLoggingOptionDescriptions,
+    deleteApplicationCloudWatchLoggingOptionResponse_applicationVersionId,
+    deleteApplicationCloudWatchLoggingOptionResponse_httpStatus,
 
     -- ** DeleteApplicationInputProcessingConfiguration
     deleteApplicationInputProcessingConfiguration_applicationName,
@@ -235,15 +119,131 @@ module Amazonka.KinesisAnalyticsV2.Lens
     deleteApplicationInputProcessingConfigurationResponse_applicationVersionId,
     deleteApplicationInputProcessingConfigurationResponse_httpStatus,
 
-    -- ** AddApplicationVpcConfiguration
-    addApplicationVpcConfiguration_currentApplicationVersionId,
-    addApplicationVpcConfiguration_conditionalToken,
-    addApplicationVpcConfiguration_applicationName,
-    addApplicationVpcConfiguration_vpcConfiguration,
-    addApplicationVpcConfigurationResponse_applicationARN,
-    addApplicationVpcConfigurationResponse_applicationVersionId,
-    addApplicationVpcConfigurationResponse_vpcConfigurationDescription,
-    addApplicationVpcConfigurationResponse_httpStatus,
+    -- ** DeleteApplicationOutput
+    deleteApplicationOutput_applicationName,
+    deleteApplicationOutput_currentApplicationVersionId,
+    deleteApplicationOutput_outputId,
+    deleteApplicationOutputResponse_applicationARN,
+    deleteApplicationOutputResponse_applicationVersionId,
+    deleteApplicationOutputResponse_httpStatus,
+
+    -- ** DeleteApplicationReferenceDataSource
+    deleteApplicationReferenceDataSource_applicationName,
+    deleteApplicationReferenceDataSource_currentApplicationVersionId,
+    deleteApplicationReferenceDataSource_referenceId,
+    deleteApplicationReferenceDataSourceResponse_applicationARN,
+    deleteApplicationReferenceDataSourceResponse_applicationVersionId,
+    deleteApplicationReferenceDataSourceResponse_httpStatus,
+
+    -- ** DeleteApplicationSnapshot
+    deleteApplicationSnapshot_applicationName,
+    deleteApplicationSnapshot_snapshotName,
+    deleteApplicationSnapshot_snapshotCreationTimestamp,
+    deleteApplicationSnapshotResponse_httpStatus,
+
+    -- ** DeleteApplicationVpcConfiguration
+    deleteApplicationVpcConfiguration_conditionalToken,
+    deleteApplicationVpcConfiguration_currentApplicationVersionId,
+    deleteApplicationVpcConfiguration_applicationName,
+    deleteApplicationVpcConfiguration_vpcConfigurationId,
+    deleteApplicationVpcConfigurationResponse_applicationARN,
+    deleteApplicationVpcConfigurationResponse_applicationVersionId,
+    deleteApplicationVpcConfigurationResponse_httpStatus,
+
+    -- ** DescribeApplication
+    describeApplication_includeAdditionalDetails,
+    describeApplication_applicationName,
+    describeApplicationResponse_httpStatus,
+    describeApplicationResponse_applicationDetail,
+
+    -- ** DescribeApplicationSnapshot
+    describeApplicationSnapshot_applicationName,
+    describeApplicationSnapshot_snapshotName,
+    describeApplicationSnapshotResponse_httpStatus,
+    describeApplicationSnapshotResponse_snapshotDetails,
+
+    -- ** DescribeApplicationVersion
+    describeApplicationVersion_applicationName,
+    describeApplicationVersion_applicationVersionId,
+    describeApplicationVersionResponse_applicationVersionDetail,
+    describeApplicationVersionResponse_httpStatus,
+
+    -- ** DiscoverInputSchema
+    discoverInputSchema_s3Configuration,
+    discoverInputSchema_inputProcessingConfiguration,
+    discoverInputSchema_inputStartingPositionConfiguration,
+    discoverInputSchema_resourceARN,
+    discoverInputSchema_serviceExecutionRole,
+    discoverInputSchemaResponse_parsedInputRecords,
+    discoverInputSchemaResponse_processedInputRecords,
+    discoverInputSchemaResponse_rawInputRecords,
+    discoverInputSchemaResponse_inputSchema,
+    discoverInputSchemaResponse_httpStatus,
+
+    -- ** ListApplicationSnapshots
+    listApplicationSnapshots_nextToken,
+    listApplicationSnapshots_limit,
+    listApplicationSnapshots_applicationName,
+    listApplicationSnapshotsResponse_nextToken,
+    listApplicationSnapshotsResponse_snapshotSummaries,
+    listApplicationSnapshotsResponse_httpStatus,
+
+    -- ** ListApplicationVersions
+    listApplicationVersions_nextToken,
+    listApplicationVersions_limit,
+    listApplicationVersions_applicationName,
+    listApplicationVersionsResponse_applicationVersionSummaries,
+    listApplicationVersionsResponse_nextToken,
+    listApplicationVersionsResponse_httpStatus,
+
+    -- ** ListApplications
+    listApplications_nextToken,
+    listApplications_limit,
+    listApplicationsResponse_nextToken,
+    listApplicationsResponse_httpStatus,
+    listApplicationsResponse_applicationSummaries,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceARN,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** RollbackApplication
+    rollbackApplication_applicationName,
+    rollbackApplication_currentApplicationVersionId,
+    rollbackApplicationResponse_httpStatus,
+    rollbackApplicationResponse_applicationDetail,
+
+    -- ** StartApplication
+    startApplication_runConfiguration,
+    startApplication_applicationName,
+    startApplicationResponse_httpStatus,
+
+    -- ** StopApplication
+    stopApplication_force,
+    stopApplication_applicationName,
+    stopApplicationResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceARN,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceARN,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
+
+    -- ** UpdateApplication
+    updateApplication_applicationConfigurationUpdate,
+    updateApplication_serviceExecutionRoleUpdate,
+    updateApplication_conditionalToken,
+    updateApplication_currentApplicationVersionId,
+    updateApplication_runConfigurationUpdate,
+    updateApplication_cloudWatchLoggingOptionUpdates,
+    updateApplication_applicationName,
+    updateApplicationResponse_httpStatus,
+    updateApplicationResponse_applicationDetail,
 
     -- ** UpdateApplicationMaintenanceConfiguration
     updateApplicationMaintenanceConfiguration_applicationName,
@@ -268,45 +268,45 @@ module Amazonka.KinesisAnalyticsV2.Lens
 
     -- ** ApplicationConfiguration
     applicationConfiguration_applicationSnapshotConfiguration,
-    applicationConfiguration_vpcConfigurations,
-    applicationConfiguration_environmentProperties,
+    applicationConfiguration_zeppelinApplicationConfiguration,
     applicationConfiguration_flinkApplicationConfiguration,
     applicationConfiguration_sqlApplicationConfiguration,
     applicationConfiguration_applicationCodeConfiguration,
-    applicationConfiguration_zeppelinApplicationConfiguration,
+    applicationConfiguration_vpcConfigurations,
+    applicationConfiguration_environmentProperties,
 
     -- ** ApplicationConfigurationDescription
-    applicationConfigurationDescription_zeppelinApplicationConfigurationDescription,
-    applicationConfigurationDescription_vpcConfigurationDescriptions,
-    applicationConfigurationDescription_applicationCodeConfigurationDescription,
-    applicationConfigurationDescription_environmentPropertyDescriptions,
-    applicationConfigurationDescription_runConfigurationDescription,
     applicationConfigurationDescription_sqlApplicationConfigurationDescription,
-    applicationConfigurationDescription_flinkApplicationConfigurationDescription,
     applicationConfigurationDescription_applicationSnapshotConfigurationDescription,
+    applicationConfigurationDescription_vpcConfigurationDescriptions,
+    applicationConfigurationDescription_zeppelinApplicationConfigurationDescription,
+    applicationConfigurationDescription_runConfigurationDescription,
+    applicationConfigurationDescription_applicationCodeConfigurationDescription,
+    applicationConfigurationDescription_flinkApplicationConfigurationDescription,
+    applicationConfigurationDescription_environmentPropertyDescriptions,
 
     -- ** ApplicationConfigurationUpdate
+    applicationConfigurationUpdate_vpcConfigurationUpdates,
+    applicationConfigurationUpdate_applicationCodeConfigurationUpdate,
     applicationConfigurationUpdate_applicationSnapshotConfigurationUpdate,
+    applicationConfigurationUpdate_environmentPropertyUpdates,
+    applicationConfigurationUpdate_sqlApplicationConfigurationUpdate,
     applicationConfigurationUpdate_zeppelinApplicationConfigurationUpdate,
     applicationConfigurationUpdate_flinkApplicationConfigurationUpdate,
-    applicationConfigurationUpdate_sqlApplicationConfigurationUpdate,
-    applicationConfigurationUpdate_vpcConfigurationUpdates,
-    applicationConfigurationUpdate_environmentPropertyUpdates,
-    applicationConfigurationUpdate_applicationCodeConfigurationUpdate,
 
     -- ** ApplicationDetail
-    applicationDetail_applicationDescription,
+    applicationDetail_lastUpdateTimestamp,
+    applicationDetail_applicationMode,
+    applicationDetail_createTimestamp,
+    applicationDetail_applicationMaintenanceConfigurationDescription,
     applicationDetail_conditionalToken,
     applicationDetail_cloudWatchLoggingOptionDescriptions,
-    applicationDetail_applicationVersionRolledBackFrom,
-    applicationDetail_applicationMode,
-    applicationDetail_applicationConfigurationDescription,
     applicationDetail_applicationVersionRolledBackTo,
-    applicationDetail_createTimestamp,
-    applicationDetail_lastUpdateTimestamp,
-    applicationDetail_serviceExecutionRole,
     applicationDetail_applicationVersionUpdatedFrom,
-    applicationDetail_applicationMaintenanceConfigurationDescription,
+    applicationDetail_applicationConfigurationDescription,
+    applicationDetail_applicationVersionRolledBackFrom,
+    applicationDetail_applicationDescription,
+    applicationDetail_serviceExecutionRole,
     applicationDetail_applicationARN,
     applicationDetail_applicationName,
     applicationDetail_runtimeEnvironment,
@@ -366,22 +366,22 @@ module Amazonka.KinesisAnalyticsV2.Lens
 
     -- ** CheckpointConfigurationDescription
     checkpointConfigurationDescription_checkpointingEnabled,
-    checkpointConfigurationDescription_configurationType,
     checkpointConfigurationDescription_minPauseBetweenCheckpoints,
+    checkpointConfigurationDescription_configurationType,
     checkpointConfigurationDescription_checkpointInterval,
 
     -- ** CheckpointConfigurationUpdate
     checkpointConfigurationUpdate_checkpointIntervalUpdate,
-    checkpointConfigurationUpdate_checkpointingEnabledUpdate,
     checkpointConfigurationUpdate_minPauseBetweenCheckpointsUpdate,
     checkpointConfigurationUpdate_configurationTypeUpdate,
+    checkpointConfigurationUpdate_checkpointingEnabledUpdate,
 
     -- ** CloudWatchLoggingOption
     cloudWatchLoggingOption_logStreamARN,
 
     -- ** CloudWatchLoggingOptionDescription
-    cloudWatchLoggingOptionDescription_cloudWatchLoggingOptionId,
     cloudWatchLoggingOptionDescription_roleARN,
+    cloudWatchLoggingOptionDescription_cloudWatchLoggingOptionId,
     cloudWatchLoggingOptionDescription_logStreamARN,
 
     -- ** CloudWatchLoggingOptionUpdate
@@ -394,15 +394,15 @@ module Amazonka.KinesisAnalyticsV2.Lens
     codeContent_zipFileContent,
 
     -- ** CodeContentDescription
-    codeContentDescription_s3ApplicationCodeLocationDescription,
-    codeContentDescription_codeMD5,
     codeContentDescription_textContent,
+    codeContentDescription_codeMD5,
+    codeContentDescription_s3ApplicationCodeLocationDescription,
     codeContentDescription_codeSize,
 
     -- ** CodeContentUpdate
+    codeContentUpdate_s3ContentLocationUpdate,
     codeContentUpdate_textContentUpdate,
     codeContentUpdate_zipFileContentUpdate,
-    codeContentUpdate_s3ContentLocationUpdate,
 
     -- ** CustomArtifactConfiguration
     customArtifactConfiguration_s3ContentLocation,
@@ -410,9 +410,9 @@ module Amazonka.KinesisAnalyticsV2.Lens
     customArtifactConfiguration_artifactType,
 
     -- ** CustomArtifactConfigurationDescription
+    customArtifactConfigurationDescription_artifactType,
     customArtifactConfigurationDescription_mavenReferenceDescription,
     customArtifactConfigurationDescription_s3ContentLocationDescription,
-    customArtifactConfigurationDescription_artifactType,
 
     -- ** DeployAsApplicationConfiguration
     deployAsApplicationConfiguration_s3ContentLocation,
@@ -436,20 +436,20 @@ module Amazonka.KinesisAnalyticsV2.Lens
     environmentPropertyUpdates_propertyGroups,
 
     -- ** FlinkApplicationConfiguration
-    flinkApplicationConfiguration_monitoringConfiguration,
     flinkApplicationConfiguration_parallelismConfiguration,
+    flinkApplicationConfiguration_monitoringConfiguration,
     flinkApplicationConfiguration_checkpointConfiguration,
 
     -- ** FlinkApplicationConfigurationDescription
-    flinkApplicationConfigurationDescription_monitoringConfigurationDescription,
-    flinkApplicationConfigurationDescription_parallelismConfigurationDescription,
     flinkApplicationConfigurationDescription_checkpointConfigurationDescription,
     flinkApplicationConfigurationDescription_jobPlanDescription,
+    flinkApplicationConfigurationDescription_parallelismConfigurationDescription,
+    flinkApplicationConfigurationDescription_monitoringConfigurationDescription,
 
     -- ** FlinkApplicationConfigurationUpdate
-    flinkApplicationConfigurationUpdate_checkpointConfigurationUpdate,
-    flinkApplicationConfigurationUpdate_parallelismConfigurationUpdate,
     flinkApplicationConfigurationUpdate_monitoringConfigurationUpdate,
+    flinkApplicationConfigurationUpdate_parallelismConfigurationUpdate,
+    flinkApplicationConfigurationUpdate_checkpointConfigurationUpdate,
 
     -- ** FlinkRunConfiguration
     flinkRunConfiguration_allowNonRestoredState,
@@ -464,23 +464,23 @@ module Amazonka.KinesisAnalyticsV2.Lens
     glueDataCatalogConfigurationUpdate_databaseARNUpdate,
 
     -- ** Input
-    input_inputParallelism,
-    input_inputProcessingConfiguration,
-    input_kinesisStreamsInput,
     input_kinesisFirehoseInput,
+    input_inputProcessingConfiguration,
+    input_inputParallelism,
+    input_kinesisStreamsInput,
     input_namePrefix,
     input_inputSchema,
 
     -- ** InputDescription
-    inputDescription_inputStartingPositionConfiguration,
-    inputDescription_inputParallelism,
-    inputDescription_inputId,
     inputDescription_inAppStreamNames,
     inputDescription_kinesisFirehoseInputDescription,
-    inputDescription_inputSchema,
     inputDescription_kinesisStreamsInputDescription,
-    inputDescription_namePrefix,
+    inputDescription_inputParallelism,
     inputDescription_inputProcessingConfigurationDescription,
+    inputDescription_namePrefix,
+    inputDescription_inputStartingPositionConfiguration,
+    inputDescription_inputId,
+    inputDescription_inputSchema,
 
     -- ** InputLambdaProcessor
     inputLambdaProcessor_resourceARN,
@@ -508,20 +508,20 @@ module Amazonka.KinesisAnalyticsV2.Lens
     inputProcessingConfigurationUpdate_inputLambdaProcessorUpdate,
 
     -- ** InputSchemaUpdate
-    inputSchemaUpdate_recordFormatUpdate,
     inputSchemaUpdate_recordEncodingUpdate,
     inputSchemaUpdate_recordColumnUpdates,
+    inputSchemaUpdate_recordFormatUpdate,
 
     -- ** InputStartingPositionConfiguration
     inputStartingPositionConfiguration_inputStartingPosition,
 
     -- ** InputUpdate
-    inputUpdate_inputProcessingConfigurationUpdate,
-    inputUpdate_kinesisStreamsInputUpdate,
     inputUpdate_inputParallelismUpdate,
+    inputUpdate_inputProcessingConfigurationUpdate,
     inputUpdate_namePrefixUpdate,
-    inputUpdate_inputSchemaUpdate,
     inputUpdate_kinesisFirehoseInputUpdate,
+    inputUpdate_inputSchemaUpdate,
+    inputUpdate_kinesisStreamsInputUpdate,
     inputUpdate_inputId,
 
     -- ** JSONMappingParameters
@@ -593,55 +593,55 @@ module Amazonka.KinesisAnalyticsV2.Lens
 
     -- ** MonitoringConfigurationDescription
     monitoringConfigurationDescription_logLevel,
-    monitoringConfigurationDescription_configurationType,
     monitoringConfigurationDescription_metricsLevel,
+    monitoringConfigurationDescription_configurationType,
 
     -- ** MonitoringConfigurationUpdate
     monitoringConfigurationUpdate_metricsLevelUpdate,
-    monitoringConfigurationUpdate_logLevelUpdate,
     monitoringConfigurationUpdate_configurationTypeUpdate,
+    monitoringConfigurationUpdate_logLevelUpdate,
 
     -- ** Output
+    output_kinesisFirehoseOutput,
     output_lambdaOutput,
     output_kinesisStreamsOutput,
-    output_kinesisFirehoseOutput,
     output_name,
     output_destinationSchema,
 
     -- ** OutputDescription
-    outputDescription_outputId,
-    outputDescription_destinationSchema,
-    outputDescription_kinesisFirehoseOutputDescription,
-    outputDescription_kinesisStreamsOutputDescription,
     outputDescription_name,
+    outputDescription_outputId,
+    outputDescription_kinesisStreamsOutputDescription,
     outputDescription_lambdaOutputDescription,
+    outputDescription_kinesisFirehoseOutputDescription,
+    outputDescription_destinationSchema,
 
     -- ** OutputUpdate
-    outputUpdate_kinesisStreamsOutputUpdate,
+    outputUpdate_lambdaOutputUpdate,
+    outputUpdate_nameUpdate,
     outputUpdate_destinationSchemaUpdate,
     outputUpdate_kinesisFirehoseOutputUpdate,
-    outputUpdate_nameUpdate,
-    outputUpdate_lambdaOutputUpdate,
+    outputUpdate_kinesisStreamsOutputUpdate,
     outputUpdate_outputId,
 
     -- ** ParallelismConfiguration
-    parallelismConfiguration_autoScalingEnabled,
     parallelismConfiguration_parallelismPerKPU,
+    parallelismConfiguration_autoScalingEnabled,
     parallelismConfiguration_parallelism,
     parallelismConfiguration_configurationType,
 
     -- ** ParallelismConfigurationDescription
-    parallelismConfigurationDescription_autoScalingEnabled,
-    parallelismConfigurationDescription_currentParallelism,
     parallelismConfigurationDescription_parallelismPerKPU,
-    parallelismConfigurationDescription_configurationType,
+    parallelismConfigurationDescription_currentParallelism,
+    parallelismConfigurationDescription_autoScalingEnabled,
     parallelismConfigurationDescription_parallelism,
+    parallelismConfigurationDescription_configurationType,
 
     -- ** ParallelismConfigurationUpdate
+    parallelismConfigurationUpdate_configurationTypeUpdate,
+    parallelismConfigurationUpdate_parallelismPerKPUUpdate,
     parallelismConfigurationUpdate_parallelismUpdate,
     parallelismConfigurationUpdate_autoScalingEnabledUpdate,
-    parallelismConfigurationUpdate_parallelismPerKPUUpdate,
-    parallelismConfigurationUpdate_configurationTypeUpdate,
 
     -- ** PropertyGroup
     propertyGroup_propertyGroupId,
@@ -669,18 +669,18 @@ module Amazonka.KinesisAnalyticsV2.Lens
 
     -- ** ReferenceDataSourceUpdate
     referenceDataSourceUpdate_tableNameUpdate,
-    referenceDataSourceUpdate_s3ReferenceDataSourceUpdate,
     referenceDataSourceUpdate_referenceSchemaUpdate,
+    referenceDataSourceUpdate_s3ReferenceDataSourceUpdate,
     referenceDataSourceUpdate_referenceId,
 
     -- ** RunConfiguration
-    runConfiguration_sqlRunConfigurations,
     runConfiguration_flinkRunConfiguration,
     runConfiguration_applicationRestoreConfiguration,
+    runConfiguration_sqlRunConfigurations,
 
     -- ** RunConfigurationDescription
-    runConfigurationDescription_applicationRestoreConfigurationDescription,
     runConfigurationDescription_flinkRunConfigurationDescription,
+    runConfigurationDescription_applicationRestoreConfigurationDescription,
 
     -- ** RunConfigurationUpdate
     runConfigurationUpdate_flinkRunConfiguration,
@@ -713,13 +713,13 @@ module Amazonka.KinesisAnalyticsV2.Lens
     s3ContentLocation_fileKey,
 
     -- ** S3ContentLocationUpdate
+    s3ContentLocationUpdate_objectVersionUpdate,
     s3ContentLocationUpdate_bucketARNUpdate,
     s3ContentLocationUpdate_fileKeyUpdate,
-    s3ContentLocationUpdate_objectVersionUpdate,
 
     -- ** S3ReferenceDataSource
-    s3ReferenceDataSource_bucketARN,
     s3ReferenceDataSource_fileKey,
+    s3ReferenceDataSource_bucketARN,
 
     -- ** S3ReferenceDataSourceDescription
     s3ReferenceDataSourceDescription_referenceRoleARN,
@@ -742,19 +742,19 @@ module Amazonka.KinesisAnalyticsV2.Lens
     sourceSchema_recordColumns,
 
     -- ** SqlApplicationConfiguration
+    sqlApplicationConfiguration_outputs,
     sqlApplicationConfiguration_inputs,
     sqlApplicationConfiguration_referenceDataSources,
-    sqlApplicationConfiguration_outputs,
 
     -- ** SqlApplicationConfigurationDescription
-    sqlApplicationConfigurationDescription_outputDescriptions,
     sqlApplicationConfigurationDescription_referenceDataSourceDescriptions,
     sqlApplicationConfigurationDescription_inputDescriptions,
+    sqlApplicationConfigurationDescription_outputDescriptions,
 
     -- ** SqlApplicationConfigurationUpdate
-    sqlApplicationConfigurationUpdate_referenceDataSourceUpdates,
     sqlApplicationConfigurationUpdate_inputUpdates,
     sqlApplicationConfigurationUpdate_outputUpdates,
+    sqlApplicationConfigurationUpdate_referenceDataSourceUpdates,
 
     -- ** SqlRunConfiguration
     sqlRunConfiguration_inputId,
@@ -780,10 +780,10 @@ module Amazonka.KinesisAnalyticsV2.Lens
     vpcConfigurationUpdate_vpcConfigurationId,
 
     -- ** ZeppelinApplicationConfiguration
-    zeppelinApplicationConfiguration_monitoringConfiguration,
+    zeppelinApplicationConfiguration_customArtifactsConfiguration,
     zeppelinApplicationConfiguration_catalogConfiguration,
     zeppelinApplicationConfiguration_deployAsApplicationConfiguration,
-    zeppelinApplicationConfiguration_customArtifactsConfiguration,
+    zeppelinApplicationConfiguration_monitoringConfiguration,
 
     -- ** ZeppelinApplicationConfigurationDescription
     zeppelinApplicationConfigurationDescription_customArtifactsConfigurationDescription,
@@ -792,10 +792,10 @@ module Amazonka.KinesisAnalyticsV2.Lens
     zeppelinApplicationConfigurationDescription_monitoringConfigurationDescription,
 
     -- ** ZeppelinApplicationConfigurationUpdate
-    zeppelinApplicationConfigurationUpdate_customArtifactsConfigurationUpdate,
-    zeppelinApplicationConfigurationUpdate_catalogConfigurationUpdate,
-    zeppelinApplicationConfigurationUpdate_deployAsApplicationConfigurationUpdate,
     zeppelinApplicationConfigurationUpdate_monitoringConfigurationUpdate,
+    zeppelinApplicationConfigurationUpdate_catalogConfigurationUpdate,
+    zeppelinApplicationConfigurationUpdate_customArtifactsConfigurationUpdate,
+    zeppelinApplicationConfigurationUpdate_deployAsApplicationConfigurationUpdate,
 
     -- ** ZeppelinMonitoringConfiguration
     zeppelinMonitoringConfiguration_logLevel,

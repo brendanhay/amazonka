@@ -29,7 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newParallelismConfigurationUpdate' smart constructor.
 data ParallelismConfigurationUpdate = ParallelismConfigurationUpdate'
-  { -- | Describes updates to the initial number of parallel tasks an application
+  { -- | Describes updates to whether the application uses the default
+    -- parallelism for the Kinesis Data Analytics service, or if a custom
+    -- parallelism is used. You must set this property to @CUSTOM@ in order to
+    -- change your application\'s @AutoScalingEnabled@, @Parallelism@, or
+    -- @ParallelismPerKPU@ properties.
+    configurationTypeUpdate :: Prelude.Maybe ConfigurationType,
+    -- | Describes updates to the number of parallel tasks an application can
+    -- perform per Kinesis Processing Unit (KPU) used by the application.
+    parallelismPerKPUUpdate :: Prelude.Maybe Prelude.Natural,
+    -- | Describes updates to the initial number of parallel tasks an application
     -- can perform. If @AutoScalingEnabled@ is set to True, then Kinesis Data
     -- Analytics can increase the @CurrentParallelism@ value in response to
     -- application load. The service can increase @CurrentParallelism@ up to
@@ -42,16 +51,7 @@ data ParallelismConfigurationUpdate = ParallelismConfigurationUpdate'
     -- | Describes updates to whether the Kinesis Data Analytics service can
     -- increase the parallelism of a Flink-based Kinesis Data Analytics
     -- application in response to increased throughput.
-    autoScalingEnabledUpdate :: Prelude.Maybe Prelude.Bool,
-    -- | Describes updates to the number of parallel tasks an application can
-    -- perform per Kinesis Processing Unit (KPU) used by the application.
-    parallelismPerKPUUpdate :: Prelude.Maybe Prelude.Natural,
-    -- | Describes updates to whether the application uses the default
-    -- parallelism for the Kinesis Data Analytics service, or if a custom
-    -- parallelism is used. You must set this property to @CUSTOM@ in order to
-    -- change your application\'s @AutoScalingEnabled@, @Parallelism@, or
-    -- @ParallelismPerKPU@ properties.
-    configurationTypeUpdate :: Prelude.Maybe ConfigurationType
+    autoScalingEnabledUpdate :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,6 +62,15 @@ data ParallelismConfigurationUpdate = ParallelismConfigurationUpdate'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'configurationTypeUpdate', 'parallelismConfigurationUpdate_configurationTypeUpdate' - Describes updates to whether the application uses the default
+-- parallelism for the Kinesis Data Analytics service, or if a custom
+-- parallelism is used. You must set this property to @CUSTOM@ in order to
+-- change your application\'s @AutoScalingEnabled@, @Parallelism@, or
+-- @ParallelismPerKPU@ properties.
+--
+-- 'parallelismPerKPUUpdate', 'parallelismConfigurationUpdate_parallelismPerKPUUpdate' - Describes updates to the number of parallel tasks an application can
+-- perform per Kinesis Processing Unit (KPU) used by the application.
 --
 -- 'parallelismUpdate', 'parallelismConfigurationUpdate_parallelismUpdate' - Describes updates to the initial number of parallel tasks an application
 -- can perform. If @AutoScalingEnabled@ is set to True, then Kinesis Data
@@ -76,25 +85,29 @@ data ParallelismConfigurationUpdate = ParallelismConfigurationUpdate'
 -- 'autoScalingEnabledUpdate', 'parallelismConfigurationUpdate_autoScalingEnabledUpdate' - Describes updates to whether the Kinesis Data Analytics service can
 -- increase the parallelism of a Flink-based Kinesis Data Analytics
 -- application in response to increased throughput.
---
--- 'parallelismPerKPUUpdate', 'parallelismConfigurationUpdate_parallelismPerKPUUpdate' - Describes updates to the number of parallel tasks an application can
--- perform per Kinesis Processing Unit (KPU) used by the application.
---
--- 'configurationTypeUpdate', 'parallelismConfigurationUpdate_configurationTypeUpdate' - Describes updates to whether the application uses the default
--- parallelism for the Kinesis Data Analytics service, or if a custom
--- parallelism is used. You must set this property to @CUSTOM@ in order to
--- change your application\'s @AutoScalingEnabled@, @Parallelism@, or
--- @ParallelismPerKPU@ properties.
 newParallelismConfigurationUpdate ::
   ParallelismConfigurationUpdate
 newParallelismConfigurationUpdate =
   ParallelismConfigurationUpdate'
-    { parallelismUpdate =
+    { configurationTypeUpdate =
         Prelude.Nothing,
-      autoScalingEnabledUpdate = Prelude.Nothing,
       parallelismPerKPUUpdate = Prelude.Nothing,
-      configurationTypeUpdate = Prelude.Nothing
+      parallelismUpdate = Prelude.Nothing,
+      autoScalingEnabledUpdate = Prelude.Nothing
     }
+
+-- | Describes updates to whether the application uses the default
+-- parallelism for the Kinesis Data Analytics service, or if a custom
+-- parallelism is used. You must set this property to @CUSTOM@ in order to
+-- change your application\'s @AutoScalingEnabled@, @Parallelism@, or
+-- @ParallelismPerKPU@ properties.
+parallelismConfigurationUpdate_configurationTypeUpdate :: Lens.Lens' ParallelismConfigurationUpdate (Prelude.Maybe ConfigurationType)
+parallelismConfigurationUpdate_configurationTypeUpdate = Lens.lens (\ParallelismConfigurationUpdate' {configurationTypeUpdate} -> configurationTypeUpdate) (\s@ParallelismConfigurationUpdate' {} a -> s {configurationTypeUpdate = a} :: ParallelismConfigurationUpdate)
+
+-- | Describes updates to the number of parallel tasks an application can
+-- perform per Kinesis Processing Unit (KPU) used by the application.
+parallelismConfigurationUpdate_parallelismPerKPUUpdate :: Lens.Lens' ParallelismConfigurationUpdate (Prelude.Maybe Prelude.Natural)
+parallelismConfigurationUpdate_parallelismPerKPUUpdate = Lens.lens (\ParallelismConfigurationUpdate' {parallelismPerKPUUpdate} -> parallelismPerKPUUpdate) (\s@ParallelismConfigurationUpdate' {} a -> s {parallelismPerKPUUpdate = a} :: ParallelismConfigurationUpdate)
 
 -- | Describes updates to the initial number of parallel tasks an application
 -- can perform. If @AutoScalingEnabled@ is set to True, then Kinesis Data
@@ -114,19 +127,6 @@ parallelismConfigurationUpdate_parallelismUpdate = Lens.lens (\ParallelismConfig
 parallelismConfigurationUpdate_autoScalingEnabledUpdate :: Lens.Lens' ParallelismConfigurationUpdate (Prelude.Maybe Prelude.Bool)
 parallelismConfigurationUpdate_autoScalingEnabledUpdate = Lens.lens (\ParallelismConfigurationUpdate' {autoScalingEnabledUpdate} -> autoScalingEnabledUpdate) (\s@ParallelismConfigurationUpdate' {} a -> s {autoScalingEnabledUpdate = a} :: ParallelismConfigurationUpdate)
 
--- | Describes updates to the number of parallel tasks an application can
--- perform per Kinesis Processing Unit (KPU) used by the application.
-parallelismConfigurationUpdate_parallelismPerKPUUpdate :: Lens.Lens' ParallelismConfigurationUpdate (Prelude.Maybe Prelude.Natural)
-parallelismConfigurationUpdate_parallelismPerKPUUpdate = Lens.lens (\ParallelismConfigurationUpdate' {parallelismPerKPUUpdate} -> parallelismPerKPUUpdate) (\s@ParallelismConfigurationUpdate' {} a -> s {parallelismPerKPUUpdate = a} :: ParallelismConfigurationUpdate)
-
--- | Describes updates to whether the application uses the default
--- parallelism for the Kinesis Data Analytics service, or if a custom
--- parallelism is used. You must set this property to @CUSTOM@ in order to
--- change your application\'s @AutoScalingEnabled@, @Parallelism@, or
--- @ParallelismPerKPU@ properties.
-parallelismConfigurationUpdate_configurationTypeUpdate :: Lens.Lens' ParallelismConfigurationUpdate (Prelude.Maybe ConfigurationType)
-parallelismConfigurationUpdate_configurationTypeUpdate = Lens.lens (\ParallelismConfigurationUpdate' {configurationTypeUpdate} -> configurationTypeUpdate) (\s@ParallelismConfigurationUpdate' {} a -> s {configurationTypeUpdate = a} :: ParallelismConfigurationUpdate)
-
 instance
   Prelude.Hashable
     ParallelismConfigurationUpdate
@@ -134,32 +134,33 @@ instance
   hashWithSalt
     _salt
     ParallelismConfigurationUpdate' {..} =
-      _salt `Prelude.hashWithSalt` parallelismUpdate
-        `Prelude.hashWithSalt` autoScalingEnabledUpdate
-        `Prelude.hashWithSalt` parallelismPerKPUUpdate
+      _salt
         `Prelude.hashWithSalt` configurationTypeUpdate
+        `Prelude.hashWithSalt` parallelismPerKPUUpdate
+        `Prelude.hashWithSalt` parallelismUpdate
+        `Prelude.hashWithSalt` autoScalingEnabledUpdate
 
 instance
   Prelude.NFData
     ParallelismConfigurationUpdate
   where
   rnf ParallelismConfigurationUpdate' {..} =
-    Prelude.rnf parallelismUpdate
-      `Prelude.seq` Prelude.rnf autoScalingEnabledUpdate
+    Prelude.rnf configurationTypeUpdate
       `Prelude.seq` Prelude.rnf parallelismPerKPUUpdate
-      `Prelude.seq` Prelude.rnf configurationTypeUpdate
+      `Prelude.seq` Prelude.rnf parallelismUpdate
+      `Prelude.seq` Prelude.rnf autoScalingEnabledUpdate
 
 instance Core.ToJSON ParallelismConfigurationUpdate where
   toJSON ParallelismConfigurationUpdate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ParallelismUpdate" Core..=)
-              Prelude.<$> parallelismUpdate,
-            ("AutoScalingEnabledUpdate" Core..=)
-              Prelude.<$> autoScalingEnabledUpdate,
+          [ ("ConfigurationTypeUpdate" Core..=)
+              Prelude.<$> configurationTypeUpdate,
             ("ParallelismPerKPUUpdate" Core..=)
               Prelude.<$> parallelismPerKPUUpdate,
-            ("ConfigurationTypeUpdate" Core..=)
-              Prelude.<$> configurationTypeUpdate
+            ("ParallelismUpdate" Core..=)
+              Prelude.<$> parallelismUpdate,
+            ("AutoScalingEnabledUpdate" Core..=)
+              Prelude.<$> autoScalingEnabledUpdate
           ]
       )

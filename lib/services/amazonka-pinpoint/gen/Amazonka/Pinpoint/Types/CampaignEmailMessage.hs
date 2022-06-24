@@ -28,17 +28,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCampaignEmailMessage' smart constructor.
 data CampaignEmailMessage = CampaignEmailMessage'
-  { -- | The body of the email for recipients whose email clients don\'t render
-    -- HTML content.
-    body :: Prelude.Maybe Prelude.Text,
-    -- | The verified email address to send the email from. The default address
+  { -- | The verified email address to send the email from. The default address
     -- is the FromAddress specified for the email channel for the application.
     fromAddress :: Prelude.Maybe Prelude.Text,
+    -- | The body of the email for recipients whose email clients don\'t render
+    -- HTML content.
+    body :: Prelude.Maybe Prelude.Text,
+    -- | The subject line, or title, of the email.
+    title :: Prelude.Maybe Prelude.Text,
     -- | The body of the email, in HTML format, for recipients whose email
     -- clients render HTML content.
-    htmlBody :: Prelude.Maybe Prelude.Text,
-    -- | The subject line, or title, of the email.
-    title :: Prelude.Maybe Prelude.Text
+    htmlBody :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,44 +50,45 @@ data CampaignEmailMessage = CampaignEmailMessage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'body', 'campaignEmailMessage_body' - The body of the email for recipients whose email clients don\'t render
--- HTML content.
---
 -- 'fromAddress', 'campaignEmailMessage_fromAddress' - The verified email address to send the email from. The default address
 -- is the FromAddress specified for the email channel for the application.
 --
--- 'htmlBody', 'campaignEmailMessage_htmlBody' - The body of the email, in HTML format, for recipients whose email
--- clients render HTML content.
+-- 'body', 'campaignEmailMessage_body' - The body of the email for recipients whose email clients don\'t render
+-- HTML content.
 --
 -- 'title', 'campaignEmailMessage_title' - The subject line, or title, of the email.
+--
+-- 'htmlBody', 'campaignEmailMessage_htmlBody' - The body of the email, in HTML format, for recipients whose email
+-- clients render HTML content.
 newCampaignEmailMessage ::
   CampaignEmailMessage
 newCampaignEmailMessage =
   CampaignEmailMessage'
-    { body = Prelude.Nothing,
-      fromAddress = Prelude.Nothing,
-      htmlBody = Prelude.Nothing,
-      title = Prelude.Nothing
+    { fromAddress =
+        Prelude.Nothing,
+      body = Prelude.Nothing,
+      title = Prelude.Nothing,
+      htmlBody = Prelude.Nothing
     }
-
--- | The body of the email for recipients whose email clients don\'t render
--- HTML content.
-campaignEmailMessage_body :: Lens.Lens' CampaignEmailMessage (Prelude.Maybe Prelude.Text)
-campaignEmailMessage_body = Lens.lens (\CampaignEmailMessage' {body} -> body) (\s@CampaignEmailMessage' {} a -> s {body = a} :: CampaignEmailMessage)
 
 -- | The verified email address to send the email from. The default address
 -- is the FromAddress specified for the email channel for the application.
 campaignEmailMessage_fromAddress :: Lens.Lens' CampaignEmailMessage (Prelude.Maybe Prelude.Text)
 campaignEmailMessage_fromAddress = Lens.lens (\CampaignEmailMessage' {fromAddress} -> fromAddress) (\s@CampaignEmailMessage' {} a -> s {fromAddress = a} :: CampaignEmailMessage)
 
--- | The body of the email, in HTML format, for recipients whose email
--- clients render HTML content.
-campaignEmailMessage_htmlBody :: Lens.Lens' CampaignEmailMessage (Prelude.Maybe Prelude.Text)
-campaignEmailMessage_htmlBody = Lens.lens (\CampaignEmailMessage' {htmlBody} -> htmlBody) (\s@CampaignEmailMessage' {} a -> s {htmlBody = a} :: CampaignEmailMessage)
+-- | The body of the email for recipients whose email clients don\'t render
+-- HTML content.
+campaignEmailMessage_body :: Lens.Lens' CampaignEmailMessage (Prelude.Maybe Prelude.Text)
+campaignEmailMessage_body = Lens.lens (\CampaignEmailMessage' {body} -> body) (\s@CampaignEmailMessage' {} a -> s {body = a} :: CampaignEmailMessage)
 
 -- | The subject line, or title, of the email.
 campaignEmailMessage_title :: Lens.Lens' CampaignEmailMessage (Prelude.Maybe Prelude.Text)
 campaignEmailMessage_title = Lens.lens (\CampaignEmailMessage' {title} -> title) (\s@CampaignEmailMessage' {} a -> s {title = a} :: CampaignEmailMessage)
+
+-- | The body of the email, in HTML format, for recipients whose email
+-- clients render HTML content.
+campaignEmailMessage_htmlBody :: Lens.Lens' CampaignEmailMessage (Prelude.Maybe Prelude.Text)
+campaignEmailMessage_htmlBody = Lens.lens (\CampaignEmailMessage' {htmlBody} -> htmlBody) (\s@CampaignEmailMessage' {} a -> s {htmlBody = a} :: CampaignEmailMessage)
 
 instance Core.FromJSON CampaignEmailMessage where
   parseJSON =
@@ -95,33 +96,33 @@ instance Core.FromJSON CampaignEmailMessage where
       "CampaignEmailMessage"
       ( \x ->
           CampaignEmailMessage'
-            Prelude.<$> (x Core..:? "Body")
-            Prelude.<*> (x Core..:? "FromAddress")
-            Prelude.<*> (x Core..:? "HtmlBody")
+            Prelude.<$> (x Core..:? "FromAddress")
+            Prelude.<*> (x Core..:? "Body")
             Prelude.<*> (x Core..:? "Title")
+            Prelude.<*> (x Core..:? "HtmlBody")
       )
 
 instance Prelude.Hashable CampaignEmailMessage where
   hashWithSalt _salt CampaignEmailMessage' {..} =
-    _salt `Prelude.hashWithSalt` body
-      `Prelude.hashWithSalt` fromAddress
-      `Prelude.hashWithSalt` htmlBody
+    _salt `Prelude.hashWithSalt` fromAddress
+      `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` htmlBody
 
 instance Prelude.NFData CampaignEmailMessage where
   rnf CampaignEmailMessage' {..} =
-    Prelude.rnf body
-      `Prelude.seq` Prelude.rnf fromAddress
-      `Prelude.seq` Prelude.rnf htmlBody
+    Prelude.rnf fromAddress
+      `Prelude.seq` Prelude.rnf body
       `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf htmlBody
 
 instance Core.ToJSON CampaignEmailMessage where
   toJSON CampaignEmailMessage' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Body" Core..=) Prelude.<$> body,
-            ("FromAddress" Core..=) Prelude.<$> fromAddress,
-            ("HtmlBody" Core..=) Prelude.<$> htmlBody,
-            ("Title" Core..=) Prelude.<$> title
+          [ ("FromAddress" Core..=) Prelude.<$> fromAddress,
+            ("Body" Core..=) Prelude.<$> body,
+            ("Title" Core..=) Prelude.<$> title,
+            ("HtmlBody" Core..=) Prelude.<$> htmlBody
           ]
       )

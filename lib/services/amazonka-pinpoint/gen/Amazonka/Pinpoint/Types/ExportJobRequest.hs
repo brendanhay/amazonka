@@ -28,13 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExportJobRequest' smart constructor.
 data ExportJobRequest = ExportJobRequest'
-  { -- | The identifier for the segment to export endpoint definitions from. If
+  { -- | The version of the segment to export endpoint definitions from, if
+    -- specified.
+    segmentVersion :: Prelude.Maybe Prelude.Int,
+    -- | The identifier for the segment to export endpoint definitions from. If
     -- you don\'t specify this value, Amazon Pinpoint exports definitions for
     -- all the endpoints that are associated with the application.
     segmentId :: Prelude.Maybe Prelude.Text,
-    -- | The version of the segment to export endpoint definitions from, if
-    -- specified.
-    segmentVersion :: Prelude.Maybe Prelude.Int,
     -- | The URL of the location in an Amazon Simple Storage Service (Amazon S3)
     -- bucket where you want to export endpoint definitions to. This location
     -- is typically a folder that contains multiple files. The URL should be in
@@ -55,12 +55,12 @@ data ExportJobRequest = ExportJobRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'segmentVersion', 'exportJobRequest_segmentVersion' - The version of the segment to export endpoint definitions from, if
+-- specified.
+--
 -- 'segmentId', 'exportJobRequest_segmentId' - The identifier for the segment to export endpoint definitions from. If
 -- you don\'t specify this value, Amazon Pinpoint exports definitions for
 -- all the endpoints that are associated with the application.
---
--- 'segmentVersion', 'exportJobRequest_segmentVersion' - The version of the segment to export endpoint definitions from, if
--- specified.
 --
 -- 's3UrlPrefix', 'exportJobRequest_s3UrlPrefix' - The URL of the location in an Amazon Simple Storage Service (Amazon S3)
 -- bucket where you want to export endpoint definitions to. This location
@@ -78,22 +78,22 @@ newExportJobRequest ::
   ExportJobRequest
 newExportJobRequest pS3UrlPrefix_ pRoleArn_ =
   ExportJobRequest'
-    { segmentId = Prelude.Nothing,
-      segmentVersion = Prelude.Nothing,
+    { segmentVersion = Prelude.Nothing,
+      segmentId = Prelude.Nothing,
       s3UrlPrefix = pS3UrlPrefix_,
       roleArn = pRoleArn_
     }
+
+-- | The version of the segment to export endpoint definitions from, if
+-- specified.
+exportJobRequest_segmentVersion :: Lens.Lens' ExportJobRequest (Prelude.Maybe Prelude.Int)
+exportJobRequest_segmentVersion = Lens.lens (\ExportJobRequest' {segmentVersion} -> segmentVersion) (\s@ExportJobRequest' {} a -> s {segmentVersion = a} :: ExportJobRequest)
 
 -- | The identifier for the segment to export endpoint definitions from. If
 -- you don\'t specify this value, Amazon Pinpoint exports definitions for
 -- all the endpoints that are associated with the application.
 exportJobRequest_segmentId :: Lens.Lens' ExportJobRequest (Prelude.Maybe Prelude.Text)
 exportJobRequest_segmentId = Lens.lens (\ExportJobRequest' {segmentId} -> segmentId) (\s@ExportJobRequest' {} a -> s {segmentId = a} :: ExportJobRequest)
-
--- | The version of the segment to export endpoint definitions from, if
--- specified.
-exportJobRequest_segmentVersion :: Lens.Lens' ExportJobRequest (Prelude.Maybe Prelude.Int)
-exportJobRequest_segmentVersion = Lens.lens (\ExportJobRequest' {segmentVersion} -> segmentVersion) (\s@ExportJobRequest' {} a -> s {segmentVersion = a} :: ExportJobRequest)
 
 -- | The URL of the location in an Amazon Simple Storage Service (Amazon S3)
 -- bucket where you want to export endpoint definitions to. This location
@@ -110,15 +110,15 @@ exportJobRequest_roleArn = Lens.lens (\ExportJobRequest' {roleArn} -> roleArn) (
 
 instance Prelude.Hashable ExportJobRequest where
   hashWithSalt _salt ExportJobRequest' {..} =
-    _salt `Prelude.hashWithSalt` segmentId
-      `Prelude.hashWithSalt` segmentVersion
+    _salt `Prelude.hashWithSalt` segmentVersion
+      `Prelude.hashWithSalt` segmentId
       `Prelude.hashWithSalt` s3UrlPrefix
       `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData ExportJobRequest where
   rnf ExportJobRequest' {..} =
-    Prelude.rnf segmentId
-      `Prelude.seq` Prelude.rnf segmentVersion
+    Prelude.rnf segmentVersion
+      `Prelude.seq` Prelude.rnf segmentId
       `Prelude.seq` Prelude.rnf s3UrlPrefix
       `Prelude.seq` Prelude.rnf roleArn
 
@@ -126,9 +126,9 @@ instance Core.ToJSON ExportJobRequest where
   toJSON ExportJobRequest' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SegmentId" Core..=) Prelude.<$> segmentId,
-            ("SegmentVersion" Core..=)
+          [ ("SegmentVersion" Core..=)
               Prelude.<$> segmentVersion,
+            ("SegmentId" Core..=) Prelude.<$> segmentId,
             Prelude.Just ("S3UrlPrefix" Core..= s3UrlPrefix),
             Prelude.Just ("RoleArn" Core..= roleArn)
           ]

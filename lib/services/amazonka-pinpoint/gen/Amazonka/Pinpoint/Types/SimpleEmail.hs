@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSimpleEmail' smart constructor.
 data SimpleEmail = SimpleEmail'
-  { -- | The subject line, or title, of the email.
-    subject :: Prelude.Maybe SimpleEmailPart,
-    -- | The body of the email message, in plain text format. We recommend using
+  { -- | The body of the email message, in plain text format. We recommend using
     -- plain text format for email clients that don\'t render HTML content and
     -- clients that are connected to high-latency networks, such as mobile
     -- devices.
     textPart :: Prelude.Maybe SimpleEmailPart,
+    -- | The subject line, or title, of the email.
+    subject :: Prelude.Maybe SimpleEmailPart,
     -- | The body of the email message, in HTML format. We recommend using HTML
     -- format for email clients that render HTML content. You can include
     -- links, formatted text, and more in an HTML message.
@@ -51,12 +51,12 @@ data SimpleEmail = SimpleEmail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'subject', 'simpleEmail_subject' - The subject line, or title, of the email.
---
 -- 'textPart', 'simpleEmail_textPart' - The body of the email message, in plain text format. We recommend using
 -- plain text format for email clients that don\'t render HTML content and
 -- clients that are connected to high-latency networks, such as mobile
 -- devices.
+--
+-- 'subject', 'simpleEmail_subject' - The subject line, or title, of the email.
 --
 -- 'htmlPart', 'simpleEmail_htmlPart' - The body of the email message, in HTML format. We recommend using HTML
 -- format for email clients that render HTML content. You can include
@@ -65,14 +65,10 @@ newSimpleEmail ::
   SimpleEmail
 newSimpleEmail =
   SimpleEmail'
-    { subject = Prelude.Nothing,
-      textPart = Prelude.Nothing,
+    { textPart = Prelude.Nothing,
+      subject = Prelude.Nothing,
       htmlPart = Prelude.Nothing
     }
-
--- | The subject line, or title, of the email.
-simpleEmail_subject :: Lens.Lens' SimpleEmail (Prelude.Maybe SimpleEmailPart)
-simpleEmail_subject = Lens.lens (\SimpleEmail' {subject} -> subject) (\s@SimpleEmail' {} a -> s {subject = a} :: SimpleEmail)
 
 -- | The body of the email message, in plain text format. We recommend using
 -- plain text format for email clients that don\'t render HTML content and
@@ -80,6 +76,10 @@ simpleEmail_subject = Lens.lens (\SimpleEmail' {subject} -> subject) (\s@SimpleE
 -- devices.
 simpleEmail_textPart :: Lens.Lens' SimpleEmail (Prelude.Maybe SimpleEmailPart)
 simpleEmail_textPart = Lens.lens (\SimpleEmail' {textPart} -> textPart) (\s@SimpleEmail' {} a -> s {textPart = a} :: SimpleEmail)
+
+-- | The subject line, or title, of the email.
+simpleEmail_subject :: Lens.Lens' SimpleEmail (Prelude.Maybe SimpleEmailPart)
+simpleEmail_subject = Lens.lens (\SimpleEmail' {subject} -> subject) (\s@SimpleEmail' {} a -> s {subject = a} :: SimpleEmail)
 
 -- | The body of the email message, in HTML format. We recommend using HTML
 -- format for email clients that render HTML content. You can include
@@ -89,22 +89,22 @@ simpleEmail_htmlPart = Lens.lens (\SimpleEmail' {htmlPart} -> htmlPart) (\s@Simp
 
 instance Prelude.Hashable SimpleEmail where
   hashWithSalt _salt SimpleEmail' {..} =
-    _salt `Prelude.hashWithSalt` subject
-      `Prelude.hashWithSalt` textPart
+    _salt `Prelude.hashWithSalt` textPart
+      `Prelude.hashWithSalt` subject
       `Prelude.hashWithSalt` htmlPart
 
 instance Prelude.NFData SimpleEmail where
   rnf SimpleEmail' {..} =
-    Prelude.rnf subject
-      `Prelude.seq` Prelude.rnf textPart
+    Prelude.rnf textPart
+      `Prelude.seq` Prelude.rnf subject
       `Prelude.seq` Prelude.rnf htmlPart
 
 instance Core.ToJSON SimpleEmail where
   toJSON SimpleEmail' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Subject" Core..=) Prelude.<$> subject,
-            ("TextPart" Core..=) Prelude.<$> textPart,
+          [ ("TextPart" Core..=) Prelude.<$> textPart,
+            ("Subject" Core..=) Prelude.<$> subject,
             ("HtmlPart" Core..=) Prelude.<$> htmlPart
           ]
       )

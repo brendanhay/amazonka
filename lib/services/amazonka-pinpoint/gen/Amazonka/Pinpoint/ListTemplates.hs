@@ -28,10 +28,10 @@ module Amazonka.Pinpoint.ListTemplates
     newListTemplates,
 
     -- * Request Lenses
-    listTemplates_templateType,
-    listTemplates_prefix,
     listTemplates_nextToken,
+    listTemplates_templateType,
     listTemplates_pageSize,
+    listTemplates_prefix,
 
     -- * Destructuring the Response
     ListTemplatesResponse (..),
@@ -52,22 +52,22 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTemplates' smart constructor.
 data ListTemplates = ListTemplates'
-  { -- | The type of message template to include in the results. Valid values
-    -- are: EMAIL, PUSH, SMS, and VOICE. To include all types of templates in
-    -- the results, don\'t include this parameter in your request.
-    templateType :: Prelude.Maybe Prelude.Text,
-    -- | The substring to match in the names of the message templates to include
-    -- in the results. If you specify this value, Amazon Pinpoint returns only
-    -- those templates whose names begin with the value that you specify.
-    prefix :: Prelude.Maybe Prelude.Text,
-    -- | The string that specifies which page of results to return in a paginated
+  { -- | The string that specifies which page of results to return in a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The type of message template to include in the results. Valid values
+    -- are: EMAIL, PUSH, SMS, and VOICE. To include all types of templates in
+    -- the results, don\'t include this parameter in your request.
+    templateType :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to include in each page of a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
-    pageSize :: Prelude.Maybe Prelude.Text
+    pageSize :: Prelude.Maybe Prelude.Text,
+    -- | The substring to match in the names of the message templates to include
+    -- in the results. If you specify this value, Amazon Pinpoint returns only
+    -- those templates whose names begin with the value that you specify.
+    prefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,42 +79,30 @@ data ListTemplates = ListTemplates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'templateType', 'listTemplates_templateType' - The type of message template to include in the results. Valid values
--- are: EMAIL, PUSH, SMS, and VOICE. To include all types of templates in
--- the results, don\'t include this parameter in your request.
---
--- 'prefix', 'listTemplates_prefix' - The substring to match in the names of the message templates to include
--- in the results. If you specify this value, Amazon Pinpoint returns only
--- those templates whose names begin with the value that you specify.
---
 -- 'nextToken', 'listTemplates_nextToken' - The string that specifies which page of results to return in a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
 --
+-- 'templateType', 'listTemplates_templateType' - The type of message template to include in the results. Valid values
+-- are: EMAIL, PUSH, SMS, and VOICE. To include all types of templates in
+-- the results, don\'t include this parameter in your request.
+--
 -- 'pageSize', 'listTemplates_pageSize' - The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
+--
+-- 'prefix', 'listTemplates_prefix' - The substring to match in the names of the message templates to include
+-- in the results. If you specify this value, Amazon Pinpoint returns only
+-- those templates whose names begin with the value that you specify.
 newListTemplates ::
   ListTemplates
 newListTemplates =
   ListTemplates'
-    { templateType = Prelude.Nothing,
-      prefix = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      pageSize = Prelude.Nothing
+    { nextToken = Prelude.Nothing,
+      templateType = Prelude.Nothing,
+      pageSize = Prelude.Nothing,
+      prefix = Prelude.Nothing
     }
-
--- | The type of message template to include in the results. Valid values
--- are: EMAIL, PUSH, SMS, and VOICE. To include all types of templates in
--- the results, don\'t include this parameter in your request.
-listTemplates_templateType :: Lens.Lens' ListTemplates (Prelude.Maybe Prelude.Text)
-listTemplates_templateType = Lens.lens (\ListTemplates' {templateType} -> templateType) (\s@ListTemplates' {} a -> s {templateType = a} :: ListTemplates)
-
--- | The substring to match in the names of the message templates to include
--- in the results. If you specify this value, Amazon Pinpoint returns only
--- those templates whose names begin with the value that you specify.
-listTemplates_prefix :: Lens.Lens' ListTemplates (Prelude.Maybe Prelude.Text)
-listTemplates_prefix = Lens.lens (\ListTemplates' {prefix} -> prefix) (\s@ListTemplates' {} a -> s {prefix = a} :: ListTemplates)
 
 -- | The string that specifies which page of results to return in a paginated
 -- response. This parameter is not supported for application, campaign, and
@@ -122,11 +110,23 @@ listTemplates_prefix = Lens.lens (\ListTemplates' {prefix} -> prefix) (\s@ListTe
 listTemplates_nextToken :: Lens.Lens' ListTemplates (Prelude.Maybe Prelude.Text)
 listTemplates_nextToken = Lens.lens (\ListTemplates' {nextToken} -> nextToken) (\s@ListTemplates' {} a -> s {nextToken = a} :: ListTemplates)
 
+-- | The type of message template to include in the results. Valid values
+-- are: EMAIL, PUSH, SMS, and VOICE. To include all types of templates in
+-- the results, don\'t include this parameter in your request.
+listTemplates_templateType :: Lens.Lens' ListTemplates (Prelude.Maybe Prelude.Text)
+listTemplates_templateType = Lens.lens (\ListTemplates' {templateType} -> templateType) (\s@ListTemplates' {} a -> s {templateType = a} :: ListTemplates)
+
 -- | The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
 listTemplates_pageSize :: Lens.Lens' ListTemplates (Prelude.Maybe Prelude.Text)
 listTemplates_pageSize = Lens.lens (\ListTemplates' {pageSize} -> pageSize) (\s@ListTemplates' {} a -> s {pageSize = a} :: ListTemplates)
+
+-- | The substring to match in the names of the message templates to include
+-- in the results. If you specify this value, Amazon Pinpoint returns only
+-- those templates whose names begin with the value that you specify.
+listTemplates_prefix :: Lens.Lens' ListTemplates (Prelude.Maybe Prelude.Text)
+listTemplates_prefix = Lens.lens (\ListTemplates' {prefix} -> prefix) (\s@ListTemplates' {} a -> s {prefix = a} :: ListTemplates)
 
 instance Core.AWSRequest ListTemplates where
   type
@@ -143,17 +143,17 @@ instance Core.AWSRequest ListTemplates where
 
 instance Prelude.Hashable ListTemplates where
   hashWithSalt _salt ListTemplates' {..} =
-    _salt `Prelude.hashWithSalt` templateType
-      `Prelude.hashWithSalt` prefix
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` templateType
       `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` prefix
 
 instance Prelude.NFData ListTemplates where
   rnf ListTemplates' {..} =
-    Prelude.rnf templateType
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf templateType
       `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf prefix
 
 instance Core.ToHeaders ListTemplates where
   toHeaders =
@@ -172,10 +172,10 @@ instance Core.ToPath ListTemplates where
 instance Core.ToQuery ListTemplates where
   toQuery ListTemplates' {..} =
     Prelude.mconcat
-      [ "template-type" Core.=: templateType,
-        "prefix" Core.=: prefix,
-        "next-token" Core.=: nextToken,
-        "page-size" Core.=: pageSize
+      [ "next-token" Core.=: nextToken,
+        "template-type" Core.=: templateType,
+        "page-size" Core.=: pageSize,
+        "prefix" Core.=: prefix
       ]
 
 -- | /See:/ 'newListTemplatesResponse' smart constructor.

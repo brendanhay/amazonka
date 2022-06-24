@@ -133,14 +133,7 @@ instance Core.ToHeaders UpdateEndpointsBatch where
 
 instance Core.ToJSON UpdateEndpointsBatch where
   toJSON UpdateEndpointsBatch' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "EndpointBatchRequest"
-                  Core..= endpointBatchRequest
-              )
-          ]
-      )
+    Core.toJSON endpointBatchRequest
 
 instance Core.ToPath UpdateEndpointsBatch where
   toPath UpdateEndpointsBatch' {..} =

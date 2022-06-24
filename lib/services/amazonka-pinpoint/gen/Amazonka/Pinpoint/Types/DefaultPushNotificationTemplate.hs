@@ -47,6 +47,10 @@ data DefaultPushNotificationTemplate = DefaultPushNotificationTemplate'
     -- data container. If the sound file can\'t be found or you specify default
     -- for the value, the system plays the default alert sound.
     sound :: Prelude.Maybe Prelude.Text,
+    -- | The title to use in push notifications that are based on the message
+    -- template. This title appears above the notification message on a
+    -- recipient\'s device.
+    title :: Prelude.Maybe Prelude.Text,
     -- | The action to occur if a recipient taps a push notification that\'s
     -- based on the message template. Valid values are:
     --
@@ -59,11 +63,7 @@ data DefaultPushNotificationTemplate = DefaultPushNotificationTemplate'
     --
     -- -   URL - The default mobile browser on the recipient\'s device opens
     --     and loads the web page at a URL that you specify.
-    action :: Prelude.Maybe Action,
-    -- | The title to use in push notifications that are based on the message
-    -- template. This title appears above the notification message on a
-    -- recipient\'s device.
-    title :: Prelude.Maybe Prelude.Text
+    action :: Prelude.Maybe Action
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,6 +92,10 @@ data DefaultPushNotificationTemplate = DefaultPushNotificationTemplate'
 -- data container. If the sound file can\'t be found or you specify default
 -- for the value, the system plays the default alert sound.
 --
+-- 'title', 'defaultPushNotificationTemplate_title' - The title to use in push notifications that are based on the message
+-- template. This title appears above the notification message on a
+-- recipient\'s device.
+--
 -- 'action', 'defaultPushNotificationTemplate_action' - The action to occur if a recipient taps a push notification that\'s
 -- based on the message template. Valid values are:
 --
@@ -104,10 +108,6 @@ data DefaultPushNotificationTemplate = DefaultPushNotificationTemplate'
 --
 -- -   URL - The default mobile browser on the recipient\'s device opens
 --     and loads the web page at a URL that you specify.
---
--- 'title', 'defaultPushNotificationTemplate_title' - The title to use in push notifications that are based on the message
--- template. This title appears above the notification message on a
--- recipient\'s device.
 newDefaultPushNotificationTemplate ::
   DefaultPushNotificationTemplate
 newDefaultPushNotificationTemplate =
@@ -116,8 +116,8 @@ newDefaultPushNotificationTemplate =
         Prelude.Nothing,
       url = Prelude.Nothing,
       sound = Prelude.Nothing,
-      action = Prelude.Nothing,
-      title = Prelude.Nothing
+      title = Prelude.Nothing,
+      action = Prelude.Nothing
     }
 
 -- | The message body to use in push notifications that are based on the
@@ -143,6 +143,12 @@ defaultPushNotificationTemplate_url = Lens.lens (\DefaultPushNotificationTemplat
 defaultPushNotificationTemplate_sound :: Lens.Lens' DefaultPushNotificationTemplate (Prelude.Maybe Prelude.Text)
 defaultPushNotificationTemplate_sound = Lens.lens (\DefaultPushNotificationTemplate' {sound} -> sound) (\s@DefaultPushNotificationTemplate' {} a -> s {sound = a} :: DefaultPushNotificationTemplate)
 
+-- | The title to use in push notifications that are based on the message
+-- template. This title appears above the notification message on a
+-- recipient\'s device.
+defaultPushNotificationTemplate_title :: Lens.Lens' DefaultPushNotificationTemplate (Prelude.Maybe Prelude.Text)
+defaultPushNotificationTemplate_title = Lens.lens (\DefaultPushNotificationTemplate' {title} -> title) (\s@DefaultPushNotificationTemplate' {} a -> s {title = a} :: DefaultPushNotificationTemplate)
+
 -- | The action to occur if a recipient taps a push notification that\'s
 -- based on the message template. Valid values are:
 --
@@ -158,12 +164,6 @@ defaultPushNotificationTemplate_sound = Lens.lens (\DefaultPushNotificationTempl
 defaultPushNotificationTemplate_action :: Lens.Lens' DefaultPushNotificationTemplate (Prelude.Maybe Action)
 defaultPushNotificationTemplate_action = Lens.lens (\DefaultPushNotificationTemplate' {action} -> action) (\s@DefaultPushNotificationTemplate' {} a -> s {action = a} :: DefaultPushNotificationTemplate)
 
--- | The title to use in push notifications that are based on the message
--- template. This title appears above the notification message on a
--- recipient\'s device.
-defaultPushNotificationTemplate_title :: Lens.Lens' DefaultPushNotificationTemplate (Prelude.Maybe Prelude.Text)
-defaultPushNotificationTemplate_title = Lens.lens (\DefaultPushNotificationTemplate' {title} -> title) (\s@DefaultPushNotificationTemplate' {} a -> s {title = a} :: DefaultPushNotificationTemplate)
-
 instance
   Core.FromJSON
     DefaultPushNotificationTemplate
@@ -176,8 +176,8 @@ instance
             Prelude.<$> (x Core..:? "Body")
             Prelude.<*> (x Core..:? "Url")
             Prelude.<*> (x Core..:? "Sound")
-            Prelude.<*> (x Core..:? "Action")
             Prelude.<*> (x Core..:? "Title")
+            Prelude.<*> (x Core..:? "Action")
       )
 
 instance
@@ -190,8 +190,8 @@ instance
       _salt `Prelude.hashWithSalt` body
         `Prelude.hashWithSalt` url
         `Prelude.hashWithSalt` sound
-        `Prelude.hashWithSalt` action
         `Prelude.hashWithSalt` title
+        `Prelude.hashWithSalt` action
 
 instance
   Prelude.NFData
@@ -201,8 +201,8 @@ instance
     Prelude.rnf body
       `Prelude.seq` Prelude.rnf url
       `Prelude.seq` Prelude.rnf sound
-      `Prelude.seq` Prelude.rnf action
       `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf action
 
 instance Core.ToJSON DefaultPushNotificationTemplate where
   toJSON DefaultPushNotificationTemplate' {..} =
@@ -211,7 +211,7 @@ instance Core.ToJSON DefaultPushNotificationTemplate where
           [ ("Body" Core..=) Prelude.<$> body,
             ("Url" Core..=) Prelude.<$> url,
             ("Sound" Core..=) Prelude.<$> sound,
-            ("Action" Core..=) Prelude.<$> action,
-            ("Title" Core..=) Prelude.<$> title
+            ("Title" Core..=) Prelude.<$> title,
+            ("Action" Core..=) Prelude.<$> action
           ]
       )

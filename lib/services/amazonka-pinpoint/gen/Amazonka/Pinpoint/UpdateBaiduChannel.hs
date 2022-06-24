@@ -129,12 +129,7 @@ instance Core.ToHeaders UpdateBaiduChannel where
 
 instance Core.ToJSON UpdateBaiduChannel where
   toJSON UpdateBaiduChannel' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("BaiduChannelRequest" Core..= baiduChannelRequest)
-          ]
-      )
+    Core.toJSON baiduChannelRequest
 
 instance Core.ToPath UpdateBaiduChannel where
   toPath UpdateBaiduChannel' {..} =

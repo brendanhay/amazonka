@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInAppCampaignSchedule' smart constructor.
 data InAppCampaignSchedule = InAppCampaignSchedule'
-  { -- | The scheduled time after which the in-app message should not be shown.
+  { -- | The event filter the SDK has to use to show the in-app message in the
+    -- application.
+    eventFilter :: Prelude.Maybe CampaignEventFilter,
+    -- | The scheduled time after which the in-app message should not be shown.
     -- Timestamp is in ISO 8601 format.
     endDate :: Prelude.Maybe Prelude.Text,
     -- | Time during which the in-app message should not be shown to the user.
-    quietTime :: Prelude.Maybe QuietTime,
-    -- | The event filter the SDK has to use to show the in-app message in the
-    -- application.
-    eventFilter :: Prelude.Maybe CampaignEventFilter
+    quietTime :: Prelude.Maybe QuietTime
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,21 +48,27 @@ data InAppCampaignSchedule = InAppCampaignSchedule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'eventFilter', 'inAppCampaignSchedule_eventFilter' - The event filter the SDK has to use to show the in-app message in the
+-- application.
+--
 -- 'endDate', 'inAppCampaignSchedule_endDate' - The scheduled time after which the in-app message should not be shown.
 -- Timestamp is in ISO 8601 format.
 --
 -- 'quietTime', 'inAppCampaignSchedule_quietTime' - Time during which the in-app message should not be shown to the user.
---
--- 'eventFilter', 'inAppCampaignSchedule_eventFilter' - The event filter the SDK has to use to show the in-app message in the
--- application.
 newInAppCampaignSchedule ::
   InAppCampaignSchedule
 newInAppCampaignSchedule =
   InAppCampaignSchedule'
-    { endDate = Prelude.Nothing,
-      quietTime = Prelude.Nothing,
-      eventFilter = Prelude.Nothing
+    { eventFilter =
+        Prelude.Nothing,
+      endDate = Prelude.Nothing,
+      quietTime = Prelude.Nothing
     }
+
+-- | The event filter the SDK has to use to show the in-app message in the
+-- application.
+inAppCampaignSchedule_eventFilter :: Lens.Lens' InAppCampaignSchedule (Prelude.Maybe CampaignEventFilter)
+inAppCampaignSchedule_eventFilter = Lens.lens (\InAppCampaignSchedule' {eventFilter} -> eventFilter) (\s@InAppCampaignSchedule' {} a -> s {eventFilter = a} :: InAppCampaignSchedule)
 
 -- | The scheduled time after which the in-app message should not be shown.
 -- Timestamp is in ISO 8601 format.
@@ -73,30 +79,25 @@ inAppCampaignSchedule_endDate = Lens.lens (\InAppCampaignSchedule' {endDate} -> 
 inAppCampaignSchedule_quietTime :: Lens.Lens' InAppCampaignSchedule (Prelude.Maybe QuietTime)
 inAppCampaignSchedule_quietTime = Lens.lens (\InAppCampaignSchedule' {quietTime} -> quietTime) (\s@InAppCampaignSchedule' {} a -> s {quietTime = a} :: InAppCampaignSchedule)
 
--- | The event filter the SDK has to use to show the in-app message in the
--- application.
-inAppCampaignSchedule_eventFilter :: Lens.Lens' InAppCampaignSchedule (Prelude.Maybe CampaignEventFilter)
-inAppCampaignSchedule_eventFilter = Lens.lens (\InAppCampaignSchedule' {eventFilter} -> eventFilter) (\s@InAppCampaignSchedule' {} a -> s {eventFilter = a} :: InAppCampaignSchedule)
-
 instance Core.FromJSON InAppCampaignSchedule where
   parseJSON =
     Core.withObject
       "InAppCampaignSchedule"
       ( \x ->
           InAppCampaignSchedule'
-            Prelude.<$> (x Core..:? "EndDate")
+            Prelude.<$> (x Core..:? "EventFilter")
+            Prelude.<*> (x Core..:? "EndDate")
             Prelude.<*> (x Core..:? "QuietTime")
-            Prelude.<*> (x Core..:? "EventFilter")
       )
 
 instance Prelude.Hashable InAppCampaignSchedule where
   hashWithSalt _salt InAppCampaignSchedule' {..} =
-    _salt `Prelude.hashWithSalt` endDate
+    _salt `Prelude.hashWithSalt` eventFilter
+      `Prelude.hashWithSalt` endDate
       `Prelude.hashWithSalt` quietTime
-      `Prelude.hashWithSalt` eventFilter
 
 instance Prelude.NFData InAppCampaignSchedule where
   rnf InAppCampaignSchedule' {..} =
-    Prelude.rnf endDate
+    Prelude.rnf eventFilter
+      `Prelude.seq` Prelude.rnf endDate
       `Prelude.seq` Prelude.rnf quietTime
-      `Prelude.seq` Prelude.rnf eventFilter

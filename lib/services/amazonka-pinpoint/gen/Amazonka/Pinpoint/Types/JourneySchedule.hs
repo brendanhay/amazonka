@@ -27,20 +27,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJourneySchedule' smart constructor.
 data JourneySchedule = JourneySchedule'
-  { -- | The scheduled time, in ISO 8601 format, when the journey began or will
-    -- begin.
-    startTime :: Prelude.Maybe Core.POSIX,
-    -- | The scheduled time, in ISO 8601 format, when the journey ended or will
-    -- end.
-    endTime :: Prelude.Maybe Core.POSIX,
-    -- | The starting UTC offset for the journey schedule, if the value of the
+  { -- | The starting UTC offset for the journey schedule, if the value of the
     -- journey\'s LocalTime property is true. Valid values are: UTC, UTC+01,
     -- UTC+02, UTC+03, UTC+03:30, UTC+04, UTC+04:30, UTC+05, UTC+05:30,
     -- UTC+05:45, UTC+06, UTC+06:30, UTC+07, UTC+08, UTC+08:45, UTC+09,
     -- UTC+09:30, UTC+10, UTC+10:30, UTC+11, UTC+12, UTC+12:45, UTC+13,
     -- UTC+13:45, UTC-02, UTC-02:30, UTC-03, UTC-03:30, UTC-04, UTC-05, UTC-06,
     -- UTC-07, UTC-08, UTC-09, UTC-09:30, UTC-10, and UTC-11.
-    timezone :: Prelude.Maybe Prelude.Text
+    timezone :: Prelude.Maybe Prelude.Text,
+    -- | The scheduled time, in ISO 8601 format, when the journey ended or will
+    -- end.
+    endTime :: Prelude.Maybe Core.POSIX,
+    -- | The scheduled time, in ISO 8601 format, when the journey began or will
+    -- begin.
+    startTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,12 +52,6 @@ data JourneySchedule = JourneySchedule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startTime', 'journeySchedule_startTime' - The scheduled time, in ISO 8601 format, when the journey began or will
--- begin.
---
--- 'endTime', 'journeySchedule_endTime' - The scheduled time, in ISO 8601 format, when the journey ended or will
--- end.
---
 -- 'timezone', 'journeySchedule_timezone' - The starting UTC offset for the journey schedule, if the value of the
 -- journey\'s LocalTime property is true. Valid values are: UTC, UTC+01,
 -- UTC+02, UTC+03, UTC+03:30, UTC+04, UTC+04:30, UTC+05, UTC+05:30,
@@ -65,24 +59,20 @@ data JourneySchedule = JourneySchedule'
 -- UTC+09:30, UTC+10, UTC+10:30, UTC+11, UTC+12, UTC+12:45, UTC+13,
 -- UTC+13:45, UTC-02, UTC-02:30, UTC-03, UTC-03:30, UTC-04, UTC-05, UTC-06,
 -- UTC-07, UTC-08, UTC-09, UTC-09:30, UTC-10, and UTC-11.
+--
+-- 'endTime', 'journeySchedule_endTime' - The scheduled time, in ISO 8601 format, when the journey ended or will
+-- end.
+--
+-- 'startTime', 'journeySchedule_startTime' - The scheduled time, in ISO 8601 format, when the journey began or will
+-- begin.
 newJourneySchedule ::
   JourneySchedule
 newJourneySchedule =
   JourneySchedule'
-    { startTime = Prelude.Nothing,
+    { timezone = Prelude.Nothing,
       endTime = Prelude.Nothing,
-      timezone = Prelude.Nothing
+      startTime = Prelude.Nothing
     }
-
--- | The scheduled time, in ISO 8601 format, when the journey began or will
--- begin.
-journeySchedule_startTime :: Lens.Lens' JourneySchedule (Prelude.Maybe Prelude.UTCTime)
-journeySchedule_startTime = Lens.lens (\JourneySchedule' {startTime} -> startTime) (\s@JourneySchedule' {} a -> s {startTime = a} :: JourneySchedule) Prelude.. Lens.mapping Core._Time
-
--- | The scheduled time, in ISO 8601 format, when the journey ended or will
--- end.
-journeySchedule_endTime :: Lens.Lens' JourneySchedule (Prelude.Maybe Prelude.UTCTime)
-journeySchedule_endTime = Lens.lens (\JourneySchedule' {endTime} -> endTime) (\s@JourneySchedule' {} a -> s {endTime = a} :: JourneySchedule) Prelude.. Lens.mapping Core._Time
 
 -- | The starting UTC offset for the journey schedule, if the value of the
 -- journey\'s LocalTime property is true. Valid values are: UTC, UTC+01,
@@ -94,35 +84,45 @@ journeySchedule_endTime = Lens.lens (\JourneySchedule' {endTime} -> endTime) (\s
 journeySchedule_timezone :: Lens.Lens' JourneySchedule (Prelude.Maybe Prelude.Text)
 journeySchedule_timezone = Lens.lens (\JourneySchedule' {timezone} -> timezone) (\s@JourneySchedule' {} a -> s {timezone = a} :: JourneySchedule)
 
+-- | The scheduled time, in ISO 8601 format, when the journey ended or will
+-- end.
+journeySchedule_endTime :: Lens.Lens' JourneySchedule (Prelude.Maybe Prelude.UTCTime)
+journeySchedule_endTime = Lens.lens (\JourneySchedule' {endTime} -> endTime) (\s@JourneySchedule' {} a -> s {endTime = a} :: JourneySchedule) Prelude.. Lens.mapping Core._Time
+
+-- | The scheduled time, in ISO 8601 format, when the journey began or will
+-- begin.
+journeySchedule_startTime :: Lens.Lens' JourneySchedule (Prelude.Maybe Prelude.UTCTime)
+journeySchedule_startTime = Lens.lens (\JourneySchedule' {startTime} -> startTime) (\s@JourneySchedule' {} a -> s {startTime = a} :: JourneySchedule) Prelude.. Lens.mapping Core._Time
+
 instance Core.FromJSON JourneySchedule where
   parseJSON =
     Core.withObject
       "JourneySchedule"
       ( \x ->
           JourneySchedule'
-            Prelude.<$> (x Core..:? "StartTime")
+            Prelude.<$> (x Core..:? "Timezone")
             Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "Timezone")
+            Prelude.<*> (x Core..:? "StartTime")
       )
 
 instance Prelude.Hashable JourneySchedule where
   hashWithSalt _salt JourneySchedule' {..} =
-    _salt `Prelude.hashWithSalt` startTime
+    _salt `Prelude.hashWithSalt` timezone
       `Prelude.hashWithSalt` endTime
-      `Prelude.hashWithSalt` timezone
+      `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData JourneySchedule where
   rnf JourneySchedule' {..} =
-    Prelude.rnf startTime
+    Prelude.rnf timezone
       `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf timezone
+      `Prelude.seq` Prelude.rnf startTime
 
 instance Core.ToJSON JourneySchedule where
   toJSON JourneySchedule' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("StartTime" Core..=) Prelude.<$> startTime,
+          [ ("Timezone" Core..=) Prelude.<$> timezone,
             ("EndTime" Core..=) Prelude.<$> endTime,
-            ("Timezone" Core..=) Prelude.<$> timezone
+            ("StartTime" Core..=) Prelude.<$> startTime
           ]
       )

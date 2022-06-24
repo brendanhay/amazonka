@@ -108,14 +108,7 @@ instance Core.ToHeaders CreateApp where
 
 instance Core.ToJSON CreateApp where
   toJSON CreateApp' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "CreateApplicationRequest"
-                  Core..= createApplicationRequest
-              )
-          ]
-      )
+    Core.toJSON createApplicationRequest
 
 instance Core.ToPath CreateApp where
   toPath = Prelude.const "/v1/apps"

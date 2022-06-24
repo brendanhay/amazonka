@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTemplateVersionsResponse' smart constructor.
 data TemplateVersionsResponse = TemplateVersionsResponse'
-  { -- | The unique identifier for the request to retrieve information about all
-    -- the versions of the message template.
-    requestID :: Prelude.Maybe Prelude.Text,
+  { -- | The message that\'s returned from the API for the request to retrieve
+    -- information about all the versions of the message template.
+    message :: Prelude.Maybe Prelude.Text,
     -- | The string to use in a subsequent request to get the next page of
     -- results in a paginated response. This value is null if there are no
     -- additional pages.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The message that\'s returned from the API for the request to retrieve
-    -- information about all the versions of the message template.
-    message :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the request to retrieve information about all
+    -- the versions of the message template.
+    requestID :: Prelude.Maybe Prelude.Text,
     -- | An array of responses, one for each version of the message template.
     item :: [TemplateVersionResponse]
   }
@@ -52,32 +52,32 @@ data TemplateVersionsResponse = TemplateVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestID', 'templateVersionsResponse_requestID' - The unique identifier for the request to retrieve information about all
--- the versions of the message template.
+-- 'message', 'templateVersionsResponse_message' - The message that\'s returned from the API for the request to retrieve
+-- information about all the versions of the message template.
 --
 -- 'nextToken', 'templateVersionsResponse_nextToken' - The string to use in a subsequent request to get the next page of
 -- results in a paginated response. This value is null if there are no
 -- additional pages.
 --
--- 'message', 'templateVersionsResponse_message' - The message that\'s returned from the API for the request to retrieve
--- information about all the versions of the message template.
+-- 'requestID', 'templateVersionsResponse_requestID' - The unique identifier for the request to retrieve information about all
+-- the versions of the message template.
 --
 -- 'item', 'templateVersionsResponse_item' - An array of responses, one for each version of the message template.
 newTemplateVersionsResponse ::
   TemplateVersionsResponse
 newTemplateVersionsResponse =
   TemplateVersionsResponse'
-    { requestID =
+    { message =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      message = Prelude.Nothing,
+      requestID = Prelude.Nothing,
       item = Prelude.mempty
     }
 
--- | The unique identifier for the request to retrieve information about all
--- the versions of the message template.
-templateVersionsResponse_requestID :: Lens.Lens' TemplateVersionsResponse (Prelude.Maybe Prelude.Text)
-templateVersionsResponse_requestID = Lens.lens (\TemplateVersionsResponse' {requestID} -> requestID) (\s@TemplateVersionsResponse' {} a -> s {requestID = a} :: TemplateVersionsResponse)
+-- | The message that\'s returned from the API for the request to retrieve
+-- information about all the versions of the message template.
+templateVersionsResponse_message :: Lens.Lens' TemplateVersionsResponse (Prelude.Maybe Prelude.Text)
+templateVersionsResponse_message = Lens.lens (\TemplateVersionsResponse' {message} -> message) (\s@TemplateVersionsResponse' {} a -> s {message = a} :: TemplateVersionsResponse)
 
 -- | The string to use in a subsequent request to get the next page of
 -- results in a paginated response. This value is null if there are no
@@ -85,10 +85,10 @@ templateVersionsResponse_requestID = Lens.lens (\TemplateVersionsResponse' {requ
 templateVersionsResponse_nextToken :: Lens.Lens' TemplateVersionsResponse (Prelude.Maybe Prelude.Text)
 templateVersionsResponse_nextToken = Lens.lens (\TemplateVersionsResponse' {nextToken} -> nextToken) (\s@TemplateVersionsResponse' {} a -> s {nextToken = a} :: TemplateVersionsResponse)
 
--- | The message that\'s returned from the API for the request to retrieve
--- information about all the versions of the message template.
-templateVersionsResponse_message :: Lens.Lens' TemplateVersionsResponse (Prelude.Maybe Prelude.Text)
-templateVersionsResponse_message = Lens.lens (\TemplateVersionsResponse' {message} -> message) (\s@TemplateVersionsResponse' {} a -> s {message = a} :: TemplateVersionsResponse)
+-- | The unique identifier for the request to retrieve information about all
+-- the versions of the message template.
+templateVersionsResponse_requestID :: Lens.Lens' TemplateVersionsResponse (Prelude.Maybe Prelude.Text)
+templateVersionsResponse_requestID = Lens.lens (\TemplateVersionsResponse' {requestID} -> requestID) (\s@TemplateVersionsResponse' {} a -> s {requestID = a} :: TemplateVersionsResponse)
 
 -- | An array of responses, one for each version of the message template.
 templateVersionsResponse_item :: Lens.Lens' TemplateVersionsResponse [TemplateVersionResponse]
@@ -100,22 +100,22 @@ instance Core.FromJSON TemplateVersionsResponse where
       "TemplateVersionsResponse"
       ( \x ->
           TemplateVersionsResponse'
-            Prelude.<$> (x Core..:? "RequestID")
+            Prelude.<$> (x Core..:? "Message")
             Prelude.<*> (x Core..:? "NextToken")
-            Prelude.<*> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "RequestID")
             Prelude.<*> (x Core..:? "Item" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TemplateVersionsResponse where
   hashWithSalt _salt TemplateVersionsResponse' {..} =
-    _salt `Prelude.hashWithSalt` requestID
+    _salt `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` requestID
       `Prelude.hashWithSalt` item
 
 instance Prelude.NFData TemplateVersionsResponse where
   rnf TemplateVersionsResponse' {..} =
-    Prelude.rnf requestID
+    Prelude.rnf message
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf requestID
       `Prelude.seq` Prelude.rnf item

@@ -128,12 +128,7 @@ instance Core.ToHeaders UpdateAdmChannel where
 
 instance Core.ToJSON UpdateAdmChannel where
   toJSON UpdateAdmChannel' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ADMChannelRequest" Core..= aDMChannelRequest)
-          ]
-      )
+    Core.toJSON aDMChannelRequest
 
 instance Core.ToPath UpdateAdmChannel where
   toPath UpdateAdmChannel' {..} =

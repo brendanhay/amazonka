@@ -35,7 +35,26 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJourneyResponse' smart constructor.
 data JourneyResponse = JourneyResponse'
-  { -- | The current status of the journey. Possible values are:
+  { -- | This object is not used or supported.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The schedule settings for the journey.
+    schedule :: Prelude.Maybe JourneySchedule,
+    -- | A map that contains a set of Activity objects, one object for each
+    -- activity in the journey. For each Activity object, the key is the unique
+    -- identifier (string) for an activity and the value is the settings for
+    -- the activity.
+    activities :: Prelude.Maybe (Prelude.HashMap Prelude.Text Activity),
+    -- | The date, in ISO 8601 format, when the journey was last modified.
+    lastModifiedDate :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether a journey should be refreshed on segment update.
+    refreshOnSegmentUpdate :: Prelude.Maybe Prelude.Bool,
+    -- | The messaging and entry limits for the journey.
+    limits :: Prelude.Maybe JourneyLimits,
+    -- | The segment that defines which users are participants in the journey.
+    startCondition :: Prelude.Maybe StartCondition,
+    -- | The unique identifier for the first activity in the journey.
+    startActivity :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the journey. Possible values are:
     --
     -- -   DRAFT - The journey is being developed and hasn\'t been published
     --     yet.
@@ -61,26 +80,15 @@ data JourneyResponse = JourneyResponse'
     --     time. However, any existing participants who are currently waiting
     --     to start an activity may continue the journey.
     state :: Prelude.Maybe State,
-    -- | The date, in ISO 8601 format, when the journey was last modified.
-    lastModifiedDate :: Prelude.Maybe Prelude.Text,
-    -- | The schedule settings for the journey.
-    schedule :: Prelude.Maybe JourneySchedule,
+    -- | The date, in ISO 8601 format, when the journey was created.
+    creationDate :: Prelude.Maybe Prelude.Text,
+    -- | The frequency with which Amazon Pinpoint evaluates segment and event
+    -- data for the journey, as a duration in ISO 8601 format.
+    refreshFrequency :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the journey\'s scheduled start and end times use each
     -- participant\'s local time. If this value is true, the schedule uses each
     -- participant\'s local time.
     localTime :: Prelude.Maybe Prelude.Bool,
-    -- | A map that contains a set of Activity objects, one object for each
-    -- activity in the journey. For each Activity object, the key is the unique
-    -- identifier (string) for an activity and the value is the settings for
-    -- the activity.
-    activities :: Prelude.Maybe (Prelude.HashMap Prelude.Text Activity),
-    -- | Specifies whether a journey should be refreshed on segment update.
-    refreshOnSegmentUpdate :: Prelude.Maybe Prelude.Bool,
-    -- | The messaging and entry limits for the journey.
-    limits :: Prelude.Maybe JourneyLimits,
-    -- | Specifies whether endpoints in quiet hours should enter a wait till the
-    -- end of their quiet hours.
-    waitForQuietTime :: Prelude.Maybe Prelude.Bool,
     -- | The quiet time settings for the journey. Quiet time is a specific time
     -- range when a journey doesn\'t send messages to participants, if all the
     -- following conditions are met:
@@ -99,19 +107,11 @@ data JourneyResponse = JourneyResponse'
     -- If any of the preceding conditions isn\'t met, the participant will
     -- receive messages from the journey, even if quiet time is enabled.
     quietTime :: Prelude.Maybe QuietTime,
-    -- | The unique identifier for the first activity in the journey.
-    startActivity :: Prelude.Maybe Prelude.Text,
-    -- | The date, in ISO 8601 format, when the journey was created.
-    creationDate :: Prelude.Maybe Prelude.Text,
-    -- | The segment that defines which users are participants in the journey.
-    startCondition :: Prelude.Maybe StartCondition,
+    -- | Specifies whether endpoints in quiet hours should enter a wait till the
+    -- end of their quiet hours.
+    waitForQuietTime :: Prelude.Maybe Prelude.Bool,
     -- | The channel-specific configurations for the journey.
     journeyChannelSettings :: Prelude.Maybe JourneyChannelSettings,
-    -- | The frequency with which Amazon Pinpoint evaluates segment and event
-    -- data for the journey, as a duration in ISO 8601 format.
-    refreshFrequency :: Prelude.Maybe Prelude.Text,
-    -- | This object is not used or supported.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the journey.
     name :: Prelude.Text,
     -- | The unique identifier for the journey.
@@ -128,6 +128,25 @@ data JourneyResponse = JourneyResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'tags', 'journeyResponse_tags' - This object is not used or supported.
+--
+-- 'schedule', 'journeyResponse_schedule' - The schedule settings for the journey.
+--
+-- 'activities', 'journeyResponse_activities' - A map that contains a set of Activity objects, one object for each
+-- activity in the journey. For each Activity object, the key is the unique
+-- identifier (string) for an activity and the value is the settings for
+-- the activity.
+--
+-- 'lastModifiedDate', 'journeyResponse_lastModifiedDate' - The date, in ISO 8601 format, when the journey was last modified.
+--
+-- 'refreshOnSegmentUpdate', 'journeyResponse_refreshOnSegmentUpdate' - Specifies whether a journey should be refreshed on segment update.
+--
+-- 'limits', 'journeyResponse_limits' - The messaging and entry limits for the journey.
+--
+-- 'startCondition', 'journeyResponse_startCondition' - The segment that defines which users are participants in the journey.
+--
+-- 'startActivity', 'journeyResponse_startActivity' - The unique identifier for the first activity in the journey.
 --
 -- 'state', 'journeyResponse_state' - The current status of the journey. Possible values are:
 --
@@ -155,25 +174,14 @@ data JourneyResponse = JourneyResponse'
 --     time. However, any existing participants who are currently waiting
 --     to start an activity may continue the journey.
 --
--- 'lastModifiedDate', 'journeyResponse_lastModifiedDate' - The date, in ISO 8601 format, when the journey was last modified.
+-- 'creationDate', 'journeyResponse_creationDate' - The date, in ISO 8601 format, when the journey was created.
 --
--- 'schedule', 'journeyResponse_schedule' - The schedule settings for the journey.
+-- 'refreshFrequency', 'journeyResponse_refreshFrequency' - The frequency with which Amazon Pinpoint evaluates segment and event
+-- data for the journey, as a duration in ISO 8601 format.
 --
 -- 'localTime', 'journeyResponse_localTime' - Specifies whether the journey\'s scheduled start and end times use each
 -- participant\'s local time. If this value is true, the schedule uses each
 -- participant\'s local time.
---
--- 'activities', 'journeyResponse_activities' - A map that contains a set of Activity objects, one object for each
--- activity in the journey. For each Activity object, the key is the unique
--- identifier (string) for an activity and the value is the settings for
--- the activity.
---
--- 'refreshOnSegmentUpdate', 'journeyResponse_refreshOnSegmentUpdate' - Specifies whether a journey should be refreshed on segment update.
---
--- 'limits', 'journeyResponse_limits' - The messaging and entry limits for the journey.
---
--- 'waitForQuietTime', 'journeyResponse_waitForQuietTime' - Specifies whether endpoints in quiet hours should enter a wait till the
--- end of their quiet hours.
 --
 -- 'quietTime', 'journeyResponse_quietTime' - The quiet time settings for the journey. Quiet time is a specific time
 -- range when a journey doesn\'t send messages to participants, if all the
@@ -193,18 +201,10 @@ data JourneyResponse = JourneyResponse'
 -- If any of the preceding conditions isn\'t met, the participant will
 -- receive messages from the journey, even if quiet time is enabled.
 --
--- 'startActivity', 'journeyResponse_startActivity' - The unique identifier for the first activity in the journey.
---
--- 'creationDate', 'journeyResponse_creationDate' - The date, in ISO 8601 format, when the journey was created.
---
--- 'startCondition', 'journeyResponse_startCondition' - The segment that defines which users are participants in the journey.
+-- 'waitForQuietTime', 'journeyResponse_waitForQuietTime' - Specifies whether endpoints in quiet hours should enter a wait till the
+-- end of their quiet hours.
 --
 -- 'journeyChannelSettings', 'journeyResponse_journeyChannelSettings' - The channel-specific configurations for the journey.
---
--- 'refreshFrequency', 'journeyResponse_refreshFrequency' - The frequency with which Amazon Pinpoint evaluates segment and event
--- data for the journey, as a duration in ISO 8601 format.
---
--- 'tags', 'journeyResponse_tags' - This object is not used or supported.
 --
 -- 'name', 'journeyResponse_name' - The name of the journey.
 --
@@ -221,25 +221,60 @@ newJourneyResponse ::
   JourneyResponse
 newJourneyResponse pName_ pId_ pApplicationId_ =
   JourneyResponse'
-    { state = Prelude.Nothing,
-      lastModifiedDate = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       schedule = Prelude.Nothing,
-      localTime = Prelude.Nothing,
       activities = Prelude.Nothing,
+      lastModifiedDate = Prelude.Nothing,
       refreshOnSegmentUpdate = Prelude.Nothing,
       limits = Prelude.Nothing,
-      waitForQuietTime = Prelude.Nothing,
-      quietTime = Prelude.Nothing,
-      startActivity = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
       startCondition = Prelude.Nothing,
-      journeyChannelSettings = Prelude.Nothing,
+      startActivity = Prelude.Nothing,
+      state = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
       refreshFrequency = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      localTime = Prelude.Nothing,
+      quietTime = Prelude.Nothing,
+      waitForQuietTime = Prelude.Nothing,
+      journeyChannelSettings = Prelude.Nothing,
       name = pName_,
       id = pId_,
       applicationId = pApplicationId_
     }
+
+-- | This object is not used or supported.
+journeyResponse_tags :: Lens.Lens' JourneyResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+journeyResponse_tags = Lens.lens (\JourneyResponse' {tags} -> tags) (\s@JourneyResponse' {} a -> s {tags = a} :: JourneyResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The schedule settings for the journey.
+journeyResponse_schedule :: Lens.Lens' JourneyResponse (Prelude.Maybe JourneySchedule)
+journeyResponse_schedule = Lens.lens (\JourneyResponse' {schedule} -> schedule) (\s@JourneyResponse' {} a -> s {schedule = a} :: JourneyResponse)
+
+-- | A map that contains a set of Activity objects, one object for each
+-- activity in the journey. For each Activity object, the key is the unique
+-- identifier (string) for an activity and the value is the settings for
+-- the activity.
+journeyResponse_activities :: Lens.Lens' JourneyResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Activity))
+journeyResponse_activities = Lens.lens (\JourneyResponse' {activities} -> activities) (\s@JourneyResponse' {} a -> s {activities = a} :: JourneyResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The date, in ISO 8601 format, when the journey was last modified.
+journeyResponse_lastModifiedDate :: Lens.Lens' JourneyResponse (Prelude.Maybe Prelude.Text)
+journeyResponse_lastModifiedDate = Lens.lens (\JourneyResponse' {lastModifiedDate} -> lastModifiedDate) (\s@JourneyResponse' {} a -> s {lastModifiedDate = a} :: JourneyResponse)
+
+-- | Specifies whether a journey should be refreshed on segment update.
+journeyResponse_refreshOnSegmentUpdate :: Lens.Lens' JourneyResponse (Prelude.Maybe Prelude.Bool)
+journeyResponse_refreshOnSegmentUpdate = Lens.lens (\JourneyResponse' {refreshOnSegmentUpdate} -> refreshOnSegmentUpdate) (\s@JourneyResponse' {} a -> s {refreshOnSegmentUpdate = a} :: JourneyResponse)
+
+-- | The messaging and entry limits for the journey.
+journeyResponse_limits :: Lens.Lens' JourneyResponse (Prelude.Maybe JourneyLimits)
+journeyResponse_limits = Lens.lens (\JourneyResponse' {limits} -> limits) (\s@JourneyResponse' {} a -> s {limits = a} :: JourneyResponse)
+
+-- | The segment that defines which users are participants in the journey.
+journeyResponse_startCondition :: Lens.Lens' JourneyResponse (Prelude.Maybe StartCondition)
+journeyResponse_startCondition = Lens.lens (\JourneyResponse' {startCondition} -> startCondition) (\s@JourneyResponse' {} a -> s {startCondition = a} :: JourneyResponse)
+
+-- | The unique identifier for the first activity in the journey.
+journeyResponse_startActivity :: Lens.Lens' JourneyResponse (Prelude.Maybe Prelude.Text)
+journeyResponse_startActivity = Lens.lens (\JourneyResponse' {startActivity} -> startActivity) (\s@JourneyResponse' {} a -> s {startActivity = a} :: JourneyResponse)
 
 -- | The current status of the journey. Possible values are:
 --
@@ -269,39 +304,20 @@ newJourneyResponse pName_ pId_ pApplicationId_ =
 journeyResponse_state :: Lens.Lens' JourneyResponse (Prelude.Maybe State)
 journeyResponse_state = Lens.lens (\JourneyResponse' {state} -> state) (\s@JourneyResponse' {} a -> s {state = a} :: JourneyResponse)
 
--- | The date, in ISO 8601 format, when the journey was last modified.
-journeyResponse_lastModifiedDate :: Lens.Lens' JourneyResponse (Prelude.Maybe Prelude.Text)
-journeyResponse_lastModifiedDate = Lens.lens (\JourneyResponse' {lastModifiedDate} -> lastModifiedDate) (\s@JourneyResponse' {} a -> s {lastModifiedDate = a} :: JourneyResponse)
+-- | The date, in ISO 8601 format, when the journey was created.
+journeyResponse_creationDate :: Lens.Lens' JourneyResponse (Prelude.Maybe Prelude.Text)
+journeyResponse_creationDate = Lens.lens (\JourneyResponse' {creationDate} -> creationDate) (\s@JourneyResponse' {} a -> s {creationDate = a} :: JourneyResponse)
 
--- | The schedule settings for the journey.
-journeyResponse_schedule :: Lens.Lens' JourneyResponse (Prelude.Maybe JourneySchedule)
-journeyResponse_schedule = Lens.lens (\JourneyResponse' {schedule} -> schedule) (\s@JourneyResponse' {} a -> s {schedule = a} :: JourneyResponse)
+-- | The frequency with which Amazon Pinpoint evaluates segment and event
+-- data for the journey, as a duration in ISO 8601 format.
+journeyResponse_refreshFrequency :: Lens.Lens' JourneyResponse (Prelude.Maybe Prelude.Text)
+journeyResponse_refreshFrequency = Lens.lens (\JourneyResponse' {refreshFrequency} -> refreshFrequency) (\s@JourneyResponse' {} a -> s {refreshFrequency = a} :: JourneyResponse)
 
 -- | Specifies whether the journey\'s scheduled start and end times use each
 -- participant\'s local time. If this value is true, the schedule uses each
 -- participant\'s local time.
 journeyResponse_localTime :: Lens.Lens' JourneyResponse (Prelude.Maybe Prelude.Bool)
 journeyResponse_localTime = Lens.lens (\JourneyResponse' {localTime} -> localTime) (\s@JourneyResponse' {} a -> s {localTime = a} :: JourneyResponse)
-
--- | A map that contains a set of Activity objects, one object for each
--- activity in the journey. For each Activity object, the key is the unique
--- identifier (string) for an activity and the value is the settings for
--- the activity.
-journeyResponse_activities :: Lens.Lens' JourneyResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Activity))
-journeyResponse_activities = Lens.lens (\JourneyResponse' {activities} -> activities) (\s@JourneyResponse' {} a -> s {activities = a} :: JourneyResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Specifies whether a journey should be refreshed on segment update.
-journeyResponse_refreshOnSegmentUpdate :: Lens.Lens' JourneyResponse (Prelude.Maybe Prelude.Bool)
-journeyResponse_refreshOnSegmentUpdate = Lens.lens (\JourneyResponse' {refreshOnSegmentUpdate} -> refreshOnSegmentUpdate) (\s@JourneyResponse' {} a -> s {refreshOnSegmentUpdate = a} :: JourneyResponse)
-
--- | The messaging and entry limits for the journey.
-journeyResponse_limits :: Lens.Lens' JourneyResponse (Prelude.Maybe JourneyLimits)
-journeyResponse_limits = Lens.lens (\JourneyResponse' {limits} -> limits) (\s@JourneyResponse' {} a -> s {limits = a} :: JourneyResponse)
-
--- | Specifies whether endpoints in quiet hours should enter a wait till the
--- end of their quiet hours.
-journeyResponse_waitForQuietTime :: Lens.Lens' JourneyResponse (Prelude.Maybe Prelude.Bool)
-journeyResponse_waitForQuietTime = Lens.lens (\JourneyResponse' {waitForQuietTime} -> waitForQuietTime) (\s@JourneyResponse' {} a -> s {waitForQuietTime = a} :: JourneyResponse)
 
 -- | The quiet time settings for the journey. Quiet time is a specific time
 -- range when a journey doesn\'t send messages to participants, if all the
@@ -323,30 +339,14 @@ journeyResponse_waitForQuietTime = Lens.lens (\JourneyResponse' {waitForQuietTim
 journeyResponse_quietTime :: Lens.Lens' JourneyResponse (Prelude.Maybe QuietTime)
 journeyResponse_quietTime = Lens.lens (\JourneyResponse' {quietTime} -> quietTime) (\s@JourneyResponse' {} a -> s {quietTime = a} :: JourneyResponse)
 
--- | The unique identifier for the first activity in the journey.
-journeyResponse_startActivity :: Lens.Lens' JourneyResponse (Prelude.Maybe Prelude.Text)
-journeyResponse_startActivity = Lens.lens (\JourneyResponse' {startActivity} -> startActivity) (\s@JourneyResponse' {} a -> s {startActivity = a} :: JourneyResponse)
-
--- | The date, in ISO 8601 format, when the journey was created.
-journeyResponse_creationDate :: Lens.Lens' JourneyResponse (Prelude.Maybe Prelude.Text)
-journeyResponse_creationDate = Lens.lens (\JourneyResponse' {creationDate} -> creationDate) (\s@JourneyResponse' {} a -> s {creationDate = a} :: JourneyResponse)
-
--- | The segment that defines which users are participants in the journey.
-journeyResponse_startCondition :: Lens.Lens' JourneyResponse (Prelude.Maybe StartCondition)
-journeyResponse_startCondition = Lens.lens (\JourneyResponse' {startCondition} -> startCondition) (\s@JourneyResponse' {} a -> s {startCondition = a} :: JourneyResponse)
+-- | Specifies whether endpoints in quiet hours should enter a wait till the
+-- end of their quiet hours.
+journeyResponse_waitForQuietTime :: Lens.Lens' JourneyResponse (Prelude.Maybe Prelude.Bool)
+journeyResponse_waitForQuietTime = Lens.lens (\JourneyResponse' {waitForQuietTime} -> waitForQuietTime) (\s@JourneyResponse' {} a -> s {waitForQuietTime = a} :: JourneyResponse)
 
 -- | The channel-specific configurations for the journey.
 journeyResponse_journeyChannelSettings :: Lens.Lens' JourneyResponse (Prelude.Maybe JourneyChannelSettings)
 journeyResponse_journeyChannelSettings = Lens.lens (\JourneyResponse' {journeyChannelSettings} -> journeyChannelSettings) (\s@JourneyResponse' {} a -> s {journeyChannelSettings = a} :: JourneyResponse)
-
--- | The frequency with which Amazon Pinpoint evaluates segment and event
--- data for the journey, as a duration in ISO 8601 format.
-journeyResponse_refreshFrequency :: Lens.Lens' JourneyResponse (Prelude.Maybe Prelude.Text)
-journeyResponse_refreshFrequency = Lens.lens (\JourneyResponse' {refreshFrequency} -> refreshFrequency) (\s@JourneyResponse' {} a -> s {refreshFrequency = a} :: JourneyResponse)
-
--- | This object is not used or supported.
-journeyResponse_tags :: Lens.Lens' JourneyResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-journeyResponse_tags = Lens.lens (\JourneyResponse' {tags} -> tags) (\s@JourneyResponse' {} a -> s {tags = a} :: JourneyResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the journey.
 journeyResponse_name :: Lens.Lens' JourneyResponse Prelude.Text
@@ -366,21 +366,21 @@ instance Core.FromJSON JourneyResponse where
       "JourneyResponse"
       ( \x ->
           JourneyResponse'
-            Prelude.<$> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "LastModifiedDate")
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Schedule")
-            Prelude.<*> (x Core..:? "LocalTime")
             Prelude.<*> (x Core..:? "Activities" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "LastModifiedDate")
             Prelude.<*> (x Core..:? "RefreshOnSegmentUpdate")
             Prelude.<*> (x Core..:? "Limits")
-            Prelude.<*> (x Core..:? "WaitForQuietTime")
-            Prelude.<*> (x Core..:? "QuietTime")
-            Prelude.<*> (x Core..:? "StartActivity")
-            Prelude.<*> (x Core..:? "CreationDate")
             Prelude.<*> (x Core..:? "StartCondition")
-            Prelude.<*> (x Core..:? "JourneyChannelSettings")
+            Prelude.<*> (x Core..:? "StartActivity")
+            Prelude.<*> (x Core..:? "State")
+            Prelude.<*> (x Core..:? "CreationDate")
             Prelude.<*> (x Core..:? "RefreshFrequency")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "LocalTime")
+            Prelude.<*> (x Core..:? "QuietTime")
+            Prelude.<*> (x Core..:? "WaitForQuietTime")
+            Prelude.<*> (x Core..:? "JourneyChannelSettings")
             Prelude.<*> (x Core..: "Name")
             Prelude.<*> (x Core..: "Id")
             Prelude.<*> (x Core..: "ApplicationId")
@@ -388,42 +388,42 @@ instance Core.FromJSON JourneyResponse where
 
 instance Prelude.Hashable JourneyResponse where
   hashWithSalt _salt JourneyResponse' {..} =
-    _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` lastModifiedDate
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` schedule
-      `Prelude.hashWithSalt` localTime
       `Prelude.hashWithSalt` activities
+      `Prelude.hashWithSalt` lastModifiedDate
       `Prelude.hashWithSalt` refreshOnSegmentUpdate
       `Prelude.hashWithSalt` limits
-      `Prelude.hashWithSalt` waitForQuietTime
-      `Prelude.hashWithSalt` quietTime
-      `Prelude.hashWithSalt` startActivity
-      `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` startCondition
-      `Prelude.hashWithSalt` journeyChannelSettings
+      `Prelude.hashWithSalt` startActivity
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` refreshFrequency
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` localTime
+      `Prelude.hashWithSalt` quietTime
+      `Prelude.hashWithSalt` waitForQuietTime
+      `Prelude.hashWithSalt` journeyChannelSettings
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` applicationId
 
 instance Prelude.NFData JourneyResponse where
   rnf JourneyResponse' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf lastModifiedDate
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf localTime
       `Prelude.seq` Prelude.rnf activities
+      `Prelude.seq` Prelude.rnf lastModifiedDate
       `Prelude.seq` Prelude.rnf refreshOnSegmentUpdate
       `Prelude.seq` Prelude.rnf limits
-      `Prelude.seq` Prelude.rnf waitForQuietTime
-      `Prelude.seq` Prelude.rnf quietTime
-      `Prelude.seq` Prelude.rnf startActivity
-      `Prelude.seq` Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf startCondition
-      `Prelude.seq` Prelude.rnf journeyChannelSettings
+      `Prelude.seq` Prelude.rnf startActivity
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf refreshFrequency
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf localTime
+      `Prelude.seq` Prelude.rnf quietTime
+      `Prelude.seq` Prelude.rnf waitForQuietTime
+      `Prelude.seq` Prelude.rnf journeyChannelSettings
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf applicationId

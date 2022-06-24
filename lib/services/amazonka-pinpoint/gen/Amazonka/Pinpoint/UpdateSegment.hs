@@ -144,12 +144,7 @@ instance Core.ToHeaders UpdateSegment where
 
 instance Core.ToJSON UpdateSegment where
   toJSON UpdateSegment' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("WriteSegmentRequest" Core..= writeSegmentRequest)
-          ]
-      )
+    Core.toJSON writeSegmentRequest
 
 instance Core.ToPath UpdateSegment where
   toPath UpdateSegment' {..} =

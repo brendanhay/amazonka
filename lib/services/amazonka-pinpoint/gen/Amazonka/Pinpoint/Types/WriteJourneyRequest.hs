@@ -33,7 +33,27 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWriteJourneyRequest' smart constructor.
 data WriteJourneyRequest = WriteJourneyRequest'
-  { -- | The status of the journey. Valid values are:
+  { -- | The schedule settings for the journey.
+    schedule :: Prelude.Maybe JourneySchedule,
+    -- | A map that contains a set of Activity objects, one object for each
+    -- activity in the journey. For each Activity object, the key is the unique
+    -- identifier (string) for an activity and the value is the settings for
+    -- the activity. An activity identifier can contain a maximum of 100
+    -- characters. The characters must be alphanumeric characters.
+    activities :: Prelude.Maybe (Prelude.HashMap Prelude.Text Activity),
+    -- | The date, in ISO 8601 format, when the journey was last modified.
+    lastModifiedDate :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether a journey should be refreshed on segment update.
+    refreshOnSegmentUpdate :: Prelude.Maybe Prelude.Bool,
+    -- | The messaging and entry limits for the journey.
+    limits :: Prelude.Maybe JourneyLimits,
+    -- | The segment that defines which users are participants in the journey.
+    startCondition :: Prelude.Maybe StartCondition,
+    -- | The unique identifier for the first activity in the journey. The
+    -- identifier for this activity can contain a maximum of 128 characters.
+    -- The characters must be alphanumeric characters.
+    startActivity :: Prelude.Maybe Prelude.Text,
+    -- | The status of the journey. Valid values are:
     --
     -- -   DRAFT - Saves the journey and doesn\'t publish it.
     --
@@ -46,27 +66,15 @@ data WriteJourneyRequest = WriteJourneyRequest'
     -- requests to create or update a journey. To cancel, pause, or resume a
     -- journey, use the Journey State resource.
     state :: Prelude.Maybe State,
-    -- | The date, in ISO 8601 format, when the journey was last modified.
-    lastModifiedDate :: Prelude.Maybe Prelude.Text,
-    -- | The schedule settings for the journey.
-    schedule :: Prelude.Maybe JourneySchedule,
+    -- | The date, in ISO 8601 format, when the journey was created.
+    creationDate :: Prelude.Maybe Prelude.Text,
+    -- | The frequency with which Amazon Pinpoint evaluates segment and event
+    -- data for the journey, as a duration in ISO 8601 format.
+    refreshFrequency :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the journey\'s scheduled start and end times use each
     -- participant\'s local time. To base the schedule on each participant\'s
     -- local time, set this value to true.
     localTime :: Prelude.Maybe Prelude.Bool,
-    -- | A map that contains a set of Activity objects, one object for each
-    -- activity in the journey. For each Activity object, the key is the unique
-    -- identifier (string) for an activity and the value is the settings for
-    -- the activity. An activity identifier can contain a maximum of 100
-    -- characters. The characters must be alphanumeric characters.
-    activities :: Prelude.Maybe (Prelude.HashMap Prelude.Text Activity),
-    -- | Specifies whether a journey should be refreshed on segment update.
-    refreshOnSegmentUpdate :: Prelude.Maybe Prelude.Bool,
-    -- | The messaging and entry limits for the journey.
-    limits :: Prelude.Maybe JourneyLimits,
-    -- | Specifies whether endpoints in quiet hours should enter a wait till the
-    -- end of their quiet hours.
-    waitForQuietTime :: Prelude.Maybe Prelude.Bool,
     -- | The quiet time settings for the journey. Quiet time is a specific time
     -- range when a journey doesn\'t send messages to participants, if all the
     -- following conditions are met:
@@ -85,17 +93,9 @@ data WriteJourneyRequest = WriteJourneyRequest'
     -- If any of the preceding conditions isn\'t met, the participant will
     -- receive messages from the journey, even if quiet time is enabled.
     quietTime :: Prelude.Maybe QuietTime,
-    -- | The unique identifier for the first activity in the journey. The
-    -- identifier for this activity can contain a maximum of 128 characters.
-    -- The characters must be alphanumeric characters.
-    startActivity :: Prelude.Maybe Prelude.Text,
-    -- | The date, in ISO 8601 format, when the journey was created.
-    creationDate :: Prelude.Maybe Prelude.Text,
-    -- | The segment that defines which users are participants in the journey.
-    startCondition :: Prelude.Maybe StartCondition,
-    -- | The frequency with which Amazon Pinpoint evaluates segment and event
-    -- data for the journey, as a duration in ISO 8601 format.
-    refreshFrequency :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether endpoints in quiet hours should enter a wait till the
+    -- end of their quiet hours.
+    waitForQuietTime :: Prelude.Maybe Prelude.Bool,
     -- | The name of the journey. A journey name can contain a maximum of 150
     -- characters. The characters can be alphanumeric characters or symbols,
     -- such as underscores (_) or hyphens (-). A journey name can\'t contain
@@ -112,6 +112,26 @@ data WriteJourneyRequest = WriteJourneyRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'schedule', 'writeJourneyRequest_schedule' - The schedule settings for the journey.
+--
+-- 'activities', 'writeJourneyRequest_activities' - A map that contains a set of Activity objects, one object for each
+-- activity in the journey. For each Activity object, the key is the unique
+-- identifier (string) for an activity and the value is the settings for
+-- the activity. An activity identifier can contain a maximum of 100
+-- characters. The characters must be alphanumeric characters.
+--
+-- 'lastModifiedDate', 'writeJourneyRequest_lastModifiedDate' - The date, in ISO 8601 format, when the journey was last modified.
+--
+-- 'refreshOnSegmentUpdate', 'writeJourneyRequest_refreshOnSegmentUpdate' - Specifies whether a journey should be refreshed on segment update.
+--
+-- 'limits', 'writeJourneyRequest_limits' - The messaging and entry limits for the journey.
+--
+-- 'startCondition', 'writeJourneyRequest_startCondition' - The segment that defines which users are participants in the journey.
+--
+-- 'startActivity', 'writeJourneyRequest_startActivity' - The unique identifier for the first activity in the journey. The
+-- identifier for this activity can contain a maximum of 128 characters.
+-- The characters must be alphanumeric characters.
+--
 -- 'state', 'writeJourneyRequest_state' - The status of the journey. Valid values are:
 --
 -- -   DRAFT - Saves the journey and doesn\'t publish it.
@@ -125,26 +145,14 @@ data WriteJourneyRequest = WriteJourneyRequest'
 -- requests to create or update a journey. To cancel, pause, or resume a
 -- journey, use the Journey State resource.
 --
--- 'lastModifiedDate', 'writeJourneyRequest_lastModifiedDate' - The date, in ISO 8601 format, when the journey was last modified.
+-- 'creationDate', 'writeJourneyRequest_creationDate' - The date, in ISO 8601 format, when the journey was created.
 --
--- 'schedule', 'writeJourneyRequest_schedule' - The schedule settings for the journey.
+-- 'refreshFrequency', 'writeJourneyRequest_refreshFrequency' - The frequency with which Amazon Pinpoint evaluates segment and event
+-- data for the journey, as a duration in ISO 8601 format.
 --
 -- 'localTime', 'writeJourneyRequest_localTime' - Specifies whether the journey\'s scheduled start and end times use each
 -- participant\'s local time. To base the schedule on each participant\'s
 -- local time, set this value to true.
---
--- 'activities', 'writeJourneyRequest_activities' - A map that contains a set of Activity objects, one object for each
--- activity in the journey. For each Activity object, the key is the unique
--- identifier (string) for an activity and the value is the settings for
--- the activity. An activity identifier can contain a maximum of 100
--- characters. The characters must be alphanumeric characters.
---
--- 'refreshOnSegmentUpdate', 'writeJourneyRequest_refreshOnSegmentUpdate' - Specifies whether a journey should be refreshed on segment update.
---
--- 'limits', 'writeJourneyRequest_limits' - The messaging and entry limits for the journey.
---
--- 'waitForQuietTime', 'writeJourneyRequest_waitForQuietTime' - Specifies whether endpoints in quiet hours should enter a wait till the
--- end of their quiet hours.
 --
 -- 'quietTime', 'writeJourneyRequest_quietTime' - The quiet time settings for the journey. Quiet time is a specific time
 -- range when a journey doesn\'t send messages to participants, if all the
@@ -164,16 +172,8 @@ data WriteJourneyRequest = WriteJourneyRequest'
 -- If any of the preceding conditions isn\'t met, the participant will
 -- receive messages from the journey, even if quiet time is enabled.
 --
--- 'startActivity', 'writeJourneyRequest_startActivity' - The unique identifier for the first activity in the journey. The
--- identifier for this activity can contain a maximum of 128 characters.
--- The characters must be alphanumeric characters.
---
--- 'creationDate', 'writeJourneyRequest_creationDate' - The date, in ISO 8601 format, when the journey was created.
---
--- 'startCondition', 'writeJourneyRequest_startCondition' - The segment that defines which users are participants in the journey.
---
--- 'refreshFrequency', 'writeJourneyRequest_refreshFrequency' - The frequency with which Amazon Pinpoint evaluates segment and event
--- data for the journey, as a duration in ISO 8601 format.
+-- 'waitForQuietTime', 'writeJourneyRequest_waitForQuietTime' - Specifies whether endpoints in quiet hours should enter a wait till the
+-- end of their quiet hours.
 --
 -- 'name', 'writeJourneyRequest_name' - The name of the journey. A journey name can contain a maximum of 150
 -- characters. The characters can be alphanumeric characters or symbols,
@@ -185,21 +185,55 @@ newWriteJourneyRequest ::
   WriteJourneyRequest
 newWriteJourneyRequest pName_ =
   WriteJourneyRequest'
-    { state = Prelude.Nothing,
-      lastModifiedDate = Prelude.Nothing,
-      schedule = Prelude.Nothing,
-      localTime = Prelude.Nothing,
+    { schedule = Prelude.Nothing,
       activities = Prelude.Nothing,
+      lastModifiedDate = Prelude.Nothing,
       refreshOnSegmentUpdate = Prelude.Nothing,
       limits = Prelude.Nothing,
-      waitForQuietTime = Prelude.Nothing,
-      quietTime = Prelude.Nothing,
-      startActivity = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
       startCondition = Prelude.Nothing,
+      startActivity = Prelude.Nothing,
+      state = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
       refreshFrequency = Prelude.Nothing,
+      localTime = Prelude.Nothing,
+      quietTime = Prelude.Nothing,
+      waitForQuietTime = Prelude.Nothing,
       name = pName_
     }
+
+-- | The schedule settings for the journey.
+writeJourneyRequest_schedule :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe JourneySchedule)
+writeJourneyRequest_schedule = Lens.lens (\WriteJourneyRequest' {schedule} -> schedule) (\s@WriteJourneyRequest' {} a -> s {schedule = a} :: WriteJourneyRequest)
+
+-- | A map that contains a set of Activity objects, one object for each
+-- activity in the journey. For each Activity object, the key is the unique
+-- identifier (string) for an activity and the value is the settings for
+-- the activity. An activity identifier can contain a maximum of 100
+-- characters. The characters must be alphanumeric characters.
+writeJourneyRequest_activities :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Activity))
+writeJourneyRequest_activities = Lens.lens (\WriteJourneyRequest' {activities} -> activities) (\s@WriteJourneyRequest' {} a -> s {activities = a} :: WriteJourneyRequest) Prelude.. Lens.mapping Lens.coerced
+
+-- | The date, in ISO 8601 format, when the journey was last modified.
+writeJourneyRequest_lastModifiedDate :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe Prelude.Text)
+writeJourneyRequest_lastModifiedDate = Lens.lens (\WriteJourneyRequest' {lastModifiedDate} -> lastModifiedDate) (\s@WriteJourneyRequest' {} a -> s {lastModifiedDate = a} :: WriteJourneyRequest)
+
+-- | Specifies whether a journey should be refreshed on segment update.
+writeJourneyRequest_refreshOnSegmentUpdate :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe Prelude.Bool)
+writeJourneyRequest_refreshOnSegmentUpdate = Lens.lens (\WriteJourneyRequest' {refreshOnSegmentUpdate} -> refreshOnSegmentUpdate) (\s@WriteJourneyRequest' {} a -> s {refreshOnSegmentUpdate = a} :: WriteJourneyRequest)
+
+-- | The messaging and entry limits for the journey.
+writeJourneyRequest_limits :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe JourneyLimits)
+writeJourneyRequest_limits = Lens.lens (\WriteJourneyRequest' {limits} -> limits) (\s@WriteJourneyRequest' {} a -> s {limits = a} :: WriteJourneyRequest)
+
+-- | The segment that defines which users are participants in the journey.
+writeJourneyRequest_startCondition :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe StartCondition)
+writeJourneyRequest_startCondition = Lens.lens (\WriteJourneyRequest' {startCondition} -> startCondition) (\s@WriteJourneyRequest' {} a -> s {startCondition = a} :: WriteJourneyRequest)
+
+-- | The unique identifier for the first activity in the journey. The
+-- identifier for this activity can contain a maximum of 128 characters.
+-- The characters must be alphanumeric characters.
+writeJourneyRequest_startActivity :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe Prelude.Text)
+writeJourneyRequest_startActivity = Lens.lens (\WriteJourneyRequest' {startActivity} -> startActivity) (\s@WriteJourneyRequest' {} a -> s {startActivity = a} :: WriteJourneyRequest)
 
 -- | The status of the journey. Valid values are:
 --
@@ -216,40 +250,20 @@ newWriteJourneyRequest pName_ =
 writeJourneyRequest_state :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe State)
 writeJourneyRequest_state = Lens.lens (\WriteJourneyRequest' {state} -> state) (\s@WriteJourneyRequest' {} a -> s {state = a} :: WriteJourneyRequest)
 
--- | The date, in ISO 8601 format, when the journey was last modified.
-writeJourneyRequest_lastModifiedDate :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe Prelude.Text)
-writeJourneyRequest_lastModifiedDate = Lens.lens (\WriteJourneyRequest' {lastModifiedDate} -> lastModifiedDate) (\s@WriteJourneyRequest' {} a -> s {lastModifiedDate = a} :: WriteJourneyRequest)
+-- | The date, in ISO 8601 format, when the journey was created.
+writeJourneyRequest_creationDate :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe Prelude.Text)
+writeJourneyRequest_creationDate = Lens.lens (\WriteJourneyRequest' {creationDate} -> creationDate) (\s@WriteJourneyRequest' {} a -> s {creationDate = a} :: WriteJourneyRequest)
 
--- | The schedule settings for the journey.
-writeJourneyRequest_schedule :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe JourneySchedule)
-writeJourneyRequest_schedule = Lens.lens (\WriteJourneyRequest' {schedule} -> schedule) (\s@WriteJourneyRequest' {} a -> s {schedule = a} :: WriteJourneyRequest)
+-- | The frequency with which Amazon Pinpoint evaluates segment and event
+-- data for the journey, as a duration in ISO 8601 format.
+writeJourneyRequest_refreshFrequency :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe Prelude.Text)
+writeJourneyRequest_refreshFrequency = Lens.lens (\WriteJourneyRequest' {refreshFrequency} -> refreshFrequency) (\s@WriteJourneyRequest' {} a -> s {refreshFrequency = a} :: WriteJourneyRequest)
 
 -- | Specifies whether the journey\'s scheduled start and end times use each
 -- participant\'s local time. To base the schedule on each participant\'s
 -- local time, set this value to true.
 writeJourneyRequest_localTime :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe Prelude.Bool)
 writeJourneyRequest_localTime = Lens.lens (\WriteJourneyRequest' {localTime} -> localTime) (\s@WriteJourneyRequest' {} a -> s {localTime = a} :: WriteJourneyRequest)
-
--- | A map that contains a set of Activity objects, one object for each
--- activity in the journey. For each Activity object, the key is the unique
--- identifier (string) for an activity and the value is the settings for
--- the activity. An activity identifier can contain a maximum of 100
--- characters. The characters must be alphanumeric characters.
-writeJourneyRequest_activities :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Activity))
-writeJourneyRequest_activities = Lens.lens (\WriteJourneyRequest' {activities} -> activities) (\s@WriteJourneyRequest' {} a -> s {activities = a} :: WriteJourneyRequest) Prelude.. Lens.mapping Lens.coerced
-
--- | Specifies whether a journey should be refreshed on segment update.
-writeJourneyRequest_refreshOnSegmentUpdate :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe Prelude.Bool)
-writeJourneyRequest_refreshOnSegmentUpdate = Lens.lens (\WriteJourneyRequest' {refreshOnSegmentUpdate} -> refreshOnSegmentUpdate) (\s@WriteJourneyRequest' {} a -> s {refreshOnSegmentUpdate = a} :: WriteJourneyRequest)
-
--- | The messaging and entry limits for the journey.
-writeJourneyRequest_limits :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe JourneyLimits)
-writeJourneyRequest_limits = Lens.lens (\WriteJourneyRequest' {limits} -> limits) (\s@WriteJourneyRequest' {} a -> s {limits = a} :: WriteJourneyRequest)
-
--- | Specifies whether endpoints in quiet hours should enter a wait till the
--- end of their quiet hours.
-writeJourneyRequest_waitForQuietTime :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe Prelude.Bool)
-writeJourneyRequest_waitForQuietTime = Lens.lens (\WriteJourneyRequest' {waitForQuietTime} -> waitForQuietTime) (\s@WriteJourneyRequest' {} a -> s {waitForQuietTime = a} :: WriteJourneyRequest)
 
 -- | The quiet time settings for the journey. Quiet time is a specific time
 -- range when a journey doesn\'t send messages to participants, if all the
@@ -271,24 +285,10 @@ writeJourneyRequest_waitForQuietTime = Lens.lens (\WriteJourneyRequest' {waitFor
 writeJourneyRequest_quietTime :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe QuietTime)
 writeJourneyRequest_quietTime = Lens.lens (\WriteJourneyRequest' {quietTime} -> quietTime) (\s@WriteJourneyRequest' {} a -> s {quietTime = a} :: WriteJourneyRequest)
 
--- | The unique identifier for the first activity in the journey. The
--- identifier for this activity can contain a maximum of 128 characters.
--- The characters must be alphanumeric characters.
-writeJourneyRequest_startActivity :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe Prelude.Text)
-writeJourneyRequest_startActivity = Lens.lens (\WriteJourneyRequest' {startActivity} -> startActivity) (\s@WriteJourneyRequest' {} a -> s {startActivity = a} :: WriteJourneyRequest)
-
--- | The date, in ISO 8601 format, when the journey was created.
-writeJourneyRequest_creationDate :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe Prelude.Text)
-writeJourneyRequest_creationDate = Lens.lens (\WriteJourneyRequest' {creationDate} -> creationDate) (\s@WriteJourneyRequest' {} a -> s {creationDate = a} :: WriteJourneyRequest)
-
--- | The segment that defines which users are participants in the journey.
-writeJourneyRequest_startCondition :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe StartCondition)
-writeJourneyRequest_startCondition = Lens.lens (\WriteJourneyRequest' {startCondition} -> startCondition) (\s@WriteJourneyRequest' {} a -> s {startCondition = a} :: WriteJourneyRequest)
-
--- | The frequency with which Amazon Pinpoint evaluates segment and event
--- data for the journey, as a duration in ISO 8601 format.
-writeJourneyRequest_refreshFrequency :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe Prelude.Text)
-writeJourneyRequest_refreshFrequency = Lens.lens (\WriteJourneyRequest' {refreshFrequency} -> refreshFrequency) (\s@WriteJourneyRequest' {} a -> s {refreshFrequency = a} :: WriteJourneyRequest)
+-- | Specifies whether endpoints in quiet hours should enter a wait till the
+-- end of their quiet hours.
+writeJourneyRequest_waitForQuietTime :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe Prelude.Bool)
+writeJourneyRequest_waitForQuietTime = Lens.lens (\WriteJourneyRequest' {waitForQuietTime} -> waitForQuietTime) (\s@WriteJourneyRequest' {} a -> s {waitForQuietTime = a} :: WriteJourneyRequest)
 
 -- | The name of the journey. A journey name can contain a maximum of 150
 -- characters. The characters can be alphanumeric characters or symbols,
@@ -299,60 +299,60 @@ writeJourneyRequest_name = Lens.lens (\WriteJourneyRequest' {name} -> name) (\s@
 
 instance Prelude.Hashable WriteJourneyRequest where
   hashWithSalt _salt WriteJourneyRequest' {..} =
-    _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` lastModifiedDate
-      `Prelude.hashWithSalt` schedule
-      `Prelude.hashWithSalt` localTime
+    _salt `Prelude.hashWithSalt` schedule
       `Prelude.hashWithSalt` activities
+      `Prelude.hashWithSalt` lastModifiedDate
       `Prelude.hashWithSalt` refreshOnSegmentUpdate
       `Prelude.hashWithSalt` limits
-      `Prelude.hashWithSalt` waitForQuietTime
-      `Prelude.hashWithSalt` quietTime
-      `Prelude.hashWithSalt` startActivity
-      `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` startCondition
+      `Prelude.hashWithSalt` startActivity
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` refreshFrequency
+      `Prelude.hashWithSalt` localTime
+      `Prelude.hashWithSalt` quietTime
+      `Prelude.hashWithSalt` waitForQuietTime
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData WriteJourneyRequest where
   rnf WriteJourneyRequest' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf localTime
+    Prelude.rnf schedule
       `Prelude.seq` Prelude.rnf activities
+      `Prelude.seq` Prelude.rnf lastModifiedDate
       `Prelude.seq` Prelude.rnf refreshOnSegmentUpdate
       `Prelude.seq` Prelude.rnf limits
-      `Prelude.seq` Prelude.rnf waitForQuietTime
-      `Prelude.seq` Prelude.rnf quietTime
-      `Prelude.seq` Prelude.rnf startActivity
-      `Prelude.seq` Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf startCondition
+      `Prelude.seq` Prelude.rnf startActivity
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf refreshFrequency
+      `Prelude.seq` Prelude.rnf localTime
+      `Prelude.seq` Prelude.rnf quietTime
+      `Prelude.seq` Prelude.rnf waitForQuietTime
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON WriteJourneyRequest where
   toJSON WriteJourneyRequest' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("State" Core..=) Prelude.<$> state,
+          [ ("Schedule" Core..=) Prelude.<$> schedule,
+            ("Activities" Core..=) Prelude.<$> activities,
             ("LastModifiedDate" Core..=)
               Prelude.<$> lastModifiedDate,
-            ("Schedule" Core..=) Prelude.<$> schedule,
-            ("LocalTime" Core..=) Prelude.<$> localTime,
-            ("Activities" Core..=) Prelude.<$> activities,
             ("RefreshOnSegmentUpdate" Core..=)
               Prelude.<$> refreshOnSegmentUpdate,
             ("Limits" Core..=) Prelude.<$> limits,
-            ("WaitForQuietTime" Core..=)
-              Prelude.<$> waitForQuietTime,
-            ("QuietTime" Core..=) Prelude.<$> quietTime,
-            ("StartActivity" Core..=) Prelude.<$> startActivity,
-            ("CreationDate" Core..=) Prelude.<$> creationDate,
             ("StartCondition" Core..=)
               Prelude.<$> startCondition,
+            ("StartActivity" Core..=) Prelude.<$> startActivity,
+            ("State" Core..=) Prelude.<$> state,
+            ("CreationDate" Core..=) Prelude.<$> creationDate,
             ("RefreshFrequency" Core..=)
               Prelude.<$> refreshFrequency,
+            ("LocalTime" Core..=) Prelude.<$> localTime,
+            ("QuietTime" Core..=) Prelude.<$> quietTime,
+            ("WaitForQuietTime" Core..=)
+              Prelude.<$> waitForQuietTime,
             Prelude.Just ("Name" Core..= name)
           ]
       )

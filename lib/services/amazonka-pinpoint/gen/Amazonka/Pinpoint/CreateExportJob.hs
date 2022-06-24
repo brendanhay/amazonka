@@ -125,12 +125,7 @@ instance Core.ToHeaders CreateExportJob where
 
 instance Core.ToJSON CreateExportJob where
   toJSON CreateExportJob' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ExportJobRequest" Core..= exportJobRequest)
-          ]
-      )
+    Core.toJSON exportJobRequest
 
 instance Core.ToPath CreateExportJob where
   toPath CreateExportJob' {..} =

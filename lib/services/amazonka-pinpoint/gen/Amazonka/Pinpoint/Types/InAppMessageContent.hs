@@ -30,18 +30,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInAppMessageContent' smart constructor.
 data InAppMessageContent = InAppMessageContent'
-  { -- | The first button inside the message.
-    primaryBtn :: Prelude.Maybe InAppMessageButton,
-    -- | The configuration for the message body.
+  { -- | The configuration for the message body.
     bodyConfig :: Prelude.Maybe InAppMessageBodyConfig,
-    -- | The background color for the message.
-    backgroundColor :: Prelude.Maybe Prelude.Text,
-    -- | The image url for the background of message.
-    imageUrl :: Prelude.Maybe Prelude.Text,
     -- | The second button inside message.
     secondaryBtn :: Prelude.Maybe InAppMessageButton,
+    -- | The image url for the background of message.
+    imageUrl :: Prelude.Maybe Prelude.Text,
     -- | The configuration for the message header.
-    headerConfig :: Prelude.Maybe InAppMessageHeaderConfig
+    headerConfig :: Prelude.Maybe InAppMessageHeaderConfig,
+    -- | The background color for the message.
+    backgroundColor :: Prelude.Maybe Prelude.Text,
+    -- | The first button inside the message.
+    primaryBtn :: Prelude.Maybe InAppMessageButton
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,52 +53,52 @@ data InAppMessageContent = InAppMessageContent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'primaryBtn', 'inAppMessageContent_primaryBtn' - The first button inside the message.
---
 -- 'bodyConfig', 'inAppMessageContent_bodyConfig' - The configuration for the message body.
---
--- 'backgroundColor', 'inAppMessageContent_backgroundColor' - The background color for the message.
---
--- 'imageUrl', 'inAppMessageContent_imageUrl' - The image url for the background of message.
 --
 -- 'secondaryBtn', 'inAppMessageContent_secondaryBtn' - The second button inside message.
 --
+-- 'imageUrl', 'inAppMessageContent_imageUrl' - The image url for the background of message.
+--
 -- 'headerConfig', 'inAppMessageContent_headerConfig' - The configuration for the message header.
+--
+-- 'backgroundColor', 'inAppMessageContent_backgroundColor' - The background color for the message.
+--
+-- 'primaryBtn', 'inAppMessageContent_primaryBtn' - The first button inside the message.
 newInAppMessageContent ::
   InAppMessageContent
 newInAppMessageContent =
   InAppMessageContent'
-    { primaryBtn = Prelude.Nothing,
-      bodyConfig = Prelude.Nothing,
-      backgroundColor = Prelude.Nothing,
-      imageUrl = Prelude.Nothing,
+    { bodyConfig = Prelude.Nothing,
       secondaryBtn = Prelude.Nothing,
-      headerConfig = Prelude.Nothing
+      imageUrl = Prelude.Nothing,
+      headerConfig = Prelude.Nothing,
+      backgroundColor = Prelude.Nothing,
+      primaryBtn = Prelude.Nothing
     }
-
--- | The first button inside the message.
-inAppMessageContent_primaryBtn :: Lens.Lens' InAppMessageContent (Prelude.Maybe InAppMessageButton)
-inAppMessageContent_primaryBtn = Lens.lens (\InAppMessageContent' {primaryBtn} -> primaryBtn) (\s@InAppMessageContent' {} a -> s {primaryBtn = a} :: InAppMessageContent)
 
 -- | The configuration for the message body.
 inAppMessageContent_bodyConfig :: Lens.Lens' InAppMessageContent (Prelude.Maybe InAppMessageBodyConfig)
 inAppMessageContent_bodyConfig = Lens.lens (\InAppMessageContent' {bodyConfig} -> bodyConfig) (\s@InAppMessageContent' {} a -> s {bodyConfig = a} :: InAppMessageContent)
 
--- | The background color for the message.
-inAppMessageContent_backgroundColor :: Lens.Lens' InAppMessageContent (Prelude.Maybe Prelude.Text)
-inAppMessageContent_backgroundColor = Lens.lens (\InAppMessageContent' {backgroundColor} -> backgroundColor) (\s@InAppMessageContent' {} a -> s {backgroundColor = a} :: InAppMessageContent)
+-- | The second button inside message.
+inAppMessageContent_secondaryBtn :: Lens.Lens' InAppMessageContent (Prelude.Maybe InAppMessageButton)
+inAppMessageContent_secondaryBtn = Lens.lens (\InAppMessageContent' {secondaryBtn} -> secondaryBtn) (\s@InAppMessageContent' {} a -> s {secondaryBtn = a} :: InAppMessageContent)
 
 -- | The image url for the background of message.
 inAppMessageContent_imageUrl :: Lens.Lens' InAppMessageContent (Prelude.Maybe Prelude.Text)
 inAppMessageContent_imageUrl = Lens.lens (\InAppMessageContent' {imageUrl} -> imageUrl) (\s@InAppMessageContent' {} a -> s {imageUrl = a} :: InAppMessageContent)
 
--- | The second button inside message.
-inAppMessageContent_secondaryBtn :: Lens.Lens' InAppMessageContent (Prelude.Maybe InAppMessageButton)
-inAppMessageContent_secondaryBtn = Lens.lens (\InAppMessageContent' {secondaryBtn} -> secondaryBtn) (\s@InAppMessageContent' {} a -> s {secondaryBtn = a} :: InAppMessageContent)
-
 -- | The configuration for the message header.
 inAppMessageContent_headerConfig :: Lens.Lens' InAppMessageContent (Prelude.Maybe InAppMessageHeaderConfig)
 inAppMessageContent_headerConfig = Lens.lens (\InAppMessageContent' {headerConfig} -> headerConfig) (\s@InAppMessageContent' {} a -> s {headerConfig = a} :: InAppMessageContent)
+
+-- | The background color for the message.
+inAppMessageContent_backgroundColor :: Lens.Lens' InAppMessageContent (Prelude.Maybe Prelude.Text)
+inAppMessageContent_backgroundColor = Lens.lens (\InAppMessageContent' {backgroundColor} -> backgroundColor) (\s@InAppMessageContent' {} a -> s {backgroundColor = a} :: InAppMessageContent)
+
+-- | The first button inside the message.
+inAppMessageContent_primaryBtn :: Lens.Lens' InAppMessageContent (Prelude.Maybe InAppMessageButton)
+inAppMessageContent_primaryBtn = Lens.lens (\InAppMessageContent' {primaryBtn} -> primaryBtn) (\s@InAppMessageContent' {} a -> s {primaryBtn = a} :: InAppMessageContent)
 
 instance Core.FromJSON InAppMessageContent where
   parseJSON =
@@ -106,42 +106,42 @@ instance Core.FromJSON InAppMessageContent where
       "InAppMessageContent"
       ( \x ->
           InAppMessageContent'
-            Prelude.<$> (x Core..:? "PrimaryBtn")
-            Prelude.<*> (x Core..:? "BodyConfig")
-            Prelude.<*> (x Core..:? "BackgroundColor")
-            Prelude.<*> (x Core..:? "ImageUrl")
+            Prelude.<$> (x Core..:? "BodyConfig")
             Prelude.<*> (x Core..:? "SecondaryBtn")
+            Prelude.<*> (x Core..:? "ImageUrl")
             Prelude.<*> (x Core..:? "HeaderConfig")
+            Prelude.<*> (x Core..:? "BackgroundColor")
+            Prelude.<*> (x Core..:? "PrimaryBtn")
       )
 
 instance Prelude.Hashable InAppMessageContent where
   hashWithSalt _salt InAppMessageContent' {..} =
-    _salt `Prelude.hashWithSalt` primaryBtn
-      `Prelude.hashWithSalt` bodyConfig
-      `Prelude.hashWithSalt` backgroundColor
-      `Prelude.hashWithSalt` imageUrl
+    _salt `Prelude.hashWithSalt` bodyConfig
       `Prelude.hashWithSalt` secondaryBtn
+      `Prelude.hashWithSalt` imageUrl
       `Prelude.hashWithSalt` headerConfig
+      `Prelude.hashWithSalt` backgroundColor
+      `Prelude.hashWithSalt` primaryBtn
 
 instance Prelude.NFData InAppMessageContent where
   rnf InAppMessageContent' {..} =
-    Prelude.rnf primaryBtn
-      `Prelude.seq` Prelude.rnf bodyConfig
-      `Prelude.seq` Prelude.rnf backgroundColor
-      `Prelude.seq` Prelude.rnf imageUrl
+    Prelude.rnf bodyConfig
       `Prelude.seq` Prelude.rnf secondaryBtn
+      `Prelude.seq` Prelude.rnf imageUrl
       `Prelude.seq` Prelude.rnf headerConfig
+      `Prelude.seq` Prelude.rnf backgroundColor
+      `Prelude.seq` Prelude.rnf primaryBtn
 
 instance Core.ToJSON InAppMessageContent where
   toJSON InAppMessageContent' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PrimaryBtn" Core..=) Prelude.<$> primaryBtn,
-            ("BodyConfig" Core..=) Prelude.<$> bodyConfig,
+          [ ("BodyConfig" Core..=) Prelude.<$> bodyConfig,
+            ("SecondaryBtn" Core..=) Prelude.<$> secondaryBtn,
+            ("ImageUrl" Core..=) Prelude.<$> imageUrl,
+            ("HeaderConfig" Core..=) Prelude.<$> headerConfig,
             ("BackgroundColor" Core..=)
               Prelude.<$> backgroundColor,
-            ("ImageUrl" Core..=) Prelude.<$> imageUrl,
-            ("SecondaryBtn" Core..=) Prelude.<$> secondaryBtn,
-            ("HeaderConfig" Core..=) Prelude.<$> headerConfig
+            ("PrimaryBtn" Core..=) Prelude.<$> primaryBtn
           ]
       )

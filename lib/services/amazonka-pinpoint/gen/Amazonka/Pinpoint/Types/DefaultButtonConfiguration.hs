@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 data DefaultButtonConfiguration = DefaultButtonConfiguration'
   { -- | Button destination.
     link :: Prelude.Maybe Prelude.Text,
+    -- | The text color of the button.
+    textColor :: Prelude.Maybe Prelude.Text,
     -- | The background color of the button.
     backgroundColor :: Prelude.Maybe Prelude.Text,
     -- | The border radius of the button.
     borderRadius :: Prelude.Maybe Prelude.Int,
-    -- | The text color of the button.
-    textColor :: Prelude.Maybe Prelude.Text,
     -- | Action triggered by the button.
     buttonAction :: ButtonAction,
     -- | Button text.
@@ -53,11 +53,11 @@ data DefaultButtonConfiguration = DefaultButtonConfiguration'
 --
 -- 'link', 'defaultButtonConfiguration_link' - Button destination.
 --
+-- 'textColor', 'defaultButtonConfiguration_textColor' - The text color of the button.
+--
 -- 'backgroundColor', 'defaultButtonConfiguration_backgroundColor' - The background color of the button.
 --
 -- 'borderRadius', 'defaultButtonConfiguration_borderRadius' - The border radius of the button.
---
--- 'textColor', 'defaultButtonConfiguration_textColor' - The text color of the button.
 --
 -- 'buttonAction', 'defaultButtonConfiguration_buttonAction' - Action triggered by the button.
 --
@@ -71,9 +71,9 @@ newDefaultButtonConfiguration ::
 newDefaultButtonConfiguration pButtonAction_ pText_ =
   DefaultButtonConfiguration'
     { link = Prelude.Nothing,
+      textColor = Prelude.Nothing,
       backgroundColor = Prelude.Nothing,
       borderRadius = Prelude.Nothing,
-      textColor = Prelude.Nothing,
       buttonAction = pButtonAction_,
       text = pText_
     }
@@ -82,6 +82,10 @@ newDefaultButtonConfiguration pButtonAction_ pText_ =
 defaultButtonConfiguration_link :: Lens.Lens' DefaultButtonConfiguration (Prelude.Maybe Prelude.Text)
 defaultButtonConfiguration_link = Lens.lens (\DefaultButtonConfiguration' {link} -> link) (\s@DefaultButtonConfiguration' {} a -> s {link = a} :: DefaultButtonConfiguration)
 
+-- | The text color of the button.
+defaultButtonConfiguration_textColor :: Lens.Lens' DefaultButtonConfiguration (Prelude.Maybe Prelude.Text)
+defaultButtonConfiguration_textColor = Lens.lens (\DefaultButtonConfiguration' {textColor} -> textColor) (\s@DefaultButtonConfiguration' {} a -> s {textColor = a} :: DefaultButtonConfiguration)
+
 -- | The background color of the button.
 defaultButtonConfiguration_backgroundColor :: Lens.Lens' DefaultButtonConfiguration (Prelude.Maybe Prelude.Text)
 defaultButtonConfiguration_backgroundColor = Lens.lens (\DefaultButtonConfiguration' {backgroundColor} -> backgroundColor) (\s@DefaultButtonConfiguration' {} a -> s {backgroundColor = a} :: DefaultButtonConfiguration)
@@ -89,10 +93,6 @@ defaultButtonConfiguration_backgroundColor = Lens.lens (\DefaultButtonConfigurat
 -- | The border radius of the button.
 defaultButtonConfiguration_borderRadius :: Lens.Lens' DefaultButtonConfiguration (Prelude.Maybe Prelude.Int)
 defaultButtonConfiguration_borderRadius = Lens.lens (\DefaultButtonConfiguration' {borderRadius} -> borderRadius) (\s@DefaultButtonConfiguration' {} a -> s {borderRadius = a} :: DefaultButtonConfiguration)
-
--- | The text color of the button.
-defaultButtonConfiguration_textColor :: Lens.Lens' DefaultButtonConfiguration (Prelude.Maybe Prelude.Text)
-defaultButtonConfiguration_textColor = Lens.lens (\DefaultButtonConfiguration' {textColor} -> textColor) (\s@DefaultButtonConfiguration' {} a -> s {textColor = a} :: DefaultButtonConfiguration)
 
 -- | Action triggered by the button.
 defaultButtonConfiguration_buttonAction :: Lens.Lens' DefaultButtonConfiguration ButtonAction
@@ -109,9 +109,9 @@ instance Core.FromJSON DefaultButtonConfiguration where
       ( \x ->
           DefaultButtonConfiguration'
             Prelude.<$> (x Core..:? "Link")
+            Prelude.<*> (x Core..:? "TextColor")
             Prelude.<*> (x Core..:? "BackgroundColor")
             Prelude.<*> (x Core..:? "BorderRadius")
-            Prelude.<*> (x Core..:? "TextColor")
             Prelude.<*> (x Core..: "ButtonAction")
             Prelude.<*> (x Core..: "Text")
       )
@@ -119,18 +119,18 @@ instance Core.FromJSON DefaultButtonConfiguration where
 instance Prelude.Hashable DefaultButtonConfiguration where
   hashWithSalt _salt DefaultButtonConfiguration' {..} =
     _salt `Prelude.hashWithSalt` link
+      `Prelude.hashWithSalt` textColor
       `Prelude.hashWithSalt` backgroundColor
       `Prelude.hashWithSalt` borderRadius
-      `Prelude.hashWithSalt` textColor
       `Prelude.hashWithSalt` buttonAction
       `Prelude.hashWithSalt` text
 
 instance Prelude.NFData DefaultButtonConfiguration where
   rnf DefaultButtonConfiguration' {..} =
     Prelude.rnf link
+      `Prelude.seq` Prelude.rnf textColor
       `Prelude.seq` Prelude.rnf backgroundColor
       `Prelude.seq` Prelude.rnf borderRadius
-      `Prelude.seq` Prelude.rnf textColor
       `Prelude.seq` Prelude.rnf buttonAction
       `Prelude.seq` Prelude.rnf text
 
@@ -139,10 +139,10 @@ instance Core.ToJSON DefaultButtonConfiguration where
     Core.object
       ( Prelude.catMaybes
           [ ("Link" Core..=) Prelude.<$> link,
+            ("TextColor" Core..=) Prelude.<$> textColor,
             ("BackgroundColor" Core..=)
               Prelude.<$> backgroundColor,
             ("BorderRadius" Core..=) Prelude.<$> borderRadius,
-            ("TextColor" Core..=) Prelude.<$> textColor,
             Prelude.Just ("ButtonAction" Core..= buttonAction),
             Prelude.Just ("Text" Core..= text)
           ]

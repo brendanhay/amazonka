@@ -30,24 +30,24 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInAppTemplateResponse' smart constructor.
 data InAppTemplateResponse = InAppTemplateResponse'
-  { -- | The layout of the message.
-    layout :: Prelude.Maybe Layout,
-    -- | The resource arn of the template.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The description of the template.
-    templateDescription :: Prelude.Maybe Prelude.Text,
-    -- | The content of the message, can include up to 5 modals. Each modal must
-    -- contain a message, a header, and background color. ImageUrl and buttons
-    -- are optional.
-    content :: Prelude.Maybe [InAppMessageContent],
-    -- | Custom config to be sent to client.
+  { -- | Custom config to be sent to client.
     customConfig :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The version id of the template.
-    version :: Prelude.Maybe Prelude.Text,
     -- | A string-to-string map of key-value pairs that defines the tags to
     -- associate with the message template. Each tag consists of a required tag
     -- key and an associated tag value.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The resource arn of the template.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The layout of the message.
+    layout :: Prelude.Maybe Layout,
+    -- | The content of the message, can include up to 5 modals. Each modal must
+    -- contain a message, a header, and background color. ImageUrl and buttons
+    -- are optional.
+    content :: Prelude.Maybe [InAppMessageContent],
+    -- | The description of the template.
+    templateDescription :: Prelude.Maybe Prelude.Text,
+    -- | The version id of the template.
+    version :: Prelude.Maybe Prelude.Text,
     -- | The last modified date of the template.
     lastModifiedDate :: Prelude.Text,
     -- | The creation date of the template.
@@ -67,23 +67,23 @@ data InAppTemplateResponse = InAppTemplateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'layout', 'inAppTemplateResponse_layout' - The layout of the message.
+-- 'customConfig', 'inAppTemplateResponse_customConfig' - Custom config to be sent to client.
+--
+-- 'tags', 'inAppTemplateResponse_tags' - A string-to-string map of key-value pairs that defines the tags to
+-- associate with the message template. Each tag consists of a required tag
+-- key and an associated tag value.
 --
 -- 'arn', 'inAppTemplateResponse_arn' - The resource arn of the template.
 --
--- 'templateDescription', 'inAppTemplateResponse_templateDescription' - The description of the template.
+-- 'layout', 'inAppTemplateResponse_layout' - The layout of the message.
 --
 -- 'content', 'inAppTemplateResponse_content' - The content of the message, can include up to 5 modals. Each modal must
 -- contain a message, a header, and background color. ImageUrl and buttons
 -- are optional.
 --
--- 'customConfig', 'inAppTemplateResponse_customConfig' - Custom config to be sent to client.
+-- 'templateDescription', 'inAppTemplateResponse_templateDescription' - The description of the template.
 --
 -- 'version', 'inAppTemplateResponse_version' - The version id of the template.
---
--- 'tags', 'inAppTemplateResponse_tags' - A string-to-string map of key-value pairs that defines the tags to
--- associate with the message template. Each tag consists of a required tag
--- key and an associated tag value.
 --
 -- 'lastModifiedDate', 'inAppTemplateResponse_lastModifiedDate' - The last modified date of the template.
 --
@@ -108,30 +108,37 @@ newInAppTemplateResponse
   pTemplateName_
   pTemplateType_ =
     InAppTemplateResponse'
-      { layout = Prelude.Nothing,
-        arn = Prelude.Nothing,
-        templateDescription = Prelude.Nothing,
-        content = Prelude.Nothing,
-        customConfig = Prelude.Nothing,
-        version = Prelude.Nothing,
+      { customConfig =
+          Prelude.Nothing,
         tags = Prelude.Nothing,
+        arn = Prelude.Nothing,
+        layout = Prelude.Nothing,
+        content = Prelude.Nothing,
+        templateDescription = Prelude.Nothing,
+        version = Prelude.Nothing,
         lastModifiedDate = pLastModifiedDate_,
         creationDate = pCreationDate_,
         templateName = pTemplateName_,
         templateType = pTemplateType_
       }
 
--- | The layout of the message.
-inAppTemplateResponse_layout :: Lens.Lens' InAppTemplateResponse (Prelude.Maybe Layout)
-inAppTemplateResponse_layout = Lens.lens (\InAppTemplateResponse' {layout} -> layout) (\s@InAppTemplateResponse' {} a -> s {layout = a} :: InAppTemplateResponse)
+-- | Custom config to be sent to client.
+inAppTemplateResponse_customConfig :: Lens.Lens' InAppTemplateResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+inAppTemplateResponse_customConfig = Lens.lens (\InAppTemplateResponse' {customConfig} -> customConfig) (\s@InAppTemplateResponse' {} a -> s {customConfig = a} :: InAppTemplateResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A string-to-string map of key-value pairs that defines the tags to
+-- associate with the message template. Each tag consists of a required tag
+-- key and an associated tag value.
+inAppTemplateResponse_tags :: Lens.Lens' InAppTemplateResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+inAppTemplateResponse_tags = Lens.lens (\InAppTemplateResponse' {tags} -> tags) (\s@InAppTemplateResponse' {} a -> s {tags = a} :: InAppTemplateResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The resource arn of the template.
 inAppTemplateResponse_arn :: Lens.Lens' InAppTemplateResponse (Prelude.Maybe Prelude.Text)
 inAppTemplateResponse_arn = Lens.lens (\InAppTemplateResponse' {arn} -> arn) (\s@InAppTemplateResponse' {} a -> s {arn = a} :: InAppTemplateResponse)
 
--- | The description of the template.
-inAppTemplateResponse_templateDescription :: Lens.Lens' InAppTemplateResponse (Prelude.Maybe Prelude.Text)
-inAppTemplateResponse_templateDescription = Lens.lens (\InAppTemplateResponse' {templateDescription} -> templateDescription) (\s@InAppTemplateResponse' {} a -> s {templateDescription = a} :: InAppTemplateResponse)
+-- | The layout of the message.
+inAppTemplateResponse_layout :: Lens.Lens' InAppTemplateResponse (Prelude.Maybe Layout)
+inAppTemplateResponse_layout = Lens.lens (\InAppTemplateResponse' {layout} -> layout) (\s@InAppTemplateResponse' {} a -> s {layout = a} :: InAppTemplateResponse)
 
 -- | The content of the message, can include up to 5 modals. Each modal must
 -- contain a message, a header, and background color. ImageUrl and buttons
@@ -139,19 +146,13 @@ inAppTemplateResponse_templateDescription = Lens.lens (\InAppTemplateResponse' {
 inAppTemplateResponse_content :: Lens.Lens' InAppTemplateResponse (Prelude.Maybe [InAppMessageContent])
 inAppTemplateResponse_content = Lens.lens (\InAppTemplateResponse' {content} -> content) (\s@InAppTemplateResponse' {} a -> s {content = a} :: InAppTemplateResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Custom config to be sent to client.
-inAppTemplateResponse_customConfig :: Lens.Lens' InAppTemplateResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-inAppTemplateResponse_customConfig = Lens.lens (\InAppTemplateResponse' {customConfig} -> customConfig) (\s@InAppTemplateResponse' {} a -> s {customConfig = a} :: InAppTemplateResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The description of the template.
+inAppTemplateResponse_templateDescription :: Lens.Lens' InAppTemplateResponse (Prelude.Maybe Prelude.Text)
+inAppTemplateResponse_templateDescription = Lens.lens (\InAppTemplateResponse' {templateDescription} -> templateDescription) (\s@InAppTemplateResponse' {} a -> s {templateDescription = a} :: InAppTemplateResponse)
 
 -- | The version id of the template.
 inAppTemplateResponse_version :: Lens.Lens' InAppTemplateResponse (Prelude.Maybe Prelude.Text)
 inAppTemplateResponse_version = Lens.lens (\InAppTemplateResponse' {version} -> version) (\s@InAppTemplateResponse' {} a -> s {version = a} :: InAppTemplateResponse)
-
--- | A string-to-string map of key-value pairs that defines the tags to
--- associate with the message template. Each tag consists of a required tag
--- key and an associated tag value.
-inAppTemplateResponse_tags :: Lens.Lens' InAppTemplateResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-inAppTemplateResponse_tags = Lens.lens (\InAppTemplateResponse' {tags} -> tags) (\s@InAppTemplateResponse' {} a -> s {tags = a} :: InAppTemplateResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The last modified date of the template.
 inAppTemplateResponse_lastModifiedDate :: Lens.Lens' InAppTemplateResponse Prelude.Text
@@ -175,13 +176,13 @@ instance Core.FromJSON InAppTemplateResponse where
       "InAppTemplateResponse"
       ( \x ->
           InAppTemplateResponse'
-            Prelude.<$> (x Core..:? "Layout")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "TemplateDescription")
-            Prelude.<*> (x Core..:? "Content" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CustomConfig" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Version")
+            Prelude.<$> (x Core..:? "CustomConfig" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "Layout")
+            Prelude.<*> (x Core..:? "Content" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "TemplateDescription")
+            Prelude.<*> (x Core..:? "Version")
             Prelude.<*> (x Core..: "LastModifiedDate")
             Prelude.<*> (x Core..: "CreationDate")
             Prelude.<*> (x Core..: "TemplateName")
@@ -190,13 +191,13 @@ instance Core.FromJSON InAppTemplateResponse where
 
 instance Prelude.Hashable InAppTemplateResponse where
   hashWithSalt _salt InAppTemplateResponse' {..} =
-    _salt `Prelude.hashWithSalt` layout
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` templateDescription
-      `Prelude.hashWithSalt` content
-      `Prelude.hashWithSalt` customConfig
-      `Prelude.hashWithSalt` version
+    _salt `Prelude.hashWithSalt` customConfig
       `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` layout
+      `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` templateDescription
+      `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` lastModifiedDate
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` templateName
@@ -204,13 +205,13 @@ instance Prelude.Hashable InAppTemplateResponse where
 
 instance Prelude.NFData InAppTemplateResponse where
   rnf InAppTemplateResponse' {..} =
-    Prelude.rnf layout
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf templateDescription
-      `Prelude.seq` Prelude.rnf content
-      `Prelude.seq` Prelude.rnf customConfig
-      `Prelude.seq` Prelude.rnf version
+    Prelude.rnf customConfig
       `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf layout
+      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf templateDescription
+      `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf lastModifiedDate
       `Prelude.seq` Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf templateName

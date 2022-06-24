@@ -128,12 +128,7 @@ instance Core.ToHeaders UpdateGcmChannel where
 
 instance Core.ToJSON UpdateGcmChannel where
   toJSON UpdateGcmChannel' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("GCMChannelRequest" Core..= gCMChannelRequest)
-          ]
-      )
+    Core.toJSON gCMChannelRequest
 
 instance Core.ToPath UpdateGcmChannel where
   toPath UpdateGcmChannel' {..} =

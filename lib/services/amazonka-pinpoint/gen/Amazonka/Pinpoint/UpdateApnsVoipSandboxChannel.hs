@@ -133,14 +133,7 @@ instance Core.ToHeaders UpdateApnsVoipSandboxChannel where
 
 instance Core.ToJSON UpdateApnsVoipSandboxChannel where
   toJSON UpdateApnsVoipSandboxChannel' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "APNSVoipSandboxChannelRequest"
-                  Core..= aPNSVoipSandboxChannelRequest
-              )
-          ]
-      )
+    Core.toJSON aPNSVoipSandboxChannelRequest
 
 instance Core.ToPath UpdateApnsVoipSandboxChannel where
   toPath UpdateApnsVoipSandboxChannel' {..} =

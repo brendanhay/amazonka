@@ -129,12 +129,7 @@ instance Core.ToHeaders UpdateEmailChannel where
 
 instance Core.ToJSON UpdateEmailChannel where
   toJSON UpdateEmailChannel' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("EmailChannelRequest" Core..= emailChannelRequest)
-          ]
-      )
+    Core.toJSON emailChannelRequest
 
 instance Core.ToPath UpdateEmailChannel where
   toPath UpdateEmailChannel' {..} =

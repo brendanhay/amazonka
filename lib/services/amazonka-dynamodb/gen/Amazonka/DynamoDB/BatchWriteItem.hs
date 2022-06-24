@@ -113,8 +113,8 @@ module Amazonka.DynamoDB.BatchWriteItem
     newBatchWriteItemResponse,
 
     -- * Response Lenses
-    batchWriteItemResponse_itemCollectionMetrics,
     batchWriteItemResponse_consumedCapacity,
+    batchWriteItemResponse_itemCollectionMetrics,
     batchWriteItemResponse_httpStatus,
     batchWriteItemResponse_unprocessedItems,
   )
@@ -273,10 +273,10 @@ instance Core.AWSRequest BatchWriteItem where
     Response.receiveJSON
       ( \s h x ->
           BatchWriteItemResponse'
-            Prelude.<$> ( x Core..?> "ItemCollectionMetrics"
+            Prelude.<$> ( x Core..?> "ConsumedCapacity"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "ConsumedCapacity"
+            Prelude.<*> ( x Core..?> "ItemCollectionMetrics"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -334,7 +334,15 @@ instance Core.ToQuery BatchWriteItem where
 --
 -- /See:/ 'newBatchWriteItemResponse' smart constructor.
 data BatchWriteItemResponse = BatchWriteItemResponse'
-  { -- | A list of tables that were processed by @BatchWriteItem@ and, for each
+  { -- | The capacity units consumed by the entire @BatchWriteItem@ operation.
+    --
+    -- Each element consists of:
+    --
+    -- -   @TableName@ - The table that consumed the provisioned throughput.
+    --
+    -- -   @CapacityUnits@ - The total number of capacity units consumed.
+    consumedCapacity :: Prelude.Maybe [ConsumedCapacity],
+    -- | A list of tables that were processed by @BatchWriteItem@ and, for each
     -- table, information about any item collections that were affected by
     -- individual @DeleteItem@ or @PutItem@ operations.
     --
@@ -354,14 +362,6 @@ data BatchWriteItemResponse = BatchWriteItemResponse'
     --     The estimate is subject to change over time; therefore, do not rely
     --     on the precision or accuracy of the estimate.
     itemCollectionMetrics :: Prelude.Maybe (Prelude.HashMap Prelude.Text [ItemCollectionMetrics]),
-    -- | The capacity units consumed by the entire @BatchWriteItem@ operation.
-    --
-    -- Each element consists of:
-    --
-    -- -   @TableName@ - The table that consumed the provisioned throughput.
-    --
-    -- -   @CapacityUnits@ - The total number of capacity units consumed.
-    consumedCapacity :: Prelude.Maybe [ConsumedCapacity],
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | A map of tables and requests against those tables that were not
@@ -409,6 +409,14 @@ data BatchWriteItemResponse = BatchWriteItemResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'consumedCapacity', 'batchWriteItemResponse_consumedCapacity' - The capacity units consumed by the entire @BatchWriteItem@ operation.
+--
+-- Each element consists of:
+--
+-- -   @TableName@ - The table that consumed the provisioned throughput.
+--
+-- -   @CapacityUnits@ - The total number of capacity units consumed.
+--
 -- 'itemCollectionMetrics', 'batchWriteItemResponse_itemCollectionMetrics' - A list of tables that were processed by @BatchWriteItem@ and, for each
 -- table, information about any item collections that were affected by
 -- individual @DeleteItem@ or @PutItem@ operations.
@@ -428,14 +436,6 @@ data BatchWriteItemResponse = BatchWriteItemResponse'
 --
 --     The estimate is subject to change over time; therefore, do not rely
 --     on the precision or accuracy of the estimate.
---
--- 'consumedCapacity', 'batchWriteItemResponse_consumedCapacity' - The capacity units consumed by the entire @BatchWriteItem@ operation.
---
--- Each element consists of:
---
--- -   @TableName@ - The table that consumed the provisioned throughput.
---
--- -   @CapacityUnits@ - The total number of capacity units consumed.
 --
 -- 'httpStatus', 'batchWriteItemResponse_httpStatus' - The response's http status code.
 --
@@ -478,12 +478,22 @@ newBatchWriteItemResponse ::
   BatchWriteItemResponse
 newBatchWriteItemResponse pHttpStatus_ =
   BatchWriteItemResponse'
-    { itemCollectionMetrics =
+    { consumedCapacity =
         Prelude.Nothing,
-      consumedCapacity = Prelude.Nothing,
+      itemCollectionMetrics = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       unprocessedItems = Prelude.mempty
     }
+
+-- | The capacity units consumed by the entire @BatchWriteItem@ operation.
+--
+-- Each element consists of:
+--
+-- -   @TableName@ - The table that consumed the provisioned throughput.
+--
+-- -   @CapacityUnits@ - The total number of capacity units consumed.
+batchWriteItemResponse_consumedCapacity :: Lens.Lens' BatchWriteItemResponse (Prelude.Maybe [ConsumedCapacity])
+batchWriteItemResponse_consumedCapacity = Lens.lens (\BatchWriteItemResponse' {consumedCapacity} -> consumedCapacity) (\s@BatchWriteItemResponse' {} a -> s {consumedCapacity = a} :: BatchWriteItemResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of tables that were processed by @BatchWriteItem@ and, for each
 -- table, information about any item collections that were affected by
@@ -506,16 +516,6 @@ newBatchWriteItemResponse pHttpStatus_ =
 --     on the precision or accuracy of the estimate.
 batchWriteItemResponse_itemCollectionMetrics :: Lens.Lens' BatchWriteItemResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text [ItemCollectionMetrics]))
 batchWriteItemResponse_itemCollectionMetrics = Lens.lens (\BatchWriteItemResponse' {itemCollectionMetrics} -> itemCollectionMetrics) (\s@BatchWriteItemResponse' {} a -> s {itemCollectionMetrics = a} :: BatchWriteItemResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The capacity units consumed by the entire @BatchWriteItem@ operation.
---
--- Each element consists of:
---
--- -   @TableName@ - The table that consumed the provisioned throughput.
---
--- -   @CapacityUnits@ - The total number of capacity units consumed.
-batchWriteItemResponse_consumedCapacity :: Lens.Lens' BatchWriteItemResponse (Prelude.Maybe [ConsumedCapacity])
-batchWriteItemResponse_consumedCapacity = Lens.lens (\BatchWriteItemResponse' {consumedCapacity} -> consumedCapacity) (\s@BatchWriteItemResponse' {} a -> s {consumedCapacity = a} :: BatchWriteItemResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchWriteItemResponse_httpStatus :: Lens.Lens' BatchWriteItemResponse Prelude.Int
@@ -559,7 +559,7 @@ batchWriteItemResponse_unprocessedItems = Lens.lens (\BatchWriteItemResponse' {u
 
 instance Prelude.NFData BatchWriteItemResponse where
   rnf BatchWriteItemResponse' {..} =
-    Prelude.rnf itemCollectionMetrics
-      `Prelude.seq` Prelude.rnf consumedCapacity
+    Prelude.rnf consumedCapacity
+      `Prelude.seq` Prelude.rnf itemCollectionMetrics
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf unprocessedItems

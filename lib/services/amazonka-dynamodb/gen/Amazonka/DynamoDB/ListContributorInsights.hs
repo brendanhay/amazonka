@@ -28,17 +28,17 @@ module Amazonka.DynamoDB.ListContributorInsights
     newListContributorInsights,
 
     -- * Request Lenses
+    listContributorInsights_tableName,
     listContributorInsights_nextToken,
     listContributorInsights_maxResults,
-    listContributorInsights_tableName,
 
     -- * Destructuring the Response
     ListContributorInsightsResponse (..),
     newListContributorInsightsResponse,
 
     -- * Response Lenses
-    listContributorInsightsResponse_contributorInsightsSummaries,
     listContributorInsightsResponse_nextToken,
+    listContributorInsightsResponse_contributorInsightsSummaries,
     listContributorInsightsResponse_httpStatus,
   )
 where
@@ -52,12 +52,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListContributorInsights' smart constructor.
 data ListContributorInsights = ListContributorInsights'
-  { -- | A token to for the desired page, if there is one.
+  { -- | The name of the table.
+    tableName :: Prelude.Maybe Prelude.Text,
+    -- | A token to for the desired page, if there is one.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The name of the table.
-    tableName :: Prelude.Maybe Prelude.Text
+    maxResults :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,20 +69,24 @@ data ListContributorInsights = ListContributorInsights'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tableName', 'listContributorInsights_tableName' - The name of the table.
+--
 -- 'nextToken', 'listContributorInsights_nextToken' - A token to for the desired page, if there is one.
 --
 -- 'maxResults', 'listContributorInsights_maxResults' - Maximum number of results to return per page.
---
--- 'tableName', 'listContributorInsights_tableName' - The name of the table.
 newListContributorInsights ::
   ListContributorInsights
 newListContributorInsights =
   ListContributorInsights'
-    { nextToken =
+    { tableName =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      tableName = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
+
+-- | The name of the table.
+listContributorInsights_tableName :: Lens.Lens' ListContributorInsights (Prelude.Maybe Prelude.Text)
+listContributorInsights_tableName = Lens.lens (\ListContributorInsights' {tableName} -> tableName) (\s@ListContributorInsights' {} a -> s {tableName = a} :: ListContributorInsights)
 
 -- | A token to for the desired page, if there is one.
 listContributorInsights_nextToken :: Lens.Lens' ListContributorInsights (Prelude.Maybe Prelude.Text)
@@ -91,10 +95,6 @@ listContributorInsights_nextToken = Lens.lens (\ListContributorInsights' {nextTo
 -- | Maximum number of results to return per page.
 listContributorInsights_maxResults :: Lens.Lens' ListContributorInsights (Prelude.Maybe Prelude.Int)
 listContributorInsights_maxResults = Lens.lens (\ListContributorInsights' {maxResults} -> maxResults) (\s@ListContributorInsights' {} a -> s {maxResults = a} :: ListContributorInsights)
-
--- | The name of the table.
-listContributorInsights_tableName :: Lens.Lens' ListContributorInsights (Prelude.Maybe Prelude.Text)
-listContributorInsights_tableName = Lens.lens (\ListContributorInsights' {tableName} -> tableName) (\s@ListContributorInsights' {} a -> s {tableName = a} :: ListContributorInsights)
 
 instance Core.AWSRequest ListContributorInsights where
   type
@@ -105,24 +105,24 @@ instance Core.AWSRequest ListContributorInsights where
     Response.receiveJSON
       ( \s h x ->
           ListContributorInsightsResponse'
-            Prelude.<$> ( x Core..?> "ContributorInsightsSummaries"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "ContributorInsightsSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListContributorInsights where
   hashWithSalt _salt ListContributorInsights' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` tableName
 
 instance Prelude.NFData ListContributorInsights where
   rnf ListContributorInsights' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf tableName
 
 instance Core.ToHeaders ListContributorInsights where
   toHeaders =
@@ -143,9 +143,9 @@ instance Core.ToJSON ListContributorInsights where
   toJSON ListContributorInsights' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("TableName" Core..=) Prelude.<$> tableName
+          [ ("TableName" Core..=) Prelude.<$> tableName,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -157,10 +157,10 @@ instance Core.ToQuery ListContributorInsights where
 
 -- | /See:/ 'newListContributorInsightsResponse' smart constructor.
 data ListContributorInsightsResponse = ListContributorInsightsResponse'
-  { -- | A list of ContributorInsightsSummary.
-    contributorInsightsSummaries :: Prelude.Maybe [ContributorInsightsSummary],
-    -- | A token to go to the next page if there is one.
+  { -- | A token to go to the next page if there is one.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of ContributorInsightsSummary.
+    contributorInsightsSummaries :: Prelude.Maybe [ContributorInsightsSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -174,9 +174,9 @@ data ListContributorInsightsResponse = ListContributorInsightsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'contributorInsightsSummaries', 'listContributorInsightsResponse_contributorInsightsSummaries' - A list of ContributorInsightsSummary.
---
 -- 'nextToken', 'listContributorInsightsResponse_nextToken' - A token to go to the next page if there is one.
+--
+-- 'contributorInsightsSummaries', 'listContributorInsightsResponse_contributorInsightsSummaries' - A list of ContributorInsightsSummary.
 --
 -- 'httpStatus', 'listContributorInsightsResponse_httpStatus' - The response's http status code.
 newListContributorInsightsResponse ::
@@ -185,19 +185,20 @@ newListContributorInsightsResponse ::
   ListContributorInsightsResponse
 newListContributorInsightsResponse pHttpStatus_ =
   ListContributorInsightsResponse'
-    { contributorInsightsSummaries =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      contributorInsightsSummaries =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of ContributorInsightsSummary.
-listContributorInsightsResponse_contributorInsightsSummaries :: Lens.Lens' ListContributorInsightsResponse (Prelude.Maybe [ContributorInsightsSummary])
-listContributorInsightsResponse_contributorInsightsSummaries = Lens.lens (\ListContributorInsightsResponse' {contributorInsightsSummaries} -> contributorInsightsSummaries) (\s@ListContributorInsightsResponse' {} a -> s {contributorInsightsSummaries = a} :: ListContributorInsightsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token to go to the next page if there is one.
 listContributorInsightsResponse_nextToken :: Lens.Lens' ListContributorInsightsResponse (Prelude.Maybe Prelude.Text)
 listContributorInsightsResponse_nextToken = Lens.lens (\ListContributorInsightsResponse' {nextToken} -> nextToken) (\s@ListContributorInsightsResponse' {} a -> s {nextToken = a} :: ListContributorInsightsResponse)
+
+-- | A list of ContributorInsightsSummary.
+listContributorInsightsResponse_contributorInsightsSummaries :: Lens.Lens' ListContributorInsightsResponse (Prelude.Maybe [ContributorInsightsSummary])
+listContributorInsightsResponse_contributorInsightsSummaries = Lens.lens (\ListContributorInsightsResponse' {contributorInsightsSummaries} -> contributorInsightsSummaries) (\s@ListContributorInsightsResponse' {} a -> s {contributorInsightsSummaries = a} :: ListContributorInsightsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listContributorInsightsResponse_httpStatus :: Lens.Lens' ListContributorInsightsResponse Prelude.Int
@@ -208,6 +209,6 @@ instance
     ListContributorInsightsResponse
   where
   rnf ListContributorInsightsResponse' {..} =
-    Prelude.rnf contributorInsightsSummaries
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf contributorInsightsSummaries
       `Prelude.seq` Prelude.rnf httpStatus

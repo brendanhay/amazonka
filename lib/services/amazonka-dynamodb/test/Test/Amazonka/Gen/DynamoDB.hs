@@ -27,439 +27,313 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestPutItem $
---             newPutItem
---
---         , requestDeleteItem $
---             newDeleteItem
---
---         , requestUpdateItem $
---             newUpdateItem
---
---         , requestDisableKinesisStreamingDestination $
---             newDisableKinesisStreamingDestination
---
---         , requestListGlobalTables $
---             newListGlobalTables
---
---         , requestUpdateGlobalTable $
---             newUpdateGlobalTable
---
---         , requestDeleteTable $
---             newDeleteTable
---
---         , requestUpdateTable $
---             newUpdateTable
+--         [ requestBatchExecuteStatement $
+--             newBatchExecuteStatement
 --
 --         , requestBatchGetItem $
 --             newBatchGetItem
 --
---         , requestListBackups $
---             newListBackups
---
---         , requestDeleteBackup $
---             newDeleteBackup
+--         , requestBatchWriteItem $
+--             newBatchWriteItem
 --
 --         , requestCreateBackup $
 --             newCreateBackup
 --
---         , requestUpdateTableReplicaAutoScaling $
---             newUpdateTableReplicaAutoScaling
---
---         , requestDescribeGlobalTableSettings $
---             newDescribeGlobalTableSettings
---
---         , requestListTagsOfResource $
---             newListTagsOfResource
---
---         , requestDescribeGlobalTable $
---             newDescribeGlobalTable
---
---         , requestDescribeTable $
---             newDescribeTable
---
---         , requestDescribeLimits $
---             newDescribeLimits
---
---         , requestExecuteTransaction $
---             newExecuteTransaction
---
---         , requestGetItem $
---             newGetItem
---
---         , requestDescribeBackup $
---             newDescribeBackup
---
---         , requestBatchExecuteStatement $
---             newBatchExecuteStatement
---
---         , requestDescribeTableReplicaAutoScaling $
---             newDescribeTableReplicaAutoScaling
---
---         , requestUpdateGlobalTableSettings $
---             newUpdateGlobalTableSettings
---
---         , requestEnableKinesisStreamingDestination $
---             newEnableKinesisStreamingDestination
---
---         , requestTransactGetItems $
---             newTransactGetItems
---
---         , requestListContributorInsights $
---             newListContributorInsights
---
---         , requestBatchWriteItem $
---             newBatchWriteItem
---
---         , requestExportTableToPointInTime $
---             newExportTableToPointInTime
---
---         , requestTransactWriteItems $
---             newTransactWriteItems
---
---         , requestListTables $
---             newListTables
---
---         , requestScan $
---             newScan
---
---         , requestUpdateContributorInsights $
---             newUpdateContributorInsights
---
---         , requestExecuteStatement $
---             newExecuteStatement
---
---         , requestQuery $
---             newQuery
+--         , requestCreateGlobalTable $
+--             newCreateGlobalTable
 --
 --         , requestCreateTable $
 --             newCreateTable
 --
---         , requestDescribeKinesisStreamingDestination $
---             newDescribeKinesisStreamingDestination
+--         , requestDeleteBackup $
+--             newDeleteBackup
 --
---         , requestDescribeEndpoints $
---             newDescribeEndpoints
+--         , requestDeleteItem $
+--             newDeleteItem
 --
---         , requestDescribeTimeToLive $
---             newDescribeTimeToLive
+--         , requestDeleteTable $
+--             newDeleteTable
+--
+--         , requestDescribeBackup $
+--             newDescribeBackup
 --
 --         , requestDescribeContinuousBackups $
 --             newDescribeContinuousBackups
 --
---         , requestListExports $
---             newListExports
---
---         , requestTagResource $
---             newTagResource
---
 --         , requestDescribeContributorInsights $
 --             newDescribeContributorInsights
 --
---         , requestUntagResource $
---             newUntagResource
---
---         , requestRestoreTableToPointInTime $
---             newRestoreTableToPointInTime
---
---         , requestRestoreTableFromBackup $
---             newRestoreTableFromBackup
---
---         , requestUpdateTimeToLive $
---             newUpdateTimeToLive
---
---         , requestCreateGlobalTable $
---             newCreateGlobalTable
---
---         , requestUpdateContinuousBackups $
---             newUpdateContinuousBackups
+--         , requestDescribeEndpoints $
+--             newDescribeEndpoints
 --
 --         , requestDescribeExport $
 --             newDescribeExport
 --
+--         , requestDescribeGlobalTable $
+--             newDescribeGlobalTable
+--
+--         , requestDescribeGlobalTableSettings $
+--             newDescribeGlobalTableSettings
+--
+--         , requestDescribeKinesisStreamingDestination $
+--             newDescribeKinesisStreamingDestination
+--
+--         , requestDescribeLimits $
+--             newDescribeLimits
+--
+--         , requestDescribeTable $
+--             newDescribeTable
+--
+--         , requestDescribeTableReplicaAutoScaling $
+--             newDescribeTableReplicaAutoScaling
+--
+--         , requestDescribeTimeToLive $
+--             newDescribeTimeToLive
+--
+--         , requestDisableKinesisStreamingDestination $
+--             newDisableKinesisStreamingDestination
+--
+--         , requestEnableKinesisStreamingDestination $
+--             newEnableKinesisStreamingDestination
+--
+--         , requestExecuteStatement $
+--             newExecuteStatement
+--
+--         , requestExecuteTransaction $
+--             newExecuteTransaction
+--
+--         , requestExportTableToPointInTime $
+--             newExportTableToPointInTime
+--
+--         , requestGetItem $
+--             newGetItem
+--
+--         , requestListBackups $
+--             newListBackups
+--
+--         , requestListContributorInsights $
+--             newListContributorInsights
+--
+--         , requestListExports $
+--             newListExports
+--
+--         , requestListGlobalTables $
+--             newListGlobalTables
+--
+--         , requestListTables $
+--             newListTables
+--
+--         , requestListTagsOfResource $
+--             newListTagsOfResource
+--
+--         , requestPutItem $
+--             newPutItem
+--
+--         , requestQuery $
+--             newQuery
+--
+--         , requestRestoreTableFromBackup $
+--             newRestoreTableFromBackup
+--
+--         , requestRestoreTableToPointInTime $
+--             newRestoreTableToPointInTime
+--
+--         , requestScan $
+--             newScan
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestTransactGetItems $
+--             newTransactGetItems
+--
+--         , requestTransactWriteItems $
+--             newTransactWriteItems
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateContinuousBackups $
+--             newUpdateContinuousBackups
+--
+--         , requestUpdateContributorInsights $
+--             newUpdateContributorInsights
+--
+--         , requestUpdateGlobalTable $
+--             newUpdateGlobalTable
+--
+--         , requestUpdateGlobalTableSettings $
+--             newUpdateGlobalTableSettings
+--
+--         , requestUpdateItem $
+--             newUpdateItem
+--
+--         , requestUpdateTable $
+--             newUpdateTable
+--
+--         , requestUpdateTableReplicaAutoScaling $
+--             newUpdateTableReplicaAutoScaling
+--
+--         , requestUpdateTimeToLive $
+--             newUpdateTimeToLive
+--
 --           ]
 
 --     , testGroup "response"
---         [ responsePutItem $
---             newPutItemResponse
---
---         , responseDeleteItem $
---             newDeleteItemResponse
---
---         , responseUpdateItem $
---             newUpdateItemResponse
---
---         , responseDisableKinesisStreamingDestination $
---             newKinesisStreamingDestinationOutput
---
---         , responseListGlobalTables $
---             newListGlobalTablesResponse
---
---         , responseUpdateGlobalTable $
---             newUpdateGlobalTableResponse
---
---         , responseDeleteTable $
---             newDeleteTableResponse
---
---         , responseUpdateTable $
---             newUpdateTableResponse
+--         [ responseBatchExecuteStatement $
+--             newBatchExecuteStatementResponse
 --
 --         , responseBatchGetItem $
 --             newBatchGetItemResponse
 --
---         , responseListBackups $
---             newListBackupsResponse
---
---         , responseDeleteBackup $
---             newDeleteBackupResponse
+--         , responseBatchWriteItem $
+--             newBatchWriteItemResponse
 --
 --         , responseCreateBackup $
 --             newCreateBackupResponse
 --
---         , responseUpdateTableReplicaAutoScaling $
---             newUpdateTableReplicaAutoScalingResponse
---
---         , responseDescribeGlobalTableSettings $
---             newDescribeGlobalTableSettingsResponse
---
---         , responseListTagsOfResource $
---             newListTagsOfResourceResponse
---
---         , responseDescribeGlobalTable $
---             newDescribeGlobalTableResponse
---
---         , responseDescribeTable $
---             newDescribeTableResponse
---
---         , responseDescribeLimits $
---             newDescribeLimitsResponse
---
---         , responseExecuteTransaction $
---             newExecuteTransactionResponse
---
---         , responseGetItem $
---             newGetItemResponse
---
---         , responseDescribeBackup $
---             newDescribeBackupResponse
---
---         , responseBatchExecuteStatement $
---             newBatchExecuteStatementResponse
---
---         , responseDescribeTableReplicaAutoScaling $
---             newDescribeTableReplicaAutoScalingResponse
---
---         , responseUpdateGlobalTableSettings $
---             newUpdateGlobalTableSettingsResponse
---
---         , responseEnableKinesisStreamingDestination $
---             newKinesisStreamingDestinationOutput
---
---         , responseTransactGetItems $
---             newTransactGetItemsResponse
---
---         , responseListContributorInsights $
---             newListContributorInsightsResponse
---
---         , responseBatchWriteItem $
---             newBatchWriteItemResponse
---
---         , responseExportTableToPointInTime $
---             newExportTableToPointInTimeResponse
---
---         , responseTransactWriteItems $
---             newTransactWriteItemsResponse
---
---         , responseListTables $
---             newListTablesResponse
---
---         , responseScan $
---             newScanResponse
---
---         , responseUpdateContributorInsights $
---             newUpdateContributorInsightsResponse
---
---         , responseExecuteStatement $
---             newExecuteStatementResponse
---
---         , responseQuery $
---             newQueryResponse
+--         , responseCreateGlobalTable $
+--             newCreateGlobalTableResponse
 --
 --         , responseCreateTable $
 --             newCreateTableResponse
 --
---         , responseDescribeKinesisStreamingDestination $
---             newDescribeKinesisStreamingDestinationResponse
+--         , responseDeleteBackup $
+--             newDeleteBackupResponse
 --
---         , responseDescribeEndpoints $
---             newDescribeEndpointsResponse
+--         , responseDeleteItem $
+--             newDeleteItemResponse
 --
---         , responseDescribeTimeToLive $
---             newDescribeTimeToLiveResponse
+--         , responseDeleteTable $
+--             newDeleteTableResponse
+--
+--         , responseDescribeBackup $
+--             newDescribeBackupResponse
 --
 --         , responseDescribeContinuousBackups $
 --             newDescribeContinuousBackupsResponse
 --
---         , responseListExports $
---             newListExportsResponse
---
---         , responseTagResource $
---             newTagResourceResponse
---
 --         , responseDescribeContributorInsights $
 --             newDescribeContributorInsightsResponse
 --
---         , responseUntagResource $
---             newUntagResourceResponse
+--         , responseDescribeEndpoints $
+--             newDescribeEndpointsResponse
 --
---         , responseRestoreTableToPointInTime $
---             newRestoreTableToPointInTimeResponse
+--         , responseDescribeExport $
+--             newDescribeExportResponse
+--
+--         , responseDescribeGlobalTable $
+--             newDescribeGlobalTableResponse
+--
+--         , responseDescribeGlobalTableSettings $
+--             newDescribeGlobalTableSettingsResponse
+--
+--         , responseDescribeKinesisStreamingDestination $
+--             newDescribeKinesisStreamingDestinationResponse
+--
+--         , responseDescribeLimits $
+--             newDescribeLimitsResponse
+--
+--         , responseDescribeTable $
+--             newDescribeTableResponse
+--
+--         , responseDescribeTableReplicaAutoScaling $
+--             newDescribeTableReplicaAutoScalingResponse
+--
+--         , responseDescribeTimeToLive $
+--             newDescribeTimeToLiveResponse
+--
+--         , responseDisableKinesisStreamingDestination $
+--             newKinesisStreamingDestinationOutput
+--
+--         , responseEnableKinesisStreamingDestination $
+--             newKinesisStreamingDestinationOutput
+--
+--         , responseExecuteStatement $
+--             newExecuteStatementResponse
+--
+--         , responseExecuteTransaction $
+--             newExecuteTransactionResponse
+--
+--         , responseExportTableToPointInTime $
+--             newExportTableToPointInTimeResponse
+--
+--         , responseGetItem $
+--             newGetItemResponse
+--
+--         , responseListBackups $
+--             newListBackupsResponse
+--
+--         , responseListContributorInsights $
+--             newListContributorInsightsResponse
+--
+--         , responseListExports $
+--             newListExportsResponse
+--
+--         , responseListGlobalTables $
+--             newListGlobalTablesResponse
+--
+--         , responseListTables $
+--             newListTablesResponse
+--
+--         , responseListTagsOfResource $
+--             newListTagsOfResourceResponse
+--
+--         , responsePutItem $
+--             newPutItemResponse
+--
+--         , responseQuery $
+--             newQueryResponse
 --
 --         , responseRestoreTableFromBackup $
 --             newRestoreTableFromBackupResponse
 --
---         , responseUpdateTimeToLive $
---             newUpdateTimeToLiveResponse
+--         , responseRestoreTableToPointInTime $
+--             newRestoreTableToPointInTimeResponse
 --
---         , responseCreateGlobalTable $
---             newCreateGlobalTableResponse
+--         , responseScan $
+--             newScanResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseTransactGetItems $
+--             newTransactGetItemsResponse
+--
+--         , responseTransactWriteItems $
+--             newTransactWriteItemsResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
 --
 --         , responseUpdateContinuousBackups $
 --             newUpdateContinuousBackupsResponse
 --
---         , responseDescribeExport $
---             newDescribeExportResponse
+--         , responseUpdateContributorInsights $
+--             newUpdateContributorInsightsResponse
+--
+--         , responseUpdateGlobalTable $
+--             newUpdateGlobalTableResponse
+--
+--         , responseUpdateGlobalTableSettings $
+--             newUpdateGlobalTableSettingsResponse
+--
+--         , responseUpdateItem $
+--             newUpdateItemResponse
+--
+--         , responseUpdateTable $
+--             newUpdateTableResponse
+--
+--         , responseUpdateTableReplicaAutoScaling $
+--             newUpdateTableReplicaAutoScalingResponse
+--
+--         , responseUpdateTimeToLive $
+--             newUpdateTimeToLiveResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestPutItem :: PutItem -> TestTree
-requestPutItem =
-  req
-    "PutItem"
-    "fixture/PutItem.yaml"
-
-requestDeleteItem :: DeleteItem -> TestTree
-requestDeleteItem =
-  req
-    "DeleteItem"
-    "fixture/DeleteItem.yaml"
-
-requestUpdateItem :: UpdateItem -> TestTree
-requestUpdateItem =
-  req
-    "UpdateItem"
-    "fixture/UpdateItem.yaml"
-
-requestDisableKinesisStreamingDestination :: DisableKinesisStreamingDestination -> TestTree
-requestDisableKinesisStreamingDestination =
-  req
-    "DisableKinesisStreamingDestination"
-    "fixture/DisableKinesisStreamingDestination.yaml"
-
-requestListGlobalTables :: ListGlobalTables -> TestTree
-requestListGlobalTables =
-  req
-    "ListGlobalTables"
-    "fixture/ListGlobalTables.yaml"
-
-requestUpdateGlobalTable :: UpdateGlobalTable -> TestTree
-requestUpdateGlobalTable =
-  req
-    "UpdateGlobalTable"
-    "fixture/UpdateGlobalTable.yaml"
-
-requestDeleteTable :: DeleteTable -> TestTree
-requestDeleteTable =
-  req
-    "DeleteTable"
-    "fixture/DeleteTable.yaml"
-
-requestUpdateTable :: UpdateTable -> TestTree
-requestUpdateTable =
-  req
-    "UpdateTable"
-    "fixture/UpdateTable.yaml"
-
-requestBatchGetItem :: BatchGetItem -> TestTree
-requestBatchGetItem =
-  req
-    "BatchGetItem"
-    "fixture/BatchGetItem.yaml"
-
-requestListBackups :: ListBackups -> TestTree
-requestListBackups =
-  req
-    "ListBackups"
-    "fixture/ListBackups.yaml"
-
-requestDeleteBackup :: DeleteBackup -> TestTree
-requestDeleteBackup =
-  req
-    "DeleteBackup"
-    "fixture/DeleteBackup.yaml"
-
-requestCreateBackup :: CreateBackup -> TestTree
-requestCreateBackup =
-  req
-    "CreateBackup"
-    "fixture/CreateBackup.yaml"
-
-requestUpdateTableReplicaAutoScaling :: UpdateTableReplicaAutoScaling -> TestTree
-requestUpdateTableReplicaAutoScaling =
-  req
-    "UpdateTableReplicaAutoScaling"
-    "fixture/UpdateTableReplicaAutoScaling.yaml"
-
-requestDescribeGlobalTableSettings :: DescribeGlobalTableSettings -> TestTree
-requestDescribeGlobalTableSettings =
-  req
-    "DescribeGlobalTableSettings"
-    "fixture/DescribeGlobalTableSettings.yaml"
-
-requestListTagsOfResource :: ListTagsOfResource -> TestTree
-requestListTagsOfResource =
-  req
-    "ListTagsOfResource"
-    "fixture/ListTagsOfResource.yaml"
-
-requestDescribeGlobalTable :: DescribeGlobalTable -> TestTree
-requestDescribeGlobalTable =
-  req
-    "DescribeGlobalTable"
-    "fixture/DescribeGlobalTable.yaml"
-
-requestDescribeTable :: DescribeTable -> TestTree
-requestDescribeTable =
-  req
-    "DescribeTable"
-    "fixture/DescribeTable.yaml"
-
-requestDescribeLimits :: DescribeLimits -> TestTree
-requestDescribeLimits =
-  req
-    "DescribeLimits"
-    "fixture/DescribeLimits.yaml"
-
-requestExecuteTransaction :: ExecuteTransaction -> TestTree
-requestExecuteTransaction =
-  req
-    "ExecuteTransaction"
-    "fixture/ExecuteTransaction.yaml"
-
-requestGetItem :: GetItem -> TestTree
-requestGetItem =
-  req
-    "GetItem"
-    "fixture/GetItem.yaml"
-
-requestDescribeBackup :: DescribeBackup -> TestTree
-requestDescribeBackup =
-  req
-    "DescribeBackup"
-    "fixture/DescribeBackup.yaml"
 
 requestBatchExecuteStatement :: BatchExecuteStatement -> TestTree
 requestBatchExecuteStatement =
@@ -467,35 +341,11 @@ requestBatchExecuteStatement =
     "BatchExecuteStatement"
     "fixture/BatchExecuteStatement.yaml"
 
-requestDescribeTableReplicaAutoScaling :: DescribeTableReplicaAutoScaling -> TestTree
-requestDescribeTableReplicaAutoScaling =
+requestBatchGetItem :: BatchGetItem -> TestTree
+requestBatchGetItem =
   req
-    "DescribeTableReplicaAutoScaling"
-    "fixture/DescribeTableReplicaAutoScaling.yaml"
-
-requestUpdateGlobalTableSettings :: UpdateGlobalTableSettings -> TestTree
-requestUpdateGlobalTableSettings =
-  req
-    "UpdateGlobalTableSettings"
-    "fixture/UpdateGlobalTableSettings.yaml"
-
-requestEnableKinesisStreamingDestination :: EnableKinesisStreamingDestination -> TestTree
-requestEnableKinesisStreamingDestination =
-  req
-    "EnableKinesisStreamingDestination"
-    "fixture/EnableKinesisStreamingDestination.yaml"
-
-requestTransactGetItems :: TransactGetItems -> TestTree
-requestTransactGetItems =
-  req
-    "TransactGetItems"
-    "fixture/TransactGetItems.yaml"
-
-requestListContributorInsights :: ListContributorInsights -> TestTree
-requestListContributorInsights =
-  req
-    "ListContributorInsights"
-    "fixture/ListContributorInsights.yaml"
+    "BatchGetItem"
+    "fixture/BatchGetItem.yaml"
 
 requestBatchWriteItem :: BatchWriteItem -> TestTree
 requestBatchWriteItem =
@@ -503,119 +353,11 @@ requestBatchWriteItem =
     "BatchWriteItem"
     "fixture/BatchWriteItem.yaml"
 
-requestExportTableToPointInTime :: ExportTableToPointInTime -> TestTree
-requestExportTableToPointInTime =
+requestCreateBackup :: CreateBackup -> TestTree
+requestCreateBackup =
   req
-    "ExportTableToPointInTime"
-    "fixture/ExportTableToPointInTime.yaml"
-
-requestTransactWriteItems :: TransactWriteItems -> TestTree
-requestTransactWriteItems =
-  req
-    "TransactWriteItems"
-    "fixture/TransactWriteItems.yaml"
-
-requestListTables :: ListTables -> TestTree
-requestListTables =
-  req
-    "ListTables"
-    "fixture/ListTables.yaml"
-
-requestScan :: Scan -> TestTree
-requestScan =
-  req
-    "Scan"
-    "fixture/Scan.yaml"
-
-requestUpdateContributorInsights :: UpdateContributorInsights -> TestTree
-requestUpdateContributorInsights =
-  req
-    "UpdateContributorInsights"
-    "fixture/UpdateContributorInsights.yaml"
-
-requestExecuteStatement :: ExecuteStatement -> TestTree
-requestExecuteStatement =
-  req
-    "ExecuteStatement"
-    "fixture/ExecuteStatement.yaml"
-
-requestQuery :: Query -> TestTree
-requestQuery =
-  req
-    "Query"
-    "fixture/Query.yaml"
-
-requestCreateTable :: CreateTable -> TestTree
-requestCreateTable =
-  req
-    "CreateTable"
-    "fixture/CreateTable.yaml"
-
-requestDescribeKinesisStreamingDestination :: DescribeKinesisStreamingDestination -> TestTree
-requestDescribeKinesisStreamingDestination =
-  req
-    "DescribeKinesisStreamingDestination"
-    "fixture/DescribeKinesisStreamingDestination.yaml"
-
-requestDescribeEndpoints :: DescribeEndpoints -> TestTree
-requestDescribeEndpoints =
-  req
-    "DescribeEndpoints"
-    "fixture/DescribeEndpoints.yaml"
-
-requestDescribeTimeToLive :: DescribeTimeToLive -> TestTree
-requestDescribeTimeToLive =
-  req
-    "DescribeTimeToLive"
-    "fixture/DescribeTimeToLive.yaml"
-
-requestDescribeContinuousBackups :: DescribeContinuousBackups -> TestTree
-requestDescribeContinuousBackups =
-  req
-    "DescribeContinuousBackups"
-    "fixture/DescribeContinuousBackups.yaml"
-
-requestListExports :: ListExports -> TestTree
-requestListExports =
-  req
-    "ListExports"
-    "fixture/ListExports.yaml"
-
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
-
-requestDescribeContributorInsights :: DescribeContributorInsights -> TestTree
-requestDescribeContributorInsights =
-  req
-    "DescribeContributorInsights"
-    "fixture/DescribeContributorInsights.yaml"
-
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
-
-requestRestoreTableToPointInTime :: RestoreTableToPointInTime -> TestTree
-requestRestoreTableToPointInTime =
-  req
-    "RestoreTableToPointInTime"
-    "fixture/RestoreTableToPointInTime.yaml"
-
-requestRestoreTableFromBackup :: RestoreTableFromBackup -> TestTree
-requestRestoreTableFromBackup =
-  req
-    "RestoreTableFromBackup"
-    "fixture/RestoreTableFromBackup.yaml"
-
-requestUpdateTimeToLive :: UpdateTimeToLive -> TestTree
-requestUpdateTimeToLive =
-  req
-    "UpdateTimeToLive"
-    "fixture/UpdateTimeToLive.yaml"
+    "CreateBackup"
+    "fixture/CreateBackup.yaml"
 
 requestCreateGlobalTable :: CreateGlobalTable -> TestTree
 requestCreateGlobalTable =
@@ -623,11 +365,53 @@ requestCreateGlobalTable =
     "CreateGlobalTable"
     "fixture/CreateGlobalTable.yaml"
 
-requestUpdateContinuousBackups :: UpdateContinuousBackups -> TestTree
-requestUpdateContinuousBackups =
+requestCreateTable :: CreateTable -> TestTree
+requestCreateTable =
   req
-    "UpdateContinuousBackups"
-    "fixture/UpdateContinuousBackups.yaml"
+    "CreateTable"
+    "fixture/CreateTable.yaml"
+
+requestDeleteBackup :: DeleteBackup -> TestTree
+requestDeleteBackup =
+  req
+    "DeleteBackup"
+    "fixture/DeleteBackup.yaml"
+
+requestDeleteItem :: DeleteItem -> TestTree
+requestDeleteItem =
+  req
+    "DeleteItem"
+    "fixture/DeleteItem.yaml"
+
+requestDeleteTable :: DeleteTable -> TestTree
+requestDeleteTable =
+  req
+    "DeleteTable"
+    "fixture/DeleteTable.yaml"
+
+requestDescribeBackup :: DescribeBackup -> TestTree
+requestDescribeBackup =
+  req
+    "DescribeBackup"
+    "fixture/DescribeBackup.yaml"
+
+requestDescribeContinuousBackups :: DescribeContinuousBackups -> TestTree
+requestDescribeContinuousBackups =
+  req
+    "DescribeContinuousBackups"
+    "fixture/DescribeContinuousBackups.yaml"
+
+requestDescribeContributorInsights :: DescribeContributorInsights -> TestTree
+requestDescribeContributorInsights =
+  req
+    "DescribeContributorInsights"
+    "fixture/DescribeContributorInsights.yaml"
+
+requestDescribeEndpoints :: DescribeEndpoints -> TestTree
+requestDescribeEndpoints =
+  req
+    "DescribeEndpoints"
+    "fixture/DescribeEndpoints.yaml"
 
 requestDescribeExport :: DescribeExport -> TestTree
 requestDescribeExport =
@@ -635,175 +419,223 @@ requestDescribeExport =
     "DescribeExport"
     "fixture/DescribeExport.yaml"
 
+requestDescribeGlobalTable :: DescribeGlobalTable -> TestTree
+requestDescribeGlobalTable =
+  req
+    "DescribeGlobalTable"
+    "fixture/DescribeGlobalTable.yaml"
+
+requestDescribeGlobalTableSettings :: DescribeGlobalTableSettings -> TestTree
+requestDescribeGlobalTableSettings =
+  req
+    "DescribeGlobalTableSettings"
+    "fixture/DescribeGlobalTableSettings.yaml"
+
+requestDescribeKinesisStreamingDestination :: DescribeKinesisStreamingDestination -> TestTree
+requestDescribeKinesisStreamingDestination =
+  req
+    "DescribeKinesisStreamingDestination"
+    "fixture/DescribeKinesisStreamingDestination.yaml"
+
+requestDescribeLimits :: DescribeLimits -> TestTree
+requestDescribeLimits =
+  req
+    "DescribeLimits"
+    "fixture/DescribeLimits.yaml"
+
+requestDescribeTable :: DescribeTable -> TestTree
+requestDescribeTable =
+  req
+    "DescribeTable"
+    "fixture/DescribeTable.yaml"
+
+requestDescribeTableReplicaAutoScaling :: DescribeTableReplicaAutoScaling -> TestTree
+requestDescribeTableReplicaAutoScaling =
+  req
+    "DescribeTableReplicaAutoScaling"
+    "fixture/DescribeTableReplicaAutoScaling.yaml"
+
+requestDescribeTimeToLive :: DescribeTimeToLive -> TestTree
+requestDescribeTimeToLive =
+  req
+    "DescribeTimeToLive"
+    "fixture/DescribeTimeToLive.yaml"
+
+requestDisableKinesisStreamingDestination :: DisableKinesisStreamingDestination -> TestTree
+requestDisableKinesisStreamingDestination =
+  req
+    "DisableKinesisStreamingDestination"
+    "fixture/DisableKinesisStreamingDestination.yaml"
+
+requestEnableKinesisStreamingDestination :: EnableKinesisStreamingDestination -> TestTree
+requestEnableKinesisStreamingDestination =
+  req
+    "EnableKinesisStreamingDestination"
+    "fixture/EnableKinesisStreamingDestination.yaml"
+
+requestExecuteStatement :: ExecuteStatement -> TestTree
+requestExecuteStatement =
+  req
+    "ExecuteStatement"
+    "fixture/ExecuteStatement.yaml"
+
+requestExecuteTransaction :: ExecuteTransaction -> TestTree
+requestExecuteTransaction =
+  req
+    "ExecuteTransaction"
+    "fixture/ExecuteTransaction.yaml"
+
+requestExportTableToPointInTime :: ExportTableToPointInTime -> TestTree
+requestExportTableToPointInTime =
+  req
+    "ExportTableToPointInTime"
+    "fixture/ExportTableToPointInTime.yaml"
+
+requestGetItem :: GetItem -> TestTree
+requestGetItem =
+  req
+    "GetItem"
+    "fixture/GetItem.yaml"
+
+requestListBackups :: ListBackups -> TestTree
+requestListBackups =
+  req
+    "ListBackups"
+    "fixture/ListBackups.yaml"
+
+requestListContributorInsights :: ListContributorInsights -> TestTree
+requestListContributorInsights =
+  req
+    "ListContributorInsights"
+    "fixture/ListContributorInsights.yaml"
+
+requestListExports :: ListExports -> TestTree
+requestListExports =
+  req
+    "ListExports"
+    "fixture/ListExports.yaml"
+
+requestListGlobalTables :: ListGlobalTables -> TestTree
+requestListGlobalTables =
+  req
+    "ListGlobalTables"
+    "fixture/ListGlobalTables.yaml"
+
+requestListTables :: ListTables -> TestTree
+requestListTables =
+  req
+    "ListTables"
+    "fixture/ListTables.yaml"
+
+requestListTagsOfResource :: ListTagsOfResource -> TestTree
+requestListTagsOfResource =
+  req
+    "ListTagsOfResource"
+    "fixture/ListTagsOfResource.yaml"
+
+requestPutItem :: PutItem -> TestTree
+requestPutItem =
+  req
+    "PutItem"
+    "fixture/PutItem.yaml"
+
+requestQuery :: Query -> TestTree
+requestQuery =
+  req
+    "Query"
+    "fixture/Query.yaml"
+
+requestRestoreTableFromBackup :: RestoreTableFromBackup -> TestTree
+requestRestoreTableFromBackup =
+  req
+    "RestoreTableFromBackup"
+    "fixture/RestoreTableFromBackup.yaml"
+
+requestRestoreTableToPointInTime :: RestoreTableToPointInTime -> TestTree
+requestRestoreTableToPointInTime =
+  req
+    "RestoreTableToPointInTime"
+    "fixture/RestoreTableToPointInTime.yaml"
+
+requestScan :: Scan -> TestTree
+requestScan =
+  req
+    "Scan"
+    "fixture/Scan.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestTransactGetItems :: TransactGetItems -> TestTree
+requestTransactGetItems =
+  req
+    "TransactGetItems"
+    "fixture/TransactGetItems.yaml"
+
+requestTransactWriteItems :: TransactWriteItems -> TestTree
+requestTransactWriteItems =
+  req
+    "TransactWriteItems"
+    "fixture/TransactWriteItems.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateContinuousBackups :: UpdateContinuousBackups -> TestTree
+requestUpdateContinuousBackups =
+  req
+    "UpdateContinuousBackups"
+    "fixture/UpdateContinuousBackups.yaml"
+
+requestUpdateContributorInsights :: UpdateContributorInsights -> TestTree
+requestUpdateContributorInsights =
+  req
+    "UpdateContributorInsights"
+    "fixture/UpdateContributorInsights.yaml"
+
+requestUpdateGlobalTable :: UpdateGlobalTable -> TestTree
+requestUpdateGlobalTable =
+  req
+    "UpdateGlobalTable"
+    "fixture/UpdateGlobalTable.yaml"
+
+requestUpdateGlobalTableSettings :: UpdateGlobalTableSettings -> TestTree
+requestUpdateGlobalTableSettings =
+  req
+    "UpdateGlobalTableSettings"
+    "fixture/UpdateGlobalTableSettings.yaml"
+
+requestUpdateItem :: UpdateItem -> TestTree
+requestUpdateItem =
+  req
+    "UpdateItem"
+    "fixture/UpdateItem.yaml"
+
+requestUpdateTable :: UpdateTable -> TestTree
+requestUpdateTable =
+  req
+    "UpdateTable"
+    "fixture/UpdateTable.yaml"
+
+requestUpdateTableReplicaAutoScaling :: UpdateTableReplicaAutoScaling -> TestTree
+requestUpdateTableReplicaAutoScaling =
+  req
+    "UpdateTableReplicaAutoScaling"
+    "fixture/UpdateTableReplicaAutoScaling.yaml"
+
+requestUpdateTimeToLive :: UpdateTimeToLive -> TestTree
+requestUpdateTimeToLive =
+  req
+    "UpdateTimeToLive"
+    "fixture/UpdateTimeToLive.yaml"
+
 -- Responses
-
-responsePutItem :: PutItemResponse -> TestTree
-responsePutItem =
-  res
-    "PutItemResponse"
-    "fixture/PutItemResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutItem)
-
-responseDeleteItem :: DeleteItemResponse -> TestTree
-responseDeleteItem =
-  res
-    "DeleteItemResponse"
-    "fixture/DeleteItemResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteItem)
-
-responseUpdateItem :: UpdateItemResponse -> TestTree
-responseUpdateItem =
-  res
-    "UpdateItemResponse"
-    "fixture/UpdateItemResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateItem)
-
-responseDisableKinesisStreamingDestination :: KinesisStreamingDestinationOutput -> TestTree
-responseDisableKinesisStreamingDestination =
-  res
-    "DisableKinesisStreamingDestinationResponse"
-    "fixture/DisableKinesisStreamingDestinationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisableKinesisStreamingDestination)
-
-responseListGlobalTables :: ListGlobalTablesResponse -> TestTree
-responseListGlobalTables =
-  res
-    "ListGlobalTablesResponse"
-    "fixture/ListGlobalTablesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListGlobalTables)
-
-responseUpdateGlobalTable :: UpdateGlobalTableResponse -> TestTree
-responseUpdateGlobalTable =
-  res
-    "UpdateGlobalTableResponse"
-    "fixture/UpdateGlobalTableResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateGlobalTable)
-
-responseDeleteTable :: DeleteTableResponse -> TestTree
-responseDeleteTable =
-  res
-    "DeleteTableResponse"
-    "fixture/DeleteTableResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteTable)
-
-responseUpdateTable :: UpdateTableResponse -> TestTree
-responseUpdateTable =
-  res
-    "UpdateTableResponse"
-    "fixture/UpdateTableResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateTable)
-
-responseBatchGetItem :: BatchGetItemResponse -> TestTree
-responseBatchGetItem =
-  res
-    "BatchGetItemResponse"
-    "fixture/BatchGetItemResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchGetItem)
-
-responseListBackups :: ListBackupsResponse -> TestTree
-responseListBackups =
-  res
-    "ListBackupsResponse"
-    "fixture/ListBackupsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListBackups)
-
-responseDeleteBackup :: DeleteBackupResponse -> TestTree
-responseDeleteBackup =
-  res
-    "DeleteBackupResponse"
-    "fixture/DeleteBackupResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteBackup)
-
-responseCreateBackup :: CreateBackupResponse -> TestTree
-responseCreateBackup =
-  res
-    "CreateBackupResponse"
-    "fixture/CreateBackupResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateBackup)
-
-responseUpdateTableReplicaAutoScaling :: UpdateTableReplicaAutoScalingResponse -> TestTree
-responseUpdateTableReplicaAutoScaling =
-  res
-    "UpdateTableReplicaAutoScalingResponse"
-    "fixture/UpdateTableReplicaAutoScalingResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateTableReplicaAutoScaling)
-
-responseDescribeGlobalTableSettings :: DescribeGlobalTableSettingsResponse -> TestTree
-responseDescribeGlobalTableSettings =
-  res
-    "DescribeGlobalTableSettingsResponse"
-    "fixture/DescribeGlobalTableSettingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeGlobalTableSettings)
-
-responseListTagsOfResource :: ListTagsOfResourceResponse -> TestTree
-responseListTagsOfResource =
-  res
-    "ListTagsOfResourceResponse"
-    "fixture/ListTagsOfResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsOfResource)
-
-responseDescribeGlobalTable :: DescribeGlobalTableResponse -> TestTree
-responseDescribeGlobalTable =
-  res
-    "DescribeGlobalTableResponse"
-    "fixture/DescribeGlobalTableResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeGlobalTable)
-
-responseDescribeTable :: DescribeTableResponse -> TestTree
-responseDescribeTable =
-  res
-    "DescribeTableResponse"
-    "fixture/DescribeTableResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeTable)
-
-responseDescribeLimits :: DescribeLimitsResponse -> TestTree
-responseDescribeLimits =
-  res
-    "DescribeLimitsResponse"
-    "fixture/DescribeLimitsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeLimits)
-
-responseExecuteTransaction :: ExecuteTransactionResponse -> TestTree
-responseExecuteTransaction =
-  res
-    "ExecuteTransactionResponse"
-    "fixture/ExecuteTransactionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ExecuteTransaction)
-
-responseGetItem :: GetItemResponse -> TestTree
-responseGetItem =
-  res
-    "GetItemResponse"
-    "fixture/GetItemResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetItem)
-
-responseDescribeBackup :: DescribeBackupResponse -> TestTree
-responseDescribeBackup =
-  res
-    "DescribeBackupResponse"
-    "fixture/DescribeBackupResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeBackup)
 
 responseBatchExecuteStatement :: BatchExecuteStatementResponse -> TestTree
 responseBatchExecuteStatement =
@@ -813,45 +645,13 @@ responseBatchExecuteStatement =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchExecuteStatement)
 
-responseDescribeTableReplicaAutoScaling :: DescribeTableReplicaAutoScalingResponse -> TestTree
-responseDescribeTableReplicaAutoScaling =
+responseBatchGetItem :: BatchGetItemResponse -> TestTree
+responseBatchGetItem =
   res
-    "DescribeTableReplicaAutoScalingResponse"
-    "fixture/DescribeTableReplicaAutoScalingResponse.proto"
+    "BatchGetItemResponse"
+    "fixture/BatchGetItemResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeTableReplicaAutoScaling)
-
-responseUpdateGlobalTableSettings :: UpdateGlobalTableSettingsResponse -> TestTree
-responseUpdateGlobalTableSettings =
-  res
-    "UpdateGlobalTableSettingsResponse"
-    "fixture/UpdateGlobalTableSettingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateGlobalTableSettings)
-
-responseEnableKinesisStreamingDestination :: KinesisStreamingDestinationOutput -> TestTree
-responseEnableKinesisStreamingDestination =
-  res
-    "EnableKinesisStreamingDestinationResponse"
-    "fixture/EnableKinesisStreamingDestinationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy EnableKinesisStreamingDestination)
-
-responseTransactGetItems :: TransactGetItemsResponse -> TestTree
-responseTransactGetItems =
-  res
-    "TransactGetItemsResponse"
-    "fixture/TransactGetItemsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy TransactGetItems)
-
-responseListContributorInsights :: ListContributorInsightsResponse -> TestTree
-responseListContributorInsights =
-  res
-    "ListContributorInsightsResponse"
-    "fixture/ListContributorInsightsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListContributorInsights)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetItem)
 
 responseBatchWriteItem :: BatchWriteItemResponse -> TestTree
 responseBatchWriteItem =
@@ -861,157 +661,13 @@ responseBatchWriteItem =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchWriteItem)
 
-responseExportTableToPointInTime :: ExportTableToPointInTimeResponse -> TestTree
-responseExportTableToPointInTime =
+responseCreateBackup :: CreateBackupResponse -> TestTree
+responseCreateBackup =
   res
-    "ExportTableToPointInTimeResponse"
-    "fixture/ExportTableToPointInTimeResponse.proto"
+    "CreateBackupResponse"
+    "fixture/CreateBackupResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ExportTableToPointInTime)
-
-responseTransactWriteItems :: TransactWriteItemsResponse -> TestTree
-responseTransactWriteItems =
-  res
-    "TransactWriteItemsResponse"
-    "fixture/TransactWriteItemsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy TransactWriteItems)
-
-responseListTables :: ListTablesResponse -> TestTree
-responseListTables =
-  res
-    "ListTablesResponse"
-    "fixture/ListTablesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTables)
-
-responseScan :: ScanResponse -> TestTree
-responseScan =
-  res
-    "ScanResponse"
-    "fixture/ScanResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy Scan)
-
-responseUpdateContributorInsights :: UpdateContributorInsightsResponse -> TestTree
-responseUpdateContributorInsights =
-  res
-    "UpdateContributorInsightsResponse"
-    "fixture/UpdateContributorInsightsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateContributorInsights)
-
-responseExecuteStatement :: ExecuteStatementResponse -> TestTree
-responseExecuteStatement =
-  res
-    "ExecuteStatementResponse"
-    "fixture/ExecuteStatementResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ExecuteStatement)
-
-responseQuery :: QueryResponse -> TestTree
-responseQuery =
-  res
-    "QueryResponse"
-    "fixture/QueryResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy Query)
-
-responseCreateTable :: CreateTableResponse -> TestTree
-responseCreateTable =
-  res
-    "CreateTableResponse"
-    "fixture/CreateTableResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateTable)
-
-responseDescribeKinesisStreamingDestination :: DescribeKinesisStreamingDestinationResponse -> TestTree
-responseDescribeKinesisStreamingDestination =
-  res
-    "DescribeKinesisStreamingDestinationResponse"
-    "fixture/DescribeKinesisStreamingDestinationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeKinesisStreamingDestination)
-
-responseDescribeEndpoints :: DescribeEndpointsResponse -> TestTree
-responseDescribeEndpoints =
-  res
-    "DescribeEndpointsResponse"
-    "fixture/DescribeEndpointsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeEndpoints)
-
-responseDescribeTimeToLive :: DescribeTimeToLiveResponse -> TestTree
-responseDescribeTimeToLive =
-  res
-    "DescribeTimeToLiveResponse"
-    "fixture/DescribeTimeToLiveResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeTimeToLive)
-
-responseDescribeContinuousBackups :: DescribeContinuousBackupsResponse -> TestTree
-responseDescribeContinuousBackups =
-  res
-    "DescribeContinuousBackupsResponse"
-    "fixture/DescribeContinuousBackupsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeContinuousBackups)
-
-responseListExports :: ListExportsResponse -> TestTree
-responseListExports =
-  res
-    "ListExportsResponse"
-    "fixture/ListExportsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListExports)
-
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
-
-responseDescribeContributorInsights :: DescribeContributorInsightsResponse -> TestTree
-responseDescribeContributorInsights =
-  res
-    "DescribeContributorInsightsResponse"
-    "fixture/DescribeContributorInsightsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeContributorInsights)
-
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
-
-responseRestoreTableToPointInTime :: RestoreTableToPointInTimeResponse -> TestTree
-responseRestoreTableToPointInTime =
-  res
-    "RestoreTableToPointInTimeResponse"
-    "fixture/RestoreTableToPointInTimeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RestoreTableToPointInTime)
-
-responseRestoreTableFromBackup :: RestoreTableFromBackupResponse -> TestTree
-responseRestoreTableFromBackup =
-  res
-    "RestoreTableFromBackupResponse"
-    "fixture/RestoreTableFromBackupResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RestoreTableFromBackup)
-
-responseUpdateTimeToLive :: UpdateTimeToLiveResponse -> TestTree
-responseUpdateTimeToLive =
-  res
-    "UpdateTimeToLiveResponse"
-    "fixture/UpdateTimeToLiveResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateTimeToLive)
+    (Proxy.Proxy :: Proxy.Proxy CreateBackup)
 
 responseCreateGlobalTable :: CreateGlobalTableResponse -> TestTree
 responseCreateGlobalTable =
@@ -1021,13 +677,69 @@ responseCreateGlobalTable =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateGlobalTable)
 
-responseUpdateContinuousBackups :: UpdateContinuousBackupsResponse -> TestTree
-responseUpdateContinuousBackups =
+responseCreateTable :: CreateTableResponse -> TestTree
+responseCreateTable =
   res
-    "UpdateContinuousBackupsResponse"
-    "fixture/UpdateContinuousBackupsResponse.proto"
+    "CreateTableResponse"
+    "fixture/CreateTableResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateContinuousBackups)
+    (Proxy.Proxy :: Proxy.Proxy CreateTable)
+
+responseDeleteBackup :: DeleteBackupResponse -> TestTree
+responseDeleteBackup =
+  res
+    "DeleteBackupResponse"
+    "fixture/DeleteBackupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteBackup)
+
+responseDeleteItem :: DeleteItemResponse -> TestTree
+responseDeleteItem =
+  res
+    "DeleteItemResponse"
+    "fixture/DeleteItemResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteItem)
+
+responseDeleteTable :: DeleteTableResponse -> TestTree
+responseDeleteTable =
+  res
+    "DeleteTableResponse"
+    "fixture/DeleteTableResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteTable)
+
+responseDescribeBackup :: DescribeBackupResponse -> TestTree
+responseDescribeBackup =
+  res
+    "DescribeBackupResponse"
+    "fixture/DescribeBackupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeBackup)
+
+responseDescribeContinuousBackups :: DescribeContinuousBackupsResponse -> TestTree
+responseDescribeContinuousBackups =
+  res
+    "DescribeContinuousBackupsResponse"
+    "fixture/DescribeContinuousBackupsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeContinuousBackups)
+
+responseDescribeContributorInsights :: DescribeContributorInsightsResponse -> TestTree
+responseDescribeContributorInsights =
+  res
+    "DescribeContributorInsightsResponse"
+    "fixture/DescribeContributorInsightsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeContributorInsights)
+
+responseDescribeEndpoints :: DescribeEndpointsResponse -> TestTree
+responseDescribeEndpoints =
+  res
+    "DescribeEndpointsResponse"
+    "fixture/DescribeEndpointsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeEndpoints)
 
 responseDescribeExport :: DescribeExportResponse -> TestTree
 responseDescribeExport =
@@ -1036,3 +748,291 @@ responseDescribeExport =
     "fixture/DescribeExportResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeExport)
+
+responseDescribeGlobalTable :: DescribeGlobalTableResponse -> TestTree
+responseDescribeGlobalTable =
+  res
+    "DescribeGlobalTableResponse"
+    "fixture/DescribeGlobalTableResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeGlobalTable)
+
+responseDescribeGlobalTableSettings :: DescribeGlobalTableSettingsResponse -> TestTree
+responseDescribeGlobalTableSettings =
+  res
+    "DescribeGlobalTableSettingsResponse"
+    "fixture/DescribeGlobalTableSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeGlobalTableSettings)
+
+responseDescribeKinesisStreamingDestination :: DescribeKinesisStreamingDestinationResponse -> TestTree
+responseDescribeKinesisStreamingDestination =
+  res
+    "DescribeKinesisStreamingDestinationResponse"
+    "fixture/DescribeKinesisStreamingDestinationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeKinesisStreamingDestination)
+
+responseDescribeLimits :: DescribeLimitsResponse -> TestTree
+responseDescribeLimits =
+  res
+    "DescribeLimitsResponse"
+    "fixture/DescribeLimitsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeLimits)
+
+responseDescribeTable :: DescribeTableResponse -> TestTree
+responseDescribeTable =
+  res
+    "DescribeTableResponse"
+    "fixture/DescribeTableResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTable)
+
+responseDescribeTableReplicaAutoScaling :: DescribeTableReplicaAutoScalingResponse -> TestTree
+responseDescribeTableReplicaAutoScaling =
+  res
+    "DescribeTableReplicaAutoScalingResponse"
+    "fixture/DescribeTableReplicaAutoScalingResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTableReplicaAutoScaling)
+
+responseDescribeTimeToLive :: DescribeTimeToLiveResponse -> TestTree
+responseDescribeTimeToLive =
+  res
+    "DescribeTimeToLiveResponse"
+    "fixture/DescribeTimeToLiveResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTimeToLive)
+
+responseDisableKinesisStreamingDestination :: KinesisStreamingDestinationOutput -> TestTree
+responseDisableKinesisStreamingDestination =
+  res
+    "DisableKinesisStreamingDestinationResponse"
+    "fixture/DisableKinesisStreamingDestinationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisableKinesisStreamingDestination)
+
+responseEnableKinesisStreamingDestination :: KinesisStreamingDestinationOutput -> TestTree
+responseEnableKinesisStreamingDestination =
+  res
+    "EnableKinesisStreamingDestinationResponse"
+    "fixture/EnableKinesisStreamingDestinationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy EnableKinesisStreamingDestination)
+
+responseExecuteStatement :: ExecuteStatementResponse -> TestTree
+responseExecuteStatement =
+  res
+    "ExecuteStatementResponse"
+    "fixture/ExecuteStatementResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ExecuteStatement)
+
+responseExecuteTransaction :: ExecuteTransactionResponse -> TestTree
+responseExecuteTransaction =
+  res
+    "ExecuteTransactionResponse"
+    "fixture/ExecuteTransactionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ExecuteTransaction)
+
+responseExportTableToPointInTime :: ExportTableToPointInTimeResponse -> TestTree
+responseExportTableToPointInTime =
+  res
+    "ExportTableToPointInTimeResponse"
+    "fixture/ExportTableToPointInTimeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ExportTableToPointInTime)
+
+responseGetItem :: GetItemResponse -> TestTree
+responseGetItem =
+  res
+    "GetItemResponse"
+    "fixture/GetItemResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetItem)
+
+responseListBackups :: ListBackupsResponse -> TestTree
+responseListBackups =
+  res
+    "ListBackupsResponse"
+    "fixture/ListBackupsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListBackups)
+
+responseListContributorInsights :: ListContributorInsightsResponse -> TestTree
+responseListContributorInsights =
+  res
+    "ListContributorInsightsResponse"
+    "fixture/ListContributorInsightsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListContributorInsights)
+
+responseListExports :: ListExportsResponse -> TestTree
+responseListExports =
+  res
+    "ListExportsResponse"
+    "fixture/ListExportsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListExports)
+
+responseListGlobalTables :: ListGlobalTablesResponse -> TestTree
+responseListGlobalTables =
+  res
+    "ListGlobalTablesResponse"
+    "fixture/ListGlobalTablesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListGlobalTables)
+
+responseListTables :: ListTablesResponse -> TestTree
+responseListTables =
+  res
+    "ListTablesResponse"
+    "fixture/ListTablesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTables)
+
+responseListTagsOfResource :: ListTagsOfResourceResponse -> TestTree
+responseListTagsOfResource =
+  res
+    "ListTagsOfResourceResponse"
+    "fixture/ListTagsOfResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsOfResource)
+
+responsePutItem :: PutItemResponse -> TestTree
+responsePutItem =
+  res
+    "PutItemResponse"
+    "fixture/PutItemResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutItem)
+
+responseQuery :: QueryResponse -> TestTree
+responseQuery =
+  res
+    "QueryResponse"
+    "fixture/QueryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy Query)
+
+responseRestoreTableFromBackup :: RestoreTableFromBackupResponse -> TestTree
+responseRestoreTableFromBackup =
+  res
+    "RestoreTableFromBackupResponse"
+    "fixture/RestoreTableFromBackupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RestoreTableFromBackup)
+
+responseRestoreTableToPointInTime :: RestoreTableToPointInTimeResponse -> TestTree
+responseRestoreTableToPointInTime =
+  res
+    "RestoreTableToPointInTimeResponse"
+    "fixture/RestoreTableToPointInTimeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RestoreTableToPointInTime)
+
+responseScan :: ScanResponse -> TestTree
+responseScan =
+  res
+    "ScanResponse"
+    "fixture/ScanResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy Scan)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseTransactGetItems :: TransactGetItemsResponse -> TestTree
+responseTransactGetItems =
+  res
+    "TransactGetItemsResponse"
+    "fixture/TransactGetItemsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TransactGetItems)
+
+responseTransactWriteItems :: TransactWriteItemsResponse -> TestTree
+responseTransactWriteItems =
+  res
+    "TransactWriteItemsResponse"
+    "fixture/TransactWriteItemsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TransactWriteItems)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateContinuousBackups :: UpdateContinuousBackupsResponse -> TestTree
+responseUpdateContinuousBackups =
+  res
+    "UpdateContinuousBackupsResponse"
+    "fixture/UpdateContinuousBackupsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateContinuousBackups)
+
+responseUpdateContributorInsights :: UpdateContributorInsightsResponse -> TestTree
+responseUpdateContributorInsights =
+  res
+    "UpdateContributorInsightsResponse"
+    "fixture/UpdateContributorInsightsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateContributorInsights)
+
+responseUpdateGlobalTable :: UpdateGlobalTableResponse -> TestTree
+responseUpdateGlobalTable =
+  res
+    "UpdateGlobalTableResponse"
+    "fixture/UpdateGlobalTableResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateGlobalTable)
+
+responseUpdateGlobalTableSettings :: UpdateGlobalTableSettingsResponse -> TestTree
+responseUpdateGlobalTableSettings =
+  res
+    "UpdateGlobalTableSettingsResponse"
+    "fixture/UpdateGlobalTableSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateGlobalTableSettings)
+
+responseUpdateItem :: UpdateItemResponse -> TestTree
+responseUpdateItem =
+  res
+    "UpdateItemResponse"
+    "fixture/UpdateItemResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateItem)
+
+responseUpdateTable :: UpdateTableResponse -> TestTree
+responseUpdateTable =
+  res
+    "UpdateTableResponse"
+    "fixture/UpdateTableResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateTable)
+
+responseUpdateTableReplicaAutoScaling :: UpdateTableReplicaAutoScalingResponse -> TestTree
+responseUpdateTableReplicaAutoScaling =
+  res
+    "UpdateTableReplicaAutoScalingResponse"
+    "fixture/UpdateTableReplicaAutoScalingResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateTableReplicaAutoScaling)
+
+responseUpdateTimeToLive :: UpdateTimeToLiveResponse -> TestTree
+responseUpdateTimeToLive =
+  res
+    "UpdateTimeToLiveResponse"
+    "fixture/UpdateTimeToLiveResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateTimeToLive)

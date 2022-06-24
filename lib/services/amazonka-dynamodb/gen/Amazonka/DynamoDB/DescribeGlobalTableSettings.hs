@@ -38,8 +38,8 @@ module Amazonka.DynamoDB.DescribeGlobalTableSettings
     newDescribeGlobalTableSettingsResponse,
 
     -- * Response Lenses
-    describeGlobalTableSettingsResponse_replicaSettings,
     describeGlobalTableSettingsResponse_globalTableName,
+    describeGlobalTableSettingsResponse_replicaSettings,
     describeGlobalTableSettingsResponse_httpStatus,
   )
 where
@@ -90,10 +90,10 @@ instance Core.AWSRequest DescribeGlobalTableSettings where
     Response.receiveJSON
       ( \s h x ->
           DescribeGlobalTableSettingsResponse'
-            Prelude.<$> ( x Core..?> "ReplicaSettings"
+            Prelude.<$> (x Core..?> "GlobalTableName")
+            Prelude.<*> ( x Core..?> "ReplicaSettings"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "GlobalTableName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,10 +137,10 @@ instance Core.ToQuery DescribeGlobalTableSettings where
 
 -- | /See:/ 'newDescribeGlobalTableSettingsResponse' smart constructor.
 data DescribeGlobalTableSettingsResponse = DescribeGlobalTableSettingsResponse'
-  { -- | The Region-specific settings for the global table.
-    replicaSettings :: Prelude.Maybe [ReplicaSettingsDescription],
-    -- | The name of the global table.
+  { -- | The name of the global table.
     globalTableName :: Prelude.Maybe Prelude.Text,
+    -- | The Region-specific settings for the global table.
+    replicaSettings :: Prelude.Maybe [ReplicaSettingsDescription],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -154,9 +154,9 @@ data DescribeGlobalTableSettingsResponse = DescribeGlobalTableSettingsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'replicaSettings', 'describeGlobalTableSettingsResponse_replicaSettings' - The Region-specific settings for the global table.
---
 -- 'globalTableName', 'describeGlobalTableSettingsResponse_globalTableName' - The name of the global table.
+--
+-- 'replicaSettings', 'describeGlobalTableSettingsResponse_replicaSettings' - The Region-specific settings for the global table.
 --
 -- 'httpStatus', 'describeGlobalTableSettingsResponse_httpStatus' - The response's http status code.
 newDescribeGlobalTableSettingsResponse ::
@@ -165,19 +165,19 @@ newDescribeGlobalTableSettingsResponse ::
   DescribeGlobalTableSettingsResponse
 newDescribeGlobalTableSettingsResponse pHttpStatus_ =
   DescribeGlobalTableSettingsResponse'
-    { replicaSettings =
+    { globalTableName =
         Prelude.Nothing,
-      globalTableName = Prelude.Nothing,
+      replicaSettings = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Region-specific settings for the global table.
-describeGlobalTableSettingsResponse_replicaSettings :: Lens.Lens' DescribeGlobalTableSettingsResponse (Prelude.Maybe [ReplicaSettingsDescription])
-describeGlobalTableSettingsResponse_replicaSettings = Lens.lens (\DescribeGlobalTableSettingsResponse' {replicaSettings} -> replicaSettings) (\s@DescribeGlobalTableSettingsResponse' {} a -> s {replicaSettings = a} :: DescribeGlobalTableSettingsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the global table.
 describeGlobalTableSettingsResponse_globalTableName :: Lens.Lens' DescribeGlobalTableSettingsResponse (Prelude.Maybe Prelude.Text)
 describeGlobalTableSettingsResponse_globalTableName = Lens.lens (\DescribeGlobalTableSettingsResponse' {globalTableName} -> globalTableName) (\s@DescribeGlobalTableSettingsResponse' {} a -> s {globalTableName = a} :: DescribeGlobalTableSettingsResponse)
+
+-- | The Region-specific settings for the global table.
+describeGlobalTableSettingsResponse_replicaSettings :: Lens.Lens' DescribeGlobalTableSettingsResponse (Prelude.Maybe [ReplicaSettingsDescription])
+describeGlobalTableSettingsResponse_replicaSettings = Lens.lens (\DescribeGlobalTableSettingsResponse' {replicaSettings} -> replicaSettings) (\s@DescribeGlobalTableSettingsResponse' {} a -> s {replicaSettings = a} :: DescribeGlobalTableSettingsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeGlobalTableSettingsResponse_httpStatus :: Lens.Lens' DescribeGlobalTableSettingsResponse Prelude.Int
@@ -188,6 +188,6 @@ instance
     DescribeGlobalTableSettingsResponse
   where
   rnf DescribeGlobalTableSettingsResponse' {..} =
-    Prelude.rnf replicaSettings
-      `Prelude.seq` Prelude.rnf globalTableName
+    Prelude.rnf globalTableName
+      `Prelude.seq` Prelude.rnf replicaSettings
       `Prelude.seq` Prelude.rnf httpStatus

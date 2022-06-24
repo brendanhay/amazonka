@@ -31,20 +31,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSSEDescription' smart constructor.
 data SSEDescription = SSEDescription'
-  { -- | Represents the current state of server-side encryption. The only
-    -- supported values are:
-    --
-    -- -   @ENABLED@ - Server-side encryption is enabled.
-    --
-    -- -   @UPDATING@ - Server-side encryption is being updated.
-    status :: Prelude.Maybe SSEStatus,
-    -- | Indicates the time, in UNIX epoch date format, when DynamoDB detected
+  { -- | Indicates the time, in UNIX epoch date format, when DynamoDB detected
     -- that the table\'s AWS KMS key was inaccessible. This attribute will
     -- automatically be cleared when DynamoDB detects that the table\'s AWS KMS
     -- key is accessible again. DynamoDB will initiate the table archival
     -- process when table\'s AWS KMS key remains inaccessible for more than
     -- seven days from this date.
     inaccessibleEncryptionDateTime :: Prelude.Maybe Core.POSIX,
+    -- | Represents the current state of server-side encryption. The only
+    -- supported values are:
+    --
+    -- -   @ENABLED@ - Server-side encryption is enabled.
+    --
+    -- -   @UPDATING@ - Server-side encryption is being updated.
+    status :: Prelude.Maybe SSEStatus,
     -- | Server-side encryption type. The only supported value is:
     --
     -- -   @KMS@ - Server-side encryption that uses AWS Key Management Service.
@@ -65,19 +65,19 @@ data SSEDescription = SSEDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'sSEDescription_status' - Represents the current state of server-side encryption. The only
--- supported values are:
---
--- -   @ENABLED@ - Server-side encryption is enabled.
---
--- -   @UPDATING@ - Server-side encryption is being updated.
---
 -- 'inaccessibleEncryptionDateTime', 'sSEDescription_inaccessibleEncryptionDateTime' - Indicates the time, in UNIX epoch date format, when DynamoDB detected
 -- that the table\'s AWS KMS key was inaccessible. This attribute will
 -- automatically be cleared when DynamoDB detects that the table\'s AWS KMS
 -- key is accessible again. DynamoDB will initiate the table archival
 -- process when table\'s AWS KMS key remains inaccessible for more than
 -- seven days from this date.
+--
+-- 'status', 'sSEDescription_status' - Represents the current state of server-side encryption. The only
+-- supported values are:
+--
+-- -   @ENABLED@ - Server-side encryption is enabled.
+--
+-- -   @UPDATING@ - Server-side encryption is being updated.
 --
 -- 'sSEType', 'sSEDescription_sSEType' - Server-side encryption type. The only supported value is:
 --
@@ -91,20 +91,12 @@ newSSEDescription ::
   SSEDescription
 newSSEDescription =
   SSEDescription'
-    { status = Prelude.Nothing,
-      inaccessibleEncryptionDateTime = Prelude.Nothing,
+    { inaccessibleEncryptionDateTime =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
       sSEType = Prelude.Nothing,
       kmsMasterKeyArn = Prelude.Nothing
     }
-
--- | Represents the current state of server-side encryption. The only
--- supported values are:
---
--- -   @ENABLED@ - Server-side encryption is enabled.
---
--- -   @UPDATING@ - Server-side encryption is being updated.
-sSEDescription_status :: Lens.Lens' SSEDescription (Prelude.Maybe SSEStatus)
-sSEDescription_status = Lens.lens (\SSEDescription' {status} -> status) (\s@SSEDescription' {} a -> s {status = a} :: SSEDescription)
 
 -- | Indicates the time, in UNIX epoch date format, when DynamoDB detected
 -- that the table\'s AWS KMS key was inaccessible. This attribute will
@@ -114,6 +106,15 @@ sSEDescription_status = Lens.lens (\SSEDescription' {status} -> status) (\s@SSED
 -- seven days from this date.
 sSEDescription_inaccessibleEncryptionDateTime :: Lens.Lens' SSEDescription (Prelude.Maybe Prelude.UTCTime)
 sSEDescription_inaccessibleEncryptionDateTime = Lens.lens (\SSEDescription' {inaccessibleEncryptionDateTime} -> inaccessibleEncryptionDateTime) (\s@SSEDescription' {} a -> s {inaccessibleEncryptionDateTime = a} :: SSEDescription) Prelude.. Lens.mapping Core._Time
+
+-- | Represents the current state of server-side encryption. The only
+-- supported values are:
+--
+-- -   @ENABLED@ - Server-side encryption is enabled.
+--
+-- -   @UPDATING@ - Server-side encryption is being updated.
+sSEDescription_status :: Lens.Lens' SSEDescription (Prelude.Maybe SSEStatus)
+sSEDescription_status = Lens.lens (\SSEDescription' {status} -> status) (\s@SSEDescription' {} a -> s {status = a} :: SSEDescription)
 
 -- | Server-side encryption type. The only supported value is:
 --
@@ -134,22 +135,23 @@ instance Core.FromJSON SSEDescription where
       "SSEDescription"
       ( \x ->
           SSEDescription'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "InaccessibleEncryptionDateTime")
+            Prelude.<$> (x Core..:? "InaccessibleEncryptionDateTime")
+            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "SSEType")
             Prelude.<*> (x Core..:? "KMSMasterKeyArn")
       )
 
 instance Prelude.Hashable SSEDescription where
   hashWithSalt _salt SSEDescription' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt
       `Prelude.hashWithSalt` inaccessibleEncryptionDateTime
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` sSEType
       `Prelude.hashWithSalt` kmsMasterKeyArn
 
 instance Prelude.NFData SSEDescription where
   rnf SSEDescription' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf inaccessibleEncryptionDateTime
+    Prelude.rnf inaccessibleEncryptionDateTime
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf sSEType
       `Prelude.seq` Prelude.rnf kmsMasterKeyArn

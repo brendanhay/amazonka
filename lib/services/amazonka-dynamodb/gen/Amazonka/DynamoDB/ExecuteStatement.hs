@@ -28,8 +28,8 @@ module Amazonka.DynamoDB.ExecuteStatement
     newExecuteStatement,
 
     -- * Request Lenses
-    executeStatement_consistentRead,
     executeStatement_nextToken,
+    executeStatement_consistentRead,
     executeStatement_parameters,
     executeStatement_statement,
 
@@ -53,13 +53,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newExecuteStatement' smart constructor.
 data ExecuteStatement = ExecuteStatement'
-  { -- | The consistency of a read operation. If set to @true@, then a strongly
+  { -- | Set this value to get remaining results, if @NextToken@ was returned in
+    -- the statement response.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The consistency of a read operation. If set to @true@, then a strongly
     -- consistent read is used; otherwise, an eventually consistent read is
     -- used.
     consistentRead :: Prelude.Maybe Prelude.Bool,
-    -- | Set this value to get remaining results, if @NextToken@ was returned in
-    -- the statement response.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The parameters for the PartiQL statement, if any.
     parameters :: Prelude.Maybe (Prelude.NonEmpty AttributeValue),
     -- | The PartiQL statement representing the operation to run.
@@ -75,12 +75,12 @@ data ExecuteStatement = ExecuteStatement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'executeStatement_nextToken' - Set this value to get remaining results, if @NextToken@ was returned in
+-- the statement response.
+--
 -- 'consistentRead', 'executeStatement_consistentRead' - The consistency of a read operation. If set to @true@, then a strongly
 -- consistent read is used; otherwise, an eventually consistent read is
 -- used.
---
--- 'nextToken', 'executeStatement_nextToken' - Set this value to get remaining results, if @NextToken@ was returned in
--- the statement response.
 --
 -- 'parameters', 'executeStatement_parameters' - The parameters for the PartiQL statement, if any.
 --
@@ -91,22 +91,22 @@ newExecuteStatement ::
   ExecuteStatement
 newExecuteStatement pStatement_ =
   ExecuteStatement'
-    { consistentRead = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      consistentRead = Prelude.Nothing,
       parameters = Prelude.Nothing,
       statement = pStatement_
     }
+
+-- | Set this value to get remaining results, if @NextToken@ was returned in
+-- the statement response.
+executeStatement_nextToken :: Lens.Lens' ExecuteStatement (Prelude.Maybe Prelude.Text)
+executeStatement_nextToken = Lens.lens (\ExecuteStatement' {nextToken} -> nextToken) (\s@ExecuteStatement' {} a -> s {nextToken = a} :: ExecuteStatement)
 
 -- | The consistency of a read operation. If set to @true@, then a strongly
 -- consistent read is used; otherwise, an eventually consistent read is
 -- used.
 executeStatement_consistentRead :: Lens.Lens' ExecuteStatement (Prelude.Maybe Prelude.Bool)
 executeStatement_consistentRead = Lens.lens (\ExecuteStatement' {consistentRead} -> consistentRead) (\s@ExecuteStatement' {} a -> s {consistentRead = a} :: ExecuteStatement)
-
--- | Set this value to get remaining results, if @NextToken@ was returned in
--- the statement response.
-executeStatement_nextToken :: Lens.Lens' ExecuteStatement (Prelude.Maybe Prelude.Text)
-executeStatement_nextToken = Lens.lens (\ExecuteStatement' {nextToken} -> nextToken) (\s@ExecuteStatement' {} a -> s {nextToken = a} :: ExecuteStatement)
 
 -- | The parameters for the PartiQL statement, if any.
 executeStatement_parameters :: Lens.Lens' ExecuteStatement (Prelude.Maybe (Prelude.NonEmpty AttributeValue))
@@ -132,15 +132,15 @@ instance Core.AWSRequest ExecuteStatement where
 
 instance Prelude.Hashable ExecuteStatement where
   hashWithSalt _salt ExecuteStatement' {..} =
-    _salt `Prelude.hashWithSalt` consistentRead
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` consistentRead
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` statement
 
 instance Prelude.NFData ExecuteStatement where
   rnf ExecuteStatement' {..} =
-    Prelude.rnf consistentRead
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf consistentRead
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf statement
 
@@ -163,9 +163,9 @@ instance Core.ToJSON ExecuteStatement where
   toJSON ExecuteStatement' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ConsistentRead" Core..=)
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("ConsistentRead" Core..=)
               Prelude.<$> consistentRead,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("Parameters" Core..=) Prelude.<$> parameters,
             Prelude.Just ("Statement" Core..= statement)
           ]

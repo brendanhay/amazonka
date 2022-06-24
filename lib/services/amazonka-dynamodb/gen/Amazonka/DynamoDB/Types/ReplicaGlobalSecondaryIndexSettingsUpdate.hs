@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReplicaGlobalSecondaryIndexSettingsUpdate' smart constructor.
 data ReplicaGlobalSecondaryIndexSettingsUpdate = ReplicaGlobalSecondaryIndexSettingsUpdate'
-  { -- | Auto scaling settings for managing a global secondary index replica\'s
-    -- read capacity units.
-    provisionedReadCapacityAutoScalingSettingsUpdate :: Prelude.Maybe AutoScalingSettingsUpdate,
-    -- | The maximum number of strongly consistent reads consumed per second
+  { -- | The maximum number of strongly consistent reads consumed per second
     -- before DynamoDB returns a @ThrottlingException@.
     provisionedReadCapacityUnits :: Prelude.Maybe Prelude.Natural,
+    -- | Auto scaling settings for managing a global secondary index replica\'s
+    -- read capacity units.
+    provisionedReadCapacityAutoScalingSettingsUpdate :: Prelude.Maybe AutoScalingSettingsUpdate,
     -- | The name of the global secondary index. The name must be unique among
     -- all other indexes on this table.
     indexName :: Prelude.Text
@@ -50,11 +50,11 @@ data ReplicaGlobalSecondaryIndexSettingsUpdate = ReplicaGlobalSecondaryIndexSett
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'provisionedReadCapacityAutoScalingSettingsUpdate', 'replicaGlobalSecondaryIndexSettingsUpdate_provisionedReadCapacityAutoScalingSettingsUpdate' - Auto scaling settings for managing a global secondary index replica\'s
--- read capacity units.
---
 -- 'provisionedReadCapacityUnits', 'replicaGlobalSecondaryIndexSettingsUpdate_provisionedReadCapacityUnits' - The maximum number of strongly consistent reads consumed per second
 -- before DynamoDB returns a @ThrottlingException@.
+--
+-- 'provisionedReadCapacityAutoScalingSettingsUpdate', 'replicaGlobalSecondaryIndexSettingsUpdate_provisionedReadCapacityAutoScalingSettingsUpdate' - Auto scaling settings for managing a global secondary index replica\'s
+-- read capacity units.
 --
 -- 'indexName', 'replicaGlobalSecondaryIndexSettingsUpdate_indexName' - The name of the global secondary index. The name must be unique among
 -- all other indexes on this table.
@@ -65,22 +65,22 @@ newReplicaGlobalSecondaryIndexSettingsUpdate ::
 newReplicaGlobalSecondaryIndexSettingsUpdate
   pIndexName_ =
     ReplicaGlobalSecondaryIndexSettingsUpdate'
-      { provisionedReadCapacityAutoScalingSettingsUpdate =
+      { provisionedReadCapacityUnits =
           Prelude.Nothing,
-        provisionedReadCapacityUnits =
+        provisionedReadCapacityAutoScalingSettingsUpdate =
           Prelude.Nothing,
         indexName = pIndexName_
       }
-
--- | Auto scaling settings for managing a global secondary index replica\'s
--- read capacity units.
-replicaGlobalSecondaryIndexSettingsUpdate_provisionedReadCapacityAutoScalingSettingsUpdate :: Lens.Lens' ReplicaGlobalSecondaryIndexSettingsUpdate (Prelude.Maybe AutoScalingSettingsUpdate)
-replicaGlobalSecondaryIndexSettingsUpdate_provisionedReadCapacityAutoScalingSettingsUpdate = Lens.lens (\ReplicaGlobalSecondaryIndexSettingsUpdate' {provisionedReadCapacityAutoScalingSettingsUpdate} -> provisionedReadCapacityAutoScalingSettingsUpdate) (\s@ReplicaGlobalSecondaryIndexSettingsUpdate' {} a -> s {provisionedReadCapacityAutoScalingSettingsUpdate = a} :: ReplicaGlobalSecondaryIndexSettingsUpdate)
 
 -- | The maximum number of strongly consistent reads consumed per second
 -- before DynamoDB returns a @ThrottlingException@.
 replicaGlobalSecondaryIndexSettingsUpdate_provisionedReadCapacityUnits :: Lens.Lens' ReplicaGlobalSecondaryIndexSettingsUpdate (Prelude.Maybe Prelude.Natural)
 replicaGlobalSecondaryIndexSettingsUpdate_provisionedReadCapacityUnits = Lens.lens (\ReplicaGlobalSecondaryIndexSettingsUpdate' {provisionedReadCapacityUnits} -> provisionedReadCapacityUnits) (\s@ReplicaGlobalSecondaryIndexSettingsUpdate' {} a -> s {provisionedReadCapacityUnits = a} :: ReplicaGlobalSecondaryIndexSettingsUpdate)
+
+-- | Auto scaling settings for managing a global secondary index replica\'s
+-- read capacity units.
+replicaGlobalSecondaryIndexSettingsUpdate_provisionedReadCapacityAutoScalingSettingsUpdate :: Lens.Lens' ReplicaGlobalSecondaryIndexSettingsUpdate (Prelude.Maybe AutoScalingSettingsUpdate)
+replicaGlobalSecondaryIndexSettingsUpdate_provisionedReadCapacityAutoScalingSettingsUpdate = Lens.lens (\ReplicaGlobalSecondaryIndexSettingsUpdate' {provisionedReadCapacityAutoScalingSettingsUpdate} -> provisionedReadCapacityAutoScalingSettingsUpdate) (\s@ReplicaGlobalSecondaryIndexSettingsUpdate' {} a -> s {provisionedReadCapacityAutoScalingSettingsUpdate = a} :: ReplicaGlobalSecondaryIndexSettingsUpdate)
 
 -- | The name of the global secondary index. The name must be unique among
 -- all other indexes on this table.
@@ -95,8 +95,8 @@ instance
     _salt
     ReplicaGlobalSecondaryIndexSettingsUpdate' {..} =
       _salt
-        `Prelude.hashWithSalt` provisionedReadCapacityAutoScalingSettingsUpdate
         `Prelude.hashWithSalt` provisionedReadCapacityUnits
+        `Prelude.hashWithSalt` provisionedReadCapacityAutoScalingSettingsUpdate
         `Prelude.hashWithSalt` indexName
 
 instance
@@ -104,9 +104,9 @@ instance
     ReplicaGlobalSecondaryIndexSettingsUpdate
   where
   rnf ReplicaGlobalSecondaryIndexSettingsUpdate' {..} =
-    Prelude.rnf
-      provisionedReadCapacityAutoScalingSettingsUpdate
-      `Prelude.seq` Prelude.rnf provisionedReadCapacityUnits
+    Prelude.rnf provisionedReadCapacityUnits
+      `Prelude.seq` Prelude.rnf
+        provisionedReadCapacityAutoScalingSettingsUpdate
       `Prelude.seq` Prelude.rnf indexName
 
 instance
@@ -116,12 +116,12 @@ instance
   toJSON ReplicaGlobalSecondaryIndexSettingsUpdate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ( "ProvisionedReadCapacityAutoScalingSettingsUpdate"
+          [ ("ProvisionedReadCapacityUnits" Core..=)
+              Prelude.<$> provisionedReadCapacityUnits,
+            ( "ProvisionedReadCapacityAutoScalingSettingsUpdate"
                 Core..=
             )
               Prelude.<$> provisionedReadCapacityAutoScalingSettingsUpdate,
-            ("ProvisionedReadCapacityUnits" Core..=)
-              Prelude.<$> provisionedReadCapacityUnits,
             Prelude.Just ("IndexName" Core..= indexName)
           ]
       )

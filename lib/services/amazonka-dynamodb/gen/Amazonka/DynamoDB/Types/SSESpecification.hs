@@ -29,18 +29,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSSESpecification' smart constructor.
 data SSESpecification = SSESpecification'
-  { -- | Indicates whether server-side encryption is done using an AWS managed
-    -- CMK or an AWS owned CMK. If enabled (true), server-side encryption type
-    -- is set to @KMS@ and an AWS managed CMK is used (AWS KMS charges apply).
-    -- If disabled (false) or not specified, server-side encryption is set to
-    -- AWS owned CMK.
-    enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The AWS KMS customer master key (CMK) that should be used for the AWS
+  { -- | The AWS KMS customer master key (CMK) that should be used for the AWS
     -- KMS encryption. To specify a CMK, use its key ID, Amazon Resource Name
     -- (ARN), alias name, or alias ARN. Note that you should only provide this
     -- parameter if the key is different from the default DynamoDB customer
     -- master key alias\/aws\/dynamodb.
     kmsMasterKeyId :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether server-side encryption is done using an AWS managed
+    -- CMK or an AWS owned CMK. If enabled (true), server-side encryption type
+    -- is set to @KMS@ and an AWS managed CMK is used (AWS KMS charges apply).
+    -- If disabled (false) or not specified, server-side encryption is set to
+    -- AWS owned CMK.
+    enabled :: Prelude.Maybe Prelude.Bool,
     -- | Server-side encryption type. The only supported value is:
     --
     -- -   @KMS@ - Server-side encryption that uses AWS Key Management Service.
@@ -58,17 +58,17 @@ data SSESpecification = SSESpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enabled', 'sSESpecification_enabled' - Indicates whether server-side encryption is done using an AWS managed
--- CMK or an AWS owned CMK. If enabled (true), server-side encryption type
--- is set to @KMS@ and an AWS managed CMK is used (AWS KMS charges apply).
--- If disabled (false) or not specified, server-side encryption is set to
--- AWS owned CMK.
---
 -- 'kmsMasterKeyId', 'sSESpecification_kmsMasterKeyId' - The AWS KMS customer master key (CMK) that should be used for the AWS
 -- KMS encryption. To specify a CMK, use its key ID, Amazon Resource Name
 -- (ARN), alias name, or alias ARN. Note that you should only provide this
 -- parameter if the key is different from the default DynamoDB customer
 -- master key alias\/aws\/dynamodb.
+--
+-- 'enabled', 'sSESpecification_enabled' - Indicates whether server-side encryption is done using an AWS managed
+-- CMK or an AWS owned CMK. If enabled (true), server-side encryption type
+-- is set to @KMS@ and an AWS managed CMK is used (AWS KMS charges apply).
+-- If disabled (false) or not specified, server-side encryption is set to
+-- AWS owned CMK.
 --
 -- 'sSEType', 'sSESpecification_sSEType' - Server-side encryption type. The only supported value is:
 --
@@ -79,18 +79,10 @@ newSSESpecification ::
   SSESpecification
 newSSESpecification =
   SSESpecification'
-    { enabled = Prelude.Nothing,
-      kmsMasterKeyId = Prelude.Nothing,
+    { kmsMasterKeyId = Prelude.Nothing,
+      enabled = Prelude.Nothing,
       sSEType = Prelude.Nothing
     }
-
--- | Indicates whether server-side encryption is done using an AWS managed
--- CMK or an AWS owned CMK. If enabled (true), server-side encryption type
--- is set to @KMS@ and an AWS managed CMK is used (AWS KMS charges apply).
--- If disabled (false) or not specified, server-side encryption is set to
--- AWS owned CMK.
-sSESpecification_enabled :: Lens.Lens' SSESpecification (Prelude.Maybe Prelude.Bool)
-sSESpecification_enabled = Lens.lens (\SSESpecification' {enabled} -> enabled) (\s@SSESpecification' {} a -> s {enabled = a} :: SSESpecification)
 
 -- | The AWS KMS customer master key (CMK) that should be used for the AWS
 -- KMS encryption. To specify a CMK, use its key ID, Amazon Resource Name
@@ -99,6 +91,14 @@ sSESpecification_enabled = Lens.lens (\SSESpecification' {enabled} -> enabled) (
 -- master key alias\/aws\/dynamodb.
 sSESpecification_kmsMasterKeyId :: Lens.Lens' SSESpecification (Prelude.Maybe Prelude.Text)
 sSESpecification_kmsMasterKeyId = Lens.lens (\SSESpecification' {kmsMasterKeyId} -> kmsMasterKeyId) (\s@SSESpecification' {} a -> s {kmsMasterKeyId = a} :: SSESpecification)
+
+-- | Indicates whether server-side encryption is done using an AWS managed
+-- CMK or an AWS owned CMK. If enabled (true), server-side encryption type
+-- is set to @KMS@ and an AWS managed CMK is used (AWS KMS charges apply).
+-- If disabled (false) or not specified, server-side encryption is set to
+-- AWS owned CMK.
+sSESpecification_enabled :: Lens.Lens' SSESpecification (Prelude.Maybe Prelude.Bool)
+sSESpecification_enabled = Lens.lens (\SSESpecification' {enabled} -> enabled) (\s@SSESpecification' {} a -> s {enabled = a} :: SSESpecification)
 
 -- | Server-side encryption type. The only supported value is:
 --
@@ -110,23 +110,23 @@ sSESpecification_sSEType = Lens.lens (\SSESpecification' {sSEType} -> sSEType) (
 
 instance Prelude.Hashable SSESpecification where
   hashWithSalt _salt SSESpecification' {..} =
-    _salt `Prelude.hashWithSalt` enabled
-      `Prelude.hashWithSalt` kmsMasterKeyId
+    _salt `Prelude.hashWithSalt` kmsMasterKeyId
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` sSEType
 
 instance Prelude.NFData SSESpecification where
   rnf SSESpecification' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf kmsMasterKeyId
+    Prelude.rnf kmsMasterKeyId
+      `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf sSEType
 
 instance Core.ToJSON SSESpecification where
   toJSON SSESpecification' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Enabled" Core..=) Prelude.<$> enabled,
-            ("KMSMasterKeyId" Core..=)
+          [ ("KMSMasterKeyId" Core..=)
               Prelude.<$> kmsMasterKeyId,
+            ("Enabled" Core..=) Prelude.<$> enabled,
             ("SSEType" Core..=) Prelude.<$> sSEType
           ]
       )

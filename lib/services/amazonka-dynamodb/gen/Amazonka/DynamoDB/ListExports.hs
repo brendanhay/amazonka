@@ -36,8 +36,8 @@ module Amazonka.DynamoDB.ListExports
     newListExportsResponse,
 
     -- * Response Lenses
-    listExportsResponse_exportSummaries,
     listExportsResponse_nextToken,
+    listExportsResponse_exportSummaries,
     listExportsResponse_httpStatus,
   )
 where
@@ -107,10 +107,10 @@ instance Core.AWSRequest ListExports where
     Response.receiveJSON
       ( \s h x ->
           ListExportsResponse'
-            Prelude.<$> ( x Core..?> "ExportSummaries"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "ExportSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,12 +159,12 @@ instance Core.ToQuery ListExports where
 
 -- | /See:/ 'newListExportsResponse' smart constructor.
 data ListExportsResponse = ListExportsResponse'
-  { -- | A list of @ExportSummary@ objects.
-    exportSummaries :: Prelude.Maybe [ExportSummary],
-    -- | If this value is returned, there are additional results to be displayed.
+  { -- | If this value is returned, there are additional results to be displayed.
     -- To retrieve them, call @ListExports@ again, with @NextToken@ set to this
     -- value.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of @ExportSummary@ objects.
+    exportSummaries :: Prelude.Maybe [ExportSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -178,11 +178,11 @@ data ListExportsResponse = ListExportsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'exportSummaries', 'listExportsResponse_exportSummaries' - A list of @ExportSummary@ objects.
---
 -- 'nextToken', 'listExportsResponse_nextToken' - If this value is returned, there are additional results to be displayed.
 -- To retrieve them, call @ListExports@ again, with @NextToken@ set to this
 -- value.
+--
+-- 'exportSummaries', 'listExportsResponse_exportSummaries' - A list of @ExportSummary@ objects.
 --
 -- 'httpStatus', 'listExportsResponse_httpStatus' - The response's http status code.
 newListExportsResponse ::
@@ -191,15 +191,10 @@ newListExportsResponse ::
   ListExportsResponse
 newListExportsResponse pHttpStatus_ =
   ListExportsResponse'
-    { exportSummaries =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      exportSummaries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of @ExportSummary@ objects.
-listExportsResponse_exportSummaries :: Lens.Lens' ListExportsResponse (Prelude.Maybe [ExportSummary])
-listExportsResponse_exportSummaries = Lens.lens (\ListExportsResponse' {exportSummaries} -> exportSummaries) (\s@ListExportsResponse' {} a -> s {exportSummaries = a} :: ListExportsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If this value is returned, there are additional results to be displayed.
 -- To retrieve them, call @ListExports@ again, with @NextToken@ set to this
@@ -207,12 +202,16 @@ listExportsResponse_exportSummaries = Lens.lens (\ListExportsResponse' {exportSu
 listExportsResponse_nextToken :: Lens.Lens' ListExportsResponse (Prelude.Maybe Prelude.Text)
 listExportsResponse_nextToken = Lens.lens (\ListExportsResponse' {nextToken} -> nextToken) (\s@ListExportsResponse' {} a -> s {nextToken = a} :: ListExportsResponse)
 
+-- | A list of @ExportSummary@ objects.
+listExportsResponse_exportSummaries :: Lens.Lens' ListExportsResponse (Prelude.Maybe [ExportSummary])
+listExportsResponse_exportSummaries = Lens.lens (\ListExportsResponse' {exportSummaries} -> exportSummaries) (\s@ListExportsResponse' {} a -> s {exportSummaries = a} :: ListExportsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listExportsResponse_httpStatus :: Lens.Lens' ListExportsResponse Prelude.Int
 listExportsResponse_httpStatus = Lens.lens (\ListExportsResponse' {httpStatus} -> httpStatus) (\s@ListExportsResponse' {} a -> s {httpStatus = a} :: ListExportsResponse)
 
 instance Prelude.NFData ListExportsResponse where
   rnf ListExportsResponse' {..} =
-    Prelude.rnf exportSummaries
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf exportSummaries
       `Prelude.seq` Prelude.rnf httpStatus

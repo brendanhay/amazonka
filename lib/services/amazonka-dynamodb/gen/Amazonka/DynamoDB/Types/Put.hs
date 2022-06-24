@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPut' smart constructor.
 data Put = Put'
-  { -- | One or more substitution tokens for attribute names in an expression.
-    expressionAttributeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | One or more values that can be substituted in an expression.
+  { -- | One or more values that can be substituted in an expression.
     expressionAttributeValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
+    -- | One or more substitution tokens for attribute names in an expression.
+    expressionAttributeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
     -- the @Put@ condition fails. For @ReturnValuesOnConditionCheckFailure@,
     -- the valid values are: NONE and ALL_OLD.
@@ -60,9 +60,9 @@ data Put = Put'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expressionAttributeNames', 'put_expressionAttributeNames' - One or more substitution tokens for attribute names in an expression.
---
 -- 'expressionAttributeValues', 'put_expressionAttributeValues' - One or more values that can be substituted in an expression.
+--
+-- 'expressionAttributeNames', 'put_expressionAttributeNames' - One or more substitution tokens for attribute names in an expression.
 --
 -- 'returnValuesOnConditionCheckFailure', 'put_returnValuesOnConditionCheckFailure' - Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
 -- the @Put@ condition fails. For @ReturnValuesOnConditionCheckFailure@,
@@ -85,8 +85,8 @@ newPut ::
   Put
 newPut pTableName_ =
   Put'
-    { expressionAttributeNames = Prelude.Nothing,
-      expressionAttributeValues = Prelude.Nothing,
+    { expressionAttributeValues = Prelude.Nothing,
+      expressionAttributeNames = Prelude.Nothing,
       returnValuesOnConditionCheckFailure =
         Prelude.Nothing,
       conditionExpression = Prelude.Nothing,
@@ -94,13 +94,13 @@ newPut pTableName_ =
       tableName = pTableName_
     }
 
--- | One or more substitution tokens for attribute names in an expression.
-put_expressionAttributeNames :: Lens.Lens' Put (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-put_expressionAttributeNames = Lens.lens (\Put' {expressionAttributeNames} -> expressionAttributeNames) (\s@Put' {} a -> s {expressionAttributeNames = a} :: Put) Prelude.. Lens.mapping Lens.coerced
-
 -- | One or more values that can be substituted in an expression.
 put_expressionAttributeValues :: Lens.Lens' Put (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
 put_expressionAttributeValues = Lens.lens (\Put' {expressionAttributeValues} -> expressionAttributeValues) (\s@Put' {} a -> s {expressionAttributeValues = a} :: Put) Prelude.. Lens.mapping Lens.coerced
+
+-- | One or more substitution tokens for attribute names in an expression.
+put_expressionAttributeNames :: Lens.Lens' Put (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+put_expressionAttributeNames = Lens.lens (\Put' {expressionAttributeNames} -> expressionAttributeNames) (\s@Put' {} a -> s {expressionAttributeNames = a} :: Put) Prelude.. Lens.mapping Lens.coerced
 
 -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
 -- the @Put@ condition fails. For @ReturnValuesOnConditionCheckFailure@,
@@ -129,8 +129,8 @@ put_tableName = Lens.lens (\Put' {tableName} -> tableName) (\s@Put' {} a -> s {t
 instance Prelude.Hashable Put where
   hashWithSalt _salt Put' {..} =
     _salt
-      `Prelude.hashWithSalt` expressionAttributeNames
       `Prelude.hashWithSalt` expressionAttributeValues
+      `Prelude.hashWithSalt` expressionAttributeNames
       `Prelude.hashWithSalt` returnValuesOnConditionCheckFailure
       `Prelude.hashWithSalt` conditionExpression
       `Prelude.hashWithSalt` item
@@ -138,8 +138,8 @@ instance Prelude.Hashable Put where
 
 instance Prelude.NFData Put where
   rnf Put' {..} =
-    Prelude.rnf expressionAttributeNames
-      `Prelude.seq` Prelude.rnf expressionAttributeValues
+    Prelude.rnf expressionAttributeValues
+      `Prelude.seq` Prelude.rnf expressionAttributeNames
       `Prelude.seq` Prelude.rnf returnValuesOnConditionCheckFailure
       `Prelude.seq` Prelude.rnf conditionExpression
       `Prelude.seq` Prelude.rnf item
@@ -149,10 +149,10 @@ instance Core.ToJSON Put where
   toJSON Put' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ExpressionAttributeNames" Core..=)
-              Prelude.<$> expressionAttributeNames,
-            ("ExpressionAttributeValues" Core..=)
+          [ ("ExpressionAttributeValues" Core..=)
               Prelude.<$> expressionAttributeValues,
+            ("ExpressionAttributeNames" Core..=)
+              Prelude.<$> expressionAttributeNames,
             ("ReturnValuesOnConditionCheckFailure" Core..=)
               Prelude.<$> returnValuesOnConditionCheckFailure,
             ("ConditionExpression" Core..=)

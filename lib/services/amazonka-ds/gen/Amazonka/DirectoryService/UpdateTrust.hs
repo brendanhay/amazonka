@@ -36,8 +36,8 @@ module Amazonka.DirectoryService.UpdateTrust
     newUpdateTrustResponse,
 
     -- * Response Lenses
-    updateTrustResponse_requestId,
     updateTrustResponse_trustId,
+    updateTrustResponse_requestId,
     updateTrustResponse_httpStatus,
   )
 where
@@ -94,8 +94,8 @@ instance Core.AWSRequest UpdateTrust where
     Response.receiveJSON
       ( \s h x ->
           UpdateTrustResponse'
-            Prelude.<$> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "TrustId")
+            Prelude.<$> (x Core..?> "TrustId")
+            Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,9 +141,9 @@ instance Core.ToQuery UpdateTrust where
 
 -- | /See:/ 'newUpdateTrustResponse' smart constructor.
 data UpdateTrustResponse = UpdateTrustResponse'
-  { requestId :: Prelude.Maybe Prelude.Text,
-    -- | Identifier of the trust relationship.
+  { -- | Identifier of the trust relationship.
     trustId :: Prelude.Maybe Prelude.Text,
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -157,9 +157,9 @@ data UpdateTrustResponse = UpdateTrustResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'updateTrustResponse_requestId' - Undocumented member.
---
 -- 'trustId', 'updateTrustResponse_trustId' - Identifier of the trust relationship.
+--
+-- 'requestId', 'updateTrustResponse_requestId' - Undocumented member.
 --
 -- 'httpStatus', 'updateTrustResponse_httpStatus' - The response's http status code.
 newUpdateTrustResponse ::
@@ -168,18 +168,18 @@ newUpdateTrustResponse ::
   UpdateTrustResponse
 newUpdateTrustResponse pHttpStatus_ =
   UpdateTrustResponse'
-    { requestId = Prelude.Nothing,
-      trustId = Prelude.Nothing,
+    { trustId = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Undocumented member.
-updateTrustResponse_requestId :: Lens.Lens' UpdateTrustResponse (Prelude.Maybe Prelude.Text)
-updateTrustResponse_requestId = Lens.lens (\UpdateTrustResponse' {requestId} -> requestId) (\s@UpdateTrustResponse' {} a -> s {requestId = a} :: UpdateTrustResponse)
 
 -- | Identifier of the trust relationship.
 updateTrustResponse_trustId :: Lens.Lens' UpdateTrustResponse (Prelude.Maybe Prelude.Text)
 updateTrustResponse_trustId = Lens.lens (\UpdateTrustResponse' {trustId} -> trustId) (\s@UpdateTrustResponse' {} a -> s {trustId = a} :: UpdateTrustResponse)
+
+-- | Undocumented member.
+updateTrustResponse_requestId :: Lens.Lens' UpdateTrustResponse (Prelude.Maybe Prelude.Text)
+updateTrustResponse_requestId = Lens.lens (\UpdateTrustResponse' {requestId} -> requestId) (\s@UpdateTrustResponse' {} a -> s {requestId = a} :: UpdateTrustResponse)
 
 -- | The response's http status code.
 updateTrustResponse_httpStatus :: Lens.Lens' UpdateTrustResponse Prelude.Int
@@ -187,6 +187,6 @@ updateTrustResponse_httpStatus = Lens.lens (\UpdateTrustResponse' {httpStatus} -
 
 instance Prelude.NFData UpdateTrustResponse where
   rnf UpdateTrustResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf trustId
+    Prelude.rnf trustId
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf httpStatus

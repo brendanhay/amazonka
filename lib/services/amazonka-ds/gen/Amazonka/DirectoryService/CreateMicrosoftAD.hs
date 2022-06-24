@@ -36,10 +36,10 @@ module Amazonka.DirectoryService.CreateMicrosoftAD
     newCreateMicrosoftAD,
 
     -- * Request Lenses
-    createMicrosoftAD_edition,
-    createMicrosoftAD_shortName,
-    createMicrosoftAD_description,
     createMicrosoftAD_tags,
+    createMicrosoftAD_edition,
+    createMicrosoftAD_description,
+    createMicrosoftAD_shortName,
     createMicrosoftAD_name,
     createMicrosoftAD_password,
     createMicrosoftAD_vpcSettings,
@@ -65,19 +65,19 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateMicrosoftAD' smart constructor.
 data CreateMicrosoftAD = CreateMicrosoftAD'
-  { -- | Managed Microsoft AD is available in two editions: @Standard@ and
+  { -- | The tags to be assigned to the Managed Microsoft AD directory.
+    tags :: Prelude.Maybe [Tag],
+    -- | Managed Microsoft AD is available in two editions: @Standard@ and
     -- @Enterprise@. @Enterprise@ is the default.
     edition :: Prelude.Maybe DirectoryEdition,
-    -- | The NetBIOS name for your domain, such as @CORP@. If you don\'t specify
-    -- a NetBIOS name, it will default to the first part of your directory DNS.
-    -- For example, @CORP@ for the directory DNS @corp.example.com@.
-    shortName :: Prelude.Maybe Prelude.Text,
     -- | A description for the directory. This label will appear on the Amazon
     -- Web Services console @Directory Details@ page after the directory is
     -- created.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The tags to be assigned to the Managed Microsoft AD directory.
-    tags :: Prelude.Maybe [Tag],
+    -- | The NetBIOS name for your domain, such as @CORP@. If you don\'t specify
+    -- a NetBIOS name, it will default to the first part of your directory DNS.
+    -- For example, @CORP@ for the directory DNS @corp.example.com@.
+    shortName :: Prelude.Maybe Prelude.Text,
     -- | The fully qualified domain name for the Managed Microsoft AD directory,
     -- such as @corp.example.com@. This name will resolve inside your VPC only.
     -- It does not need to be publicly resolvable.
@@ -101,18 +101,18 @@ data CreateMicrosoftAD = CreateMicrosoftAD'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createMicrosoftAD_tags' - The tags to be assigned to the Managed Microsoft AD directory.
+--
 -- 'edition', 'createMicrosoftAD_edition' - Managed Microsoft AD is available in two editions: @Standard@ and
 -- @Enterprise@. @Enterprise@ is the default.
---
--- 'shortName', 'createMicrosoftAD_shortName' - The NetBIOS name for your domain, such as @CORP@. If you don\'t specify
--- a NetBIOS name, it will default to the first part of your directory DNS.
--- For example, @CORP@ for the directory DNS @corp.example.com@.
 --
 -- 'description', 'createMicrosoftAD_description' - A description for the directory. This label will appear on the Amazon
 -- Web Services console @Directory Details@ page after the directory is
 -- created.
 --
--- 'tags', 'createMicrosoftAD_tags' - The tags to be assigned to the Managed Microsoft AD directory.
+-- 'shortName', 'createMicrosoftAD_shortName' - The NetBIOS name for your domain, such as @CORP@. If you don\'t specify
+-- a NetBIOS name, it will default to the first part of your directory DNS.
+-- For example, @CORP@ for the directory DNS @corp.example.com@.
 --
 -- 'name', 'createMicrosoftAD_name' - The fully qualified domain name for the Managed Microsoft AD directory,
 -- such as @corp.example.com@. This name will resolve inside your VPC only.
@@ -135,25 +135,23 @@ newCreateMicrosoftAD ::
   CreateMicrosoftAD
 newCreateMicrosoftAD pName_ pPassword_ pVpcSettings_ =
   CreateMicrosoftAD'
-    { edition = Prelude.Nothing,
-      shortName = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      edition = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      shortName = Prelude.Nothing,
       name = pName_,
       password = Core._Sensitive Lens.# pPassword_,
       vpcSettings = pVpcSettings_
     }
 
+-- | The tags to be assigned to the Managed Microsoft AD directory.
+createMicrosoftAD_tags :: Lens.Lens' CreateMicrosoftAD (Prelude.Maybe [Tag])
+createMicrosoftAD_tags = Lens.lens (\CreateMicrosoftAD' {tags} -> tags) (\s@CreateMicrosoftAD' {} a -> s {tags = a} :: CreateMicrosoftAD) Prelude.. Lens.mapping Lens.coerced
+
 -- | Managed Microsoft AD is available in two editions: @Standard@ and
 -- @Enterprise@. @Enterprise@ is the default.
 createMicrosoftAD_edition :: Lens.Lens' CreateMicrosoftAD (Prelude.Maybe DirectoryEdition)
 createMicrosoftAD_edition = Lens.lens (\CreateMicrosoftAD' {edition} -> edition) (\s@CreateMicrosoftAD' {} a -> s {edition = a} :: CreateMicrosoftAD)
-
--- | The NetBIOS name for your domain, such as @CORP@. If you don\'t specify
--- a NetBIOS name, it will default to the first part of your directory DNS.
--- For example, @CORP@ for the directory DNS @corp.example.com@.
-createMicrosoftAD_shortName :: Lens.Lens' CreateMicrosoftAD (Prelude.Maybe Prelude.Text)
-createMicrosoftAD_shortName = Lens.lens (\CreateMicrosoftAD' {shortName} -> shortName) (\s@CreateMicrosoftAD' {} a -> s {shortName = a} :: CreateMicrosoftAD)
 
 -- | A description for the directory. This label will appear on the Amazon
 -- Web Services console @Directory Details@ page after the directory is
@@ -161,9 +159,11 @@ createMicrosoftAD_shortName = Lens.lens (\CreateMicrosoftAD' {shortName} -> shor
 createMicrosoftAD_description :: Lens.Lens' CreateMicrosoftAD (Prelude.Maybe Prelude.Text)
 createMicrosoftAD_description = Lens.lens (\CreateMicrosoftAD' {description} -> description) (\s@CreateMicrosoftAD' {} a -> s {description = a} :: CreateMicrosoftAD)
 
--- | The tags to be assigned to the Managed Microsoft AD directory.
-createMicrosoftAD_tags :: Lens.Lens' CreateMicrosoftAD (Prelude.Maybe [Tag])
-createMicrosoftAD_tags = Lens.lens (\CreateMicrosoftAD' {tags} -> tags) (\s@CreateMicrosoftAD' {} a -> s {tags = a} :: CreateMicrosoftAD) Prelude.. Lens.mapping Lens.coerced
+-- | The NetBIOS name for your domain, such as @CORP@. If you don\'t specify
+-- a NetBIOS name, it will default to the first part of your directory DNS.
+-- For example, @CORP@ for the directory DNS @corp.example.com@.
+createMicrosoftAD_shortName :: Lens.Lens' CreateMicrosoftAD (Prelude.Maybe Prelude.Text)
+createMicrosoftAD_shortName = Lens.lens (\CreateMicrosoftAD' {shortName} -> shortName) (\s@CreateMicrosoftAD' {} a -> s {shortName = a} :: CreateMicrosoftAD)
 
 -- | The fully qualified domain name for the Managed Microsoft AD directory,
 -- such as @corp.example.com@. This name will resolve inside your VPC only.
@@ -198,20 +198,20 @@ instance Core.AWSRequest CreateMicrosoftAD where
 
 instance Prelude.Hashable CreateMicrosoftAD where
   hashWithSalt _salt CreateMicrosoftAD' {..} =
-    _salt `Prelude.hashWithSalt` edition
-      `Prelude.hashWithSalt` shortName
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` edition
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` shortName
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` password
       `Prelude.hashWithSalt` vpcSettings
 
 instance Prelude.NFData CreateMicrosoftAD where
   rnf CreateMicrosoftAD' {..} =
-    Prelude.rnf edition
-      `Prelude.seq` Prelude.rnf shortName
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf edition
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf shortName
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf password
       `Prelude.seq` Prelude.rnf vpcSettings
@@ -235,10 +235,10 @@ instance Core.ToJSON CreateMicrosoftAD where
   toJSON CreateMicrosoftAD' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Edition" Core..=) Prelude.<$> edition,
-            ("ShortName" Core..=) Prelude.<$> shortName,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Edition" Core..=) Prelude.<$> edition,
             ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("ShortName" Core..=) Prelude.<$> shortName,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("Password" Core..= password),
             Prelude.Just ("VpcSettings" Core..= vpcSettings)

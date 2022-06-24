@@ -36,53 +36,35 @@ module Amazonka.DirectoryService
     -- * Errors
     -- $errors
 
-    -- ** CertificateLimitExceededException
-    _CertificateLimitExceededException,
+    -- ** EntityAlreadyExistsException
+    _EntityAlreadyExistsException,
+
+    -- ** ClientException
+    _ClientException,
 
     -- ** CertificateAlreadyExistsException
     _CertificateAlreadyExistsException,
 
-    -- ** AccessDeniedException
-    _AccessDeniedException,
-
-    -- ** DirectoryUnavailableException
-    _DirectoryUnavailableException,
-
-    -- ** AuthenticationFailedException
-    _AuthenticationFailedException,
-
-    -- ** InvalidParameterException
-    _InvalidParameterException,
-
     -- ** UnsupportedOperationException
     _UnsupportedOperationException,
-
-    -- ** EntityAlreadyExistsException
-    _EntityAlreadyExistsException,
-
-    -- ** NoAvailableCertificateException
-    _NoAvailableCertificateException,
-
-    -- ** UserDoesNotExistException
-    _UserDoesNotExistException,
-
-    -- ** DirectoryLimitExceededException
-    _DirectoryLimitExceededException,
 
     -- ** InvalidLDAPSStatusException
     _InvalidLDAPSStatusException,
 
+    -- ** OrganizationsException
+    _OrganizationsException,
+
     -- ** InvalidCertificateException
     _InvalidCertificateException,
 
-    -- ** CertificateInUseException
-    _CertificateInUseException,
-
-    -- ** RegionLimitExceededException
-    _RegionLimitExceededException,
+    -- ** InsufficientPermissionsException
+    _InsufficientPermissionsException,
 
     -- ** IpRouteLimitExceededException
     _IpRouteLimitExceededException,
+
+    -- ** AccessDeniedException
+    _AccessDeniedException,
 
     -- ** ShareLimitExceededException
     _ShareLimitExceededException,
@@ -90,23 +72,41 @@ module Amazonka.DirectoryService
     -- ** EntityDoesNotExistException
     _EntityDoesNotExistException,
 
-    -- ** OrganizationsException
-    _OrganizationsException,
+    -- ** InvalidPasswordException
+    _InvalidPasswordException,
 
-    -- ** InvalidTargetException
-    _InvalidTargetException,
+    -- ** NoAvailableCertificateException
+    _NoAvailableCertificateException,
 
-    -- ** DirectoryAlreadyInRegionException
-    _DirectoryAlreadyInRegionException,
+    -- ** RegionLimitExceededException
+    _RegionLimitExceededException,
 
-    -- ** InsufficientPermissionsException
-    _InsufficientPermissionsException,
-
-    -- ** DirectoryNotSharedException
-    _DirectoryNotSharedException,
+    -- ** DirectoryLimitExceededException
+    _DirectoryLimitExceededException,
 
     -- ** InvalidNextTokenException
     _InvalidNextTokenException,
+
+    -- ** InvalidClientAuthStatusException
+    _InvalidClientAuthStatusException,
+
+    -- ** CertificateLimitExceededException
+    _CertificateLimitExceededException,
+
+    -- ** DomainControllerLimitExceededException
+    _DomainControllerLimitExceededException,
+
+    -- ** TagLimitExceededException
+    _TagLimitExceededException,
+
+    -- ** CertificateDoesNotExistException
+    _CertificateDoesNotExistException,
+
+    -- ** CertificateInUseException
+    _CertificateInUseException,
+
+    -- ** InvalidTargetException
+    _InvalidTargetException,
 
     -- ** ServiceException
     _ServiceException,
@@ -114,29 +114,29 @@ module Amazonka.DirectoryService
     -- ** SnapshotLimitExceededException
     _SnapshotLimitExceededException,
 
-    -- ** DomainControllerLimitExceededException
-    _DomainControllerLimitExceededException,
+    -- ** DirectoryNotSharedException
+    _DirectoryNotSharedException,
 
     -- ** DirectoryDoesNotExistException
     _DirectoryDoesNotExistException,
 
-    -- ** InvalidClientAuthStatusException
-    _InvalidClientAuthStatusException,
-
-    -- ** TagLimitExceededException
-    _TagLimitExceededException,
-
-    -- ** ClientException
-    _ClientException,
-
     -- ** DirectoryAlreadySharedException
     _DirectoryAlreadySharedException,
 
-    -- ** CertificateDoesNotExistException
-    _CertificateDoesNotExistException,
+    -- ** UserDoesNotExistException
+    _UserDoesNotExistException,
 
-    -- ** InvalidPasswordException
-    _InvalidPasswordException,
+    -- ** DirectoryUnavailableException
+    _DirectoryUnavailableException,
+
+    -- ** AuthenticationFailedException
+    _AuthenticationFailedException,
+
+    -- ** DirectoryAlreadyInRegionException
+    _DirectoryAlreadyInRegionException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
 
     -- * Waiters
     -- $waiters
@@ -144,65 +144,11 @@ module Amazonka.DirectoryService
     -- * Operations
     -- $operations
 
-    -- ** ShareDirectory
-    ShareDirectory (ShareDirectory'),
-    newShareDirectory,
-    ShareDirectoryResponse (ShareDirectoryResponse'),
-    newShareDirectoryResponse,
-
-    -- ** UpdateNumberOfDomainControllers
-    UpdateNumberOfDomainControllers (UpdateNumberOfDomainControllers'),
-    newUpdateNumberOfDomainControllers,
-    UpdateNumberOfDomainControllersResponse (UpdateNumberOfDomainControllersResponse'),
-    newUpdateNumberOfDomainControllersResponse,
-
-    -- ** DescribeConditionalForwarders
-    DescribeConditionalForwarders (DescribeConditionalForwarders'),
-    newDescribeConditionalForwarders,
-    DescribeConditionalForwardersResponse (DescribeConditionalForwardersResponse'),
-    newDescribeConditionalForwardersResponse,
-
-    -- ** GetSnapshotLimits
-    GetSnapshotLimits (GetSnapshotLimits'),
-    newGetSnapshotLimits,
-    GetSnapshotLimitsResponse (GetSnapshotLimitsResponse'),
-    newGetSnapshotLimitsResponse,
-
-    -- ** RegisterEventTopic
-    RegisterEventTopic (RegisterEventTopic'),
-    newRegisterEventTopic,
-    RegisterEventTopicResponse (RegisterEventTopicResponse'),
-    newRegisterEventTopicResponse,
-
-    -- ** RegisterCertificate
-    RegisterCertificate (RegisterCertificate'),
-    newRegisterCertificate,
-    RegisterCertificateResponse (RegisterCertificateResponse'),
-    newRegisterCertificateResponse,
-
-    -- ** ConnectDirectory
-    ConnectDirectory (ConnectDirectory'),
-    newConnectDirectory,
-    ConnectDirectoryResponse (ConnectDirectoryResponse'),
-    newConnectDirectoryResponse,
-
-    -- ** DescribeLDAPSSettings
-    DescribeLDAPSSettings (DescribeLDAPSSettings'),
-    newDescribeLDAPSSettings,
-    DescribeLDAPSSettingsResponse (DescribeLDAPSSettingsResponse'),
-    newDescribeLDAPSSettingsResponse,
-
-    -- ** CreateAlias
-    CreateAlias (CreateAlias'),
-    newCreateAlias,
-    CreateAliasResponse (CreateAliasResponse'),
-    newCreateAliasResponse,
-
-    -- ** DescribeDirectories (Paginated)
-    DescribeDirectories (DescribeDirectories'),
-    newDescribeDirectories,
-    DescribeDirectoriesResponse (DescribeDirectoriesResponse'),
-    newDescribeDirectoriesResponse,
+    -- ** AcceptSharedDirectory
+    AcceptSharedDirectory (AcceptSharedDirectory'),
+    newAcceptSharedDirectory,
+    AcceptSharedDirectoryResponse (AcceptSharedDirectoryResponse'),
+    newAcceptSharedDirectoryResponse,
 
     -- ** AddIpRoutes
     AddIpRoutes (AddIpRoutes'),
@@ -210,137 +156,11 @@ module Amazonka.DirectoryService
     AddIpRoutesResponse (AddIpRoutesResponse'),
     newAddIpRoutesResponse,
 
-    -- ** ListTagsForResource (Paginated)
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** DescribeTrusts (Paginated)
-    DescribeTrusts (DescribeTrusts'),
-    newDescribeTrusts,
-    DescribeTrustsResponse (DescribeTrustsResponse'),
-    newDescribeTrustsResponse,
-
-    -- ** DeleteTrust
-    DeleteTrust (DeleteTrust'),
-    newDeleteTrust,
-    DeleteTrustResponse (DeleteTrustResponse'),
-    newDeleteTrustResponse,
-
-    -- ** UpdateTrust
-    UpdateTrust (UpdateTrust'),
-    newUpdateTrust,
-    UpdateTrustResponse (UpdateTrustResponse'),
-    newUpdateTrustResponse,
-
-    -- ** CreateMicrosoftAD
-    CreateMicrosoftAD (CreateMicrosoftAD'),
-    newCreateMicrosoftAD,
-    CreateMicrosoftADResponse (CreateMicrosoftADResponse'),
-    newCreateMicrosoftADResponse,
-
-    -- ** DisableClientAuthentication
-    DisableClientAuthentication (DisableClientAuthentication'),
-    newDisableClientAuthentication,
-    DisableClientAuthenticationResponse (DisableClientAuthenticationResponse'),
-    newDisableClientAuthenticationResponse,
-
-    -- ** DeregisterEventTopic
-    DeregisterEventTopic (DeregisterEventTopic'),
-    newDeregisterEventTopic,
-    DeregisterEventTopicResponse (DeregisterEventTopicResponse'),
-    newDeregisterEventTopicResponse,
-
-    -- ** CreateDirectory
-    CreateDirectory (CreateDirectory'),
-    newCreateDirectory,
-    CreateDirectoryResponse (CreateDirectoryResponse'),
-    newCreateDirectoryResponse,
-
-    -- ** AcceptSharedDirectory
-    AcceptSharedDirectory (AcceptSharedDirectory'),
-    newAcceptSharedDirectory,
-    AcceptSharedDirectoryResponse (AcceptSharedDirectoryResponse'),
-    newAcceptSharedDirectoryResponse,
-
-    -- ** CreateLogSubscription
-    CreateLogSubscription (CreateLogSubscription'),
-    newCreateLogSubscription,
-    CreateLogSubscriptionResponse (CreateLogSubscriptionResponse'),
-    newCreateLogSubscriptionResponse,
-
-    -- ** RemoveTagsFromResource
-    RemoveTagsFromResource (RemoveTagsFromResource'),
-    newRemoveTagsFromResource,
-    RemoveTagsFromResourceResponse (RemoveTagsFromResourceResponse'),
-    newRemoveTagsFromResourceResponse,
-
-    -- ** DescribeEventTopics
-    DescribeEventTopics (DescribeEventTopics'),
-    newDescribeEventTopics,
-    DescribeEventTopicsResponse (DescribeEventTopicsResponse'),
-    newDescribeEventTopicsResponse,
-
-    -- ** ResetUserPassword
-    ResetUserPassword (ResetUserPassword'),
-    newResetUserPassword,
-    ResetUserPasswordResponse (ResetUserPasswordResponse'),
-    newResetUserPasswordResponse,
-
-    -- ** UpdateConditionalForwarder
-    UpdateConditionalForwarder (UpdateConditionalForwarder'),
-    newUpdateConditionalForwarder,
-    UpdateConditionalForwarderResponse (UpdateConditionalForwarderResponse'),
-    newUpdateConditionalForwarderResponse,
-
-    -- ** DeleteConditionalForwarder
-    DeleteConditionalForwarder (DeleteConditionalForwarder'),
-    newDeleteConditionalForwarder,
-    DeleteConditionalForwarderResponse (DeleteConditionalForwarderResponse'),
-    newDeleteConditionalForwarderResponse,
-
-    -- ** DisableLDAPS
-    DisableLDAPS (DisableLDAPS'),
-    newDisableLDAPS,
-    DisableLDAPSResponse (DisableLDAPSResponse'),
-    newDisableLDAPSResponse,
-
-    -- ** DeleteLogSubscription
-    DeleteLogSubscription (DeleteLogSubscription'),
-    newDeleteLogSubscription,
-    DeleteLogSubscriptionResponse (DeleteLogSubscriptionResponse'),
-    newDeleteLogSubscriptionResponse,
-
-    -- ** EnableSso
-    EnableSso (EnableSso'),
-    newEnableSso,
-    EnableSsoResponse (EnableSsoResponse'),
-    newEnableSsoResponse,
-
-    -- ** CancelSchemaExtension
-    CancelSchemaExtension (CancelSchemaExtension'),
-    newCancelSchemaExtension,
-    CancelSchemaExtensionResponse (CancelSchemaExtensionResponse'),
-    newCancelSchemaExtensionResponse,
-
-    -- ** ListLogSubscriptions (Paginated)
-    ListLogSubscriptions (ListLogSubscriptions'),
-    newListLogSubscriptions,
-    ListLogSubscriptionsResponse (ListLogSubscriptionsResponse'),
-    newListLogSubscriptionsResponse,
-
-    -- ** EnableRadius
-    EnableRadius (EnableRadius'),
-    newEnableRadius,
-    EnableRadiusResponse (EnableRadiusResponse'),
-    newEnableRadiusResponse,
-
-    -- ** ListIpRoutes (Paginated)
-    ListIpRoutes (ListIpRoutes'),
-    newListIpRoutes,
-    ListIpRoutesResponse (ListIpRoutesResponse'),
-    newListIpRoutesResponse,
+    -- ** AddRegion
+    AddRegion (AddRegion'),
+    newAddRegion,
+    AddRegionResponse (AddRegionResponse'),
+    newAddRegionResponse,
 
     -- ** AddTagsToResource
     AddTagsToResource (AddTagsToResource'),
@@ -348,113 +168,23 @@ module Amazonka.DirectoryService
     AddTagsToResourceResponse (AddTagsToResourceResponse'),
     newAddTagsToResourceResponse,
 
-    -- ** DescribeClientAuthenticationSettings
-    DescribeClientAuthenticationSettings (DescribeClientAuthenticationSettings'),
-    newDescribeClientAuthenticationSettings,
-    DescribeClientAuthenticationSettingsResponse (DescribeClientAuthenticationSettingsResponse'),
-    newDescribeClientAuthenticationSettingsResponse,
+    -- ** CancelSchemaExtension
+    CancelSchemaExtension (CancelSchemaExtension'),
+    newCancelSchemaExtension,
+    CancelSchemaExtensionResponse (CancelSchemaExtensionResponse'),
+    newCancelSchemaExtensionResponse,
 
-    -- ** ListSchemaExtensions (Paginated)
-    ListSchemaExtensions (ListSchemaExtensions'),
-    newListSchemaExtensions,
-    ListSchemaExtensionsResponse (ListSchemaExtensionsResponse'),
-    newListSchemaExtensionsResponse,
+    -- ** ConnectDirectory
+    ConnectDirectory (ConnectDirectory'),
+    newConnectDirectory,
+    ConnectDirectoryResponse (ConnectDirectoryResponse'),
+    newConnectDirectoryResponse,
 
-    -- ** DisableRadius
-    DisableRadius (DisableRadius'),
-    newDisableRadius,
-    DisableRadiusResponse (DisableRadiusResponse'),
-    newDisableRadiusResponse,
-
-    -- ** ListCertificates
-    ListCertificates (ListCertificates'),
-    newListCertificates,
-    ListCertificatesResponse (ListCertificatesResponse'),
-    newListCertificatesResponse,
-
-    -- ** RejectSharedDirectory
-    RejectSharedDirectory (RejectSharedDirectory'),
-    newRejectSharedDirectory,
-    RejectSharedDirectoryResponse (RejectSharedDirectoryResponse'),
-    newRejectSharedDirectoryResponse,
-
-    -- ** UnshareDirectory
-    UnshareDirectory (UnshareDirectory'),
-    newUnshareDirectory,
-    UnshareDirectoryResponse (UnshareDirectoryResponse'),
-    newUnshareDirectoryResponse,
-
-    -- ** RestoreFromSnapshot
-    RestoreFromSnapshot (RestoreFromSnapshot'),
-    newRestoreFromSnapshot,
-    RestoreFromSnapshotResponse (RestoreFromSnapshotResponse'),
-    newRestoreFromSnapshotResponse,
-
-    -- ** DescribeDomainControllers (Paginated)
-    DescribeDomainControllers (DescribeDomainControllers'),
-    newDescribeDomainControllers,
-    DescribeDomainControllersResponse (DescribeDomainControllersResponse'),
-    newDescribeDomainControllersResponse,
-
-    -- ** DescribeSnapshots (Paginated)
-    DescribeSnapshots (DescribeSnapshots'),
-    newDescribeSnapshots,
-    DescribeSnapshotsResponse (DescribeSnapshotsResponse'),
-    newDescribeSnapshotsResponse,
-
-    -- ** RemoveIpRoutes
-    RemoveIpRoutes (RemoveIpRoutes'),
-    newRemoveIpRoutes,
-    RemoveIpRoutesResponse (RemoveIpRoutesResponse'),
-    newRemoveIpRoutesResponse,
-
-    -- ** DeleteSnapshot
-    DeleteSnapshot (DeleteSnapshot'),
-    newDeleteSnapshot,
-    DeleteSnapshotResponse (DeleteSnapshotResponse'),
-    newDeleteSnapshotResponse,
-
-    -- ** DeregisterCertificate
-    DeregisterCertificate (DeregisterCertificate'),
-    newDeregisterCertificate,
-    DeregisterCertificateResponse (DeregisterCertificateResponse'),
-    newDeregisterCertificateResponse,
-
-    -- ** StartSchemaExtension
-    StartSchemaExtension (StartSchemaExtension'),
-    newStartSchemaExtension,
-    StartSchemaExtensionResponse (StartSchemaExtensionResponse'),
-    newStartSchemaExtensionResponse,
-
-    -- ** CreateTrust
-    CreateTrust (CreateTrust'),
-    newCreateTrust,
-    CreateTrustResponse (CreateTrustResponse'),
-    newCreateTrustResponse,
-
-    -- ** DeleteDirectory
-    DeleteDirectory (DeleteDirectory'),
-    newDeleteDirectory,
-    DeleteDirectoryResponse (DeleteDirectoryResponse'),
-    newDeleteDirectoryResponse,
-
-    -- ** CreateSnapshot
-    CreateSnapshot (CreateSnapshot'),
-    newCreateSnapshot,
-    CreateSnapshotResponse (CreateSnapshotResponse'),
-    newCreateSnapshotResponse,
-
-    -- ** DescribeCertificate
-    DescribeCertificate (DescribeCertificate'),
-    newDescribeCertificate,
-    DescribeCertificateResponse (DescribeCertificateResponse'),
-    newDescribeCertificateResponse,
-
-    -- ** EnableClientAuthentication
-    EnableClientAuthentication (EnableClientAuthentication'),
-    newEnableClientAuthentication,
-    EnableClientAuthenticationResponse (EnableClientAuthenticationResponse'),
-    newEnableClientAuthenticationResponse,
+    -- ** CreateAlias
+    CreateAlias (CreateAlias'),
+    newCreateAlias,
+    CreateAliasResponse (CreateAliasResponse'),
+    newCreateAliasResponse,
 
     -- ** CreateComputer
     CreateComputer (CreateComputer'),
@@ -462,41 +192,125 @@ module Amazonka.DirectoryService
     CreateComputerResponse (CreateComputerResponse'),
     newCreateComputerResponse,
 
-    -- ** DescribeSharedDirectories (Paginated)
-    DescribeSharedDirectories (DescribeSharedDirectories'),
-    newDescribeSharedDirectories,
-    DescribeSharedDirectoriesResponse (DescribeSharedDirectoriesResponse'),
-    newDescribeSharedDirectoriesResponse,
-
-    -- ** EnableLDAPS
-    EnableLDAPS (EnableLDAPS'),
-    newEnableLDAPS,
-    EnableLDAPSResponse (EnableLDAPSResponse'),
-    newEnableLDAPSResponse,
-
-    -- ** DisableSso
-    DisableSso (DisableSso'),
-    newDisableSso,
-    DisableSsoResponse (DisableSsoResponse'),
-    newDisableSsoResponse,
-
-    -- ** VerifyTrust
-    VerifyTrust (VerifyTrust'),
-    newVerifyTrust,
-    VerifyTrustResponse (VerifyTrustResponse'),
-    newVerifyTrustResponse,
-
-    -- ** RemoveRegion
-    RemoveRegion (RemoveRegion'),
-    newRemoveRegion,
-    RemoveRegionResponse (RemoveRegionResponse'),
-    newRemoveRegionResponse,
-
     -- ** CreateConditionalForwarder
     CreateConditionalForwarder (CreateConditionalForwarder'),
     newCreateConditionalForwarder,
     CreateConditionalForwarderResponse (CreateConditionalForwarderResponse'),
     newCreateConditionalForwarderResponse,
+
+    -- ** CreateDirectory
+    CreateDirectory (CreateDirectory'),
+    newCreateDirectory,
+    CreateDirectoryResponse (CreateDirectoryResponse'),
+    newCreateDirectoryResponse,
+
+    -- ** CreateLogSubscription
+    CreateLogSubscription (CreateLogSubscription'),
+    newCreateLogSubscription,
+    CreateLogSubscriptionResponse (CreateLogSubscriptionResponse'),
+    newCreateLogSubscriptionResponse,
+
+    -- ** CreateMicrosoftAD
+    CreateMicrosoftAD (CreateMicrosoftAD'),
+    newCreateMicrosoftAD,
+    CreateMicrosoftADResponse (CreateMicrosoftADResponse'),
+    newCreateMicrosoftADResponse,
+
+    -- ** CreateSnapshot
+    CreateSnapshot (CreateSnapshot'),
+    newCreateSnapshot,
+    CreateSnapshotResponse (CreateSnapshotResponse'),
+    newCreateSnapshotResponse,
+
+    -- ** CreateTrust
+    CreateTrust (CreateTrust'),
+    newCreateTrust,
+    CreateTrustResponse (CreateTrustResponse'),
+    newCreateTrustResponse,
+
+    -- ** DeleteConditionalForwarder
+    DeleteConditionalForwarder (DeleteConditionalForwarder'),
+    newDeleteConditionalForwarder,
+    DeleteConditionalForwarderResponse (DeleteConditionalForwarderResponse'),
+    newDeleteConditionalForwarderResponse,
+
+    -- ** DeleteDirectory
+    DeleteDirectory (DeleteDirectory'),
+    newDeleteDirectory,
+    DeleteDirectoryResponse (DeleteDirectoryResponse'),
+    newDeleteDirectoryResponse,
+
+    -- ** DeleteLogSubscription
+    DeleteLogSubscription (DeleteLogSubscription'),
+    newDeleteLogSubscription,
+    DeleteLogSubscriptionResponse (DeleteLogSubscriptionResponse'),
+    newDeleteLogSubscriptionResponse,
+
+    -- ** DeleteSnapshot
+    DeleteSnapshot (DeleteSnapshot'),
+    newDeleteSnapshot,
+    DeleteSnapshotResponse (DeleteSnapshotResponse'),
+    newDeleteSnapshotResponse,
+
+    -- ** DeleteTrust
+    DeleteTrust (DeleteTrust'),
+    newDeleteTrust,
+    DeleteTrustResponse (DeleteTrustResponse'),
+    newDeleteTrustResponse,
+
+    -- ** DeregisterCertificate
+    DeregisterCertificate (DeregisterCertificate'),
+    newDeregisterCertificate,
+    DeregisterCertificateResponse (DeregisterCertificateResponse'),
+    newDeregisterCertificateResponse,
+
+    -- ** DeregisterEventTopic
+    DeregisterEventTopic (DeregisterEventTopic'),
+    newDeregisterEventTopic,
+    DeregisterEventTopicResponse (DeregisterEventTopicResponse'),
+    newDeregisterEventTopicResponse,
+
+    -- ** DescribeCertificate
+    DescribeCertificate (DescribeCertificate'),
+    newDescribeCertificate,
+    DescribeCertificateResponse (DescribeCertificateResponse'),
+    newDescribeCertificateResponse,
+
+    -- ** DescribeClientAuthenticationSettings
+    DescribeClientAuthenticationSettings (DescribeClientAuthenticationSettings'),
+    newDescribeClientAuthenticationSettings,
+    DescribeClientAuthenticationSettingsResponse (DescribeClientAuthenticationSettingsResponse'),
+    newDescribeClientAuthenticationSettingsResponse,
+
+    -- ** DescribeConditionalForwarders
+    DescribeConditionalForwarders (DescribeConditionalForwarders'),
+    newDescribeConditionalForwarders,
+    DescribeConditionalForwardersResponse (DescribeConditionalForwardersResponse'),
+    newDescribeConditionalForwardersResponse,
+
+    -- ** DescribeDirectories (Paginated)
+    DescribeDirectories (DescribeDirectories'),
+    newDescribeDirectories,
+    DescribeDirectoriesResponse (DescribeDirectoriesResponse'),
+    newDescribeDirectoriesResponse,
+
+    -- ** DescribeDomainControllers (Paginated)
+    DescribeDomainControllers (DescribeDomainControllers'),
+    newDescribeDomainControllers,
+    DescribeDomainControllersResponse (DescribeDomainControllersResponse'),
+    newDescribeDomainControllersResponse,
+
+    -- ** DescribeEventTopics
+    DescribeEventTopics (DescribeEventTopics'),
+    newDescribeEventTopics,
+    DescribeEventTopicsResponse (DescribeEventTopicsResponse'),
+    newDescribeEventTopicsResponse,
+
+    -- ** DescribeLDAPSSettings
+    DescribeLDAPSSettings (DescribeLDAPSSettings'),
+    newDescribeLDAPSSettings,
+    DescribeLDAPSSettingsResponse (DescribeLDAPSSettingsResponse'),
+    newDescribeLDAPSSettingsResponse,
 
     -- ** DescribeRegions
     DescribeRegions (DescribeRegions'),
@@ -504,11 +318,71 @@ module Amazonka.DirectoryService
     DescribeRegionsResponse (DescribeRegionsResponse'),
     newDescribeRegionsResponse,
 
-    -- ** AddRegion
-    AddRegion (AddRegion'),
-    newAddRegion,
-    AddRegionResponse (AddRegionResponse'),
-    newAddRegionResponse,
+    -- ** DescribeSharedDirectories (Paginated)
+    DescribeSharedDirectories (DescribeSharedDirectories'),
+    newDescribeSharedDirectories,
+    DescribeSharedDirectoriesResponse (DescribeSharedDirectoriesResponse'),
+    newDescribeSharedDirectoriesResponse,
+
+    -- ** DescribeSnapshots (Paginated)
+    DescribeSnapshots (DescribeSnapshots'),
+    newDescribeSnapshots,
+    DescribeSnapshotsResponse (DescribeSnapshotsResponse'),
+    newDescribeSnapshotsResponse,
+
+    -- ** DescribeTrusts (Paginated)
+    DescribeTrusts (DescribeTrusts'),
+    newDescribeTrusts,
+    DescribeTrustsResponse (DescribeTrustsResponse'),
+    newDescribeTrustsResponse,
+
+    -- ** DisableClientAuthentication
+    DisableClientAuthentication (DisableClientAuthentication'),
+    newDisableClientAuthentication,
+    DisableClientAuthenticationResponse (DisableClientAuthenticationResponse'),
+    newDisableClientAuthenticationResponse,
+
+    -- ** DisableLDAPS
+    DisableLDAPS (DisableLDAPS'),
+    newDisableLDAPS,
+    DisableLDAPSResponse (DisableLDAPSResponse'),
+    newDisableLDAPSResponse,
+
+    -- ** DisableRadius
+    DisableRadius (DisableRadius'),
+    newDisableRadius,
+    DisableRadiusResponse (DisableRadiusResponse'),
+    newDisableRadiusResponse,
+
+    -- ** DisableSso
+    DisableSso (DisableSso'),
+    newDisableSso,
+    DisableSsoResponse (DisableSsoResponse'),
+    newDisableSsoResponse,
+
+    -- ** EnableClientAuthentication
+    EnableClientAuthentication (EnableClientAuthentication'),
+    newEnableClientAuthentication,
+    EnableClientAuthenticationResponse (EnableClientAuthenticationResponse'),
+    newEnableClientAuthenticationResponse,
+
+    -- ** EnableLDAPS
+    EnableLDAPS (EnableLDAPS'),
+    newEnableLDAPS,
+    EnableLDAPSResponse (EnableLDAPSResponse'),
+    newEnableLDAPSResponse,
+
+    -- ** EnableRadius
+    EnableRadius (EnableRadius'),
+    newEnableRadius,
+    EnableRadiusResponse (EnableRadiusResponse'),
+    newEnableRadiusResponse,
+
+    -- ** EnableSso
+    EnableSso (EnableSso'),
+    newEnableSso,
+    EnableSsoResponse (EnableSsoResponse'),
+    newEnableSsoResponse,
 
     -- ** GetDirectoryLimits
     GetDirectoryLimits (GetDirectoryLimits'),
@@ -516,11 +390,137 @@ module Amazonka.DirectoryService
     GetDirectoryLimitsResponse (GetDirectoryLimitsResponse'),
     newGetDirectoryLimitsResponse,
 
+    -- ** GetSnapshotLimits
+    GetSnapshotLimits (GetSnapshotLimits'),
+    newGetSnapshotLimits,
+    GetSnapshotLimitsResponse (GetSnapshotLimitsResponse'),
+    newGetSnapshotLimitsResponse,
+
+    -- ** ListCertificates
+    ListCertificates (ListCertificates'),
+    newListCertificates,
+    ListCertificatesResponse (ListCertificatesResponse'),
+    newListCertificatesResponse,
+
+    -- ** ListIpRoutes (Paginated)
+    ListIpRoutes (ListIpRoutes'),
+    newListIpRoutes,
+    ListIpRoutesResponse (ListIpRoutesResponse'),
+    newListIpRoutesResponse,
+
+    -- ** ListLogSubscriptions (Paginated)
+    ListLogSubscriptions (ListLogSubscriptions'),
+    newListLogSubscriptions,
+    ListLogSubscriptionsResponse (ListLogSubscriptionsResponse'),
+    newListLogSubscriptionsResponse,
+
+    -- ** ListSchemaExtensions (Paginated)
+    ListSchemaExtensions (ListSchemaExtensions'),
+    newListSchemaExtensions,
+    ListSchemaExtensionsResponse (ListSchemaExtensionsResponse'),
+    newListSchemaExtensionsResponse,
+
+    -- ** ListTagsForResource (Paginated)
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** RegisterCertificate
+    RegisterCertificate (RegisterCertificate'),
+    newRegisterCertificate,
+    RegisterCertificateResponse (RegisterCertificateResponse'),
+    newRegisterCertificateResponse,
+
+    -- ** RegisterEventTopic
+    RegisterEventTopic (RegisterEventTopic'),
+    newRegisterEventTopic,
+    RegisterEventTopicResponse (RegisterEventTopicResponse'),
+    newRegisterEventTopicResponse,
+
+    -- ** RejectSharedDirectory
+    RejectSharedDirectory (RejectSharedDirectory'),
+    newRejectSharedDirectory,
+    RejectSharedDirectoryResponse (RejectSharedDirectoryResponse'),
+    newRejectSharedDirectoryResponse,
+
+    -- ** RemoveIpRoutes
+    RemoveIpRoutes (RemoveIpRoutes'),
+    newRemoveIpRoutes,
+    RemoveIpRoutesResponse (RemoveIpRoutesResponse'),
+    newRemoveIpRoutesResponse,
+
+    -- ** RemoveRegion
+    RemoveRegion (RemoveRegion'),
+    newRemoveRegion,
+    RemoveRegionResponse (RemoveRegionResponse'),
+    newRemoveRegionResponse,
+
+    -- ** RemoveTagsFromResource
+    RemoveTagsFromResource (RemoveTagsFromResource'),
+    newRemoveTagsFromResource,
+    RemoveTagsFromResourceResponse (RemoveTagsFromResourceResponse'),
+    newRemoveTagsFromResourceResponse,
+
+    -- ** ResetUserPassword
+    ResetUserPassword (ResetUserPassword'),
+    newResetUserPassword,
+    ResetUserPasswordResponse (ResetUserPasswordResponse'),
+    newResetUserPasswordResponse,
+
+    -- ** RestoreFromSnapshot
+    RestoreFromSnapshot (RestoreFromSnapshot'),
+    newRestoreFromSnapshot,
+    RestoreFromSnapshotResponse (RestoreFromSnapshotResponse'),
+    newRestoreFromSnapshotResponse,
+
+    -- ** ShareDirectory
+    ShareDirectory (ShareDirectory'),
+    newShareDirectory,
+    ShareDirectoryResponse (ShareDirectoryResponse'),
+    newShareDirectoryResponse,
+
+    -- ** StartSchemaExtension
+    StartSchemaExtension (StartSchemaExtension'),
+    newStartSchemaExtension,
+    StartSchemaExtensionResponse (StartSchemaExtensionResponse'),
+    newStartSchemaExtensionResponse,
+
+    -- ** UnshareDirectory
+    UnshareDirectory (UnshareDirectory'),
+    newUnshareDirectory,
+    UnshareDirectoryResponse (UnshareDirectoryResponse'),
+    newUnshareDirectoryResponse,
+
+    -- ** UpdateConditionalForwarder
+    UpdateConditionalForwarder (UpdateConditionalForwarder'),
+    newUpdateConditionalForwarder,
+    UpdateConditionalForwarderResponse (UpdateConditionalForwarderResponse'),
+    newUpdateConditionalForwarderResponse,
+
+    -- ** UpdateNumberOfDomainControllers
+    UpdateNumberOfDomainControllers (UpdateNumberOfDomainControllers'),
+    newUpdateNumberOfDomainControllers,
+    UpdateNumberOfDomainControllersResponse (UpdateNumberOfDomainControllersResponse'),
+    newUpdateNumberOfDomainControllersResponse,
+
     -- ** UpdateRadius
     UpdateRadius (UpdateRadius'),
     newUpdateRadius,
     UpdateRadiusResponse (UpdateRadiusResponse'),
     newUpdateRadiusResponse,
+
+    -- ** UpdateTrust
+    UpdateTrust (UpdateTrust'),
+    newUpdateTrust,
+    UpdateTrustResponse (UpdateTrustResponse'),
+    newUpdateTrustResponse,
+
+    -- ** VerifyTrust
+    VerifyTrust (VerifyTrust'),
+    newVerifyTrust,
+    VerifyTrustResponse (VerifyTrustResponse'),
+    newVerifyTrustResponse,
 
     -- * Types
 

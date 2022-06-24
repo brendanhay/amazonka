@@ -33,9 +33,9 @@ module Amazonka.DirectoryService.ConnectDirectory
     newConnectDirectory,
 
     -- * Request Lenses
-    connectDirectory_shortName,
-    connectDirectory_description,
     connectDirectory_tags,
+    connectDirectory_description,
+    connectDirectory_shortName,
     connectDirectory_name,
     connectDirectory_password,
     connectDirectory_size,
@@ -62,12 +62,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newConnectDirectory' smart constructor.
 data ConnectDirectory = ConnectDirectory'
-  { -- | The NetBIOS name of your self-managed directory, such as @CORP@.
-    shortName :: Prelude.Maybe Prelude.Text,
+  { -- | The tags to be assigned to AD Connector.
+    tags :: Prelude.Maybe [Tag],
     -- | A description for the directory.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The tags to be assigned to AD Connector.
-    tags :: Prelude.Maybe [Tag],
+    -- | The NetBIOS name of your self-managed directory, such as @CORP@.
+    shortName :: Prelude.Maybe Prelude.Text,
     -- | The fully qualified name of your self-managed directory, such as
     -- @corp.example.com@.
     name :: Prelude.Text,
@@ -89,11 +89,11 @@ data ConnectDirectory = ConnectDirectory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'shortName', 'connectDirectory_shortName' - The NetBIOS name of your self-managed directory, such as @CORP@.
+-- 'tags', 'connectDirectory_tags' - The tags to be assigned to AD Connector.
 --
 -- 'description', 'connectDirectory_description' - A description for the directory.
 --
--- 'tags', 'connectDirectory_tags' - The tags to be assigned to AD Connector.
+-- 'shortName', 'connectDirectory_shortName' - The NetBIOS name of your self-managed directory, such as @CORP@.
 --
 -- 'name', 'connectDirectory_name' - The fully qualified name of your self-managed directory, such as
 -- @corp.example.com@.
@@ -120,26 +120,26 @@ newConnectDirectory
   pSize_
   pConnectSettings_ =
     ConnectDirectory'
-      { shortName = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         description = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        shortName = Prelude.Nothing,
         name = pName_,
         password = Core._Sensitive Lens.# pPassword_,
         size = pSize_,
         connectSettings = pConnectSettings_
       }
 
--- | The NetBIOS name of your self-managed directory, such as @CORP@.
-connectDirectory_shortName :: Lens.Lens' ConnectDirectory (Prelude.Maybe Prelude.Text)
-connectDirectory_shortName = Lens.lens (\ConnectDirectory' {shortName} -> shortName) (\s@ConnectDirectory' {} a -> s {shortName = a} :: ConnectDirectory)
+-- | The tags to be assigned to AD Connector.
+connectDirectory_tags :: Lens.Lens' ConnectDirectory (Prelude.Maybe [Tag])
+connectDirectory_tags = Lens.lens (\ConnectDirectory' {tags} -> tags) (\s@ConnectDirectory' {} a -> s {tags = a} :: ConnectDirectory) Prelude.. Lens.mapping Lens.coerced
 
 -- | A description for the directory.
 connectDirectory_description :: Lens.Lens' ConnectDirectory (Prelude.Maybe Prelude.Text)
 connectDirectory_description = Lens.lens (\ConnectDirectory' {description} -> description) (\s@ConnectDirectory' {} a -> s {description = a} :: ConnectDirectory)
 
--- | The tags to be assigned to AD Connector.
-connectDirectory_tags :: Lens.Lens' ConnectDirectory (Prelude.Maybe [Tag])
-connectDirectory_tags = Lens.lens (\ConnectDirectory' {tags} -> tags) (\s@ConnectDirectory' {} a -> s {tags = a} :: ConnectDirectory) Prelude.. Lens.mapping Lens.coerced
+-- | The NetBIOS name of your self-managed directory, such as @CORP@.
+connectDirectory_shortName :: Lens.Lens' ConnectDirectory (Prelude.Maybe Prelude.Text)
+connectDirectory_shortName = Lens.lens (\ConnectDirectory' {shortName} -> shortName) (\s@ConnectDirectory' {} a -> s {shortName = a} :: ConnectDirectory)
 
 -- | The fully qualified name of your self-managed directory, such as
 -- @corp.example.com@.
@@ -174,9 +174,9 @@ instance Core.AWSRequest ConnectDirectory where
 
 instance Prelude.Hashable ConnectDirectory where
   hashWithSalt _salt ConnectDirectory' {..} =
-    _salt `Prelude.hashWithSalt` shortName
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` shortName
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` password
       `Prelude.hashWithSalt` size
@@ -184,9 +184,9 @@ instance Prelude.Hashable ConnectDirectory where
 
 instance Prelude.NFData ConnectDirectory where
   rnf ConnectDirectory' {..} =
-    Prelude.rnf shortName
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf shortName
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf password
       `Prelude.seq` Prelude.rnf size
@@ -211,9 +211,9 @@ instance Core.ToJSON ConnectDirectory where
   toJSON ConnectDirectory' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ShortName" Core..=) Prelude.<$> shortName,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("ShortName" Core..=) Prelude.<$> shortName,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("Password" Core..= password),
             Prelude.Just ("Size" Core..= size),

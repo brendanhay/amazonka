@@ -33,17 +33,17 @@ data SchemaExtensionInfo = SchemaExtensionInfo'
     directoryId :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the schema extension.
     schemaExtensionId :: Prelude.Maybe Prelude.Text,
-    -- | The reason for the @SchemaExtensionStatus@.
-    schemaExtensionStatusReason :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the schema extension started being applied to the
+    -- directory.
+    startDateTime :: Prelude.Maybe Core.POSIX,
     -- | The current status of the schema extension.
     schemaExtensionStatus :: Prelude.Maybe SchemaExtensionStatus,
     -- | A description of the schema extension.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The reason for the @SchemaExtensionStatus@.
+    schemaExtensionStatusReason :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the schema extension was completed.
-    endDateTime :: Prelude.Maybe Core.POSIX,
-    -- | The date and time that the schema extension started being applied to the
-    -- directory.
-    startDateTime :: Prelude.Maybe Core.POSIX
+    endDateTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,27 +60,27 @@ data SchemaExtensionInfo = SchemaExtensionInfo'
 --
 -- 'schemaExtensionId', 'schemaExtensionInfo_schemaExtensionId' - The identifier of the schema extension.
 --
--- 'schemaExtensionStatusReason', 'schemaExtensionInfo_schemaExtensionStatusReason' - The reason for the @SchemaExtensionStatus@.
+-- 'startDateTime', 'schemaExtensionInfo_startDateTime' - The date and time that the schema extension started being applied to the
+-- directory.
 --
 -- 'schemaExtensionStatus', 'schemaExtensionInfo_schemaExtensionStatus' - The current status of the schema extension.
 --
 -- 'description', 'schemaExtensionInfo_description' - A description of the schema extension.
 --
--- 'endDateTime', 'schemaExtensionInfo_endDateTime' - The date and time that the schema extension was completed.
+-- 'schemaExtensionStatusReason', 'schemaExtensionInfo_schemaExtensionStatusReason' - The reason for the @SchemaExtensionStatus@.
 --
--- 'startDateTime', 'schemaExtensionInfo_startDateTime' - The date and time that the schema extension started being applied to the
--- directory.
+-- 'endDateTime', 'schemaExtensionInfo_endDateTime' - The date and time that the schema extension was completed.
 newSchemaExtensionInfo ::
   SchemaExtensionInfo
 newSchemaExtensionInfo =
   SchemaExtensionInfo'
     { directoryId = Prelude.Nothing,
       schemaExtensionId = Prelude.Nothing,
-      schemaExtensionStatusReason = Prelude.Nothing,
+      startDateTime = Prelude.Nothing,
       schemaExtensionStatus = Prelude.Nothing,
       description = Prelude.Nothing,
-      endDateTime = Prelude.Nothing,
-      startDateTime = Prelude.Nothing
+      schemaExtensionStatusReason = Prelude.Nothing,
+      endDateTime = Prelude.Nothing
     }
 
 -- | The identifier of the directory to which the schema extension is
@@ -92,9 +92,10 @@ schemaExtensionInfo_directoryId = Lens.lens (\SchemaExtensionInfo' {directoryId}
 schemaExtensionInfo_schemaExtensionId :: Lens.Lens' SchemaExtensionInfo (Prelude.Maybe Prelude.Text)
 schemaExtensionInfo_schemaExtensionId = Lens.lens (\SchemaExtensionInfo' {schemaExtensionId} -> schemaExtensionId) (\s@SchemaExtensionInfo' {} a -> s {schemaExtensionId = a} :: SchemaExtensionInfo)
 
--- | The reason for the @SchemaExtensionStatus@.
-schemaExtensionInfo_schemaExtensionStatusReason :: Lens.Lens' SchemaExtensionInfo (Prelude.Maybe Prelude.Text)
-schemaExtensionInfo_schemaExtensionStatusReason = Lens.lens (\SchemaExtensionInfo' {schemaExtensionStatusReason} -> schemaExtensionStatusReason) (\s@SchemaExtensionInfo' {} a -> s {schemaExtensionStatusReason = a} :: SchemaExtensionInfo)
+-- | The date and time that the schema extension started being applied to the
+-- directory.
+schemaExtensionInfo_startDateTime :: Lens.Lens' SchemaExtensionInfo (Prelude.Maybe Prelude.UTCTime)
+schemaExtensionInfo_startDateTime = Lens.lens (\SchemaExtensionInfo' {startDateTime} -> startDateTime) (\s@SchemaExtensionInfo' {} a -> s {startDateTime = a} :: SchemaExtensionInfo) Prelude.. Lens.mapping Core._Time
 
 -- | The current status of the schema extension.
 schemaExtensionInfo_schemaExtensionStatus :: Lens.Lens' SchemaExtensionInfo (Prelude.Maybe SchemaExtensionStatus)
@@ -104,14 +105,13 @@ schemaExtensionInfo_schemaExtensionStatus = Lens.lens (\SchemaExtensionInfo' {sc
 schemaExtensionInfo_description :: Lens.Lens' SchemaExtensionInfo (Prelude.Maybe Prelude.Text)
 schemaExtensionInfo_description = Lens.lens (\SchemaExtensionInfo' {description} -> description) (\s@SchemaExtensionInfo' {} a -> s {description = a} :: SchemaExtensionInfo)
 
+-- | The reason for the @SchemaExtensionStatus@.
+schemaExtensionInfo_schemaExtensionStatusReason :: Lens.Lens' SchemaExtensionInfo (Prelude.Maybe Prelude.Text)
+schemaExtensionInfo_schemaExtensionStatusReason = Lens.lens (\SchemaExtensionInfo' {schemaExtensionStatusReason} -> schemaExtensionStatusReason) (\s@SchemaExtensionInfo' {} a -> s {schemaExtensionStatusReason = a} :: SchemaExtensionInfo)
+
 -- | The date and time that the schema extension was completed.
 schemaExtensionInfo_endDateTime :: Lens.Lens' SchemaExtensionInfo (Prelude.Maybe Prelude.UTCTime)
 schemaExtensionInfo_endDateTime = Lens.lens (\SchemaExtensionInfo' {endDateTime} -> endDateTime) (\s@SchemaExtensionInfo' {} a -> s {endDateTime = a} :: SchemaExtensionInfo) Prelude.. Lens.mapping Core._Time
-
--- | The date and time that the schema extension started being applied to the
--- directory.
-schemaExtensionInfo_startDateTime :: Lens.Lens' SchemaExtensionInfo (Prelude.Maybe Prelude.UTCTime)
-schemaExtensionInfo_startDateTime = Lens.lens (\SchemaExtensionInfo' {startDateTime} -> startDateTime) (\s@SchemaExtensionInfo' {} a -> s {startDateTime = a} :: SchemaExtensionInfo) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON SchemaExtensionInfo where
   parseJSON =
@@ -121,29 +121,29 @@ instance Core.FromJSON SchemaExtensionInfo where
           SchemaExtensionInfo'
             Prelude.<$> (x Core..:? "DirectoryId")
             Prelude.<*> (x Core..:? "SchemaExtensionId")
-            Prelude.<*> (x Core..:? "SchemaExtensionStatusReason")
+            Prelude.<*> (x Core..:? "StartDateTime")
             Prelude.<*> (x Core..:? "SchemaExtensionStatus")
             Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "SchemaExtensionStatusReason")
             Prelude.<*> (x Core..:? "EndDateTime")
-            Prelude.<*> (x Core..:? "StartDateTime")
       )
 
 instance Prelude.Hashable SchemaExtensionInfo where
   hashWithSalt _salt SchemaExtensionInfo' {..} =
     _salt `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` schemaExtensionId
-      `Prelude.hashWithSalt` schemaExtensionStatusReason
+      `Prelude.hashWithSalt` startDateTime
       `Prelude.hashWithSalt` schemaExtensionStatus
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` schemaExtensionStatusReason
       `Prelude.hashWithSalt` endDateTime
-      `Prelude.hashWithSalt` startDateTime
 
 instance Prelude.NFData SchemaExtensionInfo where
   rnf SchemaExtensionInfo' {..} =
     Prelude.rnf directoryId
       `Prelude.seq` Prelude.rnf schemaExtensionId
-      `Prelude.seq` Prelude.rnf schemaExtensionStatusReason
+      `Prelude.seq` Prelude.rnf startDateTime
       `Prelude.seq` Prelude.rnf schemaExtensionStatus
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf schemaExtensionStatusReason
       `Prelude.seq` Prelude.rnf endDateTime
-      `Prelude.seq` Prelude.rnf startDateTime

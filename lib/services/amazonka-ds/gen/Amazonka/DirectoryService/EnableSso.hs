@@ -30,8 +30,8 @@ module Amazonka.DirectoryService.EnableSso
     newEnableSso,
 
     -- * Request Lenses
-    enableSso_userName,
     enableSso_password,
+    enableSso_userName,
     enableSso_directoryId,
 
     -- * Destructuring the Response
@@ -54,7 +54,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newEnableSso' smart constructor.
 data EnableSso = EnableSso'
-  { -- | The username of an alternate account to use to enable single-sign on.
+  { -- | The password of an alternate account to use to enable single-sign on.
+    -- This is only used for AD Connector directories. For more information,
+    -- see the /UserName/ parameter.
+    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The username of an alternate account to use to enable single-sign on.
     -- This is only used for AD Connector directories. This account must have
     -- privileges to add a service principal name.
     --
@@ -64,10 +68,6 @@ data EnableSso = EnableSso'
     -- enable single sign-on and are not stored by the service. The AD
     -- Connector service account is not changed.
     userName :: Prelude.Maybe Prelude.Text,
-    -- | The password of an alternate account to use to enable single-sign on.
-    -- This is only used for AD Connector directories. For more information,
-    -- see the /UserName/ parameter.
-    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The identifier of the directory for which to enable single-sign on.
     directoryId :: Prelude.Text
   }
@@ -81,6 +81,10 @@ data EnableSso = EnableSso'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'password', 'enableSso_password' - The password of an alternate account to use to enable single-sign on.
+-- This is only used for AD Connector directories. For more information,
+-- see the /UserName/ parameter.
+--
 -- 'userName', 'enableSso_userName' - The username of an alternate account to use to enable single-sign on.
 -- This is only used for AD Connector directories. This account must have
 -- privileges to add a service principal name.
@@ -91,10 +95,6 @@ data EnableSso = EnableSso'
 -- enable single sign-on and are not stored by the service. The AD
 -- Connector service account is not changed.
 --
--- 'password', 'enableSso_password' - The password of an alternate account to use to enable single-sign on.
--- This is only used for AD Connector directories. For more information,
--- see the /UserName/ parameter.
---
 -- 'directoryId', 'enableSso_directoryId' - The identifier of the directory for which to enable single-sign on.
 newEnableSso ::
   -- | 'directoryId'
@@ -102,10 +102,16 @@ newEnableSso ::
   EnableSso
 newEnableSso pDirectoryId_ =
   EnableSso'
-    { userName = Prelude.Nothing,
-      password = Prelude.Nothing,
+    { password = Prelude.Nothing,
+      userName = Prelude.Nothing,
       directoryId = pDirectoryId_
     }
+
+-- | The password of an alternate account to use to enable single-sign on.
+-- This is only used for AD Connector directories. For more information,
+-- see the /UserName/ parameter.
+enableSso_password :: Lens.Lens' EnableSso (Prelude.Maybe Prelude.Text)
+enableSso_password = Lens.lens (\EnableSso' {password} -> password) (\s@EnableSso' {} a -> s {password = a} :: EnableSso) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The username of an alternate account to use to enable single-sign on.
 -- This is only used for AD Connector directories. This account must have
@@ -118,12 +124,6 @@ newEnableSso pDirectoryId_ =
 -- Connector service account is not changed.
 enableSso_userName :: Lens.Lens' EnableSso (Prelude.Maybe Prelude.Text)
 enableSso_userName = Lens.lens (\EnableSso' {userName} -> userName) (\s@EnableSso' {} a -> s {userName = a} :: EnableSso)
-
--- | The password of an alternate account to use to enable single-sign on.
--- This is only used for AD Connector directories. For more information,
--- see the /UserName/ parameter.
-enableSso_password :: Lens.Lens' EnableSso (Prelude.Maybe Prelude.Text)
-enableSso_password = Lens.lens (\EnableSso' {password} -> password) (\s@EnableSso' {} a -> s {password = a} :: EnableSso) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The identifier of the directory for which to enable single-sign on.
 enableSso_directoryId :: Lens.Lens' EnableSso Prelude.Text
@@ -141,14 +141,14 @@ instance Core.AWSRequest EnableSso where
 
 instance Prelude.Hashable EnableSso where
   hashWithSalt _salt EnableSso' {..} =
-    _salt `Prelude.hashWithSalt` userName
-      `Prelude.hashWithSalt` password
+    _salt `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` directoryId
 
 instance Prelude.NFData EnableSso where
   rnf EnableSso' {..} =
-    Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf password
+    Prelude.rnf password
+      `Prelude.seq` Prelude.rnf userName
       `Prelude.seq` Prelude.rnf directoryId
 
 instance Core.ToHeaders EnableSso where
@@ -170,8 +170,8 @@ instance Core.ToJSON EnableSso where
   toJSON EnableSso' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("UserName" Core..=) Prelude.<$> userName,
-            ("Password" Core..=) Prelude.<$> password,
+          [ ("Password" Core..=) Prelude.<$> password,
+            ("UserName" Core..=) Prelude.<$> userName,
             Prelude.Just ("DirectoryId" Core..= directoryId)
           ]
       )

@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLDAPSSettingInfo' smart constructor.
 data LDAPSSettingInfo = LDAPSSettingInfo'
-  { -- | The date and time when the LDAPS settings were last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX,
-    -- | Describes a state change for LDAPS.
+  { -- | Describes a state change for LDAPS.
     lDAPSStatusReason :: Prelude.Maybe Prelude.Text,
     -- | The state of the LDAPS settings.
-    lDAPSStatus :: Prelude.Maybe LDAPSStatus
+    lDAPSStatus :: Prelude.Maybe LDAPSStatus,
+    -- | The date and time when the LDAPS settings were last updated.
+    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,20 @@ data LDAPSSettingInfo = LDAPSSettingInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastUpdatedDateTime', 'lDAPSSettingInfo_lastUpdatedDateTime' - The date and time when the LDAPS settings were last updated.
---
 -- 'lDAPSStatusReason', 'lDAPSSettingInfo_lDAPSStatusReason' - Describes a state change for LDAPS.
 --
 -- 'lDAPSStatus', 'lDAPSSettingInfo_lDAPSStatus' - The state of the LDAPS settings.
+--
+-- 'lastUpdatedDateTime', 'lDAPSSettingInfo_lastUpdatedDateTime' - The date and time when the LDAPS settings were last updated.
 newLDAPSSettingInfo ::
   LDAPSSettingInfo
 newLDAPSSettingInfo =
   LDAPSSettingInfo'
-    { lastUpdatedDateTime =
+    { lDAPSStatusReason =
         Prelude.Nothing,
-      lDAPSStatusReason = Prelude.Nothing,
-      lDAPSStatus = Prelude.Nothing
+      lDAPSStatus = Prelude.Nothing,
+      lastUpdatedDateTime = Prelude.Nothing
     }
-
--- | The date and time when the LDAPS settings were last updated.
-lDAPSSettingInfo_lastUpdatedDateTime :: Lens.Lens' LDAPSSettingInfo (Prelude.Maybe Prelude.UTCTime)
-lDAPSSettingInfo_lastUpdatedDateTime = Lens.lens (\LDAPSSettingInfo' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@LDAPSSettingInfo' {} a -> s {lastUpdatedDateTime = a} :: LDAPSSettingInfo) Prelude.. Lens.mapping Core._Time
 
 -- | Describes a state change for LDAPS.
 lDAPSSettingInfo_lDAPSStatusReason :: Lens.Lens' LDAPSSettingInfo (Prelude.Maybe Prelude.Text)
@@ -72,25 +68,29 @@ lDAPSSettingInfo_lDAPSStatusReason = Lens.lens (\LDAPSSettingInfo' {lDAPSStatusR
 lDAPSSettingInfo_lDAPSStatus :: Lens.Lens' LDAPSSettingInfo (Prelude.Maybe LDAPSStatus)
 lDAPSSettingInfo_lDAPSStatus = Lens.lens (\LDAPSSettingInfo' {lDAPSStatus} -> lDAPSStatus) (\s@LDAPSSettingInfo' {} a -> s {lDAPSStatus = a} :: LDAPSSettingInfo)
 
+-- | The date and time when the LDAPS settings were last updated.
+lDAPSSettingInfo_lastUpdatedDateTime :: Lens.Lens' LDAPSSettingInfo (Prelude.Maybe Prelude.UTCTime)
+lDAPSSettingInfo_lastUpdatedDateTime = Lens.lens (\LDAPSSettingInfo' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@LDAPSSettingInfo' {} a -> s {lastUpdatedDateTime = a} :: LDAPSSettingInfo) Prelude.. Lens.mapping Core._Time
+
 instance Core.FromJSON LDAPSSettingInfo where
   parseJSON =
     Core.withObject
       "LDAPSSettingInfo"
       ( \x ->
           LDAPSSettingInfo'
-            Prelude.<$> (x Core..:? "LastUpdatedDateTime")
-            Prelude.<*> (x Core..:? "LDAPSStatusReason")
+            Prelude.<$> (x Core..:? "LDAPSStatusReason")
             Prelude.<*> (x Core..:? "LDAPSStatus")
+            Prelude.<*> (x Core..:? "LastUpdatedDateTime")
       )
 
 instance Prelude.Hashable LDAPSSettingInfo where
   hashWithSalt _salt LDAPSSettingInfo' {..} =
-    _salt `Prelude.hashWithSalt` lastUpdatedDateTime
-      `Prelude.hashWithSalt` lDAPSStatusReason
+    _salt `Prelude.hashWithSalt` lDAPSStatusReason
       `Prelude.hashWithSalt` lDAPSStatus
+      `Prelude.hashWithSalt` lastUpdatedDateTime
 
 instance Prelude.NFData LDAPSSettingInfo where
   rnf LDAPSSettingInfo' {..} =
-    Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf lDAPSStatusReason
+    Prelude.rnf lDAPSStatusReason
       `Prelude.seq` Prelude.rnf lDAPSStatus
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime

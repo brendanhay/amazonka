@@ -27,9 +27,9 @@ module Amazonka.Athena.CreateWorkGroup
     newCreateWorkGroup,
 
     -- * Request Lenses
+    createWorkGroup_tags,
     createWorkGroup_configuration,
     createWorkGroup_description,
-    createWorkGroup_tags,
     createWorkGroup_name,
 
     -- * Destructuring the Response
@@ -50,7 +50,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateWorkGroup' smart constructor.
 data CreateWorkGroup = CreateWorkGroup'
-  { -- | The configuration for the workgroup, which includes the location in
+  { -- | A list of comma separated tags to add to the workgroup that is created.
+    tags :: Prelude.Maybe [Tag],
+    -- | The configuration for the workgroup, which includes the location in
     -- Amazon S3 where query results are stored, the encryption configuration,
     -- if any, used for encrypting query results, whether the Amazon CloudWatch
     -- Metrics are enabled for the workgroup, the limit for the amount of bytes
@@ -61,8 +63,6 @@ data CreateWorkGroup = CreateWorkGroup'
     configuration :: Prelude.Maybe WorkGroupConfiguration,
     -- | The workgroup description.
     description :: Prelude.Maybe Prelude.Text,
-    -- | A list of comma separated tags to add to the workgroup that is created.
-    tags :: Prelude.Maybe [Tag],
     -- | The workgroup name.
     name :: Prelude.Text
   }
@@ -76,6 +76,8 @@ data CreateWorkGroup = CreateWorkGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createWorkGroup_tags' - A list of comma separated tags to add to the workgroup that is created.
+--
 -- 'configuration', 'createWorkGroup_configuration' - The configuration for the workgroup, which includes the location in
 -- Amazon S3 where query results are stored, the encryption configuration,
 -- if any, used for encrypting query results, whether the Amazon CloudWatch
@@ -87,8 +89,6 @@ data CreateWorkGroup = CreateWorkGroup'
 --
 -- 'description', 'createWorkGroup_description' - The workgroup description.
 --
--- 'tags', 'createWorkGroup_tags' - A list of comma separated tags to add to the workgroup that is created.
---
 -- 'name', 'createWorkGroup_name' - The workgroup name.
 newCreateWorkGroup ::
   -- | 'name'
@@ -96,11 +96,15 @@ newCreateWorkGroup ::
   CreateWorkGroup
 newCreateWorkGroup pName_ =
   CreateWorkGroup'
-    { configuration = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      configuration = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing,
       name = pName_
     }
+
+-- | A list of comma separated tags to add to the workgroup that is created.
+createWorkGroup_tags :: Lens.Lens' CreateWorkGroup (Prelude.Maybe [Tag])
+createWorkGroup_tags = Lens.lens (\CreateWorkGroup' {tags} -> tags) (\s@CreateWorkGroup' {} a -> s {tags = a} :: CreateWorkGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The configuration for the workgroup, which includes the location in
 -- Amazon S3 where query results are stored, the encryption configuration,
@@ -116,10 +120,6 @@ createWorkGroup_configuration = Lens.lens (\CreateWorkGroup' {configuration} -> 
 -- | The workgroup description.
 createWorkGroup_description :: Lens.Lens' CreateWorkGroup (Prelude.Maybe Prelude.Text)
 createWorkGroup_description = Lens.lens (\CreateWorkGroup' {description} -> description) (\s@CreateWorkGroup' {} a -> s {description = a} :: CreateWorkGroup)
-
--- | A list of comma separated tags to add to the workgroup that is created.
-createWorkGroup_tags :: Lens.Lens' CreateWorkGroup (Prelude.Maybe [Tag])
-createWorkGroup_tags = Lens.lens (\CreateWorkGroup' {tags} -> tags) (\s@CreateWorkGroup' {} a -> s {tags = a} :: CreateWorkGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The workgroup name.
 createWorkGroup_name :: Lens.Lens' CreateWorkGroup Prelude.Text
@@ -139,16 +139,16 @@ instance Core.AWSRequest CreateWorkGroup where
 
 instance Prelude.Hashable CreateWorkGroup where
   hashWithSalt _salt CreateWorkGroup' {..} =
-    _salt `Prelude.hashWithSalt` configuration
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateWorkGroup where
   rnf CreateWorkGroup' {..} =
-    Prelude.rnf configuration
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf configuration
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateWorkGroup where
@@ -170,9 +170,9 @@ instance Core.ToJSON CreateWorkGroup where
   toJSON CreateWorkGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Configuration" Core..=) Prelude.<$> configuration,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Configuration" Core..=) Prelude.<$> configuration,
             ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("Name" Core..= name)
           ]
       )

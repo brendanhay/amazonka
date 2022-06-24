@@ -14,13 +14,35 @@
 module Amazonka.Athena.Lens
   ( -- * Operations
 
-    -- ** ListDatabases
-    listDatabases_nextToken,
-    listDatabases_maxResults,
-    listDatabases_catalogName,
-    listDatabasesResponse_databaseList,
-    listDatabasesResponse_nextToken,
-    listDatabasesResponse_httpStatus,
+    -- ** BatchGetNamedQuery
+    batchGetNamedQuery_namedQueryIds,
+    batchGetNamedQueryResponse_namedQueries,
+    batchGetNamedQueryResponse_unprocessedNamedQueryIds,
+    batchGetNamedQueryResponse_httpStatus,
+
+    -- ** BatchGetQueryExecution
+    batchGetQueryExecution_queryExecutionIds,
+    batchGetQueryExecutionResponse_unprocessedQueryExecutionIds,
+    batchGetQueryExecutionResponse_queryExecutions,
+    batchGetQueryExecutionResponse_httpStatus,
+
+    -- ** CreateDataCatalog
+    createDataCatalog_tags,
+    createDataCatalog_description,
+    createDataCatalog_parameters,
+    createDataCatalog_name,
+    createDataCatalog_type,
+    createDataCatalogResponse_httpStatus,
+
+    -- ** CreateNamedQuery
+    createNamedQuery_clientRequestToken,
+    createNamedQuery_workGroup,
+    createNamedQuery_description,
+    createNamedQuery_name,
+    createNamedQuery_database,
+    createNamedQuery_queryString,
+    createNamedQueryResponse_namedQueryId,
+    createNamedQueryResponse_httpStatus,
 
     -- ** CreatePreparedStatement
     createPreparedStatement_description,
@@ -29,58 +51,66 @@ module Amazonka.Athena.Lens
     createPreparedStatement_queryStatement,
     createPreparedStatementResponse_httpStatus,
 
+    -- ** CreateWorkGroup
+    createWorkGroup_tags,
+    createWorkGroup_configuration,
+    createWorkGroup_description,
+    createWorkGroup_name,
+    createWorkGroupResponse_httpStatus,
+
+    -- ** DeleteDataCatalog
+    deleteDataCatalog_name,
+    deleteDataCatalogResponse_httpStatus,
+
+    -- ** DeleteNamedQuery
+    deleteNamedQuery_namedQueryId,
+    deleteNamedQueryResponse_httpStatus,
+
+    -- ** DeletePreparedStatement
+    deletePreparedStatement_statementName,
+    deletePreparedStatement_workGroup,
+    deletePreparedStatementResponse_httpStatus,
+
     -- ** DeleteWorkGroup
     deleteWorkGroup_recursiveDeleteOption,
     deleteWorkGroup_workGroup,
     deleteWorkGroupResponse_httpStatus,
 
-    -- ** UpdateWorkGroup
-    updateWorkGroup_state,
-    updateWorkGroup_configurationUpdates,
-    updateWorkGroup_description,
-    updateWorkGroup_workGroup,
-    updateWorkGroupResponse_httpStatus,
+    -- ** GetDataCatalog
+    getDataCatalog_name,
+    getDataCatalogResponse_dataCatalog,
+    getDataCatalogResponse_httpStatus,
+
+    -- ** GetDatabase
+    getDatabase_catalogName,
+    getDatabase_databaseName,
+    getDatabaseResponse_database,
+    getDatabaseResponse_httpStatus,
 
     -- ** GetNamedQuery
     getNamedQuery_namedQueryId,
     getNamedQueryResponse_namedQuery,
     getNamedQueryResponse_httpStatus,
 
-    -- ** ListTagsForResource
-    listTagsForResource_nextToken,
-    listTagsForResource_maxResults,
-    listTagsForResource_resourceARN,
-    listTagsForResourceResponse_nextToken,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
+    -- ** GetPreparedStatement
+    getPreparedStatement_statementName,
+    getPreparedStatement_workGroup,
+    getPreparedStatementResponse_preparedStatement,
+    getPreparedStatementResponse_httpStatus,
 
-    -- ** DeleteDataCatalog
-    deleteDataCatalog_name,
-    deleteDataCatalogResponse_httpStatus,
+    -- ** GetQueryExecution
+    getQueryExecution_queryExecutionId,
+    getQueryExecutionResponse_queryExecution,
+    getQueryExecutionResponse_httpStatus,
 
-    -- ** UpdateDataCatalog
-    updateDataCatalog_parameters,
-    updateDataCatalog_description,
-    updateDataCatalog_name,
-    updateDataCatalog_type,
-    updateDataCatalogResponse_httpStatus,
-
-    -- ** ListDataCatalogs
-    listDataCatalogs_nextToken,
-    listDataCatalogs_maxResults,
-    listDataCatalogsResponse_dataCatalogsSummary,
-    listDataCatalogsResponse_nextToken,
-    listDataCatalogsResponse_httpStatus,
-
-    -- ** CreateNamedQuery
-    createNamedQuery_clientRequestToken,
-    createNamedQuery_description,
-    createNamedQuery_workGroup,
-    createNamedQuery_name,
-    createNamedQuery_database,
-    createNamedQuery_queryString,
-    createNamedQueryResponse_namedQueryId,
-    createNamedQueryResponse_httpStatus,
+    -- ** GetQueryResults
+    getQueryResults_nextToken,
+    getQueryResults_maxResults,
+    getQueryResults_queryExecutionId,
+    getQueryResultsResponse_nextToken,
+    getQueryResultsResponse_resultSet,
+    getQueryResultsResponse_updateCount,
+    getQueryResultsResponse_httpStatus,
 
     -- ** GetTableMetadata
     getTableMetadata_catalogName,
@@ -88,6 +118,33 @@ module Amazonka.Athena.Lens
     getTableMetadata_tableName,
     getTableMetadataResponse_tableMetadata,
     getTableMetadataResponse_httpStatus,
+
+    -- ** GetWorkGroup
+    getWorkGroup_workGroup,
+    getWorkGroupResponse_workGroup,
+    getWorkGroupResponse_httpStatus,
+
+    -- ** ListDataCatalogs
+    listDataCatalogs_nextToken,
+    listDataCatalogs_maxResults,
+    listDataCatalogsResponse_nextToken,
+    listDataCatalogsResponse_dataCatalogsSummary,
+    listDataCatalogsResponse_httpStatus,
+
+    -- ** ListDatabases
+    listDatabases_nextToken,
+    listDatabases_maxResults,
+    listDatabases_catalogName,
+    listDatabasesResponse_nextToken,
+    listDatabasesResponse_databaseList,
+    listDatabasesResponse_httpStatus,
+
+    -- ** ListEngineVersions
+    listEngineVersions_nextToken,
+    listEngineVersions_maxResults,
+    listEngineVersionsResponse_nextToken,
+    listEngineVersionsResponse_engineVersions,
+    listEngineVersionsResponse_httpStatus,
 
     -- ** ListNamedQueries
     listNamedQueries_nextToken,
@@ -97,117 +154,21 @@ module Amazonka.Athena.Lens
     listNamedQueriesResponse_namedQueryIds,
     listNamedQueriesResponse_httpStatus,
 
-    -- ** DeleteNamedQuery
-    deleteNamedQuery_namedQueryId,
-    deleteNamedQueryResponse_httpStatus,
-
-    -- ** StartQueryExecution
-    startQueryExecution_queryExecutionContext,
-    startQueryExecution_resultConfiguration,
-    startQueryExecution_clientRequestToken,
-    startQueryExecution_workGroup,
-    startQueryExecution_queryString,
-    startQueryExecutionResponse_queryExecutionId,
-    startQueryExecutionResponse_httpStatus,
-
-    -- ** BatchGetNamedQuery
-    batchGetNamedQuery_namedQueryIds,
-    batchGetNamedQueryResponse_namedQueries,
-    batchGetNamedQueryResponse_unprocessedNamedQueryIds,
-    batchGetNamedQueryResponse_httpStatus,
-
-    -- ** GetQueryExecution
-    getQueryExecution_queryExecutionId,
-    getQueryExecutionResponse_queryExecution,
-    getQueryExecutionResponse_httpStatus,
-
     -- ** ListPreparedStatements
     listPreparedStatements_nextToken,
     listPreparedStatements_maxResults,
     listPreparedStatements_workGroup,
-    listPreparedStatementsResponse_preparedStatements,
     listPreparedStatementsResponse_nextToken,
+    listPreparedStatementsResponse_preparedStatements,
     listPreparedStatementsResponse_httpStatus,
 
-    -- ** CreateDataCatalog
-    createDataCatalog_parameters,
-    createDataCatalog_description,
-    createDataCatalog_tags,
-    createDataCatalog_name,
-    createDataCatalog_type,
-    createDataCatalogResponse_httpStatus,
-
-    -- ** ListWorkGroups
-    listWorkGroups_nextToken,
-    listWorkGroups_maxResults,
-    listWorkGroupsResponse_nextToken,
-    listWorkGroupsResponse_workGroups,
-    listWorkGroupsResponse_httpStatus,
-
-    -- ** CreateWorkGroup
-    createWorkGroup_configuration,
-    createWorkGroup_description,
-    createWorkGroup_tags,
-    createWorkGroup_name,
-    createWorkGroupResponse_httpStatus,
-
-    -- ** BatchGetQueryExecution
-    batchGetQueryExecution_queryExecutionIds,
-    batchGetQueryExecutionResponse_unprocessedQueryExecutionIds,
-    batchGetQueryExecutionResponse_queryExecutions,
-    batchGetQueryExecutionResponse_httpStatus,
-
-    -- ** ListEngineVersions
-    listEngineVersions_nextToken,
-    listEngineVersions_maxResults,
-    listEngineVersionsResponse_nextToken,
-    listEngineVersionsResponse_engineVersions,
-    listEngineVersionsResponse_httpStatus,
-
-    -- ** GetDataCatalog
-    getDataCatalog_name,
-    getDataCatalogResponse_dataCatalog,
-    getDataCatalogResponse_httpStatus,
-
-    -- ** StopQueryExecution
-    stopQueryExecution_queryExecutionId,
-    stopQueryExecutionResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceARN,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
-    -- ** GetWorkGroup
-    getWorkGroup_workGroup,
-    getWorkGroupResponse_workGroup,
-    getWorkGroupResponse_httpStatus,
-
-    -- ** GetDatabase
-    getDatabase_catalogName,
-    getDatabase_databaseName,
-    getDatabaseResponse_database,
-    getDatabaseResponse_httpStatus,
-
-    -- ** UntagResource
-    untagResource_resourceARN,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
-
-    -- ** GetPreparedStatement
-    getPreparedStatement_statementName,
-    getPreparedStatement_workGroup,
-    getPreparedStatementResponse_preparedStatement,
-    getPreparedStatementResponse_httpStatus,
-
-    -- ** GetQueryResults
-    getQueryResults_nextToken,
-    getQueryResults_maxResults,
-    getQueryResults_queryExecutionId,
-    getQueryResultsResponse_updateCount,
-    getQueryResultsResponse_nextToken,
-    getQueryResultsResponse_resultSet,
-    getQueryResultsResponse_httpStatus,
+    -- ** ListQueryExecutions
+    listQueryExecutions_nextToken,
+    listQueryExecutions_workGroup,
+    listQueryExecutions_maxResults,
+    listQueryExecutionsResponse_nextToken,
+    listQueryExecutionsResponse_queryExecutionIds,
+    listQueryExecutionsResponse_httpStatus,
 
     -- ** ListTableMetadata
     listTableMetadata_nextToken,
@@ -219,18 +180,50 @@ module Amazonka.Athena.Lens
     listTableMetadataResponse_tableMetadataList,
     listTableMetadataResponse_httpStatus,
 
-    -- ** ListQueryExecutions
-    listQueryExecutions_nextToken,
-    listQueryExecutions_workGroup,
-    listQueryExecutions_maxResults,
-    listQueryExecutionsResponse_queryExecutionIds,
-    listQueryExecutionsResponse_nextToken,
-    listQueryExecutionsResponse_httpStatus,
+    -- ** ListTagsForResource
+    listTagsForResource_nextToken,
+    listTagsForResource_maxResults,
+    listTagsForResource_resourceARN,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_nextToken,
+    listTagsForResourceResponse_httpStatus,
 
-    -- ** DeletePreparedStatement
-    deletePreparedStatement_statementName,
-    deletePreparedStatement_workGroup,
-    deletePreparedStatementResponse_httpStatus,
+    -- ** ListWorkGroups
+    listWorkGroups_nextToken,
+    listWorkGroups_maxResults,
+    listWorkGroupsResponse_nextToken,
+    listWorkGroupsResponse_workGroups,
+    listWorkGroupsResponse_httpStatus,
+
+    -- ** StartQueryExecution
+    startQueryExecution_clientRequestToken,
+    startQueryExecution_workGroup,
+    startQueryExecution_resultConfiguration,
+    startQueryExecution_queryExecutionContext,
+    startQueryExecution_queryString,
+    startQueryExecutionResponse_queryExecutionId,
+    startQueryExecutionResponse_httpStatus,
+
+    -- ** StopQueryExecution
+    stopQueryExecution_queryExecutionId,
+    stopQueryExecutionResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceARN,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceARN,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
+
+    -- ** UpdateDataCatalog
+    updateDataCatalog_description,
+    updateDataCatalog_parameters,
+    updateDataCatalog_name,
+    updateDataCatalog_type,
+    updateDataCatalogResponse_httpStatus,
 
     -- ** UpdatePreparedStatement
     updatePreparedStatement_description,
@@ -238,6 +231,13 @@ module Amazonka.Athena.Lens
     updatePreparedStatement_workGroup,
     updatePreparedStatement_queryStatement,
     updatePreparedStatementResponse_httpStatus,
+
+    -- ** UpdateWorkGroup
+    updateWorkGroup_configurationUpdates,
+    updateWorkGroup_state,
+    updateWorkGroup_description,
+    updateWorkGroup_workGroup,
+    updateWorkGroupResponse_httpStatus,
 
     -- * Types
 
@@ -247,30 +247,30 @@ module Amazonka.Athena.Lens
     column_name,
 
     -- ** ColumnInfo
-    columnInfo_scale,
-    columnInfo_precision,
-    columnInfo_schemaName,
-    columnInfo_catalogName,
-    columnInfo_caseSensitive,
-    columnInfo_label,
     columnInfo_tableName,
+    columnInfo_catalogName,
+    columnInfo_label,
+    columnInfo_caseSensitive,
+    columnInfo_schemaName,
     columnInfo_nullable,
+    columnInfo_precision,
+    columnInfo_scale,
     columnInfo_name,
     columnInfo_type,
 
     -- ** DataCatalog
-    dataCatalog_parameters,
     dataCatalog_description,
+    dataCatalog_parameters,
     dataCatalog_name,
     dataCatalog_type,
 
     -- ** DataCatalogSummary
-    dataCatalogSummary_catalogName,
     dataCatalogSummary_type,
+    dataCatalogSummary_catalogName,
 
     -- ** Database
-    database_parameters,
     database_description,
+    database_parameters,
     database_name,
 
     -- ** Datum
@@ -281,67 +281,67 @@ module Amazonka.Athena.Lens
     encryptionConfiguration_encryptionOption,
 
     -- ** EngineVersion
-    engineVersion_effectiveEngineVersion,
     engineVersion_selectedEngineVersion,
+    engineVersion_effectiveEngineVersion,
 
     -- ** NamedQuery
-    namedQuery_namedQueryId,
-    namedQuery_description,
     namedQuery_workGroup,
+    namedQuery_description,
+    namedQuery_namedQueryId,
     namedQuery_name,
     namedQuery_database,
     namedQuery_queryString,
 
     -- ** PreparedStatement
+    preparedStatement_workGroupName,
+    preparedStatement_description,
     preparedStatement_lastModifiedTime,
     preparedStatement_queryStatement,
     preparedStatement_statementName,
-    preparedStatement_description,
-    preparedStatement_workGroupName,
 
     -- ** PreparedStatementSummary
     preparedStatementSummary_lastModifiedTime,
     preparedStatementSummary_statementName,
 
     -- ** QueryExecution
-    queryExecution_engineVersion,
+    queryExecution_queryExecutionId,
+    queryExecution_statistics,
+    queryExecution_statementType,
+    queryExecution_workGroup,
     queryExecution_status,
-    queryExecution_queryExecutionContext,
     queryExecution_resultConfiguration,
     queryExecution_query,
-    queryExecution_statementType,
-    queryExecution_statistics,
-    queryExecution_queryExecutionId,
-    queryExecution_workGroup,
+    queryExecution_queryExecutionContext,
+    queryExecution_engineVersion,
 
     -- ** QueryExecutionContext
-    queryExecutionContext_database,
     queryExecutionContext_catalog,
+    queryExecutionContext_database,
 
     -- ** QueryExecutionStatistics
+    queryExecutionStatistics_dataScannedInBytes,
+    queryExecutionStatistics_queryQueueTimeInMillis,
+    queryExecutionStatistics_serviceProcessingTimeInMillis,
+    queryExecutionStatistics_dataManifestLocation,
     queryExecutionStatistics_totalExecutionTimeInMillis,
     queryExecutionStatistics_engineExecutionTimeInMillis,
     queryExecutionStatistics_queryPlanningTimeInMillis,
-    queryExecutionStatistics_dataScannedInBytes,
-    queryExecutionStatistics_queryQueueTimeInMillis,
-    queryExecutionStatistics_dataManifestLocation,
-    queryExecutionStatistics_serviceProcessingTimeInMillis,
 
     -- ** QueryExecutionStatus
-    queryExecutionStatus_state,
     queryExecutionStatus_stateChangeReason,
     queryExecutionStatus_submissionDateTime,
+    queryExecutionStatus_state,
     queryExecutionStatus_completionDateTime,
 
     -- ** ResultConfiguration
-    resultConfiguration_encryptionConfiguration,
     resultConfiguration_outputLocation,
+    resultConfiguration_encryptionConfiguration,
 
     -- ** ResultConfigurationUpdates
-    resultConfigurationUpdates_removeOutputLocation,
     resultConfigurationUpdates_removeEncryptionConfiguration,
-    resultConfigurationUpdates_encryptionConfiguration,
     resultConfigurationUpdates_outputLocation,
+    resultConfigurationUpdates_removeOutputLocation,
+    resultConfigurationUpdates_encryptionConfiguration,
 
     -- ** ResultSet
     resultSet_rows,
@@ -354,58 +354,58 @@ module Amazonka.Athena.Lens
     row_data,
 
     -- ** TableMetadata
-    tableMetadata_tableType,
-    tableMetadata_parameters,
     tableMetadata_columns,
     tableMetadata_lastAccessTime,
     tableMetadata_partitionKeys,
+    tableMetadata_tableType,
     tableMetadata_createTime,
+    tableMetadata_parameters,
     tableMetadata_name,
 
     -- ** Tag
-    tag_value,
     tag_key,
+    tag_value,
 
     -- ** UnprocessedNamedQueryId
-    unprocessedNamedQueryId_namedQueryId,
-    unprocessedNamedQueryId_errorCode,
     unprocessedNamedQueryId_errorMessage,
+    unprocessedNamedQueryId_errorCode,
+    unprocessedNamedQueryId_namedQueryId,
 
     -- ** UnprocessedQueryExecutionId
-    unprocessedQueryExecutionId_errorCode,
     unprocessedQueryExecutionId_queryExecutionId,
     unprocessedQueryExecutionId_errorMessage,
+    unprocessedQueryExecutionId_errorCode,
 
     -- ** WorkGroup
-    workGroup_creationTime,
-    workGroup_state,
     workGroup_configuration,
+    workGroup_state,
     workGroup_description,
+    workGroup_creationTime,
     workGroup_name,
 
     -- ** WorkGroupConfiguration
-    workGroupConfiguration_engineVersion,
-    workGroupConfiguration_requesterPaysEnabled,
+    workGroupConfiguration_publishCloudWatchMetricsEnabled,
+    workGroupConfiguration_enforceWorkGroupConfiguration,
     workGroupConfiguration_resultConfiguration,
     workGroupConfiguration_bytesScannedCutoffPerQuery,
-    workGroupConfiguration_enforceWorkGroupConfiguration,
-    workGroupConfiguration_publishCloudWatchMetricsEnabled,
+    workGroupConfiguration_requesterPaysEnabled,
+    workGroupConfiguration_engineVersion,
 
     -- ** WorkGroupConfigurationUpdates
-    workGroupConfigurationUpdates_engineVersion,
-    workGroupConfigurationUpdates_requesterPaysEnabled,
     workGroupConfigurationUpdates_resultConfigurationUpdates,
-    workGroupConfigurationUpdates_bytesScannedCutoffPerQuery,
-    workGroupConfigurationUpdates_removeBytesScannedCutoffPerQuery,
-    workGroupConfigurationUpdates_enforceWorkGroupConfiguration,
     workGroupConfigurationUpdates_publishCloudWatchMetricsEnabled,
+    workGroupConfigurationUpdates_enforceWorkGroupConfiguration,
+    workGroupConfigurationUpdates_removeBytesScannedCutoffPerQuery,
+    workGroupConfigurationUpdates_bytesScannedCutoffPerQuery,
+    workGroupConfigurationUpdates_requesterPaysEnabled,
+    workGroupConfigurationUpdates_engineVersion,
 
     -- ** WorkGroupSummary
+    workGroupSummary_name,
+    workGroupSummary_state,
+    workGroupSummary_description,
     workGroupSummary_creationTime,
     workGroupSummary_engineVersion,
-    workGroupSummary_state,
-    workGroupSummary_name,
-    workGroupSummary_description,
   )
 where
 

@@ -27,8 +27,8 @@ module Amazonka.Athena.UpdateDataCatalog
     newUpdateDataCatalog,
 
     -- * Request Lenses
-    updateDataCatalog_parameters,
     updateDataCatalog_description,
+    updateDataCatalog_parameters,
     updateDataCatalog_name,
     updateDataCatalog_type,
 
@@ -50,7 +50,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateDataCatalog' smart constructor.
 data UpdateDataCatalog = UpdateDataCatalog'
-  { -- | Specifies the Lambda function or functions to use for updating the data
+  { -- | New or modified text that describes the data catalog.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the Lambda function or functions to use for updating the data
     -- catalog. This is a mapping whose values depend on the catalog type.
     --
     -- -   For the @HIVE@ data catalog type, use the following syntax. The
@@ -75,8 +77,6 @@ data UpdateDataCatalog = UpdateDataCatalog'
     --
     --         @function=lambda_arn @
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | New or modified text that describes the data catalog.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the data catalog to update. The catalog name must be unique
     -- for the Amazon Web Services account and can use a maximum of 128
     -- alphanumeric, underscore, at sign, or hyphen characters.
@@ -95,6 +95,8 @@ data UpdateDataCatalog = UpdateDataCatalog'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'description', 'updateDataCatalog_description' - New or modified text that describes the data catalog.
 --
 -- 'parameters', 'updateDataCatalog_parameters' - Specifies the Lambda function or functions to use for updating the data
 -- catalog. This is a mapping whose values depend on the catalog type.
@@ -121,8 +123,6 @@ data UpdateDataCatalog = UpdateDataCatalog'
 --
 --         @function=lambda_arn @
 --
--- 'description', 'updateDataCatalog_description' - New or modified text that describes the data catalog.
---
 -- 'name', 'updateDataCatalog_name' - The name of the data catalog to update. The catalog name must be unique
 -- for the Amazon Web Services account and can use a maximum of 128
 -- alphanumeric, underscore, at sign, or hyphen characters.
@@ -138,11 +138,15 @@ newUpdateDataCatalog ::
   UpdateDataCatalog
 newUpdateDataCatalog pName_ pType_ =
   UpdateDataCatalog'
-    { parameters = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      parameters = Prelude.Nothing,
       name = pName_,
       type' = pType_
     }
+
+-- | New or modified text that describes the data catalog.
+updateDataCatalog_description :: Lens.Lens' UpdateDataCatalog (Prelude.Maybe Prelude.Text)
+updateDataCatalog_description = Lens.lens (\UpdateDataCatalog' {description} -> description) (\s@UpdateDataCatalog' {} a -> s {description = a} :: UpdateDataCatalog)
 
 -- | Specifies the Lambda function or functions to use for updating the data
 -- catalog. This is a mapping whose values depend on the catalog type.
@@ -171,10 +175,6 @@ newUpdateDataCatalog pName_ pType_ =
 updateDataCatalog_parameters :: Lens.Lens' UpdateDataCatalog (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateDataCatalog_parameters = Lens.lens (\UpdateDataCatalog' {parameters} -> parameters) (\s@UpdateDataCatalog' {} a -> s {parameters = a} :: UpdateDataCatalog) Prelude.. Lens.mapping Lens.coerced
 
--- | New or modified text that describes the data catalog.
-updateDataCatalog_description :: Lens.Lens' UpdateDataCatalog (Prelude.Maybe Prelude.Text)
-updateDataCatalog_description = Lens.lens (\UpdateDataCatalog' {description} -> description) (\s@UpdateDataCatalog' {} a -> s {description = a} :: UpdateDataCatalog)
-
 -- | The name of the data catalog to update. The catalog name must be unique
 -- for the Amazon Web Services account and can use a maximum of 128
 -- alphanumeric, underscore, at sign, or hyphen characters.
@@ -201,15 +201,15 @@ instance Core.AWSRequest UpdateDataCatalog where
 
 instance Prelude.Hashable UpdateDataCatalog where
   hashWithSalt _salt UpdateDataCatalog' {..} =
-    _salt `Prelude.hashWithSalt` parameters
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData UpdateDataCatalog where
   rnf UpdateDataCatalog' {..} =
-    Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
 
@@ -232,8 +232,8 @@ instance Core.ToJSON UpdateDataCatalog where
   toJSON UpdateDataCatalog' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Parameters" Core..=) Prelude.<$> parameters,
-            ("Description" Core..=) Prelude.<$> description,
+          [ ("Description" Core..=) Prelude.<$> description,
+            ("Parameters" Core..=) Prelude.<$> parameters,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("Type" Core..= type')
           ]

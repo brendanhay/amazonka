@@ -39,11 +39,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWorkGroup' smart constructor.
 data WorkGroup = WorkGroup'
-  { -- | The date and time the workgroup was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The state of the workgroup: ENABLED or DISABLED.
-    state :: Prelude.Maybe WorkGroupState,
-    -- | The configuration of the workgroup, which includes the location in
+  { -- | The configuration of the workgroup, which includes the location in
     -- Amazon S3 where query results are stored, the encryption configuration,
     -- if any, used for query results; whether the Amazon CloudWatch Metrics
     -- are enabled for the workgroup; whether workgroup settings override
@@ -53,8 +49,12 @@ data WorkGroup = WorkGroup'
     -- @WorkGroupConfiguration@. See
     -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
     configuration :: Prelude.Maybe WorkGroupConfiguration,
+    -- | The state of the workgroup: ENABLED or DISABLED.
+    state :: Prelude.Maybe WorkGroupState,
     -- | The workgroup description.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The date and time the workgroup was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The workgroup name.
     name :: Prelude.Text
   }
@@ -68,10 +68,6 @@ data WorkGroup = WorkGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'workGroup_creationTime' - The date and time the workgroup was created.
---
--- 'state', 'workGroup_state' - The state of the workgroup: ENABLED or DISABLED.
---
 -- 'configuration', 'workGroup_configuration' - The configuration of the workgroup, which includes the location in
 -- Amazon S3 where query results are stored, the encryption configuration,
 -- if any, used for query results; whether the Amazon CloudWatch Metrics
@@ -82,7 +78,11 @@ data WorkGroup = WorkGroup'
 -- @WorkGroupConfiguration@. See
 -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
 --
+-- 'state', 'workGroup_state' - The state of the workgroup: ENABLED or DISABLED.
+--
 -- 'description', 'workGroup_description' - The workgroup description.
+--
+-- 'creationTime', 'workGroup_creationTime' - The date and time the workgroup was created.
 --
 -- 'name', 'workGroup_name' - The workgroup name.
 newWorkGroup ::
@@ -91,20 +91,12 @@ newWorkGroup ::
   WorkGroup
 newWorkGroup pName_ =
   WorkGroup'
-    { creationTime = Prelude.Nothing,
+    { configuration = Prelude.Nothing,
       state = Prelude.Nothing,
-      configuration = Prelude.Nothing,
       description = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       name = pName_
     }
-
--- | The date and time the workgroup was created.
-workGroup_creationTime :: Lens.Lens' WorkGroup (Prelude.Maybe Prelude.UTCTime)
-workGroup_creationTime = Lens.lens (\WorkGroup' {creationTime} -> creationTime) (\s@WorkGroup' {} a -> s {creationTime = a} :: WorkGroup) Prelude.. Lens.mapping Core._Time
-
--- | The state of the workgroup: ENABLED or DISABLED.
-workGroup_state :: Lens.Lens' WorkGroup (Prelude.Maybe WorkGroupState)
-workGroup_state = Lens.lens (\WorkGroup' {state} -> state) (\s@WorkGroup' {} a -> s {state = a} :: WorkGroup)
 
 -- | The configuration of the workgroup, which includes the location in
 -- Amazon S3 where query results are stored, the encryption configuration,
@@ -118,9 +110,17 @@ workGroup_state = Lens.lens (\WorkGroup' {state} -> state) (\s@WorkGroup' {} a -
 workGroup_configuration :: Lens.Lens' WorkGroup (Prelude.Maybe WorkGroupConfiguration)
 workGroup_configuration = Lens.lens (\WorkGroup' {configuration} -> configuration) (\s@WorkGroup' {} a -> s {configuration = a} :: WorkGroup)
 
+-- | The state of the workgroup: ENABLED or DISABLED.
+workGroup_state :: Lens.Lens' WorkGroup (Prelude.Maybe WorkGroupState)
+workGroup_state = Lens.lens (\WorkGroup' {state} -> state) (\s@WorkGroup' {} a -> s {state = a} :: WorkGroup)
+
 -- | The workgroup description.
 workGroup_description :: Lens.Lens' WorkGroup (Prelude.Maybe Prelude.Text)
 workGroup_description = Lens.lens (\WorkGroup' {description} -> description) (\s@WorkGroup' {} a -> s {description = a} :: WorkGroup)
+
+-- | The date and time the workgroup was created.
+workGroup_creationTime :: Lens.Lens' WorkGroup (Prelude.Maybe Prelude.UTCTime)
+workGroup_creationTime = Lens.lens (\WorkGroup' {creationTime} -> creationTime) (\s@WorkGroup' {} a -> s {creationTime = a} :: WorkGroup) Prelude.. Lens.mapping Core._Time
 
 -- | The workgroup name.
 workGroup_name :: Lens.Lens' WorkGroup Prelude.Text
@@ -132,25 +132,25 @@ instance Core.FromJSON WorkGroup where
       "WorkGroup"
       ( \x ->
           WorkGroup'
-            Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<$> (x Core..:? "Configuration")
             Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Configuration")
             Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "CreationTime")
             Prelude.<*> (x Core..: "Name")
       )
 
 instance Prelude.Hashable WorkGroup where
   hashWithSalt _salt WorkGroup' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData WorkGroup where
   rnf WorkGroup' {..} =
-    Prelude.rnf creationTime
+    Prelude.rnf configuration
       `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf configuration
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf name

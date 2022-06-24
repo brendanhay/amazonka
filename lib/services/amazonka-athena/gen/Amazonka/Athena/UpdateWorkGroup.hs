@@ -28,8 +28,8 @@ module Amazonka.Athena.UpdateWorkGroup
     newUpdateWorkGroup,
 
     -- * Request Lenses
-    updateWorkGroup_state,
     updateWorkGroup_configurationUpdates,
+    updateWorkGroup_state,
     updateWorkGroup_description,
     updateWorkGroup_workGroup,
 
@@ -51,11 +51,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateWorkGroup' smart constructor.
 data UpdateWorkGroup = UpdateWorkGroup'
-  { -- | The workgroup state that will be updated for the given workgroup.
-    state :: Prelude.Maybe WorkGroupState,
-    -- | The workgroup configuration that will be updated for the given
+  { -- | The workgroup configuration that will be updated for the given
     -- workgroup.
     configurationUpdates :: Prelude.Maybe WorkGroupConfigurationUpdates,
+    -- | The workgroup state that will be updated for the given workgroup.
+    state :: Prelude.Maybe WorkGroupState,
     -- | The workgroup description.
     description :: Prelude.Maybe Prelude.Text,
     -- | The specified workgroup that will be updated.
@@ -71,10 +71,10 @@ data UpdateWorkGroup = UpdateWorkGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'updateWorkGroup_state' - The workgroup state that will be updated for the given workgroup.
---
 -- 'configurationUpdates', 'updateWorkGroup_configurationUpdates' - The workgroup configuration that will be updated for the given
 -- workgroup.
+--
+-- 'state', 'updateWorkGroup_state' - The workgroup state that will be updated for the given workgroup.
 --
 -- 'description', 'updateWorkGroup_description' - The workgroup description.
 --
@@ -85,20 +85,21 @@ newUpdateWorkGroup ::
   UpdateWorkGroup
 newUpdateWorkGroup pWorkGroup_ =
   UpdateWorkGroup'
-    { state = Prelude.Nothing,
-      configurationUpdates = Prelude.Nothing,
+    { configurationUpdates =
+        Prelude.Nothing,
+      state = Prelude.Nothing,
       description = Prelude.Nothing,
       workGroup = pWorkGroup_
     }
-
--- | The workgroup state that will be updated for the given workgroup.
-updateWorkGroup_state :: Lens.Lens' UpdateWorkGroup (Prelude.Maybe WorkGroupState)
-updateWorkGroup_state = Lens.lens (\UpdateWorkGroup' {state} -> state) (\s@UpdateWorkGroup' {} a -> s {state = a} :: UpdateWorkGroup)
 
 -- | The workgroup configuration that will be updated for the given
 -- workgroup.
 updateWorkGroup_configurationUpdates :: Lens.Lens' UpdateWorkGroup (Prelude.Maybe WorkGroupConfigurationUpdates)
 updateWorkGroup_configurationUpdates = Lens.lens (\UpdateWorkGroup' {configurationUpdates} -> configurationUpdates) (\s@UpdateWorkGroup' {} a -> s {configurationUpdates = a} :: UpdateWorkGroup)
+
+-- | The workgroup state that will be updated for the given workgroup.
+updateWorkGroup_state :: Lens.Lens' UpdateWorkGroup (Prelude.Maybe WorkGroupState)
+updateWorkGroup_state = Lens.lens (\UpdateWorkGroup' {state} -> state) (\s@UpdateWorkGroup' {} a -> s {state = a} :: UpdateWorkGroup)
 
 -- | The workgroup description.
 updateWorkGroup_description :: Lens.Lens' UpdateWorkGroup (Prelude.Maybe Prelude.Text)
@@ -122,15 +123,15 @@ instance Core.AWSRequest UpdateWorkGroup where
 
 instance Prelude.Hashable UpdateWorkGroup where
   hashWithSalt _salt UpdateWorkGroup' {..} =
-    _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` configurationUpdates
+    _salt `Prelude.hashWithSalt` configurationUpdates
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` workGroup
 
 instance Prelude.NFData UpdateWorkGroup where
   rnf UpdateWorkGroup' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf configurationUpdates
+    Prelude.rnf configurationUpdates
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf workGroup
 
@@ -153,9 +154,9 @@ instance Core.ToJSON UpdateWorkGroup where
   toJSON UpdateWorkGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("State" Core..=) Prelude.<$> state,
-            ("ConfigurationUpdates" Core..=)
+          [ ("ConfigurationUpdates" Core..=)
               Prelude.<$> configurationUpdates,
+            ("State" Core..=) Prelude.<$> state,
             ("Description" Core..=) Prelude.<$> description,
             Prelude.Just ("WorkGroup" Core..= workGroup)
           ]

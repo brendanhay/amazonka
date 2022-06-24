@@ -31,16 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResultConfiguration' smart constructor.
 data ResultConfiguration = ResultConfiguration'
-  { -- | If query results are encrypted in Amazon S3, indicates the encryption
-    -- option used (for example, @SSE-KMS@ or @CSE-KMS@) and key information.
-    -- This is a client-side setting. If workgroup settings override
-    -- client-side settings, then the query uses the encryption configuration
-    -- that is specified for the workgroup, and also uses the location for
-    -- storing query results specified in the workgroup. See
-    -- WorkGroupConfiguration$EnforceWorkGroupConfiguration and
-    -- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
-    encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
-    -- | The location in Amazon S3 where your query results are stored, such as
+  { -- | The location in Amazon S3 where your query results are stored, such as
     -- @s3:\/\/path\/to\/query\/bucket\/@. To run the query, you must specify
     -- the query results location using one of the ways: either for individual
     -- queries using either this setting (client-side), or in the workgroup,
@@ -50,7 +41,16 @@ data ResultConfiguration = ResultConfiguration'
     -- If workgroup settings override client-side settings, then the query uses
     -- the settings specified for the workgroup. See
     -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
-    outputLocation :: Prelude.Maybe Prelude.Text
+    outputLocation :: Prelude.Maybe Prelude.Text,
+    -- | If query results are encrypted in Amazon S3, indicates the encryption
+    -- option used (for example, @SSE-KMS@ or @CSE-KMS@) and key information.
+    -- This is a client-side setting. If workgroup settings override
+    -- client-side settings, then the query uses the encryption configuration
+    -- that is specified for the workgroup, and also uses the location for
+    -- storing query results specified in the workgroup. See
+    -- WorkGroupConfiguration$EnforceWorkGroupConfiguration and
+    -- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
+    encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,15 +62,6 @@ data ResultConfiguration = ResultConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'encryptionConfiguration', 'resultConfiguration_encryptionConfiguration' - If query results are encrypted in Amazon S3, indicates the encryption
--- option used (for example, @SSE-KMS@ or @CSE-KMS@) and key information.
--- This is a client-side setting. If workgroup settings override
--- client-side settings, then the query uses the encryption configuration
--- that is specified for the workgroup, and also uses the location for
--- storing query results specified in the workgroup. See
--- WorkGroupConfiguration$EnforceWorkGroupConfiguration and
--- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
---
 -- 'outputLocation', 'resultConfiguration_outputLocation' - The location in Amazon S3 where your query results are stored, such as
 -- @s3:\/\/path\/to\/query\/bucket\/@. To run the query, you must specify
 -- the query results location using one of the ways: either for individual
@@ -81,16 +72,8 @@ data ResultConfiguration = ResultConfiguration'
 -- If workgroup settings override client-side settings, then the query uses
 -- the settings specified for the workgroup. See
 -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
-newResultConfiguration ::
-  ResultConfiguration
-newResultConfiguration =
-  ResultConfiguration'
-    { encryptionConfiguration =
-        Prelude.Nothing,
-      outputLocation = Prelude.Nothing
-    }
-
--- | If query results are encrypted in Amazon S3, indicates the encryption
+--
+-- 'encryptionConfiguration', 'resultConfiguration_encryptionConfiguration' - If query results are encrypted in Amazon S3, indicates the encryption
 -- option used (for example, @SSE-KMS@ or @CSE-KMS@) and key information.
 -- This is a client-side setting. If workgroup settings override
 -- client-side settings, then the query uses the encryption configuration
@@ -98,8 +81,14 @@ newResultConfiguration =
 -- storing query results specified in the workgroup. See
 -- WorkGroupConfiguration$EnforceWorkGroupConfiguration and
 -- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
-resultConfiguration_encryptionConfiguration :: Lens.Lens' ResultConfiguration (Prelude.Maybe EncryptionConfiguration)
-resultConfiguration_encryptionConfiguration = Lens.lens (\ResultConfiguration' {encryptionConfiguration} -> encryptionConfiguration) (\s@ResultConfiguration' {} a -> s {encryptionConfiguration = a} :: ResultConfiguration)
+newResultConfiguration ::
+  ResultConfiguration
+newResultConfiguration =
+  ResultConfiguration'
+    { outputLocation =
+        Prelude.Nothing,
+      encryptionConfiguration = Prelude.Nothing
+    }
 
 -- | The location in Amazon S3 where your query results are stored, such as
 -- @s3:\/\/path\/to\/query\/bucket\/@. To run the query, you must specify
@@ -114,34 +103,44 @@ resultConfiguration_encryptionConfiguration = Lens.lens (\ResultConfiguration' {
 resultConfiguration_outputLocation :: Lens.Lens' ResultConfiguration (Prelude.Maybe Prelude.Text)
 resultConfiguration_outputLocation = Lens.lens (\ResultConfiguration' {outputLocation} -> outputLocation) (\s@ResultConfiguration' {} a -> s {outputLocation = a} :: ResultConfiguration)
 
+-- | If query results are encrypted in Amazon S3, indicates the encryption
+-- option used (for example, @SSE-KMS@ or @CSE-KMS@) and key information.
+-- This is a client-side setting. If workgroup settings override
+-- client-side settings, then the query uses the encryption configuration
+-- that is specified for the workgroup, and also uses the location for
+-- storing query results specified in the workgroup. See
+-- WorkGroupConfiguration$EnforceWorkGroupConfiguration and
+-- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
+resultConfiguration_encryptionConfiguration :: Lens.Lens' ResultConfiguration (Prelude.Maybe EncryptionConfiguration)
+resultConfiguration_encryptionConfiguration = Lens.lens (\ResultConfiguration' {encryptionConfiguration} -> encryptionConfiguration) (\s@ResultConfiguration' {} a -> s {encryptionConfiguration = a} :: ResultConfiguration)
+
 instance Core.FromJSON ResultConfiguration where
   parseJSON =
     Core.withObject
       "ResultConfiguration"
       ( \x ->
           ResultConfiguration'
-            Prelude.<$> (x Core..:? "EncryptionConfiguration")
-            Prelude.<*> (x Core..:? "OutputLocation")
+            Prelude.<$> (x Core..:? "OutputLocation")
+            Prelude.<*> (x Core..:? "EncryptionConfiguration")
       )
 
 instance Prelude.Hashable ResultConfiguration where
   hashWithSalt _salt ResultConfiguration' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` outputLocation
       `Prelude.hashWithSalt` encryptionConfiguration
-      `Prelude.hashWithSalt` outputLocation
 
 instance Prelude.NFData ResultConfiguration where
   rnf ResultConfiguration' {..} =
-    Prelude.rnf encryptionConfiguration
-      `Prelude.seq` Prelude.rnf outputLocation
+    Prelude.rnf outputLocation
+      `Prelude.seq` Prelude.rnf encryptionConfiguration
 
 instance Core.ToJSON ResultConfiguration where
   toJSON ResultConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EncryptionConfiguration" Core..=)
-              Prelude.<$> encryptionConfiguration,
-            ("OutputLocation" Core..=)
-              Prelude.<$> outputLocation
+          [ ("OutputLocation" Core..=)
+              Prelude.<$> outputLocation,
+            ("EncryptionConfiguration" Core..=)
+              Prelude.<$> encryptionConfiguration
           ]
       )

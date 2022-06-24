@@ -28,18 +28,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTableMetadata' smart constructor.
 data TableMetadata = TableMetadata'
-  { -- | The type of table. In Athena, only @EXTERNAL_TABLE@ is supported.
-    tableType :: Prelude.Maybe Prelude.Text,
-    -- | A set of custom key\/value pairs for table properties.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A list of the columns in the table.
+  { -- | A list of the columns in the table.
     columns :: Prelude.Maybe [Column],
     -- | The last time the table was accessed.
     lastAccessTime :: Prelude.Maybe Core.POSIX,
     -- | A list of the partition keys in the table.
     partitionKeys :: Prelude.Maybe [Column],
+    -- | The type of table. In Athena, only @EXTERNAL_TABLE@ is supported.
+    tableType :: Prelude.Maybe Prelude.Text,
     -- | The time that the table was created.
     createTime :: Prelude.Maybe Core.POSIX,
+    -- | A set of custom key\/value pairs for table properties.
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the table.
     name :: Prelude.Text
   }
@@ -53,17 +53,17 @@ data TableMetadata = TableMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tableType', 'tableMetadata_tableType' - The type of table. In Athena, only @EXTERNAL_TABLE@ is supported.
---
--- 'parameters', 'tableMetadata_parameters' - A set of custom key\/value pairs for table properties.
---
 -- 'columns', 'tableMetadata_columns' - A list of the columns in the table.
 --
 -- 'lastAccessTime', 'tableMetadata_lastAccessTime' - The last time the table was accessed.
 --
 -- 'partitionKeys', 'tableMetadata_partitionKeys' - A list of the partition keys in the table.
 --
+-- 'tableType', 'tableMetadata_tableType' - The type of table. In Athena, only @EXTERNAL_TABLE@ is supported.
+--
 -- 'createTime', 'tableMetadata_createTime' - The time that the table was created.
+--
+-- 'parameters', 'tableMetadata_parameters' - A set of custom key\/value pairs for table properties.
 --
 -- 'name', 'tableMetadata_name' - The name of the table.
 newTableMetadata ::
@@ -72,22 +72,14 @@ newTableMetadata ::
   TableMetadata
 newTableMetadata pName_ =
   TableMetadata'
-    { tableType = Prelude.Nothing,
-      parameters = Prelude.Nothing,
-      columns = Prelude.Nothing,
+    { columns = Prelude.Nothing,
       lastAccessTime = Prelude.Nothing,
       partitionKeys = Prelude.Nothing,
+      tableType = Prelude.Nothing,
       createTime = Prelude.Nothing,
+      parameters = Prelude.Nothing,
       name = pName_
     }
-
--- | The type of table. In Athena, only @EXTERNAL_TABLE@ is supported.
-tableMetadata_tableType :: Lens.Lens' TableMetadata (Prelude.Maybe Prelude.Text)
-tableMetadata_tableType = Lens.lens (\TableMetadata' {tableType} -> tableType) (\s@TableMetadata' {} a -> s {tableType = a} :: TableMetadata)
-
--- | A set of custom key\/value pairs for table properties.
-tableMetadata_parameters :: Lens.Lens' TableMetadata (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-tableMetadata_parameters = Lens.lens (\TableMetadata' {parameters} -> parameters) (\s@TableMetadata' {} a -> s {parameters = a} :: TableMetadata) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of the columns in the table.
 tableMetadata_columns :: Lens.Lens' TableMetadata (Prelude.Maybe [Column])
@@ -101,9 +93,17 @@ tableMetadata_lastAccessTime = Lens.lens (\TableMetadata' {lastAccessTime} -> la
 tableMetadata_partitionKeys :: Lens.Lens' TableMetadata (Prelude.Maybe [Column])
 tableMetadata_partitionKeys = Lens.lens (\TableMetadata' {partitionKeys} -> partitionKeys) (\s@TableMetadata' {} a -> s {partitionKeys = a} :: TableMetadata) Prelude.. Lens.mapping Lens.coerced
 
+-- | The type of table. In Athena, only @EXTERNAL_TABLE@ is supported.
+tableMetadata_tableType :: Lens.Lens' TableMetadata (Prelude.Maybe Prelude.Text)
+tableMetadata_tableType = Lens.lens (\TableMetadata' {tableType} -> tableType) (\s@TableMetadata' {} a -> s {tableType = a} :: TableMetadata)
+
 -- | The time that the table was created.
 tableMetadata_createTime :: Lens.Lens' TableMetadata (Prelude.Maybe Prelude.UTCTime)
 tableMetadata_createTime = Lens.lens (\TableMetadata' {createTime} -> createTime) (\s@TableMetadata' {} a -> s {createTime = a} :: TableMetadata) Prelude.. Lens.mapping Core._Time
+
+-- | A set of custom key\/value pairs for table properties.
+tableMetadata_parameters :: Lens.Lens' TableMetadata (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+tableMetadata_parameters = Lens.lens (\TableMetadata' {parameters} -> parameters) (\s@TableMetadata' {} a -> s {parameters = a} :: TableMetadata) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the table.
 tableMetadata_name :: Lens.Lens' TableMetadata Prelude.Text
@@ -115,31 +115,31 @@ instance Core.FromJSON TableMetadata where
       "TableMetadata"
       ( \x ->
           TableMetadata'
-            Prelude.<$> (x Core..:? "TableType")
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Columns" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "Columns" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "LastAccessTime")
             Prelude.<*> (x Core..:? "PartitionKeys" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "TableType")
             Prelude.<*> (x Core..:? "CreateTime")
+            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "Name")
       )
 
 instance Prelude.Hashable TableMetadata where
   hashWithSalt _salt TableMetadata' {..} =
-    _salt `Prelude.hashWithSalt` tableType
-      `Prelude.hashWithSalt` parameters
-      `Prelude.hashWithSalt` columns
+    _salt `Prelude.hashWithSalt` columns
       `Prelude.hashWithSalt` lastAccessTime
       `Prelude.hashWithSalt` partitionKeys
+      `Prelude.hashWithSalt` tableType
       `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData TableMetadata where
   rnf TableMetadata' {..} =
-    Prelude.rnf tableType
-      `Prelude.seq` Prelude.rnf parameters
-      `Prelude.seq` Prelude.rnf columns
+    Prelude.rnf columns
       `Prelude.seq` Prelude.rnf lastAccessTime
       `Prelude.seq` Prelude.rnf partitionKeys
+      `Prelude.seq` Prelude.rnf tableType
       `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf name

@@ -28,10 +28,10 @@ import Amazonka.SavingsPlans.Types.SavingsPlanOfferingFilterAttribute
 --
 -- /See:/ 'newSavingsPlanOfferingFilterElement' smart constructor.
 data SavingsPlanOfferingFilterElement = SavingsPlanOfferingFilterElement'
-  { -- | The filter values.
-    values :: Prelude.Maybe [Prelude.Text],
-    -- | The filter name.
-    name :: Prelude.Maybe SavingsPlanOfferingFilterAttribute
+  { -- | The filter name.
+    name :: Prelude.Maybe SavingsPlanOfferingFilterAttribute,
+    -- | The filter values.
+    values :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data SavingsPlanOfferingFilterElement = SavingsPlanOfferingFilterElement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'values', 'savingsPlanOfferingFilterElement_values' - The filter values.
---
 -- 'name', 'savingsPlanOfferingFilterElement_name' - The filter name.
+--
+-- 'values', 'savingsPlanOfferingFilterElement_values' - The filter values.
 newSavingsPlanOfferingFilterElement ::
   SavingsPlanOfferingFilterElement
 newSavingsPlanOfferingFilterElement =
   SavingsPlanOfferingFilterElement'
-    { values =
+    { name =
         Prelude.Nothing,
-      name = Prelude.Nothing
+      values = Prelude.Nothing
     }
-
--- | The filter values.
-savingsPlanOfferingFilterElement_values :: Lens.Lens' SavingsPlanOfferingFilterElement (Prelude.Maybe [Prelude.Text])
-savingsPlanOfferingFilterElement_values = Lens.lens (\SavingsPlanOfferingFilterElement' {values} -> values) (\s@SavingsPlanOfferingFilterElement' {} a -> s {values = a} :: SavingsPlanOfferingFilterElement) Prelude.. Lens.mapping Lens.coerced
 
 -- | The filter name.
 savingsPlanOfferingFilterElement_name :: Lens.Lens' SavingsPlanOfferingFilterElement (Prelude.Maybe SavingsPlanOfferingFilterAttribute)
 savingsPlanOfferingFilterElement_name = Lens.lens (\SavingsPlanOfferingFilterElement' {name} -> name) (\s@SavingsPlanOfferingFilterElement' {} a -> s {name = a} :: SavingsPlanOfferingFilterElement)
+
+-- | The filter values.
+savingsPlanOfferingFilterElement_values :: Lens.Lens' SavingsPlanOfferingFilterElement (Prelude.Maybe [Prelude.Text])
+savingsPlanOfferingFilterElement_values = Lens.lens (\SavingsPlanOfferingFilterElement' {values} -> values) (\s@SavingsPlanOfferingFilterElement' {} a -> s {values = a} :: SavingsPlanOfferingFilterElement) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Prelude.Hashable
@@ -70,21 +70,21 @@ instance
   hashWithSalt
     _salt
     SavingsPlanOfferingFilterElement' {..} =
-      _salt `Prelude.hashWithSalt` values
-        `Prelude.hashWithSalt` name
+      _salt `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` values
 
 instance
   Prelude.NFData
     SavingsPlanOfferingFilterElement
   where
   rnf SavingsPlanOfferingFilterElement' {..} =
-    Prelude.rnf values `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON SavingsPlanOfferingFilterElement where
   toJSON SavingsPlanOfferingFilterElement' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("values" Core..=) Prelude.<$> values,
-            ("name" Core..=) Prelude.<$> name
+          [ ("name" Core..=) Prelude.<$> name,
+            ("values" Core..=) Prelude.<$> values
           ]
       )

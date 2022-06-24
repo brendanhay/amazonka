@@ -28,10 +28,10 @@ import Amazonka.SavingsPlans.Types.SavingsPlansFilterName
 --
 -- /See:/ 'newSavingsPlanFilter' smart constructor.
 data SavingsPlanFilter = SavingsPlanFilter'
-  { -- | The filter value.
-    values :: Prelude.Maybe [Prelude.Text],
-    -- | The filter name.
-    name :: Prelude.Maybe SavingsPlansFilterName
+  { -- | The filter name.
+    name :: Prelude.Maybe SavingsPlansFilterName,
+    -- | The filter value.
+    values :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,39 +43,39 @@ data SavingsPlanFilter = SavingsPlanFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'values', 'savingsPlanFilter_values' - The filter value.
---
 -- 'name', 'savingsPlanFilter_name' - The filter name.
+--
+-- 'values', 'savingsPlanFilter_values' - The filter value.
 newSavingsPlanFilter ::
   SavingsPlanFilter
 newSavingsPlanFilter =
   SavingsPlanFilter'
-    { values = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      values = Prelude.Nothing
     }
-
--- | The filter value.
-savingsPlanFilter_values :: Lens.Lens' SavingsPlanFilter (Prelude.Maybe [Prelude.Text])
-savingsPlanFilter_values = Lens.lens (\SavingsPlanFilter' {values} -> values) (\s@SavingsPlanFilter' {} a -> s {values = a} :: SavingsPlanFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | The filter name.
 savingsPlanFilter_name :: Lens.Lens' SavingsPlanFilter (Prelude.Maybe SavingsPlansFilterName)
 savingsPlanFilter_name = Lens.lens (\SavingsPlanFilter' {name} -> name) (\s@SavingsPlanFilter' {} a -> s {name = a} :: SavingsPlanFilter)
 
+-- | The filter value.
+savingsPlanFilter_values :: Lens.Lens' SavingsPlanFilter (Prelude.Maybe [Prelude.Text])
+savingsPlanFilter_values = Lens.lens (\SavingsPlanFilter' {values} -> values) (\s@SavingsPlanFilter' {} a -> s {values = a} :: SavingsPlanFilter) Prelude.. Lens.mapping Lens.coerced
+
 instance Prelude.Hashable SavingsPlanFilter where
   hashWithSalt _salt SavingsPlanFilter' {..} =
-    _salt `Prelude.hashWithSalt` values
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` values
 
 instance Prelude.NFData SavingsPlanFilter where
   rnf SavingsPlanFilter' {..} =
-    Prelude.rnf values `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON SavingsPlanFilter where
   toJSON SavingsPlanFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("values" Core..=) Prelude.<$> values,
-            ("name" Core..=) Prelude.<$> name
+          [ ("name" Core..=) Prelude.<$> name,
+            ("values" Core..=) Prelude.<$> values
           ]
       )

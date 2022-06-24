@@ -23,17 +23,17 @@ module Amazonka.SavingsPlans
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
+    -- ** InternalServerException
+    _InternalServerException,
 
     -- ** ServiceQuotaExceededException
     _ServiceQuotaExceededException,
 
-    -- ** InternalServerException
-    _InternalServerException,
-
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -41,17 +41,11 @@ module Amazonka.SavingsPlans
     -- * Operations
     -- $operations
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** DescribeSavingsPlanRates
-    DescribeSavingsPlanRates (DescribeSavingsPlanRates'),
-    newDescribeSavingsPlanRates,
-    DescribeSavingsPlanRatesResponse (DescribeSavingsPlanRatesResponse'),
-    newDescribeSavingsPlanRatesResponse,
+    -- ** CreateSavingsPlan
+    CreateSavingsPlan (CreateSavingsPlan'),
+    newCreateSavingsPlan,
+    CreateSavingsPlanResponse (CreateSavingsPlanResponse'),
+    newCreateSavingsPlanResponse,
 
     -- ** DeleteQueuedSavingsPlan
     DeleteQueuedSavingsPlan (DeleteQueuedSavingsPlan'),
@@ -59,11 +53,23 @@ module Amazonka.SavingsPlans
     DeleteQueuedSavingsPlanResponse (DeleteQueuedSavingsPlanResponse'),
     newDeleteQueuedSavingsPlanResponse,
 
-    -- ** CreateSavingsPlan
-    CreateSavingsPlan (CreateSavingsPlan'),
-    newCreateSavingsPlan,
-    CreateSavingsPlanResponse (CreateSavingsPlanResponse'),
-    newCreateSavingsPlanResponse,
+    -- ** DescribeSavingsPlanRates
+    DescribeSavingsPlanRates (DescribeSavingsPlanRates'),
+    newDescribeSavingsPlanRates,
+    DescribeSavingsPlanRatesResponse (DescribeSavingsPlanRatesResponse'),
+    newDescribeSavingsPlanRatesResponse,
+
+    -- ** DescribeSavingsPlans
+    DescribeSavingsPlans (DescribeSavingsPlans'),
+    newDescribeSavingsPlans,
+    DescribeSavingsPlansResponse (DescribeSavingsPlansResponse'),
+    newDescribeSavingsPlansResponse,
+
+    -- ** DescribeSavingsPlansOfferingRates
+    DescribeSavingsPlansOfferingRates (DescribeSavingsPlansOfferingRates'),
+    newDescribeSavingsPlansOfferingRates,
+    DescribeSavingsPlansOfferingRatesResponse (DescribeSavingsPlansOfferingRatesResponse'),
+    newDescribeSavingsPlansOfferingRatesResponse,
 
     -- ** DescribeSavingsPlansOfferings
     DescribeSavingsPlansOfferings (DescribeSavingsPlansOfferings'),
@@ -71,11 +77,11 @@ module Amazonka.SavingsPlans
     DescribeSavingsPlansOfferingsResponse (DescribeSavingsPlansOfferingsResponse'),
     newDescribeSavingsPlansOfferingsResponse,
 
-    -- ** DescribeSavingsPlans
-    DescribeSavingsPlans (DescribeSavingsPlans'),
-    newDescribeSavingsPlans,
-    DescribeSavingsPlansResponse (DescribeSavingsPlansResponse'),
-    newDescribeSavingsPlansResponse,
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -88,12 +94,6 @@ module Amazonka.SavingsPlans
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
-
-    -- ** DescribeSavingsPlansOfferingRates
-    DescribeSavingsPlansOfferingRates (DescribeSavingsPlansOfferingRates'),
-    newDescribeSavingsPlansOfferingRates,
-    DescribeSavingsPlansOfferingRatesResponse (DescribeSavingsPlansOfferingRatesResponse'),
-    newDescribeSavingsPlansOfferingRatesResponse,
 
     -- * Types
 

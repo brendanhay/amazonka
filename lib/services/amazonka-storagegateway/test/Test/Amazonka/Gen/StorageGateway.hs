@@ -27,173 +27,125 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCancelArchival $
---             newCancelArchival
---
---         , requestCreateStorediSCSIVolume $
---             newCreateStorediSCSIVolume
---
---         , requestDescribeFileSystemAssociations $
---             newDescribeFileSystemAssociations
---
---         , requestUpdateSMBLocalGroups $
---             newUpdateSMBLocalGroups
---
---         , requestCreateNFSFileShare $
---             newCreateNFSFileShare
---
---         , requestAssociateFileSystem $
---             newAssociateFileSystem
---
---         , requestDetachVolume $
---             newDetachVolume
---
---         , requestDescribeChapCredentials $
---             newDescribeChapCredentials
---
---         , requestSetLocalConsolePassword $
---             newSetLocalConsolePassword
---
---         , requestCreateTapes $
---             newCreateTapes
---
---         , requestUpdateVTLDeviceType $
---             newUpdateVTLDeviceType
---
---         , requestCreateCachediSCSIVolume $
---             newCreateCachediSCSIVolume
---
---         , requestListFileShares $
---             newListFileShares
---
---         , requestJoinDomain $
---             newJoinDomain
---
---         , requestDeleteFileShare $
---             newDeleteFileShare
---
---         , requestListVolumeInitiators $
---             newListVolumeInitiators
---
---         , requestAddUploadBuffer $
---             newAddUploadBuffer
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestNotifyWhenUploaded $
---             newNotifyWhenUploaded
---
---         , requestListTapePools $
---             newListTapePools
---
---         , requestDeleteTapePool $
---             newDeleteTapePool
---
---         , requestUpdateGatewayInformation $
---             newUpdateGatewayInformation
---
---         , requestDescribeMaintenanceStartTime $
---             newDescribeMaintenanceStartTime
---
---         , requestAssignTapePool $
---             newAssignTapePool
---
---         , requestDescribeWorkingStorage $
---             newDescribeWorkingStorage
---
---         , requestDescribeCachediSCSIVolumes $
---             newDescribeCachediSCSIVolumes
+--         [ requestActivateGateway $
+--             newActivateGateway
 --
 --         , requestAddCache $
 --             newAddCache
 --
---         , requestCreateTapePool $
---             newCreateTapePool
+--         , requestAddTagsToResource $
+--             newAddTagsToResource
 --
---         , requestStartGateway $
---             newStartGateway
+--         , requestAddUploadBuffer $
+--             newAddUploadBuffer
 --
---         , requestShutdownGateway $
---             newShutdownGateway
+--         , requestAddWorkingStorage $
+--             newAddWorkingStorage
 --
---         , requestListAutomaticTapeCreationPolicies $
---             newListAutomaticTapeCreationPolicies
+--         , requestAssignTapePool $
+--             newAssignTapePool
 --
---         , requestUpdateGatewaySoftwareNow $
---             newUpdateGatewaySoftwareNow
---
---         , requestRemoveTagsFromResource $
---             newRemoveTagsFromResource
---
---         , requestUpdateFileSystemAssociation $
---             newUpdateFileSystemAssociation
---
---         , requestCreateSMBFileShare $
---             newCreateSMBFileShare
---
---         , requestDeleteChapCredentials $
---             newDeleteChapCredentials
---
---         , requestUpdateChapCredentials $
---             newUpdateChapCredentials
+--         , requestAssociateFileSystem $
+--             newAssociateFileSystem
 --
 --         , requestAttachVolume $
 --             newAttachVolume
 --
---         , requestDescribeAvailabilityMonitorTest $
---             newDescribeAvailabilityMonitorTest
+--         , requestCancelArchival $
+--             newCancelArchival
 --
---         , requestDescribeUploadBuffer $
---             newDescribeUploadBuffer
+--         , requestCancelRetrieval $
+--             newCancelRetrieval
 --
---         , requestDescribeTapes $
---             newDescribeTapes
+--         , requestCreateCachediSCSIVolume $
+--             newCreateCachediSCSIVolume
 --
---         , requestDescribeStorediSCSIVolumes $
---             newDescribeStorediSCSIVolumes
+--         , requestCreateNFSFileShare $
+--             newCreateNFSFileShare
 --
---         , requestDisassociateFileSystem $
---             newDisassociateFileSystem
+--         , requestCreateSMBFileShare $
+--             newCreateSMBFileShare
 --
---         , requestSetSMBGuestPassword $
---             newSetSMBGuestPassword
+--         , requestCreateSnapshot $
+--             newCreateSnapshot
 --
 --         , requestCreateSnapshotFromVolumeRecoveryPoint $
 --             newCreateSnapshotFromVolumeRecoveryPoint
 --
---         , requestRetrieveTapeRecoveryPoint $
---             newRetrieveTapeRecoveryPoint
+--         , requestCreateStorediSCSIVolume $
+--             newCreateStorediSCSIVolume
 --
---         , requestAddTagsToResource $
---             newAddTagsToResource
+--         , requestCreateTapePool $
+--             newCreateTapePool
+--
+--         , requestCreateTapeWithBarcode $
+--             newCreateTapeWithBarcode
+--
+--         , requestCreateTapes $
+--             newCreateTapes
+--
+--         , requestDeleteAutomaticTapeCreationPolicy $
+--             newDeleteAutomaticTapeCreationPolicy
+--
+--         , requestDeleteBandwidthRateLimit $
+--             newDeleteBandwidthRateLimit
+--
+--         , requestDeleteChapCredentials $
+--             newDeleteChapCredentials
+--
+--         , requestDeleteFileShare $
+--             newDeleteFileShare
 --
 --         , requestDeleteGateway $
 --             newDeleteGateway
 --
---         , requestUpdateMaintenanceStartTime $
---             newUpdateMaintenanceStartTime
+--         , requestDeleteSnapshotSchedule $
+--             newDeleteSnapshotSchedule
+--
+--         , requestDeleteTape $
+--             newDeleteTape
+--
+--         , requestDeleteTapeArchive $
+--             newDeleteTapeArchive
+--
+--         , requestDeleteTapePool $
+--             newDeleteTapePool
+--
+--         , requestDeleteVolume $
+--             newDeleteVolume
+--
+--         , requestDescribeAvailabilityMonitorTest $
+--             newDescribeAvailabilityMonitorTest
+--
+--         , requestDescribeBandwidthRateLimit $
+--             newDescribeBandwidthRateLimit
+--
+--         , requestDescribeBandwidthRateLimitSchedule $
+--             newDescribeBandwidthRateLimitSchedule
+--
+--         , requestDescribeCache $
+--             newDescribeCache
+--
+--         , requestDescribeCachediSCSIVolumes $
+--             newDescribeCachediSCSIVolumes
+--
+--         , requestDescribeChapCredentials $
+--             newDescribeChapCredentials
+--
+--         , requestDescribeFileSystemAssociations $
+--             newDescribeFileSystemAssociations
 --
 --         , requestDescribeGatewayInformation $
 --             newDescribeGatewayInformation
 --
---         , requestRefreshCache $
---             newRefreshCache
+--         , requestDescribeMaintenanceStartTime $
+--             newDescribeMaintenanceStartTime
 --
---         , requestUpdateNFSFileShare $
---             newUpdateNFSFileShare
+--         , requestDescribeNFSFileShares $
+--             newDescribeNFSFileShares
 --
---         , requestRetrieveTapeArchive $
---             newRetrieveTapeArchive
---
---         , requestDescribeTapeArchives $
---             newDescribeTapeArchives
---
---         , requestUpdateBandwidthRateLimitSchedule $
---             newUpdateBandwidthRateLimitSchedule
---
---         , requestDisableGateway $
---             newDisableGateway
+--         , requestDescribeSMBFileShares $
+--             newDescribeSMBFileShares
 --
 --         , requestDescribeSMBSettings $
 --             newDescribeSMBSettings
@@ -201,272 +153,272 @@ import Test.Tasty
 --         , requestDescribeSnapshotSchedule $
 --             newDescribeSnapshotSchedule
 --
---         , requestCreateTapeWithBarcode $
---             newCreateTapeWithBarcode
+--         , requestDescribeStorediSCSIVolumes $
+--             newDescribeStorediSCSIVolumes
 --
---         , requestDescribeBandwidthRateLimit $
---             newDescribeBandwidthRateLimit
---
---         , requestDeleteAutomaticTapeCreationPolicy $
---             newDeleteAutomaticTapeCreationPolicy
---
---         , requestUpdateAutomaticTapeCreationPolicy $
---             newUpdateAutomaticTapeCreationPolicy
---
---         , requestUpdateSMBFileShareVisibility $
---             newUpdateSMBFileShareVisibility
---
---         , requestDeleteSnapshotSchedule $
---             newDeleteSnapshotSchedule
---
---         , requestUpdateSnapshotSchedule $
---             newUpdateSnapshotSchedule
---
---         , requestDescribeBandwidthRateLimitSchedule $
---             newDescribeBandwidthRateLimitSchedule
---
---         , requestCreateSnapshot $
---             newCreateSnapshot
---
---         , requestUpdateSMBSecurityStrategy $
---             newUpdateSMBSecurityStrategy
---
---         , requestCancelRetrieval $
---             newCancelRetrieval
---
---         , requestDescribeVTLDevices $
---             newDescribeVTLDevices
---
---         , requestStartAvailabilityMonitorTest $
---             newStartAvailabilityMonitorTest
---
---         , requestDeleteTapeArchive $
---             newDeleteTapeArchive
---
---         , requestListFileSystemAssociations $
---             newListFileSystemAssociations
---
---         , requestUpdateSMBFileShare $
---             newUpdateSMBFileShare
---
---         , requestDescribeNFSFileShares $
---             newDescribeNFSFileShares
---
---         , requestListVolumeRecoveryPoints $
---             newListVolumeRecoveryPoints
---
---         , requestListTapes $
---             newListTapes
---
---         , requestResetCache $
---             newResetCache
---
---         , requestDescribeSMBFileShares $
---             newDescribeSMBFileShares
---
---         , requestListGateways $
---             newListGateways
---
---         , requestDeleteTape $
---             newDeleteTape
---
---         , requestListLocalDisks $
---             newListLocalDisks
---
---         , requestListVolumes $
---             newListVolumes
---
---         , requestUpdateBandwidthRateLimit $
---             newUpdateBandwidthRateLimit
---
---         , requestAddWorkingStorage $
---             newAddWorkingStorage
+--         , requestDescribeTapeArchives $
+--             newDescribeTapeArchives
 --
 --         , requestDescribeTapeRecoveryPoints $
 --             newDescribeTapeRecoveryPoints
 --
---         , requestDeleteBandwidthRateLimit $
---             newDeleteBandwidthRateLimit
+--         , requestDescribeTapes $
+--             newDescribeTapes
 --
---         , requestActivateGateway $
---             newActivateGateway
+--         , requestDescribeUploadBuffer $
+--             newDescribeUploadBuffer
 --
---         , requestDescribeCache $
---             newDescribeCache
+--         , requestDescribeVTLDevices $
+--             newDescribeVTLDevices
 --
---         , requestDeleteVolume $
---             newDeleteVolume
+--         , requestDescribeWorkingStorage $
+--             newDescribeWorkingStorage
+--
+--         , requestDetachVolume $
+--             newDetachVolume
+--
+--         , requestDisableGateway $
+--             newDisableGateway
+--
+--         , requestDisassociateFileSystem $
+--             newDisassociateFileSystem
+--
+--         , requestJoinDomain $
+--             newJoinDomain
+--
+--         , requestListAutomaticTapeCreationPolicies $
+--             newListAutomaticTapeCreationPolicies
+--
+--         , requestListFileShares $
+--             newListFileShares
+--
+--         , requestListFileSystemAssociations $
+--             newListFileSystemAssociations
+--
+--         , requestListGateways $
+--             newListGateways
+--
+--         , requestListLocalDisks $
+--             newListLocalDisks
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestListTapePools $
+--             newListTapePools
+--
+--         , requestListTapes $
+--             newListTapes
+--
+--         , requestListVolumeInitiators $
+--             newListVolumeInitiators
+--
+--         , requestListVolumeRecoveryPoints $
+--             newListVolumeRecoveryPoints
+--
+--         , requestListVolumes $
+--             newListVolumes
+--
+--         , requestNotifyWhenUploaded $
+--             newNotifyWhenUploaded
+--
+--         , requestRefreshCache $
+--             newRefreshCache
+--
+--         , requestRemoveTagsFromResource $
+--             newRemoveTagsFromResource
+--
+--         , requestResetCache $
+--             newResetCache
+--
+--         , requestRetrieveTapeArchive $
+--             newRetrieveTapeArchive
+--
+--         , requestRetrieveTapeRecoveryPoint $
+--             newRetrieveTapeRecoveryPoint
+--
+--         , requestSetLocalConsolePassword $
+--             newSetLocalConsolePassword
+--
+--         , requestSetSMBGuestPassword $
+--             newSetSMBGuestPassword
+--
+--         , requestShutdownGateway $
+--             newShutdownGateway
+--
+--         , requestStartAvailabilityMonitorTest $
+--             newStartAvailabilityMonitorTest
+--
+--         , requestStartGateway $
+--             newStartGateway
+--
+--         , requestUpdateAutomaticTapeCreationPolicy $
+--             newUpdateAutomaticTapeCreationPolicy
+--
+--         , requestUpdateBandwidthRateLimit $
+--             newUpdateBandwidthRateLimit
+--
+--         , requestUpdateBandwidthRateLimitSchedule $
+--             newUpdateBandwidthRateLimitSchedule
+--
+--         , requestUpdateChapCredentials $
+--             newUpdateChapCredentials
+--
+--         , requestUpdateFileSystemAssociation $
+--             newUpdateFileSystemAssociation
+--
+--         , requestUpdateGatewayInformation $
+--             newUpdateGatewayInformation
+--
+--         , requestUpdateGatewaySoftwareNow $
+--             newUpdateGatewaySoftwareNow
+--
+--         , requestUpdateMaintenanceStartTime $
+--             newUpdateMaintenanceStartTime
+--
+--         , requestUpdateNFSFileShare $
+--             newUpdateNFSFileShare
+--
+--         , requestUpdateSMBFileShare $
+--             newUpdateSMBFileShare
+--
+--         , requestUpdateSMBFileShareVisibility $
+--             newUpdateSMBFileShareVisibility
+--
+--         , requestUpdateSMBLocalGroups $
+--             newUpdateSMBLocalGroups
+--
+--         , requestUpdateSMBSecurityStrategy $
+--             newUpdateSMBSecurityStrategy
+--
+--         , requestUpdateSnapshotSchedule $
+--             newUpdateSnapshotSchedule
+--
+--         , requestUpdateVTLDeviceType $
+--             newUpdateVTLDeviceType
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseCancelArchival $
---             newCancelArchivalResponse
---
---         , responseCreateStorediSCSIVolume $
---             newCreateStorediSCSIVolumeResponse
---
---         , responseDescribeFileSystemAssociations $
---             newDescribeFileSystemAssociationsResponse
---
---         , responseUpdateSMBLocalGroups $
---             newUpdateSMBLocalGroupsResponse
---
---         , responseCreateNFSFileShare $
---             newCreateNFSFileShareResponse
---
---         , responseAssociateFileSystem $
---             newAssociateFileSystemResponse
---
---         , responseDetachVolume $
---             newDetachVolumeResponse
---
---         , responseDescribeChapCredentials $
---             newDescribeChapCredentialsResponse
---
---         , responseSetLocalConsolePassword $
---             newSetLocalConsolePasswordResponse
---
---         , responseCreateTapes $
---             newCreateTapesResponse
---
---         , responseUpdateVTLDeviceType $
---             newUpdateVTLDeviceTypeResponse
---
---         , responseCreateCachediSCSIVolume $
---             newCreateCachediSCSIVolumeResponse
---
---         , responseListFileShares $
---             newListFileSharesResponse
---
---         , responseJoinDomain $
---             newJoinDomainResponse
---
---         , responseDeleteFileShare $
---             newDeleteFileShareResponse
---
---         , responseListVolumeInitiators $
---             newListVolumeInitiatorsResponse
---
---         , responseAddUploadBuffer $
---             newAddUploadBufferResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseNotifyWhenUploaded $
---             newNotifyWhenUploadedResponse
---
---         , responseListTapePools $
---             newListTapePoolsResponse
---
---         , responseDeleteTapePool $
---             newDeleteTapePoolResponse
---
---         , responseUpdateGatewayInformation $
---             newUpdateGatewayInformationResponse
---
---         , responseDescribeMaintenanceStartTime $
---             newDescribeMaintenanceStartTimeResponse
---
---         , responseAssignTapePool $
---             newAssignTapePoolResponse
---
---         , responseDescribeWorkingStorage $
---             newDescribeWorkingStorageResponse
---
---         , responseDescribeCachediSCSIVolumes $
---             newDescribeCachediSCSIVolumesResponse
+--         [ responseActivateGateway $
+--             newActivateGatewayResponse
 --
 --         , responseAddCache $
 --             newAddCacheResponse
 --
---         , responseCreateTapePool $
---             newCreateTapePoolResponse
+--         , responseAddTagsToResource $
+--             newAddTagsToResourceResponse
 --
---         , responseStartGateway $
---             newStartGatewayResponse
+--         , responseAddUploadBuffer $
+--             newAddUploadBufferResponse
 --
---         , responseShutdownGateway $
---             newShutdownGatewayResponse
+--         , responseAddWorkingStorage $
+--             newAddWorkingStorageResponse
 --
---         , responseListAutomaticTapeCreationPolicies $
---             newListAutomaticTapeCreationPoliciesResponse
+--         , responseAssignTapePool $
+--             newAssignTapePoolResponse
 --
---         , responseUpdateGatewaySoftwareNow $
---             newUpdateGatewaySoftwareNowResponse
---
---         , responseRemoveTagsFromResource $
---             newRemoveTagsFromResourceResponse
---
---         , responseUpdateFileSystemAssociation $
---             newUpdateFileSystemAssociationResponse
---
---         , responseCreateSMBFileShare $
---             newCreateSMBFileShareResponse
---
---         , responseDeleteChapCredentials $
---             newDeleteChapCredentialsResponse
---
---         , responseUpdateChapCredentials $
---             newUpdateChapCredentialsResponse
+--         , responseAssociateFileSystem $
+--             newAssociateFileSystemResponse
 --
 --         , responseAttachVolume $
 --             newAttachVolumeResponse
 --
---         , responseDescribeAvailabilityMonitorTest $
---             newDescribeAvailabilityMonitorTestResponse
+--         , responseCancelArchival $
+--             newCancelArchivalResponse
 --
---         , responseDescribeUploadBuffer $
---             newDescribeUploadBufferResponse
+--         , responseCancelRetrieval $
+--             newCancelRetrievalResponse
 --
---         , responseDescribeTapes $
---             newDescribeTapesResponse
+--         , responseCreateCachediSCSIVolume $
+--             newCreateCachediSCSIVolumeResponse
 --
---         , responseDescribeStorediSCSIVolumes $
---             newDescribeStorediSCSIVolumesResponse
+--         , responseCreateNFSFileShare $
+--             newCreateNFSFileShareResponse
 --
---         , responseDisassociateFileSystem $
---             newDisassociateFileSystemResponse
+--         , responseCreateSMBFileShare $
+--             newCreateSMBFileShareResponse
 --
---         , responseSetSMBGuestPassword $
---             newSetSMBGuestPasswordResponse
+--         , responseCreateSnapshot $
+--             newCreateSnapshotResponse
 --
 --         , responseCreateSnapshotFromVolumeRecoveryPoint $
 --             newCreateSnapshotFromVolumeRecoveryPointResponse
 --
---         , responseRetrieveTapeRecoveryPoint $
---             newRetrieveTapeRecoveryPointResponse
+--         , responseCreateStorediSCSIVolume $
+--             newCreateStorediSCSIVolumeResponse
 --
---         , responseAddTagsToResource $
---             newAddTagsToResourceResponse
+--         , responseCreateTapePool $
+--             newCreateTapePoolResponse
+--
+--         , responseCreateTapeWithBarcode $
+--             newCreateTapeWithBarcodeResponse
+--
+--         , responseCreateTapes $
+--             newCreateTapesResponse
+--
+--         , responseDeleteAutomaticTapeCreationPolicy $
+--             newDeleteAutomaticTapeCreationPolicyResponse
+--
+--         , responseDeleteBandwidthRateLimit $
+--             newDeleteBandwidthRateLimitResponse
+--
+--         , responseDeleteChapCredentials $
+--             newDeleteChapCredentialsResponse
+--
+--         , responseDeleteFileShare $
+--             newDeleteFileShareResponse
 --
 --         , responseDeleteGateway $
 --             newDeleteGatewayResponse
 --
---         , responseUpdateMaintenanceStartTime $
---             newUpdateMaintenanceStartTimeResponse
+--         , responseDeleteSnapshotSchedule $
+--             newDeleteSnapshotScheduleResponse
+--
+--         , responseDeleteTape $
+--             newDeleteTapeResponse
+--
+--         , responseDeleteTapeArchive $
+--             newDeleteTapeArchiveResponse
+--
+--         , responseDeleteTapePool $
+--             newDeleteTapePoolResponse
+--
+--         , responseDeleteVolume $
+--             newDeleteVolumeResponse
+--
+--         , responseDescribeAvailabilityMonitorTest $
+--             newDescribeAvailabilityMonitorTestResponse
+--
+--         , responseDescribeBandwidthRateLimit $
+--             newDescribeBandwidthRateLimitResponse
+--
+--         , responseDescribeBandwidthRateLimitSchedule $
+--             newDescribeBandwidthRateLimitScheduleResponse
+--
+--         , responseDescribeCache $
+--             newDescribeCacheResponse
+--
+--         , responseDescribeCachediSCSIVolumes $
+--             newDescribeCachediSCSIVolumesResponse
+--
+--         , responseDescribeChapCredentials $
+--             newDescribeChapCredentialsResponse
+--
+--         , responseDescribeFileSystemAssociations $
+--             newDescribeFileSystemAssociationsResponse
 --
 --         , responseDescribeGatewayInformation $
 --             newDescribeGatewayInformationResponse
 --
---         , responseRefreshCache $
---             newRefreshCacheResponse
+--         , responseDescribeMaintenanceStartTime $
+--             newDescribeMaintenanceStartTimeResponse
 --
---         , responseUpdateNFSFileShare $
---             newUpdateNFSFileShareResponse
+--         , responseDescribeNFSFileShares $
+--             newDescribeNFSFileSharesResponse
 --
---         , responseRetrieveTapeArchive $
---             newRetrieveTapeArchiveResponse
---
---         , responseDescribeTapeArchives $
---             newDescribeTapeArchivesResponse
---
---         , responseUpdateBandwidthRateLimitSchedule $
---             newUpdateBandwidthRateLimitScheduleResponse
---
---         , responseDisableGateway $
---             newDisableGatewayResponse
+--         , responseDescribeSMBFileShares $
+--             newDescribeSMBFileSharesResponse
 --
 --         , responseDescribeSMBSettings $
 --             newDescribeSMBSettingsResponse
@@ -474,262 +426,160 @@ import Test.Tasty
 --         , responseDescribeSnapshotSchedule $
 --             newDescribeSnapshotScheduleResponse
 --
---         , responseCreateTapeWithBarcode $
---             newCreateTapeWithBarcodeResponse
+--         , responseDescribeStorediSCSIVolumes $
+--             newDescribeStorediSCSIVolumesResponse
 --
---         , responseDescribeBandwidthRateLimit $
---             newDescribeBandwidthRateLimitResponse
---
---         , responseDeleteAutomaticTapeCreationPolicy $
---             newDeleteAutomaticTapeCreationPolicyResponse
---
---         , responseUpdateAutomaticTapeCreationPolicy $
---             newUpdateAutomaticTapeCreationPolicyResponse
---
---         , responseUpdateSMBFileShareVisibility $
---             newUpdateSMBFileShareVisibilityResponse
---
---         , responseDeleteSnapshotSchedule $
---             newDeleteSnapshotScheduleResponse
---
---         , responseUpdateSnapshotSchedule $
---             newUpdateSnapshotScheduleResponse
---
---         , responseDescribeBandwidthRateLimitSchedule $
---             newDescribeBandwidthRateLimitScheduleResponse
---
---         , responseCreateSnapshot $
---             newCreateSnapshotResponse
---
---         , responseUpdateSMBSecurityStrategy $
---             newUpdateSMBSecurityStrategyResponse
---
---         , responseCancelRetrieval $
---             newCancelRetrievalResponse
---
---         , responseDescribeVTLDevices $
---             newDescribeVTLDevicesResponse
---
---         , responseStartAvailabilityMonitorTest $
---             newStartAvailabilityMonitorTestResponse
---
---         , responseDeleteTapeArchive $
---             newDeleteTapeArchiveResponse
---
---         , responseListFileSystemAssociations $
---             newListFileSystemAssociationsResponse
---
---         , responseUpdateSMBFileShare $
---             newUpdateSMBFileShareResponse
---
---         , responseDescribeNFSFileShares $
---             newDescribeNFSFileSharesResponse
---
---         , responseListVolumeRecoveryPoints $
---             newListVolumeRecoveryPointsResponse
---
---         , responseListTapes $
---             newListTapesResponse
---
---         , responseResetCache $
---             newResetCacheResponse
---
---         , responseDescribeSMBFileShares $
---             newDescribeSMBFileSharesResponse
---
---         , responseListGateways $
---             newListGatewaysResponse
---
---         , responseDeleteTape $
---             newDeleteTapeResponse
---
---         , responseListLocalDisks $
---             newListLocalDisksResponse
---
---         , responseListVolumes $
---             newListVolumesResponse
---
---         , responseUpdateBandwidthRateLimit $
---             newUpdateBandwidthRateLimitResponse
---
---         , responseAddWorkingStorage $
---             newAddWorkingStorageResponse
+--         , responseDescribeTapeArchives $
+--             newDescribeTapeArchivesResponse
 --
 --         , responseDescribeTapeRecoveryPoints $
 --             newDescribeTapeRecoveryPointsResponse
 --
---         , responseDeleteBandwidthRateLimit $
---             newDeleteBandwidthRateLimitResponse
+--         , responseDescribeTapes $
+--             newDescribeTapesResponse
 --
---         , responseActivateGateway $
---             newActivateGatewayResponse
+--         , responseDescribeUploadBuffer $
+--             newDescribeUploadBufferResponse
 --
---         , responseDescribeCache $
---             newDescribeCacheResponse
+--         , responseDescribeVTLDevices $
+--             newDescribeVTLDevicesResponse
 --
---         , responseDeleteVolume $
---             newDeleteVolumeResponse
+--         , responseDescribeWorkingStorage $
+--             newDescribeWorkingStorageResponse
+--
+--         , responseDetachVolume $
+--             newDetachVolumeResponse
+--
+--         , responseDisableGateway $
+--             newDisableGatewayResponse
+--
+--         , responseDisassociateFileSystem $
+--             newDisassociateFileSystemResponse
+--
+--         , responseJoinDomain $
+--             newJoinDomainResponse
+--
+--         , responseListAutomaticTapeCreationPolicies $
+--             newListAutomaticTapeCreationPoliciesResponse
+--
+--         , responseListFileShares $
+--             newListFileSharesResponse
+--
+--         , responseListFileSystemAssociations $
+--             newListFileSystemAssociationsResponse
+--
+--         , responseListGateways $
+--             newListGatewaysResponse
+--
+--         , responseListLocalDisks $
+--             newListLocalDisksResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseListTapePools $
+--             newListTapePoolsResponse
+--
+--         , responseListTapes $
+--             newListTapesResponse
+--
+--         , responseListVolumeInitiators $
+--             newListVolumeInitiatorsResponse
+--
+--         , responseListVolumeRecoveryPoints $
+--             newListVolumeRecoveryPointsResponse
+--
+--         , responseListVolumes $
+--             newListVolumesResponse
+--
+--         , responseNotifyWhenUploaded $
+--             newNotifyWhenUploadedResponse
+--
+--         , responseRefreshCache $
+--             newRefreshCacheResponse
+--
+--         , responseRemoveTagsFromResource $
+--             newRemoveTagsFromResourceResponse
+--
+--         , responseResetCache $
+--             newResetCacheResponse
+--
+--         , responseRetrieveTapeArchive $
+--             newRetrieveTapeArchiveResponse
+--
+--         , responseRetrieveTapeRecoveryPoint $
+--             newRetrieveTapeRecoveryPointResponse
+--
+--         , responseSetLocalConsolePassword $
+--             newSetLocalConsolePasswordResponse
+--
+--         , responseSetSMBGuestPassword $
+--             newSetSMBGuestPasswordResponse
+--
+--         , responseShutdownGateway $
+--             newShutdownGatewayResponse
+--
+--         , responseStartAvailabilityMonitorTest $
+--             newStartAvailabilityMonitorTestResponse
+--
+--         , responseStartGateway $
+--             newStartGatewayResponse
+--
+--         , responseUpdateAutomaticTapeCreationPolicy $
+--             newUpdateAutomaticTapeCreationPolicyResponse
+--
+--         , responseUpdateBandwidthRateLimit $
+--             newUpdateBandwidthRateLimitResponse
+--
+--         , responseUpdateBandwidthRateLimitSchedule $
+--             newUpdateBandwidthRateLimitScheduleResponse
+--
+--         , responseUpdateChapCredentials $
+--             newUpdateChapCredentialsResponse
+--
+--         , responseUpdateFileSystemAssociation $
+--             newUpdateFileSystemAssociationResponse
+--
+--         , responseUpdateGatewayInformation $
+--             newUpdateGatewayInformationResponse
+--
+--         , responseUpdateGatewaySoftwareNow $
+--             newUpdateGatewaySoftwareNowResponse
+--
+--         , responseUpdateMaintenanceStartTime $
+--             newUpdateMaintenanceStartTimeResponse
+--
+--         , responseUpdateNFSFileShare $
+--             newUpdateNFSFileShareResponse
+--
+--         , responseUpdateSMBFileShare $
+--             newUpdateSMBFileShareResponse
+--
+--         , responseUpdateSMBFileShareVisibility $
+--             newUpdateSMBFileShareVisibilityResponse
+--
+--         , responseUpdateSMBLocalGroups $
+--             newUpdateSMBLocalGroupsResponse
+--
+--         , responseUpdateSMBSecurityStrategy $
+--             newUpdateSMBSecurityStrategyResponse
+--
+--         , responseUpdateSnapshotSchedule $
+--             newUpdateSnapshotScheduleResponse
+--
+--         , responseUpdateVTLDeviceType $
+--             newUpdateVTLDeviceTypeResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestCancelArchival :: CancelArchival -> TestTree
-requestCancelArchival =
+requestActivateGateway :: ActivateGateway -> TestTree
+requestActivateGateway =
   req
-    "CancelArchival"
-    "fixture/CancelArchival.yaml"
-
-requestCreateStorediSCSIVolume :: CreateStorediSCSIVolume -> TestTree
-requestCreateStorediSCSIVolume =
-  req
-    "CreateStorediSCSIVolume"
-    "fixture/CreateStorediSCSIVolume.yaml"
-
-requestDescribeFileSystemAssociations :: DescribeFileSystemAssociations -> TestTree
-requestDescribeFileSystemAssociations =
-  req
-    "DescribeFileSystemAssociations"
-    "fixture/DescribeFileSystemAssociations.yaml"
-
-requestUpdateSMBLocalGroups :: UpdateSMBLocalGroups -> TestTree
-requestUpdateSMBLocalGroups =
-  req
-    "UpdateSMBLocalGroups"
-    "fixture/UpdateSMBLocalGroups.yaml"
-
-requestCreateNFSFileShare :: CreateNFSFileShare -> TestTree
-requestCreateNFSFileShare =
-  req
-    "CreateNFSFileShare"
-    "fixture/CreateNFSFileShare.yaml"
-
-requestAssociateFileSystem :: AssociateFileSystem -> TestTree
-requestAssociateFileSystem =
-  req
-    "AssociateFileSystem"
-    "fixture/AssociateFileSystem.yaml"
-
-requestDetachVolume :: DetachVolume -> TestTree
-requestDetachVolume =
-  req
-    "DetachVolume"
-    "fixture/DetachVolume.yaml"
-
-requestDescribeChapCredentials :: DescribeChapCredentials -> TestTree
-requestDescribeChapCredentials =
-  req
-    "DescribeChapCredentials"
-    "fixture/DescribeChapCredentials.yaml"
-
-requestSetLocalConsolePassword :: SetLocalConsolePassword -> TestTree
-requestSetLocalConsolePassword =
-  req
-    "SetLocalConsolePassword"
-    "fixture/SetLocalConsolePassword.yaml"
-
-requestCreateTapes :: CreateTapes -> TestTree
-requestCreateTapes =
-  req
-    "CreateTapes"
-    "fixture/CreateTapes.yaml"
-
-requestUpdateVTLDeviceType :: UpdateVTLDeviceType -> TestTree
-requestUpdateVTLDeviceType =
-  req
-    "UpdateVTLDeviceType"
-    "fixture/UpdateVTLDeviceType.yaml"
-
-requestCreateCachediSCSIVolume :: CreateCachediSCSIVolume -> TestTree
-requestCreateCachediSCSIVolume =
-  req
-    "CreateCachediSCSIVolume"
-    "fixture/CreateCachediSCSIVolume.yaml"
-
-requestListFileShares :: ListFileShares -> TestTree
-requestListFileShares =
-  req
-    "ListFileShares"
-    "fixture/ListFileShares.yaml"
-
-requestJoinDomain :: JoinDomain -> TestTree
-requestJoinDomain =
-  req
-    "JoinDomain"
-    "fixture/JoinDomain.yaml"
-
-requestDeleteFileShare :: DeleteFileShare -> TestTree
-requestDeleteFileShare =
-  req
-    "DeleteFileShare"
-    "fixture/DeleteFileShare.yaml"
-
-requestListVolumeInitiators :: ListVolumeInitiators -> TestTree
-requestListVolumeInitiators =
-  req
-    "ListVolumeInitiators"
-    "fixture/ListVolumeInitiators.yaml"
-
-requestAddUploadBuffer :: AddUploadBuffer -> TestTree
-requestAddUploadBuffer =
-  req
-    "AddUploadBuffer"
-    "fixture/AddUploadBuffer.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestNotifyWhenUploaded :: NotifyWhenUploaded -> TestTree
-requestNotifyWhenUploaded =
-  req
-    "NotifyWhenUploaded"
-    "fixture/NotifyWhenUploaded.yaml"
-
-requestListTapePools :: ListTapePools -> TestTree
-requestListTapePools =
-  req
-    "ListTapePools"
-    "fixture/ListTapePools.yaml"
-
-requestDeleteTapePool :: DeleteTapePool -> TestTree
-requestDeleteTapePool =
-  req
-    "DeleteTapePool"
-    "fixture/DeleteTapePool.yaml"
-
-requestUpdateGatewayInformation :: UpdateGatewayInformation -> TestTree
-requestUpdateGatewayInformation =
-  req
-    "UpdateGatewayInformation"
-    "fixture/UpdateGatewayInformation.yaml"
-
-requestDescribeMaintenanceStartTime :: DescribeMaintenanceStartTime -> TestTree
-requestDescribeMaintenanceStartTime =
-  req
-    "DescribeMaintenanceStartTime"
-    "fixture/DescribeMaintenanceStartTime.yaml"
-
-requestAssignTapePool :: AssignTapePool -> TestTree
-requestAssignTapePool =
-  req
-    "AssignTapePool"
-    "fixture/AssignTapePool.yaml"
-
-requestDescribeWorkingStorage :: DescribeWorkingStorage -> TestTree
-requestDescribeWorkingStorage =
-  req
-    "DescribeWorkingStorage"
-    "fixture/DescribeWorkingStorage.yaml"
-
-requestDescribeCachediSCSIVolumes :: DescribeCachediSCSIVolumes -> TestTree
-requestDescribeCachediSCSIVolumes =
-  req
-    "DescribeCachediSCSIVolumes"
-    "fixture/DescribeCachediSCSIVolumes.yaml"
+    "ActivateGateway"
+    "fixture/ActivateGateway.yaml"
 
 requestAddCache :: AddCache -> TestTree
 requestAddCache =
@@ -737,65 +587,35 @@ requestAddCache =
     "AddCache"
     "fixture/AddCache.yaml"
 
-requestCreateTapePool :: CreateTapePool -> TestTree
-requestCreateTapePool =
+requestAddTagsToResource :: AddTagsToResource -> TestTree
+requestAddTagsToResource =
   req
-    "CreateTapePool"
-    "fixture/CreateTapePool.yaml"
+    "AddTagsToResource"
+    "fixture/AddTagsToResource.yaml"
 
-requestStartGateway :: StartGateway -> TestTree
-requestStartGateway =
+requestAddUploadBuffer :: AddUploadBuffer -> TestTree
+requestAddUploadBuffer =
   req
-    "StartGateway"
-    "fixture/StartGateway.yaml"
+    "AddUploadBuffer"
+    "fixture/AddUploadBuffer.yaml"
 
-requestShutdownGateway :: ShutdownGateway -> TestTree
-requestShutdownGateway =
+requestAddWorkingStorage :: AddWorkingStorage -> TestTree
+requestAddWorkingStorage =
   req
-    "ShutdownGateway"
-    "fixture/ShutdownGateway.yaml"
+    "AddWorkingStorage"
+    "fixture/AddWorkingStorage.yaml"
 
-requestListAutomaticTapeCreationPolicies :: ListAutomaticTapeCreationPolicies -> TestTree
-requestListAutomaticTapeCreationPolicies =
+requestAssignTapePool :: AssignTapePool -> TestTree
+requestAssignTapePool =
   req
-    "ListAutomaticTapeCreationPolicies"
-    "fixture/ListAutomaticTapeCreationPolicies.yaml"
+    "AssignTapePool"
+    "fixture/AssignTapePool.yaml"
 
-requestUpdateGatewaySoftwareNow :: UpdateGatewaySoftwareNow -> TestTree
-requestUpdateGatewaySoftwareNow =
+requestAssociateFileSystem :: AssociateFileSystem -> TestTree
+requestAssociateFileSystem =
   req
-    "UpdateGatewaySoftwareNow"
-    "fixture/UpdateGatewaySoftwareNow.yaml"
-
-requestRemoveTagsFromResource :: RemoveTagsFromResource -> TestTree
-requestRemoveTagsFromResource =
-  req
-    "RemoveTagsFromResource"
-    "fixture/RemoveTagsFromResource.yaml"
-
-requestUpdateFileSystemAssociation :: UpdateFileSystemAssociation -> TestTree
-requestUpdateFileSystemAssociation =
-  req
-    "UpdateFileSystemAssociation"
-    "fixture/UpdateFileSystemAssociation.yaml"
-
-requestCreateSMBFileShare :: CreateSMBFileShare -> TestTree
-requestCreateSMBFileShare =
-  req
-    "CreateSMBFileShare"
-    "fixture/CreateSMBFileShare.yaml"
-
-requestDeleteChapCredentials :: DeleteChapCredentials -> TestTree
-requestDeleteChapCredentials =
-  req
-    "DeleteChapCredentials"
-    "fixture/DeleteChapCredentials.yaml"
-
-requestUpdateChapCredentials :: UpdateChapCredentials -> TestTree
-requestUpdateChapCredentials =
-  req
-    "UpdateChapCredentials"
-    "fixture/UpdateChapCredentials.yaml"
+    "AssociateFileSystem"
+    "fixture/AssociateFileSystem.yaml"
 
 requestAttachVolume :: AttachVolume -> TestTree
 requestAttachVolume =
@@ -803,41 +623,41 @@ requestAttachVolume =
     "AttachVolume"
     "fixture/AttachVolume.yaml"
 
-requestDescribeAvailabilityMonitorTest :: DescribeAvailabilityMonitorTest -> TestTree
-requestDescribeAvailabilityMonitorTest =
+requestCancelArchival :: CancelArchival -> TestTree
+requestCancelArchival =
   req
-    "DescribeAvailabilityMonitorTest"
-    "fixture/DescribeAvailabilityMonitorTest.yaml"
+    "CancelArchival"
+    "fixture/CancelArchival.yaml"
 
-requestDescribeUploadBuffer :: DescribeUploadBuffer -> TestTree
-requestDescribeUploadBuffer =
+requestCancelRetrieval :: CancelRetrieval -> TestTree
+requestCancelRetrieval =
   req
-    "DescribeUploadBuffer"
-    "fixture/DescribeUploadBuffer.yaml"
+    "CancelRetrieval"
+    "fixture/CancelRetrieval.yaml"
 
-requestDescribeTapes :: DescribeTapes -> TestTree
-requestDescribeTapes =
+requestCreateCachediSCSIVolume :: CreateCachediSCSIVolume -> TestTree
+requestCreateCachediSCSIVolume =
   req
-    "DescribeTapes"
-    "fixture/DescribeTapes.yaml"
+    "CreateCachediSCSIVolume"
+    "fixture/CreateCachediSCSIVolume.yaml"
 
-requestDescribeStorediSCSIVolumes :: DescribeStorediSCSIVolumes -> TestTree
-requestDescribeStorediSCSIVolumes =
+requestCreateNFSFileShare :: CreateNFSFileShare -> TestTree
+requestCreateNFSFileShare =
   req
-    "DescribeStorediSCSIVolumes"
-    "fixture/DescribeStorediSCSIVolumes.yaml"
+    "CreateNFSFileShare"
+    "fixture/CreateNFSFileShare.yaml"
 
-requestDisassociateFileSystem :: DisassociateFileSystem -> TestTree
-requestDisassociateFileSystem =
+requestCreateSMBFileShare :: CreateSMBFileShare -> TestTree
+requestCreateSMBFileShare =
   req
-    "DisassociateFileSystem"
-    "fixture/DisassociateFileSystem.yaml"
+    "CreateSMBFileShare"
+    "fixture/CreateSMBFileShare.yaml"
 
-requestSetSMBGuestPassword :: SetSMBGuestPassword -> TestTree
-requestSetSMBGuestPassword =
+requestCreateSnapshot :: CreateSnapshot -> TestTree
+requestCreateSnapshot =
   req
-    "SetSMBGuestPassword"
-    "fixture/SetSMBGuestPassword.yaml"
+    "CreateSnapshot"
+    "fixture/CreateSnapshot.yaml"
 
 requestCreateSnapshotFromVolumeRecoveryPoint :: CreateSnapshotFromVolumeRecoveryPoint -> TestTree
 requestCreateSnapshotFromVolumeRecoveryPoint =
@@ -845,17 +665,53 @@ requestCreateSnapshotFromVolumeRecoveryPoint =
     "CreateSnapshotFromVolumeRecoveryPoint"
     "fixture/CreateSnapshotFromVolumeRecoveryPoint.yaml"
 
-requestRetrieveTapeRecoveryPoint :: RetrieveTapeRecoveryPoint -> TestTree
-requestRetrieveTapeRecoveryPoint =
+requestCreateStorediSCSIVolume :: CreateStorediSCSIVolume -> TestTree
+requestCreateStorediSCSIVolume =
   req
-    "RetrieveTapeRecoveryPoint"
-    "fixture/RetrieveTapeRecoveryPoint.yaml"
+    "CreateStorediSCSIVolume"
+    "fixture/CreateStorediSCSIVolume.yaml"
 
-requestAddTagsToResource :: AddTagsToResource -> TestTree
-requestAddTagsToResource =
+requestCreateTapePool :: CreateTapePool -> TestTree
+requestCreateTapePool =
   req
-    "AddTagsToResource"
-    "fixture/AddTagsToResource.yaml"
+    "CreateTapePool"
+    "fixture/CreateTapePool.yaml"
+
+requestCreateTapeWithBarcode :: CreateTapeWithBarcode -> TestTree
+requestCreateTapeWithBarcode =
+  req
+    "CreateTapeWithBarcode"
+    "fixture/CreateTapeWithBarcode.yaml"
+
+requestCreateTapes :: CreateTapes -> TestTree
+requestCreateTapes =
+  req
+    "CreateTapes"
+    "fixture/CreateTapes.yaml"
+
+requestDeleteAutomaticTapeCreationPolicy :: DeleteAutomaticTapeCreationPolicy -> TestTree
+requestDeleteAutomaticTapeCreationPolicy =
+  req
+    "DeleteAutomaticTapeCreationPolicy"
+    "fixture/DeleteAutomaticTapeCreationPolicy.yaml"
+
+requestDeleteBandwidthRateLimit :: DeleteBandwidthRateLimit -> TestTree
+requestDeleteBandwidthRateLimit =
+  req
+    "DeleteBandwidthRateLimit"
+    "fixture/DeleteBandwidthRateLimit.yaml"
+
+requestDeleteChapCredentials :: DeleteChapCredentials -> TestTree
+requestDeleteChapCredentials =
+  req
+    "DeleteChapCredentials"
+    "fixture/DeleteChapCredentials.yaml"
+
+requestDeleteFileShare :: DeleteFileShare -> TestTree
+requestDeleteFileShare =
+  req
+    "DeleteFileShare"
+    "fixture/DeleteFileShare.yaml"
 
 requestDeleteGateway :: DeleteGateway -> TestTree
 requestDeleteGateway =
@@ -863,11 +719,77 @@ requestDeleteGateway =
     "DeleteGateway"
     "fixture/DeleteGateway.yaml"
 
-requestUpdateMaintenanceStartTime :: UpdateMaintenanceStartTime -> TestTree
-requestUpdateMaintenanceStartTime =
+requestDeleteSnapshotSchedule :: DeleteSnapshotSchedule -> TestTree
+requestDeleteSnapshotSchedule =
   req
-    "UpdateMaintenanceStartTime"
-    "fixture/UpdateMaintenanceStartTime.yaml"
+    "DeleteSnapshotSchedule"
+    "fixture/DeleteSnapshotSchedule.yaml"
+
+requestDeleteTape :: DeleteTape -> TestTree
+requestDeleteTape =
+  req
+    "DeleteTape"
+    "fixture/DeleteTape.yaml"
+
+requestDeleteTapeArchive :: DeleteTapeArchive -> TestTree
+requestDeleteTapeArchive =
+  req
+    "DeleteTapeArchive"
+    "fixture/DeleteTapeArchive.yaml"
+
+requestDeleteTapePool :: DeleteTapePool -> TestTree
+requestDeleteTapePool =
+  req
+    "DeleteTapePool"
+    "fixture/DeleteTapePool.yaml"
+
+requestDeleteVolume :: DeleteVolume -> TestTree
+requestDeleteVolume =
+  req
+    "DeleteVolume"
+    "fixture/DeleteVolume.yaml"
+
+requestDescribeAvailabilityMonitorTest :: DescribeAvailabilityMonitorTest -> TestTree
+requestDescribeAvailabilityMonitorTest =
+  req
+    "DescribeAvailabilityMonitorTest"
+    "fixture/DescribeAvailabilityMonitorTest.yaml"
+
+requestDescribeBandwidthRateLimit :: DescribeBandwidthRateLimit -> TestTree
+requestDescribeBandwidthRateLimit =
+  req
+    "DescribeBandwidthRateLimit"
+    "fixture/DescribeBandwidthRateLimit.yaml"
+
+requestDescribeBandwidthRateLimitSchedule :: DescribeBandwidthRateLimitSchedule -> TestTree
+requestDescribeBandwidthRateLimitSchedule =
+  req
+    "DescribeBandwidthRateLimitSchedule"
+    "fixture/DescribeBandwidthRateLimitSchedule.yaml"
+
+requestDescribeCache :: DescribeCache -> TestTree
+requestDescribeCache =
+  req
+    "DescribeCache"
+    "fixture/DescribeCache.yaml"
+
+requestDescribeCachediSCSIVolumes :: DescribeCachediSCSIVolumes -> TestTree
+requestDescribeCachediSCSIVolumes =
+  req
+    "DescribeCachediSCSIVolumes"
+    "fixture/DescribeCachediSCSIVolumes.yaml"
+
+requestDescribeChapCredentials :: DescribeChapCredentials -> TestTree
+requestDescribeChapCredentials =
+  req
+    "DescribeChapCredentials"
+    "fixture/DescribeChapCredentials.yaml"
+
+requestDescribeFileSystemAssociations :: DescribeFileSystemAssociations -> TestTree
+requestDescribeFileSystemAssociations =
+  req
+    "DescribeFileSystemAssociations"
+    "fixture/DescribeFileSystemAssociations.yaml"
 
 requestDescribeGatewayInformation :: DescribeGatewayInformation -> TestTree
 requestDescribeGatewayInformation =
@@ -875,41 +797,23 @@ requestDescribeGatewayInformation =
     "DescribeGatewayInformation"
     "fixture/DescribeGatewayInformation.yaml"
 
-requestRefreshCache :: RefreshCache -> TestTree
-requestRefreshCache =
+requestDescribeMaintenanceStartTime :: DescribeMaintenanceStartTime -> TestTree
+requestDescribeMaintenanceStartTime =
   req
-    "RefreshCache"
-    "fixture/RefreshCache.yaml"
+    "DescribeMaintenanceStartTime"
+    "fixture/DescribeMaintenanceStartTime.yaml"
 
-requestUpdateNFSFileShare :: UpdateNFSFileShare -> TestTree
-requestUpdateNFSFileShare =
+requestDescribeNFSFileShares :: DescribeNFSFileShares -> TestTree
+requestDescribeNFSFileShares =
   req
-    "UpdateNFSFileShare"
-    "fixture/UpdateNFSFileShare.yaml"
+    "DescribeNFSFileShares"
+    "fixture/DescribeNFSFileShares.yaml"
 
-requestRetrieveTapeArchive :: RetrieveTapeArchive -> TestTree
-requestRetrieveTapeArchive =
+requestDescribeSMBFileShares :: DescribeSMBFileShares -> TestTree
+requestDescribeSMBFileShares =
   req
-    "RetrieveTapeArchive"
-    "fixture/RetrieveTapeArchive.yaml"
-
-requestDescribeTapeArchives :: DescribeTapeArchives -> TestTree
-requestDescribeTapeArchives =
-  req
-    "DescribeTapeArchives"
-    "fixture/DescribeTapeArchives.yaml"
-
-requestUpdateBandwidthRateLimitSchedule :: UpdateBandwidthRateLimitSchedule -> TestTree
-requestUpdateBandwidthRateLimitSchedule =
-  req
-    "UpdateBandwidthRateLimitSchedule"
-    "fixture/UpdateBandwidthRateLimitSchedule.yaml"
-
-requestDisableGateway :: DisableGateway -> TestTree
-requestDisableGateway =
-  req
-    "DisableGateway"
-    "fixture/DisableGateway.yaml"
+    "DescribeSMBFileShares"
+    "fixture/DescribeSMBFileShares.yaml"
 
 requestDescribeSMBSettings :: DescribeSMBSettings -> TestTree
 requestDescribeSMBSettings =
@@ -923,167 +827,17 @@ requestDescribeSnapshotSchedule =
     "DescribeSnapshotSchedule"
     "fixture/DescribeSnapshotSchedule.yaml"
 
-requestCreateTapeWithBarcode :: CreateTapeWithBarcode -> TestTree
-requestCreateTapeWithBarcode =
+requestDescribeStorediSCSIVolumes :: DescribeStorediSCSIVolumes -> TestTree
+requestDescribeStorediSCSIVolumes =
   req
-    "CreateTapeWithBarcode"
-    "fixture/CreateTapeWithBarcode.yaml"
+    "DescribeStorediSCSIVolumes"
+    "fixture/DescribeStorediSCSIVolumes.yaml"
 
-requestDescribeBandwidthRateLimit :: DescribeBandwidthRateLimit -> TestTree
-requestDescribeBandwidthRateLimit =
+requestDescribeTapeArchives :: DescribeTapeArchives -> TestTree
+requestDescribeTapeArchives =
   req
-    "DescribeBandwidthRateLimit"
-    "fixture/DescribeBandwidthRateLimit.yaml"
-
-requestDeleteAutomaticTapeCreationPolicy :: DeleteAutomaticTapeCreationPolicy -> TestTree
-requestDeleteAutomaticTapeCreationPolicy =
-  req
-    "DeleteAutomaticTapeCreationPolicy"
-    "fixture/DeleteAutomaticTapeCreationPolicy.yaml"
-
-requestUpdateAutomaticTapeCreationPolicy :: UpdateAutomaticTapeCreationPolicy -> TestTree
-requestUpdateAutomaticTapeCreationPolicy =
-  req
-    "UpdateAutomaticTapeCreationPolicy"
-    "fixture/UpdateAutomaticTapeCreationPolicy.yaml"
-
-requestUpdateSMBFileShareVisibility :: UpdateSMBFileShareVisibility -> TestTree
-requestUpdateSMBFileShareVisibility =
-  req
-    "UpdateSMBFileShareVisibility"
-    "fixture/UpdateSMBFileShareVisibility.yaml"
-
-requestDeleteSnapshotSchedule :: DeleteSnapshotSchedule -> TestTree
-requestDeleteSnapshotSchedule =
-  req
-    "DeleteSnapshotSchedule"
-    "fixture/DeleteSnapshotSchedule.yaml"
-
-requestUpdateSnapshotSchedule :: UpdateSnapshotSchedule -> TestTree
-requestUpdateSnapshotSchedule =
-  req
-    "UpdateSnapshotSchedule"
-    "fixture/UpdateSnapshotSchedule.yaml"
-
-requestDescribeBandwidthRateLimitSchedule :: DescribeBandwidthRateLimitSchedule -> TestTree
-requestDescribeBandwidthRateLimitSchedule =
-  req
-    "DescribeBandwidthRateLimitSchedule"
-    "fixture/DescribeBandwidthRateLimitSchedule.yaml"
-
-requestCreateSnapshot :: CreateSnapshot -> TestTree
-requestCreateSnapshot =
-  req
-    "CreateSnapshot"
-    "fixture/CreateSnapshot.yaml"
-
-requestUpdateSMBSecurityStrategy :: UpdateSMBSecurityStrategy -> TestTree
-requestUpdateSMBSecurityStrategy =
-  req
-    "UpdateSMBSecurityStrategy"
-    "fixture/UpdateSMBSecurityStrategy.yaml"
-
-requestCancelRetrieval :: CancelRetrieval -> TestTree
-requestCancelRetrieval =
-  req
-    "CancelRetrieval"
-    "fixture/CancelRetrieval.yaml"
-
-requestDescribeVTLDevices :: DescribeVTLDevices -> TestTree
-requestDescribeVTLDevices =
-  req
-    "DescribeVTLDevices"
-    "fixture/DescribeVTLDevices.yaml"
-
-requestStartAvailabilityMonitorTest :: StartAvailabilityMonitorTest -> TestTree
-requestStartAvailabilityMonitorTest =
-  req
-    "StartAvailabilityMonitorTest"
-    "fixture/StartAvailabilityMonitorTest.yaml"
-
-requestDeleteTapeArchive :: DeleteTapeArchive -> TestTree
-requestDeleteTapeArchive =
-  req
-    "DeleteTapeArchive"
-    "fixture/DeleteTapeArchive.yaml"
-
-requestListFileSystemAssociations :: ListFileSystemAssociations -> TestTree
-requestListFileSystemAssociations =
-  req
-    "ListFileSystemAssociations"
-    "fixture/ListFileSystemAssociations.yaml"
-
-requestUpdateSMBFileShare :: UpdateSMBFileShare -> TestTree
-requestUpdateSMBFileShare =
-  req
-    "UpdateSMBFileShare"
-    "fixture/UpdateSMBFileShare.yaml"
-
-requestDescribeNFSFileShares :: DescribeNFSFileShares -> TestTree
-requestDescribeNFSFileShares =
-  req
-    "DescribeNFSFileShares"
-    "fixture/DescribeNFSFileShares.yaml"
-
-requestListVolumeRecoveryPoints :: ListVolumeRecoveryPoints -> TestTree
-requestListVolumeRecoveryPoints =
-  req
-    "ListVolumeRecoveryPoints"
-    "fixture/ListVolumeRecoveryPoints.yaml"
-
-requestListTapes :: ListTapes -> TestTree
-requestListTapes =
-  req
-    "ListTapes"
-    "fixture/ListTapes.yaml"
-
-requestResetCache :: ResetCache -> TestTree
-requestResetCache =
-  req
-    "ResetCache"
-    "fixture/ResetCache.yaml"
-
-requestDescribeSMBFileShares :: DescribeSMBFileShares -> TestTree
-requestDescribeSMBFileShares =
-  req
-    "DescribeSMBFileShares"
-    "fixture/DescribeSMBFileShares.yaml"
-
-requestListGateways :: ListGateways -> TestTree
-requestListGateways =
-  req
-    "ListGateways"
-    "fixture/ListGateways.yaml"
-
-requestDeleteTape :: DeleteTape -> TestTree
-requestDeleteTape =
-  req
-    "DeleteTape"
-    "fixture/DeleteTape.yaml"
-
-requestListLocalDisks :: ListLocalDisks -> TestTree
-requestListLocalDisks =
-  req
-    "ListLocalDisks"
-    "fixture/ListLocalDisks.yaml"
-
-requestListVolumes :: ListVolumes -> TestTree
-requestListVolumes =
-  req
-    "ListVolumes"
-    "fixture/ListVolumes.yaml"
-
-requestUpdateBandwidthRateLimit :: UpdateBandwidthRateLimit -> TestTree
-requestUpdateBandwidthRateLimit =
-  req
-    "UpdateBandwidthRateLimit"
-    "fixture/UpdateBandwidthRateLimit.yaml"
-
-requestAddWorkingStorage :: AddWorkingStorage -> TestTree
-requestAddWorkingStorage =
-  req
-    "AddWorkingStorage"
-    "fixture/AddWorkingStorage.yaml"
+    "DescribeTapeArchives"
+    "fixture/DescribeTapeArchives.yaml"
 
 requestDescribeTapeRecoveryPoints :: DescribeTapeRecoveryPoints -> TestTree
 requestDescribeTapeRecoveryPoints =
@@ -1091,239 +845,285 @@ requestDescribeTapeRecoveryPoints =
     "DescribeTapeRecoveryPoints"
     "fixture/DescribeTapeRecoveryPoints.yaml"
 
-requestDeleteBandwidthRateLimit :: DeleteBandwidthRateLimit -> TestTree
-requestDeleteBandwidthRateLimit =
+requestDescribeTapes :: DescribeTapes -> TestTree
+requestDescribeTapes =
   req
-    "DeleteBandwidthRateLimit"
-    "fixture/DeleteBandwidthRateLimit.yaml"
+    "DescribeTapes"
+    "fixture/DescribeTapes.yaml"
 
-requestActivateGateway :: ActivateGateway -> TestTree
-requestActivateGateway =
+requestDescribeUploadBuffer :: DescribeUploadBuffer -> TestTree
+requestDescribeUploadBuffer =
   req
-    "ActivateGateway"
-    "fixture/ActivateGateway.yaml"
+    "DescribeUploadBuffer"
+    "fixture/DescribeUploadBuffer.yaml"
 
-requestDescribeCache :: DescribeCache -> TestTree
-requestDescribeCache =
+requestDescribeVTLDevices :: DescribeVTLDevices -> TestTree
+requestDescribeVTLDevices =
   req
-    "DescribeCache"
-    "fixture/DescribeCache.yaml"
+    "DescribeVTLDevices"
+    "fixture/DescribeVTLDevices.yaml"
 
-requestDeleteVolume :: DeleteVolume -> TestTree
-requestDeleteVolume =
+requestDescribeWorkingStorage :: DescribeWorkingStorage -> TestTree
+requestDescribeWorkingStorage =
   req
-    "DeleteVolume"
-    "fixture/DeleteVolume.yaml"
+    "DescribeWorkingStorage"
+    "fixture/DescribeWorkingStorage.yaml"
+
+requestDetachVolume :: DetachVolume -> TestTree
+requestDetachVolume =
+  req
+    "DetachVolume"
+    "fixture/DetachVolume.yaml"
+
+requestDisableGateway :: DisableGateway -> TestTree
+requestDisableGateway =
+  req
+    "DisableGateway"
+    "fixture/DisableGateway.yaml"
+
+requestDisassociateFileSystem :: DisassociateFileSystem -> TestTree
+requestDisassociateFileSystem =
+  req
+    "DisassociateFileSystem"
+    "fixture/DisassociateFileSystem.yaml"
+
+requestJoinDomain :: JoinDomain -> TestTree
+requestJoinDomain =
+  req
+    "JoinDomain"
+    "fixture/JoinDomain.yaml"
+
+requestListAutomaticTapeCreationPolicies :: ListAutomaticTapeCreationPolicies -> TestTree
+requestListAutomaticTapeCreationPolicies =
+  req
+    "ListAutomaticTapeCreationPolicies"
+    "fixture/ListAutomaticTapeCreationPolicies.yaml"
+
+requestListFileShares :: ListFileShares -> TestTree
+requestListFileShares =
+  req
+    "ListFileShares"
+    "fixture/ListFileShares.yaml"
+
+requestListFileSystemAssociations :: ListFileSystemAssociations -> TestTree
+requestListFileSystemAssociations =
+  req
+    "ListFileSystemAssociations"
+    "fixture/ListFileSystemAssociations.yaml"
+
+requestListGateways :: ListGateways -> TestTree
+requestListGateways =
+  req
+    "ListGateways"
+    "fixture/ListGateways.yaml"
+
+requestListLocalDisks :: ListLocalDisks -> TestTree
+requestListLocalDisks =
+  req
+    "ListLocalDisks"
+    "fixture/ListLocalDisks.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestListTapePools :: ListTapePools -> TestTree
+requestListTapePools =
+  req
+    "ListTapePools"
+    "fixture/ListTapePools.yaml"
+
+requestListTapes :: ListTapes -> TestTree
+requestListTapes =
+  req
+    "ListTapes"
+    "fixture/ListTapes.yaml"
+
+requestListVolumeInitiators :: ListVolumeInitiators -> TestTree
+requestListVolumeInitiators =
+  req
+    "ListVolumeInitiators"
+    "fixture/ListVolumeInitiators.yaml"
+
+requestListVolumeRecoveryPoints :: ListVolumeRecoveryPoints -> TestTree
+requestListVolumeRecoveryPoints =
+  req
+    "ListVolumeRecoveryPoints"
+    "fixture/ListVolumeRecoveryPoints.yaml"
+
+requestListVolumes :: ListVolumes -> TestTree
+requestListVolumes =
+  req
+    "ListVolumes"
+    "fixture/ListVolumes.yaml"
+
+requestNotifyWhenUploaded :: NotifyWhenUploaded -> TestTree
+requestNotifyWhenUploaded =
+  req
+    "NotifyWhenUploaded"
+    "fixture/NotifyWhenUploaded.yaml"
+
+requestRefreshCache :: RefreshCache -> TestTree
+requestRefreshCache =
+  req
+    "RefreshCache"
+    "fixture/RefreshCache.yaml"
+
+requestRemoveTagsFromResource :: RemoveTagsFromResource -> TestTree
+requestRemoveTagsFromResource =
+  req
+    "RemoveTagsFromResource"
+    "fixture/RemoveTagsFromResource.yaml"
+
+requestResetCache :: ResetCache -> TestTree
+requestResetCache =
+  req
+    "ResetCache"
+    "fixture/ResetCache.yaml"
+
+requestRetrieveTapeArchive :: RetrieveTapeArchive -> TestTree
+requestRetrieveTapeArchive =
+  req
+    "RetrieveTapeArchive"
+    "fixture/RetrieveTapeArchive.yaml"
+
+requestRetrieveTapeRecoveryPoint :: RetrieveTapeRecoveryPoint -> TestTree
+requestRetrieveTapeRecoveryPoint =
+  req
+    "RetrieveTapeRecoveryPoint"
+    "fixture/RetrieveTapeRecoveryPoint.yaml"
+
+requestSetLocalConsolePassword :: SetLocalConsolePassword -> TestTree
+requestSetLocalConsolePassword =
+  req
+    "SetLocalConsolePassword"
+    "fixture/SetLocalConsolePassword.yaml"
+
+requestSetSMBGuestPassword :: SetSMBGuestPassword -> TestTree
+requestSetSMBGuestPassword =
+  req
+    "SetSMBGuestPassword"
+    "fixture/SetSMBGuestPassword.yaml"
+
+requestShutdownGateway :: ShutdownGateway -> TestTree
+requestShutdownGateway =
+  req
+    "ShutdownGateway"
+    "fixture/ShutdownGateway.yaml"
+
+requestStartAvailabilityMonitorTest :: StartAvailabilityMonitorTest -> TestTree
+requestStartAvailabilityMonitorTest =
+  req
+    "StartAvailabilityMonitorTest"
+    "fixture/StartAvailabilityMonitorTest.yaml"
+
+requestStartGateway :: StartGateway -> TestTree
+requestStartGateway =
+  req
+    "StartGateway"
+    "fixture/StartGateway.yaml"
+
+requestUpdateAutomaticTapeCreationPolicy :: UpdateAutomaticTapeCreationPolicy -> TestTree
+requestUpdateAutomaticTapeCreationPolicy =
+  req
+    "UpdateAutomaticTapeCreationPolicy"
+    "fixture/UpdateAutomaticTapeCreationPolicy.yaml"
+
+requestUpdateBandwidthRateLimit :: UpdateBandwidthRateLimit -> TestTree
+requestUpdateBandwidthRateLimit =
+  req
+    "UpdateBandwidthRateLimit"
+    "fixture/UpdateBandwidthRateLimit.yaml"
+
+requestUpdateBandwidthRateLimitSchedule :: UpdateBandwidthRateLimitSchedule -> TestTree
+requestUpdateBandwidthRateLimitSchedule =
+  req
+    "UpdateBandwidthRateLimitSchedule"
+    "fixture/UpdateBandwidthRateLimitSchedule.yaml"
+
+requestUpdateChapCredentials :: UpdateChapCredentials -> TestTree
+requestUpdateChapCredentials =
+  req
+    "UpdateChapCredentials"
+    "fixture/UpdateChapCredentials.yaml"
+
+requestUpdateFileSystemAssociation :: UpdateFileSystemAssociation -> TestTree
+requestUpdateFileSystemAssociation =
+  req
+    "UpdateFileSystemAssociation"
+    "fixture/UpdateFileSystemAssociation.yaml"
+
+requestUpdateGatewayInformation :: UpdateGatewayInformation -> TestTree
+requestUpdateGatewayInformation =
+  req
+    "UpdateGatewayInformation"
+    "fixture/UpdateGatewayInformation.yaml"
+
+requestUpdateGatewaySoftwareNow :: UpdateGatewaySoftwareNow -> TestTree
+requestUpdateGatewaySoftwareNow =
+  req
+    "UpdateGatewaySoftwareNow"
+    "fixture/UpdateGatewaySoftwareNow.yaml"
+
+requestUpdateMaintenanceStartTime :: UpdateMaintenanceStartTime -> TestTree
+requestUpdateMaintenanceStartTime =
+  req
+    "UpdateMaintenanceStartTime"
+    "fixture/UpdateMaintenanceStartTime.yaml"
+
+requestUpdateNFSFileShare :: UpdateNFSFileShare -> TestTree
+requestUpdateNFSFileShare =
+  req
+    "UpdateNFSFileShare"
+    "fixture/UpdateNFSFileShare.yaml"
+
+requestUpdateSMBFileShare :: UpdateSMBFileShare -> TestTree
+requestUpdateSMBFileShare =
+  req
+    "UpdateSMBFileShare"
+    "fixture/UpdateSMBFileShare.yaml"
+
+requestUpdateSMBFileShareVisibility :: UpdateSMBFileShareVisibility -> TestTree
+requestUpdateSMBFileShareVisibility =
+  req
+    "UpdateSMBFileShareVisibility"
+    "fixture/UpdateSMBFileShareVisibility.yaml"
+
+requestUpdateSMBLocalGroups :: UpdateSMBLocalGroups -> TestTree
+requestUpdateSMBLocalGroups =
+  req
+    "UpdateSMBLocalGroups"
+    "fixture/UpdateSMBLocalGroups.yaml"
+
+requestUpdateSMBSecurityStrategy :: UpdateSMBSecurityStrategy -> TestTree
+requestUpdateSMBSecurityStrategy =
+  req
+    "UpdateSMBSecurityStrategy"
+    "fixture/UpdateSMBSecurityStrategy.yaml"
+
+requestUpdateSnapshotSchedule :: UpdateSnapshotSchedule -> TestTree
+requestUpdateSnapshotSchedule =
+  req
+    "UpdateSnapshotSchedule"
+    "fixture/UpdateSnapshotSchedule.yaml"
+
+requestUpdateVTLDeviceType :: UpdateVTLDeviceType -> TestTree
+requestUpdateVTLDeviceType =
+  req
+    "UpdateVTLDeviceType"
+    "fixture/UpdateVTLDeviceType.yaml"
 
 -- Responses
 
-responseCancelArchival :: CancelArchivalResponse -> TestTree
-responseCancelArchival =
+responseActivateGateway :: ActivateGatewayResponse -> TestTree
+responseActivateGateway =
   res
-    "CancelArchivalResponse"
-    "fixture/CancelArchivalResponse.proto"
+    "ActivateGatewayResponse"
+    "fixture/ActivateGatewayResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CancelArchival)
-
-responseCreateStorediSCSIVolume :: CreateStorediSCSIVolumeResponse -> TestTree
-responseCreateStorediSCSIVolume =
-  res
-    "CreateStorediSCSIVolumeResponse"
-    "fixture/CreateStorediSCSIVolumeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateStorediSCSIVolume)
-
-responseDescribeFileSystemAssociations :: DescribeFileSystemAssociationsResponse -> TestTree
-responseDescribeFileSystemAssociations =
-  res
-    "DescribeFileSystemAssociationsResponse"
-    "fixture/DescribeFileSystemAssociationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeFileSystemAssociations)
-
-responseUpdateSMBLocalGroups :: UpdateSMBLocalGroupsResponse -> TestTree
-responseUpdateSMBLocalGroups =
-  res
-    "UpdateSMBLocalGroupsResponse"
-    "fixture/UpdateSMBLocalGroupsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateSMBLocalGroups)
-
-responseCreateNFSFileShare :: CreateNFSFileShareResponse -> TestTree
-responseCreateNFSFileShare =
-  res
-    "CreateNFSFileShareResponse"
-    "fixture/CreateNFSFileShareResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateNFSFileShare)
-
-responseAssociateFileSystem :: AssociateFileSystemResponse -> TestTree
-responseAssociateFileSystem =
-  res
-    "AssociateFileSystemResponse"
-    "fixture/AssociateFileSystemResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy AssociateFileSystem)
-
-responseDetachVolume :: DetachVolumeResponse -> TestTree
-responseDetachVolume =
-  res
-    "DetachVolumeResponse"
-    "fixture/DetachVolumeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DetachVolume)
-
-responseDescribeChapCredentials :: DescribeChapCredentialsResponse -> TestTree
-responseDescribeChapCredentials =
-  res
-    "DescribeChapCredentialsResponse"
-    "fixture/DescribeChapCredentialsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeChapCredentials)
-
-responseSetLocalConsolePassword :: SetLocalConsolePasswordResponse -> TestTree
-responseSetLocalConsolePassword =
-  res
-    "SetLocalConsolePasswordResponse"
-    "fixture/SetLocalConsolePasswordResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy SetLocalConsolePassword)
-
-responseCreateTapes :: CreateTapesResponse -> TestTree
-responseCreateTapes =
-  res
-    "CreateTapesResponse"
-    "fixture/CreateTapesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateTapes)
-
-responseUpdateVTLDeviceType :: UpdateVTLDeviceTypeResponse -> TestTree
-responseUpdateVTLDeviceType =
-  res
-    "UpdateVTLDeviceTypeResponse"
-    "fixture/UpdateVTLDeviceTypeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateVTLDeviceType)
-
-responseCreateCachediSCSIVolume :: CreateCachediSCSIVolumeResponse -> TestTree
-responseCreateCachediSCSIVolume =
-  res
-    "CreateCachediSCSIVolumeResponse"
-    "fixture/CreateCachediSCSIVolumeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateCachediSCSIVolume)
-
-responseListFileShares :: ListFileSharesResponse -> TestTree
-responseListFileShares =
-  res
-    "ListFileSharesResponse"
-    "fixture/ListFileSharesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListFileShares)
-
-responseJoinDomain :: JoinDomainResponse -> TestTree
-responseJoinDomain =
-  res
-    "JoinDomainResponse"
-    "fixture/JoinDomainResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy JoinDomain)
-
-responseDeleteFileShare :: DeleteFileShareResponse -> TestTree
-responseDeleteFileShare =
-  res
-    "DeleteFileShareResponse"
-    "fixture/DeleteFileShareResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteFileShare)
-
-responseListVolumeInitiators :: ListVolumeInitiatorsResponse -> TestTree
-responseListVolumeInitiators =
-  res
-    "ListVolumeInitiatorsResponse"
-    "fixture/ListVolumeInitiatorsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListVolumeInitiators)
-
-responseAddUploadBuffer :: AddUploadBufferResponse -> TestTree
-responseAddUploadBuffer =
-  res
-    "AddUploadBufferResponse"
-    "fixture/AddUploadBufferResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy AddUploadBuffer)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseNotifyWhenUploaded :: NotifyWhenUploadedResponse -> TestTree
-responseNotifyWhenUploaded =
-  res
-    "NotifyWhenUploadedResponse"
-    "fixture/NotifyWhenUploadedResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy NotifyWhenUploaded)
-
-responseListTapePools :: ListTapePoolsResponse -> TestTree
-responseListTapePools =
-  res
-    "ListTapePoolsResponse"
-    "fixture/ListTapePoolsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTapePools)
-
-responseDeleteTapePool :: DeleteTapePoolResponse -> TestTree
-responseDeleteTapePool =
-  res
-    "DeleteTapePoolResponse"
-    "fixture/DeleteTapePoolResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteTapePool)
-
-responseUpdateGatewayInformation :: UpdateGatewayInformationResponse -> TestTree
-responseUpdateGatewayInformation =
-  res
-    "UpdateGatewayInformationResponse"
-    "fixture/UpdateGatewayInformationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateGatewayInformation)
-
-responseDescribeMaintenanceStartTime :: DescribeMaintenanceStartTimeResponse -> TestTree
-responseDescribeMaintenanceStartTime =
-  res
-    "DescribeMaintenanceStartTimeResponse"
-    "fixture/DescribeMaintenanceStartTimeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeMaintenanceStartTime)
-
-responseAssignTapePool :: AssignTapePoolResponse -> TestTree
-responseAssignTapePool =
-  res
-    "AssignTapePoolResponse"
-    "fixture/AssignTapePoolResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy AssignTapePool)
-
-responseDescribeWorkingStorage :: DescribeWorkingStorageResponse -> TestTree
-responseDescribeWorkingStorage =
-  res
-    "DescribeWorkingStorageResponse"
-    "fixture/DescribeWorkingStorageResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeWorkingStorage)
-
-responseDescribeCachediSCSIVolumes :: DescribeCachediSCSIVolumesResponse -> TestTree
-responseDescribeCachediSCSIVolumes =
-  res
-    "DescribeCachediSCSIVolumesResponse"
-    "fixture/DescribeCachediSCSIVolumesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeCachediSCSIVolumes)
+    (Proxy.Proxy :: Proxy.Proxy ActivateGateway)
 
 responseAddCache :: AddCacheResponse -> TestTree
 responseAddCache =
@@ -1333,85 +1133,45 @@ responseAddCache =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AddCache)
 
-responseCreateTapePool :: CreateTapePoolResponse -> TestTree
-responseCreateTapePool =
+responseAddTagsToResource :: AddTagsToResourceResponse -> TestTree
+responseAddTagsToResource =
   res
-    "CreateTapePoolResponse"
-    "fixture/CreateTapePoolResponse.proto"
+    "AddTagsToResourceResponse"
+    "fixture/AddTagsToResourceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateTapePool)
+    (Proxy.Proxy :: Proxy.Proxy AddTagsToResource)
 
-responseStartGateway :: StartGatewayResponse -> TestTree
-responseStartGateway =
+responseAddUploadBuffer :: AddUploadBufferResponse -> TestTree
+responseAddUploadBuffer =
   res
-    "StartGatewayResponse"
-    "fixture/StartGatewayResponse.proto"
+    "AddUploadBufferResponse"
+    "fixture/AddUploadBufferResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartGateway)
+    (Proxy.Proxy :: Proxy.Proxy AddUploadBuffer)
 
-responseShutdownGateway :: ShutdownGatewayResponse -> TestTree
-responseShutdownGateway =
+responseAddWorkingStorage :: AddWorkingStorageResponse -> TestTree
+responseAddWorkingStorage =
   res
-    "ShutdownGatewayResponse"
-    "fixture/ShutdownGatewayResponse.proto"
+    "AddWorkingStorageResponse"
+    "fixture/AddWorkingStorageResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ShutdownGateway)
+    (Proxy.Proxy :: Proxy.Proxy AddWorkingStorage)
 
-responseListAutomaticTapeCreationPolicies :: ListAutomaticTapeCreationPoliciesResponse -> TestTree
-responseListAutomaticTapeCreationPolicies =
+responseAssignTapePool :: AssignTapePoolResponse -> TestTree
+responseAssignTapePool =
   res
-    "ListAutomaticTapeCreationPoliciesResponse"
-    "fixture/ListAutomaticTapeCreationPoliciesResponse.proto"
+    "AssignTapePoolResponse"
+    "fixture/AssignTapePoolResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListAutomaticTapeCreationPolicies)
+    (Proxy.Proxy :: Proxy.Proxy AssignTapePool)
 
-responseUpdateGatewaySoftwareNow :: UpdateGatewaySoftwareNowResponse -> TestTree
-responseUpdateGatewaySoftwareNow =
+responseAssociateFileSystem :: AssociateFileSystemResponse -> TestTree
+responseAssociateFileSystem =
   res
-    "UpdateGatewaySoftwareNowResponse"
-    "fixture/UpdateGatewaySoftwareNowResponse.proto"
+    "AssociateFileSystemResponse"
+    "fixture/AssociateFileSystemResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateGatewaySoftwareNow)
-
-responseRemoveTagsFromResource :: RemoveTagsFromResourceResponse -> TestTree
-responseRemoveTagsFromResource =
-  res
-    "RemoveTagsFromResourceResponse"
-    "fixture/RemoveTagsFromResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RemoveTagsFromResource)
-
-responseUpdateFileSystemAssociation :: UpdateFileSystemAssociationResponse -> TestTree
-responseUpdateFileSystemAssociation =
-  res
-    "UpdateFileSystemAssociationResponse"
-    "fixture/UpdateFileSystemAssociationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateFileSystemAssociation)
-
-responseCreateSMBFileShare :: CreateSMBFileShareResponse -> TestTree
-responseCreateSMBFileShare =
-  res
-    "CreateSMBFileShareResponse"
-    "fixture/CreateSMBFileShareResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateSMBFileShare)
-
-responseDeleteChapCredentials :: DeleteChapCredentialsResponse -> TestTree
-responseDeleteChapCredentials =
-  res
-    "DeleteChapCredentialsResponse"
-    "fixture/DeleteChapCredentialsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteChapCredentials)
-
-responseUpdateChapCredentials :: UpdateChapCredentialsResponse -> TestTree
-responseUpdateChapCredentials =
-  res
-    "UpdateChapCredentialsResponse"
-    "fixture/UpdateChapCredentialsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateChapCredentials)
+    (Proxy.Proxy :: Proxy.Proxy AssociateFileSystem)
 
 responseAttachVolume :: AttachVolumeResponse -> TestTree
 responseAttachVolume =
@@ -1421,53 +1181,53 @@ responseAttachVolume =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AttachVolume)
 
-responseDescribeAvailabilityMonitorTest :: DescribeAvailabilityMonitorTestResponse -> TestTree
-responseDescribeAvailabilityMonitorTest =
+responseCancelArchival :: CancelArchivalResponse -> TestTree
+responseCancelArchival =
   res
-    "DescribeAvailabilityMonitorTestResponse"
-    "fixture/DescribeAvailabilityMonitorTestResponse.proto"
+    "CancelArchivalResponse"
+    "fixture/CancelArchivalResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeAvailabilityMonitorTest)
+    (Proxy.Proxy :: Proxy.Proxy CancelArchival)
 
-responseDescribeUploadBuffer :: DescribeUploadBufferResponse -> TestTree
-responseDescribeUploadBuffer =
+responseCancelRetrieval :: CancelRetrievalResponse -> TestTree
+responseCancelRetrieval =
   res
-    "DescribeUploadBufferResponse"
-    "fixture/DescribeUploadBufferResponse.proto"
+    "CancelRetrievalResponse"
+    "fixture/CancelRetrievalResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeUploadBuffer)
+    (Proxy.Proxy :: Proxy.Proxy CancelRetrieval)
 
-responseDescribeTapes :: DescribeTapesResponse -> TestTree
-responseDescribeTapes =
+responseCreateCachediSCSIVolume :: CreateCachediSCSIVolumeResponse -> TestTree
+responseCreateCachediSCSIVolume =
   res
-    "DescribeTapesResponse"
-    "fixture/DescribeTapesResponse.proto"
+    "CreateCachediSCSIVolumeResponse"
+    "fixture/CreateCachediSCSIVolumeResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeTapes)
+    (Proxy.Proxy :: Proxy.Proxy CreateCachediSCSIVolume)
 
-responseDescribeStorediSCSIVolumes :: DescribeStorediSCSIVolumesResponse -> TestTree
-responseDescribeStorediSCSIVolumes =
+responseCreateNFSFileShare :: CreateNFSFileShareResponse -> TestTree
+responseCreateNFSFileShare =
   res
-    "DescribeStorediSCSIVolumesResponse"
-    "fixture/DescribeStorediSCSIVolumesResponse.proto"
+    "CreateNFSFileShareResponse"
+    "fixture/CreateNFSFileShareResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeStorediSCSIVolumes)
+    (Proxy.Proxy :: Proxy.Proxy CreateNFSFileShare)
 
-responseDisassociateFileSystem :: DisassociateFileSystemResponse -> TestTree
-responseDisassociateFileSystem =
+responseCreateSMBFileShare :: CreateSMBFileShareResponse -> TestTree
+responseCreateSMBFileShare =
   res
-    "DisassociateFileSystemResponse"
-    "fixture/DisassociateFileSystemResponse.proto"
+    "CreateSMBFileShareResponse"
+    "fixture/CreateSMBFileShareResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisassociateFileSystem)
+    (Proxy.Proxy :: Proxy.Proxy CreateSMBFileShare)
 
-responseSetSMBGuestPassword :: SetSMBGuestPasswordResponse -> TestTree
-responseSetSMBGuestPassword =
+responseCreateSnapshot :: CreateSnapshotResponse -> TestTree
+responseCreateSnapshot =
   res
-    "SetSMBGuestPasswordResponse"
-    "fixture/SetSMBGuestPasswordResponse.proto"
+    "CreateSnapshotResponse"
+    "fixture/CreateSnapshotResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy SetSMBGuestPassword)
+    (Proxy.Proxy :: Proxy.Proxy CreateSnapshot)
 
 responseCreateSnapshotFromVolumeRecoveryPoint :: CreateSnapshotFromVolumeRecoveryPointResponse -> TestTree
 responseCreateSnapshotFromVolumeRecoveryPoint =
@@ -1477,21 +1237,69 @@ responseCreateSnapshotFromVolumeRecoveryPoint =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateSnapshotFromVolumeRecoveryPoint)
 
-responseRetrieveTapeRecoveryPoint :: RetrieveTapeRecoveryPointResponse -> TestTree
-responseRetrieveTapeRecoveryPoint =
+responseCreateStorediSCSIVolume :: CreateStorediSCSIVolumeResponse -> TestTree
+responseCreateStorediSCSIVolume =
   res
-    "RetrieveTapeRecoveryPointResponse"
-    "fixture/RetrieveTapeRecoveryPointResponse.proto"
+    "CreateStorediSCSIVolumeResponse"
+    "fixture/CreateStorediSCSIVolumeResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy RetrieveTapeRecoveryPoint)
+    (Proxy.Proxy :: Proxy.Proxy CreateStorediSCSIVolume)
 
-responseAddTagsToResource :: AddTagsToResourceResponse -> TestTree
-responseAddTagsToResource =
+responseCreateTapePool :: CreateTapePoolResponse -> TestTree
+responseCreateTapePool =
   res
-    "AddTagsToResourceResponse"
-    "fixture/AddTagsToResourceResponse.proto"
+    "CreateTapePoolResponse"
+    "fixture/CreateTapePoolResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy AddTagsToResource)
+    (Proxy.Proxy :: Proxy.Proxy CreateTapePool)
+
+responseCreateTapeWithBarcode :: CreateTapeWithBarcodeResponse -> TestTree
+responseCreateTapeWithBarcode =
+  res
+    "CreateTapeWithBarcodeResponse"
+    "fixture/CreateTapeWithBarcodeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateTapeWithBarcode)
+
+responseCreateTapes :: CreateTapesResponse -> TestTree
+responseCreateTapes =
+  res
+    "CreateTapesResponse"
+    "fixture/CreateTapesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateTapes)
+
+responseDeleteAutomaticTapeCreationPolicy :: DeleteAutomaticTapeCreationPolicyResponse -> TestTree
+responseDeleteAutomaticTapeCreationPolicy =
+  res
+    "DeleteAutomaticTapeCreationPolicyResponse"
+    "fixture/DeleteAutomaticTapeCreationPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAutomaticTapeCreationPolicy)
+
+responseDeleteBandwidthRateLimit :: DeleteBandwidthRateLimitResponse -> TestTree
+responseDeleteBandwidthRateLimit =
+  res
+    "DeleteBandwidthRateLimitResponse"
+    "fixture/DeleteBandwidthRateLimitResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteBandwidthRateLimit)
+
+responseDeleteChapCredentials :: DeleteChapCredentialsResponse -> TestTree
+responseDeleteChapCredentials =
+  res
+    "DeleteChapCredentialsResponse"
+    "fixture/DeleteChapCredentialsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteChapCredentials)
+
+responseDeleteFileShare :: DeleteFileShareResponse -> TestTree
+responseDeleteFileShare =
+  res
+    "DeleteFileShareResponse"
+    "fixture/DeleteFileShareResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteFileShare)
 
 responseDeleteGateway :: DeleteGatewayResponse -> TestTree
 responseDeleteGateway =
@@ -1501,13 +1309,101 @@ responseDeleteGateway =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteGateway)
 
-responseUpdateMaintenanceStartTime :: UpdateMaintenanceStartTimeResponse -> TestTree
-responseUpdateMaintenanceStartTime =
+responseDeleteSnapshotSchedule :: DeleteSnapshotScheduleResponse -> TestTree
+responseDeleteSnapshotSchedule =
   res
-    "UpdateMaintenanceStartTimeResponse"
-    "fixture/UpdateMaintenanceStartTimeResponse.proto"
+    "DeleteSnapshotScheduleResponse"
+    "fixture/DeleteSnapshotScheduleResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateMaintenanceStartTime)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSnapshotSchedule)
+
+responseDeleteTape :: DeleteTapeResponse -> TestTree
+responseDeleteTape =
+  res
+    "DeleteTapeResponse"
+    "fixture/DeleteTapeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteTape)
+
+responseDeleteTapeArchive :: DeleteTapeArchiveResponse -> TestTree
+responseDeleteTapeArchive =
+  res
+    "DeleteTapeArchiveResponse"
+    "fixture/DeleteTapeArchiveResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteTapeArchive)
+
+responseDeleteTapePool :: DeleteTapePoolResponse -> TestTree
+responseDeleteTapePool =
+  res
+    "DeleteTapePoolResponse"
+    "fixture/DeleteTapePoolResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteTapePool)
+
+responseDeleteVolume :: DeleteVolumeResponse -> TestTree
+responseDeleteVolume =
+  res
+    "DeleteVolumeResponse"
+    "fixture/DeleteVolumeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteVolume)
+
+responseDescribeAvailabilityMonitorTest :: DescribeAvailabilityMonitorTestResponse -> TestTree
+responseDescribeAvailabilityMonitorTest =
+  res
+    "DescribeAvailabilityMonitorTestResponse"
+    "fixture/DescribeAvailabilityMonitorTestResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAvailabilityMonitorTest)
+
+responseDescribeBandwidthRateLimit :: DescribeBandwidthRateLimitResponse -> TestTree
+responseDescribeBandwidthRateLimit =
+  res
+    "DescribeBandwidthRateLimitResponse"
+    "fixture/DescribeBandwidthRateLimitResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeBandwidthRateLimit)
+
+responseDescribeBandwidthRateLimitSchedule :: DescribeBandwidthRateLimitScheduleResponse -> TestTree
+responseDescribeBandwidthRateLimitSchedule =
+  res
+    "DescribeBandwidthRateLimitScheduleResponse"
+    "fixture/DescribeBandwidthRateLimitScheduleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeBandwidthRateLimitSchedule)
+
+responseDescribeCache :: DescribeCacheResponse -> TestTree
+responseDescribeCache =
+  res
+    "DescribeCacheResponse"
+    "fixture/DescribeCacheResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeCache)
+
+responseDescribeCachediSCSIVolumes :: DescribeCachediSCSIVolumesResponse -> TestTree
+responseDescribeCachediSCSIVolumes =
+  res
+    "DescribeCachediSCSIVolumesResponse"
+    "fixture/DescribeCachediSCSIVolumesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeCachediSCSIVolumes)
+
+responseDescribeChapCredentials :: DescribeChapCredentialsResponse -> TestTree
+responseDescribeChapCredentials =
+  res
+    "DescribeChapCredentialsResponse"
+    "fixture/DescribeChapCredentialsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeChapCredentials)
+
+responseDescribeFileSystemAssociations :: DescribeFileSystemAssociationsResponse -> TestTree
+responseDescribeFileSystemAssociations =
+  res
+    "DescribeFileSystemAssociationsResponse"
+    "fixture/DescribeFileSystemAssociationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeFileSystemAssociations)
 
 responseDescribeGatewayInformation :: DescribeGatewayInformationResponse -> TestTree
 responseDescribeGatewayInformation =
@@ -1517,53 +1413,29 @@ responseDescribeGatewayInformation =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeGatewayInformation)
 
-responseRefreshCache :: RefreshCacheResponse -> TestTree
-responseRefreshCache =
+responseDescribeMaintenanceStartTime :: DescribeMaintenanceStartTimeResponse -> TestTree
+responseDescribeMaintenanceStartTime =
   res
-    "RefreshCacheResponse"
-    "fixture/RefreshCacheResponse.proto"
+    "DescribeMaintenanceStartTimeResponse"
+    "fixture/DescribeMaintenanceStartTimeResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy RefreshCache)
+    (Proxy.Proxy :: Proxy.Proxy DescribeMaintenanceStartTime)
 
-responseUpdateNFSFileShare :: UpdateNFSFileShareResponse -> TestTree
-responseUpdateNFSFileShare =
+responseDescribeNFSFileShares :: DescribeNFSFileSharesResponse -> TestTree
+responseDescribeNFSFileShares =
   res
-    "UpdateNFSFileShareResponse"
-    "fixture/UpdateNFSFileShareResponse.proto"
+    "DescribeNFSFileSharesResponse"
+    "fixture/DescribeNFSFileSharesResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateNFSFileShare)
+    (Proxy.Proxy :: Proxy.Proxy DescribeNFSFileShares)
 
-responseRetrieveTapeArchive :: RetrieveTapeArchiveResponse -> TestTree
-responseRetrieveTapeArchive =
+responseDescribeSMBFileShares :: DescribeSMBFileSharesResponse -> TestTree
+responseDescribeSMBFileShares =
   res
-    "RetrieveTapeArchiveResponse"
-    "fixture/RetrieveTapeArchiveResponse.proto"
+    "DescribeSMBFileSharesResponse"
+    "fixture/DescribeSMBFileSharesResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy RetrieveTapeArchive)
-
-responseDescribeTapeArchives :: DescribeTapeArchivesResponse -> TestTree
-responseDescribeTapeArchives =
-  res
-    "DescribeTapeArchivesResponse"
-    "fixture/DescribeTapeArchivesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeTapeArchives)
-
-responseUpdateBandwidthRateLimitSchedule :: UpdateBandwidthRateLimitScheduleResponse -> TestTree
-responseUpdateBandwidthRateLimitSchedule =
-  res
-    "UpdateBandwidthRateLimitScheduleResponse"
-    "fixture/UpdateBandwidthRateLimitScheduleResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateBandwidthRateLimitSchedule)
-
-responseDisableGateway :: DisableGatewayResponse -> TestTree
-responseDisableGateway =
-  res
-    "DisableGatewayResponse"
-    "fixture/DisableGatewayResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisableGateway)
+    (Proxy.Proxy :: Proxy.Proxy DescribeSMBFileShares)
 
 responseDescribeSMBSettings :: DescribeSMBSettingsResponse -> TestTree
 responseDescribeSMBSettings =
@@ -1581,221 +1453,21 @@ responseDescribeSnapshotSchedule =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeSnapshotSchedule)
 
-responseCreateTapeWithBarcode :: CreateTapeWithBarcodeResponse -> TestTree
-responseCreateTapeWithBarcode =
+responseDescribeStorediSCSIVolumes :: DescribeStorediSCSIVolumesResponse -> TestTree
+responseDescribeStorediSCSIVolumes =
   res
-    "CreateTapeWithBarcodeResponse"
-    "fixture/CreateTapeWithBarcodeResponse.proto"
+    "DescribeStorediSCSIVolumesResponse"
+    "fixture/DescribeStorediSCSIVolumesResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateTapeWithBarcode)
+    (Proxy.Proxy :: Proxy.Proxy DescribeStorediSCSIVolumes)
 
-responseDescribeBandwidthRateLimit :: DescribeBandwidthRateLimitResponse -> TestTree
-responseDescribeBandwidthRateLimit =
+responseDescribeTapeArchives :: DescribeTapeArchivesResponse -> TestTree
+responseDescribeTapeArchives =
   res
-    "DescribeBandwidthRateLimitResponse"
-    "fixture/DescribeBandwidthRateLimitResponse.proto"
+    "DescribeTapeArchivesResponse"
+    "fixture/DescribeTapeArchivesResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeBandwidthRateLimit)
-
-responseDeleteAutomaticTapeCreationPolicy :: DeleteAutomaticTapeCreationPolicyResponse -> TestTree
-responseDeleteAutomaticTapeCreationPolicy =
-  res
-    "DeleteAutomaticTapeCreationPolicyResponse"
-    "fixture/DeleteAutomaticTapeCreationPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteAutomaticTapeCreationPolicy)
-
-responseUpdateAutomaticTapeCreationPolicy :: UpdateAutomaticTapeCreationPolicyResponse -> TestTree
-responseUpdateAutomaticTapeCreationPolicy =
-  res
-    "UpdateAutomaticTapeCreationPolicyResponse"
-    "fixture/UpdateAutomaticTapeCreationPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateAutomaticTapeCreationPolicy)
-
-responseUpdateSMBFileShareVisibility :: UpdateSMBFileShareVisibilityResponse -> TestTree
-responseUpdateSMBFileShareVisibility =
-  res
-    "UpdateSMBFileShareVisibilityResponse"
-    "fixture/UpdateSMBFileShareVisibilityResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateSMBFileShareVisibility)
-
-responseDeleteSnapshotSchedule :: DeleteSnapshotScheduleResponse -> TestTree
-responseDeleteSnapshotSchedule =
-  res
-    "DeleteSnapshotScheduleResponse"
-    "fixture/DeleteSnapshotScheduleResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteSnapshotSchedule)
-
-responseUpdateSnapshotSchedule :: UpdateSnapshotScheduleResponse -> TestTree
-responseUpdateSnapshotSchedule =
-  res
-    "UpdateSnapshotScheduleResponse"
-    "fixture/UpdateSnapshotScheduleResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateSnapshotSchedule)
-
-responseDescribeBandwidthRateLimitSchedule :: DescribeBandwidthRateLimitScheduleResponse -> TestTree
-responseDescribeBandwidthRateLimitSchedule =
-  res
-    "DescribeBandwidthRateLimitScheduleResponse"
-    "fixture/DescribeBandwidthRateLimitScheduleResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeBandwidthRateLimitSchedule)
-
-responseCreateSnapshot :: CreateSnapshotResponse -> TestTree
-responseCreateSnapshot =
-  res
-    "CreateSnapshotResponse"
-    "fixture/CreateSnapshotResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateSnapshot)
-
-responseUpdateSMBSecurityStrategy :: UpdateSMBSecurityStrategyResponse -> TestTree
-responseUpdateSMBSecurityStrategy =
-  res
-    "UpdateSMBSecurityStrategyResponse"
-    "fixture/UpdateSMBSecurityStrategyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateSMBSecurityStrategy)
-
-responseCancelRetrieval :: CancelRetrievalResponse -> TestTree
-responseCancelRetrieval =
-  res
-    "CancelRetrievalResponse"
-    "fixture/CancelRetrievalResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CancelRetrieval)
-
-responseDescribeVTLDevices :: DescribeVTLDevicesResponse -> TestTree
-responseDescribeVTLDevices =
-  res
-    "DescribeVTLDevicesResponse"
-    "fixture/DescribeVTLDevicesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeVTLDevices)
-
-responseStartAvailabilityMonitorTest :: StartAvailabilityMonitorTestResponse -> TestTree
-responseStartAvailabilityMonitorTest =
-  res
-    "StartAvailabilityMonitorTestResponse"
-    "fixture/StartAvailabilityMonitorTestResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartAvailabilityMonitorTest)
-
-responseDeleteTapeArchive :: DeleteTapeArchiveResponse -> TestTree
-responseDeleteTapeArchive =
-  res
-    "DeleteTapeArchiveResponse"
-    "fixture/DeleteTapeArchiveResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteTapeArchive)
-
-responseListFileSystemAssociations :: ListFileSystemAssociationsResponse -> TestTree
-responseListFileSystemAssociations =
-  res
-    "ListFileSystemAssociationsResponse"
-    "fixture/ListFileSystemAssociationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListFileSystemAssociations)
-
-responseUpdateSMBFileShare :: UpdateSMBFileShareResponse -> TestTree
-responseUpdateSMBFileShare =
-  res
-    "UpdateSMBFileShareResponse"
-    "fixture/UpdateSMBFileShareResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateSMBFileShare)
-
-responseDescribeNFSFileShares :: DescribeNFSFileSharesResponse -> TestTree
-responseDescribeNFSFileShares =
-  res
-    "DescribeNFSFileSharesResponse"
-    "fixture/DescribeNFSFileSharesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeNFSFileShares)
-
-responseListVolumeRecoveryPoints :: ListVolumeRecoveryPointsResponse -> TestTree
-responseListVolumeRecoveryPoints =
-  res
-    "ListVolumeRecoveryPointsResponse"
-    "fixture/ListVolumeRecoveryPointsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListVolumeRecoveryPoints)
-
-responseListTapes :: ListTapesResponse -> TestTree
-responseListTapes =
-  res
-    "ListTapesResponse"
-    "fixture/ListTapesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTapes)
-
-responseResetCache :: ResetCacheResponse -> TestTree
-responseResetCache =
-  res
-    "ResetCacheResponse"
-    "fixture/ResetCacheResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ResetCache)
-
-responseDescribeSMBFileShares :: DescribeSMBFileSharesResponse -> TestTree
-responseDescribeSMBFileShares =
-  res
-    "DescribeSMBFileSharesResponse"
-    "fixture/DescribeSMBFileSharesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeSMBFileShares)
-
-responseListGateways :: ListGatewaysResponse -> TestTree
-responseListGateways =
-  res
-    "ListGatewaysResponse"
-    "fixture/ListGatewaysResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListGateways)
-
-responseDeleteTape :: DeleteTapeResponse -> TestTree
-responseDeleteTape =
-  res
-    "DeleteTapeResponse"
-    "fixture/DeleteTapeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteTape)
-
-responseListLocalDisks :: ListLocalDisksResponse -> TestTree
-responseListLocalDisks =
-  res
-    "ListLocalDisksResponse"
-    "fixture/ListLocalDisksResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListLocalDisks)
-
-responseListVolumes :: ListVolumesResponse -> TestTree
-responseListVolumes =
-  res
-    "ListVolumesResponse"
-    "fixture/ListVolumesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListVolumes)
-
-responseUpdateBandwidthRateLimit :: UpdateBandwidthRateLimitResponse -> TestTree
-responseUpdateBandwidthRateLimit =
-  res
-    "UpdateBandwidthRateLimitResponse"
-    "fixture/UpdateBandwidthRateLimitResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateBandwidthRateLimit)
-
-responseAddWorkingStorage :: AddWorkingStorageResponse -> TestTree
-responseAddWorkingStorage =
-  res
-    "AddWorkingStorageResponse"
-    "fixture/AddWorkingStorageResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy AddWorkingStorage)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTapeArchives)
 
 responseDescribeTapeRecoveryPoints :: DescribeTapeRecoveryPointsResponse -> TestTree
 responseDescribeTapeRecoveryPoints =
@@ -1805,34 +1477,362 @@ responseDescribeTapeRecoveryPoints =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeTapeRecoveryPoints)
 
-responseDeleteBandwidthRateLimit :: DeleteBandwidthRateLimitResponse -> TestTree
-responseDeleteBandwidthRateLimit =
+responseDescribeTapes :: DescribeTapesResponse -> TestTree
+responseDescribeTapes =
   res
-    "DeleteBandwidthRateLimitResponse"
-    "fixture/DeleteBandwidthRateLimitResponse.proto"
+    "DescribeTapesResponse"
+    "fixture/DescribeTapesResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteBandwidthRateLimit)
+    (Proxy.Proxy :: Proxy.Proxy DescribeTapes)
 
-responseActivateGateway :: ActivateGatewayResponse -> TestTree
-responseActivateGateway =
+responseDescribeUploadBuffer :: DescribeUploadBufferResponse -> TestTree
+responseDescribeUploadBuffer =
   res
-    "ActivateGatewayResponse"
-    "fixture/ActivateGatewayResponse.proto"
+    "DescribeUploadBufferResponse"
+    "fixture/DescribeUploadBufferResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ActivateGateway)
+    (Proxy.Proxy :: Proxy.Proxy DescribeUploadBuffer)
 
-responseDescribeCache :: DescribeCacheResponse -> TestTree
-responseDescribeCache =
+responseDescribeVTLDevices :: DescribeVTLDevicesResponse -> TestTree
+responseDescribeVTLDevices =
   res
-    "DescribeCacheResponse"
-    "fixture/DescribeCacheResponse.proto"
+    "DescribeVTLDevicesResponse"
+    "fixture/DescribeVTLDevicesResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeCache)
+    (Proxy.Proxy :: Proxy.Proxy DescribeVTLDevices)
 
-responseDeleteVolume :: DeleteVolumeResponse -> TestTree
-responseDeleteVolume =
+responseDescribeWorkingStorage :: DescribeWorkingStorageResponse -> TestTree
+responseDescribeWorkingStorage =
   res
-    "DeleteVolumeResponse"
-    "fixture/DeleteVolumeResponse.proto"
+    "DescribeWorkingStorageResponse"
+    "fixture/DescribeWorkingStorageResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteVolume)
+    (Proxy.Proxy :: Proxy.Proxy DescribeWorkingStorage)
+
+responseDetachVolume :: DetachVolumeResponse -> TestTree
+responseDetachVolume =
+  res
+    "DetachVolumeResponse"
+    "fixture/DetachVolumeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DetachVolume)
+
+responseDisableGateway :: DisableGatewayResponse -> TestTree
+responseDisableGateway =
+  res
+    "DisableGatewayResponse"
+    "fixture/DisableGatewayResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisableGateway)
+
+responseDisassociateFileSystem :: DisassociateFileSystemResponse -> TestTree
+responseDisassociateFileSystem =
+  res
+    "DisassociateFileSystemResponse"
+    "fixture/DisassociateFileSystemResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateFileSystem)
+
+responseJoinDomain :: JoinDomainResponse -> TestTree
+responseJoinDomain =
+  res
+    "JoinDomainResponse"
+    "fixture/JoinDomainResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy JoinDomain)
+
+responseListAutomaticTapeCreationPolicies :: ListAutomaticTapeCreationPoliciesResponse -> TestTree
+responseListAutomaticTapeCreationPolicies =
+  res
+    "ListAutomaticTapeCreationPoliciesResponse"
+    "fixture/ListAutomaticTapeCreationPoliciesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAutomaticTapeCreationPolicies)
+
+responseListFileShares :: ListFileSharesResponse -> TestTree
+responseListFileShares =
+  res
+    "ListFileSharesResponse"
+    "fixture/ListFileSharesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListFileShares)
+
+responseListFileSystemAssociations :: ListFileSystemAssociationsResponse -> TestTree
+responseListFileSystemAssociations =
+  res
+    "ListFileSystemAssociationsResponse"
+    "fixture/ListFileSystemAssociationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListFileSystemAssociations)
+
+responseListGateways :: ListGatewaysResponse -> TestTree
+responseListGateways =
+  res
+    "ListGatewaysResponse"
+    "fixture/ListGatewaysResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListGateways)
+
+responseListLocalDisks :: ListLocalDisksResponse -> TestTree
+responseListLocalDisks =
+  res
+    "ListLocalDisksResponse"
+    "fixture/ListLocalDisksResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListLocalDisks)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseListTapePools :: ListTapePoolsResponse -> TestTree
+responseListTapePools =
+  res
+    "ListTapePoolsResponse"
+    "fixture/ListTapePoolsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTapePools)
+
+responseListTapes :: ListTapesResponse -> TestTree
+responseListTapes =
+  res
+    "ListTapesResponse"
+    "fixture/ListTapesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTapes)
+
+responseListVolumeInitiators :: ListVolumeInitiatorsResponse -> TestTree
+responseListVolumeInitiators =
+  res
+    "ListVolumeInitiatorsResponse"
+    "fixture/ListVolumeInitiatorsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListVolumeInitiators)
+
+responseListVolumeRecoveryPoints :: ListVolumeRecoveryPointsResponse -> TestTree
+responseListVolumeRecoveryPoints =
+  res
+    "ListVolumeRecoveryPointsResponse"
+    "fixture/ListVolumeRecoveryPointsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListVolumeRecoveryPoints)
+
+responseListVolumes :: ListVolumesResponse -> TestTree
+responseListVolumes =
+  res
+    "ListVolumesResponse"
+    "fixture/ListVolumesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListVolumes)
+
+responseNotifyWhenUploaded :: NotifyWhenUploadedResponse -> TestTree
+responseNotifyWhenUploaded =
+  res
+    "NotifyWhenUploadedResponse"
+    "fixture/NotifyWhenUploadedResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy NotifyWhenUploaded)
+
+responseRefreshCache :: RefreshCacheResponse -> TestTree
+responseRefreshCache =
+  res
+    "RefreshCacheResponse"
+    "fixture/RefreshCacheResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RefreshCache)
+
+responseRemoveTagsFromResource :: RemoveTagsFromResourceResponse -> TestTree
+responseRemoveTagsFromResource =
+  res
+    "RemoveTagsFromResourceResponse"
+    "fixture/RemoveTagsFromResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RemoveTagsFromResource)
+
+responseResetCache :: ResetCacheResponse -> TestTree
+responseResetCache =
+  res
+    "ResetCacheResponse"
+    "fixture/ResetCacheResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ResetCache)
+
+responseRetrieveTapeArchive :: RetrieveTapeArchiveResponse -> TestTree
+responseRetrieveTapeArchive =
+  res
+    "RetrieveTapeArchiveResponse"
+    "fixture/RetrieveTapeArchiveResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RetrieveTapeArchive)
+
+responseRetrieveTapeRecoveryPoint :: RetrieveTapeRecoveryPointResponse -> TestTree
+responseRetrieveTapeRecoveryPoint =
+  res
+    "RetrieveTapeRecoveryPointResponse"
+    "fixture/RetrieveTapeRecoveryPointResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RetrieveTapeRecoveryPoint)
+
+responseSetLocalConsolePassword :: SetLocalConsolePasswordResponse -> TestTree
+responseSetLocalConsolePassword =
+  res
+    "SetLocalConsolePasswordResponse"
+    "fixture/SetLocalConsolePasswordResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SetLocalConsolePassword)
+
+responseSetSMBGuestPassword :: SetSMBGuestPasswordResponse -> TestTree
+responseSetSMBGuestPassword =
+  res
+    "SetSMBGuestPasswordResponse"
+    "fixture/SetSMBGuestPasswordResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SetSMBGuestPassword)
+
+responseShutdownGateway :: ShutdownGatewayResponse -> TestTree
+responseShutdownGateway =
+  res
+    "ShutdownGatewayResponse"
+    "fixture/ShutdownGatewayResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ShutdownGateway)
+
+responseStartAvailabilityMonitorTest :: StartAvailabilityMonitorTestResponse -> TestTree
+responseStartAvailabilityMonitorTest =
+  res
+    "StartAvailabilityMonitorTestResponse"
+    "fixture/StartAvailabilityMonitorTestResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartAvailabilityMonitorTest)
+
+responseStartGateway :: StartGatewayResponse -> TestTree
+responseStartGateway =
+  res
+    "StartGatewayResponse"
+    "fixture/StartGatewayResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartGateway)
+
+responseUpdateAutomaticTapeCreationPolicy :: UpdateAutomaticTapeCreationPolicyResponse -> TestTree
+responseUpdateAutomaticTapeCreationPolicy =
+  res
+    "UpdateAutomaticTapeCreationPolicyResponse"
+    "fixture/UpdateAutomaticTapeCreationPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAutomaticTapeCreationPolicy)
+
+responseUpdateBandwidthRateLimit :: UpdateBandwidthRateLimitResponse -> TestTree
+responseUpdateBandwidthRateLimit =
+  res
+    "UpdateBandwidthRateLimitResponse"
+    "fixture/UpdateBandwidthRateLimitResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateBandwidthRateLimit)
+
+responseUpdateBandwidthRateLimitSchedule :: UpdateBandwidthRateLimitScheduleResponse -> TestTree
+responseUpdateBandwidthRateLimitSchedule =
+  res
+    "UpdateBandwidthRateLimitScheduleResponse"
+    "fixture/UpdateBandwidthRateLimitScheduleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateBandwidthRateLimitSchedule)
+
+responseUpdateChapCredentials :: UpdateChapCredentialsResponse -> TestTree
+responseUpdateChapCredentials =
+  res
+    "UpdateChapCredentialsResponse"
+    "fixture/UpdateChapCredentialsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateChapCredentials)
+
+responseUpdateFileSystemAssociation :: UpdateFileSystemAssociationResponse -> TestTree
+responseUpdateFileSystemAssociation =
+  res
+    "UpdateFileSystemAssociationResponse"
+    "fixture/UpdateFileSystemAssociationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateFileSystemAssociation)
+
+responseUpdateGatewayInformation :: UpdateGatewayInformationResponse -> TestTree
+responseUpdateGatewayInformation =
+  res
+    "UpdateGatewayInformationResponse"
+    "fixture/UpdateGatewayInformationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateGatewayInformation)
+
+responseUpdateGatewaySoftwareNow :: UpdateGatewaySoftwareNowResponse -> TestTree
+responseUpdateGatewaySoftwareNow =
+  res
+    "UpdateGatewaySoftwareNowResponse"
+    "fixture/UpdateGatewaySoftwareNowResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateGatewaySoftwareNow)
+
+responseUpdateMaintenanceStartTime :: UpdateMaintenanceStartTimeResponse -> TestTree
+responseUpdateMaintenanceStartTime =
+  res
+    "UpdateMaintenanceStartTimeResponse"
+    "fixture/UpdateMaintenanceStartTimeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateMaintenanceStartTime)
+
+responseUpdateNFSFileShare :: UpdateNFSFileShareResponse -> TestTree
+responseUpdateNFSFileShare =
+  res
+    "UpdateNFSFileShareResponse"
+    "fixture/UpdateNFSFileShareResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateNFSFileShare)
+
+responseUpdateSMBFileShare :: UpdateSMBFileShareResponse -> TestTree
+responseUpdateSMBFileShare =
+  res
+    "UpdateSMBFileShareResponse"
+    "fixture/UpdateSMBFileShareResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateSMBFileShare)
+
+responseUpdateSMBFileShareVisibility :: UpdateSMBFileShareVisibilityResponse -> TestTree
+responseUpdateSMBFileShareVisibility =
+  res
+    "UpdateSMBFileShareVisibilityResponse"
+    "fixture/UpdateSMBFileShareVisibilityResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateSMBFileShareVisibility)
+
+responseUpdateSMBLocalGroups :: UpdateSMBLocalGroupsResponse -> TestTree
+responseUpdateSMBLocalGroups =
+  res
+    "UpdateSMBLocalGroupsResponse"
+    "fixture/UpdateSMBLocalGroupsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateSMBLocalGroups)
+
+responseUpdateSMBSecurityStrategy :: UpdateSMBSecurityStrategyResponse -> TestTree
+responseUpdateSMBSecurityStrategy =
+  res
+    "UpdateSMBSecurityStrategyResponse"
+    "fixture/UpdateSMBSecurityStrategyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateSMBSecurityStrategy)
+
+responseUpdateSnapshotSchedule :: UpdateSnapshotScheduleResponse -> TestTree
+responseUpdateSnapshotSchedule =
+  res
+    "UpdateSnapshotScheduleResponse"
+    "fixture/UpdateSnapshotScheduleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateSnapshotSchedule)
+
+responseUpdateVTLDeviceType :: UpdateVTLDeviceTypeResponse -> TestTree
+responseUpdateVTLDeviceType =
+  res
+    "UpdateVTLDeviceTypeResponse"
+    "fixture/UpdateVTLDeviceTypeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateVTLDeviceType)

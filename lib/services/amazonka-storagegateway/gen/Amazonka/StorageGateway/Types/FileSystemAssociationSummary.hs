@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFileSystemAssociationSummary' smart constructor.
 data FileSystemAssociationSummary = FileSystemAssociationSummary'
-  { -- | The Amazon Resource Name (ARN) of the file system association.
-    fileSystemAssociationARN :: Prelude.Maybe Prelude.Text,
-    gatewayARN :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the file system association.
+  { -- | The ID of the file system association.
     fileSystemAssociationId :: Prelude.Maybe Prelude.Text,
+    gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | The status of the file share. Valid Values: @AVAILABLE@ | @CREATING@ |
     -- @DELETING@ | @FORCE_DELETING@ | @UPDATING@ | @ERROR@
-    fileSystemAssociationStatus :: Prelude.Maybe Prelude.Text
+    fileSystemAssociationStatus :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the file system association.
+    fileSystemAssociationARN :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,41 +47,41 @@ data FileSystemAssociationSummary = FileSystemAssociationSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fileSystemAssociationARN', 'fileSystemAssociationSummary_fileSystemAssociationARN' - The Amazon Resource Name (ARN) of the file system association.
+-- 'fileSystemAssociationId', 'fileSystemAssociationSummary_fileSystemAssociationId' - The ID of the file system association.
 --
 -- 'gatewayARN', 'fileSystemAssociationSummary_gatewayARN' - Undocumented member.
 --
--- 'fileSystemAssociationId', 'fileSystemAssociationSummary_fileSystemAssociationId' - The ID of the file system association.
---
 -- 'fileSystemAssociationStatus', 'fileSystemAssociationSummary_fileSystemAssociationStatus' - The status of the file share. Valid Values: @AVAILABLE@ | @CREATING@ |
 -- @DELETING@ | @FORCE_DELETING@ | @UPDATING@ | @ERROR@
+--
+-- 'fileSystemAssociationARN', 'fileSystemAssociationSummary_fileSystemAssociationARN' - The Amazon Resource Name (ARN) of the file system association.
 newFileSystemAssociationSummary ::
   FileSystemAssociationSummary
 newFileSystemAssociationSummary =
   FileSystemAssociationSummary'
-    { fileSystemAssociationARN =
+    { fileSystemAssociationId =
         Prelude.Nothing,
       gatewayARN = Prelude.Nothing,
-      fileSystemAssociationId = Prelude.Nothing,
-      fileSystemAssociationStatus = Prelude.Nothing
+      fileSystemAssociationStatus = Prelude.Nothing,
+      fileSystemAssociationARN = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the file system association.
-fileSystemAssociationSummary_fileSystemAssociationARN :: Lens.Lens' FileSystemAssociationSummary (Prelude.Maybe Prelude.Text)
-fileSystemAssociationSummary_fileSystemAssociationARN = Lens.lens (\FileSystemAssociationSummary' {fileSystemAssociationARN} -> fileSystemAssociationARN) (\s@FileSystemAssociationSummary' {} a -> s {fileSystemAssociationARN = a} :: FileSystemAssociationSummary)
-
--- | Undocumented member.
-fileSystemAssociationSummary_gatewayARN :: Lens.Lens' FileSystemAssociationSummary (Prelude.Maybe Prelude.Text)
-fileSystemAssociationSummary_gatewayARN = Lens.lens (\FileSystemAssociationSummary' {gatewayARN} -> gatewayARN) (\s@FileSystemAssociationSummary' {} a -> s {gatewayARN = a} :: FileSystemAssociationSummary)
 
 -- | The ID of the file system association.
 fileSystemAssociationSummary_fileSystemAssociationId :: Lens.Lens' FileSystemAssociationSummary (Prelude.Maybe Prelude.Text)
 fileSystemAssociationSummary_fileSystemAssociationId = Lens.lens (\FileSystemAssociationSummary' {fileSystemAssociationId} -> fileSystemAssociationId) (\s@FileSystemAssociationSummary' {} a -> s {fileSystemAssociationId = a} :: FileSystemAssociationSummary)
 
+-- | Undocumented member.
+fileSystemAssociationSummary_gatewayARN :: Lens.Lens' FileSystemAssociationSummary (Prelude.Maybe Prelude.Text)
+fileSystemAssociationSummary_gatewayARN = Lens.lens (\FileSystemAssociationSummary' {gatewayARN} -> gatewayARN) (\s@FileSystemAssociationSummary' {} a -> s {gatewayARN = a} :: FileSystemAssociationSummary)
+
 -- | The status of the file share. Valid Values: @AVAILABLE@ | @CREATING@ |
 -- @DELETING@ | @FORCE_DELETING@ | @UPDATING@ | @ERROR@
 fileSystemAssociationSummary_fileSystemAssociationStatus :: Lens.Lens' FileSystemAssociationSummary (Prelude.Maybe Prelude.Text)
 fileSystemAssociationSummary_fileSystemAssociationStatus = Lens.lens (\FileSystemAssociationSummary' {fileSystemAssociationStatus} -> fileSystemAssociationStatus) (\s@FileSystemAssociationSummary' {} a -> s {fileSystemAssociationStatus = a} :: FileSystemAssociationSummary)
+
+-- | The Amazon Resource Name (ARN) of the file system association.
+fileSystemAssociationSummary_fileSystemAssociationARN :: Lens.Lens' FileSystemAssociationSummary (Prelude.Maybe Prelude.Text)
+fileSystemAssociationSummary_fileSystemAssociationARN = Lens.lens (\FileSystemAssociationSummary' {fileSystemAssociationARN} -> fileSystemAssociationARN) (\s@FileSystemAssociationSummary' {} a -> s {fileSystemAssociationARN = a} :: FileSystemAssociationSummary)
 
 instance Core.FromJSON FileSystemAssociationSummary where
   parseJSON =
@@ -89,10 +89,10 @@ instance Core.FromJSON FileSystemAssociationSummary where
       "FileSystemAssociationSummary"
       ( \x ->
           FileSystemAssociationSummary'
-            Prelude.<$> (x Core..:? "FileSystemAssociationARN")
+            Prelude.<$> (x Core..:? "FileSystemAssociationId")
             Prelude.<*> (x Core..:? "GatewayARN")
-            Prelude.<*> (x Core..:? "FileSystemAssociationId")
             Prelude.<*> (x Core..:? "FileSystemAssociationStatus")
+            Prelude.<*> (x Core..:? "FileSystemAssociationARN")
       )
 
 instance
@@ -101,14 +101,14 @@ instance
   where
   hashWithSalt _salt FileSystemAssociationSummary' {..} =
     _salt
-      `Prelude.hashWithSalt` fileSystemAssociationARN
-      `Prelude.hashWithSalt` gatewayARN
       `Prelude.hashWithSalt` fileSystemAssociationId
+      `Prelude.hashWithSalt` gatewayARN
       `Prelude.hashWithSalt` fileSystemAssociationStatus
+      `Prelude.hashWithSalt` fileSystemAssociationARN
 
 instance Prelude.NFData FileSystemAssociationSummary where
   rnf FileSystemAssociationSummary' {..} =
-    Prelude.rnf fileSystemAssociationARN
+    Prelude.rnf fileSystemAssociationId
       `Prelude.seq` Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf fileSystemAssociationId
       `Prelude.seq` Prelude.rnf fileSystemAssociationStatus
+      `Prelude.seq` Prelude.rnf fileSystemAssociationARN

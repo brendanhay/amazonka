@@ -43,8 +43,8 @@ module Amazonka.StorageGateway.UpdateChapCredentials
     newUpdateChapCredentialsResponse,
 
     -- * Response Lenses
-    updateChapCredentialsResponse_targetARN,
     updateChapCredentialsResponse_initiatorName,
+    updateChapCredentialsResponse_targetARN,
     updateChapCredentialsResponse_httpStatus,
   )
 where
@@ -171,8 +171,8 @@ instance Core.AWSRequest UpdateChapCredentials where
     Response.receiveJSON
       ( \s h x ->
           UpdateChapCredentialsResponse'
-            Prelude.<$> (x Core..?> "TargetARN")
-            Prelude.<*> (x Core..?> "InitiatorName")
+            Prelude.<$> (x Core..?> "InitiatorName")
+            Prelude.<*> (x Core..?> "TargetARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -232,12 +232,12 @@ instance Core.ToQuery UpdateChapCredentials where
 --
 -- /See:/ 'newUpdateChapCredentialsResponse' smart constructor.
 data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse'
-  { -- | The Amazon Resource Name (ARN) of the target. This is the same target
-    -- specified in the request.
-    targetARN :: Prelude.Maybe Prelude.Text,
-    -- | The iSCSI initiator that connects to the target. This is the same
+  { -- | The iSCSI initiator that connects to the target. This is the same
     -- initiator name specified in the request.
     initiatorName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the target. This is the same target
+    -- specified in the request.
+    targetARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -251,11 +251,11 @@ data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetARN', 'updateChapCredentialsResponse_targetARN' - The Amazon Resource Name (ARN) of the target. This is the same target
--- specified in the request.
---
 -- 'initiatorName', 'updateChapCredentialsResponse_initiatorName' - The iSCSI initiator that connects to the target. This is the same
 -- initiator name specified in the request.
+--
+-- 'targetARN', 'updateChapCredentialsResponse_targetARN' - The Amazon Resource Name (ARN) of the target. This is the same target
+-- specified in the request.
 --
 -- 'httpStatus', 'updateChapCredentialsResponse_httpStatus' - The response's http status code.
 newUpdateChapCredentialsResponse ::
@@ -264,21 +264,21 @@ newUpdateChapCredentialsResponse ::
   UpdateChapCredentialsResponse
 newUpdateChapCredentialsResponse pHttpStatus_ =
   UpdateChapCredentialsResponse'
-    { targetARN =
+    { initiatorName =
         Prelude.Nothing,
-      initiatorName = Prelude.Nothing,
+      targetARN = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Amazon Resource Name (ARN) of the target. This is the same target
--- specified in the request.
-updateChapCredentialsResponse_targetARN :: Lens.Lens' UpdateChapCredentialsResponse (Prelude.Maybe Prelude.Text)
-updateChapCredentialsResponse_targetARN = Lens.lens (\UpdateChapCredentialsResponse' {targetARN} -> targetARN) (\s@UpdateChapCredentialsResponse' {} a -> s {targetARN = a} :: UpdateChapCredentialsResponse)
 
 -- | The iSCSI initiator that connects to the target. This is the same
 -- initiator name specified in the request.
 updateChapCredentialsResponse_initiatorName :: Lens.Lens' UpdateChapCredentialsResponse (Prelude.Maybe Prelude.Text)
 updateChapCredentialsResponse_initiatorName = Lens.lens (\UpdateChapCredentialsResponse' {initiatorName} -> initiatorName) (\s@UpdateChapCredentialsResponse' {} a -> s {initiatorName = a} :: UpdateChapCredentialsResponse)
+
+-- | The Amazon Resource Name (ARN) of the target. This is the same target
+-- specified in the request.
+updateChapCredentialsResponse_targetARN :: Lens.Lens' UpdateChapCredentialsResponse (Prelude.Maybe Prelude.Text)
+updateChapCredentialsResponse_targetARN = Lens.lens (\UpdateChapCredentialsResponse' {targetARN} -> targetARN) (\s@UpdateChapCredentialsResponse' {} a -> s {targetARN = a} :: UpdateChapCredentialsResponse)
 
 -- | The response's http status code.
 updateChapCredentialsResponse_httpStatus :: Lens.Lens' UpdateChapCredentialsResponse Prelude.Int
@@ -286,6 +286,6 @@ updateChapCredentialsResponse_httpStatus = Lens.lens (\UpdateChapCredentialsResp
 
 instance Prelude.NFData UpdateChapCredentialsResponse where
   rnf UpdateChapCredentialsResponse' {..} =
-    Prelude.rnf targetARN
-      `Prelude.seq` Prelude.rnf initiatorName
+    Prelude.rnf initiatorName
+      `Prelude.seq` Prelude.rnf targetARN
       `Prelude.seq` Prelude.rnf httpStatus

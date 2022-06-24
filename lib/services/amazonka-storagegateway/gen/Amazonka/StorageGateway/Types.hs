@@ -18,8 +18,8 @@ module Amazonka.StorageGateway.Types
 
     -- * Errors
     _InvalidGatewayRequestException,
-    _ServiceUnavailableError,
     _InternalServerError,
+    _ServiceUnavailableError,
 
     -- * ActiveDirectoryStatus
     ActiveDirectoryStatus (..),
@@ -57,8 +57,8 @@ module Amazonka.StorageGateway.Types
     -- * AutomaticTapeCreationPolicyInfo
     AutomaticTapeCreationPolicyInfo (..),
     newAutomaticTapeCreationPolicyInfo,
-    automaticTapeCreationPolicyInfo_gatewayARN,
     automaticTapeCreationPolicyInfo_automaticTapeCreationRules,
+    automaticTapeCreationPolicyInfo_gatewayARN,
 
     -- * AutomaticTapeCreationRule
     AutomaticTapeCreationRule (..),
@@ -88,47 +88,47 @@ module Amazonka.StorageGateway.Types
     -- * CachediSCSIVolume
     CachediSCSIVolume (..),
     newCachediSCSIVolume,
-    cachediSCSIVolume_volumeiSCSIAttributes,
-    cachediSCSIVolume_volumeStatus,
-    cachediSCSIVolume_sourceSnapshotId,
-    cachediSCSIVolume_kmsKey,
-    cachediSCSIVolume_volumeAttachmentStatus,
-    cachediSCSIVolume_volumeARN,
+    cachediSCSIVolume_volumeUsedInBytes,
     cachediSCSIVolume_volumeProgress,
     cachediSCSIVolume_volumeSizeInBytes,
-    cachediSCSIVolume_volumeUsedInBytes,
+    cachediSCSIVolume_targetName,
+    cachediSCSIVolume_volumeiSCSIAttributes,
+    cachediSCSIVolume_volumeStatus,
+    cachediSCSIVolume_volumeAttachmentStatus,
+    cachediSCSIVolume_sourceSnapshotId,
+    cachediSCSIVolume_kmsKey,
+    cachediSCSIVolume_volumeType,
+    cachediSCSIVolume_volumeARN,
     cachediSCSIVolume_createdDate,
     cachediSCSIVolume_volumeId,
-    cachediSCSIVolume_volumeType,
-    cachediSCSIVolume_targetName,
 
     -- * ChapInfo
     ChapInfo (..),
     newChapInfo,
-    chapInfo_targetARN,
-    chapInfo_secretToAuthenticateInitiator,
     chapInfo_initiatorName,
     chapInfo_secretToAuthenticateTarget,
+    chapInfo_targetARN,
+    chapInfo_secretToAuthenticateInitiator,
 
     -- * DeviceiSCSIAttributes
     DeviceiSCSIAttributes (..),
     newDeviceiSCSIAttributes,
+    deviceiSCSIAttributes_networkInterfacePort,
     deviceiSCSIAttributes_targetARN,
     deviceiSCSIAttributes_chapEnabled,
     deviceiSCSIAttributes_networkInterfaceId,
-    deviceiSCSIAttributes_networkInterfacePort,
 
     -- * Disk
     Disk (..),
     newDisk,
-    disk_diskAllocationResource,
-    disk_diskAllocationType,
+    disk_diskStatus,
     disk_diskNode,
+    disk_diskId,
+    disk_diskAllocationType,
     disk_diskPath,
     disk_diskSizeInBytes,
-    disk_diskStatus,
-    disk_diskId,
     disk_diskAttributeList,
+    disk_diskAllocationResource,
 
     -- * EndpointNetworkConfiguration
     EndpointNetworkConfiguration (..),
@@ -139,23 +139,23 @@ module Amazonka.StorageGateway.Types
     FileShareInfo (..),
     newFileShareInfo,
     fileShareInfo_fileShareStatus,
-    fileShareInfo_gatewayARN,
     fileShareInfo_fileShareId,
     fileShareInfo_fileShareARN,
+    fileShareInfo_gatewayARN,
     fileShareInfo_fileShareType,
 
     -- * FileSystemAssociationInfo
     FileSystemAssociationInfo (..),
     newFileSystemAssociationInfo,
-    fileSystemAssociationInfo_auditDestinationARN,
-    fileSystemAssociationInfo_fileSystemAssociationARN,
-    fileSystemAssociationInfo_gatewayARN,
-    fileSystemAssociationInfo_cacheAttributes,
+    fileSystemAssociationInfo_tags,
     fileSystemAssociationInfo_fileSystemAssociationStatusDetails,
     fileSystemAssociationInfo_endpointNetworkConfiguration,
     fileSystemAssociationInfo_locationARN,
+    fileSystemAssociationInfo_gatewayARN,
     fileSystemAssociationInfo_fileSystemAssociationStatus,
-    fileSystemAssociationInfo_tags,
+    fileSystemAssociationInfo_cacheAttributes,
+    fileSystemAssociationInfo_auditDestinationARN,
+    fileSystemAssociationInfo_fileSystemAssociationARN,
 
     -- * FileSystemAssociationStatusDetail
     FileSystemAssociationStatusDetail (..),
@@ -165,21 +165,21 @@ module Amazonka.StorageGateway.Types
     -- * FileSystemAssociationSummary
     FileSystemAssociationSummary (..),
     newFileSystemAssociationSummary,
-    fileSystemAssociationSummary_fileSystemAssociationARN,
-    fileSystemAssociationSummary_gatewayARN,
     fileSystemAssociationSummary_fileSystemAssociationId,
+    fileSystemAssociationSummary_gatewayARN,
     fileSystemAssociationSummary_fileSystemAssociationStatus,
+    fileSystemAssociationSummary_fileSystemAssociationARN,
 
     -- * GatewayInfo
     GatewayInfo (..),
     newGatewayInfo,
-    gatewayInfo_ec2InstanceRegion,
-    gatewayInfo_gatewayARN,
     gatewayInfo_ec2InstanceId,
-    gatewayInfo_gatewayOperationalState,
     gatewayInfo_gatewayName,
-    gatewayInfo_gatewayId,
     gatewayInfo_gatewayType,
+    gatewayInfo_gatewayARN,
+    gatewayInfo_gatewayOperationalState,
+    gatewayInfo_gatewayId,
+    gatewayInfo_ec2InstanceRegion,
 
     -- * NFSFileShareDefaults
     NFSFileShareDefaults (..),
@@ -192,30 +192,30 @@ module Amazonka.StorageGateway.Types
     -- * NFSFileShareInfo
     NFSFileShareInfo (..),
     newNFSFileShareInfo,
-    nFSFileShareInfo_auditDestinationARN,
-    nFSFileShareInfo_fileShareStatus,
-    nFSFileShareInfo_kmsKey,
-    nFSFileShareInfo_gatewayARN,
-    nFSFileShareInfo_path,
-    nFSFileShareInfo_vPCEndpointDNSName,
-    nFSFileShareInfo_cacheAttributes,
-    nFSFileShareInfo_objectACL,
-    nFSFileShareInfo_kmsEncrypted,
-    nFSFileShareInfo_fileShareId,
-    nFSFileShareInfo_fileShareARN,
-    nFSFileShareInfo_defaultStorageClass,
-    nFSFileShareInfo_fileShareName,
-    nFSFileShareInfo_role,
-    nFSFileShareInfo_notificationPolicy,
+    nFSFileShareInfo_tags,
     nFSFileShareInfo_squash,
-    nFSFileShareInfo_requesterPays,
     nFSFileShareInfo_nFSFileShareDefaults,
+    nFSFileShareInfo_fileShareStatus,
+    nFSFileShareInfo_fileShareId,
+    nFSFileShareInfo_fileShareName,
+    nFSFileShareInfo_requesterPays,
+    nFSFileShareInfo_objectACL,
+    nFSFileShareInfo_kmsKey,
     nFSFileShareInfo_locationARN,
-    nFSFileShareInfo_clientList,
-    nFSFileShareInfo_guessMIMETypeEnabled,
+    nFSFileShareInfo_path,
+    nFSFileShareInfo_fileShareARN,
+    nFSFileShareInfo_vPCEndpointDNSName,
+    nFSFileShareInfo_gatewayARN,
+    nFSFileShareInfo_kmsEncrypted,
+    nFSFileShareInfo_defaultStorageClass,
+    nFSFileShareInfo_cacheAttributes,
     nFSFileShareInfo_readOnly,
     nFSFileShareInfo_bucketRegion,
-    nFSFileShareInfo_tags,
+    nFSFileShareInfo_role,
+    nFSFileShareInfo_auditDestinationARN,
+    nFSFileShareInfo_clientList,
+    nFSFileShareInfo_guessMIMETypeEnabled,
+    nFSFileShareInfo_notificationPolicy,
 
     -- * NetworkInterface
     NetworkInterface (..),
@@ -227,45 +227,45 @@ module Amazonka.StorageGateway.Types
     -- * PoolInfo
     PoolInfo (..),
     newPoolInfo,
-    poolInfo_retentionLockType,
+    poolInfo_poolARN,
     poolInfo_retentionLockTimeInDays,
+    poolInfo_retentionLockType,
+    poolInfo_poolStatus,
     poolInfo_poolName,
     poolInfo_storageClass,
-    poolInfo_poolStatus,
-    poolInfo_poolARN,
 
     -- * SMBFileShareInfo
     SMBFileShareInfo (..),
     newSMBFileShareInfo,
-    sMBFileShareInfo_accessBasedEnumeration,
-    sMBFileShareInfo_adminUserList,
-    sMBFileShareInfo_auditDestinationARN,
-    sMBFileShareInfo_fileShareStatus,
-    sMBFileShareInfo_invalidUserList,
-    sMBFileShareInfo_kmsKey,
+    sMBFileShareInfo_tags,
     sMBFileShareInfo_validUserList,
-    sMBFileShareInfo_gatewayARN,
-    sMBFileShareInfo_path,
-    sMBFileShareInfo_vPCEndpointDNSName,
     sMBFileShareInfo_authentication,
-    sMBFileShareInfo_cacheAttributes,
-    sMBFileShareInfo_objectACL,
-    sMBFileShareInfo_kmsEncrypted,
+    sMBFileShareInfo_fileShareStatus,
     sMBFileShareInfo_fileShareId,
-    sMBFileShareInfo_fileShareARN,
-    sMBFileShareInfo_defaultStorageClass,
     sMBFileShareInfo_fileShareName,
-    sMBFileShareInfo_role,
+    sMBFileShareInfo_requesterPays,
+    sMBFileShareInfo_objectACL,
+    sMBFileShareInfo_caseSensitivity,
+    sMBFileShareInfo_kmsKey,
     sMBFileShareInfo_sMBACLEnabled,
     sMBFileShareInfo_oplocksEnabled,
-    sMBFileShareInfo_notificationPolicy,
-    sMBFileShareInfo_requesterPays,
     sMBFileShareInfo_locationARN,
-    sMBFileShareInfo_guessMIMETypeEnabled,
+    sMBFileShareInfo_path,
+    sMBFileShareInfo_fileShareARN,
+    sMBFileShareInfo_vPCEndpointDNSName,
+    sMBFileShareInfo_accessBasedEnumeration,
+    sMBFileShareInfo_gatewayARN,
+    sMBFileShareInfo_invalidUserList,
+    sMBFileShareInfo_adminUserList,
+    sMBFileShareInfo_kmsEncrypted,
+    sMBFileShareInfo_defaultStorageClass,
+    sMBFileShareInfo_cacheAttributes,
     sMBFileShareInfo_readOnly,
     sMBFileShareInfo_bucketRegion,
-    sMBFileShareInfo_caseSensitivity,
-    sMBFileShareInfo_tags,
+    sMBFileShareInfo_role,
+    sMBFileShareInfo_auditDestinationARN,
+    sMBFileShareInfo_guessMIMETypeEnabled,
+    sMBFileShareInfo_notificationPolicy,
 
     -- * SMBLocalGroups
     SMBLocalGroups (..),
@@ -275,21 +275,21 @@ module Amazonka.StorageGateway.Types
     -- * StorediSCSIVolume
     StorediSCSIVolume (..),
     newStorediSCSIVolume,
-    storediSCSIVolume_volumeiSCSIAttributes,
-    storediSCSIVolume_volumeStatus,
-    storediSCSIVolume_sourceSnapshotId,
-    storediSCSIVolume_preservedExistingData,
-    storediSCSIVolume_kmsKey,
-    storediSCSIVolume_volumeAttachmentStatus,
-    storediSCSIVolume_volumeARN,
+    storediSCSIVolume_volumeUsedInBytes,
     storediSCSIVolume_volumeProgress,
     storediSCSIVolume_volumeSizeInBytes,
-    storediSCSIVolume_volumeUsedInBytes,
+    storediSCSIVolume_targetName,
+    storediSCSIVolume_volumeiSCSIAttributes,
+    storediSCSIVolume_volumeStatus,
+    storediSCSIVolume_volumeAttachmentStatus,
+    storediSCSIVolume_preservedExistingData,
+    storediSCSIVolume_sourceSnapshotId,
+    storediSCSIVolume_volumeDiskId,
+    storediSCSIVolume_kmsKey,
+    storediSCSIVolume_volumeType,
+    storediSCSIVolume_volumeARN,
     storediSCSIVolume_createdDate,
     storediSCSIVolume_volumeId,
-    storediSCSIVolume_volumeDiskId,
-    storediSCSIVolume_volumeType,
-    storediSCSIVolume_targetName,
 
     -- * Tag
     Tag (..),
@@ -301,92 +301,92 @@ module Amazonka.StorageGateway.Types
     Tape (..),
     newTape,
     tape_tapeBarcode,
-    tape_tapeStatus,
-    tape_kmsKey,
-    tape_tapeARN,
     tape_progress,
-    tape_tapeSizeInBytes,
-    tape_vTLDevice,
-    tape_poolId,
-    tape_tapeUsedInBytes,
-    tape_tapeCreatedDate,
-    tape_poolEntryDate,
+    tape_tapeStatus,
     tape_worm,
+    tape_tapeUsedInBytes,
+    tape_vTLDevice,
     tape_retentionStartDate,
+    tape_poolEntryDate,
+    tape_kmsKey,
+    tape_tapeSizeInBytes,
+    tape_poolId,
+    tape_tapeCreatedDate,
+    tape_tapeARN,
 
     -- * TapeArchive
     TapeArchive (..),
     newTapeArchive,
     tapeArchive_tapeBarcode,
     tapeArchive_tapeStatus,
-    tapeArchive_kmsKey,
-    tapeArchive_tapeARN,
-    tapeArchive_tapeSizeInBytes,
-    tapeArchive_completionTime,
-    tapeArchive_poolId,
-    tapeArchive_tapeUsedInBytes,
-    tapeArchive_tapeCreatedDate,
-    tapeArchive_poolEntryDate,
     tapeArchive_worm,
+    tapeArchive_tapeUsedInBytes,
     tapeArchive_retentionStartDate,
+    tapeArchive_poolEntryDate,
+    tapeArchive_kmsKey,
+    tapeArchive_completionTime,
+    tapeArchive_tapeSizeInBytes,
+    tapeArchive_poolId,
+    tapeArchive_tapeCreatedDate,
     tapeArchive_retrievedTo,
+    tapeArchive_tapeARN,
 
     -- * TapeInfo
     TapeInfo (..),
     newTapeInfo,
     tapeInfo_tapeBarcode,
     tapeInfo_tapeStatus,
-    tapeInfo_tapeARN,
+    tapeInfo_retentionStartDate,
+    tapeInfo_poolEntryDate,
     tapeInfo_gatewayARN,
     tapeInfo_tapeSizeInBytes,
     tapeInfo_poolId,
-    tapeInfo_poolEntryDate,
-    tapeInfo_retentionStartDate,
+    tapeInfo_tapeARN,
 
     -- * TapeRecoveryPointInfo
     TapeRecoveryPointInfo (..),
     newTapeRecoveryPointInfo,
     tapeRecoveryPointInfo_tapeStatus,
+    tapeRecoveryPointInfo_tapeSizeInBytes,
     tapeRecoveryPointInfo_tapeRecoveryPointTime,
     tapeRecoveryPointInfo_tapeARN,
-    tapeRecoveryPointInfo_tapeSizeInBytes,
 
     -- * VTLDevice
     VTLDevice (..),
     newVTLDevice,
-    vTLDevice_deviceiSCSIAttributes,
     vTLDevice_vTLDeviceVendor,
-    vTLDevice_vTLDeviceARN,
     vTLDevice_vTLDeviceType,
     vTLDevice_vTLDeviceProductIdentifier,
+    vTLDevice_deviceiSCSIAttributes,
+    vTLDevice_vTLDeviceARN,
 
     -- * VolumeInfo
     VolumeInfo (..),
     newVolumeInfo,
-    volumeInfo_gatewayARN,
-    volumeInfo_volumeAttachmentStatus,
-    volumeInfo_volumeARN,
     volumeInfo_volumeSizeInBytes,
-    volumeInfo_volumeId,
-    volumeInfo_gatewayId,
+    volumeInfo_volumeAttachmentStatus,
     volumeInfo_volumeType,
+    volumeInfo_volumeARN,
+    volumeInfo_gatewayARN,
+    volumeInfo_gatewayId,
+    volumeInfo_volumeId,
 
     -- * VolumeRecoveryPointInfo
     VolumeRecoveryPointInfo (..),
     newVolumeRecoveryPointInfo,
-    volumeRecoveryPointInfo_volumeRecoveryPointTime,
-    volumeRecoveryPointInfo_volumeARN,
     volumeRecoveryPointInfo_volumeSizeInBytes,
     volumeRecoveryPointInfo_volumeUsageInBytes,
+    volumeRecoveryPointInfo_volumeARN,
+    volumeRecoveryPointInfo_volumeRecoveryPointTime,
 
     -- * VolumeiSCSIAttributes
     VolumeiSCSIAttributes (..),
     newVolumeiSCSIAttributes,
+    volumeiSCSIAttributes_networkInterfacePort,
     volumeiSCSIAttributes_lunNumber,
     volumeiSCSIAttributes_targetARN,
     volumeiSCSIAttributes_chapEnabled,
     volumeiSCSIAttributes_networkInterfaceId,
-    volumeiSCSIAttributes_networkInterfacePort,
   )
 where
 
@@ -463,35 +463,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -500,12 +473,39 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | An exception occurred because an invalid gateway request was issued to
@@ -516,14 +516,6 @@ _InvalidGatewayRequestException =
     defaultService
     "InvalidGatewayRequestException"
 
--- | An internal server error has occurred because the service is
--- unavailable. For more information, see the error and message fields.
-_ServiceUnavailableError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUnavailableError =
-  Core._MatchServiceError
-    defaultService
-    "ServiceUnavailableError"
-
 -- | An internal server error has occurred during the request. For more
 -- information, see the error and message fields.
 _InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -531,3 +523,11 @@ _InternalServerError =
   Core._MatchServiceError
     defaultService
     "InternalServerError"
+
+-- | An internal server error has occurred because the service is
+-- unavailable. For more information, see the error and message fields.
+_ServiceUnavailableError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableError =
+  Core._MatchServiceError
+    defaultService
+    "ServiceUnavailableError"

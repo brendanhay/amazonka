@@ -33,11 +33,11 @@ module Amazonka.StorageGateway.CreateTapes
     newCreateTapes,
 
     -- * Request Lenses
+    createTapes_tags,
+    createTapes_worm,
     createTapes_kmsKey,
     createTapes_kmsEncrypted,
     createTapes_poolId,
-    createTapes_worm,
-    createTapes_tags,
     createTapes_gatewayARN,
     createTapes_tapeSizeInBytes,
     createTapes_clientToken,
@@ -65,7 +65,18 @@ import Amazonka.StorageGateway.Types
 --
 -- /See:/ 'newCreateTapes' smart constructor.
 data CreateTapes = CreateTapes'
-  { -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
+  { -- | A list of up to 50 tags that can be assigned to a virtual tape. Each tag
+    -- is a key-value pair.
+    --
+    -- Valid characters for key and value are letters, spaces, and numbers
+    -- representable in UTF-8 format, and the following special characters: + -
+    -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
+    -- the maximum length for a tag\'s value is 256.
+    tags :: Prelude.Maybe [Tag],
+    -- | Set to @TRUE@ if the tape you are creating is to be configured as a
+    -- write-once-read-many (WORM) tape.
+    worm :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
     -- used for Amazon S3 server-side encryption. Storage Gateway does not
     -- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
     -- is @true@. Optional.
@@ -83,17 +94,6 @@ data CreateTapes = CreateTapes'
     --
     -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
     poolId :: Prelude.Maybe Prelude.Text,
-    -- | Set to @TRUE@ if the tape you are creating is to be configured as a
-    -- write-once-read-many (WORM) tape.
-    worm :: Prelude.Maybe Prelude.Bool,
-    -- | A list of up to 50 tags that can be assigned to a virtual tape. Each tag
-    -- is a key-value pair.
-    --
-    -- Valid characters for key and value are letters, spaces, and numbers
-    -- representable in UTF-8 format, and the following special characters: + -
-    -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
-    -- the maximum length for a tag\'s value is 256.
-    tags :: Prelude.Maybe [Tag],
     -- | The unique Amazon Resource Name (ARN) that represents the gateway to
     -- associate the virtual tapes with. Use the ListGateways operation to
     -- return a list of gateways for your account and Amazon Web Services
@@ -128,6 +128,17 @@ data CreateTapes = CreateTapes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createTapes_tags' - A list of up to 50 tags that can be assigned to a virtual tape. Each tag
+-- is a key-value pair.
+--
+-- Valid characters for key and value are letters, spaces, and numbers
+-- representable in UTF-8 format, and the following special characters: + -
+-- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
+-- the maximum length for a tag\'s value is 256.
+--
+-- 'worm', 'createTapes_worm' - Set to @TRUE@ if the tape you are creating is to be configured as a
+-- write-once-read-many (WORM) tape.
+--
 -- 'kmsKey', 'createTapes_kmsKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
 -- used for Amazon S3 server-side encryption. Storage Gateway does not
 -- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
@@ -145,17 +156,6 @@ data CreateTapes = CreateTapes'
 -- Glacier Deep Archive) that corresponds to the pool.
 --
 -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
---
--- 'worm', 'createTapes_worm' - Set to @TRUE@ if the tape you are creating is to be configured as a
--- write-once-read-many (WORM) tape.
---
--- 'tags', 'createTapes_tags' - A list of up to 50 tags that can be assigned to a virtual tape. Each tag
--- is a key-value pair.
---
--- Valid characters for key and value are letters, spaces, and numbers
--- representable in UTF-8 format, and the following special characters: + -
--- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
--- the maximum length for a tag\'s value is 256.
 --
 -- 'gatewayARN', 'createTapes_gatewayARN' - The unique Amazon Resource Name (ARN) that represents the gateway to
 -- associate the virtual tapes with. Use the ListGateways operation to
@@ -198,17 +198,32 @@ newCreateTapes
   pNumTapesToCreate_
   pTapeBarcodePrefix_ =
     CreateTapes'
-      { kmsKey = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        worm = Prelude.Nothing,
+        kmsKey = Prelude.Nothing,
         kmsEncrypted = Prelude.Nothing,
         poolId = Prelude.Nothing,
-        worm = Prelude.Nothing,
-        tags = Prelude.Nothing,
         gatewayARN = pGatewayARN_,
         tapeSizeInBytes = pTapeSizeInBytes_,
         clientToken = pClientToken_,
         numTapesToCreate = pNumTapesToCreate_,
         tapeBarcodePrefix = pTapeBarcodePrefix_
       }
+
+-- | A list of up to 50 tags that can be assigned to a virtual tape. Each tag
+-- is a key-value pair.
+--
+-- Valid characters for key and value are letters, spaces, and numbers
+-- representable in UTF-8 format, and the following special characters: + -
+-- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
+-- the maximum length for a tag\'s value is 256.
+createTapes_tags :: Lens.Lens' CreateTapes (Prelude.Maybe [Tag])
+createTapes_tags = Lens.lens (\CreateTapes' {tags} -> tags) (\s@CreateTapes' {} a -> s {tags = a} :: CreateTapes) Prelude.. Lens.mapping Lens.coerced
+
+-- | Set to @TRUE@ if the tape you are creating is to be configured as a
+-- write-once-read-many (WORM) tape.
+createTapes_worm :: Lens.Lens' CreateTapes (Prelude.Maybe Prelude.Bool)
+createTapes_worm = Lens.lens (\CreateTapes' {worm} -> worm) (\s@CreateTapes' {} a -> s {worm = a} :: CreateTapes)
 
 -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
 -- used for Amazon S3 server-side encryption. Storage Gateway does not
@@ -233,21 +248,6 @@ createTapes_kmsEncrypted = Lens.lens (\CreateTapes' {kmsEncrypted} -> kmsEncrypt
 -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
 createTapes_poolId :: Lens.Lens' CreateTapes (Prelude.Maybe Prelude.Text)
 createTapes_poolId = Lens.lens (\CreateTapes' {poolId} -> poolId) (\s@CreateTapes' {} a -> s {poolId = a} :: CreateTapes)
-
--- | Set to @TRUE@ if the tape you are creating is to be configured as a
--- write-once-read-many (WORM) tape.
-createTapes_worm :: Lens.Lens' CreateTapes (Prelude.Maybe Prelude.Bool)
-createTapes_worm = Lens.lens (\CreateTapes' {worm} -> worm) (\s@CreateTapes' {} a -> s {worm = a} :: CreateTapes)
-
--- | A list of up to 50 tags that can be assigned to a virtual tape. Each tag
--- is a key-value pair.
---
--- Valid characters for key and value are letters, spaces, and numbers
--- representable in UTF-8 format, and the following special characters: + -
--- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
--- the maximum length for a tag\'s value is 256.
-createTapes_tags :: Lens.Lens' CreateTapes (Prelude.Maybe [Tag])
-createTapes_tags = Lens.lens (\CreateTapes' {tags} -> tags) (\s@CreateTapes' {} a -> s {tags = a} :: CreateTapes) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique Amazon Resource Name (ARN) that represents the gateway to
 -- associate the virtual tapes with. Use the ListGateways operation to
@@ -295,11 +295,11 @@ instance Core.AWSRequest CreateTapes where
 
 instance Prelude.Hashable CreateTapes where
   hashWithSalt _salt CreateTapes' {..} =
-    _salt `Prelude.hashWithSalt` kmsKey
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` worm
+      `Prelude.hashWithSalt` kmsKey
       `Prelude.hashWithSalt` kmsEncrypted
       `Prelude.hashWithSalt` poolId
-      `Prelude.hashWithSalt` worm
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` gatewayARN
       `Prelude.hashWithSalt` tapeSizeInBytes
       `Prelude.hashWithSalt` clientToken
@@ -308,11 +308,11 @@ instance Prelude.Hashable CreateTapes where
 
 instance Prelude.NFData CreateTapes where
   rnf CreateTapes' {..} =
-    Prelude.rnf kmsKey
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf worm
+      `Prelude.seq` Prelude.rnf kmsKey
       `Prelude.seq` Prelude.rnf kmsEncrypted
       `Prelude.seq` Prelude.rnf poolId
-      `Prelude.seq` Prelude.rnf worm
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf gatewayARN
       `Prelude.seq` Prelude.rnf tapeSizeInBytes
       `Prelude.seq` Prelude.rnf clientToken
@@ -338,11 +338,11 @@ instance Core.ToJSON CreateTapes where
   toJSON CreateTapes' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("KMSKey" Core..=) Prelude.<$> kmsKey,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Worm" Core..=) Prelude.<$> worm,
+            ("KMSKey" Core..=) Prelude.<$> kmsKey,
             ("KMSEncrypted" Core..=) Prelude.<$> kmsEncrypted,
             ("PoolId" Core..=) Prelude.<$> poolId,
-            ("Worm" Core..=) Prelude.<$> worm,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("GatewayARN" Core..= gatewayARN),
             Prelude.Just
               ("TapeSizeInBytes" Core..= tapeSizeInBytes),

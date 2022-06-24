@@ -43,8 +43,8 @@ module Amazonka.StorageGateway.DescribeBandwidthRateLimit
     newDescribeBandwidthRateLimitResponse,
 
     -- * Response Lenses
-    describeBandwidthRateLimitResponse_gatewayARN,
     describeBandwidthRateLimitResponse_averageUploadRateLimitInBitsPerSec,
+    describeBandwidthRateLimitResponse_gatewayARN,
     describeBandwidthRateLimitResponse_averageDownloadRateLimitInBitsPerSec,
     describeBandwidthRateLimitResponse_httpStatus,
   )
@@ -97,8 +97,8 @@ instance Core.AWSRequest DescribeBandwidthRateLimit where
     Response.receiveJSON
       ( \s h x ->
           DescribeBandwidthRateLimitResponse'
-            Prelude.<$> (x Core..?> "GatewayARN")
-            Prelude.<*> (x Core..?> "AverageUploadRateLimitInBitsPerSec")
+            Prelude.<$> (x Core..?> "AverageUploadRateLimitInBitsPerSec")
+            Prelude.<*> (x Core..?> "GatewayARN")
             Prelude.<*> (x Core..?> "AverageDownloadRateLimitInBitsPerSec")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -143,10 +143,10 @@ instance Core.ToQuery DescribeBandwidthRateLimit where
 --
 -- /See:/ 'newDescribeBandwidthRateLimitResponse' smart constructor.
 data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse'
-  { gatewayARN :: Prelude.Maybe Prelude.Text,
-    -- | The average upload bandwidth rate limit in bits per second. This field
+  { -- | The average upload bandwidth rate limit in bits per second. This field
     -- does not appear in the response if the upload rate limit is not set.
     averageUploadRateLimitInBitsPerSec :: Prelude.Maybe Prelude.Natural,
+    gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | The average download bandwidth rate limit in bits per second. This field
     -- does not appear in the response if the download rate limit is not set.
     averageDownloadRateLimitInBitsPerSec :: Prelude.Maybe Prelude.Natural,
@@ -163,10 +163,10 @@ data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'gatewayARN', 'describeBandwidthRateLimitResponse_gatewayARN' - Undocumented member.
---
 -- 'averageUploadRateLimitInBitsPerSec', 'describeBandwidthRateLimitResponse_averageUploadRateLimitInBitsPerSec' - The average upload bandwidth rate limit in bits per second. This field
 -- does not appear in the response if the upload rate limit is not set.
+--
+-- 'gatewayARN', 'describeBandwidthRateLimitResponse_gatewayARN' - Undocumented member.
 --
 -- 'averageDownloadRateLimitInBitsPerSec', 'describeBandwidthRateLimitResponse_averageDownloadRateLimitInBitsPerSec' - The average download bandwidth rate limit in bits per second. This field
 -- does not appear in the response if the download rate limit is not set.
@@ -178,23 +178,22 @@ newDescribeBandwidthRateLimitResponse ::
   DescribeBandwidthRateLimitResponse
 newDescribeBandwidthRateLimitResponse pHttpStatus_ =
   DescribeBandwidthRateLimitResponse'
-    { gatewayARN =
+    { averageUploadRateLimitInBitsPerSec =
         Prelude.Nothing,
-      averageUploadRateLimitInBitsPerSec =
-        Prelude.Nothing,
+      gatewayARN = Prelude.Nothing,
       averageDownloadRateLimitInBitsPerSec =
         Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
-describeBandwidthRateLimitResponse_gatewayARN :: Lens.Lens' DescribeBandwidthRateLimitResponse (Prelude.Maybe Prelude.Text)
-describeBandwidthRateLimitResponse_gatewayARN = Lens.lens (\DescribeBandwidthRateLimitResponse' {gatewayARN} -> gatewayARN) (\s@DescribeBandwidthRateLimitResponse' {} a -> s {gatewayARN = a} :: DescribeBandwidthRateLimitResponse)
-
 -- | The average upload bandwidth rate limit in bits per second. This field
 -- does not appear in the response if the upload rate limit is not set.
 describeBandwidthRateLimitResponse_averageUploadRateLimitInBitsPerSec :: Lens.Lens' DescribeBandwidthRateLimitResponse (Prelude.Maybe Prelude.Natural)
 describeBandwidthRateLimitResponse_averageUploadRateLimitInBitsPerSec = Lens.lens (\DescribeBandwidthRateLimitResponse' {averageUploadRateLimitInBitsPerSec} -> averageUploadRateLimitInBitsPerSec) (\s@DescribeBandwidthRateLimitResponse' {} a -> s {averageUploadRateLimitInBitsPerSec = a} :: DescribeBandwidthRateLimitResponse)
+
+-- | Undocumented member.
+describeBandwidthRateLimitResponse_gatewayARN :: Lens.Lens' DescribeBandwidthRateLimitResponse (Prelude.Maybe Prelude.Text)
+describeBandwidthRateLimitResponse_gatewayARN = Lens.lens (\DescribeBandwidthRateLimitResponse' {gatewayARN} -> gatewayARN) (\s@DescribeBandwidthRateLimitResponse' {} a -> s {gatewayARN = a} :: DescribeBandwidthRateLimitResponse)
 
 -- | The average download bandwidth rate limit in bits per second. This field
 -- does not appear in the response if the download rate limit is not set.
@@ -210,7 +209,7 @@ instance
     DescribeBandwidthRateLimitResponse
   where
   rnf DescribeBandwidthRateLimitResponse' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf averageUploadRateLimitInBitsPerSec
+    Prelude.rnf averageUploadRateLimitInBitsPerSec
+      `Prelude.seq` Prelude.rnf gatewayARN
       `Prelude.seq` Prelude.rnf averageDownloadRateLimitInBitsPerSec
       `Prelude.seq` Prelude.rnf httpStatus

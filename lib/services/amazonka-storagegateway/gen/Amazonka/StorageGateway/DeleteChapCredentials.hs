@@ -37,8 +37,8 @@ module Amazonka.StorageGateway.DeleteChapCredentials
     newDeleteChapCredentialsResponse,
 
     -- * Response Lenses
-    deleteChapCredentialsResponse_targetARN,
     deleteChapCredentialsResponse_initiatorName,
+    deleteChapCredentialsResponse_targetARN,
     deleteChapCredentialsResponse_httpStatus,
   )
 where
@@ -111,8 +111,8 @@ instance Core.AWSRequest DeleteChapCredentials where
     Response.receiveJSON
       ( \s h x ->
           DeleteChapCredentialsResponse'
-            Prelude.<$> (x Core..?> "TargetARN")
-            Prelude.<*> (x Core..?> "InitiatorName")
+            Prelude.<$> (x Core..?> "InitiatorName")
+            Prelude.<*> (x Core..?> "TargetARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,10 +161,10 @@ instance Core.ToQuery DeleteChapCredentials where
 --
 -- /See:/ 'newDeleteChapCredentialsResponse' smart constructor.
 data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse'
-  { -- | The Amazon Resource Name (ARN) of the target.
-    targetARN :: Prelude.Maybe Prelude.Text,
-    -- | The iSCSI initiator that connects to the target.
+  { -- | The iSCSI initiator that connects to the target.
     initiatorName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the target.
+    targetARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -178,9 +178,9 @@ data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetARN', 'deleteChapCredentialsResponse_targetARN' - The Amazon Resource Name (ARN) of the target.
---
 -- 'initiatorName', 'deleteChapCredentialsResponse_initiatorName' - The iSCSI initiator that connects to the target.
+--
+-- 'targetARN', 'deleteChapCredentialsResponse_targetARN' - The Amazon Resource Name (ARN) of the target.
 --
 -- 'httpStatus', 'deleteChapCredentialsResponse_httpStatus' - The response's http status code.
 newDeleteChapCredentialsResponse ::
@@ -189,19 +189,19 @@ newDeleteChapCredentialsResponse ::
   DeleteChapCredentialsResponse
 newDeleteChapCredentialsResponse pHttpStatus_ =
   DeleteChapCredentialsResponse'
-    { targetARN =
+    { initiatorName =
         Prelude.Nothing,
-      initiatorName = Prelude.Nothing,
+      targetARN = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Amazon Resource Name (ARN) of the target.
-deleteChapCredentialsResponse_targetARN :: Lens.Lens' DeleteChapCredentialsResponse (Prelude.Maybe Prelude.Text)
-deleteChapCredentialsResponse_targetARN = Lens.lens (\DeleteChapCredentialsResponse' {targetARN} -> targetARN) (\s@DeleteChapCredentialsResponse' {} a -> s {targetARN = a} :: DeleteChapCredentialsResponse)
 
 -- | The iSCSI initiator that connects to the target.
 deleteChapCredentialsResponse_initiatorName :: Lens.Lens' DeleteChapCredentialsResponse (Prelude.Maybe Prelude.Text)
 deleteChapCredentialsResponse_initiatorName = Lens.lens (\DeleteChapCredentialsResponse' {initiatorName} -> initiatorName) (\s@DeleteChapCredentialsResponse' {} a -> s {initiatorName = a} :: DeleteChapCredentialsResponse)
+
+-- | The Amazon Resource Name (ARN) of the target.
+deleteChapCredentialsResponse_targetARN :: Lens.Lens' DeleteChapCredentialsResponse (Prelude.Maybe Prelude.Text)
+deleteChapCredentialsResponse_targetARN = Lens.lens (\DeleteChapCredentialsResponse' {targetARN} -> targetARN) (\s@DeleteChapCredentialsResponse' {} a -> s {targetARN = a} :: DeleteChapCredentialsResponse)
 
 -- | The response's http status code.
 deleteChapCredentialsResponse_httpStatus :: Lens.Lens' DeleteChapCredentialsResponse Prelude.Int
@@ -209,6 +209,6 @@ deleteChapCredentialsResponse_httpStatus = Lens.lens (\DeleteChapCredentialsResp
 
 instance Prelude.NFData DeleteChapCredentialsResponse where
   rnf DeleteChapCredentialsResponse' {..} =
-    Prelude.rnf targetARN
-      `Prelude.seq` Prelude.rnf initiatorName
+    Prelude.rnf initiatorName
+      `Prelude.seq` Prelude.rnf targetARN
       `Prelude.seq` Prelude.rnf httpStatus

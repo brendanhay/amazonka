@@ -31,8 +31,11 @@ data TapeInfo = TapeInfo'
     tapeBarcode :: Prelude.Maybe Prelude.Text,
     -- | The status of the tape.
     tapeStatus :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of a virtual tape.
-    tapeARN :: Prelude.Maybe Prelude.Text,
+    -- | The date that the tape became subject to tape retention lock.
+    retentionStartDate :: Prelude.Maybe Core.POSIX,
+    -- | The date that the tape entered the custom tape pool with tape retention
+    -- lock enabled.
+    poolEntryDate :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
     -- operation to return a list of gateways for your account and Amazon Web
     -- Services Region.
@@ -47,11 +50,8 @@ data TapeInfo = TapeInfo'
     --
     -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
     poolId :: Prelude.Maybe Prelude.Text,
-    -- | The date that the tape entered the custom tape pool with tape retention
-    -- lock enabled.
-    poolEntryDate :: Prelude.Maybe Core.POSIX,
-    -- | The date that the tape became subject to tape retention lock.
-    retentionStartDate :: Prelude.Maybe Core.POSIX
+    -- | The Amazon Resource Name (ARN) of a virtual tape.
+    tapeARN :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,7 +67,10 @@ data TapeInfo = TapeInfo'
 --
 -- 'tapeStatus', 'tapeInfo_tapeStatus' - The status of the tape.
 --
--- 'tapeARN', 'tapeInfo_tapeARN' - The Amazon Resource Name (ARN) of a virtual tape.
+-- 'retentionStartDate', 'tapeInfo_retentionStartDate' - The date that the tape became subject to tape retention lock.
+--
+-- 'poolEntryDate', 'tapeInfo_poolEntryDate' - The date that the tape entered the custom tape pool with tape retention
+-- lock enabled.
 --
 -- 'gatewayARN', 'tapeInfo_gatewayARN' - The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and Amazon Web
@@ -83,22 +86,19 @@ data TapeInfo = TapeInfo'
 --
 -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
 --
--- 'poolEntryDate', 'tapeInfo_poolEntryDate' - The date that the tape entered the custom tape pool with tape retention
--- lock enabled.
---
--- 'retentionStartDate', 'tapeInfo_retentionStartDate' - The date that the tape became subject to tape retention lock.
+-- 'tapeARN', 'tapeInfo_tapeARN' - The Amazon Resource Name (ARN) of a virtual tape.
 newTapeInfo ::
   TapeInfo
 newTapeInfo =
   TapeInfo'
     { tapeBarcode = Prelude.Nothing,
       tapeStatus = Prelude.Nothing,
-      tapeARN = Prelude.Nothing,
+      retentionStartDate = Prelude.Nothing,
+      poolEntryDate = Prelude.Nothing,
       gatewayARN = Prelude.Nothing,
       tapeSizeInBytes = Prelude.Nothing,
       poolId = Prelude.Nothing,
-      poolEntryDate = Prelude.Nothing,
-      retentionStartDate = Prelude.Nothing
+      tapeARN = Prelude.Nothing
     }
 
 -- | The barcode that identifies a specific virtual tape.
@@ -109,9 +109,14 @@ tapeInfo_tapeBarcode = Lens.lens (\TapeInfo' {tapeBarcode} -> tapeBarcode) (\s@T
 tapeInfo_tapeStatus :: Lens.Lens' TapeInfo (Prelude.Maybe Prelude.Text)
 tapeInfo_tapeStatus = Lens.lens (\TapeInfo' {tapeStatus} -> tapeStatus) (\s@TapeInfo' {} a -> s {tapeStatus = a} :: TapeInfo)
 
--- | The Amazon Resource Name (ARN) of a virtual tape.
-tapeInfo_tapeARN :: Lens.Lens' TapeInfo (Prelude.Maybe Prelude.Text)
-tapeInfo_tapeARN = Lens.lens (\TapeInfo' {tapeARN} -> tapeARN) (\s@TapeInfo' {} a -> s {tapeARN = a} :: TapeInfo)
+-- | The date that the tape became subject to tape retention lock.
+tapeInfo_retentionStartDate :: Lens.Lens' TapeInfo (Prelude.Maybe Prelude.UTCTime)
+tapeInfo_retentionStartDate = Lens.lens (\TapeInfo' {retentionStartDate} -> retentionStartDate) (\s@TapeInfo' {} a -> s {retentionStartDate = a} :: TapeInfo) Prelude.. Lens.mapping Core._Time
+
+-- | The date that the tape entered the custom tape pool with tape retention
+-- lock enabled.
+tapeInfo_poolEntryDate :: Lens.Lens' TapeInfo (Prelude.Maybe Prelude.UTCTime)
+tapeInfo_poolEntryDate = Lens.lens (\TapeInfo' {poolEntryDate} -> poolEntryDate) (\s@TapeInfo' {} a -> s {poolEntryDate = a} :: TapeInfo) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and Amazon Web
@@ -133,14 +138,9 @@ tapeInfo_tapeSizeInBytes = Lens.lens (\TapeInfo' {tapeSizeInBytes} -> tapeSizeIn
 tapeInfo_poolId :: Lens.Lens' TapeInfo (Prelude.Maybe Prelude.Text)
 tapeInfo_poolId = Lens.lens (\TapeInfo' {poolId} -> poolId) (\s@TapeInfo' {} a -> s {poolId = a} :: TapeInfo)
 
--- | The date that the tape entered the custom tape pool with tape retention
--- lock enabled.
-tapeInfo_poolEntryDate :: Lens.Lens' TapeInfo (Prelude.Maybe Prelude.UTCTime)
-tapeInfo_poolEntryDate = Lens.lens (\TapeInfo' {poolEntryDate} -> poolEntryDate) (\s@TapeInfo' {} a -> s {poolEntryDate = a} :: TapeInfo) Prelude.. Lens.mapping Core._Time
-
--- | The date that the tape became subject to tape retention lock.
-tapeInfo_retentionStartDate :: Lens.Lens' TapeInfo (Prelude.Maybe Prelude.UTCTime)
-tapeInfo_retentionStartDate = Lens.lens (\TapeInfo' {retentionStartDate} -> retentionStartDate) (\s@TapeInfo' {} a -> s {retentionStartDate = a} :: TapeInfo) Prelude.. Lens.mapping Core._Time
+-- | The Amazon Resource Name (ARN) of a virtual tape.
+tapeInfo_tapeARN :: Lens.Lens' TapeInfo (Prelude.Maybe Prelude.Text)
+tapeInfo_tapeARN = Lens.lens (\TapeInfo' {tapeARN} -> tapeARN) (\s@TapeInfo' {} a -> s {tapeARN = a} :: TapeInfo)
 
 instance Core.FromJSON TapeInfo where
   parseJSON =
@@ -150,32 +150,32 @@ instance Core.FromJSON TapeInfo where
           TapeInfo'
             Prelude.<$> (x Core..:? "TapeBarcode")
             Prelude.<*> (x Core..:? "TapeStatus")
-            Prelude.<*> (x Core..:? "TapeARN")
+            Prelude.<*> (x Core..:? "RetentionStartDate")
+            Prelude.<*> (x Core..:? "PoolEntryDate")
             Prelude.<*> (x Core..:? "GatewayARN")
             Prelude.<*> (x Core..:? "TapeSizeInBytes")
             Prelude.<*> (x Core..:? "PoolId")
-            Prelude.<*> (x Core..:? "PoolEntryDate")
-            Prelude.<*> (x Core..:? "RetentionStartDate")
+            Prelude.<*> (x Core..:? "TapeARN")
       )
 
 instance Prelude.Hashable TapeInfo where
   hashWithSalt _salt TapeInfo' {..} =
     _salt `Prelude.hashWithSalt` tapeBarcode
       `Prelude.hashWithSalt` tapeStatus
-      `Prelude.hashWithSalt` tapeARN
+      `Prelude.hashWithSalt` retentionStartDate
+      `Prelude.hashWithSalt` poolEntryDate
       `Prelude.hashWithSalt` gatewayARN
       `Prelude.hashWithSalt` tapeSizeInBytes
       `Prelude.hashWithSalt` poolId
-      `Prelude.hashWithSalt` poolEntryDate
-      `Prelude.hashWithSalt` retentionStartDate
+      `Prelude.hashWithSalt` tapeARN
 
 instance Prelude.NFData TapeInfo where
   rnf TapeInfo' {..} =
     Prelude.rnf tapeBarcode
       `Prelude.seq` Prelude.rnf tapeStatus
-      `Prelude.seq` Prelude.rnf tapeARN
+      `Prelude.seq` Prelude.rnf retentionStartDate
+      `Prelude.seq` Prelude.rnf poolEntryDate
       `Prelude.seq` Prelude.rnf gatewayARN
       `Prelude.seq` Prelude.rnf tapeSizeInBytes
       `Prelude.seq` Prelude.rnf poolId
-      `Prelude.seq` Prelude.rnf poolEntryDate
-      `Prelude.seq` Prelude.rnf retentionStartDate
+      `Prelude.seq` Prelude.rnf tapeARN

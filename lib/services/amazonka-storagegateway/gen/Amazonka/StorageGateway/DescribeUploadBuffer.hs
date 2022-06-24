@@ -41,8 +41,8 @@ module Amazonka.StorageGateway.DescribeUploadBuffer
 
     -- * Response Lenses
     describeUploadBufferResponse_uploadBufferAllocatedInBytes,
-    describeUploadBufferResponse_gatewayARN,
     describeUploadBufferResponse_diskIds,
+    describeUploadBufferResponse_gatewayARN,
     describeUploadBufferResponse_uploadBufferUsedInBytes,
     describeUploadBufferResponse_httpStatus,
   )
@@ -91,8 +91,8 @@ instance Core.AWSRequest DescribeUploadBuffer where
       ( \s h x ->
           DescribeUploadBufferResponse'
             Prelude.<$> (x Core..?> "UploadBufferAllocatedInBytes")
-            Prelude.<*> (x Core..?> "GatewayARN")
             Prelude.<*> (x Core..?> "DiskIds" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "GatewayARN")
             Prelude.<*> (x Core..?> "UploadBufferUsedInBytes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -137,12 +137,12 @@ instance Core.ToQuery DescribeUploadBuffer where
 data DescribeUploadBufferResponse = DescribeUploadBufferResponse'
   { -- | The total number of bytes allocated in the gateway\'s as upload buffer.
     uploadBufferAllocatedInBytes :: Prelude.Maybe Prelude.Integer,
-    gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | An array of the gateway\'s local disk IDs that are configured as working
     -- storage. Each local disk ID is specified as a string (minimum length of
     -- 1 and maximum length of 300). If no local disks are configured as
     -- working storage, then the DiskIds array is empty.
     diskIds :: Prelude.Maybe [Prelude.Text],
+    gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | The total number of bytes being used in the gateway\'s upload buffer.
     uploadBufferUsedInBytes :: Prelude.Maybe Prelude.Integer,
     -- | The response's http status code.
@@ -160,12 +160,12 @@ data DescribeUploadBufferResponse = DescribeUploadBufferResponse'
 --
 -- 'uploadBufferAllocatedInBytes', 'describeUploadBufferResponse_uploadBufferAllocatedInBytes' - The total number of bytes allocated in the gateway\'s as upload buffer.
 --
--- 'gatewayARN', 'describeUploadBufferResponse_gatewayARN' - Undocumented member.
---
 -- 'diskIds', 'describeUploadBufferResponse_diskIds' - An array of the gateway\'s local disk IDs that are configured as working
 -- storage. Each local disk ID is specified as a string (minimum length of
 -- 1 and maximum length of 300). If no local disks are configured as
 -- working storage, then the DiskIds array is empty.
+--
+-- 'gatewayARN', 'describeUploadBufferResponse_gatewayARN' - Undocumented member.
 --
 -- 'uploadBufferUsedInBytes', 'describeUploadBufferResponse_uploadBufferUsedInBytes' - The total number of bytes being used in the gateway\'s upload buffer.
 --
@@ -178,8 +178,8 @@ newDescribeUploadBufferResponse pHttpStatus_ =
   DescribeUploadBufferResponse'
     { uploadBufferAllocatedInBytes =
         Prelude.Nothing,
-      gatewayARN = Prelude.Nothing,
       diskIds = Prelude.Nothing,
+      gatewayARN = Prelude.Nothing,
       uploadBufferUsedInBytes = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -188,16 +188,16 @@ newDescribeUploadBufferResponse pHttpStatus_ =
 describeUploadBufferResponse_uploadBufferAllocatedInBytes :: Lens.Lens' DescribeUploadBufferResponse (Prelude.Maybe Prelude.Integer)
 describeUploadBufferResponse_uploadBufferAllocatedInBytes = Lens.lens (\DescribeUploadBufferResponse' {uploadBufferAllocatedInBytes} -> uploadBufferAllocatedInBytes) (\s@DescribeUploadBufferResponse' {} a -> s {uploadBufferAllocatedInBytes = a} :: DescribeUploadBufferResponse)
 
--- | Undocumented member.
-describeUploadBufferResponse_gatewayARN :: Lens.Lens' DescribeUploadBufferResponse (Prelude.Maybe Prelude.Text)
-describeUploadBufferResponse_gatewayARN = Lens.lens (\DescribeUploadBufferResponse' {gatewayARN} -> gatewayARN) (\s@DescribeUploadBufferResponse' {} a -> s {gatewayARN = a} :: DescribeUploadBufferResponse)
-
 -- | An array of the gateway\'s local disk IDs that are configured as working
 -- storage. Each local disk ID is specified as a string (minimum length of
 -- 1 and maximum length of 300). If no local disks are configured as
 -- working storage, then the DiskIds array is empty.
 describeUploadBufferResponse_diskIds :: Lens.Lens' DescribeUploadBufferResponse (Prelude.Maybe [Prelude.Text])
 describeUploadBufferResponse_diskIds = Lens.lens (\DescribeUploadBufferResponse' {diskIds} -> diskIds) (\s@DescribeUploadBufferResponse' {} a -> s {diskIds = a} :: DescribeUploadBufferResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+describeUploadBufferResponse_gatewayARN :: Lens.Lens' DescribeUploadBufferResponse (Prelude.Maybe Prelude.Text)
+describeUploadBufferResponse_gatewayARN = Lens.lens (\DescribeUploadBufferResponse' {gatewayARN} -> gatewayARN) (\s@DescribeUploadBufferResponse' {} a -> s {gatewayARN = a} :: DescribeUploadBufferResponse)
 
 -- | The total number of bytes being used in the gateway\'s upload buffer.
 describeUploadBufferResponse_uploadBufferUsedInBytes :: Lens.Lens' DescribeUploadBufferResponse (Prelude.Maybe Prelude.Integer)
@@ -210,7 +210,7 @@ describeUploadBufferResponse_httpStatus = Lens.lens (\DescribeUploadBufferRespon
 instance Prelude.NFData DescribeUploadBufferResponse where
   rnf DescribeUploadBufferResponse' {..} =
     Prelude.rnf uploadBufferAllocatedInBytes
-      `Prelude.seq` Prelude.rnf gatewayARN
       `Prelude.seq` Prelude.rnf diskIds
+      `Prelude.seq` Prelude.rnf gatewayARN
       `Prelude.seq` Prelude.rnf uploadBufferUsedInBytes
       `Prelude.seq` Prelude.rnf httpStatus

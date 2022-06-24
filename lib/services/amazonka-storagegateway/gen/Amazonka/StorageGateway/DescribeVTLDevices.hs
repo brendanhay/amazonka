@@ -43,9 +43,9 @@ module Amazonka.StorageGateway.DescribeVTLDevices
     newDescribeVTLDevicesResponse,
 
     -- * Response Lenses
-    describeVTLDevicesResponse_vTLDevices,
-    describeVTLDevicesResponse_gatewayARN,
     describeVTLDevicesResponse_marker,
+    describeVTLDevicesResponse_gatewayARN,
+    describeVTLDevicesResponse_vTLDevices,
     describeVTLDevicesResponse_httpStatus,
   )
 where
@@ -166,9 +166,9 @@ instance Core.AWSRequest DescribeVTLDevices where
     Response.receiveJSON
       ( \s h x ->
           DescribeVTLDevicesResponse'
-            Prelude.<$> (x Core..?> "VTLDevices" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Marker")
             Prelude.<*> (x Core..?> "GatewayARN")
-            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<*> (x Core..?> "VTLDevices" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -222,16 +222,16 @@ instance Core.ToQuery DescribeVTLDevices where
 --
 -- /See:/ 'newDescribeVTLDevicesResponse' smart constructor.
 data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse'
-  { -- | An array of VTL device objects composed of the Amazon Resource Name
-    -- (ARN) of the VTL devices.
-    vTLDevices :: Prelude.Maybe [VTLDevice],
-    gatewayARN :: Prelude.Maybe Prelude.Text,
-    -- | An opaque string that indicates the position at which the VTL devices
+  { -- | An opaque string that indicates the position at which the VTL devices
     -- that were fetched for description ended. Use the marker in your next
     -- request to fetch the next set of VTL devices in the list. If there are
     -- no more VTL devices to describe, this field does not appear in the
     -- response.
     marker :: Prelude.Maybe Prelude.Text,
+    gatewayARN :: Prelude.Maybe Prelude.Text,
+    -- | An array of VTL device objects composed of the Amazon Resource Name
+    -- (ARN) of the VTL devices.
+    vTLDevices :: Prelude.Maybe [VTLDevice],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -245,16 +245,16 @@ data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vTLDevices', 'describeVTLDevicesResponse_vTLDevices' - An array of VTL device objects composed of the Amazon Resource Name
--- (ARN) of the VTL devices.
---
--- 'gatewayARN', 'describeVTLDevicesResponse_gatewayARN' - Undocumented member.
---
 -- 'marker', 'describeVTLDevicesResponse_marker' - An opaque string that indicates the position at which the VTL devices
 -- that were fetched for description ended. Use the marker in your next
 -- request to fetch the next set of VTL devices in the list. If there are
 -- no more VTL devices to describe, this field does not appear in the
 -- response.
+--
+-- 'gatewayARN', 'describeVTLDevicesResponse_gatewayARN' - Undocumented member.
+--
+-- 'vTLDevices', 'describeVTLDevicesResponse_vTLDevices' - An array of VTL device objects composed of the Amazon Resource Name
+-- (ARN) of the VTL devices.
 --
 -- 'httpStatus', 'describeVTLDevicesResponse_httpStatus' - The response's http status code.
 newDescribeVTLDevicesResponse ::
@@ -263,21 +263,12 @@ newDescribeVTLDevicesResponse ::
   DescribeVTLDevicesResponse
 newDescribeVTLDevicesResponse pHttpStatus_ =
   DescribeVTLDevicesResponse'
-    { vTLDevices =
+    { marker =
         Prelude.Nothing,
       gatewayARN = Prelude.Nothing,
-      marker = Prelude.Nothing,
+      vTLDevices = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of VTL device objects composed of the Amazon Resource Name
--- (ARN) of the VTL devices.
-describeVTLDevicesResponse_vTLDevices :: Lens.Lens' DescribeVTLDevicesResponse (Prelude.Maybe [VTLDevice])
-describeVTLDevicesResponse_vTLDevices = Lens.lens (\DescribeVTLDevicesResponse' {vTLDevices} -> vTLDevices) (\s@DescribeVTLDevicesResponse' {} a -> s {vTLDevices = a} :: DescribeVTLDevicesResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
-describeVTLDevicesResponse_gatewayARN :: Lens.Lens' DescribeVTLDevicesResponse (Prelude.Maybe Prelude.Text)
-describeVTLDevicesResponse_gatewayARN = Lens.lens (\DescribeVTLDevicesResponse' {gatewayARN} -> gatewayARN) (\s@DescribeVTLDevicesResponse' {} a -> s {gatewayARN = a} :: DescribeVTLDevicesResponse)
 
 -- | An opaque string that indicates the position at which the VTL devices
 -- that were fetched for description ended. Use the marker in your next
@@ -287,13 +278,22 @@ describeVTLDevicesResponse_gatewayARN = Lens.lens (\DescribeVTLDevicesResponse' 
 describeVTLDevicesResponse_marker :: Lens.Lens' DescribeVTLDevicesResponse (Prelude.Maybe Prelude.Text)
 describeVTLDevicesResponse_marker = Lens.lens (\DescribeVTLDevicesResponse' {marker} -> marker) (\s@DescribeVTLDevicesResponse' {} a -> s {marker = a} :: DescribeVTLDevicesResponse)
 
+-- | Undocumented member.
+describeVTLDevicesResponse_gatewayARN :: Lens.Lens' DescribeVTLDevicesResponse (Prelude.Maybe Prelude.Text)
+describeVTLDevicesResponse_gatewayARN = Lens.lens (\DescribeVTLDevicesResponse' {gatewayARN} -> gatewayARN) (\s@DescribeVTLDevicesResponse' {} a -> s {gatewayARN = a} :: DescribeVTLDevicesResponse)
+
+-- | An array of VTL device objects composed of the Amazon Resource Name
+-- (ARN) of the VTL devices.
+describeVTLDevicesResponse_vTLDevices :: Lens.Lens' DescribeVTLDevicesResponse (Prelude.Maybe [VTLDevice])
+describeVTLDevicesResponse_vTLDevices = Lens.lens (\DescribeVTLDevicesResponse' {vTLDevices} -> vTLDevices) (\s@DescribeVTLDevicesResponse' {} a -> s {vTLDevices = a} :: DescribeVTLDevicesResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 describeVTLDevicesResponse_httpStatus :: Lens.Lens' DescribeVTLDevicesResponse Prelude.Int
 describeVTLDevicesResponse_httpStatus = Lens.lens (\DescribeVTLDevicesResponse' {httpStatus} -> httpStatus) (\s@DescribeVTLDevicesResponse' {} a -> s {httpStatus = a} :: DescribeVTLDevicesResponse)
 
 instance Prelude.NFData DescribeVTLDevicesResponse where
   rnf DescribeVTLDevicesResponse' {..} =
-    Prelude.rnf vTLDevices
+    Prelude.rnf marker
       `Prelude.seq` Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf vTLDevices
       `Prelude.seq` Prelude.rnf httpStatus

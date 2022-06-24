@@ -30,16 +30,22 @@ import Amazonka.StorageGateway.Types.TapeStorageClass
 --
 -- /See:/ 'newPoolInfo' smart constructor.
 data PoolInfo = PoolInfo'
-  { -- | Tape retention lock type, which can be configured in two modes. When
+  { -- | The Amazon Resource Name (ARN) of the custom tape pool. Use the
+    -- ListTapePools operation to return a list of custom tape pools for your
+    -- account and Amazon Web Services Region.
+    poolARN :: Prelude.Maybe Prelude.Text,
+    -- | Tape retention lock time is set in days. Tape retention lock can be
+    -- enabled for up to 100 years (36,500 days).
+    retentionLockTimeInDays :: Prelude.Maybe Prelude.Natural,
+    -- | Tape retention lock type, which can be configured in two modes. When
     -- configured in governance mode, Amazon Web Services accounts with
     -- specific IAM permissions are authorized to remove the tape retention
     -- lock from archived virtual tapes. When configured in compliance mode,
     -- the tape retention lock cannot be removed by any user, including the
     -- root Amazon Web Services account.
     retentionLockType :: Prelude.Maybe RetentionLockType,
-    -- | Tape retention lock time is set in days. Tape retention lock can be
-    -- enabled for up to 100 years (36,500 days).
-    retentionLockTimeInDays :: Prelude.Maybe Prelude.Natural,
+    -- | Status of the custom tape pool. Pool can be @ACTIVE@ or @DELETED@.
+    poolStatus :: Prelude.Maybe PoolStatus,
     -- | The name of the custom tape pool. @PoolName@ can use all ASCII
     -- characters, except \'\/\' and \'\\\'.
     poolName :: Prelude.Maybe Prelude.Text,
@@ -47,13 +53,7 @@ data PoolInfo = PoolInfo'
     -- your backup application to eject the tape, the tape is archived directly
     -- into the storage class (S3 Glacier or S3 Glacier Deep Archive) that
     -- corresponds to the pool.
-    storageClass :: Prelude.Maybe TapeStorageClass,
-    -- | Status of the custom tape pool. Pool can be @ACTIVE@ or @DELETED@.
-    poolStatus :: Prelude.Maybe PoolStatus,
-    -- | The Amazon Resource Name (ARN) of the custom tape pool. Use the
-    -- ListTapePools operation to return a list of custom tape pools for your
-    -- account and Amazon Web Services Region.
-    poolARN :: Prelude.Maybe Prelude.Text
+    storageClass :: Prelude.Maybe TapeStorageClass
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,6 +65,13 @@ data PoolInfo = PoolInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'poolARN', 'poolInfo_poolARN' - The Amazon Resource Name (ARN) of the custom tape pool. Use the
+-- ListTapePools operation to return a list of custom tape pools for your
+-- account and Amazon Web Services Region.
+--
+-- 'retentionLockTimeInDays', 'poolInfo_retentionLockTimeInDays' - Tape retention lock time is set in days. Tape retention lock can be
+-- enabled for up to 100 years (36,500 days).
+--
 -- 'retentionLockType', 'poolInfo_retentionLockType' - Tape retention lock type, which can be configured in two modes. When
 -- configured in governance mode, Amazon Web Services accounts with
 -- specific IAM permissions are authorized to remove the tape retention
@@ -72,8 +79,7 @@ data PoolInfo = PoolInfo'
 -- the tape retention lock cannot be removed by any user, including the
 -- root Amazon Web Services account.
 --
--- 'retentionLockTimeInDays', 'poolInfo_retentionLockTimeInDays' - Tape retention lock time is set in days. Tape retention lock can be
--- enabled for up to 100 years (36,500 days).
+-- 'poolStatus', 'poolInfo_poolStatus' - Status of the custom tape pool. Pool can be @ACTIVE@ or @DELETED@.
 --
 -- 'poolName', 'poolInfo_poolName' - The name of the custom tape pool. @PoolName@ can use all ASCII
 -- characters, except \'\/\' and \'\\\'.
@@ -82,23 +88,28 @@ data PoolInfo = PoolInfo'
 -- your backup application to eject the tape, the tape is archived directly
 -- into the storage class (S3 Glacier or S3 Glacier Deep Archive) that
 -- corresponds to the pool.
---
--- 'poolStatus', 'poolInfo_poolStatus' - Status of the custom tape pool. Pool can be @ACTIVE@ or @DELETED@.
---
--- 'poolARN', 'poolInfo_poolARN' - The Amazon Resource Name (ARN) of the custom tape pool. Use the
--- ListTapePools operation to return a list of custom tape pools for your
--- account and Amazon Web Services Region.
 newPoolInfo ::
   PoolInfo
 newPoolInfo =
   PoolInfo'
-    { retentionLockType = Prelude.Nothing,
+    { poolARN = Prelude.Nothing,
       retentionLockTimeInDays = Prelude.Nothing,
-      poolName = Prelude.Nothing,
-      storageClass = Prelude.Nothing,
+      retentionLockType = Prelude.Nothing,
       poolStatus = Prelude.Nothing,
-      poolARN = Prelude.Nothing
+      poolName = Prelude.Nothing,
+      storageClass = Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the custom tape pool. Use the
+-- ListTapePools operation to return a list of custom tape pools for your
+-- account and Amazon Web Services Region.
+poolInfo_poolARN :: Lens.Lens' PoolInfo (Prelude.Maybe Prelude.Text)
+poolInfo_poolARN = Lens.lens (\PoolInfo' {poolARN} -> poolARN) (\s@PoolInfo' {} a -> s {poolARN = a} :: PoolInfo)
+
+-- | Tape retention lock time is set in days. Tape retention lock can be
+-- enabled for up to 100 years (36,500 days).
+poolInfo_retentionLockTimeInDays :: Lens.Lens' PoolInfo (Prelude.Maybe Prelude.Natural)
+poolInfo_retentionLockTimeInDays = Lens.lens (\PoolInfo' {retentionLockTimeInDays} -> retentionLockTimeInDays) (\s@PoolInfo' {} a -> s {retentionLockTimeInDays = a} :: PoolInfo)
 
 -- | Tape retention lock type, which can be configured in two modes. When
 -- configured in governance mode, Amazon Web Services accounts with
@@ -109,10 +120,9 @@ newPoolInfo =
 poolInfo_retentionLockType :: Lens.Lens' PoolInfo (Prelude.Maybe RetentionLockType)
 poolInfo_retentionLockType = Lens.lens (\PoolInfo' {retentionLockType} -> retentionLockType) (\s@PoolInfo' {} a -> s {retentionLockType = a} :: PoolInfo)
 
--- | Tape retention lock time is set in days. Tape retention lock can be
--- enabled for up to 100 years (36,500 days).
-poolInfo_retentionLockTimeInDays :: Lens.Lens' PoolInfo (Prelude.Maybe Prelude.Natural)
-poolInfo_retentionLockTimeInDays = Lens.lens (\PoolInfo' {retentionLockTimeInDays} -> retentionLockTimeInDays) (\s@PoolInfo' {} a -> s {retentionLockTimeInDays = a} :: PoolInfo)
+-- | Status of the custom tape pool. Pool can be @ACTIVE@ or @DELETED@.
+poolInfo_poolStatus :: Lens.Lens' PoolInfo (Prelude.Maybe PoolStatus)
+poolInfo_poolStatus = Lens.lens (\PoolInfo' {poolStatus} -> poolStatus) (\s@PoolInfo' {} a -> s {poolStatus = a} :: PoolInfo)
 
 -- | The name of the custom tape pool. @PoolName@ can use all ASCII
 -- characters, except \'\/\' and \'\\\'.
@@ -126,44 +136,34 @@ poolInfo_poolName = Lens.lens (\PoolInfo' {poolName} -> poolName) (\s@PoolInfo' 
 poolInfo_storageClass :: Lens.Lens' PoolInfo (Prelude.Maybe TapeStorageClass)
 poolInfo_storageClass = Lens.lens (\PoolInfo' {storageClass} -> storageClass) (\s@PoolInfo' {} a -> s {storageClass = a} :: PoolInfo)
 
--- | Status of the custom tape pool. Pool can be @ACTIVE@ or @DELETED@.
-poolInfo_poolStatus :: Lens.Lens' PoolInfo (Prelude.Maybe PoolStatus)
-poolInfo_poolStatus = Lens.lens (\PoolInfo' {poolStatus} -> poolStatus) (\s@PoolInfo' {} a -> s {poolStatus = a} :: PoolInfo)
-
--- | The Amazon Resource Name (ARN) of the custom tape pool. Use the
--- ListTapePools operation to return a list of custom tape pools for your
--- account and Amazon Web Services Region.
-poolInfo_poolARN :: Lens.Lens' PoolInfo (Prelude.Maybe Prelude.Text)
-poolInfo_poolARN = Lens.lens (\PoolInfo' {poolARN} -> poolARN) (\s@PoolInfo' {} a -> s {poolARN = a} :: PoolInfo)
-
 instance Core.FromJSON PoolInfo where
   parseJSON =
     Core.withObject
       "PoolInfo"
       ( \x ->
           PoolInfo'
-            Prelude.<$> (x Core..:? "RetentionLockType")
+            Prelude.<$> (x Core..:? "PoolARN")
             Prelude.<*> (x Core..:? "RetentionLockTimeInDays")
+            Prelude.<*> (x Core..:? "RetentionLockType")
+            Prelude.<*> (x Core..:? "PoolStatus")
             Prelude.<*> (x Core..:? "PoolName")
             Prelude.<*> (x Core..:? "StorageClass")
-            Prelude.<*> (x Core..:? "PoolStatus")
-            Prelude.<*> (x Core..:? "PoolARN")
       )
 
 instance Prelude.Hashable PoolInfo where
   hashWithSalt _salt PoolInfo' {..} =
-    _salt `Prelude.hashWithSalt` retentionLockType
+    _salt `Prelude.hashWithSalt` poolARN
       `Prelude.hashWithSalt` retentionLockTimeInDays
+      `Prelude.hashWithSalt` retentionLockType
+      `Prelude.hashWithSalt` poolStatus
       `Prelude.hashWithSalt` poolName
       `Prelude.hashWithSalt` storageClass
-      `Prelude.hashWithSalt` poolStatus
-      `Prelude.hashWithSalt` poolARN
 
 instance Prelude.NFData PoolInfo where
   rnf PoolInfo' {..} =
-    Prelude.rnf retentionLockType
+    Prelude.rnf poolARN
       `Prelude.seq` Prelude.rnf retentionLockTimeInDays
+      `Prelude.seq` Prelude.rnf retentionLockType
+      `Prelude.seq` Prelude.rnf poolStatus
       `Prelude.seq` Prelude.rnf poolName
       `Prelude.seq` Prelude.rnf storageClass
-      `Prelude.seq` Prelude.rnf poolStatus
-      `Prelude.seq` Prelude.rnf poolARN

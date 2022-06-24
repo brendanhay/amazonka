@@ -32,15 +32,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTableWithColumnsResource' smart constructor.
 data TableWithColumnsResource = TableWithColumnsResource'
-  { -- | The identifier for the Data Catalog. By default, it is the account ID of
-    -- the caller.
-    catalogId :: Prelude.Maybe Prelude.Text,
+  { -- | The list of column names for the table. At least one of @ColumnNames@ or
+    -- @ColumnWildcard@ is required.
+    columnNames :: Prelude.Maybe [Prelude.Text],
     -- | A wildcard specified by a @ColumnWildcard@ object. At least one of
     -- @ColumnNames@ or @ColumnWildcard@ is required.
     columnWildcard :: Prelude.Maybe ColumnWildcard,
-    -- | The list of column names for the table. At least one of @ColumnNames@ or
-    -- @ColumnWildcard@ is required.
-    columnNames :: Prelude.Maybe [Prelude.Text],
+    -- | The identifier for the Data Catalog. By default, it is the account ID of
+    -- the caller.
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the database for the table with columns resource. Unique to
     -- the Data Catalog. A database is a set of associated table definitions
     -- organized into a logical group. You can Grant and Revoke database
@@ -61,14 +61,14 @@ data TableWithColumnsResource = TableWithColumnsResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'catalogId', 'tableWithColumnsResource_catalogId' - The identifier for the Data Catalog. By default, it is the account ID of
--- the caller.
+-- 'columnNames', 'tableWithColumnsResource_columnNames' - The list of column names for the table. At least one of @ColumnNames@ or
+-- @ColumnWildcard@ is required.
 --
 -- 'columnWildcard', 'tableWithColumnsResource_columnWildcard' - A wildcard specified by a @ColumnWildcard@ object. At least one of
 -- @ColumnNames@ or @ColumnWildcard@ is required.
 --
--- 'columnNames', 'tableWithColumnsResource_columnNames' - The list of column names for the table. At least one of @ColumnNames@ or
--- @ColumnWildcard@ is required.
+-- 'catalogId', 'tableWithColumnsResource_catalogId' - The identifier for the Data Catalog. By default, it is the account ID of
+-- the caller.
 --
 -- 'databaseName', 'tableWithColumnsResource_databaseName' - The name of the database for the table with columns resource. Unique to
 -- the Data Catalog. A database is a set of associated table definitions
@@ -86,28 +86,28 @@ newTableWithColumnsResource ::
   TableWithColumnsResource
 newTableWithColumnsResource pDatabaseName_ pName_ =
   TableWithColumnsResource'
-    { catalogId =
+    { columnNames =
         Prelude.Nothing,
       columnWildcard = Prelude.Nothing,
-      columnNames = Prelude.Nothing,
+      catalogId = Prelude.Nothing,
       databaseName = pDatabaseName_,
       name = pName_
     }
 
--- | The identifier for the Data Catalog. By default, it is the account ID of
--- the caller.
-tableWithColumnsResource_catalogId :: Lens.Lens' TableWithColumnsResource (Prelude.Maybe Prelude.Text)
-tableWithColumnsResource_catalogId = Lens.lens (\TableWithColumnsResource' {catalogId} -> catalogId) (\s@TableWithColumnsResource' {} a -> s {catalogId = a} :: TableWithColumnsResource)
+-- | The list of column names for the table. At least one of @ColumnNames@ or
+-- @ColumnWildcard@ is required.
+tableWithColumnsResource_columnNames :: Lens.Lens' TableWithColumnsResource (Prelude.Maybe [Prelude.Text])
+tableWithColumnsResource_columnNames = Lens.lens (\TableWithColumnsResource' {columnNames} -> columnNames) (\s@TableWithColumnsResource' {} a -> s {columnNames = a} :: TableWithColumnsResource) Prelude.. Lens.mapping Lens.coerced
 
 -- | A wildcard specified by a @ColumnWildcard@ object. At least one of
 -- @ColumnNames@ or @ColumnWildcard@ is required.
 tableWithColumnsResource_columnWildcard :: Lens.Lens' TableWithColumnsResource (Prelude.Maybe ColumnWildcard)
 tableWithColumnsResource_columnWildcard = Lens.lens (\TableWithColumnsResource' {columnWildcard} -> columnWildcard) (\s@TableWithColumnsResource' {} a -> s {columnWildcard = a} :: TableWithColumnsResource)
 
--- | The list of column names for the table. At least one of @ColumnNames@ or
--- @ColumnWildcard@ is required.
-tableWithColumnsResource_columnNames :: Lens.Lens' TableWithColumnsResource (Prelude.Maybe [Prelude.Text])
-tableWithColumnsResource_columnNames = Lens.lens (\TableWithColumnsResource' {columnNames} -> columnNames) (\s@TableWithColumnsResource' {} a -> s {columnNames = a} :: TableWithColumnsResource) Prelude.. Lens.mapping Lens.coerced
+-- | The identifier for the Data Catalog. By default, it is the account ID of
+-- the caller.
+tableWithColumnsResource_catalogId :: Lens.Lens' TableWithColumnsResource (Prelude.Maybe Prelude.Text)
+tableWithColumnsResource_catalogId = Lens.lens (\TableWithColumnsResource' {catalogId} -> catalogId) (\s@TableWithColumnsResource' {} a -> s {catalogId = a} :: TableWithColumnsResource)
 
 -- | The name of the database for the table with columns resource. Unique to
 -- the Data Catalog. A database is a set of associated table definitions
@@ -128,26 +128,26 @@ instance Core.FromJSON TableWithColumnsResource where
       "TableWithColumnsResource"
       ( \x ->
           TableWithColumnsResource'
-            Prelude.<$> (x Core..:? "CatalogId")
+            Prelude.<$> (x Core..:? "ColumnNames" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "ColumnWildcard")
-            Prelude.<*> (x Core..:? "ColumnNames" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "CatalogId")
             Prelude.<*> (x Core..: "DatabaseName")
             Prelude.<*> (x Core..: "Name")
       )
 
 instance Prelude.Hashable TableWithColumnsResource where
   hashWithSalt _salt TableWithColumnsResource' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt `Prelude.hashWithSalt` columnNames
       `Prelude.hashWithSalt` columnWildcard
-      `Prelude.hashWithSalt` columnNames
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData TableWithColumnsResource where
   rnf TableWithColumnsResource' {..} =
-    Prelude.rnf catalogId
+    Prelude.rnf columnNames
       `Prelude.seq` Prelude.rnf columnWildcard
-      `Prelude.seq` Prelude.rnf columnNames
+      `Prelude.seq` Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf name
 
@@ -155,10 +155,10 @@ instance Core.ToJSON TableWithColumnsResource where
   toJSON TableWithColumnsResource' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+          [ ("ColumnNames" Core..=) Prelude.<$> columnNames,
             ("ColumnWildcard" Core..=)
               Prelude.<$> columnWildcard,
-            ("ColumnNames" Core..=) Prelude.<$> columnNames,
+            ("CatalogId" Core..=) Prelude.<$> catalogId,
             Prelude.Just ("DatabaseName" Core..= databaseName),
             Prelude.Just ("Name" Core..= name)
           ]

@@ -27,8 +27,8 @@ module Amazonka.LakeFormation.GetResourceLFTags
     newGetResourceLFTags,
 
     -- * Request Lenses
-    getResourceLFTags_showAssignedLFTags,
     getResourceLFTags_catalogId,
+    getResourceLFTags_showAssignedLFTags,
     getResourceLFTags_resource,
 
     -- * Destructuring the Response
@@ -52,13 +52,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetResourceLFTags' smart constructor.
 data GetResourceLFTags = GetResourceLFTags'
-  { -- | Indicates whether to show the assigned tags.
-    showAssignedLFTags :: Prelude.Maybe Prelude.Bool,
-    -- | The identifier for the Data Catalog. By default, the account ID. The
+  { -- | The identifier for the Data Catalog. By default, the account ID. The
     -- Data Catalog is the persistent metadata store. It contains database
     -- definitions, table definitions, and other control information to manage
     -- your AWS Lake Formation environment.
     catalogId :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether to show the assigned tags.
+    showAssignedLFTags :: Prelude.Maybe Prelude.Bool,
     -- | The resource for which you want to return tags.
     resource :: Resource
   }
@@ -72,12 +72,12 @@ data GetResourceLFTags = GetResourceLFTags'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'showAssignedLFTags', 'getResourceLFTags_showAssignedLFTags' - Indicates whether to show the assigned tags.
---
 -- 'catalogId', 'getResourceLFTags_catalogId' - The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
 -- your AWS Lake Formation environment.
+--
+-- 'showAssignedLFTags', 'getResourceLFTags_showAssignedLFTags' - Indicates whether to show the assigned tags.
 --
 -- 'resource', 'getResourceLFTags_resource' - The resource for which you want to return tags.
 newGetResourceLFTags ::
@@ -86,15 +86,10 @@ newGetResourceLFTags ::
   GetResourceLFTags
 newGetResourceLFTags pResource_ =
   GetResourceLFTags'
-    { showAssignedLFTags =
-        Prelude.Nothing,
-      catalogId = Prelude.Nothing,
+    { catalogId = Prelude.Nothing,
+      showAssignedLFTags = Prelude.Nothing,
       resource = pResource_
     }
-
--- | Indicates whether to show the assigned tags.
-getResourceLFTags_showAssignedLFTags :: Lens.Lens' GetResourceLFTags (Prelude.Maybe Prelude.Bool)
-getResourceLFTags_showAssignedLFTags = Lens.lens (\GetResourceLFTags' {showAssignedLFTags} -> showAssignedLFTags) (\s@GetResourceLFTags' {} a -> s {showAssignedLFTags = a} :: GetResourceLFTags)
 
 -- | The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
@@ -102,6 +97,10 @@ getResourceLFTags_showAssignedLFTags = Lens.lens (\GetResourceLFTags' {showAssig
 -- your AWS Lake Formation environment.
 getResourceLFTags_catalogId :: Lens.Lens' GetResourceLFTags (Prelude.Maybe Prelude.Text)
 getResourceLFTags_catalogId = Lens.lens (\GetResourceLFTags' {catalogId} -> catalogId) (\s@GetResourceLFTags' {} a -> s {catalogId = a} :: GetResourceLFTags)
+
+-- | Indicates whether to show the assigned tags.
+getResourceLFTags_showAssignedLFTags :: Lens.Lens' GetResourceLFTags (Prelude.Maybe Prelude.Bool)
+getResourceLFTags_showAssignedLFTags = Lens.lens (\GetResourceLFTags' {showAssignedLFTags} -> showAssignedLFTags) (\s@GetResourceLFTags' {} a -> s {showAssignedLFTags = a} :: GetResourceLFTags)
 
 -- | The resource for which you want to return tags.
 getResourceLFTags_resource :: Lens.Lens' GetResourceLFTags Resource
@@ -126,14 +125,14 @@ instance Core.AWSRequest GetResourceLFTags where
 
 instance Prelude.Hashable GetResourceLFTags where
   hashWithSalt _salt GetResourceLFTags' {..} =
-    _salt `Prelude.hashWithSalt` showAssignedLFTags
-      `Prelude.hashWithSalt` catalogId
+    _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` showAssignedLFTags
       `Prelude.hashWithSalt` resource
 
 instance Prelude.NFData GetResourceLFTags where
   rnf GetResourceLFTags' {..} =
-    Prelude.rnf showAssignedLFTags
-      `Prelude.seq` Prelude.rnf catalogId
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf showAssignedLFTags
       `Prelude.seq` Prelude.rnf resource
 
 instance Core.ToHeaders GetResourceLFTags where
@@ -155,9 +154,9 @@ instance Core.ToJSON GetResourceLFTags where
   toJSON GetResourceLFTags' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ShowAssignedLFTags" Core..=)
+          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+            ("ShowAssignedLFTags" Core..=)
               Prelude.<$> showAssignedLFTags,
-            ("CatalogId" Core..=) Prelude.<$> catalogId,
             Prelude.Just ("Resource" Core..= resource)
           ]
       )

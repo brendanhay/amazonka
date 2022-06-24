@@ -35,6 +35,9 @@ data DataLakeSettings = DataLakeSettings'
   { -- | A list of AWS Lake Formation principals. Supported principals are IAM
     -- users or IAM roles.
     dataLakeAdmins :: Prelude.Maybe [DataLakePrincipal],
+    -- | A structure representing a list of up to three principal permissions
+    -- entries for default create database permissions.
+    createDatabaseDefaultPermissions :: Prelude.Maybe [PrincipalPermissions],
     -- | A list of the resource-owning account IDs that the caller\'s account can
     -- use to share their user access details (user ARNs). The user ARNs can be
     -- logged in the resource owner\'s AWS CloudTrail log.
@@ -42,9 +45,6 @@ data DataLakeSettings = DataLakeSettings'
     -- You may want to specify this property when you are in a high-trust
     -- boundary, such as the same team or company.
     trustedResourceOwners :: Prelude.Maybe [Prelude.Text],
-    -- | A structure representing a list of up to three principal permissions
-    -- entries for default create database permissions.
-    createDatabaseDefaultPermissions :: Prelude.Maybe [PrincipalPermissions],
     -- | A structure representing a list of up to three principal permissions
     -- entries for default create table permissions.
     createTableDefaultPermissions :: Prelude.Maybe [PrincipalPermissions]
@@ -62,15 +62,15 @@ data DataLakeSettings = DataLakeSettings'
 -- 'dataLakeAdmins', 'dataLakeSettings_dataLakeAdmins' - A list of AWS Lake Formation principals. Supported principals are IAM
 -- users or IAM roles.
 --
+-- 'createDatabaseDefaultPermissions', 'dataLakeSettings_createDatabaseDefaultPermissions' - A structure representing a list of up to three principal permissions
+-- entries for default create database permissions.
+--
 -- 'trustedResourceOwners', 'dataLakeSettings_trustedResourceOwners' - A list of the resource-owning account IDs that the caller\'s account can
 -- use to share their user access details (user ARNs). The user ARNs can be
 -- logged in the resource owner\'s AWS CloudTrail log.
 --
 -- You may want to specify this property when you are in a high-trust
 -- boundary, such as the same team or company.
---
--- 'createDatabaseDefaultPermissions', 'dataLakeSettings_createDatabaseDefaultPermissions' - A structure representing a list of up to three principal permissions
--- entries for default create database permissions.
 --
 -- 'createTableDefaultPermissions', 'dataLakeSettings_createTableDefaultPermissions' - A structure representing a list of up to three principal permissions
 -- entries for default create table permissions.
@@ -79,8 +79,8 @@ newDataLakeSettings ::
 newDataLakeSettings =
   DataLakeSettings'
     { dataLakeAdmins = Prelude.Nothing,
-      trustedResourceOwners = Prelude.Nothing,
       createDatabaseDefaultPermissions = Prelude.Nothing,
+      trustedResourceOwners = Prelude.Nothing,
       createTableDefaultPermissions = Prelude.Nothing
     }
 
@@ -88,6 +88,11 @@ newDataLakeSettings =
 -- users or IAM roles.
 dataLakeSettings_dataLakeAdmins :: Lens.Lens' DataLakeSettings (Prelude.Maybe [DataLakePrincipal])
 dataLakeSettings_dataLakeAdmins = Lens.lens (\DataLakeSettings' {dataLakeAdmins} -> dataLakeAdmins) (\s@DataLakeSettings' {} a -> s {dataLakeAdmins = a} :: DataLakeSettings) Prelude.. Lens.mapping Lens.coerced
+
+-- | A structure representing a list of up to three principal permissions
+-- entries for default create database permissions.
+dataLakeSettings_createDatabaseDefaultPermissions :: Lens.Lens' DataLakeSettings (Prelude.Maybe [PrincipalPermissions])
+dataLakeSettings_createDatabaseDefaultPermissions = Lens.lens (\DataLakeSettings' {createDatabaseDefaultPermissions} -> createDatabaseDefaultPermissions) (\s@DataLakeSettings' {} a -> s {createDatabaseDefaultPermissions = a} :: DataLakeSettings) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of the resource-owning account IDs that the caller\'s account can
 -- use to share their user access details (user ARNs). The user ARNs can be
@@ -97,11 +102,6 @@ dataLakeSettings_dataLakeAdmins = Lens.lens (\DataLakeSettings' {dataLakeAdmins}
 -- boundary, such as the same team or company.
 dataLakeSettings_trustedResourceOwners :: Lens.Lens' DataLakeSettings (Prelude.Maybe [Prelude.Text])
 dataLakeSettings_trustedResourceOwners = Lens.lens (\DataLakeSettings' {trustedResourceOwners} -> trustedResourceOwners) (\s@DataLakeSettings' {} a -> s {trustedResourceOwners = a} :: DataLakeSettings) Prelude.. Lens.mapping Lens.coerced
-
--- | A structure representing a list of up to three principal permissions
--- entries for default create database permissions.
-dataLakeSettings_createDatabaseDefaultPermissions :: Lens.Lens' DataLakeSettings (Prelude.Maybe [PrincipalPermissions])
-dataLakeSettings_createDatabaseDefaultPermissions = Lens.lens (\DataLakeSettings' {createDatabaseDefaultPermissions} -> createDatabaseDefaultPermissions) (\s@DataLakeSettings' {} a -> s {createDatabaseDefaultPermissions = a} :: DataLakeSettings) Prelude.. Lens.mapping Lens.coerced
 
 -- | A structure representing a list of up to three principal permissions
 -- entries for default create table permissions.
@@ -115,10 +115,10 @@ instance Core.FromJSON DataLakeSettings where
       ( \x ->
           DataLakeSettings'
             Prelude.<$> (x Core..:? "DataLakeAdmins" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "TrustedResourceOwners"
+            Prelude.<*> ( x Core..:? "CreateDatabaseDefaultPermissions"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "CreateDatabaseDefaultPermissions"
+            Prelude.<*> ( x Core..:? "TrustedResourceOwners"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> ( x Core..:? "CreateTableDefaultPermissions"
@@ -129,15 +129,15 @@ instance Core.FromJSON DataLakeSettings where
 instance Prelude.Hashable DataLakeSettings where
   hashWithSalt _salt DataLakeSettings' {..} =
     _salt `Prelude.hashWithSalt` dataLakeAdmins
-      `Prelude.hashWithSalt` trustedResourceOwners
       `Prelude.hashWithSalt` createDatabaseDefaultPermissions
+      `Prelude.hashWithSalt` trustedResourceOwners
       `Prelude.hashWithSalt` createTableDefaultPermissions
 
 instance Prelude.NFData DataLakeSettings where
   rnf DataLakeSettings' {..} =
     Prelude.rnf dataLakeAdmins
-      `Prelude.seq` Prelude.rnf trustedResourceOwners
       `Prelude.seq` Prelude.rnf createDatabaseDefaultPermissions
+      `Prelude.seq` Prelude.rnf trustedResourceOwners
       `Prelude.seq` Prelude.rnf createTableDefaultPermissions
 
 instance Core.ToJSON DataLakeSettings where
@@ -146,10 +146,10 @@ instance Core.ToJSON DataLakeSettings where
       ( Prelude.catMaybes
           [ ("DataLakeAdmins" Core..=)
               Prelude.<$> dataLakeAdmins,
-            ("TrustedResourceOwners" Core..=)
-              Prelude.<$> trustedResourceOwners,
             ("CreateDatabaseDefaultPermissions" Core..=)
               Prelude.<$> createDatabaseDefaultPermissions,
+            ("TrustedResourceOwners" Core..=)
+              Prelude.<$> trustedResourceOwners,
             ("CreateTableDefaultPermissions" Core..=)
               Prelude.<$> createTableDefaultPermissions
           ]

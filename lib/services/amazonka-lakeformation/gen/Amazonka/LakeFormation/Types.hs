@@ -17,15 +17,15 @@ module Amazonka.LakeFormation.Types
     defaultService,
 
     -- * Errors
-    _AccessDeniedException,
-    _OperationTimeoutException,
-    _EntityNotFoundException,
-    _ConcurrentModificationException,
-    _InternalServiceException,
     _InvalidInputException,
     _ResourceNumberLimitExceededException,
-    _GlueEncryptionException,
+    _ConcurrentModificationException,
+    _AccessDeniedException,
     _AlreadyExistsException,
+    _GlueEncryptionException,
+    _EntityNotFoundException,
+    _InternalServiceException,
+    _OperationTimeoutException,
 
     -- * ComparisonOperator
     ComparisonOperator (..),
@@ -48,16 +48,16 @@ module Amazonka.LakeFormation.Types
     -- * BatchPermissionsFailureEntry
     BatchPermissionsFailureEntry (..),
     newBatchPermissionsFailureEntry,
-    batchPermissionsFailureEntry_error,
     batchPermissionsFailureEntry_requestEntry,
+    batchPermissionsFailureEntry_error,
 
     -- * BatchPermissionsRequestEntry
     BatchPermissionsRequestEntry (..),
     newBatchPermissionsRequestEntry,
-    batchPermissionsRequestEntry_permissionsWithGrantOption,
     batchPermissionsRequestEntry_principal,
-    batchPermissionsRequestEntry_resource,
     batchPermissionsRequestEntry_permissions,
+    batchPermissionsRequestEntry_permissionsWithGrantOption,
+    batchPermissionsRequestEntry_resource,
     batchPermissionsRequestEntry_id,
 
     -- * CatalogResource
@@ -84,8 +84,8 @@ module Amazonka.LakeFormation.Types
     DataLakeSettings (..),
     newDataLakeSettings,
     dataLakeSettings_dataLakeAdmins,
-    dataLakeSettings_trustedResourceOwners,
     dataLakeSettings_createDatabaseDefaultPermissions,
+    dataLakeSettings_trustedResourceOwners,
     dataLakeSettings_createTableDefaultPermissions,
 
     -- * DataLocationResource
@@ -108,8 +108,8 @@ module Amazonka.LakeFormation.Types
     -- * ErrorDetail
     ErrorDetail (..),
     newErrorDetail,
-    errorDetail_errorCode,
     errorDetail_errorMessage,
+    errorDetail_errorCode,
 
     -- * FilterCondition
     FilterCondition (..),
@@ -160,36 +160,36 @@ module Amazonka.LakeFormation.Types
     -- * PrincipalResourcePermissions
     PrincipalResourcePermissions (..),
     newPrincipalResourcePermissions,
-    principalResourcePermissions_additionalDetails,
-    principalResourcePermissions_permissionsWithGrantOption,
     principalResourcePermissions_principal,
-    principalResourcePermissions_resource,
+    principalResourcePermissions_additionalDetails,
     principalResourcePermissions_permissions,
+    principalResourcePermissions_permissionsWithGrantOption,
+    principalResourcePermissions_resource,
 
     -- * Resource
     Resource (..),
     newResource,
-    resource_dataLocation,
-    resource_database,
-    resource_lFTag,
-    resource_catalog,
-    resource_lFTagPolicy,
-    resource_table,
     resource_tableWithColumns,
+    resource_catalog,
+    resource_lFTag,
+    resource_lFTagPolicy,
+    resource_database,
+    resource_dataLocation,
+    resource_table,
 
     -- * ResourceInfo
     ResourceInfo (..),
     newResourceInfo,
-    resourceInfo_resourceArn,
-    resourceInfo_lastModified,
     resourceInfo_roleArn,
+    resourceInfo_lastModified,
+    resourceInfo_resourceArn,
 
     -- * TableResource
     TableResource (..),
     newTableResource,
-    tableResource_catalogId,
-    tableResource_tableWildcard,
     tableResource_name,
+    tableResource_tableWildcard,
+    tableResource_catalogId,
     tableResource_databaseName,
 
     -- * TableWildcard
@@ -199,25 +199,25 @@ module Amazonka.LakeFormation.Types
     -- * TableWithColumnsResource
     TableWithColumnsResource (..),
     newTableWithColumnsResource,
-    tableWithColumnsResource_catalogId,
-    tableWithColumnsResource_columnWildcard,
     tableWithColumnsResource_columnNames,
+    tableWithColumnsResource_columnWildcard,
+    tableWithColumnsResource_catalogId,
     tableWithColumnsResource_databaseName,
     tableWithColumnsResource_name,
 
     -- * TaggedDatabase
     TaggedDatabase (..),
     newTaggedDatabase,
-    taggedDatabase_database,
     taggedDatabase_lFTags,
+    taggedDatabase_database,
 
     -- * TaggedTable
     TaggedTable (..),
     newTaggedTable,
     taggedTable_lFTagsOnTable,
+    taggedTable_table,
     taggedTable_lFTagOnDatabase,
     taggedTable_lFTagsOnColumns,
-    taggedTable_table,
   )
 where
 
@@ -284,35 +284,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -321,48 +294,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | Access to a resource was denied.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AccessDeniedException =
-  Core._MatchServiceError
-    defaultService
-    "AccessDeniedException"
-
--- | The operation timed out.
-_OperationTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OperationTimeoutException =
-  Core._MatchServiceError
-    defaultService
-    "OperationTimeoutException"
-
--- | A specified entity does not exist
-_EntityNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_EntityNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "EntityNotFoundException"
-
--- | Two processes are trying to modify a resource simultaneously.
-_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConcurrentModificationException =
-  Core._MatchServiceError
-    defaultService
-    "ConcurrentModificationException"
-
--- | An internal service error occurred.
-_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServiceException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServiceException"
 
 -- | The input provided was not valid.
 _InvalidInputException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -378,12 +343,19 @@ _ResourceNumberLimitExceededException =
     defaultService
     "ResourceNumberLimitExceededException"
 
--- | An encryption operation failed.
-_GlueEncryptionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_GlueEncryptionException =
+-- | Two processes are trying to modify a resource simultaneously.
+_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
-    "GlueEncryptionException"
+    "ConcurrentModificationException"
+
+-- | Access to a resource was denied.
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException =
+  Core._MatchServiceError
+    defaultService
+    "AccessDeniedException"
 
 -- | A resource to be created or added already exists.
 _AlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -391,3 +363,31 @@ _AlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "AlreadyExistsException"
+
+-- | An encryption operation failed.
+_GlueEncryptionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_GlueEncryptionException =
+  Core._MatchServiceError
+    defaultService
+    "GlueEncryptionException"
+
+-- | A specified entity does not exist
+_EntityNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EntityNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "EntityNotFoundException"
+
+-- | An internal service error occurred.
+_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServiceException"
+
+-- | The operation timed out.
+_OperationTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OperationTimeoutException =
+  Core._MatchServiceError
+    defaultService
+    "OperationTimeoutException"

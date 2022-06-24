@@ -21,32 +21,32 @@ module Amazonka.LakeFormation
     -- * Errors
     -- $errors
 
-    -- ** AccessDeniedException
-    _AccessDeniedException,
-
-    -- ** OperationTimeoutException
-    _OperationTimeoutException,
-
-    -- ** EntityNotFoundException
-    _EntityNotFoundException,
-
-    -- ** ConcurrentModificationException
-    _ConcurrentModificationException,
-
-    -- ** InternalServiceException
-    _InternalServiceException,
-
     -- ** InvalidInputException
     _InvalidInputException,
 
     -- ** ResourceNumberLimitExceededException
     _ResourceNumberLimitExceededException,
 
-    -- ** GlueEncryptionException
-    _GlueEncryptionException,
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
+
+    -- ** AccessDeniedException
+    _AccessDeniedException,
 
     -- ** AlreadyExistsException
     _AlreadyExistsException,
+
+    -- ** GlueEncryptionException
+    _GlueEncryptionException,
+
+    -- ** EntityNotFoundException
+    _EntityNotFoundException,
+
+    -- ** InternalServiceException
+    _InternalServiceException,
+
+    -- ** OperationTimeoutException
+    _OperationTimeoutException,
 
     -- * Waiters
     -- $waiters
@@ -54,17 +54,11 @@ module Amazonka.LakeFormation
     -- * Operations
     -- $operations
 
-    -- ** BatchRevokePermissions
-    BatchRevokePermissions (BatchRevokePermissions'),
-    newBatchRevokePermissions,
-    BatchRevokePermissionsResponse (BatchRevokePermissionsResponse'),
-    newBatchRevokePermissionsResponse,
-
-    -- ** DescribeResource
-    DescribeResource (DescribeResource'),
-    newDescribeResource,
-    DescribeResourceResponse (DescribeResourceResponse'),
-    newDescribeResourceResponse,
+    -- ** AddLFTagsToResource
+    AddLFTagsToResource (AddLFTagsToResource'),
+    newAddLFTagsToResource,
+    AddLFTagsToResourceResponse (AddLFTagsToResourceResponse'),
+    newAddLFTagsToResourceResponse,
 
     -- ** BatchGrantPermissions
     BatchGrantPermissions (BatchGrantPermissions'),
@@ -72,65 +66,11 @@ module Amazonka.LakeFormation
     BatchGrantPermissionsResponse (BatchGrantPermissionsResponse'),
     newBatchGrantPermissionsResponse,
 
-    -- ** GetEffectivePermissionsForPath
-    GetEffectivePermissionsForPath (GetEffectivePermissionsForPath'),
-    newGetEffectivePermissionsForPath,
-    GetEffectivePermissionsForPathResponse (GetEffectivePermissionsForPathResponse'),
-    newGetEffectivePermissionsForPathResponse,
-
-    -- ** RevokePermissions
-    RevokePermissions (RevokePermissions'),
-    newRevokePermissions,
-    RevokePermissionsResponse (RevokePermissionsResponse'),
-    newRevokePermissionsResponse,
-
-    -- ** UpdateResource
-    UpdateResource (UpdateResource'),
-    newUpdateResource,
-    UpdateResourceResponse (UpdateResourceResponse'),
-    newUpdateResourceResponse,
-
-    -- ** AddLFTagsToResource
-    AddLFTagsToResource (AddLFTagsToResource'),
-    newAddLFTagsToResource,
-    AddLFTagsToResourceResponse (AddLFTagsToResourceResponse'),
-    newAddLFTagsToResourceResponse,
-
-    -- ** SearchTablesByLFTags
-    SearchTablesByLFTags (SearchTablesByLFTags'),
-    newSearchTablesByLFTags,
-    SearchTablesByLFTagsResponse (SearchTablesByLFTagsResponse'),
-    newSearchTablesByLFTagsResponse,
-
-    -- ** ListResources
-    ListResources (ListResources'),
-    newListResources,
-    ListResourcesResponse (ListResourcesResponse'),
-    newListResourcesResponse,
-
-    -- ** GetLFTag
-    GetLFTag (GetLFTag'),
-    newGetLFTag,
-    GetLFTagResponse (GetLFTagResponse'),
-    newGetLFTagResponse,
-
-    -- ** RemoveLFTagsFromResource
-    RemoveLFTagsFromResource (RemoveLFTagsFromResource'),
-    newRemoveLFTagsFromResource,
-    RemoveLFTagsFromResourceResponse (RemoveLFTagsFromResourceResponse'),
-    newRemoveLFTagsFromResourceResponse,
-
-    -- ** UpdateLFTag
-    UpdateLFTag (UpdateLFTag'),
-    newUpdateLFTag,
-    UpdateLFTagResponse (UpdateLFTagResponse'),
-    newUpdateLFTagResponse,
-
-    -- ** DeleteLFTag
-    DeleteLFTag (DeleteLFTag'),
-    newDeleteLFTag,
-    DeleteLFTagResponse (DeleteLFTagResponse'),
-    newDeleteLFTagResponse,
+    -- ** BatchRevokePermissions
+    BatchRevokePermissions (BatchRevokePermissions'),
+    newBatchRevokePermissions,
+    BatchRevokePermissionsResponse (BatchRevokePermissionsResponse'),
+    newBatchRevokePermissionsResponse,
 
     -- ** CreateLFTag
     CreateLFTag (CreateLFTag'),
@@ -138,23 +78,11 @@ module Amazonka.LakeFormation
     CreateLFTagResponse (CreateLFTagResponse'),
     newCreateLFTagResponse,
 
-    -- ** GetResourceLFTags
-    GetResourceLFTags (GetResourceLFTags'),
-    newGetResourceLFTags,
-    GetResourceLFTagsResponse (GetResourceLFTagsResponse'),
-    newGetResourceLFTagsResponse,
-
-    -- ** PutDataLakeSettings
-    PutDataLakeSettings (PutDataLakeSettings'),
-    newPutDataLakeSettings,
-    PutDataLakeSettingsResponse (PutDataLakeSettingsResponse'),
-    newPutDataLakeSettingsResponse,
-
-    -- ** ListPermissions
-    ListPermissions (ListPermissions'),
-    newListPermissions,
-    ListPermissionsResponse (ListPermissionsResponse'),
-    newListPermissionsResponse,
+    -- ** DeleteLFTag
+    DeleteLFTag (DeleteLFTag'),
+    newDeleteLFTag,
+    DeleteLFTagResponse (DeleteLFTagResponse'),
+    newDeleteLFTagResponse,
 
     -- ** DeregisterResource
     DeregisterResource (DeregisterResource'),
@@ -162,23 +90,35 @@ module Amazonka.LakeFormation
     DeregisterResourceResponse (DeregisterResourceResponse'),
     newDeregisterResourceResponse,
 
+    -- ** DescribeResource
+    DescribeResource (DescribeResource'),
+    newDescribeResource,
+    DescribeResourceResponse (DescribeResourceResponse'),
+    newDescribeResourceResponse,
+
     -- ** GetDataLakeSettings
     GetDataLakeSettings (GetDataLakeSettings'),
     newGetDataLakeSettings,
     GetDataLakeSettingsResponse (GetDataLakeSettingsResponse'),
     newGetDataLakeSettingsResponse,
 
-    -- ** SearchDatabasesByLFTags
-    SearchDatabasesByLFTags (SearchDatabasesByLFTags'),
-    newSearchDatabasesByLFTags,
-    SearchDatabasesByLFTagsResponse (SearchDatabasesByLFTagsResponse'),
-    newSearchDatabasesByLFTagsResponse,
+    -- ** GetEffectivePermissionsForPath
+    GetEffectivePermissionsForPath (GetEffectivePermissionsForPath'),
+    newGetEffectivePermissionsForPath,
+    GetEffectivePermissionsForPathResponse (GetEffectivePermissionsForPathResponse'),
+    newGetEffectivePermissionsForPathResponse,
 
-    -- ** RegisterResource
-    RegisterResource (RegisterResource'),
-    newRegisterResource,
-    RegisterResourceResponse (RegisterResourceResponse'),
-    newRegisterResourceResponse,
+    -- ** GetLFTag
+    GetLFTag (GetLFTag'),
+    newGetLFTag,
+    GetLFTagResponse (GetLFTagResponse'),
+    newGetLFTagResponse,
+
+    -- ** GetResourceLFTags
+    GetResourceLFTags (GetResourceLFTags'),
+    newGetResourceLFTags,
+    GetResourceLFTagsResponse (GetResourceLFTagsResponse'),
+    newGetResourceLFTagsResponse,
 
     -- ** GrantPermissions
     GrantPermissions (GrantPermissions'),
@@ -191,6 +131,66 @@ module Amazonka.LakeFormation
     newListLFTags,
     ListLFTagsResponse (ListLFTagsResponse'),
     newListLFTagsResponse,
+
+    -- ** ListPermissions
+    ListPermissions (ListPermissions'),
+    newListPermissions,
+    ListPermissionsResponse (ListPermissionsResponse'),
+    newListPermissionsResponse,
+
+    -- ** ListResources
+    ListResources (ListResources'),
+    newListResources,
+    ListResourcesResponse (ListResourcesResponse'),
+    newListResourcesResponse,
+
+    -- ** PutDataLakeSettings
+    PutDataLakeSettings (PutDataLakeSettings'),
+    newPutDataLakeSettings,
+    PutDataLakeSettingsResponse (PutDataLakeSettingsResponse'),
+    newPutDataLakeSettingsResponse,
+
+    -- ** RegisterResource
+    RegisterResource (RegisterResource'),
+    newRegisterResource,
+    RegisterResourceResponse (RegisterResourceResponse'),
+    newRegisterResourceResponse,
+
+    -- ** RemoveLFTagsFromResource
+    RemoveLFTagsFromResource (RemoveLFTagsFromResource'),
+    newRemoveLFTagsFromResource,
+    RemoveLFTagsFromResourceResponse (RemoveLFTagsFromResourceResponse'),
+    newRemoveLFTagsFromResourceResponse,
+
+    -- ** RevokePermissions
+    RevokePermissions (RevokePermissions'),
+    newRevokePermissions,
+    RevokePermissionsResponse (RevokePermissionsResponse'),
+    newRevokePermissionsResponse,
+
+    -- ** SearchDatabasesByLFTags
+    SearchDatabasesByLFTags (SearchDatabasesByLFTags'),
+    newSearchDatabasesByLFTags,
+    SearchDatabasesByLFTagsResponse (SearchDatabasesByLFTagsResponse'),
+    newSearchDatabasesByLFTagsResponse,
+
+    -- ** SearchTablesByLFTags
+    SearchTablesByLFTags (SearchTablesByLFTags'),
+    newSearchTablesByLFTags,
+    SearchTablesByLFTagsResponse (SearchTablesByLFTagsResponse'),
+    newSearchTablesByLFTagsResponse,
+
+    -- ** UpdateLFTag
+    UpdateLFTag (UpdateLFTag'),
+    newUpdateLFTag,
+    UpdateLFTagResponse (UpdateLFTagResponse'),
+    newUpdateLFTagResponse,
+
+    -- ** UpdateResource
+    UpdateResource (UpdateResource'),
+    newUpdateResource,
+    UpdateResourceResponse (UpdateResourceResponse'),
+    newUpdateResourceResponse,
 
     -- * Types
 

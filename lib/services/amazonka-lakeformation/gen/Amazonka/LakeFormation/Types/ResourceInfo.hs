@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResourceInfo' smart constructor.
 data ResourceInfo = ResourceInfo'
-  { -- | The Amazon Resource Name (ARN) of the resource.
-    resourceArn :: Prelude.Maybe Prelude.Text,
+  { -- | The IAM role that registered a resource.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time the resource was last modified.
     lastModified :: Prelude.Maybe Core.POSIX,
-    -- | The IAM role that registered a resource.
-    roleArn :: Prelude.Maybe Prelude.Text
+    -- | The Amazon Resource Name (ARN) of the resource.
+    resourceArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,31 +44,31 @@ data ResourceInfo = ResourceInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'resourceInfo_resourceArn' - The Amazon Resource Name (ARN) of the resource.
+-- 'roleArn', 'resourceInfo_roleArn' - The IAM role that registered a resource.
 --
 -- 'lastModified', 'resourceInfo_lastModified' - The date and time the resource was last modified.
 --
--- 'roleArn', 'resourceInfo_roleArn' - The IAM role that registered a resource.
+-- 'resourceArn', 'resourceInfo_resourceArn' - The Amazon Resource Name (ARN) of the resource.
 newResourceInfo ::
   ResourceInfo
 newResourceInfo =
   ResourceInfo'
-    { resourceArn = Prelude.Nothing,
+    { roleArn = Prelude.Nothing,
       lastModified = Prelude.Nothing,
-      roleArn = Prelude.Nothing
+      resourceArn = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the resource.
-resourceInfo_resourceArn :: Lens.Lens' ResourceInfo (Prelude.Maybe Prelude.Text)
-resourceInfo_resourceArn = Lens.lens (\ResourceInfo' {resourceArn} -> resourceArn) (\s@ResourceInfo' {} a -> s {resourceArn = a} :: ResourceInfo)
+-- | The IAM role that registered a resource.
+resourceInfo_roleArn :: Lens.Lens' ResourceInfo (Prelude.Maybe Prelude.Text)
+resourceInfo_roleArn = Lens.lens (\ResourceInfo' {roleArn} -> roleArn) (\s@ResourceInfo' {} a -> s {roleArn = a} :: ResourceInfo)
 
 -- | The date and time the resource was last modified.
 resourceInfo_lastModified :: Lens.Lens' ResourceInfo (Prelude.Maybe Prelude.UTCTime)
 resourceInfo_lastModified = Lens.lens (\ResourceInfo' {lastModified} -> lastModified) (\s@ResourceInfo' {} a -> s {lastModified = a} :: ResourceInfo) Prelude.. Lens.mapping Core._Time
 
--- | The IAM role that registered a resource.
-resourceInfo_roleArn :: Lens.Lens' ResourceInfo (Prelude.Maybe Prelude.Text)
-resourceInfo_roleArn = Lens.lens (\ResourceInfo' {roleArn} -> roleArn) (\s@ResourceInfo' {} a -> s {roleArn = a} :: ResourceInfo)
+-- | The Amazon Resource Name (ARN) of the resource.
+resourceInfo_resourceArn :: Lens.Lens' ResourceInfo (Prelude.Maybe Prelude.Text)
+resourceInfo_resourceArn = Lens.lens (\ResourceInfo' {resourceArn} -> resourceArn) (\s@ResourceInfo' {} a -> s {resourceArn = a} :: ResourceInfo)
 
 instance Core.FromJSON ResourceInfo where
   parseJSON =
@@ -76,19 +76,19 @@ instance Core.FromJSON ResourceInfo where
       "ResourceInfo"
       ( \x ->
           ResourceInfo'
-            Prelude.<$> (x Core..:? "ResourceArn")
+            Prelude.<$> (x Core..:? "RoleArn")
             Prelude.<*> (x Core..:? "LastModified")
-            Prelude.<*> (x Core..:? "RoleArn")
+            Prelude.<*> (x Core..:? "ResourceArn")
       )
 
 instance Prelude.Hashable ResourceInfo where
   hashWithSalt _salt ResourceInfo' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` lastModified
-      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData ResourceInfo where
   rnf ResourceInfo' {..} =
-    Prelude.rnf resourceArn
+    Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf lastModified
-      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf resourceArn

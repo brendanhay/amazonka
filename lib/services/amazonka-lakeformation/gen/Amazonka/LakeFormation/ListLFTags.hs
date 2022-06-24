@@ -27,10 +27,10 @@ module Amazonka.LakeFormation.ListLFTags
     newListLFTags,
 
     -- * Request Lenses
-    listLFTags_resourceShareType,
-    listLFTags_catalogId,
     listLFTags_nextToken,
+    listLFTags_resourceShareType,
     listLFTags_maxResults,
+    listLFTags_catalogId,
 
     -- * Destructuring the Response
     ListLFTagsResponse (..),
@@ -52,22 +52,22 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListLFTags' smart constructor.
 data ListLFTags = ListLFTags'
-  { -- | If resource share type is @ALL@, returns both in-account tags and shared
+  { -- | A continuation token, if this is not the first call to retrieve this
+    -- list.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | If resource share type is @ALL@, returns both in-account tags and shared
     -- tags that the requester has permission to view. If resource share type
     -- is @FOREIGN@, returns all share tags that the requester can view. If no
     -- resource share type is passed, lists tags in the given catalog ID that
     -- the requester has permission to view.
     resourceShareType :: Prelude.Maybe ResourceShareType,
+    -- | The maximum number of results to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier for the Data Catalog. By default, the account ID. The
     -- Data Catalog is the persistent metadata store. It contains database
     -- definitions, table definitions, and other control information to manage
     -- your AWS Lake Formation environment.
-    catalogId :: Prelude.Maybe Prelude.Text,
-    -- | A continuation token, if this is not the first call to retrieve this
-    -- list.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    catalogId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,30 +79,35 @@ data ListLFTags = ListLFTags'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listLFTags_nextToken' - A continuation token, if this is not the first call to retrieve this
+-- list.
+--
 -- 'resourceShareType', 'listLFTags_resourceShareType' - If resource share type is @ALL@, returns both in-account tags and shared
 -- tags that the requester has permission to view. If resource share type
 -- is @FOREIGN@, returns all share tags that the requester can view. If no
 -- resource share type is passed, lists tags in the given catalog ID that
 -- the requester has permission to view.
 --
+-- 'maxResults', 'listLFTags_maxResults' - The maximum number of results to return.
+--
 -- 'catalogId', 'listLFTags_catalogId' - The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
 -- your AWS Lake Formation environment.
---
--- 'nextToken', 'listLFTags_nextToken' - A continuation token, if this is not the first call to retrieve this
--- list.
---
--- 'maxResults', 'listLFTags_maxResults' - The maximum number of results to return.
 newListLFTags ::
   ListLFTags
 newListLFTags =
   ListLFTags'
-    { resourceShareType = Prelude.Nothing,
-      catalogId = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Prelude.Nothing,
+      resourceShareType = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      catalogId = Prelude.Nothing
     }
+
+-- | A continuation token, if this is not the first call to retrieve this
+-- list.
+listLFTags_nextToken :: Lens.Lens' ListLFTags (Prelude.Maybe Prelude.Text)
+listLFTags_nextToken = Lens.lens (\ListLFTags' {nextToken} -> nextToken) (\s@ListLFTags' {} a -> s {nextToken = a} :: ListLFTags)
 
 -- | If resource share type is @ALL@, returns both in-account tags and shared
 -- tags that the requester has permission to view. If resource share type
@@ -112,21 +117,16 @@ newListLFTags =
 listLFTags_resourceShareType :: Lens.Lens' ListLFTags (Prelude.Maybe ResourceShareType)
 listLFTags_resourceShareType = Lens.lens (\ListLFTags' {resourceShareType} -> resourceShareType) (\s@ListLFTags' {} a -> s {resourceShareType = a} :: ListLFTags)
 
+-- | The maximum number of results to return.
+listLFTags_maxResults :: Lens.Lens' ListLFTags (Prelude.Maybe Prelude.Natural)
+listLFTags_maxResults = Lens.lens (\ListLFTags' {maxResults} -> maxResults) (\s@ListLFTags' {} a -> s {maxResults = a} :: ListLFTags)
+
 -- | The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
 -- your AWS Lake Formation environment.
 listLFTags_catalogId :: Lens.Lens' ListLFTags (Prelude.Maybe Prelude.Text)
 listLFTags_catalogId = Lens.lens (\ListLFTags' {catalogId} -> catalogId) (\s@ListLFTags' {} a -> s {catalogId = a} :: ListLFTags)
-
--- | A continuation token, if this is not the first call to retrieve this
--- list.
-listLFTags_nextToken :: Lens.Lens' ListLFTags (Prelude.Maybe Prelude.Text)
-listLFTags_nextToken = Lens.lens (\ListLFTags' {nextToken} -> nextToken) (\s@ListLFTags' {} a -> s {nextToken = a} :: ListLFTags)
-
--- | The maximum number of results to return.
-listLFTags_maxResults :: Lens.Lens' ListLFTags (Prelude.Maybe Prelude.Natural)
-listLFTags_maxResults = Lens.lens (\ListLFTags' {maxResults} -> maxResults) (\s@ListLFTags' {} a -> s {maxResults = a} :: ListLFTags)
 
 instance Core.AWSRequest ListLFTags where
   type AWSResponse ListLFTags = ListLFTagsResponse
@@ -142,17 +142,17 @@ instance Core.AWSRequest ListLFTags where
 
 instance Prelude.Hashable ListLFTags where
   hashWithSalt _salt ListLFTags' {..} =
-    _salt `Prelude.hashWithSalt` resourceShareType
-      `Prelude.hashWithSalt` catalogId
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` resourceShareType
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` catalogId
 
 instance Prelude.NFData ListLFTags where
   rnf ListLFTags' {..} =
-    Prelude.rnf resourceShareType
-      `Prelude.seq` Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceShareType
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf catalogId
 
 instance Core.ToHeaders ListLFTags where
   toHeaders =
@@ -173,11 +173,11 @@ instance Core.ToJSON ListLFTags where
   toJSON ListLFTags' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ResourceShareType" Core..=)
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("ResourceShareType" Core..=)
               Prelude.<$> resourceShareType,
-            ("CatalogId" Core..=) Prelude.<$> catalogId,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("CatalogId" Core..=) Prelude.<$> catalogId
           ]
       )
 

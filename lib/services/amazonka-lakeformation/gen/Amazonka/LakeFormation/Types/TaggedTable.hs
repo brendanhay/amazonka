@@ -32,12 +32,12 @@ import qualified Amazonka.Prelude as Prelude
 data TaggedTable = TaggedTable'
   { -- | A list of tags attached to the table.
     lFTagsOnTable :: Prelude.Maybe (Prelude.NonEmpty LFTagPair),
+    -- | A table that has tags attached to it.
+    table :: Prelude.Maybe TableResource,
     -- | A list of tags attached to the database where the table resides.
     lFTagOnDatabase :: Prelude.Maybe (Prelude.NonEmpty LFTagPair),
     -- | A list of tags attached to columns in the table.
-    lFTagsOnColumns :: Prelude.Maybe [ColumnLFTag],
-    -- | A table that has tags attached to it.
-    table :: Prelude.Maybe TableResource
+    lFTagsOnColumns :: Prelude.Maybe [ColumnLFTag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,24 +51,28 @@ data TaggedTable = TaggedTable'
 --
 -- 'lFTagsOnTable', 'taggedTable_lFTagsOnTable' - A list of tags attached to the table.
 --
+-- 'table', 'taggedTable_table' - A table that has tags attached to it.
+--
 -- 'lFTagOnDatabase', 'taggedTable_lFTagOnDatabase' - A list of tags attached to the database where the table resides.
 --
 -- 'lFTagsOnColumns', 'taggedTable_lFTagsOnColumns' - A list of tags attached to columns in the table.
---
--- 'table', 'taggedTable_table' - A table that has tags attached to it.
 newTaggedTable ::
   TaggedTable
 newTaggedTable =
   TaggedTable'
     { lFTagsOnTable = Prelude.Nothing,
+      table = Prelude.Nothing,
       lFTagOnDatabase = Prelude.Nothing,
-      lFTagsOnColumns = Prelude.Nothing,
-      table = Prelude.Nothing
+      lFTagsOnColumns = Prelude.Nothing
     }
 
 -- | A list of tags attached to the table.
 taggedTable_lFTagsOnTable :: Lens.Lens' TaggedTable (Prelude.Maybe (Prelude.NonEmpty LFTagPair))
 taggedTable_lFTagsOnTable = Lens.lens (\TaggedTable' {lFTagsOnTable} -> lFTagsOnTable) (\s@TaggedTable' {} a -> s {lFTagsOnTable = a} :: TaggedTable) Prelude.. Lens.mapping Lens.coerced
+
+-- | A table that has tags attached to it.
+taggedTable_table :: Lens.Lens' TaggedTable (Prelude.Maybe TableResource)
+taggedTable_table = Lens.lens (\TaggedTable' {table} -> table) (\s@TaggedTable' {} a -> s {table = a} :: TaggedTable)
 
 -- | A list of tags attached to the database where the table resides.
 taggedTable_lFTagOnDatabase :: Lens.Lens' TaggedTable (Prelude.Maybe (Prelude.NonEmpty LFTagPair))
@@ -78,10 +82,6 @@ taggedTable_lFTagOnDatabase = Lens.lens (\TaggedTable' {lFTagOnDatabase} -> lFTa
 taggedTable_lFTagsOnColumns :: Lens.Lens' TaggedTable (Prelude.Maybe [ColumnLFTag])
 taggedTable_lFTagsOnColumns = Lens.lens (\TaggedTable' {lFTagsOnColumns} -> lFTagsOnColumns) (\s@TaggedTable' {} a -> s {lFTagsOnColumns = a} :: TaggedTable) Prelude.. Lens.mapping Lens.coerced
 
--- | A table that has tags attached to it.
-taggedTable_table :: Lens.Lens' TaggedTable (Prelude.Maybe TableResource)
-taggedTable_table = Lens.lens (\TaggedTable' {table} -> table) (\s@TaggedTable' {} a -> s {table = a} :: TaggedTable)
-
 instance Core.FromJSON TaggedTable where
   parseJSON =
     Core.withObject
@@ -89,23 +89,23 @@ instance Core.FromJSON TaggedTable where
       ( \x ->
           TaggedTable'
             Prelude.<$> (x Core..:? "LFTagsOnTable")
+            Prelude.<*> (x Core..:? "Table")
             Prelude.<*> (x Core..:? "LFTagOnDatabase")
             Prelude.<*> ( x Core..:? "LFTagsOnColumns"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Table")
       )
 
 instance Prelude.Hashable TaggedTable where
   hashWithSalt _salt TaggedTable' {..} =
     _salt `Prelude.hashWithSalt` lFTagsOnTable
+      `Prelude.hashWithSalt` table
       `Prelude.hashWithSalt` lFTagOnDatabase
       `Prelude.hashWithSalt` lFTagsOnColumns
-      `Prelude.hashWithSalt` table
 
 instance Prelude.NFData TaggedTable where
   rnf TaggedTable' {..} =
     Prelude.rnf lFTagsOnTable
+      `Prelude.seq` Prelude.rnf table
       `Prelude.seq` Prelude.rnf lFTagOnDatabase
       `Prelude.seq` Prelude.rnf lFTagsOnColumns
-      `Prelude.seq` Prelude.rnf table

@@ -17,12 +17,12 @@ module Amazonka.ResourceGroupsTagging.Types
     defaultService,
 
     -- * Errors
-    _InvalidParameterException,
-    _ConstraintViolationException,
-    _ThrottledException,
-    _PaginationTokenExpiredException,
     _ConcurrentModificationException,
     _InternalServiceException,
+    _ThrottledException,
+    _PaginationTokenExpiredException,
+    _ConstraintViolationException,
+    _InvalidParameterException,
 
     -- * GroupByAttribute
     GroupByAttribute (..),
@@ -36,33 +36,33 @@ module Amazonka.ResourceGroupsTagging.Types
     -- * ComplianceDetails
     ComplianceDetails (..),
     newComplianceDetails,
-    complianceDetails_keysWithNoncompliantValues,
-    complianceDetails_complianceStatus,
     complianceDetails_noncompliantKeys,
+    complianceDetails_complianceStatus,
+    complianceDetails_keysWithNoncompliantValues,
 
     -- * FailureInfo
     FailureInfo (..),
     newFailureInfo,
-    failureInfo_errorCode,
     failureInfo_errorMessage,
+    failureInfo_errorCode,
     failureInfo_statusCode,
 
     -- * ResourceTagMapping
     ResourceTagMapping (..),
     newResourceTagMapping,
+    resourceTagMapping_tags,
     resourceTagMapping_complianceDetails,
     resourceTagMapping_resourceARN,
-    resourceTagMapping_tags,
 
     -- * Summary
     Summary (..),
     newSummary,
-    summary_targetId,
-    summary_lastUpdated,
     summary_resourceType,
-    summary_nonCompliantResources,
+    summary_targetId,
     summary_targetIdType,
+    summary_lastUpdated,
     summary_region,
+    summary_nonCompliantResources,
 
     -- * Tag
     Tag (..),
@@ -73,8 +73,8 @@ module Amazonka.ResourceGroupsTagging.Types
     -- * TagFilter
     TagFilter (..),
     newTagFilter,
-    tagFilter_values,
     tagFilter_key,
+    tagFilter_values,
   )
 where
 
@@ -119,35 +119,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -156,33 +129,71 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | This error indicates one of the following:
---
--- -   A parameter is missing.
---
--- -   A malformed string was supplied for the request parameter.
---
--- -   An out-of-range value was supplied for the request parameter.
---
--- -   The target ID is invalid, unsupported, or doesn\'t exist.
---
--- -   You can\'t access the Amazon S3 bucket for report storage. For more
---     information, see
---     <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies-prereqs.html#bucket-policies-org-report Additional Requirements for Organization-wide Tag Compliance Reports>
---     in the /AWS Organizations User Guide./
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterException =
+-- | The target of the operation is currently being modified by a different
+-- request. Try again later.
+_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
-    "InvalidParameterException"
+    "ConcurrentModificationException"
+
+-- | The request processing failed because of an unknown error, exception, or
+-- failure. You can retry the request.
+_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServiceException"
+
+-- | The request was denied to limit the frequency of submitted requests.
+_ThrottledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottledException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottledException"
+
+-- | A @PaginationToken@ is valid for a maximum of 15 minutes. Your request
+-- was denied because the specified @PaginationToken@ has expired.
+_PaginationTokenExpiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PaginationTokenExpiredException =
+  Core._MatchServiceError
+    defaultService
+    "PaginationTokenExpiredException"
 
 -- | The request was denied because performing this operation violates a
 -- constraint.
@@ -208,33 +219,22 @@ _ConstraintViolationException =
     defaultService
     "ConstraintViolationException"
 
--- | The request was denied to limit the frequency of submitted requests.
-_ThrottledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottledException =
+-- | This error indicates one of the following:
+--
+-- -   A parameter is missing.
+--
+-- -   A malformed string was supplied for the request parameter.
+--
+-- -   An out-of-range value was supplied for the request parameter.
+--
+-- -   The target ID is invalid, unsupported, or doesn\'t exist.
+--
+-- -   You can\'t access the Amazon S3 bucket for report storage. For more
+--     information, see
+--     <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies-prereqs.html#bucket-policies-org-report Additional Requirements for Organization-wide Tag Compliance Reports>
+--     in the /AWS Organizations User Guide./
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException =
   Core._MatchServiceError
     defaultService
-    "ThrottledException"
-
--- | A @PaginationToken@ is valid for a maximum of 15 minutes. Your request
--- was denied because the specified @PaginationToken@ has expired.
-_PaginationTokenExpiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PaginationTokenExpiredException =
-  Core._MatchServiceError
-    defaultService
-    "PaginationTokenExpiredException"
-
--- | The target of the operation is currently being modified by a different
--- request. Try again later.
-_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConcurrentModificationException =
-  Core._MatchServiceError
-    defaultService
-    "ConcurrentModificationException"
-
--- | The request processing failed because of an unknown error, exception, or
--- failure. You can retry the request.
-_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServiceException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServiceException"
+    "InvalidParameterException"

@@ -14,35 +14,42 @@
 module Amazonka.ResourceGroupsTagging.Lens
   ( -- * Operations
 
+    -- ** DescribeReportCreation
+    describeReportCreationResponse_errorMessage,
+    describeReportCreationResponse_status,
+    describeReportCreationResponse_s3Location,
+    describeReportCreationResponse_httpStatus,
+
     -- ** GetComplianceSummary
-    getComplianceSummary_groupBy,
-    getComplianceSummary_paginationToken,
+    getComplianceSummary_tagKeyFilters,
     getComplianceSummary_targetIdFilters,
+    getComplianceSummary_paginationToken,
+    getComplianceSummary_groupBy,
+    getComplianceSummary_maxResults,
     getComplianceSummary_resourceTypeFilters,
     getComplianceSummary_regionFilters,
-    getComplianceSummary_tagKeyFilters,
-    getComplianceSummary_maxResults,
     getComplianceSummaryResponse_paginationToken,
     getComplianceSummaryResponse_summaryList,
     getComplianceSummaryResponse_httpStatus,
 
-    -- ** DescribeReportCreation
-    describeReportCreationResponse_status,
-    describeReportCreationResponse_s3Location,
-    describeReportCreationResponse_errorMessage,
-    describeReportCreationResponse_httpStatus,
+    -- ** GetResources
+    getResources_paginationToken,
+    getResources_tagsPerPage,
+    getResources_resourceARNList,
+    getResources_includeComplianceDetails,
+    getResources_tagFilters,
+    getResources_excludeCompliantResources,
+    getResources_resourcesPerPage,
+    getResources_resourceTypeFilters,
+    getResourcesResponse_paginationToken,
+    getResourcesResponse_resourceTagMappingList,
+    getResourcesResponse_httpStatus,
 
     -- ** GetTagKeys
     getTagKeys_paginationToken,
-    getTagKeysResponse_paginationToken,
     getTagKeysResponse_tagKeys,
+    getTagKeysResponse_paginationToken,
     getTagKeysResponse_httpStatus,
-
-    -- ** TagResources
-    tagResources_resourceARNList,
-    tagResources_tags,
-    tagResourcesResponse_failedResourcesMap,
-    tagResourcesResponse_httpStatus,
 
     -- ** GetTagValues
     getTagValues_paginationToken,
@@ -55,18 +62,11 @@ module Amazonka.ResourceGroupsTagging.Lens
     startReportCreation_s3Bucket,
     startReportCreationResponse_httpStatus,
 
-    -- ** GetResources
-    getResources_paginationToken,
-    getResources_resourcesPerPage,
-    getResources_excludeCompliantResources,
-    getResources_includeComplianceDetails,
-    getResources_resourceTypeFilters,
-    getResources_tagFilters,
-    getResources_resourceARNList,
-    getResources_tagsPerPage,
-    getResourcesResponse_paginationToken,
-    getResourcesResponse_resourceTagMappingList,
-    getResourcesResponse_httpStatus,
+    -- ** TagResources
+    tagResources_resourceARNList,
+    tagResources_tags,
+    tagResourcesResponse_failedResourcesMap,
+    tagResourcesResponse_httpStatus,
 
     -- ** UntagResources
     untagResources_resourceARNList,
@@ -77,35 +77,35 @@ module Amazonka.ResourceGroupsTagging.Lens
     -- * Types
 
     -- ** ComplianceDetails
-    complianceDetails_keysWithNoncompliantValues,
-    complianceDetails_complianceStatus,
     complianceDetails_noncompliantKeys,
+    complianceDetails_complianceStatus,
+    complianceDetails_keysWithNoncompliantValues,
 
     -- ** FailureInfo
-    failureInfo_errorCode,
     failureInfo_errorMessage,
+    failureInfo_errorCode,
     failureInfo_statusCode,
 
     -- ** ResourceTagMapping
+    resourceTagMapping_tags,
     resourceTagMapping_complianceDetails,
     resourceTagMapping_resourceARN,
-    resourceTagMapping_tags,
 
     -- ** Summary
-    summary_targetId,
-    summary_lastUpdated,
     summary_resourceType,
-    summary_nonCompliantResources,
+    summary_targetId,
     summary_targetIdType,
+    summary_lastUpdated,
     summary_region,
+    summary_nonCompliantResources,
 
     -- ** Tag
     tag_key,
     tag_value,
 
     -- ** TagFilter
-    tagFilter_values,
     tagFilter_key,
+    tagFilter_values,
   )
 where
 

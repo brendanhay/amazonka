@@ -27,23 +27,17 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestSendMessage $
---             newSendMessage
+--         [ requestCompleteAttachmentUpload $
+--             newCompleteAttachmentUpload
+--
+--         , requestCreateParticipantConnection $
+--             newCreateParticipantConnection
 --
 --         , requestDisconnectParticipant $
 --             newDisconnectParticipant
 --
---         , requestCompleteAttachmentUpload $
---             newCompleteAttachmentUpload
---
 --         , requestGetAttachment $
 --             newGetAttachment
---
---         , requestStartAttachmentUpload $
---             newStartAttachmentUpload
---
---         , requestCreateParticipantConnection $
---             newCreateParticipantConnection
 --
 --         , requestGetTranscript $
 --             newGetTranscript
@@ -51,26 +45,26 @@ import Test.Tasty
 --         , requestSendEvent $
 --             newSendEvent
 --
+--         , requestSendMessage $
+--             newSendMessage
+--
+--         , requestStartAttachmentUpload $
+--             newStartAttachmentUpload
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseSendMessage $
---             newSendMessageResponse
+--         [ responseCompleteAttachmentUpload $
+--             newCompleteAttachmentUploadResponse
+--
+--         , responseCreateParticipantConnection $
+--             newCreateParticipantConnectionResponse
 --
 --         , responseDisconnectParticipant $
 --             newDisconnectParticipantResponse
 --
---         , responseCompleteAttachmentUpload $
---             newCompleteAttachmentUploadResponse
---
 --         , responseGetAttachment $
 --             newGetAttachmentResponse
---
---         , responseStartAttachmentUpload $
---             newStartAttachmentUploadResponse
---
---         , responseCreateParticipantConnection $
---             newCreateParticipantConnectionResponse
 --
 --         , responseGetTranscript $
 --             newGetTranscriptResponse
@@ -78,22 +72,16 @@ import Test.Tasty
 --         , responseSendEvent $
 --             newSendEventResponse
 --
+--         , responseSendMessage $
+--             newSendMessageResponse
+--
+--         , responseStartAttachmentUpload $
+--             newStartAttachmentUploadResponse
+--
 --           ]
 --     ]
 
 -- Requests
-
-requestSendMessage :: SendMessage -> TestTree
-requestSendMessage =
-  req
-    "SendMessage"
-    "fixture/SendMessage.yaml"
-
-requestDisconnectParticipant :: DisconnectParticipant -> TestTree
-requestDisconnectParticipant =
-  req
-    "DisconnectParticipant"
-    "fixture/DisconnectParticipant.yaml"
 
 requestCompleteAttachmentUpload :: CompleteAttachmentUpload -> TestTree
 requestCompleteAttachmentUpload =
@@ -101,23 +89,23 @@ requestCompleteAttachmentUpload =
     "CompleteAttachmentUpload"
     "fixture/CompleteAttachmentUpload.yaml"
 
-requestGetAttachment :: GetAttachment -> TestTree
-requestGetAttachment =
-  req
-    "GetAttachment"
-    "fixture/GetAttachment.yaml"
-
-requestStartAttachmentUpload :: StartAttachmentUpload -> TestTree
-requestStartAttachmentUpload =
-  req
-    "StartAttachmentUpload"
-    "fixture/StartAttachmentUpload.yaml"
-
 requestCreateParticipantConnection :: CreateParticipantConnection -> TestTree
 requestCreateParticipantConnection =
   req
     "CreateParticipantConnection"
     "fixture/CreateParticipantConnection.yaml"
+
+requestDisconnectParticipant :: DisconnectParticipant -> TestTree
+requestDisconnectParticipant =
+  req
+    "DisconnectParticipant"
+    "fixture/DisconnectParticipant.yaml"
+
+requestGetAttachment :: GetAttachment -> TestTree
+requestGetAttachment =
+  req
+    "GetAttachment"
+    "fixture/GetAttachment.yaml"
 
 requestGetTranscript :: GetTranscript -> TestTree
 requestGetTranscript =
@@ -131,23 +119,19 @@ requestSendEvent =
     "SendEvent"
     "fixture/SendEvent.yaml"
 
+requestSendMessage :: SendMessage -> TestTree
+requestSendMessage =
+  req
+    "SendMessage"
+    "fixture/SendMessage.yaml"
+
+requestStartAttachmentUpload :: StartAttachmentUpload -> TestTree
+requestStartAttachmentUpload =
+  req
+    "StartAttachmentUpload"
+    "fixture/StartAttachmentUpload.yaml"
+
 -- Responses
-
-responseSendMessage :: SendMessageResponse -> TestTree
-responseSendMessage =
-  res
-    "SendMessageResponse"
-    "fixture/SendMessageResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy SendMessage)
-
-responseDisconnectParticipant :: DisconnectParticipantResponse -> TestTree
-responseDisconnectParticipant =
-  res
-    "DisconnectParticipantResponse"
-    "fixture/DisconnectParticipantResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisconnectParticipant)
 
 responseCompleteAttachmentUpload :: CompleteAttachmentUploadResponse -> TestTree
 responseCompleteAttachmentUpload =
@@ -157,22 +141,6 @@ responseCompleteAttachmentUpload =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CompleteAttachmentUpload)
 
-responseGetAttachment :: GetAttachmentResponse -> TestTree
-responseGetAttachment =
-  res
-    "GetAttachmentResponse"
-    "fixture/GetAttachmentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetAttachment)
-
-responseStartAttachmentUpload :: StartAttachmentUploadResponse -> TestTree
-responseStartAttachmentUpload =
-  res
-    "StartAttachmentUploadResponse"
-    "fixture/StartAttachmentUploadResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartAttachmentUpload)
-
 responseCreateParticipantConnection :: CreateParticipantConnectionResponse -> TestTree
 responseCreateParticipantConnection =
   res
@@ -180,6 +148,22 @@ responseCreateParticipantConnection =
     "fixture/CreateParticipantConnectionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateParticipantConnection)
+
+responseDisconnectParticipant :: DisconnectParticipantResponse -> TestTree
+responseDisconnectParticipant =
+  res
+    "DisconnectParticipantResponse"
+    "fixture/DisconnectParticipantResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisconnectParticipant)
+
+responseGetAttachment :: GetAttachmentResponse -> TestTree
+responseGetAttachment =
+  res
+    "GetAttachmentResponse"
+    "fixture/GetAttachmentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAttachment)
 
 responseGetTranscript :: GetTranscriptResponse -> TestTree
 responseGetTranscript =
@@ -196,3 +180,19 @@ responseSendEvent =
     "fixture/SendEventResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy SendEvent)
+
+responseSendMessage :: SendMessageResponse -> TestTree
+responseSendMessage =
+  res
+    "SendMessageResponse"
+    "fixture/SendMessageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SendMessage)
+
+responseStartAttachmentUpload :: StartAttachmentUploadResponse -> TestTree
+responseStartAttachmentUpload =
+  res
+    "StartAttachmentUploadResponse"
+    "fixture/StartAttachmentUploadResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartAttachmentUpload)

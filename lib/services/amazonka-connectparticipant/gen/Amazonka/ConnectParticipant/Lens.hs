@@ -14,32 +14,61 @@
 module Amazonka.ConnectParticipant.Lens
   ( -- * Operations
 
-    -- ** SendMessage
-    sendMessage_clientToken,
-    sendMessage_contentType,
-    sendMessage_content,
-    sendMessage_connectionToken,
-    sendMessageResponse_absoluteTime,
-    sendMessageResponse_id,
-    sendMessageResponse_httpStatus,
-
-    -- ** DisconnectParticipant
-    disconnectParticipant_clientToken,
-    disconnectParticipant_connectionToken,
-    disconnectParticipantResponse_httpStatus,
-
     -- ** CompleteAttachmentUpload
     completeAttachmentUpload_attachmentIds,
     completeAttachmentUpload_clientToken,
     completeAttachmentUpload_connectionToken,
     completeAttachmentUploadResponse_httpStatus,
 
+    -- ** CreateParticipantConnection
+    createParticipantConnection_type,
+    createParticipantConnection_participantToken,
+    createParticipantConnectionResponse_connectionCredentials,
+    createParticipantConnectionResponse_websocket,
+    createParticipantConnectionResponse_httpStatus,
+
+    -- ** DisconnectParticipant
+    disconnectParticipant_clientToken,
+    disconnectParticipant_connectionToken,
+    disconnectParticipantResponse_httpStatus,
+
     -- ** GetAttachment
     getAttachment_attachmentId,
     getAttachment_connectionToken,
-    getAttachmentResponse_urlExpiry,
     getAttachmentResponse_url,
+    getAttachmentResponse_urlExpiry,
     getAttachmentResponse_httpStatus,
+
+    -- ** GetTranscript
+    getTranscript_sortOrder,
+    getTranscript_nextToken,
+    getTranscript_contactId,
+    getTranscript_startPosition,
+    getTranscript_maxResults,
+    getTranscript_scanDirection,
+    getTranscript_connectionToken,
+    getTranscriptResponse_nextToken,
+    getTranscriptResponse_transcript,
+    getTranscriptResponse_initialContactId,
+    getTranscriptResponse_httpStatus,
+
+    -- ** SendEvent
+    sendEvent_clientToken,
+    sendEvent_content,
+    sendEvent_contentType,
+    sendEvent_connectionToken,
+    sendEventResponse_id,
+    sendEventResponse_absoluteTime,
+    sendEventResponse_httpStatus,
+
+    -- ** SendMessage
+    sendMessage_clientToken,
+    sendMessage_contentType,
+    sendMessage_content,
+    sendMessage_connectionToken,
+    sendMessageResponse_id,
+    sendMessageResponse_absoluteTime,
+    sendMessageResponse_httpStatus,
 
     -- ** StartAttachmentUpload
     startAttachmentUpload_contentType,
@@ -51,41 +80,12 @@ module Amazonka.ConnectParticipant.Lens
     startAttachmentUploadResponse_uploadMetadata,
     startAttachmentUploadResponse_httpStatus,
 
-    -- ** CreateParticipantConnection
-    createParticipantConnection_type,
-    createParticipantConnection_participantToken,
-    createParticipantConnectionResponse_connectionCredentials,
-    createParticipantConnectionResponse_websocket,
-    createParticipantConnectionResponse_httpStatus,
-
-    -- ** GetTranscript
-    getTranscript_scanDirection,
-    getTranscript_nextToken,
-    getTranscript_sortOrder,
-    getTranscript_contactId,
-    getTranscript_maxResults,
-    getTranscript_startPosition,
-    getTranscript_connectionToken,
-    getTranscriptResponse_nextToken,
-    getTranscriptResponse_initialContactId,
-    getTranscriptResponse_transcript,
-    getTranscriptResponse_httpStatus,
-
-    -- ** SendEvent
-    sendEvent_clientToken,
-    sendEvent_content,
-    sendEvent_contentType,
-    sendEvent_connectionToken,
-    sendEventResponse_absoluteTime,
-    sendEventResponse_id,
-    sendEventResponse_httpStatus,
-
     -- * Types
 
     -- ** AttachmentItem
     attachmentItem_status,
-    attachmentItem_attachmentName,
     attachmentItem_attachmentId,
+    attachmentItem_attachmentName,
     attachmentItem_contentType,
 
     -- ** ConnectionCredentials
@@ -93,29 +93,29 @@ module Amazonka.ConnectParticipant.Lens
     connectionCredentials_connectionToken,
 
     -- ** Item
-    item_participantId,
-    item_absoluteTime,
-    item_attachments,
-    item_participantRole,
-    item_content,
-    item_id,
-    item_displayName,
     item_type,
+    item_participantId,
+    item_displayName,
+    item_id,
+    item_absoluteTime,
+    item_participantRole,
+    item_attachments,
+    item_content,
     item_contentType,
 
     -- ** StartPosition
-    startPosition_absoluteTime,
     startPosition_id,
+    startPosition_absoluteTime,
     startPosition_mostRecent,
 
     -- ** UploadMetadata
-    uploadMetadata_urlExpiry,
-    uploadMetadata_headersToInclude,
     uploadMetadata_url,
+    uploadMetadata_headersToInclude,
+    uploadMetadata_urlExpiry,
 
     -- ** Websocket
-    websocket_url,
     websocket_connectionExpiry,
+    websocket_url,
   )
 where
 

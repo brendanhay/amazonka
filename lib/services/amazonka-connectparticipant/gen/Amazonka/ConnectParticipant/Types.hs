@@ -17,12 +17,12 @@ module Amazonka.ConnectParticipant.Types
     defaultService,
 
     -- * Errors
-    _ValidationException,
     _AccessDeniedException,
-    _ConflictException,
-    _ServiceQuotaExceededException,
-    _ThrottlingException,
     _InternalServerException,
+    _ServiceQuotaExceededException,
+    _ConflictException,
+    _ThrottlingException,
+    _ValidationException,
 
     -- * ArtifactStatus
     ArtifactStatus (..),
@@ -46,8 +46,8 @@ module Amazonka.ConnectParticipant.Types
     AttachmentItem (..),
     newAttachmentItem,
     attachmentItem_status,
-    attachmentItem_attachmentName,
     attachmentItem_attachmentId,
+    attachmentItem_attachmentName,
     attachmentItem_contentType,
 
     -- * ConnectionCredentials
@@ -59,35 +59,35 @@ module Amazonka.ConnectParticipant.Types
     -- * Item
     Item (..),
     newItem,
-    item_participantId,
-    item_absoluteTime,
-    item_attachments,
-    item_participantRole,
-    item_content,
-    item_id,
-    item_displayName,
     item_type,
+    item_participantId,
+    item_displayName,
+    item_id,
+    item_absoluteTime,
+    item_participantRole,
+    item_attachments,
+    item_content,
     item_contentType,
 
     -- * StartPosition
     StartPosition (..),
     newStartPosition,
-    startPosition_absoluteTime,
     startPosition_id,
+    startPosition_absoluteTime,
     startPosition_mostRecent,
 
     -- * UploadMetadata
     UploadMetadata (..),
     newUploadMetadata,
-    uploadMetadata_urlExpiry,
-    uploadMetadata_headersToInclude,
     uploadMetadata_url,
+    uploadMetadata_headersToInclude,
+    uploadMetadata_urlExpiry,
 
     -- * Websocket
     Websocket (..),
     newWebsocket,
-    websocket_url,
     websocket_connectionExpiry,
+    websocket_url,
   )
 where
 
@@ -135,35 +135,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -172,21 +145,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The input fails to satisfy the constraints specified by Amazon Connect.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
-    Prelude.. Core.hasStatus 400
 
 -- | You do not have sufficient access to perform this action.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -196,13 +188,14 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
--- | An attachment with that identifier is already being uploaded.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
+-- | This exception occurs when there is an internal failure in the Amazon
+-- Connect service.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
   Core._MatchServiceError
     defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
+    "InternalServerException"
+    Prelude.. Core.hasStatus 500
 
 -- | The number of attachments per contact exceeds the quota.
 _ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -212,6 +205,14 @@ _ServiceQuotaExceededException =
     "ServiceQuotaExceededException"
     Prelude.. Core.hasStatus 402
 
+-- | An attachment with that identifier is already being uploaded.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
 -- | The request was denied due to request throttling.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ThrottlingException =
@@ -220,11 +221,10 @@ _ThrottlingException =
     "ThrottlingException"
     Prelude.. Core.hasStatus 429
 
--- | This exception occurs when there is an internal failure in the Amazon
--- Connect service.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
+-- | The input fails to satisfy the constraints specified by Amazon Connect.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
   Core._MatchServiceError
     defaultService
-    "InternalServerException"
-    Prelude.. Core.hasStatus 500
+    "ValidationException"
+    Prelude.. Core.hasStatus 400

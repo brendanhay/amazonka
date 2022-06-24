@@ -36,8 +36,20 @@ module Amazonka.IoTJobsData
     -- * Errors
     -- $errors
 
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
     -- ** TerminalStateException
     _TerminalStateException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** InvalidStateTransitionException
+    _InvalidStateTransitionException,
 
     -- ** InvalidRequestException
     _InvalidRequestException,
@@ -45,35 +57,11 @@ module Amazonka.IoTJobsData
     -- ** CertificateValidationException
     _CertificateValidationException,
 
-    -- ** ThrottlingException
-    _ThrottlingException,
-
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
-
-    -- ** InvalidStateTransitionException
-    _InvalidStateTransitionException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
-
-    -- ** UpdateJobExecution
-    UpdateJobExecution (UpdateJobExecution'),
-    newUpdateJobExecution,
-    UpdateJobExecutionResponse (UpdateJobExecutionResponse'),
-    newUpdateJobExecutionResponse,
-
-    -- ** StartNextPendingJobExecution
-    StartNextPendingJobExecution (StartNextPendingJobExecution'),
-    newStartNextPendingJobExecution,
-    StartNextPendingJobExecutionResponse (StartNextPendingJobExecutionResponse'),
-    newStartNextPendingJobExecutionResponse,
 
     -- ** DescribeJobExecution
     DescribeJobExecution (DescribeJobExecution'),
@@ -86,6 +74,18 @@ module Amazonka.IoTJobsData
     newGetPendingJobExecutions,
     GetPendingJobExecutionsResponse (GetPendingJobExecutionsResponse'),
     newGetPendingJobExecutionsResponse,
+
+    -- ** StartNextPendingJobExecution
+    StartNextPendingJobExecution (StartNextPendingJobExecution'),
+    newStartNextPendingJobExecution,
+    StartNextPendingJobExecutionResponse (StartNextPendingJobExecutionResponse'),
+    newStartNextPendingJobExecutionResponse,
+
+    -- ** UpdateJobExecution
+    UpdateJobExecution (UpdateJobExecution'),
+    newUpdateJobExecution,
+    UpdateJobExecutionResponse (UpdateJobExecutionResponse'),
+    newUpdateJobExecutionResponse,
 
     -- * Types
 

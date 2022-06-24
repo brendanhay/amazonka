@@ -27,8 +27,8 @@ module Amazonka.IoTJobsData.DescribeJobExecution
     newDescribeJobExecution,
 
     -- * Request Lenses
-    describeJobExecution_includeJobDocument,
     describeJobExecution_executionNumber,
+    describeJobExecution_includeJobDocument,
     describeJobExecution_jobId,
     describeJobExecution_thingName,
 
@@ -51,13 +51,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeJobExecution' smart constructor.
 data DescribeJobExecution = DescribeJobExecution'
-  { -- | Optional. When set to true, the response contains the job document. The
-    -- default is false.
-    includeJobDocument :: Prelude.Maybe Prelude.Bool,
-    -- | Optional. A number that identifies a particular job execution on a
+  { -- | Optional. A number that identifies a particular job execution on a
     -- particular device. If not specified, the latest job execution is
     -- returned.
     executionNumber :: Prelude.Maybe Prelude.Integer,
+    -- | Optional. When set to true, the response contains the job document. The
+    -- default is false.
+    includeJobDocument :: Prelude.Maybe Prelude.Bool,
     -- | The unique identifier assigned to this job when it was created.
     jobId :: Prelude.Text,
     -- | The thing name associated with the device the job execution is running
@@ -74,12 +74,12 @@ data DescribeJobExecution = DescribeJobExecution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'includeJobDocument', 'describeJobExecution_includeJobDocument' - Optional. When set to true, the response contains the job document. The
--- default is false.
---
 -- 'executionNumber', 'describeJobExecution_executionNumber' - Optional. A number that identifies a particular job execution on a
 -- particular device. If not specified, the latest job execution is
 -- returned.
+--
+-- 'includeJobDocument', 'describeJobExecution_includeJobDocument' - Optional. When set to true, the response contains the job document. The
+-- default is false.
 --
 -- 'jobId', 'describeJobExecution_jobId' - The unique identifier assigned to this job when it was created.
 --
@@ -93,23 +93,23 @@ newDescribeJobExecution ::
   DescribeJobExecution
 newDescribeJobExecution pJobId_ pThingName_ =
   DescribeJobExecution'
-    { includeJobDocument =
+    { executionNumber =
         Prelude.Nothing,
-      executionNumber = Prelude.Nothing,
+      includeJobDocument = Prelude.Nothing,
       jobId = pJobId_,
       thingName = pThingName_
     }
-
--- | Optional. When set to true, the response contains the job document. The
--- default is false.
-describeJobExecution_includeJobDocument :: Lens.Lens' DescribeJobExecution (Prelude.Maybe Prelude.Bool)
-describeJobExecution_includeJobDocument = Lens.lens (\DescribeJobExecution' {includeJobDocument} -> includeJobDocument) (\s@DescribeJobExecution' {} a -> s {includeJobDocument = a} :: DescribeJobExecution)
 
 -- | Optional. A number that identifies a particular job execution on a
 -- particular device. If not specified, the latest job execution is
 -- returned.
 describeJobExecution_executionNumber :: Lens.Lens' DescribeJobExecution (Prelude.Maybe Prelude.Integer)
 describeJobExecution_executionNumber = Lens.lens (\DescribeJobExecution' {executionNumber} -> executionNumber) (\s@DescribeJobExecution' {} a -> s {executionNumber = a} :: DescribeJobExecution)
+
+-- | Optional. When set to true, the response contains the job document. The
+-- default is false.
+describeJobExecution_includeJobDocument :: Lens.Lens' DescribeJobExecution (Prelude.Maybe Prelude.Bool)
+describeJobExecution_includeJobDocument = Lens.lens (\DescribeJobExecution' {includeJobDocument} -> includeJobDocument) (\s@DescribeJobExecution' {} a -> s {includeJobDocument = a} :: DescribeJobExecution)
 
 -- | The unique identifier assigned to this job when it was created.
 describeJobExecution_jobId :: Lens.Lens' DescribeJobExecution Prelude.Text
@@ -135,15 +135,15 @@ instance Core.AWSRequest DescribeJobExecution where
 
 instance Prelude.Hashable DescribeJobExecution where
   hashWithSalt _salt DescribeJobExecution' {..} =
-    _salt `Prelude.hashWithSalt` includeJobDocument
-      `Prelude.hashWithSalt` executionNumber
+    _salt `Prelude.hashWithSalt` executionNumber
+      `Prelude.hashWithSalt` includeJobDocument
       `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` thingName
 
 instance Prelude.NFData DescribeJobExecution where
   rnf DescribeJobExecution' {..} =
-    Prelude.rnf includeJobDocument
-      `Prelude.seq` Prelude.rnf executionNumber
+    Prelude.rnf executionNumber
+      `Prelude.seq` Prelude.rnf includeJobDocument
       `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf thingName
 
@@ -162,8 +162,8 @@ instance Core.ToPath DescribeJobExecution where
 instance Core.ToQuery DescribeJobExecution where
   toQuery DescribeJobExecution' {..} =
     Prelude.mconcat
-      [ "includeJobDocument" Core.=: includeJobDocument,
-        "executionNumber" Core.=: executionNumber
+      [ "executionNumber" Core.=: executionNumber,
+        "includeJobDocument" Core.=: includeJobDocument
       ]
 
 -- | /See:/ 'newDescribeJobExecutionResponse' smart constructor.

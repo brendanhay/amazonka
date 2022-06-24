@@ -27,49 +27,37 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestUpdateJobExecution $
---             newUpdateJobExecution
---
---         , requestStartNextPendingJobExecution $
---             newStartNextPendingJobExecution
---
---         , requestDescribeJobExecution $
+--         [ requestDescribeJobExecution $
 --             newDescribeJobExecution
 --
 --         , requestGetPendingJobExecutions $
 --             newGetPendingJobExecutions
 --
+--         , requestStartNextPendingJobExecution $
+--             newStartNextPendingJobExecution
+--
+--         , requestUpdateJobExecution $
+--             newUpdateJobExecution
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseUpdateJobExecution $
---             newUpdateJobExecutionResponse
---
---         , responseStartNextPendingJobExecution $
---             newStartNextPendingJobExecutionResponse
---
---         , responseDescribeJobExecution $
+--         [ responseDescribeJobExecution $
 --             newDescribeJobExecutionResponse
 --
 --         , responseGetPendingJobExecutions $
 --             newGetPendingJobExecutionsResponse
 --
+--         , responseStartNextPendingJobExecution $
+--             newStartNextPendingJobExecutionResponse
+--
+--         , responseUpdateJobExecution $
+--             newUpdateJobExecutionResponse
+--
 --           ]
 --     ]
 
 -- Requests
-
-requestUpdateJobExecution :: UpdateJobExecution -> TestTree
-requestUpdateJobExecution =
-  req
-    "UpdateJobExecution"
-    "fixture/UpdateJobExecution.yaml"
-
-requestStartNextPendingJobExecution :: StartNextPendingJobExecution -> TestTree
-requestStartNextPendingJobExecution =
-  req
-    "StartNextPendingJobExecution"
-    "fixture/StartNextPendingJobExecution.yaml"
 
 requestDescribeJobExecution :: DescribeJobExecution -> TestTree
 requestDescribeJobExecution =
@@ -83,23 +71,19 @@ requestGetPendingJobExecutions =
     "GetPendingJobExecutions"
     "fixture/GetPendingJobExecutions.yaml"
 
+requestStartNextPendingJobExecution :: StartNextPendingJobExecution -> TestTree
+requestStartNextPendingJobExecution =
+  req
+    "StartNextPendingJobExecution"
+    "fixture/StartNextPendingJobExecution.yaml"
+
+requestUpdateJobExecution :: UpdateJobExecution -> TestTree
+requestUpdateJobExecution =
+  req
+    "UpdateJobExecution"
+    "fixture/UpdateJobExecution.yaml"
+
 -- Responses
-
-responseUpdateJobExecution :: UpdateJobExecutionResponse -> TestTree
-responseUpdateJobExecution =
-  res
-    "UpdateJobExecutionResponse"
-    "fixture/UpdateJobExecutionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateJobExecution)
-
-responseStartNextPendingJobExecution :: StartNextPendingJobExecutionResponse -> TestTree
-responseStartNextPendingJobExecution =
-  res
-    "StartNextPendingJobExecutionResponse"
-    "fixture/StartNextPendingJobExecutionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartNextPendingJobExecution)
 
 responseDescribeJobExecution :: DescribeJobExecutionResponse -> TestTree
 responseDescribeJobExecution =
@@ -116,3 +100,19 @@ responseGetPendingJobExecutions =
     "fixture/GetPendingJobExecutionsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetPendingJobExecutions)
+
+responseStartNextPendingJobExecution :: StartNextPendingJobExecutionResponse -> TestTree
+responseStartNextPendingJobExecution =
+  res
+    "StartNextPendingJobExecutionResponse"
+    "fixture/StartNextPendingJobExecutionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartNextPendingJobExecution)
+
+responseUpdateJobExecution :: UpdateJobExecutionResponse -> TestTree
+responseUpdateJobExecution =
+  res
+    "UpdateJobExecutionResponse"
+    "fixture/UpdateJobExecutionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateJobExecution)

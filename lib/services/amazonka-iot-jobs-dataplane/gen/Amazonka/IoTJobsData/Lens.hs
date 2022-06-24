@@ -14,30 +14,9 @@
 module Amazonka.IoTJobsData.Lens
   ( -- * Operations
 
-    -- ** UpdateJobExecution
-    updateJobExecution_includeJobDocument,
-    updateJobExecution_stepTimeoutInMinutes,
-    updateJobExecution_statusDetails,
-    updateJobExecution_executionNumber,
-    updateJobExecution_expectedVersion,
-    updateJobExecution_includeJobExecutionState,
-    updateJobExecution_jobId,
-    updateJobExecution_thingName,
-    updateJobExecution_status,
-    updateJobExecutionResponse_jobDocument,
-    updateJobExecutionResponse_executionState,
-    updateJobExecutionResponse_httpStatus,
-
-    -- ** StartNextPendingJobExecution
-    startNextPendingJobExecution_stepTimeoutInMinutes,
-    startNextPendingJobExecution_statusDetails,
-    startNextPendingJobExecution_thingName,
-    startNextPendingJobExecutionResponse_execution,
-    startNextPendingJobExecutionResponse_httpStatus,
-
     -- ** DescribeJobExecution
-    describeJobExecution_includeJobDocument,
     describeJobExecution_executionNumber,
+    describeJobExecution_includeJobDocument,
     describeJobExecution_jobId,
     describeJobExecution_thingName,
     describeJobExecutionResponse_execution,
@@ -49,33 +28,54 @@ module Amazonka.IoTJobsData.Lens
     getPendingJobExecutionsResponse_queuedJobs,
     getPendingJobExecutionsResponse_httpStatus,
 
+    -- ** StartNextPendingJobExecution
+    startNextPendingJobExecution_statusDetails,
+    startNextPendingJobExecution_stepTimeoutInMinutes,
+    startNextPendingJobExecution_thingName,
+    startNextPendingJobExecutionResponse_execution,
+    startNextPendingJobExecutionResponse_httpStatus,
+
+    -- ** UpdateJobExecution
+    updateJobExecution_includeJobExecutionState,
+    updateJobExecution_executionNumber,
+    updateJobExecution_statusDetails,
+    updateJobExecution_stepTimeoutInMinutes,
+    updateJobExecution_includeJobDocument,
+    updateJobExecution_expectedVersion,
+    updateJobExecution_jobId,
+    updateJobExecution_thingName,
+    updateJobExecution_status,
+    updateJobExecutionResponse_jobDocument,
+    updateJobExecutionResponse_executionState,
+    updateJobExecutionResponse_httpStatus,
+
     -- * Types
 
     -- ** JobExecution
-    jobExecution_status,
-    jobExecution_jobId,
-    jobExecution_lastUpdatedAt,
-    jobExecution_approximateSecondsBeforeTimedOut,
-    jobExecution_queuedAt,
-    jobExecution_jobDocument,
-    jobExecution_statusDetails,
-    jobExecution_executionNumber,
-    jobExecution_versionNumber,
-    jobExecution_startedAt,
     jobExecution_thingName,
+    jobExecution_executionNumber,
+    jobExecution_jobDocument,
+    jobExecution_lastUpdatedAt,
+    jobExecution_statusDetails,
+    jobExecution_jobId,
+    jobExecution_status,
+    jobExecution_startedAt,
+    jobExecution_versionNumber,
+    jobExecution_queuedAt,
+    jobExecution_approximateSecondsBeforeTimedOut,
 
     -- ** JobExecutionState
-    jobExecutionState_status,
     jobExecutionState_statusDetails,
+    jobExecutionState_status,
     jobExecutionState_versionNumber,
 
     -- ** JobExecutionSummary
-    jobExecutionSummary_jobId,
-    jobExecutionSummary_lastUpdatedAt,
-    jobExecutionSummary_queuedAt,
     jobExecutionSummary_executionNumber,
-    jobExecutionSummary_versionNumber,
+    jobExecutionSummary_lastUpdatedAt,
+    jobExecutionSummary_jobId,
     jobExecutionSummary_startedAt,
+    jobExecutionSummary_versionNumber,
+    jobExecutionSummary_queuedAt,
   )
 where
 

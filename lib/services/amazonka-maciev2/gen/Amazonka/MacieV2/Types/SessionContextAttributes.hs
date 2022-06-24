@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSessionContextAttributes' smart constructor.
 data SessionContextAttributes = SessionContextAttributes'
-  { -- | The date and time, in UTC and ISO 8601 format, when the credentials were
-    -- issued.
-    creationDate :: Prelude.Maybe Core.POSIX,
-    -- | Specifies whether the credentials were authenticated with a multi-factor
+  { -- | Specifies whether the credentials were authenticated with a multi-factor
     -- authentication (MFA) device.
-    mfaAuthenticated :: Prelude.Maybe Prelude.Bool
+    mfaAuthenticated :: Prelude.Maybe Prelude.Bool,
+    -- | The date and time, in UTC and ISO 8601 format, when the credentials were
+    -- issued.
+    creationDate :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,29 +45,29 @@ data SessionContextAttributes = SessionContextAttributes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationDate', 'sessionContextAttributes_creationDate' - The date and time, in UTC and ISO 8601 format, when the credentials were
--- issued.
---
 -- 'mfaAuthenticated', 'sessionContextAttributes_mfaAuthenticated' - Specifies whether the credentials were authenticated with a multi-factor
 -- authentication (MFA) device.
+--
+-- 'creationDate', 'sessionContextAttributes_creationDate' - The date and time, in UTC and ISO 8601 format, when the credentials were
+-- issued.
 newSessionContextAttributes ::
   SessionContextAttributes
 newSessionContextAttributes =
   SessionContextAttributes'
-    { creationDate =
+    { mfaAuthenticated =
         Prelude.Nothing,
-      mfaAuthenticated = Prelude.Nothing
+      creationDate = Prelude.Nothing
     }
-
--- | The date and time, in UTC and ISO 8601 format, when the credentials were
--- issued.
-sessionContextAttributes_creationDate :: Lens.Lens' SessionContextAttributes (Prelude.Maybe Prelude.UTCTime)
-sessionContextAttributes_creationDate = Lens.lens (\SessionContextAttributes' {creationDate} -> creationDate) (\s@SessionContextAttributes' {} a -> s {creationDate = a} :: SessionContextAttributes) Prelude.. Lens.mapping Core._Time
 
 -- | Specifies whether the credentials were authenticated with a multi-factor
 -- authentication (MFA) device.
 sessionContextAttributes_mfaAuthenticated :: Lens.Lens' SessionContextAttributes (Prelude.Maybe Prelude.Bool)
 sessionContextAttributes_mfaAuthenticated = Lens.lens (\SessionContextAttributes' {mfaAuthenticated} -> mfaAuthenticated) (\s@SessionContextAttributes' {} a -> s {mfaAuthenticated = a} :: SessionContextAttributes)
+
+-- | The date and time, in UTC and ISO 8601 format, when the credentials were
+-- issued.
+sessionContextAttributes_creationDate :: Lens.Lens' SessionContextAttributes (Prelude.Maybe Prelude.UTCTime)
+sessionContextAttributes_creationDate = Lens.lens (\SessionContextAttributes' {creationDate} -> creationDate) (\s@SessionContextAttributes' {} a -> s {creationDate = a} :: SessionContextAttributes) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON SessionContextAttributes where
   parseJSON =
@@ -75,16 +75,16 @@ instance Core.FromJSON SessionContextAttributes where
       "SessionContextAttributes"
       ( \x ->
           SessionContextAttributes'
-            Prelude.<$> (x Core..:? "creationDate")
-            Prelude.<*> (x Core..:? "mfaAuthenticated")
+            Prelude.<$> (x Core..:? "mfaAuthenticated")
+            Prelude.<*> (x Core..:? "creationDate")
       )
 
 instance Prelude.Hashable SessionContextAttributes where
   hashWithSalt _salt SessionContextAttributes' {..} =
-    _salt `Prelude.hashWithSalt` creationDate
-      `Prelude.hashWithSalt` mfaAuthenticated
+    _salt `Prelude.hashWithSalt` mfaAuthenticated
+      `Prelude.hashWithSalt` creationDate
 
 instance Prelude.NFData SessionContextAttributes where
   rnf SessionContextAttributes' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf mfaAuthenticated
+    Prelude.rnf mfaAuthenticated
+      `Prelude.seq` Prelude.rnf creationDate

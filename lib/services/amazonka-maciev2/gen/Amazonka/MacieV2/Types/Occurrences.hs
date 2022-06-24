@@ -33,7 +33,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOccurrences' smart constructor.
 data Occurrences = Occurrences'
-  { -- | An array of objects, one for each occurrence of sensitive data in a
+  { -- | An array of objects, one for each occurrence of sensitive data in an
+    -- Apache Avro object container, Apache Parquet file, JSON file, or JSON
+    -- Lines file. This value is null for all other types of files.
+    --
+    -- For an Avro object container or Parquet file, each Record object
+    -- specifies a record index and the path to a field in a record that
+    -- contains the sensitive data. For a JSON or JSON Lines file, each Record
+    -- object specifies the path to a field or array that contains the
+    -- sensitive data. For a JSON Lines file, it also specifies the index of
+    -- the line that contains the data.
+    records :: Prelude.Maybe [Record],
+    -- | An array of objects, one for each occurrence of sensitive data in a
     -- non-binary text file, such as an HTML, TXT, or XML file. Each Range
     -- object specifies a line or inclusive range of lines that contains the
     -- sensitive data, and the position of the data on the specified line or
@@ -46,6 +57,8 @@ data Occurrences = Occurrences'
     -- text; and, a CSV or TSV file that has any column names that contain
     -- sensitive data.
     lineRanges :: Prelude.Maybe [Range],
+    -- | Reserved for future use.
+    offsetRanges :: Prelude.Maybe [Range],
     -- | An array of objects, one for each occurrence of sensitive data in a
     -- Microsoft Excel workbook, CSV file, or TSV file. This value is null for
     -- all other types of files.
@@ -58,20 +71,7 @@ data Occurrences = Occurrences'
     -- types of files.
     --
     -- Each Page object specifies a page that contains the sensitive data.
-    pages :: Prelude.Maybe [Page],
-    -- | An array of objects, one for each occurrence of sensitive data in an
-    -- Apache Avro object container, Apache Parquet file, JSON file, or JSON
-    -- Lines file. This value is null for all other types of files.
-    --
-    -- For an Avro object container or Parquet file, each Record object
-    -- specifies a record index and the path to a field in a record that
-    -- contains the sensitive data. For a JSON or JSON Lines file, each Record
-    -- object specifies the path to a field or array that contains the
-    -- sensitive data. For a JSON Lines file, it also specifies the index of
-    -- the line that contains the data.
-    records :: Prelude.Maybe [Record],
-    -- | Reserved for future use.
-    offsetRanges :: Prelude.Maybe [Range]
+    pages :: Prelude.Maybe [Page]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,6 +82,17 @@ data Occurrences = Occurrences'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'records', 'occurrences_records' - An array of objects, one for each occurrence of sensitive data in an
+-- Apache Avro object container, Apache Parquet file, JSON file, or JSON
+-- Lines file. This value is null for all other types of files.
+--
+-- For an Avro object container or Parquet file, each Record object
+-- specifies a record index and the path to a field in a record that
+-- contains the sensitive data. For a JSON or JSON Lines file, each Record
+-- object specifies the path to a field or array that contains the
+-- sensitive data. For a JSON Lines file, it also specifies the index of
+-- the line that contains the data.
 --
 -- 'lineRanges', 'occurrences_lineRanges' - An array of objects, one for each occurrence of sensitive data in a
 -- non-binary text file, such as an HTML, TXT, or XML file. Each Range
@@ -96,6 +107,8 @@ data Occurrences = Occurrences'
 -- text; and, a CSV or TSV file that has any column names that contain
 -- sensitive data.
 --
+-- 'offsetRanges', 'occurrences_offsetRanges' - Reserved for future use.
+--
 -- 'cells', 'occurrences_cells' - An array of objects, one for each occurrence of sensitive data in a
 -- Microsoft Excel workbook, CSV file, or TSV file. This value is null for
 -- all other types of files.
@@ -108,8 +121,18 @@ data Occurrences = Occurrences'
 -- types of files.
 --
 -- Each Page object specifies a page that contains the sensitive data.
---
--- 'records', 'occurrences_records' - An array of objects, one for each occurrence of sensitive data in an
+newOccurrences ::
+  Occurrences
+newOccurrences =
+  Occurrences'
+    { records = Prelude.Nothing,
+      lineRanges = Prelude.Nothing,
+      offsetRanges = Prelude.Nothing,
+      cells = Prelude.Nothing,
+      pages = Prelude.Nothing
+    }
+
+-- | An array of objects, one for each occurrence of sensitive data in an
 -- Apache Avro object container, Apache Parquet file, JSON file, or JSON
 -- Lines file. This value is null for all other types of files.
 --
@@ -119,18 +142,8 @@ data Occurrences = Occurrences'
 -- object specifies the path to a field or array that contains the
 -- sensitive data. For a JSON Lines file, it also specifies the index of
 -- the line that contains the data.
---
--- 'offsetRanges', 'occurrences_offsetRanges' - Reserved for future use.
-newOccurrences ::
-  Occurrences
-newOccurrences =
-  Occurrences'
-    { lineRanges = Prelude.Nothing,
-      cells = Prelude.Nothing,
-      pages = Prelude.Nothing,
-      records = Prelude.Nothing,
-      offsetRanges = Prelude.Nothing
-    }
+occurrences_records :: Lens.Lens' Occurrences (Prelude.Maybe [Record])
+occurrences_records = Lens.lens (\Occurrences' {records} -> records) (\s@Occurrences' {} a -> s {records = a} :: Occurrences) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of objects, one for each occurrence of sensitive data in a
 -- non-binary text file, such as an HTML, TXT, or XML file. Each Range
@@ -146,6 +159,10 @@ newOccurrences =
 -- sensitive data.
 occurrences_lineRanges :: Lens.Lens' Occurrences (Prelude.Maybe [Range])
 occurrences_lineRanges = Lens.lens (\Occurrences' {lineRanges} -> lineRanges) (\s@Occurrences' {} a -> s {lineRanges = a} :: Occurrences) Prelude.. Lens.mapping Lens.coerced
+
+-- | Reserved for future use.
+occurrences_offsetRanges :: Lens.Lens' Occurrences (Prelude.Maybe [Range])
+occurrences_offsetRanges = Lens.lens (\Occurrences' {offsetRanges} -> offsetRanges) (\s@Occurrences' {} a -> s {offsetRanges = a} :: Occurrences) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of objects, one for each occurrence of sensitive data in a
 -- Microsoft Excel workbook, CSV file, or TSV file. This value is null for
@@ -164,48 +181,31 @@ occurrences_cells = Lens.lens (\Occurrences' {cells} -> cells) (\s@Occurrences' 
 occurrences_pages :: Lens.Lens' Occurrences (Prelude.Maybe [Page])
 occurrences_pages = Lens.lens (\Occurrences' {pages} -> pages) (\s@Occurrences' {} a -> s {pages = a} :: Occurrences) Prelude.. Lens.mapping Lens.coerced
 
--- | An array of objects, one for each occurrence of sensitive data in an
--- Apache Avro object container, Apache Parquet file, JSON file, or JSON
--- Lines file. This value is null for all other types of files.
---
--- For an Avro object container or Parquet file, each Record object
--- specifies a record index and the path to a field in a record that
--- contains the sensitive data. For a JSON or JSON Lines file, each Record
--- object specifies the path to a field or array that contains the
--- sensitive data. For a JSON Lines file, it also specifies the index of
--- the line that contains the data.
-occurrences_records :: Lens.Lens' Occurrences (Prelude.Maybe [Record])
-occurrences_records = Lens.lens (\Occurrences' {records} -> records) (\s@Occurrences' {} a -> s {records = a} :: Occurrences) Prelude.. Lens.mapping Lens.coerced
-
--- | Reserved for future use.
-occurrences_offsetRanges :: Lens.Lens' Occurrences (Prelude.Maybe [Range])
-occurrences_offsetRanges = Lens.lens (\Occurrences' {offsetRanges} -> offsetRanges) (\s@Occurrences' {} a -> s {offsetRanges = a} :: Occurrences) Prelude.. Lens.mapping Lens.coerced
-
 instance Core.FromJSON Occurrences where
   parseJSON =
     Core.withObject
       "Occurrences"
       ( \x ->
           Occurrences'
-            Prelude.<$> (x Core..:? "lineRanges" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "records" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "lineRanges" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "offsetRanges" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "cells" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "pages" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "records" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "offsetRanges" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Occurrences where
   hashWithSalt _salt Occurrences' {..} =
-    _salt `Prelude.hashWithSalt` lineRanges
+    _salt `Prelude.hashWithSalt` records
+      `Prelude.hashWithSalt` lineRanges
+      `Prelude.hashWithSalt` offsetRanges
       `Prelude.hashWithSalt` cells
       `Prelude.hashWithSalt` pages
-      `Prelude.hashWithSalt` records
-      `Prelude.hashWithSalt` offsetRanges
 
 instance Prelude.NFData Occurrences where
   rnf Occurrences' {..} =
-    Prelude.rnf lineRanges
+    Prelude.rnf records
+      `Prelude.seq` Prelude.rnf lineRanges
+      `Prelude.seq` Prelude.rnf offsetRanges
       `Prelude.seq` Prelude.rnf cells
       `Prelude.seq` Prelude.rnf pages
-      `Prelude.seq` Prelude.rnf records
-      `Prelude.seq` Prelude.rnf offsetRanges

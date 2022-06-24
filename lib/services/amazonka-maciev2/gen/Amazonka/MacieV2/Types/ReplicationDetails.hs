@@ -30,16 +30,16 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newReplicationDetails' smart constructor.
 data ReplicationDetails = ReplicationDetails'
   { -- | Specifies whether the bucket is configured to replicate one or more
+    -- objects to an Amazon Web Services account that isn\'t part of the same
+    -- Amazon Macie organization.
+    replicatedExternally :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies whether the bucket is configured to replicate one or more
     -- objects to any destination.
     replicated :: Prelude.Maybe Prelude.Bool,
     -- | An array of Amazon Web Services account IDs, one for each Amazon Web
     -- Services account that the bucket is configured to replicate one or more
     -- objects to.
-    replicationAccounts :: Prelude.Maybe [Prelude.Text],
-    -- | Specifies whether the bucket is configured to replicate one or more
-    -- objects to an Amazon Web Services account that isn\'t part of the same
-    -- Amazon Macie organization.
-    replicatedExternally :: Prelude.Maybe Prelude.Bool
+    replicationAccounts :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,24 +51,31 @@ data ReplicationDetails = ReplicationDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'replicatedExternally', 'replicationDetails_replicatedExternally' - Specifies whether the bucket is configured to replicate one or more
+-- objects to an Amazon Web Services account that isn\'t part of the same
+-- Amazon Macie organization.
+--
 -- 'replicated', 'replicationDetails_replicated' - Specifies whether the bucket is configured to replicate one or more
 -- objects to any destination.
 --
 -- 'replicationAccounts', 'replicationDetails_replicationAccounts' - An array of Amazon Web Services account IDs, one for each Amazon Web
 -- Services account that the bucket is configured to replicate one or more
 -- objects to.
---
--- 'replicatedExternally', 'replicationDetails_replicatedExternally' - Specifies whether the bucket is configured to replicate one or more
--- objects to an Amazon Web Services account that isn\'t part of the same
--- Amazon Macie organization.
 newReplicationDetails ::
   ReplicationDetails
 newReplicationDetails =
   ReplicationDetails'
-    { replicated = Prelude.Nothing,
-      replicationAccounts = Prelude.Nothing,
-      replicatedExternally = Prelude.Nothing
+    { replicatedExternally =
+        Prelude.Nothing,
+      replicated = Prelude.Nothing,
+      replicationAccounts = Prelude.Nothing
     }
+
+-- | Specifies whether the bucket is configured to replicate one or more
+-- objects to an Amazon Web Services account that isn\'t part of the same
+-- Amazon Macie organization.
+replicationDetails_replicatedExternally :: Lens.Lens' ReplicationDetails (Prelude.Maybe Prelude.Bool)
+replicationDetails_replicatedExternally = Lens.lens (\ReplicationDetails' {replicatedExternally} -> replicatedExternally) (\s@ReplicationDetails' {} a -> s {replicatedExternally = a} :: ReplicationDetails)
 
 -- | Specifies whether the bucket is configured to replicate one or more
 -- objects to any destination.
@@ -81,33 +88,27 @@ replicationDetails_replicated = Lens.lens (\ReplicationDetails' {replicated} -> 
 replicationDetails_replicationAccounts :: Lens.Lens' ReplicationDetails (Prelude.Maybe [Prelude.Text])
 replicationDetails_replicationAccounts = Lens.lens (\ReplicationDetails' {replicationAccounts} -> replicationAccounts) (\s@ReplicationDetails' {} a -> s {replicationAccounts = a} :: ReplicationDetails) Prelude.. Lens.mapping Lens.coerced
 
--- | Specifies whether the bucket is configured to replicate one or more
--- objects to an Amazon Web Services account that isn\'t part of the same
--- Amazon Macie organization.
-replicationDetails_replicatedExternally :: Lens.Lens' ReplicationDetails (Prelude.Maybe Prelude.Bool)
-replicationDetails_replicatedExternally = Lens.lens (\ReplicationDetails' {replicatedExternally} -> replicatedExternally) (\s@ReplicationDetails' {} a -> s {replicatedExternally = a} :: ReplicationDetails)
-
 instance Core.FromJSON ReplicationDetails where
   parseJSON =
     Core.withObject
       "ReplicationDetails"
       ( \x ->
           ReplicationDetails'
-            Prelude.<$> (x Core..:? "replicated")
+            Prelude.<$> (x Core..:? "replicatedExternally")
+            Prelude.<*> (x Core..:? "replicated")
             Prelude.<*> ( x Core..:? "replicationAccounts"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "replicatedExternally")
       )
 
 instance Prelude.Hashable ReplicationDetails where
   hashWithSalt _salt ReplicationDetails' {..} =
-    _salt `Prelude.hashWithSalt` replicated
+    _salt `Prelude.hashWithSalt` replicatedExternally
+      `Prelude.hashWithSalt` replicated
       `Prelude.hashWithSalt` replicationAccounts
-      `Prelude.hashWithSalt` replicatedExternally
 
 instance Prelude.NFData ReplicationDetails where
   rnf ReplicationDetails' {..} =
-    Prelude.rnf replicated
+    Prelude.rnf replicatedExternally
+      `Prelude.seq` Prelude.rnf replicated
       `Prelude.seq` Prelude.rnf replicationAccounts
-      `Prelude.seq` Prelude.rnf replicatedExternally

@@ -27,26 +27,26 @@ module Amazonka.MacieV2
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
 
     -- ** InternalServerException
     _InternalServerException,
 
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -54,179 +54,11 @@ module Amazonka.MacieV2
     -- * Operations
     -- $operations
 
-    -- ** CreateMember
-    CreateMember (CreateMember'),
-    newCreateMember,
-    CreateMemberResponse (CreateMemberResponse'),
-    newCreateMemberResponse,
-
-    -- ** EnableOrganizationAdminAccount
-    EnableOrganizationAdminAccount (EnableOrganizationAdminAccount'),
-    newEnableOrganizationAdminAccount,
-    EnableOrganizationAdminAccountResponse (EnableOrganizationAdminAccountResponse'),
-    newEnableOrganizationAdminAccountResponse,
-
-    -- ** DescribeClassificationJob
-    DescribeClassificationJob (DescribeClassificationJob'),
-    newDescribeClassificationJob,
-    DescribeClassificationJobResponse (DescribeClassificationJobResponse'),
-    newDescribeClassificationJobResponse,
-
-    -- ** ListFindings (Paginated)
-    ListFindings (ListFindings'),
-    newListFindings,
-    ListFindingsResponse (ListFindingsResponse'),
-    newListFindingsResponse,
-
-    -- ** GetAdministratorAccount
-    GetAdministratorAccount (GetAdministratorAccount'),
-    newGetAdministratorAccount,
-    GetAdministratorAccountResponse (GetAdministratorAccountResponse'),
-    newGetAdministratorAccountResponse,
-
-    -- ** ListOrganizationAdminAccounts (Paginated)
-    ListOrganizationAdminAccounts (ListOrganizationAdminAccounts'),
-    newListOrganizationAdminAccounts,
-    ListOrganizationAdminAccountsResponse (ListOrganizationAdminAccountsResponse'),
-    newListOrganizationAdminAccountsResponse,
-
-    -- ** SearchResources (Paginated)
-    SearchResources (SearchResources'),
-    newSearchResources,
-    SearchResourcesResponse (SearchResourcesResponse'),
-    newSearchResourcesResponse,
-
-    -- ** DisableMacie
-    DisableMacie (DisableMacie'),
-    newDisableMacie,
-    DisableMacieResponse (DisableMacieResponse'),
-    newDisableMacieResponse,
-
-    -- ** UpdateFindingsFilter
-    UpdateFindingsFilter (UpdateFindingsFilter'),
-    newUpdateFindingsFilter,
-    UpdateFindingsFilterResponse (UpdateFindingsFilterResponse'),
-    newUpdateFindingsFilterResponse,
-
-    -- ** DeleteFindingsFilter
-    DeleteFindingsFilter (DeleteFindingsFilter'),
-    newDeleteFindingsFilter,
-    DeleteFindingsFilterResponse (DeleteFindingsFilterResponse'),
-    newDeleteFindingsFilterResponse,
-
-    -- ** ListFindingsFilters (Paginated)
-    ListFindingsFilters (ListFindingsFilters'),
-    newListFindingsFilters,
-    ListFindingsFiltersResponse (ListFindingsFiltersResponse'),
-    newListFindingsFiltersResponse,
-
-    -- ** EnableMacie
-    EnableMacie (EnableMacie'),
-    newEnableMacie,
-    EnableMacieResponse (EnableMacieResponse'),
-    newEnableMacieResponse,
-
-    -- ** GetUsageTotals
-    GetUsageTotals (GetUsageTotals'),
-    newGetUsageTotals,
-    GetUsageTotalsResponse (GetUsageTotalsResponse'),
-    newGetUsageTotalsResponse,
-
-    -- ** CreateFindingsFilter
-    CreateFindingsFilter (CreateFindingsFilter'),
-    newCreateFindingsFilter,
-    CreateFindingsFilterResponse (CreateFindingsFilterResponse'),
-    newCreateFindingsFilterResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** ListInvitations (Paginated)
-    ListInvitations (ListInvitations'),
-    newListInvitations,
-    ListInvitationsResponse (ListInvitationsResponse'),
-    newListInvitationsResponse,
-
-    -- ** DescribeBuckets (Paginated)
-    DescribeBuckets (DescribeBuckets'),
-    newDescribeBuckets,
-    DescribeBucketsResponse (DescribeBucketsResponse'),
-    newDescribeBucketsResponse,
-
-    -- ** ListClassificationJobs (Paginated)
-    ListClassificationJobs (ListClassificationJobs'),
-    newListClassificationJobs,
-    ListClassificationJobsResponse (ListClassificationJobsResponse'),
-    newListClassificationJobsResponse,
-
-    -- ** GetFindingsFilter
-    GetFindingsFilter (GetFindingsFilter'),
-    newGetFindingsFilter,
-    GetFindingsFilterResponse (GetFindingsFilterResponse'),
-    newGetFindingsFilterResponse,
-
-    -- ** UpdateClassificationJob
-    UpdateClassificationJob (UpdateClassificationJob'),
-    newUpdateClassificationJob,
-    UpdateClassificationJobResponse (UpdateClassificationJobResponse'),
-    newUpdateClassificationJobResponse,
-
-    -- ** DeleteInvitations
-    DeleteInvitations (DeleteInvitations'),
-    newDeleteInvitations,
-    DeleteInvitationsResponse (DeleteInvitationsResponse'),
-    newDeleteInvitationsResponse,
-
-    -- ** GetMasterAccount
-    GetMasterAccount (GetMasterAccount'),
-    newGetMasterAccount,
-    GetMasterAccountResponse (GetMasterAccountResponse'),
-    newGetMasterAccountResponse,
-
-    -- ** PutClassificationExportConfiguration
-    PutClassificationExportConfiguration (PutClassificationExportConfiguration'),
-    newPutClassificationExportConfiguration,
-    PutClassificationExportConfigurationResponse (PutClassificationExportConfigurationResponse'),
-    newPutClassificationExportConfigurationResponse,
-
-    -- ** GetCustomDataIdentifier
-    GetCustomDataIdentifier (GetCustomDataIdentifier'),
-    newGetCustomDataIdentifier,
-    GetCustomDataIdentifierResponse (GetCustomDataIdentifierResponse'),
-    newGetCustomDataIdentifierResponse,
-
-    -- ** GetUsageStatistics (Paginated)
-    GetUsageStatistics (GetUsageStatistics'),
-    newGetUsageStatistics,
-    GetUsageStatisticsResponse (GetUsageStatisticsResponse'),
-    newGetUsageStatisticsResponse,
-
-    -- ** DeclineInvitations
-    DeclineInvitations (DeclineInvitations'),
-    newDeclineInvitations,
-    DeclineInvitationsResponse (DeclineInvitationsResponse'),
-    newDeclineInvitationsResponse,
-
-    -- ** TestCustomDataIdentifier
-    TestCustomDataIdentifier (TestCustomDataIdentifier'),
-    newTestCustomDataIdentifier,
-    TestCustomDataIdentifierResponse (TestCustomDataIdentifierResponse'),
-    newTestCustomDataIdentifierResponse,
-
-    -- ** CreateInvitations
-    CreateInvitations (CreateInvitations'),
-    newCreateInvitations,
-    CreateInvitationsResponse (CreateInvitationsResponse'),
-    newCreateInvitationsResponse,
-
-    -- ** DescribeOrganizationConfiguration
-    DescribeOrganizationConfiguration (DescribeOrganizationConfiguration'),
-    newDescribeOrganizationConfiguration,
-    DescribeOrganizationConfigurationResponse (DescribeOrganizationConfigurationResponse'),
-    newDescribeOrganizationConfigurationResponse,
+    -- ** AcceptInvitation
+    AcceptInvitation (AcceptInvitation'),
+    newAcceptInvitation,
+    AcceptInvitationResponse (AcceptInvitationResponse'),
+    newAcceptInvitationResponse,
 
     -- ** BatchGetCustomDataIdentifiers
     BatchGetCustomDataIdentifiers (BatchGetCustomDataIdentifiers'),
@@ -234,47 +66,11 @@ module Amazonka.MacieV2
     BatchGetCustomDataIdentifiersResponse (BatchGetCustomDataIdentifiersResponse'),
     newBatchGetCustomDataIdentifiersResponse,
 
-    -- ** DeleteMember
-    DeleteMember (DeleteMember'),
-    newDeleteMember,
-    DeleteMemberResponse (DeleteMemberResponse'),
-    newDeleteMemberResponse,
-
-    -- ** DisassociateFromMasterAccount
-    DisassociateFromMasterAccount (DisassociateFromMasterAccount'),
-    newDisassociateFromMasterAccount,
-    DisassociateFromMasterAccountResponse (DisassociateFromMasterAccountResponse'),
-    newDisassociateFromMasterAccountResponse,
-
-    -- ** AcceptInvitation
-    AcceptInvitation (AcceptInvitation'),
-    newAcceptInvitation,
-    AcceptInvitationResponse (AcceptInvitationResponse'),
-    newAcceptInvitationResponse,
-
-    -- ** ListMembers (Paginated)
-    ListMembers (ListMembers'),
-    newListMembers,
-    ListMembersResponse (ListMembersResponse'),
-    newListMembersResponse,
-
-    -- ** UpdateMacieSession
-    UpdateMacieSession (UpdateMacieSession'),
-    newUpdateMacieSession,
-    UpdateMacieSessionResponse (UpdateMacieSessionResponse'),
-    newUpdateMacieSessionResponse,
-
-    -- ** GetClassificationExportConfiguration
-    GetClassificationExportConfiguration (GetClassificationExportConfiguration'),
-    newGetClassificationExportConfiguration,
-    GetClassificationExportConfigurationResponse (GetClassificationExportConfigurationResponse'),
-    newGetClassificationExportConfigurationResponse,
-
-    -- ** GetFindingsPublicationConfiguration
-    GetFindingsPublicationConfiguration (GetFindingsPublicationConfiguration'),
-    newGetFindingsPublicationConfiguration,
-    GetFindingsPublicationConfigurationResponse (GetFindingsPublicationConfigurationResponse'),
-    newGetFindingsPublicationConfigurationResponse,
+    -- ** CreateClassificationJob
+    CreateClassificationJob (CreateClassificationJob'),
+    newCreateClassificationJob,
+    CreateClassificationJobResponse (CreateClassificationJobResponse'),
+    newCreateClassificationJobResponse,
 
     -- ** CreateCustomDataIdentifier
     CreateCustomDataIdentifier (CreateCustomDataIdentifier'),
@@ -282,101 +78,35 @@ module Amazonka.MacieV2
     CreateCustomDataIdentifierResponse (CreateCustomDataIdentifierResponse'),
     newCreateCustomDataIdentifierResponse,
 
+    -- ** CreateFindingsFilter
+    CreateFindingsFilter (CreateFindingsFilter'),
+    newCreateFindingsFilter,
+    CreateFindingsFilterResponse (CreateFindingsFilterResponse'),
+    newCreateFindingsFilterResponse,
+
+    -- ** CreateInvitations
+    CreateInvitations (CreateInvitations'),
+    newCreateInvitations,
+    CreateInvitationsResponse (CreateInvitationsResponse'),
+    newCreateInvitationsResponse,
+
+    -- ** CreateMember
+    CreateMember (CreateMember'),
+    newCreateMember,
+    CreateMemberResponse (CreateMemberResponse'),
+    newCreateMemberResponse,
+
     -- ** CreateSampleFindings
     CreateSampleFindings (CreateSampleFindings'),
     newCreateSampleFindings,
     CreateSampleFindingsResponse (CreateSampleFindingsResponse'),
     newCreateSampleFindingsResponse,
 
-    -- ** ListManagedDataIdentifiers
-    ListManagedDataIdentifiers (ListManagedDataIdentifiers'),
-    newListManagedDataIdentifiers,
-    ListManagedDataIdentifiersResponse (ListManagedDataIdentifiersResponse'),
-    newListManagedDataIdentifiersResponse,
-
-    -- ** UpdateMemberSession
-    UpdateMemberSession (UpdateMemberSession'),
-    newUpdateMemberSession,
-    UpdateMemberSessionResponse (UpdateMemberSessionResponse'),
-    newUpdateMemberSessionResponse,
-
-    -- ** GetInvitationsCount
-    GetInvitationsCount (GetInvitationsCount'),
-    newGetInvitationsCount,
-    GetInvitationsCountResponse (GetInvitationsCountResponse'),
-    newGetInvitationsCountResponse,
-
-    -- ** UpdateOrganizationConfiguration
-    UpdateOrganizationConfiguration (UpdateOrganizationConfiguration'),
-    newUpdateOrganizationConfiguration,
-    UpdateOrganizationConfigurationResponse (UpdateOrganizationConfigurationResponse'),
-    newUpdateOrganizationConfigurationResponse,
-
-    -- ** DisassociateMember
-    DisassociateMember (DisassociateMember'),
-    newDisassociateMember,
-    DisassociateMemberResponse (DisassociateMemberResponse'),
-    newDisassociateMemberResponse,
-
-    -- ** CreateClassificationJob
-    CreateClassificationJob (CreateClassificationJob'),
-    newCreateClassificationJob,
-    CreateClassificationJobResponse (CreateClassificationJobResponse'),
-    newCreateClassificationJobResponse,
-
-    -- ** GetBucketStatistics
-    GetBucketStatistics (GetBucketStatistics'),
-    newGetBucketStatistics,
-    GetBucketStatisticsResponse (GetBucketStatisticsResponse'),
-    newGetBucketStatisticsResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** GetFindings
-    GetFindings (GetFindings'),
-    newGetFindings,
-    GetFindingsResponse (GetFindingsResponse'),
-    newGetFindingsResponse,
-
-    -- ** PutFindingsPublicationConfiguration
-    PutFindingsPublicationConfiguration (PutFindingsPublicationConfiguration'),
-    newPutFindingsPublicationConfiguration,
-    PutFindingsPublicationConfigurationResponse (PutFindingsPublicationConfigurationResponse'),
-    newPutFindingsPublicationConfigurationResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** GetMacieSession
-    GetMacieSession (GetMacieSession'),
-    newGetMacieSession,
-    GetMacieSessionResponse (GetMacieSessionResponse'),
-    newGetMacieSessionResponse,
-
-    -- ** GetFindingStatistics
-    GetFindingStatistics (GetFindingStatistics'),
-    newGetFindingStatistics,
-    GetFindingStatisticsResponse (GetFindingStatisticsResponse'),
-    newGetFindingStatisticsResponse,
-
-    -- ** GetMember
-    GetMember (GetMember'),
-    newGetMember,
-    GetMemberResponse (GetMemberResponse'),
-    newGetMemberResponse,
-
-    -- ** DisassociateFromAdministratorAccount
-    DisassociateFromAdministratorAccount (DisassociateFromAdministratorAccount'),
-    newDisassociateFromAdministratorAccount,
-    DisassociateFromAdministratorAccountResponse (DisassociateFromAdministratorAccountResponse'),
-    newDisassociateFromAdministratorAccountResponse,
+    -- ** DeclineInvitations
+    DeclineInvitations (DeclineInvitations'),
+    newDeclineInvitations,
+    DeclineInvitationsResponse (DeclineInvitationsResponse'),
+    newDeclineInvitationsResponse,
 
     -- ** DeleteCustomDataIdentifier
     DeleteCustomDataIdentifier (DeleteCustomDataIdentifier'),
@@ -384,17 +114,287 @@ module Amazonka.MacieV2
     DeleteCustomDataIdentifierResponse (DeleteCustomDataIdentifierResponse'),
     newDeleteCustomDataIdentifierResponse,
 
+    -- ** DeleteFindingsFilter
+    DeleteFindingsFilter (DeleteFindingsFilter'),
+    newDeleteFindingsFilter,
+    DeleteFindingsFilterResponse (DeleteFindingsFilterResponse'),
+    newDeleteFindingsFilterResponse,
+
+    -- ** DeleteInvitations
+    DeleteInvitations (DeleteInvitations'),
+    newDeleteInvitations,
+    DeleteInvitationsResponse (DeleteInvitationsResponse'),
+    newDeleteInvitationsResponse,
+
+    -- ** DeleteMember
+    DeleteMember (DeleteMember'),
+    newDeleteMember,
+    DeleteMemberResponse (DeleteMemberResponse'),
+    newDeleteMemberResponse,
+
+    -- ** DescribeBuckets (Paginated)
+    DescribeBuckets (DescribeBuckets'),
+    newDescribeBuckets,
+    DescribeBucketsResponse (DescribeBucketsResponse'),
+    newDescribeBucketsResponse,
+
+    -- ** DescribeClassificationJob
+    DescribeClassificationJob (DescribeClassificationJob'),
+    newDescribeClassificationJob,
+    DescribeClassificationJobResponse (DescribeClassificationJobResponse'),
+    newDescribeClassificationJobResponse,
+
+    -- ** DescribeOrganizationConfiguration
+    DescribeOrganizationConfiguration (DescribeOrganizationConfiguration'),
+    newDescribeOrganizationConfiguration,
+    DescribeOrganizationConfigurationResponse (DescribeOrganizationConfigurationResponse'),
+    newDescribeOrganizationConfigurationResponse,
+
+    -- ** DisableMacie
+    DisableMacie (DisableMacie'),
+    newDisableMacie,
+    DisableMacieResponse (DisableMacieResponse'),
+    newDisableMacieResponse,
+
     -- ** DisableOrganizationAdminAccount
     DisableOrganizationAdminAccount (DisableOrganizationAdminAccount'),
     newDisableOrganizationAdminAccount,
     DisableOrganizationAdminAccountResponse (DisableOrganizationAdminAccountResponse'),
     newDisableOrganizationAdminAccountResponse,
 
+    -- ** DisassociateFromAdministratorAccount
+    DisassociateFromAdministratorAccount (DisassociateFromAdministratorAccount'),
+    newDisassociateFromAdministratorAccount,
+    DisassociateFromAdministratorAccountResponse (DisassociateFromAdministratorAccountResponse'),
+    newDisassociateFromAdministratorAccountResponse,
+
+    -- ** DisassociateFromMasterAccount
+    DisassociateFromMasterAccount (DisassociateFromMasterAccount'),
+    newDisassociateFromMasterAccount,
+    DisassociateFromMasterAccountResponse (DisassociateFromMasterAccountResponse'),
+    newDisassociateFromMasterAccountResponse,
+
+    -- ** DisassociateMember
+    DisassociateMember (DisassociateMember'),
+    newDisassociateMember,
+    DisassociateMemberResponse (DisassociateMemberResponse'),
+    newDisassociateMemberResponse,
+
+    -- ** EnableMacie
+    EnableMacie (EnableMacie'),
+    newEnableMacie,
+    EnableMacieResponse (EnableMacieResponse'),
+    newEnableMacieResponse,
+
+    -- ** EnableOrganizationAdminAccount
+    EnableOrganizationAdminAccount (EnableOrganizationAdminAccount'),
+    newEnableOrganizationAdminAccount,
+    EnableOrganizationAdminAccountResponse (EnableOrganizationAdminAccountResponse'),
+    newEnableOrganizationAdminAccountResponse,
+
+    -- ** GetAdministratorAccount
+    GetAdministratorAccount (GetAdministratorAccount'),
+    newGetAdministratorAccount,
+    GetAdministratorAccountResponse (GetAdministratorAccountResponse'),
+    newGetAdministratorAccountResponse,
+
+    -- ** GetBucketStatistics
+    GetBucketStatistics (GetBucketStatistics'),
+    newGetBucketStatistics,
+    GetBucketStatisticsResponse (GetBucketStatisticsResponse'),
+    newGetBucketStatisticsResponse,
+
+    -- ** GetClassificationExportConfiguration
+    GetClassificationExportConfiguration (GetClassificationExportConfiguration'),
+    newGetClassificationExportConfiguration,
+    GetClassificationExportConfigurationResponse (GetClassificationExportConfigurationResponse'),
+    newGetClassificationExportConfigurationResponse,
+
+    -- ** GetCustomDataIdentifier
+    GetCustomDataIdentifier (GetCustomDataIdentifier'),
+    newGetCustomDataIdentifier,
+    GetCustomDataIdentifierResponse (GetCustomDataIdentifierResponse'),
+    newGetCustomDataIdentifierResponse,
+
+    -- ** GetFindingStatistics
+    GetFindingStatistics (GetFindingStatistics'),
+    newGetFindingStatistics,
+    GetFindingStatisticsResponse (GetFindingStatisticsResponse'),
+    newGetFindingStatisticsResponse,
+
+    -- ** GetFindings
+    GetFindings (GetFindings'),
+    newGetFindings,
+    GetFindingsResponse (GetFindingsResponse'),
+    newGetFindingsResponse,
+
+    -- ** GetFindingsFilter
+    GetFindingsFilter (GetFindingsFilter'),
+    newGetFindingsFilter,
+    GetFindingsFilterResponse (GetFindingsFilterResponse'),
+    newGetFindingsFilterResponse,
+
+    -- ** GetFindingsPublicationConfiguration
+    GetFindingsPublicationConfiguration (GetFindingsPublicationConfiguration'),
+    newGetFindingsPublicationConfiguration,
+    GetFindingsPublicationConfigurationResponse (GetFindingsPublicationConfigurationResponse'),
+    newGetFindingsPublicationConfigurationResponse,
+
+    -- ** GetInvitationsCount
+    GetInvitationsCount (GetInvitationsCount'),
+    newGetInvitationsCount,
+    GetInvitationsCountResponse (GetInvitationsCountResponse'),
+    newGetInvitationsCountResponse,
+
+    -- ** GetMacieSession
+    GetMacieSession (GetMacieSession'),
+    newGetMacieSession,
+    GetMacieSessionResponse (GetMacieSessionResponse'),
+    newGetMacieSessionResponse,
+
+    -- ** GetMasterAccount
+    GetMasterAccount (GetMasterAccount'),
+    newGetMasterAccount,
+    GetMasterAccountResponse (GetMasterAccountResponse'),
+    newGetMasterAccountResponse,
+
+    -- ** GetMember
+    GetMember (GetMember'),
+    newGetMember,
+    GetMemberResponse (GetMemberResponse'),
+    newGetMemberResponse,
+
+    -- ** GetUsageStatistics (Paginated)
+    GetUsageStatistics (GetUsageStatistics'),
+    newGetUsageStatistics,
+    GetUsageStatisticsResponse (GetUsageStatisticsResponse'),
+    newGetUsageStatisticsResponse,
+
+    -- ** GetUsageTotals
+    GetUsageTotals (GetUsageTotals'),
+    newGetUsageTotals,
+    GetUsageTotalsResponse (GetUsageTotalsResponse'),
+    newGetUsageTotalsResponse,
+
+    -- ** ListClassificationJobs (Paginated)
+    ListClassificationJobs (ListClassificationJobs'),
+    newListClassificationJobs,
+    ListClassificationJobsResponse (ListClassificationJobsResponse'),
+    newListClassificationJobsResponse,
+
     -- ** ListCustomDataIdentifiers (Paginated)
     ListCustomDataIdentifiers (ListCustomDataIdentifiers'),
     newListCustomDataIdentifiers,
     ListCustomDataIdentifiersResponse (ListCustomDataIdentifiersResponse'),
     newListCustomDataIdentifiersResponse,
+
+    -- ** ListFindings (Paginated)
+    ListFindings (ListFindings'),
+    newListFindings,
+    ListFindingsResponse (ListFindingsResponse'),
+    newListFindingsResponse,
+
+    -- ** ListFindingsFilters (Paginated)
+    ListFindingsFilters (ListFindingsFilters'),
+    newListFindingsFilters,
+    ListFindingsFiltersResponse (ListFindingsFiltersResponse'),
+    newListFindingsFiltersResponse,
+
+    -- ** ListInvitations (Paginated)
+    ListInvitations (ListInvitations'),
+    newListInvitations,
+    ListInvitationsResponse (ListInvitationsResponse'),
+    newListInvitationsResponse,
+
+    -- ** ListManagedDataIdentifiers
+    ListManagedDataIdentifiers (ListManagedDataIdentifiers'),
+    newListManagedDataIdentifiers,
+    ListManagedDataIdentifiersResponse (ListManagedDataIdentifiersResponse'),
+    newListManagedDataIdentifiersResponse,
+
+    -- ** ListMembers (Paginated)
+    ListMembers (ListMembers'),
+    newListMembers,
+    ListMembersResponse (ListMembersResponse'),
+    newListMembersResponse,
+
+    -- ** ListOrganizationAdminAccounts (Paginated)
+    ListOrganizationAdminAccounts (ListOrganizationAdminAccounts'),
+    newListOrganizationAdminAccounts,
+    ListOrganizationAdminAccountsResponse (ListOrganizationAdminAccountsResponse'),
+    newListOrganizationAdminAccountsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** PutClassificationExportConfiguration
+    PutClassificationExportConfiguration (PutClassificationExportConfiguration'),
+    newPutClassificationExportConfiguration,
+    PutClassificationExportConfigurationResponse (PutClassificationExportConfigurationResponse'),
+    newPutClassificationExportConfigurationResponse,
+
+    -- ** PutFindingsPublicationConfiguration
+    PutFindingsPublicationConfiguration (PutFindingsPublicationConfiguration'),
+    newPutFindingsPublicationConfiguration,
+    PutFindingsPublicationConfigurationResponse (PutFindingsPublicationConfigurationResponse'),
+    newPutFindingsPublicationConfigurationResponse,
+
+    -- ** SearchResources (Paginated)
+    SearchResources (SearchResources'),
+    newSearchResources,
+    SearchResourcesResponse (SearchResourcesResponse'),
+    newSearchResourcesResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** TestCustomDataIdentifier
+    TestCustomDataIdentifier (TestCustomDataIdentifier'),
+    newTestCustomDataIdentifier,
+    TestCustomDataIdentifierResponse (TestCustomDataIdentifierResponse'),
+    newTestCustomDataIdentifierResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateClassificationJob
+    UpdateClassificationJob (UpdateClassificationJob'),
+    newUpdateClassificationJob,
+    UpdateClassificationJobResponse (UpdateClassificationJobResponse'),
+    newUpdateClassificationJobResponse,
+
+    -- ** UpdateFindingsFilter
+    UpdateFindingsFilter (UpdateFindingsFilter'),
+    newUpdateFindingsFilter,
+    UpdateFindingsFilterResponse (UpdateFindingsFilterResponse'),
+    newUpdateFindingsFilterResponse,
+
+    -- ** UpdateMacieSession
+    UpdateMacieSession (UpdateMacieSession'),
+    newUpdateMacieSession,
+    UpdateMacieSessionResponse (UpdateMacieSessionResponse'),
+    newUpdateMacieSessionResponse,
+
+    -- ** UpdateMemberSession
+    UpdateMemberSession (UpdateMemberSession'),
+    newUpdateMemberSession,
+    UpdateMemberSessionResponse (UpdateMemberSessionResponse'),
+    newUpdateMemberSessionResponse,
+
+    -- ** UpdateOrganizationConfiguration
+    UpdateOrganizationConfiguration (UpdateOrganizationConfiguration'),
+    newUpdateOrganizationConfiguration,
+    UpdateOrganizationConfigurationResponse (UpdateOrganizationConfigurationResponse'),
+    newUpdateOrganizationConfigurationResponse,
 
     -- * Types
 

@@ -39,8 +39,8 @@ module Amazonka.MacieV2.ListMembers
     newListMembersResponse,
 
     -- * Response Lenses
-    listMembersResponse_members,
     listMembersResponse_nextToken,
+    listMembersResponse_members,
     listMembersResponse_httpStatus,
   )
 where
@@ -138,8 +138,8 @@ instance Core.AWSRequest ListMembers where
     Response.receiveJSON
       ( \s h x ->
           ListMembersResponse'
-            Prelude.<$> (x Core..?> "members" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "members" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -179,14 +179,14 @@ instance Core.ToQuery ListMembers where
 
 -- | /See:/ 'newListMembersResponse' smart constructor.
 data ListMembersResponse = ListMembersResponse'
-  { -- | An array of objects, one for each account that\'s associated with the
-    -- administrator account and meets the criteria specified by the
-    -- onlyAssociated request parameter.
-    members :: Prelude.Maybe [Member],
-    -- | The string to use in a subsequent request to get the next page of
+  { -- | The string to use in a subsequent request to get the next page of
     -- results in a paginated response. This value is null if there are no
     -- additional pages.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of objects, one for each account that\'s associated with the
+    -- administrator account and meets the criteria specified by the
+    -- onlyAssociated request parameter.
+    members :: Prelude.Maybe [Member],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -200,13 +200,13 @@ data ListMembersResponse = ListMembersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'members', 'listMembersResponse_members' - An array of objects, one for each account that\'s associated with the
--- administrator account and meets the criteria specified by the
--- onlyAssociated request parameter.
---
 -- 'nextToken', 'listMembersResponse_nextToken' - The string to use in a subsequent request to get the next page of
 -- results in a paginated response. This value is null if there are no
 -- additional pages.
+--
+-- 'members', 'listMembersResponse_members' - An array of objects, one for each account that\'s associated with the
+-- administrator account and meets the criteria specified by the
+-- onlyAssociated request parameter.
 --
 -- 'httpStatus', 'listMembersResponse_httpStatus' - The response's http status code.
 newListMembersResponse ::
@@ -215,16 +215,10 @@ newListMembersResponse ::
   ListMembersResponse
 newListMembersResponse pHttpStatus_ =
   ListMembersResponse'
-    { members = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      members = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of objects, one for each account that\'s associated with the
--- administrator account and meets the criteria specified by the
--- onlyAssociated request parameter.
-listMembersResponse_members :: Lens.Lens' ListMembersResponse (Prelude.Maybe [Member])
-listMembersResponse_members = Lens.lens (\ListMembersResponse' {members} -> members) (\s@ListMembersResponse' {} a -> s {members = a} :: ListMembersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The string to use in a subsequent request to get the next page of
 -- results in a paginated response. This value is null if there are no
@@ -232,12 +226,18 @@ listMembersResponse_members = Lens.lens (\ListMembersResponse' {members} -> memb
 listMembersResponse_nextToken :: Lens.Lens' ListMembersResponse (Prelude.Maybe Prelude.Text)
 listMembersResponse_nextToken = Lens.lens (\ListMembersResponse' {nextToken} -> nextToken) (\s@ListMembersResponse' {} a -> s {nextToken = a} :: ListMembersResponse)
 
+-- | An array of objects, one for each account that\'s associated with the
+-- administrator account and meets the criteria specified by the
+-- onlyAssociated request parameter.
+listMembersResponse_members :: Lens.Lens' ListMembersResponse (Prelude.Maybe [Member])
+listMembersResponse_members = Lens.lens (\ListMembersResponse' {members} -> members) (\s@ListMembersResponse' {} a -> s {members = a} :: ListMembersResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listMembersResponse_httpStatus :: Lens.Lens' ListMembersResponse Prelude.Int
 listMembersResponse_httpStatus = Lens.lens (\ListMembersResponse' {httpStatus} -> httpStatus) (\s@ListMembersResponse' {} a -> s {httpStatus = a} :: ListMembersResponse)
 
 instance Prelude.NFData ListMembersResponse where
   rnf ListMembersResponse' {..} =
-    Prelude.rnf members
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf members
       `Prelude.seq` Prelude.rnf httpStatus

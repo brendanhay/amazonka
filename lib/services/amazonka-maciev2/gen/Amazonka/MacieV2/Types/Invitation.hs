@@ -29,19 +29,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInvitation' smart constructor.
 data Invitation = Invitation'
-  { -- | The status of the relationship between the account that sent the
-    -- invitation (/inviter account/) and the account that received the
-    -- invitation (/invitee account/).
-    relationshipStatus :: Prelude.Maybe RelationshipStatus,
+  { -- | The Amazon Web Services account ID for the account that sent the
+    -- invitation.
+    accountId :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in UTC and extended ISO 8601 format, when the
     -- invitation was sent.
     invitedAt :: Prelude.Maybe Core.POSIX,
+    -- | The status of the relationship between the account that sent the
+    -- invitation (/inviter account/) and the account that received the
+    -- invitation (/invitee account/).
+    relationshipStatus :: Prelude.Maybe RelationshipStatus,
     -- | The unique identifier for the invitation. Amazon Macie uses this
     -- identifier to validate the inviter account with the invitee account.
-    invitationId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services account ID for the account that sent the
-    -- invitation.
-    accountId :: Prelude.Maybe Prelude.Text
+    invitationId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,27 +53,37 @@ data Invitation = Invitation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'relationshipStatus', 'invitation_relationshipStatus' - The status of the relationship between the account that sent the
--- invitation (/inviter account/) and the account that received the
--- invitation (/invitee account/).
+-- 'accountId', 'invitation_accountId' - The Amazon Web Services account ID for the account that sent the
+-- invitation.
 --
 -- 'invitedAt', 'invitation_invitedAt' - The date and time, in UTC and extended ISO 8601 format, when the
 -- invitation was sent.
 --
+-- 'relationshipStatus', 'invitation_relationshipStatus' - The status of the relationship between the account that sent the
+-- invitation (/inviter account/) and the account that received the
+-- invitation (/invitee account/).
+--
 -- 'invitationId', 'invitation_invitationId' - The unique identifier for the invitation. Amazon Macie uses this
 -- identifier to validate the inviter account with the invitee account.
---
--- 'accountId', 'invitation_accountId' - The Amazon Web Services account ID for the account that sent the
--- invitation.
 newInvitation ::
   Invitation
 newInvitation =
   Invitation'
-    { relationshipStatus = Prelude.Nothing,
+    { accountId = Prelude.Nothing,
       invitedAt = Prelude.Nothing,
-      invitationId = Prelude.Nothing,
-      accountId = Prelude.Nothing
+      relationshipStatus = Prelude.Nothing,
+      invitationId = Prelude.Nothing
     }
+
+-- | The Amazon Web Services account ID for the account that sent the
+-- invitation.
+invitation_accountId :: Lens.Lens' Invitation (Prelude.Maybe Prelude.Text)
+invitation_accountId = Lens.lens (\Invitation' {accountId} -> accountId) (\s@Invitation' {} a -> s {accountId = a} :: Invitation)
+
+-- | The date and time, in UTC and extended ISO 8601 format, when the
+-- invitation was sent.
+invitation_invitedAt :: Lens.Lens' Invitation (Prelude.Maybe Prelude.UTCTime)
+invitation_invitedAt = Lens.lens (\Invitation' {invitedAt} -> invitedAt) (\s@Invitation' {} a -> s {invitedAt = a} :: Invitation) Prelude.. Lens.mapping Core._Time
 
 -- | The status of the relationship between the account that sent the
 -- invitation (/inviter account/) and the account that received the
@@ -81,20 +91,10 @@ newInvitation =
 invitation_relationshipStatus :: Lens.Lens' Invitation (Prelude.Maybe RelationshipStatus)
 invitation_relationshipStatus = Lens.lens (\Invitation' {relationshipStatus} -> relationshipStatus) (\s@Invitation' {} a -> s {relationshipStatus = a} :: Invitation)
 
--- | The date and time, in UTC and extended ISO 8601 format, when the
--- invitation was sent.
-invitation_invitedAt :: Lens.Lens' Invitation (Prelude.Maybe Prelude.UTCTime)
-invitation_invitedAt = Lens.lens (\Invitation' {invitedAt} -> invitedAt) (\s@Invitation' {} a -> s {invitedAt = a} :: Invitation) Prelude.. Lens.mapping Core._Time
-
 -- | The unique identifier for the invitation. Amazon Macie uses this
 -- identifier to validate the inviter account with the invitee account.
 invitation_invitationId :: Lens.Lens' Invitation (Prelude.Maybe Prelude.Text)
 invitation_invitationId = Lens.lens (\Invitation' {invitationId} -> invitationId) (\s@Invitation' {} a -> s {invitationId = a} :: Invitation)
-
--- | The Amazon Web Services account ID for the account that sent the
--- invitation.
-invitation_accountId :: Lens.Lens' Invitation (Prelude.Maybe Prelude.Text)
-invitation_accountId = Lens.lens (\Invitation' {accountId} -> accountId) (\s@Invitation' {} a -> s {accountId = a} :: Invitation)
 
 instance Core.FromJSON Invitation where
   parseJSON =
@@ -102,22 +102,22 @@ instance Core.FromJSON Invitation where
       "Invitation"
       ( \x ->
           Invitation'
-            Prelude.<$> (x Core..:? "relationshipStatus")
+            Prelude.<$> (x Core..:? "accountId")
             Prelude.<*> (x Core..:? "invitedAt")
+            Prelude.<*> (x Core..:? "relationshipStatus")
             Prelude.<*> (x Core..:? "invitationId")
-            Prelude.<*> (x Core..:? "accountId")
       )
 
 instance Prelude.Hashable Invitation where
   hashWithSalt _salt Invitation' {..} =
-    _salt `Prelude.hashWithSalt` relationshipStatus
+    _salt `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` invitedAt
+      `Prelude.hashWithSalt` relationshipStatus
       `Prelude.hashWithSalt` invitationId
-      `Prelude.hashWithSalt` accountId
 
 instance Prelude.NFData Invitation where
   rnf Invitation' {..} =
-    Prelude.rnf relationshipStatus
+    Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf invitedAt
+      `Prelude.seq` Prelude.rnf relationshipStatus
       `Prelude.seq` Prelude.rnf invitationId
-      `Prelude.seq` Prelude.rnf accountId

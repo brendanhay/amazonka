@@ -32,12 +32,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJobScopeTerm' smart constructor.
 data JobScopeTerm = JobScopeTerm'
-  { -- | A property-based condition that defines a property, operator, and one or
-    -- more values for including or excluding objects from the job.
-    simpleScopeTerm :: Prelude.Maybe SimpleScopeTerm,
-    -- | A tag-based condition that defines the operator and tag keys or tag key
+  { -- | A tag-based condition that defines the operator and tag keys or tag key
     -- and value pairs for including or excluding objects from the job.
-    tagScopeTerm :: Prelude.Maybe TagScopeTerm
+    tagScopeTerm :: Prelude.Maybe TagScopeTerm,
+    -- | A property-based condition that defines a property, operator, and one or
+    -- more values for including or excluding objects from the job.
+    simpleScopeTerm :: Prelude.Maybe SimpleScopeTerm
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,28 +49,28 @@ data JobScopeTerm = JobScopeTerm'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'simpleScopeTerm', 'jobScopeTerm_simpleScopeTerm' - A property-based condition that defines a property, operator, and one or
--- more values for including or excluding objects from the job.
---
 -- 'tagScopeTerm', 'jobScopeTerm_tagScopeTerm' - A tag-based condition that defines the operator and tag keys or tag key
 -- and value pairs for including or excluding objects from the job.
+--
+-- 'simpleScopeTerm', 'jobScopeTerm_simpleScopeTerm' - A property-based condition that defines a property, operator, and one or
+-- more values for including or excluding objects from the job.
 newJobScopeTerm ::
   JobScopeTerm
 newJobScopeTerm =
   JobScopeTerm'
-    { simpleScopeTerm = Prelude.Nothing,
-      tagScopeTerm = Prelude.Nothing
+    { tagScopeTerm = Prelude.Nothing,
+      simpleScopeTerm = Prelude.Nothing
     }
-
--- | A property-based condition that defines a property, operator, and one or
--- more values for including or excluding objects from the job.
-jobScopeTerm_simpleScopeTerm :: Lens.Lens' JobScopeTerm (Prelude.Maybe SimpleScopeTerm)
-jobScopeTerm_simpleScopeTerm = Lens.lens (\JobScopeTerm' {simpleScopeTerm} -> simpleScopeTerm) (\s@JobScopeTerm' {} a -> s {simpleScopeTerm = a} :: JobScopeTerm)
 
 -- | A tag-based condition that defines the operator and tag keys or tag key
 -- and value pairs for including or excluding objects from the job.
 jobScopeTerm_tagScopeTerm :: Lens.Lens' JobScopeTerm (Prelude.Maybe TagScopeTerm)
 jobScopeTerm_tagScopeTerm = Lens.lens (\JobScopeTerm' {tagScopeTerm} -> tagScopeTerm) (\s@JobScopeTerm' {} a -> s {tagScopeTerm = a} :: JobScopeTerm)
+
+-- | A property-based condition that defines a property, operator, and one or
+-- more values for including or excluding objects from the job.
+jobScopeTerm_simpleScopeTerm :: Lens.Lens' JobScopeTerm (Prelude.Maybe SimpleScopeTerm)
+jobScopeTerm_simpleScopeTerm = Lens.lens (\JobScopeTerm' {simpleScopeTerm} -> simpleScopeTerm) (\s@JobScopeTerm' {} a -> s {simpleScopeTerm = a} :: JobScopeTerm)
 
 instance Core.FromJSON JobScopeTerm where
   parseJSON =
@@ -78,26 +78,26 @@ instance Core.FromJSON JobScopeTerm where
       "JobScopeTerm"
       ( \x ->
           JobScopeTerm'
-            Prelude.<$> (x Core..:? "simpleScopeTerm")
-            Prelude.<*> (x Core..:? "tagScopeTerm")
+            Prelude.<$> (x Core..:? "tagScopeTerm")
+            Prelude.<*> (x Core..:? "simpleScopeTerm")
       )
 
 instance Prelude.Hashable JobScopeTerm where
   hashWithSalt _salt JobScopeTerm' {..} =
-    _salt `Prelude.hashWithSalt` simpleScopeTerm
-      `Prelude.hashWithSalt` tagScopeTerm
+    _salt `Prelude.hashWithSalt` tagScopeTerm
+      `Prelude.hashWithSalt` simpleScopeTerm
 
 instance Prelude.NFData JobScopeTerm where
   rnf JobScopeTerm' {..} =
-    Prelude.rnf simpleScopeTerm
-      `Prelude.seq` Prelude.rnf tagScopeTerm
+    Prelude.rnf tagScopeTerm
+      `Prelude.seq` Prelude.rnf simpleScopeTerm
 
 instance Core.ToJSON JobScopeTerm where
   toJSON JobScopeTerm' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("simpleScopeTerm" Core..=)
-              Prelude.<$> simpleScopeTerm,
-            ("tagScopeTerm" Core..=) Prelude.<$> tagScopeTerm
+          [ ("tagScopeTerm" Core..=) Prelude.<$> tagScopeTerm,
+            ("simpleScopeTerm" Core..=)
+              Prelude.<$> simpleScopeTerm
           ]
       )

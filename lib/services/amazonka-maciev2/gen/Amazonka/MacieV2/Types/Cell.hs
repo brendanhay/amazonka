@@ -34,13 +34,13 @@ data Cell = Cell'
     -- the sensitive data, for example Sheet2!C5 for cell C5 on Sheet2 in a
     -- Microsoft Excel workbook. This value is null for CSV and TSV files.
     cellReference :: Prelude.Maybe Prelude.Text,
+    -- | The name of the column that contains the sensitive data, if available.
+    columnName :: Prelude.Maybe Prelude.Text,
     -- | The column number of the column that contains the sensitive data. For a
     -- Microsoft Excel workbook, this value correlates to the alphabetical
     -- character(s) for a column identifier, for example: 1 for column A, 2 for
     -- column B, and so on.
-    column :: Prelude.Maybe Prelude.Integer,
-    -- | The name of the column that contains the sensitive data, if available.
-    columnName :: Prelude.Maybe Prelude.Text
+    column :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,20 +58,20 @@ data Cell = Cell'
 -- the sensitive data, for example Sheet2!C5 for cell C5 on Sheet2 in a
 -- Microsoft Excel workbook. This value is null for CSV and TSV files.
 --
+-- 'columnName', 'cell_columnName' - The name of the column that contains the sensitive data, if available.
+--
 -- 'column', 'cell_column' - The column number of the column that contains the sensitive data. For a
 -- Microsoft Excel workbook, this value correlates to the alphabetical
 -- character(s) for a column identifier, for example: 1 for column A, 2 for
 -- column B, and so on.
---
--- 'columnName', 'cell_columnName' - The name of the column that contains the sensitive data, if available.
 newCell ::
   Cell
 newCell =
   Cell'
     { row = Prelude.Nothing,
       cellReference = Prelude.Nothing,
-      column = Prelude.Nothing,
-      columnName = Prelude.Nothing
+      columnName = Prelude.Nothing,
+      column = Prelude.Nothing
     }
 
 -- | The row number of the row that contains the sensitive data.
@@ -84,16 +84,16 @@ cell_row = Lens.lens (\Cell' {row} -> row) (\s@Cell' {} a -> s {row = a} :: Cell
 cell_cellReference :: Lens.Lens' Cell (Prelude.Maybe Prelude.Text)
 cell_cellReference = Lens.lens (\Cell' {cellReference} -> cellReference) (\s@Cell' {} a -> s {cellReference = a} :: Cell)
 
+-- | The name of the column that contains the sensitive data, if available.
+cell_columnName :: Lens.Lens' Cell (Prelude.Maybe Prelude.Text)
+cell_columnName = Lens.lens (\Cell' {columnName} -> columnName) (\s@Cell' {} a -> s {columnName = a} :: Cell)
+
 -- | The column number of the column that contains the sensitive data. For a
 -- Microsoft Excel workbook, this value correlates to the alphabetical
 -- character(s) for a column identifier, for example: 1 for column A, 2 for
 -- column B, and so on.
 cell_column :: Lens.Lens' Cell (Prelude.Maybe Prelude.Integer)
 cell_column = Lens.lens (\Cell' {column} -> column) (\s@Cell' {} a -> s {column = a} :: Cell)
-
--- | The name of the column that contains the sensitive data, if available.
-cell_columnName :: Lens.Lens' Cell (Prelude.Maybe Prelude.Text)
-cell_columnName = Lens.lens (\Cell' {columnName} -> columnName) (\s@Cell' {} a -> s {columnName = a} :: Cell)
 
 instance Core.FromJSON Cell where
   parseJSON =
@@ -103,20 +103,20 @@ instance Core.FromJSON Cell where
           Cell'
             Prelude.<$> (x Core..:? "row")
             Prelude.<*> (x Core..:? "cellReference")
-            Prelude.<*> (x Core..:? "column")
             Prelude.<*> (x Core..:? "columnName")
+            Prelude.<*> (x Core..:? "column")
       )
 
 instance Prelude.Hashable Cell where
   hashWithSalt _salt Cell' {..} =
     _salt `Prelude.hashWithSalt` row
       `Prelude.hashWithSalt` cellReference
-      `Prelude.hashWithSalt` column
       `Prelude.hashWithSalt` columnName
+      `Prelude.hashWithSalt` column
 
 instance Prelude.NFData Cell where
   rnf Cell' {..} =
     Prelude.rnf row
       `Prelude.seq` Prelude.rnf cellReference
-      `Prelude.seq` Prelude.rnf column
       `Prelude.seq` Prelude.rnf columnName
+      `Prelude.seq` Prelude.rnf column

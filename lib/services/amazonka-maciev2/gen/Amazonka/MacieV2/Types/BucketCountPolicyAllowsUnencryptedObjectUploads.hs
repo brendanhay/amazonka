@@ -34,18 +34,18 @@ data BucketCountPolicyAllowsUnencryptedObjectUploads = BucketCountPolicyAllowsUn
     -- include the x-amz-server-side-encryption header and the value for that
     -- header must be AES256 or aws:kms.
     deniesUnencryptedObjectUploads :: Prelude.Maybe Prelude.Integer,
-    -- | The total number of buckets that Amazon Macie wasn\'t able to evaluate
-    -- server-side encryption requirements for. Macie can\'t determine whether
-    -- the bucket policies for these buckets require server-side encryption of
-    -- new objects.
-    unknown :: Prelude.Maybe Prelude.Integer,
     -- | The total number of buckets that don\'t have a bucket policy or have a
     -- bucket policy that doesn\'t require server-side encryption of new
     -- objects. If a bucket policy exists, the policy doesn\'t require
     -- PutObject requests to include the x-amz-server-side-encryption header
     -- and it doesn\'t require the value for that header to be AES256 or
     -- aws:kms.
-    allowsUnencryptedObjectUploads :: Prelude.Maybe Prelude.Integer
+    allowsUnencryptedObjectUploads :: Prelude.Maybe Prelude.Integer,
+    -- | The total number of buckets that Amazon Macie wasn\'t able to evaluate
+    -- server-side encryption requirements for. Macie can\'t determine whether
+    -- the bucket policies for these buckets require server-side encryption of
+    -- new objects.
+    unknown :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,26 +62,26 @@ data BucketCountPolicyAllowsUnencryptedObjectUploads = BucketCountPolicyAllowsUn
 -- include the x-amz-server-side-encryption header and the value for that
 -- header must be AES256 or aws:kms.
 --
--- 'unknown', 'bucketCountPolicyAllowsUnencryptedObjectUploads_unknown' - The total number of buckets that Amazon Macie wasn\'t able to evaluate
--- server-side encryption requirements for. Macie can\'t determine whether
--- the bucket policies for these buckets require server-side encryption of
--- new objects.
---
 -- 'allowsUnencryptedObjectUploads', 'bucketCountPolicyAllowsUnencryptedObjectUploads_allowsUnencryptedObjectUploads' - The total number of buckets that don\'t have a bucket policy or have a
 -- bucket policy that doesn\'t require server-side encryption of new
 -- objects. If a bucket policy exists, the policy doesn\'t require
 -- PutObject requests to include the x-amz-server-side-encryption header
 -- and it doesn\'t require the value for that header to be AES256 or
 -- aws:kms.
+--
+-- 'unknown', 'bucketCountPolicyAllowsUnencryptedObjectUploads_unknown' - The total number of buckets that Amazon Macie wasn\'t able to evaluate
+-- server-side encryption requirements for. Macie can\'t determine whether
+-- the bucket policies for these buckets require server-side encryption of
+-- new objects.
 newBucketCountPolicyAllowsUnencryptedObjectUploads ::
   BucketCountPolicyAllowsUnencryptedObjectUploads
 newBucketCountPolicyAllowsUnencryptedObjectUploads =
   BucketCountPolicyAllowsUnencryptedObjectUploads'
     { deniesUnencryptedObjectUploads =
         Prelude.Nothing,
-      unknown = Prelude.Nothing,
       allowsUnencryptedObjectUploads =
-        Prelude.Nothing
+        Prelude.Nothing,
+      unknown = Prelude.Nothing
     }
 
 -- | The total number of buckets whose bucket policies require server-side
@@ -91,13 +91,6 @@ newBucketCountPolicyAllowsUnencryptedObjectUploads =
 bucketCountPolicyAllowsUnencryptedObjectUploads_deniesUnencryptedObjectUploads :: Lens.Lens' BucketCountPolicyAllowsUnencryptedObjectUploads (Prelude.Maybe Prelude.Integer)
 bucketCountPolicyAllowsUnencryptedObjectUploads_deniesUnencryptedObjectUploads = Lens.lens (\BucketCountPolicyAllowsUnencryptedObjectUploads' {deniesUnencryptedObjectUploads} -> deniesUnencryptedObjectUploads) (\s@BucketCountPolicyAllowsUnencryptedObjectUploads' {} a -> s {deniesUnencryptedObjectUploads = a} :: BucketCountPolicyAllowsUnencryptedObjectUploads)
 
--- | The total number of buckets that Amazon Macie wasn\'t able to evaluate
--- server-side encryption requirements for. Macie can\'t determine whether
--- the bucket policies for these buckets require server-side encryption of
--- new objects.
-bucketCountPolicyAllowsUnencryptedObjectUploads_unknown :: Lens.Lens' BucketCountPolicyAllowsUnencryptedObjectUploads (Prelude.Maybe Prelude.Integer)
-bucketCountPolicyAllowsUnencryptedObjectUploads_unknown = Lens.lens (\BucketCountPolicyAllowsUnencryptedObjectUploads' {unknown} -> unknown) (\s@BucketCountPolicyAllowsUnencryptedObjectUploads' {} a -> s {unknown = a} :: BucketCountPolicyAllowsUnencryptedObjectUploads)
-
 -- | The total number of buckets that don\'t have a bucket policy or have a
 -- bucket policy that doesn\'t require server-side encryption of new
 -- objects. If a bucket policy exists, the policy doesn\'t require
@@ -106,6 +99,13 @@ bucketCountPolicyAllowsUnencryptedObjectUploads_unknown = Lens.lens (\BucketCoun
 -- aws:kms.
 bucketCountPolicyAllowsUnencryptedObjectUploads_allowsUnencryptedObjectUploads :: Lens.Lens' BucketCountPolicyAllowsUnencryptedObjectUploads (Prelude.Maybe Prelude.Integer)
 bucketCountPolicyAllowsUnencryptedObjectUploads_allowsUnencryptedObjectUploads = Lens.lens (\BucketCountPolicyAllowsUnencryptedObjectUploads' {allowsUnencryptedObjectUploads} -> allowsUnencryptedObjectUploads) (\s@BucketCountPolicyAllowsUnencryptedObjectUploads' {} a -> s {allowsUnencryptedObjectUploads = a} :: BucketCountPolicyAllowsUnencryptedObjectUploads)
+
+-- | The total number of buckets that Amazon Macie wasn\'t able to evaluate
+-- server-side encryption requirements for. Macie can\'t determine whether
+-- the bucket policies for these buckets require server-side encryption of
+-- new objects.
+bucketCountPolicyAllowsUnencryptedObjectUploads_unknown :: Lens.Lens' BucketCountPolicyAllowsUnencryptedObjectUploads (Prelude.Maybe Prelude.Integer)
+bucketCountPolicyAllowsUnencryptedObjectUploads_unknown = Lens.lens (\BucketCountPolicyAllowsUnencryptedObjectUploads' {unknown} -> unknown) (\s@BucketCountPolicyAllowsUnencryptedObjectUploads' {} a -> s {unknown = a} :: BucketCountPolicyAllowsUnencryptedObjectUploads)
 
 instance
   Core.FromJSON
@@ -117,8 +117,8 @@ instance
       ( \x ->
           BucketCountPolicyAllowsUnencryptedObjectUploads'
             Prelude.<$> (x Core..:? "deniesUnencryptedObjectUploads")
-              Prelude.<*> (x Core..:? "unknown")
               Prelude.<*> (x Core..:? "allowsUnencryptedObjectUploads")
+              Prelude.<*> (x Core..:? "unknown")
       )
 
 instance
@@ -130,8 +130,8 @@ instance
     BucketCountPolicyAllowsUnencryptedObjectUploads' {..} =
       _salt
         `Prelude.hashWithSalt` deniesUnencryptedObjectUploads
-        `Prelude.hashWithSalt` unknown
         `Prelude.hashWithSalt` allowsUnencryptedObjectUploads
+        `Prelude.hashWithSalt` unknown
 
 instance
   Prelude.NFData
@@ -140,5 +140,5 @@ instance
   rnf
     BucketCountPolicyAllowsUnencryptedObjectUploads' {..} =
       Prelude.rnf deniesUnencryptedObjectUploads
-        `Prelude.seq` Prelude.rnf unknown
         `Prelude.seq` Prelude.rnf allowsUnencryptedObjectUploads
+        `Prelude.seq` Prelude.rnf unknown

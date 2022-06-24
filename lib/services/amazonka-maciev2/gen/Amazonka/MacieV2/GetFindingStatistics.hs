@@ -27,9 +27,9 @@ module Amazonka.MacieV2.GetFindingStatistics
     newGetFindingStatistics,
 
     -- * Request Lenses
-    getFindingStatistics_size,
-    getFindingStatistics_findingCriteria,
     getFindingStatistics_sortCriteria,
+    getFindingStatistics_findingCriteria,
+    getFindingStatistics_size,
     getFindingStatistics_groupBy,
 
     -- * Destructuring the Response
@@ -51,12 +51,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetFindingStatistics' smart constructor.
 data GetFindingStatistics = GetFindingStatistics'
-  { -- | The maximum number of items to include in each page of the response.
-    size :: Prelude.Maybe Prelude.Int,
+  { -- | The criteria to use to sort the query results.
+    sortCriteria :: Prelude.Maybe FindingStatisticsSortCriteria,
     -- | The criteria to use to filter the query results.
     findingCriteria :: Prelude.Maybe FindingCriteria,
-    -- | The criteria to use to sort the query results.
-    sortCriteria :: Prelude.Maybe FindingStatisticsSortCriteria,
+    -- | The maximum number of items to include in each page of the response.
+    size :: Prelude.Maybe Prelude.Int,
     -- | The finding property to use to group the query results. Valid values
     -- are:
     --
@@ -83,11 +83,11 @@ data GetFindingStatistics = GetFindingStatistics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'size', 'getFindingStatistics_size' - The maximum number of items to include in each page of the response.
+-- 'sortCriteria', 'getFindingStatistics_sortCriteria' - The criteria to use to sort the query results.
 --
 -- 'findingCriteria', 'getFindingStatistics_findingCriteria' - The criteria to use to filter the query results.
 --
--- 'sortCriteria', 'getFindingStatistics_sortCriteria' - The criteria to use to sort the query results.
+-- 'size', 'getFindingStatistics_size' - The maximum number of items to include in each page of the response.
 --
 -- 'groupBy', 'getFindingStatistics_groupBy' - The finding property to use to group the query results. Valid values
 -- are:
@@ -109,23 +109,24 @@ newGetFindingStatistics ::
   GetFindingStatistics
 newGetFindingStatistics pGroupBy_ =
   GetFindingStatistics'
-    { size = Prelude.Nothing,
+    { sortCriteria =
+        Prelude.Nothing,
       findingCriteria = Prelude.Nothing,
-      sortCriteria = Prelude.Nothing,
+      size = Prelude.Nothing,
       groupBy = pGroupBy_
     }
 
--- | The maximum number of items to include in each page of the response.
-getFindingStatistics_size :: Lens.Lens' GetFindingStatistics (Prelude.Maybe Prelude.Int)
-getFindingStatistics_size = Lens.lens (\GetFindingStatistics' {size} -> size) (\s@GetFindingStatistics' {} a -> s {size = a} :: GetFindingStatistics)
+-- | The criteria to use to sort the query results.
+getFindingStatistics_sortCriteria :: Lens.Lens' GetFindingStatistics (Prelude.Maybe FindingStatisticsSortCriteria)
+getFindingStatistics_sortCriteria = Lens.lens (\GetFindingStatistics' {sortCriteria} -> sortCriteria) (\s@GetFindingStatistics' {} a -> s {sortCriteria = a} :: GetFindingStatistics)
 
 -- | The criteria to use to filter the query results.
 getFindingStatistics_findingCriteria :: Lens.Lens' GetFindingStatistics (Prelude.Maybe FindingCriteria)
 getFindingStatistics_findingCriteria = Lens.lens (\GetFindingStatistics' {findingCriteria} -> findingCriteria) (\s@GetFindingStatistics' {} a -> s {findingCriteria = a} :: GetFindingStatistics)
 
--- | The criteria to use to sort the query results.
-getFindingStatistics_sortCriteria :: Lens.Lens' GetFindingStatistics (Prelude.Maybe FindingStatisticsSortCriteria)
-getFindingStatistics_sortCriteria = Lens.lens (\GetFindingStatistics' {sortCriteria} -> sortCriteria) (\s@GetFindingStatistics' {} a -> s {sortCriteria = a} :: GetFindingStatistics)
+-- | The maximum number of items to include in each page of the response.
+getFindingStatistics_size :: Lens.Lens' GetFindingStatistics (Prelude.Maybe Prelude.Int)
+getFindingStatistics_size = Lens.lens (\GetFindingStatistics' {size} -> size) (\s@GetFindingStatistics' {} a -> s {size = a} :: GetFindingStatistics)
 
 -- | The finding property to use to group the query results. Valid values
 -- are:
@@ -159,16 +160,16 @@ instance Core.AWSRequest GetFindingStatistics where
 
 instance Prelude.Hashable GetFindingStatistics where
   hashWithSalt _salt GetFindingStatistics' {..} =
-    _salt `Prelude.hashWithSalt` size
+    _salt `Prelude.hashWithSalt` sortCriteria
       `Prelude.hashWithSalt` findingCriteria
-      `Prelude.hashWithSalt` sortCriteria
+      `Prelude.hashWithSalt` size
       `Prelude.hashWithSalt` groupBy
 
 instance Prelude.NFData GetFindingStatistics where
   rnf GetFindingStatistics' {..} =
-    Prelude.rnf size
+    Prelude.rnf sortCriteria
       `Prelude.seq` Prelude.rnf findingCriteria
-      `Prelude.seq` Prelude.rnf sortCriteria
+      `Prelude.seq` Prelude.rnf size
       `Prelude.seq` Prelude.rnf groupBy
 
 instance Core.ToHeaders GetFindingStatistics where
@@ -186,10 +187,10 @@ instance Core.ToJSON GetFindingStatistics where
   toJSON GetFindingStatistics' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("size" Core..=) Prelude.<$> size,
+          [ ("sortCriteria" Core..=) Prelude.<$> sortCriteria,
             ("findingCriteria" Core..=)
               Prelude.<$> findingCriteria,
-            ("sortCriteria" Core..=) Prelude.<$> sortCriteria,
+            ("size" Core..=) Prelude.<$> size,
             Prelude.Just ("groupBy" Core..= groupBy)
           ]
       )

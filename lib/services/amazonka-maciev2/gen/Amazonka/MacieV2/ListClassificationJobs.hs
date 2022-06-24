@@ -29,9 +29,9 @@ module Amazonka.MacieV2.ListClassificationJobs
     newListClassificationJobs,
 
     -- * Request Lenses
-    listClassificationJobs_filterCriteria,
     listClassificationJobs_sortCriteria,
     listClassificationJobs_nextToken,
+    listClassificationJobs_filterCriteria,
     listClassificationJobs_maxResults,
 
     -- * Destructuring the Response
@@ -54,13 +54,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListClassificationJobs' smart constructor.
 data ListClassificationJobs = ListClassificationJobs'
-  { -- | The criteria to use to filter the results.
-    filterCriteria :: Prelude.Maybe ListJobsFilterCriteria,
-    -- | The criteria to use to sort the results.
+  { -- | The criteria to use to sort the results.
     sortCriteria :: Prelude.Maybe ListJobsSortCriteria,
     -- | The nextToken string that specifies which page of results to return in a
     -- paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The criteria to use to filter the results.
+    filterCriteria :: Prelude.Maybe ListJobsFilterCriteria,
     -- | The maximum number of items to include in each page of the response.
     maxResults :: Prelude.Maybe Prelude.Int
   }
@@ -74,28 +74,24 @@ data ListClassificationJobs = ListClassificationJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filterCriteria', 'listClassificationJobs_filterCriteria' - The criteria to use to filter the results.
---
 -- 'sortCriteria', 'listClassificationJobs_sortCriteria' - The criteria to use to sort the results.
 --
 -- 'nextToken', 'listClassificationJobs_nextToken' - The nextToken string that specifies which page of results to return in a
 -- paginated response.
+--
+-- 'filterCriteria', 'listClassificationJobs_filterCriteria' - The criteria to use to filter the results.
 --
 -- 'maxResults', 'listClassificationJobs_maxResults' - The maximum number of items to include in each page of the response.
 newListClassificationJobs ::
   ListClassificationJobs
 newListClassificationJobs =
   ListClassificationJobs'
-    { filterCriteria =
+    { sortCriteria =
         Prelude.Nothing,
-      sortCriteria = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      filterCriteria = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | The criteria to use to filter the results.
-listClassificationJobs_filterCriteria :: Lens.Lens' ListClassificationJobs (Prelude.Maybe ListJobsFilterCriteria)
-listClassificationJobs_filterCriteria = Lens.lens (\ListClassificationJobs' {filterCriteria} -> filterCriteria) (\s@ListClassificationJobs' {} a -> s {filterCriteria = a} :: ListClassificationJobs)
 
 -- | The criteria to use to sort the results.
 listClassificationJobs_sortCriteria :: Lens.Lens' ListClassificationJobs (Prelude.Maybe ListJobsSortCriteria)
@@ -105,6 +101,10 @@ listClassificationJobs_sortCriteria = Lens.lens (\ListClassificationJobs' {sortC
 -- paginated response.
 listClassificationJobs_nextToken :: Lens.Lens' ListClassificationJobs (Prelude.Maybe Prelude.Text)
 listClassificationJobs_nextToken = Lens.lens (\ListClassificationJobs' {nextToken} -> nextToken) (\s@ListClassificationJobs' {} a -> s {nextToken = a} :: ListClassificationJobs)
+
+-- | The criteria to use to filter the results.
+listClassificationJobs_filterCriteria :: Lens.Lens' ListClassificationJobs (Prelude.Maybe ListJobsFilterCriteria)
+listClassificationJobs_filterCriteria = Lens.lens (\ListClassificationJobs' {filterCriteria} -> filterCriteria) (\s@ListClassificationJobs' {} a -> s {filterCriteria = a} :: ListClassificationJobs)
 
 -- | The maximum number of items to include in each page of the response.
 listClassificationJobs_maxResults :: Lens.Lens' ListClassificationJobs (Prelude.Maybe Prelude.Int)
@@ -148,16 +148,16 @@ instance Core.AWSRequest ListClassificationJobs where
 
 instance Prelude.Hashable ListClassificationJobs where
   hashWithSalt _salt ListClassificationJobs' {..} =
-    _salt `Prelude.hashWithSalt` filterCriteria
-      `Prelude.hashWithSalt` sortCriteria
+    _salt `Prelude.hashWithSalt` sortCriteria
       `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filterCriteria
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListClassificationJobs where
   rnf ListClassificationJobs' {..} =
-    Prelude.rnf filterCriteria
-      `Prelude.seq` Prelude.rnf sortCriteria
+    Prelude.rnf sortCriteria
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filterCriteria
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListClassificationJobs where
@@ -175,10 +175,10 @@ instance Core.ToJSON ListClassificationJobs where
   toJSON ListClassificationJobs' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("filterCriteria" Core..=)
-              Prelude.<$> filterCriteria,
-            ("sortCriteria" Core..=) Prelude.<$> sortCriteria,
+          [ ("sortCriteria" Core..=) Prelude.<$> sortCriteria,
             ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("filterCriteria" Core..=)
+              Prelude.<$> filterCriteria,
             ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )

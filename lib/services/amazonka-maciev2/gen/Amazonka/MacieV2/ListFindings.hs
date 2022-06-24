@@ -29,9 +29,9 @@ module Amazonka.MacieV2.ListFindings
     newListFindings,
 
     -- * Request Lenses
-    listFindings_findingCriteria,
     listFindings_sortCriteria,
     listFindings_nextToken,
+    listFindings_findingCriteria,
     listFindings_maxResults,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Amazonka.MacieV2.ListFindings
     newListFindingsResponse,
 
     -- * Response Lenses
-    listFindingsResponse_findingIds,
     listFindingsResponse_nextToken,
+    listFindingsResponse_findingIds,
     listFindingsResponse_httpStatus,
   )
 where
@@ -54,13 +54,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListFindings' smart constructor.
 data ListFindings = ListFindings'
-  { -- | The criteria to use to filter the results.
-    findingCriteria :: Prelude.Maybe FindingCriteria,
-    -- | The criteria to use to sort the results.
+  { -- | The criteria to use to sort the results.
     sortCriteria :: Prelude.Maybe SortCriteria,
     -- | The nextToken string that specifies which page of results to return in a
     -- paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The criteria to use to filter the results.
+    findingCriteria :: Prelude.Maybe FindingCriteria,
     -- | The maximum number of items to include in each page of the response.
     maxResults :: Prelude.Maybe Prelude.Int
   }
@@ -74,27 +74,23 @@ data ListFindings = ListFindings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'findingCriteria', 'listFindings_findingCriteria' - The criteria to use to filter the results.
---
 -- 'sortCriteria', 'listFindings_sortCriteria' - The criteria to use to sort the results.
 --
 -- 'nextToken', 'listFindings_nextToken' - The nextToken string that specifies which page of results to return in a
 -- paginated response.
+--
+-- 'findingCriteria', 'listFindings_findingCriteria' - The criteria to use to filter the results.
 --
 -- 'maxResults', 'listFindings_maxResults' - The maximum number of items to include in each page of the response.
 newListFindings ::
   ListFindings
 newListFindings =
   ListFindings'
-    { findingCriteria = Prelude.Nothing,
-      sortCriteria = Prelude.Nothing,
+    { sortCriteria = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      findingCriteria = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | The criteria to use to filter the results.
-listFindings_findingCriteria :: Lens.Lens' ListFindings (Prelude.Maybe FindingCriteria)
-listFindings_findingCriteria = Lens.lens (\ListFindings' {findingCriteria} -> findingCriteria) (\s@ListFindings' {} a -> s {findingCriteria = a} :: ListFindings)
 
 -- | The criteria to use to sort the results.
 listFindings_sortCriteria :: Lens.Lens' ListFindings (Prelude.Maybe SortCriteria)
@@ -104,6 +100,10 @@ listFindings_sortCriteria = Lens.lens (\ListFindings' {sortCriteria} -> sortCrit
 -- paginated response.
 listFindings_nextToken :: Lens.Lens' ListFindings (Prelude.Maybe Prelude.Text)
 listFindings_nextToken = Lens.lens (\ListFindings' {nextToken} -> nextToken) (\s@ListFindings' {} a -> s {nextToken = a} :: ListFindings)
+
+-- | The criteria to use to filter the results.
+listFindings_findingCriteria :: Lens.Lens' ListFindings (Prelude.Maybe FindingCriteria)
+listFindings_findingCriteria = Lens.lens (\ListFindings' {findingCriteria} -> findingCriteria) (\s@ListFindings' {} a -> s {findingCriteria = a} :: ListFindings)
 
 -- | The maximum number of items to include in each page of the response.
 listFindings_maxResults :: Lens.Lens' ListFindings (Prelude.Maybe Prelude.Int)
@@ -135,23 +135,23 @@ instance Core.AWSRequest ListFindings where
     Response.receiveJSON
       ( \s h x ->
           ListFindingsResponse'
-            Prelude.<$> (x Core..?> "findingIds" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "findingIds" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListFindings where
   hashWithSalt _salt ListFindings' {..} =
-    _salt `Prelude.hashWithSalt` findingCriteria
-      `Prelude.hashWithSalt` sortCriteria
+    _salt `Prelude.hashWithSalt` sortCriteria
       `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` findingCriteria
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListFindings where
   rnf ListFindings' {..} =
-    Prelude.rnf findingCriteria
-      `Prelude.seq` Prelude.rnf sortCriteria
+    Prelude.rnf sortCriteria
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf findingCriteria
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListFindings where
@@ -169,10 +169,10 @@ instance Core.ToJSON ListFindings where
   toJSON ListFindings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("findingCriteria" Core..=)
-              Prelude.<$> findingCriteria,
-            ("sortCriteria" Core..=) Prelude.<$> sortCriteria,
+          [ ("sortCriteria" Core..=) Prelude.<$> sortCriteria,
             ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("findingCriteria" Core..=)
+              Prelude.<$> findingCriteria,
             ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )
@@ -185,13 +185,13 @@ instance Core.ToQuery ListFindings where
 
 -- | /See:/ 'newListFindingsResponse' smart constructor.
 data ListFindingsResponse = ListFindingsResponse'
-  { -- | An array of strings, where each string is the unique identifier for a
-    -- finding that meets the filter criteria specified in the request.
-    findingIds :: Prelude.Maybe [Prelude.Text],
-    -- | The string to use in a subsequent request to get the next page of
+  { -- | The string to use in a subsequent request to get the next page of
     -- results in a paginated response. This value is null if there are no
     -- additional pages.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of strings, where each string is the unique identifier for a
+    -- finding that meets the filter criteria specified in the request.
+    findingIds :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -205,12 +205,12 @@ data ListFindingsResponse = ListFindingsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'findingIds', 'listFindingsResponse_findingIds' - An array of strings, where each string is the unique identifier for a
--- finding that meets the filter criteria specified in the request.
---
 -- 'nextToken', 'listFindingsResponse_nextToken' - The string to use in a subsequent request to get the next page of
 -- results in a paginated response. This value is null if there are no
 -- additional pages.
+--
+-- 'findingIds', 'listFindingsResponse_findingIds' - An array of strings, where each string is the unique identifier for a
+-- finding that meets the filter criteria specified in the request.
 --
 -- 'httpStatus', 'listFindingsResponse_httpStatus' - The response's http status code.
 newListFindingsResponse ::
@@ -219,15 +219,10 @@ newListFindingsResponse ::
   ListFindingsResponse
 newListFindingsResponse pHttpStatus_ =
   ListFindingsResponse'
-    { findingIds = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      findingIds = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of strings, where each string is the unique identifier for a
--- finding that meets the filter criteria specified in the request.
-listFindingsResponse_findingIds :: Lens.Lens' ListFindingsResponse (Prelude.Maybe [Prelude.Text])
-listFindingsResponse_findingIds = Lens.lens (\ListFindingsResponse' {findingIds} -> findingIds) (\s@ListFindingsResponse' {} a -> s {findingIds = a} :: ListFindingsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The string to use in a subsequent request to get the next page of
 -- results in a paginated response. This value is null if there are no
@@ -235,12 +230,17 @@ listFindingsResponse_findingIds = Lens.lens (\ListFindingsResponse' {findingIds}
 listFindingsResponse_nextToken :: Lens.Lens' ListFindingsResponse (Prelude.Maybe Prelude.Text)
 listFindingsResponse_nextToken = Lens.lens (\ListFindingsResponse' {nextToken} -> nextToken) (\s@ListFindingsResponse' {} a -> s {nextToken = a} :: ListFindingsResponse)
 
+-- | An array of strings, where each string is the unique identifier for a
+-- finding that meets the filter criteria specified in the request.
+listFindingsResponse_findingIds :: Lens.Lens' ListFindingsResponse (Prelude.Maybe [Prelude.Text])
+listFindingsResponse_findingIds = Lens.lens (\ListFindingsResponse' {findingIds} -> findingIds) (\s@ListFindingsResponse' {} a -> s {findingIds = a} :: ListFindingsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listFindingsResponse_httpStatus :: Lens.Lens' ListFindingsResponse Prelude.Int
 listFindingsResponse_httpStatus = Lens.lens (\ListFindingsResponse' {httpStatus} -> httpStatus) (\s@ListFindingsResponse' {} a -> s {httpStatus = a} :: ListFindingsResponse)
 
 instance Prelude.NFData ListFindingsResponse where
   rnf ListFindingsResponse' {..} =
-    Prelude.rnf findingIds
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf findingIds
       `Prelude.seq` Prelude.rnf httpStatus

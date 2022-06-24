@@ -34,13 +34,13 @@ module Amazonka.MacieV2.GetFindingsFilter
     newGetFindingsFilterResponse,
 
     -- * Response Lenses
-    getFindingsFilterResponse_arn,
-    getFindingsFilterResponse_findingCriteria,
-    getFindingsFilterResponse_action,
-    getFindingsFilterResponse_name,
-    getFindingsFilterResponse_id,
-    getFindingsFilterResponse_description,
     getFindingsFilterResponse_tags,
+    getFindingsFilterResponse_name,
+    getFindingsFilterResponse_findingCriteria,
+    getFindingsFilterResponse_arn,
+    getFindingsFilterResponse_description,
+    getFindingsFilterResponse_id,
+    getFindingsFilterResponse_action,
     getFindingsFilterResponse_position,
     getFindingsFilterResponse_httpStatus,
   )
@@ -92,13 +92,13 @@ instance Core.AWSRequest GetFindingsFilter where
     Response.receiveJSON
       ( \s h x ->
           GetFindingsFilterResponse'
-            Prelude.<$> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "findingCriteria")
-            Prelude.<*> (x Core..?> "action")
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "id")
+            Prelude.<*> (x Core..?> "findingCriteria")
+            Prelude.<*> (x Core..?> "arn")
             Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "id")
+            Prelude.<*> (x Core..?> "action")
             Prelude.<*> (x Core..?> "position")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -130,24 +130,24 @@ instance Core.ToQuery GetFindingsFilter where
 
 -- | /See:/ 'newGetFindingsFilterResponse' smart constructor.
 data GetFindingsFilterResponse = GetFindingsFilterResponse'
-  { -- | The Amazon Resource Name (ARN) of the filter.
-    arn :: Prelude.Maybe Prelude.Text,
+  { -- | A map of key-value pairs that identifies the tags (keys and values) that
+    -- are associated with the filter.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The custom name of the filter.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The criteria that\'s used to filter findings.
     findingCriteria :: Prelude.Maybe FindingCriteria,
+    -- | The Amazon Resource Name (ARN) of the filter.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The custom description of the filter.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the filter.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The action that\'s performed on findings that meet the filter criteria
     -- (findingCriteria). Possible values are: ARCHIVE, suppress (automatically
     -- archive) the findings; and, NOOP, don\'t perform any action on the
     -- findings.
     action :: Prelude.Maybe FindingsFilterAction,
-    -- | The custom name of the filter.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the filter.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The custom description of the filter.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A map of key-value pairs that identifies the tags (keys and values) that
-    -- are associated with the filter.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The position of the filter in the list of saved filters on the Amazon
     -- Macie console. This value also determines the order in which the filter
     -- is applied to findings, relative to other filters that are also applied
@@ -166,23 +166,23 @@ data GetFindingsFilterResponse = GetFindingsFilterResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'getFindingsFilterResponse_arn' - The Amazon Resource Name (ARN) of the filter.
+-- 'tags', 'getFindingsFilterResponse_tags' - A map of key-value pairs that identifies the tags (keys and values) that
+-- are associated with the filter.
+--
+-- 'name', 'getFindingsFilterResponse_name' - The custom name of the filter.
 --
 -- 'findingCriteria', 'getFindingsFilterResponse_findingCriteria' - The criteria that\'s used to filter findings.
+--
+-- 'arn', 'getFindingsFilterResponse_arn' - The Amazon Resource Name (ARN) of the filter.
+--
+-- 'description', 'getFindingsFilterResponse_description' - The custom description of the filter.
+--
+-- 'id', 'getFindingsFilterResponse_id' - The unique identifier for the filter.
 --
 -- 'action', 'getFindingsFilterResponse_action' - The action that\'s performed on findings that meet the filter criteria
 -- (findingCriteria). Possible values are: ARCHIVE, suppress (automatically
 -- archive) the findings; and, NOOP, don\'t perform any action on the
 -- findings.
---
--- 'name', 'getFindingsFilterResponse_name' - The custom name of the filter.
---
--- 'id', 'getFindingsFilterResponse_id' - The unique identifier for the filter.
---
--- 'description', 'getFindingsFilterResponse_description' - The custom description of the filter.
---
--- 'tags', 'getFindingsFilterResponse_tags' - A map of key-value pairs that identifies the tags (keys and values) that
--- are associated with the filter.
 --
 -- 'position', 'getFindingsFilterResponse_position' - The position of the filter in the list of saved filters on the Amazon
 -- Macie console. This value also determines the order in which the filter
@@ -196,24 +196,41 @@ newGetFindingsFilterResponse ::
   GetFindingsFilterResponse
 newGetFindingsFilterResponse pHttpStatus_ =
   GetFindingsFilterResponse'
-    { arn = Prelude.Nothing,
-      findingCriteria = Prelude.Nothing,
-      action = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       name = Prelude.Nothing,
-      id = Prelude.Nothing,
+      findingCriteria = Prelude.Nothing,
+      arn = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      id = Prelude.Nothing,
+      action = Prelude.Nothing,
       position = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A map of key-value pairs that identifies the tags (keys and values) that
+-- are associated with the filter.
+getFindingsFilterResponse_tags :: Lens.Lens' GetFindingsFilterResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getFindingsFilterResponse_tags = Lens.lens (\GetFindingsFilterResponse' {tags} -> tags) (\s@GetFindingsFilterResponse' {} a -> s {tags = a} :: GetFindingsFilterResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The custom name of the filter.
+getFindingsFilterResponse_name :: Lens.Lens' GetFindingsFilterResponse (Prelude.Maybe Prelude.Text)
+getFindingsFilterResponse_name = Lens.lens (\GetFindingsFilterResponse' {name} -> name) (\s@GetFindingsFilterResponse' {} a -> s {name = a} :: GetFindingsFilterResponse)
+
+-- | The criteria that\'s used to filter findings.
+getFindingsFilterResponse_findingCriteria :: Lens.Lens' GetFindingsFilterResponse (Prelude.Maybe FindingCriteria)
+getFindingsFilterResponse_findingCriteria = Lens.lens (\GetFindingsFilterResponse' {findingCriteria} -> findingCriteria) (\s@GetFindingsFilterResponse' {} a -> s {findingCriteria = a} :: GetFindingsFilterResponse)
 
 -- | The Amazon Resource Name (ARN) of the filter.
 getFindingsFilterResponse_arn :: Lens.Lens' GetFindingsFilterResponse (Prelude.Maybe Prelude.Text)
 getFindingsFilterResponse_arn = Lens.lens (\GetFindingsFilterResponse' {arn} -> arn) (\s@GetFindingsFilterResponse' {} a -> s {arn = a} :: GetFindingsFilterResponse)
 
--- | The criteria that\'s used to filter findings.
-getFindingsFilterResponse_findingCriteria :: Lens.Lens' GetFindingsFilterResponse (Prelude.Maybe FindingCriteria)
-getFindingsFilterResponse_findingCriteria = Lens.lens (\GetFindingsFilterResponse' {findingCriteria} -> findingCriteria) (\s@GetFindingsFilterResponse' {} a -> s {findingCriteria = a} :: GetFindingsFilterResponse)
+-- | The custom description of the filter.
+getFindingsFilterResponse_description :: Lens.Lens' GetFindingsFilterResponse (Prelude.Maybe Prelude.Text)
+getFindingsFilterResponse_description = Lens.lens (\GetFindingsFilterResponse' {description} -> description) (\s@GetFindingsFilterResponse' {} a -> s {description = a} :: GetFindingsFilterResponse)
+
+-- | The unique identifier for the filter.
+getFindingsFilterResponse_id :: Lens.Lens' GetFindingsFilterResponse (Prelude.Maybe Prelude.Text)
+getFindingsFilterResponse_id = Lens.lens (\GetFindingsFilterResponse' {id} -> id) (\s@GetFindingsFilterResponse' {} a -> s {id = a} :: GetFindingsFilterResponse)
 
 -- | The action that\'s performed on findings that meet the filter criteria
 -- (findingCriteria). Possible values are: ARCHIVE, suppress (automatically
@@ -221,23 +238,6 @@ getFindingsFilterResponse_findingCriteria = Lens.lens (\GetFindingsFilterRespons
 -- findings.
 getFindingsFilterResponse_action :: Lens.Lens' GetFindingsFilterResponse (Prelude.Maybe FindingsFilterAction)
 getFindingsFilterResponse_action = Lens.lens (\GetFindingsFilterResponse' {action} -> action) (\s@GetFindingsFilterResponse' {} a -> s {action = a} :: GetFindingsFilterResponse)
-
--- | The custom name of the filter.
-getFindingsFilterResponse_name :: Lens.Lens' GetFindingsFilterResponse (Prelude.Maybe Prelude.Text)
-getFindingsFilterResponse_name = Lens.lens (\GetFindingsFilterResponse' {name} -> name) (\s@GetFindingsFilterResponse' {} a -> s {name = a} :: GetFindingsFilterResponse)
-
--- | The unique identifier for the filter.
-getFindingsFilterResponse_id :: Lens.Lens' GetFindingsFilterResponse (Prelude.Maybe Prelude.Text)
-getFindingsFilterResponse_id = Lens.lens (\GetFindingsFilterResponse' {id} -> id) (\s@GetFindingsFilterResponse' {} a -> s {id = a} :: GetFindingsFilterResponse)
-
--- | The custom description of the filter.
-getFindingsFilterResponse_description :: Lens.Lens' GetFindingsFilterResponse (Prelude.Maybe Prelude.Text)
-getFindingsFilterResponse_description = Lens.lens (\GetFindingsFilterResponse' {description} -> description) (\s@GetFindingsFilterResponse' {} a -> s {description = a} :: GetFindingsFilterResponse)
-
--- | A map of key-value pairs that identifies the tags (keys and values) that
--- are associated with the filter.
-getFindingsFilterResponse_tags :: Lens.Lens' GetFindingsFilterResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getFindingsFilterResponse_tags = Lens.lens (\GetFindingsFilterResponse' {tags} -> tags) (\s@GetFindingsFilterResponse' {} a -> s {tags = a} :: GetFindingsFilterResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The position of the filter in the list of saved filters on the Amazon
 -- Macie console. This value also determines the order in which the filter
@@ -252,12 +252,12 @@ getFindingsFilterResponse_httpStatus = Lens.lens (\GetFindingsFilterResponse' {h
 
 instance Prelude.NFData GetFindingsFilterResponse where
   rnf GetFindingsFilterResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf findingCriteria
-      `Prelude.seq` Prelude.rnf action
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf findingCriteria
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf action
       `Prelude.seq` Prelude.rnf position
       `Prelude.seq` Prelude.rnf httpStatus

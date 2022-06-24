@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 data Page = Page'
   { -- | Reserved for future use.
     offsetRange :: Prelude.Maybe Range,
-    -- | Reserved for future use.
-    lineRange :: Prelude.Maybe Range,
     -- | The page number of the page that contains the sensitive data.
-    pageNumber :: Prelude.Maybe Prelude.Integer
+    pageNumber :: Prelude.Maybe Prelude.Integer,
+    -- | Reserved for future use.
+    lineRange :: Prelude.Maybe Range
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,29 +48,29 @@ data Page = Page'
 --
 -- 'offsetRange', 'page_offsetRange' - Reserved for future use.
 --
--- 'lineRange', 'page_lineRange' - Reserved for future use.
---
 -- 'pageNumber', 'page_pageNumber' - The page number of the page that contains the sensitive data.
+--
+-- 'lineRange', 'page_lineRange' - Reserved for future use.
 newPage ::
   Page
 newPage =
   Page'
     { offsetRange = Prelude.Nothing,
-      lineRange = Prelude.Nothing,
-      pageNumber = Prelude.Nothing
+      pageNumber = Prelude.Nothing,
+      lineRange = Prelude.Nothing
     }
 
 -- | Reserved for future use.
 page_offsetRange :: Lens.Lens' Page (Prelude.Maybe Range)
 page_offsetRange = Lens.lens (\Page' {offsetRange} -> offsetRange) (\s@Page' {} a -> s {offsetRange = a} :: Page)
 
--- | Reserved for future use.
-page_lineRange :: Lens.Lens' Page (Prelude.Maybe Range)
-page_lineRange = Lens.lens (\Page' {lineRange} -> lineRange) (\s@Page' {} a -> s {lineRange = a} :: Page)
-
 -- | The page number of the page that contains the sensitive data.
 page_pageNumber :: Lens.Lens' Page (Prelude.Maybe Prelude.Integer)
 page_pageNumber = Lens.lens (\Page' {pageNumber} -> pageNumber) (\s@Page' {} a -> s {pageNumber = a} :: Page)
+
+-- | Reserved for future use.
+page_lineRange :: Lens.Lens' Page (Prelude.Maybe Range)
+page_lineRange = Lens.lens (\Page' {lineRange} -> lineRange) (\s@Page' {} a -> s {lineRange = a} :: Page)
 
 instance Core.FromJSON Page where
   parseJSON =
@@ -79,18 +79,18 @@ instance Core.FromJSON Page where
       ( \x ->
           Page'
             Prelude.<$> (x Core..:? "offsetRange")
-            Prelude.<*> (x Core..:? "lineRange")
             Prelude.<*> (x Core..:? "pageNumber")
+            Prelude.<*> (x Core..:? "lineRange")
       )
 
 instance Prelude.Hashable Page where
   hashWithSalt _salt Page' {..} =
     _salt `Prelude.hashWithSalt` offsetRange
-      `Prelude.hashWithSalt` lineRange
       `Prelude.hashWithSalt` pageNumber
+      `Prelude.hashWithSalt` lineRange
 
 instance Prelude.NFData Page where
   rnf Page' {..} =
     Prelude.rnf offsetRange
-      `Prelude.seq` Prelude.rnf lineRange
       `Prelude.seq` Prelude.rnf pageNumber
+      `Prelude.seq` Prelude.rnf lineRange

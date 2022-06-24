@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUsageStatisticsSortBy' smart constructor.
 data UsageStatisticsSortBy = UsageStatisticsSortBy'
-  { -- | The sort order to apply to the results, based on the value for the field
+  { -- | The field to sort the results by.
+    key :: Prelude.Maybe UsageStatisticsSortKey,
+    -- | The sort order to apply to the results, based on the value for the field
     -- specified by the key property. Valid values are: ASC, sort the results
     -- in ascending order; and, DESC, sort the results in descending order.
-    orderBy :: Prelude.Maybe OrderBy,
-    -- | The field to sort the results by.
-    key :: Prelude.Maybe UsageStatisticsSortKey
+    orderBy :: Prelude.Maybe OrderBy
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,18 +47,22 @@ data UsageStatisticsSortBy = UsageStatisticsSortBy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'key', 'usageStatisticsSortBy_key' - The field to sort the results by.
+--
 -- 'orderBy', 'usageStatisticsSortBy_orderBy' - The sort order to apply to the results, based on the value for the field
 -- specified by the key property. Valid values are: ASC, sort the results
 -- in ascending order; and, DESC, sort the results in descending order.
---
--- 'key', 'usageStatisticsSortBy_key' - The field to sort the results by.
 newUsageStatisticsSortBy ::
   UsageStatisticsSortBy
 newUsageStatisticsSortBy =
   UsageStatisticsSortBy'
-    { orderBy = Prelude.Nothing,
-      key = Prelude.Nothing
+    { key = Prelude.Nothing,
+      orderBy = Prelude.Nothing
     }
+
+-- | The field to sort the results by.
+usageStatisticsSortBy_key :: Lens.Lens' UsageStatisticsSortBy (Prelude.Maybe UsageStatisticsSortKey)
+usageStatisticsSortBy_key = Lens.lens (\UsageStatisticsSortBy' {key} -> key) (\s@UsageStatisticsSortBy' {} a -> s {key = a} :: UsageStatisticsSortBy)
 
 -- | The sort order to apply to the results, based on the value for the field
 -- specified by the key property. Valid values are: ASC, sort the results
@@ -66,24 +70,20 @@ newUsageStatisticsSortBy =
 usageStatisticsSortBy_orderBy :: Lens.Lens' UsageStatisticsSortBy (Prelude.Maybe OrderBy)
 usageStatisticsSortBy_orderBy = Lens.lens (\UsageStatisticsSortBy' {orderBy} -> orderBy) (\s@UsageStatisticsSortBy' {} a -> s {orderBy = a} :: UsageStatisticsSortBy)
 
--- | The field to sort the results by.
-usageStatisticsSortBy_key :: Lens.Lens' UsageStatisticsSortBy (Prelude.Maybe UsageStatisticsSortKey)
-usageStatisticsSortBy_key = Lens.lens (\UsageStatisticsSortBy' {key} -> key) (\s@UsageStatisticsSortBy' {} a -> s {key = a} :: UsageStatisticsSortBy)
-
 instance Prelude.Hashable UsageStatisticsSortBy where
   hashWithSalt _salt UsageStatisticsSortBy' {..} =
-    _salt `Prelude.hashWithSalt` orderBy
-      `Prelude.hashWithSalt` key
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` orderBy
 
 instance Prelude.NFData UsageStatisticsSortBy where
   rnf UsageStatisticsSortBy' {..} =
-    Prelude.rnf orderBy `Prelude.seq` Prelude.rnf key
+    Prelude.rnf key `Prelude.seq` Prelude.rnf orderBy
 
 instance Core.ToJSON UsageStatisticsSortBy where
   toJSON UsageStatisticsSortBy' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("orderBy" Core..=) Prelude.<$> orderBy,
-            ("key" Core..=) Prelude.<$> key
+          [ ("key" Core..=) Prelude.<$> key,
+            ("orderBy" Core..=) Prelude.<$> orderBy
           ]
       )

@@ -30,8 +30,8 @@ module Amazonka.MacieV2.SearchResources
     newSearchResources,
 
     -- * Request Lenses
-    searchResources_bucketCriteria,
     searchResources_sortCriteria,
+    searchResources_bucketCriteria,
     searchResources_nextToken,
     searchResources_maxResults,
 
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchResources' smart constructor.
 data SearchResources = SearchResources'
-  { -- | The filter conditions that determine which S3 buckets to include or
+  { -- | The criteria to use to sort the results.
+    sortCriteria :: Prelude.Maybe SearchResourcesSortCriteria,
+    -- | The filter conditions that determine which S3 buckets to include or
     -- exclude from the query results.
     bucketCriteria :: Prelude.Maybe SearchResourcesBucketCriteria,
-    -- | The criteria to use to sort the results.
-    sortCriteria :: Prelude.Maybe SearchResourcesSortCriteria,
     -- | The nextToken string that specifies which page of results to return in a
     -- paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -77,10 +77,10 @@ data SearchResources = SearchResources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'sortCriteria', 'searchResources_sortCriteria' - The criteria to use to sort the results.
+--
 -- 'bucketCriteria', 'searchResources_bucketCriteria' - The filter conditions that determine which S3 buckets to include or
 -- exclude from the query results.
---
--- 'sortCriteria', 'searchResources_sortCriteria' - The criteria to use to sort the results.
 --
 -- 'nextToken', 'searchResources_nextToken' - The nextToken string that specifies which page of results to return in a
 -- paginated response.
@@ -91,20 +91,20 @@ newSearchResources ::
   SearchResources
 newSearchResources =
   SearchResources'
-    { bucketCriteria = Prelude.Nothing,
-      sortCriteria = Prelude.Nothing,
+    { sortCriteria = Prelude.Nothing,
+      bucketCriteria = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | The criteria to use to sort the results.
+searchResources_sortCriteria :: Lens.Lens' SearchResources (Prelude.Maybe SearchResourcesSortCriteria)
+searchResources_sortCriteria = Lens.lens (\SearchResources' {sortCriteria} -> sortCriteria) (\s@SearchResources' {} a -> s {sortCriteria = a} :: SearchResources)
 
 -- | The filter conditions that determine which S3 buckets to include or
 -- exclude from the query results.
 searchResources_bucketCriteria :: Lens.Lens' SearchResources (Prelude.Maybe SearchResourcesBucketCriteria)
 searchResources_bucketCriteria = Lens.lens (\SearchResources' {bucketCriteria} -> bucketCriteria) (\s@SearchResources' {} a -> s {bucketCriteria = a} :: SearchResources)
-
--- | The criteria to use to sort the results.
-searchResources_sortCriteria :: Lens.Lens' SearchResources (Prelude.Maybe SearchResourcesSortCriteria)
-searchResources_sortCriteria = Lens.lens (\SearchResources' {sortCriteria} -> sortCriteria) (\s@SearchResources' {} a -> s {sortCriteria = a} :: SearchResources)
 
 -- | The nextToken string that specifies which page of results to return in a
 -- paginated response.
@@ -156,15 +156,15 @@ instance Core.AWSRequest SearchResources where
 
 instance Prelude.Hashable SearchResources where
   hashWithSalt _salt SearchResources' {..} =
-    _salt `Prelude.hashWithSalt` bucketCriteria
-      `Prelude.hashWithSalt` sortCriteria
+    _salt `Prelude.hashWithSalt` sortCriteria
+      `Prelude.hashWithSalt` bucketCriteria
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData SearchResources where
   rnf SearchResources' {..} =
-    Prelude.rnf bucketCriteria
-      `Prelude.seq` Prelude.rnf sortCriteria
+    Prelude.rnf sortCriteria
+      `Prelude.seq` Prelude.rnf bucketCriteria
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
@@ -183,9 +183,9 @@ instance Core.ToJSON SearchResources where
   toJSON SearchResources' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("bucketCriteria" Core..=)
+          [ ("sortCriteria" Core..=) Prelude.<$> sortCriteria,
+            ("bucketCriteria" Core..=)
               Prelude.<$> bucketCriteria,
-            ("sortCriteria" Core..=) Prelude.<$> sortCriteria,
             ("nextToken" Core..=) Prelude.<$> nextToken,
             ("maxResults" Core..=) Prelude.<$> maxResults
           ]

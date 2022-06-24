@@ -31,19 +31,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newManagedDataIdentifierSummary' smart constructor.
 data ManagedDataIdentifierSummary = ManagedDataIdentifierSummary'
-  { -- | The category of sensitive data that the managed data identifier detects:
+  { -- | The unique identifier for the managed data identifier. This is a string
+    -- that describes the type of sensitive data that the managed data
+    -- identifier detects. For example: OPENSSH_PRIVATE_KEY for OpenSSH private
+    -- keys, CREDIT_CARD_NUMBER for credit card numbers, or USA_PASSPORT_NUMBER
+    -- for US passport numbers.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The category of sensitive data that the managed data identifier detects:
     -- CREDENTIALS, for credentials data such as private keys or Amazon Web
     -- Services secret keys; FINANCIAL_INFORMATION, for financial data such as
     -- credit card numbers; or, PERSONAL_INFORMATION, for personal health
     -- information, such as health insurance identification numbers, or
     -- personally identifiable information, such as passport numbers.
-    category :: Prelude.Maybe SensitiveDataItemCategory,
-    -- | The unique identifier for the managed data identifier. This is a string
-    -- that describes the type of sensitive data that the managed data
-    -- identifier detects. For example: OPENSSH_PRIVATE_KEY for OpenSSH private
-    -- keys, CREDIT_CARD_NUMBER for credit card numbers, or USA_PASSPORT_NUMBER
-    -- for US passport numbers.
-    id :: Prelude.Maybe Prelude.Text
+    category :: Prelude.Maybe SensitiveDataItemCategory
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,26 +55,33 @@ data ManagedDataIdentifierSummary = ManagedDataIdentifierSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'id', 'managedDataIdentifierSummary_id' - The unique identifier for the managed data identifier. This is a string
+-- that describes the type of sensitive data that the managed data
+-- identifier detects. For example: OPENSSH_PRIVATE_KEY for OpenSSH private
+-- keys, CREDIT_CARD_NUMBER for credit card numbers, or USA_PASSPORT_NUMBER
+-- for US passport numbers.
+--
 -- 'category', 'managedDataIdentifierSummary_category' - The category of sensitive data that the managed data identifier detects:
 -- CREDENTIALS, for credentials data such as private keys or Amazon Web
 -- Services secret keys; FINANCIAL_INFORMATION, for financial data such as
 -- credit card numbers; or, PERSONAL_INFORMATION, for personal health
 -- information, such as health insurance identification numbers, or
 -- personally identifiable information, such as passport numbers.
---
--- 'id', 'managedDataIdentifierSummary_id' - The unique identifier for the managed data identifier. This is a string
--- that describes the type of sensitive data that the managed data
--- identifier detects. For example: OPENSSH_PRIVATE_KEY for OpenSSH private
--- keys, CREDIT_CARD_NUMBER for credit card numbers, or USA_PASSPORT_NUMBER
--- for US passport numbers.
 newManagedDataIdentifierSummary ::
   ManagedDataIdentifierSummary
 newManagedDataIdentifierSummary =
   ManagedDataIdentifierSummary'
-    { category =
-        Prelude.Nothing,
-      id = Prelude.Nothing
+    { id = Prelude.Nothing,
+      category = Prelude.Nothing
     }
+
+-- | The unique identifier for the managed data identifier. This is a string
+-- that describes the type of sensitive data that the managed data
+-- identifier detects. For example: OPENSSH_PRIVATE_KEY for OpenSSH private
+-- keys, CREDIT_CARD_NUMBER for credit card numbers, or USA_PASSPORT_NUMBER
+-- for US passport numbers.
+managedDataIdentifierSummary_id :: Lens.Lens' ManagedDataIdentifierSummary (Prelude.Maybe Prelude.Text)
+managedDataIdentifierSummary_id = Lens.lens (\ManagedDataIdentifierSummary' {id} -> id) (\s@ManagedDataIdentifierSummary' {} a -> s {id = a} :: ManagedDataIdentifierSummary)
 
 -- | The category of sensitive data that the managed data identifier detects:
 -- CREDENTIALS, for credentials data such as private keys or Amazon Web
@@ -85,22 +92,14 @@ newManagedDataIdentifierSummary =
 managedDataIdentifierSummary_category :: Lens.Lens' ManagedDataIdentifierSummary (Prelude.Maybe SensitiveDataItemCategory)
 managedDataIdentifierSummary_category = Lens.lens (\ManagedDataIdentifierSummary' {category} -> category) (\s@ManagedDataIdentifierSummary' {} a -> s {category = a} :: ManagedDataIdentifierSummary)
 
--- | The unique identifier for the managed data identifier. This is a string
--- that describes the type of sensitive data that the managed data
--- identifier detects. For example: OPENSSH_PRIVATE_KEY for OpenSSH private
--- keys, CREDIT_CARD_NUMBER for credit card numbers, or USA_PASSPORT_NUMBER
--- for US passport numbers.
-managedDataIdentifierSummary_id :: Lens.Lens' ManagedDataIdentifierSummary (Prelude.Maybe Prelude.Text)
-managedDataIdentifierSummary_id = Lens.lens (\ManagedDataIdentifierSummary' {id} -> id) (\s@ManagedDataIdentifierSummary' {} a -> s {id = a} :: ManagedDataIdentifierSummary)
-
 instance Core.FromJSON ManagedDataIdentifierSummary where
   parseJSON =
     Core.withObject
       "ManagedDataIdentifierSummary"
       ( \x ->
           ManagedDataIdentifierSummary'
-            Prelude.<$> (x Core..:? "category")
-            Prelude.<*> (x Core..:? "id")
+            Prelude.<$> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "category")
       )
 
 instance
@@ -108,9 +107,9 @@ instance
     ManagedDataIdentifierSummary
   where
   hashWithSalt _salt ManagedDataIdentifierSummary' {..} =
-    _salt `Prelude.hashWithSalt` category
-      `Prelude.hashWithSalt` id
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` category
 
 instance Prelude.NFData ManagedDataIdentifierSummary where
   rnf ManagedDataIdentifierSummary' {..} =
-    Prelude.rnf category `Prelude.seq` Prelude.rnf id
+    Prelude.rnf id `Prelude.seq` Prelude.rnf category

@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newListJobsFilterTerm' smart constructor.
 data ListJobsFilterTerm = ListJobsFilterTerm'
-  { -- | An array that lists one or more values to use to filter the results.
-    values :: Prelude.Maybe [Prelude.Text],
-    -- | The property to use to filter the results.
+  { -- | The property to use to filter the results.
     key :: Prelude.Maybe ListJobsFilterKey,
     -- | The operator to use to filter the results.
-    comparator :: Prelude.Maybe JobComparator
+    comparator :: Prelude.Maybe JobComparator,
+    -- | An array that lists one or more values to use to filter the results.
+    values :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,23 +48,19 @@ data ListJobsFilterTerm = ListJobsFilterTerm'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'values', 'listJobsFilterTerm_values' - An array that lists one or more values to use to filter the results.
---
 -- 'key', 'listJobsFilterTerm_key' - The property to use to filter the results.
 --
 -- 'comparator', 'listJobsFilterTerm_comparator' - The operator to use to filter the results.
+--
+-- 'values', 'listJobsFilterTerm_values' - An array that lists one or more values to use to filter the results.
 newListJobsFilterTerm ::
   ListJobsFilterTerm
 newListJobsFilterTerm =
   ListJobsFilterTerm'
-    { values = Prelude.Nothing,
-      key = Prelude.Nothing,
-      comparator = Prelude.Nothing
+    { key = Prelude.Nothing,
+      comparator = Prelude.Nothing,
+      values = Prelude.Nothing
     }
-
--- | An array that lists one or more values to use to filter the results.
-listJobsFilterTerm_values :: Lens.Lens' ListJobsFilterTerm (Prelude.Maybe [Prelude.Text])
-listJobsFilterTerm_values = Lens.lens (\ListJobsFilterTerm' {values} -> values) (\s@ListJobsFilterTerm' {} a -> s {values = a} :: ListJobsFilterTerm) Prelude.. Lens.mapping Lens.coerced
 
 -- | The property to use to filter the results.
 listJobsFilterTerm_key :: Lens.Lens' ListJobsFilterTerm (Prelude.Maybe ListJobsFilterKey)
@@ -74,24 +70,28 @@ listJobsFilterTerm_key = Lens.lens (\ListJobsFilterTerm' {key} -> key) (\s@ListJ
 listJobsFilterTerm_comparator :: Lens.Lens' ListJobsFilterTerm (Prelude.Maybe JobComparator)
 listJobsFilterTerm_comparator = Lens.lens (\ListJobsFilterTerm' {comparator} -> comparator) (\s@ListJobsFilterTerm' {} a -> s {comparator = a} :: ListJobsFilterTerm)
 
+-- | An array that lists one or more values to use to filter the results.
+listJobsFilterTerm_values :: Lens.Lens' ListJobsFilterTerm (Prelude.Maybe [Prelude.Text])
+listJobsFilterTerm_values = Lens.lens (\ListJobsFilterTerm' {values} -> values) (\s@ListJobsFilterTerm' {} a -> s {values = a} :: ListJobsFilterTerm) Prelude.. Lens.mapping Lens.coerced
+
 instance Prelude.Hashable ListJobsFilterTerm where
   hashWithSalt _salt ListJobsFilterTerm' {..} =
-    _salt `Prelude.hashWithSalt` values
-      `Prelude.hashWithSalt` key
+    _salt `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` comparator
+      `Prelude.hashWithSalt` values
 
 instance Prelude.NFData ListJobsFilterTerm where
   rnf ListJobsFilterTerm' {..} =
-    Prelude.rnf values
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf key
       `Prelude.seq` Prelude.rnf comparator
+      `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON ListJobsFilterTerm where
   toJSON ListJobsFilterTerm' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("values" Core..=) Prelude.<$> values,
-            ("key" Core..=) Prelude.<$> key,
-            ("comparator" Core..=) Prelude.<$> comparator
+          [ ("key" Core..=) Prelude.<$> key,
+            ("comparator" Core..=) Prelude.<$> comparator,
+            ("values" Core..=) Prelude.<$> values
           ]
       )

@@ -28,9 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRealtimeEndpointInfo' smart constructor.
 data RealtimeEndpointInfo = RealtimeEndpointInfo'
-  { -- | The time that the request to create the real-time endpoint for the
-    -- @MLModel@ was received. The time is expressed in epoch time.
-    createdAt :: Prelude.Maybe Core.POSIX,
+  { -- | The maximum processing rate for the real-time endpoint for @MLModel@,
+    -- measured in incoming requests per second.
+    peakRequestsPerSecond :: Prelude.Maybe Prelude.Int,
     -- | The URI that specifies where to send real-time prediction requests for
     -- the @MLModel@.
     --
@@ -46,9 +46,9 @@ data RealtimeEndpointInfo = RealtimeEndpointInfo'
     --
     -- -   @UPDATING@ - Updating\/creating the endpoint.
     endpointStatus :: Prelude.Maybe RealtimeEndpointStatus,
-    -- | The maximum processing rate for the real-time endpoint for @MLModel@,
-    -- measured in incoming requests per second.
-    peakRequestsPerSecond :: Prelude.Maybe Prelude.Int
+    -- | The time that the request to create the real-time endpoint for the
+    -- @MLModel@ was received. The time is expressed in epoch time.
+    createdAt :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,8 +60,8 @@ data RealtimeEndpointInfo = RealtimeEndpointInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAt', 'realtimeEndpointInfo_createdAt' - The time that the request to create the real-time endpoint for the
--- @MLModel@ was received. The time is expressed in epoch time.
+-- 'peakRequestsPerSecond', 'realtimeEndpointInfo_peakRequestsPerSecond' - The maximum processing rate for the real-time endpoint for @MLModel@,
+-- measured in incoming requests per second.
 --
 -- 'endpointUrl', 'realtimeEndpointInfo_endpointUrl' - The URI that specifies where to send real-time prediction requests for
 -- the @MLModel@.
@@ -78,22 +78,23 @@ data RealtimeEndpointInfo = RealtimeEndpointInfo'
 --
 -- -   @UPDATING@ - Updating\/creating the endpoint.
 --
--- 'peakRequestsPerSecond', 'realtimeEndpointInfo_peakRequestsPerSecond' - The maximum processing rate for the real-time endpoint for @MLModel@,
--- measured in incoming requests per second.
+-- 'createdAt', 'realtimeEndpointInfo_createdAt' - The time that the request to create the real-time endpoint for the
+-- @MLModel@ was received. The time is expressed in epoch time.
 newRealtimeEndpointInfo ::
   RealtimeEndpointInfo
 newRealtimeEndpointInfo =
   RealtimeEndpointInfo'
-    { createdAt = Prelude.Nothing,
+    { peakRequestsPerSecond =
+        Prelude.Nothing,
       endpointUrl = Prelude.Nothing,
       endpointStatus = Prelude.Nothing,
-      peakRequestsPerSecond = Prelude.Nothing
+      createdAt = Prelude.Nothing
     }
 
--- | The time that the request to create the real-time endpoint for the
--- @MLModel@ was received. The time is expressed in epoch time.
-realtimeEndpointInfo_createdAt :: Lens.Lens' RealtimeEndpointInfo (Prelude.Maybe Prelude.UTCTime)
-realtimeEndpointInfo_createdAt = Lens.lens (\RealtimeEndpointInfo' {createdAt} -> createdAt) (\s@RealtimeEndpointInfo' {} a -> s {createdAt = a} :: RealtimeEndpointInfo) Prelude.. Lens.mapping Core._Time
+-- | The maximum processing rate for the real-time endpoint for @MLModel@,
+-- measured in incoming requests per second.
+realtimeEndpointInfo_peakRequestsPerSecond :: Lens.Lens' RealtimeEndpointInfo (Prelude.Maybe Prelude.Int)
+realtimeEndpointInfo_peakRequestsPerSecond = Lens.lens (\RealtimeEndpointInfo' {peakRequestsPerSecond} -> peakRequestsPerSecond) (\s@RealtimeEndpointInfo' {} a -> s {peakRequestsPerSecond = a} :: RealtimeEndpointInfo)
 
 -- | The URI that specifies where to send real-time prediction requests for
 -- the @MLModel@.
@@ -114,10 +115,10 @@ realtimeEndpointInfo_endpointUrl = Lens.lens (\RealtimeEndpointInfo' {endpointUr
 realtimeEndpointInfo_endpointStatus :: Lens.Lens' RealtimeEndpointInfo (Prelude.Maybe RealtimeEndpointStatus)
 realtimeEndpointInfo_endpointStatus = Lens.lens (\RealtimeEndpointInfo' {endpointStatus} -> endpointStatus) (\s@RealtimeEndpointInfo' {} a -> s {endpointStatus = a} :: RealtimeEndpointInfo)
 
--- | The maximum processing rate for the real-time endpoint for @MLModel@,
--- measured in incoming requests per second.
-realtimeEndpointInfo_peakRequestsPerSecond :: Lens.Lens' RealtimeEndpointInfo (Prelude.Maybe Prelude.Int)
-realtimeEndpointInfo_peakRequestsPerSecond = Lens.lens (\RealtimeEndpointInfo' {peakRequestsPerSecond} -> peakRequestsPerSecond) (\s@RealtimeEndpointInfo' {} a -> s {peakRequestsPerSecond = a} :: RealtimeEndpointInfo)
+-- | The time that the request to create the real-time endpoint for the
+-- @MLModel@ was received. The time is expressed in epoch time.
+realtimeEndpointInfo_createdAt :: Lens.Lens' RealtimeEndpointInfo (Prelude.Maybe Prelude.UTCTime)
+realtimeEndpointInfo_createdAt = Lens.lens (\RealtimeEndpointInfo' {createdAt} -> createdAt) (\s@RealtimeEndpointInfo' {} a -> s {createdAt = a} :: RealtimeEndpointInfo) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON RealtimeEndpointInfo where
   parseJSON =
@@ -125,22 +126,22 @@ instance Core.FromJSON RealtimeEndpointInfo where
       "RealtimeEndpointInfo"
       ( \x ->
           RealtimeEndpointInfo'
-            Prelude.<$> (x Core..:? "CreatedAt")
+            Prelude.<$> (x Core..:? "PeakRequestsPerSecond")
             Prelude.<*> (x Core..:? "EndpointUrl")
             Prelude.<*> (x Core..:? "EndpointStatus")
-            Prelude.<*> (x Core..:? "PeakRequestsPerSecond")
+            Prelude.<*> (x Core..:? "CreatedAt")
       )
 
 instance Prelude.Hashable RealtimeEndpointInfo where
   hashWithSalt _salt RealtimeEndpointInfo' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt `Prelude.hashWithSalt` peakRequestsPerSecond
       `Prelude.hashWithSalt` endpointUrl
       `Prelude.hashWithSalt` endpointStatus
-      `Prelude.hashWithSalt` peakRequestsPerSecond
+      `Prelude.hashWithSalt` createdAt
 
 instance Prelude.NFData RealtimeEndpointInfo where
   rnf RealtimeEndpointInfo' {..} =
-    Prelude.rnf createdAt
+    Prelude.rnf peakRequestsPerSecond
       `Prelude.seq` Prelude.rnf endpointUrl
       `Prelude.seq` Prelude.rnf endpointStatus
-      `Prelude.seq` Prelude.rnf peakRequestsPerSecond
+      `Prelude.seq` Prelude.rnf createdAt

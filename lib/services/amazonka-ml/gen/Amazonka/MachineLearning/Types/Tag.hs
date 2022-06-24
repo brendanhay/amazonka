@@ -28,13 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
-  { -- | An optional string, typically used to describe or define the tag. Valid
+  { -- | A unique identifier for the tag. Valid characters include Unicode
+    -- letters, digits, white space, _, ., \/, =, +, -, %, and \@.
+    key :: Prelude.Maybe Prelude.Text,
+    -- | An optional string, typically used to describe or define the tag. Valid
     -- characters include Unicode letters, digits, white space, _, ., \/, =, +,
     -- -, %, and \@.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the tag. Valid characters include Unicode
-    -- letters, digits, white space, _, ., \/, =, +, -, %, and \@.
-    key :: Prelude.Maybe Prelude.Text
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,19 +46,24 @@ data Tag = Tag'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'key', 'tag_key' - A unique identifier for the tag. Valid characters include Unicode
+-- letters, digits, white space, _, ., \/, =, +, -, %, and \@.
+--
 -- 'value', 'tag_value' - An optional string, typically used to describe or define the tag. Valid
 -- characters include Unicode letters, digits, white space, _, ., \/, =, +,
 -- -, %, and \@.
---
--- 'key', 'tag_key' - A unique identifier for the tag. Valid characters include Unicode
--- letters, digits, white space, _, ., \/, =, +, -, %, and \@.
 newTag ::
   Tag
 newTag =
   Tag'
-    { value = Prelude.Nothing,
-      key = Prelude.Nothing
+    { key = Prelude.Nothing,
+      value = Prelude.Nothing
     }
+
+-- | A unique identifier for the tag. Valid characters include Unicode
+-- letters, digits, white space, _, ., \/, =, +, -, %, and \@.
+tag_key :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
+tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 -- | An optional string, typically used to describe or define the tag. Valid
 -- characters include Unicode letters, digits, white space, _, ., \/, =, +,
@@ -66,34 +71,29 @@ newTag =
 tag_value :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
--- | A unique identifier for the tag. Valid characters include Unicode
--- letters, digits, white space, _, ., \/, =, +, -, %, and \@.
-tag_key :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
-tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
-
 instance Core.FromJSON Tag where
   parseJSON =
     Core.withObject
       "Tag"
       ( \x ->
           Tag'
-            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Key")
+            Prelude.<$> (x Core..:? "Key") Prelude.<*> (x Core..:? "Value")
       )
 
 instance Prelude.Hashable Tag where
   hashWithSalt _salt Tag' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` key
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Tag where
   rnf Tag' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf key
+    Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON Tag where
   toJSON Tag' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Value" Core..=) Prelude.<$> value,
-            ("Key" Core..=) Prelude.<$> key
+          [ ("Key" Core..=) Prelude.<$> key,
+            ("Value" Core..=) Prelude.<$> value
           ]
       )

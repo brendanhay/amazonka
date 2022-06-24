@@ -29,43 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRedshiftDataSpec' smart constructor.
 data RedshiftDataSpec = RedshiftDataSpec'
-  { -- | Describes the schema location for an Amazon Redshift @DataSource@.
-    dataSchemaUri :: Prelude.Maybe Prelude.Text,
-    -- | A JSON string that represents the schema for an Amazon Redshift
-    -- @DataSource@. The @DataSchema@ defines the structure of the observation
-    -- data in the data file(s) referenced in the @DataSource@.
-    --
-    -- A @DataSchema@ is not required if you specify a @DataSchemaUri@.
-    --
-    -- Define your @DataSchema@ as a series of key-value pairs. @attributes@
-    -- and @excludedVariableNames@ have an array of key-value pairs for their
-    -- value. Use the following format to define your @DataSchema@.
-    --
-    -- { \"version\": \"1.0\",
-    --
-    -- \"recordAnnotationFieldName\": \"F1\",
-    --
-    -- \"recordWeightFieldName\": \"F2\",
-    --
-    -- \"targetFieldName\": \"F3\",
-    --
-    -- \"dataFormat\": \"CSV\",
-    --
-    -- \"dataFileContainsHeader\": true,
-    --
-    -- \"attributes\": [
-    --
-    -- { \"fieldName\": \"F1\", \"fieldType\": \"TEXT\" }, { \"fieldName\":
-    -- \"F2\", \"fieldType\": \"NUMERIC\" }, { \"fieldName\": \"F3\",
-    -- \"fieldType\": \"CATEGORICAL\" }, { \"fieldName\": \"F4\",
-    -- \"fieldType\": \"NUMERIC\" }, { \"fieldName\": \"F5\", \"fieldType\":
-    -- \"CATEGORICAL\" }, { \"fieldName\": \"F6\", \"fieldType\": \"TEXT\" }, {
-    -- \"fieldName\": \"F7\", \"fieldType\": \"WEIGHTED_INT_SEQUENCE\" }, {
-    -- \"fieldName\": \"F8\", \"fieldType\": \"WEIGHTED_STRING_SEQUENCE\" } ],
-    --
-    -- \"excludedVariableNames\": [ \"F6\" ] }
-    dataSchema :: Prelude.Maybe Prelude.Text,
-    -- | A JSON string that represents the splitting and rearrangement processing
+  { -- | A JSON string that represents the splitting and rearrangement processing
     -- to be applied to a @DataSource@. If the @DataRearrangement@ parameter is
     -- not provided, all of the input data is used to create the @Datasource@.
     --
@@ -152,6 +116,42 @@ data RedshiftDataSpec = RedshiftDataSpec'
     --     Datasource for training:
     --     @{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"random\", \"randomSeed\"=\"s3:\/\/my_s3_path\/bucket\/file.csv\", \"complement\":\"true\"}}@
     dataRearrangement :: Prelude.Maybe Prelude.Text,
+    -- | A JSON string that represents the schema for an Amazon Redshift
+    -- @DataSource@. The @DataSchema@ defines the structure of the observation
+    -- data in the data file(s) referenced in the @DataSource@.
+    --
+    -- A @DataSchema@ is not required if you specify a @DataSchemaUri@.
+    --
+    -- Define your @DataSchema@ as a series of key-value pairs. @attributes@
+    -- and @excludedVariableNames@ have an array of key-value pairs for their
+    -- value. Use the following format to define your @DataSchema@.
+    --
+    -- { \"version\": \"1.0\",
+    --
+    -- \"recordAnnotationFieldName\": \"F1\",
+    --
+    -- \"recordWeightFieldName\": \"F2\",
+    --
+    -- \"targetFieldName\": \"F3\",
+    --
+    -- \"dataFormat\": \"CSV\",
+    --
+    -- \"dataFileContainsHeader\": true,
+    --
+    -- \"attributes\": [
+    --
+    -- { \"fieldName\": \"F1\", \"fieldType\": \"TEXT\" }, { \"fieldName\":
+    -- \"F2\", \"fieldType\": \"NUMERIC\" }, { \"fieldName\": \"F3\",
+    -- \"fieldType\": \"CATEGORICAL\" }, { \"fieldName\": \"F4\",
+    -- \"fieldType\": \"NUMERIC\" }, { \"fieldName\": \"F5\", \"fieldType\":
+    -- \"CATEGORICAL\" }, { \"fieldName\": \"F6\", \"fieldType\": \"TEXT\" }, {
+    -- \"fieldName\": \"F7\", \"fieldType\": \"WEIGHTED_INT_SEQUENCE\" }, {
+    -- \"fieldName\": \"F8\", \"fieldType\": \"WEIGHTED_STRING_SEQUENCE\" } ],
+    --
+    -- \"excludedVariableNames\": [ \"F6\" ] }
+    dataSchema :: Prelude.Maybe Prelude.Text,
+    -- | Describes the schema location for an Amazon Redshift @DataSource@.
+    dataSchemaUri :: Prelude.Maybe Prelude.Text,
     -- | Describes the @DatabaseName@ and @ClusterIdentifier@ for an Amazon
     -- Redshift @DataSource@.
     databaseInformation :: RedshiftDatabase,
@@ -174,42 +174,6 @@ data RedshiftDataSpec = RedshiftDataSpec'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'dataSchemaUri', 'redshiftDataSpec_dataSchemaUri' - Describes the schema location for an Amazon Redshift @DataSource@.
---
--- 'dataSchema', 'redshiftDataSpec_dataSchema' - A JSON string that represents the schema for an Amazon Redshift
--- @DataSource@. The @DataSchema@ defines the structure of the observation
--- data in the data file(s) referenced in the @DataSource@.
---
--- A @DataSchema@ is not required if you specify a @DataSchemaUri@.
---
--- Define your @DataSchema@ as a series of key-value pairs. @attributes@
--- and @excludedVariableNames@ have an array of key-value pairs for their
--- value. Use the following format to define your @DataSchema@.
---
--- { \"version\": \"1.0\",
---
--- \"recordAnnotationFieldName\": \"F1\",
---
--- \"recordWeightFieldName\": \"F2\",
---
--- \"targetFieldName\": \"F3\",
---
--- \"dataFormat\": \"CSV\",
---
--- \"dataFileContainsHeader\": true,
---
--- \"attributes\": [
---
--- { \"fieldName\": \"F1\", \"fieldType\": \"TEXT\" }, { \"fieldName\":
--- \"F2\", \"fieldType\": \"NUMERIC\" }, { \"fieldName\": \"F3\",
--- \"fieldType\": \"CATEGORICAL\" }, { \"fieldName\": \"F4\",
--- \"fieldType\": \"NUMERIC\" }, { \"fieldName\": \"F5\", \"fieldType\":
--- \"CATEGORICAL\" }, { \"fieldName\": \"F6\", \"fieldType\": \"TEXT\" }, {
--- \"fieldName\": \"F7\", \"fieldType\": \"WEIGHTED_INT_SEQUENCE\" }, {
--- \"fieldName\": \"F8\", \"fieldType\": \"WEIGHTED_STRING_SEQUENCE\" } ],
---
--- \"excludedVariableNames\": [ \"F6\" ] }
 --
 -- 'dataRearrangement', 'redshiftDataSpec_dataRearrangement' - A JSON string that represents the splitting and rearrangement processing
 -- to be applied to a @DataSource@. If the @DataRearrangement@ parameter is
@@ -298,47 +262,7 @@ data RedshiftDataSpec = RedshiftDataSpec'
 --     Datasource for training:
 --     @{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"random\", \"randomSeed\"=\"s3:\/\/my_s3_path\/bucket\/file.csv\", \"complement\":\"true\"}}@
 --
--- 'databaseInformation', 'redshiftDataSpec_databaseInformation' - Describes the @DatabaseName@ and @ClusterIdentifier@ for an Amazon
--- Redshift @DataSource@.
---
--- 'selectSqlQuery', 'redshiftDataSpec_selectSqlQuery' - Describes the SQL Query to execute on an Amazon Redshift database for an
--- Amazon Redshift @DataSource@.
---
--- 'databaseCredentials', 'redshiftDataSpec_databaseCredentials' - Describes AWS Identity and Access Management (IAM) credentials that are
--- used connect to the Amazon Redshift database.
---
--- 's3StagingLocation', 'redshiftDataSpec_s3StagingLocation' - Describes an Amazon S3 location to store the result set of the
--- @SelectSqlQuery@ query.
-newRedshiftDataSpec ::
-  -- | 'databaseInformation'
-  RedshiftDatabase ->
-  -- | 'selectSqlQuery'
-  Prelude.Text ->
-  -- | 'databaseCredentials'
-  RedshiftDatabaseCredentials ->
-  -- | 's3StagingLocation'
-  Prelude.Text ->
-  RedshiftDataSpec
-newRedshiftDataSpec
-  pDatabaseInformation_
-  pSelectSqlQuery_
-  pDatabaseCredentials_
-  pS3StagingLocation_ =
-    RedshiftDataSpec'
-      { dataSchemaUri = Prelude.Nothing,
-        dataSchema = Prelude.Nothing,
-        dataRearrangement = Prelude.Nothing,
-        databaseInformation = pDatabaseInformation_,
-        selectSqlQuery = pSelectSqlQuery_,
-        databaseCredentials = pDatabaseCredentials_,
-        s3StagingLocation = pS3StagingLocation_
-      }
-
--- | Describes the schema location for an Amazon Redshift @DataSource@.
-redshiftDataSpec_dataSchemaUri :: Lens.Lens' RedshiftDataSpec (Prelude.Maybe Prelude.Text)
-redshiftDataSpec_dataSchemaUri = Lens.lens (\RedshiftDataSpec' {dataSchemaUri} -> dataSchemaUri) (\s@RedshiftDataSpec' {} a -> s {dataSchemaUri = a} :: RedshiftDataSpec)
-
--- | A JSON string that represents the schema for an Amazon Redshift
+-- 'dataSchema', 'redshiftDataSpec_dataSchema' - A JSON string that represents the schema for an Amazon Redshift
 -- @DataSource@. The @DataSchema@ defines the structure of the observation
 -- data in the data file(s) referenced in the @DataSource@.
 --
@@ -371,8 +295,45 @@ redshiftDataSpec_dataSchemaUri = Lens.lens (\RedshiftDataSpec' {dataSchemaUri} -
 -- \"fieldName\": \"F8\", \"fieldType\": \"WEIGHTED_STRING_SEQUENCE\" } ],
 --
 -- \"excludedVariableNames\": [ \"F6\" ] }
-redshiftDataSpec_dataSchema :: Lens.Lens' RedshiftDataSpec (Prelude.Maybe Prelude.Text)
-redshiftDataSpec_dataSchema = Lens.lens (\RedshiftDataSpec' {dataSchema} -> dataSchema) (\s@RedshiftDataSpec' {} a -> s {dataSchema = a} :: RedshiftDataSpec)
+--
+-- 'dataSchemaUri', 'redshiftDataSpec_dataSchemaUri' - Describes the schema location for an Amazon Redshift @DataSource@.
+--
+-- 'databaseInformation', 'redshiftDataSpec_databaseInformation' - Describes the @DatabaseName@ and @ClusterIdentifier@ for an Amazon
+-- Redshift @DataSource@.
+--
+-- 'selectSqlQuery', 'redshiftDataSpec_selectSqlQuery' - Describes the SQL Query to execute on an Amazon Redshift database for an
+-- Amazon Redshift @DataSource@.
+--
+-- 'databaseCredentials', 'redshiftDataSpec_databaseCredentials' - Describes AWS Identity and Access Management (IAM) credentials that are
+-- used connect to the Amazon Redshift database.
+--
+-- 's3StagingLocation', 'redshiftDataSpec_s3StagingLocation' - Describes an Amazon S3 location to store the result set of the
+-- @SelectSqlQuery@ query.
+newRedshiftDataSpec ::
+  -- | 'databaseInformation'
+  RedshiftDatabase ->
+  -- | 'selectSqlQuery'
+  Prelude.Text ->
+  -- | 'databaseCredentials'
+  RedshiftDatabaseCredentials ->
+  -- | 's3StagingLocation'
+  Prelude.Text ->
+  RedshiftDataSpec
+newRedshiftDataSpec
+  pDatabaseInformation_
+  pSelectSqlQuery_
+  pDatabaseCredentials_
+  pS3StagingLocation_ =
+    RedshiftDataSpec'
+      { dataRearrangement =
+          Prelude.Nothing,
+        dataSchema = Prelude.Nothing,
+        dataSchemaUri = Prelude.Nothing,
+        databaseInformation = pDatabaseInformation_,
+        selectSqlQuery = pSelectSqlQuery_,
+        databaseCredentials = pDatabaseCredentials_,
+        s3StagingLocation = pS3StagingLocation_
+      }
 
 -- | A JSON string that represents the splitting and rearrangement processing
 -- to be applied to a @DataSource@. If the @DataRearrangement@ parameter is
@@ -463,6 +424,46 @@ redshiftDataSpec_dataSchema = Lens.lens (\RedshiftDataSpec' {dataSchema} -> data
 redshiftDataSpec_dataRearrangement :: Lens.Lens' RedshiftDataSpec (Prelude.Maybe Prelude.Text)
 redshiftDataSpec_dataRearrangement = Lens.lens (\RedshiftDataSpec' {dataRearrangement} -> dataRearrangement) (\s@RedshiftDataSpec' {} a -> s {dataRearrangement = a} :: RedshiftDataSpec)
 
+-- | A JSON string that represents the schema for an Amazon Redshift
+-- @DataSource@. The @DataSchema@ defines the structure of the observation
+-- data in the data file(s) referenced in the @DataSource@.
+--
+-- A @DataSchema@ is not required if you specify a @DataSchemaUri@.
+--
+-- Define your @DataSchema@ as a series of key-value pairs. @attributes@
+-- and @excludedVariableNames@ have an array of key-value pairs for their
+-- value. Use the following format to define your @DataSchema@.
+--
+-- { \"version\": \"1.0\",
+--
+-- \"recordAnnotationFieldName\": \"F1\",
+--
+-- \"recordWeightFieldName\": \"F2\",
+--
+-- \"targetFieldName\": \"F3\",
+--
+-- \"dataFormat\": \"CSV\",
+--
+-- \"dataFileContainsHeader\": true,
+--
+-- \"attributes\": [
+--
+-- { \"fieldName\": \"F1\", \"fieldType\": \"TEXT\" }, { \"fieldName\":
+-- \"F2\", \"fieldType\": \"NUMERIC\" }, { \"fieldName\": \"F3\",
+-- \"fieldType\": \"CATEGORICAL\" }, { \"fieldName\": \"F4\",
+-- \"fieldType\": \"NUMERIC\" }, { \"fieldName\": \"F5\", \"fieldType\":
+-- \"CATEGORICAL\" }, { \"fieldName\": \"F6\", \"fieldType\": \"TEXT\" }, {
+-- \"fieldName\": \"F7\", \"fieldType\": \"WEIGHTED_INT_SEQUENCE\" }, {
+-- \"fieldName\": \"F8\", \"fieldType\": \"WEIGHTED_STRING_SEQUENCE\" } ],
+--
+-- \"excludedVariableNames\": [ \"F6\" ] }
+redshiftDataSpec_dataSchema :: Lens.Lens' RedshiftDataSpec (Prelude.Maybe Prelude.Text)
+redshiftDataSpec_dataSchema = Lens.lens (\RedshiftDataSpec' {dataSchema} -> dataSchema) (\s@RedshiftDataSpec' {} a -> s {dataSchema = a} :: RedshiftDataSpec)
+
+-- | Describes the schema location for an Amazon Redshift @DataSource@.
+redshiftDataSpec_dataSchemaUri :: Lens.Lens' RedshiftDataSpec (Prelude.Maybe Prelude.Text)
+redshiftDataSpec_dataSchemaUri = Lens.lens (\RedshiftDataSpec' {dataSchemaUri} -> dataSchemaUri) (\s@RedshiftDataSpec' {} a -> s {dataSchemaUri = a} :: RedshiftDataSpec)
+
 -- | Describes the @DatabaseName@ and @ClusterIdentifier@ for an Amazon
 -- Redshift @DataSource@.
 redshiftDataSpec_databaseInformation :: Lens.Lens' RedshiftDataSpec RedshiftDatabase
@@ -485,9 +486,9 @@ redshiftDataSpec_s3StagingLocation = Lens.lens (\RedshiftDataSpec' {s3StagingLoc
 
 instance Prelude.Hashable RedshiftDataSpec where
   hashWithSalt _salt RedshiftDataSpec' {..} =
-    _salt `Prelude.hashWithSalt` dataSchemaUri
+    _salt `Prelude.hashWithSalt` dataRearrangement
       `Prelude.hashWithSalt` dataSchema
-      `Prelude.hashWithSalt` dataRearrangement
+      `Prelude.hashWithSalt` dataSchemaUri
       `Prelude.hashWithSalt` databaseInformation
       `Prelude.hashWithSalt` selectSqlQuery
       `Prelude.hashWithSalt` databaseCredentials
@@ -495,9 +496,9 @@ instance Prelude.Hashable RedshiftDataSpec where
 
 instance Prelude.NFData RedshiftDataSpec where
   rnf RedshiftDataSpec' {..} =
-    Prelude.rnf dataSchemaUri
+    Prelude.rnf dataRearrangement
       `Prelude.seq` Prelude.rnf dataSchema
-      `Prelude.seq` Prelude.rnf dataRearrangement
+      `Prelude.seq` Prelude.rnf dataSchemaUri
       `Prelude.seq` Prelude.rnf databaseInformation
       `Prelude.seq` Prelude.rnf selectSqlQuery
       `Prelude.seq` Prelude.rnf databaseCredentials
@@ -507,10 +508,10 @@ instance Core.ToJSON RedshiftDataSpec where
   toJSON RedshiftDataSpec' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DataSchemaUri" Core..=) Prelude.<$> dataSchemaUri,
-            ("DataSchema" Core..=) Prelude.<$> dataSchema,
-            ("DataRearrangement" Core..=)
+          [ ("DataRearrangement" Core..=)
               Prelude.<$> dataRearrangement,
+            ("DataSchema" Core..=) Prelude.<$> dataSchema,
+            ("DataSchemaUri" Core..=) Prelude.<$> dataSchemaUri,
             Prelude.Just
               ("DatabaseInformation" Core..= databaseInformation),
             Prelude.Just

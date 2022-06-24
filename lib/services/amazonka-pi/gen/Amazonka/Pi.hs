@@ -48,17 +48,23 @@ module Amazonka.Pi
     -- ** InvalidArgumentException
     _InvalidArgumentException,
 
-    -- ** NotAuthorizedException
-    _NotAuthorizedException,
-
     -- ** InternalServiceError
     _InternalServiceError,
+
+    -- ** NotAuthorizedException
+    _NotAuthorizedException,
 
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
+
+    -- ** DescribeDimensionKeys
+    DescribeDimensionKeys (DescribeDimensionKeys'),
+    newDescribeDimensionKeys,
+    DescribeDimensionKeysResponse (DescribeDimensionKeysResponse'),
+    newDescribeDimensionKeysResponse,
 
     -- ** GetDimensionKeyDetails
     GetDimensionKeyDetails (GetDimensionKeyDetails'),
@@ -71,12 +77,6 @@ module Amazonka.Pi
     newGetResourceMetrics,
     GetResourceMetricsResponse (GetResourceMetricsResponse'),
     newGetResourceMetricsResponse,
-
-    -- ** DescribeDimensionKeys
-    DescribeDimensionKeys (DescribeDimensionKeys'),
-    newDescribeDimensionKeys,
-    DescribeDimensionKeysResponse (DescribeDimensionKeysResponse'),
-    newDescribeDimensionKeysResponse,
 
     -- * Types
 

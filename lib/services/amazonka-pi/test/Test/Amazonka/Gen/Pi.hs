@@ -27,31 +27,37 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGetDimensionKeyDetails $
+--         [ requestDescribeDimensionKeys $
+--             newDescribeDimensionKeys
+--
+--         , requestGetDimensionKeyDetails $
 --             newGetDimensionKeyDetails
 --
 --         , requestGetResourceMetrics $
 --             newGetResourceMetrics
 --
---         , requestDescribeDimensionKeys $
---             newDescribeDimensionKeys
---
 --           ]
 
 --     , testGroup "response"
---         [ responseGetDimensionKeyDetails $
+--         [ responseDescribeDimensionKeys $
+--             newDescribeDimensionKeysResponse
+--
+--         , responseGetDimensionKeyDetails $
 --             newGetDimensionKeyDetailsResponse
 --
 --         , responseGetResourceMetrics $
 --             newGetResourceMetricsResponse
 --
---         , responseDescribeDimensionKeys $
---             newDescribeDimensionKeysResponse
---
 --           ]
 --     ]
 
 -- Requests
+
+requestDescribeDimensionKeys :: DescribeDimensionKeys -> TestTree
+requestDescribeDimensionKeys =
+  req
+    "DescribeDimensionKeys"
+    "fixture/DescribeDimensionKeys.yaml"
 
 requestGetDimensionKeyDetails :: GetDimensionKeyDetails -> TestTree
 requestGetDimensionKeyDetails =
@@ -65,13 +71,15 @@ requestGetResourceMetrics =
     "GetResourceMetrics"
     "fixture/GetResourceMetrics.yaml"
 
-requestDescribeDimensionKeys :: DescribeDimensionKeys -> TestTree
-requestDescribeDimensionKeys =
-  req
-    "DescribeDimensionKeys"
-    "fixture/DescribeDimensionKeys.yaml"
-
 -- Responses
+
+responseDescribeDimensionKeys :: DescribeDimensionKeysResponse -> TestTree
+responseDescribeDimensionKeys =
+  res
+    "DescribeDimensionKeysResponse"
+    "fixture/DescribeDimensionKeysResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeDimensionKeys)
 
 responseGetDimensionKeyDetails :: GetDimensionKeyDetailsResponse -> TestTree
 responseGetDimensionKeyDetails =
@@ -88,11 +96,3 @@ responseGetResourceMetrics =
     "fixture/GetResourceMetricsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetResourceMetrics)
-
-responseDescribeDimensionKeys :: DescribeDimensionKeysResponse -> TestTree
-responseDescribeDimensionKeys =
-  res
-    "DescribeDimensionKeysResponse"
-    "fixture/DescribeDimensionKeysResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeDimensionKeys)

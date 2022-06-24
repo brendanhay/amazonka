@@ -29,8 +29,6 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newLiteralOptions' smart constructor.
 data LiteralOptions = LiteralOptions'
   { sourceField :: Prelude.Maybe Prelude.Text,
-    -- | Whether the contents of the field can be returned in the search results.
-    returnEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Whether facet information can be returned for the field.
     facetEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Whether the contents of the field are searchable.
@@ -39,7 +37,9 @@ data LiteralOptions = LiteralOptions'
     sortEnabled :: Prelude.Maybe Prelude.Bool,
     -- | A value to use for the field if the field isn\'t specified for a
     -- document.
-    defaultValue :: Prelude.Maybe Prelude.Text
+    defaultValue :: Prelude.Maybe Prelude.Text,
+    -- | Whether the contents of the field can be returned in the search results.
+    returnEnabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,8 +53,6 @@ data LiteralOptions = LiteralOptions'
 --
 -- 'sourceField', 'literalOptions_sourceField' - Undocumented member.
 --
--- 'returnEnabled', 'literalOptions_returnEnabled' - Whether the contents of the field can be returned in the search results.
---
 -- 'facetEnabled', 'literalOptions_facetEnabled' - Whether facet information can be returned for the field.
 --
 -- 'searchEnabled', 'literalOptions_searchEnabled' - Whether the contents of the field are searchable.
@@ -63,25 +61,23 @@ data LiteralOptions = LiteralOptions'
 --
 -- 'defaultValue', 'literalOptions_defaultValue' - A value to use for the field if the field isn\'t specified for a
 -- document.
+--
+-- 'returnEnabled', 'literalOptions_returnEnabled' - Whether the contents of the field can be returned in the search results.
 newLiteralOptions ::
   LiteralOptions
 newLiteralOptions =
   LiteralOptions'
     { sourceField = Prelude.Nothing,
-      returnEnabled = Prelude.Nothing,
       facetEnabled = Prelude.Nothing,
       searchEnabled = Prelude.Nothing,
       sortEnabled = Prelude.Nothing,
-      defaultValue = Prelude.Nothing
+      defaultValue = Prelude.Nothing,
+      returnEnabled = Prelude.Nothing
     }
 
 -- | Undocumented member.
 literalOptions_sourceField :: Lens.Lens' LiteralOptions (Prelude.Maybe Prelude.Text)
 literalOptions_sourceField = Lens.lens (\LiteralOptions' {sourceField} -> sourceField) (\s@LiteralOptions' {} a -> s {sourceField = a} :: LiteralOptions)
-
--- | Whether the contents of the field can be returned in the search results.
-literalOptions_returnEnabled :: Lens.Lens' LiteralOptions (Prelude.Maybe Prelude.Bool)
-literalOptions_returnEnabled = Lens.lens (\LiteralOptions' {returnEnabled} -> returnEnabled) (\s@LiteralOptions' {} a -> s {returnEnabled = a} :: LiteralOptions)
 
 -- | Whether facet information can be returned for the field.
 literalOptions_facetEnabled :: Lens.Lens' LiteralOptions (Prelude.Maybe Prelude.Bool)
@@ -100,41 +96,45 @@ literalOptions_sortEnabled = Lens.lens (\LiteralOptions' {sortEnabled} -> sortEn
 literalOptions_defaultValue :: Lens.Lens' LiteralOptions (Prelude.Maybe Prelude.Text)
 literalOptions_defaultValue = Lens.lens (\LiteralOptions' {defaultValue} -> defaultValue) (\s@LiteralOptions' {} a -> s {defaultValue = a} :: LiteralOptions)
 
+-- | Whether the contents of the field can be returned in the search results.
+literalOptions_returnEnabled :: Lens.Lens' LiteralOptions (Prelude.Maybe Prelude.Bool)
+literalOptions_returnEnabled = Lens.lens (\LiteralOptions' {returnEnabled} -> returnEnabled) (\s@LiteralOptions' {} a -> s {returnEnabled = a} :: LiteralOptions)
+
 instance Core.FromXML LiteralOptions where
   parseXML x =
     LiteralOptions'
       Prelude.<$> (x Core..@? "SourceField")
-      Prelude.<*> (x Core..@? "ReturnEnabled")
       Prelude.<*> (x Core..@? "FacetEnabled")
       Prelude.<*> (x Core..@? "SearchEnabled")
       Prelude.<*> (x Core..@? "SortEnabled")
       Prelude.<*> (x Core..@? "DefaultValue")
+      Prelude.<*> (x Core..@? "ReturnEnabled")
 
 instance Prelude.Hashable LiteralOptions where
   hashWithSalt _salt LiteralOptions' {..} =
     _salt `Prelude.hashWithSalt` sourceField
-      `Prelude.hashWithSalt` returnEnabled
       `Prelude.hashWithSalt` facetEnabled
       `Prelude.hashWithSalt` searchEnabled
       `Prelude.hashWithSalt` sortEnabled
       `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` returnEnabled
 
 instance Prelude.NFData LiteralOptions where
   rnf LiteralOptions' {..} =
     Prelude.rnf sourceField
-      `Prelude.seq` Prelude.rnf returnEnabled
       `Prelude.seq` Prelude.rnf facetEnabled
       `Prelude.seq` Prelude.rnf searchEnabled
       `Prelude.seq` Prelude.rnf sortEnabled
       `Prelude.seq` Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf returnEnabled
 
 instance Core.ToQuery LiteralOptions where
   toQuery LiteralOptions' {..} =
     Prelude.mconcat
       [ "SourceField" Core.=: sourceField,
-        "ReturnEnabled" Core.=: returnEnabled,
         "FacetEnabled" Core.=: facetEnabled,
         "SearchEnabled" Core.=: searchEnabled,
         "SortEnabled" Core.=: sortEnabled,
-        "DefaultValue" Core.=: defaultValue
+        "DefaultValue" Core.=: defaultValue,
+        "ReturnEnabled" Core.=: returnEnabled
       ]

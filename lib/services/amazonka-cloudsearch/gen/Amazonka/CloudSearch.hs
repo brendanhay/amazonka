@@ -31,14 +31,17 @@ module Amazonka.CloudSearch
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** ResourceAlreadyExistsException
     _ResourceAlreadyExistsException,
 
-    -- ** BaseException
-    _BaseException,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** InvalidTypeException
+    _InvalidTypeException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- ** DisabledOperationException
     _DisabledOperationException,
@@ -46,14 +49,11 @@ module Amazonka.CloudSearch
     -- ** InternalException
     _InternalException,
 
-    -- ** InvalidTypeException
-    _InvalidTypeException,
+    -- ** ValidationException
+    _ValidationException,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** BaseException
+    _BaseException,
 
     -- * Waiters
     -- $waiters
@@ -61,11 +61,95 @@ module Amazonka.CloudSearch
     -- * Operations
     -- $operations
 
+    -- ** BuildSuggesters
+    BuildSuggesters (BuildSuggesters'),
+    newBuildSuggesters,
+    BuildSuggestersResponse (BuildSuggestersResponse'),
+    newBuildSuggestersResponse,
+
+    -- ** CreateDomain
+    CreateDomain (CreateDomain'),
+    newCreateDomain,
+    CreateDomainResponse (CreateDomainResponse'),
+    newCreateDomainResponse,
+
+    -- ** DefineAnalysisScheme
+    DefineAnalysisScheme (DefineAnalysisScheme'),
+    newDefineAnalysisScheme,
+    DefineAnalysisSchemeResponse (DefineAnalysisSchemeResponse'),
+    newDefineAnalysisSchemeResponse,
+
+    -- ** DefineExpression
+    DefineExpression (DefineExpression'),
+    newDefineExpression,
+    DefineExpressionResponse (DefineExpressionResponse'),
+    newDefineExpressionResponse,
+
+    -- ** DefineIndexField
+    DefineIndexField (DefineIndexField'),
+    newDefineIndexField,
+    DefineIndexFieldResponse (DefineIndexFieldResponse'),
+    newDefineIndexFieldResponse,
+
+    -- ** DefineSuggester
+    DefineSuggester (DefineSuggester'),
+    newDefineSuggester,
+    DefineSuggesterResponse (DefineSuggesterResponse'),
+    newDefineSuggesterResponse,
+
+    -- ** DeleteAnalysisScheme
+    DeleteAnalysisScheme (DeleteAnalysisScheme'),
+    newDeleteAnalysisScheme,
+    DeleteAnalysisSchemeResponse (DeleteAnalysisSchemeResponse'),
+    newDeleteAnalysisSchemeResponse,
+
+    -- ** DeleteDomain
+    DeleteDomain (DeleteDomain'),
+    newDeleteDomain,
+    DeleteDomainResponse (DeleteDomainResponse'),
+    newDeleteDomainResponse,
+
+    -- ** DeleteExpression
+    DeleteExpression (DeleteExpression'),
+    newDeleteExpression,
+    DeleteExpressionResponse (DeleteExpressionResponse'),
+    newDeleteExpressionResponse,
+
+    -- ** DeleteIndexField
+    DeleteIndexField (DeleteIndexField'),
+    newDeleteIndexField,
+    DeleteIndexFieldResponse (DeleteIndexFieldResponse'),
+    newDeleteIndexFieldResponse,
+
+    -- ** DeleteSuggester
+    DeleteSuggester (DeleteSuggester'),
+    newDeleteSuggester,
+    DeleteSuggesterResponse (DeleteSuggesterResponse'),
+    newDeleteSuggesterResponse,
+
+    -- ** DescribeAnalysisSchemes
+    DescribeAnalysisSchemes (DescribeAnalysisSchemes'),
+    newDescribeAnalysisSchemes,
+    DescribeAnalysisSchemesResponse (DescribeAnalysisSchemesResponse'),
+    newDescribeAnalysisSchemesResponse,
+
     -- ** DescribeAvailabilityOptions
     DescribeAvailabilityOptions (DescribeAvailabilityOptions'),
     newDescribeAvailabilityOptions,
     DescribeAvailabilityOptionsResponse (DescribeAvailabilityOptionsResponse'),
     newDescribeAvailabilityOptionsResponse,
+
+    -- ** DescribeDomainEndpointOptions
+    DescribeDomainEndpointOptions (DescribeDomainEndpointOptions'),
+    newDescribeDomainEndpointOptions,
+    DescribeDomainEndpointOptionsResponse (DescribeDomainEndpointOptionsResponse'),
+    newDescribeDomainEndpointOptionsResponse,
+
+    -- ** DescribeDomains
+    DescribeDomains (DescribeDomains'),
+    newDescribeDomains,
+    DescribeDomainsResponse (DescribeDomainsResponse'),
+    newDescribeDomainsResponse,
 
     -- ** DescribeExpressions
     DescribeExpressions (DescribeExpressions'),
@@ -73,11 +157,11 @@ module Amazonka.CloudSearch
     DescribeExpressionsResponse (DescribeExpressionsResponse'),
     newDescribeExpressionsResponse,
 
-    -- ** DefineExpression
-    DefineExpression (DefineExpression'),
-    newDefineExpression,
-    DefineExpressionResponse (DefineExpressionResponse'),
-    newDefineExpressionResponse,
+    -- ** DescribeIndexFields
+    DescribeIndexFields (DescribeIndexFields'),
+    newDescribeIndexFields,
+    DescribeIndexFieldsResponse (DescribeIndexFieldsResponse'),
+    newDescribeIndexFieldsResponse,
 
     -- ** DescribeScalingParameters
     DescribeScalingParameters (DescribeScalingParameters'),
@@ -97,17 +181,11 @@ module Amazonka.CloudSearch
     DescribeSuggestersResponse (DescribeSuggestersResponse'),
     newDescribeSuggestersResponse,
 
-    -- ** UpdateAvailabilityOptions
-    UpdateAvailabilityOptions (UpdateAvailabilityOptions'),
-    newUpdateAvailabilityOptions,
-    UpdateAvailabilityOptionsResponse (UpdateAvailabilityOptionsResponse'),
-    newUpdateAvailabilityOptionsResponse,
-
-    -- ** DeleteExpression
-    DeleteExpression (DeleteExpression'),
-    newDeleteExpression,
-    DeleteExpressionResponse (DeleteExpressionResponse'),
-    newDeleteExpressionResponse,
+    -- ** IndexDocuments
+    IndexDocuments (IndexDocuments'),
+    newIndexDocuments,
+    IndexDocumentsResponse (IndexDocumentsResponse'),
+    newIndexDocumentsResponse,
 
     -- ** ListDomainNames
     ListDomainNames (ListDomainNames'),
@@ -115,41 +193,11 @@ module Amazonka.CloudSearch
     ListDomainNamesResponse (ListDomainNamesResponse'),
     newListDomainNamesResponse,
 
-    -- ** DefineSuggester
-    DefineSuggester (DefineSuggester'),
-    newDefineSuggester,
-    DefineSuggesterResponse (DefineSuggesterResponse'),
-    newDefineSuggesterResponse,
-
-    -- ** DescribeDomains
-    DescribeDomains (DescribeDomains'),
-    newDescribeDomains,
-    DescribeDomainsResponse (DescribeDomainsResponse'),
-    newDescribeDomainsResponse,
-
-    -- ** DeleteAnalysisScheme
-    DeleteAnalysisScheme (DeleteAnalysisScheme'),
-    newDeleteAnalysisScheme,
-    DeleteAnalysisSchemeResponse (DeleteAnalysisSchemeResponse'),
-    newDeleteAnalysisSchemeResponse,
-
-    -- ** DescribeDomainEndpointOptions
-    DescribeDomainEndpointOptions (DescribeDomainEndpointOptions'),
-    newDescribeDomainEndpointOptions,
-    DescribeDomainEndpointOptionsResponse (DescribeDomainEndpointOptionsResponse'),
-    newDescribeDomainEndpointOptionsResponse,
-
-    -- ** DescribeAnalysisSchemes
-    DescribeAnalysisSchemes (DescribeAnalysisSchemes'),
-    newDescribeAnalysisSchemes,
-    DescribeAnalysisSchemesResponse (DescribeAnalysisSchemesResponse'),
-    newDescribeAnalysisSchemesResponse,
-
-    -- ** CreateDomain
-    CreateDomain (CreateDomain'),
-    newCreateDomain,
-    CreateDomainResponse (CreateDomainResponse'),
-    newCreateDomainResponse,
+    -- ** UpdateAvailabilityOptions
+    UpdateAvailabilityOptions (UpdateAvailabilityOptions'),
+    newUpdateAvailabilityOptions,
+    UpdateAvailabilityOptionsResponse (UpdateAvailabilityOptionsResponse'),
+    newUpdateAvailabilityOptionsResponse,
 
     -- ** UpdateDomainEndpointOptions
     UpdateDomainEndpointOptions (UpdateDomainEndpointOptions'),
@@ -157,65 +205,17 @@ module Amazonka.CloudSearch
     UpdateDomainEndpointOptionsResponse (UpdateDomainEndpointOptionsResponse'),
     newUpdateDomainEndpointOptionsResponse,
 
-    -- ** DescribeIndexFields
-    DescribeIndexFields (DescribeIndexFields'),
-    newDescribeIndexFields,
-    DescribeIndexFieldsResponse (DescribeIndexFieldsResponse'),
-    newDescribeIndexFieldsResponse,
-
-    -- ** DeleteSuggester
-    DeleteSuggester (DeleteSuggester'),
-    newDeleteSuggester,
-    DeleteSuggesterResponse (DeleteSuggesterResponse'),
-    newDeleteSuggesterResponse,
-
-    -- ** DefineAnalysisScheme
-    DefineAnalysisScheme (DefineAnalysisScheme'),
-    newDefineAnalysisScheme,
-    DefineAnalysisSchemeResponse (DefineAnalysisSchemeResponse'),
-    newDefineAnalysisSchemeResponse,
-
-    -- ** IndexDocuments
-    IndexDocuments (IndexDocuments'),
-    newIndexDocuments,
-    IndexDocumentsResponse (IndexDocumentsResponse'),
-    newIndexDocumentsResponse,
-
-    -- ** DeleteIndexField
-    DeleteIndexField (DeleteIndexField'),
-    newDeleteIndexField,
-    DeleteIndexFieldResponse (DeleteIndexFieldResponse'),
-    newDeleteIndexFieldResponse,
-
-    -- ** UpdateServiceAccessPolicies
-    UpdateServiceAccessPolicies (UpdateServiceAccessPolicies'),
-    newUpdateServiceAccessPolicies,
-    UpdateServiceAccessPoliciesResponse (UpdateServiceAccessPoliciesResponse'),
-    newUpdateServiceAccessPoliciesResponse,
-
     -- ** UpdateScalingParameters
     UpdateScalingParameters (UpdateScalingParameters'),
     newUpdateScalingParameters,
     UpdateScalingParametersResponse (UpdateScalingParametersResponse'),
     newUpdateScalingParametersResponse,
 
-    -- ** BuildSuggesters
-    BuildSuggesters (BuildSuggesters'),
-    newBuildSuggesters,
-    BuildSuggestersResponse (BuildSuggestersResponse'),
-    newBuildSuggestersResponse,
-
-    -- ** DeleteDomain
-    DeleteDomain (DeleteDomain'),
-    newDeleteDomain,
-    DeleteDomainResponse (DeleteDomainResponse'),
-    newDeleteDomainResponse,
-
-    -- ** DefineIndexField
-    DefineIndexField (DefineIndexField'),
-    newDefineIndexField,
-    DefineIndexFieldResponse (DefineIndexFieldResponse'),
-    newDefineIndexFieldResponse,
+    -- ** UpdateServiceAccessPolicies
+    UpdateServiceAccessPolicies (UpdateServiceAccessPolicies'),
+    newUpdateServiceAccessPolicies,
+    UpdateServiceAccessPoliciesResponse (UpdateServiceAccessPoliciesResponse'),
+    newUpdateServiceAccessPoliciesResponse,
 
     -- * Types
 

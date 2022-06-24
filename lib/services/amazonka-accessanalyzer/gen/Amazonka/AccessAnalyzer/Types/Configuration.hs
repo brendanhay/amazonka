@@ -34,16 +34,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConfiguration' smart constructor.
 data Configuration = Configuration'
-  { -- | The access control configuration is for a KMS key.
-    kmsKey :: Prelude.Maybe KmsKeyConfiguration,
-    -- | The access control configuration is for a Secrets Manager secret.
-    secretsManagerSecret :: Prelude.Maybe SecretsManagerSecretConfiguration,
-    -- | The access control configuration is for an Amazon SQS queue.
-    sqsQueue :: Prelude.Maybe SqsQueueConfiguration,
-    -- | The access control configuration is for an Amazon S3 Bucket.
+  { -- | The access control configuration is for an Amazon S3 Bucket.
     s3Bucket :: Prelude.Maybe S3BucketConfiguration,
     -- | The access control configuration is for an IAM role.
-    iamRole :: Prelude.Maybe IamRoleConfiguration
+    iamRole :: Prelude.Maybe IamRoleConfiguration,
+    -- | The access control configuration is for a KMS key.
+    kmsKey :: Prelude.Maybe KmsKeyConfiguration,
+    -- | The access control configuration is for an Amazon SQS queue.
+    sqsQueue :: Prelude.Maybe SqsQueueConfiguration,
+    -- | The access control configuration is for a Secrets Manager secret.
+    secretsManagerSecret :: Prelude.Maybe SecretsManagerSecretConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,37 +55,25 @@ data Configuration = Configuration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKey', 'configuration_kmsKey' - The access control configuration is for a KMS key.
---
--- 'secretsManagerSecret', 'configuration_secretsManagerSecret' - The access control configuration is for a Secrets Manager secret.
---
--- 'sqsQueue', 'configuration_sqsQueue' - The access control configuration is for an Amazon SQS queue.
---
 -- 's3Bucket', 'configuration_s3Bucket' - The access control configuration is for an Amazon S3 Bucket.
 --
 -- 'iamRole', 'configuration_iamRole' - The access control configuration is for an IAM role.
+--
+-- 'kmsKey', 'configuration_kmsKey' - The access control configuration is for a KMS key.
+--
+-- 'sqsQueue', 'configuration_sqsQueue' - The access control configuration is for an Amazon SQS queue.
+--
+-- 'secretsManagerSecret', 'configuration_secretsManagerSecret' - The access control configuration is for a Secrets Manager secret.
 newConfiguration ::
   Configuration
 newConfiguration =
   Configuration'
-    { kmsKey = Prelude.Nothing,
-      secretsManagerSecret = Prelude.Nothing,
+    { s3Bucket = Prelude.Nothing,
+      iamRole = Prelude.Nothing,
+      kmsKey = Prelude.Nothing,
       sqsQueue = Prelude.Nothing,
-      s3Bucket = Prelude.Nothing,
-      iamRole = Prelude.Nothing
+      secretsManagerSecret = Prelude.Nothing
     }
-
--- | The access control configuration is for a KMS key.
-configuration_kmsKey :: Lens.Lens' Configuration (Prelude.Maybe KmsKeyConfiguration)
-configuration_kmsKey = Lens.lens (\Configuration' {kmsKey} -> kmsKey) (\s@Configuration' {} a -> s {kmsKey = a} :: Configuration)
-
--- | The access control configuration is for a Secrets Manager secret.
-configuration_secretsManagerSecret :: Lens.Lens' Configuration (Prelude.Maybe SecretsManagerSecretConfiguration)
-configuration_secretsManagerSecret = Lens.lens (\Configuration' {secretsManagerSecret} -> secretsManagerSecret) (\s@Configuration' {} a -> s {secretsManagerSecret = a} :: Configuration)
-
--- | The access control configuration is for an Amazon SQS queue.
-configuration_sqsQueue :: Lens.Lens' Configuration (Prelude.Maybe SqsQueueConfiguration)
-configuration_sqsQueue = Lens.lens (\Configuration' {sqsQueue} -> sqsQueue) (\s@Configuration' {} a -> s {sqsQueue = a} :: Configuration)
 
 -- | The access control configuration is for an Amazon S3 Bucket.
 configuration_s3Bucket :: Lens.Lens' Configuration (Prelude.Maybe S3BucketConfiguration)
@@ -95,44 +83,56 @@ configuration_s3Bucket = Lens.lens (\Configuration' {s3Bucket} -> s3Bucket) (\s@
 configuration_iamRole :: Lens.Lens' Configuration (Prelude.Maybe IamRoleConfiguration)
 configuration_iamRole = Lens.lens (\Configuration' {iamRole} -> iamRole) (\s@Configuration' {} a -> s {iamRole = a} :: Configuration)
 
+-- | The access control configuration is for a KMS key.
+configuration_kmsKey :: Lens.Lens' Configuration (Prelude.Maybe KmsKeyConfiguration)
+configuration_kmsKey = Lens.lens (\Configuration' {kmsKey} -> kmsKey) (\s@Configuration' {} a -> s {kmsKey = a} :: Configuration)
+
+-- | The access control configuration is for an Amazon SQS queue.
+configuration_sqsQueue :: Lens.Lens' Configuration (Prelude.Maybe SqsQueueConfiguration)
+configuration_sqsQueue = Lens.lens (\Configuration' {sqsQueue} -> sqsQueue) (\s@Configuration' {} a -> s {sqsQueue = a} :: Configuration)
+
+-- | The access control configuration is for a Secrets Manager secret.
+configuration_secretsManagerSecret :: Lens.Lens' Configuration (Prelude.Maybe SecretsManagerSecretConfiguration)
+configuration_secretsManagerSecret = Lens.lens (\Configuration' {secretsManagerSecret} -> secretsManagerSecret) (\s@Configuration' {} a -> s {secretsManagerSecret = a} :: Configuration)
+
 instance Core.FromJSON Configuration where
   parseJSON =
     Core.withObject
       "Configuration"
       ( \x ->
           Configuration'
-            Prelude.<$> (x Core..:? "kmsKey")
-            Prelude.<*> (x Core..:? "secretsManagerSecret")
-            Prelude.<*> (x Core..:? "sqsQueue")
-            Prelude.<*> (x Core..:? "s3Bucket")
+            Prelude.<$> (x Core..:? "s3Bucket")
             Prelude.<*> (x Core..:? "iamRole")
+            Prelude.<*> (x Core..:? "kmsKey")
+            Prelude.<*> (x Core..:? "sqsQueue")
+            Prelude.<*> (x Core..:? "secretsManagerSecret")
       )
 
 instance Prelude.Hashable Configuration where
   hashWithSalt _salt Configuration' {..} =
-    _salt `Prelude.hashWithSalt` kmsKey
-      `Prelude.hashWithSalt` secretsManagerSecret
-      `Prelude.hashWithSalt` sqsQueue
-      `Prelude.hashWithSalt` s3Bucket
+    _salt `Prelude.hashWithSalt` s3Bucket
       `Prelude.hashWithSalt` iamRole
+      `Prelude.hashWithSalt` kmsKey
+      `Prelude.hashWithSalt` sqsQueue
+      `Prelude.hashWithSalt` secretsManagerSecret
 
 instance Prelude.NFData Configuration where
   rnf Configuration' {..} =
-    Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf secretsManagerSecret
-      `Prelude.seq` Prelude.rnf sqsQueue
-      `Prelude.seq` Prelude.rnf s3Bucket
+    Prelude.rnf s3Bucket
       `Prelude.seq` Prelude.rnf iamRole
+      `Prelude.seq` Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf sqsQueue
+      `Prelude.seq` Prelude.rnf secretsManagerSecret
 
 instance Core.ToJSON Configuration where
   toJSON Configuration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("kmsKey" Core..=) Prelude.<$> kmsKey,
-            ("secretsManagerSecret" Core..=)
-              Prelude.<$> secretsManagerSecret,
+          [ ("s3Bucket" Core..=) Prelude.<$> s3Bucket,
+            ("iamRole" Core..=) Prelude.<$> iamRole,
+            ("kmsKey" Core..=) Prelude.<$> kmsKey,
             ("sqsQueue" Core..=) Prelude.<$> sqsQueue,
-            ("s3Bucket" Core..=) Prelude.<$> s3Bucket,
-            ("iamRole" Core..=) Prelude.<$> iamRole
+            ("secretsManagerSecret" Core..=)
+              Prelude.<$> secretsManagerSecret
           ]
       )

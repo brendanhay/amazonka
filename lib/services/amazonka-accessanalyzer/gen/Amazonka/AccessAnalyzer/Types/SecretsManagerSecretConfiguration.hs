@@ -44,11 +44,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSecretsManagerSecretConfiguration' smart constructor.
 data SecretsManagerSecretConfiguration = SecretsManagerSecretConfiguration'
-  { -- | The proposed ARN, key ID, or alias of the KMS customer master key (CMK).
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The proposed resource policy defining who can access or manage the
+  { -- | The proposed resource policy defining who can access or manage the
     -- secret.
-    secretPolicy :: Prelude.Maybe Prelude.Text
+    secretPolicy :: Prelude.Maybe Prelude.Text,
+    -- | The proposed ARN, key ID, or alias of the KMS customer master key (CMK).
+    kmsKeyId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,27 +60,27 @@ data SecretsManagerSecretConfiguration = SecretsManagerSecretConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyId', 'secretsManagerSecretConfiguration_kmsKeyId' - The proposed ARN, key ID, or alias of the KMS customer master key (CMK).
---
 -- 'secretPolicy', 'secretsManagerSecretConfiguration_secretPolicy' - The proposed resource policy defining who can access or manage the
 -- secret.
+--
+-- 'kmsKeyId', 'secretsManagerSecretConfiguration_kmsKeyId' - The proposed ARN, key ID, or alias of the KMS customer master key (CMK).
 newSecretsManagerSecretConfiguration ::
   SecretsManagerSecretConfiguration
 newSecretsManagerSecretConfiguration =
   SecretsManagerSecretConfiguration'
-    { kmsKeyId =
+    { secretPolicy =
         Prelude.Nothing,
-      secretPolicy = Prelude.Nothing
+      kmsKeyId = Prelude.Nothing
     }
-
--- | The proposed ARN, key ID, or alias of the KMS customer master key (CMK).
-secretsManagerSecretConfiguration_kmsKeyId :: Lens.Lens' SecretsManagerSecretConfiguration (Prelude.Maybe Prelude.Text)
-secretsManagerSecretConfiguration_kmsKeyId = Lens.lens (\SecretsManagerSecretConfiguration' {kmsKeyId} -> kmsKeyId) (\s@SecretsManagerSecretConfiguration' {} a -> s {kmsKeyId = a} :: SecretsManagerSecretConfiguration)
 
 -- | The proposed resource policy defining who can access or manage the
 -- secret.
 secretsManagerSecretConfiguration_secretPolicy :: Lens.Lens' SecretsManagerSecretConfiguration (Prelude.Maybe Prelude.Text)
 secretsManagerSecretConfiguration_secretPolicy = Lens.lens (\SecretsManagerSecretConfiguration' {secretPolicy} -> secretPolicy) (\s@SecretsManagerSecretConfiguration' {} a -> s {secretPolicy = a} :: SecretsManagerSecretConfiguration)
+
+-- | The proposed ARN, key ID, or alias of the KMS customer master key (CMK).
+secretsManagerSecretConfiguration_kmsKeyId :: Lens.Lens' SecretsManagerSecretConfiguration (Prelude.Maybe Prelude.Text)
+secretsManagerSecretConfiguration_kmsKeyId = Lens.lens (\SecretsManagerSecretConfiguration' {kmsKeyId} -> kmsKeyId) (\s@SecretsManagerSecretConfiguration' {} a -> s {kmsKeyId = a} :: SecretsManagerSecretConfiguration)
 
 instance
   Core.FromJSON
@@ -91,8 +91,8 @@ instance
       "SecretsManagerSecretConfiguration"
       ( \x ->
           SecretsManagerSecretConfiguration'
-            Prelude.<$> (x Core..:? "kmsKeyId")
-            Prelude.<*> (x Core..:? "secretPolicy")
+            Prelude.<$> (x Core..:? "secretPolicy")
+            Prelude.<*> (x Core..:? "kmsKeyId")
       )
 
 instance
@@ -102,16 +102,16 @@ instance
   hashWithSalt
     _salt
     SecretsManagerSecretConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` kmsKeyId
-        `Prelude.hashWithSalt` secretPolicy
+      _salt `Prelude.hashWithSalt` secretPolicy
+        `Prelude.hashWithSalt` kmsKeyId
 
 instance
   Prelude.NFData
     SecretsManagerSecretConfiguration
   where
   rnf SecretsManagerSecretConfiguration' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf secretPolicy
+    Prelude.rnf secretPolicy
+      `Prelude.seq` Prelude.rnf kmsKeyId
 
 instance
   Core.ToJSON
@@ -120,7 +120,7 @@ instance
   toJSON SecretsManagerSecretConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("secretPolicy" Core..=) Prelude.<$> secretPolicy
+          [ ("secretPolicy" Core..=) Prelude.<$> secretPolicy,
+            ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId
           ]
       )

@@ -14,37 +14,14 @@
 module Amazonka.AccessAnalyzer.Lens
   ( -- * Operations
 
-    -- ** ListFindings
-    listFindings_nextToken,
-    listFindings_sort,
-    listFindings_filter,
-    listFindings_maxResults,
-    listFindings_analyzerArn,
-    listFindingsResponse_nextToken,
-    listFindingsResponse_httpStatus,
-    listFindingsResponse_findings,
+    -- ** ApplyArchiveRule
+    applyArchiveRule_clientToken,
+    applyArchiveRule_analyzerArn,
+    applyArchiveRule_ruleName,
 
-    -- ** GetAnalyzedResource
-    getAnalyzedResource_analyzerArn,
-    getAnalyzedResource_resourceArn,
-    getAnalyzedResourceResponse_resource,
-    getAnalyzedResourceResponse_httpStatus,
-
-    -- ** ListPolicyGenerations
-    listPolicyGenerations_nextToken,
-    listPolicyGenerations_principalArn,
-    listPolicyGenerations_maxResults,
-    listPolicyGenerationsResponse_nextToken,
-    listPolicyGenerationsResponse_httpStatus,
-    listPolicyGenerationsResponse_policyGenerations,
-
-    -- ** ListAccessPreviews
-    listAccessPreviews_nextToken,
-    listAccessPreviews_maxResults,
-    listAccessPreviews_analyzerArn,
-    listAccessPreviewsResponse_nextToken,
-    listAccessPreviewsResponse_httpStatus,
-    listAccessPreviewsResponse_accessPreviews,
+    -- ** CancelPolicyGeneration
+    cancelPolicyGeneration_jobId,
+    cancelPolicyGenerationResponse_httpStatus,
 
     -- ** CreateAccessPreview
     createAccessPreview_clientToken,
@@ -53,109 +30,14 @@ module Amazonka.AccessAnalyzer.Lens
     createAccessPreviewResponse_httpStatus,
     createAccessPreviewResponse_id,
 
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** StartResourceScan
-    startResourceScan_analyzerArn,
-    startResourceScan_resourceArn,
-
-    -- ** DeleteArchiveRule
-    deleteArchiveRule_clientToken,
-    deleteArchiveRule_analyzerName,
-    deleteArchiveRule_ruleName,
-
-    -- ** UpdateArchiveRule
-    updateArchiveRule_clientToken,
-    updateArchiveRule_analyzerName,
-    updateArchiveRule_filter,
-    updateArchiveRule_ruleName,
-
-    -- ** GetAccessPreview
-    getAccessPreview_accessPreviewId,
-    getAccessPreview_analyzerArn,
-    getAccessPreviewResponse_httpStatus,
-    getAccessPreviewResponse_accessPreview,
-
-    -- ** ListAnalyzedResources
-    listAnalyzedResources_resourceType,
-    listAnalyzedResources_nextToken,
-    listAnalyzedResources_maxResults,
-    listAnalyzedResources_analyzerArn,
-    listAnalyzedResourcesResponse_nextToken,
-    listAnalyzedResourcesResponse_httpStatus,
-    listAnalyzedResourcesResponse_analyzedResources,
-
-    -- ** StartPolicyGeneration
-    startPolicyGeneration_clientToken,
-    startPolicyGeneration_cloudTrailDetails,
-    startPolicyGeneration_policyGenerationDetails,
-    startPolicyGenerationResponse_httpStatus,
-    startPolicyGenerationResponse_jobId,
-
-    -- ** ValidatePolicy
-    validatePolicy_locale,
-    validatePolicy_nextToken,
-    validatePolicy_maxResults,
-    validatePolicy_policyDocument,
-    validatePolicy_policyType,
-    validatePolicyResponse_nextToken,
-    validatePolicyResponse_httpStatus,
-    validatePolicyResponse_findings,
-
-    -- ** DeleteAnalyzer
-    deleteAnalyzer_clientToken,
-    deleteAnalyzer_analyzerName,
-
-    -- ** UpdateFindings
-    updateFindings_clientToken,
-    updateFindings_ids,
-    updateFindings_resourceArn,
-    updateFindings_analyzerArn,
-    updateFindings_status,
-
-    -- ** ListAnalyzers
-    listAnalyzers_nextToken,
-    listAnalyzers_type,
-    listAnalyzers_maxResults,
-    listAnalyzersResponse_nextToken,
-    listAnalyzersResponse_httpStatus,
-    listAnalyzersResponse_analyzers,
-
-    -- ** ListAccessPreviewFindings
-    listAccessPreviewFindings_nextToken,
-    listAccessPreviewFindings_filter,
-    listAccessPreviewFindings_maxResults,
-    listAccessPreviewFindings_accessPreviewId,
-    listAccessPreviewFindings_analyzerArn,
-    listAccessPreviewFindingsResponse_nextToken,
-    listAccessPreviewFindingsResponse_httpStatus,
-    listAccessPreviewFindingsResponse_findings,
-
-    -- ** GetArchiveRule
-    getArchiveRule_analyzerName,
-    getArchiveRule_ruleName,
-    getArchiveRuleResponse_httpStatus,
-    getArchiveRuleResponse_archiveRule,
-
     -- ** CreateAnalyzer
+    createAnalyzer_tags,
     createAnalyzer_clientToken,
     createAnalyzer_archiveRules,
-    createAnalyzer_tags,
     createAnalyzer_analyzerName,
     createAnalyzer_type,
     createAnalyzerResponse_arn,
     createAnalyzerResponse_httpStatus,
-
-    -- ** ListArchiveRules
-    listArchiveRules_nextToken,
-    listArchiveRules_maxResults,
-    listArchiveRules_analyzerName,
-    listArchiveRulesResponse_nextToken,
-    listArchiveRulesResponse_httpStatus,
-    listArchiveRulesResponse_archiveRules,
 
     -- ** CreateArchiveRule
     createArchiveRule_clientToken,
@@ -163,29 +45,37 @@ module Amazonka.AccessAnalyzer.Lens
     createArchiveRule_filter,
     createArchiveRule_ruleName,
 
-    -- ** CancelPolicyGeneration
-    cancelPolicyGeneration_jobId,
-    cancelPolicyGenerationResponse_httpStatus,
+    -- ** DeleteAnalyzer
+    deleteAnalyzer_clientToken,
+    deleteAnalyzer_analyzerName,
 
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
+    -- ** DeleteArchiveRule
+    deleteArchiveRule_clientToken,
+    deleteArchiveRule_analyzerName,
+    deleteArchiveRule_ruleName,
 
-    -- ** ApplyArchiveRule
-    applyArchiveRule_clientToken,
-    applyArchiveRule_analyzerArn,
-    applyArchiveRule_ruleName,
+    -- ** GetAccessPreview
+    getAccessPreview_accessPreviewId,
+    getAccessPreview_analyzerArn,
+    getAccessPreviewResponse_httpStatus,
+    getAccessPreviewResponse_accessPreview,
+
+    -- ** GetAnalyzedResource
+    getAnalyzedResource_analyzerArn,
+    getAnalyzedResource_resourceArn,
+    getAnalyzedResourceResponse_resource,
+    getAnalyzedResourceResponse_httpStatus,
 
     -- ** GetAnalyzer
     getAnalyzer_analyzerName,
     getAnalyzerResponse_httpStatus,
     getAnalyzerResponse_analyzer,
 
-    -- ** UntagResource
-    untagResource_resourceArn,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
+    -- ** GetArchiveRule
+    getArchiveRule_analyzerName,
+    getArchiveRule_ruleName,
+    getArchiveRuleResponse_httpStatus,
+    getArchiveRuleResponse_archiveRule,
 
     -- ** GetFinding
     getFinding_analyzerArn,
@@ -201,6 +91,116 @@ module Amazonka.AccessAnalyzer.Lens
     getGeneratedPolicyResponse_generatedPolicyResult,
     getGeneratedPolicyResponse_jobDetails,
 
+    -- ** ListAccessPreviewFindings
+    listAccessPreviewFindings_nextToken,
+    listAccessPreviewFindings_filter,
+    listAccessPreviewFindings_maxResults,
+    listAccessPreviewFindings_accessPreviewId,
+    listAccessPreviewFindings_analyzerArn,
+    listAccessPreviewFindingsResponse_nextToken,
+    listAccessPreviewFindingsResponse_httpStatus,
+    listAccessPreviewFindingsResponse_findings,
+
+    -- ** ListAccessPreviews
+    listAccessPreviews_nextToken,
+    listAccessPreviews_maxResults,
+    listAccessPreviews_analyzerArn,
+    listAccessPreviewsResponse_nextToken,
+    listAccessPreviewsResponse_httpStatus,
+    listAccessPreviewsResponse_accessPreviews,
+
+    -- ** ListAnalyzedResources
+    listAnalyzedResources_resourceType,
+    listAnalyzedResources_nextToken,
+    listAnalyzedResources_maxResults,
+    listAnalyzedResources_analyzerArn,
+    listAnalyzedResourcesResponse_nextToken,
+    listAnalyzedResourcesResponse_httpStatus,
+    listAnalyzedResourcesResponse_analyzedResources,
+
+    -- ** ListAnalyzers
+    listAnalyzers_nextToken,
+    listAnalyzers_type,
+    listAnalyzers_maxResults,
+    listAnalyzersResponse_nextToken,
+    listAnalyzersResponse_httpStatus,
+    listAnalyzersResponse_analyzers,
+
+    -- ** ListArchiveRules
+    listArchiveRules_nextToken,
+    listArchiveRules_maxResults,
+    listArchiveRules_analyzerName,
+    listArchiveRulesResponse_nextToken,
+    listArchiveRulesResponse_httpStatus,
+    listArchiveRulesResponse_archiveRules,
+
+    -- ** ListFindings
+    listFindings_nextToken,
+    listFindings_sort,
+    listFindings_filter,
+    listFindings_maxResults,
+    listFindings_analyzerArn,
+    listFindingsResponse_nextToken,
+    listFindingsResponse_httpStatus,
+    listFindingsResponse_findings,
+
+    -- ** ListPolicyGenerations
+    listPolicyGenerations_nextToken,
+    listPolicyGenerations_principalArn,
+    listPolicyGenerations_maxResults,
+    listPolicyGenerationsResponse_nextToken,
+    listPolicyGenerationsResponse_httpStatus,
+    listPolicyGenerationsResponse_policyGenerations,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** StartPolicyGeneration
+    startPolicyGeneration_clientToken,
+    startPolicyGeneration_cloudTrailDetails,
+    startPolicyGeneration_policyGenerationDetails,
+    startPolicyGenerationResponse_httpStatus,
+    startPolicyGenerationResponse_jobId,
+
+    -- ** StartResourceScan
+    startResourceScan_analyzerArn,
+    startResourceScan_resourceArn,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
+
+    -- ** UpdateArchiveRule
+    updateArchiveRule_clientToken,
+    updateArchiveRule_analyzerName,
+    updateArchiveRule_filter,
+    updateArchiveRule_ruleName,
+
+    -- ** UpdateFindings
+    updateFindings_clientToken,
+    updateFindings_ids,
+    updateFindings_resourceArn,
+    updateFindings_analyzerArn,
+    updateFindings_status,
+
+    -- ** ValidatePolicy
+    validatePolicy_nextToken,
+    validatePolicy_locale,
+    validatePolicy_maxResults,
+    validatePolicy_policyDocument,
+    validatePolicy_policyType,
+    validatePolicyResponse_nextToken,
+    validatePolicyResponse_httpStatus,
+    validatePolicyResponse_findings,
+
     -- * Types
 
     -- ** AccessPreview
@@ -212,15 +212,15 @@ module Amazonka.AccessAnalyzer.Lens
     accessPreview_status,
 
     -- ** AccessPreviewFinding
-    accessPreviewFinding_existingFindingStatus,
-    accessPreviewFinding_error,
-    accessPreviewFinding_isPublic,
-    accessPreviewFinding_action,
-    accessPreviewFinding_sources,
-    accessPreviewFinding_resource,
     accessPreviewFinding_principal,
+    accessPreviewFinding_sources,
+    accessPreviewFinding_isPublic,
     accessPreviewFinding_existingFindingId,
     accessPreviewFinding_condition,
+    accessPreviewFinding_action,
+    accessPreviewFinding_error,
+    accessPreviewFinding_existingFindingStatus,
+    accessPreviewFinding_resource,
     accessPreviewFinding_changeType,
     accessPreviewFinding_createdAt,
     accessPreviewFinding_id,
@@ -244,9 +244,9 @@ module Amazonka.AccessAnalyzer.Lens
 
     -- ** AnalyzedResource
     analyzedResource_status,
-    analyzedResource_actions,
-    analyzedResource_error,
     analyzedResource_sharedVia,
+    analyzedResource_error,
+    analyzedResource_actions,
     analyzedResource_analyzedAt,
     analyzedResource_createdAt,
     analyzedResource_isPublic,
@@ -261,10 +261,10 @@ module Amazonka.AccessAnalyzer.Lens
     analyzedResourceSummary_resourceType,
 
     -- ** AnalyzerSummary
+    analyzerSummary_tags,
     analyzerSummary_lastResourceAnalyzedAt,
     analyzerSummary_lastResourceAnalyzed,
     analyzerSummary_statusReason,
-    analyzerSummary_tags,
     analyzerSummary_arn,
     analyzerSummary_createdAt,
     analyzerSummary_name,
@@ -289,25 +289,25 @@ module Amazonka.AccessAnalyzer.Lens
     cloudTrailProperties_trailProperties,
 
     -- ** Configuration
-    configuration_kmsKey,
-    configuration_secretsManagerSecret,
-    configuration_sqsQueue,
     configuration_s3Bucket,
     configuration_iamRole,
+    configuration_kmsKey,
+    configuration_sqsQueue,
+    configuration_secretsManagerSecret,
 
     -- ** Criterion
-    criterion_eq,
-    criterion_exists,
     criterion_neq,
+    criterion_exists,
     criterion_contains,
+    criterion_eq,
 
     -- ** Finding
-    finding_error,
+    finding_principal,
+    finding_sources,
     finding_isPublic,
     finding_action,
-    finding_sources,
+    finding_error,
     finding_resource,
-    finding_principal,
     finding_analyzedAt,
     finding_condition,
     finding_createdAt,
@@ -325,12 +325,12 @@ module Amazonka.AccessAnalyzer.Lens
     findingSourceDetail_accessPointArn,
 
     -- ** FindingSummary
-    findingSummary_error,
+    findingSummary_principal,
+    findingSummary_sources,
     findingSummary_isPublic,
     findingSummary_action,
-    findingSummary_sources,
+    findingSummary_error,
     findingSummary_resource,
-    findingSummary_principal,
     findingSummary_analyzedAt,
     findingSummary_condition,
     findingSummary_createdAt,
@@ -362,8 +362,8 @@ module Amazonka.AccessAnalyzer.Lens
     -- ** InternetConfiguration
 
     -- ** JobDetails
-    jobDetails_completedOn,
     jobDetails_jobError,
+    jobDetails_completedOn,
     jobDetails_jobId,
     jobDetails_startedOn,
     jobDetails_status,
@@ -373,15 +373,15 @@ module Amazonka.AccessAnalyzer.Lens
     jobError_message,
 
     -- ** KmsGrantConfiguration
-    kmsGrantConfiguration_retiringPrincipal,
     kmsGrantConfiguration_constraints,
+    kmsGrantConfiguration_retiringPrincipal,
     kmsGrantConfiguration_granteePrincipal,
     kmsGrantConfiguration_issuingAccount,
     kmsGrantConfiguration_operations,
 
     -- ** KmsGrantConstraints
-    kmsGrantConstraints_encryptionContextEquals,
     kmsGrantConstraints_encryptionContextSubset,
+    kmsGrantConstraints_encryptionContextEquals,
 
     -- ** KmsKeyConfiguration
     kmsKeyConfiguration_grants,
@@ -392,14 +392,14 @@ module Amazonka.AccessAnalyzer.Lens
     location_span,
 
     -- ** NetworkOriginConfiguration
-    networkOriginConfiguration_internetConfiguration,
     networkOriginConfiguration_vpcConfiguration,
+    networkOriginConfiguration_internetConfiguration,
 
     -- ** PathElement
-    pathElement_value,
-    pathElement_substring,
     pathElement_key,
     pathElement_index,
+    pathElement_substring,
+    pathElement_value,
 
     -- ** PolicyGeneration
     policyGeneration_completedOn,
@@ -418,8 +418,8 @@ module Amazonka.AccessAnalyzer.Lens
 
     -- ** S3AccessPointConfiguration
     s3AccessPointConfiguration_publicAccessBlock,
-    s3AccessPointConfiguration_accessPointPolicy,
     s3AccessPointConfiguration_networkOrigin,
+    s3AccessPointConfiguration_accessPointPolicy,
 
     -- ** S3BucketAclGrantConfiguration
     s3BucketAclGrantConfiguration_grantee,
@@ -436,8 +436,8 @@ module Amazonka.AccessAnalyzer.Lens
     s3PublicAccessBlockConfiguration_restrictPublicBuckets,
 
     -- ** SecretsManagerSecretConfiguration
-    secretsManagerSecretConfiguration_kmsKeyId,
     secretsManagerSecretConfiguration_secretPolicy,
+    secretsManagerSecretConfiguration_kmsKeyId,
 
     -- ** SortCriteria
     sortCriteria_orderBy,

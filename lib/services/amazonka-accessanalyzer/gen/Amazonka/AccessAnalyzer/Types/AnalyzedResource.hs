@@ -31,14 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 data AnalyzedResource = AnalyzedResource'
   { -- | The current status of the finding generated from the analyzed resource.
     status :: Prelude.Maybe FindingStatus,
-    -- | The actions that an external principal is granted permission to use by
-    -- the policy that generated the finding.
-    actions :: Prelude.Maybe [Prelude.Text],
-    -- | An error message.
-    error :: Prelude.Maybe Prelude.Text,
     -- | Indicates how the access that generated the finding is granted. This is
     -- populated for Amazon S3 bucket findings.
     sharedVia :: Prelude.Maybe [Prelude.Text],
+    -- | An error message.
+    error :: Prelude.Maybe Prelude.Text,
+    -- | The actions that an external principal is granted permission to use by
+    -- the policy that generated the finding.
+    actions :: Prelude.Maybe [Prelude.Text],
     -- | The time at which the resource was analyzed.
     analyzedAt :: Core.POSIX,
     -- | The time at which the finding was created.
@@ -67,13 +67,13 @@ data AnalyzedResource = AnalyzedResource'
 --
 -- 'status', 'analyzedResource_status' - The current status of the finding generated from the analyzed resource.
 --
--- 'actions', 'analyzedResource_actions' - The actions that an external principal is granted permission to use by
--- the policy that generated the finding.
+-- 'sharedVia', 'analyzedResource_sharedVia' - Indicates how the access that generated the finding is granted. This is
+-- populated for Amazon S3 bucket findings.
 --
 -- 'error', 'analyzedResource_error' - An error message.
 --
--- 'sharedVia', 'analyzedResource_sharedVia' - Indicates how the access that generated the finding is granted. This is
--- populated for Amazon S3 bucket findings.
+-- 'actions', 'analyzedResource_actions' - The actions that an external principal is granted permission to use by
+-- the policy that generated the finding.
 --
 -- 'analyzedAt', 'analyzedResource_analyzedAt' - The time at which the resource was analyzed.
 --
@@ -115,9 +115,9 @@ newAnalyzedResource
   pUpdatedAt_ =
     AnalyzedResource'
       { status = Prelude.Nothing,
-        actions = Prelude.Nothing,
-        error = Prelude.Nothing,
         sharedVia = Prelude.Nothing,
+        error = Prelude.Nothing,
+        actions = Prelude.Nothing,
         analyzedAt = Core._Time Lens.# pAnalyzedAt_,
         createdAt = Core._Time Lens.# pCreatedAt_,
         isPublic = pIsPublic_,
@@ -131,19 +131,19 @@ newAnalyzedResource
 analyzedResource_status :: Lens.Lens' AnalyzedResource (Prelude.Maybe FindingStatus)
 analyzedResource_status = Lens.lens (\AnalyzedResource' {status} -> status) (\s@AnalyzedResource' {} a -> s {status = a} :: AnalyzedResource)
 
--- | The actions that an external principal is granted permission to use by
--- the policy that generated the finding.
-analyzedResource_actions :: Lens.Lens' AnalyzedResource (Prelude.Maybe [Prelude.Text])
-analyzedResource_actions = Lens.lens (\AnalyzedResource' {actions} -> actions) (\s@AnalyzedResource' {} a -> s {actions = a} :: AnalyzedResource) Prelude.. Lens.mapping Lens.coerced
+-- | Indicates how the access that generated the finding is granted. This is
+-- populated for Amazon S3 bucket findings.
+analyzedResource_sharedVia :: Lens.Lens' AnalyzedResource (Prelude.Maybe [Prelude.Text])
+analyzedResource_sharedVia = Lens.lens (\AnalyzedResource' {sharedVia} -> sharedVia) (\s@AnalyzedResource' {} a -> s {sharedVia = a} :: AnalyzedResource) Prelude.. Lens.mapping Lens.coerced
 
 -- | An error message.
 analyzedResource_error :: Lens.Lens' AnalyzedResource (Prelude.Maybe Prelude.Text)
 analyzedResource_error = Lens.lens (\AnalyzedResource' {error} -> error) (\s@AnalyzedResource' {} a -> s {error = a} :: AnalyzedResource)
 
--- | Indicates how the access that generated the finding is granted. This is
--- populated for Amazon S3 bucket findings.
-analyzedResource_sharedVia :: Lens.Lens' AnalyzedResource (Prelude.Maybe [Prelude.Text])
-analyzedResource_sharedVia = Lens.lens (\AnalyzedResource' {sharedVia} -> sharedVia) (\s@AnalyzedResource' {} a -> s {sharedVia = a} :: AnalyzedResource) Prelude.. Lens.mapping Lens.coerced
+-- | The actions that an external principal is granted permission to use by
+-- the policy that generated the finding.
+analyzedResource_actions :: Lens.Lens' AnalyzedResource (Prelude.Maybe [Prelude.Text])
+analyzedResource_actions = Lens.lens (\AnalyzedResource' {actions} -> actions) (\s@AnalyzedResource' {} a -> s {actions = a} :: AnalyzedResource) Prelude.. Lens.mapping Lens.coerced
 
 -- | The time at which the resource was analyzed.
 analyzedResource_analyzedAt :: Lens.Lens' AnalyzedResource Prelude.UTCTime
@@ -181,9 +181,9 @@ instance Core.FromJSON AnalyzedResource where
       ( \x ->
           AnalyzedResource'
             Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "actions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "error")
             Prelude.<*> (x Core..:? "sharedVia" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "error")
+            Prelude.<*> (x Core..:? "actions" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "analyzedAt")
             Prelude.<*> (x Core..: "createdAt")
             Prelude.<*> (x Core..: "isPublic")
@@ -196,9 +196,9 @@ instance Core.FromJSON AnalyzedResource where
 instance Prelude.Hashable AnalyzedResource where
   hashWithSalt _salt AnalyzedResource' {..} =
     _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` actions
-      `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` sharedVia
+      `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` analyzedAt
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` isPublic
@@ -210,9 +210,9 @@ instance Prelude.Hashable AnalyzedResource where
 instance Prelude.NFData AnalyzedResource where
   rnf AnalyzedResource' {..} =
     Prelude.rnf status
-      `Prelude.seq` Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf error
       `Prelude.seq` Prelude.rnf sharedVia
+      `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf actions
       `Prelude.seq` Prelude.rnf analyzedAt
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf isPublic

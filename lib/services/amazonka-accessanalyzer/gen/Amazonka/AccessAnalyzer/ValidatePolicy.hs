@@ -32,8 +32,8 @@ module Amazonka.AccessAnalyzer.ValidatePolicy
     newValidatePolicy,
 
     -- * Request Lenses
-    validatePolicy_locale,
     validatePolicy_nextToken,
+    validatePolicy_locale,
     validatePolicy_maxResults,
     validatePolicy_policyDocument,
     validatePolicy_policyType,
@@ -58,10 +58,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newValidatePolicy' smart constructor.
 data ValidatePolicy = ValidatePolicy'
-  { -- | The locale to use for localizing the findings.
-    locale :: Prelude.Maybe Locale,
-    -- | A token used for pagination of results returned.
+  { -- | A token used for pagination of results returned.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The locale to use for localizing the findings.
+    locale :: Prelude.Maybe Locale,
     -- | The maximum number of results to return in the response.
     maxResults :: Prelude.Maybe Prelude.Int,
     -- | The JSON policy document to use as the content for the policy.
@@ -89,9 +89,9 @@ data ValidatePolicy = ValidatePolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'locale', 'validatePolicy_locale' - The locale to use for localizing the findings.
---
 -- 'nextToken', 'validatePolicy_nextToken' - A token used for pagination of results returned.
+--
+-- 'locale', 'validatePolicy_locale' - The locale to use for localizing the findings.
 --
 -- 'maxResults', 'validatePolicy_maxResults' - The maximum number of results to return in the response.
 --
@@ -116,20 +116,20 @@ newValidatePolicy ::
   ValidatePolicy
 newValidatePolicy pPolicyDocument_ pPolicyType_ =
   ValidatePolicy'
-    { locale = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      locale = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       policyDocument = pPolicyDocument_,
       policyType = pPolicyType_
     }
 
--- | The locale to use for localizing the findings.
-validatePolicy_locale :: Lens.Lens' ValidatePolicy (Prelude.Maybe Locale)
-validatePolicy_locale = Lens.lens (\ValidatePolicy' {locale} -> locale) (\s@ValidatePolicy' {} a -> s {locale = a} :: ValidatePolicy)
-
 -- | A token used for pagination of results returned.
 validatePolicy_nextToken :: Lens.Lens' ValidatePolicy (Prelude.Maybe Prelude.Text)
 validatePolicy_nextToken = Lens.lens (\ValidatePolicy' {nextToken} -> nextToken) (\s@ValidatePolicy' {} a -> s {nextToken = a} :: ValidatePolicy)
+
+-- | The locale to use for localizing the findings.
+validatePolicy_locale :: Lens.Lens' ValidatePolicy (Prelude.Maybe Locale)
+validatePolicy_locale = Lens.lens (\ValidatePolicy' {locale} -> locale) (\s@ValidatePolicy' {} a -> s {locale = a} :: ValidatePolicy)
 
 -- | The maximum number of results to return in the response.
 validatePolicy_maxResults :: Lens.Lens' ValidatePolicy (Prelude.Maybe Prelude.Int)
@@ -187,16 +187,16 @@ instance Core.AWSRequest ValidatePolicy where
 
 instance Prelude.Hashable ValidatePolicy where
   hashWithSalt _salt ValidatePolicy' {..} =
-    _salt `Prelude.hashWithSalt` locale
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` locale
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` policyDocument
       `Prelude.hashWithSalt` policyType
 
 instance Prelude.NFData ValidatePolicy where
   rnf ValidatePolicy' {..} =
-    Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf locale
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf policyDocument
       `Prelude.seq` Prelude.rnf policyType

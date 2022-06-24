@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newScalingPlan' smart constructor.
 data ScalingPlan = ScalingPlan'
-  { -- | The Unix time stamp when the scaling plan was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The Unix time stamp when the scaling plan entered the current status.
+  { -- | The Unix time stamp when the scaling plan entered the current status.
     statusStartTime :: Prelude.Maybe Core.POSIX,
+    -- | The Unix time stamp when the scaling plan was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
     -- | A simple message about the current status of the scaling plan.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The name of the scaling plan.
@@ -75,9 +75,9 @@ data ScalingPlan = ScalingPlan'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'scalingPlan_creationTime' - The Unix time stamp when the scaling plan was created.
---
 -- 'statusStartTime', 'scalingPlan_statusStartTime' - The Unix time stamp when the scaling plan entered the current status.
+--
+-- 'creationTime', 'scalingPlan_creationTime' - The Unix time stamp when the scaling plan was created.
 --
 -- 'statusMessage', 'scalingPlan_statusMessage' - A simple message about the current status of the scaling plan.
 --
@@ -124,8 +124,8 @@ newScalingPlan
   pApplicationSource_
   pStatusCode_ =
     ScalingPlan'
-      { creationTime = Prelude.Nothing,
-        statusStartTime = Prelude.Nothing,
+      { statusStartTime = Prelude.Nothing,
+        creationTime = Prelude.Nothing,
         statusMessage = Prelude.Nothing,
         scalingPlanName = pScalingPlanName_,
         scalingPlanVersion = pScalingPlanVersion_,
@@ -134,13 +134,13 @@ newScalingPlan
         statusCode = pStatusCode_
       }
 
--- | The Unix time stamp when the scaling plan was created.
-scalingPlan_creationTime :: Lens.Lens' ScalingPlan (Prelude.Maybe Prelude.UTCTime)
-scalingPlan_creationTime = Lens.lens (\ScalingPlan' {creationTime} -> creationTime) (\s@ScalingPlan' {} a -> s {creationTime = a} :: ScalingPlan) Prelude.. Lens.mapping Core._Time
-
 -- | The Unix time stamp when the scaling plan entered the current status.
 scalingPlan_statusStartTime :: Lens.Lens' ScalingPlan (Prelude.Maybe Prelude.UTCTime)
 scalingPlan_statusStartTime = Lens.lens (\ScalingPlan' {statusStartTime} -> statusStartTime) (\s@ScalingPlan' {} a -> s {statusStartTime = a} :: ScalingPlan) Prelude.. Lens.mapping Core._Time
+
+-- | The Unix time stamp when the scaling plan was created.
+scalingPlan_creationTime :: Lens.Lens' ScalingPlan (Prelude.Maybe Prelude.UTCTime)
+scalingPlan_creationTime = Lens.lens (\ScalingPlan' {creationTime} -> creationTime) (\s@ScalingPlan' {} a -> s {creationTime = a} :: ScalingPlan) Prelude.. Lens.mapping Core._Time
 
 -- | A simple message about the current status of the scaling plan.
 scalingPlan_statusMessage :: Lens.Lens' ScalingPlan (Prelude.Maybe Prelude.Text)
@@ -190,8 +190,8 @@ instance Core.FromJSON ScalingPlan where
       "ScalingPlan"
       ( \x ->
           ScalingPlan'
-            Prelude.<$> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "StatusStartTime")
+            Prelude.<$> (x Core..:? "StatusStartTime")
+            Prelude.<*> (x Core..:? "CreationTime")
             Prelude.<*> (x Core..:? "StatusMessage")
             Prelude.<*> (x Core..: "ScalingPlanName")
             Prelude.<*> (x Core..: "ScalingPlanVersion")
@@ -204,8 +204,8 @@ instance Core.FromJSON ScalingPlan where
 
 instance Prelude.Hashable ScalingPlan where
   hashWithSalt _salt ScalingPlan' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` statusStartTime
+    _salt `Prelude.hashWithSalt` statusStartTime
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` scalingPlanName
       `Prelude.hashWithSalt` scalingPlanVersion
@@ -215,8 +215,8 @@ instance Prelude.Hashable ScalingPlan where
 
 instance Prelude.NFData ScalingPlan where
   rnf ScalingPlan' {..} =
-    Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf statusStartTime
+    Prelude.rnf statusStartTime
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf scalingPlanName
       `Prelude.seq` Prelude.rnf scalingPlanVersion

@@ -58,34 +58,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newScalingInstruction' smart constructor.
 data ScalingInstruction = ScalingInstruction'
-  { -- | The amount of time, in seconds, to buffer the run time of scheduled
-    -- scaling actions when scaling out. For example, if the forecast says to
-    -- add capacity at 10:00 AM, and the buffer time is 5 minutes, then the run
-    -- time of the corresponding scheduled scaling action will be 9:55 AM. The
-    -- intention is to give resources time to be provisioned. For example, it
-    -- can take a few minutes to launch an EC2 instance. The actual amount of
-    -- time required depends on several factors, such as the size of the
-    -- instance and whether there are startup scripts to complete.
-    --
-    -- The value must be less than the forecast interval duration of 3600
-    -- seconds (60 minutes). The default is 300 seconds.
-    --
-    -- Only valid when configuring predictive scaling.
-    scheduledActionBufferTime :: Prelude.Maybe Prelude.Natural,
-    -- | The size of the capacity buffer to use when the forecast capacity is
-    -- close to or exceeds the maximum capacity. The value is specified as a
-    -- percentage relative to the forecast capacity. For example, if the buffer
-    -- is 10, this means a 10 percent buffer, such that if the forecast
-    -- capacity is 50, and the maximum capacity is 40, then the effective
-    -- maximum capacity is 55.
-    --
-    -- Only valid when configuring predictive scaling. Required if the
-    -- __PredictiveScalingMaxCapacityBehavior__ is set to
-    -- @SetMaxCapacityAboveForecastCapacity@, and cannot be used otherwise.
-    --
-    -- The range is 1-100.
-    predictiveScalingMaxCapacityBuffer :: Prelude.Maybe Prelude.Int,
-    -- | Controls whether a resource\'s externally created scaling policies are
+  { -- | Controls whether a resource\'s externally created scaling policies are
     -- kept or replaced.
     --
     -- The default value is @KeepExternalPolicies@. If the parameter is set to
@@ -100,20 +73,14 @@ data ScalingInstruction = ScalingInstruction'
     -- AWS Auto Scaling keeps all existing policies and does not create new
     -- ones.
     scalingPolicyUpdateBehavior :: Prelude.Maybe ScalingPolicyUpdateBehavior,
+    -- | The predefined load metric to use for predictive scaling. This parameter
+    -- or a __CustomizedLoadMetricSpecification__ is required when configuring
+    -- predictive scaling, and cannot be used otherwise.
+    predefinedLoadMetricSpecification :: Prelude.Maybe PredefinedLoadMetricSpecification,
     -- | The customized load metric to use for predictive scaling. This parameter
     -- or a __PredefinedLoadMetricSpecification__ is required when configuring
     -- predictive scaling, and cannot be used otherwise.
     customizedLoadMetricSpecification :: Prelude.Maybe CustomizedLoadMetricSpecification,
-    -- | The predictive scaling mode. The default value is @ForecastAndScale@.
-    -- Otherwise, AWS Auto Scaling forecasts capacity but does not create any
-    -- scheduled scaling actions based on the capacity forecast.
-    predictiveScalingMode :: Prelude.Maybe PredictiveScalingMode,
-    -- | Controls whether dynamic scaling by AWS Auto Scaling is disabled. When
-    -- dynamic scaling is enabled, AWS Auto Scaling creates target tracking
-    -- scaling policies based on the specified target tracking configurations.
-    --
-    -- The default is enabled (@false@).
-    disableDynamicScaling :: Prelude.Maybe Prelude.Bool,
     -- | Defines the behavior that should be applied if the forecast capacity
     -- approaches or exceeds the maximum capacity specified for the resource.
     -- The default value is @SetForecastCapacityToMaxCapacity@.
@@ -135,10 +102,43 @@ data ScalingInstruction = ScalingInstruction'
     --
     -- Only valid when configuring predictive scaling.
     predictiveScalingMaxCapacityBehavior :: Prelude.Maybe PredictiveScalingMaxCapacityBehavior,
-    -- | The predefined load metric to use for predictive scaling. This parameter
-    -- or a __CustomizedLoadMetricSpecification__ is required when configuring
-    -- predictive scaling, and cannot be used otherwise.
-    predefinedLoadMetricSpecification :: Prelude.Maybe PredefinedLoadMetricSpecification,
+    -- | The size of the capacity buffer to use when the forecast capacity is
+    -- close to or exceeds the maximum capacity. The value is specified as a
+    -- percentage relative to the forecast capacity. For example, if the buffer
+    -- is 10, this means a 10 percent buffer, such that if the forecast
+    -- capacity is 50, and the maximum capacity is 40, then the effective
+    -- maximum capacity is 55.
+    --
+    -- Only valid when configuring predictive scaling. Required if the
+    -- __PredictiveScalingMaxCapacityBehavior__ is set to
+    -- @SetMaxCapacityAboveForecastCapacity@, and cannot be used otherwise.
+    --
+    -- The range is 1-100.
+    predictiveScalingMaxCapacityBuffer :: Prelude.Maybe Prelude.Int,
+    -- | The amount of time, in seconds, to buffer the run time of scheduled
+    -- scaling actions when scaling out. For example, if the forecast says to
+    -- add capacity at 10:00 AM, and the buffer time is 5 minutes, then the run
+    -- time of the corresponding scheduled scaling action will be 9:55 AM. The
+    -- intention is to give resources time to be provisioned. For example, it
+    -- can take a few minutes to launch an EC2 instance. The actual amount of
+    -- time required depends on several factors, such as the size of the
+    -- instance and whether there are startup scripts to complete.
+    --
+    -- The value must be less than the forecast interval duration of 3600
+    -- seconds (60 minutes). The default is 300 seconds.
+    --
+    -- Only valid when configuring predictive scaling.
+    scheduledActionBufferTime :: Prelude.Maybe Prelude.Natural,
+    -- | The predictive scaling mode. The default value is @ForecastAndScale@.
+    -- Otherwise, AWS Auto Scaling forecasts capacity but does not create any
+    -- scheduled scaling actions based on the capacity forecast.
+    predictiveScalingMode :: Prelude.Maybe PredictiveScalingMode,
+    -- | Controls whether dynamic scaling by AWS Auto Scaling is disabled. When
+    -- dynamic scaling is enabled, AWS Auto Scaling creates target tracking
+    -- scaling policies based on the specified target tracking configurations.
+    --
+    -- The default is enabled (@false@).
+    disableDynamicScaling :: Prelude.Maybe Prelude.Bool,
     -- | The namespace of the AWS service.
     serviceNamespace :: ServiceNamespace,
     -- | The ID of the resource. This string consists of the resource type and
@@ -213,33 +213,6 @@ data ScalingInstruction = ScalingInstruction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'scheduledActionBufferTime', 'scalingInstruction_scheduledActionBufferTime' - The amount of time, in seconds, to buffer the run time of scheduled
--- scaling actions when scaling out. For example, if the forecast says to
--- add capacity at 10:00 AM, and the buffer time is 5 minutes, then the run
--- time of the corresponding scheduled scaling action will be 9:55 AM. The
--- intention is to give resources time to be provisioned. For example, it
--- can take a few minutes to launch an EC2 instance. The actual amount of
--- time required depends on several factors, such as the size of the
--- instance and whether there are startup scripts to complete.
---
--- The value must be less than the forecast interval duration of 3600
--- seconds (60 minutes). The default is 300 seconds.
---
--- Only valid when configuring predictive scaling.
---
--- 'predictiveScalingMaxCapacityBuffer', 'scalingInstruction_predictiveScalingMaxCapacityBuffer' - The size of the capacity buffer to use when the forecast capacity is
--- close to or exceeds the maximum capacity. The value is specified as a
--- percentage relative to the forecast capacity. For example, if the buffer
--- is 10, this means a 10 percent buffer, such that if the forecast
--- capacity is 50, and the maximum capacity is 40, then the effective
--- maximum capacity is 55.
---
--- Only valid when configuring predictive scaling. Required if the
--- __PredictiveScalingMaxCapacityBehavior__ is set to
--- @SetMaxCapacityAboveForecastCapacity@, and cannot be used otherwise.
---
--- The range is 1-100.
---
 -- 'scalingPolicyUpdateBehavior', 'scalingInstruction_scalingPolicyUpdateBehavior' - Controls whether a resource\'s externally created scaling policies are
 -- kept or replaced.
 --
@@ -255,19 +228,13 @@ data ScalingInstruction = ScalingInstruction'
 -- AWS Auto Scaling keeps all existing policies and does not create new
 -- ones.
 --
+-- 'predefinedLoadMetricSpecification', 'scalingInstruction_predefinedLoadMetricSpecification' - The predefined load metric to use for predictive scaling. This parameter
+-- or a __CustomizedLoadMetricSpecification__ is required when configuring
+-- predictive scaling, and cannot be used otherwise.
+--
 -- 'customizedLoadMetricSpecification', 'scalingInstruction_customizedLoadMetricSpecification' - The customized load metric to use for predictive scaling. This parameter
 -- or a __PredefinedLoadMetricSpecification__ is required when configuring
 -- predictive scaling, and cannot be used otherwise.
---
--- 'predictiveScalingMode', 'scalingInstruction_predictiveScalingMode' - The predictive scaling mode. The default value is @ForecastAndScale@.
--- Otherwise, AWS Auto Scaling forecasts capacity but does not create any
--- scheduled scaling actions based on the capacity forecast.
---
--- 'disableDynamicScaling', 'scalingInstruction_disableDynamicScaling' - Controls whether dynamic scaling by AWS Auto Scaling is disabled. When
--- dynamic scaling is enabled, AWS Auto Scaling creates target tracking
--- scaling policies based on the specified target tracking configurations.
---
--- The default is enabled (@false@).
 --
 -- 'predictiveScalingMaxCapacityBehavior', 'scalingInstruction_predictiveScalingMaxCapacityBehavior' - Defines the behavior that should be applied if the forecast capacity
 -- approaches or exceeds the maximum capacity specified for the resource.
@@ -290,9 +257,42 @@ data ScalingInstruction = ScalingInstruction'
 --
 -- Only valid when configuring predictive scaling.
 --
--- 'predefinedLoadMetricSpecification', 'scalingInstruction_predefinedLoadMetricSpecification' - The predefined load metric to use for predictive scaling. This parameter
--- or a __CustomizedLoadMetricSpecification__ is required when configuring
--- predictive scaling, and cannot be used otherwise.
+-- 'predictiveScalingMaxCapacityBuffer', 'scalingInstruction_predictiveScalingMaxCapacityBuffer' - The size of the capacity buffer to use when the forecast capacity is
+-- close to or exceeds the maximum capacity. The value is specified as a
+-- percentage relative to the forecast capacity. For example, if the buffer
+-- is 10, this means a 10 percent buffer, such that if the forecast
+-- capacity is 50, and the maximum capacity is 40, then the effective
+-- maximum capacity is 55.
+--
+-- Only valid when configuring predictive scaling. Required if the
+-- __PredictiveScalingMaxCapacityBehavior__ is set to
+-- @SetMaxCapacityAboveForecastCapacity@, and cannot be used otherwise.
+--
+-- The range is 1-100.
+--
+-- 'scheduledActionBufferTime', 'scalingInstruction_scheduledActionBufferTime' - The amount of time, in seconds, to buffer the run time of scheduled
+-- scaling actions when scaling out. For example, if the forecast says to
+-- add capacity at 10:00 AM, and the buffer time is 5 minutes, then the run
+-- time of the corresponding scheduled scaling action will be 9:55 AM. The
+-- intention is to give resources time to be provisioned. For example, it
+-- can take a few minutes to launch an EC2 instance. The actual amount of
+-- time required depends on several factors, such as the size of the
+-- instance and whether there are startup scripts to complete.
+--
+-- The value must be less than the forecast interval duration of 3600
+-- seconds (60 minutes). The default is 300 seconds.
+--
+-- Only valid when configuring predictive scaling.
+--
+-- 'predictiveScalingMode', 'scalingInstruction_predictiveScalingMode' - The predictive scaling mode. The default value is @ForecastAndScale@.
+-- Otherwise, AWS Auto Scaling forecasts capacity but does not create any
+-- scheduled scaling actions based on the capacity forecast.
+--
+-- 'disableDynamicScaling', 'scalingInstruction_disableDynamicScaling' - Controls whether dynamic scaling by AWS Auto Scaling is disabled. When
+-- dynamic scaling is enabled, AWS Auto Scaling creates target tracking
+-- scaling policies based on the specified target tracking configurations.
+--
+-- The default is enabled (@false@).
 --
 -- 'serviceNamespace', 'scalingInstruction_serviceNamespace' - The namespace of the AWS service.
 --
@@ -375,16 +375,16 @@ newScalingInstruction
   pMinCapacity_
   pMaxCapacity_ =
     ScalingInstruction'
-      { scheduledActionBufferTime =
-          Prelude.Nothing,
-        predictiveScalingMaxCapacityBuffer = Prelude.Nothing,
-        scalingPolicyUpdateBehavior = Prelude.Nothing,
-        customizedLoadMetricSpecification = Prelude.Nothing,
-        predictiveScalingMode = Prelude.Nothing,
-        disableDynamicScaling = Prelude.Nothing,
-        predictiveScalingMaxCapacityBehavior =
+      { scalingPolicyUpdateBehavior =
           Prelude.Nothing,
         predefinedLoadMetricSpecification = Prelude.Nothing,
+        customizedLoadMetricSpecification = Prelude.Nothing,
+        predictiveScalingMaxCapacityBehavior =
+          Prelude.Nothing,
+        predictiveScalingMaxCapacityBuffer = Prelude.Nothing,
+        scheduledActionBufferTime = Prelude.Nothing,
+        predictiveScalingMode = Prelude.Nothing,
+        disableDynamicScaling = Prelude.Nothing,
         serviceNamespace = pServiceNamespace_,
         resourceId = pResourceId_,
         scalableDimension = pScalableDimension_,
@@ -392,37 +392,6 @@ newScalingInstruction
         maxCapacity = pMaxCapacity_,
         targetTrackingConfigurations = Prelude.mempty
       }
-
--- | The amount of time, in seconds, to buffer the run time of scheduled
--- scaling actions when scaling out. For example, if the forecast says to
--- add capacity at 10:00 AM, and the buffer time is 5 minutes, then the run
--- time of the corresponding scheduled scaling action will be 9:55 AM. The
--- intention is to give resources time to be provisioned. For example, it
--- can take a few minutes to launch an EC2 instance. The actual amount of
--- time required depends on several factors, such as the size of the
--- instance and whether there are startup scripts to complete.
---
--- The value must be less than the forecast interval duration of 3600
--- seconds (60 minutes). The default is 300 seconds.
---
--- Only valid when configuring predictive scaling.
-scalingInstruction_scheduledActionBufferTime :: Lens.Lens' ScalingInstruction (Prelude.Maybe Prelude.Natural)
-scalingInstruction_scheduledActionBufferTime = Lens.lens (\ScalingInstruction' {scheduledActionBufferTime} -> scheduledActionBufferTime) (\s@ScalingInstruction' {} a -> s {scheduledActionBufferTime = a} :: ScalingInstruction)
-
--- | The size of the capacity buffer to use when the forecast capacity is
--- close to or exceeds the maximum capacity. The value is specified as a
--- percentage relative to the forecast capacity. For example, if the buffer
--- is 10, this means a 10 percent buffer, such that if the forecast
--- capacity is 50, and the maximum capacity is 40, then the effective
--- maximum capacity is 55.
---
--- Only valid when configuring predictive scaling. Required if the
--- __PredictiveScalingMaxCapacityBehavior__ is set to
--- @SetMaxCapacityAboveForecastCapacity@, and cannot be used otherwise.
---
--- The range is 1-100.
-scalingInstruction_predictiveScalingMaxCapacityBuffer :: Lens.Lens' ScalingInstruction (Prelude.Maybe Prelude.Int)
-scalingInstruction_predictiveScalingMaxCapacityBuffer = Lens.lens (\ScalingInstruction' {predictiveScalingMaxCapacityBuffer} -> predictiveScalingMaxCapacityBuffer) (\s@ScalingInstruction' {} a -> s {predictiveScalingMaxCapacityBuffer = a} :: ScalingInstruction)
 
 -- | Controls whether a resource\'s externally created scaling policies are
 -- kept or replaced.
@@ -441,25 +410,17 @@ scalingInstruction_predictiveScalingMaxCapacityBuffer = Lens.lens (\ScalingInstr
 scalingInstruction_scalingPolicyUpdateBehavior :: Lens.Lens' ScalingInstruction (Prelude.Maybe ScalingPolicyUpdateBehavior)
 scalingInstruction_scalingPolicyUpdateBehavior = Lens.lens (\ScalingInstruction' {scalingPolicyUpdateBehavior} -> scalingPolicyUpdateBehavior) (\s@ScalingInstruction' {} a -> s {scalingPolicyUpdateBehavior = a} :: ScalingInstruction)
 
+-- | The predefined load metric to use for predictive scaling. This parameter
+-- or a __CustomizedLoadMetricSpecification__ is required when configuring
+-- predictive scaling, and cannot be used otherwise.
+scalingInstruction_predefinedLoadMetricSpecification :: Lens.Lens' ScalingInstruction (Prelude.Maybe PredefinedLoadMetricSpecification)
+scalingInstruction_predefinedLoadMetricSpecification = Lens.lens (\ScalingInstruction' {predefinedLoadMetricSpecification} -> predefinedLoadMetricSpecification) (\s@ScalingInstruction' {} a -> s {predefinedLoadMetricSpecification = a} :: ScalingInstruction)
+
 -- | The customized load metric to use for predictive scaling. This parameter
 -- or a __PredefinedLoadMetricSpecification__ is required when configuring
 -- predictive scaling, and cannot be used otherwise.
 scalingInstruction_customizedLoadMetricSpecification :: Lens.Lens' ScalingInstruction (Prelude.Maybe CustomizedLoadMetricSpecification)
 scalingInstruction_customizedLoadMetricSpecification = Lens.lens (\ScalingInstruction' {customizedLoadMetricSpecification} -> customizedLoadMetricSpecification) (\s@ScalingInstruction' {} a -> s {customizedLoadMetricSpecification = a} :: ScalingInstruction)
-
--- | The predictive scaling mode. The default value is @ForecastAndScale@.
--- Otherwise, AWS Auto Scaling forecasts capacity but does not create any
--- scheduled scaling actions based on the capacity forecast.
-scalingInstruction_predictiveScalingMode :: Lens.Lens' ScalingInstruction (Prelude.Maybe PredictiveScalingMode)
-scalingInstruction_predictiveScalingMode = Lens.lens (\ScalingInstruction' {predictiveScalingMode} -> predictiveScalingMode) (\s@ScalingInstruction' {} a -> s {predictiveScalingMode = a} :: ScalingInstruction)
-
--- | Controls whether dynamic scaling by AWS Auto Scaling is disabled. When
--- dynamic scaling is enabled, AWS Auto Scaling creates target tracking
--- scaling policies based on the specified target tracking configurations.
---
--- The default is enabled (@false@).
-scalingInstruction_disableDynamicScaling :: Lens.Lens' ScalingInstruction (Prelude.Maybe Prelude.Bool)
-scalingInstruction_disableDynamicScaling = Lens.lens (\ScalingInstruction' {disableDynamicScaling} -> disableDynamicScaling) (\s@ScalingInstruction' {} a -> s {disableDynamicScaling = a} :: ScalingInstruction)
 
 -- | Defines the behavior that should be applied if the forecast capacity
 -- approaches or exceeds the maximum capacity specified for the resource.
@@ -484,11 +445,50 @@ scalingInstruction_disableDynamicScaling = Lens.lens (\ScalingInstruction' {disa
 scalingInstruction_predictiveScalingMaxCapacityBehavior :: Lens.Lens' ScalingInstruction (Prelude.Maybe PredictiveScalingMaxCapacityBehavior)
 scalingInstruction_predictiveScalingMaxCapacityBehavior = Lens.lens (\ScalingInstruction' {predictiveScalingMaxCapacityBehavior} -> predictiveScalingMaxCapacityBehavior) (\s@ScalingInstruction' {} a -> s {predictiveScalingMaxCapacityBehavior = a} :: ScalingInstruction)
 
--- | The predefined load metric to use for predictive scaling. This parameter
--- or a __CustomizedLoadMetricSpecification__ is required when configuring
--- predictive scaling, and cannot be used otherwise.
-scalingInstruction_predefinedLoadMetricSpecification :: Lens.Lens' ScalingInstruction (Prelude.Maybe PredefinedLoadMetricSpecification)
-scalingInstruction_predefinedLoadMetricSpecification = Lens.lens (\ScalingInstruction' {predefinedLoadMetricSpecification} -> predefinedLoadMetricSpecification) (\s@ScalingInstruction' {} a -> s {predefinedLoadMetricSpecification = a} :: ScalingInstruction)
+-- | The size of the capacity buffer to use when the forecast capacity is
+-- close to or exceeds the maximum capacity. The value is specified as a
+-- percentage relative to the forecast capacity. For example, if the buffer
+-- is 10, this means a 10 percent buffer, such that if the forecast
+-- capacity is 50, and the maximum capacity is 40, then the effective
+-- maximum capacity is 55.
+--
+-- Only valid when configuring predictive scaling. Required if the
+-- __PredictiveScalingMaxCapacityBehavior__ is set to
+-- @SetMaxCapacityAboveForecastCapacity@, and cannot be used otherwise.
+--
+-- The range is 1-100.
+scalingInstruction_predictiveScalingMaxCapacityBuffer :: Lens.Lens' ScalingInstruction (Prelude.Maybe Prelude.Int)
+scalingInstruction_predictiveScalingMaxCapacityBuffer = Lens.lens (\ScalingInstruction' {predictiveScalingMaxCapacityBuffer} -> predictiveScalingMaxCapacityBuffer) (\s@ScalingInstruction' {} a -> s {predictiveScalingMaxCapacityBuffer = a} :: ScalingInstruction)
+
+-- | The amount of time, in seconds, to buffer the run time of scheduled
+-- scaling actions when scaling out. For example, if the forecast says to
+-- add capacity at 10:00 AM, and the buffer time is 5 minutes, then the run
+-- time of the corresponding scheduled scaling action will be 9:55 AM. The
+-- intention is to give resources time to be provisioned. For example, it
+-- can take a few minutes to launch an EC2 instance. The actual amount of
+-- time required depends on several factors, such as the size of the
+-- instance and whether there are startup scripts to complete.
+--
+-- The value must be less than the forecast interval duration of 3600
+-- seconds (60 minutes). The default is 300 seconds.
+--
+-- Only valid when configuring predictive scaling.
+scalingInstruction_scheduledActionBufferTime :: Lens.Lens' ScalingInstruction (Prelude.Maybe Prelude.Natural)
+scalingInstruction_scheduledActionBufferTime = Lens.lens (\ScalingInstruction' {scheduledActionBufferTime} -> scheduledActionBufferTime) (\s@ScalingInstruction' {} a -> s {scheduledActionBufferTime = a} :: ScalingInstruction)
+
+-- | The predictive scaling mode. The default value is @ForecastAndScale@.
+-- Otherwise, AWS Auto Scaling forecasts capacity but does not create any
+-- scheduled scaling actions based on the capacity forecast.
+scalingInstruction_predictiveScalingMode :: Lens.Lens' ScalingInstruction (Prelude.Maybe PredictiveScalingMode)
+scalingInstruction_predictiveScalingMode = Lens.lens (\ScalingInstruction' {predictiveScalingMode} -> predictiveScalingMode) (\s@ScalingInstruction' {} a -> s {predictiveScalingMode = a} :: ScalingInstruction)
+
+-- | Controls whether dynamic scaling by AWS Auto Scaling is disabled. When
+-- dynamic scaling is enabled, AWS Auto Scaling creates target tracking
+-- scaling policies based on the specified target tracking configurations.
+--
+-- The default is enabled (@false@).
+scalingInstruction_disableDynamicScaling :: Lens.Lens' ScalingInstruction (Prelude.Maybe Prelude.Bool)
+scalingInstruction_disableDynamicScaling = Lens.lens (\ScalingInstruction' {disableDynamicScaling} -> disableDynamicScaling) (\s@ScalingInstruction' {} a -> s {disableDynamicScaling = a} :: ScalingInstruction)
 
 -- | The namespace of the AWS service.
 scalingInstruction_serviceNamespace :: Lens.Lens' ScalingInstruction ServiceNamespace
@@ -571,14 +571,14 @@ instance Core.FromJSON ScalingInstruction where
       "ScalingInstruction"
       ( \x ->
           ScalingInstruction'
-            Prelude.<$> (x Core..:? "ScheduledActionBufferTime")
-            Prelude.<*> (x Core..:? "PredictiveScalingMaxCapacityBuffer")
-            Prelude.<*> (x Core..:? "ScalingPolicyUpdateBehavior")
+            Prelude.<$> (x Core..:? "ScalingPolicyUpdateBehavior")
+            Prelude.<*> (x Core..:? "PredefinedLoadMetricSpecification")
             Prelude.<*> (x Core..:? "CustomizedLoadMetricSpecification")
+            Prelude.<*> (x Core..:? "PredictiveScalingMaxCapacityBehavior")
+            Prelude.<*> (x Core..:? "PredictiveScalingMaxCapacityBuffer")
+            Prelude.<*> (x Core..:? "ScheduledActionBufferTime")
             Prelude.<*> (x Core..:? "PredictiveScalingMode")
             Prelude.<*> (x Core..:? "DisableDynamicScaling")
-            Prelude.<*> (x Core..:? "PredictiveScalingMaxCapacityBehavior")
-            Prelude.<*> (x Core..:? "PredefinedLoadMetricSpecification")
             Prelude.<*> (x Core..: "ServiceNamespace")
             Prelude.<*> (x Core..: "ResourceId")
             Prelude.<*> (x Core..: "ScalableDimension")
@@ -592,14 +592,14 @@ instance Core.FromJSON ScalingInstruction where
 instance Prelude.Hashable ScalingInstruction where
   hashWithSalt _salt ScalingInstruction' {..} =
     _salt
-      `Prelude.hashWithSalt` scheduledActionBufferTime
-      `Prelude.hashWithSalt` predictiveScalingMaxCapacityBuffer
       `Prelude.hashWithSalt` scalingPolicyUpdateBehavior
+      `Prelude.hashWithSalt` predefinedLoadMetricSpecification
       `Prelude.hashWithSalt` customizedLoadMetricSpecification
+      `Prelude.hashWithSalt` predictiveScalingMaxCapacityBehavior
+      `Prelude.hashWithSalt` predictiveScalingMaxCapacityBuffer
+      `Prelude.hashWithSalt` scheduledActionBufferTime
       `Prelude.hashWithSalt` predictiveScalingMode
       `Prelude.hashWithSalt` disableDynamicScaling
-      `Prelude.hashWithSalt` predictiveScalingMaxCapacityBehavior
-      `Prelude.hashWithSalt` predefinedLoadMetricSpecification
       `Prelude.hashWithSalt` serviceNamespace
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` scalableDimension
@@ -609,14 +609,14 @@ instance Prelude.Hashable ScalingInstruction where
 
 instance Prelude.NFData ScalingInstruction where
   rnf ScalingInstruction' {..} =
-    Prelude.rnf scheduledActionBufferTime
-      `Prelude.seq` Prelude.rnf predictiveScalingMaxCapacityBuffer
-      `Prelude.seq` Prelude.rnf scalingPolicyUpdateBehavior
+    Prelude.rnf scalingPolicyUpdateBehavior
+      `Prelude.seq` Prelude.rnf predefinedLoadMetricSpecification
       `Prelude.seq` Prelude.rnf customizedLoadMetricSpecification
+      `Prelude.seq` Prelude.rnf predictiveScalingMaxCapacityBehavior
+      `Prelude.seq` Prelude.rnf predictiveScalingMaxCapacityBuffer
+      `Prelude.seq` Prelude.rnf scheduledActionBufferTime
       `Prelude.seq` Prelude.rnf predictiveScalingMode
       `Prelude.seq` Prelude.rnf disableDynamicScaling
-      `Prelude.seq` Prelude.rnf predictiveScalingMaxCapacityBehavior
-      `Prelude.seq` Prelude.rnf predefinedLoadMetricSpecification
       `Prelude.seq` Prelude.rnf serviceNamespace
       `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf scalableDimension
@@ -628,22 +628,22 @@ instance Core.ToJSON ScalingInstruction where
   toJSON ScalingInstruction' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ScheduledActionBufferTime" Core..=)
-              Prelude.<$> scheduledActionBufferTime,
-            ("PredictiveScalingMaxCapacityBuffer" Core..=)
-              Prelude.<$> predictiveScalingMaxCapacityBuffer,
-            ("ScalingPolicyUpdateBehavior" Core..=)
+          [ ("ScalingPolicyUpdateBehavior" Core..=)
               Prelude.<$> scalingPolicyUpdateBehavior,
+            ("PredefinedLoadMetricSpecification" Core..=)
+              Prelude.<$> predefinedLoadMetricSpecification,
             ("CustomizedLoadMetricSpecification" Core..=)
               Prelude.<$> customizedLoadMetricSpecification,
+            ("PredictiveScalingMaxCapacityBehavior" Core..=)
+              Prelude.<$> predictiveScalingMaxCapacityBehavior,
+            ("PredictiveScalingMaxCapacityBuffer" Core..=)
+              Prelude.<$> predictiveScalingMaxCapacityBuffer,
+            ("ScheduledActionBufferTime" Core..=)
+              Prelude.<$> scheduledActionBufferTime,
             ("PredictiveScalingMode" Core..=)
               Prelude.<$> predictiveScalingMode,
             ("DisableDynamicScaling" Core..=)
               Prelude.<$> disableDynamicScaling,
-            ("PredictiveScalingMaxCapacityBehavior" Core..=)
-              Prelude.<$> predictiveScalingMaxCapacityBehavior,
-            ("PredefinedLoadMetricSpecification" Core..=)
-              Prelude.<$> predefinedLoadMetricSpecification,
             Prelude.Just
               ("ServiceNamespace" Core..= serviceNamespace),
             Prelude.Just ("ResourceId" Core..= resourceId),

@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newApplicationSource' smart constructor.
 data ApplicationSource = ApplicationSource'
-  { -- | A set of tags (up to 50).
-    tagFilters :: Prelude.Maybe [TagFilter],
-    -- | The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
-    cloudFormationStackARN :: Prelude.Maybe Prelude.Text
+  { -- | The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
+    cloudFormationStackARN :: Prelude.Maybe Prelude.Text,
+    -- | A set of tags (up to 50).
+    tagFilters :: Prelude.Maybe [TagFilter]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,25 @@ data ApplicationSource = ApplicationSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagFilters', 'applicationSource_tagFilters' - A set of tags (up to 50).
---
 -- 'cloudFormationStackARN', 'applicationSource_cloudFormationStackARN' - The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
+--
+-- 'tagFilters', 'applicationSource_tagFilters' - A set of tags (up to 50).
 newApplicationSource ::
   ApplicationSource
 newApplicationSource =
   ApplicationSource'
-    { tagFilters = Prelude.Nothing,
-      cloudFormationStackARN = Prelude.Nothing
+    { cloudFormationStackARN =
+        Prelude.Nothing,
+      tagFilters = Prelude.Nothing
     }
-
--- | A set of tags (up to 50).
-applicationSource_tagFilters :: Lens.Lens' ApplicationSource (Prelude.Maybe [TagFilter])
-applicationSource_tagFilters = Lens.lens (\ApplicationSource' {tagFilters} -> tagFilters) (\s@ApplicationSource' {} a -> s {tagFilters = a} :: ApplicationSource) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
 applicationSource_cloudFormationStackARN :: Lens.Lens' ApplicationSource (Prelude.Maybe Prelude.Text)
 applicationSource_cloudFormationStackARN = Lens.lens (\ApplicationSource' {cloudFormationStackARN} -> cloudFormationStackARN) (\s@ApplicationSource' {} a -> s {cloudFormationStackARN = a} :: ApplicationSource)
+
+-- | A set of tags (up to 50).
+applicationSource_tagFilters :: Lens.Lens' ApplicationSource (Prelude.Maybe [TagFilter])
+applicationSource_tagFilters = Lens.lens (\ApplicationSource' {tagFilters} -> tagFilters) (\s@ApplicationSource' {} a -> s {tagFilters = a} :: ApplicationSource) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ApplicationSource where
   parseJSON =
@@ -68,26 +69,26 @@ instance Core.FromJSON ApplicationSource where
       "ApplicationSource"
       ( \x ->
           ApplicationSource'
-            Prelude.<$> (x Core..:? "TagFilters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CloudFormationStackARN")
+            Prelude.<$> (x Core..:? "CloudFormationStackARN")
+            Prelude.<*> (x Core..:? "TagFilters" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ApplicationSource where
   hashWithSalt _salt ApplicationSource' {..} =
-    _salt `Prelude.hashWithSalt` tagFilters
-      `Prelude.hashWithSalt` cloudFormationStackARN
+    _salt `Prelude.hashWithSalt` cloudFormationStackARN
+      `Prelude.hashWithSalt` tagFilters
 
 instance Prelude.NFData ApplicationSource where
   rnf ApplicationSource' {..} =
-    Prelude.rnf tagFilters
-      `Prelude.seq` Prelude.rnf cloudFormationStackARN
+    Prelude.rnf cloudFormationStackARN
+      `Prelude.seq` Prelude.rnf tagFilters
 
 instance Core.ToJSON ApplicationSource where
   toJSON ApplicationSource' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TagFilters" Core..=) Prelude.<$> tagFilters,
-            ("CloudFormationStackARN" Core..=)
-              Prelude.<$> cloudFormationStackARN
+          [ ("CloudFormationStackARN" Core..=)
+              Prelude.<$> cloudFormationStackARN,
+            ("TagFilters" Core..=) Prelude.<$> tagFilters
           ]
       )

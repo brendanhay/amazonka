@@ -47,35 +47,29 @@ module Amazonka.AutoScalingPlans
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
+    -- ** ObjectNotFoundException
+    _ObjectNotFoundException,
 
     -- ** ConcurrentUpdateException
     _ConcurrentUpdateException,
 
-    -- ** InternalServiceException
-    _InternalServiceException,
-
-    -- ** ObjectNotFoundException
-    _ObjectNotFoundException,
-
     -- ** LimitExceededException
     _LimitExceededException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** ValidationException
+    _ValidationException,
+
+    -- ** InternalServiceException
+    _InternalServiceException,
 
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
-
-    -- ** DescribeScalingPlanResources (Paginated)
-    DescribeScalingPlanResources (DescribeScalingPlanResources'),
-    newDescribeScalingPlanResources,
-    DescribeScalingPlanResourcesResponse (DescribeScalingPlanResourcesResponse'),
-    newDescribeScalingPlanResourcesResponse,
 
     -- ** CreateScalingPlan
     CreateScalingPlan (CreateScalingPlan'),
@@ -89,11 +83,11 @@ module Amazonka.AutoScalingPlans
     DeleteScalingPlanResponse (DeleteScalingPlanResponse'),
     newDeleteScalingPlanResponse,
 
-    -- ** UpdateScalingPlan
-    UpdateScalingPlan (UpdateScalingPlan'),
-    newUpdateScalingPlan,
-    UpdateScalingPlanResponse (UpdateScalingPlanResponse'),
-    newUpdateScalingPlanResponse,
+    -- ** DescribeScalingPlanResources (Paginated)
+    DescribeScalingPlanResources (DescribeScalingPlanResources'),
+    newDescribeScalingPlanResources,
+    DescribeScalingPlanResourcesResponse (DescribeScalingPlanResourcesResponse'),
+    newDescribeScalingPlanResourcesResponse,
 
     -- ** DescribeScalingPlans (Paginated)
     DescribeScalingPlans (DescribeScalingPlans'),
@@ -106,6 +100,12 @@ module Amazonka.AutoScalingPlans
     newGetScalingPlanResourceForecastData,
     GetScalingPlanResourceForecastDataResponse (GetScalingPlanResourceForecastDataResponse'),
     newGetScalingPlanResourceForecastDataResponse,
+
+    -- ** UpdateScalingPlan
+    UpdateScalingPlan (UpdateScalingPlan'),
+    newUpdateScalingPlan,
+    UpdateScalingPlanResponse (UpdateScalingPlanResponse'),
+    newUpdateScalingPlanResponse,
 
     -- * Types
 

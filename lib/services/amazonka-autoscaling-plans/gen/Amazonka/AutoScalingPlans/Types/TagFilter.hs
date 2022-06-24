@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTagFilter' smart constructor.
 data TagFilter = TagFilter'
-  { -- | The tag values (0 to 20).
-    values :: Prelude.Maybe [Prelude.Text],
-    -- | The tag key.
-    key :: Prelude.Maybe Prelude.Text
+  { -- | The tag key.
+    key :: Prelude.Maybe Prelude.Text,
+    -- | The tag values (0 to 20).
+    values :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data TagFilter = TagFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'values', 'tagFilter_values' - The tag values (0 to 20).
---
 -- 'key', 'tagFilter_key' - The tag key.
+--
+-- 'values', 'tagFilter_values' - The tag values (0 to 20).
 newTagFilter ::
   TagFilter
 newTagFilter =
   TagFilter'
-    { values = Prelude.Nothing,
-      key = Prelude.Nothing
+    { key = Prelude.Nothing,
+      values = Prelude.Nothing
     }
-
--- | The tag values (0 to 20).
-tagFilter_values :: Lens.Lens' TagFilter (Prelude.Maybe [Prelude.Text])
-tagFilter_values = Lens.lens (\TagFilter' {values} -> values) (\s@TagFilter' {} a -> s {values = a} :: TagFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | The tag key.
 tagFilter_key :: Lens.Lens' TagFilter (Prelude.Maybe Prelude.Text)
 tagFilter_key = Lens.lens (\TagFilter' {key} -> key) (\s@TagFilter' {} a -> s {key = a} :: TagFilter)
+
+-- | The tag values (0 to 20).
+tagFilter_values :: Lens.Lens' TagFilter (Prelude.Maybe [Prelude.Text])
+tagFilter_values = Lens.lens (\TagFilter' {values} -> values) (\s@TagFilter' {} a -> s {values = a} :: TagFilter) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON TagFilter where
   parseJSON =
@@ -67,24 +67,24 @@ instance Core.FromJSON TagFilter where
       "TagFilter"
       ( \x ->
           TagFilter'
-            Prelude.<$> (x Core..:? "Values" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Key")
+            Prelude.<$> (x Core..:? "Key")
+            Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TagFilter where
   hashWithSalt _salt TagFilter' {..} =
-    _salt `Prelude.hashWithSalt` values
-      `Prelude.hashWithSalt` key
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` values
 
 instance Prelude.NFData TagFilter where
   rnf TagFilter' {..} =
-    Prelude.rnf values `Prelude.seq` Prelude.rnf key
+    Prelude.rnf key `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON TagFilter where
   toJSON TagFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Values" Core..=) Prelude.<$> values,
-            ("Key" Core..=) Prelude.<$> key
+          [ ("Key" Core..=) Prelude.<$> key,
+            ("Values" Core..=) Prelude.<$> values
           ]
       )

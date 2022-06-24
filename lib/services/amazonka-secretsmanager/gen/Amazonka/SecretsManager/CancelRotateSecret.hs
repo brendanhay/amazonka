@@ -76,9 +76,9 @@ module Amazonka.SecretsManager.CancelRotateSecret
     newCancelRotateSecretResponse,
 
     -- * Response Lenses
-    cancelRotateSecretResponse_versionId,
-    cancelRotateSecretResponse_arn,
     cancelRotateSecretResponse_name,
+    cancelRotateSecretResponse_arn,
+    cancelRotateSecretResponse_versionId,
     cancelRotateSecretResponse_httpStatus,
   )
 where
@@ -141,9 +141,9 @@ instance Core.AWSRequest CancelRotateSecret where
     Response.receiveJSON
       ( \s h x ->
           CancelRotateSecretResponse'
-            Prelude.<$> (x Core..?> "VersionId")
+            Prelude.<$> (x Core..?> "Name")
             Prelude.<*> (x Core..?> "ARN")
-            Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,17 +184,17 @@ instance Core.ToQuery CancelRotateSecret where
 
 -- | /See:/ 'newCancelRotateSecretResponse' smart constructor.
 data CancelRotateSecretResponse = CancelRotateSecretResponse'
-  { -- | The unique identifier of the version of the secret created during the
+  { -- | The friendly name of the secret for which rotation was canceled.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the secret for which rotation was canceled.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier of the version of the secret created during the
     -- rotation. This version might not be complete, and should be evaluated
     -- for possible deletion. At the very least, you should remove the
     -- @VersionStage@ value @AWSPENDING@ to enable this version to be deleted.
     -- Failing to clean up a cancelled rotation can block you from successfully
     -- starting future rotations.
     versionId :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the secret for which rotation was canceled.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The friendly name of the secret for which rotation was canceled.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -208,16 +208,16 @@ data CancelRotateSecretResponse = CancelRotateSecretResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'cancelRotateSecretResponse_name' - The friendly name of the secret for which rotation was canceled.
+--
+-- 'arn', 'cancelRotateSecretResponse_arn' - The ARN of the secret for which rotation was canceled.
+--
 -- 'versionId', 'cancelRotateSecretResponse_versionId' - The unique identifier of the version of the secret created during the
 -- rotation. This version might not be complete, and should be evaluated
 -- for possible deletion. At the very least, you should remove the
 -- @VersionStage@ value @AWSPENDING@ to enable this version to be deleted.
 -- Failing to clean up a cancelled rotation can block you from successfully
 -- starting future rotations.
---
--- 'arn', 'cancelRotateSecretResponse_arn' - The ARN of the secret for which rotation was canceled.
---
--- 'name', 'cancelRotateSecretResponse_name' - The friendly name of the secret for which rotation was canceled.
 --
 -- 'httpStatus', 'cancelRotateSecretResponse_httpStatus' - The response's http status code.
 newCancelRotateSecretResponse ::
@@ -226,12 +226,19 @@ newCancelRotateSecretResponse ::
   CancelRotateSecretResponse
 newCancelRotateSecretResponse pHttpStatus_ =
   CancelRotateSecretResponse'
-    { versionId =
-        Prelude.Nothing,
+    { name = Prelude.Nothing,
       arn = Prelude.Nothing,
-      name = Prelude.Nothing,
+      versionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The friendly name of the secret for which rotation was canceled.
+cancelRotateSecretResponse_name :: Lens.Lens' CancelRotateSecretResponse (Prelude.Maybe Prelude.Text)
+cancelRotateSecretResponse_name = Lens.lens (\CancelRotateSecretResponse' {name} -> name) (\s@CancelRotateSecretResponse' {} a -> s {name = a} :: CancelRotateSecretResponse)
+
+-- | The ARN of the secret for which rotation was canceled.
+cancelRotateSecretResponse_arn :: Lens.Lens' CancelRotateSecretResponse (Prelude.Maybe Prelude.Text)
+cancelRotateSecretResponse_arn = Lens.lens (\CancelRotateSecretResponse' {arn} -> arn) (\s@CancelRotateSecretResponse' {} a -> s {arn = a} :: CancelRotateSecretResponse)
 
 -- | The unique identifier of the version of the secret created during the
 -- rotation. This version might not be complete, and should be evaluated
@@ -242,21 +249,13 @@ newCancelRotateSecretResponse pHttpStatus_ =
 cancelRotateSecretResponse_versionId :: Lens.Lens' CancelRotateSecretResponse (Prelude.Maybe Prelude.Text)
 cancelRotateSecretResponse_versionId = Lens.lens (\CancelRotateSecretResponse' {versionId} -> versionId) (\s@CancelRotateSecretResponse' {} a -> s {versionId = a} :: CancelRotateSecretResponse)
 
--- | The ARN of the secret for which rotation was canceled.
-cancelRotateSecretResponse_arn :: Lens.Lens' CancelRotateSecretResponse (Prelude.Maybe Prelude.Text)
-cancelRotateSecretResponse_arn = Lens.lens (\CancelRotateSecretResponse' {arn} -> arn) (\s@CancelRotateSecretResponse' {} a -> s {arn = a} :: CancelRotateSecretResponse)
-
--- | The friendly name of the secret for which rotation was canceled.
-cancelRotateSecretResponse_name :: Lens.Lens' CancelRotateSecretResponse (Prelude.Maybe Prelude.Text)
-cancelRotateSecretResponse_name = Lens.lens (\CancelRotateSecretResponse' {name} -> name) (\s@CancelRotateSecretResponse' {} a -> s {name = a} :: CancelRotateSecretResponse)
-
 -- | The response's http status code.
 cancelRotateSecretResponse_httpStatus :: Lens.Lens' CancelRotateSecretResponse Prelude.Int
 cancelRotateSecretResponse_httpStatus = Lens.lens (\CancelRotateSecretResponse' {httpStatus} -> httpStatus) (\s@CancelRotateSecretResponse' {} a -> s {httpStatus = a} :: CancelRotateSecretResponse)
 
 instance Prelude.NFData CancelRotateSecretResponse where
   rnf CancelRotateSecretResponse' {..} =
-    Prelude.rnf versionId
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf httpStatus

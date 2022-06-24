@@ -49,8 +49,8 @@ module Amazonka.SecretsManager.DeleteResourcePolicy
     newDeleteResourcePolicyResponse,
 
     -- * Response Lenses
-    deleteResourcePolicyResponse_arn,
     deleteResourcePolicyResponse_name,
+    deleteResourcePolicyResponse_arn,
     deleteResourcePolicyResponse_httpStatus,
   )
 where
@@ -113,8 +113,8 @@ instance Core.AWSRequest DeleteResourcePolicy where
     Response.receiveJSON
       ( \s h x ->
           DeleteResourcePolicyResponse'
-            Prelude.<$> (x Core..?> "ARN")
-            Prelude.<*> (x Core..?> "Name")
+            Prelude.<$> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "ARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,11 +155,11 @@ instance Core.ToQuery DeleteResourcePolicy where
 
 -- | /See:/ 'newDeleteResourcePolicyResponse' smart constructor.
 data DeleteResourcePolicyResponse = DeleteResourcePolicyResponse'
-  { -- | The ARN of the secret that the resource-based policy was deleted for.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The friendly name of the secret that the resource-based policy was
+  { -- | The friendly name of the secret that the resource-based policy was
     -- deleted for.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the secret that the resource-based policy was deleted for.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -173,10 +173,10 @@ data DeleteResourcePolicyResponse = DeleteResourcePolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'deleteResourcePolicyResponse_arn' - The ARN of the secret that the resource-based policy was deleted for.
---
 -- 'name', 'deleteResourcePolicyResponse_name' - The friendly name of the secret that the resource-based policy was
 -- deleted for.
+--
+-- 'arn', 'deleteResourcePolicyResponse_arn' - The ARN of the secret that the resource-based policy was deleted for.
 --
 -- 'httpStatus', 'deleteResourcePolicyResponse_httpStatus' - The response's http status code.
 newDeleteResourcePolicyResponse ::
@@ -185,20 +185,20 @@ newDeleteResourcePolicyResponse ::
   DeleteResourcePolicyResponse
 newDeleteResourcePolicyResponse pHttpStatus_ =
   DeleteResourcePolicyResponse'
-    { arn =
+    { name =
         Prelude.Nothing,
-      name = Prelude.Nothing,
+      arn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARN of the secret that the resource-based policy was deleted for.
-deleteResourcePolicyResponse_arn :: Lens.Lens' DeleteResourcePolicyResponse (Prelude.Maybe Prelude.Text)
-deleteResourcePolicyResponse_arn = Lens.lens (\DeleteResourcePolicyResponse' {arn} -> arn) (\s@DeleteResourcePolicyResponse' {} a -> s {arn = a} :: DeleteResourcePolicyResponse)
 
 -- | The friendly name of the secret that the resource-based policy was
 -- deleted for.
 deleteResourcePolicyResponse_name :: Lens.Lens' DeleteResourcePolicyResponse (Prelude.Maybe Prelude.Text)
 deleteResourcePolicyResponse_name = Lens.lens (\DeleteResourcePolicyResponse' {name} -> name) (\s@DeleteResourcePolicyResponse' {} a -> s {name = a} :: DeleteResourcePolicyResponse)
+
+-- | The ARN of the secret that the resource-based policy was deleted for.
+deleteResourcePolicyResponse_arn :: Lens.Lens' DeleteResourcePolicyResponse (Prelude.Maybe Prelude.Text)
+deleteResourcePolicyResponse_arn = Lens.lens (\DeleteResourcePolicyResponse' {arn} -> arn) (\s@DeleteResourcePolicyResponse' {} a -> s {arn = a} :: DeleteResourcePolicyResponse)
 
 -- | The response's http status code.
 deleteResourcePolicyResponse_httpStatus :: Lens.Lens' DeleteResourcePolicyResponse Prelude.Int
@@ -206,6 +206,6 @@ deleteResourcePolicyResponse_httpStatus = Lens.lens (\DeleteResourcePolicyRespon
 
 instance Prelude.NFData DeleteResourcePolicyResponse where
   rnf DeleteResourcePolicyResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf httpStatus

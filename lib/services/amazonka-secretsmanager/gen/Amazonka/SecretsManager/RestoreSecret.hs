@@ -45,8 +45,8 @@ module Amazonka.SecretsManager.RestoreSecret
     newRestoreSecretResponse,
 
     -- * Response Lenses
-    restoreSecretResponse_arn,
     restoreSecretResponse_name,
+    restoreSecretResponse_arn,
     restoreSecretResponse_httpStatus,
   )
 where
@@ -109,8 +109,8 @@ instance Core.AWSRequest RestoreSecret where
     Response.receiveJSON
       ( \s h x ->
           RestoreSecretResponse'
-            Prelude.<$> (x Core..?> "ARN")
-            Prelude.<*> (x Core..?> "Name")
+            Prelude.<$> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "ARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,10 +151,10 @@ instance Core.ToQuery RestoreSecret where
 
 -- | /See:/ 'newRestoreSecretResponse' smart constructor.
 data RestoreSecretResponse = RestoreSecretResponse'
-  { -- | The ARN of the secret that was restored.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The friendly name of the secret that was restored.
+  { -- | The friendly name of the secret that was restored.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the secret that was restored.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -168,9 +168,9 @@ data RestoreSecretResponse = RestoreSecretResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'restoreSecretResponse_arn' - The ARN of the secret that was restored.
---
 -- 'name', 'restoreSecretResponse_name' - The friendly name of the secret that was restored.
+--
+-- 'arn', 'restoreSecretResponse_arn' - The ARN of the secret that was restored.
 --
 -- 'httpStatus', 'restoreSecretResponse_httpStatus' - The response's http status code.
 newRestoreSecretResponse ::
@@ -179,18 +179,18 @@ newRestoreSecretResponse ::
   RestoreSecretResponse
 newRestoreSecretResponse pHttpStatus_ =
   RestoreSecretResponse'
-    { arn = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      arn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARN of the secret that was restored.
-restoreSecretResponse_arn :: Lens.Lens' RestoreSecretResponse (Prelude.Maybe Prelude.Text)
-restoreSecretResponse_arn = Lens.lens (\RestoreSecretResponse' {arn} -> arn) (\s@RestoreSecretResponse' {} a -> s {arn = a} :: RestoreSecretResponse)
 
 -- | The friendly name of the secret that was restored.
 restoreSecretResponse_name :: Lens.Lens' RestoreSecretResponse (Prelude.Maybe Prelude.Text)
 restoreSecretResponse_name = Lens.lens (\RestoreSecretResponse' {name} -> name) (\s@RestoreSecretResponse' {} a -> s {name = a} :: RestoreSecretResponse)
+
+-- | The ARN of the secret that was restored.
+restoreSecretResponse_arn :: Lens.Lens' RestoreSecretResponse (Prelude.Maybe Prelude.Text)
+restoreSecretResponse_arn = Lens.lens (\RestoreSecretResponse' {arn} -> arn) (\s@RestoreSecretResponse' {} a -> s {arn = a} :: RestoreSecretResponse)
 
 -- | The response's http status code.
 restoreSecretResponse_httpStatus :: Lens.Lens' RestoreSecretResponse Prelude.Int
@@ -198,6 +198,6 @@ restoreSecretResponse_httpStatus = Lens.lens (\RestoreSecretResponse' {httpStatu
 
 instance Prelude.NFData RestoreSecretResponse where
   rnf RestoreSecretResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf httpStatus

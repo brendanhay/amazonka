@@ -88,35 +88,8 @@ module Amazonka.SecretsManager
     -- * Errors
     -- $errors
 
-    -- ** MalformedPolicyDocumentException
-    _MalformedPolicyDocumentException,
-
-    -- ** InvalidParameterException
-    _InvalidParameterException,
-
-    -- ** InvalidRequestException
-    _InvalidRequestException,
-
-    -- ** DecryptionFailure
-    _DecryptionFailure,
-
-    -- ** PublicPolicyException
-    _PublicPolicyException,
-
-    -- ** EncryptionFailure
-    _EncryptionFailure,
-
     -- ** PreconditionNotMetException
     _PreconditionNotMetException,
-
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
-
-    -- ** InternalServiceError
-    _InternalServiceError,
-
-    -- ** ResourceExistsException
-    _ResourceExistsException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
@@ -124,71 +97,38 @@ module Amazonka.SecretsManager
     -- ** LimitExceededException
     _LimitExceededException,
 
+    -- ** EncryptionFailure
+    _EncryptionFailure,
+
+    -- ** PublicPolicyException
+    _PublicPolicyException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** InternalServiceError
+    _InternalServiceError,
+
+    -- ** DecryptionFailure
+    _DecryptionFailure,
+
+    -- ** MalformedPolicyDocumentException
+    _MalformedPolicyDocumentException,
+
+    -- ** ResourceExistsException
+    _ResourceExistsException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
-
-    -- ** ValidateResourcePolicy
-    ValidateResourcePolicy (ValidateResourcePolicy'),
-    newValidateResourcePolicy,
-    ValidateResourcePolicyResponse (ValidateResourcePolicyResponse'),
-    newValidateResourcePolicyResponse,
-
-    -- ** DeleteSecret
-    DeleteSecret (DeleteSecret'),
-    newDeleteSecret,
-    DeleteSecretResponse (DeleteSecretResponse'),
-    newDeleteSecretResponse,
-
-    -- ** ListSecrets (Paginated)
-    ListSecrets (ListSecrets'),
-    newListSecrets,
-    ListSecretsResponse (ListSecretsResponse'),
-    newListSecretsResponse,
-
-    -- ** UpdateSecret
-    UpdateSecret (UpdateSecret'),
-    newUpdateSecret,
-    UpdateSecretResponse (UpdateSecretResponse'),
-    newUpdateSecretResponse,
-
-    -- ** RemoveRegionsFromReplication
-    RemoveRegionsFromReplication (RemoveRegionsFromReplication'),
-    newRemoveRegionsFromReplication,
-    RemoveRegionsFromReplicationResponse (RemoveRegionsFromReplicationResponse'),
-    newRemoveRegionsFromReplicationResponse,
-
-    -- ** RotateSecret
-    RotateSecret (RotateSecret'),
-    newRotateSecret,
-    RotateSecretResponse (RotateSecretResponse'),
-    newRotateSecretResponse,
-
-    -- ** CreateSecret
-    CreateSecret (CreateSecret'),
-    newCreateSecret,
-    CreateSecretResponse (CreateSecretResponse'),
-    newCreateSecretResponse,
-
-    -- ** GetSecretValue
-    GetSecretValue (GetSecretValue'),
-    newGetSecretValue,
-    GetSecretValueResponse (GetSecretValueResponse'),
-    newGetSecretValueResponse,
-
-    -- ** DescribeSecret
-    DescribeSecret (DescribeSecret'),
-    newDescribeSecret,
-    DescribeSecretResponse (DescribeSecretResponse'),
-    newDescribeSecretResponse,
-
-    -- ** RestoreSecret
-    RestoreSecret (RestoreSecret'),
-    newRestoreSecret,
-    RestoreSecretResponse (RestoreSecretResponse'),
-    newRestoreSecretResponse,
 
     -- ** CancelRotateSecret
     CancelRotateSecret (CancelRotateSecret'),
@@ -196,53 +136,11 @@ module Amazonka.SecretsManager
     CancelRotateSecretResponse (CancelRotateSecretResponse'),
     newCancelRotateSecretResponse,
 
-    -- ** GetResourcePolicy
-    GetResourcePolicy (GetResourcePolicy'),
-    newGetResourcePolicy,
-    GetResourcePolicyResponse (GetResourcePolicyResponse'),
-    newGetResourcePolicyResponse,
-
-    -- ** PutSecretValue
-    PutSecretValue (PutSecretValue'),
-    newPutSecretValue,
-    PutSecretValueResponse (PutSecretValueResponse'),
-    newPutSecretValueResponse,
-
-    -- ** ReplicateSecretToRegions
-    ReplicateSecretToRegions (ReplicateSecretToRegions'),
-    newReplicateSecretToRegions,
-    ReplicateSecretToRegionsResponse (ReplicateSecretToRegionsResponse'),
-    newReplicateSecretToRegionsResponse,
-
-    -- ** StopReplicationToReplica
-    StopReplicationToReplica (StopReplicationToReplica'),
-    newStopReplicationToReplica,
-    StopReplicationToReplicaResponse (StopReplicationToReplicaResponse'),
-    newStopReplicationToReplicaResponse,
-
-    -- ** GetRandomPassword
-    GetRandomPassword (GetRandomPassword'),
-    newGetRandomPassword,
-    GetRandomPasswordResponse (GetRandomPasswordResponse'),
-    newGetRandomPasswordResponse,
-
-    -- ** ListSecretVersionIds (Paginated)
-    ListSecretVersionIds (ListSecretVersionIds'),
-    newListSecretVersionIds,
-    ListSecretVersionIdsResponse (ListSecretVersionIdsResponse'),
-    newListSecretVersionIdsResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** PutResourcePolicy
-    PutResourcePolicy (PutResourcePolicy'),
-    newPutResourcePolicy,
-    PutResourcePolicyResponse (PutResourcePolicyResponse'),
-    newPutResourcePolicyResponse,
+    -- ** CreateSecret
+    CreateSecret (CreateSecret'),
+    newCreateSecret,
+    CreateSecretResponse (CreateSecretResponse'),
+    newCreateSecretResponse,
 
     -- ** DeleteResourcePolicy
     DeleteResourcePolicy (DeleteResourcePolicy'),
@@ -250,17 +148,119 @@ module Amazonka.SecretsManager
     DeleteResourcePolicyResponse (DeleteResourcePolicyResponse'),
     newDeleteResourcePolicyResponse,
 
+    -- ** DeleteSecret
+    DeleteSecret (DeleteSecret'),
+    newDeleteSecret,
+    DeleteSecretResponse (DeleteSecretResponse'),
+    newDeleteSecretResponse,
+
+    -- ** DescribeSecret
+    DescribeSecret (DescribeSecret'),
+    newDescribeSecret,
+    DescribeSecretResponse (DescribeSecretResponse'),
+    newDescribeSecretResponse,
+
+    -- ** GetRandomPassword
+    GetRandomPassword (GetRandomPassword'),
+    newGetRandomPassword,
+    GetRandomPasswordResponse (GetRandomPasswordResponse'),
+    newGetRandomPasswordResponse,
+
+    -- ** GetResourcePolicy
+    GetResourcePolicy (GetResourcePolicy'),
+    newGetResourcePolicy,
+    GetResourcePolicyResponse (GetResourcePolicyResponse'),
+    newGetResourcePolicyResponse,
+
+    -- ** GetSecretValue
+    GetSecretValue (GetSecretValue'),
+    newGetSecretValue,
+    GetSecretValueResponse (GetSecretValueResponse'),
+    newGetSecretValueResponse,
+
+    -- ** ListSecretVersionIds (Paginated)
+    ListSecretVersionIds (ListSecretVersionIds'),
+    newListSecretVersionIds,
+    ListSecretVersionIdsResponse (ListSecretVersionIdsResponse'),
+    newListSecretVersionIdsResponse,
+
+    -- ** ListSecrets (Paginated)
+    ListSecrets (ListSecrets'),
+    newListSecrets,
+    ListSecretsResponse (ListSecretsResponse'),
+    newListSecretsResponse,
+
+    -- ** PutResourcePolicy
+    PutResourcePolicy (PutResourcePolicy'),
+    newPutResourcePolicy,
+    PutResourcePolicyResponse (PutResourcePolicyResponse'),
+    newPutResourcePolicyResponse,
+
+    -- ** PutSecretValue
+    PutSecretValue (PutSecretValue'),
+    newPutSecretValue,
+    PutSecretValueResponse (PutSecretValueResponse'),
+    newPutSecretValueResponse,
+
+    -- ** RemoveRegionsFromReplication
+    RemoveRegionsFromReplication (RemoveRegionsFromReplication'),
+    newRemoveRegionsFromReplication,
+    RemoveRegionsFromReplicationResponse (RemoveRegionsFromReplicationResponse'),
+    newRemoveRegionsFromReplicationResponse,
+
+    -- ** ReplicateSecretToRegions
+    ReplicateSecretToRegions (ReplicateSecretToRegions'),
+    newReplicateSecretToRegions,
+    ReplicateSecretToRegionsResponse (ReplicateSecretToRegionsResponse'),
+    newReplicateSecretToRegionsResponse,
+
+    -- ** RestoreSecret
+    RestoreSecret (RestoreSecret'),
+    newRestoreSecret,
+    RestoreSecretResponse (RestoreSecretResponse'),
+    newRestoreSecretResponse,
+
+    -- ** RotateSecret
+    RotateSecret (RotateSecret'),
+    newRotateSecret,
+    RotateSecretResponse (RotateSecretResponse'),
+    newRotateSecretResponse,
+
+    -- ** StopReplicationToReplica
+    StopReplicationToReplica (StopReplicationToReplica'),
+    newStopReplicationToReplica,
+    StopReplicationToReplicaResponse (StopReplicationToReplicaResponse'),
+    newStopReplicationToReplicaResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
     -- ** UntagResource
     UntagResource (UntagResource'),
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
+    -- ** UpdateSecret
+    UpdateSecret (UpdateSecret'),
+    newUpdateSecret,
+    UpdateSecretResponse (UpdateSecretResponse'),
+    newUpdateSecretResponse,
+
     -- ** UpdateSecretVersionStage
     UpdateSecretVersionStage (UpdateSecretVersionStage'),
     newUpdateSecretVersionStage,
     UpdateSecretVersionStageResponse (UpdateSecretVersionStageResponse'),
     newUpdateSecretVersionStageResponse,
+
+    -- ** ValidateResourcePolicy
+    ValidateResourcePolicy (ValidateResourcePolicy'),
+    newValidateResourcePolicy,
+    ValidateResourcePolicyResponse (ValidateResourcePolicyResponse'),
+    newValidateResourcePolicyResponse,
 
     -- * Types
 

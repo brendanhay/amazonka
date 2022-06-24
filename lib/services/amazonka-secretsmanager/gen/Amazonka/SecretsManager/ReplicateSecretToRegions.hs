@@ -37,8 +37,8 @@ module Amazonka.SecretsManager.ReplicateSecretToRegions
     newReplicateSecretToRegionsResponse,
 
     -- * Response Lenses
-    replicateSecretToRegionsResponse_arn,
     replicateSecretToRegionsResponse_replicationStatus,
+    replicateSecretToRegionsResponse_arn,
     replicateSecretToRegionsResponse_httpStatus,
   )
 where
@@ -115,10 +115,10 @@ instance Core.AWSRequest ReplicateSecretToRegions where
     Response.receiveJSON
       ( \s h x ->
           ReplicateSecretToRegionsResponse'
-            Prelude.<$> (x Core..?> "ARN")
-            Prelude.<*> ( x Core..?> "ReplicationStatus"
+            Prelude.<$> ( x Core..?> "ReplicationStatus"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "ARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,13 +170,13 @@ instance Core.ToQuery ReplicateSecretToRegions where
 
 -- | /See:/ 'newReplicateSecretToRegionsResponse' smart constructor.
 data ReplicateSecretToRegionsResponse = ReplicateSecretToRegionsResponse'
-  { -- | Replicate a secret based on the @ReplicaRegionType@> consisting of a
+  { -- | Describes the secret replication status as @PENDING@, @SUCCESS@ or
+    -- @FAIL@.
+    replicationStatus :: Prelude.Maybe [ReplicationStatusType],
+    -- | Replicate a secret based on the @ReplicaRegionType@> consisting of a
     -- Region(required) and a KMSKeyId (optional) which can be the ARN, KeyID,
     -- or Alias.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | Describes the secret replication status as @PENDING@, @SUCCESS@ or
-    -- @FAIL@.
-    replicationStatus :: Prelude.Maybe [ReplicationStatusType],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -190,12 +190,12 @@ data ReplicateSecretToRegionsResponse = ReplicateSecretToRegionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'replicationStatus', 'replicateSecretToRegionsResponse_replicationStatus' - Describes the secret replication status as @PENDING@, @SUCCESS@ or
+-- @FAIL@.
+--
 -- 'arn', 'replicateSecretToRegionsResponse_arn' - Replicate a secret based on the @ReplicaRegionType@> consisting of a
 -- Region(required) and a KMSKeyId (optional) which can be the ARN, KeyID,
 -- or Alias.
---
--- 'replicationStatus', 'replicateSecretToRegionsResponse_replicationStatus' - Describes the secret replication status as @PENDING@, @SUCCESS@ or
--- @FAIL@.
 --
 -- 'httpStatus', 'replicateSecretToRegionsResponse_httpStatus' - The response's http status code.
 newReplicateSecretToRegionsResponse ::
@@ -204,22 +204,22 @@ newReplicateSecretToRegionsResponse ::
   ReplicateSecretToRegionsResponse
 newReplicateSecretToRegionsResponse pHttpStatus_ =
   ReplicateSecretToRegionsResponse'
-    { arn =
+    { replicationStatus =
         Prelude.Nothing,
-      replicationStatus = Prelude.Nothing,
+      arn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Describes the secret replication status as @PENDING@, @SUCCESS@ or
+-- @FAIL@.
+replicateSecretToRegionsResponse_replicationStatus :: Lens.Lens' ReplicateSecretToRegionsResponse (Prelude.Maybe [ReplicationStatusType])
+replicateSecretToRegionsResponse_replicationStatus = Lens.lens (\ReplicateSecretToRegionsResponse' {replicationStatus} -> replicationStatus) (\s@ReplicateSecretToRegionsResponse' {} a -> s {replicationStatus = a} :: ReplicateSecretToRegionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Replicate a secret based on the @ReplicaRegionType@> consisting of a
 -- Region(required) and a KMSKeyId (optional) which can be the ARN, KeyID,
 -- or Alias.
 replicateSecretToRegionsResponse_arn :: Lens.Lens' ReplicateSecretToRegionsResponse (Prelude.Maybe Prelude.Text)
 replicateSecretToRegionsResponse_arn = Lens.lens (\ReplicateSecretToRegionsResponse' {arn} -> arn) (\s@ReplicateSecretToRegionsResponse' {} a -> s {arn = a} :: ReplicateSecretToRegionsResponse)
-
--- | Describes the secret replication status as @PENDING@, @SUCCESS@ or
--- @FAIL@.
-replicateSecretToRegionsResponse_replicationStatus :: Lens.Lens' ReplicateSecretToRegionsResponse (Prelude.Maybe [ReplicationStatusType])
-replicateSecretToRegionsResponse_replicationStatus = Lens.lens (\ReplicateSecretToRegionsResponse' {replicationStatus} -> replicationStatus) (\s@ReplicateSecretToRegionsResponse' {} a -> s {replicationStatus = a} :: ReplicateSecretToRegionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 replicateSecretToRegionsResponse_httpStatus :: Lens.Lens' ReplicateSecretToRegionsResponse Prelude.Int
@@ -230,6 +230,6 @@ instance
     ReplicateSecretToRegionsResponse
   where
   rnf ReplicateSecretToRegionsResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf replicationStatus
+    Prelude.rnf replicationStatus
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf httpStatus

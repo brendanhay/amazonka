@@ -63,8 +63,8 @@ module Amazonka.SecretsManager.PutResourcePolicy
     newPutResourcePolicyResponse,
 
     -- * Response Lenses
-    putResourcePolicyResponse_arn,
     putResourcePolicyResponse_name,
+    putResourcePolicyResponse_arn,
     putResourcePolicyResponse_httpStatus,
   )
 where
@@ -168,8 +168,8 @@ instance Core.AWSRequest PutResourcePolicy where
     Response.receiveJSON
       ( \s h x ->
           PutResourcePolicyResponse'
-            Prelude.<$> (x Core..?> "ARN")
-            Prelude.<*> (x Core..?> "Name")
+            Prelude.<$> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "ARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -220,10 +220,10 @@ instance Core.ToQuery PutResourcePolicy where
 
 -- | /See:/ 'newPutResourcePolicyResponse' smart constructor.
 data PutResourcePolicyResponse = PutResourcePolicyResponse'
-  { -- | The ARN of the secret retrieved by the resource-based policy.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The friendly name of the secret retrieved by the resource-based policy.
+  { -- | The friendly name of the secret retrieved by the resource-based policy.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the secret retrieved by the resource-based policy.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -237,9 +237,9 @@ data PutResourcePolicyResponse = PutResourcePolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'putResourcePolicyResponse_arn' - The ARN of the secret retrieved by the resource-based policy.
---
 -- 'name', 'putResourcePolicyResponse_name' - The friendly name of the secret retrieved by the resource-based policy.
+--
+-- 'arn', 'putResourcePolicyResponse_arn' - The ARN of the secret retrieved by the resource-based policy.
 --
 -- 'httpStatus', 'putResourcePolicyResponse_httpStatus' - The response's http status code.
 newPutResourcePolicyResponse ::
@@ -248,18 +248,18 @@ newPutResourcePolicyResponse ::
   PutResourcePolicyResponse
 newPutResourcePolicyResponse pHttpStatus_ =
   PutResourcePolicyResponse'
-    { arn = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      arn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARN of the secret retrieved by the resource-based policy.
-putResourcePolicyResponse_arn :: Lens.Lens' PutResourcePolicyResponse (Prelude.Maybe Prelude.Text)
-putResourcePolicyResponse_arn = Lens.lens (\PutResourcePolicyResponse' {arn} -> arn) (\s@PutResourcePolicyResponse' {} a -> s {arn = a} :: PutResourcePolicyResponse)
 
 -- | The friendly name of the secret retrieved by the resource-based policy.
 putResourcePolicyResponse_name :: Lens.Lens' PutResourcePolicyResponse (Prelude.Maybe Prelude.Text)
 putResourcePolicyResponse_name = Lens.lens (\PutResourcePolicyResponse' {name} -> name) (\s@PutResourcePolicyResponse' {} a -> s {name = a} :: PutResourcePolicyResponse)
+
+-- | The ARN of the secret retrieved by the resource-based policy.
+putResourcePolicyResponse_arn :: Lens.Lens' PutResourcePolicyResponse (Prelude.Maybe Prelude.Text)
+putResourcePolicyResponse_arn = Lens.lens (\PutResourcePolicyResponse' {arn} -> arn) (\s@PutResourcePolicyResponse' {} a -> s {arn = a} :: PutResourcePolicyResponse)
 
 -- | The response's http status code.
 putResourcePolicyResponse_httpStatus :: Lens.Lens' PutResourcePolicyResponse Prelude.Int
@@ -267,6 +267,6 @@ putResourcePolicyResponse_httpStatus = Lens.lens (\PutResourcePolicyResponse' {h
 
 instance Prelude.NFData PutResourcePolicyResponse where
   rnf PutResourcePolicyResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf httpStatus

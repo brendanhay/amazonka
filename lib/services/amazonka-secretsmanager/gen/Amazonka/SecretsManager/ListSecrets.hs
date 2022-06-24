@@ -50,9 +50,9 @@ module Amazonka.SecretsManager.ListSecrets
     newListSecrets,
 
     -- * Request Lenses
-    listSecrets_filters,
-    listSecrets_nextToken,
     listSecrets_sortOrder,
+    listSecrets_nextToken,
+    listSecrets_filters,
     listSecrets_maxResults,
 
     -- * Destructuring the Response
@@ -75,16 +75,16 @@ import Amazonka.SecretsManager.Types
 
 -- | /See:/ 'newListSecrets' smart constructor.
 data ListSecrets = ListSecrets'
-  { -- | Lists the secret request filters.
-    filters :: Prelude.Maybe [Filter],
+  { -- | Lists secrets in the requested order.
+    sortOrder :: Prelude.Maybe SortOrderType,
     -- | (Optional) Use this parameter in a request if you receive a @NextToken@
     -- response in a previous request indicating there\'s more output
     -- available. In a subsequent call, set it to the value of the previous
     -- call @NextToken@ response to indicate where the output should continue
     -- from.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Lists secrets in the requested order.
-    sortOrder :: Prelude.Maybe SortOrderType,
+    -- | Lists the secret request filters.
+    filters :: Prelude.Maybe [Filter],
     -- | (Optional) Limits the number of results you want to include in the
     -- response. If you don\'t include this parameter, it defaults to a value
     -- that\'s specific to the operation. If additional items exist beyond the
@@ -107,7 +107,7 @@ data ListSecrets = ListSecrets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'listSecrets_filters' - Lists the secret request filters.
+-- 'sortOrder', 'listSecrets_sortOrder' - Lists secrets in the requested order.
 --
 -- 'nextToken', 'listSecrets_nextToken' - (Optional) Use this parameter in a request if you receive a @NextToken@
 -- response in a previous request indicating there\'s more output
@@ -115,7 +115,7 @@ data ListSecrets = ListSecrets'
 -- call @NextToken@ response to indicate where the output should continue
 -- from.
 --
--- 'sortOrder', 'listSecrets_sortOrder' - Lists secrets in the requested order.
+-- 'filters', 'listSecrets_filters' - Lists the secret request filters.
 --
 -- 'maxResults', 'listSecrets_maxResults' - (Optional) Limits the number of results you want to include in the
 -- response. If you don\'t include this parameter, it defaults to a value
@@ -131,15 +131,15 @@ newListSecrets ::
   ListSecrets
 newListSecrets =
   ListSecrets'
-    { filters = Prelude.Nothing,
+    { sortOrder = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
 
--- | Lists the secret request filters.
-listSecrets_filters :: Lens.Lens' ListSecrets (Prelude.Maybe [Filter])
-listSecrets_filters = Lens.lens (\ListSecrets' {filters} -> filters) (\s@ListSecrets' {} a -> s {filters = a} :: ListSecrets) Prelude.. Lens.mapping Lens.coerced
+-- | Lists secrets in the requested order.
+listSecrets_sortOrder :: Lens.Lens' ListSecrets (Prelude.Maybe SortOrderType)
+listSecrets_sortOrder = Lens.lens (\ListSecrets' {sortOrder} -> sortOrder) (\s@ListSecrets' {} a -> s {sortOrder = a} :: ListSecrets)
 
 -- | (Optional) Use this parameter in a request if you receive a @NextToken@
 -- response in a previous request indicating there\'s more output
@@ -149,9 +149,9 @@ listSecrets_filters = Lens.lens (\ListSecrets' {filters} -> filters) (\s@ListSec
 listSecrets_nextToken :: Lens.Lens' ListSecrets (Prelude.Maybe Prelude.Text)
 listSecrets_nextToken = Lens.lens (\ListSecrets' {nextToken} -> nextToken) (\s@ListSecrets' {} a -> s {nextToken = a} :: ListSecrets)
 
--- | Lists secrets in the requested order.
-listSecrets_sortOrder :: Lens.Lens' ListSecrets (Prelude.Maybe SortOrderType)
-listSecrets_sortOrder = Lens.lens (\ListSecrets' {sortOrder} -> sortOrder) (\s@ListSecrets' {} a -> s {sortOrder = a} :: ListSecrets)
+-- | Lists the secret request filters.
+listSecrets_filters :: Lens.Lens' ListSecrets (Prelude.Maybe [Filter])
+listSecrets_filters = Lens.lens (\ListSecrets' {filters} -> filters) (\s@ListSecrets' {} a -> s {filters = a} :: ListSecrets) Prelude.. Lens.mapping Lens.coerced
 
 -- | (Optional) Limits the number of results you want to include in the
 -- response. If you don\'t include this parameter, it defaults to a value
@@ -199,16 +199,16 @@ instance Core.AWSRequest ListSecrets where
 
 instance Prelude.Hashable ListSecrets where
   hashWithSalt _salt ListSecrets' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListSecrets where
   rnf ListSecrets' {..} =
-    Prelude.rnf filters
+    Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListSecrets where
@@ -228,9 +228,9 @@ instance Core.ToJSON ListSecrets where
   toJSON ListSecrets' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
+          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

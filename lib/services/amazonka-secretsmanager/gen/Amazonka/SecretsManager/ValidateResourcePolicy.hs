@@ -58,8 +58,8 @@ module Amazonka.SecretsManager.ValidateResourcePolicy
     newValidateResourcePolicyResponse,
 
     -- * Response Lenses
-    validateResourcePolicyResponse_validationErrors,
     validateResourcePolicyResponse_policyValidationPassed,
+    validateResourcePolicyResponse_validationErrors,
     validateResourcePolicyResponse_httpStatus,
   )
 where
@@ -151,10 +151,10 @@ instance Core.AWSRequest ValidateResourcePolicy where
     Response.receiveJSON
       ( \s h x ->
           ValidateResourcePolicyResponse'
-            Prelude.<$> ( x Core..?> "ValidationErrors"
+            Prelude.<$> (x Core..?> "PolicyValidationPassed")
+            Prelude.<*> ( x Core..?> "ValidationErrors"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "PolicyValidationPassed")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -201,10 +201,10 @@ instance Core.ToQuery ValidateResourcePolicy where
 
 -- | /See:/ 'newValidateResourcePolicyResponse' smart constructor.
 data ValidateResourcePolicyResponse = ValidateResourcePolicyResponse'
-  { -- | Returns an error message if your policy doesn\'t pass validatation.
-    validationErrors :: Prelude.Maybe [ValidationErrorsEntry],
-    -- | Returns a message stating that your Reource Policy passed validation.
+  { -- | Returns a message stating that your Reource Policy passed validation.
     policyValidationPassed :: Prelude.Maybe Prelude.Bool,
+    -- | Returns an error message if your policy doesn\'t pass validatation.
+    validationErrors :: Prelude.Maybe [ValidationErrorsEntry],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -218,9 +218,9 @@ data ValidateResourcePolicyResponse = ValidateResourcePolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'validationErrors', 'validateResourcePolicyResponse_validationErrors' - Returns an error message if your policy doesn\'t pass validatation.
---
 -- 'policyValidationPassed', 'validateResourcePolicyResponse_policyValidationPassed' - Returns a message stating that your Reource Policy passed validation.
+--
+-- 'validationErrors', 'validateResourcePolicyResponse_validationErrors' - Returns an error message if your policy doesn\'t pass validatation.
 --
 -- 'httpStatus', 'validateResourcePolicyResponse_httpStatus' - The response's http status code.
 newValidateResourcePolicyResponse ::
@@ -229,19 +229,19 @@ newValidateResourcePolicyResponse ::
   ValidateResourcePolicyResponse
 newValidateResourcePolicyResponse pHttpStatus_ =
   ValidateResourcePolicyResponse'
-    { validationErrors =
+    { policyValidationPassed =
         Prelude.Nothing,
-      policyValidationPassed = Prelude.Nothing,
+      validationErrors = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Returns an error message if your policy doesn\'t pass validatation.
-validateResourcePolicyResponse_validationErrors :: Lens.Lens' ValidateResourcePolicyResponse (Prelude.Maybe [ValidationErrorsEntry])
-validateResourcePolicyResponse_validationErrors = Lens.lens (\ValidateResourcePolicyResponse' {validationErrors} -> validationErrors) (\s@ValidateResourcePolicyResponse' {} a -> s {validationErrors = a} :: ValidateResourcePolicyResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Returns a message stating that your Reource Policy passed validation.
 validateResourcePolicyResponse_policyValidationPassed :: Lens.Lens' ValidateResourcePolicyResponse (Prelude.Maybe Prelude.Bool)
 validateResourcePolicyResponse_policyValidationPassed = Lens.lens (\ValidateResourcePolicyResponse' {policyValidationPassed} -> policyValidationPassed) (\s@ValidateResourcePolicyResponse' {} a -> s {policyValidationPassed = a} :: ValidateResourcePolicyResponse)
+
+-- | Returns an error message if your policy doesn\'t pass validatation.
+validateResourcePolicyResponse_validationErrors :: Lens.Lens' ValidateResourcePolicyResponse (Prelude.Maybe [ValidationErrorsEntry])
+validateResourcePolicyResponse_validationErrors = Lens.lens (\ValidateResourcePolicyResponse' {validationErrors} -> validationErrors) (\s@ValidateResourcePolicyResponse' {} a -> s {validationErrors = a} :: ValidateResourcePolicyResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 validateResourcePolicyResponse_httpStatus :: Lens.Lens' ValidateResourcePolicyResponse Prelude.Int
@@ -252,6 +252,6 @@ instance
     ValidateResourcePolicyResponse
   where
   rnf ValidateResourcePolicyResponse' {..} =
-    Prelude.rnf validationErrors
-      `Prelude.seq` Prelude.rnf policyValidationPassed
+    Prelude.rnf policyValidationPassed
+      `Prelude.seq` Prelude.rnf validationErrors
       `Prelude.seq` Prelude.rnf httpStatus

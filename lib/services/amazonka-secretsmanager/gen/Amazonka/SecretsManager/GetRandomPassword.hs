@@ -37,14 +37,14 @@ module Amazonka.SecretsManager.GetRandomPassword
     newGetRandomPassword,
 
     -- * Request Lenses
-    getRandomPassword_includeSpace,
-    getRandomPassword_excludeNumbers,
-    getRandomPassword_excludeLowercase,
-    getRandomPassword_excludeCharacters,
-    getRandomPassword_excludePunctuation,
-    getRandomPassword_requireEachIncludedType,
     getRandomPassword_excludeUppercase,
+    getRandomPassword_excludeCharacters,
+    getRandomPassword_excludeLowercase,
+    getRandomPassword_includeSpace,
+    getRandomPassword_excludePunctuation,
     getRandomPassword_passwordLength,
+    getRandomPassword_requireEachIncludedType,
+    getRandomPassword_excludeNumbers,
 
     -- * Destructuring the Response
     GetRandomPasswordResponse (..),
@@ -65,22 +65,22 @@ import Amazonka.SecretsManager.Types
 
 -- | /See:/ 'newGetRandomPassword' smart constructor.
 data GetRandomPassword = GetRandomPassword'
-  { -- | Specifies that the generated password can include the space character.
-    -- The default if you do not include this switch parameter is that the
-    -- space character is not included.
-    includeSpace :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies that the generated password should not include digits. The
-    -- default if you do not include this switch parameter is that digits can
-    -- be included.
-    excludeNumbers :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies that the generated password should not include lowercase
+  { -- | Specifies that the generated password should not include uppercase
     -- letters. The default if you do not include this switch parameter is that
-    -- lowercase letters can be included.
-    excludeLowercase :: Prelude.Maybe Prelude.Bool,
+    -- uppercase letters can be included.
+    excludeUppercase :: Prelude.Maybe Prelude.Bool,
     -- | A string that includes characters that should not be included in the
     -- generated password. The default is that all characters from the included
     -- sets can be used.
     excludeCharacters :: Prelude.Maybe Prelude.Text,
+    -- | Specifies that the generated password should not include lowercase
+    -- letters. The default if you do not include this switch parameter is that
+    -- lowercase letters can be included.
+    excludeLowercase :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies that the generated password can include the space character.
+    -- The default if you do not include this switch parameter is that the
+    -- space character is not included.
+    includeSpace :: Prelude.Maybe Prelude.Bool,
     -- | Specifies that the generated password should not include punctuation
     -- characters. The default if you do not include this switch parameter is
     -- that punctuation characters can be included.
@@ -91,18 +91,18 @@ data GetRandomPassword = GetRandomPassword'
     --
     -- @! \" # $ % & \' ( ) * + , - . \/ : ; \< = > ? \@ [ \\ ] ^ _ \` { | } ~@
     excludePunctuation :: Prelude.Maybe Prelude.Bool,
+    -- | The desired length of the generated password. The default value if you
+    -- do not include this parameter is 32 characters.
+    passwordLength :: Prelude.Maybe Prelude.Natural,
     -- | A boolean value that specifies whether the generated password must
     -- include at least one of every allowed character type. The default value
     -- is @True@ and the operation requires at least one of every character
     -- type.
     requireEachIncludedType :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies that the generated password should not include uppercase
-    -- letters. The default if you do not include this switch parameter is that
-    -- uppercase letters can be included.
-    excludeUppercase :: Prelude.Maybe Prelude.Bool,
-    -- | The desired length of the generated password. The default value if you
-    -- do not include this parameter is 32 characters.
-    passwordLength :: Prelude.Maybe Prelude.Natural
+    -- | Specifies that the generated password should not include digits. The
+    -- default if you do not include this switch parameter is that digits can
+    -- be included.
+    excludeNumbers :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -114,21 +114,21 @@ data GetRandomPassword = GetRandomPassword'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'includeSpace', 'getRandomPassword_includeSpace' - Specifies that the generated password can include the space character.
--- The default if you do not include this switch parameter is that the
--- space character is not included.
+-- 'excludeUppercase', 'getRandomPassword_excludeUppercase' - Specifies that the generated password should not include uppercase
+-- letters. The default if you do not include this switch parameter is that
+-- uppercase letters can be included.
 --
--- 'excludeNumbers', 'getRandomPassword_excludeNumbers' - Specifies that the generated password should not include digits. The
--- default if you do not include this switch parameter is that digits can
--- be included.
+-- 'excludeCharacters', 'getRandomPassword_excludeCharacters' - A string that includes characters that should not be included in the
+-- generated password. The default is that all characters from the included
+-- sets can be used.
 --
 -- 'excludeLowercase', 'getRandomPassword_excludeLowercase' - Specifies that the generated password should not include lowercase
 -- letters. The default if you do not include this switch parameter is that
 -- lowercase letters can be included.
 --
--- 'excludeCharacters', 'getRandomPassword_excludeCharacters' - A string that includes characters that should not be included in the
--- generated password. The default is that all characters from the included
--- sets can be used.
+-- 'includeSpace', 'getRandomPassword_includeSpace' - Specifies that the generated password can include the space character.
+-- The default if you do not include this switch parameter is that the
+-- space character is not included.
 --
 -- 'excludePunctuation', 'getRandomPassword_excludePunctuation' - Specifies that the generated password should not include punctuation
 -- characters. The default if you do not include this switch parameter is
@@ -140,42 +140,43 @@ data GetRandomPassword = GetRandomPassword'
 --
 -- @! \" # $ % & \' ( ) * + , - . \/ : ; \< = > ? \@ [ \\ ] ^ _ \` { | } ~@
 --
+-- 'passwordLength', 'getRandomPassword_passwordLength' - The desired length of the generated password. The default value if you
+-- do not include this parameter is 32 characters.
+--
 -- 'requireEachIncludedType', 'getRandomPassword_requireEachIncludedType' - A boolean value that specifies whether the generated password must
 -- include at least one of every allowed character type. The default value
 -- is @True@ and the operation requires at least one of every character
 -- type.
 --
--- 'excludeUppercase', 'getRandomPassword_excludeUppercase' - Specifies that the generated password should not include uppercase
--- letters. The default if you do not include this switch parameter is that
--- uppercase letters can be included.
---
--- 'passwordLength', 'getRandomPassword_passwordLength' - The desired length of the generated password. The default value if you
--- do not include this parameter is 32 characters.
+-- 'excludeNumbers', 'getRandomPassword_excludeNumbers' - Specifies that the generated password should not include digits. The
+-- default if you do not include this switch parameter is that digits can
+-- be included.
 newGetRandomPassword ::
   GetRandomPassword
 newGetRandomPassword =
   GetRandomPassword'
-    { includeSpace = Prelude.Nothing,
-      excludeNumbers = Prelude.Nothing,
-      excludeLowercase = Prelude.Nothing,
+    { excludeUppercase =
+        Prelude.Nothing,
       excludeCharacters = Prelude.Nothing,
+      excludeLowercase = Prelude.Nothing,
+      includeSpace = Prelude.Nothing,
       excludePunctuation = Prelude.Nothing,
+      passwordLength = Prelude.Nothing,
       requireEachIncludedType = Prelude.Nothing,
-      excludeUppercase = Prelude.Nothing,
-      passwordLength = Prelude.Nothing
+      excludeNumbers = Prelude.Nothing
     }
 
--- | Specifies that the generated password can include the space character.
--- The default if you do not include this switch parameter is that the
--- space character is not included.
-getRandomPassword_includeSpace :: Lens.Lens' GetRandomPassword (Prelude.Maybe Prelude.Bool)
-getRandomPassword_includeSpace = Lens.lens (\GetRandomPassword' {includeSpace} -> includeSpace) (\s@GetRandomPassword' {} a -> s {includeSpace = a} :: GetRandomPassword)
+-- | Specifies that the generated password should not include uppercase
+-- letters. The default if you do not include this switch parameter is that
+-- uppercase letters can be included.
+getRandomPassword_excludeUppercase :: Lens.Lens' GetRandomPassword (Prelude.Maybe Prelude.Bool)
+getRandomPassword_excludeUppercase = Lens.lens (\GetRandomPassword' {excludeUppercase} -> excludeUppercase) (\s@GetRandomPassword' {} a -> s {excludeUppercase = a} :: GetRandomPassword)
 
--- | Specifies that the generated password should not include digits. The
--- default if you do not include this switch parameter is that digits can
--- be included.
-getRandomPassword_excludeNumbers :: Lens.Lens' GetRandomPassword (Prelude.Maybe Prelude.Bool)
-getRandomPassword_excludeNumbers = Lens.lens (\GetRandomPassword' {excludeNumbers} -> excludeNumbers) (\s@GetRandomPassword' {} a -> s {excludeNumbers = a} :: GetRandomPassword)
+-- | A string that includes characters that should not be included in the
+-- generated password. The default is that all characters from the included
+-- sets can be used.
+getRandomPassword_excludeCharacters :: Lens.Lens' GetRandomPassword (Prelude.Maybe Prelude.Text)
+getRandomPassword_excludeCharacters = Lens.lens (\GetRandomPassword' {excludeCharacters} -> excludeCharacters) (\s@GetRandomPassword' {} a -> s {excludeCharacters = a} :: GetRandomPassword)
 
 -- | Specifies that the generated password should not include lowercase
 -- letters. The default if you do not include this switch parameter is that
@@ -183,11 +184,11 @@ getRandomPassword_excludeNumbers = Lens.lens (\GetRandomPassword' {excludeNumber
 getRandomPassword_excludeLowercase :: Lens.Lens' GetRandomPassword (Prelude.Maybe Prelude.Bool)
 getRandomPassword_excludeLowercase = Lens.lens (\GetRandomPassword' {excludeLowercase} -> excludeLowercase) (\s@GetRandomPassword' {} a -> s {excludeLowercase = a} :: GetRandomPassword)
 
--- | A string that includes characters that should not be included in the
--- generated password. The default is that all characters from the included
--- sets can be used.
-getRandomPassword_excludeCharacters :: Lens.Lens' GetRandomPassword (Prelude.Maybe Prelude.Text)
-getRandomPassword_excludeCharacters = Lens.lens (\GetRandomPassword' {excludeCharacters} -> excludeCharacters) (\s@GetRandomPassword' {} a -> s {excludeCharacters = a} :: GetRandomPassword)
+-- | Specifies that the generated password can include the space character.
+-- The default if you do not include this switch parameter is that the
+-- space character is not included.
+getRandomPassword_includeSpace :: Lens.Lens' GetRandomPassword (Prelude.Maybe Prelude.Bool)
+getRandomPassword_includeSpace = Lens.lens (\GetRandomPassword' {includeSpace} -> includeSpace) (\s@GetRandomPassword' {} a -> s {includeSpace = a} :: GetRandomPassword)
 
 -- | Specifies that the generated password should not include punctuation
 -- characters. The default if you do not include this switch parameter is
@@ -201,6 +202,11 @@ getRandomPassword_excludeCharacters = Lens.lens (\GetRandomPassword' {excludeCha
 getRandomPassword_excludePunctuation :: Lens.Lens' GetRandomPassword (Prelude.Maybe Prelude.Bool)
 getRandomPassword_excludePunctuation = Lens.lens (\GetRandomPassword' {excludePunctuation} -> excludePunctuation) (\s@GetRandomPassword' {} a -> s {excludePunctuation = a} :: GetRandomPassword)
 
+-- | The desired length of the generated password. The default value if you
+-- do not include this parameter is 32 characters.
+getRandomPassword_passwordLength :: Lens.Lens' GetRandomPassword (Prelude.Maybe Prelude.Natural)
+getRandomPassword_passwordLength = Lens.lens (\GetRandomPassword' {passwordLength} -> passwordLength) (\s@GetRandomPassword' {} a -> s {passwordLength = a} :: GetRandomPassword)
+
 -- | A boolean value that specifies whether the generated password must
 -- include at least one of every allowed character type. The default value
 -- is @True@ and the operation requires at least one of every character
@@ -208,16 +214,11 @@ getRandomPassword_excludePunctuation = Lens.lens (\GetRandomPassword' {excludePu
 getRandomPassword_requireEachIncludedType :: Lens.Lens' GetRandomPassword (Prelude.Maybe Prelude.Bool)
 getRandomPassword_requireEachIncludedType = Lens.lens (\GetRandomPassword' {requireEachIncludedType} -> requireEachIncludedType) (\s@GetRandomPassword' {} a -> s {requireEachIncludedType = a} :: GetRandomPassword)
 
--- | Specifies that the generated password should not include uppercase
--- letters. The default if you do not include this switch parameter is that
--- uppercase letters can be included.
-getRandomPassword_excludeUppercase :: Lens.Lens' GetRandomPassword (Prelude.Maybe Prelude.Bool)
-getRandomPassword_excludeUppercase = Lens.lens (\GetRandomPassword' {excludeUppercase} -> excludeUppercase) (\s@GetRandomPassword' {} a -> s {excludeUppercase = a} :: GetRandomPassword)
-
--- | The desired length of the generated password. The default value if you
--- do not include this parameter is 32 characters.
-getRandomPassword_passwordLength :: Lens.Lens' GetRandomPassword (Prelude.Maybe Prelude.Natural)
-getRandomPassword_passwordLength = Lens.lens (\GetRandomPassword' {passwordLength} -> passwordLength) (\s@GetRandomPassword' {} a -> s {passwordLength = a} :: GetRandomPassword)
+-- | Specifies that the generated password should not include digits. The
+-- default if you do not include this switch parameter is that digits can
+-- be included.
+getRandomPassword_excludeNumbers :: Lens.Lens' GetRandomPassword (Prelude.Maybe Prelude.Bool)
+getRandomPassword_excludeNumbers = Lens.lens (\GetRandomPassword' {excludeNumbers} -> excludeNumbers) (\s@GetRandomPassword' {} a -> s {excludeNumbers = a} :: GetRandomPassword)
 
 instance Core.AWSRequest GetRandomPassword where
   type
@@ -234,25 +235,25 @@ instance Core.AWSRequest GetRandomPassword where
 
 instance Prelude.Hashable GetRandomPassword where
   hashWithSalt _salt GetRandomPassword' {..} =
-    _salt `Prelude.hashWithSalt` includeSpace
-      `Prelude.hashWithSalt` excludeNumbers
-      `Prelude.hashWithSalt` excludeLowercase
+    _salt `Prelude.hashWithSalt` excludeUppercase
       `Prelude.hashWithSalt` excludeCharacters
+      `Prelude.hashWithSalt` excludeLowercase
+      `Prelude.hashWithSalt` includeSpace
       `Prelude.hashWithSalt` excludePunctuation
-      `Prelude.hashWithSalt` requireEachIncludedType
-      `Prelude.hashWithSalt` excludeUppercase
       `Prelude.hashWithSalt` passwordLength
+      `Prelude.hashWithSalt` requireEachIncludedType
+      `Prelude.hashWithSalt` excludeNumbers
 
 instance Prelude.NFData GetRandomPassword where
   rnf GetRandomPassword' {..} =
-    Prelude.rnf includeSpace
-      `Prelude.seq` Prelude.rnf excludeNumbers
-      `Prelude.seq` Prelude.rnf excludeLowercase
+    Prelude.rnf excludeUppercase
       `Prelude.seq` Prelude.rnf excludeCharacters
+      `Prelude.seq` Prelude.rnf excludeLowercase
+      `Prelude.seq` Prelude.rnf includeSpace
       `Prelude.seq` Prelude.rnf excludePunctuation
-      `Prelude.seq` Prelude.rnf requireEachIncludedType
-      `Prelude.seq` Prelude.rnf excludeUppercase
       `Prelude.seq` Prelude.rnf passwordLength
+      `Prelude.seq` Prelude.rnf requireEachIncludedType
+      `Prelude.seq` Prelude.rnf excludeNumbers
 
 instance Core.ToHeaders GetRandomPassword where
   toHeaders =
@@ -273,21 +274,21 @@ instance Core.ToJSON GetRandomPassword where
   toJSON GetRandomPassword' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("IncludeSpace" Core..=) Prelude.<$> includeSpace,
-            ("ExcludeNumbers" Core..=)
-              Prelude.<$> excludeNumbers,
-            ("ExcludeLowercase" Core..=)
-              Prelude.<$> excludeLowercase,
+          [ ("ExcludeUppercase" Core..=)
+              Prelude.<$> excludeUppercase,
             ("ExcludeCharacters" Core..=)
               Prelude.<$> excludeCharacters,
+            ("ExcludeLowercase" Core..=)
+              Prelude.<$> excludeLowercase,
+            ("IncludeSpace" Core..=) Prelude.<$> includeSpace,
             ("ExcludePunctuation" Core..=)
               Prelude.<$> excludePunctuation,
+            ("PasswordLength" Core..=)
+              Prelude.<$> passwordLength,
             ("RequireEachIncludedType" Core..=)
               Prelude.<$> requireEachIncludedType,
-            ("ExcludeUppercase" Core..=)
-              Prelude.<$> excludeUppercase,
-            ("PasswordLength" Core..=)
-              Prelude.<$> passwordLength
+            ("ExcludeNumbers" Core..=)
+              Prelude.<$> excludeNumbers
           ]
       )
 

@@ -28,12 +28,12 @@ import Amazonka.WorkDocs.Types.SubscriptionProtocolType
 --
 -- /See:/ 'newSubscription' smart constructor.
 data Subscription = Subscription'
-  { -- | The protocol of the subscription.
+  { -- | The ID of the subscription.
+    subscriptionId :: Prelude.Maybe Prelude.Text,
+    -- | The protocol of the subscription.
     protocol :: Prelude.Maybe SubscriptionProtocolType,
     -- | The endpoint of the subscription.
-    endPoint :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the subscription.
-    subscriptionId :: Prelude.Maybe Prelude.Text
+    endPoint :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,19 +45,23 @@ data Subscription = Subscription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'subscriptionId', 'subscription_subscriptionId' - The ID of the subscription.
+--
 -- 'protocol', 'subscription_protocol' - The protocol of the subscription.
 --
 -- 'endPoint', 'subscription_endPoint' - The endpoint of the subscription.
---
--- 'subscriptionId', 'subscription_subscriptionId' - The ID of the subscription.
 newSubscription ::
   Subscription
 newSubscription =
   Subscription'
-    { protocol = Prelude.Nothing,
-      endPoint = Prelude.Nothing,
-      subscriptionId = Prelude.Nothing
+    { subscriptionId = Prelude.Nothing,
+      protocol = Prelude.Nothing,
+      endPoint = Prelude.Nothing
     }
+
+-- | The ID of the subscription.
+subscription_subscriptionId :: Lens.Lens' Subscription (Prelude.Maybe Prelude.Text)
+subscription_subscriptionId = Lens.lens (\Subscription' {subscriptionId} -> subscriptionId) (\s@Subscription' {} a -> s {subscriptionId = a} :: Subscription)
 
 -- | The protocol of the subscription.
 subscription_protocol :: Lens.Lens' Subscription (Prelude.Maybe SubscriptionProtocolType)
@@ -67,29 +71,25 @@ subscription_protocol = Lens.lens (\Subscription' {protocol} -> protocol) (\s@Su
 subscription_endPoint :: Lens.Lens' Subscription (Prelude.Maybe Prelude.Text)
 subscription_endPoint = Lens.lens (\Subscription' {endPoint} -> endPoint) (\s@Subscription' {} a -> s {endPoint = a} :: Subscription)
 
--- | The ID of the subscription.
-subscription_subscriptionId :: Lens.Lens' Subscription (Prelude.Maybe Prelude.Text)
-subscription_subscriptionId = Lens.lens (\Subscription' {subscriptionId} -> subscriptionId) (\s@Subscription' {} a -> s {subscriptionId = a} :: Subscription)
-
 instance Core.FromJSON Subscription where
   parseJSON =
     Core.withObject
       "Subscription"
       ( \x ->
           Subscription'
-            Prelude.<$> (x Core..:? "Protocol")
+            Prelude.<$> (x Core..:? "SubscriptionId")
+            Prelude.<*> (x Core..:? "Protocol")
             Prelude.<*> (x Core..:? "EndPoint")
-            Prelude.<*> (x Core..:? "SubscriptionId")
       )
 
 instance Prelude.Hashable Subscription where
   hashWithSalt _salt Subscription' {..} =
-    _salt `Prelude.hashWithSalt` protocol
+    _salt `Prelude.hashWithSalt` subscriptionId
+      `Prelude.hashWithSalt` protocol
       `Prelude.hashWithSalt` endPoint
-      `Prelude.hashWithSalt` subscriptionId
 
 instance Prelude.NFData Subscription where
   rnf Subscription' {..} =
-    Prelude.rnf protocol
+    Prelude.rnf subscriptionId
+      `Prelude.seq` Prelude.rnf protocol
       `Prelude.seq` Prelude.rnf endPoint
-      `Prelude.seq` Prelude.rnf subscriptionId

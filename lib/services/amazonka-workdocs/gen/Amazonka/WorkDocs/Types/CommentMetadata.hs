@@ -29,14 +29,14 @@ import Amazonka.WorkDocs.Types.User
 --
 -- /See:/ 'newCommentMetadata' smart constructor.
 data CommentMetadata = CommentMetadata'
-  { -- | The status of the comment.
+  { -- | The timestamp that the comment was created.
+    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | The status of the comment.
     commentStatus :: Prelude.Maybe CommentStatusType,
-    -- | The user who made the comment.
-    contributor :: Prelude.Maybe User,
     -- | The ID of the comment.
     commentId :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp that the comment was created.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | The user who made the comment.
+    contributor :: Prelude.Maybe User,
     -- | The ID of the user being replied to.
     recipientId :: Prelude.Maybe Prelude.Text
   }
@@ -50,41 +50,42 @@ data CommentMetadata = CommentMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'commentStatus', 'commentMetadata_commentStatus' - The status of the comment.
+-- 'createdTimestamp', 'commentMetadata_createdTimestamp' - The timestamp that the comment was created.
 --
--- 'contributor', 'commentMetadata_contributor' - The user who made the comment.
+-- 'commentStatus', 'commentMetadata_commentStatus' - The status of the comment.
 --
 -- 'commentId', 'commentMetadata_commentId' - The ID of the comment.
 --
--- 'createdTimestamp', 'commentMetadata_createdTimestamp' - The timestamp that the comment was created.
+-- 'contributor', 'commentMetadata_contributor' - The user who made the comment.
 --
 -- 'recipientId', 'commentMetadata_recipientId' - The ID of the user being replied to.
 newCommentMetadata ::
   CommentMetadata
 newCommentMetadata =
   CommentMetadata'
-    { commentStatus = Prelude.Nothing,
-      contributor = Prelude.Nothing,
+    { createdTimestamp =
+        Prelude.Nothing,
+      commentStatus = Prelude.Nothing,
       commentId = Prelude.Nothing,
-      createdTimestamp = Prelude.Nothing,
+      contributor = Prelude.Nothing,
       recipientId = Prelude.Nothing
     }
+
+-- | The timestamp that the comment was created.
+commentMetadata_createdTimestamp :: Lens.Lens' CommentMetadata (Prelude.Maybe Prelude.UTCTime)
+commentMetadata_createdTimestamp = Lens.lens (\CommentMetadata' {createdTimestamp} -> createdTimestamp) (\s@CommentMetadata' {} a -> s {createdTimestamp = a} :: CommentMetadata) Prelude.. Lens.mapping Core._Time
 
 -- | The status of the comment.
 commentMetadata_commentStatus :: Lens.Lens' CommentMetadata (Prelude.Maybe CommentStatusType)
 commentMetadata_commentStatus = Lens.lens (\CommentMetadata' {commentStatus} -> commentStatus) (\s@CommentMetadata' {} a -> s {commentStatus = a} :: CommentMetadata)
 
--- | The user who made the comment.
-commentMetadata_contributor :: Lens.Lens' CommentMetadata (Prelude.Maybe User)
-commentMetadata_contributor = Lens.lens (\CommentMetadata' {contributor} -> contributor) (\s@CommentMetadata' {} a -> s {contributor = a} :: CommentMetadata)
-
 -- | The ID of the comment.
 commentMetadata_commentId :: Lens.Lens' CommentMetadata (Prelude.Maybe Prelude.Text)
 commentMetadata_commentId = Lens.lens (\CommentMetadata' {commentId} -> commentId) (\s@CommentMetadata' {} a -> s {commentId = a} :: CommentMetadata)
 
--- | The timestamp that the comment was created.
-commentMetadata_createdTimestamp :: Lens.Lens' CommentMetadata (Prelude.Maybe Prelude.UTCTime)
-commentMetadata_createdTimestamp = Lens.lens (\CommentMetadata' {createdTimestamp} -> createdTimestamp) (\s@CommentMetadata' {} a -> s {createdTimestamp = a} :: CommentMetadata) Prelude.. Lens.mapping Core._Time
+-- | The user who made the comment.
+commentMetadata_contributor :: Lens.Lens' CommentMetadata (Prelude.Maybe User)
+commentMetadata_contributor = Lens.lens (\CommentMetadata' {contributor} -> contributor) (\s@CommentMetadata' {} a -> s {contributor = a} :: CommentMetadata)
 
 -- | The ID of the user being replied to.
 commentMetadata_recipientId :: Lens.Lens' CommentMetadata (Prelude.Maybe Prelude.Text)
@@ -96,25 +97,25 @@ instance Core.FromJSON CommentMetadata where
       "CommentMetadata"
       ( \x ->
           CommentMetadata'
-            Prelude.<$> (x Core..:? "CommentStatus")
-            Prelude.<*> (x Core..:? "Contributor")
+            Prelude.<$> (x Core..:? "CreatedTimestamp")
+            Prelude.<*> (x Core..:? "CommentStatus")
             Prelude.<*> (x Core..:? "CommentId")
-            Prelude.<*> (x Core..:? "CreatedTimestamp")
+            Prelude.<*> (x Core..:? "Contributor")
             Prelude.<*> (x Core..:? "RecipientId")
       )
 
 instance Prelude.Hashable CommentMetadata where
   hashWithSalt _salt CommentMetadata' {..} =
-    _salt `Prelude.hashWithSalt` commentStatus
-      `Prelude.hashWithSalt` contributor
+    _salt `Prelude.hashWithSalt` createdTimestamp
+      `Prelude.hashWithSalt` commentStatus
       `Prelude.hashWithSalt` commentId
-      `Prelude.hashWithSalt` createdTimestamp
+      `Prelude.hashWithSalt` contributor
       `Prelude.hashWithSalt` recipientId
 
 instance Prelude.NFData CommentMetadata where
   rnf CommentMetadata' {..} =
-    Prelude.rnf commentStatus
-      `Prelude.seq` Prelude.rnf contributor
+    Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf commentStatus
       `Prelude.seq` Prelude.rnf commentId
-      `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf contributor
       `Prelude.seq` Prelude.rnf recipientId

@@ -29,8 +29,8 @@ module Amazonka.WorkDocs.DescribeComments
     newDescribeComments,
 
     -- * Request Lenses
-    describeComments_authenticationToken,
     describeComments_marker,
+    describeComments_authenticationToken,
     describeComments_limit,
     describeComments_documentId,
     describeComments_versionId,
@@ -55,12 +55,12 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newDescribeComments' smart constructor.
 data DescribeComments = DescribeComments'
-  { -- | Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The marker for the next set of results. This marker was received from a
+  { -- | The marker for the next set of results. This marker was received from a
     -- previous call.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | Amazon WorkDocs authentication token. Not required when using AWS
+    -- administrator credentials to access the API.
+    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The maximum number of items to return.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the document.
@@ -78,11 +78,11 @@ data DescribeComments = DescribeComments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationToken', 'describeComments_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
---
 -- 'marker', 'describeComments_marker' - The marker for the next set of results. This marker was received from a
 -- previous call.
+--
+-- 'authenticationToken', 'describeComments_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
+-- administrator credentials to access the API.
 --
 -- 'limit', 'describeComments_limit' - The maximum number of items to return.
 --
@@ -97,23 +97,22 @@ newDescribeComments ::
   DescribeComments
 newDescribeComments pDocumentId_ pVersionId_ =
   DescribeComments'
-    { authenticationToken =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      authenticationToken = Prelude.Nothing,
       limit = Prelude.Nothing,
       documentId = pDocumentId_,
       versionId = pVersionId_
     }
 
--- | Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
-describeComments_authenticationToken :: Lens.Lens' DescribeComments (Prelude.Maybe Prelude.Text)
-describeComments_authenticationToken = Lens.lens (\DescribeComments' {authenticationToken} -> authenticationToken) (\s@DescribeComments' {} a -> s {authenticationToken = a} :: DescribeComments) Prelude.. Lens.mapping Core._Sensitive
-
 -- | The marker for the next set of results. This marker was received from a
 -- previous call.
 describeComments_marker :: Lens.Lens' DescribeComments (Prelude.Maybe Prelude.Text)
 describeComments_marker = Lens.lens (\DescribeComments' {marker} -> marker) (\s@DescribeComments' {} a -> s {marker = a} :: DescribeComments)
+
+-- | Amazon WorkDocs authentication token. Not required when using AWS
+-- administrator credentials to access the API.
+describeComments_authenticationToken :: Lens.Lens' DescribeComments (Prelude.Maybe Prelude.Text)
+describeComments_authenticationToken = Lens.lens (\DescribeComments' {authenticationToken} -> authenticationToken) (\s@DescribeComments' {} a -> s {authenticationToken = a} :: DescribeComments) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The maximum number of items to return.
 describeComments_limit :: Lens.Lens' DescribeComments (Prelude.Maybe Prelude.Natural)
@@ -163,16 +162,16 @@ instance Core.AWSRequest DescribeComments where
 
 instance Prelude.Hashable DescribeComments where
   hashWithSalt _salt DescribeComments' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
-      `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` documentId
       `Prelude.hashWithSalt` versionId
 
 instance Prelude.NFData DescribeComments where
   rnf DescribeComments' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf authenticationToken
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf documentId
       `Prelude.seq` Prelude.rnf versionId

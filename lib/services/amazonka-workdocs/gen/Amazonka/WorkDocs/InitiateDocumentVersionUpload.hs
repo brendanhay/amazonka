@@ -35,10 +35,10 @@ module Amazonka.WorkDocs.InitiateDocumentVersionUpload
     newInitiateDocumentVersionUpload,
 
     -- * Request Lenses
-    initiateDocumentVersionUpload_documentSizeInBytes,
-    initiateDocumentVersionUpload_contentCreatedTimestamp,
-    initiateDocumentVersionUpload_authenticationToken,
     initiateDocumentVersionUpload_name,
+    initiateDocumentVersionUpload_documentSizeInBytes,
+    initiateDocumentVersionUpload_authenticationToken,
+    initiateDocumentVersionUpload_contentCreatedTimestamp,
     initiateDocumentVersionUpload_id,
     initiateDocumentVersionUpload_contentModifiedTimestamp,
     initiateDocumentVersionUpload_contentType,
@@ -64,15 +64,15 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newInitiateDocumentVersionUpload' smart constructor.
 data InitiateDocumentVersionUpload = InitiateDocumentVersionUpload'
-  { -- | The size of the document, in bytes.
+  { -- | The name of the document.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The size of the document, in bytes.
     documentSizeInBytes :: Prelude.Maybe Prelude.Integer,
-    -- | The timestamp when the content of the document was originally created.
-    contentCreatedTimestamp :: Prelude.Maybe Core.POSIX,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The name of the document.
-    name :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp when the content of the document was originally created.
+    contentCreatedTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The ID of the document.
     id :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the content of the document was modified.
@@ -92,14 +92,14 @@ data InitiateDocumentVersionUpload = InitiateDocumentVersionUpload'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'documentSizeInBytes', 'initiateDocumentVersionUpload_documentSizeInBytes' - The size of the document, in bytes.
+-- 'name', 'initiateDocumentVersionUpload_name' - The name of the document.
 --
--- 'contentCreatedTimestamp', 'initiateDocumentVersionUpload_contentCreatedTimestamp' - The timestamp when the content of the document was originally created.
+-- 'documentSizeInBytes', 'initiateDocumentVersionUpload_documentSizeInBytes' - The size of the document, in bytes.
 --
 -- 'authenticationToken', 'initiateDocumentVersionUpload_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 --
--- 'name', 'initiateDocumentVersionUpload_name' - The name of the document.
+-- 'contentCreatedTimestamp', 'initiateDocumentVersionUpload_contentCreatedTimestamp' - The timestamp when the content of the document was originally created.
 --
 -- 'id', 'initiateDocumentVersionUpload_id' - The ID of the document.
 --
@@ -114,33 +114,33 @@ newInitiateDocumentVersionUpload ::
   InitiateDocumentVersionUpload
 newInitiateDocumentVersionUpload pParentFolderId_ =
   InitiateDocumentVersionUpload'
-    { documentSizeInBytes =
+    { name =
         Prelude.Nothing,
-      contentCreatedTimestamp = Prelude.Nothing,
+      documentSizeInBytes = Prelude.Nothing,
       authenticationToken = Prelude.Nothing,
-      name = Prelude.Nothing,
+      contentCreatedTimestamp = Prelude.Nothing,
       id = Prelude.Nothing,
       contentModifiedTimestamp = Prelude.Nothing,
       contentType = Prelude.Nothing,
       parentFolderId = pParentFolderId_
     }
 
+-- | The name of the document.
+initiateDocumentVersionUpload_name :: Lens.Lens' InitiateDocumentVersionUpload (Prelude.Maybe Prelude.Text)
+initiateDocumentVersionUpload_name = Lens.lens (\InitiateDocumentVersionUpload' {name} -> name) (\s@InitiateDocumentVersionUpload' {} a -> s {name = a} :: InitiateDocumentVersionUpload)
+
 -- | The size of the document, in bytes.
 initiateDocumentVersionUpload_documentSizeInBytes :: Lens.Lens' InitiateDocumentVersionUpload (Prelude.Maybe Prelude.Integer)
 initiateDocumentVersionUpload_documentSizeInBytes = Lens.lens (\InitiateDocumentVersionUpload' {documentSizeInBytes} -> documentSizeInBytes) (\s@InitiateDocumentVersionUpload' {} a -> s {documentSizeInBytes = a} :: InitiateDocumentVersionUpload)
-
--- | The timestamp when the content of the document was originally created.
-initiateDocumentVersionUpload_contentCreatedTimestamp :: Lens.Lens' InitiateDocumentVersionUpload (Prelude.Maybe Prelude.UTCTime)
-initiateDocumentVersionUpload_contentCreatedTimestamp = Lens.lens (\InitiateDocumentVersionUpload' {contentCreatedTimestamp} -> contentCreatedTimestamp) (\s@InitiateDocumentVersionUpload' {} a -> s {contentCreatedTimestamp = a} :: InitiateDocumentVersionUpload) Prelude.. Lens.mapping Core._Time
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 initiateDocumentVersionUpload_authenticationToken :: Lens.Lens' InitiateDocumentVersionUpload (Prelude.Maybe Prelude.Text)
 initiateDocumentVersionUpload_authenticationToken = Lens.lens (\InitiateDocumentVersionUpload' {authenticationToken} -> authenticationToken) (\s@InitiateDocumentVersionUpload' {} a -> s {authenticationToken = a} :: InitiateDocumentVersionUpload) Prelude.. Lens.mapping Core._Sensitive
 
--- | The name of the document.
-initiateDocumentVersionUpload_name :: Lens.Lens' InitiateDocumentVersionUpload (Prelude.Maybe Prelude.Text)
-initiateDocumentVersionUpload_name = Lens.lens (\InitiateDocumentVersionUpload' {name} -> name) (\s@InitiateDocumentVersionUpload' {} a -> s {name = a} :: InitiateDocumentVersionUpload)
+-- | The timestamp when the content of the document was originally created.
+initiateDocumentVersionUpload_contentCreatedTimestamp :: Lens.Lens' InitiateDocumentVersionUpload (Prelude.Maybe Prelude.UTCTime)
+initiateDocumentVersionUpload_contentCreatedTimestamp = Lens.lens (\InitiateDocumentVersionUpload' {contentCreatedTimestamp} -> contentCreatedTimestamp) (\s@InitiateDocumentVersionUpload' {} a -> s {contentCreatedTimestamp = a} :: InitiateDocumentVersionUpload) Prelude.. Lens.mapping Core._Time
 
 -- | The ID of the document.
 initiateDocumentVersionUpload_id :: Lens.Lens' InitiateDocumentVersionUpload (Prelude.Maybe Prelude.Text)
@@ -180,10 +180,10 @@ instance
     InitiateDocumentVersionUpload
   where
   hashWithSalt _salt InitiateDocumentVersionUpload' {..} =
-    _salt `Prelude.hashWithSalt` documentSizeInBytes
-      `Prelude.hashWithSalt` contentCreatedTimestamp
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` documentSizeInBytes
       `Prelude.hashWithSalt` authenticationToken
-      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` contentCreatedTimestamp
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` contentModifiedTimestamp
       `Prelude.hashWithSalt` contentType
@@ -191,10 +191,10 @@ instance
 
 instance Prelude.NFData InitiateDocumentVersionUpload where
   rnf InitiateDocumentVersionUpload' {..} =
-    Prelude.rnf documentSizeInBytes
-      `Prelude.seq` Prelude.rnf contentCreatedTimestamp
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf documentSizeInBytes
       `Prelude.seq` Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf contentCreatedTimestamp
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf contentModifiedTimestamp
       `Prelude.seq` Prelude.rnf contentType
@@ -212,11 +212,11 @@ instance Core.ToJSON InitiateDocumentVersionUpload where
   toJSON InitiateDocumentVersionUpload' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DocumentSizeInBytes" Core..=)
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("DocumentSizeInBytes" Core..=)
               Prelude.<$> documentSizeInBytes,
             ("ContentCreatedTimestamp" Core..=)
               Prelude.<$> contentCreatedTimestamp,
-            ("Name" Core..=) Prelude.<$> name,
             ("Id" Core..=) Prelude.<$> id,
             ("ContentModifiedTimestamp" Core..=)
               Prelude.<$> contentModifiedTimestamp,

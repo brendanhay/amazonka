@@ -27,10 +27,10 @@ module Amazonka.WorkDocs.DeleteCustomMetadata
     newDeleteCustomMetadata,
 
     -- * Request Lenses
-    deleteCustomMetadata_versionId,
     deleteCustomMetadata_deleteAll,
     deleteCustomMetadata_authenticationToken,
     deleteCustomMetadata_keys,
+    deleteCustomMetadata_versionId,
     deleteCustomMetadata_resourceId,
 
     -- * Destructuring the Response
@@ -51,10 +51,7 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newDeleteCustomMetadata' smart constructor.
 data DeleteCustomMetadata = DeleteCustomMetadata'
-  { -- | The ID of the version, if the custom metadata is being deleted from a
-    -- document version.
-    versionId :: Prelude.Maybe Prelude.Text,
-    -- | Flag to indicate removal of all custom metadata properties from the
+  { -- | Flag to indicate removal of all custom metadata properties from the
     -- specified resource.
     deleteAll :: Prelude.Maybe Prelude.Bool,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
@@ -62,6 +59,9 @@ data DeleteCustomMetadata = DeleteCustomMetadata'
     authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | List of properties to remove.
     keys :: Prelude.Maybe [Prelude.Text],
+    -- | The ID of the version, if the custom metadata is being deleted from a
+    -- document version.
+    versionId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the resource, either a document or folder.
     resourceId :: Prelude.Text
   }
@@ -75,9 +75,6 @@ data DeleteCustomMetadata = DeleteCustomMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versionId', 'deleteCustomMetadata_versionId' - The ID of the version, if the custom metadata is being deleted from a
--- document version.
---
 -- 'deleteAll', 'deleteCustomMetadata_deleteAll' - Flag to indicate removal of all custom metadata properties from the
 -- specified resource.
 --
@@ -86,6 +83,9 @@ data DeleteCustomMetadata = DeleteCustomMetadata'
 --
 -- 'keys', 'deleteCustomMetadata_keys' - List of properties to remove.
 --
+-- 'versionId', 'deleteCustomMetadata_versionId' - The ID of the version, if the custom metadata is being deleted from a
+-- document version.
+--
 -- 'resourceId', 'deleteCustomMetadata_resourceId' - The ID of the resource, either a document or folder.
 newDeleteCustomMetadata ::
   -- | 'resourceId'
@@ -93,17 +93,12 @@ newDeleteCustomMetadata ::
   DeleteCustomMetadata
 newDeleteCustomMetadata pResourceId_ =
   DeleteCustomMetadata'
-    { versionId = Prelude.Nothing,
-      deleteAll = Prelude.Nothing,
+    { deleteAll = Prelude.Nothing,
       authenticationToken = Prelude.Nothing,
       keys = Prelude.Nothing,
+      versionId = Prelude.Nothing,
       resourceId = pResourceId_
     }
-
--- | The ID of the version, if the custom metadata is being deleted from a
--- document version.
-deleteCustomMetadata_versionId :: Lens.Lens' DeleteCustomMetadata (Prelude.Maybe Prelude.Text)
-deleteCustomMetadata_versionId = Lens.lens (\DeleteCustomMetadata' {versionId} -> versionId) (\s@DeleteCustomMetadata' {} a -> s {versionId = a} :: DeleteCustomMetadata)
 
 -- | Flag to indicate removal of all custom metadata properties from the
 -- specified resource.
@@ -118,6 +113,11 @@ deleteCustomMetadata_authenticationToken = Lens.lens (\DeleteCustomMetadata' {au
 -- | List of properties to remove.
 deleteCustomMetadata_keys :: Lens.Lens' DeleteCustomMetadata (Prelude.Maybe [Prelude.Text])
 deleteCustomMetadata_keys = Lens.lens (\DeleteCustomMetadata' {keys} -> keys) (\s@DeleteCustomMetadata' {} a -> s {keys = a} :: DeleteCustomMetadata) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID of the version, if the custom metadata is being deleted from a
+-- document version.
+deleteCustomMetadata_versionId :: Lens.Lens' DeleteCustomMetadata (Prelude.Maybe Prelude.Text)
+deleteCustomMetadata_versionId = Lens.lens (\DeleteCustomMetadata' {versionId} -> versionId) (\s@DeleteCustomMetadata' {} a -> s {versionId = a} :: DeleteCustomMetadata)
 
 -- | The ID of the resource, either a document or folder.
 deleteCustomMetadata_resourceId :: Lens.Lens' DeleteCustomMetadata Prelude.Text
@@ -137,18 +137,18 @@ instance Core.AWSRequest DeleteCustomMetadata where
 
 instance Prelude.Hashable DeleteCustomMetadata where
   hashWithSalt _salt DeleteCustomMetadata' {..} =
-    _salt `Prelude.hashWithSalt` versionId
-      `Prelude.hashWithSalt` deleteAll
+    _salt `Prelude.hashWithSalt` deleteAll
       `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` keys
+      `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData DeleteCustomMetadata where
   rnf DeleteCustomMetadata' {..} =
-    Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf deleteAll
+    Prelude.rnf deleteAll
       `Prelude.seq` Prelude.rnf authenticationToken
       `Prelude.seq` Prelude.rnf keys
+      `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf resourceId
 
 instance Core.ToHeaders DeleteCustomMetadata where
@@ -170,11 +170,11 @@ instance Core.ToPath DeleteCustomMetadata where
 instance Core.ToQuery DeleteCustomMetadata where
   toQuery DeleteCustomMetadata' {..} =
     Prelude.mconcat
-      [ "versionId" Core.=: versionId,
-        "deleteAll" Core.=: deleteAll,
+      [ "deleteAll" Core.=: deleteAll,
         "keys"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> keys)
+            (Core.toQueryList "member" Prelude.<$> keys),
+        "versionId" Core.=: versionId
       ]
 
 -- | /See:/ 'newDeleteCustomMetadataResponse' smart constructor.

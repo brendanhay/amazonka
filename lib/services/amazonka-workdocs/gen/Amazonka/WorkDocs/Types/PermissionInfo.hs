@@ -29,10 +29,10 @@ import Amazonka.WorkDocs.Types.RoleType
 --
 -- /See:/ 'newPermissionInfo' smart constructor.
 data PermissionInfo = PermissionInfo'
-  { -- | The role of the user.
-    role' :: Prelude.Maybe RoleType,
-    -- | The type of permissions.
-    type' :: Prelude.Maybe RolePermissionType
+  { -- | The type of permissions.
+    type' :: Prelude.Maybe RolePermissionType,
+    -- | The role of the user.
+    role' :: Prelude.Maybe RoleType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data PermissionInfo = PermissionInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'role'', 'permissionInfo_role' - The role of the user.
---
 -- 'type'', 'permissionInfo_type' - The type of permissions.
+--
+-- 'role'', 'permissionInfo_role' - The role of the user.
 newPermissionInfo ::
   PermissionInfo
 newPermissionInfo =
   PermissionInfo'
-    { role' = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { type' = Prelude.Nothing,
+      role' = Prelude.Nothing
     }
-
--- | The role of the user.
-permissionInfo_role :: Lens.Lens' PermissionInfo (Prelude.Maybe RoleType)
-permissionInfo_role = Lens.lens (\PermissionInfo' {role'} -> role') (\s@PermissionInfo' {} a -> s {role' = a} :: PermissionInfo)
 
 -- | The type of permissions.
 permissionInfo_type :: Lens.Lens' PermissionInfo (Prelude.Maybe RolePermissionType)
 permissionInfo_type = Lens.lens (\PermissionInfo' {type'} -> type') (\s@PermissionInfo' {} a -> s {type' = a} :: PermissionInfo)
+
+-- | The role of the user.
+permissionInfo_role :: Lens.Lens' PermissionInfo (Prelude.Maybe RoleType)
+permissionInfo_role = Lens.lens (\PermissionInfo' {role'} -> role') (\s@PermissionInfo' {} a -> s {role' = a} :: PermissionInfo)
 
 instance Core.FromJSON PermissionInfo where
   parseJSON =
@@ -69,14 +69,14 @@ instance Core.FromJSON PermissionInfo where
       "PermissionInfo"
       ( \x ->
           PermissionInfo'
-            Prelude.<$> (x Core..:? "Role") Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Type") Prelude.<*> (x Core..:? "Role")
       )
 
 instance Prelude.Hashable PermissionInfo where
   hashWithSalt _salt PermissionInfo' {..} =
-    _salt `Prelude.hashWithSalt` role'
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` role'
 
 instance Prelude.NFData PermissionInfo where
   rnf PermissionInfo' {..} =
-    Prelude.rnf role' `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf role'

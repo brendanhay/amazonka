@@ -30,8 +30,8 @@ module Amazonka.WorkDocs.DescribeResourcePermissions
 
     -- * Request Lenses
     describeResourcePermissions_principalId,
-    describeResourcePermissions_authenticationToken,
     describeResourcePermissions_marker,
+    describeResourcePermissions_authenticationToken,
     describeResourcePermissions_limit,
     describeResourcePermissions_resourceId,
 
@@ -40,8 +40,8 @@ module Amazonka.WorkDocs.DescribeResourcePermissions
     newDescribeResourcePermissionsResponse,
 
     -- * Response Lenses
-    describeResourcePermissionsResponse_principals,
     describeResourcePermissionsResponse_marker,
+    describeResourcePermissionsResponse_principals,
     describeResourcePermissionsResponse_httpStatus,
   )
 where
@@ -57,12 +57,12 @@ import Amazonka.WorkDocs.Types
 data DescribeResourcePermissions = DescribeResourcePermissions'
   { -- | The ID of the principal to filter permissions by.
     principalId :: Prelude.Maybe Prelude.Text,
-    -- | Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The marker for the next set of results. (You received this marker from a
     -- previous call)
     marker :: Prelude.Maybe Prelude.Text,
+    -- | Amazon WorkDocs authentication token. Not required when using AWS
+    -- administrator credentials to access the API.
+    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The maximum number of items to return with this call.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the resource.
@@ -80,11 +80,11 @@ data DescribeResourcePermissions = DescribeResourcePermissions'
 --
 -- 'principalId', 'describeResourcePermissions_principalId' - The ID of the principal to filter permissions by.
 --
--- 'authenticationToken', 'describeResourcePermissions_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
---
 -- 'marker', 'describeResourcePermissions_marker' - The marker for the next set of results. (You received this marker from a
 -- previous call)
+--
+-- 'authenticationToken', 'describeResourcePermissions_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
+-- administrator credentials to access the API.
 --
 -- 'limit', 'describeResourcePermissions_limit' - The maximum number of items to return with this call.
 --
@@ -97,8 +97,8 @@ newDescribeResourcePermissions pResourceId_ =
   DescribeResourcePermissions'
     { principalId =
         Prelude.Nothing,
-      authenticationToken = Prelude.Nothing,
       marker = Prelude.Nothing,
+      authenticationToken = Prelude.Nothing,
       limit = Prelude.Nothing,
       resourceId = pResourceId_
     }
@@ -107,15 +107,15 @@ newDescribeResourcePermissions pResourceId_ =
 describeResourcePermissions_principalId :: Lens.Lens' DescribeResourcePermissions (Prelude.Maybe Prelude.Text)
 describeResourcePermissions_principalId = Lens.lens (\DescribeResourcePermissions' {principalId} -> principalId) (\s@DescribeResourcePermissions' {} a -> s {principalId = a} :: DescribeResourcePermissions)
 
--- | Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
-describeResourcePermissions_authenticationToken :: Lens.Lens' DescribeResourcePermissions (Prelude.Maybe Prelude.Text)
-describeResourcePermissions_authenticationToken = Lens.lens (\DescribeResourcePermissions' {authenticationToken} -> authenticationToken) (\s@DescribeResourcePermissions' {} a -> s {authenticationToken = a} :: DescribeResourcePermissions) Prelude.. Lens.mapping Core._Sensitive
-
 -- | The marker for the next set of results. (You received this marker from a
 -- previous call)
 describeResourcePermissions_marker :: Lens.Lens' DescribeResourcePermissions (Prelude.Maybe Prelude.Text)
 describeResourcePermissions_marker = Lens.lens (\DescribeResourcePermissions' {marker} -> marker) (\s@DescribeResourcePermissions' {} a -> s {marker = a} :: DescribeResourcePermissions)
+
+-- | Amazon WorkDocs authentication token. Not required when using AWS
+-- administrator credentials to access the API.
+describeResourcePermissions_authenticationToken :: Lens.Lens' DescribeResourcePermissions (Prelude.Maybe Prelude.Text)
+describeResourcePermissions_authenticationToken = Lens.lens (\DescribeResourcePermissions' {authenticationToken} -> authenticationToken) (\s@DescribeResourcePermissions' {} a -> s {authenticationToken = a} :: DescribeResourcePermissions) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The maximum number of items to return with this call.
 describeResourcePermissions_limit :: Lens.Lens' DescribeResourcePermissions (Prelude.Maybe Prelude.Natural)
@@ -156,24 +156,24 @@ instance Core.AWSRequest DescribeResourcePermissions where
     Response.receiveJSON
       ( \s h x ->
           DescribeResourcePermissionsResponse'
-            Prelude.<$> (x Core..?> "Principals" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<$> (x Core..?> "Marker")
+            Prelude.<*> (x Core..?> "Principals" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeResourcePermissions where
   hashWithSalt _salt DescribeResourcePermissions' {..} =
     _salt `Prelude.hashWithSalt` principalId
-      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData DescribeResourcePermissions where
   rnf DescribeResourcePermissions' {..} =
     Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf authenticationToken
       `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf authenticationToken
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf resourceId
 
@@ -203,11 +203,11 @@ instance Core.ToQuery DescribeResourcePermissions where
 
 -- | /See:/ 'newDescribeResourcePermissionsResponse' smart constructor.
 data DescribeResourcePermissionsResponse = DescribeResourcePermissionsResponse'
-  { -- | The principals.
-    principals :: Prelude.Maybe [Principal],
-    -- | The marker to use when requesting the next set of results. If there are
+  { -- | The marker to use when requesting the next set of results. If there are
     -- no additional results, the string is empty.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The principals.
+    principals :: Prelude.Maybe [Principal],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -221,10 +221,10 @@ data DescribeResourcePermissionsResponse = DescribeResourcePermissionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'principals', 'describeResourcePermissionsResponse_principals' - The principals.
---
 -- 'marker', 'describeResourcePermissionsResponse_marker' - The marker to use when requesting the next set of results. If there are
 -- no additional results, the string is empty.
+--
+-- 'principals', 'describeResourcePermissionsResponse_principals' - The principals.
 --
 -- 'httpStatus', 'describeResourcePermissionsResponse_httpStatus' - The response's http status code.
 newDescribeResourcePermissionsResponse ::
@@ -233,20 +233,20 @@ newDescribeResourcePermissionsResponse ::
   DescribeResourcePermissionsResponse
 newDescribeResourcePermissionsResponse pHttpStatus_ =
   DescribeResourcePermissionsResponse'
-    { principals =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      principals = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The principals.
-describeResourcePermissionsResponse_principals :: Lens.Lens' DescribeResourcePermissionsResponse (Prelude.Maybe [Principal])
-describeResourcePermissionsResponse_principals = Lens.lens (\DescribeResourcePermissionsResponse' {principals} -> principals) (\s@DescribeResourcePermissionsResponse' {} a -> s {principals = a} :: DescribeResourcePermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The marker to use when requesting the next set of results. If there are
 -- no additional results, the string is empty.
 describeResourcePermissionsResponse_marker :: Lens.Lens' DescribeResourcePermissionsResponse (Prelude.Maybe Prelude.Text)
 describeResourcePermissionsResponse_marker = Lens.lens (\DescribeResourcePermissionsResponse' {marker} -> marker) (\s@DescribeResourcePermissionsResponse' {} a -> s {marker = a} :: DescribeResourcePermissionsResponse)
+
+-- | The principals.
+describeResourcePermissionsResponse_principals :: Lens.Lens' DescribeResourcePermissionsResponse (Prelude.Maybe [Principal])
+describeResourcePermissionsResponse_principals = Lens.lens (\DescribeResourcePermissionsResponse' {principals} -> principals) (\s@DescribeResourcePermissionsResponse' {} a -> s {principals = a} :: DescribeResourcePermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeResourcePermissionsResponse_httpStatus :: Lens.Lens' DescribeResourcePermissionsResponse Prelude.Int
@@ -257,6 +257,6 @@ instance
     DescribeResourcePermissionsResponse
   where
   rnf DescribeResourcePermissionsResponse' {..} =
-    Prelude.rnf principals
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf principals
       `Prelude.seq` Prelude.rnf httpStatus

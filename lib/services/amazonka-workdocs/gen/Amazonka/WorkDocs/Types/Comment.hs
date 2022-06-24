@@ -30,26 +30,26 @@ import Amazonka.WorkDocs.Types.User
 --
 -- /See:/ 'newComment' smart constructor.
 data Comment = Comment'
-  { -- | The status of the comment.
-    status :: Prelude.Maybe CommentStatusType,
-    -- | The text of the comment.
-    text :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+  { -- | The time that the comment was created.
+    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | The ID of the root comment in the thread.
+    threadId :: Prelude.Maybe Prelude.Text,
     -- | The visibility of the comment. Options are either PRIVATE, where the
     -- comment is visible only to the comment author and document owner and
     -- co-owners, or PUBLIC, where the comment is visible to document owners,
     -- co-owners, and contributors.
     visibility :: Prelude.Maybe CommentVisibilityType,
-    -- | The ID of the root comment in the thread.
-    threadId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the parent comment.
+    parentId :: Prelude.Maybe Prelude.Text,
+    -- | The status of the comment.
+    status :: Prelude.Maybe CommentStatusType,
+    -- | The text of the comment.
+    text :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The details of the user who made the comment.
     contributor :: Prelude.Maybe User,
-    -- | The time that the comment was created.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
     -- | If the comment is a reply to another user\'s comment, this field
     -- contains the user ID of the user being replied to.
     recipientId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the parent comment.
-    parentId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the comment.
     commentId :: Prelude.Text
   }
@@ -63,25 +63,25 @@ data Comment = Comment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'comment_status' - The status of the comment.
+-- 'createdTimestamp', 'comment_createdTimestamp' - The time that the comment was created.
 --
--- 'text', 'comment_text' - The text of the comment.
+-- 'threadId', 'comment_threadId' - The ID of the root comment in the thread.
 --
 -- 'visibility', 'comment_visibility' - The visibility of the comment. Options are either PRIVATE, where the
 -- comment is visible only to the comment author and document owner and
 -- co-owners, or PUBLIC, where the comment is visible to document owners,
 -- co-owners, and contributors.
 --
--- 'threadId', 'comment_threadId' - The ID of the root comment in the thread.
+-- 'parentId', 'comment_parentId' - The ID of the parent comment.
+--
+-- 'status', 'comment_status' - The status of the comment.
+--
+-- 'text', 'comment_text' - The text of the comment.
 --
 -- 'contributor', 'comment_contributor' - The details of the user who made the comment.
 --
--- 'createdTimestamp', 'comment_createdTimestamp' - The time that the comment was created.
---
 -- 'recipientId', 'comment_recipientId' - If the comment is a reply to another user\'s comment, this field
 -- contains the user ID of the user being replied to.
---
--- 'parentId', 'comment_parentId' - The ID of the parent comment.
 --
 -- 'commentId', 'comment_commentId' - The ID of the comment.
 newComment ::
@@ -90,16 +90,35 @@ newComment ::
   Comment
 newComment pCommentId_ =
   Comment'
-    { status = Prelude.Nothing,
-      text = Prelude.Nothing,
-      visibility = Prelude.Nothing,
+    { createdTimestamp = Prelude.Nothing,
       threadId = Prelude.Nothing,
-      contributor = Prelude.Nothing,
-      createdTimestamp = Prelude.Nothing,
-      recipientId = Prelude.Nothing,
+      visibility = Prelude.Nothing,
       parentId = Prelude.Nothing,
+      status = Prelude.Nothing,
+      text = Prelude.Nothing,
+      contributor = Prelude.Nothing,
+      recipientId = Prelude.Nothing,
       commentId = pCommentId_
     }
+
+-- | The time that the comment was created.
+comment_createdTimestamp :: Lens.Lens' Comment (Prelude.Maybe Prelude.UTCTime)
+comment_createdTimestamp = Lens.lens (\Comment' {createdTimestamp} -> createdTimestamp) (\s@Comment' {} a -> s {createdTimestamp = a} :: Comment) Prelude.. Lens.mapping Core._Time
+
+-- | The ID of the root comment in the thread.
+comment_threadId :: Lens.Lens' Comment (Prelude.Maybe Prelude.Text)
+comment_threadId = Lens.lens (\Comment' {threadId} -> threadId) (\s@Comment' {} a -> s {threadId = a} :: Comment)
+
+-- | The visibility of the comment. Options are either PRIVATE, where the
+-- comment is visible only to the comment author and document owner and
+-- co-owners, or PUBLIC, where the comment is visible to document owners,
+-- co-owners, and contributors.
+comment_visibility :: Lens.Lens' Comment (Prelude.Maybe CommentVisibilityType)
+comment_visibility = Lens.lens (\Comment' {visibility} -> visibility) (\s@Comment' {} a -> s {visibility = a} :: Comment)
+
+-- | The ID of the parent comment.
+comment_parentId :: Lens.Lens' Comment (Prelude.Maybe Prelude.Text)
+comment_parentId = Lens.lens (\Comment' {parentId} -> parentId) (\s@Comment' {} a -> s {parentId = a} :: Comment)
 
 -- | The status of the comment.
 comment_status :: Lens.Lens' Comment (Prelude.Maybe CommentStatusType)
@@ -109,33 +128,14 @@ comment_status = Lens.lens (\Comment' {status} -> status) (\s@Comment' {} a -> s
 comment_text :: Lens.Lens' Comment (Prelude.Maybe Prelude.Text)
 comment_text = Lens.lens (\Comment' {text} -> text) (\s@Comment' {} a -> s {text = a} :: Comment) Prelude.. Lens.mapping Core._Sensitive
 
--- | The visibility of the comment. Options are either PRIVATE, where the
--- comment is visible only to the comment author and document owner and
--- co-owners, or PUBLIC, where the comment is visible to document owners,
--- co-owners, and contributors.
-comment_visibility :: Lens.Lens' Comment (Prelude.Maybe CommentVisibilityType)
-comment_visibility = Lens.lens (\Comment' {visibility} -> visibility) (\s@Comment' {} a -> s {visibility = a} :: Comment)
-
--- | The ID of the root comment in the thread.
-comment_threadId :: Lens.Lens' Comment (Prelude.Maybe Prelude.Text)
-comment_threadId = Lens.lens (\Comment' {threadId} -> threadId) (\s@Comment' {} a -> s {threadId = a} :: Comment)
-
 -- | The details of the user who made the comment.
 comment_contributor :: Lens.Lens' Comment (Prelude.Maybe User)
 comment_contributor = Lens.lens (\Comment' {contributor} -> contributor) (\s@Comment' {} a -> s {contributor = a} :: Comment)
-
--- | The time that the comment was created.
-comment_createdTimestamp :: Lens.Lens' Comment (Prelude.Maybe Prelude.UTCTime)
-comment_createdTimestamp = Lens.lens (\Comment' {createdTimestamp} -> createdTimestamp) (\s@Comment' {} a -> s {createdTimestamp = a} :: Comment) Prelude.. Lens.mapping Core._Time
 
 -- | If the comment is a reply to another user\'s comment, this field
 -- contains the user ID of the user being replied to.
 comment_recipientId :: Lens.Lens' Comment (Prelude.Maybe Prelude.Text)
 comment_recipientId = Lens.lens (\Comment' {recipientId} -> recipientId) (\s@Comment' {} a -> s {recipientId = a} :: Comment)
-
--- | The ID of the parent comment.
-comment_parentId :: Lens.Lens' Comment (Prelude.Maybe Prelude.Text)
-comment_parentId = Lens.lens (\Comment' {parentId} -> parentId) (\s@Comment' {} a -> s {parentId = a} :: Comment)
 
 -- | The ID of the comment.
 comment_commentId :: Lens.Lens' Comment Prelude.Text
@@ -147,37 +147,37 @@ instance Core.FromJSON Comment where
       "Comment"
       ( \x ->
           Comment'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Text")
-            Prelude.<*> (x Core..:? "Visibility")
+            Prelude.<$> (x Core..:? "CreatedTimestamp")
             Prelude.<*> (x Core..:? "ThreadId")
-            Prelude.<*> (x Core..:? "Contributor")
-            Prelude.<*> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "RecipientId")
+            Prelude.<*> (x Core..:? "Visibility")
             Prelude.<*> (x Core..:? "ParentId")
+            Prelude.<*> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "Text")
+            Prelude.<*> (x Core..:? "Contributor")
+            Prelude.<*> (x Core..:? "RecipientId")
             Prelude.<*> (x Core..: "CommentId")
       )
 
 instance Prelude.Hashable Comment where
   hashWithSalt _salt Comment' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` text
-      `Prelude.hashWithSalt` visibility
+    _salt `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` threadId
-      `Prelude.hashWithSalt` contributor
-      `Prelude.hashWithSalt` createdTimestamp
-      `Prelude.hashWithSalt` recipientId
+      `Prelude.hashWithSalt` visibility
       `Prelude.hashWithSalt` parentId
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` contributor
+      `Prelude.hashWithSalt` recipientId
       `Prelude.hashWithSalt` commentId
 
 instance Prelude.NFData Comment where
   rnf Comment' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf text
-      `Prelude.seq` Prelude.rnf visibility
+    Prelude.rnf createdTimestamp
       `Prelude.seq` Prelude.rnf threadId
-      `Prelude.seq` Prelude.rnf contributor
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf recipientId
+      `Prelude.seq` Prelude.rnf visibility
       `Prelude.seq` Prelude.rnf parentId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf text
+      `Prelude.seq` Prelude.rnf contributor
+      `Prelude.seq` Prelude.rnf recipientId
       `Prelude.seq` Prelude.rnf commentId

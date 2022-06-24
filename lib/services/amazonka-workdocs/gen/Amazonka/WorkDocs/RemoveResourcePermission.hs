@@ -28,8 +28,8 @@ module Amazonka.WorkDocs.RemoveResourcePermission
     newRemoveResourcePermission,
 
     -- * Request Lenses
-    removeResourcePermission_principalType,
     removeResourcePermission_authenticationToken,
+    removeResourcePermission_principalType,
     removeResourcePermission_resourceId,
     removeResourcePermission_principalId,
 
@@ -48,11 +48,11 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newRemoveResourcePermission' smart constructor.
 data RemoveResourcePermission = RemoveResourcePermission'
-  { -- | The principal type of the resource.
-    principalType :: Prelude.Maybe PrincipalType,
-    -- | Amazon WorkDocs authentication token. Not required when using AWS
+  { -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The principal type of the resource.
+    principalType :: Prelude.Maybe PrincipalType,
     -- | The ID of the resource.
     resourceId :: Prelude.Text,
     -- | The principal ID of the resource.
@@ -68,10 +68,10 @@ data RemoveResourcePermission = RemoveResourcePermission'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'principalType', 'removeResourcePermission_principalType' - The principal type of the resource.
---
 -- 'authenticationToken', 'removeResourcePermission_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
+--
+-- 'principalType', 'removeResourcePermission_principalType' - The principal type of the resource.
 --
 -- 'resourceId', 'removeResourcePermission_resourceId' - The ID of the resource.
 --
@@ -86,21 +86,21 @@ newRemoveResourcePermission
   pResourceId_
   pPrincipalId_ =
     RemoveResourcePermission'
-      { principalType =
+      { authenticationToken =
           Prelude.Nothing,
-        authenticationToken = Prelude.Nothing,
+        principalType = Prelude.Nothing,
         resourceId = pResourceId_,
         principalId = pPrincipalId_
       }
-
--- | The principal type of the resource.
-removeResourcePermission_principalType :: Lens.Lens' RemoveResourcePermission (Prelude.Maybe PrincipalType)
-removeResourcePermission_principalType = Lens.lens (\RemoveResourcePermission' {principalType} -> principalType) (\s@RemoveResourcePermission' {} a -> s {principalType = a} :: RemoveResourcePermission)
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 removeResourcePermission_authenticationToken :: Lens.Lens' RemoveResourcePermission (Prelude.Maybe Prelude.Text)
 removeResourcePermission_authenticationToken = Lens.lens (\RemoveResourcePermission' {authenticationToken} -> authenticationToken) (\s@RemoveResourcePermission' {} a -> s {authenticationToken = a} :: RemoveResourcePermission) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The principal type of the resource.
+removeResourcePermission_principalType :: Lens.Lens' RemoveResourcePermission (Prelude.Maybe PrincipalType)
+removeResourcePermission_principalType = Lens.lens (\RemoveResourcePermission' {principalType} -> principalType) (\s@RemoveResourcePermission' {} a -> s {principalType = a} :: RemoveResourcePermission)
 
 -- | The ID of the resource.
 removeResourcePermission_resourceId :: Lens.Lens' RemoveResourcePermission Prelude.Text
@@ -121,15 +121,15 @@ instance Core.AWSRequest RemoveResourcePermission where
 
 instance Prelude.Hashable RemoveResourcePermission where
   hashWithSalt _salt RemoveResourcePermission' {..} =
-    _salt `Prelude.hashWithSalt` principalType
-      `Prelude.hashWithSalt` authenticationToken
+    _salt `Prelude.hashWithSalt` authenticationToken
+      `Prelude.hashWithSalt` principalType
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` principalId
 
 instance Prelude.NFData RemoveResourcePermission where
   rnf RemoveResourcePermission' {..} =
-    Prelude.rnf principalType
-      `Prelude.seq` Prelude.rnf authenticationToken
+    Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf principalType
       `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf principalId
 

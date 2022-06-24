@@ -33,10 +33,10 @@ module Amazonka.WorkDocs.GetFolderPath
     newGetFolderPath,
 
     -- * Request Lenses
-    getFolderPath_authenticationToken,
     getFolderPath_marker,
-    getFolderPath_limit,
+    getFolderPath_authenticationToken,
     getFolderPath_fields,
+    getFolderPath_limit,
     getFolderPath_folderId,
 
     -- * Destructuring the Response
@@ -58,16 +58,16 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newGetFolderPath' smart constructor.
 data GetFolderPath = GetFolderPath'
-  { -- | Amazon WorkDocs authentication token. Not required when using AWS
+  { -- | This value is not supported.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | This value is not supported.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of levels in the hierarchy to return.
-    limit :: Prelude.Maybe Prelude.Natural,
     -- | A comma-separated list of values. Specify \"NAME\" to include the names
     -- of the parent folders.
     fields :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of levels in the hierarchy to return.
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the folder.
     folderId :: Prelude.Text
   }
@@ -81,15 +81,15 @@ data GetFolderPath = GetFolderPath'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'marker', 'getFolderPath_marker' - This value is not supported.
+--
 -- 'authenticationToken', 'getFolderPath_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 --
--- 'marker', 'getFolderPath_marker' - This value is not supported.
---
--- 'limit', 'getFolderPath_limit' - The maximum number of levels in the hierarchy to return.
---
 -- 'fields', 'getFolderPath_fields' - A comma-separated list of values. Specify \"NAME\" to include the names
 -- of the parent folders.
+--
+-- 'limit', 'getFolderPath_limit' - The maximum number of levels in the hierarchy to return.
 --
 -- 'folderId', 'getFolderPath_folderId' - The ID of the folder.
 newGetFolderPath ::
@@ -98,31 +98,30 @@ newGetFolderPath ::
   GetFolderPath
 newGetFolderPath pFolderId_ =
   GetFolderPath'
-    { authenticationToken =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      authenticationToken = Prelude.Nothing,
       fields = Prelude.Nothing,
+      limit = Prelude.Nothing,
       folderId = pFolderId_
     }
+
+-- | This value is not supported.
+getFolderPath_marker :: Lens.Lens' GetFolderPath (Prelude.Maybe Prelude.Text)
+getFolderPath_marker = Lens.lens (\GetFolderPath' {marker} -> marker) (\s@GetFolderPath' {} a -> s {marker = a} :: GetFolderPath)
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 getFolderPath_authenticationToken :: Lens.Lens' GetFolderPath (Prelude.Maybe Prelude.Text)
 getFolderPath_authenticationToken = Lens.lens (\GetFolderPath' {authenticationToken} -> authenticationToken) (\s@GetFolderPath' {} a -> s {authenticationToken = a} :: GetFolderPath) Prelude.. Lens.mapping Core._Sensitive
 
--- | This value is not supported.
-getFolderPath_marker :: Lens.Lens' GetFolderPath (Prelude.Maybe Prelude.Text)
-getFolderPath_marker = Lens.lens (\GetFolderPath' {marker} -> marker) (\s@GetFolderPath' {} a -> s {marker = a} :: GetFolderPath)
-
--- | The maximum number of levels in the hierarchy to return.
-getFolderPath_limit :: Lens.Lens' GetFolderPath (Prelude.Maybe Prelude.Natural)
-getFolderPath_limit = Lens.lens (\GetFolderPath' {limit} -> limit) (\s@GetFolderPath' {} a -> s {limit = a} :: GetFolderPath)
-
 -- | A comma-separated list of values. Specify \"NAME\" to include the names
 -- of the parent folders.
 getFolderPath_fields :: Lens.Lens' GetFolderPath (Prelude.Maybe Prelude.Text)
 getFolderPath_fields = Lens.lens (\GetFolderPath' {fields} -> fields) (\s@GetFolderPath' {} a -> s {fields = a} :: GetFolderPath)
+
+-- | The maximum number of levels in the hierarchy to return.
+getFolderPath_limit :: Lens.Lens' GetFolderPath (Prelude.Maybe Prelude.Natural)
+getFolderPath_limit = Lens.lens (\GetFolderPath' {limit} -> limit) (\s@GetFolderPath' {} a -> s {limit = a} :: GetFolderPath)
 
 -- | The ID of the folder.
 getFolderPath_folderId :: Lens.Lens' GetFolderPath Prelude.Text
@@ -143,18 +142,18 @@ instance Core.AWSRequest GetFolderPath where
 
 instance Prelude.Hashable GetFolderPath where
   hashWithSalt _salt GetFolderPath' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
-      `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` fields
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` folderId
 
 instance Prelude.NFData GetFolderPath where
   rnf GetFolderPath' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf authenticationToken
       `Prelude.seq` Prelude.rnf fields
+      `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf folderId
 
 instance Core.ToHeaders GetFolderPath where
@@ -174,8 +173,8 @@ instance Core.ToQuery GetFolderPath where
   toQuery GetFolderPath' {..} =
     Prelude.mconcat
       [ "marker" Core.=: marker,
-        "limit" Core.=: limit,
-        "fields" Core.=: fields
+        "fields" Core.=: fields,
+        "limit" Core.=: limit
       ]
 
 -- | /See:/ 'newGetFolderPathResponse' smart constructor.

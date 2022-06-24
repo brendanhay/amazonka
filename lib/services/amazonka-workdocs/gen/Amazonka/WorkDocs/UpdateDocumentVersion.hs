@@ -31,8 +31,8 @@ module Amazonka.WorkDocs.UpdateDocumentVersion
     newUpdateDocumentVersion,
 
     -- * Request Lenses
-    updateDocumentVersion_authenticationToken,
     updateDocumentVersion_versionStatus,
+    updateDocumentVersion_authenticationToken,
     updateDocumentVersion_documentId,
     updateDocumentVersion_versionId,
 
@@ -51,11 +51,11 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newUpdateDocumentVersion' smart constructor.
 data UpdateDocumentVersion = UpdateDocumentVersion'
-  { -- | Amazon WorkDocs authentication token. Not required when using AWS
+  { -- | The status of the version.
+    versionStatus :: Prelude.Maybe DocumentVersionStatus,
+    -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The status of the version.
-    versionStatus :: Prelude.Maybe DocumentVersionStatus,
     -- | The ID of the document.
     documentId :: Prelude.Text,
     -- | The version ID of the document.
@@ -71,10 +71,10 @@ data UpdateDocumentVersion = UpdateDocumentVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'versionStatus', 'updateDocumentVersion_versionStatus' - The status of the version.
+--
 -- 'authenticationToken', 'updateDocumentVersion_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
---
--- 'versionStatus', 'updateDocumentVersion_versionStatus' - The status of the version.
 --
 -- 'documentId', 'updateDocumentVersion_documentId' - The ID of the document.
 --
@@ -87,21 +87,21 @@ newUpdateDocumentVersion ::
   UpdateDocumentVersion
 newUpdateDocumentVersion pDocumentId_ pVersionId_ =
   UpdateDocumentVersion'
-    { authenticationToken =
+    { versionStatus =
         Prelude.Nothing,
-      versionStatus = Prelude.Nothing,
+      authenticationToken = Prelude.Nothing,
       documentId = pDocumentId_,
       versionId = pVersionId_
     }
+
+-- | The status of the version.
+updateDocumentVersion_versionStatus :: Lens.Lens' UpdateDocumentVersion (Prelude.Maybe DocumentVersionStatus)
+updateDocumentVersion_versionStatus = Lens.lens (\UpdateDocumentVersion' {versionStatus} -> versionStatus) (\s@UpdateDocumentVersion' {} a -> s {versionStatus = a} :: UpdateDocumentVersion)
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 updateDocumentVersion_authenticationToken :: Lens.Lens' UpdateDocumentVersion (Prelude.Maybe Prelude.Text)
 updateDocumentVersion_authenticationToken = Lens.lens (\UpdateDocumentVersion' {authenticationToken} -> authenticationToken) (\s@UpdateDocumentVersion' {} a -> s {authenticationToken = a} :: UpdateDocumentVersion) Prelude.. Lens.mapping Core._Sensitive
-
--- | The status of the version.
-updateDocumentVersion_versionStatus :: Lens.Lens' UpdateDocumentVersion (Prelude.Maybe DocumentVersionStatus)
-updateDocumentVersion_versionStatus = Lens.lens (\UpdateDocumentVersion' {versionStatus} -> versionStatus) (\s@UpdateDocumentVersion' {} a -> s {versionStatus = a} :: UpdateDocumentVersion)
 
 -- | The ID of the document.
 updateDocumentVersion_documentId :: Lens.Lens' UpdateDocumentVersion Prelude.Text
@@ -121,15 +121,15 @@ instance Core.AWSRequest UpdateDocumentVersion where
 
 instance Prelude.Hashable UpdateDocumentVersion where
   hashWithSalt _salt UpdateDocumentVersion' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
-      `Prelude.hashWithSalt` versionStatus
+    _salt `Prelude.hashWithSalt` versionStatus
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` documentId
       `Prelude.hashWithSalt` versionId
 
 instance Prelude.NFData UpdateDocumentVersion where
   rnf UpdateDocumentVersion' {..} =
-    Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf versionStatus
+    Prelude.rnf versionStatus
+      `Prelude.seq` Prelude.rnf authenticationToken
       `Prelude.seq` Prelude.rnf documentId
       `Prelude.seq` Prelude.rnf versionId
 

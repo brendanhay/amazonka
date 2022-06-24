@@ -14,311 +14,16 @@
 module Amazonka.WorkDocs.Lens
   ( -- * Operations
 
-    -- ** DeleteLabels
-    deleteLabels_deleteAll,
-    deleteLabels_authenticationToken,
-    deleteLabels_labels,
-    deleteLabels_resourceId,
-    deleteLabelsResponse_httpStatus,
-
     -- ** AbortDocumentVersionUpload
     abortDocumentVersionUpload_authenticationToken,
     abortDocumentVersionUpload_documentId,
     abortDocumentVersionUpload_versionId,
-
-    -- ** GetDocumentPath
-    getDocumentPath_authenticationToken,
-    getDocumentPath_marker,
-    getDocumentPath_limit,
-    getDocumentPath_fields,
-    getDocumentPath_documentId,
-    getDocumentPathResponse_path,
-    getDocumentPathResponse_httpStatus,
-
-    -- ** CreateComment
-    createComment_notifyCollaborators,
-    createComment_authenticationToken,
-    createComment_visibility,
-    createComment_threadId,
-    createComment_parentId,
-    createComment_documentId,
-    createComment_versionId,
-    createComment_text,
-    createCommentResponse_comment,
-    createCommentResponse_httpStatus,
-
-    -- ** DescribeUsers
-    describeUsers_include,
-    describeUsers_userIds,
-    describeUsers_authenticationToken,
-    describeUsers_sort,
-    describeUsers_marker,
-    describeUsers_query,
-    describeUsers_limit,
-    describeUsers_order,
-    describeUsers_organizationId,
-    describeUsers_fields,
-    describeUsersResponse_users,
-    describeUsersResponse_totalNumberOfUsers,
-    describeUsersResponse_marker,
-    describeUsersResponse_httpStatus,
-
-    -- ** DeleteFolder
-    deleteFolder_authenticationToken,
-    deleteFolder_folderId,
-
-    -- ** UpdateFolder
-    updateFolder_parentFolderId,
-    updateFolder_authenticationToken,
-    updateFolder_name,
-    updateFolder_resourceState,
-    updateFolder_folderId,
-
-    -- ** DeleteCustomMetadata
-    deleteCustomMetadata_versionId,
-    deleteCustomMetadata_deleteAll,
-    deleteCustomMetadata_authenticationToken,
-    deleteCustomMetadata_keys,
-    deleteCustomMetadata_resourceId,
-    deleteCustomMetadataResponse_httpStatus,
-
-    -- ** DescribeResourcePermissions
-    describeResourcePermissions_principalId,
-    describeResourcePermissions_authenticationToken,
-    describeResourcePermissions_marker,
-    describeResourcePermissions_limit,
-    describeResourcePermissions_resourceId,
-    describeResourcePermissionsResponse_principals,
-    describeResourcePermissionsResponse_marker,
-    describeResourcePermissionsResponse_httpStatus,
-
-    -- ** DeleteNotificationSubscription
-    deleteNotificationSubscription_subscriptionId,
-    deleteNotificationSubscription_organizationId,
-
-    -- ** CreateFolder
-    createFolder_authenticationToken,
-    createFolder_name,
-    createFolder_parentFolderId,
-    createFolderResponse_metadata,
-    createFolderResponse_httpStatus,
-
-    -- ** CreateNotificationSubscription
-    createNotificationSubscription_organizationId,
-    createNotificationSubscription_endpoint,
-    createNotificationSubscription_protocol,
-    createNotificationSubscription_subscriptionType,
-    createNotificationSubscriptionResponse_subscription,
-    createNotificationSubscriptionResponse_httpStatus,
-
-    -- ** CreateCustomMetadata
-    createCustomMetadata_versionId,
-    createCustomMetadata_authenticationToken,
-    createCustomMetadata_resourceId,
-    createCustomMetadata_customMetadata,
-    createCustomMetadataResponse_httpStatus,
-
-    -- ** GetFolderPath
-    getFolderPath_authenticationToken,
-    getFolderPath_marker,
-    getFolderPath_limit,
-    getFolderPath_fields,
-    getFolderPath_folderId,
-    getFolderPathResponse_path,
-    getFolderPathResponse_httpStatus,
-
-    -- ** DescribeComments
-    describeComments_authenticationToken,
-    describeComments_marker,
-    describeComments_limit,
-    describeComments_documentId,
-    describeComments_versionId,
-    describeCommentsResponse_marker,
-    describeCommentsResponse_comments,
-    describeCommentsResponse_httpStatus,
-
-    -- ** DeleteFolderContents
-    deleteFolderContents_authenticationToken,
-    deleteFolderContents_folderId,
-
-    -- ** RemoveAllResourcePermissions
-    removeAllResourcePermissions_authenticationToken,
-    removeAllResourcePermissions_resourceId,
-
-    -- ** GetFolder
-    getFolder_authenticationToken,
-    getFolder_includeCustomMetadata,
-    getFolder_folderId,
-    getFolderResponse_customMetadata,
-    getFolderResponse_metadata,
-    getFolderResponse_httpStatus,
-
-    -- ** DescribeNotificationSubscriptions
-    describeNotificationSubscriptions_marker,
-    describeNotificationSubscriptions_limit,
-    describeNotificationSubscriptions_organizationId,
-    describeNotificationSubscriptionsResponse_marker,
-    describeNotificationSubscriptionsResponse_subscriptions,
-    describeNotificationSubscriptionsResponse_httpStatus,
 
     -- ** ActivateUser
     activateUser_authenticationToken,
     activateUser_userId,
     activateUserResponse_user,
     activateUserResponse_httpStatus,
-
-    -- ** DescribeDocumentVersions
-    describeDocumentVersions_include,
-    describeDocumentVersions_authenticationToken,
-    describeDocumentVersions_marker,
-    describeDocumentVersions_limit,
-    describeDocumentVersions_fields,
-    describeDocumentVersions_documentId,
-    describeDocumentVersionsResponse_documentVersions,
-    describeDocumentVersionsResponse_marker,
-    describeDocumentVersionsResponse_httpStatus,
-
-    -- ** GetDocumentVersion
-    getDocumentVersion_authenticationToken,
-    getDocumentVersion_includeCustomMetadata,
-    getDocumentVersion_fields,
-    getDocumentVersion_documentId,
-    getDocumentVersion_versionId,
-    getDocumentVersionResponse_customMetadata,
-    getDocumentVersionResponse_metadata,
-    getDocumentVersionResponse_httpStatus,
-
-    -- ** DescribeActivities
-    describeActivities_resourceId,
-    describeActivities_includeIndirectActivities,
-    describeActivities_startTime,
-    describeActivities_authenticationToken,
-    describeActivities_userId,
-    describeActivities_marker,
-    describeActivities_endTime,
-    describeActivities_limit,
-    describeActivities_activityTypes,
-    describeActivities_organizationId,
-    describeActivitiesResponse_userActivities,
-    describeActivitiesResponse_marker,
-    describeActivitiesResponse_httpStatus,
-
-    -- ** DescribeRootFolders
-    describeRootFolders_marker,
-    describeRootFolders_limit,
-    describeRootFolders_authenticationToken,
-    describeRootFoldersResponse_folders,
-    describeRootFoldersResponse_marker,
-    describeRootFoldersResponse_httpStatus,
-
-    -- ** GetCurrentUser
-    getCurrentUser_authenticationToken,
-    getCurrentUserResponse_user,
-    getCurrentUserResponse_httpStatus,
-
-    -- ** DeactivateUser
-    deactivateUser_authenticationToken,
-    deactivateUser_userId,
-
-    -- ** GetDocument
-    getDocument_authenticationToken,
-    getDocument_includeCustomMetadata,
-    getDocument_documentId,
-    getDocumentResponse_customMetadata,
-    getDocumentResponse_metadata,
-    getDocumentResponse_httpStatus,
-
-    -- ** DescribeFolderContents
-    describeFolderContents_include,
-    describeFolderContents_authenticationToken,
-    describeFolderContents_sort,
-    describeFolderContents_marker,
-    describeFolderContents_limit,
-    describeFolderContents_type,
-    describeFolderContents_order,
-    describeFolderContents_folderId,
-    describeFolderContentsResponse_folders,
-    describeFolderContentsResponse_documents,
-    describeFolderContentsResponse_marker,
-    describeFolderContentsResponse_httpStatus,
-
-    -- ** CreateLabels
-    createLabels_authenticationToken,
-    createLabels_resourceId,
-    createLabels_labels,
-    createLabelsResponse_httpStatus,
-
-    -- ** UpdateDocumentVersion
-    updateDocumentVersion_authenticationToken,
-    updateDocumentVersion_versionStatus,
-    updateDocumentVersion_documentId,
-    updateDocumentVersion_versionId,
-
-    -- ** RemoveResourcePermission
-    removeResourcePermission_principalType,
-    removeResourcePermission_authenticationToken,
-    removeResourcePermission_resourceId,
-    removeResourcePermission_principalId,
-
-    -- ** GetResources
-    getResources_authenticationToken,
-    getResources_userId,
-    getResources_marker,
-    getResources_limit,
-    getResources_collectionType,
-    getResourcesResponse_folders,
-    getResourcesResponse_documents,
-    getResourcesResponse_marker,
-    getResourcesResponse_httpStatus,
-
-    -- ** DeleteComment
-    deleteComment_authenticationToken,
-    deleteComment_documentId,
-    deleteComment_versionId,
-    deleteComment_commentId,
-
-    -- ** InitiateDocumentVersionUpload
-    initiateDocumentVersionUpload_documentSizeInBytes,
-    initiateDocumentVersionUpload_contentCreatedTimestamp,
-    initiateDocumentVersionUpload_authenticationToken,
-    initiateDocumentVersionUpload_name,
-    initiateDocumentVersionUpload_id,
-    initiateDocumentVersionUpload_contentModifiedTimestamp,
-    initiateDocumentVersionUpload_contentType,
-    initiateDocumentVersionUpload_parentFolderId,
-    initiateDocumentVersionUploadResponse_metadata,
-    initiateDocumentVersionUploadResponse_uploadMetadata,
-    initiateDocumentVersionUploadResponse_httpStatus,
-
-    -- ** CreateUser
-    createUser_authenticationToken,
-    createUser_storageRule,
-    createUser_emailAddress,
-    createUser_timeZoneId,
-    createUser_organizationId,
-    createUser_username,
-    createUser_givenName,
-    createUser_surname,
-    createUser_password,
-    createUserResponse_user,
-    createUserResponse_httpStatus,
-
-    -- ** UpdateUser
-    updateUser_givenName,
-    updateUser_grantPoweruserPrivileges,
-    updateUser_locale,
-    updateUser_authenticationToken,
-    updateUser_storageRule,
-    updateUser_type,
-    updateUser_surname,
-    updateUser_timeZoneId,
-    updateUser_userId,
-    updateUserResponse_user,
-    updateUserResponse_httpStatus,
-
-    -- ** DeleteUser
-    deleteUser_authenticationToken,
-    deleteUser_userId,
 
     -- ** AddResourcePermissions
     addResourcePermissions_notificationOptions,
@@ -328,125 +33,420 @@ module Amazonka.WorkDocs.Lens
     addResourcePermissionsResponse_shareResults,
     addResourcePermissionsResponse_httpStatus,
 
-    -- ** UpdateDocument
-    updateDocument_parentFolderId,
-    updateDocument_authenticationToken,
-    updateDocument_name,
-    updateDocument_resourceState,
-    updateDocument_documentId,
+    -- ** CreateComment
+    createComment_threadId,
+    createComment_notifyCollaborators,
+    createComment_visibility,
+    createComment_parentId,
+    createComment_authenticationToken,
+    createComment_documentId,
+    createComment_versionId,
+    createComment_text,
+    createCommentResponse_comment,
+    createCommentResponse_httpStatus,
+
+    -- ** CreateCustomMetadata
+    createCustomMetadata_authenticationToken,
+    createCustomMetadata_versionId,
+    createCustomMetadata_resourceId,
+    createCustomMetadata_customMetadata,
+    createCustomMetadataResponse_httpStatus,
+
+    -- ** CreateFolder
+    createFolder_name,
+    createFolder_authenticationToken,
+    createFolder_parentFolderId,
+    createFolderResponse_metadata,
+    createFolderResponse_httpStatus,
+
+    -- ** CreateLabels
+    createLabels_authenticationToken,
+    createLabels_resourceId,
+    createLabels_labels,
+    createLabelsResponse_httpStatus,
+
+    -- ** CreateNotificationSubscription
+    createNotificationSubscription_organizationId,
+    createNotificationSubscription_endpoint,
+    createNotificationSubscription_protocol,
+    createNotificationSubscription_subscriptionType,
+    createNotificationSubscriptionResponse_subscription,
+    createNotificationSubscriptionResponse_httpStatus,
+
+    -- ** CreateUser
+    createUser_timeZoneId,
+    createUser_storageRule,
+    createUser_authenticationToken,
+    createUser_organizationId,
+    createUser_emailAddress,
+    createUser_username,
+    createUser_givenName,
+    createUser_surname,
+    createUser_password,
+    createUserResponse_user,
+    createUserResponse_httpStatus,
+
+    -- ** DeactivateUser
+    deactivateUser_authenticationToken,
+    deactivateUser_userId,
+
+    -- ** DeleteComment
+    deleteComment_authenticationToken,
+    deleteComment_documentId,
+    deleteComment_versionId,
+    deleteComment_commentId,
+
+    -- ** DeleteCustomMetadata
+    deleteCustomMetadata_deleteAll,
+    deleteCustomMetadata_authenticationToken,
+    deleteCustomMetadata_keys,
+    deleteCustomMetadata_versionId,
+    deleteCustomMetadata_resourceId,
+    deleteCustomMetadataResponse_httpStatus,
 
     -- ** DeleteDocument
     deleteDocument_authenticationToken,
     deleteDocument_documentId,
 
+    -- ** DeleteFolder
+    deleteFolder_authenticationToken,
+    deleteFolder_folderId,
+
+    -- ** DeleteFolderContents
+    deleteFolderContents_authenticationToken,
+    deleteFolderContents_folderId,
+
+    -- ** DeleteLabels
+    deleteLabels_deleteAll,
+    deleteLabels_authenticationToken,
+    deleteLabels_labels,
+    deleteLabels_resourceId,
+    deleteLabelsResponse_httpStatus,
+
+    -- ** DeleteNotificationSubscription
+    deleteNotificationSubscription_subscriptionId,
+    deleteNotificationSubscription_organizationId,
+
+    -- ** DeleteUser
+    deleteUser_authenticationToken,
+    deleteUser_userId,
+
+    -- ** DescribeActivities
+    describeActivities_resourceId,
+    describeActivities_marker,
+    describeActivities_authenticationToken,
+    describeActivities_endTime,
+    describeActivities_activityTypes,
+    describeActivities_limit,
+    describeActivities_userId,
+    describeActivities_organizationId,
+    describeActivities_includeIndirectActivities,
+    describeActivities_startTime,
+    describeActivitiesResponse_marker,
+    describeActivitiesResponse_userActivities,
+    describeActivitiesResponse_httpStatus,
+
+    -- ** DescribeComments
+    describeComments_marker,
+    describeComments_authenticationToken,
+    describeComments_limit,
+    describeComments_documentId,
+    describeComments_versionId,
+    describeCommentsResponse_marker,
+    describeCommentsResponse_comments,
+    describeCommentsResponse_httpStatus,
+
+    -- ** DescribeDocumentVersions
+    describeDocumentVersions_marker,
+    describeDocumentVersions_authenticationToken,
+    describeDocumentVersions_fields,
+    describeDocumentVersions_limit,
+    describeDocumentVersions_include,
+    describeDocumentVersions_documentId,
+    describeDocumentVersionsResponse_marker,
+    describeDocumentVersionsResponse_documentVersions,
+    describeDocumentVersionsResponse_httpStatus,
+
+    -- ** DescribeFolderContents
+    describeFolderContents_type,
+    describeFolderContents_marker,
+    describeFolderContents_authenticationToken,
+    describeFolderContents_sort,
+    describeFolderContents_limit,
+    describeFolderContents_order,
+    describeFolderContents_include,
+    describeFolderContents_folderId,
+    describeFolderContentsResponse_marker,
+    describeFolderContentsResponse_folders,
+    describeFolderContentsResponse_documents,
+    describeFolderContentsResponse_httpStatus,
+
     -- ** DescribeGroups
-    describeGroups_authenticationToken,
     describeGroups_marker,
+    describeGroups_authenticationToken,
     describeGroups_limit,
     describeGroups_organizationId,
     describeGroups_searchQuery,
-    describeGroupsResponse_groups,
     describeGroupsResponse_marker,
+    describeGroupsResponse_groups,
     describeGroupsResponse_httpStatus,
+
+    -- ** DescribeNotificationSubscriptions
+    describeNotificationSubscriptions_marker,
+    describeNotificationSubscriptions_limit,
+    describeNotificationSubscriptions_organizationId,
+    describeNotificationSubscriptionsResponse_marker,
+    describeNotificationSubscriptionsResponse_subscriptions,
+    describeNotificationSubscriptionsResponse_httpStatus,
+
+    -- ** DescribeResourcePermissions
+    describeResourcePermissions_principalId,
+    describeResourcePermissions_marker,
+    describeResourcePermissions_authenticationToken,
+    describeResourcePermissions_limit,
+    describeResourcePermissions_resourceId,
+    describeResourcePermissionsResponse_marker,
+    describeResourcePermissionsResponse_principals,
+    describeResourcePermissionsResponse_httpStatus,
+
+    -- ** DescribeRootFolders
+    describeRootFolders_marker,
+    describeRootFolders_limit,
+    describeRootFolders_authenticationToken,
+    describeRootFoldersResponse_marker,
+    describeRootFoldersResponse_folders,
+    describeRootFoldersResponse_httpStatus,
+
+    -- ** DescribeUsers
+    describeUsers_marker,
+    describeUsers_authenticationToken,
+    describeUsers_fields,
+    describeUsers_sort,
+    describeUsers_limit,
+    describeUsers_query,
+    describeUsers_organizationId,
+    describeUsers_order,
+    describeUsers_include,
+    describeUsers_userIds,
+    describeUsersResponse_marker,
+    describeUsersResponse_users,
+    describeUsersResponse_totalNumberOfUsers,
+    describeUsersResponse_httpStatus,
+
+    -- ** GetCurrentUser
+    getCurrentUser_authenticationToken,
+    getCurrentUserResponse_user,
+    getCurrentUserResponse_httpStatus,
+
+    -- ** GetDocument
+    getDocument_includeCustomMetadata,
+    getDocument_authenticationToken,
+    getDocument_documentId,
+    getDocumentResponse_metadata,
+    getDocumentResponse_customMetadata,
+    getDocumentResponse_httpStatus,
+
+    -- ** GetDocumentPath
+    getDocumentPath_marker,
+    getDocumentPath_authenticationToken,
+    getDocumentPath_fields,
+    getDocumentPath_limit,
+    getDocumentPath_documentId,
+    getDocumentPathResponse_path,
+    getDocumentPathResponse_httpStatus,
+
+    -- ** GetDocumentVersion
+    getDocumentVersion_includeCustomMetadata,
+    getDocumentVersion_authenticationToken,
+    getDocumentVersion_fields,
+    getDocumentVersion_documentId,
+    getDocumentVersion_versionId,
+    getDocumentVersionResponse_metadata,
+    getDocumentVersionResponse_customMetadata,
+    getDocumentVersionResponse_httpStatus,
+
+    -- ** GetFolder
+    getFolder_includeCustomMetadata,
+    getFolder_authenticationToken,
+    getFolder_folderId,
+    getFolderResponse_metadata,
+    getFolderResponse_customMetadata,
+    getFolderResponse_httpStatus,
+
+    -- ** GetFolderPath
+    getFolderPath_marker,
+    getFolderPath_authenticationToken,
+    getFolderPath_fields,
+    getFolderPath_limit,
+    getFolderPath_folderId,
+    getFolderPathResponse_path,
+    getFolderPathResponse_httpStatus,
+
+    -- ** GetResources
+    getResources_marker,
+    getResources_authenticationToken,
+    getResources_limit,
+    getResources_userId,
+    getResources_collectionType,
+    getResourcesResponse_marker,
+    getResourcesResponse_folders,
+    getResourcesResponse_documents,
+    getResourcesResponse_httpStatus,
+
+    -- ** InitiateDocumentVersionUpload
+    initiateDocumentVersionUpload_name,
+    initiateDocumentVersionUpload_documentSizeInBytes,
+    initiateDocumentVersionUpload_authenticationToken,
+    initiateDocumentVersionUpload_contentCreatedTimestamp,
+    initiateDocumentVersionUpload_id,
+    initiateDocumentVersionUpload_contentModifiedTimestamp,
+    initiateDocumentVersionUpload_contentType,
+    initiateDocumentVersionUpload_parentFolderId,
+    initiateDocumentVersionUploadResponse_metadata,
+    initiateDocumentVersionUploadResponse_uploadMetadata,
+    initiateDocumentVersionUploadResponse_httpStatus,
+
+    -- ** RemoveAllResourcePermissions
+    removeAllResourcePermissions_authenticationToken,
+    removeAllResourcePermissions_resourceId,
+
+    -- ** RemoveResourcePermission
+    removeResourcePermission_authenticationToken,
+    removeResourcePermission_principalType,
+    removeResourcePermission_resourceId,
+    removeResourcePermission_principalId,
+
+    -- ** UpdateDocument
+    updateDocument_name,
+    updateDocument_parentFolderId,
+    updateDocument_authenticationToken,
+    updateDocument_resourceState,
+    updateDocument_documentId,
+
+    -- ** UpdateDocumentVersion
+    updateDocumentVersion_versionStatus,
+    updateDocumentVersion_authenticationToken,
+    updateDocumentVersion_documentId,
+    updateDocumentVersion_versionId,
+
+    -- ** UpdateFolder
+    updateFolder_name,
+    updateFolder_parentFolderId,
+    updateFolder_authenticationToken,
+    updateFolder_resourceState,
+    updateFolder_folderId,
+
+    -- ** UpdateUser
+    updateUser_grantPoweruserPrivileges,
+    updateUser_type,
+    updateUser_timeZoneId,
+    updateUser_storageRule,
+    updateUser_locale,
+    updateUser_givenName,
+    updateUser_authenticationToken,
+    updateUser_surname,
+    updateUser_userId,
+    updateUserResponse_user,
+    updateUserResponse_httpStatus,
 
     -- * Types
 
     -- ** Activity
+    activity_commentMetadata,
+    activity_type,
     activity_resourceMetadata,
+    activity_timeStamp,
     activity_isIndirectActivity,
+    activity_organizationId,
+    activity_originalParent,
     activity_initiator,
     activity_participants,
-    activity_originalParent,
-    activity_type,
-    activity_commentMetadata,
-    activity_timeStamp,
-    activity_organizationId,
 
     -- ** Comment
+    comment_createdTimestamp,
+    comment_threadId,
+    comment_visibility,
+    comment_parentId,
     comment_status,
     comment_text,
-    comment_visibility,
-    comment_threadId,
     comment_contributor,
-    comment_createdTimestamp,
     comment_recipientId,
-    comment_parentId,
     comment_commentId,
 
     -- ** CommentMetadata
-    commentMetadata_commentStatus,
-    commentMetadata_contributor,
-    commentMetadata_commentId,
     commentMetadata_createdTimestamp,
+    commentMetadata_commentStatus,
+    commentMetadata_commentId,
+    commentMetadata_contributor,
     commentMetadata_recipientId,
 
     -- ** DocumentMetadata
-    documentMetadata_latestVersionMetadata,
+    documentMetadata_creatorId,
     documentMetadata_parentFolderId,
-    documentMetadata_modifiedTimestamp,
+    documentMetadata_latestVersionMetadata,
+    documentMetadata_createdTimestamp,
     documentMetadata_id,
     documentMetadata_labels,
     documentMetadata_resourceState,
-    documentMetadata_createdTimestamp,
-    documentMetadata_creatorId,
+    documentMetadata_modifiedTimestamp,
 
     -- ** DocumentVersionMetadata
-    documentVersionMetadata_thumbnail,
-    documentVersionMetadata_status,
-    documentVersionMetadata_signature,
-    documentVersionMetadata_contentCreatedTimestamp,
-    documentVersionMetadata_size,
-    documentVersionMetadata_name,
-    documentVersionMetadata_modifiedTimestamp,
-    documentVersionMetadata_source,
-    documentVersionMetadata_id,
-    documentVersionMetadata_createdTimestamp,
-    documentVersionMetadata_contentModifiedTimestamp,
     documentVersionMetadata_creatorId,
+    documentVersionMetadata_name,
+    documentVersionMetadata_createdTimestamp,
+    documentVersionMetadata_thumbnail,
+    documentVersionMetadata_size,
+    documentVersionMetadata_contentCreatedTimestamp,
+    documentVersionMetadata_status,
+    documentVersionMetadata_id,
+    documentVersionMetadata_contentModifiedTimestamp,
+    documentVersionMetadata_source,
+    documentVersionMetadata_signature,
     documentVersionMetadata_contentType,
+    documentVersionMetadata_modifiedTimestamp,
 
     -- ** FolderMetadata
-    folderMetadata_signature,
-    folderMetadata_parentFolderId,
-    folderMetadata_size,
-    folderMetadata_latestVersionSize,
+    folderMetadata_creatorId,
     folderMetadata_name,
-    folderMetadata_modifiedTimestamp,
+    folderMetadata_parentFolderId,
+    folderMetadata_createdTimestamp,
+    folderMetadata_size,
     folderMetadata_id,
     folderMetadata_labels,
     folderMetadata_resourceState,
-    folderMetadata_createdTimestamp,
-    folderMetadata_creatorId,
+    folderMetadata_signature,
+    folderMetadata_latestVersionSize,
+    folderMetadata_modifiedTimestamp,
 
     -- ** GroupMetadata
     groupMetadata_name,
     groupMetadata_id,
 
     -- ** NotificationOptions
-    notificationOptions_emailMessage,
     notificationOptions_sendEmail,
+    notificationOptions_emailMessage,
 
     -- ** Participants
-    participants_groups,
     participants_users,
+    participants_groups,
 
     -- ** PermissionInfo
-    permissionInfo_role,
     permissionInfo_type,
+    permissionInfo_role,
 
     -- ** Principal
-    principal_roles,
-    principal_id,
     principal_type,
+    principal_id,
+    principal_roles,
 
     -- ** ResourceMetadata
-    resourceMetadata_versionId,
-    resourceMetadata_owner,
     resourceMetadata_name,
-    resourceMetadata_id,
     resourceMetadata_type,
     resourceMetadata_originalName,
     resourceMetadata_parentId,
+    resourceMetadata_owner,
+    resourceMetadata_id,
+    resourceMetadata_versionId,
 
     -- ** ResourcePath
     resourcePath_components,
@@ -461,49 +461,49 @@ module Amazonka.WorkDocs.Lens
     sharePrincipal_role,
 
     -- ** ShareResult
-    shareResult_status,
     shareResult_principalId,
-    shareResult_inviteePrincipalId,
+    shareResult_status,
+    shareResult_shareId,
     shareResult_role,
     shareResult_statusMessage,
-    shareResult_shareId,
+    shareResult_inviteePrincipalId,
 
     -- ** StorageRuleType
     storageRuleType_storageAllocatedInBytes,
     storageRuleType_storageType,
 
     -- ** Subscription
+    subscription_subscriptionId,
     subscription_protocol,
     subscription_endPoint,
-    subscription_subscriptionId,
 
     -- ** UploadMetadata
-    uploadMetadata_uploadUrl,
     uploadMetadata_signedHeaders,
+    uploadMetadata_uploadUrl,
 
     -- ** User
-    user_givenName,
-    user_status,
-    user_locale,
-    user_username,
-    user_storage,
-    user_modifiedTimestamp,
-    user_emailAddress,
-    user_id,
-    user_rootFolderId,
+    user_recycleBinFolderId,
     user_type,
-    user_surname,
     user_timeZoneId,
     user_createdTimestamp,
+    user_username,
+    user_locale,
+    user_givenName,
+    user_storage,
+    user_status,
+    user_id,
+    user_surname,
     user_organizationId,
-    user_recycleBinFolderId,
+    user_emailAddress,
+    user_rootFolderId,
+    user_modifiedTimestamp,
 
     -- ** UserMetadata
-    userMetadata_givenName,
     userMetadata_username,
-    userMetadata_emailAddress,
+    userMetadata_givenName,
     userMetadata_id,
     userMetadata_surname,
+    userMetadata_emailAddress,
 
     -- ** UserStorageMetadata
     userStorageMetadata_storageUtilizedInBytes,

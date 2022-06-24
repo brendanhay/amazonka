@@ -38,8 +38,8 @@ module Amazonka.WorkMail.ListResources
     newListResourcesResponse,
 
     -- * Response Lenses
-    listResourcesResponse_resources,
     listResourcesResponse_nextToken,
+    listResourcesResponse_resources,
     listResourcesResponse_httpStatus,
   )
 where
@@ -129,8 +129,8 @@ instance Core.AWSRequest ListResources where
     Response.receiveJSON
       ( \s h x ->
           ListResourcesResponse'
-            Prelude.<$> (x Core..?> "Resources" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Resources" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,12 +180,12 @@ instance Core.ToQuery ListResources where
 
 -- | /See:/ 'newListResourcesResponse' smart constructor.
 data ListResourcesResponse = ListResourcesResponse'
-  { -- | One page of the organization\'s resource representation.
-    resources :: Prelude.Maybe [Resource],
-    -- | The token used to paginate through all the organization\'s resources.
+  { -- | The token used to paginate through all the organization\'s resources.
     -- While results are still available, it has an associated value. When the
     -- last page is reached, the token is empty.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One page of the organization\'s resource representation.
+    resources :: Prelude.Maybe [Resource],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -199,11 +199,11 @@ data ListResourcesResponse = ListResourcesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resources', 'listResourcesResponse_resources' - One page of the organization\'s resource representation.
---
 -- 'nextToken', 'listResourcesResponse_nextToken' - The token used to paginate through all the organization\'s resources.
 -- While results are still available, it has an associated value. When the
 -- last page is reached, the token is empty.
+--
+-- 'resources', 'listResourcesResponse_resources' - One page of the organization\'s resource representation.
 --
 -- 'httpStatus', 'listResourcesResponse_httpStatus' - The response's http status code.
 newListResourcesResponse ::
@@ -212,14 +212,10 @@ newListResourcesResponse ::
   ListResourcesResponse
 newListResourcesResponse pHttpStatus_ =
   ListResourcesResponse'
-    { resources = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      resources = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | One page of the organization\'s resource representation.
-listResourcesResponse_resources :: Lens.Lens' ListResourcesResponse (Prelude.Maybe [Resource])
-listResourcesResponse_resources = Lens.lens (\ListResourcesResponse' {resources} -> resources) (\s@ListResourcesResponse' {} a -> s {resources = a} :: ListResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token used to paginate through all the organization\'s resources.
 -- While results are still available, it has an associated value. When the
@@ -227,12 +223,16 @@ listResourcesResponse_resources = Lens.lens (\ListResourcesResponse' {resources}
 listResourcesResponse_nextToken :: Lens.Lens' ListResourcesResponse (Prelude.Maybe Prelude.Text)
 listResourcesResponse_nextToken = Lens.lens (\ListResourcesResponse' {nextToken} -> nextToken) (\s@ListResourcesResponse' {} a -> s {nextToken = a} :: ListResourcesResponse)
 
+-- | One page of the organization\'s resource representation.
+listResourcesResponse_resources :: Lens.Lens' ListResourcesResponse (Prelude.Maybe [Resource])
+listResourcesResponse_resources = Lens.lens (\ListResourcesResponse' {resources} -> resources) (\s@ListResourcesResponse' {} a -> s {resources = a} :: ListResourcesResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listResourcesResponse_httpStatus :: Lens.Lens' ListResourcesResponse Prelude.Int
 listResourcesResponse_httpStatus = Lens.lens (\ListResourcesResponse' {httpStatus} -> httpStatus) (\s@ListResourcesResponse' {} a -> s {httpStatus = a} :: ListResourcesResponse)
 
 instance Prelude.NFData ListResourcesResponse where
   rnf ListResourcesResponse' {..} =
-    Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resources
       `Prelude.seq` Prelude.rnf httpStatus

@@ -37,12 +37,12 @@ module Amazonka.WorkMail.GetMobileDeviceAccessOverride
     newGetMobileDeviceAccessOverrideResponse,
 
     -- * Response Lenses
+    getMobileDeviceAccessOverrideResponse_deviceId,
     getMobileDeviceAccessOverrideResponse_effect,
+    getMobileDeviceAccessOverrideResponse_description,
     getMobileDeviceAccessOverrideResponse_userId,
     getMobileDeviceAccessOverrideResponse_dateCreated,
     getMobileDeviceAccessOverrideResponse_dateModified,
-    getMobileDeviceAccessOverrideResponse_deviceId,
-    getMobileDeviceAccessOverrideResponse_description,
     getMobileDeviceAccessOverrideResponse_httpStatus,
   )
 where
@@ -151,12 +151,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetMobileDeviceAccessOverrideResponse'
-            Prelude.<$> (x Core..?> "Effect")
+            Prelude.<$> (x Core..?> "DeviceId")
+            Prelude.<*> (x Core..?> "Effect")
+            Prelude.<*> (x Core..?> "Description")
             Prelude.<*> (x Core..?> "UserId")
             Prelude.<*> (x Core..?> "DateCreated")
             Prelude.<*> (x Core..?> "DateModified")
-            Prelude.<*> (x Core..?> "DeviceId")
-            Prelude.<*> (x Core..?> "Description")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -209,18 +209,18 @@ instance Core.ToQuery GetMobileDeviceAccessOverride where
 
 -- | /See:/ 'newGetMobileDeviceAccessOverrideResponse' smart constructor.
 data GetMobileDeviceAccessOverrideResponse = GetMobileDeviceAccessOverrideResponse'
-  { -- | The effect of the override, @ALLOW@ or @DENY@.
+  { -- | The device to which the access override applies.
+    deviceId :: Prelude.Maybe Prelude.Text,
+    -- | The effect of the override, @ALLOW@ or @DENY@.
     effect :: Prelude.Maybe MobileDeviceAccessRuleEffect,
+    -- | A description of the override.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The WorkMail user to which the access override applies.
     userId :: Prelude.Maybe Prelude.Text,
     -- | The date the override was first created.
     dateCreated :: Prelude.Maybe Core.POSIX,
     -- | The date the description was last modified.
     dateModified :: Prelude.Maybe Core.POSIX,
-    -- | The device to which the access override applies.
-    deviceId :: Prelude.Maybe Prelude.Text,
-    -- | A description of the override.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -234,17 +234,17 @@ data GetMobileDeviceAccessOverrideResponse = GetMobileDeviceAccessOverrideRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deviceId', 'getMobileDeviceAccessOverrideResponse_deviceId' - The device to which the access override applies.
+--
 -- 'effect', 'getMobileDeviceAccessOverrideResponse_effect' - The effect of the override, @ALLOW@ or @DENY@.
+--
+-- 'description', 'getMobileDeviceAccessOverrideResponse_description' - A description of the override.
 --
 -- 'userId', 'getMobileDeviceAccessOverrideResponse_userId' - The WorkMail user to which the access override applies.
 --
 -- 'dateCreated', 'getMobileDeviceAccessOverrideResponse_dateCreated' - The date the override was first created.
 --
 -- 'dateModified', 'getMobileDeviceAccessOverrideResponse_dateModified' - The date the description was last modified.
---
--- 'deviceId', 'getMobileDeviceAccessOverrideResponse_deviceId' - The device to which the access override applies.
---
--- 'description', 'getMobileDeviceAccessOverrideResponse_description' - A description of the override.
 --
 -- 'httpStatus', 'getMobileDeviceAccessOverrideResponse_httpStatus' - The response's http status code.
 newGetMobileDeviceAccessOverrideResponse ::
@@ -253,19 +253,27 @@ newGetMobileDeviceAccessOverrideResponse ::
   GetMobileDeviceAccessOverrideResponse
 newGetMobileDeviceAccessOverrideResponse pHttpStatus_ =
   GetMobileDeviceAccessOverrideResponse'
-    { effect =
+    { deviceId =
         Prelude.Nothing,
+      effect = Prelude.Nothing,
+      description = Prelude.Nothing,
       userId = Prelude.Nothing,
       dateCreated = Prelude.Nothing,
       dateModified = Prelude.Nothing,
-      deviceId = Prelude.Nothing,
-      description = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The device to which the access override applies.
+getMobileDeviceAccessOverrideResponse_deviceId :: Lens.Lens' GetMobileDeviceAccessOverrideResponse (Prelude.Maybe Prelude.Text)
+getMobileDeviceAccessOverrideResponse_deviceId = Lens.lens (\GetMobileDeviceAccessOverrideResponse' {deviceId} -> deviceId) (\s@GetMobileDeviceAccessOverrideResponse' {} a -> s {deviceId = a} :: GetMobileDeviceAccessOverrideResponse)
 
 -- | The effect of the override, @ALLOW@ or @DENY@.
 getMobileDeviceAccessOverrideResponse_effect :: Lens.Lens' GetMobileDeviceAccessOverrideResponse (Prelude.Maybe MobileDeviceAccessRuleEffect)
 getMobileDeviceAccessOverrideResponse_effect = Lens.lens (\GetMobileDeviceAccessOverrideResponse' {effect} -> effect) (\s@GetMobileDeviceAccessOverrideResponse' {} a -> s {effect = a} :: GetMobileDeviceAccessOverrideResponse)
+
+-- | A description of the override.
+getMobileDeviceAccessOverrideResponse_description :: Lens.Lens' GetMobileDeviceAccessOverrideResponse (Prelude.Maybe Prelude.Text)
+getMobileDeviceAccessOverrideResponse_description = Lens.lens (\GetMobileDeviceAccessOverrideResponse' {description} -> description) (\s@GetMobileDeviceAccessOverrideResponse' {} a -> s {description = a} :: GetMobileDeviceAccessOverrideResponse)
 
 -- | The WorkMail user to which the access override applies.
 getMobileDeviceAccessOverrideResponse_userId :: Lens.Lens' GetMobileDeviceAccessOverrideResponse (Prelude.Maybe Prelude.Text)
@@ -279,14 +287,6 @@ getMobileDeviceAccessOverrideResponse_dateCreated = Lens.lens (\GetMobileDeviceA
 getMobileDeviceAccessOverrideResponse_dateModified :: Lens.Lens' GetMobileDeviceAccessOverrideResponse (Prelude.Maybe Prelude.UTCTime)
 getMobileDeviceAccessOverrideResponse_dateModified = Lens.lens (\GetMobileDeviceAccessOverrideResponse' {dateModified} -> dateModified) (\s@GetMobileDeviceAccessOverrideResponse' {} a -> s {dateModified = a} :: GetMobileDeviceAccessOverrideResponse) Prelude.. Lens.mapping Core._Time
 
--- | The device to which the access override applies.
-getMobileDeviceAccessOverrideResponse_deviceId :: Lens.Lens' GetMobileDeviceAccessOverrideResponse (Prelude.Maybe Prelude.Text)
-getMobileDeviceAccessOverrideResponse_deviceId = Lens.lens (\GetMobileDeviceAccessOverrideResponse' {deviceId} -> deviceId) (\s@GetMobileDeviceAccessOverrideResponse' {} a -> s {deviceId = a} :: GetMobileDeviceAccessOverrideResponse)
-
--- | A description of the override.
-getMobileDeviceAccessOverrideResponse_description :: Lens.Lens' GetMobileDeviceAccessOverrideResponse (Prelude.Maybe Prelude.Text)
-getMobileDeviceAccessOverrideResponse_description = Lens.lens (\GetMobileDeviceAccessOverrideResponse' {description} -> description) (\s@GetMobileDeviceAccessOverrideResponse' {} a -> s {description = a} :: GetMobileDeviceAccessOverrideResponse)
-
 -- | The response's http status code.
 getMobileDeviceAccessOverrideResponse_httpStatus :: Lens.Lens' GetMobileDeviceAccessOverrideResponse Prelude.Int
 getMobileDeviceAccessOverrideResponse_httpStatus = Lens.lens (\GetMobileDeviceAccessOverrideResponse' {httpStatus} -> httpStatus) (\s@GetMobileDeviceAccessOverrideResponse' {} a -> s {httpStatus = a} :: GetMobileDeviceAccessOverrideResponse)
@@ -296,10 +296,10 @@ instance
     GetMobileDeviceAccessOverrideResponse
   where
   rnf GetMobileDeviceAccessOverrideResponse' {..} =
-    Prelude.rnf effect
+    Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf effect
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf userId
       `Prelude.seq` Prelude.rnf dateCreated
       `Prelude.seq` Prelude.rnf dateModified
-      `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf httpStatus

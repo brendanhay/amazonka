@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBookingOptions' smart constructor.
 data BookingOptions = BookingOptions'
-  { -- | The resource\'s ability to automatically decline any conflicting
+  { -- | The resource\'s ability to automatically decline any recurring requests.
+    autoDeclineRecurringRequests :: Prelude.Maybe Prelude.Bool,
+    -- | The resource\'s ability to automatically decline any conflicting
     -- requests.
     autoDeclineConflictingRequests :: Prelude.Maybe Prelude.Bool,
-    -- | The resource\'s ability to automatically decline any recurring requests.
-    autoDeclineRecurringRequests :: Prelude.Maybe Prelude.Bool,
     -- | The resource\'s ability to automatically reply to requests. If disabled,
     -- delegates must be associated to the resource.
     autoAcceptRequests :: Prelude.Maybe Prelude.Bool
@@ -47,10 +47,10 @@ data BookingOptions = BookingOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'autoDeclineRecurringRequests', 'bookingOptions_autoDeclineRecurringRequests' - The resource\'s ability to automatically decline any recurring requests.
+--
 -- 'autoDeclineConflictingRequests', 'bookingOptions_autoDeclineConflictingRequests' - The resource\'s ability to automatically decline any conflicting
 -- requests.
---
--- 'autoDeclineRecurringRequests', 'bookingOptions_autoDeclineRecurringRequests' - The resource\'s ability to automatically decline any recurring requests.
 --
 -- 'autoAcceptRequests', 'bookingOptions_autoAcceptRequests' - The resource\'s ability to automatically reply to requests. If disabled,
 -- delegates must be associated to the resource.
@@ -58,20 +58,20 @@ newBookingOptions ::
   BookingOptions
 newBookingOptions =
   BookingOptions'
-    { autoDeclineConflictingRequests =
+    { autoDeclineRecurringRequests =
         Prelude.Nothing,
-      autoDeclineRecurringRequests = Prelude.Nothing,
+      autoDeclineConflictingRequests = Prelude.Nothing,
       autoAcceptRequests = Prelude.Nothing
     }
+
+-- | The resource\'s ability to automatically decline any recurring requests.
+bookingOptions_autoDeclineRecurringRequests :: Lens.Lens' BookingOptions (Prelude.Maybe Prelude.Bool)
+bookingOptions_autoDeclineRecurringRequests = Lens.lens (\BookingOptions' {autoDeclineRecurringRequests} -> autoDeclineRecurringRequests) (\s@BookingOptions' {} a -> s {autoDeclineRecurringRequests = a} :: BookingOptions)
 
 -- | The resource\'s ability to automatically decline any conflicting
 -- requests.
 bookingOptions_autoDeclineConflictingRequests :: Lens.Lens' BookingOptions (Prelude.Maybe Prelude.Bool)
 bookingOptions_autoDeclineConflictingRequests = Lens.lens (\BookingOptions' {autoDeclineConflictingRequests} -> autoDeclineConflictingRequests) (\s@BookingOptions' {} a -> s {autoDeclineConflictingRequests = a} :: BookingOptions)
-
--- | The resource\'s ability to automatically decline any recurring requests.
-bookingOptions_autoDeclineRecurringRequests :: Lens.Lens' BookingOptions (Prelude.Maybe Prelude.Bool)
-bookingOptions_autoDeclineRecurringRequests = Lens.lens (\BookingOptions' {autoDeclineRecurringRequests} -> autoDeclineRecurringRequests) (\s@BookingOptions' {} a -> s {autoDeclineRecurringRequests = a} :: BookingOptions)
 
 -- | The resource\'s ability to automatically reply to requests. If disabled,
 -- delegates must be associated to the resource.
@@ -84,32 +84,32 @@ instance Core.FromJSON BookingOptions where
       "BookingOptions"
       ( \x ->
           BookingOptions'
-            Prelude.<$> (x Core..:? "AutoDeclineConflictingRequests")
-            Prelude.<*> (x Core..:? "AutoDeclineRecurringRequests")
+            Prelude.<$> (x Core..:? "AutoDeclineRecurringRequests")
+            Prelude.<*> (x Core..:? "AutoDeclineConflictingRequests")
             Prelude.<*> (x Core..:? "AutoAcceptRequests")
       )
 
 instance Prelude.Hashable BookingOptions where
   hashWithSalt _salt BookingOptions' {..} =
     _salt
-      `Prelude.hashWithSalt` autoDeclineConflictingRequests
       `Prelude.hashWithSalt` autoDeclineRecurringRequests
+      `Prelude.hashWithSalt` autoDeclineConflictingRequests
       `Prelude.hashWithSalt` autoAcceptRequests
 
 instance Prelude.NFData BookingOptions where
   rnf BookingOptions' {..} =
-    Prelude.rnf autoDeclineConflictingRequests
-      `Prelude.seq` Prelude.rnf autoDeclineRecurringRequests
+    Prelude.rnf autoDeclineRecurringRequests
+      `Prelude.seq` Prelude.rnf autoDeclineConflictingRequests
       `Prelude.seq` Prelude.rnf autoAcceptRequests
 
 instance Core.ToJSON BookingOptions where
   toJSON BookingOptions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AutoDeclineConflictingRequests" Core..=)
-              Prelude.<$> autoDeclineConflictingRequests,
-            ("AutoDeclineRecurringRequests" Core..=)
+          [ ("AutoDeclineRecurringRequests" Core..=)
               Prelude.<$> autoDeclineRecurringRequests,
+            ("AutoDeclineConflictingRequests" Core..=)
+              Prelude.<$> autoDeclineConflictingRequests,
             ("AutoAcceptRequests" Core..=)
               Prelude.<$> autoAcceptRequests
           ]

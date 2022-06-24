@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMobileDeviceAccessMatchedRule' smart constructor.
 data MobileDeviceAccessMatchedRule = MobileDeviceAccessMatchedRule'
-  { -- | Identifier of the rule that a simulated user matches.
-    mobileDeviceAccessRuleId :: Prelude.Maybe Prelude.Text,
-    -- | Name of a rule that a simulated user matches.
-    name :: Prelude.Maybe Prelude.Text
+  { -- | Name of a rule that a simulated user matches.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Identifier of the rule that a simulated user matches.
+    mobileDeviceAccessRuleId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,25 @@ data MobileDeviceAccessMatchedRule = MobileDeviceAccessMatchedRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'mobileDeviceAccessRuleId', 'mobileDeviceAccessMatchedRule_mobileDeviceAccessRuleId' - Identifier of the rule that a simulated user matches.
---
 -- 'name', 'mobileDeviceAccessMatchedRule_name' - Name of a rule that a simulated user matches.
+--
+-- 'mobileDeviceAccessRuleId', 'mobileDeviceAccessMatchedRule_mobileDeviceAccessRuleId' - Identifier of the rule that a simulated user matches.
 newMobileDeviceAccessMatchedRule ::
   MobileDeviceAccessMatchedRule
 newMobileDeviceAccessMatchedRule =
   MobileDeviceAccessMatchedRule'
-    { mobileDeviceAccessRuleId =
+    { name =
         Prelude.Nothing,
-      name = Prelude.Nothing
+      mobileDeviceAccessRuleId = Prelude.Nothing
     }
-
--- | Identifier of the rule that a simulated user matches.
-mobileDeviceAccessMatchedRule_mobileDeviceAccessRuleId :: Lens.Lens' MobileDeviceAccessMatchedRule (Prelude.Maybe Prelude.Text)
-mobileDeviceAccessMatchedRule_mobileDeviceAccessRuleId = Lens.lens (\MobileDeviceAccessMatchedRule' {mobileDeviceAccessRuleId} -> mobileDeviceAccessRuleId) (\s@MobileDeviceAccessMatchedRule' {} a -> s {mobileDeviceAccessRuleId = a} :: MobileDeviceAccessMatchedRule)
 
 -- | Name of a rule that a simulated user matches.
 mobileDeviceAccessMatchedRule_name :: Lens.Lens' MobileDeviceAccessMatchedRule (Prelude.Maybe Prelude.Text)
 mobileDeviceAccessMatchedRule_name = Lens.lens (\MobileDeviceAccessMatchedRule' {name} -> name) (\s@MobileDeviceAccessMatchedRule' {} a -> s {name = a} :: MobileDeviceAccessMatchedRule)
+
+-- | Identifier of the rule that a simulated user matches.
+mobileDeviceAccessMatchedRule_mobileDeviceAccessRuleId :: Lens.Lens' MobileDeviceAccessMatchedRule (Prelude.Maybe Prelude.Text)
+mobileDeviceAccessMatchedRule_mobileDeviceAccessRuleId = Lens.lens (\MobileDeviceAccessMatchedRule' {mobileDeviceAccessRuleId} -> mobileDeviceAccessRuleId) (\s@MobileDeviceAccessMatchedRule' {} a -> s {mobileDeviceAccessRuleId = a} :: MobileDeviceAccessMatchedRule)
 
 instance Core.FromJSON MobileDeviceAccessMatchedRule where
   parseJSON =
@@ -68,8 +68,8 @@ instance Core.FromJSON MobileDeviceAccessMatchedRule where
       "MobileDeviceAccessMatchedRule"
       ( \x ->
           MobileDeviceAccessMatchedRule'
-            Prelude.<$> (x Core..:? "MobileDeviceAccessRuleId")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "MobileDeviceAccessRuleId")
       )
 
 instance
@@ -77,11 +77,10 @@ instance
     MobileDeviceAccessMatchedRule
   where
   hashWithSalt _salt MobileDeviceAccessMatchedRule' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` mobileDeviceAccessRuleId
-      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData MobileDeviceAccessMatchedRule where
   rnf MobileDeviceAccessMatchedRule' {..} =
-    Prelude.rnf mobileDeviceAccessRuleId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf mobileDeviceAccessRuleId

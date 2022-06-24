@@ -40,8 +40,8 @@ module Amazonka.WorkMail.ListAliases
     newListAliasesResponse,
 
     -- * Response Lenses
-    listAliasesResponse_aliases,
     listAliasesResponse_nextToken,
+    listAliasesResponse_aliases,
     listAliasesResponse_httpStatus,
   )
 where
@@ -140,8 +140,8 @@ instance Core.AWSRequest ListAliases where
     Response.receiveJSON
       ( \s h x ->
           ListAliasesResponse'
-            Prelude.<$> (x Core..?> "Aliases" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Aliases" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -194,11 +194,11 @@ instance Core.ToQuery ListAliases where
 
 -- | /See:/ 'newListAliasesResponse' smart constructor.
 data ListAliasesResponse = ListAliasesResponse'
-  { -- | The entity\'s paginated aliases.
-    aliases :: Prelude.Maybe [Prelude.Text],
-    -- | The token to use to retrieve the next page of results. The value is
+  { -- | The token to use to retrieve the next page of results. The value is
     -- \"null\" when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The entity\'s paginated aliases.
+    aliases :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -212,10 +212,10 @@ data ListAliasesResponse = ListAliasesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'aliases', 'listAliasesResponse_aliases' - The entity\'s paginated aliases.
---
 -- 'nextToken', 'listAliasesResponse_nextToken' - The token to use to retrieve the next page of results. The value is
 -- \"null\" when there are no more results to return.
+--
+-- 'aliases', 'listAliasesResponse_aliases' - The entity\'s paginated aliases.
 --
 -- 'httpStatus', 'listAliasesResponse_httpStatus' - The response's http status code.
 newListAliasesResponse ::
@@ -224,19 +224,19 @@ newListAliasesResponse ::
   ListAliasesResponse
 newListAliasesResponse pHttpStatus_ =
   ListAliasesResponse'
-    { aliases = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      aliases = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The entity\'s paginated aliases.
-listAliasesResponse_aliases :: Lens.Lens' ListAliasesResponse (Prelude.Maybe [Prelude.Text])
-listAliasesResponse_aliases = Lens.lens (\ListAliasesResponse' {aliases} -> aliases) (\s@ListAliasesResponse' {} a -> s {aliases = a} :: ListAliasesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. The value is
 -- \"null\" when there are no more results to return.
 listAliasesResponse_nextToken :: Lens.Lens' ListAliasesResponse (Prelude.Maybe Prelude.Text)
 listAliasesResponse_nextToken = Lens.lens (\ListAliasesResponse' {nextToken} -> nextToken) (\s@ListAliasesResponse' {} a -> s {nextToken = a} :: ListAliasesResponse)
+
+-- | The entity\'s paginated aliases.
+listAliasesResponse_aliases :: Lens.Lens' ListAliasesResponse (Prelude.Maybe [Prelude.Text])
+listAliasesResponse_aliases = Lens.lens (\ListAliasesResponse' {aliases} -> aliases) (\s@ListAliasesResponse' {} a -> s {aliases = a} :: ListAliasesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAliasesResponse_httpStatus :: Lens.Lens' ListAliasesResponse Prelude.Int
@@ -244,6 +244,6 @@ listAliasesResponse_httpStatus = Lens.lens (\ListAliasesResponse' {httpStatus} -
 
 instance Prelude.NFData ListAliasesResponse where
   rnf ListAliasesResponse' {..} =
-    Prelude.rnf aliases
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf aliases
       `Prelude.seq` Prelude.rnf httpStatus

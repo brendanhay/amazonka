@@ -36,11 +36,11 @@ module Amazonka.WorkMail.GetMailDomain
     newGetMailDomainResponse,
 
     -- * Response Lenses
-    getMailDomainResponse_isTestDomain,
     getMailDomainResponse_records,
-    getMailDomainResponse_ownershipVerificationStatus,
+    getMailDomainResponse_isTestDomain,
     getMailDomainResponse_dkimVerificationStatus,
     getMailDomainResponse_isDefault,
+    getMailDomainResponse_ownershipVerificationStatus,
     getMailDomainResponse_httpStatus,
   )
 where
@@ -101,11 +101,11 @@ instance Core.AWSRequest GetMailDomain where
     Response.receiveJSON
       ( \s h x ->
           GetMailDomainResponse'
-            Prelude.<$> (x Core..?> "IsTestDomain")
-            Prelude.<*> (x Core..?> "Records" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "OwnershipVerificationStatus")
+            Prelude.<$> (x Core..?> "Records" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "IsTestDomain")
             Prelude.<*> (x Core..?> "DkimVerificationStatus")
             Prelude.<*> (x Core..?> "IsDefault")
+            Prelude.<*> (x Core..?> "OwnershipVerificationStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,21 +152,21 @@ instance Core.ToQuery GetMailDomain where
 
 -- | /See:/ 'newGetMailDomainResponse' smart constructor.
 data GetMailDomainResponse = GetMailDomainResponse'
-  { -- | Specifies whether the domain is a test domain provided by WorkMail, or a
-    -- custom domain.
-    isTestDomain :: Prelude.Maybe Prelude.Bool,
-    -- | A list of the DNS records that Amazon WorkMail recommends adding in your
+  { -- | A list of the DNS records that Amazon WorkMail recommends adding in your
     -- DNS provider for the best user experience. The records configure your
     -- domain with DMARC, SPF, DKIM, and direct incoming email traffic to SES.
     -- See admin guide for more details.
     records :: Prelude.Maybe [DnsRecord],
-    -- | Indicates the status of the domain ownership verification.
-    ownershipVerificationStatus :: Prelude.Maybe DnsRecordVerificationStatus,
+    -- | Specifies whether the domain is a test domain provided by WorkMail, or a
+    -- custom domain.
+    isTestDomain :: Prelude.Maybe Prelude.Bool,
     -- | Indicates the status of a DKIM verification.
     dkimVerificationStatus :: Prelude.Maybe DnsRecordVerificationStatus,
     -- | Specifies whether the domain is the default domain for your
     -- organization.
     isDefault :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates the status of the domain ownership verification.
+    ownershipVerificationStatus :: Prelude.Maybe DnsRecordVerificationStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -180,20 +180,20 @@ data GetMailDomainResponse = GetMailDomainResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'isTestDomain', 'getMailDomainResponse_isTestDomain' - Specifies whether the domain is a test domain provided by WorkMail, or a
--- custom domain.
---
 -- 'records', 'getMailDomainResponse_records' - A list of the DNS records that Amazon WorkMail recommends adding in your
 -- DNS provider for the best user experience. The records configure your
 -- domain with DMARC, SPF, DKIM, and direct incoming email traffic to SES.
 -- See admin guide for more details.
 --
--- 'ownershipVerificationStatus', 'getMailDomainResponse_ownershipVerificationStatus' - Indicates the status of the domain ownership verification.
+-- 'isTestDomain', 'getMailDomainResponse_isTestDomain' - Specifies whether the domain is a test domain provided by WorkMail, or a
+-- custom domain.
 --
 -- 'dkimVerificationStatus', 'getMailDomainResponse_dkimVerificationStatus' - Indicates the status of a DKIM verification.
 --
 -- 'isDefault', 'getMailDomainResponse_isDefault' - Specifies whether the domain is the default domain for your
 -- organization.
+--
+-- 'ownershipVerificationStatus', 'getMailDomainResponse_ownershipVerificationStatus' - Indicates the status of the domain ownership verification.
 --
 -- 'httpStatus', 'getMailDomainResponse_httpStatus' - The response's http status code.
 newGetMailDomainResponse ::
@@ -202,19 +202,13 @@ newGetMailDomainResponse ::
   GetMailDomainResponse
 newGetMailDomainResponse pHttpStatus_ =
   GetMailDomainResponse'
-    { isTestDomain =
-        Prelude.Nothing,
-      records = Prelude.Nothing,
-      ownershipVerificationStatus = Prelude.Nothing,
+    { records = Prelude.Nothing,
+      isTestDomain = Prelude.Nothing,
       dkimVerificationStatus = Prelude.Nothing,
       isDefault = Prelude.Nothing,
+      ownershipVerificationStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Specifies whether the domain is a test domain provided by WorkMail, or a
--- custom domain.
-getMailDomainResponse_isTestDomain :: Lens.Lens' GetMailDomainResponse (Prelude.Maybe Prelude.Bool)
-getMailDomainResponse_isTestDomain = Lens.lens (\GetMailDomainResponse' {isTestDomain} -> isTestDomain) (\s@GetMailDomainResponse' {} a -> s {isTestDomain = a} :: GetMailDomainResponse)
 
 -- | A list of the DNS records that Amazon WorkMail recommends adding in your
 -- DNS provider for the best user experience. The records configure your
@@ -223,9 +217,10 @@ getMailDomainResponse_isTestDomain = Lens.lens (\GetMailDomainResponse' {isTestD
 getMailDomainResponse_records :: Lens.Lens' GetMailDomainResponse (Prelude.Maybe [DnsRecord])
 getMailDomainResponse_records = Lens.lens (\GetMailDomainResponse' {records} -> records) (\s@GetMailDomainResponse' {} a -> s {records = a} :: GetMailDomainResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Indicates the status of the domain ownership verification.
-getMailDomainResponse_ownershipVerificationStatus :: Lens.Lens' GetMailDomainResponse (Prelude.Maybe DnsRecordVerificationStatus)
-getMailDomainResponse_ownershipVerificationStatus = Lens.lens (\GetMailDomainResponse' {ownershipVerificationStatus} -> ownershipVerificationStatus) (\s@GetMailDomainResponse' {} a -> s {ownershipVerificationStatus = a} :: GetMailDomainResponse)
+-- | Specifies whether the domain is a test domain provided by WorkMail, or a
+-- custom domain.
+getMailDomainResponse_isTestDomain :: Lens.Lens' GetMailDomainResponse (Prelude.Maybe Prelude.Bool)
+getMailDomainResponse_isTestDomain = Lens.lens (\GetMailDomainResponse' {isTestDomain} -> isTestDomain) (\s@GetMailDomainResponse' {} a -> s {isTestDomain = a} :: GetMailDomainResponse)
 
 -- | Indicates the status of a DKIM verification.
 getMailDomainResponse_dkimVerificationStatus :: Lens.Lens' GetMailDomainResponse (Prelude.Maybe DnsRecordVerificationStatus)
@@ -236,15 +231,19 @@ getMailDomainResponse_dkimVerificationStatus = Lens.lens (\GetMailDomainResponse
 getMailDomainResponse_isDefault :: Lens.Lens' GetMailDomainResponse (Prelude.Maybe Prelude.Bool)
 getMailDomainResponse_isDefault = Lens.lens (\GetMailDomainResponse' {isDefault} -> isDefault) (\s@GetMailDomainResponse' {} a -> s {isDefault = a} :: GetMailDomainResponse)
 
+-- | Indicates the status of the domain ownership verification.
+getMailDomainResponse_ownershipVerificationStatus :: Lens.Lens' GetMailDomainResponse (Prelude.Maybe DnsRecordVerificationStatus)
+getMailDomainResponse_ownershipVerificationStatus = Lens.lens (\GetMailDomainResponse' {ownershipVerificationStatus} -> ownershipVerificationStatus) (\s@GetMailDomainResponse' {} a -> s {ownershipVerificationStatus = a} :: GetMailDomainResponse)
+
 -- | The response's http status code.
 getMailDomainResponse_httpStatus :: Lens.Lens' GetMailDomainResponse Prelude.Int
 getMailDomainResponse_httpStatus = Lens.lens (\GetMailDomainResponse' {httpStatus} -> httpStatus) (\s@GetMailDomainResponse' {} a -> s {httpStatus = a} :: GetMailDomainResponse)
 
 instance Prelude.NFData GetMailDomainResponse where
   rnf GetMailDomainResponse' {..} =
-    Prelude.rnf isTestDomain
-      `Prelude.seq` Prelude.rnf records
-      `Prelude.seq` Prelude.rnf ownershipVerificationStatus
+    Prelude.rnf records
+      `Prelude.seq` Prelude.rnf isTestDomain
       `Prelude.seq` Prelude.rnf dkimVerificationStatus
       `Prelude.seq` Prelude.rnf isDefault
+      `Prelude.seq` Prelude.rnf ownershipVerificationStatus
       `Prelude.seq` Prelude.rnf httpStatus

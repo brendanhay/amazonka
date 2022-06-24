@@ -40,8 +40,8 @@ module Amazonka.WorkMail.ListGroupMembers
     newListGroupMembersResponse,
 
     -- * Response Lenses
-    listGroupMembersResponse_members,
     listGroupMembersResponse_nextToken,
+    listGroupMembersResponse_members,
     listGroupMembersResponse_httpStatus,
   )
 where
@@ -148,8 +148,8 @@ instance Core.AWSRequest ListGroupMembers where
     Response.receiveJSON
       ( \s h x ->
           ListGroupMembersResponse'
-            Prelude.<$> (x Core..?> "Members" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Members" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -202,11 +202,11 @@ instance Core.ToQuery ListGroupMembers where
 
 -- | /See:/ 'newListGroupMembersResponse' smart constructor.
 data ListGroupMembersResponse = ListGroupMembersResponse'
-  { -- | The members associated to the group.
-    members :: Prelude.Maybe [Member],
-    -- | The token to use to retrieve the next page of results. The first call
+  { -- | The token to use to retrieve the next page of results. The first call
     -- does not contain any tokens.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The members associated to the group.
+    members :: Prelude.Maybe [Member],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -220,10 +220,10 @@ data ListGroupMembersResponse = ListGroupMembersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'members', 'listGroupMembersResponse_members' - The members associated to the group.
---
 -- 'nextToken', 'listGroupMembersResponse_nextToken' - The token to use to retrieve the next page of results. The first call
 -- does not contain any tokens.
+--
+-- 'members', 'listGroupMembersResponse_members' - The members associated to the group.
 --
 -- 'httpStatus', 'listGroupMembersResponse_httpStatus' - The response's http status code.
 newListGroupMembersResponse ::
@@ -232,20 +232,20 @@ newListGroupMembersResponse ::
   ListGroupMembersResponse
 newListGroupMembersResponse pHttpStatus_ =
   ListGroupMembersResponse'
-    { members =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      members = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The members associated to the group.
-listGroupMembersResponse_members :: Lens.Lens' ListGroupMembersResponse (Prelude.Maybe [Member])
-listGroupMembersResponse_members = Lens.lens (\ListGroupMembersResponse' {members} -> members) (\s@ListGroupMembersResponse' {} a -> s {members = a} :: ListGroupMembersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. The first call
 -- does not contain any tokens.
 listGroupMembersResponse_nextToken :: Lens.Lens' ListGroupMembersResponse (Prelude.Maybe Prelude.Text)
 listGroupMembersResponse_nextToken = Lens.lens (\ListGroupMembersResponse' {nextToken} -> nextToken) (\s@ListGroupMembersResponse' {} a -> s {nextToken = a} :: ListGroupMembersResponse)
+
+-- | The members associated to the group.
+listGroupMembersResponse_members :: Lens.Lens' ListGroupMembersResponse (Prelude.Maybe [Member])
+listGroupMembersResponse_members = Lens.lens (\ListGroupMembersResponse' {members} -> members) (\s@ListGroupMembersResponse' {} a -> s {members = a} :: ListGroupMembersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listGroupMembersResponse_httpStatus :: Lens.Lens' ListGroupMembersResponse Prelude.Int
@@ -253,6 +253,6 @@ listGroupMembersResponse_httpStatus = Lens.lens (\ListGroupMembersResponse' {htt
 
 instance Prelude.NFData ListGroupMembersResponse where
   rnf ListGroupMembersResponse' {..} =
-    Prelude.rnf members
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf members
       `Prelude.seq` Prelude.rnf httpStatus

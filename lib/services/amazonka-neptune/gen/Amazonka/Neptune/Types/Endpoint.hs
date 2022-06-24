@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEndpoint' smart constructor.
 data Endpoint = Endpoint'
-  { -- | Specifies the ID that Amazon Route 53 assigns when you create a hosted
+  { -- | Specifies the port that the database engine is listening on.
+    port :: Prelude.Maybe Prelude.Int,
+    -- | Specifies the ID that Amazon Route 53 assigns when you create a hosted
     -- zone.
     hostedZoneId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the DNS address of the DB instance.
-    address :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the port that the database engine is listening on.
-    port :: Prelude.Maybe Prelude.Int
+    address :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,20 +48,24 @@ data Endpoint = Endpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'port', 'endpoint_port' - Specifies the port that the database engine is listening on.
+--
 -- 'hostedZoneId', 'endpoint_hostedZoneId' - Specifies the ID that Amazon Route 53 assigns when you create a hosted
 -- zone.
 --
 -- 'address', 'endpoint_address' - Specifies the DNS address of the DB instance.
---
--- 'port', 'endpoint_port' - Specifies the port that the database engine is listening on.
 newEndpoint ::
   Endpoint
 newEndpoint =
   Endpoint'
-    { hostedZoneId = Prelude.Nothing,
-      address = Prelude.Nothing,
-      port = Prelude.Nothing
+    { port = Prelude.Nothing,
+      hostedZoneId = Prelude.Nothing,
+      address = Prelude.Nothing
     }
+
+-- | Specifies the port that the database engine is listening on.
+endpoint_port :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Int)
+endpoint_port = Lens.lens (\Endpoint' {port} -> port) (\s@Endpoint' {} a -> s {port = a} :: Endpoint)
 
 -- | Specifies the ID that Amazon Route 53 assigns when you create a hosted
 -- zone.
@@ -72,25 +76,21 @@ endpoint_hostedZoneId = Lens.lens (\Endpoint' {hostedZoneId} -> hostedZoneId) (\
 endpoint_address :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
 endpoint_address = Lens.lens (\Endpoint' {address} -> address) (\s@Endpoint' {} a -> s {address = a} :: Endpoint)
 
--- | Specifies the port that the database engine is listening on.
-endpoint_port :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Int)
-endpoint_port = Lens.lens (\Endpoint' {port} -> port) (\s@Endpoint' {} a -> s {port = a} :: Endpoint)
-
 instance Core.FromXML Endpoint where
   parseXML x =
     Endpoint'
-      Prelude.<$> (x Core..@? "HostedZoneId")
+      Prelude.<$> (x Core..@? "Port")
+      Prelude.<*> (x Core..@? "HostedZoneId")
       Prelude.<*> (x Core..@? "Address")
-      Prelude.<*> (x Core..@? "Port")
 
 instance Prelude.Hashable Endpoint where
   hashWithSalt _salt Endpoint' {..} =
-    _salt `Prelude.hashWithSalt` hostedZoneId
+    _salt `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` hostedZoneId
       `Prelude.hashWithSalt` address
-      `Prelude.hashWithSalt` port
 
 instance Prelude.NFData Endpoint where
   rnf Endpoint' {..} =
-    Prelude.rnf hostedZoneId
+    Prelude.rnf port
+      `Prelude.seq` Prelude.rnf hostedZoneId
       `Prelude.seq` Prelude.rnf address
-      `Prelude.seq` Prelude.rnf port

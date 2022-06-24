@@ -29,21 +29,21 @@ module Amazonka.Neptune.ModifyDBCluster
     newModifyDBCluster,
 
     -- * Request Lenses
-    modifyDBCluster_engineVersion,
-    modifyDBCluster_deletionProtection,
-    modifyDBCluster_masterUserPassword,
-    modifyDBCluster_cloudwatchLogsExportConfiguration,
-    modifyDBCluster_preferredMaintenanceWindow,
-    modifyDBCluster_preferredBackupWindow,
-    modifyDBCluster_backupRetentionPeriod,
-    modifyDBCluster_vpcSecurityGroupIds,
-    modifyDBCluster_dbClusterParameterGroupName,
-    modifyDBCluster_applyImmediately,
-    modifyDBCluster_optionGroupName,
-    modifyDBCluster_copyTagsToSnapshot,
     modifyDBCluster_newDBClusterIdentifier,
     modifyDBCluster_port,
+    modifyDBCluster_vpcSecurityGroupIds,
+    modifyDBCluster_preferredBackupWindow,
+    modifyDBCluster_backupRetentionPeriod,
+    modifyDBCluster_copyTagsToSnapshot,
+    modifyDBCluster_applyImmediately,
+    modifyDBCluster_optionGroupName,
     modifyDBCluster_enableIAMDatabaseAuthentication,
+    modifyDBCluster_masterUserPassword,
+    modifyDBCluster_cloudwatchLogsExportConfiguration,
+    modifyDBCluster_deletionProtection,
+    modifyDBCluster_preferredMaintenanceWindow,
+    modifyDBCluster_dbClusterParameterGroupName,
+    modifyDBCluster_engineVersion,
     modifyDBCluster_dbClusterIdentifier,
 
     -- * Destructuring the Response
@@ -65,38 +65,27 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyDBCluster' smart constructor.
 data ModifyDBCluster = ModifyDBCluster'
-  { -- | The version number of the database engine to which you want to upgrade.
-    -- Changing this parameter results in an outage. The change is applied
-    -- during the next maintenance window unless the @ApplyImmediately@
-    -- parameter is set to true.
+  { -- | The new DB cluster identifier for the DB cluster when renaming a DB
+    -- cluster. This value is stored as a lowercase string.
     --
-    -- For a list of valid engine versions, see
-    -- <https://docs.aws.amazon.com/neptune/latest/userguide/engine-releases.html Engine Releases for Amazon Neptune>,
-    -- or call
-    -- <https://docs.aws.amazon.com/neptune/latest/userguide/api-other-apis.html#DescribeDBEngineVersions DescribeDBEngineVersions>.
-    engineVersion :: Prelude.Maybe Prelude.Text,
-    -- | A value that indicates whether the DB cluster has deletion protection
-    -- enabled. The database can\'t be deleted when deletion protection is
-    -- enabled. By default, deletion protection is disabled.
-    deletionProtection :: Prelude.Maybe Prelude.Bool,
-    -- | Not supported by Neptune.
-    masterUserPassword :: Prelude.Maybe Prelude.Text,
-    -- | The configuration setting for the log types to be enabled for export to
-    -- CloudWatch Logs for a specific DB cluster.
-    cloudwatchLogsExportConfiguration :: Prelude.Maybe CloudwatchLogsExportConfiguration,
-    -- | The weekly time range during which system maintenance can occur, in
-    -- Universal Coordinated Time (UTC).
+    -- Constraints:
     --
-    -- Format: @ddd:hh24:mi-ddd:hh24:mi@
+    -- -   Must contain from 1 to 63 letters, numbers, or hyphens
     --
-    -- The default is a 30-minute window selected at random from an 8-hour
-    -- block of time for each Amazon Region, occurring on a random day of the
-    -- week.
+    -- -   The first character must be a letter
     --
-    -- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
+    -- -   Cannot end with a hyphen or contain two consecutive hyphens
     --
-    -- Constraints: Minimum 30-minute window.
-    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
+    -- Example: @my-cluster2@
+    newDBClusterIdentifier' :: Prelude.Maybe Prelude.Text,
+    -- | The port number on which the DB cluster accepts connections.
+    --
+    -- Constraints: Value must be @1150-65535@
+    --
+    -- Default: The same port as the original DB cluster.
+    port :: Prelude.Maybe Prelude.Int,
+    -- | A list of VPC security groups that the DB cluster will belong to.
+    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The daily time range during which automated backups are created if
     -- automated backups are enabled, using the @BackupRetentionPeriod@
     -- parameter.
@@ -123,10 +112,9 @@ data ModifyDBCluster = ModifyDBCluster'
     --
     -- -   Must be a value from 1 to 35
     backupRetentionPeriod :: Prelude.Maybe Prelude.Int,
-    -- | A list of VPC security groups that the DB cluster will belong to.
-    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the DB cluster parameter group to use for the DB cluster.
-    dbClusterParameterGroupName :: Prelude.Maybe Prelude.Text,
+    -- | /If set to @true@, tags are copied to any snapshot of the DB cluster
+    -- that is created./
+    copyTagsToSnapshot :: Prelude.Maybe Prelude.Bool,
     -- | A value that specifies whether the modifications in this request and any
     -- pending modifications are asynchronously applied as soon as possible,
     -- regardless of the @PreferredMaintenanceWindow@ setting for the DB
@@ -143,33 +131,45 @@ data ModifyDBCluster = ModifyDBCluster'
     applyImmediately :: Prelude.Maybe Prelude.Bool,
     -- | /Not supported by Neptune./
     optionGroupName :: Prelude.Maybe Prelude.Text,
-    -- | /If set to @true@, tags are copied to any snapshot of the DB cluster
-    -- that is created./
-    copyTagsToSnapshot :: Prelude.Maybe Prelude.Bool,
-    -- | The new DB cluster identifier for the DB cluster when renaming a DB
-    -- cluster. This value is stored as a lowercase string.
-    --
-    -- Constraints:
-    --
-    -- -   Must contain from 1 to 63 letters, numbers, or hyphens
-    --
-    -- -   The first character must be a letter
-    --
-    -- -   Cannot end with a hyphen or contain two consecutive hyphens
-    --
-    -- Example: @my-cluster2@
-    newDBClusterIdentifier' :: Prelude.Maybe Prelude.Text,
-    -- | The port number on which the DB cluster accepts connections.
-    --
-    -- Constraints: Value must be @1150-65535@
-    --
-    -- Default: The same port as the original DB cluster.
-    port :: Prelude.Maybe Prelude.Int,
     -- | True to enable mapping of Amazon Identity and Access Management (IAM)
     -- accounts to database accounts, and otherwise false.
     --
     -- Default: @false@
     enableIAMDatabaseAuthentication :: Prelude.Maybe Prelude.Bool,
+    -- | Not supported by Neptune.
+    masterUserPassword :: Prelude.Maybe Prelude.Text,
+    -- | The configuration setting for the log types to be enabled for export to
+    -- CloudWatch Logs for a specific DB cluster.
+    cloudwatchLogsExportConfiguration :: Prelude.Maybe CloudwatchLogsExportConfiguration,
+    -- | A value that indicates whether the DB cluster has deletion protection
+    -- enabled. The database can\'t be deleted when deletion protection is
+    -- enabled. By default, deletion protection is disabled.
+    deletionProtection :: Prelude.Maybe Prelude.Bool,
+    -- | The weekly time range during which system maintenance can occur, in
+    -- Universal Coordinated Time (UTC).
+    --
+    -- Format: @ddd:hh24:mi-ddd:hh24:mi@
+    --
+    -- The default is a 30-minute window selected at random from an 8-hour
+    -- block of time for each Amazon Region, occurring on a random day of the
+    -- week.
+    --
+    -- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
+    --
+    -- Constraints: Minimum 30-minute window.
+    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
+    -- | The name of the DB cluster parameter group to use for the DB cluster.
+    dbClusterParameterGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The version number of the database engine to which you want to upgrade.
+    -- Changing this parameter results in an outage. The change is applied
+    -- during the next maintenance window unless the @ApplyImmediately@
+    -- parameter is set to true.
+    --
+    -- For a list of valid engine versions, see
+    -- <https://docs.aws.amazon.com/neptune/latest/userguide/engine-releases.html Engine Releases for Amazon Neptune>,
+    -- or call
+    -- <https://docs.aws.amazon.com/neptune/latest/userguide/api-other-apis.html#DescribeDBEngineVersions DescribeDBEngineVersions>.
+    engineVersion :: Prelude.Maybe Prelude.Text,
     -- | The DB cluster identifier for the cluster being modified. This parameter
     -- is not case-sensitive.
     --
@@ -188,37 +188,26 @@ data ModifyDBCluster = ModifyDBCluster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'engineVersion', 'modifyDBCluster_engineVersion' - The version number of the database engine to which you want to upgrade.
--- Changing this parameter results in an outage. The change is applied
--- during the next maintenance window unless the @ApplyImmediately@
--- parameter is set to true.
+-- 'newDBClusterIdentifier'', 'modifyDBCluster_newDBClusterIdentifier' - The new DB cluster identifier for the DB cluster when renaming a DB
+-- cluster. This value is stored as a lowercase string.
 --
--- For a list of valid engine versions, see
--- <https://docs.aws.amazon.com/neptune/latest/userguide/engine-releases.html Engine Releases for Amazon Neptune>,
--- or call
--- <https://docs.aws.amazon.com/neptune/latest/userguide/api-other-apis.html#DescribeDBEngineVersions DescribeDBEngineVersions>.
+-- Constraints:
 --
--- 'deletionProtection', 'modifyDBCluster_deletionProtection' - A value that indicates whether the DB cluster has deletion protection
--- enabled. The database can\'t be deleted when deletion protection is
--- enabled. By default, deletion protection is disabled.
+-- -   Must contain from 1 to 63 letters, numbers, or hyphens
 --
--- 'masterUserPassword', 'modifyDBCluster_masterUserPassword' - Not supported by Neptune.
+-- -   The first character must be a letter
 --
--- 'cloudwatchLogsExportConfiguration', 'modifyDBCluster_cloudwatchLogsExportConfiguration' - The configuration setting for the log types to be enabled for export to
--- CloudWatch Logs for a specific DB cluster.
+-- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
--- 'preferredMaintenanceWindow', 'modifyDBCluster_preferredMaintenanceWindow' - The weekly time range during which system maintenance can occur, in
--- Universal Coordinated Time (UTC).
+-- Example: @my-cluster2@
 --
--- Format: @ddd:hh24:mi-ddd:hh24:mi@
+-- 'port', 'modifyDBCluster_port' - The port number on which the DB cluster accepts connections.
 --
--- The default is a 30-minute window selected at random from an 8-hour
--- block of time for each Amazon Region, occurring on a random day of the
--- week.
+-- Constraints: Value must be @1150-65535@
 --
--- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
+-- Default: The same port as the original DB cluster.
 --
--- Constraints: Minimum 30-minute window.
+-- 'vpcSecurityGroupIds', 'modifyDBCluster_vpcSecurityGroupIds' - A list of VPC security groups that the DB cluster will belong to.
 --
 -- 'preferredBackupWindow', 'modifyDBCluster_preferredBackupWindow' - The daily time range during which automated backups are created if
 -- automated backups are enabled, using the @BackupRetentionPeriod@
@@ -246,9 +235,8 @@ data ModifyDBCluster = ModifyDBCluster'
 --
 -- -   Must be a value from 1 to 35
 --
--- 'vpcSecurityGroupIds', 'modifyDBCluster_vpcSecurityGroupIds' - A list of VPC security groups that the DB cluster will belong to.
---
--- 'dbClusterParameterGroupName', 'modifyDBCluster_dbClusterParameterGroupName' - The name of the DB cluster parameter group to use for the DB cluster.
+-- 'copyTagsToSnapshot', 'modifyDBCluster_copyTagsToSnapshot' - /If set to @true@, tags are copied to any snapshot of the DB cluster
+-- that is created./
 --
 -- 'applyImmediately', 'modifyDBCluster_applyImmediately' - A value that specifies whether the modifications in this request and any
 -- pending modifications are asynchronously applied as soon as possible,
@@ -266,32 +254,44 @@ data ModifyDBCluster = ModifyDBCluster'
 --
 -- 'optionGroupName', 'modifyDBCluster_optionGroupName' - /Not supported by Neptune./
 --
--- 'copyTagsToSnapshot', 'modifyDBCluster_copyTagsToSnapshot' - /If set to @true@, tags are copied to any snapshot of the DB cluster
--- that is created./
---
--- 'newDBClusterIdentifier'', 'modifyDBCluster_newDBClusterIdentifier' - The new DB cluster identifier for the DB cluster when renaming a DB
--- cluster. This value is stored as a lowercase string.
---
--- Constraints:
---
--- -   Must contain from 1 to 63 letters, numbers, or hyphens
---
--- -   The first character must be a letter
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens
---
--- Example: @my-cluster2@
---
--- 'port', 'modifyDBCluster_port' - The port number on which the DB cluster accepts connections.
---
--- Constraints: Value must be @1150-65535@
---
--- Default: The same port as the original DB cluster.
---
 -- 'enableIAMDatabaseAuthentication', 'modifyDBCluster_enableIAMDatabaseAuthentication' - True to enable mapping of Amazon Identity and Access Management (IAM)
 -- accounts to database accounts, and otherwise false.
 --
 -- Default: @false@
+--
+-- 'masterUserPassword', 'modifyDBCluster_masterUserPassword' - Not supported by Neptune.
+--
+-- 'cloudwatchLogsExportConfiguration', 'modifyDBCluster_cloudwatchLogsExportConfiguration' - The configuration setting for the log types to be enabled for export to
+-- CloudWatch Logs for a specific DB cluster.
+--
+-- 'deletionProtection', 'modifyDBCluster_deletionProtection' - A value that indicates whether the DB cluster has deletion protection
+-- enabled. The database can\'t be deleted when deletion protection is
+-- enabled. By default, deletion protection is disabled.
+--
+-- 'preferredMaintenanceWindow', 'modifyDBCluster_preferredMaintenanceWindow' - The weekly time range during which system maintenance can occur, in
+-- Universal Coordinated Time (UTC).
+--
+-- Format: @ddd:hh24:mi-ddd:hh24:mi@
+--
+-- The default is a 30-minute window selected at random from an 8-hour
+-- block of time for each Amazon Region, occurring on a random day of the
+-- week.
+--
+-- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
+--
+-- Constraints: Minimum 30-minute window.
+--
+-- 'dbClusterParameterGroupName', 'modifyDBCluster_dbClusterParameterGroupName' - The name of the DB cluster parameter group to use for the DB cluster.
+--
+-- 'engineVersion', 'modifyDBCluster_engineVersion' - The version number of the database engine to which you want to upgrade.
+-- Changing this parameter results in an outage. The change is applied
+-- during the next maintenance window unless the @ApplyImmediately@
+-- parameter is set to true.
+--
+-- For a list of valid engine versions, see
+-- <https://docs.aws.amazon.com/neptune/latest/userguide/engine-releases.html Engine Releases for Amazon Neptune>,
+-- or call
+-- <https://docs.aws.amazon.com/neptune/latest/userguide/api-other-apis.html#DescribeDBEngineVersions DescribeDBEngineVersions>.
 --
 -- 'dbClusterIdentifier', 'modifyDBCluster_dbClusterIdentifier' - The DB cluster identifier for the cluster being modified. This parameter
 -- is not case-sensitive.
@@ -305,65 +305,51 @@ newModifyDBCluster ::
   ModifyDBCluster
 newModifyDBCluster pDBClusterIdentifier_ =
   ModifyDBCluster'
-    { engineVersion = Prelude.Nothing,
-      deletionProtection = Prelude.Nothing,
-      masterUserPassword = Prelude.Nothing,
-      cloudwatchLogsExportConfiguration = Prelude.Nothing,
-      preferredMaintenanceWindow = Prelude.Nothing,
+    { newDBClusterIdentifier' =
+        Prelude.Nothing,
+      port = Prelude.Nothing,
+      vpcSecurityGroupIds = Prelude.Nothing,
       preferredBackupWindow = Prelude.Nothing,
       backupRetentionPeriod = Prelude.Nothing,
-      vpcSecurityGroupIds = Prelude.Nothing,
-      dbClusterParameterGroupName = Prelude.Nothing,
+      copyTagsToSnapshot = Prelude.Nothing,
       applyImmediately = Prelude.Nothing,
       optionGroupName = Prelude.Nothing,
-      copyTagsToSnapshot = Prelude.Nothing,
-      newDBClusterIdentifier' = Prelude.Nothing,
-      port = Prelude.Nothing,
       enableIAMDatabaseAuthentication = Prelude.Nothing,
+      masterUserPassword = Prelude.Nothing,
+      cloudwatchLogsExportConfiguration = Prelude.Nothing,
+      deletionProtection = Prelude.Nothing,
+      preferredMaintenanceWindow = Prelude.Nothing,
+      dbClusterParameterGroupName = Prelude.Nothing,
+      engineVersion = Prelude.Nothing,
       dbClusterIdentifier = pDBClusterIdentifier_
     }
 
--- | The version number of the database engine to which you want to upgrade.
--- Changing this parameter results in an outage. The change is applied
--- during the next maintenance window unless the @ApplyImmediately@
--- parameter is set to true.
+-- | The new DB cluster identifier for the DB cluster when renaming a DB
+-- cluster. This value is stored as a lowercase string.
 --
--- For a list of valid engine versions, see
--- <https://docs.aws.amazon.com/neptune/latest/userguide/engine-releases.html Engine Releases for Amazon Neptune>,
--- or call
--- <https://docs.aws.amazon.com/neptune/latest/userguide/api-other-apis.html#DescribeDBEngineVersions DescribeDBEngineVersions>.
-modifyDBCluster_engineVersion :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
-modifyDBCluster_engineVersion = Lens.lens (\ModifyDBCluster' {engineVersion} -> engineVersion) (\s@ModifyDBCluster' {} a -> s {engineVersion = a} :: ModifyDBCluster)
+-- Constraints:
+--
+-- -   Must contain from 1 to 63 letters, numbers, or hyphens
+--
+-- -   The first character must be a letter
+--
+-- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
+-- Example: @my-cluster2@
+modifyDBCluster_newDBClusterIdentifier :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
+modifyDBCluster_newDBClusterIdentifier = Lens.lens (\ModifyDBCluster' {newDBClusterIdentifier'} -> newDBClusterIdentifier') (\s@ModifyDBCluster' {} a -> s {newDBClusterIdentifier' = a} :: ModifyDBCluster)
 
--- | A value that indicates whether the DB cluster has deletion protection
--- enabled. The database can\'t be deleted when deletion protection is
--- enabled. By default, deletion protection is disabled.
-modifyDBCluster_deletionProtection :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Bool)
-modifyDBCluster_deletionProtection = Lens.lens (\ModifyDBCluster' {deletionProtection} -> deletionProtection) (\s@ModifyDBCluster' {} a -> s {deletionProtection = a} :: ModifyDBCluster)
+-- | The port number on which the DB cluster accepts connections.
+--
+-- Constraints: Value must be @1150-65535@
+--
+-- Default: The same port as the original DB cluster.
+modifyDBCluster_port :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Int)
+modifyDBCluster_port = Lens.lens (\ModifyDBCluster' {port} -> port) (\s@ModifyDBCluster' {} a -> s {port = a} :: ModifyDBCluster)
 
--- | Not supported by Neptune.
-modifyDBCluster_masterUserPassword :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
-modifyDBCluster_masterUserPassword = Lens.lens (\ModifyDBCluster' {masterUserPassword} -> masterUserPassword) (\s@ModifyDBCluster' {} a -> s {masterUserPassword = a} :: ModifyDBCluster)
-
--- | The configuration setting for the log types to be enabled for export to
--- CloudWatch Logs for a specific DB cluster.
-modifyDBCluster_cloudwatchLogsExportConfiguration :: Lens.Lens' ModifyDBCluster (Prelude.Maybe CloudwatchLogsExportConfiguration)
-modifyDBCluster_cloudwatchLogsExportConfiguration = Lens.lens (\ModifyDBCluster' {cloudwatchLogsExportConfiguration} -> cloudwatchLogsExportConfiguration) (\s@ModifyDBCluster' {} a -> s {cloudwatchLogsExportConfiguration = a} :: ModifyDBCluster)
-
--- | The weekly time range during which system maintenance can occur, in
--- Universal Coordinated Time (UTC).
---
--- Format: @ddd:hh24:mi-ddd:hh24:mi@
---
--- The default is a 30-minute window selected at random from an 8-hour
--- block of time for each Amazon Region, occurring on a random day of the
--- week.
---
--- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
---
--- Constraints: Minimum 30-minute window.
-modifyDBCluster_preferredMaintenanceWindow :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
-modifyDBCluster_preferredMaintenanceWindow = Lens.lens (\ModifyDBCluster' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@ModifyDBCluster' {} a -> s {preferredMaintenanceWindow = a} :: ModifyDBCluster)
+-- | A list of VPC security groups that the DB cluster will belong to.
+modifyDBCluster_vpcSecurityGroupIds :: Lens.Lens' ModifyDBCluster (Prelude.Maybe [Prelude.Text])
+modifyDBCluster_vpcSecurityGroupIds = Lens.lens (\ModifyDBCluster' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@ModifyDBCluster' {} a -> s {vpcSecurityGroupIds = a} :: ModifyDBCluster) Prelude.. Lens.mapping Lens.coerced
 
 -- | The daily time range during which automated backups are created if
 -- automated backups are enabled, using the @BackupRetentionPeriod@
@@ -395,13 +381,10 @@ modifyDBCluster_preferredBackupWindow = Lens.lens (\ModifyDBCluster' {preferredB
 modifyDBCluster_backupRetentionPeriod :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Int)
 modifyDBCluster_backupRetentionPeriod = Lens.lens (\ModifyDBCluster' {backupRetentionPeriod} -> backupRetentionPeriod) (\s@ModifyDBCluster' {} a -> s {backupRetentionPeriod = a} :: ModifyDBCluster)
 
--- | A list of VPC security groups that the DB cluster will belong to.
-modifyDBCluster_vpcSecurityGroupIds :: Lens.Lens' ModifyDBCluster (Prelude.Maybe [Prelude.Text])
-modifyDBCluster_vpcSecurityGroupIds = Lens.lens (\ModifyDBCluster' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@ModifyDBCluster' {} a -> s {vpcSecurityGroupIds = a} :: ModifyDBCluster) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the DB cluster parameter group to use for the DB cluster.
-modifyDBCluster_dbClusterParameterGroupName :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
-modifyDBCluster_dbClusterParameterGroupName = Lens.lens (\ModifyDBCluster' {dbClusterParameterGroupName} -> dbClusterParameterGroupName) (\s@ModifyDBCluster' {} a -> s {dbClusterParameterGroupName = a} :: ModifyDBCluster)
+-- | /If set to @true@, tags are copied to any snapshot of the DB cluster
+-- that is created./
+modifyDBCluster_copyTagsToSnapshot :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Bool)
+modifyDBCluster_copyTagsToSnapshot = Lens.lens (\ModifyDBCluster' {copyTagsToSnapshot} -> copyTagsToSnapshot) (\s@ModifyDBCluster' {} a -> s {copyTagsToSnapshot = a} :: ModifyDBCluster)
 
 -- | A value that specifies whether the modifications in this request and any
 -- pending modifications are asynchronously applied as soon as possible,
@@ -423,40 +406,58 @@ modifyDBCluster_applyImmediately = Lens.lens (\ModifyDBCluster' {applyImmediatel
 modifyDBCluster_optionGroupName :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
 modifyDBCluster_optionGroupName = Lens.lens (\ModifyDBCluster' {optionGroupName} -> optionGroupName) (\s@ModifyDBCluster' {} a -> s {optionGroupName = a} :: ModifyDBCluster)
 
--- | /If set to @true@, tags are copied to any snapshot of the DB cluster
--- that is created./
-modifyDBCluster_copyTagsToSnapshot :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Bool)
-modifyDBCluster_copyTagsToSnapshot = Lens.lens (\ModifyDBCluster' {copyTagsToSnapshot} -> copyTagsToSnapshot) (\s@ModifyDBCluster' {} a -> s {copyTagsToSnapshot = a} :: ModifyDBCluster)
-
--- | The new DB cluster identifier for the DB cluster when renaming a DB
--- cluster. This value is stored as a lowercase string.
---
--- Constraints:
---
--- -   Must contain from 1 to 63 letters, numbers, or hyphens
---
--- -   The first character must be a letter
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens
---
--- Example: @my-cluster2@
-modifyDBCluster_newDBClusterIdentifier :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
-modifyDBCluster_newDBClusterIdentifier = Lens.lens (\ModifyDBCluster' {newDBClusterIdentifier'} -> newDBClusterIdentifier') (\s@ModifyDBCluster' {} a -> s {newDBClusterIdentifier' = a} :: ModifyDBCluster)
-
--- | The port number on which the DB cluster accepts connections.
---
--- Constraints: Value must be @1150-65535@
---
--- Default: The same port as the original DB cluster.
-modifyDBCluster_port :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Int)
-modifyDBCluster_port = Lens.lens (\ModifyDBCluster' {port} -> port) (\s@ModifyDBCluster' {} a -> s {port = a} :: ModifyDBCluster)
-
 -- | True to enable mapping of Amazon Identity and Access Management (IAM)
 -- accounts to database accounts, and otherwise false.
 --
 -- Default: @false@
 modifyDBCluster_enableIAMDatabaseAuthentication :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Bool)
 modifyDBCluster_enableIAMDatabaseAuthentication = Lens.lens (\ModifyDBCluster' {enableIAMDatabaseAuthentication} -> enableIAMDatabaseAuthentication) (\s@ModifyDBCluster' {} a -> s {enableIAMDatabaseAuthentication = a} :: ModifyDBCluster)
+
+-- | Not supported by Neptune.
+modifyDBCluster_masterUserPassword :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
+modifyDBCluster_masterUserPassword = Lens.lens (\ModifyDBCluster' {masterUserPassword} -> masterUserPassword) (\s@ModifyDBCluster' {} a -> s {masterUserPassword = a} :: ModifyDBCluster)
+
+-- | The configuration setting for the log types to be enabled for export to
+-- CloudWatch Logs for a specific DB cluster.
+modifyDBCluster_cloudwatchLogsExportConfiguration :: Lens.Lens' ModifyDBCluster (Prelude.Maybe CloudwatchLogsExportConfiguration)
+modifyDBCluster_cloudwatchLogsExportConfiguration = Lens.lens (\ModifyDBCluster' {cloudwatchLogsExportConfiguration} -> cloudwatchLogsExportConfiguration) (\s@ModifyDBCluster' {} a -> s {cloudwatchLogsExportConfiguration = a} :: ModifyDBCluster)
+
+-- | A value that indicates whether the DB cluster has deletion protection
+-- enabled. The database can\'t be deleted when deletion protection is
+-- enabled. By default, deletion protection is disabled.
+modifyDBCluster_deletionProtection :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Bool)
+modifyDBCluster_deletionProtection = Lens.lens (\ModifyDBCluster' {deletionProtection} -> deletionProtection) (\s@ModifyDBCluster' {} a -> s {deletionProtection = a} :: ModifyDBCluster)
+
+-- | The weekly time range during which system maintenance can occur, in
+-- Universal Coordinated Time (UTC).
+--
+-- Format: @ddd:hh24:mi-ddd:hh24:mi@
+--
+-- The default is a 30-minute window selected at random from an 8-hour
+-- block of time for each Amazon Region, occurring on a random day of the
+-- week.
+--
+-- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
+--
+-- Constraints: Minimum 30-minute window.
+modifyDBCluster_preferredMaintenanceWindow :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
+modifyDBCluster_preferredMaintenanceWindow = Lens.lens (\ModifyDBCluster' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@ModifyDBCluster' {} a -> s {preferredMaintenanceWindow = a} :: ModifyDBCluster)
+
+-- | The name of the DB cluster parameter group to use for the DB cluster.
+modifyDBCluster_dbClusterParameterGroupName :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
+modifyDBCluster_dbClusterParameterGroupName = Lens.lens (\ModifyDBCluster' {dbClusterParameterGroupName} -> dbClusterParameterGroupName) (\s@ModifyDBCluster' {} a -> s {dbClusterParameterGroupName = a} :: ModifyDBCluster)
+
+-- | The version number of the database engine to which you want to upgrade.
+-- Changing this parameter results in an outage. The change is applied
+-- during the next maintenance window unless the @ApplyImmediately@
+-- parameter is set to true.
+--
+-- For a list of valid engine versions, see
+-- <https://docs.aws.amazon.com/neptune/latest/userguide/engine-releases.html Engine Releases for Amazon Neptune>,
+-- or call
+-- <https://docs.aws.amazon.com/neptune/latest/userguide/api-other-apis.html#DescribeDBEngineVersions DescribeDBEngineVersions>.
+modifyDBCluster_engineVersion :: Lens.Lens' ModifyDBCluster (Prelude.Maybe Prelude.Text)
+modifyDBCluster_engineVersion = Lens.lens (\ModifyDBCluster' {engineVersion} -> engineVersion) (\s@ModifyDBCluster' {} a -> s {engineVersion = a} :: ModifyDBCluster)
 
 -- | The DB cluster identifier for the cluster being modified. This parameter
 -- is not case-sensitive.
@@ -483,41 +484,41 @@ instance Core.AWSRequest ModifyDBCluster where
 
 instance Prelude.Hashable ModifyDBCluster where
   hashWithSalt _salt ModifyDBCluster' {..} =
-    _salt `Prelude.hashWithSalt` engineVersion
-      `Prelude.hashWithSalt` deletionProtection
-      `Prelude.hashWithSalt` masterUserPassword
-      `Prelude.hashWithSalt` cloudwatchLogsExportConfiguration
-      `Prelude.hashWithSalt` preferredMaintenanceWindow
-      `Prelude.hashWithSalt` preferredBackupWindow
-      `Prelude.hashWithSalt` backupRetentionPeriod
-      `Prelude.hashWithSalt` vpcSecurityGroupIds
-      `Prelude.hashWithSalt` dbClusterParameterGroupName
-      `Prelude.hashWithSalt` applyImmediately
-      `Prelude.hashWithSalt` optionGroupName
-      `Prelude.hashWithSalt` copyTagsToSnapshot
+    _salt
       `Prelude.hashWithSalt` newDBClusterIdentifier'
       `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
+      `Prelude.hashWithSalt` preferredBackupWindow
+      `Prelude.hashWithSalt` backupRetentionPeriod
+      `Prelude.hashWithSalt` copyTagsToSnapshot
+      `Prelude.hashWithSalt` applyImmediately
+      `Prelude.hashWithSalt` optionGroupName
       `Prelude.hashWithSalt` enableIAMDatabaseAuthentication
+      `Prelude.hashWithSalt` masterUserPassword
+      `Prelude.hashWithSalt` cloudwatchLogsExportConfiguration
+      `Prelude.hashWithSalt` deletionProtection
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` dbClusterParameterGroupName
+      `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` dbClusterIdentifier
 
 instance Prelude.NFData ModifyDBCluster where
   rnf ModifyDBCluster' {..} =
-    Prelude.rnf engineVersion
-      `Prelude.seq` Prelude.rnf deletionProtection
-      `Prelude.seq` Prelude.rnf masterUserPassword
-      `Prelude.seq` Prelude.rnf cloudwatchLogsExportConfiguration
-      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+    Prelude.rnf newDBClusterIdentifier'
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
       `Prelude.seq` Prelude.rnf preferredBackupWindow
       `Prelude.seq` Prelude.rnf backupRetentionPeriod
-      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
-      `Prelude.seq` Prelude.rnf dbClusterParameterGroupName
+      `Prelude.seq` Prelude.rnf copyTagsToSnapshot
       `Prelude.seq` Prelude.rnf applyImmediately
       `Prelude.seq` Prelude.rnf optionGroupName
-      `Prelude.seq` Prelude.rnf copyTagsToSnapshot
-      `Prelude.seq` Prelude.rnf newDBClusterIdentifier'
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf
-        enableIAMDatabaseAuthentication
+      `Prelude.seq` Prelude.rnf enableIAMDatabaseAuthentication
+      `Prelude.seq` Prelude.rnf masterUserPassword
+      `Prelude.seq` Prelude.rnf cloudwatchLogsExportConfiguration
+      `Prelude.seq` Prelude.rnf deletionProtection
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf dbClusterParameterGroupName
+      `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf dbClusterIdentifier
 
 instance Core.ToHeaders ModifyDBCluster where
@@ -533,32 +534,32 @@ instance Core.ToQuery ModifyDBCluster where
           Core.=: ("ModifyDBCluster" :: Prelude.ByteString),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "EngineVersion" Core.=: engineVersion,
-        "DeletionProtection" Core.=: deletionProtection,
-        "MasterUserPassword" Core.=: masterUserPassword,
-        "CloudwatchLogsExportConfiguration"
-          Core.=: cloudwatchLogsExportConfiguration,
-        "PreferredMaintenanceWindow"
-          Core.=: preferredMaintenanceWindow,
-        "PreferredBackupWindow"
-          Core.=: preferredBackupWindow,
-        "BackupRetentionPeriod"
-          Core.=: backupRetentionPeriod,
+        "NewDBClusterIdentifier"
+          Core.=: newDBClusterIdentifier',
+        "Port" Core.=: port,
         "VpcSecurityGroupIds"
           Core.=: Core.toQuery
             ( Core.toQueryList "VpcSecurityGroupId"
                 Prelude.<$> vpcSecurityGroupIds
             ),
-        "DBClusterParameterGroupName"
-          Core.=: dbClusterParameterGroupName,
+        "PreferredBackupWindow"
+          Core.=: preferredBackupWindow,
+        "BackupRetentionPeriod"
+          Core.=: backupRetentionPeriod,
+        "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
         "ApplyImmediately" Core.=: applyImmediately,
         "OptionGroupName" Core.=: optionGroupName,
-        "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
-        "NewDBClusterIdentifier"
-          Core.=: newDBClusterIdentifier',
-        "Port" Core.=: port,
         "EnableIAMDatabaseAuthentication"
           Core.=: enableIAMDatabaseAuthentication,
+        "MasterUserPassword" Core.=: masterUserPassword,
+        "CloudwatchLogsExportConfiguration"
+          Core.=: cloudwatchLogsExportConfiguration,
+        "DeletionProtection" Core.=: deletionProtection,
+        "PreferredMaintenanceWindow"
+          Core.=: preferredMaintenanceWindow,
+        "DBClusterParameterGroupName"
+          Core.=: dbClusterParameterGroupName,
+        "EngineVersion" Core.=: engineVersion,
         "DBClusterIdentifier" Core.=: dbClusterIdentifier
       ]
 

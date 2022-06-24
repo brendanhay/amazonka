@@ -28,9 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newOptionGroupMembership' smart constructor.
 data OptionGroupMembership = OptionGroupMembership'
   { -- | Not supported by Neptune.
-    status :: Prelude.Maybe Prelude.Text,
+    optionGroupName :: Prelude.Maybe Prelude.Text,
     -- | Not supported by Neptune.
-    optionGroupName :: Prelude.Maybe Prelude.Text
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,37 +42,38 @@ data OptionGroupMembership = OptionGroupMembership'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'optionGroupMembership_status' - Not supported by Neptune.
---
 -- 'optionGroupName', 'optionGroupMembership_optionGroupName' - Not supported by Neptune.
+--
+-- 'status', 'optionGroupMembership_status' - Not supported by Neptune.
 newOptionGroupMembership ::
   OptionGroupMembership
 newOptionGroupMembership =
   OptionGroupMembership'
-    { status = Prelude.Nothing,
-      optionGroupName = Prelude.Nothing
+    { optionGroupName =
+        Prelude.Nothing,
+      status = Prelude.Nothing
     }
-
--- | Not supported by Neptune.
-optionGroupMembership_status :: Lens.Lens' OptionGroupMembership (Prelude.Maybe Prelude.Text)
-optionGroupMembership_status = Lens.lens (\OptionGroupMembership' {status} -> status) (\s@OptionGroupMembership' {} a -> s {status = a} :: OptionGroupMembership)
 
 -- | Not supported by Neptune.
 optionGroupMembership_optionGroupName :: Lens.Lens' OptionGroupMembership (Prelude.Maybe Prelude.Text)
 optionGroupMembership_optionGroupName = Lens.lens (\OptionGroupMembership' {optionGroupName} -> optionGroupName) (\s@OptionGroupMembership' {} a -> s {optionGroupName = a} :: OptionGroupMembership)
 
+-- | Not supported by Neptune.
+optionGroupMembership_status :: Lens.Lens' OptionGroupMembership (Prelude.Maybe Prelude.Text)
+optionGroupMembership_status = Lens.lens (\OptionGroupMembership' {status} -> status) (\s@OptionGroupMembership' {} a -> s {status = a} :: OptionGroupMembership)
+
 instance Core.FromXML OptionGroupMembership where
   parseXML x =
     OptionGroupMembership'
-      Prelude.<$> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "OptionGroupName")
+      Prelude.<$> (x Core..@? "OptionGroupName")
+      Prelude.<*> (x Core..@? "Status")
 
 instance Prelude.Hashable OptionGroupMembership where
   hashWithSalt _salt OptionGroupMembership' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` optionGroupName
+    _salt `Prelude.hashWithSalt` optionGroupName
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData OptionGroupMembership where
   rnf OptionGroupMembership' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf optionGroupName
+    Prelude.rnf optionGroupName
+      `Prelude.seq` Prelude.rnf status

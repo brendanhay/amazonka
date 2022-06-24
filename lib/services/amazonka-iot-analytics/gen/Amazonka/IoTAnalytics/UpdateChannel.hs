@@ -27,8 +27,8 @@ module Amazonka.IoTAnalytics.UpdateChannel
     newUpdateChannel,
 
     -- * Request Lenses
-    updateChannel_retentionPeriod,
     updateChannel_channelStorage,
+    updateChannel_retentionPeriod,
     updateChannel_channelName,
 
     -- * Destructuring the Response
@@ -46,15 +46,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateChannel' smart constructor.
 data UpdateChannel = UpdateChannel'
-  { -- | How long, in days, message data is kept for the channel. The retention
-    -- period can\'t be updated if the channel\'s Amazon S3 storage is
-    -- customer-managed.
-    retentionPeriod :: Prelude.Maybe RetentionPeriod,
-    -- | Where channel data is stored. You can choose one of @serviceManagedS3@
+  { -- | Where channel data is stored. You can choose one of @serviceManagedS3@
     -- or @customerManagedS3@ storage. If not specified, the default is
     -- @serviceManagedS3@. You can\'t change this storage option after the
     -- channel is created.
     channelStorage :: Prelude.Maybe ChannelStorage,
+    -- | How long, in days, message data is kept for the channel. The retention
+    -- period can\'t be updated if the channel\'s Amazon S3 storage is
+    -- customer-managed.
+    retentionPeriod :: Prelude.Maybe RetentionPeriod,
     -- | The name of the channel to be updated.
     channelName :: Prelude.Text
   }
@@ -68,14 +68,14 @@ data UpdateChannel = UpdateChannel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'retentionPeriod', 'updateChannel_retentionPeriod' - How long, in days, message data is kept for the channel. The retention
--- period can\'t be updated if the channel\'s Amazon S3 storage is
--- customer-managed.
---
 -- 'channelStorage', 'updateChannel_channelStorage' - Where channel data is stored. You can choose one of @serviceManagedS3@
 -- or @customerManagedS3@ storage. If not specified, the default is
 -- @serviceManagedS3@. You can\'t change this storage option after the
 -- channel is created.
+--
+-- 'retentionPeriod', 'updateChannel_retentionPeriod' - How long, in days, message data is kept for the channel. The retention
+-- period can\'t be updated if the channel\'s Amazon S3 storage is
+-- customer-managed.
 --
 -- 'channelName', 'updateChannel_channelName' - The name of the channel to be updated.
 newUpdateChannel ::
@@ -84,16 +84,10 @@ newUpdateChannel ::
   UpdateChannel
 newUpdateChannel pChannelName_ =
   UpdateChannel'
-    { retentionPeriod = Prelude.Nothing,
-      channelStorage = Prelude.Nothing,
+    { channelStorage = Prelude.Nothing,
+      retentionPeriod = Prelude.Nothing,
       channelName = pChannelName_
     }
-
--- | How long, in days, message data is kept for the channel. The retention
--- period can\'t be updated if the channel\'s Amazon S3 storage is
--- customer-managed.
-updateChannel_retentionPeriod :: Lens.Lens' UpdateChannel (Prelude.Maybe RetentionPeriod)
-updateChannel_retentionPeriod = Lens.lens (\UpdateChannel' {retentionPeriod} -> retentionPeriod) (\s@UpdateChannel' {} a -> s {retentionPeriod = a} :: UpdateChannel)
 
 -- | Where channel data is stored. You can choose one of @serviceManagedS3@
 -- or @customerManagedS3@ storage. If not specified, the default is
@@ -101,6 +95,12 @@ updateChannel_retentionPeriod = Lens.lens (\UpdateChannel' {retentionPeriod} -> 
 -- channel is created.
 updateChannel_channelStorage :: Lens.Lens' UpdateChannel (Prelude.Maybe ChannelStorage)
 updateChannel_channelStorage = Lens.lens (\UpdateChannel' {channelStorage} -> channelStorage) (\s@UpdateChannel' {} a -> s {channelStorage = a} :: UpdateChannel)
+
+-- | How long, in days, message data is kept for the channel. The retention
+-- period can\'t be updated if the channel\'s Amazon S3 storage is
+-- customer-managed.
+updateChannel_retentionPeriod :: Lens.Lens' UpdateChannel (Prelude.Maybe RetentionPeriod)
+updateChannel_retentionPeriod = Lens.lens (\UpdateChannel' {retentionPeriod} -> retentionPeriod) (\s@UpdateChannel' {} a -> s {retentionPeriod = a} :: UpdateChannel)
 
 -- | The name of the channel to be updated.
 updateChannel_channelName :: Lens.Lens' UpdateChannel Prelude.Text
@@ -116,14 +116,14 @@ instance Core.AWSRequest UpdateChannel where
 
 instance Prelude.Hashable UpdateChannel where
   hashWithSalt _salt UpdateChannel' {..} =
-    _salt `Prelude.hashWithSalt` retentionPeriod
-      `Prelude.hashWithSalt` channelStorage
+    _salt `Prelude.hashWithSalt` channelStorage
+      `Prelude.hashWithSalt` retentionPeriod
       `Prelude.hashWithSalt` channelName
 
 instance Prelude.NFData UpdateChannel where
   rnf UpdateChannel' {..} =
-    Prelude.rnf retentionPeriod
-      `Prelude.seq` Prelude.rnf channelStorage
+    Prelude.rnf channelStorage
+      `Prelude.seq` Prelude.rnf retentionPeriod
       `Prelude.seq` Prelude.rnf channelName
 
 instance Core.ToHeaders UpdateChannel where
@@ -133,10 +133,10 @@ instance Core.ToJSON UpdateChannel where
   toJSON UpdateChannel' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("retentionPeriod" Core..=)
-              Prelude.<$> retentionPeriod,
-            ("channelStorage" Core..=)
-              Prelude.<$> channelStorage
+          [ ("channelStorage" Core..=)
+              Prelude.<$> channelStorage,
+            ("retentionPeriod" Core..=)
+              Prelude.<$> retentionPeriod
           ]
       )
 

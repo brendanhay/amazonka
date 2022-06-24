@@ -37,8 +37,8 @@ module Amazonka.IoTAnalytics.ListPipelines
     newListPipelinesResponse,
 
     -- * Response Lenses
-    listPipelinesResponse_pipelineSummaries,
     listPipelinesResponse_nextToken,
+    listPipelinesResponse_pipelineSummaries,
     listPipelinesResponse_httpStatus,
   )
 where
@@ -121,10 +121,10 @@ instance Core.AWSRequest ListPipelines where
     Response.receiveJSON
       ( \s h x ->
           ListPipelinesResponse'
-            Prelude.<$> ( x Core..?> "pipelineSummaries"
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "pipelineSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,11 +153,11 @@ instance Core.ToQuery ListPipelines where
 
 -- | /See:/ 'newListPipelinesResponse' smart constructor.
 data ListPipelinesResponse = ListPipelinesResponse'
-  { -- | A list of @PipelineSummary@ objects.
-    pipelineSummaries :: Prelude.Maybe [PipelineSummary],
-    -- | The token to retrieve the next set of results, or @null@ if there are no
+  { -- | The token to retrieve the next set of results, or @null@ if there are no
     -- more results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of @PipelineSummary@ objects.
+    pipelineSummaries :: Prelude.Maybe [PipelineSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -171,10 +171,10 @@ data ListPipelinesResponse = ListPipelinesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pipelineSummaries', 'listPipelinesResponse_pipelineSummaries' - A list of @PipelineSummary@ objects.
---
 -- 'nextToken', 'listPipelinesResponse_nextToken' - The token to retrieve the next set of results, or @null@ if there are no
 -- more results.
+--
+-- 'pipelineSummaries', 'listPipelinesResponse_pipelineSummaries' - A list of @PipelineSummary@ objects.
 --
 -- 'httpStatus', 'listPipelinesResponse_httpStatus' - The response's http status code.
 newListPipelinesResponse ::
@@ -183,20 +183,19 @@ newListPipelinesResponse ::
   ListPipelinesResponse
 newListPipelinesResponse pHttpStatus_ =
   ListPipelinesResponse'
-    { pipelineSummaries =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      pipelineSummaries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of @PipelineSummary@ objects.
-listPipelinesResponse_pipelineSummaries :: Lens.Lens' ListPipelinesResponse (Prelude.Maybe [PipelineSummary])
-listPipelinesResponse_pipelineSummaries = Lens.lens (\ListPipelinesResponse' {pipelineSummaries} -> pipelineSummaries) (\s@ListPipelinesResponse' {} a -> s {pipelineSummaries = a} :: ListPipelinesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to retrieve the next set of results, or @null@ if there are no
 -- more results.
 listPipelinesResponse_nextToken :: Lens.Lens' ListPipelinesResponse (Prelude.Maybe Prelude.Text)
 listPipelinesResponse_nextToken = Lens.lens (\ListPipelinesResponse' {nextToken} -> nextToken) (\s@ListPipelinesResponse' {} a -> s {nextToken = a} :: ListPipelinesResponse)
+
+-- | A list of @PipelineSummary@ objects.
+listPipelinesResponse_pipelineSummaries :: Lens.Lens' ListPipelinesResponse (Prelude.Maybe [PipelineSummary])
+listPipelinesResponse_pipelineSummaries = Lens.lens (\ListPipelinesResponse' {pipelineSummaries} -> pipelineSummaries) (\s@ListPipelinesResponse' {} a -> s {pipelineSummaries = a} :: ListPipelinesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listPipelinesResponse_httpStatus :: Lens.Lens' ListPipelinesResponse Prelude.Int
@@ -204,6 +203,6 @@ listPipelinesResponse_httpStatus = Lens.lens (\ListPipelinesResponse' {httpStatu
 
 instance Prelude.NFData ListPipelinesResponse where
   rnf ListPipelinesResponse' {..} =
-    Prelude.rnf pipelineSummaries
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf pipelineSummaries
       `Prelude.seq` Prelude.rnf httpStatus

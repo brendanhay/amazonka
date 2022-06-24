@@ -31,13 +31,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVariable' smart constructor.
 data Variable = Variable'
-  { -- | The value of the variable as a structure that specifies an output file
-    -- URI.
-    outputFileUriValue :: Prelude.Maybe OutputFileUriValue,
-    -- | The value of the variable as a double (numeric).
+  { -- | The value of the variable as a double (numeric).
     doubleValue :: Prelude.Maybe Prelude.Double,
     -- | The value of the variable as a string.
     stringValue :: Prelude.Maybe Prelude.Text,
+    -- | The value of the variable as a structure that specifies an output file
+    -- URI.
+    outputFileUriValue :: Prelude.Maybe OutputFileUriValue,
     -- | The value of the variable as a structure that specifies a dataset
     -- content version.
     datasetContentVersionValue :: Prelude.Maybe DatasetContentVersionValue,
@@ -54,12 +54,12 @@ data Variable = Variable'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outputFileUriValue', 'variable_outputFileUriValue' - The value of the variable as a structure that specifies an output file
--- URI.
---
 -- 'doubleValue', 'variable_doubleValue' - The value of the variable as a double (numeric).
 --
 -- 'stringValue', 'variable_stringValue' - The value of the variable as a string.
+--
+-- 'outputFileUriValue', 'variable_outputFileUriValue' - The value of the variable as a structure that specifies an output file
+-- URI.
 --
 -- 'datasetContentVersionValue', 'variable_datasetContentVersionValue' - The value of the variable as a structure that specifies a dataset
 -- content version.
@@ -71,17 +71,12 @@ newVariable ::
   Variable
 newVariable pName_ =
   Variable'
-    { outputFileUriValue = Prelude.Nothing,
-      doubleValue = Prelude.Nothing,
+    { doubleValue = Prelude.Nothing,
       stringValue = Prelude.Nothing,
+      outputFileUriValue = Prelude.Nothing,
       datasetContentVersionValue = Prelude.Nothing,
       name = pName_
     }
-
--- | The value of the variable as a structure that specifies an output file
--- URI.
-variable_outputFileUriValue :: Lens.Lens' Variable (Prelude.Maybe OutputFileUriValue)
-variable_outputFileUriValue = Lens.lens (\Variable' {outputFileUriValue} -> outputFileUriValue) (\s@Variable' {} a -> s {outputFileUriValue = a} :: Variable)
 
 -- | The value of the variable as a double (numeric).
 variable_doubleValue :: Lens.Lens' Variable (Prelude.Maybe Prelude.Double)
@@ -90,6 +85,11 @@ variable_doubleValue = Lens.lens (\Variable' {doubleValue} -> doubleValue) (\s@V
 -- | The value of the variable as a string.
 variable_stringValue :: Lens.Lens' Variable (Prelude.Maybe Prelude.Text)
 variable_stringValue = Lens.lens (\Variable' {stringValue} -> stringValue) (\s@Variable' {} a -> s {stringValue = a} :: Variable)
+
+-- | The value of the variable as a structure that specifies an output file
+-- URI.
+variable_outputFileUriValue :: Lens.Lens' Variable (Prelude.Maybe OutputFileUriValue)
+variable_outputFileUriValue = Lens.lens (\Variable' {outputFileUriValue} -> outputFileUriValue) (\s@Variable' {} a -> s {outputFileUriValue = a} :: Variable)
 
 -- | The value of the variable as a structure that specifies a dataset
 -- content version.
@@ -106,26 +106,26 @@ instance Core.FromJSON Variable where
       "Variable"
       ( \x ->
           Variable'
-            Prelude.<$> (x Core..:? "outputFileUriValue")
-            Prelude.<*> (x Core..:? "doubleValue")
+            Prelude.<$> (x Core..:? "doubleValue")
             Prelude.<*> (x Core..:? "stringValue")
+            Prelude.<*> (x Core..:? "outputFileUriValue")
             Prelude.<*> (x Core..:? "datasetContentVersionValue")
             Prelude.<*> (x Core..: "name")
       )
 
 instance Prelude.Hashable Variable where
   hashWithSalt _salt Variable' {..} =
-    _salt `Prelude.hashWithSalt` outputFileUriValue
-      `Prelude.hashWithSalt` doubleValue
+    _salt `Prelude.hashWithSalt` doubleValue
       `Prelude.hashWithSalt` stringValue
+      `Prelude.hashWithSalt` outputFileUriValue
       `Prelude.hashWithSalt` datasetContentVersionValue
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData Variable where
   rnf Variable' {..} =
-    Prelude.rnf outputFileUriValue
-      `Prelude.seq` Prelude.rnf doubleValue
+    Prelude.rnf doubleValue
       `Prelude.seq` Prelude.rnf stringValue
+      `Prelude.seq` Prelude.rnf outputFileUriValue
       `Prelude.seq` Prelude.rnf datasetContentVersionValue
       `Prelude.seq` Prelude.rnf name
 
@@ -133,10 +133,10 @@ instance Core.ToJSON Variable where
   toJSON Variable' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("outputFileUriValue" Core..=)
-              Prelude.<$> outputFileUriValue,
-            ("doubleValue" Core..=) Prelude.<$> doubleValue,
+          [ ("doubleValue" Core..=) Prelude.<$> doubleValue,
             ("stringValue" Core..=) Prelude.<$> stringValue,
+            ("outputFileUriValue" Core..=)
+              Prelude.<$> outputFileUriValue,
             ("datasetContentVersionValue" Core..=)
               Prelude.<$> datasetContentVersionValue,
             Prelude.Just ("name" Core..= name)

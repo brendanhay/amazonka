@@ -35,8 +35,8 @@ module Amazonka.IoTAnalytics.DescribeChannel
     newDescribeChannelResponse,
 
     -- * Response Lenses
-    describeChannelResponse_channel,
     describeChannelResponse_statistics,
+    describeChannelResponse_channel,
     describeChannelResponse_httpStatus,
   )
 where
@@ -102,8 +102,8 @@ instance Core.AWSRequest DescribeChannel where
     Response.receiveJSON
       ( \s h x ->
           DescribeChannelResponse'
-            Prelude.<$> (x Core..?> "channel")
-            Prelude.<*> (x Core..?> "statistics")
+            Prelude.<$> (x Core..?> "statistics")
+            Prelude.<*> (x Core..?> "channel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,11 +132,11 @@ instance Core.ToQuery DescribeChannel where
 
 -- | /See:/ 'newDescribeChannelResponse' smart constructor.
 data DescribeChannelResponse = DescribeChannelResponse'
-  { -- | An object that contains information about the channel.
-    channel :: Prelude.Maybe Channel,
-    -- | Statistics about the channel. Included if the @includeStatistics@
+  { -- | Statistics about the channel. Included if the @includeStatistics@
     -- parameter is set to @true@ in the request.
     statistics :: Prelude.Maybe ChannelStatistics,
+    -- | An object that contains information about the channel.
+    channel :: Prelude.Maybe Channel,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -150,10 +150,10 @@ data DescribeChannelResponse = DescribeChannelResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'channel', 'describeChannelResponse_channel' - An object that contains information about the channel.
---
 -- 'statistics', 'describeChannelResponse_statistics' - Statistics about the channel. Included if the @includeStatistics@
 -- parameter is set to @true@ in the request.
+--
+-- 'channel', 'describeChannelResponse_channel' - An object that contains information about the channel.
 --
 -- 'httpStatus', 'describeChannelResponse_httpStatus' - The response's http status code.
 newDescribeChannelResponse ::
@@ -162,19 +162,20 @@ newDescribeChannelResponse ::
   DescribeChannelResponse
 newDescribeChannelResponse pHttpStatus_ =
   DescribeChannelResponse'
-    { channel = Prelude.Nothing,
-      statistics = Prelude.Nothing,
+    { statistics =
+        Prelude.Nothing,
+      channel = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An object that contains information about the channel.
-describeChannelResponse_channel :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe Channel)
-describeChannelResponse_channel = Lens.lens (\DescribeChannelResponse' {channel} -> channel) (\s@DescribeChannelResponse' {} a -> s {channel = a} :: DescribeChannelResponse)
 
 -- | Statistics about the channel. Included if the @includeStatistics@
 -- parameter is set to @true@ in the request.
 describeChannelResponse_statistics :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe ChannelStatistics)
 describeChannelResponse_statistics = Lens.lens (\DescribeChannelResponse' {statistics} -> statistics) (\s@DescribeChannelResponse' {} a -> s {statistics = a} :: DescribeChannelResponse)
+
+-- | An object that contains information about the channel.
+describeChannelResponse_channel :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe Channel)
+describeChannelResponse_channel = Lens.lens (\DescribeChannelResponse' {channel} -> channel) (\s@DescribeChannelResponse' {} a -> s {channel = a} :: DescribeChannelResponse)
 
 -- | The response's http status code.
 describeChannelResponse_httpStatus :: Lens.Lens' DescribeChannelResponse Prelude.Int
@@ -182,6 +183,6 @@ describeChannelResponse_httpStatus = Lens.lens (\DescribeChannelResponse' {httpS
 
 instance Prelude.NFData DescribeChannelResponse where
   rnf DescribeChannelResponse' {..} =
-    Prelude.rnf channel
-      `Prelude.seq` Prelude.rnf statistics
+    Prelude.rnf statistics
+      `Prelude.seq` Prelude.rnf channel
       `Prelude.seq` Prelude.rnf httpStatus

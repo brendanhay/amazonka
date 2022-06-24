@@ -27,13 +27,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchPutMessageErrorEntry' smart constructor.
 data BatchPutMessageErrorEntry = BatchPutMessageErrorEntry'
-  { -- | The code associated with the error.
-    errorCode :: Prelude.Maybe Prelude.Text,
-    -- | The message associated with the error.
+  { -- | The message associated with the error.
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The ID of the message that caused the error. See the value corresponding
     -- to the @messageId@ key in the message object.
-    messageId :: Prelude.Maybe Prelude.Text
+    messageId :: Prelude.Maybe Prelude.Text,
+    -- | The code associated with the error.
+    errorCode :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,25 +45,21 @@ data BatchPutMessageErrorEntry = BatchPutMessageErrorEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorCode', 'batchPutMessageErrorEntry_errorCode' - The code associated with the error.
---
 -- 'errorMessage', 'batchPutMessageErrorEntry_errorMessage' - The message associated with the error.
 --
 -- 'messageId', 'batchPutMessageErrorEntry_messageId' - The ID of the message that caused the error. See the value corresponding
 -- to the @messageId@ key in the message object.
+--
+-- 'errorCode', 'batchPutMessageErrorEntry_errorCode' - The code associated with the error.
 newBatchPutMessageErrorEntry ::
   BatchPutMessageErrorEntry
 newBatchPutMessageErrorEntry =
   BatchPutMessageErrorEntry'
-    { errorCode =
+    { errorMessage =
         Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      messageId = Prelude.Nothing
+      messageId = Prelude.Nothing,
+      errorCode = Prelude.Nothing
     }
-
--- | The code associated with the error.
-batchPutMessageErrorEntry_errorCode :: Lens.Lens' BatchPutMessageErrorEntry (Prelude.Maybe Prelude.Text)
-batchPutMessageErrorEntry_errorCode = Lens.lens (\BatchPutMessageErrorEntry' {errorCode} -> errorCode) (\s@BatchPutMessageErrorEntry' {} a -> s {errorCode = a} :: BatchPutMessageErrorEntry)
 
 -- | The message associated with the error.
 batchPutMessageErrorEntry_errorMessage :: Lens.Lens' BatchPutMessageErrorEntry (Prelude.Maybe Prelude.Text)
@@ -74,25 +70,29 @@ batchPutMessageErrorEntry_errorMessage = Lens.lens (\BatchPutMessageErrorEntry' 
 batchPutMessageErrorEntry_messageId :: Lens.Lens' BatchPutMessageErrorEntry (Prelude.Maybe Prelude.Text)
 batchPutMessageErrorEntry_messageId = Lens.lens (\BatchPutMessageErrorEntry' {messageId} -> messageId) (\s@BatchPutMessageErrorEntry' {} a -> s {messageId = a} :: BatchPutMessageErrorEntry)
 
+-- | The code associated with the error.
+batchPutMessageErrorEntry_errorCode :: Lens.Lens' BatchPutMessageErrorEntry (Prelude.Maybe Prelude.Text)
+batchPutMessageErrorEntry_errorCode = Lens.lens (\BatchPutMessageErrorEntry' {errorCode} -> errorCode) (\s@BatchPutMessageErrorEntry' {} a -> s {errorCode = a} :: BatchPutMessageErrorEntry)
+
 instance Core.FromJSON BatchPutMessageErrorEntry where
   parseJSON =
     Core.withObject
       "BatchPutMessageErrorEntry"
       ( \x ->
           BatchPutMessageErrorEntry'
-            Prelude.<$> (x Core..:? "errorCode")
-            Prelude.<*> (x Core..:? "errorMessage")
+            Prelude.<$> (x Core..:? "errorMessage")
             Prelude.<*> (x Core..:? "messageId")
+            Prelude.<*> (x Core..:? "errorCode")
       )
 
 instance Prelude.Hashable BatchPutMessageErrorEntry where
   hashWithSalt _salt BatchPutMessageErrorEntry' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
-      `Prelude.hashWithSalt` errorMessage
+    _salt `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` messageId
+      `Prelude.hashWithSalt` errorCode
 
 instance Prelude.NFData BatchPutMessageErrorEntry where
   rnf BatchPutMessageErrorEntry' {..} =
-    Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf messageId
+      `Prelude.seq` Prelude.rnf errorCode

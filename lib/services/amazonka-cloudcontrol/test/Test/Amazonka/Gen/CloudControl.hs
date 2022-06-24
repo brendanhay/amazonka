@@ -27,73 +27,61 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGetResource $
---             newGetResource
---
---         , requestListResourceRequests $
---             newListResourceRequests
---
---         , requestCancelResourceRequest $
+--         [ requestCancelResourceRequest $
 --             newCancelResourceRequest
---
---         , requestDeleteResource $
---             newDeleteResource
---
---         , requestUpdateResource $
---             newUpdateResource
---
---         , requestListResources $
---             newListResources
 --
 --         , requestCreateResource $
 --             newCreateResource
 --
+--         , requestDeleteResource $
+--             newDeleteResource
+--
+--         , requestGetResource $
+--             newGetResource
+--
 --         , requestGetResourceRequestStatus $
 --             newGetResourceRequestStatus
+--
+--         , requestListResourceRequests $
+--             newListResourceRequests
+--
+--         , requestListResources $
+--             newListResources
+--
+--         , requestUpdateResource $
+--             newUpdateResource
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseGetResource $
---             newGetResourceResponse
---
---         , responseListResourceRequests $
---             newListResourceRequestsResponse
---
---         , responseCancelResourceRequest $
+--         [ responseCancelResourceRequest $
 --             newCancelResourceRequestResponse
---
---         , responseDeleteResource $
---             newDeleteResourceResponse
---
---         , responseUpdateResource $
---             newUpdateResourceResponse
---
---         , responseListResources $
---             newListResourcesResponse
 --
 --         , responseCreateResource $
 --             newCreateResourceResponse
 --
+--         , responseDeleteResource $
+--             newDeleteResourceResponse
+--
+--         , responseGetResource $
+--             newGetResourceResponse
+--
 --         , responseGetResourceRequestStatus $
 --             newGetResourceRequestStatusResponse
+--
+--         , responseListResourceRequests $
+--             newListResourceRequestsResponse
+--
+--         , responseListResources $
+--             newListResourcesResponse
+--
+--         , responseUpdateResource $
+--             newUpdateResourceResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestGetResource :: GetResource -> TestTree
-requestGetResource =
-  req
-    "GetResource"
-    "fixture/GetResource.yaml"
-
-requestListResourceRequests :: ListResourceRequests -> TestTree
-requestListResourceRequests =
-  req
-    "ListResourceRequests"
-    "fixture/ListResourceRequests.yaml"
 
 requestCancelResourceRequest :: CancelResourceRequest -> TestTree
 requestCancelResourceRequest =
@@ -101,29 +89,23 @@ requestCancelResourceRequest =
     "CancelResourceRequest"
     "fixture/CancelResourceRequest.yaml"
 
+requestCreateResource :: CreateResource -> TestTree
+requestCreateResource =
+  req
+    "CreateResource"
+    "fixture/CreateResource.yaml"
+
 requestDeleteResource :: DeleteResource -> TestTree
 requestDeleteResource =
   req
     "DeleteResource"
     "fixture/DeleteResource.yaml"
 
-requestUpdateResource :: UpdateResource -> TestTree
-requestUpdateResource =
+requestGetResource :: GetResource -> TestTree
+requestGetResource =
   req
-    "UpdateResource"
-    "fixture/UpdateResource.yaml"
-
-requestListResources :: ListResources -> TestTree
-requestListResources =
-  req
-    "ListResources"
-    "fixture/ListResources.yaml"
-
-requestCreateResource :: CreateResource -> TestTree
-requestCreateResource =
-  req
-    "CreateResource"
-    "fixture/CreateResource.yaml"
+    "GetResource"
+    "fixture/GetResource.yaml"
 
 requestGetResourceRequestStatus :: GetResourceRequestStatus -> TestTree
 requestGetResourceRequestStatus =
@@ -131,23 +113,25 @@ requestGetResourceRequestStatus =
     "GetResourceRequestStatus"
     "fixture/GetResourceRequestStatus.yaml"
 
+requestListResourceRequests :: ListResourceRequests -> TestTree
+requestListResourceRequests =
+  req
+    "ListResourceRequests"
+    "fixture/ListResourceRequests.yaml"
+
+requestListResources :: ListResources -> TestTree
+requestListResources =
+  req
+    "ListResources"
+    "fixture/ListResources.yaml"
+
+requestUpdateResource :: UpdateResource -> TestTree
+requestUpdateResource =
+  req
+    "UpdateResource"
+    "fixture/UpdateResource.yaml"
+
 -- Responses
-
-responseGetResource :: GetResourceResponse -> TestTree
-responseGetResource =
-  res
-    "GetResourceResponse"
-    "fixture/GetResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetResource)
-
-responseListResourceRequests :: ListResourceRequestsResponse -> TestTree
-responseListResourceRequests =
-  res
-    "ListResourceRequestsResponse"
-    "fixture/ListResourceRequestsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListResourceRequests)
 
 responseCancelResourceRequest :: CancelResourceRequestResponse -> TestTree
 responseCancelResourceRequest =
@@ -157,6 +141,14 @@ responseCancelResourceRequest =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CancelResourceRequest)
 
+responseCreateResource :: CreateResourceResponse -> TestTree
+responseCreateResource =
+  res
+    "CreateResourceResponse"
+    "fixture/CreateResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateResource)
+
 responseDeleteResource :: DeleteResourceResponse -> TestTree
 responseDeleteResource =
   res
@@ -165,13 +157,29 @@ responseDeleteResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteResource)
 
-responseUpdateResource :: UpdateResourceResponse -> TestTree
-responseUpdateResource =
+responseGetResource :: GetResourceResponse -> TestTree
+responseGetResource =
   res
-    "UpdateResourceResponse"
-    "fixture/UpdateResourceResponse.proto"
+    "GetResourceResponse"
+    "fixture/GetResourceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateResource)
+    (Proxy.Proxy :: Proxy.Proxy GetResource)
+
+responseGetResourceRequestStatus :: GetResourceRequestStatusResponse -> TestTree
+responseGetResourceRequestStatus =
+  res
+    "GetResourceRequestStatusResponse"
+    "fixture/GetResourceRequestStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetResourceRequestStatus)
+
+responseListResourceRequests :: ListResourceRequestsResponse -> TestTree
+responseListResourceRequests =
+  res
+    "ListResourceRequestsResponse"
+    "fixture/ListResourceRequestsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListResourceRequests)
 
 responseListResources :: ListResourcesResponse -> TestTree
 responseListResources =
@@ -181,18 +189,10 @@ responseListResources =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListResources)
 
-responseCreateResource :: CreateResourceResponse -> TestTree
-responseCreateResource =
+responseUpdateResource :: UpdateResourceResponse -> TestTree
+responseUpdateResource =
   res
-    "CreateResourceResponse"
-    "fixture/CreateResourceResponse.proto"
+    "UpdateResourceResponse"
+    "fixture/UpdateResourceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateResource)
-
-responseGetResourceRequestStatus :: GetResourceRequestStatusResponse -> TestTree
-responseGetResourceRequestStatus =
-  res
-    "GetResourceRequestStatusResponse"
-    "fixture/GetResourceRequestStatusResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetResourceRequestStatus)
+    (Proxy.Proxy :: Proxy.Proxy UpdateResource)

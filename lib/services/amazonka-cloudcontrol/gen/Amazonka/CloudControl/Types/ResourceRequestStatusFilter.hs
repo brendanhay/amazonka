@@ -29,7 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResourceRequestStatusFilter' smart constructor.
 data ResourceRequestStatusFilter = ResourceRequestStatusFilter'
-  { -- | The operation statuses to include in the filter.
+  { -- | The operation types to include in the filter.
+    operations :: Prelude.Maybe [Operation],
+    -- | The operation statuses to include in the filter.
     --
     -- -   @PENDING@: The operation has been requested, but not yet initiated.
     --
@@ -43,9 +45,7 @@ data ResourceRequestStatusFilter = ResourceRequestStatusFilter'
     --     being canceled.
     --
     -- -   @CANCEL_COMPLETE@: The operation has been canceled.
-    operationStatuses :: Prelude.Maybe [OperationStatus],
-    -- | The operation types to include in the filter.
-    operations :: Prelude.Maybe [Operation]
+    operationStatuses :: Prelude.Maybe [OperationStatus]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,6 +56,8 @@ data ResourceRequestStatusFilter = ResourceRequestStatusFilter'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'operations', 'resourceRequestStatusFilter_operations' - The operation types to include in the filter.
 --
 -- 'operationStatuses', 'resourceRequestStatusFilter_operationStatuses' - The operation statuses to include in the filter.
 --
@@ -71,16 +73,18 @@ data ResourceRequestStatusFilter = ResourceRequestStatusFilter'
 --     being canceled.
 --
 -- -   @CANCEL_COMPLETE@: The operation has been canceled.
---
--- 'operations', 'resourceRequestStatusFilter_operations' - The operation types to include in the filter.
 newResourceRequestStatusFilter ::
   ResourceRequestStatusFilter
 newResourceRequestStatusFilter =
   ResourceRequestStatusFilter'
-    { operationStatuses =
+    { operations =
         Prelude.Nothing,
-      operations = Prelude.Nothing
+      operationStatuses = Prelude.Nothing
     }
+
+-- | The operation types to include in the filter.
+resourceRequestStatusFilter_operations :: Lens.Lens' ResourceRequestStatusFilter (Prelude.Maybe [Operation])
+resourceRequestStatusFilter_operations = Lens.lens (\ResourceRequestStatusFilter' {operations} -> operations) (\s@ResourceRequestStatusFilter' {} a -> s {operations = a} :: ResourceRequestStatusFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | The operation statuses to include in the filter.
 --
@@ -99,26 +103,22 @@ newResourceRequestStatusFilter =
 resourceRequestStatusFilter_operationStatuses :: Lens.Lens' ResourceRequestStatusFilter (Prelude.Maybe [OperationStatus])
 resourceRequestStatusFilter_operationStatuses = Lens.lens (\ResourceRequestStatusFilter' {operationStatuses} -> operationStatuses) (\s@ResourceRequestStatusFilter' {} a -> s {operationStatuses = a} :: ResourceRequestStatusFilter) Prelude.. Lens.mapping Lens.coerced
 
--- | The operation types to include in the filter.
-resourceRequestStatusFilter_operations :: Lens.Lens' ResourceRequestStatusFilter (Prelude.Maybe [Operation])
-resourceRequestStatusFilter_operations = Lens.lens (\ResourceRequestStatusFilter' {operations} -> operations) (\s@ResourceRequestStatusFilter' {} a -> s {operations = a} :: ResourceRequestStatusFilter) Prelude.. Lens.mapping Lens.coerced
-
 instance Prelude.Hashable ResourceRequestStatusFilter where
   hashWithSalt _salt ResourceRequestStatusFilter' {..} =
-    _salt `Prelude.hashWithSalt` operationStatuses
-      `Prelude.hashWithSalt` operations
+    _salt `Prelude.hashWithSalt` operations
+      `Prelude.hashWithSalt` operationStatuses
 
 instance Prelude.NFData ResourceRequestStatusFilter where
   rnf ResourceRequestStatusFilter' {..} =
-    Prelude.rnf operationStatuses
-      `Prelude.seq` Prelude.rnf operations
+    Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf operationStatuses
 
 instance Core.ToJSON ResourceRequestStatusFilter where
   toJSON ResourceRequestStatusFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("OperationStatuses" Core..=)
-              Prelude.<$> operationStatuses,
-            ("Operations" Core..=) Prelude.<$> operations
+          [ ("Operations" Core..=) Prelude.<$> operations,
+            ("OperationStatuses" Core..=)
+              Prelude.<$> operationStatuses
           ]
       )

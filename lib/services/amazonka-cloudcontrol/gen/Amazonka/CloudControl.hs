@@ -30,11 +30,56 @@ module Amazonka.CloudControl
     -- * Errors
     -- $errors
 
-    -- ** TypeNotFoundException
-    _TypeNotFoundException,
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
+
+    -- ** NotStabilizedException
+    _NotStabilizedException,
+
+    -- ** UnsupportedActionException
+    _UnsupportedActionException,
+
+    -- ** PrivateTypeException
+    _PrivateTypeException,
+
+    -- ** NetworkFailureException
+    _NetworkFailureException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** GeneralServiceException
     _GeneralServiceException,
+
+    -- ** NotUpdatableException
+    _NotUpdatableException,
+
+    -- ** AlreadyExistsException
+    _AlreadyExistsException,
+
+    -- ** HandlerInternalFailureException
+    _HandlerInternalFailureException,
+
+    -- ** ServiceInternalErrorException
+    _ServiceInternalErrorException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** ResourceConflictException
+    _ResourceConflictException,
+
+    -- ** TypeNotFoundException
+    _TypeNotFoundException,
+
+    -- ** ServiceLimitExceededException
+    _ServiceLimitExceededException,
+
+    -- ** ConcurrentOperationException
+    _ConcurrentOperationException,
+
+    -- ** RequestTokenNotFoundException
+    _RequestTokenNotFoundException,
 
     -- ** HandlerFailureException
     _HandlerFailureException,
@@ -42,56 +87,11 @@ module Amazonka.CloudControl
     -- ** InvalidRequestException
     _InvalidRequestException,
 
-    -- ** PrivateTypeException
-    _PrivateTypeException,
-
-    -- ** ServiceInternalErrorException
-    _ServiceInternalErrorException,
-
-    -- ** HandlerInternalFailureException
-    _HandlerInternalFailureException,
-
-    -- ** ClientTokenConflictException
-    _ClientTokenConflictException,
-
-    -- ** RequestTokenNotFoundException
-    _RequestTokenNotFoundException,
-
-    -- ** NetworkFailureException
-    _NetworkFailureException,
-
-    -- ** NotStabilizedException
-    _NotStabilizedException,
-
-    -- ** NotUpdatableException
-    _NotUpdatableException,
-
-    -- ** UnsupportedActionException
-    _UnsupportedActionException,
-
-    -- ** ServiceLimitExceededException
-    _ServiceLimitExceededException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
-
-    -- ** ConcurrentModificationException
-    _ConcurrentModificationException,
-
-    -- ** ResourceConflictException
-    _ResourceConflictException,
-
     -- ** InvalidCredentialsException
     _InvalidCredentialsException,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** ConcurrentOperationException
-    _ConcurrentOperationException,
-
-    -- ** AlreadyExistsException
-    _AlreadyExistsException,
+    -- ** ClientTokenConflictException
+    _ClientTokenConflictException,
 
     -- * Waiters
     -- $waiters
@@ -102,41 +102,11 @@ module Amazonka.CloudControl
     -- * Operations
     -- $operations
 
-    -- ** GetResource
-    GetResource (GetResource'),
-    newGetResource,
-    GetResourceResponse (GetResourceResponse'),
-    newGetResourceResponse,
-
-    -- ** ListResourceRequests
-    ListResourceRequests (ListResourceRequests'),
-    newListResourceRequests,
-    ListResourceRequestsResponse (ListResourceRequestsResponse'),
-    newListResourceRequestsResponse,
-
     -- ** CancelResourceRequest
     CancelResourceRequest (CancelResourceRequest'),
     newCancelResourceRequest,
     CancelResourceRequestResponse (CancelResourceRequestResponse'),
     newCancelResourceRequestResponse,
-
-    -- ** DeleteResource
-    DeleteResource (DeleteResource'),
-    newDeleteResource,
-    DeleteResourceResponse (DeleteResourceResponse'),
-    newDeleteResourceResponse,
-
-    -- ** UpdateResource
-    UpdateResource (UpdateResource'),
-    newUpdateResource,
-    UpdateResourceResponse (UpdateResourceResponse'),
-    newUpdateResourceResponse,
-
-    -- ** ListResources
-    ListResources (ListResources'),
-    newListResources,
-    ListResourcesResponse (ListResourcesResponse'),
-    newListResourcesResponse,
 
     -- ** CreateResource
     CreateResource (CreateResource'),
@@ -144,11 +114,41 @@ module Amazonka.CloudControl
     CreateResourceResponse (CreateResourceResponse'),
     newCreateResourceResponse,
 
+    -- ** DeleteResource
+    DeleteResource (DeleteResource'),
+    newDeleteResource,
+    DeleteResourceResponse (DeleteResourceResponse'),
+    newDeleteResourceResponse,
+
+    -- ** GetResource
+    GetResource (GetResource'),
+    newGetResource,
+    GetResourceResponse (GetResourceResponse'),
+    newGetResourceResponse,
+
     -- ** GetResourceRequestStatus
     GetResourceRequestStatus (GetResourceRequestStatus'),
     newGetResourceRequestStatus,
     GetResourceRequestStatusResponse (GetResourceRequestStatusResponse'),
     newGetResourceRequestStatusResponse,
+
+    -- ** ListResourceRequests
+    ListResourceRequests (ListResourceRequests'),
+    newListResourceRequests,
+    ListResourceRequestsResponse (ListResourceRequestsResponse'),
+    newListResourceRequestsResponse,
+
+    -- ** ListResources
+    ListResources (ListResources'),
+    newListResources,
+    ListResourcesResponse (ListResourcesResponse'),
+    newListResourcesResponse,
+
+    -- ** UpdateResource
+    UpdateResource (UpdateResource'),
+    newUpdateResource,
+    UpdateResourceResponse (UpdateResourceResponse'),
+    newUpdateResourceResponse,
 
     -- * Types
 

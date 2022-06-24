@@ -36,9 +36,9 @@ module Amazonka.CloudControl.ListResources
     -- * Request Lenses
     listResources_resourceModel,
     listResources_nextToken,
-    listResources_typeVersionId,
-    listResources_maxResults,
     listResources_roleArn,
+    listResources_maxResults,
+    listResources_typeVersionId,
     listResources_typeName,
 
     -- * Destructuring the Response
@@ -46,9 +46,9 @@ module Amazonka.CloudControl.ListResources
     newListResourcesResponse,
 
     -- * Response Lenses
+    listResourcesResponse_nextToken,
     listResourcesResponse_resourceDescriptions,
     listResourcesResponse_typeName,
-    listResourcesResponse_nextToken,
     listResourcesResponse_httpStatus,
   )
 where
@@ -71,17 +71,6 @@ data ListResources = ListResources'
     -- there are no remaining results, the previous response object\'s
     -- @NextToken@ parameter is set to @null@.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | For private resource types, the type version to use in this resource
-    -- operation. If you do not specify a resource version, CloudFormation uses
-    -- the default version.
-    typeVersionId :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned with a single call. If the
-    -- number of available results exceeds this maximum, the response includes
-    -- a @NextToken@ value that you can assign to the @NextToken@ request
-    -- parameter to get the next set of results.
-    --
-    -- The default is @20@.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the Identity and Access Management
     -- (IAM) for Cloud Control API to use when performing this resource
     -- operation. The role specified must have the permissions required for
@@ -96,6 +85,17 @@ data ListResources = ListResources'
     -- <https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions Specifying credentials>
     -- in the /Amazon Web Services Cloud Control API User Guide/.
     roleArn :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to be returned with a single call. If the
+    -- number of available results exceeds this maximum, the response includes
+    -- a @NextToken@ value that you can assign to the @NextToken@ request
+    -- parameter to get the next set of results.
+    --
+    -- The default is @20@.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | For private resource types, the type version to use in this resource
+    -- operation. If you do not specify a resource version, CloudFormation uses
+    -- the default version.
+    typeVersionId :: Prelude.Maybe Prelude.Text,
     -- | The name of the resource type.
     typeName :: Prelude.Text
   }
@@ -118,17 +118,6 @@ data ListResources = ListResources'
 -- there are no remaining results, the previous response object\'s
 -- @NextToken@ parameter is set to @null@.
 --
--- 'typeVersionId', 'listResources_typeVersionId' - For private resource types, the type version to use in this resource
--- operation. If you do not specify a resource version, CloudFormation uses
--- the default version.
---
--- 'maxResults', 'listResources_maxResults' - The maximum number of results to be returned with a single call. If the
--- number of available results exceeds this maximum, the response includes
--- a @NextToken@ value that you can assign to the @NextToken@ request
--- parameter to get the next set of results.
---
--- The default is @20@.
---
 -- 'roleArn', 'listResources_roleArn' - The Amazon Resource Name (ARN) of the Identity and Access Management
 -- (IAM) for Cloud Control API to use when performing this resource
 -- operation. The role specified must have the permissions required for
@@ -143,6 +132,17 @@ data ListResources = ListResources'
 -- <https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions Specifying credentials>
 -- in the /Amazon Web Services Cloud Control API User Guide/.
 --
+-- 'maxResults', 'listResources_maxResults' - The maximum number of results to be returned with a single call. If the
+-- number of available results exceeds this maximum, the response includes
+-- a @NextToken@ value that you can assign to the @NextToken@ request
+-- parameter to get the next set of results.
+--
+-- The default is @20@.
+--
+-- 'typeVersionId', 'listResources_typeVersionId' - For private resource types, the type version to use in this resource
+-- operation. If you do not specify a resource version, CloudFormation uses
+-- the default version.
+--
 -- 'typeName', 'listResources_typeName' - The name of the resource type.
 newListResources ::
   -- | 'typeName'
@@ -152,9 +152,9 @@ newListResources pTypeName_ =
   ListResources'
     { resourceModel = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      typeVersionId = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       roleArn = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      typeVersionId = Prelude.Nothing,
       typeName = pTypeName_
     }
 
@@ -170,21 +170,6 @@ listResources_resourceModel = Lens.lens (\ListResources' {resourceModel} -> reso
 -- @NextToken@ parameter is set to @null@.
 listResources_nextToken :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Text)
 listResources_nextToken = Lens.lens (\ListResources' {nextToken} -> nextToken) (\s@ListResources' {} a -> s {nextToken = a} :: ListResources)
-
--- | For private resource types, the type version to use in this resource
--- operation. If you do not specify a resource version, CloudFormation uses
--- the default version.
-listResources_typeVersionId :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Text)
-listResources_typeVersionId = Lens.lens (\ListResources' {typeVersionId} -> typeVersionId) (\s@ListResources' {} a -> s {typeVersionId = a} :: ListResources)
-
--- | The maximum number of results to be returned with a single call. If the
--- number of available results exceeds this maximum, the response includes
--- a @NextToken@ value that you can assign to the @NextToken@ request
--- parameter to get the next set of results.
---
--- The default is @20@.
-listResources_maxResults :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Natural)
-listResources_maxResults = Lens.lens (\ListResources' {maxResults} -> maxResults) (\s@ListResources' {} a -> s {maxResults = a} :: ListResources)
 
 -- | The Amazon Resource Name (ARN) of the Identity and Access Management
 -- (IAM) for Cloud Control API to use when performing this resource
@@ -202,6 +187,21 @@ listResources_maxResults = Lens.lens (\ListResources' {maxResults} -> maxResults
 listResources_roleArn :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Text)
 listResources_roleArn = Lens.lens (\ListResources' {roleArn} -> roleArn) (\s@ListResources' {} a -> s {roleArn = a} :: ListResources)
 
+-- | The maximum number of results to be returned with a single call. If the
+-- number of available results exceeds this maximum, the response includes
+-- a @NextToken@ value that you can assign to the @NextToken@ request
+-- parameter to get the next set of results.
+--
+-- The default is @20@.
+listResources_maxResults :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Natural)
+listResources_maxResults = Lens.lens (\ListResources' {maxResults} -> maxResults) (\s@ListResources' {} a -> s {maxResults = a} :: ListResources)
+
+-- | For private resource types, the type version to use in this resource
+-- operation. If you do not specify a resource version, CloudFormation uses
+-- the default version.
+listResources_typeVersionId :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Text)
+listResources_typeVersionId = Lens.lens (\ListResources' {typeVersionId} -> typeVersionId) (\s@ListResources' {} a -> s {typeVersionId = a} :: ListResources)
+
 -- | The name of the resource type.
 listResources_typeName :: Lens.Lens' ListResources Prelude.Text
 listResources_typeName = Lens.lens (\ListResources' {typeName} -> typeName) (\s@ListResources' {} a -> s {typeName = a} :: ListResources)
@@ -215,11 +215,11 @@ instance Core.AWSRequest ListResources where
     Response.receiveJSON
       ( \s h x ->
           ListResourcesResponse'
-            Prelude.<$> ( x Core..?> "ResourceDescriptions"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "ResourceDescriptions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Core..?> "TypeName")
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -227,18 +227,18 @@ instance Prelude.Hashable ListResources where
   hashWithSalt _salt ListResources' {..} =
     _salt `Prelude.hashWithSalt` resourceModel
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` typeVersionId
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` typeVersionId
       `Prelude.hashWithSalt` typeName
 
 instance Prelude.NFData ListResources where
   rnf ListResources' {..} =
     Prelude.rnf resourceModel
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf typeVersionId
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf typeVersionId
       `Prelude.seq` Prelude.rnf typeName
 
 instance Core.ToHeaders ListResources where
@@ -262,9 +262,9 @@ instance Core.ToJSON ListResources where
       ( Prelude.catMaybes
           [ ("ResourceModel" Core..=) Prelude.<$> resourceModel,
             ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("TypeVersionId" Core..=) Prelude.<$> typeVersionId,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("RoleArn" Core..=) Prelude.<$> roleArn,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("TypeVersionId" Core..=) Prelude.<$> typeVersionId,
             Prelude.Just ("TypeName" Core..= typeName)
           ]
       )
@@ -277,17 +277,17 @@ instance Core.ToQuery ListResources where
 
 -- | /See:/ 'newListResourcesResponse' smart constructor.
 data ListResourcesResponse = ListResourcesResponse'
-  { -- | Information about the specified resources, including primary identifier
-    -- and resource model.
-    resourceDescriptions :: Prelude.Maybe [ResourceDescription],
-    -- | The name of the resource type.
-    typeName :: Prelude.Maybe Prelude.Text,
-    -- | If the request doesn\'t return all of the remaining results, @NextToken@
+  { -- | If the request doesn\'t return all of the remaining results, @NextToken@
     -- is set to a token. To retrieve the next set of results, call
     -- @ListResources@ again and assign that token to the request object\'s
     -- @NextToken@ parameter. If the request returns all results, @NextToken@
     -- is set to null.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the specified resources, including primary identifier
+    -- and resource model.
+    resourceDescriptions :: Prelude.Maybe [ResourceDescription],
+    -- | The name of the resource type.
+    typeName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -301,16 +301,16 @@ data ListResourcesResponse = ListResourcesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceDescriptions', 'listResourcesResponse_resourceDescriptions' - Information about the specified resources, including primary identifier
--- and resource model.
---
--- 'typeName', 'listResourcesResponse_typeName' - The name of the resource type.
---
 -- 'nextToken', 'listResourcesResponse_nextToken' - If the request doesn\'t return all of the remaining results, @NextToken@
 -- is set to a token. To retrieve the next set of results, call
 -- @ListResources@ again and assign that token to the request object\'s
 -- @NextToken@ parameter. If the request returns all results, @NextToken@
 -- is set to null.
+--
+-- 'resourceDescriptions', 'listResourcesResponse_resourceDescriptions' - Information about the specified resources, including primary identifier
+-- and resource model.
+--
+-- 'typeName', 'listResourcesResponse_typeName' - The name of the resource type.
 --
 -- 'httpStatus', 'listResourcesResponse_httpStatus' - The response's http status code.
 newListResourcesResponse ::
@@ -319,12 +319,19 @@ newListResourcesResponse ::
   ListResourcesResponse
 newListResourcesResponse pHttpStatus_ =
   ListResourcesResponse'
-    { resourceDescriptions =
-        Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      resourceDescriptions = Prelude.Nothing,
       typeName = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | If the request doesn\'t return all of the remaining results, @NextToken@
+-- is set to a token. To retrieve the next set of results, call
+-- @ListResources@ again and assign that token to the request object\'s
+-- @NextToken@ parameter. If the request returns all results, @NextToken@
+-- is set to null.
+listResourcesResponse_nextToken :: Lens.Lens' ListResourcesResponse (Prelude.Maybe Prelude.Text)
+listResourcesResponse_nextToken = Lens.lens (\ListResourcesResponse' {nextToken} -> nextToken) (\s@ListResourcesResponse' {} a -> s {nextToken = a} :: ListResourcesResponse)
 
 -- | Information about the specified resources, including primary identifier
 -- and resource model.
@@ -335,21 +342,13 @@ listResourcesResponse_resourceDescriptions = Lens.lens (\ListResourcesResponse' 
 listResourcesResponse_typeName :: Lens.Lens' ListResourcesResponse (Prelude.Maybe Prelude.Text)
 listResourcesResponse_typeName = Lens.lens (\ListResourcesResponse' {typeName} -> typeName) (\s@ListResourcesResponse' {} a -> s {typeName = a} :: ListResourcesResponse)
 
--- | If the request doesn\'t return all of the remaining results, @NextToken@
--- is set to a token. To retrieve the next set of results, call
--- @ListResources@ again and assign that token to the request object\'s
--- @NextToken@ parameter. If the request returns all results, @NextToken@
--- is set to null.
-listResourcesResponse_nextToken :: Lens.Lens' ListResourcesResponse (Prelude.Maybe Prelude.Text)
-listResourcesResponse_nextToken = Lens.lens (\ListResourcesResponse' {nextToken} -> nextToken) (\s@ListResourcesResponse' {} a -> s {nextToken = a} :: ListResourcesResponse)
-
 -- | The response's http status code.
 listResourcesResponse_httpStatus :: Lens.Lens' ListResourcesResponse Prelude.Int
 listResourcesResponse_httpStatus = Lens.lens (\ListResourcesResponse' {httpStatus} -> httpStatus) (\s@ListResourcesResponse' {} a -> s {httpStatus = a} :: ListResourcesResponse)
 
 instance Prelude.NFData ListResourcesResponse where
   rnf ListResourcesResponse' {..} =
-    Prelude.rnf resourceDescriptions
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceDescriptions
       `Prelude.seq` Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

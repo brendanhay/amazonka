@@ -33,8 +33,8 @@ module Amazonka.CloudControl.GetResource
     newGetResource,
 
     -- * Request Lenses
-    getResource_typeVersionId,
     getResource_roleArn,
+    getResource_typeVersionId,
     getResource_typeName,
     getResource_identifier,
 
@@ -58,11 +58,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetResource' smart constructor.
 data GetResource = GetResource'
-  { -- | For private resource types, the type version to use in this resource
-    -- operation. If you do not specify a resource version, CloudFormation uses
-    -- the default version.
-    typeVersionId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the Identity and Access Management
+  { -- | The Amazon Resource Name (ARN) of the Identity and Access Management
     -- (IAM) for Cloud Control API to use when performing this resource
     -- operation. The role specified must have the permissions required for
     -- this operation. The necessary permissions for each event handler are
@@ -76,6 +72,10 @@ data GetResource = GetResource'
     -- <https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions Specifying credentials>
     -- in the /Amazon Web Services Cloud Control API User Guide/.
     roleArn :: Prelude.Maybe Prelude.Text,
+    -- | For private resource types, the type version to use in this resource
+    -- operation. If you do not specify a resource version, CloudFormation uses
+    -- the default version.
+    typeVersionId :: Prelude.Maybe Prelude.Text,
     -- | The name of the resource type.
     typeName :: Prelude.Text,
     -- | The identifier for the resource.
@@ -105,10 +105,6 @@ data GetResource = GetResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'typeVersionId', 'getResource_typeVersionId' - For private resource types, the type version to use in this resource
--- operation. If you do not specify a resource version, CloudFormation uses
--- the default version.
---
 -- 'roleArn', 'getResource_roleArn' - The Amazon Resource Name (ARN) of the Identity and Access Management
 -- (IAM) for Cloud Control API to use when performing this resource
 -- operation. The role specified must have the permissions required for
@@ -122,6 +118,10 @@ data GetResource = GetResource'
 -- For more information, see
 -- <https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions Specifying credentials>
 -- in the /Amazon Web Services Cloud Control API User Guide/.
+--
+-- 'typeVersionId', 'getResource_typeVersionId' - For private resource types, the type version to use in this resource
+-- operation. If you do not specify a resource version, CloudFormation uses
+-- the default version.
 --
 -- 'typeName', 'getResource_typeName' - The name of the resource type.
 --
@@ -148,17 +148,11 @@ newGetResource ::
   GetResource
 newGetResource pTypeName_ pIdentifier_ =
   GetResource'
-    { typeVersionId = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
+    { roleArn = Prelude.Nothing,
+      typeVersionId = Prelude.Nothing,
       typeName = pTypeName_,
       identifier = pIdentifier_
     }
-
--- | For private resource types, the type version to use in this resource
--- operation. If you do not specify a resource version, CloudFormation uses
--- the default version.
-getResource_typeVersionId :: Lens.Lens' GetResource (Prelude.Maybe Prelude.Text)
-getResource_typeVersionId = Lens.lens (\GetResource' {typeVersionId} -> typeVersionId) (\s@GetResource' {} a -> s {typeVersionId = a} :: GetResource)
 
 -- | The Amazon Resource Name (ARN) of the Identity and Access Management
 -- (IAM) for Cloud Control API to use when performing this resource
@@ -175,6 +169,12 @@ getResource_typeVersionId = Lens.lens (\GetResource' {typeVersionId} -> typeVers
 -- in the /Amazon Web Services Cloud Control API User Guide/.
 getResource_roleArn :: Lens.Lens' GetResource (Prelude.Maybe Prelude.Text)
 getResource_roleArn = Lens.lens (\GetResource' {roleArn} -> roleArn) (\s@GetResource' {} a -> s {roleArn = a} :: GetResource)
+
+-- | For private resource types, the type version to use in this resource
+-- operation. If you do not specify a resource version, CloudFormation uses
+-- the default version.
+getResource_typeVersionId :: Lens.Lens' GetResource (Prelude.Maybe Prelude.Text)
+getResource_typeVersionId = Lens.lens (\GetResource' {typeVersionId} -> typeVersionId) (\s@GetResource' {} a -> s {typeVersionId = a} :: GetResource)
 
 -- | The name of the resource type.
 getResource_typeName :: Lens.Lens' GetResource Prelude.Text
@@ -212,15 +212,15 @@ instance Core.AWSRequest GetResource where
 
 instance Prelude.Hashable GetResource where
   hashWithSalt _salt GetResource' {..} =
-    _salt `Prelude.hashWithSalt` typeVersionId
-      `Prelude.hashWithSalt` roleArn
+    _salt `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` typeVersionId
       `Prelude.hashWithSalt` typeName
       `Prelude.hashWithSalt` identifier
 
 instance Prelude.NFData GetResource where
   rnf GetResource' {..} =
-    Prelude.rnf typeVersionId
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf typeVersionId
       `Prelude.seq` Prelude.rnf typeName
       `Prelude.seq` Prelude.rnf identifier
 
@@ -243,8 +243,8 @@ instance Core.ToJSON GetResource where
   toJSON GetResource' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TypeVersionId" Core..=) Prelude.<$> typeVersionId,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
+          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
+            ("TypeVersionId" Core..=) Prelude.<$> typeVersionId,
             Prelude.Just ("TypeName" Core..= typeName),
             Prelude.Just ("Identifier" Core..= identifier)
           ]

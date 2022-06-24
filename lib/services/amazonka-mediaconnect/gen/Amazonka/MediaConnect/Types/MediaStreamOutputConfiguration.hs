@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMediaStreamOutputConfiguration' smart constructor.
 data MediaStreamOutputConfiguration = MediaStreamOutputConfiguration'
-  { -- | The transport parameters that are associated with each outbound media
+  { -- | Encoding parameters
+    encodingParameters :: Prelude.Maybe EncodingParameters,
+    -- | The transport parameters that are associated with each outbound media
     -- stream.
     destinationConfigurations :: Prelude.Maybe [DestinationConfiguration],
-    -- | Encoding parameters
-    encodingParameters :: Prelude.Maybe EncodingParameters,
     -- | The name of the media stream.
     mediaStreamName :: Prelude.Text,
     -- | The format that was used to encode the data. For ancillary data streams,
@@ -54,10 +54,10 @@ data MediaStreamOutputConfiguration = MediaStreamOutputConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'encodingParameters', 'mediaStreamOutputConfiguration_encodingParameters' - Encoding parameters
+--
 -- 'destinationConfigurations', 'mediaStreamOutputConfiguration_destinationConfigurations' - The transport parameters that are associated with each outbound media
 -- stream.
---
--- 'encodingParameters', 'mediaStreamOutputConfiguration_encodingParameters' - Encoding parameters
 --
 -- 'mediaStreamName', 'mediaStreamOutputConfiguration_mediaStreamName' - The name of the media stream.
 --
@@ -75,21 +75,21 @@ newMediaStreamOutputConfiguration
   pMediaStreamName_
   pEncodingName_ =
     MediaStreamOutputConfiguration'
-      { destinationConfigurations =
+      { encodingParameters =
           Prelude.Nothing,
-        encodingParameters = Prelude.Nothing,
+        destinationConfigurations = Prelude.Nothing,
         mediaStreamName = pMediaStreamName_,
         encodingName = pEncodingName_
       }
+
+-- | Encoding parameters
+mediaStreamOutputConfiguration_encodingParameters :: Lens.Lens' MediaStreamOutputConfiguration (Prelude.Maybe EncodingParameters)
+mediaStreamOutputConfiguration_encodingParameters = Lens.lens (\MediaStreamOutputConfiguration' {encodingParameters} -> encodingParameters) (\s@MediaStreamOutputConfiguration' {} a -> s {encodingParameters = a} :: MediaStreamOutputConfiguration)
 
 -- | The transport parameters that are associated with each outbound media
 -- stream.
 mediaStreamOutputConfiguration_destinationConfigurations :: Lens.Lens' MediaStreamOutputConfiguration (Prelude.Maybe [DestinationConfiguration])
 mediaStreamOutputConfiguration_destinationConfigurations = Lens.lens (\MediaStreamOutputConfiguration' {destinationConfigurations} -> destinationConfigurations) (\s@MediaStreamOutputConfiguration' {} a -> s {destinationConfigurations = a} :: MediaStreamOutputConfiguration) Prelude.. Lens.mapping Lens.coerced
-
--- | Encoding parameters
-mediaStreamOutputConfiguration_encodingParameters :: Lens.Lens' MediaStreamOutputConfiguration (Prelude.Maybe EncodingParameters)
-mediaStreamOutputConfiguration_encodingParameters = Lens.lens (\MediaStreamOutputConfiguration' {encodingParameters} -> encodingParameters) (\s@MediaStreamOutputConfiguration' {} a -> s {encodingParameters = a} :: MediaStreamOutputConfiguration)
 
 -- | The name of the media stream.
 mediaStreamOutputConfiguration_mediaStreamName :: Lens.Lens' MediaStreamOutputConfiguration Prelude.Text
@@ -108,10 +108,10 @@ instance Core.FromJSON MediaStreamOutputConfiguration where
       "MediaStreamOutputConfiguration"
       ( \x ->
           MediaStreamOutputConfiguration'
-            Prelude.<$> ( x Core..:? "destinationConfigurations"
+            Prelude.<$> (x Core..:? "encodingParameters")
+            Prelude.<*> ( x Core..:? "destinationConfigurations"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "encodingParameters")
             Prelude.<*> (x Core..: "mediaStreamName")
             Prelude.<*> (x Core..: "encodingName")
       )
@@ -123,9 +123,8 @@ instance
   hashWithSalt
     _salt
     MediaStreamOutputConfiguration' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` encodingParameters
         `Prelude.hashWithSalt` destinationConfigurations
-        `Prelude.hashWithSalt` encodingParameters
         `Prelude.hashWithSalt` mediaStreamName
         `Prelude.hashWithSalt` encodingName
 
@@ -134,7 +133,7 @@ instance
     MediaStreamOutputConfiguration
   where
   rnf MediaStreamOutputConfiguration' {..} =
-    Prelude.rnf destinationConfigurations
-      `Prelude.seq` Prelude.rnf encodingParameters
+    Prelude.rnf encodingParameters
+      `Prelude.seq` Prelude.rnf destinationConfigurations
       `Prelude.seq` Prelude.rnf mediaStreamName
       `Prelude.seq` Prelude.rnf encodingName

@@ -35,8 +35,8 @@ module Amazonka.MediaConnect.AddFlowVpcInterfaces
     newAddFlowVpcInterfacesResponse,
 
     -- * Response Lenses
-    addFlowVpcInterfacesResponse_flowArn,
     addFlowVpcInterfacesResponse_vpcInterfaces,
+    addFlowVpcInterfacesResponse_flowArn,
     addFlowVpcInterfacesResponse_httpStatus,
   )
 where
@@ -97,8 +97,8 @@ instance Core.AWSRequest AddFlowVpcInterfaces where
     Response.receiveJSON
       ( \s h x ->
           AddFlowVpcInterfacesResponse'
-            Prelude.<$> (x Core..?> "flowArn")
-            Prelude.<*> (x Core..?> "vpcInterfaces" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "vpcInterfaces" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "flowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,10 +142,10 @@ instance Core.ToQuery AddFlowVpcInterfaces where
 
 -- | /See:/ 'newAddFlowVpcInterfacesResponse' smart constructor.
 data AddFlowVpcInterfacesResponse = AddFlowVpcInterfacesResponse'
-  { -- | The ARN of the flow that these VPC interfaces were added to.
-    flowArn :: Prelude.Maybe Prelude.Text,
-    -- | The details of the newly added VPC interfaces.
+  { -- | The details of the newly added VPC interfaces.
     vpcInterfaces :: Prelude.Maybe [VpcInterface],
+    -- | The ARN of the flow that these VPC interfaces were added to.
+    flowArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -159,9 +159,9 @@ data AddFlowVpcInterfacesResponse = AddFlowVpcInterfacesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'flowArn', 'addFlowVpcInterfacesResponse_flowArn' - The ARN of the flow that these VPC interfaces were added to.
---
 -- 'vpcInterfaces', 'addFlowVpcInterfacesResponse_vpcInterfaces' - The details of the newly added VPC interfaces.
+--
+-- 'flowArn', 'addFlowVpcInterfacesResponse_flowArn' - The ARN of the flow that these VPC interfaces were added to.
 --
 -- 'httpStatus', 'addFlowVpcInterfacesResponse_httpStatus' - The response's http status code.
 newAddFlowVpcInterfacesResponse ::
@@ -170,19 +170,19 @@ newAddFlowVpcInterfacesResponse ::
   AddFlowVpcInterfacesResponse
 newAddFlowVpcInterfacesResponse pHttpStatus_ =
   AddFlowVpcInterfacesResponse'
-    { flowArn =
+    { vpcInterfaces =
         Prelude.Nothing,
-      vpcInterfaces = Prelude.Nothing,
+      flowArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARN of the flow that these VPC interfaces were added to.
-addFlowVpcInterfacesResponse_flowArn :: Lens.Lens' AddFlowVpcInterfacesResponse (Prelude.Maybe Prelude.Text)
-addFlowVpcInterfacesResponse_flowArn = Lens.lens (\AddFlowVpcInterfacesResponse' {flowArn} -> flowArn) (\s@AddFlowVpcInterfacesResponse' {} a -> s {flowArn = a} :: AddFlowVpcInterfacesResponse)
 
 -- | The details of the newly added VPC interfaces.
 addFlowVpcInterfacesResponse_vpcInterfaces :: Lens.Lens' AddFlowVpcInterfacesResponse (Prelude.Maybe [VpcInterface])
 addFlowVpcInterfacesResponse_vpcInterfaces = Lens.lens (\AddFlowVpcInterfacesResponse' {vpcInterfaces} -> vpcInterfaces) (\s@AddFlowVpcInterfacesResponse' {} a -> s {vpcInterfaces = a} :: AddFlowVpcInterfacesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ARN of the flow that these VPC interfaces were added to.
+addFlowVpcInterfacesResponse_flowArn :: Lens.Lens' AddFlowVpcInterfacesResponse (Prelude.Maybe Prelude.Text)
+addFlowVpcInterfacesResponse_flowArn = Lens.lens (\AddFlowVpcInterfacesResponse' {flowArn} -> flowArn) (\s@AddFlowVpcInterfacesResponse' {} a -> s {flowArn = a} :: AddFlowVpcInterfacesResponse)
 
 -- | The response's http status code.
 addFlowVpcInterfacesResponse_httpStatus :: Lens.Lens' AddFlowVpcInterfacesResponse Prelude.Int
@@ -190,6 +190,6 @@ addFlowVpcInterfacesResponse_httpStatus = Lens.lens (\AddFlowVpcInterfacesRespon
 
 instance Prelude.NFData AddFlowVpcInterfacesResponse where
   rnf AddFlowVpcInterfacesResponse' {..} =
-    Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf vpcInterfaces
+    Prelude.rnf vpcInterfaces
+      `Prelude.seq` Prelude.rnf flowArn
       `Prelude.seq` Prelude.rnf httpStatus

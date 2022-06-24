@@ -30,9 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpdateFailoverConfig' smart constructor.
 data UpdateFailoverConfig = UpdateFailoverConfig'
-  { state :: Prelude.Maybe State,
-    -- | Recovery window time to look for dash-7 packets
+  { -- | Recovery window time to look for dash-7 packets
     recoveryWindow :: Prelude.Maybe Prelude.Int,
+    state :: Prelude.Maybe State,
     -- | The priority you want to assign to a source. You can have a primary
     -- stream and a backup stream or two equally prioritized streams.
     sourcePriority :: Prelude.Maybe SourcePriority,
@@ -51,9 +51,9 @@ data UpdateFailoverConfig = UpdateFailoverConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'updateFailoverConfig_state' - Undocumented member.
---
 -- 'recoveryWindow', 'updateFailoverConfig_recoveryWindow' - Recovery window time to look for dash-7 packets
+--
+-- 'state', 'updateFailoverConfig_state' - Undocumented member.
 --
 -- 'sourcePriority', 'updateFailoverConfig_sourcePriority' - The priority you want to assign to a source. You can have a primary
 -- stream and a backup stream or two equally prioritized streams.
@@ -65,19 +65,20 @@ newUpdateFailoverConfig ::
   UpdateFailoverConfig
 newUpdateFailoverConfig =
   UpdateFailoverConfig'
-    { state = Prelude.Nothing,
-      recoveryWindow = Prelude.Nothing,
+    { recoveryWindow =
+        Prelude.Nothing,
+      state = Prelude.Nothing,
       sourcePriority = Prelude.Nothing,
       failoverMode = Prelude.Nothing
     }
 
--- | Undocumented member.
-updateFailoverConfig_state :: Lens.Lens' UpdateFailoverConfig (Prelude.Maybe State)
-updateFailoverConfig_state = Lens.lens (\UpdateFailoverConfig' {state} -> state) (\s@UpdateFailoverConfig' {} a -> s {state = a} :: UpdateFailoverConfig)
-
 -- | Recovery window time to look for dash-7 packets
 updateFailoverConfig_recoveryWindow :: Lens.Lens' UpdateFailoverConfig (Prelude.Maybe Prelude.Int)
 updateFailoverConfig_recoveryWindow = Lens.lens (\UpdateFailoverConfig' {recoveryWindow} -> recoveryWindow) (\s@UpdateFailoverConfig' {} a -> s {recoveryWindow = a} :: UpdateFailoverConfig)
+
+-- | Undocumented member.
+updateFailoverConfig_state :: Lens.Lens' UpdateFailoverConfig (Prelude.Maybe State)
+updateFailoverConfig_state = Lens.lens (\UpdateFailoverConfig' {state} -> state) (\s@UpdateFailoverConfig' {} a -> s {state = a} :: UpdateFailoverConfig)
 
 -- | The priority you want to assign to a source. You can have a primary
 -- stream and a backup stream or two equally prioritized streams.
@@ -92,15 +93,15 @@ updateFailoverConfig_failoverMode = Lens.lens (\UpdateFailoverConfig' {failoverM
 
 instance Prelude.Hashable UpdateFailoverConfig where
   hashWithSalt _salt UpdateFailoverConfig' {..} =
-    _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` recoveryWindow
+    _salt `Prelude.hashWithSalt` recoveryWindow
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` sourcePriority
       `Prelude.hashWithSalt` failoverMode
 
 instance Prelude.NFData UpdateFailoverConfig where
   rnf UpdateFailoverConfig' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf recoveryWindow
+    Prelude.rnf recoveryWindow
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf sourcePriority
       `Prelude.seq` Prelude.rnf failoverMode
 
@@ -108,9 +109,9 @@ instance Core.ToJSON UpdateFailoverConfig where
   toJSON UpdateFailoverConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("state" Core..=) Prelude.<$> state,
-            ("recoveryWindow" Core..=)
+          [ ("recoveryWindow" Core..=)
               Prelude.<$> recoveryWindow,
+            ("state" Core..=) Prelude.<$> state,
             ("sourcePriority" Core..=)
               Prelude.<$> sourcePriority,
             ("failoverMode" Core..=) Prelude.<$> failoverMode

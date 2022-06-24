@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMediaStreamAttributesRequest' smart constructor.
 data MediaStreamAttributesRequest = MediaStreamAttributesRequest'
-  { -- | The audio language, in a format that is recognized by the receiver.
-    lang :: Prelude.Maybe Prelude.Text,
-    -- | The settings that you want to use to define the media stream.
-    fmtp :: Prelude.Maybe FmtpRequest
+  { -- | The settings that you want to use to define the media stream.
+    fmtp :: Prelude.Maybe FmtpRequest,
+    -- | The audio language, in a format that is recognized by the receiver.
+    lang :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,43 +43,43 @@ data MediaStreamAttributesRequest = MediaStreamAttributesRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lang', 'mediaStreamAttributesRequest_lang' - The audio language, in a format that is recognized by the receiver.
---
 -- 'fmtp', 'mediaStreamAttributesRequest_fmtp' - The settings that you want to use to define the media stream.
+--
+-- 'lang', 'mediaStreamAttributesRequest_lang' - The audio language, in a format that is recognized by the receiver.
 newMediaStreamAttributesRequest ::
   MediaStreamAttributesRequest
 newMediaStreamAttributesRequest =
   MediaStreamAttributesRequest'
-    { lang =
+    { fmtp =
         Prelude.Nothing,
-      fmtp = Prelude.Nothing
+      lang = Prelude.Nothing
     }
-
--- | The audio language, in a format that is recognized by the receiver.
-mediaStreamAttributesRequest_lang :: Lens.Lens' MediaStreamAttributesRequest (Prelude.Maybe Prelude.Text)
-mediaStreamAttributesRequest_lang = Lens.lens (\MediaStreamAttributesRequest' {lang} -> lang) (\s@MediaStreamAttributesRequest' {} a -> s {lang = a} :: MediaStreamAttributesRequest)
 
 -- | The settings that you want to use to define the media stream.
 mediaStreamAttributesRequest_fmtp :: Lens.Lens' MediaStreamAttributesRequest (Prelude.Maybe FmtpRequest)
 mediaStreamAttributesRequest_fmtp = Lens.lens (\MediaStreamAttributesRequest' {fmtp} -> fmtp) (\s@MediaStreamAttributesRequest' {} a -> s {fmtp = a} :: MediaStreamAttributesRequest)
+
+-- | The audio language, in a format that is recognized by the receiver.
+mediaStreamAttributesRequest_lang :: Lens.Lens' MediaStreamAttributesRequest (Prelude.Maybe Prelude.Text)
+mediaStreamAttributesRequest_lang = Lens.lens (\MediaStreamAttributesRequest' {lang} -> lang) (\s@MediaStreamAttributesRequest' {} a -> s {lang = a} :: MediaStreamAttributesRequest)
 
 instance
   Prelude.Hashable
     MediaStreamAttributesRequest
   where
   hashWithSalt _salt MediaStreamAttributesRequest' {..} =
-    _salt `Prelude.hashWithSalt` lang
-      `Prelude.hashWithSalt` fmtp
+    _salt `Prelude.hashWithSalt` fmtp
+      `Prelude.hashWithSalt` lang
 
 instance Prelude.NFData MediaStreamAttributesRequest where
   rnf MediaStreamAttributesRequest' {..} =
-    Prelude.rnf lang `Prelude.seq` Prelude.rnf fmtp
+    Prelude.rnf fmtp `Prelude.seq` Prelude.rnf lang
 
 instance Core.ToJSON MediaStreamAttributesRequest where
   toJSON MediaStreamAttributesRequest' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("lang" Core..=) Prelude.<$> lang,
-            ("fmtp" Core..=) Prelude.<$> fmtp
+          [ ("fmtp" Core..=) Prelude.<$> fmtp,
+            ("lang" Core..=) Prelude.<$> lang
           ]
       )

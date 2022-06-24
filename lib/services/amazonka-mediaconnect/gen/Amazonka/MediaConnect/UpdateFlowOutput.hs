@@ -28,18 +28,18 @@ module Amazonka.MediaConnect.UpdateFlowOutput
 
     -- * Request Lenses
     updateFlowOutput_destination,
+    updateFlowOutput_port,
     updateFlowOutput_maxLatency,
     updateFlowOutput_mediaStreamOutputConfigurations,
-    updateFlowOutput_protocol,
-    updateFlowOutput_encryption,
-    updateFlowOutput_cidrAllowList,
     updateFlowOutput_smoothingLatency,
-    updateFlowOutput_minLatency,
-    updateFlowOutput_description,
-    updateFlowOutput_port,
+    updateFlowOutput_cidrAllowList,
     updateFlowOutput_streamId,
     updateFlowOutput_remoteId,
     updateFlowOutput_vpcInterfaceAttachment,
+    updateFlowOutput_description,
+    updateFlowOutput_encryption,
+    updateFlowOutput_protocol,
+    updateFlowOutput_minLatency,
     updateFlowOutput_flowArn,
     updateFlowOutput_outputArn,
 
@@ -48,8 +48,8 @@ module Amazonka.MediaConnect.UpdateFlowOutput
     newUpdateFlowOutputResponse,
 
     -- * Response Lenses
-    updateFlowOutputResponse_flowArn,
     updateFlowOutputResponse_output,
+    updateFlowOutputResponse_flowArn,
     updateFlowOutputResponse_httpStatus,
   )
 where
@@ -67,34 +67,20 @@ import qualified Amazonka.Response as Response
 data UpdateFlowOutput = UpdateFlowOutput'
   { -- | The IP address where you want to send the output.
     destination :: Prelude.Maybe Prelude.Text,
+    -- | The port to use when content is distributed to this output.
+    port :: Prelude.Maybe Prelude.Int,
     -- | The maximum latency in milliseconds for Zixi-based streams.
     maxLatency :: Prelude.Maybe Prelude.Int,
     -- | The media streams that are associated with the output, and the
     -- parameters for those associations.
     mediaStreamOutputConfigurations :: Prelude.Maybe [MediaStreamOutputConfigurationRequest],
-    -- | The protocol to use for the output.
-    protocol :: Prelude.Maybe Protocol,
-    -- | The type of key used for the encryption. If no keyType is provided, the
-    -- service will use the default setting (static-key).
-    encryption :: Prelude.Maybe UpdateEncryption,
+    -- | The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC
+    -- streams.
+    smoothingLatency :: Prelude.Maybe Prelude.Int,
     -- | The range of IP addresses that should be allowed to initiate output
     -- requests to this flow. These IP addresses should be in the form of a
     -- Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0\/16.
     cidrAllowList :: Prelude.Maybe [Prelude.Text],
-    -- | The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC
-    -- streams.
-    smoothingLatency :: Prelude.Maybe Prelude.Int,
-    -- | The minimum latency in milliseconds for SRT-based streams. In streams
-    -- that use the SRT protocol, this value that you set on your MediaConnect
-    -- source or output represents the minimal potential latency of that
-    -- connection. The latency of the stream is set to the highest number
-    -- between the sender’s minimum latency and the receiver’s minimum latency.
-    minLatency :: Prelude.Maybe Prelude.Int,
-    -- | A description of the output. This description appears only on the AWS
-    -- Elemental MediaConnect console and will not be seen by the end user.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The port to use when content is distributed to this output.
-    port :: Prelude.Maybe Prelude.Int,
     -- | The stream ID that you want to use for this transport. This parameter
     -- applies only to Zixi-based streams.
     streamId :: Prelude.Maybe Prelude.Text,
@@ -102,6 +88,20 @@ data UpdateFlowOutput = UpdateFlowOutput'
     remoteId :: Prelude.Maybe Prelude.Text,
     -- | The name of the VPC interface attachment to use for this output.
     vpcInterfaceAttachment :: Prelude.Maybe VpcInterfaceAttachment,
+    -- | A description of the output. This description appears only on the AWS
+    -- Elemental MediaConnect console and will not be seen by the end user.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The type of key used for the encryption. If no keyType is provided, the
+    -- service will use the default setting (static-key).
+    encryption :: Prelude.Maybe UpdateEncryption,
+    -- | The protocol to use for the output.
+    protocol :: Prelude.Maybe Protocol,
+    -- | The minimum latency in milliseconds for SRT-based streams. In streams
+    -- that use the SRT protocol, this value that you set on your MediaConnect
+    -- source or output represents the minimal potential latency of that
+    -- connection. The latency of the stream is set to the highest number
+    -- between the sender’s minimum latency and the receiver’s minimum latency.
+    minLatency :: Prelude.Maybe Prelude.Int,
     -- | The flow that is associated with the output that you want to update.
     flowArn :: Prelude.Text,
     -- | The ARN of the output that you want to update.
@@ -119,33 +119,19 @@ data UpdateFlowOutput = UpdateFlowOutput'
 --
 -- 'destination', 'updateFlowOutput_destination' - The IP address where you want to send the output.
 --
+-- 'port', 'updateFlowOutput_port' - The port to use when content is distributed to this output.
+--
 -- 'maxLatency', 'updateFlowOutput_maxLatency' - The maximum latency in milliseconds for Zixi-based streams.
 --
 -- 'mediaStreamOutputConfigurations', 'updateFlowOutput_mediaStreamOutputConfigurations' - The media streams that are associated with the output, and the
 -- parameters for those associations.
 --
--- 'protocol', 'updateFlowOutput_protocol' - The protocol to use for the output.
---
--- 'encryption', 'updateFlowOutput_encryption' - The type of key used for the encryption. If no keyType is provided, the
--- service will use the default setting (static-key).
+-- 'smoothingLatency', 'updateFlowOutput_smoothingLatency' - The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC
+-- streams.
 --
 -- 'cidrAllowList', 'updateFlowOutput_cidrAllowList' - The range of IP addresses that should be allowed to initiate output
 -- requests to this flow. These IP addresses should be in the form of a
 -- Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0\/16.
---
--- 'smoothingLatency', 'updateFlowOutput_smoothingLatency' - The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC
--- streams.
---
--- 'minLatency', 'updateFlowOutput_minLatency' - The minimum latency in milliseconds for SRT-based streams. In streams
--- that use the SRT protocol, this value that you set on your MediaConnect
--- source or output represents the minimal potential latency of that
--- connection. The latency of the stream is set to the highest number
--- between the sender’s minimum latency and the receiver’s minimum latency.
---
--- 'description', 'updateFlowOutput_description' - A description of the output. This description appears only on the AWS
--- Elemental MediaConnect console and will not be seen by the end user.
---
--- 'port', 'updateFlowOutput_port' - The port to use when content is distributed to this output.
 --
 -- 'streamId', 'updateFlowOutput_streamId' - The stream ID that you want to use for this transport. This parameter
 -- applies only to Zixi-based streams.
@@ -153,6 +139,20 @@ data UpdateFlowOutput = UpdateFlowOutput'
 -- 'remoteId', 'updateFlowOutput_remoteId' - The remote ID for the Zixi-pull stream.
 --
 -- 'vpcInterfaceAttachment', 'updateFlowOutput_vpcInterfaceAttachment' - The name of the VPC interface attachment to use for this output.
+--
+-- 'description', 'updateFlowOutput_description' - A description of the output. This description appears only on the AWS
+-- Elemental MediaConnect console and will not be seen by the end user.
+--
+-- 'encryption', 'updateFlowOutput_encryption' - The type of key used for the encryption. If no keyType is provided, the
+-- service will use the default setting (static-key).
+--
+-- 'protocol', 'updateFlowOutput_protocol' - The protocol to use for the output.
+--
+-- 'minLatency', 'updateFlowOutput_minLatency' - The minimum latency in milliseconds for SRT-based streams. In streams
+-- that use the SRT protocol, this value that you set on your MediaConnect
+-- source or output represents the minimal potential latency of that
+-- connection. The latency of the stream is set to the highest number
+-- between the sender’s minimum latency and the receiver’s minimum latency.
 --
 -- 'flowArn', 'updateFlowOutput_flowArn' - The flow that is associated with the output that you want to update.
 --
@@ -166,18 +166,18 @@ newUpdateFlowOutput ::
 newUpdateFlowOutput pFlowArn_ pOutputArn_ =
   UpdateFlowOutput'
     { destination = Prelude.Nothing,
+      port = Prelude.Nothing,
       maxLatency = Prelude.Nothing,
       mediaStreamOutputConfigurations = Prelude.Nothing,
-      protocol = Prelude.Nothing,
-      encryption = Prelude.Nothing,
-      cidrAllowList = Prelude.Nothing,
       smoothingLatency = Prelude.Nothing,
-      minLatency = Prelude.Nothing,
-      description = Prelude.Nothing,
-      port = Prelude.Nothing,
+      cidrAllowList = Prelude.Nothing,
       streamId = Prelude.Nothing,
       remoteId = Prelude.Nothing,
       vpcInterfaceAttachment = Prelude.Nothing,
+      description = Prelude.Nothing,
+      encryption = Prelude.Nothing,
+      protocol = Prelude.Nothing,
+      minLatency = Prelude.Nothing,
       flowArn = pFlowArn_,
       outputArn = pOutputArn_
     }
@@ -185,6 +185,10 @@ newUpdateFlowOutput pFlowArn_ pOutputArn_ =
 -- | The IP address where you want to send the output.
 updateFlowOutput_destination :: Lens.Lens' UpdateFlowOutput (Prelude.Maybe Prelude.Text)
 updateFlowOutput_destination = Lens.lens (\UpdateFlowOutput' {destination} -> destination) (\s@UpdateFlowOutput' {} a -> s {destination = a} :: UpdateFlowOutput)
+
+-- | The port to use when content is distributed to this output.
+updateFlowOutput_port :: Lens.Lens' UpdateFlowOutput (Prelude.Maybe Prelude.Int)
+updateFlowOutput_port = Lens.lens (\UpdateFlowOutput' {port} -> port) (\s@UpdateFlowOutput' {} a -> s {port = a} :: UpdateFlowOutput)
 
 -- | The maximum latency in milliseconds for Zixi-based streams.
 updateFlowOutput_maxLatency :: Lens.Lens' UpdateFlowOutput (Prelude.Maybe Prelude.Int)
@@ -195,42 +199,16 @@ updateFlowOutput_maxLatency = Lens.lens (\UpdateFlowOutput' {maxLatency} -> maxL
 updateFlowOutput_mediaStreamOutputConfigurations :: Lens.Lens' UpdateFlowOutput (Prelude.Maybe [MediaStreamOutputConfigurationRequest])
 updateFlowOutput_mediaStreamOutputConfigurations = Lens.lens (\UpdateFlowOutput' {mediaStreamOutputConfigurations} -> mediaStreamOutputConfigurations) (\s@UpdateFlowOutput' {} a -> s {mediaStreamOutputConfigurations = a} :: UpdateFlowOutput) Prelude.. Lens.mapping Lens.coerced
 
--- | The protocol to use for the output.
-updateFlowOutput_protocol :: Lens.Lens' UpdateFlowOutput (Prelude.Maybe Protocol)
-updateFlowOutput_protocol = Lens.lens (\UpdateFlowOutput' {protocol} -> protocol) (\s@UpdateFlowOutput' {} a -> s {protocol = a} :: UpdateFlowOutput)
-
--- | The type of key used for the encryption. If no keyType is provided, the
--- service will use the default setting (static-key).
-updateFlowOutput_encryption :: Lens.Lens' UpdateFlowOutput (Prelude.Maybe UpdateEncryption)
-updateFlowOutput_encryption = Lens.lens (\UpdateFlowOutput' {encryption} -> encryption) (\s@UpdateFlowOutput' {} a -> s {encryption = a} :: UpdateFlowOutput)
+-- | The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC
+-- streams.
+updateFlowOutput_smoothingLatency :: Lens.Lens' UpdateFlowOutput (Prelude.Maybe Prelude.Int)
+updateFlowOutput_smoothingLatency = Lens.lens (\UpdateFlowOutput' {smoothingLatency} -> smoothingLatency) (\s@UpdateFlowOutput' {} a -> s {smoothingLatency = a} :: UpdateFlowOutput)
 
 -- | The range of IP addresses that should be allowed to initiate output
 -- requests to this flow. These IP addresses should be in the form of a
 -- Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0\/16.
 updateFlowOutput_cidrAllowList :: Lens.Lens' UpdateFlowOutput (Prelude.Maybe [Prelude.Text])
 updateFlowOutput_cidrAllowList = Lens.lens (\UpdateFlowOutput' {cidrAllowList} -> cidrAllowList) (\s@UpdateFlowOutput' {} a -> s {cidrAllowList = a} :: UpdateFlowOutput) Prelude.. Lens.mapping Lens.coerced
-
--- | The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC
--- streams.
-updateFlowOutput_smoothingLatency :: Lens.Lens' UpdateFlowOutput (Prelude.Maybe Prelude.Int)
-updateFlowOutput_smoothingLatency = Lens.lens (\UpdateFlowOutput' {smoothingLatency} -> smoothingLatency) (\s@UpdateFlowOutput' {} a -> s {smoothingLatency = a} :: UpdateFlowOutput)
-
--- | The minimum latency in milliseconds for SRT-based streams. In streams
--- that use the SRT protocol, this value that you set on your MediaConnect
--- source or output represents the minimal potential latency of that
--- connection. The latency of the stream is set to the highest number
--- between the sender’s minimum latency and the receiver’s minimum latency.
-updateFlowOutput_minLatency :: Lens.Lens' UpdateFlowOutput (Prelude.Maybe Prelude.Int)
-updateFlowOutput_minLatency = Lens.lens (\UpdateFlowOutput' {minLatency} -> minLatency) (\s@UpdateFlowOutput' {} a -> s {minLatency = a} :: UpdateFlowOutput)
-
--- | A description of the output. This description appears only on the AWS
--- Elemental MediaConnect console and will not be seen by the end user.
-updateFlowOutput_description :: Lens.Lens' UpdateFlowOutput (Prelude.Maybe Prelude.Text)
-updateFlowOutput_description = Lens.lens (\UpdateFlowOutput' {description} -> description) (\s@UpdateFlowOutput' {} a -> s {description = a} :: UpdateFlowOutput)
-
--- | The port to use when content is distributed to this output.
-updateFlowOutput_port :: Lens.Lens' UpdateFlowOutput (Prelude.Maybe Prelude.Int)
-updateFlowOutput_port = Lens.lens (\UpdateFlowOutput' {port} -> port) (\s@UpdateFlowOutput' {} a -> s {port = a} :: UpdateFlowOutput)
 
 -- | The stream ID that you want to use for this transport. This parameter
 -- applies only to Zixi-based streams.
@@ -244,6 +222,28 @@ updateFlowOutput_remoteId = Lens.lens (\UpdateFlowOutput' {remoteId} -> remoteId
 -- | The name of the VPC interface attachment to use for this output.
 updateFlowOutput_vpcInterfaceAttachment :: Lens.Lens' UpdateFlowOutput (Prelude.Maybe VpcInterfaceAttachment)
 updateFlowOutput_vpcInterfaceAttachment = Lens.lens (\UpdateFlowOutput' {vpcInterfaceAttachment} -> vpcInterfaceAttachment) (\s@UpdateFlowOutput' {} a -> s {vpcInterfaceAttachment = a} :: UpdateFlowOutput)
+
+-- | A description of the output. This description appears only on the AWS
+-- Elemental MediaConnect console and will not be seen by the end user.
+updateFlowOutput_description :: Lens.Lens' UpdateFlowOutput (Prelude.Maybe Prelude.Text)
+updateFlowOutput_description = Lens.lens (\UpdateFlowOutput' {description} -> description) (\s@UpdateFlowOutput' {} a -> s {description = a} :: UpdateFlowOutput)
+
+-- | The type of key used for the encryption. If no keyType is provided, the
+-- service will use the default setting (static-key).
+updateFlowOutput_encryption :: Lens.Lens' UpdateFlowOutput (Prelude.Maybe UpdateEncryption)
+updateFlowOutput_encryption = Lens.lens (\UpdateFlowOutput' {encryption} -> encryption) (\s@UpdateFlowOutput' {} a -> s {encryption = a} :: UpdateFlowOutput)
+
+-- | The protocol to use for the output.
+updateFlowOutput_protocol :: Lens.Lens' UpdateFlowOutput (Prelude.Maybe Protocol)
+updateFlowOutput_protocol = Lens.lens (\UpdateFlowOutput' {protocol} -> protocol) (\s@UpdateFlowOutput' {} a -> s {protocol = a} :: UpdateFlowOutput)
+
+-- | The minimum latency in milliseconds for SRT-based streams. In streams
+-- that use the SRT protocol, this value that you set on your MediaConnect
+-- source or output represents the minimal potential latency of that
+-- connection. The latency of the stream is set to the highest number
+-- between the sender’s minimum latency and the receiver’s minimum latency.
+updateFlowOutput_minLatency :: Lens.Lens' UpdateFlowOutput (Prelude.Maybe Prelude.Int)
+updateFlowOutput_minLatency = Lens.lens (\UpdateFlowOutput' {minLatency} -> minLatency) (\s@UpdateFlowOutput' {} a -> s {minLatency = a} :: UpdateFlowOutput)
 
 -- | The flow that is associated with the output that you want to update.
 updateFlowOutput_flowArn :: Lens.Lens' UpdateFlowOutput Prelude.Text
@@ -262,44 +262,44 @@ instance Core.AWSRequest UpdateFlowOutput where
     Response.receiveJSON
       ( \s h x ->
           UpdateFlowOutputResponse'
-            Prelude.<$> (x Core..?> "flowArn")
-            Prelude.<*> (x Core..?> "output")
+            Prelude.<$> (x Core..?> "output")
+            Prelude.<*> (x Core..?> "flowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateFlowOutput where
   hashWithSalt _salt UpdateFlowOutput' {..} =
     _salt `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` maxLatency
       `Prelude.hashWithSalt` mediaStreamOutputConfigurations
-      `Prelude.hashWithSalt` protocol
-      `Prelude.hashWithSalt` encryption
-      `Prelude.hashWithSalt` cidrAllowList
       `Prelude.hashWithSalt` smoothingLatency
-      `Prelude.hashWithSalt` minLatency
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` cidrAllowList
       `Prelude.hashWithSalt` streamId
       `Prelude.hashWithSalt` remoteId
       `Prelude.hashWithSalt` vpcInterfaceAttachment
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` minLatency
       `Prelude.hashWithSalt` flowArn
       `Prelude.hashWithSalt` outputArn
 
 instance Prelude.NFData UpdateFlowOutput where
   rnf UpdateFlowOutput' {..} =
     Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf port
       `Prelude.seq` Prelude.rnf maxLatency
       `Prelude.seq` Prelude.rnf mediaStreamOutputConfigurations
-      `Prelude.seq` Prelude.rnf protocol
-      `Prelude.seq` Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf cidrAllowList
       `Prelude.seq` Prelude.rnf smoothingLatency
-      `Prelude.seq` Prelude.rnf minLatency
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf cidrAllowList
       `Prelude.seq` Prelude.rnf streamId
       `Prelude.seq` Prelude.rnf remoteId
       `Prelude.seq` Prelude.rnf vpcInterfaceAttachment
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf minLatency
       `Prelude.seq` Prelude.rnf flowArn
       `Prelude.seq` Prelude.rnf outputArn
 
@@ -319,21 +319,21 @@ instance Core.ToJSON UpdateFlowOutput where
     Core.object
       ( Prelude.catMaybes
           [ ("destination" Core..=) Prelude.<$> destination,
+            ("port" Core..=) Prelude.<$> port,
             ("maxLatency" Core..=) Prelude.<$> maxLatency,
             ("mediaStreamOutputConfigurations" Core..=)
               Prelude.<$> mediaStreamOutputConfigurations,
-            ("protocol" Core..=) Prelude.<$> protocol,
-            ("encryption" Core..=) Prelude.<$> encryption,
-            ("cidrAllowList" Core..=) Prelude.<$> cidrAllowList,
             ("smoothingLatency" Core..=)
               Prelude.<$> smoothingLatency,
-            ("minLatency" Core..=) Prelude.<$> minLatency,
-            ("description" Core..=) Prelude.<$> description,
-            ("port" Core..=) Prelude.<$> port,
+            ("cidrAllowList" Core..=) Prelude.<$> cidrAllowList,
             ("streamId" Core..=) Prelude.<$> streamId,
             ("remoteId" Core..=) Prelude.<$> remoteId,
             ("vpcInterfaceAttachment" Core..=)
-              Prelude.<$> vpcInterfaceAttachment
+              Prelude.<$> vpcInterfaceAttachment,
+            ("description" Core..=) Prelude.<$> description,
+            ("encryption" Core..=) Prelude.<$> encryption,
+            ("protocol" Core..=) Prelude.<$> protocol,
+            ("minLatency" Core..=) Prelude.<$> minLatency
           ]
       )
 
@@ -351,10 +351,10 @@ instance Core.ToQuery UpdateFlowOutput where
 
 -- | /See:/ 'newUpdateFlowOutputResponse' smart constructor.
 data UpdateFlowOutputResponse = UpdateFlowOutputResponse'
-  { -- | The ARN of the flow that is associated with the updated output.
-    flowArn :: Prelude.Maybe Prelude.Text,
-    -- | The new settings of the output that you updated.
+  { -- | The new settings of the output that you updated.
     output :: Prelude.Maybe Output,
+    -- | The ARN of the flow that is associated with the updated output.
+    flowArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -368,9 +368,9 @@ data UpdateFlowOutputResponse = UpdateFlowOutputResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'flowArn', 'updateFlowOutputResponse_flowArn' - The ARN of the flow that is associated with the updated output.
---
 -- 'output', 'updateFlowOutputResponse_output' - The new settings of the output that you updated.
+--
+-- 'flowArn', 'updateFlowOutputResponse_flowArn' - The ARN of the flow that is associated with the updated output.
 --
 -- 'httpStatus', 'updateFlowOutputResponse_httpStatus' - The response's http status code.
 newUpdateFlowOutputResponse ::
@@ -379,19 +379,18 @@ newUpdateFlowOutputResponse ::
   UpdateFlowOutputResponse
 newUpdateFlowOutputResponse pHttpStatus_ =
   UpdateFlowOutputResponse'
-    { flowArn =
-        Prelude.Nothing,
-      output = Prelude.Nothing,
+    { output = Prelude.Nothing,
+      flowArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARN of the flow that is associated with the updated output.
-updateFlowOutputResponse_flowArn :: Lens.Lens' UpdateFlowOutputResponse (Prelude.Maybe Prelude.Text)
-updateFlowOutputResponse_flowArn = Lens.lens (\UpdateFlowOutputResponse' {flowArn} -> flowArn) (\s@UpdateFlowOutputResponse' {} a -> s {flowArn = a} :: UpdateFlowOutputResponse)
 
 -- | The new settings of the output that you updated.
 updateFlowOutputResponse_output :: Lens.Lens' UpdateFlowOutputResponse (Prelude.Maybe Output)
 updateFlowOutputResponse_output = Lens.lens (\UpdateFlowOutputResponse' {output} -> output) (\s@UpdateFlowOutputResponse' {} a -> s {output = a} :: UpdateFlowOutputResponse)
+
+-- | The ARN of the flow that is associated with the updated output.
+updateFlowOutputResponse_flowArn :: Lens.Lens' UpdateFlowOutputResponse (Prelude.Maybe Prelude.Text)
+updateFlowOutputResponse_flowArn = Lens.lens (\UpdateFlowOutputResponse' {flowArn} -> flowArn) (\s@UpdateFlowOutputResponse' {} a -> s {flowArn = a} :: UpdateFlowOutputResponse)
 
 -- | The response's http status code.
 updateFlowOutputResponse_httpStatus :: Lens.Lens' UpdateFlowOutputResponse Prelude.Int
@@ -399,6 +398,6 @@ updateFlowOutputResponse_httpStatus = Lens.lens (\UpdateFlowOutputResponse' {htt
 
 instance Prelude.NFData UpdateFlowOutputResponse where
   rnf UpdateFlowOutputResponse' {..} =
-    Prelude.rnf flowArn
-      `Prelude.seq` Prelude.rnf output
+    Prelude.rnf output
+      `Prelude.seq` Prelude.rnf flowArn
       `Prelude.seq` Prelude.rnf httpStatus

@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
-  { -- | The optional part of a key-value pair that make up a tag. A value acts
-    -- as a descriptor within a tag category (key).
-    value :: Prelude.Maybe Prelude.Text,
-    -- | One part of a key-value pair that make up a tag. A key is a general
+  { -- | One part of a key-value pair that make up a tag. A key is a general
     -- label that acts like a category for more specific tag values.
-    key :: Prelude.Maybe Prelude.Text
+    key :: Prelude.Maybe Prelude.Text,
+    -- | The optional part of a key-value pair that make up a tag. A value acts
+    -- as a descriptor within a tag category (key).
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,28 +48,28 @@ data Tag = Tag'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'tag_value' - The optional part of a key-value pair that make up a tag. A value acts
--- as a descriptor within a tag category (key).
---
 -- 'key', 'tag_key' - One part of a key-value pair that make up a tag. A key is a general
 -- label that acts like a category for more specific tag values.
+--
+-- 'value', 'tag_value' - The optional part of a key-value pair that make up a tag. A value acts
+-- as a descriptor within a tag category (key).
 newTag ::
   Tag
 newTag =
   Tag'
-    { value = Prelude.Nothing,
-      key = Prelude.Nothing
+    { key = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The optional part of a key-value pair that make up a tag. A value acts
--- as a descriptor within a tag category (key).
-tag_value :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
-tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
 -- | One part of a key-value pair that make up a tag. A key is a general
 -- label that acts like a category for more specific tag values.
 tag_key :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
+
+-- | The optional part of a key-value pair that make up a tag. A value acts
+-- as a descriptor within a tag category (key).
+tag_value :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
+tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
 instance Core.FromJSON Tag where
   parseJSON =
@@ -77,23 +77,23 @@ instance Core.FromJSON Tag where
       "Tag"
       ( \x ->
           Tag'
-            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Key")
+            Prelude.<$> (x Core..:? "Key") Prelude.<*> (x Core..:? "Value")
       )
 
 instance Prelude.Hashable Tag where
   hashWithSalt _salt Tag' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` key
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Tag where
   rnf Tag' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf key
+    Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON Tag where
   toJSON Tag' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Value" Core..=) Prelude.<$> value,
-            ("Key" Core..=) Prelude.<$> key
+          [ ("Key" Core..=) Prelude.<$> key,
+            ("Value" Core..=) Prelude.<$> value
           ]
       )

@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConformancePackRuleCompliance' smart constructor.
 data ConformancePackRuleCompliance = ConformancePackRuleCompliance'
-  { -- | Controls for the conformance pack. A control is a process to prevent or
+  { -- | Name of the config rule.
+    configRuleName :: Prelude.Maybe Prelude.Text,
+    -- | Controls for the conformance pack. A control is a process to prevent or
     -- detect problems while meeting objectives. A control can align with a
     -- specific compliance regime or map to internal controls defined by an
     -- organization.
     controls :: Prelude.Maybe [Prelude.Text],
-    -- | Name of the config rule.
-    configRuleName :: Prelude.Maybe Prelude.Text,
     -- | Compliance of the Config rule.
     --
     -- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
@@ -52,12 +52,12 @@ data ConformancePackRuleCompliance = ConformancePackRuleCompliance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'configRuleName', 'conformancePackRuleCompliance_configRuleName' - Name of the config rule.
+--
 -- 'controls', 'conformancePackRuleCompliance_controls' - Controls for the conformance pack. A control is a process to prevent or
 -- detect problems while meeting objectives. A control can align with a
 -- specific compliance regime or map to internal controls defined by an
 -- organization.
---
--- 'configRuleName', 'conformancePackRuleCompliance_configRuleName' - Name of the config rule.
 --
 -- 'complianceType', 'conformancePackRuleCompliance_complianceType' - Compliance of the Config rule.
 --
@@ -67,11 +67,15 @@ newConformancePackRuleCompliance ::
   ConformancePackRuleCompliance
 newConformancePackRuleCompliance =
   ConformancePackRuleCompliance'
-    { controls =
+    { configRuleName =
         Prelude.Nothing,
-      configRuleName = Prelude.Nothing,
+      controls = Prelude.Nothing,
       complianceType = Prelude.Nothing
     }
+
+-- | Name of the config rule.
+conformancePackRuleCompliance_configRuleName :: Lens.Lens' ConformancePackRuleCompliance (Prelude.Maybe Prelude.Text)
+conformancePackRuleCompliance_configRuleName = Lens.lens (\ConformancePackRuleCompliance' {configRuleName} -> configRuleName) (\s@ConformancePackRuleCompliance' {} a -> s {configRuleName = a} :: ConformancePackRuleCompliance)
 
 -- | Controls for the conformance pack. A control is a process to prevent or
 -- detect problems while meeting objectives. A control can align with a
@@ -79,10 +83,6 @@ newConformancePackRuleCompliance =
 -- organization.
 conformancePackRuleCompliance_controls :: Lens.Lens' ConformancePackRuleCompliance (Prelude.Maybe [Prelude.Text])
 conformancePackRuleCompliance_controls = Lens.lens (\ConformancePackRuleCompliance' {controls} -> controls) (\s@ConformancePackRuleCompliance' {} a -> s {controls = a} :: ConformancePackRuleCompliance) Prelude.. Lens.mapping Lens.coerced
-
--- | Name of the config rule.
-conformancePackRuleCompliance_configRuleName :: Lens.Lens' ConformancePackRuleCompliance (Prelude.Maybe Prelude.Text)
-conformancePackRuleCompliance_configRuleName = Lens.lens (\ConformancePackRuleCompliance' {configRuleName} -> configRuleName) (\s@ConformancePackRuleCompliance' {} a -> s {configRuleName = a} :: ConformancePackRuleCompliance)
 
 -- | Compliance of the Config rule.
 --
@@ -97,8 +97,8 @@ instance Core.FromJSON ConformancePackRuleCompliance where
       "ConformancePackRuleCompliance"
       ( \x ->
           ConformancePackRuleCompliance'
-            Prelude.<$> (x Core..:? "Controls" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ConfigRuleName")
+            Prelude.<$> (x Core..:? "ConfigRuleName")
+            Prelude.<*> (x Core..:? "Controls" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "ComplianceType")
       )
 
@@ -107,12 +107,12 @@ instance
     ConformancePackRuleCompliance
   where
   hashWithSalt _salt ConformancePackRuleCompliance' {..} =
-    _salt `Prelude.hashWithSalt` controls
-      `Prelude.hashWithSalt` configRuleName
+    _salt `Prelude.hashWithSalt` configRuleName
+      `Prelude.hashWithSalt` controls
       `Prelude.hashWithSalt` complianceType
 
 instance Prelude.NFData ConformancePackRuleCompliance where
   rnf ConformancePackRuleCompliance' {..} =
-    Prelude.rnf controls
-      `Prelude.seq` Prelude.rnf configRuleName
+    Prelude.rnf configRuleName
+      `Prelude.seq` Prelude.rnf controls
       `Prelude.seq` Prelude.rnf complianceType

@@ -33,8 +33,8 @@ module Amazonka.Config.DescribeConfigurationAggregatorSourcesStatus
 
     -- * Request Lenses
     describeConfigurationAggregatorSourcesStatus_nextToken,
-    describeConfigurationAggregatorSourcesStatus_limit,
     describeConfigurationAggregatorSourcesStatus_updateStatus,
+    describeConfigurationAggregatorSourcesStatus_limit,
     describeConfigurationAggregatorSourcesStatus_configurationAggregatorName,
 
     -- * Destructuring the Response
@@ -42,8 +42,8 @@ module Amazonka.Config.DescribeConfigurationAggregatorSourcesStatus
     newDescribeConfigurationAggregatorSourcesStatusResponse,
 
     -- * Response Lenses
-    describeConfigurationAggregatorSourcesStatusResponse_aggregatedSourceStatusList,
     describeConfigurationAggregatorSourcesStatusResponse_nextToken,
+    describeConfigurationAggregatorSourcesStatusResponse_aggregatedSourceStatusList,
     describeConfigurationAggregatorSourcesStatusResponse_httpStatus,
   )
 where
@@ -60,9 +60,6 @@ data DescribeConfigurationAggregatorSourcesStatus = DescribeConfigurationAggrega
   { -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of AggregatorSourceStatus returned on each page. The
-    -- default is maximum. If you specify 0, Config uses the default.
-    limit :: Prelude.Maybe Prelude.Natural,
     -- | Filters the status type.
     --
     -- -   Valid value FAILED indicates errors while moving data.
@@ -71,6 +68,9 @@ data DescribeConfigurationAggregatorSourcesStatus = DescribeConfigurationAggrega
     --
     -- -   Valid value OUTDATED indicates the data is not the most recent.
     updateStatus :: Prelude.Maybe (Prelude.NonEmpty AggregatedSourceStatusType),
+    -- | The maximum number of AggregatorSourceStatus returned on each page. The
+    -- default is maximum. If you specify 0, Config uses the default.
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | The name of the configuration aggregator.
     configurationAggregatorName :: Prelude.Text
   }
@@ -87,9 +87,6 @@ data DescribeConfigurationAggregatorSourcesStatus = DescribeConfigurationAggrega
 -- 'nextToken', 'describeConfigurationAggregatorSourcesStatus_nextToken' - The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
 --
--- 'limit', 'describeConfigurationAggregatorSourcesStatus_limit' - The maximum number of AggregatorSourceStatus returned on each page. The
--- default is maximum. If you specify 0, Config uses the default.
---
 -- 'updateStatus', 'describeConfigurationAggregatorSourcesStatus_updateStatus' - Filters the status type.
 --
 -- -   Valid value FAILED indicates errors while moving data.
@@ -97,6 +94,9 @@ data DescribeConfigurationAggregatorSourcesStatus = DescribeConfigurationAggrega
 -- -   Valid value SUCCEEDED indicates the data was successfully moved.
 --
 -- -   Valid value OUTDATED indicates the data is not the most recent.
+--
+-- 'limit', 'describeConfigurationAggregatorSourcesStatus_limit' - The maximum number of AggregatorSourceStatus returned on each page. The
+-- default is maximum. If you specify 0, Config uses the default.
 --
 -- 'configurationAggregatorName', 'describeConfigurationAggregatorSourcesStatus_configurationAggregatorName' - The name of the configuration aggregator.
 newDescribeConfigurationAggregatorSourcesStatus ::
@@ -108,9 +108,9 @@ newDescribeConfigurationAggregatorSourcesStatus
     DescribeConfigurationAggregatorSourcesStatus'
       { nextToken =
           Prelude.Nothing,
-        limit = Prelude.Nothing,
         updateStatus =
           Prelude.Nothing,
+        limit = Prelude.Nothing,
         configurationAggregatorName =
           pConfigurationAggregatorName_
       }
@@ -119,11 +119,6 @@ newDescribeConfigurationAggregatorSourcesStatus
 -- the next page of results in a paginated response.
 describeConfigurationAggregatorSourcesStatus_nextToken :: Lens.Lens' DescribeConfigurationAggregatorSourcesStatus (Prelude.Maybe Prelude.Text)
 describeConfigurationAggregatorSourcesStatus_nextToken = Lens.lens (\DescribeConfigurationAggregatorSourcesStatus' {nextToken} -> nextToken) (\s@DescribeConfigurationAggregatorSourcesStatus' {} a -> s {nextToken = a} :: DescribeConfigurationAggregatorSourcesStatus)
-
--- | The maximum number of AggregatorSourceStatus returned on each page. The
--- default is maximum. If you specify 0, Config uses the default.
-describeConfigurationAggregatorSourcesStatus_limit :: Lens.Lens' DescribeConfigurationAggregatorSourcesStatus (Prelude.Maybe Prelude.Natural)
-describeConfigurationAggregatorSourcesStatus_limit = Lens.lens (\DescribeConfigurationAggregatorSourcesStatus' {limit} -> limit) (\s@DescribeConfigurationAggregatorSourcesStatus' {} a -> s {limit = a} :: DescribeConfigurationAggregatorSourcesStatus)
 
 -- | Filters the status type.
 --
@@ -134,6 +129,11 @@ describeConfigurationAggregatorSourcesStatus_limit = Lens.lens (\DescribeConfigu
 -- -   Valid value OUTDATED indicates the data is not the most recent.
 describeConfigurationAggregatorSourcesStatus_updateStatus :: Lens.Lens' DescribeConfigurationAggregatorSourcesStatus (Prelude.Maybe (Prelude.NonEmpty AggregatedSourceStatusType))
 describeConfigurationAggregatorSourcesStatus_updateStatus = Lens.lens (\DescribeConfigurationAggregatorSourcesStatus' {updateStatus} -> updateStatus) (\s@DescribeConfigurationAggregatorSourcesStatus' {} a -> s {updateStatus = a} :: DescribeConfigurationAggregatorSourcesStatus) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of AggregatorSourceStatus returned on each page. The
+-- default is maximum. If you specify 0, Config uses the default.
+describeConfigurationAggregatorSourcesStatus_limit :: Lens.Lens' DescribeConfigurationAggregatorSourcesStatus (Prelude.Maybe Prelude.Natural)
+describeConfigurationAggregatorSourcesStatus_limit = Lens.lens (\DescribeConfigurationAggregatorSourcesStatus' {limit} -> limit) (\s@DescribeConfigurationAggregatorSourcesStatus' {} a -> s {limit = a} :: DescribeConfigurationAggregatorSourcesStatus)
 
 -- | The name of the configuration aggregator.
 describeConfigurationAggregatorSourcesStatus_configurationAggregatorName :: Lens.Lens' DescribeConfigurationAggregatorSourcesStatus Prelude.Text
@@ -177,10 +177,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeConfigurationAggregatorSourcesStatusResponse'
-            Prelude.<$> ( x Core..?> "AggregatedSourceStatusList"
-                            Core..!@ Prelude.mempty
-                        )
-              Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+              Prelude.<*> ( x Core..?> "AggregatedSourceStatusList"
+                              Core..!@ Prelude.mempty
+                          )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -192,8 +192,8 @@ instance
     _salt
     DescribeConfigurationAggregatorSourcesStatus' {..} =
       _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` limit
         `Prelude.hashWithSalt` updateStatus
+        `Prelude.hashWithSalt` limit
         `Prelude.hashWithSalt` configurationAggregatorName
 
 instance
@@ -202,8 +202,8 @@ instance
   where
   rnf DescribeConfigurationAggregatorSourcesStatus' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf updateStatus
+      `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf configurationAggregatorName
 
 instance
@@ -233,8 +233,8 @@ instance
       Core.object
         ( Prelude.catMaybes
             [ ("NextToken" Core..=) Prelude.<$> nextToken,
-              ("Limit" Core..=) Prelude.<$> limit,
               ("UpdateStatus" Core..=) Prelude.<$> updateStatus,
+              ("Limit" Core..=) Prelude.<$> limit,
               Prelude.Just
                 ( "ConfigurationAggregatorName"
                     Core..= configurationAggregatorName
@@ -256,11 +256,11 @@ instance
 
 -- | /See:/ 'newDescribeConfigurationAggregatorSourcesStatusResponse' smart constructor.
 data DescribeConfigurationAggregatorSourcesStatusResponse = DescribeConfigurationAggregatorSourcesStatusResponse'
-  { -- | Returns an AggregatedSourceStatus object.
-    aggregatedSourceStatusList :: Prelude.Maybe [AggregatedSourceStatus],
-    -- | The @nextToken@ string returned on a previous page that you use to get
+  { -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Returns an AggregatedSourceStatus object.
+    aggregatedSourceStatusList :: Prelude.Maybe [AggregatedSourceStatus],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -274,10 +274,10 @@ data DescribeConfigurationAggregatorSourcesStatusResponse = DescribeConfiguratio
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'aggregatedSourceStatusList', 'describeConfigurationAggregatorSourcesStatusResponse_aggregatedSourceStatusList' - Returns an AggregatedSourceStatus object.
---
 -- 'nextToken', 'describeConfigurationAggregatorSourcesStatusResponse_nextToken' - The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
+--
+-- 'aggregatedSourceStatusList', 'describeConfigurationAggregatorSourcesStatusResponse_aggregatedSourceStatusList' - Returns an AggregatedSourceStatus object.
 --
 -- 'httpStatus', 'describeConfigurationAggregatorSourcesStatusResponse_httpStatus' - The response's http status code.
 newDescribeConfigurationAggregatorSourcesStatusResponse ::
@@ -287,22 +287,22 @@ newDescribeConfigurationAggregatorSourcesStatusResponse ::
 newDescribeConfigurationAggregatorSourcesStatusResponse
   pHttpStatus_ =
     DescribeConfigurationAggregatorSourcesStatusResponse'
-      { aggregatedSourceStatusList =
+      { nextToken =
           Prelude.Nothing,
-        nextToken =
+        aggregatedSourceStatusList =
           Prelude.Nothing,
         httpStatus =
           pHttpStatus_
       }
 
--- | Returns an AggregatedSourceStatus object.
-describeConfigurationAggregatorSourcesStatusResponse_aggregatedSourceStatusList :: Lens.Lens' DescribeConfigurationAggregatorSourcesStatusResponse (Prelude.Maybe [AggregatedSourceStatus])
-describeConfigurationAggregatorSourcesStatusResponse_aggregatedSourceStatusList = Lens.lens (\DescribeConfigurationAggregatorSourcesStatusResponse' {aggregatedSourceStatusList} -> aggregatedSourceStatusList) (\s@DescribeConfigurationAggregatorSourcesStatusResponse' {} a -> s {aggregatedSourceStatusList = a} :: DescribeConfigurationAggregatorSourcesStatusResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
 describeConfigurationAggregatorSourcesStatusResponse_nextToken :: Lens.Lens' DescribeConfigurationAggregatorSourcesStatusResponse (Prelude.Maybe Prelude.Text)
 describeConfigurationAggregatorSourcesStatusResponse_nextToken = Lens.lens (\DescribeConfigurationAggregatorSourcesStatusResponse' {nextToken} -> nextToken) (\s@DescribeConfigurationAggregatorSourcesStatusResponse' {} a -> s {nextToken = a} :: DescribeConfigurationAggregatorSourcesStatusResponse)
+
+-- | Returns an AggregatedSourceStatus object.
+describeConfigurationAggregatorSourcesStatusResponse_aggregatedSourceStatusList :: Lens.Lens' DescribeConfigurationAggregatorSourcesStatusResponse (Prelude.Maybe [AggregatedSourceStatus])
+describeConfigurationAggregatorSourcesStatusResponse_aggregatedSourceStatusList = Lens.lens (\DescribeConfigurationAggregatorSourcesStatusResponse' {aggregatedSourceStatusList} -> aggregatedSourceStatusList) (\s@DescribeConfigurationAggregatorSourcesStatusResponse' {} a -> s {aggregatedSourceStatusList = a} :: DescribeConfigurationAggregatorSourcesStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeConfigurationAggregatorSourcesStatusResponse_httpStatus :: Lens.Lens' DescribeConfigurationAggregatorSourcesStatusResponse Prelude.Int
@@ -314,6 +314,6 @@ instance
   where
   rnf
     DescribeConfigurationAggregatorSourcesStatusResponse' {..} =
-      Prelude.rnf aggregatedSourceStatusList
-        `Prelude.seq` Prelude.rnf nextToken
+      Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf aggregatedSourceStatusList
         `Prelude.seq` Prelude.rnf httpStatus

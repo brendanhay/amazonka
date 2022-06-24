@@ -37,11 +37,11 @@ module Amazonka.Config.PutConformancePack
     newPutConformancePack,
 
     -- * Request Lenses
-    putConformancePack_deliveryS3Bucket,
-    putConformancePack_deliveryS3KeyPrefix,
     putConformancePack_templateS3Uri,
     putConformancePack_conformancePackInputParameters,
     putConformancePack_templateBody,
+    putConformancePack_deliveryS3Bucket,
+    putConformancePack_deliveryS3KeyPrefix,
     putConformancePack_conformancePackName,
 
     -- * Destructuring the Response
@@ -63,16 +63,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutConformancePack' smart constructor.
 data PutConformancePack = PutConformancePack'
-  { -- | The name of the Amazon S3 bucket where Config stores conformance pack
-    -- templates.
-    --
-    -- This field is optional.
-    deliveryS3Bucket :: Prelude.Maybe Prelude.Text,
-    -- | The prefix for the Amazon S3 bucket.
-    --
-    -- This field is optional.
-    deliveryS3KeyPrefix :: Prelude.Maybe Prelude.Text,
-    -- | Location of file containing the template body
+  { -- | Location of file containing the template body
     -- (@s3:\/\/bucketname\/prefix@). The uri must point to the conformance
     -- pack template (max size: 300 KB) that is located in an Amazon S3 bucket
     -- in the same region as the conformance pack.
@@ -88,6 +79,15 @@ data PutConformancePack = PutConformancePack'
     -- You can only use a YAML template with one resource type, that is, config
     -- rule and a remediation action.
     templateBody :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Amazon S3 bucket where Config stores conformance pack
+    -- templates.
+    --
+    -- This field is optional.
+    deliveryS3Bucket :: Prelude.Maybe Prelude.Text,
+    -- | The prefix for the Amazon S3 bucket.
+    --
+    -- This field is optional.
+    deliveryS3KeyPrefix :: Prelude.Maybe Prelude.Text,
     -- | Name of the conformance pack you want to create.
     conformancePackName :: Prelude.Text
   }
@@ -100,15 +100,6 @@ data PutConformancePack = PutConformancePack'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'deliveryS3Bucket', 'putConformancePack_deliveryS3Bucket' - The name of the Amazon S3 bucket where Config stores conformance pack
--- templates.
---
--- This field is optional.
---
--- 'deliveryS3KeyPrefix', 'putConformancePack_deliveryS3KeyPrefix' - The prefix for the Amazon S3 bucket.
---
--- This field is optional.
 --
 -- 'templateS3Uri', 'putConformancePack_templateS3Uri' - Location of file containing the template body
 -- (@s3:\/\/bucketname\/prefix@). The uri must point to the conformance
@@ -126,6 +117,15 @@ data PutConformancePack = PutConformancePack'
 -- You can only use a YAML template with one resource type, that is, config
 -- rule and a remediation action.
 --
+-- 'deliveryS3Bucket', 'putConformancePack_deliveryS3Bucket' - The name of the Amazon S3 bucket where Config stores conformance pack
+-- templates.
+--
+-- This field is optional.
+--
+-- 'deliveryS3KeyPrefix', 'putConformancePack_deliveryS3KeyPrefix' - The prefix for the Amazon S3 bucket.
+--
+-- This field is optional.
+--
 -- 'conformancePackName', 'putConformancePack_conformancePackName' - Name of the conformance pack you want to create.
 newPutConformancePack ::
   -- | 'conformancePackName'
@@ -133,27 +133,14 @@ newPutConformancePack ::
   PutConformancePack
 newPutConformancePack pConformancePackName_ =
   PutConformancePack'
-    { deliveryS3Bucket =
+    { templateS3Uri =
         Prelude.Nothing,
-      deliveryS3KeyPrefix = Prelude.Nothing,
-      templateS3Uri = Prelude.Nothing,
       conformancePackInputParameters = Prelude.Nothing,
       templateBody = Prelude.Nothing,
+      deliveryS3Bucket = Prelude.Nothing,
+      deliveryS3KeyPrefix = Prelude.Nothing,
       conformancePackName = pConformancePackName_
     }
-
--- | The name of the Amazon S3 bucket where Config stores conformance pack
--- templates.
---
--- This field is optional.
-putConformancePack_deliveryS3Bucket :: Lens.Lens' PutConformancePack (Prelude.Maybe Prelude.Text)
-putConformancePack_deliveryS3Bucket = Lens.lens (\PutConformancePack' {deliveryS3Bucket} -> deliveryS3Bucket) (\s@PutConformancePack' {} a -> s {deliveryS3Bucket = a} :: PutConformancePack)
-
--- | The prefix for the Amazon S3 bucket.
---
--- This field is optional.
-putConformancePack_deliveryS3KeyPrefix :: Lens.Lens' PutConformancePack (Prelude.Maybe Prelude.Text)
-putConformancePack_deliveryS3KeyPrefix = Lens.lens (\PutConformancePack' {deliveryS3KeyPrefix} -> deliveryS3KeyPrefix) (\s@PutConformancePack' {} a -> s {deliveryS3KeyPrefix = a} :: PutConformancePack)
 
 -- | Location of file containing the template body
 -- (@s3:\/\/bucketname\/prefix@). The uri must point to the conformance
@@ -177,6 +164,19 @@ putConformancePack_conformancePackInputParameters = Lens.lens (\PutConformancePa
 putConformancePack_templateBody :: Lens.Lens' PutConformancePack (Prelude.Maybe Prelude.Text)
 putConformancePack_templateBody = Lens.lens (\PutConformancePack' {templateBody} -> templateBody) (\s@PutConformancePack' {} a -> s {templateBody = a} :: PutConformancePack)
 
+-- | The name of the Amazon S3 bucket where Config stores conformance pack
+-- templates.
+--
+-- This field is optional.
+putConformancePack_deliveryS3Bucket :: Lens.Lens' PutConformancePack (Prelude.Maybe Prelude.Text)
+putConformancePack_deliveryS3Bucket = Lens.lens (\PutConformancePack' {deliveryS3Bucket} -> deliveryS3Bucket) (\s@PutConformancePack' {} a -> s {deliveryS3Bucket = a} :: PutConformancePack)
+
+-- | The prefix for the Amazon S3 bucket.
+--
+-- This field is optional.
+putConformancePack_deliveryS3KeyPrefix :: Lens.Lens' PutConformancePack (Prelude.Maybe Prelude.Text)
+putConformancePack_deliveryS3KeyPrefix = Lens.lens (\PutConformancePack' {deliveryS3KeyPrefix} -> deliveryS3KeyPrefix) (\s@PutConformancePack' {} a -> s {deliveryS3KeyPrefix = a} :: PutConformancePack)
+
 -- | Name of the conformance pack you want to create.
 putConformancePack_conformancePackName :: Lens.Lens' PutConformancePack Prelude.Text
 putConformancePack_conformancePackName = Lens.lens (\PutConformancePack' {conformancePackName} -> conformancePackName) (\s@PutConformancePack' {} a -> s {conformancePackName = a} :: PutConformancePack)
@@ -196,20 +196,20 @@ instance Core.AWSRequest PutConformancePack where
 
 instance Prelude.Hashable PutConformancePack where
   hashWithSalt _salt PutConformancePack' {..} =
-    _salt `Prelude.hashWithSalt` deliveryS3Bucket
-      `Prelude.hashWithSalt` deliveryS3KeyPrefix
-      `Prelude.hashWithSalt` templateS3Uri
+    _salt `Prelude.hashWithSalt` templateS3Uri
       `Prelude.hashWithSalt` conformancePackInputParameters
       `Prelude.hashWithSalt` templateBody
+      `Prelude.hashWithSalt` deliveryS3Bucket
+      `Prelude.hashWithSalt` deliveryS3KeyPrefix
       `Prelude.hashWithSalt` conformancePackName
 
 instance Prelude.NFData PutConformancePack where
   rnf PutConformancePack' {..} =
-    Prelude.rnf deliveryS3Bucket
-      `Prelude.seq` Prelude.rnf deliveryS3KeyPrefix
-      `Prelude.seq` Prelude.rnf templateS3Uri
+    Prelude.rnf templateS3Uri
       `Prelude.seq` Prelude.rnf conformancePackInputParameters
       `Prelude.seq` Prelude.rnf templateBody
+      `Prelude.seq` Prelude.rnf deliveryS3Bucket
+      `Prelude.seq` Prelude.rnf deliveryS3KeyPrefix
       `Prelude.seq` Prelude.rnf conformancePackName
 
 instance Core.ToHeaders PutConformancePack where
@@ -231,14 +231,14 @@ instance Core.ToJSON PutConformancePack where
   toJSON PutConformancePack' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DeliveryS3Bucket" Core..=)
-              Prelude.<$> deliveryS3Bucket,
-            ("DeliveryS3KeyPrefix" Core..=)
-              Prelude.<$> deliveryS3KeyPrefix,
-            ("TemplateS3Uri" Core..=) Prelude.<$> templateS3Uri,
+          [ ("TemplateS3Uri" Core..=) Prelude.<$> templateS3Uri,
             ("ConformancePackInputParameters" Core..=)
               Prelude.<$> conformancePackInputParameters,
             ("TemplateBody" Core..=) Prelude.<$> templateBody,
+            ("DeliveryS3Bucket" Core..=)
+              Prelude.<$> deliveryS3Bucket,
+            ("DeliveryS3KeyPrefix" Core..=)
+              Prelude.<$> deliveryS3KeyPrefix,
             Prelude.Just
               ("ConformancePackName" Core..= conformancePackName)
           ]

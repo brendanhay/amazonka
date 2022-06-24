@@ -44,9 +44,9 @@ module Amazonka.Config.SelectResourceConfig
     newSelectResourceConfigResponse,
 
     -- * Response Lenses
-    selectResourceConfigResponse_results,
     selectResourceConfigResponse_queryInfo,
     selectResourceConfigResponse_nextToken,
+    selectResourceConfigResponse_results,
     selectResourceConfigResponse_httpStatus,
   )
 where
@@ -139,9 +139,9 @@ instance Core.AWSRequest SelectResourceConfig where
     Response.receiveJSON
       ( \s h x ->
           SelectResourceConfigResponse'
-            Prelude.<$> (x Core..?> "Results" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "QueryInfo")
+            Prelude.<$> (x Core..?> "QueryInfo")
             Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Results" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -190,13 +190,13 @@ instance Core.ToQuery SelectResourceConfig where
 
 -- | /See:/ 'newSelectResourceConfigResponse' smart constructor.
 data SelectResourceConfigResponse = SelectResourceConfigResponse'
-  { -- | Returns the results for the SQL query.
-    results :: Prelude.Maybe [Prelude.Text],
-    -- | Returns the @QueryInfo@ object.
+  { -- | Returns the @QueryInfo@ object.
     queryInfo :: Prelude.Maybe QueryInfo,
     -- | The @nextToken@ string returned in a previous request that you use to
     -- request the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Returns the results for the SQL query.
+    results :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -210,12 +210,12 @@ data SelectResourceConfigResponse = SelectResourceConfigResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'results', 'selectResourceConfigResponse_results' - Returns the results for the SQL query.
---
 -- 'queryInfo', 'selectResourceConfigResponse_queryInfo' - Returns the @QueryInfo@ object.
 --
 -- 'nextToken', 'selectResourceConfigResponse_nextToken' - The @nextToken@ string returned in a previous request that you use to
 -- request the next page of results in a paginated response.
+--
+-- 'results', 'selectResourceConfigResponse_results' - Returns the results for the SQL query.
 --
 -- 'httpStatus', 'selectResourceConfigResponse_httpStatus' - The response's http status code.
 newSelectResourceConfigResponse ::
@@ -224,16 +224,12 @@ newSelectResourceConfigResponse ::
   SelectResourceConfigResponse
 newSelectResourceConfigResponse pHttpStatus_ =
   SelectResourceConfigResponse'
-    { results =
+    { queryInfo =
         Prelude.Nothing,
-      queryInfo = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      results = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Returns the results for the SQL query.
-selectResourceConfigResponse_results :: Lens.Lens' SelectResourceConfigResponse (Prelude.Maybe [Prelude.Text])
-selectResourceConfigResponse_results = Lens.lens (\SelectResourceConfigResponse' {results} -> results) (\s@SelectResourceConfigResponse' {} a -> s {results = a} :: SelectResourceConfigResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Returns the @QueryInfo@ object.
 selectResourceConfigResponse_queryInfo :: Lens.Lens' SelectResourceConfigResponse (Prelude.Maybe QueryInfo)
@@ -244,13 +240,17 @@ selectResourceConfigResponse_queryInfo = Lens.lens (\SelectResourceConfigRespons
 selectResourceConfigResponse_nextToken :: Lens.Lens' SelectResourceConfigResponse (Prelude.Maybe Prelude.Text)
 selectResourceConfigResponse_nextToken = Lens.lens (\SelectResourceConfigResponse' {nextToken} -> nextToken) (\s@SelectResourceConfigResponse' {} a -> s {nextToken = a} :: SelectResourceConfigResponse)
 
+-- | Returns the results for the SQL query.
+selectResourceConfigResponse_results :: Lens.Lens' SelectResourceConfigResponse (Prelude.Maybe [Prelude.Text])
+selectResourceConfigResponse_results = Lens.lens (\SelectResourceConfigResponse' {results} -> results) (\s@SelectResourceConfigResponse' {} a -> s {results = a} :: SelectResourceConfigResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 selectResourceConfigResponse_httpStatus :: Lens.Lens' SelectResourceConfigResponse Prelude.Int
 selectResourceConfigResponse_httpStatus = Lens.lens (\SelectResourceConfigResponse' {httpStatus} -> httpStatus) (\s@SelectResourceConfigResponse' {} a -> s {httpStatus = a} :: SelectResourceConfigResponse)
 
 instance Prelude.NFData SelectResourceConfigResponse where
   rnf SelectResourceConfigResponse' {..} =
-    Prelude.rnf results
-      `Prelude.seq` Prelude.rnf queryInfo
+    Prelude.rnf queryInfo
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf results
       `Prelude.seq` Prelude.rnf httpStatus

@@ -28,15 +28,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEvaluationResultIdentifier' smart constructor.
 data EvaluationResultIdentifier = EvaluationResultIdentifier'
-  { -- | Identifies an Config rule used to evaluate an Amazon Web Services
-    -- resource, and provides the type and ID of the evaluated resource.
-    evaluationResultQualifier :: Prelude.Maybe EvaluationResultQualifier,
-    -- | The time of the event that triggered the evaluation of your Amazon Web
+  { -- | The time of the event that triggered the evaluation of your Amazon Web
     -- Services resources. The time can indicate when Config delivered a
     -- configuration item change notification, or it can indicate when Config
     -- delivered the configuration snapshot, depending on which event triggered
     -- the evaluation.
-    orderingTimestamp :: Prelude.Maybe Core.POSIX
+    orderingTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | Identifies an Config rule used to evaluate an Amazon Web Services
+    -- resource, and provides the type and ID of the evaluated resource.
+    evaluationResultQualifier :: Prelude.Maybe EvaluationResultQualifier
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,27 +48,22 @@ data EvaluationResultIdentifier = EvaluationResultIdentifier'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'evaluationResultQualifier', 'evaluationResultIdentifier_evaluationResultQualifier' - Identifies an Config rule used to evaluate an Amazon Web Services
--- resource, and provides the type and ID of the evaluated resource.
---
 -- 'orderingTimestamp', 'evaluationResultIdentifier_orderingTimestamp' - The time of the event that triggered the evaluation of your Amazon Web
 -- Services resources. The time can indicate when Config delivered a
 -- configuration item change notification, or it can indicate when Config
 -- delivered the configuration snapshot, depending on which event triggered
 -- the evaluation.
+--
+-- 'evaluationResultQualifier', 'evaluationResultIdentifier_evaluationResultQualifier' - Identifies an Config rule used to evaluate an Amazon Web Services
+-- resource, and provides the type and ID of the evaluated resource.
 newEvaluationResultIdentifier ::
   EvaluationResultIdentifier
 newEvaluationResultIdentifier =
   EvaluationResultIdentifier'
-    { evaluationResultQualifier =
+    { orderingTimestamp =
         Prelude.Nothing,
-      orderingTimestamp = Prelude.Nothing
+      evaluationResultQualifier = Prelude.Nothing
     }
-
--- | Identifies an Config rule used to evaluate an Amazon Web Services
--- resource, and provides the type and ID of the evaluated resource.
-evaluationResultIdentifier_evaluationResultQualifier :: Lens.Lens' EvaluationResultIdentifier (Prelude.Maybe EvaluationResultQualifier)
-evaluationResultIdentifier_evaluationResultQualifier = Lens.lens (\EvaluationResultIdentifier' {evaluationResultQualifier} -> evaluationResultQualifier) (\s@EvaluationResultIdentifier' {} a -> s {evaluationResultQualifier = a} :: EvaluationResultIdentifier)
 
 -- | The time of the event that triggered the evaluation of your Amazon Web
 -- Services resources. The time can indicate when Config delivered a
@@ -78,23 +73,27 @@ evaluationResultIdentifier_evaluationResultQualifier = Lens.lens (\EvaluationRes
 evaluationResultIdentifier_orderingTimestamp :: Lens.Lens' EvaluationResultIdentifier (Prelude.Maybe Prelude.UTCTime)
 evaluationResultIdentifier_orderingTimestamp = Lens.lens (\EvaluationResultIdentifier' {orderingTimestamp} -> orderingTimestamp) (\s@EvaluationResultIdentifier' {} a -> s {orderingTimestamp = a} :: EvaluationResultIdentifier) Prelude.. Lens.mapping Core._Time
 
+-- | Identifies an Config rule used to evaluate an Amazon Web Services
+-- resource, and provides the type and ID of the evaluated resource.
+evaluationResultIdentifier_evaluationResultQualifier :: Lens.Lens' EvaluationResultIdentifier (Prelude.Maybe EvaluationResultQualifier)
+evaluationResultIdentifier_evaluationResultQualifier = Lens.lens (\EvaluationResultIdentifier' {evaluationResultQualifier} -> evaluationResultQualifier) (\s@EvaluationResultIdentifier' {} a -> s {evaluationResultQualifier = a} :: EvaluationResultIdentifier)
+
 instance Core.FromJSON EvaluationResultIdentifier where
   parseJSON =
     Core.withObject
       "EvaluationResultIdentifier"
       ( \x ->
           EvaluationResultIdentifier'
-            Prelude.<$> (x Core..:? "EvaluationResultQualifier")
-            Prelude.<*> (x Core..:? "OrderingTimestamp")
+            Prelude.<$> (x Core..:? "OrderingTimestamp")
+            Prelude.<*> (x Core..:? "EvaluationResultQualifier")
       )
 
 instance Prelude.Hashable EvaluationResultIdentifier where
   hashWithSalt _salt EvaluationResultIdentifier' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` orderingTimestamp
       `Prelude.hashWithSalt` evaluationResultQualifier
-      `Prelude.hashWithSalt` orderingTimestamp
 
 instance Prelude.NFData EvaluationResultIdentifier where
   rnf EvaluationResultIdentifier' {..} =
-    Prelude.rnf evaluationResultQualifier
-      `Prelude.seq` Prelude.rnf orderingTimestamp
+    Prelude.rnf orderingTimestamp
+      `Prelude.seq` Prelude.rnf evaluationResultQualifier

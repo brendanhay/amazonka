@@ -29,8 +29,8 @@ module Amazonka.Config.DescribeConfigRules
     newDescribeConfigRules,
 
     -- * Request Lenses
-    describeConfigRules_configRuleNames,
     describeConfigRules_nextToken,
+    describeConfigRules_configRuleNames,
 
     -- * Destructuring the Response
     DescribeConfigRulesResponse (..),
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeConfigRules' smart constructor.
 data DescribeConfigRules = DescribeConfigRules'
-  { -- | The names of the Config rules for which you want details. If you do not
-    -- specify any names, Config returns details for all your rules.
-    configRuleNames :: Prelude.Maybe [Prelude.Text],
-    -- | The @nextToken@ string returned on a previous page that you use to get
+  { -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The names of the Config rules for which you want details. If you do not
+    -- specify any names, Config returns details for all your rules.
+    configRuleNames :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,29 +71,28 @@ data DescribeConfigRules = DescribeConfigRules'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configRuleNames', 'describeConfigRules_configRuleNames' - The names of the Config rules for which you want details. If you do not
--- specify any names, Config returns details for all your rules.
---
 -- 'nextToken', 'describeConfigRules_nextToken' - The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
+--
+-- 'configRuleNames', 'describeConfigRules_configRuleNames' - The names of the Config rules for which you want details. If you do not
+-- specify any names, Config returns details for all your rules.
 newDescribeConfigRules ::
   DescribeConfigRules
 newDescribeConfigRules =
   DescribeConfigRules'
-    { configRuleNames =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing
+    { nextToken = Prelude.Nothing,
+      configRuleNames = Prelude.Nothing
     }
-
--- | The names of the Config rules for which you want details. If you do not
--- specify any names, Config returns details for all your rules.
-describeConfigRules_configRuleNames :: Lens.Lens' DescribeConfigRules (Prelude.Maybe [Prelude.Text])
-describeConfigRules_configRuleNames = Lens.lens (\DescribeConfigRules' {configRuleNames} -> configRuleNames) (\s@DescribeConfigRules' {} a -> s {configRuleNames = a} :: DescribeConfigRules) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
 describeConfigRules_nextToken :: Lens.Lens' DescribeConfigRules (Prelude.Maybe Prelude.Text)
 describeConfigRules_nextToken = Lens.lens (\DescribeConfigRules' {nextToken} -> nextToken) (\s@DescribeConfigRules' {} a -> s {nextToken = a} :: DescribeConfigRules)
+
+-- | The names of the Config rules for which you want details. If you do not
+-- specify any names, Config returns details for all your rules.
+describeConfigRules_configRuleNames :: Lens.Lens' DescribeConfigRules (Prelude.Maybe [Prelude.Text])
+describeConfigRules_configRuleNames = Lens.lens (\DescribeConfigRules' {configRuleNames} -> configRuleNames) (\s@DescribeConfigRules' {} a -> s {configRuleNames = a} :: DescribeConfigRules) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager DescribeConfigRules where
   page rq rs
@@ -133,13 +132,13 @@ instance Core.AWSRequest DescribeConfigRules where
 
 instance Prelude.Hashable DescribeConfigRules where
   hashWithSalt _salt DescribeConfigRules' {..} =
-    _salt `Prelude.hashWithSalt` configRuleNames
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` configRuleNames
 
 instance Prelude.NFData DescribeConfigRules where
   rnf DescribeConfigRules' {..} =
-    Prelude.rnf configRuleNames
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf configRuleNames
 
 instance Core.ToHeaders DescribeConfigRules where
   toHeaders =
@@ -160,9 +159,9 @@ instance Core.ToJSON DescribeConfigRules where
   toJSON DescribeConfigRules' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ConfigRuleNames" Core..=)
-              Prelude.<$> configRuleNames,
-            ("NextToken" Core..=) Prelude.<$> nextToken
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("ConfigRuleNames" Core..=)
+              Prelude.<$> configRuleNames
           ]
       )
 

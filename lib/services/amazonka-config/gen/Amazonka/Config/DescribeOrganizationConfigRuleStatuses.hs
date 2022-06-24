@@ -38,9 +38,9 @@ module Amazonka.Config.DescribeOrganizationConfigRuleStatuses
     newDescribeOrganizationConfigRuleStatuses,
 
     -- * Request Lenses
-    describeOrganizationConfigRuleStatuses_organizationConfigRuleNames,
     describeOrganizationConfigRuleStatuses_nextToken,
     describeOrganizationConfigRuleStatuses_limit,
+    describeOrganizationConfigRuleStatuses_organizationConfigRuleNames,
 
     -- * Destructuring the Response
     DescribeOrganizationConfigRuleStatusesResponse (..),
@@ -62,17 +62,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeOrganizationConfigRuleStatuses' smart constructor.
 data DescribeOrganizationConfigRuleStatuses = DescribeOrganizationConfigRuleStatuses'
-  { -- | The names of organization config rules for which you want status
-    -- details. If you do not specify any names, Config returns details for all
-    -- your organization Config rules.
-    organizationConfigRuleNames :: Prelude.Maybe [Prelude.Text],
-    -- | The @nextToken@ string returned on a previous page that you use to get
+  { -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of @OrganizationConfigRuleStatuses@ returned on each
     -- page. If you do no specify a number, Config uses the default. The
     -- default is 100.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The names of organization config rules for which you want status
+    -- details. If you do not specify any names, Config returns details for all
+    -- your organization Config rules.
+    organizationConfigRuleNames :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,31 +84,26 @@ data DescribeOrganizationConfigRuleStatuses = DescribeOrganizationConfigRuleStat
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'organizationConfigRuleNames', 'describeOrganizationConfigRuleStatuses_organizationConfigRuleNames' - The names of organization config rules for which you want status
--- details. If you do not specify any names, Config returns details for all
--- your organization Config rules.
---
 -- 'nextToken', 'describeOrganizationConfigRuleStatuses_nextToken' - The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
 --
 -- 'limit', 'describeOrganizationConfigRuleStatuses_limit' - The maximum number of @OrganizationConfigRuleStatuses@ returned on each
 -- page. If you do no specify a number, Config uses the default. The
 -- default is 100.
+--
+-- 'organizationConfigRuleNames', 'describeOrganizationConfigRuleStatuses_organizationConfigRuleNames' - The names of organization config rules for which you want status
+-- details. If you do not specify any names, Config returns details for all
+-- your organization Config rules.
 newDescribeOrganizationConfigRuleStatuses ::
   DescribeOrganizationConfigRuleStatuses
 newDescribeOrganizationConfigRuleStatuses =
   DescribeOrganizationConfigRuleStatuses'
-    { organizationConfigRuleNames =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      limit = Prelude.Nothing
+      limit = Prelude.Nothing,
+      organizationConfigRuleNames =
+        Prelude.Nothing
     }
-
--- | The names of organization config rules for which you want status
--- details. If you do not specify any names, Config returns details for all
--- your organization Config rules.
-describeOrganizationConfigRuleStatuses_organizationConfigRuleNames :: Lens.Lens' DescribeOrganizationConfigRuleStatuses (Prelude.Maybe [Prelude.Text])
-describeOrganizationConfigRuleStatuses_organizationConfigRuleNames = Lens.lens (\DescribeOrganizationConfigRuleStatuses' {organizationConfigRuleNames} -> organizationConfigRuleNames) (\s@DescribeOrganizationConfigRuleStatuses' {} a -> s {organizationConfigRuleNames = a} :: DescribeOrganizationConfigRuleStatuses) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
@@ -120,6 +115,12 @@ describeOrganizationConfigRuleStatuses_nextToken = Lens.lens (\DescribeOrganizat
 -- default is 100.
 describeOrganizationConfigRuleStatuses_limit :: Lens.Lens' DescribeOrganizationConfigRuleStatuses (Prelude.Maybe Prelude.Natural)
 describeOrganizationConfigRuleStatuses_limit = Lens.lens (\DescribeOrganizationConfigRuleStatuses' {limit} -> limit) (\s@DescribeOrganizationConfigRuleStatuses' {} a -> s {limit = a} :: DescribeOrganizationConfigRuleStatuses)
+
+-- | The names of organization config rules for which you want status
+-- details. If you do not specify any names, Config returns details for all
+-- your organization Config rules.
+describeOrganizationConfigRuleStatuses_organizationConfigRuleNames :: Lens.Lens' DescribeOrganizationConfigRuleStatuses (Prelude.Maybe [Prelude.Text])
+describeOrganizationConfigRuleStatuses_organizationConfigRuleNames = Lens.lens (\DescribeOrganizationConfigRuleStatuses' {organizationConfigRuleNames} -> organizationConfigRuleNames) (\s@DescribeOrganizationConfigRuleStatuses' {} a -> s {organizationConfigRuleNames = a} :: DescribeOrganizationConfigRuleStatuses) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.AWSPager
@@ -173,19 +174,18 @@ instance
   hashWithSalt
     _salt
     DescribeOrganizationConfigRuleStatuses' {..} =
-      _salt
-        `Prelude.hashWithSalt` organizationConfigRuleNames
-        `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` organizationConfigRuleNames
 
 instance
   Prelude.NFData
     DescribeOrganizationConfigRuleStatuses
   where
   rnf DescribeOrganizationConfigRuleStatuses' {..} =
-    Prelude.rnf organizationConfigRuleNames
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf organizationConfigRuleNames
 
 instance
   Core.ToHeaders
@@ -212,10 +212,10 @@ instance
   toJSON DescribeOrganizationConfigRuleStatuses' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("OrganizationConfigRuleNames" Core..=)
-              Prelude.<$> organizationConfigRuleNames,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Limit" Core..=) Prelude.<$> limit
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Limit" Core..=) Prelude.<$> limit,
+            ("OrganizationConfigRuleNames" Core..=)
+              Prelude.<$> organizationConfigRuleNames
           ]
       )
 

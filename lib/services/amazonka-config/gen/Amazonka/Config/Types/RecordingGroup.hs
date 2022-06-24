@@ -60,17 +60,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecordingGroup' smart constructor.
 data RecordingGroup = RecordingGroup'
-  { -- | Specifies whether Config records configuration changes for every
-    -- supported type of regional resource.
-    --
-    -- If you set this option to @true@, when Config adds support for a new
-    -- type of regional resource, it starts recording resources of that type
-    -- automatically.
-    --
-    -- If you set this option to @true@, you cannot enumerate a list of
-    -- @resourceTypes@.
-    allSupported :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies whether Config includes all supported types of global
+  { -- | Specifies whether Config includes all supported types of global
     -- resources (for example, IAM resources) with the resources that it
     -- records.
     --
@@ -99,7 +89,17 @@ data RecordingGroup = RecordingGroup'
     -- For a list of valid @resourceTypes@ values, see the __resourceType
     -- Value__ column in
     -- <https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported Amazon Web Services resource Types>.
-    resourceTypes :: Prelude.Maybe [ResourceType]
+    resourceTypes :: Prelude.Maybe [ResourceType],
+    -- | Specifies whether Config records configuration changes for every
+    -- supported type of regional resource.
+    --
+    -- If you set this option to @true@, when Config adds support for a new
+    -- type of regional resource, it starts recording resources of that type
+    -- automatically.
+    --
+    -- If you set this option to @true@, you cannot enumerate a list of
+    -- @resourceTypes@.
+    allSupported :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -110,16 +110,6 @@ data RecordingGroup = RecordingGroup'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'allSupported', 'recordingGroup_allSupported' - Specifies whether Config records configuration changes for every
--- supported type of regional resource.
---
--- If you set this option to @true@, when Config adds support for a new
--- type of regional resource, it starts recording resources of that type
--- automatically.
---
--- If you set this option to @true@, you cannot enumerate a list of
--- @resourceTypes@.
 --
 -- 'includeGlobalResourceTypes', 'recordingGroup_includeGlobalResourceTypes' - Specifies whether Config includes all supported types of global
 -- resources (for example, IAM resources) with the resources that it
@@ -150,16 +140,8 @@ data RecordingGroup = RecordingGroup'
 -- For a list of valid @resourceTypes@ values, see the __resourceType
 -- Value__ column in
 -- <https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported Amazon Web Services resource Types>.
-newRecordingGroup ::
-  RecordingGroup
-newRecordingGroup =
-  RecordingGroup'
-    { allSupported = Prelude.Nothing,
-      includeGlobalResourceTypes = Prelude.Nothing,
-      resourceTypes = Prelude.Nothing
-    }
-
--- | Specifies whether Config records configuration changes for every
+--
+-- 'allSupported', 'recordingGroup_allSupported' - Specifies whether Config records configuration changes for every
 -- supported type of regional resource.
 --
 -- If you set this option to @true@, when Config adds support for a new
@@ -168,8 +150,15 @@ newRecordingGroup =
 --
 -- If you set this option to @true@, you cannot enumerate a list of
 -- @resourceTypes@.
-recordingGroup_allSupported :: Lens.Lens' RecordingGroup (Prelude.Maybe Prelude.Bool)
-recordingGroup_allSupported = Lens.lens (\RecordingGroup' {allSupported} -> allSupported) (\s@RecordingGroup' {} a -> s {allSupported = a} :: RecordingGroup)
+newRecordingGroup ::
+  RecordingGroup
+newRecordingGroup =
+  RecordingGroup'
+    { includeGlobalResourceTypes =
+        Prelude.Nothing,
+      resourceTypes = Prelude.Nothing,
+      allSupported = Prelude.Nothing
+    }
 
 -- | Specifies whether Config includes all supported types of global
 -- resources (for example, IAM resources) with the resources that it
@@ -205,36 +194,49 @@ recordingGroup_includeGlobalResourceTypes = Lens.lens (\RecordingGroup' {include
 recordingGroup_resourceTypes :: Lens.Lens' RecordingGroup (Prelude.Maybe [ResourceType])
 recordingGroup_resourceTypes = Lens.lens (\RecordingGroup' {resourceTypes} -> resourceTypes) (\s@RecordingGroup' {} a -> s {resourceTypes = a} :: RecordingGroup) Prelude.. Lens.mapping Lens.coerced
 
+-- | Specifies whether Config records configuration changes for every
+-- supported type of regional resource.
+--
+-- If you set this option to @true@, when Config adds support for a new
+-- type of regional resource, it starts recording resources of that type
+-- automatically.
+--
+-- If you set this option to @true@, you cannot enumerate a list of
+-- @resourceTypes@.
+recordingGroup_allSupported :: Lens.Lens' RecordingGroup (Prelude.Maybe Prelude.Bool)
+recordingGroup_allSupported = Lens.lens (\RecordingGroup' {allSupported} -> allSupported) (\s@RecordingGroup' {} a -> s {allSupported = a} :: RecordingGroup)
+
 instance Core.FromJSON RecordingGroup where
   parseJSON =
     Core.withObject
       "RecordingGroup"
       ( \x ->
           RecordingGroup'
-            Prelude.<$> (x Core..:? "allSupported")
-            Prelude.<*> (x Core..:? "includeGlobalResourceTypes")
+            Prelude.<$> (x Core..:? "includeGlobalResourceTypes")
             Prelude.<*> (x Core..:? "resourceTypes" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "allSupported")
       )
 
 instance Prelude.Hashable RecordingGroup where
   hashWithSalt _salt RecordingGroup' {..} =
-    _salt `Prelude.hashWithSalt` allSupported
+    _salt
       `Prelude.hashWithSalt` includeGlobalResourceTypes
       `Prelude.hashWithSalt` resourceTypes
+      `Prelude.hashWithSalt` allSupported
 
 instance Prelude.NFData RecordingGroup where
   rnf RecordingGroup' {..} =
-    Prelude.rnf allSupported
-      `Prelude.seq` Prelude.rnf includeGlobalResourceTypes
+    Prelude.rnf includeGlobalResourceTypes
       `Prelude.seq` Prelude.rnf resourceTypes
+      `Prelude.seq` Prelude.rnf allSupported
 
 instance Core.ToJSON RecordingGroup where
   toJSON RecordingGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("allSupported" Core..=) Prelude.<$> allSupported,
-            ("includeGlobalResourceTypes" Core..=)
+          [ ("includeGlobalResourceTypes" Core..=)
               Prelude.<$> includeGlobalResourceTypes,
-            ("resourceTypes" Core..=) Prelude.<$> resourceTypes
+            ("resourceTypes" Core..=) Prelude.<$> resourceTypes,
+            ("allSupported" Core..=) Prelude.<$> allSupported
           ]
       )

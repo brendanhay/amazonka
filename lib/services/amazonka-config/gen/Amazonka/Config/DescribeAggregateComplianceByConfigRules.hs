@@ -34,8 +34,8 @@ module Amazonka.Config.DescribeAggregateComplianceByConfigRules
     newDescribeAggregateComplianceByConfigRules,
 
     -- * Request Lenses
-    describeAggregateComplianceByConfigRules_filters,
     describeAggregateComplianceByConfigRules_nextToken,
+    describeAggregateComplianceByConfigRules_filters,
     describeAggregateComplianceByConfigRules_limit,
     describeAggregateComplianceByConfigRules_configurationAggregatorName,
 
@@ -59,11 +59,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeAggregateComplianceByConfigRules' smart constructor.
 data DescribeAggregateComplianceByConfigRules = DescribeAggregateComplianceByConfigRules'
-  { -- | Filters the results by ConfigRuleComplianceFilters object.
-    filters :: Prelude.Maybe ConfigRuleComplianceFilters,
-    -- | The @nextToken@ string returned on a previous page that you use to get
+  { -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Filters the results by ConfigRuleComplianceFilters object.
+    filters :: Prelude.Maybe ConfigRuleComplianceFilters,
     -- | The maximum number of evaluation results returned on each page. The
     -- default is maximum. If you specify 0, Config uses the default.
     limit :: Prelude.Maybe Prelude.Natural,
@@ -80,10 +80,10 @@ data DescribeAggregateComplianceByConfigRules = DescribeAggregateComplianceByCon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'describeAggregateComplianceByConfigRules_filters' - Filters the results by ConfigRuleComplianceFilters object.
---
 -- 'nextToken', 'describeAggregateComplianceByConfigRules_nextToken' - The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
+--
+-- 'filters', 'describeAggregateComplianceByConfigRules_filters' - Filters the results by ConfigRuleComplianceFilters object.
 --
 -- 'limit', 'describeAggregateComplianceByConfigRules_limit' - The maximum number of evaluation results returned on each page. The
 -- default is maximum. If you specify 0, Config uses the default.
@@ -96,22 +96,22 @@ newDescribeAggregateComplianceByConfigRules ::
 newDescribeAggregateComplianceByConfigRules
   pConfigurationAggregatorName_ =
     DescribeAggregateComplianceByConfigRules'
-      { filters =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        filters = Prelude.Nothing,
         limit = Prelude.Nothing,
         configurationAggregatorName =
           pConfigurationAggregatorName_
       }
 
--- | Filters the results by ConfigRuleComplianceFilters object.
-describeAggregateComplianceByConfigRules_filters :: Lens.Lens' DescribeAggregateComplianceByConfigRules (Prelude.Maybe ConfigRuleComplianceFilters)
-describeAggregateComplianceByConfigRules_filters = Lens.lens (\DescribeAggregateComplianceByConfigRules' {filters} -> filters) (\s@DescribeAggregateComplianceByConfigRules' {} a -> s {filters = a} :: DescribeAggregateComplianceByConfigRules)
-
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
 describeAggregateComplianceByConfigRules_nextToken :: Lens.Lens' DescribeAggregateComplianceByConfigRules (Prelude.Maybe Prelude.Text)
 describeAggregateComplianceByConfigRules_nextToken = Lens.lens (\DescribeAggregateComplianceByConfigRules' {nextToken} -> nextToken) (\s@DescribeAggregateComplianceByConfigRules' {} a -> s {nextToken = a} :: DescribeAggregateComplianceByConfigRules)
+
+-- | Filters the results by ConfigRuleComplianceFilters object.
+describeAggregateComplianceByConfigRules_filters :: Lens.Lens' DescribeAggregateComplianceByConfigRules (Prelude.Maybe ConfigRuleComplianceFilters)
+describeAggregateComplianceByConfigRules_filters = Lens.lens (\DescribeAggregateComplianceByConfigRules' {filters} -> filters) (\s@DescribeAggregateComplianceByConfigRules' {} a -> s {filters = a} :: DescribeAggregateComplianceByConfigRules)
 
 -- | The maximum number of evaluation results returned on each page. The
 -- default is maximum. If you specify 0, Config uses the default.
@@ -174,8 +174,8 @@ instance
   hashWithSalt
     _salt
     DescribeAggregateComplianceByConfigRules' {..} =
-      _salt `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` limit
         `Prelude.hashWithSalt` configurationAggregatorName
 
@@ -184,8 +184,8 @@ instance
     DescribeAggregateComplianceByConfigRules
   where
   rnf DescribeAggregateComplianceByConfigRules' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf configurationAggregatorName
 
@@ -214,8 +214,8 @@ instance
   toJSON DescribeAggregateComplianceByConfigRules' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("Limit" Core..=) Prelude.<$> limit,
             Prelude.Just
               ( "ConfigurationAggregatorName"

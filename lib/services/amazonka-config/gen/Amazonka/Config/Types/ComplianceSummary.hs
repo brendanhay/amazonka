@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newComplianceSummary' smart constructor.
 data ComplianceSummary = ComplianceSummary'
-  { -- | The time that Config created the compliance summary.
-    complianceSummaryTimestamp :: Prelude.Maybe Core.POSIX,
-    -- | The number of Config rules or Amazon Web Services resources that are
+  { -- | The number of Config rules or Amazon Web Services resources that are
     -- compliant, up to a maximum of 25 for rules and 100 for resources.
     compliantResourceCount :: Prelude.Maybe ComplianceContributorCount,
+    -- | The time that Config created the compliance summary.
+    complianceSummaryTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The number of Config rules or Amazon Web Services resources that are
     -- noncompliant, up to a maximum of 25 for rules and 100 for resources.
     nonCompliantResourceCount :: Prelude.Maybe ComplianceContributorCount
@@ -48,10 +48,10 @@ data ComplianceSummary = ComplianceSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'complianceSummaryTimestamp', 'complianceSummary_complianceSummaryTimestamp' - The time that Config created the compliance summary.
---
 -- 'compliantResourceCount', 'complianceSummary_compliantResourceCount' - The number of Config rules or Amazon Web Services resources that are
 -- compliant, up to a maximum of 25 for rules and 100 for resources.
+--
+-- 'complianceSummaryTimestamp', 'complianceSummary_complianceSummaryTimestamp' - The time that Config created the compliance summary.
 --
 -- 'nonCompliantResourceCount', 'complianceSummary_nonCompliantResourceCount' - The number of Config rules or Amazon Web Services resources that are
 -- noncompliant, up to a maximum of 25 for rules and 100 for resources.
@@ -59,20 +59,20 @@ newComplianceSummary ::
   ComplianceSummary
 newComplianceSummary =
   ComplianceSummary'
-    { complianceSummaryTimestamp =
+    { compliantResourceCount =
         Prelude.Nothing,
-      compliantResourceCount = Prelude.Nothing,
+      complianceSummaryTimestamp = Prelude.Nothing,
       nonCompliantResourceCount = Prelude.Nothing
     }
-
--- | The time that Config created the compliance summary.
-complianceSummary_complianceSummaryTimestamp :: Lens.Lens' ComplianceSummary (Prelude.Maybe Prelude.UTCTime)
-complianceSummary_complianceSummaryTimestamp = Lens.lens (\ComplianceSummary' {complianceSummaryTimestamp} -> complianceSummaryTimestamp) (\s@ComplianceSummary' {} a -> s {complianceSummaryTimestamp = a} :: ComplianceSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The number of Config rules or Amazon Web Services resources that are
 -- compliant, up to a maximum of 25 for rules and 100 for resources.
 complianceSummary_compliantResourceCount :: Lens.Lens' ComplianceSummary (Prelude.Maybe ComplianceContributorCount)
 complianceSummary_compliantResourceCount = Lens.lens (\ComplianceSummary' {compliantResourceCount} -> compliantResourceCount) (\s@ComplianceSummary' {} a -> s {compliantResourceCount = a} :: ComplianceSummary)
+
+-- | The time that Config created the compliance summary.
+complianceSummary_complianceSummaryTimestamp :: Lens.Lens' ComplianceSummary (Prelude.Maybe Prelude.UTCTime)
+complianceSummary_complianceSummaryTimestamp = Lens.lens (\ComplianceSummary' {complianceSummaryTimestamp} -> complianceSummaryTimestamp) (\s@ComplianceSummary' {} a -> s {complianceSummaryTimestamp = a} :: ComplianceSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The number of Config rules or Amazon Web Services resources that are
 -- noncompliant, up to a maximum of 25 for rules and 100 for resources.
@@ -85,20 +85,19 @@ instance Core.FromJSON ComplianceSummary where
       "ComplianceSummary"
       ( \x ->
           ComplianceSummary'
-            Prelude.<$> (x Core..:? "ComplianceSummaryTimestamp")
-            Prelude.<*> (x Core..:? "CompliantResourceCount")
+            Prelude.<$> (x Core..:? "CompliantResourceCount")
+            Prelude.<*> (x Core..:? "ComplianceSummaryTimestamp")
             Prelude.<*> (x Core..:? "NonCompliantResourceCount")
       )
 
 instance Prelude.Hashable ComplianceSummary where
   hashWithSalt _salt ComplianceSummary' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` compliantResourceCount
       `Prelude.hashWithSalt` complianceSummaryTimestamp
-      `Prelude.hashWithSalt` compliantResourceCount
       `Prelude.hashWithSalt` nonCompliantResourceCount
 
 instance Prelude.NFData ComplianceSummary where
   rnf ComplianceSummary' {..} =
-    Prelude.rnf complianceSummaryTimestamp
-      `Prelude.seq` Prelude.rnf compliantResourceCount
+    Prelude.rnf compliantResourceCount
+      `Prelude.seq` Prelude.rnf complianceSummaryTimestamp
       `Prelude.seq` Prelude.rnf nonCompliantResourceCount

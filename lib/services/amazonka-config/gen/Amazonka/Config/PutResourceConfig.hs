@@ -41,8 +41,8 @@ module Amazonka.Config.PutResourceConfig
     newPutResourceConfig,
 
     -- * Request Lenses
-    putResourceConfig_resourceName,
     putResourceConfig_tags,
+    putResourceConfig_resourceName,
     putResourceConfig_resourceType,
     putResourceConfig_schemaVersionId,
     putResourceConfig_resourceId,
@@ -63,10 +63,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutResourceConfig' smart constructor.
 data PutResourceConfig = PutResourceConfig'
-  { -- | Name of the resource.
-    resourceName :: Prelude.Maybe Prelude.Text,
-    -- | Tags associated with the resource.
+  { -- | Tags associated with the resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Name of the resource.
+    resourceName :: Prelude.Maybe Prelude.Text,
     -- | The type of the resource. The custom resource type must be registered
     -- with CloudFormation.
     --
@@ -94,9 +94,9 @@ data PutResourceConfig = PutResourceConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceName', 'putResourceConfig_resourceName' - Name of the resource.
---
 -- 'tags', 'putResourceConfig_tags' - Tags associated with the resource.
+--
+-- 'resourceName', 'putResourceConfig_resourceName' - Name of the resource.
 --
 -- 'resourceType', 'putResourceConfig_resourceType' - The type of the resource. The custom resource type must be registered
 -- with CloudFormation.
@@ -129,21 +129,21 @@ newPutResourceConfig
   pResourceId_
   pConfiguration_ =
     PutResourceConfig'
-      { resourceName = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        resourceName = Prelude.Nothing,
         resourceType = pResourceType_,
         schemaVersionId = pSchemaVersionId_,
         resourceId = pResourceId_,
         configuration = pConfiguration_
       }
 
--- | Name of the resource.
-putResourceConfig_resourceName :: Lens.Lens' PutResourceConfig (Prelude.Maybe Prelude.Text)
-putResourceConfig_resourceName = Lens.lens (\PutResourceConfig' {resourceName} -> resourceName) (\s@PutResourceConfig' {} a -> s {resourceName = a} :: PutResourceConfig)
-
 -- | Tags associated with the resource.
 putResourceConfig_tags :: Lens.Lens' PutResourceConfig (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 putResourceConfig_tags = Lens.lens (\PutResourceConfig' {tags} -> tags) (\s@PutResourceConfig' {} a -> s {tags = a} :: PutResourceConfig) Prelude.. Lens.mapping Lens.coerced
+
+-- | Name of the resource.
+putResourceConfig_resourceName :: Lens.Lens' PutResourceConfig (Prelude.Maybe Prelude.Text)
+putResourceConfig_resourceName = Lens.lens (\PutResourceConfig' {resourceName} -> resourceName) (\s@PutResourceConfig' {} a -> s {resourceName = a} :: PutResourceConfig)
 
 -- | The type of the resource. The custom resource type must be registered
 -- with CloudFormation.
@@ -179,8 +179,8 @@ instance Core.AWSRequest PutResourceConfig where
 
 instance Prelude.Hashable PutResourceConfig where
   hashWithSalt _salt PutResourceConfig' {..} =
-    _salt `Prelude.hashWithSalt` resourceName
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` resourceName
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` schemaVersionId
       `Prelude.hashWithSalt` resourceId
@@ -188,8 +188,8 @@ instance Prelude.Hashable PutResourceConfig where
 
 instance Prelude.NFData PutResourceConfig where
   rnf PutResourceConfig' {..} =
-    Prelude.rnf resourceName
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf resourceName
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf schemaVersionId
       `Prelude.seq` Prelude.rnf resourceId
@@ -214,8 +214,8 @@ instance Core.ToJSON PutResourceConfig where
   toJSON PutResourceConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ResourceName" Core..=) Prelude.<$> resourceName,
-            ("Tags" Core..=) Prelude.<$> tags,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("ResourceName" Core..=) Prelude.<$> resourceName,
             Prelude.Just ("ResourceType" Core..= resourceType),
             Prelude.Just
               ("SchemaVersionId" Core..= schemaVersionId),

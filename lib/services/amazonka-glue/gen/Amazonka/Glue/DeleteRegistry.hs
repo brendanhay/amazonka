@@ -38,8 +38,8 @@ module Amazonka.Glue.DeleteRegistry
     newDeleteRegistryResponse,
 
     -- * Response Lenses
-    deleteRegistryResponse_status,
     deleteRegistryResponse_registryName,
+    deleteRegistryResponse_status,
     deleteRegistryResponse_registryArn,
     deleteRegistryResponse_httpStatus,
   )
@@ -91,8 +91,8 @@ instance Core.AWSRequest DeleteRegistry where
     Response.receiveJSON
       ( \s h x ->
           DeleteRegistryResponse'
-            Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "RegistryName")
+            Prelude.<$> (x Core..?> "RegistryName")
+            Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "RegistryArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -132,11 +132,11 @@ instance Core.ToQuery DeleteRegistry where
 
 -- | /See:/ 'newDeleteRegistryResponse' smart constructor.
 data DeleteRegistryResponse = DeleteRegistryResponse'
-  { -- | The status of the registry. A successful operation will return the
+  { -- | The name of the registry being deleted.
+    registryName :: Prelude.Maybe Prelude.Text,
+    -- | The status of the registry. A successful operation will return the
     -- @Deleting@ status.
     status :: Prelude.Maybe RegistryStatus,
-    -- | The name of the registry being deleted.
-    registryName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the registry being deleted.
     registryArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -152,10 +152,10 @@ data DeleteRegistryResponse = DeleteRegistryResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'registryName', 'deleteRegistryResponse_registryName' - The name of the registry being deleted.
+--
 -- 'status', 'deleteRegistryResponse_status' - The status of the registry. A successful operation will return the
 -- @Deleting@ status.
---
--- 'registryName', 'deleteRegistryResponse_registryName' - The name of the registry being deleted.
 --
 -- 'registryArn', 'deleteRegistryResponse_registryArn' - The Amazon Resource Name (ARN) of the registry being deleted.
 --
@@ -166,20 +166,21 @@ newDeleteRegistryResponse ::
   DeleteRegistryResponse
 newDeleteRegistryResponse pHttpStatus_ =
   DeleteRegistryResponse'
-    { status = Prelude.Nothing,
-      registryName = Prelude.Nothing,
+    { registryName =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
       registryArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The name of the registry being deleted.
+deleteRegistryResponse_registryName :: Lens.Lens' DeleteRegistryResponse (Prelude.Maybe Prelude.Text)
+deleteRegistryResponse_registryName = Lens.lens (\DeleteRegistryResponse' {registryName} -> registryName) (\s@DeleteRegistryResponse' {} a -> s {registryName = a} :: DeleteRegistryResponse)
 
 -- | The status of the registry. A successful operation will return the
 -- @Deleting@ status.
 deleteRegistryResponse_status :: Lens.Lens' DeleteRegistryResponse (Prelude.Maybe RegistryStatus)
 deleteRegistryResponse_status = Lens.lens (\DeleteRegistryResponse' {status} -> status) (\s@DeleteRegistryResponse' {} a -> s {status = a} :: DeleteRegistryResponse)
-
--- | The name of the registry being deleted.
-deleteRegistryResponse_registryName :: Lens.Lens' DeleteRegistryResponse (Prelude.Maybe Prelude.Text)
-deleteRegistryResponse_registryName = Lens.lens (\DeleteRegistryResponse' {registryName} -> registryName) (\s@DeleteRegistryResponse' {} a -> s {registryName = a} :: DeleteRegistryResponse)
 
 -- | The Amazon Resource Name (ARN) of the registry being deleted.
 deleteRegistryResponse_registryArn :: Lens.Lens' DeleteRegistryResponse (Prelude.Maybe Prelude.Text)
@@ -191,7 +192,7 @@ deleteRegistryResponse_httpStatus = Lens.lens (\DeleteRegistryResponse' {httpSta
 
 instance Prelude.NFData DeleteRegistryResponse where
   rnf DeleteRegistryResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf registryName
+    Prelude.rnf registryName
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf registryArn
       `Prelude.seq` Prelude.rnf httpStatus

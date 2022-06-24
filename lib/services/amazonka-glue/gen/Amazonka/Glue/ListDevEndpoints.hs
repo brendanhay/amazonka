@@ -35,9 +35,9 @@ module Amazonka.Glue.ListDevEndpoints
     newListDevEndpoints,
 
     -- * Request Lenses
+    listDevEndpoints_tags,
     listDevEndpoints_nextToken,
     listDevEndpoints_maxResults,
-    listDevEndpoints_tags,
 
     -- * Destructuring the Response
     ListDevEndpointsResponse (..),
@@ -59,12 +59,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDevEndpoints' smart constructor.
 data ListDevEndpoints = ListDevEndpoints'
-  { -- | A continuation token, if this is a continuation request.
+  { -- | Specifies to return only these tagged resources.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A continuation token, if this is a continuation request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum size of a list to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies to return only these tagged resources.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,19 +76,23 @@ data ListDevEndpoints = ListDevEndpoints'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'listDevEndpoints_tags' - Specifies to return only these tagged resources.
+--
 -- 'nextToken', 'listDevEndpoints_nextToken' - A continuation token, if this is a continuation request.
 --
 -- 'maxResults', 'listDevEndpoints_maxResults' - The maximum size of a list to return.
---
--- 'tags', 'listDevEndpoints_tags' - Specifies to return only these tagged resources.
 newListDevEndpoints ::
   ListDevEndpoints
 newListDevEndpoints =
   ListDevEndpoints'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      tags = Prelude.Nothing
+    { tags = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
+
+-- | Specifies to return only these tagged resources.
+listDevEndpoints_tags :: Lens.Lens' ListDevEndpoints (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+listDevEndpoints_tags = Lens.lens (\ListDevEndpoints' {tags} -> tags) (\s@ListDevEndpoints' {} a -> s {tags = a} :: ListDevEndpoints) Prelude.. Lens.mapping Lens.coerced
 
 -- | A continuation token, if this is a continuation request.
 listDevEndpoints_nextToken :: Lens.Lens' ListDevEndpoints (Prelude.Maybe Prelude.Text)
@@ -97,10 +101,6 @@ listDevEndpoints_nextToken = Lens.lens (\ListDevEndpoints' {nextToken} -> nextTo
 -- | The maximum size of a list to return.
 listDevEndpoints_maxResults :: Lens.Lens' ListDevEndpoints (Prelude.Maybe Prelude.Natural)
 listDevEndpoints_maxResults = Lens.lens (\ListDevEndpoints' {maxResults} -> maxResults) (\s@ListDevEndpoints' {} a -> s {maxResults = a} :: ListDevEndpoints)
-
--- | Specifies to return only these tagged resources.
-listDevEndpoints_tags :: Lens.Lens' ListDevEndpoints (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-listDevEndpoints_tags = Lens.lens (\ListDevEndpoints' {tags} -> tags) (\s@ListDevEndpoints' {} a -> s {tags = a} :: ListDevEndpoints) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest ListDevEndpoints where
   type
@@ -120,15 +120,15 @@ instance Core.AWSRequest ListDevEndpoints where
 
 instance Prelude.Hashable ListDevEndpoints where
   hashWithSalt _salt ListDevEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData ListDevEndpoints where
   rnf ListDevEndpoints' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders ListDevEndpoints where
   toHeaders =
@@ -147,9 +147,9 @@ instance Core.ToJSON ListDevEndpoints where
   toJSON ListDevEndpoints' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Tags" Core..=) Prelude.<$> tags
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 

@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBlueprintDetails' smart constructor.
 data BlueprintDetails = BlueprintDetails'
-  { -- | The run ID for this blueprint.
-    runId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the blueprint.
-    blueprintName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the blueprint.
+    blueprintName :: Prelude.Maybe Prelude.Text,
+    -- | The run ID for this blueprint.
+    runId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data BlueprintDetails = BlueprintDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'runId', 'blueprintDetails_runId' - The run ID for this blueprint.
---
 -- 'blueprintName', 'blueprintDetails_blueprintName' - The name of the blueprint.
+--
+-- 'runId', 'blueprintDetails_runId' - The run ID for this blueprint.
 newBlueprintDetails ::
   BlueprintDetails
 newBlueprintDetails =
   BlueprintDetails'
-    { runId = Prelude.Nothing,
-      blueprintName = Prelude.Nothing
+    { blueprintName = Prelude.Nothing,
+      runId = Prelude.Nothing
     }
-
--- | The run ID for this blueprint.
-blueprintDetails_runId :: Lens.Lens' BlueprintDetails (Prelude.Maybe Prelude.Text)
-blueprintDetails_runId = Lens.lens (\BlueprintDetails' {runId} -> runId) (\s@BlueprintDetails' {} a -> s {runId = a} :: BlueprintDetails)
 
 -- | The name of the blueprint.
 blueprintDetails_blueprintName :: Lens.Lens' BlueprintDetails (Prelude.Maybe Prelude.Text)
 blueprintDetails_blueprintName = Lens.lens (\BlueprintDetails' {blueprintName} -> blueprintName) (\s@BlueprintDetails' {} a -> s {blueprintName = a} :: BlueprintDetails)
+
+-- | The run ID for this blueprint.
+blueprintDetails_runId :: Lens.Lens' BlueprintDetails (Prelude.Maybe Prelude.Text)
+blueprintDetails_runId = Lens.lens (\BlueprintDetails' {runId} -> runId) (\s@BlueprintDetails' {} a -> s {runId = a} :: BlueprintDetails)
 
 instance Core.FromJSON BlueprintDetails where
   parseJSON =
@@ -67,16 +67,16 @@ instance Core.FromJSON BlueprintDetails where
       "BlueprintDetails"
       ( \x ->
           BlueprintDetails'
-            Prelude.<$> (x Core..:? "RunId")
-            Prelude.<*> (x Core..:? "BlueprintName")
+            Prelude.<$> (x Core..:? "BlueprintName")
+            Prelude.<*> (x Core..:? "RunId")
       )
 
 instance Prelude.Hashable BlueprintDetails where
   hashWithSalt _salt BlueprintDetails' {..} =
-    _salt `Prelude.hashWithSalt` runId
-      `Prelude.hashWithSalt` blueprintName
+    _salt `Prelude.hashWithSalt` blueprintName
+      `Prelude.hashWithSalt` runId
 
 instance Prelude.NFData BlueprintDetails where
   rnf BlueprintDetails' {..} =
-    Prelude.rnf runId
-      `Prelude.seq` Prelude.rnf blueprintName
+    Prelude.rnf blueprintName
+      `Prelude.seq` Prelude.rnf runId

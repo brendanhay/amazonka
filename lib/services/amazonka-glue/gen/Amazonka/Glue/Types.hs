@@ -17,31 +17,31 @@ module Amazonka.Glue.Types
     defaultService,
 
     -- * Errors
-    _ValidationException,
-    _AccessDeniedException,
-    _CrawlerRunningException,
-    _SchedulerTransitioningException,
-    _SchedulerRunningException,
-    _ConditionCheckFailureException,
-    _ConcurrentRunsExceededException,
-    _IllegalWorkflowStateException,
-    _NoScheduleException,
-    _OperationTimeoutException,
-    _ConflictException,
     _CrawlerNotRunningException,
-    _VersionMismatchException,
-    _MLTransformNotReadyException,
-    _EntityNotFoundException,
-    _ConcurrentModificationException,
-    _SchedulerNotRunningException,
-    _InternalServiceException,
     _InvalidInputException,
     _ResourceNumberLimitExceededException,
-    _GlueEncryptionException,
-    _IdempotentParameterMismatchException,
-    _CrawlerStoppingException,
-    _IllegalBlueprintStateException,
+    _ConcurrentModificationException,
+    _AccessDeniedException,
+    _ConcurrentRunsExceededException,
+    _SchedulerNotRunningException,
     _AlreadyExistsException,
+    _SchedulerRunningException,
+    _MLTransformNotReadyException,
+    _GlueEncryptionException,
+    _IllegalWorkflowStateException,
+    _ConflictException,
+    _ConditionCheckFailureException,
+    _VersionMismatchException,
+    _EntityNotFoundException,
+    _SchedulerTransitioningException,
+    _IllegalBlueprintStateException,
+    _ValidationException,
+    _InternalServiceException,
+    _OperationTimeoutException,
+    _CrawlerStoppingException,
+    _CrawlerRunningException,
+    _NoScheduleException,
+    _IdempotentParameterMismatchException,
 
     -- * BackfillErrorCode
     BackfillErrorCode (..),
@@ -199,18 +199,18 @@ module Amazonka.Glue.Types
     -- * Action
     Action (..),
     newAction,
-    action_notificationProperty,
-    action_arguments,
-    action_jobName,
     action_securityConfiguration,
     action_timeout,
+    action_jobName,
+    action_notificationProperty,
     action_crawlerName,
+    action_arguments,
 
     -- * BackfillError
     BackfillError (..),
     newBackfillError,
-    backfillError_partitions,
     backfillError_code,
+    backfillError_partitions,
 
     -- * BatchStopJobRunError
     BatchStopJobRunError (..),
@@ -247,36 +247,36 @@ module Amazonka.Glue.Types
     -- * Blueprint
     Blueprint (..),
     newBlueprint,
+    blueprint_createdOn,
+    blueprint_name,
+    blueprint_lastModifiedOn,
+    blueprint_errorMessage,
+    blueprint_lastActiveDefinition,
     blueprint_status,
     blueprint_parameterSpec,
-    blueprint_blueprintLocation,
-    blueprint_lastModifiedOn,
-    blueprint_lastActiveDefinition,
-    blueprint_name,
-    blueprint_blueprintServiceLocation,
-    blueprint_errorMessage,
     blueprint_description,
-    blueprint_createdOn,
+    blueprint_blueprintLocation,
+    blueprint_blueprintServiceLocation,
 
     -- * BlueprintDetails
     BlueprintDetails (..),
     newBlueprintDetails,
-    blueprintDetails_runId,
     blueprintDetails_blueprintName,
+    blueprintDetails_runId,
 
     -- * BlueprintRun
     BlueprintRun (..),
     newBlueprintRun,
-    blueprintRun_workflowName,
-    blueprintRun_completedOn,
-    blueprintRun_state,
-    blueprintRun_rollbackErrorMessage,
+    blueprintRun_roleArn,
     blueprintRun_startedOn,
+    blueprintRun_errorMessage,
+    blueprintRun_workflowName,
+    blueprintRun_state,
+    blueprintRun_completedOn,
+    blueprintRun_blueprintName,
+    blueprintRun_rollbackErrorMessage,
     blueprintRun_runId,
     blueprintRun_parameters,
-    blueprintRun_blueprintName,
-    blueprintRun_errorMessage,
-    blueprintRun_roleArn,
 
     -- * BooleanColumnStatisticsData
     BooleanColumnStatisticsData (..),
@@ -294,9 +294,9 @@ module Amazonka.Glue.Types
     -- * CatalogImportStatus
     CatalogImportStatus (..),
     newCatalogImportStatus,
+    catalogImportStatus_importCompleted,
     catalogImportStatus_importedBy,
     catalogImportStatus_importTime,
-    catalogImportStatus_importCompleted,
 
     -- * CatalogTarget
     CatalogTarget (..),
@@ -307,16 +307,16 @@ module Amazonka.Glue.Types
     -- * Classifier
     Classifier (..),
     newClassifier,
-    classifier_grokClassifier,
-    classifier_xMLClassifier,
     classifier_csvClassifier,
+    classifier_xMLClassifier,
+    classifier_grokClassifier,
     classifier_jsonClassifier,
 
     -- * CloudWatchEncryption
     CloudWatchEncryption (..),
     newCloudWatchEncryption,
-    cloudWatchEncryption_cloudWatchEncryptionMode,
     cloudWatchEncryption_kmsKeyArn,
+    cloudWatchEncryption_cloudWatchEncryptionMode,
 
     -- * CodeGenEdge
     CodeGenEdge (..),
@@ -343,16 +343,16 @@ module Amazonka.Glue.Types
     -- * Column
     Column (..),
     newColumn,
-    column_parameters,
     column_type,
     column_comment,
+    column_parameters,
     column_name,
 
     -- * ColumnError
     ColumnError (..),
     newColumnError,
-    columnError_error,
     columnError_columnName,
+    columnError_error,
 
     -- * ColumnImportance
     ColumnImportance (..),
@@ -372,56 +372,56 @@ module Amazonka.Glue.Types
     ColumnStatisticsData (..),
     newColumnStatisticsData,
     columnStatisticsData_binaryColumnStatisticsData,
-    columnStatisticsData_dateColumnStatisticsData,
-    columnStatisticsData_booleanColumnStatisticsData,
     columnStatisticsData_decimalColumnStatisticsData,
-    columnStatisticsData_doubleColumnStatisticsData,
     columnStatisticsData_stringColumnStatisticsData,
+    columnStatisticsData_booleanColumnStatisticsData,
+    columnStatisticsData_doubleColumnStatisticsData,
     columnStatisticsData_longColumnStatisticsData,
+    columnStatisticsData_dateColumnStatisticsData,
     columnStatisticsData_type,
 
     -- * ColumnStatisticsError
     ColumnStatisticsError (..),
     newColumnStatisticsError,
-    columnStatisticsError_error,
     columnStatisticsError_columnStatistics,
+    columnStatisticsError_error,
 
     -- * Condition
     Condition (..),
     newCondition,
-    condition_crawlState,
-    condition_state,
-    condition_jobName,
     condition_logicalOperator,
+    condition_crawlState,
+    condition_jobName,
+    condition_state,
     condition_crawlerName,
 
     -- * ConfusionMatrix
     ConfusionMatrix (..),
     newConfusionMatrix,
-    confusionMatrix_numTrueNegatives,
     confusionMatrix_numFalseNegatives,
     confusionMatrix_numTruePositives,
     confusionMatrix_numFalsePositives,
+    confusionMatrix_numTrueNegatives,
 
     -- * Connection
     Connection (..),
     newConnection,
+    connection_name,
+    connection_connectionType,
+    connection_connectionProperties,
+    connection_physicalConnectionRequirements,
+    connection_lastUpdatedTime,
+    connection_description,
+    connection_matchCriteria,
     connection_creationTime,
     connection_lastUpdatedBy,
-    connection_connectionProperties,
-    connection_lastUpdatedTime,
-    connection_matchCriteria,
-    connection_physicalConnectionRequirements,
-    connection_name,
-    connection_description,
-    connection_connectionType,
 
     -- * ConnectionInput
     ConnectionInput (..),
     newConnectionInput,
-    connectionInput_matchCriteria,
     connectionInput_physicalConnectionRequirements,
     connectionInput_description,
+    connectionInput_matchCriteria,
     connectionInput_name,
     connectionInput_connectionType,
     connectionInput_connectionProperties,
@@ -440,47 +440,47 @@ module Amazonka.Glue.Types
     -- * Crawl
     Crawl (..),
     newCrawl,
-    crawl_completedOn,
-    crawl_state,
+    crawl_logGroup,
     crawl_startedOn,
     crawl_logStream,
-    crawl_logGroup,
     crawl_errorMessage,
+    crawl_state,
+    crawl_completedOn,
 
     -- * Crawler
     Crawler (..),
     newCrawler,
-    crawler_creationTime,
-    crawler_state,
-    crawler_schemaChangePolicy,
-    crawler_lastUpdated,
     crawler_schedule,
-    crawler_lastCrawl,
-    crawler_crawlElapsedTime,
+    crawler_name,
     crawler_recrawlPolicy,
     crawler_classifiers,
-    crawler_role,
-    crawler_name,
-    crawler_targets,
-    crawler_version,
+    crawler_schemaChangePolicy,
     crawler_databaseName,
-    crawler_crawlerSecurityConfiguration,
-    crawler_lineageConfiguration,
     crawler_configuration,
+    crawler_state,
     crawler_tablePrefix,
+    crawler_targets,
     crawler_description,
+    crawler_lastUpdated,
+    crawler_crawlElapsedTime,
+    crawler_lineageConfiguration,
+    crawler_role,
+    crawler_creationTime,
+    crawler_lastCrawl,
+    crawler_crawlerSecurityConfiguration,
+    crawler_version,
 
     -- * CrawlerMetrics
     CrawlerMetrics (..),
     newCrawlerMetrics,
-    crawlerMetrics_lastRuntimeSeconds,
-    crawlerMetrics_tablesCreated,
-    crawlerMetrics_stillEstimating,
     crawlerMetrics_medianRuntimeSeconds,
-    crawlerMetrics_timeLeftSeconds,
-    crawlerMetrics_tablesDeleted,
+    crawlerMetrics_lastRuntimeSeconds,
+    crawlerMetrics_stillEstimating,
     crawlerMetrics_tablesUpdated,
     crawlerMetrics_crawlerName,
+    crawlerMetrics_tablesCreated,
+    crawlerMetrics_tablesDeleted,
+    crawlerMetrics_timeLeftSeconds,
 
     -- * CrawlerNodeDetails
     CrawlerNodeDetails (..),
@@ -490,19 +490,19 @@ module Amazonka.Glue.Types
     -- * CrawlerTargets
     CrawlerTargets (..),
     newCrawlerTargets,
-    crawlerTargets_dynamoDBTargets,
-    crawlerTargets_s3Targets,
     crawlerTargets_mongoDBTargets,
-    crawlerTargets_catalogTargets,
+    crawlerTargets_dynamoDBTargets,
     crawlerTargets_jdbcTargets,
+    crawlerTargets_s3Targets,
+    crawlerTargets_catalogTargets,
 
     -- * CreateCsvClassifierRequest
     CreateCsvClassifierRequest (..),
     newCreateCsvClassifierRequest,
     createCsvClassifierRequest_quoteSymbol,
+    createCsvClassifierRequest_header,
     createCsvClassifierRequest_containsHeader,
     createCsvClassifierRequest_disableValueTrimming,
-    createCsvClassifierRequest_header,
     createCsvClassifierRequest_allowSingleColumn,
     createCsvClassifierRequest_delimiter,
     createCsvClassifierRequest_name,
@@ -531,22 +531,22 @@ module Amazonka.Glue.Types
     -- * CsvClassifier
     CsvClassifier (..),
     newCsvClassifier,
-    csvClassifier_creationTime,
     csvClassifier_quoteSymbol,
-    csvClassifier_containsHeader,
-    csvClassifier_lastUpdated,
-    csvClassifier_disableValueTrimming,
     csvClassifier_header,
-    csvClassifier_version,
+    csvClassifier_containsHeader,
+    csvClassifier_disableValueTrimming,
     csvClassifier_allowSingleColumn,
+    csvClassifier_lastUpdated,
     csvClassifier_delimiter,
+    csvClassifier_creationTime,
+    csvClassifier_version,
     csvClassifier_name,
 
     -- * DataCatalogEncryptionSettings
     DataCatalogEncryptionSettings (..),
     newDataCatalogEncryptionSettings,
-    dataCatalogEncryptionSettings_encryptionAtRest,
     dataCatalogEncryptionSettings_connectionPasswordEncryption,
+    dataCatalogEncryptionSettings_encryptionAtRest,
 
     -- * DataLakePrincipal
     DataLakePrincipal (..),
@@ -556,44 +556,44 @@ module Amazonka.Glue.Types
     -- * Database
     Database (..),
     newDatabase,
-    database_locationUri,
-    database_catalogId,
     database_targetDatabase,
-    database_parameters,
     database_description,
+    database_catalogId,
+    database_locationUri,
     database_createTime,
     database_createTableDefaultPermissions,
+    database_parameters,
     database_name,
 
     -- * DatabaseIdentifier
     DatabaseIdentifier (..),
     newDatabaseIdentifier,
-    databaseIdentifier_catalogId,
     databaseIdentifier_databaseName,
+    databaseIdentifier_catalogId,
 
     -- * DatabaseInput
     DatabaseInput (..),
     newDatabaseInput,
-    databaseInput_locationUri,
     databaseInput_targetDatabase,
-    databaseInput_parameters,
     databaseInput_description,
+    databaseInput_locationUri,
     databaseInput_createTableDefaultPermissions,
+    databaseInput_parameters,
     databaseInput_name,
 
     -- * DateColumnStatisticsData
     DateColumnStatisticsData (..),
     newDateColumnStatisticsData,
-    dateColumnStatisticsData_maximumValue,
     dateColumnStatisticsData_minimumValue,
+    dateColumnStatisticsData_maximumValue,
     dateColumnStatisticsData_numberOfNulls,
     dateColumnStatisticsData_numberOfDistinctValues,
 
     -- * DecimalColumnStatisticsData
     DecimalColumnStatisticsData (..),
     newDecimalColumnStatisticsData,
-    decimalColumnStatisticsData_maximumValue,
     decimalColumnStatisticsData_minimumValue,
+    decimalColumnStatisticsData_maximumValue,
     decimalColumnStatisticsData_numberOfNulls,
     decimalColumnStatisticsData_numberOfDistinctValues,
 
@@ -606,52 +606,52 @@ module Amazonka.Glue.Types
     -- * DevEndpoint
     DevEndpoint (..),
     newDevEndpoint,
-    devEndpoint_status,
-    devEndpoint_failureReason,
-    devEndpoint_endpointName,
-    devEndpoint_numberOfWorkers,
-    devEndpoint_extraPythonLibsS3Path,
-    devEndpoint_lastUpdateStatus,
-    devEndpoint_securityGroupIds,
-    devEndpoint_lastModifiedTimestamp,
-    devEndpoint_publicKeys,
-    devEndpoint_vpcId,
-    devEndpoint_arguments,
-    devEndpoint_privateAddress,
-    devEndpoint_workerType,
     devEndpoint_securityConfiguration,
-    devEndpoint_publicKey,
-    devEndpoint_subnetId,
-    devEndpoint_glueVersion,
-    devEndpoint_numberOfNodes,
-    devEndpoint_publicAddress,
-    devEndpoint_availabilityZone,
     devEndpoint_zeppelinRemoteSparkInterpreterPort,
-    devEndpoint_extraJarsS3Path,
-    devEndpoint_createdTimestamp,
-    devEndpoint_yarnEndpointAddress,
     devEndpoint_roleArn,
+    devEndpoint_publicKey,
+    devEndpoint_numberOfWorkers,
+    devEndpoint_securityGroupIds,
+    devEndpoint_endpointName,
+    devEndpoint_glueVersion,
+    devEndpoint_createdTimestamp,
+    devEndpoint_lastModifiedTimestamp,
+    devEndpoint_subnetId,
+    devEndpoint_workerType,
+    devEndpoint_publicAddress,
+    devEndpoint_status,
+    devEndpoint_availabilityZone,
+    devEndpoint_extraJarsS3Path,
+    devEndpoint_privateAddress,
+    devEndpoint_numberOfNodes,
+    devEndpoint_arguments,
+    devEndpoint_lastUpdateStatus,
+    devEndpoint_yarnEndpointAddress,
+    devEndpoint_vpcId,
+    devEndpoint_extraPythonLibsS3Path,
+    devEndpoint_failureReason,
+    devEndpoint_publicKeys,
 
     -- * DevEndpointCustomLibraries
     DevEndpointCustomLibraries (..),
     newDevEndpointCustomLibraries,
-    devEndpointCustomLibraries_extraPythonLibsS3Path,
     devEndpointCustomLibraries_extraJarsS3Path,
+    devEndpointCustomLibraries_extraPythonLibsS3Path,
 
     -- * DoubleColumnStatisticsData
     DoubleColumnStatisticsData (..),
     newDoubleColumnStatisticsData,
-    doubleColumnStatisticsData_maximumValue,
     doubleColumnStatisticsData_minimumValue,
+    doubleColumnStatisticsData_maximumValue,
     doubleColumnStatisticsData_numberOfNulls,
     doubleColumnStatisticsData_numberOfDistinctValues,
 
     -- * DynamoDBTarget
     DynamoDBTarget (..),
     newDynamoDBTarget,
+    dynamoDBTarget_scanAll,
     dynamoDBTarget_path,
     dynamoDBTarget_scanRate,
-    dynamoDBTarget_scanAll,
 
     -- * Edge
     Edge (..),
@@ -669,20 +669,20 @@ module Amazonka.Glue.Types
     EncryptionConfiguration (..),
     newEncryptionConfiguration,
     encryptionConfiguration_s3Encryption,
-    encryptionConfiguration_jobBookmarksEncryption,
     encryptionConfiguration_cloudWatchEncryption,
+    encryptionConfiguration_jobBookmarksEncryption,
 
     -- * ErrorDetail
     ErrorDetail (..),
     newErrorDetail,
-    errorDetail_errorCode,
     errorDetail_errorMessage,
+    errorDetail_errorCode,
 
     -- * ErrorDetails
     ErrorDetails (..),
     newErrorDetails,
-    errorDetails_errorCode,
     errorDetails_errorMessage,
+    errorDetails_errorCode,
 
     -- * EvaluationMetrics
     EvaluationMetrics (..),
@@ -710,40 +710,40 @@ module Amazonka.Glue.Types
     FindMatchesMetrics (..),
     newFindMatchesMetrics,
     findMatchesMetrics_f1,
-    findMatchesMetrics_areaUnderPRCurve,
-    findMatchesMetrics_recall,
-    findMatchesMetrics_precision,
     findMatchesMetrics_columnImportances,
+    findMatchesMetrics_recall,
     findMatchesMetrics_confusionMatrix,
+    findMatchesMetrics_precision,
+    findMatchesMetrics_areaUnderPRCurve,
 
     -- * FindMatchesParameters
     FindMatchesParameters (..),
     newFindMatchesParameters,
-    findMatchesParameters_enforceProvidedLabels,
     findMatchesParameters_accuracyCostTradeoff,
-    findMatchesParameters_precisionRecallTradeoff,
     findMatchesParameters_primaryKeyColumnName,
+    findMatchesParameters_precisionRecallTradeoff,
+    findMatchesParameters_enforceProvidedLabels,
 
     -- * FindMatchesTaskRunProperties
     FindMatchesTaskRunProperties (..),
     newFindMatchesTaskRunProperties,
-    findMatchesTaskRunProperties_jobId,
     findMatchesTaskRunProperties_jobName,
     findMatchesTaskRunProperties_jobRunId,
+    findMatchesTaskRunProperties_jobId,
 
     -- * GetConnectionsFilter
     GetConnectionsFilter (..),
     newGetConnectionsFilter,
-    getConnectionsFilter_matchCriteria,
     getConnectionsFilter_connectionType,
+    getConnectionsFilter_matchCriteria,
 
     -- * GluePolicy
     GluePolicy (..),
     newGluePolicy,
     gluePolicy_policyInJson,
     gluePolicy_updateTime,
-    gluePolicy_policyHash,
     gluePolicy_createTime,
+    gluePolicy_policyHash,
 
     -- * GlueTable
     GlueTable (..),
@@ -756,10 +756,10 @@ module Amazonka.Glue.Types
     -- * GrokClassifier
     GrokClassifier (..),
     newGrokClassifier,
-    grokClassifier_creationTime,
     grokClassifier_lastUpdated,
-    grokClassifier_version,
+    grokClassifier_creationTime,
     grokClassifier_customPatterns,
+    grokClassifier_version,
     grokClassifier_name,
     grokClassifier_classification,
     grokClassifier_grokPattern,
@@ -767,50 +767,50 @@ module Amazonka.Glue.Types
     -- * ImportLabelsTaskRunProperties
     ImportLabelsTaskRunProperties (..),
     newImportLabelsTaskRunProperties,
-    importLabelsTaskRunProperties_replace,
     importLabelsTaskRunProperties_inputS3Path,
+    importLabelsTaskRunProperties_replace,
 
     -- * JdbcTarget
     JdbcTarget (..),
     newJdbcTarget,
     jdbcTarget_path,
-    jdbcTarget_connectionName,
     jdbcTarget_exclusions,
+    jdbcTarget_connectionName,
 
     -- * Job
     Job (..),
     newJob,
-    job_numberOfWorkers,
-    job_command,
-    job_notificationProperty,
-    job_lastModifiedOn,
-    job_connections,
-    job_workerType,
     job_securityConfiguration,
-    job_glueVersion,
-    job_nonOverridableArguments,
-    job_role,
+    job_createdOn,
+    job_timeout,
     job_name,
-    job_logUri,
-    job_maxRetries,
+    job_lastModifiedOn,
+    job_nonOverridableArguments,
+    job_numberOfWorkers,
+    job_glueVersion,
+    job_notificationProperty,
+    job_workerType,
     job_executionProperty,
     job_allocatedCapacity,
-    job_maxCapacity,
-    job_timeout,
-    job_defaultArguments,
+    job_command,
     job_description,
-    job_createdOn,
+    job_maxRetries,
+    job_defaultArguments,
+    job_logUri,
+    job_connections,
+    job_role,
+    job_maxCapacity,
 
     -- * JobBookmarkEntry
     JobBookmarkEntry (..),
     newJobBookmarkEntry,
+    jobBookmarkEntry_attempt,
     jobBookmarkEntry_jobName,
+    jobBookmarkEntry_previousRunId,
+    jobBookmarkEntry_jobBookmark,
     jobBookmarkEntry_run,
     jobBookmarkEntry_runId,
     jobBookmarkEntry_version,
-    jobBookmarkEntry_previousRunId,
-    jobBookmarkEntry_attempt,
-    jobBookmarkEntry_jobBookmark,
 
     -- * JobBookmarksEncryption
     JobBookmarksEncryption (..),
@@ -821,9 +821,9 @@ module Amazonka.Glue.Types
     -- * JobCommand
     JobCommand (..),
     newJobCommand,
+    jobCommand_name,
     jobCommand_scriptLocation,
     jobCommand_pythonVersion,
-    jobCommand_name,
 
     -- * JobNodeDetails
     JobNodeDetails (..),
@@ -833,55 +833,55 @@ module Amazonka.Glue.Types
     -- * JobRun
     JobRun (..),
     newJobRun,
-    jobRun_completedOn,
-    jobRun_numberOfWorkers,
-    jobRun_triggerName,
-    jobRun_notificationProperty,
-    jobRun_lastModifiedOn,
-    jobRun_arguments,
-    jobRun_jobName,
-    jobRun_startedOn,
-    jobRun_workerType,
     jobRun_securityConfiguration,
-    jobRun_glueVersion,
-    jobRun_jobRunState,
-    jobRun_logGroupName,
-    jobRun_executionTime,
-    jobRun_predecessorRuns,
-    jobRun_previousRunId,
-    jobRun_id,
-    jobRun_attempt,
-    jobRun_allocatedCapacity,
-    jobRun_maxCapacity,
     jobRun_timeout,
+    jobRun_triggerName,
+    jobRun_lastModifiedOn,
+    jobRun_numberOfWorkers,
+    jobRun_startedOn,
     jobRun_errorMessage,
+    jobRun_attempt,
+    jobRun_glueVersion,
+    jobRun_jobName,
+    jobRun_previousRunId,
+    jobRun_notificationProperty,
+    jobRun_workerType,
+    jobRun_executionTime,
+    jobRun_allocatedCapacity,
+    jobRun_predecessorRuns,
+    jobRun_id,
+    jobRun_completedOn,
+    jobRun_arguments,
+    jobRun_jobRunState,
+    jobRun_maxCapacity,
+    jobRun_logGroupName,
 
     -- * JobUpdate
     JobUpdate (..),
     newJobUpdate,
-    jobUpdate_numberOfWorkers,
-    jobUpdate_command,
-    jobUpdate_notificationProperty,
-    jobUpdate_connections,
-    jobUpdate_workerType,
     jobUpdate_securityConfiguration,
-    jobUpdate_glueVersion,
+    jobUpdate_timeout,
     jobUpdate_nonOverridableArguments,
-    jobUpdate_role,
-    jobUpdate_logUri,
-    jobUpdate_maxRetries,
+    jobUpdate_numberOfWorkers,
+    jobUpdate_glueVersion,
+    jobUpdate_notificationProperty,
+    jobUpdate_workerType,
     jobUpdate_executionProperty,
     jobUpdate_allocatedCapacity,
-    jobUpdate_maxCapacity,
-    jobUpdate_timeout,
-    jobUpdate_defaultArguments,
+    jobUpdate_command,
     jobUpdate_description,
+    jobUpdate_maxRetries,
+    jobUpdate_defaultArguments,
+    jobUpdate_logUri,
+    jobUpdate_connections,
+    jobUpdate_role,
+    jobUpdate_maxCapacity,
 
     -- * JsonClassifier
     JsonClassifier (..),
     newJsonClassifier,
-    jsonClassifier_creationTime,
     jsonClassifier_lastUpdated,
+    jsonClassifier_creationTime,
     jsonClassifier_version,
     jsonClassifier_name,
     jsonClassifier_jsonPath,
@@ -900,21 +900,21 @@ module Amazonka.Glue.Types
     -- * LastActiveDefinition
     LastActiveDefinition (..),
     newLastActiveDefinition,
-    lastActiveDefinition_parameterSpec,
-    lastActiveDefinition_blueprintLocation,
     lastActiveDefinition_lastModifiedOn,
-    lastActiveDefinition_blueprintServiceLocation,
+    lastActiveDefinition_parameterSpec,
     lastActiveDefinition_description,
+    lastActiveDefinition_blueprintLocation,
+    lastActiveDefinition_blueprintServiceLocation,
 
     -- * LastCrawlInfo
     LastCrawlInfo (..),
     newLastCrawlInfo,
-    lastCrawlInfo_status,
-    lastCrawlInfo_startTime,
-    lastCrawlInfo_logStream,
     lastCrawlInfo_logGroup,
-    lastCrawlInfo_messagePrefix,
+    lastCrawlInfo_logStream,
     lastCrawlInfo_errorMessage,
+    lastCrawlInfo_status,
+    lastCrawlInfo_messagePrefix,
+    lastCrawlInfo_startTime,
 
     -- * LineageConfiguration
     LineageConfiguration (..),
@@ -924,40 +924,40 @@ module Amazonka.Glue.Types
     -- * Location
     Location (..),
     newLocation,
+    location_s3,
     location_dynamoDB,
     location_jdbc,
-    location_s3,
 
     -- * LongColumnStatisticsData
     LongColumnStatisticsData (..),
     newLongColumnStatisticsData,
-    longColumnStatisticsData_maximumValue,
     longColumnStatisticsData_minimumValue,
+    longColumnStatisticsData_maximumValue,
     longColumnStatisticsData_numberOfNulls,
     longColumnStatisticsData_numberOfDistinctValues,
 
     -- * MLTransform
     MLTransform (..),
     newMLTransform,
-    mLTransform_status,
-    mLTransform_numberOfWorkers,
+    mLTransform_evaluationMetrics,
+    mLTransform_createdOn,
+    mLTransform_timeout,
+    mLTransform_name,
     mLTransform_lastModifiedOn,
-    mLTransform_labelCount,
+    mLTransform_numberOfWorkers,
+    mLTransform_glueVersion,
     mLTransform_workerType,
     mLTransform_inputRecordTables,
-    mLTransform_glueVersion,
-    mLTransform_evaluationMetrics,
+    mLTransform_status,
+    mLTransform_labelCount,
+    mLTransform_description,
+    mLTransform_maxRetries,
+    mLTransform_transformId,
+    mLTransform_transformEncryption,
     mLTransform_schema,
     mLTransform_role,
-    mLTransform_name,
-    mLTransform_parameters,
-    mLTransform_maxRetries,
     mLTransform_maxCapacity,
-    mLTransform_timeout,
-    mLTransform_transformEncryption,
-    mLTransform_description,
-    mLTransform_createdOn,
-    mLTransform_transformId,
+    mLTransform_parameters,
 
     -- * MLUserDataEncryption
     MLUserDataEncryption (..),
@@ -969,41 +969,41 @@ module Amazonka.Glue.Types
     MappingEntry (..),
     newMappingEntry,
     mappingEntry_targetTable,
-    mappingEntry_sourceType,
     mappingEntry_sourceTable,
-    mappingEntry_targetType,
     mappingEntry_targetPath,
+    mappingEntry_sourceType,
+    mappingEntry_targetType,
     mappingEntry_sourcePath,
 
     -- * MetadataInfo
     MetadataInfo (..),
     newMetadataInfo,
     metadataInfo_createdTime,
-    metadataInfo_otherMetadataValueList,
     metadataInfo_metadataValue,
+    metadataInfo_otherMetadataValueList,
 
     -- * MetadataKeyValuePair
     MetadataKeyValuePair (..),
     newMetadataKeyValuePair,
-    metadataKeyValuePair_metadataKey,
     metadataKeyValuePair_metadataValue,
+    metadataKeyValuePair_metadataKey,
 
     -- * MongoDBTarget
     MongoDBTarget (..),
     newMongoDBTarget,
+    mongoDBTarget_scanAll,
     mongoDBTarget_path,
     mongoDBTarget_connectionName,
-    mongoDBTarget_scanAll,
 
     -- * Node
     Node (..),
     newNode,
+    node_name,
+    node_type,
+    node_jobDetails,
     node_triggerDetails,
     node_uniqueId,
     node_crawlerDetails,
-    node_name,
-    node_jobDetails,
-    node_type,
 
     -- * NotificationProperty
     NotificationProperty (..),
@@ -1025,15 +1025,15 @@ module Amazonka.Glue.Types
     -- * Partition
     Partition (..),
     newPartition,
-    partition_creationTime,
-    partition_values,
-    partition_catalogId,
-    partition_lastAnalyzedTime,
-    partition_storageDescriptor,
-    partition_databaseName,
-    partition_parameters,
-    partition_lastAccessTime,
     partition_tableName,
+    partition_lastAccessTime,
+    partition_databaseName,
+    partition_catalogId,
+    partition_creationTime,
+    partition_storageDescriptor,
+    partition_values,
+    partition_lastAnalyzedTime,
+    partition_parameters,
 
     -- * PartitionError
     PartitionError (..),
@@ -1058,11 +1058,11 @@ module Amazonka.Glue.Types
     -- * PartitionInput
     PartitionInput (..),
     newPartitionInput,
+    partitionInput_lastAccessTime,
+    partitionInput_storageDescriptor,
     partitionInput_values,
     partitionInput_lastAnalyzedTime,
-    partitionInput_storageDescriptor,
     partitionInput_parameters,
-    partitionInput_lastAccessTime,
 
     -- * PartitionValueList
     PartitionValueList (..),
@@ -1072,9 +1072,9 @@ module Amazonka.Glue.Types
     -- * PhysicalConnectionRequirements
     PhysicalConnectionRequirements (..),
     newPhysicalConnectionRequirements,
-    physicalConnectionRequirements_securityGroupIdList,
     physicalConnectionRequirements_subnetId,
     physicalConnectionRequirements_availabilityZone,
+    physicalConnectionRequirements_securityGroupIdList,
 
     -- * Predecessor
     Predecessor (..),
@@ -1097,9 +1097,9 @@ module Amazonka.Glue.Types
     -- * PropertyPredicate
     PropertyPredicate (..),
     newPropertyPredicate,
-    propertyPredicate_value,
     propertyPredicate_key,
     propertyPredicate_comparator,
+    propertyPredicate_value,
 
     -- * RecrawlPolicy
     RecrawlPolicy (..),
@@ -1115,12 +1115,12 @@ module Amazonka.Glue.Types
     -- * RegistryListItem
     RegistryListItem (..),
     newRegistryListItem,
-    registryListItem_status,
     registryListItem_registryName,
     registryListItem_createdTime,
+    registryListItem_status,
+    registryListItem_description,
     registryListItem_registryArn,
     registryListItem_updatedTime,
-    registryListItem_description,
 
     -- * ResourceUri
     ResourceUri (..),
@@ -1137,12 +1137,12 @@ module Amazonka.Glue.Types
     -- * S3Target
     S3Target (..),
     newS3Target,
+    s3Target_dlqEventQueueArn,
     s3Target_path,
     s3Target_sampleSize,
-    s3Target_connectionName,
     s3Target_exclusions,
     s3Target_eventQueueArn,
-    s3Target_dlqEventQueueArn,
+    s3Target_connectionName,
 
     -- * Schedule
     Schedule (..),
@@ -1153,8 +1153,8 @@ module Amazonka.Glue.Types
     -- * SchemaChangePolicy
     SchemaChangePolicy (..),
     newSchemaChangePolicy,
-    schemaChangePolicy_deleteBehavior,
     schemaChangePolicy_updateBehavior,
+    schemaChangePolicy_deleteBehavior,
 
     -- * SchemaColumn
     SchemaColumn (..),
@@ -1176,44 +1176,44 @@ module Amazonka.Glue.Types
     schemaListItem_createdTime,
     schemaListItem_schemaStatus,
     schemaListItem_schemaName,
+    schemaListItem_description,
     schemaListItem_schemaArn,
     schemaListItem_updatedTime,
-    schemaListItem_description,
 
     -- * SchemaReference
     SchemaReference (..),
     newSchemaReference,
+    schemaReference_schemaVersionNumber,
     schemaReference_schemaVersionId,
     schemaReference_schemaId,
-    schemaReference_schemaVersionNumber,
 
     -- * SchemaVersionErrorItem
     SchemaVersionErrorItem (..),
     newSchemaVersionErrorItem,
-    schemaVersionErrorItem_versionNumber,
     schemaVersionErrorItem_errorDetails,
+    schemaVersionErrorItem_versionNumber,
 
     -- * SchemaVersionListItem
     SchemaVersionListItem (..),
     newSchemaVersionListItem,
-    schemaVersionListItem_status,
     schemaVersionListItem_createdTime,
-    schemaVersionListItem_schemaVersionId,
-    schemaVersionListItem_versionNumber,
+    schemaVersionListItem_status,
     schemaVersionListItem_schemaArn,
+    schemaVersionListItem_versionNumber,
+    schemaVersionListItem_schemaVersionId,
 
     -- * SchemaVersionNumber
     SchemaVersionNumber (..),
     newSchemaVersionNumber,
-    schemaVersionNumber_versionNumber,
     schemaVersionNumber_latestVersion,
+    schemaVersionNumber_versionNumber,
 
     -- * SecurityConfiguration
     SecurityConfiguration (..),
     newSecurityConfiguration,
     securityConfiguration_name,
-    securityConfiguration_encryptionConfiguration,
     securityConfiguration_createdTimeStamp,
+    securityConfiguration_encryptionConfiguration,
 
     -- * Segment
     Segment (..),
@@ -1224,22 +1224,22 @@ module Amazonka.Glue.Types
     -- * SerDeInfo
     SerDeInfo (..),
     newSerDeInfo,
-    serDeInfo_serializationLibrary,
     serDeInfo_name,
+    serDeInfo_serializationLibrary,
     serDeInfo_parameters,
 
     -- * SkewedInfo
     SkewedInfo (..),
     newSkewedInfo,
+    skewedInfo_skewedColumnNames,
     skewedInfo_skewedColumnValueLocationMaps,
     skewedInfo_skewedColumnValues,
-    skewedInfo_skewedColumnNames,
 
     -- * SortCriterion
     SortCriterion (..),
     newSortCriterion,
-    sortCriterion_sort,
     sortCriterion_fieldName,
+    sortCriterion_sort,
 
     -- * StartingEventBatchCondition
     StartingEventBatchCondition (..),
@@ -1251,18 +1251,18 @@ module Amazonka.Glue.Types
     StorageDescriptor (..),
     newStorageDescriptor,
     storageDescriptor_sortColumns,
-    storageDescriptor_compressed,
-    storageDescriptor_location,
+    storageDescriptor_storedAsSubDirectories,
+    storageDescriptor_skewedInfo,
+    storageDescriptor_columns,
     storageDescriptor_bucketColumns,
     storageDescriptor_serdeInfo,
     storageDescriptor_outputFormat,
-    storageDescriptor_numberOfBuckets,
+    storageDescriptor_location,
+    storageDescriptor_compressed,
     storageDescriptor_schemaReference,
-    storageDescriptor_storedAsSubDirectories,
-    storageDescriptor_parameters,
     storageDescriptor_inputFormat,
-    storageDescriptor_skewedInfo,
-    storageDescriptor_columns,
+    storageDescriptor_numberOfBuckets,
+    storageDescriptor_parameters,
 
     -- * StringColumnStatisticsData
     StringColumnStatisticsData (..),
@@ -1275,24 +1275,24 @@ module Amazonka.Glue.Types
     -- * Table
     Table (..),
     newTable,
-    table_retention,
     table_targetTable,
-    table_isRegisteredWithLakeFormation,
-    table_createdBy,
-    table_tableType,
-    table_catalogId,
-    table_owner,
-    table_viewOriginalText,
-    table_updateTime,
-    table_viewExpandedText,
-    table_lastAnalyzedTime,
-    table_storageDescriptor,
-    table_databaseName,
-    table_parameters,
     table_lastAccessTime,
+    table_databaseName,
+    table_viewOriginalText,
+    table_owner,
+    table_viewExpandedText,
     table_description,
     table_partitionKeys,
+    table_isRegisteredWithLakeFormation,
+    table_catalogId,
+    table_tableType,
+    table_storageDescriptor,
+    table_updateTime,
     table_createTime,
+    table_retention,
+    table_createdBy,
+    table_lastAnalyzedTime,
+    table_parameters,
     table_name,
 
     -- * TableError
@@ -1304,70 +1304,70 @@ module Amazonka.Glue.Types
     -- * TableIdentifier
     TableIdentifier (..),
     newTableIdentifier,
-    tableIdentifier_catalogId,
     tableIdentifier_name,
     tableIdentifier_databaseName,
+    tableIdentifier_catalogId,
 
     -- * TableInput
     TableInput (..),
     newTableInput,
-    tableInput_retention,
     tableInput_targetTable,
-    tableInput_tableType,
-    tableInput_owner,
-    tableInput_viewOriginalText,
-    tableInput_viewExpandedText,
-    tableInput_lastAnalyzedTime,
-    tableInput_storageDescriptor,
-    tableInput_parameters,
     tableInput_lastAccessTime,
+    tableInput_viewOriginalText,
+    tableInput_owner,
+    tableInput_viewExpandedText,
     tableInput_description,
     tableInput_partitionKeys,
+    tableInput_tableType,
+    tableInput_storageDescriptor,
+    tableInput_retention,
+    tableInput_lastAnalyzedTime,
+    tableInput_parameters,
     tableInput_name,
 
     -- * TableVersion
     TableVersion (..),
     newTableVersion,
-    tableVersion_versionId,
     tableVersion_table,
+    tableVersion_versionId,
 
     -- * TableVersionError
     TableVersionError (..),
     newTableVersionError,
-    tableVersionError_versionId,
     tableVersionError_tableName,
     tableVersionError_errorDetail,
+    tableVersionError_versionId,
 
     -- * TaskRun
     TaskRun (..),
     newTaskRun,
-    taskRun_completedOn,
-    taskRun_status,
     taskRun_lastModifiedOn,
-    taskRun_errorString,
     taskRun_startedOn,
-    taskRun_logGroupName,
-    taskRun_executionTime,
     taskRun_properties,
+    taskRun_executionTime,
+    taskRun_status,
     taskRun_transformId,
+    taskRun_completedOn,
     taskRun_taskRunId,
+    taskRun_errorString,
+    taskRun_logGroupName,
 
     -- * TaskRunFilterCriteria
     TaskRunFilterCriteria (..),
     newTaskRunFilterCriteria,
+    taskRunFilterCriteria_startedBefore,
     taskRunFilterCriteria_status,
     taskRunFilterCriteria_startedAfter,
-    taskRunFilterCriteria_startedBefore,
     taskRunFilterCriteria_taskRunType,
 
     -- * TaskRunProperties
     TaskRunProperties (..),
     newTaskRunProperties,
-    taskRunProperties_taskType,
-    taskRunProperties_exportLabelsTaskRunProperties,
-    taskRunProperties_labelingSetGenerationTaskRunProperties,
-    taskRunProperties_findMatchesTaskRunProperties,
     taskRunProperties_importLabelsTaskRunProperties,
+    taskRunProperties_findMatchesTaskRunProperties,
+    taskRunProperties_taskType,
+    taskRunProperties_labelingSetGenerationTaskRunProperties,
+    taskRunProperties_exportLabelsTaskRunProperties,
 
     -- * TaskRunSortCriteria
     TaskRunSortCriteria (..),
@@ -1378,21 +1378,21 @@ module Amazonka.Glue.Types
     -- * TransformEncryption
     TransformEncryption (..),
     newTransformEncryption,
-    transformEncryption_mlUserDataEncryption,
     transformEncryption_taskRunSecurityConfigurationName,
+    transformEncryption_mlUserDataEncryption,
 
     -- * TransformFilterCriteria
     TransformFilterCriteria (..),
     newTransformFilterCriteria,
-    transformFilterCriteria_createdAfter,
+    transformFilterCriteria_name,
+    transformFilterCriteria_transformType,
+    transformFilterCriteria_glueVersion,
+    transformFilterCriteria_createdBefore,
     transformFilterCriteria_status,
+    transformFilterCriteria_schema,
+    transformFilterCriteria_createdAfter,
     transformFilterCriteria_lastModifiedAfter,
     transformFilterCriteria_lastModifiedBefore,
-    transformFilterCriteria_glueVersion,
-    transformFilterCriteria_schema,
-    transformFilterCriteria_transformType,
-    transformFilterCriteria_name,
-    transformFilterCriteria_createdBefore,
 
     -- * TransformParameters
     TransformParameters (..),
@@ -1409,16 +1409,16 @@ module Amazonka.Glue.Types
     -- * Trigger
     Trigger (..),
     newTrigger,
-    trigger_workflowName,
-    trigger_state,
-    trigger_actions,
-    trigger_schedule,
-    trigger_predicate,
-    trigger_name,
-    trigger_id,
-    trigger_type,
     trigger_eventBatchingCondition,
+    trigger_schedule,
+    trigger_name,
+    trigger_type,
+    trigger_workflowName,
+    trigger_predicate,
+    trigger_state,
+    trigger_id,
     trigger_description,
+    trigger_actions,
 
     -- * TriggerNodeDetails
     TriggerNodeDetails (..),
@@ -1428,20 +1428,20 @@ module Amazonka.Glue.Types
     -- * TriggerUpdate
     TriggerUpdate (..),
     newTriggerUpdate,
-    triggerUpdate_actions,
-    triggerUpdate_schedule,
-    triggerUpdate_predicate,
-    triggerUpdate_name,
     triggerUpdate_eventBatchingCondition,
+    triggerUpdate_schedule,
+    triggerUpdate_name,
+    triggerUpdate_predicate,
     triggerUpdate_description,
+    triggerUpdate_actions,
 
     -- * UpdateCsvClassifierRequest
     UpdateCsvClassifierRequest (..),
     newUpdateCsvClassifierRequest,
     updateCsvClassifierRequest_quoteSymbol,
+    updateCsvClassifierRequest_header,
     updateCsvClassifierRequest_containsHeader,
     updateCsvClassifierRequest_disableValueTrimming,
-    updateCsvClassifierRequest_header,
     updateCsvClassifierRequest_allowSingleColumn,
     updateCsvClassifierRequest_delimiter,
     updateCsvClassifierRequest_name,
@@ -1449,9 +1449,9 @@ module Amazonka.Glue.Types
     -- * UpdateGrokClassifierRequest
     UpdateGrokClassifierRequest (..),
     newUpdateGrokClassifierRequest,
-    updateGrokClassifierRequest_classification,
     updateGrokClassifierRequest_customPatterns,
     updateGrokClassifierRequest_grokPattern,
+    updateGrokClassifierRequest_classification,
     updateGrokClassifierRequest_name,
 
     -- * UpdateJsonClassifierRequest
@@ -1463,43 +1463,43 @@ module Amazonka.Glue.Types
     -- * UpdateXMLClassifierRequest
     UpdateXMLClassifierRequest (..),
     newUpdateXMLClassifierRequest,
-    updateXMLClassifierRequest_classification,
     updateXMLClassifierRequest_rowTag,
+    updateXMLClassifierRequest_classification,
     updateXMLClassifierRequest_name,
 
     -- * UserDefinedFunction
     UserDefinedFunction (..),
     newUserDefinedFunction,
-    userDefinedFunction_ownerName,
-    userDefinedFunction_catalogId,
-    userDefinedFunction_resourceUris,
-    userDefinedFunction_databaseName,
-    userDefinedFunction_functionName,
     userDefinedFunction_ownerType,
-    userDefinedFunction_createTime,
+    userDefinedFunction_ownerName,
+    userDefinedFunction_databaseName,
+    userDefinedFunction_resourceUris,
+    userDefinedFunction_functionName,
     userDefinedFunction_className,
+    userDefinedFunction_catalogId,
+    userDefinedFunction_createTime,
 
     -- * UserDefinedFunctionInput
     UserDefinedFunctionInput (..),
     newUserDefinedFunctionInput,
+    userDefinedFunctionInput_ownerType,
     userDefinedFunctionInput_ownerName,
     userDefinedFunctionInput_resourceUris,
     userDefinedFunctionInput_functionName,
-    userDefinedFunctionInput_ownerType,
     userDefinedFunctionInput_className,
 
     -- * Workflow
     Workflow (..),
     newWorkflow,
-    workflow_graph,
-    workflow_lastModifiedOn,
-    workflow_blueprintDetails,
-    workflow_maxConcurrentRuns,
-    workflow_defaultRunProperties,
-    workflow_name,
     workflow_lastRun,
-    workflow_description,
     workflow_createdOn,
+    workflow_name,
+    workflow_lastModifiedOn,
+    workflow_maxConcurrentRuns,
+    workflow_graph,
+    workflow_defaultRunProperties,
+    workflow_description,
+    workflow_blueprintDetails,
 
     -- * WorkflowGraph
     WorkflowGraph (..),
@@ -1510,35 +1510,35 @@ module Amazonka.Glue.Types
     -- * WorkflowRun
     WorkflowRun (..),
     newWorkflowRun,
-    workflowRun_completedOn,
-    workflowRun_status,
-    workflowRun_graph,
-    workflowRun_startedOn,
-    workflowRun_workflowRunId,
     workflowRun_name,
-    workflowRun_previousRunId,
-    workflowRun_statistics,
-    workflowRun_startingEventBatchCondition,
+    workflowRun_startedOn,
+    workflowRun_graph,
     workflowRun_errorMessage,
+    workflowRun_statistics,
     workflowRun_workflowRunProperties,
+    workflowRun_previousRunId,
+    workflowRun_startingEventBatchCondition,
+    workflowRun_status,
+    workflowRun_completedOn,
+    workflowRun_workflowRunId,
 
     -- * WorkflowRunStatistics
     WorkflowRunStatistics (..),
     newWorkflowRunStatistics,
-    workflowRunStatistics_runningActions,
-    workflowRunStatistics_stoppedActions,
-    workflowRunStatistics_totalActions,
-    workflowRunStatistics_failedActions,
     workflowRunStatistics_timeoutActions,
     workflowRunStatistics_succeededActions,
+    workflowRunStatistics_totalActions,
+    workflowRunStatistics_stoppedActions,
+    workflowRunStatistics_failedActions,
+    workflowRunStatistics_runningActions,
 
     -- * XMLClassifier
     XMLClassifier (..),
     newXMLClassifier,
-    xMLClassifier_creationTime,
-    xMLClassifier_lastUpdated,
-    xMLClassifier_version,
     xMLClassifier_rowTag,
+    xMLClassifier_lastUpdated,
+    xMLClassifier_creationTime,
+    xMLClassifier_version,
     xMLClassifier_name,
     xMLClassifier_classification,
   )
@@ -1783,35 +1783,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -1820,92 +1793,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | A value could not be validated.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
-
--- | Access to a resource was denied.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AccessDeniedException =
-  Core._MatchServiceError
-    defaultService
-    "AccessDeniedException"
-
--- | The operation cannot be performed because the crawler is already
--- running.
-_CrawlerRunningException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CrawlerRunningException =
-  Core._MatchServiceError
-    defaultService
-    "CrawlerRunningException"
-
--- | The specified scheduler is transitioning.
-_SchedulerTransitioningException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SchedulerTransitioningException =
-  Core._MatchServiceError
-    defaultService
-    "SchedulerTransitioningException"
-
--- | The specified scheduler is already running.
-_SchedulerRunningException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SchedulerRunningException =
-  Core._MatchServiceError
-    defaultService
-    "SchedulerRunningException"
-
--- | A specified condition was not satisfied.
-_ConditionCheckFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConditionCheckFailureException =
-  Core._MatchServiceError
-    defaultService
-    "ConditionCheckFailureException"
-
--- | Too many jobs are being run concurrently.
-_ConcurrentRunsExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConcurrentRunsExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ConcurrentRunsExceededException"
-
--- | The workflow is in an invalid state to perform a requested operation.
-_IllegalWorkflowStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_IllegalWorkflowStateException =
-  Core._MatchServiceError
-    defaultService
-    "IllegalWorkflowStateException"
-
--- | There is no applicable schedule.
-_NoScheduleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NoScheduleException =
-  Core._MatchServiceError
-    defaultService
-    "NoScheduleException"
-
--- | The operation timed out.
-_OperationTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OperationTimeoutException =
-  Core._MatchServiceError
-    defaultService
-    "OperationTimeoutException"
-
--- | The @CreatePartitions@ API was called on a table that has indexes
--- enabled.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
 
 -- | The specified crawler is not running.
 _CrawlerNotRunningException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1913,48 +1834,6 @@ _CrawlerNotRunningException =
   Core._MatchServiceError
     defaultService
     "CrawlerNotRunningException"
-
--- | There was a version conflict.
-_VersionMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_VersionMismatchException =
-  Core._MatchServiceError
-    defaultService
-    "VersionMismatchException"
-
--- | The machine learning transform is not ready to run.
-_MLTransformNotReadyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MLTransformNotReadyException =
-  Core._MatchServiceError
-    defaultService
-    "MLTransformNotReadyException"
-
--- | A specified entity does not exist
-_EntityNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_EntityNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "EntityNotFoundException"
-
--- | Two processes are trying to modify a resource simultaneously.
-_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConcurrentModificationException =
-  Core._MatchServiceError
-    defaultService
-    "ConcurrentModificationException"
-
--- | The specified scheduler is not running.
-_SchedulerNotRunningException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SchedulerNotRunningException =
-  Core._MatchServiceError
-    defaultService
-    "SchedulerNotRunningException"
-
--- | An internal service error occurred.
-_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServiceException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServiceException"
 
 -- | The input provided was not valid.
 _InvalidInputException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1970,6 +1849,55 @@ _ResourceNumberLimitExceededException =
     defaultService
     "ResourceNumberLimitExceededException"
 
+-- | Two processes are trying to modify a resource simultaneously.
+_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentModificationException =
+  Core._MatchServiceError
+    defaultService
+    "ConcurrentModificationException"
+
+-- | Access to a resource was denied.
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException =
+  Core._MatchServiceError
+    defaultService
+    "AccessDeniedException"
+
+-- | Too many jobs are being run concurrently.
+_ConcurrentRunsExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentRunsExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ConcurrentRunsExceededException"
+
+-- | The specified scheduler is not running.
+_SchedulerNotRunningException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SchedulerNotRunningException =
+  Core._MatchServiceError
+    defaultService
+    "SchedulerNotRunningException"
+
+-- | A resource to be created or added already exists.
+_AlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "AlreadyExistsException"
+
+-- | The specified scheduler is already running.
+_SchedulerRunningException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SchedulerRunningException =
+  Core._MatchServiceError
+    defaultService
+    "SchedulerRunningException"
+
+-- | The machine learning transform is not ready to run.
+_MLTransformNotReadyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MLTransformNotReadyException =
+  Core._MatchServiceError
+    defaultService
+    "MLTransformNotReadyException"
+
 -- | An encryption operation failed.
 _GlueEncryptionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _GlueEncryptionException =
@@ -1977,19 +1905,48 @@ _GlueEncryptionException =
     defaultService
     "GlueEncryptionException"
 
--- | The same unique identifier was associated with two different records.
-_IdempotentParameterMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_IdempotentParameterMismatchException =
+-- | The workflow is in an invalid state to perform a requested operation.
+_IllegalWorkflowStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IllegalWorkflowStateException =
   Core._MatchServiceError
     defaultService
-    "IdempotentParameterMismatchException"
+    "IllegalWorkflowStateException"
 
--- | The specified crawler is stopping.
-_CrawlerStoppingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CrawlerStoppingException =
+-- | The @CreatePartitions@ API was called on a table that has indexes
+-- enabled.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
   Core._MatchServiceError
     defaultService
-    "CrawlerStoppingException"
+    "ConflictException"
+
+-- | A specified condition was not satisfied.
+_ConditionCheckFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConditionCheckFailureException =
+  Core._MatchServiceError
+    defaultService
+    "ConditionCheckFailureException"
+
+-- | There was a version conflict.
+_VersionMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_VersionMismatchException =
+  Core._MatchServiceError
+    defaultService
+    "VersionMismatchException"
+
+-- | A specified entity does not exist
+_EntityNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EntityNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "EntityNotFoundException"
+
+-- | The specified scheduler is transitioning.
+_SchedulerTransitioningException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SchedulerTransitioningException =
+  Core._MatchServiceError
+    defaultService
+    "SchedulerTransitioningException"
 
 -- | Prism for IllegalBlueprintStateException' errors.
 _IllegalBlueprintStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1998,9 +1955,52 @@ _IllegalBlueprintStateException =
     defaultService
     "IllegalBlueprintStateException"
 
--- | A resource to be created or added already exists.
-_AlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AlreadyExistsException =
+-- | A value could not be validated.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
   Core._MatchServiceError
     defaultService
-    "AlreadyExistsException"
+    "ValidationException"
+
+-- | An internal service error occurred.
+_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServiceException"
+
+-- | The operation timed out.
+_OperationTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OperationTimeoutException =
+  Core._MatchServiceError
+    defaultService
+    "OperationTimeoutException"
+
+-- | The specified crawler is stopping.
+_CrawlerStoppingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CrawlerStoppingException =
+  Core._MatchServiceError
+    defaultService
+    "CrawlerStoppingException"
+
+-- | The operation cannot be performed because the crawler is already
+-- running.
+_CrawlerRunningException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CrawlerRunningException =
+  Core._MatchServiceError
+    defaultService
+    "CrawlerRunningException"
+
+-- | There is no applicable schedule.
+_NoScheduleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoScheduleException =
+  Core._MatchServiceError
+    defaultService
+    "NoScheduleException"
+
+-- | The same unique identifier was associated with two different records.
+_IdempotentParameterMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IdempotentParameterMismatchException =
+  Core._MatchServiceError
+    defaultService
+    "IdempotentParameterMismatchException"

@@ -38,8 +38,8 @@ module Amazonka.Glue.CheckSchemaVersionValidity
     newCheckSchemaVersionValidityResponse,
 
     -- * Response Lenses
-    checkSchemaVersionValidityResponse_error,
     checkSchemaVersionValidityResponse_valid,
+    checkSchemaVersionValidityResponse_error,
     checkSchemaVersionValidityResponse_httpStatus,
   )
 where
@@ -106,8 +106,8 @@ instance Core.AWSRequest CheckSchemaVersionValidity where
     Response.receiveJSON
       ( \s h x ->
           CheckSchemaVersionValidityResponse'
-            Prelude.<$> (x Core..?> "Error")
-            Prelude.<*> (x Core..?> "Valid")
+            Prelude.<$> (x Core..?> "Valid")
+            Prelude.<*> (x Core..?> "Error")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,10 +154,10 @@ instance Core.ToQuery CheckSchemaVersionValidity where
 
 -- | /See:/ 'newCheckSchemaVersionValidityResponse' smart constructor.
 data CheckSchemaVersionValidityResponse = CheckSchemaVersionValidityResponse'
-  { -- | A validation failure error message.
-    error :: Prelude.Maybe Prelude.Text,
-    -- | Return true, if the schema is valid and false otherwise.
+  { -- | Return true, if the schema is valid and false otherwise.
     valid :: Prelude.Maybe Prelude.Bool,
+    -- | A validation failure error message.
+    error :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -171,9 +171,9 @@ data CheckSchemaVersionValidityResponse = CheckSchemaVersionValidityResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'error', 'checkSchemaVersionValidityResponse_error' - A validation failure error message.
---
 -- 'valid', 'checkSchemaVersionValidityResponse_valid' - Return true, if the schema is valid and false otherwise.
+--
+-- 'error', 'checkSchemaVersionValidityResponse_error' - A validation failure error message.
 --
 -- 'httpStatus', 'checkSchemaVersionValidityResponse_httpStatus' - The response's http status code.
 newCheckSchemaVersionValidityResponse ::
@@ -182,19 +182,19 @@ newCheckSchemaVersionValidityResponse ::
   CheckSchemaVersionValidityResponse
 newCheckSchemaVersionValidityResponse pHttpStatus_ =
   CheckSchemaVersionValidityResponse'
-    { error =
+    { valid =
         Prelude.Nothing,
-      valid = Prelude.Nothing,
+      error = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A validation failure error message.
-checkSchemaVersionValidityResponse_error :: Lens.Lens' CheckSchemaVersionValidityResponse (Prelude.Maybe Prelude.Text)
-checkSchemaVersionValidityResponse_error = Lens.lens (\CheckSchemaVersionValidityResponse' {error} -> error) (\s@CheckSchemaVersionValidityResponse' {} a -> s {error = a} :: CheckSchemaVersionValidityResponse)
 
 -- | Return true, if the schema is valid and false otherwise.
 checkSchemaVersionValidityResponse_valid :: Lens.Lens' CheckSchemaVersionValidityResponse (Prelude.Maybe Prelude.Bool)
 checkSchemaVersionValidityResponse_valid = Lens.lens (\CheckSchemaVersionValidityResponse' {valid} -> valid) (\s@CheckSchemaVersionValidityResponse' {} a -> s {valid = a} :: CheckSchemaVersionValidityResponse)
+
+-- | A validation failure error message.
+checkSchemaVersionValidityResponse_error :: Lens.Lens' CheckSchemaVersionValidityResponse (Prelude.Maybe Prelude.Text)
+checkSchemaVersionValidityResponse_error = Lens.lens (\CheckSchemaVersionValidityResponse' {error} -> error) (\s@CheckSchemaVersionValidityResponse' {} a -> s {error = a} :: CheckSchemaVersionValidityResponse)
 
 -- | The response's http status code.
 checkSchemaVersionValidityResponse_httpStatus :: Lens.Lens' CheckSchemaVersionValidityResponse Prelude.Int
@@ -205,6 +205,6 @@ instance
     CheckSchemaVersionValidityResponse
   where
   rnf CheckSchemaVersionValidityResponse' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf valid
+    Prelude.rnf valid
+      `Prelude.seq` Prelude.rnf error
       `Prelude.seq` Prelude.rnf httpStatus

@@ -21,59 +21,8 @@ module Amazonka.Glue
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
-    -- ** AccessDeniedException
-    _AccessDeniedException,
-
-    -- ** CrawlerRunningException
-    _CrawlerRunningException,
-
-    -- ** SchedulerTransitioningException
-    _SchedulerTransitioningException,
-
-    -- ** SchedulerRunningException
-    _SchedulerRunningException,
-
-    -- ** ConditionCheckFailureException
-    _ConditionCheckFailureException,
-
-    -- ** ConcurrentRunsExceededException
-    _ConcurrentRunsExceededException,
-
-    -- ** IllegalWorkflowStateException
-    _IllegalWorkflowStateException,
-
-    -- ** NoScheduleException
-    _NoScheduleException,
-
-    -- ** OperationTimeoutException
-    _OperationTimeoutException,
-
-    -- ** ConflictException
-    _ConflictException,
-
     -- ** CrawlerNotRunningException
     _CrawlerNotRunningException,
-
-    -- ** VersionMismatchException
-    _VersionMismatchException,
-
-    -- ** MLTransformNotReadyException
-    _MLTransformNotReadyException,
-
-    -- ** EntityNotFoundException
-    _EntityNotFoundException,
-
-    -- ** ConcurrentModificationException
-    _ConcurrentModificationException,
-
-    -- ** SchedulerNotRunningException
-    _SchedulerNotRunningException,
-
-    -- ** InternalServiceException
-    _InternalServiceException,
 
     -- ** InvalidInputException
     _InvalidInputException,
@@ -81,20 +30,71 @@ module Amazonka.Glue
     -- ** ResourceNumberLimitExceededException
     _ResourceNumberLimitExceededException,
 
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
+
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
+    -- ** ConcurrentRunsExceededException
+    _ConcurrentRunsExceededException,
+
+    -- ** SchedulerNotRunningException
+    _SchedulerNotRunningException,
+
+    -- ** AlreadyExistsException
+    _AlreadyExistsException,
+
+    -- ** SchedulerRunningException
+    _SchedulerRunningException,
+
+    -- ** MLTransformNotReadyException
+    _MLTransformNotReadyException,
+
     -- ** GlueEncryptionException
     _GlueEncryptionException,
 
-    -- ** IdempotentParameterMismatchException
-    _IdempotentParameterMismatchException,
+    -- ** IllegalWorkflowStateException
+    _IllegalWorkflowStateException,
 
-    -- ** CrawlerStoppingException
-    _CrawlerStoppingException,
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ConditionCheckFailureException
+    _ConditionCheckFailureException,
+
+    -- ** VersionMismatchException
+    _VersionMismatchException,
+
+    -- ** EntityNotFoundException
+    _EntityNotFoundException,
+
+    -- ** SchedulerTransitioningException
+    _SchedulerTransitioningException,
 
     -- ** IllegalBlueprintStateException
     _IllegalBlueprintStateException,
 
-    -- ** AlreadyExistsException
-    _AlreadyExistsException,
+    -- ** ValidationException
+    _ValidationException,
+
+    -- ** InternalServiceException
+    _InternalServiceException,
+
+    -- ** OperationTimeoutException
+    _OperationTimeoutException,
+
+    -- ** CrawlerStoppingException
+    _CrawlerStoppingException,
+
+    -- ** CrawlerRunningException
+    _CrawlerRunningException,
+
+    -- ** NoScheduleException
+    _NoScheduleException,
+
+    -- ** IdempotentParameterMismatchException
+    _IdempotentParameterMismatchException,
 
     -- * Waiters
     -- $waiters
@@ -102,71 +102,95 @@ module Amazonka.Glue
     -- * Operations
     -- $operations
 
-    -- ** StartImportLabelsTaskRun
-    StartImportLabelsTaskRun (StartImportLabelsTaskRun'),
-    newStartImportLabelsTaskRun,
-    StartImportLabelsTaskRunResponse (StartImportLabelsTaskRunResponse'),
-    newStartImportLabelsTaskRunResponse,
+    -- ** BatchCreatePartition
+    BatchCreatePartition (BatchCreatePartition'),
+    newBatchCreatePartition,
+    BatchCreatePartitionResponse (BatchCreatePartitionResponse'),
+    newBatchCreatePartitionResponse,
 
-    -- ** UpdateMLTransform
-    UpdateMLTransform (UpdateMLTransform'),
-    newUpdateMLTransform,
-    UpdateMLTransformResponse (UpdateMLTransformResponse'),
-    newUpdateMLTransformResponse,
+    -- ** BatchDeleteConnection
+    BatchDeleteConnection (BatchDeleteConnection'),
+    newBatchDeleteConnection,
+    BatchDeleteConnectionResponse (BatchDeleteConnectionResponse'),
+    newBatchDeleteConnectionResponse,
 
-    -- ** UpdateRegistry
-    UpdateRegistry (UpdateRegistry'),
-    newUpdateRegistry,
-    UpdateRegistryResponse (UpdateRegistryResponse'),
-    newUpdateRegistryResponse,
+    -- ** BatchDeletePartition
+    BatchDeletePartition (BatchDeletePartition'),
+    newBatchDeletePartition,
+    BatchDeletePartitionResponse (BatchDeletePartitionResponse'),
+    newBatchDeletePartitionResponse,
 
-    -- ** DeleteRegistry
-    DeleteRegistry (DeleteRegistry'),
-    newDeleteRegistry,
-    DeleteRegistryResponse (DeleteRegistryResponse'),
-    newDeleteRegistryResponse,
+    -- ** BatchDeleteTable
+    BatchDeleteTable (BatchDeleteTable'),
+    newBatchDeleteTable,
+    BatchDeleteTableResponse (BatchDeleteTableResponse'),
+    newBatchDeleteTableResponse,
 
-    -- ** DeleteMLTransform
-    DeleteMLTransform (DeleteMLTransform'),
-    newDeleteMLTransform,
-    DeleteMLTransformResponse (DeleteMLTransformResponse'),
-    newDeleteMLTransformResponse,
+    -- ** BatchDeleteTableVersion
+    BatchDeleteTableVersion (BatchDeleteTableVersion'),
+    newBatchDeleteTableVersion,
+    BatchDeleteTableVersionResponse (BatchDeleteTableVersionResponse'),
+    newBatchDeleteTableVersionResponse,
 
-    -- ** StartCrawler
-    StartCrawler (StartCrawler'),
-    newStartCrawler,
-    StartCrawlerResponse (StartCrawlerResponse'),
-    newStartCrawlerResponse,
+    -- ** BatchGetBlueprints
+    BatchGetBlueprints (BatchGetBlueprints'),
+    newBatchGetBlueprints,
+    BatchGetBlueprintsResponse (BatchGetBlueprintsResponse'),
+    newBatchGetBlueprintsResponse,
 
-    -- ** GetCatalogImportStatus
-    GetCatalogImportStatus (GetCatalogImportStatus'),
-    newGetCatalogImportStatus,
-    GetCatalogImportStatusResponse (GetCatalogImportStatusResponse'),
-    newGetCatalogImportStatusResponse,
+    -- ** BatchGetCrawlers
+    BatchGetCrawlers (BatchGetCrawlers'),
+    newBatchGetCrawlers,
+    BatchGetCrawlersResponse (BatchGetCrawlersResponse'),
+    newBatchGetCrawlersResponse,
 
-    -- ** ListMLTransforms
-    ListMLTransforms (ListMLTransforms'),
-    newListMLTransforms,
-    ListMLTransformsResponse (ListMLTransformsResponse'),
-    newListMLTransformsResponse,
+    -- ** BatchGetDevEndpoints
+    BatchGetDevEndpoints (BatchGetDevEndpoints'),
+    newBatchGetDevEndpoints,
+    BatchGetDevEndpointsResponse (BatchGetDevEndpointsResponse'),
+    newBatchGetDevEndpointsResponse,
 
-    -- ** GetPartition
-    GetPartition (GetPartition'),
-    newGetPartition,
-    GetPartitionResponse (GetPartitionResponse'),
-    newGetPartitionResponse,
+    -- ** BatchGetJobs
+    BatchGetJobs (BatchGetJobs'),
+    newBatchGetJobs,
+    BatchGetJobsResponse (BatchGetJobsResponse'),
+    newBatchGetJobsResponse,
 
-    -- ** QuerySchemaVersionMetadata
-    QuerySchemaVersionMetadata (QuerySchemaVersionMetadata'),
-    newQuerySchemaVersionMetadata,
-    QuerySchemaVersionMetadataResponse (QuerySchemaVersionMetadataResponse'),
-    newQuerySchemaVersionMetadataResponse,
+    -- ** BatchGetPartition
+    BatchGetPartition (BatchGetPartition'),
+    newBatchGetPartition,
+    BatchGetPartitionResponse (BatchGetPartitionResponse'),
+    newBatchGetPartitionResponse,
 
-    -- ** CreateTrigger
-    CreateTrigger (CreateTrigger'),
-    newCreateTrigger,
-    CreateTriggerResponse (CreateTriggerResponse'),
-    newCreateTriggerResponse,
+    -- ** BatchGetTriggers
+    BatchGetTriggers (BatchGetTriggers'),
+    newBatchGetTriggers,
+    BatchGetTriggersResponse (BatchGetTriggersResponse'),
+    newBatchGetTriggersResponse,
+
+    -- ** BatchGetWorkflows
+    BatchGetWorkflows (BatchGetWorkflows'),
+    newBatchGetWorkflows,
+    BatchGetWorkflowsResponse (BatchGetWorkflowsResponse'),
+    newBatchGetWorkflowsResponse,
+
+    -- ** BatchStopJobRun
+    BatchStopJobRun (BatchStopJobRun'),
+    newBatchStopJobRun,
+    BatchStopJobRunResponse (BatchStopJobRunResponse'),
+    newBatchStopJobRunResponse,
+
+    -- ** BatchUpdatePartition
+    BatchUpdatePartition (BatchUpdatePartition'),
+    newBatchUpdatePartition,
+    BatchUpdatePartitionResponse (BatchUpdatePartitionResponse'),
+    newBatchUpdatePartitionResponse,
+
+    -- ** CancelMLTaskRun
+    CancelMLTaskRun (CancelMLTaskRun'),
+    newCancelMLTaskRun,
+    CancelMLTaskRunResponse (CancelMLTaskRunResponse'),
+    newCancelMLTaskRunResponse,
 
     -- ** CheckSchemaVersionValidity
     CheckSchemaVersionValidity (CheckSchemaVersionValidity'),
@@ -174,23 +198,107 @@ module Amazonka.Glue
     CheckSchemaVersionValidityResponse (CheckSchemaVersionValidityResponse'),
     newCheckSchemaVersionValidityResponse,
 
-    -- ** DeleteTable
-    DeleteTable (DeleteTable'),
-    newDeleteTable,
-    DeleteTableResponse (DeleteTableResponse'),
-    newDeleteTableResponse,
+    -- ** CreateBlueprint
+    CreateBlueprint (CreateBlueprint'),
+    newCreateBlueprint,
+    CreateBlueprintResponse (CreateBlueprintResponse'),
+    newCreateBlueprintResponse,
 
-    -- ** UpdateTable
-    UpdateTable (UpdateTable'),
-    newUpdateTable,
-    UpdateTableResponse (UpdateTableResponse'),
-    newUpdateTableResponse,
+    -- ** CreateClassifier
+    CreateClassifier (CreateClassifier'),
+    newCreateClassifier,
+    CreateClassifierResponse (CreateClassifierResponse'),
+    newCreateClassifierResponse,
 
-    -- ** GetWorkflowRuns
-    GetWorkflowRuns (GetWorkflowRuns'),
-    newGetWorkflowRuns,
-    GetWorkflowRunsResponse (GetWorkflowRunsResponse'),
-    newGetWorkflowRunsResponse,
+    -- ** CreateConnection
+    CreateConnection (CreateConnection'),
+    newCreateConnection,
+    CreateConnectionResponse (CreateConnectionResponse'),
+    newCreateConnectionResponse,
+
+    -- ** CreateCrawler
+    CreateCrawler (CreateCrawler'),
+    newCreateCrawler,
+    CreateCrawlerResponse (CreateCrawlerResponse'),
+    newCreateCrawlerResponse,
+
+    -- ** CreateDatabase
+    CreateDatabase (CreateDatabase'),
+    newCreateDatabase,
+    CreateDatabaseResponse (CreateDatabaseResponse'),
+    newCreateDatabaseResponse,
+
+    -- ** CreateDevEndpoint
+    CreateDevEndpoint (CreateDevEndpoint'),
+    newCreateDevEndpoint,
+    CreateDevEndpointResponse (CreateDevEndpointResponse'),
+    newCreateDevEndpointResponse,
+
+    -- ** CreateJob
+    CreateJob (CreateJob'),
+    newCreateJob,
+    CreateJobResponse (CreateJobResponse'),
+    newCreateJobResponse,
+
+    -- ** CreateMLTransform
+    CreateMLTransform (CreateMLTransform'),
+    newCreateMLTransform,
+    CreateMLTransformResponse (CreateMLTransformResponse'),
+    newCreateMLTransformResponse,
+
+    -- ** CreatePartition
+    CreatePartition (CreatePartition'),
+    newCreatePartition,
+    CreatePartitionResponse (CreatePartitionResponse'),
+    newCreatePartitionResponse,
+
+    -- ** CreatePartitionIndex
+    CreatePartitionIndex (CreatePartitionIndex'),
+    newCreatePartitionIndex,
+    CreatePartitionIndexResponse (CreatePartitionIndexResponse'),
+    newCreatePartitionIndexResponse,
+
+    -- ** CreateRegistry
+    CreateRegistry (CreateRegistry'),
+    newCreateRegistry,
+    CreateRegistryResponse (CreateRegistryResponse'),
+    newCreateRegistryResponse,
+
+    -- ** CreateSchema
+    CreateSchema (CreateSchema'),
+    newCreateSchema,
+    CreateSchemaResponse (CreateSchemaResponse'),
+    newCreateSchemaResponse,
+
+    -- ** CreateScript
+    CreateScript (CreateScript'),
+    newCreateScript,
+    CreateScriptResponse (CreateScriptResponse'),
+    newCreateScriptResponse,
+
+    -- ** CreateSecurityConfiguration
+    CreateSecurityConfiguration (CreateSecurityConfiguration'),
+    newCreateSecurityConfiguration,
+    CreateSecurityConfigurationResponse (CreateSecurityConfigurationResponse'),
+    newCreateSecurityConfigurationResponse,
+
+    -- ** CreateTable
+    CreateTable (CreateTable'),
+    newCreateTable,
+    CreateTableResponse (CreateTableResponse'),
+    newCreateTableResponse,
+
+    -- ** CreateTrigger
+    CreateTrigger (CreateTrigger'),
+    newCreateTrigger,
+    CreateTriggerResponse (CreateTriggerResponse'),
+    newCreateTriggerResponse,
+
+    -- ** CreateUserDefinedFunction
+    CreateUserDefinedFunction (CreateUserDefinedFunction'),
+    newCreateUserDefinedFunction,
+    CreateUserDefinedFunctionResponse (CreateUserDefinedFunctionResponse'),
+    newCreateUserDefinedFunctionResponse,
 
     -- ** CreateWorkflow
     CreateWorkflow (CreateWorkflow'),
@@ -198,11 +306,23 @@ module Amazonka.Glue
     CreateWorkflowResponse (CreateWorkflowResponse'),
     newCreateWorkflowResponse,
 
-    -- ** UpdateColumnStatisticsForTable
-    UpdateColumnStatisticsForTable (UpdateColumnStatisticsForTable'),
-    newUpdateColumnStatisticsForTable,
-    UpdateColumnStatisticsForTableResponse (UpdateColumnStatisticsForTableResponse'),
-    newUpdateColumnStatisticsForTableResponse,
+    -- ** DeleteBlueprint
+    DeleteBlueprint (DeleteBlueprint'),
+    newDeleteBlueprint,
+    DeleteBlueprintResponse (DeleteBlueprintResponse'),
+    newDeleteBlueprintResponse,
+
+    -- ** DeleteClassifier
+    DeleteClassifier (DeleteClassifier'),
+    newDeleteClassifier,
+    DeleteClassifierResponse (DeleteClassifierResponse'),
+    newDeleteClassifierResponse,
+
+    -- ** DeleteColumnStatisticsForPartition
+    DeleteColumnStatisticsForPartition (DeleteColumnStatisticsForPartition'),
+    newDeleteColumnStatisticsForPartition,
+    DeleteColumnStatisticsForPartitionResponse (DeleteColumnStatisticsForPartitionResponse'),
+    newDeleteColumnStatisticsForPartitionResponse,
 
     -- ** DeleteColumnStatisticsForTable
     DeleteColumnStatisticsForTable (DeleteColumnStatisticsForTable'),
@@ -216,431 +336,11 @@ module Amazonka.Glue
     DeleteConnectionResponse (DeleteConnectionResponse'),
     newDeleteConnectionResponse,
 
-    -- ** UpdateConnection
-    UpdateConnection (UpdateConnection'),
-    newUpdateConnection,
-    UpdateConnectionResponse (UpdateConnectionResponse'),
-    newUpdateConnectionResponse,
-
-    -- ** GetUserDefinedFunctions (Paginated)
-    GetUserDefinedFunctions (GetUserDefinedFunctions'),
-    newGetUserDefinedFunctions,
-    GetUserDefinedFunctionsResponse (GetUserDefinedFunctionsResponse'),
-    newGetUserDefinedFunctionsResponse,
-
-    -- ** GetTags
-    GetTags (GetTags'),
-    newGetTags,
-    GetTagsResponse (GetTagsResponse'),
-    newGetTagsResponse,
-
-    -- ** GetDataCatalogEncryptionSettings
-    GetDataCatalogEncryptionSettings (GetDataCatalogEncryptionSettings'),
-    newGetDataCatalogEncryptionSettings,
-    GetDataCatalogEncryptionSettingsResponse (GetDataCatalogEncryptionSettingsResponse'),
-    newGetDataCatalogEncryptionSettingsResponse,
-
-    -- ** BatchCreatePartition
-    BatchCreatePartition (BatchCreatePartition'),
-    newBatchCreatePartition,
-    BatchCreatePartitionResponse (BatchCreatePartitionResponse'),
-    newBatchCreatePartitionResponse,
-
-    -- ** GetMapping
-    GetMapping (GetMapping'),
-    newGetMapping,
-    GetMappingResponse (GetMappingResponse'),
-    newGetMappingResponse,
-
-    -- ** DeleteWorkflow
-    DeleteWorkflow (DeleteWorkflow'),
-    newDeleteWorkflow,
-    DeleteWorkflowResponse (DeleteWorkflowResponse'),
-    newDeleteWorkflowResponse,
-
-    -- ** UpdateWorkflow
-    UpdateWorkflow (UpdateWorkflow'),
-    newUpdateWorkflow,
-    UpdateWorkflowResponse (UpdateWorkflowResponse'),
-    newUpdateWorkflowResponse,
-
-    -- ** GetTableVersion
-    GetTableVersion (GetTableVersion'),
-    newGetTableVersion,
-    GetTableVersionResponse (GetTableVersionResponse'),
-    newGetTableVersionResponse,
-
-    -- ** CreateSecurityConfiguration
-    CreateSecurityConfiguration (CreateSecurityConfiguration'),
-    newCreateSecurityConfiguration,
-    CreateSecurityConfigurationResponse (CreateSecurityConfigurationResponse'),
-    newCreateSecurityConfigurationResponse,
-
-    -- ** StartWorkflowRun
-    StartWorkflowRun (StartWorkflowRun'),
-    newStartWorkflowRun,
-    StartWorkflowRunResponse (StartWorkflowRunResponse'),
-    newStartWorkflowRunResponse,
-
-    -- ** GetJobs (Paginated)
-    GetJobs (GetJobs'),
-    newGetJobs,
-    GetJobsResponse (GetJobsResponse'),
-    newGetJobsResponse,
-
-    -- ** BatchGetWorkflows
-    BatchGetWorkflows (BatchGetWorkflows'),
-    newBatchGetWorkflows,
-    BatchGetWorkflowsResponse (BatchGetWorkflowsResponse'),
-    newBatchGetWorkflowsResponse,
-
-    -- ** GetClassifiers (Paginated)
-    GetClassifiers (GetClassifiers'),
-    newGetClassifiers,
-    GetClassifiersResponse (GetClassifiersResponse'),
-    newGetClassifiersResponse,
-
-    -- ** GetResourcePolicies (Paginated)
-    GetResourcePolicies (GetResourcePolicies'),
-    newGetResourcePolicies,
-    GetResourcePoliciesResponse (GetResourcePoliciesResponse'),
-    newGetResourcePoliciesResponse,
-
-    -- ** CreateConnection
-    CreateConnection (CreateConnection'),
-    newCreateConnection,
-    CreateConnectionResponse (CreateConnectionResponse'),
-    newCreateConnectionResponse,
-
-    -- ** ListSchemaVersions (Paginated)
-    ListSchemaVersions (ListSchemaVersions'),
-    newListSchemaVersions,
-    ListSchemaVersionsResponse (ListSchemaVersionsResponse'),
-    newListSchemaVersionsResponse,
-
-    -- ** GetWorkflowRunProperties
-    GetWorkflowRunProperties (GetWorkflowRunProperties'),
-    newGetWorkflowRunProperties,
-    GetWorkflowRunPropertiesResponse (GetWorkflowRunPropertiesResponse'),
-    newGetWorkflowRunPropertiesResponse,
-
-    -- ** BatchGetDevEndpoints
-    BatchGetDevEndpoints (BatchGetDevEndpoints'),
-    newBatchGetDevEndpoints,
-    BatchGetDevEndpointsResponse (BatchGetDevEndpointsResponse'),
-    newBatchGetDevEndpointsResponse,
-
-    -- ** DeletePartitionIndex
-    DeletePartitionIndex (DeletePartitionIndex'),
-    newDeletePartitionIndex,
-    DeletePartitionIndexResponse (DeletePartitionIndexResponse'),
-    newDeletePartitionIndexResponse,
-
-    -- ** DeleteTableVersion
-    DeleteTableVersion (DeleteTableVersion'),
-    newDeleteTableVersion,
-    DeleteTableVersionResponse (DeleteTableVersionResponse'),
-    newDeleteTableVersionResponse,
-
-    -- ** DeleteDevEndpoint
-    DeleteDevEndpoint (DeleteDevEndpoint'),
-    newDeleteDevEndpoint,
-    DeleteDevEndpointResponse (DeleteDevEndpointResponse'),
-    newDeleteDevEndpointResponse,
-
-    -- ** UpdateDevEndpoint
-    UpdateDevEndpoint (UpdateDevEndpoint'),
-    newUpdateDevEndpoint,
-    UpdateDevEndpointResponse (UpdateDevEndpointResponse'),
-    newUpdateDevEndpointResponse,
-
-    -- ** GetWorkflow
-    GetWorkflow (GetWorkflow'),
-    newGetWorkflow,
-    GetWorkflowResponse (GetWorkflowResponse'),
-    newGetWorkflowResponse,
-
-    -- ** BatchGetCrawlers
-    BatchGetCrawlers (BatchGetCrawlers'),
-    newBatchGetCrawlers,
-    BatchGetCrawlersResponse (BatchGetCrawlersResponse'),
-    newBatchGetCrawlersResponse,
-
-    -- ** GetJobBookmark
-    GetJobBookmark (GetJobBookmark'),
-    newGetJobBookmark,
-    GetJobBookmarkResponse (GetJobBookmarkResponse'),
-    newGetJobBookmarkResponse,
-
     -- ** DeleteCrawler
     DeleteCrawler (DeleteCrawler'),
     newDeleteCrawler,
     DeleteCrawlerResponse (DeleteCrawlerResponse'),
     newDeleteCrawlerResponse,
-
-    -- ** UpdateCrawler
-    UpdateCrawler (UpdateCrawler'),
-    newUpdateCrawler,
-    UpdateCrawlerResponse (UpdateCrawlerResponse'),
-    newUpdateCrawlerResponse,
-
-    -- ** StartExportLabelsTaskRun
-    StartExportLabelsTaskRun (StartExportLabelsTaskRun'),
-    newStartExportLabelsTaskRun,
-    StartExportLabelsTaskRunResponse (StartExportLabelsTaskRunResponse'),
-    newStartExportLabelsTaskRunResponse,
-
-    -- ** GetSecurityConfiguration
-    GetSecurityConfiguration (GetSecurityConfiguration'),
-    newGetSecurityConfiguration,
-    GetSecurityConfigurationResponse (GetSecurityConfigurationResponse'),
-    newGetSecurityConfigurationResponse,
-
-    -- ** CreatePartitionIndex
-    CreatePartitionIndex (CreatePartitionIndex'),
-    newCreatePartitionIndex,
-    CreatePartitionIndexResponse (CreatePartitionIndexResponse'),
-    newCreatePartitionIndexResponse,
-
-    -- ** GetBlueprintRun
-    GetBlueprintRun (GetBlueprintRun'),
-    newGetBlueprintRun,
-    GetBlueprintRunResponse (GetBlueprintRunResponse'),
-    newGetBlueprintRunResponse,
-
-    -- ** RemoveSchemaVersionMetadata
-    RemoveSchemaVersionMetadata (RemoveSchemaVersionMetadata'),
-    newRemoveSchemaVersionMetadata,
-    RemoveSchemaVersionMetadataResponse (RemoveSchemaVersionMetadataResponse'),
-    newRemoveSchemaVersionMetadataResponse,
-
-    -- ** ListSchemas (Paginated)
-    ListSchemas (ListSchemas'),
-    newListSchemas,
-    ListSchemasResponse (ListSchemasResponse'),
-    newListSchemasResponse,
-
-    -- ** GetConnection
-    GetConnection (GetConnection'),
-    newGetConnection,
-    GetConnectionResponse (GetConnectionResponse'),
-    newGetConnectionResponse,
-
-    -- ** GetColumnStatisticsForTable
-    GetColumnStatisticsForTable (GetColumnStatisticsForTable'),
-    newGetColumnStatisticsForTable,
-    GetColumnStatisticsForTableResponse (GetColumnStatisticsForTableResponse'),
-    newGetColumnStatisticsForTableResponse,
-
-    -- ** BatchGetPartition
-    BatchGetPartition (BatchGetPartition'),
-    newBatchGetPartition,
-    BatchGetPartitionResponse (BatchGetPartitionResponse'),
-    newBatchGetPartitionResponse,
-
-    -- ** StopTrigger
-    StopTrigger (StopTrigger'),
-    newStopTrigger,
-    StopTriggerResponse (StopTriggerResponse'),
-    newStopTriggerResponse,
-
-    -- ** UpdateCrawlerSchedule
-    UpdateCrawlerSchedule (UpdateCrawlerSchedule'),
-    newUpdateCrawlerSchedule,
-    UpdateCrawlerScheduleResponse (UpdateCrawlerScheduleResponse'),
-    newUpdateCrawlerScheduleResponse,
-
-    -- ** StartMLEvaluationTaskRun
-    StartMLEvaluationTaskRun (StartMLEvaluationTaskRun'),
-    newStartMLEvaluationTaskRun,
-    StartMLEvaluationTaskRunResponse (StartMLEvaluationTaskRunResponse'),
-    newStartMLEvaluationTaskRunResponse,
-
-    -- ** DeleteUserDefinedFunction
-    DeleteUserDefinedFunction (DeleteUserDefinedFunction'),
-    newDeleteUserDefinedFunction,
-    DeleteUserDefinedFunctionResponse (DeleteUserDefinedFunctionResponse'),
-    newDeleteUserDefinedFunctionResponse,
-
-    -- ** UpdateUserDefinedFunction
-    UpdateUserDefinedFunction (UpdateUserDefinedFunction'),
-    newUpdateUserDefinedFunction,
-    UpdateUserDefinedFunctionResponse (UpdateUserDefinedFunctionResponse'),
-    newUpdateUserDefinedFunctionResponse,
-
-    -- ** GetRegistry
-    GetRegistry (GetRegistry'),
-    newGetRegistry,
-    GetRegistryResponse (GetRegistryResponse'),
-    newGetRegistryResponse,
-
-    -- ** BatchDeleteTable
-    BatchDeleteTable (BatchDeleteTable'),
-    newBatchDeleteTable,
-    BatchDeleteTableResponse (BatchDeleteTableResponse'),
-    newBatchDeleteTableResponse,
-
-    -- ** CancelMLTaskRun
-    CancelMLTaskRun (CancelMLTaskRun'),
-    newCancelMLTaskRun,
-    CancelMLTaskRunResponse (CancelMLTaskRunResponse'),
-    newCancelMLTaskRunResponse,
-
-    -- ** GetTables (Paginated)
-    GetTables (GetTables'),
-    newGetTables,
-    GetTablesResponse (GetTablesResponse'),
-    newGetTablesResponse,
-
-    -- ** ResumeWorkflowRun
-    ResumeWorkflowRun (ResumeWorkflowRun'),
-    newResumeWorkflowRun,
-    ResumeWorkflowRunResponse (ResumeWorkflowRunResponse'),
-    newResumeWorkflowRunResponse,
-
-    -- ** CreateClassifier
-    CreateClassifier (CreateClassifier'),
-    newCreateClassifier,
-    CreateClassifierResponse (CreateClassifierResponse'),
-    newCreateClassifierResponse,
-
-    -- ** BatchDeleteConnection
-    BatchDeleteConnection (BatchDeleteConnection'),
-    newBatchDeleteConnection,
-    BatchDeleteConnectionResponse (BatchDeleteConnectionResponse'),
-    newBatchDeleteConnectionResponse,
-
-    -- ** CreateJob
-    CreateJob (CreateJob'),
-    newCreateJob,
-    CreateJobResponse (CreateJobResponse'),
-    newCreateJobResponse,
-
-    -- ** GetJobRuns (Paginated)
-    GetJobRuns (GetJobRuns'),
-    newGetJobRuns,
-    GetJobRunsResponse (GetJobRunsResponse'),
-    newGetJobRunsResponse,
-
-    -- ** CreateUserDefinedFunction
-    CreateUserDefinedFunction (CreateUserDefinedFunction'),
-    newCreateUserDefinedFunction,
-    CreateUserDefinedFunctionResponse (CreateUserDefinedFunctionResponse'),
-    newCreateUserDefinedFunctionResponse,
-
-    -- ** ResetJobBookmark
-    ResetJobBookmark (ResetJobBookmark'),
-    newResetJobBookmark,
-    ResetJobBookmarkResponse (ResetJobBookmarkResponse'),
-    newResetJobBookmarkResponse,
-
-    -- ** ListJobs
-    ListJobs (ListJobs'),
-    newListJobs,
-    ListJobsResponse (ListJobsResponse'),
-    newListJobsResponse,
-
-    -- ** StartBlueprintRun
-    StartBlueprintRun (StartBlueprintRun'),
-    newStartBlueprintRun,
-    StartBlueprintRunResponse (StartBlueprintRunResponse'),
-    newStartBlueprintRunResponse,
-
-    -- ** BatchGetBlueprints
-    BatchGetBlueprints (BatchGetBlueprints'),
-    newBatchGetBlueprints,
-    BatchGetBlueprintsResponse (BatchGetBlueprintsResponse'),
-    newBatchGetBlueprintsResponse,
-
-    -- ** DeleteJob
-    DeleteJob (DeleteJob'),
-    newDeleteJob,
-    DeleteJobResponse (DeleteJobResponse'),
-    newDeleteJobResponse,
-
-    -- ** UpdateJob
-    UpdateJob (UpdateJob'),
-    newUpdateJob,
-    UpdateJobResponse (UpdateJobResponse'),
-    newUpdateJobResponse,
-
-    -- ** CreateRegistry
-    CreateRegistry (CreateRegistry'),
-    newCreateRegistry,
-    CreateRegistryResponse (CreateRegistryResponse'),
-    newCreateRegistryResponse,
-
-    -- ** GetCrawlers (Paginated)
-    GetCrawlers (GetCrawlers'),
-    newGetCrawlers,
-    GetCrawlersResponse (GetCrawlersResponse'),
-    newGetCrawlersResponse,
-
-    -- ** ListTriggers
-    ListTriggers (ListTriggers'),
-    newListTriggers,
-    ListTriggersResponse (ListTriggersResponse'),
-    newListTriggersResponse,
-
-    -- ** GetClassifier
-    GetClassifier (GetClassifier'),
-    newGetClassifier,
-    GetClassifierResponse (GetClassifierResponse'),
-    newGetClassifierResponse,
-
-    -- ** GetJob
-    GetJob (GetJob'),
-    newGetJob,
-    GetJobResponse (GetJobResponse'),
-    newGetJobResponse,
-
-    -- ** ListRegistries (Paginated)
-    ListRegistries (ListRegistries'),
-    newListRegistries,
-    ListRegistriesResponse (ListRegistriesResponse'),
-    newListRegistriesResponse,
-
-    -- ** BatchDeleteTableVersion
-    BatchDeleteTableVersion (BatchDeleteTableVersion'),
-    newBatchDeleteTableVersion,
-    BatchDeleteTableVersionResponse (BatchDeleteTableVersionResponse'),
-    newBatchDeleteTableVersionResponse,
-
-    -- ** GetDevEndpoints (Paginated)
-    GetDevEndpoints (GetDevEndpoints'),
-    newGetDevEndpoints,
-    GetDevEndpointsResponse (GetDevEndpointsResponse'),
-    newGetDevEndpointsResponse,
-
-    -- ** StartCrawlerSchedule
-    StartCrawlerSchedule (StartCrawlerSchedule'),
-    newStartCrawlerSchedule,
-    StartCrawlerScheduleResponse (StartCrawlerScheduleResponse'),
-    newStartCrawlerScheduleResponse,
-
-    -- ** GetPartitionIndexes (Paginated)
-    GetPartitionIndexes (GetPartitionIndexes'),
-    newGetPartitionIndexes,
-    GetPartitionIndexesResponse (GetPartitionIndexesResponse'),
-    newGetPartitionIndexesResponse,
-
-    -- ** GetUserDefinedFunction
-    GetUserDefinedFunction (GetUserDefinedFunction'),
-    newGetUserDefinedFunction,
-    GetUserDefinedFunctionResponse (GetUserDefinedFunctionResponse'),
-    newGetUserDefinedFunctionResponse,
-
-    -- ** GetResourcePolicy
-    GetResourcePolicy (GetResourcePolicy'),
-    newGetResourcePolicy,
-    GetResourcePolicyResponse (GetResourcePolicyResponse'),
-    newGetResourcePolicyResponse,
-
-    -- ** GetWorkflowRun
-    GetWorkflowRun (GetWorkflowRun'),
-    newGetWorkflowRun,
-    GetWorkflowRunResponse (GetWorkflowRunResponse'),
-    newGetWorkflowRunResponse,
 
     -- ** DeleteDatabase
     DeleteDatabase (DeleteDatabase'),
@@ -648,263 +348,23 @@ module Amazonka.Glue
     DeleteDatabaseResponse (DeleteDatabaseResponse'),
     newDeleteDatabaseResponse,
 
-    -- ** UpdateDatabase
-    UpdateDatabase (UpdateDatabase'),
-    newUpdateDatabase,
-    UpdateDatabaseResponse (UpdateDatabaseResponse'),
-    newUpdateDatabaseResponse,
+    -- ** DeleteDevEndpoint
+    DeleteDevEndpoint (DeleteDevEndpoint'),
+    newDeleteDevEndpoint,
+    DeleteDevEndpointResponse (DeleteDevEndpointResponse'),
+    newDeleteDevEndpointResponse,
 
-    -- ** GetColumnStatisticsForPartition
-    GetColumnStatisticsForPartition (GetColumnStatisticsForPartition'),
-    newGetColumnStatisticsForPartition,
-    GetColumnStatisticsForPartitionResponse (GetColumnStatisticsForPartitionResponse'),
-    newGetColumnStatisticsForPartitionResponse,
+    -- ** DeleteJob
+    DeleteJob (DeleteJob'),
+    newDeleteJob,
+    DeleteJobResponse (DeleteJobResponse'),
+    newDeleteJobResponse,
 
-    -- ** StopCrawler
-    StopCrawler (StopCrawler'),
-    newStopCrawler,
-    StopCrawlerResponse (StopCrawlerResponse'),
-    newStopCrawlerResponse,
-
-    -- ** DeleteSecurityConfiguration
-    DeleteSecurityConfiguration (DeleteSecurityConfiguration'),
-    newDeleteSecurityConfiguration,
-    DeleteSecurityConfigurationResponse (DeleteSecurityConfigurationResponse'),
-    newDeleteSecurityConfigurationResponse,
-
-    -- ** GetPartitions (Paginated)
-    GetPartitions (GetPartitions'),
-    newGetPartitions,
-    GetPartitionsResponse (GetPartitionsResponse'),
-    newGetPartitionsResponse,
-
-    -- ** PutSchemaVersionMetadata
-    PutSchemaVersionMetadata (PutSchemaVersionMetadata'),
-    newPutSchemaVersionMetadata,
-    PutSchemaVersionMetadataResponse (PutSchemaVersionMetadataResponse'),
-    newPutSchemaVersionMetadataResponse,
-
-    -- ** GetSchema
-    GetSchema (GetSchema'),
-    newGetSchema,
-    GetSchemaResponse (GetSchemaResponse'),
-    newGetSchemaResponse,
-
-    -- ** BatchDeletePartition
-    BatchDeletePartition (BatchDeletePartition'),
-    newBatchDeletePartition,
-    BatchDeletePartitionResponse (BatchDeletePartitionResponse'),
-    newBatchDeletePartitionResponse,
-
-    -- ** StartMLLabelingSetGenerationTaskRun
-    StartMLLabelingSetGenerationTaskRun (StartMLLabelingSetGenerationTaskRun'),
-    newStartMLLabelingSetGenerationTaskRun,
-    StartMLLabelingSetGenerationTaskRunResponse (StartMLLabelingSetGenerationTaskRunResponse'),
-    newStartMLLabelingSetGenerationTaskRunResponse,
-
-    -- ** BatchUpdatePartition
-    BatchUpdatePartition (BatchUpdatePartition'),
-    newBatchUpdatePartition,
-    BatchUpdatePartitionResponse (BatchUpdatePartitionResponse'),
-    newBatchUpdatePartitionResponse,
-
-    -- ** RegisterSchemaVersion
-    RegisterSchemaVersion (RegisterSchemaVersion'),
-    newRegisterSchemaVersion,
-    RegisterSchemaVersionResponse (RegisterSchemaVersionResponse'),
-    newRegisterSchemaVersionResponse,
-
-    -- ** StopWorkflowRun
-    StopWorkflowRun (StopWorkflowRun'),
-    newStopWorkflowRun,
-    StopWorkflowRunResponse (StopWorkflowRunResponse'),
-    newStopWorkflowRunResponse,
-
-    -- ** GetCrawler
-    GetCrawler (GetCrawler'),
-    newGetCrawler,
-    GetCrawlerResponse (GetCrawlerResponse'),
-    newGetCrawlerResponse,
-
-    -- ** ListWorkflows
-    ListWorkflows (ListWorkflows'),
-    newListWorkflows,
-    ListWorkflowsResponse (ListWorkflowsResponse'),
-    newListWorkflowsResponse,
-
-    -- ** BatchStopJobRun
-    BatchStopJobRun (BatchStopJobRun'),
-    newBatchStopJobRun,
-    BatchStopJobRunResponse (BatchStopJobRunResponse'),
-    newBatchStopJobRunResponse,
-
-    -- ** GetDevEndpoint
-    GetDevEndpoint (GetDevEndpoint'),
-    newGetDevEndpoint,
-    GetDevEndpointResponse (GetDevEndpointResponse'),
-    newGetDevEndpointResponse,
-
-    -- ** PutWorkflowRunProperties
-    PutWorkflowRunProperties (PutWorkflowRunProperties'),
-    newPutWorkflowRunProperties,
-    PutWorkflowRunPropertiesResponse (PutWorkflowRunPropertiesResponse'),
-    newPutWorkflowRunPropertiesResponse,
-
-    -- ** CreateTable
-    CreateTable (CreateTable'),
-    newCreateTable,
-    CreateTableResponse (CreateTableResponse'),
-    newCreateTableResponse,
-
-    -- ** ListCrawlers
-    ListCrawlers (ListCrawlers'),
-    newListCrawlers,
-    ListCrawlersResponse (ListCrawlersResponse'),
-    newListCrawlersResponse,
-
-    -- ** GetCrawlerMetrics (Paginated)
-    GetCrawlerMetrics (GetCrawlerMetrics'),
-    newGetCrawlerMetrics,
-    GetCrawlerMetricsResponse (GetCrawlerMetricsResponse'),
-    newGetCrawlerMetricsResponse,
-
-    -- ** GetSchemaVersion
-    GetSchemaVersion (GetSchemaVersion'),
-    newGetSchemaVersion,
-    GetSchemaVersionResponse (GetSchemaVersionResponse'),
-    newGetSchemaVersionResponse,
-
-    -- ** GetPlan
-    GetPlan (GetPlan'),
-    newGetPlan,
-    GetPlanResponse (GetPlanResponse'),
-    newGetPlanResponse,
-
-    -- ** GetTriggers (Paginated)
-    GetTriggers (GetTriggers'),
-    newGetTriggers,
-    GetTriggersResponse (GetTriggersResponse'),
-    newGetTriggersResponse,
-
-    -- ** CreateSchema
-    CreateSchema (CreateSchema'),
-    newCreateSchema,
-    CreateSchemaResponse (CreateSchemaResponse'),
-    newCreateSchemaResponse,
-
-    -- ** ListDevEndpoints
-    ListDevEndpoints (ListDevEndpoints'),
-    newListDevEndpoints,
-    ListDevEndpointsResponse (ListDevEndpointsResponse'),
-    newListDevEndpointsResponse,
-
-    -- ** StartTrigger
-    StartTrigger (StartTrigger'),
-    newStartTrigger,
-    StartTriggerResponse (StartTriggerResponse'),
-    newStartTriggerResponse,
-
-    -- ** GetDataflowGraph
-    GetDataflowGraph (GetDataflowGraph'),
-    newGetDataflowGraph,
-    GetDataflowGraphResponse (GetDataflowGraphResponse'),
-    newGetDataflowGraphResponse,
-
-    -- ** GetDatabases (Paginated)
-    GetDatabases (GetDatabases'),
-    newGetDatabases,
-    GetDatabasesResponse (GetDatabasesResponse'),
-    newGetDatabasesResponse,
-
-    -- ** GetTable
-    GetTable (GetTable'),
-    newGetTable,
-    GetTableResponse (GetTableResponse'),
-    newGetTableResponse,
-
-    -- ** CreateCrawler
-    CreateCrawler (CreateCrawler'),
-    newCreateCrawler,
-    CreateCrawlerResponse (CreateCrawlerResponse'),
-    newCreateCrawlerResponse,
-
-    -- ** GetJobRun
-    GetJobRun (GetJobRun'),
-    newGetJobRun,
-    GetJobRunResponse (GetJobRunResponse'),
-    newGetJobRunResponse,
-
-    -- ** CreateDevEndpoint
-    CreateDevEndpoint (CreateDevEndpoint'),
-    newCreateDevEndpoint,
-    CreateDevEndpointResponse (CreateDevEndpointResponse'),
-    newCreateDevEndpointResponse,
-
-    -- ** GetMLTaskRuns
-    GetMLTaskRuns (GetMLTaskRuns'),
-    newGetMLTaskRuns,
-    GetMLTaskRunsResponse (GetMLTaskRunsResponse'),
-    newGetMLTaskRunsResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** PutDataCatalogEncryptionSettings
-    PutDataCatalogEncryptionSettings (PutDataCatalogEncryptionSettings'),
-    newPutDataCatalogEncryptionSettings,
-    PutDataCatalogEncryptionSettingsResponse (PutDataCatalogEncryptionSettingsResponse'),
-    newPutDataCatalogEncryptionSettingsResponse,
-
-    -- ** GetMLTransforms
-    GetMLTransforms (GetMLTransforms'),
-    newGetMLTransforms,
-    GetMLTransformsResponse (GetMLTransformsResponse'),
-    newGetMLTransformsResponse,
-
-    -- ** UpdateSchema
-    UpdateSchema (UpdateSchema'),
-    newUpdateSchema,
-    UpdateSchemaResponse (UpdateSchemaResponse'),
-    newUpdateSchemaResponse,
-
-    -- ** DeleteSchema
-    DeleteSchema (DeleteSchema'),
-    newDeleteSchema,
-    DeleteSchemaResponse (DeleteSchemaResponse'),
-    newDeleteSchemaResponse,
-
-    -- ** GetDatabase
-    GetDatabase (GetDatabase'),
-    newGetDatabase,
-    GetDatabaseResponse (GetDatabaseResponse'),
-    newGetDatabaseResponse,
-
-    -- ** DeleteColumnStatisticsForPartition
-    DeleteColumnStatisticsForPartition (DeleteColumnStatisticsForPartition'),
-    newDeleteColumnStatisticsForPartition,
-    DeleteColumnStatisticsForPartitionResponse (DeleteColumnStatisticsForPartitionResponse'),
-    newDeleteColumnStatisticsForPartitionResponse,
-
-    -- ** UpdateColumnStatisticsForPartition
-    UpdateColumnStatisticsForPartition (UpdateColumnStatisticsForPartition'),
-    newUpdateColumnStatisticsForPartition,
-    UpdateColumnStatisticsForPartitionResponse (UpdateColumnStatisticsForPartitionResponse'),
-    newUpdateColumnStatisticsForPartitionResponse,
-
-    -- ** CreateBlueprint
-    CreateBlueprint (CreateBlueprint'),
-    newCreateBlueprint,
-    CreateBlueprintResponse (CreateBlueprintResponse'),
-    newCreateBlueprintResponse,
-
-    -- ** GetMLTaskRun
-    GetMLTaskRun (GetMLTaskRun'),
-    newGetMLTaskRun,
-    GetMLTaskRunResponse (GetMLTaskRunResponse'),
-    newGetMLTaskRunResponse,
+    -- ** DeleteMLTransform
+    DeleteMLTransform (DeleteMLTransform'),
+    newDeleteMLTransform,
+    DeleteMLTransformResponse (DeleteMLTransformResponse'),
+    newDeleteMLTransformResponse,
 
     -- ** DeletePartition
     DeletePartition (DeletePartition'),
@@ -912,41 +372,17 @@ module Amazonka.Glue
     DeletePartitionResponse (DeletePartitionResponse'),
     newDeletePartitionResponse,
 
-    -- ** UpdatePartition
-    UpdatePartition (UpdatePartition'),
-    newUpdatePartition,
-    UpdatePartitionResponse (UpdatePartitionResponse'),
-    newUpdatePartitionResponse,
+    -- ** DeletePartitionIndex
+    DeletePartitionIndex (DeletePartitionIndex'),
+    newDeletePartitionIndex,
+    DeletePartitionIndexResponse (DeletePartitionIndexResponse'),
+    newDeletePartitionIndexResponse,
 
-    -- ** GetMLTransform
-    GetMLTransform (GetMLTransform'),
-    newGetMLTransform,
-    GetMLTransformResponse (GetMLTransformResponse'),
-    newGetMLTransformResponse,
-
-    -- ** CreateScript
-    CreateScript (CreateScript'),
-    newCreateScript,
-    CreateScriptResponse (CreateScriptResponse'),
-    newCreateScriptResponse,
-
-    -- ** PutResourcePolicy
-    PutResourcePolicy (PutResourcePolicy'),
-    newPutResourcePolicy,
-    PutResourcePolicyResponse (PutResourcePolicyResponse'),
-    newPutResourcePolicyResponse,
-
-    -- ** GetBlueprintRuns
-    GetBlueprintRuns (GetBlueprintRuns'),
-    newGetBlueprintRuns,
-    GetBlueprintRunsResponse (GetBlueprintRunsResponse'),
-    newGetBlueprintRunsResponse,
-
-    -- ** GetSecurityConfigurations (Paginated)
-    GetSecurityConfigurations (GetSecurityConfigurations'),
-    newGetSecurityConfigurations,
-    GetSecurityConfigurationsResponse (GetSecurityConfigurationsResponse'),
-    newGetSecurityConfigurationsResponse,
+    -- ** DeleteRegistry
+    DeleteRegistry (DeleteRegistry'),
+    newDeleteRegistry,
+    DeleteRegistryResponse (DeleteRegistryResponse'),
+    newDeleteRegistryResponse,
 
     -- ** DeleteResourcePolicy
     DeleteResourcePolicy (DeleteResourcePolicy'),
@@ -954,131 +390,11 @@ module Amazonka.Glue
     DeleteResourcePolicyResponse (DeleteResourcePolicyResponse'),
     newDeleteResourcePolicyResponse,
 
-    -- ** GetConnections (Paginated)
-    GetConnections (GetConnections'),
-    newGetConnections,
-    GetConnectionsResponse (GetConnectionsResponse'),
-    newGetConnectionsResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** GetSchemaVersionsDiff
-    GetSchemaVersionsDiff (GetSchemaVersionsDiff'),
-    newGetSchemaVersionsDiff,
-    GetSchemaVersionsDiffResponse (GetSchemaVersionsDiffResponse'),
-    newGetSchemaVersionsDiffResponse,
-
-    -- ** SearchTables
-    SearchTables (SearchTables'),
-    newSearchTables,
-    SearchTablesResponse (SearchTablesResponse'),
-    newSearchTablesResponse,
-
-    -- ** GetTrigger
-    GetTrigger (GetTrigger'),
-    newGetTrigger,
-    GetTriggerResponse (GetTriggerResponse'),
-    newGetTriggerResponse,
-
-    -- ** BatchGetJobs
-    BatchGetJobs (BatchGetJobs'),
-    newBatchGetJobs,
-    BatchGetJobsResponse (BatchGetJobsResponse'),
-    newBatchGetJobsResponse,
-
-    -- ** ImportCatalogToGlue
-    ImportCatalogToGlue (ImportCatalogToGlue'),
-    newImportCatalogToGlue,
-    ImportCatalogToGlueResponse (ImportCatalogToGlueResponse'),
-    newImportCatalogToGlueResponse,
-
-    -- ** DeleteClassifier
-    DeleteClassifier (DeleteClassifier'),
-    newDeleteClassifier,
-    DeleteClassifierResponse (DeleteClassifierResponse'),
-    newDeleteClassifierResponse,
-
-    -- ** UpdateClassifier
-    UpdateClassifier (UpdateClassifier'),
-    newUpdateClassifier,
-    UpdateClassifierResponse (UpdateClassifierResponse'),
-    newUpdateClassifierResponse,
-
-    -- ** StartJobRun
-    StartJobRun (StartJobRun'),
-    newStartJobRun,
-    StartJobRunResponse (StartJobRunResponse'),
-    newStartJobRunResponse,
-
-    -- ** DeleteBlueprint
-    DeleteBlueprint (DeleteBlueprint'),
-    newDeleteBlueprint,
-    DeleteBlueprintResponse (DeleteBlueprintResponse'),
-    newDeleteBlueprintResponse,
-
-    -- ** UpdateBlueprint
-    UpdateBlueprint (UpdateBlueprint'),
-    newUpdateBlueprint,
-    UpdateBlueprintResponse (UpdateBlueprintResponse'),
-    newUpdateBlueprintResponse,
-
-    -- ** ListBlueprints
-    ListBlueprints (ListBlueprints'),
-    newListBlueprints,
-    ListBlueprintsResponse (ListBlueprintsResponse'),
-    newListBlueprintsResponse,
-
-    -- ** CreatePartition
-    CreatePartition (CreatePartition'),
-    newCreatePartition,
-    CreatePartitionResponse (CreatePartitionResponse'),
-    newCreatePartitionResponse,
-
-    -- ** BatchGetTriggers
-    BatchGetTriggers (BatchGetTriggers'),
-    newBatchGetTriggers,
-    BatchGetTriggersResponse (BatchGetTriggersResponse'),
-    newBatchGetTriggersResponse,
-
-    -- ** GetBlueprint
-    GetBlueprint (GetBlueprint'),
-    newGetBlueprint,
-    GetBlueprintResponse (GetBlueprintResponse'),
-    newGetBlueprintResponse,
-
-    -- ** StopCrawlerSchedule
-    StopCrawlerSchedule (StopCrawlerSchedule'),
-    newStopCrawlerSchedule,
-    StopCrawlerScheduleResponse (StopCrawlerScheduleResponse'),
-    newStopCrawlerScheduleResponse,
-
-    -- ** GetSchemaByDefinition
-    GetSchemaByDefinition (GetSchemaByDefinition'),
-    newGetSchemaByDefinition,
-    GetSchemaByDefinitionResponse (GetSchemaByDefinitionResponse'),
-    newGetSchemaByDefinitionResponse,
-
-    -- ** CreateDatabase
-    CreateDatabase (CreateDatabase'),
-    newCreateDatabase,
-    CreateDatabaseResponse (CreateDatabaseResponse'),
-    newCreateDatabaseResponse,
-
-    -- ** GetTableVersions (Paginated)
-    GetTableVersions (GetTableVersions'),
-    newGetTableVersions,
-    GetTableVersionsResponse (GetTableVersionsResponse'),
-    newGetTableVersionsResponse,
-
-    -- ** CreateMLTransform
-    CreateMLTransform (CreateMLTransform'),
-    newCreateMLTransform,
-    CreateMLTransformResponse (CreateMLTransformResponse'),
-    newCreateMLTransformResponse,
+    -- ** DeleteSchema
+    DeleteSchema (DeleteSchema'),
+    newDeleteSchema,
+    DeleteSchemaResponse (DeleteSchemaResponse'),
+    newDeleteSchemaResponse,
 
     -- ** DeleteSchemaVersions
     DeleteSchemaVersions (DeleteSchemaVersions'),
@@ -1086,17 +402,701 @@ module Amazonka.Glue
     DeleteSchemaVersionsResponse (DeleteSchemaVersionsResponse'),
     newDeleteSchemaVersionsResponse,
 
+    -- ** DeleteSecurityConfiguration
+    DeleteSecurityConfiguration (DeleteSecurityConfiguration'),
+    newDeleteSecurityConfiguration,
+    DeleteSecurityConfigurationResponse (DeleteSecurityConfigurationResponse'),
+    newDeleteSecurityConfigurationResponse,
+
+    -- ** DeleteTable
+    DeleteTable (DeleteTable'),
+    newDeleteTable,
+    DeleteTableResponse (DeleteTableResponse'),
+    newDeleteTableResponse,
+
+    -- ** DeleteTableVersion
+    DeleteTableVersion (DeleteTableVersion'),
+    newDeleteTableVersion,
+    DeleteTableVersionResponse (DeleteTableVersionResponse'),
+    newDeleteTableVersionResponse,
+
     -- ** DeleteTrigger
     DeleteTrigger (DeleteTrigger'),
     newDeleteTrigger,
     DeleteTriggerResponse (DeleteTriggerResponse'),
     newDeleteTriggerResponse,
 
+    -- ** DeleteUserDefinedFunction
+    DeleteUserDefinedFunction (DeleteUserDefinedFunction'),
+    newDeleteUserDefinedFunction,
+    DeleteUserDefinedFunctionResponse (DeleteUserDefinedFunctionResponse'),
+    newDeleteUserDefinedFunctionResponse,
+
+    -- ** DeleteWorkflow
+    DeleteWorkflow (DeleteWorkflow'),
+    newDeleteWorkflow,
+    DeleteWorkflowResponse (DeleteWorkflowResponse'),
+    newDeleteWorkflowResponse,
+
+    -- ** GetBlueprint
+    GetBlueprint (GetBlueprint'),
+    newGetBlueprint,
+    GetBlueprintResponse (GetBlueprintResponse'),
+    newGetBlueprintResponse,
+
+    -- ** GetBlueprintRun
+    GetBlueprintRun (GetBlueprintRun'),
+    newGetBlueprintRun,
+    GetBlueprintRunResponse (GetBlueprintRunResponse'),
+    newGetBlueprintRunResponse,
+
+    -- ** GetBlueprintRuns
+    GetBlueprintRuns (GetBlueprintRuns'),
+    newGetBlueprintRuns,
+    GetBlueprintRunsResponse (GetBlueprintRunsResponse'),
+    newGetBlueprintRunsResponse,
+
+    -- ** GetCatalogImportStatus
+    GetCatalogImportStatus (GetCatalogImportStatus'),
+    newGetCatalogImportStatus,
+    GetCatalogImportStatusResponse (GetCatalogImportStatusResponse'),
+    newGetCatalogImportStatusResponse,
+
+    -- ** GetClassifier
+    GetClassifier (GetClassifier'),
+    newGetClassifier,
+    GetClassifierResponse (GetClassifierResponse'),
+    newGetClassifierResponse,
+
+    -- ** GetClassifiers (Paginated)
+    GetClassifiers (GetClassifiers'),
+    newGetClassifiers,
+    GetClassifiersResponse (GetClassifiersResponse'),
+    newGetClassifiersResponse,
+
+    -- ** GetColumnStatisticsForPartition
+    GetColumnStatisticsForPartition (GetColumnStatisticsForPartition'),
+    newGetColumnStatisticsForPartition,
+    GetColumnStatisticsForPartitionResponse (GetColumnStatisticsForPartitionResponse'),
+    newGetColumnStatisticsForPartitionResponse,
+
+    -- ** GetColumnStatisticsForTable
+    GetColumnStatisticsForTable (GetColumnStatisticsForTable'),
+    newGetColumnStatisticsForTable,
+    GetColumnStatisticsForTableResponse (GetColumnStatisticsForTableResponse'),
+    newGetColumnStatisticsForTableResponse,
+
+    -- ** GetConnection
+    GetConnection (GetConnection'),
+    newGetConnection,
+    GetConnectionResponse (GetConnectionResponse'),
+    newGetConnectionResponse,
+
+    -- ** GetConnections (Paginated)
+    GetConnections (GetConnections'),
+    newGetConnections,
+    GetConnectionsResponse (GetConnectionsResponse'),
+    newGetConnectionsResponse,
+
+    -- ** GetCrawler
+    GetCrawler (GetCrawler'),
+    newGetCrawler,
+    GetCrawlerResponse (GetCrawlerResponse'),
+    newGetCrawlerResponse,
+
+    -- ** GetCrawlerMetrics (Paginated)
+    GetCrawlerMetrics (GetCrawlerMetrics'),
+    newGetCrawlerMetrics,
+    GetCrawlerMetricsResponse (GetCrawlerMetricsResponse'),
+    newGetCrawlerMetricsResponse,
+
+    -- ** GetCrawlers (Paginated)
+    GetCrawlers (GetCrawlers'),
+    newGetCrawlers,
+    GetCrawlersResponse (GetCrawlersResponse'),
+    newGetCrawlersResponse,
+
+    -- ** GetDataCatalogEncryptionSettings
+    GetDataCatalogEncryptionSettings (GetDataCatalogEncryptionSettings'),
+    newGetDataCatalogEncryptionSettings,
+    GetDataCatalogEncryptionSettingsResponse (GetDataCatalogEncryptionSettingsResponse'),
+    newGetDataCatalogEncryptionSettingsResponse,
+
+    -- ** GetDatabase
+    GetDatabase (GetDatabase'),
+    newGetDatabase,
+    GetDatabaseResponse (GetDatabaseResponse'),
+    newGetDatabaseResponse,
+
+    -- ** GetDatabases (Paginated)
+    GetDatabases (GetDatabases'),
+    newGetDatabases,
+    GetDatabasesResponse (GetDatabasesResponse'),
+    newGetDatabasesResponse,
+
+    -- ** GetDataflowGraph
+    GetDataflowGraph (GetDataflowGraph'),
+    newGetDataflowGraph,
+    GetDataflowGraphResponse (GetDataflowGraphResponse'),
+    newGetDataflowGraphResponse,
+
+    -- ** GetDevEndpoint
+    GetDevEndpoint (GetDevEndpoint'),
+    newGetDevEndpoint,
+    GetDevEndpointResponse (GetDevEndpointResponse'),
+    newGetDevEndpointResponse,
+
+    -- ** GetDevEndpoints (Paginated)
+    GetDevEndpoints (GetDevEndpoints'),
+    newGetDevEndpoints,
+    GetDevEndpointsResponse (GetDevEndpointsResponse'),
+    newGetDevEndpointsResponse,
+
+    -- ** GetJob
+    GetJob (GetJob'),
+    newGetJob,
+    GetJobResponse (GetJobResponse'),
+    newGetJobResponse,
+
+    -- ** GetJobBookmark
+    GetJobBookmark (GetJobBookmark'),
+    newGetJobBookmark,
+    GetJobBookmarkResponse (GetJobBookmarkResponse'),
+    newGetJobBookmarkResponse,
+
+    -- ** GetJobRun
+    GetJobRun (GetJobRun'),
+    newGetJobRun,
+    GetJobRunResponse (GetJobRunResponse'),
+    newGetJobRunResponse,
+
+    -- ** GetJobRuns (Paginated)
+    GetJobRuns (GetJobRuns'),
+    newGetJobRuns,
+    GetJobRunsResponse (GetJobRunsResponse'),
+    newGetJobRunsResponse,
+
+    -- ** GetJobs (Paginated)
+    GetJobs (GetJobs'),
+    newGetJobs,
+    GetJobsResponse (GetJobsResponse'),
+    newGetJobsResponse,
+
+    -- ** GetMLTaskRun
+    GetMLTaskRun (GetMLTaskRun'),
+    newGetMLTaskRun,
+    GetMLTaskRunResponse (GetMLTaskRunResponse'),
+    newGetMLTaskRunResponse,
+
+    -- ** GetMLTaskRuns
+    GetMLTaskRuns (GetMLTaskRuns'),
+    newGetMLTaskRuns,
+    GetMLTaskRunsResponse (GetMLTaskRunsResponse'),
+    newGetMLTaskRunsResponse,
+
+    -- ** GetMLTransform
+    GetMLTransform (GetMLTransform'),
+    newGetMLTransform,
+    GetMLTransformResponse (GetMLTransformResponse'),
+    newGetMLTransformResponse,
+
+    -- ** GetMLTransforms
+    GetMLTransforms (GetMLTransforms'),
+    newGetMLTransforms,
+    GetMLTransformsResponse (GetMLTransformsResponse'),
+    newGetMLTransformsResponse,
+
+    -- ** GetMapping
+    GetMapping (GetMapping'),
+    newGetMapping,
+    GetMappingResponse (GetMappingResponse'),
+    newGetMappingResponse,
+
+    -- ** GetPartition
+    GetPartition (GetPartition'),
+    newGetPartition,
+    GetPartitionResponse (GetPartitionResponse'),
+    newGetPartitionResponse,
+
+    -- ** GetPartitionIndexes (Paginated)
+    GetPartitionIndexes (GetPartitionIndexes'),
+    newGetPartitionIndexes,
+    GetPartitionIndexesResponse (GetPartitionIndexesResponse'),
+    newGetPartitionIndexesResponse,
+
+    -- ** GetPartitions (Paginated)
+    GetPartitions (GetPartitions'),
+    newGetPartitions,
+    GetPartitionsResponse (GetPartitionsResponse'),
+    newGetPartitionsResponse,
+
+    -- ** GetPlan
+    GetPlan (GetPlan'),
+    newGetPlan,
+    GetPlanResponse (GetPlanResponse'),
+    newGetPlanResponse,
+
+    -- ** GetRegistry
+    GetRegistry (GetRegistry'),
+    newGetRegistry,
+    GetRegistryResponse (GetRegistryResponse'),
+    newGetRegistryResponse,
+
+    -- ** GetResourcePolicies (Paginated)
+    GetResourcePolicies (GetResourcePolicies'),
+    newGetResourcePolicies,
+    GetResourcePoliciesResponse (GetResourcePoliciesResponse'),
+    newGetResourcePoliciesResponse,
+
+    -- ** GetResourcePolicy
+    GetResourcePolicy (GetResourcePolicy'),
+    newGetResourcePolicy,
+    GetResourcePolicyResponse (GetResourcePolicyResponse'),
+    newGetResourcePolicyResponse,
+
+    -- ** GetSchema
+    GetSchema (GetSchema'),
+    newGetSchema,
+    GetSchemaResponse (GetSchemaResponse'),
+    newGetSchemaResponse,
+
+    -- ** GetSchemaByDefinition
+    GetSchemaByDefinition (GetSchemaByDefinition'),
+    newGetSchemaByDefinition,
+    GetSchemaByDefinitionResponse (GetSchemaByDefinitionResponse'),
+    newGetSchemaByDefinitionResponse,
+
+    -- ** GetSchemaVersion
+    GetSchemaVersion (GetSchemaVersion'),
+    newGetSchemaVersion,
+    GetSchemaVersionResponse (GetSchemaVersionResponse'),
+    newGetSchemaVersionResponse,
+
+    -- ** GetSchemaVersionsDiff
+    GetSchemaVersionsDiff (GetSchemaVersionsDiff'),
+    newGetSchemaVersionsDiff,
+    GetSchemaVersionsDiffResponse (GetSchemaVersionsDiffResponse'),
+    newGetSchemaVersionsDiffResponse,
+
+    -- ** GetSecurityConfiguration
+    GetSecurityConfiguration (GetSecurityConfiguration'),
+    newGetSecurityConfiguration,
+    GetSecurityConfigurationResponse (GetSecurityConfigurationResponse'),
+    newGetSecurityConfigurationResponse,
+
+    -- ** GetSecurityConfigurations (Paginated)
+    GetSecurityConfigurations (GetSecurityConfigurations'),
+    newGetSecurityConfigurations,
+    GetSecurityConfigurationsResponse (GetSecurityConfigurationsResponse'),
+    newGetSecurityConfigurationsResponse,
+
+    -- ** GetTable
+    GetTable (GetTable'),
+    newGetTable,
+    GetTableResponse (GetTableResponse'),
+    newGetTableResponse,
+
+    -- ** GetTableVersion
+    GetTableVersion (GetTableVersion'),
+    newGetTableVersion,
+    GetTableVersionResponse (GetTableVersionResponse'),
+    newGetTableVersionResponse,
+
+    -- ** GetTableVersions (Paginated)
+    GetTableVersions (GetTableVersions'),
+    newGetTableVersions,
+    GetTableVersionsResponse (GetTableVersionsResponse'),
+    newGetTableVersionsResponse,
+
+    -- ** GetTables (Paginated)
+    GetTables (GetTables'),
+    newGetTables,
+    GetTablesResponse (GetTablesResponse'),
+    newGetTablesResponse,
+
+    -- ** GetTags
+    GetTags (GetTags'),
+    newGetTags,
+    GetTagsResponse (GetTagsResponse'),
+    newGetTagsResponse,
+
+    -- ** GetTrigger
+    GetTrigger (GetTrigger'),
+    newGetTrigger,
+    GetTriggerResponse (GetTriggerResponse'),
+    newGetTriggerResponse,
+
+    -- ** GetTriggers (Paginated)
+    GetTriggers (GetTriggers'),
+    newGetTriggers,
+    GetTriggersResponse (GetTriggersResponse'),
+    newGetTriggersResponse,
+
+    -- ** GetUserDefinedFunction
+    GetUserDefinedFunction (GetUserDefinedFunction'),
+    newGetUserDefinedFunction,
+    GetUserDefinedFunctionResponse (GetUserDefinedFunctionResponse'),
+    newGetUserDefinedFunctionResponse,
+
+    -- ** GetUserDefinedFunctions (Paginated)
+    GetUserDefinedFunctions (GetUserDefinedFunctions'),
+    newGetUserDefinedFunctions,
+    GetUserDefinedFunctionsResponse (GetUserDefinedFunctionsResponse'),
+    newGetUserDefinedFunctionsResponse,
+
+    -- ** GetWorkflow
+    GetWorkflow (GetWorkflow'),
+    newGetWorkflow,
+    GetWorkflowResponse (GetWorkflowResponse'),
+    newGetWorkflowResponse,
+
+    -- ** GetWorkflowRun
+    GetWorkflowRun (GetWorkflowRun'),
+    newGetWorkflowRun,
+    GetWorkflowRunResponse (GetWorkflowRunResponse'),
+    newGetWorkflowRunResponse,
+
+    -- ** GetWorkflowRunProperties
+    GetWorkflowRunProperties (GetWorkflowRunProperties'),
+    newGetWorkflowRunProperties,
+    GetWorkflowRunPropertiesResponse (GetWorkflowRunPropertiesResponse'),
+    newGetWorkflowRunPropertiesResponse,
+
+    -- ** GetWorkflowRuns
+    GetWorkflowRuns (GetWorkflowRuns'),
+    newGetWorkflowRuns,
+    GetWorkflowRunsResponse (GetWorkflowRunsResponse'),
+    newGetWorkflowRunsResponse,
+
+    -- ** ImportCatalogToGlue
+    ImportCatalogToGlue (ImportCatalogToGlue'),
+    newImportCatalogToGlue,
+    ImportCatalogToGlueResponse (ImportCatalogToGlueResponse'),
+    newImportCatalogToGlueResponse,
+
+    -- ** ListBlueprints
+    ListBlueprints (ListBlueprints'),
+    newListBlueprints,
+    ListBlueprintsResponse (ListBlueprintsResponse'),
+    newListBlueprintsResponse,
+
+    -- ** ListCrawlers
+    ListCrawlers (ListCrawlers'),
+    newListCrawlers,
+    ListCrawlersResponse (ListCrawlersResponse'),
+    newListCrawlersResponse,
+
+    -- ** ListDevEndpoints
+    ListDevEndpoints (ListDevEndpoints'),
+    newListDevEndpoints,
+    ListDevEndpointsResponse (ListDevEndpointsResponse'),
+    newListDevEndpointsResponse,
+
+    -- ** ListJobs
+    ListJobs (ListJobs'),
+    newListJobs,
+    ListJobsResponse (ListJobsResponse'),
+    newListJobsResponse,
+
+    -- ** ListMLTransforms
+    ListMLTransforms (ListMLTransforms'),
+    newListMLTransforms,
+    ListMLTransformsResponse (ListMLTransformsResponse'),
+    newListMLTransformsResponse,
+
+    -- ** ListRegistries (Paginated)
+    ListRegistries (ListRegistries'),
+    newListRegistries,
+    ListRegistriesResponse (ListRegistriesResponse'),
+    newListRegistriesResponse,
+
+    -- ** ListSchemaVersions (Paginated)
+    ListSchemaVersions (ListSchemaVersions'),
+    newListSchemaVersions,
+    ListSchemaVersionsResponse (ListSchemaVersionsResponse'),
+    newListSchemaVersionsResponse,
+
+    -- ** ListSchemas (Paginated)
+    ListSchemas (ListSchemas'),
+    newListSchemas,
+    ListSchemasResponse (ListSchemasResponse'),
+    newListSchemasResponse,
+
+    -- ** ListTriggers
+    ListTriggers (ListTriggers'),
+    newListTriggers,
+    ListTriggersResponse (ListTriggersResponse'),
+    newListTriggersResponse,
+
+    -- ** ListWorkflows
+    ListWorkflows (ListWorkflows'),
+    newListWorkflows,
+    ListWorkflowsResponse (ListWorkflowsResponse'),
+    newListWorkflowsResponse,
+
+    -- ** PutDataCatalogEncryptionSettings
+    PutDataCatalogEncryptionSettings (PutDataCatalogEncryptionSettings'),
+    newPutDataCatalogEncryptionSettings,
+    PutDataCatalogEncryptionSettingsResponse (PutDataCatalogEncryptionSettingsResponse'),
+    newPutDataCatalogEncryptionSettingsResponse,
+
+    -- ** PutResourcePolicy
+    PutResourcePolicy (PutResourcePolicy'),
+    newPutResourcePolicy,
+    PutResourcePolicyResponse (PutResourcePolicyResponse'),
+    newPutResourcePolicyResponse,
+
+    -- ** PutSchemaVersionMetadata
+    PutSchemaVersionMetadata (PutSchemaVersionMetadata'),
+    newPutSchemaVersionMetadata,
+    PutSchemaVersionMetadataResponse (PutSchemaVersionMetadataResponse'),
+    newPutSchemaVersionMetadataResponse,
+
+    -- ** PutWorkflowRunProperties
+    PutWorkflowRunProperties (PutWorkflowRunProperties'),
+    newPutWorkflowRunProperties,
+    PutWorkflowRunPropertiesResponse (PutWorkflowRunPropertiesResponse'),
+    newPutWorkflowRunPropertiesResponse,
+
+    -- ** QuerySchemaVersionMetadata
+    QuerySchemaVersionMetadata (QuerySchemaVersionMetadata'),
+    newQuerySchemaVersionMetadata,
+    QuerySchemaVersionMetadataResponse (QuerySchemaVersionMetadataResponse'),
+    newQuerySchemaVersionMetadataResponse,
+
+    -- ** RegisterSchemaVersion
+    RegisterSchemaVersion (RegisterSchemaVersion'),
+    newRegisterSchemaVersion,
+    RegisterSchemaVersionResponse (RegisterSchemaVersionResponse'),
+    newRegisterSchemaVersionResponse,
+
+    -- ** RemoveSchemaVersionMetadata
+    RemoveSchemaVersionMetadata (RemoveSchemaVersionMetadata'),
+    newRemoveSchemaVersionMetadata,
+    RemoveSchemaVersionMetadataResponse (RemoveSchemaVersionMetadataResponse'),
+    newRemoveSchemaVersionMetadataResponse,
+
+    -- ** ResetJobBookmark
+    ResetJobBookmark (ResetJobBookmark'),
+    newResetJobBookmark,
+    ResetJobBookmarkResponse (ResetJobBookmarkResponse'),
+    newResetJobBookmarkResponse,
+
+    -- ** ResumeWorkflowRun
+    ResumeWorkflowRun (ResumeWorkflowRun'),
+    newResumeWorkflowRun,
+    ResumeWorkflowRunResponse (ResumeWorkflowRunResponse'),
+    newResumeWorkflowRunResponse,
+
+    -- ** SearchTables
+    SearchTables (SearchTables'),
+    newSearchTables,
+    SearchTablesResponse (SearchTablesResponse'),
+    newSearchTablesResponse,
+
+    -- ** StartBlueprintRun
+    StartBlueprintRun (StartBlueprintRun'),
+    newStartBlueprintRun,
+    StartBlueprintRunResponse (StartBlueprintRunResponse'),
+    newStartBlueprintRunResponse,
+
+    -- ** StartCrawler
+    StartCrawler (StartCrawler'),
+    newStartCrawler,
+    StartCrawlerResponse (StartCrawlerResponse'),
+    newStartCrawlerResponse,
+
+    -- ** StartCrawlerSchedule
+    StartCrawlerSchedule (StartCrawlerSchedule'),
+    newStartCrawlerSchedule,
+    StartCrawlerScheduleResponse (StartCrawlerScheduleResponse'),
+    newStartCrawlerScheduleResponse,
+
+    -- ** StartExportLabelsTaskRun
+    StartExportLabelsTaskRun (StartExportLabelsTaskRun'),
+    newStartExportLabelsTaskRun,
+    StartExportLabelsTaskRunResponse (StartExportLabelsTaskRunResponse'),
+    newStartExportLabelsTaskRunResponse,
+
+    -- ** StartImportLabelsTaskRun
+    StartImportLabelsTaskRun (StartImportLabelsTaskRun'),
+    newStartImportLabelsTaskRun,
+    StartImportLabelsTaskRunResponse (StartImportLabelsTaskRunResponse'),
+    newStartImportLabelsTaskRunResponse,
+
+    -- ** StartJobRun
+    StartJobRun (StartJobRun'),
+    newStartJobRun,
+    StartJobRunResponse (StartJobRunResponse'),
+    newStartJobRunResponse,
+
+    -- ** StartMLEvaluationTaskRun
+    StartMLEvaluationTaskRun (StartMLEvaluationTaskRun'),
+    newStartMLEvaluationTaskRun,
+    StartMLEvaluationTaskRunResponse (StartMLEvaluationTaskRunResponse'),
+    newStartMLEvaluationTaskRunResponse,
+
+    -- ** StartMLLabelingSetGenerationTaskRun
+    StartMLLabelingSetGenerationTaskRun (StartMLLabelingSetGenerationTaskRun'),
+    newStartMLLabelingSetGenerationTaskRun,
+    StartMLLabelingSetGenerationTaskRunResponse (StartMLLabelingSetGenerationTaskRunResponse'),
+    newStartMLLabelingSetGenerationTaskRunResponse,
+
+    -- ** StartTrigger
+    StartTrigger (StartTrigger'),
+    newStartTrigger,
+    StartTriggerResponse (StartTriggerResponse'),
+    newStartTriggerResponse,
+
+    -- ** StartWorkflowRun
+    StartWorkflowRun (StartWorkflowRun'),
+    newStartWorkflowRun,
+    StartWorkflowRunResponse (StartWorkflowRunResponse'),
+    newStartWorkflowRunResponse,
+
+    -- ** StopCrawler
+    StopCrawler (StopCrawler'),
+    newStopCrawler,
+    StopCrawlerResponse (StopCrawlerResponse'),
+    newStopCrawlerResponse,
+
+    -- ** StopCrawlerSchedule
+    StopCrawlerSchedule (StopCrawlerSchedule'),
+    newStopCrawlerSchedule,
+    StopCrawlerScheduleResponse (StopCrawlerScheduleResponse'),
+    newStopCrawlerScheduleResponse,
+
+    -- ** StopTrigger
+    StopTrigger (StopTrigger'),
+    newStopTrigger,
+    StopTriggerResponse (StopTriggerResponse'),
+    newStopTriggerResponse,
+
+    -- ** StopWorkflowRun
+    StopWorkflowRun (StopWorkflowRun'),
+    newStopWorkflowRun,
+    StopWorkflowRunResponse (StopWorkflowRunResponse'),
+    newStopWorkflowRunResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateBlueprint
+    UpdateBlueprint (UpdateBlueprint'),
+    newUpdateBlueprint,
+    UpdateBlueprintResponse (UpdateBlueprintResponse'),
+    newUpdateBlueprintResponse,
+
+    -- ** UpdateClassifier
+    UpdateClassifier (UpdateClassifier'),
+    newUpdateClassifier,
+    UpdateClassifierResponse (UpdateClassifierResponse'),
+    newUpdateClassifierResponse,
+
+    -- ** UpdateColumnStatisticsForPartition
+    UpdateColumnStatisticsForPartition (UpdateColumnStatisticsForPartition'),
+    newUpdateColumnStatisticsForPartition,
+    UpdateColumnStatisticsForPartitionResponse (UpdateColumnStatisticsForPartitionResponse'),
+    newUpdateColumnStatisticsForPartitionResponse,
+
+    -- ** UpdateColumnStatisticsForTable
+    UpdateColumnStatisticsForTable (UpdateColumnStatisticsForTable'),
+    newUpdateColumnStatisticsForTable,
+    UpdateColumnStatisticsForTableResponse (UpdateColumnStatisticsForTableResponse'),
+    newUpdateColumnStatisticsForTableResponse,
+
+    -- ** UpdateConnection
+    UpdateConnection (UpdateConnection'),
+    newUpdateConnection,
+    UpdateConnectionResponse (UpdateConnectionResponse'),
+    newUpdateConnectionResponse,
+
+    -- ** UpdateCrawler
+    UpdateCrawler (UpdateCrawler'),
+    newUpdateCrawler,
+    UpdateCrawlerResponse (UpdateCrawlerResponse'),
+    newUpdateCrawlerResponse,
+
+    -- ** UpdateCrawlerSchedule
+    UpdateCrawlerSchedule (UpdateCrawlerSchedule'),
+    newUpdateCrawlerSchedule,
+    UpdateCrawlerScheduleResponse (UpdateCrawlerScheduleResponse'),
+    newUpdateCrawlerScheduleResponse,
+
+    -- ** UpdateDatabase
+    UpdateDatabase (UpdateDatabase'),
+    newUpdateDatabase,
+    UpdateDatabaseResponse (UpdateDatabaseResponse'),
+    newUpdateDatabaseResponse,
+
+    -- ** UpdateDevEndpoint
+    UpdateDevEndpoint (UpdateDevEndpoint'),
+    newUpdateDevEndpoint,
+    UpdateDevEndpointResponse (UpdateDevEndpointResponse'),
+    newUpdateDevEndpointResponse,
+
+    -- ** UpdateJob
+    UpdateJob (UpdateJob'),
+    newUpdateJob,
+    UpdateJobResponse (UpdateJobResponse'),
+    newUpdateJobResponse,
+
+    -- ** UpdateMLTransform
+    UpdateMLTransform (UpdateMLTransform'),
+    newUpdateMLTransform,
+    UpdateMLTransformResponse (UpdateMLTransformResponse'),
+    newUpdateMLTransformResponse,
+
+    -- ** UpdatePartition
+    UpdatePartition (UpdatePartition'),
+    newUpdatePartition,
+    UpdatePartitionResponse (UpdatePartitionResponse'),
+    newUpdatePartitionResponse,
+
+    -- ** UpdateRegistry
+    UpdateRegistry (UpdateRegistry'),
+    newUpdateRegistry,
+    UpdateRegistryResponse (UpdateRegistryResponse'),
+    newUpdateRegistryResponse,
+
+    -- ** UpdateSchema
+    UpdateSchema (UpdateSchema'),
+    newUpdateSchema,
+    UpdateSchemaResponse (UpdateSchemaResponse'),
+    newUpdateSchemaResponse,
+
+    -- ** UpdateTable
+    UpdateTable (UpdateTable'),
+    newUpdateTable,
+    UpdateTableResponse (UpdateTableResponse'),
+    newUpdateTableResponse,
+
     -- ** UpdateTrigger
     UpdateTrigger (UpdateTrigger'),
     newUpdateTrigger,
     UpdateTriggerResponse (UpdateTriggerResponse'),
     newUpdateTriggerResponse,
+
+    -- ** UpdateUserDefinedFunction
+    UpdateUserDefinedFunction (UpdateUserDefinedFunction'),
+    newUpdateUserDefinedFunction,
+    UpdateUserDefinedFunctionResponse (UpdateUserDefinedFunctionResponse'),
+    newUpdateUserDefinedFunctionResponse,
+
+    -- ** UpdateWorkflow
+    UpdateWorkflow (UpdateWorkflow'),
+    newUpdateWorkflow,
+    UpdateWorkflowResponse (UpdateWorkflowResponse'),
+    newUpdateWorkflowResponse,
 
     -- * Types
 

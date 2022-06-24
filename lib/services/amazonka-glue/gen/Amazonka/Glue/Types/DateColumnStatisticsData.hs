@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDateColumnStatisticsData' smart constructor.
 data DateColumnStatisticsData = DateColumnStatisticsData'
-  { -- | The highest value in the column.
-    maximumValue :: Prelude.Maybe Core.POSIX,
-    -- | The lowest value in the column.
+  { -- | The lowest value in the column.
     minimumValue :: Prelude.Maybe Core.POSIX,
+    -- | The highest value in the column.
+    maximumValue :: Prelude.Maybe Core.POSIX,
     -- | The number of null values in the column.
     numberOfNulls :: Prelude.Natural,
     -- | The number of distinct values in a column.
@@ -46,9 +46,9 @@ data DateColumnStatisticsData = DateColumnStatisticsData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maximumValue', 'dateColumnStatisticsData_maximumValue' - The highest value in the column.
---
 -- 'minimumValue', 'dateColumnStatisticsData_minimumValue' - The lowest value in the column.
+--
+-- 'maximumValue', 'dateColumnStatisticsData_maximumValue' - The highest value in the column.
 --
 -- 'numberOfNulls', 'dateColumnStatisticsData_numberOfNulls' - The number of null values in the column.
 --
@@ -63,20 +63,20 @@ newDateColumnStatisticsData
   pNumberOfNulls_
   pNumberOfDistinctValues_ =
     DateColumnStatisticsData'
-      { maximumValue =
+      { minimumValue =
           Prelude.Nothing,
-        minimumValue = Prelude.Nothing,
+        maximumValue = Prelude.Nothing,
         numberOfNulls = pNumberOfNulls_,
         numberOfDistinctValues = pNumberOfDistinctValues_
       }
 
--- | The highest value in the column.
-dateColumnStatisticsData_maximumValue :: Lens.Lens' DateColumnStatisticsData (Prelude.Maybe Prelude.UTCTime)
-dateColumnStatisticsData_maximumValue = Lens.lens (\DateColumnStatisticsData' {maximumValue} -> maximumValue) (\s@DateColumnStatisticsData' {} a -> s {maximumValue = a} :: DateColumnStatisticsData) Prelude.. Lens.mapping Core._Time
-
 -- | The lowest value in the column.
 dateColumnStatisticsData_minimumValue :: Lens.Lens' DateColumnStatisticsData (Prelude.Maybe Prelude.UTCTime)
 dateColumnStatisticsData_minimumValue = Lens.lens (\DateColumnStatisticsData' {minimumValue} -> minimumValue) (\s@DateColumnStatisticsData' {} a -> s {minimumValue = a} :: DateColumnStatisticsData) Prelude.. Lens.mapping Core._Time
+
+-- | The highest value in the column.
+dateColumnStatisticsData_maximumValue :: Lens.Lens' DateColumnStatisticsData (Prelude.Maybe Prelude.UTCTime)
+dateColumnStatisticsData_maximumValue = Lens.lens (\DateColumnStatisticsData' {maximumValue} -> maximumValue) (\s@DateColumnStatisticsData' {} a -> s {maximumValue = a} :: DateColumnStatisticsData) Prelude.. Lens.mapping Core._Time
 
 -- | The number of null values in the column.
 dateColumnStatisticsData_numberOfNulls :: Lens.Lens' DateColumnStatisticsData Prelude.Natural
@@ -92,23 +92,23 @@ instance Core.FromJSON DateColumnStatisticsData where
       "DateColumnStatisticsData"
       ( \x ->
           DateColumnStatisticsData'
-            Prelude.<$> (x Core..:? "MaximumValue")
-            Prelude.<*> (x Core..:? "MinimumValue")
+            Prelude.<$> (x Core..:? "MinimumValue")
+            Prelude.<*> (x Core..:? "MaximumValue")
             Prelude.<*> (x Core..: "NumberOfNulls")
             Prelude.<*> (x Core..: "NumberOfDistinctValues")
       )
 
 instance Prelude.Hashable DateColumnStatisticsData where
   hashWithSalt _salt DateColumnStatisticsData' {..} =
-    _salt `Prelude.hashWithSalt` maximumValue
-      `Prelude.hashWithSalt` minimumValue
+    _salt `Prelude.hashWithSalt` minimumValue
+      `Prelude.hashWithSalt` maximumValue
       `Prelude.hashWithSalt` numberOfNulls
       `Prelude.hashWithSalt` numberOfDistinctValues
 
 instance Prelude.NFData DateColumnStatisticsData where
   rnf DateColumnStatisticsData' {..} =
-    Prelude.rnf maximumValue
-      `Prelude.seq` Prelude.rnf minimumValue
+    Prelude.rnf minimumValue
+      `Prelude.seq` Prelude.rnf maximumValue
       `Prelude.seq` Prelude.rnf numberOfNulls
       `Prelude.seq` Prelude.rnf numberOfDistinctValues
 
@@ -116,8 +116,8 @@ instance Core.ToJSON DateColumnStatisticsData where
   toJSON DateColumnStatisticsData' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MaximumValue" Core..=) Prelude.<$> maximumValue,
-            ("MinimumValue" Core..=) Prelude.<$> minimumValue,
+          [ ("MinimumValue" Core..=) Prelude.<$> minimumValue,
+            ("MaximumValue" Core..=) Prelude.<$> maximumValue,
             Prelude.Just ("NumberOfNulls" Core..= numberOfNulls),
             Prelude.Just
               ( "NumberOfDistinctValues"

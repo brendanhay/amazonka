@@ -40,9 +40,9 @@ module Amazonka.Glue.UpdateSchema
     newUpdateSchema,
 
     -- * Request Lenses
-    updateSchema_schemaVersionNumber,
-    updateSchema_description,
     updateSchema_compatibility,
+    updateSchema_description,
+    updateSchema_schemaVersionNumber,
     updateSchema_schemaId,
 
     -- * Destructuring the Response
@@ -66,13 +66,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateSchema' smart constructor.
 data UpdateSchema = UpdateSchema'
-  { -- | Version number required for check pointing. One of @VersionNumber@ or
-    -- @Compatibility@ has to be provided.
-    schemaVersionNumber :: Prelude.Maybe SchemaVersionNumber,
+  { -- | The new compatibility setting for the schema.
+    compatibility :: Prelude.Maybe Compatibility,
     -- | The new description for the schema.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The new compatibility setting for the schema.
-    compatibility :: Prelude.Maybe Compatibility,
+    -- | Version number required for check pointing. One of @VersionNumber@ or
+    -- @Compatibility@ has to be provided.
+    schemaVersionNumber :: Prelude.Maybe SchemaVersionNumber,
     -- | This is a wrapper structure to contain schema identity fields. The
     -- structure contains:
     --
@@ -93,12 +93,12 @@ data UpdateSchema = UpdateSchema'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'schemaVersionNumber', 'updateSchema_schemaVersionNumber' - Version number required for check pointing. One of @VersionNumber@ or
--- @Compatibility@ has to be provided.
+-- 'compatibility', 'updateSchema_compatibility' - The new compatibility setting for the schema.
 --
 -- 'description', 'updateSchema_description' - The new description for the schema.
 --
--- 'compatibility', 'updateSchema_compatibility' - The new compatibility setting for the schema.
+-- 'schemaVersionNumber', 'updateSchema_schemaVersionNumber' - Version number required for check pointing. One of @VersionNumber@ or
+-- @Compatibility@ has to be provided.
 --
 -- 'schemaId', 'updateSchema_schemaId' - This is a wrapper structure to contain schema identity fields. The
 -- structure contains:
@@ -114,25 +114,24 @@ newUpdateSchema ::
   UpdateSchema
 newUpdateSchema pSchemaId_ =
   UpdateSchema'
-    { schemaVersionNumber =
-        Prelude.Nothing,
+    { compatibility = Prelude.Nothing,
       description = Prelude.Nothing,
-      compatibility = Prelude.Nothing,
+      schemaVersionNumber = Prelude.Nothing,
       schemaId = pSchemaId_
     }
 
--- | Version number required for check pointing. One of @VersionNumber@ or
--- @Compatibility@ has to be provided.
-updateSchema_schemaVersionNumber :: Lens.Lens' UpdateSchema (Prelude.Maybe SchemaVersionNumber)
-updateSchema_schemaVersionNumber = Lens.lens (\UpdateSchema' {schemaVersionNumber} -> schemaVersionNumber) (\s@UpdateSchema' {} a -> s {schemaVersionNumber = a} :: UpdateSchema)
+-- | The new compatibility setting for the schema.
+updateSchema_compatibility :: Lens.Lens' UpdateSchema (Prelude.Maybe Compatibility)
+updateSchema_compatibility = Lens.lens (\UpdateSchema' {compatibility} -> compatibility) (\s@UpdateSchema' {} a -> s {compatibility = a} :: UpdateSchema)
 
 -- | The new description for the schema.
 updateSchema_description :: Lens.Lens' UpdateSchema (Prelude.Maybe Prelude.Text)
 updateSchema_description = Lens.lens (\UpdateSchema' {description} -> description) (\s@UpdateSchema' {} a -> s {description = a} :: UpdateSchema)
 
--- | The new compatibility setting for the schema.
-updateSchema_compatibility :: Lens.Lens' UpdateSchema (Prelude.Maybe Compatibility)
-updateSchema_compatibility = Lens.lens (\UpdateSchema' {compatibility} -> compatibility) (\s@UpdateSchema' {} a -> s {compatibility = a} :: UpdateSchema)
+-- | Version number required for check pointing. One of @VersionNumber@ or
+-- @Compatibility@ has to be provided.
+updateSchema_schemaVersionNumber :: Lens.Lens' UpdateSchema (Prelude.Maybe SchemaVersionNumber)
+updateSchema_schemaVersionNumber = Lens.lens (\UpdateSchema' {schemaVersionNumber} -> schemaVersionNumber) (\s@UpdateSchema' {} a -> s {schemaVersionNumber = a} :: UpdateSchema)
 
 -- | This is a wrapper structure to contain schema identity fields. The
 -- structure contains:
@@ -160,16 +159,16 @@ instance Core.AWSRequest UpdateSchema where
 
 instance Prelude.Hashable UpdateSchema where
   hashWithSalt _salt UpdateSchema' {..} =
-    _salt `Prelude.hashWithSalt` schemaVersionNumber
+    _salt `Prelude.hashWithSalt` compatibility
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` compatibility
+      `Prelude.hashWithSalt` schemaVersionNumber
       `Prelude.hashWithSalt` schemaId
 
 instance Prelude.NFData UpdateSchema where
   rnf UpdateSchema' {..} =
-    Prelude.rnf schemaVersionNumber
+    Prelude.rnf compatibility
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf compatibility
+      `Prelude.seq` Prelude.rnf schemaVersionNumber
       `Prelude.seq` Prelude.rnf schemaId
 
 instance Core.ToHeaders UpdateSchema where
@@ -189,10 +188,10 @@ instance Core.ToJSON UpdateSchema where
   toJSON UpdateSchema' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SchemaVersionNumber" Core..=)
-              Prelude.<$> schemaVersionNumber,
+          [ ("Compatibility" Core..=) Prelude.<$> compatibility,
             ("Description" Core..=) Prelude.<$> description,
-            ("Compatibility" Core..=) Prelude.<$> compatibility,
+            ("SchemaVersionNumber" Core..=)
+              Prelude.<$> schemaVersionNumber,
             Prelude.Just ("SchemaId" Core..= schemaId)
           ]
       )

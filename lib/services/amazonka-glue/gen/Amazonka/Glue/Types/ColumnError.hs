@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newColumnError' smart constructor.
 data ColumnError = ColumnError'
-  { -- | An error message with the reason for the failure of an operation.
-    error :: Prelude.Maybe ErrorDetail,
-    -- | The name of the column that failed.
-    columnName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the column that failed.
+    columnName :: Prelude.Maybe Prelude.Text,
+    -- | An error message with the reason for the failure of an operation.
+    error :: Prelude.Maybe ErrorDetail
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data ColumnError = ColumnError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'error', 'columnError_error' - An error message with the reason for the failure of an operation.
---
 -- 'columnName', 'columnError_columnName' - The name of the column that failed.
+--
+-- 'error', 'columnError_error' - An error message with the reason for the failure of an operation.
 newColumnError ::
   ColumnError
 newColumnError =
   ColumnError'
-    { error = Prelude.Nothing,
-      columnName = Prelude.Nothing
+    { columnName = Prelude.Nothing,
+      error = Prelude.Nothing
     }
-
--- | An error message with the reason for the failure of an operation.
-columnError_error :: Lens.Lens' ColumnError (Prelude.Maybe ErrorDetail)
-columnError_error = Lens.lens (\ColumnError' {error} -> error) (\s@ColumnError' {} a -> s {error = a} :: ColumnError)
 
 -- | The name of the column that failed.
 columnError_columnName :: Lens.Lens' ColumnError (Prelude.Maybe Prelude.Text)
 columnError_columnName = Lens.lens (\ColumnError' {columnName} -> columnName) (\s@ColumnError' {} a -> s {columnName = a} :: ColumnError)
+
+-- | An error message with the reason for the failure of an operation.
+columnError_error :: Lens.Lens' ColumnError (Prelude.Maybe ErrorDetail)
+columnError_error = Lens.lens (\ColumnError' {error} -> error) (\s@ColumnError' {} a -> s {error = a} :: ColumnError)
 
 instance Core.FromJSON ColumnError where
   parseJSON =
@@ -68,16 +68,16 @@ instance Core.FromJSON ColumnError where
       "ColumnError"
       ( \x ->
           ColumnError'
-            Prelude.<$> (x Core..:? "Error")
-            Prelude.<*> (x Core..:? "ColumnName")
+            Prelude.<$> (x Core..:? "ColumnName")
+            Prelude.<*> (x Core..:? "Error")
       )
 
 instance Prelude.Hashable ColumnError where
   hashWithSalt _salt ColumnError' {..} =
-    _salt `Prelude.hashWithSalt` error
-      `Prelude.hashWithSalt` columnName
+    _salt `Prelude.hashWithSalt` columnName
+      `Prelude.hashWithSalt` error
 
 instance Prelude.NFData ColumnError where
   rnf ColumnError' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf columnName
+    Prelude.rnf columnName
+      `Prelude.seq` Prelude.rnf error

@@ -31,10 +31,10 @@ data GluePolicy = GluePolicy'
     policyInJson :: Prelude.Maybe Prelude.Text,
     -- | The date and time at which the policy was last updated.
     updateTime :: Prelude.Maybe Core.POSIX,
-    -- | Contains the hash value associated with this policy.
-    policyHash :: Prelude.Maybe Prelude.Text,
     -- | The date and time at which the policy was created.
-    createTime :: Prelude.Maybe Core.POSIX
+    createTime :: Prelude.Maybe Core.POSIX,
+    -- | Contains the hash value associated with this policy.
+    policyHash :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,17 +50,17 @@ data GluePolicy = GluePolicy'
 --
 -- 'updateTime', 'gluePolicy_updateTime' - The date and time at which the policy was last updated.
 --
--- 'policyHash', 'gluePolicy_policyHash' - Contains the hash value associated with this policy.
---
 -- 'createTime', 'gluePolicy_createTime' - The date and time at which the policy was created.
+--
+-- 'policyHash', 'gluePolicy_policyHash' - Contains the hash value associated with this policy.
 newGluePolicy ::
   GluePolicy
 newGluePolicy =
   GluePolicy'
     { policyInJson = Prelude.Nothing,
       updateTime = Prelude.Nothing,
-      policyHash = Prelude.Nothing,
-      createTime = Prelude.Nothing
+      createTime = Prelude.Nothing,
+      policyHash = Prelude.Nothing
     }
 
 -- | Contains the requested policy document, in JSON format.
@@ -71,13 +71,13 @@ gluePolicy_policyInJson = Lens.lens (\GluePolicy' {policyInJson} -> policyInJson
 gluePolicy_updateTime :: Lens.Lens' GluePolicy (Prelude.Maybe Prelude.UTCTime)
 gluePolicy_updateTime = Lens.lens (\GluePolicy' {updateTime} -> updateTime) (\s@GluePolicy' {} a -> s {updateTime = a} :: GluePolicy) Prelude.. Lens.mapping Core._Time
 
--- | Contains the hash value associated with this policy.
-gluePolicy_policyHash :: Lens.Lens' GluePolicy (Prelude.Maybe Prelude.Text)
-gluePolicy_policyHash = Lens.lens (\GluePolicy' {policyHash} -> policyHash) (\s@GluePolicy' {} a -> s {policyHash = a} :: GluePolicy)
-
 -- | The date and time at which the policy was created.
 gluePolicy_createTime :: Lens.Lens' GluePolicy (Prelude.Maybe Prelude.UTCTime)
 gluePolicy_createTime = Lens.lens (\GluePolicy' {createTime} -> createTime) (\s@GluePolicy' {} a -> s {createTime = a} :: GluePolicy) Prelude.. Lens.mapping Core._Time
+
+-- | Contains the hash value associated with this policy.
+gluePolicy_policyHash :: Lens.Lens' GluePolicy (Prelude.Maybe Prelude.Text)
+gluePolicy_policyHash = Lens.lens (\GluePolicy' {policyHash} -> policyHash) (\s@GluePolicy' {} a -> s {policyHash = a} :: GluePolicy)
 
 instance Core.FromJSON GluePolicy where
   parseJSON =
@@ -87,20 +87,20 @@ instance Core.FromJSON GluePolicy where
           GluePolicy'
             Prelude.<$> (x Core..:? "PolicyInJson")
             Prelude.<*> (x Core..:? "UpdateTime")
-            Prelude.<*> (x Core..:? "PolicyHash")
             Prelude.<*> (x Core..:? "CreateTime")
+            Prelude.<*> (x Core..:? "PolicyHash")
       )
 
 instance Prelude.Hashable GluePolicy where
   hashWithSalt _salt GluePolicy' {..} =
     _salt `Prelude.hashWithSalt` policyInJson
       `Prelude.hashWithSalt` updateTime
-      `Prelude.hashWithSalt` policyHash
       `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` policyHash
 
 instance Prelude.NFData GluePolicy where
   rnf GluePolicy' {..} =
     Prelude.rnf policyInJson
       `Prelude.seq` Prelude.rnf updateTime
-      `Prelude.seq` Prelude.rnf policyHash
       `Prelude.seq` Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf policyHash

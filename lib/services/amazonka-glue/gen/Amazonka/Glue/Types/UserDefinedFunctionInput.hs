@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUserDefinedFunctionInput' smart constructor.
 data UserDefinedFunctionInput = UserDefinedFunctionInput'
-  { -- | The owner of the function.
+  { -- | The owner type.
+    ownerType :: Prelude.Maybe PrincipalType,
+    -- | The owner of the function.
     ownerName :: Prelude.Maybe Prelude.Text,
     -- | The resource URIs for the function.
     resourceUris :: Prelude.Maybe [ResourceUri],
     -- | The name of the function.
     functionName :: Prelude.Maybe Prelude.Text,
-    -- | The owner type.
-    ownerType :: Prelude.Maybe PrincipalType,
     -- | The Java class that contains the function code.
     className :: Prelude.Maybe Prelude.Text
   }
@@ -50,26 +50,30 @@ data UserDefinedFunctionInput = UserDefinedFunctionInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ownerType', 'userDefinedFunctionInput_ownerType' - The owner type.
+--
 -- 'ownerName', 'userDefinedFunctionInput_ownerName' - The owner of the function.
 --
 -- 'resourceUris', 'userDefinedFunctionInput_resourceUris' - The resource URIs for the function.
 --
 -- 'functionName', 'userDefinedFunctionInput_functionName' - The name of the function.
 --
--- 'ownerType', 'userDefinedFunctionInput_ownerType' - The owner type.
---
 -- 'className', 'userDefinedFunctionInput_className' - The Java class that contains the function code.
 newUserDefinedFunctionInput ::
   UserDefinedFunctionInput
 newUserDefinedFunctionInput =
   UserDefinedFunctionInput'
-    { ownerName =
+    { ownerType =
         Prelude.Nothing,
+      ownerName = Prelude.Nothing,
       resourceUris = Prelude.Nothing,
       functionName = Prelude.Nothing,
-      ownerType = Prelude.Nothing,
       className = Prelude.Nothing
     }
+
+-- | The owner type.
+userDefinedFunctionInput_ownerType :: Lens.Lens' UserDefinedFunctionInput (Prelude.Maybe PrincipalType)
+userDefinedFunctionInput_ownerType = Lens.lens (\UserDefinedFunctionInput' {ownerType} -> ownerType) (\s@UserDefinedFunctionInput' {} a -> s {ownerType = a} :: UserDefinedFunctionInput)
 
 -- | The owner of the function.
 userDefinedFunctionInput_ownerName :: Lens.Lens' UserDefinedFunctionInput (Prelude.Maybe Prelude.Text)
@@ -83,38 +87,34 @@ userDefinedFunctionInput_resourceUris = Lens.lens (\UserDefinedFunctionInput' {r
 userDefinedFunctionInput_functionName :: Lens.Lens' UserDefinedFunctionInput (Prelude.Maybe Prelude.Text)
 userDefinedFunctionInput_functionName = Lens.lens (\UserDefinedFunctionInput' {functionName} -> functionName) (\s@UserDefinedFunctionInput' {} a -> s {functionName = a} :: UserDefinedFunctionInput)
 
--- | The owner type.
-userDefinedFunctionInput_ownerType :: Lens.Lens' UserDefinedFunctionInput (Prelude.Maybe PrincipalType)
-userDefinedFunctionInput_ownerType = Lens.lens (\UserDefinedFunctionInput' {ownerType} -> ownerType) (\s@UserDefinedFunctionInput' {} a -> s {ownerType = a} :: UserDefinedFunctionInput)
-
 -- | The Java class that contains the function code.
 userDefinedFunctionInput_className :: Lens.Lens' UserDefinedFunctionInput (Prelude.Maybe Prelude.Text)
 userDefinedFunctionInput_className = Lens.lens (\UserDefinedFunctionInput' {className} -> className) (\s@UserDefinedFunctionInput' {} a -> s {className = a} :: UserDefinedFunctionInput)
 
 instance Prelude.Hashable UserDefinedFunctionInput where
   hashWithSalt _salt UserDefinedFunctionInput' {..} =
-    _salt `Prelude.hashWithSalt` ownerName
+    _salt `Prelude.hashWithSalt` ownerType
+      `Prelude.hashWithSalt` ownerName
       `Prelude.hashWithSalt` resourceUris
       `Prelude.hashWithSalt` functionName
-      `Prelude.hashWithSalt` ownerType
       `Prelude.hashWithSalt` className
 
 instance Prelude.NFData UserDefinedFunctionInput where
   rnf UserDefinedFunctionInput' {..} =
-    Prelude.rnf ownerName
+    Prelude.rnf ownerType
+      `Prelude.seq` Prelude.rnf ownerName
       `Prelude.seq` Prelude.rnf resourceUris
       `Prelude.seq` Prelude.rnf functionName
-      `Prelude.seq` Prelude.rnf ownerType
       `Prelude.seq` Prelude.rnf className
 
 instance Core.ToJSON UserDefinedFunctionInput where
   toJSON UserDefinedFunctionInput' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("OwnerName" Core..=) Prelude.<$> ownerName,
+          [ ("OwnerType" Core..=) Prelude.<$> ownerType,
+            ("OwnerName" Core..=) Prelude.<$> ownerName,
             ("ResourceUris" Core..=) Prelude.<$> resourceUris,
             ("FunctionName" Core..=) Prelude.<$> functionName,
-            ("OwnerType" Core..=) Prelude.<$> ownerType,
             ("ClassName" Core..=) Prelude.<$> className
           ]
       )

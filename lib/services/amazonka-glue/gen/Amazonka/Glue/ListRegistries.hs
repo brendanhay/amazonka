@@ -40,8 +40,8 @@ module Amazonka.Glue.ListRegistries
     newListRegistriesResponse,
 
     -- * Response Lenses
-    listRegistriesResponse_registries,
     listRegistriesResponse_nextToken,
+    listRegistriesResponse_registries,
     listRegistriesResponse_httpStatus,
   )
 where
@@ -122,8 +122,8 @@ instance Core.AWSRequest ListRegistries where
     Response.receiveJSON
       ( \s h x ->
           ListRegistriesResponse'
-            Prelude.<$> (x Core..?> "Registries" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Registries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,12 +167,12 @@ instance Core.ToQuery ListRegistries where
 
 -- | /See:/ 'newListRegistriesResponse' smart constructor.
 data ListRegistriesResponse = ListRegistriesResponse'
-  { -- | An array of @RegistryDetailedListItem@ objects containing minimal
-    -- details of each registry.
-    registries :: Prelude.Maybe [RegistryListItem],
-    -- | A continuation token for paginating the returned list of tokens,
+  { -- | A continuation token for paginating the returned list of tokens,
     -- returned if the current segment of the list is not the last.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of @RegistryDetailedListItem@ objects containing minimal
+    -- details of each registry.
+    registries :: Prelude.Maybe [RegistryListItem],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -186,11 +186,11 @@ data ListRegistriesResponse = ListRegistriesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registries', 'listRegistriesResponse_registries' - An array of @RegistryDetailedListItem@ objects containing minimal
--- details of each registry.
---
 -- 'nextToken', 'listRegistriesResponse_nextToken' - A continuation token for paginating the returned list of tokens,
 -- returned if the current segment of the list is not the last.
+--
+-- 'registries', 'listRegistriesResponse_registries' - An array of @RegistryDetailedListItem@ objects containing minimal
+-- details of each registry.
 --
 -- 'httpStatus', 'listRegistriesResponse_httpStatus' - The response's http status code.
 newListRegistriesResponse ::
@@ -199,21 +199,21 @@ newListRegistriesResponse ::
   ListRegistriesResponse
 newListRegistriesResponse pHttpStatus_ =
   ListRegistriesResponse'
-    { registries =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      registries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of @RegistryDetailedListItem@ objects containing minimal
--- details of each registry.
-listRegistriesResponse_registries :: Lens.Lens' ListRegistriesResponse (Prelude.Maybe [RegistryListItem])
-listRegistriesResponse_registries = Lens.lens (\ListRegistriesResponse' {registries} -> registries) (\s@ListRegistriesResponse' {} a -> s {registries = a} :: ListRegistriesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A continuation token for paginating the returned list of tokens,
 -- returned if the current segment of the list is not the last.
 listRegistriesResponse_nextToken :: Lens.Lens' ListRegistriesResponse (Prelude.Maybe Prelude.Text)
 listRegistriesResponse_nextToken = Lens.lens (\ListRegistriesResponse' {nextToken} -> nextToken) (\s@ListRegistriesResponse' {} a -> s {nextToken = a} :: ListRegistriesResponse)
+
+-- | An array of @RegistryDetailedListItem@ objects containing minimal
+-- details of each registry.
+listRegistriesResponse_registries :: Lens.Lens' ListRegistriesResponse (Prelude.Maybe [RegistryListItem])
+listRegistriesResponse_registries = Lens.lens (\ListRegistriesResponse' {registries} -> registries) (\s@ListRegistriesResponse' {} a -> s {registries = a} :: ListRegistriesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listRegistriesResponse_httpStatus :: Lens.Lens' ListRegistriesResponse Prelude.Int
@@ -221,6 +221,6 @@ listRegistriesResponse_httpStatus = Lens.lens (\ListRegistriesResponse' {httpSta
 
 instance Prelude.NFData ListRegistriesResponse where
   rnf ListRegistriesResponse' {..} =
-    Prelude.rnf registries
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf registries
       `Prelude.seq` Prelude.rnf httpStatus

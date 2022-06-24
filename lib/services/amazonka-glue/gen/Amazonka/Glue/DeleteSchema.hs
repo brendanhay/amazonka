@@ -38,8 +38,8 @@ module Amazonka.Glue.DeleteSchema
     newDeleteSchemaResponse,
 
     -- * Response Lenses
-    deleteSchemaResponse_status,
     deleteSchemaResponse_schemaName,
+    deleteSchemaResponse_status,
     deleteSchemaResponse_schemaArn,
     deleteSchemaResponse_httpStatus,
   )
@@ -89,8 +89,8 @@ instance Core.AWSRequest DeleteSchema where
     Response.receiveJSON
       ( \s h x ->
           DeleteSchemaResponse'
-            Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "SchemaName")
+            Prelude.<$> (x Core..?> "SchemaName")
+            Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "SchemaArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -130,10 +130,10 @@ instance Core.ToQuery DeleteSchema where
 
 -- | /See:/ 'newDeleteSchemaResponse' smart constructor.
 data DeleteSchemaResponse = DeleteSchemaResponse'
-  { -- | The status of the schema.
-    status :: Prelude.Maybe SchemaStatus,
-    -- | The name of the schema being deleted.
+  { -- | The name of the schema being deleted.
     schemaName :: Prelude.Maybe Prelude.Text,
+    -- | The status of the schema.
+    status :: Prelude.Maybe SchemaStatus,
     -- | The Amazon Resource Name (ARN) of the schema being deleted.
     schemaArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -149,9 +149,9 @@ data DeleteSchemaResponse = DeleteSchemaResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'deleteSchemaResponse_status' - The status of the schema.
---
 -- 'schemaName', 'deleteSchemaResponse_schemaName' - The name of the schema being deleted.
+--
+-- 'status', 'deleteSchemaResponse_status' - The status of the schema.
 --
 -- 'schemaArn', 'deleteSchemaResponse_schemaArn' - The Amazon Resource Name (ARN) of the schema being deleted.
 --
@@ -162,19 +162,19 @@ newDeleteSchemaResponse ::
   DeleteSchemaResponse
 newDeleteSchemaResponse pHttpStatus_ =
   DeleteSchemaResponse'
-    { status = Prelude.Nothing,
-      schemaName = Prelude.Nothing,
+    { schemaName = Prelude.Nothing,
+      status = Prelude.Nothing,
       schemaArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The status of the schema.
-deleteSchemaResponse_status :: Lens.Lens' DeleteSchemaResponse (Prelude.Maybe SchemaStatus)
-deleteSchemaResponse_status = Lens.lens (\DeleteSchemaResponse' {status} -> status) (\s@DeleteSchemaResponse' {} a -> s {status = a} :: DeleteSchemaResponse)
-
 -- | The name of the schema being deleted.
 deleteSchemaResponse_schemaName :: Lens.Lens' DeleteSchemaResponse (Prelude.Maybe Prelude.Text)
 deleteSchemaResponse_schemaName = Lens.lens (\DeleteSchemaResponse' {schemaName} -> schemaName) (\s@DeleteSchemaResponse' {} a -> s {schemaName = a} :: DeleteSchemaResponse)
+
+-- | The status of the schema.
+deleteSchemaResponse_status :: Lens.Lens' DeleteSchemaResponse (Prelude.Maybe SchemaStatus)
+deleteSchemaResponse_status = Lens.lens (\DeleteSchemaResponse' {status} -> status) (\s@DeleteSchemaResponse' {} a -> s {status = a} :: DeleteSchemaResponse)
 
 -- | The Amazon Resource Name (ARN) of the schema being deleted.
 deleteSchemaResponse_schemaArn :: Lens.Lens' DeleteSchemaResponse (Prelude.Maybe Prelude.Text)
@@ -186,7 +186,7 @@ deleteSchemaResponse_httpStatus = Lens.lens (\DeleteSchemaResponse' {httpStatus}
 
 instance Prelude.NFData DeleteSchemaResponse where
   rnf DeleteSchemaResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf schemaName
+    Prelude.rnf schemaName
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf schemaArn
       `Prelude.seq` Prelude.rnf httpStatus

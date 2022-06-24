@@ -27,11 +27,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImportLabelsTaskRunProperties' smart constructor.
 data ImportLabelsTaskRunProperties = ImportLabelsTaskRunProperties'
-  { -- | Indicates whether to overwrite your existing labels.
-    replace :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Simple Storage Service (Amazon S3) path from where you will
+  { -- | The Amazon Simple Storage Service (Amazon S3) path from where you will
     -- import the labels.
-    inputS3Path :: Prelude.Maybe Prelude.Text
+    inputS3Path :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether to overwrite your existing labels.
+    replace :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,27 +43,27 @@ data ImportLabelsTaskRunProperties = ImportLabelsTaskRunProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'replace', 'importLabelsTaskRunProperties_replace' - Indicates whether to overwrite your existing labels.
---
 -- 'inputS3Path', 'importLabelsTaskRunProperties_inputS3Path' - The Amazon Simple Storage Service (Amazon S3) path from where you will
 -- import the labels.
+--
+-- 'replace', 'importLabelsTaskRunProperties_replace' - Indicates whether to overwrite your existing labels.
 newImportLabelsTaskRunProperties ::
   ImportLabelsTaskRunProperties
 newImportLabelsTaskRunProperties =
   ImportLabelsTaskRunProperties'
-    { replace =
+    { inputS3Path =
         Prelude.Nothing,
-      inputS3Path = Prelude.Nothing
+      replace = Prelude.Nothing
     }
-
--- | Indicates whether to overwrite your existing labels.
-importLabelsTaskRunProperties_replace :: Lens.Lens' ImportLabelsTaskRunProperties (Prelude.Maybe Prelude.Bool)
-importLabelsTaskRunProperties_replace = Lens.lens (\ImportLabelsTaskRunProperties' {replace} -> replace) (\s@ImportLabelsTaskRunProperties' {} a -> s {replace = a} :: ImportLabelsTaskRunProperties)
 
 -- | The Amazon Simple Storage Service (Amazon S3) path from where you will
 -- import the labels.
 importLabelsTaskRunProperties_inputS3Path :: Lens.Lens' ImportLabelsTaskRunProperties (Prelude.Maybe Prelude.Text)
 importLabelsTaskRunProperties_inputS3Path = Lens.lens (\ImportLabelsTaskRunProperties' {inputS3Path} -> inputS3Path) (\s@ImportLabelsTaskRunProperties' {} a -> s {inputS3Path = a} :: ImportLabelsTaskRunProperties)
+
+-- | Indicates whether to overwrite your existing labels.
+importLabelsTaskRunProperties_replace :: Lens.Lens' ImportLabelsTaskRunProperties (Prelude.Maybe Prelude.Bool)
+importLabelsTaskRunProperties_replace = Lens.lens (\ImportLabelsTaskRunProperties' {replace} -> replace) (\s@ImportLabelsTaskRunProperties' {} a -> s {replace = a} :: ImportLabelsTaskRunProperties)
 
 instance Core.FromJSON ImportLabelsTaskRunProperties where
   parseJSON =
@@ -71,8 +71,8 @@ instance Core.FromJSON ImportLabelsTaskRunProperties where
       "ImportLabelsTaskRunProperties"
       ( \x ->
           ImportLabelsTaskRunProperties'
-            Prelude.<$> (x Core..:? "Replace")
-            Prelude.<*> (x Core..:? "InputS3Path")
+            Prelude.<$> (x Core..:? "InputS3Path")
+            Prelude.<*> (x Core..:? "Replace")
       )
 
 instance
@@ -80,10 +80,10 @@ instance
     ImportLabelsTaskRunProperties
   where
   hashWithSalt _salt ImportLabelsTaskRunProperties' {..} =
-    _salt `Prelude.hashWithSalt` replace
-      `Prelude.hashWithSalt` inputS3Path
+    _salt `Prelude.hashWithSalt` inputS3Path
+      `Prelude.hashWithSalt` replace
 
 instance Prelude.NFData ImportLabelsTaskRunProperties where
   rnf ImportLabelsTaskRunProperties' {..} =
-    Prelude.rnf replace
-      `Prelude.seq` Prelude.rnf inputS3Path
+    Prelude.rnf inputS3Path
+      `Prelude.seq` Prelude.rnf replace

@@ -27,17 +27,17 @@ module Amazonka.Glue.ListBlueprints
     newListBlueprints,
 
     -- * Request Lenses
+    listBlueprints_tags,
     listBlueprints_nextToken,
     listBlueprints_maxResults,
-    listBlueprints_tags,
 
     -- * Destructuring the Response
     ListBlueprintsResponse (..),
     newListBlueprintsResponse,
 
     -- * Response Lenses
-    listBlueprintsResponse_blueprints,
     listBlueprintsResponse_nextToken,
+    listBlueprintsResponse_blueprints,
     listBlueprintsResponse_httpStatus,
   )
 where
@@ -51,12 +51,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListBlueprints' smart constructor.
 data ListBlueprints = ListBlueprints'
-  { -- | A continuation token, if this is a continuation request.
+  { -- | Filters the list by an Amazon Web Services resource tag.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A continuation token, if this is a continuation request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum size of a list to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Filters the list by an Amazon Web Services resource tag.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,19 +68,23 @@ data ListBlueprints = ListBlueprints'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'listBlueprints_tags' - Filters the list by an Amazon Web Services resource tag.
+--
 -- 'nextToken', 'listBlueprints_nextToken' - A continuation token, if this is a continuation request.
 --
 -- 'maxResults', 'listBlueprints_maxResults' - The maximum size of a list to return.
---
--- 'tags', 'listBlueprints_tags' - Filters the list by an Amazon Web Services resource tag.
 newListBlueprints ::
   ListBlueprints
 newListBlueprints =
   ListBlueprints'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      tags = Prelude.Nothing
+    { tags = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
+
+-- | Filters the list by an Amazon Web Services resource tag.
+listBlueprints_tags :: Lens.Lens' ListBlueprints (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+listBlueprints_tags = Lens.lens (\ListBlueprints' {tags} -> tags) (\s@ListBlueprints' {} a -> s {tags = a} :: ListBlueprints) Prelude.. Lens.mapping Lens.coerced
 
 -- | A continuation token, if this is a continuation request.
 listBlueprints_nextToken :: Lens.Lens' ListBlueprints (Prelude.Maybe Prelude.Text)
@@ -89,10 +93,6 @@ listBlueprints_nextToken = Lens.lens (\ListBlueprints' {nextToken} -> nextToken)
 -- | The maximum size of a list to return.
 listBlueprints_maxResults :: Lens.Lens' ListBlueprints (Prelude.Maybe Prelude.Natural)
 listBlueprints_maxResults = Lens.lens (\ListBlueprints' {maxResults} -> maxResults) (\s@ListBlueprints' {} a -> s {maxResults = a} :: ListBlueprints)
-
--- | Filters the list by an Amazon Web Services resource tag.
-listBlueprints_tags :: Lens.Lens' ListBlueprints (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-listBlueprints_tags = Lens.lens (\ListBlueprints' {tags} -> tags) (\s@ListBlueprints' {} a -> s {tags = a} :: ListBlueprints) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest ListBlueprints where
   type
@@ -103,22 +103,22 @@ instance Core.AWSRequest ListBlueprints where
     Response.receiveJSON
       ( \s h x ->
           ListBlueprintsResponse'
-            Prelude.<$> (x Core..?> "Blueprints" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Blueprints" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListBlueprints where
   hashWithSalt _salt ListBlueprints' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData ListBlueprints where
   rnf ListBlueprints' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders ListBlueprints where
   toHeaders =
@@ -137,9 +137,9 @@ instance Core.ToJSON ListBlueprints where
   toJSON ListBlueprints' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Tags" Core..=) Prelude.<$> tags
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -151,10 +151,10 @@ instance Core.ToQuery ListBlueprints where
 
 -- | /See:/ 'newListBlueprintsResponse' smart constructor.
 data ListBlueprintsResponse = ListBlueprintsResponse'
-  { -- | List of names of blueprints in the account.
-    blueprints :: Prelude.Maybe [Prelude.Text],
-    -- | A continuation token, if not all blueprint names have been returned.
+  { -- | A continuation token, if not all blueprint names have been returned.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | List of names of blueprints in the account.
+    blueprints :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -168,9 +168,9 @@ data ListBlueprintsResponse = ListBlueprintsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'blueprints', 'listBlueprintsResponse_blueprints' - List of names of blueprints in the account.
---
 -- 'nextToken', 'listBlueprintsResponse_nextToken' - A continuation token, if not all blueprint names have been returned.
+--
+-- 'blueprints', 'listBlueprintsResponse_blueprints' - List of names of blueprints in the account.
 --
 -- 'httpStatus', 'listBlueprintsResponse_httpStatus' - The response's http status code.
 newListBlueprintsResponse ::
@@ -179,19 +179,19 @@ newListBlueprintsResponse ::
   ListBlueprintsResponse
 newListBlueprintsResponse pHttpStatus_ =
   ListBlueprintsResponse'
-    { blueprints =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      blueprints = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | List of names of blueprints in the account.
-listBlueprintsResponse_blueprints :: Lens.Lens' ListBlueprintsResponse (Prelude.Maybe [Prelude.Text])
-listBlueprintsResponse_blueprints = Lens.lens (\ListBlueprintsResponse' {blueprints} -> blueprints) (\s@ListBlueprintsResponse' {} a -> s {blueprints = a} :: ListBlueprintsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A continuation token, if not all blueprint names have been returned.
 listBlueprintsResponse_nextToken :: Lens.Lens' ListBlueprintsResponse (Prelude.Maybe Prelude.Text)
 listBlueprintsResponse_nextToken = Lens.lens (\ListBlueprintsResponse' {nextToken} -> nextToken) (\s@ListBlueprintsResponse' {} a -> s {nextToken = a} :: ListBlueprintsResponse)
+
+-- | List of names of blueprints in the account.
+listBlueprintsResponse_blueprints :: Lens.Lens' ListBlueprintsResponse (Prelude.Maybe [Prelude.Text])
+listBlueprintsResponse_blueprints = Lens.lens (\ListBlueprintsResponse' {blueprints} -> blueprints) (\s@ListBlueprintsResponse' {} a -> s {blueprints = a} :: ListBlueprintsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listBlueprintsResponse_httpStatus :: Lens.Lens' ListBlueprintsResponse Prelude.Int
@@ -199,6 +199,6 @@ listBlueprintsResponse_httpStatus = Lens.lens (\ListBlueprintsResponse' {httpSta
 
 instance Prelude.NFData ListBlueprintsResponse where
   rnf ListBlueprintsResponse' {..} =
-    Prelude.rnf blueprints
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf blueprints
       `Prelude.seq` Prelude.rnf httpStatus

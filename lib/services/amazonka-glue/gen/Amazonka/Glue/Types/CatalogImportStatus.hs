@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCatalogImportStatus' smart constructor.
 data CatalogImportStatus = CatalogImportStatus'
-  { -- | The name of the person who initiated the migration.
+  { -- | @True@ if the migration has completed, or @False@ otherwise.
+    importCompleted :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the person who initiated the migration.
     importedBy :: Prelude.Maybe Prelude.Text,
     -- | The time that the migration was started.
-    importTime :: Prelude.Maybe Core.POSIX,
-    -- | @True@ if the migration has completed, or @False@ otherwise.
-    importCompleted :: Prelude.Maybe Prelude.Bool
+    importTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,19 +44,24 @@ data CatalogImportStatus = CatalogImportStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'importCompleted', 'catalogImportStatus_importCompleted' - @True@ if the migration has completed, or @False@ otherwise.
+--
 -- 'importedBy', 'catalogImportStatus_importedBy' - The name of the person who initiated the migration.
 --
 -- 'importTime', 'catalogImportStatus_importTime' - The time that the migration was started.
---
--- 'importCompleted', 'catalogImportStatus_importCompleted' - @True@ if the migration has completed, or @False@ otherwise.
 newCatalogImportStatus ::
   CatalogImportStatus
 newCatalogImportStatus =
   CatalogImportStatus'
-    { importedBy = Prelude.Nothing,
-      importTime = Prelude.Nothing,
-      importCompleted = Prelude.Nothing
+    { importCompleted =
+        Prelude.Nothing,
+      importedBy = Prelude.Nothing,
+      importTime = Prelude.Nothing
     }
+
+-- | @True@ if the migration has completed, or @False@ otherwise.
+catalogImportStatus_importCompleted :: Lens.Lens' CatalogImportStatus (Prelude.Maybe Prelude.Bool)
+catalogImportStatus_importCompleted = Lens.lens (\CatalogImportStatus' {importCompleted} -> importCompleted) (\s@CatalogImportStatus' {} a -> s {importCompleted = a} :: CatalogImportStatus)
 
 -- | The name of the person who initiated the migration.
 catalogImportStatus_importedBy :: Lens.Lens' CatalogImportStatus (Prelude.Maybe Prelude.Text)
@@ -66,29 +71,25 @@ catalogImportStatus_importedBy = Lens.lens (\CatalogImportStatus' {importedBy} -
 catalogImportStatus_importTime :: Lens.Lens' CatalogImportStatus (Prelude.Maybe Prelude.UTCTime)
 catalogImportStatus_importTime = Lens.lens (\CatalogImportStatus' {importTime} -> importTime) (\s@CatalogImportStatus' {} a -> s {importTime = a} :: CatalogImportStatus) Prelude.. Lens.mapping Core._Time
 
--- | @True@ if the migration has completed, or @False@ otherwise.
-catalogImportStatus_importCompleted :: Lens.Lens' CatalogImportStatus (Prelude.Maybe Prelude.Bool)
-catalogImportStatus_importCompleted = Lens.lens (\CatalogImportStatus' {importCompleted} -> importCompleted) (\s@CatalogImportStatus' {} a -> s {importCompleted = a} :: CatalogImportStatus)
-
 instance Core.FromJSON CatalogImportStatus where
   parseJSON =
     Core.withObject
       "CatalogImportStatus"
       ( \x ->
           CatalogImportStatus'
-            Prelude.<$> (x Core..:? "ImportedBy")
+            Prelude.<$> (x Core..:? "ImportCompleted")
+            Prelude.<*> (x Core..:? "ImportedBy")
             Prelude.<*> (x Core..:? "ImportTime")
-            Prelude.<*> (x Core..:? "ImportCompleted")
       )
 
 instance Prelude.Hashable CatalogImportStatus where
   hashWithSalt _salt CatalogImportStatus' {..} =
-    _salt `Prelude.hashWithSalt` importedBy
+    _salt `Prelude.hashWithSalt` importCompleted
+      `Prelude.hashWithSalt` importedBy
       `Prelude.hashWithSalt` importTime
-      `Prelude.hashWithSalt` importCompleted
 
 instance Prelude.NFData CatalogImportStatus where
   rnf CatalogImportStatus' {..} =
-    Prelude.rnf importedBy
+    Prelude.rnf importCompleted
+      `Prelude.seq` Prelude.rnf importedBy
       `Prelude.seq` Prelude.rnf importTime
-      `Prelude.seq` Prelude.rnf importCompleted

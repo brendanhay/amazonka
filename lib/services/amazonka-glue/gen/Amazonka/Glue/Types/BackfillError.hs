@@ -47,11 +47,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBackfillError' smart constructor.
 data BackfillError = BackfillError'
-  { -- | A list of a limited number of partitions in the response.
-    partitions :: Prelude.Maybe [PartitionValueList],
-    -- | The error code for an error that occurred when registering partition
+  { -- | The error code for an error that occurred when registering partition
     -- indexes for an existing table.
-    code :: Prelude.Maybe BackfillErrorCode
+    code :: Prelude.Maybe BackfillErrorCode,
+    -- | A list of a limited number of partitions in the response.
+    partitions :: Prelude.Maybe [PartitionValueList]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,26 +63,26 @@ data BackfillError = BackfillError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'partitions', 'backfillError_partitions' - A list of a limited number of partitions in the response.
---
 -- 'code', 'backfillError_code' - The error code for an error that occurred when registering partition
 -- indexes for an existing table.
+--
+-- 'partitions', 'backfillError_partitions' - A list of a limited number of partitions in the response.
 newBackfillError ::
   BackfillError
 newBackfillError =
   BackfillError'
-    { partitions = Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      partitions = Prelude.Nothing
     }
-
--- | A list of a limited number of partitions in the response.
-backfillError_partitions :: Lens.Lens' BackfillError (Prelude.Maybe [PartitionValueList])
-backfillError_partitions = Lens.lens (\BackfillError' {partitions} -> partitions) (\s@BackfillError' {} a -> s {partitions = a} :: BackfillError) Prelude.. Lens.mapping Lens.coerced
 
 -- | The error code for an error that occurred when registering partition
 -- indexes for an existing table.
 backfillError_code :: Lens.Lens' BackfillError (Prelude.Maybe BackfillErrorCode)
 backfillError_code = Lens.lens (\BackfillError' {code} -> code) (\s@BackfillError' {} a -> s {code = a} :: BackfillError)
+
+-- | A list of a limited number of partitions in the response.
+backfillError_partitions :: Lens.Lens' BackfillError (Prelude.Maybe [PartitionValueList])
+backfillError_partitions = Lens.lens (\BackfillError' {partitions} -> partitions) (\s@BackfillError' {} a -> s {partitions = a} :: BackfillError) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON BackfillError where
   parseJSON =
@@ -90,16 +90,16 @@ instance Core.FromJSON BackfillError where
       "BackfillError"
       ( \x ->
           BackfillError'
-            Prelude.<$> (x Core..:? "Partitions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Code")
+            Prelude.<$> (x Core..:? "Code")
+            Prelude.<*> (x Core..:? "Partitions" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable BackfillError where
   hashWithSalt _salt BackfillError' {..} =
-    _salt `Prelude.hashWithSalt` partitions
-      `Prelude.hashWithSalt` code
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` partitions
 
 instance Prelude.NFData BackfillError where
   rnf BackfillError' {..} =
-    Prelude.rnf partitions
-      `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code
+      `Prelude.seq` Prelude.rnf partitions

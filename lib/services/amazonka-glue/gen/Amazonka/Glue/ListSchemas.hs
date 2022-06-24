@@ -34,17 +34,17 @@ module Amazonka.Glue.ListSchemas
     newListSchemas,
 
     -- * Request Lenses
-    listSchemas_registryId,
     listSchemas_nextToken,
     listSchemas_maxResults,
+    listSchemas_registryId,
 
     -- * Destructuring the Response
     ListSchemasResponse (..),
     newListSchemasResponse,
 
     -- * Response Lenses
-    listSchemasResponse_schemas,
     listSchemasResponse_nextToken,
+    listSchemasResponse_schemas,
     listSchemasResponse_httpStatus,
   )
 where
@@ -58,14 +58,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSchemas' smart constructor.
 data ListSchemas = ListSchemas'
-  { -- | A wrapper structure that may contain the registry name and Amazon
-    -- Resource Name (ARN).
-    registryId :: Prelude.Maybe RegistryId,
-    -- | A continuation token, if this is a continuation call.
+  { -- | A continuation token, if this is a continuation call.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Maximum number of results required per page. If the value is not
     -- supplied, this will be defaulted to 25 per page.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A wrapper structure that may contain the registry name and Amazon
+    -- Resource Name (ARN).
+    registryId :: Prelude.Maybe RegistryId
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,26 +77,21 @@ data ListSchemas = ListSchemas'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryId', 'listSchemas_registryId' - A wrapper structure that may contain the registry name and Amazon
--- Resource Name (ARN).
---
 -- 'nextToken', 'listSchemas_nextToken' - A continuation token, if this is a continuation call.
 --
 -- 'maxResults', 'listSchemas_maxResults' - Maximum number of results required per page. If the value is not
 -- supplied, this will be defaulted to 25 per page.
+--
+-- 'registryId', 'listSchemas_registryId' - A wrapper structure that may contain the registry name and Amazon
+-- Resource Name (ARN).
 newListSchemas ::
   ListSchemas
 newListSchemas =
   ListSchemas'
-    { registryId = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      registryId = Prelude.Nothing
     }
-
--- | A wrapper structure that may contain the registry name and Amazon
--- Resource Name (ARN).
-listSchemas_registryId :: Lens.Lens' ListSchemas (Prelude.Maybe RegistryId)
-listSchemas_registryId = Lens.lens (\ListSchemas' {registryId} -> registryId) (\s@ListSchemas' {} a -> s {registryId = a} :: ListSchemas)
 
 -- | A continuation token, if this is a continuation call.
 listSchemas_nextToken :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
@@ -106,6 +101,11 @@ listSchemas_nextToken = Lens.lens (\ListSchemas' {nextToken} -> nextToken) (\s@L
 -- supplied, this will be defaulted to 25 per page.
 listSchemas_maxResults :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Natural)
 listSchemas_maxResults = Lens.lens (\ListSchemas' {maxResults} -> maxResults) (\s@ListSchemas' {} a -> s {maxResults = a} :: ListSchemas)
+
+-- | A wrapper structure that may contain the registry name and Amazon
+-- Resource Name (ARN).
+listSchemas_registryId :: Lens.Lens' ListSchemas (Prelude.Maybe RegistryId)
+listSchemas_registryId = Lens.lens (\ListSchemas' {registryId} -> registryId) (\s@ListSchemas' {} a -> s {registryId = a} :: ListSchemas)
 
 instance Core.AWSPager ListSchemas where
   page rq rs
@@ -133,22 +133,22 @@ instance Core.AWSRequest ListSchemas where
     Response.receiveJSON
       ( \s h x ->
           ListSchemasResponse'
-            Prelude.<$> (x Core..?> "Schemas" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Schemas" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListSchemas where
   hashWithSalt _salt ListSchemas' {..} =
-    _salt `Prelude.hashWithSalt` registryId
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` registryId
 
 instance Prelude.NFData ListSchemas where
   rnf ListSchemas' {..} =
-    Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf registryId
 
 instance Core.ToHeaders ListSchemas where
   toHeaders =
@@ -167,9 +167,9 @@ instance Core.ToJSON ListSchemas where
   toJSON ListSchemas' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RegistryId" Core..=) Prelude.<$> registryId,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("RegistryId" Core..=) Prelude.<$> registryId
           ]
       )
 
@@ -181,11 +181,11 @@ instance Core.ToQuery ListSchemas where
 
 -- | /See:/ 'newListSchemasResponse' smart constructor.
 data ListSchemasResponse = ListSchemasResponse'
-  { -- | An array of @SchemaListItem@ objects containing details of each schema.
-    schemas :: Prelude.Maybe [SchemaListItem],
-    -- | A continuation token for paginating the returned list of tokens,
+  { -- | A continuation token for paginating the returned list of tokens,
     -- returned if the current segment of the list is not the last.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of @SchemaListItem@ objects containing details of each schema.
+    schemas :: Prelude.Maybe [SchemaListItem],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -199,10 +199,10 @@ data ListSchemasResponse = ListSchemasResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'schemas', 'listSchemasResponse_schemas' - An array of @SchemaListItem@ objects containing details of each schema.
---
 -- 'nextToken', 'listSchemasResponse_nextToken' - A continuation token for paginating the returned list of tokens,
 -- returned if the current segment of the list is not the last.
+--
+-- 'schemas', 'listSchemasResponse_schemas' - An array of @SchemaListItem@ objects containing details of each schema.
 --
 -- 'httpStatus', 'listSchemasResponse_httpStatus' - The response's http status code.
 newListSchemasResponse ::
@@ -211,19 +211,19 @@ newListSchemasResponse ::
   ListSchemasResponse
 newListSchemasResponse pHttpStatus_ =
   ListSchemasResponse'
-    { schemas = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      schemas = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of @SchemaListItem@ objects containing details of each schema.
-listSchemasResponse_schemas :: Lens.Lens' ListSchemasResponse (Prelude.Maybe [SchemaListItem])
-listSchemasResponse_schemas = Lens.lens (\ListSchemasResponse' {schemas} -> schemas) (\s@ListSchemasResponse' {} a -> s {schemas = a} :: ListSchemasResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A continuation token for paginating the returned list of tokens,
 -- returned if the current segment of the list is not the last.
 listSchemasResponse_nextToken :: Lens.Lens' ListSchemasResponse (Prelude.Maybe Prelude.Text)
 listSchemasResponse_nextToken = Lens.lens (\ListSchemasResponse' {nextToken} -> nextToken) (\s@ListSchemasResponse' {} a -> s {nextToken = a} :: ListSchemasResponse)
+
+-- | An array of @SchemaListItem@ objects containing details of each schema.
+listSchemasResponse_schemas :: Lens.Lens' ListSchemasResponse (Prelude.Maybe [SchemaListItem])
+listSchemasResponse_schemas = Lens.lens (\ListSchemasResponse' {schemas} -> schemas) (\s@ListSchemasResponse' {} a -> s {schemas = a} :: ListSchemasResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listSchemasResponse_httpStatus :: Lens.Lens' ListSchemasResponse Prelude.Int
@@ -231,6 +231,6 @@ listSchemasResponse_httpStatus = Lens.lens (\ListSchemasResponse' {httpStatus} -
 
 instance Prelude.NFData ListSchemasResponse where
   rnf ListSchemasResponse' {..} =
-    Prelude.rnf schemas
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf schemas
       `Prelude.seq` Prelude.rnf httpStatus

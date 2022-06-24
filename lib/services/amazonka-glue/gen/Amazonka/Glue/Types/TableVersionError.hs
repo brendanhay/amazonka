@@ -28,13 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTableVersionError' smart constructor.
 data TableVersionError = TableVersionError'
-  { -- | The ID value of the version in question. A @VersionID@ is a string
-    -- representation of an integer. Each version is incremented by 1.
-    versionId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the table in question.
+  { -- | The name of the table in question.
     tableName :: Prelude.Maybe Prelude.Text,
     -- | The details about the error.
-    errorDetail :: Prelude.Maybe ErrorDetail
+    errorDetail :: Prelude.Maybe ErrorDetail,
+    -- | The ID value of the version in question. A @VersionID@ is a string
+    -- representation of an integer. Each version is incremented by 1.
+    versionId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,25 +46,20 @@ data TableVersionError = TableVersionError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versionId', 'tableVersionError_versionId' - The ID value of the version in question. A @VersionID@ is a string
--- representation of an integer. Each version is incremented by 1.
---
 -- 'tableName', 'tableVersionError_tableName' - The name of the table in question.
 --
 -- 'errorDetail', 'tableVersionError_errorDetail' - The details about the error.
+--
+-- 'versionId', 'tableVersionError_versionId' - The ID value of the version in question. A @VersionID@ is a string
+-- representation of an integer. Each version is incremented by 1.
 newTableVersionError ::
   TableVersionError
 newTableVersionError =
   TableVersionError'
-    { versionId = Prelude.Nothing,
-      tableName = Prelude.Nothing,
-      errorDetail = Prelude.Nothing
+    { tableName = Prelude.Nothing,
+      errorDetail = Prelude.Nothing,
+      versionId = Prelude.Nothing
     }
-
--- | The ID value of the version in question. A @VersionID@ is a string
--- representation of an integer. Each version is incremented by 1.
-tableVersionError_versionId :: Lens.Lens' TableVersionError (Prelude.Maybe Prelude.Text)
-tableVersionError_versionId = Lens.lens (\TableVersionError' {versionId} -> versionId) (\s@TableVersionError' {} a -> s {versionId = a} :: TableVersionError)
 
 -- | The name of the table in question.
 tableVersionError_tableName :: Lens.Lens' TableVersionError (Prelude.Maybe Prelude.Text)
@@ -74,25 +69,30 @@ tableVersionError_tableName = Lens.lens (\TableVersionError' {tableName} -> tabl
 tableVersionError_errorDetail :: Lens.Lens' TableVersionError (Prelude.Maybe ErrorDetail)
 tableVersionError_errorDetail = Lens.lens (\TableVersionError' {errorDetail} -> errorDetail) (\s@TableVersionError' {} a -> s {errorDetail = a} :: TableVersionError)
 
+-- | The ID value of the version in question. A @VersionID@ is a string
+-- representation of an integer. Each version is incremented by 1.
+tableVersionError_versionId :: Lens.Lens' TableVersionError (Prelude.Maybe Prelude.Text)
+tableVersionError_versionId = Lens.lens (\TableVersionError' {versionId} -> versionId) (\s@TableVersionError' {} a -> s {versionId = a} :: TableVersionError)
+
 instance Core.FromJSON TableVersionError where
   parseJSON =
     Core.withObject
       "TableVersionError"
       ( \x ->
           TableVersionError'
-            Prelude.<$> (x Core..:? "VersionId")
-            Prelude.<*> (x Core..:? "TableName")
+            Prelude.<$> (x Core..:? "TableName")
             Prelude.<*> (x Core..:? "ErrorDetail")
+            Prelude.<*> (x Core..:? "VersionId")
       )
 
 instance Prelude.Hashable TableVersionError where
   hashWithSalt _salt TableVersionError' {..} =
-    _salt `Prelude.hashWithSalt` versionId
-      `Prelude.hashWithSalt` tableName
+    _salt `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` errorDetail
+      `Prelude.hashWithSalt` versionId
 
 instance Prelude.NFData TableVersionError where
   rnf TableVersionError' {..} =
-    Prelude.rnf versionId
-      `Prelude.seq` Prelude.rnf tableName
+    Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf errorDetail
+      `Prelude.seq` Prelude.rnf versionId

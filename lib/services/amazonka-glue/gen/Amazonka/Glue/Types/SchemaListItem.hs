@@ -36,12 +36,12 @@ data SchemaListItem = SchemaListItem'
     schemaStatus :: Prelude.Maybe SchemaStatus,
     -- | The name of the schema.
     schemaName :: Prelude.Maybe Prelude.Text,
+    -- | A description for the schema.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the schema.
     schemaArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that a schema was updated.
-    updatedTime :: Prelude.Maybe Prelude.Text,
-    -- | A description for the schema.
-    description :: Prelude.Maybe Prelude.Text
+    updatedTime :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,11 +61,11 @@ data SchemaListItem = SchemaListItem'
 --
 -- 'schemaName', 'schemaListItem_schemaName' - The name of the schema.
 --
+-- 'description', 'schemaListItem_description' - A description for the schema.
+--
 -- 'schemaArn', 'schemaListItem_schemaArn' - The Amazon Resource Name (ARN) for the schema.
 --
 -- 'updatedTime', 'schemaListItem_updatedTime' - The date and time that a schema was updated.
---
--- 'description', 'schemaListItem_description' - A description for the schema.
 newSchemaListItem ::
   SchemaListItem
 newSchemaListItem =
@@ -74,9 +74,9 @@ newSchemaListItem =
       createdTime = Prelude.Nothing,
       schemaStatus = Prelude.Nothing,
       schemaName = Prelude.Nothing,
+      description = Prelude.Nothing,
       schemaArn = Prelude.Nothing,
-      updatedTime = Prelude.Nothing,
-      description = Prelude.Nothing
+      updatedTime = Prelude.Nothing
     }
 
 -- | the name of the registry where the schema resides.
@@ -95,6 +95,10 @@ schemaListItem_schemaStatus = Lens.lens (\SchemaListItem' {schemaStatus} -> sche
 schemaListItem_schemaName :: Lens.Lens' SchemaListItem (Prelude.Maybe Prelude.Text)
 schemaListItem_schemaName = Lens.lens (\SchemaListItem' {schemaName} -> schemaName) (\s@SchemaListItem' {} a -> s {schemaName = a} :: SchemaListItem)
 
+-- | A description for the schema.
+schemaListItem_description :: Lens.Lens' SchemaListItem (Prelude.Maybe Prelude.Text)
+schemaListItem_description = Lens.lens (\SchemaListItem' {description} -> description) (\s@SchemaListItem' {} a -> s {description = a} :: SchemaListItem)
+
 -- | The Amazon Resource Name (ARN) for the schema.
 schemaListItem_schemaArn :: Lens.Lens' SchemaListItem (Prelude.Maybe Prelude.Text)
 schemaListItem_schemaArn = Lens.lens (\SchemaListItem' {schemaArn} -> schemaArn) (\s@SchemaListItem' {} a -> s {schemaArn = a} :: SchemaListItem)
@@ -102,10 +106,6 @@ schemaListItem_schemaArn = Lens.lens (\SchemaListItem' {schemaArn} -> schemaArn)
 -- | The date and time that a schema was updated.
 schemaListItem_updatedTime :: Lens.Lens' SchemaListItem (Prelude.Maybe Prelude.Text)
 schemaListItem_updatedTime = Lens.lens (\SchemaListItem' {updatedTime} -> updatedTime) (\s@SchemaListItem' {} a -> s {updatedTime = a} :: SchemaListItem)
-
--- | A description for the schema.
-schemaListItem_description :: Lens.Lens' SchemaListItem (Prelude.Maybe Prelude.Text)
-schemaListItem_description = Lens.lens (\SchemaListItem' {description} -> description) (\s@SchemaListItem' {} a -> s {description = a} :: SchemaListItem)
 
 instance Core.FromJSON SchemaListItem where
   parseJSON =
@@ -117,9 +117,9 @@ instance Core.FromJSON SchemaListItem where
             Prelude.<*> (x Core..:? "CreatedTime")
             Prelude.<*> (x Core..:? "SchemaStatus")
             Prelude.<*> (x Core..:? "SchemaName")
+            Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "SchemaArn")
             Prelude.<*> (x Core..:? "UpdatedTime")
-            Prelude.<*> (x Core..:? "Description")
       )
 
 instance Prelude.Hashable SchemaListItem where
@@ -128,9 +128,9 @@ instance Prelude.Hashable SchemaListItem where
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` schemaStatus
       `Prelude.hashWithSalt` schemaName
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` schemaArn
       `Prelude.hashWithSalt` updatedTime
-      `Prelude.hashWithSalt` description
 
 instance Prelude.NFData SchemaListItem where
   rnf SchemaListItem' {..} =
@@ -138,6 +138,6 @@ instance Prelude.NFData SchemaListItem where
       `Prelude.seq` Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf schemaStatus
       `Prelude.seq` Prelude.rnf schemaName
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf schemaArn
       `Prelude.seq` Prelude.rnf updatedTime
-      `Prelude.seq` Prelude.rnf description

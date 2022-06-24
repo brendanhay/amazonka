@@ -27,11 +27,11 @@ module Amazonka.CostExplorer.UpdateAnomalySubscription
     newUpdateAnomalySubscription,
 
     -- * Request Lenses
-    updateAnomalySubscription_subscriptionName,
-    updateAnomalySubscription_frequency,
-    updateAnomalySubscription_threshold,
     updateAnomalySubscription_monitorArnList,
+    updateAnomalySubscription_frequency,
+    updateAnomalySubscription_subscriptionName,
     updateAnomalySubscription_subscribers,
+    updateAnomalySubscription_threshold,
     updateAnomalySubscription_subscriptionArn,
 
     -- * Destructuring the Response
@@ -53,17 +53,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateAnomalySubscription' smart constructor.
 data UpdateAnomalySubscription = UpdateAnomalySubscription'
-  { -- | The new name of the subscription.
-    subscriptionName :: Prelude.Maybe Prelude.Text,
+  { -- | A list of cost anomaly monitor ARNs.
+    monitorArnList :: Prelude.Maybe [Prelude.Text],
     -- | The update to the frequency value that subscribers receive
     -- notifications.
     frequency :: Prelude.Maybe AnomalySubscriptionFrequency,
-    -- | The update to the threshold value for receiving notifications.
-    threshold :: Prelude.Maybe Prelude.Double,
-    -- | A list of cost anomaly monitor ARNs.
-    monitorArnList :: Prelude.Maybe [Prelude.Text],
+    -- | The new name of the subscription.
+    subscriptionName :: Prelude.Maybe Prelude.Text,
     -- | The update to the subscriber list.
     subscribers :: Prelude.Maybe [Subscriber],
+    -- | The update to the threshold value for receiving notifications.
+    threshold :: Prelude.Maybe Prelude.Double,
     -- | A cost anomaly subscription Amazon Resource Name (ARN).
     subscriptionArn :: Prelude.Text
   }
@@ -77,16 +77,16 @@ data UpdateAnomalySubscription = UpdateAnomalySubscription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'subscriptionName', 'updateAnomalySubscription_subscriptionName' - The new name of the subscription.
+-- 'monitorArnList', 'updateAnomalySubscription_monitorArnList' - A list of cost anomaly monitor ARNs.
 --
 -- 'frequency', 'updateAnomalySubscription_frequency' - The update to the frequency value that subscribers receive
 -- notifications.
 --
--- 'threshold', 'updateAnomalySubscription_threshold' - The update to the threshold value for receiving notifications.
---
--- 'monitorArnList', 'updateAnomalySubscription_monitorArnList' - A list of cost anomaly monitor ARNs.
+-- 'subscriptionName', 'updateAnomalySubscription_subscriptionName' - The new name of the subscription.
 --
 -- 'subscribers', 'updateAnomalySubscription_subscribers' - The update to the subscriber list.
+--
+-- 'threshold', 'updateAnomalySubscription_threshold' - The update to the threshold value for receiving notifications.
 --
 -- 'subscriptionArn', 'updateAnomalySubscription_subscriptionArn' - A cost anomaly subscription Amazon Resource Name (ARN).
 newUpdateAnomalySubscription ::
@@ -95,35 +95,35 @@ newUpdateAnomalySubscription ::
   UpdateAnomalySubscription
 newUpdateAnomalySubscription pSubscriptionArn_ =
   UpdateAnomalySubscription'
-    { subscriptionName =
+    { monitorArnList =
         Prelude.Nothing,
       frequency = Prelude.Nothing,
-      threshold = Prelude.Nothing,
-      monitorArnList = Prelude.Nothing,
+      subscriptionName = Prelude.Nothing,
       subscribers = Prelude.Nothing,
+      threshold = Prelude.Nothing,
       subscriptionArn = pSubscriptionArn_
     }
 
--- | The new name of the subscription.
-updateAnomalySubscription_subscriptionName :: Lens.Lens' UpdateAnomalySubscription (Prelude.Maybe Prelude.Text)
-updateAnomalySubscription_subscriptionName = Lens.lens (\UpdateAnomalySubscription' {subscriptionName} -> subscriptionName) (\s@UpdateAnomalySubscription' {} a -> s {subscriptionName = a} :: UpdateAnomalySubscription)
+-- | A list of cost anomaly monitor ARNs.
+updateAnomalySubscription_monitorArnList :: Lens.Lens' UpdateAnomalySubscription (Prelude.Maybe [Prelude.Text])
+updateAnomalySubscription_monitorArnList = Lens.lens (\UpdateAnomalySubscription' {monitorArnList} -> monitorArnList) (\s@UpdateAnomalySubscription' {} a -> s {monitorArnList = a} :: UpdateAnomalySubscription) Prelude.. Lens.mapping Lens.coerced
 
 -- | The update to the frequency value that subscribers receive
 -- notifications.
 updateAnomalySubscription_frequency :: Lens.Lens' UpdateAnomalySubscription (Prelude.Maybe AnomalySubscriptionFrequency)
 updateAnomalySubscription_frequency = Lens.lens (\UpdateAnomalySubscription' {frequency} -> frequency) (\s@UpdateAnomalySubscription' {} a -> s {frequency = a} :: UpdateAnomalySubscription)
 
--- | The update to the threshold value for receiving notifications.
-updateAnomalySubscription_threshold :: Lens.Lens' UpdateAnomalySubscription (Prelude.Maybe Prelude.Double)
-updateAnomalySubscription_threshold = Lens.lens (\UpdateAnomalySubscription' {threshold} -> threshold) (\s@UpdateAnomalySubscription' {} a -> s {threshold = a} :: UpdateAnomalySubscription)
-
--- | A list of cost anomaly monitor ARNs.
-updateAnomalySubscription_monitorArnList :: Lens.Lens' UpdateAnomalySubscription (Prelude.Maybe [Prelude.Text])
-updateAnomalySubscription_monitorArnList = Lens.lens (\UpdateAnomalySubscription' {monitorArnList} -> monitorArnList) (\s@UpdateAnomalySubscription' {} a -> s {monitorArnList = a} :: UpdateAnomalySubscription) Prelude.. Lens.mapping Lens.coerced
+-- | The new name of the subscription.
+updateAnomalySubscription_subscriptionName :: Lens.Lens' UpdateAnomalySubscription (Prelude.Maybe Prelude.Text)
+updateAnomalySubscription_subscriptionName = Lens.lens (\UpdateAnomalySubscription' {subscriptionName} -> subscriptionName) (\s@UpdateAnomalySubscription' {} a -> s {subscriptionName = a} :: UpdateAnomalySubscription)
 
 -- | The update to the subscriber list.
 updateAnomalySubscription_subscribers :: Lens.Lens' UpdateAnomalySubscription (Prelude.Maybe [Subscriber])
 updateAnomalySubscription_subscribers = Lens.lens (\UpdateAnomalySubscription' {subscribers} -> subscribers) (\s@UpdateAnomalySubscription' {} a -> s {subscribers = a} :: UpdateAnomalySubscription) Prelude.. Lens.mapping Lens.coerced
+
+-- | The update to the threshold value for receiving notifications.
+updateAnomalySubscription_threshold :: Lens.Lens' UpdateAnomalySubscription (Prelude.Maybe Prelude.Double)
+updateAnomalySubscription_threshold = Lens.lens (\UpdateAnomalySubscription' {threshold} -> threshold) (\s@UpdateAnomalySubscription' {} a -> s {threshold = a} :: UpdateAnomalySubscription)
 
 -- | A cost anomaly subscription Amazon Resource Name (ARN).
 updateAnomalySubscription_subscriptionArn :: Lens.Lens' UpdateAnomalySubscription Prelude.Text
@@ -144,20 +144,20 @@ instance Core.AWSRequest UpdateAnomalySubscription where
 
 instance Prelude.Hashable UpdateAnomalySubscription where
   hashWithSalt _salt UpdateAnomalySubscription' {..} =
-    _salt `Prelude.hashWithSalt` subscriptionName
+    _salt `Prelude.hashWithSalt` monitorArnList
       `Prelude.hashWithSalt` frequency
-      `Prelude.hashWithSalt` threshold
-      `Prelude.hashWithSalt` monitorArnList
+      `Prelude.hashWithSalt` subscriptionName
       `Prelude.hashWithSalt` subscribers
+      `Prelude.hashWithSalt` threshold
       `Prelude.hashWithSalt` subscriptionArn
 
 instance Prelude.NFData UpdateAnomalySubscription where
   rnf UpdateAnomalySubscription' {..} =
-    Prelude.rnf subscriptionName
+    Prelude.rnf monitorArnList
       `Prelude.seq` Prelude.rnf frequency
-      `Prelude.seq` Prelude.rnf threshold
-      `Prelude.seq` Prelude.rnf monitorArnList
+      `Prelude.seq` Prelude.rnf subscriptionName
       `Prelude.seq` Prelude.rnf subscribers
+      `Prelude.seq` Prelude.rnf threshold
       `Prelude.seq` Prelude.rnf subscriptionArn
 
 instance Core.ToHeaders UpdateAnomalySubscription where
@@ -179,13 +179,13 @@ instance Core.ToJSON UpdateAnomalySubscription where
   toJSON UpdateAnomalySubscription' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SubscriptionName" Core..=)
-              Prelude.<$> subscriptionName,
-            ("Frequency" Core..=) Prelude.<$> frequency,
-            ("Threshold" Core..=) Prelude.<$> threshold,
-            ("MonitorArnList" Core..=)
+          [ ("MonitorArnList" Core..=)
               Prelude.<$> monitorArnList,
+            ("Frequency" Core..=) Prelude.<$> frequency,
+            ("SubscriptionName" Core..=)
+              Prelude.<$> subscriptionName,
             ("Subscribers" Core..=) Prelude.<$> subscribers,
+            ("Threshold" Core..=) Prelude.<$> threshold,
             Prelude.Just
               ("SubscriptionArn" Core..= subscriptionArn)
           ]

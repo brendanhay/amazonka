@@ -27,11 +27,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTerminateRecommendationDetail' smart constructor.
 data TerminateRecommendationDetail = TerminateRecommendationDetail'
-  { -- | The currency code that Amazon Web Services used to calculate the costs
+  { -- | The estimated savings that result from modification, on a monthly basis.
+    estimatedMonthlySavings :: Prelude.Maybe Prelude.Text,
+    -- | The currency code that Amazon Web Services used to calculate the costs
     -- for this instance.
-    currencyCode :: Prelude.Maybe Prelude.Text,
-    -- | The estimated savings that result from modification, on a monthly basis.
-    estimatedMonthlySavings :: Prelude.Maybe Prelude.Text
+    currencyCode :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,27 +43,27 @@ data TerminateRecommendationDetail = TerminateRecommendationDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'estimatedMonthlySavings', 'terminateRecommendationDetail_estimatedMonthlySavings' - The estimated savings that result from modification, on a monthly basis.
+--
 -- 'currencyCode', 'terminateRecommendationDetail_currencyCode' - The currency code that Amazon Web Services used to calculate the costs
 -- for this instance.
---
--- 'estimatedMonthlySavings', 'terminateRecommendationDetail_estimatedMonthlySavings' - The estimated savings that result from modification, on a monthly basis.
 newTerminateRecommendationDetail ::
   TerminateRecommendationDetail
 newTerminateRecommendationDetail =
   TerminateRecommendationDetail'
-    { currencyCode =
+    { estimatedMonthlySavings =
         Prelude.Nothing,
-      estimatedMonthlySavings = Prelude.Nothing
+      currencyCode = Prelude.Nothing
     }
+
+-- | The estimated savings that result from modification, on a monthly basis.
+terminateRecommendationDetail_estimatedMonthlySavings :: Lens.Lens' TerminateRecommendationDetail (Prelude.Maybe Prelude.Text)
+terminateRecommendationDetail_estimatedMonthlySavings = Lens.lens (\TerminateRecommendationDetail' {estimatedMonthlySavings} -> estimatedMonthlySavings) (\s@TerminateRecommendationDetail' {} a -> s {estimatedMonthlySavings = a} :: TerminateRecommendationDetail)
 
 -- | The currency code that Amazon Web Services used to calculate the costs
 -- for this instance.
 terminateRecommendationDetail_currencyCode :: Lens.Lens' TerminateRecommendationDetail (Prelude.Maybe Prelude.Text)
 terminateRecommendationDetail_currencyCode = Lens.lens (\TerminateRecommendationDetail' {currencyCode} -> currencyCode) (\s@TerminateRecommendationDetail' {} a -> s {currencyCode = a} :: TerminateRecommendationDetail)
-
--- | The estimated savings that result from modification, on a monthly basis.
-terminateRecommendationDetail_estimatedMonthlySavings :: Lens.Lens' TerminateRecommendationDetail (Prelude.Maybe Prelude.Text)
-terminateRecommendationDetail_estimatedMonthlySavings = Lens.lens (\TerminateRecommendationDetail' {estimatedMonthlySavings} -> estimatedMonthlySavings) (\s@TerminateRecommendationDetail' {} a -> s {estimatedMonthlySavings = a} :: TerminateRecommendationDetail)
 
 instance Core.FromJSON TerminateRecommendationDetail where
   parseJSON =
@@ -71,8 +71,8 @@ instance Core.FromJSON TerminateRecommendationDetail where
       "TerminateRecommendationDetail"
       ( \x ->
           TerminateRecommendationDetail'
-            Prelude.<$> (x Core..:? "CurrencyCode")
-            Prelude.<*> (x Core..:? "EstimatedMonthlySavings")
+            Prelude.<$> (x Core..:? "EstimatedMonthlySavings")
+            Prelude.<*> (x Core..:? "CurrencyCode")
       )
 
 instance
@@ -80,10 +80,11 @@ instance
     TerminateRecommendationDetail
   where
   hashWithSalt _salt TerminateRecommendationDetail' {..} =
-    _salt `Prelude.hashWithSalt` currencyCode
+    _salt
       `Prelude.hashWithSalt` estimatedMonthlySavings
+      `Prelude.hashWithSalt` currencyCode
 
 instance Prelude.NFData TerminateRecommendationDetail where
   rnf TerminateRecommendationDetail' {..} =
-    Prelude.rnf currencyCode
-      `Prelude.seq` Prelude.rnf estimatedMonthlySavings
+    Prelude.rnf estimatedMonthlySavings
+      `Prelude.seq` Prelude.rnf currencyCode

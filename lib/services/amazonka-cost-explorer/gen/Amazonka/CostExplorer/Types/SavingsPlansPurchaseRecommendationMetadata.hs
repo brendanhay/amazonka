@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 data SavingsPlansPurchaseRecommendationMetadata = SavingsPlansPurchaseRecommendationMetadata'
   { -- | The unique identifier for the recommendation set.
     recommendationId :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp showing when the recommendations were generated.
-    generationTimestamp :: Prelude.Maybe Prelude.Text,
     -- | Additional metadata that might be applicable to the recommendation.
-    additionalMetadata :: Prelude.Maybe Prelude.Text
+    additionalMetadata :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp showing when the recommendations were generated.
+    generationTimestamp :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,18 +46,18 @@ data SavingsPlansPurchaseRecommendationMetadata = SavingsPlansPurchaseRecommenda
 --
 -- 'recommendationId', 'savingsPlansPurchaseRecommendationMetadata_recommendationId' - The unique identifier for the recommendation set.
 --
--- 'generationTimestamp', 'savingsPlansPurchaseRecommendationMetadata_generationTimestamp' - The timestamp showing when the recommendations were generated.
---
 -- 'additionalMetadata', 'savingsPlansPurchaseRecommendationMetadata_additionalMetadata' - Additional metadata that might be applicable to the recommendation.
+--
+-- 'generationTimestamp', 'savingsPlansPurchaseRecommendationMetadata_generationTimestamp' - The timestamp showing when the recommendations were generated.
 newSavingsPlansPurchaseRecommendationMetadata ::
   SavingsPlansPurchaseRecommendationMetadata
 newSavingsPlansPurchaseRecommendationMetadata =
   SavingsPlansPurchaseRecommendationMetadata'
     { recommendationId =
         Prelude.Nothing,
-      generationTimestamp =
-        Prelude.Nothing,
       additionalMetadata =
+        Prelude.Nothing,
+      generationTimestamp =
         Prelude.Nothing
     }
 
@@ -65,13 +65,13 @@ newSavingsPlansPurchaseRecommendationMetadata =
 savingsPlansPurchaseRecommendationMetadata_recommendationId :: Lens.Lens' SavingsPlansPurchaseRecommendationMetadata (Prelude.Maybe Prelude.Text)
 savingsPlansPurchaseRecommendationMetadata_recommendationId = Lens.lens (\SavingsPlansPurchaseRecommendationMetadata' {recommendationId} -> recommendationId) (\s@SavingsPlansPurchaseRecommendationMetadata' {} a -> s {recommendationId = a} :: SavingsPlansPurchaseRecommendationMetadata)
 
--- | The timestamp showing when the recommendations were generated.
-savingsPlansPurchaseRecommendationMetadata_generationTimestamp :: Lens.Lens' SavingsPlansPurchaseRecommendationMetadata (Prelude.Maybe Prelude.Text)
-savingsPlansPurchaseRecommendationMetadata_generationTimestamp = Lens.lens (\SavingsPlansPurchaseRecommendationMetadata' {generationTimestamp} -> generationTimestamp) (\s@SavingsPlansPurchaseRecommendationMetadata' {} a -> s {generationTimestamp = a} :: SavingsPlansPurchaseRecommendationMetadata)
-
 -- | Additional metadata that might be applicable to the recommendation.
 savingsPlansPurchaseRecommendationMetadata_additionalMetadata :: Lens.Lens' SavingsPlansPurchaseRecommendationMetadata (Prelude.Maybe Prelude.Text)
 savingsPlansPurchaseRecommendationMetadata_additionalMetadata = Lens.lens (\SavingsPlansPurchaseRecommendationMetadata' {additionalMetadata} -> additionalMetadata) (\s@SavingsPlansPurchaseRecommendationMetadata' {} a -> s {additionalMetadata = a} :: SavingsPlansPurchaseRecommendationMetadata)
+
+-- | The timestamp showing when the recommendations were generated.
+savingsPlansPurchaseRecommendationMetadata_generationTimestamp :: Lens.Lens' SavingsPlansPurchaseRecommendationMetadata (Prelude.Maybe Prelude.Text)
+savingsPlansPurchaseRecommendationMetadata_generationTimestamp = Lens.lens (\SavingsPlansPurchaseRecommendationMetadata' {generationTimestamp} -> generationTimestamp) (\s@SavingsPlansPurchaseRecommendationMetadata' {} a -> s {generationTimestamp = a} :: SavingsPlansPurchaseRecommendationMetadata)
 
 instance
   Core.FromJSON
@@ -83,8 +83,8 @@ instance
       ( \x ->
           SavingsPlansPurchaseRecommendationMetadata'
             Prelude.<$> (x Core..:? "RecommendationId")
-              Prelude.<*> (x Core..:? "GenerationTimestamp")
               Prelude.<*> (x Core..:? "AdditionalMetadata")
+              Prelude.<*> (x Core..:? "GenerationTimestamp")
       )
 
 instance
@@ -95,8 +95,8 @@ instance
     _salt
     SavingsPlansPurchaseRecommendationMetadata' {..} =
       _salt `Prelude.hashWithSalt` recommendationId
-        `Prelude.hashWithSalt` generationTimestamp
         `Prelude.hashWithSalt` additionalMetadata
+        `Prelude.hashWithSalt` generationTimestamp
 
 instance
   Prelude.NFData
@@ -104,5 +104,5 @@ instance
   where
   rnf SavingsPlansPurchaseRecommendationMetadata' {..} =
     Prelude.rnf recommendationId
-      `Prelude.seq` Prelude.rnf generationTimestamp
       `Prelude.seq` Prelude.rnf additionalMetadata
+      `Prelude.seq` Prelude.rnf generationTimestamp

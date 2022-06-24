@@ -35,26 +35,26 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSavingsPlansPurchaseRecommendation' smart constructor.
 data SavingsPlansPurchaseRecommendation = SavingsPlansPurchaseRecommendation'
-  { -- | Details for the Savings Plans we recommend that you purchase to cover
+  { -- | The requested Savings Plans recommendation type.
+    savingsPlansType :: Prelude.Maybe SupportedSavingsPlansType,
+    -- | Details for the Savings Plans we recommend that you purchase to cover
     -- existing Savings Plans eligible workloads.
     savingsPlansPurchaseRecommendationDetails :: Prelude.Maybe [SavingsPlansPurchaseRecommendationDetail],
+    -- | The lookback period in days, used to generate the recommendation.
+    lookbackPeriodInDays :: Prelude.Maybe LookbackPeriodInDays,
+    -- | Summary metrics for your Savings Plans Recommendations.
+    savingsPlansPurchaseRecommendationSummary :: Prelude.Maybe SavingsPlansPurchaseRecommendationSummary,
     -- | The Savings Plans recommendation term in years. It\'s used to generate
     -- the recommendation.
     termInYears :: Prelude.Maybe TermInYears,
+    -- | The payment option used to generate the recommendation.
+    paymentOption :: Prelude.Maybe PaymentOption,
     -- | The account scope that you want your recommendations for. Amazon Web
     -- Services calculates recommendations that include the management account
     -- and member accounts if the value is set to @PAYER@. If the value is
     -- @LINKED@, recommendations are calculated for individual member accounts
     -- only.
-    accountScope :: Prelude.Maybe AccountScope,
-    -- | The requested Savings Plans recommendation type.
-    savingsPlansType :: Prelude.Maybe SupportedSavingsPlansType,
-    -- | The lookback period in days, used to generate the recommendation.
-    lookbackPeriodInDays :: Prelude.Maybe LookbackPeriodInDays,
-    -- | The payment option used to generate the recommendation.
-    paymentOption :: Prelude.Maybe PaymentOption,
-    -- | Summary metrics for your Savings Plans Recommendations.
-    savingsPlansPurchaseRecommendationSummary :: Prelude.Maybe SavingsPlansPurchaseRecommendationSummary
+    accountScope :: Prelude.Maybe AccountScope
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,49 +66,66 @@ data SavingsPlansPurchaseRecommendation = SavingsPlansPurchaseRecommendation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'savingsPlansType', 'savingsPlansPurchaseRecommendation_savingsPlansType' - The requested Savings Plans recommendation type.
+--
 -- 'savingsPlansPurchaseRecommendationDetails', 'savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationDetails' - Details for the Savings Plans we recommend that you purchase to cover
 -- existing Savings Plans eligible workloads.
 --
+-- 'lookbackPeriodInDays', 'savingsPlansPurchaseRecommendation_lookbackPeriodInDays' - The lookback period in days, used to generate the recommendation.
+--
+-- 'savingsPlansPurchaseRecommendationSummary', 'savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationSummary' - Summary metrics for your Savings Plans Recommendations.
+--
 -- 'termInYears', 'savingsPlansPurchaseRecommendation_termInYears' - The Savings Plans recommendation term in years. It\'s used to generate
 -- the recommendation.
+--
+-- 'paymentOption', 'savingsPlansPurchaseRecommendation_paymentOption' - The payment option used to generate the recommendation.
 --
 -- 'accountScope', 'savingsPlansPurchaseRecommendation_accountScope' - The account scope that you want your recommendations for. Amazon Web
 -- Services calculates recommendations that include the management account
 -- and member accounts if the value is set to @PAYER@. If the value is
 -- @LINKED@, recommendations are calculated for individual member accounts
 -- only.
---
--- 'savingsPlansType', 'savingsPlansPurchaseRecommendation_savingsPlansType' - The requested Savings Plans recommendation type.
---
--- 'lookbackPeriodInDays', 'savingsPlansPurchaseRecommendation_lookbackPeriodInDays' - The lookback period in days, used to generate the recommendation.
---
--- 'paymentOption', 'savingsPlansPurchaseRecommendation_paymentOption' - The payment option used to generate the recommendation.
---
--- 'savingsPlansPurchaseRecommendationSummary', 'savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationSummary' - Summary metrics for your Savings Plans Recommendations.
 newSavingsPlansPurchaseRecommendation ::
   SavingsPlansPurchaseRecommendation
 newSavingsPlansPurchaseRecommendation =
   SavingsPlansPurchaseRecommendation'
-    { savingsPlansPurchaseRecommendationDetails =
+    { savingsPlansType =
+        Prelude.Nothing,
+      savingsPlansPurchaseRecommendationDetails =
+        Prelude.Nothing,
+      lookbackPeriodInDays = Prelude.Nothing,
+      savingsPlansPurchaseRecommendationSummary =
         Prelude.Nothing,
       termInYears = Prelude.Nothing,
-      accountScope = Prelude.Nothing,
-      savingsPlansType = Prelude.Nothing,
-      lookbackPeriodInDays = Prelude.Nothing,
       paymentOption = Prelude.Nothing,
-      savingsPlansPurchaseRecommendationSummary =
-        Prelude.Nothing
+      accountScope = Prelude.Nothing
     }
+
+-- | The requested Savings Plans recommendation type.
+savingsPlansPurchaseRecommendation_savingsPlansType :: Lens.Lens' SavingsPlansPurchaseRecommendation (Prelude.Maybe SupportedSavingsPlansType)
+savingsPlansPurchaseRecommendation_savingsPlansType = Lens.lens (\SavingsPlansPurchaseRecommendation' {savingsPlansType} -> savingsPlansType) (\s@SavingsPlansPurchaseRecommendation' {} a -> s {savingsPlansType = a} :: SavingsPlansPurchaseRecommendation)
 
 -- | Details for the Savings Plans we recommend that you purchase to cover
 -- existing Savings Plans eligible workloads.
 savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationDetails :: Lens.Lens' SavingsPlansPurchaseRecommendation (Prelude.Maybe [SavingsPlansPurchaseRecommendationDetail])
 savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationDetails = Lens.lens (\SavingsPlansPurchaseRecommendation' {savingsPlansPurchaseRecommendationDetails} -> savingsPlansPurchaseRecommendationDetails) (\s@SavingsPlansPurchaseRecommendation' {} a -> s {savingsPlansPurchaseRecommendationDetails = a} :: SavingsPlansPurchaseRecommendation) Prelude.. Lens.mapping Lens.coerced
 
+-- | The lookback period in days, used to generate the recommendation.
+savingsPlansPurchaseRecommendation_lookbackPeriodInDays :: Lens.Lens' SavingsPlansPurchaseRecommendation (Prelude.Maybe LookbackPeriodInDays)
+savingsPlansPurchaseRecommendation_lookbackPeriodInDays = Lens.lens (\SavingsPlansPurchaseRecommendation' {lookbackPeriodInDays} -> lookbackPeriodInDays) (\s@SavingsPlansPurchaseRecommendation' {} a -> s {lookbackPeriodInDays = a} :: SavingsPlansPurchaseRecommendation)
+
+-- | Summary metrics for your Savings Plans Recommendations.
+savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationSummary :: Lens.Lens' SavingsPlansPurchaseRecommendation (Prelude.Maybe SavingsPlansPurchaseRecommendationSummary)
+savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationSummary = Lens.lens (\SavingsPlansPurchaseRecommendation' {savingsPlansPurchaseRecommendationSummary} -> savingsPlansPurchaseRecommendationSummary) (\s@SavingsPlansPurchaseRecommendation' {} a -> s {savingsPlansPurchaseRecommendationSummary = a} :: SavingsPlansPurchaseRecommendation)
+
 -- | The Savings Plans recommendation term in years. It\'s used to generate
 -- the recommendation.
 savingsPlansPurchaseRecommendation_termInYears :: Lens.Lens' SavingsPlansPurchaseRecommendation (Prelude.Maybe TermInYears)
 savingsPlansPurchaseRecommendation_termInYears = Lens.lens (\SavingsPlansPurchaseRecommendation' {termInYears} -> termInYears) (\s@SavingsPlansPurchaseRecommendation' {} a -> s {termInYears = a} :: SavingsPlansPurchaseRecommendation)
+
+-- | The payment option used to generate the recommendation.
+savingsPlansPurchaseRecommendation_paymentOption :: Lens.Lens' SavingsPlansPurchaseRecommendation (Prelude.Maybe PaymentOption)
+savingsPlansPurchaseRecommendation_paymentOption = Lens.lens (\SavingsPlansPurchaseRecommendation' {paymentOption} -> paymentOption) (\s@SavingsPlansPurchaseRecommendation' {} a -> s {paymentOption = a} :: SavingsPlansPurchaseRecommendation)
 
 -- | The account scope that you want your recommendations for. Amazon Web
 -- Services calculates recommendations that include the management account
@@ -117,22 +134,6 @@ savingsPlansPurchaseRecommendation_termInYears = Lens.lens (\SavingsPlansPurchas
 -- only.
 savingsPlansPurchaseRecommendation_accountScope :: Lens.Lens' SavingsPlansPurchaseRecommendation (Prelude.Maybe AccountScope)
 savingsPlansPurchaseRecommendation_accountScope = Lens.lens (\SavingsPlansPurchaseRecommendation' {accountScope} -> accountScope) (\s@SavingsPlansPurchaseRecommendation' {} a -> s {accountScope = a} :: SavingsPlansPurchaseRecommendation)
-
--- | The requested Savings Plans recommendation type.
-savingsPlansPurchaseRecommendation_savingsPlansType :: Lens.Lens' SavingsPlansPurchaseRecommendation (Prelude.Maybe SupportedSavingsPlansType)
-savingsPlansPurchaseRecommendation_savingsPlansType = Lens.lens (\SavingsPlansPurchaseRecommendation' {savingsPlansType} -> savingsPlansType) (\s@SavingsPlansPurchaseRecommendation' {} a -> s {savingsPlansType = a} :: SavingsPlansPurchaseRecommendation)
-
--- | The lookback period in days, used to generate the recommendation.
-savingsPlansPurchaseRecommendation_lookbackPeriodInDays :: Lens.Lens' SavingsPlansPurchaseRecommendation (Prelude.Maybe LookbackPeriodInDays)
-savingsPlansPurchaseRecommendation_lookbackPeriodInDays = Lens.lens (\SavingsPlansPurchaseRecommendation' {lookbackPeriodInDays} -> lookbackPeriodInDays) (\s@SavingsPlansPurchaseRecommendation' {} a -> s {lookbackPeriodInDays = a} :: SavingsPlansPurchaseRecommendation)
-
--- | The payment option used to generate the recommendation.
-savingsPlansPurchaseRecommendation_paymentOption :: Lens.Lens' SavingsPlansPurchaseRecommendation (Prelude.Maybe PaymentOption)
-savingsPlansPurchaseRecommendation_paymentOption = Lens.lens (\SavingsPlansPurchaseRecommendation' {paymentOption} -> paymentOption) (\s@SavingsPlansPurchaseRecommendation' {} a -> s {paymentOption = a} :: SavingsPlansPurchaseRecommendation)
-
--- | Summary metrics for your Savings Plans Recommendations.
-savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationSummary :: Lens.Lens' SavingsPlansPurchaseRecommendation (Prelude.Maybe SavingsPlansPurchaseRecommendationSummary)
-savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationSummary = Lens.lens (\SavingsPlansPurchaseRecommendation' {savingsPlansPurchaseRecommendationSummary} -> savingsPlansPurchaseRecommendationSummary) (\s@SavingsPlansPurchaseRecommendation' {} a -> s {savingsPlansPurchaseRecommendationSummary = a} :: SavingsPlansPurchaseRecommendation)
 
 instance
   Core.FromJSON
@@ -143,18 +144,18 @@ instance
       "SavingsPlansPurchaseRecommendation"
       ( \x ->
           SavingsPlansPurchaseRecommendation'
-            Prelude.<$> ( x
+            Prelude.<$> (x Core..:? "SavingsPlansType")
+            Prelude.<*> ( x
                             Core..:? "SavingsPlansPurchaseRecommendationDetails"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "TermInYears")
-            Prelude.<*> (x Core..:? "AccountScope")
-            Prelude.<*> (x Core..:? "SavingsPlansType")
             Prelude.<*> (x Core..:? "LookbackPeriodInDays")
-            Prelude.<*> (x Core..:? "PaymentOption")
             Prelude.<*> ( x
                             Core..:? "SavingsPlansPurchaseRecommendationSummary"
                         )
+            Prelude.<*> (x Core..:? "TermInYears")
+            Prelude.<*> (x Core..:? "PaymentOption")
+            Prelude.<*> (x Core..:? "AccountScope")
       )
 
 instance
@@ -164,25 +165,23 @@ instance
   hashWithSalt
     _salt
     SavingsPlansPurchaseRecommendation' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` savingsPlansType
         `Prelude.hashWithSalt` savingsPlansPurchaseRecommendationDetails
-        `Prelude.hashWithSalt` termInYears
-        `Prelude.hashWithSalt` accountScope
-        `Prelude.hashWithSalt` savingsPlansType
         `Prelude.hashWithSalt` lookbackPeriodInDays
-        `Prelude.hashWithSalt` paymentOption
         `Prelude.hashWithSalt` savingsPlansPurchaseRecommendationSummary
+        `Prelude.hashWithSalt` termInYears
+        `Prelude.hashWithSalt` paymentOption
+        `Prelude.hashWithSalt` accountScope
 
 instance
   Prelude.NFData
     SavingsPlansPurchaseRecommendation
   where
   rnf SavingsPlansPurchaseRecommendation' {..} =
-    Prelude.rnf
-      savingsPlansPurchaseRecommendationDetails
-      `Prelude.seq` Prelude.rnf termInYears
-      `Prelude.seq` Prelude.rnf accountScope
-      `Prelude.seq` Prelude.rnf savingsPlansType
+    Prelude.rnf savingsPlansType
+      `Prelude.seq` Prelude.rnf savingsPlansPurchaseRecommendationDetails
       `Prelude.seq` Prelude.rnf lookbackPeriodInDays
-      `Prelude.seq` Prelude.rnf paymentOption
       `Prelude.seq` Prelude.rnf savingsPlansPurchaseRecommendationSummary
+      `Prelude.seq` Prelude.rnf termInYears
+      `Prelude.seq` Prelude.rnf paymentOption
+      `Prelude.seq` Prelude.rnf accountScope

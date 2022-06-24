@@ -27,14 +27,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCoverageHours' smart constructor.
 data CoverageHours = CoverageHours'
-  { -- | The percentage of instance hours that a reservation covered.
-    coverageHoursPercentage :: Prelude.Maybe Prelude.Text,
-    -- | The number of instance running hours that On-Demand Instances covered.
+  { -- | The number of instance running hours that On-Demand Instances covered.
     onDemandHours :: Prelude.Maybe Prelude.Text,
     -- | The total instance usage, in hours.
     totalRunningHours :: Prelude.Maybe Prelude.Text,
     -- | The number of instance running hours that reservations covered.
-    reservedHours :: Prelude.Maybe Prelude.Text
+    reservedHours :: Prelude.Maybe Prelude.Text,
+    -- | The percentage of instance hours that a reservation covered.
+    coverageHoursPercentage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,27 +46,22 @@ data CoverageHours = CoverageHours'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'coverageHoursPercentage', 'coverageHours_coverageHoursPercentage' - The percentage of instance hours that a reservation covered.
---
 -- 'onDemandHours', 'coverageHours_onDemandHours' - The number of instance running hours that On-Demand Instances covered.
 --
 -- 'totalRunningHours', 'coverageHours_totalRunningHours' - The total instance usage, in hours.
 --
 -- 'reservedHours', 'coverageHours_reservedHours' - The number of instance running hours that reservations covered.
+--
+-- 'coverageHoursPercentage', 'coverageHours_coverageHoursPercentage' - The percentage of instance hours that a reservation covered.
 newCoverageHours ::
   CoverageHours
 newCoverageHours =
   CoverageHours'
-    { coverageHoursPercentage =
-        Prelude.Nothing,
-      onDemandHours = Prelude.Nothing,
+    { onDemandHours = Prelude.Nothing,
       totalRunningHours = Prelude.Nothing,
-      reservedHours = Prelude.Nothing
+      reservedHours = Prelude.Nothing,
+      coverageHoursPercentage = Prelude.Nothing
     }
-
--- | The percentage of instance hours that a reservation covered.
-coverageHours_coverageHoursPercentage :: Lens.Lens' CoverageHours (Prelude.Maybe Prelude.Text)
-coverageHours_coverageHoursPercentage = Lens.lens (\CoverageHours' {coverageHoursPercentage} -> coverageHoursPercentage) (\s@CoverageHours' {} a -> s {coverageHoursPercentage = a} :: CoverageHours)
 
 -- | The number of instance running hours that On-Demand Instances covered.
 coverageHours_onDemandHours :: Lens.Lens' CoverageHours (Prelude.Maybe Prelude.Text)
@@ -80,29 +75,32 @@ coverageHours_totalRunningHours = Lens.lens (\CoverageHours' {totalRunningHours}
 coverageHours_reservedHours :: Lens.Lens' CoverageHours (Prelude.Maybe Prelude.Text)
 coverageHours_reservedHours = Lens.lens (\CoverageHours' {reservedHours} -> reservedHours) (\s@CoverageHours' {} a -> s {reservedHours = a} :: CoverageHours)
 
+-- | The percentage of instance hours that a reservation covered.
+coverageHours_coverageHoursPercentage :: Lens.Lens' CoverageHours (Prelude.Maybe Prelude.Text)
+coverageHours_coverageHoursPercentage = Lens.lens (\CoverageHours' {coverageHoursPercentage} -> coverageHoursPercentage) (\s@CoverageHours' {} a -> s {coverageHoursPercentage = a} :: CoverageHours)
+
 instance Core.FromJSON CoverageHours where
   parseJSON =
     Core.withObject
       "CoverageHours"
       ( \x ->
           CoverageHours'
-            Prelude.<$> (x Core..:? "CoverageHoursPercentage")
-            Prelude.<*> (x Core..:? "OnDemandHours")
+            Prelude.<$> (x Core..:? "OnDemandHours")
             Prelude.<*> (x Core..:? "TotalRunningHours")
             Prelude.<*> (x Core..:? "ReservedHours")
+            Prelude.<*> (x Core..:? "CoverageHoursPercentage")
       )
 
 instance Prelude.Hashable CoverageHours where
   hashWithSalt _salt CoverageHours' {..} =
-    _salt
-      `Prelude.hashWithSalt` coverageHoursPercentage
-      `Prelude.hashWithSalt` onDemandHours
+    _salt `Prelude.hashWithSalt` onDemandHours
       `Prelude.hashWithSalt` totalRunningHours
       `Prelude.hashWithSalt` reservedHours
+      `Prelude.hashWithSalt` coverageHoursPercentage
 
 instance Prelude.NFData CoverageHours where
   rnf CoverageHours' {..} =
-    Prelude.rnf coverageHoursPercentage
-      `Prelude.seq` Prelude.rnf onDemandHours
+    Prelude.rnf onDemandHours
       `Prelude.seq` Prelude.rnf totalRunningHours
       `Prelude.seq` Prelude.rnf reservedHours
+      `Prelude.seq` Prelude.rnf coverageHoursPercentage

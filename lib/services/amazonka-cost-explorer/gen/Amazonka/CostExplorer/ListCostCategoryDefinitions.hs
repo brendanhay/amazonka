@@ -43,8 +43,8 @@ module Amazonka.CostExplorer.ListCostCategoryDefinitions
     newListCostCategoryDefinitionsResponse,
 
     -- * Response Lenses
-    listCostCategoryDefinitionsResponse_costCategoryReferences,
     listCostCategoryDefinitionsResponse_nextToken,
+    listCostCategoryDefinitionsResponse_costCategoryReferences,
     listCostCategoryDefinitionsResponse_httpStatus,
   )
 where
@@ -117,10 +117,10 @@ instance Core.AWSRequest ListCostCategoryDefinitions where
     Response.receiveJSON
       ( \s h x ->
           ListCostCategoryDefinitionsResponse'
-            Prelude.<$> ( x Core..?> "CostCategoryReferences"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "CostCategoryReferences"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,13 +169,13 @@ instance Core.ToQuery ListCostCategoryDefinitions where
 
 -- | /See:/ 'newListCostCategoryDefinitionsResponse' smart constructor.
 data ListCostCategoryDefinitionsResponse = ListCostCategoryDefinitionsResponse'
-  { -- | A reference to a Cost Category containing enough information to identify
-    -- the Cost Category.
-    costCategoryReferences :: Prelude.Maybe [CostCategoryReference],
-    -- | The token to retrieve the next set of results. Amazon Web Services
+  { -- | The token to retrieve the next set of results. Amazon Web Services
     -- provides the token when the response from a previous call has more
     -- results than the maximum page size.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A reference to a Cost Category containing enough information to identify
+    -- the Cost Category.
+    costCategoryReferences :: Prelude.Maybe [CostCategoryReference],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -189,12 +189,12 @@ data ListCostCategoryDefinitionsResponse = ListCostCategoryDefinitionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'costCategoryReferences', 'listCostCategoryDefinitionsResponse_costCategoryReferences' - A reference to a Cost Category containing enough information to identify
--- the Cost Category.
---
 -- 'nextToken', 'listCostCategoryDefinitionsResponse_nextToken' - The token to retrieve the next set of results. Amazon Web Services
 -- provides the token when the response from a previous call has more
 -- results than the maximum page size.
+--
+-- 'costCategoryReferences', 'listCostCategoryDefinitionsResponse_costCategoryReferences' - A reference to a Cost Category containing enough information to identify
+-- the Cost Category.
 --
 -- 'httpStatus', 'listCostCategoryDefinitionsResponse_httpStatus' - The response's http status code.
 newListCostCategoryDefinitionsResponse ::
@@ -203,22 +203,23 @@ newListCostCategoryDefinitionsResponse ::
   ListCostCategoryDefinitionsResponse
 newListCostCategoryDefinitionsResponse pHttpStatus_ =
   ListCostCategoryDefinitionsResponse'
-    { costCategoryReferences =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      costCategoryReferences =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A reference to a Cost Category containing enough information to identify
--- the Cost Category.
-listCostCategoryDefinitionsResponse_costCategoryReferences :: Lens.Lens' ListCostCategoryDefinitionsResponse (Prelude.Maybe [CostCategoryReference])
-listCostCategoryDefinitionsResponse_costCategoryReferences = Lens.lens (\ListCostCategoryDefinitionsResponse' {costCategoryReferences} -> costCategoryReferences) (\s@ListCostCategoryDefinitionsResponse' {} a -> s {costCategoryReferences = a} :: ListCostCategoryDefinitionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to retrieve the next set of results. Amazon Web Services
 -- provides the token when the response from a previous call has more
 -- results than the maximum page size.
 listCostCategoryDefinitionsResponse_nextToken :: Lens.Lens' ListCostCategoryDefinitionsResponse (Prelude.Maybe Prelude.Text)
 listCostCategoryDefinitionsResponse_nextToken = Lens.lens (\ListCostCategoryDefinitionsResponse' {nextToken} -> nextToken) (\s@ListCostCategoryDefinitionsResponse' {} a -> s {nextToken = a} :: ListCostCategoryDefinitionsResponse)
+
+-- | A reference to a Cost Category containing enough information to identify
+-- the Cost Category.
+listCostCategoryDefinitionsResponse_costCategoryReferences :: Lens.Lens' ListCostCategoryDefinitionsResponse (Prelude.Maybe [CostCategoryReference])
+listCostCategoryDefinitionsResponse_costCategoryReferences = Lens.lens (\ListCostCategoryDefinitionsResponse' {costCategoryReferences} -> costCategoryReferences) (\s@ListCostCategoryDefinitionsResponse' {} a -> s {costCategoryReferences = a} :: ListCostCategoryDefinitionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listCostCategoryDefinitionsResponse_httpStatus :: Lens.Lens' ListCostCategoryDefinitionsResponse Prelude.Int
@@ -229,6 +230,6 @@ instance
     ListCostCategoryDefinitionsResponse
   where
   rnf ListCostCategoryDefinitionsResponse' {..} =
-    Prelude.rnf costCategoryReferences
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf costCategoryReferences
       `Prelude.seq` Prelude.rnf httpStatus

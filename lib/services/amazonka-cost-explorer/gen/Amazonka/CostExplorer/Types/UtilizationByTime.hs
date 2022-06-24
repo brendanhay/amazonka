@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUtilizationByTime' smart constructor.
 data UtilizationByTime = UtilizationByTime'
-  { -- | The groups that this utilization result uses.
-    groups :: Prelude.Maybe [ReservationUtilizationGroup],
+  { -- | The total number of reservation hours that were used.
+    total :: Prelude.Maybe ReservationAggregates,
     -- | The period of time that this utilization was used for.
     timePeriod :: Prelude.Maybe DateInterval,
-    -- | The total number of reservation hours that were used.
-    total :: Prelude.Maybe ReservationAggregates
+    -- | The groups that this utilization result uses.
+    groups :: Prelude.Maybe [ReservationUtilizationGroup]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,31 +47,31 @@ data UtilizationByTime = UtilizationByTime'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groups', 'utilizationByTime_groups' - The groups that this utilization result uses.
+-- 'total', 'utilizationByTime_total' - The total number of reservation hours that were used.
 --
 -- 'timePeriod', 'utilizationByTime_timePeriod' - The period of time that this utilization was used for.
 --
--- 'total', 'utilizationByTime_total' - The total number of reservation hours that were used.
+-- 'groups', 'utilizationByTime_groups' - The groups that this utilization result uses.
 newUtilizationByTime ::
   UtilizationByTime
 newUtilizationByTime =
   UtilizationByTime'
-    { groups = Prelude.Nothing,
+    { total = Prelude.Nothing,
       timePeriod = Prelude.Nothing,
-      total = Prelude.Nothing
+      groups = Prelude.Nothing
     }
 
--- | The groups that this utilization result uses.
-utilizationByTime_groups :: Lens.Lens' UtilizationByTime (Prelude.Maybe [ReservationUtilizationGroup])
-utilizationByTime_groups = Lens.lens (\UtilizationByTime' {groups} -> groups) (\s@UtilizationByTime' {} a -> s {groups = a} :: UtilizationByTime) Prelude.. Lens.mapping Lens.coerced
+-- | The total number of reservation hours that were used.
+utilizationByTime_total :: Lens.Lens' UtilizationByTime (Prelude.Maybe ReservationAggregates)
+utilizationByTime_total = Lens.lens (\UtilizationByTime' {total} -> total) (\s@UtilizationByTime' {} a -> s {total = a} :: UtilizationByTime)
 
 -- | The period of time that this utilization was used for.
 utilizationByTime_timePeriod :: Lens.Lens' UtilizationByTime (Prelude.Maybe DateInterval)
 utilizationByTime_timePeriod = Lens.lens (\UtilizationByTime' {timePeriod} -> timePeriod) (\s@UtilizationByTime' {} a -> s {timePeriod = a} :: UtilizationByTime)
 
--- | The total number of reservation hours that were used.
-utilizationByTime_total :: Lens.Lens' UtilizationByTime (Prelude.Maybe ReservationAggregates)
-utilizationByTime_total = Lens.lens (\UtilizationByTime' {total} -> total) (\s@UtilizationByTime' {} a -> s {total = a} :: UtilizationByTime)
+-- | The groups that this utilization result uses.
+utilizationByTime_groups :: Lens.Lens' UtilizationByTime (Prelude.Maybe [ReservationUtilizationGroup])
+utilizationByTime_groups = Lens.lens (\UtilizationByTime' {groups} -> groups) (\s@UtilizationByTime' {} a -> s {groups = a} :: UtilizationByTime) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON UtilizationByTime where
   parseJSON =
@@ -79,19 +79,19 @@ instance Core.FromJSON UtilizationByTime where
       "UtilizationByTime"
       ( \x ->
           UtilizationByTime'
-            Prelude.<$> (x Core..:? "Groups" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "Total")
             Prelude.<*> (x Core..:? "TimePeriod")
-            Prelude.<*> (x Core..:? "Total")
+            Prelude.<*> (x Core..:? "Groups" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable UtilizationByTime where
   hashWithSalt _salt UtilizationByTime' {..} =
-    _salt `Prelude.hashWithSalt` groups
+    _salt `Prelude.hashWithSalt` total
       `Prelude.hashWithSalt` timePeriod
-      `Prelude.hashWithSalt` total
+      `Prelude.hashWithSalt` groups
 
 instance Prelude.NFData UtilizationByTime where
   rnf UtilizationByTime' {..} =
-    Prelude.rnf groups
+    Prelude.rnf total
       `Prelude.seq` Prelude.rnf timePeriod
-      `Prelude.seq` Prelude.rnf total
+      `Prelude.seq` Prelude.rnf groups

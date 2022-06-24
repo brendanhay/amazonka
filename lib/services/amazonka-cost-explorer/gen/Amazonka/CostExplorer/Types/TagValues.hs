@@ -35,14 +35,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTagValues' smart constructor.
 data TagValues = TagValues'
-  { -- | The specific value of the tag.
-    values :: Prelude.Maybe [Prelude.Text],
-    -- | The key for the tag.
+  { -- | The key for the tag.
     key :: Prelude.Maybe Prelude.Text,
     -- | The match options that you can use to filter your results.
     -- @MatchOptions@ is only applicable for actions related to Cost Category.
     -- The default values for @MatchOptions@ are @EQUALS@ and @CASE_SENSITIVE@.
-    matchOptions :: Prelude.Maybe [MatchOption]
+    matchOptions :: Prelude.Maybe [MatchOption],
+    -- | The specific value of the tag.
+    values :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,25 +54,21 @@ data TagValues = TagValues'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'values', 'tagValues_values' - The specific value of the tag.
---
 -- 'key', 'tagValues_key' - The key for the tag.
 --
 -- 'matchOptions', 'tagValues_matchOptions' - The match options that you can use to filter your results.
 -- @MatchOptions@ is only applicable for actions related to Cost Category.
 -- The default values for @MatchOptions@ are @EQUALS@ and @CASE_SENSITIVE@.
+--
+-- 'values', 'tagValues_values' - The specific value of the tag.
 newTagValues ::
   TagValues
 newTagValues =
   TagValues'
-    { values = Prelude.Nothing,
-      key = Prelude.Nothing,
-      matchOptions = Prelude.Nothing
+    { key = Prelude.Nothing,
+      matchOptions = Prelude.Nothing,
+      values = Prelude.Nothing
     }
-
--- | The specific value of the tag.
-tagValues_values :: Lens.Lens' TagValues (Prelude.Maybe [Prelude.Text])
-tagValues_values = Lens.lens (\TagValues' {values} -> values) (\s@TagValues' {} a -> s {values = a} :: TagValues) Prelude.. Lens.mapping Lens.coerced
 
 -- | The key for the tag.
 tagValues_key :: Lens.Lens' TagValues (Prelude.Maybe Prelude.Text)
@@ -84,35 +80,39 @@ tagValues_key = Lens.lens (\TagValues' {key} -> key) (\s@TagValues' {} a -> s {k
 tagValues_matchOptions :: Lens.Lens' TagValues (Prelude.Maybe [MatchOption])
 tagValues_matchOptions = Lens.lens (\TagValues' {matchOptions} -> matchOptions) (\s@TagValues' {} a -> s {matchOptions = a} :: TagValues) Prelude.. Lens.mapping Lens.coerced
 
+-- | The specific value of the tag.
+tagValues_values :: Lens.Lens' TagValues (Prelude.Maybe [Prelude.Text])
+tagValues_values = Lens.lens (\TagValues' {values} -> values) (\s@TagValues' {} a -> s {values = a} :: TagValues) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON TagValues where
   parseJSON =
     Core.withObject
       "TagValues"
       ( \x ->
           TagValues'
-            Prelude.<$> (x Core..:? "Values" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Key")
+            Prelude.<$> (x Core..:? "Key")
             Prelude.<*> (x Core..:? "MatchOptions" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TagValues where
   hashWithSalt _salt TagValues' {..} =
-    _salt `Prelude.hashWithSalt` values
-      `Prelude.hashWithSalt` key
+    _salt `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` matchOptions
+      `Prelude.hashWithSalt` values
 
 instance Prelude.NFData TagValues where
   rnf TagValues' {..} =
-    Prelude.rnf values
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf key
       `Prelude.seq` Prelude.rnf matchOptions
+      `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON TagValues where
   toJSON TagValues' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Values" Core..=) Prelude.<$> values,
-            ("Key" Core..=) Prelude.<$> key,
-            ("MatchOptions" Core..=) Prelude.<$> matchOptions
+          [ ("Key" Core..=) Prelude.<$> key,
+            ("MatchOptions" Core..=) Prelude.<$> matchOptions,
+            ("Values" Core..=) Prelude.<$> values
           ]
       )

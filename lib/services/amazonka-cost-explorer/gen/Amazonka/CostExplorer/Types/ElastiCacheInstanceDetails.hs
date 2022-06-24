@@ -28,19 +28,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newElastiCacheInstanceDetails' smart constructor.
 data ElastiCacheInstanceDetails = ElastiCacheInstanceDetails'
-  { -- | Determines whether the recommendation is for a current generation
-    -- instance.
-    currentGeneration :: Prelude.Maybe Prelude.Bool,
+  { -- | Determines whether the recommended reservation is size flexible.
+    sizeFlexEligible :: Prelude.Maybe Prelude.Bool,
+    -- | The type of node that Amazon Web Services recommends.
+    nodeType :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services Region of the recommended reservation.
+    region :: Prelude.Maybe Prelude.Text,
     -- | The description of the recommended reservation.
     productDescription :: Prelude.Maybe Prelude.Text,
     -- | The instance family of the recommended reservation.
     family :: Prelude.Maybe Prelude.Text,
-    -- | Determines whether the recommended reservation is size flexible.
-    sizeFlexEligible :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Web Services Region of the recommended reservation.
-    region :: Prelude.Maybe Prelude.Text,
-    -- | The type of node that Amazon Web Services recommends.
-    nodeType :: Prelude.Maybe Prelude.Text
+    -- | Determines whether the recommendation is for a current generation
+    -- instance.
+    currentGeneration :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,35 +52,42 @@ data ElastiCacheInstanceDetails = ElastiCacheInstanceDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'currentGeneration', 'elastiCacheInstanceDetails_currentGeneration' - Determines whether the recommendation is for a current generation
--- instance.
+-- 'sizeFlexEligible', 'elastiCacheInstanceDetails_sizeFlexEligible' - Determines whether the recommended reservation is size flexible.
+--
+-- 'nodeType', 'elastiCacheInstanceDetails_nodeType' - The type of node that Amazon Web Services recommends.
+--
+-- 'region', 'elastiCacheInstanceDetails_region' - The Amazon Web Services Region of the recommended reservation.
 --
 -- 'productDescription', 'elastiCacheInstanceDetails_productDescription' - The description of the recommended reservation.
 --
 -- 'family', 'elastiCacheInstanceDetails_family' - The instance family of the recommended reservation.
 --
--- 'sizeFlexEligible', 'elastiCacheInstanceDetails_sizeFlexEligible' - Determines whether the recommended reservation is size flexible.
---
--- 'region', 'elastiCacheInstanceDetails_region' - The Amazon Web Services Region of the recommended reservation.
---
--- 'nodeType', 'elastiCacheInstanceDetails_nodeType' - The type of node that Amazon Web Services recommends.
+-- 'currentGeneration', 'elastiCacheInstanceDetails_currentGeneration' - Determines whether the recommendation is for a current generation
+-- instance.
 newElastiCacheInstanceDetails ::
   ElastiCacheInstanceDetails
 newElastiCacheInstanceDetails =
   ElastiCacheInstanceDetails'
-    { currentGeneration =
+    { sizeFlexEligible =
         Prelude.Nothing,
+      nodeType = Prelude.Nothing,
+      region = Prelude.Nothing,
       productDescription = Prelude.Nothing,
       family = Prelude.Nothing,
-      sizeFlexEligible = Prelude.Nothing,
-      region = Prelude.Nothing,
-      nodeType = Prelude.Nothing
+      currentGeneration = Prelude.Nothing
     }
 
--- | Determines whether the recommendation is for a current generation
--- instance.
-elastiCacheInstanceDetails_currentGeneration :: Lens.Lens' ElastiCacheInstanceDetails (Prelude.Maybe Prelude.Bool)
-elastiCacheInstanceDetails_currentGeneration = Lens.lens (\ElastiCacheInstanceDetails' {currentGeneration} -> currentGeneration) (\s@ElastiCacheInstanceDetails' {} a -> s {currentGeneration = a} :: ElastiCacheInstanceDetails)
+-- | Determines whether the recommended reservation is size flexible.
+elastiCacheInstanceDetails_sizeFlexEligible :: Lens.Lens' ElastiCacheInstanceDetails (Prelude.Maybe Prelude.Bool)
+elastiCacheInstanceDetails_sizeFlexEligible = Lens.lens (\ElastiCacheInstanceDetails' {sizeFlexEligible} -> sizeFlexEligible) (\s@ElastiCacheInstanceDetails' {} a -> s {sizeFlexEligible = a} :: ElastiCacheInstanceDetails)
+
+-- | The type of node that Amazon Web Services recommends.
+elastiCacheInstanceDetails_nodeType :: Lens.Lens' ElastiCacheInstanceDetails (Prelude.Maybe Prelude.Text)
+elastiCacheInstanceDetails_nodeType = Lens.lens (\ElastiCacheInstanceDetails' {nodeType} -> nodeType) (\s@ElastiCacheInstanceDetails' {} a -> s {nodeType = a} :: ElastiCacheInstanceDetails)
+
+-- | The Amazon Web Services Region of the recommended reservation.
+elastiCacheInstanceDetails_region :: Lens.Lens' ElastiCacheInstanceDetails (Prelude.Maybe Prelude.Text)
+elastiCacheInstanceDetails_region = Lens.lens (\ElastiCacheInstanceDetails' {region} -> region) (\s@ElastiCacheInstanceDetails' {} a -> s {region = a} :: ElastiCacheInstanceDetails)
 
 -- | The description of the recommended reservation.
 elastiCacheInstanceDetails_productDescription :: Lens.Lens' ElastiCacheInstanceDetails (Prelude.Maybe Prelude.Text)
@@ -90,17 +97,10 @@ elastiCacheInstanceDetails_productDescription = Lens.lens (\ElastiCacheInstanceD
 elastiCacheInstanceDetails_family :: Lens.Lens' ElastiCacheInstanceDetails (Prelude.Maybe Prelude.Text)
 elastiCacheInstanceDetails_family = Lens.lens (\ElastiCacheInstanceDetails' {family} -> family) (\s@ElastiCacheInstanceDetails' {} a -> s {family = a} :: ElastiCacheInstanceDetails)
 
--- | Determines whether the recommended reservation is size flexible.
-elastiCacheInstanceDetails_sizeFlexEligible :: Lens.Lens' ElastiCacheInstanceDetails (Prelude.Maybe Prelude.Bool)
-elastiCacheInstanceDetails_sizeFlexEligible = Lens.lens (\ElastiCacheInstanceDetails' {sizeFlexEligible} -> sizeFlexEligible) (\s@ElastiCacheInstanceDetails' {} a -> s {sizeFlexEligible = a} :: ElastiCacheInstanceDetails)
-
--- | The Amazon Web Services Region of the recommended reservation.
-elastiCacheInstanceDetails_region :: Lens.Lens' ElastiCacheInstanceDetails (Prelude.Maybe Prelude.Text)
-elastiCacheInstanceDetails_region = Lens.lens (\ElastiCacheInstanceDetails' {region} -> region) (\s@ElastiCacheInstanceDetails' {} a -> s {region = a} :: ElastiCacheInstanceDetails)
-
--- | The type of node that Amazon Web Services recommends.
-elastiCacheInstanceDetails_nodeType :: Lens.Lens' ElastiCacheInstanceDetails (Prelude.Maybe Prelude.Text)
-elastiCacheInstanceDetails_nodeType = Lens.lens (\ElastiCacheInstanceDetails' {nodeType} -> nodeType) (\s@ElastiCacheInstanceDetails' {} a -> s {nodeType = a} :: ElastiCacheInstanceDetails)
+-- | Determines whether the recommendation is for a current generation
+-- instance.
+elastiCacheInstanceDetails_currentGeneration :: Lens.Lens' ElastiCacheInstanceDetails (Prelude.Maybe Prelude.Bool)
+elastiCacheInstanceDetails_currentGeneration = Lens.lens (\ElastiCacheInstanceDetails' {currentGeneration} -> currentGeneration) (\s@ElastiCacheInstanceDetails' {} a -> s {currentGeneration = a} :: ElastiCacheInstanceDetails)
 
 instance Core.FromJSON ElastiCacheInstanceDetails where
   parseJSON =
@@ -108,28 +108,28 @@ instance Core.FromJSON ElastiCacheInstanceDetails where
       "ElastiCacheInstanceDetails"
       ( \x ->
           ElastiCacheInstanceDetails'
-            Prelude.<$> (x Core..:? "CurrentGeneration")
+            Prelude.<$> (x Core..:? "SizeFlexEligible")
+            Prelude.<*> (x Core..:? "NodeType")
+            Prelude.<*> (x Core..:? "Region")
             Prelude.<*> (x Core..:? "ProductDescription")
             Prelude.<*> (x Core..:? "Family")
-            Prelude.<*> (x Core..:? "SizeFlexEligible")
-            Prelude.<*> (x Core..:? "Region")
-            Prelude.<*> (x Core..:? "NodeType")
+            Prelude.<*> (x Core..:? "CurrentGeneration")
       )
 
 instance Prelude.Hashable ElastiCacheInstanceDetails where
   hashWithSalt _salt ElastiCacheInstanceDetails' {..} =
-    _salt `Prelude.hashWithSalt` currentGeneration
+    _salt `Prelude.hashWithSalt` sizeFlexEligible
+      `Prelude.hashWithSalt` nodeType
+      `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` productDescription
       `Prelude.hashWithSalt` family
-      `Prelude.hashWithSalt` sizeFlexEligible
-      `Prelude.hashWithSalt` region
-      `Prelude.hashWithSalt` nodeType
+      `Prelude.hashWithSalt` currentGeneration
 
 instance Prelude.NFData ElastiCacheInstanceDetails where
   rnf ElastiCacheInstanceDetails' {..} =
-    Prelude.rnf currentGeneration
+    Prelude.rnf sizeFlexEligible
+      `Prelude.seq` Prelude.rnf nodeType
+      `Prelude.seq` Prelude.rnf region
       `Prelude.seq` Prelude.rnf productDescription
       `Prelude.seq` Prelude.rnf family
-      `Prelude.seq` Prelude.rnf sizeFlexEligible
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf nodeType
+      `Prelude.seq` Prelude.rnf currentGeneration

@@ -35,8 +35,8 @@ module Amazonka.CostExplorer.DeleteCostCategoryDefinition
     newDeleteCostCategoryDefinitionResponse,
 
     -- * Response Lenses
-    deleteCostCategoryDefinitionResponse_costCategoryArn,
     deleteCostCategoryDefinitionResponse_effectiveEnd,
+    deleteCostCategoryDefinitionResponse_costCategoryArn,
     deleteCostCategoryDefinitionResponse_httpStatus,
   )
 where
@@ -87,8 +87,8 @@ instance Core.AWSRequest DeleteCostCategoryDefinition where
     Response.receiveJSON
       ( \s h x ->
           DeleteCostCategoryDefinitionResponse'
-            Prelude.<$> (x Core..?> "CostCategoryArn")
-            Prelude.<*> (x Core..?> "EffectiveEnd")
+            Prelude.<$> (x Core..?> "EffectiveEnd")
+            Prelude.<*> (x Core..?> "CostCategoryArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,12 +135,12 @@ instance Core.ToQuery DeleteCostCategoryDefinition where
 
 -- | /See:/ 'newDeleteCostCategoryDefinitionResponse' smart constructor.
 data DeleteCostCategoryDefinitionResponse = DeleteCostCategoryDefinitionResponse'
-  { -- | The unique identifier for your Cost Category.
-    costCategoryArn :: Prelude.Maybe Prelude.Text,
-    -- | The effective end date of the Cost Category as a result of deleting it.
+  { -- | The effective end date of the Cost Category as a result of deleting it.
     -- No costs after this date will be categorized by the deleted Cost
     -- Category.
     effectiveEnd :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for your Cost Category.
+    costCategoryArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -154,11 +154,11 @@ data DeleteCostCategoryDefinitionResponse = DeleteCostCategoryDefinitionResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'costCategoryArn', 'deleteCostCategoryDefinitionResponse_costCategoryArn' - The unique identifier for your Cost Category.
---
 -- 'effectiveEnd', 'deleteCostCategoryDefinitionResponse_effectiveEnd' - The effective end date of the Cost Category as a result of deleting it.
 -- No costs after this date will be categorized by the deleted Cost
 -- Category.
+--
+-- 'costCategoryArn', 'deleteCostCategoryDefinitionResponse_costCategoryArn' - The unique identifier for your Cost Category.
 --
 -- 'httpStatus', 'deleteCostCategoryDefinitionResponse_httpStatus' - The response's http status code.
 newDeleteCostCategoryDefinitionResponse ::
@@ -167,21 +167,21 @@ newDeleteCostCategoryDefinitionResponse ::
   DeleteCostCategoryDefinitionResponse
 newDeleteCostCategoryDefinitionResponse pHttpStatus_ =
   DeleteCostCategoryDefinitionResponse'
-    { costCategoryArn =
+    { effectiveEnd =
         Prelude.Nothing,
-      effectiveEnd = Prelude.Nothing,
+      costCategoryArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The unique identifier for your Cost Category.
-deleteCostCategoryDefinitionResponse_costCategoryArn :: Lens.Lens' DeleteCostCategoryDefinitionResponse (Prelude.Maybe Prelude.Text)
-deleteCostCategoryDefinitionResponse_costCategoryArn = Lens.lens (\DeleteCostCategoryDefinitionResponse' {costCategoryArn} -> costCategoryArn) (\s@DeleteCostCategoryDefinitionResponse' {} a -> s {costCategoryArn = a} :: DeleteCostCategoryDefinitionResponse)
 
 -- | The effective end date of the Cost Category as a result of deleting it.
 -- No costs after this date will be categorized by the deleted Cost
 -- Category.
 deleteCostCategoryDefinitionResponse_effectiveEnd :: Lens.Lens' DeleteCostCategoryDefinitionResponse (Prelude.Maybe Prelude.Text)
 deleteCostCategoryDefinitionResponse_effectiveEnd = Lens.lens (\DeleteCostCategoryDefinitionResponse' {effectiveEnd} -> effectiveEnd) (\s@DeleteCostCategoryDefinitionResponse' {} a -> s {effectiveEnd = a} :: DeleteCostCategoryDefinitionResponse)
+
+-- | The unique identifier for your Cost Category.
+deleteCostCategoryDefinitionResponse_costCategoryArn :: Lens.Lens' DeleteCostCategoryDefinitionResponse (Prelude.Maybe Prelude.Text)
+deleteCostCategoryDefinitionResponse_costCategoryArn = Lens.lens (\DeleteCostCategoryDefinitionResponse' {costCategoryArn} -> costCategoryArn) (\s@DeleteCostCategoryDefinitionResponse' {} a -> s {costCategoryArn = a} :: DeleteCostCategoryDefinitionResponse)
 
 -- | The response's http status code.
 deleteCostCategoryDefinitionResponse_httpStatus :: Lens.Lens' DeleteCostCategoryDefinitionResponse Prelude.Int
@@ -192,6 +192,6 @@ instance
     DeleteCostCategoryDefinitionResponse
   where
   rnf DeleteCostCategoryDefinitionResponse' {..} =
-    Prelude.rnf costCategoryArn
-      `Prelude.seq` Prelude.rnf effectiveEnd
+    Prelude.rnf effectiveEnd
+      `Prelude.seq` Prelude.rnf costCategoryArn
       `Prelude.seq` Prelude.rnf httpStatus

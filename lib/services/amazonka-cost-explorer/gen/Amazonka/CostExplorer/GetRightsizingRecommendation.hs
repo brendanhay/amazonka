@@ -45,11 +45,11 @@ module Amazonka.CostExplorer.GetRightsizingRecommendation
     newGetRightsizingRecommendationResponse,
 
     -- * Response Lenses
-    getRightsizingRecommendationResponse_summary,
     getRightsizingRecommendationResponse_nextPageToken,
-    getRightsizingRecommendationResponse_rightsizingRecommendations,
     getRightsizingRecommendationResponse_metadata,
     getRightsizingRecommendationResponse_configuration,
+    getRightsizingRecommendationResponse_summary,
+    getRightsizingRecommendationResponse_rightsizingRecommendations,
     getRightsizingRecommendationResponse_httpStatus,
   )
 where
@@ -156,13 +156,13 @@ instance Core.AWSRequest GetRightsizingRecommendation where
     Response.receiveJSON
       ( \s h x ->
           GetRightsizingRecommendationResponse'
-            Prelude.<$> (x Core..?> "Summary")
-            Prelude.<*> (x Core..?> "NextPageToken")
+            Prelude.<$> (x Core..?> "NextPageToken")
+            Prelude.<*> (x Core..?> "Metadata")
+            Prelude.<*> (x Core..?> "Configuration")
+            Prelude.<*> (x Core..?> "Summary")
             Prelude.<*> ( x Core..?> "RightsizingRecommendations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Metadata")
-            Prelude.<*> (x Core..?> "Configuration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -220,12 +220,8 @@ instance Core.ToQuery GetRightsizingRecommendation where
 
 -- | /See:/ 'newGetRightsizingRecommendationResponse' smart constructor.
 data GetRightsizingRecommendationResponse = GetRightsizingRecommendationResponse'
-  { -- | Summary of this recommendation set.
-    summary :: Prelude.Maybe RightsizingRecommendationSummary,
-    -- | The token to retrieve the next set of results.
+  { -- | The token to retrieve the next set of results.
     nextPageToken :: Prelude.Maybe Prelude.Text,
-    -- | Recommendations to rightsize resources.
-    rightsizingRecommendations :: Prelude.Maybe [RightsizingRecommendation],
     -- | Information regarding this specific recommendation set.
     metadata :: Prelude.Maybe RightsizingRecommendationMetadata,
     -- | Enables you to customize recommendations across two attributes. You can
@@ -234,6 +230,10 @@ data GetRightsizingRecommendationResponse = GetRightsizingRecommendationResponse
     -- view your estimated savings associated with recommendations with
     -- consideration of existing Savings Plans or RI benefits, or neither.
     configuration :: Prelude.Maybe RightsizingRecommendationConfiguration,
+    -- | Summary of this recommendation set.
+    summary :: Prelude.Maybe RightsizingRecommendationSummary,
+    -- | Recommendations to rightsize resources.
+    rightsizingRecommendations :: Prelude.Maybe [RightsizingRecommendation],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -247,11 +247,7 @@ data GetRightsizingRecommendationResponse = GetRightsizingRecommendationResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'summary', 'getRightsizingRecommendationResponse_summary' - Summary of this recommendation set.
---
 -- 'nextPageToken', 'getRightsizingRecommendationResponse_nextPageToken' - The token to retrieve the next set of results.
---
--- 'rightsizingRecommendations', 'getRightsizingRecommendationResponse_rightsizingRecommendations' - Recommendations to rightsize resources.
 --
 -- 'metadata', 'getRightsizingRecommendationResponse_metadata' - Information regarding this specific recommendation set.
 --
@@ -261,6 +257,10 @@ data GetRightsizingRecommendationResponse = GetRightsizingRecommendationResponse
 -- view your estimated savings associated with recommendations with
 -- consideration of existing Savings Plans or RI benefits, or neither.
 --
+-- 'summary', 'getRightsizingRecommendationResponse_summary' - Summary of this recommendation set.
+--
+-- 'rightsizingRecommendations', 'getRightsizingRecommendationResponse_rightsizingRecommendations' - Recommendations to rightsize resources.
+--
 -- 'httpStatus', 'getRightsizingRecommendationResponse_httpStatus' - The response's http status code.
 newGetRightsizingRecommendationResponse ::
   -- | 'httpStatus'
@@ -268,27 +268,19 @@ newGetRightsizingRecommendationResponse ::
   GetRightsizingRecommendationResponse
 newGetRightsizingRecommendationResponse pHttpStatus_ =
   GetRightsizingRecommendationResponse'
-    { summary =
-        Prelude.Nothing,
-      nextPageToken = Prelude.Nothing,
-      rightsizingRecommendations =
+    { nextPageToken =
         Prelude.Nothing,
       metadata = Prelude.Nothing,
       configuration = Prelude.Nothing,
+      summary = Prelude.Nothing,
+      rightsizingRecommendations =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Summary of this recommendation set.
-getRightsizingRecommendationResponse_summary :: Lens.Lens' GetRightsizingRecommendationResponse (Prelude.Maybe RightsizingRecommendationSummary)
-getRightsizingRecommendationResponse_summary = Lens.lens (\GetRightsizingRecommendationResponse' {summary} -> summary) (\s@GetRightsizingRecommendationResponse' {} a -> s {summary = a} :: GetRightsizingRecommendationResponse)
 
 -- | The token to retrieve the next set of results.
 getRightsizingRecommendationResponse_nextPageToken :: Lens.Lens' GetRightsizingRecommendationResponse (Prelude.Maybe Prelude.Text)
 getRightsizingRecommendationResponse_nextPageToken = Lens.lens (\GetRightsizingRecommendationResponse' {nextPageToken} -> nextPageToken) (\s@GetRightsizingRecommendationResponse' {} a -> s {nextPageToken = a} :: GetRightsizingRecommendationResponse)
-
--- | Recommendations to rightsize resources.
-getRightsizingRecommendationResponse_rightsizingRecommendations :: Lens.Lens' GetRightsizingRecommendationResponse (Prelude.Maybe [RightsizingRecommendation])
-getRightsizingRecommendationResponse_rightsizingRecommendations = Lens.lens (\GetRightsizingRecommendationResponse' {rightsizingRecommendations} -> rightsizingRecommendations) (\s@GetRightsizingRecommendationResponse' {} a -> s {rightsizingRecommendations = a} :: GetRightsizingRecommendationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information regarding this specific recommendation set.
 getRightsizingRecommendationResponse_metadata :: Lens.Lens' GetRightsizingRecommendationResponse (Prelude.Maybe RightsizingRecommendationMetadata)
@@ -302,6 +294,14 @@ getRightsizingRecommendationResponse_metadata = Lens.lens (\GetRightsizingRecomm
 getRightsizingRecommendationResponse_configuration :: Lens.Lens' GetRightsizingRecommendationResponse (Prelude.Maybe RightsizingRecommendationConfiguration)
 getRightsizingRecommendationResponse_configuration = Lens.lens (\GetRightsizingRecommendationResponse' {configuration} -> configuration) (\s@GetRightsizingRecommendationResponse' {} a -> s {configuration = a} :: GetRightsizingRecommendationResponse)
 
+-- | Summary of this recommendation set.
+getRightsizingRecommendationResponse_summary :: Lens.Lens' GetRightsizingRecommendationResponse (Prelude.Maybe RightsizingRecommendationSummary)
+getRightsizingRecommendationResponse_summary = Lens.lens (\GetRightsizingRecommendationResponse' {summary} -> summary) (\s@GetRightsizingRecommendationResponse' {} a -> s {summary = a} :: GetRightsizingRecommendationResponse)
+
+-- | Recommendations to rightsize resources.
+getRightsizingRecommendationResponse_rightsizingRecommendations :: Lens.Lens' GetRightsizingRecommendationResponse (Prelude.Maybe [RightsizingRecommendation])
+getRightsizingRecommendationResponse_rightsizingRecommendations = Lens.lens (\GetRightsizingRecommendationResponse' {rightsizingRecommendations} -> rightsizingRecommendations) (\s@GetRightsizingRecommendationResponse' {} a -> s {rightsizingRecommendations = a} :: GetRightsizingRecommendationResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 getRightsizingRecommendationResponse_httpStatus :: Lens.Lens' GetRightsizingRecommendationResponse Prelude.Int
 getRightsizingRecommendationResponse_httpStatus = Lens.lens (\GetRightsizingRecommendationResponse' {httpStatus} -> httpStatus) (\s@GetRightsizingRecommendationResponse' {} a -> s {httpStatus = a} :: GetRightsizingRecommendationResponse)
@@ -311,9 +311,9 @@ instance
     GetRightsizingRecommendationResponse
   where
   rnf GetRightsizingRecommendationResponse' {..} =
-    Prelude.rnf summary
-      `Prelude.seq` Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf rightsizingRecommendations
+    Prelude.rnf nextPageToken
       `Prelude.seq` Prelude.rnf metadata
       `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf summary
+      `Prelude.seq` Prelude.rnf rightsizingRecommendations
       `Prelude.seq` Prelude.rnf httpStatus

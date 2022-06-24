@@ -27,18 +27,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSavingsPlansUtilization' smart constructor.
 data SavingsPlansUtilization = SavingsPlansUtilization'
-  { -- | The amount of your Savings Plans commitment that wasn\'t consumed from
-    -- Savings Plans eligible usage in a specific period.
-    unusedCommitment :: Prelude.Maybe Prelude.Text,
-    -- | The amount of @UsedCommitment@ divided by the @TotalCommitment@ for your
-    -- Savings Plans.
-    utilizationPercentage :: Prelude.Maybe Prelude.Text,
-    -- | The total amount of Savings Plans commitment that\'s been purchased in
+  { -- | The total amount of Savings Plans commitment that\'s been purchased in
     -- an account (or set of accounts).
     totalCommitment :: Prelude.Maybe Prelude.Text,
+    -- | The amount of your Savings Plans commitment that wasn\'t consumed from
+    -- Savings Plans eligible usage in a specific period.
+    unusedCommitment :: Prelude.Maybe Prelude.Text,
     -- | The amount of your Savings Plans commitment that was consumed from
     -- Savings Plans eligible usage in a specific period.
-    usedCommitment :: Prelude.Maybe Prelude.Text
+    usedCommitment :: Prelude.Maybe Prelude.Text,
+    -- | The amount of @UsedCommitment@ divided by the @TotalCommitment@ for your
+    -- Savings Plans.
+    utilizationPercentage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,47 +50,47 @@ data SavingsPlansUtilization = SavingsPlansUtilization'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'totalCommitment', 'savingsPlansUtilization_totalCommitment' - The total amount of Savings Plans commitment that\'s been purchased in
+-- an account (or set of accounts).
+--
 -- 'unusedCommitment', 'savingsPlansUtilization_unusedCommitment' - The amount of your Savings Plans commitment that wasn\'t consumed from
+-- Savings Plans eligible usage in a specific period.
+--
+-- 'usedCommitment', 'savingsPlansUtilization_usedCommitment' - The amount of your Savings Plans commitment that was consumed from
 -- Savings Plans eligible usage in a specific period.
 --
 -- 'utilizationPercentage', 'savingsPlansUtilization_utilizationPercentage' - The amount of @UsedCommitment@ divided by the @TotalCommitment@ for your
 -- Savings Plans.
---
--- 'totalCommitment', 'savingsPlansUtilization_totalCommitment' - The total amount of Savings Plans commitment that\'s been purchased in
--- an account (or set of accounts).
---
--- 'usedCommitment', 'savingsPlansUtilization_usedCommitment' - The amount of your Savings Plans commitment that was consumed from
--- Savings Plans eligible usage in a specific period.
 newSavingsPlansUtilization ::
   SavingsPlansUtilization
 newSavingsPlansUtilization =
   SavingsPlansUtilization'
-    { unusedCommitment =
+    { totalCommitment =
         Prelude.Nothing,
-      utilizationPercentage = Prelude.Nothing,
-      totalCommitment = Prelude.Nothing,
-      usedCommitment = Prelude.Nothing
+      unusedCommitment = Prelude.Nothing,
+      usedCommitment = Prelude.Nothing,
+      utilizationPercentage = Prelude.Nothing
     }
-
--- | The amount of your Savings Plans commitment that wasn\'t consumed from
--- Savings Plans eligible usage in a specific period.
-savingsPlansUtilization_unusedCommitment :: Lens.Lens' SavingsPlansUtilization (Prelude.Maybe Prelude.Text)
-savingsPlansUtilization_unusedCommitment = Lens.lens (\SavingsPlansUtilization' {unusedCommitment} -> unusedCommitment) (\s@SavingsPlansUtilization' {} a -> s {unusedCommitment = a} :: SavingsPlansUtilization)
-
--- | The amount of @UsedCommitment@ divided by the @TotalCommitment@ for your
--- Savings Plans.
-savingsPlansUtilization_utilizationPercentage :: Lens.Lens' SavingsPlansUtilization (Prelude.Maybe Prelude.Text)
-savingsPlansUtilization_utilizationPercentage = Lens.lens (\SavingsPlansUtilization' {utilizationPercentage} -> utilizationPercentage) (\s@SavingsPlansUtilization' {} a -> s {utilizationPercentage = a} :: SavingsPlansUtilization)
 
 -- | The total amount of Savings Plans commitment that\'s been purchased in
 -- an account (or set of accounts).
 savingsPlansUtilization_totalCommitment :: Lens.Lens' SavingsPlansUtilization (Prelude.Maybe Prelude.Text)
 savingsPlansUtilization_totalCommitment = Lens.lens (\SavingsPlansUtilization' {totalCommitment} -> totalCommitment) (\s@SavingsPlansUtilization' {} a -> s {totalCommitment = a} :: SavingsPlansUtilization)
 
+-- | The amount of your Savings Plans commitment that wasn\'t consumed from
+-- Savings Plans eligible usage in a specific period.
+savingsPlansUtilization_unusedCommitment :: Lens.Lens' SavingsPlansUtilization (Prelude.Maybe Prelude.Text)
+savingsPlansUtilization_unusedCommitment = Lens.lens (\SavingsPlansUtilization' {unusedCommitment} -> unusedCommitment) (\s@SavingsPlansUtilization' {} a -> s {unusedCommitment = a} :: SavingsPlansUtilization)
+
 -- | The amount of your Savings Plans commitment that was consumed from
 -- Savings Plans eligible usage in a specific period.
 savingsPlansUtilization_usedCommitment :: Lens.Lens' SavingsPlansUtilization (Prelude.Maybe Prelude.Text)
 savingsPlansUtilization_usedCommitment = Lens.lens (\SavingsPlansUtilization' {usedCommitment} -> usedCommitment) (\s@SavingsPlansUtilization' {} a -> s {usedCommitment = a} :: SavingsPlansUtilization)
+
+-- | The amount of @UsedCommitment@ divided by the @TotalCommitment@ for your
+-- Savings Plans.
+savingsPlansUtilization_utilizationPercentage :: Lens.Lens' SavingsPlansUtilization (Prelude.Maybe Prelude.Text)
+savingsPlansUtilization_utilizationPercentage = Lens.lens (\SavingsPlansUtilization' {utilizationPercentage} -> utilizationPercentage) (\s@SavingsPlansUtilization' {} a -> s {utilizationPercentage = a} :: SavingsPlansUtilization)
 
 instance Core.FromJSON SavingsPlansUtilization where
   parseJSON =
@@ -98,22 +98,22 @@ instance Core.FromJSON SavingsPlansUtilization where
       "SavingsPlansUtilization"
       ( \x ->
           SavingsPlansUtilization'
-            Prelude.<$> (x Core..:? "UnusedCommitment")
-            Prelude.<*> (x Core..:? "UtilizationPercentage")
-            Prelude.<*> (x Core..:? "TotalCommitment")
+            Prelude.<$> (x Core..:? "TotalCommitment")
+            Prelude.<*> (x Core..:? "UnusedCommitment")
             Prelude.<*> (x Core..:? "UsedCommitment")
+            Prelude.<*> (x Core..:? "UtilizationPercentage")
       )
 
 instance Prelude.Hashable SavingsPlansUtilization where
   hashWithSalt _salt SavingsPlansUtilization' {..} =
-    _salt `Prelude.hashWithSalt` unusedCommitment
-      `Prelude.hashWithSalt` utilizationPercentage
-      `Prelude.hashWithSalt` totalCommitment
+    _salt `Prelude.hashWithSalt` totalCommitment
+      `Prelude.hashWithSalt` unusedCommitment
       `Prelude.hashWithSalt` usedCommitment
+      `Prelude.hashWithSalt` utilizationPercentage
 
 instance Prelude.NFData SavingsPlansUtilization where
   rnf SavingsPlansUtilization' {..} =
-    Prelude.rnf unusedCommitment
-      `Prelude.seq` Prelude.rnf utilizationPercentage
-      `Prelude.seq` Prelude.rnf totalCommitment
+    Prelude.rnf totalCommitment
+      `Prelude.seq` Prelude.rnf unusedCommitment
       `Prelude.seq` Prelude.rnf usedCommitment
+      `Prelude.seq` Prelude.rnf utilizationPercentage

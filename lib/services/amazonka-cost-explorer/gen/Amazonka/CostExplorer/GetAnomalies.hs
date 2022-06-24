@@ -30,9 +30,9 @@ module Amazonka.CostExplorer.GetAnomalies
     -- * Request Lenses
     getAnomalies_nextPageToken,
     getAnomalies_totalImpact,
-    getAnomalies_maxResults,
-    getAnomalies_feedback,
     getAnomalies_monitorArn,
+    getAnomalies_feedback,
+    getAnomalies_maxResults,
     getAnomalies_dateInterval,
 
     -- * Destructuring the Response
@@ -63,13 +63,13 @@ data GetAnomalies = GetAnomalies'
     -- For example, you can filter anomalies @GREATER_THAN 200.00@ to retrieve
     -- anomalies, with an estimated dollar impact greater than 200.
     totalImpact :: Prelude.Maybe TotalImpactFilter,
-    -- | The number of entries a paginated response contains.
-    maxResults :: Prelude.Maybe Prelude.Int,
-    -- | Filters anomaly results by the feedback field on the anomaly object.
-    feedback :: Prelude.Maybe AnomalyFeedbackType,
     -- | Retrieves all of the cost anomalies detected for a specific cost anomaly
     -- monitor Amazon Resource Name (ARN).
     monitorArn :: Prelude.Maybe Prelude.Text,
+    -- | Filters anomaly results by the feedback field on the anomaly object.
+    feedback :: Prelude.Maybe AnomalyFeedbackType,
+    -- | The number of entries a paginated response contains.
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | Assigns the start and end dates for retrieving cost anomalies. The
     -- returned anomaly object will have an @AnomalyEndDate@ in the specified
     -- time range.
@@ -93,12 +93,12 @@ data GetAnomalies = GetAnomalies'
 -- For example, you can filter anomalies @GREATER_THAN 200.00@ to retrieve
 -- anomalies, with an estimated dollar impact greater than 200.
 --
--- 'maxResults', 'getAnomalies_maxResults' - The number of entries a paginated response contains.
+-- 'monitorArn', 'getAnomalies_monitorArn' - Retrieves all of the cost anomalies detected for a specific cost anomaly
+-- monitor Amazon Resource Name (ARN).
 --
 -- 'feedback', 'getAnomalies_feedback' - Filters anomaly results by the feedback field on the anomaly object.
 --
--- 'monitorArn', 'getAnomalies_monitorArn' - Retrieves all of the cost anomalies detected for a specific cost anomaly
--- monitor Amazon Resource Name (ARN).
+-- 'maxResults', 'getAnomalies_maxResults' - The number of entries a paginated response contains.
 --
 -- 'dateInterval', 'getAnomalies_dateInterval' - Assigns the start and end dates for retrieving cost anomalies. The
 -- returned anomaly object will have an @AnomalyEndDate@ in the specified
@@ -111,9 +111,9 @@ newGetAnomalies pDateInterval_ =
   GetAnomalies'
     { nextPageToken = Prelude.Nothing,
       totalImpact = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      feedback = Prelude.Nothing,
       monitorArn = Prelude.Nothing,
+      feedback = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       dateInterval = pDateInterval_
     }
 
@@ -129,18 +129,18 @@ getAnomalies_nextPageToken = Lens.lens (\GetAnomalies' {nextPageToken} -> nextPa
 getAnomalies_totalImpact :: Lens.Lens' GetAnomalies (Prelude.Maybe TotalImpactFilter)
 getAnomalies_totalImpact = Lens.lens (\GetAnomalies' {totalImpact} -> totalImpact) (\s@GetAnomalies' {} a -> s {totalImpact = a} :: GetAnomalies)
 
--- | The number of entries a paginated response contains.
-getAnomalies_maxResults :: Lens.Lens' GetAnomalies (Prelude.Maybe Prelude.Int)
-getAnomalies_maxResults = Lens.lens (\GetAnomalies' {maxResults} -> maxResults) (\s@GetAnomalies' {} a -> s {maxResults = a} :: GetAnomalies)
+-- | Retrieves all of the cost anomalies detected for a specific cost anomaly
+-- monitor Amazon Resource Name (ARN).
+getAnomalies_monitorArn :: Lens.Lens' GetAnomalies (Prelude.Maybe Prelude.Text)
+getAnomalies_monitorArn = Lens.lens (\GetAnomalies' {monitorArn} -> monitorArn) (\s@GetAnomalies' {} a -> s {monitorArn = a} :: GetAnomalies)
 
 -- | Filters anomaly results by the feedback field on the anomaly object.
 getAnomalies_feedback :: Lens.Lens' GetAnomalies (Prelude.Maybe AnomalyFeedbackType)
 getAnomalies_feedback = Lens.lens (\GetAnomalies' {feedback} -> feedback) (\s@GetAnomalies' {} a -> s {feedback = a} :: GetAnomalies)
 
--- | Retrieves all of the cost anomalies detected for a specific cost anomaly
--- monitor Amazon Resource Name (ARN).
-getAnomalies_monitorArn :: Lens.Lens' GetAnomalies (Prelude.Maybe Prelude.Text)
-getAnomalies_monitorArn = Lens.lens (\GetAnomalies' {monitorArn} -> monitorArn) (\s@GetAnomalies' {} a -> s {monitorArn = a} :: GetAnomalies)
+-- | The number of entries a paginated response contains.
+getAnomalies_maxResults :: Lens.Lens' GetAnomalies (Prelude.Maybe Prelude.Int)
+getAnomalies_maxResults = Lens.lens (\GetAnomalies' {maxResults} -> maxResults) (\s@GetAnomalies' {} a -> s {maxResults = a} :: GetAnomalies)
 
 -- | Assigns the start and end dates for retrieving cost anomalies. The
 -- returned anomaly object will have an @AnomalyEndDate@ in the specified
@@ -164,18 +164,18 @@ instance Prelude.Hashable GetAnomalies where
   hashWithSalt _salt GetAnomalies' {..} =
     _salt `Prelude.hashWithSalt` nextPageToken
       `Prelude.hashWithSalt` totalImpact
-      `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` feedback
       `Prelude.hashWithSalt` monitorArn
+      `Prelude.hashWithSalt` feedback
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` dateInterval
 
 instance Prelude.NFData GetAnomalies where
   rnf GetAnomalies' {..} =
     Prelude.rnf nextPageToken
       `Prelude.seq` Prelude.rnf totalImpact
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf feedback
       `Prelude.seq` Prelude.rnf monitorArn
+      `Prelude.seq` Prelude.rnf feedback
+      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf dateInterval
 
 instance Core.ToHeaders GetAnomalies where
@@ -199,9 +199,9 @@ instance Core.ToJSON GetAnomalies where
       ( Prelude.catMaybes
           [ ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
             ("TotalImpact" Core..=) Prelude.<$> totalImpact,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Feedback" Core..=) Prelude.<$> feedback,
             ("MonitorArn" Core..=) Prelude.<$> monitorArn,
+            ("Feedback" Core..=) Prelude.<$> feedback,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just ("DateInterval" Core..= dateInterval)
           ]
       )

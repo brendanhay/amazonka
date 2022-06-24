@@ -39,10 +39,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCoverageNormalizedUnits' smart constructor.
 data CoverageNormalizedUnits = CoverageNormalizedUnits'
-  { -- | The number of normalized units that a reservation covers.
-    reservedNormalizedUnits :: Prelude.Maybe Prelude.Text,
-    -- | The total number of normalized units that you used.
+  { -- | The total number of normalized units that you used.
     totalRunningNormalizedUnits :: Prelude.Maybe Prelude.Text,
+    -- | The number of normalized units that a reservation covers.
+    reservedNormalizedUnits :: Prelude.Maybe Prelude.Text,
     -- | The percentage of your used instance normalized units that a reservation
     -- covers.
     coverageNormalizedUnitsPercentage :: Prelude.Maybe Prelude.Text,
@@ -60,9 +60,9 @@ data CoverageNormalizedUnits = CoverageNormalizedUnits'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reservedNormalizedUnits', 'coverageNormalizedUnits_reservedNormalizedUnits' - The number of normalized units that a reservation covers.
---
 -- 'totalRunningNormalizedUnits', 'coverageNormalizedUnits_totalRunningNormalizedUnits' - The total number of normalized units that you used.
+--
+-- 'reservedNormalizedUnits', 'coverageNormalizedUnits_reservedNormalizedUnits' - The number of normalized units that a reservation covers.
 --
 -- 'coverageNormalizedUnitsPercentage', 'coverageNormalizedUnits_coverageNormalizedUnitsPercentage' - The percentage of your used instance normalized units that a reservation
 -- covers.
@@ -73,21 +73,21 @@ newCoverageNormalizedUnits ::
   CoverageNormalizedUnits
 newCoverageNormalizedUnits =
   CoverageNormalizedUnits'
-    { reservedNormalizedUnits =
+    { totalRunningNormalizedUnits =
         Prelude.Nothing,
-      totalRunningNormalizedUnits = Prelude.Nothing,
+      reservedNormalizedUnits = Prelude.Nothing,
       coverageNormalizedUnitsPercentage =
         Prelude.Nothing,
       onDemandNormalizedUnits = Prelude.Nothing
     }
 
--- | The number of normalized units that a reservation covers.
-coverageNormalizedUnits_reservedNormalizedUnits :: Lens.Lens' CoverageNormalizedUnits (Prelude.Maybe Prelude.Text)
-coverageNormalizedUnits_reservedNormalizedUnits = Lens.lens (\CoverageNormalizedUnits' {reservedNormalizedUnits} -> reservedNormalizedUnits) (\s@CoverageNormalizedUnits' {} a -> s {reservedNormalizedUnits = a} :: CoverageNormalizedUnits)
-
 -- | The total number of normalized units that you used.
 coverageNormalizedUnits_totalRunningNormalizedUnits :: Lens.Lens' CoverageNormalizedUnits (Prelude.Maybe Prelude.Text)
 coverageNormalizedUnits_totalRunningNormalizedUnits = Lens.lens (\CoverageNormalizedUnits' {totalRunningNormalizedUnits} -> totalRunningNormalizedUnits) (\s@CoverageNormalizedUnits' {} a -> s {totalRunningNormalizedUnits = a} :: CoverageNormalizedUnits)
+
+-- | The number of normalized units that a reservation covers.
+coverageNormalizedUnits_reservedNormalizedUnits :: Lens.Lens' CoverageNormalizedUnits (Prelude.Maybe Prelude.Text)
+coverageNormalizedUnits_reservedNormalizedUnits = Lens.lens (\CoverageNormalizedUnits' {reservedNormalizedUnits} -> reservedNormalizedUnits) (\s@CoverageNormalizedUnits' {} a -> s {reservedNormalizedUnits = a} :: CoverageNormalizedUnits)
 
 -- | The percentage of your used instance normalized units that a reservation
 -- covers.
@@ -105,8 +105,8 @@ instance Core.FromJSON CoverageNormalizedUnits where
       "CoverageNormalizedUnits"
       ( \x ->
           CoverageNormalizedUnits'
-            Prelude.<$> (x Core..:? "ReservedNormalizedUnits")
-            Prelude.<*> (x Core..:? "TotalRunningNormalizedUnits")
+            Prelude.<$> (x Core..:? "TotalRunningNormalizedUnits")
+            Prelude.<*> (x Core..:? "ReservedNormalizedUnits")
             Prelude.<*> (x Core..:? "CoverageNormalizedUnitsPercentage")
             Prelude.<*> (x Core..:? "OnDemandNormalizedUnits")
       )
@@ -114,14 +114,14 @@ instance Core.FromJSON CoverageNormalizedUnits where
 instance Prelude.Hashable CoverageNormalizedUnits where
   hashWithSalt _salt CoverageNormalizedUnits' {..} =
     _salt
-      `Prelude.hashWithSalt` reservedNormalizedUnits
       `Prelude.hashWithSalt` totalRunningNormalizedUnits
+      `Prelude.hashWithSalt` reservedNormalizedUnits
       `Prelude.hashWithSalt` coverageNormalizedUnitsPercentage
       `Prelude.hashWithSalt` onDemandNormalizedUnits
 
 instance Prelude.NFData CoverageNormalizedUnits where
   rnf CoverageNormalizedUnits' {..} =
-    Prelude.rnf reservedNormalizedUnits
-      `Prelude.seq` Prelude.rnf totalRunningNormalizedUnits
+    Prelude.rnf totalRunningNormalizedUnits
+      `Prelude.seq` Prelude.rnf reservedNormalizedUnits
       `Prelude.seq` Prelude.rnf coverageNormalizedUnitsPercentage
       `Prelude.seq` Prelude.rnf onDemandNormalizedUnits

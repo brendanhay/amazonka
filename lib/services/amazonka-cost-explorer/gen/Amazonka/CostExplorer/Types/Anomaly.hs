@@ -32,17 +32,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAnomaly' smart constructor.
 data Anomaly = Anomaly'
-  { -- | The first day the anomaly is detected.
-    anomalyStartDate :: Prelude.Maybe Prelude.Text,
-    -- | The dimension for the anomaly (for example, an Amazon Web Services
+  { -- | The dimension for the anomaly (for example, an Amazon Web Services
     -- service in a service monitor).
     dimensionValue :: Prelude.Maybe Prelude.Text,
-    -- | The list of identified root causes for the anomaly.
-    rootCauses :: Prelude.Maybe [RootCause],
     -- | The last day the anomaly is detected.
     anomalyEndDate :: Prelude.Maybe Prelude.Text,
     -- | The feedback value.
     feedback :: Prelude.Maybe AnomalyFeedbackType,
+    -- | The first day the anomaly is detected.
+    anomalyStartDate :: Prelude.Maybe Prelude.Text,
+    -- | The list of identified root causes for the anomaly.
+    rootCauses :: Prelude.Maybe [RootCause],
     -- | The unique identifier for the anomaly.
     anomalyId :: Prelude.Text,
     -- | The latest and maximum score for the anomaly.
@@ -63,16 +63,16 @@ data Anomaly = Anomaly'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'anomalyStartDate', 'anomaly_anomalyStartDate' - The first day the anomaly is detected.
---
 -- 'dimensionValue', 'anomaly_dimensionValue' - The dimension for the anomaly (for example, an Amazon Web Services
 -- service in a service monitor).
---
--- 'rootCauses', 'anomaly_rootCauses' - The list of identified root causes for the anomaly.
 --
 -- 'anomalyEndDate', 'anomaly_anomalyEndDate' - The last day the anomaly is detected.
 --
 -- 'feedback', 'anomaly_feedback' - The feedback value.
+--
+-- 'anomalyStartDate', 'anomaly_anomalyStartDate' - The first day the anomaly is detected.
+--
+-- 'rootCauses', 'anomaly_rootCauses' - The list of identified root causes for the anomaly.
 --
 -- 'anomalyId', 'anomaly_anomalyId' - The unique identifier for the anomaly.
 --
@@ -98,29 +98,21 @@ newAnomaly
   pImpact_
   pMonitorArn_ =
     Anomaly'
-      { anomalyStartDate = Prelude.Nothing,
-        dimensionValue = Prelude.Nothing,
-        rootCauses = Prelude.Nothing,
+      { dimensionValue = Prelude.Nothing,
         anomalyEndDate = Prelude.Nothing,
         feedback = Prelude.Nothing,
+        anomalyStartDate = Prelude.Nothing,
+        rootCauses = Prelude.Nothing,
         anomalyId = pAnomalyId_,
         anomalyScore = pAnomalyScore_,
         impact = pImpact_,
         monitorArn = pMonitorArn_
       }
 
--- | The first day the anomaly is detected.
-anomaly_anomalyStartDate :: Lens.Lens' Anomaly (Prelude.Maybe Prelude.Text)
-anomaly_anomalyStartDate = Lens.lens (\Anomaly' {anomalyStartDate} -> anomalyStartDate) (\s@Anomaly' {} a -> s {anomalyStartDate = a} :: Anomaly)
-
 -- | The dimension for the anomaly (for example, an Amazon Web Services
 -- service in a service monitor).
 anomaly_dimensionValue :: Lens.Lens' Anomaly (Prelude.Maybe Prelude.Text)
 anomaly_dimensionValue = Lens.lens (\Anomaly' {dimensionValue} -> dimensionValue) (\s@Anomaly' {} a -> s {dimensionValue = a} :: Anomaly)
-
--- | The list of identified root causes for the anomaly.
-anomaly_rootCauses :: Lens.Lens' Anomaly (Prelude.Maybe [RootCause])
-anomaly_rootCauses = Lens.lens (\Anomaly' {rootCauses} -> rootCauses) (\s@Anomaly' {} a -> s {rootCauses = a} :: Anomaly) Prelude.. Lens.mapping Lens.coerced
 
 -- | The last day the anomaly is detected.
 anomaly_anomalyEndDate :: Lens.Lens' Anomaly (Prelude.Maybe Prelude.Text)
@@ -129,6 +121,14 @@ anomaly_anomalyEndDate = Lens.lens (\Anomaly' {anomalyEndDate} -> anomalyEndDate
 -- | The feedback value.
 anomaly_feedback :: Lens.Lens' Anomaly (Prelude.Maybe AnomalyFeedbackType)
 anomaly_feedback = Lens.lens (\Anomaly' {feedback} -> feedback) (\s@Anomaly' {} a -> s {feedback = a} :: Anomaly)
+
+-- | The first day the anomaly is detected.
+anomaly_anomalyStartDate :: Lens.Lens' Anomaly (Prelude.Maybe Prelude.Text)
+anomaly_anomalyStartDate = Lens.lens (\Anomaly' {anomalyStartDate} -> anomalyStartDate) (\s@Anomaly' {} a -> s {anomalyStartDate = a} :: Anomaly)
+
+-- | The list of identified root causes for the anomaly.
+anomaly_rootCauses :: Lens.Lens' Anomaly (Prelude.Maybe [RootCause])
+anomaly_rootCauses = Lens.lens (\Anomaly' {rootCauses} -> rootCauses) (\s@Anomaly' {} a -> s {rootCauses = a} :: Anomaly) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique identifier for the anomaly.
 anomaly_anomalyId :: Lens.Lens' Anomaly Prelude.Text
@@ -153,11 +153,11 @@ instance Core.FromJSON Anomaly where
       "Anomaly"
       ( \x ->
           Anomaly'
-            Prelude.<$> (x Core..:? "AnomalyStartDate")
-            Prelude.<*> (x Core..:? "DimensionValue")
-            Prelude.<*> (x Core..:? "RootCauses" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "DimensionValue")
             Prelude.<*> (x Core..:? "AnomalyEndDate")
             Prelude.<*> (x Core..:? "Feedback")
+            Prelude.<*> (x Core..:? "AnomalyStartDate")
+            Prelude.<*> (x Core..:? "RootCauses" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "AnomalyId")
             Prelude.<*> (x Core..: "AnomalyScore")
             Prelude.<*> (x Core..: "Impact")
@@ -166,11 +166,11 @@ instance Core.FromJSON Anomaly where
 
 instance Prelude.Hashable Anomaly where
   hashWithSalt _salt Anomaly' {..} =
-    _salt `Prelude.hashWithSalt` anomalyStartDate
-      `Prelude.hashWithSalt` dimensionValue
-      `Prelude.hashWithSalt` rootCauses
+    _salt `Prelude.hashWithSalt` dimensionValue
       `Prelude.hashWithSalt` anomalyEndDate
       `Prelude.hashWithSalt` feedback
+      `Prelude.hashWithSalt` anomalyStartDate
+      `Prelude.hashWithSalt` rootCauses
       `Prelude.hashWithSalt` anomalyId
       `Prelude.hashWithSalt` anomalyScore
       `Prelude.hashWithSalt` impact
@@ -178,11 +178,11 @@ instance Prelude.Hashable Anomaly where
 
 instance Prelude.NFData Anomaly where
   rnf Anomaly' {..} =
-    Prelude.rnf anomalyStartDate
-      `Prelude.seq` Prelude.rnf dimensionValue
-      `Prelude.seq` Prelude.rnf rootCauses
+    Prelude.rnf dimensionValue
       `Prelude.seq` Prelude.rnf anomalyEndDate
       `Prelude.seq` Prelude.rnf feedback
+      `Prelude.seq` Prelude.rnf anomalyStartDate
+      `Prelude.seq` Prelude.rnf rootCauses
       `Prelude.seq` Prelude.rnf anomalyId
       `Prelude.seq` Prelude.rnf anomalyScore
       `Prelude.seq` Prelude.rnf impact

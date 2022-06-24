@@ -17,38 +17,23 @@ module Amazonka.KinesisVideo
     -- * Errors
     -- $errors
 
-    -- ** AccessDeniedException
-    _AccessDeniedException,
-
     -- ** InvalidArgumentException
     _InvalidArgumentException,
-
-    -- ** TagsPerResourceExceededLimitException
-    _TagsPerResourceExceededLimitException,
-
-    -- ** NotAuthorizedException
-    _NotAuthorizedException,
 
     -- ** ClientLimitExceededException
     _ClientLimitExceededException,
 
-    -- ** AccountChannelLimitExceededException
-    _AccountChannelLimitExceededException,
+    -- ** AccessDeniedException
+    _AccessDeniedException,
 
     -- ** InvalidDeviceException
     _InvalidDeviceException,
 
-    -- ** VersionMismatchException
-    _VersionMismatchException,
-
-    -- ** AccountStreamLimitExceededException
-    _AccountStreamLimitExceededException,
+    -- ** TagsPerResourceExceededLimitException
+    _TagsPerResourceExceededLimitException,
 
     -- ** InvalidResourceFormatException
     _InvalidResourceFormatException,
-
-    -- ** DeviceStreamLimitExceededException
-    _DeviceStreamLimitExceededException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
@@ -56,35 +41,62 @@ module Amazonka.KinesisVideo
     -- ** ResourceInUseException
     _ResourceInUseException,
 
+    -- ** AccountStreamLimitExceededException
+    _AccountStreamLimitExceededException,
+
+    -- ** VersionMismatchException
+    _VersionMismatchException,
+
+    -- ** AccountChannelLimitExceededException
+    _AccountChannelLimitExceededException,
+
+    -- ** NotAuthorizedException
+    _NotAuthorizedException,
+
+    -- ** DeviceStreamLimitExceededException
+    _DeviceStreamLimitExceededException,
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
 
-    -- ** ListSignalingChannels (Paginated)
-    ListSignalingChannels (ListSignalingChannels'),
-    newListSignalingChannels,
-    ListSignalingChannelsResponse (ListSignalingChannelsResponse'),
-    newListSignalingChannelsResponse,
+    -- ** CreateSignalingChannel
+    CreateSignalingChannel (CreateSignalingChannel'),
+    newCreateSignalingChannel,
+    CreateSignalingChannelResponse (CreateSignalingChannelResponse'),
+    newCreateSignalingChannelResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** CreateStream
+    CreateStream (CreateStream'),
+    newCreateStream,
+    CreateStreamResponse (CreateStreamResponse'),
+    newCreateStreamResponse,
 
-    -- ** UntagStream
-    UntagStream (UntagStream'),
-    newUntagStream,
-    UntagStreamResponse (UntagStreamResponse'),
-    newUntagStreamResponse,
+    -- ** DeleteSignalingChannel
+    DeleteSignalingChannel (DeleteSignalingChannel'),
+    newDeleteSignalingChannel,
+    DeleteSignalingChannelResponse (DeleteSignalingChannelResponse'),
+    newDeleteSignalingChannelResponse,
 
-    -- ** UpdateDataRetention
-    UpdateDataRetention (UpdateDataRetention'),
-    newUpdateDataRetention,
-    UpdateDataRetentionResponse (UpdateDataRetentionResponse'),
-    newUpdateDataRetentionResponse,
+    -- ** DeleteStream
+    DeleteStream (DeleteStream'),
+    newDeleteStream,
+    DeleteStreamResponse (DeleteStreamResponse'),
+    newDeleteStreamResponse,
+
+    -- ** DescribeSignalingChannel
+    DescribeSignalingChannel (DescribeSignalingChannel'),
+    newDescribeSignalingChannel,
+    DescribeSignalingChannelResponse (DescribeSignalingChannelResponse'),
+    newDescribeSignalingChannelResponse,
+
+    -- ** DescribeStream
+    DescribeStream (DescribeStream'),
+    newDescribeStream,
+    DescribeStreamResponse (DescribeStreamResponse'),
+    newDescribeStreamResponse,
 
     -- ** GetDataEndpoint
     GetDataEndpoint (GetDataEndpoint'),
@@ -98,17 +110,59 @@ module Amazonka.KinesisVideo
     GetSignalingChannelEndpointResponse (GetSignalingChannelEndpointResponse'),
     newGetSignalingChannelEndpointResponse,
 
+    -- ** ListSignalingChannels (Paginated)
+    ListSignalingChannels (ListSignalingChannels'),
+    newListSignalingChannels,
+    ListSignalingChannelsResponse (ListSignalingChannelsResponse'),
+    newListSignalingChannelsResponse,
+
+    -- ** ListStreams (Paginated)
+    ListStreams (ListStreams'),
+    newListStreams,
+    ListStreamsResponse (ListStreamsResponse'),
+    newListStreamsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
     -- ** ListTagsForStream
     ListTagsForStream (ListTagsForStream'),
     newListTagsForStream,
     ListTagsForStreamResponse (ListTagsForStreamResponse'),
     newListTagsForStreamResponse,
 
-    -- ** DeleteSignalingChannel
-    DeleteSignalingChannel (DeleteSignalingChannel'),
-    newDeleteSignalingChannel,
-    DeleteSignalingChannelResponse (DeleteSignalingChannelResponse'),
-    newDeleteSignalingChannelResponse,
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** TagStream
+    TagStream (TagStream'),
+    newTagStream,
+    TagStreamResponse (TagStreamResponse'),
+    newTagStreamResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UntagStream
+    UntagStream (UntagStream'),
+    newUntagStream,
+    UntagStreamResponse (UntagStreamResponse'),
+    newUntagStreamResponse,
+
+    -- ** UpdateDataRetention
+    UpdateDataRetention (UpdateDataRetention'),
+    newUpdateDataRetention,
+    UpdateDataRetentionResponse (UpdateDataRetentionResponse'),
+    newUpdateDataRetentionResponse,
 
     -- ** UpdateSignalingChannel
     UpdateSignalingChannel (UpdateSignalingChannel'),
@@ -121,60 +175,6 @@ module Amazonka.KinesisVideo
     newUpdateStream,
     UpdateStreamResponse (UpdateStreamResponse'),
     newUpdateStreamResponse,
-
-    -- ** DeleteStream
-    DeleteStream (DeleteStream'),
-    newDeleteStream,
-    DeleteStreamResponse (DeleteStreamResponse'),
-    newDeleteStreamResponse,
-
-    -- ** ListStreams (Paginated)
-    ListStreams (ListStreams'),
-    newListStreams,
-    ListStreamsResponse (ListStreamsResponse'),
-    newListStreamsResponse,
-
-    -- ** CreateStream
-    CreateStream (CreateStream'),
-    newCreateStream,
-    CreateStreamResponse (CreateStreamResponse'),
-    newCreateStreamResponse,
-
-    -- ** DescribeSignalingChannel
-    DescribeSignalingChannel (DescribeSignalingChannel'),
-    newDescribeSignalingChannel,
-    DescribeSignalingChannelResponse (DescribeSignalingChannelResponse'),
-    newDescribeSignalingChannelResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** TagStream
-    TagStream (TagStream'),
-    newTagStream,
-    TagStreamResponse (TagStreamResponse'),
-    newTagStreamResponse,
-
-    -- ** CreateSignalingChannel
-    CreateSignalingChannel (CreateSignalingChannel'),
-    newCreateSignalingChannel,
-    CreateSignalingChannelResponse (CreateSignalingChannelResponse'),
-    newCreateSignalingChannelResponse,
-
-    -- ** DescribeStream
-    DescribeStream (DescribeStream'),
-    newDescribeStream,
-    DescribeStreamResponse (DescribeStreamResponse'),
-    newDescribeStreamResponse,
 
     -- * Types
 

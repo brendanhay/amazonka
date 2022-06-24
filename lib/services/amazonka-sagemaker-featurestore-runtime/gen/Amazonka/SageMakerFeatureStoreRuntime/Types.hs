@@ -17,11 +17,11 @@ module Amazonka.SageMakerFeatureStoreRuntime.Types
     defaultService,
 
     -- * Errors
+    _ResourceNotFound,
     _AccessForbidden,
     _ServiceUnavailable,
-    _InternalFailure,
     _ValidationError,
-    _ResourceNotFound,
+    _InternalFailure,
 
     -- * BatchGetRecordError
     BatchGetRecordError (..),
@@ -90,35 +90,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -127,13 +100,48 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | A resource that is required to perform an action was not found.
+_ResourceNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFound =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFound"
+    Prelude.. Core.hasStatus 404
 
 -- | You do not have permission to perform an action.
 _AccessForbidden :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -151,15 +159,6 @@ _ServiceUnavailable =
     "ServiceUnavailable"
     Prelude.. Core.hasStatus 503
 
--- | An internal failure occurred. Try your request again. If the problem
--- persists, contact AWS customer support.
-_InternalFailure :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalFailure =
-  Core._MatchServiceError
-    defaultService
-    "InternalFailure"
-    Prelude.. Core.hasStatus 500
-
 -- | There was an error validating your request.
 _ValidationError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ValidationError =
@@ -168,10 +167,11 @@ _ValidationError =
     "ValidationError"
     Prelude.. Core.hasStatus 400
 
--- | A resource that is required to perform an action was not found.
-_ResourceNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFound =
+-- | An internal failure occurred. Try your request again. If the problem
+-- persists, contact AWS customer support.
+_InternalFailure :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalFailure =
   Core._MatchServiceError
     defaultService
-    "ResourceNotFound"
-    Prelude.. Core.hasStatus 404
+    "InternalFailure"
+    Prelude.. Core.hasStatus 500

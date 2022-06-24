@@ -27,49 +27,37 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestPutRecord $
---             newPutRecord
+--         [ requestBatchGetRecord $
+--             newBatchGetRecord
 --
 --         , requestDeleteRecord $
 --             newDeleteRecord
 --
---         , requestBatchGetRecord $
---             newBatchGetRecord
---
 --         , requestGetRecord $
 --             newGetRecord
+--
+--         , requestPutRecord $
+--             newPutRecord
 --
 --           ]
 
 --     , testGroup "response"
---         [ responsePutRecord $
---             newPutRecordResponse
+--         [ responseBatchGetRecord $
+--             newBatchGetRecordResponse
 --
 --         , responseDeleteRecord $
 --             newDeleteRecordResponse
 --
---         , responseBatchGetRecord $
---             newBatchGetRecordResponse
---
 --         , responseGetRecord $
 --             newGetRecordResponse
+--
+--         , responsePutRecord $
+--             newPutRecordResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestPutRecord :: PutRecord -> TestTree
-requestPutRecord =
-  req
-    "PutRecord"
-    "fixture/PutRecord.yaml"
-
-requestDeleteRecord :: DeleteRecord -> TestTree
-requestDeleteRecord =
-  req
-    "DeleteRecord"
-    "fixture/DeleteRecord.yaml"
 
 requestBatchGetRecord :: BatchGetRecord -> TestTree
 requestBatchGetRecord =
@@ -77,29 +65,25 @@ requestBatchGetRecord =
     "BatchGetRecord"
     "fixture/BatchGetRecord.yaml"
 
+requestDeleteRecord :: DeleteRecord -> TestTree
+requestDeleteRecord =
+  req
+    "DeleteRecord"
+    "fixture/DeleteRecord.yaml"
+
 requestGetRecord :: GetRecord -> TestTree
 requestGetRecord =
   req
     "GetRecord"
     "fixture/GetRecord.yaml"
 
+requestPutRecord :: PutRecord -> TestTree
+requestPutRecord =
+  req
+    "PutRecord"
+    "fixture/PutRecord.yaml"
+
 -- Responses
-
-responsePutRecord :: PutRecordResponse -> TestTree
-responsePutRecord =
-  res
-    "PutRecordResponse"
-    "fixture/PutRecordResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutRecord)
-
-responseDeleteRecord :: DeleteRecordResponse -> TestTree
-responseDeleteRecord =
-  res
-    "DeleteRecordResponse"
-    "fixture/DeleteRecordResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteRecord)
 
 responseBatchGetRecord :: BatchGetRecordResponse -> TestTree
 responseBatchGetRecord =
@@ -109,6 +93,14 @@ responseBatchGetRecord =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchGetRecord)
 
+responseDeleteRecord :: DeleteRecordResponse -> TestTree
+responseDeleteRecord =
+  res
+    "DeleteRecordResponse"
+    "fixture/DeleteRecordResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteRecord)
+
 responseGetRecord :: GetRecordResponse -> TestTree
 responseGetRecord =
   res
@@ -116,3 +108,11 @@ responseGetRecord =
     "fixture/GetRecordResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetRecord)
+
+responsePutRecord :: PutRecordResponse -> TestTree
+responsePutRecord =
+  res
+    "PutRecordResponse"
+    "fixture/PutRecordResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutRecord)

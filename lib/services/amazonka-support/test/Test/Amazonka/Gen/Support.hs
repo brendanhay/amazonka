@@ -27,151 +27,97 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestRefreshTrustedAdvisorCheck $
---             newRefreshTrustedAdvisorCheck
---
---         , requestDescribeCases $
---             newDescribeCases
---
---         , requestDescribeTrustedAdvisorCheckRefreshStatuses $
---             newDescribeTrustedAdvisorCheckRefreshStatuses
---
---         , requestDescribeTrustedAdvisorCheckSummaries $
---             newDescribeTrustedAdvisorCheckSummaries
---
---         , requestCreateCase $
---             newCreateCase
---
---         , requestResolveCase $
---             newResolveCase
---
---         , requestDescribeSeverityLevels $
---             newDescribeSeverityLevels
---
---         , requestDescribeTrustedAdvisorChecks $
---             newDescribeTrustedAdvisorChecks
---
---         , requestDescribeAttachment $
---             newDescribeAttachment
---
---         , requestAddAttachmentsToSet $
+--         [ requestAddAttachmentsToSet $
 --             newAddAttachmentsToSet
---
---         , requestDescribeTrustedAdvisorCheckResult $
---             newDescribeTrustedAdvisorCheckResult
---
---         , requestDescribeServices $
---             newDescribeServices
---
---         , requestDescribeCommunications $
---             newDescribeCommunications
 --
 --         , requestAddCommunicationToCase $
 --             newAddCommunicationToCase
 --
+--         , requestCreateCase $
+--             newCreateCase
+--
+--         , requestDescribeAttachment $
+--             newDescribeAttachment
+--
+--         , requestDescribeCases $
+--             newDescribeCases
+--
+--         , requestDescribeCommunications $
+--             newDescribeCommunications
+--
+--         , requestDescribeServices $
+--             newDescribeServices
+--
+--         , requestDescribeSeverityLevels $
+--             newDescribeSeverityLevels
+--
+--         , requestDescribeTrustedAdvisorCheckRefreshStatuses $
+--             newDescribeTrustedAdvisorCheckRefreshStatuses
+--
+--         , requestDescribeTrustedAdvisorCheckResult $
+--             newDescribeTrustedAdvisorCheckResult
+--
+--         , requestDescribeTrustedAdvisorCheckSummaries $
+--             newDescribeTrustedAdvisorCheckSummaries
+--
+--         , requestDescribeTrustedAdvisorChecks $
+--             newDescribeTrustedAdvisorChecks
+--
+--         , requestRefreshTrustedAdvisorCheck $
+--             newRefreshTrustedAdvisorCheck
+--
+--         , requestResolveCase $
+--             newResolveCase
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseRefreshTrustedAdvisorCheck $
---             newRefreshTrustedAdvisorCheckResponse
+--         [ responseAddAttachmentsToSet $
+--             newAddAttachmentsToSetResponse
 --
---         , responseDescribeCases $
---             newDescribeCasesResponse
---
---         , responseDescribeTrustedAdvisorCheckRefreshStatuses $
---             newDescribeTrustedAdvisorCheckRefreshStatusesResponse
---
---         , responseDescribeTrustedAdvisorCheckSummaries $
---             newDescribeTrustedAdvisorCheckSummariesResponse
+--         , responseAddCommunicationToCase $
+--             newAddCommunicationToCaseResponse
 --
 --         , responseCreateCase $
 --             newCreateCaseResponse
 --
---         , responseResolveCase $
---             newResolveCaseResponse
---
---         , responseDescribeSeverityLevels $
---             newDescribeSeverityLevelsResponse
---
---         , responseDescribeTrustedAdvisorChecks $
---             newDescribeTrustedAdvisorChecksResponse
---
 --         , responseDescribeAttachment $
 --             newDescribeAttachmentResponse
 --
---         , responseAddAttachmentsToSet $
---             newAddAttachmentsToSetResponse
---
---         , responseDescribeTrustedAdvisorCheckResult $
---             newDescribeTrustedAdvisorCheckResultResponse
---
---         , responseDescribeServices $
---             newDescribeServicesResponse
+--         , responseDescribeCases $
+--             newDescribeCasesResponse
 --
 --         , responseDescribeCommunications $
 --             newDescribeCommunicationsResponse
 --
---         , responseAddCommunicationToCase $
---             newAddCommunicationToCaseResponse
+--         , responseDescribeServices $
+--             newDescribeServicesResponse
+--
+--         , responseDescribeSeverityLevels $
+--             newDescribeSeverityLevelsResponse
+--
+--         , responseDescribeTrustedAdvisorCheckRefreshStatuses $
+--             newDescribeTrustedAdvisorCheckRefreshStatusesResponse
+--
+--         , responseDescribeTrustedAdvisorCheckResult $
+--             newDescribeTrustedAdvisorCheckResultResponse
+--
+--         , responseDescribeTrustedAdvisorCheckSummaries $
+--             newDescribeTrustedAdvisorCheckSummariesResponse
+--
+--         , responseDescribeTrustedAdvisorChecks $
+--             newDescribeTrustedAdvisorChecksResponse
+--
+--         , responseRefreshTrustedAdvisorCheck $
+--             newRefreshTrustedAdvisorCheckResponse
+--
+--         , responseResolveCase $
+--             newResolveCaseResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestRefreshTrustedAdvisorCheck :: RefreshTrustedAdvisorCheck -> TestTree
-requestRefreshTrustedAdvisorCheck =
-  req
-    "RefreshTrustedAdvisorCheck"
-    "fixture/RefreshTrustedAdvisorCheck.yaml"
-
-requestDescribeCases :: DescribeCases -> TestTree
-requestDescribeCases =
-  req
-    "DescribeCases"
-    "fixture/DescribeCases.yaml"
-
-requestDescribeTrustedAdvisorCheckRefreshStatuses :: DescribeTrustedAdvisorCheckRefreshStatuses -> TestTree
-requestDescribeTrustedAdvisorCheckRefreshStatuses =
-  req
-    "DescribeTrustedAdvisorCheckRefreshStatuses"
-    "fixture/DescribeTrustedAdvisorCheckRefreshStatuses.yaml"
-
-requestDescribeTrustedAdvisorCheckSummaries :: DescribeTrustedAdvisorCheckSummaries -> TestTree
-requestDescribeTrustedAdvisorCheckSummaries =
-  req
-    "DescribeTrustedAdvisorCheckSummaries"
-    "fixture/DescribeTrustedAdvisorCheckSummaries.yaml"
-
-requestCreateCase :: CreateCase -> TestTree
-requestCreateCase =
-  req
-    "CreateCase"
-    "fixture/CreateCase.yaml"
-
-requestResolveCase :: ResolveCase -> TestTree
-requestResolveCase =
-  req
-    "ResolveCase"
-    "fixture/ResolveCase.yaml"
-
-requestDescribeSeverityLevels :: DescribeSeverityLevels -> TestTree
-requestDescribeSeverityLevels =
-  req
-    "DescribeSeverityLevels"
-    "fixture/DescribeSeverityLevels.yaml"
-
-requestDescribeTrustedAdvisorChecks :: DescribeTrustedAdvisorChecks -> TestTree
-requestDescribeTrustedAdvisorChecks =
-  req
-    "DescribeTrustedAdvisorChecks"
-    "fixture/DescribeTrustedAdvisorChecks.yaml"
-
-requestDescribeAttachment :: DescribeAttachment -> TestTree
-requestDescribeAttachment =
-  req
-    "DescribeAttachment"
-    "fixture/DescribeAttachment.yaml"
 
 requestAddAttachmentsToSet :: AddAttachmentsToSet -> TestTree
 requestAddAttachmentsToSet =
@@ -179,17 +125,29 @@ requestAddAttachmentsToSet =
     "AddAttachmentsToSet"
     "fixture/AddAttachmentsToSet.yaml"
 
-requestDescribeTrustedAdvisorCheckResult :: DescribeTrustedAdvisorCheckResult -> TestTree
-requestDescribeTrustedAdvisorCheckResult =
+requestAddCommunicationToCase :: AddCommunicationToCase -> TestTree
+requestAddCommunicationToCase =
   req
-    "DescribeTrustedAdvisorCheckResult"
-    "fixture/DescribeTrustedAdvisorCheckResult.yaml"
+    "AddCommunicationToCase"
+    "fixture/AddCommunicationToCase.yaml"
 
-requestDescribeServices :: DescribeServices -> TestTree
-requestDescribeServices =
+requestCreateCase :: CreateCase -> TestTree
+requestCreateCase =
   req
-    "DescribeServices"
-    "fixture/DescribeServices.yaml"
+    "CreateCase"
+    "fixture/CreateCase.yaml"
+
+requestDescribeAttachment :: DescribeAttachment -> TestTree
+requestDescribeAttachment =
+  req
+    "DescribeAttachment"
+    "fixture/DescribeAttachment.yaml"
+
+requestDescribeCases :: DescribeCases -> TestTree
+requestDescribeCases =
+  req
+    "DescribeCases"
+    "fixture/DescribeCases.yaml"
 
 requestDescribeCommunications :: DescribeCommunications -> TestTree
 requestDescribeCommunications =
@@ -197,85 +155,55 @@ requestDescribeCommunications =
     "DescribeCommunications"
     "fixture/DescribeCommunications.yaml"
 
-requestAddCommunicationToCase :: AddCommunicationToCase -> TestTree
-requestAddCommunicationToCase =
+requestDescribeServices :: DescribeServices -> TestTree
+requestDescribeServices =
   req
-    "AddCommunicationToCase"
-    "fixture/AddCommunicationToCase.yaml"
+    "DescribeServices"
+    "fixture/DescribeServices.yaml"
+
+requestDescribeSeverityLevels :: DescribeSeverityLevels -> TestTree
+requestDescribeSeverityLevels =
+  req
+    "DescribeSeverityLevels"
+    "fixture/DescribeSeverityLevels.yaml"
+
+requestDescribeTrustedAdvisorCheckRefreshStatuses :: DescribeTrustedAdvisorCheckRefreshStatuses -> TestTree
+requestDescribeTrustedAdvisorCheckRefreshStatuses =
+  req
+    "DescribeTrustedAdvisorCheckRefreshStatuses"
+    "fixture/DescribeTrustedAdvisorCheckRefreshStatuses.yaml"
+
+requestDescribeTrustedAdvisorCheckResult :: DescribeTrustedAdvisorCheckResult -> TestTree
+requestDescribeTrustedAdvisorCheckResult =
+  req
+    "DescribeTrustedAdvisorCheckResult"
+    "fixture/DescribeTrustedAdvisorCheckResult.yaml"
+
+requestDescribeTrustedAdvisorCheckSummaries :: DescribeTrustedAdvisorCheckSummaries -> TestTree
+requestDescribeTrustedAdvisorCheckSummaries =
+  req
+    "DescribeTrustedAdvisorCheckSummaries"
+    "fixture/DescribeTrustedAdvisorCheckSummaries.yaml"
+
+requestDescribeTrustedAdvisorChecks :: DescribeTrustedAdvisorChecks -> TestTree
+requestDescribeTrustedAdvisorChecks =
+  req
+    "DescribeTrustedAdvisorChecks"
+    "fixture/DescribeTrustedAdvisorChecks.yaml"
+
+requestRefreshTrustedAdvisorCheck :: RefreshTrustedAdvisorCheck -> TestTree
+requestRefreshTrustedAdvisorCheck =
+  req
+    "RefreshTrustedAdvisorCheck"
+    "fixture/RefreshTrustedAdvisorCheck.yaml"
+
+requestResolveCase :: ResolveCase -> TestTree
+requestResolveCase =
+  req
+    "ResolveCase"
+    "fixture/ResolveCase.yaml"
 
 -- Responses
-
-responseRefreshTrustedAdvisorCheck :: RefreshTrustedAdvisorCheckResponse -> TestTree
-responseRefreshTrustedAdvisorCheck =
-  res
-    "RefreshTrustedAdvisorCheckResponse"
-    "fixture/RefreshTrustedAdvisorCheckResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RefreshTrustedAdvisorCheck)
-
-responseDescribeCases :: DescribeCasesResponse -> TestTree
-responseDescribeCases =
-  res
-    "DescribeCasesResponse"
-    "fixture/DescribeCasesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeCases)
-
-responseDescribeTrustedAdvisorCheckRefreshStatuses :: DescribeTrustedAdvisorCheckRefreshStatusesResponse -> TestTree
-responseDescribeTrustedAdvisorCheckRefreshStatuses =
-  res
-    "DescribeTrustedAdvisorCheckRefreshStatusesResponse"
-    "fixture/DescribeTrustedAdvisorCheckRefreshStatusesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeTrustedAdvisorCheckRefreshStatuses)
-
-responseDescribeTrustedAdvisorCheckSummaries :: DescribeTrustedAdvisorCheckSummariesResponse -> TestTree
-responseDescribeTrustedAdvisorCheckSummaries =
-  res
-    "DescribeTrustedAdvisorCheckSummariesResponse"
-    "fixture/DescribeTrustedAdvisorCheckSummariesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeTrustedAdvisorCheckSummaries)
-
-responseCreateCase :: CreateCaseResponse -> TestTree
-responseCreateCase =
-  res
-    "CreateCaseResponse"
-    "fixture/CreateCaseResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateCase)
-
-responseResolveCase :: ResolveCaseResponse -> TestTree
-responseResolveCase =
-  res
-    "ResolveCaseResponse"
-    "fixture/ResolveCaseResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ResolveCase)
-
-responseDescribeSeverityLevels :: DescribeSeverityLevelsResponse -> TestTree
-responseDescribeSeverityLevels =
-  res
-    "DescribeSeverityLevelsResponse"
-    "fixture/DescribeSeverityLevelsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeSeverityLevels)
-
-responseDescribeTrustedAdvisorChecks :: DescribeTrustedAdvisorChecksResponse -> TestTree
-responseDescribeTrustedAdvisorChecks =
-  res
-    "DescribeTrustedAdvisorChecksResponse"
-    "fixture/DescribeTrustedAdvisorChecksResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeTrustedAdvisorChecks)
-
-responseDescribeAttachment :: DescribeAttachmentResponse -> TestTree
-responseDescribeAttachment =
-  res
-    "DescribeAttachmentResponse"
-    "fixture/DescribeAttachmentResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeAttachment)
 
 responseAddAttachmentsToSet :: AddAttachmentsToSetResponse -> TestTree
 responseAddAttachmentsToSet =
@@ -285,21 +213,37 @@ responseAddAttachmentsToSet =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AddAttachmentsToSet)
 
-responseDescribeTrustedAdvisorCheckResult :: DescribeTrustedAdvisorCheckResultResponse -> TestTree
-responseDescribeTrustedAdvisorCheckResult =
+responseAddCommunicationToCase :: AddCommunicationToCaseResponse -> TestTree
+responseAddCommunicationToCase =
   res
-    "DescribeTrustedAdvisorCheckResultResponse"
-    "fixture/DescribeTrustedAdvisorCheckResultResponse.proto"
+    "AddCommunicationToCaseResponse"
+    "fixture/AddCommunicationToCaseResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeTrustedAdvisorCheckResult)
+    (Proxy.Proxy :: Proxy.Proxy AddCommunicationToCase)
 
-responseDescribeServices :: DescribeServicesResponse -> TestTree
-responseDescribeServices =
+responseCreateCase :: CreateCaseResponse -> TestTree
+responseCreateCase =
   res
-    "DescribeServicesResponse"
-    "fixture/DescribeServicesResponse.proto"
+    "CreateCaseResponse"
+    "fixture/CreateCaseResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeServices)
+    (Proxy.Proxy :: Proxy.Proxy CreateCase)
+
+responseDescribeAttachment :: DescribeAttachmentResponse -> TestTree
+responseDescribeAttachment =
+  res
+    "DescribeAttachmentResponse"
+    "fixture/DescribeAttachmentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAttachment)
+
+responseDescribeCases :: DescribeCasesResponse -> TestTree
+responseDescribeCases =
+  res
+    "DescribeCasesResponse"
+    "fixture/DescribeCasesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeCases)
 
 responseDescribeCommunications :: DescribeCommunicationsResponse -> TestTree
 responseDescribeCommunications =
@@ -309,10 +253,66 @@ responseDescribeCommunications =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeCommunications)
 
-responseAddCommunicationToCase :: AddCommunicationToCaseResponse -> TestTree
-responseAddCommunicationToCase =
+responseDescribeServices :: DescribeServicesResponse -> TestTree
+responseDescribeServices =
   res
-    "AddCommunicationToCaseResponse"
-    "fixture/AddCommunicationToCaseResponse.proto"
+    "DescribeServicesResponse"
+    "fixture/DescribeServicesResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy AddCommunicationToCase)
+    (Proxy.Proxy :: Proxy.Proxy DescribeServices)
+
+responseDescribeSeverityLevels :: DescribeSeverityLevelsResponse -> TestTree
+responseDescribeSeverityLevels =
+  res
+    "DescribeSeverityLevelsResponse"
+    "fixture/DescribeSeverityLevelsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeSeverityLevels)
+
+responseDescribeTrustedAdvisorCheckRefreshStatuses :: DescribeTrustedAdvisorCheckRefreshStatusesResponse -> TestTree
+responseDescribeTrustedAdvisorCheckRefreshStatuses =
+  res
+    "DescribeTrustedAdvisorCheckRefreshStatusesResponse"
+    "fixture/DescribeTrustedAdvisorCheckRefreshStatusesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTrustedAdvisorCheckRefreshStatuses)
+
+responseDescribeTrustedAdvisorCheckResult :: DescribeTrustedAdvisorCheckResultResponse -> TestTree
+responseDescribeTrustedAdvisorCheckResult =
+  res
+    "DescribeTrustedAdvisorCheckResultResponse"
+    "fixture/DescribeTrustedAdvisorCheckResultResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTrustedAdvisorCheckResult)
+
+responseDescribeTrustedAdvisorCheckSummaries :: DescribeTrustedAdvisorCheckSummariesResponse -> TestTree
+responseDescribeTrustedAdvisorCheckSummaries =
+  res
+    "DescribeTrustedAdvisorCheckSummariesResponse"
+    "fixture/DescribeTrustedAdvisorCheckSummariesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTrustedAdvisorCheckSummaries)
+
+responseDescribeTrustedAdvisorChecks :: DescribeTrustedAdvisorChecksResponse -> TestTree
+responseDescribeTrustedAdvisorChecks =
+  res
+    "DescribeTrustedAdvisorChecksResponse"
+    "fixture/DescribeTrustedAdvisorChecksResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTrustedAdvisorChecks)
+
+responseRefreshTrustedAdvisorCheck :: RefreshTrustedAdvisorCheckResponse -> TestTree
+responseRefreshTrustedAdvisorCheck =
+  res
+    "RefreshTrustedAdvisorCheckResponse"
+    "fixture/RefreshTrustedAdvisorCheckResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RefreshTrustedAdvisorCheck)
+
+responseResolveCase :: ResolveCaseResponse -> TestTree
+responseResolveCase =
+  res
+    "ResolveCaseResponse"
+    "fixture/ResolveCaseResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ResolveCase)

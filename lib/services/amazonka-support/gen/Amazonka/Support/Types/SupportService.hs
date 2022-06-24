@@ -29,17 +29,17 @@ import Amazonka.Support.Types.Category
 --
 -- /See:/ 'newSupportService' smart constructor.
 data SupportService = SupportService'
-  { -- | A list of categories that describe the type of support issue a case
-    -- describes. Categories consist of a category name and a category code.
-    -- Category names and codes are passed to AWS Support when you call
-    -- CreateCase.
-    categories :: Prelude.Maybe [Category],
-    -- | The friendly name for an AWS service. The @code@ element contains the
+  { -- | The friendly name for an AWS service. The @code@ element contains the
     -- corresponding code.
     name :: Prelude.Maybe Prelude.Text,
     -- | The code for an AWS service returned by the DescribeServices response.
     -- The @name@ element contains the corresponding friendly name.
-    code :: Prelude.Maybe Prelude.Text
+    code :: Prelude.Maybe Prelude.Text,
+    -- | A list of categories that describe the type of support issue a case
+    -- describes. Categories consist of a category name and a category code.
+    -- Category names and codes are passed to AWS Support when you call
+    -- CreateCase.
+    categories :: Prelude.Maybe [Category]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,31 +51,24 @@ data SupportService = SupportService'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'categories', 'supportService_categories' - A list of categories that describe the type of support issue a case
--- describes. Categories consist of a category name and a category code.
--- Category names and codes are passed to AWS Support when you call
--- CreateCase.
---
 -- 'name', 'supportService_name' - The friendly name for an AWS service. The @code@ element contains the
 -- corresponding code.
 --
 -- 'code', 'supportService_code' - The code for an AWS service returned by the DescribeServices response.
 -- The @name@ element contains the corresponding friendly name.
+--
+-- 'categories', 'supportService_categories' - A list of categories that describe the type of support issue a case
+-- describes. Categories consist of a category name and a category code.
+-- Category names and codes are passed to AWS Support when you call
+-- CreateCase.
 newSupportService ::
   SupportService
 newSupportService =
   SupportService'
-    { categories = Prelude.Nothing,
-      name = Prelude.Nothing,
-      code = Prelude.Nothing
+    { name = Prelude.Nothing,
+      code = Prelude.Nothing,
+      categories = Prelude.Nothing
     }
-
--- | A list of categories that describe the type of support issue a case
--- describes. Categories consist of a category name and a category code.
--- Category names and codes are passed to AWS Support when you call
--- CreateCase.
-supportService_categories :: Lens.Lens' SupportService (Prelude.Maybe [Category])
-supportService_categories = Lens.lens (\SupportService' {categories} -> categories) (\s@SupportService' {} a -> s {categories = a} :: SupportService) Prelude.. Lens.mapping Lens.coerced
 
 -- | The friendly name for an AWS service. The @code@ element contains the
 -- corresponding code.
@@ -87,25 +80,32 @@ supportService_name = Lens.lens (\SupportService' {name} -> name) (\s@SupportSer
 supportService_code :: Lens.Lens' SupportService (Prelude.Maybe Prelude.Text)
 supportService_code = Lens.lens (\SupportService' {code} -> code) (\s@SupportService' {} a -> s {code = a} :: SupportService)
 
+-- | A list of categories that describe the type of support issue a case
+-- describes. Categories consist of a category name and a category code.
+-- Category names and codes are passed to AWS Support when you call
+-- CreateCase.
+supportService_categories :: Lens.Lens' SupportService (Prelude.Maybe [Category])
+supportService_categories = Lens.lens (\SupportService' {categories} -> categories) (\s@SupportService' {} a -> s {categories = a} :: SupportService) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON SupportService where
   parseJSON =
     Core.withObject
       "SupportService"
       ( \x ->
           SupportService'
-            Prelude.<$> (x Core..:? "categories" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "name")
             Prelude.<*> (x Core..:? "code")
+            Prelude.<*> (x Core..:? "categories" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SupportService where
   hashWithSalt _salt SupportService' {..} =
-    _salt `Prelude.hashWithSalt` categories
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` categories
 
 instance Prelude.NFData SupportService where
   rnf SupportService' {..} =
-    Prelude.rnf categories
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf code
+      `Prelude.seq` Prelude.rnf categories

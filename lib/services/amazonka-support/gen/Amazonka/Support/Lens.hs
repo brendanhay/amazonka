@@ -14,69 +14,6 @@
 module Amazonka.Support.Lens
   ( -- * Operations
 
-    -- ** RefreshTrustedAdvisorCheck
-    refreshTrustedAdvisorCheck_checkId,
-    refreshTrustedAdvisorCheckResponse_httpStatus,
-    refreshTrustedAdvisorCheckResponse_status,
-
-    -- ** DescribeCases
-    describeCases_includeResolvedCases,
-    describeCases_caseIdList,
-    describeCases_afterTime,
-    describeCases_beforeTime,
-    describeCases_nextToken,
-    describeCases_includeCommunications,
-    describeCases_displayId,
-    describeCases_language,
-    describeCases_maxResults,
-    describeCasesResponse_cases,
-    describeCasesResponse_nextToken,
-    describeCasesResponse_httpStatus,
-
-    -- ** DescribeTrustedAdvisorCheckRefreshStatuses
-    describeTrustedAdvisorCheckRefreshStatuses_checkIds,
-    describeTrustedAdvisorCheckRefreshStatusesResponse_httpStatus,
-    describeTrustedAdvisorCheckRefreshStatusesResponse_statuses,
-
-    -- ** DescribeTrustedAdvisorCheckSummaries
-    describeTrustedAdvisorCheckSummaries_checkIds,
-    describeTrustedAdvisorCheckSummariesResponse_httpStatus,
-    describeTrustedAdvisorCheckSummariesResponse_summaries,
-
-    -- ** CreateCase
-    createCase_severityCode,
-    createCase_issueType,
-    createCase_ccEmailAddresses,
-    createCase_language,
-    createCase_categoryCode,
-    createCase_serviceCode,
-    createCase_attachmentSetId,
-    createCase_subject,
-    createCase_communicationBody,
-    createCaseResponse_caseId,
-    createCaseResponse_httpStatus,
-
-    -- ** ResolveCase
-    resolveCase_caseId,
-    resolveCaseResponse_initialCaseStatus,
-    resolveCaseResponse_finalCaseStatus,
-    resolveCaseResponse_httpStatus,
-
-    -- ** DescribeSeverityLevels
-    describeSeverityLevels_language,
-    describeSeverityLevelsResponse_severityLevels,
-    describeSeverityLevelsResponse_httpStatus,
-
-    -- ** DescribeTrustedAdvisorChecks
-    describeTrustedAdvisorChecks_language,
-    describeTrustedAdvisorChecksResponse_httpStatus,
-    describeTrustedAdvisorChecksResponse_checks,
-
-    -- ** DescribeAttachment
-    describeAttachment_attachmentId,
-    describeAttachmentResponse_attachment,
-    describeAttachmentResponse_httpStatus,
-
     -- ** AddAttachmentsToSet
     addAttachmentsToSet_attachmentSetId,
     addAttachmentsToSet_attachments,
@@ -84,11 +21,55 @@ module Amazonka.Support.Lens
     addAttachmentsToSetResponse_attachmentSetId,
     addAttachmentsToSetResponse_httpStatus,
 
-    -- ** DescribeTrustedAdvisorCheckResult
-    describeTrustedAdvisorCheckResult_language,
-    describeTrustedAdvisorCheckResult_checkId,
-    describeTrustedAdvisorCheckResultResponse_result,
-    describeTrustedAdvisorCheckResultResponse_httpStatus,
+    -- ** AddCommunicationToCase
+    addCommunicationToCase_ccEmailAddresses,
+    addCommunicationToCase_caseId,
+    addCommunicationToCase_attachmentSetId,
+    addCommunicationToCase_communicationBody,
+    addCommunicationToCaseResponse_result,
+    addCommunicationToCaseResponse_httpStatus,
+
+    -- ** CreateCase
+    createCase_ccEmailAddresses,
+    createCase_issueType,
+    createCase_categoryCode,
+    createCase_serviceCode,
+    createCase_attachmentSetId,
+    createCase_language,
+    createCase_severityCode,
+    createCase_subject,
+    createCase_communicationBody,
+    createCaseResponse_caseId,
+    createCaseResponse_httpStatus,
+
+    -- ** DescribeAttachment
+    describeAttachment_attachmentId,
+    describeAttachmentResponse_attachment,
+    describeAttachmentResponse_httpStatus,
+
+    -- ** DescribeCases
+    describeCases_nextToken,
+    describeCases_caseIdList,
+    describeCases_includeResolvedCases,
+    describeCases_displayId,
+    describeCases_afterTime,
+    describeCases_maxResults,
+    describeCases_includeCommunications,
+    describeCases_beforeTime,
+    describeCases_language,
+    describeCasesResponse_nextToken,
+    describeCasesResponse_cases,
+    describeCasesResponse_httpStatus,
+
+    -- ** DescribeCommunications
+    describeCommunications_nextToken,
+    describeCommunications_afterTime,
+    describeCommunications_maxResults,
+    describeCommunications_beforeTime,
+    describeCommunications_caseId,
+    describeCommunicationsResponse_nextToken,
+    describeCommunicationsResponse_communications,
+    describeCommunicationsResponse_httpStatus,
 
     -- ** DescribeServices
     describeServices_serviceCodeList,
@@ -96,57 +77,76 @@ module Amazonka.Support.Lens
     describeServicesResponse_services,
     describeServicesResponse_httpStatus,
 
-    -- ** DescribeCommunications
-    describeCommunications_afterTime,
-    describeCommunications_beforeTime,
-    describeCommunications_nextToken,
-    describeCommunications_maxResults,
-    describeCommunications_caseId,
-    describeCommunicationsResponse_nextToken,
-    describeCommunicationsResponse_communications,
-    describeCommunicationsResponse_httpStatus,
+    -- ** DescribeSeverityLevels
+    describeSeverityLevels_language,
+    describeSeverityLevelsResponse_severityLevels,
+    describeSeverityLevelsResponse_httpStatus,
 
-    -- ** AddCommunicationToCase
-    addCommunicationToCase_caseId,
-    addCommunicationToCase_ccEmailAddresses,
-    addCommunicationToCase_attachmentSetId,
-    addCommunicationToCase_communicationBody,
-    addCommunicationToCaseResponse_result,
-    addCommunicationToCaseResponse_httpStatus,
+    -- ** DescribeTrustedAdvisorCheckRefreshStatuses
+    describeTrustedAdvisorCheckRefreshStatuses_checkIds,
+    describeTrustedAdvisorCheckRefreshStatusesResponse_httpStatus,
+    describeTrustedAdvisorCheckRefreshStatusesResponse_statuses,
+
+    -- ** DescribeTrustedAdvisorCheckResult
+    describeTrustedAdvisorCheckResult_language,
+    describeTrustedAdvisorCheckResult_checkId,
+    describeTrustedAdvisorCheckResultResponse_result,
+    describeTrustedAdvisorCheckResultResponse_httpStatus,
+
+    -- ** DescribeTrustedAdvisorCheckSummaries
+    describeTrustedAdvisorCheckSummaries_checkIds,
+    describeTrustedAdvisorCheckSummariesResponse_httpStatus,
+    describeTrustedAdvisorCheckSummariesResponse_summaries,
+
+    -- ** DescribeTrustedAdvisorChecks
+    describeTrustedAdvisorChecks_language,
+    describeTrustedAdvisorChecksResponse_httpStatus,
+    describeTrustedAdvisorChecksResponse_checks,
+
+    -- ** RefreshTrustedAdvisorCheck
+    refreshTrustedAdvisorCheck_checkId,
+    refreshTrustedAdvisorCheckResponse_httpStatus,
+    refreshTrustedAdvisorCheckResponse_status,
+
+    -- ** ResolveCase
+    resolveCase_caseId,
+    resolveCaseResponse_finalCaseStatus,
+    resolveCaseResponse_initialCaseStatus,
+    resolveCaseResponse_httpStatus,
 
     -- * Types
 
     -- ** Attachment
-    attachment_data,
     attachment_fileName,
+    attachment_data,
 
     -- ** AttachmentDetails
-    attachmentDetails_attachmentId,
     attachmentDetails_fileName,
+    attachmentDetails_attachmentId,
 
     -- ** CaseDetails
-    caseDetails_subject,
-    caseDetails_status,
-    caseDetails_recentCommunications,
-    caseDetails_severityCode,
-    caseDetails_caseId,
     caseDetails_ccEmailAddresses,
+    caseDetails_caseId,
     caseDetails_displayId,
-    caseDetails_submittedBy,
-    caseDetails_language,
     caseDetails_timeCreated,
     caseDetails_categoryCode,
     caseDetails_serviceCode,
+    caseDetails_status,
+    caseDetails_submittedBy,
+    caseDetails_recentCommunications,
+    caseDetails_subject,
+    caseDetails_language,
+    caseDetails_severityCode,
 
     -- ** Category
     category_name,
     category_code,
 
     -- ** Communication
-    communication_body,
     communication_caseId,
-    communication_submittedBy,
+    communication_body,
     communication_timeCreated,
+    communication_submittedBy,
     communication_attachmentSet,
 
     -- ** RecentCaseCommunications
@@ -158,9 +158,9 @@ module Amazonka.Support.Lens
     severityLevel_code,
 
     -- ** SupportService
-    supportService_categories,
     supportService_name,
     supportService_code,
+    supportService_categories,
 
     -- ** TrustedAdvisorCategorySpecificSummary
     trustedAdvisorCategorySpecificSummary_costOptimizing,

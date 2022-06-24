@@ -85,17 +85,8 @@ module Amazonka.Support
     -- * Errors
     -- $errors
 
-    -- ** AttachmentSetExpired
-    _AttachmentSetExpired,
-
-    -- ** AttachmentLimitExceeded
-    _AttachmentLimitExceeded,
-
     -- ** DescribeAttachmentLimitExceeded
     _DescribeAttachmentLimitExceeded,
-
-    -- ** CaseIdNotFound
-    _CaseIdNotFound,
 
     -- ** AttachmentSetIdNotFound
     _AttachmentSetIdNotFound,
@@ -103,14 +94,23 @@ module Amazonka.Support
     -- ** AttachmentSetSizeLimitExceeded
     _AttachmentSetSizeLimitExceeded,
 
-    -- ** AttachmentIdNotFound
-    _AttachmentIdNotFound,
-
     -- ** InternalServerError
     _InternalServerError,
 
+    -- ** AttachmentIdNotFound
+    _AttachmentIdNotFound,
+
+    -- ** CaseIdNotFound
+    _CaseIdNotFound,
+
     -- ** CaseCreationLimitExceeded
     _CaseCreationLimitExceeded,
+
+    -- ** AttachmentLimitExceeded
+    _AttachmentLimitExceeded,
+
+    -- ** AttachmentSetExpired
+    _AttachmentSetExpired,
 
     -- * Waiters
     -- $waiters
@@ -118,29 +118,17 @@ module Amazonka.Support
     -- * Operations
     -- $operations
 
-    -- ** RefreshTrustedAdvisorCheck
-    RefreshTrustedAdvisorCheck (RefreshTrustedAdvisorCheck'),
-    newRefreshTrustedAdvisorCheck,
-    RefreshTrustedAdvisorCheckResponse (RefreshTrustedAdvisorCheckResponse'),
-    newRefreshTrustedAdvisorCheckResponse,
+    -- ** AddAttachmentsToSet
+    AddAttachmentsToSet (AddAttachmentsToSet'),
+    newAddAttachmentsToSet,
+    AddAttachmentsToSetResponse (AddAttachmentsToSetResponse'),
+    newAddAttachmentsToSetResponse,
 
-    -- ** DescribeCases (Paginated)
-    DescribeCases (DescribeCases'),
-    newDescribeCases,
-    DescribeCasesResponse (DescribeCasesResponse'),
-    newDescribeCasesResponse,
-
-    -- ** DescribeTrustedAdvisorCheckRefreshStatuses
-    DescribeTrustedAdvisorCheckRefreshStatuses (DescribeTrustedAdvisorCheckRefreshStatuses'),
-    newDescribeTrustedAdvisorCheckRefreshStatuses,
-    DescribeTrustedAdvisorCheckRefreshStatusesResponse (DescribeTrustedAdvisorCheckRefreshStatusesResponse'),
-    newDescribeTrustedAdvisorCheckRefreshStatusesResponse,
-
-    -- ** DescribeTrustedAdvisorCheckSummaries
-    DescribeTrustedAdvisorCheckSummaries (DescribeTrustedAdvisorCheckSummaries'),
-    newDescribeTrustedAdvisorCheckSummaries,
-    DescribeTrustedAdvisorCheckSummariesResponse (DescribeTrustedAdvisorCheckSummariesResponse'),
-    newDescribeTrustedAdvisorCheckSummariesResponse,
+    -- ** AddCommunicationToCase
+    AddCommunicationToCase (AddCommunicationToCase'),
+    newAddCommunicationToCase,
+    AddCommunicationToCaseResponse (AddCommunicationToCaseResponse'),
+    newAddCommunicationToCaseResponse,
 
     -- ** CreateCase
     CreateCase (CreateCase'),
@@ -148,47 +136,17 @@ module Amazonka.Support
     CreateCaseResponse (CreateCaseResponse'),
     newCreateCaseResponse,
 
-    -- ** ResolveCase
-    ResolveCase (ResolveCase'),
-    newResolveCase,
-    ResolveCaseResponse (ResolveCaseResponse'),
-    newResolveCaseResponse,
-
-    -- ** DescribeSeverityLevels
-    DescribeSeverityLevels (DescribeSeverityLevels'),
-    newDescribeSeverityLevels,
-    DescribeSeverityLevelsResponse (DescribeSeverityLevelsResponse'),
-    newDescribeSeverityLevelsResponse,
-
-    -- ** DescribeTrustedAdvisorChecks
-    DescribeTrustedAdvisorChecks (DescribeTrustedAdvisorChecks'),
-    newDescribeTrustedAdvisorChecks,
-    DescribeTrustedAdvisorChecksResponse (DescribeTrustedAdvisorChecksResponse'),
-    newDescribeTrustedAdvisorChecksResponse,
-
     -- ** DescribeAttachment
     DescribeAttachment (DescribeAttachment'),
     newDescribeAttachment,
     DescribeAttachmentResponse (DescribeAttachmentResponse'),
     newDescribeAttachmentResponse,
 
-    -- ** AddAttachmentsToSet
-    AddAttachmentsToSet (AddAttachmentsToSet'),
-    newAddAttachmentsToSet,
-    AddAttachmentsToSetResponse (AddAttachmentsToSetResponse'),
-    newAddAttachmentsToSetResponse,
-
-    -- ** DescribeTrustedAdvisorCheckResult
-    DescribeTrustedAdvisorCheckResult (DescribeTrustedAdvisorCheckResult'),
-    newDescribeTrustedAdvisorCheckResult,
-    DescribeTrustedAdvisorCheckResultResponse (DescribeTrustedAdvisorCheckResultResponse'),
-    newDescribeTrustedAdvisorCheckResultResponse,
-
-    -- ** DescribeServices
-    DescribeServices (DescribeServices'),
-    newDescribeServices,
-    DescribeServicesResponse (DescribeServicesResponse'),
-    newDescribeServicesResponse,
+    -- ** DescribeCases (Paginated)
+    DescribeCases (DescribeCases'),
+    newDescribeCases,
+    DescribeCasesResponse (DescribeCasesResponse'),
+    newDescribeCasesResponse,
 
     -- ** DescribeCommunications (Paginated)
     DescribeCommunications (DescribeCommunications'),
@@ -196,11 +154,53 @@ module Amazonka.Support
     DescribeCommunicationsResponse (DescribeCommunicationsResponse'),
     newDescribeCommunicationsResponse,
 
-    -- ** AddCommunicationToCase
-    AddCommunicationToCase (AddCommunicationToCase'),
-    newAddCommunicationToCase,
-    AddCommunicationToCaseResponse (AddCommunicationToCaseResponse'),
-    newAddCommunicationToCaseResponse,
+    -- ** DescribeServices
+    DescribeServices (DescribeServices'),
+    newDescribeServices,
+    DescribeServicesResponse (DescribeServicesResponse'),
+    newDescribeServicesResponse,
+
+    -- ** DescribeSeverityLevels
+    DescribeSeverityLevels (DescribeSeverityLevels'),
+    newDescribeSeverityLevels,
+    DescribeSeverityLevelsResponse (DescribeSeverityLevelsResponse'),
+    newDescribeSeverityLevelsResponse,
+
+    -- ** DescribeTrustedAdvisorCheckRefreshStatuses
+    DescribeTrustedAdvisorCheckRefreshStatuses (DescribeTrustedAdvisorCheckRefreshStatuses'),
+    newDescribeTrustedAdvisorCheckRefreshStatuses,
+    DescribeTrustedAdvisorCheckRefreshStatusesResponse (DescribeTrustedAdvisorCheckRefreshStatusesResponse'),
+    newDescribeTrustedAdvisorCheckRefreshStatusesResponse,
+
+    -- ** DescribeTrustedAdvisorCheckResult
+    DescribeTrustedAdvisorCheckResult (DescribeTrustedAdvisorCheckResult'),
+    newDescribeTrustedAdvisorCheckResult,
+    DescribeTrustedAdvisorCheckResultResponse (DescribeTrustedAdvisorCheckResultResponse'),
+    newDescribeTrustedAdvisorCheckResultResponse,
+
+    -- ** DescribeTrustedAdvisorCheckSummaries
+    DescribeTrustedAdvisorCheckSummaries (DescribeTrustedAdvisorCheckSummaries'),
+    newDescribeTrustedAdvisorCheckSummaries,
+    DescribeTrustedAdvisorCheckSummariesResponse (DescribeTrustedAdvisorCheckSummariesResponse'),
+    newDescribeTrustedAdvisorCheckSummariesResponse,
+
+    -- ** DescribeTrustedAdvisorChecks
+    DescribeTrustedAdvisorChecks (DescribeTrustedAdvisorChecks'),
+    newDescribeTrustedAdvisorChecks,
+    DescribeTrustedAdvisorChecksResponse (DescribeTrustedAdvisorChecksResponse'),
+    newDescribeTrustedAdvisorChecksResponse,
+
+    -- ** RefreshTrustedAdvisorCheck
+    RefreshTrustedAdvisorCheck (RefreshTrustedAdvisorCheck'),
+    newRefreshTrustedAdvisorCheck,
+    RefreshTrustedAdvisorCheckResponse (RefreshTrustedAdvisorCheckResponse'),
+    newRefreshTrustedAdvisorCheckResponse,
+
+    -- ** ResolveCase
+    ResolveCase (ResolveCase'),
+    newResolveCase,
+    ResolveCaseResponse (ResolveCaseResponse'),
+    newResolveCaseResponse,
 
     -- * Types
 

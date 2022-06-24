@@ -31,20 +31,20 @@ import Amazonka.Support.Types.AttachmentDetails
 --
 -- /See:/ 'newCommunication' smart constructor.
 data Communication = Communication'
-  { -- | The text of the communication between the customer and AWS Support.
-    body :: Prelude.Maybe Prelude.Text,
-    -- | The support case ID requested or returned in the call. The case ID is an
+  { -- | The support case ID requested or returned in the call. The case ID is an
     -- alphanumeric string formatted as shown in this example:
     -- case-/12345678910-2013-c4c1d2bf33c5cf47/
     caseId :: Prelude.Maybe Prelude.Text,
+    -- | The text of the communication between the customer and AWS Support.
+    body :: Prelude.Maybe Prelude.Text,
+    -- | The time the communication was created.
+    timeCreated :: Prelude.Maybe Prelude.Text,
     -- | The identity of the account that submitted, or responded to, the support
     -- case. Customer entries include the role or IAM user as well as the email
     -- address. For example, \"AdminRole (Role) \<janedoe\@example.com>.
     -- Entries from the AWS Support team display \"Amazon Web Services,\" and
     -- don\'t show an email address.
     submittedBy :: Prelude.Maybe Prelude.Text,
-    -- | The time the communication was created.
-    timeCreated :: Prelude.Maybe Prelude.Text,
     -- | Information about the attachments to the case communication.
     attachmentSet :: Prelude.Maybe [AttachmentDetails]
   }
@@ -58,11 +58,13 @@ data Communication = Communication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'body', 'communication_body' - The text of the communication between the customer and AWS Support.
---
 -- 'caseId', 'communication_caseId' - The support case ID requested or returned in the call. The case ID is an
 -- alphanumeric string formatted as shown in this example:
 -- case-/12345678910-2013-c4c1d2bf33c5cf47/
+--
+-- 'body', 'communication_body' - The text of the communication between the customer and AWS Support.
+--
+-- 'timeCreated', 'communication_timeCreated' - The time the communication was created.
 --
 -- 'submittedBy', 'communication_submittedBy' - The identity of the account that submitted, or responded to, the support
 -- case. Customer entries include the role or IAM user as well as the email
@@ -70,29 +72,31 @@ data Communication = Communication'
 -- Entries from the AWS Support team display \"Amazon Web Services,\" and
 -- don\'t show an email address.
 --
--- 'timeCreated', 'communication_timeCreated' - The time the communication was created.
---
 -- 'attachmentSet', 'communication_attachmentSet' - Information about the attachments to the case communication.
 newCommunication ::
   Communication
 newCommunication =
   Communication'
-    { body = Prelude.Nothing,
-      caseId = Prelude.Nothing,
-      submittedBy = Prelude.Nothing,
+    { caseId = Prelude.Nothing,
+      body = Prelude.Nothing,
       timeCreated = Prelude.Nothing,
+      submittedBy = Prelude.Nothing,
       attachmentSet = Prelude.Nothing
     }
-
--- | The text of the communication between the customer and AWS Support.
-communication_body :: Lens.Lens' Communication (Prelude.Maybe Prelude.Text)
-communication_body = Lens.lens (\Communication' {body} -> body) (\s@Communication' {} a -> s {body = a} :: Communication)
 
 -- | The support case ID requested or returned in the call. The case ID is an
 -- alphanumeric string formatted as shown in this example:
 -- case-/12345678910-2013-c4c1d2bf33c5cf47/
 communication_caseId :: Lens.Lens' Communication (Prelude.Maybe Prelude.Text)
 communication_caseId = Lens.lens (\Communication' {caseId} -> caseId) (\s@Communication' {} a -> s {caseId = a} :: Communication)
+
+-- | The text of the communication between the customer and AWS Support.
+communication_body :: Lens.Lens' Communication (Prelude.Maybe Prelude.Text)
+communication_body = Lens.lens (\Communication' {body} -> body) (\s@Communication' {} a -> s {body = a} :: Communication)
+
+-- | The time the communication was created.
+communication_timeCreated :: Lens.Lens' Communication (Prelude.Maybe Prelude.Text)
+communication_timeCreated = Lens.lens (\Communication' {timeCreated} -> timeCreated) (\s@Communication' {} a -> s {timeCreated = a} :: Communication)
 
 -- | The identity of the account that submitted, or responded to, the support
 -- case. Customer entries include the role or IAM user as well as the email
@@ -101,10 +105,6 @@ communication_caseId = Lens.lens (\Communication' {caseId} -> caseId) (\s@Commun
 -- don\'t show an email address.
 communication_submittedBy :: Lens.Lens' Communication (Prelude.Maybe Prelude.Text)
 communication_submittedBy = Lens.lens (\Communication' {submittedBy} -> submittedBy) (\s@Communication' {} a -> s {submittedBy = a} :: Communication)
-
--- | The time the communication was created.
-communication_timeCreated :: Lens.Lens' Communication (Prelude.Maybe Prelude.Text)
-communication_timeCreated = Lens.lens (\Communication' {timeCreated} -> timeCreated) (\s@Communication' {} a -> s {timeCreated = a} :: Communication)
 
 -- | Information about the attachments to the case communication.
 communication_attachmentSet :: Lens.Lens' Communication (Prelude.Maybe [AttachmentDetails])
@@ -116,25 +116,25 @@ instance Core.FromJSON Communication where
       "Communication"
       ( \x ->
           Communication'
-            Prelude.<$> (x Core..:? "body")
-            Prelude.<*> (x Core..:? "caseId")
-            Prelude.<*> (x Core..:? "submittedBy")
+            Prelude.<$> (x Core..:? "caseId")
+            Prelude.<*> (x Core..:? "body")
             Prelude.<*> (x Core..:? "timeCreated")
+            Prelude.<*> (x Core..:? "submittedBy")
             Prelude.<*> (x Core..:? "attachmentSet" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Communication where
   hashWithSalt _salt Communication' {..} =
-    _salt `Prelude.hashWithSalt` body
-      `Prelude.hashWithSalt` caseId
-      `Prelude.hashWithSalt` submittedBy
+    _salt `Prelude.hashWithSalt` caseId
+      `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` timeCreated
+      `Prelude.hashWithSalt` submittedBy
       `Prelude.hashWithSalt` attachmentSet
 
 instance Prelude.NFData Communication where
   rnf Communication' {..} =
-    Prelude.rnf body
-      `Prelude.seq` Prelude.rnf caseId
-      `Prelude.seq` Prelude.rnf submittedBy
+    Prelude.rnf caseId
+      `Prelude.seq` Prelude.rnf body
       `Prelude.seq` Prelude.rnf timeCreated
+      `Prelude.seq` Prelude.rnf submittedBy
       `Prelude.seq` Prelude.rnf attachmentSet

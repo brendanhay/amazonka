@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAttachmentDetails' smart constructor.
 data AttachmentDetails = AttachmentDetails'
-  { -- | The ID of the attachment.
-    attachmentId :: Prelude.Maybe Prelude.Text,
-    -- | The file name of the attachment.
-    fileName :: Prelude.Maybe Prelude.Text
+  { -- | The file name of the attachment.
+    fileName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the attachment.
+    attachmentId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data AttachmentDetails = AttachmentDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'attachmentId', 'attachmentDetails_attachmentId' - The ID of the attachment.
---
 -- 'fileName', 'attachmentDetails_fileName' - The file name of the attachment.
+--
+-- 'attachmentId', 'attachmentDetails_attachmentId' - The ID of the attachment.
 newAttachmentDetails ::
   AttachmentDetails
 newAttachmentDetails =
   AttachmentDetails'
-    { attachmentId = Prelude.Nothing,
-      fileName = Prelude.Nothing
+    { fileName = Prelude.Nothing,
+      attachmentId = Prelude.Nothing
     }
-
--- | The ID of the attachment.
-attachmentDetails_attachmentId :: Lens.Lens' AttachmentDetails (Prelude.Maybe Prelude.Text)
-attachmentDetails_attachmentId = Lens.lens (\AttachmentDetails' {attachmentId} -> attachmentId) (\s@AttachmentDetails' {} a -> s {attachmentId = a} :: AttachmentDetails)
 
 -- | The file name of the attachment.
 attachmentDetails_fileName :: Lens.Lens' AttachmentDetails (Prelude.Maybe Prelude.Text)
 attachmentDetails_fileName = Lens.lens (\AttachmentDetails' {fileName} -> fileName) (\s@AttachmentDetails' {} a -> s {fileName = a} :: AttachmentDetails)
+
+-- | The ID of the attachment.
+attachmentDetails_attachmentId :: Lens.Lens' AttachmentDetails (Prelude.Maybe Prelude.Text)
+attachmentDetails_attachmentId = Lens.lens (\AttachmentDetails' {attachmentId} -> attachmentId) (\s@AttachmentDetails' {} a -> s {attachmentId = a} :: AttachmentDetails)
 
 instance Core.FromJSON AttachmentDetails where
   parseJSON =
@@ -69,16 +69,16 @@ instance Core.FromJSON AttachmentDetails where
       "AttachmentDetails"
       ( \x ->
           AttachmentDetails'
-            Prelude.<$> (x Core..:? "attachmentId")
-            Prelude.<*> (x Core..:? "fileName")
+            Prelude.<$> (x Core..:? "fileName")
+            Prelude.<*> (x Core..:? "attachmentId")
       )
 
 instance Prelude.Hashable AttachmentDetails where
   hashWithSalt _salt AttachmentDetails' {..} =
-    _salt `Prelude.hashWithSalt` attachmentId
-      `Prelude.hashWithSalt` fileName
+    _salt `Prelude.hashWithSalt` fileName
+      `Prelude.hashWithSalt` attachmentId
 
 instance Prelude.NFData AttachmentDetails where
   rnf AttachmentDetails' {..} =
-    Prelude.rnf attachmentId
-      `Prelude.seq` Prelude.rnf fileName
+    Prelude.rnf fileName
+      `Prelude.seq` Prelude.rnf attachmentId

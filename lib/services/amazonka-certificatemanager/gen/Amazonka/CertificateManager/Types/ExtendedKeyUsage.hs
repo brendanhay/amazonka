@@ -30,7 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExtendedKeyUsage' smart constructor.
 data ExtendedKeyUsage = ExtendedKeyUsage'
-  { -- | An object identifier (OID) for the extension value. OIDs are strings of
+  { -- | The name of an Extended Key Usage value.
+    name :: Prelude.Maybe ExtendedKeyUsageName,
+    -- | An object identifier (OID) for the extension value. OIDs are strings of
     -- numbers separated by periods. The following OIDs are defined in RFC 3280
     -- and RFC 5280.
     --
@@ -51,9 +53,7 @@ data ExtendedKeyUsage = ExtendedKeyUsage'
     -- -   @1.3.6.1.5.5.7.3.6 (IPSEC_TUNNEL)@
     --
     -- -   @1.3.6.1.5.5.7.3.7 (IPSEC_USER)@
-    oid :: Prelude.Maybe Prelude.Text,
-    -- | The name of an Extended Key Usage value.
-    name :: Prelude.Maybe ExtendedKeyUsageName
+    oid :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,6 +64,8 @@ data ExtendedKeyUsage = ExtendedKeyUsage'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'name', 'extendedKeyUsage_name' - The name of an Extended Key Usage value.
 --
 -- 'oid', 'extendedKeyUsage_oid' - An object identifier (OID) for the extension value. OIDs are strings of
 -- numbers separated by periods. The following OIDs are defined in RFC 3280
@@ -86,15 +88,17 @@ data ExtendedKeyUsage = ExtendedKeyUsage'
 -- -   @1.3.6.1.5.5.7.3.6 (IPSEC_TUNNEL)@
 --
 -- -   @1.3.6.1.5.5.7.3.7 (IPSEC_USER)@
---
--- 'name', 'extendedKeyUsage_name' - The name of an Extended Key Usage value.
 newExtendedKeyUsage ::
   ExtendedKeyUsage
 newExtendedKeyUsage =
   ExtendedKeyUsage'
-    { oid = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      oid = Prelude.Nothing
     }
+
+-- | The name of an Extended Key Usage value.
+extendedKeyUsage_name :: Lens.Lens' ExtendedKeyUsage (Prelude.Maybe ExtendedKeyUsageName)
+extendedKeyUsage_name = Lens.lens (\ExtendedKeyUsage' {name} -> name) (\s@ExtendedKeyUsage' {} a -> s {name = a} :: ExtendedKeyUsage)
 
 -- | An object identifier (OID) for the extension value. OIDs are strings of
 -- numbers separated by periods. The following OIDs are defined in RFC 3280
@@ -120,24 +124,20 @@ newExtendedKeyUsage =
 extendedKeyUsage_oid :: Lens.Lens' ExtendedKeyUsage (Prelude.Maybe Prelude.Text)
 extendedKeyUsage_oid = Lens.lens (\ExtendedKeyUsage' {oid} -> oid) (\s@ExtendedKeyUsage' {} a -> s {oid = a} :: ExtendedKeyUsage)
 
--- | The name of an Extended Key Usage value.
-extendedKeyUsage_name :: Lens.Lens' ExtendedKeyUsage (Prelude.Maybe ExtendedKeyUsageName)
-extendedKeyUsage_name = Lens.lens (\ExtendedKeyUsage' {name} -> name) (\s@ExtendedKeyUsage' {} a -> s {name = a} :: ExtendedKeyUsage)
-
 instance Core.FromJSON ExtendedKeyUsage where
   parseJSON =
     Core.withObject
       "ExtendedKeyUsage"
       ( \x ->
           ExtendedKeyUsage'
-            Prelude.<$> (x Core..:? "OID") Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "OID")
       )
 
 instance Prelude.Hashable ExtendedKeyUsage where
   hashWithSalt _salt ExtendedKeyUsage' {..} =
-    _salt `Prelude.hashWithSalt` oid
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` oid
 
 instance Prelude.NFData ExtendedKeyUsage where
   rnf ExtendedKeyUsage' {..} =
-    Prelude.rnf oid `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf oid

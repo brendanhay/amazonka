@@ -27,103 +27,181 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestResendValidationEmail $
+--         [ requestAddTagsToCertificate $
+--             newAddTagsToCertificate
+--
+--         , requestDeleteCertificate $
+--             newDeleteCertificate
+--
+--         , requestDescribeCertificate $
+--             newDescribeCertificate
+--
+--         , requestExportCertificate $
+--             newExportCertificate
+--
+--         , requestGetAccountConfiguration $
+--             newGetAccountConfiguration
+--
+--         , requestGetCertificate $
+--             newGetCertificate
+--
+--         , requestImportCertificate $
+--             newImportCertificate
+--
+--         , requestListCertificates $
+--             newListCertificates
+--
+--         , requestListTagsForCertificate $
+--             newListTagsForCertificate
+--
+--         , requestPutAccountConfiguration $
+--             newPutAccountConfiguration
+--
+--         , requestRemoveTagsFromCertificate $
+--             newRemoveTagsFromCertificate
+--
+--         , requestRenewCertificate $
+--             newRenewCertificate
+--
+--         , requestRequestCertificate $
+--             newRequestCertificate
+--
+--         , requestResendValidationEmail $
 --             newResendValidationEmail
 --
 --         , requestUpdateCertificateOptions $
 --             newUpdateCertificateOptions
 --
---         , requestListTagsForCertificate $
---             newListTagsForCertificate
---
---         , requestGetCertificate $
---             newGetCertificate
---
---         , requestAddTagsToCertificate $
---             newAddTagsToCertificate
---
---         , requestRequestCertificate $
---             newRequestCertificate
---
---         , requestListCertificates $
---             newListCertificates
---
---         , requestDeleteCertificate $
---             newDeleteCertificate
---
---         , requestRemoveTagsFromCertificate $
---             newRemoveTagsFromCertificate
---
---         , requestGetAccountConfiguration $
---             newGetAccountConfiguration
---
---         , requestImportCertificate $
---             newImportCertificate
---
---         , requestPutAccountConfiguration $
---             newPutAccountConfiguration
---
---         , requestDescribeCertificate $
---             newDescribeCertificate
---
---         , requestRenewCertificate $
---             newRenewCertificate
---
---         , requestExportCertificate $
---             newExportCertificate
---
 --           ]
 
 --     , testGroup "response"
---         [ responseResendValidationEmail $
+--         [ responseAddTagsToCertificate $
+--             newAddTagsToCertificateResponse
+--
+--         , responseDeleteCertificate $
+--             newDeleteCertificateResponse
+--
+--         , responseDescribeCertificate $
+--             newDescribeCertificateResponse
+--
+--         , responseExportCertificate $
+--             newExportCertificateResponse
+--
+--         , responseGetAccountConfiguration $
+--             newGetAccountConfigurationResponse
+--
+--         , responseGetCertificate $
+--             newGetCertificateResponse
+--
+--         , responseImportCertificate $
+--             newImportCertificateResponse
+--
+--         , responseListCertificates $
+--             newListCertificatesResponse
+--
+--         , responseListTagsForCertificate $
+--             newListTagsForCertificateResponse
+--
+--         , responsePutAccountConfiguration $
+--             newPutAccountConfigurationResponse
+--
+--         , responseRemoveTagsFromCertificate $
+--             newRemoveTagsFromCertificateResponse
+--
+--         , responseRenewCertificate $
+--             newRenewCertificateResponse
+--
+--         , responseRequestCertificate $
+--             newRequestCertificateResponse
+--
+--         , responseResendValidationEmail $
 --             newResendValidationEmailResponse
 --
 --         , responseUpdateCertificateOptions $
 --             newUpdateCertificateOptionsResponse
 --
---         , responseListTagsForCertificate $
---             newListTagsForCertificateResponse
---
---         , responseGetCertificate $
---             newGetCertificateResponse
---
---         , responseAddTagsToCertificate $
---             newAddTagsToCertificateResponse
---
---         , responseRequestCertificate $
---             newRequestCertificateResponse
---
---         , responseListCertificates $
---             newListCertificatesResponse
---
---         , responseDeleteCertificate $
---             newDeleteCertificateResponse
---
---         , responseRemoveTagsFromCertificate $
---             newRemoveTagsFromCertificateResponse
---
---         , responseGetAccountConfiguration $
---             newGetAccountConfigurationResponse
---
---         , responseImportCertificate $
---             newImportCertificateResponse
---
---         , responsePutAccountConfiguration $
---             newPutAccountConfigurationResponse
---
---         , responseDescribeCertificate $
---             newDescribeCertificateResponse
---
---         , responseRenewCertificate $
---             newRenewCertificateResponse
---
---         , responseExportCertificate $
---             newExportCertificateResponse
---
 --           ]
 --     ]
 
 -- Requests
+
+requestAddTagsToCertificate :: AddTagsToCertificate -> TestTree
+requestAddTagsToCertificate =
+  req
+    "AddTagsToCertificate"
+    "fixture/AddTagsToCertificate.yaml"
+
+requestDeleteCertificate :: DeleteCertificate -> TestTree
+requestDeleteCertificate =
+  req
+    "DeleteCertificate"
+    "fixture/DeleteCertificate.yaml"
+
+requestDescribeCertificate :: DescribeCertificate -> TestTree
+requestDescribeCertificate =
+  req
+    "DescribeCertificate"
+    "fixture/DescribeCertificate.yaml"
+
+requestExportCertificate :: ExportCertificate -> TestTree
+requestExportCertificate =
+  req
+    "ExportCertificate"
+    "fixture/ExportCertificate.yaml"
+
+requestGetAccountConfiguration :: GetAccountConfiguration -> TestTree
+requestGetAccountConfiguration =
+  req
+    "GetAccountConfiguration"
+    "fixture/GetAccountConfiguration.yaml"
+
+requestGetCertificate :: GetCertificate -> TestTree
+requestGetCertificate =
+  req
+    "GetCertificate"
+    "fixture/GetCertificate.yaml"
+
+requestImportCertificate :: ImportCertificate -> TestTree
+requestImportCertificate =
+  req
+    "ImportCertificate"
+    "fixture/ImportCertificate.yaml"
+
+requestListCertificates :: ListCertificates -> TestTree
+requestListCertificates =
+  req
+    "ListCertificates"
+    "fixture/ListCertificates.yaml"
+
+requestListTagsForCertificate :: ListTagsForCertificate -> TestTree
+requestListTagsForCertificate =
+  req
+    "ListTagsForCertificate"
+    "fixture/ListTagsForCertificate.yaml"
+
+requestPutAccountConfiguration :: PutAccountConfiguration -> TestTree
+requestPutAccountConfiguration =
+  req
+    "PutAccountConfiguration"
+    "fixture/PutAccountConfiguration.yaml"
+
+requestRemoveTagsFromCertificate :: RemoveTagsFromCertificate -> TestTree
+requestRemoveTagsFromCertificate =
+  req
+    "RemoveTagsFromCertificate"
+    "fixture/RemoveTagsFromCertificate.yaml"
+
+requestRenewCertificate :: RenewCertificate -> TestTree
+requestRenewCertificate =
+  req
+    "RenewCertificate"
+    "fixture/RenewCertificate.yaml"
+
+requestRequestCertificate :: RequestCertificate -> TestTree
+requestRequestCertificate =
+  req
+    "RequestCertificate"
+    "fixture/RequestCertificate.yaml"
 
 requestResendValidationEmail :: ResendValidationEmail -> TestTree
 requestResendValidationEmail =
@@ -137,85 +215,111 @@ requestUpdateCertificateOptions =
     "UpdateCertificateOptions"
     "fixture/UpdateCertificateOptions.yaml"
 
-requestListTagsForCertificate :: ListTagsForCertificate -> TestTree
-requestListTagsForCertificate =
-  req
-    "ListTagsForCertificate"
-    "fixture/ListTagsForCertificate.yaml"
-
-requestGetCertificate :: GetCertificate -> TestTree
-requestGetCertificate =
-  req
-    "GetCertificate"
-    "fixture/GetCertificate.yaml"
-
-requestAddTagsToCertificate :: AddTagsToCertificate -> TestTree
-requestAddTagsToCertificate =
-  req
-    "AddTagsToCertificate"
-    "fixture/AddTagsToCertificate.yaml"
-
-requestRequestCertificate :: RequestCertificate -> TestTree
-requestRequestCertificate =
-  req
-    "RequestCertificate"
-    "fixture/RequestCertificate.yaml"
-
-requestListCertificates :: ListCertificates -> TestTree
-requestListCertificates =
-  req
-    "ListCertificates"
-    "fixture/ListCertificates.yaml"
-
-requestDeleteCertificate :: DeleteCertificate -> TestTree
-requestDeleteCertificate =
-  req
-    "DeleteCertificate"
-    "fixture/DeleteCertificate.yaml"
-
-requestRemoveTagsFromCertificate :: RemoveTagsFromCertificate -> TestTree
-requestRemoveTagsFromCertificate =
-  req
-    "RemoveTagsFromCertificate"
-    "fixture/RemoveTagsFromCertificate.yaml"
-
-requestGetAccountConfiguration :: GetAccountConfiguration -> TestTree
-requestGetAccountConfiguration =
-  req
-    "GetAccountConfiguration"
-    "fixture/GetAccountConfiguration.yaml"
-
-requestImportCertificate :: ImportCertificate -> TestTree
-requestImportCertificate =
-  req
-    "ImportCertificate"
-    "fixture/ImportCertificate.yaml"
-
-requestPutAccountConfiguration :: PutAccountConfiguration -> TestTree
-requestPutAccountConfiguration =
-  req
-    "PutAccountConfiguration"
-    "fixture/PutAccountConfiguration.yaml"
-
-requestDescribeCertificate :: DescribeCertificate -> TestTree
-requestDescribeCertificate =
-  req
-    "DescribeCertificate"
-    "fixture/DescribeCertificate.yaml"
-
-requestRenewCertificate :: RenewCertificate -> TestTree
-requestRenewCertificate =
-  req
-    "RenewCertificate"
-    "fixture/RenewCertificate.yaml"
-
-requestExportCertificate :: ExportCertificate -> TestTree
-requestExportCertificate =
-  req
-    "ExportCertificate"
-    "fixture/ExportCertificate.yaml"
-
 -- Responses
+
+responseAddTagsToCertificate :: AddTagsToCertificateResponse -> TestTree
+responseAddTagsToCertificate =
+  res
+    "AddTagsToCertificateResponse"
+    "fixture/AddTagsToCertificateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AddTagsToCertificate)
+
+responseDeleteCertificate :: DeleteCertificateResponse -> TestTree
+responseDeleteCertificate =
+  res
+    "DeleteCertificateResponse"
+    "fixture/DeleteCertificateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteCertificate)
+
+responseDescribeCertificate :: DescribeCertificateResponse -> TestTree
+responseDescribeCertificate =
+  res
+    "DescribeCertificateResponse"
+    "fixture/DescribeCertificateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeCertificate)
+
+responseExportCertificate :: ExportCertificateResponse -> TestTree
+responseExportCertificate =
+  res
+    "ExportCertificateResponse"
+    "fixture/ExportCertificateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ExportCertificate)
+
+responseGetAccountConfiguration :: GetAccountConfigurationResponse -> TestTree
+responseGetAccountConfiguration =
+  res
+    "GetAccountConfigurationResponse"
+    "fixture/GetAccountConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAccountConfiguration)
+
+responseGetCertificate :: GetCertificateResponse -> TestTree
+responseGetCertificate =
+  res
+    "GetCertificateResponse"
+    "fixture/GetCertificateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetCertificate)
+
+responseImportCertificate :: ImportCertificateResponse -> TestTree
+responseImportCertificate =
+  res
+    "ImportCertificateResponse"
+    "fixture/ImportCertificateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ImportCertificate)
+
+responseListCertificates :: ListCertificatesResponse -> TestTree
+responseListCertificates =
+  res
+    "ListCertificatesResponse"
+    "fixture/ListCertificatesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListCertificates)
+
+responseListTagsForCertificate :: ListTagsForCertificateResponse -> TestTree
+responseListTagsForCertificate =
+  res
+    "ListTagsForCertificateResponse"
+    "fixture/ListTagsForCertificateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForCertificate)
+
+responsePutAccountConfiguration :: PutAccountConfigurationResponse -> TestTree
+responsePutAccountConfiguration =
+  res
+    "PutAccountConfigurationResponse"
+    "fixture/PutAccountConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutAccountConfiguration)
+
+responseRemoveTagsFromCertificate :: RemoveTagsFromCertificateResponse -> TestTree
+responseRemoveTagsFromCertificate =
+  res
+    "RemoveTagsFromCertificateResponse"
+    "fixture/RemoveTagsFromCertificateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RemoveTagsFromCertificate)
+
+responseRenewCertificate :: RenewCertificateResponse -> TestTree
+responseRenewCertificate =
+  res
+    "RenewCertificateResponse"
+    "fixture/RenewCertificateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RenewCertificate)
+
+responseRequestCertificate :: RequestCertificateResponse -> TestTree
+responseRequestCertificate =
+  res
+    "RequestCertificateResponse"
+    "fixture/RequestCertificateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RequestCertificate)
 
 responseResendValidationEmail :: ResendValidationEmailResponse -> TestTree
 responseResendValidationEmail =
@@ -232,107 +336,3 @@ responseUpdateCertificateOptions =
     "fixture/UpdateCertificateOptionsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateCertificateOptions)
-
-responseListTagsForCertificate :: ListTagsForCertificateResponse -> TestTree
-responseListTagsForCertificate =
-  res
-    "ListTagsForCertificateResponse"
-    "fixture/ListTagsForCertificateResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForCertificate)
-
-responseGetCertificate :: GetCertificateResponse -> TestTree
-responseGetCertificate =
-  res
-    "GetCertificateResponse"
-    "fixture/GetCertificateResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetCertificate)
-
-responseAddTagsToCertificate :: AddTagsToCertificateResponse -> TestTree
-responseAddTagsToCertificate =
-  res
-    "AddTagsToCertificateResponse"
-    "fixture/AddTagsToCertificateResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy AddTagsToCertificate)
-
-responseRequestCertificate :: RequestCertificateResponse -> TestTree
-responseRequestCertificate =
-  res
-    "RequestCertificateResponse"
-    "fixture/RequestCertificateResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RequestCertificate)
-
-responseListCertificates :: ListCertificatesResponse -> TestTree
-responseListCertificates =
-  res
-    "ListCertificatesResponse"
-    "fixture/ListCertificatesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListCertificates)
-
-responseDeleteCertificate :: DeleteCertificateResponse -> TestTree
-responseDeleteCertificate =
-  res
-    "DeleteCertificateResponse"
-    "fixture/DeleteCertificateResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteCertificate)
-
-responseRemoveTagsFromCertificate :: RemoveTagsFromCertificateResponse -> TestTree
-responseRemoveTagsFromCertificate =
-  res
-    "RemoveTagsFromCertificateResponse"
-    "fixture/RemoveTagsFromCertificateResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RemoveTagsFromCertificate)
-
-responseGetAccountConfiguration :: GetAccountConfigurationResponse -> TestTree
-responseGetAccountConfiguration =
-  res
-    "GetAccountConfigurationResponse"
-    "fixture/GetAccountConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetAccountConfiguration)
-
-responseImportCertificate :: ImportCertificateResponse -> TestTree
-responseImportCertificate =
-  res
-    "ImportCertificateResponse"
-    "fixture/ImportCertificateResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ImportCertificate)
-
-responsePutAccountConfiguration :: PutAccountConfigurationResponse -> TestTree
-responsePutAccountConfiguration =
-  res
-    "PutAccountConfigurationResponse"
-    "fixture/PutAccountConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutAccountConfiguration)
-
-responseDescribeCertificate :: DescribeCertificateResponse -> TestTree
-responseDescribeCertificate =
-  res
-    "DescribeCertificateResponse"
-    "fixture/DescribeCertificateResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeCertificate)
-
-responseRenewCertificate :: RenewCertificateResponse -> TestTree
-responseRenewCertificate =
-  res
-    "RenewCertificateResponse"
-    "fixture/RenewCertificateResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RenewCertificate)
-
-responseExportCertificate :: ExportCertificateResponse -> TestTree
-responseExportCertificate =
-  res
-    "ExportCertificateResponse"
-    "fixture/ExportCertificateResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ExportCertificate)

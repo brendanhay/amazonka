@@ -14,82 +14,17 @@
 module Amazonka.CertificateManager.Lens
   ( -- * Operations
 
-    -- ** ResendValidationEmail
-    resendValidationEmail_certificateArn,
-    resendValidationEmail_domain,
-    resendValidationEmail_validationDomain,
-
-    -- ** UpdateCertificateOptions
-    updateCertificateOptions_certificateArn,
-    updateCertificateOptions_options,
-
-    -- ** ListTagsForCertificate
-    listTagsForCertificate_certificateArn,
-    listTagsForCertificateResponse_tags,
-    listTagsForCertificateResponse_httpStatus,
-
-    -- ** GetCertificate
-    getCertificate_certificateArn,
-    getCertificateResponse_certificate,
-    getCertificateResponse_certificateChain,
-    getCertificateResponse_httpStatus,
-
     -- ** AddTagsToCertificate
     addTagsToCertificate_certificateArn,
     addTagsToCertificate_tags,
 
-    -- ** RequestCertificate
-    requestCertificate_idempotencyToken,
-    requestCertificate_validationMethod,
-    requestCertificate_subjectAlternativeNames,
-    requestCertificate_options,
-    requestCertificate_domainValidationOptions,
-    requestCertificate_certificateAuthorityArn,
-    requestCertificate_tags,
-    requestCertificate_domainName,
-    requestCertificateResponse_certificateArn,
-    requestCertificateResponse_httpStatus,
-
-    -- ** ListCertificates
-    listCertificates_certificateStatuses,
-    listCertificates_nextToken,
-    listCertificates_includes,
-    listCertificates_maxItems,
-    listCertificatesResponse_certificateSummaryList,
-    listCertificatesResponse_nextToken,
-    listCertificatesResponse_httpStatus,
-
     -- ** DeleteCertificate
     deleteCertificate_certificateArn,
-
-    -- ** RemoveTagsFromCertificate
-    removeTagsFromCertificate_certificateArn,
-    removeTagsFromCertificate_tags,
-
-    -- ** GetAccountConfiguration
-    getAccountConfigurationResponse_expiryEvents,
-    getAccountConfigurationResponse_httpStatus,
-
-    -- ** ImportCertificate
-    importCertificate_certificateArn,
-    importCertificate_certificateChain,
-    importCertificate_tags,
-    importCertificate_certificate,
-    importCertificate_privateKey,
-    importCertificateResponse_certificateArn,
-    importCertificateResponse_httpStatus,
-
-    -- ** PutAccountConfiguration
-    putAccountConfiguration_expiryEvents,
-    putAccountConfiguration_idempotencyToken,
 
     -- ** DescribeCertificate
     describeCertificate_certificateArn,
     describeCertificateResponse_certificate,
     describeCertificateResponse_httpStatus,
-
-    -- ** RenewCertificate
-    renewCertificate_certificateArn,
 
     -- ** ExportCertificate
     exportCertificate_certificateArn,
@@ -99,49 +34,114 @@ module Amazonka.CertificateManager.Lens
     exportCertificateResponse_certificateChain,
     exportCertificateResponse_httpStatus,
 
+    -- ** GetAccountConfiguration
+    getAccountConfigurationResponse_expiryEvents,
+    getAccountConfigurationResponse_httpStatus,
+
+    -- ** GetCertificate
+    getCertificate_certificateArn,
+    getCertificateResponse_certificate,
+    getCertificateResponse_certificateChain,
+    getCertificateResponse_httpStatus,
+
+    -- ** ImportCertificate
+    importCertificate_tags,
+    importCertificate_certificateArn,
+    importCertificate_certificateChain,
+    importCertificate_certificate,
+    importCertificate_privateKey,
+    importCertificateResponse_certificateArn,
+    importCertificateResponse_httpStatus,
+
+    -- ** ListCertificates
+    listCertificates_nextToken,
+    listCertificates_maxItems,
+    listCertificates_includes,
+    listCertificates_certificateStatuses,
+    listCertificatesResponse_nextToken,
+    listCertificatesResponse_certificateSummaryList,
+    listCertificatesResponse_httpStatus,
+
+    -- ** ListTagsForCertificate
+    listTagsForCertificate_certificateArn,
+    listTagsForCertificateResponse_tags,
+    listTagsForCertificateResponse_httpStatus,
+
+    -- ** PutAccountConfiguration
+    putAccountConfiguration_expiryEvents,
+    putAccountConfiguration_idempotencyToken,
+
+    -- ** RemoveTagsFromCertificate
+    removeTagsFromCertificate_certificateArn,
+    removeTagsFromCertificate_tags,
+
+    -- ** RenewCertificate
+    renewCertificate_certificateArn,
+
+    -- ** RequestCertificate
+    requestCertificate_tags,
+    requestCertificate_domainValidationOptions,
+    requestCertificate_certificateAuthorityArn,
+    requestCertificate_idempotencyToken,
+    requestCertificate_options,
+    requestCertificate_validationMethod,
+    requestCertificate_subjectAlternativeNames,
+    requestCertificate_domainName,
+    requestCertificateResponse_certificateArn,
+    requestCertificateResponse_httpStatus,
+
+    -- ** ResendValidationEmail
+    resendValidationEmail_certificateArn,
+    resendValidationEmail_domain,
+    resendValidationEmail_validationDomain,
+
+    -- ** UpdateCertificateOptions
+    updateCertificateOptions_certificateArn,
+    updateCertificateOptions_options,
+
     -- * Types
 
     -- ** CertificateDetail
-    certificateDetail_subject,
-    certificateDetail_status,
-    certificateDetail_failureReason,
-    certificateDetail_subjectAlternativeNames,
-    certificateDetail_inUseBy,
-    certificateDetail_createdAt,
-    certificateDetail_certificateArn,
-    certificateDetail_serial,
-    certificateDetail_renewalEligibility,
-    certificateDetail_extendedKeyUsages,
-    certificateDetail_importedAt,
-    certificateDetail_keyUsages,
-    certificateDetail_revokedAt,
-    certificateDetail_notBefore,
-    certificateDetail_revocationReason,
+    certificateDetail_issuer,
+    certificateDetail_domainValidationOptions,
+    certificateDetail_type,
+    certificateDetail_certificateAuthorityArn,
     certificateDetail_domainName,
+    certificateDetail_serial,
+    certificateDetail_keyUsages,
     certificateDetail_renewalSummary,
     certificateDetail_keyAlgorithm,
-    certificateDetail_type,
+    certificateDetail_extendedKeyUsages,
+    certificateDetail_inUseBy,
+    certificateDetail_status,
     certificateDetail_options,
-    certificateDetail_issuedAt,
+    certificateDetail_certificateArn,
+    certificateDetail_importedAt,
+    certificateDetail_notBefore,
+    certificateDetail_revocationReason,
     certificateDetail_signatureAlgorithm,
-    certificateDetail_domainValidationOptions,
-    certificateDetail_issuer,
+    certificateDetail_revokedAt,
+    certificateDetail_subject,
     certificateDetail_notAfter,
-    certificateDetail_certificateAuthorityArn,
+    certificateDetail_renewalEligibility,
+    certificateDetail_createdAt,
+    certificateDetail_subjectAlternativeNames,
+    certificateDetail_failureReason,
+    certificateDetail_issuedAt,
 
     -- ** CertificateOptions
     certificateOptions_certificateTransparencyLoggingPreference,
 
     -- ** CertificateSummary
-    certificateSummary_certificateArn,
     certificateSummary_domainName,
+    certificateSummary_certificateArn,
 
     -- ** DomainValidation
-    domainValidation_validationEmails,
-    domainValidation_validationMethod,
-    domainValidation_resourceRecord,
     domainValidation_validationStatus,
     domainValidation_validationDomain,
+    domainValidation_resourceRecord,
+    domainValidation_validationEmails,
+    domainValidation_validationMethod,
     domainValidation_domainName,
 
     -- ** DomainValidationOption
@@ -152,13 +152,13 @@ module Amazonka.CertificateManager.Lens
     expiryEventsConfiguration_daysBeforeExpiry,
 
     -- ** ExtendedKeyUsage
-    extendedKeyUsage_oid,
     extendedKeyUsage_name,
+    extendedKeyUsage_oid,
 
     -- ** Filters
+    filters_extendedKeyUsage,
     filters_keyTypes,
     filters_keyUsage,
-    filters_extendedKeyUsage,
 
     -- ** KeyUsage
     keyUsage_name,

@@ -29,17 +29,17 @@ import Amazonka.SMS.Types.Source
 --
 -- /See:/ 'newSSMValidationParameters' smart constructor.
 data SSMValidationParameters = SSMValidationParameters'
-  { -- | The ID of the instance. The instance must have the following tag:
+  { -- | The command to run the validation script
+    command :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the instance. The instance must have the following tag:
     -- UserForSMSApplicationValidation=true.
     instanceId :: Prelude.Maybe Prelude.Text,
-    -- | The command to run the validation script
-    command :: Prelude.Maybe Prelude.Text,
+    -- | The location of the validation script.
+    source :: Prelude.Maybe Source,
     -- | The timeout interval, in seconds.
     executionTimeoutSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The type of validation script.
     scriptType :: Prelude.Maybe ScriptType,
-    -- | The location of the validation script.
-    source :: Prelude.Maybe Source,
     -- | The name of the S3 bucket for output.
     outputS3BucketName :: Prelude.Maybe Prelude.Text
   }
@@ -53,39 +53,42 @@ data SSMValidationParameters = SSMValidationParameters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'command', 'sSMValidationParameters_command' - The command to run the validation script
+--
 -- 'instanceId', 'sSMValidationParameters_instanceId' - The ID of the instance. The instance must have the following tag:
 -- UserForSMSApplicationValidation=true.
 --
--- 'command', 'sSMValidationParameters_command' - The command to run the validation script
+-- 'source', 'sSMValidationParameters_source' - The location of the validation script.
 --
 -- 'executionTimeoutSeconds', 'sSMValidationParameters_executionTimeoutSeconds' - The timeout interval, in seconds.
 --
 -- 'scriptType', 'sSMValidationParameters_scriptType' - The type of validation script.
---
--- 'source', 'sSMValidationParameters_source' - The location of the validation script.
 --
 -- 'outputS3BucketName', 'sSMValidationParameters_outputS3BucketName' - The name of the S3 bucket for output.
 newSSMValidationParameters ::
   SSMValidationParameters
 newSSMValidationParameters =
   SSMValidationParameters'
-    { instanceId =
-        Prelude.Nothing,
-      command = Prelude.Nothing,
+    { command = Prelude.Nothing,
+      instanceId = Prelude.Nothing,
+      source = Prelude.Nothing,
       executionTimeoutSeconds = Prelude.Nothing,
       scriptType = Prelude.Nothing,
-      source = Prelude.Nothing,
       outputS3BucketName = Prelude.Nothing
     }
+
+-- | The command to run the validation script
+sSMValidationParameters_command :: Lens.Lens' SSMValidationParameters (Prelude.Maybe Prelude.Text)
+sSMValidationParameters_command = Lens.lens (\SSMValidationParameters' {command} -> command) (\s@SSMValidationParameters' {} a -> s {command = a} :: SSMValidationParameters)
 
 -- | The ID of the instance. The instance must have the following tag:
 -- UserForSMSApplicationValidation=true.
 sSMValidationParameters_instanceId :: Lens.Lens' SSMValidationParameters (Prelude.Maybe Prelude.Text)
 sSMValidationParameters_instanceId = Lens.lens (\SSMValidationParameters' {instanceId} -> instanceId) (\s@SSMValidationParameters' {} a -> s {instanceId = a} :: SSMValidationParameters)
 
--- | The command to run the validation script
-sSMValidationParameters_command :: Lens.Lens' SSMValidationParameters (Prelude.Maybe Prelude.Text)
-sSMValidationParameters_command = Lens.lens (\SSMValidationParameters' {command} -> command) (\s@SSMValidationParameters' {} a -> s {command = a} :: SSMValidationParameters)
+-- | The location of the validation script.
+sSMValidationParameters_source :: Lens.Lens' SSMValidationParameters (Prelude.Maybe Source)
+sSMValidationParameters_source = Lens.lens (\SSMValidationParameters' {source} -> source) (\s@SSMValidationParameters' {} a -> s {source = a} :: SSMValidationParameters)
 
 -- | The timeout interval, in seconds.
 sSMValidationParameters_executionTimeoutSeconds :: Lens.Lens' SSMValidationParameters (Prelude.Maybe Prelude.Natural)
@@ -94,10 +97,6 @@ sSMValidationParameters_executionTimeoutSeconds = Lens.lens (\SSMValidationParam
 -- | The type of validation script.
 sSMValidationParameters_scriptType :: Lens.Lens' SSMValidationParameters (Prelude.Maybe ScriptType)
 sSMValidationParameters_scriptType = Lens.lens (\SSMValidationParameters' {scriptType} -> scriptType) (\s@SSMValidationParameters' {} a -> s {scriptType = a} :: SSMValidationParameters)
-
--- | The location of the validation script.
-sSMValidationParameters_source :: Lens.Lens' SSMValidationParameters (Prelude.Maybe Source)
-sSMValidationParameters_source = Lens.lens (\SSMValidationParameters' {source} -> source) (\s@SSMValidationParameters' {} a -> s {source = a} :: SSMValidationParameters)
 
 -- | The name of the S3 bucket for output.
 sSMValidationParameters_outputS3BucketName :: Lens.Lens' SSMValidationParameters (Prelude.Maybe Prelude.Text)
@@ -109,42 +108,42 @@ instance Core.FromJSON SSMValidationParameters where
       "SSMValidationParameters"
       ( \x ->
           SSMValidationParameters'
-            Prelude.<$> (x Core..:? "instanceId")
-            Prelude.<*> (x Core..:? "command")
+            Prelude.<$> (x Core..:? "command")
+            Prelude.<*> (x Core..:? "instanceId")
+            Prelude.<*> (x Core..:? "source")
             Prelude.<*> (x Core..:? "executionTimeoutSeconds")
             Prelude.<*> (x Core..:? "scriptType")
-            Prelude.<*> (x Core..:? "source")
             Prelude.<*> (x Core..:? "outputS3BucketName")
       )
 
 instance Prelude.Hashable SSMValidationParameters where
   hashWithSalt _salt SSMValidationParameters' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
-      `Prelude.hashWithSalt` command
+    _salt `Prelude.hashWithSalt` command
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` executionTimeoutSeconds
       `Prelude.hashWithSalt` scriptType
-      `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` outputS3BucketName
 
 instance Prelude.NFData SSMValidationParameters where
   rnf SSMValidationParameters' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf command
+    Prelude.rnf command
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf executionTimeoutSeconds
       `Prelude.seq` Prelude.rnf scriptType
-      `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf outputS3BucketName
 
 instance Core.ToJSON SSMValidationParameters where
   toJSON SSMValidationParameters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("instanceId" Core..=) Prelude.<$> instanceId,
-            ("command" Core..=) Prelude.<$> command,
+          [ ("command" Core..=) Prelude.<$> command,
+            ("instanceId" Core..=) Prelude.<$> instanceId,
+            ("source" Core..=) Prelude.<$> source,
             ("executionTimeoutSeconds" Core..=)
               Prelude.<$> executionTimeoutSeconds,
             ("scriptType" Core..=) Prelude.<$> scriptType,
-            ("source" Core..=) Prelude.<$> source,
             ("outputS3BucketName" Core..=)
               Prelude.<$> outputS3BucketName
           ]

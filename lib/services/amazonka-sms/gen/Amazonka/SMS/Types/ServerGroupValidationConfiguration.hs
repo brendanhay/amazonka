@@ -28,10 +28,10 @@ import Amazonka.SMS.Types.ServerValidationConfiguration
 --
 -- /See:/ 'newServerGroupValidationConfiguration' smart constructor.
 data ServerGroupValidationConfiguration = ServerGroupValidationConfiguration'
-  { -- | The validation configuration.
-    serverValidationConfigurations :: Prelude.Maybe [ServerValidationConfiguration],
-    -- | The ID of the server group.
-    serverGroupId :: Prelude.Maybe Prelude.Text
+  { -- | The ID of the server group.
+    serverGroupId :: Prelude.Maybe Prelude.Text,
+    -- | The validation configuration.
+    serverValidationConfigurations :: Prelude.Maybe [ServerValidationConfiguration]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,26 @@ data ServerGroupValidationConfiguration = ServerGroupValidationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serverValidationConfigurations', 'serverGroupValidationConfiguration_serverValidationConfigurations' - The validation configuration.
---
 -- 'serverGroupId', 'serverGroupValidationConfiguration_serverGroupId' - The ID of the server group.
+--
+-- 'serverValidationConfigurations', 'serverGroupValidationConfiguration_serverValidationConfigurations' - The validation configuration.
 newServerGroupValidationConfiguration ::
   ServerGroupValidationConfiguration
 newServerGroupValidationConfiguration =
   ServerGroupValidationConfiguration'
-    { serverValidationConfigurations =
+    { serverGroupId =
         Prelude.Nothing,
-      serverGroupId = Prelude.Nothing
+      serverValidationConfigurations =
+        Prelude.Nothing
     }
-
--- | The validation configuration.
-serverGroupValidationConfiguration_serverValidationConfigurations :: Lens.Lens' ServerGroupValidationConfiguration (Prelude.Maybe [ServerValidationConfiguration])
-serverGroupValidationConfiguration_serverValidationConfigurations = Lens.lens (\ServerGroupValidationConfiguration' {serverValidationConfigurations} -> serverValidationConfigurations) (\s@ServerGroupValidationConfiguration' {} a -> s {serverValidationConfigurations = a} :: ServerGroupValidationConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the server group.
 serverGroupValidationConfiguration_serverGroupId :: Lens.Lens' ServerGroupValidationConfiguration (Prelude.Maybe Prelude.Text)
 serverGroupValidationConfiguration_serverGroupId = Lens.lens (\ServerGroupValidationConfiguration' {serverGroupId} -> serverGroupId) (\s@ServerGroupValidationConfiguration' {} a -> s {serverGroupId = a} :: ServerGroupValidationConfiguration)
+
+-- | The validation configuration.
+serverGroupValidationConfiguration_serverValidationConfigurations :: Lens.Lens' ServerGroupValidationConfiguration (Prelude.Maybe [ServerValidationConfiguration])
+serverGroupValidationConfiguration_serverValidationConfigurations = Lens.lens (\ServerGroupValidationConfiguration' {serverValidationConfigurations} -> serverValidationConfigurations) (\s@ServerGroupValidationConfiguration' {} a -> s {serverValidationConfigurations = a} :: ServerGroupValidationConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.FromJSON
@@ -72,10 +73,10 @@ instance
       "ServerGroupValidationConfiguration"
       ( \x ->
           ServerGroupValidationConfiguration'
-            Prelude.<$> ( x Core..:? "serverValidationConfigurations"
+            Prelude.<$> (x Core..:? "serverGroupId")
+            Prelude.<*> ( x Core..:? "serverValidationConfigurations"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "serverGroupId")
       )
 
 instance
@@ -85,17 +86,16 @@ instance
   hashWithSalt
     _salt
     ServerGroupValidationConfiguration' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` serverGroupId
         `Prelude.hashWithSalt` serverValidationConfigurations
-        `Prelude.hashWithSalt` serverGroupId
 
 instance
   Prelude.NFData
     ServerGroupValidationConfiguration
   where
   rnf ServerGroupValidationConfiguration' {..} =
-    Prelude.rnf serverValidationConfigurations
-      `Prelude.seq` Prelude.rnf serverGroupId
+    Prelude.rnf serverGroupId
+      `Prelude.seq` Prelude.rnf serverValidationConfigurations
 
 instance
   Core.ToJSON
@@ -104,8 +104,8 @@ instance
   toJSON ServerGroupValidationConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("serverValidationConfigurations" Core..=)
-              Prelude.<$> serverValidationConfigurations,
-            ("serverGroupId" Core..=) Prelude.<$> serverGroupId
+          [ ("serverGroupId" Core..=) Prelude.<$> serverGroupId,
+            ("serverValidationConfigurations" Core..=)
+              Prelude.<$> serverValidationConfigurations
           ]
       )

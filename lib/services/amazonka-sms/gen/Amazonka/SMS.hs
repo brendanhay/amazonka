@@ -27,41 +27,41 @@ module Amazonka.SMS
     -- * Errors
     -- $errors
 
+    -- ** ServerCannotBeReplicatedException
+    _ServerCannotBeReplicatedException,
+
+    -- ** NoConnectorsAvailableException
+    _NoConnectorsAvailableException,
+
+    -- ** UnauthorizedOperationException
+    _UnauthorizedOperationException,
+
+    -- ** InternalError
+    _InternalError,
+
+    -- ** MissingRequiredParameterException
+    _MissingRequiredParameterException,
+
+    -- ** ReplicationJobAlreadyExistsException
+    _ReplicationJobAlreadyExistsException,
+
+    -- ** ReplicationJobNotFoundException
+    _ReplicationJobNotFoundException,
+
+    -- ** TemporarilyUnavailableException
+    _TemporarilyUnavailableException,
+
+    -- ** OperationNotPermittedException
+    _OperationNotPermittedException,
+
+    -- ** DryRunOperationException
+    _DryRunOperationException,
+
     -- ** ReplicationRunLimitExceededException
     _ReplicationRunLimitExceededException,
 
     -- ** InvalidParameterException
     _InvalidParameterException,
-
-    -- ** NoConnectorsAvailableException
-    _NoConnectorsAvailableException,
-
-    -- ** ReplicationJobNotFoundException
-    _ReplicationJobNotFoundException,
-
-    -- ** ServerCannotBeReplicatedException
-    _ServerCannotBeReplicatedException,
-
-    -- ** DryRunOperationException
-    _DryRunOperationException,
-
-    -- ** InternalError
-    _InternalError,
-
-    -- ** ReplicationJobAlreadyExistsException
-    _ReplicationJobAlreadyExistsException,
-
-    -- ** OperationNotPermittedException
-    _OperationNotPermittedException,
-
-    -- ** TemporarilyUnavailableException
-    _TemporarilyUnavailableException,
-
-    -- ** MissingRequiredParameterException
-    _MissingRequiredParameterException,
-
-    -- ** UnauthorizedOperationException
-    _UnauthorizedOperationException,
 
     -- * Waiters
     -- $waiters
@@ -69,77 +69,17 @@ module Amazonka.SMS
     -- * Operations
     -- $operations
 
-    -- ** DeleteAppReplicationConfiguration
-    DeleteAppReplicationConfiguration (DeleteAppReplicationConfiguration'),
-    newDeleteAppReplicationConfiguration,
-    DeleteAppReplicationConfigurationResponse (DeleteAppReplicationConfigurationResponse'),
-    newDeleteAppReplicationConfigurationResponse,
+    -- ** CreateApp
+    CreateApp (CreateApp'),
+    newCreateApp,
+    CreateAppResponse (CreateAppResponse'),
+    newCreateAppResponse,
 
-    -- ** PutAppReplicationConfiguration
-    PutAppReplicationConfiguration (PutAppReplicationConfiguration'),
-    newPutAppReplicationConfiguration,
-    PutAppReplicationConfigurationResponse (PutAppReplicationConfigurationResponse'),
-    newPutAppReplicationConfigurationResponse,
-
-    -- ** DeleteServerCatalog
-    DeleteServerCatalog (DeleteServerCatalog'),
-    newDeleteServerCatalog,
-    DeleteServerCatalogResponse (DeleteServerCatalogResponse'),
-    newDeleteServerCatalogResponse,
-
-    -- ** ImportAppCatalog
-    ImportAppCatalog (ImportAppCatalog'),
-    newImportAppCatalog,
-    ImportAppCatalogResponse (ImportAppCatalogResponse'),
-    newImportAppCatalogResponse,
-
-    -- ** GetAppLaunchConfiguration
-    GetAppLaunchConfiguration (GetAppLaunchConfiguration'),
-    newGetAppLaunchConfiguration,
-    GetAppLaunchConfigurationResponse (GetAppLaunchConfigurationResponse'),
-    newGetAppLaunchConfigurationResponse,
-
-    -- ** DeleteAppLaunchConfiguration
-    DeleteAppLaunchConfiguration (DeleteAppLaunchConfiguration'),
-    newDeleteAppLaunchConfiguration,
-    DeleteAppLaunchConfigurationResponse (DeleteAppLaunchConfigurationResponse'),
-    newDeleteAppLaunchConfigurationResponse,
-
-    -- ** StartAppReplication
-    StartAppReplication (StartAppReplication'),
-    newStartAppReplication,
-    StartAppReplicationResponse (StartAppReplicationResponse'),
-    newStartAppReplicationResponse,
-
-    -- ** PutAppLaunchConfiguration
-    PutAppLaunchConfiguration (PutAppLaunchConfiguration'),
-    newPutAppLaunchConfiguration,
-    PutAppLaunchConfigurationResponse (PutAppLaunchConfigurationResponse'),
-    newPutAppLaunchConfigurationResponse,
-
-    -- ** GetReplicationRuns (Paginated)
-    GetReplicationRuns (GetReplicationRuns'),
-    newGetReplicationRuns,
-    GetReplicationRunsResponse (GetReplicationRunsResponse'),
-    newGetReplicationRunsResponse,
-
-    -- ** TerminateApp
-    TerminateApp (TerminateApp'),
-    newTerminateApp,
-    TerminateAppResponse (TerminateAppResponse'),
-    newTerminateAppResponse,
-
-    -- ** ListApps (Paginated)
-    ListApps (ListApps'),
-    newListApps,
-    ListAppsResponse (ListAppsResponse'),
-    newListAppsResponse,
-
-    -- ** GetServers (Paginated)
-    GetServers (GetServers'),
-    newGetServers,
-    GetServersResponse (GetServersResponse'),
-    newGetServersResponse,
+    -- ** CreateReplicationJob
+    CreateReplicationJob (CreateReplicationJob'),
+    newCreateReplicationJob,
+    CreateReplicationJobResponse (CreateReplicationJobResponse'),
+    newCreateReplicationJobResponse,
 
     -- ** DeleteApp
     DeleteApp (DeleteApp'),
@@ -147,29 +87,83 @@ module Amazonka.SMS
     DeleteAppResponse (DeleteAppResponse'),
     newDeleteAppResponse,
 
-    -- ** UpdateApp
-    UpdateApp (UpdateApp'),
-    newUpdateApp,
-    UpdateAppResponse (UpdateAppResponse'),
-    newUpdateAppResponse,
+    -- ** DeleteAppLaunchConfiguration
+    DeleteAppLaunchConfiguration (DeleteAppLaunchConfiguration'),
+    newDeleteAppLaunchConfiguration,
+    DeleteAppLaunchConfigurationResponse (DeleteAppLaunchConfigurationResponse'),
+    newDeleteAppLaunchConfigurationResponse,
 
-    -- ** StartOnDemandAppReplication
-    StartOnDemandAppReplication (StartOnDemandAppReplication'),
-    newStartOnDemandAppReplication,
-    StartOnDemandAppReplicationResponse (StartOnDemandAppReplicationResponse'),
-    newStartOnDemandAppReplicationResponse,
+    -- ** DeleteAppReplicationConfiguration
+    DeleteAppReplicationConfiguration (DeleteAppReplicationConfiguration'),
+    newDeleteAppReplicationConfiguration,
+    DeleteAppReplicationConfigurationResponse (DeleteAppReplicationConfigurationResponse'),
+    newDeleteAppReplicationConfigurationResponse,
 
-    -- ** ImportServerCatalog
-    ImportServerCatalog (ImportServerCatalog'),
-    newImportServerCatalog,
-    ImportServerCatalogResponse (ImportServerCatalogResponse'),
-    newImportServerCatalogResponse,
+    -- ** DeleteAppValidationConfiguration
+    DeleteAppValidationConfiguration (DeleteAppValidationConfiguration'),
+    newDeleteAppValidationConfiguration,
+    DeleteAppValidationConfigurationResponse (DeleteAppValidationConfigurationResponse'),
+    newDeleteAppValidationConfigurationResponse,
+
+    -- ** DeleteReplicationJob
+    DeleteReplicationJob (DeleteReplicationJob'),
+    newDeleteReplicationJob,
+    DeleteReplicationJobResponse (DeleteReplicationJobResponse'),
+    newDeleteReplicationJobResponse,
+
+    -- ** DeleteServerCatalog
+    DeleteServerCatalog (DeleteServerCatalog'),
+    newDeleteServerCatalog,
+    DeleteServerCatalogResponse (DeleteServerCatalogResponse'),
+    newDeleteServerCatalogResponse,
+
+    -- ** DisassociateConnector
+    DisassociateConnector (DisassociateConnector'),
+    newDisassociateConnector,
+    DisassociateConnectorResponse (DisassociateConnectorResponse'),
+    newDisassociateConnectorResponse,
+
+    -- ** GenerateChangeSet
+    GenerateChangeSet (GenerateChangeSet'),
+    newGenerateChangeSet,
+    GenerateChangeSetResponse (GenerateChangeSetResponse'),
+    newGenerateChangeSetResponse,
 
     -- ** GenerateTemplate
     GenerateTemplate (GenerateTemplate'),
     newGenerateTemplate,
     GenerateTemplateResponse (GenerateTemplateResponse'),
     newGenerateTemplateResponse,
+
+    -- ** GetApp
+    GetApp (GetApp'),
+    newGetApp,
+    GetAppResponse (GetAppResponse'),
+    newGetAppResponse,
+
+    -- ** GetAppLaunchConfiguration
+    GetAppLaunchConfiguration (GetAppLaunchConfiguration'),
+    newGetAppLaunchConfiguration,
+    GetAppLaunchConfigurationResponse (GetAppLaunchConfigurationResponse'),
+    newGetAppLaunchConfigurationResponse,
+
+    -- ** GetAppReplicationConfiguration
+    GetAppReplicationConfiguration (GetAppReplicationConfiguration'),
+    newGetAppReplicationConfiguration,
+    GetAppReplicationConfigurationResponse (GetAppReplicationConfigurationResponse'),
+    newGetAppReplicationConfigurationResponse,
+
+    -- ** GetAppValidationConfiguration
+    GetAppValidationConfiguration (GetAppValidationConfiguration'),
+    newGetAppValidationConfiguration,
+    GetAppValidationConfigurationResponse (GetAppValidationConfigurationResponse'),
+    newGetAppValidationConfigurationResponse,
+
+    -- ** GetAppValidationOutput
+    GetAppValidationOutput (GetAppValidationOutput'),
+    newGetAppValidationOutput,
+    GetAppValidationOutputResponse (GetAppValidationOutputResponse'),
+    newGetAppValidationOutputResponse,
 
     -- ** GetConnectors (Paginated)
     GetConnectors (GetConnectors'),
@@ -183,11 +177,29 @@ module Amazonka.SMS
     GetReplicationJobsResponse (GetReplicationJobsResponse'),
     newGetReplicationJobsResponse,
 
-    -- ** DisassociateConnector
-    DisassociateConnector (DisassociateConnector'),
-    newDisassociateConnector,
-    DisassociateConnectorResponse (DisassociateConnectorResponse'),
-    newDisassociateConnectorResponse,
+    -- ** GetReplicationRuns (Paginated)
+    GetReplicationRuns (GetReplicationRuns'),
+    newGetReplicationRuns,
+    GetReplicationRunsResponse (GetReplicationRunsResponse'),
+    newGetReplicationRunsResponse,
+
+    -- ** GetServers (Paginated)
+    GetServers (GetServers'),
+    newGetServers,
+    GetServersResponse (GetServersResponse'),
+    newGetServersResponse,
+
+    -- ** ImportAppCatalog
+    ImportAppCatalog (ImportAppCatalog'),
+    newImportAppCatalog,
+    ImportAppCatalogResponse (ImportAppCatalogResponse'),
+    newImportAppCatalogResponse,
+
+    -- ** ImportServerCatalog
+    ImportServerCatalog (ImportServerCatalog'),
+    newImportServerCatalog,
+    ImportServerCatalogResponse (ImportServerCatalogResponse'),
+    newImportServerCatalogResponse,
 
     -- ** LaunchApp
     LaunchApp (LaunchApp'),
@@ -195,59 +207,29 @@ module Amazonka.SMS
     LaunchAppResponse (LaunchAppResponse'),
     newLaunchAppResponse,
 
-    -- ** GetAppValidationConfiguration
-    GetAppValidationConfiguration (GetAppValidationConfiguration'),
-    newGetAppValidationConfiguration,
-    GetAppValidationConfigurationResponse (GetAppValidationConfigurationResponse'),
-    newGetAppValidationConfigurationResponse,
+    -- ** ListApps (Paginated)
+    ListApps (ListApps'),
+    newListApps,
+    ListAppsResponse (ListAppsResponse'),
+    newListAppsResponse,
 
-    -- ** CreateReplicationJob
-    CreateReplicationJob (CreateReplicationJob'),
-    newCreateReplicationJob,
-    CreateReplicationJobResponse (CreateReplicationJobResponse'),
-    newCreateReplicationJobResponse,
+    -- ** NotifyAppValidationOutput
+    NotifyAppValidationOutput (NotifyAppValidationOutput'),
+    newNotifyAppValidationOutput,
+    NotifyAppValidationOutputResponse (NotifyAppValidationOutputResponse'),
+    newNotifyAppValidationOutputResponse,
 
-    -- ** GenerateChangeSet
-    GenerateChangeSet (GenerateChangeSet'),
-    newGenerateChangeSet,
-    GenerateChangeSetResponse (GenerateChangeSetResponse'),
-    newGenerateChangeSetResponse,
+    -- ** PutAppLaunchConfiguration
+    PutAppLaunchConfiguration (PutAppLaunchConfiguration'),
+    newPutAppLaunchConfiguration,
+    PutAppLaunchConfigurationResponse (PutAppLaunchConfigurationResponse'),
+    newPutAppLaunchConfigurationResponse,
 
-    -- ** GetApp
-    GetApp (GetApp'),
-    newGetApp,
-    GetAppResponse (GetAppResponse'),
-    newGetAppResponse,
-
-    -- ** UpdateReplicationJob
-    UpdateReplicationJob (UpdateReplicationJob'),
-    newUpdateReplicationJob,
-    UpdateReplicationJobResponse (UpdateReplicationJobResponse'),
-    newUpdateReplicationJobResponse,
-
-    -- ** DeleteReplicationJob
-    DeleteReplicationJob (DeleteReplicationJob'),
-    newDeleteReplicationJob,
-    DeleteReplicationJobResponse (DeleteReplicationJobResponse'),
-    newDeleteReplicationJobResponse,
-
-    -- ** CreateApp
-    CreateApp (CreateApp'),
-    newCreateApp,
-    CreateAppResponse (CreateAppResponse'),
-    newCreateAppResponse,
-
-    -- ** StopAppReplication
-    StopAppReplication (StopAppReplication'),
-    newStopAppReplication,
-    StopAppReplicationResponse (StopAppReplicationResponse'),
-    newStopAppReplicationResponse,
-
-    -- ** DeleteAppValidationConfiguration
-    DeleteAppValidationConfiguration (DeleteAppValidationConfiguration'),
-    newDeleteAppValidationConfiguration,
-    DeleteAppValidationConfigurationResponse (DeleteAppValidationConfigurationResponse'),
-    newDeleteAppValidationConfigurationResponse,
+    -- ** PutAppReplicationConfiguration
+    PutAppReplicationConfiguration (PutAppReplicationConfiguration'),
+    newPutAppReplicationConfiguration,
+    PutAppReplicationConfigurationResponse (PutAppReplicationConfigurationResponse'),
+    newPutAppReplicationConfigurationResponse,
 
     -- ** PutAppValidationConfiguration
     PutAppValidationConfiguration (PutAppValidationConfiguration'),
@@ -255,17 +237,17 @@ module Amazonka.SMS
     PutAppValidationConfigurationResponse (PutAppValidationConfigurationResponse'),
     newPutAppValidationConfigurationResponse,
 
-    -- ** GetAppValidationOutput
-    GetAppValidationOutput (GetAppValidationOutput'),
-    newGetAppValidationOutput,
-    GetAppValidationOutputResponse (GetAppValidationOutputResponse'),
-    newGetAppValidationOutputResponse,
+    -- ** StartAppReplication
+    StartAppReplication (StartAppReplication'),
+    newStartAppReplication,
+    StartAppReplicationResponse (StartAppReplicationResponse'),
+    newStartAppReplicationResponse,
 
-    -- ** GetAppReplicationConfiguration
-    GetAppReplicationConfiguration (GetAppReplicationConfiguration'),
-    newGetAppReplicationConfiguration,
-    GetAppReplicationConfigurationResponse (GetAppReplicationConfigurationResponse'),
-    newGetAppReplicationConfigurationResponse,
+    -- ** StartOnDemandAppReplication
+    StartOnDemandAppReplication (StartOnDemandAppReplication'),
+    newStartOnDemandAppReplication,
+    StartOnDemandAppReplicationResponse (StartOnDemandAppReplicationResponse'),
+    newStartOnDemandAppReplicationResponse,
 
     -- ** StartOnDemandReplicationRun
     StartOnDemandReplicationRun (StartOnDemandReplicationRun'),
@@ -273,11 +255,29 @@ module Amazonka.SMS
     StartOnDemandReplicationRunResponse (StartOnDemandReplicationRunResponse'),
     newStartOnDemandReplicationRunResponse,
 
-    -- ** NotifyAppValidationOutput
-    NotifyAppValidationOutput (NotifyAppValidationOutput'),
-    newNotifyAppValidationOutput,
-    NotifyAppValidationOutputResponse (NotifyAppValidationOutputResponse'),
-    newNotifyAppValidationOutputResponse,
+    -- ** StopAppReplication
+    StopAppReplication (StopAppReplication'),
+    newStopAppReplication,
+    StopAppReplicationResponse (StopAppReplicationResponse'),
+    newStopAppReplicationResponse,
+
+    -- ** TerminateApp
+    TerminateApp (TerminateApp'),
+    newTerminateApp,
+    TerminateAppResponse (TerminateAppResponse'),
+    newTerminateAppResponse,
+
+    -- ** UpdateApp
+    UpdateApp (UpdateApp'),
+    newUpdateApp,
+    UpdateAppResponse (UpdateAppResponse'),
+    newUpdateAppResponse,
+
+    -- ** UpdateReplicationJob
+    UpdateReplicationJob (UpdateReplicationJob'),
+    newUpdateReplicationJob,
+    UpdateReplicationJobResponse (UpdateReplicationJobResponse'),
+    newUpdateReplicationJobResponse,
 
     -- * Types
 

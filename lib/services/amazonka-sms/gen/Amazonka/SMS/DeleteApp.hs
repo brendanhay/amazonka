@@ -29,9 +29,9 @@ module Amazonka.SMS.DeleteApp
     newDeleteApp,
 
     -- * Request Lenses
+    deleteApp_forceStopAppReplication,
     deleteApp_forceTerminateApp,
     deleteApp_appId,
-    deleteApp_forceStopAppReplication,
 
     -- * Destructuring the Response
     DeleteAppResponse (..),
@@ -51,14 +51,14 @@ import Amazonka.SMS.Types
 
 -- | /See:/ 'newDeleteApp' smart constructor.
 data DeleteApp = DeleteApp'
-  { -- | Indicates whether to terminate the stack corresponding to the
+  { -- | Indicates whether to stop all replication jobs corresponding to the
+    -- servers in the application while deleting the application.
+    forceStopAppReplication :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates whether to terminate the stack corresponding to the
     -- application while deleting the application.
     forceTerminateApp :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the application.
-    appId :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether to stop all replication jobs corresponding to the
-    -- servers in the application while deleting the application.
-    forceStopAppReplication :: Prelude.Maybe Prelude.Bool
+    appId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,21 +70,27 @@ data DeleteApp = DeleteApp'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'forceStopAppReplication', 'deleteApp_forceStopAppReplication' - Indicates whether to stop all replication jobs corresponding to the
+-- servers in the application while deleting the application.
+--
 -- 'forceTerminateApp', 'deleteApp_forceTerminateApp' - Indicates whether to terminate the stack corresponding to the
 -- application while deleting the application.
 --
 -- 'appId', 'deleteApp_appId' - The ID of the application.
---
--- 'forceStopAppReplication', 'deleteApp_forceStopAppReplication' - Indicates whether to stop all replication jobs corresponding to the
--- servers in the application while deleting the application.
 newDeleteApp ::
   DeleteApp
 newDeleteApp =
   DeleteApp'
-    { forceTerminateApp = Prelude.Nothing,
-      appId = Prelude.Nothing,
-      forceStopAppReplication = Prelude.Nothing
+    { forceStopAppReplication =
+        Prelude.Nothing,
+      forceTerminateApp = Prelude.Nothing,
+      appId = Prelude.Nothing
     }
+
+-- | Indicates whether to stop all replication jobs corresponding to the
+-- servers in the application while deleting the application.
+deleteApp_forceStopAppReplication :: Lens.Lens' DeleteApp (Prelude.Maybe Prelude.Bool)
+deleteApp_forceStopAppReplication = Lens.lens (\DeleteApp' {forceStopAppReplication} -> forceStopAppReplication) (\s@DeleteApp' {} a -> s {forceStopAppReplication = a} :: DeleteApp)
 
 -- | Indicates whether to terminate the stack corresponding to the
 -- application while deleting the application.
@@ -94,11 +100,6 @@ deleteApp_forceTerminateApp = Lens.lens (\DeleteApp' {forceTerminateApp} -> forc
 -- | The ID of the application.
 deleteApp_appId :: Lens.Lens' DeleteApp (Prelude.Maybe Prelude.Text)
 deleteApp_appId = Lens.lens (\DeleteApp' {appId} -> appId) (\s@DeleteApp' {} a -> s {appId = a} :: DeleteApp)
-
--- | Indicates whether to stop all replication jobs corresponding to the
--- servers in the application while deleting the application.
-deleteApp_forceStopAppReplication :: Lens.Lens' DeleteApp (Prelude.Maybe Prelude.Bool)
-deleteApp_forceStopAppReplication = Lens.lens (\DeleteApp' {forceStopAppReplication} -> forceStopAppReplication) (\s@DeleteApp' {} a -> s {forceStopAppReplication = a} :: DeleteApp)
 
 instance Core.AWSRequest DeleteApp where
   type AWSResponse DeleteApp = DeleteAppResponse
@@ -112,15 +113,16 @@ instance Core.AWSRequest DeleteApp where
 
 instance Prelude.Hashable DeleteApp where
   hashWithSalt _salt DeleteApp' {..} =
-    _salt `Prelude.hashWithSalt` forceTerminateApp
-      `Prelude.hashWithSalt` appId
+    _salt
       `Prelude.hashWithSalt` forceStopAppReplication
+      `Prelude.hashWithSalt` forceTerminateApp
+      `Prelude.hashWithSalt` appId
 
 instance Prelude.NFData DeleteApp where
   rnf DeleteApp' {..} =
-    Prelude.rnf forceTerminateApp
+    Prelude.rnf forceStopAppReplication
+      `Prelude.seq` Prelude.rnf forceTerminateApp
       `Prelude.seq` Prelude.rnf appId
-      `Prelude.seq` Prelude.rnf forceStopAppReplication
 
 instance Core.ToHeaders DeleteApp where
   toHeaders =
@@ -141,11 +143,11 @@ instance Core.ToJSON DeleteApp where
   toJSON DeleteApp' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("forceTerminateApp" Core..=)
+          [ ("forceStopAppReplication" Core..=)
+              Prelude.<$> forceStopAppReplication,
+            ("forceTerminateApp" Core..=)
               Prelude.<$> forceTerminateApp,
-            ("appId" Core..=) Prelude.<$> appId,
-            ("forceStopAppReplication" Core..=)
-              Prelude.<$> forceStopAppReplication
+            ("appId" Core..=) Prelude.<$> appId
           ]
       )
 

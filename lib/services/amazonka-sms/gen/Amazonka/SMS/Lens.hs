@@ -14,130 +14,92 @@
 module Amazonka.SMS.Lens
   ( -- * Operations
 
-    -- ** DeleteAppReplicationConfiguration
-    deleteAppReplicationConfiguration_appId,
-    deleteAppReplicationConfigurationResponse_httpStatus,
+    -- ** CreateApp
+    createApp_tags,
+    createApp_name,
+    createApp_clientToken,
+    createApp_roleName,
+    createApp_description,
+    createApp_serverGroups,
+    createAppResponse_tags,
+    createAppResponse_appSummary,
+    createAppResponse_serverGroups,
+    createAppResponse_httpStatus,
 
-    -- ** PutAppReplicationConfiguration
-    putAppReplicationConfiguration_appId,
-    putAppReplicationConfiguration_serverGroupReplicationConfigurations,
-    putAppReplicationConfigurationResponse_httpStatus,
+    -- ** CreateReplicationJob
+    createReplicationJob_roleName,
+    createReplicationJob_licenseType,
+    createReplicationJob_frequency,
+    createReplicationJob_runOnce,
+    createReplicationJob_description,
+    createReplicationJob_encrypted,
+    createReplicationJob_kmsKeyId,
+    createReplicationJob_numberOfRecentAmisToKeep,
+    createReplicationJob_serverId,
+    createReplicationJob_seedReplicationTime,
+    createReplicationJobResponse_replicationJobId,
+    createReplicationJobResponse_httpStatus,
 
-    -- ** DeleteServerCatalog
-    deleteServerCatalogResponse_httpStatus,
-
-    -- ** ImportAppCatalog
-    importAppCatalog_roleName,
-    importAppCatalogResponse_httpStatus,
-
-    -- ** GetAppLaunchConfiguration
-    getAppLaunchConfiguration_appId,
-    getAppLaunchConfigurationResponse_serverGroupLaunchConfigurations,
-    getAppLaunchConfigurationResponse_autoLaunch,
-    getAppLaunchConfigurationResponse_roleName,
-    getAppLaunchConfigurationResponse_appId,
-    getAppLaunchConfigurationResponse_httpStatus,
+    -- ** DeleteApp
+    deleteApp_forceStopAppReplication,
+    deleteApp_forceTerminateApp,
+    deleteApp_appId,
+    deleteAppResponse_httpStatus,
 
     -- ** DeleteAppLaunchConfiguration
     deleteAppLaunchConfiguration_appId,
     deleteAppLaunchConfigurationResponse_httpStatus,
 
-    -- ** StartAppReplication
-    startAppReplication_appId,
-    startAppReplicationResponse_httpStatus,
+    -- ** DeleteAppReplicationConfiguration
+    deleteAppReplicationConfiguration_appId,
+    deleteAppReplicationConfigurationResponse_httpStatus,
 
-    -- ** PutAppLaunchConfiguration
-    putAppLaunchConfiguration_serverGroupLaunchConfigurations,
-    putAppLaunchConfiguration_autoLaunch,
-    putAppLaunchConfiguration_roleName,
-    putAppLaunchConfiguration_appId,
-    putAppLaunchConfigurationResponse_httpStatus,
+    -- ** DeleteAppValidationConfiguration
+    deleteAppValidationConfiguration_appId,
+    deleteAppValidationConfigurationResponse_httpStatus,
 
-    -- ** GetReplicationRuns
-    getReplicationRuns_nextToken,
-    getReplicationRuns_maxResults,
-    getReplicationRuns_replicationJobId,
-    getReplicationRunsResponse_replicationJob,
-    getReplicationRunsResponse_nextToken,
-    getReplicationRunsResponse_replicationRunList,
-    getReplicationRunsResponse_httpStatus,
+    -- ** DeleteReplicationJob
+    deleteReplicationJob_replicationJobId,
+    deleteReplicationJobResponse_httpStatus,
 
-    -- ** TerminateApp
-    terminateApp_appId,
-    terminateAppResponse_httpStatus,
-
-    -- ** ListApps
-    listApps_appIds,
-    listApps_nextToken,
-    listApps_maxResults,
-    listAppsResponse_apps,
-    listAppsResponse_nextToken,
-    listAppsResponse_httpStatus,
-
-    -- ** GetServers
-    getServers_vmServerAddressList,
-    getServers_nextToken,
-    getServers_maxResults,
-    getServersResponse_serverCatalogStatus,
-    getServersResponse_lastModifiedOn,
-    getServersResponse_nextToken,
-    getServersResponse_serverList,
-    getServersResponse_httpStatus,
-
-    -- ** DeleteApp
-    deleteApp_forceTerminateApp,
-    deleteApp_appId,
-    deleteApp_forceStopAppReplication,
-    deleteAppResponse_httpStatus,
-
-    -- ** UpdateApp
-    updateApp_roleName,
-    updateApp_appId,
-    updateApp_name,
-    updateApp_description,
-    updateApp_serverGroups,
-    updateApp_tags,
-    updateAppResponse_appSummary,
-    updateAppResponse_serverGroups,
-    updateAppResponse_tags,
-    updateAppResponse_httpStatus,
-
-    -- ** StartOnDemandAppReplication
-    startOnDemandAppReplication_description,
-    startOnDemandAppReplication_appId,
-    startOnDemandAppReplicationResponse_httpStatus,
-
-    -- ** ImportServerCatalog
-    importServerCatalogResponse_httpStatus,
-
-    -- ** GenerateTemplate
-    generateTemplate_appId,
-    generateTemplate_templateFormat,
-    generateTemplateResponse_s3Location,
-    generateTemplateResponse_httpStatus,
-
-    -- ** GetConnectors
-    getConnectors_nextToken,
-    getConnectors_maxResults,
-    getConnectorsResponse_connectorList,
-    getConnectorsResponse_nextToken,
-    getConnectorsResponse_httpStatus,
-
-    -- ** GetReplicationJobs
-    getReplicationJobs_replicationJobId,
-    getReplicationJobs_nextToken,
-    getReplicationJobs_maxResults,
-    getReplicationJobsResponse_replicationJobList,
-    getReplicationJobsResponse_nextToken,
-    getReplicationJobsResponse_httpStatus,
+    -- ** DeleteServerCatalog
+    deleteServerCatalogResponse_httpStatus,
 
     -- ** DisassociateConnector
     disassociateConnector_connectorId,
     disassociateConnectorResponse_httpStatus,
 
-    -- ** LaunchApp
-    launchApp_appId,
-    launchAppResponse_httpStatus,
+    -- ** GenerateChangeSet
+    generateChangeSet_changesetFormat,
+    generateChangeSet_appId,
+    generateChangeSetResponse_s3Location,
+    generateChangeSetResponse_httpStatus,
+
+    -- ** GenerateTemplate
+    generateTemplate_templateFormat,
+    generateTemplate_appId,
+    generateTemplateResponse_s3Location,
+    generateTemplateResponse_httpStatus,
+
+    -- ** GetApp
+    getApp_appId,
+    getAppResponse_tags,
+    getAppResponse_appSummary,
+    getAppResponse_serverGroups,
+    getAppResponse_httpStatus,
+
+    -- ** GetAppLaunchConfiguration
+    getAppLaunchConfiguration_appId,
+    getAppLaunchConfigurationResponse_roleName,
+    getAppLaunchConfigurationResponse_serverGroupLaunchConfigurations,
+    getAppLaunchConfigurationResponse_autoLaunch,
+    getAppLaunchConfigurationResponse_appId,
+    getAppLaunchConfigurationResponse_httpStatus,
+
+    -- ** GetAppReplicationConfiguration
+    getAppReplicationConfiguration_appId,
+    getAppReplicationConfigurationResponse_serverGroupReplicationConfigurations,
+    getAppReplicationConfigurationResponse_httpStatus,
 
     -- ** GetAppValidationConfiguration
     getAppValidationConfiguration_appId,
@@ -145,68 +107,80 @@ module Amazonka.SMS.Lens
     getAppValidationConfigurationResponse_appValidationConfigurations,
     getAppValidationConfigurationResponse_httpStatus,
 
-    -- ** CreateReplicationJob
-    createReplicationJob_frequency,
-    createReplicationJob_numberOfRecentAmisToKeep,
-    createReplicationJob_licenseType,
-    createReplicationJob_roleName,
-    createReplicationJob_encrypted,
-    createReplicationJob_kmsKeyId,
-    createReplicationJob_runOnce,
-    createReplicationJob_description,
-    createReplicationJob_serverId,
-    createReplicationJob_seedReplicationTime,
-    createReplicationJobResponse_replicationJobId,
-    createReplicationJobResponse_httpStatus,
+    -- ** GetAppValidationOutput
+    getAppValidationOutput_appId,
+    getAppValidationOutputResponse_validationOutputList,
+    getAppValidationOutputResponse_httpStatus,
 
-    -- ** GenerateChangeSet
-    generateChangeSet_appId,
-    generateChangeSet_changesetFormat,
-    generateChangeSetResponse_s3Location,
-    generateChangeSetResponse_httpStatus,
+    -- ** GetConnectors
+    getConnectors_nextToken,
+    getConnectors_maxResults,
+    getConnectorsResponse_nextToken,
+    getConnectorsResponse_connectorList,
+    getConnectorsResponse_httpStatus,
 
-    -- ** GetApp
-    getApp_appId,
-    getAppResponse_appSummary,
-    getAppResponse_serverGroups,
-    getAppResponse_tags,
-    getAppResponse_httpStatus,
+    -- ** GetReplicationJobs
+    getReplicationJobs_nextToken,
+    getReplicationJobs_replicationJobId,
+    getReplicationJobs_maxResults,
+    getReplicationJobsResponse_nextToken,
+    getReplicationJobsResponse_replicationJobList,
+    getReplicationJobsResponse_httpStatus,
 
-    -- ** UpdateReplicationJob
-    updateReplicationJob_frequency,
-    updateReplicationJob_numberOfRecentAmisToKeep,
-    updateReplicationJob_licenseType,
-    updateReplicationJob_roleName,
-    updateReplicationJob_encrypted,
-    updateReplicationJob_nextReplicationRunStartTime,
-    updateReplicationJob_kmsKeyId,
-    updateReplicationJob_description,
-    updateReplicationJob_replicationJobId,
-    updateReplicationJobResponse_httpStatus,
+    -- ** GetReplicationRuns
+    getReplicationRuns_nextToken,
+    getReplicationRuns_maxResults,
+    getReplicationRuns_replicationJobId,
+    getReplicationRunsResponse_replicationRunList,
+    getReplicationRunsResponse_nextToken,
+    getReplicationRunsResponse_replicationJob,
+    getReplicationRunsResponse_httpStatus,
 
-    -- ** DeleteReplicationJob
-    deleteReplicationJob_replicationJobId,
-    deleteReplicationJobResponse_httpStatus,
+    -- ** GetServers
+    getServers_nextToken,
+    getServers_vmServerAddressList,
+    getServers_maxResults,
+    getServersResponse_nextToken,
+    getServersResponse_lastModifiedOn,
+    getServersResponse_serverCatalogStatus,
+    getServersResponse_serverList,
+    getServersResponse_httpStatus,
 
-    -- ** CreateApp
-    createApp_clientToken,
-    createApp_roleName,
-    createApp_name,
-    createApp_description,
-    createApp_serverGroups,
-    createApp_tags,
-    createAppResponse_appSummary,
-    createAppResponse_serverGroups,
-    createAppResponse_tags,
-    createAppResponse_httpStatus,
+    -- ** ImportAppCatalog
+    importAppCatalog_roleName,
+    importAppCatalogResponse_httpStatus,
 
-    -- ** StopAppReplication
-    stopAppReplication_appId,
-    stopAppReplicationResponse_httpStatus,
+    -- ** ImportServerCatalog
+    importServerCatalogResponse_httpStatus,
 
-    -- ** DeleteAppValidationConfiguration
-    deleteAppValidationConfiguration_appId,
-    deleteAppValidationConfigurationResponse_httpStatus,
+    -- ** LaunchApp
+    launchApp_appId,
+    launchAppResponse_httpStatus,
+
+    -- ** ListApps
+    listApps_nextToken,
+    listApps_appIds,
+    listApps_maxResults,
+    listAppsResponse_nextToken,
+    listAppsResponse_apps,
+    listAppsResponse_httpStatus,
+
+    -- ** NotifyAppValidationOutput
+    notifyAppValidationOutput_notificationContext,
+    notifyAppValidationOutput_appId,
+    notifyAppValidationOutputResponse_httpStatus,
+
+    -- ** PutAppLaunchConfiguration
+    putAppLaunchConfiguration_roleName,
+    putAppLaunchConfiguration_serverGroupLaunchConfigurations,
+    putAppLaunchConfiguration_autoLaunch,
+    putAppLaunchConfiguration_appId,
+    putAppLaunchConfigurationResponse_httpStatus,
+
+    -- ** PutAppReplicationConfiguration
+    putAppReplicationConfiguration_serverGroupReplicationConfigurations,
+    putAppReplicationConfiguration_appId,
+    putAppReplicationConfigurationResponse_httpStatus,
 
     -- ** PutAppValidationConfiguration
     putAppValidationConfiguration_serverGroupValidationConfigurations,
@@ -214,15 +188,14 @@ module Amazonka.SMS.Lens
     putAppValidationConfiguration_appId,
     putAppValidationConfigurationResponse_httpStatus,
 
-    -- ** GetAppValidationOutput
-    getAppValidationOutput_appId,
-    getAppValidationOutputResponse_validationOutputList,
-    getAppValidationOutputResponse_httpStatus,
+    -- ** StartAppReplication
+    startAppReplication_appId,
+    startAppReplicationResponse_httpStatus,
 
-    -- ** GetAppReplicationConfiguration
-    getAppReplicationConfiguration_appId,
-    getAppReplicationConfigurationResponse_serverGroupReplicationConfigurations,
-    getAppReplicationConfigurationResponse_httpStatus,
+    -- ** StartOnDemandAppReplication
+    startOnDemandAppReplication_description,
+    startOnDemandAppReplication_appId,
+    startOnDemandAppReplicationResponse_httpStatus,
 
     -- ** StartOnDemandReplicationRun
     startOnDemandReplicationRun_description,
@@ -230,54 +203,81 @@ module Amazonka.SMS.Lens
     startOnDemandReplicationRunResponse_replicationRunId,
     startOnDemandReplicationRunResponse_httpStatus,
 
-    -- ** NotifyAppValidationOutput
-    notifyAppValidationOutput_notificationContext,
-    notifyAppValidationOutput_appId,
-    notifyAppValidationOutputResponse_httpStatus,
+    -- ** StopAppReplication
+    stopAppReplication_appId,
+    stopAppReplicationResponse_httpStatus,
+
+    -- ** TerminateApp
+    terminateApp_appId,
+    terminateAppResponse_httpStatus,
+
+    -- ** UpdateApp
+    updateApp_tags,
+    updateApp_name,
+    updateApp_roleName,
+    updateApp_description,
+    updateApp_serverGroups,
+    updateApp_appId,
+    updateAppResponse_tags,
+    updateAppResponse_appSummary,
+    updateAppResponse_serverGroups,
+    updateAppResponse_httpStatus,
+
+    -- ** UpdateReplicationJob
+    updateReplicationJob_roleName,
+    updateReplicationJob_licenseType,
+    updateReplicationJob_frequency,
+    updateReplicationJob_description,
+    updateReplicationJob_encrypted,
+    updateReplicationJob_kmsKeyId,
+    updateReplicationJob_nextReplicationRunStartTime,
+    updateReplicationJob_numberOfRecentAmisToKeep,
+    updateReplicationJob_replicationJobId,
+    updateReplicationJobResponse_httpStatus,
 
     -- * Types
 
     -- ** AppSummary
-    appSummary_creationTime,
-    appSummary_totalServers,
-    appSummary_status,
-    appSummary_launchDetails,
-    appSummary_launchStatusMessage,
+    appSummary_launchStatus,
     appSummary_replicationConfigurationStatus,
+    appSummary_name,
+    appSummary_roleName,
     appSummary_replicationStatusMessage,
     appSummary_totalServerGroups,
-    appSummary_roleName,
-    appSummary_launchConfigurationStatus,
-    appSummary_launchStatus,
-    appSummary_appId,
-    appSummary_name,
-    appSummary_statusMessage,
-    appSummary_latestReplicationTime,
-    appSummary_importedAppId,
+    appSummary_launchDetails,
     appSummary_replicationStatus,
-    appSummary_lastModified,
+    appSummary_totalServers,
+    appSummary_status,
     appSummary_description,
+    appSummary_latestReplicationTime,
+    appSummary_lastModified,
+    appSummary_creationTime,
+    appSummary_launchConfigurationStatus,
+    appSummary_launchStatusMessage,
+    appSummary_importedAppId,
+    appSummary_statusMessage,
+    appSummary_appId,
 
     -- ** AppValidationConfiguration
-    appValidationConfiguration_ssmValidationParameters,
     appValidationConfiguration_name,
-    appValidationConfiguration_validationId,
+    appValidationConfiguration_ssmValidationParameters,
     appValidationConfiguration_appValidationStrategy,
+    appValidationConfiguration_validationId,
 
     -- ** AppValidationOutput
     appValidationOutput_ssmOutput,
 
     -- ** Connector
-    connector_status,
-    connector_vmManagerName,
-    connector_ipAddress,
-    connector_vmManagerId,
-    connector_vmManagerType,
-    connector_connectorId,
     connector_associatedOn,
-    connector_macAddress,
-    connector_version,
+    connector_vmManagerName,
+    connector_vmManagerId,
+    connector_connectorId,
     connector_capabilityList,
+    connector_status,
+    connector_macAddress,
+    connector_vmManagerType,
+    connector_version,
+    connector_ipAddress,
 
     -- ** LaunchDetails
     launchDetails_stackId,
@@ -285,120 +285,120 @@ module Amazonka.SMS.Lens
     launchDetails_stackName,
 
     -- ** NotificationContext
+    notificationContext_validationId,
     notificationContext_status,
     notificationContext_statusMessage,
-    notificationContext_validationId,
 
     -- ** ReplicationJob
-    replicationJob_frequency,
-    replicationJob_numberOfRecentAmisToKeep,
-    replicationJob_state,
-    replicationJob_serverType,
-    replicationJob_serverId,
-    replicationJob_licenseType,
-    replicationJob_roleName,
-    replicationJob_vmServer,
-    replicationJob_encrypted,
-    replicationJob_replicationJobId,
     replicationJob_replicationRunList,
+    replicationJob_roleName,
+    replicationJob_licenseType,
+    replicationJob_frequency,
+    replicationJob_runOnce,
+    replicationJob_state,
+    replicationJob_latestAmiId,
+    replicationJob_description,
+    replicationJob_serverType,
+    replicationJob_replicationJobId,
+    replicationJob_encrypted,
+    replicationJob_seedReplicationTime,
+    replicationJob_kmsKeyId,
+    replicationJob_serverId,
+    replicationJob_vmServer,
     replicationJob_nextReplicationRunStartTime,
     replicationJob_statusMessage,
-    replicationJob_kmsKeyId,
-    replicationJob_latestAmiId,
-    replicationJob_seedReplicationTime,
-    replicationJob_runOnce,
-    replicationJob_description,
+    replicationJob_numberOfRecentAmisToKeep,
 
     -- ** ReplicationRun
-    replicationRun_state,
-    replicationRun_replicationRunId,
-    replicationRun_encrypted,
-    replicationRun_stageDetails,
     replicationRun_scheduledStartTime,
-    replicationRun_statusMessage,
-    replicationRun_kmsKeyId,
-    replicationRun_completedTime,
     replicationRun_amiId,
     replicationRun_type,
+    replicationRun_completedTime,
+    replicationRun_state,
+    replicationRun_stageDetails,
     replicationRun_description,
+    replicationRun_replicationRunId,
+    replicationRun_encrypted,
+    replicationRun_kmsKeyId,
+    replicationRun_statusMessage,
 
     -- ** ReplicationRunStageDetails
-    replicationRunStageDetails_stage,
     replicationRunStageDetails_stageProgress,
+    replicationRunStageDetails_stage,
 
     -- ** S3Location
-    s3Location_bucket,
     s3Location_key,
+    s3Location_bucket,
 
     -- ** SSMOutput
     sSMOutput_s3Location,
 
     -- ** SSMValidationParameters
-    sSMValidationParameters_instanceId,
     sSMValidationParameters_command,
+    sSMValidationParameters_instanceId,
+    sSMValidationParameters_source,
     sSMValidationParameters_executionTimeoutSeconds,
     sSMValidationParameters_scriptType,
-    sSMValidationParameters_source,
     sSMValidationParameters_outputS3BucketName,
 
     -- ** Server
     server_serverType,
-    server_serverId,
-    server_replicationJobTerminated,
-    server_vmServer,
     server_replicationJobId,
+    server_serverId,
+    server_vmServer,
+    server_replicationJobTerminated,
 
     -- ** ServerGroup
-    serverGroup_serverList,
     serverGroup_name,
     serverGroup_serverGroupId,
+    serverGroup_serverList,
 
     -- ** ServerGroupLaunchConfiguration
     serverGroupLaunchConfiguration_serverGroupId,
-    serverGroupLaunchConfiguration_launchOrder,
     serverGroupLaunchConfiguration_serverLaunchConfigurations,
+    serverGroupLaunchConfiguration_launchOrder,
 
     -- ** ServerGroupReplicationConfiguration
-    serverGroupReplicationConfiguration_serverGroupId,
     serverGroupReplicationConfiguration_serverReplicationConfigurations,
+    serverGroupReplicationConfiguration_serverGroupId,
 
     -- ** ServerGroupValidationConfiguration
-    serverGroupValidationConfiguration_serverValidationConfigurations,
     serverGroupValidationConfiguration_serverGroupId,
+    serverGroupValidationConfiguration_serverValidationConfigurations,
 
     -- ** ServerLaunchConfiguration
     serverLaunchConfiguration_ec2KeyName,
-    serverLaunchConfiguration_configureScriptType,
-    serverLaunchConfiguration_associatePublicIpAddress,
-    serverLaunchConfiguration_iamInstanceProfileName,
-    serverLaunchConfiguration_subnet,
-    serverLaunchConfiguration_logicalId,
-    serverLaunchConfiguration_securityGroup,
-    serverLaunchConfiguration_userData,
-    serverLaunchConfiguration_instanceType,
-    serverLaunchConfiguration_configureScript,
-    serverLaunchConfiguration_server,
     serverLaunchConfiguration_vpc,
+    serverLaunchConfiguration_userData,
+    serverLaunchConfiguration_associatePublicIpAddress,
+    serverLaunchConfiguration_securityGroup,
+    serverLaunchConfiguration_configureScriptType,
+    serverLaunchConfiguration_instanceType,
+    serverLaunchConfiguration_server,
+    serverLaunchConfiguration_logicalId,
+    serverLaunchConfiguration_subnet,
+    serverLaunchConfiguration_iamInstanceProfileName,
+    serverLaunchConfiguration_configureScript,
 
     -- ** ServerReplicationConfiguration
     serverReplicationConfiguration_serverReplicationParameters,
     serverReplicationConfiguration_server,
 
     -- ** ServerReplicationParameters
-    serverReplicationParameters_frequency,
-    serverReplicationParameters_numberOfRecentAmisToKeep,
     serverReplicationParameters_seedTime,
     serverReplicationParameters_licenseType,
+    serverReplicationParameters_frequency,
+    serverReplicationParameters_runOnce,
     serverReplicationParameters_encrypted,
     serverReplicationParameters_kmsKeyId,
-    serverReplicationParameters_runOnce,
+    serverReplicationParameters_numberOfRecentAmisToKeep,
 
     -- ** ServerValidationConfiguration
-    serverValidationConfiguration_serverValidationStrategy,
-    serverValidationConfiguration_userDataValidationParameters,
     serverValidationConfiguration_name,
-    serverValidationConfiguration_server,
+    serverValidationConfiguration_userDataValidationParameters,
     serverValidationConfiguration_validationId,
+    serverValidationConfiguration_serverValidationStrategy,
+    serverValidationConfiguration_server,
 
     -- ** ServerValidationOutput
     serverValidationOutput_server,
@@ -407,30 +407,30 @@ module Amazonka.SMS.Lens
     source_s3Location,
 
     -- ** Tag
-    tag_value,
     tag_key,
+    tag_value,
 
     -- ** UserData
     userData_s3Location,
 
     -- ** UserDataValidationParameters
-    userDataValidationParameters_scriptType,
     userDataValidationParameters_source,
+    userDataValidationParameters_scriptType,
 
     -- ** ValidationOutput
-    validationOutput_status,
-    validationOutput_appValidationOutput,
-    validationOutput_latestValidationTime,
     validationOutput_name,
-    validationOutput_statusMessage,
     validationOutput_validationId,
+    validationOutput_status,
     validationOutput_serverValidationOutput,
+    validationOutput_appValidationOutput,
+    validationOutput_statusMessage,
+    validationOutput_latestValidationTime,
 
     -- ** VmServer
-    vmServer_vmManagerName,
-    vmServer_vmManagerType,
     vmServer_vmServerAddress,
+    vmServer_vmManagerName,
     vmServer_vmName,
+    vmServer_vmManagerType,
     vmServer_vmPath,
 
     -- ** VmServerAddress

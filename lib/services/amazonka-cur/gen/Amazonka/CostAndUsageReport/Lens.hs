@@ -14,19 +14,10 @@
 module Amazonka.CostAndUsageReport.Lens
   ( -- * Operations
 
-    -- ** PutReportDefinition
-    putReportDefinition_reportDefinition,
-    putReportDefinitionResponse_httpStatus,
-
     -- ** DeleteReportDefinition
     deleteReportDefinition_reportName,
     deleteReportDefinitionResponse_responseMessage,
     deleteReportDefinitionResponse_httpStatus,
-
-    -- ** ModifyReportDefinition
-    modifyReportDefinition_reportName,
-    modifyReportDefinition_reportDefinition,
-    modifyReportDefinitionResponse_httpStatus,
 
     -- ** DescribeReportDefinitions
     describeReportDefinitions_nextToken,
@@ -35,13 +26,22 @@ module Amazonka.CostAndUsageReport.Lens
     describeReportDefinitionsResponse_reportDefinitions,
     describeReportDefinitionsResponse_httpStatus,
 
+    -- ** ModifyReportDefinition
+    modifyReportDefinition_reportName,
+    modifyReportDefinition_reportDefinition,
+    modifyReportDefinitionResponse_httpStatus,
+
+    -- ** PutReportDefinition
+    putReportDefinition_reportDefinition,
+    putReportDefinitionResponse_httpStatus,
+
     -- * Types
 
     -- ** ReportDefinition
+    reportDefinition_refreshClosedReports,
     reportDefinition_reportVersioning,
     reportDefinition_billingViewArn,
     reportDefinition_additionalArtifacts,
-    reportDefinition_refreshClosedReports,
     reportDefinition_reportName,
     reportDefinition_timeUnit,
     reportDefinition_format,

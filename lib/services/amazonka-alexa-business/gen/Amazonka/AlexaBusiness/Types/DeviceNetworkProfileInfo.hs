@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 data DeviceNetworkProfileInfo = DeviceNetworkProfileInfo'
   { -- | The ARN of the certificate associated with a device.
     certificateArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the network profile associated with a device.
-    networkProfileArn :: Prelude.Maybe Prelude.Text,
     -- | The time (in epoch) when the certificate expires.
-    certificateExpirationTime :: Prelude.Maybe Core.POSIX
+    certificateExpirationTime :: Prelude.Maybe Core.POSIX,
+    -- | The ARN of the network profile associated with a device.
+    networkProfileArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,30 +46,30 @@ data DeviceNetworkProfileInfo = DeviceNetworkProfileInfo'
 --
 -- 'certificateArn', 'deviceNetworkProfileInfo_certificateArn' - The ARN of the certificate associated with a device.
 --
--- 'networkProfileArn', 'deviceNetworkProfileInfo_networkProfileArn' - The ARN of the network profile associated with a device.
---
 -- 'certificateExpirationTime', 'deviceNetworkProfileInfo_certificateExpirationTime' - The time (in epoch) when the certificate expires.
+--
+-- 'networkProfileArn', 'deviceNetworkProfileInfo_networkProfileArn' - The ARN of the network profile associated with a device.
 newDeviceNetworkProfileInfo ::
   DeviceNetworkProfileInfo
 newDeviceNetworkProfileInfo =
   DeviceNetworkProfileInfo'
     { certificateArn =
         Prelude.Nothing,
-      networkProfileArn = Prelude.Nothing,
-      certificateExpirationTime = Prelude.Nothing
+      certificateExpirationTime = Prelude.Nothing,
+      networkProfileArn = Prelude.Nothing
     }
 
 -- | The ARN of the certificate associated with a device.
 deviceNetworkProfileInfo_certificateArn :: Lens.Lens' DeviceNetworkProfileInfo (Prelude.Maybe Prelude.Text)
 deviceNetworkProfileInfo_certificateArn = Lens.lens (\DeviceNetworkProfileInfo' {certificateArn} -> certificateArn) (\s@DeviceNetworkProfileInfo' {} a -> s {certificateArn = a} :: DeviceNetworkProfileInfo)
 
--- | The ARN of the network profile associated with a device.
-deviceNetworkProfileInfo_networkProfileArn :: Lens.Lens' DeviceNetworkProfileInfo (Prelude.Maybe Prelude.Text)
-deviceNetworkProfileInfo_networkProfileArn = Lens.lens (\DeviceNetworkProfileInfo' {networkProfileArn} -> networkProfileArn) (\s@DeviceNetworkProfileInfo' {} a -> s {networkProfileArn = a} :: DeviceNetworkProfileInfo)
-
 -- | The time (in epoch) when the certificate expires.
 deviceNetworkProfileInfo_certificateExpirationTime :: Lens.Lens' DeviceNetworkProfileInfo (Prelude.Maybe Prelude.UTCTime)
 deviceNetworkProfileInfo_certificateExpirationTime = Lens.lens (\DeviceNetworkProfileInfo' {certificateExpirationTime} -> certificateExpirationTime) (\s@DeviceNetworkProfileInfo' {} a -> s {certificateExpirationTime = a} :: DeviceNetworkProfileInfo) Prelude.. Lens.mapping Core._Time
+
+-- | The ARN of the network profile associated with a device.
+deviceNetworkProfileInfo_networkProfileArn :: Lens.Lens' DeviceNetworkProfileInfo (Prelude.Maybe Prelude.Text)
+deviceNetworkProfileInfo_networkProfileArn = Lens.lens (\DeviceNetworkProfileInfo' {networkProfileArn} -> networkProfileArn) (\s@DeviceNetworkProfileInfo' {} a -> s {networkProfileArn = a} :: DeviceNetworkProfileInfo)
 
 instance Core.FromJSON DeviceNetworkProfileInfo where
   parseJSON =
@@ -78,18 +78,18 @@ instance Core.FromJSON DeviceNetworkProfileInfo where
       ( \x ->
           DeviceNetworkProfileInfo'
             Prelude.<$> (x Core..:? "CertificateArn")
-            Prelude.<*> (x Core..:? "NetworkProfileArn")
             Prelude.<*> (x Core..:? "CertificateExpirationTime")
+            Prelude.<*> (x Core..:? "NetworkProfileArn")
       )
 
 instance Prelude.Hashable DeviceNetworkProfileInfo where
   hashWithSalt _salt DeviceNetworkProfileInfo' {..} =
     _salt `Prelude.hashWithSalt` certificateArn
-      `Prelude.hashWithSalt` networkProfileArn
       `Prelude.hashWithSalt` certificateExpirationTime
+      `Prelude.hashWithSalt` networkProfileArn
 
 instance Prelude.NFData DeviceNetworkProfileInfo where
   rnf DeviceNetworkProfileInfo' {..} =
     Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf networkProfileArn
       `Prelude.seq` Prelude.rnf certificateExpirationTime
+      `Prelude.seq` Prelude.rnf networkProfileArn

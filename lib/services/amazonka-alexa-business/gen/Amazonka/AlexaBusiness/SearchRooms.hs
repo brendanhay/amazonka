@@ -30,9 +30,9 @@ module Amazonka.AlexaBusiness.SearchRooms
     newSearchRooms,
 
     -- * Request Lenses
-    searchRooms_filters,
     searchRooms_sortCriteria,
     searchRooms_nextToken,
+    searchRooms_filters,
     searchRooms_maxResults,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Amazonka.AlexaBusiness.SearchRooms
     newSearchRoomsResponse,
 
     -- * Response Lenses
-    searchRoomsResponse_rooms,
     searchRoomsResponse_nextToken,
+    searchRoomsResponse_rooms,
     searchRoomsResponse_totalCount,
     searchRoomsResponse_httpStatus,
   )
@@ -56,10 +56,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchRooms' smart constructor.
 data SearchRooms = SearchRooms'
-  { -- | The filters to use to list a specified set of rooms. The supported
-    -- filter keys are RoomName and ProfileName.
-    filters :: Prelude.Maybe [Filter],
-    -- | The sort order to use in listing the specified set of rooms. The
+  { -- | The sort order to use in listing the specified set of rooms. The
     -- supported sort keys are RoomName and ProfileName.
     sortCriteria :: Prelude.Maybe [Sort],
     -- | An optional token returned from a prior request. Use this token for
@@ -67,6 +64,9 @@ data SearchRooms = SearchRooms'
     -- the response includes only results beyond the token, up to the value
     -- specified by @MaxResults@.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The filters to use to list a specified set of rooms. The supported
+    -- filter keys are RoomName and ProfileName.
+    filters :: Prelude.Maybe [Filter],
     -- | The maximum number of results to include in the response. If more
     -- results exist than the specified @MaxResults@ value, a token is included
     -- in the response so that the remaining results can be retrieved.
@@ -82,9 +82,6 @@ data SearchRooms = SearchRooms'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'searchRooms_filters' - The filters to use to list a specified set of rooms. The supported
--- filter keys are RoomName and ProfileName.
---
 -- 'sortCriteria', 'searchRooms_sortCriteria' - The sort order to use in listing the specified set of rooms. The
 -- supported sort keys are RoomName and ProfileName.
 --
@@ -93,6 +90,9 @@ data SearchRooms = SearchRooms'
 -- the response includes only results beyond the token, up to the value
 -- specified by @MaxResults@.
 --
+-- 'filters', 'searchRooms_filters' - The filters to use to list a specified set of rooms. The supported
+-- filter keys are RoomName and ProfileName.
+--
 -- 'maxResults', 'searchRooms_maxResults' - The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
@@ -100,16 +100,11 @@ newSearchRooms ::
   SearchRooms
 newSearchRooms =
   SearchRooms'
-    { filters = Prelude.Nothing,
-      sortCriteria = Prelude.Nothing,
+    { sortCriteria = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | The filters to use to list a specified set of rooms. The supported
--- filter keys are RoomName and ProfileName.
-searchRooms_filters :: Lens.Lens' SearchRooms (Prelude.Maybe [Filter])
-searchRooms_filters = Lens.lens (\SearchRooms' {filters} -> filters) (\s@SearchRooms' {} a -> s {filters = a} :: SearchRooms) Prelude.. Lens.mapping Lens.coerced
 
 -- | The sort order to use in listing the specified set of rooms. The
 -- supported sort keys are RoomName and ProfileName.
@@ -122,6 +117,11 @@ searchRooms_sortCriteria = Lens.lens (\SearchRooms' {sortCriteria} -> sortCriter
 -- specified by @MaxResults@.
 searchRooms_nextToken :: Lens.Lens' SearchRooms (Prelude.Maybe Prelude.Text)
 searchRooms_nextToken = Lens.lens (\SearchRooms' {nextToken} -> nextToken) (\s@SearchRooms' {} a -> s {nextToken = a} :: SearchRooms)
+
+-- | The filters to use to list a specified set of rooms. The supported
+-- filter keys are RoomName and ProfileName.
+searchRooms_filters :: Lens.Lens' SearchRooms (Prelude.Maybe [Filter])
+searchRooms_filters = Lens.lens (\SearchRooms' {filters} -> filters) (\s@SearchRooms' {} a -> s {filters = a} :: SearchRooms) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
@@ -155,24 +155,24 @@ instance Core.AWSRequest SearchRooms where
     Response.receiveJSON
       ( \s h x ->
           SearchRoomsResponse'
-            Prelude.<$> (x Core..?> "Rooms" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Rooms" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "TotalCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable SearchRooms where
   hashWithSalt _salt SearchRooms' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` sortCriteria
+    _salt `Prelude.hashWithSalt` sortCriteria
       `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData SearchRooms where
   rnf SearchRooms' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf sortCriteria
+    Prelude.rnf sortCriteria
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders SearchRooms where
@@ -194,9 +194,9 @@ instance Core.ToJSON SearchRooms where
   toJSON SearchRooms' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("SortCriteria" Core..=) Prelude.<$> sortCriteria,
+          [ ("SortCriteria" Core..=) Prelude.<$> sortCriteria,
             ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
@@ -209,10 +209,10 @@ instance Core.ToQuery SearchRooms where
 
 -- | /See:/ 'newSearchRoomsResponse' smart constructor.
 data SearchRoomsResponse = SearchRoomsResponse'
-  { -- | The rooms that meet the specified set of filter criteria, in sort order.
-    rooms :: Prelude.Maybe [RoomData],
-    -- | The token returned to indicate that there is more data available.
+  { -- | The token returned to indicate that there is more data available.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The rooms that meet the specified set of filter criteria, in sort order.
+    rooms :: Prelude.Maybe [RoomData],
     -- | The total number of rooms returned.
     totalCount :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
@@ -228,9 +228,9 @@ data SearchRoomsResponse = SearchRoomsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rooms', 'searchRoomsResponse_rooms' - The rooms that meet the specified set of filter criteria, in sort order.
---
 -- 'nextToken', 'searchRoomsResponse_nextToken' - The token returned to indicate that there is more data available.
+--
+-- 'rooms', 'searchRoomsResponse_rooms' - The rooms that meet the specified set of filter criteria, in sort order.
 --
 -- 'totalCount', 'searchRoomsResponse_totalCount' - The total number of rooms returned.
 --
@@ -241,19 +241,19 @@ newSearchRoomsResponse ::
   SearchRoomsResponse
 newSearchRoomsResponse pHttpStatus_ =
   SearchRoomsResponse'
-    { rooms = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      rooms = Prelude.Nothing,
       totalCount = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The rooms that meet the specified set of filter criteria, in sort order.
-searchRoomsResponse_rooms :: Lens.Lens' SearchRoomsResponse (Prelude.Maybe [RoomData])
-searchRoomsResponse_rooms = Lens.lens (\SearchRoomsResponse' {rooms} -> rooms) (\s@SearchRoomsResponse' {} a -> s {rooms = a} :: SearchRoomsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The token returned to indicate that there is more data available.
 searchRoomsResponse_nextToken :: Lens.Lens' SearchRoomsResponse (Prelude.Maybe Prelude.Text)
 searchRoomsResponse_nextToken = Lens.lens (\SearchRoomsResponse' {nextToken} -> nextToken) (\s@SearchRoomsResponse' {} a -> s {nextToken = a} :: SearchRoomsResponse)
+
+-- | The rooms that meet the specified set of filter criteria, in sort order.
+searchRoomsResponse_rooms :: Lens.Lens' SearchRoomsResponse (Prelude.Maybe [RoomData])
+searchRoomsResponse_rooms = Lens.lens (\SearchRoomsResponse' {rooms} -> rooms) (\s@SearchRoomsResponse' {} a -> s {rooms = a} :: SearchRoomsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The total number of rooms returned.
 searchRoomsResponse_totalCount :: Lens.Lens' SearchRoomsResponse (Prelude.Maybe Prelude.Int)
@@ -265,7 +265,7 @@ searchRoomsResponse_httpStatus = Lens.lens (\SearchRoomsResponse' {httpStatus} -
 
 instance Prelude.NFData SearchRoomsResponse where
   rnf SearchRoomsResponse' {..} =
-    Prelude.rnf rooms
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf rooms
       `Prelude.seq` Prelude.rnf totalCount
       `Prelude.seq` Prelude.rnf httpStatus

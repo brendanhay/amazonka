@@ -30,27 +30,27 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDevice' smart constructor.
 data Device = Device'
-  { -- | The status of a device. If the status is not READY, check the
-    -- DeviceStatusInfo value for details.
-    deviceStatus :: Prelude.Maybe DeviceStatus,
-    -- | Detailed information about a device\'s status.
-    deviceStatusInfo :: Prelude.Maybe DeviceStatusInfo,
-    -- | The ARN of a device.
-    deviceArn :: Prelude.Maybe Prelude.Text,
-    -- | The MAC address of a device.
-    macAddress :: Prelude.Maybe Prelude.Text,
+  { -- | The serial number of a device.
+    deviceSerialNumber :: Prelude.Maybe Prelude.Text,
     -- | The name of a device.
     deviceName :: Prelude.Maybe Prelude.Text,
+    -- | Detailed information about a device\'s status.
+    deviceStatusInfo :: Prelude.Maybe DeviceStatusInfo,
     -- | The room ARN of a device.
     roomArn :: Prelude.Maybe Prelude.Text,
     -- | The software version of a device.
     softwareVersion :: Prelude.Maybe Prelude.Text,
-    -- | The type of a device.
-    deviceType :: Prelude.Maybe Prelude.Text,
+    -- | The MAC address of a device.
+    macAddress :: Prelude.Maybe Prelude.Text,
     -- | Detailed information about a device\'s network profile.
     networkProfileInfo :: Prelude.Maybe DeviceNetworkProfileInfo,
-    -- | The serial number of a device.
-    deviceSerialNumber :: Prelude.Maybe Prelude.Text
+    -- | The status of a device. If the status is not READY, check the
+    -- DeviceStatusInfo value for details.
+    deviceStatus :: Prelude.Maybe DeviceStatus,
+    -- | The ARN of a device.
+    deviceArn :: Prelude.Maybe Prelude.Text,
+    -- | The type of a device.
+    deviceType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,62 +62,53 @@ data Device = Device'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deviceStatus', 'device_deviceStatus' - The status of a device. If the status is not READY, check the
--- DeviceStatusInfo value for details.
---
--- 'deviceStatusInfo', 'device_deviceStatusInfo' - Detailed information about a device\'s status.
---
--- 'deviceArn', 'device_deviceArn' - The ARN of a device.
---
--- 'macAddress', 'device_macAddress' - The MAC address of a device.
+-- 'deviceSerialNumber', 'device_deviceSerialNumber' - The serial number of a device.
 --
 -- 'deviceName', 'device_deviceName' - The name of a device.
+--
+-- 'deviceStatusInfo', 'device_deviceStatusInfo' - Detailed information about a device\'s status.
 --
 -- 'roomArn', 'device_roomArn' - The room ARN of a device.
 --
 -- 'softwareVersion', 'device_softwareVersion' - The software version of a device.
 --
--- 'deviceType', 'device_deviceType' - The type of a device.
+-- 'macAddress', 'device_macAddress' - The MAC address of a device.
 --
 -- 'networkProfileInfo', 'device_networkProfileInfo' - Detailed information about a device\'s network profile.
 --
--- 'deviceSerialNumber', 'device_deviceSerialNumber' - The serial number of a device.
+-- 'deviceStatus', 'device_deviceStatus' - The status of a device. If the status is not READY, check the
+-- DeviceStatusInfo value for details.
+--
+-- 'deviceArn', 'device_deviceArn' - The ARN of a device.
+--
+-- 'deviceType', 'device_deviceType' - The type of a device.
 newDevice ::
   Device
 newDevice =
   Device'
-    { deviceStatus = Prelude.Nothing,
-      deviceStatusInfo = Prelude.Nothing,
-      deviceArn = Prelude.Nothing,
-      macAddress = Prelude.Nothing,
+    { deviceSerialNumber = Prelude.Nothing,
       deviceName = Prelude.Nothing,
+      deviceStatusInfo = Prelude.Nothing,
       roomArn = Prelude.Nothing,
       softwareVersion = Prelude.Nothing,
-      deviceType = Prelude.Nothing,
+      macAddress = Prelude.Nothing,
       networkProfileInfo = Prelude.Nothing,
-      deviceSerialNumber = Prelude.Nothing
+      deviceStatus = Prelude.Nothing,
+      deviceArn = Prelude.Nothing,
+      deviceType = Prelude.Nothing
     }
 
--- | The status of a device. If the status is not READY, check the
--- DeviceStatusInfo value for details.
-device_deviceStatus :: Lens.Lens' Device (Prelude.Maybe DeviceStatus)
-device_deviceStatus = Lens.lens (\Device' {deviceStatus} -> deviceStatus) (\s@Device' {} a -> s {deviceStatus = a} :: Device)
-
--- | Detailed information about a device\'s status.
-device_deviceStatusInfo :: Lens.Lens' Device (Prelude.Maybe DeviceStatusInfo)
-device_deviceStatusInfo = Lens.lens (\Device' {deviceStatusInfo} -> deviceStatusInfo) (\s@Device' {} a -> s {deviceStatusInfo = a} :: Device)
-
--- | The ARN of a device.
-device_deviceArn :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
-device_deviceArn = Lens.lens (\Device' {deviceArn} -> deviceArn) (\s@Device' {} a -> s {deviceArn = a} :: Device)
-
--- | The MAC address of a device.
-device_macAddress :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
-device_macAddress = Lens.lens (\Device' {macAddress} -> macAddress) (\s@Device' {} a -> s {macAddress = a} :: Device)
+-- | The serial number of a device.
+device_deviceSerialNumber :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
+device_deviceSerialNumber = Lens.lens (\Device' {deviceSerialNumber} -> deviceSerialNumber) (\s@Device' {} a -> s {deviceSerialNumber = a} :: Device)
 
 -- | The name of a device.
 device_deviceName :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
 device_deviceName = Lens.lens (\Device' {deviceName} -> deviceName) (\s@Device' {} a -> s {deviceName = a} :: Device)
+
+-- | Detailed information about a device\'s status.
+device_deviceStatusInfo :: Lens.Lens' Device (Prelude.Maybe DeviceStatusInfo)
+device_deviceStatusInfo = Lens.lens (\Device' {deviceStatusInfo} -> deviceStatusInfo) (\s@Device' {} a -> s {deviceStatusInfo = a} :: Device)
 
 -- | The room ARN of a device.
 device_roomArn :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
@@ -127,17 +118,26 @@ device_roomArn = Lens.lens (\Device' {roomArn} -> roomArn) (\s@Device' {} a -> s
 device_softwareVersion :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
 device_softwareVersion = Lens.lens (\Device' {softwareVersion} -> softwareVersion) (\s@Device' {} a -> s {softwareVersion = a} :: Device)
 
--- | The type of a device.
-device_deviceType :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
-device_deviceType = Lens.lens (\Device' {deviceType} -> deviceType) (\s@Device' {} a -> s {deviceType = a} :: Device)
+-- | The MAC address of a device.
+device_macAddress :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
+device_macAddress = Lens.lens (\Device' {macAddress} -> macAddress) (\s@Device' {} a -> s {macAddress = a} :: Device)
 
 -- | Detailed information about a device\'s network profile.
 device_networkProfileInfo :: Lens.Lens' Device (Prelude.Maybe DeviceNetworkProfileInfo)
 device_networkProfileInfo = Lens.lens (\Device' {networkProfileInfo} -> networkProfileInfo) (\s@Device' {} a -> s {networkProfileInfo = a} :: Device)
 
--- | The serial number of a device.
-device_deviceSerialNumber :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
-device_deviceSerialNumber = Lens.lens (\Device' {deviceSerialNumber} -> deviceSerialNumber) (\s@Device' {} a -> s {deviceSerialNumber = a} :: Device)
+-- | The status of a device. If the status is not READY, check the
+-- DeviceStatusInfo value for details.
+device_deviceStatus :: Lens.Lens' Device (Prelude.Maybe DeviceStatus)
+device_deviceStatus = Lens.lens (\Device' {deviceStatus} -> deviceStatus) (\s@Device' {} a -> s {deviceStatus = a} :: Device)
+
+-- | The ARN of a device.
+device_deviceArn :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
+device_deviceArn = Lens.lens (\Device' {deviceArn} -> deviceArn) (\s@Device' {} a -> s {deviceArn = a} :: Device)
+
+-- | The type of a device.
+device_deviceType :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
+device_deviceType = Lens.lens (\Device' {deviceType} -> deviceType) (\s@Device' {} a -> s {deviceType = a} :: Device)
 
 instance Core.FromJSON Device where
   parseJSON =
@@ -145,40 +145,40 @@ instance Core.FromJSON Device where
       "Device"
       ( \x ->
           Device'
-            Prelude.<$> (x Core..:? "DeviceStatus")
-            Prelude.<*> (x Core..:? "DeviceStatusInfo")
-            Prelude.<*> (x Core..:? "DeviceArn")
-            Prelude.<*> (x Core..:? "MacAddress")
+            Prelude.<$> (x Core..:? "DeviceSerialNumber")
             Prelude.<*> (x Core..:? "DeviceName")
+            Prelude.<*> (x Core..:? "DeviceStatusInfo")
             Prelude.<*> (x Core..:? "RoomArn")
             Prelude.<*> (x Core..:? "SoftwareVersion")
-            Prelude.<*> (x Core..:? "DeviceType")
+            Prelude.<*> (x Core..:? "MacAddress")
             Prelude.<*> (x Core..:? "NetworkProfileInfo")
-            Prelude.<*> (x Core..:? "DeviceSerialNumber")
+            Prelude.<*> (x Core..:? "DeviceStatus")
+            Prelude.<*> (x Core..:? "DeviceArn")
+            Prelude.<*> (x Core..:? "DeviceType")
       )
 
 instance Prelude.Hashable Device where
   hashWithSalt _salt Device' {..} =
-    _salt `Prelude.hashWithSalt` deviceStatus
-      `Prelude.hashWithSalt` deviceStatusInfo
-      `Prelude.hashWithSalt` deviceArn
-      `Prelude.hashWithSalt` macAddress
+    _salt `Prelude.hashWithSalt` deviceSerialNumber
       `Prelude.hashWithSalt` deviceName
+      `Prelude.hashWithSalt` deviceStatusInfo
       `Prelude.hashWithSalt` roomArn
       `Prelude.hashWithSalt` softwareVersion
-      `Prelude.hashWithSalt` deviceType
+      `Prelude.hashWithSalt` macAddress
       `Prelude.hashWithSalt` networkProfileInfo
-      `Prelude.hashWithSalt` deviceSerialNumber
+      `Prelude.hashWithSalt` deviceStatus
+      `Prelude.hashWithSalt` deviceArn
+      `Prelude.hashWithSalt` deviceType
 
 instance Prelude.NFData Device where
   rnf Device' {..} =
-    Prelude.rnf deviceStatus
-      `Prelude.seq` Prelude.rnf deviceStatusInfo
-      `Prelude.seq` Prelude.rnf deviceArn
-      `Prelude.seq` Prelude.rnf macAddress
+    Prelude.rnf deviceSerialNumber
       `Prelude.seq` Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf deviceStatusInfo
       `Prelude.seq` Prelude.rnf roomArn
       `Prelude.seq` Prelude.rnf softwareVersion
-      `Prelude.seq` Prelude.rnf deviceType
+      `Prelude.seq` Prelude.rnf macAddress
       `Prelude.seq` Prelude.rnf networkProfileInfo
-      `Prelude.seq` Prelude.rnf deviceSerialNumber
+      `Prelude.seq` Prelude.rnf deviceStatus
+      `Prelude.seq` Prelude.rnf deviceArn
+      `Prelude.seq` Prelude.rnf deviceType

@@ -27,8 +27,8 @@ module Amazonka.AlexaBusiness.CreateGatewayGroup
     newCreateGatewayGroup,
 
     -- * Request Lenses
-    createGatewayGroup_description,
     createGatewayGroup_tags,
+    createGatewayGroup_description,
     createGatewayGroup_name,
     createGatewayGroup_clientRequestToken,
 
@@ -51,11 +51,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateGatewayGroup' smart constructor.
 data CreateGatewayGroup = CreateGatewayGroup'
-  { -- | The description of the gateway group.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The tags to be added to the specified resource. Do not provide system
+  { -- | The tags to be added to the specified resource. Do not provide system
     -- tags.
     tags :: Prelude.Maybe [Tag],
+    -- | The description of the gateway group.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the gateway group.
     name :: Prelude.Text,
     -- | A unique, user-specified identifier for the request that ensures
@@ -72,10 +72,10 @@ data CreateGatewayGroup = CreateGatewayGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'createGatewayGroup_description' - The description of the gateway group.
---
 -- 'tags', 'createGatewayGroup_tags' - The tags to be added to the specified resource. Do not provide system
 -- tags.
+--
+-- 'description', 'createGatewayGroup_description' - The description of the gateway group.
 --
 -- 'name', 'createGatewayGroup_name' - The name of the gateway group.
 --
@@ -89,20 +89,20 @@ newCreateGatewayGroup ::
   CreateGatewayGroup
 newCreateGatewayGroup pName_ pClientRequestToken_ =
   CreateGatewayGroup'
-    { description = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      description = Prelude.Nothing,
       name = pName_,
       clientRequestToken = pClientRequestToken_
     }
-
--- | The description of the gateway group.
-createGatewayGroup_description :: Lens.Lens' CreateGatewayGroup (Prelude.Maybe Prelude.Text)
-createGatewayGroup_description = Lens.lens (\CreateGatewayGroup' {description} -> description) (\s@CreateGatewayGroup' {} a -> s {description = a} :: CreateGatewayGroup)
 
 -- | The tags to be added to the specified resource. Do not provide system
 -- tags.
 createGatewayGroup_tags :: Lens.Lens' CreateGatewayGroup (Prelude.Maybe [Tag])
 createGatewayGroup_tags = Lens.lens (\CreateGatewayGroup' {tags} -> tags) (\s@CreateGatewayGroup' {} a -> s {tags = a} :: CreateGatewayGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | The description of the gateway group.
+createGatewayGroup_description :: Lens.Lens' CreateGatewayGroup (Prelude.Maybe Prelude.Text)
+createGatewayGroup_description = Lens.lens (\CreateGatewayGroup' {description} -> description) (\s@CreateGatewayGroup' {} a -> s {description = a} :: CreateGatewayGroup)
 
 -- | The name of the gateway group.
 createGatewayGroup_name :: Lens.Lens' CreateGatewayGroup Prelude.Text
@@ -128,15 +128,15 @@ instance Core.AWSRequest CreateGatewayGroup where
 
 instance Prelude.Hashable CreateGatewayGroup where
   hashWithSalt _salt CreateGatewayGroup' {..} =
-    _salt `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` clientRequestToken
 
 instance Prelude.NFData CreateGatewayGroup where
   rnf CreateGatewayGroup' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf clientRequestToken
 
@@ -159,8 +159,8 @@ instance Core.ToJSON CreateGatewayGroup where
   toJSON CreateGatewayGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            ("Tags" Core..=) Prelude.<$> tags,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just
               ("ClientRequestToken" Core..= clientRequestToken)

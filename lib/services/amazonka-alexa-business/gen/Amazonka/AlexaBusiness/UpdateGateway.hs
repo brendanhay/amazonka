@@ -29,8 +29,8 @@ module Amazonka.AlexaBusiness.UpdateGateway
 
     -- * Request Lenses
     updateGateway_name,
-    updateGateway_softwareVersion,
     updateGateway_description,
+    updateGateway_softwareVersion,
     updateGateway_gatewayArn,
 
     -- * Destructuring the Response
@@ -53,11 +53,11 @@ import qualified Amazonka.Response as Response
 data UpdateGateway = UpdateGateway'
   { -- | The updated name of the gateway.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The updated description of the gateway.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The updated software version of the gateway. The gateway automatically
     -- updates its software version during normal operation.
     softwareVersion :: Prelude.Maybe Prelude.Text,
-    -- | The updated description of the gateway.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the gateway to update.
     gatewayArn :: Prelude.Text
   }
@@ -73,10 +73,10 @@ data UpdateGateway = UpdateGateway'
 --
 -- 'name', 'updateGateway_name' - The updated name of the gateway.
 --
+-- 'description', 'updateGateway_description' - The updated description of the gateway.
+--
 -- 'softwareVersion', 'updateGateway_softwareVersion' - The updated software version of the gateway. The gateway automatically
 -- updates its software version during normal operation.
---
--- 'description', 'updateGateway_description' - The updated description of the gateway.
 --
 -- 'gatewayArn', 'updateGateway_gatewayArn' - The ARN of the gateway to update.
 newUpdateGateway ::
@@ -86,8 +86,8 @@ newUpdateGateway ::
 newUpdateGateway pGatewayArn_ =
   UpdateGateway'
     { name = Prelude.Nothing,
-      softwareVersion = Prelude.Nothing,
       description = Prelude.Nothing,
+      softwareVersion = Prelude.Nothing,
       gatewayArn = pGatewayArn_
     }
 
@@ -95,14 +95,14 @@ newUpdateGateway pGatewayArn_ =
 updateGateway_name :: Lens.Lens' UpdateGateway (Prelude.Maybe Prelude.Text)
 updateGateway_name = Lens.lens (\UpdateGateway' {name} -> name) (\s@UpdateGateway' {} a -> s {name = a} :: UpdateGateway)
 
+-- | The updated description of the gateway.
+updateGateway_description :: Lens.Lens' UpdateGateway (Prelude.Maybe Prelude.Text)
+updateGateway_description = Lens.lens (\UpdateGateway' {description} -> description) (\s@UpdateGateway' {} a -> s {description = a} :: UpdateGateway)
+
 -- | The updated software version of the gateway. The gateway automatically
 -- updates its software version during normal operation.
 updateGateway_softwareVersion :: Lens.Lens' UpdateGateway (Prelude.Maybe Prelude.Text)
 updateGateway_softwareVersion = Lens.lens (\UpdateGateway' {softwareVersion} -> softwareVersion) (\s@UpdateGateway' {} a -> s {softwareVersion = a} :: UpdateGateway)
-
--- | The updated description of the gateway.
-updateGateway_description :: Lens.Lens' UpdateGateway (Prelude.Maybe Prelude.Text)
-updateGateway_description = Lens.lens (\UpdateGateway' {description} -> description) (\s@UpdateGateway' {} a -> s {description = a} :: UpdateGateway)
 
 -- | The ARN of the gateway to update.
 updateGateway_gatewayArn :: Lens.Lens' UpdateGateway Prelude.Text
@@ -123,15 +123,15 @@ instance Core.AWSRequest UpdateGateway where
 instance Prelude.Hashable UpdateGateway where
   hashWithSalt _salt UpdateGateway' {..} =
     _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` softwareVersion
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` softwareVersion
       `Prelude.hashWithSalt` gatewayArn
 
 instance Prelude.NFData UpdateGateway where
   rnf UpdateGateway' {..} =
     Prelude.rnf name
-      `Prelude.seq` Prelude.rnf softwareVersion
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf softwareVersion
       `Prelude.seq` Prelude.rnf gatewayArn
 
 instance Core.ToHeaders UpdateGateway where
@@ -154,9 +154,9 @@ instance Core.ToJSON UpdateGateway where
     Core.object
       ( Prelude.catMaybes
           [ ("Name" Core..=) Prelude.<$> name,
+            ("Description" Core..=) Prelude.<$> description,
             ("SoftwareVersion" Core..=)
               Prelude.<$> softwareVersion,
-            ("Description" Core..=) Prelude.<$> description,
             Prelude.Just ("GatewayArn" Core..= gatewayArn)
           ]
       )

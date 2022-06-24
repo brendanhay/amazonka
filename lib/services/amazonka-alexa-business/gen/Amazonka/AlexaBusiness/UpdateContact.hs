@@ -27,12 +27,12 @@ module Amazonka.AlexaBusiness.UpdateContact
     newUpdateContact,
 
     -- * Request Lenses
-    updateContact_lastName,
-    updateContact_phoneNumbers,
-    updateContact_phoneNumber,
-    updateContact_sipAddresses,
     updateContact_firstName,
+    updateContact_sipAddresses,
     updateContact_displayName,
+    updateContact_lastName,
+    updateContact_phoneNumber,
+    updateContact_phoneNumbers,
     updateContact_contactArn,
 
     -- * Destructuring the Response
@@ -53,21 +53,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateContact' smart constructor.
 data UpdateContact = UpdateContact'
-  { -- | The updated last name of the contact.
+  { -- | The updated first name of the contact.
+    firstName :: Prelude.Maybe Prelude.Text,
+    -- | The list of SIP addresses for the contact.
+    sipAddresses :: Prelude.Maybe [SipAddress],
+    -- | The updated display name of the contact.
+    displayName :: Prelude.Maybe Prelude.Text,
+    -- | The updated last name of the contact.
     lastName :: Prelude.Maybe Prelude.Text,
-    -- | The list of phone numbers for the contact.
-    phoneNumbers :: Prelude.Maybe [PhoneNumber],
     -- | The updated phone number of the contact. The phone number type defaults
     -- to WORK. You can either specify PhoneNumber or PhoneNumbers. We
     -- recommend that you use PhoneNumbers, which lets you specify the phone
     -- number type and multiple numbers.
     phoneNumber :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The list of SIP addresses for the contact.
-    sipAddresses :: Prelude.Maybe [SipAddress],
-    -- | The updated first name of the contact.
-    firstName :: Prelude.Maybe Prelude.Text,
-    -- | The updated display name of the contact.
-    displayName :: Prelude.Maybe Prelude.Text,
+    -- | The list of phone numbers for the contact.
+    phoneNumbers :: Prelude.Maybe [PhoneNumber],
     -- | The ARN of the contact to update.
     contactArn :: Prelude.Text
   }
@@ -81,20 +81,20 @@ data UpdateContact = UpdateContact'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastName', 'updateContact_lastName' - The updated last name of the contact.
+-- 'firstName', 'updateContact_firstName' - The updated first name of the contact.
 --
--- 'phoneNumbers', 'updateContact_phoneNumbers' - The list of phone numbers for the contact.
+-- 'sipAddresses', 'updateContact_sipAddresses' - The list of SIP addresses for the contact.
+--
+-- 'displayName', 'updateContact_displayName' - The updated display name of the contact.
+--
+-- 'lastName', 'updateContact_lastName' - The updated last name of the contact.
 --
 -- 'phoneNumber', 'updateContact_phoneNumber' - The updated phone number of the contact. The phone number type defaults
 -- to WORK. You can either specify PhoneNumber or PhoneNumbers. We
 -- recommend that you use PhoneNumbers, which lets you specify the phone
 -- number type and multiple numbers.
 --
--- 'sipAddresses', 'updateContact_sipAddresses' - The list of SIP addresses for the contact.
---
--- 'firstName', 'updateContact_firstName' - The updated first name of the contact.
---
--- 'displayName', 'updateContact_displayName' - The updated display name of the contact.
+-- 'phoneNumbers', 'updateContact_phoneNumbers' - The list of phone numbers for the contact.
 --
 -- 'contactArn', 'updateContact_contactArn' - The ARN of the contact to update.
 newUpdateContact ::
@@ -103,22 +103,30 @@ newUpdateContact ::
   UpdateContact
 newUpdateContact pContactArn_ =
   UpdateContact'
-    { lastName = Prelude.Nothing,
-      phoneNumbers = Prelude.Nothing,
-      phoneNumber = Prelude.Nothing,
+    { firstName = Prelude.Nothing,
       sipAddresses = Prelude.Nothing,
-      firstName = Prelude.Nothing,
       displayName = Prelude.Nothing,
+      lastName = Prelude.Nothing,
+      phoneNumber = Prelude.Nothing,
+      phoneNumbers = Prelude.Nothing,
       contactArn = pContactArn_
     }
+
+-- | The updated first name of the contact.
+updateContact_firstName :: Lens.Lens' UpdateContact (Prelude.Maybe Prelude.Text)
+updateContact_firstName = Lens.lens (\UpdateContact' {firstName} -> firstName) (\s@UpdateContact' {} a -> s {firstName = a} :: UpdateContact)
+
+-- | The list of SIP addresses for the contact.
+updateContact_sipAddresses :: Lens.Lens' UpdateContact (Prelude.Maybe [SipAddress])
+updateContact_sipAddresses = Lens.lens (\UpdateContact' {sipAddresses} -> sipAddresses) (\s@UpdateContact' {} a -> s {sipAddresses = a} :: UpdateContact) Prelude.. Lens.mapping Lens.coerced
+
+-- | The updated display name of the contact.
+updateContact_displayName :: Lens.Lens' UpdateContact (Prelude.Maybe Prelude.Text)
+updateContact_displayName = Lens.lens (\UpdateContact' {displayName} -> displayName) (\s@UpdateContact' {} a -> s {displayName = a} :: UpdateContact)
 
 -- | The updated last name of the contact.
 updateContact_lastName :: Lens.Lens' UpdateContact (Prelude.Maybe Prelude.Text)
 updateContact_lastName = Lens.lens (\UpdateContact' {lastName} -> lastName) (\s@UpdateContact' {} a -> s {lastName = a} :: UpdateContact)
-
--- | The list of phone numbers for the contact.
-updateContact_phoneNumbers :: Lens.Lens' UpdateContact (Prelude.Maybe [PhoneNumber])
-updateContact_phoneNumbers = Lens.lens (\UpdateContact' {phoneNumbers} -> phoneNumbers) (\s@UpdateContact' {} a -> s {phoneNumbers = a} :: UpdateContact) Prelude.. Lens.mapping Lens.coerced
 
 -- | The updated phone number of the contact. The phone number type defaults
 -- to WORK. You can either specify PhoneNumber or PhoneNumbers. We
@@ -127,17 +135,9 @@ updateContact_phoneNumbers = Lens.lens (\UpdateContact' {phoneNumbers} -> phoneN
 updateContact_phoneNumber :: Lens.Lens' UpdateContact (Prelude.Maybe Prelude.Text)
 updateContact_phoneNumber = Lens.lens (\UpdateContact' {phoneNumber} -> phoneNumber) (\s@UpdateContact' {} a -> s {phoneNumber = a} :: UpdateContact) Prelude.. Lens.mapping Core._Sensitive
 
--- | The list of SIP addresses for the contact.
-updateContact_sipAddresses :: Lens.Lens' UpdateContact (Prelude.Maybe [SipAddress])
-updateContact_sipAddresses = Lens.lens (\UpdateContact' {sipAddresses} -> sipAddresses) (\s@UpdateContact' {} a -> s {sipAddresses = a} :: UpdateContact) Prelude.. Lens.mapping Lens.coerced
-
--- | The updated first name of the contact.
-updateContact_firstName :: Lens.Lens' UpdateContact (Prelude.Maybe Prelude.Text)
-updateContact_firstName = Lens.lens (\UpdateContact' {firstName} -> firstName) (\s@UpdateContact' {} a -> s {firstName = a} :: UpdateContact)
-
--- | The updated display name of the contact.
-updateContact_displayName :: Lens.Lens' UpdateContact (Prelude.Maybe Prelude.Text)
-updateContact_displayName = Lens.lens (\UpdateContact' {displayName} -> displayName) (\s@UpdateContact' {} a -> s {displayName = a} :: UpdateContact)
+-- | The list of phone numbers for the contact.
+updateContact_phoneNumbers :: Lens.Lens' UpdateContact (Prelude.Maybe [PhoneNumber])
+updateContact_phoneNumbers = Lens.lens (\UpdateContact' {phoneNumbers} -> phoneNumbers) (\s@UpdateContact' {} a -> s {phoneNumbers = a} :: UpdateContact) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the contact to update.
 updateContact_contactArn :: Lens.Lens' UpdateContact Prelude.Text
@@ -157,22 +157,22 @@ instance Core.AWSRequest UpdateContact where
 
 instance Prelude.Hashable UpdateContact where
   hashWithSalt _salt UpdateContact' {..} =
-    _salt `Prelude.hashWithSalt` lastName
-      `Prelude.hashWithSalt` phoneNumbers
-      `Prelude.hashWithSalt` phoneNumber
+    _salt `Prelude.hashWithSalt` firstName
       `Prelude.hashWithSalt` sipAddresses
-      `Prelude.hashWithSalt` firstName
       `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` lastName
+      `Prelude.hashWithSalt` phoneNumber
+      `Prelude.hashWithSalt` phoneNumbers
       `Prelude.hashWithSalt` contactArn
 
 instance Prelude.NFData UpdateContact where
   rnf UpdateContact' {..} =
-    Prelude.rnf lastName
-      `Prelude.seq` Prelude.rnf phoneNumbers
-      `Prelude.seq` Prelude.rnf phoneNumber
+    Prelude.rnf firstName
       `Prelude.seq` Prelude.rnf sipAddresses
-      `Prelude.seq` Prelude.rnf firstName
       `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf lastName
+      `Prelude.seq` Prelude.rnf phoneNumber
+      `Prelude.seq` Prelude.rnf phoneNumbers
       `Prelude.seq` Prelude.rnf contactArn
 
 instance Core.ToHeaders UpdateContact where
@@ -194,12 +194,12 @@ instance Core.ToJSON UpdateContact where
   toJSON UpdateContact' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("LastName" Core..=) Prelude.<$> lastName,
-            ("PhoneNumbers" Core..=) Prelude.<$> phoneNumbers,
-            ("PhoneNumber" Core..=) Prelude.<$> phoneNumber,
+          [ ("FirstName" Core..=) Prelude.<$> firstName,
             ("SipAddresses" Core..=) Prelude.<$> sipAddresses,
-            ("FirstName" Core..=) Prelude.<$> firstName,
             ("DisplayName" Core..=) Prelude.<$> displayName,
+            ("LastName" Core..=) Prelude.<$> lastName,
+            ("PhoneNumber" Core..=) Prelude.<$> phoneNumber,
+            ("PhoneNumbers" Core..=) Prelude.<$> phoneNumbers,
             Prelude.Just ("ContactArn" Core..= contactArn)
           ]
       )

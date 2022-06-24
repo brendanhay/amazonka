@@ -37,13 +37,13 @@ data UpdateMeetingRoomConfiguration = UpdateMeetingRoomConfiguration'
     -- room profile. The end of meeting reminder enables Alexa to remind users
     -- when a meeting is ending.
     endOfMeetingReminder :: Prelude.Maybe UpdateEndOfMeetingReminder,
+    -- | Whether room utilization metrics are enabled or not.
+    roomUtilizationMetricsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Settings for requiring a check in when a room is reserved. Alexa can
     -- cancel a room reservation if it\'s not checked into to make the room
     -- available for others. Users can check in by joining the meeting with
     -- Alexa or an AVS device, or by saying “Alexa, check in.”
-    requireCheckIn :: Prelude.Maybe UpdateRequireCheckIn,
-    -- | Whether room utilization metrics are enabled or not.
-    roomUtilizationMetricsEnabled :: Prelude.Maybe Prelude.Bool
+    requireCheckIn :: Prelude.Maybe UpdateRequireCheckIn
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,12 +62,12 @@ data UpdateMeetingRoomConfiguration = UpdateMeetingRoomConfiguration'
 -- room profile. The end of meeting reminder enables Alexa to remind users
 -- when a meeting is ending.
 --
+-- 'roomUtilizationMetricsEnabled', 'updateMeetingRoomConfiguration_roomUtilizationMetricsEnabled' - Whether room utilization metrics are enabled or not.
+--
 -- 'requireCheckIn', 'updateMeetingRoomConfiguration_requireCheckIn' - Settings for requiring a check in when a room is reserved. Alexa can
 -- cancel a room reservation if it\'s not checked into to make the room
 -- available for others. Users can check in by joining the meeting with
 -- Alexa or an AVS device, or by saying “Alexa, check in.”
---
--- 'roomUtilizationMetricsEnabled', 'updateMeetingRoomConfiguration_roomUtilizationMetricsEnabled' - Whether room utilization metrics are enabled or not.
 newUpdateMeetingRoomConfiguration ::
   UpdateMeetingRoomConfiguration
 newUpdateMeetingRoomConfiguration =
@@ -75,9 +75,9 @@ newUpdateMeetingRoomConfiguration =
     { instantBooking =
         Prelude.Nothing,
       endOfMeetingReminder = Prelude.Nothing,
-      requireCheckIn = Prelude.Nothing,
       roomUtilizationMetricsEnabled =
-        Prelude.Nothing
+        Prelude.Nothing,
+      requireCheckIn = Prelude.Nothing
     }
 
 -- | Settings to automatically book an available room available for a
@@ -91,16 +91,16 @@ updateMeetingRoomConfiguration_instantBooking = Lens.lens (\UpdateMeetingRoomCon
 updateMeetingRoomConfiguration_endOfMeetingReminder :: Lens.Lens' UpdateMeetingRoomConfiguration (Prelude.Maybe UpdateEndOfMeetingReminder)
 updateMeetingRoomConfiguration_endOfMeetingReminder = Lens.lens (\UpdateMeetingRoomConfiguration' {endOfMeetingReminder} -> endOfMeetingReminder) (\s@UpdateMeetingRoomConfiguration' {} a -> s {endOfMeetingReminder = a} :: UpdateMeetingRoomConfiguration)
 
+-- | Whether room utilization metrics are enabled or not.
+updateMeetingRoomConfiguration_roomUtilizationMetricsEnabled :: Lens.Lens' UpdateMeetingRoomConfiguration (Prelude.Maybe Prelude.Bool)
+updateMeetingRoomConfiguration_roomUtilizationMetricsEnabled = Lens.lens (\UpdateMeetingRoomConfiguration' {roomUtilizationMetricsEnabled} -> roomUtilizationMetricsEnabled) (\s@UpdateMeetingRoomConfiguration' {} a -> s {roomUtilizationMetricsEnabled = a} :: UpdateMeetingRoomConfiguration)
+
 -- | Settings for requiring a check in when a room is reserved. Alexa can
 -- cancel a room reservation if it\'s not checked into to make the room
 -- available for others. Users can check in by joining the meeting with
 -- Alexa or an AVS device, or by saying “Alexa, check in.”
 updateMeetingRoomConfiguration_requireCheckIn :: Lens.Lens' UpdateMeetingRoomConfiguration (Prelude.Maybe UpdateRequireCheckIn)
 updateMeetingRoomConfiguration_requireCheckIn = Lens.lens (\UpdateMeetingRoomConfiguration' {requireCheckIn} -> requireCheckIn) (\s@UpdateMeetingRoomConfiguration' {} a -> s {requireCheckIn = a} :: UpdateMeetingRoomConfiguration)
-
--- | Whether room utilization metrics are enabled or not.
-updateMeetingRoomConfiguration_roomUtilizationMetricsEnabled :: Lens.Lens' UpdateMeetingRoomConfiguration (Prelude.Maybe Prelude.Bool)
-updateMeetingRoomConfiguration_roomUtilizationMetricsEnabled = Lens.lens (\UpdateMeetingRoomConfiguration' {roomUtilizationMetricsEnabled} -> roomUtilizationMetricsEnabled) (\s@UpdateMeetingRoomConfiguration' {} a -> s {roomUtilizationMetricsEnabled = a} :: UpdateMeetingRoomConfiguration)
 
 instance
   Prelude.Hashable
@@ -111,8 +111,8 @@ instance
     UpdateMeetingRoomConfiguration' {..} =
       _salt `Prelude.hashWithSalt` instantBooking
         `Prelude.hashWithSalt` endOfMeetingReminder
-        `Prelude.hashWithSalt` requireCheckIn
         `Prelude.hashWithSalt` roomUtilizationMetricsEnabled
+        `Prelude.hashWithSalt` requireCheckIn
 
 instance
   Prelude.NFData
@@ -121,8 +121,8 @@ instance
   rnf UpdateMeetingRoomConfiguration' {..} =
     Prelude.rnf instantBooking
       `Prelude.seq` Prelude.rnf endOfMeetingReminder
-      `Prelude.seq` Prelude.rnf requireCheckIn
       `Prelude.seq` Prelude.rnf roomUtilizationMetricsEnabled
+      `Prelude.seq` Prelude.rnf requireCheckIn
 
 instance Core.ToJSON UpdateMeetingRoomConfiguration where
   toJSON UpdateMeetingRoomConfiguration' {..} =
@@ -132,9 +132,9 @@ instance Core.ToJSON UpdateMeetingRoomConfiguration where
               Prelude.<$> instantBooking,
             ("EndOfMeetingReminder" Core..=)
               Prelude.<$> endOfMeetingReminder,
-            ("RequireCheckIn" Core..=)
-              Prelude.<$> requireCheckIn,
             ("RoomUtilizationMetricsEnabled" Core..=)
-              Prelude.<$> roomUtilizationMetricsEnabled
+              Prelude.<$> roomUtilizationMetricsEnabled,
+            ("RequireCheckIn" Core..=)
+              Prelude.<$> requireCheckIn
           ]
       )

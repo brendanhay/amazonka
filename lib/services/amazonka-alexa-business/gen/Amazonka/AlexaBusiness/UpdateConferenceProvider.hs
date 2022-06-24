@@ -27,8 +27,8 @@ module Amazonka.AlexaBusiness.UpdateConferenceProvider
     newUpdateConferenceProvider,
 
     -- * Request Lenses
-    updateConferenceProvider_pSTNDialIn,
     updateConferenceProvider_iPDialIn,
+    updateConferenceProvider_pSTNDialIn,
     updateConferenceProvider_conferenceProviderArn,
     updateConferenceProvider_conferenceProviderType,
     updateConferenceProvider_meetingSetting,
@@ -51,10 +51,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateConferenceProvider' smart constructor.
 data UpdateConferenceProvider = UpdateConferenceProvider'
-  { -- | The information for PSTN conferencing.
-    pSTNDialIn :: Prelude.Maybe PSTNDialIn,
-    -- | The IP endpoint and protocol for calling.
+  { -- | The IP endpoint and protocol for calling.
     iPDialIn :: Prelude.Maybe IPDialIn,
+    -- | The information for PSTN conferencing.
+    pSTNDialIn :: Prelude.Maybe PSTNDialIn,
     -- | The ARN of the conference provider.
     conferenceProviderArn :: Prelude.Text,
     -- | The type of the conference provider.
@@ -72,9 +72,9 @@ data UpdateConferenceProvider = UpdateConferenceProvider'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pSTNDialIn', 'updateConferenceProvider_pSTNDialIn' - The information for PSTN conferencing.
---
 -- 'iPDialIn', 'updateConferenceProvider_iPDialIn' - The IP endpoint and protocol for calling.
+--
+-- 'pSTNDialIn', 'updateConferenceProvider_pSTNDialIn' - The information for PSTN conferencing.
 --
 -- 'conferenceProviderArn', 'updateConferenceProvider_conferenceProviderArn' - The ARN of the conference provider.
 --
@@ -94,21 +94,21 @@ newUpdateConferenceProvider
   pConferenceProviderType_
   pMeetingSetting_ =
     UpdateConferenceProvider'
-      { pSTNDialIn =
+      { iPDialIn =
           Prelude.Nothing,
-        iPDialIn = Prelude.Nothing,
+        pSTNDialIn = Prelude.Nothing,
         conferenceProviderArn = pConferenceProviderArn_,
         conferenceProviderType = pConferenceProviderType_,
         meetingSetting = pMeetingSetting_
       }
 
--- | The information for PSTN conferencing.
-updateConferenceProvider_pSTNDialIn :: Lens.Lens' UpdateConferenceProvider (Prelude.Maybe PSTNDialIn)
-updateConferenceProvider_pSTNDialIn = Lens.lens (\UpdateConferenceProvider' {pSTNDialIn} -> pSTNDialIn) (\s@UpdateConferenceProvider' {} a -> s {pSTNDialIn = a} :: UpdateConferenceProvider)
-
 -- | The IP endpoint and protocol for calling.
 updateConferenceProvider_iPDialIn :: Lens.Lens' UpdateConferenceProvider (Prelude.Maybe IPDialIn)
 updateConferenceProvider_iPDialIn = Lens.lens (\UpdateConferenceProvider' {iPDialIn} -> iPDialIn) (\s@UpdateConferenceProvider' {} a -> s {iPDialIn = a} :: UpdateConferenceProvider)
+
+-- | The information for PSTN conferencing.
+updateConferenceProvider_pSTNDialIn :: Lens.Lens' UpdateConferenceProvider (Prelude.Maybe PSTNDialIn)
+updateConferenceProvider_pSTNDialIn = Lens.lens (\UpdateConferenceProvider' {pSTNDialIn} -> pSTNDialIn) (\s@UpdateConferenceProvider' {} a -> s {pSTNDialIn = a} :: UpdateConferenceProvider)
 
 -- | The ARN of the conference provider.
 updateConferenceProvider_conferenceProviderArn :: Lens.Lens' UpdateConferenceProvider Prelude.Text
@@ -136,16 +136,16 @@ instance Core.AWSRequest UpdateConferenceProvider where
 
 instance Prelude.Hashable UpdateConferenceProvider where
   hashWithSalt _salt UpdateConferenceProvider' {..} =
-    _salt `Prelude.hashWithSalt` pSTNDialIn
-      `Prelude.hashWithSalt` iPDialIn
+    _salt `Prelude.hashWithSalt` iPDialIn
+      `Prelude.hashWithSalt` pSTNDialIn
       `Prelude.hashWithSalt` conferenceProviderArn
       `Prelude.hashWithSalt` conferenceProviderType
       `Prelude.hashWithSalt` meetingSetting
 
 instance Prelude.NFData UpdateConferenceProvider where
   rnf UpdateConferenceProvider' {..} =
-    Prelude.rnf pSTNDialIn
-      `Prelude.seq` Prelude.rnf iPDialIn
+    Prelude.rnf iPDialIn
+      `Prelude.seq` Prelude.rnf pSTNDialIn
       `Prelude.seq` Prelude.rnf conferenceProviderArn
       `Prelude.seq` Prelude.rnf conferenceProviderType
       `Prelude.seq` Prelude.rnf meetingSetting
@@ -169,8 +169,8 @@ instance Core.ToJSON UpdateConferenceProvider where
   toJSON UpdateConferenceProvider' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PSTNDialIn" Core..=) Prelude.<$> pSTNDialIn,
-            ("IPDialIn" Core..=) Prelude.<$> iPDialIn,
+          [ ("IPDialIn" Core..=) Prelude.<$> iPDialIn,
+            ("PSTNDialIn" Core..=) Prelude.<$> pSTNDialIn,
             Prelude.Just
               ( "ConferenceProviderArn"
                   Core..= conferenceProviderArn

@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 data DeveloperInfo = DeveloperInfo'
   { -- | The email of the developer.
     email :: Prelude.Maybe Prelude.Text,
+    -- | The name of the developer.
+    developerName :: Prelude.Maybe Prelude.Text,
     -- | The website of the developer.
     url :: Prelude.Maybe Prelude.Text,
     -- | The URL of the privacy policy.
-    privacyPolicy :: Prelude.Maybe Prelude.Text,
-    -- | The name of the developer.
-    developerName :: Prelude.Maybe Prelude.Text
+    privacyPolicy :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,24 +48,28 @@ data DeveloperInfo = DeveloperInfo'
 --
 -- 'email', 'developerInfo_email' - The email of the developer.
 --
+-- 'developerName', 'developerInfo_developerName' - The name of the developer.
+--
 -- 'url', 'developerInfo_url' - The website of the developer.
 --
 -- 'privacyPolicy', 'developerInfo_privacyPolicy' - The URL of the privacy policy.
---
--- 'developerName', 'developerInfo_developerName' - The name of the developer.
 newDeveloperInfo ::
   DeveloperInfo
 newDeveloperInfo =
   DeveloperInfo'
     { email = Prelude.Nothing,
+      developerName = Prelude.Nothing,
       url = Prelude.Nothing,
-      privacyPolicy = Prelude.Nothing,
-      developerName = Prelude.Nothing
+      privacyPolicy = Prelude.Nothing
     }
 
 -- | The email of the developer.
 developerInfo_email :: Lens.Lens' DeveloperInfo (Prelude.Maybe Prelude.Text)
 developerInfo_email = Lens.lens (\DeveloperInfo' {email} -> email) (\s@DeveloperInfo' {} a -> s {email = a} :: DeveloperInfo)
+
+-- | The name of the developer.
+developerInfo_developerName :: Lens.Lens' DeveloperInfo (Prelude.Maybe Prelude.Text)
+developerInfo_developerName = Lens.lens (\DeveloperInfo' {developerName} -> developerName) (\s@DeveloperInfo' {} a -> s {developerName = a} :: DeveloperInfo)
 
 -- | The website of the developer.
 developerInfo_url :: Lens.Lens' DeveloperInfo (Prelude.Maybe Prelude.Text)
@@ -75,10 +79,6 @@ developerInfo_url = Lens.lens (\DeveloperInfo' {url} -> url) (\s@DeveloperInfo' 
 developerInfo_privacyPolicy :: Lens.Lens' DeveloperInfo (Prelude.Maybe Prelude.Text)
 developerInfo_privacyPolicy = Lens.lens (\DeveloperInfo' {privacyPolicy} -> privacyPolicy) (\s@DeveloperInfo' {} a -> s {privacyPolicy = a} :: DeveloperInfo)
 
--- | The name of the developer.
-developerInfo_developerName :: Lens.Lens' DeveloperInfo (Prelude.Maybe Prelude.Text)
-developerInfo_developerName = Lens.lens (\DeveloperInfo' {developerName} -> developerName) (\s@DeveloperInfo' {} a -> s {developerName = a} :: DeveloperInfo)
-
 instance Core.FromJSON DeveloperInfo where
   parseJSON =
     Core.withObject
@@ -86,21 +86,21 @@ instance Core.FromJSON DeveloperInfo where
       ( \x ->
           DeveloperInfo'
             Prelude.<$> (x Core..:? "Email")
+            Prelude.<*> (x Core..:? "DeveloperName")
             Prelude.<*> (x Core..:? "Url")
             Prelude.<*> (x Core..:? "PrivacyPolicy")
-            Prelude.<*> (x Core..:? "DeveloperName")
       )
 
 instance Prelude.Hashable DeveloperInfo where
   hashWithSalt _salt DeveloperInfo' {..} =
     _salt `Prelude.hashWithSalt` email
+      `Prelude.hashWithSalt` developerName
       `Prelude.hashWithSalt` url
       `Prelude.hashWithSalt` privacyPolicy
-      `Prelude.hashWithSalt` developerName
 
 instance Prelude.NFData DeveloperInfo where
   rnf DeveloperInfo' {..} =
     Prelude.rnf email
+      `Prelude.seq` Prelude.rnf developerName
       `Prelude.seq` Prelude.rnf url
       `Prelude.seq` Prelude.rnf privacyPolicy
-      `Prelude.seq` Prelude.rnf developerName

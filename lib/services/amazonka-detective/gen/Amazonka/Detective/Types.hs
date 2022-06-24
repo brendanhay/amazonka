@@ -17,11 +17,11 @@ module Amazonka.Detective.Types
     defaultService,
 
     -- * Errors
-    _ValidationException,
-    _ConflictException,
-    _ServiceQuotaExceededException,
     _InternalServerException,
+    _ServiceQuotaExceededException,
     _ResourceNotFoundException,
+    _ConflictException,
+    _ValidationException,
 
     -- * MemberDisabledReason
     MemberDisabledReason (..),
@@ -38,25 +38,25 @@ module Amazonka.Detective.Types
     -- * Graph
     Graph (..),
     newGraph,
-    graph_arn,
     graph_createdTime,
+    graph_arn,
 
     -- * MemberDetail
     MemberDetail (..),
     newMemberDetail,
-    memberDetail_percentOfGraphUtilizationUpdatedTime,
-    memberDetail_status,
-    memberDetail_invitedTime,
-    memberDetail_administratorId,
-    memberDetail_graphArn,
-    memberDetail_masterId,
-    memberDetail_accountId,
-    memberDetail_disabledReason,
     memberDetail_percentOfGraphUtilization,
-    memberDetail_emailAddress,
-    memberDetail_volumeUsageUpdatedTime,
-    memberDetail_updatedTime,
     memberDetail_volumeUsageInBytes,
+    memberDetail_invitedTime,
+    memberDetail_graphArn,
+    memberDetail_administratorId,
+    memberDetail_disabledReason,
+    memberDetail_status,
+    memberDetail_percentOfGraphUtilizationUpdatedTime,
+    memberDetail_accountId,
+    memberDetail_volumeUsageUpdatedTime,
+    memberDetail_masterId,
+    memberDetail_emailAddress,
+    memberDetail_updatedTime,
 
     -- * UnprocessedAccount
     UnprocessedAccount (..),
@@ -102,35 +102,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -139,29 +112,48 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The request parameters are invalid.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
+-- | The request was valid but failed because of a problem with the service.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
   Core._MatchServiceError
     defaultService
-    "ValidationException"
-    Prelude.. Core.hasStatus 400
-
--- | The request attempted an invalid action.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
+    "InternalServerException"
+    Prelude.. Core.hasStatus 500
 
 -- | This request cannot be completed for one of the following reasons.
 --
@@ -182,14 +174,6 @@ _ServiceQuotaExceededException =
     "ServiceQuotaExceededException"
     Prelude.. Core.hasStatus 402
 
--- | The request was valid but failed because of a problem with the service.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerException"
-    Prelude.. Core.hasStatus 500
-
 -- | The request refers to a nonexistent resource.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
@@ -197,3 +181,19 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
+
+-- | The request attempted an invalid action.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
+-- | The request parameters are invalid.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"
+    Prelude.. Core.hasStatus 400

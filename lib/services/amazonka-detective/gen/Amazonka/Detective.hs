@@ -63,20 +63,20 @@ module Amazonka.Detective
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
-    -- ** ConflictException
-    _ConflictException,
+    -- ** InternalServerException
+    _InternalServerException,
 
     -- ** ServiceQuotaExceededException
     _ServiceQuotaExceededException,
 
-    -- ** InternalServerException
-    _InternalServerException,
-
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -84,23 +84,23 @@ module Amazonka.Detective
     -- * Operations
     -- $operations
 
-    -- ** StartMonitoringMember
-    StartMonitoringMember (StartMonitoringMember'),
-    newStartMonitoringMember,
-    StartMonitoringMemberResponse (StartMonitoringMemberResponse'),
-    newStartMonitoringMemberResponse,
+    -- ** AcceptInvitation
+    AcceptInvitation (AcceptInvitation'),
+    newAcceptInvitation,
+    AcceptInvitationResponse (AcceptInvitationResponse'),
+    newAcceptInvitationResponse,
 
-    -- ** DeleteMembers
-    DeleteMembers (DeleteMembers'),
-    newDeleteMembers,
-    DeleteMembersResponse (DeleteMembersResponse'),
-    newDeleteMembersResponse,
+    -- ** CreateGraph
+    CreateGraph (CreateGraph'),
+    newCreateGraph,
+    CreateGraphResponse (CreateGraphResponse'),
+    newCreateGraphResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** CreateMembers
+    CreateMembers (CreateMembers'),
+    newCreateMembers,
+    CreateMembersResponse (CreateMembersResponse'),
+    newCreateMembersResponse,
 
     -- ** DeleteGraph
     DeleteGraph (DeleteGraph'),
@@ -108,35 +108,17 @@ module Amazonka.Detective
     DeleteGraphResponse (DeleteGraphResponse'),
     newDeleteGraphResponse,
 
-    -- ** ListInvitations
-    ListInvitations (ListInvitations'),
-    newListInvitations,
-    ListInvitationsResponse (ListInvitationsResponse'),
-    newListInvitationsResponse,
+    -- ** DeleteMembers
+    DeleteMembers (DeleteMembers'),
+    newDeleteMembers,
+    DeleteMembersResponse (DeleteMembersResponse'),
+    newDeleteMembersResponse,
 
     -- ** DisassociateMembership
     DisassociateMembership (DisassociateMembership'),
     newDisassociateMembership,
     DisassociateMembershipResponse (DisassociateMembershipResponse'),
     newDisassociateMembershipResponse,
-
-    -- ** AcceptInvitation
-    AcceptInvitation (AcceptInvitation'),
-    newAcceptInvitation,
-    AcceptInvitationResponse (AcceptInvitationResponse'),
-    newAcceptInvitationResponse,
-
-    -- ** ListMembers
-    ListMembers (ListMembers'),
-    newListMembers,
-    ListMembersResponse (ListMembersResponse'),
-    newListMembersResponse,
-
-    -- ** CreateMembers
-    CreateMembers (CreateMembers'),
-    newCreateMembers,
-    CreateMembersResponse (CreateMembersResponse'),
-    newCreateMembersResponse,
 
     -- ** GetMembers
     GetMembers (GetMembers'),
@@ -150,29 +132,47 @@ module Amazonka.Detective
     ListGraphsResponse (ListGraphsResponse'),
     newListGraphsResponse,
 
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
+    -- ** ListInvitations
+    ListInvitations (ListInvitations'),
+    newListInvitations,
+    ListInvitationsResponse (ListInvitationsResponse'),
+    newListInvitationsResponse,
 
-    -- ** CreateGraph
-    CreateGraph (CreateGraph'),
-    newCreateGraph,
-    CreateGraphResponse (CreateGraphResponse'),
-    newCreateGraphResponse,
+    -- ** ListMembers
+    ListMembers (ListMembers'),
+    newListMembers,
+    ListMembersResponse (ListMembersResponse'),
+    newListMembersResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- ** RejectInvitation
     RejectInvitation (RejectInvitation'),
     newRejectInvitation,
     RejectInvitationResponse (RejectInvitationResponse'),
     newRejectInvitationResponse,
+
+    -- ** StartMonitoringMember
+    StartMonitoringMember (StartMonitoringMember'),
+    newStartMonitoringMember,
+    StartMonitoringMemberResponse (StartMonitoringMemberResponse'),
+    newStartMonitoringMemberResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
     -- * Types
 

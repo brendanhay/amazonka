@@ -14,9 +14,25 @@
 module Amazonka.Detective.Lens
   ( -- * Operations
 
-    -- ** StartMonitoringMember
-    startMonitoringMember_graphArn,
-    startMonitoringMember_accountId,
+    -- ** AcceptInvitation
+    acceptInvitation_graphArn,
+
+    -- ** CreateGraph
+    createGraph_tags,
+    createGraphResponse_graphArn,
+    createGraphResponse_httpStatus,
+
+    -- ** CreateMembers
+    createMembers_message,
+    createMembers_disableEmailNotification,
+    createMembers_graphArn,
+    createMembers_accounts,
+    createMembersResponse_unprocessedAccounts,
+    createMembersResponse_members,
+    createMembersResponse_httpStatus,
+
+    -- ** DeleteGraph
+    deleteGraph_graphArn,
 
     -- ** DeleteMembers
     deleteMembers_graphArn,
@@ -25,49 +41,14 @@ module Amazonka.Detective.Lens
     deleteMembersResponse_unprocessedAccounts,
     deleteMembersResponse_httpStatus,
 
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** DeleteGraph
-    deleteGraph_graphArn,
-
-    -- ** ListInvitations
-    listInvitations_nextToken,
-    listInvitations_maxResults,
-    listInvitationsResponse_invitations,
-    listInvitationsResponse_nextToken,
-    listInvitationsResponse_httpStatus,
-
     -- ** DisassociateMembership
     disassociateMembership_graphArn,
-
-    -- ** AcceptInvitation
-    acceptInvitation_graphArn,
-
-    -- ** ListMembers
-    listMembers_nextToken,
-    listMembers_maxResults,
-    listMembers_graphArn,
-    listMembersResponse_memberDetails,
-    listMembersResponse_nextToken,
-    listMembersResponse_httpStatus,
-
-    -- ** CreateMembers
-    createMembers_disableEmailNotification,
-    createMembers_message,
-    createMembers_graphArn,
-    createMembers_accounts,
-    createMembersResponse_members,
-    createMembersResponse_unprocessedAccounts,
-    createMembersResponse_httpStatus,
 
     -- ** GetMembers
     getMembers_graphArn,
     getMembers_accountIds,
-    getMembersResponse_memberDetails,
     getMembersResponse_unprocessedAccounts,
+    getMembersResponse_memberDetails,
     getMembersResponse_httpStatus,
 
     -- ** ListGraphs
@@ -77,23 +58,42 @@ module Amazonka.Detective.Lens
     listGraphsResponse_graphList,
     listGraphsResponse_httpStatus,
 
+    -- ** ListInvitations
+    listInvitations_nextToken,
+    listInvitations_maxResults,
+    listInvitationsResponse_invitations,
+    listInvitationsResponse_nextToken,
+    listInvitationsResponse_httpStatus,
+
+    -- ** ListMembers
+    listMembers_nextToken,
+    listMembers_maxResults,
+    listMembers_graphArn,
+    listMembersResponse_nextToken,
+    listMembersResponse_memberDetails,
+    listMembersResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** RejectInvitation
+    rejectInvitation_graphArn,
+
+    -- ** StartMonitoringMember
+    startMonitoringMember_graphArn,
+    startMonitoringMember_accountId,
+
     -- ** TagResource
     tagResource_resourceArn,
     tagResource_tags,
     tagResourceResponse_httpStatus,
 
-    -- ** CreateGraph
-    createGraph_tags,
-    createGraphResponse_graphArn,
-    createGraphResponse_httpStatus,
-
     -- ** UntagResource
     untagResource_resourceArn,
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
-
-    -- ** RejectInvitation
-    rejectInvitation_graphArn,
 
     -- * Types
 
@@ -102,23 +102,23 @@ module Amazonka.Detective.Lens
     account_emailAddress,
 
     -- ** Graph
-    graph_arn,
     graph_createdTime,
+    graph_arn,
 
     -- ** MemberDetail
-    memberDetail_percentOfGraphUtilizationUpdatedTime,
-    memberDetail_status,
-    memberDetail_invitedTime,
-    memberDetail_administratorId,
-    memberDetail_graphArn,
-    memberDetail_masterId,
-    memberDetail_accountId,
-    memberDetail_disabledReason,
     memberDetail_percentOfGraphUtilization,
-    memberDetail_emailAddress,
-    memberDetail_volumeUsageUpdatedTime,
-    memberDetail_updatedTime,
     memberDetail_volumeUsageInBytes,
+    memberDetail_invitedTime,
+    memberDetail_graphArn,
+    memberDetail_administratorId,
+    memberDetail_disabledReason,
+    memberDetail_status,
+    memberDetail_percentOfGraphUtilizationUpdatedTime,
+    memberDetail_accountId,
+    memberDetail_volumeUsageUpdatedTime,
+    memberDetail_masterId,
+    memberDetail_emailAddress,
+    memberDetail_updatedTime,
 
     -- ** UnprocessedAccount
     unprocessedAccount_accountId,

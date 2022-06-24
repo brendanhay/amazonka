@@ -27,11 +27,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGraph' smart constructor.
 data Graph = Graph'
-  { -- | The ARN of the behavior graph.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that the behavior graph was created. The value is in
+  { -- | The date and time that the behavior graph was created. The value is in
     -- milliseconds since the epoch.
-    createdTime :: Prelude.Maybe Core.POSIX
+    createdTime :: Prelude.Maybe Core.POSIX,
+    -- | The ARN of the behavior graph.
+    arn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,26 +43,26 @@ data Graph = Graph'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'graph_arn' - The ARN of the behavior graph.
---
 -- 'createdTime', 'graph_createdTime' - The date and time that the behavior graph was created. The value is in
 -- milliseconds since the epoch.
+--
+-- 'arn', 'graph_arn' - The ARN of the behavior graph.
 newGraph ::
   Graph
 newGraph =
   Graph'
-    { arn = Prelude.Nothing,
-      createdTime = Prelude.Nothing
+    { createdTime = Prelude.Nothing,
+      arn = Prelude.Nothing
     }
-
--- | The ARN of the behavior graph.
-graph_arn :: Lens.Lens' Graph (Prelude.Maybe Prelude.Text)
-graph_arn = Lens.lens (\Graph' {arn} -> arn) (\s@Graph' {} a -> s {arn = a} :: Graph)
 
 -- | The date and time that the behavior graph was created. The value is in
 -- milliseconds since the epoch.
 graph_createdTime :: Lens.Lens' Graph (Prelude.Maybe Prelude.UTCTime)
 graph_createdTime = Lens.lens (\Graph' {createdTime} -> createdTime) (\s@Graph' {} a -> s {createdTime = a} :: Graph) Prelude.. Lens.mapping Core._Time
+
+-- | The ARN of the behavior graph.
+graph_arn :: Lens.Lens' Graph (Prelude.Maybe Prelude.Text)
+graph_arn = Lens.lens (\Graph' {arn} -> arn) (\s@Graph' {} a -> s {arn = a} :: Graph)
 
 instance Core.FromJSON Graph where
   parseJSON =
@@ -70,16 +70,16 @@ instance Core.FromJSON Graph where
       "Graph"
       ( \x ->
           Graph'
-            Prelude.<$> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "CreatedTime")
+            Prelude.<$> (x Core..:? "CreatedTime")
+            Prelude.<*> (x Core..:? "Arn")
       )
 
 instance Prelude.Hashable Graph where
   hashWithSalt _salt Graph' {..} =
-    _salt `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` createdTime
+    _salt `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData Graph where
   rnf Graph' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdTime
+    Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf arn

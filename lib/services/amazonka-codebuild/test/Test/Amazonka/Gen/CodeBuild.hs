@@ -27,493 +27,283 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListProjects $
---             newListProjects
---
---         , requestDeleteProject $
---             newDeleteProject
---
---         , requestUpdateProject $
---             newUpdateProject
---
---         , requestDeleteSourceCredentials $
---             newDeleteSourceCredentials
---
---         , requestListBuilds $
---             newListBuilds
---
---         , requestListSourceCredentials $
---             newListSourceCredentials
---
---         , requestListReports $
---             newListReports
---
---         , requestDeleteReport $
---             newDeleteReport
---
---         , requestCreateWebhook $
---             newCreateWebhook
---
---         , requestStopBuildBatch $
---             newStopBuildBatch
---
---         , requestListSharedProjects $
---             newListSharedProjects
---
---         , requestCreateReportGroup $
---             newCreateReportGroup
---
---         , requestDescribeCodeCoverages $
---             newDescribeCodeCoverages
---
---         , requestImportSourceCredentials $
---             newImportSourceCredentials
---
---         , requestListBuildBatchesForProject $
---             newListBuildBatchesForProject
---
---         , requestBatchGetReportGroups $
---             newBatchGetReportGroups
---
---         , requestDeleteBuildBatch $
---             newDeleteBuildBatch
---
---         , requestStartBuild $
---             newStartBuild
+--         [ requestBatchDeleteBuilds $
+--             newBatchDeleteBuilds
 --
 --         , requestBatchGetBuildBatches $
 --             newBatchGetBuildBatches
 --
---         , requestRetryBuild $
---             newRetryBuild
---
---         , requestListBuildsForProject $
---             newListBuildsForProject
---
---         , requestDescribeTestCases $
---             newDescribeTestCases
---
---         , requestGetResourcePolicy $
---             newGetResourcePolicy
+--         , requestBatchGetBuilds $
+--             newBatchGetBuilds
 --
 --         , requestBatchGetProjects $
 --             newBatchGetProjects
 --
---         , requestBatchGetBuilds $
---             newBatchGetBuilds
+--         , requestBatchGetReportGroups $
+--             newBatchGetReportGroups
 --
 --         , requestBatchGetReports $
 --             newBatchGetReports
 --
---         , requestUpdateWebhook $
---             newUpdateWebhook
+--         , requestCreateProject $
+--             newCreateProject
 --
---         , requestDeleteWebhook $
---             newDeleteWebhook
+--         , requestCreateReportGroup $
+--             newCreateReportGroup
 --
---         , requestStartBuildBatch $
---             newStartBuildBatch
+--         , requestCreateWebhook $
+--             newCreateWebhook
 --
---         , requestRetryBuildBatch $
---             newRetryBuildBatch
+--         , requestDeleteBuildBatch $
+--             newDeleteBuildBatch
 --
---         , requestUpdateProjectVisibility $
---             newUpdateProjectVisibility
+--         , requestDeleteProject $
+--             newDeleteProject
 --
---         , requestListReportsForReportGroup $
---             newListReportsForReportGroup
---
---         , requestInvalidateProjectCache $
---             newInvalidateProjectCache
---
---         , requestUpdateReportGroup $
---             newUpdateReportGroup
+--         , requestDeleteReport $
+--             newDeleteReport
 --
 --         , requestDeleteReportGroup $
 --             newDeleteReportGroup
 --
---         , requestBatchDeleteBuilds $
---             newBatchDeleteBuilds
---
---         , requestListReportGroups $
---             newListReportGroups
---
---         , requestPutResourcePolicy $
---             newPutResourcePolicy
---
 --         , requestDeleteResourcePolicy $
 --             newDeleteResourcePolicy
 --
---         , requestListCuratedEnvironmentImages $
---             newListCuratedEnvironmentImages
+--         , requestDeleteSourceCredentials $
+--             newDeleteSourceCredentials
+--
+--         , requestDeleteWebhook $
+--             newDeleteWebhook
+--
+--         , requestDescribeCodeCoverages $
+--             newDescribeCodeCoverages
+--
+--         , requestDescribeTestCases $
+--             newDescribeTestCases
 --
 --         , requestGetReportGroupTrend $
 --             newGetReportGroupTrend
 --
---         , requestStopBuild $
---             newStopBuild
+--         , requestGetResourcePolicy $
+--             newGetResourcePolicy
+--
+--         , requestImportSourceCredentials $
+--             newImportSourceCredentials
+--
+--         , requestInvalidateProjectCache $
+--             newInvalidateProjectCache
 --
 --         , requestListBuildBatches $
 --             newListBuildBatches
 --
---         , requestCreateProject $
---             newCreateProject
+--         , requestListBuildBatchesForProject $
+--             newListBuildBatchesForProject
+--
+--         , requestListBuilds $
+--             newListBuilds
+--
+--         , requestListBuildsForProject $
+--             newListBuildsForProject
+--
+--         , requestListCuratedEnvironmentImages $
+--             newListCuratedEnvironmentImages
+--
+--         , requestListProjects $
+--             newListProjects
+--
+--         , requestListReportGroups $
+--             newListReportGroups
+--
+--         , requestListReports $
+--             newListReports
+--
+--         , requestListReportsForReportGroup $
+--             newListReportsForReportGroup
+--
+--         , requestListSharedProjects $
+--             newListSharedProjects
 --
 --         , requestListSharedReportGroups $
 --             newListSharedReportGroups
 --
+--         , requestListSourceCredentials $
+--             newListSourceCredentials
+--
+--         , requestPutResourcePolicy $
+--             newPutResourcePolicy
+--
+--         , requestRetryBuild $
+--             newRetryBuild
+--
+--         , requestRetryBuildBatch $
+--             newRetryBuildBatch
+--
+--         , requestStartBuild $
+--             newStartBuild
+--
+--         , requestStartBuildBatch $
+--             newStartBuildBatch
+--
+--         , requestStopBuild $
+--             newStopBuild
+--
+--         , requestStopBuildBatch $
+--             newStopBuildBatch
+--
+--         , requestUpdateProject $
+--             newUpdateProject
+--
+--         , requestUpdateProjectVisibility $
+--             newUpdateProjectVisibility
+--
+--         , requestUpdateReportGroup $
+--             newUpdateReportGroup
+--
+--         , requestUpdateWebhook $
+--             newUpdateWebhook
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseListProjects $
---             newListProjectsResponse
---
---         , responseDeleteProject $
---             newDeleteProjectResponse
---
---         , responseUpdateProject $
---             newUpdateProjectResponse
---
---         , responseDeleteSourceCredentials $
---             newDeleteSourceCredentialsResponse
---
---         , responseListBuilds $
---             newListBuildsResponse
---
---         , responseListSourceCredentials $
---             newListSourceCredentialsResponse
---
---         , responseListReports $
---             newListReportsResponse
---
---         , responseDeleteReport $
---             newDeleteReportResponse
---
---         , responseCreateWebhook $
---             newCreateWebhookResponse
---
---         , responseStopBuildBatch $
---             newStopBuildBatchResponse
---
---         , responseListSharedProjects $
---             newListSharedProjectsResponse
---
---         , responseCreateReportGroup $
---             newCreateReportGroupResponse
---
---         , responseDescribeCodeCoverages $
---             newDescribeCodeCoveragesResponse
---
---         , responseImportSourceCredentials $
---             newImportSourceCredentialsResponse
---
---         , responseListBuildBatchesForProject $
---             newListBuildBatchesForProjectResponse
---
---         , responseBatchGetReportGroups $
---             newBatchGetReportGroupsResponse
---
---         , responseDeleteBuildBatch $
---             newDeleteBuildBatchResponse
---
---         , responseStartBuild $
---             newStartBuildResponse
+--         [ responseBatchDeleteBuilds $
+--             newBatchDeleteBuildsResponse
 --
 --         , responseBatchGetBuildBatches $
 --             newBatchGetBuildBatchesResponse
 --
---         , responseRetryBuild $
---             newRetryBuildResponse
---
---         , responseListBuildsForProject $
---             newListBuildsForProjectResponse
---
---         , responseDescribeTestCases $
---             newDescribeTestCasesResponse
---
---         , responseGetResourcePolicy $
---             newGetResourcePolicyResponse
+--         , responseBatchGetBuilds $
+--             newBatchGetBuildsResponse
 --
 --         , responseBatchGetProjects $
 --             newBatchGetProjectsResponse
 --
---         , responseBatchGetBuilds $
---             newBatchGetBuildsResponse
+--         , responseBatchGetReportGroups $
+--             newBatchGetReportGroupsResponse
 --
 --         , responseBatchGetReports $
 --             newBatchGetReportsResponse
 --
---         , responseUpdateWebhook $
---             newUpdateWebhookResponse
+--         , responseCreateProject $
+--             newCreateProjectResponse
 --
---         , responseDeleteWebhook $
---             newDeleteWebhookResponse
+--         , responseCreateReportGroup $
+--             newCreateReportGroupResponse
 --
---         , responseStartBuildBatch $
---             newStartBuildBatchResponse
+--         , responseCreateWebhook $
+--             newCreateWebhookResponse
 --
---         , responseRetryBuildBatch $
---             newRetryBuildBatchResponse
+--         , responseDeleteBuildBatch $
+--             newDeleteBuildBatchResponse
 --
---         , responseUpdateProjectVisibility $
---             newUpdateProjectVisibilityResponse
+--         , responseDeleteProject $
+--             newDeleteProjectResponse
 --
---         , responseListReportsForReportGroup $
---             newListReportsForReportGroupResponse
---
---         , responseInvalidateProjectCache $
---             newInvalidateProjectCacheResponse
---
---         , responseUpdateReportGroup $
---             newUpdateReportGroupResponse
+--         , responseDeleteReport $
+--             newDeleteReportResponse
 --
 --         , responseDeleteReportGroup $
 --             newDeleteReportGroupResponse
 --
---         , responseBatchDeleteBuilds $
---             newBatchDeleteBuildsResponse
---
---         , responseListReportGroups $
---             newListReportGroupsResponse
---
---         , responsePutResourcePolicy $
---             newPutResourcePolicyResponse
---
 --         , responseDeleteResourcePolicy $
 --             newDeleteResourcePolicyResponse
 --
---         , responseListCuratedEnvironmentImages $
---             newListCuratedEnvironmentImagesResponse
+--         , responseDeleteSourceCredentials $
+--             newDeleteSourceCredentialsResponse
+--
+--         , responseDeleteWebhook $
+--             newDeleteWebhookResponse
+--
+--         , responseDescribeCodeCoverages $
+--             newDescribeCodeCoveragesResponse
+--
+--         , responseDescribeTestCases $
+--             newDescribeTestCasesResponse
 --
 --         , responseGetReportGroupTrend $
 --             newGetReportGroupTrendResponse
 --
---         , responseStopBuild $
---             newStopBuildResponse
+--         , responseGetResourcePolicy $
+--             newGetResourcePolicyResponse
+--
+--         , responseImportSourceCredentials $
+--             newImportSourceCredentialsResponse
+--
+--         , responseInvalidateProjectCache $
+--             newInvalidateProjectCacheResponse
 --
 --         , responseListBuildBatches $
 --             newListBuildBatchesResponse
 --
---         , responseCreateProject $
---             newCreateProjectResponse
+--         , responseListBuildBatchesForProject $
+--             newListBuildBatchesForProjectResponse
+--
+--         , responseListBuilds $
+--             newListBuildsResponse
+--
+--         , responseListBuildsForProject $
+--             newListBuildsForProjectResponse
+--
+--         , responseListCuratedEnvironmentImages $
+--             newListCuratedEnvironmentImagesResponse
+--
+--         , responseListProjects $
+--             newListProjectsResponse
+--
+--         , responseListReportGroups $
+--             newListReportGroupsResponse
+--
+--         , responseListReports $
+--             newListReportsResponse
+--
+--         , responseListReportsForReportGroup $
+--             newListReportsForReportGroupResponse
+--
+--         , responseListSharedProjects $
+--             newListSharedProjectsResponse
 --
 --         , responseListSharedReportGroups $
 --             newListSharedReportGroupsResponse
+--
+--         , responseListSourceCredentials $
+--             newListSourceCredentialsResponse
+--
+--         , responsePutResourcePolicy $
+--             newPutResourcePolicyResponse
+--
+--         , responseRetryBuild $
+--             newRetryBuildResponse
+--
+--         , responseRetryBuildBatch $
+--             newRetryBuildBatchResponse
+--
+--         , responseStartBuild $
+--             newStartBuildResponse
+--
+--         , responseStartBuildBatch $
+--             newStartBuildBatchResponse
+--
+--         , responseStopBuild $
+--             newStopBuildResponse
+--
+--         , responseStopBuildBatch $
+--             newStopBuildBatchResponse
+--
+--         , responseUpdateProject $
+--             newUpdateProjectResponse
+--
+--         , responseUpdateProjectVisibility $
+--             newUpdateProjectVisibilityResponse
+--
+--         , responseUpdateReportGroup $
+--             newUpdateReportGroupResponse
+--
+--         , responseUpdateWebhook $
+--             newUpdateWebhookResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestListProjects :: ListProjects -> TestTree
-requestListProjects =
-  req
-    "ListProjects"
-    "fixture/ListProjects.yaml"
-
-requestDeleteProject :: DeleteProject -> TestTree
-requestDeleteProject =
-  req
-    "DeleteProject"
-    "fixture/DeleteProject.yaml"
-
-requestUpdateProject :: UpdateProject -> TestTree
-requestUpdateProject =
-  req
-    "UpdateProject"
-    "fixture/UpdateProject.yaml"
-
-requestDeleteSourceCredentials :: DeleteSourceCredentials -> TestTree
-requestDeleteSourceCredentials =
-  req
-    "DeleteSourceCredentials"
-    "fixture/DeleteSourceCredentials.yaml"
-
-requestListBuilds :: ListBuilds -> TestTree
-requestListBuilds =
-  req
-    "ListBuilds"
-    "fixture/ListBuilds.yaml"
-
-requestListSourceCredentials :: ListSourceCredentials -> TestTree
-requestListSourceCredentials =
-  req
-    "ListSourceCredentials"
-    "fixture/ListSourceCredentials.yaml"
-
-requestListReports :: ListReports -> TestTree
-requestListReports =
-  req
-    "ListReports"
-    "fixture/ListReports.yaml"
-
-requestDeleteReport :: DeleteReport -> TestTree
-requestDeleteReport =
-  req
-    "DeleteReport"
-    "fixture/DeleteReport.yaml"
-
-requestCreateWebhook :: CreateWebhook -> TestTree
-requestCreateWebhook =
-  req
-    "CreateWebhook"
-    "fixture/CreateWebhook.yaml"
-
-requestStopBuildBatch :: StopBuildBatch -> TestTree
-requestStopBuildBatch =
-  req
-    "StopBuildBatch"
-    "fixture/StopBuildBatch.yaml"
-
-requestListSharedProjects :: ListSharedProjects -> TestTree
-requestListSharedProjects =
-  req
-    "ListSharedProjects"
-    "fixture/ListSharedProjects.yaml"
-
-requestCreateReportGroup :: CreateReportGroup -> TestTree
-requestCreateReportGroup =
-  req
-    "CreateReportGroup"
-    "fixture/CreateReportGroup.yaml"
-
-requestDescribeCodeCoverages :: DescribeCodeCoverages -> TestTree
-requestDescribeCodeCoverages =
-  req
-    "DescribeCodeCoverages"
-    "fixture/DescribeCodeCoverages.yaml"
-
-requestImportSourceCredentials :: ImportSourceCredentials -> TestTree
-requestImportSourceCredentials =
-  req
-    "ImportSourceCredentials"
-    "fixture/ImportSourceCredentials.yaml"
-
-requestListBuildBatchesForProject :: ListBuildBatchesForProject -> TestTree
-requestListBuildBatchesForProject =
-  req
-    "ListBuildBatchesForProject"
-    "fixture/ListBuildBatchesForProject.yaml"
-
-requestBatchGetReportGroups :: BatchGetReportGroups -> TestTree
-requestBatchGetReportGroups =
-  req
-    "BatchGetReportGroups"
-    "fixture/BatchGetReportGroups.yaml"
-
-requestDeleteBuildBatch :: DeleteBuildBatch -> TestTree
-requestDeleteBuildBatch =
-  req
-    "DeleteBuildBatch"
-    "fixture/DeleteBuildBatch.yaml"
-
-requestStartBuild :: StartBuild -> TestTree
-requestStartBuild =
-  req
-    "StartBuild"
-    "fixture/StartBuild.yaml"
-
-requestBatchGetBuildBatches :: BatchGetBuildBatches -> TestTree
-requestBatchGetBuildBatches =
-  req
-    "BatchGetBuildBatches"
-    "fixture/BatchGetBuildBatches.yaml"
-
-requestRetryBuild :: RetryBuild -> TestTree
-requestRetryBuild =
-  req
-    "RetryBuild"
-    "fixture/RetryBuild.yaml"
-
-requestListBuildsForProject :: ListBuildsForProject -> TestTree
-requestListBuildsForProject =
-  req
-    "ListBuildsForProject"
-    "fixture/ListBuildsForProject.yaml"
-
-requestDescribeTestCases :: DescribeTestCases -> TestTree
-requestDescribeTestCases =
-  req
-    "DescribeTestCases"
-    "fixture/DescribeTestCases.yaml"
-
-requestGetResourcePolicy :: GetResourcePolicy -> TestTree
-requestGetResourcePolicy =
-  req
-    "GetResourcePolicy"
-    "fixture/GetResourcePolicy.yaml"
-
-requestBatchGetProjects :: BatchGetProjects -> TestTree
-requestBatchGetProjects =
-  req
-    "BatchGetProjects"
-    "fixture/BatchGetProjects.yaml"
-
-requestBatchGetBuilds :: BatchGetBuilds -> TestTree
-requestBatchGetBuilds =
-  req
-    "BatchGetBuilds"
-    "fixture/BatchGetBuilds.yaml"
-
-requestBatchGetReports :: BatchGetReports -> TestTree
-requestBatchGetReports =
-  req
-    "BatchGetReports"
-    "fixture/BatchGetReports.yaml"
-
-requestUpdateWebhook :: UpdateWebhook -> TestTree
-requestUpdateWebhook =
-  req
-    "UpdateWebhook"
-    "fixture/UpdateWebhook.yaml"
-
-requestDeleteWebhook :: DeleteWebhook -> TestTree
-requestDeleteWebhook =
-  req
-    "DeleteWebhook"
-    "fixture/DeleteWebhook.yaml"
-
-requestStartBuildBatch :: StartBuildBatch -> TestTree
-requestStartBuildBatch =
-  req
-    "StartBuildBatch"
-    "fixture/StartBuildBatch.yaml"
-
-requestRetryBuildBatch :: RetryBuildBatch -> TestTree
-requestRetryBuildBatch =
-  req
-    "RetryBuildBatch"
-    "fixture/RetryBuildBatch.yaml"
-
-requestUpdateProjectVisibility :: UpdateProjectVisibility -> TestTree
-requestUpdateProjectVisibility =
-  req
-    "UpdateProjectVisibility"
-    "fixture/UpdateProjectVisibility.yaml"
-
-requestListReportsForReportGroup :: ListReportsForReportGroup -> TestTree
-requestListReportsForReportGroup =
-  req
-    "ListReportsForReportGroup"
-    "fixture/ListReportsForReportGroup.yaml"
-
-requestInvalidateProjectCache :: InvalidateProjectCache -> TestTree
-requestInvalidateProjectCache =
-  req
-    "InvalidateProjectCache"
-    "fixture/InvalidateProjectCache.yaml"
-
-requestUpdateReportGroup :: UpdateReportGroup -> TestTree
-requestUpdateReportGroup =
-  req
-    "UpdateReportGroup"
-    "fixture/UpdateReportGroup.yaml"
-
-requestDeleteReportGroup :: DeleteReportGroup -> TestTree
-requestDeleteReportGroup =
-  req
-    "DeleteReportGroup"
-    "fixture/DeleteReportGroup.yaml"
 
 requestBatchDeleteBuilds :: BatchDeleteBuilds -> TestTree
 requestBatchDeleteBuilds =
@@ -521,47 +311,35 @@ requestBatchDeleteBuilds =
     "BatchDeleteBuilds"
     "fixture/BatchDeleteBuilds.yaml"
 
-requestListReportGroups :: ListReportGroups -> TestTree
-requestListReportGroups =
+requestBatchGetBuildBatches :: BatchGetBuildBatches -> TestTree
+requestBatchGetBuildBatches =
   req
-    "ListReportGroups"
-    "fixture/ListReportGroups.yaml"
+    "BatchGetBuildBatches"
+    "fixture/BatchGetBuildBatches.yaml"
 
-requestPutResourcePolicy :: PutResourcePolicy -> TestTree
-requestPutResourcePolicy =
+requestBatchGetBuilds :: BatchGetBuilds -> TestTree
+requestBatchGetBuilds =
   req
-    "PutResourcePolicy"
-    "fixture/PutResourcePolicy.yaml"
+    "BatchGetBuilds"
+    "fixture/BatchGetBuilds.yaml"
 
-requestDeleteResourcePolicy :: DeleteResourcePolicy -> TestTree
-requestDeleteResourcePolicy =
+requestBatchGetProjects :: BatchGetProjects -> TestTree
+requestBatchGetProjects =
   req
-    "DeleteResourcePolicy"
-    "fixture/DeleteResourcePolicy.yaml"
+    "BatchGetProjects"
+    "fixture/BatchGetProjects.yaml"
 
-requestListCuratedEnvironmentImages :: ListCuratedEnvironmentImages -> TestTree
-requestListCuratedEnvironmentImages =
+requestBatchGetReportGroups :: BatchGetReportGroups -> TestTree
+requestBatchGetReportGroups =
   req
-    "ListCuratedEnvironmentImages"
-    "fixture/ListCuratedEnvironmentImages.yaml"
+    "BatchGetReportGroups"
+    "fixture/BatchGetReportGroups.yaml"
 
-requestGetReportGroupTrend :: GetReportGroupTrend -> TestTree
-requestGetReportGroupTrend =
+requestBatchGetReports :: BatchGetReports -> TestTree
+requestBatchGetReports =
   req
-    "GetReportGroupTrend"
-    "fixture/GetReportGroupTrend.yaml"
-
-requestStopBuild :: StopBuild -> TestTree
-requestStopBuild =
-  req
-    "StopBuild"
-    "fixture/StopBuild.yaml"
-
-requestListBuildBatches :: ListBuildBatches -> TestTree
-requestListBuildBatches =
-  req
-    "ListBuildBatches"
-    "fixture/ListBuildBatches.yaml"
+    "BatchGetReports"
+    "fixture/BatchGetReports.yaml"
 
 requestCreateProject :: CreateProject -> TestTree
 requestCreateProject =
@@ -569,293 +347,235 @@ requestCreateProject =
     "CreateProject"
     "fixture/CreateProject.yaml"
 
+requestCreateReportGroup :: CreateReportGroup -> TestTree
+requestCreateReportGroup =
+  req
+    "CreateReportGroup"
+    "fixture/CreateReportGroup.yaml"
+
+requestCreateWebhook :: CreateWebhook -> TestTree
+requestCreateWebhook =
+  req
+    "CreateWebhook"
+    "fixture/CreateWebhook.yaml"
+
+requestDeleteBuildBatch :: DeleteBuildBatch -> TestTree
+requestDeleteBuildBatch =
+  req
+    "DeleteBuildBatch"
+    "fixture/DeleteBuildBatch.yaml"
+
+requestDeleteProject :: DeleteProject -> TestTree
+requestDeleteProject =
+  req
+    "DeleteProject"
+    "fixture/DeleteProject.yaml"
+
+requestDeleteReport :: DeleteReport -> TestTree
+requestDeleteReport =
+  req
+    "DeleteReport"
+    "fixture/DeleteReport.yaml"
+
+requestDeleteReportGroup :: DeleteReportGroup -> TestTree
+requestDeleteReportGroup =
+  req
+    "DeleteReportGroup"
+    "fixture/DeleteReportGroup.yaml"
+
+requestDeleteResourcePolicy :: DeleteResourcePolicy -> TestTree
+requestDeleteResourcePolicy =
+  req
+    "DeleteResourcePolicy"
+    "fixture/DeleteResourcePolicy.yaml"
+
+requestDeleteSourceCredentials :: DeleteSourceCredentials -> TestTree
+requestDeleteSourceCredentials =
+  req
+    "DeleteSourceCredentials"
+    "fixture/DeleteSourceCredentials.yaml"
+
+requestDeleteWebhook :: DeleteWebhook -> TestTree
+requestDeleteWebhook =
+  req
+    "DeleteWebhook"
+    "fixture/DeleteWebhook.yaml"
+
+requestDescribeCodeCoverages :: DescribeCodeCoverages -> TestTree
+requestDescribeCodeCoverages =
+  req
+    "DescribeCodeCoverages"
+    "fixture/DescribeCodeCoverages.yaml"
+
+requestDescribeTestCases :: DescribeTestCases -> TestTree
+requestDescribeTestCases =
+  req
+    "DescribeTestCases"
+    "fixture/DescribeTestCases.yaml"
+
+requestGetReportGroupTrend :: GetReportGroupTrend -> TestTree
+requestGetReportGroupTrend =
+  req
+    "GetReportGroupTrend"
+    "fixture/GetReportGroupTrend.yaml"
+
+requestGetResourcePolicy :: GetResourcePolicy -> TestTree
+requestGetResourcePolicy =
+  req
+    "GetResourcePolicy"
+    "fixture/GetResourcePolicy.yaml"
+
+requestImportSourceCredentials :: ImportSourceCredentials -> TestTree
+requestImportSourceCredentials =
+  req
+    "ImportSourceCredentials"
+    "fixture/ImportSourceCredentials.yaml"
+
+requestInvalidateProjectCache :: InvalidateProjectCache -> TestTree
+requestInvalidateProjectCache =
+  req
+    "InvalidateProjectCache"
+    "fixture/InvalidateProjectCache.yaml"
+
+requestListBuildBatches :: ListBuildBatches -> TestTree
+requestListBuildBatches =
+  req
+    "ListBuildBatches"
+    "fixture/ListBuildBatches.yaml"
+
+requestListBuildBatchesForProject :: ListBuildBatchesForProject -> TestTree
+requestListBuildBatchesForProject =
+  req
+    "ListBuildBatchesForProject"
+    "fixture/ListBuildBatchesForProject.yaml"
+
+requestListBuilds :: ListBuilds -> TestTree
+requestListBuilds =
+  req
+    "ListBuilds"
+    "fixture/ListBuilds.yaml"
+
+requestListBuildsForProject :: ListBuildsForProject -> TestTree
+requestListBuildsForProject =
+  req
+    "ListBuildsForProject"
+    "fixture/ListBuildsForProject.yaml"
+
+requestListCuratedEnvironmentImages :: ListCuratedEnvironmentImages -> TestTree
+requestListCuratedEnvironmentImages =
+  req
+    "ListCuratedEnvironmentImages"
+    "fixture/ListCuratedEnvironmentImages.yaml"
+
+requestListProjects :: ListProjects -> TestTree
+requestListProjects =
+  req
+    "ListProjects"
+    "fixture/ListProjects.yaml"
+
+requestListReportGroups :: ListReportGroups -> TestTree
+requestListReportGroups =
+  req
+    "ListReportGroups"
+    "fixture/ListReportGroups.yaml"
+
+requestListReports :: ListReports -> TestTree
+requestListReports =
+  req
+    "ListReports"
+    "fixture/ListReports.yaml"
+
+requestListReportsForReportGroup :: ListReportsForReportGroup -> TestTree
+requestListReportsForReportGroup =
+  req
+    "ListReportsForReportGroup"
+    "fixture/ListReportsForReportGroup.yaml"
+
+requestListSharedProjects :: ListSharedProjects -> TestTree
+requestListSharedProjects =
+  req
+    "ListSharedProjects"
+    "fixture/ListSharedProjects.yaml"
+
 requestListSharedReportGroups :: ListSharedReportGroups -> TestTree
 requestListSharedReportGroups =
   req
     "ListSharedReportGroups"
     "fixture/ListSharedReportGroups.yaml"
 
+requestListSourceCredentials :: ListSourceCredentials -> TestTree
+requestListSourceCredentials =
+  req
+    "ListSourceCredentials"
+    "fixture/ListSourceCredentials.yaml"
+
+requestPutResourcePolicy :: PutResourcePolicy -> TestTree
+requestPutResourcePolicy =
+  req
+    "PutResourcePolicy"
+    "fixture/PutResourcePolicy.yaml"
+
+requestRetryBuild :: RetryBuild -> TestTree
+requestRetryBuild =
+  req
+    "RetryBuild"
+    "fixture/RetryBuild.yaml"
+
+requestRetryBuildBatch :: RetryBuildBatch -> TestTree
+requestRetryBuildBatch =
+  req
+    "RetryBuildBatch"
+    "fixture/RetryBuildBatch.yaml"
+
+requestStartBuild :: StartBuild -> TestTree
+requestStartBuild =
+  req
+    "StartBuild"
+    "fixture/StartBuild.yaml"
+
+requestStartBuildBatch :: StartBuildBatch -> TestTree
+requestStartBuildBatch =
+  req
+    "StartBuildBatch"
+    "fixture/StartBuildBatch.yaml"
+
+requestStopBuild :: StopBuild -> TestTree
+requestStopBuild =
+  req
+    "StopBuild"
+    "fixture/StopBuild.yaml"
+
+requestStopBuildBatch :: StopBuildBatch -> TestTree
+requestStopBuildBatch =
+  req
+    "StopBuildBatch"
+    "fixture/StopBuildBatch.yaml"
+
+requestUpdateProject :: UpdateProject -> TestTree
+requestUpdateProject =
+  req
+    "UpdateProject"
+    "fixture/UpdateProject.yaml"
+
+requestUpdateProjectVisibility :: UpdateProjectVisibility -> TestTree
+requestUpdateProjectVisibility =
+  req
+    "UpdateProjectVisibility"
+    "fixture/UpdateProjectVisibility.yaml"
+
+requestUpdateReportGroup :: UpdateReportGroup -> TestTree
+requestUpdateReportGroup =
+  req
+    "UpdateReportGroup"
+    "fixture/UpdateReportGroup.yaml"
+
+requestUpdateWebhook :: UpdateWebhook -> TestTree
+requestUpdateWebhook =
+  req
+    "UpdateWebhook"
+    "fixture/UpdateWebhook.yaml"
+
 -- Responses
-
-responseListProjects :: ListProjectsResponse -> TestTree
-responseListProjects =
-  res
-    "ListProjectsResponse"
-    "fixture/ListProjectsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListProjects)
-
-responseDeleteProject :: DeleteProjectResponse -> TestTree
-responseDeleteProject =
-  res
-    "DeleteProjectResponse"
-    "fixture/DeleteProjectResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteProject)
-
-responseUpdateProject :: UpdateProjectResponse -> TestTree
-responseUpdateProject =
-  res
-    "UpdateProjectResponse"
-    "fixture/UpdateProjectResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateProject)
-
-responseDeleteSourceCredentials :: DeleteSourceCredentialsResponse -> TestTree
-responseDeleteSourceCredentials =
-  res
-    "DeleteSourceCredentialsResponse"
-    "fixture/DeleteSourceCredentialsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteSourceCredentials)
-
-responseListBuilds :: ListBuildsResponse -> TestTree
-responseListBuilds =
-  res
-    "ListBuildsResponse"
-    "fixture/ListBuildsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListBuilds)
-
-responseListSourceCredentials :: ListSourceCredentialsResponse -> TestTree
-responseListSourceCredentials =
-  res
-    "ListSourceCredentialsResponse"
-    "fixture/ListSourceCredentialsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListSourceCredentials)
-
-responseListReports :: ListReportsResponse -> TestTree
-responseListReports =
-  res
-    "ListReportsResponse"
-    "fixture/ListReportsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListReports)
-
-responseDeleteReport :: DeleteReportResponse -> TestTree
-responseDeleteReport =
-  res
-    "DeleteReportResponse"
-    "fixture/DeleteReportResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteReport)
-
-responseCreateWebhook :: CreateWebhookResponse -> TestTree
-responseCreateWebhook =
-  res
-    "CreateWebhookResponse"
-    "fixture/CreateWebhookResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateWebhook)
-
-responseStopBuildBatch :: StopBuildBatchResponse -> TestTree
-responseStopBuildBatch =
-  res
-    "StopBuildBatchResponse"
-    "fixture/StopBuildBatchResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StopBuildBatch)
-
-responseListSharedProjects :: ListSharedProjectsResponse -> TestTree
-responseListSharedProjects =
-  res
-    "ListSharedProjectsResponse"
-    "fixture/ListSharedProjectsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListSharedProjects)
-
-responseCreateReportGroup :: CreateReportGroupResponse -> TestTree
-responseCreateReportGroup =
-  res
-    "CreateReportGroupResponse"
-    "fixture/CreateReportGroupResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateReportGroup)
-
-responseDescribeCodeCoverages :: DescribeCodeCoveragesResponse -> TestTree
-responseDescribeCodeCoverages =
-  res
-    "DescribeCodeCoveragesResponse"
-    "fixture/DescribeCodeCoveragesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeCodeCoverages)
-
-responseImportSourceCredentials :: ImportSourceCredentialsResponse -> TestTree
-responseImportSourceCredentials =
-  res
-    "ImportSourceCredentialsResponse"
-    "fixture/ImportSourceCredentialsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ImportSourceCredentials)
-
-responseListBuildBatchesForProject :: ListBuildBatchesForProjectResponse -> TestTree
-responseListBuildBatchesForProject =
-  res
-    "ListBuildBatchesForProjectResponse"
-    "fixture/ListBuildBatchesForProjectResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListBuildBatchesForProject)
-
-responseBatchGetReportGroups :: BatchGetReportGroupsResponse -> TestTree
-responseBatchGetReportGroups =
-  res
-    "BatchGetReportGroupsResponse"
-    "fixture/BatchGetReportGroupsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchGetReportGroups)
-
-responseDeleteBuildBatch :: DeleteBuildBatchResponse -> TestTree
-responseDeleteBuildBatch =
-  res
-    "DeleteBuildBatchResponse"
-    "fixture/DeleteBuildBatchResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteBuildBatch)
-
-responseStartBuild :: StartBuildResponse -> TestTree
-responseStartBuild =
-  res
-    "StartBuildResponse"
-    "fixture/StartBuildResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartBuild)
-
-responseBatchGetBuildBatches :: BatchGetBuildBatchesResponse -> TestTree
-responseBatchGetBuildBatches =
-  res
-    "BatchGetBuildBatchesResponse"
-    "fixture/BatchGetBuildBatchesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchGetBuildBatches)
-
-responseRetryBuild :: RetryBuildResponse -> TestTree
-responseRetryBuild =
-  res
-    "RetryBuildResponse"
-    "fixture/RetryBuildResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RetryBuild)
-
-responseListBuildsForProject :: ListBuildsForProjectResponse -> TestTree
-responseListBuildsForProject =
-  res
-    "ListBuildsForProjectResponse"
-    "fixture/ListBuildsForProjectResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListBuildsForProject)
-
-responseDescribeTestCases :: DescribeTestCasesResponse -> TestTree
-responseDescribeTestCases =
-  res
-    "DescribeTestCasesResponse"
-    "fixture/DescribeTestCasesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeTestCases)
-
-responseGetResourcePolicy :: GetResourcePolicyResponse -> TestTree
-responseGetResourcePolicy =
-  res
-    "GetResourcePolicyResponse"
-    "fixture/GetResourcePolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetResourcePolicy)
-
-responseBatchGetProjects :: BatchGetProjectsResponse -> TestTree
-responseBatchGetProjects =
-  res
-    "BatchGetProjectsResponse"
-    "fixture/BatchGetProjectsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchGetProjects)
-
-responseBatchGetBuilds :: BatchGetBuildsResponse -> TestTree
-responseBatchGetBuilds =
-  res
-    "BatchGetBuildsResponse"
-    "fixture/BatchGetBuildsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchGetBuilds)
-
-responseBatchGetReports :: BatchGetReportsResponse -> TestTree
-responseBatchGetReports =
-  res
-    "BatchGetReportsResponse"
-    "fixture/BatchGetReportsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy BatchGetReports)
-
-responseUpdateWebhook :: UpdateWebhookResponse -> TestTree
-responseUpdateWebhook =
-  res
-    "UpdateWebhookResponse"
-    "fixture/UpdateWebhookResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateWebhook)
-
-responseDeleteWebhook :: DeleteWebhookResponse -> TestTree
-responseDeleteWebhook =
-  res
-    "DeleteWebhookResponse"
-    "fixture/DeleteWebhookResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteWebhook)
-
-responseStartBuildBatch :: StartBuildBatchResponse -> TestTree
-responseStartBuildBatch =
-  res
-    "StartBuildBatchResponse"
-    "fixture/StartBuildBatchResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartBuildBatch)
-
-responseRetryBuildBatch :: RetryBuildBatchResponse -> TestTree
-responseRetryBuildBatch =
-  res
-    "RetryBuildBatchResponse"
-    "fixture/RetryBuildBatchResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RetryBuildBatch)
-
-responseUpdateProjectVisibility :: UpdateProjectVisibilityResponse -> TestTree
-responseUpdateProjectVisibility =
-  res
-    "UpdateProjectVisibilityResponse"
-    "fixture/UpdateProjectVisibilityResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateProjectVisibility)
-
-responseListReportsForReportGroup :: ListReportsForReportGroupResponse -> TestTree
-responseListReportsForReportGroup =
-  res
-    "ListReportsForReportGroupResponse"
-    "fixture/ListReportsForReportGroupResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListReportsForReportGroup)
-
-responseInvalidateProjectCache :: InvalidateProjectCacheResponse -> TestTree
-responseInvalidateProjectCache =
-  res
-    "InvalidateProjectCacheResponse"
-    "fixture/InvalidateProjectCacheResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy InvalidateProjectCache)
-
-responseUpdateReportGroup :: UpdateReportGroupResponse -> TestTree
-responseUpdateReportGroup =
-  res
-    "UpdateReportGroupResponse"
-    "fixture/UpdateReportGroupResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateReportGroup)
-
-responseDeleteReportGroup :: DeleteReportGroupResponse -> TestTree
-responseDeleteReportGroup =
-  res
-    "DeleteReportGroupResponse"
-    "fixture/DeleteReportGroupResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteReportGroup)
 
 responseBatchDeleteBuilds :: BatchDeleteBuildsResponse -> TestTree
 responseBatchDeleteBuilds =
@@ -865,61 +585,45 @@ responseBatchDeleteBuilds =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchDeleteBuilds)
 
-responseListReportGroups :: ListReportGroupsResponse -> TestTree
-responseListReportGroups =
+responseBatchGetBuildBatches :: BatchGetBuildBatchesResponse -> TestTree
+responseBatchGetBuildBatches =
   res
-    "ListReportGroupsResponse"
-    "fixture/ListReportGroupsResponse.proto"
+    "BatchGetBuildBatchesResponse"
+    "fixture/BatchGetBuildBatchesResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListReportGroups)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetBuildBatches)
 
-responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
-responsePutResourcePolicy =
+responseBatchGetBuilds :: BatchGetBuildsResponse -> TestTree
+responseBatchGetBuilds =
   res
-    "PutResourcePolicyResponse"
-    "fixture/PutResourcePolicyResponse.proto"
+    "BatchGetBuildsResponse"
+    "fixture/BatchGetBuildsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutResourcePolicy)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetBuilds)
 
-responseDeleteResourcePolicy :: DeleteResourcePolicyResponse -> TestTree
-responseDeleteResourcePolicy =
+responseBatchGetProjects :: BatchGetProjectsResponse -> TestTree
+responseBatchGetProjects =
   res
-    "DeleteResourcePolicyResponse"
-    "fixture/DeleteResourcePolicyResponse.proto"
+    "BatchGetProjectsResponse"
+    "fixture/BatchGetProjectsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteResourcePolicy)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetProjects)
 
-responseListCuratedEnvironmentImages :: ListCuratedEnvironmentImagesResponse -> TestTree
-responseListCuratedEnvironmentImages =
+responseBatchGetReportGroups :: BatchGetReportGroupsResponse -> TestTree
+responseBatchGetReportGroups =
   res
-    "ListCuratedEnvironmentImagesResponse"
-    "fixture/ListCuratedEnvironmentImagesResponse.proto"
+    "BatchGetReportGroupsResponse"
+    "fixture/BatchGetReportGroupsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListCuratedEnvironmentImages)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetReportGroups)
 
-responseGetReportGroupTrend :: GetReportGroupTrendResponse -> TestTree
-responseGetReportGroupTrend =
+responseBatchGetReports :: BatchGetReportsResponse -> TestTree
+responseBatchGetReports =
   res
-    "GetReportGroupTrendResponse"
-    "fixture/GetReportGroupTrendResponse.proto"
+    "BatchGetReportsResponse"
+    "fixture/BatchGetReportsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetReportGroupTrend)
-
-responseStopBuild :: StopBuildResponse -> TestTree
-responseStopBuild =
-  res
-    "StopBuildResponse"
-    "fixture/StopBuildResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StopBuild)
-
-responseListBuildBatches :: ListBuildBatchesResponse -> TestTree
-responseListBuildBatches =
-  res
-    "ListBuildBatchesResponse"
-    "fixture/ListBuildBatchesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListBuildBatches)
+    (Proxy.Proxy :: Proxy.Proxy BatchGetReports)
 
 responseCreateProject :: CreateProjectResponse -> TestTree
 responseCreateProject =
@@ -929,6 +633,206 @@ responseCreateProject =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateProject)
 
+responseCreateReportGroup :: CreateReportGroupResponse -> TestTree
+responseCreateReportGroup =
+  res
+    "CreateReportGroupResponse"
+    "fixture/CreateReportGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateReportGroup)
+
+responseCreateWebhook :: CreateWebhookResponse -> TestTree
+responseCreateWebhook =
+  res
+    "CreateWebhookResponse"
+    "fixture/CreateWebhookResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateWebhook)
+
+responseDeleteBuildBatch :: DeleteBuildBatchResponse -> TestTree
+responseDeleteBuildBatch =
+  res
+    "DeleteBuildBatchResponse"
+    "fixture/DeleteBuildBatchResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteBuildBatch)
+
+responseDeleteProject :: DeleteProjectResponse -> TestTree
+responseDeleteProject =
+  res
+    "DeleteProjectResponse"
+    "fixture/DeleteProjectResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteProject)
+
+responseDeleteReport :: DeleteReportResponse -> TestTree
+responseDeleteReport =
+  res
+    "DeleteReportResponse"
+    "fixture/DeleteReportResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteReport)
+
+responseDeleteReportGroup :: DeleteReportGroupResponse -> TestTree
+responseDeleteReportGroup =
+  res
+    "DeleteReportGroupResponse"
+    "fixture/DeleteReportGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteReportGroup)
+
+responseDeleteResourcePolicy :: DeleteResourcePolicyResponse -> TestTree
+responseDeleteResourcePolicy =
+  res
+    "DeleteResourcePolicyResponse"
+    "fixture/DeleteResourcePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteResourcePolicy)
+
+responseDeleteSourceCredentials :: DeleteSourceCredentialsResponse -> TestTree
+responseDeleteSourceCredentials =
+  res
+    "DeleteSourceCredentialsResponse"
+    "fixture/DeleteSourceCredentialsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteSourceCredentials)
+
+responseDeleteWebhook :: DeleteWebhookResponse -> TestTree
+responseDeleteWebhook =
+  res
+    "DeleteWebhookResponse"
+    "fixture/DeleteWebhookResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteWebhook)
+
+responseDescribeCodeCoverages :: DescribeCodeCoveragesResponse -> TestTree
+responseDescribeCodeCoverages =
+  res
+    "DescribeCodeCoveragesResponse"
+    "fixture/DescribeCodeCoveragesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeCodeCoverages)
+
+responseDescribeTestCases :: DescribeTestCasesResponse -> TestTree
+responseDescribeTestCases =
+  res
+    "DescribeTestCasesResponse"
+    "fixture/DescribeTestCasesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTestCases)
+
+responseGetReportGroupTrend :: GetReportGroupTrendResponse -> TestTree
+responseGetReportGroupTrend =
+  res
+    "GetReportGroupTrendResponse"
+    "fixture/GetReportGroupTrendResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetReportGroupTrend)
+
+responseGetResourcePolicy :: GetResourcePolicyResponse -> TestTree
+responseGetResourcePolicy =
+  res
+    "GetResourcePolicyResponse"
+    "fixture/GetResourcePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetResourcePolicy)
+
+responseImportSourceCredentials :: ImportSourceCredentialsResponse -> TestTree
+responseImportSourceCredentials =
+  res
+    "ImportSourceCredentialsResponse"
+    "fixture/ImportSourceCredentialsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ImportSourceCredentials)
+
+responseInvalidateProjectCache :: InvalidateProjectCacheResponse -> TestTree
+responseInvalidateProjectCache =
+  res
+    "InvalidateProjectCacheResponse"
+    "fixture/InvalidateProjectCacheResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy InvalidateProjectCache)
+
+responseListBuildBatches :: ListBuildBatchesResponse -> TestTree
+responseListBuildBatches =
+  res
+    "ListBuildBatchesResponse"
+    "fixture/ListBuildBatchesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListBuildBatches)
+
+responseListBuildBatchesForProject :: ListBuildBatchesForProjectResponse -> TestTree
+responseListBuildBatchesForProject =
+  res
+    "ListBuildBatchesForProjectResponse"
+    "fixture/ListBuildBatchesForProjectResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListBuildBatchesForProject)
+
+responseListBuilds :: ListBuildsResponse -> TestTree
+responseListBuilds =
+  res
+    "ListBuildsResponse"
+    "fixture/ListBuildsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListBuilds)
+
+responseListBuildsForProject :: ListBuildsForProjectResponse -> TestTree
+responseListBuildsForProject =
+  res
+    "ListBuildsForProjectResponse"
+    "fixture/ListBuildsForProjectResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListBuildsForProject)
+
+responseListCuratedEnvironmentImages :: ListCuratedEnvironmentImagesResponse -> TestTree
+responseListCuratedEnvironmentImages =
+  res
+    "ListCuratedEnvironmentImagesResponse"
+    "fixture/ListCuratedEnvironmentImagesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListCuratedEnvironmentImages)
+
+responseListProjects :: ListProjectsResponse -> TestTree
+responseListProjects =
+  res
+    "ListProjectsResponse"
+    "fixture/ListProjectsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListProjects)
+
+responseListReportGroups :: ListReportGroupsResponse -> TestTree
+responseListReportGroups =
+  res
+    "ListReportGroupsResponse"
+    "fixture/ListReportGroupsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListReportGroups)
+
+responseListReports :: ListReportsResponse -> TestTree
+responseListReports =
+  res
+    "ListReportsResponse"
+    "fixture/ListReportsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListReports)
+
+responseListReportsForReportGroup :: ListReportsForReportGroupResponse -> TestTree
+responseListReportsForReportGroup =
+  res
+    "ListReportsForReportGroupResponse"
+    "fixture/ListReportsForReportGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListReportsForReportGroup)
+
+responseListSharedProjects :: ListSharedProjectsResponse -> TestTree
+responseListSharedProjects =
+  res
+    "ListSharedProjectsResponse"
+    "fixture/ListSharedProjectsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSharedProjects)
+
 responseListSharedReportGroups :: ListSharedReportGroupsResponse -> TestTree
 responseListSharedReportGroups =
   res
@@ -936,3 +840,99 @@ responseListSharedReportGroups =
     "fixture/ListSharedReportGroupsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListSharedReportGroups)
+
+responseListSourceCredentials :: ListSourceCredentialsResponse -> TestTree
+responseListSourceCredentials =
+  res
+    "ListSourceCredentialsResponse"
+    "fixture/ListSourceCredentialsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSourceCredentials)
+
+responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
+responsePutResourcePolicy =
+  res
+    "PutResourcePolicyResponse"
+    "fixture/PutResourcePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutResourcePolicy)
+
+responseRetryBuild :: RetryBuildResponse -> TestTree
+responseRetryBuild =
+  res
+    "RetryBuildResponse"
+    "fixture/RetryBuildResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RetryBuild)
+
+responseRetryBuildBatch :: RetryBuildBatchResponse -> TestTree
+responseRetryBuildBatch =
+  res
+    "RetryBuildBatchResponse"
+    "fixture/RetryBuildBatchResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RetryBuildBatch)
+
+responseStartBuild :: StartBuildResponse -> TestTree
+responseStartBuild =
+  res
+    "StartBuildResponse"
+    "fixture/StartBuildResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartBuild)
+
+responseStartBuildBatch :: StartBuildBatchResponse -> TestTree
+responseStartBuildBatch =
+  res
+    "StartBuildBatchResponse"
+    "fixture/StartBuildBatchResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartBuildBatch)
+
+responseStopBuild :: StopBuildResponse -> TestTree
+responseStopBuild =
+  res
+    "StopBuildResponse"
+    "fixture/StopBuildResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopBuild)
+
+responseStopBuildBatch :: StopBuildBatchResponse -> TestTree
+responseStopBuildBatch =
+  res
+    "StopBuildBatchResponse"
+    "fixture/StopBuildBatchResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopBuildBatch)
+
+responseUpdateProject :: UpdateProjectResponse -> TestTree
+responseUpdateProject =
+  res
+    "UpdateProjectResponse"
+    "fixture/UpdateProjectResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateProject)
+
+responseUpdateProjectVisibility :: UpdateProjectVisibilityResponse -> TestTree
+responseUpdateProjectVisibility =
+  res
+    "UpdateProjectVisibilityResponse"
+    "fixture/UpdateProjectVisibilityResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateProjectVisibility)
+
+responseUpdateReportGroup :: UpdateReportGroupResponse -> TestTree
+responseUpdateReportGroup =
+  res
+    "UpdateReportGroupResponse"
+    "fixture/UpdateReportGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateReportGroup)
+
+responseUpdateWebhook :: UpdateWebhookResponse -> TestTree
+responseUpdateWebhook =
+  res
+    "UpdateWebhookResponse"
+    "fixture/UpdateWebhookResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateWebhook)

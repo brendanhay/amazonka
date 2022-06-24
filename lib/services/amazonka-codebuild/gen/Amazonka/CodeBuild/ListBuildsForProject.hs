@@ -39,8 +39,8 @@ module Amazonka.CodeBuild.ListBuildsForProject
     newListBuildsForProjectResponse,
 
     -- * Response Lenses
-    listBuildsForProjectResponse_ids,
     listBuildsForProjectResponse_nextToken,
+    listBuildsForProjectResponse_ids,
     listBuildsForProjectResponse_httpStatus,
   )
 where
@@ -184,8 +184,8 @@ instance Core.AWSRequest ListBuildsForProject where
     Response.receiveJSON
       ( \s h x ->
           ListBuildsForProjectResponse'
-            Prelude.<$> (x Core..?> "ids")
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "ids")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -234,14 +234,14 @@ instance Core.ToQuery ListBuildsForProject where
 
 -- | /See:/ 'newListBuildsForProjectResponse' smart constructor.
 data ListBuildsForProjectResponse = ListBuildsForProjectResponse'
-  { -- | A list of build identifiers for the specified build project, with each
-    -- build ID representing a single build.
-    ids :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | If there are more than 100 items in the list, only the first 100 items
+  { -- | If there are more than 100 items in the list, only the first 100 items
     -- are returned, along with a unique string called a /nextToken/. To get
     -- the next batch of items in the list, call this operation again, adding
     -- the next token to the call.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of build identifiers for the specified build project, with each
+    -- build ID representing a single build.
+    ids :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -255,13 +255,13 @@ data ListBuildsForProjectResponse = ListBuildsForProjectResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ids', 'listBuildsForProjectResponse_ids' - A list of build identifiers for the specified build project, with each
--- build ID representing a single build.
---
 -- 'nextToken', 'listBuildsForProjectResponse_nextToken' - If there are more than 100 items in the list, only the first 100 items
 -- are returned, along with a unique string called a /nextToken/. To get
 -- the next batch of items in the list, call this operation again, adding
 -- the next token to the call.
+--
+-- 'ids', 'listBuildsForProjectResponse_ids' - A list of build identifiers for the specified build project, with each
+-- build ID representing a single build.
 --
 -- 'httpStatus', 'listBuildsForProjectResponse_httpStatus' - The response's http status code.
 newListBuildsForProjectResponse ::
@@ -270,16 +270,11 @@ newListBuildsForProjectResponse ::
   ListBuildsForProjectResponse
 newListBuildsForProjectResponse pHttpStatus_ =
   ListBuildsForProjectResponse'
-    { ids =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      ids = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of build identifiers for the specified build project, with each
--- build ID representing a single build.
-listBuildsForProjectResponse_ids :: Lens.Lens' ListBuildsForProjectResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-listBuildsForProjectResponse_ids = Lens.lens (\ListBuildsForProjectResponse' {ids} -> ids) (\s@ListBuildsForProjectResponse' {} a -> s {ids = a} :: ListBuildsForProjectResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are more than 100 items in the list, only the first 100 items
 -- are returned, along with a unique string called a /nextToken/. To get
@@ -288,12 +283,17 @@ listBuildsForProjectResponse_ids = Lens.lens (\ListBuildsForProjectResponse' {id
 listBuildsForProjectResponse_nextToken :: Lens.Lens' ListBuildsForProjectResponse (Prelude.Maybe Prelude.Text)
 listBuildsForProjectResponse_nextToken = Lens.lens (\ListBuildsForProjectResponse' {nextToken} -> nextToken) (\s@ListBuildsForProjectResponse' {} a -> s {nextToken = a} :: ListBuildsForProjectResponse)
 
+-- | A list of build identifiers for the specified build project, with each
+-- build ID representing a single build.
+listBuildsForProjectResponse_ids :: Lens.Lens' ListBuildsForProjectResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+listBuildsForProjectResponse_ids = Lens.lens (\ListBuildsForProjectResponse' {ids} -> ids) (\s@ListBuildsForProjectResponse' {} a -> s {ids = a} :: ListBuildsForProjectResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listBuildsForProjectResponse_httpStatus :: Lens.Lens' ListBuildsForProjectResponse Prelude.Int
 listBuildsForProjectResponse_httpStatus = Lens.lens (\ListBuildsForProjectResponse' {httpStatus} -> httpStatus) (\s@ListBuildsForProjectResponse' {} a -> s {httpStatus = a} :: ListBuildsForProjectResponse)
 
 instance Prelude.NFData ListBuildsForProjectResponse where
   rnf ListBuildsForProjectResponse' {..} =
-    Prelude.rnf ids
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf ids
       `Prelude.seq` Prelude.rnf httpStatus

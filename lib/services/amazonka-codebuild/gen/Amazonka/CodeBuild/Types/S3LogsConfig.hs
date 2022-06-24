@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3LogsConfig' smart constructor.
 data S3LogsConfig = S3LogsConfig'
-  { -- | The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon
+  { -- | Set to true if you do not want your S3 build log output encrypted. By
+    -- default S3 build logs are encrypted.
+    encryptionDisabled :: Prelude.Maybe Prelude.Bool,
+    -- | The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon
     -- S3 bucket name is @my-bucket@, and your path prefix is @build-log@, then
     -- acceptable formats are @my-bucket\/build-log@ or
     -- @arn:aws:s3:::my-bucket\/build-log@.
     location :: Prelude.Maybe Prelude.Text,
-    -- | Set to true if you do not want your S3 build log output encrypted. By
-    -- default S3 build logs are encrypted.
-    encryptionDisabled :: Prelude.Maybe Prelude.Bool,
     bucketOwnerAccess :: Prelude.Maybe BucketOwnerAccess,
     -- | The current status of the S3 build logs. Valid values are:
     --
@@ -55,13 +55,13 @@ data S3LogsConfig = S3LogsConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'encryptionDisabled', 's3LogsConfig_encryptionDisabled' - Set to true if you do not want your S3 build log output encrypted. By
+-- default S3 build logs are encrypted.
+--
 -- 'location', 's3LogsConfig_location' - The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon
 -- S3 bucket name is @my-bucket@, and your path prefix is @build-log@, then
 -- acceptable formats are @my-bucket\/build-log@ or
 -- @arn:aws:s3:::my-bucket\/build-log@.
---
--- 'encryptionDisabled', 's3LogsConfig_encryptionDisabled' - Set to true if you do not want your S3 build log output encrypted. By
--- default S3 build logs are encrypted.
 --
 -- 'bucketOwnerAccess', 's3LogsConfig_bucketOwnerAccess' - Undocumented member.
 --
@@ -76,11 +76,16 @@ newS3LogsConfig ::
   S3LogsConfig
 newS3LogsConfig pStatus_ =
   S3LogsConfig'
-    { location = Prelude.Nothing,
-      encryptionDisabled = Prelude.Nothing,
+    { encryptionDisabled = Prelude.Nothing,
+      location = Prelude.Nothing,
       bucketOwnerAccess = Prelude.Nothing,
       status = pStatus_
     }
+
+-- | Set to true if you do not want your S3 build log output encrypted. By
+-- default S3 build logs are encrypted.
+s3LogsConfig_encryptionDisabled :: Lens.Lens' S3LogsConfig (Prelude.Maybe Prelude.Bool)
+s3LogsConfig_encryptionDisabled = Lens.lens (\S3LogsConfig' {encryptionDisabled} -> encryptionDisabled) (\s@S3LogsConfig' {} a -> s {encryptionDisabled = a} :: S3LogsConfig)
 
 -- | The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon
 -- S3 bucket name is @my-bucket@, and your path prefix is @build-log@, then
@@ -88,11 +93,6 @@ newS3LogsConfig pStatus_ =
 -- @arn:aws:s3:::my-bucket\/build-log@.
 s3LogsConfig_location :: Lens.Lens' S3LogsConfig (Prelude.Maybe Prelude.Text)
 s3LogsConfig_location = Lens.lens (\S3LogsConfig' {location} -> location) (\s@S3LogsConfig' {} a -> s {location = a} :: S3LogsConfig)
-
--- | Set to true if you do not want your S3 build log output encrypted. By
--- default S3 build logs are encrypted.
-s3LogsConfig_encryptionDisabled :: Lens.Lens' S3LogsConfig (Prelude.Maybe Prelude.Bool)
-s3LogsConfig_encryptionDisabled = Lens.lens (\S3LogsConfig' {encryptionDisabled} -> encryptionDisabled) (\s@S3LogsConfig' {} a -> s {encryptionDisabled = a} :: S3LogsConfig)
 
 -- | Undocumented member.
 s3LogsConfig_bucketOwnerAccess :: Lens.Lens' S3LogsConfig (Prelude.Maybe BucketOwnerAccess)
@@ -112,23 +112,23 @@ instance Core.FromJSON S3LogsConfig where
       "S3LogsConfig"
       ( \x ->
           S3LogsConfig'
-            Prelude.<$> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "encryptionDisabled")
+            Prelude.<$> (x Core..:? "encryptionDisabled")
+            Prelude.<*> (x Core..:? "location")
             Prelude.<*> (x Core..:? "bucketOwnerAccess")
             Prelude.<*> (x Core..: "status")
       )
 
 instance Prelude.Hashable S3LogsConfig where
   hashWithSalt _salt S3LogsConfig' {..} =
-    _salt `Prelude.hashWithSalt` location
-      `Prelude.hashWithSalt` encryptionDisabled
+    _salt `Prelude.hashWithSalt` encryptionDisabled
+      `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` bucketOwnerAccess
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData S3LogsConfig where
   rnf S3LogsConfig' {..} =
-    Prelude.rnf location
-      `Prelude.seq` Prelude.rnf encryptionDisabled
+    Prelude.rnf encryptionDisabled
+      `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf bucketOwnerAccess
       `Prelude.seq` Prelude.rnf status
 
@@ -136,9 +136,9 @@ instance Core.ToJSON S3LogsConfig where
   toJSON S3LogsConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("location" Core..=) Prelude.<$> location,
-            ("encryptionDisabled" Core..=)
+          [ ("encryptionDisabled" Core..=)
               Prelude.<$> encryptionDisabled,
+            ("location" Core..=) Prelude.<$> location,
             ("bucketOwnerAccess" Core..=)
               Prelude.<$> bucketOwnerAccess,
             Prelude.Just ("status" Core..= status)

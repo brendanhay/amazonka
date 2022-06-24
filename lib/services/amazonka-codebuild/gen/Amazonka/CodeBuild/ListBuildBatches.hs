@@ -39,8 +39,8 @@ module Amazonka.CodeBuild.ListBuildBatches
     newListBuildBatchesResponse,
 
     -- * Response Lenses
-    listBuildBatchesResponse_ids,
     listBuildBatchesResponse_nextToken,
+    listBuildBatchesResponse_ids,
     listBuildBatchesResponse_httpStatus,
   )
 where
@@ -160,8 +160,8 @@ instance Core.AWSRequest ListBuildBatches where
     Response.receiveJSON
       ( \s h x ->
           ListBuildBatchesResponse'
-            Prelude.<$> (x Core..?> "ids" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "ids" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -213,12 +213,12 @@ instance Core.ToQuery ListBuildBatches where
 
 -- | /See:/ 'newListBuildBatchesResponse' smart constructor.
 data ListBuildBatchesResponse = ListBuildBatchesResponse'
-  { -- | An array of strings that contains the batch build identifiers.
-    ids :: Prelude.Maybe [Prelude.Text],
-    -- | If there are more items to return, this contains a token that is passed
+  { -- | If there are more items to return, this contains a token that is passed
     -- to a subsequent call to @ListBuildBatches@ to retrieve the next set of
     -- items.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of strings that contains the batch build identifiers.
+    ids :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -232,11 +232,11 @@ data ListBuildBatchesResponse = ListBuildBatchesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ids', 'listBuildBatchesResponse_ids' - An array of strings that contains the batch build identifiers.
---
 -- 'nextToken', 'listBuildBatchesResponse_nextToken' - If there are more items to return, this contains a token that is passed
 -- to a subsequent call to @ListBuildBatches@ to retrieve the next set of
 -- items.
+--
+-- 'ids', 'listBuildBatchesResponse_ids' - An array of strings that contains the batch build identifiers.
 --
 -- 'httpStatus', 'listBuildBatchesResponse_httpStatus' - The response's http status code.
 newListBuildBatchesResponse ::
@@ -245,14 +245,11 @@ newListBuildBatchesResponse ::
   ListBuildBatchesResponse
 newListBuildBatchesResponse pHttpStatus_ =
   ListBuildBatchesResponse'
-    { ids = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      ids = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of strings that contains the batch build identifiers.
-listBuildBatchesResponse_ids :: Lens.Lens' ListBuildBatchesResponse (Prelude.Maybe [Prelude.Text])
-listBuildBatchesResponse_ids = Lens.lens (\ListBuildBatchesResponse' {ids} -> ids) (\s@ListBuildBatchesResponse' {} a -> s {ids = a} :: ListBuildBatchesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are more items to return, this contains a token that is passed
 -- to a subsequent call to @ListBuildBatches@ to retrieve the next set of
@@ -260,12 +257,16 @@ listBuildBatchesResponse_ids = Lens.lens (\ListBuildBatchesResponse' {ids} -> id
 listBuildBatchesResponse_nextToken :: Lens.Lens' ListBuildBatchesResponse (Prelude.Maybe Prelude.Text)
 listBuildBatchesResponse_nextToken = Lens.lens (\ListBuildBatchesResponse' {nextToken} -> nextToken) (\s@ListBuildBatchesResponse' {} a -> s {nextToken = a} :: ListBuildBatchesResponse)
 
+-- | An array of strings that contains the batch build identifiers.
+listBuildBatchesResponse_ids :: Lens.Lens' ListBuildBatchesResponse (Prelude.Maybe [Prelude.Text])
+listBuildBatchesResponse_ids = Lens.lens (\ListBuildBatchesResponse' {ids} -> ids) (\s@ListBuildBatchesResponse' {} a -> s {ids = a} :: ListBuildBatchesResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listBuildBatchesResponse_httpStatus :: Lens.Lens' ListBuildBatchesResponse Prelude.Int
 listBuildBatchesResponse_httpStatus = Lens.lens (\ListBuildBatchesResponse' {httpStatus} -> httpStatus) (\s@ListBuildBatchesResponse' {} a -> s {httpStatus = a} :: ListBuildBatchesResponse)
 
 instance Prelude.NFData ListBuildBatchesResponse where
   rnf ListBuildBatchesResponse' {..} =
-    Prelude.rnf ids
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf ids
       `Prelude.seq` Prelude.rnf httpStatus

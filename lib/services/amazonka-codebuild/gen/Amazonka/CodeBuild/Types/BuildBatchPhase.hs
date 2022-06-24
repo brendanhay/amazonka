@@ -33,8 +33,6 @@ data BuildBatchPhase = BuildBatchPhase'
   { -- | Additional information about the batch build phase. Especially to help
     -- troubleshoot a failed batch build.
     contexts :: Prelude.Maybe [PhaseContext],
-    -- | When the batch build phase started, expressed in Unix time format.
-    startTime :: Prelude.Maybe Core.POSIX,
     -- | The current status of the batch build phase. Valid values include:
     --
     -- [FAILED]
@@ -55,6 +53,8 @@ data BuildBatchPhase = BuildBatchPhase'
     -- [TIMED_OUT]
     --     The build phase timed out.
     phaseStatus :: Prelude.Maybe StatusType,
+    -- | When the batch build phase ended, expressed in Unix time format.
+    endTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the batch build phase. Valid values include:
     --
     -- [COMBINE_ARTIFACTS]
@@ -79,11 +79,11 @@ data BuildBatchPhase = BuildBatchPhase'
     -- [SUCCEEDED]
     --     The batch build succeeded.
     phaseType :: Prelude.Maybe BuildBatchPhaseType,
-    -- | When the batch build phase ended, expressed in Unix time format.
-    endTime :: Prelude.Maybe Core.POSIX,
     -- | How long, in seconds, between the starting and ending times of the batch
     -- build\'s phase.
-    durationInSeconds :: Prelude.Maybe Prelude.Integer
+    durationInSeconds :: Prelude.Maybe Prelude.Integer,
+    -- | When the batch build phase started, expressed in Unix time format.
+    startTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -97,8 +97,6 @@ data BuildBatchPhase = BuildBatchPhase'
 --
 -- 'contexts', 'buildBatchPhase_contexts' - Additional information about the batch build phase. Especially to help
 -- troubleshoot a failed batch build.
---
--- 'startTime', 'buildBatchPhase_startTime' - When the batch build phase started, expressed in Unix time format.
 --
 -- 'phaseStatus', 'buildBatchPhase_phaseStatus' - The current status of the batch build phase. Valid values include:
 --
@@ -119,6 +117,8 @@ data BuildBatchPhase = BuildBatchPhase'
 --
 -- [TIMED_OUT]
 --     The build phase timed out.
+--
+-- 'endTime', 'buildBatchPhase_endTime' - When the batch build phase ended, expressed in Unix time format.
 --
 -- 'phaseType', 'buildBatchPhase_phaseType' - The name of the batch build phase. Valid values include:
 --
@@ -144,30 +144,26 @@ data BuildBatchPhase = BuildBatchPhase'
 -- [SUCCEEDED]
 --     The batch build succeeded.
 --
--- 'endTime', 'buildBatchPhase_endTime' - When the batch build phase ended, expressed in Unix time format.
---
 -- 'durationInSeconds', 'buildBatchPhase_durationInSeconds' - How long, in seconds, between the starting and ending times of the batch
 -- build\'s phase.
+--
+-- 'startTime', 'buildBatchPhase_startTime' - When the batch build phase started, expressed in Unix time format.
 newBuildBatchPhase ::
   BuildBatchPhase
 newBuildBatchPhase =
   BuildBatchPhase'
     { contexts = Prelude.Nothing,
-      startTime = Prelude.Nothing,
       phaseStatus = Prelude.Nothing,
-      phaseType = Prelude.Nothing,
       endTime = Prelude.Nothing,
-      durationInSeconds = Prelude.Nothing
+      phaseType = Prelude.Nothing,
+      durationInSeconds = Prelude.Nothing,
+      startTime = Prelude.Nothing
     }
 
 -- | Additional information about the batch build phase. Especially to help
 -- troubleshoot a failed batch build.
 buildBatchPhase_contexts :: Lens.Lens' BuildBatchPhase (Prelude.Maybe [PhaseContext])
 buildBatchPhase_contexts = Lens.lens (\BuildBatchPhase' {contexts} -> contexts) (\s@BuildBatchPhase' {} a -> s {contexts = a} :: BuildBatchPhase) Prelude.. Lens.mapping Lens.coerced
-
--- | When the batch build phase started, expressed in Unix time format.
-buildBatchPhase_startTime :: Lens.Lens' BuildBatchPhase (Prelude.Maybe Prelude.UTCTime)
-buildBatchPhase_startTime = Lens.lens (\BuildBatchPhase' {startTime} -> startTime) (\s@BuildBatchPhase' {} a -> s {startTime = a} :: BuildBatchPhase) Prelude.. Lens.mapping Core._Time
 
 -- | The current status of the batch build phase. Valid values include:
 --
@@ -190,6 +186,10 @@ buildBatchPhase_startTime = Lens.lens (\BuildBatchPhase' {startTime} -> startTim
 --     The build phase timed out.
 buildBatchPhase_phaseStatus :: Lens.Lens' BuildBatchPhase (Prelude.Maybe StatusType)
 buildBatchPhase_phaseStatus = Lens.lens (\BuildBatchPhase' {phaseStatus} -> phaseStatus) (\s@BuildBatchPhase' {} a -> s {phaseStatus = a} :: BuildBatchPhase)
+
+-- | When the batch build phase ended, expressed in Unix time format.
+buildBatchPhase_endTime :: Lens.Lens' BuildBatchPhase (Prelude.Maybe Prelude.UTCTime)
+buildBatchPhase_endTime = Lens.lens (\BuildBatchPhase' {endTime} -> endTime) (\s@BuildBatchPhase' {} a -> s {endTime = a} :: BuildBatchPhase) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the batch build phase. Valid values include:
 --
@@ -217,14 +217,14 @@ buildBatchPhase_phaseStatus = Lens.lens (\BuildBatchPhase' {phaseStatus} -> phas
 buildBatchPhase_phaseType :: Lens.Lens' BuildBatchPhase (Prelude.Maybe BuildBatchPhaseType)
 buildBatchPhase_phaseType = Lens.lens (\BuildBatchPhase' {phaseType} -> phaseType) (\s@BuildBatchPhase' {} a -> s {phaseType = a} :: BuildBatchPhase)
 
--- | When the batch build phase ended, expressed in Unix time format.
-buildBatchPhase_endTime :: Lens.Lens' BuildBatchPhase (Prelude.Maybe Prelude.UTCTime)
-buildBatchPhase_endTime = Lens.lens (\BuildBatchPhase' {endTime} -> endTime) (\s@BuildBatchPhase' {} a -> s {endTime = a} :: BuildBatchPhase) Prelude.. Lens.mapping Core._Time
-
 -- | How long, in seconds, between the starting and ending times of the batch
 -- build\'s phase.
 buildBatchPhase_durationInSeconds :: Lens.Lens' BuildBatchPhase (Prelude.Maybe Prelude.Integer)
 buildBatchPhase_durationInSeconds = Lens.lens (\BuildBatchPhase' {durationInSeconds} -> durationInSeconds) (\s@BuildBatchPhase' {} a -> s {durationInSeconds = a} :: BuildBatchPhase)
+
+-- | When the batch build phase started, expressed in Unix time format.
+buildBatchPhase_startTime :: Lens.Lens' BuildBatchPhase (Prelude.Maybe Prelude.UTCTime)
+buildBatchPhase_startTime = Lens.lens (\BuildBatchPhase' {startTime} -> startTime) (\s@BuildBatchPhase' {} a -> s {startTime = a} :: BuildBatchPhase) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON BuildBatchPhase where
   parseJSON =
@@ -233,27 +233,27 @@ instance Core.FromJSON BuildBatchPhase where
       ( \x ->
           BuildBatchPhase'
             Prelude.<$> (x Core..:? "contexts" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "startTime")
             Prelude.<*> (x Core..:? "phaseStatus")
-            Prelude.<*> (x Core..:? "phaseType")
             Prelude.<*> (x Core..:? "endTime")
+            Prelude.<*> (x Core..:? "phaseType")
             Prelude.<*> (x Core..:? "durationInSeconds")
+            Prelude.<*> (x Core..:? "startTime")
       )
 
 instance Prelude.Hashable BuildBatchPhase where
   hashWithSalt _salt BuildBatchPhase' {..} =
     _salt `Prelude.hashWithSalt` contexts
-      `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` phaseStatus
-      `Prelude.hashWithSalt` phaseType
       `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` phaseType
       `Prelude.hashWithSalt` durationInSeconds
+      `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData BuildBatchPhase where
   rnf BuildBatchPhase' {..} =
     Prelude.rnf contexts
-      `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf phaseStatus
-      `Prelude.seq` Prelude.rnf phaseType
       `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf phaseType
       `Prelude.seq` Prelude.rnf durationInSeconds
+      `Prelude.seq` Prelude.rnf startTime

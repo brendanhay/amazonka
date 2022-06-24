@@ -29,10 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProjectBuildBatchConfig' smart constructor.
 data ProjectBuildBatchConfig = ProjectBuildBatchConfig'
-  { -- | Specifies if the build artifacts for the batch build should be combined
-    -- into a single artifact location.
-    combineArtifacts :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies the maximum amount of time, in minutes, that the batch build
+  { -- | Specifies the maximum amount of time, in minutes, that the batch build
     -- must be completed in.
     timeoutInMins :: Prelude.Maybe Prelude.Int,
     -- | A @BatchRestrictions@ object that specifies the restrictions for the
@@ -50,6 +47,9 @@ data ProjectBuildBatchConfig = ProjectBuildBatchConfig'
     -- [REPORT_INDIVIDUAL_BUILDS]
     --     Send a separate status report for each individual build.
     batchReportMode :: Prelude.Maybe BatchReportModeType,
+    -- | Specifies if the build artifacts for the batch build should be combined
+    -- into a single artifact location.
+    combineArtifacts :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the service role ARN for the batch build project.
     serviceRole :: Prelude.Maybe Prelude.Text
   }
@@ -62,9 +62,6 @@ data ProjectBuildBatchConfig = ProjectBuildBatchConfig'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'combineArtifacts', 'projectBuildBatchConfig_combineArtifacts' - Specifies if the build artifacts for the batch build should be combined
--- into a single artifact location.
 --
 -- 'timeoutInMins', 'projectBuildBatchConfig_timeoutInMins' - Specifies the maximum amount of time, in minutes, that the batch build
 -- must be completed in.
@@ -84,23 +81,21 @@ data ProjectBuildBatchConfig = ProjectBuildBatchConfig'
 -- [REPORT_INDIVIDUAL_BUILDS]
 --     Send a separate status report for each individual build.
 --
+-- 'combineArtifacts', 'projectBuildBatchConfig_combineArtifacts' - Specifies if the build artifacts for the batch build should be combined
+-- into a single artifact location.
+--
 -- 'serviceRole', 'projectBuildBatchConfig_serviceRole' - Specifies the service role ARN for the batch build project.
 newProjectBuildBatchConfig ::
   ProjectBuildBatchConfig
 newProjectBuildBatchConfig =
   ProjectBuildBatchConfig'
-    { combineArtifacts =
+    { timeoutInMins =
         Prelude.Nothing,
-      timeoutInMins = Prelude.Nothing,
       restrictions = Prelude.Nothing,
       batchReportMode = Prelude.Nothing,
+      combineArtifacts = Prelude.Nothing,
       serviceRole = Prelude.Nothing
     }
-
--- | Specifies if the build artifacts for the batch build should be combined
--- into a single artifact location.
-projectBuildBatchConfig_combineArtifacts :: Lens.Lens' ProjectBuildBatchConfig (Prelude.Maybe Prelude.Bool)
-projectBuildBatchConfig_combineArtifacts = Lens.lens (\ProjectBuildBatchConfig' {combineArtifacts} -> combineArtifacts) (\s@ProjectBuildBatchConfig' {} a -> s {combineArtifacts = a} :: ProjectBuildBatchConfig)
 
 -- | Specifies the maximum amount of time, in minutes, that the batch build
 -- must be completed in.
@@ -126,6 +121,11 @@ projectBuildBatchConfig_restrictions = Lens.lens (\ProjectBuildBatchConfig' {res
 projectBuildBatchConfig_batchReportMode :: Lens.Lens' ProjectBuildBatchConfig (Prelude.Maybe BatchReportModeType)
 projectBuildBatchConfig_batchReportMode = Lens.lens (\ProjectBuildBatchConfig' {batchReportMode} -> batchReportMode) (\s@ProjectBuildBatchConfig' {} a -> s {batchReportMode = a} :: ProjectBuildBatchConfig)
 
+-- | Specifies if the build artifacts for the batch build should be combined
+-- into a single artifact location.
+projectBuildBatchConfig_combineArtifacts :: Lens.Lens' ProjectBuildBatchConfig (Prelude.Maybe Prelude.Bool)
+projectBuildBatchConfig_combineArtifacts = Lens.lens (\ProjectBuildBatchConfig' {combineArtifacts} -> combineArtifacts) (\s@ProjectBuildBatchConfig' {} a -> s {combineArtifacts = a} :: ProjectBuildBatchConfig)
+
 -- | Specifies the service role ARN for the batch build project.
 projectBuildBatchConfig_serviceRole :: Lens.Lens' ProjectBuildBatchConfig (Prelude.Maybe Prelude.Text)
 projectBuildBatchConfig_serviceRole = Lens.lens (\ProjectBuildBatchConfig' {serviceRole} -> serviceRole) (\s@ProjectBuildBatchConfig' {} a -> s {serviceRole = a} :: ProjectBuildBatchConfig)
@@ -136,39 +136,39 @@ instance Core.FromJSON ProjectBuildBatchConfig where
       "ProjectBuildBatchConfig"
       ( \x ->
           ProjectBuildBatchConfig'
-            Prelude.<$> (x Core..:? "combineArtifacts")
-            Prelude.<*> (x Core..:? "timeoutInMins")
+            Prelude.<$> (x Core..:? "timeoutInMins")
             Prelude.<*> (x Core..:? "restrictions")
             Prelude.<*> (x Core..:? "batchReportMode")
+            Prelude.<*> (x Core..:? "combineArtifacts")
             Prelude.<*> (x Core..:? "serviceRole")
       )
 
 instance Prelude.Hashable ProjectBuildBatchConfig where
   hashWithSalt _salt ProjectBuildBatchConfig' {..} =
-    _salt `Prelude.hashWithSalt` combineArtifacts
-      `Prelude.hashWithSalt` timeoutInMins
+    _salt `Prelude.hashWithSalt` timeoutInMins
       `Prelude.hashWithSalt` restrictions
       `Prelude.hashWithSalt` batchReportMode
+      `Prelude.hashWithSalt` combineArtifacts
       `Prelude.hashWithSalt` serviceRole
 
 instance Prelude.NFData ProjectBuildBatchConfig where
   rnf ProjectBuildBatchConfig' {..} =
-    Prelude.rnf combineArtifacts
-      `Prelude.seq` Prelude.rnf timeoutInMins
+    Prelude.rnf timeoutInMins
       `Prelude.seq` Prelude.rnf restrictions
       `Prelude.seq` Prelude.rnf batchReportMode
+      `Prelude.seq` Prelude.rnf combineArtifacts
       `Prelude.seq` Prelude.rnf serviceRole
 
 instance Core.ToJSON ProjectBuildBatchConfig where
   toJSON ProjectBuildBatchConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("combineArtifacts" Core..=)
-              Prelude.<$> combineArtifacts,
-            ("timeoutInMins" Core..=) Prelude.<$> timeoutInMins,
+          [ ("timeoutInMins" Core..=) Prelude.<$> timeoutInMins,
             ("restrictions" Core..=) Prelude.<$> restrictions,
             ("batchReportMode" Core..=)
               Prelude.<$> batchReportMode,
+            ("combineArtifacts" Core..=)
+              Prelude.<$> combineArtifacts,
             ("serviceRole" Core..=) Prelude.<$> serviceRole
           ]
       )

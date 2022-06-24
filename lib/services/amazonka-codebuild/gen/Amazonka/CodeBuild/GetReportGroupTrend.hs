@@ -37,8 +37,8 @@ module Amazonka.CodeBuild.GetReportGroupTrend
     newGetReportGroupTrendResponse,
 
     -- * Response Lenses
-    getReportGroupTrendResponse_rawData,
     getReportGroupTrendResponse_stats,
+    getReportGroupTrendResponse_rawData,
     getReportGroupTrendResponse_httpStatus,
   )
 where
@@ -232,8 +232,8 @@ instance Core.AWSRequest GetReportGroupTrend where
     Response.receiveJSON
       ( \s h x ->
           GetReportGroupTrendResponse'
-            Prelude.<$> (x Core..?> "rawData" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "stats")
+            Prelude.<$> (x Core..?> "stats")
+            Prelude.<*> (x Core..?> "rawData" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -283,10 +283,10 @@ instance Core.ToQuery GetReportGroupTrend where
 
 -- | /See:/ 'newGetReportGroupTrendResponse' smart constructor.
 data GetReportGroupTrendResponse = GetReportGroupTrendResponse'
-  { -- | An array that contains the raw data for each report.
-    rawData :: Prelude.Maybe [ReportWithRawData],
-    -- | Contains the accumulated trend data.
+  { -- | Contains the accumulated trend data.
     stats :: Prelude.Maybe ReportGroupTrendStats,
+    -- | An array that contains the raw data for each report.
+    rawData :: Prelude.Maybe [ReportWithRawData],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -300,9 +300,9 @@ data GetReportGroupTrendResponse = GetReportGroupTrendResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rawData', 'getReportGroupTrendResponse_rawData' - An array that contains the raw data for each report.
---
 -- 'stats', 'getReportGroupTrendResponse_stats' - Contains the accumulated trend data.
+--
+-- 'rawData', 'getReportGroupTrendResponse_rawData' - An array that contains the raw data for each report.
 --
 -- 'httpStatus', 'getReportGroupTrendResponse_httpStatus' - The response's http status code.
 newGetReportGroupTrendResponse ::
@@ -311,19 +311,19 @@ newGetReportGroupTrendResponse ::
   GetReportGroupTrendResponse
 newGetReportGroupTrendResponse pHttpStatus_ =
   GetReportGroupTrendResponse'
-    { rawData =
+    { stats =
         Prelude.Nothing,
-      stats = Prelude.Nothing,
+      rawData = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array that contains the raw data for each report.
-getReportGroupTrendResponse_rawData :: Lens.Lens' GetReportGroupTrendResponse (Prelude.Maybe [ReportWithRawData])
-getReportGroupTrendResponse_rawData = Lens.lens (\GetReportGroupTrendResponse' {rawData} -> rawData) (\s@GetReportGroupTrendResponse' {} a -> s {rawData = a} :: GetReportGroupTrendResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Contains the accumulated trend data.
 getReportGroupTrendResponse_stats :: Lens.Lens' GetReportGroupTrendResponse (Prelude.Maybe ReportGroupTrendStats)
 getReportGroupTrendResponse_stats = Lens.lens (\GetReportGroupTrendResponse' {stats} -> stats) (\s@GetReportGroupTrendResponse' {} a -> s {stats = a} :: GetReportGroupTrendResponse)
+
+-- | An array that contains the raw data for each report.
+getReportGroupTrendResponse_rawData :: Lens.Lens' GetReportGroupTrendResponse (Prelude.Maybe [ReportWithRawData])
+getReportGroupTrendResponse_rawData = Lens.lens (\GetReportGroupTrendResponse' {rawData} -> rawData) (\s@GetReportGroupTrendResponse' {} a -> s {rawData = a} :: GetReportGroupTrendResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getReportGroupTrendResponse_httpStatus :: Lens.Lens' GetReportGroupTrendResponse Prelude.Int
@@ -331,6 +331,6 @@ getReportGroupTrendResponse_httpStatus = Lens.lens (\GetReportGroupTrendResponse
 
 instance Prelude.NFData GetReportGroupTrendResponse where
   rnf GetReportGroupTrendResponse' {..} =
-    Prelude.rnf rawData
-      `Prelude.seq` Prelude.rnf stats
+    Prelude.rnf stats
+      `Prelude.seq` Prelude.rnf rawData
       `Prelude.seq` Prelude.rnf httpStatus

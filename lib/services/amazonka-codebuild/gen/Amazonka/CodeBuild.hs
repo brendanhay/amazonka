@@ -33,17 +33,17 @@ module Amazonka.CodeBuild
     -- ** ResourceAlreadyExistsException
     _ResourceAlreadyExistsException,
 
-    -- ** OAuthProviderException
-    _OAuthProviderException,
+    -- ** InvalidInputException
+    _InvalidInputException,
 
     -- ** AccountLimitExceededException
     _AccountLimitExceededException,
 
-    -- ** InvalidInputException
-    _InvalidInputException,
-
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** OAuthProviderException
+    _OAuthProviderException,
 
     -- * Waiters
     -- $waiters
@@ -51,113 +51,11 @@ module Amazonka.CodeBuild
     -- * Operations
     -- $operations
 
-    -- ** ListProjects (Paginated)
-    ListProjects (ListProjects'),
-    newListProjects,
-    ListProjectsResponse (ListProjectsResponse'),
-    newListProjectsResponse,
-
-    -- ** DeleteProject
-    DeleteProject (DeleteProject'),
-    newDeleteProject,
-    DeleteProjectResponse (DeleteProjectResponse'),
-    newDeleteProjectResponse,
-
-    -- ** UpdateProject
-    UpdateProject (UpdateProject'),
-    newUpdateProject,
-    UpdateProjectResponse (UpdateProjectResponse'),
-    newUpdateProjectResponse,
-
-    -- ** DeleteSourceCredentials
-    DeleteSourceCredentials (DeleteSourceCredentials'),
-    newDeleteSourceCredentials,
-    DeleteSourceCredentialsResponse (DeleteSourceCredentialsResponse'),
-    newDeleteSourceCredentialsResponse,
-
-    -- ** ListBuilds (Paginated)
-    ListBuilds (ListBuilds'),
-    newListBuilds,
-    ListBuildsResponse (ListBuildsResponse'),
-    newListBuildsResponse,
-
-    -- ** ListSourceCredentials
-    ListSourceCredentials (ListSourceCredentials'),
-    newListSourceCredentials,
-    ListSourceCredentialsResponse (ListSourceCredentialsResponse'),
-    newListSourceCredentialsResponse,
-
-    -- ** ListReports (Paginated)
-    ListReports (ListReports'),
-    newListReports,
-    ListReportsResponse (ListReportsResponse'),
-    newListReportsResponse,
-
-    -- ** DeleteReport
-    DeleteReport (DeleteReport'),
-    newDeleteReport,
-    DeleteReportResponse (DeleteReportResponse'),
-    newDeleteReportResponse,
-
-    -- ** CreateWebhook
-    CreateWebhook (CreateWebhook'),
-    newCreateWebhook,
-    CreateWebhookResponse (CreateWebhookResponse'),
-    newCreateWebhookResponse,
-
-    -- ** StopBuildBatch
-    StopBuildBatch (StopBuildBatch'),
-    newStopBuildBatch,
-    StopBuildBatchResponse (StopBuildBatchResponse'),
-    newStopBuildBatchResponse,
-
-    -- ** ListSharedProjects (Paginated)
-    ListSharedProjects (ListSharedProjects'),
-    newListSharedProjects,
-    ListSharedProjectsResponse (ListSharedProjectsResponse'),
-    newListSharedProjectsResponse,
-
-    -- ** CreateReportGroup
-    CreateReportGroup (CreateReportGroup'),
-    newCreateReportGroup,
-    CreateReportGroupResponse (CreateReportGroupResponse'),
-    newCreateReportGroupResponse,
-
-    -- ** DescribeCodeCoverages (Paginated)
-    DescribeCodeCoverages (DescribeCodeCoverages'),
-    newDescribeCodeCoverages,
-    DescribeCodeCoveragesResponse (DescribeCodeCoveragesResponse'),
-    newDescribeCodeCoveragesResponse,
-
-    -- ** ImportSourceCredentials
-    ImportSourceCredentials (ImportSourceCredentials'),
-    newImportSourceCredentials,
-    ImportSourceCredentialsResponse (ImportSourceCredentialsResponse'),
-    newImportSourceCredentialsResponse,
-
-    -- ** ListBuildBatchesForProject (Paginated)
-    ListBuildBatchesForProject (ListBuildBatchesForProject'),
-    newListBuildBatchesForProject,
-    ListBuildBatchesForProjectResponse (ListBuildBatchesForProjectResponse'),
-    newListBuildBatchesForProjectResponse,
-
-    -- ** BatchGetReportGroups
-    BatchGetReportGroups (BatchGetReportGroups'),
-    newBatchGetReportGroups,
-    BatchGetReportGroupsResponse (BatchGetReportGroupsResponse'),
-    newBatchGetReportGroupsResponse,
-
-    -- ** DeleteBuildBatch
-    DeleteBuildBatch (DeleteBuildBatch'),
-    newDeleteBuildBatch,
-    DeleteBuildBatchResponse (DeleteBuildBatchResponse'),
-    newDeleteBuildBatchResponse,
-
-    -- ** StartBuild
-    StartBuild (StartBuild'),
-    newStartBuild,
-    StartBuildResponse (StartBuildResponse'),
-    newStartBuildResponse,
+    -- ** BatchDeleteBuilds
+    BatchDeleteBuilds (BatchDeleteBuilds'),
+    newBatchDeleteBuilds,
+    BatchDeleteBuildsResponse (BatchDeleteBuildsResponse'),
+    newBatchDeleteBuildsResponse,
 
     -- ** BatchGetBuildBatches
     BatchGetBuildBatches (BatchGetBuildBatches'),
@@ -165,29 +63,11 @@ module Amazonka.CodeBuild
     BatchGetBuildBatchesResponse (BatchGetBuildBatchesResponse'),
     newBatchGetBuildBatchesResponse,
 
-    -- ** RetryBuild
-    RetryBuild (RetryBuild'),
-    newRetryBuild,
-    RetryBuildResponse (RetryBuildResponse'),
-    newRetryBuildResponse,
-
-    -- ** ListBuildsForProject (Paginated)
-    ListBuildsForProject (ListBuildsForProject'),
-    newListBuildsForProject,
-    ListBuildsForProjectResponse (ListBuildsForProjectResponse'),
-    newListBuildsForProjectResponse,
-
-    -- ** DescribeTestCases (Paginated)
-    DescribeTestCases (DescribeTestCases'),
-    newDescribeTestCases,
-    DescribeTestCasesResponse (DescribeTestCasesResponse'),
-    newDescribeTestCasesResponse,
-
-    -- ** GetResourcePolicy
-    GetResourcePolicy (GetResourcePolicy'),
-    newGetResourcePolicy,
-    GetResourcePolicyResponse (GetResourcePolicyResponse'),
-    newGetResourcePolicyResponse,
+    -- ** BatchGetBuilds
+    BatchGetBuilds (BatchGetBuilds'),
+    newBatchGetBuilds,
+    BatchGetBuildsResponse (BatchGetBuildsResponse'),
+    newBatchGetBuildsResponse,
 
     -- ** BatchGetProjects
     BatchGetProjects (BatchGetProjects'),
@@ -195,11 +75,11 @@ module Amazonka.CodeBuild
     BatchGetProjectsResponse (BatchGetProjectsResponse'),
     newBatchGetProjectsResponse,
 
-    -- ** BatchGetBuilds
-    BatchGetBuilds (BatchGetBuilds'),
-    newBatchGetBuilds,
-    BatchGetBuildsResponse (BatchGetBuildsResponse'),
-    newBatchGetBuildsResponse,
+    -- ** BatchGetReportGroups
+    BatchGetReportGroups (BatchGetReportGroups'),
+    newBatchGetReportGroups,
+    BatchGetReportGroupsResponse (BatchGetReportGroupsResponse'),
+    newBatchGetReportGroupsResponse,
 
     -- ** BatchGetReports
     BatchGetReports (BatchGetReports'),
@@ -207,53 +87,41 @@ module Amazonka.CodeBuild
     BatchGetReportsResponse (BatchGetReportsResponse'),
     newBatchGetReportsResponse,
 
-    -- ** UpdateWebhook
-    UpdateWebhook (UpdateWebhook'),
-    newUpdateWebhook,
-    UpdateWebhookResponse (UpdateWebhookResponse'),
-    newUpdateWebhookResponse,
+    -- ** CreateProject
+    CreateProject (CreateProject'),
+    newCreateProject,
+    CreateProjectResponse (CreateProjectResponse'),
+    newCreateProjectResponse,
 
-    -- ** DeleteWebhook
-    DeleteWebhook (DeleteWebhook'),
-    newDeleteWebhook,
-    DeleteWebhookResponse (DeleteWebhookResponse'),
-    newDeleteWebhookResponse,
+    -- ** CreateReportGroup
+    CreateReportGroup (CreateReportGroup'),
+    newCreateReportGroup,
+    CreateReportGroupResponse (CreateReportGroupResponse'),
+    newCreateReportGroupResponse,
 
-    -- ** StartBuildBatch
-    StartBuildBatch (StartBuildBatch'),
-    newStartBuildBatch,
-    StartBuildBatchResponse (StartBuildBatchResponse'),
-    newStartBuildBatchResponse,
+    -- ** CreateWebhook
+    CreateWebhook (CreateWebhook'),
+    newCreateWebhook,
+    CreateWebhookResponse (CreateWebhookResponse'),
+    newCreateWebhookResponse,
 
-    -- ** RetryBuildBatch
-    RetryBuildBatch (RetryBuildBatch'),
-    newRetryBuildBatch,
-    RetryBuildBatchResponse (RetryBuildBatchResponse'),
-    newRetryBuildBatchResponse,
+    -- ** DeleteBuildBatch
+    DeleteBuildBatch (DeleteBuildBatch'),
+    newDeleteBuildBatch,
+    DeleteBuildBatchResponse (DeleteBuildBatchResponse'),
+    newDeleteBuildBatchResponse,
 
-    -- ** UpdateProjectVisibility
-    UpdateProjectVisibility (UpdateProjectVisibility'),
-    newUpdateProjectVisibility,
-    UpdateProjectVisibilityResponse (UpdateProjectVisibilityResponse'),
-    newUpdateProjectVisibilityResponse,
+    -- ** DeleteProject
+    DeleteProject (DeleteProject'),
+    newDeleteProject,
+    DeleteProjectResponse (DeleteProjectResponse'),
+    newDeleteProjectResponse,
 
-    -- ** ListReportsForReportGroup (Paginated)
-    ListReportsForReportGroup (ListReportsForReportGroup'),
-    newListReportsForReportGroup,
-    ListReportsForReportGroupResponse (ListReportsForReportGroupResponse'),
-    newListReportsForReportGroupResponse,
-
-    -- ** InvalidateProjectCache
-    InvalidateProjectCache (InvalidateProjectCache'),
-    newInvalidateProjectCache,
-    InvalidateProjectCacheResponse (InvalidateProjectCacheResponse'),
-    newInvalidateProjectCacheResponse,
-
-    -- ** UpdateReportGroup
-    UpdateReportGroup (UpdateReportGroup'),
-    newUpdateReportGroup,
-    UpdateReportGroupResponse (UpdateReportGroupResponse'),
-    newUpdateReportGroupResponse,
+    -- ** DeleteReport
+    DeleteReport (DeleteReport'),
+    newDeleteReport,
+    DeleteReportResponse (DeleteReportResponse'),
+    newDeleteReportResponse,
 
     -- ** DeleteReportGroup
     DeleteReportGroup (DeleteReportGroup'),
@@ -261,35 +129,35 @@ module Amazonka.CodeBuild
     DeleteReportGroupResponse (DeleteReportGroupResponse'),
     newDeleteReportGroupResponse,
 
-    -- ** BatchDeleteBuilds
-    BatchDeleteBuilds (BatchDeleteBuilds'),
-    newBatchDeleteBuilds,
-    BatchDeleteBuildsResponse (BatchDeleteBuildsResponse'),
-    newBatchDeleteBuildsResponse,
-
-    -- ** ListReportGroups (Paginated)
-    ListReportGroups (ListReportGroups'),
-    newListReportGroups,
-    ListReportGroupsResponse (ListReportGroupsResponse'),
-    newListReportGroupsResponse,
-
-    -- ** PutResourcePolicy
-    PutResourcePolicy (PutResourcePolicy'),
-    newPutResourcePolicy,
-    PutResourcePolicyResponse (PutResourcePolicyResponse'),
-    newPutResourcePolicyResponse,
-
     -- ** DeleteResourcePolicy
     DeleteResourcePolicy (DeleteResourcePolicy'),
     newDeleteResourcePolicy,
     DeleteResourcePolicyResponse (DeleteResourcePolicyResponse'),
     newDeleteResourcePolicyResponse,
 
-    -- ** ListCuratedEnvironmentImages
-    ListCuratedEnvironmentImages (ListCuratedEnvironmentImages'),
-    newListCuratedEnvironmentImages,
-    ListCuratedEnvironmentImagesResponse (ListCuratedEnvironmentImagesResponse'),
-    newListCuratedEnvironmentImagesResponse,
+    -- ** DeleteSourceCredentials
+    DeleteSourceCredentials (DeleteSourceCredentials'),
+    newDeleteSourceCredentials,
+    DeleteSourceCredentialsResponse (DeleteSourceCredentialsResponse'),
+    newDeleteSourceCredentialsResponse,
+
+    -- ** DeleteWebhook
+    DeleteWebhook (DeleteWebhook'),
+    newDeleteWebhook,
+    DeleteWebhookResponse (DeleteWebhookResponse'),
+    newDeleteWebhookResponse,
+
+    -- ** DescribeCodeCoverages (Paginated)
+    DescribeCodeCoverages (DescribeCodeCoverages'),
+    newDescribeCodeCoverages,
+    DescribeCodeCoveragesResponse (DescribeCodeCoveragesResponse'),
+    newDescribeCodeCoveragesResponse,
+
+    -- ** DescribeTestCases (Paginated)
+    DescribeTestCases (DescribeTestCases'),
+    newDescribeTestCases,
+    DescribeTestCasesResponse (DescribeTestCasesResponse'),
+    newDescribeTestCasesResponse,
 
     -- ** GetReportGroupTrend
     GetReportGroupTrend (GetReportGroupTrend'),
@@ -297,11 +165,23 @@ module Amazonka.CodeBuild
     GetReportGroupTrendResponse (GetReportGroupTrendResponse'),
     newGetReportGroupTrendResponse,
 
-    -- ** StopBuild
-    StopBuild (StopBuild'),
-    newStopBuild,
-    StopBuildResponse (StopBuildResponse'),
-    newStopBuildResponse,
+    -- ** GetResourcePolicy
+    GetResourcePolicy (GetResourcePolicy'),
+    newGetResourcePolicy,
+    GetResourcePolicyResponse (GetResourcePolicyResponse'),
+    newGetResourcePolicyResponse,
+
+    -- ** ImportSourceCredentials
+    ImportSourceCredentials (ImportSourceCredentials'),
+    newImportSourceCredentials,
+    ImportSourceCredentialsResponse (ImportSourceCredentialsResponse'),
+    newImportSourceCredentialsResponse,
+
+    -- ** InvalidateProjectCache
+    InvalidateProjectCache (InvalidateProjectCache'),
+    newInvalidateProjectCache,
+    InvalidateProjectCacheResponse (InvalidateProjectCacheResponse'),
+    newInvalidateProjectCacheResponse,
 
     -- ** ListBuildBatches (Paginated)
     ListBuildBatches (ListBuildBatches'),
@@ -309,17 +189,137 @@ module Amazonka.CodeBuild
     ListBuildBatchesResponse (ListBuildBatchesResponse'),
     newListBuildBatchesResponse,
 
-    -- ** CreateProject
-    CreateProject (CreateProject'),
-    newCreateProject,
-    CreateProjectResponse (CreateProjectResponse'),
-    newCreateProjectResponse,
+    -- ** ListBuildBatchesForProject (Paginated)
+    ListBuildBatchesForProject (ListBuildBatchesForProject'),
+    newListBuildBatchesForProject,
+    ListBuildBatchesForProjectResponse (ListBuildBatchesForProjectResponse'),
+    newListBuildBatchesForProjectResponse,
+
+    -- ** ListBuilds (Paginated)
+    ListBuilds (ListBuilds'),
+    newListBuilds,
+    ListBuildsResponse (ListBuildsResponse'),
+    newListBuildsResponse,
+
+    -- ** ListBuildsForProject (Paginated)
+    ListBuildsForProject (ListBuildsForProject'),
+    newListBuildsForProject,
+    ListBuildsForProjectResponse (ListBuildsForProjectResponse'),
+    newListBuildsForProjectResponse,
+
+    -- ** ListCuratedEnvironmentImages
+    ListCuratedEnvironmentImages (ListCuratedEnvironmentImages'),
+    newListCuratedEnvironmentImages,
+    ListCuratedEnvironmentImagesResponse (ListCuratedEnvironmentImagesResponse'),
+    newListCuratedEnvironmentImagesResponse,
+
+    -- ** ListProjects (Paginated)
+    ListProjects (ListProjects'),
+    newListProjects,
+    ListProjectsResponse (ListProjectsResponse'),
+    newListProjectsResponse,
+
+    -- ** ListReportGroups (Paginated)
+    ListReportGroups (ListReportGroups'),
+    newListReportGroups,
+    ListReportGroupsResponse (ListReportGroupsResponse'),
+    newListReportGroupsResponse,
+
+    -- ** ListReports (Paginated)
+    ListReports (ListReports'),
+    newListReports,
+    ListReportsResponse (ListReportsResponse'),
+    newListReportsResponse,
+
+    -- ** ListReportsForReportGroup (Paginated)
+    ListReportsForReportGroup (ListReportsForReportGroup'),
+    newListReportsForReportGroup,
+    ListReportsForReportGroupResponse (ListReportsForReportGroupResponse'),
+    newListReportsForReportGroupResponse,
+
+    -- ** ListSharedProjects (Paginated)
+    ListSharedProjects (ListSharedProjects'),
+    newListSharedProjects,
+    ListSharedProjectsResponse (ListSharedProjectsResponse'),
+    newListSharedProjectsResponse,
 
     -- ** ListSharedReportGroups (Paginated)
     ListSharedReportGroups (ListSharedReportGroups'),
     newListSharedReportGroups,
     ListSharedReportGroupsResponse (ListSharedReportGroupsResponse'),
     newListSharedReportGroupsResponse,
+
+    -- ** ListSourceCredentials
+    ListSourceCredentials (ListSourceCredentials'),
+    newListSourceCredentials,
+    ListSourceCredentialsResponse (ListSourceCredentialsResponse'),
+    newListSourceCredentialsResponse,
+
+    -- ** PutResourcePolicy
+    PutResourcePolicy (PutResourcePolicy'),
+    newPutResourcePolicy,
+    PutResourcePolicyResponse (PutResourcePolicyResponse'),
+    newPutResourcePolicyResponse,
+
+    -- ** RetryBuild
+    RetryBuild (RetryBuild'),
+    newRetryBuild,
+    RetryBuildResponse (RetryBuildResponse'),
+    newRetryBuildResponse,
+
+    -- ** RetryBuildBatch
+    RetryBuildBatch (RetryBuildBatch'),
+    newRetryBuildBatch,
+    RetryBuildBatchResponse (RetryBuildBatchResponse'),
+    newRetryBuildBatchResponse,
+
+    -- ** StartBuild
+    StartBuild (StartBuild'),
+    newStartBuild,
+    StartBuildResponse (StartBuildResponse'),
+    newStartBuildResponse,
+
+    -- ** StartBuildBatch
+    StartBuildBatch (StartBuildBatch'),
+    newStartBuildBatch,
+    StartBuildBatchResponse (StartBuildBatchResponse'),
+    newStartBuildBatchResponse,
+
+    -- ** StopBuild
+    StopBuild (StopBuild'),
+    newStopBuild,
+    StopBuildResponse (StopBuildResponse'),
+    newStopBuildResponse,
+
+    -- ** StopBuildBatch
+    StopBuildBatch (StopBuildBatch'),
+    newStopBuildBatch,
+    StopBuildBatchResponse (StopBuildBatchResponse'),
+    newStopBuildBatchResponse,
+
+    -- ** UpdateProject
+    UpdateProject (UpdateProject'),
+    newUpdateProject,
+    UpdateProjectResponse (UpdateProjectResponse'),
+    newUpdateProjectResponse,
+
+    -- ** UpdateProjectVisibility
+    UpdateProjectVisibility (UpdateProjectVisibility'),
+    newUpdateProjectVisibility,
+    UpdateProjectVisibilityResponse (UpdateProjectVisibilityResponse'),
+    newUpdateProjectVisibilityResponse,
+
+    -- ** UpdateReportGroup
+    UpdateReportGroup (UpdateReportGroup'),
+    newUpdateReportGroup,
+    UpdateReportGroupResponse (UpdateReportGroupResponse'),
+    newUpdateReportGroupResponse,
+
+    -- ** UpdateWebhook
+    UpdateWebhook (UpdateWebhook'),
+    newUpdateWebhook,
+    UpdateWebhookResponse (UpdateWebhookResponse'),
+    newUpdateWebhookResponse,
 
     -- * Types
 

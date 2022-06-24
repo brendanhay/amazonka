@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEnvironmentLanguage' smart constructor.
 data EnvironmentLanguage = EnvironmentLanguage'
-  { -- | The list of Docker images that are related by the specified programming
+  { -- | The programming language for the Docker images.
+    language :: Prelude.Maybe LanguageType,
+    -- | The list of Docker images that are related by the specified programming
     -- language.
-    images :: Prelude.Maybe [EnvironmentImage],
-    -- | The programming language for the Docker images.
-    language :: Prelude.Maybe LanguageType
+    images :: Prelude.Maybe [EnvironmentImage]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,26 +46,26 @@ data EnvironmentLanguage = EnvironmentLanguage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'language', 'environmentLanguage_language' - The programming language for the Docker images.
+--
 -- 'images', 'environmentLanguage_images' - The list of Docker images that are related by the specified programming
 -- language.
---
--- 'language', 'environmentLanguage_language' - The programming language for the Docker images.
 newEnvironmentLanguage ::
   EnvironmentLanguage
 newEnvironmentLanguage =
   EnvironmentLanguage'
-    { images = Prelude.Nothing,
-      language = Prelude.Nothing
+    { language = Prelude.Nothing,
+      images = Prelude.Nothing
     }
+
+-- | The programming language for the Docker images.
+environmentLanguage_language :: Lens.Lens' EnvironmentLanguage (Prelude.Maybe LanguageType)
+environmentLanguage_language = Lens.lens (\EnvironmentLanguage' {language} -> language) (\s@EnvironmentLanguage' {} a -> s {language = a} :: EnvironmentLanguage)
 
 -- | The list of Docker images that are related by the specified programming
 -- language.
 environmentLanguage_images :: Lens.Lens' EnvironmentLanguage (Prelude.Maybe [EnvironmentImage])
 environmentLanguage_images = Lens.lens (\EnvironmentLanguage' {images} -> images) (\s@EnvironmentLanguage' {} a -> s {images = a} :: EnvironmentLanguage) Prelude.. Lens.mapping Lens.coerced
-
--- | The programming language for the Docker images.
-environmentLanguage_language :: Lens.Lens' EnvironmentLanguage (Prelude.Maybe LanguageType)
-environmentLanguage_language = Lens.lens (\EnvironmentLanguage' {language} -> language) (\s@EnvironmentLanguage' {} a -> s {language = a} :: EnvironmentLanguage)
 
 instance Core.FromJSON EnvironmentLanguage where
   parseJSON =
@@ -73,16 +73,16 @@ instance Core.FromJSON EnvironmentLanguage where
       "EnvironmentLanguage"
       ( \x ->
           EnvironmentLanguage'
-            Prelude.<$> (x Core..:? "images" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "language")
+            Prelude.<$> (x Core..:? "language")
+            Prelude.<*> (x Core..:? "images" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable EnvironmentLanguage where
   hashWithSalt _salt EnvironmentLanguage' {..} =
-    _salt `Prelude.hashWithSalt` images
-      `Prelude.hashWithSalt` language
+    _salt `Prelude.hashWithSalt` language
+      `Prelude.hashWithSalt` images
 
 instance Prelude.NFData EnvironmentLanguage where
   rnf EnvironmentLanguage' {..} =
-    Prelude.rnf images
-      `Prelude.seq` Prelude.rnf language
+    Prelude.rnf language
+      `Prelude.seq` Prelude.rnf images

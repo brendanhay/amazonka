@@ -30,22 +30,26 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWebhook' smart constructor.
 data Webhook = Webhook'
-  { -- | A regular expression used to determine which repository branches are
+  { -- | A timestamp that indicates the last time a repository\'s secret token
+    -- was modified.
+    lastModifiedSecret :: Prelude.Maybe Core.POSIX,
+    -- | The URL to the webhook.
+    url :: Prelude.Maybe Prelude.Text,
+    -- | The CodeBuild endpoint where webhook events are sent.
+    payloadUrl :: Prelude.Maybe Prelude.Text,
+    -- | The secret token of the associated repository.
+    --
+    -- A Bitbucket webhook does not support @secret@.
+    secret :: Prelude.Maybe Prelude.Text,
+    -- | A regular expression used to determine which repository branches are
     -- built when a webhook is triggered. If the name of a branch matches the
     -- regular expression, then it is built. If @branchFilter@ is empty, then
     -- all branches are built.
     --
     -- It is recommended that you use @filterGroups@ instead of @branchFilter@.
     branchFilter :: Prelude.Maybe Prelude.Text,
-    -- | A timestamp that indicates the last time a repository\'s secret token
-    -- was modified.
-    lastModifiedSecret :: Prelude.Maybe Core.POSIX,
-    -- | The URL to the webhook.
-    url :: Prelude.Maybe Prelude.Text,
-    -- | The secret token of the associated repository.
-    --
-    -- A Bitbucket webhook does not support @secret@.
-    secret :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the type of build this webhook will trigger.
+    buildType :: Prelude.Maybe WebhookBuildType,
     -- | An array of arrays of @WebhookFilter@ objects used to determine which
     -- webhooks are triggered. At least one @WebhookFilter@ in the array must
     -- specify @EVENT@ as its @type@.
@@ -53,11 +57,7 @@ data Webhook = Webhook'
     -- For a build to be triggered, at least one filter group in the
     -- @filterGroups@ array must pass. For a filter group to pass, each of its
     -- filters must pass.
-    filterGroups :: Prelude.Maybe [[WebhookFilter]],
-    -- | The CodeBuild endpoint where webhook events are sent.
-    payloadUrl :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the type of build this webhook will trigger.
-    buildType :: Prelude.Maybe WebhookBuildType
+    filterGroups :: Prelude.Maybe [[WebhookFilter]]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,6 +69,17 @@ data Webhook = Webhook'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lastModifiedSecret', 'webhook_lastModifiedSecret' - A timestamp that indicates the last time a repository\'s secret token
+-- was modified.
+--
+-- 'url', 'webhook_url' - The URL to the webhook.
+--
+-- 'payloadUrl', 'webhook_payloadUrl' - The CodeBuild endpoint where webhook events are sent.
+--
+-- 'secret', 'webhook_secret' - The secret token of the associated repository.
+--
+-- A Bitbucket webhook does not support @secret@.
+--
 -- 'branchFilter', 'webhook_branchFilter' - A regular expression used to determine which repository branches are
 -- built when a webhook is triggered. If the name of a branch matches the
 -- regular expression, then it is built. If @branchFilter@ is empty, then
@@ -76,14 +87,7 @@ data Webhook = Webhook'
 --
 -- It is recommended that you use @filterGroups@ instead of @branchFilter@.
 --
--- 'lastModifiedSecret', 'webhook_lastModifiedSecret' - A timestamp that indicates the last time a repository\'s secret token
--- was modified.
---
--- 'url', 'webhook_url' - The URL to the webhook.
---
--- 'secret', 'webhook_secret' - The secret token of the associated repository.
---
--- A Bitbucket webhook does not support @secret@.
+-- 'buildType', 'webhook_buildType' - Specifies the type of build this webhook will trigger.
 --
 -- 'filterGroups', 'webhook_filterGroups' - An array of arrays of @WebhookFilter@ objects used to determine which
 -- webhooks are triggered. At least one @WebhookFilter@ in the array must
@@ -92,31 +96,18 @@ data Webhook = Webhook'
 -- For a build to be triggered, at least one filter group in the
 -- @filterGroups@ array must pass. For a filter group to pass, each of its
 -- filters must pass.
---
--- 'payloadUrl', 'webhook_payloadUrl' - The CodeBuild endpoint where webhook events are sent.
---
--- 'buildType', 'webhook_buildType' - Specifies the type of build this webhook will trigger.
 newWebhook ::
   Webhook
 newWebhook =
   Webhook'
-    { branchFilter = Prelude.Nothing,
-      lastModifiedSecret = Prelude.Nothing,
+    { lastModifiedSecret = Prelude.Nothing,
       url = Prelude.Nothing,
-      secret = Prelude.Nothing,
-      filterGroups = Prelude.Nothing,
       payloadUrl = Prelude.Nothing,
-      buildType = Prelude.Nothing
+      secret = Prelude.Nothing,
+      branchFilter = Prelude.Nothing,
+      buildType = Prelude.Nothing,
+      filterGroups = Prelude.Nothing
     }
-
--- | A regular expression used to determine which repository branches are
--- built when a webhook is triggered. If the name of a branch matches the
--- regular expression, then it is built. If @branchFilter@ is empty, then
--- all branches are built.
---
--- It is recommended that you use @filterGroups@ instead of @branchFilter@.
-webhook_branchFilter :: Lens.Lens' Webhook (Prelude.Maybe Prelude.Text)
-webhook_branchFilter = Lens.lens (\Webhook' {branchFilter} -> branchFilter) (\s@Webhook' {} a -> s {branchFilter = a} :: Webhook)
 
 -- | A timestamp that indicates the last time a repository\'s secret token
 -- was modified.
@@ -127,11 +118,28 @@ webhook_lastModifiedSecret = Lens.lens (\Webhook' {lastModifiedSecret} -> lastMo
 webhook_url :: Lens.Lens' Webhook (Prelude.Maybe Prelude.Text)
 webhook_url = Lens.lens (\Webhook' {url} -> url) (\s@Webhook' {} a -> s {url = a} :: Webhook)
 
+-- | The CodeBuild endpoint where webhook events are sent.
+webhook_payloadUrl :: Lens.Lens' Webhook (Prelude.Maybe Prelude.Text)
+webhook_payloadUrl = Lens.lens (\Webhook' {payloadUrl} -> payloadUrl) (\s@Webhook' {} a -> s {payloadUrl = a} :: Webhook)
+
 -- | The secret token of the associated repository.
 --
 -- A Bitbucket webhook does not support @secret@.
 webhook_secret :: Lens.Lens' Webhook (Prelude.Maybe Prelude.Text)
 webhook_secret = Lens.lens (\Webhook' {secret} -> secret) (\s@Webhook' {} a -> s {secret = a} :: Webhook)
+
+-- | A regular expression used to determine which repository branches are
+-- built when a webhook is triggered. If the name of a branch matches the
+-- regular expression, then it is built. If @branchFilter@ is empty, then
+-- all branches are built.
+--
+-- It is recommended that you use @filterGroups@ instead of @branchFilter@.
+webhook_branchFilter :: Lens.Lens' Webhook (Prelude.Maybe Prelude.Text)
+webhook_branchFilter = Lens.lens (\Webhook' {branchFilter} -> branchFilter) (\s@Webhook' {} a -> s {branchFilter = a} :: Webhook)
+
+-- | Specifies the type of build this webhook will trigger.
+webhook_buildType :: Lens.Lens' Webhook (Prelude.Maybe WebhookBuildType)
+webhook_buildType = Lens.lens (\Webhook' {buildType} -> buildType) (\s@Webhook' {} a -> s {buildType = a} :: Webhook)
 
 -- | An array of arrays of @WebhookFilter@ objects used to determine which
 -- webhooks are triggered. At least one @WebhookFilter@ in the array must
@@ -143,45 +151,37 @@ webhook_secret = Lens.lens (\Webhook' {secret} -> secret) (\s@Webhook' {} a -> s
 webhook_filterGroups :: Lens.Lens' Webhook (Prelude.Maybe [[WebhookFilter]])
 webhook_filterGroups = Lens.lens (\Webhook' {filterGroups} -> filterGroups) (\s@Webhook' {} a -> s {filterGroups = a} :: Webhook) Prelude.. Lens.mapping Lens.coerced
 
--- | The CodeBuild endpoint where webhook events are sent.
-webhook_payloadUrl :: Lens.Lens' Webhook (Prelude.Maybe Prelude.Text)
-webhook_payloadUrl = Lens.lens (\Webhook' {payloadUrl} -> payloadUrl) (\s@Webhook' {} a -> s {payloadUrl = a} :: Webhook)
-
--- | Specifies the type of build this webhook will trigger.
-webhook_buildType :: Lens.Lens' Webhook (Prelude.Maybe WebhookBuildType)
-webhook_buildType = Lens.lens (\Webhook' {buildType} -> buildType) (\s@Webhook' {} a -> s {buildType = a} :: Webhook)
-
 instance Core.FromJSON Webhook where
   parseJSON =
     Core.withObject
       "Webhook"
       ( \x ->
           Webhook'
-            Prelude.<$> (x Core..:? "branchFilter")
-            Prelude.<*> (x Core..:? "lastModifiedSecret")
+            Prelude.<$> (x Core..:? "lastModifiedSecret")
             Prelude.<*> (x Core..:? "url")
-            Prelude.<*> (x Core..:? "secret")
-            Prelude.<*> (x Core..:? "filterGroups" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "payloadUrl")
+            Prelude.<*> (x Core..:? "secret")
+            Prelude.<*> (x Core..:? "branchFilter")
             Prelude.<*> (x Core..:? "buildType")
+            Prelude.<*> (x Core..:? "filterGroups" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Webhook where
   hashWithSalt _salt Webhook' {..} =
-    _salt `Prelude.hashWithSalt` branchFilter
-      `Prelude.hashWithSalt` lastModifiedSecret
+    _salt `Prelude.hashWithSalt` lastModifiedSecret
       `Prelude.hashWithSalt` url
-      `Prelude.hashWithSalt` secret
-      `Prelude.hashWithSalt` filterGroups
       `Prelude.hashWithSalt` payloadUrl
+      `Prelude.hashWithSalt` secret
+      `Prelude.hashWithSalt` branchFilter
       `Prelude.hashWithSalt` buildType
+      `Prelude.hashWithSalt` filterGroups
 
 instance Prelude.NFData Webhook where
   rnf Webhook' {..} =
-    Prelude.rnf branchFilter
-      `Prelude.seq` Prelude.rnf lastModifiedSecret
+    Prelude.rnf lastModifiedSecret
       `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf secret
-      `Prelude.seq` Prelude.rnf filterGroups
       `Prelude.seq` Prelude.rnf payloadUrl
+      `Prelude.seq` Prelude.rnf secret
+      `Prelude.seq` Prelude.rnf branchFilter
       `Prelude.seq` Prelude.rnf buildType
+      `Prelude.seq` Prelude.rnf filterGroups

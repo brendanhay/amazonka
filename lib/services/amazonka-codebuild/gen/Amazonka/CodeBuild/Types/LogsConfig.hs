@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLogsConfig' smart constructor.
 data LogsConfig = LogsConfig'
-  { -- | Information about logs built to an S3 bucket for a build project. S3
-    -- logs are not enabled by default.
-    s3Logs :: Prelude.Maybe S3LogsConfig,
-    -- | Information about CloudWatch Logs for a build project. CloudWatch Logs
+  { -- | Information about CloudWatch Logs for a build project. CloudWatch Logs
     -- are enabled by default.
-    cloudWatchLogs :: Prelude.Maybe CloudWatchLogsConfig
+    cloudWatchLogs :: Prelude.Maybe CloudWatchLogsConfig,
+    -- | Information about logs built to an S3 bucket for a build project. S3
+    -- logs are not enabled by default.
+    s3Logs :: Prelude.Maybe S3LogsConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,28 +47,28 @@ data LogsConfig = LogsConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3Logs', 'logsConfig_s3Logs' - Information about logs built to an S3 bucket for a build project. S3
--- logs are not enabled by default.
---
 -- 'cloudWatchLogs', 'logsConfig_cloudWatchLogs' - Information about CloudWatch Logs for a build project. CloudWatch Logs
 -- are enabled by default.
+--
+-- 's3Logs', 'logsConfig_s3Logs' - Information about logs built to an S3 bucket for a build project. S3
+-- logs are not enabled by default.
 newLogsConfig ::
   LogsConfig
 newLogsConfig =
   LogsConfig'
-    { s3Logs = Prelude.Nothing,
-      cloudWatchLogs = Prelude.Nothing
+    { cloudWatchLogs = Prelude.Nothing,
+      s3Logs = Prelude.Nothing
     }
-
--- | Information about logs built to an S3 bucket for a build project. S3
--- logs are not enabled by default.
-logsConfig_s3Logs :: Lens.Lens' LogsConfig (Prelude.Maybe S3LogsConfig)
-logsConfig_s3Logs = Lens.lens (\LogsConfig' {s3Logs} -> s3Logs) (\s@LogsConfig' {} a -> s {s3Logs = a} :: LogsConfig)
 
 -- | Information about CloudWatch Logs for a build project. CloudWatch Logs
 -- are enabled by default.
 logsConfig_cloudWatchLogs :: Lens.Lens' LogsConfig (Prelude.Maybe CloudWatchLogsConfig)
 logsConfig_cloudWatchLogs = Lens.lens (\LogsConfig' {cloudWatchLogs} -> cloudWatchLogs) (\s@LogsConfig' {} a -> s {cloudWatchLogs = a} :: LogsConfig)
+
+-- | Information about logs built to an S3 bucket for a build project. S3
+-- logs are not enabled by default.
+logsConfig_s3Logs :: Lens.Lens' LogsConfig (Prelude.Maybe S3LogsConfig)
+logsConfig_s3Logs = Lens.lens (\LogsConfig' {s3Logs} -> s3Logs) (\s@LogsConfig' {} a -> s {s3Logs = a} :: LogsConfig)
 
 instance Core.FromJSON LogsConfig where
   parseJSON =
@@ -76,26 +76,26 @@ instance Core.FromJSON LogsConfig where
       "LogsConfig"
       ( \x ->
           LogsConfig'
-            Prelude.<$> (x Core..:? "s3Logs")
-            Prelude.<*> (x Core..:? "cloudWatchLogs")
+            Prelude.<$> (x Core..:? "cloudWatchLogs")
+            Prelude.<*> (x Core..:? "s3Logs")
       )
 
 instance Prelude.Hashable LogsConfig where
   hashWithSalt _salt LogsConfig' {..} =
-    _salt `Prelude.hashWithSalt` s3Logs
-      `Prelude.hashWithSalt` cloudWatchLogs
+    _salt `Prelude.hashWithSalt` cloudWatchLogs
+      `Prelude.hashWithSalt` s3Logs
 
 instance Prelude.NFData LogsConfig where
   rnf LogsConfig' {..} =
-    Prelude.rnf s3Logs
-      `Prelude.seq` Prelude.rnf cloudWatchLogs
+    Prelude.rnf cloudWatchLogs
+      `Prelude.seq` Prelude.rnf s3Logs
 
 instance Core.ToJSON LogsConfig where
   toJSON LogsConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("s3Logs" Core..=) Prelude.<$> s3Logs,
-            ("cloudWatchLogs" Core..=)
-              Prelude.<$> cloudWatchLogs
+          [ ("cloudWatchLogs" Core..=)
+              Prelude.<$> cloudWatchLogs,
+            ("s3Logs" Core..=) Prelude.<$> s3Logs
           ]
       )

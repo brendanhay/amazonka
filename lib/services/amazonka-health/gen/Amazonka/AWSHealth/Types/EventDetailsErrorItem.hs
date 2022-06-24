@@ -37,10 +37,10 @@ data EventDetailsErrorItem = EventDetailsErrorItem'
     --
     -- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
     eventArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the error.
-    errorName :: Prelude.Maybe Prelude.Text,
     -- | A message that describes the error.
-    errorMessage :: Prelude.Maybe Prelude.Text
+    errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | The name of the error.
+    errorName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,16 +60,16 @@ data EventDetailsErrorItem = EventDetailsErrorItem'
 --
 -- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
 --
--- 'errorName', 'eventDetailsErrorItem_errorName' - The name of the error.
---
 -- 'errorMessage', 'eventDetailsErrorItem_errorMessage' - A message that describes the error.
+--
+-- 'errorName', 'eventDetailsErrorItem_errorName' - The name of the error.
 newEventDetailsErrorItem ::
   EventDetailsErrorItem
 newEventDetailsErrorItem =
   EventDetailsErrorItem'
     { eventArn = Prelude.Nothing,
-      errorName = Prelude.Nothing,
-      errorMessage = Prelude.Nothing
+      errorMessage = Prelude.Nothing,
+      errorName = Prelude.Nothing
     }
 
 -- | The unique identifier for the event. The event ARN has the
@@ -82,13 +82,13 @@ newEventDetailsErrorItem =
 eventDetailsErrorItem_eventArn :: Lens.Lens' EventDetailsErrorItem (Prelude.Maybe Prelude.Text)
 eventDetailsErrorItem_eventArn = Lens.lens (\EventDetailsErrorItem' {eventArn} -> eventArn) (\s@EventDetailsErrorItem' {} a -> s {eventArn = a} :: EventDetailsErrorItem)
 
--- | The name of the error.
-eventDetailsErrorItem_errorName :: Lens.Lens' EventDetailsErrorItem (Prelude.Maybe Prelude.Text)
-eventDetailsErrorItem_errorName = Lens.lens (\EventDetailsErrorItem' {errorName} -> errorName) (\s@EventDetailsErrorItem' {} a -> s {errorName = a} :: EventDetailsErrorItem)
-
 -- | A message that describes the error.
 eventDetailsErrorItem_errorMessage :: Lens.Lens' EventDetailsErrorItem (Prelude.Maybe Prelude.Text)
 eventDetailsErrorItem_errorMessage = Lens.lens (\EventDetailsErrorItem' {errorMessage} -> errorMessage) (\s@EventDetailsErrorItem' {} a -> s {errorMessage = a} :: EventDetailsErrorItem)
+
+-- | The name of the error.
+eventDetailsErrorItem_errorName :: Lens.Lens' EventDetailsErrorItem (Prelude.Maybe Prelude.Text)
+eventDetailsErrorItem_errorName = Lens.lens (\EventDetailsErrorItem' {errorName} -> errorName) (\s@EventDetailsErrorItem' {} a -> s {errorName = a} :: EventDetailsErrorItem)
 
 instance Core.FromJSON EventDetailsErrorItem where
   parseJSON =
@@ -97,18 +97,18 @@ instance Core.FromJSON EventDetailsErrorItem where
       ( \x ->
           EventDetailsErrorItem'
             Prelude.<$> (x Core..:? "eventArn")
-            Prelude.<*> (x Core..:? "errorName")
             Prelude.<*> (x Core..:? "errorMessage")
+            Prelude.<*> (x Core..:? "errorName")
       )
 
 instance Prelude.Hashable EventDetailsErrorItem where
   hashWithSalt _salt EventDetailsErrorItem' {..} =
     _salt `Prelude.hashWithSalt` eventArn
-      `Prelude.hashWithSalt` errorName
       `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` errorName
 
 instance Prelude.NFData EventDetailsErrorItem where
   rnf EventDetailsErrorItem' {..} =
     Prelude.rnf eventArn
-      `Prelude.seq` Prelude.rnf errorName
       `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf errorName

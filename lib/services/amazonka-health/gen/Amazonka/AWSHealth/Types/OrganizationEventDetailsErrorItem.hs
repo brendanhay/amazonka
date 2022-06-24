@@ -41,8 +41,6 @@ data OrganizationEventDetailsErrorItem = OrganizationEventDetailsErrorItem'
     --
     -- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
     eventArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the error.
-    errorName :: Prelude.Maybe Prelude.Text,
     -- | A message that describes the error.
     --
     -- If you call the @DescribeEventDetailsForOrganization@ operation and
@@ -60,7 +58,9 @@ data OrganizationEventDetailsErrorItem = OrganizationEventDetailsErrorItem'
     -- -   Your AWS account doesn\'t include the AWS Support plan required to
     --     use the AWS Health API. You must have either a Business or
     --     Enterprise Support plan.
-    errorMessage :: Prelude.Maybe Prelude.Text
+    errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | The name of the error.
+    errorName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,8 +84,6 @@ data OrganizationEventDetailsErrorItem = OrganizationEventDetailsErrorItem'
 --
 -- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
 --
--- 'errorName', 'organizationEventDetailsErrorItem_errorName' - The name of the error.
---
 -- 'errorMessage', 'organizationEventDetailsErrorItem_errorMessage' - A message that describes the error.
 --
 -- If you call the @DescribeEventDetailsForOrganization@ operation and
@@ -103,6 +101,8 @@ data OrganizationEventDetailsErrorItem = OrganizationEventDetailsErrorItem'
 -- -   Your AWS account doesn\'t include the AWS Support plan required to
 --     use the AWS Health API. You must have either a Business or
 --     Enterprise Support plan.
+--
+-- 'errorName', 'organizationEventDetailsErrorItem_errorName' - The name of the error.
 newOrganizationEventDetailsErrorItem ::
   OrganizationEventDetailsErrorItem
 newOrganizationEventDetailsErrorItem =
@@ -110,8 +110,8 @@ newOrganizationEventDetailsErrorItem =
     { awsAccountId =
         Prelude.Nothing,
       eventArn = Prelude.Nothing,
-      errorName = Prelude.Nothing,
-      errorMessage = Prelude.Nothing
+      errorMessage = Prelude.Nothing,
+      errorName = Prelude.Nothing
     }
 
 -- | Error information returned when a
@@ -129,10 +129,6 @@ organizationEventDetailsErrorItem_awsAccountId = Lens.lens (\OrganizationEventDe
 -- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
 organizationEventDetailsErrorItem_eventArn :: Lens.Lens' OrganizationEventDetailsErrorItem (Prelude.Maybe Prelude.Text)
 organizationEventDetailsErrorItem_eventArn = Lens.lens (\OrganizationEventDetailsErrorItem' {eventArn} -> eventArn) (\s@OrganizationEventDetailsErrorItem' {} a -> s {eventArn = a} :: OrganizationEventDetailsErrorItem)
-
--- | The name of the error.
-organizationEventDetailsErrorItem_errorName :: Lens.Lens' OrganizationEventDetailsErrorItem (Prelude.Maybe Prelude.Text)
-organizationEventDetailsErrorItem_errorName = Lens.lens (\OrganizationEventDetailsErrorItem' {errorName} -> errorName) (\s@OrganizationEventDetailsErrorItem' {} a -> s {errorName = a} :: OrganizationEventDetailsErrorItem)
 
 -- | A message that describes the error.
 --
@@ -154,6 +150,10 @@ organizationEventDetailsErrorItem_errorName = Lens.lens (\OrganizationEventDetai
 organizationEventDetailsErrorItem_errorMessage :: Lens.Lens' OrganizationEventDetailsErrorItem (Prelude.Maybe Prelude.Text)
 organizationEventDetailsErrorItem_errorMessage = Lens.lens (\OrganizationEventDetailsErrorItem' {errorMessage} -> errorMessage) (\s@OrganizationEventDetailsErrorItem' {} a -> s {errorMessage = a} :: OrganizationEventDetailsErrorItem)
 
+-- | The name of the error.
+organizationEventDetailsErrorItem_errorName :: Lens.Lens' OrganizationEventDetailsErrorItem (Prelude.Maybe Prelude.Text)
+organizationEventDetailsErrorItem_errorName = Lens.lens (\OrganizationEventDetailsErrorItem' {errorName} -> errorName) (\s@OrganizationEventDetailsErrorItem' {} a -> s {errorName = a} :: OrganizationEventDetailsErrorItem)
+
 instance
   Core.FromJSON
     OrganizationEventDetailsErrorItem
@@ -165,8 +165,8 @@ instance
           OrganizationEventDetailsErrorItem'
             Prelude.<$> (x Core..:? "awsAccountId")
             Prelude.<*> (x Core..:? "eventArn")
-            Prelude.<*> (x Core..:? "errorName")
             Prelude.<*> (x Core..:? "errorMessage")
+            Prelude.<*> (x Core..:? "errorName")
       )
 
 instance
@@ -178,8 +178,8 @@ instance
     OrganizationEventDetailsErrorItem' {..} =
       _salt `Prelude.hashWithSalt` awsAccountId
         `Prelude.hashWithSalt` eventArn
-        `Prelude.hashWithSalt` errorName
         `Prelude.hashWithSalt` errorMessage
+        `Prelude.hashWithSalt` errorName
 
 instance
   Prelude.NFData
@@ -188,5 +188,5 @@ instance
   rnf OrganizationEventDetailsErrorItem' {..} =
     Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf eventArn
-      `Prelude.seq` Prelude.rnf errorName
       `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf errorName

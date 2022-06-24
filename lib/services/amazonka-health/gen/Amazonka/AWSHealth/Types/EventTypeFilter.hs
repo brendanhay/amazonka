@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEventTypeFilter' smart constructor.
 data EventTypeFilter = EventTypeFilter'
-  { -- | A list of event type category codes (@issue@, @scheduledChange@, or
-    -- @accountNotification@).
-    eventTypeCategories :: Prelude.Maybe (Prelude.NonEmpty EventTypeCategory),
+  { -- | The AWS services associated with the event. For example, @EC2@, @RDS@.
+    services :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | A list of event type codes.
     eventTypeCodes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The AWS services associated with the event. For example, @EC2@, @RDS@.
-    services :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
+    -- | A list of event type category codes (@issue@, @scheduledChange@, or
+    -- @accountNotification@).
+    eventTypeCategories :: Prelude.Maybe (Prelude.NonEmpty EventTypeCategory)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,55 +48,54 @@ data EventTypeFilter = EventTypeFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eventTypeCategories', 'eventTypeFilter_eventTypeCategories' - A list of event type category codes (@issue@, @scheduledChange@, or
--- @accountNotification@).
+-- 'services', 'eventTypeFilter_services' - The AWS services associated with the event. For example, @EC2@, @RDS@.
 --
 -- 'eventTypeCodes', 'eventTypeFilter_eventTypeCodes' - A list of event type codes.
 --
--- 'services', 'eventTypeFilter_services' - The AWS services associated with the event. For example, @EC2@, @RDS@.
+-- 'eventTypeCategories', 'eventTypeFilter_eventTypeCategories' - A list of event type category codes (@issue@, @scheduledChange@, or
+-- @accountNotification@).
 newEventTypeFilter ::
   EventTypeFilter
 newEventTypeFilter =
   EventTypeFilter'
-    { eventTypeCategories =
-        Prelude.Nothing,
+    { services = Prelude.Nothing,
       eventTypeCodes = Prelude.Nothing,
-      services = Prelude.Nothing
+      eventTypeCategories = Prelude.Nothing
     }
+
+-- | The AWS services associated with the event. For example, @EC2@, @RDS@.
+eventTypeFilter_services :: Lens.Lens' EventTypeFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+eventTypeFilter_services = Lens.lens (\EventTypeFilter' {services} -> services) (\s@EventTypeFilter' {} a -> s {services = a} :: EventTypeFilter) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of event type codes.
+eventTypeFilter_eventTypeCodes :: Lens.Lens' EventTypeFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+eventTypeFilter_eventTypeCodes = Lens.lens (\EventTypeFilter' {eventTypeCodes} -> eventTypeCodes) (\s@EventTypeFilter' {} a -> s {eventTypeCodes = a} :: EventTypeFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of event type category codes (@issue@, @scheduledChange@, or
 -- @accountNotification@).
 eventTypeFilter_eventTypeCategories :: Lens.Lens' EventTypeFilter (Prelude.Maybe (Prelude.NonEmpty EventTypeCategory))
 eventTypeFilter_eventTypeCategories = Lens.lens (\EventTypeFilter' {eventTypeCategories} -> eventTypeCategories) (\s@EventTypeFilter' {} a -> s {eventTypeCategories = a} :: EventTypeFilter) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of event type codes.
-eventTypeFilter_eventTypeCodes :: Lens.Lens' EventTypeFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-eventTypeFilter_eventTypeCodes = Lens.lens (\EventTypeFilter' {eventTypeCodes} -> eventTypeCodes) (\s@EventTypeFilter' {} a -> s {eventTypeCodes = a} :: EventTypeFilter) Prelude.. Lens.mapping Lens.coerced
-
--- | The AWS services associated with the event. For example, @EC2@, @RDS@.
-eventTypeFilter_services :: Lens.Lens' EventTypeFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-eventTypeFilter_services = Lens.lens (\EventTypeFilter' {services} -> services) (\s@EventTypeFilter' {} a -> s {services = a} :: EventTypeFilter) Prelude.. Lens.mapping Lens.coerced
-
 instance Prelude.Hashable EventTypeFilter where
   hashWithSalt _salt EventTypeFilter' {..} =
-    _salt `Prelude.hashWithSalt` eventTypeCategories
+    _salt `Prelude.hashWithSalt` services
       `Prelude.hashWithSalt` eventTypeCodes
-      `Prelude.hashWithSalt` services
+      `Prelude.hashWithSalt` eventTypeCategories
 
 instance Prelude.NFData EventTypeFilter where
   rnf EventTypeFilter' {..} =
-    Prelude.rnf eventTypeCategories
+    Prelude.rnf services
       `Prelude.seq` Prelude.rnf eventTypeCodes
-      `Prelude.seq` Prelude.rnf services
+      `Prelude.seq` Prelude.rnf eventTypeCategories
 
 instance Core.ToJSON EventTypeFilter where
   toJSON EventTypeFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("eventTypeCategories" Core..=)
-              Prelude.<$> eventTypeCategories,
+          [ ("services" Core..=) Prelude.<$> services,
             ("eventTypeCodes" Core..=)
               Prelude.<$> eventTypeCodes,
-            ("services" Core..=) Prelude.<$> services
+            ("eventTypeCategories" Core..=)
+              Prelude.<$> eventTypeCategories
           ]
       )

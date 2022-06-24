@@ -14,39 +14,47 @@
 module Amazonka.AWSHealth.Lens
   ( -- * Operations
 
-    -- ** EnableHealthServiceAccessForOrganization
+    -- ** DescribeAffectedAccountsForOrganization
+    describeAffectedAccountsForOrganization_nextToken,
+    describeAffectedAccountsForOrganization_maxResults,
+    describeAffectedAccountsForOrganization_eventArn,
+    describeAffectedAccountsForOrganizationResponse_nextToken,
+    describeAffectedAccountsForOrganizationResponse_eventScopeCode,
+    describeAffectedAccountsForOrganizationResponse_affectedAccounts,
+    describeAffectedAccountsForOrganizationResponse_httpStatus,
+
+    -- ** DescribeAffectedEntities
+    describeAffectedEntities_nextToken,
+    describeAffectedEntities_locale,
+    describeAffectedEntities_maxResults,
+    describeAffectedEntities_filter,
+    describeAffectedEntitiesResponse_entities,
+    describeAffectedEntitiesResponse_nextToken,
+    describeAffectedEntitiesResponse_httpStatus,
+
+    -- ** DescribeAffectedEntitiesForOrganization
+    describeAffectedEntitiesForOrganization_nextToken,
+    describeAffectedEntitiesForOrganization_locale,
+    describeAffectedEntitiesForOrganization_maxResults,
+    describeAffectedEntitiesForOrganization_organizationEntityFilters,
+    describeAffectedEntitiesForOrganizationResponse_entities,
+    describeAffectedEntitiesForOrganizationResponse_nextToken,
+    describeAffectedEntitiesForOrganizationResponse_failedSet,
+    describeAffectedEntitiesForOrganizationResponse_httpStatus,
 
     -- ** DescribeEntityAggregates
     describeEntityAggregates_eventArns,
     describeEntityAggregatesResponse_entityAggregates,
     describeEntityAggregatesResponse_httpStatus,
 
-    -- ** DescribeEvents
-    describeEvents_locale,
-    describeEvents_nextToken,
-    describeEvents_filter,
-    describeEvents_maxResults,
-    describeEventsResponse_nextToken,
-    describeEventsResponse_events,
-    describeEventsResponse_httpStatus,
-
-    -- ** DescribeEventsForOrganization
-    describeEventsForOrganization_locale,
-    describeEventsForOrganization_nextToken,
-    describeEventsForOrganization_filter,
-    describeEventsForOrganization_maxResults,
-    describeEventsForOrganizationResponse_nextToken,
-    describeEventsForOrganizationResponse_events,
-    describeEventsForOrganizationResponse_httpStatus,
-
-    -- ** DescribeAffectedAccountsForOrganization
-    describeAffectedAccountsForOrganization_nextToken,
-    describeAffectedAccountsForOrganization_maxResults,
-    describeAffectedAccountsForOrganization_eventArn,
-    describeAffectedAccountsForOrganizationResponse_affectedAccounts,
-    describeAffectedAccountsForOrganizationResponse_eventScopeCode,
-    describeAffectedAccountsForOrganizationResponse_nextToken,
-    describeAffectedAccountsForOrganizationResponse_httpStatus,
+    -- ** DescribeEventAggregates
+    describeEventAggregates_nextToken,
+    describeEventAggregates_filter,
+    describeEventAggregates_maxResults,
+    describeEventAggregates_aggregateField,
+    describeEventAggregatesResponse_eventAggregates,
+    describeEventAggregatesResponse_nextToken,
+    describeEventAggregatesResponse_httpStatus,
 
     -- ** DescribeEventDetails
     describeEventDetails_locale,
@@ -55,47 +63,6 @@ module Amazonka.AWSHealth.Lens
     describeEventDetailsResponse_failedSet,
     describeEventDetailsResponse_httpStatus,
 
-    -- ** DescribeEventAggregates
-    describeEventAggregates_nextToken,
-    describeEventAggregates_filter,
-    describeEventAggregates_maxResults,
-    describeEventAggregates_aggregateField,
-    describeEventAggregatesResponse_nextToken,
-    describeEventAggregatesResponse_eventAggregates,
-    describeEventAggregatesResponse_httpStatus,
-
-    -- ** DescribeAffectedEntities
-    describeAffectedEntities_locale,
-    describeAffectedEntities_nextToken,
-    describeAffectedEntities_maxResults,
-    describeAffectedEntities_filter,
-    describeAffectedEntitiesResponse_entities,
-    describeAffectedEntitiesResponse_nextToken,
-    describeAffectedEntitiesResponse_httpStatus,
-
-    -- ** DescribeEventTypes
-    describeEventTypes_locale,
-    describeEventTypes_nextToken,
-    describeEventTypes_filter,
-    describeEventTypes_maxResults,
-    describeEventTypesResponse_eventTypes,
-    describeEventTypesResponse_nextToken,
-    describeEventTypesResponse_httpStatus,
-
-    -- ** DescribeAffectedEntitiesForOrganization
-    describeAffectedEntitiesForOrganization_locale,
-    describeAffectedEntitiesForOrganization_nextToken,
-    describeAffectedEntitiesForOrganization_maxResults,
-    describeAffectedEntitiesForOrganization_organizationEntityFilters,
-    describeAffectedEntitiesForOrganizationResponse_entities,
-    describeAffectedEntitiesForOrganizationResponse_failedSet,
-    describeAffectedEntitiesForOrganizationResponse_nextToken,
-    describeAffectedEntitiesForOrganizationResponse_httpStatus,
-
-    -- ** DescribeHealthServiceStatusForOrganization
-    describeHealthServiceStatusForOrganizationResponse_healthServiceAccessStatusForOrganization,
-    describeHealthServiceStatusForOrganizationResponse_httpStatus,
-
     -- ** DescribeEventDetailsForOrganization
     describeEventDetailsForOrganization_locale,
     describeEventDetailsForOrganization_organizationEventDetailFilters,
@@ -103,137 +70,170 @@ module Amazonka.AWSHealth.Lens
     describeEventDetailsForOrganizationResponse_failedSet,
     describeEventDetailsForOrganizationResponse_httpStatus,
 
+    -- ** DescribeEventTypes
+    describeEventTypes_nextToken,
+    describeEventTypes_locale,
+    describeEventTypes_filter,
+    describeEventTypes_maxResults,
+    describeEventTypesResponse_nextToken,
+    describeEventTypesResponse_eventTypes,
+    describeEventTypesResponse_httpStatus,
+
+    -- ** DescribeEvents
+    describeEvents_nextToken,
+    describeEvents_locale,
+    describeEvents_filter,
+    describeEvents_maxResults,
+    describeEventsResponse_nextToken,
+    describeEventsResponse_events,
+    describeEventsResponse_httpStatus,
+
+    -- ** DescribeEventsForOrganization
+    describeEventsForOrganization_nextToken,
+    describeEventsForOrganization_locale,
+    describeEventsForOrganization_filter,
+    describeEventsForOrganization_maxResults,
+    describeEventsForOrganizationResponse_nextToken,
+    describeEventsForOrganizationResponse_events,
+    describeEventsForOrganizationResponse_httpStatus,
+
+    -- ** DescribeHealthServiceStatusForOrganization
+    describeHealthServiceStatusForOrganizationResponse_healthServiceAccessStatusForOrganization,
+    describeHealthServiceStatusForOrganizationResponse_httpStatus,
+
     -- ** DisableHealthServiceAccessForOrganization
+
+    -- ** EnableHealthServiceAccessForOrganization
 
     -- * Types
 
     -- ** AffectedEntity
-    affectedEntity_lastUpdatedTime,
-    affectedEntity_entityValue,
-    affectedEntity_entityUrl,
     affectedEntity_awsAccountId,
-    affectedEntity_eventArn,
-    affectedEntity_entityArn,
     affectedEntity_tags,
+    affectedEntity_entityValue,
+    affectedEntity_eventArn,
+    affectedEntity_entityUrl,
+    affectedEntity_lastUpdatedTime,
     affectedEntity_statusCode,
+    affectedEntity_entityArn,
 
     -- ** DateTimeRange
-    dateTimeRange_to,
     dateTimeRange_from,
+    dateTimeRange_to,
 
     -- ** EntityAggregate
-    entityAggregate_count,
     entityAggregate_eventArn,
+    entityAggregate_count,
 
     -- ** EntityFilter
-    entityFilter_statusCodes,
-    entityFilter_entityArns,
-    entityFilter_entityValues,
     entityFilter_tags,
+    entityFilter_entityArns,
     entityFilter_lastUpdatedTimes,
+    entityFilter_entityValues,
+    entityFilter_statusCodes,
     entityFilter_eventArns,
 
     -- ** Event
-    event_lastUpdatedTime,
     event_arn,
+    event_lastUpdatedTime,
+    event_endTime,
+    event_availabilityZone,
     event_service,
-    event_startTime,
     event_eventScopeCode,
+    event_region,
     event_eventTypeCode,
     event_eventTypeCategory,
-    event_availabilityZone,
-    event_endTime,
-    event_region,
     event_statusCode,
+    event_startTime,
 
     -- ** EventAccountFilter
     eventAccountFilter_awsAccountId,
     eventAccountFilter_eventArn,
 
     -- ** EventAggregate
-    eventAggregate_count,
     eventAggregate_aggregateValue,
+    eventAggregate_count,
 
     -- ** EventDescription
     eventDescription_latestDescription,
 
     -- ** EventDetails
+    eventDetails_eventMetadata,
     eventDetails_event,
     eventDetails_eventDescription,
-    eventDetails_eventMetadata,
 
     -- ** EventDetailsErrorItem
     eventDetailsErrorItem_eventArn,
-    eventDetailsErrorItem_errorName,
     eventDetailsErrorItem_errorMessage,
+    eventDetailsErrorItem_errorName,
 
     -- ** EventFilter
-    eventFilter_eventArns,
-    eventFilter_eventTypeCategories,
-    eventFilter_eventTypeCodes,
-    eventFilter_regions,
-    eventFilter_eventStatusCodes,
-    eventFilter_endTimes,
-    eventFilter_availabilityZones,
-    eventFilter_entityArns,
-    eventFilter_entityValues,
-    eventFilter_startTimes,
-    eventFilter_services,
     eventFilter_tags,
+    eventFilter_startTimes,
+    eventFilter_entityArns,
+    eventFilter_eventArns,
+    eventFilter_regions,
+    eventFilter_availabilityZones,
+    eventFilter_services,
+    eventFilter_eventStatusCodes,
+    eventFilter_eventTypeCodes,
+    eventFilter_endTimes,
     eventFilter_lastUpdatedTimes,
+    eventFilter_entityValues,
+    eventFilter_eventTypeCategories,
 
     -- ** EventType
+    eventType_code,
     eventType_service,
     eventType_category,
-    eventType_code,
 
     -- ** EventTypeFilter
-    eventTypeFilter_eventTypeCategories,
-    eventTypeFilter_eventTypeCodes,
     eventTypeFilter_services,
+    eventTypeFilter_eventTypeCodes,
+    eventTypeFilter_eventTypeCategories,
 
     -- ** OrganizationAffectedEntitiesErrorItem
     organizationAffectedEntitiesErrorItem_awsAccountId,
     organizationAffectedEntitiesErrorItem_eventArn,
-    organizationAffectedEntitiesErrorItem_errorName,
     organizationAffectedEntitiesErrorItem_errorMessage,
+    organizationAffectedEntitiesErrorItem_errorName,
 
     -- ** OrganizationEvent
-    organizationEvent_lastUpdatedTime,
     organizationEvent_arn,
+    organizationEvent_lastUpdatedTime,
+    organizationEvent_endTime,
     organizationEvent_service,
-    organizationEvent_startTime,
     organizationEvent_eventScopeCode,
+    organizationEvent_region,
     organizationEvent_eventTypeCode,
     organizationEvent_eventTypeCategory,
-    organizationEvent_endTime,
-    organizationEvent_region,
     organizationEvent_statusCode,
+    organizationEvent_startTime,
 
     -- ** OrganizationEventDetails
-    organizationEventDetails_event,
-    organizationEventDetails_eventDescription,
     organizationEventDetails_awsAccountId,
     organizationEventDetails_eventMetadata,
+    organizationEventDetails_event,
+    organizationEventDetails_eventDescription,
 
     -- ** OrganizationEventDetailsErrorItem
     organizationEventDetailsErrorItem_awsAccountId,
     organizationEventDetailsErrorItem_eventArn,
-    organizationEventDetailsErrorItem_errorName,
     organizationEventDetailsErrorItem_errorMessage,
+    organizationEventDetailsErrorItem_errorName,
 
     -- ** OrganizationEventFilter
-    organizationEventFilter_lastUpdatedTime,
     organizationEventFilter_awsAccountIds,
-    organizationEventFilter_eventTypeCategories,
-    organizationEventFilter_eventTypeCodes,
-    organizationEventFilter_startTime,
-    organizationEventFilter_regions,
-    organizationEventFilter_eventStatusCodes,
-    organizationEventFilter_endTime,
     organizationEventFilter_entityArns,
-    organizationEventFilter_entityValues,
+    organizationEventFilter_regions,
+    organizationEventFilter_lastUpdatedTime,
+    organizationEventFilter_endTime,
     organizationEventFilter_services,
+    organizationEventFilter_eventStatusCodes,
+    organizationEventFilter_eventTypeCodes,
+    organizationEventFilter_entityValues,
+    organizationEventFilter_eventTypeCategories,
+    organizationEventFilter_startTime,
   )
 where
 

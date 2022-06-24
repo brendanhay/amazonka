@@ -44,8 +44,8 @@ module Amazonka.AWSHealth.DescribeEventAggregates
     newDescribeEventAggregatesResponse,
 
     -- * Response Lenses
-    describeEventAggregatesResponse_nextToken,
     describeEventAggregatesResponse_eventAggregates,
+    describeEventAggregatesResponse_nextToken,
     describeEventAggregatesResponse_httpStatus,
   )
 where
@@ -160,10 +160,10 @@ instance Core.AWSRequest DescribeEventAggregates where
     Response.receiveJSON
       ( \s h x ->
           DescribeEventAggregatesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "eventAggregates"
+            Prelude.<$> ( x Core..?> "eventAggregates"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -216,15 +216,15 @@ instance Core.ToQuery DescribeEventAggregates where
 
 -- | /See:/ 'newDescribeEventAggregatesResponse' smart constructor.
 data DescribeEventAggregatesResponse = DescribeEventAggregatesResponse'
-  { -- | If the results of a search are large, only a portion of the results are
+  { -- | The number of events in each category that meet the optional filter
+    -- criteria.
+    eventAggregates :: Prelude.Maybe [EventAggregate],
+    -- | If the results of a search are large, only a portion of the results are
     -- returned, and a @nextToken@ pagination token is returned in the
     -- response. To retrieve the next batch of results, reissue the search
     -- request and include the returned token. When all results have been
     -- returned, the response does not contain a pagination token value.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The number of events in each category that meet the optional filter
-    -- criteria.
-    eventAggregates :: Prelude.Maybe [EventAggregate],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -238,14 +238,14 @@ data DescribeEventAggregatesResponse = DescribeEventAggregatesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'eventAggregates', 'describeEventAggregatesResponse_eventAggregates' - The number of events in each category that meet the optional filter
+-- criteria.
+--
 -- 'nextToken', 'describeEventAggregatesResponse_nextToken' - If the results of a search are large, only a portion of the results are
 -- returned, and a @nextToken@ pagination token is returned in the
 -- response. To retrieve the next batch of results, reissue the search
 -- request and include the returned token. When all results have been
 -- returned, the response does not contain a pagination token value.
---
--- 'eventAggregates', 'describeEventAggregatesResponse_eventAggregates' - The number of events in each category that meet the optional filter
--- criteria.
 --
 -- 'httpStatus', 'describeEventAggregatesResponse_httpStatus' - The response's http status code.
 newDescribeEventAggregatesResponse ::
@@ -254,11 +254,16 @@ newDescribeEventAggregatesResponse ::
   DescribeEventAggregatesResponse
 newDescribeEventAggregatesResponse pHttpStatus_ =
   DescribeEventAggregatesResponse'
-    { nextToken =
+    { eventAggregates =
         Prelude.Nothing,
-      eventAggregates = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The number of events in each category that meet the optional filter
+-- criteria.
+describeEventAggregatesResponse_eventAggregates :: Lens.Lens' DescribeEventAggregatesResponse (Prelude.Maybe [EventAggregate])
+describeEventAggregatesResponse_eventAggregates = Lens.lens (\DescribeEventAggregatesResponse' {eventAggregates} -> eventAggregates) (\s@DescribeEventAggregatesResponse' {} a -> s {eventAggregates = a} :: DescribeEventAggregatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the results of a search are large, only a portion of the results are
 -- returned, and a @nextToken@ pagination token is returned in the
@@ -267,11 +272,6 @@ newDescribeEventAggregatesResponse pHttpStatus_ =
 -- returned, the response does not contain a pagination token value.
 describeEventAggregatesResponse_nextToken :: Lens.Lens' DescribeEventAggregatesResponse (Prelude.Maybe Prelude.Text)
 describeEventAggregatesResponse_nextToken = Lens.lens (\DescribeEventAggregatesResponse' {nextToken} -> nextToken) (\s@DescribeEventAggregatesResponse' {} a -> s {nextToken = a} :: DescribeEventAggregatesResponse)
-
--- | The number of events in each category that meet the optional filter
--- criteria.
-describeEventAggregatesResponse_eventAggregates :: Lens.Lens' DescribeEventAggregatesResponse (Prelude.Maybe [EventAggregate])
-describeEventAggregatesResponse_eventAggregates = Lens.lens (\DescribeEventAggregatesResponse' {eventAggregates} -> eventAggregates) (\s@DescribeEventAggregatesResponse' {} a -> s {eventAggregates = a} :: DescribeEventAggregatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeEventAggregatesResponse_httpStatus :: Lens.Lens' DescribeEventAggregatesResponse Prelude.Int
@@ -282,6 +282,6 @@ instance
     DescribeEventAggregatesResponse
   where
   rnf DescribeEventAggregatesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf eventAggregates
+    Prelude.rnf eventAggregates
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

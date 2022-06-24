@@ -22,23 +22,14 @@ module Amazonka.Mobile
     -- * Errors
     -- $errors
 
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** TooManyRequestsException
-    _TooManyRequestsException,
-
-    -- ** InternalFailureException
-    _InternalFailureException,
-
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
-
     -- ** UnauthorizedException
     _UnauthorizedException,
 
-    -- ** BadRequestException
-    _BadRequestException,
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
 
     -- ** LimitExceededException
     _LimitExceededException,
@@ -46,17 +37,26 @@ module Amazonka.Mobile
     -- ** AccountActionRequiredException
     _AccountActionRequiredException,
 
+    -- ** BadRequestException
+    _BadRequestException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
+
+    -- ** InternalFailureException
+    _InternalFailureException,
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
 
-    -- ** ListProjects (Paginated)
-    ListProjects (ListProjects'),
-    newListProjects,
-    ListProjectsResponse (ListProjectsResponse'),
-    newListProjectsResponse,
+    -- ** CreateProject
+    CreateProject (CreateProject'),
+    newCreateProject,
+    CreateProjectResponse (CreateProjectResponse'),
+    newCreateProjectResponse,
 
     -- ** DeleteProject
     DeleteProject (DeleteProject'),
@@ -64,17 +64,11 @@ module Amazonka.Mobile
     DeleteProjectResponse (DeleteProjectResponse'),
     newDeleteProjectResponse,
 
-    -- ** UpdateProject
-    UpdateProject (UpdateProject'),
-    newUpdateProject,
-    UpdateProjectResponse (UpdateProjectResponse'),
-    newUpdateProjectResponse,
-
-    -- ** ListBundles (Paginated)
-    ListBundles (ListBundles'),
-    newListBundles,
-    ListBundlesResponse (ListBundlesResponse'),
-    newListBundlesResponse,
+    -- ** DescribeBundle
+    DescribeBundle (DescribeBundle'),
+    newDescribeBundle,
+    DescribeBundleResponse (DescribeBundleResponse'),
+    newDescribeBundleResponse,
 
     -- ** DescribeProject
     DescribeProject (DescribeProject'),
@@ -82,29 +76,35 @@ module Amazonka.Mobile
     DescribeProjectResponse (DescribeProjectResponse'),
     newDescribeProjectResponse,
 
-    -- ** ExportProject
-    ExportProject (ExportProject'),
-    newExportProject,
-    ExportProjectResponse (ExportProjectResponse'),
-    newExportProjectResponse,
-
-    -- ** DescribeBundle
-    DescribeBundle (DescribeBundle'),
-    newDescribeBundle,
-    DescribeBundleResponse (DescribeBundleResponse'),
-    newDescribeBundleResponse,
-
     -- ** ExportBundle
     ExportBundle (ExportBundle'),
     newExportBundle,
     ExportBundleResponse (ExportBundleResponse'),
     newExportBundleResponse,
 
-    -- ** CreateProject
-    CreateProject (CreateProject'),
-    newCreateProject,
-    CreateProjectResponse (CreateProjectResponse'),
-    newCreateProjectResponse,
+    -- ** ExportProject
+    ExportProject (ExportProject'),
+    newExportProject,
+    ExportProjectResponse (ExportProjectResponse'),
+    newExportProjectResponse,
+
+    -- ** ListBundles (Paginated)
+    ListBundles (ListBundles'),
+    newListBundles,
+    ListBundlesResponse (ListBundlesResponse'),
+    newListBundlesResponse,
+
+    -- ** ListProjects (Paginated)
+    ListProjects (ListProjects'),
+    newListProjects,
+    ListProjectsResponse (ListProjectsResponse'),
+    newListProjectsResponse,
+
+    -- ** UpdateProject
+    UpdateProject (UpdateProject'),
+    newUpdateProject,
+    UpdateProjectResponse (UpdateProjectResponse'),
+    newUpdateProjectResponse,
 
     -- * Types
 

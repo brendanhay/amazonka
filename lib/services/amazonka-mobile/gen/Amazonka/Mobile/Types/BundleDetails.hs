@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newBundleDetails' smart constructor.
 data BundleDetails = BundleDetails'
   { availablePlatforms :: Prelude.Maybe [Platform],
-    bundleId :: Prelude.Maybe Prelude.Text,
-    version :: Prelude.Maybe Prelude.Text,
+    description :: Prelude.Maybe Prelude.Text,
     iconUrl :: Prelude.Maybe Prelude.Text,
     title :: Prelude.Maybe Prelude.Text,
-    description :: Prelude.Maybe Prelude.Text
+    bundleId :: Prelude.Maybe Prelude.Text,
+    version :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,26 +47,26 @@ data BundleDetails = BundleDetails'
 --
 -- 'availablePlatforms', 'bundleDetails_availablePlatforms' - Undocumented member.
 --
--- 'bundleId', 'bundleDetails_bundleId' - Undocumented member.
---
--- 'version', 'bundleDetails_version' - Undocumented member.
+-- 'description', 'bundleDetails_description' - Undocumented member.
 --
 -- 'iconUrl', 'bundleDetails_iconUrl' - Undocumented member.
 --
 -- 'title', 'bundleDetails_title' - Undocumented member.
 --
--- 'description', 'bundleDetails_description' - Undocumented member.
+-- 'bundleId', 'bundleDetails_bundleId' - Undocumented member.
+--
+-- 'version', 'bundleDetails_version' - Undocumented member.
 newBundleDetails ::
   BundleDetails
 newBundleDetails =
   BundleDetails'
     { availablePlatforms =
         Prelude.Nothing,
-      bundleId = Prelude.Nothing,
-      version = Prelude.Nothing,
+      description = Prelude.Nothing,
       iconUrl = Prelude.Nothing,
       title = Prelude.Nothing,
-      description = Prelude.Nothing
+      bundleId = Prelude.Nothing,
+      version = Prelude.Nothing
     }
 
 -- | Undocumented member.
@@ -74,12 +74,8 @@ bundleDetails_availablePlatforms :: Lens.Lens' BundleDetails (Prelude.Maybe [Pla
 bundleDetails_availablePlatforms = Lens.lens (\BundleDetails' {availablePlatforms} -> availablePlatforms) (\s@BundleDetails' {} a -> s {availablePlatforms = a} :: BundleDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
-bundleDetails_bundleId :: Lens.Lens' BundleDetails (Prelude.Maybe Prelude.Text)
-bundleDetails_bundleId = Lens.lens (\BundleDetails' {bundleId} -> bundleId) (\s@BundleDetails' {} a -> s {bundleId = a} :: BundleDetails)
-
--- | Undocumented member.
-bundleDetails_version :: Lens.Lens' BundleDetails (Prelude.Maybe Prelude.Text)
-bundleDetails_version = Lens.lens (\BundleDetails' {version} -> version) (\s@BundleDetails' {} a -> s {version = a} :: BundleDetails)
+bundleDetails_description :: Lens.Lens' BundleDetails (Prelude.Maybe Prelude.Text)
+bundleDetails_description = Lens.lens (\BundleDetails' {description} -> description) (\s@BundleDetails' {} a -> s {description = a} :: BundleDetails)
 
 -- | Undocumented member.
 bundleDetails_iconUrl :: Lens.Lens' BundleDetails (Prelude.Maybe Prelude.Text)
@@ -90,8 +86,12 @@ bundleDetails_title :: Lens.Lens' BundleDetails (Prelude.Maybe Prelude.Text)
 bundleDetails_title = Lens.lens (\BundleDetails' {title} -> title) (\s@BundleDetails' {} a -> s {title = a} :: BundleDetails)
 
 -- | Undocumented member.
-bundleDetails_description :: Lens.Lens' BundleDetails (Prelude.Maybe Prelude.Text)
-bundleDetails_description = Lens.lens (\BundleDetails' {description} -> description) (\s@BundleDetails' {} a -> s {description = a} :: BundleDetails)
+bundleDetails_bundleId :: Lens.Lens' BundleDetails (Prelude.Maybe Prelude.Text)
+bundleDetails_bundleId = Lens.lens (\BundleDetails' {bundleId} -> bundleId) (\s@BundleDetails' {} a -> s {bundleId = a} :: BundleDetails)
+
+-- | Undocumented member.
+bundleDetails_version :: Lens.Lens' BundleDetails (Prelude.Maybe Prelude.Text)
+bundleDetails_version = Lens.lens (\BundleDetails' {version} -> version) (\s@BundleDetails' {} a -> s {version = a} :: BundleDetails)
 
 instance Core.FromJSON BundleDetails where
   parseJSON =
@@ -102,27 +102,27 @@ instance Core.FromJSON BundleDetails where
             Prelude.<$> ( x Core..:? "availablePlatforms"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "bundleId")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..:? "iconUrl")
             Prelude.<*> (x Core..:? "title")
-            Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "bundleId")
+            Prelude.<*> (x Core..:? "version")
       )
 
 instance Prelude.Hashable BundleDetails where
   hashWithSalt _salt BundleDetails' {..} =
     _salt `Prelude.hashWithSalt` availablePlatforms
-      `Prelude.hashWithSalt` bundleId
-      `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` iconUrl
       `Prelude.hashWithSalt` title
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` bundleId
+      `Prelude.hashWithSalt` version
 
 instance Prelude.NFData BundleDetails where
   rnf BundleDetails' {..} =
     Prelude.rnf availablePlatforms
-      `Prelude.seq` Prelude.rnf bundleId
-      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf iconUrl
       `Prelude.seq` Prelude.rnf title
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf bundleId
+      `Prelude.seq` Prelude.rnf version

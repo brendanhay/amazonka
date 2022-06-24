@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResource' smart constructor.
 data Resource = Resource'
-  { feature :: Prelude.Maybe Prelude.Text,
+  { name :: Prelude.Maybe Prelude.Text,
+    type' :: Prelude.Maybe Prelude.Text,
     arn :: Prelude.Maybe Prelude.Text,
-    name :: Prelude.Maybe Prelude.Text,
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    type' :: Prelude.Maybe Prelude.Text
+    feature :: Prelude.Maybe Prelude.Text,
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,45 +44,45 @@ data Resource = Resource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'feature', 'resource_feature' - Undocumented member.
+-- 'name', 'resource_name' - Undocumented member.
+--
+-- 'type'', 'resource_type' - Undocumented member.
 --
 -- 'arn', 'resource_arn' - Undocumented member.
 --
--- 'name', 'resource_name' - Undocumented member.
+-- 'feature', 'resource_feature' - Undocumented member.
 --
 -- 'attributes', 'resource_attributes' - Undocumented member.
---
--- 'type'', 'resource_type' - Undocumented member.
 newResource ::
   Resource
 newResource =
   Resource'
-    { feature = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      type' = Prelude.Nothing,
       arn = Prelude.Nothing,
-      name = Prelude.Nothing,
-      attributes = Prelude.Nothing,
-      type' = Prelude.Nothing
+      feature = Prelude.Nothing,
+      attributes = Prelude.Nothing
     }
-
--- | Undocumented member.
-resource_feature :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
-resource_feature = Lens.lens (\Resource' {feature} -> feature) (\s@Resource' {} a -> s {feature = a} :: Resource)
-
--- | Undocumented member.
-resource_arn :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
-resource_arn = Lens.lens (\Resource' {arn} -> arn) (\s@Resource' {} a -> s {arn = a} :: Resource)
 
 -- | Undocumented member.
 resource_name :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_name = Lens.lens (\Resource' {name} -> name) (\s@Resource' {} a -> s {name = a} :: Resource)
 
 -- | Undocumented member.
-resource_attributes :: Lens.Lens' Resource (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-resource_attributes = Lens.lens (\Resource' {attributes} -> attributes) (\s@Resource' {} a -> s {attributes = a} :: Resource) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
 resource_type :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_type = Lens.lens (\Resource' {type'} -> type') (\s@Resource' {} a -> s {type' = a} :: Resource)
+
+-- | Undocumented member.
+resource_arn :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
+resource_arn = Lens.lens (\Resource' {arn} -> arn) (\s@Resource' {} a -> s {arn = a} :: Resource)
+
+-- | Undocumented member.
+resource_feature :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
+resource_feature = Lens.lens (\Resource' {feature} -> feature) (\s@Resource' {} a -> s {feature = a} :: Resource)
+
+-- | Undocumented member.
+resource_attributes :: Lens.Lens' Resource (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+resource_attributes = Lens.lens (\Resource' {attributes} -> attributes) (\s@Resource' {} a -> s {attributes = a} :: Resource) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON Resource where
   parseJSON =
@@ -90,25 +90,25 @@ instance Core.FromJSON Resource where
       "Resource"
       ( \x ->
           Resource'
-            Prelude.<$> (x Core..:? "feature")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "name")
             Prelude.<*> (x Core..:? "type")
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "feature")
+            Prelude.<*> (x Core..:? "attributes" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Resource where
   hashWithSalt _salt Resource' {..} =
-    _salt `Prelude.hashWithSalt` feature
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` attributes
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` feature
+      `Prelude.hashWithSalt` attributes
 
 instance Prelude.NFData Resource where
   rnf Resource' {..} =
-    Prelude.rnf feature
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf feature
+      `Prelude.seq` Prelude.rnf attributes

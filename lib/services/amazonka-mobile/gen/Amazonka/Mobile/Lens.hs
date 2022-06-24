@@ -14,31 +14,24 @@
 module Amazonka.Mobile.Lens
   ( -- * Operations
 
-    -- ** ListProjects
-    listProjects_nextToken,
-    listProjects_maxResults,
-    listProjectsResponse_nextToken,
-    listProjectsResponse_projects,
-    listProjectsResponse_httpStatus,
+    -- ** CreateProject
+    createProject_name,
+    createProject_contents,
+    createProject_snapshotId,
+    createProject_region,
+    createProjectResponse_details,
+    createProjectResponse_httpStatus,
 
     -- ** DeleteProject
     deleteProject_projectId,
-    deleteProjectResponse_deletedResources,
     deleteProjectResponse_orphanedResources,
+    deleteProjectResponse_deletedResources,
     deleteProjectResponse_httpStatus,
 
-    -- ** UpdateProject
-    updateProject_contents,
-    updateProject_projectId,
-    updateProjectResponse_details,
-    updateProjectResponse_httpStatus,
-
-    -- ** ListBundles
-    listBundles_nextToken,
-    listBundles_maxResults,
-    listBundlesResponse_bundleList,
-    listBundlesResponse_nextToken,
-    listBundlesResponse_httpStatus,
+    -- ** DescribeBundle
+    describeBundle_bundleId,
+    describeBundleResponse_details,
+    describeBundleResponse_httpStatus,
 
     -- ** DescribeProject
     describeProject_syncFromResources,
@@ -46,63 +39,70 @@ module Amazonka.Mobile.Lens
     describeProjectResponse_details,
     describeProjectResponse_httpStatus,
 
-    -- ** ExportProject
-    exportProject_projectId,
-    exportProjectResponse_shareUrl,
-    exportProjectResponse_downloadUrl,
-    exportProjectResponse_snapshotId,
-    exportProjectResponse_httpStatus,
-
-    -- ** DescribeBundle
-    describeBundle_bundleId,
-    describeBundleResponse_details,
-    describeBundleResponse_httpStatus,
-
     -- ** ExportBundle
-    exportBundle_platform,
     exportBundle_projectId,
+    exportBundle_platform,
     exportBundle_bundleId,
     exportBundleResponse_downloadUrl,
     exportBundleResponse_httpStatus,
 
-    -- ** CreateProject
-    createProject_contents,
-    createProject_name,
-    createProject_region,
-    createProject_snapshotId,
-    createProjectResponse_details,
-    createProjectResponse_httpStatus,
+    -- ** ExportProject
+    exportProject_projectId,
+    exportProjectResponse_downloadUrl,
+    exportProjectResponse_shareUrl,
+    exportProjectResponse_snapshotId,
+    exportProjectResponse_httpStatus,
+
+    -- ** ListBundles
+    listBundles_nextToken,
+    listBundles_maxResults,
+    listBundlesResponse_nextToken,
+    listBundlesResponse_bundleList,
+    listBundlesResponse_httpStatus,
+
+    -- ** ListProjects
+    listProjects_nextToken,
+    listProjects_maxResults,
+    listProjectsResponse_projects,
+    listProjectsResponse_nextToken,
+    listProjectsResponse_httpStatus,
+
+    -- ** UpdateProject
+    updateProject_contents,
+    updateProject_projectId,
+    updateProjectResponse_details,
+    updateProjectResponse_httpStatus,
 
     -- * Types
 
     -- ** BundleDetails
     bundleDetails_availablePlatforms,
-    bundleDetails_bundleId,
-    bundleDetails_version,
+    bundleDetails_description,
     bundleDetails_iconUrl,
     bundleDetails_title,
-    bundleDetails_description,
+    bundleDetails_bundleId,
+    bundleDetails_version,
 
     -- ** ProjectDetails
-    projectDetails_state,
-    projectDetails_resources,
-    projectDetails_createdDate,
-    projectDetails_consoleUrl,
     projectDetails_name,
-    projectDetails_region,
-    projectDetails_projectId,
+    projectDetails_consoleUrl,
     projectDetails_lastUpdatedDate,
+    projectDetails_state,
+    projectDetails_projectId,
+    projectDetails_region,
+    projectDetails_createdDate,
+    projectDetails_resources,
 
     -- ** ProjectSummary
     projectSummary_name,
     projectSummary_projectId,
 
     -- ** Resource
-    resource_feature,
-    resource_arn,
     resource_name,
-    resource_attributes,
     resource_type,
+    resource_arn,
+    resource_feature,
+    resource_attributes,
   )
 where
 

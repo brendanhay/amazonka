@@ -34,7 +34,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newQualificationRequirement' smart constructor.
 data QualificationRequirement = QualificationRequirement'
-  { -- | The locale value to compare against the Qualification\'s value. The
+  { -- | The integer value to compare against the Qualification\'s value.
+    -- IntegerValue must not be present if Comparator is Exists or
+    -- DoesNotExist. IntegerValue can only be used if the Qualification type
+    -- has an integer value; it cannot be used with the Worker_Locale
+    -- QualificationType ID. When performing a set comparison by using the In
+    -- or the NotIn comparator, you can use up to 15 IntegerValue elements in a
+    -- QualificationRequirement data structure.
+    integerValues :: Prelude.Maybe [Prelude.Int],
+    -- | The locale value to compare against the Qualification\'s value. The
     -- local value must be a valid ISO 3166 country code or supports ISO 3166-2
     -- subdivisions. LocaleValue can only be used with a Worker_Locale
     -- QualificationType ID. LocaleValue can only be used with the EqualTo,
@@ -76,14 +84,6 @@ data QualificationRequirement = QualificationRequirement'
     -- HIT. The default is false. This should not be used in combination with
     -- the @ActionsGuarded@ field.
     requiredToPreview :: Prelude.Maybe Prelude.Bool,
-    -- | The integer value to compare against the Qualification\'s value.
-    -- IntegerValue must not be present if Comparator is Exists or
-    -- DoesNotExist. IntegerValue can only be used if the Qualification type
-    -- has an integer value; it cannot be used with the Worker_Locale
-    -- QualificationType ID. When performing a set comparison by using the In
-    -- or the NotIn comparator, you can use up to 15 IntegerValue elements in a
-    -- QualificationRequirement data structure.
-    integerValues :: Prelude.Maybe [Prelude.Int],
     -- | The ID of the Qualification type for the requirement.
     qualificationTypeId :: Prelude.Text,
     -- | The kind of comparison to make against a Qualification\'s value. You can
@@ -106,6 +106,14 @@ data QualificationRequirement = QualificationRequirement'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'integerValues', 'qualificationRequirement_integerValues' - The integer value to compare against the Qualification\'s value.
+-- IntegerValue must not be present if Comparator is Exists or
+-- DoesNotExist. IntegerValue can only be used if the Qualification type
+-- has an integer value; it cannot be used with the Worker_Locale
+-- QualificationType ID. When performing a set comparison by using the In
+-- or the NotIn comparator, you can use up to 15 IntegerValue elements in a
+-- QualificationRequirement data structure.
 --
 -- 'localeValues', 'qualificationRequirement_localeValues' - The locale value to compare against the Qualification\'s value. The
 -- local value must be a valid ISO 3166 country code or supports ISO 3166-2
@@ -149,14 +157,6 @@ data QualificationRequirement = QualificationRequirement'
 -- HIT. The default is false. This should not be used in combination with
 -- the @ActionsGuarded@ field.
 --
--- 'integerValues', 'qualificationRequirement_integerValues' - The integer value to compare against the Qualification\'s value.
--- IntegerValue must not be present if Comparator is Exists or
--- DoesNotExist. IntegerValue can only be used if the Qualification type
--- has an integer value; it cannot be used with the Worker_Locale
--- QualificationType ID. When performing a set comparison by using the In
--- or the NotIn comparator, you can use up to 15 IntegerValue elements in a
--- QualificationRequirement data structure.
---
 -- 'qualificationTypeId', 'qualificationRequirement_qualificationTypeId' - The ID of the Qualification type for the requirement.
 --
 -- 'comparator', 'qualificationRequirement_comparator' - The kind of comparison to make against a Qualification\'s value. You can
@@ -178,14 +178,24 @@ newQualificationRequirement
   pQualificationTypeId_
   pComparator_ =
     QualificationRequirement'
-      { localeValues =
+      { integerValues =
           Prelude.Nothing,
+        localeValues = Prelude.Nothing,
         actionsGuarded = Prelude.Nothing,
         requiredToPreview = Prelude.Nothing,
-        integerValues = Prelude.Nothing,
         qualificationTypeId = pQualificationTypeId_,
         comparator = pComparator_
       }
+
+-- | The integer value to compare against the Qualification\'s value.
+-- IntegerValue must not be present if Comparator is Exists or
+-- DoesNotExist. IntegerValue can only be used if the Qualification type
+-- has an integer value; it cannot be used with the Worker_Locale
+-- QualificationType ID. When performing a set comparison by using the In
+-- or the NotIn comparator, you can use up to 15 IntegerValue elements in a
+-- QualificationRequirement data structure.
+qualificationRequirement_integerValues :: Lens.Lens' QualificationRequirement (Prelude.Maybe [Prelude.Int])
+qualificationRequirement_integerValues = Lens.lens (\QualificationRequirement' {integerValues} -> integerValues) (\s@QualificationRequirement' {} a -> s {integerValues = a} :: QualificationRequirement) Prelude.. Lens.mapping Lens.coerced
 
 -- | The locale value to compare against the Qualification\'s value. The
 -- local value must be a valid ISO 3166 country code or supports ISO 3166-2
@@ -235,16 +245,6 @@ qualificationRequirement_actionsGuarded = Lens.lens (\QualificationRequirement' 
 qualificationRequirement_requiredToPreview :: Lens.Lens' QualificationRequirement (Prelude.Maybe Prelude.Bool)
 qualificationRequirement_requiredToPreview = Lens.lens (\QualificationRequirement' {requiredToPreview} -> requiredToPreview) (\s@QualificationRequirement' {} a -> s {requiredToPreview = a} :: QualificationRequirement)
 
--- | The integer value to compare against the Qualification\'s value.
--- IntegerValue must not be present if Comparator is Exists or
--- DoesNotExist. IntegerValue can only be used if the Qualification type
--- has an integer value; it cannot be used with the Worker_Locale
--- QualificationType ID. When performing a set comparison by using the In
--- or the NotIn comparator, you can use up to 15 IntegerValue elements in a
--- QualificationRequirement data structure.
-qualificationRequirement_integerValues :: Lens.Lens' QualificationRequirement (Prelude.Maybe [Prelude.Int])
-qualificationRequirement_integerValues = Lens.lens (\QualificationRequirement' {integerValues} -> integerValues) (\s@QualificationRequirement' {} a -> s {integerValues = a} :: QualificationRequirement) Prelude.. Lens.mapping Lens.coerced
-
 -- | The ID of the Qualification type for the requirement.
 qualificationRequirement_qualificationTypeId :: Lens.Lens' QualificationRequirement Prelude.Text
 qualificationRequirement_qualificationTypeId = Lens.lens (\QualificationRequirement' {qualificationTypeId} -> qualificationTypeId) (\s@QualificationRequirement' {} a -> s {qualificationTypeId = a} :: QualificationRequirement)
@@ -267,29 +267,29 @@ instance Core.FromJSON QualificationRequirement where
       "QualificationRequirement"
       ( \x ->
           QualificationRequirement'
-            Prelude.<$> (x Core..:? "LocaleValues" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "IntegerValues" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "LocaleValues" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "ActionsGuarded")
             Prelude.<*> (x Core..:? "RequiredToPreview")
-            Prelude.<*> (x Core..:? "IntegerValues" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "QualificationTypeId")
             Prelude.<*> (x Core..: "Comparator")
       )
 
 instance Prelude.Hashable QualificationRequirement where
   hashWithSalt _salt QualificationRequirement' {..} =
-    _salt `Prelude.hashWithSalt` localeValues
+    _salt `Prelude.hashWithSalt` integerValues
+      `Prelude.hashWithSalt` localeValues
       `Prelude.hashWithSalt` actionsGuarded
       `Prelude.hashWithSalt` requiredToPreview
-      `Prelude.hashWithSalt` integerValues
       `Prelude.hashWithSalt` qualificationTypeId
       `Prelude.hashWithSalt` comparator
 
 instance Prelude.NFData QualificationRequirement where
   rnf QualificationRequirement' {..} =
-    Prelude.rnf localeValues
+    Prelude.rnf integerValues
+      `Prelude.seq` Prelude.rnf localeValues
       `Prelude.seq` Prelude.rnf actionsGuarded
       `Prelude.seq` Prelude.rnf requiredToPreview
-      `Prelude.seq` Prelude.rnf integerValues
       `Prelude.seq` Prelude.rnf qualificationTypeId
       `Prelude.seq` Prelude.rnf comparator
 
@@ -297,12 +297,12 @@ instance Core.ToJSON QualificationRequirement where
   toJSON QualificationRequirement' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("LocaleValues" Core..=) Prelude.<$> localeValues,
+          [ ("IntegerValues" Core..=) Prelude.<$> integerValues,
+            ("LocaleValues" Core..=) Prelude.<$> localeValues,
             ("ActionsGuarded" Core..=)
               Prelude.<$> actionsGuarded,
             ("RequiredToPreview" Core..=)
               Prelude.<$> requiredToPreview,
-            ("IntegerValues" Core..=) Prelude.<$> integerValues,
             Prelude.Just
               ("QualificationTypeId" Core..= qualificationTypeId),
             Prelude.Just ("Comparator" Core..= comparator)

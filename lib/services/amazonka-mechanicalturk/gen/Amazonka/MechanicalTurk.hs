@@ -19,11 +19,11 @@ module Amazonka.MechanicalTurk
     -- * Errors
     -- $errors
 
-    -- ** ServiceFault
-    _ServiceFault,
-
     -- ** RequestError
     _RequestError,
+
+    -- ** ServiceFault
+    _ServiceFault,
 
     -- * Waiters
     -- $waiters
@@ -31,95 +31,35 @@ module Amazonka.MechanicalTurk
     -- * Operations
     -- $operations
 
+    -- ** AcceptQualificationRequest
+    AcceptQualificationRequest (AcceptQualificationRequest'),
+    newAcceptQualificationRequest,
+    AcceptQualificationRequestResponse (AcceptQualificationRequestResponse'),
+    newAcceptQualificationRequestResponse,
+
     -- ** ApproveAssignment
     ApproveAssignment (ApproveAssignment'),
     newApproveAssignment,
     ApproveAssignmentResponse (ApproveAssignmentResponse'),
     newApproveAssignmentResponse,
 
-    -- ** ListReviewPolicyResultsForHIT
-    ListReviewPolicyResultsForHIT (ListReviewPolicyResultsForHIT'),
-    newListReviewPolicyResultsForHIT,
-    ListReviewPolicyResultsForHITResponse (ListReviewPolicyResultsForHITResponse'),
-    newListReviewPolicyResultsForHITResponse,
+    -- ** AssociateQualificationWithWorker
+    AssociateQualificationWithWorker (AssociateQualificationWithWorker'),
+    newAssociateQualificationWithWorker,
+    AssociateQualificationWithWorkerResponse (AssociateQualificationWithWorkerResponse'),
+    newAssociateQualificationWithWorkerResponse,
 
-    -- ** ListHITs (Paginated)
-    ListHITs (ListHITs'),
-    newListHITs,
-    ListHITsResponse (ListHITsResponse'),
-    newListHITsResponse,
+    -- ** CreateAdditionalAssignmentsForHIT
+    CreateAdditionalAssignmentsForHIT (CreateAdditionalAssignmentsForHIT'),
+    newCreateAdditionalAssignmentsForHIT,
+    CreateAdditionalAssignmentsForHITResponse (CreateAdditionalAssignmentsForHITResponse'),
+    newCreateAdditionalAssignmentsForHITResponse,
 
-    -- ** ListWorkersWithQualificationType (Paginated)
-    ListWorkersWithQualificationType (ListWorkersWithQualificationType'),
-    newListWorkersWithQualificationType,
-    ListWorkersWithQualificationTypeResponse (ListWorkersWithQualificationTypeResponse'),
-    newListWorkersWithQualificationTypeResponse,
-
-    -- ** DeleteHIT
-    DeleteHIT (DeleteHIT'),
-    newDeleteHIT,
-    DeleteHITResponse (DeleteHITResponse'),
-    newDeleteHITResponse,
-
-    -- ** ListReviewableHITs (Paginated)
-    ListReviewableHITs (ListReviewableHITs'),
-    newListReviewableHITs,
-    ListReviewableHITsResponse (ListReviewableHITsResponse'),
-    newListReviewableHITsResponse,
-
-    -- ** GetAssignment
-    GetAssignment (GetAssignment'),
-    newGetAssignment,
-    GetAssignmentResponse (GetAssignmentResponse'),
-    newGetAssignmentResponse,
-
-    -- ** DeleteQualificationType
-    DeleteQualificationType (DeleteQualificationType'),
-    newDeleteQualificationType,
-    DeleteQualificationTypeResponse (DeleteQualificationTypeResponse'),
-    newDeleteQualificationTypeResponse,
-
-    -- ** UpdateQualificationType
-    UpdateQualificationType (UpdateQualificationType'),
-    newUpdateQualificationType,
-    UpdateQualificationTypeResponse (UpdateQualificationTypeResponse'),
-    newUpdateQualificationTypeResponse,
-
-    -- ** ListQualificationTypes (Paginated)
-    ListQualificationTypes (ListQualificationTypes'),
-    newListQualificationTypes,
-    ListQualificationTypesResponse (ListQualificationTypesResponse'),
-    newListQualificationTypesResponse,
-
-    -- ** UpdateHITTypeOfHIT
-    UpdateHITTypeOfHIT (UpdateHITTypeOfHIT'),
-    newUpdateHITTypeOfHIT,
-    UpdateHITTypeOfHITResponse (UpdateHITTypeOfHITResponse'),
-    newUpdateHITTypeOfHITResponse,
-
-    -- ** DisassociateQualificationFromWorker
-    DisassociateQualificationFromWorker (DisassociateQualificationFromWorker'),
-    newDisassociateQualificationFromWorker,
-    DisassociateQualificationFromWorkerResponse (DisassociateQualificationFromWorkerResponse'),
-    newDisassociateQualificationFromWorkerResponse,
-
-    -- ** SendTestEventNotification
-    SendTestEventNotification (SendTestEventNotification'),
-    newSendTestEventNotification,
-    SendTestEventNotificationResponse (SendTestEventNotificationResponse'),
-    newSendTestEventNotificationResponse,
-
-    -- ** NotifyWorkers
-    NotifyWorkers (NotifyWorkers'),
-    newNotifyWorkers,
-    NotifyWorkersResponse (NotifyWorkersResponse'),
-    newNotifyWorkersResponse,
-
-    -- ** CreateHITWithHITType
-    CreateHITWithHITType (CreateHITWithHITType'),
-    newCreateHITWithHITType,
-    CreateHITWithHITTypeResponse (CreateHITWithHITTypeResponse'),
-    newCreateHITWithHITTypeResponse,
+    -- ** CreateHIT
+    CreateHIT (CreateHIT'),
+    newCreateHIT,
+    CreateHITResponse (CreateHITResponse'),
+    newCreateHITResponse,
 
     -- ** CreateHITType
     CreateHITType (CreateHITType'),
@@ -127,41 +67,71 @@ module Amazonka.MechanicalTurk
     CreateHITTypeResponse (CreateHITTypeResponse'),
     newCreateHITTypeResponse,
 
-    -- ** SendBonus
-    SendBonus (SendBonus'),
-    newSendBonus,
-    SendBonusResponse (SendBonusResponse'),
-    newSendBonusResponse,
+    -- ** CreateHITWithHITType
+    CreateHITWithHITType (CreateHITWithHITType'),
+    newCreateHITWithHITType,
+    CreateHITWithHITTypeResponse (CreateHITWithHITTypeResponse'),
+    newCreateHITWithHITTypeResponse,
 
-    -- ** ListQualificationRequests (Paginated)
-    ListQualificationRequests (ListQualificationRequests'),
-    newListQualificationRequests,
-    ListQualificationRequestsResponse (ListQualificationRequestsResponse'),
-    newListQualificationRequestsResponse,
+    -- ** CreateQualificationType
+    CreateQualificationType (CreateQualificationType'),
+    newCreateQualificationType,
+    CreateQualificationTypeResponse (CreateQualificationTypeResponse'),
+    newCreateQualificationTypeResponse,
 
-    -- ** UpdateExpirationForHIT
-    UpdateExpirationForHIT (UpdateExpirationForHIT'),
-    newUpdateExpirationForHIT,
-    UpdateExpirationForHITResponse (UpdateExpirationForHITResponse'),
-    newUpdateExpirationForHITResponse,
+    -- ** CreateWorkerBlock
+    CreateWorkerBlock (CreateWorkerBlock'),
+    newCreateWorkerBlock,
+    CreateWorkerBlockResponse (CreateWorkerBlockResponse'),
+    newCreateWorkerBlockResponse,
 
-    -- ** RejectAssignment
-    RejectAssignment (RejectAssignment'),
-    newRejectAssignment,
-    RejectAssignmentResponse (RejectAssignmentResponse'),
-    newRejectAssignmentResponse,
+    -- ** DeleteHIT
+    DeleteHIT (DeleteHIT'),
+    newDeleteHIT,
+    DeleteHITResponse (DeleteHITResponse'),
+    newDeleteHITResponse,
 
-    -- ** ListAssignmentsForHIT (Paginated)
-    ListAssignmentsForHIT (ListAssignmentsForHIT'),
-    newListAssignmentsForHIT,
-    ListAssignmentsForHITResponse (ListAssignmentsForHITResponse'),
-    newListAssignmentsForHITResponse,
+    -- ** DeleteQualificationType
+    DeleteQualificationType (DeleteQualificationType'),
+    newDeleteQualificationType,
+    DeleteQualificationTypeResponse (DeleteQualificationTypeResponse'),
+    newDeleteQualificationTypeResponse,
 
-    -- ** RejectQualificationRequest
-    RejectQualificationRequest (RejectQualificationRequest'),
-    newRejectQualificationRequest,
-    RejectQualificationRequestResponse (RejectQualificationRequestResponse'),
-    newRejectQualificationRequestResponse,
+    -- ** DeleteWorkerBlock
+    DeleteWorkerBlock (DeleteWorkerBlock'),
+    newDeleteWorkerBlock,
+    DeleteWorkerBlockResponse (DeleteWorkerBlockResponse'),
+    newDeleteWorkerBlockResponse,
+
+    -- ** DisassociateQualificationFromWorker
+    DisassociateQualificationFromWorker (DisassociateQualificationFromWorker'),
+    newDisassociateQualificationFromWorker,
+    DisassociateQualificationFromWorkerResponse (DisassociateQualificationFromWorkerResponse'),
+    newDisassociateQualificationFromWorkerResponse,
+
+    -- ** GetAccountBalance
+    GetAccountBalance (GetAccountBalance'),
+    newGetAccountBalance,
+    GetAccountBalanceResponse (GetAccountBalanceResponse'),
+    newGetAccountBalanceResponse,
+
+    -- ** GetAssignment
+    GetAssignment (GetAssignment'),
+    newGetAssignment,
+    GetAssignmentResponse (GetAssignmentResponse'),
+    newGetAssignmentResponse,
+
+    -- ** GetFileUploadURL
+    GetFileUploadURL (GetFileUploadURL'),
+    newGetFileUploadURL,
+    GetFileUploadURLResponse (GetFileUploadURLResponse'),
+    newGetFileUploadURLResponse,
+
+    -- ** GetHIT
+    GetHIT (GetHIT'),
+    newGetHIT,
+    GetHITResponse (GetHITResponse'),
+    newGetHITResponse,
 
     -- ** GetQualificationScore
     GetQualificationScore (GetQualificationScore'),
@@ -175,53 +145,11 @@ module Amazonka.MechanicalTurk
     GetQualificationTypeResponse (GetQualificationTypeResponse'),
     newGetQualificationTypeResponse,
 
-    -- ** UpdateHITReviewStatus
-    UpdateHITReviewStatus (UpdateHITReviewStatus'),
-    newUpdateHITReviewStatus,
-    UpdateHITReviewStatusResponse (UpdateHITReviewStatusResponse'),
-    newUpdateHITReviewStatusResponse,
-
-    -- ** CreateQualificationType
-    CreateQualificationType (CreateQualificationType'),
-    newCreateQualificationType,
-    CreateQualificationTypeResponse (CreateQualificationTypeResponse'),
-    newCreateQualificationTypeResponse,
-
-    -- ** AcceptQualificationRequest
-    AcceptQualificationRequest (AcceptQualificationRequest'),
-    newAcceptQualificationRequest,
-    AcceptQualificationRequestResponse (AcceptQualificationRequestResponse'),
-    newAcceptQualificationRequestResponse,
-
-    -- ** GetFileUploadURL
-    GetFileUploadURL (GetFileUploadURL'),
-    newGetFileUploadURL,
-    GetFileUploadURLResponse (GetFileUploadURLResponse'),
-    newGetFileUploadURLResponse,
-
-    -- ** CreateAdditionalAssignmentsForHIT
-    CreateAdditionalAssignmentsForHIT (CreateAdditionalAssignmentsForHIT'),
-    newCreateAdditionalAssignmentsForHIT,
-    CreateAdditionalAssignmentsForHITResponse (CreateAdditionalAssignmentsForHITResponse'),
-    newCreateAdditionalAssignmentsForHITResponse,
-
-    -- ** GetHIT
-    GetHIT (GetHIT'),
-    newGetHIT,
-    GetHITResponse (GetHITResponse'),
-    newGetHITResponse,
-
-    -- ** CreateWorkerBlock
-    CreateWorkerBlock (CreateWorkerBlock'),
-    newCreateWorkerBlock,
-    CreateWorkerBlockResponse (CreateWorkerBlockResponse'),
-    newCreateWorkerBlockResponse,
-
-    -- ** ListHITsForQualificationType (Paginated)
-    ListHITsForQualificationType (ListHITsForQualificationType'),
-    newListHITsForQualificationType,
-    ListHITsForQualificationTypeResponse (ListHITsForQualificationTypeResponse'),
-    newListHITsForQualificationTypeResponse,
+    -- ** ListAssignmentsForHIT (Paginated)
+    ListAssignmentsForHIT (ListAssignmentsForHIT'),
+    newListAssignmentsForHIT,
+    ListAssignmentsForHITResponse (ListAssignmentsForHITResponse'),
+    newListAssignmentsForHITResponse,
 
     -- ** ListBonusPayments (Paginated)
     ListBonusPayments (ListBonusPayments'),
@@ -229,17 +157,101 @@ module Amazonka.MechanicalTurk
     ListBonusPaymentsResponse (ListBonusPaymentsResponse'),
     newListBonusPaymentsResponse,
 
+    -- ** ListHITs (Paginated)
+    ListHITs (ListHITs'),
+    newListHITs,
+    ListHITsResponse (ListHITsResponse'),
+    newListHITsResponse,
+
+    -- ** ListHITsForQualificationType (Paginated)
+    ListHITsForQualificationType (ListHITsForQualificationType'),
+    newListHITsForQualificationType,
+    ListHITsForQualificationTypeResponse (ListHITsForQualificationTypeResponse'),
+    newListHITsForQualificationTypeResponse,
+
+    -- ** ListQualificationRequests (Paginated)
+    ListQualificationRequests (ListQualificationRequests'),
+    newListQualificationRequests,
+    ListQualificationRequestsResponse (ListQualificationRequestsResponse'),
+    newListQualificationRequestsResponse,
+
+    -- ** ListQualificationTypes (Paginated)
+    ListQualificationTypes (ListQualificationTypes'),
+    newListQualificationTypes,
+    ListQualificationTypesResponse (ListQualificationTypesResponse'),
+    newListQualificationTypesResponse,
+
+    -- ** ListReviewPolicyResultsForHIT
+    ListReviewPolicyResultsForHIT (ListReviewPolicyResultsForHIT'),
+    newListReviewPolicyResultsForHIT,
+    ListReviewPolicyResultsForHITResponse (ListReviewPolicyResultsForHITResponse'),
+    newListReviewPolicyResultsForHITResponse,
+
+    -- ** ListReviewableHITs (Paginated)
+    ListReviewableHITs (ListReviewableHITs'),
+    newListReviewableHITs,
+    ListReviewableHITsResponse (ListReviewableHITsResponse'),
+    newListReviewableHITsResponse,
+
     -- ** ListWorkerBlocks (Paginated)
     ListWorkerBlocks (ListWorkerBlocks'),
     newListWorkerBlocks,
     ListWorkerBlocksResponse (ListWorkerBlocksResponse'),
     newListWorkerBlocksResponse,
 
-    -- ** DeleteWorkerBlock
-    DeleteWorkerBlock (DeleteWorkerBlock'),
-    newDeleteWorkerBlock,
-    DeleteWorkerBlockResponse (DeleteWorkerBlockResponse'),
-    newDeleteWorkerBlockResponse,
+    -- ** ListWorkersWithQualificationType (Paginated)
+    ListWorkersWithQualificationType (ListWorkersWithQualificationType'),
+    newListWorkersWithQualificationType,
+    ListWorkersWithQualificationTypeResponse (ListWorkersWithQualificationTypeResponse'),
+    newListWorkersWithQualificationTypeResponse,
+
+    -- ** NotifyWorkers
+    NotifyWorkers (NotifyWorkers'),
+    newNotifyWorkers,
+    NotifyWorkersResponse (NotifyWorkersResponse'),
+    newNotifyWorkersResponse,
+
+    -- ** RejectAssignment
+    RejectAssignment (RejectAssignment'),
+    newRejectAssignment,
+    RejectAssignmentResponse (RejectAssignmentResponse'),
+    newRejectAssignmentResponse,
+
+    -- ** RejectQualificationRequest
+    RejectQualificationRequest (RejectQualificationRequest'),
+    newRejectQualificationRequest,
+    RejectQualificationRequestResponse (RejectQualificationRequestResponse'),
+    newRejectQualificationRequestResponse,
+
+    -- ** SendBonus
+    SendBonus (SendBonus'),
+    newSendBonus,
+    SendBonusResponse (SendBonusResponse'),
+    newSendBonusResponse,
+
+    -- ** SendTestEventNotification
+    SendTestEventNotification (SendTestEventNotification'),
+    newSendTestEventNotification,
+    SendTestEventNotificationResponse (SendTestEventNotificationResponse'),
+    newSendTestEventNotificationResponse,
+
+    -- ** UpdateExpirationForHIT
+    UpdateExpirationForHIT (UpdateExpirationForHIT'),
+    newUpdateExpirationForHIT,
+    UpdateExpirationForHITResponse (UpdateExpirationForHITResponse'),
+    newUpdateExpirationForHITResponse,
+
+    -- ** UpdateHITReviewStatus
+    UpdateHITReviewStatus (UpdateHITReviewStatus'),
+    newUpdateHITReviewStatus,
+    UpdateHITReviewStatusResponse (UpdateHITReviewStatusResponse'),
+    newUpdateHITReviewStatusResponse,
+
+    -- ** UpdateHITTypeOfHIT
+    UpdateHITTypeOfHIT (UpdateHITTypeOfHIT'),
+    newUpdateHITTypeOfHIT,
+    UpdateHITTypeOfHITResponse (UpdateHITTypeOfHITResponse'),
+    newUpdateHITTypeOfHITResponse,
 
     -- ** UpdateNotificationSettings
     UpdateNotificationSettings (UpdateNotificationSettings'),
@@ -247,23 +259,11 @@ module Amazonka.MechanicalTurk
     UpdateNotificationSettingsResponse (UpdateNotificationSettingsResponse'),
     newUpdateNotificationSettingsResponse,
 
-    -- ** AssociateQualificationWithWorker
-    AssociateQualificationWithWorker (AssociateQualificationWithWorker'),
-    newAssociateQualificationWithWorker,
-    AssociateQualificationWithWorkerResponse (AssociateQualificationWithWorkerResponse'),
-    newAssociateQualificationWithWorkerResponse,
-
-    -- ** CreateHIT
-    CreateHIT (CreateHIT'),
-    newCreateHIT,
-    CreateHITResponse (CreateHITResponse'),
-    newCreateHITResponse,
-
-    -- ** GetAccountBalance
-    GetAccountBalance (GetAccountBalance'),
-    newGetAccountBalance,
-    GetAccountBalanceResponse (GetAccountBalanceResponse'),
-    newGetAccountBalanceResponse,
+    -- ** UpdateQualificationType
+    UpdateQualificationType (UpdateQualificationType'),
+    newUpdateQualificationType,
+    UpdateQualificationTypeResponse (UpdateQualificationTypeResponse'),
+    newUpdateQualificationTypeResponse,
 
     -- * Types
 

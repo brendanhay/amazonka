@@ -31,10 +31,10 @@ module Amazonka.MechanicalTurk.ListReviewableHITs
     newListReviewableHITs,
 
     -- * Request Lenses
-    listReviewableHITs_status,
-    listReviewableHITs_hITTypeId,
     listReviewableHITs_nextToken,
+    listReviewableHITs_status,
     listReviewableHITs_maxResults,
+    listReviewableHITs_hITTypeId,
 
     -- * Destructuring the Response
     ListReviewableHITsResponse (..),
@@ -57,16 +57,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListReviewableHITs' smart constructor.
 data ListReviewableHITs = ListReviewableHITs'
-  { -- | Can be either @Reviewable@ or @Reviewing@. Reviewable is the default
+  { -- | Pagination Token
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Can be either @Reviewable@ or @Reviewing@. Reviewable is the default
     -- value.
     status :: Prelude.Maybe ReviewableHITStatus,
+    -- | Limit the number of results returned.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the HIT type of the HITs to consider for the query. If not
     -- specified, all HITs for the Reviewer are considered
-    hITTypeId :: Prelude.Maybe Prelude.Text,
-    -- | Pagination Token
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Limit the number of results returned.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    hITTypeId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,42 +78,42 @@ data ListReviewableHITs = ListReviewableHITs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listReviewableHITs_nextToken' - Pagination Token
+--
 -- 'status', 'listReviewableHITs_status' - Can be either @Reviewable@ or @Reviewing@. Reviewable is the default
 -- value.
 --
+-- 'maxResults', 'listReviewableHITs_maxResults' - Limit the number of results returned.
+--
 -- 'hITTypeId', 'listReviewableHITs_hITTypeId' - The ID of the HIT type of the HITs to consider for the query. If not
 -- specified, all HITs for the Reviewer are considered
---
--- 'nextToken', 'listReviewableHITs_nextToken' - Pagination Token
---
--- 'maxResults', 'listReviewableHITs_maxResults' - Limit the number of results returned.
 newListReviewableHITs ::
   ListReviewableHITs
 newListReviewableHITs =
   ListReviewableHITs'
-    { status = Prelude.Nothing,
-      hITTypeId = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Prelude.Nothing,
+      status = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      hITTypeId = Prelude.Nothing
     }
+
+-- | Pagination Token
+listReviewableHITs_nextToken :: Lens.Lens' ListReviewableHITs (Prelude.Maybe Prelude.Text)
+listReviewableHITs_nextToken = Lens.lens (\ListReviewableHITs' {nextToken} -> nextToken) (\s@ListReviewableHITs' {} a -> s {nextToken = a} :: ListReviewableHITs)
 
 -- | Can be either @Reviewable@ or @Reviewing@. Reviewable is the default
 -- value.
 listReviewableHITs_status :: Lens.Lens' ListReviewableHITs (Prelude.Maybe ReviewableHITStatus)
 listReviewableHITs_status = Lens.lens (\ListReviewableHITs' {status} -> status) (\s@ListReviewableHITs' {} a -> s {status = a} :: ListReviewableHITs)
 
+-- | Limit the number of results returned.
+listReviewableHITs_maxResults :: Lens.Lens' ListReviewableHITs (Prelude.Maybe Prelude.Natural)
+listReviewableHITs_maxResults = Lens.lens (\ListReviewableHITs' {maxResults} -> maxResults) (\s@ListReviewableHITs' {} a -> s {maxResults = a} :: ListReviewableHITs)
+
 -- | The ID of the HIT type of the HITs to consider for the query. If not
 -- specified, all HITs for the Reviewer are considered
 listReviewableHITs_hITTypeId :: Lens.Lens' ListReviewableHITs (Prelude.Maybe Prelude.Text)
 listReviewableHITs_hITTypeId = Lens.lens (\ListReviewableHITs' {hITTypeId} -> hITTypeId) (\s@ListReviewableHITs' {} a -> s {hITTypeId = a} :: ListReviewableHITs)
-
--- | Pagination Token
-listReviewableHITs_nextToken :: Lens.Lens' ListReviewableHITs (Prelude.Maybe Prelude.Text)
-listReviewableHITs_nextToken = Lens.lens (\ListReviewableHITs' {nextToken} -> nextToken) (\s@ListReviewableHITs' {} a -> s {nextToken = a} :: ListReviewableHITs)
-
--- | Limit the number of results returned.
-listReviewableHITs_maxResults :: Lens.Lens' ListReviewableHITs (Prelude.Maybe Prelude.Natural)
-listReviewableHITs_maxResults = Lens.lens (\ListReviewableHITs' {maxResults} -> maxResults) (\s@ListReviewableHITs' {} a -> s {maxResults = a} :: ListReviewableHITs)
 
 instance Core.AWSPager ListReviewableHITs where
   page rq rs
@@ -153,17 +153,17 @@ instance Core.AWSRequest ListReviewableHITs where
 
 instance Prelude.Hashable ListReviewableHITs where
   hashWithSalt _salt ListReviewableHITs' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` hITTypeId
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` hITTypeId
 
 instance Prelude.NFData ListReviewableHITs where
   rnf ListReviewableHITs' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf hITTypeId
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf hITTypeId
 
 instance Core.ToHeaders ListReviewableHITs where
   toHeaders =
@@ -184,10 +184,10 @@ instance Core.ToJSON ListReviewableHITs where
   toJSON ListReviewableHITs' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
-            ("HITTypeId" Core..=) Prelude.<$> hITTypeId,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Status" Core..=) Prelude.<$> status,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("HITTypeId" Core..=) Prelude.<$> hITTypeId
           ]
       )
 

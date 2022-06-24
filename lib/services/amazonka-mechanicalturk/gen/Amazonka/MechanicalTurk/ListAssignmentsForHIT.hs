@@ -49,8 +49,8 @@ module Amazonka.MechanicalTurk.ListAssignmentsForHIT
     newListAssignmentsForHIT,
 
     -- * Request Lenses
-    listAssignmentsForHIT_assignmentStatuses,
     listAssignmentsForHIT_nextToken,
+    listAssignmentsForHIT_assignmentStatuses,
     listAssignmentsForHIT_maxResults,
     listAssignmentsForHIT_hITId,
 
@@ -75,10 +75,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAssignmentsForHIT' smart constructor.
 data ListAssignmentsForHIT = ListAssignmentsForHIT'
-  { -- | The status of the assignments to return: Submitted | Approved | Rejected
-    assignmentStatuses :: Prelude.Maybe [AssignmentStatus],
-    -- | Pagination token
+  { -- | Pagination token
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The status of the assignments to return: Submitted | Approved | Rejected
+    assignmentStatuses :: Prelude.Maybe [AssignmentStatus],
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the HIT.
     hITId :: Prelude.Text
@@ -93,9 +93,9 @@ data ListAssignmentsForHIT = ListAssignmentsForHIT'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assignmentStatuses', 'listAssignmentsForHIT_assignmentStatuses' - The status of the assignments to return: Submitted | Approved | Rejected
---
 -- 'nextToken', 'listAssignmentsForHIT_nextToken' - Pagination token
+--
+-- 'assignmentStatuses', 'listAssignmentsForHIT_assignmentStatuses' - The status of the assignments to return: Submitted | Approved | Rejected
 --
 -- 'maxResults', 'listAssignmentsForHIT_maxResults' - Undocumented member.
 --
@@ -106,20 +106,19 @@ newListAssignmentsForHIT ::
   ListAssignmentsForHIT
 newListAssignmentsForHIT pHITId_ =
   ListAssignmentsForHIT'
-    { assignmentStatuses =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      assignmentStatuses = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       hITId = pHITId_
     }
 
--- | The status of the assignments to return: Submitted | Approved | Rejected
-listAssignmentsForHIT_assignmentStatuses :: Lens.Lens' ListAssignmentsForHIT (Prelude.Maybe [AssignmentStatus])
-listAssignmentsForHIT_assignmentStatuses = Lens.lens (\ListAssignmentsForHIT' {assignmentStatuses} -> assignmentStatuses) (\s@ListAssignmentsForHIT' {} a -> s {assignmentStatuses = a} :: ListAssignmentsForHIT) Prelude.. Lens.mapping Lens.coerced
-
 -- | Pagination token
 listAssignmentsForHIT_nextToken :: Lens.Lens' ListAssignmentsForHIT (Prelude.Maybe Prelude.Text)
 listAssignmentsForHIT_nextToken = Lens.lens (\ListAssignmentsForHIT' {nextToken} -> nextToken) (\s@ListAssignmentsForHIT' {} a -> s {nextToken = a} :: ListAssignmentsForHIT)
+
+-- | The status of the assignments to return: Submitted | Approved | Rejected
+listAssignmentsForHIT_assignmentStatuses :: Lens.Lens' ListAssignmentsForHIT (Prelude.Maybe [AssignmentStatus])
+listAssignmentsForHIT_assignmentStatuses = Lens.lens (\ListAssignmentsForHIT' {assignmentStatuses} -> assignmentStatuses) (\s@ListAssignmentsForHIT' {} a -> s {assignmentStatuses = a} :: ListAssignmentsForHIT) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 listAssignmentsForHIT_maxResults :: Lens.Lens' ListAssignmentsForHIT (Prelude.Maybe Prelude.Natural)
@@ -168,15 +167,15 @@ instance Core.AWSRequest ListAssignmentsForHIT where
 
 instance Prelude.Hashable ListAssignmentsForHIT where
   hashWithSalt _salt ListAssignmentsForHIT' {..} =
-    _salt `Prelude.hashWithSalt` assignmentStatuses
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` assignmentStatuses
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` hITId
 
 instance Prelude.NFData ListAssignmentsForHIT where
   rnf ListAssignmentsForHIT' {..} =
-    Prelude.rnf assignmentStatuses
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf assignmentStatuses
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf hITId
 
@@ -199,9 +198,9 @@ instance Core.ToJSON ListAssignmentsForHIT where
   toJSON ListAssignmentsForHIT' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AssignmentStatuses" Core..=)
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("AssignmentStatuses" Core..=)
               Prelude.<$> assignmentStatuses,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just ("HITId" Core..= hITId)
           ]

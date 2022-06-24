@@ -28,12 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReviewResultDetail' smart constructor.
 data ReviewResultDetail = ReviewResultDetail'
-  { -- | The values of Key provided by the review policies you have selected.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier of the Review action result.
-    actionId :: Prelude.Maybe Prelude.Text,
-    -- | The type of the object from the SubjectId field.
-    subjectType :: Prelude.Maybe Prelude.Text,
+  { -- | The HITID or AssignmentId about which this result was taken. Note that
+    -- HIT-level Review Policies will often emit results about both the HIT
+    -- itself and its Assignments, while Assignment-level review policies
+    -- generally only emit results about the Assignment itself.
+    subjectId :: Prelude.Maybe Prelude.Text,
     -- | Key identifies the particular piece of reviewed information.
     key :: Prelude.Maybe Prelude.Text,
     -- | Specifies the QuestionId the result is describing. Depending on whether
@@ -43,11 +42,12 @@ data ReviewResultDetail = ReviewResultDetail'
     -- If ObjectType is Assignment and QuestionId is absent, then the result
     -- describes the Worker\'s performance on the HIT.
     questionId :: Prelude.Maybe Prelude.Text,
-    -- | The HITID or AssignmentId about which this result was taken. Note that
-    -- HIT-level Review Policies will often emit results about both the HIT
-    -- itself and its Assignments, while Assignment-level review policies
-    -- generally only emit results about the Assignment itself.
-    subjectId :: Prelude.Maybe Prelude.Text
+    -- | A unique identifier of the Review action result.
+    actionId :: Prelude.Maybe Prelude.Text,
+    -- | The type of the object from the SubjectId field.
+    subjectType :: Prelude.Maybe Prelude.Text,
+    -- | The values of Key provided by the review policies you have selected.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,11 +59,10 @@ data ReviewResultDetail = ReviewResultDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'reviewResultDetail_value' - The values of Key provided by the review policies you have selected.
---
--- 'actionId', 'reviewResultDetail_actionId' - A unique identifier of the Review action result.
---
--- 'subjectType', 'reviewResultDetail_subjectType' - The type of the object from the SubjectId field.
+-- 'subjectId', 'reviewResultDetail_subjectId' - The HITID or AssignmentId about which this result was taken. Note that
+-- HIT-level Review Policies will often emit results about both the HIT
+-- itself and its Assignments, while Assignment-level review policies
+-- generally only emit results about the Assignment itself.
 --
 -- 'key', 'reviewResultDetail_key' - Key identifies the particular piece of reviewed information.
 --
@@ -74,33 +73,29 @@ data ReviewResultDetail = ReviewResultDetail'
 -- If ObjectType is Assignment and QuestionId is absent, then the result
 -- describes the Worker\'s performance on the HIT.
 --
--- 'subjectId', 'reviewResultDetail_subjectId' - The HITID or AssignmentId about which this result was taken. Note that
--- HIT-level Review Policies will often emit results about both the HIT
--- itself and its Assignments, while Assignment-level review policies
--- generally only emit results about the Assignment itself.
+-- 'actionId', 'reviewResultDetail_actionId' - A unique identifier of the Review action result.
+--
+-- 'subjectType', 'reviewResultDetail_subjectType' - The type of the object from the SubjectId field.
+--
+-- 'value', 'reviewResultDetail_value' - The values of Key provided by the review policies you have selected.
 newReviewResultDetail ::
   ReviewResultDetail
 newReviewResultDetail =
   ReviewResultDetail'
-    { value = Prelude.Nothing,
-      actionId = Prelude.Nothing,
-      subjectType = Prelude.Nothing,
+    { subjectId = Prelude.Nothing,
       key = Prelude.Nothing,
       questionId = Prelude.Nothing,
-      subjectId = Prelude.Nothing
+      actionId = Prelude.Nothing,
+      subjectType = Prelude.Nothing,
+      value = Prelude.Nothing
     }
 
--- | The values of Key provided by the review policies you have selected.
-reviewResultDetail_value :: Lens.Lens' ReviewResultDetail (Prelude.Maybe Prelude.Text)
-reviewResultDetail_value = Lens.lens (\ReviewResultDetail' {value} -> value) (\s@ReviewResultDetail' {} a -> s {value = a} :: ReviewResultDetail)
-
--- | A unique identifier of the Review action result.
-reviewResultDetail_actionId :: Lens.Lens' ReviewResultDetail (Prelude.Maybe Prelude.Text)
-reviewResultDetail_actionId = Lens.lens (\ReviewResultDetail' {actionId} -> actionId) (\s@ReviewResultDetail' {} a -> s {actionId = a} :: ReviewResultDetail)
-
--- | The type of the object from the SubjectId field.
-reviewResultDetail_subjectType :: Lens.Lens' ReviewResultDetail (Prelude.Maybe Prelude.Text)
-reviewResultDetail_subjectType = Lens.lens (\ReviewResultDetail' {subjectType} -> subjectType) (\s@ReviewResultDetail' {} a -> s {subjectType = a} :: ReviewResultDetail)
+-- | The HITID or AssignmentId about which this result was taken. Note that
+-- HIT-level Review Policies will often emit results about both the HIT
+-- itself and its Assignments, while Assignment-level review policies
+-- generally only emit results about the Assignment itself.
+reviewResultDetail_subjectId :: Lens.Lens' ReviewResultDetail (Prelude.Maybe Prelude.Text)
+reviewResultDetail_subjectId = Lens.lens (\ReviewResultDetail' {subjectId} -> subjectId) (\s@ReviewResultDetail' {} a -> s {subjectId = a} :: ReviewResultDetail)
 
 -- | Key identifies the particular piece of reviewed information.
 reviewResultDetail_key :: Lens.Lens' ReviewResultDetail (Prelude.Maybe Prelude.Text)
@@ -115,12 +110,17 @@ reviewResultDetail_key = Lens.lens (\ReviewResultDetail' {key} -> key) (\s@Revie
 reviewResultDetail_questionId :: Lens.Lens' ReviewResultDetail (Prelude.Maybe Prelude.Text)
 reviewResultDetail_questionId = Lens.lens (\ReviewResultDetail' {questionId} -> questionId) (\s@ReviewResultDetail' {} a -> s {questionId = a} :: ReviewResultDetail)
 
--- | The HITID or AssignmentId about which this result was taken. Note that
--- HIT-level Review Policies will often emit results about both the HIT
--- itself and its Assignments, while Assignment-level review policies
--- generally only emit results about the Assignment itself.
-reviewResultDetail_subjectId :: Lens.Lens' ReviewResultDetail (Prelude.Maybe Prelude.Text)
-reviewResultDetail_subjectId = Lens.lens (\ReviewResultDetail' {subjectId} -> subjectId) (\s@ReviewResultDetail' {} a -> s {subjectId = a} :: ReviewResultDetail)
+-- | A unique identifier of the Review action result.
+reviewResultDetail_actionId :: Lens.Lens' ReviewResultDetail (Prelude.Maybe Prelude.Text)
+reviewResultDetail_actionId = Lens.lens (\ReviewResultDetail' {actionId} -> actionId) (\s@ReviewResultDetail' {} a -> s {actionId = a} :: ReviewResultDetail)
+
+-- | The type of the object from the SubjectId field.
+reviewResultDetail_subjectType :: Lens.Lens' ReviewResultDetail (Prelude.Maybe Prelude.Text)
+reviewResultDetail_subjectType = Lens.lens (\ReviewResultDetail' {subjectType} -> subjectType) (\s@ReviewResultDetail' {} a -> s {subjectType = a} :: ReviewResultDetail)
+
+-- | The values of Key provided by the review policies you have selected.
+reviewResultDetail_value :: Lens.Lens' ReviewResultDetail (Prelude.Maybe Prelude.Text)
+reviewResultDetail_value = Lens.lens (\ReviewResultDetail' {value} -> value) (\s@ReviewResultDetail' {} a -> s {value = a} :: ReviewResultDetail)
 
 instance Core.FromJSON ReviewResultDetail where
   parseJSON =
@@ -128,28 +128,28 @@ instance Core.FromJSON ReviewResultDetail where
       "ReviewResultDetail"
       ( \x ->
           ReviewResultDetail'
-            Prelude.<$> (x Core..:? "Value")
-            Prelude.<*> (x Core..:? "ActionId")
-            Prelude.<*> (x Core..:? "SubjectType")
+            Prelude.<$> (x Core..:? "SubjectId")
             Prelude.<*> (x Core..:? "Key")
             Prelude.<*> (x Core..:? "QuestionId")
-            Prelude.<*> (x Core..:? "SubjectId")
+            Prelude.<*> (x Core..:? "ActionId")
+            Prelude.<*> (x Core..:? "SubjectType")
+            Prelude.<*> (x Core..:? "Value")
       )
 
 instance Prelude.Hashable ReviewResultDetail where
   hashWithSalt _salt ReviewResultDetail' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` actionId
-      `Prelude.hashWithSalt` subjectType
+    _salt `Prelude.hashWithSalt` subjectId
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` questionId
-      `Prelude.hashWithSalt` subjectId
+      `Prelude.hashWithSalt` actionId
+      `Prelude.hashWithSalt` subjectType
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ReviewResultDetail where
   rnf ReviewResultDetail' {..} =
-    Prelude.rnf value
-      `Prelude.seq` Prelude.rnf actionId
-      `Prelude.seq` Prelude.rnf subjectType
+    Prelude.rnf subjectId
       `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf questionId
-      `Prelude.seq` Prelude.rnf subjectId
+      `Prelude.seq` Prelude.rnf actionId
+      `Prelude.seq` Prelude.rnf subjectType
+      `Prelude.seq` Prelude.rnf value

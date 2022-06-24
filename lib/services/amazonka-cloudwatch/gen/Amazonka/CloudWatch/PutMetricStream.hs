@@ -51,9 +51,9 @@ module Amazonka.CloudWatch.PutMetricStream
     newPutMetricStream,
 
     -- * Request Lenses
-    putMetricStream_includeFilters,
-    putMetricStream_excludeFilters,
     putMetricStream_tags,
+    putMetricStream_excludeFilters,
+    putMetricStream_includeFilters,
     putMetricStream_name,
     putMetricStream_firehoseArn,
     putMetricStream_roleArn,
@@ -78,19 +78,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutMetricStream' smart constructor.
 data PutMetricStream = PutMetricStream'
-  { -- | If you specify this parameter, the stream sends only the metrics from
-    -- the metric namespaces that you specify here.
-    --
-    -- You cannot include @IncludeFilters@ and @ExcludeFilters@ in the same
-    -- operation.
-    includeFilters :: Prelude.Maybe [MetricStreamFilter],
-    -- | If you specify this parameter, the stream sends metrics from all metric
-    -- namespaces except for the namespaces that you specify here.
-    --
-    -- You cannot include @ExcludeFilters@ and @IncludeFilters@ in the same
-    -- operation.
-    excludeFilters :: Prelude.Maybe [MetricStreamFilter],
-    -- | A list of key-value pairs to associate with the metric stream. You can
+  { -- | A list of key-value pairs to associate with the metric stream. You can
     -- associate as many as 50 tags with a metric stream.
     --
     -- Tags can help you organize and categorize your resources. You can also
@@ -105,6 +93,18 @@ data PutMetricStream = PutMetricStream'
     -- or
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html UntagResource>.
     tags :: Prelude.Maybe [Tag],
+    -- | If you specify this parameter, the stream sends metrics from all metric
+    -- namespaces except for the namespaces that you specify here.
+    --
+    -- You cannot include @ExcludeFilters@ and @IncludeFilters@ in the same
+    -- operation.
+    excludeFilters :: Prelude.Maybe [MetricStreamFilter],
+    -- | If you specify this parameter, the stream sends only the metrics from
+    -- the metric namespaces that you specify here.
+    --
+    -- You cannot include @IncludeFilters@ and @ExcludeFilters@ in the same
+    -- operation.
+    includeFilters :: Prelude.Maybe [MetricStreamFilter],
     -- | If you are creating a new metric stream, this is the name for the new
     -- stream. The name must be different than the names of other metric
     -- streams in this account and Region.
@@ -143,18 +143,6 @@ data PutMetricStream = PutMetricStream'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'includeFilters', 'putMetricStream_includeFilters' - If you specify this parameter, the stream sends only the metrics from
--- the metric namespaces that you specify here.
---
--- You cannot include @IncludeFilters@ and @ExcludeFilters@ in the same
--- operation.
---
--- 'excludeFilters', 'putMetricStream_excludeFilters' - If you specify this parameter, the stream sends metrics from all metric
--- namespaces except for the namespaces that you specify here.
---
--- You cannot include @ExcludeFilters@ and @IncludeFilters@ in the same
--- operation.
---
 -- 'tags', 'putMetricStream_tags' - A list of key-value pairs to associate with the metric stream. You can
 -- associate as many as 50 tags with a metric stream.
 --
@@ -169,6 +157,18 @@ data PutMetricStream = PutMetricStream'
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html TagResource>
 -- or
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html UntagResource>.
+--
+-- 'excludeFilters', 'putMetricStream_excludeFilters' - If you specify this parameter, the stream sends metrics from all metric
+-- namespaces except for the namespaces that you specify here.
+--
+-- You cannot include @ExcludeFilters@ and @IncludeFilters@ in the same
+-- operation.
+--
+-- 'includeFilters', 'putMetricStream_includeFilters' - If you specify this parameter, the stream sends only the metrics from
+-- the metric namespaces that you specify here.
+--
+-- You cannot include @IncludeFilters@ and @ExcludeFilters@ in the same
+-- operation.
 --
 -- 'name', 'putMetricStream_name' - If you are creating a new metric stream, this is the name for the new
 -- stream. The name must be different than the names of other metric
@@ -212,30 +212,14 @@ newPutMetricStream
   pRoleArn_
   pOutputFormat_ =
     PutMetricStream'
-      { includeFilters = Prelude.Nothing,
+      { tags = Prelude.Nothing,
         excludeFilters = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        includeFilters = Prelude.Nothing,
         name = pName_,
         firehoseArn = pFirehoseArn_,
         roleArn = pRoleArn_,
         outputFormat = pOutputFormat_
       }
-
--- | If you specify this parameter, the stream sends only the metrics from
--- the metric namespaces that you specify here.
---
--- You cannot include @IncludeFilters@ and @ExcludeFilters@ in the same
--- operation.
-putMetricStream_includeFilters :: Lens.Lens' PutMetricStream (Prelude.Maybe [MetricStreamFilter])
-putMetricStream_includeFilters = Lens.lens (\PutMetricStream' {includeFilters} -> includeFilters) (\s@PutMetricStream' {} a -> s {includeFilters = a} :: PutMetricStream) Prelude.. Lens.mapping Lens.coerced
-
--- | If you specify this parameter, the stream sends metrics from all metric
--- namespaces except for the namespaces that you specify here.
---
--- You cannot include @ExcludeFilters@ and @IncludeFilters@ in the same
--- operation.
-putMetricStream_excludeFilters :: Lens.Lens' PutMetricStream (Prelude.Maybe [MetricStreamFilter])
-putMetricStream_excludeFilters = Lens.lens (\PutMetricStream' {excludeFilters} -> excludeFilters) (\s@PutMetricStream' {} a -> s {excludeFilters = a} :: PutMetricStream) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of key-value pairs to associate with the metric stream. You can
 -- associate as many as 50 tags with a metric stream.
@@ -253,6 +237,22 @@ putMetricStream_excludeFilters = Lens.lens (\PutMetricStream' {excludeFilters} -
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html UntagResource>.
 putMetricStream_tags :: Lens.Lens' PutMetricStream (Prelude.Maybe [Tag])
 putMetricStream_tags = Lens.lens (\PutMetricStream' {tags} -> tags) (\s@PutMetricStream' {} a -> s {tags = a} :: PutMetricStream) Prelude.. Lens.mapping Lens.coerced
+
+-- | If you specify this parameter, the stream sends metrics from all metric
+-- namespaces except for the namespaces that you specify here.
+--
+-- You cannot include @ExcludeFilters@ and @IncludeFilters@ in the same
+-- operation.
+putMetricStream_excludeFilters :: Lens.Lens' PutMetricStream (Prelude.Maybe [MetricStreamFilter])
+putMetricStream_excludeFilters = Lens.lens (\PutMetricStream' {excludeFilters} -> excludeFilters) (\s@PutMetricStream' {} a -> s {excludeFilters = a} :: PutMetricStream) Prelude.. Lens.mapping Lens.coerced
+
+-- | If you specify this parameter, the stream sends only the metrics from
+-- the metric namespaces that you specify here.
+--
+-- You cannot include @IncludeFilters@ and @ExcludeFilters@ in the same
+-- operation.
+putMetricStream_includeFilters :: Lens.Lens' PutMetricStream (Prelude.Maybe [MetricStreamFilter])
+putMetricStream_includeFilters = Lens.lens (\PutMetricStream' {includeFilters} -> includeFilters) (\s@PutMetricStream' {} a -> s {includeFilters = a} :: PutMetricStream) Prelude.. Lens.mapping Lens.coerced
 
 -- | If you are creating a new metric stream, this is the name for the new
 -- stream. The name must be different than the names of other metric
@@ -305,9 +305,9 @@ instance Core.AWSRequest PutMetricStream where
 
 instance Prelude.Hashable PutMetricStream where
   hashWithSalt _salt PutMetricStream' {..} =
-    _salt `Prelude.hashWithSalt` includeFilters
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` excludeFilters
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` includeFilters
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` firehoseArn
       `Prelude.hashWithSalt` roleArn
@@ -315,9 +315,9 @@ instance Prelude.Hashable PutMetricStream where
 
 instance Prelude.NFData PutMetricStream where
   rnf PutMetricStream' {..} =
-    Prelude.rnf includeFilters
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf excludeFilters
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf includeFilters
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf firehoseArn
       `Prelude.seq` Prelude.rnf roleArn
@@ -336,19 +336,19 @@ instance Core.ToQuery PutMetricStream where
           Core.=: ("PutMetricStream" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-08-01" :: Prelude.ByteString),
-        "IncludeFilters"
+        "Tags"
           Core.=: Core.toQuery
-            ( Core.toQueryList "member"
-                Prelude.<$> includeFilters
-            ),
+            (Core.toQueryList "member" Prelude.<$> tags),
         "ExcludeFilters"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> excludeFilters
             ),
-        "Tags"
+        "IncludeFilters"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
+            ( Core.toQueryList "member"
+                Prelude.<$> includeFilters
+            ),
         "Name" Core.=: name,
         "FirehoseArn" Core.=: firehoseArn,
         "RoleArn" Core.=: roleArn,

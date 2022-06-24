@@ -29,18 +29,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAlarmHistoryItem' smart constructor.
 data AlarmHistoryItem = AlarmHistoryItem'
-  { -- | The descriptive name for the alarm.
-    alarmName :: Prelude.Maybe Prelude.Text,
-    -- | The type of alarm history item.
-    historyItemType :: Prelude.Maybe HistoryItemType,
+  { -- | The type of alarm, either metric alarm or composite alarm.
+    alarmType :: Prelude.Maybe AlarmType,
+    -- | The time stamp for the alarm history item.
+    timestamp :: Prelude.Maybe Core.ISO8601,
     -- | Data about the alarm, in JSON format.
     historyData :: Prelude.Maybe Prelude.Text,
-    -- | The type of alarm, either metric alarm or composite alarm.
-    alarmType :: Prelude.Maybe AlarmType,
+    -- | The type of alarm history item.
+    historyItemType :: Prelude.Maybe HistoryItemType,
     -- | A summary of the alarm history, in text format.
     historySummary :: Prelude.Maybe Prelude.Text,
-    -- | The time stamp for the alarm history item.
-    timestamp :: Prelude.Maybe Core.ISO8601
+    -- | The descriptive name for the alarm.
+    alarmName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,77 +52,77 @@ data AlarmHistoryItem = AlarmHistoryItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'alarmName', 'alarmHistoryItem_alarmName' - The descriptive name for the alarm.
+-- 'alarmType', 'alarmHistoryItem_alarmType' - The type of alarm, either metric alarm or composite alarm.
 --
--- 'historyItemType', 'alarmHistoryItem_historyItemType' - The type of alarm history item.
+-- 'timestamp', 'alarmHistoryItem_timestamp' - The time stamp for the alarm history item.
 --
 -- 'historyData', 'alarmHistoryItem_historyData' - Data about the alarm, in JSON format.
 --
--- 'alarmType', 'alarmHistoryItem_alarmType' - The type of alarm, either metric alarm or composite alarm.
+-- 'historyItemType', 'alarmHistoryItem_historyItemType' - The type of alarm history item.
 --
 -- 'historySummary', 'alarmHistoryItem_historySummary' - A summary of the alarm history, in text format.
 --
--- 'timestamp', 'alarmHistoryItem_timestamp' - The time stamp for the alarm history item.
+-- 'alarmName', 'alarmHistoryItem_alarmName' - The descriptive name for the alarm.
 newAlarmHistoryItem ::
   AlarmHistoryItem
 newAlarmHistoryItem =
   AlarmHistoryItem'
-    { alarmName = Prelude.Nothing,
-      historyItemType = Prelude.Nothing,
+    { alarmType = Prelude.Nothing,
+      timestamp = Prelude.Nothing,
       historyData = Prelude.Nothing,
-      alarmType = Prelude.Nothing,
+      historyItemType = Prelude.Nothing,
       historySummary = Prelude.Nothing,
-      timestamp = Prelude.Nothing
+      alarmName = Prelude.Nothing
     }
-
--- | The descriptive name for the alarm.
-alarmHistoryItem_alarmName :: Lens.Lens' AlarmHistoryItem (Prelude.Maybe Prelude.Text)
-alarmHistoryItem_alarmName = Lens.lens (\AlarmHistoryItem' {alarmName} -> alarmName) (\s@AlarmHistoryItem' {} a -> s {alarmName = a} :: AlarmHistoryItem)
-
--- | The type of alarm history item.
-alarmHistoryItem_historyItemType :: Lens.Lens' AlarmHistoryItem (Prelude.Maybe HistoryItemType)
-alarmHistoryItem_historyItemType = Lens.lens (\AlarmHistoryItem' {historyItemType} -> historyItemType) (\s@AlarmHistoryItem' {} a -> s {historyItemType = a} :: AlarmHistoryItem)
-
--- | Data about the alarm, in JSON format.
-alarmHistoryItem_historyData :: Lens.Lens' AlarmHistoryItem (Prelude.Maybe Prelude.Text)
-alarmHistoryItem_historyData = Lens.lens (\AlarmHistoryItem' {historyData} -> historyData) (\s@AlarmHistoryItem' {} a -> s {historyData = a} :: AlarmHistoryItem)
 
 -- | The type of alarm, either metric alarm or composite alarm.
 alarmHistoryItem_alarmType :: Lens.Lens' AlarmHistoryItem (Prelude.Maybe AlarmType)
 alarmHistoryItem_alarmType = Lens.lens (\AlarmHistoryItem' {alarmType} -> alarmType) (\s@AlarmHistoryItem' {} a -> s {alarmType = a} :: AlarmHistoryItem)
 
--- | A summary of the alarm history, in text format.
-alarmHistoryItem_historySummary :: Lens.Lens' AlarmHistoryItem (Prelude.Maybe Prelude.Text)
-alarmHistoryItem_historySummary = Lens.lens (\AlarmHistoryItem' {historySummary} -> historySummary) (\s@AlarmHistoryItem' {} a -> s {historySummary = a} :: AlarmHistoryItem)
-
 -- | The time stamp for the alarm history item.
 alarmHistoryItem_timestamp :: Lens.Lens' AlarmHistoryItem (Prelude.Maybe Prelude.UTCTime)
 alarmHistoryItem_timestamp = Lens.lens (\AlarmHistoryItem' {timestamp} -> timestamp) (\s@AlarmHistoryItem' {} a -> s {timestamp = a} :: AlarmHistoryItem) Prelude.. Lens.mapping Core._Time
 
+-- | Data about the alarm, in JSON format.
+alarmHistoryItem_historyData :: Lens.Lens' AlarmHistoryItem (Prelude.Maybe Prelude.Text)
+alarmHistoryItem_historyData = Lens.lens (\AlarmHistoryItem' {historyData} -> historyData) (\s@AlarmHistoryItem' {} a -> s {historyData = a} :: AlarmHistoryItem)
+
+-- | The type of alarm history item.
+alarmHistoryItem_historyItemType :: Lens.Lens' AlarmHistoryItem (Prelude.Maybe HistoryItemType)
+alarmHistoryItem_historyItemType = Lens.lens (\AlarmHistoryItem' {historyItemType} -> historyItemType) (\s@AlarmHistoryItem' {} a -> s {historyItemType = a} :: AlarmHistoryItem)
+
+-- | A summary of the alarm history, in text format.
+alarmHistoryItem_historySummary :: Lens.Lens' AlarmHistoryItem (Prelude.Maybe Prelude.Text)
+alarmHistoryItem_historySummary = Lens.lens (\AlarmHistoryItem' {historySummary} -> historySummary) (\s@AlarmHistoryItem' {} a -> s {historySummary = a} :: AlarmHistoryItem)
+
+-- | The descriptive name for the alarm.
+alarmHistoryItem_alarmName :: Lens.Lens' AlarmHistoryItem (Prelude.Maybe Prelude.Text)
+alarmHistoryItem_alarmName = Lens.lens (\AlarmHistoryItem' {alarmName} -> alarmName) (\s@AlarmHistoryItem' {} a -> s {alarmName = a} :: AlarmHistoryItem)
+
 instance Core.FromXML AlarmHistoryItem where
   parseXML x =
     AlarmHistoryItem'
-      Prelude.<$> (x Core..@? "AlarmName")
-      Prelude.<*> (x Core..@? "HistoryItemType")
-      Prelude.<*> (x Core..@? "HistoryData")
-      Prelude.<*> (x Core..@? "AlarmType")
-      Prelude.<*> (x Core..@? "HistorySummary")
+      Prelude.<$> (x Core..@? "AlarmType")
       Prelude.<*> (x Core..@? "Timestamp")
+      Prelude.<*> (x Core..@? "HistoryData")
+      Prelude.<*> (x Core..@? "HistoryItemType")
+      Prelude.<*> (x Core..@? "HistorySummary")
+      Prelude.<*> (x Core..@? "AlarmName")
 
 instance Prelude.Hashable AlarmHistoryItem where
   hashWithSalt _salt AlarmHistoryItem' {..} =
-    _salt `Prelude.hashWithSalt` alarmName
-      `Prelude.hashWithSalt` historyItemType
-      `Prelude.hashWithSalt` historyData
-      `Prelude.hashWithSalt` alarmType
-      `Prelude.hashWithSalt` historySummary
+    _salt `Prelude.hashWithSalt` alarmType
       `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` historyData
+      `Prelude.hashWithSalt` historyItemType
+      `Prelude.hashWithSalt` historySummary
+      `Prelude.hashWithSalt` alarmName
 
 instance Prelude.NFData AlarmHistoryItem where
   rnf AlarmHistoryItem' {..} =
-    Prelude.rnf alarmName
-      `Prelude.seq` Prelude.rnf historyItemType
-      `Prelude.seq` Prelude.rnf historyData
-      `Prelude.seq` Prelude.rnf alarmType
-      `Prelude.seq` Prelude.rnf historySummary
+    Prelude.rnf alarmType
       `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf historyData
+      `Prelude.seq` Prelude.rnf historyItemType
+      `Prelude.seq` Prelude.rnf historySummary
+      `Prelude.seq` Prelude.rnf alarmName

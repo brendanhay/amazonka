@@ -70,12 +70,12 @@ module Amazonka.CloudWatch.PutCompositeAlarm
     newPutCompositeAlarm,
 
     -- * Request Lenses
+    putCompositeAlarm_tags,
+    putCompositeAlarm_alarmActions,
     putCompositeAlarm_alarmDescription,
-    putCompositeAlarm_oKActions,
     putCompositeAlarm_actionsEnabled,
     putCompositeAlarm_insufficientDataActions,
-    putCompositeAlarm_alarmActions,
-    putCompositeAlarm_tags,
+    putCompositeAlarm_oKActions,
     putCompositeAlarm_alarmName,
     putCompositeAlarm_alarmRule,
 
@@ -94,14 +94,22 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutCompositeAlarm' smart constructor.
 data PutCompositeAlarm = PutCompositeAlarm'
-  { -- | The description for the composite alarm.
-    alarmDescription :: Prelude.Maybe Prelude.Text,
-    -- | The actions to execute when this alarm transitions to an @OK@ state from
-    -- any other state. Each action is specified as an Amazon Resource Name
-    -- (ARN).
+  { -- | A list of key-value pairs to associate with the composite alarm. You can
+    -- associate as many as 50 tags with an alarm.
     --
-    -- Valid Values: @arn:aws:sns:region:account-id:sns-topic-name @
-    oKActions :: Prelude.Maybe [Prelude.Text],
+    -- Tags can help you organize and categorize your resources. You can also
+    -- use them to scope user permissions, by granting a user permission to
+    -- access or change only resources with certain tag values.
+    tags :: Prelude.Maybe [Tag],
+    -- | The actions to execute when this alarm transitions to the @ALARM@ state
+    -- from any other state. Each action is specified as an Amazon Resource
+    -- Name (ARN).
+    --
+    -- Valid Values: @arn:aws:sns:region:account-id:sns-topic-name @ |
+    -- @arn:aws:ssm:region:account-id:opsitem:severity @
+    alarmActions :: Prelude.Maybe [Prelude.Text],
+    -- | The description for the composite alarm.
+    alarmDescription :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether actions should be executed during any changes to the
     -- alarm state of the composite alarm. The default is @TRUE@.
     actionsEnabled :: Prelude.Maybe Prelude.Bool,
@@ -111,20 +119,12 @@ data PutCompositeAlarm = PutCompositeAlarm'
     --
     -- Valid Values: @arn:aws:sns:region:account-id:sns-topic-name @
     insufficientDataActions :: Prelude.Maybe [Prelude.Text],
-    -- | The actions to execute when this alarm transitions to the @ALARM@ state
-    -- from any other state. Each action is specified as an Amazon Resource
-    -- Name (ARN).
+    -- | The actions to execute when this alarm transitions to an @OK@ state from
+    -- any other state. Each action is specified as an Amazon Resource Name
+    -- (ARN).
     --
-    -- Valid Values: @arn:aws:sns:region:account-id:sns-topic-name @ |
-    -- @arn:aws:ssm:region:account-id:opsitem:severity @
-    alarmActions :: Prelude.Maybe [Prelude.Text],
-    -- | A list of key-value pairs to associate with the composite alarm. You can
-    -- associate as many as 50 tags with an alarm.
-    --
-    -- Tags can help you organize and categorize your resources. You can also
-    -- use them to scope user permissions, by granting a user permission to
-    -- access or change only resources with certain tag values.
-    tags :: Prelude.Maybe [Tag],
+    -- Valid Values: @arn:aws:sns:region:account-id:sns-topic-name @
+    oKActions :: Prelude.Maybe [Prelude.Text],
     -- | The name for the composite alarm. This name must be unique within the
     -- Region.
     alarmName :: Prelude.Text,
@@ -196,13 +196,21 @@ data PutCompositeAlarm = PutCompositeAlarm'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'putCompositeAlarm_tags' - A list of key-value pairs to associate with the composite alarm. You can
+-- associate as many as 50 tags with an alarm.
+--
+-- Tags can help you organize and categorize your resources. You can also
+-- use them to scope user permissions, by granting a user permission to
+-- access or change only resources with certain tag values.
+--
+-- 'alarmActions', 'putCompositeAlarm_alarmActions' - The actions to execute when this alarm transitions to the @ALARM@ state
+-- from any other state. Each action is specified as an Amazon Resource
+-- Name (ARN).
+--
+-- Valid Values: @arn:aws:sns:region:account-id:sns-topic-name @ |
+-- @arn:aws:ssm:region:account-id:opsitem:severity @
+--
 -- 'alarmDescription', 'putCompositeAlarm_alarmDescription' - The description for the composite alarm.
---
--- 'oKActions', 'putCompositeAlarm_oKActions' - The actions to execute when this alarm transitions to an @OK@ state from
--- any other state. Each action is specified as an Amazon Resource Name
--- (ARN).
---
--- Valid Values: @arn:aws:sns:region:account-id:sns-topic-name @
 --
 -- 'actionsEnabled', 'putCompositeAlarm_actionsEnabled' - Indicates whether actions should be executed during any changes to the
 -- alarm state of the composite alarm. The default is @TRUE@.
@@ -213,19 +221,11 @@ data PutCompositeAlarm = PutCompositeAlarm'
 --
 -- Valid Values: @arn:aws:sns:region:account-id:sns-topic-name @
 --
--- 'alarmActions', 'putCompositeAlarm_alarmActions' - The actions to execute when this alarm transitions to the @ALARM@ state
--- from any other state. Each action is specified as an Amazon Resource
--- Name (ARN).
+-- 'oKActions', 'putCompositeAlarm_oKActions' - The actions to execute when this alarm transitions to an @OK@ state from
+-- any other state. Each action is specified as an Amazon Resource Name
+-- (ARN).
 --
--- Valid Values: @arn:aws:sns:region:account-id:sns-topic-name @ |
--- @arn:aws:ssm:region:account-id:opsitem:severity @
---
--- 'tags', 'putCompositeAlarm_tags' - A list of key-value pairs to associate with the composite alarm. You can
--- associate as many as 50 tags with an alarm.
---
--- Tags can help you organize and categorize your resources. You can also
--- use them to scope user permissions, by granting a user permission to
--- access or change only resources with certain tag values.
+-- Valid Values: @arn:aws:sns:region:account-id:sns-topic-name @
 --
 -- 'alarmName', 'putCompositeAlarm_alarmName' - The name for the composite alarm. This name must be unique within the
 -- Region.
@@ -294,28 +294,37 @@ newPutCompositeAlarm ::
   PutCompositeAlarm
 newPutCompositeAlarm pAlarmName_ pAlarmRule_ =
   PutCompositeAlarm'
-    { alarmDescription =
-        Prelude.Nothing,
-      oKActions = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      alarmActions = Prelude.Nothing,
+      alarmDescription = Prelude.Nothing,
       actionsEnabled = Prelude.Nothing,
       insufficientDataActions = Prelude.Nothing,
-      alarmActions = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      oKActions = Prelude.Nothing,
       alarmName = pAlarmName_,
       alarmRule = pAlarmRule_
     }
 
+-- | A list of key-value pairs to associate with the composite alarm. You can
+-- associate as many as 50 tags with an alarm.
+--
+-- Tags can help you organize and categorize your resources. You can also
+-- use them to scope user permissions, by granting a user permission to
+-- access or change only resources with certain tag values.
+putCompositeAlarm_tags :: Lens.Lens' PutCompositeAlarm (Prelude.Maybe [Tag])
+putCompositeAlarm_tags = Lens.lens (\PutCompositeAlarm' {tags} -> tags) (\s@PutCompositeAlarm' {} a -> s {tags = a} :: PutCompositeAlarm) Prelude.. Lens.mapping Lens.coerced
+
+-- | The actions to execute when this alarm transitions to the @ALARM@ state
+-- from any other state. Each action is specified as an Amazon Resource
+-- Name (ARN).
+--
+-- Valid Values: @arn:aws:sns:region:account-id:sns-topic-name @ |
+-- @arn:aws:ssm:region:account-id:opsitem:severity @
+putCompositeAlarm_alarmActions :: Lens.Lens' PutCompositeAlarm (Prelude.Maybe [Prelude.Text])
+putCompositeAlarm_alarmActions = Lens.lens (\PutCompositeAlarm' {alarmActions} -> alarmActions) (\s@PutCompositeAlarm' {} a -> s {alarmActions = a} :: PutCompositeAlarm) Prelude.. Lens.mapping Lens.coerced
+
 -- | The description for the composite alarm.
 putCompositeAlarm_alarmDescription :: Lens.Lens' PutCompositeAlarm (Prelude.Maybe Prelude.Text)
 putCompositeAlarm_alarmDescription = Lens.lens (\PutCompositeAlarm' {alarmDescription} -> alarmDescription) (\s@PutCompositeAlarm' {} a -> s {alarmDescription = a} :: PutCompositeAlarm)
-
--- | The actions to execute when this alarm transitions to an @OK@ state from
--- any other state. Each action is specified as an Amazon Resource Name
--- (ARN).
---
--- Valid Values: @arn:aws:sns:region:account-id:sns-topic-name @
-putCompositeAlarm_oKActions :: Lens.Lens' PutCompositeAlarm (Prelude.Maybe [Prelude.Text])
-putCompositeAlarm_oKActions = Lens.lens (\PutCompositeAlarm' {oKActions} -> oKActions) (\s@PutCompositeAlarm' {} a -> s {oKActions = a} :: PutCompositeAlarm) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates whether actions should be executed during any changes to the
 -- alarm state of the composite alarm. The default is @TRUE@.
@@ -330,23 +339,13 @@ putCompositeAlarm_actionsEnabled = Lens.lens (\PutCompositeAlarm' {actionsEnable
 putCompositeAlarm_insufficientDataActions :: Lens.Lens' PutCompositeAlarm (Prelude.Maybe [Prelude.Text])
 putCompositeAlarm_insufficientDataActions = Lens.lens (\PutCompositeAlarm' {insufficientDataActions} -> insufficientDataActions) (\s@PutCompositeAlarm' {} a -> s {insufficientDataActions = a} :: PutCompositeAlarm) Prelude.. Lens.mapping Lens.coerced
 
--- | The actions to execute when this alarm transitions to the @ALARM@ state
--- from any other state. Each action is specified as an Amazon Resource
--- Name (ARN).
+-- | The actions to execute when this alarm transitions to an @OK@ state from
+-- any other state. Each action is specified as an Amazon Resource Name
+-- (ARN).
 --
--- Valid Values: @arn:aws:sns:region:account-id:sns-topic-name @ |
--- @arn:aws:ssm:region:account-id:opsitem:severity @
-putCompositeAlarm_alarmActions :: Lens.Lens' PutCompositeAlarm (Prelude.Maybe [Prelude.Text])
-putCompositeAlarm_alarmActions = Lens.lens (\PutCompositeAlarm' {alarmActions} -> alarmActions) (\s@PutCompositeAlarm' {} a -> s {alarmActions = a} :: PutCompositeAlarm) Prelude.. Lens.mapping Lens.coerced
-
--- | A list of key-value pairs to associate with the composite alarm. You can
--- associate as many as 50 tags with an alarm.
---
--- Tags can help you organize and categorize your resources. You can also
--- use them to scope user permissions, by granting a user permission to
--- access or change only resources with certain tag values.
-putCompositeAlarm_tags :: Lens.Lens' PutCompositeAlarm (Prelude.Maybe [Tag])
-putCompositeAlarm_tags = Lens.lens (\PutCompositeAlarm' {tags} -> tags) (\s@PutCompositeAlarm' {} a -> s {tags = a} :: PutCompositeAlarm) Prelude.. Lens.mapping Lens.coerced
+-- Valid Values: @arn:aws:sns:region:account-id:sns-topic-name @
+putCompositeAlarm_oKActions :: Lens.Lens' PutCompositeAlarm (Prelude.Maybe [Prelude.Text])
+putCompositeAlarm_oKActions = Lens.lens (\PutCompositeAlarm' {oKActions} -> oKActions) (\s@PutCompositeAlarm' {} a -> s {oKActions = a} :: PutCompositeAlarm) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for the composite alarm. This name must be unique within the
 -- Region.
@@ -422,23 +421,23 @@ instance Core.AWSRequest PutCompositeAlarm where
 
 instance Prelude.Hashable PutCompositeAlarm where
   hashWithSalt _salt PutCompositeAlarm' {..} =
-    _salt `Prelude.hashWithSalt` alarmDescription
-      `Prelude.hashWithSalt` oKActions
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` alarmActions
+      `Prelude.hashWithSalt` alarmDescription
       `Prelude.hashWithSalt` actionsEnabled
       `Prelude.hashWithSalt` insufficientDataActions
-      `Prelude.hashWithSalt` alarmActions
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` oKActions
       `Prelude.hashWithSalt` alarmName
       `Prelude.hashWithSalt` alarmRule
 
 instance Prelude.NFData PutCompositeAlarm where
   rnf PutCompositeAlarm' {..} =
-    Prelude.rnf alarmDescription
-      `Prelude.seq` Prelude.rnf oKActions
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf alarmActions
+      `Prelude.seq` Prelude.rnf alarmDescription
       `Prelude.seq` Prelude.rnf actionsEnabled
       `Prelude.seq` Prelude.rnf insufficientDataActions
-      `Prelude.seq` Prelude.rnf alarmActions
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf oKActions
       `Prelude.seq` Prelude.rnf alarmName
       `Prelude.seq` Prelude.rnf alarmRule
 
@@ -455,22 +454,22 @@ instance Core.ToQuery PutCompositeAlarm where
           Core.=: ("PutCompositeAlarm" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-08-01" :: Prelude.ByteString),
-        "AlarmDescription" Core.=: alarmDescription,
-        "OKActions"
+        "Tags"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> oKActions),
+            (Core.toQueryList "member" Prelude.<$> tags),
+        "AlarmActions"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> alarmActions),
+        "AlarmDescription" Core.=: alarmDescription,
         "ActionsEnabled" Core.=: actionsEnabled,
         "InsufficientDataActions"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> insufficientDataActions
             ),
-        "AlarmActions"
+        "OKActions"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> alarmActions),
-        "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
+            (Core.toQueryList "member" Prelude.<$> oKActions),
         "AlarmName" Core.=: alarmName,
         "AlarmRule" Core.=: alarmRule
       ]

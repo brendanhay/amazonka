@@ -35,32 +35,29 @@ module Amazonka.CloudWatch
     -- * Errors
     -- $errors
 
-    -- ** LimitExceededFault
-    _LimitExceededFault,
-
-    -- ** DashboardNotFoundError
-    _DashboardNotFoundError,
-
-    -- ** InvalidNextToken
-    _InvalidNextToken,
-
-    -- ** InternalServiceFault
-    _InternalServiceFault,
-
     -- ** DashboardInvalidInputError
     _DashboardInvalidInputError,
 
-    -- ** InvalidParameterValueException
-    _InvalidParameterValueException,
+    -- ** ResourceNotFound
+    _ResourceNotFound,
 
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
 
-    -- ** InvalidFormatFault
-    _InvalidFormatFault,
+    -- ** InvalidNextToken
+    _InvalidNextToken,
+
+    -- ** LimitExceededFault
+    _LimitExceededFault,
+
+    -- ** InternalServiceFault
+    _InternalServiceFault,
 
     -- ** MissingRequiredParameterException
     _MissingRequiredParameterException,
+
+    -- ** DashboardNotFoundError
+    _DashboardNotFoundError,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
@@ -71,8 +68,11 @@ module Amazonka.CloudWatch
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** ResourceNotFound
-    _ResourceNotFound,
+    -- ** InvalidFormatFault
+    _InvalidFormatFault,
+
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
 
     -- * Waiters
     -- $waiters
@@ -86,23 +86,11 @@ module Amazonka.CloudWatch
     -- * Operations
     -- $operations
 
-    -- ** EnableAlarmActions
-    EnableAlarmActions (EnableAlarmActions'),
-    newEnableAlarmActions,
-    EnableAlarmActionsResponse (EnableAlarmActionsResponse'),
-    newEnableAlarmActionsResponse,
-
-    -- ** DisableInsightRules
-    DisableInsightRules (DisableInsightRules'),
-    newDisableInsightRules,
-    DisableInsightRulesResponse (DisableInsightRulesResponse'),
-    newDisableInsightRulesResponse,
-
-    -- ** PutCompositeAlarm
-    PutCompositeAlarm (PutCompositeAlarm'),
-    newPutCompositeAlarm,
-    PutCompositeAlarmResponse (PutCompositeAlarmResponse'),
-    newPutCompositeAlarmResponse,
+    -- ** DeleteAlarms
+    DeleteAlarms (DeleteAlarms'),
+    newDeleteAlarms,
+    DeleteAlarmsResponse (DeleteAlarmsResponse'),
+    newDeleteAlarmsResponse,
 
     -- ** DeleteAnomalyDetector
     DeleteAnomalyDetector (DeleteAnomalyDetector'),
@@ -110,95 +98,17 @@ module Amazonka.CloudWatch
     DeleteAnomalyDetectorResponse (DeleteAnomalyDetectorResponse'),
     newDeleteAnomalyDetectorResponse,
 
-    -- ** DeleteInsightRules
-    DeleteInsightRules (DeleteInsightRules'),
-    newDeleteInsightRules,
-    DeleteInsightRulesResponse (DeleteInsightRulesResponse'),
-    newDeleteInsightRulesResponse,
-
-    -- ** GetDashboard
-    GetDashboard (GetDashboard'),
-    newGetDashboard,
-    GetDashboardResponse (GetDashboardResponse'),
-    newGetDashboardResponse,
-
-    -- ** PutAnomalyDetector
-    PutAnomalyDetector (PutAnomalyDetector'),
-    newPutAnomalyDetector,
-    PutAnomalyDetectorResponse (PutAnomalyDetectorResponse'),
-    newPutAnomalyDetectorResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** GetMetricData (Paginated)
-    GetMetricData (GetMetricData'),
-    newGetMetricData,
-    GetMetricDataResponse (GetMetricDataResponse'),
-    newGetMetricDataResponse,
-
-    -- ** PutMetricData
-    PutMetricData (PutMetricData'),
-    newPutMetricData,
-    PutMetricDataResponse (PutMetricDataResponse'),
-    newPutMetricDataResponse,
-
-    -- ** ListDashboards (Paginated)
-    ListDashboards (ListDashboards'),
-    newListDashboards,
-    ListDashboardsResponse (ListDashboardsResponse'),
-    newListDashboardsResponse,
-
-    -- ** DescribeAlarms (Paginated)
-    DescribeAlarms (DescribeAlarms'),
-    newDescribeAlarms,
-    DescribeAlarmsResponse (DescribeAlarmsResponse'),
-    newDescribeAlarmsResponse,
-
-    -- ** ListMetrics (Paginated)
-    ListMetrics (ListMetrics'),
-    newListMetrics,
-    ListMetricsResponse (ListMetricsResponse'),
-    newListMetricsResponse,
-
-    -- ** GetInsightRuleReport
-    GetInsightRuleReport (GetInsightRuleReport'),
-    newGetInsightRuleReport,
-    GetInsightRuleReportResponse (GetInsightRuleReportResponse'),
-    newGetInsightRuleReportResponse,
-
-    -- ** StartMetricStreams
-    StartMetricStreams (StartMetricStreams'),
-    newStartMetricStreams,
-    StartMetricStreamsResponse (StartMetricStreamsResponse'),
-    newStartMetricStreamsResponse,
-
     -- ** DeleteDashboards
     DeleteDashboards (DeleteDashboards'),
     newDeleteDashboards,
     DeleteDashboardsResponse (DeleteDashboardsResponse'),
     newDeleteDashboardsResponse,
 
-    -- ** PutInsightRule
-    PutInsightRule (PutInsightRule'),
-    newPutInsightRule,
-    PutInsightRuleResponse (PutInsightRuleResponse'),
-    newPutInsightRuleResponse,
-
-    -- ** ListMetricStreams
-    ListMetricStreams (ListMetricStreams'),
-    newListMetricStreams,
-    ListMetricStreamsResponse (ListMetricStreamsResponse'),
-    newListMetricStreamsResponse,
-
-    -- ** GetMetricWidgetImage
-    GetMetricWidgetImage (GetMetricWidgetImage'),
-    newGetMetricWidgetImage,
-    GetMetricWidgetImageResponse (GetMetricWidgetImageResponse'),
-    newGetMetricWidgetImageResponse,
+    -- ** DeleteInsightRules
+    DeleteInsightRules (DeleteInsightRules'),
+    newDeleteInsightRules,
+    DeleteInsightRulesResponse (DeleteInsightRulesResponse'),
+    newDeleteInsightRulesResponse,
 
     -- ** DeleteMetricStream
     DeleteMetricStream (DeleteMetricStream'),
@@ -206,29 +116,17 @@ module Amazonka.CloudWatch
     DeleteMetricStreamResponse (DeleteMetricStreamResponse'),
     newDeleteMetricStreamResponse,
 
-    -- ** DeleteAlarms
-    DeleteAlarms (DeleteAlarms'),
-    newDeleteAlarms,
-    DeleteAlarmsResponse (DeleteAlarmsResponse'),
-    newDeleteAlarmsResponse,
-
-    -- ** PutMetricStream
-    PutMetricStream (PutMetricStream'),
-    newPutMetricStream,
-    PutMetricStreamResponse (PutMetricStreamResponse'),
-    newPutMetricStreamResponse,
-
     -- ** DescribeAlarmHistory (Paginated)
     DescribeAlarmHistory (DescribeAlarmHistory'),
     newDescribeAlarmHistory,
     DescribeAlarmHistoryResponse (DescribeAlarmHistoryResponse'),
     newDescribeAlarmHistoryResponse,
 
-    -- ** GetMetricStatistics
-    GetMetricStatistics (GetMetricStatistics'),
-    newGetMetricStatistics,
-    GetMetricStatisticsResponse (GetMetricStatisticsResponse'),
-    newGetMetricStatisticsResponse,
+    -- ** DescribeAlarms (Paginated)
+    DescribeAlarms (DescribeAlarms'),
+    newDescribeAlarms,
+    DescribeAlarmsResponse (DescribeAlarmsResponse'),
+    newDescribeAlarmsResponse,
 
     -- ** DescribeAlarmsForMetric
     DescribeAlarmsForMetric (DescribeAlarmsForMetric'),
@@ -236,11 +134,17 @@ module Amazonka.CloudWatch
     DescribeAlarmsForMetricResponse (DescribeAlarmsForMetricResponse'),
     newDescribeAlarmsForMetricResponse,
 
-    -- ** EnableInsightRules
-    EnableInsightRules (EnableInsightRules'),
-    newEnableInsightRules,
-    EnableInsightRulesResponse (EnableInsightRulesResponse'),
-    newEnableInsightRulesResponse,
+    -- ** DescribeAnomalyDetectors
+    DescribeAnomalyDetectors (DescribeAnomalyDetectors'),
+    newDescribeAnomalyDetectors,
+    DescribeAnomalyDetectorsResponse (DescribeAnomalyDetectorsResponse'),
+    newDescribeAnomalyDetectorsResponse,
+
+    -- ** DescribeInsightRules
+    DescribeInsightRules (DescribeInsightRules'),
+    newDescribeInsightRules,
+    DescribeInsightRulesResponse (DescribeInsightRulesResponse'),
+    newDescribeInsightRulesResponse,
 
     -- ** DisableAlarmActions
     DisableAlarmActions (DisableAlarmActions'),
@@ -248,35 +152,47 @@ module Amazonka.CloudWatch
     DisableAlarmActionsResponse (DisableAlarmActionsResponse'),
     newDisableAlarmActionsResponse,
 
-    -- ** DescribeAnomalyDetectors
-    DescribeAnomalyDetectors (DescribeAnomalyDetectors'),
-    newDescribeAnomalyDetectors,
-    DescribeAnomalyDetectorsResponse (DescribeAnomalyDetectorsResponse'),
-    newDescribeAnomalyDetectorsResponse,
+    -- ** DisableInsightRules
+    DisableInsightRules (DisableInsightRules'),
+    newDisableInsightRules,
+    DisableInsightRulesResponse (DisableInsightRulesResponse'),
+    newDisableInsightRulesResponse,
 
-    -- ** PutDashboard
-    PutDashboard (PutDashboard'),
-    newPutDashboard,
-    PutDashboardResponse (PutDashboardResponse'),
-    newPutDashboardResponse,
+    -- ** EnableAlarmActions
+    EnableAlarmActions (EnableAlarmActions'),
+    newEnableAlarmActions,
+    EnableAlarmActionsResponse (EnableAlarmActionsResponse'),
+    newEnableAlarmActionsResponse,
 
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
+    -- ** EnableInsightRules
+    EnableInsightRules (EnableInsightRules'),
+    newEnableInsightRules,
+    EnableInsightRulesResponse (EnableInsightRulesResponse'),
+    newEnableInsightRulesResponse,
 
-    -- ** StopMetricStreams
-    StopMetricStreams (StopMetricStreams'),
-    newStopMetricStreams,
-    StopMetricStreamsResponse (StopMetricStreamsResponse'),
-    newStopMetricStreamsResponse,
+    -- ** GetDashboard
+    GetDashboard (GetDashboard'),
+    newGetDashboard,
+    GetDashboardResponse (GetDashboardResponse'),
+    newGetDashboardResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
+    -- ** GetInsightRuleReport
+    GetInsightRuleReport (GetInsightRuleReport'),
+    newGetInsightRuleReport,
+    GetInsightRuleReportResponse (GetInsightRuleReportResponse'),
+    newGetInsightRuleReportResponse,
+
+    -- ** GetMetricData (Paginated)
+    GetMetricData (GetMetricData'),
+    newGetMetricData,
+    GetMetricDataResponse (GetMetricDataResponse'),
+    newGetMetricDataResponse,
+
+    -- ** GetMetricStatistics
+    GetMetricStatistics (GetMetricStatistics'),
+    newGetMetricStatistics,
+    GetMetricStatisticsResponse (GetMetricStatisticsResponse'),
+    newGetMetricStatisticsResponse,
 
     -- ** GetMetricStream
     GetMetricStream (GetMetricStream'),
@@ -284,11 +200,77 @@ module Amazonka.CloudWatch
     GetMetricStreamResponse (GetMetricStreamResponse'),
     newGetMetricStreamResponse,
 
+    -- ** GetMetricWidgetImage
+    GetMetricWidgetImage (GetMetricWidgetImage'),
+    newGetMetricWidgetImage,
+    GetMetricWidgetImageResponse (GetMetricWidgetImageResponse'),
+    newGetMetricWidgetImageResponse,
+
+    -- ** ListDashboards (Paginated)
+    ListDashboards (ListDashboards'),
+    newListDashboards,
+    ListDashboardsResponse (ListDashboardsResponse'),
+    newListDashboardsResponse,
+
+    -- ** ListMetricStreams
+    ListMetricStreams (ListMetricStreams'),
+    newListMetricStreams,
+    ListMetricStreamsResponse (ListMetricStreamsResponse'),
+    newListMetricStreamsResponse,
+
+    -- ** ListMetrics (Paginated)
+    ListMetrics (ListMetrics'),
+    newListMetrics,
+    ListMetricsResponse (ListMetricsResponse'),
+    newListMetricsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** PutAnomalyDetector
+    PutAnomalyDetector (PutAnomalyDetector'),
+    newPutAnomalyDetector,
+    PutAnomalyDetectorResponse (PutAnomalyDetectorResponse'),
+    newPutAnomalyDetectorResponse,
+
+    -- ** PutCompositeAlarm
+    PutCompositeAlarm (PutCompositeAlarm'),
+    newPutCompositeAlarm,
+    PutCompositeAlarmResponse (PutCompositeAlarmResponse'),
+    newPutCompositeAlarmResponse,
+
+    -- ** PutDashboard
+    PutDashboard (PutDashboard'),
+    newPutDashboard,
+    PutDashboardResponse (PutDashboardResponse'),
+    newPutDashboardResponse,
+
+    -- ** PutInsightRule
+    PutInsightRule (PutInsightRule'),
+    newPutInsightRule,
+    PutInsightRuleResponse (PutInsightRuleResponse'),
+    newPutInsightRuleResponse,
+
     -- ** PutMetricAlarm
     PutMetricAlarm (PutMetricAlarm'),
     newPutMetricAlarm,
     PutMetricAlarmResponse (PutMetricAlarmResponse'),
     newPutMetricAlarmResponse,
+
+    -- ** PutMetricData
+    PutMetricData (PutMetricData'),
+    newPutMetricData,
+    PutMetricDataResponse (PutMetricDataResponse'),
+    newPutMetricDataResponse,
+
+    -- ** PutMetricStream
+    PutMetricStream (PutMetricStream'),
+    newPutMetricStream,
+    PutMetricStreamResponse (PutMetricStreamResponse'),
+    newPutMetricStreamResponse,
 
     -- ** SetAlarmState
     SetAlarmState (SetAlarmState'),
@@ -296,11 +278,29 @@ module Amazonka.CloudWatch
     SetAlarmStateResponse (SetAlarmStateResponse'),
     newSetAlarmStateResponse,
 
-    -- ** DescribeInsightRules
-    DescribeInsightRules (DescribeInsightRules'),
-    newDescribeInsightRules,
-    DescribeInsightRulesResponse (DescribeInsightRulesResponse'),
-    newDescribeInsightRulesResponse,
+    -- ** StartMetricStreams
+    StartMetricStreams (StartMetricStreams'),
+    newStartMetricStreams,
+    StartMetricStreamsResponse (StartMetricStreamsResponse'),
+    newStartMetricStreamsResponse,
+
+    -- ** StopMetricStreams
+    StopMetricStreams (StopMetricStreams'),
+    newStopMetricStreams,
+    StopMetricStreamsResponse (StopMetricStreamsResponse'),
+    newStopMetricStreamsResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
     -- * Types
 

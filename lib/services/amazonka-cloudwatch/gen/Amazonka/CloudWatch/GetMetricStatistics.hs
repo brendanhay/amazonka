@@ -84,9 +84,9 @@ module Amazonka.CloudWatch.GetMetricStatistics
     newGetMetricStatistics,
 
     -- * Request Lenses
-    getMetricStatistics_extendedStatistics,
     getMetricStatistics_statistics,
     getMetricStatistics_dimensions,
+    getMetricStatistics_extendedStatistics,
     getMetricStatistics_unit,
     getMetricStatistics_namespace,
     getMetricStatistics_metricName,
@@ -114,13 +114,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetMetricStatistics' smart constructor.
 data GetMetricStatistics = GetMetricStatistics'
-  { -- | The percentile statistics. Specify values between p0.0 and p100. When
-    -- calling @GetMetricStatistics@, you must specify either @Statistics@ or
-    -- @ExtendedStatistics@, but not both. Percentile statistics are not
-    -- available for metrics when any of the metric values are negative
-    -- numbers.
-    extendedStatistics :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The metric statistics, other than percentile. For percentile statistics,
+  { -- | The metric statistics, other than percentile. For percentile statistics,
     -- use @ExtendedStatistics@. When calling @GetMetricStatistics@, you must
     -- specify either @Statistics@ or @ExtendedStatistics@, but not both.
     statistics :: Prelude.Maybe (Prelude.NonEmpty Statistic),
@@ -136,6 +130,12 @@ data GetMetricStatistics = GetMetricStatistics'
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html Publishing Metrics>
     -- in the /Amazon CloudWatch User Guide/.
     dimensions :: Prelude.Maybe [Dimension],
+    -- | The percentile statistics. Specify values between p0.0 and p100. When
+    -- calling @GetMetricStatistics@, you must specify either @Statistics@ or
+    -- @ExtendedStatistics@, but not both. Percentile statistics are not
+    -- available for metrics when any of the metric values are negative
+    -- numbers.
+    extendedStatistics :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The unit for a given metric. If you omit @Unit@, all data that was
     -- collected with any unit is returned, along with the corresponding units
     -- that were specified when the data was reported to CloudWatch. If you
@@ -216,12 +216,6 @@ data GetMetricStatistics = GetMetricStatistics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'extendedStatistics', 'getMetricStatistics_extendedStatistics' - The percentile statistics. Specify values between p0.0 and p100. When
--- calling @GetMetricStatistics@, you must specify either @Statistics@ or
--- @ExtendedStatistics@, but not both. Percentile statistics are not
--- available for metrics when any of the metric values are negative
--- numbers.
---
 -- 'statistics', 'getMetricStatistics_statistics' - The metric statistics, other than percentile. For percentile statistics,
 -- use @ExtendedStatistics@. When calling @GetMetricStatistics@, you must
 -- specify either @Statistics@ or @ExtendedStatistics@, but not both.
@@ -237,6 +231,12 @@ data GetMetricStatistics = GetMetricStatistics'
 -- specifying dimensions, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html Publishing Metrics>
 -- in the /Amazon CloudWatch User Guide/.
+--
+-- 'extendedStatistics', 'getMetricStatistics_extendedStatistics' - The percentile statistics. Specify values between p0.0 and p100. When
+-- calling @GetMetricStatistics@, you must specify either @Statistics@ or
+-- @ExtendedStatistics@, but not both. Percentile statistics are not
+-- available for metrics when any of the metric values are negative
+-- numbers.
 --
 -- 'unit', 'getMetricStatistics_unit' - The unit for a given metric. If you omit @Unit@, all data that was
 -- collected with any unit is returned, along with the corresponding units
@@ -325,10 +325,9 @@ newGetMetricStatistics
   pEndTime_
   pPeriod_ =
     GetMetricStatistics'
-      { extendedStatistics =
-          Prelude.Nothing,
-        statistics = Prelude.Nothing,
+      { statistics = Prelude.Nothing,
         dimensions = Prelude.Nothing,
+        extendedStatistics = Prelude.Nothing,
         unit = Prelude.Nothing,
         namespace = pNamespace_,
         metricName = pMetricName_,
@@ -336,14 +335,6 @@ newGetMetricStatistics
         endTime = Core._Time Lens.# pEndTime_,
         period = pPeriod_
       }
-
--- | The percentile statistics. Specify values between p0.0 and p100. When
--- calling @GetMetricStatistics@, you must specify either @Statistics@ or
--- @ExtendedStatistics@, but not both. Percentile statistics are not
--- available for metrics when any of the metric values are negative
--- numbers.
-getMetricStatistics_extendedStatistics :: Lens.Lens' GetMetricStatistics (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-getMetricStatistics_extendedStatistics = Lens.lens (\GetMetricStatistics' {extendedStatistics} -> extendedStatistics) (\s@GetMetricStatistics' {} a -> s {extendedStatistics = a} :: GetMetricStatistics) Prelude.. Lens.mapping Lens.coerced
 
 -- | The metric statistics, other than percentile. For percentile statistics,
 -- use @ExtendedStatistics@. When calling @GetMetricStatistics@, you must
@@ -364,6 +355,14 @@ getMetricStatistics_statistics = Lens.lens (\GetMetricStatistics' {statistics} -
 -- in the /Amazon CloudWatch User Guide/.
 getMetricStatistics_dimensions :: Lens.Lens' GetMetricStatistics (Prelude.Maybe [Dimension])
 getMetricStatistics_dimensions = Lens.lens (\GetMetricStatistics' {dimensions} -> dimensions) (\s@GetMetricStatistics' {} a -> s {dimensions = a} :: GetMetricStatistics) Prelude.. Lens.mapping Lens.coerced
+
+-- | The percentile statistics. Specify values between p0.0 and p100. When
+-- calling @GetMetricStatistics@, you must specify either @Statistics@ or
+-- @ExtendedStatistics@, but not both. Percentile statistics are not
+-- available for metrics when any of the metric values are negative
+-- numbers.
+getMetricStatistics_extendedStatistics :: Lens.Lens' GetMetricStatistics (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+getMetricStatistics_extendedStatistics = Lens.lens (\GetMetricStatistics' {extendedStatistics} -> extendedStatistics) (\s@GetMetricStatistics' {} a -> s {extendedStatistics = a} :: GetMetricStatistics) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unit for a given metric. If you omit @Unit@, all data that was
 -- collected with any unit is returned, along with the corresponding units
@@ -465,9 +464,9 @@ instance Core.AWSRequest GetMetricStatistics where
 
 instance Prelude.Hashable GetMetricStatistics where
   hashWithSalt _salt GetMetricStatistics' {..} =
-    _salt `Prelude.hashWithSalt` extendedStatistics
-      `Prelude.hashWithSalt` statistics
+    _salt `Prelude.hashWithSalt` statistics
       `Prelude.hashWithSalt` dimensions
+      `Prelude.hashWithSalt` extendedStatistics
       `Prelude.hashWithSalt` unit
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` metricName
@@ -477,9 +476,9 @@ instance Prelude.Hashable GetMetricStatistics where
 
 instance Prelude.NFData GetMetricStatistics where
   rnf GetMetricStatistics' {..} =
-    Prelude.rnf extendedStatistics
-      `Prelude.seq` Prelude.rnf statistics
+    Prelude.rnf statistics
       `Prelude.seq` Prelude.rnf dimensions
+      `Prelude.seq` Prelude.rnf extendedStatistics
       `Prelude.seq` Prelude.rnf unit
       `Prelude.seq` Prelude.rnf namespace
       `Prelude.seq` Prelude.rnf metricName
@@ -500,17 +499,17 @@ instance Core.ToQuery GetMetricStatistics where
           Core.=: ("GetMetricStatistics" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-08-01" :: Prelude.ByteString),
-        "ExtendedStatistics"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
-                Prelude.<$> extendedStatistics
-            ),
         "Statistics"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> statistics),
         "Dimensions"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> dimensions),
+        "ExtendedStatistics"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Prelude.<$> extendedStatistics
+            ),
         "Unit" Core.=: unit,
         "Namespace" Core.=: namespace,
         "MetricName" Core.=: metricName,

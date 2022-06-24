@@ -35,8 +35,8 @@ module Amazonka.CloudWatch.ListMetricStreams
     newListMetricStreamsResponse,
 
     -- * Response Lenses
-    listMetricStreamsResponse_entries,
     listMetricStreamsResponse_nextToken,
+    listMetricStreamsResponse_entries,
     listMetricStreamsResponse_httpStatus,
   )
 where
@@ -97,10 +97,10 @@ instance Core.AWSRequest ListMetricStreams where
       "ListMetricStreamsResult"
       ( \s h x ->
           ListMetricStreamsResponse'
-            Prelude.<$> ( x Core..@? "Entries" Core..!@ Prelude.mempty
+            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<*> ( x Core..@? "Entries" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,12 +133,12 @@ instance Core.ToQuery ListMetricStreams where
 
 -- | /See:/ 'newListMetricStreamsResponse' smart constructor.
 data ListMetricStreamsResponse = ListMetricStreamsResponse'
-  { -- | The array of metric stream information.
-    entries :: Prelude.Maybe [MetricStreamEntry],
-    -- | The token that marks the start of the next batch of returned results.
+  { -- | The token that marks the start of the next batch of returned results.
     -- You can use this token in a subsequent operation to get the next batch
     -- of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The array of metric stream information.
+    entries :: Prelude.Maybe [MetricStreamEntry],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -152,11 +152,11 @@ data ListMetricStreamsResponse = ListMetricStreamsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'entries', 'listMetricStreamsResponse_entries' - The array of metric stream information.
---
 -- 'nextToken', 'listMetricStreamsResponse_nextToken' - The token that marks the start of the next batch of returned results.
 -- You can use this token in a subsequent operation to get the next batch
 -- of results.
+--
+-- 'entries', 'listMetricStreamsResponse_entries' - The array of metric stream information.
 --
 -- 'httpStatus', 'listMetricStreamsResponse_httpStatus' - The response's http status code.
 newListMetricStreamsResponse ::
@@ -165,15 +165,11 @@ newListMetricStreamsResponse ::
   ListMetricStreamsResponse
 newListMetricStreamsResponse pHttpStatus_ =
   ListMetricStreamsResponse'
-    { entries =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      entries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The array of metric stream information.
-listMetricStreamsResponse_entries :: Lens.Lens' ListMetricStreamsResponse (Prelude.Maybe [MetricStreamEntry])
-listMetricStreamsResponse_entries = Lens.lens (\ListMetricStreamsResponse' {entries} -> entries) (\s@ListMetricStreamsResponse' {} a -> s {entries = a} :: ListMetricStreamsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token that marks the start of the next batch of returned results.
 -- You can use this token in a subsequent operation to get the next batch
@@ -181,12 +177,16 @@ listMetricStreamsResponse_entries = Lens.lens (\ListMetricStreamsResponse' {entr
 listMetricStreamsResponse_nextToken :: Lens.Lens' ListMetricStreamsResponse (Prelude.Maybe Prelude.Text)
 listMetricStreamsResponse_nextToken = Lens.lens (\ListMetricStreamsResponse' {nextToken} -> nextToken) (\s@ListMetricStreamsResponse' {} a -> s {nextToken = a} :: ListMetricStreamsResponse)
 
+-- | The array of metric stream information.
+listMetricStreamsResponse_entries :: Lens.Lens' ListMetricStreamsResponse (Prelude.Maybe [MetricStreamEntry])
+listMetricStreamsResponse_entries = Lens.lens (\ListMetricStreamsResponse' {entries} -> entries) (\s@ListMetricStreamsResponse' {} a -> s {entries = a} :: ListMetricStreamsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listMetricStreamsResponse_httpStatus :: Lens.Lens' ListMetricStreamsResponse Prelude.Int
 listMetricStreamsResponse_httpStatus = Lens.lens (\ListMetricStreamsResponse' {httpStatus} -> httpStatus) (\s@ListMetricStreamsResponse' {} a -> s {httpStatus = a} :: ListMetricStreamsResponse)
 
 instance Prelude.NFData ListMetricStreamsResponse where
   rnf ListMetricStreamsResponse' {..} =
-    Prelude.rnf entries
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf entries
       `Prelude.seq` Prelude.rnf httpStatus

@@ -30,11 +30,11 @@ import Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails
 data LambdaFunctionScheduledEventDetails = LambdaFunctionScheduledEventDetails'
   { -- | Contains details about input for an execution history event.
     inputDetails :: Prelude.Maybe HistoryEventExecutionDataDetails,
+    -- | The maximum allowed duration of the lambda function.
+    timeoutInSeconds :: Prelude.Maybe Prelude.Integer,
     -- | The JSON data input to the lambda function. Length constraints apply to
     -- the payload size, and are expressed as bytes in UTF-8 encoding.
     input :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The maximum allowed duration of the lambda function.
-    timeoutInSeconds :: Prelude.Maybe Prelude.Integer,
     -- | The Amazon Resource Name (ARN) of the scheduled lambda function.
     resource :: Prelude.Text
   }
@@ -50,10 +50,10 @@ data LambdaFunctionScheduledEventDetails = LambdaFunctionScheduledEventDetails'
 --
 -- 'inputDetails', 'lambdaFunctionScheduledEventDetails_inputDetails' - Contains details about input for an execution history event.
 --
+-- 'timeoutInSeconds', 'lambdaFunctionScheduledEventDetails_timeoutInSeconds' - The maximum allowed duration of the lambda function.
+--
 -- 'input', 'lambdaFunctionScheduledEventDetails_input' - The JSON data input to the lambda function. Length constraints apply to
 -- the payload size, and are expressed as bytes in UTF-8 encoding.
---
--- 'timeoutInSeconds', 'lambdaFunctionScheduledEventDetails_timeoutInSeconds' - The maximum allowed duration of the lambda function.
 --
 -- 'resource', 'lambdaFunctionScheduledEventDetails_resource' - The Amazon Resource Name (ARN) of the scheduled lambda function.
 newLambdaFunctionScheduledEventDetails ::
@@ -64,8 +64,8 @@ newLambdaFunctionScheduledEventDetails pResource_ =
   LambdaFunctionScheduledEventDetails'
     { inputDetails =
         Prelude.Nothing,
-      input = Prelude.Nothing,
       timeoutInSeconds = Prelude.Nothing,
+      input = Prelude.Nothing,
       resource = pResource_
     }
 
@@ -73,14 +73,14 @@ newLambdaFunctionScheduledEventDetails pResource_ =
 lambdaFunctionScheduledEventDetails_inputDetails :: Lens.Lens' LambdaFunctionScheduledEventDetails (Prelude.Maybe HistoryEventExecutionDataDetails)
 lambdaFunctionScheduledEventDetails_inputDetails = Lens.lens (\LambdaFunctionScheduledEventDetails' {inputDetails} -> inputDetails) (\s@LambdaFunctionScheduledEventDetails' {} a -> s {inputDetails = a} :: LambdaFunctionScheduledEventDetails)
 
+-- | The maximum allowed duration of the lambda function.
+lambdaFunctionScheduledEventDetails_timeoutInSeconds :: Lens.Lens' LambdaFunctionScheduledEventDetails (Prelude.Maybe Prelude.Integer)
+lambdaFunctionScheduledEventDetails_timeoutInSeconds = Lens.lens (\LambdaFunctionScheduledEventDetails' {timeoutInSeconds} -> timeoutInSeconds) (\s@LambdaFunctionScheduledEventDetails' {} a -> s {timeoutInSeconds = a} :: LambdaFunctionScheduledEventDetails)
+
 -- | The JSON data input to the lambda function. Length constraints apply to
 -- the payload size, and are expressed as bytes in UTF-8 encoding.
 lambdaFunctionScheduledEventDetails_input :: Lens.Lens' LambdaFunctionScheduledEventDetails (Prelude.Maybe Prelude.Text)
 lambdaFunctionScheduledEventDetails_input = Lens.lens (\LambdaFunctionScheduledEventDetails' {input} -> input) (\s@LambdaFunctionScheduledEventDetails' {} a -> s {input = a} :: LambdaFunctionScheduledEventDetails) Prelude.. Lens.mapping Core._Sensitive
-
--- | The maximum allowed duration of the lambda function.
-lambdaFunctionScheduledEventDetails_timeoutInSeconds :: Lens.Lens' LambdaFunctionScheduledEventDetails (Prelude.Maybe Prelude.Integer)
-lambdaFunctionScheduledEventDetails_timeoutInSeconds = Lens.lens (\LambdaFunctionScheduledEventDetails' {timeoutInSeconds} -> timeoutInSeconds) (\s@LambdaFunctionScheduledEventDetails' {} a -> s {timeoutInSeconds = a} :: LambdaFunctionScheduledEventDetails)
 
 -- | The Amazon Resource Name (ARN) of the scheduled lambda function.
 lambdaFunctionScheduledEventDetails_resource :: Lens.Lens' LambdaFunctionScheduledEventDetails Prelude.Text
@@ -96,8 +96,8 @@ instance
       ( \x ->
           LambdaFunctionScheduledEventDetails'
             Prelude.<$> (x Core..:? "inputDetails")
-            Prelude.<*> (x Core..:? "input")
             Prelude.<*> (x Core..:? "timeoutInSeconds")
+            Prelude.<*> (x Core..:? "input")
             Prelude.<*> (x Core..: "resource")
       )
 
@@ -109,8 +109,8 @@ instance
     _salt
     LambdaFunctionScheduledEventDetails' {..} =
       _salt `Prelude.hashWithSalt` inputDetails
-        `Prelude.hashWithSalt` input
         `Prelude.hashWithSalt` timeoutInSeconds
+        `Prelude.hashWithSalt` input
         `Prelude.hashWithSalt` resource
 
 instance
@@ -119,6 +119,6 @@ instance
   where
   rnf LambdaFunctionScheduledEventDetails' {..} =
     Prelude.rnf inputDetails
-      `Prelude.seq` Prelude.rnf input
       `Prelude.seq` Prelude.rnf timeoutInSeconds
+      `Prelude.seq` Prelude.rnf input
       `Prelude.seq` Prelude.rnf resource

@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBillingDetails' smart constructor.
 data BillingDetails = BillingDetails'
-  { -- | Billed memory consumption of your workflow, in MB.
-    billedMemoryUsedInMB :: Prelude.Maybe Prelude.Natural,
-    -- | Billed duration of your workflow, in milliseconds.
-    billedDurationInMilliseconds :: Prelude.Maybe Prelude.Natural
+  { -- | Billed duration of your workflow, in milliseconds.
+    billedDurationInMilliseconds :: Prelude.Maybe Prelude.Natural,
+    -- | Billed memory consumption of your workflow, in MB.
+    billedMemoryUsedInMB :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,25 @@ data BillingDetails = BillingDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'billedMemoryUsedInMB', 'billingDetails_billedMemoryUsedInMB' - Billed memory consumption of your workflow, in MB.
---
 -- 'billedDurationInMilliseconds', 'billingDetails_billedDurationInMilliseconds' - Billed duration of your workflow, in milliseconds.
+--
+-- 'billedMemoryUsedInMB', 'billingDetails_billedMemoryUsedInMB' - Billed memory consumption of your workflow, in MB.
 newBillingDetails ::
   BillingDetails
 newBillingDetails =
   BillingDetails'
-    { billedMemoryUsedInMB =
+    { billedDurationInMilliseconds =
         Prelude.Nothing,
-      billedDurationInMilliseconds = Prelude.Nothing
+      billedMemoryUsedInMB = Prelude.Nothing
     }
-
--- | Billed memory consumption of your workflow, in MB.
-billingDetails_billedMemoryUsedInMB :: Lens.Lens' BillingDetails (Prelude.Maybe Prelude.Natural)
-billingDetails_billedMemoryUsedInMB = Lens.lens (\BillingDetails' {billedMemoryUsedInMB} -> billedMemoryUsedInMB) (\s@BillingDetails' {} a -> s {billedMemoryUsedInMB = a} :: BillingDetails)
 
 -- | Billed duration of your workflow, in milliseconds.
 billingDetails_billedDurationInMilliseconds :: Lens.Lens' BillingDetails (Prelude.Maybe Prelude.Natural)
 billingDetails_billedDurationInMilliseconds = Lens.lens (\BillingDetails' {billedDurationInMilliseconds} -> billedDurationInMilliseconds) (\s@BillingDetails' {} a -> s {billedDurationInMilliseconds = a} :: BillingDetails)
+
+-- | Billed memory consumption of your workflow, in MB.
+billingDetails_billedMemoryUsedInMB :: Lens.Lens' BillingDetails (Prelude.Maybe Prelude.Natural)
+billingDetails_billedMemoryUsedInMB = Lens.lens (\BillingDetails' {billedMemoryUsedInMB} -> billedMemoryUsedInMB) (\s@BillingDetails' {} a -> s {billedMemoryUsedInMB = a} :: BillingDetails)
 
 instance Core.FromJSON BillingDetails where
   parseJSON =
@@ -68,16 +68,17 @@ instance Core.FromJSON BillingDetails where
       "BillingDetails"
       ( \x ->
           BillingDetails'
-            Prelude.<$> (x Core..:? "billedMemoryUsedInMB")
-            Prelude.<*> (x Core..:? "billedDurationInMilliseconds")
+            Prelude.<$> (x Core..:? "billedDurationInMilliseconds")
+            Prelude.<*> (x Core..:? "billedMemoryUsedInMB")
       )
 
 instance Prelude.Hashable BillingDetails where
   hashWithSalt _salt BillingDetails' {..} =
-    _salt `Prelude.hashWithSalt` billedMemoryUsedInMB
+    _salt
       `Prelude.hashWithSalt` billedDurationInMilliseconds
+      `Prelude.hashWithSalt` billedMemoryUsedInMB
 
 instance Prelude.NFData BillingDetails where
   rnf BillingDetails' {..} =
-    Prelude.rnf billedMemoryUsedInMB
-      `Prelude.seq` Prelude.rnf billedDurationInMilliseconds
+    Prelude.rnf billedDurationInMilliseconds
+      `Prelude.seq` Prelude.rnf billedMemoryUsedInMB

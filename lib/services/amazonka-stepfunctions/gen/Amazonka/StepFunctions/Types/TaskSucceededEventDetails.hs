@@ -28,12 +28,12 @@ import Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails
 --
 -- /See:/ 'newTaskSucceededEventDetails' smart constructor.
 data TaskSucceededEventDetails = TaskSucceededEventDetails'
-  { -- | The full JSON response from a resource when a task has succeeded. This
+  { -- | Contains details about the output of an execution history event.
+    outputDetails :: Prelude.Maybe HistoryEventExecutionDataDetails,
+    -- | The full JSON response from a resource when a task has succeeded. This
     -- response becomes the output of the related task. Length constraints
     -- apply to the payload size, and are expressed as bytes in UTF-8 encoding.
     output :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | Contains details about the output of an execution history event.
-    outputDetails :: Prelude.Maybe HistoryEventExecutionDataDetails,
     -- | The action of the resource called by a task state.
     resourceType :: Prelude.Text,
     -- | The service name of the resource in a task state.
@@ -49,11 +49,11 @@ data TaskSucceededEventDetails = TaskSucceededEventDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'outputDetails', 'taskSucceededEventDetails_outputDetails' - Contains details about the output of an execution history event.
+--
 -- 'output', 'taskSucceededEventDetails_output' - The full JSON response from a resource when a task has succeeded. This
 -- response becomes the output of the related task. Length constraints
 -- apply to the payload size, and are expressed as bytes in UTF-8 encoding.
---
--- 'outputDetails', 'taskSucceededEventDetails_outputDetails' - Contains details about the output of an execution history event.
 --
 -- 'resourceType', 'taskSucceededEventDetails_resourceType' - The action of the resource called by a task state.
 --
@@ -68,22 +68,22 @@ newTaskSucceededEventDetails
   pResourceType_
   pResource_ =
     TaskSucceededEventDetails'
-      { output =
+      { outputDetails =
           Prelude.Nothing,
-        outputDetails = Prelude.Nothing,
+        output = Prelude.Nothing,
         resourceType = pResourceType_,
         resource = pResource_
       }
+
+-- | Contains details about the output of an execution history event.
+taskSucceededEventDetails_outputDetails :: Lens.Lens' TaskSucceededEventDetails (Prelude.Maybe HistoryEventExecutionDataDetails)
+taskSucceededEventDetails_outputDetails = Lens.lens (\TaskSucceededEventDetails' {outputDetails} -> outputDetails) (\s@TaskSucceededEventDetails' {} a -> s {outputDetails = a} :: TaskSucceededEventDetails)
 
 -- | The full JSON response from a resource when a task has succeeded. This
 -- response becomes the output of the related task. Length constraints
 -- apply to the payload size, and are expressed as bytes in UTF-8 encoding.
 taskSucceededEventDetails_output :: Lens.Lens' TaskSucceededEventDetails (Prelude.Maybe Prelude.Text)
 taskSucceededEventDetails_output = Lens.lens (\TaskSucceededEventDetails' {output} -> output) (\s@TaskSucceededEventDetails' {} a -> s {output = a} :: TaskSucceededEventDetails) Prelude.. Lens.mapping Core._Sensitive
-
--- | Contains details about the output of an execution history event.
-taskSucceededEventDetails_outputDetails :: Lens.Lens' TaskSucceededEventDetails (Prelude.Maybe HistoryEventExecutionDataDetails)
-taskSucceededEventDetails_outputDetails = Lens.lens (\TaskSucceededEventDetails' {outputDetails} -> outputDetails) (\s@TaskSucceededEventDetails' {} a -> s {outputDetails = a} :: TaskSucceededEventDetails)
 
 -- | The action of the resource called by a task state.
 taskSucceededEventDetails_resourceType :: Lens.Lens' TaskSucceededEventDetails Prelude.Text
@@ -99,22 +99,22 @@ instance Core.FromJSON TaskSucceededEventDetails where
       "TaskSucceededEventDetails"
       ( \x ->
           TaskSucceededEventDetails'
-            Prelude.<$> (x Core..:? "output")
-            Prelude.<*> (x Core..:? "outputDetails")
+            Prelude.<$> (x Core..:? "outputDetails")
+            Prelude.<*> (x Core..:? "output")
             Prelude.<*> (x Core..: "resourceType")
             Prelude.<*> (x Core..: "resource")
       )
 
 instance Prelude.Hashable TaskSucceededEventDetails where
   hashWithSalt _salt TaskSucceededEventDetails' {..} =
-    _salt `Prelude.hashWithSalt` output
-      `Prelude.hashWithSalt` outputDetails
+    _salt `Prelude.hashWithSalt` outputDetails
+      `Prelude.hashWithSalt` output
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` resource
 
 instance Prelude.NFData TaskSucceededEventDetails where
   rnf TaskSucceededEventDetails' {..} =
-    Prelude.rnf output
-      `Prelude.seq` Prelude.rnf outputDetails
+    Prelude.rnf outputDetails
+      `Prelude.seq` Prelude.rnf output
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf resource

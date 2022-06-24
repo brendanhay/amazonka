@@ -43,9 +43,9 @@ module Amazonka.StepFunctions.ListExecutions
     newListExecutions,
 
     -- * Request Lenses
-    listExecutions_statusFilter,
     listExecutions_nextToken,
     listExecutions_maxResults,
+    listExecutions_statusFilter,
     listExecutions_stateMachineArn,
 
     -- * Destructuring the Response
@@ -68,10 +68,7 @@ import Amazonka.StepFunctions.Types
 
 -- | /See:/ 'newListExecutions' smart constructor.
 data ListExecutions = ListExecutions'
-  { -- | If specified, only list the executions whose current execution status
-    -- matches the given filter.
-    statusFilter :: Prelude.Maybe ExecutionStatus,
-    -- | If @nextToken@ is returned, there are more results available. The value
+  { -- | If @nextToken@ is returned, there are more results available. The value
     -- of @nextToken@ is a unique pagination token for each page. Make the call
     -- again using the returned token to retrieve the next page. Keep all other
     -- arguments unchanged. Each pagination token expires after 24 hours. Using
@@ -85,6 +82,9 @@ data ListExecutions = ListExecutions'
     -- This is only an upper limit. The actual number of results returned per
     -- call might be fewer than the specified maximum.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If specified, only list the executions whose current execution status
+    -- matches the given filter.
+    statusFilter :: Prelude.Maybe ExecutionStatus,
     -- | The Amazon Resource Name (ARN) of the state machine whose executions is
     -- listed.
     stateMachineArn :: Prelude.Text
@@ -98,9 +98,6 @@ data ListExecutions = ListExecutions'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'statusFilter', 'listExecutions_statusFilter' - If specified, only list the executions whose current execution status
--- matches the given filter.
 --
 -- 'nextToken', 'listExecutions_nextToken' - If @nextToken@ is returned, there are more results available. The value
 -- of @nextToken@ is a unique pagination token for each page. Make the call
@@ -116,6 +113,9 @@ data ListExecutions = ListExecutions'
 -- This is only an upper limit. The actual number of results returned per
 -- call might be fewer than the specified maximum.
 --
+-- 'statusFilter', 'listExecutions_statusFilter' - If specified, only list the executions whose current execution status
+-- matches the given filter.
+--
 -- 'stateMachineArn', 'listExecutions_stateMachineArn' - The Amazon Resource Name (ARN) of the state machine whose executions is
 -- listed.
 newListExecutions ::
@@ -124,16 +124,11 @@ newListExecutions ::
   ListExecutions
 newListExecutions pStateMachineArn_ =
   ListExecutions'
-    { statusFilter = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      statusFilter = Prelude.Nothing,
       stateMachineArn = pStateMachineArn_
     }
-
--- | If specified, only list the executions whose current execution status
--- matches the given filter.
-listExecutions_statusFilter :: Lens.Lens' ListExecutions (Prelude.Maybe ExecutionStatus)
-listExecutions_statusFilter = Lens.lens (\ListExecutions' {statusFilter} -> statusFilter) (\s@ListExecutions' {} a -> s {statusFilter = a} :: ListExecutions)
 
 -- | If @nextToken@ is returned, there are more results available. The value
 -- of @nextToken@ is a unique pagination token for each page. Make the call
@@ -152,6 +147,11 @@ listExecutions_nextToken = Lens.lens (\ListExecutions' {nextToken} -> nextToken)
 -- call might be fewer than the specified maximum.
 listExecutions_maxResults :: Lens.Lens' ListExecutions (Prelude.Maybe Prelude.Natural)
 listExecutions_maxResults = Lens.lens (\ListExecutions' {maxResults} -> maxResults) (\s@ListExecutions' {} a -> s {maxResults = a} :: ListExecutions)
+
+-- | If specified, only list the executions whose current execution status
+-- matches the given filter.
+listExecutions_statusFilter :: Lens.Lens' ListExecutions (Prelude.Maybe ExecutionStatus)
+listExecutions_statusFilter = Lens.lens (\ListExecutions' {statusFilter} -> statusFilter) (\s@ListExecutions' {} a -> s {statusFilter = a} :: ListExecutions)
 
 -- | The Amazon Resource Name (ARN) of the state machine whose executions is
 -- listed.
@@ -192,16 +192,16 @@ instance Core.AWSRequest ListExecutions where
 
 instance Prelude.Hashable ListExecutions where
   hashWithSalt _salt ListExecutions' {..} =
-    _salt `Prelude.hashWithSalt` statusFilter
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` statusFilter
       `Prelude.hashWithSalt` stateMachineArn
 
 instance Prelude.NFData ListExecutions where
   rnf ListExecutions' {..} =
-    Prelude.rnf statusFilter
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf statusFilter
       `Prelude.seq` Prelude.rnf stateMachineArn
 
 instance Core.ToHeaders ListExecutions where
@@ -223,9 +223,9 @@ instance Core.ToJSON ListExecutions where
   toJSON ListExecutions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("statusFilter" Core..=) Prelude.<$> statusFilter,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
             ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("statusFilter" Core..=) Prelude.<$> statusFilter,
             Prelude.Just
               ("stateMachineArn" Core..= stateMachineArn)
           ]

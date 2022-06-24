@@ -45,10 +45,10 @@ module Amazonka.StepFunctions.CreateStateMachine
     newCreateStateMachine,
 
     -- * Request Lenses
-    createStateMachine_tracingConfiguration,
-    createStateMachine_type,
-    createStateMachine_loggingConfiguration,
     createStateMachine_tags,
+    createStateMachine_type,
+    createStateMachine_tracingConfiguration,
+    createStateMachine_loggingConfiguration,
     createStateMachine_name,
     createStateMachine_definition,
     createStateMachine_roleArn,
@@ -73,20 +73,7 @@ import Amazonka.StepFunctions.Types
 
 -- | /See:/ 'newCreateStateMachine' smart constructor.
 data CreateStateMachine = CreateStateMachine'
-  { -- | Selects whether AWS X-Ray tracing is enabled.
-    tracingConfiguration :: Prelude.Maybe TracingConfiguration,
-    -- | Determines whether a Standard or Express state machine is created. The
-    -- default is @STANDARD@. You cannot update the @type@ of a state machine
-    -- once it has been created.
-    type' :: Prelude.Maybe StateMachineType,
-    -- | Defines what execution history events are logged and where they are
-    -- logged.
-    --
-    -- By default, the @level@ is set to @OFF@. For more information see
-    -- <https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html Log Levels>
-    -- in the AWS Step Functions User Guide.
-    loggingConfiguration :: Prelude.Maybe LoggingConfiguration,
-    -- | Tags to be added when creating a state machine.
+  { -- | Tags to be added when creating a state machine.
     --
     -- An array of key-value pairs. For more information, see
     -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Using Cost Allocation Tags>
@@ -96,6 +83,19 @@ data CreateStateMachine = CreateStateMachine'
     -- Tags may only contain Unicode letters, digits, white space, or these
     -- symbols: @_ . : \/ = + - \@@.
     tags :: Prelude.Maybe [Tag],
+    -- | Determines whether a Standard or Express state machine is created. The
+    -- default is @STANDARD@. You cannot update the @type@ of a state machine
+    -- once it has been created.
+    type' :: Prelude.Maybe StateMachineType,
+    -- | Selects whether AWS X-Ray tracing is enabled.
+    tracingConfiguration :: Prelude.Maybe TracingConfiguration,
+    -- | Defines what execution history events are logged and where they are
+    -- logged.
+    --
+    -- By default, the @level@ is set to @OFF@. For more information see
+    -- <https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html Log Levels>
+    -- in the AWS Step Functions User Guide.
+    loggingConfiguration :: Prelude.Maybe LoggingConfiguration,
     -- | The name of the state machine.
     --
     -- A name must /not/ contain:
@@ -130,19 +130,6 @@ data CreateStateMachine = CreateStateMachine'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tracingConfiguration', 'createStateMachine_tracingConfiguration' - Selects whether AWS X-Ray tracing is enabled.
---
--- 'type'', 'createStateMachine_type' - Determines whether a Standard or Express state machine is created. The
--- default is @STANDARD@. You cannot update the @type@ of a state machine
--- once it has been created.
---
--- 'loggingConfiguration', 'createStateMachine_loggingConfiguration' - Defines what execution history events are logged and where they are
--- logged.
---
--- By default, the @level@ is set to @OFF@. For more information see
--- <https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html Log Levels>
--- in the AWS Step Functions User Guide.
---
 -- 'tags', 'createStateMachine_tags' - Tags to be added when creating a state machine.
 --
 -- An array of key-value pairs. For more information, see
@@ -152,6 +139,19 @@ data CreateStateMachine = CreateStateMachine'
 --
 -- Tags may only contain Unicode letters, digits, white space, or these
 -- symbols: @_ . : \/ = + - \@@.
+--
+-- 'type'', 'createStateMachine_type' - Determines whether a Standard or Express state machine is created. The
+-- default is @STANDARD@. You cannot update the @type@ of a state machine
+-- once it has been created.
+--
+-- 'tracingConfiguration', 'createStateMachine_tracingConfiguration' - Selects whether AWS X-Ray tracing is enabled.
+--
+-- 'loggingConfiguration', 'createStateMachine_loggingConfiguration' - Defines what execution history events are logged and where they are
+-- logged.
+--
+-- By default, the @level@ is set to @OFF@. For more information see
+-- <https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html Log Levels>
+-- in the AWS Step Functions User Guide.
 --
 -- 'name', 'createStateMachine_name' - The name of the state machine.
 --
@@ -185,34 +185,14 @@ newCreateStateMachine ::
   CreateStateMachine
 newCreateStateMachine pName_ pDefinition_ pRoleArn_ =
   CreateStateMachine'
-    { tracingConfiguration =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
       type' = Prelude.Nothing,
+      tracingConfiguration = Prelude.Nothing,
       loggingConfiguration = Prelude.Nothing,
-      tags = Prelude.Nothing,
       name = pName_,
       definition = Core._Sensitive Lens.# pDefinition_,
       roleArn = pRoleArn_
     }
-
--- | Selects whether AWS X-Ray tracing is enabled.
-createStateMachine_tracingConfiguration :: Lens.Lens' CreateStateMachine (Prelude.Maybe TracingConfiguration)
-createStateMachine_tracingConfiguration = Lens.lens (\CreateStateMachine' {tracingConfiguration} -> tracingConfiguration) (\s@CreateStateMachine' {} a -> s {tracingConfiguration = a} :: CreateStateMachine)
-
--- | Determines whether a Standard or Express state machine is created. The
--- default is @STANDARD@. You cannot update the @type@ of a state machine
--- once it has been created.
-createStateMachine_type :: Lens.Lens' CreateStateMachine (Prelude.Maybe StateMachineType)
-createStateMachine_type = Lens.lens (\CreateStateMachine' {type'} -> type') (\s@CreateStateMachine' {} a -> s {type' = a} :: CreateStateMachine)
-
--- | Defines what execution history events are logged and where they are
--- logged.
---
--- By default, the @level@ is set to @OFF@. For more information see
--- <https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html Log Levels>
--- in the AWS Step Functions User Guide.
-createStateMachine_loggingConfiguration :: Lens.Lens' CreateStateMachine (Prelude.Maybe LoggingConfiguration)
-createStateMachine_loggingConfiguration = Lens.lens (\CreateStateMachine' {loggingConfiguration} -> loggingConfiguration) (\s@CreateStateMachine' {} a -> s {loggingConfiguration = a} :: CreateStateMachine)
 
 -- | Tags to be added when creating a state machine.
 --
@@ -225,6 +205,25 @@ createStateMachine_loggingConfiguration = Lens.lens (\CreateStateMachine' {loggi
 -- symbols: @_ . : \/ = + - \@@.
 createStateMachine_tags :: Lens.Lens' CreateStateMachine (Prelude.Maybe [Tag])
 createStateMachine_tags = Lens.lens (\CreateStateMachine' {tags} -> tags) (\s@CreateStateMachine' {} a -> s {tags = a} :: CreateStateMachine) Prelude.. Lens.mapping Lens.coerced
+
+-- | Determines whether a Standard or Express state machine is created. The
+-- default is @STANDARD@. You cannot update the @type@ of a state machine
+-- once it has been created.
+createStateMachine_type :: Lens.Lens' CreateStateMachine (Prelude.Maybe StateMachineType)
+createStateMachine_type = Lens.lens (\CreateStateMachine' {type'} -> type') (\s@CreateStateMachine' {} a -> s {type' = a} :: CreateStateMachine)
+
+-- | Selects whether AWS X-Ray tracing is enabled.
+createStateMachine_tracingConfiguration :: Lens.Lens' CreateStateMachine (Prelude.Maybe TracingConfiguration)
+createStateMachine_tracingConfiguration = Lens.lens (\CreateStateMachine' {tracingConfiguration} -> tracingConfiguration) (\s@CreateStateMachine' {} a -> s {tracingConfiguration = a} :: CreateStateMachine)
+
+-- | Defines what execution history events are logged and where they are
+-- logged.
+--
+-- By default, the @level@ is set to @OFF@. For more information see
+-- <https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html Log Levels>
+-- in the AWS Step Functions User Guide.
+createStateMachine_loggingConfiguration :: Lens.Lens' CreateStateMachine (Prelude.Maybe LoggingConfiguration)
+createStateMachine_loggingConfiguration = Lens.lens (\CreateStateMachine' {loggingConfiguration} -> loggingConfiguration) (\s@CreateStateMachine' {} a -> s {loggingConfiguration = a} :: CreateStateMachine)
 
 -- | The name of the state machine.
 --
@@ -271,20 +270,20 @@ instance Core.AWSRequest CreateStateMachine where
 
 instance Prelude.Hashable CreateStateMachine where
   hashWithSalt _salt CreateStateMachine' {..} =
-    _salt `Prelude.hashWithSalt` tracingConfiguration
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` tracingConfiguration
       `Prelude.hashWithSalt` loggingConfiguration
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` definition
       `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData CreateStateMachine where
   rnf CreateStateMachine' {..} =
-    Prelude.rnf tracingConfiguration
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf tracingConfiguration
       `Prelude.seq` Prelude.rnf loggingConfiguration
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf definition
       `Prelude.seq` Prelude.rnf roleArn
@@ -308,12 +307,12 @@ instance Core.ToJSON CreateStateMachine where
   toJSON CreateStateMachine' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("tracingConfiguration" Core..=)
-              Prelude.<$> tracingConfiguration,
+          [ ("tags" Core..=) Prelude.<$> tags,
             ("type" Core..=) Prelude.<$> type',
+            ("tracingConfiguration" Core..=)
+              Prelude.<$> tracingConfiguration,
             ("loggingConfiguration" Core..=)
               Prelude.<$> loggingConfiguration,
-            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("name" Core..= name),
             Prelude.Just ("definition" Core..= definition),
             Prelude.Just ("roleArn" Core..= roleArn)

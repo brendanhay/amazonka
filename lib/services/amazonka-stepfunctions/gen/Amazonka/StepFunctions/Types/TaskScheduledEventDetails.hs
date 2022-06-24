@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTaskScheduledEventDetails' smart constructor.
 data TaskScheduledEventDetails = TaskScheduledEventDetails'
-  { -- | The maximum allowed duration between two heartbeats for the task.
-    heartbeatInSeconds :: Prelude.Maybe Prelude.Integer,
-    -- | The maximum allowed duration of the task.
+  { -- | The maximum allowed duration of the task.
     timeoutInSeconds :: Prelude.Maybe Prelude.Integer,
+    -- | The maximum allowed duration between two heartbeats for the task.
+    heartbeatInSeconds :: Prelude.Maybe Prelude.Integer,
     -- | The action of the resource called by a task state.
     resourceType :: Prelude.Text,
     -- | The service name of the resource in a task state.
@@ -52,9 +52,9 @@ data TaskScheduledEventDetails = TaskScheduledEventDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'heartbeatInSeconds', 'taskScheduledEventDetails_heartbeatInSeconds' - The maximum allowed duration between two heartbeats for the task.
---
 -- 'timeoutInSeconds', 'taskScheduledEventDetails_timeoutInSeconds' - The maximum allowed duration of the task.
+--
+-- 'heartbeatInSeconds', 'taskScheduledEventDetails_heartbeatInSeconds' - The maximum allowed duration between two heartbeats for the task.
 --
 -- 'resourceType', 'taskScheduledEventDetails_resourceType' - The action of the resource called by a task state.
 --
@@ -81,22 +81,22 @@ newTaskScheduledEventDetails
   pRegion_
   pParameters_ =
     TaskScheduledEventDetails'
-      { heartbeatInSeconds =
+      { timeoutInSeconds =
           Prelude.Nothing,
-        timeoutInSeconds = Prelude.Nothing,
+        heartbeatInSeconds = Prelude.Nothing,
         resourceType = pResourceType_,
         resource = pResource_,
         region = pRegion_,
         parameters = Core._Sensitive Lens.# pParameters_
       }
 
--- | The maximum allowed duration between two heartbeats for the task.
-taskScheduledEventDetails_heartbeatInSeconds :: Lens.Lens' TaskScheduledEventDetails (Prelude.Maybe Prelude.Integer)
-taskScheduledEventDetails_heartbeatInSeconds = Lens.lens (\TaskScheduledEventDetails' {heartbeatInSeconds} -> heartbeatInSeconds) (\s@TaskScheduledEventDetails' {} a -> s {heartbeatInSeconds = a} :: TaskScheduledEventDetails)
-
 -- | The maximum allowed duration of the task.
 taskScheduledEventDetails_timeoutInSeconds :: Lens.Lens' TaskScheduledEventDetails (Prelude.Maybe Prelude.Integer)
 taskScheduledEventDetails_timeoutInSeconds = Lens.lens (\TaskScheduledEventDetails' {timeoutInSeconds} -> timeoutInSeconds) (\s@TaskScheduledEventDetails' {} a -> s {timeoutInSeconds = a} :: TaskScheduledEventDetails)
+
+-- | The maximum allowed duration between two heartbeats for the task.
+taskScheduledEventDetails_heartbeatInSeconds :: Lens.Lens' TaskScheduledEventDetails (Prelude.Maybe Prelude.Integer)
+taskScheduledEventDetails_heartbeatInSeconds = Lens.lens (\TaskScheduledEventDetails' {heartbeatInSeconds} -> heartbeatInSeconds) (\s@TaskScheduledEventDetails' {} a -> s {heartbeatInSeconds = a} :: TaskScheduledEventDetails)
 
 -- | The action of the resource called by a task state.
 taskScheduledEventDetails_resourceType :: Lens.Lens' TaskScheduledEventDetails Prelude.Text
@@ -122,8 +122,8 @@ instance Core.FromJSON TaskScheduledEventDetails where
       "TaskScheduledEventDetails"
       ( \x ->
           TaskScheduledEventDetails'
-            Prelude.<$> (x Core..:? "heartbeatInSeconds")
-            Prelude.<*> (x Core..:? "timeoutInSeconds")
+            Prelude.<$> (x Core..:? "timeoutInSeconds")
+            Prelude.<*> (x Core..:? "heartbeatInSeconds")
             Prelude.<*> (x Core..: "resourceType")
             Prelude.<*> (x Core..: "resource")
             Prelude.<*> (x Core..: "region")
@@ -132,8 +132,8 @@ instance Core.FromJSON TaskScheduledEventDetails where
 
 instance Prelude.Hashable TaskScheduledEventDetails where
   hashWithSalt _salt TaskScheduledEventDetails' {..} =
-    _salt `Prelude.hashWithSalt` heartbeatInSeconds
-      `Prelude.hashWithSalt` timeoutInSeconds
+    _salt `Prelude.hashWithSalt` timeoutInSeconds
+      `Prelude.hashWithSalt` heartbeatInSeconds
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` resource
       `Prelude.hashWithSalt` region
@@ -141,8 +141,8 @@ instance Prelude.Hashable TaskScheduledEventDetails where
 
 instance Prelude.NFData TaskScheduledEventDetails where
   rnf TaskScheduledEventDetails' {..} =
-    Prelude.rnf heartbeatInSeconds
-      `Prelude.seq` Prelude.rnf timeoutInSeconds
+    Prelude.rnf timeoutInSeconds
+      `Prelude.seq` Prelude.rnf heartbeatInSeconds
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf resource
       `Prelude.seq` Prelude.rnf region

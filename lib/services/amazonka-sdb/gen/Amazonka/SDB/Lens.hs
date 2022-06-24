@@ -22,6 +22,29 @@ module Amazonka.SDB.Lens
     batchPutAttributes_domainName,
     batchPutAttributes_items,
 
+    -- ** CreateDomain
+    createDomain_domainName,
+
+    -- ** DeleteAttributes
+    deleteAttributes_expected,
+    deleteAttributes_attributes,
+    deleteAttributes_domainName,
+    deleteAttributes_itemName,
+
+    -- ** DeleteDomain
+    deleteDomain_domainName,
+
+    -- ** DomainMetadata
+    domainMetadata_domainName,
+    domainMetadataResponse_attributeNamesSizeBytes,
+    domainMetadataResponse_itemCount,
+    domainMetadataResponse_timestamp,
+    domainMetadataResponse_attributeNameCount,
+    domainMetadataResponse_attributeValueCount,
+    domainMetadataResponse_itemNamesSizeBytes,
+    domainMetadataResponse_attributeValuesSizeBytes,
+    domainMetadataResponse_httpStatus,
+
     -- ** GetAttributes
     getAttributes_consistentRead,
     getAttributes_attributeNames,
@@ -30,33 +53,12 @@ module Amazonka.SDB.Lens
     getAttributesResponse_attributes,
     getAttributesResponse_httpStatus,
 
-    -- ** CreateDomain
-    createDomain_domainName,
-
-    -- ** DomainMetadata
-    domainMetadata_domainName,
-    domainMetadataResponse_itemNamesSizeBytes,
-    domainMetadataResponse_attributeValuesSizeBytes,
-    domainMetadataResponse_attributeNameCount,
-    domainMetadataResponse_attributeNamesSizeBytes,
-    domainMetadataResponse_attributeValueCount,
-    domainMetadataResponse_itemCount,
-    domainMetadataResponse_timestamp,
-    domainMetadataResponse_httpStatus,
-
-    -- ** Select
-    select_consistentRead,
-    select_nextToken,
-    select_selectExpression,
-    selectResponse_items,
-    selectResponse_nextToken,
-    selectResponse_httpStatus,
-
-    -- ** DeleteAttributes
-    deleteAttributes_attributes,
-    deleteAttributes_expected,
-    deleteAttributes_domainName,
-    deleteAttributes_itemName,
+    -- ** ListDomains
+    listDomains_nextToken,
+    listDomains_maxNumberOfDomains,
+    listDomainsResponse_nextToken,
+    listDomainsResponse_domainNames,
+    listDomainsResponse_httpStatus,
 
     -- ** PutAttributes
     putAttributes_expected,
@@ -64,15 +66,13 @@ module Amazonka.SDB.Lens
     putAttributes_itemName,
     putAttributes_attributes,
 
-    -- ** DeleteDomain
-    deleteDomain_domainName,
-
-    -- ** ListDomains
-    listDomains_maxNumberOfDomains,
-    listDomains_nextToken,
-    listDomainsResponse_domainNames,
-    listDomainsResponse_nextToken,
-    listDomainsResponse_httpStatus,
+    -- ** Select
+    select_nextToken,
+    select_consistentRead,
+    select_selectExpression,
+    selectResponse_items,
+    selectResponse_nextToken,
+    selectResponse_httpStatus,
 
     -- * Types
 
@@ -101,9 +101,9 @@ module Amazonka.SDB.Lens
     replaceableItem_attributes,
 
     -- ** UpdateCondition
+    updateCondition_name,
     updateCondition_exists,
     updateCondition_value,
-    updateCondition_name,
   )
 where
 

@@ -31,7 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpdateCondition' smart constructor.
 data UpdateCondition = UpdateCondition'
-  { -- | A value specifying whether or not the specified attribute must exist
+  { -- | The name of the attribute involved in the condition.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | A value specifying whether or not the specified attribute must exist
     -- with the specified value in order for the update condition to be
     -- satisfied. Specify @true@ if the attribute must exist for the update
     -- condition to be satisfied. Specify @false@ if the attribute should not
@@ -39,9 +41,7 @@ data UpdateCondition = UpdateCondition'
     exists :: Prelude.Maybe Prelude.Bool,
     -- | The value of an attribute. This value can only be specified when the
     -- @Exists@ parameter is equal to @true@.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The name of the attribute involved in the condition.
-    name :: Prelude.Maybe Prelude.Text
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,6 +53,8 @@ data UpdateCondition = UpdateCondition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'updateCondition_name' - The name of the attribute involved in the condition.
+--
 -- 'exists', 'updateCondition_exists' - A value specifying whether or not the specified attribute must exist
 -- with the specified value in order for the update condition to be
 -- satisfied. Specify @true@ if the attribute must exist for the update
@@ -61,16 +63,18 @@ data UpdateCondition = UpdateCondition'
 --
 -- 'value', 'updateCondition_value' - The value of an attribute. This value can only be specified when the
 -- @Exists@ parameter is equal to @true@.
---
--- 'name', 'updateCondition_name' - The name of the attribute involved in the condition.
 newUpdateCondition ::
   UpdateCondition
 newUpdateCondition =
   UpdateCondition'
-    { exists = Prelude.Nothing,
-      value = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      exists = Prelude.Nothing,
+      value = Prelude.Nothing
     }
+
+-- | The name of the attribute involved in the condition.
+updateCondition_name :: Lens.Lens' UpdateCondition (Prelude.Maybe Prelude.Text)
+updateCondition_name = Lens.lens (\UpdateCondition' {name} -> name) (\s@UpdateCondition' {} a -> s {name = a} :: UpdateCondition)
 
 -- | A value specifying whether or not the specified attribute must exist
 -- with the specified value in order for the update condition to be
@@ -85,26 +89,22 @@ updateCondition_exists = Lens.lens (\UpdateCondition' {exists} -> exists) (\s@Up
 updateCondition_value :: Lens.Lens' UpdateCondition (Prelude.Maybe Prelude.Text)
 updateCondition_value = Lens.lens (\UpdateCondition' {value} -> value) (\s@UpdateCondition' {} a -> s {value = a} :: UpdateCondition)
 
--- | The name of the attribute involved in the condition.
-updateCondition_name :: Lens.Lens' UpdateCondition (Prelude.Maybe Prelude.Text)
-updateCondition_name = Lens.lens (\UpdateCondition' {name} -> name) (\s@UpdateCondition' {} a -> s {name = a} :: UpdateCondition)
-
 instance Prelude.Hashable UpdateCondition where
   hashWithSalt _salt UpdateCondition' {..} =
-    _salt `Prelude.hashWithSalt` exists
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` exists
       `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateCondition where
   rnf UpdateCondition' {..} =
-    Prelude.rnf exists
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf exists
       `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToQuery UpdateCondition where
   toQuery UpdateCondition' {..} =
     Prelude.mconcat
-      [ "Exists" Core.=: exists,
-        "Value" Core.=: value,
-        "Name" Core.=: name
+      [ "Name" Core.=: name,
+        "Exists" Core.=: exists,
+        "Value" Core.=: value
       ]

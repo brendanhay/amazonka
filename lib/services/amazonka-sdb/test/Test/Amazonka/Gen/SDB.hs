@@ -33,29 +33,29 @@ import Test.Tasty
 --         , requestBatchPutAttributes $
 --             newBatchPutAttributes
 --
---         , requestGetAttributes $
---             newGetAttributes
---
 --         , requestCreateDomain $
 --             newCreateDomain
---
---         , requestDomainMetadata $
---             newDomainMetadata
---
---         , requestSelect $
---             newSelect
 --
 --         , requestDeleteAttributes $
 --             newDeleteAttributes
 --
---         , requestPutAttributes $
---             newPutAttributes
---
 --         , requestDeleteDomain $
 --             newDeleteDomain
 --
+--         , requestDomainMetadata $
+--             newDomainMetadata
+--
+--         , requestGetAttributes $
+--             newGetAttributes
+--
 --         , requestListDomains $
 --             newListDomains
+--
+--         , requestPutAttributes $
+--             newPutAttributes
+--
+--         , requestSelect $
+--             newSelect
 --
 --           ]
 
@@ -66,29 +66,29 @@ import Test.Tasty
 --         , responseBatchPutAttributes $
 --             newBatchPutAttributesResponse
 --
---         , responseGetAttributes $
---             newGetAttributesResponse
---
 --         , responseCreateDomain $
 --             newCreateDomainResponse
---
---         , responseDomainMetadata $
---             newDomainMetadataResponse
---
---         , responseSelect $
---             newSelectResponse
 --
 --         , responseDeleteAttributes $
 --             newDeleteAttributesResponse
 --
---         , responsePutAttributes $
---             newPutAttributesResponse
---
 --         , responseDeleteDomain $
 --             newDeleteDomainResponse
 --
+--         , responseDomainMetadata $
+--             newDomainMetadataResponse
+--
+--         , responseGetAttributes $
+--             newGetAttributesResponse
+--
 --         , responseListDomains $
 --             newListDomainsResponse
+--
+--         , responsePutAttributes $
+--             newPutAttributesResponse
+--
+--         , responseSelect $
+--             newSelectResponse
 --
 --           ]
 --     ]
@@ -107,29 +107,11 @@ requestBatchPutAttributes =
     "BatchPutAttributes"
     "fixture/BatchPutAttributes.yaml"
 
-requestGetAttributes :: GetAttributes -> TestTree
-requestGetAttributes =
-  req
-    "GetAttributes"
-    "fixture/GetAttributes.yaml"
-
 requestCreateDomain :: CreateDomain -> TestTree
 requestCreateDomain =
   req
     "CreateDomain"
     "fixture/CreateDomain.yaml"
-
-requestDomainMetadata :: DomainMetadata -> TestTree
-requestDomainMetadata =
-  req
-    "DomainMetadata"
-    "fixture/DomainMetadata.yaml"
-
-requestSelect :: Select -> TestTree
-requestSelect =
-  req
-    "Select"
-    "fixture/Select.yaml"
 
 requestDeleteAttributes :: DeleteAttributes -> TestTree
 requestDeleteAttributes =
@@ -137,23 +119,41 @@ requestDeleteAttributes =
     "DeleteAttributes"
     "fixture/DeleteAttributes.yaml"
 
-requestPutAttributes :: PutAttributes -> TestTree
-requestPutAttributes =
-  req
-    "PutAttributes"
-    "fixture/PutAttributes.yaml"
-
 requestDeleteDomain :: DeleteDomain -> TestTree
 requestDeleteDomain =
   req
     "DeleteDomain"
     "fixture/DeleteDomain.yaml"
 
+requestDomainMetadata :: DomainMetadata -> TestTree
+requestDomainMetadata =
+  req
+    "DomainMetadata"
+    "fixture/DomainMetadata.yaml"
+
+requestGetAttributes :: GetAttributes -> TestTree
+requestGetAttributes =
+  req
+    "GetAttributes"
+    "fixture/GetAttributes.yaml"
+
 requestListDomains :: ListDomains -> TestTree
 requestListDomains =
   req
     "ListDomains"
     "fixture/ListDomains.yaml"
+
+requestPutAttributes :: PutAttributes -> TestTree
+requestPutAttributes =
+  req
+    "PutAttributes"
+    "fixture/PutAttributes.yaml"
+
+requestSelect :: Select -> TestTree
+requestSelect =
+  req
+    "Select"
+    "fixture/Select.yaml"
 
 -- Responses
 
@@ -173,14 +173,6 @@ responseBatchPutAttributes =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchPutAttributes)
 
-responseGetAttributes :: GetAttributesResponse -> TestTree
-responseGetAttributes =
-  res
-    "GetAttributesResponse"
-    "fixture/GetAttributesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetAttributes)
-
 responseCreateDomain :: CreateDomainResponse -> TestTree
 responseCreateDomain =
   res
@@ -188,22 +180,6 @@ responseCreateDomain =
     "fixture/CreateDomainResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateDomain)
-
-responseDomainMetadata :: DomainMetadataResponse -> TestTree
-responseDomainMetadata =
-  res
-    "DomainMetadataResponse"
-    "fixture/DomainMetadataResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DomainMetadata)
-
-responseSelect :: SelectResponse -> TestTree
-responseSelect =
-  res
-    "SelectResponse"
-    "fixture/SelectResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy Select)
 
 responseDeleteAttributes :: DeleteAttributesResponse -> TestTree
 responseDeleteAttributes =
@@ -213,14 +189,6 @@ responseDeleteAttributes =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteAttributes)
 
-responsePutAttributes :: PutAttributesResponse -> TestTree
-responsePutAttributes =
-  res
-    "PutAttributesResponse"
-    "fixture/PutAttributesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutAttributes)
-
 responseDeleteDomain :: DeleteDomainResponse -> TestTree
 responseDeleteDomain =
   res
@@ -229,6 +197,22 @@ responseDeleteDomain =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteDomain)
 
+responseDomainMetadata :: DomainMetadataResponse -> TestTree
+responseDomainMetadata =
+  res
+    "DomainMetadataResponse"
+    "fixture/DomainMetadataResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DomainMetadata)
+
+responseGetAttributes :: GetAttributesResponse -> TestTree
+responseGetAttributes =
+  res
+    "GetAttributesResponse"
+    "fixture/GetAttributesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAttributes)
+
 responseListDomains :: ListDomainsResponse -> TestTree
 responseListDomains =
   res
@@ -236,3 +220,19 @@ responseListDomains =
     "fixture/ListDomainsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListDomains)
+
+responsePutAttributes :: PutAttributesResponse -> TestTree
+responsePutAttributes =
+  res
+    "PutAttributesResponse"
+    "fixture/PutAttributesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutAttributes)
+
+responseSelect :: SelectResponse -> TestTree
+responseSelect =
+  res
+    "SelectResponse"
+    "fixture/SelectResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy Select)

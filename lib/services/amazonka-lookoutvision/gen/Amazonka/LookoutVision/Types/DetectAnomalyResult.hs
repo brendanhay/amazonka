@@ -28,15 +28,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDetectAnomalyResult' smart constructor.
 data DetectAnomalyResult = DetectAnomalyResult'
-  { -- | True if the image contains an anomaly, otherwise false.
-    isAnomalous :: Prelude.Maybe Prelude.Bool,
-    -- | The confidence that Amazon Lookout for Vision has in the accuracy of the
+  { -- | The confidence that Amazon Lookout for Vision has in the accuracy of the
     -- prediction.
     confidence :: Prelude.Maybe Prelude.Double,
     -- | The source of the image that was analyzed. @direct@ means that the
     -- images was supplied from the local computer. No other values are
     -- supported.
-    source :: Prelude.Maybe ImageSource
+    source :: Prelude.Maybe ImageSource,
+    -- | True if the image contains an anomaly, otherwise false.
+    isAnomalous :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,26 +48,22 @@ data DetectAnomalyResult = DetectAnomalyResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'isAnomalous', 'detectAnomalyResult_isAnomalous' - True if the image contains an anomaly, otherwise false.
---
 -- 'confidence', 'detectAnomalyResult_confidence' - The confidence that Amazon Lookout for Vision has in the accuracy of the
 -- prediction.
 --
 -- 'source', 'detectAnomalyResult_source' - The source of the image that was analyzed. @direct@ means that the
 -- images was supplied from the local computer. No other values are
 -- supported.
+--
+-- 'isAnomalous', 'detectAnomalyResult_isAnomalous' - True if the image contains an anomaly, otherwise false.
 newDetectAnomalyResult ::
   DetectAnomalyResult
 newDetectAnomalyResult =
   DetectAnomalyResult'
-    { isAnomalous = Prelude.Nothing,
-      confidence = Prelude.Nothing,
-      source = Prelude.Nothing
+    { confidence = Prelude.Nothing,
+      source = Prelude.Nothing,
+      isAnomalous = Prelude.Nothing
     }
-
--- | True if the image contains an anomaly, otherwise false.
-detectAnomalyResult_isAnomalous :: Lens.Lens' DetectAnomalyResult (Prelude.Maybe Prelude.Bool)
-detectAnomalyResult_isAnomalous = Lens.lens (\DetectAnomalyResult' {isAnomalous} -> isAnomalous) (\s@DetectAnomalyResult' {} a -> s {isAnomalous = a} :: DetectAnomalyResult)
 
 -- | The confidence that Amazon Lookout for Vision has in the accuracy of the
 -- prediction.
@@ -80,25 +76,29 @@ detectAnomalyResult_confidence = Lens.lens (\DetectAnomalyResult' {confidence} -
 detectAnomalyResult_source :: Lens.Lens' DetectAnomalyResult (Prelude.Maybe ImageSource)
 detectAnomalyResult_source = Lens.lens (\DetectAnomalyResult' {source} -> source) (\s@DetectAnomalyResult' {} a -> s {source = a} :: DetectAnomalyResult)
 
+-- | True if the image contains an anomaly, otherwise false.
+detectAnomalyResult_isAnomalous :: Lens.Lens' DetectAnomalyResult (Prelude.Maybe Prelude.Bool)
+detectAnomalyResult_isAnomalous = Lens.lens (\DetectAnomalyResult' {isAnomalous} -> isAnomalous) (\s@DetectAnomalyResult' {} a -> s {isAnomalous = a} :: DetectAnomalyResult)
+
 instance Core.FromJSON DetectAnomalyResult where
   parseJSON =
     Core.withObject
       "DetectAnomalyResult"
       ( \x ->
           DetectAnomalyResult'
-            Prelude.<$> (x Core..:? "IsAnomalous")
-            Prelude.<*> (x Core..:? "Confidence")
+            Prelude.<$> (x Core..:? "Confidence")
             Prelude.<*> (x Core..:? "Source")
+            Prelude.<*> (x Core..:? "IsAnomalous")
       )
 
 instance Prelude.Hashable DetectAnomalyResult where
   hashWithSalt _salt DetectAnomalyResult' {..} =
-    _salt `Prelude.hashWithSalt` isAnomalous
-      `Prelude.hashWithSalt` confidence
+    _salt `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` isAnomalous
 
 instance Prelude.NFData DetectAnomalyResult where
   rnf DetectAnomalyResult' {..} =
-    Prelude.rnf isAnomalous
-      `Prelude.seq` Prelude.rnf confidence
+    Prelude.rnf confidence
       `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf isAnomalous

@@ -14,12 +14,42 @@
 module Amazonka.LookoutVision.Lens
   ( -- * Operations
 
-    -- ** ListProjects
-    listProjects_nextToken,
-    listProjects_maxResults,
-    listProjectsResponse_nextToken,
-    listProjectsResponse_projects,
-    listProjectsResponse_httpStatus,
+    -- ** CreateDataset
+    createDataset_clientToken,
+    createDataset_datasetSource,
+    createDataset_projectName,
+    createDataset_datasetType,
+    createDatasetResponse_datasetMetadata,
+    createDatasetResponse_httpStatus,
+
+    -- ** CreateModel
+    createModel_tags,
+    createModel_clientToken,
+    createModel_description,
+    createModel_kmsKeyId,
+    createModel_projectName,
+    createModel_outputConfig,
+    createModelResponse_modelMetadata,
+    createModelResponse_httpStatus,
+
+    -- ** CreateProject
+    createProject_clientToken,
+    createProject_projectName,
+    createProjectResponse_projectMetadata,
+    createProjectResponse_httpStatus,
+
+    -- ** DeleteDataset
+    deleteDataset_clientToken,
+    deleteDataset_projectName,
+    deleteDataset_datasetType,
+    deleteDatasetResponse_httpStatus,
+
+    -- ** DeleteModel
+    deleteModel_clientToken,
+    deleteModel_projectName,
+    deleteModel_modelVersion,
+    deleteModelResponse_modelArn,
+    deleteModelResponse_httpStatus,
 
     -- ** DeleteProject
     deleteProject_clientToken,
@@ -33,67 +63,38 @@ module Amazonka.LookoutVision.Lens
     describeDatasetResponse_datasetDescription,
     describeDatasetResponse_httpStatus,
 
-    -- ** StopModel
-    stopModel_clientToken,
-    stopModel_projectName,
-    stopModel_modelVersion,
-    stopModelResponse_status,
-    stopModelResponse_httpStatus,
-
-    -- ** ListDatasetEntries
-    listDatasetEntries_beforeCreationDate,
-    listDatasetEntries_sourceRefContains,
-    listDatasetEntries_nextToken,
-    listDatasetEntries_labeled,
-    listDatasetEntries_anomalyClass,
-    listDatasetEntries_maxResults,
-    listDatasetEntries_afterCreationDate,
-    listDatasetEntries_projectName,
-    listDatasetEntries_datasetType,
-    listDatasetEntriesResponse_datasetEntries,
-    listDatasetEntriesResponse_nextToken,
-    listDatasetEntriesResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
+    -- ** DescribeModel
+    describeModel_projectName,
+    describeModel_modelVersion,
+    describeModelResponse_modelDescription,
+    describeModelResponse_httpStatus,
 
     -- ** DescribeProject
     describeProject_projectName,
     describeProjectResponse_projectDescription,
     describeProjectResponse_httpStatus,
 
-    -- ** CreateModel
-    createModel_clientToken,
-    createModel_kmsKeyId,
-    createModel_description,
-    createModel_tags,
-    createModel_projectName,
-    createModel_outputConfig,
-    createModelResponse_modelMetadata,
-    createModelResponse_httpStatus,
+    -- ** DetectAnomalies
+    detectAnomalies_projectName,
+    detectAnomalies_modelVersion,
+    detectAnomalies_contentType,
+    detectAnomalies_body,
+    detectAnomaliesResponse_detectAnomalyResult,
+    detectAnomaliesResponse_httpStatus,
 
-    -- ** DeleteDataset
-    deleteDataset_clientToken,
-    deleteDataset_projectName,
-    deleteDataset_datasetType,
-    deleteDatasetResponse_httpStatus,
-
-    -- ** CreateDataset
-    createDataset_clientToken,
-    createDataset_datasetSource,
-    createDataset_projectName,
-    createDataset_datasetType,
-    createDatasetResponse_datasetMetadata,
-    createDatasetResponse_httpStatus,
-
-    -- ** DeleteModel
-    deleteModel_clientToken,
-    deleteModel_projectName,
-    deleteModel_modelVersion,
-    deleteModelResponse_modelArn,
-    deleteModelResponse_httpStatus,
+    -- ** ListDatasetEntries
+    listDatasetEntries_nextToken,
+    listDatasetEntries_labeled,
+    listDatasetEntries_sourceRefContains,
+    listDatasetEntries_afterCreationDate,
+    listDatasetEntries_beforeCreationDate,
+    listDatasetEntries_anomalyClass,
+    listDatasetEntries_maxResults,
+    listDatasetEntries_projectName,
+    listDatasetEntries_datasetType,
+    listDatasetEntriesResponse_nextToken,
+    listDatasetEntriesResponse_datasetEntries,
+    listDatasetEntriesResponse_httpStatus,
 
     -- ** ListModels
     listModels_nextToken,
@@ -103,6 +104,18 @@ module Amazonka.LookoutVision.Lens
     listModelsResponse_models,
     listModelsResponse_httpStatus,
 
+    -- ** ListProjects
+    listProjects_nextToken,
+    listProjects_maxResults,
+    listProjectsResponse_projects,
+    listProjectsResponse_nextToken,
+    listProjectsResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
     -- ** StartModel
     startModel_clientToken,
     startModel_projectName,
@@ -111,19 +124,12 @@ module Amazonka.LookoutVision.Lens
     startModelResponse_status,
     startModelResponse_httpStatus,
 
-    -- ** DescribeModel
-    describeModel_projectName,
-    describeModel_modelVersion,
-    describeModelResponse_modelDescription,
-    describeModelResponse_httpStatus,
-
-    -- ** DetectAnomalies
-    detectAnomalies_projectName,
-    detectAnomalies_modelVersion,
-    detectAnomalies_contentType,
-    detectAnomalies_body,
-    detectAnomaliesResponse_detectAnomalyResult,
-    detectAnomaliesResponse_httpStatus,
+    -- ** StopModel
+    stopModel_clientToken,
+    stopModel_projectName,
+    stopModel_modelVersion,
+    stopModelResponse_status,
+    stopModelResponse_httpStatus,
 
     -- ** TagResource
     tagResource_resourceArn,
@@ -134,12 +140,6 @@ module Amazonka.LookoutVision.Lens
     untagResource_resourceArn,
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
-
-    -- ** CreateProject
-    createProject_clientToken,
-    createProject_projectName,
-    createProjectResponse_projectMetadata,
-    createProjectResponse_httpStatus,
 
     -- ** UpdateDatasetEntries
     updateDatasetEntries_clientToken,
@@ -152,36 +152,36 @@ module Amazonka.LookoutVision.Lens
     -- * Types
 
     -- ** DatasetDescription
-    datasetDescription_status,
-    datasetDescription_imageStats,
-    datasetDescription_statusMessage,
-    datasetDescription_creationTimestamp,
-    datasetDescription_datasetType,
-    datasetDescription_projectName,
     datasetDescription_lastUpdatedTimestamp,
+    datasetDescription_datasetType,
+    datasetDescription_status,
+    datasetDescription_creationTimestamp,
+    datasetDescription_projectName,
+    datasetDescription_statusMessage,
+    datasetDescription_imageStats,
 
     -- ** DatasetGroundTruthManifest
     datasetGroundTruthManifest_s3Object,
 
     -- ** DatasetImageStats
-    datasetImageStats_normal,
-    datasetImageStats_anomaly,
-    datasetImageStats_labeled,
     datasetImageStats_total,
+    datasetImageStats_labeled,
+    datasetImageStats_anomaly,
+    datasetImageStats_normal,
 
     -- ** DatasetMetadata
-    datasetMetadata_status,
-    datasetMetadata_statusMessage,
-    datasetMetadata_creationTimestamp,
     datasetMetadata_datasetType,
+    datasetMetadata_status,
+    datasetMetadata_creationTimestamp,
+    datasetMetadata_statusMessage,
 
     -- ** DatasetSource
     datasetSource_groundTruthManifest,
 
     -- ** DetectAnomalyResult
-    detectAnomalyResult_isAnomalous,
     detectAnomalyResult_confidence,
     detectAnomalyResult_source,
+    detectAnomalyResult_isAnomalous,
 
     -- ** ImageSource
     imageSource_type,
@@ -192,32 +192,32 @@ module Amazonka.LookoutVision.Lens
     inputS3Object_key,
 
     -- ** ModelDescription
-    modelDescription_status,
-    modelDescription_evaluationResult,
+    modelDescription_evaluationManifest,
+    modelDescription_modelVersion,
     modelDescription_evaluationEndTimestamp,
-    modelDescription_modelArn,
+    modelDescription_status,
+    modelDescription_description,
+    modelDescription_creationTimestamp,
     modelDescription_performance,
+    modelDescription_modelArn,
+    modelDescription_evaluationResult,
     modelDescription_kmsKeyId,
     modelDescription_statusMessage,
-    modelDescription_creationTimestamp,
     modelDescription_outputConfig,
-    modelDescription_modelVersion,
-    modelDescription_description,
-    modelDescription_evaluationManifest,
 
     -- ** ModelMetadata
-    modelMetadata_status,
-    modelMetadata_modelArn,
-    modelMetadata_performance,
-    modelMetadata_statusMessage,
-    modelMetadata_creationTimestamp,
     modelMetadata_modelVersion,
+    modelMetadata_status,
     modelMetadata_description,
+    modelMetadata_creationTimestamp,
+    modelMetadata_performance,
+    modelMetadata_modelArn,
+    modelMetadata_statusMessage,
 
     -- ** ModelPerformance
+    modelPerformance_f1Score,
     modelPerformance_recall,
     modelPerformance_precision,
-    modelPerformance_f1Score,
 
     -- ** OutputConfig
     outputConfig_s3Location,
@@ -227,10 +227,10 @@ module Amazonka.LookoutVision.Lens
     outputS3Object_key,
 
     -- ** ProjectDescription
+    projectDescription_datasets,
     projectDescription_creationTimestamp,
     projectDescription_projectName,
     projectDescription_projectArn,
-    projectDescription_datasets,
 
     -- ** ProjectMetadata
     projectMetadata_creationTimestamp,

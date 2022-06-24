@@ -28,26 +28,26 @@ module Amazonka.LookoutVision
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
 
     -- ** InternalServerException
     _InternalServerException,
 
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -55,11 +55,35 @@ module Amazonka.LookoutVision
     -- * Operations
     -- $operations
 
-    -- ** ListProjects (Paginated)
-    ListProjects (ListProjects'),
-    newListProjects,
-    ListProjectsResponse (ListProjectsResponse'),
-    newListProjectsResponse,
+    -- ** CreateDataset
+    CreateDataset (CreateDataset'),
+    newCreateDataset,
+    CreateDatasetResponse (CreateDatasetResponse'),
+    newCreateDatasetResponse,
+
+    -- ** CreateModel
+    CreateModel (CreateModel'),
+    newCreateModel,
+    CreateModelResponse (CreateModelResponse'),
+    newCreateModelResponse,
+
+    -- ** CreateProject
+    CreateProject (CreateProject'),
+    newCreateProject,
+    CreateProjectResponse (CreateProjectResponse'),
+    newCreateProjectResponse,
+
+    -- ** DeleteDataset
+    DeleteDataset (DeleteDataset'),
+    newDeleteDataset,
+    DeleteDatasetResponse (DeleteDatasetResponse'),
+    newDeleteDatasetResponse,
+
+    -- ** DeleteModel
+    DeleteModel (DeleteModel'),
+    newDeleteModel,
+    DeleteModelResponse (DeleteModelResponse'),
+    newDeleteModelResponse,
 
     -- ** DeleteProject
     DeleteProject (DeleteProject'),
@@ -73,23 +97,11 @@ module Amazonka.LookoutVision
     DescribeDatasetResponse (DescribeDatasetResponse'),
     newDescribeDatasetResponse,
 
-    -- ** StopModel
-    StopModel (StopModel'),
-    newStopModel,
-    StopModelResponse (StopModelResponse'),
-    newStopModelResponse,
-
-    -- ** ListDatasetEntries (Paginated)
-    ListDatasetEntries (ListDatasetEntries'),
-    newListDatasetEntries,
-    ListDatasetEntriesResponse (ListDatasetEntriesResponse'),
-    newListDatasetEntriesResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** DescribeModel
+    DescribeModel (DescribeModel'),
+    newDescribeModel,
+    DescribeModelResponse (DescribeModelResponse'),
+    newDescribeModelResponse,
 
     -- ** DescribeProject
     DescribeProject (DescribeProject'),
@@ -97,29 +109,17 @@ module Amazonka.LookoutVision
     DescribeProjectResponse (DescribeProjectResponse'),
     newDescribeProjectResponse,
 
-    -- ** CreateModel
-    CreateModel (CreateModel'),
-    newCreateModel,
-    CreateModelResponse (CreateModelResponse'),
-    newCreateModelResponse,
+    -- ** DetectAnomalies
+    DetectAnomalies (DetectAnomalies'),
+    newDetectAnomalies,
+    DetectAnomaliesResponse (DetectAnomaliesResponse'),
+    newDetectAnomaliesResponse,
 
-    -- ** DeleteDataset
-    DeleteDataset (DeleteDataset'),
-    newDeleteDataset,
-    DeleteDatasetResponse (DeleteDatasetResponse'),
-    newDeleteDatasetResponse,
-
-    -- ** CreateDataset
-    CreateDataset (CreateDataset'),
-    newCreateDataset,
-    CreateDatasetResponse (CreateDatasetResponse'),
-    newCreateDatasetResponse,
-
-    -- ** DeleteModel
-    DeleteModel (DeleteModel'),
-    newDeleteModel,
-    DeleteModelResponse (DeleteModelResponse'),
-    newDeleteModelResponse,
+    -- ** ListDatasetEntries (Paginated)
+    ListDatasetEntries (ListDatasetEntries'),
+    newListDatasetEntries,
+    ListDatasetEntriesResponse (ListDatasetEntriesResponse'),
+    newListDatasetEntriesResponse,
 
     -- ** ListModels (Paginated)
     ListModels (ListModels'),
@@ -127,23 +127,29 @@ module Amazonka.LookoutVision
     ListModelsResponse (ListModelsResponse'),
     newListModelsResponse,
 
+    -- ** ListProjects (Paginated)
+    ListProjects (ListProjects'),
+    newListProjects,
+    ListProjectsResponse (ListProjectsResponse'),
+    newListProjectsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
     -- ** StartModel
     StartModel (StartModel'),
     newStartModel,
     StartModelResponse (StartModelResponse'),
     newStartModelResponse,
 
-    -- ** DescribeModel
-    DescribeModel (DescribeModel'),
-    newDescribeModel,
-    DescribeModelResponse (DescribeModelResponse'),
-    newDescribeModelResponse,
-
-    -- ** DetectAnomalies
-    DetectAnomalies (DetectAnomalies'),
-    newDetectAnomalies,
-    DetectAnomaliesResponse (DetectAnomaliesResponse'),
-    newDetectAnomaliesResponse,
+    -- ** StopModel
+    StopModel (StopModel'),
+    newStopModel,
+    StopModelResponse (StopModelResponse'),
+    newStopModelResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -156,12 +162,6 @@ module Amazonka.LookoutVision
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
-
-    -- ** CreateProject
-    CreateProject (CreateProject'),
-    newCreateProject,
-    CreateProjectResponse (CreateProjectResponse'),
-    newCreateProjectResponse,
 
     -- ** UpdateDatasetEntries
     UpdateDatasetEntries (UpdateDatasetEntries'),

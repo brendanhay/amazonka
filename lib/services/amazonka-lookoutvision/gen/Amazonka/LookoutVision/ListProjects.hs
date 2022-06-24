@@ -40,8 +40,8 @@ module Amazonka.LookoutVision.ListProjects
     newListProjectsResponse,
 
     -- * Response Lenses
-    listProjectsResponse_nextToken,
     listProjectsResponse_projects,
+    listProjectsResponse_nextToken,
     listProjectsResponse_httpStatus,
   )
 where
@@ -130,8 +130,8 @@ instance Core.AWSRequest ListProjects where
     Response.receiveJSON
       ( \s h x ->
           ListProjectsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Projects" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Projects" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,12 +168,12 @@ instance Core.ToQuery ListProjects where
 
 -- | /See:/ 'newListProjectsResponse' smart constructor.
 data ListProjectsResponse = ListProjectsResponse'
-  { -- | If the response is truncated, Amazon Lookout for Vision returns this
+  { -- | A list of projects in your AWS account.
+    projects :: Prelude.Maybe [ProjectMetadata],
+    -- | If the response is truncated, Amazon Lookout for Vision returns this
     -- token that you can use in the subsequent request to retrieve the next
     -- set of projects.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of projects in your AWS account.
-    projects :: Prelude.Maybe [ProjectMetadata],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -187,11 +187,11 @@ data ListProjectsResponse = ListProjectsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'projects', 'listProjectsResponse_projects' - A list of projects in your AWS account.
+--
 -- 'nextToken', 'listProjectsResponse_nextToken' - If the response is truncated, Amazon Lookout for Vision returns this
 -- token that you can use in the subsequent request to retrieve the next
 -- set of projects.
---
--- 'projects', 'listProjectsResponse_projects' - A list of projects in your AWS account.
 --
 -- 'httpStatus', 'listProjectsResponse_httpStatus' - The response's http status code.
 newListProjectsResponse ::
@@ -200,10 +200,14 @@ newListProjectsResponse ::
   ListProjectsResponse
 newListProjectsResponse pHttpStatus_ =
   ListProjectsResponse'
-    { nextToken = Prelude.Nothing,
-      projects = Prelude.Nothing,
+    { projects = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of projects in your AWS account.
+listProjectsResponse_projects :: Lens.Lens' ListProjectsResponse (Prelude.Maybe [ProjectMetadata])
+listProjectsResponse_projects = Lens.lens (\ListProjectsResponse' {projects} -> projects) (\s@ListProjectsResponse' {} a -> s {projects = a} :: ListProjectsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the response is truncated, Amazon Lookout for Vision returns this
 -- token that you can use in the subsequent request to retrieve the next
@@ -211,16 +215,12 @@ newListProjectsResponse pHttpStatus_ =
 listProjectsResponse_nextToken :: Lens.Lens' ListProjectsResponse (Prelude.Maybe Prelude.Text)
 listProjectsResponse_nextToken = Lens.lens (\ListProjectsResponse' {nextToken} -> nextToken) (\s@ListProjectsResponse' {} a -> s {nextToken = a} :: ListProjectsResponse)
 
--- | A list of projects in your AWS account.
-listProjectsResponse_projects :: Lens.Lens' ListProjectsResponse (Prelude.Maybe [ProjectMetadata])
-listProjectsResponse_projects = Lens.lens (\ListProjectsResponse' {projects} -> projects) (\s@ListProjectsResponse' {} a -> s {projects = a} :: ListProjectsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listProjectsResponse_httpStatus :: Lens.Lens' ListProjectsResponse Prelude.Int
 listProjectsResponse_httpStatus = Lens.lens (\ListProjectsResponse' {httpStatus} -> httpStatus) (\s@ListProjectsResponse' {} a -> s {httpStatus = a} :: ListProjectsResponse)
 
 instance Prelude.NFData ListProjectsResponse where
   rnf ListProjectsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf projects
+    Prelude.rnf projects
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

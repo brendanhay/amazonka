@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProjectDescription' smart constructor.
 data ProjectDescription = ProjectDescription'
-  { -- | The unix timestamp for the date and time that the project was created.
+  { -- | A list of datasets in the project.
+    datasets :: Prelude.Maybe [DatasetMetadata],
+    -- | The unix timestamp for the date and time that the project was created.
     creationTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The name of the project.
     projectName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the project.
-    projectArn :: Prelude.Maybe Prelude.Text,
-    -- | A list of datasets in the project.
-    datasets :: Prelude.Maybe [DatasetMetadata]
+    projectArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,23 +48,26 @@ data ProjectDescription = ProjectDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'datasets', 'projectDescription_datasets' - A list of datasets in the project.
+--
 -- 'creationTimestamp', 'projectDescription_creationTimestamp' - The unix timestamp for the date and time that the project was created.
 --
 -- 'projectName', 'projectDescription_projectName' - The name of the project.
 --
 -- 'projectArn', 'projectDescription_projectArn' - The Amazon Resource Name (ARN) of the project.
---
--- 'datasets', 'projectDescription_datasets' - A list of datasets in the project.
 newProjectDescription ::
   ProjectDescription
 newProjectDescription =
   ProjectDescription'
-    { creationTimestamp =
-        Prelude.Nothing,
+    { datasets = Prelude.Nothing,
+      creationTimestamp = Prelude.Nothing,
       projectName = Prelude.Nothing,
-      projectArn = Prelude.Nothing,
-      datasets = Prelude.Nothing
+      projectArn = Prelude.Nothing
     }
+
+-- | A list of datasets in the project.
+projectDescription_datasets :: Lens.Lens' ProjectDescription (Prelude.Maybe [DatasetMetadata])
+projectDescription_datasets = Lens.lens (\ProjectDescription' {datasets} -> datasets) (\s@ProjectDescription' {} a -> s {datasets = a} :: ProjectDescription) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unix timestamp for the date and time that the project was created.
 projectDescription_creationTimestamp :: Lens.Lens' ProjectDescription (Prelude.Maybe Prelude.UTCTime)
@@ -78,32 +81,28 @@ projectDescription_projectName = Lens.lens (\ProjectDescription' {projectName} -
 projectDescription_projectArn :: Lens.Lens' ProjectDescription (Prelude.Maybe Prelude.Text)
 projectDescription_projectArn = Lens.lens (\ProjectDescription' {projectArn} -> projectArn) (\s@ProjectDescription' {} a -> s {projectArn = a} :: ProjectDescription)
 
--- | A list of datasets in the project.
-projectDescription_datasets :: Lens.Lens' ProjectDescription (Prelude.Maybe [DatasetMetadata])
-projectDescription_datasets = Lens.lens (\ProjectDescription' {datasets} -> datasets) (\s@ProjectDescription' {} a -> s {datasets = a} :: ProjectDescription) Prelude.. Lens.mapping Lens.coerced
-
 instance Core.FromJSON ProjectDescription where
   parseJSON =
     Core.withObject
       "ProjectDescription"
       ( \x ->
           ProjectDescription'
-            Prelude.<$> (x Core..:? "CreationTimestamp")
+            Prelude.<$> (x Core..:? "Datasets" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "CreationTimestamp")
             Prelude.<*> (x Core..:? "ProjectName")
             Prelude.<*> (x Core..:? "ProjectArn")
-            Prelude.<*> (x Core..:? "Datasets" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ProjectDescription where
   hashWithSalt _salt ProjectDescription' {..} =
-    _salt `Prelude.hashWithSalt` creationTimestamp
+    _salt `Prelude.hashWithSalt` datasets
+      `Prelude.hashWithSalt` creationTimestamp
       `Prelude.hashWithSalt` projectName
       `Prelude.hashWithSalt` projectArn
-      `Prelude.hashWithSalt` datasets
 
 instance Prelude.NFData ProjectDescription where
   rnf ProjectDescription' {..} =
-    Prelude.rnf creationTimestamp
+    Prelude.rnf datasets
+      `Prelude.seq` Prelude.rnf creationTimestamp
       `Prelude.seq` Prelude.rnf projectName
       `Prelude.seq` Prelude.rnf projectArn
-      `Prelude.seq` Prelude.rnf datasets

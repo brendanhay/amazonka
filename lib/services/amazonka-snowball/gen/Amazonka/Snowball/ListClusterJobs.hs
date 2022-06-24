@@ -40,8 +40,8 @@ module Amazonka.Snowball.ListClusterJobs
     newListClusterJobsResponse,
 
     -- * Response Lenses
-    listClusterJobsResponse_jobListEntries,
     listClusterJobsResponse_nextToken,
+    listClusterJobsResponse_jobListEntries,
     listClusterJobsResponse_httpStatus,
   )
 where
@@ -140,8 +140,8 @@ instance Core.AWSRequest ListClusterJobs where
     Response.receiveJSON
       ( \s h x ->
           ListClusterJobsResponse'
-            Prelude.<$> (x Core..?> "JobListEntries" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "JobListEntries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -190,14 +190,14 @@ instance Core.ToQuery ListClusterJobs where
 
 -- | /See:/ 'newListClusterJobsResponse' smart constructor.
 data ListClusterJobsResponse = ListClusterJobsResponse'
-  { -- | Each @JobListEntry@ object contains a job\'s state, a job\'s ID, and a
-    -- value that indicates whether the job is a job part, in the case of
-    -- export jobs.
-    jobListEntries :: Prelude.Maybe [JobListEntry],
-    -- | HTTP requests are stateless. If you use the automatically generated
+  { -- | HTTP requests are stateless. If you use the automatically generated
     -- @NextToken@ value in your next @ListClusterJobsResult@ call, your list
     -- of returned jobs will start from this point in the array.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Each @JobListEntry@ object contains a job\'s state, a job\'s ID, and a
+    -- value that indicates whether the job is a job part, in the case of
+    -- export jobs.
+    jobListEntries :: Prelude.Maybe [JobListEntry],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -211,13 +211,13 @@ data ListClusterJobsResponse = ListClusterJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobListEntries', 'listClusterJobsResponse_jobListEntries' - Each @JobListEntry@ object contains a job\'s state, a job\'s ID, and a
--- value that indicates whether the job is a job part, in the case of
--- export jobs.
---
 -- 'nextToken', 'listClusterJobsResponse_nextToken' - HTTP requests are stateless. If you use the automatically generated
 -- @NextToken@ value in your next @ListClusterJobsResult@ call, your list
 -- of returned jobs will start from this point in the array.
+--
+-- 'jobListEntries', 'listClusterJobsResponse_jobListEntries' - Each @JobListEntry@ object contains a job\'s state, a job\'s ID, and a
+-- value that indicates whether the job is a job part, in the case of
+-- export jobs.
 --
 -- 'httpStatus', 'listClusterJobsResponse_httpStatus' - The response's http status code.
 newListClusterJobsResponse ::
@@ -226,17 +226,11 @@ newListClusterJobsResponse ::
   ListClusterJobsResponse
 newListClusterJobsResponse pHttpStatus_ =
   ListClusterJobsResponse'
-    { jobListEntries =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      jobListEntries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Each @JobListEntry@ object contains a job\'s state, a job\'s ID, and a
--- value that indicates whether the job is a job part, in the case of
--- export jobs.
-listClusterJobsResponse_jobListEntries :: Lens.Lens' ListClusterJobsResponse (Prelude.Maybe [JobListEntry])
-listClusterJobsResponse_jobListEntries = Lens.lens (\ListClusterJobsResponse' {jobListEntries} -> jobListEntries) (\s@ListClusterJobsResponse' {} a -> s {jobListEntries = a} :: ListClusterJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | HTTP requests are stateless. If you use the automatically generated
 -- @NextToken@ value in your next @ListClusterJobsResult@ call, your list
@@ -244,12 +238,18 @@ listClusterJobsResponse_jobListEntries = Lens.lens (\ListClusterJobsResponse' {j
 listClusterJobsResponse_nextToken :: Lens.Lens' ListClusterJobsResponse (Prelude.Maybe Prelude.Text)
 listClusterJobsResponse_nextToken = Lens.lens (\ListClusterJobsResponse' {nextToken} -> nextToken) (\s@ListClusterJobsResponse' {} a -> s {nextToken = a} :: ListClusterJobsResponse)
 
+-- | Each @JobListEntry@ object contains a job\'s state, a job\'s ID, and a
+-- value that indicates whether the job is a job part, in the case of
+-- export jobs.
+listClusterJobsResponse_jobListEntries :: Lens.Lens' ListClusterJobsResponse (Prelude.Maybe [JobListEntry])
+listClusterJobsResponse_jobListEntries = Lens.lens (\ListClusterJobsResponse' {jobListEntries} -> jobListEntries) (\s@ListClusterJobsResponse' {} a -> s {jobListEntries = a} :: ListClusterJobsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listClusterJobsResponse_httpStatus :: Lens.Lens' ListClusterJobsResponse Prelude.Int
 listClusterJobsResponse_httpStatus = Lens.lens (\ListClusterJobsResponse' {httpStatus} -> httpStatus) (\s@ListClusterJobsResponse' {} a -> s {httpStatus = a} :: ListClusterJobsResponse)
 
 instance Prelude.NFData ListClusterJobsResponse where
   rnf ListClusterJobsResponse' {..} =
-    Prelude.rnf jobListEntries
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf jobListEntries
       `Prelude.seq` Prelude.rnf httpStatus

@@ -98,23 +98,23 @@ module Amazonka.Snowball.CreateJob
     newCreateJob,
 
     -- * Request Lenses
-    createJob_jobType,
-    createJob_kmsKeyARN,
-    createJob_remoteManagement,
-    createJob_notification,
+    createJob_roleARN,
+    createJob_deviceConfiguration,
     createJob_forwardingAddressId,
+    createJob_description,
+    createJob_kmsKeyARN,
+    createJob_longTermPricingId,
+    createJob_notification,
+    createJob_remoteManagement,
+    createJob_clusterId,
+    createJob_taxDocuments,
+    createJob_resources,
+    createJob_snowballCapacityPreference,
     createJob_addressId,
     createJob_snowballType,
-    createJob_longTermPricingId,
+    createJob_jobType,
     createJob_shippingOption,
-    createJob_resources,
     createJob_onDeviceServiceConfiguration,
-    createJob_clusterId,
-    createJob_deviceConfiguration,
-    createJob_description,
-    createJob_taxDocuments,
-    createJob_roleARN,
-    createJob_snowballCapacityPreference,
 
     -- * Destructuring the Response
     CreateJobResponse (..),
@@ -135,25 +135,69 @@ import Amazonka.Snowball.Types
 
 -- | /See:/ 'newCreateJob' smart constructor.
 data CreateJob = CreateJob'
-  { -- | Defines the type of job that you\'re creating.
-    jobType :: Prelude.Maybe JobType,
+  { -- | The @RoleARN@ that you want to associate with this job. @RoleArn@s are
+    -- created using the
+    -- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>
+    -- AWS Identity and Access Management (IAM) API action.
+    roleARN :: Prelude.Maybe Prelude.Text,
+    -- | Defines the device configuration for an AWS Snowcone job.
+    --
+    -- For more information, see
+    -- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/snowcone-guide\/snow-device-types.html\"
+    -- (Snow Family Devices and Capacity) in the /Snowcone User Guide/ or
+    -- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/developer-guide\/snow-device-types.html\"
+    -- (Snow Family Devices and Capacity) in the /Snowcone User Guide/.
+    deviceConfiguration :: Prelude.Maybe DeviceConfiguration,
+    -- | The forwarding address ID for a job. This field is not supported in most
+    -- Regions.
+    forwardingAddressId :: Prelude.Maybe Prelude.Text,
+    -- | Defines an optional description of this specific job, for example
+    -- @Important Photos 2016-08-11@.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The @KmsKeyARN@ that you want to associate with this job. @KmsKeyARN@s
     -- are created using the
     -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey>
     -- AWS Key Management Service (KMS) API action.
     kmsKeyARN :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the long-term pricing type for the device.
+    longTermPricingId :: Prelude.Maybe Prelude.Text,
+    -- | Defines the Amazon Simple Notification Service (Amazon SNS) notification
+    -- settings for this job.
+    notification :: Prelude.Maybe Notification,
     -- | Allows you to securely operate and manage Snowcone devices remotely from
     -- outside of your internal network. When set to @INSTALLED_AUTOSTART@,
     -- remote management will automatically be available when the device
     -- arrives at your location. Otherwise, you need to use the Snowball Client
     -- to manage the device.
     remoteManagement :: Prelude.Maybe RemoteManagement,
-    -- | Defines the Amazon Simple Notification Service (Amazon SNS) notification
-    -- settings for this job.
-    notification :: Prelude.Maybe Notification,
-    -- | The forwarding address ID for a job. This field is not supported in most
-    -- Regions.
-    forwardingAddressId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of a cluster. If you\'re creating a job for a node in a cluster,
+    -- you need to provide only this @clusterId@ value. The other job
+    -- attributes are inherited from the cluster.
+    clusterId :: Prelude.Maybe Prelude.Text,
+    -- | The tax documents required in your AWS Region.
+    taxDocuments :: Prelude.Maybe TaxDocuments,
+    -- | Defines the Amazon S3 buckets associated with this job.
+    --
+    -- With @IMPORT@ jobs, you specify the bucket or buckets that your
+    -- transferred data will be imported into.
+    --
+    -- With @EXPORT@ jobs, you specify the bucket or buckets that your
+    -- transferred data will be exported from. Optionally, you can also specify
+    -- a @KeyRange@ value. If you choose to export a range, you define the
+    -- length of the range by providing either an inclusive @BeginMarker@
+    -- value, an inclusive @EndMarker@ value, or both. Ranges are UTF-8 binary
+    -- sorted.
+    resources :: Prelude.Maybe JobResource,
+    -- | If your job is being created in one of the US regions, you have the
+    -- option of specifying what size Snow device you\'d like for this job. In
+    -- all other regions, Snowballs come with 80 TB in storage capacity.
+    --
+    -- For more information, see
+    -- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/snowcone-guide\/snow-device-types.html\"
+    -- (Snow Family Devices and Capacity) in the /Snowcone User Guide/ or
+    -- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/developer-guide\/snow-device-types.html\"
+    -- (Snow Family Devices and Capacity) in the /Snowcone User Guide/.
+    snowballCapacityPreference :: Prelude.Maybe SnowballCapacity,
     -- | The ID for the address that you want the Snow device shipped to.
     addressId :: Prelude.Maybe Prelude.Text,
     -- | The type of AWS Snow Family device to use for this job.
@@ -174,8 +218,8 @@ data CreateJob = CreateJob'
     -- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/developer-guide\/snow-device-types.html\"
     -- (Snow Family Devices and Capacity) in the /Snowcone User Guide/.
     snowballType :: Prelude.Maybe SnowballType,
-    -- | The ID of the long-term pricing type for the device.
-    longTermPricingId :: Prelude.Maybe Prelude.Text,
+    -- | Defines the type of job that you\'re creating.
+    jobType :: Prelude.Maybe JobType,
     -- | The shipping speed for this job. This speed doesn\'t dictate how soon
     -- you\'ll get the Snow device, rather it represents how quickly the Snow
     -- device moves to its destination while in transit. Regional shipping
@@ -193,54 +237,10 @@ data CreateJob = CreateJob'
     --
     -- -   In the US, you have access to one-day shipping and two-day shipping.
     shippingOption :: Prelude.Maybe ShippingOption,
-    -- | Defines the Amazon S3 buckets associated with this job.
-    --
-    -- With @IMPORT@ jobs, you specify the bucket or buckets that your
-    -- transferred data will be imported into.
-    --
-    -- With @EXPORT@ jobs, you specify the bucket or buckets that your
-    -- transferred data will be exported from. Optionally, you can also specify
-    -- a @KeyRange@ value. If you choose to export a range, you define the
-    -- length of the range by providing either an inclusive @BeginMarker@
-    -- value, an inclusive @EndMarker@ value, or both. Ranges are UTF-8 binary
-    -- sorted.
-    resources :: Prelude.Maybe JobResource,
     -- | Specifies the service or services on the Snow Family device that your
     -- transferred data will be exported from or imported into. AWS Snow Family
     -- supports Amazon S3 and NFS (Network File System).
-    onDeviceServiceConfiguration :: Prelude.Maybe OnDeviceServiceConfiguration,
-    -- | The ID of a cluster. If you\'re creating a job for a node in a cluster,
-    -- you need to provide only this @clusterId@ value. The other job
-    -- attributes are inherited from the cluster.
-    clusterId :: Prelude.Maybe Prelude.Text,
-    -- | Defines the device configuration for an AWS Snowcone job.
-    --
-    -- For more information, see
-    -- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/snowcone-guide\/snow-device-types.html\"
-    -- (Snow Family Devices and Capacity) in the /Snowcone User Guide/ or
-    -- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/developer-guide\/snow-device-types.html\"
-    -- (Snow Family Devices and Capacity) in the /Snowcone User Guide/.
-    deviceConfiguration :: Prelude.Maybe DeviceConfiguration,
-    -- | Defines an optional description of this specific job, for example
-    -- @Important Photos 2016-08-11@.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The tax documents required in your AWS Region.
-    taxDocuments :: Prelude.Maybe TaxDocuments,
-    -- | The @RoleARN@ that you want to associate with this job. @RoleArn@s are
-    -- created using the
-    -- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>
-    -- AWS Identity and Access Management (IAM) API action.
-    roleARN :: Prelude.Maybe Prelude.Text,
-    -- | If your job is being created in one of the US regions, you have the
-    -- option of specifying what size Snow device you\'d like for this job. In
-    -- all other regions, Snowballs come with 80 TB in storage capacity.
-    --
-    -- For more information, see
-    -- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/snowcone-guide\/snow-device-types.html\"
-    -- (Snow Family Devices and Capacity) in the /Snowcone User Guide/ or
-    -- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/developer-guide\/snow-device-types.html\"
-    -- (Snow Family Devices and Capacity) in the /Snowcone User Guide/.
-    snowballCapacityPreference :: Prelude.Maybe SnowballCapacity
+    onDeviceServiceConfiguration :: Prelude.Maybe OnDeviceServiceConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -252,12 +252,34 @@ data CreateJob = CreateJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobType', 'createJob_jobType' - Defines the type of job that you\'re creating.
+-- 'roleARN', 'createJob_roleARN' - The @RoleARN@ that you want to associate with this job. @RoleArn@s are
+-- created using the
+-- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>
+-- AWS Identity and Access Management (IAM) API action.
+--
+-- 'deviceConfiguration', 'createJob_deviceConfiguration' - Defines the device configuration for an AWS Snowcone job.
+--
+-- For more information, see
+-- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/snowcone-guide\/snow-device-types.html\"
+-- (Snow Family Devices and Capacity) in the /Snowcone User Guide/ or
+-- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/developer-guide\/snow-device-types.html\"
+-- (Snow Family Devices and Capacity) in the /Snowcone User Guide/.
+--
+-- 'forwardingAddressId', 'createJob_forwardingAddressId' - The forwarding address ID for a job. This field is not supported in most
+-- Regions.
+--
+-- 'description', 'createJob_description' - Defines an optional description of this specific job, for example
+-- @Important Photos 2016-08-11@.
 --
 -- 'kmsKeyARN', 'createJob_kmsKeyARN' - The @KmsKeyARN@ that you want to associate with this job. @KmsKeyARN@s
 -- are created using the
 -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey>
 -- AWS Key Management Service (KMS) API action.
+--
+-- 'longTermPricingId', 'createJob_longTermPricingId' - The ID of the long-term pricing type for the device.
+--
+-- 'notification', 'createJob_notification' - Defines the Amazon Simple Notification Service (Amazon SNS) notification
+-- settings for this job.
 --
 -- 'remoteManagement', 'createJob_remoteManagement' - Allows you to securely operate and manage Snowcone devices remotely from
 -- outside of your internal network. When set to @INSTALLED_AUTOSTART@,
@@ -265,11 +287,33 @@ data CreateJob = CreateJob'
 -- arrives at your location. Otherwise, you need to use the Snowball Client
 -- to manage the device.
 --
--- 'notification', 'createJob_notification' - Defines the Amazon Simple Notification Service (Amazon SNS) notification
--- settings for this job.
+-- 'clusterId', 'createJob_clusterId' - The ID of a cluster. If you\'re creating a job for a node in a cluster,
+-- you need to provide only this @clusterId@ value. The other job
+-- attributes are inherited from the cluster.
 --
--- 'forwardingAddressId', 'createJob_forwardingAddressId' - The forwarding address ID for a job. This field is not supported in most
--- Regions.
+-- 'taxDocuments', 'createJob_taxDocuments' - The tax documents required in your AWS Region.
+--
+-- 'resources', 'createJob_resources' - Defines the Amazon S3 buckets associated with this job.
+--
+-- With @IMPORT@ jobs, you specify the bucket or buckets that your
+-- transferred data will be imported into.
+--
+-- With @EXPORT@ jobs, you specify the bucket or buckets that your
+-- transferred data will be exported from. Optionally, you can also specify
+-- a @KeyRange@ value. If you choose to export a range, you define the
+-- length of the range by providing either an inclusive @BeginMarker@
+-- value, an inclusive @EndMarker@ value, or both. Ranges are UTF-8 binary
+-- sorted.
+--
+-- 'snowballCapacityPreference', 'createJob_snowballCapacityPreference' - If your job is being created in one of the US regions, you have the
+-- option of specifying what size Snow device you\'d like for this job. In
+-- all other regions, Snowballs come with 80 TB in storage capacity.
+--
+-- For more information, see
+-- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/snowcone-guide\/snow-device-types.html\"
+-- (Snow Family Devices and Capacity) in the /Snowcone User Guide/ or
+-- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/developer-guide\/snow-device-types.html\"
+-- (Snow Family Devices and Capacity) in the /Snowcone User Guide/.
 --
 -- 'addressId', 'createJob_addressId' - The ID for the address that you want the Snow device shipped to.
 --
@@ -291,7 +335,7 @@ data CreateJob = CreateJob'
 -- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/developer-guide\/snow-device-types.html\"
 -- (Snow Family Devices and Capacity) in the /Snowcone User Guide/.
 --
--- 'longTermPricingId', 'createJob_longTermPricingId' - The ID of the long-term pricing type for the device.
+-- 'jobType', 'createJob_jobType' - Defines the type of job that you\'re creating.
 --
 -- 'shippingOption', 'createJob_shippingOption' - The shipping speed for this job. This speed doesn\'t dictate how soon
 -- you\'ll get the Snow device, rather it represents how quickly the Snow
@@ -310,7 +354,94 @@ data CreateJob = CreateJob'
 --
 -- -   In the US, you have access to one-day shipping and two-day shipping.
 --
--- 'resources', 'createJob_resources' - Defines the Amazon S3 buckets associated with this job.
+-- 'onDeviceServiceConfiguration', 'createJob_onDeviceServiceConfiguration' - Specifies the service or services on the Snow Family device that your
+-- transferred data will be exported from or imported into. AWS Snow Family
+-- supports Amazon S3 and NFS (Network File System).
+newCreateJob ::
+  CreateJob
+newCreateJob =
+  CreateJob'
+    { roleARN = Prelude.Nothing,
+      deviceConfiguration = Prelude.Nothing,
+      forwardingAddressId = Prelude.Nothing,
+      description = Prelude.Nothing,
+      kmsKeyARN = Prelude.Nothing,
+      longTermPricingId = Prelude.Nothing,
+      notification = Prelude.Nothing,
+      remoteManagement = Prelude.Nothing,
+      clusterId = Prelude.Nothing,
+      taxDocuments = Prelude.Nothing,
+      resources = Prelude.Nothing,
+      snowballCapacityPreference = Prelude.Nothing,
+      addressId = Prelude.Nothing,
+      snowballType = Prelude.Nothing,
+      jobType = Prelude.Nothing,
+      shippingOption = Prelude.Nothing,
+      onDeviceServiceConfiguration = Prelude.Nothing
+    }
+
+-- | The @RoleARN@ that you want to associate with this job. @RoleArn@s are
+-- created using the
+-- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>
+-- AWS Identity and Access Management (IAM) API action.
+createJob_roleARN :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
+createJob_roleARN = Lens.lens (\CreateJob' {roleARN} -> roleARN) (\s@CreateJob' {} a -> s {roleARN = a} :: CreateJob)
+
+-- | Defines the device configuration for an AWS Snowcone job.
+--
+-- For more information, see
+-- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/snowcone-guide\/snow-device-types.html\"
+-- (Snow Family Devices and Capacity) in the /Snowcone User Guide/ or
+-- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/developer-guide\/snow-device-types.html\"
+-- (Snow Family Devices and Capacity) in the /Snowcone User Guide/.
+createJob_deviceConfiguration :: Lens.Lens' CreateJob (Prelude.Maybe DeviceConfiguration)
+createJob_deviceConfiguration = Lens.lens (\CreateJob' {deviceConfiguration} -> deviceConfiguration) (\s@CreateJob' {} a -> s {deviceConfiguration = a} :: CreateJob)
+
+-- | The forwarding address ID for a job. This field is not supported in most
+-- Regions.
+createJob_forwardingAddressId :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
+createJob_forwardingAddressId = Lens.lens (\CreateJob' {forwardingAddressId} -> forwardingAddressId) (\s@CreateJob' {} a -> s {forwardingAddressId = a} :: CreateJob)
+
+-- | Defines an optional description of this specific job, for example
+-- @Important Photos 2016-08-11@.
+createJob_description :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
+createJob_description = Lens.lens (\CreateJob' {description} -> description) (\s@CreateJob' {} a -> s {description = a} :: CreateJob)
+
+-- | The @KmsKeyARN@ that you want to associate with this job. @KmsKeyARN@s
+-- are created using the
+-- <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey>
+-- AWS Key Management Service (KMS) API action.
+createJob_kmsKeyARN :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
+createJob_kmsKeyARN = Lens.lens (\CreateJob' {kmsKeyARN} -> kmsKeyARN) (\s@CreateJob' {} a -> s {kmsKeyARN = a} :: CreateJob)
+
+-- | The ID of the long-term pricing type for the device.
+createJob_longTermPricingId :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
+createJob_longTermPricingId = Lens.lens (\CreateJob' {longTermPricingId} -> longTermPricingId) (\s@CreateJob' {} a -> s {longTermPricingId = a} :: CreateJob)
+
+-- | Defines the Amazon Simple Notification Service (Amazon SNS) notification
+-- settings for this job.
+createJob_notification :: Lens.Lens' CreateJob (Prelude.Maybe Notification)
+createJob_notification = Lens.lens (\CreateJob' {notification} -> notification) (\s@CreateJob' {} a -> s {notification = a} :: CreateJob)
+
+-- | Allows you to securely operate and manage Snowcone devices remotely from
+-- outside of your internal network. When set to @INSTALLED_AUTOSTART@,
+-- remote management will automatically be available when the device
+-- arrives at your location. Otherwise, you need to use the Snowball Client
+-- to manage the device.
+createJob_remoteManagement :: Lens.Lens' CreateJob (Prelude.Maybe RemoteManagement)
+createJob_remoteManagement = Lens.lens (\CreateJob' {remoteManagement} -> remoteManagement) (\s@CreateJob' {} a -> s {remoteManagement = a} :: CreateJob)
+
+-- | The ID of a cluster. If you\'re creating a job for a node in a cluster,
+-- you need to provide only this @clusterId@ value. The other job
+-- attributes are inherited from the cluster.
+createJob_clusterId :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
+createJob_clusterId = Lens.lens (\CreateJob' {clusterId} -> clusterId) (\s@CreateJob' {} a -> s {clusterId = a} :: CreateJob)
+
+-- | The tax documents required in your AWS Region.
+createJob_taxDocuments :: Lens.Lens' CreateJob (Prelude.Maybe TaxDocuments)
+createJob_taxDocuments = Lens.lens (\CreateJob' {taxDocuments} -> taxDocuments) (\s@CreateJob' {} a -> s {taxDocuments = a} :: CreateJob)
+
+-- | Defines the Amazon S3 buckets associated with this job.
 --
 -- With @IMPORT@ jobs, you specify the bucket or buckets that your
 -- transferred data will be imported into.
@@ -321,34 +452,10 @@ data CreateJob = CreateJob'
 -- length of the range by providing either an inclusive @BeginMarker@
 -- value, an inclusive @EndMarker@ value, or both. Ranges are UTF-8 binary
 -- sorted.
---
--- 'onDeviceServiceConfiguration', 'createJob_onDeviceServiceConfiguration' - Specifies the service or services on the Snow Family device that your
--- transferred data will be exported from or imported into. AWS Snow Family
--- supports Amazon S3 and NFS (Network File System).
---
--- 'clusterId', 'createJob_clusterId' - The ID of a cluster. If you\'re creating a job for a node in a cluster,
--- you need to provide only this @clusterId@ value. The other job
--- attributes are inherited from the cluster.
---
--- 'deviceConfiguration', 'createJob_deviceConfiguration' - Defines the device configuration for an AWS Snowcone job.
---
--- For more information, see
--- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/snowcone-guide\/snow-device-types.html\"
--- (Snow Family Devices and Capacity) in the /Snowcone User Guide/ or
--- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/developer-guide\/snow-device-types.html\"
--- (Snow Family Devices and Capacity) in the /Snowcone User Guide/.
---
--- 'description', 'createJob_description' - Defines an optional description of this specific job, for example
--- @Important Photos 2016-08-11@.
---
--- 'taxDocuments', 'createJob_taxDocuments' - The tax documents required in your AWS Region.
---
--- 'roleARN', 'createJob_roleARN' - The @RoleARN@ that you want to associate with this job. @RoleArn@s are
--- created using the
--- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>
--- AWS Identity and Access Management (IAM) API action.
---
--- 'snowballCapacityPreference', 'createJob_snowballCapacityPreference' - If your job is being created in one of the US regions, you have the
+createJob_resources :: Lens.Lens' CreateJob (Prelude.Maybe JobResource)
+createJob_resources = Lens.lens (\CreateJob' {resources} -> resources) (\s@CreateJob' {} a -> s {resources = a} :: CreateJob)
+
+-- | If your job is being created in one of the US regions, you have the
 -- option of specifying what size Snow device you\'d like for this job. In
 -- all other regions, Snowballs come with 80 TB in storage capacity.
 --
@@ -357,57 +464,8 @@ data CreateJob = CreateJob'
 -- (Snow Family Devices and Capacity) in the /Snowcone User Guide/ or
 -- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/developer-guide\/snow-device-types.html\"
 -- (Snow Family Devices and Capacity) in the /Snowcone User Guide/.
-newCreateJob ::
-  CreateJob
-newCreateJob =
-  CreateJob'
-    { jobType = Prelude.Nothing,
-      kmsKeyARN = Prelude.Nothing,
-      remoteManagement = Prelude.Nothing,
-      notification = Prelude.Nothing,
-      forwardingAddressId = Prelude.Nothing,
-      addressId = Prelude.Nothing,
-      snowballType = Prelude.Nothing,
-      longTermPricingId = Prelude.Nothing,
-      shippingOption = Prelude.Nothing,
-      resources = Prelude.Nothing,
-      onDeviceServiceConfiguration = Prelude.Nothing,
-      clusterId = Prelude.Nothing,
-      deviceConfiguration = Prelude.Nothing,
-      description = Prelude.Nothing,
-      taxDocuments = Prelude.Nothing,
-      roleARN = Prelude.Nothing,
-      snowballCapacityPreference = Prelude.Nothing
-    }
-
--- | Defines the type of job that you\'re creating.
-createJob_jobType :: Lens.Lens' CreateJob (Prelude.Maybe JobType)
-createJob_jobType = Lens.lens (\CreateJob' {jobType} -> jobType) (\s@CreateJob' {} a -> s {jobType = a} :: CreateJob)
-
--- | The @KmsKeyARN@ that you want to associate with this job. @KmsKeyARN@s
--- are created using the
--- <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey>
--- AWS Key Management Service (KMS) API action.
-createJob_kmsKeyARN :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
-createJob_kmsKeyARN = Lens.lens (\CreateJob' {kmsKeyARN} -> kmsKeyARN) (\s@CreateJob' {} a -> s {kmsKeyARN = a} :: CreateJob)
-
--- | Allows you to securely operate and manage Snowcone devices remotely from
--- outside of your internal network. When set to @INSTALLED_AUTOSTART@,
--- remote management will automatically be available when the device
--- arrives at your location. Otherwise, you need to use the Snowball Client
--- to manage the device.
-createJob_remoteManagement :: Lens.Lens' CreateJob (Prelude.Maybe RemoteManagement)
-createJob_remoteManagement = Lens.lens (\CreateJob' {remoteManagement} -> remoteManagement) (\s@CreateJob' {} a -> s {remoteManagement = a} :: CreateJob)
-
--- | Defines the Amazon Simple Notification Service (Amazon SNS) notification
--- settings for this job.
-createJob_notification :: Lens.Lens' CreateJob (Prelude.Maybe Notification)
-createJob_notification = Lens.lens (\CreateJob' {notification} -> notification) (\s@CreateJob' {} a -> s {notification = a} :: CreateJob)
-
--- | The forwarding address ID for a job. This field is not supported in most
--- Regions.
-createJob_forwardingAddressId :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
-createJob_forwardingAddressId = Lens.lens (\CreateJob' {forwardingAddressId} -> forwardingAddressId) (\s@CreateJob' {} a -> s {forwardingAddressId = a} :: CreateJob)
+createJob_snowballCapacityPreference :: Lens.Lens' CreateJob (Prelude.Maybe SnowballCapacity)
+createJob_snowballCapacityPreference = Lens.lens (\CreateJob' {snowballCapacityPreference} -> snowballCapacityPreference) (\s@CreateJob' {} a -> s {snowballCapacityPreference = a} :: CreateJob)
 
 -- | The ID for the address that you want the Snow device shipped to.
 createJob_addressId :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
@@ -433,9 +491,9 @@ createJob_addressId = Lens.lens (\CreateJob' {addressId} -> addressId) (\s@Creat
 createJob_snowballType :: Lens.Lens' CreateJob (Prelude.Maybe SnowballType)
 createJob_snowballType = Lens.lens (\CreateJob' {snowballType} -> snowballType) (\s@CreateJob' {} a -> s {snowballType = a} :: CreateJob)
 
--- | The ID of the long-term pricing type for the device.
-createJob_longTermPricingId :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
-createJob_longTermPricingId = Lens.lens (\CreateJob' {longTermPricingId} -> longTermPricingId) (\s@CreateJob' {} a -> s {longTermPricingId = a} :: CreateJob)
+-- | Defines the type of job that you\'re creating.
+createJob_jobType :: Lens.Lens' CreateJob (Prelude.Maybe JobType)
+createJob_jobType = Lens.lens (\CreateJob' {jobType} -> jobType) (\s@CreateJob' {} a -> s {jobType = a} :: CreateJob)
 
 -- | The shipping speed for this job. This speed doesn\'t dictate how soon
 -- you\'ll get the Snow device, rather it represents how quickly the Snow
@@ -456,69 +514,11 @@ createJob_longTermPricingId = Lens.lens (\CreateJob' {longTermPricingId} -> long
 createJob_shippingOption :: Lens.Lens' CreateJob (Prelude.Maybe ShippingOption)
 createJob_shippingOption = Lens.lens (\CreateJob' {shippingOption} -> shippingOption) (\s@CreateJob' {} a -> s {shippingOption = a} :: CreateJob)
 
--- | Defines the Amazon S3 buckets associated with this job.
---
--- With @IMPORT@ jobs, you specify the bucket or buckets that your
--- transferred data will be imported into.
---
--- With @EXPORT@ jobs, you specify the bucket or buckets that your
--- transferred data will be exported from. Optionally, you can also specify
--- a @KeyRange@ value. If you choose to export a range, you define the
--- length of the range by providing either an inclusive @BeginMarker@
--- value, an inclusive @EndMarker@ value, or both. Ranges are UTF-8 binary
--- sorted.
-createJob_resources :: Lens.Lens' CreateJob (Prelude.Maybe JobResource)
-createJob_resources = Lens.lens (\CreateJob' {resources} -> resources) (\s@CreateJob' {} a -> s {resources = a} :: CreateJob)
-
 -- | Specifies the service or services on the Snow Family device that your
 -- transferred data will be exported from or imported into. AWS Snow Family
 -- supports Amazon S3 and NFS (Network File System).
 createJob_onDeviceServiceConfiguration :: Lens.Lens' CreateJob (Prelude.Maybe OnDeviceServiceConfiguration)
 createJob_onDeviceServiceConfiguration = Lens.lens (\CreateJob' {onDeviceServiceConfiguration} -> onDeviceServiceConfiguration) (\s@CreateJob' {} a -> s {onDeviceServiceConfiguration = a} :: CreateJob)
-
--- | The ID of a cluster. If you\'re creating a job for a node in a cluster,
--- you need to provide only this @clusterId@ value. The other job
--- attributes are inherited from the cluster.
-createJob_clusterId :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
-createJob_clusterId = Lens.lens (\CreateJob' {clusterId} -> clusterId) (\s@CreateJob' {} a -> s {clusterId = a} :: CreateJob)
-
--- | Defines the device configuration for an AWS Snowcone job.
---
--- For more information, see
--- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/snowcone-guide\/snow-device-types.html\"
--- (Snow Family Devices and Capacity) in the /Snowcone User Guide/ or
--- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/developer-guide\/snow-device-types.html\"
--- (Snow Family Devices and Capacity) in the /Snowcone User Guide/.
-createJob_deviceConfiguration :: Lens.Lens' CreateJob (Prelude.Maybe DeviceConfiguration)
-createJob_deviceConfiguration = Lens.lens (\CreateJob' {deviceConfiguration} -> deviceConfiguration) (\s@CreateJob' {} a -> s {deviceConfiguration = a} :: CreateJob)
-
--- | Defines an optional description of this specific job, for example
--- @Important Photos 2016-08-11@.
-createJob_description :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
-createJob_description = Lens.lens (\CreateJob' {description} -> description) (\s@CreateJob' {} a -> s {description = a} :: CreateJob)
-
--- | The tax documents required in your AWS Region.
-createJob_taxDocuments :: Lens.Lens' CreateJob (Prelude.Maybe TaxDocuments)
-createJob_taxDocuments = Lens.lens (\CreateJob' {taxDocuments} -> taxDocuments) (\s@CreateJob' {} a -> s {taxDocuments = a} :: CreateJob)
-
--- | The @RoleARN@ that you want to associate with this job. @RoleArn@s are
--- created using the
--- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>
--- AWS Identity and Access Management (IAM) API action.
-createJob_roleARN :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
-createJob_roleARN = Lens.lens (\CreateJob' {roleARN} -> roleARN) (\s@CreateJob' {} a -> s {roleARN = a} :: CreateJob)
-
--- | If your job is being created in one of the US regions, you have the
--- option of specifying what size Snow device you\'d like for this job. In
--- all other regions, Snowballs come with 80 TB in storage capacity.
---
--- For more information, see
--- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/snowcone-guide\/snow-device-types.html\"
--- (Snow Family Devices and Capacity) in the /Snowcone User Guide/ or
--- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/developer-guide\/snow-device-types.html\"
--- (Snow Family Devices and Capacity) in the /Snowcone User Guide/.
-createJob_snowballCapacityPreference :: Lens.Lens' CreateJob (Prelude.Maybe SnowballCapacity)
-createJob_snowballCapacityPreference = Lens.lens (\CreateJob' {snowballCapacityPreference} -> snowballCapacityPreference) (\s@CreateJob' {} a -> s {snowballCapacityPreference = a} :: CreateJob)
 
 instance Core.AWSRequest CreateJob where
   type AWSResponse CreateJob = CreateJobResponse
@@ -533,44 +533,44 @@ instance Core.AWSRequest CreateJob where
 
 instance Prelude.Hashable CreateJob where
   hashWithSalt _salt CreateJob' {..} =
-    _salt `Prelude.hashWithSalt` jobType
-      `Prelude.hashWithSalt` kmsKeyARN
-      `Prelude.hashWithSalt` remoteManagement
-      `Prelude.hashWithSalt` notification
+    _salt `Prelude.hashWithSalt` roleARN
+      `Prelude.hashWithSalt` deviceConfiguration
       `Prelude.hashWithSalt` forwardingAddressId
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` kmsKeyARN
+      `Prelude.hashWithSalt` longTermPricingId
+      `Prelude.hashWithSalt` notification
+      `Prelude.hashWithSalt` remoteManagement
+      `Prelude.hashWithSalt` clusterId
+      `Prelude.hashWithSalt` taxDocuments
+      `Prelude.hashWithSalt` resources
+      `Prelude.hashWithSalt` snowballCapacityPreference
       `Prelude.hashWithSalt` addressId
       `Prelude.hashWithSalt` snowballType
-      `Prelude.hashWithSalt` longTermPricingId
+      `Prelude.hashWithSalt` jobType
       `Prelude.hashWithSalt` shippingOption
-      `Prelude.hashWithSalt` resources
       `Prelude.hashWithSalt` onDeviceServiceConfiguration
-      `Prelude.hashWithSalt` clusterId
-      `Prelude.hashWithSalt` deviceConfiguration
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` taxDocuments
-      `Prelude.hashWithSalt` roleARN
-      `Prelude.hashWithSalt` snowballCapacityPreference
 
 instance Prelude.NFData CreateJob where
   rnf CreateJob' {..} =
-    Prelude.rnf jobType
-      `Prelude.seq` Prelude.rnf kmsKeyARN
-      `Prelude.seq` Prelude.rnf remoteManagement
-      `Prelude.seq` Prelude.rnf notification
+    Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf deviceConfiguration
       `Prelude.seq` Prelude.rnf forwardingAddressId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf kmsKeyARN
+      `Prelude.seq` Prelude.rnf longTermPricingId
+      `Prelude.seq` Prelude.rnf notification
+      `Prelude.seq` Prelude.rnf remoteManagement
+      `Prelude.seq` Prelude.rnf clusterId
+      `Prelude.seq` Prelude.rnf taxDocuments
+      `Prelude.seq` Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf snowballCapacityPreference
       `Prelude.seq` Prelude.rnf addressId
       `Prelude.seq` Prelude.rnf snowballType
-      `Prelude.seq` Prelude.rnf longTermPricingId
+      `Prelude.seq` Prelude.rnf jobType
       `Prelude.seq` Prelude.rnf shippingOption
-      `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf onDeviceServiceConfiguration
-      `Prelude.seq` Prelude.rnf clusterId
-      `Prelude.seq` Prelude.rnf deviceConfiguration
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf taxDocuments
-      `Prelude.seq` Prelude.rnf roleARN
       `Prelude.seq` Prelude.rnf
-        snowballCapacityPreference
+        onDeviceServiceConfiguration
 
 instance Core.ToHeaders CreateJob where
   toHeaders =
@@ -591,30 +591,30 @@ instance Core.ToJSON CreateJob where
   toJSON CreateJob' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("JobType" Core..=) Prelude.<$> jobType,
-            ("KmsKeyARN" Core..=) Prelude.<$> kmsKeyARN,
-            ("RemoteManagement" Core..=)
-              Prelude.<$> remoteManagement,
-            ("Notification" Core..=) Prelude.<$> notification,
-            ("ForwardingAddressId" Core..=)
-              Prelude.<$> forwardingAddressId,
-            ("AddressId" Core..=) Prelude.<$> addressId,
-            ("SnowballType" Core..=) Prelude.<$> snowballType,
-            ("LongTermPricingId" Core..=)
-              Prelude.<$> longTermPricingId,
-            ("ShippingOption" Core..=)
-              Prelude.<$> shippingOption,
-            ("Resources" Core..=) Prelude.<$> resources,
-            ("OnDeviceServiceConfiguration" Core..=)
-              Prelude.<$> onDeviceServiceConfiguration,
-            ("ClusterId" Core..=) Prelude.<$> clusterId,
+          [ ("RoleARN" Core..=) Prelude.<$> roleARN,
             ("DeviceConfiguration" Core..=)
               Prelude.<$> deviceConfiguration,
+            ("ForwardingAddressId" Core..=)
+              Prelude.<$> forwardingAddressId,
             ("Description" Core..=) Prelude.<$> description,
+            ("KmsKeyARN" Core..=) Prelude.<$> kmsKeyARN,
+            ("LongTermPricingId" Core..=)
+              Prelude.<$> longTermPricingId,
+            ("Notification" Core..=) Prelude.<$> notification,
+            ("RemoteManagement" Core..=)
+              Prelude.<$> remoteManagement,
+            ("ClusterId" Core..=) Prelude.<$> clusterId,
             ("TaxDocuments" Core..=) Prelude.<$> taxDocuments,
-            ("RoleARN" Core..=) Prelude.<$> roleARN,
+            ("Resources" Core..=) Prelude.<$> resources,
             ("SnowballCapacityPreference" Core..=)
-              Prelude.<$> snowballCapacityPreference
+              Prelude.<$> snowballCapacityPreference,
+            ("AddressId" Core..=) Prelude.<$> addressId,
+            ("SnowballType" Core..=) Prelude.<$> snowballType,
+            ("JobType" Core..=) Prelude.<$> jobType,
+            ("ShippingOption" Core..=)
+              Prelude.<$> shippingOption,
+            ("OnDeviceServiceConfiguration" Core..=)
+              Prelude.<$> onDeviceServiceConfiguration
           ]
       )
 

@@ -28,17 +28,14 @@ module Amazonka.Snowball
     -- * Errors
     -- $errors
 
-    -- ** InvalidResourceException
-    _InvalidResourceException,
+    -- ** InvalidAddressException
+    _InvalidAddressException,
 
     -- ** UnsupportedAddressException
     _UnsupportedAddressException,
 
-    -- ** ReturnShippingLabelAlreadyExistsException
-    _ReturnShippingLabelAlreadyExistsException,
-
-    -- ** KMSRequestFailedException
-    _KMSRequestFailedException,
+    -- ** InvalidResourceException
+    _InvalidResourceException,
 
     -- ** InvalidJobStateException
     _InvalidJobStateException,
@@ -46,20 +43,23 @@ module Amazonka.Snowball
     -- ** InvalidInputCombinationException
     _InvalidInputCombinationException,
 
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
     -- ** ConflictException
     _ConflictException,
+
+    -- ** KMSRequestFailedException
+    _KMSRequestFailedException,
 
     -- ** Ec2RequestFailedException
     _Ec2RequestFailedException,
 
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
-
-    -- ** InvalidAddressException
-    _InvalidAddressException,
-
     -- ** ClusterLimitExceededException
     _ClusterLimitExceededException,
+
+    -- ** ReturnShippingLabelAlreadyExistsException
+    _ReturnShippingLabelAlreadyExistsException,
 
     -- * Waiters
     -- $waiters
@@ -73,11 +73,11 @@ module Amazonka.Snowball
     CancelClusterResponse (CancelClusterResponse'),
     newCancelClusterResponse,
 
-    -- ** DescribeCluster
-    DescribeCluster (DescribeCluster'),
-    newDescribeCluster,
-    DescribeClusterResponse (DescribeClusterResponse'),
-    newDescribeClusterResponse,
+    -- ** CancelJob
+    CancelJob (CancelJob'),
+    newCancelJob,
+    CancelJobResponse (CancelJobResponse'),
+    newCancelJobResponse,
 
     -- ** CreateAddress
     CreateAddress (CreateAddress'),
@@ -85,47 +85,11 @@ module Amazonka.Snowball
     CreateAddressResponse (CreateAddressResponse'),
     newCreateAddressResponse,
 
-    -- ** CreateReturnShippingLabel
-    CreateReturnShippingLabel (CreateReturnShippingLabel'),
-    newCreateReturnShippingLabel,
-    CreateReturnShippingLabelResponse (CreateReturnShippingLabelResponse'),
-    newCreateReturnShippingLabelResponse,
-
-    -- ** GetSnowballUsage
-    GetSnowballUsage (GetSnowballUsage'),
-    newGetSnowballUsage,
-    GetSnowballUsageResponse (GetSnowballUsageResponse'),
-    newGetSnowballUsageResponse,
-
-    -- ** DescribeAddresses (Paginated)
-    DescribeAddresses (DescribeAddresses'),
-    newDescribeAddresses,
-    DescribeAddressesResponse (DescribeAddressesResponse'),
-    newDescribeAddressesResponse,
-
-    -- ** ListCompatibleImages (Paginated)
-    ListCompatibleImages (ListCompatibleImages'),
-    newListCompatibleImages,
-    ListCompatibleImagesResponse (ListCompatibleImagesResponse'),
-    newListCompatibleImagesResponse,
-
-    -- ** CreateLongTermPricing
-    CreateLongTermPricing (CreateLongTermPricing'),
-    newCreateLongTermPricing,
-    CreateLongTermPricingResponse (CreateLongTermPricingResponse'),
-    newCreateLongTermPricingResponse,
-
-    -- ** UpdateCluster
-    UpdateCluster (UpdateCluster'),
-    newUpdateCluster,
-    UpdateClusterResponse (UpdateClusterResponse'),
-    newUpdateClusterResponse,
-
-    -- ** GetSoftwareUpdates
-    GetSoftwareUpdates (GetSoftwareUpdates'),
-    newGetSoftwareUpdates,
-    GetSoftwareUpdatesResponse (GetSoftwareUpdatesResponse'),
-    newGetSoftwareUpdatesResponse,
+    -- ** CreateCluster
+    CreateCluster (CreateCluster'),
+    newCreateCluster,
+    CreateClusterResponse (CreateClusterResponse'),
+    newCreateClusterResponse,
 
     -- ** CreateJob
     CreateJob (CreateJob'),
@@ -133,11 +97,47 @@ module Amazonka.Snowball
     CreateJobResponse (CreateJobResponse'),
     newCreateJobResponse,
 
-    -- ** ListLongTermPricing
-    ListLongTermPricing (ListLongTermPricing'),
-    newListLongTermPricing,
-    ListLongTermPricingResponse (ListLongTermPricingResponse'),
-    newListLongTermPricingResponse,
+    -- ** CreateLongTermPricing
+    CreateLongTermPricing (CreateLongTermPricing'),
+    newCreateLongTermPricing,
+    CreateLongTermPricingResponse (CreateLongTermPricingResponse'),
+    newCreateLongTermPricingResponse,
+
+    -- ** CreateReturnShippingLabel
+    CreateReturnShippingLabel (CreateReturnShippingLabel'),
+    newCreateReturnShippingLabel,
+    CreateReturnShippingLabelResponse (CreateReturnShippingLabelResponse'),
+    newCreateReturnShippingLabelResponse,
+
+    -- ** DescribeAddress
+    DescribeAddress (DescribeAddress'),
+    newDescribeAddress,
+    DescribeAddressResponse (DescribeAddressResponse'),
+    newDescribeAddressResponse,
+
+    -- ** DescribeAddresses (Paginated)
+    DescribeAddresses (DescribeAddresses'),
+    newDescribeAddresses,
+    DescribeAddressesResponse (DescribeAddressesResponse'),
+    newDescribeAddressesResponse,
+
+    -- ** DescribeCluster
+    DescribeCluster (DescribeCluster'),
+    newDescribeCluster,
+    DescribeClusterResponse (DescribeClusterResponse'),
+    newDescribeClusterResponse,
+
+    -- ** DescribeJob
+    DescribeJob (DescribeJob'),
+    newDescribeJob,
+    DescribeJobResponse (DescribeJobResponse'),
+    newDescribeJobResponse,
+
+    -- ** DescribeReturnShippingLabel
+    DescribeReturnShippingLabel (DescribeReturnShippingLabel'),
+    newDescribeReturnShippingLabel,
+    DescribeReturnShippingLabelResponse (DescribeReturnShippingLabelResponse'),
+    newDescribeReturnShippingLabelResponse,
 
     -- ** GetJobManifest
     GetJobManifest (GetJobManifest'),
@@ -145,17 +145,59 @@ module Amazonka.Snowball
     GetJobManifestResponse (GetJobManifestResponse'),
     newGetJobManifestResponse,
 
-    -- ** CreateCluster
-    CreateCluster (CreateCluster'),
-    newCreateCluster,
-    CreateClusterResponse (CreateClusterResponse'),
-    newCreateClusterResponse,
+    -- ** GetJobUnlockCode
+    GetJobUnlockCode (GetJobUnlockCode'),
+    newGetJobUnlockCode,
+    GetJobUnlockCodeResponse (GetJobUnlockCodeResponse'),
+    newGetJobUnlockCodeResponse,
+
+    -- ** GetSnowballUsage
+    GetSnowballUsage (GetSnowballUsage'),
+    newGetSnowballUsage,
+    GetSnowballUsageResponse (GetSnowballUsageResponse'),
+    newGetSnowballUsageResponse,
+
+    -- ** GetSoftwareUpdates
+    GetSoftwareUpdates (GetSoftwareUpdates'),
+    newGetSoftwareUpdates,
+    GetSoftwareUpdatesResponse (GetSoftwareUpdatesResponse'),
+    newGetSoftwareUpdatesResponse,
+
+    -- ** ListClusterJobs (Paginated)
+    ListClusterJobs (ListClusterJobs'),
+    newListClusterJobs,
+    ListClusterJobsResponse (ListClusterJobsResponse'),
+    newListClusterJobsResponse,
+
+    -- ** ListClusters (Paginated)
+    ListClusters (ListClusters'),
+    newListClusters,
+    ListClustersResponse (ListClustersResponse'),
+    newListClustersResponse,
+
+    -- ** ListCompatibleImages (Paginated)
+    ListCompatibleImages (ListCompatibleImages'),
+    newListCompatibleImages,
+    ListCompatibleImagesResponse (ListCompatibleImagesResponse'),
+    newListCompatibleImagesResponse,
 
     -- ** ListJobs (Paginated)
     ListJobs (ListJobs'),
     newListJobs,
     ListJobsResponse (ListJobsResponse'),
     newListJobsResponse,
+
+    -- ** ListLongTermPricing
+    ListLongTermPricing (ListLongTermPricing'),
+    newListLongTermPricing,
+    ListLongTermPricingResponse (ListLongTermPricingResponse'),
+    newListLongTermPricingResponse,
+
+    -- ** UpdateCluster
+    UpdateCluster (UpdateCluster'),
+    newUpdateCluster,
+    UpdateClusterResponse (UpdateClusterResponse'),
+    newUpdateClusterResponse,
 
     -- ** UpdateJob
     UpdateJob (UpdateJob'),
@@ -169,53 +211,11 @@ module Amazonka.Snowball
     UpdateJobShipmentStateResponse (UpdateJobShipmentStateResponse'),
     newUpdateJobShipmentStateResponse,
 
-    -- ** GetJobUnlockCode
-    GetJobUnlockCode (GetJobUnlockCode'),
-    newGetJobUnlockCode,
-    GetJobUnlockCodeResponse (GetJobUnlockCodeResponse'),
-    newGetJobUnlockCodeResponse,
-
-    -- ** ListClusterJobs (Paginated)
-    ListClusterJobs (ListClusterJobs'),
-    newListClusterJobs,
-    ListClusterJobsResponse (ListClusterJobsResponse'),
-    newListClusterJobsResponse,
-
-    -- ** DescribeJob
-    DescribeJob (DescribeJob'),
-    newDescribeJob,
-    DescribeJobResponse (DescribeJobResponse'),
-    newDescribeJobResponse,
-
     -- ** UpdateLongTermPricing
     UpdateLongTermPricing (UpdateLongTermPricing'),
     newUpdateLongTermPricing,
     UpdateLongTermPricingResponse (UpdateLongTermPricingResponse'),
     newUpdateLongTermPricingResponse,
-
-    -- ** ListClusters (Paginated)
-    ListClusters (ListClusters'),
-    newListClusters,
-    ListClustersResponse (ListClustersResponse'),
-    newListClustersResponse,
-
-    -- ** DescribeAddress
-    DescribeAddress (DescribeAddress'),
-    newDescribeAddress,
-    DescribeAddressResponse (DescribeAddressResponse'),
-    newDescribeAddressResponse,
-
-    -- ** DescribeReturnShippingLabel
-    DescribeReturnShippingLabel (DescribeReturnShippingLabel'),
-    newDescribeReturnShippingLabel,
-    DescribeReturnShippingLabelResponse (DescribeReturnShippingLabelResponse'),
-    newDescribeReturnShippingLabelResponse,
-
-    -- ** CancelJob
-    CancelJob (CancelJob'),
-    newCancelJob,
-    CancelJobResponse (CancelJobResponse'),
-    newCancelJobResponse,
 
     -- * Types
 

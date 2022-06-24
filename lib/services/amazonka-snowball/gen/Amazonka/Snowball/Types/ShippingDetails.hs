@@ -30,7 +30,10 @@ import Amazonka.Snowball.Types.ShippingOption
 --
 -- /See:/ 'newShippingDetails' smart constructor.
 data ShippingDetails = ShippingDetails'
-  { -- | The shipping speed for a particular job. This speed doesn\'t dictate how
+  { -- | The @Status@ and @TrackingNumber@ values for a Snow device being
+    -- delivered to the address that you specified for a particular job.
+    outboundShipment :: Prelude.Maybe Shipment,
+    -- | The shipping speed for a particular job. This speed doesn\'t dictate how
     -- soon you\'ll get the Snow device from the job\'s creation date. This
     -- speed represents how quickly it moves to its destination while in
     -- transit. Regional shipping speeds are as follows:
@@ -49,9 +52,6 @@ data ShippingDetails = ShippingDetails'
     --     shipping and two-day shipping.
     shippingOption :: Prelude.Maybe ShippingOption,
     -- | The @Status@ and @TrackingNumber@ values for a Snow device being
-    -- delivered to the address that you specified for a particular job.
-    outboundShipment :: Prelude.Maybe Shipment,
-    -- | The @Status@ and @TrackingNumber@ values for a Snow device being
     -- returned to AWS for a particular job.
     inboundShipment :: Prelude.Maybe Shipment
   }
@@ -64,6 +64,9 @@ data ShippingDetails = ShippingDetails'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'outboundShipment', 'shippingDetails_outboundShipment' - The @Status@ and @TrackingNumber@ values for a Snow device being
+-- delivered to the address that you specified for a particular job.
 --
 -- 'shippingOption', 'shippingDetails_shippingOption' - The shipping speed for a particular job. This speed doesn\'t dictate how
 -- soon you\'ll get the Snow device from the job\'s creation date. This
@@ -83,19 +86,22 @@ data ShippingDetails = ShippingDetails'
 -- -   In the United States of America (US), you have access to one-day
 --     shipping and two-day shipping.
 --
--- 'outboundShipment', 'shippingDetails_outboundShipment' - The @Status@ and @TrackingNumber@ values for a Snow device being
--- delivered to the address that you specified for a particular job.
---
 -- 'inboundShipment', 'shippingDetails_inboundShipment' - The @Status@ and @TrackingNumber@ values for a Snow device being
 -- returned to AWS for a particular job.
 newShippingDetails ::
   ShippingDetails
 newShippingDetails =
   ShippingDetails'
-    { shippingOption = Prelude.Nothing,
-      outboundShipment = Prelude.Nothing,
+    { outboundShipment =
+        Prelude.Nothing,
+      shippingOption = Prelude.Nothing,
       inboundShipment = Prelude.Nothing
     }
+
+-- | The @Status@ and @TrackingNumber@ values for a Snow device being
+-- delivered to the address that you specified for a particular job.
+shippingDetails_outboundShipment :: Lens.Lens' ShippingDetails (Prelude.Maybe Shipment)
+shippingDetails_outboundShipment = Lens.lens (\ShippingDetails' {outboundShipment} -> outboundShipment) (\s@ShippingDetails' {} a -> s {outboundShipment = a} :: ShippingDetails)
 
 -- | The shipping speed for a particular job. This speed doesn\'t dictate how
 -- soon you\'ll get the Snow device from the job\'s creation date. This
@@ -118,11 +124,6 @@ shippingDetails_shippingOption :: Lens.Lens' ShippingDetails (Prelude.Maybe Ship
 shippingDetails_shippingOption = Lens.lens (\ShippingDetails' {shippingOption} -> shippingOption) (\s@ShippingDetails' {} a -> s {shippingOption = a} :: ShippingDetails)
 
 -- | The @Status@ and @TrackingNumber@ values for a Snow device being
--- delivered to the address that you specified for a particular job.
-shippingDetails_outboundShipment :: Lens.Lens' ShippingDetails (Prelude.Maybe Shipment)
-shippingDetails_outboundShipment = Lens.lens (\ShippingDetails' {outboundShipment} -> outboundShipment) (\s@ShippingDetails' {} a -> s {outboundShipment = a} :: ShippingDetails)
-
--- | The @Status@ and @TrackingNumber@ values for a Snow device being
 -- returned to AWS for a particular job.
 shippingDetails_inboundShipment :: Lens.Lens' ShippingDetails (Prelude.Maybe Shipment)
 shippingDetails_inboundShipment = Lens.lens (\ShippingDetails' {inboundShipment} -> inboundShipment) (\s@ShippingDetails' {} a -> s {inboundShipment = a} :: ShippingDetails)
@@ -133,19 +134,19 @@ instance Core.FromJSON ShippingDetails where
       "ShippingDetails"
       ( \x ->
           ShippingDetails'
-            Prelude.<$> (x Core..:? "ShippingOption")
-            Prelude.<*> (x Core..:? "OutboundShipment")
+            Prelude.<$> (x Core..:? "OutboundShipment")
+            Prelude.<*> (x Core..:? "ShippingOption")
             Prelude.<*> (x Core..:? "InboundShipment")
       )
 
 instance Prelude.Hashable ShippingDetails where
   hashWithSalt _salt ShippingDetails' {..} =
-    _salt `Prelude.hashWithSalt` shippingOption
-      `Prelude.hashWithSalt` outboundShipment
+    _salt `Prelude.hashWithSalt` outboundShipment
+      `Prelude.hashWithSalt` shippingOption
       `Prelude.hashWithSalt` inboundShipment
 
 instance Prelude.NFData ShippingDetails where
   rnf ShippingDetails' {..} =
-    Prelude.rnf shippingOption
-      `Prelude.seq` Prelude.rnf outboundShipment
+    Prelude.rnf outboundShipment
+      `Prelude.seq` Prelude.rnf shippingOption
       `Prelude.seq` Prelude.rnf inboundShipment

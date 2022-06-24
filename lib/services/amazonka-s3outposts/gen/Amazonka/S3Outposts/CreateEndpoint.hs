@@ -42,8 +42,8 @@ module Amazonka.S3Outposts.CreateEndpoint
     newCreateEndpoint,
 
     -- * Request Lenses
-    createEndpoint_accessType,
     createEndpoint_customerOwnedIpv4Pool,
+    createEndpoint_accessType,
     createEndpoint_outpostId,
     createEndpoint_subnetId,
     createEndpoint_securityGroupId,
@@ -67,14 +67,14 @@ import Amazonka.S3Outposts.Types
 
 -- | /See:/ 'newCreateEndpoint' smart constructor.
 data CreateEndpoint = CreateEndpoint'
-  { -- | The type of access for the on-premise network connectivity for the
+  { -- | The ID of the customer-owned IPv4 pool for the endpoint. IP addresses
+    -- will be allocated from this pool for the endpoint.
+    customerOwnedIpv4Pool :: Prelude.Maybe Prelude.Text,
+    -- | The type of access for the on-premise network connectivity for the
     -- Outpost endpoint. To access the endpoint from an on-premises network,
     -- you must specify the access type and provide the customer owned IPv4
     -- pool.
     accessType :: Prelude.Maybe EndpointAccessType,
-    -- | The ID of the customer-owned IPv4 pool for the endpoint. IP addresses
-    -- will be allocated from this pool for the endpoint.
-    customerOwnedIpv4Pool :: Prelude.Maybe Prelude.Text,
     -- | The ID of the AWS Outposts.
     outpostId :: Prelude.Text,
     -- | The ID of the subnet in the selected VPC. The endpoint subnet must
@@ -93,13 +93,13 @@ data CreateEndpoint = CreateEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'customerOwnedIpv4Pool', 'createEndpoint_customerOwnedIpv4Pool' - The ID of the customer-owned IPv4 pool for the endpoint. IP addresses
+-- will be allocated from this pool for the endpoint.
+--
 -- 'accessType', 'createEndpoint_accessType' - The type of access for the on-premise network connectivity for the
 -- Outpost endpoint. To access the endpoint from an on-premises network,
 -- you must specify the access type and provide the customer owned IPv4
 -- pool.
---
--- 'customerOwnedIpv4Pool', 'createEndpoint_customerOwnedIpv4Pool' - The ID of the customer-owned IPv4 pool for the endpoint. IP addresses
--- will be allocated from this pool for the endpoint.
 --
 -- 'outpostId', 'createEndpoint_outpostId' - The ID of the AWS Outposts.
 --
@@ -120,12 +120,18 @@ newCreateEndpoint
   pSubnetId_
   pSecurityGroupId_ =
     CreateEndpoint'
-      { accessType = Prelude.Nothing,
-        customerOwnedIpv4Pool = Prelude.Nothing,
+      { customerOwnedIpv4Pool =
+          Prelude.Nothing,
+        accessType = Prelude.Nothing,
         outpostId = pOutpostId_,
         subnetId = pSubnetId_,
         securityGroupId = pSecurityGroupId_
       }
+
+-- | The ID of the customer-owned IPv4 pool for the endpoint. IP addresses
+-- will be allocated from this pool for the endpoint.
+createEndpoint_customerOwnedIpv4Pool :: Lens.Lens' CreateEndpoint (Prelude.Maybe Prelude.Text)
+createEndpoint_customerOwnedIpv4Pool = Lens.lens (\CreateEndpoint' {customerOwnedIpv4Pool} -> customerOwnedIpv4Pool) (\s@CreateEndpoint' {} a -> s {customerOwnedIpv4Pool = a} :: CreateEndpoint)
 
 -- | The type of access for the on-premise network connectivity for the
 -- Outpost endpoint. To access the endpoint from an on-premises network,
@@ -133,11 +139,6 @@ newCreateEndpoint
 -- pool.
 createEndpoint_accessType :: Lens.Lens' CreateEndpoint (Prelude.Maybe EndpointAccessType)
 createEndpoint_accessType = Lens.lens (\CreateEndpoint' {accessType} -> accessType) (\s@CreateEndpoint' {} a -> s {accessType = a} :: CreateEndpoint)
-
--- | The ID of the customer-owned IPv4 pool for the endpoint. IP addresses
--- will be allocated from this pool for the endpoint.
-createEndpoint_customerOwnedIpv4Pool :: Lens.Lens' CreateEndpoint (Prelude.Maybe Prelude.Text)
-createEndpoint_customerOwnedIpv4Pool = Lens.lens (\CreateEndpoint' {customerOwnedIpv4Pool} -> customerOwnedIpv4Pool) (\s@CreateEndpoint' {} a -> s {customerOwnedIpv4Pool = a} :: CreateEndpoint)
 
 -- | The ID of the AWS Outposts.
 createEndpoint_outpostId :: Lens.Lens' CreateEndpoint Prelude.Text
@@ -167,16 +168,16 @@ instance Core.AWSRequest CreateEndpoint where
 
 instance Prelude.Hashable CreateEndpoint where
   hashWithSalt _salt CreateEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` accessType
-      `Prelude.hashWithSalt` customerOwnedIpv4Pool
+    _salt `Prelude.hashWithSalt` customerOwnedIpv4Pool
+      `Prelude.hashWithSalt` accessType
       `Prelude.hashWithSalt` outpostId
       `Prelude.hashWithSalt` subnetId
       `Prelude.hashWithSalt` securityGroupId
 
 instance Prelude.NFData CreateEndpoint where
   rnf CreateEndpoint' {..} =
-    Prelude.rnf accessType
-      `Prelude.seq` Prelude.rnf customerOwnedIpv4Pool
+    Prelude.rnf customerOwnedIpv4Pool
+      `Prelude.seq` Prelude.rnf accessType
       `Prelude.seq` Prelude.rnf outpostId
       `Prelude.seq` Prelude.rnf subnetId
       `Prelude.seq` Prelude.rnf securityGroupId
@@ -196,9 +197,9 @@ instance Core.ToJSON CreateEndpoint where
   toJSON CreateEndpoint' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AccessType" Core..=) Prelude.<$> accessType,
-            ("CustomerOwnedIpv4Pool" Core..=)
+          [ ("CustomerOwnedIpv4Pool" Core..=)
               Prelude.<$> customerOwnedIpv4Pool,
+            ("AccessType" Core..=) Prelude.<$> accessType,
             Prelude.Just ("OutpostId" Core..= outpostId),
             Prelude.Just ("SubnetId" Core..= subnetId),
             Prelude.Just

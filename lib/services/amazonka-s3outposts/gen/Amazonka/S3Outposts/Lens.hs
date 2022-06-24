@@ -15,8 +15,8 @@ module Amazonka.S3Outposts.Lens
   ( -- * Operations
 
     -- ** CreateEndpoint
-    createEndpoint_accessType,
     createEndpoint_customerOwnedIpv4Pool,
+    createEndpoint_accessType,
     createEndpoint_outpostId,
     createEndpoint_subnetId,
     createEndpoint_securityGroupId,
@@ -37,17 +37,17 @@ module Amazonka.S3Outposts.Lens
     -- * Types
 
     -- ** Endpoint
-    endpoint_creationTime,
-    endpoint_status,
-    endpoint_vpcId,
-    endpoint_networkInterfaces,
     endpoint_outpostsId,
     endpoint_subnetId,
     endpoint_securityGroupId,
-    endpoint_accessType,
+    endpoint_status,
     endpoint_customerOwnedIpv4Pool,
     endpoint_cidrBlock,
+    endpoint_creationTime,
+    endpoint_accessType,
+    endpoint_vpcId,
     endpoint_endpointArn,
+    endpoint_networkInterfaces,
 
     -- ** NetworkInterface
     networkInterface_networkInterfaceId,

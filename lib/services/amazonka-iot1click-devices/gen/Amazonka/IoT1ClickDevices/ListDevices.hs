@@ -30,16 +30,16 @@ module Amazonka.IoT1ClickDevices.ListDevices
 
     -- * Request Lenses
     listDevices_nextToken,
-    listDevices_deviceType,
     listDevices_maxResults,
+    listDevices_deviceType,
 
     -- * Destructuring the Response
     ListDevicesResponse (..),
     newListDevicesResponse,
 
     -- * Response Lenses
-    listDevicesResponse_nextToken,
     listDevicesResponse_devices,
+    listDevicesResponse_nextToken,
     listDevicesResponse_httpStatus,
   )
 where
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 data ListDevices = ListDevices'
   { -- | The token to retrieve the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The type of the device, such as \"button\".
-    deviceType :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per request. If not set, a
     -- default value of 100 is used.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The type of the device, such as \"button\".
+    deviceType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,31 +73,31 @@ data ListDevices = ListDevices'
 --
 -- 'nextToken', 'listDevices_nextToken' - The token to retrieve the next set of results.
 --
--- 'deviceType', 'listDevices_deviceType' - The type of the device, such as \"button\".
---
 -- 'maxResults', 'listDevices_maxResults' - The maximum number of results to return per request. If not set, a
 -- default value of 100 is used.
+--
+-- 'deviceType', 'listDevices_deviceType' - The type of the device, such as \"button\".
 newListDevices ::
   ListDevices
 newListDevices =
   ListDevices'
     { nextToken = Prelude.Nothing,
-      deviceType = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      deviceType = Prelude.Nothing
     }
 
 -- | The token to retrieve the next set of results.
 listDevices_nextToken :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.Text)
 listDevices_nextToken = Lens.lens (\ListDevices' {nextToken} -> nextToken) (\s@ListDevices' {} a -> s {nextToken = a} :: ListDevices)
 
--- | The type of the device, such as \"button\".
-listDevices_deviceType :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.Text)
-listDevices_deviceType = Lens.lens (\ListDevices' {deviceType} -> deviceType) (\s@ListDevices' {} a -> s {deviceType = a} :: ListDevices)
-
 -- | The maximum number of results to return per request. If not set, a
 -- default value of 100 is used.
 listDevices_maxResults :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.Natural)
 listDevices_maxResults = Lens.lens (\ListDevices' {maxResults} -> maxResults) (\s@ListDevices' {} a -> s {maxResults = a} :: ListDevices)
+
+-- | The type of the device, such as \"button\".
+listDevices_deviceType :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.Text)
+listDevices_deviceType = Lens.lens (\ListDevices' {deviceType} -> deviceType) (\s@ListDevices' {} a -> s {deviceType = a} :: ListDevices)
 
 instance Core.AWSPager ListDevices where
   page rq rs
@@ -125,22 +125,22 @@ instance Core.AWSRequest ListDevices where
     Response.receiveJSON
       ( \s h x ->
           ListDevicesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "devices" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "devices" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDevices where
   hashWithSalt _salt ListDevices' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` deviceType
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` deviceType
 
 instance Prelude.NFData ListDevices where
   rnf ListDevices' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf deviceType
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf deviceType
 
 instance Core.ToHeaders ListDevices where
   toHeaders =
@@ -160,16 +160,16 @@ instance Core.ToQuery ListDevices where
   toQuery ListDevices' {..} =
     Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
-        "deviceType" Core.=: deviceType,
-        "maxResults" Core.=: maxResults
+        "maxResults" Core.=: maxResults,
+        "deviceType" Core.=: deviceType
       ]
 
 -- | /See:/ 'newListDevicesResponse' smart constructor.
 data ListDevicesResponse = ListDevicesResponse'
-  { -- | The token to retrieve the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of devices.
+  { -- | A list of devices.
     devices :: Prelude.Maybe [DeviceDescription],
+    -- | The token to retrieve the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -183,9 +183,9 @@ data ListDevicesResponse = ListDevicesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDevicesResponse_nextToken' - The token to retrieve the next set of results.
---
 -- 'devices', 'listDevicesResponse_devices' - A list of devices.
+--
+-- 'nextToken', 'listDevicesResponse_nextToken' - The token to retrieve the next set of results.
 --
 -- 'httpStatus', 'listDevicesResponse_httpStatus' - The response's http status code.
 newListDevicesResponse ::
@@ -194,18 +194,18 @@ newListDevicesResponse ::
   ListDevicesResponse
 newListDevicesResponse pHttpStatus_ =
   ListDevicesResponse'
-    { nextToken = Prelude.Nothing,
-      devices = Prelude.Nothing,
+    { devices = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token to retrieve the next set of results.
-listDevicesResponse_nextToken :: Lens.Lens' ListDevicesResponse (Prelude.Maybe Prelude.Text)
-listDevicesResponse_nextToken = Lens.lens (\ListDevicesResponse' {nextToken} -> nextToken) (\s@ListDevicesResponse' {} a -> s {nextToken = a} :: ListDevicesResponse)
 
 -- | A list of devices.
 listDevicesResponse_devices :: Lens.Lens' ListDevicesResponse (Prelude.Maybe [DeviceDescription])
 listDevicesResponse_devices = Lens.lens (\ListDevicesResponse' {devices} -> devices) (\s@ListDevicesResponse' {} a -> s {devices = a} :: ListDevicesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to retrieve the next set of results.
+listDevicesResponse_nextToken :: Lens.Lens' ListDevicesResponse (Prelude.Maybe Prelude.Text)
+listDevicesResponse_nextToken = Lens.lens (\ListDevicesResponse' {nextToken} -> nextToken) (\s@ListDevicesResponse' {} a -> s {nextToken = a} :: ListDevicesResponse)
 
 -- | The response's http status code.
 listDevicesResponse_httpStatus :: Lens.Lens' ListDevicesResponse Prelude.Int
@@ -213,6 +213,6 @@ listDevicesResponse_httpStatus = Lens.lens (\ListDevicesResponse' {httpStatus} -
 
 instance Prelude.NFData ListDevicesResponse where
   rnf ListDevicesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf devices
+    Prelude.rnf devices
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

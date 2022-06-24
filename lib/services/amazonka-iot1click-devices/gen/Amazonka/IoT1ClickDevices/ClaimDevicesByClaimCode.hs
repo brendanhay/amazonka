@@ -35,8 +35,8 @@ module Amazonka.IoT1ClickDevices.ClaimDevicesByClaimCode
     newClaimDevicesByClaimCodeResponse,
 
     -- * Response Lenses
-    claimDevicesByClaimCodeResponse_claimCode,
     claimDevicesByClaimCodeResponse_total,
+    claimDevicesByClaimCodeResponse_claimCode,
     claimDevicesByClaimCodeResponse_httpStatus,
   )
 where
@@ -87,8 +87,8 @@ instance Core.AWSRequest ClaimDevicesByClaimCode where
     Response.receiveJSON
       ( \s h x ->
           ClaimDevicesByClaimCodeResponse'
-            Prelude.<$> (x Core..?> "claimCode")
-            Prelude.<*> (x Core..?> "total")
+            Prelude.<$> (x Core..?> "total")
+            Prelude.<*> (x Core..?> "claimCode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,11 +123,11 @@ instance Core.ToQuery ClaimDevicesByClaimCode where
 
 -- | /See:/ 'newClaimDevicesByClaimCodeResponse' smart constructor.
 data ClaimDevicesByClaimCodeResponse = ClaimDevicesByClaimCodeResponse'
-  { -- | The claim code provided by the device manufacturer.
-    claimCode :: Prelude.Maybe Prelude.Text,
-    -- | The total number of devices associated with the claim code that has been
+  { -- | The total number of devices associated with the claim code that has been
     -- processed in the claim request.
     total :: Prelude.Maybe Prelude.Int,
+    -- | The claim code provided by the device manufacturer.
+    claimCode :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -141,10 +141,10 @@ data ClaimDevicesByClaimCodeResponse = ClaimDevicesByClaimCodeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'claimCode', 'claimDevicesByClaimCodeResponse_claimCode' - The claim code provided by the device manufacturer.
---
 -- 'total', 'claimDevicesByClaimCodeResponse_total' - The total number of devices associated with the claim code that has been
 -- processed in the claim request.
+--
+-- 'claimCode', 'claimDevicesByClaimCodeResponse_claimCode' - The claim code provided by the device manufacturer.
 --
 -- 'httpStatus', 'claimDevicesByClaimCodeResponse_httpStatus' - The response's http status code.
 newClaimDevicesByClaimCodeResponse ::
@@ -153,20 +153,20 @@ newClaimDevicesByClaimCodeResponse ::
   ClaimDevicesByClaimCodeResponse
 newClaimDevicesByClaimCodeResponse pHttpStatus_ =
   ClaimDevicesByClaimCodeResponse'
-    { claimCode =
+    { total =
         Prelude.Nothing,
-      total = Prelude.Nothing,
+      claimCode = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The claim code provided by the device manufacturer.
-claimDevicesByClaimCodeResponse_claimCode :: Lens.Lens' ClaimDevicesByClaimCodeResponse (Prelude.Maybe Prelude.Text)
-claimDevicesByClaimCodeResponse_claimCode = Lens.lens (\ClaimDevicesByClaimCodeResponse' {claimCode} -> claimCode) (\s@ClaimDevicesByClaimCodeResponse' {} a -> s {claimCode = a} :: ClaimDevicesByClaimCodeResponse)
 
 -- | The total number of devices associated with the claim code that has been
 -- processed in the claim request.
 claimDevicesByClaimCodeResponse_total :: Lens.Lens' ClaimDevicesByClaimCodeResponse (Prelude.Maybe Prelude.Int)
 claimDevicesByClaimCodeResponse_total = Lens.lens (\ClaimDevicesByClaimCodeResponse' {total} -> total) (\s@ClaimDevicesByClaimCodeResponse' {} a -> s {total = a} :: ClaimDevicesByClaimCodeResponse)
+
+-- | The claim code provided by the device manufacturer.
+claimDevicesByClaimCodeResponse_claimCode :: Lens.Lens' ClaimDevicesByClaimCodeResponse (Prelude.Maybe Prelude.Text)
+claimDevicesByClaimCodeResponse_claimCode = Lens.lens (\ClaimDevicesByClaimCodeResponse' {claimCode} -> claimCode) (\s@ClaimDevicesByClaimCodeResponse' {} a -> s {claimCode = a} :: ClaimDevicesByClaimCodeResponse)
 
 -- | The response's http status code.
 claimDevicesByClaimCodeResponse_httpStatus :: Lens.Lens' ClaimDevicesByClaimCodeResponse Prelude.Int
@@ -177,6 +177,6 @@ instance
     ClaimDevicesByClaimCodeResponse
   where
   rnf ClaimDevicesByClaimCodeResponse' {..} =
-    Prelude.rnf claimCode
-      `Prelude.seq` Prelude.rnf total
+    Prelude.rnf total
+      `Prelude.seq` Prelude.rnf claimCode
       `Prelude.seq` Prelude.rnf httpStatus

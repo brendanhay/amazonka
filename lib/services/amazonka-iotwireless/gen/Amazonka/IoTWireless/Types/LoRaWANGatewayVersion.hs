@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLoRaWANGatewayVersion' smart constructor.
 data LoRaWANGatewayVersion = LoRaWANGatewayVersion'
-  { -- | The version of the wireless gateway firmware.
-    packageVersion :: Prelude.Maybe Prelude.Text,
-    -- | The model number of the wireless gateway.
+  { -- | The model number of the wireless gateway.
     model :: Prelude.Maybe Prelude.Text,
     -- | The basic station version of the wireless gateway.
-    station :: Prelude.Maybe Prelude.Text
+    station :: Prelude.Maybe Prelude.Text,
+    -- | The version of the wireless gateway firmware.
+    packageVersion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,19 @@ data LoRaWANGatewayVersion = LoRaWANGatewayVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'packageVersion', 'loRaWANGatewayVersion_packageVersion' - The version of the wireless gateway firmware.
---
 -- 'model', 'loRaWANGatewayVersion_model' - The model number of the wireless gateway.
 --
 -- 'station', 'loRaWANGatewayVersion_station' - The basic station version of the wireless gateway.
+--
+-- 'packageVersion', 'loRaWANGatewayVersion_packageVersion' - The version of the wireless gateway firmware.
 newLoRaWANGatewayVersion ::
   LoRaWANGatewayVersion
 newLoRaWANGatewayVersion =
   LoRaWANGatewayVersion'
-    { packageVersion =
-        Prelude.Nothing,
-      model = Prelude.Nothing,
-      station = Prelude.Nothing
+    { model = Prelude.Nothing,
+      station = Prelude.Nothing,
+      packageVersion = Prelude.Nothing
     }
-
--- | The version of the wireless gateway firmware.
-loRaWANGatewayVersion_packageVersion :: Lens.Lens' LoRaWANGatewayVersion (Prelude.Maybe Prelude.Text)
-loRaWANGatewayVersion_packageVersion = Lens.lens (\LoRaWANGatewayVersion' {packageVersion} -> packageVersion) (\s@LoRaWANGatewayVersion' {} a -> s {packageVersion = a} :: LoRaWANGatewayVersion)
 
 -- | The model number of the wireless gateway.
 loRaWANGatewayVersion_model :: Lens.Lens' LoRaWANGatewayVersion (Prelude.Maybe Prelude.Text)
@@ -71,36 +66,40 @@ loRaWANGatewayVersion_model = Lens.lens (\LoRaWANGatewayVersion' {model} -> mode
 loRaWANGatewayVersion_station :: Lens.Lens' LoRaWANGatewayVersion (Prelude.Maybe Prelude.Text)
 loRaWANGatewayVersion_station = Lens.lens (\LoRaWANGatewayVersion' {station} -> station) (\s@LoRaWANGatewayVersion' {} a -> s {station = a} :: LoRaWANGatewayVersion)
 
+-- | The version of the wireless gateway firmware.
+loRaWANGatewayVersion_packageVersion :: Lens.Lens' LoRaWANGatewayVersion (Prelude.Maybe Prelude.Text)
+loRaWANGatewayVersion_packageVersion = Lens.lens (\LoRaWANGatewayVersion' {packageVersion} -> packageVersion) (\s@LoRaWANGatewayVersion' {} a -> s {packageVersion = a} :: LoRaWANGatewayVersion)
+
 instance Core.FromJSON LoRaWANGatewayVersion where
   parseJSON =
     Core.withObject
       "LoRaWANGatewayVersion"
       ( \x ->
           LoRaWANGatewayVersion'
-            Prelude.<$> (x Core..:? "PackageVersion")
-            Prelude.<*> (x Core..:? "Model")
+            Prelude.<$> (x Core..:? "Model")
             Prelude.<*> (x Core..:? "Station")
+            Prelude.<*> (x Core..:? "PackageVersion")
       )
 
 instance Prelude.Hashable LoRaWANGatewayVersion where
   hashWithSalt _salt LoRaWANGatewayVersion' {..} =
-    _salt `Prelude.hashWithSalt` packageVersion
-      `Prelude.hashWithSalt` model
+    _salt `Prelude.hashWithSalt` model
       `Prelude.hashWithSalt` station
+      `Prelude.hashWithSalt` packageVersion
 
 instance Prelude.NFData LoRaWANGatewayVersion where
   rnf LoRaWANGatewayVersion' {..} =
-    Prelude.rnf packageVersion
-      `Prelude.seq` Prelude.rnf model
+    Prelude.rnf model
       `Prelude.seq` Prelude.rnf station
+      `Prelude.seq` Prelude.rnf packageVersion
 
 instance Core.ToJSON LoRaWANGatewayVersion where
   toJSON LoRaWANGatewayVersion' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PackageVersion" Core..=)
-              Prelude.<$> packageVersion,
-            ("Model" Core..=) Prelude.<$> model,
-            ("Station" Core..=) Prelude.<$> station
+          [ ("Model" Core..=) Prelude.<$> model,
+            ("Station" Core..=) Prelude.<$> station,
+            ("PackageVersion" Core..=)
+              Prelude.<$> packageVersion
           ]
       )

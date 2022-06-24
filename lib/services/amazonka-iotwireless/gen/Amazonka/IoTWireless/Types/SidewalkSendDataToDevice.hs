@@ -28,9 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSidewalkSendDataToDevice' smart constructor.
 data SidewalkSendDataToDevice = SidewalkSendDataToDevice'
-  { messageType :: Prelude.Maybe MessageType,
-    -- | The sequence number.
-    seq :: Prelude.Maybe Prelude.Natural
+  { -- | The sequence number.
+    seq :: Prelude.Maybe Prelude.Natural,
+    messageType :: Prelude.Maybe MessageType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,41 +42,40 @@ data SidewalkSendDataToDevice = SidewalkSendDataToDevice'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'messageType', 'sidewalkSendDataToDevice_messageType' - Undocumented member.
---
 -- 'seq', 'sidewalkSendDataToDevice_seq' - The sequence number.
+--
+-- 'messageType', 'sidewalkSendDataToDevice_messageType' - Undocumented member.
 newSidewalkSendDataToDevice ::
   SidewalkSendDataToDevice
 newSidewalkSendDataToDevice =
   SidewalkSendDataToDevice'
-    { messageType =
-        Prelude.Nothing,
-      seq = Prelude.Nothing
+    { seq = Prelude.Nothing,
+      messageType = Prelude.Nothing
     }
-
--- | Undocumented member.
-sidewalkSendDataToDevice_messageType :: Lens.Lens' SidewalkSendDataToDevice (Prelude.Maybe MessageType)
-sidewalkSendDataToDevice_messageType = Lens.lens (\SidewalkSendDataToDevice' {messageType} -> messageType) (\s@SidewalkSendDataToDevice' {} a -> s {messageType = a} :: SidewalkSendDataToDevice)
 
 -- | The sequence number.
 sidewalkSendDataToDevice_seq :: Lens.Lens' SidewalkSendDataToDevice (Prelude.Maybe Prelude.Natural)
 sidewalkSendDataToDevice_seq = Lens.lens (\SidewalkSendDataToDevice' {seq} -> seq) (\s@SidewalkSendDataToDevice' {} a -> s {seq = a} :: SidewalkSendDataToDevice)
 
+-- | Undocumented member.
+sidewalkSendDataToDevice_messageType :: Lens.Lens' SidewalkSendDataToDevice (Prelude.Maybe MessageType)
+sidewalkSendDataToDevice_messageType = Lens.lens (\SidewalkSendDataToDevice' {messageType} -> messageType) (\s@SidewalkSendDataToDevice' {} a -> s {messageType = a} :: SidewalkSendDataToDevice)
+
 instance Prelude.Hashable SidewalkSendDataToDevice where
   hashWithSalt _salt SidewalkSendDataToDevice' {..} =
-    _salt `Prelude.hashWithSalt` messageType
-      `Prelude.hashWithSalt` seq
+    _salt `Prelude.hashWithSalt` seq
+      `Prelude.hashWithSalt` messageType
 
 instance Prelude.NFData SidewalkSendDataToDevice where
   rnf SidewalkSendDataToDevice' {..} =
-    Prelude.rnf messageType
-      `Prelude.seq` Prelude.rnf seq
+    Prelude.rnf seq
+      `Prelude.seq` Prelude.rnf messageType
 
 instance Core.ToJSON SidewalkSendDataToDevice where
   toJSON SidewalkSendDataToDevice' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MessageType" Core..=) Prelude.<$> messageType,
-            ("Seq" Core..=) Prelude.<$> seq
+          [ ("Seq" Core..=) Prelude.<$> seq,
+            ("MessageType" Core..=) Prelude.<$> messageType
           ]
       )

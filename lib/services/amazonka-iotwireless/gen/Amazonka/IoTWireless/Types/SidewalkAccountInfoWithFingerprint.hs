@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 data SidewalkAccountInfoWithFingerprint = SidewalkAccountInfoWithFingerprint'
   { -- | The Amazon Resource Name of the resource.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The fingerprint of the Sidewalk application server private key.
-    fingerprint :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The Sidewalk Amazon ID.
-    amazonId :: Prelude.Maybe Prelude.Text
+    amazonId :: Prelude.Maybe Prelude.Text,
+    -- | The fingerprint of the Sidewalk application server private key.
+    fingerprint :: Prelude.Maybe (Core.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -46,30 +46,30 @@ data SidewalkAccountInfoWithFingerprint = SidewalkAccountInfoWithFingerprint'
 --
 -- 'arn', 'sidewalkAccountInfoWithFingerprint_arn' - The Amazon Resource Name of the resource.
 --
--- 'fingerprint', 'sidewalkAccountInfoWithFingerprint_fingerprint' - The fingerprint of the Sidewalk application server private key.
---
 -- 'amazonId', 'sidewalkAccountInfoWithFingerprint_amazonId' - The Sidewalk Amazon ID.
+--
+-- 'fingerprint', 'sidewalkAccountInfoWithFingerprint_fingerprint' - The fingerprint of the Sidewalk application server private key.
 newSidewalkAccountInfoWithFingerprint ::
   SidewalkAccountInfoWithFingerprint
 newSidewalkAccountInfoWithFingerprint =
   SidewalkAccountInfoWithFingerprint'
     { arn =
         Prelude.Nothing,
-      fingerprint = Prelude.Nothing,
-      amazonId = Prelude.Nothing
+      amazonId = Prelude.Nothing,
+      fingerprint = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name of the resource.
 sidewalkAccountInfoWithFingerprint_arn :: Lens.Lens' SidewalkAccountInfoWithFingerprint (Prelude.Maybe Prelude.Text)
 sidewalkAccountInfoWithFingerprint_arn = Lens.lens (\SidewalkAccountInfoWithFingerprint' {arn} -> arn) (\s@SidewalkAccountInfoWithFingerprint' {} a -> s {arn = a} :: SidewalkAccountInfoWithFingerprint)
 
--- | The fingerprint of the Sidewalk application server private key.
-sidewalkAccountInfoWithFingerprint_fingerprint :: Lens.Lens' SidewalkAccountInfoWithFingerprint (Prelude.Maybe Prelude.Text)
-sidewalkAccountInfoWithFingerprint_fingerprint = Lens.lens (\SidewalkAccountInfoWithFingerprint' {fingerprint} -> fingerprint) (\s@SidewalkAccountInfoWithFingerprint' {} a -> s {fingerprint = a} :: SidewalkAccountInfoWithFingerprint) Prelude.. Lens.mapping Core._Sensitive
-
 -- | The Sidewalk Amazon ID.
 sidewalkAccountInfoWithFingerprint_amazonId :: Lens.Lens' SidewalkAccountInfoWithFingerprint (Prelude.Maybe Prelude.Text)
 sidewalkAccountInfoWithFingerprint_amazonId = Lens.lens (\SidewalkAccountInfoWithFingerprint' {amazonId} -> amazonId) (\s@SidewalkAccountInfoWithFingerprint' {} a -> s {amazonId = a} :: SidewalkAccountInfoWithFingerprint)
+
+-- | The fingerprint of the Sidewalk application server private key.
+sidewalkAccountInfoWithFingerprint_fingerprint :: Lens.Lens' SidewalkAccountInfoWithFingerprint (Prelude.Maybe Prelude.Text)
+sidewalkAccountInfoWithFingerprint_fingerprint = Lens.lens (\SidewalkAccountInfoWithFingerprint' {fingerprint} -> fingerprint) (\s@SidewalkAccountInfoWithFingerprint' {} a -> s {fingerprint = a} :: SidewalkAccountInfoWithFingerprint) Prelude.. Lens.mapping Core._Sensitive
 
 instance
   Core.FromJSON
@@ -81,8 +81,8 @@ instance
       ( \x ->
           SidewalkAccountInfoWithFingerprint'
             Prelude.<$> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Fingerprint")
             Prelude.<*> (x Core..:? "AmazonId")
+            Prelude.<*> (x Core..:? "Fingerprint")
       )
 
 instance
@@ -93,8 +93,8 @@ instance
     _salt
     SidewalkAccountInfoWithFingerprint' {..} =
       _salt `Prelude.hashWithSalt` arn
-        `Prelude.hashWithSalt` fingerprint
         `Prelude.hashWithSalt` amazonId
+        `Prelude.hashWithSalt` fingerprint
 
 instance
   Prelude.NFData
@@ -102,5 +102,5 @@ instance
   where
   rnf SidewalkAccountInfoWithFingerprint' {..} =
     Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf fingerprint
       `Prelude.seq` Prelude.rnf amazonId
+      `Prelude.seq` Prelude.rnf fingerprint

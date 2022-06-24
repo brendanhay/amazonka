@@ -34,9 +34,9 @@ module Amazonka.IoTWireless.GetServiceProfile
     newGetServiceProfileResponse,
 
     -- * Response Lenses
-    getServiceProfileResponse_arn,
-    getServiceProfileResponse_loRaWAN,
     getServiceProfileResponse_name,
+    getServiceProfileResponse_loRaWAN,
+    getServiceProfileResponse_arn,
     getServiceProfileResponse_id,
     getServiceProfileResponse_httpStatus,
   )
@@ -85,9 +85,9 @@ instance Core.AWSRequest GetServiceProfile where
     Response.receiveJSON
       ( \s h x ->
           GetServiceProfileResponse'
-            Prelude.<$> (x Core..?> "Arn")
+            Prelude.<$> (x Core..?> "Name")
             Prelude.<*> (x Core..?> "LoRaWAN")
-            Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (x Core..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -112,12 +112,12 @@ instance Core.ToQuery GetServiceProfile where
 
 -- | /See:/ 'newGetServiceProfileResponse' smart constructor.
 data GetServiceProfileResponse = GetServiceProfileResponse'
-  { -- | The Amazon Resource Name of the resource.
-    arn :: Prelude.Maybe Prelude.Text,
+  { -- | The name of the resource.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Information about the service profile.
     loRaWAN :: Prelude.Maybe LoRaWANGetServiceProfileInfo,
-    -- | The name of the resource.
-    name :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name of the resource.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the service profile.
     id :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -133,11 +133,11 @@ data GetServiceProfileResponse = GetServiceProfileResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'getServiceProfileResponse_arn' - The Amazon Resource Name of the resource.
+-- 'name', 'getServiceProfileResponse_name' - The name of the resource.
 --
 -- 'loRaWAN', 'getServiceProfileResponse_loRaWAN' - Information about the service profile.
 --
--- 'name', 'getServiceProfileResponse_name' - The name of the resource.
+-- 'arn', 'getServiceProfileResponse_arn' - The Amazon Resource Name of the resource.
 --
 -- 'id', 'getServiceProfileResponse_id' - The ID of the service profile.
 --
@@ -148,24 +148,24 @@ newGetServiceProfileResponse ::
   GetServiceProfileResponse
 newGetServiceProfileResponse pHttpStatus_ =
   GetServiceProfileResponse'
-    { arn = Prelude.Nothing,
+    { name = Prelude.Nothing,
       loRaWAN = Prelude.Nothing,
-      name = Prelude.Nothing,
+      arn = Prelude.Nothing,
       id = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The Amazon Resource Name of the resource.
-getServiceProfileResponse_arn :: Lens.Lens' GetServiceProfileResponse (Prelude.Maybe Prelude.Text)
-getServiceProfileResponse_arn = Lens.lens (\GetServiceProfileResponse' {arn} -> arn) (\s@GetServiceProfileResponse' {} a -> s {arn = a} :: GetServiceProfileResponse)
+-- | The name of the resource.
+getServiceProfileResponse_name :: Lens.Lens' GetServiceProfileResponse (Prelude.Maybe Prelude.Text)
+getServiceProfileResponse_name = Lens.lens (\GetServiceProfileResponse' {name} -> name) (\s@GetServiceProfileResponse' {} a -> s {name = a} :: GetServiceProfileResponse)
 
 -- | Information about the service profile.
 getServiceProfileResponse_loRaWAN :: Lens.Lens' GetServiceProfileResponse (Prelude.Maybe LoRaWANGetServiceProfileInfo)
 getServiceProfileResponse_loRaWAN = Lens.lens (\GetServiceProfileResponse' {loRaWAN} -> loRaWAN) (\s@GetServiceProfileResponse' {} a -> s {loRaWAN = a} :: GetServiceProfileResponse)
 
--- | The name of the resource.
-getServiceProfileResponse_name :: Lens.Lens' GetServiceProfileResponse (Prelude.Maybe Prelude.Text)
-getServiceProfileResponse_name = Lens.lens (\GetServiceProfileResponse' {name} -> name) (\s@GetServiceProfileResponse' {} a -> s {name = a} :: GetServiceProfileResponse)
+-- | The Amazon Resource Name of the resource.
+getServiceProfileResponse_arn :: Lens.Lens' GetServiceProfileResponse (Prelude.Maybe Prelude.Text)
+getServiceProfileResponse_arn = Lens.lens (\GetServiceProfileResponse' {arn} -> arn) (\s@GetServiceProfileResponse' {} a -> s {arn = a} :: GetServiceProfileResponse)
 
 -- | The ID of the service profile.
 getServiceProfileResponse_id :: Lens.Lens' GetServiceProfileResponse (Prelude.Maybe Prelude.Text)
@@ -177,8 +177,8 @@ getServiceProfileResponse_httpStatus = Lens.lens (\GetServiceProfileResponse' {h
 
 instance Prelude.NFData GetServiceProfileResponse where
   rnf GetServiceProfileResponse' {..} =
-    Prelude.rnf arn
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf loRaWAN
-      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf httpStatus

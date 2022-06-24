@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpdateWirelessGatewayTaskEntry' smart constructor.
 data UpdateWirelessGatewayTaskEntry = UpdateWirelessGatewayTaskEntry'
-  { -- | The Amazon Resource Name of the resource.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The properties that relate to the LoRaWAN wireless gateway.
+  { -- | The properties that relate to the LoRaWAN wireless gateway.
     loRaWAN :: Prelude.Maybe LoRaWANUpdateGatewayTaskEntry,
+    -- | The Amazon Resource Name of the resource.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the new wireless gateway task entry.
     id :: Prelude.Maybe Prelude.Text
   }
@@ -45,28 +45,28 @@ data UpdateWirelessGatewayTaskEntry = UpdateWirelessGatewayTaskEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'updateWirelessGatewayTaskEntry_arn' - The Amazon Resource Name of the resource.
---
 -- 'loRaWAN', 'updateWirelessGatewayTaskEntry_loRaWAN' - The properties that relate to the LoRaWAN wireless gateway.
+--
+-- 'arn', 'updateWirelessGatewayTaskEntry_arn' - The Amazon Resource Name of the resource.
 --
 -- 'id', 'updateWirelessGatewayTaskEntry_id' - The ID of the new wireless gateway task entry.
 newUpdateWirelessGatewayTaskEntry ::
   UpdateWirelessGatewayTaskEntry
 newUpdateWirelessGatewayTaskEntry =
   UpdateWirelessGatewayTaskEntry'
-    { arn =
+    { loRaWAN =
         Prelude.Nothing,
-      loRaWAN = Prelude.Nothing,
+      arn = Prelude.Nothing,
       id = Prelude.Nothing
     }
-
--- | The Amazon Resource Name of the resource.
-updateWirelessGatewayTaskEntry_arn :: Lens.Lens' UpdateWirelessGatewayTaskEntry (Prelude.Maybe Prelude.Text)
-updateWirelessGatewayTaskEntry_arn = Lens.lens (\UpdateWirelessGatewayTaskEntry' {arn} -> arn) (\s@UpdateWirelessGatewayTaskEntry' {} a -> s {arn = a} :: UpdateWirelessGatewayTaskEntry)
 
 -- | The properties that relate to the LoRaWAN wireless gateway.
 updateWirelessGatewayTaskEntry_loRaWAN :: Lens.Lens' UpdateWirelessGatewayTaskEntry (Prelude.Maybe LoRaWANUpdateGatewayTaskEntry)
 updateWirelessGatewayTaskEntry_loRaWAN = Lens.lens (\UpdateWirelessGatewayTaskEntry' {loRaWAN} -> loRaWAN) (\s@UpdateWirelessGatewayTaskEntry' {} a -> s {loRaWAN = a} :: UpdateWirelessGatewayTaskEntry)
+
+-- | The Amazon Resource Name of the resource.
+updateWirelessGatewayTaskEntry_arn :: Lens.Lens' UpdateWirelessGatewayTaskEntry (Prelude.Maybe Prelude.Text)
+updateWirelessGatewayTaskEntry_arn = Lens.lens (\UpdateWirelessGatewayTaskEntry' {arn} -> arn) (\s@UpdateWirelessGatewayTaskEntry' {} a -> s {arn = a} :: UpdateWirelessGatewayTaskEntry)
 
 -- | The ID of the new wireless gateway task entry.
 updateWirelessGatewayTaskEntry_id :: Lens.Lens' UpdateWirelessGatewayTaskEntry (Prelude.Maybe Prelude.Text)
@@ -78,8 +78,8 @@ instance Core.FromJSON UpdateWirelessGatewayTaskEntry where
       "UpdateWirelessGatewayTaskEntry"
       ( \x ->
           UpdateWirelessGatewayTaskEntry'
-            Prelude.<$> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "LoRaWAN")
+            Prelude.<$> (x Core..:? "LoRaWAN")
+            Prelude.<*> (x Core..:? "Arn")
             Prelude.<*> (x Core..:? "Id")
       )
 
@@ -90,8 +90,8 @@ instance
   hashWithSalt
     _salt
     UpdateWirelessGatewayTaskEntry' {..} =
-      _salt `Prelude.hashWithSalt` arn
-        `Prelude.hashWithSalt` loRaWAN
+      _salt `Prelude.hashWithSalt` loRaWAN
+        `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` id
 
 instance
@@ -99,6 +99,6 @@ instance
     UpdateWirelessGatewayTaskEntry
   where
   rnf UpdateWirelessGatewayTaskEntry' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf loRaWAN
+    Prelude.rnf loRaWAN
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id

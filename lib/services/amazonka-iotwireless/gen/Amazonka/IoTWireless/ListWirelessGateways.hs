@@ -35,8 +35,8 @@ module Amazonka.IoTWireless.ListWirelessGateways
     newListWirelessGatewaysResponse,
 
     -- * Response Lenses
-    listWirelessGatewaysResponse_wirelessGatewayList,
     listWirelessGatewaysResponse_nextToken,
+    listWirelessGatewaysResponse_wirelessGatewayList,
     listWirelessGatewaysResponse_httpStatus,
   )
 where
@@ -99,10 +99,10 @@ instance Core.AWSRequest ListWirelessGateways where
     Response.receiveJSON
       ( \s h x ->
           ListWirelessGatewaysResponse'
-            Prelude.<$> ( x Core..?> "WirelessGatewayList"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "WirelessGatewayList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,11 +131,11 @@ instance Core.ToQuery ListWirelessGateways where
 
 -- | /See:/ 'newListWirelessGatewaysResponse' smart constructor.
 data ListWirelessGatewaysResponse = ListWirelessGatewaysResponse'
-  { -- | The ID of the wireless gateway.
-    wirelessGatewayList :: Prelude.Maybe [WirelessGatewayStatistics],
-    -- | The token to use to get the next set of results, or __null__ if there
+  { -- | The token to use to get the next set of results, or __null__ if there
     -- are no additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the wireless gateway.
+    wirelessGatewayList :: Prelude.Maybe [WirelessGatewayStatistics],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -149,10 +149,10 @@ data ListWirelessGatewaysResponse = ListWirelessGatewaysResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'wirelessGatewayList', 'listWirelessGatewaysResponse_wirelessGatewayList' - The ID of the wireless gateway.
---
 -- 'nextToken', 'listWirelessGatewaysResponse_nextToken' - The token to use to get the next set of results, or __null__ if there
 -- are no additional results.
+--
+-- 'wirelessGatewayList', 'listWirelessGatewaysResponse_wirelessGatewayList' - The ID of the wireless gateway.
 --
 -- 'httpStatus', 'listWirelessGatewaysResponse_httpStatus' - The response's http status code.
 newListWirelessGatewaysResponse ::
@@ -161,20 +161,20 @@ newListWirelessGatewaysResponse ::
   ListWirelessGatewaysResponse
 newListWirelessGatewaysResponse pHttpStatus_ =
   ListWirelessGatewaysResponse'
-    { wirelessGatewayList =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      wirelessGatewayList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ID of the wireless gateway.
-listWirelessGatewaysResponse_wirelessGatewayList :: Lens.Lens' ListWirelessGatewaysResponse (Prelude.Maybe [WirelessGatewayStatistics])
-listWirelessGatewaysResponse_wirelessGatewayList = Lens.lens (\ListWirelessGatewaysResponse' {wirelessGatewayList} -> wirelessGatewayList) (\s@ListWirelessGatewaysResponse' {} a -> s {wirelessGatewayList = a} :: ListWirelessGatewaysResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to get the next set of results, or __null__ if there
 -- are no additional results.
 listWirelessGatewaysResponse_nextToken :: Lens.Lens' ListWirelessGatewaysResponse (Prelude.Maybe Prelude.Text)
 listWirelessGatewaysResponse_nextToken = Lens.lens (\ListWirelessGatewaysResponse' {nextToken} -> nextToken) (\s@ListWirelessGatewaysResponse' {} a -> s {nextToken = a} :: ListWirelessGatewaysResponse)
+
+-- | The ID of the wireless gateway.
+listWirelessGatewaysResponse_wirelessGatewayList :: Lens.Lens' ListWirelessGatewaysResponse (Prelude.Maybe [WirelessGatewayStatistics])
+listWirelessGatewaysResponse_wirelessGatewayList = Lens.lens (\ListWirelessGatewaysResponse' {wirelessGatewayList} -> wirelessGatewayList) (\s@ListWirelessGatewaysResponse' {} a -> s {wirelessGatewayList = a} :: ListWirelessGatewaysResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listWirelessGatewaysResponse_httpStatus :: Lens.Lens' ListWirelessGatewaysResponse Prelude.Int
@@ -182,6 +182,6 @@ listWirelessGatewaysResponse_httpStatus = Lens.lens (\ListWirelessGatewaysRespon
 
 instance Prelude.NFData ListWirelessGatewaysResponse where
   rnf ListWirelessGatewaysResponse' {..} =
-    Prelude.rnf wirelessGatewayList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf wirelessGatewayList
       `Prelude.seq` Prelude.rnf httpStatus

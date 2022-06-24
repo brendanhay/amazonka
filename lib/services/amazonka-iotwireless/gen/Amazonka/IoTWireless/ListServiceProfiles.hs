@@ -35,8 +35,8 @@ module Amazonka.IoTWireless.ListServiceProfiles
     newListServiceProfilesResponse,
 
     -- * Response Lenses
-    listServiceProfilesResponse_serviceProfileList,
     listServiceProfilesResponse_nextToken,
+    listServiceProfilesResponse_serviceProfileList,
     listServiceProfilesResponse_httpStatus,
   )
 where
@@ -99,10 +99,10 @@ instance Core.AWSRequest ListServiceProfiles where
     Response.receiveJSON
       ( \s h x ->
           ListServiceProfilesResponse'
-            Prelude.<$> ( x Core..?> "ServiceProfileList"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "ServiceProfileList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,11 +131,11 @@ instance Core.ToQuery ListServiceProfiles where
 
 -- | /See:/ 'newListServiceProfilesResponse' smart constructor.
 data ListServiceProfilesResponse = ListServiceProfilesResponse'
-  { -- | The list of service profiles.
-    serviceProfileList :: Prelude.Maybe [ServiceProfile],
-    -- | The token to use to get the next set of results, or __null__ if there
+  { -- | The token to use to get the next set of results, or __null__ if there
     -- are no additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of service profiles.
+    serviceProfileList :: Prelude.Maybe [ServiceProfile],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -149,10 +149,10 @@ data ListServiceProfilesResponse = ListServiceProfilesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceProfileList', 'listServiceProfilesResponse_serviceProfileList' - The list of service profiles.
---
 -- 'nextToken', 'listServiceProfilesResponse_nextToken' - The token to use to get the next set of results, or __null__ if there
 -- are no additional results.
+--
+-- 'serviceProfileList', 'listServiceProfilesResponse_serviceProfileList' - The list of service profiles.
 --
 -- 'httpStatus', 'listServiceProfilesResponse_httpStatus' - The response's http status code.
 newListServiceProfilesResponse ::
@@ -161,20 +161,20 @@ newListServiceProfilesResponse ::
   ListServiceProfilesResponse
 newListServiceProfilesResponse pHttpStatus_ =
   ListServiceProfilesResponse'
-    { serviceProfileList =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      serviceProfileList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The list of service profiles.
-listServiceProfilesResponse_serviceProfileList :: Lens.Lens' ListServiceProfilesResponse (Prelude.Maybe [ServiceProfile])
-listServiceProfilesResponse_serviceProfileList = Lens.lens (\ListServiceProfilesResponse' {serviceProfileList} -> serviceProfileList) (\s@ListServiceProfilesResponse' {} a -> s {serviceProfileList = a} :: ListServiceProfilesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to get the next set of results, or __null__ if there
 -- are no additional results.
 listServiceProfilesResponse_nextToken :: Lens.Lens' ListServiceProfilesResponse (Prelude.Maybe Prelude.Text)
 listServiceProfilesResponse_nextToken = Lens.lens (\ListServiceProfilesResponse' {nextToken} -> nextToken) (\s@ListServiceProfilesResponse' {} a -> s {nextToken = a} :: ListServiceProfilesResponse)
+
+-- | The list of service profiles.
+listServiceProfilesResponse_serviceProfileList :: Lens.Lens' ListServiceProfilesResponse (Prelude.Maybe [ServiceProfile])
+listServiceProfilesResponse_serviceProfileList = Lens.lens (\ListServiceProfilesResponse' {serviceProfileList} -> serviceProfileList) (\s@ListServiceProfilesResponse' {} a -> s {serviceProfileList = a} :: ListServiceProfilesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listServiceProfilesResponse_httpStatus :: Lens.Lens' ListServiceProfilesResponse Prelude.Int
@@ -182,6 +182,6 @@ listServiceProfilesResponse_httpStatus = Lens.lens (\ListServiceProfilesResponse
 
 instance Prelude.NFData ListServiceProfilesResponse where
   rnf ListServiceProfilesResponse' {..} =
-    Prelude.rnf serviceProfileList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf serviceProfileList
       `Prelude.seq` Prelude.rnf httpStatus

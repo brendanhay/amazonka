@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLoRaWANUpdateGatewayTaskCreate' smart constructor.
 data LoRaWANUpdateGatewayTaskCreate = LoRaWANUpdateGatewayTaskCreate'
-  { -- | The signature used to verify the update firmware.
-    updateSignature :: Prelude.Maybe Prelude.Text,
-    -- | The CRC of the signature private key to check.
+  { -- | The CRC of the signature private key to check.
     sigKeyCrc :: Prelude.Maybe Prelude.Natural,
     -- | The version of the gateways that should receive the update.
     currentVersion :: Prelude.Maybe LoRaWANGatewayVersion,
+    -- | The signature used to verify the update firmware.
+    updateSignature :: Prelude.Maybe Prelude.Text,
     -- | The firmware version to update the gateway to.
     updateVersion :: Prelude.Maybe LoRaWANGatewayVersion
   }
@@ -47,27 +47,23 @@ data LoRaWANUpdateGatewayTaskCreate = LoRaWANUpdateGatewayTaskCreate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'updateSignature', 'loRaWANUpdateGatewayTaskCreate_updateSignature' - The signature used to verify the update firmware.
---
 -- 'sigKeyCrc', 'loRaWANUpdateGatewayTaskCreate_sigKeyCrc' - The CRC of the signature private key to check.
 --
 -- 'currentVersion', 'loRaWANUpdateGatewayTaskCreate_currentVersion' - The version of the gateways that should receive the update.
+--
+-- 'updateSignature', 'loRaWANUpdateGatewayTaskCreate_updateSignature' - The signature used to verify the update firmware.
 --
 -- 'updateVersion', 'loRaWANUpdateGatewayTaskCreate_updateVersion' - The firmware version to update the gateway to.
 newLoRaWANUpdateGatewayTaskCreate ::
   LoRaWANUpdateGatewayTaskCreate
 newLoRaWANUpdateGatewayTaskCreate =
   LoRaWANUpdateGatewayTaskCreate'
-    { updateSignature =
+    { sigKeyCrc =
         Prelude.Nothing,
-      sigKeyCrc = Prelude.Nothing,
       currentVersion = Prelude.Nothing,
+      updateSignature = Prelude.Nothing,
       updateVersion = Prelude.Nothing
     }
-
--- | The signature used to verify the update firmware.
-loRaWANUpdateGatewayTaskCreate_updateSignature :: Lens.Lens' LoRaWANUpdateGatewayTaskCreate (Prelude.Maybe Prelude.Text)
-loRaWANUpdateGatewayTaskCreate_updateSignature = Lens.lens (\LoRaWANUpdateGatewayTaskCreate' {updateSignature} -> updateSignature) (\s@LoRaWANUpdateGatewayTaskCreate' {} a -> s {updateSignature = a} :: LoRaWANUpdateGatewayTaskCreate)
 
 -- | The CRC of the signature private key to check.
 loRaWANUpdateGatewayTaskCreate_sigKeyCrc :: Lens.Lens' LoRaWANUpdateGatewayTaskCreate (Prelude.Maybe Prelude.Natural)
@@ -76,6 +72,10 @@ loRaWANUpdateGatewayTaskCreate_sigKeyCrc = Lens.lens (\LoRaWANUpdateGatewayTaskC
 -- | The version of the gateways that should receive the update.
 loRaWANUpdateGatewayTaskCreate_currentVersion :: Lens.Lens' LoRaWANUpdateGatewayTaskCreate (Prelude.Maybe LoRaWANGatewayVersion)
 loRaWANUpdateGatewayTaskCreate_currentVersion = Lens.lens (\LoRaWANUpdateGatewayTaskCreate' {currentVersion} -> currentVersion) (\s@LoRaWANUpdateGatewayTaskCreate' {} a -> s {currentVersion = a} :: LoRaWANUpdateGatewayTaskCreate)
+
+-- | The signature used to verify the update firmware.
+loRaWANUpdateGatewayTaskCreate_updateSignature :: Lens.Lens' LoRaWANUpdateGatewayTaskCreate (Prelude.Maybe Prelude.Text)
+loRaWANUpdateGatewayTaskCreate_updateSignature = Lens.lens (\LoRaWANUpdateGatewayTaskCreate' {updateSignature} -> updateSignature) (\s@LoRaWANUpdateGatewayTaskCreate' {} a -> s {updateSignature = a} :: LoRaWANUpdateGatewayTaskCreate)
 
 -- | The firmware version to update the gateway to.
 loRaWANUpdateGatewayTaskCreate_updateVersion :: Lens.Lens' LoRaWANUpdateGatewayTaskCreate (Prelude.Maybe LoRaWANGatewayVersion)
@@ -87,9 +87,9 @@ instance Core.FromJSON LoRaWANUpdateGatewayTaskCreate where
       "LoRaWANUpdateGatewayTaskCreate"
       ( \x ->
           LoRaWANUpdateGatewayTaskCreate'
-            Prelude.<$> (x Core..:? "UpdateSignature")
-            Prelude.<*> (x Core..:? "SigKeyCrc")
+            Prelude.<$> (x Core..:? "SigKeyCrc")
             Prelude.<*> (x Core..:? "CurrentVersion")
+            Prelude.<*> (x Core..:? "UpdateSignature")
             Prelude.<*> (x Core..:? "UpdateVersion")
       )
 
@@ -100,9 +100,9 @@ instance
   hashWithSalt
     _salt
     LoRaWANUpdateGatewayTaskCreate' {..} =
-      _salt `Prelude.hashWithSalt` updateSignature
-        `Prelude.hashWithSalt` sigKeyCrc
+      _salt `Prelude.hashWithSalt` sigKeyCrc
         `Prelude.hashWithSalt` currentVersion
+        `Prelude.hashWithSalt` updateSignature
         `Prelude.hashWithSalt` updateVersion
 
 instance
@@ -110,20 +110,20 @@ instance
     LoRaWANUpdateGatewayTaskCreate
   where
   rnf LoRaWANUpdateGatewayTaskCreate' {..} =
-    Prelude.rnf updateSignature
-      `Prelude.seq` Prelude.rnf sigKeyCrc
+    Prelude.rnf sigKeyCrc
       `Prelude.seq` Prelude.rnf currentVersion
+      `Prelude.seq` Prelude.rnf updateSignature
       `Prelude.seq` Prelude.rnf updateVersion
 
 instance Core.ToJSON LoRaWANUpdateGatewayTaskCreate where
   toJSON LoRaWANUpdateGatewayTaskCreate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("UpdateSignature" Core..=)
-              Prelude.<$> updateSignature,
-            ("SigKeyCrc" Core..=) Prelude.<$> sigKeyCrc,
+          [ ("SigKeyCrc" Core..=) Prelude.<$> sigKeyCrc,
             ("CurrentVersion" Core..=)
               Prelude.<$> currentVersion,
+            ("UpdateSignature" Core..=)
+              Prelude.<$> updateSignature,
             ("UpdateVersion" Core..=) Prelude.<$> updateVersion
           ]
       )

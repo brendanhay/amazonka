@@ -34,10 +34,10 @@ module Amazonka.IoTWireless.GetWirelessDeviceStatistics
     newGetWirelessDeviceStatisticsResponse,
 
     -- * Response Lenses
-    getWirelessDeviceStatisticsResponse_sidewalk,
-    getWirelessDeviceStatisticsResponse_loRaWAN,
     getWirelessDeviceStatisticsResponse_lastUplinkReceivedAt,
+    getWirelessDeviceStatisticsResponse_loRaWAN,
     getWirelessDeviceStatisticsResponse_wirelessDeviceId,
+    getWirelessDeviceStatisticsResponse_sidewalk,
     getWirelessDeviceStatisticsResponse_httpStatus,
   )
 where
@@ -88,10 +88,10 @@ instance Core.AWSRequest GetWirelessDeviceStatistics where
     Response.receiveJSON
       ( \s h x ->
           GetWirelessDeviceStatisticsResponse'
-            Prelude.<$> (x Core..?> "Sidewalk")
+            Prelude.<$> (x Core..?> "LastUplinkReceivedAt")
             Prelude.<*> (x Core..?> "LoRaWAN")
-            Prelude.<*> (x Core..?> "LastUplinkReceivedAt")
             Prelude.<*> (x Core..?> "WirelessDeviceId")
+            Prelude.<*> (x Core..?> "Sidewalk")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,14 +119,14 @@ instance Core.ToQuery GetWirelessDeviceStatistics where
 
 -- | /See:/ 'newGetWirelessDeviceStatisticsResponse' smart constructor.
 data GetWirelessDeviceStatisticsResponse = GetWirelessDeviceStatisticsResponse'
-  { -- | MetaData for Sidewalk device.
-    sidewalk :: Prelude.Maybe SidewalkDeviceMetadata,
+  { -- | The date and time when the most recent uplink was received.
+    lastUplinkReceivedAt :: Prelude.Maybe Prelude.Text,
     -- | Information about the wireless device\'s operations.
     loRaWAN :: Prelude.Maybe LoRaWANDeviceMetadata,
-    -- | The date and time when the most recent uplink was received.
-    lastUplinkReceivedAt :: Prelude.Maybe Prelude.Text,
     -- | The ID of the wireless device.
     wirelessDeviceId :: Prelude.Maybe Prelude.Text,
+    -- | MetaData for Sidewalk device.
+    sidewalk :: Prelude.Maybe SidewalkDeviceMetadata,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -140,13 +140,13 @@ data GetWirelessDeviceStatisticsResponse = GetWirelessDeviceStatisticsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sidewalk', 'getWirelessDeviceStatisticsResponse_sidewalk' - MetaData for Sidewalk device.
+-- 'lastUplinkReceivedAt', 'getWirelessDeviceStatisticsResponse_lastUplinkReceivedAt' - The date and time when the most recent uplink was received.
 --
 -- 'loRaWAN', 'getWirelessDeviceStatisticsResponse_loRaWAN' - Information about the wireless device\'s operations.
 --
--- 'lastUplinkReceivedAt', 'getWirelessDeviceStatisticsResponse_lastUplinkReceivedAt' - The date and time when the most recent uplink was received.
---
 -- 'wirelessDeviceId', 'getWirelessDeviceStatisticsResponse_wirelessDeviceId' - The ID of the wireless device.
+--
+-- 'sidewalk', 'getWirelessDeviceStatisticsResponse_sidewalk' - MetaData for Sidewalk device.
 --
 -- 'httpStatus', 'getWirelessDeviceStatisticsResponse_httpStatus' - The response's http status code.
 newGetWirelessDeviceStatisticsResponse ::
@@ -155,29 +155,29 @@ newGetWirelessDeviceStatisticsResponse ::
   GetWirelessDeviceStatisticsResponse
 newGetWirelessDeviceStatisticsResponse pHttpStatus_ =
   GetWirelessDeviceStatisticsResponse'
-    { sidewalk =
+    { lastUplinkReceivedAt =
         Prelude.Nothing,
       loRaWAN = Prelude.Nothing,
-      lastUplinkReceivedAt = Prelude.Nothing,
       wirelessDeviceId = Prelude.Nothing,
+      sidewalk = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | MetaData for Sidewalk device.
-getWirelessDeviceStatisticsResponse_sidewalk :: Lens.Lens' GetWirelessDeviceStatisticsResponse (Prelude.Maybe SidewalkDeviceMetadata)
-getWirelessDeviceStatisticsResponse_sidewalk = Lens.lens (\GetWirelessDeviceStatisticsResponse' {sidewalk} -> sidewalk) (\s@GetWirelessDeviceStatisticsResponse' {} a -> s {sidewalk = a} :: GetWirelessDeviceStatisticsResponse)
-
--- | Information about the wireless device\'s operations.
-getWirelessDeviceStatisticsResponse_loRaWAN :: Lens.Lens' GetWirelessDeviceStatisticsResponse (Prelude.Maybe LoRaWANDeviceMetadata)
-getWirelessDeviceStatisticsResponse_loRaWAN = Lens.lens (\GetWirelessDeviceStatisticsResponse' {loRaWAN} -> loRaWAN) (\s@GetWirelessDeviceStatisticsResponse' {} a -> s {loRaWAN = a} :: GetWirelessDeviceStatisticsResponse)
 
 -- | The date and time when the most recent uplink was received.
 getWirelessDeviceStatisticsResponse_lastUplinkReceivedAt :: Lens.Lens' GetWirelessDeviceStatisticsResponse (Prelude.Maybe Prelude.Text)
 getWirelessDeviceStatisticsResponse_lastUplinkReceivedAt = Lens.lens (\GetWirelessDeviceStatisticsResponse' {lastUplinkReceivedAt} -> lastUplinkReceivedAt) (\s@GetWirelessDeviceStatisticsResponse' {} a -> s {lastUplinkReceivedAt = a} :: GetWirelessDeviceStatisticsResponse)
 
+-- | Information about the wireless device\'s operations.
+getWirelessDeviceStatisticsResponse_loRaWAN :: Lens.Lens' GetWirelessDeviceStatisticsResponse (Prelude.Maybe LoRaWANDeviceMetadata)
+getWirelessDeviceStatisticsResponse_loRaWAN = Lens.lens (\GetWirelessDeviceStatisticsResponse' {loRaWAN} -> loRaWAN) (\s@GetWirelessDeviceStatisticsResponse' {} a -> s {loRaWAN = a} :: GetWirelessDeviceStatisticsResponse)
+
 -- | The ID of the wireless device.
 getWirelessDeviceStatisticsResponse_wirelessDeviceId :: Lens.Lens' GetWirelessDeviceStatisticsResponse (Prelude.Maybe Prelude.Text)
 getWirelessDeviceStatisticsResponse_wirelessDeviceId = Lens.lens (\GetWirelessDeviceStatisticsResponse' {wirelessDeviceId} -> wirelessDeviceId) (\s@GetWirelessDeviceStatisticsResponse' {} a -> s {wirelessDeviceId = a} :: GetWirelessDeviceStatisticsResponse)
+
+-- | MetaData for Sidewalk device.
+getWirelessDeviceStatisticsResponse_sidewalk :: Lens.Lens' GetWirelessDeviceStatisticsResponse (Prelude.Maybe SidewalkDeviceMetadata)
+getWirelessDeviceStatisticsResponse_sidewalk = Lens.lens (\GetWirelessDeviceStatisticsResponse' {sidewalk} -> sidewalk) (\s@GetWirelessDeviceStatisticsResponse' {} a -> s {sidewalk = a} :: GetWirelessDeviceStatisticsResponse)
 
 -- | The response's http status code.
 getWirelessDeviceStatisticsResponse_httpStatus :: Lens.Lens' GetWirelessDeviceStatisticsResponse Prelude.Int
@@ -188,8 +188,8 @@ instance
     GetWirelessDeviceStatisticsResponse
   where
   rnf GetWirelessDeviceStatisticsResponse' {..} =
-    Prelude.rnf sidewalk
+    Prelude.rnf lastUplinkReceivedAt
       `Prelude.seq` Prelude.rnf loRaWAN
-      `Prelude.seq` Prelude.rnf lastUplinkReceivedAt
       `Prelude.seq` Prelude.rnf wirelessDeviceId
+      `Prelude.seq` Prelude.rnf sidewalk
       `Prelude.seq` Prelude.rnf httpStatus

@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWirelessMetadata' smart constructor.
 data WirelessMetadata = WirelessMetadata'
-  { -- | The Sidewalk account credentials.
-    sidewalk :: Prelude.Maybe SidewalkSendDataToDevice,
-    -- | LoRaWAN device info.
-    loRaWAN :: Prelude.Maybe LoRaWANSendDataToDevice
+  { -- | LoRaWAN device info.
+    loRaWAN :: Prelude.Maybe LoRaWANSendDataToDevice,
+    -- | The Sidewalk account credentials.
+    sidewalk :: Prelude.Maybe SidewalkSendDataToDevice
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,40 +44,40 @@ data WirelessMetadata = WirelessMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sidewalk', 'wirelessMetadata_sidewalk' - The Sidewalk account credentials.
---
 -- 'loRaWAN', 'wirelessMetadata_loRaWAN' - LoRaWAN device info.
+--
+-- 'sidewalk', 'wirelessMetadata_sidewalk' - The Sidewalk account credentials.
 newWirelessMetadata ::
   WirelessMetadata
 newWirelessMetadata =
   WirelessMetadata'
-    { sidewalk = Prelude.Nothing,
-      loRaWAN = Prelude.Nothing
+    { loRaWAN = Prelude.Nothing,
+      sidewalk = Prelude.Nothing
     }
-
--- | The Sidewalk account credentials.
-wirelessMetadata_sidewalk :: Lens.Lens' WirelessMetadata (Prelude.Maybe SidewalkSendDataToDevice)
-wirelessMetadata_sidewalk = Lens.lens (\WirelessMetadata' {sidewalk} -> sidewalk) (\s@WirelessMetadata' {} a -> s {sidewalk = a} :: WirelessMetadata)
 
 -- | LoRaWAN device info.
 wirelessMetadata_loRaWAN :: Lens.Lens' WirelessMetadata (Prelude.Maybe LoRaWANSendDataToDevice)
 wirelessMetadata_loRaWAN = Lens.lens (\WirelessMetadata' {loRaWAN} -> loRaWAN) (\s@WirelessMetadata' {} a -> s {loRaWAN = a} :: WirelessMetadata)
 
+-- | The Sidewalk account credentials.
+wirelessMetadata_sidewalk :: Lens.Lens' WirelessMetadata (Prelude.Maybe SidewalkSendDataToDevice)
+wirelessMetadata_sidewalk = Lens.lens (\WirelessMetadata' {sidewalk} -> sidewalk) (\s@WirelessMetadata' {} a -> s {sidewalk = a} :: WirelessMetadata)
+
 instance Prelude.Hashable WirelessMetadata where
   hashWithSalt _salt WirelessMetadata' {..} =
-    _salt `Prelude.hashWithSalt` sidewalk
-      `Prelude.hashWithSalt` loRaWAN
+    _salt `Prelude.hashWithSalt` loRaWAN
+      `Prelude.hashWithSalt` sidewalk
 
 instance Prelude.NFData WirelessMetadata where
   rnf WirelessMetadata' {..} =
-    Prelude.rnf sidewalk
-      `Prelude.seq` Prelude.rnf loRaWAN
+    Prelude.rnf loRaWAN
+      `Prelude.seq` Prelude.rnf sidewalk
 
 instance Core.ToJSON WirelessMetadata where
   toJSON WirelessMetadata' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Sidewalk" Core..=) Prelude.<$> sidewalk,
-            ("LoRaWAN" Core..=) Prelude.<$> loRaWAN
+          [ ("LoRaWAN" Core..=) Prelude.<$> loRaWAN,
+            ("Sidewalk" Core..=) Prelude.<$> sidewalk
           ]
       )

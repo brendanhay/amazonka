@@ -27,10 +27,10 @@ module Amazonka.IoTWireless.UpdateDestination
     newUpdateDestination,
 
     -- * Request Lenses
-    updateDestination_expressionType,
-    updateDestination_expression,
-    updateDestination_description,
     updateDestination_roleArn,
+    updateDestination_description,
+    updateDestination_expression,
+    updateDestination_expressionType,
     updateDestination_name,
 
     -- * Destructuring the Response
@@ -51,14 +51,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateDestination' smart constructor.
 data UpdateDestination = UpdateDestination'
-  { -- | The type of value in @Expression@.
-    expressionType :: Prelude.Maybe ExpressionType,
-    -- | The new rule name or topic rule to send messages to.
-    expression :: Prelude.Maybe Prelude.Text,
+  { -- | The ARN of the IAM Role that authorizes the destination.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | A new description of the resource.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the IAM Role that authorizes the destination.
-    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | The new rule name or topic rule to send messages to.
+    expression :: Prelude.Maybe Prelude.Text,
+    -- | The type of value in @Expression@.
+    expressionType :: Prelude.Maybe ExpressionType,
     -- | The new name of the resource.
     name :: Prelude.Text
   }
@@ -72,13 +72,13 @@ data UpdateDestination = UpdateDestination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expressionType', 'updateDestination_expressionType' - The type of value in @Expression@.
---
--- 'expression', 'updateDestination_expression' - The new rule name or topic rule to send messages to.
+-- 'roleArn', 'updateDestination_roleArn' - The ARN of the IAM Role that authorizes the destination.
 --
 -- 'description', 'updateDestination_description' - A new description of the resource.
 --
--- 'roleArn', 'updateDestination_roleArn' - The ARN of the IAM Role that authorizes the destination.
+-- 'expression', 'updateDestination_expression' - The new rule name or topic rule to send messages to.
+--
+-- 'expressionType', 'updateDestination_expressionType' - The type of value in @Expression@.
 --
 -- 'name', 'updateDestination_name' - The new name of the resource.
 newUpdateDestination ::
@@ -87,29 +87,28 @@ newUpdateDestination ::
   UpdateDestination
 newUpdateDestination pName_ =
   UpdateDestination'
-    { expressionType =
-        Prelude.Nothing,
-      expression = Prelude.Nothing,
+    { roleArn = Prelude.Nothing,
       description = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
+      expression = Prelude.Nothing,
+      expressionType = Prelude.Nothing,
       name = pName_
     }
 
--- | The type of value in @Expression@.
-updateDestination_expressionType :: Lens.Lens' UpdateDestination (Prelude.Maybe ExpressionType)
-updateDestination_expressionType = Lens.lens (\UpdateDestination' {expressionType} -> expressionType) (\s@UpdateDestination' {} a -> s {expressionType = a} :: UpdateDestination)
-
--- | The new rule name or topic rule to send messages to.
-updateDestination_expression :: Lens.Lens' UpdateDestination (Prelude.Maybe Prelude.Text)
-updateDestination_expression = Lens.lens (\UpdateDestination' {expression} -> expression) (\s@UpdateDestination' {} a -> s {expression = a} :: UpdateDestination)
+-- | The ARN of the IAM Role that authorizes the destination.
+updateDestination_roleArn :: Lens.Lens' UpdateDestination (Prelude.Maybe Prelude.Text)
+updateDestination_roleArn = Lens.lens (\UpdateDestination' {roleArn} -> roleArn) (\s@UpdateDestination' {} a -> s {roleArn = a} :: UpdateDestination)
 
 -- | A new description of the resource.
 updateDestination_description :: Lens.Lens' UpdateDestination (Prelude.Maybe Prelude.Text)
 updateDestination_description = Lens.lens (\UpdateDestination' {description} -> description) (\s@UpdateDestination' {} a -> s {description = a} :: UpdateDestination)
 
--- | The ARN of the IAM Role that authorizes the destination.
-updateDestination_roleArn :: Lens.Lens' UpdateDestination (Prelude.Maybe Prelude.Text)
-updateDestination_roleArn = Lens.lens (\UpdateDestination' {roleArn} -> roleArn) (\s@UpdateDestination' {} a -> s {roleArn = a} :: UpdateDestination)
+-- | The new rule name or topic rule to send messages to.
+updateDestination_expression :: Lens.Lens' UpdateDestination (Prelude.Maybe Prelude.Text)
+updateDestination_expression = Lens.lens (\UpdateDestination' {expression} -> expression) (\s@UpdateDestination' {} a -> s {expression = a} :: UpdateDestination)
+
+-- | The type of value in @Expression@.
+updateDestination_expressionType :: Lens.Lens' UpdateDestination (Prelude.Maybe ExpressionType)
+updateDestination_expressionType = Lens.lens (\UpdateDestination' {expressionType} -> expressionType) (\s@UpdateDestination' {} a -> s {expressionType = a} :: UpdateDestination)
 
 -- | The new name of the resource.
 updateDestination_name :: Lens.Lens' UpdateDestination Prelude.Text
@@ -129,18 +128,18 @@ instance Core.AWSRequest UpdateDestination where
 
 instance Prelude.Hashable UpdateDestination where
   hashWithSalt _salt UpdateDestination' {..} =
-    _salt `Prelude.hashWithSalt` expressionType
-      `Prelude.hashWithSalt` expression
+    _salt `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` expression
+      `Prelude.hashWithSalt` expressionType
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateDestination where
   rnf UpdateDestination' {..} =
-    Prelude.rnf expressionType
-      `Prelude.seq` Prelude.rnf expression
+    Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf expression
+      `Prelude.seq` Prelude.rnf expressionType
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders UpdateDestination where
@@ -150,11 +149,11 @@ instance Core.ToJSON UpdateDestination where
   toJSON UpdateDestination' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ExpressionType" Core..=)
-              Prelude.<$> expressionType,
-            ("Expression" Core..=) Prelude.<$> expression,
+          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
             ("Description" Core..=) Prelude.<$> description,
-            ("RoleArn" Core..=) Prelude.<$> roleArn
+            ("Expression" Core..=) Prelude.<$> expression,
+            ("ExpressionType" Core..=)
+              Prelude.<$> expressionType
           ]
       )
 

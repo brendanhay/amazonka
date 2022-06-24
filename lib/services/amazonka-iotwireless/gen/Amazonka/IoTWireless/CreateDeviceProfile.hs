@@ -27,10 +27,10 @@ module Amazonka.IoTWireless.CreateDeviceProfile
     newCreateDeviceProfile,
 
     -- * Request Lenses
-    createDeviceProfile_loRaWAN,
+    createDeviceProfile_tags,
     createDeviceProfile_name,
     createDeviceProfile_clientRequestToken,
-    createDeviceProfile_tags,
+    createDeviceProfile_loRaWAN,
 
     -- * Destructuring the Response
     CreateDeviceProfileResponse (..),
@@ -52,8 +52,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDeviceProfile' smart constructor.
 data CreateDeviceProfile = CreateDeviceProfile'
-  { -- | The device profile information to use to create the device profile.
-    loRaWAN :: Prelude.Maybe LoRaWANDeviceProfile,
+  { -- | The tags to attach to the new device profile. Tags are metadata that you
+    -- can use to manage a resource.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the new resource.
     name :: Prelude.Maybe Prelude.Text,
     -- | Each resource must have a unique client request token. If you try to
@@ -61,9 +62,8 @@ data CreateDeviceProfile = CreateDeviceProfile'
     -- exists, an exception occurs. If you omit this value, AWS SDKs will
     -- automatically generate a unique client request.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The tags to attach to the new device profile. Tags are metadata that you
-    -- can use to manage a resource.
-    tags :: Prelude.Maybe [Tag]
+    -- | The device profile information to use to create the device profile.
+    loRaWAN :: Prelude.Maybe LoRaWANDeviceProfile
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,7 +75,8 @@ data CreateDeviceProfile = CreateDeviceProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'loRaWAN', 'createDeviceProfile_loRaWAN' - The device profile information to use to create the device profile.
+-- 'tags', 'createDeviceProfile_tags' - The tags to attach to the new device profile. Tags are metadata that you
+-- can use to manage a resource.
 --
 -- 'name', 'createDeviceProfile_name' - The name of the new resource.
 --
@@ -84,21 +85,21 @@ data CreateDeviceProfile = CreateDeviceProfile'
 -- exists, an exception occurs. If you omit this value, AWS SDKs will
 -- automatically generate a unique client request.
 --
--- 'tags', 'createDeviceProfile_tags' - The tags to attach to the new device profile. Tags are metadata that you
--- can use to manage a resource.
+-- 'loRaWAN', 'createDeviceProfile_loRaWAN' - The device profile information to use to create the device profile.
 newCreateDeviceProfile ::
   CreateDeviceProfile
 newCreateDeviceProfile =
   CreateDeviceProfile'
-    { loRaWAN = Prelude.Nothing,
+    { tags = Prelude.Nothing,
       name = Prelude.Nothing,
       clientRequestToken = Prelude.Nothing,
-      tags = Prelude.Nothing
+      loRaWAN = Prelude.Nothing
     }
 
--- | The device profile information to use to create the device profile.
-createDeviceProfile_loRaWAN :: Lens.Lens' CreateDeviceProfile (Prelude.Maybe LoRaWANDeviceProfile)
-createDeviceProfile_loRaWAN = Lens.lens (\CreateDeviceProfile' {loRaWAN} -> loRaWAN) (\s@CreateDeviceProfile' {} a -> s {loRaWAN = a} :: CreateDeviceProfile)
+-- | The tags to attach to the new device profile. Tags are metadata that you
+-- can use to manage a resource.
+createDeviceProfile_tags :: Lens.Lens' CreateDeviceProfile (Prelude.Maybe [Tag])
+createDeviceProfile_tags = Lens.lens (\CreateDeviceProfile' {tags} -> tags) (\s@CreateDeviceProfile' {} a -> s {tags = a} :: CreateDeviceProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the new resource.
 createDeviceProfile_name :: Lens.Lens' CreateDeviceProfile (Prelude.Maybe Prelude.Text)
@@ -111,10 +112,9 @@ createDeviceProfile_name = Lens.lens (\CreateDeviceProfile' {name} -> name) (\s@
 createDeviceProfile_clientRequestToken :: Lens.Lens' CreateDeviceProfile (Prelude.Maybe Prelude.Text)
 createDeviceProfile_clientRequestToken = Lens.lens (\CreateDeviceProfile' {clientRequestToken} -> clientRequestToken) (\s@CreateDeviceProfile' {} a -> s {clientRequestToken = a} :: CreateDeviceProfile)
 
--- | The tags to attach to the new device profile. Tags are metadata that you
--- can use to manage a resource.
-createDeviceProfile_tags :: Lens.Lens' CreateDeviceProfile (Prelude.Maybe [Tag])
-createDeviceProfile_tags = Lens.lens (\CreateDeviceProfile' {tags} -> tags) (\s@CreateDeviceProfile' {} a -> s {tags = a} :: CreateDeviceProfile) Prelude.. Lens.mapping Lens.coerced
+-- | The device profile information to use to create the device profile.
+createDeviceProfile_loRaWAN :: Lens.Lens' CreateDeviceProfile (Prelude.Maybe LoRaWANDeviceProfile)
+createDeviceProfile_loRaWAN = Lens.lens (\CreateDeviceProfile' {loRaWAN} -> loRaWAN) (\s@CreateDeviceProfile' {} a -> s {loRaWAN = a} :: CreateDeviceProfile)
 
 instance Core.AWSRequest CreateDeviceProfile where
   type
@@ -132,17 +132,17 @@ instance Core.AWSRequest CreateDeviceProfile where
 
 instance Prelude.Hashable CreateDeviceProfile where
   hashWithSalt _salt CreateDeviceProfile' {..} =
-    _salt `Prelude.hashWithSalt` loRaWAN
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` clientRequestToken
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` loRaWAN
 
 instance Prelude.NFData CreateDeviceProfile where
   rnf CreateDeviceProfile' {..} =
-    Prelude.rnf loRaWAN
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf loRaWAN
 
 instance Core.ToHeaders CreateDeviceProfile where
   toHeaders = Prelude.const Prelude.mempty
@@ -151,11 +151,11 @@ instance Core.ToJSON CreateDeviceProfile where
   toJSON CreateDeviceProfile' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("LoRaWAN" Core..=) Prelude.<$> loRaWAN,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("Name" Core..=) Prelude.<$> name,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
-            ("Tags" Core..=) Prelude.<$> tags
+            ("LoRaWAN" Core..=) Prelude.<$> loRaWAN
           ]
       )
 

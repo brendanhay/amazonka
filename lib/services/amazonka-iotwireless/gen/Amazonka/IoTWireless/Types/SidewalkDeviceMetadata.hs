@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSidewalkDeviceMetadata' smart constructor.
 data SidewalkDeviceMetadata = SidewalkDeviceMetadata'
-  { -- | Sidewalk device status notification.
-    event :: Prelude.Maybe Event,
-    -- | Device state defines the device status of sidewalk device.
+  { -- | Device state defines the device status of sidewalk device.
     deviceState :: Prelude.Maybe DeviceState,
     -- | Sidewalk device battery level.
     batteryLevel :: Prelude.Maybe BatteryLevel,
+    -- | Sidewalk device status notification.
+    event :: Prelude.Maybe Event,
     -- | The RSSI value.
     rssi :: Prelude.Maybe Prelude.Int
   }
@@ -49,26 +49,23 @@ data SidewalkDeviceMetadata = SidewalkDeviceMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'event', 'sidewalkDeviceMetadata_event' - Sidewalk device status notification.
---
 -- 'deviceState', 'sidewalkDeviceMetadata_deviceState' - Device state defines the device status of sidewalk device.
 --
 -- 'batteryLevel', 'sidewalkDeviceMetadata_batteryLevel' - Sidewalk device battery level.
+--
+-- 'event', 'sidewalkDeviceMetadata_event' - Sidewalk device status notification.
 --
 -- 'rssi', 'sidewalkDeviceMetadata_rssi' - The RSSI value.
 newSidewalkDeviceMetadata ::
   SidewalkDeviceMetadata
 newSidewalkDeviceMetadata =
   SidewalkDeviceMetadata'
-    { event = Prelude.Nothing,
-      deviceState = Prelude.Nothing,
+    { deviceState =
+        Prelude.Nothing,
       batteryLevel = Prelude.Nothing,
+      event = Prelude.Nothing,
       rssi = Prelude.Nothing
     }
-
--- | Sidewalk device status notification.
-sidewalkDeviceMetadata_event :: Lens.Lens' SidewalkDeviceMetadata (Prelude.Maybe Event)
-sidewalkDeviceMetadata_event = Lens.lens (\SidewalkDeviceMetadata' {event} -> event) (\s@SidewalkDeviceMetadata' {} a -> s {event = a} :: SidewalkDeviceMetadata)
 
 -- | Device state defines the device status of sidewalk device.
 sidewalkDeviceMetadata_deviceState :: Lens.Lens' SidewalkDeviceMetadata (Prelude.Maybe DeviceState)
@@ -77,6 +74,10 @@ sidewalkDeviceMetadata_deviceState = Lens.lens (\SidewalkDeviceMetadata' {device
 -- | Sidewalk device battery level.
 sidewalkDeviceMetadata_batteryLevel :: Lens.Lens' SidewalkDeviceMetadata (Prelude.Maybe BatteryLevel)
 sidewalkDeviceMetadata_batteryLevel = Lens.lens (\SidewalkDeviceMetadata' {batteryLevel} -> batteryLevel) (\s@SidewalkDeviceMetadata' {} a -> s {batteryLevel = a} :: SidewalkDeviceMetadata)
+
+-- | Sidewalk device status notification.
+sidewalkDeviceMetadata_event :: Lens.Lens' SidewalkDeviceMetadata (Prelude.Maybe Event)
+sidewalkDeviceMetadata_event = Lens.lens (\SidewalkDeviceMetadata' {event} -> event) (\s@SidewalkDeviceMetadata' {} a -> s {event = a} :: SidewalkDeviceMetadata)
 
 -- | The RSSI value.
 sidewalkDeviceMetadata_rssi :: Lens.Lens' SidewalkDeviceMetadata (Prelude.Maybe Prelude.Int)
@@ -88,22 +89,22 @@ instance Core.FromJSON SidewalkDeviceMetadata where
       "SidewalkDeviceMetadata"
       ( \x ->
           SidewalkDeviceMetadata'
-            Prelude.<$> (x Core..:? "Event")
-            Prelude.<*> (x Core..:? "DeviceState")
+            Prelude.<$> (x Core..:? "DeviceState")
             Prelude.<*> (x Core..:? "BatteryLevel")
+            Prelude.<*> (x Core..:? "Event")
             Prelude.<*> (x Core..:? "Rssi")
       )
 
 instance Prelude.Hashable SidewalkDeviceMetadata where
   hashWithSalt _salt SidewalkDeviceMetadata' {..} =
-    _salt `Prelude.hashWithSalt` event
-      `Prelude.hashWithSalt` deviceState
+    _salt `Prelude.hashWithSalt` deviceState
       `Prelude.hashWithSalt` batteryLevel
+      `Prelude.hashWithSalt` event
       `Prelude.hashWithSalt` rssi
 
 instance Prelude.NFData SidewalkDeviceMetadata where
   rnf SidewalkDeviceMetadata' {..} =
-    Prelude.rnf event
-      `Prelude.seq` Prelude.rnf deviceState
+    Prelude.rnf deviceState
       `Prelude.seq` Prelude.rnf batteryLevel
+      `Prelude.seq` Prelude.rnf event
       `Prelude.seq` Prelude.rnf rssi

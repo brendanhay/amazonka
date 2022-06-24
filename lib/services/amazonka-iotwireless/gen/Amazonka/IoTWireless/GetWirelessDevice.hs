@@ -35,16 +35,16 @@ module Amazonka.IoTWireless.GetWirelessDevice
     newGetWirelessDeviceResponse,
 
     -- * Response Lenses
-    getWirelessDeviceResponse_sidewalk,
-    getWirelessDeviceResponse_arn,
-    getWirelessDeviceResponse_loRaWAN,
-    getWirelessDeviceResponse_thingArn,
     getWirelessDeviceResponse_name,
-    getWirelessDeviceResponse_id,
-    getWirelessDeviceResponse_type,
-    getWirelessDeviceResponse_destinationName,
     getWirelessDeviceResponse_thingName,
+    getWirelessDeviceResponse_type,
+    getWirelessDeviceResponse_thingArn,
+    getWirelessDeviceResponse_loRaWAN,
+    getWirelessDeviceResponse_destinationName,
+    getWirelessDeviceResponse_arn,
+    getWirelessDeviceResponse_id,
     getWirelessDeviceResponse_description,
+    getWirelessDeviceResponse_sidewalk,
     getWirelessDeviceResponse_httpStatus,
   )
 where
@@ -105,16 +105,16 @@ instance Core.AWSRequest GetWirelessDevice where
     Response.receiveJSON
       ( \s h x ->
           GetWirelessDeviceResponse'
-            Prelude.<$> (x Core..?> "Sidewalk")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "LoRaWAN")
-            Prelude.<*> (x Core..?> "ThingArn")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "Id")
-            Prelude.<*> (x Core..?> "Type")
-            Prelude.<*> (x Core..?> "DestinationName")
+            Prelude.<$> (x Core..?> "Name")
             Prelude.<*> (x Core..?> "ThingName")
+            Prelude.<*> (x Core..?> "Type")
+            Prelude.<*> (x Core..?> "ThingArn")
+            Prelude.<*> (x Core..?> "LoRaWAN")
+            Prelude.<*> (x Core..?> "DestinationName")
+            Prelude.<*> (x Core..?> "Arn")
+            Prelude.<*> (x Core..?> "Id")
             Prelude.<*> (x Core..?> "Description")
+            Prelude.<*> (x Core..?> "Sidewalk")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,27 +143,27 @@ instance Core.ToQuery GetWirelessDevice where
 
 -- | /See:/ 'newGetWirelessDeviceResponse' smart constructor.
 data GetWirelessDeviceResponse = GetWirelessDeviceResponse'
-  { -- | Sidewalk device object.
-    sidewalk :: Prelude.Maybe SidewalkDevice,
-    -- | The Amazon Resource Name of the resource.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | Information about the wireless device.
-    loRaWAN :: Prelude.Maybe LoRaWANDevice,
-    -- | The ARN of the thing associated with the wireless device.
-    thingArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the resource.
+  { -- | The name of the resource.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the wireless device.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The wireless device type.
-    type' :: Prelude.Maybe WirelessDeviceType,
-    -- | The name of the destination to which the device is assigned.
-    destinationName :: Prelude.Maybe Prelude.Text,
     -- | The name of the thing associated with the wireless device. The value is
     -- empty if a thing isn\'t associated with the device.
     thingName :: Prelude.Maybe Prelude.Text,
+    -- | The wireless device type.
+    type' :: Prelude.Maybe WirelessDeviceType,
+    -- | The ARN of the thing associated with the wireless device.
+    thingArn :: Prelude.Maybe Prelude.Text,
+    -- | Information about the wireless device.
+    loRaWAN :: Prelude.Maybe LoRaWANDevice,
+    -- | The name of the destination to which the device is assigned.
+    destinationName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name of the resource.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the wireless device.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The description of the resource.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Sidewalk device object.
+    sidewalk :: Prelude.Maybe SidewalkDevice,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -177,26 +177,26 @@ data GetWirelessDeviceResponse = GetWirelessDeviceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sidewalk', 'getWirelessDeviceResponse_sidewalk' - Sidewalk device object.
---
--- 'arn', 'getWirelessDeviceResponse_arn' - The Amazon Resource Name of the resource.
---
--- 'loRaWAN', 'getWirelessDeviceResponse_loRaWAN' - Information about the wireless device.
---
--- 'thingArn', 'getWirelessDeviceResponse_thingArn' - The ARN of the thing associated with the wireless device.
---
 -- 'name', 'getWirelessDeviceResponse_name' - The name of the resource.
---
--- 'id', 'getWirelessDeviceResponse_id' - The ID of the wireless device.
---
--- 'type'', 'getWirelessDeviceResponse_type' - The wireless device type.
---
--- 'destinationName', 'getWirelessDeviceResponse_destinationName' - The name of the destination to which the device is assigned.
 --
 -- 'thingName', 'getWirelessDeviceResponse_thingName' - The name of the thing associated with the wireless device. The value is
 -- empty if a thing isn\'t associated with the device.
 --
+-- 'type'', 'getWirelessDeviceResponse_type' - The wireless device type.
+--
+-- 'thingArn', 'getWirelessDeviceResponse_thingArn' - The ARN of the thing associated with the wireless device.
+--
+-- 'loRaWAN', 'getWirelessDeviceResponse_loRaWAN' - Information about the wireless device.
+--
+-- 'destinationName', 'getWirelessDeviceResponse_destinationName' - The name of the destination to which the device is assigned.
+--
+-- 'arn', 'getWirelessDeviceResponse_arn' - The Amazon Resource Name of the resource.
+--
+-- 'id', 'getWirelessDeviceResponse_id' - The ID of the wireless device.
+--
 -- 'description', 'getWirelessDeviceResponse_description' - The description of the resource.
+--
+-- 'sidewalk', 'getWirelessDeviceResponse_sidewalk' - Sidewalk device object.
 --
 -- 'httpStatus', 'getWirelessDeviceResponse_httpStatus' - The response's http status code.
 newGetWirelessDeviceResponse ::
@@ -205,60 +205,59 @@ newGetWirelessDeviceResponse ::
   GetWirelessDeviceResponse
 newGetWirelessDeviceResponse pHttpStatus_ =
   GetWirelessDeviceResponse'
-    { sidewalk =
-        Prelude.Nothing,
-      arn = Prelude.Nothing,
-      loRaWAN = Prelude.Nothing,
-      thingArn = Prelude.Nothing,
-      name = Prelude.Nothing,
-      id = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      destinationName = Prelude.Nothing,
+    { name = Prelude.Nothing,
       thingName = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      thingArn = Prelude.Nothing,
+      loRaWAN = Prelude.Nothing,
+      destinationName = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      id = Prelude.Nothing,
       description = Prelude.Nothing,
+      sidewalk = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Sidewalk device object.
-getWirelessDeviceResponse_sidewalk :: Lens.Lens' GetWirelessDeviceResponse (Prelude.Maybe SidewalkDevice)
-getWirelessDeviceResponse_sidewalk = Lens.lens (\GetWirelessDeviceResponse' {sidewalk} -> sidewalk) (\s@GetWirelessDeviceResponse' {} a -> s {sidewalk = a} :: GetWirelessDeviceResponse)
-
--- | The Amazon Resource Name of the resource.
-getWirelessDeviceResponse_arn :: Lens.Lens' GetWirelessDeviceResponse (Prelude.Maybe Prelude.Text)
-getWirelessDeviceResponse_arn = Lens.lens (\GetWirelessDeviceResponse' {arn} -> arn) (\s@GetWirelessDeviceResponse' {} a -> s {arn = a} :: GetWirelessDeviceResponse)
-
--- | Information about the wireless device.
-getWirelessDeviceResponse_loRaWAN :: Lens.Lens' GetWirelessDeviceResponse (Prelude.Maybe LoRaWANDevice)
-getWirelessDeviceResponse_loRaWAN = Lens.lens (\GetWirelessDeviceResponse' {loRaWAN} -> loRaWAN) (\s@GetWirelessDeviceResponse' {} a -> s {loRaWAN = a} :: GetWirelessDeviceResponse)
-
--- | The ARN of the thing associated with the wireless device.
-getWirelessDeviceResponse_thingArn :: Lens.Lens' GetWirelessDeviceResponse (Prelude.Maybe Prelude.Text)
-getWirelessDeviceResponse_thingArn = Lens.lens (\GetWirelessDeviceResponse' {thingArn} -> thingArn) (\s@GetWirelessDeviceResponse' {} a -> s {thingArn = a} :: GetWirelessDeviceResponse)
 
 -- | The name of the resource.
 getWirelessDeviceResponse_name :: Lens.Lens' GetWirelessDeviceResponse (Prelude.Maybe Prelude.Text)
 getWirelessDeviceResponse_name = Lens.lens (\GetWirelessDeviceResponse' {name} -> name) (\s@GetWirelessDeviceResponse' {} a -> s {name = a} :: GetWirelessDeviceResponse)
-
--- | The ID of the wireless device.
-getWirelessDeviceResponse_id :: Lens.Lens' GetWirelessDeviceResponse (Prelude.Maybe Prelude.Text)
-getWirelessDeviceResponse_id = Lens.lens (\GetWirelessDeviceResponse' {id} -> id) (\s@GetWirelessDeviceResponse' {} a -> s {id = a} :: GetWirelessDeviceResponse)
-
--- | The wireless device type.
-getWirelessDeviceResponse_type :: Lens.Lens' GetWirelessDeviceResponse (Prelude.Maybe WirelessDeviceType)
-getWirelessDeviceResponse_type = Lens.lens (\GetWirelessDeviceResponse' {type'} -> type') (\s@GetWirelessDeviceResponse' {} a -> s {type' = a} :: GetWirelessDeviceResponse)
-
--- | The name of the destination to which the device is assigned.
-getWirelessDeviceResponse_destinationName :: Lens.Lens' GetWirelessDeviceResponse (Prelude.Maybe Prelude.Text)
-getWirelessDeviceResponse_destinationName = Lens.lens (\GetWirelessDeviceResponse' {destinationName} -> destinationName) (\s@GetWirelessDeviceResponse' {} a -> s {destinationName = a} :: GetWirelessDeviceResponse)
 
 -- | The name of the thing associated with the wireless device. The value is
 -- empty if a thing isn\'t associated with the device.
 getWirelessDeviceResponse_thingName :: Lens.Lens' GetWirelessDeviceResponse (Prelude.Maybe Prelude.Text)
 getWirelessDeviceResponse_thingName = Lens.lens (\GetWirelessDeviceResponse' {thingName} -> thingName) (\s@GetWirelessDeviceResponse' {} a -> s {thingName = a} :: GetWirelessDeviceResponse)
 
+-- | The wireless device type.
+getWirelessDeviceResponse_type :: Lens.Lens' GetWirelessDeviceResponse (Prelude.Maybe WirelessDeviceType)
+getWirelessDeviceResponse_type = Lens.lens (\GetWirelessDeviceResponse' {type'} -> type') (\s@GetWirelessDeviceResponse' {} a -> s {type' = a} :: GetWirelessDeviceResponse)
+
+-- | The ARN of the thing associated with the wireless device.
+getWirelessDeviceResponse_thingArn :: Lens.Lens' GetWirelessDeviceResponse (Prelude.Maybe Prelude.Text)
+getWirelessDeviceResponse_thingArn = Lens.lens (\GetWirelessDeviceResponse' {thingArn} -> thingArn) (\s@GetWirelessDeviceResponse' {} a -> s {thingArn = a} :: GetWirelessDeviceResponse)
+
+-- | Information about the wireless device.
+getWirelessDeviceResponse_loRaWAN :: Lens.Lens' GetWirelessDeviceResponse (Prelude.Maybe LoRaWANDevice)
+getWirelessDeviceResponse_loRaWAN = Lens.lens (\GetWirelessDeviceResponse' {loRaWAN} -> loRaWAN) (\s@GetWirelessDeviceResponse' {} a -> s {loRaWAN = a} :: GetWirelessDeviceResponse)
+
+-- | The name of the destination to which the device is assigned.
+getWirelessDeviceResponse_destinationName :: Lens.Lens' GetWirelessDeviceResponse (Prelude.Maybe Prelude.Text)
+getWirelessDeviceResponse_destinationName = Lens.lens (\GetWirelessDeviceResponse' {destinationName} -> destinationName) (\s@GetWirelessDeviceResponse' {} a -> s {destinationName = a} :: GetWirelessDeviceResponse)
+
+-- | The Amazon Resource Name of the resource.
+getWirelessDeviceResponse_arn :: Lens.Lens' GetWirelessDeviceResponse (Prelude.Maybe Prelude.Text)
+getWirelessDeviceResponse_arn = Lens.lens (\GetWirelessDeviceResponse' {arn} -> arn) (\s@GetWirelessDeviceResponse' {} a -> s {arn = a} :: GetWirelessDeviceResponse)
+
+-- | The ID of the wireless device.
+getWirelessDeviceResponse_id :: Lens.Lens' GetWirelessDeviceResponse (Prelude.Maybe Prelude.Text)
+getWirelessDeviceResponse_id = Lens.lens (\GetWirelessDeviceResponse' {id} -> id) (\s@GetWirelessDeviceResponse' {} a -> s {id = a} :: GetWirelessDeviceResponse)
+
 -- | The description of the resource.
 getWirelessDeviceResponse_description :: Lens.Lens' GetWirelessDeviceResponse (Prelude.Maybe Prelude.Text)
 getWirelessDeviceResponse_description = Lens.lens (\GetWirelessDeviceResponse' {description} -> description) (\s@GetWirelessDeviceResponse' {} a -> s {description = a} :: GetWirelessDeviceResponse)
+
+-- | Sidewalk device object.
+getWirelessDeviceResponse_sidewalk :: Lens.Lens' GetWirelessDeviceResponse (Prelude.Maybe SidewalkDevice)
+getWirelessDeviceResponse_sidewalk = Lens.lens (\GetWirelessDeviceResponse' {sidewalk} -> sidewalk) (\s@GetWirelessDeviceResponse' {} a -> s {sidewalk = a} :: GetWirelessDeviceResponse)
 
 -- | The response's http status code.
 getWirelessDeviceResponse_httpStatus :: Lens.Lens' GetWirelessDeviceResponse Prelude.Int
@@ -266,14 +265,14 @@ getWirelessDeviceResponse_httpStatus = Lens.lens (\GetWirelessDeviceResponse' {h
 
 instance Prelude.NFData GetWirelessDeviceResponse where
   rnf GetWirelessDeviceResponse' {..} =
-    Prelude.rnf sidewalk
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf loRaWAN
-      `Prelude.seq` Prelude.rnf thingArn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf destinationName
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf thingName
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf thingArn
+      `Prelude.seq` Prelude.rnf loRaWAN
+      `Prelude.seq` Prelude.rnf destinationName
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf sidewalk
       `Prelude.seq` Prelude.rnf httpStatus

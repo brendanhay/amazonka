@@ -17,13 +17,13 @@ module Amazonka.IoTWireless.Types
     defaultService,
 
     -- * Errors
-    _ValidationException,
     _AccessDeniedException,
+    _InternalServerException,
     _TooManyTagsException,
+    _ResourceNotFoundException,
     _ConflictException,
     _ThrottlingException,
-    _InternalServerException,
-    _ResourceNotFoundException,
+    _ValidationException,
 
     -- * BatteryLevel
     BatteryLevel (..),
@@ -82,14 +82,14 @@ module Amazonka.IoTWireless.Types
     -- * AbpV1_0_x
     AbpV1_0_x (..),
     newAbpV1_0_x,
-    abpV1_0_x_devAddr,
     abpV1_0_x_sessionKeys,
+    abpV1_0_x_devAddr,
 
     -- * AbpV1_1
     AbpV1_1 (..),
     newAbpV1_1,
-    abpV1_1_devAddr,
     abpV1_1_sessionKeys,
+    abpV1_1_devAddr,
 
     -- * CertificateList
     CertificateList (..),
@@ -100,63 +100,63 @@ module Amazonka.IoTWireless.Types
     -- * Destinations
     Destinations (..),
     newDestinations,
-    destinations_expressionType,
-    destinations_arn,
     destinations_name,
-    destinations_expression,
-    destinations_description,
     destinations_roleArn,
+    destinations_arn,
+    destinations_description,
+    destinations_expression,
+    destinations_expressionType,
 
     -- * DeviceProfile
     DeviceProfile (..),
     newDeviceProfile,
-    deviceProfile_arn,
     deviceProfile_name,
+    deviceProfile_arn,
     deviceProfile_id,
 
     -- * LoRaWANDevice
     LoRaWANDevice (..),
     newLoRaWANDevice,
-    loRaWANDevice_abpV1_0_x,
     loRaWANDevice_otaaV1_1,
-    loRaWANDevice_serviceProfileId,
-    loRaWANDevice_deviceProfileId,
     loRaWANDevice_otaaV1_0_x,
+    loRaWANDevice_abpV1_0_x,
+    loRaWANDevice_deviceProfileId,
+    loRaWANDevice_serviceProfileId,
     loRaWANDevice_abpV1_1,
     loRaWANDevice_devEui,
 
     -- * LoRaWANDeviceMetadata
     LoRaWANDeviceMetadata (..),
     newLoRaWANDeviceMetadata,
-    loRaWANDeviceMetadata_frequency,
     loRaWANDeviceMetadata_fPort,
-    loRaWANDeviceMetadata_dataRate,
+    loRaWANDeviceMetadata_frequency,
     loRaWANDeviceMetadata_gateways,
     loRaWANDeviceMetadata_timestamp,
+    loRaWANDeviceMetadata_dataRate,
     loRaWANDeviceMetadata_devEui,
 
     -- * LoRaWANDeviceProfile
     LoRaWANDeviceProfile (..),
     newLoRaWANDeviceProfile,
-    loRaWANDeviceProfile_rfRegion,
-    loRaWANDeviceProfile_pingSlotFreq,
-    loRaWANDeviceProfile_classBTimeout,
-    loRaWANDeviceProfile_maxEirp,
     loRaWANDeviceProfile_rxDataRate2,
-    loRaWANDeviceProfile_macVersion,
+    loRaWANDeviceProfile_rfRegion,
+    loRaWANDeviceProfile_supportsJoin,
+    loRaWANDeviceProfile_supportsClassC,
+    loRaWANDeviceProfile_maxEirp,
     loRaWANDeviceProfile_factoryPresetFreqsList,
-    loRaWANDeviceProfile_rxFreq2,
-    loRaWANDeviceProfile_classCTimeout,
+    loRaWANDeviceProfile_maxDutyCycle,
     loRaWANDeviceProfile_regParamsRevision,
     loRaWANDeviceProfile_pingSlotDr,
-    loRaWANDeviceProfile_supports32BitFCnt,
-    loRaWANDeviceProfile_maxDutyCycle,
-    loRaWANDeviceProfile_rxDrOffset1,
-    loRaWANDeviceProfile_supportsClassB,
-    loRaWANDeviceProfile_supportsJoin,
     loRaWANDeviceProfile_rxDelay1,
-    loRaWANDeviceProfile_supportsClassC,
+    loRaWANDeviceProfile_classBTimeout,
     loRaWANDeviceProfile_pingSlotPeriod,
+    loRaWANDeviceProfile_pingSlotFreq,
+    loRaWANDeviceProfile_classCTimeout,
+    loRaWANDeviceProfile_rxFreq2,
+    loRaWANDeviceProfile_supportsClassB,
+    loRaWANDeviceProfile_rxDrOffset1,
+    loRaWANDeviceProfile_supports32BitFCnt,
+    loRaWANDeviceProfile_macVersion,
 
     -- * LoRaWANGateway
     LoRaWANGateway (..),
@@ -164,8 +164,8 @@ module Amazonka.IoTWireless.Types
     loRaWANGateway_rfRegion,
     loRaWANGateway_subBands,
     loRaWANGateway_gatewayEui,
-    loRaWANGateway_joinEuiFilters,
     loRaWANGateway_netIdFilters,
+    loRaWANGateway_joinEuiFilters,
 
     -- * LoRaWANGatewayCurrentVersion
     LoRaWANGatewayCurrentVersion (..),
@@ -175,39 +175,39 @@ module Amazonka.IoTWireless.Types
     -- * LoRaWANGatewayMetadata
     LoRaWANGatewayMetadata (..),
     newLoRaWANGatewayMetadata,
-    loRaWANGatewayMetadata_gatewayEui,
     loRaWANGatewayMetadata_snr,
+    loRaWANGatewayMetadata_gatewayEui,
     loRaWANGatewayMetadata_rssi,
 
     -- * LoRaWANGatewayVersion
     LoRaWANGatewayVersion (..),
     newLoRaWANGatewayVersion,
-    loRaWANGatewayVersion_packageVersion,
     loRaWANGatewayVersion_model,
     loRaWANGatewayVersion_station,
+    loRaWANGatewayVersion_packageVersion,
 
     -- * LoRaWANGetServiceProfileInfo
     LoRaWANGetServiceProfileInfo (..),
     newLoRaWANGetServiceProfileInfo,
-    loRaWANGetServiceProfileInfo_addGwMetadata,
-    loRaWANGetServiceProfileInfo_prAllowed,
-    loRaWANGetServiceProfileInfo_drMax,
-    loRaWANGetServiceProfileInfo_dlRate,
-    loRaWANGetServiceProfileInfo_devStatusReqFreq,
-    loRaWANGetServiceProfileInfo_reportDevStatusBattery,
-    loRaWANGetServiceProfileInfo_dlBucketSize,
-    loRaWANGetServiceProfileInfo_ulRatePolicy,
-    loRaWANGetServiceProfileInfo_targetPer,
-    loRaWANGetServiceProfileInfo_drMin,
-    loRaWANGetServiceProfileInfo_nwkGeoLoc,
-    loRaWANGetServiceProfileInfo_channelMask,
-    loRaWANGetServiceProfileInfo_dlRatePolicy,
     loRaWANGetServiceProfileInfo_hrAllowed,
-    loRaWANGetServiceProfileInfo_ulBucketSize,
+    loRaWANGetServiceProfileInfo_targetPer,
+    loRaWANGetServiceProfileInfo_nwkGeoLoc,
+    loRaWANGetServiceProfileInfo_devStatusReqFreq,
+    loRaWANGetServiceProfileInfo_prAllowed,
+    loRaWANGetServiceProfileInfo_dlRatePolicy,
+    loRaWANGetServiceProfileInfo_addGwMetadata,
+    loRaWANGetServiceProfileInfo_ulRatePolicy,
     loRaWANGetServiceProfileInfo_ulRate,
-    loRaWANGetServiceProfileInfo_reportDevStatusMargin,
     loRaWANGetServiceProfileInfo_raAllowed,
     loRaWANGetServiceProfileInfo_minGwDiversity,
+    loRaWANGetServiceProfileInfo_reportDevStatusMargin,
+    loRaWANGetServiceProfileInfo_channelMask,
+    loRaWANGetServiceProfileInfo_reportDevStatusBattery,
+    loRaWANGetServiceProfileInfo_ulBucketSize,
+    loRaWANGetServiceProfileInfo_dlRate,
+    loRaWANGetServiceProfileInfo_drMax,
+    loRaWANGetServiceProfileInfo_dlBucketSize,
+    loRaWANGetServiceProfileInfo_drMin,
 
     -- * LoRaWANListDevice
     LoRaWANListDevice (..),
@@ -227,15 +227,15 @@ module Amazonka.IoTWireless.Types
     -- * LoRaWANUpdateDevice
     LoRaWANUpdateDevice (..),
     newLoRaWANUpdateDevice,
-    loRaWANUpdateDevice_serviceProfileId,
     loRaWANUpdateDevice_deviceProfileId,
+    loRaWANUpdateDevice_serviceProfileId,
 
     -- * LoRaWANUpdateGatewayTaskCreate
     LoRaWANUpdateGatewayTaskCreate (..),
     newLoRaWANUpdateGatewayTaskCreate,
-    loRaWANUpdateGatewayTaskCreate_updateSignature,
     loRaWANUpdateGatewayTaskCreate_sigKeyCrc,
     loRaWANUpdateGatewayTaskCreate_currentVersion,
+    loRaWANUpdateGatewayTaskCreate_updateSignature,
     loRaWANUpdateGatewayTaskCreate_updateVersion,
 
     -- * LoRaWANUpdateGatewayTaskEntry
@@ -247,21 +247,21 @@ module Amazonka.IoTWireless.Types
     -- * OtaaV1_0_x
     OtaaV1_0_x (..),
     newOtaaV1_0_x,
-    otaaV1_0_x_appEui,
     otaaV1_0_x_appKey,
+    otaaV1_0_x_appEui,
 
     -- * OtaaV1_1
     OtaaV1_1 (..),
     newOtaaV1_1,
-    otaaV1_1_joinEui,
-    otaaV1_1_nwkKey,
     otaaV1_1_appKey,
+    otaaV1_1_nwkKey,
+    otaaV1_1_joinEui,
 
     -- * ServiceProfile
     ServiceProfile (..),
     newServiceProfile,
-    serviceProfile_arn,
     serviceProfile_name,
+    serviceProfile_arn,
     serviceProfile_id,
 
     -- * SessionKeysAbpV1_0_x
@@ -273,53 +273,53 @@ module Amazonka.IoTWireless.Types
     -- * SessionKeysAbpV1_1
     SessionKeysAbpV1_1 (..),
     newSessionKeysAbpV1_1,
+    sessionKeysAbpV1_1_nwkSEncKey,
     sessionKeysAbpV1_1_fNwkSIntKey,
     sessionKeysAbpV1_1_sNwkSIntKey,
-    sessionKeysAbpV1_1_nwkSEncKey,
     sessionKeysAbpV1_1_appSKey,
 
     -- * SidewalkAccountInfo
     SidewalkAccountInfo (..),
     newSidewalkAccountInfo,
-    sidewalkAccountInfo_amazonId,
     sidewalkAccountInfo_appServerPrivateKey,
+    sidewalkAccountInfo_amazonId,
 
     -- * SidewalkAccountInfoWithFingerprint
     SidewalkAccountInfoWithFingerprint (..),
     newSidewalkAccountInfoWithFingerprint,
     sidewalkAccountInfoWithFingerprint_arn,
-    sidewalkAccountInfoWithFingerprint_fingerprint,
     sidewalkAccountInfoWithFingerprint_amazonId,
+    sidewalkAccountInfoWithFingerprint_fingerprint,
 
     -- * SidewalkDevice
     SidewalkDevice (..),
     newSidewalkDevice,
-    sidewalkDevice_sidewalkManufacturingSn,
-    sidewalkDevice_amazonId,
     sidewalkDevice_deviceCertificates,
     sidewalkDevice_sidewalkId,
+    sidewalkDevice_amazonId,
+    sidewalkDevice_sidewalkManufacturingSn,
 
     -- * SidewalkDeviceMetadata
     SidewalkDeviceMetadata (..),
     newSidewalkDeviceMetadata,
-    sidewalkDeviceMetadata_event,
     sidewalkDeviceMetadata_deviceState,
     sidewalkDeviceMetadata_batteryLevel,
+    sidewalkDeviceMetadata_event,
     sidewalkDeviceMetadata_rssi,
 
     -- * SidewalkListDevice
     SidewalkListDevice (..),
     newSidewalkListDevice,
-    sidewalkListDevice_sidewalkManufacturingSn,
-    sidewalkListDevice_amazonId,
     sidewalkListDevice_deviceCertificates,
     sidewalkListDevice_sidewalkId,
+    sidewalkListDevice_amazonId,
+    sidewalkListDevice_sidewalkManufacturingSn,
 
     -- * SidewalkSendDataToDevice
     SidewalkSendDataToDevice (..),
     newSidewalkSendDataToDevice,
-    sidewalkSendDataToDevice_messageType,
     sidewalkSendDataToDevice_seq,
+    sidewalkSendDataToDevice_messageType,
 
     -- * SidewalkUpdateAccount
     SidewalkUpdateAccount (..),
@@ -335,15 +335,15 @@ module Amazonka.IoTWireless.Types
     -- * UpdateWirelessGatewayTaskCreate
     UpdateWirelessGatewayTaskCreate (..),
     newUpdateWirelessGatewayTaskCreate,
-    updateWirelessGatewayTaskCreate_updateDataSource,
     updateWirelessGatewayTaskCreate_updateDataRole,
     updateWirelessGatewayTaskCreate_loRaWAN,
+    updateWirelessGatewayTaskCreate_updateDataSource,
 
     -- * UpdateWirelessGatewayTaskEntry
     UpdateWirelessGatewayTaskEntry (..),
     newUpdateWirelessGatewayTaskEntry,
-    updateWirelessGatewayTaskEntry_arn,
     updateWirelessGatewayTaskEntry_loRaWAN,
+    updateWirelessGatewayTaskEntry_arn,
     updateWirelessGatewayTaskEntry_id,
 
     -- * WirelessDeviceEventLogOption
@@ -362,14 +362,14 @@ module Amazonka.IoTWireless.Types
     -- * WirelessDeviceStatistics
     WirelessDeviceStatistics (..),
     newWirelessDeviceStatistics,
-    wirelessDeviceStatistics_sidewalk,
-    wirelessDeviceStatistics_arn,
-    wirelessDeviceStatistics_loRaWAN,
     wirelessDeviceStatistics_name,
-    wirelessDeviceStatistics_id,
-    wirelessDeviceStatistics_lastUplinkReceivedAt,
     wirelessDeviceStatistics_type,
+    wirelessDeviceStatistics_lastUplinkReceivedAt,
+    wirelessDeviceStatistics_loRaWAN,
     wirelessDeviceStatistics_destinationName,
+    wirelessDeviceStatistics_arn,
+    wirelessDeviceStatistics_id,
+    wirelessDeviceStatistics_sidewalk,
 
     -- * WirelessGatewayEventLogOption
     WirelessGatewayEventLogOption (..),
@@ -387,18 +387,18 @@ module Amazonka.IoTWireless.Types
     -- * WirelessGatewayStatistics
     WirelessGatewayStatistics (..),
     newWirelessGatewayStatistics,
-    wirelessGatewayStatistics_arn,
-    wirelessGatewayStatistics_loRaWAN,
     wirelessGatewayStatistics_name,
-    wirelessGatewayStatistics_id,
     wirelessGatewayStatistics_lastUplinkReceivedAt,
+    wirelessGatewayStatistics_loRaWAN,
+    wirelessGatewayStatistics_arn,
+    wirelessGatewayStatistics_id,
     wirelessGatewayStatistics_description,
 
     -- * WirelessMetadata
     WirelessMetadata (..),
     newWirelessMetadata,
-    wirelessMetadata_sidewalk,
     wirelessMetadata_loRaWAN,
+    wirelessMetadata_sidewalk,
   )
 where
 
@@ -492,35 +492,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -529,21 +502,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The input did not meet the specified constraints.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
-    Prelude.. Core.hasStatus 400
 
 -- | User does not have permission to perform this action.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -553,6 +545,14 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
+-- | An unexpected error occurred while processing a request.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerException"
+    Prelude.. Core.hasStatus 500
+
 -- | The request was denied because the resource can\'t have any more tags.
 _TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyTagsException =
@@ -560,6 +560,14 @@ _TooManyTagsException =
     defaultService
     "TooManyTagsException"
     Prelude.. Core.hasStatus 400
+
+-- | Resource does not exist.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
 
 -- | Adding, updating, or deleting the resource can cause an inconsistent
 -- state.
@@ -578,18 +586,10 @@ _ThrottlingException =
     "ThrottlingException"
     Prelude.. Core.hasStatus 429
 
--- | An unexpected error occurred while processing a request.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
+-- | The input did not meet the specified constraints.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
   Core._MatchServiceError
     defaultService
-    "InternalServerException"
-    Prelude.. Core.hasStatus 500
-
--- | Resource does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
+    "ValidationException"
+    Prelude.. Core.hasStatus 400

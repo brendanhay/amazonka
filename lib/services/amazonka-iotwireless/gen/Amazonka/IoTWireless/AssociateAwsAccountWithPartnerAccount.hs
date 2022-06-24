@@ -27,8 +27,8 @@ module Amazonka.IoTWireless.AssociateAwsAccountWithPartnerAccount
     newAssociateAwsAccountWithPartnerAccount,
 
     -- * Request Lenses
-    associateAwsAccountWithPartnerAccount_clientRequestToken,
     associateAwsAccountWithPartnerAccount_tags,
+    associateAwsAccountWithPartnerAccount_clientRequestToken,
     associateAwsAccountWithPartnerAccount_sidewalk,
 
     -- * Destructuring the Response
@@ -36,8 +36,8 @@ module Amazonka.IoTWireless.AssociateAwsAccountWithPartnerAccount
     newAssociateAwsAccountWithPartnerAccountResponse,
 
     -- * Response Lenses
-    associateAwsAccountWithPartnerAccountResponse_sidewalk,
     associateAwsAccountWithPartnerAccountResponse_arn,
+    associateAwsAccountWithPartnerAccountResponse_sidewalk,
     associateAwsAccountWithPartnerAccountResponse_httpStatus,
   )
 where
@@ -51,14 +51,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAssociateAwsAccountWithPartnerAccount' smart constructor.
 data AssociateAwsAccountWithPartnerAccount = AssociateAwsAccountWithPartnerAccount'
-  { -- | Each resource must have a unique client request token. If you try to
+  { -- | The tags to attach to the specified resource. Tags are metadata that you
+    -- can use to manage a resource.
+    tags :: Prelude.Maybe [Tag],
+    -- | Each resource must have a unique client request token. If you try to
     -- create a new resource with the same token as a resource that already
     -- exists, an exception occurs. If you omit this value, AWS SDKs will
     -- automatically generate a unique client request.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The tags to attach to the specified resource. Tags are metadata that you
-    -- can use to manage a resource.
-    tags :: Prelude.Maybe [Tag],
     -- | The Sidewalk account credentials.
     sidewalk :: SidewalkAccountInfo
   }
@@ -72,13 +72,13 @@ data AssociateAwsAccountWithPartnerAccount = AssociateAwsAccountWithPartnerAccou
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'associateAwsAccountWithPartnerAccount_tags' - The tags to attach to the specified resource. Tags are metadata that you
+-- can use to manage a resource.
+--
 -- 'clientRequestToken', 'associateAwsAccountWithPartnerAccount_clientRequestToken' - Each resource must have a unique client request token. If you try to
 -- create a new resource with the same token as a resource that already
 -- exists, an exception occurs. If you omit this value, AWS SDKs will
 -- automatically generate a unique client request.
---
--- 'tags', 'associateAwsAccountWithPartnerAccount_tags' - The tags to attach to the specified resource. Tags are metadata that you
--- can use to manage a resource.
 --
 -- 'sidewalk', 'associateAwsAccountWithPartnerAccount_sidewalk' - The Sidewalk account credentials.
 newAssociateAwsAccountWithPartnerAccount ::
@@ -87,11 +87,16 @@ newAssociateAwsAccountWithPartnerAccount ::
   AssociateAwsAccountWithPartnerAccount
 newAssociateAwsAccountWithPartnerAccount pSidewalk_ =
   AssociateAwsAccountWithPartnerAccount'
-    { clientRequestToken =
+    { tags =
         Prelude.Nothing,
-      tags = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
       sidewalk = pSidewalk_
     }
+
+-- | The tags to attach to the specified resource. Tags are metadata that you
+-- can use to manage a resource.
+associateAwsAccountWithPartnerAccount_tags :: Lens.Lens' AssociateAwsAccountWithPartnerAccount (Prelude.Maybe [Tag])
+associateAwsAccountWithPartnerAccount_tags = Lens.lens (\AssociateAwsAccountWithPartnerAccount' {tags} -> tags) (\s@AssociateAwsAccountWithPartnerAccount' {} a -> s {tags = a} :: AssociateAwsAccountWithPartnerAccount) Prelude.. Lens.mapping Lens.coerced
 
 -- | Each resource must have a unique client request token. If you try to
 -- create a new resource with the same token as a resource that already
@@ -99,11 +104,6 @@ newAssociateAwsAccountWithPartnerAccount pSidewalk_ =
 -- automatically generate a unique client request.
 associateAwsAccountWithPartnerAccount_clientRequestToken :: Lens.Lens' AssociateAwsAccountWithPartnerAccount (Prelude.Maybe Prelude.Text)
 associateAwsAccountWithPartnerAccount_clientRequestToken = Lens.lens (\AssociateAwsAccountWithPartnerAccount' {clientRequestToken} -> clientRequestToken) (\s@AssociateAwsAccountWithPartnerAccount' {} a -> s {clientRequestToken = a} :: AssociateAwsAccountWithPartnerAccount)
-
--- | The tags to attach to the specified resource. Tags are metadata that you
--- can use to manage a resource.
-associateAwsAccountWithPartnerAccount_tags :: Lens.Lens' AssociateAwsAccountWithPartnerAccount (Prelude.Maybe [Tag])
-associateAwsAccountWithPartnerAccount_tags = Lens.lens (\AssociateAwsAccountWithPartnerAccount' {tags} -> tags) (\s@AssociateAwsAccountWithPartnerAccount' {} a -> s {tags = a} :: AssociateAwsAccountWithPartnerAccount) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Sidewalk account credentials.
 associateAwsAccountWithPartnerAccount_sidewalk :: Lens.Lens' AssociateAwsAccountWithPartnerAccount SidewalkAccountInfo
@@ -122,8 +122,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           AssociateAwsAccountWithPartnerAccountResponse'
-            Prelude.<$> (x Core..?> "Sidewalk")
-              Prelude.<*> (x Core..?> "Arn")
+            Prelude.<$> (x Core..?> "Arn")
+              Prelude.<*> (x Core..?> "Sidewalk")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,8 +134,8 @@ instance
   hashWithSalt
     _salt
     AssociateAwsAccountWithPartnerAccount' {..} =
-      _salt `Prelude.hashWithSalt` clientRequestToken
-        `Prelude.hashWithSalt` tags
+      _salt `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` clientRequestToken
         `Prelude.hashWithSalt` sidewalk
 
 instance
@@ -143,8 +143,8 @@ instance
     AssociateAwsAccountWithPartnerAccount
   where
   rnf AssociateAwsAccountWithPartnerAccount' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf sidewalk
 
 instance
@@ -160,9 +160,9 @@ instance
   toJSON AssociateAwsAccountWithPartnerAccount' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("Sidewalk" Core..= sidewalk)
           ]
       )
@@ -181,10 +181,10 @@ instance
 
 -- | /See:/ 'newAssociateAwsAccountWithPartnerAccountResponse' smart constructor.
 data AssociateAwsAccountWithPartnerAccountResponse = AssociateAwsAccountWithPartnerAccountResponse'
-  { -- | The Sidewalk account credentials.
-    sidewalk :: Prelude.Maybe SidewalkAccountInfo,
-    -- | The Amazon Resource Name of the resource.
+  { -- | The Amazon Resource Name of the resource.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The Sidewalk account credentials.
+    sidewalk :: Prelude.Maybe SidewalkAccountInfo,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -198,9 +198,9 @@ data AssociateAwsAccountWithPartnerAccountResponse = AssociateAwsAccountWithPart
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sidewalk', 'associateAwsAccountWithPartnerAccountResponse_sidewalk' - The Sidewalk account credentials.
---
 -- 'arn', 'associateAwsAccountWithPartnerAccountResponse_arn' - The Amazon Resource Name of the resource.
+--
+-- 'sidewalk', 'associateAwsAccountWithPartnerAccountResponse_sidewalk' - The Sidewalk account credentials.
 --
 -- 'httpStatus', 'associateAwsAccountWithPartnerAccountResponse_httpStatus' - The response's http status code.
 newAssociateAwsAccountWithPartnerAccountResponse ::
@@ -210,19 +210,19 @@ newAssociateAwsAccountWithPartnerAccountResponse ::
 newAssociateAwsAccountWithPartnerAccountResponse
   pHttpStatus_ =
     AssociateAwsAccountWithPartnerAccountResponse'
-      { sidewalk =
+      { arn =
           Prelude.Nothing,
-        arn = Prelude.Nothing,
+        sidewalk = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The Sidewalk account credentials.
-associateAwsAccountWithPartnerAccountResponse_sidewalk :: Lens.Lens' AssociateAwsAccountWithPartnerAccountResponse (Prelude.Maybe SidewalkAccountInfo)
-associateAwsAccountWithPartnerAccountResponse_sidewalk = Lens.lens (\AssociateAwsAccountWithPartnerAccountResponse' {sidewalk} -> sidewalk) (\s@AssociateAwsAccountWithPartnerAccountResponse' {} a -> s {sidewalk = a} :: AssociateAwsAccountWithPartnerAccountResponse)
 
 -- | The Amazon Resource Name of the resource.
 associateAwsAccountWithPartnerAccountResponse_arn :: Lens.Lens' AssociateAwsAccountWithPartnerAccountResponse (Prelude.Maybe Prelude.Text)
 associateAwsAccountWithPartnerAccountResponse_arn = Lens.lens (\AssociateAwsAccountWithPartnerAccountResponse' {arn} -> arn) (\s@AssociateAwsAccountWithPartnerAccountResponse' {} a -> s {arn = a} :: AssociateAwsAccountWithPartnerAccountResponse)
+
+-- | The Sidewalk account credentials.
+associateAwsAccountWithPartnerAccountResponse_sidewalk :: Lens.Lens' AssociateAwsAccountWithPartnerAccountResponse (Prelude.Maybe SidewalkAccountInfo)
+associateAwsAccountWithPartnerAccountResponse_sidewalk = Lens.lens (\AssociateAwsAccountWithPartnerAccountResponse' {sidewalk} -> sidewalk) (\s@AssociateAwsAccountWithPartnerAccountResponse' {} a -> s {sidewalk = a} :: AssociateAwsAccountWithPartnerAccountResponse)
 
 -- | The response's http status code.
 associateAwsAccountWithPartnerAccountResponse_httpStatus :: Lens.Lens' AssociateAwsAccountWithPartnerAccountResponse Prelude.Int
@@ -234,6 +234,6 @@ instance
   where
   rnf
     AssociateAwsAccountWithPartnerAccountResponse' {..} =
-      Prelude.rnf sidewalk
-        `Prelude.seq` Prelude.rnf arn
+      Prelude.rnf arn
+        `Prelude.seq` Prelude.rnf sidewalk
         `Prelude.seq` Prelude.rnf httpStatus

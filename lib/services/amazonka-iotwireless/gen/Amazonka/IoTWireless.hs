@@ -19,14 +19,17 @@ module Amazonka.IoTWireless
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** InternalServerException
+    _InternalServerException,
+
     -- ** TooManyTagsException
     _TooManyTagsException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** ConflictException
     _ConflictException,
@@ -34,11 +37,8 @@ module Amazonka.IoTWireless
     -- ** ThrottlingException
     _ThrottlingException,
 
-    -- ** InternalServerException
-    _InternalServerException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -46,47 +46,11 @@ module Amazonka.IoTWireless
     -- * Operations
     -- $operations
 
-    -- ** CreateWirelessGatewayTaskDefinition
-    CreateWirelessGatewayTaskDefinition (CreateWirelessGatewayTaskDefinition'),
-    newCreateWirelessGatewayTaskDefinition,
-    CreateWirelessGatewayTaskDefinitionResponse (CreateWirelessGatewayTaskDefinitionResponse'),
-    newCreateWirelessGatewayTaskDefinitionResponse,
-
-    -- ** ResetAllResourceLogLevels
-    ResetAllResourceLogLevels (ResetAllResourceLogLevels'),
-    newResetAllResourceLogLevels,
-    ResetAllResourceLogLevelsResponse (ResetAllResourceLogLevelsResponse'),
-    newResetAllResourceLogLevelsResponse,
-
-    -- ** ListServiceProfiles
-    ListServiceProfiles (ListServiceProfiles'),
-    newListServiceProfiles,
-    ListServiceProfilesResponse (ListServiceProfilesResponse'),
-    newListServiceProfilesResponse,
-
-    -- ** DeleteServiceProfile
-    DeleteServiceProfile (DeleteServiceProfile'),
-    newDeleteServiceProfile,
-    DeleteServiceProfileResponse (DeleteServiceProfileResponse'),
-    newDeleteServiceProfileResponse,
-
-    -- ** ListDeviceProfiles
-    ListDeviceProfiles (ListDeviceProfiles'),
-    newListDeviceProfiles,
-    ListDeviceProfilesResponse (ListDeviceProfilesResponse'),
-    newListDeviceProfilesResponse,
-
-    -- ** AssociateWirelessGatewayWithThing
-    AssociateWirelessGatewayWithThing (AssociateWirelessGatewayWithThing'),
-    newAssociateWirelessGatewayWithThing,
-    AssociateWirelessGatewayWithThingResponse (AssociateWirelessGatewayWithThingResponse'),
-    newAssociateWirelessGatewayWithThingResponse,
-
-    -- ** DeleteDeviceProfile
-    DeleteDeviceProfile (DeleteDeviceProfile'),
-    newDeleteDeviceProfile,
-    DeleteDeviceProfileResponse (DeleteDeviceProfileResponse'),
-    newDeleteDeviceProfileResponse,
+    -- ** AssociateAwsAccountWithPartnerAccount
+    AssociateAwsAccountWithPartnerAccount (AssociateAwsAccountWithPartnerAccount'),
+    newAssociateAwsAccountWithPartnerAccount,
+    AssociateAwsAccountWithPartnerAccountResponse (AssociateAwsAccountWithPartnerAccountResponse'),
+    newAssociateAwsAccountWithPartnerAccountResponse,
 
     -- ** AssociateWirelessDeviceWithThing
     AssociateWirelessDeviceWithThing (AssociateWirelessDeviceWithThing'),
@@ -94,11 +58,29 @@ module Amazonka.IoTWireless
     AssociateWirelessDeviceWithThingResponse (AssociateWirelessDeviceWithThingResponse'),
     newAssociateWirelessDeviceWithThingResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** AssociateWirelessGatewayWithCertificate
+    AssociateWirelessGatewayWithCertificate (AssociateWirelessGatewayWithCertificate'),
+    newAssociateWirelessGatewayWithCertificate,
+    AssociateWirelessGatewayWithCertificateResponse (AssociateWirelessGatewayWithCertificateResponse'),
+    newAssociateWirelessGatewayWithCertificateResponse,
+
+    -- ** AssociateWirelessGatewayWithThing
+    AssociateWirelessGatewayWithThing (AssociateWirelessGatewayWithThing'),
+    newAssociateWirelessGatewayWithThing,
+    AssociateWirelessGatewayWithThingResponse (AssociateWirelessGatewayWithThingResponse'),
+    newAssociateWirelessGatewayWithThingResponse,
+
+    -- ** CreateDestination
+    CreateDestination (CreateDestination'),
+    newCreateDestination,
+    CreateDestinationResponse (CreateDestinationResponse'),
+    newCreateDestinationResponse,
+
+    -- ** CreateDeviceProfile
+    CreateDeviceProfile (CreateDeviceProfile'),
+    newCreateDeviceProfile,
+    CreateDeviceProfileResponse (CreateDeviceProfileResponse'),
+    newCreateDeviceProfileResponse,
 
     -- ** CreateServiceProfile
     CreateServiceProfile (CreateServiceProfile'),
@@ -106,17 +88,29 @@ module Amazonka.IoTWireless
     CreateServiceProfileResponse (CreateServiceProfileResponse'),
     newCreateServiceProfileResponse,
 
-    -- ** AssociateAwsAccountWithPartnerAccount
-    AssociateAwsAccountWithPartnerAccount (AssociateAwsAccountWithPartnerAccount'),
-    newAssociateAwsAccountWithPartnerAccount,
-    AssociateAwsAccountWithPartnerAccountResponse (AssociateAwsAccountWithPartnerAccountResponse'),
-    newAssociateAwsAccountWithPartnerAccountResponse,
+    -- ** CreateWirelessDevice
+    CreateWirelessDevice (CreateWirelessDevice'),
+    newCreateWirelessDevice,
+    CreateWirelessDeviceResponse (CreateWirelessDeviceResponse'),
+    newCreateWirelessDeviceResponse,
 
-    -- ** ResetResourceLogLevel
-    ResetResourceLogLevel (ResetResourceLogLevel'),
-    newResetResourceLogLevel,
-    ResetResourceLogLevelResponse (ResetResourceLogLevelResponse'),
-    newResetResourceLogLevelResponse,
+    -- ** CreateWirelessGateway
+    CreateWirelessGateway (CreateWirelessGateway'),
+    newCreateWirelessGateway,
+    CreateWirelessGatewayResponse (CreateWirelessGatewayResponse'),
+    newCreateWirelessGatewayResponse,
+
+    -- ** CreateWirelessGatewayTask
+    CreateWirelessGatewayTask (CreateWirelessGatewayTask'),
+    newCreateWirelessGatewayTask,
+    CreateWirelessGatewayTaskResponse (CreateWirelessGatewayTaskResponse'),
+    newCreateWirelessGatewayTaskResponse,
+
+    -- ** CreateWirelessGatewayTaskDefinition
+    CreateWirelessGatewayTaskDefinition (CreateWirelessGatewayTaskDefinition'),
+    newCreateWirelessGatewayTaskDefinition,
+    CreateWirelessGatewayTaskDefinitionResponse (CreateWirelessGatewayTaskDefinitionResponse'),
+    newCreateWirelessGatewayTaskDefinitionResponse,
 
     -- ** DeleteDestination
     DeleteDestination (DeleteDestination'),
@@ -124,11 +118,95 @@ module Amazonka.IoTWireless
     DeleteDestinationResponse (DeleteDestinationResponse'),
     newDeleteDestinationResponse,
 
-    -- ** UpdateDestination
-    UpdateDestination (UpdateDestination'),
-    newUpdateDestination,
-    UpdateDestinationResponse (UpdateDestinationResponse'),
-    newUpdateDestinationResponse,
+    -- ** DeleteDeviceProfile
+    DeleteDeviceProfile (DeleteDeviceProfile'),
+    newDeleteDeviceProfile,
+    DeleteDeviceProfileResponse (DeleteDeviceProfileResponse'),
+    newDeleteDeviceProfileResponse,
+
+    -- ** DeleteServiceProfile
+    DeleteServiceProfile (DeleteServiceProfile'),
+    newDeleteServiceProfile,
+    DeleteServiceProfileResponse (DeleteServiceProfileResponse'),
+    newDeleteServiceProfileResponse,
+
+    -- ** DeleteWirelessDevice
+    DeleteWirelessDevice (DeleteWirelessDevice'),
+    newDeleteWirelessDevice,
+    DeleteWirelessDeviceResponse (DeleteWirelessDeviceResponse'),
+    newDeleteWirelessDeviceResponse,
+
+    -- ** DeleteWirelessGateway
+    DeleteWirelessGateway (DeleteWirelessGateway'),
+    newDeleteWirelessGateway,
+    DeleteWirelessGatewayResponse (DeleteWirelessGatewayResponse'),
+    newDeleteWirelessGatewayResponse,
+
+    -- ** DeleteWirelessGatewayTask
+    DeleteWirelessGatewayTask (DeleteWirelessGatewayTask'),
+    newDeleteWirelessGatewayTask,
+    DeleteWirelessGatewayTaskResponse (DeleteWirelessGatewayTaskResponse'),
+    newDeleteWirelessGatewayTaskResponse,
+
+    -- ** DeleteWirelessGatewayTaskDefinition
+    DeleteWirelessGatewayTaskDefinition (DeleteWirelessGatewayTaskDefinition'),
+    newDeleteWirelessGatewayTaskDefinition,
+    DeleteWirelessGatewayTaskDefinitionResponse (DeleteWirelessGatewayTaskDefinitionResponse'),
+    newDeleteWirelessGatewayTaskDefinitionResponse,
+
+    -- ** DisassociateAwsAccountFromPartnerAccount
+    DisassociateAwsAccountFromPartnerAccount (DisassociateAwsAccountFromPartnerAccount'),
+    newDisassociateAwsAccountFromPartnerAccount,
+    DisassociateAwsAccountFromPartnerAccountResponse (DisassociateAwsAccountFromPartnerAccountResponse'),
+    newDisassociateAwsAccountFromPartnerAccountResponse,
+
+    -- ** DisassociateWirelessDeviceFromThing
+    DisassociateWirelessDeviceFromThing (DisassociateWirelessDeviceFromThing'),
+    newDisassociateWirelessDeviceFromThing,
+    DisassociateWirelessDeviceFromThingResponse (DisassociateWirelessDeviceFromThingResponse'),
+    newDisassociateWirelessDeviceFromThingResponse,
+
+    -- ** DisassociateWirelessGatewayFromCertificate
+    DisassociateWirelessGatewayFromCertificate (DisassociateWirelessGatewayFromCertificate'),
+    newDisassociateWirelessGatewayFromCertificate,
+    DisassociateWirelessGatewayFromCertificateResponse (DisassociateWirelessGatewayFromCertificateResponse'),
+    newDisassociateWirelessGatewayFromCertificateResponse,
+
+    -- ** DisassociateWirelessGatewayFromThing
+    DisassociateWirelessGatewayFromThing (DisassociateWirelessGatewayFromThing'),
+    newDisassociateWirelessGatewayFromThing,
+    DisassociateWirelessGatewayFromThingResponse (DisassociateWirelessGatewayFromThingResponse'),
+    newDisassociateWirelessGatewayFromThingResponse,
+
+    -- ** GetDestination
+    GetDestination (GetDestination'),
+    newGetDestination,
+    GetDestinationResponse (GetDestinationResponse'),
+    newGetDestinationResponse,
+
+    -- ** GetDeviceProfile
+    GetDeviceProfile (GetDeviceProfile'),
+    newGetDeviceProfile,
+    GetDeviceProfileResponse (GetDeviceProfileResponse'),
+    newGetDeviceProfileResponse,
+
+    -- ** GetLogLevelsByResourceTypes
+    GetLogLevelsByResourceTypes (GetLogLevelsByResourceTypes'),
+    newGetLogLevelsByResourceTypes,
+    GetLogLevelsByResourceTypesResponse (GetLogLevelsByResourceTypesResponse'),
+    newGetLogLevelsByResourceTypesResponse,
+
+    -- ** GetPartnerAccount
+    GetPartnerAccount (GetPartnerAccount'),
+    newGetPartnerAccount,
+    GetPartnerAccountResponse (GetPartnerAccountResponse'),
+    newGetPartnerAccountResponse,
+
+    -- ** GetResourceLogLevel
+    GetResourceLogLevel (GetResourceLogLevel'),
+    newGetResourceLogLevel,
+    GetResourceLogLevelResponse (GetResourceLogLevelResponse'),
+    newGetResourceLogLevelResponse,
 
     -- ** GetServiceEndpoint
     GetServiceEndpoint (GetServiceEndpoint'),
@@ -142,53 +220,17 @@ module Amazonka.IoTWireless
     GetServiceProfileResponse (GetServiceProfileResponse'),
     newGetServiceProfileResponse,
 
-    -- ** GetWirelessDeviceStatistics
-    GetWirelessDeviceStatistics (GetWirelessDeviceStatistics'),
-    newGetWirelessDeviceStatistics,
-    GetWirelessDeviceStatisticsResponse (GetWirelessDeviceStatisticsResponse'),
-    newGetWirelessDeviceStatisticsResponse,
-
-    -- ** GetWirelessGatewayStatistics
-    GetWirelessGatewayStatistics (GetWirelessGatewayStatistics'),
-    newGetWirelessGatewayStatistics,
-    GetWirelessGatewayStatisticsResponse (GetWirelessGatewayStatisticsResponse'),
-    newGetWirelessGatewayStatisticsResponse,
-
-    -- ** GetWirelessGatewayCertificate
-    GetWirelessGatewayCertificate (GetWirelessGatewayCertificate'),
-    newGetWirelessGatewayCertificate,
-    GetWirelessGatewayCertificateResponse (GetWirelessGatewayCertificateResponse'),
-    newGetWirelessGatewayCertificateResponse,
-
-    -- ** GetWirelessGatewayTask
-    GetWirelessGatewayTask (GetWirelessGatewayTask'),
-    newGetWirelessGatewayTask,
-    GetWirelessGatewayTaskResponse (GetWirelessGatewayTaskResponse'),
-    newGetWirelessGatewayTaskResponse,
-
-    -- ** GetWirelessGatewayFirmwareInformation
-    GetWirelessGatewayFirmwareInformation (GetWirelessGatewayFirmwareInformation'),
-    newGetWirelessGatewayFirmwareInformation,
-    GetWirelessGatewayFirmwareInformationResponse (GetWirelessGatewayFirmwareInformationResponse'),
-    newGetWirelessGatewayFirmwareInformationResponse,
-
-    -- ** ListPartnerAccounts
-    ListPartnerAccounts (ListPartnerAccounts'),
-    newListPartnerAccounts,
-    ListPartnerAccountsResponse (ListPartnerAccountsResponse'),
-    newListPartnerAccountsResponse,
-
-    -- ** TestWirelessDevice
-    TestWirelessDevice (TestWirelessDevice'),
-    newTestWirelessDevice,
-    TestWirelessDeviceResponse (TestWirelessDeviceResponse'),
-    newTestWirelessDeviceResponse,
-
     -- ** GetWirelessDevice
     GetWirelessDevice (GetWirelessDevice'),
     newGetWirelessDevice,
     GetWirelessDeviceResponse (GetWirelessDeviceResponse'),
     newGetWirelessDeviceResponse,
+
+    -- ** GetWirelessDeviceStatistics
+    GetWirelessDeviceStatistics (GetWirelessDeviceStatistics'),
+    newGetWirelessDeviceStatistics,
+    GetWirelessDeviceStatisticsResponse (GetWirelessDeviceStatisticsResponse'),
+    newGetWirelessDeviceStatisticsResponse,
 
     -- ** GetWirelessGateway
     GetWirelessGateway (GetWirelessGateway'),
@@ -196,155 +238,29 @@ module Amazonka.IoTWireless
     GetWirelessGatewayResponse (GetWirelessGatewayResponse'),
     newGetWirelessGatewayResponse,
 
-    -- ** GetPartnerAccount
-    GetPartnerAccount (GetPartnerAccount'),
-    newGetPartnerAccount,
-    GetPartnerAccountResponse (GetPartnerAccountResponse'),
-    newGetPartnerAccountResponse,
+    -- ** GetWirelessGatewayCertificate
+    GetWirelessGatewayCertificate (GetWirelessGatewayCertificate'),
+    newGetWirelessGatewayCertificate,
+    GetWirelessGatewayCertificateResponse (GetWirelessGatewayCertificateResponse'),
+    newGetWirelessGatewayCertificateResponse,
 
-    -- ** CreateWirelessGatewayTask
-    CreateWirelessGatewayTask (CreateWirelessGatewayTask'),
-    newCreateWirelessGatewayTask,
-    CreateWirelessGatewayTaskResponse (CreateWirelessGatewayTaskResponse'),
-    newCreateWirelessGatewayTaskResponse,
+    -- ** GetWirelessGatewayFirmwareInformation
+    GetWirelessGatewayFirmwareInformation (GetWirelessGatewayFirmwareInformation'),
+    newGetWirelessGatewayFirmwareInformation,
+    GetWirelessGatewayFirmwareInformationResponse (GetWirelessGatewayFirmwareInformationResponse'),
+    newGetWirelessGatewayFirmwareInformationResponse,
 
-    -- ** DeleteWirelessGateway
-    DeleteWirelessGateway (DeleteWirelessGateway'),
-    newDeleteWirelessGateway,
-    DeleteWirelessGatewayResponse (DeleteWirelessGatewayResponse'),
-    newDeleteWirelessGatewayResponse,
+    -- ** GetWirelessGatewayStatistics
+    GetWirelessGatewayStatistics (GetWirelessGatewayStatistics'),
+    newGetWirelessGatewayStatistics,
+    GetWirelessGatewayStatisticsResponse (GetWirelessGatewayStatisticsResponse'),
+    newGetWirelessGatewayStatisticsResponse,
 
-    -- ** UpdateWirelessGateway
-    UpdateWirelessGateway (UpdateWirelessGateway'),
-    newUpdateWirelessGateway,
-    UpdateWirelessGatewayResponse (UpdateWirelessGatewayResponse'),
-    newUpdateWirelessGatewayResponse,
-
-    -- ** DisassociateWirelessGatewayFromCertificate
-    DisassociateWirelessGatewayFromCertificate (DisassociateWirelessGatewayFromCertificate'),
-    newDisassociateWirelessGatewayFromCertificate,
-    DisassociateWirelessGatewayFromCertificateResponse (DisassociateWirelessGatewayFromCertificateResponse'),
-    newDisassociateWirelessGatewayFromCertificateResponse,
-
-    -- ** ListWirelessGatewayTaskDefinitions
-    ListWirelessGatewayTaskDefinitions (ListWirelessGatewayTaskDefinitions'),
-    newListWirelessGatewayTaskDefinitions,
-    ListWirelessGatewayTaskDefinitionsResponse (ListWirelessGatewayTaskDefinitionsResponse'),
-    newListWirelessGatewayTaskDefinitionsResponse,
-
-    -- ** PutResourceLogLevel
-    PutResourceLogLevel (PutResourceLogLevel'),
-    newPutResourceLogLevel,
-    PutResourceLogLevelResponse (PutResourceLogLevelResponse'),
-    newPutResourceLogLevelResponse,
-
-    -- ** CreateWirelessGateway
-    CreateWirelessGateway (CreateWirelessGateway'),
-    newCreateWirelessGateway,
-    CreateWirelessGatewayResponse (CreateWirelessGatewayResponse'),
-    newCreateWirelessGatewayResponse,
-
-    -- ** DeleteWirelessGatewayTask
-    DeleteWirelessGatewayTask (DeleteWirelessGatewayTask'),
-    newDeleteWirelessGatewayTask,
-    DeleteWirelessGatewayTaskResponse (DeleteWirelessGatewayTaskResponse'),
-    newDeleteWirelessGatewayTaskResponse,
-
-    -- ** CreateWirelessDevice
-    CreateWirelessDevice (CreateWirelessDevice'),
-    newCreateWirelessDevice,
-    CreateWirelessDeviceResponse (CreateWirelessDeviceResponse'),
-    newCreateWirelessDeviceResponse,
-
-    -- ** SendDataToWirelessDevice
-    SendDataToWirelessDevice (SendDataToWirelessDevice'),
-    newSendDataToWirelessDevice,
-    SendDataToWirelessDeviceResponse (SendDataToWirelessDeviceResponse'),
-    newSendDataToWirelessDeviceResponse,
-
-    -- ** CreateDeviceProfile
-    CreateDeviceProfile (CreateDeviceProfile'),
-    newCreateDeviceProfile,
-    CreateDeviceProfileResponse (CreateDeviceProfileResponse'),
-    newCreateDeviceProfileResponse,
-
-    -- ** DisassociateAwsAccountFromPartnerAccount
-    DisassociateAwsAccountFromPartnerAccount (DisassociateAwsAccountFromPartnerAccount'),
-    newDisassociateAwsAccountFromPartnerAccount,
-    DisassociateAwsAccountFromPartnerAccountResponse (DisassociateAwsAccountFromPartnerAccountResponse'),
-    newDisassociateAwsAccountFromPartnerAccountResponse,
-
-    -- ** UpdateLogLevelsByResourceTypes
-    UpdateLogLevelsByResourceTypes (UpdateLogLevelsByResourceTypes'),
-    newUpdateLogLevelsByResourceTypes,
-    UpdateLogLevelsByResourceTypesResponse (UpdateLogLevelsByResourceTypesResponse'),
-    newUpdateLogLevelsByResourceTypesResponse,
-
-    -- ** GetDestination
-    GetDestination (GetDestination'),
-    newGetDestination,
-    GetDestinationResponse (GetDestinationResponse'),
-    newGetDestinationResponse,
-
-    -- ** GetLogLevelsByResourceTypes
-    GetLogLevelsByResourceTypes (GetLogLevelsByResourceTypes'),
-    newGetLogLevelsByResourceTypes,
-    GetLogLevelsByResourceTypesResponse (GetLogLevelsByResourceTypesResponse'),
-    newGetLogLevelsByResourceTypesResponse,
-
-    -- ** ListDestinations
-    ListDestinations (ListDestinations'),
-    newListDestinations,
-    ListDestinationsResponse (ListDestinationsResponse'),
-    newListDestinationsResponse,
-
-    -- ** GetDeviceProfile
-    GetDeviceProfile (GetDeviceProfile'),
-    newGetDeviceProfile,
-    GetDeviceProfileResponse (GetDeviceProfileResponse'),
-    newGetDeviceProfileResponse,
-
-    -- ** DisassociateWirelessDeviceFromThing
-    DisassociateWirelessDeviceFromThing (DisassociateWirelessDeviceFromThing'),
-    newDisassociateWirelessDeviceFromThing,
-    DisassociateWirelessDeviceFromThingResponse (DisassociateWirelessDeviceFromThingResponse'),
-    newDisassociateWirelessDeviceFromThingResponse,
-
-    -- ** DisassociateWirelessGatewayFromThing
-    DisassociateWirelessGatewayFromThing (DisassociateWirelessGatewayFromThing'),
-    newDisassociateWirelessGatewayFromThing,
-    DisassociateWirelessGatewayFromThingResponse (DisassociateWirelessGatewayFromThingResponse'),
-    newDisassociateWirelessGatewayFromThingResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** CreateDestination
-    CreateDestination (CreateDestination'),
-    newCreateDestination,
-    CreateDestinationResponse (CreateDestinationResponse'),
-    newCreateDestinationResponse,
-
-    -- ** AssociateWirelessGatewayWithCertificate
-    AssociateWirelessGatewayWithCertificate (AssociateWirelessGatewayWithCertificate'),
-    newAssociateWirelessGatewayWithCertificate,
-    AssociateWirelessGatewayWithCertificateResponse (AssociateWirelessGatewayWithCertificateResponse'),
-    newAssociateWirelessGatewayWithCertificateResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** UpdatePartnerAccount
-    UpdatePartnerAccount (UpdatePartnerAccount'),
-    newUpdatePartnerAccount,
-    UpdatePartnerAccountResponse (UpdatePartnerAccountResponse'),
-    newUpdatePartnerAccountResponse,
+    -- ** GetWirelessGatewayTask
+    GetWirelessGatewayTask (GetWirelessGatewayTask'),
+    newGetWirelessGatewayTask,
+    GetWirelessGatewayTaskResponse (GetWirelessGatewayTaskResponse'),
+    newGetWirelessGatewayTaskResponse,
 
     -- ** GetWirelessGatewayTaskDefinition
     GetWirelessGatewayTaskDefinition (GetWirelessGatewayTaskDefinition'),
@@ -352,23 +268,47 @@ module Amazonka.IoTWireless
     GetWirelessGatewayTaskDefinitionResponse (GetWirelessGatewayTaskDefinitionResponse'),
     newGetWirelessGatewayTaskDefinitionResponse,
 
-    -- ** GetResourceLogLevel
-    GetResourceLogLevel (GetResourceLogLevel'),
-    newGetResourceLogLevel,
-    GetResourceLogLevelResponse (GetResourceLogLevelResponse'),
-    newGetResourceLogLevelResponse,
+    -- ** ListDestinations
+    ListDestinations (ListDestinations'),
+    newListDestinations,
+    ListDestinationsResponse (ListDestinationsResponse'),
+    newListDestinationsResponse,
 
-    -- ** DeleteWirelessDevice
-    DeleteWirelessDevice (DeleteWirelessDevice'),
-    newDeleteWirelessDevice,
-    DeleteWirelessDeviceResponse (DeleteWirelessDeviceResponse'),
-    newDeleteWirelessDeviceResponse,
+    -- ** ListDeviceProfiles
+    ListDeviceProfiles (ListDeviceProfiles'),
+    newListDeviceProfiles,
+    ListDeviceProfilesResponse (ListDeviceProfilesResponse'),
+    newListDeviceProfilesResponse,
 
-    -- ** UpdateWirelessDevice
-    UpdateWirelessDevice (UpdateWirelessDevice'),
-    newUpdateWirelessDevice,
-    UpdateWirelessDeviceResponse (UpdateWirelessDeviceResponse'),
-    newUpdateWirelessDeviceResponse,
+    -- ** ListPartnerAccounts
+    ListPartnerAccounts (ListPartnerAccounts'),
+    newListPartnerAccounts,
+    ListPartnerAccountsResponse (ListPartnerAccountsResponse'),
+    newListPartnerAccountsResponse,
+
+    -- ** ListServiceProfiles
+    ListServiceProfiles (ListServiceProfiles'),
+    newListServiceProfiles,
+    ListServiceProfilesResponse (ListServiceProfilesResponse'),
+    newListServiceProfilesResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** ListWirelessDevices
+    ListWirelessDevices (ListWirelessDevices'),
+    newListWirelessDevices,
+    ListWirelessDevicesResponse (ListWirelessDevicesResponse'),
+    newListWirelessDevicesResponse,
+
+    -- ** ListWirelessGatewayTaskDefinitions
+    ListWirelessGatewayTaskDefinitions (ListWirelessGatewayTaskDefinitions'),
+    newListWirelessGatewayTaskDefinitions,
+    ListWirelessGatewayTaskDefinitionsResponse (ListWirelessGatewayTaskDefinitionsResponse'),
+    newListWirelessGatewayTaskDefinitionsResponse,
 
     -- ** ListWirelessGateways
     ListWirelessGateways (ListWirelessGateways'),
@@ -376,17 +316,77 @@ module Amazonka.IoTWireless
     ListWirelessGatewaysResponse (ListWirelessGatewaysResponse'),
     newListWirelessGatewaysResponse,
 
-    -- ** DeleteWirelessGatewayTaskDefinition
-    DeleteWirelessGatewayTaskDefinition (DeleteWirelessGatewayTaskDefinition'),
-    newDeleteWirelessGatewayTaskDefinition,
-    DeleteWirelessGatewayTaskDefinitionResponse (DeleteWirelessGatewayTaskDefinitionResponse'),
-    newDeleteWirelessGatewayTaskDefinitionResponse,
+    -- ** PutResourceLogLevel
+    PutResourceLogLevel (PutResourceLogLevel'),
+    newPutResourceLogLevel,
+    PutResourceLogLevelResponse (PutResourceLogLevelResponse'),
+    newPutResourceLogLevelResponse,
 
-    -- ** ListWirelessDevices
-    ListWirelessDevices (ListWirelessDevices'),
-    newListWirelessDevices,
-    ListWirelessDevicesResponse (ListWirelessDevicesResponse'),
-    newListWirelessDevicesResponse,
+    -- ** ResetAllResourceLogLevels
+    ResetAllResourceLogLevels (ResetAllResourceLogLevels'),
+    newResetAllResourceLogLevels,
+    ResetAllResourceLogLevelsResponse (ResetAllResourceLogLevelsResponse'),
+    newResetAllResourceLogLevelsResponse,
+
+    -- ** ResetResourceLogLevel
+    ResetResourceLogLevel (ResetResourceLogLevel'),
+    newResetResourceLogLevel,
+    ResetResourceLogLevelResponse (ResetResourceLogLevelResponse'),
+    newResetResourceLogLevelResponse,
+
+    -- ** SendDataToWirelessDevice
+    SendDataToWirelessDevice (SendDataToWirelessDevice'),
+    newSendDataToWirelessDevice,
+    SendDataToWirelessDeviceResponse (SendDataToWirelessDeviceResponse'),
+    newSendDataToWirelessDeviceResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** TestWirelessDevice
+    TestWirelessDevice (TestWirelessDevice'),
+    newTestWirelessDevice,
+    TestWirelessDeviceResponse (TestWirelessDeviceResponse'),
+    newTestWirelessDeviceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateDestination
+    UpdateDestination (UpdateDestination'),
+    newUpdateDestination,
+    UpdateDestinationResponse (UpdateDestinationResponse'),
+    newUpdateDestinationResponse,
+
+    -- ** UpdateLogLevelsByResourceTypes
+    UpdateLogLevelsByResourceTypes (UpdateLogLevelsByResourceTypes'),
+    newUpdateLogLevelsByResourceTypes,
+    UpdateLogLevelsByResourceTypesResponse (UpdateLogLevelsByResourceTypesResponse'),
+    newUpdateLogLevelsByResourceTypesResponse,
+
+    -- ** UpdatePartnerAccount
+    UpdatePartnerAccount (UpdatePartnerAccount'),
+    newUpdatePartnerAccount,
+    UpdatePartnerAccountResponse (UpdatePartnerAccountResponse'),
+    newUpdatePartnerAccountResponse,
+
+    -- ** UpdateWirelessDevice
+    UpdateWirelessDevice (UpdateWirelessDevice'),
+    newUpdateWirelessDevice,
+    UpdateWirelessDeviceResponse (UpdateWirelessDeviceResponse'),
+    newUpdateWirelessDeviceResponse,
+
+    -- ** UpdateWirelessGateway
+    UpdateWirelessGateway (UpdateWirelessGateway'),
+    newUpdateWirelessGateway,
+    UpdateWirelessGatewayResponse (UpdateWirelessGatewayResponse'),
+    newUpdateWirelessGatewayResponse,
 
     -- * Types
 

@@ -34,12 +34,12 @@ module Amazonka.IoTWireless.GetDestination
     newGetDestinationResponse,
 
     -- * Response Lenses
-    getDestinationResponse_expressionType,
-    getDestinationResponse_arn,
     getDestinationResponse_name,
-    getDestinationResponse_expression,
-    getDestinationResponse_description,
     getDestinationResponse_roleArn,
+    getDestinationResponse_arn,
+    getDestinationResponse_description,
+    getDestinationResponse_expression,
+    getDestinationResponse_expressionType,
     getDestinationResponse_httpStatus,
   )
 where
@@ -87,12 +87,12 @@ instance Core.AWSRequest GetDestination where
     Response.receiveJSON
       ( \s h x ->
           GetDestinationResponse'
-            Prelude.<$> (x Core..?> "ExpressionType")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "Expression")
-            Prelude.<*> (x Core..?> "Description")
+            Prelude.<$> (x Core..?> "Name")
             Prelude.<*> (x Core..?> "RoleArn")
+            Prelude.<*> (x Core..?> "Arn")
+            Prelude.<*> (x Core..?> "Description")
+            Prelude.<*> (x Core..?> "Expression")
+            Prelude.<*> (x Core..?> "ExpressionType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,18 +115,18 @@ instance Core.ToQuery GetDestination where
 
 -- | /See:/ 'newGetDestinationResponse' smart constructor.
 data GetDestinationResponse = GetDestinationResponse'
-  { -- | The type of value in @Expression@.
-    expressionType :: Prelude.Maybe ExpressionType,
-    -- | The Amazon Resource Name of the resource.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the resource.
+  { -- | The name of the resource.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The rule name or topic rule to send messages to.
-    expression :: Prelude.Maybe Prelude.Text,
-    -- | The description of the resource.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the IAM Role that authorizes the destination.
     roleArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name of the resource.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The description of the resource.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The rule name or topic rule to send messages to.
+    expression :: Prelude.Maybe Prelude.Text,
+    -- | The type of value in @Expression@.
+    expressionType :: Prelude.Maybe ExpressionType,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -140,17 +140,17 @@ data GetDestinationResponse = GetDestinationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expressionType', 'getDestinationResponse_expressionType' - The type of value in @Expression@.
+-- 'name', 'getDestinationResponse_name' - The name of the resource.
+--
+-- 'roleArn', 'getDestinationResponse_roleArn' - The ARN of the IAM Role that authorizes the destination.
 --
 -- 'arn', 'getDestinationResponse_arn' - The Amazon Resource Name of the resource.
 --
--- 'name', 'getDestinationResponse_name' - The name of the resource.
+-- 'description', 'getDestinationResponse_description' - The description of the resource.
 --
 -- 'expression', 'getDestinationResponse_expression' - The rule name or topic rule to send messages to.
 --
--- 'description', 'getDestinationResponse_description' - The description of the resource.
---
--- 'roleArn', 'getDestinationResponse_roleArn' - The ARN of the IAM Role that authorizes the destination.
+-- 'expressionType', 'getDestinationResponse_expressionType' - The type of value in @Expression@.
 --
 -- 'httpStatus', 'getDestinationResponse_httpStatus' - The response's http status code.
 newGetDestinationResponse ::
@@ -159,39 +159,38 @@ newGetDestinationResponse ::
   GetDestinationResponse
 newGetDestinationResponse pHttpStatus_ =
   GetDestinationResponse'
-    { expressionType =
-        Prelude.Nothing,
-      arn = Prelude.Nothing,
-      name = Prelude.Nothing,
-      expression = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { name = Prelude.Nothing,
       roleArn = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      description = Prelude.Nothing,
+      expression = Prelude.Nothing,
+      expressionType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The type of value in @Expression@.
-getDestinationResponse_expressionType :: Lens.Lens' GetDestinationResponse (Prelude.Maybe ExpressionType)
-getDestinationResponse_expressionType = Lens.lens (\GetDestinationResponse' {expressionType} -> expressionType) (\s@GetDestinationResponse' {} a -> s {expressionType = a} :: GetDestinationResponse)
-
--- | The Amazon Resource Name of the resource.
-getDestinationResponse_arn :: Lens.Lens' GetDestinationResponse (Prelude.Maybe Prelude.Text)
-getDestinationResponse_arn = Lens.lens (\GetDestinationResponse' {arn} -> arn) (\s@GetDestinationResponse' {} a -> s {arn = a} :: GetDestinationResponse)
 
 -- | The name of the resource.
 getDestinationResponse_name :: Lens.Lens' GetDestinationResponse (Prelude.Maybe Prelude.Text)
 getDestinationResponse_name = Lens.lens (\GetDestinationResponse' {name} -> name) (\s@GetDestinationResponse' {} a -> s {name = a} :: GetDestinationResponse)
 
--- | The rule name or topic rule to send messages to.
-getDestinationResponse_expression :: Lens.Lens' GetDestinationResponse (Prelude.Maybe Prelude.Text)
-getDestinationResponse_expression = Lens.lens (\GetDestinationResponse' {expression} -> expression) (\s@GetDestinationResponse' {} a -> s {expression = a} :: GetDestinationResponse)
+-- | The ARN of the IAM Role that authorizes the destination.
+getDestinationResponse_roleArn :: Lens.Lens' GetDestinationResponse (Prelude.Maybe Prelude.Text)
+getDestinationResponse_roleArn = Lens.lens (\GetDestinationResponse' {roleArn} -> roleArn) (\s@GetDestinationResponse' {} a -> s {roleArn = a} :: GetDestinationResponse)
+
+-- | The Amazon Resource Name of the resource.
+getDestinationResponse_arn :: Lens.Lens' GetDestinationResponse (Prelude.Maybe Prelude.Text)
+getDestinationResponse_arn = Lens.lens (\GetDestinationResponse' {arn} -> arn) (\s@GetDestinationResponse' {} a -> s {arn = a} :: GetDestinationResponse)
 
 -- | The description of the resource.
 getDestinationResponse_description :: Lens.Lens' GetDestinationResponse (Prelude.Maybe Prelude.Text)
 getDestinationResponse_description = Lens.lens (\GetDestinationResponse' {description} -> description) (\s@GetDestinationResponse' {} a -> s {description = a} :: GetDestinationResponse)
 
--- | The ARN of the IAM Role that authorizes the destination.
-getDestinationResponse_roleArn :: Lens.Lens' GetDestinationResponse (Prelude.Maybe Prelude.Text)
-getDestinationResponse_roleArn = Lens.lens (\GetDestinationResponse' {roleArn} -> roleArn) (\s@GetDestinationResponse' {} a -> s {roleArn = a} :: GetDestinationResponse)
+-- | The rule name or topic rule to send messages to.
+getDestinationResponse_expression :: Lens.Lens' GetDestinationResponse (Prelude.Maybe Prelude.Text)
+getDestinationResponse_expression = Lens.lens (\GetDestinationResponse' {expression} -> expression) (\s@GetDestinationResponse' {} a -> s {expression = a} :: GetDestinationResponse)
+
+-- | The type of value in @Expression@.
+getDestinationResponse_expressionType :: Lens.Lens' GetDestinationResponse (Prelude.Maybe ExpressionType)
+getDestinationResponse_expressionType = Lens.lens (\GetDestinationResponse' {expressionType} -> expressionType) (\s@GetDestinationResponse' {} a -> s {expressionType = a} :: GetDestinationResponse)
 
 -- | The response's http status code.
 getDestinationResponse_httpStatus :: Lens.Lens' GetDestinationResponse Prelude.Int
@@ -199,10 +198,10 @@ getDestinationResponse_httpStatus = Lens.lens (\GetDestinationResponse' {httpSta
 
 instance Prelude.NFData GetDestinationResponse where
   rnf GetDestinationResponse' {..} =
-    Prelude.rnf expressionType
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf expression
+      `Prelude.seq` Prelude.rnf expressionType
       `Prelude.seq` Prelude.rnf httpStatus

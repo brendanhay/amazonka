@@ -46,8 +46,8 @@ module Amazonka.WAFRegional.ListTagsForResource
     newListTagsForResource,
 
     -- * Request Lenses
-    listTagsForResource_nextMarker,
     listTagsForResource_limit,
+    listTagsForResource_nextMarker,
     listTagsForResource_resourceARN,
 
     -- * Destructuring the Response
@@ -70,8 +70,8 @@ import Amazonka.WAFRegional.Types
 
 -- | /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { nextMarker :: Prelude.Maybe Prelude.Text,
-    limit :: Prelude.Maybe Prelude.Natural,
+  { limit :: Prelude.Maybe Prelude.Natural,
+    nextMarker :: Prelude.Maybe Prelude.Text,
     resourceARN :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -84,9 +84,9 @@ data ListTagsForResource = ListTagsForResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextMarker', 'listTagsForResource_nextMarker' -
---
 -- 'limit', 'listTagsForResource_limit' -
+--
+-- 'nextMarker', 'listTagsForResource_nextMarker' -
 --
 -- 'resourceARN', 'listTagsForResource_resourceARN' -
 newListTagsForResource ::
@@ -95,18 +95,18 @@ newListTagsForResource ::
   ListTagsForResource
 newListTagsForResource pResourceARN_ =
   ListTagsForResource'
-    { nextMarker = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      nextMarker = Prelude.Nothing,
       resourceARN = pResourceARN_
     }
 
 -- |
-listTagsForResource_nextMarker :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Text)
-listTagsForResource_nextMarker = Lens.lens (\ListTagsForResource' {nextMarker} -> nextMarker) (\s@ListTagsForResource' {} a -> s {nextMarker = a} :: ListTagsForResource)
-
--- |
 listTagsForResource_limit :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Natural)
 listTagsForResource_limit = Lens.lens (\ListTagsForResource' {limit} -> limit) (\s@ListTagsForResource' {} a -> s {limit = a} :: ListTagsForResource)
+
+-- |
+listTagsForResource_nextMarker :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Text)
+listTagsForResource_nextMarker = Lens.lens (\ListTagsForResource' {nextMarker} -> nextMarker) (\s@ListTagsForResource' {} a -> s {nextMarker = a} :: ListTagsForResource)
 
 -- |
 listTagsForResource_resourceARN :: Lens.Lens' ListTagsForResource Prelude.Text
@@ -128,14 +128,14 @@ instance Core.AWSRequest ListTagsForResource where
 
 instance Prelude.Hashable ListTagsForResource where
   hashWithSalt _salt ListTagsForResource' {..} =
-    _salt `Prelude.hashWithSalt` nextMarker
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextMarker
       `Prelude.hashWithSalt` resourceARN
 
 instance Prelude.NFData ListTagsForResource where
   rnf ListTagsForResource' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextMarker
       `Prelude.seq` Prelude.rnf resourceARN
 
 instance Core.ToHeaders ListTagsForResource where
@@ -157,8 +157,8 @@ instance Core.ToJSON ListTagsForResource where
   toJSON ListTagsForResource' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextMarker" Core..=) Prelude.<$> nextMarker,
-            ("Limit" Core..=) Prelude.<$> limit,
+          [ ("Limit" Core..=) Prelude.<$> limit,
+            ("NextMarker" Core..=) Prelude.<$> nextMarker,
             Prelude.Just ("ResourceARN" Core..= resourceARN)
           ]
       )

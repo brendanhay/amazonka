@@ -46,18 +46,18 @@ import Amazonka.WAFRegional.Types.WafAction
 --
 -- /See:/ 'newWebACL' smart constructor.
 data WebACL = WebACL'
-  { -- | A friendly name or description for the metrics for this @WebACL@. The
+  { -- | A friendly name or description of the @WebACL@. You can\'t change the
+    -- name of a @WebACL@ after you create it.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Tha Amazon Resource Name (ARN) of the web ACL.
+    webACLArn :: Prelude.Maybe Prelude.Text,
+    -- | A friendly name or description for the metrics for this @WebACL@. The
     -- name can contain only alphanumeric characters (A-Z, a-z, 0-9), with
     -- maximum length 128 and minimum length one. It can\'t contain whitespace
     -- or metric names reserved for AWS WAF, including \"All\" and
     -- \"Default_Action.\" You can\'t change @MetricName@ after you create the
     -- @WebACL@.
     metricName :: Prelude.Maybe Prelude.Text,
-    -- | A friendly name or description of the @WebACL@. You can\'t change the
-    -- name of a @WebACL@ after you create it.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Tha Amazon Resource Name (ARN) of the web ACL.
-    webACLArn :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for a @WebACL@. You use @WebACLId@ to get
     -- information about a @WebACL@ (see GetWebACL), update a @WebACL@ (see
     -- UpdateWebACL), and delete a @WebACL@ from AWS WAF (see DeleteWebACL).
@@ -81,17 +81,17 @@ data WebACL = WebACL'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'webACL_name' - A friendly name or description of the @WebACL@. You can\'t change the
+-- name of a @WebACL@ after you create it.
+--
+-- 'webACLArn', 'webACL_webACLArn' - Tha Amazon Resource Name (ARN) of the web ACL.
+--
 -- 'metricName', 'webACL_metricName' - A friendly name or description for the metrics for this @WebACL@. The
 -- name can contain only alphanumeric characters (A-Z, a-z, 0-9), with
 -- maximum length 128 and minimum length one. It can\'t contain whitespace
 -- or metric names reserved for AWS WAF, including \"All\" and
 -- \"Default_Action.\" You can\'t change @MetricName@ after you create the
 -- @WebACL@.
---
--- 'name', 'webACL_name' - A friendly name or description of the @WebACL@. You can\'t change the
--- name of a @WebACL@ after you create it.
---
--- 'webACLArn', 'webACL_webACLArn' - Tha Amazon Resource Name (ARN) of the web ACL.
 --
 -- 'webACLId', 'webACL_webACLId' - A unique identifier for a @WebACL@. You use @WebACLId@ to get
 -- information about a @WebACL@ (see GetWebACL), update a @WebACL@ (see
@@ -112,22 +112,13 @@ newWebACL ::
   WebACL
 newWebACL pWebACLId_ pDefaultAction_ =
   WebACL'
-    { metricName = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
       webACLArn = Prelude.Nothing,
+      metricName = Prelude.Nothing,
       webACLId = pWebACLId_,
       defaultAction = pDefaultAction_,
       rules = Prelude.mempty
     }
-
--- | A friendly name or description for the metrics for this @WebACL@. The
--- name can contain only alphanumeric characters (A-Z, a-z, 0-9), with
--- maximum length 128 and minimum length one. It can\'t contain whitespace
--- or metric names reserved for AWS WAF, including \"All\" and
--- \"Default_Action.\" You can\'t change @MetricName@ after you create the
--- @WebACL@.
-webACL_metricName :: Lens.Lens' WebACL (Prelude.Maybe Prelude.Text)
-webACL_metricName = Lens.lens (\WebACL' {metricName} -> metricName) (\s@WebACL' {} a -> s {metricName = a} :: WebACL)
 
 -- | A friendly name or description of the @WebACL@. You can\'t change the
 -- name of a @WebACL@ after you create it.
@@ -137,6 +128,15 @@ webACL_name = Lens.lens (\WebACL' {name} -> name) (\s@WebACL' {} a -> s {name = 
 -- | Tha Amazon Resource Name (ARN) of the web ACL.
 webACL_webACLArn :: Lens.Lens' WebACL (Prelude.Maybe Prelude.Text)
 webACL_webACLArn = Lens.lens (\WebACL' {webACLArn} -> webACLArn) (\s@WebACL' {} a -> s {webACLArn = a} :: WebACL)
+
+-- | A friendly name or description for the metrics for this @WebACL@. The
+-- name can contain only alphanumeric characters (A-Z, a-z, 0-9), with
+-- maximum length 128 and minimum length one. It can\'t contain whitespace
+-- or metric names reserved for AWS WAF, including \"All\" and
+-- \"Default_Action.\" You can\'t change @MetricName@ after you create the
+-- @WebACL@.
+webACL_metricName :: Lens.Lens' WebACL (Prelude.Maybe Prelude.Text)
+webACL_metricName = Lens.lens (\WebACL' {metricName} -> metricName) (\s@WebACL' {} a -> s {metricName = a} :: WebACL)
 
 -- | A unique identifier for a @WebACL@. You use @WebACLId@ to get
 -- information about a @WebACL@ (see GetWebACL), update a @WebACL@ (see
@@ -162,9 +162,9 @@ instance Core.FromJSON WebACL where
       "WebACL"
       ( \x ->
           WebACL'
-            Prelude.<$> (x Core..:? "MetricName")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "WebACLArn")
+            Prelude.<*> (x Core..:? "MetricName")
             Prelude.<*> (x Core..: "WebACLId")
             Prelude.<*> (x Core..: "DefaultAction")
             Prelude.<*> (x Core..:? "Rules" Core..!= Prelude.mempty)
@@ -172,18 +172,18 @@ instance Core.FromJSON WebACL where
 
 instance Prelude.Hashable WebACL where
   hashWithSalt _salt WebACL' {..} =
-    _salt `Prelude.hashWithSalt` metricName
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` webACLArn
+      `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` webACLId
       `Prelude.hashWithSalt` defaultAction
       `Prelude.hashWithSalt` rules
 
 instance Prelude.NFData WebACL where
   rnf WebACL' {..} =
-    Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf webACLArn
+      `Prelude.seq` Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf webACLId
       `Prelude.seq` Prelude.rnf defaultAction
       `Prelude.seq` Prelude.rnf rules

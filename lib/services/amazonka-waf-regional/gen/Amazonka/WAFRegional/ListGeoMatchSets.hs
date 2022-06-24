@@ -36,8 +36,8 @@ module Amazonka.WAFRegional.ListGeoMatchSets
     newListGeoMatchSets,
 
     -- * Request Lenses
-    listGeoMatchSets_nextMarker,
     listGeoMatchSets_limit,
+    listGeoMatchSets_nextMarker,
 
     -- * Destructuring the Response
     ListGeoMatchSetsResponse (..),
@@ -59,18 +59,18 @@ import Amazonka.WAFRegional.Types
 
 -- | /See:/ 'newListGeoMatchSets' smart constructor.
 data ListGeoMatchSets = ListGeoMatchSets'
-  { -- | If you specify a value for @Limit@ and you have more @GeoMatchSet@s than
+  { -- | Specifies the number of @GeoMatchSet@ objects that you want AWS WAF to
+    -- return for this request. If you have more @GeoMatchSet@ objects than the
+    -- number you specify for @Limit@, the response includes a @NextMarker@
+    -- value that you can use to get another batch of @GeoMatchSet@ objects.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | If you specify a value for @Limit@ and you have more @GeoMatchSet@s than
     -- the value of @Limit@, AWS WAF returns a @NextMarker@ value in the
     -- response that allows you to list another group of @GeoMatchSet@ objects.
     -- For the second and subsequent @ListGeoMatchSets@ requests, specify the
     -- value of @NextMarker@ from the previous response to get information
     -- about another batch of @GeoMatchSet@ objects.
-    nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the number of @GeoMatchSet@ objects that you want AWS WAF to
-    -- return for this request. If you have more @GeoMatchSet@ objects than the
-    -- number you specify for @Limit@, the response includes a @NextMarker@
-    -- value that you can use to get another batch of @GeoMatchSet@ objects.
-    limit :: Prelude.Maybe Prelude.Natural
+    nextMarker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,24 +82,31 @@ data ListGeoMatchSets = ListGeoMatchSets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'limit', 'listGeoMatchSets_limit' - Specifies the number of @GeoMatchSet@ objects that you want AWS WAF to
+-- return for this request. If you have more @GeoMatchSet@ objects than the
+-- number you specify for @Limit@, the response includes a @NextMarker@
+-- value that you can use to get another batch of @GeoMatchSet@ objects.
+--
 -- 'nextMarker', 'listGeoMatchSets_nextMarker' - If you specify a value for @Limit@ and you have more @GeoMatchSet@s than
 -- the value of @Limit@, AWS WAF returns a @NextMarker@ value in the
 -- response that allows you to list another group of @GeoMatchSet@ objects.
 -- For the second and subsequent @ListGeoMatchSets@ requests, specify the
 -- value of @NextMarker@ from the previous response to get information
 -- about another batch of @GeoMatchSet@ objects.
---
--- 'limit', 'listGeoMatchSets_limit' - Specifies the number of @GeoMatchSet@ objects that you want AWS WAF to
--- return for this request. If you have more @GeoMatchSet@ objects than the
--- number you specify for @Limit@, the response includes a @NextMarker@
--- value that you can use to get another batch of @GeoMatchSet@ objects.
 newListGeoMatchSets ::
   ListGeoMatchSets
 newListGeoMatchSets =
   ListGeoMatchSets'
-    { nextMarker = Prelude.Nothing,
-      limit = Prelude.Nothing
+    { limit = Prelude.Nothing,
+      nextMarker = Prelude.Nothing
     }
+
+-- | Specifies the number of @GeoMatchSet@ objects that you want AWS WAF to
+-- return for this request. If you have more @GeoMatchSet@ objects than the
+-- number you specify for @Limit@, the response includes a @NextMarker@
+-- value that you can use to get another batch of @GeoMatchSet@ objects.
+listGeoMatchSets_limit :: Lens.Lens' ListGeoMatchSets (Prelude.Maybe Prelude.Natural)
+listGeoMatchSets_limit = Lens.lens (\ListGeoMatchSets' {limit} -> limit) (\s@ListGeoMatchSets' {} a -> s {limit = a} :: ListGeoMatchSets)
 
 -- | If you specify a value for @Limit@ and you have more @GeoMatchSet@s than
 -- the value of @Limit@, AWS WAF returns a @NextMarker@ value in the
@@ -109,13 +116,6 @@ newListGeoMatchSets =
 -- about another batch of @GeoMatchSet@ objects.
 listGeoMatchSets_nextMarker :: Lens.Lens' ListGeoMatchSets (Prelude.Maybe Prelude.Text)
 listGeoMatchSets_nextMarker = Lens.lens (\ListGeoMatchSets' {nextMarker} -> nextMarker) (\s@ListGeoMatchSets' {} a -> s {nextMarker = a} :: ListGeoMatchSets)
-
--- | Specifies the number of @GeoMatchSet@ objects that you want AWS WAF to
--- return for this request. If you have more @GeoMatchSet@ objects than the
--- number you specify for @Limit@, the response includes a @NextMarker@
--- value that you can use to get another batch of @GeoMatchSet@ objects.
-listGeoMatchSets_limit :: Lens.Lens' ListGeoMatchSets (Prelude.Maybe Prelude.Natural)
-listGeoMatchSets_limit = Lens.lens (\ListGeoMatchSets' {limit} -> limit) (\s@ListGeoMatchSets' {} a -> s {limit = a} :: ListGeoMatchSets)
 
 instance Core.AWSRequest ListGeoMatchSets where
   type
@@ -133,13 +133,13 @@ instance Core.AWSRequest ListGeoMatchSets where
 
 instance Prelude.Hashable ListGeoMatchSets where
   hashWithSalt _salt ListGeoMatchSets' {..} =
-    _salt `Prelude.hashWithSalt` nextMarker
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextMarker
 
 instance Prelude.NFData ListGeoMatchSets where
   rnf ListGeoMatchSets' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextMarker
 
 instance Core.ToHeaders ListGeoMatchSets where
   toHeaders =
@@ -160,8 +160,8 @@ instance Core.ToJSON ListGeoMatchSets where
   toJSON ListGeoMatchSets' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextMarker" Core..=) Prelude.<$> nextMarker,
-            ("Limit" Core..=) Prelude.<$> limit
+          [ ("Limit" Core..=) Prelude.<$> limit,
+            ("NextMarker" Core..=) Prelude.<$> nextMarker
           ]
       )
 

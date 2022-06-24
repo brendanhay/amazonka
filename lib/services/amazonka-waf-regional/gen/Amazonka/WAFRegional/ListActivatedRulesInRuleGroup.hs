@@ -37,8 +37,8 @@ module Amazonka.WAFRegional.ListActivatedRulesInRuleGroup
 
     -- * Request Lenses
     listActivatedRulesInRuleGroup_ruleGroupId,
-    listActivatedRulesInRuleGroup_nextMarker,
     listActivatedRulesInRuleGroup_limit,
+    listActivatedRulesInRuleGroup_nextMarker,
 
     -- * Destructuring the Response
     ListActivatedRulesInRuleGroupResponse (..),
@@ -63,18 +63,18 @@ data ListActivatedRulesInRuleGroup = ListActivatedRulesInRuleGroup'
   { -- | The @RuleGroupId@ of the RuleGroup for which you want to get a list of
     -- ActivatedRule objects.
     ruleGroupId :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the number of @ActivatedRules@ that you want AWS WAF to return
+    -- for this request. If you have more @ActivatedRules@ than the number that
+    -- you specify for @Limit@, the response includes a @NextMarker@ value that
+    -- you can use to get another batch of @ActivatedRules@.
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | If you specify a value for @Limit@ and you have more @ActivatedRules@
     -- than the value of @Limit@, AWS WAF returns a @NextMarker@ value in the
     -- response that allows you to list another group of @ActivatedRules@. For
     -- the second and subsequent @ListActivatedRulesInRuleGroup@ requests,
     -- specify the value of @NextMarker@ from the previous response to get
     -- information about another batch of @ActivatedRules@.
-    nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the number of @ActivatedRules@ that you want AWS WAF to return
-    -- for this request. If you have more @ActivatedRules@ than the number that
-    -- you specify for @Limit@, the response includes a @NextMarker@ value that
-    -- you can use to get another batch of @ActivatedRules@.
-    limit :: Prelude.Maybe Prelude.Natural
+    nextMarker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,31 +89,38 @@ data ListActivatedRulesInRuleGroup = ListActivatedRulesInRuleGroup'
 -- 'ruleGroupId', 'listActivatedRulesInRuleGroup_ruleGroupId' - The @RuleGroupId@ of the RuleGroup for which you want to get a list of
 -- ActivatedRule objects.
 --
+-- 'limit', 'listActivatedRulesInRuleGroup_limit' - Specifies the number of @ActivatedRules@ that you want AWS WAF to return
+-- for this request. If you have more @ActivatedRules@ than the number that
+-- you specify for @Limit@, the response includes a @NextMarker@ value that
+-- you can use to get another batch of @ActivatedRules@.
+--
 -- 'nextMarker', 'listActivatedRulesInRuleGroup_nextMarker' - If you specify a value for @Limit@ and you have more @ActivatedRules@
 -- than the value of @Limit@, AWS WAF returns a @NextMarker@ value in the
 -- response that allows you to list another group of @ActivatedRules@. For
 -- the second and subsequent @ListActivatedRulesInRuleGroup@ requests,
 -- specify the value of @NextMarker@ from the previous response to get
 -- information about another batch of @ActivatedRules@.
---
--- 'limit', 'listActivatedRulesInRuleGroup_limit' - Specifies the number of @ActivatedRules@ that you want AWS WAF to return
--- for this request. If you have more @ActivatedRules@ than the number that
--- you specify for @Limit@, the response includes a @NextMarker@ value that
--- you can use to get another batch of @ActivatedRules@.
 newListActivatedRulesInRuleGroup ::
   ListActivatedRulesInRuleGroup
 newListActivatedRulesInRuleGroup =
   ListActivatedRulesInRuleGroup'
     { ruleGroupId =
         Prelude.Nothing,
-      nextMarker = Prelude.Nothing,
-      limit = Prelude.Nothing
+      limit = Prelude.Nothing,
+      nextMarker = Prelude.Nothing
     }
 
 -- | The @RuleGroupId@ of the RuleGroup for which you want to get a list of
 -- ActivatedRule objects.
 listActivatedRulesInRuleGroup_ruleGroupId :: Lens.Lens' ListActivatedRulesInRuleGroup (Prelude.Maybe Prelude.Text)
 listActivatedRulesInRuleGroup_ruleGroupId = Lens.lens (\ListActivatedRulesInRuleGroup' {ruleGroupId} -> ruleGroupId) (\s@ListActivatedRulesInRuleGroup' {} a -> s {ruleGroupId = a} :: ListActivatedRulesInRuleGroup)
+
+-- | Specifies the number of @ActivatedRules@ that you want AWS WAF to return
+-- for this request. If you have more @ActivatedRules@ than the number that
+-- you specify for @Limit@, the response includes a @NextMarker@ value that
+-- you can use to get another batch of @ActivatedRules@.
+listActivatedRulesInRuleGroup_limit :: Lens.Lens' ListActivatedRulesInRuleGroup (Prelude.Maybe Prelude.Natural)
+listActivatedRulesInRuleGroup_limit = Lens.lens (\ListActivatedRulesInRuleGroup' {limit} -> limit) (\s@ListActivatedRulesInRuleGroup' {} a -> s {limit = a} :: ListActivatedRulesInRuleGroup)
 
 -- | If you specify a value for @Limit@ and you have more @ActivatedRules@
 -- than the value of @Limit@, AWS WAF returns a @NextMarker@ value in the
@@ -123,13 +130,6 @@ listActivatedRulesInRuleGroup_ruleGroupId = Lens.lens (\ListActivatedRulesInRule
 -- information about another batch of @ActivatedRules@.
 listActivatedRulesInRuleGroup_nextMarker :: Lens.Lens' ListActivatedRulesInRuleGroup (Prelude.Maybe Prelude.Text)
 listActivatedRulesInRuleGroup_nextMarker = Lens.lens (\ListActivatedRulesInRuleGroup' {nextMarker} -> nextMarker) (\s@ListActivatedRulesInRuleGroup' {} a -> s {nextMarker = a} :: ListActivatedRulesInRuleGroup)
-
--- | Specifies the number of @ActivatedRules@ that you want AWS WAF to return
--- for this request. If you have more @ActivatedRules@ than the number that
--- you specify for @Limit@, the response includes a @NextMarker@ value that
--- you can use to get another batch of @ActivatedRules@.
-listActivatedRulesInRuleGroup_limit :: Lens.Lens' ListActivatedRulesInRuleGroup (Prelude.Maybe Prelude.Natural)
-listActivatedRulesInRuleGroup_limit = Lens.lens (\ListActivatedRulesInRuleGroup' {limit} -> limit) (\s@ListActivatedRulesInRuleGroup' {} a -> s {limit = a} :: ListActivatedRulesInRuleGroup)
 
 instance
   Core.AWSRequest
@@ -154,14 +154,14 @@ instance
   where
   hashWithSalt _salt ListActivatedRulesInRuleGroup' {..} =
     _salt `Prelude.hashWithSalt` ruleGroupId
-      `Prelude.hashWithSalt` nextMarker
       `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextMarker
 
 instance Prelude.NFData ListActivatedRulesInRuleGroup where
   rnf ListActivatedRulesInRuleGroup' {..} =
     Prelude.rnf ruleGroupId
-      `Prelude.seq` Prelude.rnf nextMarker
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextMarker
 
 instance Core.ToHeaders ListActivatedRulesInRuleGroup where
   toHeaders =
@@ -183,8 +183,8 @@ instance Core.ToJSON ListActivatedRulesInRuleGroup where
     Core.object
       ( Prelude.catMaybes
           [ ("RuleGroupId" Core..=) Prelude.<$> ruleGroupId,
-            ("NextMarker" Core..=) Prelude.<$> nextMarker,
-            ("Limit" Core..=) Prelude.<$> limit
+            ("Limit" Core..=) Prelude.<$> limit,
+            ("NextMarker" Core..=) Prelude.<$> nextMarker
           ]
       )
 

@@ -46,12 +46,12 @@ data SampledHTTPRequest = SampledHTTPRequest'
     -- @RuleWithinRuleGroup@ is the rule within the specified @RuleGroup@ that
     -- matched the request listed in the response.
     ruleWithinRuleGroup :: Prelude.Maybe Prelude.Text,
-    -- | The action for the @Rule@ that the request matched: @ALLOW@, @BLOCK@, or
-    -- @COUNT@.
-    action :: Prelude.Maybe Prelude.Text,
     -- | The time at which AWS WAF received the request from your AWS resource,
     -- in Unix time format (in seconds).
     timestamp :: Prelude.Maybe Core.POSIX,
+    -- | The action for the @Rule@ that the request matched: @ALLOW@, @BLOCK@, or
+    -- @COUNT@.
+    action :: Prelude.Maybe Prelude.Text,
     -- | A complex type that contains detailed information about the request.
     request :: HTTPRequest,
     -- | A value that indicates how one result in the response relates
@@ -75,11 +75,11 @@ data SampledHTTPRequest = SampledHTTPRequest'
 -- @RuleWithinRuleGroup@ is the rule within the specified @RuleGroup@ that
 -- matched the request listed in the response.
 --
--- 'action', 'sampledHTTPRequest_action' - The action for the @Rule@ that the request matched: @ALLOW@, @BLOCK@, or
--- @COUNT@.
---
 -- 'timestamp', 'sampledHTTPRequest_timestamp' - The time at which AWS WAF received the request from your AWS resource,
 -- in Unix time format (in seconds).
+--
+-- 'action', 'sampledHTTPRequest_action' - The action for the @Rule@ that the request matched: @ALLOW@, @BLOCK@, or
+-- @COUNT@.
 --
 -- 'request', 'sampledHTTPRequest_request' - A complex type that contains detailed information about the request.
 --
@@ -97,8 +97,8 @@ newSampledHTTPRequest pRequest_ pWeight_ =
   SampledHTTPRequest'
     { ruleWithinRuleGroup =
         Prelude.Nothing,
-      action = Prelude.Nothing,
       timestamp = Prelude.Nothing,
+      action = Prelude.Nothing,
       request = pRequest_,
       weight = pWeight_
     }
@@ -110,15 +110,15 @@ newSampledHTTPRequest pRequest_ pWeight_ =
 sampledHTTPRequest_ruleWithinRuleGroup :: Lens.Lens' SampledHTTPRequest (Prelude.Maybe Prelude.Text)
 sampledHTTPRequest_ruleWithinRuleGroup = Lens.lens (\SampledHTTPRequest' {ruleWithinRuleGroup} -> ruleWithinRuleGroup) (\s@SampledHTTPRequest' {} a -> s {ruleWithinRuleGroup = a} :: SampledHTTPRequest)
 
--- | The action for the @Rule@ that the request matched: @ALLOW@, @BLOCK@, or
--- @COUNT@.
-sampledHTTPRequest_action :: Lens.Lens' SampledHTTPRequest (Prelude.Maybe Prelude.Text)
-sampledHTTPRequest_action = Lens.lens (\SampledHTTPRequest' {action} -> action) (\s@SampledHTTPRequest' {} a -> s {action = a} :: SampledHTTPRequest)
-
 -- | The time at which AWS WAF received the request from your AWS resource,
 -- in Unix time format (in seconds).
 sampledHTTPRequest_timestamp :: Lens.Lens' SampledHTTPRequest (Prelude.Maybe Prelude.UTCTime)
 sampledHTTPRequest_timestamp = Lens.lens (\SampledHTTPRequest' {timestamp} -> timestamp) (\s@SampledHTTPRequest' {} a -> s {timestamp = a} :: SampledHTTPRequest) Prelude.. Lens.mapping Core._Time
+
+-- | The action for the @Rule@ that the request matched: @ALLOW@, @BLOCK@, or
+-- @COUNT@.
+sampledHTTPRequest_action :: Lens.Lens' SampledHTTPRequest (Prelude.Maybe Prelude.Text)
+sampledHTTPRequest_action = Lens.lens (\SampledHTTPRequest' {action} -> action) (\s@SampledHTTPRequest' {} a -> s {action = a} :: SampledHTTPRequest)
 
 -- | A complex type that contains detailed information about the request.
 sampledHTTPRequest_request :: Lens.Lens' SampledHTTPRequest HTTPRequest
@@ -138,8 +138,8 @@ instance Core.FromJSON SampledHTTPRequest where
       ( \x ->
           SampledHTTPRequest'
             Prelude.<$> (x Core..:? "RuleWithinRuleGroup")
-            Prelude.<*> (x Core..:? "Action")
             Prelude.<*> (x Core..:? "Timestamp")
+            Prelude.<*> (x Core..:? "Action")
             Prelude.<*> (x Core..: "Request")
             Prelude.<*> (x Core..: "Weight")
       )
@@ -147,15 +147,15 @@ instance Core.FromJSON SampledHTTPRequest where
 instance Prelude.Hashable SampledHTTPRequest where
   hashWithSalt _salt SampledHTTPRequest' {..} =
     _salt `Prelude.hashWithSalt` ruleWithinRuleGroup
-      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` request
       `Prelude.hashWithSalt` weight
 
 instance Prelude.NFData SampledHTTPRequest where
   rnf SampledHTTPRequest' {..} =
     Prelude.rnf ruleWithinRuleGroup
-      `Prelude.seq` Prelude.rnf action
       `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf action
       `Prelude.seq` Prelude.rnf request
       `Prelude.seq` Prelude.rnf weight

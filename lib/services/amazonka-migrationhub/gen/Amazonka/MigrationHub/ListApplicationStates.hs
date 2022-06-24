@@ -40,8 +40,8 @@ module Amazonka.MigrationHub.ListApplicationStates
     newListApplicationStatesResponse,
 
     -- * Response Lenses
-    listApplicationStatesResponse_applicationStateList,
     listApplicationStatesResponse_nextToken,
+    listApplicationStatesResponse_applicationStateList,
     listApplicationStatesResponse_httpStatus,
   )
 where
@@ -138,10 +138,10 @@ instance Core.AWSRequest ListApplicationStates where
     Response.receiveJSON
       ( \s h x ->
           ListApplicationStatesResponse'
-            Prelude.<$> ( x Core..?> "ApplicationStateList"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "ApplicationStateList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -191,12 +191,12 @@ instance Core.ToQuery ListApplicationStates where
 
 -- | /See:/ 'newListApplicationStatesResponse' smart constructor.
 data ListApplicationStatesResponse = ListApplicationStatesResponse'
-  { -- | A list of Applications that exist in Application Discovery Service.
-    applicationStateList :: Prelude.Maybe [ApplicationState],
-    -- | If a @NextToken@ was returned by a previous call, there are more results
+  { -- | If a @NextToken@ was returned by a previous call, there are more results
     -- available. To retrieve the next page of results, make the call again
     -- using the returned token in @NextToken@.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of Applications that exist in Application Discovery Service.
+    applicationStateList :: Prelude.Maybe [ApplicationState],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -210,11 +210,11 @@ data ListApplicationStatesResponse = ListApplicationStatesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationStateList', 'listApplicationStatesResponse_applicationStateList' - A list of Applications that exist in Application Discovery Service.
---
 -- 'nextToken', 'listApplicationStatesResponse_nextToken' - If a @NextToken@ was returned by a previous call, there are more results
 -- available. To retrieve the next page of results, make the call again
 -- using the returned token in @NextToken@.
+--
+-- 'applicationStateList', 'listApplicationStatesResponse_applicationStateList' - A list of Applications that exist in Application Discovery Service.
 --
 -- 'httpStatus', 'listApplicationStatesResponse_httpStatus' - The response's http status code.
 newListApplicationStatesResponse ::
@@ -223,15 +223,11 @@ newListApplicationStatesResponse ::
   ListApplicationStatesResponse
 newListApplicationStatesResponse pHttpStatus_ =
   ListApplicationStatesResponse'
-    { applicationStateList =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      applicationStateList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of Applications that exist in Application Discovery Service.
-listApplicationStatesResponse_applicationStateList :: Lens.Lens' ListApplicationStatesResponse (Prelude.Maybe [ApplicationState])
-listApplicationStatesResponse_applicationStateList = Lens.lens (\ListApplicationStatesResponse' {applicationStateList} -> applicationStateList) (\s@ListApplicationStatesResponse' {} a -> s {applicationStateList = a} :: ListApplicationStatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If a @NextToken@ was returned by a previous call, there are more results
 -- available. To retrieve the next page of results, make the call again
@@ -239,12 +235,16 @@ listApplicationStatesResponse_applicationStateList = Lens.lens (\ListApplication
 listApplicationStatesResponse_nextToken :: Lens.Lens' ListApplicationStatesResponse (Prelude.Maybe Prelude.Text)
 listApplicationStatesResponse_nextToken = Lens.lens (\ListApplicationStatesResponse' {nextToken} -> nextToken) (\s@ListApplicationStatesResponse' {} a -> s {nextToken = a} :: ListApplicationStatesResponse)
 
+-- | A list of Applications that exist in Application Discovery Service.
+listApplicationStatesResponse_applicationStateList :: Lens.Lens' ListApplicationStatesResponse (Prelude.Maybe [ApplicationState])
+listApplicationStatesResponse_applicationStateList = Lens.lens (\ListApplicationStatesResponse' {applicationStateList} -> applicationStateList) (\s@ListApplicationStatesResponse' {} a -> s {applicationStateList = a} :: ListApplicationStatesResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listApplicationStatesResponse_httpStatus :: Lens.Lens' ListApplicationStatesResponse Prelude.Int
 listApplicationStatesResponse_httpStatus = Lens.lens (\ListApplicationStatesResponse' {httpStatus} -> httpStatus) (\s@ListApplicationStatesResponse' {} a -> s {httpStatus = a} :: ListApplicationStatesResponse)
 
 instance Prelude.NFData ListApplicationStatesResponse where
   rnf ListApplicationStatesResponse' {..} =
-    Prelude.rnf applicationStateList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf applicationStateList
       `Prelude.seq` Prelude.rnf httpStatus

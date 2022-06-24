@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTask' smart constructor.
 data Task = Task'
-  { -- | Indication of the percentage completion of the task.
-    progressPercent :: Prelude.Maybe Prelude.Natural,
-    -- | Details of task status as notified by a migration tool. A tool might use
+  { -- | Details of task status as notified by a migration tool. A tool might use
     -- this field to provide clarifying information about the status that is
     -- unique to that tool or that explains an error state.
     statusDetail :: Prelude.Maybe Prelude.Text,
+    -- | Indication of the percentage completion of the task.
+    progressPercent :: Prelude.Maybe Prelude.Natural,
     -- | Status of the task - Not Started, In-Progress, Complete.
     status :: MigrationStatus
   }
@@ -47,11 +47,11 @@ data Task = Task'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'progressPercent', 'task_progressPercent' - Indication of the percentage completion of the task.
---
 -- 'statusDetail', 'task_statusDetail' - Details of task status as notified by a migration tool. A tool might use
 -- this field to provide clarifying information about the status that is
 -- unique to that tool or that explains an error state.
+--
+-- 'progressPercent', 'task_progressPercent' - Indication of the percentage completion of the task.
 --
 -- 'status', 'task_status' - Status of the task - Not Started, In-Progress, Complete.
 newTask ::
@@ -60,20 +60,20 @@ newTask ::
   Task
 newTask pStatus_ =
   Task'
-    { progressPercent = Prelude.Nothing,
-      statusDetail = Prelude.Nothing,
+    { statusDetail = Prelude.Nothing,
+      progressPercent = Prelude.Nothing,
       status = pStatus_
     }
-
--- | Indication of the percentage completion of the task.
-task_progressPercent :: Lens.Lens' Task (Prelude.Maybe Prelude.Natural)
-task_progressPercent = Lens.lens (\Task' {progressPercent} -> progressPercent) (\s@Task' {} a -> s {progressPercent = a} :: Task)
 
 -- | Details of task status as notified by a migration tool. A tool might use
 -- this field to provide clarifying information about the status that is
 -- unique to that tool or that explains an error state.
 task_statusDetail :: Lens.Lens' Task (Prelude.Maybe Prelude.Text)
 task_statusDetail = Lens.lens (\Task' {statusDetail} -> statusDetail) (\s@Task' {} a -> s {statusDetail = a} :: Task)
+
+-- | Indication of the percentage completion of the task.
+task_progressPercent :: Lens.Lens' Task (Prelude.Maybe Prelude.Natural)
+task_progressPercent = Lens.lens (\Task' {progressPercent} -> progressPercent) (\s@Task' {} a -> s {progressPercent = a} :: Task)
 
 -- | Status of the task - Not Started, In-Progress, Complete.
 task_status :: Lens.Lens' Task MigrationStatus
@@ -85,30 +85,30 @@ instance Core.FromJSON Task where
       "Task"
       ( \x ->
           Task'
-            Prelude.<$> (x Core..:? "ProgressPercent")
-            Prelude.<*> (x Core..:? "StatusDetail")
+            Prelude.<$> (x Core..:? "StatusDetail")
+            Prelude.<*> (x Core..:? "ProgressPercent")
             Prelude.<*> (x Core..: "Status")
       )
 
 instance Prelude.Hashable Task where
   hashWithSalt _salt Task' {..} =
-    _salt `Prelude.hashWithSalt` progressPercent
-      `Prelude.hashWithSalt` statusDetail
+    _salt `Prelude.hashWithSalt` statusDetail
+      `Prelude.hashWithSalt` progressPercent
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData Task where
   rnf Task' {..} =
-    Prelude.rnf progressPercent
-      `Prelude.seq` Prelude.rnf statusDetail
+    Prelude.rnf statusDetail
+      `Prelude.seq` Prelude.rnf progressPercent
       `Prelude.seq` Prelude.rnf status
 
 instance Core.ToJSON Task where
   toJSON Task' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ProgressPercent" Core..=)
+          [ ("StatusDetail" Core..=) Prelude.<$> statusDetail,
+            ("ProgressPercent" Core..=)
               Prelude.<$> progressPercent,
-            ("StatusDetail" Core..=) Prelude.<$> statusDetail,
             Prelude.Just ("Status" Core..= status)
           ]
       )

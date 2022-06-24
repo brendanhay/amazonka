@@ -25,26 +25,17 @@ module Amazonka.MigrationHub
     -- * Errors
     -- $errors
 
-    -- ** AccessDeniedException
-    _AccessDeniedException,
-
-    -- ** HomeRegionNotSetException
-    _HomeRegionNotSetException,
-
     -- ** DryRunOperation
     _DryRunOperation,
 
-    -- ** PolicyErrorException
-    _PolicyErrorException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
-
-    -- ** InternalServerError
-    _InternalServerError,
-
     -- ** InvalidInputException
     _InvalidInputException,
+
+    -- ** UnauthorizedOperation
+    _UnauthorizedOperation,
+
+    -- ** AccessDeniedException
+    _AccessDeniedException,
 
     -- ** ServiceUnavailableException
     _ServiceUnavailableException,
@@ -52,14 +43,29 @@ module Amazonka.MigrationHub
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** UnauthorizedOperation
-    _UnauthorizedOperation,
+    -- ** InternalServerError
+    _InternalServerError,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** PolicyErrorException
+    _PolicyErrorException,
+
+    -- ** HomeRegionNotSetException
+    _HomeRegionNotSetException,
 
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
+
+    -- ** AssociateCreatedArtifact
+    AssociateCreatedArtifact (AssociateCreatedArtifact'),
+    newAssociateCreatedArtifact,
+    AssociateCreatedArtifactResponse (AssociateCreatedArtifactResponse'),
+    newAssociateCreatedArtifactResponse,
 
     -- ** AssociateDiscoveredResource
     AssociateDiscoveredResource (AssociateDiscoveredResource'),
@@ -73,6 +79,42 @@ module Amazonka.MigrationHub
     CreateProgressUpdateStreamResponse (CreateProgressUpdateStreamResponse'),
     newCreateProgressUpdateStreamResponse,
 
+    -- ** DeleteProgressUpdateStream
+    DeleteProgressUpdateStream (DeleteProgressUpdateStream'),
+    newDeleteProgressUpdateStream,
+    DeleteProgressUpdateStreamResponse (DeleteProgressUpdateStreamResponse'),
+    newDeleteProgressUpdateStreamResponse,
+
+    -- ** DescribeApplicationState
+    DescribeApplicationState (DescribeApplicationState'),
+    newDescribeApplicationState,
+    DescribeApplicationStateResponse (DescribeApplicationStateResponse'),
+    newDescribeApplicationStateResponse,
+
+    -- ** DescribeMigrationTask
+    DescribeMigrationTask (DescribeMigrationTask'),
+    newDescribeMigrationTask,
+    DescribeMigrationTaskResponse (DescribeMigrationTaskResponse'),
+    newDescribeMigrationTaskResponse,
+
+    -- ** DisassociateCreatedArtifact
+    DisassociateCreatedArtifact (DisassociateCreatedArtifact'),
+    newDisassociateCreatedArtifact,
+    DisassociateCreatedArtifactResponse (DisassociateCreatedArtifactResponse'),
+    newDisassociateCreatedArtifactResponse,
+
+    -- ** DisassociateDiscoveredResource
+    DisassociateDiscoveredResource (DisassociateDiscoveredResource'),
+    newDisassociateDiscoveredResource,
+    DisassociateDiscoveredResourceResponse (DisassociateDiscoveredResourceResponse'),
+    newDisassociateDiscoveredResourceResponse,
+
+    -- ** ImportMigrationTask
+    ImportMigrationTask (ImportMigrationTask'),
+    newImportMigrationTask,
+    ImportMigrationTaskResponse (ImportMigrationTaskResponse'),
+    newImportMigrationTaskResponse,
+
     -- ** ListApplicationStates (Paginated)
     ListApplicationStates (ListApplicationStates'),
     newListApplicationStates,
@@ -85,71 +127,11 @@ module Amazonka.MigrationHub
     ListCreatedArtifactsResponse (ListCreatedArtifactsResponse'),
     newListCreatedArtifactsResponse,
 
-    -- ** DisassociateDiscoveredResource
-    DisassociateDiscoveredResource (DisassociateDiscoveredResource'),
-    newDisassociateDiscoveredResource,
-    DisassociateDiscoveredResourceResponse (DisassociateDiscoveredResourceResponse'),
-    newDisassociateDiscoveredResourceResponse,
-
-    -- ** NotifyApplicationState
-    NotifyApplicationState (NotifyApplicationState'),
-    newNotifyApplicationState,
-    NotifyApplicationStateResponse (NotifyApplicationStateResponse'),
-    newNotifyApplicationStateResponse,
-
-    -- ** DeleteProgressUpdateStream
-    DeleteProgressUpdateStream (DeleteProgressUpdateStream'),
-    newDeleteProgressUpdateStream,
-    DeleteProgressUpdateStreamResponse (DeleteProgressUpdateStreamResponse'),
-    newDeleteProgressUpdateStreamResponse,
-
-    -- ** ListProgressUpdateStreams (Paginated)
-    ListProgressUpdateStreams (ListProgressUpdateStreams'),
-    newListProgressUpdateStreams,
-    ListProgressUpdateStreamsResponse (ListProgressUpdateStreamsResponse'),
-    newListProgressUpdateStreamsResponse,
-
-    -- ** DisassociateCreatedArtifact
-    DisassociateCreatedArtifact (DisassociateCreatedArtifact'),
-    newDisassociateCreatedArtifact,
-    DisassociateCreatedArtifactResponse (DisassociateCreatedArtifactResponse'),
-    newDisassociateCreatedArtifactResponse,
-
-    -- ** ImportMigrationTask
-    ImportMigrationTask (ImportMigrationTask'),
-    newImportMigrationTask,
-    ImportMigrationTaskResponse (ImportMigrationTaskResponse'),
-    newImportMigrationTaskResponse,
-
-    -- ** DescribeMigrationTask
-    DescribeMigrationTask (DescribeMigrationTask'),
-    newDescribeMigrationTask,
-    DescribeMigrationTaskResponse (DescribeMigrationTaskResponse'),
-    newDescribeMigrationTaskResponse,
-
-    -- ** PutResourceAttributes
-    PutResourceAttributes (PutResourceAttributes'),
-    newPutResourceAttributes,
-    PutResourceAttributesResponse (PutResourceAttributesResponse'),
-    newPutResourceAttributesResponse,
-
-    -- ** AssociateCreatedArtifact
-    AssociateCreatedArtifact (AssociateCreatedArtifact'),
-    newAssociateCreatedArtifact,
-    AssociateCreatedArtifactResponse (AssociateCreatedArtifactResponse'),
-    newAssociateCreatedArtifactResponse,
-
-    -- ** NotifyMigrationTaskState
-    NotifyMigrationTaskState (NotifyMigrationTaskState'),
-    newNotifyMigrationTaskState,
-    NotifyMigrationTaskStateResponse (NotifyMigrationTaskStateResponse'),
-    newNotifyMigrationTaskStateResponse,
-
-    -- ** DescribeApplicationState
-    DescribeApplicationState (DescribeApplicationState'),
-    newDescribeApplicationState,
-    DescribeApplicationStateResponse (DescribeApplicationStateResponse'),
-    newDescribeApplicationStateResponse,
+    -- ** ListDiscoveredResources (Paginated)
+    ListDiscoveredResources (ListDiscoveredResources'),
+    newListDiscoveredResources,
+    ListDiscoveredResourcesResponse (ListDiscoveredResourcesResponse'),
+    newListDiscoveredResourcesResponse,
 
     -- ** ListMigrationTasks (Paginated)
     ListMigrationTasks (ListMigrationTasks'),
@@ -157,11 +139,29 @@ module Amazonka.MigrationHub
     ListMigrationTasksResponse (ListMigrationTasksResponse'),
     newListMigrationTasksResponse,
 
-    -- ** ListDiscoveredResources (Paginated)
-    ListDiscoveredResources (ListDiscoveredResources'),
-    newListDiscoveredResources,
-    ListDiscoveredResourcesResponse (ListDiscoveredResourcesResponse'),
-    newListDiscoveredResourcesResponse,
+    -- ** ListProgressUpdateStreams (Paginated)
+    ListProgressUpdateStreams (ListProgressUpdateStreams'),
+    newListProgressUpdateStreams,
+    ListProgressUpdateStreamsResponse (ListProgressUpdateStreamsResponse'),
+    newListProgressUpdateStreamsResponse,
+
+    -- ** NotifyApplicationState
+    NotifyApplicationState (NotifyApplicationState'),
+    newNotifyApplicationState,
+    NotifyApplicationStateResponse (NotifyApplicationStateResponse'),
+    newNotifyApplicationStateResponse,
+
+    -- ** NotifyMigrationTaskState
+    NotifyMigrationTaskState (NotifyMigrationTaskState'),
+    newNotifyMigrationTaskState,
+    NotifyMigrationTaskStateResponse (NotifyMigrationTaskStateResponse'),
+    newNotifyMigrationTaskStateResponse,
+
+    -- ** PutResourceAttributes
+    PutResourceAttributes (PutResourceAttributes'),
+    newPutResourceAttributes,
+    PutResourceAttributesResponse (PutResourceAttributesResponse'),
+    newPutResourceAttributesResponse,
 
     -- * Types
 

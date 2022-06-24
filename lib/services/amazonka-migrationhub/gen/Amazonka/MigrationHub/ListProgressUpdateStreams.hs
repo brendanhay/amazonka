@@ -38,8 +38,8 @@ module Amazonka.MigrationHub.ListProgressUpdateStreams
     newListProgressUpdateStreamsResponse,
 
     -- * Response Lenses
-    listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList,
     listProgressUpdateStreamsResponse_nextToken,
+    listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList,
     listProgressUpdateStreamsResponse_httpStatus,
   )
 where
@@ -125,10 +125,10 @@ instance Core.AWSRequest ListProgressUpdateStreams where
     Response.receiveJSON
       ( \s h x ->
           ListProgressUpdateStreamsResponse'
-            Prelude.<$> ( x Core..?> "ProgressUpdateStreamSummaryList"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "ProgressUpdateStreamSummaryList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,13 +174,13 @@ instance Core.ToQuery ListProgressUpdateStreams where
 
 -- | /See:/ 'newListProgressUpdateStreamsResponse' smart constructor.
 data ListProgressUpdateStreamsResponse = ListProgressUpdateStreamsResponse'
-  { -- | List of progress update streams up to the max number of results passed
-    -- in the input.
-    progressUpdateStreamSummaryList :: Prelude.Maybe [ProgressUpdateStreamSummary],
-    -- | If there are more streams created than the max result, return the next
+  { -- | If there are more streams created than the max result, return the next
     -- token to be passed to the next call as a bookmark of where to start
     -- from.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | List of progress update streams up to the max number of results passed
+    -- in the input.
+    progressUpdateStreamSummaryList :: Prelude.Maybe [ProgressUpdateStreamSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -194,12 +194,12 @@ data ListProgressUpdateStreamsResponse = ListProgressUpdateStreamsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'progressUpdateStreamSummaryList', 'listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList' - List of progress update streams up to the max number of results passed
--- in the input.
---
 -- 'nextToken', 'listProgressUpdateStreamsResponse_nextToken' - If there are more streams created than the max result, return the next
 -- token to be passed to the next call as a bookmark of where to start
 -- from.
+--
+-- 'progressUpdateStreamSummaryList', 'listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList' - List of progress update streams up to the max number of results passed
+-- in the input.
 --
 -- 'httpStatus', 'listProgressUpdateStreamsResponse_httpStatus' - The response's http status code.
 newListProgressUpdateStreamsResponse ::
@@ -208,22 +208,23 @@ newListProgressUpdateStreamsResponse ::
   ListProgressUpdateStreamsResponse
 newListProgressUpdateStreamsResponse pHttpStatus_ =
   ListProgressUpdateStreamsResponse'
-    { progressUpdateStreamSummaryList =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      progressUpdateStreamSummaryList =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | List of progress update streams up to the max number of results passed
--- in the input.
-listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList :: Lens.Lens' ListProgressUpdateStreamsResponse (Prelude.Maybe [ProgressUpdateStreamSummary])
-listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList = Lens.lens (\ListProgressUpdateStreamsResponse' {progressUpdateStreamSummaryList} -> progressUpdateStreamSummaryList) (\s@ListProgressUpdateStreamsResponse' {} a -> s {progressUpdateStreamSummaryList = a} :: ListProgressUpdateStreamsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are more streams created than the max result, return the next
 -- token to be passed to the next call as a bookmark of where to start
 -- from.
 listProgressUpdateStreamsResponse_nextToken :: Lens.Lens' ListProgressUpdateStreamsResponse (Prelude.Maybe Prelude.Text)
 listProgressUpdateStreamsResponse_nextToken = Lens.lens (\ListProgressUpdateStreamsResponse' {nextToken} -> nextToken) (\s@ListProgressUpdateStreamsResponse' {} a -> s {nextToken = a} :: ListProgressUpdateStreamsResponse)
+
+-- | List of progress update streams up to the max number of results passed
+-- in the input.
+listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList :: Lens.Lens' ListProgressUpdateStreamsResponse (Prelude.Maybe [ProgressUpdateStreamSummary])
+listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList = Lens.lens (\ListProgressUpdateStreamsResponse' {progressUpdateStreamSummaryList} -> progressUpdateStreamSummaryList) (\s@ListProgressUpdateStreamsResponse' {} a -> s {progressUpdateStreamSummaryList = a} :: ListProgressUpdateStreamsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listProgressUpdateStreamsResponse_httpStatus :: Lens.Lens' ListProgressUpdateStreamsResponse Prelude.Int
@@ -234,6 +235,6 @@ instance
     ListProgressUpdateStreamsResponse
   where
   rnf ListProgressUpdateStreamsResponse' {..} =
-    Prelude.rnf progressUpdateStreamSummaryList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf progressUpdateStreamSummaryList
       `Prelude.seq` Prelude.rnf httpStatus

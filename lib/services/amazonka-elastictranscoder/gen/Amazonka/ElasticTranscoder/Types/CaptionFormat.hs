@@ -29,26 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCaptionFormat' smart constructor.
 data CaptionFormat = CaptionFormat'
-  { -- | The prefix for caption filenames, in the form
-    -- /description/-@{language}@, where:
-    --
-    -- -   /description/ is a description of the video.
-    --
-    -- -   @{language}@ is a literal value that Elastic Transcoder replaces
-    --     with the two- or three-letter code for the language of the caption
-    --     in the output file names.
-    --
-    -- If you don\'t include @{language}@ in the file name pattern, Elastic
-    -- Transcoder automatically appends \"@{language}@\" to the value that you
-    -- specify for the description. In addition, Elastic Transcoder
-    -- automatically appends the count to the end of the segment files.
-    --
-    -- For example, suppose you\'re transcoding into srt format. When you enter
-    -- \"Sydney-{language}-sunrise\", and the language of the captions is
-    -- English (en), the name of the first caption file is be
-    -- Sydney-en-sunrise00000.srt.
-    pattern' :: Prelude.Maybe Prelude.Text,
-    -- | The format you specify determines whether Elastic Transcoder generates
+  { -- | The format you specify determines whether Elastic Transcoder generates
     -- an embedded or sidecar caption for this output.
     --
     -- -   __Valid Embedded Caption Formats:__
@@ -75,6 +56,25 @@ data CaptionFormat = CaptionFormat'
     --
     --     @fmp4@ captions have an extension of @.ismt@
     format :: Prelude.Maybe Prelude.Text,
+    -- | The prefix for caption filenames, in the form
+    -- /description/-@{language}@, where:
+    --
+    -- -   /description/ is a description of the video.
+    --
+    -- -   @{language}@ is a literal value that Elastic Transcoder replaces
+    --     with the two- or three-letter code for the language of the caption
+    --     in the output file names.
+    --
+    -- If you don\'t include @{language}@ in the file name pattern, Elastic
+    -- Transcoder automatically appends \"@{language}@\" to the value that you
+    -- specify for the description. In addition, Elastic Transcoder
+    -- automatically appends the count to the end of the segment files.
+    --
+    -- For example, suppose you\'re transcoding into srt format. When you enter
+    -- \"Sydney-{language}-sunrise\", and the language of the captions is
+    -- English (en), the name of the first caption file is be
+    -- Sydney-en-sunrise00000.srt.
+    pattern' :: Prelude.Maybe Prelude.Text,
     -- | The encryption settings, if any, that you want Elastic Transcoder to
     -- apply to your caption formats.
     encryption :: Prelude.Maybe Encryption
@@ -88,25 +88,6 @@ data CaptionFormat = CaptionFormat'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'pattern'', 'captionFormat_pattern' - The prefix for caption filenames, in the form
--- /description/-@{language}@, where:
---
--- -   /description/ is a description of the video.
---
--- -   @{language}@ is a literal value that Elastic Transcoder replaces
---     with the two- or three-letter code for the language of the caption
---     in the output file names.
---
--- If you don\'t include @{language}@ in the file name pattern, Elastic
--- Transcoder automatically appends \"@{language}@\" to the value that you
--- specify for the description. In addition, Elastic Transcoder
--- automatically appends the count to the end of the segment files.
---
--- For example, suppose you\'re transcoding into srt format. When you enter
--- \"Sydney-{language}-sunrise\", and the language of the captions is
--- English (en), the name of the first caption file is be
--- Sydney-en-sunrise00000.srt.
 --
 -- 'format', 'captionFormat_format' - The format you specify determines whether Elastic Transcoder generates
 -- an embedded or sidecar caption for this output.
@@ -135,18 +116,7 @@ data CaptionFormat = CaptionFormat'
 --
 --     @fmp4@ captions have an extension of @.ismt@
 --
--- 'encryption', 'captionFormat_encryption' - The encryption settings, if any, that you want Elastic Transcoder to
--- apply to your caption formats.
-newCaptionFormat ::
-  CaptionFormat
-newCaptionFormat =
-  CaptionFormat'
-    { pattern' = Prelude.Nothing,
-      format = Prelude.Nothing,
-      encryption = Prelude.Nothing
-    }
-
--- | The prefix for caption filenames, in the form
+-- 'pattern'', 'captionFormat_pattern' - The prefix for caption filenames, in the form
 -- /description/-@{language}@, where:
 --
 -- -   /description/ is a description of the video.
@@ -164,8 +134,17 @@ newCaptionFormat =
 -- \"Sydney-{language}-sunrise\", and the language of the captions is
 -- English (en), the name of the first caption file is be
 -- Sydney-en-sunrise00000.srt.
-captionFormat_pattern :: Lens.Lens' CaptionFormat (Prelude.Maybe Prelude.Text)
-captionFormat_pattern = Lens.lens (\CaptionFormat' {pattern'} -> pattern') (\s@CaptionFormat' {} a -> s {pattern' = a} :: CaptionFormat)
+--
+-- 'encryption', 'captionFormat_encryption' - The encryption settings, if any, that you want Elastic Transcoder to
+-- apply to your caption formats.
+newCaptionFormat ::
+  CaptionFormat
+newCaptionFormat =
+  CaptionFormat'
+    { format = Prelude.Nothing,
+      pattern' = Prelude.Nothing,
+      encryption = Prelude.Nothing
+    }
 
 -- | The format you specify determines whether Elastic Transcoder generates
 -- an embedded or sidecar caption for this output.
@@ -196,6 +175,27 @@ captionFormat_pattern = Lens.lens (\CaptionFormat' {pattern'} -> pattern') (\s@C
 captionFormat_format :: Lens.Lens' CaptionFormat (Prelude.Maybe Prelude.Text)
 captionFormat_format = Lens.lens (\CaptionFormat' {format} -> format) (\s@CaptionFormat' {} a -> s {format = a} :: CaptionFormat)
 
+-- | The prefix for caption filenames, in the form
+-- /description/-@{language}@, where:
+--
+-- -   /description/ is a description of the video.
+--
+-- -   @{language}@ is a literal value that Elastic Transcoder replaces
+--     with the two- or three-letter code for the language of the caption
+--     in the output file names.
+--
+-- If you don\'t include @{language}@ in the file name pattern, Elastic
+-- Transcoder automatically appends \"@{language}@\" to the value that you
+-- specify for the description. In addition, Elastic Transcoder
+-- automatically appends the count to the end of the segment files.
+--
+-- For example, suppose you\'re transcoding into srt format. When you enter
+-- \"Sydney-{language}-sunrise\", and the language of the captions is
+-- English (en), the name of the first caption file is be
+-- Sydney-en-sunrise00000.srt.
+captionFormat_pattern :: Lens.Lens' CaptionFormat (Prelude.Maybe Prelude.Text)
+captionFormat_pattern = Lens.lens (\CaptionFormat' {pattern'} -> pattern') (\s@CaptionFormat' {} a -> s {pattern' = a} :: CaptionFormat)
+
 -- | The encryption settings, if any, that you want Elastic Transcoder to
 -- apply to your caption formats.
 captionFormat_encryption :: Lens.Lens' CaptionFormat (Prelude.Maybe Encryption)
@@ -207,29 +207,29 @@ instance Core.FromJSON CaptionFormat where
       "CaptionFormat"
       ( \x ->
           CaptionFormat'
-            Prelude.<$> (x Core..:? "Pattern")
-            Prelude.<*> (x Core..:? "Format")
+            Prelude.<$> (x Core..:? "Format")
+            Prelude.<*> (x Core..:? "Pattern")
             Prelude.<*> (x Core..:? "Encryption")
       )
 
 instance Prelude.Hashable CaptionFormat where
   hashWithSalt _salt CaptionFormat' {..} =
-    _salt `Prelude.hashWithSalt` pattern'
-      `Prelude.hashWithSalt` format
+    _salt `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` pattern'
       `Prelude.hashWithSalt` encryption
 
 instance Prelude.NFData CaptionFormat where
   rnf CaptionFormat' {..} =
-    Prelude.rnf pattern'
-      `Prelude.seq` Prelude.rnf format
+    Prelude.rnf format
+      `Prelude.seq` Prelude.rnf pattern'
       `Prelude.seq` Prelude.rnf encryption
 
 instance Core.ToJSON CaptionFormat where
   toJSON CaptionFormat' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Pattern" Core..=) Prelude.<$> pattern',
-            ("Format" Core..=) Prelude.<$> format,
+          [ ("Format" Core..=) Prelude.<$> format,
+            ("Pattern" Core..=) Prelude.<$> pattern',
             ("Encryption" Core..=) Prelude.<$> encryption
           ]
       )

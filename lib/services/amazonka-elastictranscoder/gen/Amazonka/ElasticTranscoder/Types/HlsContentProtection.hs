@@ -28,16 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHlsContentProtection' smart constructor.
 data HlsContentProtection = HlsContentProtection'
-  { -- | If Elastic Transcoder is generating your key for you, you must leave
-    -- this field blank.
-    --
-    -- The MD5 digest of the key that you want Elastic Transcoder to use to
-    -- encrypt your output file, and that you want Elastic Transcoder to use as
-    -- a checksum to make sure your key was not corrupted in transit. The key
-    -- MD5 must be base64-encoded, and it must be exactly 16 bytes before being
-    -- base64- encoded.
-    keyMd5 :: Prelude.Maybe Prelude.Text,
-    -- | Specify whether you want Elastic Transcoder to write your HLS license
+  { -- | Specify whether you want Elastic Transcoder to write your HLS license
     -- key to an Amazon S3 bucket. If you choose @WithVariantPlaylists@,
     -- @LicenseAcquisitionUrl@ must be left blank and Elastic Transcoder writes
     -- your data key into the same bucket as the associated playlist.
@@ -57,6 +48,10 @@ data HlsContentProtection = HlsContentProtection'
     -- This value is written into the method attribute of the @EXT-X-KEY@
     -- metadata tag in the output playlist.
     method :: Prelude.Maybe Prelude.Text,
+    -- | The location of the license key required to decrypt your HLS playlist.
+    -- The URL must be an absolute path, and is referenced in the URI attribute
+    -- of the EXT-X-KEY metadata tag in the playlist file.
+    licenseAcquisitionUrl :: Prelude.Maybe Prelude.Text,
     -- | If Elastic Transcoder is generating your key for you, you must leave
     -- this field blank.
     --
@@ -66,10 +61,15 @@ data HlsContentProtection = HlsContentProtection'
     -- base64-encoded, and it must be exactly 16 bytes before being
     -- base64-encoded.
     initializationVector :: Prelude.Maybe Prelude.Text,
-    -- | The location of the license key required to decrypt your HLS playlist.
-    -- The URL must be an absolute path, and is referenced in the URI attribute
-    -- of the EXT-X-KEY metadata tag in the playlist file.
-    licenseAcquisitionUrl :: Prelude.Maybe Prelude.Text
+    -- | If Elastic Transcoder is generating your key for you, you must leave
+    -- this field blank.
+    --
+    -- The MD5 digest of the key that you want Elastic Transcoder to use to
+    -- encrypt your output file, and that you want Elastic Transcoder to use as
+    -- a checksum to make sure your key was not corrupted in transit. The key
+    -- MD5 must be base64-encoded, and it must be exactly 16 bytes before being
+    -- base64- encoded.
+    keyMd5 :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,15 +80,6 @@ data HlsContentProtection = HlsContentProtection'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'keyMd5', 'hlsContentProtection_keyMd5' - If Elastic Transcoder is generating your key for you, you must leave
--- this field blank.
---
--- The MD5 digest of the key that you want Elastic Transcoder to use to
--- encrypt your output file, and that you want Elastic Transcoder to use as
--- a checksum to make sure your key was not corrupted in transit. The key
--- MD5 must be base64-encoded, and it must be exactly 16 bytes before being
--- base64- encoded.
 --
 -- 'keyStoragePolicy', 'hlsContentProtection_keyStoragePolicy' - Specify whether you want Elastic Transcoder to write your HLS license
 -- key to an Amazon S3 bucket. If you choose @WithVariantPlaylists@,
@@ -110,6 +101,10 @@ data HlsContentProtection = HlsContentProtection'
 -- This value is written into the method attribute of the @EXT-X-KEY@
 -- metadata tag in the output playlist.
 --
+-- 'licenseAcquisitionUrl', 'hlsContentProtection_licenseAcquisitionUrl' - The location of the license key required to decrypt your HLS playlist.
+-- The URL must be an absolute path, and is referenced in the URI attribute
+-- of the EXT-X-KEY metadata tag in the playlist file.
+--
 -- 'initializationVector', 'hlsContentProtection_initializationVector' - If Elastic Transcoder is generating your key for you, you must leave
 -- this field blank.
 --
@@ -119,22 +114,7 @@ data HlsContentProtection = HlsContentProtection'
 -- base64-encoded, and it must be exactly 16 bytes before being
 -- base64-encoded.
 --
--- 'licenseAcquisitionUrl', 'hlsContentProtection_licenseAcquisitionUrl' - The location of the license key required to decrypt your HLS playlist.
--- The URL must be an absolute path, and is referenced in the URI attribute
--- of the EXT-X-KEY metadata tag in the playlist file.
-newHlsContentProtection ::
-  HlsContentProtection
-newHlsContentProtection =
-  HlsContentProtection'
-    { keyMd5 = Prelude.Nothing,
-      keyStoragePolicy = Prelude.Nothing,
-      key = Prelude.Nothing,
-      method = Prelude.Nothing,
-      initializationVector = Prelude.Nothing,
-      licenseAcquisitionUrl = Prelude.Nothing
-    }
-
--- | If Elastic Transcoder is generating your key for you, you must leave
+-- 'keyMd5', 'hlsContentProtection_keyMd5' - If Elastic Transcoder is generating your key for you, you must leave
 -- this field blank.
 --
 -- The MD5 digest of the key that you want Elastic Transcoder to use to
@@ -142,8 +122,18 @@ newHlsContentProtection =
 -- a checksum to make sure your key was not corrupted in transit. The key
 -- MD5 must be base64-encoded, and it must be exactly 16 bytes before being
 -- base64- encoded.
-hlsContentProtection_keyMd5 :: Lens.Lens' HlsContentProtection (Prelude.Maybe Prelude.Text)
-hlsContentProtection_keyMd5 = Lens.lens (\HlsContentProtection' {keyMd5} -> keyMd5) (\s@HlsContentProtection' {} a -> s {keyMd5 = a} :: HlsContentProtection)
+newHlsContentProtection ::
+  HlsContentProtection
+newHlsContentProtection =
+  HlsContentProtection'
+    { keyStoragePolicy =
+        Prelude.Nothing,
+      key = Prelude.Nothing,
+      method = Prelude.Nothing,
+      licenseAcquisitionUrl = Prelude.Nothing,
+      initializationVector = Prelude.Nothing,
+      keyMd5 = Prelude.Nothing
+    }
 
 -- | Specify whether you want Elastic Transcoder to write your HLS license
 -- key to an Amazon S3 bucket. If you choose @WithVariantPlaylists@,
@@ -171,6 +161,12 @@ hlsContentProtection_key = Lens.lens (\HlsContentProtection' {key} -> key) (\s@H
 hlsContentProtection_method :: Lens.Lens' HlsContentProtection (Prelude.Maybe Prelude.Text)
 hlsContentProtection_method = Lens.lens (\HlsContentProtection' {method} -> method) (\s@HlsContentProtection' {} a -> s {method = a} :: HlsContentProtection)
 
+-- | The location of the license key required to decrypt your HLS playlist.
+-- The URL must be an absolute path, and is referenced in the URI attribute
+-- of the EXT-X-KEY metadata tag in the playlist file.
+hlsContentProtection_licenseAcquisitionUrl :: Lens.Lens' HlsContentProtection (Prelude.Maybe Prelude.Text)
+hlsContentProtection_licenseAcquisitionUrl = Lens.lens (\HlsContentProtection' {licenseAcquisitionUrl} -> licenseAcquisitionUrl) (\s@HlsContentProtection' {} a -> s {licenseAcquisitionUrl = a} :: HlsContentProtection)
+
 -- | If Elastic Transcoder is generating your key for you, you must leave
 -- this field blank.
 --
@@ -182,11 +178,16 @@ hlsContentProtection_method = Lens.lens (\HlsContentProtection' {method} -> meth
 hlsContentProtection_initializationVector :: Lens.Lens' HlsContentProtection (Prelude.Maybe Prelude.Text)
 hlsContentProtection_initializationVector = Lens.lens (\HlsContentProtection' {initializationVector} -> initializationVector) (\s@HlsContentProtection' {} a -> s {initializationVector = a} :: HlsContentProtection)
 
--- | The location of the license key required to decrypt your HLS playlist.
--- The URL must be an absolute path, and is referenced in the URI attribute
--- of the EXT-X-KEY metadata tag in the playlist file.
-hlsContentProtection_licenseAcquisitionUrl :: Lens.Lens' HlsContentProtection (Prelude.Maybe Prelude.Text)
-hlsContentProtection_licenseAcquisitionUrl = Lens.lens (\HlsContentProtection' {licenseAcquisitionUrl} -> licenseAcquisitionUrl) (\s@HlsContentProtection' {} a -> s {licenseAcquisitionUrl = a} :: HlsContentProtection)
+-- | If Elastic Transcoder is generating your key for you, you must leave
+-- this field blank.
+--
+-- The MD5 digest of the key that you want Elastic Transcoder to use to
+-- encrypt your output file, and that you want Elastic Transcoder to use as
+-- a checksum to make sure your key was not corrupted in transit. The key
+-- MD5 must be base64-encoded, and it must be exactly 16 bytes before being
+-- base64- encoded.
+hlsContentProtection_keyMd5 :: Lens.Lens' HlsContentProtection (Prelude.Maybe Prelude.Text)
+hlsContentProtection_keyMd5 = Lens.lens (\HlsContentProtection' {keyMd5} -> keyMd5) (\s@HlsContentProtection' {} a -> s {keyMd5 = a} :: HlsContentProtection)
 
 instance Core.FromJSON HlsContentProtection where
   parseJSON =
@@ -194,44 +195,44 @@ instance Core.FromJSON HlsContentProtection where
       "HlsContentProtection"
       ( \x ->
           HlsContentProtection'
-            Prelude.<$> (x Core..:? "KeyMd5")
-            Prelude.<*> (x Core..:? "KeyStoragePolicy")
+            Prelude.<$> (x Core..:? "KeyStoragePolicy")
             Prelude.<*> (x Core..:? "Key")
             Prelude.<*> (x Core..:? "Method")
-            Prelude.<*> (x Core..:? "InitializationVector")
             Prelude.<*> (x Core..:? "LicenseAcquisitionUrl")
+            Prelude.<*> (x Core..:? "InitializationVector")
+            Prelude.<*> (x Core..:? "KeyMd5")
       )
 
 instance Prelude.Hashable HlsContentProtection where
   hashWithSalt _salt HlsContentProtection' {..} =
-    _salt `Prelude.hashWithSalt` keyMd5
-      `Prelude.hashWithSalt` keyStoragePolicy
+    _salt `Prelude.hashWithSalt` keyStoragePolicy
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` method
-      `Prelude.hashWithSalt` initializationVector
       `Prelude.hashWithSalt` licenseAcquisitionUrl
+      `Prelude.hashWithSalt` initializationVector
+      `Prelude.hashWithSalt` keyMd5
 
 instance Prelude.NFData HlsContentProtection where
   rnf HlsContentProtection' {..} =
-    Prelude.rnf keyMd5
-      `Prelude.seq` Prelude.rnf keyStoragePolicy
+    Prelude.rnf keyStoragePolicy
       `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf method
-      `Prelude.seq` Prelude.rnf initializationVector
       `Prelude.seq` Prelude.rnf licenseAcquisitionUrl
+      `Prelude.seq` Prelude.rnf initializationVector
+      `Prelude.seq` Prelude.rnf keyMd5
 
 instance Core.ToJSON HlsContentProtection where
   toJSON HlsContentProtection' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("KeyMd5" Core..=) Prelude.<$> keyMd5,
-            ("KeyStoragePolicy" Core..=)
+          [ ("KeyStoragePolicy" Core..=)
               Prelude.<$> keyStoragePolicy,
             ("Key" Core..=) Prelude.<$> key,
             ("Method" Core..=) Prelude.<$> method,
+            ("LicenseAcquisitionUrl" Core..=)
+              Prelude.<$> licenseAcquisitionUrl,
             ("InitializationVector" Core..=)
               Prelude.<$> initializationVector,
-            ("LicenseAcquisitionUrl" Core..=)
-              Prelude.<$> licenseAcquisitionUrl
+            ("KeyMd5" Core..=) Prelude.<$> keyMd5
           ]
       )

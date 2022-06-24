@@ -32,13 +32,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWarning' smart constructor.
 data Warning = Warning'
-  { -- | The code of the cross-regional warning.
-    code :: Prelude.Maybe Prelude.Text,
-    -- | The message explaining what resources are in a different region from the
+  { -- | The message explaining what resources are in a different region from the
     -- pipeline.
     --
     -- AWS KMS keys must be in the same region as the pipeline.
-    message :: Prelude.Maybe Prelude.Text
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The code of the cross-regional warning.
+    code :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,23 +50,19 @@ data Warning = Warning'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'code', 'warning_code' - The code of the cross-regional warning.
---
 -- 'message', 'warning_message' - The message explaining what resources are in a different region from the
 -- pipeline.
 --
 -- AWS KMS keys must be in the same region as the pipeline.
+--
+-- 'code', 'warning_code' - The code of the cross-regional warning.
 newWarning ::
   Warning
 newWarning =
   Warning'
-    { code = Prelude.Nothing,
-      message = Prelude.Nothing
+    { message = Prelude.Nothing,
+      code = Prelude.Nothing
     }
-
--- | The code of the cross-regional warning.
-warning_code :: Lens.Lens' Warning (Prelude.Maybe Prelude.Text)
-warning_code = Lens.lens (\Warning' {code} -> code) (\s@Warning' {} a -> s {code = a} :: Warning)
 
 -- | The message explaining what resources are in a different region from the
 -- pipeline.
@@ -75,21 +71,25 @@ warning_code = Lens.lens (\Warning' {code} -> code) (\s@Warning' {} a -> s {code
 warning_message :: Lens.Lens' Warning (Prelude.Maybe Prelude.Text)
 warning_message = Lens.lens (\Warning' {message} -> message) (\s@Warning' {} a -> s {message = a} :: Warning)
 
+-- | The code of the cross-regional warning.
+warning_code :: Lens.Lens' Warning (Prelude.Maybe Prelude.Text)
+warning_code = Lens.lens (\Warning' {code} -> code) (\s@Warning' {} a -> s {code = a} :: Warning)
+
 instance Core.FromJSON Warning where
   parseJSON =
     Core.withObject
       "Warning"
       ( \x ->
           Warning'
-            Prelude.<$> (x Core..:? "Code")
-            Prelude.<*> (x Core..:? "Message")
+            Prelude.<$> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "Code")
       )
 
 instance Prelude.Hashable Warning where
   hashWithSalt _salt Warning' {..} =
-    _salt `Prelude.hashWithSalt` code
-      `Prelude.hashWithSalt` message
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
 
 instance Prelude.NFData Warning where
   rnf Warning' {..} =
-    Prelude.rnf code `Prelude.seq` Prelude.rnf message
+    Prelude.rnf message `Prelude.seq` Prelude.rnf code

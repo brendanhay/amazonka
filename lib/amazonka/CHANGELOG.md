@@ -35,7 +35,7 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 ### Changed
 
 
-- sso: replace `SessionTokenType` with `Core.SessionToken`
+- `amazonka-sso`: replace `SessionTokenType` with `Core.SessionToken`
 [\#792](https://github.com/brendanhay/amazonka/pull/791)
 - `amazonka-sso`: Use `amazonka-core` types in `GetRoleCredentials` response
 [\#791](https://github.com/brendanhay/amazonka/pull/791)

@@ -33,8 +33,8 @@ module Amazonka.OpsWorks.DescribePermissions
     newDescribePermissions,
 
     -- * Request Lenses
-    describePermissions_iamUserArn,
     describePermissions_stackId,
+    describePermissions_iamUserArn,
 
     -- * Destructuring the Response
     DescribePermissionsResponse (..),
@@ -55,12 +55,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribePermissions' smart constructor.
 data DescribePermissions = DescribePermissions'
-  { -- | The user\'s IAM ARN. This can also be a federated user\'s ARN. For more
+  { -- | The stack ID.
+    stackId :: Prelude.Maybe Prelude.Text,
+    -- | The user\'s IAM ARN. This can also be a federated user\'s ARN. For more
     -- information about IAM ARNs, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
-    iamUserArn :: Prelude.Maybe Prelude.Text,
-    -- | The stack ID.
-    stackId :: Prelude.Maybe Prelude.Text
+    iamUserArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,28 +72,28 @@ data DescribePermissions = DescribePermissions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'stackId', 'describePermissions_stackId' - The stack ID.
+--
 -- 'iamUserArn', 'describePermissions_iamUserArn' - The user\'s IAM ARN. This can also be a federated user\'s ARN. For more
 -- information about IAM ARNs, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
---
--- 'stackId', 'describePermissions_stackId' - The stack ID.
 newDescribePermissions ::
   DescribePermissions
 newDescribePermissions =
   DescribePermissions'
-    { iamUserArn = Prelude.Nothing,
-      stackId = Prelude.Nothing
+    { stackId = Prelude.Nothing,
+      iamUserArn = Prelude.Nothing
     }
+
+-- | The stack ID.
+describePermissions_stackId :: Lens.Lens' DescribePermissions (Prelude.Maybe Prelude.Text)
+describePermissions_stackId = Lens.lens (\DescribePermissions' {stackId} -> stackId) (\s@DescribePermissions' {} a -> s {stackId = a} :: DescribePermissions)
 
 -- | The user\'s IAM ARN. This can also be a federated user\'s ARN. For more
 -- information about IAM ARNs, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
 describePermissions_iamUserArn :: Lens.Lens' DescribePermissions (Prelude.Maybe Prelude.Text)
 describePermissions_iamUserArn = Lens.lens (\DescribePermissions' {iamUserArn} -> iamUserArn) (\s@DescribePermissions' {} a -> s {iamUserArn = a} :: DescribePermissions)
-
--- | The stack ID.
-describePermissions_stackId :: Lens.Lens' DescribePermissions (Prelude.Maybe Prelude.Text)
-describePermissions_stackId = Lens.lens (\DescribePermissions' {stackId} -> stackId) (\s@DescribePermissions' {} a -> s {stackId = a} :: DescribePermissions)
 
 instance Core.AWSRequest DescribePermissions where
   type
@@ -110,13 +110,13 @@ instance Core.AWSRequest DescribePermissions where
 
 instance Prelude.Hashable DescribePermissions where
   hashWithSalt _salt DescribePermissions' {..} =
-    _salt `Prelude.hashWithSalt` iamUserArn
-      `Prelude.hashWithSalt` stackId
+    _salt `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` iamUserArn
 
 instance Prelude.NFData DescribePermissions where
   rnf DescribePermissions' {..} =
-    Prelude.rnf iamUserArn
-      `Prelude.seq` Prelude.rnf stackId
+    Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf iamUserArn
 
 instance Core.ToHeaders DescribePermissions where
   toHeaders =
@@ -137,8 +137,8 @@ instance Core.ToJSON DescribePermissions where
   toJSON DescribePermissions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("IamUserArn" Core..=) Prelude.<$> iamUserArn,
-            ("StackId" Core..=) Prelude.<$> stackId
+          [ ("StackId" Core..=) Prelude.<$> stackId,
+            ("IamUserArn" Core..=) Prelude.<$> iamUserArn
           ]
       )
 

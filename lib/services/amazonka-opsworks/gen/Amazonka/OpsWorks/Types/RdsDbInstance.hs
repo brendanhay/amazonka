@@ -27,28 +27,28 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRdsDbInstance' smart constructor.
 data RdsDbInstance = RdsDbInstance'
-  { -- | The instance\'s ARN.
-    rdsDbInstanceArn :: Prelude.Maybe Prelude.Text,
-    -- | The master user name.
-    dbUser :: Prelude.Maybe Prelude.Text,
+  { -- | The ID of the stack with which the instance is registered.
+    stackId :: Prelude.Maybe Prelude.Text,
     -- | Set to @true@ if AWS OpsWorks Stacks is unable to discover the Amazon
     -- RDS instance. AWS OpsWorks Stacks attempts to discover the instance only
     -- once. If this value is set to @true@, you must deregister the instance,
     -- and then register it again.
     missingOnRds :: Prelude.Maybe Prelude.Bool,
-    -- | The instance\'s database engine.
-    engine :: Prelude.Maybe Prelude.Text,
-    -- | The instance\'s address.
-    address :: Prelude.Maybe Prelude.Text,
     -- | The DB instance identifier.
     dbInstanceIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The instance\'s AWS region.
-    region :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the stack with which the instance is registered.
-    stackId :: Prelude.Maybe Prelude.Text,
     -- | AWS OpsWorks Stacks returns @*****FILTERED*****@ instead of the actual
     -- value.
-    dbPassword :: Prelude.Maybe Prelude.Text
+    dbPassword :: Prelude.Maybe Prelude.Text,
+    -- | The instance\'s AWS region.
+    region :: Prelude.Maybe Prelude.Text,
+    -- | The instance\'s address.
+    address :: Prelude.Maybe Prelude.Text,
+    -- | The instance\'s ARN.
+    rdsDbInstanceArn :: Prelude.Maybe Prelude.Text,
+    -- | The instance\'s database engine.
+    engine :: Prelude.Maybe Prelude.Text,
+    -- | The master user name.
+    dbUser :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,49 +60,45 @@ data RdsDbInstance = RdsDbInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rdsDbInstanceArn', 'rdsDbInstance_rdsDbInstanceArn' - The instance\'s ARN.
---
--- 'dbUser', 'rdsDbInstance_dbUser' - The master user name.
+-- 'stackId', 'rdsDbInstance_stackId' - The ID of the stack with which the instance is registered.
 --
 -- 'missingOnRds', 'rdsDbInstance_missingOnRds' - Set to @true@ if AWS OpsWorks Stacks is unable to discover the Amazon
 -- RDS instance. AWS OpsWorks Stacks attempts to discover the instance only
 -- once. If this value is set to @true@, you must deregister the instance,
 -- and then register it again.
 --
--- 'engine', 'rdsDbInstance_engine' - The instance\'s database engine.
---
--- 'address', 'rdsDbInstance_address' - The instance\'s address.
---
 -- 'dbInstanceIdentifier', 'rdsDbInstance_dbInstanceIdentifier' - The DB instance identifier.
---
--- 'region', 'rdsDbInstance_region' - The instance\'s AWS region.
---
--- 'stackId', 'rdsDbInstance_stackId' - The ID of the stack with which the instance is registered.
 --
 -- 'dbPassword', 'rdsDbInstance_dbPassword' - AWS OpsWorks Stacks returns @*****FILTERED*****@ instead of the actual
 -- value.
+--
+-- 'region', 'rdsDbInstance_region' - The instance\'s AWS region.
+--
+-- 'address', 'rdsDbInstance_address' - The instance\'s address.
+--
+-- 'rdsDbInstanceArn', 'rdsDbInstance_rdsDbInstanceArn' - The instance\'s ARN.
+--
+-- 'engine', 'rdsDbInstance_engine' - The instance\'s database engine.
+--
+-- 'dbUser', 'rdsDbInstance_dbUser' - The master user name.
 newRdsDbInstance ::
   RdsDbInstance
 newRdsDbInstance =
   RdsDbInstance'
-    { rdsDbInstanceArn = Prelude.Nothing,
-      dbUser = Prelude.Nothing,
+    { stackId = Prelude.Nothing,
       missingOnRds = Prelude.Nothing,
-      engine = Prelude.Nothing,
-      address = Prelude.Nothing,
       dbInstanceIdentifier = Prelude.Nothing,
+      dbPassword = Prelude.Nothing,
       region = Prelude.Nothing,
-      stackId = Prelude.Nothing,
-      dbPassword = Prelude.Nothing
+      address = Prelude.Nothing,
+      rdsDbInstanceArn = Prelude.Nothing,
+      engine = Prelude.Nothing,
+      dbUser = Prelude.Nothing
     }
 
--- | The instance\'s ARN.
-rdsDbInstance_rdsDbInstanceArn :: Lens.Lens' RdsDbInstance (Prelude.Maybe Prelude.Text)
-rdsDbInstance_rdsDbInstanceArn = Lens.lens (\RdsDbInstance' {rdsDbInstanceArn} -> rdsDbInstanceArn) (\s@RdsDbInstance' {} a -> s {rdsDbInstanceArn = a} :: RdsDbInstance)
-
--- | The master user name.
-rdsDbInstance_dbUser :: Lens.Lens' RdsDbInstance (Prelude.Maybe Prelude.Text)
-rdsDbInstance_dbUser = Lens.lens (\RdsDbInstance' {dbUser} -> dbUser) (\s@RdsDbInstance' {} a -> s {dbUser = a} :: RdsDbInstance)
+-- | The ID of the stack with which the instance is registered.
+rdsDbInstance_stackId :: Lens.Lens' RdsDbInstance (Prelude.Maybe Prelude.Text)
+rdsDbInstance_stackId = Lens.lens (\RdsDbInstance' {stackId} -> stackId) (\s@RdsDbInstance' {} a -> s {stackId = a} :: RdsDbInstance)
 
 -- | Set to @true@ if AWS OpsWorks Stacks is unable to discover the Amazon
 -- RDS instance. AWS OpsWorks Stacks attempts to discover the instance only
@@ -111,30 +107,34 @@ rdsDbInstance_dbUser = Lens.lens (\RdsDbInstance' {dbUser} -> dbUser) (\s@RdsDbI
 rdsDbInstance_missingOnRds :: Lens.Lens' RdsDbInstance (Prelude.Maybe Prelude.Bool)
 rdsDbInstance_missingOnRds = Lens.lens (\RdsDbInstance' {missingOnRds} -> missingOnRds) (\s@RdsDbInstance' {} a -> s {missingOnRds = a} :: RdsDbInstance)
 
--- | The instance\'s database engine.
-rdsDbInstance_engine :: Lens.Lens' RdsDbInstance (Prelude.Maybe Prelude.Text)
-rdsDbInstance_engine = Lens.lens (\RdsDbInstance' {engine} -> engine) (\s@RdsDbInstance' {} a -> s {engine = a} :: RdsDbInstance)
-
--- | The instance\'s address.
-rdsDbInstance_address :: Lens.Lens' RdsDbInstance (Prelude.Maybe Prelude.Text)
-rdsDbInstance_address = Lens.lens (\RdsDbInstance' {address} -> address) (\s@RdsDbInstance' {} a -> s {address = a} :: RdsDbInstance)
-
 -- | The DB instance identifier.
 rdsDbInstance_dbInstanceIdentifier :: Lens.Lens' RdsDbInstance (Prelude.Maybe Prelude.Text)
 rdsDbInstance_dbInstanceIdentifier = Lens.lens (\RdsDbInstance' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@RdsDbInstance' {} a -> s {dbInstanceIdentifier = a} :: RdsDbInstance)
-
--- | The instance\'s AWS region.
-rdsDbInstance_region :: Lens.Lens' RdsDbInstance (Prelude.Maybe Prelude.Text)
-rdsDbInstance_region = Lens.lens (\RdsDbInstance' {region} -> region) (\s@RdsDbInstance' {} a -> s {region = a} :: RdsDbInstance)
-
--- | The ID of the stack with which the instance is registered.
-rdsDbInstance_stackId :: Lens.Lens' RdsDbInstance (Prelude.Maybe Prelude.Text)
-rdsDbInstance_stackId = Lens.lens (\RdsDbInstance' {stackId} -> stackId) (\s@RdsDbInstance' {} a -> s {stackId = a} :: RdsDbInstance)
 
 -- | AWS OpsWorks Stacks returns @*****FILTERED*****@ instead of the actual
 -- value.
 rdsDbInstance_dbPassword :: Lens.Lens' RdsDbInstance (Prelude.Maybe Prelude.Text)
 rdsDbInstance_dbPassword = Lens.lens (\RdsDbInstance' {dbPassword} -> dbPassword) (\s@RdsDbInstance' {} a -> s {dbPassword = a} :: RdsDbInstance)
+
+-- | The instance\'s AWS region.
+rdsDbInstance_region :: Lens.Lens' RdsDbInstance (Prelude.Maybe Prelude.Text)
+rdsDbInstance_region = Lens.lens (\RdsDbInstance' {region} -> region) (\s@RdsDbInstance' {} a -> s {region = a} :: RdsDbInstance)
+
+-- | The instance\'s address.
+rdsDbInstance_address :: Lens.Lens' RdsDbInstance (Prelude.Maybe Prelude.Text)
+rdsDbInstance_address = Lens.lens (\RdsDbInstance' {address} -> address) (\s@RdsDbInstance' {} a -> s {address = a} :: RdsDbInstance)
+
+-- | The instance\'s ARN.
+rdsDbInstance_rdsDbInstanceArn :: Lens.Lens' RdsDbInstance (Prelude.Maybe Prelude.Text)
+rdsDbInstance_rdsDbInstanceArn = Lens.lens (\RdsDbInstance' {rdsDbInstanceArn} -> rdsDbInstanceArn) (\s@RdsDbInstance' {} a -> s {rdsDbInstanceArn = a} :: RdsDbInstance)
+
+-- | The instance\'s database engine.
+rdsDbInstance_engine :: Lens.Lens' RdsDbInstance (Prelude.Maybe Prelude.Text)
+rdsDbInstance_engine = Lens.lens (\RdsDbInstance' {engine} -> engine) (\s@RdsDbInstance' {} a -> s {engine = a} :: RdsDbInstance)
+
+-- | The master user name.
+rdsDbInstance_dbUser :: Lens.Lens' RdsDbInstance (Prelude.Maybe Prelude.Text)
+rdsDbInstance_dbUser = Lens.lens (\RdsDbInstance' {dbUser} -> dbUser) (\s@RdsDbInstance' {} a -> s {dbUser = a} :: RdsDbInstance)
 
 instance Core.FromJSON RdsDbInstance where
   parseJSON =
@@ -142,37 +142,37 @@ instance Core.FromJSON RdsDbInstance where
       "RdsDbInstance"
       ( \x ->
           RdsDbInstance'
-            Prelude.<$> (x Core..:? "RdsDbInstanceArn")
-            Prelude.<*> (x Core..:? "DbUser")
+            Prelude.<$> (x Core..:? "StackId")
             Prelude.<*> (x Core..:? "MissingOnRds")
-            Prelude.<*> (x Core..:? "Engine")
-            Prelude.<*> (x Core..:? "Address")
             Prelude.<*> (x Core..:? "DbInstanceIdentifier")
-            Prelude.<*> (x Core..:? "Region")
-            Prelude.<*> (x Core..:? "StackId")
             Prelude.<*> (x Core..:? "DbPassword")
+            Prelude.<*> (x Core..:? "Region")
+            Prelude.<*> (x Core..:? "Address")
+            Prelude.<*> (x Core..:? "RdsDbInstanceArn")
+            Prelude.<*> (x Core..:? "Engine")
+            Prelude.<*> (x Core..:? "DbUser")
       )
 
 instance Prelude.Hashable RdsDbInstance where
   hashWithSalt _salt RdsDbInstance' {..} =
-    _salt `Prelude.hashWithSalt` rdsDbInstanceArn
-      `Prelude.hashWithSalt` dbUser
+    _salt `Prelude.hashWithSalt` stackId
       `Prelude.hashWithSalt` missingOnRds
-      `Prelude.hashWithSalt` engine
-      `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` dbInstanceIdentifier
-      `Prelude.hashWithSalt` region
-      `Prelude.hashWithSalt` stackId
       `Prelude.hashWithSalt` dbPassword
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` address
+      `Prelude.hashWithSalt` rdsDbInstanceArn
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` dbUser
 
 instance Prelude.NFData RdsDbInstance where
   rnf RdsDbInstance' {..} =
-    Prelude.rnf rdsDbInstanceArn
-      `Prelude.seq` Prelude.rnf dbUser
+    Prelude.rnf stackId
       `Prelude.seq` Prelude.rnf missingOnRds
-      `Prelude.seq` Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf address
       `Prelude.seq` Prelude.rnf dbInstanceIdentifier
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf stackId
       `Prelude.seq` Prelude.rnf dbPassword
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf address
+      `Prelude.seq` Prelude.rnf rdsDbInstanceArn
+      `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf dbUser

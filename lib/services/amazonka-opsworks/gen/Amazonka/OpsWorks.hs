@@ -98,107 +98,35 @@ module Amazonka.OpsWorks
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
 
-    -- ** InstanceTerminated
-    newInstanceTerminated,
-
-    -- ** DeploymentSuccessful
-    newDeploymentSuccessful,
-
     -- ** InstanceStopped
     newInstanceStopped,
-
-    -- ** InstanceOnline
-    newInstanceOnline,
-
-    -- ** AppExists
-    newAppExists,
 
     -- ** InstanceRegistered
     newInstanceRegistered,
 
+    -- ** InstanceTerminated
+    newInstanceTerminated,
+
+    -- ** AppExists
+    newAppExists,
+
+    -- ** DeploymentSuccessful
+    newDeploymentSuccessful,
+
+    -- ** InstanceOnline
+    newInstanceOnline,
+
     -- * Operations
     -- $operations
-
-    -- ** DescribeRdsDbInstances
-    DescribeRdsDbInstances (DescribeRdsDbInstances'),
-    newDescribeRdsDbInstances,
-    DescribeRdsDbInstancesResponse (DescribeRdsDbInstancesResponse'),
-    newDescribeRdsDbInstancesResponse,
-
-    -- ** DeleteStack
-    DeleteStack (DeleteStack'),
-    newDeleteStack,
-    DeleteStackResponse (DeleteStackResponse'),
-    newDeleteStackResponse,
-
-    -- ** UpdateStack
-    UpdateStack (UpdateStack'),
-    newUpdateStack,
-    UpdateStackResponse (UpdateStackResponse'),
-    newUpdateStackResponse,
-
-    -- ** CreateLayer
-    CreateLayer (CreateLayer'),
-    newCreateLayer,
-    CreateLayerResponse (CreateLayerResponse'),
-    newCreateLayerResponse,
-
-    -- ** SetLoadBasedAutoScaling
-    SetLoadBasedAutoScaling (SetLoadBasedAutoScaling'),
-    newSetLoadBasedAutoScaling,
-    SetLoadBasedAutoScalingResponse (SetLoadBasedAutoScalingResponse'),
-    newSetLoadBasedAutoScalingResponse,
-
-    -- ** DeregisterRdsDbInstance
-    DeregisterRdsDbInstance (DeregisterRdsDbInstance'),
-    newDeregisterRdsDbInstance,
-    DeregisterRdsDbInstanceResponse (DeregisterRdsDbInstanceResponse'),
-    newDeregisterRdsDbInstanceResponse,
-
-    -- ** UnassignVolume
-    UnassignVolume (UnassignVolume'),
-    newUnassignVolume,
-    UnassignVolumeResponse (UnassignVolumeResponse'),
-    newUnassignVolumeResponse,
-
-    -- ** CreateInstance
-    CreateInstance (CreateInstance'),
-    newCreateInstance,
-    CreateInstanceResponse (CreateInstanceResponse'),
-    newCreateInstanceResponse,
-
-    -- ** DescribeLayers
-    DescribeLayers (DescribeLayers'),
-    newDescribeLayers,
-    DescribeLayersResponse (DescribeLayersResponse'),
-    newDescribeLayersResponse,
-
-    -- ** RegisterElasticIp
-    RegisterElasticIp (RegisterElasticIp'),
-    newRegisterElasticIp,
-    RegisterElasticIpResponse (RegisterElasticIpResponse'),
-    newRegisterElasticIpResponse,
-
-    -- ** DescribeAgentVersions
-    DescribeAgentVersions (DescribeAgentVersions'),
-    newDescribeAgentVersions,
-    DescribeAgentVersionsResponse (DescribeAgentVersionsResponse'),
-    newDescribeAgentVersionsResponse,
-
-    -- ** CreateDeployment
-    CreateDeployment (CreateDeployment'),
-    newCreateDeployment,
-    CreateDeploymentResponse (CreateDeploymentResponse'),
-    newCreateDeploymentResponse,
 
     -- ** AssignInstance
     AssignInstance (AssignInstance'),
@@ -206,227 +134,11 @@ module Amazonka.OpsWorks
     AssignInstanceResponse (AssignInstanceResponse'),
     newAssignInstanceResponse,
 
-    -- ** DescribeStacks
-    DescribeStacks (DescribeStacks'),
-    newDescribeStacks,
-    DescribeStacksResponse (DescribeStacksResponse'),
-    newDescribeStacksResponse,
-
-    -- ** DeleteInstance
-    DeleteInstance (DeleteInstance'),
-    newDeleteInstance,
-    DeleteInstanceResponse (DeleteInstanceResponse'),
-    newDeleteInstanceResponse,
-
-    -- ** UpdateInstance
-    UpdateInstance (UpdateInstance'),
-    newUpdateInstance,
-    UpdateInstanceResponse (UpdateInstanceResponse'),
-    newUpdateInstanceResponse,
-
-    -- ** DeregisterVolume
-    DeregisterVolume (DeregisterVolume'),
-    newDeregisterVolume,
-    DeregisterVolumeResponse (DeregisterVolumeResponse'),
-    newDeregisterVolumeResponse,
-
-    -- ** RebootInstance
-    RebootInstance (RebootInstance'),
-    newRebootInstance,
-    RebootInstanceResponse (RebootInstanceResponse'),
-    newRebootInstanceResponse,
-
-    -- ** DeleteApp
-    DeleteApp (DeleteApp'),
-    newDeleteApp,
-    DeleteAppResponse (DeleteAppResponse'),
-    newDeleteAppResponse,
-
-    -- ** UpdateApp
-    UpdateApp (UpdateApp'),
-    newUpdateApp,
-    UpdateAppResponse (UpdateAppResponse'),
-    newUpdateAppResponse,
-
-    -- ** UpdateRdsDbInstance
-    UpdateRdsDbInstance (UpdateRdsDbInstance'),
-    newUpdateRdsDbInstance,
-    UpdateRdsDbInstanceResponse (UpdateRdsDbInstanceResponse'),
-    newUpdateRdsDbInstanceResponse,
-
-    -- ** DescribeTimeBasedAutoScaling
-    DescribeTimeBasedAutoScaling (DescribeTimeBasedAutoScaling'),
-    newDescribeTimeBasedAutoScaling,
-    DescribeTimeBasedAutoScalingResponse (DescribeTimeBasedAutoScalingResponse'),
-    newDescribeTimeBasedAutoScalingResponse,
-
-    -- ** StopStack
-    StopStack (StopStack'),
-    newStopStack,
-    StopStackResponse (StopStackResponse'),
-    newStopStackResponse,
-
-    -- ** DescribeVolumes
-    DescribeVolumes (DescribeVolumes'),
-    newDescribeVolumes,
-    DescribeVolumesResponse (DescribeVolumesResponse'),
-    newDescribeVolumesResponse,
-
-    -- ** DisassociateElasticIp
-    DisassociateElasticIp (DisassociateElasticIp'),
-    newDisassociateElasticIp,
-    DisassociateElasticIpResponse (DisassociateElasticIpResponse'),
-    newDisassociateElasticIpResponse,
-
-    -- ** RegisterEcsCluster
-    RegisterEcsCluster (RegisterEcsCluster'),
-    newRegisterEcsCluster,
-    RegisterEcsClusterResponse (RegisterEcsClusterResponse'),
-    newRegisterEcsClusterResponse,
-
-    -- ** StopInstance
-    StopInstance (StopInstance'),
-    newStopInstance,
-    StopInstanceResponse (StopInstanceResponse'),
-    newStopInstanceResponse,
-
-    -- ** RegisterVolume
-    RegisterVolume (RegisterVolume'),
-    newRegisterVolume,
-    RegisterVolumeResponse (RegisterVolumeResponse'),
-    newRegisterVolumeResponse,
-
-    -- ** SetTimeBasedAutoScaling
-    SetTimeBasedAutoScaling (SetTimeBasedAutoScaling'),
-    newSetTimeBasedAutoScaling,
-    SetTimeBasedAutoScalingResponse (SetTimeBasedAutoScalingResponse'),
-    newSetTimeBasedAutoScalingResponse,
-
-    -- ** DescribeUserProfiles
-    DescribeUserProfiles (DescribeUserProfiles'),
-    newDescribeUserProfiles,
-    DescribeUserProfilesResponse (DescribeUserProfilesResponse'),
-    newDescribeUserProfilesResponse,
-
-    -- ** AttachElasticLoadBalancer
-    AttachElasticLoadBalancer (AttachElasticLoadBalancer'),
-    newAttachElasticLoadBalancer,
-    AttachElasticLoadBalancerResponse (AttachElasticLoadBalancerResponse'),
-    newAttachElasticLoadBalancerResponse,
-
-    -- ** DeregisterElasticIp
-    DeregisterElasticIp (DeregisterElasticIp'),
-    newDeregisterElasticIp,
-    DeregisterElasticIpResponse (DeregisterElasticIpResponse'),
-    newDeregisterElasticIpResponse,
-
-    -- ** DeregisterEcsCluster
-    DeregisterEcsCluster (DeregisterEcsCluster'),
-    newDeregisterEcsCluster,
-    DeregisterEcsClusterResponse (DeregisterEcsClusterResponse'),
-    newDeregisterEcsClusterResponse,
-
-    -- ** DescribeApps
-    DescribeApps (DescribeApps'),
-    newDescribeApps,
-    DescribeAppsResponse (DescribeAppsResponse'),
-    newDescribeAppsResponse,
-
-    -- ** UpdateMyUserProfile
-    UpdateMyUserProfile (UpdateMyUserProfile'),
-    newUpdateMyUserProfile,
-    UpdateMyUserProfileResponse (UpdateMyUserProfileResponse'),
-    newUpdateMyUserProfileResponse,
-
-    -- ** DescribeStackSummary
-    DescribeStackSummary (DescribeStackSummary'),
-    newDescribeStackSummary,
-    DescribeStackSummaryResponse (DescribeStackSummaryResponse'),
-    newDescribeStackSummaryResponse,
-
-    -- ** DescribeInstances
-    DescribeInstances (DescribeInstances'),
-    newDescribeInstances,
-    DescribeInstancesResponse (DescribeInstancesResponse'),
-    newDescribeInstancesResponse,
-
-    -- ** DescribeDeployments
-    DescribeDeployments (DescribeDeployments'),
-    newDescribeDeployments,
-    DescribeDeploymentsResponse (DescribeDeploymentsResponse'),
-    newDescribeDeploymentsResponse,
-
-    -- ** DescribeElasticIps
-    DescribeElasticIps (DescribeElasticIps'),
-    newDescribeElasticIps,
-    DescribeElasticIpsResponse (DescribeElasticIpsResponse'),
-    newDescribeElasticIpsResponse,
-
-    -- ** GrantAccess
-    GrantAccess (GrantAccess'),
-    newGrantAccess,
-    GrantAccessResponse (GrantAccessResponse'),
-    newGrantAccessResponse,
-
-    -- ** DeleteLayer
-    DeleteLayer (DeleteLayer'),
-    newDeleteLayer,
-    DeleteLayerResponse (DeleteLayerResponse'),
-    newDeleteLayerResponse,
-
-    -- ** UpdateLayer
-    UpdateLayer (UpdateLayer'),
-    newUpdateLayer,
-    UpdateLayerResponse (UpdateLayerResponse'),
-    newUpdateLayerResponse,
-
-    -- ** CreateStack
-    CreateStack (CreateStack'),
-    newCreateStack,
-    CreateStackResponse (CreateStackResponse'),
-    newCreateStackResponse,
-
-    -- ** UpdateElasticIp
-    UpdateElasticIp (UpdateElasticIp'),
-    newUpdateElasticIp,
-    UpdateElasticIpResponse (UpdateElasticIpResponse'),
-    newUpdateElasticIpResponse,
-
-    -- ** CreateApp
-    CreateApp (CreateApp'),
-    newCreateApp,
-    CreateAppResponse (CreateAppResponse'),
-    newCreateAppResponse,
-
-    -- ** GetHostnameSuggestion
-    GetHostnameSuggestion (GetHostnameSuggestion'),
-    newGetHostnameSuggestion,
-    GetHostnameSuggestionResponse (GetHostnameSuggestionResponse'),
-    newGetHostnameSuggestionResponse,
-
-    -- ** CloneStack
-    CloneStack (CloneStack'),
-    newCloneStack,
-    CloneStackResponse (CloneStackResponse'),
-    newCloneStackResponse,
-
-    -- ** DescribePermissions
-    DescribePermissions (DescribePermissions'),
-    newDescribePermissions,
-    DescribePermissionsResponse (DescribePermissionsResponse'),
-    newDescribePermissionsResponse,
-
-    -- ** DetachElasticLoadBalancer
-    DetachElasticLoadBalancer (DetachElasticLoadBalancer'),
-    newDetachElasticLoadBalancer,
-    DetachElasticLoadBalancerResponse (DetachElasticLoadBalancerResponse'),
-    newDetachElasticLoadBalancerResponse,
-
-    -- ** RegisterInstance
-    RegisterInstance (RegisterInstance'),
-    newRegisterInstance,
-    RegisterInstanceResponse (RegisterInstanceResponse'),
-    newRegisterInstanceResponse,
+    -- ** AssignVolume
+    AssignVolume (AssignVolume'),
+    newAssignVolume,
+    AssignVolumeResponse (AssignVolumeResponse'),
+    newAssignVolumeResponse,
 
     -- ** AssociateElasticIp
     AssociateElasticIp (AssociateElasticIp'),
@@ -434,77 +146,47 @@ module Amazonka.OpsWorks
     AssociateElasticIpResponse (AssociateElasticIpResponse'),
     newAssociateElasticIpResponse,
 
-    -- ** DescribeLoadBasedAutoScaling
-    DescribeLoadBasedAutoScaling (DescribeLoadBasedAutoScaling'),
-    newDescribeLoadBasedAutoScaling,
-    DescribeLoadBasedAutoScalingResponse (DescribeLoadBasedAutoScalingResponse'),
-    newDescribeLoadBasedAutoScalingResponse,
+    -- ** AttachElasticLoadBalancer
+    AttachElasticLoadBalancer (AttachElasticLoadBalancer'),
+    newAttachElasticLoadBalancer,
+    AttachElasticLoadBalancerResponse (AttachElasticLoadBalancerResponse'),
+    newAttachElasticLoadBalancerResponse,
 
-    -- ** DescribeStackProvisioningParameters
-    DescribeStackProvisioningParameters (DescribeStackProvisioningParameters'),
-    newDescribeStackProvisioningParameters,
-    DescribeStackProvisioningParametersResponse (DescribeStackProvisioningParametersResponse'),
-    newDescribeStackProvisioningParametersResponse,
+    -- ** CloneStack
+    CloneStack (CloneStack'),
+    newCloneStack,
+    CloneStackResponse (CloneStackResponse'),
+    newCloneStackResponse,
 
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
+    -- ** CreateApp
+    CreateApp (CreateApp'),
+    newCreateApp,
+    CreateAppResponse (CreateAppResponse'),
+    newCreateAppResponse,
 
-    -- ** ListTags
-    ListTags (ListTags'),
-    newListTags,
-    ListTagsResponse (ListTagsResponse'),
-    newListTagsResponse,
+    -- ** CreateDeployment
+    CreateDeployment (CreateDeployment'),
+    newCreateDeployment,
+    CreateDeploymentResponse (CreateDeploymentResponse'),
+    newCreateDeploymentResponse,
 
-    -- ** UnassignInstance
-    UnassignInstance (UnassignInstance'),
-    newUnassignInstance,
-    UnassignInstanceResponse (UnassignInstanceResponse'),
-    newUnassignInstanceResponse,
+    -- ** CreateInstance
+    CreateInstance (CreateInstance'),
+    newCreateInstance,
+    CreateInstanceResponse (CreateInstanceResponse'),
+    newCreateInstanceResponse,
 
-    -- ** DescribeMyUserProfile
-    DescribeMyUserProfile (DescribeMyUserProfile'),
-    newDescribeMyUserProfile,
-    DescribeMyUserProfileResponse (DescribeMyUserProfileResponse'),
-    newDescribeMyUserProfileResponse,
+    -- ** CreateLayer
+    CreateLayer (CreateLayer'),
+    newCreateLayer,
+    CreateLayerResponse (CreateLayerResponse'),
+    newCreateLayerResponse,
 
-    -- ** DeleteUserProfile
-    DeleteUserProfile (DeleteUserProfile'),
-    newDeleteUserProfile,
-    DeleteUserProfileResponse (DeleteUserProfileResponse'),
-    newDeleteUserProfileResponse,
-
-    -- ** UpdateUserProfile
-    UpdateUserProfile (UpdateUserProfile'),
-    newUpdateUserProfile,
-    UpdateUserProfileResponse (UpdateUserProfileResponse'),
-    newUpdateUserProfileResponse,
-
-    -- ** DescribeServiceErrors
-    DescribeServiceErrors (DescribeServiceErrors'),
-    newDescribeServiceErrors,
-    DescribeServiceErrorsResponse (DescribeServiceErrorsResponse'),
-    newDescribeServiceErrorsResponse,
-
-    -- ** RegisterRdsDbInstance
-    RegisterRdsDbInstance (RegisterRdsDbInstance'),
-    newRegisterRdsDbInstance,
-    RegisterRdsDbInstanceResponse (RegisterRdsDbInstanceResponse'),
-    newRegisterRdsDbInstanceResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** StartStack
-    StartStack (StartStack'),
-    newStartStack,
-    StartStackResponse (StartStackResponse'),
-    newStartStackResponse,
+    -- ** CreateStack
+    CreateStack (CreateStack'),
+    newCreateStack,
+    CreateStackResponse (CreateStackResponse'),
+    newCreateStackResponse,
 
     -- ** CreateUserProfile
     CreateUserProfile (CreateUserProfile'),
@@ -512,35 +194,47 @@ module Amazonka.OpsWorks
     CreateUserProfileResponse (CreateUserProfileResponse'),
     newCreateUserProfileResponse,
 
-    -- ** DescribeOperatingSystems
-    DescribeOperatingSystems (DescribeOperatingSystems'),
-    newDescribeOperatingSystems,
-    DescribeOperatingSystemsResponse (DescribeOperatingSystemsResponse'),
-    newDescribeOperatingSystemsResponse,
+    -- ** DeleteApp
+    DeleteApp (DeleteApp'),
+    newDeleteApp,
+    DeleteAppResponse (DeleteAppResponse'),
+    newDeleteAppResponse,
 
-    -- ** DescribeCommands
-    DescribeCommands (DescribeCommands'),
-    newDescribeCommands,
-    DescribeCommandsResponse (DescribeCommandsResponse'),
-    newDescribeCommandsResponse,
+    -- ** DeleteInstance
+    DeleteInstance (DeleteInstance'),
+    newDeleteInstance,
+    DeleteInstanceResponse (DeleteInstanceResponse'),
+    newDeleteInstanceResponse,
 
-    -- ** AssignVolume
-    AssignVolume (AssignVolume'),
-    newAssignVolume,
-    AssignVolumeResponse (AssignVolumeResponse'),
-    newAssignVolumeResponse,
+    -- ** DeleteLayer
+    DeleteLayer (DeleteLayer'),
+    newDeleteLayer,
+    DeleteLayerResponse (DeleteLayerResponse'),
+    newDeleteLayerResponse,
 
-    -- ** DescribeElasticLoadBalancers
-    DescribeElasticLoadBalancers (DescribeElasticLoadBalancers'),
-    newDescribeElasticLoadBalancers,
-    DescribeElasticLoadBalancersResponse (DescribeElasticLoadBalancersResponse'),
-    newDescribeElasticLoadBalancersResponse,
+    -- ** DeleteStack
+    DeleteStack (DeleteStack'),
+    newDeleteStack,
+    DeleteStackResponse (DeleteStackResponse'),
+    newDeleteStackResponse,
 
-    -- ** SetPermission
-    SetPermission (SetPermission'),
-    newSetPermission,
-    SetPermissionResponse (SetPermissionResponse'),
-    newSetPermissionResponse,
+    -- ** DeleteUserProfile
+    DeleteUserProfile (DeleteUserProfile'),
+    newDeleteUserProfile,
+    DeleteUserProfileResponse (DeleteUserProfileResponse'),
+    newDeleteUserProfileResponse,
+
+    -- ** DeregisterEcsCluster
+    DeregisterEcsCluster (DeregisterEcsCluster'),
+    newDeregisterEcsCluster,
+    DeregisterEcsClusterResponse (DeregisterEcsClusterResponse'),
+    newDeregisterEcsClusterResponse,
+
+    -- ** DeregisterElasticIp
+    DeregisterElasticIp (DeregisterElasticIp'),
+    newDeregisterElasticIp,
+    DeregisterElasticIpResponse (DeregisterElasticIpResponse'),
+    newDeregisterElasticIpResponse,
 
     -- ** DeregisterInstance
     DeregisterInstance (DeregisterInstance'),
@@ -548,11 +242,95 @@ module Amazonka.OpsWorks
     DeregisterInstanceResponse (DeregisterInstanceResponse'),
     newDeregisterInstanceResponse,
 
+    -- ** DeregisterRdsDbInstance
+    DeregisterRdsDbInstance (DeregisterRdsDbInstance'),
+    newDeregisterRdsDbInstance,
+    DeregisterRdsDbInstanceResponse (DeregisterRdsDbInstanceResponse'),
+    newDeregisterRdsDbInstanceResponse,
+
+    -- ** DeregisterVolume
+    DeregisterVolume (DeregisterVolume'),
+    newDeregisterVolume,
+    DeregisterVolumeResponse (DeregisterVolumeResponse'),
+    newDeregisterVolumeResponse,
+
+    -- ** DescribeAgentVersions
+    DescribeAgentVersions (DescribeAgentVersions'),
+    newDescribeAgentVersions,
+    DescribeAgentVersionsResponse (DescribeAgentVersionsResponse'),
+    newDescribeAgentVersionsResponse,
+
+    -- ** DescribeApps
+    DescribeApps (DescribeApps'),
+    newDescribeApps,
+    DescribeAppsResponse (DescribeAppsResponse'),
+    newDescribeAppsResponse,
+
+    -- ** DescribeCommands
+    DescribeCommands (DescribeCommands'),
+    newDescribeCommands,
+    DescribeCommandsResponse (DescribeCommandsResponse'),
+    newDescribeCommandsResponse,
+
+    -- ** DescribeDeployments
+    DescribeDeployments (DescribeDeployments'),
+    newDescribeDeployments,
+    DescribeDeploymentsResponse (DescribeDeploymentsResponse'),
+    newDescribeDeploymentsResponse,
+
     -- ** DescribeEcsClusters (Paginated)
     DescribeEcsClusters (DescribeEcsClusters'),
     newDescribeEcsClusters,
     DescribeEcsClustersResponse (DescribeEcsClustersResponse'),
     newDescribeEcsClustersResponse,
+
+    -- ** DescribeElasticIps
+    DescribeElasticIps (DescribeElasticIps'),
+    newDescribeElasticIps,
+    DescribeElasticIpsResponse (DescribeElasticIpsResponse'),
+    newDescribeElasticIpsResponse,
+
+    -- ** DescribeElasticLoadBalancers
+    DescribeElasticLoadBalancers (DescribeElasticLoadBalancers'),
+    newDescribeElasticLoadBalancers,
+    DescribeElasticLoadBalancersResponse (DescribeElasticLoadBalancersResponse'),
+    newDescribeElasticLoadBalancersResponse,
+
+    -- ** DescribeInstances
+    DescribeInstances (DescribeInstances'),
+    newDescribeInstances,
+    DescribeInstancesResponse (DescribeInstancesResponse'),
+    newDescribeInstancesResponse,
+
+    -- ** DescribeLayers
+    DescribeLayers (DescribeLayers'),
+    newDescribeLayers,
+    DescribeLayersResponse (DescribeLayersResponse'),
+    newDescribeLayersResponse,
+
+    -- ** DescribeLoadBasedAutoScaling
+    DescribeLoadBasedAutoScaling (DescribeLoadBasedAutoScaling'),
+    newDescribeLoadBasedAutoScaling,
+    DescribeLoadBasedAutoScalingResponse (DescribeLoadBasedAutoScalingResponse'),
+    newDescribeLoadBasedAutoScalingResponse,
+
+    -- ** DescribeMyUserProfile
+    DescribeMyUserProfile (DescribeMyUserProfile'),
+    newDescribeMyUserProfile,
+    DescribeMyUserProfileResponse (DescribeMyUserProfileResponse'),
+    newDescribeMyUserProfileResponse,
+
+    -- ** DescribeOperatingSystems
+    DescribeOperatingSystems (DescribeOperatingSystems'),
+    newDescribeOperatingSystems,
+    DescribeOperatingSystemsResponse (DescribeOperatingSystemsResponse'),
+    newDescribeOperatingSystemsResponse,
+
+    -- ** DescribePermissions
+    DescribePermissions (DescribePermissions'),
+    newDescribePermissions,
+    DescribePermissionsResponse (DescribePermissionsResponse'),
+    newDescribePermissionsResponse,
 
     -- ** DescribeRaidArrays
     DescribeRaidArrays (DescribeRaidArrays'),
@@ -560,17 +338,239 @@ module Amazonka.OpsWorks
     DescribeRaidArraysResponse (DescribeRaidArraysResponse'),
     newDescribeRaidArraysResponse,
 
-    -- ** UpdateVolume
-    UpdateVolume (UpdateVolume'),
-    newUpdateVolume,
-    UpdateVolumeResponse (UpdateVolumeResponse'),
-    newUpdateVolumeResponse,
+    -- ** DescribeRdsDbInstances
+    DescribeRdsDbInstances (DescribeRdsDbInstances'),
+    newDescribeRdsDbInstances,
+    DescribeRdsDbInstancesResponse (DescribeRdsDbInstancesResponse'),
+    newDescribeRdsDbInstancesResponse,
+
+    -- ** DescribeServiceErrors
+    DescribeServiceErrors (DescribeServiceErrors'),
+    newDescribeServiceErrors,
+    DescribeServiceErrorsResponse (DescribeServiceErrorsResponse'),
+    newDescribeServiceErrorsResponse,
+
+    -- ** DescribeStackProvisioningParameters
+    DescribeStackProvisioningParameters (DescribeStackProvisioningParameters'),
+    newDescribeStackProvisioningParameters,
+    DescribeStackProvisioningParametersResponse (DescribeStackProvisioningParametersResponse'),
+    newDescribeStackProvisioningParametersResponse,
+
+    -- ** DescribeStackSummary
+    DescribeStackSummary (DescribeStackSummary'),
+    newDescribeStackSummary,
+    DescribeStackSummaryResponse (DescribeStackSummaryResponse'),
+    newDescribeStackSummaryResponse,
+
+    -- ** DescribeStacks
+    DescribeStacks (DescribeStacks'),
+    newDescribeStacks,
+    DescribeStacksResponse (DescribeStacksResponse'),
+    newDescribeStacksResponse,
+
+    -- ** DescribeTimeBasedAutoScaling
+    DescribeTimeBasedAutoScaling (DescribeTimeBasedAutoScaling'),
+    newDescribeTimeBasedAutoScaling,
+    DescribeTimeBasedAutoScalingResponse (DescribeTimeBasedAutoScalingResponse'),
+    newDescribeTimeBasedAutoScalingResponse,
+
+    -- ** DescribeUserProfiles
+    DescribeUserProfiles (DescribeUserProfiles'),
+    newDescribeUserProfiles,
+    DescribeUserProfilesResponse (DescribeUserProfilesResponse'),
+    newDescribeUserProfilesResponse,
+
+    -- ** DescribeVolumes
+    DescribeVolumes (DescribeVolumes'),
+    newDescribeVolumes,
+    DescribeVolumesResponse (DescribeVolumesResponse'),
+    newDescribeVolumesResponse,
+
+    -- ** DetachElasticLoadBalancer
+    DetachElasticLoadBalancer (DetachElasticLoadBalancer'),
+    newDetachElasticLoadBalancer,
+    DetachElasticLoadBalancerResponse (DetachElasticLoadBalancerResponse'),
+    newDetachElasticLoadBalancerResponse,
+
+    -- ** DisassociateElasticIp
+    DisassociateElasticIp (DisassociateElasticIp'),
+    newDisassociateElasticIp,
+    DisassociateElasticIpResponse (DisassociateElasticIpResponse'),
+    newDisassociateElasticIpResponse,
+
+    -- ** GetHostnameSuggestion
+    GetHostnameSuggestion (GetHostnameSuggestion'),
+    newGetHostnameSuggestion,
+    GetHostnameSuggestionResponse (GetHostnameSuggestionResponse'),
+    newGetHostnameSuggestionResponse,
+
+    -- ** GrantAccess
+    GrantAccess (GrantAccess'),
+    newGrantAccess,
+    GrantAccessResponse (GrantAccessResponse'),
+    newGrantAccessResponse,
+
+    -- ** ListTags
+    ListTags (ListTags'),
+    newListTags,
+    ListTagsResponse (ListTagsResponse'),
+    newListTagsResponse,
+
+    -- ** RebootInstance
+    RebootInstance (RebootInstance'),
+    newRebootInstance,
+    RebootInstanceResponse (RebootInstanceResponse'),
+    newRebootInstanceResponse,
+
+    -- ** RegisterEcsCluster
+    RegisterEcsCluster (RegisterEcsCluster'),
+    newRegisterEcsCluster,
+    RegisterEcsClusterResponse (RegisterEcsClusterResponse'),
+    newRegisterEcsClusterResponse,
+
+    -- ** RegisterElasticIp
+    RegisterElasticIp (RegisterElasticIp'),
+    newRegisterElasticIp,
+    RegisterElasticIpResponse (RegisterElasticIpResponse'),
+    newRegisterElasticIpResponse,
+
+    -- ** RegisterInstance
+    RegisterInstance (RegisterInstance'),
+    newRegisterInstance,
+    RegisterInstanceResponse (RegisterInstanceResponse'),
+    newRegisterInstanceResponse,
+
+    -- ** RegisterRdsDbInstance
+    RegisterRdsDbInstance (RegisterRdsDbInstance'),
+    newRegisterRdsDbInstance,
+    RegisterRdsDbInstanceResponse (RegisterRdsDbInstanceResponse'),
+    newRegisterRdsDbInstanceResponse,
+
+    -- ** RegisterVolume
+    RegisterVolume (RegisterVolume'),
+    newRegisterVolume,
+    RegisterVolumeResponse (RegisterVolumeResponse'),
+    newRegisterVolumeResponse,
+
+    -- ** SetLoadBasedAutoScaling
+    SetLoadBasedAutoScaling (SetLoadBasedAutoScaling'),
+    newSetLoadBasedAutoScaling,
+    SetLoadBasedAutoScalingResponse (SetLoadBasedAutoScalingResponse'),
+    newSetLoadBasedAutoScalingResponse,
+
+    -- ** SetPermission
+    SetPermission (SetPermission'),
+    newSetPermission,
+    SetPermissionResponse (SetPermissionResponse'),
+    newSetPermissionResponse,
+
+    -- ** SetTimeBasedAutoScaling
+    SetTimeBasedAutoScaling (SetTimeBasedAutoScaling'),
+    newSetTimeBasedAutoScaling,
+    SetTimeBasedAutoScalingResponse (SetTimeBasedAutoScalingResponse'),
+    newSetTimeBasedAutoScalingResponse,
 
     -- ** StartInstance
     StartInstance (StartInstance'),
     newStartInstance,
     StartInstanceResponse (StartInstanceResponse'),
     newStartInstanceResponse,
+
+    -- ** StartStack
+    StartStack (StartStack'),
+    newStartStack,
+    StartStackResponse (StartStackResponse'),
+    newStartStackResponse,
+
+    -- ** StopInstance
+    StopInstance (StopInstance'),
+    newStopInstance,
+    StopInstanceResponse (StopInstanceResponse'),
+    newStopInstanceResponse,
+
+    -- ** StopStack
+    StopStack (StopStack'),
+    newStopStack,
+    StopStackResponse (StopStackResponse'),
+    newStopStackResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UnassignInstance
+    UnassignInstance (UnassignInstance'),
+    newUnassignInstance,
+    UnassignInstanceResponse (UnassignInstanceResponse'),
+    newUnassignInstanceResponse,
+
+    -- ** UnassignVolume
+    UnassignVolume (UnassignVolume'),
+    newUnassignVolume,
+    UnassignVolumeResponse (UnassignVolumeResponse'),
+    newUnassignVolumeResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateApp
+    UpdateApp (UpdateApp'),
+    newUpdateApp,
+    UpdateAppResponse (UpdateAppResponse'),
+    newUpdateAppResponse,
+
+    -- ** UpdateElasticIp
+    UpdateElasticIp (UpdateElasticIp'),
+    newUpdateElasticIp,
+    UpdateElasticIpResponse (UpdateElasticIpResponse'),
+    newUpdateElasticIpResponse,
+
+    -- ** UpdateInstance
+    UpdateInstance (UpdateInstance'),
+    newUpdateInstance,
+    UpdateInstanceResponse (UpdateInstanceResponse'),
+    newUpdateInstanceResponse,
+
+    -- ** UpdateLayer
+    UpdateLayer (UpdateLayer'),
+    newUpdateLayer,
+    UpdateLayerResponse (UpdateLayerResponse'),
+    newUpdateLayerResponse,
+
+    -- ** UpdateMyUserProfile
+    UpdateMyUserProfile (UpdateMyUserProfile'),
+    newUpdateMyUserProfile,
+    UpdateMyUserProfileResponse (UpdateMyUserProfileResponse'),
+    newUpdateMyUserProfileResponse,
+
+    -- ** UpdateRdsDbInstance
+    UpdateRdsDbInstance (UpdateRdsDbInstance'),
+    newUpdateRdsDbInstance,
+    UpdateRdsDbInstanceResponse (UpdateRdsDbInstanceResponse'),
+    newUpdateRdsDbInstanceResponse,
+
+    -- ** UpdateStack
+    UpdateStack (UpdateStack'),
+    newUpdateStack,
+    UpdateStackResponse (UpdateStackResponse'),
+    newUpdateStackResponse,
+
+    -- ** UpdateUserProfile
+    UpdateUserProfile (UpdateUserProfile'),
+    newUpdateUserProfile,
+    UpdateUserProfileResponse (UpdateUserProfileResponse'),
+    newUpdateUserProfileResponse,
+
+    -- ** UpdateVolume
+    UpdateVolume (UpdateVolume'),
+    newUpdateVolume,
+    UpdateVolumeResponse (UpdateVolumeResponse'),
+    newUpdateVolumeResponse,
 
     -- * Types
 

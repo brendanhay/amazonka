@@ -35,8 +35,8 @@ module Amazonka.OpsWorks.DescribeServiceErrors
     newDescribeServiceErrors,
 
     -- * Request Lenses
-    describeServiceErrors_instanceId,
     describeServiceErrors_stackId,
+    describeServiceErrors_instanceId,
     describeServiceErrors_serviceErrorIds,
 
     -- * Destructuring the Response
@@ -58,13 +58,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeServiceErrors' smart constructor.
 data DescribeServiceErrors = DescribeServiceErrors'
-  { -- | The instance ID. If you use this parameter, @DescribeServiceErrors@
+  { -- | The stack ID. If you use this parameter, @DescribeServiceErrors@ returns
+    -- descriptions of the errors associated with the specified stack.
+    stackId :: Prelude.Maybe Prelude.Text,
+    -- | The instance ID. If you use this parameter, @DescribeServiceErrors@
     -- returns descriptions of the errors associated with the specified
     -- instance.
     instanceId :: Prelude.Maybe Prelude.Text,
-    -- | The stack ID. If you use this parameter, @DescribeServiceErrors@ returns
-    -- descriptions of the errors associated with the specified stack.
-    stackId :: Prelude.Maybe Prelude.Text,
     -- | An array of service error IDs. If you use this parameter,
     -- @DescribeServiceErrors@ returns descriptions of the specified errors.
     -- Otherwise, it returns a description of every error.
@@ -80,12 +80,12 @@ data DescribeServiceErrors = DescribeServiceErrors'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'stackId', 'describeServiceErrors_stackId' - The stack ID. If you use this parameter, @DescribeServiceErrors@ returns
+-- descriptions of the errors associated with the specified stack.
+--
 -- 'instanceId', 'describeServiceErrors_instanceId' - The instance ID. If you use this parameter, @DescribeServiceErrors@
 -- returns descriptions of the errors associated with the specified
 -- instance.
---
--- 'stackId', 'describeServiceErrors_stackId' - The stack ID. If you use this parameter, @DescribeServiceErrors@ returns
--- descriptions of the errors associated with the specified stack.
 --
 -- 'serviceErrorIds', 'describeServiceErrors_serviceErrorIds' - An array of service error IDs. If you use this parameter,
 -- @DescribeServiceErrors@ returns descriptions of the specified errors.
@@ -94,22 +94,21 @@ newDescribeServiceErrors ::
   DescribeServiceErrors
 newDescribeServiceErrors =
   DescribeServiceErrors'
-    { instanceId =
-        Prelude.Nothing,
-      stackId = Prelude.Nothing,
+    { stackId = Prelude.Nothing,
+      instanceId = Prelude.Nothing,
       serviceErrorIds = Prelude.Nothing
     }
+
+-- | The stack ID. If you use this parameter, @DescribeServiceErrors@ returns
+-- descriptions of the errors associated with the specified stack.
+describeServiceErrors_stackId :: Lens.Lens' DescribeServiceErrors (Prelude.Maybe Prelude.Text)
+describeServiceErrors_stackId = Lens.lens (\DescribeServiceErrors' {stackId} -> stackId) (\s@DescribeServiceErrors' {} a -> s {stackId = a} :: DescribeServiceErrors)
 
 -- | The instance ID. If you use this parameter, @DescribeServiceErrors@
 -- returns descriptions of the errors associated with the specified
 -- instance.
 describeServiceErrors_instanceId :: Lens.Lens' DescribeServiceErrors (Prelude.Maybe Prelude.Text)
 describeServiceErrors_instanceId = Lens.lens (\DescribeServiceErrors' {instanceId} -> instanceId) (\s@DescribeServiceErrors' {} a -> s {instanceId = a} :: DescribeServiceErrors)
-
--- | The stack ID. If you use this parameter, @DescribeServiceErrors@ returns
--- descriptions of the errors associated with the specified stack.
-describeServiceErrors_stackId :: Lens.Lens' DescribeServiceErrors (Prelude.Maybe Prelude.Text)
-describeServiceErrors_stackId = Lens.lens (\DescribeServiceErrors' {stackId} -> stackId) (\s@DescribeServiceErrors' {} a -> s {stackId = a} :: DescribeServiceErrors)
 
 -- | An array of service error IDs. If you use this parameter,
 -- @DescribeServiceErrors@ returns descriptions of the specified errors.
@@ -132,14 +131,14 @@ instance Core.AWSRequest DescribeServiceErrors where
 
 instance Prelude.Hashable DescribeServiceErrors where
   hashWithSalt _salt DescribeServiceErrors' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
-      `Prelude.hashWithSalt` stackId
+    _salt `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` serviceErrorIds
 
 instance Prelude.NFData DescribeServiceErrors where
   rnf DescribeServiceErrors' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf stackId
+    Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf serviceErrorIds
 
 instance Core.ToHeaders DescribeServiceErrors where
@@ -161,8 +160,8 @@ instance Core.ToJSON DescribeServiceErrors where
   toJSON DescribeServiceErrors' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("InstanceId" Core..=) Prelude.<$> instanceId,
-            ("StackId" Core..=) Prelude.<$> stackId,
+          [ ("StackId" Core..=) Prelude.<$> stackId,
+            ("InstanceId" Core..=) Prelude.<$> instanceId,
             ("ServiceErrorIds" Core..=)
               Prelude.<$> serviceErrorIds
           ]

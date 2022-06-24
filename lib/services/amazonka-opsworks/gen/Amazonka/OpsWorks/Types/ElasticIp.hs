@@ -27,17 +27,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newElasticIp' smart constructor.
 data ElasticIp = ElasticIp'
-  { -- | The ID of the instance that the address is attached to.
-    instanceId :: Prelude.Maybe Prelude.Text,
+  { -- | The name.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The domain.
     domain :: Prelude.Maybe Prelude.Text,
     -- | The IP address.
     ip :: Prelude.Maybe Prelude.Text,
-    -- | The name.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The AWS region. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
-    region :: Prelude.Maybe Prelude.Text
+    region :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the instance that the address is attached to.
+    instanceId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,30 +49,30 @@ data ElasticIp = ElasticIp'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'elasticIp_instanceId' - The ID of the instance that the address is attached to.
+-- 'name', 'elasticIp_name' - The name.
 --
 -- 'domain', 'elasticIp_domain' - The domain.
 --
 -- 'ip', 'elasticIp_ip' - The IP address.
 --
--- 'name', 'elasticIp_name' - The name.
---
 -- 'region', 'elasticIp_region' - The AWS region. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
+--
+-- 'instanceId', 'elasticIp_instanceId' - The ID of the instance that the address is attached to.
 newElasticIp ::
   ElasticIp
 newElasticIp =
   ElasticIp'
-    { instanceId = Prelude.Nothing,
+    { name = Prelude.Nothing,
       domain = Prelude.Nothing,
       ip = Prelude.Nothing,
-      name = Prelude.Nothing,
-      region = Prelude.Nothing
+      region = Prelude.Nothing,
+      instanceId = Prelude.Nothing
     }
 
--- | The ID of the instance that the address is attached to.
-elasticIp_instanceId :: Lens.Lens' ElasticIp (Prelude.Maybe Prelude.Text)
-elasticIp_instanceId = Lens.lens (\ElasticIp' {instanceId} -> instanceId) (\s@ElasticIp' {} a -> s {instanceId = a} :: ElasticIp)
+-- | The name.
+elasticIp_name :: Lens.Lens' ElasticIp (Prelude.Maybe Prelude.Text)
+elasticIp_name = Lens.lens (\ElasticIp' {name} -> name) (\s@ElasticIp' {} a -> s {name = a} :: ElasticIp)
 
 -- | The domain.
 elasticIp_domain :: Lens.Lens' ElasticIp (Prelude.Maybe Prelude.Text)
@@ -82,14 +82,14 @@ elasticIp_domain = Lens.lens (\ElasticIp' {domain} -> domain) (\s@ElasticIp' {} 
 elasticIp_ip :: Lens.Lens' ElasticIp (Prelude.Maybe Prelude.Text)
 elasticIp_ip = Lens.lens (\ElasticIp' {ip} -> ip) (\s@ElasticIp' {} a -> s {ip = a} :: ElasticIp)
 
--- | The name.
-elasticIp_name :: Lens.Lens' ElasticIp (Prelude.Maybe Prelude.Text)
-elasticIp_name = Lens.lens (\ElasticIp' {name} -> name) (\s@ElasticIp' {} a -> s {name = a} :: ElasticIp)
-
 -- | The AWS region. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
 elasticIp_region :: Lens.Lens' ElasticIp (Prelude.Maybe Prelude.Text)
 elasticIp_region = Lens.lens (\ElasticIp' {region} -> region) (\s@ElasticIp' {} a -> s {region = a} :: ElasticIp)
+
+-- | The ID of the instance that the address is attached to.
+elasticIp_instanceId :: Lens.Lens' ElasticIp (Prelude.Maybe Prelude.Text)
+elasticIp_instanceId = Lens.lens (\ElasticIp' {instanceId} -> instanceId) (\s@ElasticIp' {} a -> s {instanceId = a} :: ElasticIp)
 
 instance Core.FromJSON ElasticIp where
   parseJSON =
@@ -97,25 +97,25 @@ instance Core.FromJSON ElasticIp where
       "ElasticIp"
       ( \x ->
           ElasticIp'
-            Prelude.<$> (x Core..:? "InstanceId")
+            Prelude.<$> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "Domain")
             Prelude.<*> (x Core..:? "Ip")
-            Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "Region")
+            Prelude.<*> (x Core..:? "InstanceId")
       )
 
 instance Prelude.Hashable ElasticIp where
   hashWithSalt _salt ElasticIp' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` ip
-      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData ElasticIp where
   rnf ElasticIp' {..} =
-    Prelude.rnf instanceId
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf ip
-      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf instanceId

@@ -32,22 +32,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSource' smart constructor.
 data Source = Source'
-  { -- | The source URL. The following is an example of an Amazon S3 source URL:
-    -- @https:\/\/s3.amazonaws.com\/opsworks-demo-bucket\/opsworks_cookbook_demo.tar.gz@.
-    url :: Prelude.Maybe Prelude.Text,
-    -- | This parameter depends on the repository type.
-    --
-    -- -   For Amazon S3 bundles, set @Username@ to the appropriate IAM access
-    --     key ID.
-    --
-    -- -   For HTTP bundles, Git repositories, and Subversion repositories, set
-    --     @Username@ to the user name.
-    username :: Prelude.Maybe Prelude.Text,
-    -- | In requests, the repository\'s SSH key.
-    --
-    -- In responses, AWS OpsWorks Stacks returns @*****FILTERED*****@ instead
-    -- of the actual value.
-    sshKey :: Prelude.Maybe Prelude.Text,
+  { -- | The repository type.
+    type' :: Prelude.Maybe SourceType,
     -- | When included in a request, the parameter depends on the repository
     -- type.
     --
@@ -63,13 +49,27 @@ data Source = Source'
     -- In responses, AWS OpsWorks Stacks returns @*****FILTERED*****@ instead
     -- of the actual value.
     password :: Prelude.Maybe Prelude.Text,
-    -- | The repository type.
-    type' :: Prelude.Maybe SourceType,
+    -- | This parameter depends on the repository type.
+    --
+    -- -   For Amazon S3 bundles, set @Username@ to the appropriate IAM access
+    --     key ID.
+    --
+    -- -   For HTTP bundles, Git repositories, and Subversion repositories, set
+    --     @Username@ to the user name.
+    username :: Prelude.Maybe Prelude.Text,
     -- | The application\'s version. AWS OpsWorks Stacks enables you to easily
     -- deploy new versions of an application. One of the simplest approaches is
     -- to have branches or revisions in your repository that represent
     -- different versions that can potentially be deployed.
-    revision :: Prelude.Maybe Prelude.Text
+    revision :: Prelude.Maybe Prelude.Text,
+    -- | The source URL. The following is an example of an Amazon S3 source URL:
+    -- @https:\/\/s3.amazonaws.com\/opsworks-demo-bucket\/opsworks_cookbook_demo.tar.gz@.
+    url :: Prelude.Maybe Prelude.Text,
+    -- | In requests, the repository\'s SSH key.
+    --
+    -- In responses, AWS OpsWorks Stacks returns @*****FILTERED*****@ instead
+    -- of the actual value.
+    sshKey :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,21 +81,7 @@ data Source = Source'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'url', 'source_url' - The source URL. The following is an example of an Amazon S3 source URL:
--- @https:\/\/s3.amazonaws.com\/opsworks-demo-bucket\/opsworks_cookbook_demo.tar.gz@.
---
--- 'username', 'source_username' - This parameter depends on the repository type.
---
--- -   For Amazon S3 bundles, set @Username@ to the appropriate IAM access
---     key ID.
---
--- -   For HTTP bundles, Git repositories, and Subversion repositories, set
---     @Username@ to the user name.
---
--- 'sshKey', 'source_sshKey' - In requests, the repository\'s SSH key.
---
--- In responses, AWS OpsWorks Stacks returns @*****FILTERED*****@ instead
--- of the actual value.
+-- 'type'', 'source_type' - The repository type.
 --
 -- 'password', 'source_password' - When included in a request, the parameter depends on the repository
 -- type.
@@ -112,45 +98,41 @@ data Source = Source'
 -- In responses, AWS OpsWorks Stacks returns @*****FILTERED*****@ instead
 -- of the actual value.
 --
--- 'type'', 'source_type' - The repository type.
---
--- 'revision', 'source_revision' - The application\'s version. AWS OpsWorks Stacks enables you to easily
--- deploy new versions of an application. One of the simplest approaches is
--- to have branches or revisions in your repository that represent
--- different versions that can potentially be deployed.
-newSource ::
-  Source
-newSource =
-  Source'
-    { url = Prelude.Nothing,
-      username = Prelude.Nothing,
-      sshKey = Prelude.Nothing,
-      password = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      revision = Prelude.Nothing
-    }
-
--- | The source URL. The following is an example of an Amazon S3 source URL:
--- @https:\/\/s3.amazonaws.com\/opsworks-demo-bucket\/opsworks_cookbook_demo.tar.gz@.
-source_url :: Lens.Lens' Source (Prelude.Maybe Prelude.Text)
-source_url = Lens.lens (\Source' {url} -> url) (\s@Source' {} a -> s {url = a} :: Source)
-
--- | This parameter depends on the repository type.
+-- 'username', 'source_username' - This parameter depends on the repository type.
 --
 -- -   For Amazon S3 bundles, set @Username@ to the appropriate IAM access
 --     key ID.
 --
 -- -   For HTTP bundles, Git repositories, and Subversion repositories, set
 --     @Username@ to the user name.
-source_username :: Lens.Lens' Source (Prelude.Maybe Prelude.Text)
-source_username = Lens.lens (\Source' {username} -> username) (\s@Source' {} a -> s {username = a} :: Source)
-
--- | In requests, the repository\'s SSH key.
+--
+-- 'revision', 'source_revision' - The application\'s version. AWS OpsWorks Stacks enables you to easily
+-- deploy new versions of an application. One of the simplest approaches is
+-- to have branches or revisions in your repository that represent
+-- different versions that can potentially be deployed.
+--
+-- 'url', 'source_url' - The source URL. The following is an example of an Amazon S3 source URL:
+-- @https:\/\/s3.amazonaws.com\/opsworks-demo-bucket\/opsworks_cookbook_demo.tar.gz@.
+--
+-- 'sshKey', 'source_sshKey' - In requests, the repository\'s SSH key.
 --
 -- In responses, AWS OpsWorks Stacks returns @*****FILTERED*****@ instead
 -- of the actual value.
-source_sshKey :: Lens.Lens' Source (Prelude.Maybe Prelude.Text)
-source_sshKey = Lens.lens (\Source' {sshKey} -> sshKey) (\s@Source' {} a -> s {sshKey = a} :: Source)
+newSource ::
+  Source
+newSource =
+  Source'
+    { type' = Prelude.Nothing,
+      password = Prelude.Nothing,
+      username = Prelude.Nothing,
+      revision = Prelude.Nothing,
+      url = Prelude.Nothing,
+      sshKey = Prelude.Nothing
+    }
+
+-- | The repository type.
+source_type :: Lens.Lens' Source (Prelude.Maybe SourceType)
+source_type = Lens.lens (\Source' {type'} -> type') (\s@Source' {} a -> s {type' = a} :: Source)
 
 -- | When included in a request, the parameter depends on the repository
 -- type.
@@ -169,9 +151,15 @@ source_sshKey = Lens.lens (\Source' {sshKey} -> sshKey) (\s@Source' {} a -> s {s
 source_password :: Lens.Lens' Source (Prelude.Maybe Prelude.Text)
 source_password = Lens.lens (\Source' {password} -> password) (\s@Source' {} a -> s {password = a} :: Source)
 
--- | The repository type.
-source_type :: Lens.Lens' Source (Prelude.Maybe SourceType)
-source_type = Lens.lens (\Source' {type'} -> type') (\s@Source' {} a -> s {type' = a} :: Source)
+-- | This parameter depends on the repository type.
+--
+-- -   For Amazon S3 bundles, set @Username@ to the appropriate IAM access
+--     key ID.
+--
+-- -   For HTTP bundles, Git repositories, and Subversion repositories, set
+--     @Username@ to the user name.
+source_username :: Lens.Lens' Source (Prelude.Maybe Prelude.Text)
+source_username = Lens.lens (\Source' {username} -> username) (\s@Source' {} a -> s {username = a} :: Source)
 
 -- | The application\'s version. AWS OpsWorks Stacks enables you to easily
 -- deploy new versions of an application. One of the simplest approaches is
@@ -180,47 +168,59 @@ source_type = Lens.lens (\Source' {type'} -> type') (\s@Source' {} a -> s {type'
 source_revision :: Lens.Lens' Source (Prelude.Maybe Prelude.Text)
 source_revision = Lens.lens (\Source' {revision} -> revision) (\s@Source' {} a -> s {revision = a} :: Source)
 
+-- | The source URL. The following is an example of an Amazon S3 source URL:
+-- @https:\/\/s3.amazonaws.com\/opsworks-demo-bucket\/opsworks_cookbook_demo.tar.gz@.
+source_url :: Lens.Lens' Source (Prelude.Maybe Prelude.Text)
+source_url = Lens.lens (\Source' {url} -> url) (\s@Source' {} a -> s {url = a} :: Source)
+
+-- | In requests, the repository\'s SSH key.
+--
+-- In responses, AWS OpsWorks Stacks returns @*****FILTERED*****@ instead
+-- of the actual value.
+source_sshKey :: Lens.Lens' Source (Prelude.Maybe Prelude.Text)
+source_sshKey = Lens.lens (\Source' {sshKey} -> sshKey) (\s@Source' {} a -> s {sshKey = a} :: Source)
+
 instance Core.FromJSON Source where
   parseJSON =
     Core.withObject
       "Source"
       ( \x ->
           Source'
-            Prelude.<$> (x Core..:? "Url")
-            Prelude.<*> (x Core..:? "Username")
-            Prelude.<*> (x Core..:? "SshKey")
+            Prelude.<$> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "Password")
-            Prelude.<*> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "Username")
             Prelude.<*> (x Core..:? "Revision")
+            Prelude.<*> (x Core..:? "Url")
+            Prelude.<*> (x Core..:? "SshKey")
       )
 
 instance Prelude.Hashable Source where
   hashWithSalt _salt Source' {..} =
-    _salt `Prelude.hashWithSalt` url
-      `Prelude.hashWithSalt` username
-      `Prelude.hashWithSalt` sshKey
+    _salt `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` password
-      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` revision
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` sshKey
 
 instance Prelude.NFData Source where
   rnf Source' {..} =
-    Prelude.rnf url
-      `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf sshKey
+    Prelude.rnf type'
       `Prelude.seq` Prelude.rnf password
-      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf revision
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf sshKey
 
 instance Core.ToJSON Source where
   toJSON Source' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Url" Core..=) Prelude.<$> url,
-            ("Username" Core..=) Prelude.<$> username,
-            ("SshKey" Core..=) Prelude.<$> sshKey,
+          [ ("Type" Core..=) Prelude.<$> type',
             ("Password" Core..=) Prelude.<$> password,
-            ("Type" Core..=) Prelude.<$> type',
-            ("Revision" Core..=) Prelude.<$> revision
+            ("Username" Core..=) Prelude.<$> username,
+            ("Revision" Core..=) Prelude.<$> revision,
+            ("Url" Core..=) Prelude.<$> url,
+            ("SshKey" Core..=) Prelude.<$> sshKey
           ]
       )

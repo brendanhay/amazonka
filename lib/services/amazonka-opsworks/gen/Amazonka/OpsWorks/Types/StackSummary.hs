@@ -28,18 +28,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStackSummary' smart constructor.
 data StackSummary = StackSummary'
-  { -- | The stack\'s ARN.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The number of apps.
-    appsCount :: Prelude.Maybe Prelude.Int,
+  { -- | The stack ID.
+    stackId :: Prelude.Maybe Prelude.Text,
     -- | The stack name.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The stack ID.
-    stackId :: Prelude.Maybe Prelude.Text,
-    -- | The number of layers.
-    layersCount :: Prelude.Maybe Prelude.Int,
+    -- | The stack\'s ARN.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | An @InstancesCount@ object with the number of instances in each status.
-    instancesCount :: Prelude.Maybe InstancesCount
+    instancesCount :: Prelude.Maybe InstancesCount,
+    -- | The number of apps.
+    appsCount :: Prelude.Maybe Prelude.Int,
+    -- | The number of layers.
+    layersCount :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,52 +51,52 @@ data StackSummary = StackSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'stackSummary_arn' - The stack\'s ARN.
---
--- 'appsCount', 'stackSummary_appsCount' - The number of apps.
+-- 'stackId', 'stackSummary_stackId' - The stack ID.
 --
 -- 'name', 'stackSummary_name' - The stack name.
 --
--- 'stackId', 'stackSummary_stackId' - The stack ID.
---
--- 'layersCount', 'stackSummary_layersCount' - The number of layers.
+-- 'arn', 'stackSummary_arn' - The stack\'s ARN.
 --
 -- 'instancesCount', 'stackSummary_instancesCount' - An @InstancesCount@ object with the number of instances in each status.
+--
+-- 'appsCount', 'stackSummary_appsCount' - The number of apps.
+--
+-- 'layersCount', 'stackSummary_layersCount' - The number of layers.
 newStackSummary ::
   StackSummary
 newStackSummary =
   StackSummary'
-    { arn = Prelude.Nothing,
-      appsCount = Prelude.Nothing,
+    { stackId = Prelude.Nothing,
       name = Prelude.Nothing,
-      stackId = Prelude.Nothing,
-      layersCount = Prelude.Nothing,
-      instancesCount = Prelude.Nothing
+      arn = Prelude.Nothing,
+      instancesCount = Prelude.Nothing,
+      appsCount = Prelude.Nothing,
+      layersCount = Prelude.Nothing
     }
-
--- | The stack\'s ARN.
-stackSummary_arn :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.Text)
-stackSummary_arn = Lens.lens (\StackSummary' {arn} -> arn) (\s@StackSummary' {} a -> s {arn = a} :: StackSummary)
-
--- | The number of apps.
-stackSummary_appsCount :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.Int)
-stackSummary_appsCount = Lens.lens (\StackSummary' {appsCount} -> appsCount) (\s@StackSummary' {} a -> s {appsCount = a} :: StackSummary)
-
--- | The stack name.
-stackSummary_name :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.Text)
-stackSummary_name = Lens.lens (\StackSummary' {name} -> name) (\s@StackSummary' {} a -> s {name = a} :: StackSummary)
 
 -- | The stack ID.
 stackSummary_stackId :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.Text)
 stackSummary_stackId = Lens.lens (\StackSummary' {stackId} -> stackId) (\s@StackSummary' {} a -> s {stackId = a} :: StackSummary)
 
--- | The number of layers.
-stackSummary_layersCount :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.Int)
-stackSummary_layersCount = Lens.lens (\StackSummary' {layersCount} -> layersCount) (\s@StackSummary' {} a -> s {layersCount = a} :: StackSummary)
+-- | The stack name.
+stackSummary_name :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.Text)
+stackSummary_name = Lens.lens (\StackSummary' {name} -> name) (\s@StackSummary' {} a -> s {name = a} :: StackSummary)
+
+-- | The stack\'s ARN.
+stackSummary_arn :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.Text)
+stackSummary_arn = Lens.lens (\StackSummary' {arn} -> arn) (\s@StackSummary' {} a -> s {arn = a} :: StackSummary)
 
 -- | An @InstancesCount@ object with the number of instances in each status.
 stackSummary_instancesCount :: Lens.Lens' StackSummary (Prelude.Maybe InstancesCount)
 stackSummary_instancesCount = Lens.lens (\StackSummary' {instancesCount} -> instancesCount) (\s@StackSummary' {} a -> s {instancesCount = a} :: StackSummary)
+
+-- | The number of apps.
+stackSummary_appsCount :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.Int)
+stackSummary_appsCount = Lens.lens (\StackSummary' {appsCount} -> appsCount) (\s@StackSummary' {} a -> s {appsCount = a} :: StackSummary)
+
+-- | The number of layers.
+stackSummary_layersCount :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.Int)
+stackSummary_layersCount = Lens.lens (\StackSummary' {layersCount} -> layersCount) (\s@StackSummary' {} a -> s {layersCount = a} :: StackSummary)
 
 instance Core.FromJSON StackSummary where
   parseJSON =
@@ -104,28 +104,28 @@ instance Core.FromJSON StackSummary where
       "StackSummary"
       ( \x ->
           StackSummary'
-            Prelude.<$> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "AppsCount")
+            Prelude.<$> (x Core..:? "StackId")
             Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "StackId")
-            Prelude.<*> (x Core..:? "LayersCount")
+            Prelude.<*> (x Core..:? "Arn")
             Prelude.<*> (x Core..:? "InstancesCount")
+            Prelude.<*> (x Core..:? "AppsCount")
+            Prelude.<*> (x Core..:? "LayersCount")
       )
 
 instance Prelude.Hashable StackSummary where
   hashWithSalt _salt StackSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` appsCount
+    _salt `Prelude.hashWithSalt` stackId
       `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` stackId
-      `Prelude.hashWithSalt` layersCount
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` instancesCount
+      `Prelude.hashWithSalt` appsCount
+      `Prelude.hashWithSalt` layersCount
 
 instance Prelude.NFData StackSummary where
   rnf StackSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf appsCount
+    Prelude.rnf stackId
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf layersCount
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf instancesCount
+      `Prelude.seq` Prelude.rnf appsCount
+      `Prelude.seq` Prelude.rnf layersCount

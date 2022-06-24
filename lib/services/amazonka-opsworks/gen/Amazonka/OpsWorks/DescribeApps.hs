@@ -35,8 +35,8 @@ module Amazonka.OpsWorks.DescribeApps
     newDescribeApps,
 
     -- * Request Lenses
-    describeApps_appIds,
     describeApps_stackId,
+    describeApps_appIds,
 
     -- * Destructuring the Response
     DescribeAppsResponse (..),
@@ -57,13 +57,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeApps' smart constructor.
 data DescribeApps = DescribeApps'
-  { -- | An array of app IDs for the apps to be described. If you use this
+  { -- | The app stack ID. If you use this parameter, @DescribeApps@ returns a
+    -- description of the apps in the specified stack.
+    stackId :: Prelude.Maybe Prelude.Text,
+    -- | An array of app IDs for the apps to be described. If you use this
     -- parameter, @DescribeApps@ returns a description of the specified apps.
     -- Otherwise, it returns a description of every app.
-    appIds :: Prelude.Maybe [Prelude.Text],
-    -- | The app stack ID. If you use this parameter, @DescribeApps@ returns a
-    -- description of the apps in the specified stack.
-    stackId :: Prelude.Maybe Prelude.Text
+    appIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,30 +75,30 @@ data DescribeApps = DescribeApps'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'stackId', 'describeApps_stackId' - The app stack ID. If you use this parameter, @DescribeApps@ returns a
+-- description of the apps in the specified stack.
+--
 -- 'appIds', 'describeApps_appIds' - An array of app IDs for the apps to be described. If you use this
 -- parameter, @DescribeApps@ returns a description of the specified apps.
 -- Otherwise, it returns a description of every app.
---
--- 'stackId', 'describeApps_stackId' - The app stack ID. If you use this parameter, @DescribeApps@ returns a
--- description of the apps in the specified stack.
 newDescribeApps ::
   DescribeApps
 newDescribeApps =
   DescribeApps'
-    { appIds = Prelude.Nothing,
-      stackId = Prelude.Nothing
+    { stackId = Prelude.Nothing,
+      appIds = Prelude.Nothing
     }
+
+-- | The app stack ID. If you use this parameter, @DescribeApps@ returns a
+-- description of the apps in the specified stack.
+describeApps_stackId :: Lens.Lens' DescribeApps (Prelude.Maybe Prelude.Text)
+describeApps_stackId = Lens.lens (\DescribeApps' {stackId} -> stackId) (\s@DescribeApps' {} a -> s {stackId = a} :: DescribeApps)
 
 -- | An array of app IDs for the apps to be described. If you use this
 -- parameter, @DescribeApps@ returns a description of the specified apps.
 -- Otherwise, it returns a description of every app.
 describeApps_appIds :: Lens.Lens' DescribeApps (Prelude.Maybe [Prelude.Text])
 describeApps_appIds = Lens.lens (\DescribeApps' {appIds} -> appIds) (\s@DescribeApps' {} a -> s {appIds = a} :: DescribeApps) Prelude.. Lens.mapping Lens.coerced
-
--- | The app stack ID. If you use this parameter, @DescribeApps@ returns a
--- description of the apps in the specified stack.
-describeApps_stackId :: Lens.Lens' DescribeApps (Prelude.Maybe Prelude.Text)
-describeApps_stackId = Lens.lens (\DescribeApps' {stackId} -> stackId) (\s@DescribeApps' {} a -> s {stackId = a} :: DescribeApps)
 
 instance Core.AWSRequest DescribeApps where
   type AWSResponse DescribeApps = DescribeAppsResponse
@@ -113,13 +113,13 @@ instance Core.AWSRequest DescribeApps where
 
 instance Prelude.Hashable DescribeApps where
   hashWithSalt _salt DescribeApps' {..} =
-    _salt `Prelude.hashWithSalt` appIds
-      `Prelude.hashWithSalt` stackId
+    _salt `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` appIds
 
 instance Prelude.NFData DescribeApps where
   rnf DescribeApps' {..} =
-    Prelude.rnf appIds
-      `Prelude.seq` Prelude.rnf stackId
+    Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf appIds
 
 instance Core.ToHeaders DescribeApps where
   toHeaders =
@@ -140,8 +140,8 @@ instance Core.ToJSON DescribeApps where
   toJSON DescribeApps' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AppIds" Core..=) Prelude.<$> appIds,
-            ("StackId" Core..=) Prelude.<$> stackId
+          [ ("StackId" Core..=) Prelude.<$> stackId,
+            ("AppIds" Core..=) Prelude.<$> appIds
           ]
       )
 

@@ -27,14 +27,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPermission' smart constructor.
 data Permission = Permission'
-  { -- | The Amazon Resource Name (ARN) for an AWS Identity and Access Management
+  { -- | A stack ID.
+    stackId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) for an AWS Identity and Access Management
     -- (IAM) role. For more information about IAM ARNs, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
     iamUserArn :: Prelude.Maybe Prelude.Text,
     -- | Whether the user can use __sudo__.
     allowSudo :: Prelude.Maybe Prelude.Bool,
-    -- | A stack ID.
-    stackId :: Prelude.Maybe Prelude.Text,
     -- | The user\'s permission level, which must be the following:
     --
     -- -   @deny@
@@ -64,13 +64,13 @@ data Permission = Permission'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'stackId', 'permission_stackId' - A stack ID.
+--
 -- 'iamUserArn', 'permission_iamUserArn' - The Amazon Resource Name (ARN) for an AWS Identity and Access Management
 -- (IAM) role. For more information about IAM ARNs, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
 --
 -- 'allowSudo', 'permission_allowSudo' - Whether the user can use __sudo__.
---
--- 'stackId', 'permission_stackId' - A stack ID.
 --
 -- 'level', 'permission_level' - The user\'s permission level, which must be the following:
 --
@@ -93,12 +93,16 @@ newPermission ::
   Permission
 newPermission =
   Permission'
-    { iamUserArn = Prelude.Nothing,
+    { stackId = Prelude.Nothing,
+      iamUserArn = Prelude.Nothing,
       allowSudo = Prelude.Nothing,
-      stackId = Prelude.Nothing,
       level = Prelude.Nothing,
       allowSsh = Prelude.Nothing
     }
+
+-- | A stack ID.
+permission_stackId :: Lens.Lens' Permission (Prelude.Maybe Prelude.Text)
+permission_stackId = Lens.lens (\Permission' {stackId} -> stackId) (\s@Permission' {} a -> s {stackId = a} :: Permission)
 
 -- | The Amazon Resource Name (ARN) for an AWS Identity and Access Management
 -- (IAM) role. For more information about IAM ARNs, see
@@ -109,10 +113,6 @@ permission_iamUserArn = Lens.lens (\Permission' {iamUserArn} -> iamUserArn) (\s@
 -- | Whether the user can use __sudo__.
 permission_allowSudo :: Lens.Lens' Permission (Prelude.Maybe Prelude.Bool)
 permission_allowSudo = Lens.lens (\Permission' {allowSudo} -> allowSudo) (\s@Permission' {} a -> s {allowSudo = a} :: Permission)
-
--- | A stack ID.
-permission_stackId :: Lens.Lens' Permission (Prelude.Maybe Prelude.Text)
-permission_stackId = Lens.lens (\Permission' {stackId} -> stackId) (\s@Permission' {} a -> s {stackId = a} :: Permission)
 
 -- | The user\'s permission level, which must be the following:
 --
@@ -142,25 +142,25 @@ instance Core.FromJSON Permission where
       "Permission"
       ( \x ->
           Permission'
-            Prelude.<$> (x Core..:? "IamUserArn")
+            Prelude.<$> (x Core..:? "StackId")
+            Prelude.<*> (x Core..:? "IamUserArn")
             Prelude.<*> (x Core..:? "AllowSudo")
-            Prelude.<*> (x Core..:? "StackId")
             Prelude.<*> (x Core..:? "Level")
             Prelude.<*> (x Core..:? "AllowSsh")
       )
 
 instance Prelude.Hashable Permission where
   hashWithSalt _salt Permission' {..} =
-    _salt `Prelude.hashWithSalt` iamUserArn
+    _salt `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` iamUserArn
       `Prelude.hashWithSalt` allowSudo
-      `Prelude.hashWithSalt` stackId
       `Prelude.hashWithSalt` level
       `Prelude.hashWithSalt` allowSsh
 
 instance Prelude.NFData Permission where
   rnf Permission' {..} =
-    Prelude.rnf iamUserArn
+    Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf iamUserArn
       `Prelude.seq` Prelude.rnf allowSudo
-      `Prelude.seq` Prelude.rnf stackId
       `Prelude.seq` Prelude.rnf level
       `Prelude.seq` Prelude.rnf allowSsh

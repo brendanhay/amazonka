@@ -36,8 +36,8 @@ module Amazonka.OpsWorks.ListTags
     newListTagsResponse,
 
     -- * Response Lenses
-    listTagsResponse_nextToken,
     listTagsResponse_tags,
+    listTagsResponse_nextToken,
     listTagsResponse_httpStatus,
   )
 where
@@ -109,8 +109,8 @@ instance Core.AWSRequest ListTags where
     Response.receiveJSON
       ( \s h x ->
           ListTagsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,15 +159,15 @@ instance Core.ToQuery ListTags where
 --
 -- /See:/ 'newListTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
-  { -- | If a paginated request does not return all of the remaining results,
+  { -- | A set of key-value pairs that contain tag keys and tag values that are
+    -- attached to a stack or layer.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | If a paginated request does not return all of the remaining results,
     -- this parameter is set to a token that you can assign to the request
     -- object\'s @NextToken@ parameter to get the next set of results. If the
     -- previous paginated request returned all of the remaining results, this
     -- parameter is set to @null@.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A set of key-value pairs that contain tag keys and tag values that are
-    -- attached to a stack or layer.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -181,14 +181,14 @@ data ListTagsResponse = ListTagsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'listTagsResponse_tags' - A set of key-value pairs that contain tag keys and tag values that are
+-- attached to a stack or layer.
+--
 -- 'nextToken', 'listTagsResponse_nextToken' - If a paginated request does not return all of the remaining results,
 -- this parameter is set to a token that you can assign to the request
 -- object\'s @NextToken@ parameter to get the next set of results. If the
 -- previous paginated request returned all of the remaining results, this
 -- parameter is set to @null@.
---
--- 'tags', 'listTagsResponse_tags' - A set of key-value pairs that contain tag keys and tag values that are
--- attached to a stack or layer.
 --
 -- 'httpStatus', 'listTagsResponse_httpStatus' - The response's http status code.
 newListTagsResponse ::
@@ -197,10 +197,15 @@ newListTagsResponse ::
   ListTagsResponse
 newListTagsResponse pHttpStatus_ =
   ListTagsResponse'
-    { nextToken = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A set of key-value pairs that contain tag keys and tag values that are
+-- attached to a stack or layer.
+listTagsResponse_tags :: Lens.Lens' ListTagsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+listTagsResponse_tags = Lens.lens (\ListTagsResponse' {tags} -> tags) (\s@ListTagsResponse' {} a -> s {tags = a} :: ListTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If a paginated request does not return all of the remaining results,
 -- this parameter is set to a token that you can assign to the request
@@ -210,17 +215,12 @@ newListTagsResponse pHttpStatus_ =
 listTagsResponse_nextToken :: Lens.Lens' ListTagsResponse (Prelude.Maybe Prelude.Text)
 listTagsResponse_nextToken = Lens.lens (\ListTagsResponse' {nextToken} -> nextToken) (\s@ListTagsResponse' {} a -> s {nextToken = a} :: ListTagsResponse)
 
--- | A set of key-value pairs that contain tag keys and tag values that are
--- attached to a stack or layer.
-listTagsResponse_tags :: Lens.Lens' ListTagsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-listTagsResponse_tags = Lens.lens (\ListTagsResponse' {tags} -> tags) (\s@ListTagsResponse' {} a -> s {tags = a} :: ListTagsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listTagsResponse_httpStatus :: Lens.Lens' ListTagsResponse Prelude.Int
 listTagsResponse_httpStatus = Lens.lens (\ListTagsResponse' {httpStatus} -> httpStatus) (\s@ListTagsResponse' {} a -> s {httpStatus = a} :: ListTagsResponse)
 
 instance Prelude.NFData ListTagsResponse where
   rnf ListTagsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

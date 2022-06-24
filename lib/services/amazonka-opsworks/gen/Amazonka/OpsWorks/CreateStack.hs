@@ -33,21 +33,21 @@ module Amazonka.OpsWorks.CreateStack
     newCreateStack,
 
     -- * Request Lenses
-    createStack_defaultRootDeviceType,
-    createStack_vpcId,
-    createStack_chefConfiguration,
-    createStack_agentVersion,
+    createStack_hostnameTheme,
     createStack_defaultSshKeyName,
     createStack_customJson,
-    createStack_customCookbooksSource,
     createStack_defaultAvailabilityZone,
-    createStack_attributes,
+    createStack_defaultRootDeviceType,
+    createStack_configurationManager,
+    createStack_defaultSubnetId,
+    createStack_useCustomCookbooks,
     createStack_defaultOs,
     createStack_useOpsworksSecurityGroups,
-    createStack_useCustomCookbooks,
-    createStack_defaultSubnetId,
-    createStack_configurationManager,
-    createStack_hostnameTheme,
+    createStack_attributes,
+    createStack_vpcId,
+    createStack_chefConfiguration,
+    createStack_customCookbooksSource,
+    createStack_agentVersion,
     createStack_name,
     createStack_region,
     createStack_serviceRoleArn,
@@ -72,67 +72,37 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateStack' smart constructor.
 data CreateStack = CreateStack'
-  { -- | The default root device type. This value is the default for all
-    -- instances in the stack, but you can override it when you create an
-    -- instance. The default option is @instance-store@. For more information,
-    -- see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
-    defaultRootDeviceType :: Prelude.Maybe RootDeviceType,
-    -- | The ID of the VPC that the stack is to be launched into. The VPC must be
-    -- in the stack\'s region. All instances are launched into this VPC. You
-    -- cannot change the ID later.
+  { -- | The stack\'s host name theme, with spaces replaced by underscores. The
+    -- theme is used to generate host names for the stack\'s instances. By
+    -- default, @HostnameTheme@ is set to @Layer_Dependent@, which creates host
+    -- names by appending integers to the layer\'s short name. The other themes
+    -- are:
     --
-    -- -   If your account supports EC2-Classic, the default value is @no VPC@.
+    -- -   @Baked_Goods@
     --
-    -- -   If your account does not support EC2-Classic, the default value is
-    --     the default VPC for the specified region.
+    -- -   @Clouds@
     --
-    -- If the VPC ID corresponds to a default VPC and you have specified either
-    -- the @DefaultAvailabilityZone@ or the @DefaultSubnetId@ parameter only,
-    -- AWS OpsWorks Stacks infers the value of the other parameter. If you
-    -- specify neither parameter, AWS OpsWorks Stacks sets these parameters to
-    -- the first valid Availability Zone for the specified region and the
-    -- corresponding default VPC subnet ID, respectively.
+    -- -   @Europe_Cities@
     --
-    -- If you specify a nondefault VPC ID, note the following:
+    -- -   @Fruits@
     --
-    -- -   It must belong to a VPC in your account that is in the specified
-    --     region.
+    -- -   @Greek_Deities_and_Titans@
     --
-    -- -   You must specify a value for @DefaultSubnetId@.
+    -- -   @Legendary_creatures_from_Japan@
     --
-    -- For more information about how to use AWS OpsWorks Stacks with a VPC,
-    -- see
-    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html Running a Stack in a VPC>.
-    -- For more information about default VPC and EC2-Classic, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>.
-    vpcId :: Prelude.Maybe Prelude.Text,
-    -- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
-    -- and the Berkshelf version on Chef 11.10 stacks. For more information,
-    -- see
-    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-    chefConfiguration :: Prelude.Maybe ChefConfiguration,
-    -- | The default AWS OpsWorks Stacks agent version. You have the following
-    -- options:
+    -- -   @Planets_and_Moons@
     --
-    -- -   Auto-update - Set this parameter to @LATEST@. AWS OpsWorks Stacks
-    --     automatically installs new agent versions on the stack\'s instances
-    --     as soon as they are available.
+    -- -   @Roman_Deities@
     --
-    -- -   Fixed version - Set this parameter to your preferred agent version.
-    --     To update the agent version, you must edit the stack configuration
-    --     and specify a new version. AWS OpsWorks Stacks then automatically
-    --     installs that version on the stack\'s instances.
+    -- -   @Scottish_Islands@
     --
-    -- The default setting is the most recent release of the agent. To specify
-    -- an agent version, you must use the complete version number, not the
-    -- abbreviated number shown on the console. For a list of available agent
-    -- version numbers, call DescribeAgentVersions. AgentVersion cannot be set
-    -- to Chef 12.2.
+    -- -   @US_Cities@
     --
-    -- You can also specify an agent version when you create or update an
-    -- instance, which overrides the stack\'s default setting.
-    agentVersion :: Prelude.Maybe Prelude.Text,
+    -- -   @Wild_Cats@
+    --
+    -- To obtain a generated host name, call @GetHostNameSuggestion@, which
+    -- returns a host name based on the current theme.
+    hostnameTheme :: Prelude.Maybe Prelude.Text,
     -- | A default Amazon EC2 key pair name. The default value is none. If you
     -- specify a key pair name, AWS OpsWorks installs the public key on the
     -- instance and you can use the private key with an SSH client to log in to
@@ -154,12 +124,6 @@ data CreateStack = CreateStack'
     -- For more information about custom JSON, see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>.
     customJson :: Prelude.Maybe Prelude.Text,
-    -- | Contains the information required to retrieve an app or cookbook from a
-    -- repository. For more information, see
-    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps>
-    -- or
-    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html Cookbooks and Recipes>.
-    customCookbooksSource :: Prelude.Maybe Source,
     -- | The stack\'s default Availability Zone, which must be in the specified
     -- region. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
@@ -167,9 +131,26 @@ data CreateStack = CreateStack'
     -- the same zone. For more information, see the @VpcId@ parameter
     -- description.
     defaultAvailabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | One or more user-defined key-value pairs to be added to the stack
-    -- attributes.
-    attributes :: Prelude.Maybe (Prelude.HashMap StackAttributesKeys (Prelude.Maybe Prelude.Text)),
+    -- | The default root device type. This value is the default for all
+    -- instances in the stack, but you can override it when you create an
+    -- instance. The default option is @instance-store@. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
+    defaultRootDeviceType :: Prelude.Maybe RootDeviceType,
+    -- | The configuration manager. When you create a stack we recommend that you
+    -- use the configuration manager to specify the Chef version: 12, 11.10, or
+    -- 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for
+    -- Linux stacks is currently 12.
+    configurationManager :: Prelude.Maybe StackConfigurationManager,
+    -- | The stack\'s default VPC subnet ID. This parameter is required if you
+    -- specify a value for the @VpcId@ parameter. All instances are launched
+    -- into this subnet unless you specify otherwise when you create the
+    -- instance. If you also specify a value for @DefaultAvailabilityZone@, the
+    -- subnet must be in that zone. For information on default values and when
+    -- this parameter is required, see the @VpcId@ parameter description.
+    defaultSubnetId :: Prelude.Maybe Prelude.Text,
+    -- | Whether the stack uses custom cookbooks.
+    useCustomCookbooks :: Prelude.Maybe Prelude.Bool,
     -- | The stack\'s default operating system, which is installed on every
     -- instance unless you specify a different operating system when you create
     -- the instance. You can specify one of the following.
@@ -224,51 +205,70 @@ data CreateStack = CreateStack'
     -- For more information, see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
     useOpsworksSecurityGroups :: Prelude.Maybe Prelude.Bool,
-    -- | Whether the stack uses custom cookbooks.
-    useCustomCookbooks :: Prelude.Maybe Prelude.Bool,
-    -- | The stack\'s default VPC subnet ID. This parameter is required if you
-    -- specify a value for the @VpcId@ parameter. All instances are launched
-    -- into this subnet unless you specify otherwise when you create the
-    -- instance. If you also specify a value for @DefaultAvailabilityZone@, the
-    -- subnet must be in that zone. For information on default values and when
-    -- this parameter is required, see the @VpcId@ parameter description.
-    defaultSubnetId :: Prelude.Maybe Prelude.Text,
-    -- | The configuration manager. When you create a stack we recommend that you
-    -- use the configuration manager to specify the Chef version: 12, 11.10, or
-    -- 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for
-    -- Linux stacks is currently 12.
-    configurationManager :: Prelude.Maybe StackConfigurationManager,
-    -- | The stack\'s host name theme, with spaces replaced by underscores. The
-    -- theme is used to generate host names for the stack\'s instances. By
-    -- default, @HostnameTheme@ is set to @Layer_Dependent@, which creates host
-    -- names by appending integers to the layer\'s short name. The other themes
-    -- are:
+    -- | One or more user-defined key-value pairs to be added to the stack
+    -- attributes.
+    attributes :: Prelude.Maybe (Prelude.HashMap StackAttributesKeys (Prelude.Maybe Prelude.Text)),
+    -- | The ID of the VPC that the stack is to be launched into. The VPC must be
+    -- in the stack\'s region. All instances are launched into this VPC. You
+    -- cannot change the ID later.
     --
-    -- -   @Baked_Goods@
+    -- -   If your account supports EC2-Classic, the default value is @no VPC@.
     --
-    -- -   @Clouds@
+    -- -   If your account does not support EC2-Classic, the default value is
+    --     the default VPC for the specified region.
     --
-    -- -   @Europe_Cities@
+    -- If the VPC ID corresponds to a default VPC and you have specified either
+    -- the @DefaultAvailabilityZone@ or the @DefaultSubnetId@ parameter only,
+    -- AWS OpsWorks Stacks infers the value of the other parameter. If you
+    -- specify neither parameter, AWS OpsWorks Stacks sets these parameters to
+    -- the first valid Availability Zone for the specified region and the
+    -- corresponding default VPC subnet ID, respectively.
     --
-    -- -   @Fruits@
+    -- If you specify a nondefault VPC ID, note the following:
     --
-    -- -   @Greek_Deities_and_Titans@
+    -- -   It must belong to a VPC in your account that is in the specified
+    --     region.
     --
-    -- -   @Legendary_creatures_from_Japan@
+    -- -   You must specify a value for @DefaultSubnetId@.
     --
-    -- -   @Planets_and_Moons@
+    -- For more information about how to use AWS OpsWorks Stacks with a VPC,
+    -- see
+    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html Running a Stack in a VPC>.
+    -- For more information about default VPC and EC2-Classic, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>.
+    vpcId :: Prelude.Maybe Prelude.Text,
+    -- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
+    -- and the Berkshelf version on Chef 11.10 stacks. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
+    chefConfiguration :: Prelude.Maybe ChefConfiguration,
+    -- | Contains the information required to retrieve an app or cookbook from a
+    -- repository. For more information, see
+    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps>
+    -- or
+    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html Cookbooks and Recipes>.
+    customCookbooksSource :: Prelude.Maybe Source,
+    -- | The default AWS OpsWorks Stacks agent version. You have the following
+    -- options:
     --
-    -- -   @Roman_Deities@
+    -- -   Auto-update - Set this parameter to @LATEST@. AWS OpsWorks Stacks
+    --     automatically installs new agent versions on the stack\'s instances
+    --     as soon as they are available.
     --
-    -- -   @Scottish_Islands@
+    -- -   Fixed version - Set this parameter to your preferred agent version.
+    --     To update the agent version, you must edit the stack configuration
+    --     and specify a new version. AWS OpsWorks Stacks then automatically
+    --     installs that version on the stack\'s instances.
     --
-    -- -   @US_Cities@
+    -- The default setting is the most recent release of the agent. To specify
+    -- an agent version, you must use the complete version number, not the
+    -- abbreviated number shown on the console. For a list of available agent
+    -- version numbers, call DescribeAgentVersions. AgentVersion cannot be set
+    -- to Chef 12.2.
     --
-    -- -   @Wild_Cats@
-    --
-    -- To obtain a generated host name, call @GetHostNameSuggestion@, which
-    -- returns a host name based on the current theme.
-    hostnameTheme :: Prelude.Maybe Prelude.Text,
+    -- You can also specify an agent version when you create or update an
+    -- instance, which overrides the stack\'s default setting.
+    agentVersion :: Prelude.Maybe Prelude.Text,
     -- | The stack name.
     name :: Prelude.Text,
     -- | The stack\'s AWS region, such as @ap-south-1@. For more information
@@ -314,66 +314,36 @@ data CreateStack = CreateStack'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'defaultRootDeviceType', 'createStack_defaultRootDeviceType' - The default root device type. This value is the default for all
--- instances in the stack, but you can override it when you create an
--- instance. The default option is @instance-store@. For more information,
--- see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
+-- 'hostnameTheme', 'createStack_hostnameTheme' - The stack\'s host name theme, with spaces replaced by underscores. The
+-- theme is used to generate host names for the stack\'s instances. By
+-- default, @HostnameTheme@ is set to @Layer_Dependent@, which creates host
+-- names by appending integers to the layer\'s short name. The other themes
+-- are:
 --
--- 'vpcId', 'createStack_vpcId' - The ID of the VPC that the stack is to be launched into. The VPC must be
--- in the stack\'s region. All instances are launched into this VPC. You
--- cannot change the ID later.
+-- -   @Baked_Goods@
 --
--- -   If your account supports EC2-Classic, the default value is @no VPC@.
+-- -   @Clouds@
 --
--- -   If your account does not support EC2-Classic, the default value is
---     the default VPC for the specified region.
+-- -   @Europe_Cities@
 --
--- If the VPC ID corresponds to a default VPC and you have specified either
--- the @DefaultAvailabilityZone@ or the @DefaultSubnetId@ parameter only,
--- AWS OpsWorks Stacks infers the value of the other parameter. If you
--- specify neither parameter, AWS OpsWorks Stacks sets these parameters to
--- the first valid Availability Zone for the specified region and the
--- corresponding default VPC subnet ID, respectively.
+-- -   @Fruits@
 --
--- If you specify a nondefault VPC ID, note the following:
+-- -   @Greek_Deities_and_Titans@
 --
--- -   It must belong to a VPC in your account that is in the specified
---     region.
+-- -   @Legendary_creatures_from_Japan@
 --
--- -   You must specify a value for @DefaultSubnetId@.
+-- -   @Planets_and_Moons@
 --
--- For more information about how to use AWS OpsWorks Stacks with a VPC,
--- see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html Running a Stack in a VPC>.
--- For more information about default VPC and EC2-Classic, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>.
+-- -   @Roman_Deities@
 --
--- 'chefConfiguration', 'createStack_chefConfiguration' - A @ChefConfiguration@ object that specifies whether to enable Berkshelf
--- and the Berkshelf version on Chef 11.10 stacks. For more information,
--- see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
+-- -   @Scottish_Islands@
 --
--- 'agentVersion', 'createStack_agentVersion' - The default AWS OpsWorks Stacks agent version. You have the following
--- options:
+-- -   @US_Cities@
 --
--- -   Auto-update - Set this parameter to @LATEST@. AWS OpsWorks Stacks
---     automatically installs new agent versions on the stack\'s instances
---     as soon as they are available.
+-- -   @Wild_Cats@
 --
--- -   Fixed version - Set this parameter to your preferred agent version.
---     To update the agent version, you must edit the stack configuration
---     and specify a new version. AWS OpsWorks Stacks then automatically
---     installs that version on the stack\'s instances.
---
--- The default setting is the most recent release of the agent. To specify
--- an agent version, you must use the complete version number, not the
--- abbreviated number shown on the console. For a list of available agent
--- version numbers, call DescribeAgentVersions. AgentVersion cannot be set
--- to Chef 12.2.
---
--- You can also specify an agent version when you create or update an
--- instance, which overrides the stack\'s default setting.
+-- To obtain a generated host name, call @GetHostNameSuggestion@, which
+-- returns a host name based on the current theme.
 --
 -- 'defaultSshKeyName', 'createStack_defaultSshKeyName' - A default Amazon EC2 key pair name. The default value is none. If you
 -- specify a key pair name, AWS OpsWorks installs the public key on the
@@ -396,12 +366,6 @@ data CreateStack = CreateStack'
 -- For more information about custom JSON, see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>.
 --
--- 'customCookbooksSource', 'createStack_customCookbooksSource' - Contains the information required to retrieve an app or cookbook from a
--- repository. For more information, see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps>
--- or
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html Cookbooks and Recipes>.
---
 -- 'defaultAvailabilityZone', 'createStack_defaultAvailabilityZone' - The stack\'s default Availability Zone, which must be in the specified
 -- region. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
@@ -409,8 +373,25 @@ data CreateStack = CreateStack'
 -- the same zone. For more information, see the @VpcId@ parameter
 -- description.
 --
--- 'attributes', 'createStack_attributes' - One or more user-defined key-value pairs to be added to the stack
--- attributes.
+-- 'defaultRootDeviceType', 'createStack_defaultRootDeviceType' - The default root device type. This value is the default for all
+-- instances in the stack, but you can override it when you create an
+-- instance. The default option is @instance-store@. For more information,
+-- see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
+--
+-- 'configurationManager', 'createStack_configurationManager' - The configuration manager. When you create a stack we recommend that you
+-- use the configuration manager to specify the Chef version: 12, 11.10, or
+-- 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for
+-- Linux stacks is currently 12.
+--
+-- 'defaultSubnetId', 'createStack_defaultSubnetId' - The stack\'s default VPC subnet ID. This parameter is required if you
+-- specify a value for the @VpcId@ parameter. All instances are launched
+-- into this subnet unless you specify otherwise when you create the
+-- instance. If you also specify a value for @DefaultAvailabilityZone@, the
+-- subnet must be in that zone. For information on default values and when
+-- this parameter is required, see the @VpcId@ parameter description.
+--
+-- 'useCustomCookbooks', 'createStack_useCustomCookbooks' - Whether the stack uses custom cookbooks.
 --
 -- 'defaultOs', 'createStack_defaultOs' - The stack\'s default operating system, which is installed on every
 -- instance unless you specify a different operating system when you create
@@ -466,50 +447,69 @@ data CreateStack = CreateStack'
 -- For more information, see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
 --
--- 'useCustomCookbooks', 'createStack_useCustomCookbooks' - Whether the stack uses custom cookbooks.
+-- 'attributes', 'createStack_attributes' - One or more user-defined key-value pairs to be added to the stack
+-- attributes.
 --
--- 'defaultSubnetId', 'createStack_defaultSubnetId' - The stack\'s default VPC subnet ID. This parameter is required if you
--- specify a value for the @VpcId@ parameter. All instances are launched
--- into this subnet unless you specify otherwise when you create the
--- instance. If you also specify a value for @DefaultAvailabilityZone@, the
--- subnet must be in that zone. For information on default values and when
--- this parameter is required, see the @VpcId@ parameter description.
+-- 'vpcId', 'createStack_vpcId' - The ID of the VPC that the stack is to be launched into. The VPC must be
+-- in the stack\'s region. All instances are launched into this VPC. You
+-- cannot change the ID later.
 --
--- 'configurationManager', 'createStack_configurationManager' - The configuration manager. When you create a stack we recommend that you
--- use the configuration manager to specify the Chef version: 12, 11.10, or
--- 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for
--- Linux stacks is currently 12.
+-- -   If your account supports EC2-Classic, the default value is @no VPC@.
 --
--- 'hostnameTheme', 'createStack_hostnameTheme' - The stack\'s host name theme, with spaces replaced by underscores. The
--- theme is used to generate host names for the stack\'s instances. By
--- default, @HostnameTheme@ is set to @Layer_Dependent@, which creates host
--- names by appending integers to the layer\'s short name. The other themes
--- are:
+-- -   If your account does not support EC2-Classic, the default value is
+--     the default VPC for the specified region.
 --
--- -   @Baked_Goods@
+-- If the VPC ID corresponds to a default VPC and you have specified either
+-- the @DefaultAvailabilityZone@ or the @DefaultSubnetId@ parameter only,
+-- AWS OpsWorks Stacks infers the value of the other parameter. If you
+-- specify neither parameter, AWS OpsWorks Stacks sets these parameters to
+-- the first valid Availability Zone for the specified region and the
+-- corresponding default VPC subnet ID, respectively.
 --
--- -   @Clouds@
+-- If you specify a nondefault VPC ID, note the following:
 --
--- -   @Europe_Cities@
+-- -   It must belong to a VPC in your account that is in the specified
+--     region.
 --
--- -   @Fruits@
+-- -   You must specify a value for @DefaultSubnetId@.
 --
--- -   @Greek_Deities_and_Titans@
+-- For more information about how to use AWS OpsWorks Stacks with a VPC,
+-- see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html Running a Stack in a VPC>.
+-- For more information about default VPC and EC2-Classic, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>.
 --
--- -   @Legendary_creatures_from_Japan@
+-- 'chefConfiguration', 'createStack_chefConfiguration' - A @ChefConfiguration@ object that specifies whether to enable Berkshelf
+-- and the Berkshelf version on Chef 11.10 stacks. For more information,
+-- see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
 --
--- -   @Planets_and_Moons@
+-- 'customCookbooksSource', 'createStack_customCookbooksSource' - Contains the information required to retrieve an app or cookbook from a
+-- repository. For more information, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps>
+-- or
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html Cookbooks and Recipes>.
 --
--- -   @Roman_Deities@
+-- 'agentVersion', 'createStack_agentVersion' - The default AWS OpsWorks Stacks agent version. You have the following
+-- options:
 --
--- -   @Scottish_Islands@
+-- -   Auto-update - Set this parameter to @LATEST@. AWS OpsWorks Stacks
+--     automatically installs new agent versions on the stack\'s instances
+--     as soon as they are available.
 --
--- -   @US_Cities@
+-- -   Fixed version - Set this parameter to your preferred agent version.
+--     To update the agent version, you must edit the stack configuration
+--     and specify a new version. AWS OpsWorks Stacks then automatically
+--     installs that version on the stack\'s instances.
 --
--- -   @Wild_Cats@
+-- The default setting is the most recent release of the agent. To specify
+-- an agent version, you must use the complete version number, not the
+-- abbreviated number shown on the console. For a list of available agent
+-- version numbers, call DescribeAgentVersions. AgentVersion cannot be set
+-- to Chef 12.2.
 --
--- To obtain a generated host name, call @GetHostNameSuggestion@, which
--- returns a host name based on the current theme.
+-- You can also specify an agent version when you create or update an
+-- instance, which overrides the stack\'s default setting.
 --
 -- 'name', 'createStack_name' - The stack name.
 --
@@ -560,22 +560,21 @@ newCreateStack
   pServiceRoleArn_
   pDefaultInstanceProfileArn_ =
     CreateStack'
-      { defaultRootDeviceType =
-          Prelude.Nothing,
-        vpcId = Prelude.Nothing,
-        chefConfiguration = Prelude.Nothing,
-        agentVersion = Prelude.Nothing,
+      { hostnameTheme = Prelude.Nothing,
         defaultSshKeyName = Prelude.Nothing,
         customJson = Prelude.Nothing,
-        customCookbooksSource = Prelude.Nothing,
         defaultAvailabilityZone = Prelude.Nothing,
-        attributes = Prelude.Nothing,
+        defaultRootDeviceType = Prelude.Nothing,
+        configurationManager = Prelude.Nothing,
+        defaultSubnetId = Prelude.Nothing,
+        useCustomCookbooks = Prelude.Nothing,
         defaultOs = Prelude.Nothing,
         useOpsworksSecurityGroups = Prelude.Nothing,
-        useCustomCookbooks = Prelude.Nothing,
-        defaultSubnetId = Prelude.Nothing,
-        configurationManager = Prelude.Nothing,
-        hostnameTheme = Prelude.Nothing,
+        attributes = Prelude.Nothing,
+        vpcId = Prelude.Nothing,
+        chefConfiguration = Prelude.Nothing,
+        customCookbooksSource = Prelude.Nothing,
+        agentVersion = Prelude.Nothing,
         name = pName_,
         region = pRegion_,
         serviceRoleArn = pServiceRoleArn_,
@@ -583,74 +582,38 @@ newCreateStack
           pDefaultInstanceProfileArn_
       }
 
--- | The default root device type. This value is the default for all
--- instances in the stack, but you can override it when you create an
--- instance. The default option is @instance-store@. For more information,
--- see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
-createStack_defaultRootDeviceType :: Lens.Lens' CreateStack (Prelude.Maybe RootDeviceType)
-createStack_defaultRootDeviceType = Lens.lens (\CreateStack' {defaultRootDeviceType} -> defaultRootDeviceType) (\s@CreateStack' {} a -> s {defaultRootDeviceType = a} :: CreateStack)
-
--- | The ID of the VPC that the stack is to be launched into. The VPC must be
--- in the stack\'s region. All instances are launched into this VPC. You
--- cannot change the ID later.
+-- | The stack\'s host name theme, with spaces replaced by underscores. The
+-- theme is used to generate host names for the stack\'s instances. By
+-- default, @HostnameTheme@ is set to @Layer_Dependent@, which creates host
+-- names by appending integers to the layer\'s short name. The other themes
+-- are:
 --
--- -   If your account supports EC2-Classic, the default value is @no VPC@.
+-- -   @Baked_Goods@
 --
--- -   If your account does not support EC2-Classic, the default value is
---     the default VPC for the specified region.
+-- -   @Clouds@
 --
--- If the VPC ID corresponds to a default VPC and you have specified either
--- the @DefaultAvailabilityZone@ or the @DefaultSubnetId@ parameter only,
--- AWS OpsWorks Stacks infers the value of the other parameter. If you
--- specify neither parameter, AWS OpsWorks Stacks sets these parameters to
--- the first valid Availability Zone for the specified region and the
--- corresponding default VPC subnet ID, respectively.
+-- -   @Europe_Cities@
 --
--- If you specify a nondefault VPC ID, note the following:
+-- -   @Fruits@
 --
--- -   It must belong to a VPC in your account that is in the specified
---     region.
+-- -   @Greek_Deities_and_Titans@
 --
--- -   You must specify a value for @DefaultSubnetId@.
+-- -   @Legendary_creatures_from_Japan@
 --
--- For more information about how to use AWS OpsWorks Stacks with a VPC,
--- see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html Running a Stack in a VPC>.
--- For more information about default VPC and EC2-Classic, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>.
-createStack_vpcId :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
-createStack_vpcId = Lens.lens (\CreateStack' {vpcId} -> vpcId) (\s@CreateStack' {} a -> s {vpcId = a} :: CreateStack)
-
--- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
--- and the Berkshelf version on Chef 11.10 stacks. For more information,
--- see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-createStack_chefConfiguration :: Lens.Lens' CreateStack (Prelude.Maybe ChefConfiguration)
-createStack_chefConfiguration = Lens.lens (\CreateStack' {chefConfiguration} -> chefConfiguration) (\s@CreateStack' {} a -> s {chefConfiguration = a} :: CreateStack)
-
--- | The default AWS OpsWorks Stacks agent version. You have the following
--- options:
+-- -   @Planets_and_Moons@
 --
--- -   Auto-update - Set this parameter to @LATEST@. AWS OpsWorks Stacks
---     automatically installs new agent versions on the stack\'s instances
---     as soon as they are available.
+-- -   @Roman_Deities@
 --
--- -   Fixed version - Set this parameter to your preferred agent version.
---     To update the agent version, you must edit the stack configuration
---     and specify a new version. AWS OpsWorks Stacks then automatically
---     installs that version on the stack\'s instances.
+-- -   @Scottish_Islands@
 --
--- The default setting is the most recent release of the agent. To specify
--- an agent version, you must use the complete version number, not the
--- abbreviated number shown on the console. For a list of available agent
--- version numbers, call DescribeAgentVersions. AgentVersion cannot be set
--- to Chef 12.2.
+-- -   @US_Cities@
 --
--- You can also specify an agent version when you create or update an
--- instance, which overrides the stack\'s default setting.
-createStack_agentVersion :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
-createStack_agentVersion = Lens.lens (\CreateStack' {agentVersion} -> agentVersion) (\s@CreateStack' {} a -> s {agentVersion = a} :: CreateStack)
+-- -   @Wild_Cats@
+--
+-- To obtain a generated host name, call @GetHostNameSuggestion@, which
+-- returns a host name based on the current theme.
+createStack_hostnameTheme :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
+createStack_hostnameTheme = Lens.lens (\CreateStack' {hostnameTheme} -> hostnameTheme) (\s@CreateStack' {} a -> s {hostnameTheme = a} :: CreateStack)
 
 -- | A default Amazon EC2 key pair name. The default value is none. If you
 -- specify a key pair name, AWS OpsWorks installs the public key on the
@@ -677,14 +640,6 @@ createStack_defaultSshKeyName = Lens.lens (\CreateStack' {defaultSshKeyName} -> 
 createStack_customJson :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
 createStack_customJson = Lens.lens (\CreateStack' {customJson} -> customJson) (\s@CreateStack' {} a -> s {customJson = a} :: CreateStack)
 
--- | Contains the information required to retrieve an app or cookbook from a
--- repository. For more information, see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps>
--- or
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html Cookbooks and Recipes>.
-createStack_customCookbooksSource :: Lens.Lens' CreateStack (Prelude.Maybe Source)
-createStack_customCookbooksSource = Lens.lens (\CreateStack' {customCookbooksSource} -> customCookbooksSource) (\s@CreateStack' {} a -> s {customCookbooksSource = a} :: CreateStack)
-
 -- | The stack\'s default Availability Zone, which must be in the specified
 -- region. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
@@ -694,10 +649,33 @@ createStack_customCookbooksSource = Lens.lens (\CreateStack' {customCookbooksSou
 createStack_defaultAvailabilityZone :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
 createStack_defaultAvailabilityZone = Lens.lens (\CreateStack' {defaultAvailabilityZone} -> defaultAvailabilityZone) (\s@CreateStack' {} a -> s {defaultAvailabilityZone = a} :: CreateStack)
 
--- | One or more user-defined key-value pairs to be added to the stack
--- attributes.
-createStack_attributes :: Lens.Lens' CreateStack (Prelude.Maybe (Prelude.HashMap StackAttributesKeys (Prelude.Maybe Prelude.Text)))
-createStack_attributes = Lens.lens (\CreateStack' {attributes} -> attributes) (\s@CreateStack' {} a -> s {attributes = a} :: CreateStack) Prelude.. Lens.mapping Lens.coerced
+-- | The default root device type. This value is the default for all
+-- instances in the stack, but you can override it when you create an
+-- instance. The default option is @instance-store@. For more information,
+-- see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
+createStack_defaultRootDeviceType :: Lens.Lens' CreateStack (Prelude.Maybe RootDeviceType)
+createStack_defaultRootDeviceType = Lens.lens (\CreateStack' {defaultRootDeviceType} -> defaultRootDeviceType) (\s@CreateStack' {} a -> s {defaultRootDeviceType = a} :: CreateStack)
+
+-- | The configuration manager. When you create a stack we recommend that you
+-- use the configuration manager to specify the Chef version: 12, 11.10, or
+-- 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for
+-- Linux stacks is currently 12.
+createStack_configurationManager :: Lens.Lens' CreateStack (Prelude.Maybe StackConfigurationManager)
+createStack_configurationManager = Lens.lens (\CreateStack' {configurationManager} -> configurationManager) (\s@CreateStack' {} a -> s {configurationManager = a} :: CreateStack)
+
+-- | The stack\'s default VPC subnet ID. This parameter is required if you
+-- specify a value for the @VpcId@ parameter. All instances are launched
+-- into this subnet unless you specify otherwise when you create the
+-- instance. If you also specify a value for @DefaultAvailabilityZone@, the
+-- subnet must be in that zone. For information on default values and when
+-- this parameter is required, see the @VpcId@ parameter description.
+createStack_defaultSubnetId :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
+createStack_defaultSubnetId = Lens.lens (\CreateStack' {defaultSubnetId} -> defaultSubnetId) (\s@CreateStack' {} a -> s {defaultSubnetId = a} :: CreateStack)
+
+-- | Whether the stack uses custom cookbooks.
+createStack_useCustomCookbooks :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Bool)
+createStack_useCustomCookbooks = Lens.lens (\CreateStack' {useCustomCookbooks} -> useCustomCookbooks) (\s@CreateStack' {} a -> s {useCustomCookbooks = a} :: CreateStack)
 
 -- | The stack\'s default operating system, which is installed on every
 -- instance unless you specify a different operating system when you create
@@ -757,58 +735,79 @@ createStack_defaultOs = Lens.lens (\CreateStack' {defaultOs} -> defaultOs) (\s@C
 createStack_useOpsworksSecurityGroups :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Bool)
 createStack_useOpsworksSecurityGroups = Lens.lens (\CreateStack' {useOpsworksSecurityGroups} -> useOpsworksSecurityGroups) (\s@CreateStack' {} a -> s {useOpsworksSecurityGroups = a} :: CreateStack)
 
--- | Whether the stack uses custom cookbooks.
-createStack_useCustomCookbooks :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Bool)
-createStack_useCustomCookbooks = Lens.lens (\CreateStack' {useCustomCookbooks} -> useCustomCookbooks) (\s@CreateStack' {} a -> s {useCustomCookbooks = a} :: CreateStack)
+-- | One or more user-defined key-value pairs to be added to the stack
+-- attributes.
+createStack_attributes :: Lens.Lens' CreateStack (Prelude.Maybe (Prelude.HashMap StackAttributesKeys (Prelude.Maybe Prelude.Text)))
+createStack_attributes = Lens.lens (\CreateStack' {attributes} -> attributes) (\s@CreateStack' {} a -> s {attributes = a} :: CreateStack) Prelude.. Lens.mapping Lens.coerced
 
--- | The stack\'s default VPC subnet ID. This parameter is required if you
--- specify a value for the @VpcId@ parameter. All instances are launched
--- into this subnet unless you specify otherwise when you create the
--- instance. If you also specify a value for @DefaultAvailabilityZone@, the
--- subnet must be in that zone. For information on default values and when
--- this parameter is required, see the @VpcId@ parameter description.
-createStack_defaultSubnetId :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
-createStack_defaultSubnetId = Lens.lens (\CreateStack' {defaultSubnetId} -> defaultSubnetId) (\s@CreateStack' {} a -> s {defaultSubnetId = a} :: CreateStack)
+-- | The ID of the VPC that the stack is to be launched into. The VPC must be
+-- in the stack\'s region. All instances are launched into this VPC. You
+-- cannot change the ID later.
+--
+-- -   If your account supports EC2-Classic, the default value is @no VPC@.
+--
+-- -   If your account does not support EC2-Classic, the default value is
+--     the default VPC for the specified region.
+--
+-- If the VPC ID corresponds to a default VPC and you have specified either
+-- the @DefaultAvailabilityZone@ or the @DefaultSubnetId@ parameter only,
+-- AWS OpsWorks Stacks infers the value of the other parameter. If you
+-- specify neither parameter, AWS OpsWorks Stacks sets these parameters to
+-- the first valid Availability Zone for the specified region and the
+-- corresponding default VPC subnet ID, respectively.
+--
+-- If you specify a nondefault VPC ID, note the following:
+--
+-- -   It must belong to a VPC in your account that is in the specified
+--     region.
+--
+-- -   You must specify a value for @DefaultSubnetId@.
+--
+-- For more information about how to use AWS OpsWorks Stacks with a VPC,
+-- see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html Running a Stack in a VPC>.
+-- For more information about default VPC and EC2-Classic, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>.
+createStack_vpcId :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
+createStack_vpcId = Lens.lens (\CreateStack' {vpcId} -> vpcId) (\s@CreateStack' {} a -> s {vpcId = a} :: CreateStack)
 
--- | The configuration manager. When you create a stack we recommend that you
--- use the configuration manager to specify the Chef version: 12, 11.10, or
--- 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for
--- Linux stacks is currently 12.
-createStack_configurationManager :: Lens.Lens' CreateStack (Prelude.Maybe StackConfigurationManager)
-createStack_configurationManager = Lens.lens (\CreateStack' {configurationManager} -> configurationManager) (\s@CreateStack' {} a -> s {configurationManager = a} :: CreateStack)
+-- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
+-- and the Berkshelf version on Chef 11.10 stacks. For more information,
+-- see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
+createStack_chefConfiguration :: Lens.Lens' CreateStack (Prelude.Maybe ChefConfiguration)
+createStack_chefConfiguration = Lens.lens (\CreateStack' {chefConfiguration} -> chefConfiguration) (\s@CreateStack' {} a -> s {chefConfiguration = a} :: CreateStack)
 
--- | The stack\'s host name theme, with spaces replaced by underscores. The
--- theme is used to generate host names for the stack\'s instances. By
--- default, @HostnameTheme@ is set to @Layer_Dependent@, which creates host
--- names by appending integers to the layer\'s short name. The other themes
--- are:
+-- | Contains the information required to retrieve an app or cookbook from a
+-- repository. For more information, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps>
+-- or
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html Cookbooks and Recipes>.
+createStack_customCookbooksSource :: Lens.Lens' CreateStack (Prelude.Maybe Source)
+createStack_customCookbooksSource = Lens.lens (\CreateStack' {customCookbooksSource} -> customCookbooksSource) (\s@CreateStack' {} a -> s {customCookbooksSource = a} :: CreateStack)
+
+-- | The default AWS OpsWorks Stacks agent version. You have the following
+-- options:
 --
--- -   @Baked_Goods@
+-- -   Auto-update - Set this parameter to @LATEST@. AWS OpsWorks Stacks
+--     automatically installs new agent versions on the stack\'s instances
+--     as soon as they are available.
 --
--- -   @Clouds@
+-- -   Fixed version - Set this parameter to your preferred agent version.
+--     To update the agent version, you must edit the stack configuration
+--     and specify a new version. AWS OpsWorks Stacks then automatically
+--     installs that version on the stack\'s instances.
 --
--- -   @Europe_Cities@
+-- The default setting is the most recent release of the agent. To specify
+-- an agent version, you must use the complete version number, not the
+-- abbreviated number shown on the console. For a list of available agent
+-- version numbers, call DescribeAgentVersions. AgentVersion cannot be set
+-- to Chef 12.2.
 --
--- -   @Fruits@
---
--- -   @Greek_Deities_and_Titans@
---
--- -   @Legendary_creatures_from_Japan@
---
--- -   @Planets_and_Moons@
---
--- -   @Roman_Deities@
---
--- -   @Scottish_Islands@
---
--- -   @US_Cities@
---
--- -   @Wild_Cats@
---
--- To obtain a generated host name, call @GetHostNameSuggestion@, which
--- returns a host name based on the current theme.
-createStack_hostnameTheme :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
-createStack_hostnameTheme = Lens.lens (\CreateStack' {hostnameTheme} -> hostnameTheme) (\s@CreateStack' {} a -> s {hostnameTheme = a} :: CreateStack)
+-- You can also specify an agent version when you create or update an
+-- instance, which overrides the stack\'s default setting.
+createStack_agentVersion :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
+createStack_agentVersion = Lens.lens (\CreateStack' {agentVersion} -> agentVersion) (\s@CreateStack' {} a -> s {agentVersion = a} :: CreateStack)
 
 -- | The stack name.
 createStack_name :: Lens.Lens' CreateStack Prelude.Text
@@ -865,21 +864,21 @@ instance Core.AWSRequest CreateStack where
 
 instance Prelude.Hashable CreateStack where
   hashWithSalt _salt CreateStack' {..} =
-    _salt `Prelude.hashWithSalt` defaultRootDeviceType
-      `Prelude.hashWithSalt` vpcId
-      `Prelude.hashWithSalt` chefConfiguration
-      `Prelude.hashWithSalt` agentVersion
+    _salt `Prelude.hashWithSalt` hostnameTheme
       `Prelude.hashWithSalt` defaultSshKeyName
       `Prelude.hashWithSalt` customJson
-      `Prelude.hashWithSalt` customCookbooksSource
       `Prelude.hashWithSalt` defaultAvailabilityZone
-      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` defaultRootDeviceType
+      `Prelude.hashWithSalt` configurationManager
+      `Prelude.hashWithSalt` defaultSubnetId
+      `Prelude.hashWithSalt` useCustomCookbooks
       `Prelude.hashWithSalt` defaultOs
       `Prelude.hashWithSalt` useOpsworksSecurityGroups
-      `Prelude.hashWithSalt` useCustomCookbooks
-      `Prelude.hashWithSalt` defaultSubnetId
-      `Prelude.hashWithSalt` configurationManager
-      `Prelude.hashWithSalt` hostnameTheme
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` chefConfiguration
+      `Prelude.hashWithSalt` customCookbooksSource
+      `Prelude.hashWithSalt` agentVersion
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` serviceRoleArn
@@ -887,21 +886,21 @@ instance Prelude.Hashable CreateStack where
 
 instance Prelude.NFData CreateStack where
   rnf CreateStack' {..} =
-    Prelude.rnf defaultRootDeviceType
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf chefConfiguration
-      `Prelude.seq` Prelude.rnf agentVersion
+    Prelude.rnf hostnameTheme
       `Prelude.seq` Prelude.rnf defaultSshKeyName
       `Prelude.seq` Prelude.rnf customJson
-      `Prelude.seq` Prelude.rnf customCookbooksSource
       `Prelude.seq` Prelude.rnf defaultAvailabilityZone
-      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf defaultRootDeviceType
+      `Prelude.seq` Prelude.rnf configurationManager
+      `Prelude.seq` Prelude.rnf defaultSubnetId
+      `Prelude.seq` Prelude.rnf useCustomCookbooks
       `Prelude.seq` Prelude.rnf defaultOs
       `Prelude.seq` Prelude.rnf useOpsworksSecurityGroups
-      `Prelude.seq` Prelude.rnf useCustomCookbooks
-      `Prelude.seq` Prelude.rnf defaultSubnetId
-      `Prelude.seq` Prelude.rnf configurationManager
-      `Prelude.seq` Prelude.rnf hostnameTheme
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf chefConfiguration
+      `Prelude.seq` Prelude.rnf customCookbooksSource
+      `Prelude.seq` Prelude.rnf agentVersion
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf region
       `Prelude.seq` Prelude.rnf serviceRoleArn
@@ -927,30 +926,30 @@ instance Core.ToJSON CreateStack where
   toJSON CreateStack' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DefaultRootDeviceType" Core..=)
-              Prelude.<$> defaultRootDeviceType,
-            ("VpcId" Core..=) Prelude.<$> vpcId,
-            ("ChefConfiguration" Core..=)
-              Prelude.<$> chefConfiguration,
-            ("AgentVersion" Core..=) Prelude.<$> agentVersion,
+          [ ("HostnameTheme" Core..=) Prelude.<$> hostnameTheme,
             ("DefaultSshKeyName" Core..=)
               Prelude.<$> defaultSshKeyName,
             ("CustomJson" Core..=) Prelude.<$> customJson,
-            ("CustomCookbooksSource" Core..=)
-              Prelude.<$> customCookbooksSource,
             ("DefaultAvailabilityZone" Core..=)
               Prelude.<$> defaultAvailabilityZone,
-            ("Attributes" Core..=) Prelude.<$> attributes,
+            ("DefaultRootDeviceType" Core..=)
+              Prelude.<$> defaultRootDeviceType,
+            ("ConfigurationManager" Core..=)
+              Prelude.<$> configurationManager,
+            ("DefaultSubnetId" Core..=)
+              Prelude.<$> defaultSubnetId,
+            ("UseCustomCookbooks" Core..=)
+              Prelude.<$> useCustomCookbooks,
             ("DefaultOs" Core..=) Prelude.<$> defaultOs,
             ("UseOpsworksSecurityGroups" Core..=)
               Prelude.<$> useOpsworksSecurityGroups,
-            ("UseCustomCookbooks" Core..=)
-              Prelude.<$> useCustomCookbooks,
-            ("DefaultSubnetId" Core..=)
-              Prelude.<$> defaultSubnetId,
-            ("ConfigurationManager" Core..=)
-              Prelude.<$> configurationManager,
-            ("HostnameTheme" Core..=) Prelude.<$> hostnameTheme,
+            ("Attributes" Core..=) Prelude.<$> attributes,
+            ("VpcId" Core..=) Prelude.<$> vpcId,
+            ("ChefConfiguration" Core..=)
+              Prelude.<$> chefConfiguration,
+            ("CustomCookbooksSource" Core..=)
+              Prelude.<$> customCookbooksSource,
+            ("AgentVersion" Core..=) Prelude.<$> agentVersion,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("Region" Core..= region),
             Prelude.Just

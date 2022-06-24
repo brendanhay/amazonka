@@ -35,8 +35,8 @@ module Amazonka.OpsWorks.DescribeLayers
     newDescribeLayers,
 
     -- * Request Lenses
-    describeLayers_layerIds,
     describeLayers_stackId,
+    describeLayers_layerIds,
 
     -- * Destructuring the Response
     DescribeLayersResponse (..),
@@ -57,12 +57,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeLayers' smart constructor.
 data DescribeLayers = DescribeLayers'
-  { -- | An array of layer IDs that specify the layers to be described. If you
+  { -- | The stack ID.
+    stackId :: Prelude.Maybe Prelude.Text,
+    -- | An array of layer IDs that specify the layers to be described. If you
     -- omit this parameter, @DescribeLayers@ returns a description of every
     -- layer in the specified stack.
-    layerIds :: Prelude.Maybe [Prelude.Text],
-    -- | The stack ID.
-    stackId :: Prelude.Maybe Prelude.Text
+    layerIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,28 +74,28 @@ data DescribeLayers = DescribeLayers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'stackId', 'describeLayers_stackId' - The stack ID.
+--
 -- 'layerIds', 'describeLayers_layerIds' - An array of layer IDs that specify the layers to be described. If you
 -- omit this parameter, @DescribeLayers@ returns a description of every
 -- layer in the specified stack.
---
--- 'stackId', 'describeLayers_stackId' - The stack ID.
 newDescribeLayers ::
   DescribeLayers
 newDescribeLayers =
   DescribeLayers'
-    { layerIds = Prelude.Nothing,
-      stackId = Prelude.Nothing
+    { stackId = Prelude.Nothing,
+      layerIds = Prelude.Nothing
     }
+
+-- | The stack ID.
+describeLayers_stackId :: Lens.Lens' DescribeLayers (Prelude.Maybe Prelude.Text)
+describeLayers_stackId = Lens.lens (\DescribeLayers' {stackId} -> stackId) (\s@DescribeLayers' {} a -> s {stackId = a} :: DescribeLayers)
 
 -- | An array of layer IDs that specify the layers to be described. If you
 -- omit this parameter, @DescribeLayers@ returns a description of every
 -- layer in the specified stack.
 describeLayers_layerIds :: Lens.Lens' DescribeLayers (Prelude.Maybe [Prelude.Text])
 describeLayers_layerIds = Lens.lens (\DescribeLayers' {layerIds} -> layerIds) (\s@DescribeLayers' {} a -> s {layerIds = a} :: DescribeLayers) Prelude.. Lens.mapping Lens.coerced
-
--- | The stack ID.
-describeLayers_stackId :: Lens.Lens' DescribeLayers (Prelude.Maybe Prelude.Text)
-describeLayers_stackId = Lens.lens (\DescribeLayers' {stackId} -> stackId) (\s@DescribeLayers' {} a -> s {stackId = a} :: DescribeLayers)
 
 instance Core.AWSRequest DescribeLayers where
   type
@@ -112,13 +112,13 @@ instance Core.AWSRequest DescribeLayers where
 
 instance Prelude.Hashable DescribeLayers where
   hashWithSalt _salt DescribeLayers' {..} =
-    _salt `Prelude.hashWithSalt` layerIds
-      `Prelude.hashWithSalt` stackId
+    _salt `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` layerIds
 
 instance Prelude.NFData DescribeLayers where
   rnf DescribeLayers' {..} =
-    Prelude.rnf layerIds
-      `Prelude.seq` Prelude.rnf stackId
+    Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf layerIds
 
 instance Core.ToHeaders DescribeLayers where
   toHeaders =
@@ -139,8 +139,8 @@ instance Core.ToJSON DescribeLayers where
   toJSON DescribeLayers' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("LayerIds" Core..=) Prelude.<$> layerIds,
-            ("StackId" Core..=) Prelude.<$> stackId
+          [ ("StackId" Core..=) Prelude.<$> stackId,
+            ("LayerIds" Core..=) Prelude.<$> layerIds
           ]
       )
 

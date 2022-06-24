@@ -27,14 +27,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOutputLogEvent' smart constructor.
 data OutputLogEvent = OutputLogEvent'
-  { -- | The time the event was ingested, expressed as the number of milliseconds
-    -- after Jan 1, 1970 00:00:00 UTC.
-    ingestionTime :: Prelude.Maybe Prelude.Natural,
-    -- | The data contained in the log event.
+  { -- | The data contained in the log event.
     message :: Prelude.Maybe Prelude.Text,
     -- | The time the event occurred, expressed as the number of milliseconds
     -- after Jan 1, 1970 00:00:00 UTC.
-    timestamp :: Prelude.Maybe Prelude.Natural
+    timestamp :: Prelude.Maybe Prelude.Natural,
+    -- | The time the event was ingested, expressed as the number of milliseconds
+    -- after Jan 1, 1970 00:00:00 UTC.
+    ingestionTime :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,26 +46,21 @@ data OutputLogEvent = OutputLogEvent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ingestionTime', 'outputLogEvent_ingestionTime' - The time the event was ingested, expressed as the number of milliseconds
--- after Jan 1, 1970 00:00:00 UTC.
---
 -- 'message', 'outputLogEvent_message' - The data contained in the log event.
 --
 -- 'timestamp', 'outputLogEvent_timestamp' - The time the event occurred, expressed as the number of milliseconds
+-- after Jan 1, 1970 00:00:00 UTC.
+--
+-- 'ingestionTime', 'outputLogEvent_ingestionTime' - The time the event was ingested, expressed as the number of milliseconds
 -- after Jan 1, 1970 00:00:00 UTC.
 newOutputLogEvent ::
   OutputLogEvent
 newOutputLogEvent =
   OutputLogEvent'
-    { ingestionTime = Prelude.Nothing,
-      message = Prelude.Nothing,
-      timestamp = Prelude.Nothing
+    { message = Prelude.Nothing,
+      timestamp = Prelude.Nothing,
+      ingestionTime = Prelude.Nothing
     }
-
--- | The time the event was ingested, expressed as the number of milliseconds
--- after Jan 1, 1970 00:00:00 UTC.
-outputLogEvent_ingestionTime :: Lens.Lens' OutputLogEvent (Prelude.Maybe Prelude.Natural)
-outputLogEvent_ingestionTime = Lens.lens (\OutputLogEvent' {ingestionTime} -> ingestionTime) (\s@OutputLogEvent' {} a -> s {ingestionTime = a} :: OutputLogEvent)
 
 -- | The data contained in the log event.
 outputLogEvent_message :: Lens.Lens' OutputLogEvent (Prelude.Maybe Prelude.Text)
@@ -76,25 +71,30 @@ outputLogEvent_message = Lens.lens (\OutputLogEvent' {message} -> message) (\s@O
 outputLogEvent_timestamp :: Lens.Lens' OutputLogEvent (Prelude.Maybe Prelude.Natural)
 outputLogEvent_timestamp = Lens.lens (\OutputLogEvent' {timestamp} -> timestamp) (\s@OutputLogEvent' {} a -> s {timestamp = a} :: OutputLogEvent)
 
+-- | The time the event was ingested, expressed as the number of milliseconds
+-- after Jan 1, 1970 00:00:00 UTC.
+outputLogEvent_ingestionTime :: Lens.Lens' OutputLogEvent (Prelude.Maybe Prelude.Natural)
+outputLogEvent_ingestionTime = Lens.lens (\OutputLogEvent' {ingestionTime} -> ingestionTime) (\s@OutputLogEvent' {} a -> s {ingestionTime = a} :: OutputLogEvent)
+
 instance Core.FromJSON OutputLogEvent where
   parseJSON =
     Core.withObject
       "OutputLogEvent"
       ( \x ->
           OutputLogEvent'
-            Prelude.<$> (x Core..:? "ingestionTime")
-            Prelude.<*> (x Core..:? "message")
+            Prelude.<$> (x Core..:? "message")
             Prelude.<*> (x Core..:? "timestamp")
+            Prelude.<*> (x Core..:? "ingestionTime")
       )
 
 instance Prelude.Hashable OutputLogEvent where
   hashWithSalt _salt OutputLogEvent' {..} =
-    _salt `Prelude.hashWithSalt` ingestionTime
-      `Prelude.hashWithSalt` message
+    _salt `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` ingestionTime
 
 instance Prelude.NFData OutputLogEvent where
   rnf OutputLogEvent' {..} =
-    Prelude.rnf ingestionTime
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf message
       `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf ingestionTime

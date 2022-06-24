@@ -31,12 +31,12 @@ module Amazonka.CloudWatchLogs.DescribeMetricFilters
     newDescribeMetricFilters,
 
     -- * Request Lenses
-    describeMetricFilters_filterNamePrefix,
-    describeMetricFilters_metricName,
-    describeMetricFilters_logGroupName,
     describeMetricFilters_nextToken,
-    describeMetricFilters_metricNamespace,
     describeMetricFilters_limit,
+    describeMetricFilters_metricName,
+    describeMetricFilters_filterNamePrefix,
+    describeMetricFilters_metricNamespace,
+    describeMetricFilters_logGroupName,
 
     -- * Destructuring the Response
     DescribeMetricFiltersResponse (..),
@@ -58,25 +58,25 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeMetricFilters' smart constructor.
 data DescribeMetricFilters = DescribeMetricFilters'
-  { -- | The prefix to match. CloudWatch Logs uses the value you set here only if
-    -- you also include the @logGroupName@ parameter in your request.
-    filterNamePrefix :: Prelude.Maybe Prelude.Text,
+  { -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items returned. If you don\'t specify a value, the
+    -- default is up to 50 items.
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | Filters results to include only those with the specified metric name. If
     -- you include this parameter in your request, you must also include the
     -- @metricNamespace@ parameter.
     metricName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the log group.
-    logGroupName :: Prelude.Maybe Prelude.Text,
-    -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The prefix to match. CloudWatch Logs uses the value you set here only if
+    -- you also include the @logGroupName@ parameter in your request.
+    filterNamePrefix :: Prelude.Maybe Prelude.Text,
     -- | Filters results to include only those in the specified namespace. If you
     -- include this parameter in your request, you must also include the
     -- @metricName@ parameter.
     metricNamespace :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items returned. If you don\'t specify a value, the
-    -- default is up to 50 items.
-    limit :: Prelude.Maybe Prelude.Natural
+    -- | The name of the log group.
+    logGroupName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,41 +88,45 @@ data DescribeMetricFilters = DescribeMetricFilters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filterNamePrefix', 'describeMetricFilters_filterNamePrefix' - The prefix to match. CloudWatch Logs uses the value you set here only if
--- you also include the @logGroupName@ parameter in your request.
+-- 'nextToken', 'describeMetricFilters_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
+--
+-- 'limit', 'describeMetricFilters_limit' - The maximum number of items returned. If you don\'t specify a value, the
+-- default is up to 50 items.
 --
 -- 'metricName', 'describeMetricFilters_metricName' - Filters results to include only those with the specified metric name. If
 -- you include this parameter in your request, you must also include the
 -- @metricNamespace@ parameter.
 --
--- 'logGroupName', 'describeMetricFilters_logGroupName' - The name of the log group.
---
--- 'nextToken', 'describeMetricFilters_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
+-- 'filterNamePrefix', 'describeMetricFilters_filterNamePrefix' - The prefix to match. CloudWatch Logs uses the value you set here only if
+-- you also include the @logGroupName@ parameter in your request.
 --
 -- 'metricNamespace', 'describeMetricFilters_metricNamespace' - Filters results to include only those in the specified namespace. If you
 -- include this parameter in your request, you must also include the
 -- @metricName@ parameter.
 --
--- 'limit', 'describeMetricFilters_limit' - The maximum number of items returned. If you don\'t specify a value, the
--- default is up to 50 items.
+-- 'logGroupName', 'describeMetricFilters_logGroupName' - The name of the log group.
 newDescribeMetricFilters ::
   DescribeMetricFilters
 newDescribeMetricFilters =
   DescribeMetricFilters'
-    { filterNamePrefix =
-        Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      limit = Prelude.Nothing,
       metricName = Prelude.Nothing,
-      logGroupName = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      filterNamePrefix = Prelude.Nothing,
       metricNamespace = Prelude.Nothing,
-      limit = Prelude.Nothing
+      logGroupName = Prelude.Nothing
     }
 
--- | The prefix to match. CloudWatch Logs uses the value you set here only if
--- you also include the @logGroupName@ parameter in your request.
-describeMetricFilters_filterNamePrefix :: Lens.Lens' DescribeMetricFilters (Prelude.Maybe Prelude.Text)
-describeMetricFilters_filterNamePrefix = Lens.lens (\DescribeMetricFilters' {filterNamePrefix} -> filterNamePrefix) (\s@DescribeMetricFilters' {} a -> s {filterNamePrefix = a} :: DescribeMetricFilters)
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeMetricFilters_nextToken :: Lens.Lens' DescribeMetricFilters (Prelude.Maybe Prelude.Text)
+describeMetricFilters_nextToken = Lens.lens (\DescribeMetricFilters' {nextToken} -> nextToken) (\s@DescribeMetricFilters' {} a -> s {nextToken = a} :: DescribeMetricFilters)
+
+-- | The maximum number of items returned. If you don\'t specify a value, the
+-- default is up to 50 items.
+describeMetricFilters_limit :: Lens.Lens' DescribeMetricFilters (Prelude.Maybe Prelude.Natural)
+describeMetricFilters_limit = Lens.lens (\DescribeMetricFilters' {limit} -> limit) (\s@DescribeMetricFilters' {} a -> s {limit = a} :: DescribeMetricFilters)
 
 -- | Filters results to include only those with the specified metric name. If
 -- you include this parameter in your request, you must also include the
@@ -130,14 +134,10 @@ describeMetricFilters_filterNamePrefix = Lens.lens (\DescribeMetricFilters' {fil
 describeMetricFilters_metricName :: Lens.Lens' DescribeMetricFilters (Prelude.Maybe Prelude.Text)
 describeMetricFilters_metricName = Lens.lens (\DescribeMetricFilters' {metricName} -> metricName) (\s@DescribeMetricFilters' {} a -> s {metricName = a} :: DescribeMetricFilters)
 
--- | The name of the log group.
-describeMetricFilters_logGroupName :: Lens.Lens' DescribeMetricFilters (Prelude.Maybe Prelude.Text)
-describeMetricFilters_logGroupName = Lens.lens (\DescribeMetricFilters' {logGroupName} -> logGroupName) (\s@DescribeMetricFilters' {} a -> s {logGroupName = a} :: DescribeMetricFilters)
-
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-describeMetricFilters_nextToken :: Lens.Lens' DescribeMetricFilters (Prelude.Maybe Prelude.Text)
-describeMetricFilters_nextToken = Lens.lens (\DescribeMetricFilters' {nextToken} -> nextToken) (\s@DescribeMetricFilters' {} a -> s {nextToken = a} :: DescribeMetricFilters)
+-- | The prefix to match. CloudWatch Logs uses the value you set here only if
+-- you also include the @logGroupName@ parameter in your request.
+describeMetricFilters_filterNamePrefix :: Lens.Lens' DescribeMetricFilters (Prelude.Maybe Prelude.Text)
+describeMetricFilters_filterNamePrefix = Lens.lens (\DescribeMetricFilters' {filterNamePrefix} -> filterNamePrefix) (\s@DescribeMetricFilters' {} a -> s {filterNamePrefix = a} :: DescribeMetricFilters)
 
 -- | Filters results to include only those in the specified namespace. If you
 -- include this parameter in your request, you must also include the
@@ -145,10 +145,9 @@ describeMetricFilters_nextToken = Lens.lens (\DescribeMetricFilters' {nextToken}
 describeMetricFilters_metricNamespace :: Lens.Lens' DescribeMetricFilters (Prelude.Maybe Prelude.Text)
 describeMetricFilters_metricNamespace = Lens.lens (\DescribeMetricFilters' {metricNamespace} -> metricNamespace) (\s@DescribeMetricFilters' {} a -> s {metricNamespace = a} :: DescribeMetricFilters)
 
--- | The maximum number of items returned. If you don\'t specify a value, the
--- default is up to 50 items.
-describeMetricFilters_limit :: Lens.Lens' DescribeMetricFilters (Prelude.Maybe Prelude.Natural)
-describeMetricFilters_limit = Lens.lens (\DescribeMetricFilters' {limit} -> limit) (\s@DescribeMetricFilters' {} a -> s {limit = a} :: DescribeMetricFilters)
+-- | The name of the log group.
+describeMetricFilters_logGroupName :: Lens.Lens' DescribeMetricFilters (Prelude.Maybe Prelude.Text)
+describeMetricFilters_logGroupName = Lens.lens (\DescribeMetricFilters' {logGroupName} -> logGroupName) (\s@DescribeMetricFilters' {} a -> s {logGroupName = a} :: DescribeMetricFilters)
 
 instance Core.AWSPager DescribeMetricFilters where
   page rq rs
@@ -188,21 +187,21 @@ instance Core.AWSRequest DescribeMetricFilters where
 
 instance Prelude.Hashable DescribeMetricFilters where
   hashWithSalt _salt DescribeMetricFilters' {..} =
-    _salt `Prelude.hashWithSalt` filterNamePrefix
-      `Prelude.hashWithSalt` metricName
-      `Prelude.hashWithSalt` logGroupName
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` metricNamespace
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` filterNamePrefix
+      `Prelude.hashWithSalt` metricNamespace
+      `Prelude.hashWithSalt` logGroupName
 
 instance Prelude.NFData DescribeMetricFilters where
   rnf DescribeMetricFilters' {..} =
-    Prelude.rnf filterNamePrefix
-      `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf metricNamespace
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf filterNamePrefix
+      `Prelude.seq` Prelude.rnf metricNamespace
+      `Prelude.seq` Prelude.rnf logGroupName
 
 instance Core.ToHeaders DescribeMetricFilters where
   toHeaders =
@@ -223,14 +222,14 @@ instance Core.ToJSON DescribeMetricFilters where
   toJSON DescribeMetricFilters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("filterNamePrefix" Core..=)
-              Prelude.<$> filterNamePrefix,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("limit" Core..=) Prelude.<$> limit,
             ("metricName" Core..=) Prelude.<$> metricName,
-            ("logGroupName" Core..=) Prelude.<$> logGroupName,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("filterNamePrefix" Core..=)
+              Prelude.<$> filterNamePrefix,
             ("metricNamespace" Core..=)
               Prelude.<$> metricNamespace,
-            ("limit" Core..=) Prelude.<$> limit
+            ("logGroupName" Core..=) Prelude.<$> logGroupName
           ]
       )
 

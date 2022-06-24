@@ -58,8 +58,8 @@ module Amazonka.CloudWatchLogs.CreateLogGroup
     newCreateLogGroup,
 
     -- * Request Lenses
-    createLogGroup_kmsKeyId,
     createLogGroup_tags,
+    createLogGroup_kmsKeyId,
     createLogGroup_logGroupName,
 
     -- * Destructuring the Response
@@ -77,11 +77,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateLogGroup' smart constructor.
 data CreateLogGroup = CreateLogGroup'
-  { -- | The Amazon Resource Name (ARN) of the CMK to use when encrypting log
-    -- data. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - Key Management Service>.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The key-value pairs to use for the tags.
+  { -- | The key-value pairs to use for the tags.
     --
     -- CloudWatch Logs doesn’t support IAM policies that prevent users from
     -- assigning specified tags to log groups using the
@@ -89,6 +85,10 @@ data CreateLogGroup = CreateLogGroup'
     -- information about using tags to control access, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html Controlling access to Amazon Web Services resources using tags>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The Amazon Resource Name (ARN) of the CMK to use when encrypting log
+    -- data. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - Key Management Service>.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The name of the log group.
     logGroupName :: Prelude.Text
   }
@@ -102,10 +102,6 @@ data CreateLogGroup = CreateLogGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyId', 'createLogGroup_kmsKeyId' - The Amazon Resource Name (ARN) of the CMK to use when encrypting log
--- data. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - Key Management Service>.
---
 -- 'tags', 'createLogGroup_tags' - The key-value pairs to use for the tags.
 --
 -- CloudWatch Logs doesn’t support IAM policies that prevent users from
@@ -114,6 +110,10 @@ data CreateLogGroup = CreateLogGroup'
 -- information about using tags to control access, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html Controlling access to Amazon Web Services resources using tags>.
 --
+-- 'kmsKeyId', 'createLogGroup_kmsKeyId' - The Amazon Resource Name (ARN) of the CMK to use when encrypting log
+-- data. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - Key Management Service>.
+--
 -- 'logGroupName', 'createLogGroup_logGroupName' - The name of the log group.
 newCreateLogGroup ::
   -- | 'logGroupName'
@@ -121,16 +121,10 @@ newCreateLogGroup ::
   CreateLogGroup
 newCreateLogGroup pLogGroupName_ =
   CreateLogGroup'
-    { kmsKeyId = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
       logGroupName = pLogGroupName_
     }
-
--- | The Amazon Resource Name (ARN) of the CMK to use when encrypting log
--- data. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - Key Management Service>.
-createLogGroup_kmsKeyId :: Lens.Lens' CreateLogGroup (Prelude.Maybe Prelude.Text)
-createLogGroup_kmsKeyId = Lens.lens (\CreateLogGroup' {kmsKeyId} -> kmsKeyId) (\s@CreateLogGroup' {} a -> s {kmsKeyId = a} :: CreateLogGroup)
 
 -- | The key-value pairs to use for the tags.
 --
@@ -141,6 +135,12 @@ createLogGroup_kmsKeyId = Lens.lens (\CreateLogGroup' {kmsKeyId} -> kmsKeyId) (\
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html Controlling access to Amazon Web Services resources using tags>.
 createLogGroup_tags :: Lens.Lens' CreateLogGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createLogGroup_tags = Lens.lens (\CreateLogGroup' {tags} -> tags) (\s@CreateLogGroup' {} a -> s {tags = a} :: CreateLogGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Name (ARN) of the CMK to use when encrypting log
+-- data. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - Key Management Service>.
+createLogGroup_kmsKeyId :: Lens.Lens' CreateLogGroup (Prelude.Maybe Prelude.Text)
+createLogGroup_kmsKeyId = Lens.lens (\CreateLogGroup' {kmsKeyId} -> kmsKeyId) (\s@CreateLogGroup' {} a -> s {kmsKeyId = a} :: CreateLogGroup)
 
 -- | The name of the log group.
 createLogGroup_logGroupName :: Lens.Lens' CreateLogGroup Prelude.Text
@@ -156,14 +156,14 @@ instance Core.AWSRequest CreateLogGroup where
 
 instance Prelude.Hashable CreateLogGroup where
   hashWithSalt _salt CreateLogGroup' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` logGroupName
 
 instance Prelude.NFData CreateLogGroup where
   rnf CreateLogGroup' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf logGroupName
 
 instance Core.ToHeaders CreateLogGroup where
@@ -185,8 +185,8 @@ instance Core.ToJSON CreateLogGroup where
   toJSON CreateLogGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId,
             Prelude.Just ("logGroupName" Core..= logGroupName)
           ]
       )

@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRejectedLogEventsInfo' smart constructor.
 data RejectedLogEventsInfo = RejectedLogEventsInfo'
-  { -- | The log events that are too old.
-    tooOldLogEventEndIndex :: Prelude.Maybe Prelude.Int,
-    -- | The log events that are too new.
+  { -- | The log events that are too new.
     tooNewLogEventStartIndex :: Prelude.Maybe Prelude.Int,
     -- | The expired log events.
-    expiredLogEventEndIndex :: Prelude.Maybe Prelude.Int
+    expiredLogEventEndIndex :: Prelude.Maybe Prelude.Int,
+    -- | The log events that are too old.
+    tooOldLogEventEndIndex :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,20 @@ data RejectedLogEventsInfo = RejectedLogEventsInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tooOldLogEventEndIndex', 'rejectedLogEventsInfo_tooOldLogEventEndIndex' - The log events that are too old.
---
 -- 'tooNewLogEventStartIndex', 'rejectedLogEventsInfo_tooNewLogEventStartIndex' - The log events that are too new.
 --
 -- 'expiredLogEventEndIndex', 'rejectedLogEventsInfo_expiredLogEventEndIndex' - The expired log events.
+--
+-- 'tooOldLogEventEndIndex', 'rejectedLogEventsInfo_tooOldLogEventEndIndex' - The log events that are too old.
 newRejectedLogEventsInfo ::
   RejectedLogEventsInfo
 newRejectedLogEventsInfo =
   RejectedLogEventsInfo'
-    { tooOldLogEventEndIndex =
+    { tooNewLogEventStartIndex =
         Prelude.Nothing,
-      tooNewLogEventStartIndex = Prelude.Nothing,
-      expiredLogEventEndIndex = Prelude.Nothing
+      expiredLogEventEndIndex = Prelude.Nothing,
+      tooOldLogEventEndIndex = Prelude.Nothing
     }
-
--- | The log events that are too old.
-rejectedLogEventsInfo_tooOldLogEventEndIndex :: Lens.Lens' RejectedLogEventsInfo (Prelude.Maybe Prelude.Int)
-rejectedLogEventsInfo_tooOldLogEventEndIndex = Lens.lens (\RejectedLogEventsInfo' {tooOldLogEventEndIndex} -> tooOldLogEventEndIndex) (\s@RejectedLogEventsInfo' {} a -> s {tooOldLogEventEndIndex = a} :: RejectedLogEventsInfo)
 
 -- | The log events that are too new.
 rejectedLogEventsInfo_tooNewLogEventStartIndex :: Lens.Lens' RejectedLogEventsInfo (Prelude.Maybe Prelude.Int)
@@ -71,25 +67,30 @@ rejectedLogEventsInfo_tooNewLogEventStartIndex = Lens.lens (\RejectedLogEventsIn
 rejectedLogEventsInfo_expiredLogEventEndIndex :: Lens.Lens' RejectedLogEventsInfo (Prelude.Maybe Prelude.Int)
 rejectedLogEventsInfo_expiredLogEventEndIndex = Lens.lens (\RejectedLogEventsInfo' {expiredLogEventEndIndex} -> expiredLogEventEndIndex) (\s@RejectedLogEventsInfo' {} a -> s {expiredLogEventEndIndex = a} :: RejectedLogEventsInfo)
 
+-- | The log events that are too old.
+rejectedLogEventsInfo_tooOldLogEventEndIndex :: Lens.Lens' RejectedLogEventsInfo (Prelude.Maybe Prelude.Int)
+rejectedLogEventsInfo_tooOldLogEventEndIndex = Lens.lens (\RejectedLogEventsInfo' {tooOldLogEventEndIndex} -> tooOldLogEventEndIndex) (\s@RejectedLogEventsInfo' {} a -> s {tooOldLogEventEndIndex = a} :: RejectedLogEventsInfo)
+
 instance Core.FromJSON RejectedLogEventsInfo where
   parseJSON =
     Core.withObject
       "RejectedLogEventsInfo"
       ( \x ->
           RejectedLogEventsInfo'
-            Prelude.<$> (x Core..:? "tooOldLogEventEndIndex")
-            Prelude.<*> (x Core..:? "tooNewLogEventStartIndex")
+            Prelude.<$> (x Core..:? "tooNewLogEventStartIndex")
             Prelude.<*> (x Core..:? "expiredLogEventEndIndex")
+            Prelude.<*> (x Core..:? "tooOldLogEventEndIndex")
       )
 
 instance Prelude.Hashable RejectedLogEventsInfo where
   hashWithSalt _salt RejectedLogEventsInfo' {..} =
-    _salt `Prelude.hashWithSalt` tooOldLogEventEndIndex
+    _salt
       `Prelude.hashWithSalt` tooNewLogEventStartIndex
       `Prelude.hashWithSalt` expiredLogEventEndIndex
+      `Prelude.hashWithSalt` tooOldLogEventEndIndex
 
 instance Prelude.NFData RejectedLogEventsInfo where
   rnf RejectedLogEventsInfo' {..} =
-    Prelude.rnf tooOldLogEventEndIndex
-      `Prelude.seq` Prelude.rnf tooNewLogEventStartIndex
+    Prelude.rnf tooNewLogEventStartIndex
       `Prelude.seq` Prelude.rnf expiredLogEventEndIndex
+      `Prelude.seq` Prelude.rnf tooOldLogEventEndIndex

@@ -48,9 +48,9 @@ module Amazonka.CloudWatchLogs.GetQueryResults
     newGetQueryResultsResponse,
 
     -- * Response Lenses
+    getQueryResultsResponse_statistics,
     getQueryResultsResponse_status,
     getQueryResultsResponse_results,
-    getQueryResultsResponse_statistics,
     getQueryResultsResponse_httpStatus,
   )
 where
@@ -98,9 +98,9 @@ instance Core.AWSRequest GetQueryResults where
     Response.receiveJSON
       ( \s h x ->
           GetQueryResultsResponse'
-            Prelude.<$> (x Core..?> "status")
+            Prelude.<$> (x Core..?> "statistics")
+            Prelude.<*> (x Core..?> "status")
             Prelude.<*> (x Core..?> "results" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "statistics")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,7 +141,12 @@ instance Core.ToQuery GetQueryResults where
 
 -- | /See:/ 'newGetQueryResultsResponse' smart constructor.
 data GetQueryResultsResponse = GetQueryResultsResponse'
-  { -- | The status of the most recent running of the query. Possible values are
+  { -- | Includes the number of log events scanned by the query, the number of
+    -- log events that matched the query criteria, and the total number of
+    -- bytes in the log events that were scanned. These values reflect the full
+    -- raw results of the query.
+    statistics :: Prelude.Maybe QueryStatistics,
+    -- | The status of the most recent running of the query. Possible values are
     -- @Cancelled@, @Complete@, @Failed@, @Running@, @Scheduled@, @Timeout@,
     -- and @Unknown@.
     --
@@ -156,11 +161,6 @@ data GetQueryResultsResponse = GetQueryResultsResponse'
     -- in the top-level array. Each of these log event objects is an array of
     -- @field@\/@value@ pairs.
     results :: Prelude.Maybe [[ResultField]],
-    -- | Includes the number of log events scanned by the query, the number of
-    -- log events that matched the query criteria, and the total number of
-    -- bytes in the log events that were scanned. These values reflect the full
-    -- raw results of the query.
-    statistics :: Prelude.Maybe QueryStatistics,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -173,6 +173,11 @@ data GetQueryResultsResponse = GetQueryResultsResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'statistics', 'getQueryResultsResponse_statistics' - Includes the number of log events scanned by the query, the number of
+-- log events that matched the query criteria, and the total number of
+-- bytes in the log events that were scanned. These values reflect the full
+-- raw results of the query.
 --
 -- 'status', 'getQueryResultsResponse_status' - The status of the most recent running of the query. Possible values are
 -- @Cancelled@, @Complete@, @Failed@, @Running@, @Scheduled@, @Timeout@,
@@ -189,11 +194,6 @@ data GetQueryResultsResponse = GetQueryResultsResponse'
 -- in the top-level array. Each of these log event objects is an array of
 -- @field@\/@value@ pairs.
 --
--- 'statistics', 'getQueryResultsResponse_statistics' - Includes the number of log events scanned by the query, the number of
--- log events that matched the query criteria, and the total number of
--- bytes in the log events that were scanned. These values reflect the full
--- raw results of the query.
---
 -- 'httpStatus', 'getQueryResultsResponse_httpStatus' - The response's http status code.
 newGetQueryResultsResponse ::
   -- | 'httpStatus'
@@ -201,11 +201,19 @@ newGetQueryResultsResponse ::
   GetQueryResultsResponse
 newGetQueryResultsResponse pHttpStatus_ =
   GetQueryResultsResponse'
-    { status = Prelude.Nothing,
+    { statistics =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
       results = Prelude.Nothing,
-      statistics = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Includes the number of log events scanned by the query, the number of
+-- log events that matched the query criteria, and the total number of
+-- bytes in the log events that were scanned. These values reflect the full
+-- raw results of the query.
+getQueryResultsResponse_statistics :: Lens.Lens' GetQueryResultsResponse (Prelude.Maybe QueryStatistics)
+getQueryResultsResponse_statistics = Lens.lens (\GetQueryResultsResponse' {statistics} -> statistics) (\s@GetQueryResultsResponse' {} a -> s {statistics = a} :: GetQueryResultsResponse)
 
 -- | The status of the most recent running of the query. Possible values are
 -- @Cancelled@, @Complete@, @Failed@, @Running@, @Scheduled@, @Timeout@,
@@ -226,20 +234,13 @@ getQueryResultsResponse_status = Lens.lens (\GetQueryResultsResponse' {status} -
 getQueryResultsResponse_results :: Lens.Lens' GetQueryResultsResponse (Prelude.Maybe [[ResultField]])
 getQueryResultsResponse_results = Lens.lens (\GetQueryResultsResponse' {results} -> results) (\s@GetQueryResultsResponse' {} a -> s {results = a} :: GetQueryResultsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Includes the number of log events scanned by the query, the number of
--- log events that matched the query criteria, and the total number of
--- bytes in the log events that were scanned. These values reflect the full
--- raw results of the query.
-getQueryResultsResponse_statistics :: Lens.Lens' GetQueryResultsResponse (Prelude.Maybe QueryStatistics)
-getQueryResultsResponse_statistics = Lens.lens (\GetQueryResultsResponse' {statistics} -> statistics) (\s@GetQueryResultsResponse' {} a -> s {statistics = a} :: GetQueryResultsResponse)
-
 -- | The response's http status code.
 getQueryResultsResponse_httpStatus :: Lens.Lens' GetQueryResultsResponse Prelude.Int
 getQueryResultsResponse_httpStatus = Lens.lens (\GetQueryResultsResponse' {httpStatus} -> httpStatus) (\s@GetQueryResultsResponse' {} a -> s {httpStatus = a} :: GetQueryResultsResponse)
 
 instance Prelude.NFData GetQueryResultsResponse where
   rnf GetQueryResultsResponse' {..} =
-    Prelude.rnf status
+    Prelude.rnf statistics
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf results
-      `Prelude.seq` Prelude.rnf statistics
       `Prelude.seq` Prelude.rnf httpStatus

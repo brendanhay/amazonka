@@ -30,8 +30,8 @@ module Amazonka.CloudWatchLogs.DescribeExportTasks
     newDescribeExportTasks,
 
     -- * Request Lenses
-    describeExportTasks_taskId,
     describeExportTasks_nextToken,
+    describeExportTasks_taskId,
     describeExportTasks_limit,
     describeExportTasks_statusCode,
 
@@ -55,12 +55,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeExportTasks' smart constructor.
 data DescribeExportTasks = DescribeExportTasks'
-  { -- | The ID of the export task. Specifying a task ID filters the results to
-    -- zero or one export tasks.
-    taskId :: Prelude.Maybe Prelude.Text,
-    -- | The token for the next set of items to return. (You received this token
+  { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the export task. Specifying a task ID filters the results to
+    -- zero or one export tasks.
+    taskId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items returned. If you don\'t specify a value, the
     -- default is up to 50 items.
     limit :: Prelude.Maybe Prelude.Natural,
@@ -78,11 +78,11 @@ data DescribeExportTasks = DescribeExportTasks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'taskId', 'describeExportTasks_taskId' - The ID of the export task. Specifying a task ID filters the results to
--- zero or one export tasks.
---
 -- 'nextToken', 'describeExportTasks_nextToken' - The token for the next set of items to return. (You received this token
 -- from a previous call.)
+--
+-- 'taskId', 'describeExportTasks_taskId' - The ID of the export task. Specifying a task ID filters the results to
+-- zero or one export tasks.
 --
 -- 'limit', 'describeExportTasks_limit' - The maximum number of items returned. If you don\'t specify a value, the
 -- default is up to 50 items.
@@ -93,21 +93,21 @@ newDescribeExportTasks ::
   DescribeExportTasks
 newDescribeExportTasks =
   DescribeExportTasks'
-    { taskId = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      taskId = Prelude.Nothing,
       limit = Prelude.Nothing,
       statusCode = Prelude.Nothing
     }
-
--- | The ID of the export task. Specifying a task ID filters the results to
--- zero or one export tasks.
-describeExportTasks_taskId :: Lens.Lens' DescribeExportTasks (Prelude.Maybe Prelude.Text)
-describeExportTasks_taskId = Lens.lens (\DescribeExportTasks' {taskId} -> taskId) (\s@DescribeExportTasks' {} a -> s {taskId = a} :: DescribeExportTasks)
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
 describeExportTasks_nextToken :: Lens.Lens' DescribeExportTasks (Prelude.Maybe Prelude.Text)
 describeExportTasks_nextToken = Lens.lens (\DescribeExportTasks' {nextToken} -> nextToken) (\s@DescribeExportTasks' {} a -> s {nextToken = a} :: DescribeExportTasks)
+
+-- | The ID of the export task. Specifying a task ID filters the results to
+-- zero or one export tasks.
+describeExportTasks_taskId :: Lens.Lens' DescribeExportTasks (Prelude.Maybe Prelude.Text)
+describeExportTasks_taskId = Lens.lens (\DescribeExportTasks' {taskId} -> taskId) (\s@DescribeExportTasks' {} a -> s {taskId = a} :: DescribeExportTasks)
 
 -- | The maximum number of items returned. If you don\'t specify a value, the
 -- default is up to 50 items.
@@ -157,15 +157,15 @@ instance Core.AWSRequest DescribeExportTasks where
 
 instance Prelude.Hashable DescribeExportTasks where
   hashWithSalt _salt DescribeExportTasks' {..} =
-    _salt `Prelude.hashWithSalt` taskId
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` taskId
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` statusCode
 
 instance Prelude.NFData DescribeExportTasks where
   rnf DescribeExportTasks' {..} =
-    Prelude.rnf taskId
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf taskId
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf statusCode
 
@@ -188,8 +188,8 @@ instance Core.ToJSON DescribeExportTasks where
   toJSON DescribeExportTasks' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("taskId" Core..=) Prelude.<$> taskId,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("taskId" Core..=) Prelude.<$> taskId,
             ("limit" Core..=) Prelude.<$> limit,
             ("statusCode" Core..=) Prelude.<$> statusCode
           ]

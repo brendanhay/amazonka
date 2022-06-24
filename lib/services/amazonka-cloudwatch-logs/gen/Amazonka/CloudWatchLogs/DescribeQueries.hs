@@ -32,18 +32,18 @@ module Amazonka.CloudWatchLogs.DescribeQueries
     newDescribeQueries,
 
     -- * Request Lenses
-    describeQueries_status,
-    describeQueries_logGroupName,
     describeQueries_nextToken,
+    describeQueries_status,
     describeQueries_maxResults,
+    describeQueries_logGroupName,
 
     -- * Destructuring the Response
     DescribeQueriesResponse (..),
     newDescribeQueriesResponse,
 
     -- * Response Lenses
-    describeQueriesResponse_queries,
     describeQueriesResponse_nextToken,
+    describeQueriesResponse_queries,
     describeQueriesResponse_httpStatus,
   )
 where
@@ -57,15 +57,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeQueries' smart constructor.
 data DescribeQueries = DescribeQueries'
-  { -- | Limits the returned queries to only those that have the specified
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Limits the returned queries to only those that have the specified
     -- status. Valid values are @Cancelled@, @Complete@, @Failed@, @Running@,
     -- and @Scheduled@.
     status :: Prelude.Maybe QueryStatus,
-    -- | Limits the returned queries to only those for the specified log group.
-    logGroupName :: Prelude.Maybe Prelude.Text,
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Limits the number of returned queries to the specified number.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Limits the returned queries to only those for the specified log group.
+    logGroupName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,24 +77,28 @@ data DescribeQueries = DescribeQueries'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describeQueries_nextToken' - Undocumented member.
+--
 -- 'status', 'describeQueries_status' - Limits the returned queries to only those that have the specified
 -- status. Valid values are @Cancelled@, @Complete@, @Failed@, @Running@,
 -- and @Scheduled@.
 --
--- 'logGroupName', 'describeQueries_logGroupName' - Limits the returned queries to only those for the specified log group.
---
--- 'nextToken', 'describeQueries_nextToken' - Undocumented member.
---
 -- 'maxResults', 'describeQueries_maxResults' - Limits the number of returned queries to the specified number.
+--
+-- 'logGroupName', 'describeQueries_logGroupName' - Limits the returned queries to only those for the specified log group.
 newDescribeQueries ::
   DescribeQueries
 newDescribeQueries =
   DescribeQueries'
-    { status = Prelude.Nothing,
-      logGroupName = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Prelude.Nothing,
+      status = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      logGroupName = Prelude.Nothing
     }
+
+-- | Undocumented member.
+describeQueries_nextToken :: Lens.Lens' DescribeQueries (Prelude.Maybe Prelude.Text)
+describeQueries_nextToken = Lens.lens (\DescribeQueries' {nextToken} -> nextToken) (\s@DescribeQueries' {} a -> s {nextToken = a} :: DescribeQueries)
 
 -- | Limits the returned queries to only those that have the specified
 -- status. Valid values are @Cancelled@, @Complete@, @Failed@, @Running@,
@@ -102,17 +106,13 @@ newDescribeQueries =
 describeQueries_status :: Lens.Lens' DescribeQueries (Prelude.Maybe QueryStatus)
 describeQueries_status = Lens.lens (\DescribeQueries' {status} -> status) (\s@DescribeQueries' {} a -> s {status = a} :: DescribeQueries)
 
--- | Limits the returned queries to only those for the specified log group.
-describeQueries_logGroupName :: Lens.Lens' DescribeQueries (Prelude.Maybe Prelude.Text)
-describeQueries_logGroupName = Lens.lens (\DescribeQueries' {logGroupName} -> logGroupName) (\s@DescribeQueries' {} a -> s {logGroupName = a} :: DescribeQueries)
-
--- | Undocumented member.
-describeQueries_nextToken :: Lens.Lens' DescribeQueries (Prelude.Maybe Prelude.Text)
-describeQueries_nextToken = Lens.lens (\DescribeQueries' {nextToken} -> nextToken) (\s@DescribeQueries' {} a -> s {nextToken = a} :: DescribeQueries)
-
 -- | Limits the number of returned queries to the specified number.
 describeQueries_maxResults :: Lens.Lens' DescribeQueries (Prelude.Maybe Prelude.Natural)
 describeQueries_maxResults = Lens.lens (\DescribeQueries' {maxResults} -> maxResults) (\s@DescribeQueries' {} a -> s {maxResults = a} :: DescribeQueries)
+
+-- | Limits the returned queries to only those for the specified log group.
+describeQueries_logGroupName :: Lens.Lens' DescribeQueries (Prelude.Maybe Prelude.Text)
+describeQueries_logGroupName = Lens.lens (\DescribeQueries' {logGroupName} -> logGroupName) (\s@DescribeQueries' {} a -> s {logGroupName = a} :: DescribeQueries)
 
 instance Core.AWSPager DescribeQueries where
   page rq rs
@@ -144,24 +144,24 @@ instance Core.AWSRequest DescribeQueries where
     Response.receiveJSON
       ( \s h x ->
           DescribeQueriesResponse'
-            Prelude.<$> (x Core..?> "queries" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "queries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeQueries where
   hashWithSalt _salt DescribeQueries' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` logGroupName
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` logGroupName
 
 instance Prelude.NFData DescribeQueries where
   rnf DescribeQueries' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf logGroupName
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf logGroupName
 
 instance Core.ToHeaders DescribeQueries where
   toHeaders =
@@ -182,10 +182,10 @@ instance Core.ToJSON DescribeQueries where
   toJSON DescribeQueries' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("status" Core..=) Prelude.<$> status,
-            ("logGroupName" Core..=) Prelude.<$> logGroupName,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("status" Core..=) Prelude.<$> status,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("logGroupName" Core..=) Prelude.<$> logGroupName
           ]
       )
 
@@ -197,9 +197,9 @@ instance Core.ToQuery DescribeQueries where
 
 -- | /See:/ 'newDescribeQueriesResponse' smart constructor.
 data DescribeQueriesResponse = DescribeQueriesResponse'
-  { -- | The list of queries that match the request.
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of queries that match the request.
     queries :: Prelude.Maybe [QueryInfo],
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -213,9 +213,9 @@ data DescribeQueriesResponse = DescribeQueriesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'queries', 'describeQueriesResponse_queries' - The list of queries that match the request.
---
 -- 'nextToken', 'describeQueriesResponse_nextToken' - Undocumented member.
+--
+-- 'queries', 'describeQueriesResponse_queries' - The list of queries that match the request.
 --
 -- 'httpStatus', 'describeQueriesResponse_httpStatus' - The response's http status code.
 newDescribeQueriesResponse ::
@@ -224,18 +224,19 @@ newDescribeQueriesResponse ::
   DescribeQueriesResponse
 newDescribeQueriesResponse pHttpStatus_ =
   DescribeQueriesResponse'
-    { queries = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      queries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The list of queries that match the request.
-describeQueriesResponse_queries :: Lens.Lens' DescribeQueriesResponse (Prelude.Maybe [QueryInfo])
-describeQueriesResponse_queries = Lens.lens (\DescribeQueriesResponse' {queries} -> queries) (\s@DescribeQueriesResponse' {} a -> s {queries = a} :: DescribeQueriesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 describeQueriesResponse_nextToken :: Lens.Lens' DescribeQueriesResponse (Prelude.Maybe Prelude.Text)
 describeQueriesResponse_nextToken = Lens.lens (\DescribeQueriesResponse' {nextToken} -> nextToken) (\s@DescribeQueriesResponse' {} a -> s {nextToken = a} :: DescribeQueriesResponse)
+
+-- | The list of queries that match the request.
+describeQueriesResponse_queries :: Lens.Lens' DescribeQueriesResponse (Prelude.Maybe [QueryInfo])
+describeQueriesResponse_queries = Lens.lens (\DescribeQueriesResponse' {queries} -> queries) (\s@DescribeQueriesResponse' {} a -> s {queries = a} :: DescribeQueriesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeQueriesResponse_httpStatus :: Lens.Lens' DescribeQueriesResponse Prelude.Int
@@ -243,6 +244,6 @@ describeQueriesResponse_httpStatus = Lens.lens (\DescribeQueriesResponse' {httpS
 
 instance Prelude.NFData DescribeQueriesResponse where
   rnf DescribeQueriesResponse' {..} =
-    Prelude.rnf queries
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf queries
       `Prelude.seq` Prelude.rnf httpStatus

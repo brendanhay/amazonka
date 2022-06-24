@@ -30,12 +30,12 @@ module Amazonka.GroundStation.UpdateMissionProfile
     newUpdateMissionProfile,
 
     -- * Request Lenses
-    updateMissionProfile_trackingConfigArn,
-    updateMissionProfile_contactPrePassDurationSeconds,
-    updateMissionProfile_contactPostPassDurationSeconds,
     updateMissionProfile_name,
-    updateMissionProfile_dataflowEdges,
     updateMissionProfile_minimumViableContactDurationSeconds,
+    updateMissionProfile_contactPrePassDurationSeconds,
+    updateMissionProfile_dataflowEdges,
+    updateMissionProfile_contactPostPassDurationSeconds,
+    updateMissionProfile_trackingConfigArn,
     updateMissionProfile_missionProfileId,
 
     -- * Destructuring the Response
@@ -58,23 +58,23 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateMissionProfile' smart constructor.
 data UpdateMissionProfile = UpdateMissionProfile'
-  { -- | ARN of a tracking @Config@.
-    trackingConfigArn :: Prelude.Maybe Prelude.Text,
-    -- | Amount of time after a contact ends that you’d like to receive a
-    -- CloudWatch event indicating the pass has finished.
-    contactPrePassDurationSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | Amount of time after a contact ends that you’d like to receive a
-    -- CloudWatch event indicating the pass has finished.
-    contactPostPassDurationSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | Name of a mission profile.
+  { -- | Name of a mission profile.
     name :: Prelude.Maybe Prelude.Text,
-    -- | A list of lists of ARNs. Each list of ARNs is an edge, with a /from/
-    -- @Config@ and a /to/ @Config@.
-    dataflowEdges :: Prelude.Maybe [Prelude.NonEmpty Prelude.Text],
     -- | Smallest amount of time in seconds that you’d like to see for an
     -- available contact. AWS Ground Station will not present you with contacts
     -- shorter than this duration.
     minimumViableContactDurationSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | Amount of time after a contact ends that you’d like to receive a
+    -- CloudWatch event indicating the pass has finished.
+    contactPrePassDurationSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | A list of lists of ARNs. Each list of ARNs is an edge, with a /from/
+    -- @Config@ and a /to/ @Config@.
+    dataflowEdges :: Prelude.Maybe [Prelude.NonEmpty Prelude.Text],
+    -- | Amount of time after a contact ends that you’d like to receive a
+    -- CloudWatch event indicating the pass has finished.
+    contactPostPassDurationSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | ARN of a tracking @Config@.
+    trackingConfigArn :: Prelude.Maybe Prelude.Text,
     -- | UUID of a mission profile.
     missionProfileId :: Prelude.Text
   }
@@ -88,22 +88,22 @@ data UpdateMissionProfile = UpdateMissionProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'trackingConfigArn', 'updateMissionProfile_trackingConfigArn' - ARN of a tracking @Config@.
---
--- 'contactPrePassDurationSeconds', 'updateMissionProfile_contactPrePassDurationSeconds' - Amount of time after a contact ends that you’d like to receive a
--- CloudWatch event indicating the pass has finished.
---
--- 'contactPostPassDurationSeconds', 'updateMissionProfile_contactPostPassDurationSeconds' - Amount of time after a contact ends that you’d like to receive a
--- CloudWatch event indicating the pass has finished.
---
 -- 'name', 'updateMissionProfile_name' - Name of a mission profile.
---
--- 'dataflowEdges', 'updateMissionProfile_dataflowEdges' - A list of lists of ARNs. Each list of ARNs is an edge, with a /from/
--- @Config@ and a /to/ @Config@.
 --
 -- 'minimumViableContactDurationSeconds', 'updateMissionProfile_minimumViableContactDurationSeconds' - Smallest amount of time in seconds that you’d like to see for an
 -- available contact. AWS Ground Station will not present you with contacts
 -- shorter than this duration.
+--
+-- 'contactPrePassDurationSeconds', 'updateMissionProfile_contactPrePassDurationSeconds' - Amount of time after a contact ends that you’d like to receive a
+-- CloudWatch event indicating the pass has finished.
+--
+-- 'dataflowEdges', 'updateMissionProfile_dataflowEdges' - A list of lists of ARNs. Each list of ARNs is an edge, with a /from/
+-- @Config@ and a /to/ @Config@.
+--
+-- 'contactPostPassDurationSeconds', 'updateMissionProfile_contactPostPassDurationSeconds' - Amount of time after a contact ends that you’d like to receive a
+-- CloudWatch event indicating the pass has finished.
+--
+-- 'trackingConfigArn', 'updateMissionProfile_trackingConfigArn' - ARN of a tracking @Config@.
 --
 -- 'missionProfileId', 'updateMissionProfile_missionProfileId' - UUID of a mission profile.
 newUpdateMissionProfile ::
@@ -112,45 +112,44 @@ newUpdateMissionProfile ::
   UpdateMissionProfile
 newUpdateMissionProfile pMissionProfileId_ =
   UpdateMissionProfile'
-    { trackingConfigArn =
-        Prelude.Nothing,
-      contactPrePassDurationSeconds = Prelude.Nothing,
-      contactPostPassDurationSeconds = Prelude.Nothing,
-      name = Prelude.Nothing,
-      dataflowEdges = Prelude.Nothing,
+    { name = Prelude.Nothing,
       minimumViableContactDurationSeconds =
         Prelude.Nothing,
+      contactPrePassDurationSeconds = Prelude.Nothing,
+      dataflowEdges = Prelude.Nothing,
+      contactPostPassDurationSeconds = Prelude.Nothing,
+      trackingConfigArn = Prelude.Nothing,
       missionProfileId = pMissionProfileId_
     }
-
--- | ARN of a tracking @Config@.
-updateMissionProfile_trackingConfigArn :: Lens.Lens' UpdateMissionProfile (Prelude.Maybe Prelude.Text)
-updateMissionProfile_trackingConfigArn = Lens.lens (\UpdateMissionProfile' {trackingConfigArn} -> trackingConfigArn) (\s@UpdateMissionProfile' {} a -> s {trackingConfigArn = a} :: UpdateMissionProfile)
-
--- | Amount of time after a contact ends that you’d like to receive a
--- CloudWatch event indicating the pass has finished.
-updateMissionProfile_contactPrePassDurationSeconds :: Lens.Lens' UpdateMissionProfile (Prelude.Maybe Prelude.Natural)
-updateMissionProfile_contactPrePassDurationSeconds = Lens.lens (\UpdateMissionProfile' {contactPrePassDurationSeconds} -> contactPrePassDurationSeconds) (\s@UpdateMissionProfile' {} a -> s {contactPrePassDurationSeconds = a} :: UpdateMissionProfile)
-
--- | Amount of time after a contact ends that you’d like to receive a
--- CloudWatch event indicating the pass has finished.
-updateMissionProfile_contactPostPassDurationSeconds :: Lens.Lens' UpdateMissionProfile (Prelude.Maybe Prelude.Natural)
-updateMissionProfile_contactPostPassDurationSeconds = Lens.lens (\UpdateMissionProfile' {contactPostPassDurationSeconds} -> contactPostPassDurationSeconds) (\s@UpdateMissionProfile' {} a -> s {contactPostPassDurationSeconds = a} :: UpdateMissionProfile)
 
 -- | Name of a mission profile.
 updateMissionProfile_name :: Lens.Lens' UpdateMissionProfile (Prelude.Maybe Prelude.Text)
 updateMissionProfile_name = Lens.lens (\UpdateMissionProfile' {name} -> name) (\s@UpdateMissionProfile' {} a -> s {name = a} :: UpdateMissionProfile)
-
--- | A list of lists of ARNs. Each list of ARNs is an edge, with a /from/
--- @Config@ and a /to/ @Config@.
-updateMissionProfile_dataflowEdges :: Lens.Lens' UpdateMissionProfile (Prelude.Maybe [Prelude.NonEmpty Prelude.Text])
-updateMissionProfile_dataflowEdges = Lens.lens (\UpdateMissionProfile' {dataflowEdges} -> dataflowEdges) (\s@UpdateMissionProfile' {} a -> s {dataflowEdges = a} :: UpdateMissionProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- | Smallest amount of time in seconds that you’d like to see for an
 -- available contact. AWS Ground Station will not present you with contacts
 -- shorter than this duration.
 updateMissionProfile_minimumViableContactDurationSeconds :: Lens.Lens' UpdateMissionProfile (Prelude.Maybe Prelude.Natural)
 updateMissionProfile_minimumViableContactDurationSeconds = Lens.lens (\UpdateMissionProfile' {minimumViableContactDurationSeconds} -> minimumViableContactDurationSeconds) (\s@UpdateMissionProfile' {} a -> s {minimumViableContactDurationSeconds = a} :: UpdateMissionProfile)
+
+-- | Amount of time after a contact ends that you’d like to receive a
+-- CloudWatch event indicating the pass has finished.
+updateMissionProfile_contactPrePassDurationSeconds :: Lens.Lens' UpdateMissionProfile (Prelude.Maybe Prelude.Natural)
+updateMissionProfile_contactPrePassDurationSeconds = Lens.lens (\UpdateMissionProfile' {contactPrePassDurationSeconds} -> contactPrePassDurationSeconds) (\s@UpdateMissionProfile' {} a -> s {contactPrePassDurationSeconds = a} :: UpdateMissionProfile)
+
+-- | A list of lists of ARNs. Each list of ARNs is an edge, with a /from/
+-- @Config@ and a /to/ @Config@.
+updateMissionProfile_dataflowEdges :: Lens.Lens' UpdateMissionProfile (Prelude.Maybe [Prelude.NonEmpty Prelude.Text])
+updateMissionProfile_dataflowEdges = Lens.lens (\UpdateMissionProfile' {dataflowEdges} -> dataflowEdges) (\s@UpdateMissionProfile' {} a -> s {dataflowEdges = a} :: UpdateMissionProfile) Prelude.. Lens.mapping Lens.coerced
+
+-- | Amount of time after a contact ends that you’d like to receive a
+-- CloudWatch event indicating the pass has finished.
+updateMissionProfile_contactPostPassDurationSeconds :: Lens.Lens' UpdateMissionProfile (Prelude.Maybe Prelude.Natural)
+updateMissionProfile_contactPostPassDurationSeconds = Lens.lens (\UpdateMissionProfile' {contactPostPassDurationSeconds} -> contactPostPassDurationSeconds) (\s@UpdateMissionProfile' {} a -> s {contactPostPassDurationSeconds = a} :: UpdateMissionProfile)
+
+-- | ARN of a tracking @Config@.
+updateMissionProfile_trackingConfigArn :: Lens.Lens' UpdateMissionProfile (Prelude.Maybe Prelude.Text)
+updateMissionProfile_trackingConfigArn = Lens.lens (\UpdateMissionProfile' {trackingConfigArn} -> trackingConfigArn) (\s@UpdateMissionProfile' {} a -> s {trackingConfigArn = a} :: UpdateMissionProfile)
 
 -- | UUID of a mission profile.
 updateMissionProfile_missionProfileId :: Lens.Lens' UpdateMissionProfile Prelude.Text
@@ -167,22 +166,22 @@ instance Core.AWSRequest UpdateMissionProfile where
 
 instance Prelude.Hashable UpdateMissionProfile where
   hashWithSalt _salt UpdateMissionProfile' {..} =
-    _salt `Prelude.hashWithSalt` trackingConfigArn
-      `Prelude.hashWithSalt` contactPrePassDurationSeconds
-      `Prelude.hashWithSalt` contactPostPassDurationSeconds
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` dataflowEdges
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` minimumViableContactDurationSeconds
+      `Prelude.hashWithSalt` contactPrePassDurationSeconds
+      `Prelude.hashWithSalt` dataflowEdges
+      `Prelude.hashWithSalt` contactPostPassDurationSeconds
+      `Prelude.hashWithSalt` trackingConfigArn
       `Prelude.hashWithSalt` missionProfileId
 
 instance Prelude.NFData UpdateMissionProfile where
   rnf UpdateMissionProfile' {..} =
-    Prelude.rnf trackingConfigArn
-      `Prelude.seq` Prelude.rnf contactPrePassDurationSeconds
-      `Prelude.seq` Prelude.rnf contactPostPassDurationSeconds
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf dataflowEdges
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf minimumViableContactDurationSeconds
+      `Prelude.seq` Prelude.rnf contactPrePassDurationSeconds
+      `Prelude.seq` Prelude.rnf dataflowEdges
+      `Prelude.seq` Prelude.rnf contactPostPassDurationSeconds
+      `Prelude.seq` Prelude.rnf trackingConfigArn
       `Prelude.seq` Prelude.rnf missionProfileId
 
 instance Core.ToHeaders UpdateMissionProfile where
@@ -200,16 +199,16 @@ instance Core.ToJSON UpdateMissionProfile where
   toJSON UpdateMissionProfile' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("trackingConfigArn" Core..=)
-              Prelude.<$> trackingConfigArn,
+          [ ("name" Core..=) Prelude.<$> name,
+            ("minimumViableContactDurationSeconds" Core..=)
+              Prelude.<$> minimumViableContactDurationSeconds,
             ("contactPrePassDurationSeconds" Core..=)
               Prelude.<$> contactPrePassDurationSeconds,
+            ("dataflowEdges" Core..=) Prelude.<$> dataflowEdges,
             ("contactPostPassDurationSeconds" Core..=)
               Prelude.<$> contactPostPassDurationSeconds,
-            ("name" Core..=) Prelude.<$> name,
-            ("dataflowEdges" Core..=) Prelude.<$> dataflowEdges,
-            ("minimumViableContactDurationSeconds" Core..=)
-              Prelude.<$> minimumViableContactDurationSeconds
+            ("trackingConfigArn" Core..=)
+              Prelude.<$> trackingConfigArn
           ]
       )
 

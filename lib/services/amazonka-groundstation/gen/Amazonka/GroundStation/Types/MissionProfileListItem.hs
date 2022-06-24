@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMissionProfileListItem' smart constructor.
 data MissionProfileListItem = MissionProfileListItem'
-  { -- | UUID of a mission profile.
-    missionProfileId :: Prelude.Maybe Prelude.Text,
-    -- | ARN of a mission profile.
+  { -- | ARN of a mission profile.
     missionProfileArn :: Prelude.Maybe Prelude.Text,
     -- | Name of a mission profile.
     name :: Prelude.Maybe Prelude.Text,
+    -- | UUID of a mission profile.
+    missionProfileId :: Prelude.Maybe Prelude.Text,
     -- | Region of a mission profile.
     region :: Prelude.Maybe Prelude.Text
   }
@@ -46,27 +46,23 @@ data MissionProfileListItem = MissionProfileListItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'missionProfileId', 'missionProfileListItem_missionProfileId' - UUID of a mission profile.
---
 -- 'missionProfileArn', 'missionProfileListItem_missionProfileArn' - ARN of a mission profile.
 --
 -- 'name', 'missionProfileListItem_name' - Name of a mission profile.
+--
+-- 'missionProfileId', 'missionProfileListItem_missionProfileId' - UUID of a mission profile.
 --
 -- 'region', 'missionProfileListItem_region' - Region of a mission profile.
 newMissionProfileListItem ::
   MissionProfileListItem
 newMissionProfileListItem =
   MissionProfileListItem'
-    { missionProfileId =
+    { missionProfileArn =
         Prelude.Nothing,
-      missionProfileArn = Prelude.Nothing,
       name = Prelude.Nothing,
+      missionProfileId = Prelude.Nothing,
       region = Prelude.Nothing
     }
-
--- | UUID of a mission profile.
-missionProfileListItem_missionProfileId :: Lens.Lens' MissionProfileListItem (Prelude.Maybe Prelude.Text)
-missionProfileListItem_missionProfileId = Lens.lens (\MissionProfileListItem' {missionProfileId} -> missionProfileId) (\s@MissionProfileListItem' {} a -> s {missionProfileId = a} :: MissionProfileListItem)
 
 -- | ARN of a mission profile.
 missionProfileListItem_missionProfileArn :: Lens.Lens' MissionProfileListItem (Prelude.Maybe Prelude.Text)
@@ -75,6 +71,10 @@ missionProfileListItem_missionProfileArn = Lens.lens (\MissionProfileListItem' {
 -- | Name of a mission profile.
 missionProfileListItem_name :: Lens.Lens' MissionProfileListItem (Prelude.Maybe Prelude.Text)
 missionProfileListItem_name = Lens.lens (\MissionProfileListItem' {name} -> name) (\s@MissionProfileListItem' {} a -> s {name = a} :: MissionProfileListItem)
+
+-- | UUID of a mission profile.
+missionProfileListItem_missionProfileId :: Lens.Lens' MissionProfileListItem (Prelude.Maybe Prelude.Text)
+missionProfileListItem_missionProfileId = Lens.lens (\MissionProfileListItem' {missionProfileId} -> missionProfileId) (\s@MissionProfileListItem' {} a -> s {missionProfileId = a} :: MissionProfileListItem)
 
 -- | Region of a mission profile.
 missionProfileListItem_region :: Lens.Lens' MissionProfileListItem (Prelude.Maybe Prelude.Text)
@@ -86,22 +86,22 @@ instance Core.FromJSON MissionProfileListItem where
       "MissionProfileListItem"
       ( \x ->
           MissionProfileListItem'
-            Prelude.<$> (x Core..:? "missionProfileId")
-            Prelude.<*> (x Core..:? "missionProfileArn")
+            Prelude.<$> (x Core..:? "missionProfileArn")
             Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "missionProfileId")
             Prelude.<*> (x Core..:? "region")
       )
 
 instance Prelude.Hashable MissionProfileListItem where
   hashWithSalt _salt MissionProfileListItem' {..} =
-    _salt `Prelude.hashWithSalt` missionProfileId
-      `Prelude.hashWithSalt` missionProfileArn
+    _salt `Prelude.hashWithSalt` missionProfileArn
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` missionProfileId
       `Prelude.hashWithSalt` region
 
 instance Prelude.NFData MissionProfileListItem where
   rnf MissionProfileListItem' {..} =
-    Prelude.rnf missionProfileId
-      `Prelude.seq` Prelude.rnf missionProfileArn
+    Prelude.rnf missionProfileArn
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf missionProfileId
       `Prelude.seq` Prelude.rnf region

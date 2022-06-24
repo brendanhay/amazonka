@@ -23,17 +23,17 @@ module Amazonka.GroundStation
     -- * Errors
     -- $errors
 
-    -- ** InvalidParameterException
-    _InvalidParameterException,
-
-    -- ** DependencyException
-    _DependencyException,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** ResourceLimitExceededException
     _ResourceLimitExceededException,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** DependencyException
+    _DependencyException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
 
     -- * Waiters
     -- $waiters
@@ -41,11 +41,113 @@ module Amazonka.GroundStation
     -- * Operations
     -- $operations
 
+    -- ** CancelContact
+    CancelContact (CancelContact'),
+    newCancelContact,
+    ContactIdResponse (ContactIdResponse'),
+    newContactIdResponse,
+
+    -- ** CreateConfig
+    CreateConfig (CreateConfig'),
+    newCreateConfig,
+    ConfigIdResponse (ConfigIdResponse'),
+    newConfigIdResponse,
+
+    -- ** CreateDataflowEndpointGroup
+    CreateDataflowEndpointGroup (CreateDataflowEndpointGroup'),
+    newCreateDataflowEndpointGroup,
+    DataflowEndpointGroupIdResponse (DataflowEndpointGroupIdResponse'),
+    newDataflowEndpointGroupIdResponse,
+
+    -- ** CreateMissionProfile
+    CreateMissionProfile (CreateMissionProfile'),
+    newCreateMissionProfile,
+    MissionProfileIdResponse (MissionProfileIdResponse'),
+    newMissionProfileIdResponse,
+
+    -- ** DeleteConfig
+    DeleteConfig (DeleteConfig'),
+    newDeleteConfig,
+    ConfigIdResponse (ConfigIdResponse'),
+    newConfigIdResponse,
+
     -- ** DeleteDataflowEndpointGroup
     DeleteDataflowEndpointGroup (DeleteDataflowEndpointGroup'),
     newDeleteDataflowEndpointGroup,
     DataflowEndpointGroupIdResponse (DataflowEndpointGroupIdResponse'),
     newDataflowEndpointGroupIdResponse,
+
+    -- ** DeleteMissionProfile
+    DeleteMissionProfile (DeleteMissionProfile'),
+    newDeleteMissionProfile,
+    MissionProfileIdResponse (MissionProfileIdResponse'),
+    newMissionProfileIdResponse,
+
+    -- ** DescribeContact
+    DescribeContact (DescribeContact'),
+    newDescribeContact,
+    DescribeContactResponse (DescribeContactResponse'),
+    newDescribeContactResponse,
+
+    -- ** GetConfig
+    GetConfig (GetConfig'),
+    newGetConfig,
+    GetConfigResponse (GetConfigResponse'),
+    newGetConfigResponse,
+
+    -- ** GetDataflowEndpointGroup
+    GetDataflowEndpointGroup (GetDataflowEndpointGroup'),
+    newGetDataflowEndpointGroup,
+    GetDataflowEndpointGroupResponse (GetDataflowEndpointGroupResponse'),
+    newGetDataflowEndpointGroupResponse,
+
+    -- ** GetMinuteUsage
+    GetMinuteUsage (GetMinuteUsage'),
+    newGetMinuteUsage,
+    GetMinuteUsageResponse (GetMinuteUsageResponse'),
+    newGetMinuteUsageResponse,
+
+    -- ** GetMissionProfile
+    GetMissionProfile (GetMissionProfile'),
+    newGetMissionProfile,
+    GetMissionProfileResponse (GetMissionProfileResponse'),
+    newGetMissionProfileResponse,
+
+    -- ** GetSatellite
+    GetSatellite (GetSatellite'),
+    newGetSatellite,
+    GetSatelliteResponse (GetSatelliteResponse'),
+    newGetSatelliteResponse,
+
+    -- ** ListConfigs (Paginated)
+    ListConfigs (ListConfigs'),
+    newListConfigs,
+    ListConfigsResponse (ListConfigsResponse'),
+    newListConfigsResponse,
+
+    -- ** ListContacts (Paginated)
+    ListContacts (ListContacts'),
+    newListContacts,
+    ListContactsResponse (ListContactsResponse'),
+    newListContactsResponse,
+
+    -- ** ListDataflowEndpointGroups (Paginated)
+    ListDataflowEndpointGroups (ListDataflowEndpointGroups'),
+    newListDataflowEndpointGroups,
+    ListDataflowEndpointGroupsResponse (ListDataflowEndpointGroupsResponse'),
+    newListDataflowEndpointGroupsResponse,
+
+    -- ** ListGroundStations (Paginated)
+    ListGroundStations (ListGroundStations'),
+    newListGroundStations,
+    ListGroundStationsResponse (ListGroundStationsResponse'),
+    newListGroundStationsResponse,
+
+    -- ** ListMissionProfiles (Paginated)
+    ListMissionProfiles (ListMissionProfiles'),
+    newListMissionProfiles,
+    ListMissionProfilesResponse (ListMissionProfilesResponse'),
+    newListMissionProfilesResponse,
 
     -- ** ListSatellites (Paginated)
     ListSatellites (ListSatellites'),
@@ -59,83 +161,11 @@ module Amazonka.GroundStation
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
 
-    -- ** GetMinuteUsage
-    GetMinuteUsage (GetMinuteUsage'),
-    newGetMinuteUsage,
-    GetMinuteUsageResponse (GetMinuteUsageResponse'),
-    newGetMinuteUsageResponse,
-
-    -- ** DescribeContact
-    DescribeContact (DescribeContact'),
-    newDescribeContact,
-    DescribeContactResponse (DescribeContactResponse'),
-    newDescribeContactResponse,
-
     -- ** ReserveContact
     ReserveContact (ReserveContact'),
     newReserveContact,
     ContactIdResponse (ContactIdResponse'),
     newContactIdResponse,
-
-    -- ** CreateMissionProfile
-    CreateMissionProfile (CreateMissionProfile'),
-    newCreateMissionProfile,
-    MissionProfileIdResponse (MissionProfileIdResponse'),
-    newMissionProfileIdResponse,
-
-    -- ** ListGroundStations (Paginated)
-    ListGroundStations (ListGroundStations'),
-    newListGroundStations,
-    ListGroundStationsResponse (ListGroundStationsResponse'),
-    newListGroundStationsResponse,
-
-    -- ** CreateConfig
-    CreateConfig (CreateConfig'),
-    newCreateConfig,
-    ConfigIdResponse (ConfigIdResponse'),
-    newConfigIdResponse,
-
-    -- ** ListMissionProfiles (Paginated)
-    ListMissionProfiles (ListMissionProfiles'),
-    newListMissionProfiles,
-    ListMissionProfilesResponse (ListMissionProfilesResponse'),
-    newListMissionProfilesResponse,
-
-    -- ** GetMissionProfile
-    GetMissionProfile (GetMissionProfile'),
-    newGetMissionProfile,
-    GetMissionProfileResponse (GetMissionProfileResponse'),
-    newGetMissionProfileResponse,
-
-    -- ** GetConfig
-    GetConfig (GetConfig'),
-    newGetConfig,
-    GetConfigResponse (GetConfigResponse'),
-    newGetConfigResponse,
-
-    -- ** ListDataflowEndpointGroups (Paginated)
-    ListDataflowEndpointGroups (ListDataflowEndpointGroups'),
-    newListDataflowEndpointGroups,
-    ListDataflowEndpointGroupsResponse (ListDataflowEndpointGroupsResponse'),
-    newListDataflowEndpointGroupsResponse,
-
-    -- ** CreateDataflowEndpointGroup
-    CreateDataflowEndpointGroup (CreateDataflowEndpointGroup'),
-    newCreateDataflowEndpointGroup,
-    DataflowEndpointGroupIdResponse (DataflowEndpointGroupIdResponse'),
-    newDataflowEndpointGroupIdResponse,
-
-    -- ** GetSatellite
-    GetSatellite (GetSatellite'),
-    newGetSatellite,
-    GetSatelliteResponse (GetSatelliteResponse'),
-    newGetSatelliteResponse,
-
-    -- ** GetDataflowEndpointGroup
-    GetDataflowEndpointGroup (GetDataflowEndpointGroup'),
-    newGetDataflowEndpointGroup,
-    GetDataflowEndpointGroupResponse (GetDataflowEndpointGroupResponse'),
-    newGetDataflowEndpointGroupResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -143,11 +173,11 @@ module Amazonka.GroundStation
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
-    -- ** ListConfigs (Paginated)
-    ListConfigs (ListConfigs'),
-    newListConfigs,
-    ListConfigsResponse (ListConfigsResponse'),
-    newListConfigsResponse,
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
     -- ** UpdateConfig
     UpdateConfig (UpdateConfig'),
@@ -155,41 +185,11 @@ module Amazonka.GroundStation
     ConfigIdResponse (ConfigIdResponse'),
     newConfigIdResponse,
 
-    -- ** DeleteConfig
-    DeleteConfig (DeleteConfig'),
-    newDeleteConfig,
-    ConfigIdResponse (ConfigIdResponse'),
-    newConfigIdResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
     -- ** UpdateMissionProfile
     UpdateMissionProfile (UpdateMissionProfile'),
     newUpdateMissionProfile,
     MissionProfileIdResponse (MissionProfileIdResponse'),
     newMissionProfileIdResponse,
-
-    -- ** DeleteMissionProfile
-    DeleteMissionProfile (DeleteMissionProfile'),
-    newDeleteMissionProfile,
-    MissionProfileIdResponse (MissionProfileIdResponse'),
-    newMissionProfileIdResponse,
-
-    -- ** CancelContact
-    CancelContact (CancelContact'),
-    newCancelContact,
-    ContactIdResponse (ContactIdResponse'),
-    newContactIdResponse,
-
-    -- ** ListContacts (Paginated)
-    ListContacts (ListContacts'),
-    newListContacts,
-    ListContactsResponse (ListContactsResponse'),
-    newListContactsResponse,
 
     -- * Types
 

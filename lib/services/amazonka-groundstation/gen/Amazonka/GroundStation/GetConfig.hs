@@ -37,8 +37,8 @@ module Amazonka.GroundStation.GetConfig
     newGetConfigResponse,
 
     -- * Response Lenses
-    getConfigResponse_configType,
     getConfigResponse_tags,
+    getConfigResponse_configType,
     getConfigResponse_httpStatus,
     getConfigResponse_configArn,
     getConfigResponse_configData,
@@ -103,8 +103,8 @@ instance Core.AWSRequest GetConfig where
     Response.receiveJSON
       ( \s h x ->
           GetConfigResponse'
-            Prelude.<$> (x Core..?> "configType")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "configType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "configArn")
             Prelude.<*> (x Core..:> "configData")
@@ -149,10 +149,10 @@ instance Core.ToQuery GetConfig where
 --
 -- /See:/ 'newGetConfigResponse' smart constructor.
 data GetConfigResponse = GetConfigResponse'
-  { -- | Type of a @Config@.
-    configType :: Prelude.Maybe ConfigCapabilityType,
-    -- | Tags assigned to a @Config@.
+  { -- | Tags assigned to a @Config@.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Type of a @Config@.
+    configType :: Prelude.Maybe ConfigCapabilityType,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | ARN of a @Config@
@@ -174,9 +174,9 @@ data GetConfigResponse = GetConfigResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configType', 'getConfigResponse_configType' - Type of a @Config@.
---
 -- 'tags', 'getConfigResponse_tags' - Tags assigned to a @Config@.
+--
+-- 'configType', 'getConfigResponse_configType' - Type of a @Config@.
 --
 -- 'httpStatus', 'getConfigResponse_httpStatus' - The response's http status code.
 --
@@ -206,8 +206,8 @@ newGetConfigResponse
   pConfigId_
   pName_ =
     GetConfigResponse'
-      { configType = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        configType = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         configArn = pConfigArn_,
         configData = pConfigData_,
@@ -215,13 +215,13 @@ newGetConfigResponse
         name = pName_
       }
 
--- | Type of a @Config@.
-getConfigResponse_configType :: Lens.Lens' GetConfigResponse (Prelude.Maybe ConfigCapabilityType)
-getConfigResponse_configType = Lens.lens (\GetConfigResponse' {configType} -> configType) (\s@GetConfigResponse' {} a -> s {configType = a} :: GetConfigResponse)
-
 -- | Tags assigned to a @Config@.
 getConfigResponse_tags :: Lens.Lens' GetConfigResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getConfigResponse_tags = Lens.lens (\GetConfigResponse' {tags} -> tags) (\s@GetConfigResponse' {} a -> s {tags = a} :: GetConfigResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Type of a @Config@.
+getConfigResponse_configType :: Lens.Lens' GetConfigResponse (Prelude.Maybe ConfigCapabilityType)
+getConfigResponse_configType = Lens.lens (\GetConfigResponse' {configType} -> configType) (\s@GetConfigResponse' {} a -> s {configType = a} :: GetConfigResponse)
 
 -- | The response's http status code.
 getConfigResponse_httpStatus :: Lens.Lens' GetConfigResponse Prelude.Int
@@ -245,8 +245,8 @@ getConfigResponse_name = Lens.lens (\GetConfigResponse' {name} -> name) (\s@GetC
 
 instance Prelude.NFData GetConfigResponse where
   rnf GetConfigResponse' {..} =
-    Prelude.rnf configType
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf configType
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf configArn
       `Prelude.seq` Prelude.rnf configData

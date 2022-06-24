@@ -33,11 +33,11 @@ data Destination = Destination'
     dataflowDestinationRegion :: Prelude.Maybe Prelude.Text,
     -- | UUID of a @Config@.
     configId :: Prelude.Maybe Prelude.Text,
-    -- | Type of a @Config@.
-    configType :: Prelude.Maybe ConfigCapabilityType,
     -- | Additional details for a @Config@, if type is dataflow endpoint or
     -- antenna demod decode.
-    configDetails :: Prelude.Maybe ConfigDetails
+    configDetails :: Prelude.Maybe ConfigDetails,
+    -- | Type of a @Config@.
+    configType :: Prelude.Maybe ConfigCapabilityType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,10 +53,10 @@ data Destination = Destination'
 --
 -- 'configId', 'destination_configId' - UUID of a @Config@.
 --
--- 'configType', 'destination_configType' - Type of a @Config@.
---
 -- 'configDetails', 'destination_configDetails' - Additional details for a @Config@, if type is dataflow endpoint or
 -- antenna demod decode.
+--
+-- 'configType', 'destination_configType' - Type of a @Config@.
 newDestination ::
   Destination
 newDestination =
@@ -64,8 +64,8 @@ newDestination =
     { dataflowDestinationRegion =
         Prelude.Nothing,
       configId = Prelude.Nothing,
-      configType = Prelude.Nothing,
-      configDetails = Prelude.Nothing
+      configDetails = Prelude.Nothing,
+      configType = Prelude.Nothing
     }
 
 -- | Region of a dataflow destination.
@@ -76,14 +76,14 @@ destination_dataflowDestinationRegion = Lens.lens (\Destination' {dataflowDestin
 destination_configId :: Lens.Lens' Destination (Prelude.Maybe Prelude.Text)
 destination_configId = Lens.lens (\Destination' {configId} -> configId) (\s@Destination' {} a -> s {configId = a} :: Destination)
 
--- | Type of a @Config@.
-destination_configType :: Lens.Lens' Destination (Prelude.Maybe ConfigCapabilityType)
-destination_configType = Lens.lens (\Destination' {configType} -> configType) (\s@Destination' {} a -> s {configType = a} :: Destination)
-
 -- | Additional details for a @Config@, if type is dataflow endpoint or
 -- antenna demod decode.
 destination_configDetails :: Lens.Lens' Destination (Prelude.Maybe ConfigDetails)
 destination_configDetails = Lens.lens (\Destination' {configDetails} -> configDetails) (\s@Destination' {} a -> s {configDetails = a} :: Destination)
+
+-- | Type of a @Config@.
+destination_configType :: Lens.Lens' Destination (Prelude.Maybe ConfigCapabilityType)
+destination_configType = Lens.lens (\Destination' {configType} -> configType) (\s@Destination' {} a -> s {configType = a} :: Destination)
 
 instance Core.FromJSON Destination where
   parseJSON =
@@ -93,8 +93,8 @@ instance Core.FromJSON Destination where
           Destination'
             Prelude.<$> (x Core..:? "dataflowDestinationRegion")
             Prelude.<*> (x Core..:? "configId")
-            Prelude.<*> (x Core..:? "configType")
             Prelude.<*> (x Core..:? "configDetails")
+            Prelude.<*> (x Core..:? "configType")
       )
 
 instance Prelude.Hashable Destination where
@@ -102,12 +102,12 @@ instance Prelude.Hashable Destination where
     _salt
       `Prelude.hashWithSalt` dataflowDestinationRegion
       `Prelude.hashWithSalt` configId
-      `Prelude.hashWithSalt` configType
       `Prelude.hashWithSalt` configDetails
+      `Prelude.hashWithSalt` configType
 
 instance Prelude.NFData Destination where
   rnf Destination' {..} =
     Prelude.rnf dataflowDestinationRegion
       `Prelude.seq` Prelude.rnf configId
-      `Prelude.seq` Prelude.rnf configType
       `Prelude.seq` Prelude.rnf configDetails
+      `Prelude.seq` Prelude.rnf configType

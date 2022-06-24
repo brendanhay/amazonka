@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConfigListItem' smart constructor.
 data ConfigListItem = ConfigListItem'
-  { -- | ARN of a @Config@.
-    configArn :: Prelude.Maybe Prelude.Text,
-    -- | Name of a @Config@.
+  { -- | Name of a @Config@.
     name :: Prelude.Maybe Prelude.Text,
     -- | UUID of a @Config@.
     configId :: Prelude.Maybe Prelude.Text,
     -- | Type of a @Config@.
-    configType :: Prelude.Maybe ConfigCapabilityType
+    configType :: Prelude.Maybe ConfigCapabilityType,
+    -- | ARN of a @Config@.
+    configArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,26 +47,22 @@ data ConfigListItem = ConfigListItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configArn', 'configListItem_configArn' - ARN of a @Config@.
---
 -- 'name', 'configListItem_name' - Name of a @Config@.
 --
 -- 'configId', 'configListItem_configId' - UUID of a @Config@.
 --
 -- 'configType', 'configListItem_configType' - Type of a @Config@.
+--
+-- 'configArn', 'configListItem_configArn' - ARN of a @Config@.
 newConfigListItem ::
   ConfigListItem
 newConfigListItem =
   ConfigListItem'
-    { configArn = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
       configId = Prelude.Nothing,
-      configType = Prelude.Nothing
+      configType = Prelude.Nothing,
+      configArn = Prelude.Nothing
     }
-
--- | ARN of a @Config@.
-configListItem_configArn :: Lens.Lens' ConfigListItem (Prelude.Maybe Prelude.Text)
-configListItem_configArn = Lens.lens (\ConfigListItem' {configArn} -> configArn) (\s@ConfigListItem' {} a -> s {configArn = a} :: ConfigListItem)
 
 -- | Name of a @Config@.
 configListItem_name :: Lens.Lens' ConfigListItem (Prelude.Maybe Prelude.Text)
@@ -80,28 +76,32 @@ configListItem_configId = Lens.lens (\ConfigListItem' {configId} -> configId) (\
 configListItem_configType :: Lens.Lens' ConfigListItem (Prelude.Maybe ConfigCapabilityType)
 configListItem_configType = Lens.lens (\ConfigListItem' {configType} -> configType) (\s@ConfigListItem' {} a -> s {configType = a} :: ConfigListItem)
 
+-- | ARN of a @Config@.
+configListItem_configArn :: Lens.Lens' ConfigListItem (Prelude.Maybe Prelude.Text)
+configListItem_configArn = Lens.lens (\ConfigListItem' {configArn} -> configArn) (\s@ConfigListItem' {} a -> s {configArn = a} :: ConfigListItem)
+
 instance Core.FromJSON ConfigListItem where
   parseJSON =
     Core.withObject
       "ConfigListItem"
       ( \x ->
           ConfigListItem'
-            Prelude.<$> (x Core..:? "configArn")
-            Prelude.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "name")
             Prelude.<*> (x Core..:? "configId")
             Prelude.<*> (x Core..:? "configType")
+            Prelude.<*> (x Core..:? "configArn")
       )
 
 instance Prelude.Hashable ConfigListItem where
   hashWithSalt _salt ConfigListItem' {..} =
-    _salt `Prelude.hashWithSalt` configArn
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` configId
       `Prelude.hashWithSalt` configType
+      `Prelude.hashWithSalt` configArn
 
 instance Prelude.NFData ConfigListItem where
   rnf ConfigListItem' {..} =
-    Prelude.rnf configArn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf configId
       `Prelude.seq` Prelude.rnf configType
+      `Prelude.seq` Prelude.rnf configArn

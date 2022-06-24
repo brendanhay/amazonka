@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDataflowEndpoint' smart constructor.
 data DataflowEndpoint = DataflowEndpoint'
-  { -- | Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
-    mtu :: Prelude.Maybe Prelude.Natural,
+  { -- | Name of a dataflow endpoint.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Status of a dataflow endpoint.
     status :: Prelude.Maybe EndpointStatus,
     -- | Socket address of a dataflow endpoint.
     address :: Prelude.Maybe SocketAddress,
-    -- | Name of a dataflow endpoint.
-    name :: Prelude.Maybe Prelude.Text
+    -- | Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+    mtu :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,26 +48,26 @@ data DataflowEndpoint = DataflowEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'mtu', 'dataflowEndpoint_mtu' - Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+-- 'name', 'dataflowEndpoint_name' - Name of a dataflow endpoint.
 --
 -- 'status', 'dataflowEndpoint_status' - Status of a dataflow endpoint.
 --
 -- 'address', 'dataflowEndpoint_address' - Socket address of a dataflow endpoint.
 --
--- 'name', 'dataflowEndpoint_name' - Name of a dataflow endpoint.
+-- 'mtu', 'dataflowEndpoint_mtu' - Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
 newDataflowEndpoint ::
   DataflowEndpoint
 newDataflowEndpoint =
   DataflowEndpoint'
-    { mtu = Prelude.Nothing,
+    { name = Prelude.Nothing,
       status = Prelude.Nothing,
       address = Prelude.Nothing,
-      name = Prelude.Nothing
+      mtu = Prelude.Nothing
     }
 
--- | Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
-dataflowEndpoint_mtu :: Lens.Lens' DataflowEndpoint (Prelude.Maybe Prelude.Natural)
-dataflowEndpoint_mtu = Lens.lens (\DataflowEndpoint' {mtu} -> mtu) (\s@DataflowEndpoint' {} a -> s {mtu = a} :: DataflowEndpoint)
+-- | Name of a dataflow endpoint.
+dataflowEndpoint_name :: Lens.Lens' DataflowEndpoint (Prelude.Maybe Prelude.Text)
+dataflowEndpoint_name = Lens.lens (\DataflowEndpoint' {name} -> name) (\s@DataflowEndpoint' {} a -> s {name = a} :: DataflowEndpoint)
 
 -- | Status of a dataflow endpoint.
 dataflowEndpoint_status :: Lens.Lens' DataflowEndpoint (Prelude.Maybe EndpointStatus)
@@ -77,9 +77,9 @@ dataflowEndpoint_status = Lens.lens (\DataflowEndpoint' {status} -> status) (\s@
 dataflowEndpoint_address :: Lens.Lens' DataflowEndpoint (Prelude.Maybe SocketAddress)
 dataflowEndpoint_address = Lens.lens (\DataflowEndpoint' {address} -> address) (\s@DataflowEndpoint' {} a -> s {address = a} :: DataflowEndpoint)
 
--- | Name of a dataflow endpoint.
-dataflowEndpoint_name :: Lens.Lens' DataflowEndpoint (Prelude.Maybe Prelude.Text)
-dataflowEndpoint_name = Lens.lens (\DataflowEndpoint' {name} -> name) (\s@DataflowEndpoint' {} a -> s {name = a} :: DataflowEndpoint)
+-- | Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+dataflowEndpoint_mtu :: Lens.Lens' DataflowEndpoint (Prelude.Maybe Prelude.Natural)
+dataflowEndpoint_mtu = Lens.lens (\DataflowEndpoint' {mtu} -> mtu) (\s@DataflowEndpoint' {} a -> s {mtu = a} :: DataflowEndpoint)
 
 instance Core.FromJSON DataflowEndpoint where
   parseJSON =
@@ -87,33 +87,33 @@ instance Core.FromJSON DataflowEndpoint where
       "DataflowEndpoint"
       ( \x ->
           DataflowEndpoint'
-            Prelude.<$> (x Core..:? "mtu")
+            Prelude.<$> (x Core..:? "name")
             Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "address")
-            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "mtu")
       )
 
 instance Prelude.Hashable DataflowEndpoint where
   hashWithSalt _salt DataflowEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` mtu
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` address
-      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` mtu
 
 instance Prelude.NFData DataflowEndpoint where
   rnf DataflowEndpoint' {..} =
-    Prelude.rnf mtu
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf address
-      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf mtu
 
 instance Core.ToJSON DataflowEndpoint where
   toJSON DataflowEndpoint' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("mtu" Core..=) Prelude.<$> mtu,
+          [ ("name" Core..=) Prelude.<$> name,
             ("status" Core..=) Prelude.<$> status,
             ("address" Core..=) Prelude.<$> address,
-            ("name" Core..=) Prelude.<$> name
+            ("mtu" Core..=) Prelude.<$> mtu
           ]
       )

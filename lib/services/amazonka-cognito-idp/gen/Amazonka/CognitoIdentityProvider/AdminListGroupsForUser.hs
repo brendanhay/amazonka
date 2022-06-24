@@ -41,8 +41,8 @@ module Amazonka.CognitoIdentityProvider.AdminListGroupsForUser
     newAdminListGroupsForUserResponse,
 
     -- * Response Lenses
-    adminListGroupsForUserResponse_groups,
     adminListGroupsForUserResponse_nextToken,
+    adminListGroupsForUserResponse_groups,
     adminListGroupsForUserResponse_httpStatus,
   )
 where
@@ -150,8 +150,8 @@ instance Core.AWSRequest AdminListGroupsForUser where
     Response.receiveJSON
       ( \s h x ->
           AdminListGroupsForUserResponse'
-            Prelude.<$> (x Core..?> "Groups" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Groups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -203,12 +203,12 @@ instance Core.ToQuery AdminListGroupsForUser where
 
 -- | /See:/ 'newAdminListGroupsForUserResponse' smart constructor.
 data AdminListGroupsForUserResponse = AdminListGroupsForUserResponse'
-  { -- | The groups that the user belongs to.
-    groups :: Prelude.Maybe [GroupType],
-    -- | An identifier that was returned from the previous call to this
+  { -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The groups that the user belongs to.
+    groups :: Prelude.Maybe [GroupType],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -222,11 +222,11 @@ data AdminListGroupsForUserResponse = AdminListGroupsForUserResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groups', 'adminListGroupsForUserResponse_groups' - The groups that the user belongs to.
---
 -- 'nextToken', 'adminListGroupsForUserResponse_nextToken' - An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
+--
+-- 'groups', 'adminListGroupsForUserResponse_groups' - The groups that the user belongs to.
 --
 -- 'httpStatus', 'adminListGroupsForUserResponse_httpStatus' - The response's http status code.
 newAdminListGroupsForUserResponse ::
@@ -235,21 +235,21 @@ newAdminListGroupsForUserResponse ::
   AdminListGroupsForUserResponse
 newAdminListGroupsForUserResponse pHttpStatus_ =
   AdminListGroupsForUserResponse'
-    { groups =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      groups = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The groups that the user belongs to.
-adminListGroupsForUserResponse_groups :: Lens.Lens' AdminListGroupsForUserResponse (Prelude.Maybe [GroupType])
-adminListGroupsForUserResponse_groups = Lens.lens (\AdminListGroupsForUserResponse' {groups} -> groups) (\s@AdminListGroupsForUserResponse' {} a -> s {groups = a} :: AdminListGroupsForUserResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
 adminListGroupsForUserResponse_nextToken :: Lens.Lens' AdminListGroupsForUserResponse (Prelude.Maybe Prelude.Text)
 adminListGroupsForUserResponse_nextToken = Lens.lens (\AdminListGroupsForUserResponse' {nextToken} -> nextToken) (\s@AdminListGroupsForUserResponse' {} a -> s {nextToken = a} :: AdminListGroupsForUserResponse)
+
+-- | The groups that the user belongs to.
+adminListGroupsForUserResponse_groups :: Lens.Lens' AdminListGroupsForUserResponse (Prelude.Maybe [GroupType])
+adminListGroupsForUserResponse_groups = Lens.lens (\AdminListGroupsForUserResponse' {groups} -> groups) (\s@AdminListGroupsForUserResponse' {} a -> s {groups = a} :: AdminListGroupsForUserResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 adminListGroupsForUserResponse_httpStatus :: Lens.Lens' AdminListGroupsForUserResponse Prelude.Int
@@ -260,6 +260,6 @@ instance
     AdminListGroupsForUserResponse
   where
   rnf AdminListGroupsForUserResponse' {..} =
-    Prelude.rnf groups
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf groups
       `Prelude.seq` Prelude.rnf httpStatus

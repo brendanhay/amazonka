@@ -28,7 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAdminCreateUserConfigType' smart constructor.
 data AdminCreateUserConfigType = AdminCreateUserConfigType'
-  { -- | Set to @True@ if only the administrator is allowed to create user
+  { -- | The message template to be used for the welcome message to new users.
+    --
+    -- See also
+    -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization Customizing User Invitation Messages>.
+    inviteMessageTemplate :: Prelude.Maybe MessageTemplateType,
+    -- | Set to @True@ if only the administrator is allowed to create user
     -- profiles. Set to @False@ if users can sign themselves up via an app.
     allowAdminCreateUserOnly :: Prelude.Maybe Prelude.Bool,
     -- | The user account expiration limit, in days, after which the account is
@@ -39,12 +44,7 @@ data AdminCreateUserConfigType = AdminCreateUserConfigType'
     -- If you set a value for @TemporaryPasswordValidityDays@ in
     -- @PasswordPolicy@, that value will be used and
     -- @UnusedAccountValidityDays@ will be deprecated for that user pool.
-    unusedAccountValidityDays :: Prelude.Maybe Prelude.Natural,
-    -- | The message template to be used for the welcome message to new users.
-    --
-    -- See also
-    -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization Customizing User Invitation Messages>.
-    inviteMessageTemplate :: Prelude.Maybe MessageTemplateType
+    unusedAccountValidityDays :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,6 +55,11 @@ data AdminCreateUserConfigType = AdminCreateUserConfigType'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'inviteMessageTemplate', 'adminCreateUserConfigType_inviteMessageTemplate' - The message template to be used for the welcome message to new users.
+--
+-- See also
+-- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization Customizing User Invitation Messages>.
 --
 -- 'allowAdminCreateUserOnly', 'adminCreateUserConfigType_allowAdminCreateUserOnly' - Set to @True@ if only the administrator is allowed to create user
 -- profiles. Set to @False@ if users can sign themselves up via an app.
@@ -67,20 +72,22 @@ data AdminCreateUserConfigType = AdminCreateUserConfigType'
 -- If you set a value for @TemporaryPasswordValidityDays@ in
 -- @PasswordPolicy@, that value will be used and
 -- @UnusedAccountValidityDays@ will be deprecated for that user pool.
---
--- 'inviteMessageTemplate', 'adminCreateUserConfigType_inviteMessageTemplate' - The message template to be used for the welcome message to new users.
---
--- See also
--- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization Customizing User Invitation Messages>.
 newAdminCreateUserConfigType ::
   AdminCreateUserConfigType
 newAdminCreateUserConfigType =
   AdminCreateUserConfigType'
-    { allowAdminCreateUserOnly =
+    { inviteMessageTemplate =
         Prelude.Nothing,
-      unusedAccountValidityDays = Prelude.Nothing,
-      inviteMessageTemplate = Prelude.Nothing
+      allowAdminCreateUserOnly = Prelude.Nothing,
+      unusedAccountValidityDays = Prelude.Nothing
     }
+
+-- | The message template to be used for the welcome message to new users.
+--
+-- See also
+-- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization Customizing User Invitation Messages>.
+adminCreateUserConfigType_inviteMessageTemplate :: Lens.Lens' AdminCreateUserConfigType (Prelude.Maybe MessageTemplateType)
+adminCreateUserConfigType_inviteMessageTemplate = Lens.lens (\AdminCreateUserConfigType' {inviteMessageTemplate} -> inviteMessageTemplate) (\s@AdminCreateUserConfigType' {} a -> s {inviteMessageTemplate = a} :: AdminCreateUserConfigType)
 
 -- | Set to @True@ if only the administrator is allowed to create user
 -- profiles. Set to @False@ if users can sign themselves up via an app.
@@ -98,46 +105,38 @@ adminCreateUserConfigType_allowAdminCreateUserOnly = Lens.lens (\AdminCreateUser
 adminCreateUserConfigType_unusedAccountValidityDays :: Lens.Lens' AdminCreateUserConfigType (Prelude.Maybe Prelude.Natural)
 adminCreateUserConfigType_unusedAccountValidityDays = Lens.lens (\AdminCreateUserConfigType' {unusedAccountValidityDays} -> unusedAccountValidityDays) (\s@AdminCreateUserConfigType' {} a -> s {unusedAccountValidityDays = a} :: AdminCreateUserConfigType)
 
--- | The message template to be used for the welcome message to new users.
---
--- See also
--- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization Customizing User Invitation Messages>.
-adminCreateUserConfigType_inviteMessageTemplate :: Lens.Lens' AdminCreateUserConfigType (Prelude.Maybe MessageTemplateType)
-adminCreateUserConfigType_inviteMessageTemplate = Lens.lens (\AdminCreateUserConfigType' {inviteMessageTemplate} -> inviteMessageTemplate) (\s@AdminCreateUserConfigType' {} a -> s {inviteMessageTemplate = a} :: AdminCreateUserConfigType)
-
 instance Core.FromJSON AdminCreateUserConfigType where
   parseJSON =
     Core.withObject
       "AdminCreateUserConfigType"
       ( \x ->
           AdminCreateUserConfigType'
-            Prelude.<$> (x Core..:? "AllowAdminCreateUserOnly")
+            Prelude.<$> (x Core..:? "InviteMessageTemplate")
+            Prelude.<*> (x Core..:? "AllowAdminCreateUserOnly")
             Prelude.<*> (x Core..:? "UnusedAccountValidityDays")
-            Prelude.<*> (x Core..:? "InviteMessageTemplate")
       )
 
 instance Prelude.Hashable AdminCreateUserConfigType where
   hashWithSalt _salt AdminCreateUserConfigType' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` inviteMessageTemplate
       `Prelude.hashWithSalt` allowAdminCreateUserOnly
       `Prelude.hashWithSalt` unusedAccountValidityDays
-      `Prelude.hashWithSalt` inviteMessageTemplate
 
 instance Prelude.NFData AdminCreateUserConfigType where
   rnf AdminCreateUserConfigType' {..} =
-    Prelude.rnf allowAdminCreateUserOnly
+    Prelude.rnf inviteMessageTemplate
+      `Prelude.seq` Prelude.rnf allowAdminCreateUserOnly
       `Prelude.seq` Prelude.rnf unusedAccountValidityDays
-      `Prelude.seq` Prelude.rnf inviteMessageTemplate
 
 instance Core.ToJSON AdminCreateUserConfigType where
   toJSON AdminCreateUserConfigType' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AllowAdminCreateUserOnly" Core..=)
+          [ ("InviteMessageTemplate" Core..=)
+              Prelude.<$> inviteMessageTemplate,
+            ("AllowAdminCreateUserOnly" Core..=)
               Prelude.<$> allowAdminCreateUserOnly,
             ("UnusedAccountValidityDays" Core..=)
-              Prelude.<$> unusedAccountValidityDays,
-            ("InviteMessageTemplate" Core..=)
-              Prelude.<$> inviteMessageTemplate
+              Prelude.<$> unusedAccountValidityDays
           ]
       )

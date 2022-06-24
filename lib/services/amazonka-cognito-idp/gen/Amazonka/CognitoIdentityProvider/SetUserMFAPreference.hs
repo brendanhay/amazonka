@@ -37,8 +37,8 @@ module Amazonka.CognitoIdentityProvider.SetUserMFAPreference
     newSetUserMFAPreference,
 
     -- * Request Lenses
-    setUserMFAPreference_sMSMfaSettings,
     setUserMFAPreference_softwareTokenMfaSettings,
+    setUserMFAPreference_sMSMfaSettings,
     setUserMFAPreference_accessToken,
 
     -- * Destructuring the Response
@@ -59,10 +59,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSetUserMFAPreference' smart constructor.
 data SetUserMFAPreference = SetUserMFAPreference'
-  { -- | The SMS text message multi-factor authentication (MFA) settings.
-    sMSMfaSettings :: Prelude.Maybe SMSMfaSettingsType,
-    -- | The time-based one-time password software token MFA settings.
+  { -- | The time-based one-time password software token MFA settings.
     softwareTokenMfaSettings :: Prelude.Maybe SoftwareTokenMfaSettingsType,
+    -- | The SMS text message multi-factor authentication (MFA) settings.
+    sMSMfaSettings :: Prelude.Maybe SMSMfaSettingsType,
     -- | The access token for the user.
     accessToken :: Core.Sensitive Prelude.Text
   }
@@ -76,9 +76,9 @@ data SetUserMFAPreference = SetUserMFAPreference'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sMSMfaSettings', 'setUserMFAPreference_sMSMfaSettings' - The SMS text message multi-factor authentication (MFA) settings.
---
 -- 'softwareTokenMfaSettings', 'setUserMFAPreference_softwareTokenMfaSettings' - The time-based one-time password software token MFA settings.
+--
+-- 'sMSMfaSettings', 'setUserMFAPreference_sMSMfaSettings' - The SMS text message multi-factor authentication (MFA) settings.
 --
 -- 'accessToken', 'setUserMFAPreference_accessToken' - The access token for the user.
 newSetUserMFAPreference ::
@@ -87,19 +87,19 @@ newSetUserMFAPreference ::
   SetUserMFAPreference
 newSetUserMFAPreference pAccessToken_ =
   SetUserMFAPreference'
-    { sMSMfaSettings =
+    { softwareTokenMfaSettings =
         Prelude.Nothing,
-      softwareTokenMfaSettings = Prelude.Nothing,
+      sMSMfaSettings = Prelude.Nothing,
       accessToken = Core._Sensitive Lens.# pAccessToken_
     }
-
--- | The SMS text message multi-factor authentication (MFA) settings.
-setUserMFAPreference_sMSMfaSettings :: Lens.Lens' SetUserMFAPreference (Prelude.Maybe SMSMfaSettingsType)
-setUserMFAPreference_sMSMfaSettings = Lens.lens (\SetUserMFAPreference' {sMSMfaSettings} -> sMSMfaSettings) (\s@SetUserMFAPreference' {} a -> s {sMSMfaSettings = a} :: SetUserMFAPreference)
 
 -- | The time-based one-time password software token MFA settings.
 setUserMFAPreference_softwareTokenMfaSettings :: Lens.Lens' SetUserMFAPreference (Prelude.Maybe SoftwareTokenMfaSettingsType)
 setUserMFAPreference_softwareTokenMfaSettings = Lens.lens (\SetUserMFAPreference' {softwareTokenMfaSettings} -> softwareTokenMfaSettings) (\s@SetUserMFAPreference' {} a -> s {softwareTokenMfaSettings = a} :: SetUserMFAPreference)
+
+-- | The SMS text message multi-factor authentication (MFA) settings.
+setUserMFAPreference_sMSMfaSettings :: Lens.Lens' SetUserMFAPreference (Prelude.Maybe SMSMfaSettingsType)
+setUserMFAPreference_sMSMfaSettings = Lens.lens (\SetUserMFAPreference' {sMSMfaSettings} -> sMSMfaSettings) (\s@SetUserMFAPreference' {} a -> s {sMSMfaSettings = a} :: SetUserMFAPreference)
 
 -- | The access token for the user.
 setUserMFAPreference_accessToken :: Lens.Lens' SetUserMFAPreference Prelude.Text
@@ -119,14 +119,15 @@ instance Core.AWSRequest SetUserMFAPreference where
 
 instance Prelude.Hashable SetUserMFAPreference where
   hashWithSalt _salt SetUserMFAPreference' {..} =
-    _salt `Prelude.hashWithSalt` sMSMfaSettings
+    _salt
       `Prelude.hashWithSalt` softwareTokenMfaSettings
+      `Prelude.hashWithSalt` sMSMfaSettings
       `Prelude.hashWithSalt` accessToken
 
 instance Prelude.NFData SetUserMFAPreference where
   rnf SetUserMFAPreference' {..} =
-    Prelude.rnf sMSMfaSettings
-      `Prelude.seq` Prelude.rnf softwareTokenMfaSettings
+    Prelude.rnf softwareTokenMfaSettings
+      `Prelude.seq` Prelude.rnf sMSMfaSettings
       `Prelude.seq` Prelude.rnf accessToken
 
 instance Core.ToHeaders SetUserMFAPreference where
@@ -148,10 +149,10 @@ instance Core.ToJSON SetUserMFAPreference where
   toJSON SetUserMFAPreference' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SMSMfaSettings" Core..=)
-              Prelude.<$> sMSMfaSettings,
-            ("SoftwareTokenMfaSettings" Core..=)
+          [ ("SoftwareTokenMfaSettings" Core..=)
               Prelude.<$> softwareTokenMfaSettings,
+            ("SMSMfaSettings" Core..=)
+              Prelude.<$> sMSMfaSettings,
             Prelude.Just ("AccessToken" Core..= accessToken)
           ]
       )

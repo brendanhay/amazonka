@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResourceServerType' smart constructor.
 data ResourceServerType = ResourceServerType'
-  { -- | The user pool ID for the user pool that hosts the resource server.
-    userPoolId :: Prelude.Maybe Prelude.Text,
+  { -- | The name of the resource server.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the resource server.
     identifier :: Prelude.Maybe Prelude.Text,
+    -- | The user pool ID for the user pool that hosts the resource server.
+    userPoolId :: Prelude.Maybe Prelude.Text,
     -- | A list of scopes that are defined for the resource server.
-    scopes :: Prelude.Maybe [ResourceServerScopeType],
-    -- | The name of the resource server.
-    name :: Prelude.Maybe Prelude.Text
+    scopes :: Prelude.Maybe [ResourceServerScopeType]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,38 +47,38 @@ data ResourceServerType = ResourceServerType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userPoolId', 'resourceServerType_userPoolId' - The user pool ID for the user pool that hosts the resource server.
+-- 'name', 'resourceServerType_name' - The name of the resource server.
 --
 -- 'identifier', 'resourceServerType_identifier' - The identifier for the resource server.
 --
--- 'scopes', 'resourceServerType_scopes' - A list of scopes that are defined for the resource server.
+-- 'userPoolId', 'resourceServerType_userPoolId' - The user pool ID for the user pool that hosts the resource server.
 --
--- 'name', 'resourceServerType_name' - The name of the resource server.
+-- 'scopes', 'resourceServerType_scopes' - A list of scopes that are defined for the resource server.
 newResourceServerType ::
   ResourceServerType
 newResourceServerType =
   ResourceServerType'
-    { userPoolId = Prelude.Nothing,
+    { name = Prelude.Nothing,
       identifier = Prelude.Nothing,
-      scopes = Prelude.Nothing,
-      name = Prelude.Nothing
+      userPoolId = Prelude.Nothing,
+      scopes = Prelude.Nothing
     }
 
--- | The user pool ID for the user pool that hosts the resource server.
-resourceServerType_userPoolId :: Lens.Lens' ResourceServerType (Prelude.Maybe Prelude.Text)
-resourceServerType_userPoolId = Lens.lens (\ResourceServerType' {userPoolId} -> userPoolId) (\s@ResourceServerType' {} a -> s {userPoolId = a} :: ResourceServerType)
+-- | The name of the resource server.
+resourceServerType_name :: Lens.Lens' ResourceServerType (Prelude.Maybe Prelude.Text)
+resourceServerType_name = Lens.lens (\ResourceServerType' {name} -> name) (\s@ResourceServerType' {} a -> s {name = a} :: ResourceServerType)
 
 -- | The identifier for the resource server.
 resourceServerType_identifier :: Lens.Lens' ResourceServerType (Prelude.Maybe Prelude.Text)
 resourceServerType_identifier = Lens.lens (\ResourceServerType' {identifier} -> identifier) (\s@ResourceServerType' {} a -> s {identifier = a} :: ResourceServerType)
 
+-- | The user pool ID for the user pool that hosts the resource server.
+resourceServerType_userPoolId :: Lens.Lens' ResourceServerType (Prelude.Maybe Prelude.Text)
+resourceServerType_userPoolId = Lens.lens (\ResourceServerType' {userPoolId} -> userPoolId) (\s@ResourceServerType' {} a -> s {userPoolId = a} :: ResourceServerType)
+
 -- | A list of scopes that are defined for the resource server.
 resourceServerType_scopes :: Lens.Lens' ResourceServerType (Prelude.Maybe [ResourceServerScopeType])
 resourceServerType_scopes = Lens.lens (\ResourceServerType' {scopes} -> scopes) (\s@ResourceServerType' {} a -> s {scopes = a} :: ResourceServerType) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the resource server.
-resourceServerType_name :: Lens.Lens' ResourceServerType (Prelude.Maybe Prelude.Text)
-resourceServerType_name = Lens.lens (\ResourceServerType' {name} -> name) (\s@ResourceServerType' {} a -> s {name = a} :: ResourceServerType)
 
 instance Core.FromJSON ResourceServerType where
   parseJSON =
@@ -86,22 +86,22 @@ instance Core.FromJSON ResourceServerType where
       "ResourceServerType"
       ( \x ->
           ResourceServerType'
-            Prelude.<$> (x Core..:? "UserPoolId")
+            Prelude.<$> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "Identifier")
+            Prelude.<*> (x Core..:? "UserPoolId")
             Prelude.<*> (x Core..:? "Scopes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Name")
       )
 
 instance Prelude.Hashable ResourceServerType where
   hashWithSalt _salt ResourceServerType' {..} =
-    _salt `Prelude.hashWithSalt` userPoolId
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` identifier
+      `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` scopes
-      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ResourceServerType where
   rnf ResourceServerType' {..} =
-    Prelude.rnf userPoolId
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf identifier
+      `Prelude.seq` Prelude.rnf userPoolId
       `Prelude.seq` Prelude.rnf scopes
-      `Prelude.seq` Prelude.rnf name

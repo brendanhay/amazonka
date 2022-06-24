@@ -33,11 +33,11 @@ data TokenValidityUnitsType = TokenValidityUnitsType'
     -- AccessTokenValidity, defaults to hours.
     accessToken :: Prelude.Maybe TimeUnitsType,
     -- | A time unit in “seconds”, “minutes”, “hours” or “days” for the value in
-    -- RefreshTokenValidity, defaults to days.
-    refreshToken :: Prelude.Maybe TimeUnitsType,
-    -- | A time unit in “seconds”, “minutes”, “hours” or “days” for the value in
     -- IdTokenValidity, defaults to hours.
-    idToken :: Prelude.Maybe TimeUnitsType
+    idToken :: Prelude.Maybe TimeUnitsType,
+    -- | A time unit in “seconds”, “minutes”, “hours” or “days” for the value in
+    -- RefreshTokenValidity, defaults to days.
+    refreshToken :: Prelude.Maybe TimeUnitsType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,19 +52,19 @@ data TokenValidityUnitsType = TokenValidityUnitsType'
 -- 'accessToken', 'tokenValidityUnitsType_accessToken' - A time unit in “seconds”, “minutes”, “hours” or “days” for the value in
 -- AccessTokenValidity, defaults to hours.
 --
--- 'refreshToken', 'tokenValidityUnitsType_refreshToken' - A time unit in “seconds”, “minutes”, “hours” or “days” for the value in
--- RefreshTokenValidity, defaults to days.
---
 -- 'idToken', 'tokenValidityUnitsType_idToken' - A time unit in “seconds”, “minutes”, “hours” or “days” for the value in
 -- IdTokenValidity, defaults to hours.
+--
+-- 'refreshToken', 'tokenValidityUnitsType_refreshToken' - A time unit in “seconds”, “minutes”, “hours” or “days” for the value in
+-- RefreshTokenValidity, defaults to days.
 newTokenValidityUnitsType ::
   TokenValidityUnitsType
 newTokenValidityUnitsType =
   TokenValidityUnitsType'
     { accessToken =
         Prelude.Nothing,
-      refreshToken = Prelude.Nothing,
-      idToken = Prelude.Nothing
+      idToken = Prelude.Nothing,
+      refreshToken = Prelude.Nothing
     }
 
 -- | A time unit in “seconds”, “minutes”, “hours” or “days” for the value in
@@ -73,14 +73,14 @@ tokenValidityUnitsType_accessToken :: Lens.Lens' TokenValidityUnitsType (Prelude
 tokenValidityUnitsType_accessToken = Lens.lens (\TokenValidityUnitsType' {accessToken} -> accessToken) (\s@TokenValidityUnitsType' {} a -> s {accessToken = a} :: TokenValidityUnitsType)
 
 -- | A time unit in “seconds”, “minutes”, “hours” or “days” for the value in
--- RefreshTokenValidity, defaults to days.
-tokenValidityUnitsType_refreshToken :: Lens.Lens' TokenValidityUnitsType (Prelude.Maybe TimeUnitsType)
-tokenValidityUnitsType_refreshToken = Lens.lens (\TokenValidityUnitsType' {refreshToken} -> refreshToken) (\s@TokenValidityUnitsType' {} a -> s {refreshToken = a} :: TokenValidityUnitsType)
-
--- | A time unit in “seconds”, “minutes”, “hours” or “days” for the value in
 -- IdTokenValidity, defaults to hours.
 tokenValidityUnitsType_idToken :: Lens.Lens' TokenValidityUnitsType (Prelude.Maybe TimeUnitsType)
 tokenValidityUnitsType_idToken = Lens.lens (\TokenValidityUnitsType' {idToken} -> idToken) (\s@TokenValidityUnitsType' {} a -> s {idToken = a} :: TokenValidityUnitsType)
+
+-- | A time unit in “seconds”, “minutes”, “hours” or “days” for the value in
+-- RefreshTokenValidity, defaults to days.
+tokenValidityUnitsType_refreshToken :: Lens.Lens' TokenValidityUnitsType (Prelude.Maybe TimeUnitsType)
+tokenValidityUnitsType_refreshToken = Lens.lens (\TokenValidityUnitsType' {refreshToken} -> refreshToken) (\s@TokenValidityUnitsType' {} a -> s {refreshToken = a} :: TokenValidityUnitsType)
 
 instance Core.FromJSON TokenValidityUnitsType where
   parseJSON =
@@ -89,28 +89,28 @@ instance Core.FromJSON TokenValidityUnitsType where
       ( \x ->
           TokenValidityUnitsType'
             Prelude.<$> (x Core..:? "AccessToken")
-            Prelude.<*> (x Core..:? "RefreshToken")
             Prelude.<*> (x Core..:? "IdToken")
+            Prelude.<*> (x Core..:? "RefreshToken")
       )
 
 instance Prelude.Hashable TokenValidityUnitsType where
   hashWithSalt _salt TokenValidityUnitsType' {..} =
     _salt `Prelude.hashWithSalt` accessToken
-      `Prelude.hashWithSalt` refreshToken
       `Prelude.hashWithSalt` idToken
+      `Prelude.hashWithSalt` refreshToken
 
 instance Prelude.NFData TokenValidityUnitsType where
   rnf TokenValidityUnitsType' {..} =
     Prelude.rnf accessToken
-      `Prelude.seq` Prelude.rnf refreshToken
       `Prelude.seq` Prelude.rnf idToken
+      `Prelude.seq` Prelude.rnf refreshToken
 
 instance Core.ToJSON TokenValidityUnitsType where
   toJSON TokenValidityUnitsType' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("AccessToken" Core..=) Prelude.<$> accessToken,
-            ("RefreshToken" Core..=) Prelude.<$> refreshToken,
-            ("IdToken" Core..=) Prelude.<$> idToken
+            ("IdToken" Core..=) Prelude.<$> idToken,
+            ("RefreshToken" Core..=) Prelude.<$> refreshToken
           ]
       )

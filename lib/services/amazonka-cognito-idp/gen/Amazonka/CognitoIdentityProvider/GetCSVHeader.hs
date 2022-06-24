@@ -35,8 +35,8 @@ module Amazonka.CognitoIdentityProvider.GetCSVHeader
     newGetCSVHeaderResponse,
 
     -- * Response Lenses
-    getCSVHeaderResponse_userPoolId,
     getCSVHeaderResponse_cSVHeader,
+    getCSVHeaderResponse_userPoolId,
     getCSVHeaderResponse_httpStatus,
   )
 where
@@ -88,8 +88,8 @@ instance Core.AWSRequest GetCSVHeader where
     Response.receiveJSON
       ( \s h x ->
           GetCSVHeaderResponse'
-            Prelude.<$> (x Core..?> "UserPoolId")
-            Prelude.<*> (x Core..?> "CSVHeader" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "CSVHeader" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "UserPoolId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,11 +133,11 @@ instance Core.ToQuery GetCSVHeader where
 --
 -- /See:/ 'newGetCSVHeaderResponse' smart constructor.
 data GetCSVHeaderResponse = GetCSVHeaderResponse'
-  { -- | The user pool ID for the user pool that the users are to be imported
+  { -- | The header information for the .csv file for the user import job.
+    cSVHeader :: Prelude.Maybe [Prelude.Text],
+    -- | The user pool ID for the user pool that the users are to be imported
     -- into.
     userPoolId :: Prelude.Maybe Prelude.Text,
-    -- | The header information for the .csv file for the user import job.
-    cSVHeader :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -151,10 +151,10 @@ data GetCSVHeaderResponse = GetCSVHeaderResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'cSVHeader', 'getCSVHeaderResponse_cSVHeader' - The header information for the .csv file for the user import job.
+--
 -- 'userPoolId', 'getCSVHeaderResponse_userPoolId' - The user pool ID for the user pool that the users are to be imported
 -- into.
---
--- 'cSVHeader', 'getCSVHeaderResponse_cSVHeader' - The header information for the .csv file for the user import job.
 --
 -- 'httpStatus', 'getCSVHeaderResponse_httpStatus' - The response's http status code.
 newGetCSVHeaderResponse ::
@@ -163,19 +163,19 @@ newGetCSVHeaderResponse ::
   GetCSVHeaderResponse
 newGetCSVHeaderResponse pHttpStatus_ =
   GetCSVHeaderResponse'
-    { userPoolId = Prelude.Nothing,
-      cSVHeader = Prelude.Nothing,
+    { cSVHeader = Prelude.Nothing,
+      userPoolId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The header information for the .csv file for the user import job.
+getCSVHeaderResponse_cSVHeader :: Lens.Lens' GetCSVHeaderResponse (Prelude.Maybe [Prelude.Text])
+getCSVHeaderResponse_cSVHeader = Lens.lens (\GetCSVHeaderResponse' {cSVHeader} -> cSVHeader) (\s@GetCSVHeaderResponse' {} a -> s {cSVHeader = a} :: GetCSVHeaderResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The user pool ID for the user pool that the users are to be imported
 -- into.
 getCSVHeaderResponse_userPoolId :: Lens.Lens' GetCSVHeaderResponse (Prelude.Maybe Prelude.Text)
 getCSVHeaderResponse_userPoolId = Lens.lens (\GetCSVHeaderResponse' {userPoolId} -> userPoolId) (\s@GetCSVHeaderResponse' {} a -> s {userPoolId = a} :: GetCSVHeaderResponse)
-
--- | The header information for the .csv file for the user import job.
-getCSVHeaderResponse_cSVHeader :: Lens.Lens' GetCSVHeaderResponse (Prelude.Maybe [Prelude.Text])
-getCSVHeaderResponse_cSVHeader = Lens.lens (\GetCSVHeaderResponse' {cSVHeader} -> cSVHeader) (\s@GetCSVHeaderResponse' {} a -> s {cSVHeader = a} :: GetCSVHeaderResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getCSVHeaderResponse_httpStatus :: Lens.Lens' GetCSVHeaderResponse Prelude.Int
@@ -183,6 +183,6 @@ getCSVHeaderResponse_httpStatus = Lens.lens (\GetCSVHeaderResponse' {httpStatus}
 
 instance Prelude.NFData GetCSVHeaderResponse where
   rnf GetCSVHeaderResponse' {..} =
-    Prelude.rnf userPoolId
-      `Prelude.seq` Prelude.rnf cSVHeader
+    Prelude.rnf cSVHeader
+      `Prelude.seq` Prelude.rnf userPoolId
       `Prelude.seq` Prelude.rnf httpStatus

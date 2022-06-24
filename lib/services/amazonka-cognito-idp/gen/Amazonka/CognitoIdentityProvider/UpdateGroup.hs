@@ -29,9 +29,9 @@ module Amazonka.CognitoIdentityProvider.UpdateGroup
     newUpdateGroup,
 
     -- * Request Lenses
-    updateGroup_precedence,
-    updateGroup_description,
     updateGroup_roleArn,
+    updateGroup_description,
+    updateGroup_precedence,
     updateGroup_groupName,
     updateGroup_userPoolId,
 
@@ -54,15 +54,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateGroup' smart constructor.
 data UpdateGroup = UpdateGroup'
-  { -- | The new precedence value for the group. For more information about this
+  { -- | The new role ARN for the group. This is used for setting the
+    -- @cognito:roles@ and @cognito:preferred_role@ claims in the token.
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | A string containing the new description of the group.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The new precedence value for the group. For more information about this
     -- parameter, see
     -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateGroup.html CreateGroup>.
     precedence :: Prelude.Maybe Prelude.Natural,
-    -- | A string containing the new description of the group.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The new role ARN for the group. This is used for setting the
-    -- @cognito:roles@ and @cognito:preferred_role@ claims in the token.
-    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the group.
     groupName :: Prelude.Text,
     -- | The user pool ID for the user pool.
@@ -78,14 +78,14 @@ data UpdateGroup = UpdateGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'precedence', 'updateGroup_precedence' - The new precedence value for the group. For more information about this
--- parameter, see
--- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateGroup.html CreateGroup>.
+-- 'roleArn', 'updateGroup_roleArn' - The new role ARN for the group. This is used for setting the
+-- @cognito:roles@ and @cognito:preferred_role@ claims in the token.
 --
 -- 'description', 'updateGroup_description' - A string containing the new description of the group.
 --
--- 'roleArn', 'updateGroup_roleArn' - The new role ARN for the group. This is used for setting the
--- @cognito:roles@ and @cognito:preferred_role@ claims in the token.
+-- 'precedence', 'updateGroup_precedence' - The new precedence value for the group. For more information about this
+-- parameter, see
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateGroup.html CreateGroup>.
 --
 -- 'groupName', 'updateGroup_groupName' - The name of the group.
 --
@@ -98,27 +98,27 @@ newUpdateGroup ::
   UpdateGroup
 newUpdateGroup pGroupName_ pUserPoolId_ =
   UpdateGroup'
-    { precedence = Prelude.Nothing,
+    { roleArn = Prelude.Nothing,
       description = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
+      precedence = Prelude.Nothing,
       groupName = pGroupName_,
       userPoolId = pUserPoolId_
     }
+
+-- | The new role ARN for the group. This is used for setting the
+-- @cognito:roles@ and @cognito:preferred_role@ claims in the token.
+updateGroup_roleArn :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Text)
+updateGroup_roleArn = Lens.lens (\UpdateGroup' {roleArn} -> roleArn) (\s@UpdateGroup' {} a -> s {roleArn = a} :: UpdateGroup)
+
+-- | A string containing the new description of the group.
+updateGroup_description :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Text)
+updateGroup_description = Lens.lens (\UpdateGroup' {description} -> description) (\s@UpdateGroup' {} a -> s {description = a} :: UpdateGroup)
 
 -- | The new precedence value for the group. For more information about this
 -- parameter, see
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateGroup.html CreateGroup>.
 updateGroup_precedence :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Natural)
 updateGroup_precedence = Lens.lens (\UpdateGroup' {precedence} -> precedence) (\s@UpdateGroup' {} a -> s {precedence = a} :: UpdateGroup)
-
--- | A string containing the new description of the group.
-updateGroup_description :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Text)
-updateGroup_description = Lens.lens (\UpdateGroup' {description} -> description) (\s@UpdateGroup' {} a -> s {description = a} :: UpdateGroup)
-
--- | The new role ARN for the group. This is used for setting the
--- @cognito:roles@ and @cognito:preferred_role@ claims in the token.
-updateGroup_roleArn :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Text)
-updateGroup_roleArn = Lens.lens (\UpdateGroup' {roleArn} -> roleArn) (\s@UpdateGroup' {} a -> s {roleArn = a} :: UpdateGroup)
 
 -- | The name of the group.
 updateGroup_groupName :: Lens.Lens' UpdateGroup Prelude.Text
@@ -141,17 +141,17 @@ instance Core.AWSRequest UpdateGroup where
 
 instance Prelude.Hashable UpdateGroup where
   hashWithSalt _salt UpdateGroup' {..} =
-    _salt `Prelude.hashWithSalt` precedence
+    _salt `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` precedence
       `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` userPoolId
 
 instance Prelude.NFData UpdateGroup where
   rnf UpdateGroup' {..} =
-    Prelude.rnf precedence
+    Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf precedence
       `Prelude.seq` Prelude.rnf groupName
       `Prelude.seq` Prelude.rnf userPoolId
 
@@ -174,9 +174,9 @@ instance Core.ToJSON UpdateGroup where
   toJSON UpdateGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Precedence" Core..=) Prelude.<$> precedence,
+          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
             ("Description" Core..=) Prelude.<$> description,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
+            ("Precedence" Core..=) Prelude.<$> precedence,
             Prelude.Just ("GroupName" Core..= groupName),
             Prelude.Just ("UserPoolId" Core..= userPoolId)
           ]

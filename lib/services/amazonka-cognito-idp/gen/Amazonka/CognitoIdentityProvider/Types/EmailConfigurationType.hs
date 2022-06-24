@@ -32,7 +32,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEmailConfigurationType' smart constructor.
 data EmailConfigurationType = EmailConfigurationType'
-  { -- | The Amazon Resource Name (ARN) of a verified email address in Amazon
+  { -- | Identifies either the sender’s email address or the sender’s name with
+    -- their email address. For example, @testuser\@example.com@ or
+    -- @Test User \<testuser\@example.com>@. This address will appear before
+    -- the body of the email.
+    from :: Prelude.Maybe Prelude.Text,
+    -- | The destination to which the receiver of the email should reply to.
+    replyToEmailAddress :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of a verified email address in Amazon
     -- SES. This email address is used in one of the following ways, depending
     -- on the value that you specify for the @EmailSendingAccount@ parameter:
     --
@@ -43,30 +50,6 @@ data EmailConfigurationType = EmailConfigurationType'
     -- -   If you specify @DEVELOPER@, Amazon Cognito emails your users with
     --     this address by calling Amazon SES on your behalf.
     sourceArn :: Prelude.Maybe Prelude.Text,
-    -- | Identifies either the sender’s email address or the sender’s name with
-    -- their email address. For example, @testuser\@example.com@ or
-    -- @Test User \<testuser\@example.com>@. This address will appear before
-    -- the body of the email.
-    from :: Prelude.Maybe Prelude.Text,
-    -- | The set of configuration rules that can be applied to emails sent using
-    -- Amazon SES. A configuration set is applied to an email by including a
-    -- reference to the configuration set in the headers of the email. Once
-    -- applied, all of the rules in that configuration set are applied to the
-    -- email. Configuration sets can be used to apply the following types of
-    -- rules to emails:
-    --
-    -- -   Event publishing – Amazon SES can track the number of send,
-    --     delivery, open, click, bounce, and complaint events for each email
-    --     sent. Use event publishing to send information about these events to
-    --     other Amazon Web Services services such as SNS and CloudWatch.
-    --
-    -- -   IP pool management – When leasing dedicated IP addresses with Amazon
-    --     SES, you can create groups of IP addresses, called dedicated IP
-    --     pools. You can then associate the dedicated IP pools with
-    --     configuration sets.
-    configurationSet :: Prelude.Maybe Prelude.Text,
-    -- | The destination to which the receiver of the email should reply to.
-    replyToEmailAddress :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether Amazon Cognito emails your users by using its built-in
     -- email functionality or your Amazon SES email configuration. Specify one
     -- of the following values:
@@ -128,7 +111,24 @@ data EmailConfigurationType = EmailConfigurationType'
     --     about the service-linked role that Amazon Cognito creates, see
     --     <https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html Using Service-Linked Roles for Amazon Cognito>
     --     in the /Amazon Cognito Developer Guide/.
-    emailSendingAccount :: Prelude.Maybe EmailSendingAccountType
+    emailSendingAccount :: Prelude.Maybe EmailSendingAccountType,
+    -- | The set of configuration rules that can be applied to emails sent using
+    -- Amazon SES. A configuration set is applied to an email by including a
+    -- reference to the configuration set in the headers of the email. Once
+    -- applied, all of the rules in that configuration set are applied to the
+    -- email. Configuration sets can be used to apply the following types of
+    -- rules to emails:
+    --
+    -- -   Event publishing – Amazon SES can track the number of send,
+    --     delivery, open, click, bounce, and complaint events for each email
+    --     sent. Use event publishing to send information about these events to
+    --     other Amazon Web Services services such as SNS and CloudWatch.
+    --
+    -- -   IP pool management – When leasing dedicated IP addresses with Amazon
+    --     SES, you can create groups of IP addresses, called dedicated IP
+    --     pools. You can then associate the dedicated IP pools with
+    --     configuration sets.
+    configurationSet :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -140,6 +140,13 @@ data EmailConfigurationType = EmailConfigurationType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'from', 'emailConfigurationType_from' - Identifies either the sender’s email address or the sender’s name with
+-- their email address. For example, @testuser\@example.com@ or
+-- @Test User \<testuser\@example.com>@. This address will appear before
+-- the body of the email.
+--
+-- 'replyToEmailAddress', 'emailConfigurationType_replyToEmailAddress' - The destination to which the receiver of the email should reply to.
+--
 -- 'sourceArn', 'emailConfigurationType_sourceArn' - The Amazon Resource Name (ARN) of a verified email address in Amazon
 -- SES. This email address is used in one of the following ways, depending
 -- on the value that you specify for the @EmailSendingAccount@ parameter:
@@ -150,30 +157,6 @@ data EmailConfigurationType = EmailConfigurationType'
 --
 -- -   If you specify @DEVELOPER@, Amazon Cognito emails your users with
 --     this address by calling Amazon SES on your behalf.
---
--- 'from', 'emailConfigurationType_from' - Identifies either the sender’s email address or the sender’s name with
--- their email address. For example, @testuser\@example.com@ or
--- @Test User \<testuser\@example.com>@. This address will appear before
--- the body of the email.
---
--- 'configurationSet', 'emailConfigurationType_configurationSet' - The set of configuration rules that can be applied to emails sent using
--- Amazon SES. A configuration set is applied to an email by including a
--- reference to the configuration set in the headers of the email. Once
--- applied, all of the rules in that configuration set are applied to the
--- email. Configuration sets can be used to apply the following types of
--- rules to emails:
---
--- -   Event publishing – Amazon SES can track the number of send,
---     delivery, open, click, bounce, and complaint events for each email
---     sent. Use event publishing to send information about these events to
---     other Amazon Web Services services such as SNS and CloudWatch.
---
--- -   IP pool management – When leasing dedicated IP addresses with Amazon
---     SES, you can create groups of IP addresses, called dedicated IP
---     pools. You can then associate the dedicated IP pools with
---     configuration sets.
---
--- 'replyToEmailAddress', 'emailConfigurationType_replyToEmailAddress' - The destination to which the receiver of the email should reply to.
 --
 -- 'emailSendingAccount', 'emailConfigurationType_emailSendingAccount' - Specifies whether Amazon Cognito emails your users by using its built-in
 -- email functionality or your Amazon SES email configuration. Specify one
@@ -236,39 +219,8 @@ data EmailConfigurationType = EmailConfigurationType'
 --     about the service-linked role that Amazon Cognito creates, see
 --     <https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html Using Service-Linked Roles for Amazon Cognito>
 --     in the /Amazon Cognito Developer Guide/.
-newEmailConfigurationType ::
-  EmailConfigurationType
-newEmailConfigurationType =
-  EmailConfigurationType'
-    { sourceArn =
-        Prelude.Nothing,
-      from = Prelude.Nothing,
-      configurationSet = Prelude.Nothing,
-      replyToEmailAddress = Prelude.Nothing,
-      emailSendingAccount = Prelude.Nothing
-    }
-
--- | The Amazon Resource Name (ARN) of a verified email address in Amazon
--- SES. This email address is used in one of the following ways, depending
--- on the value that you specify for the @EmailSendingAccount@ parameter:
 --
--- -   If you specify @COGNITO_DEFAULT@, Amazon Cognito uses this address
---     as the custom FROM address when it emails your users by using its
---     built-in email account.
---
--- -   If you specify @DEVELOPER@, Amazon Cognito emails your users with
---     this address by calling Amazon SES on your behalf.
-emailConfigurationType_sourceArn :: Lens.Lens' EmailConfigurationType (Prelude.Maybe Prelude.Text)
-emailConfigurationType_sourceArn = Lens.lens (\EmailConfigurationType' {sourceArn} -> sourceArn) (\s@EmailConfigurationType' {} a -> s {sourceArn = a} :: EmailConfigurationType)
-
--- | Identifies either the sender’s email address or the sender’s name with
--- their email address. For example, @testuser\@example.com@ or
--- @Test User \<testuser\@example.com>@. This address will appear before
--- the body of the email.
-emailConfigurationType_from :: Lens.Lens' EmailConfigurationType (Prelude.Maybe Prelude.Text)
-emailConfigurationType_from = Lens.lens (\EmailConfigurationType' {from} -> from) (\s@EmailConfigurationType' {} a -> s {from = a} :: EmailConfigurationType)
-
--- | The set of configuration rules that can be applied to emails sent using
+-- 'configurationSet', 'emailConfigurationType_configurationSet' - The set of configuration rules that can be applied to emails sent using
 -- Amazon SES. A configuration set is applied to an email by including a
 -- reference to the configuration set in the headers of the email. Once
 -- applied, all of the rules in that configuration set are applied to the
@@ -284,12 +236,40 @@ emailConfigurationType_from = Lens.lens (\EmailConfigurationType' {from} -> from
 --     SES, you can create groups of IP addresses, called dedicated IP
 --     pools. You can then associate the dedicated IP pools with
 --     configuration sets.
-emailConfigurationType_configurationSet :: Lens.Lens' EmailConfigurationType (Prelude.Maybe Prelude.Text)
-emailConfigurationType_configurationSet = Lens.lens (\EmailConfigurationType' {configurationSet} -> configurationSet) (\s@EmailConfigurationType' {} a -> s {configurationSet = a} :: EmailConfigurationType)
+newEmailConfigurationType ::
+  EmailConfigurationType
+newEmailConfigurationType =
+  EmailConfigurationType'
+    { from = Prelude.Nothing,
+      replyToEmailAddress = Prelude.Nothing,
+      sourceArn = Prelude.Nothing,
+      emailSendingAccount = Prelude.Nothing,
+      configurationSet = Prelude.Nothing
+    }
+
+-- | Identifies either the sender’s email address or the sender’s name with
+-- their email address. For example, @testuser\@example.com@ or
+-- @Test User \<testuser\@example.com>@. This address will appear before
+-- the body of the email.
+emailConfigurationType_from :: Lens.Lens' EmailConfigurationType (Prelude.Maybe Prelude.Text)
+emailConfigurationType_from = Lens.lens (\EmailConfigurationType' {from} -> from) (\s@EmailConfigurationType' {} a -> s {from = a} :: EmailConfigurationType)
 
 -- | The destination to which the receiver of the email should reply to.
 emailConfigurationType_replyToEmailAddress :: Lens.Lens' EmailConfigurationType (Prelude.Maybe Prelude.Text)
 emailConfigurationType_replyToEmailAddress = Lens.lens (\EmailConfigurationType' {replyToEmailAddress} -> replyToEmailAddress) (\s@EmailConfigurationType' {} a -> s {replyToEmailAddress = a} :: EmailConfigurationType)
+
+-- | The Amazon Resource Name (ARN) of a verified email address in Amazon
+-- SES. This email address is used in one of the following ways, depending
+-- on the value that you specify for the @EmailSendingAccount@ parameter:
+--
+-- -   If you specify @COGNITO_DEFAULT@, Amazon Cognito uses this address
+--     as the custom FROM address when it emails your users by using its
+--     built-in email account.
+--
+-- -   If you specify @DEVELOPER@, Amazon Cognito emails your users with
+--     this address by calling Amazon SES on your behalf.
+emailConfigurationType_sourceArn :: Lens.Lens' EmailConfigurationType (Prelude.Maybe Prelude.Text)
+emailConfigurationType_sourceArn = Lens.lens (\EmailConfigurationType' {sourceArn} -> sourceArn) (\s@EmailConfigurationType' {} a -> s {sourceArn = a} :: EmailConfigurationType)
 
 -- | Specifies whether Amazon Cognito emails your users by using its built-in
 -- email functionality or your Amazon SES email configuration. Specify one
@@ -355,46 +335,65 @@ emailConfigurationType_replyToEmailAddress = Lens.lens (\EmailConfigurationType'
 emailConfigurationType_emailSendingAccount :: Lens.Lens' EmailConfigurationType (Prelude.Maybe EmailSendingAccountType)
 emailConfigurationType_emailSendingAccount = Lens.lens (\EmailConfigurationType' {emailSendingAccount} -> emailSendingAccount) (\s@EmailConfigurationType' {} a -> s {emailSendingAccount = a} :: EmailConfigurationType)
 
+-- | The set of configuration rules that can be applied to emails sent using
+-- Amazon SES. A configuration set is applied to an email by including a
+-- reference to the configuration set in the headers of the email. Once
+-- applied, all of the rules in that configuration set are applied to the
+-- email. Configuration sets can be used to apply the following types of
+-- rules to emails:
+--
+-- -   Event publishing – Amazon SES can track the number of send,
+--     delivery, open, click, bounce, and complaint events for each email
+--     sent. Use event publishing to send information about these events to
+--     other Amazon Web Services services such as SNS and CloudWatch.
+--
+-- -   IP pool management – When leasing dedicated IP addresses with Amazon
+--     SES, you can create groups of IP addresses, called dedicated IP
+--     pools. You can then associate the dedicated IP pools with
+--     configuration sets.
+emailConfigurationType_configurationSet :: Lens.Lens' EmailConfigurationType (Prelude.Maybe Prelude.Text)
+emailConfigurationType_configurationSet = Lens.lens (\EmailConfigurationType' {configurationSet} -> configurationSet) (\s@EmailConfigurationType' {} a -> s {configurationSet = a} :: EmailConfigurationType)
+
 instance Core.FromJSON EmailConfigurationType where
   parseJSON =
     Core.withObject
       "EmailConfigurationType"
       ( \x ->
           EmailConfigurationType'
-            Prelude.<$> (x Core..:? "SourceArn")
-            Prelude.<*> (x Core..:? "From")
-            Prelude.<*> (x Core..:? "ConfigurationSet")
+            Prelude.<$> (x Core..:? "From")
             Prelude.<*> (x Core..:? "ReplyToEmailAddress")
+            Prelude.<*> (x Core..:? "SourceArn")
             Prelude.<*> (x Core..:? "EmailSendingAccount")
+            Prelude.<*> (x Core..:? "ConfigurationSet")
       )
 
 instance Prelude.Hashable EmailConfigurationType where
   hashWithSalt _salt EmailConfigurationType' {..} =
-    _salt `Prelude.hashWithSalt` sourceArn
-      `Prelude.hashWithSalt` from
-      `Prelude.hashWithSalt` configurationSet
+    _salt `Prelude.hashWithSalt` from
       `Prelude.hashWithSalt` replyToEmailAddress
+      `Prelude.hashWithSalt` sourceArn
       `Prelude.hashWithSalt` emailSendingAccount
+      `Prelude.hashWithSalt` configurationSet
 
 instance Prelude.NFData EmailConfigurationType where
   rnf EmailConfigurationType' {..} =
-    Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf from
-      `Prelude.seq` Prelude.rnf configurationSet
+    Prelude.rnf from
       `Prelude.seq` Prelude.rnf replyToEmailAddress
+      `Prelude.seq` Prelude.rnf sourceArn
       `Prelude.seq` Prelude.rnf emailSendingAccount
+      `Prelude.seq` Prelude.rnf configurationSet
 
 instance Core.ToJSON EmailConfigurationType where
   toJSON EmailConfigurationType' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SourceArn" Core..=) Prelude.<$> sourceArn,
-            ("From" Core..=) Prelude.<$> from,
-            ("ConfigurationSet" Core..=)
-              Prelude.<$> configurationSet,
+          [ ("From" Core..=) Prelude.<$> from,
             ("ReplyToEmailAddress" Core..=)
               Prelude.<$> replyToEmailAddress,
+            ("SourceArn" Core..=) Prelude.<$> sourceArn,
             ("EmailSendingAccount" Core..=)
-              Prelude.<$> emailSendingAccount
+              Prelude.<$> emailSendingAccount,
+            ("ConfigurationSet" Core..=)
+              Prelude.<$> configurationSet
           ]
       )

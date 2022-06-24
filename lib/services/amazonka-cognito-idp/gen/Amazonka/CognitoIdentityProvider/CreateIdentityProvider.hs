@@ -27,8 +27,8 @@ module Amazonka.CognitoIdentityProvider.CreateIdentityProvider
     newCreateIdentityProvider,
 
     -- * Request Lenses
-    createIdentityProvider_idpIdentifiers,
     createIdentityProvider_attributeMapping,
+    createIdentityProvider_idpIdentifiers,
     createIdentityProvider_userPoolId,
     createIdentityProvider_providerName,
     createIdentityProvider_providerType,
@@ -53,11 +53,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateIdentityProvider' smart constructor.
 data CreateIdentityProvider = CreateIdentityProvider'
-  { -- | A list of identity provider identifiers.
-    idpIdentifiers :: Prelude.Maybe [Prelude.Text],
-    -- | A mapping of identity provider attributes to standard and custom user
+  { -- | A mapping of identity provider attributes to standard and custom user
     -- pool attributes.
     attributeMapping :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A list of identity provider identifiers.
+    idpIdentifiers :: Prelude.Maybe [Prelude.Text],
     -- | The user pool ID.
     userPoolId :: Prelude.Text,
     -- | The identity provider name.
@@ -138,10 +138,10 @@ data CreateIdentityProvider = CreateIdentityProvider'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'idpIdentifiers', 'createIdentityProvider_idpIdentifiers' - A list of identity provider identifiers.
---
 -- 'attributeMapping', 'createIdentityProvider_attributeMapping' - A mapping of identity provider attributes to standard and custom user
 -- pool attributes.
+--
+-- 'idpIdentifiers', 'createIdentityProvider_idpIdentifiers' - A list of identity provider identifiers.
 --
 -- 'userPoolId', 'createIdentityProvider_userPoolId' - The user pool ID.
 --
@@ -224,23 +224,23 @@ newCreateIdentityProvider
   pProviderName_
   pProviderType_ =
     CreateIdentityProvider'
-      { idpIdentifiers =
+      { attributeMapping =
           Prelude.Nothing,
-        attributeMapping = Prelude.Nothing,
+        idpIdentifiers = Prelude.Nothing,
         userPoolId = pUserPoolId_,
         providerName = pProviderName_,
         providerType = pProviderType_,
         providerDetails = Prelude.mempty
       }
 
--- | A list of identity provider identifiers.
-createIdentityProvider_idpIdentifiers :: Lens.Lens' CreateIdentityProvider (Prelude.Maybe [Prelude.Text])
-createIdentityProvider_idpIdentifiers = Lens.lens (\CreateIdentityProvider' {idpIdentifiers} -> idpIdentifiers) (\s@CreateIdentityProvider' {} a -> s {idpIdentifiers = a} :: CreateIdentityProvider) Prelude.. Lens.mapping Lens.coerced
-
 -- | A mapping of identity provider attributes to standard and custom user
 -- pool attributes.
 createIdentityProvider_attributeMapping :: Lens.Lens' CreateIdentityProvider (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createIdentityProvider_attributeMapping = Lens.lens (\CreateIdentityProvider' {attributeMapping} -> attributeMapping) (\s@CreateIdentityProvider' {} a -> s {attributeMapping = a} :: CreateIdentityProvider) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of identity provider identifiers.
+createIdentityProvider_idpIdentifiers :: Lens.Lens' CreateIdentityProvider (Prelude.Maybe [Prelude.Text])
+createIdentityProvider_idpIdentifiers = Lens.lens (\CreateIdentityProvider' {idpIdentifiers} -> idpIdentifiers) (\s@CreateIdentityProvider' {} a -> s {idpIdentifiers = a} :: CreateIdentityProvider) Prelude.. Lens.mapping Lens.coerced
 
 -- | The user pool ID.
 createIdentityProvider_userPoolId :: Lens.Lens' CreateIdentityProvider Prelude.Text
@@ -334,8 +334,8 @@ instance Core.AWSRequest CreateIdentityProvider where
 
 instance Prelude.Hashable CreateIdentityProvider where
   hashWithSalt _salt CreateIdentityProvider' {..} =
-    _salt `Prelude.hashWithSalt` idpIdentifiers
-      `Prelude.hashWithSalt` attributeMapping
+    _salt `Prelude.hashWithSalt` attributeMapping
+      `Prelude.hashWithSalt` idpIdentifiers
       `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` providerName
       `Prelude.hashWithSalt` providerType
@@ -343,8 +343,8 @@ instance Prelude.Hashable CreateIdentityProvider where
 
 instance Prelude.NFData CreateIdentityProvider where
   rnf CreateIdentityProvider' {..} =
-    Prelude.rnf idpIdentifiers
-      `Prelude.seq` Prelude.rnf attributeMapping
+    Prelude.rnf attributeMapping
+      `Prelude.seq` Prelude.rnf idpIdentifiers
       `Prelude.seq` Prelude.rnf userPoolId
       `Prelude.seq` Prelude.rnf providerName
       `Prelude.seq` Prelude.rnf providerType
@@ -369,10 +369,10 @@ instance Core.ToJSON CreateIdentityProvider where
   toJSON CreateIdentityProvider' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("IdpIdentifiers" Core..=)
-              Prelude.<$> idpIdentifiers,
-            ("AttributeMapping" Core..=)
+          [ ("AttributeMapping" Core..=)
               Prelude.<$> attributeMapping,
+            ("IdpIdentifiers" Core..=)
+              Prelude.<$> idpIdentifiers,
             Prelude.Just ("UserPoolId" Core..= userPoolId),
             Prelude.Just ("ProviderName" Core..= providerName),
             Prelude.Just ("ProviderType" Core..= providerType),

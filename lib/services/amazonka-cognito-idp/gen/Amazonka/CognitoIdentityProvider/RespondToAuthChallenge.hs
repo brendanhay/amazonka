@@ -47,11 +47,11 @@ module Amazonka.CognitoIdentityProvider.RespondToAuthChallenge
     newRespondToAuthChallenge,
 
     -- * Request Lenses
-    respondToAuthChallenge_clientMetadata,
     respondToAuthChallenge_analyticsMetadata,
-    respondToAuthChallenge_challengeResponses,
-    respondToAuthChallenge_userContextData,
+    respondToAuthChallenge_clientMetadata,
     respondToAuthChallenge_session,
+    respondToAuthChallenge_userContextData,
+    respondToAuthChallenge_challengeResponses,
     respondToAuthChallenge_clientId,
     respondToAuthChallenge_challengeName,
 
@@ -60,10 +60,10 @@ module Amazonka.CognitoIdentityProvider.RespondToAuthChallenge
     newRespondToAuthChallengeResponse,
 
     -- * Response Lenses
-    respondToAuthChallengeResponse_challengeName,
-    respondToAuthChallengeResponse_challengeParameters,
     respondToAuthChallengeResponse_authenticationResult,
     respondToAuthChallengeResponse_session,
+    respondToAuthChallengeResponse_challengeName,
+    respondToAuthChallengeResponse_challengeParameters,
     respondToAuthChallengeResponse_httpStatus,
   )
 where
@@ -79,7 +79,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newRespondToAuthChallenge' smart constructor.
 data RespondToAuthChallenge = RespondToAuthChallenge'
-  { -- | A map of custom key-value pairs that you can provide as input for any
+  { -- | The Amazon Pinpoint analytics metadata for collecting metrics for
+    -- @RespondToAuthChallenge@ calls.
+    analyticsMetadata :: Prelude.Maybe AnalyticsMetadataType,
+    -- | A map of custom key-value pairs that you can provide as input for any
     -- custom workflows that this action triggers.
     --
     -- You create custom workflows by assigning Lambda functions to user pool
@@ -112,9 +115,16 @@ data RespondToAuthChallenge = RespondToAuthChallenge'
     -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
     --     don\'t use it to provide sensitive information.
     clientMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The Amazon Pinpoint analytics metadata for collecting metrics for
-    -- @RespondToAuthChallenge@ calls.
-    analyticsMetadata :: Prelude.Maybe AnalyticsMetadataType,
+    -- | The session which should be passed both ways in challenge-response calls
+    -- to the service. If @InitiateAuth@ or @RespondToAuthChallenge@ API call
+    -- determines that the caller needs to go through another challenge, they
+    -- return a session with other challenge parameters. This session should be
+    -- passed as it is to the next @RespondToAuthChallenge@ API call.
+    session :: Prelude.Maybe Prelude.Text,
+    -- | Contextual data such as the user\'s device fingerprint, IP address, or
+    -- location used for evaluating the risk of an unexpected event by Amazon
+    -- Cognito advanced security.
+    userContextData :: Prelude.Maybe UserContextDataType,
     -- | The challenge responses. These are inputs corresponding to the value of
     -- @ChallengeName@, for example:
     --
@@ -141,16 +151,6 @@ data RespondToAuthChallenge = RespondToAuthChallenge'
     -- -   @MFA_SETUP@ requires @USERNAME@, plus you need to use the session
     --     value returned by @VerifySoftwareToken@ in the @Session@ parameter.
     challengeResponses :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Contextual data such as the user\'s device fingerprint, IP address, or
-    -- location used for evaluating the risk of an unexpected event by Amazon
-    -- Cognito advanced security.
-    userContextData :: Prelude.Maybe UserContextDataType,
-    -- | The session which should be passed both ways in challenge-response calls
-    -- to the service. If @InitiateAuth@ or @RespondToAuthChallenge@ API call
-    -- determines that the caller needs to go through another challenge, they
-    -- return a session with other challenge parameters. This session should be
-    -- passed as it is to the next @RespondToAuthChallenge@ API call.
-    session :: Prelude.Maybe Prelude.Text,
     -- | The app client ID.
     clientId :: Core.Sensitive Prelude.Text,
     -- | The challenge name. For more information, see
@@ -168,6 +168,9 @@ data RespondToAuthChallenge = RespondToAuthChallenge'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'analyticsMetadata', 'respondToAuthChallenge_analyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for
+-- @RespondToAuthChallenge@ calls.
 --
 -- 'clientMetadata', 'respondToAuthChallenge_clientMetadata' - A map of custom key-value pairs that you can provide as input for any
 -- custom workflows that this action triggers.
@@ -202,8 +205,15 @@ data RespondToAuthChallenge = RespondToAuthChallenge'
 -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
 --     don\'t use it to provide sensitive information.
 --
--- 'analyticsMetadata', 'respondToAuthChallenge_analyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for
--- @RespondToAuthChallenge@ calls.
+-- 'session', 'respondToAuthChallenge_session' - The session which should be passed both ways in challenge-response calls
+-- to the service. If @InitiateAuth@ or @RespondToAuthChallenge@ API call
+-- determines that the caller needs to go through another challenge, they
+-- return a session with other challenge parameters. This session should be
+-- passed as it is to the next @RespondToAuthChallenge@ API call.
+--
+-- 'userContextData', 'respondToAuthChallenge_userContextData' - Contextual data such as the user\'s device fingerprint, IP address, or
+-- location used for evaluating the risk of an unexpected event by Amazon
+-- Cognito advanced security.
 --
 -- 'challengeResponses', 'respondToAuthChallenge_challengeResponses' - The challenge responses. These are inputs corresponding to the value of
 -- @ChallengeName@, for example:
@@ -231,16 +241,6 @@ data RespondToAuthChallenge = RespondToAuthChallenge'
 -- -   @MFA_SETUP@ requires @USERNAME@, plus you need to use the session
 --     value returned by @VerifySoftwareToken@ in the @Session@ parameter.
 --
--- 'userContextData', 'respondToAuthChallenge_userContextData' - Contextual data such as the user\'s device fingerprint, IP address, or
--- location used for evaluating the risk of an unexpected event by Amazon
--- Cognito advanced security.
---
--- 'session', 'respondToAuthChallenge_session' - The session which should be passed both ways in challenge-response calls
--- to the service. If @InitiateAuth@ or @RespondToAuthChallenge@ API call
--- determines that the caller needs to go through another challenge, they
--- return a session with other challenge parameters. This session should be
--- passed as it is to the next @RespondToAuthChallenge@ API call.
---
 -- 'clientId', 'respondToAuthChallenge_clientId' - The app client ID.
 --
 -- 'challengeName', 'respondToAuthChallenge_challengeName' - The challenge name. For more information, see
@@ -255,15 +255,20 @@ newRespondToAuthChallenge ::
   RespondToAuthChallenge
 newRespondToAuthChallenge pClientId_ pChallengeName_ =
   RespondToAuthChallenge'
-    { clientMetadata =
+    { analyticsMetadata =
         Prelude.Nothing,
-      analyticsMetadata = Prelude.Nothing,
-      challengeResponses = Prelude.Nothing,
-      userContextData = Prelude.Nothing,
+      clientMetadata = Prelude.Nothing,
       session = Prelude.Nothing,
+      userContextData = Prelude.Nothing,
+      challengeResponses = Prelude.Nothing,
       clientId = Core._Sensitive Lens.# pClientId_,
       challengeName = pChallengeName_
     }
+
+-- | The Amazon Pinpoint analytics metadata for collecting metrics for
+-- @RespondToAuthChallenge@ calls.
+respondToAuthChallenge_analyticsMetadata :: Lens.Lens' RespondToAuthChallenge (Prelude.Maybe AnalyticsMetadataType)
+respondToAuthChallenge_analyticsMetadata = Lens.lens (\RespondToAuthChallenge' {analyticsMetadata} -> analyticsMetadata) (\s@RespondToAuthChallenge' {} a -> s {analyticsMetadata = a} :: RespondToAuthChallenge)
 
 -- | A map of custom key-value pairs that you can provide as input for any
 -- custom workflows that this action triggers.
@@ -300,10 +305,19 @@ newRespondToAuthChallenge pClientId_ pChallengeName_ =
 respondToAuthChallenge_clientMetadata :: Lens.Lens' RespondToAuthChallenge (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 respondToAuthChallenge_clientMetadata = Lens.lens (\RespondToAuthChallenge' {clientMetadata} -> clientMetadata) (\s@RespondToAuthChallenge' {} a -> s {clientMetadata = a} :: RespondToAuthChallenge) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Pinpoint analytics metadata for collecting metrics for
--- @RespondToAuthChallenge@ calls.
-respondToAuthChallenge_analyticsMetadata :: Lens.Lens' RespondToAuthChallenge (Prelude.Maybe AnalyticsMetadataType)
-respondToAuthChallenge_analyticsMetadata = Lens.lens (\RespondToAuthChallenge' {analyticsMetadata} -> analyticsMetadata) (\s@RespondToAuthChallenge' {} a -> s {analyticsMetadata = a} :: RespondToAuthChallenge)
+-- | The session which should be passed both ways in challenge-response calls
+-- to the service. If @InitiateAuth@ or @RespondToAuthChallenge@ API call
+-- determines that the caller needs to go through another challenge, they
+-- return a session with other challenge parameters. This session should be
+-- passed as it is to the next @RespondToAuthChallenge@ API call.
+respondToAuthChallenge_session :: Lens.Lens' RespondToAuthChallenge (Prelude.Maybe Prelude.Text)
+respondToAuthChallenge_session = Lens.lens (\RespondToAuthChallenge' {session} -> session) (\s@RespondToAuthChallenge' {} a -> s {session = a} :: RespondToAuthChallenge)
+
+-- | Contextual data such as the user\'s device fingerprint, IP address, or
+-- location used for evaluating the risk of an unexpected event by Amazon
+-- Cognito advanced security.
+respondToAuthChallenge_userContextData :: Lens.Lens' RespondToAuthChallenge (Prelude.Maybe UserContextDataType)
+respondToAuthChallenge_userContextData = Lens.lens (\RespondToAuthChallenge' {userContextData} -> userContextData) (\s@RespondToAuthChallenge' {} a -> s {userContextData = a} :: RespondToAuthChallenge)
 
 -- | The challenge responses. These are inputs corresponding to the value of
 -- @ChallengeName@, for example:
@@ -333,20 +347,6 @@ respondToAuthChallenge_analyticsMetadata = Lens.lens (\RespondToAuthChallenge' {
 respondToAuthChallenge_challengeResponses :: Lens.Lens' RespondToAuthChallenge (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 respondToAuthChallenge_challengeResponses = Lens.lens (\RespondToAuthChallenge' {challengeResponses} -> challengeResponses) (\s@RespondToAuthChallenge' {} a -> s {challengeResponses = a} :: RespondToAuthChallenge) Prelude.. Lens.mapping Lens.coerced
 
--- | Contextual data such as the user\'s device fingerprint, IP address, or
--- location used for evaluating the risk of an unexpected event by Amazon
--- Cognito advanced security.
-respondToAuthChallenge_userContextData :: Lens.Lens' RespondToAuthChallenge (Prelude.Maybe UserContextDataType)
-respondToAuthChallenge_userContextData = Lens.lens (\RespondToAuthChallenge' {userContextData} -> userContextData) (\s@RespondToAuthChallenge' {} a -> s {userContextData = a} :: RespondToAuthChallenge)
-
--- | The session which should be passed both ways in challenge-response calls
--- to the service. If @InitiateAuth@ or @RespondToAuthChallenge@ API call
--- determines that the caller needs to go through another challenge, they
--- return a session with other challenge parameters. This session should be
--- passed as it is to the next @RespondToAuthChallenge@ API call.
-respondToAuthChallenge_session :: Lens.Lens' RespondToAuthChallenge (Prelude.Maybe Prelude.Text)
-respondToAuthChallenge_session = Lens.lens (\RespondToAuthChallenge' {session} -> session) (\s@RespondToAuthChallenge' {} a -> s {session = a} :: RespondToAuthChallenge)
-
 -- | The app client ID.
 respondToAuthChallenge_clientId :: Lens.Lens' RespondToAuthChallenge Prelude.Text
 respondToAuthChallenge_clientId = Lens.lens (\RespondToAuthChallenge' {clientId} -> clientId) (\s@RespondToAuthChallenge' {} a -> s {clientId = a} :: RespondToAuthChallenge) Prelude.. Core._Sensitive
@@ -367,32 +367,32 @@ instance Core.AWSRequest RespondToAuthChallenge where
     Response.receiveJSON
       ( \s h x ->
           RespondToAuthChallengeResponse'
-            Prelude.<$> (x Core..?> "ChallengeName")
+            Prelude.<$> (x Core..?> "AuthenticationResult")
+            Prelude.<*> (x Core..?> "Session")
+            Prelude.<*> (x Core..?> "ChallengeName")
             Prelude.<*> ( x Core..?> "ChallengeParameters"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "AuthenticationResult")
-            Prelude.<*> (x Core..?> "Session")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable RespondToAuthChallenge where
   hashWithSalt _salt RespondToAuthChallenge' {..} =
-    _salt `Prelude.hashWithSalt` clientMetadata
-      `Prelude.hashWithSalt` analyticsMetadata
-      `Prelude.hashWithSalt` challengeResponses
-      `Prelude.hashWithSalt` userContextData
+    _salt `Prelude.hashWithSalt` analyticsMetadata
+      `Prelude.hashWithSalt` clientMetadata
       `Prelude.hashWithSalt` session
+      `Prelude.hashWithSalt` userContextData
+      `Prelude.hashWithSalt` challengeResponses
       `Prelude.hashWithSalt` clientId
       `Prelude.hashWithSalt` challengeName
 
 instance Prelude.NFData RespondToAuthChallenge where
   rnf RespondToAuthChallenge' {..} =
-    Prelude.rnf clientMetadata
-      `Prelude.seq` Prelude.rnf analyticsMetadata
-      `Prelude.seq` Prelude.rnf challengeResponses
-      `Prelude.seq` Prelude.rnf userContextData
+    Prelude.rnf analyticsMetadata
+      `Prelude.seq` Prelude.rnf clientMetadata
       `Prelude.seq` Prelude.rnf session
+      `Prelude.seq` Prelude.rnf userContextData
+      `Prelude.seq` Prelude.rnf challengeResponses
       `Prelude.seq` Prelude.rnf clientId
       `Prelude.seq` Prelude.rnf challengeName
 
@@ -415,15 +415,15 @@ instance Core.ToJSON RespondToAuthChallenge where
   toJSON RespondToAuthChallenge' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ClientMetadata" Core..=)
-              Prelude.<$> clientMetadata,
-            ("AnalyticsMetadata" Core..=)
+          [ ("AnalyticsMetadata" Core..=)
               Prelude.<$> analyticsMetadata,
-            ("ChallengeResponses" Core..=)
-              Prelude.<$> challengeResponses,
+            ("ClientMetadata" Core..=)
+              Prelude.<$> clientMetadata,
+            ("Session" Core..=) Prelude.<$> session,
             ("UserContextData" Core..=)
               Prelude.<$> userContextData,
-            ("Session" Core..=) Prelude.<$> session,
+            ("ChallengeResponses" Core..=)
+              Prelude.<$> challengeResponses,
             Prelude.Just ("ClientId" Core..= clientId),
             Prelude.Just
               ("ChallengeName" Core..= challengeName)
@@ -440,13 +440,7 @@ instance Core.ToQuery RespondToAuthChallenge where
 --
 -- /See:/ 'newRespondToAuthChallengeResponse' smart constructor.
 data RespondToAuthChallengeResponse = RespondToAuthChallengeResponse'
-  { -- | The challenge name. For more information, see
-    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html InitiateAuth>.
-    challengeName :: Prelude.Maybe ChallengeNameType,
-    -- | The challenge parameters. For more information, see
-    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html InitiateAuth>.
-    challengeParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The result returned by the server in response to the request to respond
+  { -- | The result returned by the server in response to the request to respond
     -- to the authentication challenge.
     authenticationResult :: Prelude.Maybe AuthenticationResultType,
     -- | The session which should be passed both ways in challenge-response calls
@@ -454,6 +448,12 @@ data RespondToAuthChallengeResponse = RespondToAuthChallengeResponse'
     -- they return a session with other challenge parameters. This session
     -- should be passed as it is to the next @RespondToAuthChallenge@ API call.
     session :: Prelude.Maybe Prelude.Text,
+    -- | The challenge name. For more information, see
+    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html InitiateAuth>.
+    challengeName :: Prelude.Maybe ChallengeNameType,
+    -- | The challenge parameters. For more information, see
+    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html InitiateAuth>.
+    challengeParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -467,12 +467,6 @@ data RespondToAuthChallengeResponse = RespondToAuthChallengeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'challengeName', 'respondToAuthChallengeResponse_challengeName' - The challenge name. For more information, see
--- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html InitiateAuth>.
---
--- 'challengeParameters', 'respondToAuthChallengeResponse_challengeParameters' - The challenge parameters. For more information, see
--- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html InitiateAuth>.
---
 -- 'authenticationResult', 'respondToAuthChallengeResponse_authenticationResult' - The result returned by the server in response to the request to respond
 -- to the authentication challenge.
 --
@@ -481,6 +475,12 @@ data RespondToAuthChallengeResponse = RespondToAuthChallengeResponse'
 -- they return a session with other challenge parameters. This session
 -- should be passed as it is to the next @RespondToAuthChallenge@ API call.
 --
+-- 'challengeName', 'respondToAuthChallengeResponse_challengeName' - The challenge name. For more information, see
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html InitiateAuth>.
+--
+-- 'challengeParameters', 'respondToAuthChallengeResponse_challengeParameters' - The challenge parameters. For more information, see
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html InitiateAuth>.
+--
 -- 'httpStatus', 'respondToAuthChallengeResponse_httpStatus' - The response's http status code.
 newRespondToAuthChallengeResponse ::
   -- | 'httpStatus'
@@ -488,23 +488,13 @@ newRespondToAuthChallengeResponse ::
   RespondToAuthChallengeResponse
 newRespondToAuthChallengeResponse pHttpStatus_ =
   RespondToAuthChallengeResponse'
-    { challengeName =
+    { authenticationResult =
         Prelude.Nothing,
-      challengeParameters = Prelude.Nothing,
-      authenticationResult = Prelude.Nothing,
       session = Prelude.Nothing,
+      challengeName = Prelude.Nothing,
+      challengeParameters = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The challenge name. For more information, see
--- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html InitiateAuth>.
-respondToAuthChallengeResponse_challengeName :: Lens.Lens' RespondToAuthChallengeResponse (Prelude.Maybe ChallengeNameType)
-respondToAuthChallengeResponse_challengeName = Lens.lens (\RespondToAuthChallengeResponse' {challengeName} -> challengeName) (\s@RespondToAuthChallengeResponse' {} a -> s {challengeName = a} :: RespondToAuthChallengeResponse)
-
--- | The challenge parameters. For more information, see
--- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html InitiateAuth>.
-respondToAuthChallengeResponse_challengeParameters :: Lens.Lens' RespondToAuthChallengeResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-respondToAuthChallengeResponse_challengeParameters = Lens.lens (\RespondToAuthChallengeResponse' {challengeParameters} -> challengeParameters) (\s@RespondToAuthChallengeResponse' {} a -> s {challengeParameters = a} :: RespondToAuthChallengeResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The result returned by the server in response to the request to respond
 -- to the authentication challenge.
@@ -518,6 +508,16 @@ respondToAuthChallengeResponse_authenticationResult = Lens.lens (\RespondToAuthC
 respondToAuthChallengeResponse_session :: Lens.Lens' RespondToAuthChallengeResponse (Prelude.Maybe Prelude.Text)
 respondToAuthChallengeResponse_session = Lens.lens (\RespondToAuthChallengeResponse' {session} -> session) (\s@RespondToAuthChallengeResponse' {} a -> s {session = a} :: RespondToAuthChallengeResponse)
 
+-- | The challenge name. For more information, see
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html InitiateAuth>.
+respondToAuthChallengeResponse_challengeName :: Lens.Lens' RespondToAuthChallengeResponse (Prelude.Maybe ChallengeNameType)
+respondToAuthChallengeResponse_challengeName = Lens.lens (\RespondToAuthChallengeResponse' {challengeName} -> challengeName) (\s@RespondToAuthChallengeResponse' {} a -> s {challengeName = a} :: RespondToAuthChallengeResponse)
+
+-- | The challenge parameters. For more information, see
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html InitiateAuth>.
+respondToAuthChallengeResponse_challengeParameters :: Lens.Lens' RespondToAuthChallengeResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+respondToAuthChallengeResponse_challengeParameters = Lens.lens (\RespondToAuthChallengeResponse' {challengeParameters} -> challengeParameters) (\s@RespondToAuthChallengeResponse' {} a -> s {challengeParameters = a} :: RespondToAuthChallengeResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 respondToAuthChallengeResponse_httpStatus :: Lens.Lens' RespondToAuthChallengeResponse Prelude.Int
 respondToAuthChallengeResponse_httpStatus = Lens.lens (\RespondToAuthChallengeResponse' {httpStatus} -> httpStatus) (\s@RespondToAuthChallengeResponse' {} a -> s {httpStatus = a} :: RespondToAuthChallengeResponse)
@@ -527,8 +527,8 @@ instance
     RespondToAuthChallengeResponse
   where
   rnf RespondToAuthChallengeResponse' {..} =
-    Prelude.rnf challengeName
-      `Prelude.seq` Prelude.rnf challengeParameters
-      `Prelude.seq` Prelude.rnf authenticationResult
+    Prelude.rnf authenticationResult
       `Prelude.seq` Prelude.rnf session
+      `Prelude.seq` Prelude.rnf challengeName
+      `Prelude.seq` Prelude.rnf challengeParameters
       `Prelude.seq` Prelude.rnf httpStatus

@@ -62,13 +62,13 @@ module Amazonka.CognitoIdentityProvider.AdminCreateUser
     newAdminCreateUser,
 
     -- * Request Lenses
-    adminCreateUser_clientMetadata,
-    adminCreateUser_temporaryPassword,
-    adminCreateUser_forceAliasCreation,
-    adminCreateUser_desiredDeliveryMediums,
     adminCreateUser_messageAction,
+    adminCreateUser_temporaryPassword,
+    adminCreateUser_clientMetadata,
     adminCreateUser_userAttributes,
+    adminCreateUser_forceAliasCreation,
     adminCreateUser_validationData,
+    adminCreateUser_desiredDeliveryMediums,
     adminCreateUser_userPoolId,
     adminCreateUser_username,
 
@@ -93,7 +93,27 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newAdminCreateUser' smart constructor.
 data AdminCreateUser = AdminCreateUser'
-  { -- | A map of custom key-value pairs that you can provide as input for any
+  { -- | Set to @\"RESEND\"@ to resend the invitation message to a user that
+    -- already exists and reset the expiration limit on the user\'s account.
+    -- Set to @\"SUPPRESS\"@ to suppress sending the message. Only one value
+    -- can be specified.
+    messageAction :: Prelude.Maybe MessageActionType,
+    -- | The user\'s temporary password. This password must conform to the
+    -- password policy that you specified when you created the user pool.
+    --
+    -- The temporary password is valid only once. To complete the Admin Create
+    -- User flow, the user must enter the temporary password in the sign-in
+    -- page along with a new password to be used in all future sign-ins.
+    --
+    -- This parameter is not required. If you do not specify a value, Amazon
+    -- Cognito generates one for you.
+    --
+    -- The temporary password can only be used until the user account
+    -- expiration limit that you specified when you created the user pool. To
+    -- reset the account after that time limit, you must call @AdminCreateUser@
+    -- again, specifying @\"RESEND\"@ for the @MessageAction@ parameter.
+    temporaryPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | A map of custom key-value pairs that you can provide as input for any
     -- custom workflows that this action triggers.
     --
     -- You create custom workflows by assigning Lambda functions to user pool
@@ -124,43 +144,6 @@ data AdminCreateUser = AdminCreateUser'
     -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
     --     don\'t use it to provide sensitive information.
     clientMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The user\'s temporary password. This password must conform to the
-    -- password policy that you specified when you created the user pool.
-    --
-    -- The temporary password is valid only once. To complete the Admin Create
-    -- User flow, the user must enter the temporary password in the sign-in
-    -- page along with a new password to be used in all future sign-ins.
-    --
-    -- This parameter is not required. If you do not specify a value, Amazon
-    -- Cognito generates one for you.
-    --
-    -- The temporary password can only be used until the user account
-    -- expiration limit that you specified when you created the user pool. To
-    -- reset the account after that time limit, you must call @AdminCreateUser@
-    -- again, specifying @\"RESEND\"@ for the @MessageAction@ parameter.
-    temporaryPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | This parameter is only used if the @phone_number_verified@ or
-    -- @email_verified@ attribute is set to @True@. Otherwise, it is ignored.
-    --
-    -- If this parameter is set to @True@ and the phone number or email address
-    -- specified in the UserAttributes parameter already exists as an alias
-    -- with a different user, the API call will migrate the alias from the
-    -- previous user to the newly created user. The previous user will no
-    -- longer be able to log in using that alias.
-    --
-    -- If this parameter is set to @False@, the API throws an
-    -- @AliasExistsException@ error if the alias already exists. The default
-    -- value is @False@.
-    forceAliasCreation :: Prelude.Maybe Prelude.Bool,
-    -- | Specify @\"EMAIL\"@ if email will be used to send the welcome message.
-    -- Specify @\"SMS\"@ if the phone number will be used. The default value is
-    -- @\"SMS\"@. More than one value can be specified.
-    desiredDeliveryMediums :: Prelude.Maybe [DeliveryMediumType],
-    -- | Set to @\"RESEND\"@ to resend the invitation message to a user that
-    -- already exists and reset the expiration limit on the user\'s account.
-    -- Set to @\"SUPPRESS\"@ to suppress sending the message. Only one value
-    -- can be specified.
-    messageAction :: Prelude.Maybe MessageActionType,
     -- | An array of name-value pairs that contain user attributes and attribute
     -- values to be set for the user to be created. You can create a user
     -- without specifying any attributes other than @Username@. However, any
@@ -192,6 +175,19 @@ data AdminCreateUser = AdminCreateUser'
     --     @phone_number_verified@ attribute is set to @True@, or if @\"SMS\"@
     --     is specified in the @DesiredDeliveryMediums@ parameter.
     userAttributes :: Prelude.Maybe [AttributeType],
+    -- | This parameter is only used if the @phone_number_verified@ or
+    -- @email_verified@ attribute is set to @True@. Otherwise, it is ignored.
+    --
+    -- If this parameter is set to @True@ and the phone number or email address
+    -- specified in the UserAttributes parameter already exists as an alias
+    -- with a different user, the API call will migrate the alias from the
+    -- previous user to the newly created user. The previous user will no
+    -- longer be able to log in using that alias.
+    --
+    -- If this parameter is set to @False@, the API throws an
+    -- @AliasExistsException@ error if the alias already exists. The default
+    -- value is @False@.
+    forceAliasCreation :: Prelude.Maybe Prelude.Bool,
     -- | The user\'s validation data. This is an array of name-value pairs that
     -- contain user attributes and attribute values that you can use for custom
     -- validation, such as restricting the types of user accounts that can be
@@ -205,6 +201,10 @@ data AdminCreateUser = AdminCreateUser'
     --
     -- The user\'s validation data is not persisted.
     validationData :: Prelude.Maybe [AttributeType],
+    -- | Specify @\"EMAIL\"@ if email will be used to send the welcome message.
+    -- Specify @\"SMS\"@ if the phone number will be used. The default value is
+    -- @\"SMS\"@. More than one value can be specified.
+    desiredDeliveryMediums :: Prelude.Maybe [DeliveryMediumType],
     -- | The user pool ID for the user pool where the user will be created.
     userPoolId :: Prelude.Text,
     -- | The username for the user. Must be unique within the user pool. Must be
@@ -221,6 +221,26 @@ data AdminCreateUser = AdminCreateUser'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'messageAction', 'adminCreateUser_messageAction' - Set to @\"RESEND\"@ to resend the invitation message to a user that
+-- already exists and reset the expiration limit on the user\'s account.
+-- Set to @\"SUPPRESS\"@ to suppress sending the message. Only one value
+-- can be specified.
+--
+-- 'temporaryPassword', 'adminCreateUser_temporaryPassword' - The user\'s temporary password. This password must conform to the
+-- password policy that you specified when you created the user pool.
+--
+-- The temporary password is valid only once. To complete the Admin Create
+-- User flow, the user must enter the temporary password in the sign-in
+-- page along with a new password to be used in all future sign-ins.
+--
+-- This parameter is not required. If you do not specify a value, Amazon
+-- Cognito generates one for you.
+--
+-- The temporary password can only be used until the user account
+-- expiration limit that you specified when you created the user pool. To
+-- reset the account after that time limit, you must call @AdminCreateUser@
+-- again, specifying @\"RESEND\"@ for the @MessageAction@ parameter.
 --
 -- 'clientMetadata', 'adminCreateUser_clientMetadata' - A map of custom key-value pairs that you can provide as input for any
 -- custom workflows that this action triggers.
@@ -253,43 +273,6 @@ data AdminCreateUser = AdminCreateUser'
 -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
 --     don\'t use it to provide sensitive information.
 --
--- 'temporaryPassword', 'adminCreateUser_temporaryPassword' - The user\'s temporary password. This password must conform to the
--- password policy that you specified when you created the user pool.
---
--- The temporary password is valid only once. To complete the Admin Create
--- User flow, the user must enter the temporary password in the sign-in
--- page along with a new password to be used in all future sign-ins.
---
--- This parameter is not required. If you do not specify a value, Amazon
--- Cognito generates one for you.
---
--- The temporary password can only be used until the user account
--- expiration limit that you specified when you created the user pool. To
--- reset the account after that time limit, you must call @AdminCreateUser@
--- again, specifying @\"RESEND\"@ for the @MessageAction@ parameter.
---
--- 'forceAliasCreation', 'adminCreateUser_forceAliasCreation' - This parameter is only used if the @phone_number_verified@ or
--- @email_verified@ attribute is set to @True@. Otherwise, it is ignored.
---
--- If this parameter is set to @True@ and the phone number or email address
--- specified in the UserAttributes parameter already exists as an alias
--- with a different user, the API call will migrate the alias from the
--- previous user to the newly created user. The previous user will no
--- longer be able to log in using that alias.
---
--- If this parameter is set to @False@, the API throws an
--- @AliasExistsException@ error if the alias already exists. The default
--- value is @False@.
---
--- 'desiredDeliveryMediums', 'adminCreateUser_desiredDeliveryMediums' - Specify @\"EMAIL\"@ if email will be used to send the welcome message.
--- Specify @\"SMS\"@ if the phone number will be used. The default value is
--- @\"SMS\"@. More than one value can be specified.
---
--- 'messageAction', 'adminCreateUser_messageAction' - Set to @\"RESEND\"@ to resend the invitation message to a user that
--- already exists and reset the expiration limit on the user\'s account.
--- Set to @\"SUPPRESS\"@ to suppress sending the message. Only one value
--- can be specified.
---
 -- 'userAttributes', 'adminCreateUser_userAttributes' - An array of name-value pairs that contain user attributes and attribute
 -- values to be set for the user to be created. You can create a user
 -- without specifying any attributes other than @Username@. However, any
@@ -321,6 +304,19 @@ data AdminCreateUser = AdminCreateUser'
 --     @phone_number_verified@ attribute is set to @True@, or if @\"SMS\"@
 --     is specified in the @DesiredDeliveryMediums@ parameter.
 --
+-- 'forceAliasCreation', 'adminCreateUser_forceAliasCreation' - This parameter is only used if the @phone_number_verified@ or
+-- @email_verified@ attribute is set to @True@. Otherwise, it is ignored.
+--
+-- If this parameter is set to @True@ and the phone number or email address
+-- specified in the UserAttributes parameter already exists as an alias
+-- with a different user, the API call will migrate the alias from the
+-- previous user to the newly created user. The previous user will no
+-- longer be able to log in using that alias.
+--
+-- If this parameter is set to @False@, the API throws an
+-- @AliasExistsException@ error if the alias already exists. The default
+-- value is @False@.
+--
 -- 'validationData', 'adminCreateUser_validationData' - The user\'s validation data. This is an array of name-value pairs that
 -- contain user attributes and attribute values that you can use for custom
 -- validation, such as restricting the types of user accounts that can be
@@ -333,6 +329,10 @@ data AdminCreateUser = AdminCreateUser'
 -- the validation process.
 --
 -- The user\'s validation data is not persisted.
+--
+-- 'desiredDeliveryMediums', 'adminCreateUser_desiredDeliveryMediums' - Specify @\"EMAIL\"@ if email will be used to send the welcome message.
+-- Specify @\"SMS\"@ if the phone number will be used. The default value is
+-- @\"SMS\"@. More than one value can be specified.
 --
 -- 'userPoolId', 'adminCreateUser_userPoolId' - The user pool ID for the user pool where the user will be created.
 --
@@ -347,16 +347,40 @@ newAdminCreateUser ::
   AdminCreateUser
 newAdminCreateUser pUserPoolId_ pUsername_ =
   AdminCreateUser'
-    { clientMetadata = Prelude.Nothing,
+    { messageAction = Prelude.Nothing,
       temporaryPassword = Prelude.Nothing,
-      forceAliasCreation = Prelude.Nothing,
-      desiredDeliveryMediums = Prelude.Nothing,
-      messageAction = Prelude.Nothing,
+      clientMetadata = Prelude.Nothing,
       userAttributes = Prelude.Nothing,
+      forceAliasCreation = Prelude.Nothing,
       validationData = Prelude.Nothing,
+      desiredDeliveryMediums = Prelude.Nothing,
       userPoolId = pUserPoolId_,
       username = Core._Sensitive Lens.# pUsername_
     }
+
+-- | Set to @\"RESEND\"@ to resend the invitation message to a user that
+-- already exists and reset the expiration limit on the user\'s account.
+-- Set to @\"SUPPRESS\"@ to suppress sending the message. Only one value
+-- can be specified.
+adminCreateUser_messageAction :: Lens.Lens' AdminCreateUser (Prelude.Maybe MessageActionType)
+adminCreateUser_messageAction = Lens.lens (\AdminCreateUser' {messageAction} -> messageAction) (\s@AdminCreateUser' {} a -> s {messageAction = a} :: AdminCreateUser)
+
+-- | The user\'s temporary password. This password must conform to the
+-- password policy that you specified when you created the user pool.
+--
+-- The temporary password is valid only once. To complete the Admin Create
+-- User flow, the user must enter the temporary password in the sign-in
+-- page along with a new password to be used in all future sign-ins.
+--
+-- This parameter is not required. If you do not specify a value, Amazon
+-- Cognito generates one for you.
+--
+-- The temporary password can only be used until the user account
+-- expiration limit that you specified when you created the user pool. To
+-- reset the account after that time limit, you must call @AdminCreateUser@
+-- again, specifying @\"RESEND\"@ for the @MessageAction@ parameter.
+adminCreateUser_temporaryPassword :: Lens.Lens' AdminCreateUser (Prelude.Maybe Prelude.Text)
+adminCreateUser_temporaryPassword = Lens.lens (\AdminCreateUser' {temporaryPassword} -> temporaryPassword) (\s@AdminCreateUser' {} a -> s {temporaryPassword = a} :: AdminCreateUser) Prelude.. Lens.mapping Core._Sensitive
 
 -- | A map of custom key-value pairs that you can provide as input for any
 -- custom workflows that this action triggers.
@@ -391,51 +415,6 @@ newAdminCreateUser pUserPoolId_ pUsername_ =
 adminCreateUser_clientMetadata :: Lens.Lens' AdminCreateUser (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 adminCreateUser_clientMetadata = Lens.lens (\AdminCreateUser' {clientMetadata} -> clientMetadata) (\s@AdminCreateUser' {} a -> s {clientMetadata = a} :: AdminCreateUser) Prelude.. Lens.mapping Lens.coerced
 
--- | The user\'s temporary password. This password must conform to the
--- password policy that you specified when you created the user pool.
---
--- The temporary password is valid only once. To complete the Admin Create
--- User flow, the user must enter the temporary password in the sign-in
--- page along with a new password to be used in all future sign-ins.
---
--- This parameter is not required. If you do not specify a value, Amazon
--- Cognito generates one for you.
---
--- The temporary password can only be used until the user account
--- expiration limit that you specified when you created the user pool. To
--- reset the account after that time limit, you must call @AdminCreateUser@
--- again, specifying @\"RESEND\"@ for the @MessageAction@ parameter.
-adminCreateUser_temporaryPassword :: Lens.Lens' AdminCreateUser (Prelude.Maybe Prelude.Text)
-adminCreateUser_temporaryPassword = Lens.lens (\AdminCreateUser' {temporaryPassword} -> temporaryPassword) (\s@AdminCreateUser' {} a -> s {temporaryPassword = a} :: AdminCreateUser) Prelude.. Lens.mapping Core._Sensitive
-
--- | This parameter is only used if the @phone_number_verified@ or
--- @email_verified@ attribute is set to @True@. Otherwise, it is ignored.
---
--- If this parameter is set to @True@ and the phone number or email address
--- specified in the UserAttributes parameter already exists as an alias
--- with a different user, the API call will migrate the alias from the
--- previous user to the newly created user. The previous user will no
--- longer be able to log in using that alias.
---
--- If this parameter is set to @False@, the API throws an
--- @AliasExistsException@ error if the alias already exists. The default
--- value is @False@.
-adminCreateUser_forceAliasCreation :: Lens.Lens' AdminCreateUser (Prelude.Maybe Prelude.Bool)
-adminCreateUser_forceAliasCreation = Lens.lens (\AdminCreateUser' {forceAliasCreation} -> forceAliasCreation) (\s@AdminCreateUser' {} a -> s {forceAliasCreation = a} :: AdminCreateUser)
-
--- | Specify @\"EMAIL\"@ if email will be used to send the welcome message.
--- Specify @\"SMS\"@ if the phone number will be used. The default value is
--- @\"SMS\"@. More than one value can be specified.
-adminCreateUser_desiredDeliveryMediums :: Lens.Lens' AdminCreateUser (Prelude.Maybe [DeliveryMediumType])
-adminCreateUser_desiredDeliveryMediums = Lens.lens (\AdminCreateUser' {desiredDeliveryMediums} -> desiredDeliveryMediums) (\s@AdminCreateUser' {} a -> s {desiredDeliveryMediums = a} :: AdminCreateUser) Prelude.. Lens.mapping Lens.coerced
-
--- | Set to @\"RESEND\"@ to resend the invitation message to a user that
--- already exists and reset the expiration limit on the user\'s account.
--- Set to @\"SUPPRESS\"@ to suppress sending the message. Only one value
--- can be specified.
-adminCreateUser_messageAction :: Lens.Lens' AdminCreateUser (Prelude.Maybe MessageActionType)
-adminCreateUser_messageAction = Lens.lens (\AdminCreateUser' {messageAction} -> messageAction) (\s@AdminCreateUser' {} a -> s {messageAction = a} :: AdminCreateUser)
-
 -- | An array of name-value pairs that contain user attributes and attribute
 -- values to be set for the user to be created. You can create a user
 -- without specifying any attributes other than @Username@. However, any
@@ -469,6 +448,21 @@ adminCreateUser_messageAction = Lens.lens (\AdminCreateUser' {messageAction} -> 
 adminCreateUser_userAttributes :: Lens.Lens' AdminCreateUser (Prelude.Maybe [AttributeType])
 adminCreateUser_userAttributes = Lens.lens (\AdminCreateUser' {userAttributes} -> userAttributes) (\s@AdminCreateUser' {} a -> s {userAttributes = a} :: AdminCreateUser) Prelude.. Lens.mapping Lens.coerced
 
+-- | This parameter is only used if the @phone_number_verified@ or
+-- @email_verified@ attribute is set to @True@. Otherwise, it is ignored.
+--
+-- If this parameter is set to @True@ and the phone number or email address
+-- specified in the UserAttributes parameter already exists as an alias
+-- with a different user, the API call will migrate the alias from the
+-- previous user to the newly created user. The previous user will no
+-- longer be able to log in using that alias.
+--
+-- If this parameter is set to @False@, the API throws an
+-- @AliasExistsException@ error if the alias already exists. The default
+-- value is @False@.
+adminCreateUser_forceAliasCreation :: Lens.Lens' AdminCreateUser (Prelude.Maybe Prelude.Bool)
+adminCreateUser_forceAliasCreation = Lens.lens (\AdminCreateUser' {forceAliasCreation} -> forceAliasCreation) (\s@AdminCreateUser' {} a -> s {forceAliasCreation = a} :: AdminCreateUser)
+
 -- | The user\'s validation data. This is an array of name-value pairs that
 -- contain user attributes and attribute values that you can use for custom
 -- validation, such as restricting the types of user accounts that can be
@@ -483,6 +477,12 @@ adminCreateUser_userAttributes = Lens.lens (\AdminCreateUser' {userAttributes} -
 -- The user\'s validation data is not persisted.
 adminCreateUser_validationData :: Lens.Lens' AdminCreateUser (Prelude.Maybe [AttributeType])
 adminCreateUser_validationData = Lens.lens (\AdminCreateUser' {validationData} -> validationData) (\s@AdminCreateUser' {} a -> s {validationData = a} :: AdminCreateUser) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specify @\"EMAIL\"@ if email will be used to send the welcome message.
+-- Specify @\"SMS\"@ if the phone number will be used. The default value is
+-- @\"SMS\"@. More than one value can be specified.
+adminCreateUser_desiredDeliveryMediums :: Lens.Lens' AdminCreateUser (Prelude.Maybe [DeliveryMediumType])
+adminCreateUser_desiredDeliveryMediums = Lens.lens (\AdminCreateUser' {desiredDeliveryMediums} -> desiredDeliveryMediums) (\s@AdminCreateUser' {} a -> s {desiredDeliveryMediums = a} :: AdminCreateUser) Prelude.. Lens.mapping Lens.coerced
 
 -- | The user pool ID for the user pool where the user will be created.
 adminCreateUser_userPoolId :: Lens.Lens' AdminCreateUser Prelude.Text
@@ -509,25 +509,25 @@ instance Core.AWSRequest AdminCreateUser where
 
 instance Prelude.Hashable AdminCreateUser where
   hashWithSalt _salt AdminCreateUser' {..} =
-    _salt `Prelude.hashWithSalt` clientMetadata
+    _salt `Prelude.hashWithSalt` messageAction
       `Prelude.hashWithSalt` temporaryPassword
-      `Prelude.hashWithSalt` forceAliasCreation
-      `Prelude.hashWithSalt` desiredDeliveryMediums
-      `Prelude.hashWithSalt` messageAction
+      `Prelude.hashWithSalt` clientMetadata
       `Prelude.hashWithSalt` userAttributes
+      `Prelude.hashWithSalt` forceAliasCreation
       `Prelude.hashWithSalt` validationData
+      `Prelude.hashWithSalt` desiredDeliveryMediums
       `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` username
 
 instance Prelude.NFData AdminCreateUser where
   rnf AdminCreateUser' {..} =
-    Prelude.rnf clientMetadata
+    Prelude.rnf messageAction
       `Prelude.seq` Prelude.rnf temporaryPassword
-      `Prelude.seq` Prelude.rnf forceAliasCreation
-      `Prelude.seq` Prelude.rnf desiredDeliveryMediums
-      `Prelude.seq` Prelude.rnf messageAction
+      `Prelude.seq` Prelude.rnf clientMetadata
       `Prelude.seq` Prelude.rnf userAttributes
+      `Prelude.seq` Prelude.rnf forceAliasCreation
       `Prelude.seq` Prelude.rnf validationData
+      `Prelude.seq` Prelude.rnf desiredDeliveryMediums
       `Prelude.seq` Prelude.rnf userPoolId
       `Prelude.seq` Prelude.rnf username
 
@@ -550,19 +550,19 @@ instance Core.ToJSON AdminCreateUser where
   toJSON AdminCreateUser' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ClientMetadata" Core..=)
-              Prelude.<$> clientMetadata,
+          [ ("MessageAction" Core..=) Prelude.<$> messageAction,
             ("TemporaryPassword" Core..=)
               Prelude.<$> temporaryPassword,
-            ("ForceAliasCreation" Core..=)
-              Prelude.<$> forceAliasCreation,
-            ("DesiredDeliveryMediums" Core..=)
-              Prelude.<$> desiredDeliveryMediums,
-            ("MessageAction" Core..=) Prelude.<$> messageAction,
+            ("ClientMetadata" Core..=)
+              Prelude.<$> clientMetadata,
             ("UserAttributes" Core..=)
               Prelude.<$> userAttributes,
+            ("ForceAliasCreation" Core..=)
+              Prelude.<$> forceAliasCreation,
             ("ValidationData" Core..=)
               Prelude.<$> validationData,
+            ("DesiredDeliveryMediums" Core..=)
+              Prelude.<$> desiredDeliveryMediums,
             Prelude.Just ("UserPoolId" Core..= userPoolId),
             Prelude.Just ("Username" Core..= username)
           ]

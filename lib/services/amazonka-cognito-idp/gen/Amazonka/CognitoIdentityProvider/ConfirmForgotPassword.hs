@@ -28,10 +28,10 @@ module Amazonka.CognitoIdentityProvider.ConfirmForgotPassword
     newConfirmForgotPassword,
 
     -- * Request Lenses
-    confirmForgotPassword_clientMetadata,
     confirmForgotPassword_analyticsMetadata,
-    confirmForgotPassword_userContextData,
+    confirmForgotPassword_clientMetadata,
     confirmForgotPassword_secretHash,
+    confirmForgotPassword_userContextData,
     confirmForgotPassword_clientId,
     confirmForgotPassword_username,
     confirmForgotPassword_confirmationCode,
@@ -57,7 +57,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newConfirmForgotPassword' smart constructor.
 data ConfirmForgotPassword = ConfirmForgotPassword'
-  { -- | A map of custom key-value pairs that you can provide as input for any
+  { -- | The Amazon Pinpoint analytics metadata for collecting metrics for
+    -- @ConfirmForgotPassword@ calls.
+    analyticsMetadata :: Prelude.Maybe AnalyticsMetadataType,
+    -- | A map of custom key-value pairs that you can provide as input for any
     -- custom workflows that this action triggers.
     --
     -- You create custom workflows by assigning Lambda functions to user pool
@@ -88,17 +91,14 @@ data ConfirmForgotPassword = ConfirmForgotPassword'
     -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
     --     don\'t use it to provide sensitive information.
     clientMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The Amazon Pinpoint analytics metadata for collecting metrics for
-    -- @ConfirmForgotPassword@ calls.
-    analyticsMetadata :: Prelude.Maybe AnalyticsMetadataType,
-    -- | Contextual data such as the user\'s device fingerprint, IP address, or
-    -- location used for evaluating the risk of an unexpected event by Amazon
-    -- Cognito advanced security.
-    userContextData :: Prelude.Maybe UserContextDataType,
     -- | A keyed-hash message authentication code (HMAC) calculated using the
     -- secret key of a user pool client and username plus the client ID in the
     -- message.
     secretHash :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | Contextual data such as the user\'s device fingerprint, IP address, or
+    -- location used for evaluating the risk of an unexpected event by Amazon
+    -- Cognito advanced security.
+    userContextData :: Prelude.Maybe UserContextDataType,
     -- | The app client ID of the app associated with the user pool.
     clientId :: Core.Sensitive Prelude.Text,
     -- | The user name of the user for whom you want to enter a code to retrieve
@@ -120,6 +120,9 @@ data ConfirmForgotPassword = ConfirmForgotPassword'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'analyticsMetadata', 'confirmForgotPassword_analyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for
+-- @ConfirmForgotPassword@ calls.
 --
 -- 'clientMetadata', 'confirmForgotPassword_clientMetadata' - A map of custom key-value pairs that you can provide as input for any
 -- custom workflows that this action triggers.
@@ -152,16 +155,13 @@ data ConfirmForgotPassword = ConfirmForgotPassword'
 -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
 --     don\'t use it to provide sensitive information.
 --
--- 'analyticsMetadata', 'confirmForgotPassword_analyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for
--- @ConfirmForgotPassword@ calls.
+-- 'secretHash', 'confirmForgotPassword_secretHash' - A keyed-hash message authentication code (HMAC) calculated using the
+-- secret key of a user pool client and username plus the client ID in the
+-- message.
 --
 -- 'userContextData', 'confirmForgotPassword_userContextData' - Contextual data such as the user\'s device fingerprint, IP address, or
 -- location used for evaluating the risk of an unexpected event by Amazon
 -- Cognito advanced security.
---
--- 'secretHash', 'confirmForgotPassword_secretHash' - A keyed-hash message authentication code (HMAC) calculated using the
--- secret key of a user pool client and username plus the client ID in the
--- message.
 --
 -- 'clientId', 'confirmForgotPassword_clientId' - The app client ID of the app associated with the user pool.
 --
@@ -189,16 +189,21 @@ newConfirmForgotPassword
   pConfirmationCode_
   pPassword_ =
     ConfirmForgotPassword'
-      { clientMetadata =
+      { analyticsMetadata =
           Prelude.Nothing,
-        analyticsMetadata = Prelude.Nothing,
-        userContextData = Prelude.Nothing,
+        clientMetadata = Prelude.Nothing,
         secretHash = Prelude.Nothing,
+        userContextData = Prelude.Nothing,
         clientId = Core._Sensitive Lens.# pClientId_,
         username = Core._Sensitive Lens.# pUsername_,
         confirmationCode = pConfirmationCode_,
         password = Core._Sensitive Lens.# pPassword_
       }
+
+-- | The Amazon Pinpoint analytics metadata for collecting metrics for
+-- @ConfirmForgotPassword@ calls.
+confirmForgotPassword_analyticsMetadata :: Lens.Lens' ConfirmForgotPassword (Prelude.Maybe AnalyticsMetadataType)
+confirmForgotPassword_analyticsMetadata = Lens.lens (\ConfirmForgotPassword' {analyticsMetadata} -> analyticsMetadata) (\s@ConfirmForgotPassword' {} a -> s {analyticsMetadata = a} :: ConfirmForgotPassword)
 
 -- | A map of custom key-value pairs that you can provide as input for any
 -- custom workflows that this action triggers.
@@ -233,22 +238,17 @@ newConfirmForgotPassword
 confirmForgotPassword_clientMetadata :: Lens.Lens' ConfirmForgotPassword (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 confirmForgotPassword_clientMetadata = Lens.lens (\ConfirmForgotPassword' {clientMetadata} -> clientMetadata) (\s@ConfirmForgotPassword' {} a -> s {clientMetadata = a} :: ConfirmForgotPassword) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Pinpoint analytics metadata for collecting metrics for
--- @ConfirmForgotPassword@ calls.
-confirmForgotPassword_analyticsMetadata :: Lens.Lens' ConfirmForgotPassword (Prelude.Maybe AnalyticsMetadataType)
-confirmForgotPassword_analyticsMetadata = Lens.lens (\ConfirmForgotPassword' {analyticsMetadata} -> analyticsMetadata) (\s@ConfirmForgotPassword' {} a -> s {analyticsMetadata = a} :: ConfirmForgotPassword)
+-- | A keyed-hash message authentication code (HMAC) calculated using the
+-- secret key of a user pool client and username plus the client ID in the
+-- message.
+confirmForgotPassword_secretHash :: Lens.Lens' ConfirmForgotPassword (Prelude.Maybe Prelude.Text)
+confirmForgotPassword_secretHash = Lens.lens (\ConfirmForgotPassword' {secretHash} -> secretHash) (\s@ConfirmForgotPassword' {} a -> s {secretHash = a} :: ConfirmForgotPassword) Prelude.. Lens.mapping Core._Sensitive
 
 -- | Contextual data such as the user\'s device fingerprint, IP address, or
 -- location used for evaluating the risk of an unexpected event by Amazon
 -- Cognito advanced security.
 confirmForgotPassword_userContextData :: Lens.Lens' ConfirmForgotPassword (Prelude.Maybe UserContextDataType)
 confirmForgotPassword_userContextData = Lens.lens (\ConfirmForgotPassword' {userContextData} -> userContextData) (\s@ConfirmForgotPassword' {} a -> s {userContextData = a} :: ConfirmForgotPassword)
-
--- | A keyed-hash message authentication code (HMAC) calculated using the
--- secret key of a user pool client and username plus the client ID in the
--- message.
-confirmForgotPassword_secretHash :: Lens.Lens' ConfirmForgotPassword (Prelude.Maybe Prelude.Text)
-confirmForgotPassword_secretHash = Lens.lens (\ConfirmForgotPassword' {secretHash} -> secretHash) (\s@ConfirmForgotPassword' {} a -> s {secretHash = a} :: ConfirmForgotPassword) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The app client ID of the app associated with the user pool.
 confirmForgotPassword_clientId :: Lens.Lens' ConfirmForgotPassword Prelude.Text
@@ -283,10 +283,10 @@ instance Core.AWSRequest ConfirmForgotPassword where
 
 instance Prelude.Hashable ConfirmForgotPassword where
   hashWithSalt _salt ConfirmForgotPassword' {..} =
-    _salt `Prelude.hashWithSalt` clientMetadata
-      `Prelude.hashWithSalt` analyticsMetadata
-      `Prelude.hashWithSalt` userContextData
+    _salt `Prelude.hashWithSalt` analyticsMetadata
+      `Prelude.hashWithSalt` clientMetadata
       `Prelude.hashWithSalt` secretHash
+      `Prelude.hashWithSalt` userContextData
       `Prelude.hashWithSalt` clientId
       `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` confirmationCode
@@ -294,10 +294,10 @@ instance Prelude.Hashable ConfirmForgotPassword where
 
 instance Prelude.NFData ConfirmForgotPassword where
   rnf ConfirmForgotPassword' {..} =
-    Prelude.rnf clientMetadata
-      `Prelude.seq` Prelude.rnf analyticsMetadata
-      `Prelude.seq` Prelude.rnf userContextData
+    Prelude.rnf analyticsMetadata
+      `Prelude.seq` Prelude.rnf clientMetadata
       `Prelude.seq` Prelude.rnf secretHash
+      `Prelude.seq` Prelude.rnf userContextData
       `Prelude.seq` Prelude.rnf clientId
       `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf confirmationCode
@@ -322,13 +322,13 @@ instance Core.ToJSON ConfirmForgotPassword where
   toJSON ConfirmForgotPassword' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ClientMetadata" Core..=)
-              Prelude.<$> clientMetadata,
-            ("AnalyticsMetadata" Core..=)
+          [ ("AnalyticsMetadata" Core..=)
               Prelude.<$> analyticsMetadata,
+            ("ClientMetadata" Core..=)
+              Prelude.<$> clientMetadata,
+            ("SecretHash" Core..=) Prelude.<$> secretHash,
             ("UserContextData" Core..=)
               Prelude.<$> userContextData,
-            ("SecretHash" Core..=) Prelude.<$> secretHash,
             Prelude.Just ("ClientId" Core..= clientId),
             Prelude.Just ("Username" Core..= username),
             Prelude.Just

@@ -33,7 +33,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newListener' smart constructor.
 data Listener = Listener'
-  { -- | The protocol to use for routing traffic to instances: HTTP, HTTPS, TCP,
+  { -- | The Amazon Resource Name (ARN) of the server certificate.
+    sSLCertificateId :: Prelude.Maybe Prelude.Text,
+    -- | The protocol to use for routing traffic to instances: HTTP, HTTPS, TCP,
     -- or SSL.
     --
     -- If the front-end protocol is TCP or SSL, the back-end protocol must be
@@ -48,8 +50,6 @@ data Listener = Listener'
     -- @InstanceProtocol@ is HTTP or TCP, the listener\'s @InstanceProtocol@
     -- must be HTTP or TCP.
     instanceProtocol :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the server certificate.
-    sSLCertificateId :: Prelude.Maybe Prelude.Text,
     -- | The load balancer transport protocol to use for routing: HTTP, HTTPS,
     -- TCP, or SSL.
     protocol :: Prelude.Text,
@@ -70,6 +70,8 @@ data Listener = Listener'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'sSLCertificateId', 'listener_sSLCertificateId' - The Amazon Resource Name (ARN) of the server certificate.
+--
 -- 'instanceProtocol', 'listener_instanceProtocol' - The protocol to use for routing traffic to instances: HTTP, HTTPS, TCP,
 -- or SSL.
 --
@@ -84,8 +86,6 @@ data Listener = Listener'
 -- If there is another listener with the same @InstancePort@ whose
 -- @InstanceProtocol@ is HTTP or TCP, the listener\'s @InstanceProtocol@
 -- must be HTTP or TCP.
---
--- 'sSLCertificateId', 'listener_sSLCertificateId' - The Amazon Resource Name (ARN) of the server certificate.
 --
 -- 'protocol', 'listener_protocol' - The load balancer transport protocol to use for routing: HTTP, HTTPS,
 -- TCP, or SSL.
@@ -108,12 +108,16 @@ newListener
   pLoadBalancerPort_
   pInstancePort_ =
     Listener'
-      { instanceProtocol = Prelude.Nothing,
-        sSLCertificateId = Prelude.Nothing,
+      { sSLCertificateId = Prelude.Nothing,
+        instanceProtocol = Prelude.Nothing,
         protocol = pProtocol_,
         loadBalancerPort = pLoadBalancerPort_,
         instancePort = pInstancePort_
       }
+
+-- | The Amazon Resource Name (ARN) of the server certificate.
+listener_sSLCertificateId :: Lens.Lens' Listener (Prelude.Maybe Prelude.Text)
+listener_sSLCertificateId = Lens.lens (\Listener' {sSLCertificateId} -> sSLCertificateId) (\s@Listener' {} a -> s {sSLCertificateId = a} :: Listener)
 
 -- | The protocol to use for routing traffic to instances: HTTP, HTTPS, TCP,
 -- or SSL.
@@ -131,10 +135,6 @@ newListener
 -- must be HTTP or TCP.
 listener_instanceProtocol :: Lens.Lens' Listener (Prelude.Maybe Prelude.Text)
 listener_instanceProtocol = Lens.lens (\Listener' {instanceProtocol} -> instanceProtocol) (\s@Listener' {} a -> s {instanceProtocol = a} :: Listener)
-
--- | The Amazon Resource Name (ARN) of the server certificate.
-listener_sSLCertificateId :: Lens.Lens' Listener (Prelude.Maybe Prelude.Text)
-listener_sSLCertificateId = Lens.lens (\Listener' {sSLCertificateId} -> sSLCertificateId) (\s@Listener' {} a -> s {sSLCertificateId = a} :: Listener)
 
 -- | The load balancer transport protocol to use for routing: HTTP, HTTPS,
 -- TCP, or SSL.
@@ -154,24 +154,24 @@ listener_instancePort = Lens.lens (\Listener' {instancePort} -> instancePort) (\
 instance Core.FromXML Listener where
   parseXML x =
     Listener'
-      Prelude.<$> (x Core..@? "InstanceProtocol")
-      Prelude.<*> (x Core..@? "SSLCertificateId")
+      Prelude.<$> (x Core..@? "SSLCertificateId")
+      Prelude.<*> (x Core..@? "InstanceProtocol")
       Prelude.<*> (x Core..@ "Protocol")
       Prelude.<*> (x Core..@ "LoadBalancerPort")
       Prelude.<*> (x Core..@ "InstancePort")
 
 instance Prelude.Hashable Listener where
   hashWithSalt _salt Listener' {..} =
-    _salt `Prelude.hashWithSalt` instanceProtocol
-      `Prelude.hashWithSalt` sSLCertificateId
+    _salt `Prelude.hashWithSalt` sSLCertificateId
+      `Prelude.hashWithSalt` instanceProtocol
       `Prelude.hashWithSalt` protocol
       `Prelude.hashWithSalt` loadBalancerPort
       `Prelude.hashWithSalt` instancePort
 
 instance Prelude.NFData Listener where
   rnf Listener' {..} =
-    Prelude.rnf instanceProtocol
-      `Prelude.seq` Prelude.rnf sSLCertificateId
+    Prelude.rnf sSLCertificateId
+      `Prelude.seq` Prelude.rnf instanceProtocol
       `Prelude.seq` Prelude.rnf protocol
       `Prelude.seq` Prelude.rnf loadBalancerPort
       `Prelude.seq` Prelude.rnf instancePort
@@ -179,8 +179,8 @@ instance Prelude.NFData Listener where
 instance Core.ToQuery Listener where
   toQuery Listener' {..} =
     Prelude.mconcat
-      [ "InstanceProtocol" Core.=: instanceProtocol,
-        "SSLCertificateId" Core.=: sSLCertificateId,
+      [ "SSLCertificateId" Core.=: sSLCertificateId,
+        "InstanceProtocol" Core.=: instanceProtocol,
         "Protocol" Core.=: protocol,
         "LoadBalancerPort" Core.=: loadBalancerPort,
         "InstancePort" Core.=: instancePort

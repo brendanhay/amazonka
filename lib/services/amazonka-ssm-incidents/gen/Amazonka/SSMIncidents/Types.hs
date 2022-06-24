@@ -17,13 +17,13 @@ module Amazonka.SSMIncidents.Types
     defaultService,
 
     -- * Errors
-    _ValidationException,
     _AccessDeniedException,
-    _ConflictException,
-    _ServiceQuotaExceededException,
-    _ThrottlingException,
     _InternalServerException,
+    _ServiceQuotaExceededException,
     _ResourceNotFoundException,
+    _ConflictException,
+    _ThrottlingException,
+    _ValidationException,
 
     -- * IncidentRecordStatus
     IncidentRecordStatus (..),
@@ -60,8 +60,8 @@ module Amazonka.SSMIncidents.Types
     -- * AttributeValueList
     AttributeValueList (..),
     newAttributeValueList,
-    attributeValueList_stringValues,
     attributeValueList_integerValues,
+    attributeValueList_stringValues,
 
     -- * AutomationExecution
     AutomationExecution (..),
@@ -77,8 +77,8 @@ module Amazonka.SSMIncidents.Types
     -- * Condition
     Condition (..),
     newCondition,
-    condition_after,
     condition_equals,
+    condition_after,
     condition_before,
 
     -- * DeleteRegionAction
@@ -108,11 +108,11 @@ module Amazonka.SSMIncidents.Types
     -- * IncidentRecord
     IncidentRecord (..),
     newIncidentRecord,
-    incidentRecord_summary,
-    incidentRecord_notificationTargets,
-    incidentRecord_resolvedTime,
     incidentRecord_chatChannel,
+    incidentRecord_summary,
     incidentRecord_automationExecutions,
+    incidentRecord_resolvedTime,
+    incidentRecord_notificationTargets,
     incidentRecord_arn,
     incidentRecord_creationTime,
     incidentRecord_dedupeString,
@@ -172,8 +172,8 @@ module Amazonka.SSMIncidents.Types
     -- * RegionInfo
     RegionInfo (..),
     newRegionInfo,
-    regionInfo_statusMessage,
     regionInfo_sseKmsKeyId,
+    regionInfo_statusMessage,
     regionInfo_status,
     regionInfo_statusUpdateDateTime,
 
@@ -242,16 +242,16 @@ module Amazonka.SSMIncidents.Types
     -- * TriggerDetails
     TriggerDetails (..),
     newTriggerDetails,
-    triggerDetails_rawData,
     triggerDetails_triggerArn,
+    triggerDetails_rawData,
     triggerDetails_source,
     triggerDetails_timestamp,
 
     -- * UpdateReplicationSetAction
     UpdateReplicationSetAction (..),
     newUpdateReplicationSetAction,
-    updateReplicationSetAction_addRegionAction,
     updateReplicationSetAction_deleteRegionAction,
+    updateReplicationSetAction_addRegionAction,
   )
 where
 
@@ -321,35 +321,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -358,21 +331,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The input fails to satisfy the constraints specified by an AWS service.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
-    Prelude.. Core.hasStatus 400
 
 -- | You don\'t have sufficient access to perform this action.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -381,30 +373,6 @@ _AccessDeniedException =
     defaultService
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
-
--- | Updating or deleting a resource causes an inconsistent state.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
-
--- | Request would cause a service quota to be exceeded.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-    Prelude.. Core.hasStatus 402
-
--- | The request was denied due to request throttling.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
-  Core._MatchServiceError
-    defaultService
-    "ThrottlingException"
-    Prelude.. Core.hasStatus 429
 
 -- | The request processing has failed because of an unknown error, exception
 -- or failure.
@@ -415,6 +383,14 @@ _InternalServerException =
     "InternalServerException"
     Prelude.. Core.hasStatus 500
 
+-- | Request would cause a service quota to be exceeded.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
+
 -- | Request references a resource which does not exist.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
@@ -422,3 +398,27 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
+
+-- | Updating or deleting a resource causes an inconsistent state.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
+-- | The request was denied due to request throttling.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
+    Prelude.. Core.hasStatus 429
+
+-- | The input fails to satisfy the constraints specified by an AWS service.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"
+    Prelude.. Core.hasStatus 400

@@ -32,19 +32,19 @@ import Amazonka.SSMIncidents.Types.NotificationTargetItem
 --
 -- /See:/ 'newIncidentRecord' smart constructor.
 data IncidentRecord = IncidentRecord'
-  { -- | The summary of the incident. The summary is a brief synopsis of what
+  { -- | The chat channel used for collaboration during an incident.
+    chatChannel :: Prelude.Maybe ChatChannel,
+    -- | The summary of the incident. The summary is a brief synopsis of what
     -- occurred, what is currently happening, and context.
     summary :: Prelude.Maybe Prelude.Text,
-    -- | The SNS targets that are notified when updates are made to an incident.
-    notificationTargets :: Prelude.Maybe [NotificationTargetItem],
-    -- | The time at which the incident was resolved. This appears as a timeline
-    -- event.
-    resolvedTime :: Prelude.Maybe Core.POSIX,
-    -- | The chat channel used for collaboration during an incident.
-    chatChannel :: Prelude.Maybe ChatChannel,
     -- | The runbook, or automation document, that\'s run at the beginning of the
     -- incident.
     automationExecutions :: Prelude.Maybe [AutomationExecution],
+    -- | The time at which the incident was resolved. This appears as a timeline
+    -- event.
+    resolvedTime :: Prelude.Maybe Core.POSIX,
+    -- | The SNS targets that are notified when updates are made to an incident.
+    notificationTargets :: Prelude.Maybe [NotificationTargetItem],
     -- | The Amazon Resource Name (ARN) of the incident record.
     arn :: Prelude.Text,
     -- | The time that Incident Manager created the incident record.
@@ -75,18 +75,18 @@ data IncidentRecord = IncidentRecord'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'chatChannel', 'incidentRecord_chatChannel' - The chat channel used for collaboration during an incident.
+--
 -- 'summary', 'incidentRecord_summary' - The summary of the incident. The summary is a brief synopsis of what
 -- occurred, what is currently happening, and context.
 --
--- 'notificationTargets', 'incidentRecord_notificationTargets' - The SNS targets that are notified when updates are made to an incident.
+-- 'automationExecutions', 'incidentRecord_automationExecutions' - The runbook, or automation document, that\'s run at the beginning of the
+-- incident.
 --
 -- 'resolvedTime', 'incidentRecord_resolvedTime' - The time at which the incident was resolved. This appears as a timeline
 -- event.
 --
--- 'chatChannel', 'incidentRecord_chatChannel' - The chat channel used for collaboration during an incident.
---
--- 'automationExecutions', 'incidentRecord_automationExecutions' - The runbook, or automation document, that\'s run at the beginning of the
--- incident.
+-- 'notificationTargets', 'incidentRecord_notificationTargets' - The SNS targets that are notified when updates are made to an incident.
 --
 -- 'arn', 'incidentRecord_arn' - The Amazon Resource Name (ARN) of the incident record.
 --
@@ -137,11 +137,11 @@ newIncidentRecord
   pStatus_
   pTitle_ =
     IncidentRecord'
-      { summary = Prelude.Nothing,
-        notificationTargets = Prelude.Nothing,
-        resolvedTime = Prelude.Nothing,
-        chatChannel = Prelude.Nothing,
+      { chatChannel = Prelude.Nothing,
+        summary = Prelude.Nothing,
         automationExecutions = Prelude.Nothing,
+        resolvedTime = Prelude.Nothing,
+        notificationTargets = Prelude.Nothing,
         arn = pArn_,
         creationTime = Core._Time Lens.# pCreationTime_,
         dedupeString = pDedupeString_,
@@ -154,28 +154,28 @@ newIncidentRecord
         title = pTitle_
       }
 
+-- | The chat channel used for collaboration during an incident.
+incidentRecord_chatChannel :: Lens.Lens' IncidentRecord (Prelude.Maybe ChatChannel)
+incidentRecord_chatChannel = Lens.lens (\IncidentRecord' {chatChannel} -> chatChannel) (\s@IncidentRecord' {} a -> s {chatChannel = a} :: IncidentRecord)
+
 -- | The summary of the incident. The summary is a brief synopsis of what
 -- occurred, what is currently happening, and context.
 incidentRecord_summary :: Lens.Lens' IncidentRecord (Prelude.Maybe Prelude.Text)
 incidentRecord_summary = Lens.lens (\IncidentRecord' {summary} -> summary) (\s@IncidentRecord' {} a -> s {summary = a} :: IncidentRecord)
 
--- | The SNS targets that are notified when updates are made to an incident.
-incidentRecord_notificationTargets :: Lens.Lens' IncidentRecord (Prelude.Maybe [NotificationTargetItem])
-incidentRecord_notificationTargets = Lens.lens (\IncidentRecord' {notificationTargets} -> notificationTargets) (\s@IncidentRecord' {} a -> s {notificationTargets = a} :: IncidentRecord) Prelude.. Lens.mapping Lens.coerced
+-- | The runbook, or automation document, that\'s run at the beginning of the
+-- incident.
+incidentRecord_automationExecutions :: Lens.Lens' IncidentRecord (Prelude.Maybe [AutomationExecution])
+incidentRecord_automationExecutions = Lens.lens (\IncidentRecord' {automationExecutions} -> automationExecutions) (\s@IncidentRecord' {} a -> s {automationExecutions = a} :: IncidentRecord) Prelude.. Lens.mapping Lens.coerced
 
 -- | The time at which the incident was resolved. This appears as a timeline
 -- event.
 incidentRecord_resolvedTime :: Lens.Lens' IncidentRecord (Prelude.Maybe Prelude.UTCTime)
 incidentRecord_resolvedTime = Lens.lens (\IncidentRecord' {resolvedTime} -> resolvedTime) (\s@IncidentRecord' {} a -> s {resolvedTime = a} :: IncidentRecord) Prelude.. Lens.mapping Core._Time
 
--- | The chat channel used for collaboration during an incident.
-incidentRecord_chatChannel :: Lens.Lens' IncidentRecord (Prelude.Maybe ChatChannel)
-incidentRecord_chatChannel = Lens.lens (\IncidentRecord' {chatChannel} -> chatChannel) (\s@IncidentRecord' {} a -> s {chatChannel = a} :: IncidentRecord)
-
--- | The runbook, or automation document, that\'s run at the beginning of the
--- incident.
-incidentRecord_automationExecutions :: Lens.Lens' IncidentRecord (Prelude.Maybe [AutomationExecution])
-incidentRecord_automationExecutions = Lens.lens (\IncidentRecord' {automationExecutions} -> automationExecutions) (\s@IncidentRecord' {} a -> s {automationExecutions = a} :: IncidentRecord) Prelude.. Lens.mapping Lens.coerced
+-- | The SNS targets that are notified when updates are made to an incident.
+incidentRecord_notificationTargets :: Lens.Lens' IncidentRecord (Prelude.Maybe [NotificationTargetItem])
+incidentRecord_notificationTargets = Lens.lens (\IncidentRecord' {notificationTargets} -> notificationTargets) (\s@IncidentRecord' {} a -> s {notificationTargets = a} :: IncidentRecord) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the incident record.
 incidentRecord_arn :: Lens.Lens' IncidentRecord Prelude.Text
@@ -220,13 +220,13 @@ instance Core.FromJSON IncidentRecord where
       "IncidentRecord"
       ( \x ->
           IncidentRecord'
-            Prelude.<$> (x Core..:? "summary")
-            Prelude.<*> ( x Core..:? "notificationTargets"
+            Prelude.<$> (x Core..:? "chatChannel")
+            Prelude.<*> (x Core..:? "summary")
+            Prelude.<*> ( x Core..:? "automationExecutions"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "resolvedTime")
-            Prelude.<*> (x Core..:? "chatChannel")
-            Prelude.<*> ( x Core..:? "automationExecutions"
+            Prelude.<*> ( x Core..:? "notificationTargets"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..: "arn")
@@ -242,11 +242,11 @@ instance Core.FromJSON IncidentRecord where
 
 instance Prelude.Hashable IncidentRecord where
   hashWithSalt _salt IncidentRecord' {..} =
-    _salt `Prelude.hashWithSalt` summary
-      `Prelude.hashWithSalt` notificationTargets
-      `Prelude.hashWithSalt` resolvedTime
-      `Prelude.hashWithSalt` chatChannel
+    _salt `Prelude.hashWithSalt` chatChannel
+      `Prelude.hashWithSalt` summary
       `Prelude.hashWithSalt` automationExecutions
+      `Prelude.hashWithSalt` resolvedTime
+      `Prelude.hashWithSalt` notificationTargets
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` dedupeString
@@ -259,11 +259,11 @@ instance Prelude.Hashable IncidentRecord where
 
 instance Prelude.NFData IncidentRecord where
   rnf IncidentRecord' {..} =
-    Prelude.rnf summary
-      `Prelude.seq` Prelude.rnf notificationTargets
-      `Prelude.seq` Prelude.rnf resolvedTime
-      `Prelude.seq` Prelude.rnf chatChannel
+    Prelude.rnf chatChannel
+      `Prelude.seq` Prelude.rnf summary
       `Prelude.seq` Prelude.rnf automationExecutions
+      `Prelude.seq` Prelude.rnf resolvedTime
+      `Prelude.seq` Prelude.rnf notificationTargets
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf dedupeString

@@ -27,16 +27,16 @@ module Amazonka.SSMIncidents.UpdateResponsePlan
     newUpdateResponsePlan,
 
     -- * Request Lenses
-    updateResponsePlan_incidentTemplateImpact,
     updateResponsePlan_clientToken,
-    updateResponsePlan_actions,
-    updateResponsePlan_incidentTemplateSummary,
-    updateResponsePlan_displayName,
-    updateResponsePlan_chatChannel,
     updateResponsePlan_incidentTemplateDedupeString,
-    updateResponsePlan_incidentTemplateTitle,
-    updateResponsePlan_engagements,
     updateResponsePlan_incidentTemplateNotificationTargets,
+    updateResponsePlan_chatChannel,
+    updateResponsePlan_displayName,
+    updateResponsePlan_incidentTemplateImpact,
+    updateResponsePlan_incidentTemplateSummary,
+    updateResponsePlan_engagements,
+    updateResponsePlan_incidentTemplateTitle,
+    updateResponsePlan_actions,
     updateResponsePlan_arn,
 
     -- * Destructuring the Response
@@ -57,7 +57,21 @@ import Amazonka.SSMIncidents.Types
 
 -- | /See:/ 'newUpdateResponsePlan' smart constructor.
 data UpdateResponsePlan = UpdateResponsePlan'
-  { -- | Defines the impact to the customers. Providing an impact overwrites the
+  { -- | A token ensuring that the action is called only once with the specified
+    -- details.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | Used to create only one incident record for an incident.
+    incidentTemplateDedupeString :: Prelude.Maybe Prelude.Text,
+    -- | The SNS targets that are notified when updates are made to an incident.
+    incidentTemplateNotificationTargets :: Prelude.Maybe [NotificationTargetItem],
+    -- | The AWS Chatbot chat channel used for collaboration during an incident.
+    --
+    -- Use the empty structure to remove the chat channel from the response
+    -- plan.
+    chatChannel :: Prelude.Maybe ChatChannel,
+    -- | The long format name of the response plan. Can\'t contain spaces.
+    displayName :: Prelude.Maybe Prelude.Text,
+    -- | Defines the impact to the customers. Providing an impact overwrites the
     -- impact provided by a response plan.
     --
     -- __Possible impacts:__
@@ -72,31 +86,17 @@ data UpdateResponsePlan = UpdateResponsePlan'
     --
     -- -   @1@ - No impact
     incidentTemplateImpact :: Prelude.Maybe Prelude.Natural,
-    -- | A token ensuring that the action is called only once with the specified
-    -- details.
-    clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The actions that this response plan takes at the beginning of an
-    -- incident.
-    actions :: Prelude.Maybe [Action],
     -- | A brief summary of the incident. This typically contains what has
     -- happened, what\'s currently happening, and next steps.
     incidentTemplateSummary :: Prelude.Maybe Prelude.Text,
-    -- | The long format name of the response plan. Can\'t contain spaces.
-    displayName :: Prelude.Maybe Prelude.Text,
-    -- | The AWS Chatbot chat channel used for collaboration during an incident.
-    --
-    -- Use the empty structure to remove the chat channel from the response
-    -- plan.
-    chatChannel :: Prelude.Maybe ChatChannel,
-    -- | Used to create only one incident record for an incident.
-    incidentTemplateDedupeString :: Prelude.Maybe Prelude.Text,
-    -- | The short format name of the incident. Can\'t contain spaces.
-    incidentTemplateTitle :: Prelude.Maybe Prelude.Text,
     -- | The contacts and escalation plans that Incident Manager engages at the
     -- start of the incident.
     engagements :: Prelude.Maybe [Prelude.Text],
-    -- | The SNS targets that are notified when updates are made to an incident.
-    incidentTemplateNotificationTargets :: Prelude.Maybe [NotificationTargetItem],
+    -- | The short format name of the incident. Can\'t contain spaces.
+    incidentTemplateTitle :: Prelude.Maybe Prelude.Text,
+    -- | The actions that this response plan takes at the beginning of an
+    -- incident.
+    actions :: Prelude.Maybe [Action],
     -- | The Amazon Resource Name (ARN) of the response plan.
     arn :: Prelude.Text
   }
@@ -109,6 +109,20 @@ data UpdateResponsePlan = UpdateResponsePlan'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'clientToken', 'updateResponsePlan_clientToken' - A token ensuring that the action is called only once with the specified
+-- details.
+--
+-- 'incidentTemplateDedupeString', 'updateResponsePlan_incidentTemplateDedupeString' - Used to create only one incident record for an incident.
+--
+-- 'incidentTemplateNotificationTargets', 'updateResponsePlan_incidentTemplateNotificationTargets' - The SNS targets that are notified when updates are made to an incident.
+--
+-- 'chatChannel', 'updateResponsePlan_chatChannel' - The AWS Chatbot chat channel used for collaboration during an incident.
+--
+-- Use the empty structure to remove the chat channel from the response
+-- plan.
+--
+-- 'displayName', 'updateResponsePlan_displayName' - The long format name of the response plan. Can\'t contain spaces.
 --
 -- 'incidentTemplateImpact', 'updateResponsePlan_incidentTemplateImpact' - Defines the impact to the customers. Providing an impact overwrites the
 -- impact provided by a response plan.
@@ -125,30 +139,16 @@ data UpdateResponsePlan = UpdateResponsePlan'
 --
 -- -   @1@ - No impact
 --
--- 'clientToken', 'updateResponsePlan_clientToken' - A token ensuring that the action is called only once with the specified
--- details.
---
--- 'actions', 'updateResponsePlan_actions' - The actions that this response plan takes at the beginning of an
--- incident.
---
 -- 'incidentTemplateSummary', 'updateResponsePlan_incidentTemplateSummary' - A brief summary of the incident. This typically contains what has
 -- happened, what\'s currently happening, and next steps.
---
--- 'displayName', 'updateResponsePlan_displayName' - The long format name of the response plan. Can\'t contain spaces.
---
--- 'chatChannel', 'updateResponsePlan_chatChannel' - The AWS Chatbot chat channel used for collaboration during an incident.
---
--- Use the empty structure to remove the chat channel from the response
--- plan.
---
--- 'incidentTemplateDedupeString', 'updateResponsePlan_incidentTemplateDedupeString' - Used to create only one incident record for an incident.
---
--- 'incidentTemplateTitle', 'updateResponsePlan_incidentTemplateTitle' - The short format name of the incident. Can\'t contain spaces.
 --
 -- 'engagements', 'updateResponsePlan_engagements' - The contacts and escalation plans that Incident Manager engages at the
 -- start of the incident.
 --
--- 'incidentTemplateNotificationTargets', 'updateResponsePlan_incidentTemplateNotificationTargets' - The SNS targets that are notified when updates are made to an incident.
+-- 'incidentTemplateTitle', 'updateResponsePlan_incidentTemplateTitle' - The short format name of the incident. Can\'t contain spaces.
+--
+-- 'actions', 'updateResponsePlan_actions' - The actions that this response plan takes at the beginning of an
+-- incident.
 --
 -- 'arn', 'updateResponsePlan_arn' - The Amazon Resource Name (ARN) of the response plan.
 newUpdateResponsePlan ::
@@ -157,20 +157,43 @@ newUpdateResponsePlan ::
   UpdateResponsePlan
 newUpdateResponsePlan pArn_ =
   UpdateResponsePlan'
-    { incidentTemplateImpact =
-        Prelude.Nothing,
-      clientToken = Prelude.Nothing,
-      actions = Prelude.Nothing,
-      incidentTemplateSummary = Prelude.Nothing,
-      displayName = Prelude.Nothing,
-      chatChannel = Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
       incidentTemplateDedupeString = Prelude.Nothing,
-      incidentTemplateTitle = Prelude.Nothing,
-      engagements = Prelude.Nothing,
       incidentTemplateNotificationTargets =
         Prelude.Nothing,
+      chatChannel = Prelude.Nothing,
+      displayName = Prelude.Nothing,
+      incidentTemplateImpact = Prelude.Nothing,
+      incidentTemplateSummary = Prelude.Nothing,
+      engagements = Prelude.Nothing,
+      incidentTemplateTitle = Prelude.Nothing,
+      actions = Prelude.Nothing,
       arn = pArn_
     }
+
+-- | A token ensuring that the action is called only once with the specified
+-- details.
+updateResponsePlan_clientToken :: Lens.Lens' UpdateResponsePlan (Prelude.Maybe Prelude.Text)
+updateResponsePlan_clientToken = Lens.lens (\UpdateResponsePlan' {clientToken} -> clientToken) (\s@UpdateResponsePlan' {} a -> s {clientToken = a} :: UpdateResponsePlan)
+
+-- | Used to create only one incident record for an incident.
+updateResponsePlan_incidentTemplateDedupeString :: Lens.Lens' UpdateResponsePlan (Prelude.Maybe Prelude.Text)
+updateResponsePlan_incidentTemplateDedupeString = Lens.lens (\UpdateResponsePlan' {incidentTemplateDedupeString} -> incidentTemplateDedupeString) (\s@UpdateResponsePlan' {} a -> s {incidentTemplateDedupeString = a} :: UpdateResponsePlan)
+
+-- | The SNS targets that are notified when updates are made to an incident.
+updateResponsePlan_incidentTemplateNotificationTargets :: Lens.Lens' UpdateResponsePlan (Prelude.Maybe [NotificationTargetItem])
+updateResponsePlan_incidentTemplateNotificationTargets = Lens.lens (\UpdateResponsePlan' {incidentTemplateNotificationTargets} -> incidentTemplateNotificationTargets) (\s@UpdateResponsePlan' {} a -> s {incidentTemplateNotificationTargets = a} :: UpdateResponsePlan) Prelude.. Lens.mapping Lens.coerced
+
+-- | The AWS Chatbot chat channel used for collaboration during an incident.
+--
+-- Use the empty structure to remove the chat channel from the response
+-- plan.
+updateResponsePlan_chatChannel :: Lens.Lens' UpdateResponsePlan (Prelude.Maybe ChatChannel)
+updateResponsePlan_chatChannel = Lens.lens (\UpdateResponsePlan' {chatChannel} -> chatChannel) (\s@UpdateResponsePlan' {} a -> s {chatChannel = a} :: UpdateResponsePlan)
+
+-- | The long format name of the response plan. Can\'t contain spaces.
+updateResponsePlan_displayName :: Lens.Lens' UpdateResponsePlan (Prelude.Maybe Prelude.Text)
+updateResponsePlan_displayName = Lens.lens (\UpdateResponsePlan' {displayName} -> displayName) (\s@UpdateResponsePlan' {} a -> s {displayName = a} :: UpdateResponsePlan)
 
 -- | Defines the impact to the customers. Providing an impact overwrites the
 -- impact provided by a response plan.
@@ -189,48 +212,24 @@ newUpdateResponsePlan pArn_ =
 updateResponsePlan_incidentTemplateImpact :: Lens.Lens' UpdateResponsePlan (Prelude.Maybe Prelude.Natural)
 updateResponsePlan_incidentTemplateImpact = Lens.lens (\UpdateResponsePlan' {incidentTemplateImpact} -> incidentTemplateImpact) (\s@UpdateResponsePlan' {} a -> s {incidentTemplateImpact = a} :: UpdateResponsePlan)
 
--- | A token ensuring that the action is called only once with the specified
--- details.
-updateResponsePlan_clientToken :: Lens.Lens' UpdateResponsePlan (Prelude.Maybe Prelude.Text)
-updateResponsePlan_clientToken = Lens.lens (\UpdateResponsePlan' {clientToken} -> clientToken) (\s@UpdateResponsePlan' {} a -> s {clientToken = a} :: UpdateResponsePlan)
-
--- | The actions that this response plan takes at the beginning of an
--- incident.
-updateResponsePlan_actions :: Lens.Lens' UpdateResponsePlan (Prelude.Maybe [Action])
-updateResponsePlan_actions = Lens.lens (\UpdateResponsePlan' {actions} -> actions) (\s@UpdateResponsePlan' {} a -> s {actions = a} :: UpdateResponsePlan) Prelude.. Lens.mapping Lens.coerced
-
 -- | A brief summary of the incident. This typically contains what has
 -- happened, what\'s currently happening, and next steps.
 updateResponsePlan_incidentTemplateSummary :: Lens.Lens' UpdateResponsePlan (Prelude.Maybe Prelude.Text)
 updateResponsePlan_incidentTemplateSummary = Lens.lens (\UpdateResponsePlan' {incidentTemplateSummary} -> incidentTemplateSummary) (\s@UpdateResponsePlan' {} a -> s {incidentTemplateSummary = a} :: UpdateResponsePlan)
-
--- | The long format name of the response plan. Can\'t contain spaces.
-updateResponsePlan_displayName :: Lens.Lens' UpdateResponsePlan (Prelude.Maybe Prelude.Text)
-updateResponsePlan_displayName = Lens.lens (\UpdateResponsePlan' {displayName} -> displayName) (\s@UpdateResponsePlan' {} a -> s {displayName = a} :: UpdateResponsePlan)
-
--- | The AWS Chatbot chat channel used for collaboration during an incident.
---
--- Use the empty structure to remove the chat channel from the response
--- plan.
-updateResponsePlan_chatChannel :: Lens.Lens' UpdateResponsePlan (Prelude.Maybe ChatChannel)
-updateResponsePlan_chatChannel = Lens.lens (\UpdateResponsePlan' {chatChannel} -> chatChannel) (\s@UpdateResponsePlan' {} a -> s {chatChannel = a} :: UpdateResponsePlan)
-
--- | Used to create only one incident record for an incident.
-updateResponsePlan_incidentTemplateDedupeString :: Lens.Lens' UpdateResponsePlan (Prelude.Maybe Prelude.Text)
-updateResponsePlan_incidentTemplateDedupeString = Lens.lens (\UpdateResponsePlan' {incidentTemplateDedupeString} -> incidentTemplateDedupeString) (\s@UpdateResponsePlan' {} a -> s {incidentTemplateDedupeString = a} :: UpdateResponsePlan)
-
--- | The short format name of the incident. Can\'t contain spaces.
-updateResponsePlan_incidentTemplateTitle :: Lens.Lens' UpdateResponsePlan (Prelude.Maybe Prelude.Text)
-updateResponsePlan_incidentTemplateTitle = Lens.lens (\UpdateResponsePlan' {incidentTemplateTitle} -> incidentTemplateTitle) (\s@UpdateResponsePlan' {} a -> s {incidentTemplateTitle = a} :: UpdateResponsePlan)
 
 -- | The contacts and escalation plans that Incident Manager engages at the
 -- start of the incident.
 updateResponsePlan_engagements :: Lens.Lens' UpdateResponsePlan (Prelude.Maybe [Prelude.Text])
 updateResponsePlan_engagements = Lens.lens (\UpdateResponsePlan' {engagements} -> engagements) (\s@UpdateResponsePlan' {} a -> s {engagements = a} :: UpdateResponsePlan) Prelude.. Lens.mapping Lens.coerced
 
--- | The SNS targets that are notified when updates are made to an incident.
-updateResponsePlan_incidentTemplateNotificationTargets :: Lens.Lens' UpdateResponsePlan (Prelude.Maybe [NotificationTargetItem])
-updateResponsePlan_incidentTemplateNotificationTargets = Lens.lens (\UpdateResponsePlan' {incidentTemplateNotificationTargets} -> incidentTemplateNotificationTargets) (\s@UpdateResponsePlan' {} a -> s {incidentTemplateNotificationTargets = a} :: UpdateResponsePlan) Prelude.. Lens.mapping Lens.coerced
+-- | The short format name of the incident. Can\'t contain spaces.
+updateResponsePlan_incidentTemplateTitle :: Lens.Lens' UpdateResponsePlan (Prelude.Maybe Prelude.Text)
+updateResponsePlan_incidentTemplateTitle = Lens.lens (\UpdateResponsePlan' {incidentTemplateTitle} -> incidentTemplateTitle) (\s@UpdateResponsePlan' {} a -> s {incidentTemplateTitle = a} :: UpdateResponsePlan)
+
+-- | The actions that this response plan takes at the beginning of an
+-- incident.
+updateResponsePlan_actions :: Lens.Lens' UpdateResponsePlan (Prelude.Maybe [Action])
+updateResponsePlan_actions = Lens.lens (\UpdateResponsePlan' {actions} -> actions) (\s@UpdateResponsePlan' {} a -> s {actions = a} :: UpdateResponsePlan) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the response plan.
 updateResponsePlan_arn :: Lens.Lens' UpdateResponsePlan Prelude.Text
@@ -250,30 +249,30 @@ instance Core.AWSRequest UpdateResponsePlan where
 
 instance Prelude.Hashable UpdateResponsePlan where
   hashWithSalt _salt UpdateResponsePlan' {..} =
-    _salt `Prelude.hashWithSalt` incidentTemplateImpact
-      `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` actions
-      `Prelude.hashWithSalt` incidentTemplateSummary
-      `Prelude.hashWithSalt` displayName
-      `Prelude.hashWithSalt` chatChannel
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` incidentTemplateDedupeString
-      `Prelude.hashWithSalt` incidentTemplateTitle
-      `Prelude.hashWithSalt` engagements
       `Prelude.hashWithSalt` incidentTemplateNotificationTargets
+      `Prelude.hashWithSalt` chatChannel
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` incidentTemplateImpact
+      `Prelude.hashWithSalt` incidentTemplateSummary
+      `Prelude.hashWithSalt` engagements
+      `Prelude.hashWithSalt` incidentTemplateTitle
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData UpdateResponsePlan where
   rnf UpdateResponsePlan' {..} =
-    Prelude.rnf incidentTemplateImpact
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf actions
-      `Prelude.seq` Prelude.rnf incidentTemplateSummary
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf chatChannel
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf incidentTemplateDedupeString
-      `Prelude.seq` Prelude.rnf incidentTemplateTitle
-      `Prelude.seq` Prelude.rnf engagements
       `Prelude.seq` Prelude.rnf incidentTemplateNotificationTargets
+      `Prelude.seq` Prelude.rnf chatChannel
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf incidentTemplateImpact
+      `Prelude.seq` Prelude.rnf incidentTemplateSummary
+      `Prelude.seq` Prelude.rnf engagements
+      `Prelude.seq` Prelude.rnf incidentTemplateTitle
+      `Prelude.seq` Prelude.rnf actions
       `Prelude.seq` Prelude.rnf arn
 
 instance Core.ToHeaders UpdateResponsePlan where
@@ -291,21 +290,21 @@ instance Core.ToJSON UpdateResponsePlan where
   toJSON UpdateResponsePlan' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("incidentTemplateImpact" Core..=)
-              Prelude.<$> incidentTemplateImpact,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("actions" Core..=) Prelude.<$> actions,
-            ("incidentTemplateSummary" Core..=)
-              Prelude.<$> incidentTemplateSummary,
-            ("displayName" Core..=) Prelude.<$> displayName,
-            ("chatChannel" Core..=) Prelude.<$> chatChannel,
+          [ ("clientToken" Core..=) Prelude.<$> clientToken,
             ("incidentTemplateDedupeString" Core..=)
               Prelude.<$> incidentTemplateDedupeString,
-            ("incidentTemplateTitle" Core..=)
-              Prelude.<$> incidentTemplateTitle,
-            ("engagements" Core..=) Prelude.<$> engagements,
             ("incidentTemplateNotificationTargets" Core..=)
               Prelude.<$> incidentTemplateNotificationTargets,
+            ("chatChannel" Core..=) Prelude.<$> chatChannel,
+            ("displayName" Core..=) Prelude.<$> displayName,
+            ("incidentTemplateImpact" Core..=)
+              Prelude.<$> incidentTemplateImpact,
+            ("incidentTemplateSummary" Core..=)
+              Prelude.<$> incidentTemplateSummary,
+            ("engagements" Core..=) Prelude.<$> engagements,
+            ("incidentTemplateTitle" Core..=)
+              Prelude.<$> incidentTemplateTitle,
+            ("actions" Core..=) Prelude.<$> actions,
             Prelude.Just ("arn" Core..= arn)
           ]
       )

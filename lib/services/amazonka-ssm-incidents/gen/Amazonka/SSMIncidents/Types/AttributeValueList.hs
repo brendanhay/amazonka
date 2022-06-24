@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAttributeValueList' smart constructor.
 data AttributeValueList = AttributeValueList'
-  { -- | The list of string values that the filter matches.
-    stringValues :: Prelude.Maybe [Prelude.Text],
-    -- | The list of integer values that the filter matches.
-    integerValues :: Prelude.Maybe [Prelude.Int]
+  { -- | The list of integer values that the filter matches.
+    integerValues :: Prelude.Maybe [Prelude.Int],
+    -- | The list of string values that the filter matches.
+    stringValues :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,40 +42,41 @@ data AttributeValueList = AttributeValueList'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stringValues', 'attributeValueList_stringValues' - The list of string values that the filter matches.
---
 -- 'integerValues', 'attributeValueList_integerValues' - The list of integer values that the filter matches.
+--
+-- 'stringValues', 'attributeValueList_stringValues' - The list of string values that the filter matches.
 newAttributeValueList ::
   AttributeValueList
 newAttributeValueList =
   AttributeValueList'
-    { stringValues = Prelude.Nothing,
-      integerValues = Prelude.Nothing
+    { integerValues =
+        Prelude.Nothing,
+      stringValues = Prelude.Nothing
     }
-
--- | The list of string values that the filter matches.
-attributeValueList_stringValues :: Lens.Lens' AttributeValueList (Prelude.Maybe [Prelude.Text])
-attributeValueList_stringValues = Lens.lens (\AttributeValueList' {stringValues} -> stringValues) (\s@AttributeValueList' {} a -> s {stringValues = a} :: AttributeValueList) Prelude.. Lens.mapping Lens.coerced
 
 -- | The list of integer values that the filter matches.
 attributeValueList_integerValues :: Lens.Lens' AttributeValueList (Prelude.Maybe [Prelude.Int])
 attributeValueList_integerValues = Lens.lens (\AttributeValueList' {integerValues} -> integerValues) (\s@AttributeValueList' {} a -> s {integerValues = a} :: AttributeValueList) Prelude.. Lens.mapping Lens.coerced
 
+-- | The list of string values that the filter matches.
+attributeValueList_stringValues :: Lens.Lens' AttributeValueList (Prelude.Maybe [Prelude.Text])
+attributeValueList_stringValues = Lens.lens (\AttributeValueList' {stringValues} -> stringValues) (\s@AttributeValueList' {} a -> s {stringValues = a} :: AttributeValueList) Prelude.. Lens.mapping Lens.coerced
+
 instance Prelude.Hashable AttributeValueList where
   hashWithSalt _salt AttributeValueList' {..} =
-    _salt `Prelude.hashWithSalt` stringValues
-      `Prelude.hashWithSalt` integerValues
+    _salt `Prelude.hashWithSalt` integerValues
+      `Prelude.hashWithSalt` stringValues
 
 instance Prelude.NFData AttributeValueList where
   rnf AttributeValueList' {..} =
-    Prelude.rnf stringValues
-      `Prelude.seq` Prelude.rnf integerValues
+    Prelude.rnf integerValues
+      `Prelude.seq` Prelude.rnf stringValues
 
 instance Core.ToJSON AttributeValueList where
   toJSON AttributeValueList' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("stringValues" Core..=) Prelude.<$> stringValues,
-            ("integerValues" Core..=) Prelude.<$> integerValues
+          [ ("integerValues" Core..=) Prelude.<$> integerValues,
+            ("stringValues" Core..=) Prelude.<$> stringValues
           ]
       )

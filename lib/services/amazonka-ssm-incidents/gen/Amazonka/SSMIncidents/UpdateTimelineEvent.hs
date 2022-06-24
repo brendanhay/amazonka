@@ -27,10 +27,10 @@ module Amazonka.SSMIncidents.UpdateTimelineEvent
     newUpdateTimelineEvent,
 
     -- * Request Lenses
-    updateTimelineEvent_eventData,
+    updateTimelineEvent_eventType,
     updateTimelineEvent_clientToken,
     updateTimelineEvent_eventTime,
-    updateTimelineEvent_eventType,
+    updateTimelineEvent_eventData,
     updateTimelineEvent_eventId,
     updateTimelineEvent_incidentRecordArn,
 
@@ -52,15 +52,15 @@ import Amazonka.SSMIncidents.Types
 
 -- | /See:/ 'newUpdateTimelineEvent' smart constructor.
 data UpdateTimelineEvent = UpdateTimelineEvent'
-  { -- | A short description of the event.
-    eventData :: Prelude.Maybe Prelude.Text,
+  { -- | The type of the event. You can update events of type @Custom Event@.
+    eventType :: Prelude.Maybe Prelude.Text,
     -- | A token ensuring that the action is called only once with the specified
     -- details.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The time that the event occurred.
     eventTime :: Prelude.Maybe Core.POSIX,
-    -- | The type of the event. You can update events of type @Custom Event@.
-    eventType :: Prelude.Maybe Prelude.Text,
+    -- | A short description of the event.
+    eventData :: Prelude.Maybe Prelude.Text,
     -- | The ID of the event you are updating. You can find this by using
     -- @ListTimelineEvents@.
     eventId :: Prelude.Text,
@@ -78,14 +78,14 @@ data UpdateTimelineEvent = UpdateTimelineEvent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eventData', 'updateTimelineEvent_eventData' - A short description of the event.
+-- 'eventType', 'updateTimelineEvent_eventType' - The type of the event. You can update events of type @Custom Event@.
 --
 -- 'clientToken', 'updateTimelineEvent_clientToken' - A token ensuring that the action is called only once with the specified
 -- details.
 --
 -- 'eventTime', 'updateTimelineEvent_eventTime' - The time that the event occurred.
 --
--- 'eventType', 'updateTimelineEvent_eventType' - The type of the event. You can update events of type @Custom Event@.
+-- 'eventData', 'updateTimelineEvent_eventData' - A short description of the event.
 --
 -- 'eventId', 'updateTimelineEvent_eventId' - The ID of the event you are updating. You can find this by using
 -- @ListTimelineEvents@.
@@ -100,17 +100,17 @@ newUpdateTimelineEvent ::
   UpdateTimelineEvent
 newUpdateTimelineEvent pEventId_ pIncidentRecordArn_ =
   UpdateTimelineEvent'
-    { eventData = Prelude.Nothing,
+    { eventType = Prelude.Nothing,
       clientToken = Prelude.Nothing,
       eventTime = Prelude.Nothing,
-      eventType = Prelude.Nothing,
+      eventData = Prelude.Nothing,
       eventId = pEventId_,
       incidentRecordArn = pIncidentRecordArn_
     }
 
--- | A short description of the event.
-updateTimelineEvent_eventData :: Lens.Lens' UpdateTimelineEvent (Prelude.Maybe Prelude.Text)
-updateTimelineEvent_eventData = Lens.lens (\UpdateTimelineEvent' {eventData} -> eventData) (\s@UpdateTimelineEvent' {} a -> s {eventData = a} :: UpdateTimelineEvent)
+-- | The type of the event. You can update events of type @Custom Event@.
+updateTimelineEvent_eventType :: Lens.Lens' UpdateTimelineEvent (Prelude.Maybe Prelude.Text)
+updateTimelineEvent_eventType = Lens.lens (\UpdateTimelineEvent' {eventType} -> eventType) (\s@UpdateTimelineEvent' {} a -> s {eventType = a} :: UpdateTimelineEvent)
 
 -- | A token ensuring that the action is called only once with the specified
 -- details.
@@ -121,9 +121,9 @@ updateTimelineEvent_clientToken = Lens.lens (\UpdateTimelineEvent' {clientToken}
 updateTimelineEvent_eventTime :: Lens.Lens' UpdateTimelineEvent (Prelude.Maybe Prelude.UTCTime)
 updateTimelineEvent_eventTime = Lens.lens (\UpdateTimelineEvent' {eventTime} -> eventTime) (\s@UpdateTimelineEvent' {} a -> s {eventTime = a} :: UpdateTimelineEvent) Prelude.. Lens.mapping Core._Time
 
--- | The type of the event. You can update events of type @Custom Event@.
-updateTimelineEvent_eventType :: Lens.Lens' UpdateTimelineEvent (Prelude.Maybe Prelude.Text)
-updateTimelineEvent_eventType = Lens.lens (\UpdateTimelineEvent' {eventType} -> eventType) (\s@UpdateTimelineEvent' {} a -> s {eventType = a} :: UpdateTimelineEvent)
+-- | A short description of the event.
+updateTimelineEvent_eventData :: Lens.Lens' UpdateTimelineEvent (Prelude.Maybe Prelude.Text)
+updateTimelineEvent_eventData = Lens.lens (\UpdateTimelineEvent' {eventData} -> eventData) (\s@UpdateTimelineEvent' {} a -> s {eventData = a} :: UpdateTimelineEvent)
 
 -- | The ID of the event you are updating. You can find this by using
 -- @ListTimelineEvents@.
@@ -149,19 +149,19 @@ instance Core.AWSRequest UpdateTimelineEvent where
 
 instance Prelude.Hashable UpdateTimelineEvent where
   hashWithSalt _salt UpdateTimelineEvent' {..} =
-    _salt `Prelude.hashWithSalt` eventData
+    _salt `Prelude.hashWithSalt` eventType
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` eventTime
-      `Prelude.hashWithSalt` eventType
+      `Prelude.hashWithSalt` eventData
       `Prelude.hashWithSalt` eventId
       `Prelude.hashWithSalt` incidentRecordArn
 
 instance Prelude.NFData UpdateTimelineEvent where
   rnf UpdateTimelineEvent' {..} =
-    Prelude.rnf eventData
+    Prelude.rnf eventType
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf eventTime
-      `Prelude.seq` Prelude.rnf eventType
+      `Prelude.seq` Prelude.rnf eventData
       `Prelude.seq` Prelude.rnf eventId
       `Prelude.seq` Prelude.rnf incidentRecordArn
 
@@ -180,10 +180,10 @@ instance Core.ToJSON UpdateTimelineEvent where
   toJSON UpdateTimelineEvent' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("eventData" Core..=) Prelude.<$> eventData,
+          [ ("eventType" Core..=) Prelude.<$> eventType,
             ("clientToken" Core..=) Prelude.<$> clientToken,
             ("eventTime" Core..=) Prelude.<$> eventTime,
-            ("eventType" Core..=) Prelude.<$> eventType,
+            ("eventData" Core..=) Prelude.<$> eventData,
             Prelude.Just ("eventId" Core..= eventId),
             Prelude.Just
               ("incidentRecordArn" Core..= incidentRecordArn)

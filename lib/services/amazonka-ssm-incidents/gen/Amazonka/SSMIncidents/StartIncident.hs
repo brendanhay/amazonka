@@ -29,10 +29,10 @@ module Amazonka.SSMIncidents.StartIncident
 
     -- * Request Lenses
     startIncident_clientToken,
-    startIncident_triggerDetails,
-    startIncident_relatedItems,
     startIncident_impact,
+    startIncident_relatedItems,
     startIncident_title,
+    startIncident_triggerDetails,
     startIncident_responsePlanArn,
 
     -- * Destructuring the Response
@@ -57,12 +57,6 @@ data StartIncident = StartIncident'
   { -- | A token ensuring that the action is called only once with the specified
     -- details.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | Details of what created the incident record in Incident Manager.
-    triggerDetails :: Prelude.Maybe TriggerDetails,
-    -- | Add related items to the incident for other responders to use. Related
-    -- items are AWS resources, external links, or files uploaded to an S3
-    -- bucket.
-    relatedItems :: Prelude.Maybe [RelatedItem],
     -- | Defines the impact to the customers. Providing an impact overwrites the
     -- impact provided by a response plan.
     --
@@ -83,9 +77,15 @@ data StartIncident = StartIncident'
     -- -   @5@ - No impact, customers aren\'t currently impacted but urgent
     --     action is needed to avoid impact.
     impact :: Prelude.Maybe Prelude.Natural,
+    -- | Add related items to the incident for other responders to use. Related
+    -- items are AWS resources, external links, or files uploaded to an S3
+    -- bucket.
+    relatedItems :: Prelude.Maybe [RelatedItem],
     -- | Provide a title for the incident. Providing a title overwrites the title
     -- provided by the response plan.
     title :: Prelude.Maybe Prelude.Text,
+    -- | Details of what created the incident record in Incident Manager.
+    triggerDetails :: Prelude.Maybe TriggerDetails,
     -- | The Amazon Resource Name (ARN) of the response plan that pre-defines
     -- summary, chat channels, SNS topics, runbooks, title, and impact of the
     -- incident.
@@ -103,12 +103,6 @@ data StartIncident = StartIncident'
 --
 -- 'clientToken', 'startIncident_clientToken' - A token ensuring that the action is called only once with the specified
 -- details.
---
--- 'triggerDetails', 'startIncident_triggerDetails' - Details of what created the incident record in Incident Manager.
---
--- 'relatedItems', 'startIncident_relatedItems' - Add related items to the incident for other responders to use. Related
--- items are AWS resources, external links, or files uploaded to an S3
--- bucket.
 --
 -- 'impact', 'startIncident_impact' - Defines the impact to the customers. Providing an impact overwrites the
 -- impact provided by a response plan.
@@ -130,8 +124,14 @@ data StartIncident = StartIncident'
 -- -   @5@ - No impact, customers aren\'t currently impacted but urgent
 --     action is needed to avoid impact.
 --
+-- 'relatedItems', 'startIncident_relatedItems' - Add related items to the incident for other responders to use. Related
+-- items are AWS resources, external links, or files uploaded to an S3
+-- bucket.
+--
 -- 'title', 'startIncident_title' - Provide a title for the incident. Providing a title overwrites the title
 -- provided by the response plan.
+--
+-- 'triggerDetails', 'startIncident_triggerDetails' - Details of what created the incident record in Incident Manager.
 --
 -- 'responsePlanArn', 'startIncident_responsePlanArn' - The Amazon Resource Name (ARN) of the response plan that pre-defines
 -- summary, chat channels, SNS topics, runbooks, title, and impact of the
@@ -143,10 +143,10 @@ newStartIncident ::
 newStartIncident pResponsePlanArn_ =
   StartIncident'
     { clientToken = Prelude.Nothing,
-      triggerDetails = Prelude.Nothing,
-      relatedItems = Prelude.Nothing,
       impact = Prelude.Nothing,
+      relatedItems = Prelude.Nothing,
       title = Prelude.Nothing,
+      triggerDetails = Prelude.Nothing,
       responsePlanArn = pResponsePlanArn_
     }
 
@@ -154,16 +154,6 @@ newStartIncident pResponsePlanArn_ =
 -- details.
 startIncident_clientToken :: Lens.Lens' StartIncident (Prelude.Maybe Prelude.Text)
 startIncident_clientToken = Lens.lens (\StartIncident' {clientToken} -> clientToken) (\s@StartIncident' {} a -> s {clientToken = a} :: StartIncident)
-
--- | Details of what created the incident record in Incident Manager.
-startIncident_triggerDetails :: Lens.Lens' StartIncident (Prelude.Maybe TriggerDetails)
-startIncident_triggerDetails = Lens.lens (\StartIncident' {triggerDetails} -> triggerDetails) (\s@StartIncident' {} a -> s {triggerDetails = a} :: StartIncident)
-
--- | Add related items to the incident for other responders to use. Related
--- items are AWS resources, external links, or files uploaded to an S3
--- bucket.
-startIncident_relatedItems :: Lens.Lens' StartIncident (Prelude.Maybe [RelatedItem])
-startIncident_relatedItems = Lens.lens (\StartIncident' {relatedItems} -> relatedItems) (\s@StartIncident' {} a -> s {relatedItems = a} :: StartIncident) Prelude.. Lens.mapping Lens.coerced
 
 -- | Defines the impact to the customers. Providing an impact overwrites the
 -- impact provided by a response plan.
@@ -187,10 +177,20 @@ startIncident_relatedItems = Lens.lens (\StartIncident' {relatedItems} -> relate
 startIncident_impact :: Lens.Lens' StartIncident (Prelude.Maybe Prelude.Natural)
 startIncident_impact = Lens.lens (\StartIncident' {impact} -> impact) (\s@StartIncident' {} a -> s {impact = a} :: StartIncident)
 
+-- | Add related items to the incident for other responders to use. Related
+-- items are AWS resources, external links, or files uploaded to an S3
+-- bucket.
+startIncident_relatedItems :: Lens.Lens' StartIncident (Prelude.Maybe [RelatedItem])
+startIncident_relatedItems = Lens.lens (\StartIncident' {relatedItems} -> relatedItems) (\s@StartIncident' {} a -> s {relatedItems = a} :: StartIncident) Prelude.. Lens.mapping Lens.coerced
+
 -- | Provide a title for the incident. Providing a title overwrites the title
 -- provided by the response plan.
 startIncident_title :: Lens.Lens' StartIncident (Prelude.Maybe Prelude.Text)
 startIncident_title = Lens.lens (\StartIncident' {title} -> title) (\s@StartIncident' {} a -> s {title = a} :: StartIncident)
+
+-- | Details of what created the incident record in Incident Manager.
+startIncident_triggerDetails :: Lens.Lens' StartIncident (Prelude.Maybe TriggerDetails)
+startIncident_triggerDetails = Lens.lens (\StartIncident' {triggerDetails} -> triggerDetails) (\s@StartIncident' {} a -> s {triggerDetails = a} :: StartIncident)
 
 -- | The Amazon Resource Name (ARN) of the response plan that pre-defines
 -- summary, chat channels, SNS topics, runbooks, title, and impact of the
@@ -214,19 +214,19 @@ instance Core.AWSRequest StartIncident where
 instance Prelude.Hashable StartIncident where
   hashWithSalt _salt StartIncident' {..} =
     _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` triggerDetails
-      `Prelude.hashWithSalt` relatedItems
       `Prelude.hashWithSalt` impact
+      `Prelude.hashWithSalt` relatedItems
       `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` triggerDetails
       `Prelude.hashWithSalt` responsePlanArn
 
 instance Prelude.NFData StartIncident where
   rnf StartIncident' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf triggerDetails
-      `Prelude.seq` Prelude.rnf relatedItems
       `Prelude.seq` Prelude.rnf impact
+      `Prelude.seq` Prelude.rnf relatedItems
       `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf triggerDetails
       `Prelude.seq` Prelude.rnf responsePlanArn
 
 instance Core.ToHeaders StartIncident where
@@ -245,11 +245,11 @@ instance Core.ToJSON StartIncident where
     Core.object
       ( Prelude.catMaybes
           [ ("clientToken" Core..=) Prelude.<$> clientToken,
+            ("impact" Core..=) Prelude.<$> impact,
+            ("relatedItems" Core..=) Prelude.<$> relatedItems,
+            ("title" Core..=) Prelude.<$> title,
             ("triggerDetails" Core..=)
               Prelude.<$> triggerDetails,
-            ("relatedItems" Core..=) Prelude.<$> relatedItems,
-            ("impact" Core..=) Prelude.<$> impact,
-            ("title" Core..=) Prelude.<$> title,
             Prelude.Just
               ("responsePlanArn" Core..= responsePlanArn)
           ]

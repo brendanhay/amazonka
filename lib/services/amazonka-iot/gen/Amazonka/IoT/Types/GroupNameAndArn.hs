@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGroupNameAndArn' smart constructor.
 data GroupNameAndArn = GroupNameAndArn'
-  { -- | The group ARN.
-    groupArn :: Prelude.Maybe Prelude.Text,
-    -- | The group name.
-    groupName :: Prelude.Maybe Prelude.Text
+  { -- | The group name.
+    groupName :: Prelude.Maybe Prelude.Text,
+    -- | The group ARN.
+    groupArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data GroupNameAndArn = GroupNameAndArn'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groupArn', 'groupNameAndArn_groupArn' - The group ARN.
---
 -- 'groupName', 'groupNameAndArn_groupName' - The group name.
+--
+-- 'groupArn', 'groupNameAndArn_groupArn' - The group ARN.
 newGroupNameAndArn ::
   GroupNameAndArn
 newGroupNameAndArn =
   GroupNameAndArn'
-    { groupArn = Prelude.Nothing,
-      groupName = Prelude.Nothing
+    { groupName = Prelude.Nothing,
+      groupArn = Prelude.Nothing
     }
-
--- | The group ARN.
-groupNameAndArn_groupArn :: Lens.Lens' GroupNameAndArn (Prelude.Maybe Prelude.Text)
-groupNameAndArn_groupArn = Lens.lens (\GroupNameAndArn' {groupArn} -> groupArn) (\s@GroupNameAndArn' {} a -> s {groupArn = a} :: GroupNameAndArn)
 
 -- | The group name.
 groupNameAndArn_groupName :: Lens.Lens' GroupNameAndArn (Prelude.Maybe Prelude.Text)
 groupNameAndArn_groupName = Lens.lens (\GroupNameAndArn' {groupName} -> groupName) (\s@GroupNameAndArn' {} a -> s {groupName = a} :: GroupNameAndArn)
+
+-- | The group ARN.
+groupNameAndArn_groupArn :: Lens.Lens' GroupNameAndArn (Prelude.Maybe Prelude.Text)
+groupNameAndArn_groupArn = Lens.lens (\GroupNameAndArn' {groupArn} -> groupArn) (\s@GroupNameAndArn' {} a -> s {groupArn = a} :: GroupNameAndArn)
 
 instance Core.FromJSON GroupNameAndArn where
   parseJSON =
@@ -67,16 +67,16 @@ instance Core.FromJSON GroupNameAndArn where
       "GroupNameAndArn"
       ( \x ->
           GroupNameAndArn'
-            Prelude.<$> (x Core..:? "groupArn")
-            Prelude.<*> (x Core..:? "groupName")
+            Prelude.<$> (x Core..:? "groupName")
+            Prelude.<*> (x Core..:? "groupArn")
       )
 
 instance Prelude.Hashable GroupNameAndArn where
   hashWithSalt _salt GroupNameAndArn' {..} =
-    _salt `Prelude.hashWithSalt` groupArn
-      `Prelude.hashWithSalt` groupName
+    _salt `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` groupArn
 
 instance Prelude.NFData GroupNameAndArn where
   rnf GroupNameAndArn' {..} =
-    Prelude.rnf groupArn
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf groupArn

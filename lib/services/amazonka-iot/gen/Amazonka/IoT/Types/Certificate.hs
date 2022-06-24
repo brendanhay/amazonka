@@ -29,7 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCertificate' smart constructor.
 data Certificate = Certificate'
-  { -- | The status of the certificate.
+  { -- | The date and time the certificate was created.
+    creationDate :: Prelude.Maybe Core.POSIX,
+    -- | The status of the certificate.
     --
     -- The status value REGISTER_INACTIVE is deprecated and should not be used.
     status :: Prelude.Maybe CertificateStatus,
@@ -39,9 +41,7 @@ data Certificate = Certificate'
     -- contains the certificate ID.)
     certificateId :: Prelude.Maybe Prelude.Text,
     -- | The mode of the certificate.
-    certificateMode :: Prelude.Maybe CertificateMode,
-    -- | The date and time the certificate was created.
-    creationDate :: Prelude.Maybe Core.POSIX
+    certificateMode :: Prelude.Maybe CertificateMode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,6 +53,8 @@ data Certificate = Certificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'creationDate', 'certificate_creationDate' - The date and time the certificate was created.
+--
 -- 'status', 'certificate_status' - The status of the certificate.
 --
 -- The status value REGISTER_INACTIVE is deprecated and should not be used.
@@ -63,18 +65,20 @@ data Certificate = Certificate'
 -- contains the certificate ID.)
 --
 -- 'certificateMode', 'certificate_certificateMode' - The mode of the certificate.
---
--- 'creationDate', 'certificate_creationDate' - The date and time the certificate was created.
 newCertificate ::
   Certificate
 newCertificate =
   Certificate'
-    { status = Prelude.Nothing,
+    { creationDate = Prelude.Nothing,
+      status = Prelude.Nothing,
       certificateArn = Prelude.Nothing,
       certificateId = Prelude.Nothing,
-      certificateMode = Prelude.Nothing,
-      creationDate = Prelude.Nothing
+      certificateMode = Prelude.Nothing
     }
+
+-- | The date and time the certificate was created.
+certificate_creationDate :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
+certificate_creationDate = Lens.lens (\Certificate' {creationDate} -> creationDate) (\s@Certificate' {} a -> s {creationDate = a} :: Certificate) Prelude.. Lens.mapping Core._Time
 
 -- | The status of the certificate.
 --
@@ -95,35 +99,31 @@ certificate_certificateId = Lens.lens (\Certificate' {certificateId} -> certific
 certificate_certificateMode :: Lens.Lens' Certificate (Prelude.Maybe CertificateMode)
 certificate_certificateMode = Lens.lens (\Certificate' {certificateMode} -> certificateMode) (\s@Certificate' {} a -> s {certificateMode = a} :: Certificate)
 
--- | The date and time the certificate was created.
-certificate_creationDate :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
-certificate_creationDate = Lens.lens (\Certificate' {creationDate} -> creationDate) (\s@Certificate' {} a -> s {creationDate = a} :: Certificate) Prelude.. Lens.mapping Core._Time
-
 instance Core.FromJSON Certificate where
   parseJSON =
     Core.withObject
       "Certificate"
       ( \x ->
           Certificate'
-            Prelude.<$> (x Core..:? "status")
+            Prelude.<$> (x Core..:? "creationDate")
+            Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "certificateArn")
             Prelude.<*> (x Core..:? "certificateId")
             Prelude.<*> (x Core..:? "certificateMode")
-            Prelude.<*> (x Core..:? "creationDate")
       )
 
 instance Prelude.Hashable Certificate where
   hashWithSalt _salt Certificate' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` certificateId
       `Prelude.hashWithSalt` certificateMode
-      `Prelude.hashWithSalt` creationDate
 
 instance Prelude.NFData Certificate where
   rnf Certificate' {..} =
-    Prelude.rnf status
+    Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf certificateArn
       `Prelude.seq` Prelude.rnf certificateId
       `Prelude.seq` Prelude.rnf certificateMode
-      `Prelude.seq` Prelude.rnf creationDate

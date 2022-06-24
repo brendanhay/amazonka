@@ -31,10 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newThingIndexingConfiguration' smart constructor.
 data ThingIndexingConfiguration = ThingIndexingConfiguration'
-  { -- | Contains fields that are indexed and whose types are already known by
-    -- the Fleet Indexing service.
-    managedFields :: Prelude.Maybe [Field],
-    -- | Thing connectivity indexing mode. Valid values are:
+  { -- | Thing connectivity indexing mode. Valid values are:
     --
     -- -   STATUS – Your thing index contains connectivity status. To enable
     --     thing connectivity indexing, /thingIndexMode/ must not be set to
@@ -42,6 +39,9 @@ data ThingIndexingConfiguration = ThingIndexingConfiguration'
     --
     -- -   OFF - Thing connectivity status indexing is disabled.
     thingConnectivityIndexingMode :: Prelude.Maybe ThingConnectivityIndexingMode,
+    -- | Contains fields that are indexed and whose types are already known by
+    -- the Fleet Indexing service.
+    managedFields :: Prelude.Maybe [Field],
     -- | Contains custom field names and their data type.
     customFields :: Prelude.Maybe [Field],
     -- | Thing indexing mode. Valid values are:
@@ -64,9 +64,6 @@ data ThingIndexingConfiguration = ThingIndexingConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'managedFields', 'thingIndexingConfiguration_managedFields' - Contains fields that are indexed and whose types are already known by
--- the Fleet Indexing service.
---
 -- 'thingConnectivityIndexingMode', 'thingIndexingConfiguration_thingConnectivityIndexingMode' - Thing connectivity indexing mode. Valid values are:
 --
 -- -   STATUS – Your thing index contains connectivity status. To enable
@@ -74,6 +71,9 @@ data ThingIndexingConfiguration = ThingIndexingConfiguration'
 --     OFF.
 --
 -- -   OFF - Thing connectivity status indexing is disabled.
+--
+-- 'managedFields', 'thingIndexingConfiguration_managedFields' - Contains fields that are indexed and whose types are already known by
+-- the Fleet Indexing service.
 --
 -- 'customFields', 'thingIndexingConfiguration_customFields' - Contains custom field names and their data type.
 --
@@ -91,17 +91,12 @@ newThingIndexingConfiguration ::
   ThingIndexingConfiguration
 newThingIndexingConfiguration pThingIndexingMode_ =
   ThingIndexingConfiguration'
-    { managedFields =
+    { thingConnectivityIndexingMode =
         Prelude.Nothing,
-      thingConnectivityIndexingMode = Prelude.Nothing,
+      managedFields = Prelude.Nothing,
       customFields = Prelude.Nothing,
       thingIndexingMode = pThingIndexingMode_
     }
-
--- | Contains fields that are indexed and whose types are already known by
--- the Fleet Indexing service.
-thingIndexingConfiguration_managedFields :: Lens.Lens' ThingIndexingConfiguration (Prelude.Maybe [Field])
-thingIndexingConfiguration_managedFields = Lens.lens (\ThingIndexingConfiguration' {managedFields} -> managedFields) (\s@ThingIndexingConfiguration' {} a -> s {managedFields = a} :: ThingIndexingConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Thing connectivity indexing mode. Valid values are:
 --
@@ -112,6 +107,11 @@ thingIndexingConfiguration_managedFields = Lens.lens (\ThingIndexingConfiguratio
 -- -   OFF - Thing connectivity status indexing is disabled.
 thingIndexingConfiguration_thingConnectivityIndexingMode :: Lens.Lens' ThingIndexingConfiguration (Prelude.Maybe ThingConnectivityIndexingMode)
 thingIndexingConfiguration_thingConnectivityIndexingMode = Lens.lens (\ThingIndexingConfiguration' {thingConnectivityIndexingMode} -> thingConnectivityIndexingMode) (\s@ThingIndexingConfiguration' {} a -> s {thingConnectivityIndexingMode = a} :: ThingIndexingConfiguration)
+
+-- | Contains fields that are indexed and whose types are already known by
+-- the Fleet Indexing service.
+thingIndexingConfiguration_managedFields :: Lens.Lens' ThingIndexingConfiguration (Prelude.Maybe [Field])
+thingIndexingConfiguration_managedFields = Lens.lens (\ThingIndexingConfiguration' {managedFields} -> managedFields) (\s@ThingIndexingConfiguration' {} a -> s {managedFields = a} :: ThingIndexingConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Contains custom field names and their data type.
 thingIndexingConfiguration_customFields :: Lens.Lens' ThingIndexingConfiguration (Prelude.Maybe [Field])
@@ -134,23 +134,24 @@ instance Core.FromJSON ThingIndexingConfiguration where
       "ThingIndexingConfiguration"
       ( \x ->
           ThingIndexingConfiguration'
-            Prelude.<$> (x Core..:? "managedFields" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "thingConnectivityIndexingMode")
+            Prelude.<$> (x Core..:? "thingConnectivityIndexingMode")
+            Prelude.<*> (x Core..:? "managedFields" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "customFields" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "thingIndexingMode")
       )
 
 instance Prelude.Hashable ThingIndexingConfiguration where
   hashWithSalt _salt ThingIndexingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` managedFields
+    _salt
       `Prelude.hashWithSalt` thingConnectivityIndexingMode
+      `Prelude.hashWithSalt` managedFields
       `Prelude.hashWithSalt` customFields
       `Prelude.hashWithSalt` thingIndexingMode
 
 instance Prelude.NFData ThingIndexingConfiguration where
   rnf ThingIndexingConfiguration' {..} =
-    Prelude.rnf managedFields
-      `Prelude.seq` Prelude.rnf thingConnectivityIndexingMode
+    Prelude.rnf thingConnectivityIndexingMode
+      `Prelude.seq` Prelude.rnf managedFields
       `Prelude.seq` Prelude.rnf customFields
       `Prelude.seq` Prelude.rnf thingIndexingMode
 
@@ -158,9 +159,9 @@ instance Core.ToJSON ThingIndexingConfiguration where
   toJSON ThingIndexingConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("managedFields" Core..=) Prelude.<$> managedFields,
-            ("thingConnectivityIndexingMode" Core..=)
+          [ ("thingConnectivityIndexingMode" Core..=)
               Prelude.<$> thingConnectivityIndexingMode,
+            ("managedFields" Core..=) Prelude.<$> managedFields,
             ("customFields" Core..=) Prelude.<$> customFields,
             Prelude.Just
               ("thingIndexingMode" Core..= thingIndexingMode)

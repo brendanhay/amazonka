@@ -34,8 +34,8 @@ module Amazonka.IoT.CreateStream
     newCreateStream,
 
     -- * Request Lenses
-    createStream_description,
     createStream_tags,
+    createStream_description,
     createStream_streamId,
     createStream_files,
     createStream_roleArn,
@@ -45,10 +45,10 @@ module Amazonka.IoT.CreateStream
     newCreateStreamResponse,
 
     -- * Response Lenses
+    createStreamResponse_streamId,
+    createStreamResponse_description,
     createStreamResponse_streamVersion,
     createStreamResponse_streamArn,
-    createStreamResponse_description,
-    createStreamResponse_streamId,
     createStreamResponse_httpStatus,
   )
 where
@@ -62,10 +62,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateStream' smart constructor.
 data CreateStream = CreateStream'
-  { -- | A description of the stream.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Metadata which can be used to manage streams.
+  { -- | Metadata which can be used to manage streams.
     tags :: Prelude.Maybe [Tag],
+    -- | A description of the stream.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The stream ID.
     streamId :: Prelude.Text,
     -- | The files to stream.
@@ -84,9 +84,9 @@ data CreateStream = CreateStream'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'createStream_description' - A description of the stream.
---
 -- 'tags', 'createStream_tags' - Metadata which can be used to manage streams.
+--
+-- 'description', 'createStream_description' - A description of the stream.
 --
 -- 'streamId', 'createStream_streamId' - The stream ID.
 --
@@ -104,20 +104,20 @@ newCreateStream ::
   CreateStream
 newCreateStream pStreamId_ pFiles_ pRoleArn_ =
   CreateStream'
-    { description = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      description = Prelude.Nothing,
       streamId = pStreamId_,
       files = Lens.coerced Lens.# pFiles_,
       roleArn = pRoleArn_
     }
 
--- | A description of the stream.
-createStream_description :: Lens.Lens' CreateStream (Prelude.Maybe Prelude.Text)
-createStream_description = Lens.lens (\CreateStream' {description} -> description) (\s@CreateStream' {} a -> s {description = a} :: CreateStream)
-
 -- | Metadata which can be used to manage streams.
 createStream_tags :: Lens.Lens' CreateStream (Prelude.Maybe [Tag])
 createStream_tags = Lens.lens (\CreateStream' {tags} -> tags) (\s@CreateStream' {} a -> s {tags = a} :: CreateStream) Prelude.. Lens.mapping Lens.coerced
+
+-- | A description of the stream.
+createStream_description :: Lens.Lens' CreateStream (Prelude.Maybe Prelude.Text)
+createStream_description = Lens.lens (\CreateStream' {description} -> description) (\s@CreateStream' {} a -> s {description = a} :: CreateStream)
 
 -- | The stream ID.
 createStream_streamId :: Lens.Lens' CreateStream Prelude.Text
@@ -139,25 +139,25 @@ instance Core.AWSRequest CreateStream where
     Response.receiveJSON
       ( \s h x ->
           CreateStreamResponse'
-            Prelude.<$> (x Core..?> "streamVersion")
-            Prelude.<*> (x Core..?> "streamArn")
+            Prelude.<$> (x Core..?> "streamId")
             Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "streamId")
+            Prelude.<*> (x Core..?> "streamVersion")
+            Prelude.<*> (x Core..?> "streamArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateStream where
   hashWithSalt _salt CreateStream' {..} =
-    _salt `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` streamId
       `Prelude.hashWithSalt` files
       `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData CreateStream where
   rnf CreateStream' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf streamId
       `Prelude.seq` Prelude.rnf files
       `Prelude.seq` Prelude.rnf roleArn
@@ -169,8 +169,8 @@ instance Core.ToJSON CreateStream where
   toJSON CreateStream' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            ("tags" Core..=) Prelude.<$> tags,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("description" Core..=) Prelude.<$> description,
             Prelude.Just ("files" Core..= files),
             Prelude.Just ("roleArn" Core..= roleArn)
           ]
@@ -185,14 +185,14 @@ instance Core.ToQuery CreateStream where
 
 -- | /See:/ 'newCreateStreamResponse' smart constructor.
 data CreateStreamResponse = CreateStreamResponse'
-  { -- | The version of the stream.
+  { -- | The stream ID.
+    streamId :: Prelude.Maybe Prelude.Text,
+    -- | A description of the stream.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The version of the stream.
     streamVersion :: Prelude.Maybe Prelude.Natural,
     -- | The stream ARN.
     streamArn :: Prelude.Maybe Prelude.Text,
-    -- | A description of the stream.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The stream ID.
-    streamId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -206,13 +206,13 @@ data CreateStreamResponse = CreateStreamResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'streamVersion', 'createStreamResponse_streamVersion' - The version of the stream.
---
--- 'streamArn', 'createStreamResponse_streamArn' - The stream ARN.
+-- 'streamId', 'createStreamResponse_streamId' - The stream ID.
 --
 -- 'description', 'createStreamResponse_description' - A description of the stream.
 --
--- 'streamId', 'createStreamResponse_streamId' - The stream ID.
+-- 'streamVersion', 'createStreamResponse_streamVersion' - The version of the stream.
+--
+-- 'streamArn', 'createStreamResponse_streamArn' - The stream ARN.
 --
 -- 'httpStatus', 'createStreamResponse_httpStatus' - The response's http status code.
 newCreateStreamResponse ::
@@ -221,13 +221,20 @@ newCreateStreamResponse ::
   CreateStreamResponse
 newCreateStreamResponse pHttpStatus_ =
   CreateStreamResponse'
-    { streamVersion =
-        Prelude.Nothing,
-      streamArn = Prelude.Nothing,
+    { streamId = Prelude.Nothing,
       description = Prelude.Nothing,
-      streamId = Prelude.Nothing,
+      streamVersion = Prelude.Nothing,
+      streamArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The stream ID.
+createStreamResponse_streamId :: Lens.Lens' CreateStreamResponse (Prelude.Maybe Prelude.Text)
+createStreamResponse_streamId = Lens.lens (\CreateStreamResponse' {streamId} -> streamId) (\s@CreateStreamResponse' {} a -> s {streamId = a} :: CreateStreamResponse)
+
+-- | A description of the stream.
+createStreamResponse_description :: Lens.Lens' CreateStreamResponse (Prelude.Maybe Prelude.Text)
+createStreamResponse_description = Lens.lens (\CreateStreamResponse' {description} -> description) (\s@CreateStreamResponse' {} a -> s {description = a} :: CreateStreamResponse)
 
 -- | The version of the stream.
 createStreamResponse_streamVersion :: Lens.Lens' CreateStreamResponse (Prelude.Maybe Prelude.Natural)
@@ -237,22 +244,14 @@ createStreamResponse_streamVersion = Lens.lens (\CreateStreamResponse' {streamVe
 createStreamResponse_streamArn :: Lens.Lens' CreateStreamResponse (Prelude.Maybe Prelude.Text)
 createStreamResponse_streamArn = Lens.lens (\CreateStreamResponse' {streamArn} -> streamArn) (\s@CreateStreamResponse' {} a -> s {streamArn = a} :: CreateStreamResponse)
 
--- | A description of the stream.
-createStreamResponse_description :: Lens.Lens' CreateStreamResponse (Prelude.Maybe Prelude.Text)
-createStreamResponse_description = Lens.lens (\CreateStreamResponse' {description} -> description) (\s@CreateStreamResponse' {} a -> s {description = a} :: CreateStreamResponse)
-
--- | The stream ID.
-createStreamResponse_streamId :: Lens.Lens' CreateStreamResponse (Prelude.Maybe Prelude.Text)
-createStreamResponse_streamId = Lens.lens (\CreateStreamResponse' {streamId} -> streamId) (\s@CreateStreamResponse' {} a -> s {streamId = a} :: CreateStreamResponse)
-
 -- | The response's http status code.
 createStreamResponse_httpStatus :: Lens.Lens' CreateStreamResponse Prelude.Int
 createStreamResponse_httpStatus = Lens.lens (\CreateStreamResponse' {httpStatus} -> httpStatus) (\s@CreateStreamResponse' {} a -> s {httpStatus = a} :: CreateStreamResponse)
 
 instance Prelude.NFData CreateStreamResponse where
   rnf CreateStreamResponse' {..} =
-    Prelude.rnf streamVersion
-      `Prelude.seq` Prelude.rnf streamArn
+    Prelude.rnf streamId
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf streamId
+      `Prelude.seq` Prelude.rnf streamVersion
+      `Prelude.seq` Prelude.rnf streamArn
       `Prelude.seq` Prelude.rnf httpStatus

@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPercentPair' smart constructor.
 data PercentPair = PercentPair'
-  { -- | The value of the percentile.
-    value :: Prelude.Maybe Prelude.Double,
-    -- | The percentile.
-    percent :: Prelude.Maybe Prelude.Double
+  { -- | The percentile.
+    percent :: Prelude.Maybe Prelude.Double,
+    -- | The value of the percentile.
+    value :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data PercentPair = PercentPair'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'percentPair_value' - The value of the percentile.
---
 -- 'percent', 'percentPair_percent' - The percentile.
+--
+-- 'value', 'percentPair_value' - The value of the percentile.
 newPercentPair ::
   PercentPair
 newPercentPair =
   PercentPair'
-    { value = Prelude.Nothing,
-      percent = Prelude.Nothing
+    { percent = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The value of the percentile.
-percentPair_value :: Lens.Lens' PercentPair (Prelude.Maybe Prelude.Double)
-percentPair_value = Lens.lens (\PercentPair' {value} -> value) (\s@PercentPair' {} a -> s {value = a} :: PercentPair)
 
 -- | The percentile.
 percentPair_percent :: Lens.Lens' PercentPair (Prelude.Maybe Prelude.Double)
 percentPair_percent = Lens.lens (\PercentPair' {percent} -> percent) (\s@PercentPair' {} a -> s {percent = a} :: PercentPair)
+
+-- | The value of the percentile.
+percentPair_value :: Lens.Lens' PercentPair (Prelude.Maybe Prelude.Double)
+percentPair_value = Lens.lens (\PercentPair' {value} -> value) (\s@PercentPair' {} a -> s {value = a} :: PercentPair)
 
 instance Core.FromJSON PercentPair where
   parseJSON =
@@ -67,15 +67,15 @@ instance Core.FromJSON PercentPair where
       "PercentPair"
       ( \x ->
           PercentPair'
-            Prelude.<$> (x Core..:? "value")
-            Prelude.<*> (x Core..:? "percent")
+            Prelude.<$> (x Core..:? "percent")
+            Prelude.<*> (x Core..:? "value")
       )
 
 instance Prelude.Hashable PercentPair where
   hashWithSalt _salt PercentPair' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` percent
+    _salt `Prelude.hashWithSalt` percent
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData PercentPair where
   rnf PercentPair' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf percent
+    Prelude.rnf percent `Prelude.seq` Prelude.rnf value

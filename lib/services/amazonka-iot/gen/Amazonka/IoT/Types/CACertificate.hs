@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCACertificate' smart constructor.
 data CACertificate = CACertificate'
-  { -- | The status of the CA certificate.
+  { -- | The date the CA certificate was created.
+    creationDate :: Prelude.Maybe Core.POSIX,
+    -- | The status of the CA certificate.
     --
     -- The status value REGISTER_INACTIVE is deprecated and should not be used.
     status :: Prelude.Maybe CACertificateStatus,
     -- | The ARN of the CA certificate.
     certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the CA certificate.
-    certificateId :: Prelude.Maybe Prelude.Text,
-    -- | The date the CA certificate was created.
-    creationDate :: Prelude.Maybe Core.POSIX
+    certificateId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,6 +49,8 @@ data CACertificate = CACertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'creationDate', 'cACertificate_creationDate' - The date the CA certificate was created.
+--
 -- 'status', 'cACertificate_status' - The status of the CA certificate.
 --
 -- The status value REGISTER_INACTIVE is deprecated and should not be used.
@@ -56,17 +58,19 @@ data CACertificate = CACertificate'
 -- 'certificateArn', 'cACertificate_certificateArn' - The ARN of the CA certificate.
 --
 -- 'certificateId', 'cACertificate_certificateId' - The ID of the CA certificate.
---
--- 'creationDate', 'cACertificate_creationDate' - The date the CA certificate was created.
 newCACertificate ::
   CACertificate
 newCACertificate =
   CACertificate'
-    { status = Prelude.Nothing,
+    { creationDate = Prelude.Nothing,
+      status = Prelude.Nothing,
       certificateArn = Prelude.Nothing,
-      certificateId = Prelude.Nothing,
-      creationDate = Prelude.Nothing
+      certificateId = Prelude.Nothing
     }
+
+-- | The date the CA certificate was created.
+cACertificate_creationDate :: Lens.Lens' CACertificate (Prelude.Maybe Prelude.UTCTime)
+cACertificate_creationDate = Lens.lens (\CACertificate' {creationDate} -> creationDate) (\s@CACertificate' {} a -> s {creationDate = a} :: CACertificate) Prelude.. Lens.mapping Core._Time
 
 -- | The status of the CA certificate.
 --
@@ -82,32 +86,28 @@ cACertificate_certificateArn = Lens.lens (\CACertificate' {certificateArn} -> ce
 cACertificate_certificateId :: Lens.Lens' CACertificate (Prelude.Maybe Prelude.Text)
 cACertificate_certificateId = Lens.lens (\CACertificate' {certificateId} -> certificateId) (\s@CACertificate' {} a -> s {certificateId = a} :: CACertificate)
 
--- | The date the CA certificate was created.
-cACertificate_creationDate :: Lens.Lens' CACertificate (Prelude.Maybe Prelude.UTCTime)
-cACertificate_creationDate = Lens.lens (\CACertificate' {creationDate} -> creationDate) (\s@CACertificate' {} a -> s {creationDate = a} :: CACertificate) Prelude.. Lens.mapping Core._Time
-
 instance Core.FromJSON CACertificate where
   parseJSON =
     Core.withObject
       "CACertificate"
       ( \x ->
           CACertificate'
-            Prelude.<$> (x Core..:? "status")
+            Prelude.<$> (x Core..:? "creationDate")
+            Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "certificateArn")
             Prelude.<*> (x Core..:? "certificateId")
-            Prelude.<*> (x Core..:? "creationDate")
       )
 
 instance Prelude.Hashable CACertificate where
   hashWithSalt _salt CACertificate' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` certificateId
-      `Prelude.hashWithSalt` creationDate
 
 instance Prelude.NFData CACertificate where
   rnf CACertificate' {..} =
-    Prelude.rnf status
+    Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf certificateArn
       `Prelude.seq` Prelude.rnf certificateId
-      `Prelude.seq` Prelude.rnf creationDate

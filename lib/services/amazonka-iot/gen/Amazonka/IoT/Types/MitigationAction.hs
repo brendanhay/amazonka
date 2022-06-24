@@ -29,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMitigationAction' smart constructor.
 data MitigationAction = MitigationAction'
-  { -- | The set of parameters for this mitigation action. The parameters vary,
-    -- depending on the kind of action you apply.
-    actionParams :: Prelude.Maybe MitigationActionParams,
-    -- | A user-friendly name for the mitigation action.
+  { -- | A user-friendly name for the mitigation action.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The IAM role ARN used to apply this mitigation action.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the mitigation action.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The IAM role ARN used to apply this mitigation action.
-    roleArn :: Prelude.Maybe Prelude.Text
+    -- | The set of parameters for this mitigation action. The parameters vary,
+    -- depending on the kind of action you apply.
+    actionParams :: Prelude.Maybe MitigationActionParams
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,40 +49,40 @@ data MitigationAction = MitigationAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'actionParams', 'mitigationAction_actionParams' - The set of parameters for this mitigation action. The parameters vary,
--- depending on the kind of action you apply.
---
 -- 'name', 'mitigationAction_name' - A user-friendly name for the mitigation action.
+--
+-- 'roleArn', 'mitigationAction_roleArn' - The IAM role ARN used to apply this mitigation action.
 --
 -- 'id', 'mitigationAction_id' - A unique identifier for the mitigation action.
 --
--- 'roleArn', 'mitigationAction_roleArn' - The IAM role ARN used to apply this mitigation action.
+-- 'actionParams', 'mitigationAction_actionParams' - The set of parameters for this mitigation action. The parameters vary,
+-- depending on the kind of action you apply.
 newMitigationAction ::
   MitigationAction
 newMitigationAction =
   MitigationAction'
-    { actionParams = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       id = Prelude.Nothing,
-      roleArn = Prelude.Nothing
+      actionParams = Prelude.Nothing
     }
-
--- | The set of parameters for this mitigation action. The parameters vary,
--- depending on the kind of action you apply.
-mitigationAction_actionParams :: Lens.Lens' MitigationAction (Prelude.Maybe MitigationActionParams)
-mitigationAction_actionParams = Lens.lens (\MitigationAction' {actionParams} -> actionParams) (\s@MitigationAction' {} a -> s {actionParams = a} :: MitigationAction)
 
 -- | A user-friendly name for the mitigation action.
 mitigationAction_name :: Lens.Lens' MitigationAction (Prelude.Maybe Prelude.Text)
 mitigationAction_name = Lens.lens (\MitigationAction' {name} -> name) (\s@MitigationAction' {} a -> s {name = a} :: MitigationAction)
 
+-- | The IAM role ARN used to apply this mitigation action.
+mitigationAction_roleArn :: Lens.Lens' MitigationAction (Prelude.Maybe Prelude.Text)
+mitigationAction_roleArn = Lens.lens (\MitigationAction' {roleArn} -> roleArn) (\s@MitigationAction' {} a -> s {roleArn = a} :: MitigationAction)
+
 -- | A unique identifier for the mitigation action.
 mitigationAction_id :: Lens.Lens' MitigationAction (Prelude.Maybe Prelude.Text)
 mitigationAction_id = Lens.lens (\MitigationAction' {id} -> id) (\s@MitigationAction' {} a -> s {id = a} :: MitigationAction)
 
--- | The IAM role ARN used to apply this mitigation action.
-mitigationAction_roleArn :: Lens.Lens' MitigationAction (Prelude.Maybe Prelude.Text)
-mitigationAction_roleArn = Lens.lens (\MitigationAction' {roleArn} -> roleArn) (\s@MitigationAction' {} a -> s {roleArn = a} :: MitigationAction)
+-- | The set of parameters for this mitigation action. The parameters vary,
+-- depending on the kind of action you apply.
+mitigationAction_actionParams :: Lens.Lens' MitigationAction (Prelude.Maybe MitigationActionParams)
+mitigationAction_actionParams = Lens.lens (\MitigationAction' {actionParams} -> actionParams) (\s@MitigationAction' {} a -> s {actionParams = a} :: MitigationAction)
 
 instance Core.FromJSON MitigationAction where
   parseJSON =
@@ -90,22 +90,22 @@ instance Core.FromJSON MitigationAction where
       "MitigationAction"
       ( \x ->
           MitigationAction'
-            Prelude.<$> (x Core..:? "actionParams")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "id")
+            Prelude.<$> (x Core..:? "name")
             Prelude.<*> (x Core..:? "roleArn")
+            Prelude.<*> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "actionParams")
       )
 
 instance Prelude.Hashable MitigationAction where
   hashWithSalt _salt MitigationAction' {..} =
-    _salt `Prelude.hashWithSalt` actionParams
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` id
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` actionParams
 
 instance Prelude.NFData MitigationAction where
   rnf MitigationAction' {..} =
-    Prelude.rnf actionParams
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf actionParams

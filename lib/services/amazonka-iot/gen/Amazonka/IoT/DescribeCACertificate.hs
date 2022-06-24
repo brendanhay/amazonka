@@ -38,8 +38,8 @@ module Amazonka.IoT.DescribeCACertificate
     newDescribeCACertificateResponse,
 
     -- * Response Lenses
-    describeCACertificateResponse_certificateDescription,
     describeCACertificateResponse_registrationConfig,
+    describeCACertificateResponse_certificateDescription,
     describeCACertificateResponse_httpStatus,
   )
 where
@@ -92,8 +92,8 @@ instance Core.AWSRequest DescribeCACertificate where
     Response.receiveJSON
       ( \s h x ->
           DescribeCACertificateResponse'
-            Prelude.<$> (x Core..?> "certificateDescription")
-            Prelude.<*> (x Core..?> "registrationConfig")
+            Prelude.<$> (x Core..?> "registrationConfig")
+            Prelude.<*> (x Core..?> "certificateDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,10 +120,10 @@ instance Core.ToQuery DescribeCACertificate where
 --
 -- /See:/ 'newDescribeCACertificateResponse' smart constructor.
 data DescribeCACertificateResponse = DescribeCACertificateResponse'
-  { -- | The CA certificate description.
-    certificateDescription :: Prelude.Maybe CACertificateDescription,
-    -- | Information about the registration configuration.
+  { -- | Information about the registration configuration.
     registrationConfig :: Prelude.Maybe RegistrationConfig,
+    -- | The CA certificate description.
+    certificateDescription :: Prelude.Maybe CACertificateDescription,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -137,9 +137,9 @@ data DescribeCACertificateResponse = DescribeCACertificateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'certificateDescription', 'describeCACertificateResponse_certificateDescription' - The CA certificate description.
---
 -- 'registrationConfig', 'describeCACertificateResponse_registrationConfig' - Information about the registration configuration.
+--
+-- 'certificateDescription', 'describeCACertificateResponse_certificateDescription' - The CA certificate description.
 --
 -- 'httpStatus', 'describeCACertificateResponse_httpStatus' - The response's http status code.
 newDescribeCACertificateResponse ::
@@ -148,19 +148,19 @@ newDescribeCACertificateResponse ::
   DescribeCACertificateResponse
 newDescribeCACertificateResponse pHttpStatus_ =
   DescribeCACertificateResponse'
-    { certificateDescription =
+    { registrationConfig =
         Prelude.Nothing,
-      registrationConfig = Prelude.Nothing,
+      certificateDescription = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The CA certificate description.
-describeCACertificateResponse_certificateDescription :: Lens.Lens' DescribeCACertificateResponse (Prelude.Maybe CACertificateDescription)
-describeCACertificateResponse_certificateDescription = Lens.lens (\DescribeCACertificateResponse' {certificateDescription} -> certificateDescription) (\s@DescribeCACertificateResponse' {} a -> s {certificateDescription = a} :: DescribeCACertificateResponse)
 
 -- | Information about the registration configuration.
 describeCACertificateResponse_registrationConfig :: Lens.Lens' DescribeCACertificateResponse (Prelude.Maybe RegistrationConfig)
 describeCACertificateResponse_registrationConfig = Lens.lens (\DescribeCACertificateResponse' {registrationConfig} -> registrationConfig) (\s@DescribeCACertificateResponse' {} a -> s {registrationConfig = a} :: DescribeCACertificateResponse)
+
+-- | The CA certificate description.
+describeCACertificateResponse_certificateDescription :: Lens.Lens' DescribeCACertificateResponse (Prelude.Maybe CACertificateDescription)
+describeCACertificateResponse_certificateDescription = Lens.lens (\DescribeCACertificateResponse' {certificateDescription} -> certificateDescription) (\s@DescribeCACertificateResponse' {} a -> s {certificateDescription = a} :: DescribeCACertificateResponse)
 
 -- | The response's http status code.
 describeCACertificateResponse_httpStatus :: Lens.Lens' DescribeCACertificateResponse Prelude.Int
@@ -168,6 +168,6 @@ describeCACertificateResponse_httpStatus = Lens.lens (\DescribeCACertificateResp
 
 instance Prelude.NFData DescribeCACertificateResponse where
   rnf DescribeCACertificateResponse' {..} =
-    Prelude.rnf certificateDescription
-      `Prelude.seq` Prelude.rnf registrationConfig
+    Prelude.rnf registrationConfig
+      `Prelude.seq` Prelude.rnf certificateDescription
       `Prelude.seq` Prelude.rnf httpStatus

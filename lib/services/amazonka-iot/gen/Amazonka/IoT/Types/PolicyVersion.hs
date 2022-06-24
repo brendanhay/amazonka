@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPolicyVersion' smart constructor.
 data PolicyVersion = PolicyVersion'
-  { -- | The policy version ID.
-    versionId :: Prelude.Maybe Prelude.Text,
+  { -- | Specifies whether the policy version is the default.
+    isDefaultVersion :: Prelude.Maybe Prelude.Bool,
     -- | The date and time the policy was created.
     createDate :: Prelude.Maybe Core.POSIX,
-    -- | Specifies whether the policy version is the default.
-    isDefaultVersion :: Prelude.Maybe Prelude.Bool
+    -- | The policy version ID.
+    versionId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,31 +44,31 @@ data PolicyVersion = PolicyVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versionId', 'policyVersion_versionId' - The policy version ID.
+-- 'isDefaultVersion', 'policyVersion_isDefaultVersion' - Specifies whether the policy version is the default.
 --
 -- 'createDate', 'policyVersion_createDate' - The date and time the policy was created.
 --
--- 'isDefaultVersion', 'policyVersion_isDefaultVersion' - Specifies whether the policy version is the default.
+-- 'versionId', 'policyVersion_versionId' - The policy version ID.
 newPolicyVersion ::
   PolicyVersion
 newPolicyVersion =
   PolicyVersion'
-    { versionId = Prelude.Nothing,
+    { isDefaultVersion = Prelude.Nothing,
       createDate = Prelude.Nothing,
-      isDefaultVersion = Prelude.Nothing
+      versionId = Prelude.Nothing
     }
 
--- | The policy version ID.
-policyVersion_versionId :: Lens.Lens' PolicyVersion (Prelude.Maybe Prelude.Text)
-policyVersion_versionId = Lens.lens (\PolicyVersion' {versionId} -> versionId) (\s@PolicyVersion' {} a -> s {versionId = a} :: PolicyVersion)
+-- | Specifies whether the policy version is the default.
+policyVersion_isDefaultVersion :: Lens.Lens' PolicyVersion (Prelude.Maybe Prelude.Bool)
+policyVersion_isDefaultVersion = Lens.lens (\PolicyVersion' {isDefaultVersion} -> isDefaultVersion) (\s@PolicyVersion' {} a -> s {isDefaultVersion = a} :: PolicyVersion)
 
 -- | The date and time the policy was created.
 policyVersion_createDate :: Lens.Lens' PolicyVersion (Prelude.Maybe Prelude.UTCTime)
 policyVersion_createDate = Lens.lens (\PolicyVersion' {createDate} -> createDate) (\s@PolicyVersion' {} a -> s {createDate = a} :: PolicyVersion) Prelude.. Lens.mapping Core._Time
 
--- | Specifies whether the policy version is the default.
-policyVersion_isDefaultVersion :: Lens.Lens' PolicyVersion (Prelude.Maybe Prelude.Bool)
-policyVersion_isDefaultVersion = Lens.lens (\PolicyVersion' {isDefaultVersion} -> isDefaultVersion) (\s@PolicyVersion' {} a -> s {isDefaultVersion = a} :: PolicyVersion)
+-- | The policy version ID.
+policyVersion_versionId :: Lens.Lens' PolicyVersion (Prelude.Maybe Prelude.Text)
+policyVersion_versionId = Lens.lens (\PolicyVersion' {versionId} -> versionId) (\s@PolicyVersion' {} a -> s {versionId = a} :: PolicyVersion)
 
 instance Core.FromJSON PolicyVersion where
   parseJSON =
@@ -76,19 +76,19 @@ instance Core.FromJSON PolicyVersion where
       "PolicyVersion"
       ( \x ->
           PolicyVersion'
-            Prelude.<$> (x Core..:? "versionId")
+            Prelude.<$> (x Core..:? "isDefaultVersion")
             Prelude.<*> (x Core..:? "createDate")
-            Prelude.<*> (x Core..:? "isDefaultVersion")
+            Prelude.<*> (x Core..:? "versionId")
       )
 
 instance Prelude.Hashable PolicyVersion where
   hashWithSalt _salt PolicyVersion' {..} =
-    _salt `Prelude.hashWithSalt` versionId
+    _salt `Prelude.hashWithSalt` isDefaultVersion
       `Prelude.hashWithSalt` createDate
-      `Prelude.hashWithSalt` isDefaultVersion
+      `Prelude.hashWithSalt` versionId
 
 instance Prelude.NFData PolicyVersion where
   rnf PolicyVersion' {..} =
-    Prelude.rnf versionId
+    Prelude.rnf isDefaultVersion
       `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf isDefaultVersion
+      `Prelude.seq` Prelude.rnf versionId

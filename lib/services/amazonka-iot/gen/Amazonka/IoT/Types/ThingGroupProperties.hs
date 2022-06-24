@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newThingGroupProperties' smart constructor.
 data ThingGroupProperties = ThingGroupProperties'
-  { -- | The thing group attributes in JSON format.
-    attributePayload :: Prelude.Maybe AttributePayload,
-    -- | The thing group description.
-    thingGroupDescription :: Prelude.Maybe Prelude.Text
+  { -- | The thing group description.
+    thingGroupDescription :: Prelude.Maybe Prelude.Text,
+    -- | The thing group attributes in JSON format.
+    attributePayload :: Prelude.Maybe AttributePayload
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data ThingGroupProperties = ThingGroupProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'attributePayload', 'thingGroupProperties_attributePayload' - The thing group attributes in JSON format.
---
 -- 'thingGroupDescription', 'thingGroupProperties_thingGroupDescription' - The thing group description.
+--
+-- 'attributePayload', 'thingGroupProperties_attributePayload' - The thing group attributes in JSON format.
 newThingGroupProperties ::
   ThingGroupProperties
 newThingGroupProperties =
   ThingGroupProperties'
-    { attributePayload =
+    { thingGroupDescription =
         Prelude.Nothing,
-      thingGroupDescription = Prelude.Nothing
+      attributePayload = Prelude.Nothing
     }
-
--- | The thing group attributes in JSON format.
-thingGroupProperties_attributePayload :: Lens.Lens' ThingGroupProperties (Prelude.Maybe AttributePayload)
-thingGroupProperties_attributePayload = Lens.lens (\ThingGroupProperties' {attributePayload} -> attributePayload) (\s@ThingGroupProperties' {} a -> s {attributePayload = a} :: ThingGroupProperties)
 
 -- | The thing group description.
 thingGroupProperties_thingGroupDescription :: Lens.Lens' ThingGroupProperties (Prelude.Maybe Prelude.Text)
 thingGroupProperties_thingGroupDescription = Lens.lens (\ThingGroupProperties' {thingGroupDescription} -> thingGroupDescription) (\s@ThingGroupProperties' {} a -> s {thingGroupDescription = a} :: ThingGroupProperties)
+
+-- | The thing group attributes in JSON format.
+thingGroupProperties_attributePayload :: Lens.Lens' ThingGroupProperties (Prelude.Maybe AttributePayload)
+thingGroupProperties_attributePayload = Lens.lens (\ThingGroupProperties' {attributePayload} -> attributePayload) (\s@ThingGroupProperties' {} a -> s {attributePayload = a} :: ThingGroupProperties)
 
 instance Core.FromJSON ThingGroupProperties where
   parseJSON =
@@ -69,27 +69,27 @@ instance Core.FromJSON ThingGroupProperties where
       "ThingGroupProperties"
       ( \x ->
           ThingGroupProperties'
-            Prelude.<$> (x Core..:? "attributePayload")
-            Prelude.<*> (x Core..:? "thingGroupDescription")
+            Prelude.<$> (x Core..:? "thingGroupDescription")
+            Prelude.<*> (x Core..:? "attributePayload")
       )
 
 instance Prelude.Hashable ThingGroupProperties where
   hashWithSalt _salt ThingGroupProperties' {..} =
-    _salt `Prelude.hashWithSalt` attributePayload
-      `Prelude.hashWithSalt` thingGroupDescription
+    _salt `Prelude.hashWithSalt` thingGroupDescription
+      `Prelude.hashWithSalt` attributePayload
 
 instance Prelude.NFData ThingGroupProperties where
   rnf ThingGroupProperties' {..} =
-    Prelude.rnf attributePayload
-      `Prelude.seq` Prelude.rnf thingGroupDescription
+    Prelude.rnf thingGroupDescription
+      `Prelude.seq` Prelude.rnf attributePayload
 
 instance Core.ToJSON ThingGroupProperties where
   toJSON ThingGroupProperties' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("attributePayload" Core..=)
-              Prelude.<$> attributePayload,
-            ("thingGroupDescription" Core..=)
-              Prelude.<$> thingGroupDescription
+          [ ("thingGroupDescription" Core..=)
+              Prelude.<$> thingGroupDescription,
+            ("attributePayload" Core..=)
+              Prelude.<$> attributePayload
           ]
       )

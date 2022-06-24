@@ -31,12 +31,12 @@ module Amazonka.IoT.UpdateProvisioningTemplate
     newUpdateProvisioningTemplate,
 
     -- * Request Lenses
+    updateProvisioningTemplate_removePreProvisioningHook,
+    updateProvisioningTemplate_defaultVersionId,
     updateProvisioningTemplate_preProvisioningHook,
+    updateProvisioningTemplate_description,
     updateProvisioningTemplate_enabled,
     updateProvisioningTemplate_provisioningRoleArn,
-    updateProvisioningTemplate_defaultVersionId,
-    updateProvisioningTemplate_removePreProvisioningHook,
-    updateProvisioningTemplate_description,
     updateProvisioningTemplate_templateName,
 
     -- * Destructuring the Response
@@ -57,19 +57,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateProvisioningTemplate' smart constructor.
 data UpdateProvisioningTemplate = UpdateProvisioningTemplate'
-  { -- | Updates the pre-provisioning hook template.
+  { -- | Removes pre-provisioning hook template.
+    removePreProvisioningHook :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the default provisioning template version.
+    defaultVersionId :: Prelude.Maybe Prelude.Int,
+    -- | Updates the pre-provisioning hook template.
     preProvisioningHook :: Prelude.Maybe ProvisioningHook,
+    -- | The description of the fleet provisioning template.
+    description :: Prelude.Maybe Prelude.Text,
     -- | True to enable the fleet provisioning template, otherwise false.
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | The ARN of the role associated with the provisioning template. This IoT
     -- role grants permission to provision a device.
     provisioningRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the default provisioning template version.
-    defaultVersionId :: Prelude.Maybe Prelude.Int,
-    -- | Removes pre-provisioning hook template.
-    removePreProvisioningHook :: Prelude.Maybe Prelude.Bool,
-    -- | The description of the fleet provisioning template.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the fleet provisioning template.
     templateName :: Prelude.Text
   }
@@ -83,18 +83,18 @@ data UpdateProvisioningTemplate = UpdateProvisioningTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'removePreProvisioningHook', 'updateProvisioningTemplate_removePreProvisioningHook' - Removes pre-provisioning hook template.
+--
+-- 'defaultVersionId', 'updateProvisioningTemplate_defaultVersionId' - The ID of the default provisioning template version.
+--
 -- 'preProvisioningHook', 'updateProvisioningTemplate_preProvisioningHook' - Updates the pre-provisioning hook template.
+--
+-- 'description', 'updateProvisioningTemplate_description' - The description of the fleet provisioning template.
 --
 -- 'enabled', 'updateProvisioningTemplate_enabled' - True to enable the fleet provisioning template, otherwise false.
 --
 -- 'provisioningRoleArn', 'updateProvisioningTemplate_provisioningRoleArn' - The ARN of the role associated with the provisioning template. This IoT
 -- role grants permission to provision a device.
---
--- 'defaultVersionId', 'updateProvisioningTemplate_defaultVersionId' - The ID of the default provisioning template version.
---
--- 'removePreProvisioningHook', 'updateProvisioningTemplate_removePreProvisioningHook' - Removes pre-provisioning hook template.
---
--- 'description', 'updateProvisioningTemplate_description' - The description of the fleet provisioning template.
 --
 -- 'templateName', 'updateProvisioningTemplate_templateName' - The name of the fleet provisioning template.
 newUpdateProvisioningTemplate ::
@@ -103,19 +103,31 @@ newUpdateProvisioningTemplate ::
   UpdateProvisioningTemplate
 newUpdateProvisioningTemplate pTemplateName_ =
   UpdateProvisioningTemplate'
-    { preProvisioningHook =
+    { removePreProvisioningHook =
         Prelude.Nothing,
+      defaultVersionId = Prelude.Nothing,
+      preProvisioningHook = Prelude.Nothing,
+      description = Prelude.Nothing,
       enabled = Prelude.Nothing,
       provisioningRoleArn = Prelude.Nothing,
-      defaultVersionId = Prelude.Nothing,
-      removePreProvisioningHook = Prelude.Nothing,
-      description = Prelude.Nothing,
       templateName = pTemplateName_
     }
+
+-- | Removes pre-provisioning hook template.
+updateProvisioningTemplate_removePreProvisioningHook :: Lens.Lens' UpdateProvisioningTemplate (Prelude.Maybe Prelude.Bool)
+updateProvisioningTemplate_removePreProvisioningHook = Lens.lens (\UpdateProvisioningTemplate' {removePreProvisioningHook} -> removePreProvisioningHook) (\s@UpdateProvisioningTemplate' {} a -> s {removePreProvisioningHook = a} :: UpdateProvisioningTemplate)
+
+-- | The ID of the default provisioning template version.
+updateProvisioningTemplate_defaultVersionId :: Lens.Lens' UpdateProvisioningTemplate (Prelude.Maybe Prelude.Int)
+updateProvisioningTemplate_defaultVersionId = Lens.lens (\UpdateProvisioningTemplate' {defaultVersionId} -> defaultVersionId) (\s@UpdateProvisioningTemplate' {} a -> s {defaultVersionId = a} :: UpdateProvisioningTemplate)
 
 -- | Updates the pre-provisioning hook template.
 updateProvisioningTemplate_preProvisioningHook :: Lens.Lens' UpdateProvisioningTemplate (Prelude.Maybe ProvisioningHook)
 updateProvisioningTemplate_preProvisioningHook = Lens.lens (\UpdateProvisioningTemplate' {preProvisioningHook} -> preProvisioningHook) (\s@UpdateProvisioningTemplate' {} a -> s {preProvisioningHook = a} :: UpdateProvisioningTemplate)
+
+-- | The description of the fleet provisioning template.
+updateProvisioningTemplate_description :: Lens.Lens' UpdateProvisioningTemplate (Prelude.Maybe Prelude.Text)
+updateProvisioningTemplate_description = Lens.lens (\UpdateProvisioningTemplate' {description} -> description) (\s@UpdateProvisioningTemplate' {} a -> s {description = a} :: UpdateProvisioningTemplate)
 
 -- | True to enable the fleet provisioning template, otherwise false.
 updateProvisioningTemplate_enabled :: Lens.Lens' UpdateProvisioningTemplate (Prelude.Maybe Prelude.Bool)
@@ -125,18 +137,6 @@ updateProvisioningTemplate_enabled = Lens.lens (\UpdateProvisioningTemplate' {en
 -- role grants permission to provision a device.
 updateProvisioningTemplate_provisioningRoleArn :: Lens.Lens' UpdateProvisioningTemplate (Prelude.Maybe Prelude.Text)
 updateProvisioningTemplate_provisioningRoleArn = Lens.lens (\UpdateProvisioningTemplate' {provisioningRoleArn} -> provisioningRoleArn) (\s@UpdateProvisioningTemplate' {} a -> s {provisioningRoleArn = a} :: UpdateProvisioningTemplate)
-
--- | The ID of the default provisioning template version.
-updateProvisioningTemplate_defaultVersionId :: Lens.Lens' UpdateProvisioningTemplate (Prelude.Maybe Prelude.Int)
-updateProvisioningTemplate_defaultVersionId = Lens.lens (\UpdateProvisioningTemplate' {defaultVersionId} -> defaultVersionId) (\s@UpdateProvisioningTemplate' {} a -> s {defaultVersionId = a} :: UpdateProvisioningTemplate)
-
--- | Removes pre-provisioning hook template.
-updateProvisioningTemplate_removePreProvisioningHook :: Lens.Lens' UpdateProvisioningTemplate (Prelude.Maybe Prelude.Bool)
-updateProvisioningTemplate_removePreProvisioningHook = Lens.lens (\UpdateProvisioningTemplate' {removePreProvisioningHook} -> removePreProvisioningHook) (\s@UpdateProvisioningTemplate' {} a -> s {removePreProvisioningHook = a} :: UpdateProvisioningTemplate)
-
--- | The description of the fleet provisioning template.
-updateProvisioningTemplate_description :: Lens.Lens' UpdateProvisioningTemplate (Prelude.Maybe Prelude.Text)
-updateProvisioningTemplate_description = Lens.lens (\UpdateProvisioningTemplate' {description} -> description) (\s@UpdateProvisioningTemplate' {} a -> s {description = a} :: UpdateProvisioningTemplate)
 
 -- | The name of the fleet provisioning template.
 updateProvisioningTemplate_templateName :: Lens.Lens' UpdateProvisioningTemplate Prelude.Text
@@ -156,22 +156,23 @@ instance Core.AWSRequest UpdateProvisioningTemplate where
 
 instance Prelude.Hashable UpdateProvisioningTemplate where
   hashWithSalt _salt UpdateProvisioningTemplate' {..} =
-    _salt `Prelude.hashWithSalt` preProvisioningHook
+    _salt
+      `Prelude.hashWithSalt` removePreProvisioningHook
+      `Prelude.hashWithSalt` defaultVersionId
+      `Prelude.hashWithSalt` preProvisioningHook
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` provisioningRoleArn
-      `Prelude.hashWithSalt` defaultVersionId
-      `Prelude.hashWithSalt` removePreProvisioningHook
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` templateName
 
 instance Prelude.NFData UpdateProvisioningTemplate where
   rnf UpdateProvisioningTemplate' {..} =
-    Prelude.rnf preProvisioningHook
+    Prelude.rnf removePreProvisioningHook
+      `Prelude.seq` Prelude.rnf defaultVersionId
+      `Prelude.seq` Prelude.rnf preProvisioningHook
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf provisioningRoleArn
-      `Prelude.seq` Prelude.rnf defaultVersionId
-      `Prelude.seq` Prelude.rnf removePreProvisioningHook
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf templateName
 
 instance Core.ToHeaders UpdateProvisioningTemplate where
@@ -181,16 +182,16 @@ instance Core.ToJSON UpdateProvisioningTemplate where
   toJSON UpdateProvisioningTemplate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("preProvisioningHook" Core..=)
-              Prelude.<$> preProvisioningHook,
-            ("enabled" Core..=) Prelude.<$> enabled,
-            ("provisioningRoleArn" Core..=)
-              Prelude.<$> provisioningRoleArn,
+          [ ("removePreProvisioningHook" Core..=)
+              Prelude.<$> removePreProvisioningHook,
             ("defaultVersionId" Core..=)
               Prelude.<$> defaultVersionId,
-            ("removePreProvisioningHook" Core..=)
-              Prelude.<$> removePreProvisioningHook,
-            ("description" Core..=) Prelude.<$> description
+            ("preProvisioningHook" Core..=)
+              Prelude.<$> preProvisioningHook,
+            ("description" Core..=) Prelude.<$> description,
+            ("enabled" Core..=) Prelude.<$> enabled,
+            ("provisioningRoleArn" Core..=)
+              Prelude.<$> provisioningRoleArn
           ]
       )
 

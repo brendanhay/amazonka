@@ -38,10 +38,10 @@ module Amazonka.IoT.RegisterCACertificate
     newRegisterCACertificate,
 
     -- * Request Lenses
-    registerCACertificate_setAsActive,
+    registerCACertificate_tags,
     registerCACertificate_allowAutoRegistration,
     registerCACertificate_registrationConfig,
-    registerCACertificate_tags,
+    registerCACertificate_setAsActive,
     registerCACertificate_caCertificate,
     registerCACertificate_verificationCertificate,
 
@@ -67,14 +67,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newRegisterCACertificate' smart constructor.
 data RegisterCACertificate = RegisterCACertificate'
-  { -- | A boolean value that specifies if the CA certificate is set to active.
-    setAsActive :: Prelude.Maybe Prelude.Bool,
-    -- | Allows this CA certificate to be used for auto registration of device
-    -- certificates.
-    allowAutoRegistration :: Prelude.Maybe Prelude.Bool,
-    -- | Information about the registration configuration.
-    registrationConfig :: Prelude.Maybe RegistrationConfig,
-    -- | Metadata which can be used to manage the CA certificate.
+  { -- | Metadata which can be used to manage the CA certificate.
     --
     -- For URI Request parameters use format: ...key1=value1&key2=value2...
     --
@@ -84,6 +77,13 @@ data RegisterCACertificate = RegisterCACertificate'
     -- For the cli-input-json file use format: \"tags\":
     -- \"key1=value1&key2=value2...\"
     tags :: Prelude.Maybe [Tag],
+    -- | Allows this CA certificate to be used for auto registration of device
+    -- certificates.
+    allowAutoRegistration :: Prelude.Maybe Prelude.Bool,
+    -- | Information about the registration configuration.
+    registrationConfig :: Prelude.Maybe RegistrationConfig,
+    -- | A boolean value that specifies if the CA certificate is set to active.
+    setAsActive :: Prelude.Maybe Prelude.Bool,
     -- | The CA certificate.
     caCertificate :: Prelude.Text,
     -- | The private key verification certificate.
@@ -99,13 +99,6 @@ data RegisterCACertificate = RegisterCACertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'setAsActive', 'registerCACertificate_setAsActive' - A boolean value that specifies if the CA certificate is set to active.
---
--- 'allowAutoRegistration', 'registerCACertificate_allowAutoRegistration' - Allows this CA certificate to be used for auto registration of device
--- certificates.
---
--- 'registrationConfig', 'registerCACertificate_registrationConfig' - Information about the registration configuration.
---
 -- 'tags', 'registerCACertificate_tags' - Metadata which can be used to manage the CA certificate.
 --
 -- For URI Request parameters use format: ...key1=value1&key2=value2...
@@ -115,6 +108,13 @@ data RegisterCACertificate = RegisterCACertificate'
 --
 -- For the cli-input-json file use format: \"tags\":
 -- \"key1=value1&key2=value2...\"
+--
+-- 'allowAutoRegistration', 'registerCACertificate_allowAutoRegistration' - Allows this CA certificate to be used for auto registration of device
+-- certificates.
+--
+-- 'registrationConfig', 'registerCACertificate_registrationConfig' - Information about the registration configuration.
+--
+-- 'setAsActive', 'registerCACertificate_setAsActive' - A boolean value that specifies if the CA certificate is set to active.
 --
 -- 'caCertificate', 'registerCACertificate_caCertificate' - The CA certificate.
 --
@@ -129,27 +129,13 @@ newRegisterCACertificate
   pCaCertificate_
   pVerificationCertificate_ =
     RegisterCACertificate'
-      { setAsActive =
-          Prelude.Nothing,
+      { tags = Prelude.Nothing,
         allowAutoRegistration = Prelude.Nothing,
         registrationConfig = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        setAsActive = Prelude.Nothing,
         caCertificate = pCaCertificate_,
         verificationCertificate = pVerificationCertificate_
       }
-
--- | A boolean value that specifies if the CA certificate is set to active.
-registerCACertificate_setAsActive :: Lens.Lens' RegisterCACertificate (Prelude.Maybe Prelude.Bool)
-registerCACertificate_setAsActive = Lens.lens (\RegisterCACertificate' {setAsActive} -> setAsActive) (\s@RegisterCACertificate' {} a -> s {setAsActive = a} :: RegisterCACertificate)
-
--- | Allows this CA certificate to be used for auto registration of device
--- certificates.
-registerCACertificate_allowAutoRegistration :: Lens.Lens' RegisterCACertificate (Prelude.Maybe Prelude.Bool)
-registerCACertificate_allowAutoRegistration = Lens.lens (\RegisterCACertificate' {allowAutoRegistration} -> allowAutoRegistration) (\s@RegisterCACertificate' {} a -> s {allowAutoRegistration = a} :: RegisterCACertificate)
-
--- | Information about the registration configuration.
-registerCACertificate_registrationConfig :: Lens.Lens' RegisterCACertificate (Prelude.Maybe RegistrationConfig)
-registerCACertificate_registrationConfig = Lens.lens (\RegisterCACertificate' {registrationConfig} -> registrationConfig) (\s@RegisterCACertificate' {} a -> s {registrationConfig = a} :: RegisterCACertificate)
 
 -- | Metadata which can be used to manage the CA certificate.
 --
@@ -162,6 +148,19 @@ registerCACertificate_registrationConfig = Lens.lens (\RegisterCACertificate' {r
 -- \"key1=value1&key2=value2...\"
 registerCACertificate_tags :: Lens.Lens' RegisterCACertificate (Prelude.Maybe [Tag])
 registerCACertificate_tags = Lens.lens (\RegisterCACertificate' {tags} -> tags) (\s@RegisterCACertificate' {} a -> s {tags = a} :: RegisterCACertificate) Prelude.. Lens.mapping Lens.coerced
+
+-- | Allows this CA certificate to be used for auto registration of device
+-- certificates.
+registerCACertificate_allowAutoRegistration :: Lens.Lens' RegisterCACertificate (Prelude.Maybe Prelude.Bool)
+registerCACertificate_allowAutoRegistration = Lens.lens (\RegisterCACertificate' {allowAutoRegistration} -> allowAutoRegistration) (\s@RegisterCACertificate' {} a -> s {allowAutoRegistration = a} :: RegisterCACertificate)
+
+-- | Information about the registration configuration.
+registerCACertificate_registrationConfig :: Lens.Lens' RegisterCACertificate (Prelude.Maybe RegistrationConfig)
+registerCACertificate_registrationConfig = Lens.lens (\RegisterCACertificate' {registrationConfig} -> registrationConfig) (\s@RegisterCACertificate' {} a -> s {registrationConfig = a} :: RegisterCACertificate)
+
+-- | A boolean value that specifies if the CA certificate is set to active.
+registerCACertificate_setAsActive :: Lens.Lens' RegisterCACertificate (Prelude.Maybe Prelude.Bool)
+registerCACertificate_setAsActive = Lens.lens (\RegisterCACertificate' {setAsActive} -> setAsActive) (\s@RegisterCACertificate' {} a -> s {setAsActive = a} :: RegisterCACertificate)
 
 -- | The CA certificate.
 registerCACertificate_caCertificate :: Lens.Lens' RegisterCACertificate Prelude.Text
@@ -187,19 +186,19 @@ instance Core.AWSRequest RegisterCACertificate where
 
 instance Prelude.Hashable RegisterCACertificate where
   hashWithSalt _salt RegisterCACertificate' {..} =
-    _salt `Prelude.hashWithSalt` setAsActive
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` allowAutoRegistration
       `Prelude.hashWithSalt` registrationConfig
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` setAsActive
       `Prelude.hashWithSalt` caCertificate
       `Prelude.hashWithSalt` verificationCertificate
 
 instance Prelude.NFData RegisterCACertificate where
   rnf RegisterCACertificate' {..} =
-    Prelude.rnf setAsActive
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf allowAutoRegistration
       `Prelude.seq` Prelude.rnf registrationConfig
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf setAsActive
       `Prelude.seq` Prelude.rnf caCertificate
       `Prelude.seq` Prelude.rnf verificationCertificate
 
@@ -210,9 +209,9 @@ instance Core.ToJSON RegisterCACertificate where
   toJSON RegisterCACertificate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("registrationConfig" Core..=)
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("registrationConfig" Core..=)
               Prelude.<$> registrationConfig,
-            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("caCertificate" Core..= caCertificate),
             Prelude.Just
               ( "verificationCertificate"
@@ -227,9 +226,9 @@ instance Core.ToPath RegisterCACertificate where
 instance Core.ToQuery RegisterCACertificate where
   toQuery RegisterCACertificate' {..} =
     Prelude.mconcat
-      [ "setAsActive" Core.=: setAsActive,
-        "allowAutoRegistration"
-          Core.=: allowAutoRegistration
+      [ "allowAutoRegistration"
+          Core.=: allowAutoRegistration,
+        "setAsActive" Core.=: setAsActive
       ]
 
 -- | The output from the RegisterCACertificateResponse operation.

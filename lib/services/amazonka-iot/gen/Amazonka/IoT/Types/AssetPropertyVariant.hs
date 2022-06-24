@@ -33,12 +33,12 @@ data AssetPropertyVariant = AssetPropertyVariant'
     -- | Optional. A string that contains the double value of the value entry.
     -- Accepts substitution templates.
     doubleValue :: Prelude.Maybe Prelude.Text,
-    -- | Optional. The string value of the value entry. Accepts substitution
-    -- templates.
-    stringValue :: Prelude.Maybe Prelude.Text,
     -- | Optional. A string that contains the boolean value (@true@ or @false@)
     -- of the value entry. Accepts substitution templates.
-    booleanValue :: Prelude.Maybe Prelude.Text
+    booleanValue :: Prelude.Maybe Prelude.Text,
+    -- | Optional. The string value of the value entry. Accepts substitution
+    -- templates.
+    stringValue :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,11 +56,11 @@ data AssetPropertyVariant = AssetPropertyVariant'
 -- 'doubleValue', 'assetPropertyVariant_doubleValue' - Optional. A string that contains the double value of the value entry.
 -- Accepts substitution templates.
 --
--- 'stringValue', 'assetPropertyVariant_stringValue' - Optional. The string value of the value entry. Accepts substitution
--- templates.
---
 -- 'booleanValue', 'assetPropertyVariant_booleanValue' - Optional. A string that contains the boolean value (@true@ or @false@)
 -- of the value entry. Accepts substitution templates.
+--
+-- 'stringValue', 'assetPropertyVariant_stringValue' - Optional. The string value of the value entry. Accepts substitution
+-- templates.
 newAssetPropertyVariant ::
   AssetPropertyVariant
 newAssetPropertyVariant =
@@ -68,8 +68,8 @@ newAssetPropertyVariant =
     { integerValue =
         Prelude.Nothing,
       doubleValue = Prelude.Nothing,
-      stringValue = Prelude.Nothing,
-      booleanValue = Prelude.Nothing
+      booleanValue = Prelude.Nothing,
+      stringValue = Prelude.Nothing
     }
 
 -- | Optional. A string that contains the integer value of the value entry.
@@ -82,15 +82,15 @@ assetPropertyVariant_integerValue = Lens.lens (\AssetPropertyVariant' {integerVa
 assetPropertyVariant_doubleValue :: Lens.Lens' AssetPropertyVariant (Prelude.Maybe Prelude.Text)
 assetPropertyVariant_doubleValue = Lens.lens (\AssetPropertyVariant' {doubleValue} -> doubleValue) (\s@AssetPropertyVariant' {} a -> s {doubleValue = a} :: AssetPropertyVariant)
 
--- | Optional. The string value of the value entry. Accepts substitution
--- templates.
-assetPropertyVariant_stringValue :: Lens.Lens' AssetPropertyVariant (Prelude.Maybe Prelude.Text)
-assetPropertyVariant_stringValue = Lens.lens (\AssetPropertyVariant' {stringValue} -> stringValue) (\s@AssetPropertyVariant' {} a -> s {stringValue = a} :: AssetPropertyVariant)
-
 -- | Optional. A string that contains the boolean value (@true@ or @false@)
 -- of the value entry. Accepts substitution templates.
 assetPropertyVariant_booleanValue :: Lens.Lens' AssetPropertyVariant (Prelude.Maybe Prelude.Text)
 assetPropertyVariant_booleanValue = Lens.lens (\AssetPropertyVariant' {booleanValue} -> booleanValue) (\s@AssetPropertyVariant' {} a -> s {booleanValue = a} :: AssetPropertyVariant)
+
+-- | Optional. The string value of the value entry. Accepts substitution
+-- templates.
+assetPropertyVariant_stringValue :: Lens.Lens' AssetPropertyVariant (Prelude.Maybe Prelude.Text)
+assetPropertyVariant_stringValue = Lens.lens (\AssetPropertyVariant' {stringValue} -> stringValue) (\s@AssetPropertyVariant' {} a -> s {stringValue = a} :: AssetPropertyVariant)
 
 instance Core.FromJSON AssetPropertyVariant where
   parseJSON =
@@ -100,23 +100,23 @@ instance Core.FromJSON AssetPropertyVariant where
           AssetPropertyVariant'
             Prelude.<$> (x Core..:? "integerValue")
             Prelude.<*> (x Core..:? "doubleValue")
-            Prelude.<*> (x Core..:? "stringValue")
             Prelude.<*> (x Core..:? "booleanValue")
+            Prelude.<*> (x Core..:? "stringValue")
       )
 
 instance Prelude.Hashable AssetPropertyVariant where
   hashWithSalt _salt AssetPropertyVariant' {..} =
     _salt `Prelude.hashWithSalt` integerValue
       `Prelude.hashWithSalt` doubleValue
-      `Prelude.hashWithSalt` stringValue
       `Prelude.hashWithSalt` booleanValue
+      `Prelude.hashWithSalt` stringValue
 
 instance Prelude.NFData AssetPropertyVariant where
   rnf AssetPropertyVariant' {..} =
     Prelude.rnf integerValue
       `Prelude.seq` Prelude.rnf doubleValue
-      `Prelude.seq` Prelude.rnf stringValue
       `Prelude.seq` Prelude.rnf booleanValue
+      `Prelude.seq` Prelude.rnf stringValue
 
 instance Core.ToJSON AssetPropertyVariant where
   toJSON AssetPropertyVariant' {..} =
@@ -124,7 +124,7 @@ instance Core.ToJSON AssetPropertyVariant where
       ( Prelude.catMaybes
           [ ("integerValue" Core..=) Prelude.<$> integerValue,
             ("doubleValue" Core..=) Prelude.<$> doubleValue,
-            ("stringValue" Core..=) Prelude.<$> stringValue,
-            ("booleanValue" Core..=) Prelude.<$> booleanValue
+            ("booleanValue" Core..=) Prelude.<$> booleanValue,
+            ("stringValue" Core..=) Prelude.<$> stringValue
           ]
       )

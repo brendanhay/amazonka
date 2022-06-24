@@ -38,8 +38,8 @@ module Amazonka.IoT.ValidateSecurityProfileBehaviors
     newValidateSecurityProfileBehaviorsResponse,
 
     -- * Response Lenses
-    validateSecurityProfileBehaviorsResponse_validationErrors,
     validateSecurityProfileBehaviorsResponse_valid,
+    validateSecurityProfileBehaviorsResponse_validationErrors,
     validateSecurityProfileBehaviorsResponse_httpStatus,
   )
 where
@@ -94,10 +94,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ValidateSecurityProfileBehaviorsResponse'
-            Prelude.<$> ( x Core..?> "validationErrors"
+            Prelude.<$> (x Core..?> "valid")
+            Prelude.<*> ( x Core..?> "validationErrors"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "valid")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,10 +143,10 @@ instance
 
 -- | /See:/ 'newValidateSecurityProfileBehaviorsResponse' smart constructor.
 data ValidateSecurityProfileBehaviorsResponse = ValidateSecurityProfileBehaviorsResponse'
-  { -- | The list of any errors found in the behaviors.
-    validationErrors :: Prelude.Maybe [ValidationError],
-    -- | True if the behaviors were valid.
+  { -- | True if the behaviors were valid.
     valid :: Prelude.Maybe Prelude.Bool,
+    -- | The list of any errors found in the behaviors.
+    validationErrors :: Prelude.Maybe [ValidationError],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -160,9 +160,9 @@ data ValidateSecurityProfileBehaviorsResponse = ValidateSecurityProfileBehaviors
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'validationErrors', 'validateSecurityProfileBehaviorsResponse_validationErrors' - The list of any errors found in the behaviors.
---
 -- 'valid', 'validateSecurityProfileBehaviorsResponse_valid' - True if the behaviors were valid.
+--
+-- 'validationErrors', 'validateSecurityProfileBehaviorsResponse_validationErrors' - The list of any errors found in the behaviors.
 --
 -- 'httpStatus', 'validateSecurityProfileBehaviorsResponse_httpStatus' - The response's http status code.
 newValidateSecurityProfileBehaviorsResponse ::
@@ -172,19 +172,20 @@ newValidateSecurityProfileBehaviorsResponse ::
 newValidateSecurityProfileBehaviorsResponse
   pHttpStatus_ =
     ValidateSecurityProfileBehaviorsResponse'
-      { validationErrors =
+      { valid =
           Prelude.Nothing,
-        valid = Prelude.Nothing,
+        validationErrors =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The list of any errors found in the behaviors.
-validateSecurityProfileBehaviorsResponse_validationErrors :: Lens.Lens' ValidateSecurityProfileBehaviorsResponse (Prelude.Maybe [ValidationError])
-validateSecurityProfileBehaviorsResponse_validationErrors = Lens.lens (\ValidateSecurityProfileBehaviorsResponse' {validationErrors} -> validationErrors) (\s@ValidateSecurityProfileBehaviorsResponse' {} a -> s {validationErrors = a} :: ValidateSecurityProfileBehaviorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | True if the behaviors were valid.
 validateSecurityProfileBehaviorsResponse_valid :: Lens.Lens' ValidateSecurityProfileBehaviorsResponse (Prelude.Maybe Prelude.Bool)
 validateSecurityProfileBehaviorsResponse_valid = Lens.lens (\ValidateSecurityProfileBehaviorsResponse' {valid} -> valid) (\s@ValidateSecurityProfileBehaviorsResponse' {} a -> s {valid = a} :: ValidateSecurityProfileBehaviorsResponse)
+
+-- | The list of any errors found in the behaviors.
+validateSecurityProfileBehaviorsResponse_validationErrors :: Lens.Lens' ValidateSecurityProfileBehaviorsResponse (Prelude.Maybe [ValidationError])
+validateSecurityProfileBehaviorsResponse_validationErrors = Lens.lens (\ValidateSecurityProfileBehaviorsResponse' {validationErrors} -> validationErrors) (\s@ValidateSecurityProfileBehaviorsResponse' {} a -> s {validationErrors = a} :: ValidateSecurityProfileBehaviorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 validateSecurityProfileBehaviorsResponse_httpStatus :: Lens.Lens' ValidateSecurityProfileBehaviorsResponse Prelude.Int
@@ -195,6 +196,6 @@ instance
     ValidateSecurityProfileBehaviorsResponse
   where
   rnf ValidateSecurityProfileBehaviorsResponse' {..} =
-    Prelude.rnf validationErrors
-      `Prelude.seq` Prelude.rnf valid
+    Prelude.rnf valid
+      `Prelude.seq` Prelude.rnf validationErrors
       `Prelude.seq` Prelude.rnf httpStatus

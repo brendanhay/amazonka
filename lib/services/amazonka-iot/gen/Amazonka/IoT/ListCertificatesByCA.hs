@@ -34,8 +34,8 @@ module Amazonka.IoT.ListCertificatesByCA
 
     -- * Request Lenses
     listCertificatesByCA_marker,
-    listCertificatesByCA_ascendingOrder,
     listCertificatesByCA_pageSize,
+    listCertificatesByCA_ascendingOrder,
     listCertificatesByCA_caCertificateId,
 
     -- * Destructuring the Response
@@ -62,11 +62,11 @@ import qualified Amazonka.Response as Response
 data ListCertificatesByCA = ListCertificatesByCA'
   { -- | The marker for the next set of results.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The result page size.
+    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the order for results. If True, the results are returned in
     -- ascending order, based on the creation date.
     ascendingOrder :: Prelude.Maybe Prelude.Bool,
-    -- | The result page size.
-    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the CA certificate. This operation will list all registered
     -- device certificate that were signed by this CA certificate.
     caCertificateId :: Prelude.Text
@@ -83,10 +83,10 @@ data ListCertificatesByCA = ListCertificatesByCA'
 --
 -- 'marker', 'listCertificatesByCA_marker' - The marker for the next set of results.
 --
+-- 'pageSize', 'listCertificatesByCA_pageSize' - The result page size.
+--
 -- 'ascendingOrder', 'listCertificatesByCA_ascendingOrder' - Specifies the order for results. If True, the results are returned in
 -- ascending order, based on the creation date.
---
--- 'pageSize', 'listCertificatesByCA_pageSize' - The result page size.
 --
 -- 'caCertificateId', 'listCertificatesByCA_caCertificateId' - The ID of the CA certificate. This operation will list all registered
 -- device certificate that were signed by this CA certificate.
@@ -97,8 +97,8 @@ newListCertificatesByCA ::
 newListCertificatesByCA pCaCertificateId_ =
   ListCertificatesByCA'
     { marker = Prelude.Nothing,
-      ascendingOrder = Prelude.Nothing,
       pageSize = Prelude.Nothing,
+      ascendingOrder = Prelude.Nothing,
       caCertificateId = pCaCertificateId_
     }
 
@@ -106,14 +106,14 @@ newListCertificatesByCA pCaCertificateId_ =
 listCertificatesByCA_marker :: Lens.Lens' ListCertificatesByCA (Prelude.Maybe Prelude.Text)
 listCertificatesByCA_marker = Lens.lens (\ListCertificatesByCA' {marker} -> marker) (\s@ListCertificatesByCA' {} a -> s {marker = a} :: ListCertificatesByCA)
 
+-- | The result page size.
+listCertificatesByCA_pageSize :: Lens.Lens' ListCertificatesByCA (Prelude.Maybe Prelude.Natural)
+listCertificatesByCA_pageSize = Lens.lens (\ListCertificatesByCA' {pageSize} -> pageSize) (\s@ListCertificatesByCA' {} a -> s {pageSize = a} :: ListCertificatesByCA)
+
 -- | Specifies the order for results. If True, the results are returned in
 -- ascending order, based on the creation date.
 listCertificatesByCA_ascendingOrder :: Lens.Lens' ListCertificatesByCA (Prelude.Maybe Prelude.Bool)
 listCertificatesByCA_ascendingOrder = Lens.lens (\ListCertificatesByCA' {ascendingOrder} -> ascendingOrder) (\s@ListCertificatesByCA' {} a -> s {ascendingOrder = a} :: ListCertificatesByCA)
-
--- | The result page size.
-listCertificatesByCA_pageSize :: Lens.Lens' ListCertificatesByCA (Prelude.Maybe Prelude.Natural)
-listCertificatesByCA_pageSize = Lens.lens (\ListCertificatesByCA' {pageSize} -> pageSize) (\s@ListCertificatesByCA' {} a -> s {pageSize = a} :: ListCertificatesByCA)
 
 -- | The ID of the CA certificate. This operation will list all registered
 -- device certificate that were signed by this CA certificate.
@@ -159,15 +159,15 @@ instance Core.AWSRequest ListCertificatesByCA where
 instance Prelude.Hashable ListCertificatesByCA where
   hashWithSalt _salt ListCertificatesByCA' {..} =
     _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` ascendingOrder
       `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` ascendingOrder
       `Prelude.hashWithSalt` caCertificateId
 
 instance Prelude.NFData ListCertificatesByCA where
   rnf ListCertificatesByCA' {..} =
     Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf ascendingOrder
       `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf ascendingOrder
       `Prelude.seq` Prelude.rnf caCertificateId
 
 instance Core.ToHeaders ListCertificatesByCA where
@@ -182,8 +182,8 @@ instance Core.ToQuery ListCertificatesByCA where
   toQuery ListCertificatesByCA' {..} =
     Prelude.mconcat
       [ "marker" Core.=: marker,
-        "isAscendingOrder" Core.=: ascendingOrder,
-        "pageSize" Core.=: pageSize
+        "pageSize" Core.=: pageSize,
+        "isAscendingOrder" Core.=: ascendingOrder
       ]
 
 -- | The output of the ListCertificatesByCA operation.

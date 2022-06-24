@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsJobExecutionsRolloutConfig' smart constructor.
 data AwsJobExecutionsRolloutConfig = AwsJobExecutionsRolloutConfig'
-  { -- | The rate of increase for a job rollout. This parameter allows you to
+  { -- | The maximum number of OTA update job executions started per minute.
+    maximumPerMinute :: Prelude.Maybe Prelude.Natural,
+    -- | The rate of increase for a job rollout. This parameter allows you to
     -- define an exponential rate increase for a job rollout.
-    exponentialRate :: Prelude.Maybe AwsJobExponentialRolloutRate,
-    -- | The maximum number of OTA update job executions started per minute.
-    maximumPerMinute :: Prelude.Maybe Prelude.Natural
+    exponentialRate :: Prelude.Maybe AwsJobExponentialRolloutRate
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,27 +44,27 @@ data AwsJobExecutionsRolloutConfig = AwsJobExecutionsRolloutConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maximumPerMinute', 'awsJobExecutionsRolloutConfig_maximumPerMinute' - The maximum number of OTA update job executions started per minute.
+--
 -- 'exponentialRate', 'awsJobExecutionsRolloutConfig_exponentialRate' - The rate of increase for a job rollout. This parameter allows you to
 -- define an exponential rate increase for a job rollout.
---
--- 'maximumPerMinute', 'awsJobExecutionsRolloutConfig_maximumPerMinute' - The maximum number of OTA update job executions started per minute.
 newAwsJobExecutionsRolloutConfig ::
   AwsJobExecutionsRolloutConfig
 newAwsJobExecutionsRolloutConfig =
   AwsJobExecutionsRolloutConfig'
-    { exponentialRate =
+    { maximumPerMinute =
         Prelude.Nothing,
-      maximumPerMinute = Prelude.Nothing
+      exponentialRate = Prelude.Nothing
     }
+
+-- | The maximum number of OTA update job executions started per minute.
+awsJobExecutionsRolloutConfig_maximumPerMinute :: Lens.Lens' AwsJobExecutionsRolloutConfig (Prelude.Maybe Prelude.Natural)
+awsJobExecutionsRolloutConfig_maximumPerMinute = Lens.lens (\AwsJobExecutionsRolloutConfig' {maximumPerMinute} -> maximumPerMinute) (\s@AwsJobExecutionsRolloutConfig' {} a -> s {maximumPerMinute = a} :: AwsJobExecutionsRolloutConfig)
 
 -- | The rate of increase for a job rollout. This parameter allows you to
 -- define an exponential rate increase for a job rollout.
 awsJobExecutionsRolloutConfig_exponentialRate :: Lens.Lens' AwsJobExecutionsRolloutConfig (Prelude.Maybe AwsJobExponentialRolloutRate)
 awsJobExecutionsRolloutConfig_exponentialRate = Lens.lens (\AwsJobExecutionsRolloutConfig' {exponentialRate} -> exponentialRate) (\s@AwsJobExecutionsRolloutConfig' {} a -> s {exponentialRate = a} :: AwsJobExecutionsRolloutConfig)
-
--- | The maximum number of OTA update job executions started per minute.
-awsJobExecutionsRolloutConfig_maximumPerMinute :: Lens.Lens' AwsJobExecutionsRolloutConfig (Prelude.Maybe Prelude.Natural)
-awsJobExecutionsRolloutConfig_maximumPerMinute = Lens.lens (\AwsJobExecutionsRolloutConfig' {maximumPerMinute} -> maximumPerMinute) (\s@AwsJobExecutionsRolloutConfig' {} a -> s {maximumPerMinute = a} :: AwsJobExecutionsRolloutConfig)
 
 instance Core.FromJSON AwsJobExecutionsRolloutConfig where
   parseJSON =
@@ -72,8 +72,8 @@ instance Core.FromJSON AwsJobExecutionsRolloutConfig where
       "AwsJobExecutionsRolloutConfig"
       ( \x ->
           AwsJobExecutionsRolloutConfig'
-            Prelude.<$> (x Core..:? "exponentialRate")
-            Prelude.<*> (x Core..:? "maximumPerMinute")
+            Prelude.<$> (x Core..:? "maximumPerMinute")
+            Prelude.<*> (x Core..:? "exponentialRate")
       )
 
 instance
@@ -81,21 +81,21 @@ instance
     AwsJobExecutionsRolloutConfig
   where
   hashWithSalt _salt AwsJobExecutionsRolloutConfig' {..} =
-    _salt `Prelude.hashWithSalt` exponentialRate
-      `Prelude.hashWithSalt` maximumPerMinute
+    _salt `Prelude.hashWithSalt` maximumPerMinute
+      `Prelude.hashWithSalt` exponentialRate
 
 instance Prelude.NFData AwsJobExecutionsRolloutConfig where
   rnf AwsJobExecutionsRolloutConfig' {..} =
-    Prelude.rnf exponentialRate
-      `Prelude.seq` Prelude.rnf maximumPerMinute
+    Prelude.rnf maximumPerMinute
+      `Prelude.seq` Prelude.rnf exponentialRate
 
 instance Core.ToJSON AwsJobExecutionsRolloutConfig where
   toJSON AwsJobExecutionsRolloutConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("exponentialRate" Core..=)
-              Prelude.<$> exponentialRate,
-            ("maximumPerMinute" Core..=)
-              Prelude.<$> maximumPerMinute
+          [ ("maximumPerMinute" Core..=)
+              Prelude.<$> maximumPerMinute,
+            ("exponentialRate" Core..=)
+              Prelude.<$> exponentialRate
           ]
       )

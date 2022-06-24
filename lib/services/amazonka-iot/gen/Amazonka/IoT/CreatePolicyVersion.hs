@@ -49,10 +49,10 @@ module Amazonka.IoT.CreatePolicyVersion
     newCreatePolicyVersionResponse,
 
     -- * Response Lenses
-    createPolicyVersionResponse_policyDocument,
-    createPolicyVersionResponse_policyVersionId,
-    createPolicyVersionResponse_policyArn,
     createPolicyVersionResponse_isDefaultVersion,
+    createPolicyVersionResponse_policyVersionId,
+    createPolicyVersionResponse_policyDocument,
+    createPolicyVersionResponse_policyArn,
     createPolicyVersionResponse_httpStatus,
   )
 where
@@ -137,10 +137,10 @@ instance Core.AWSRequest CreatePolicyVersion where
     Response.receiveJSON
       ( \s h x ->
           CreatePolicyVersionResponse'
-            Prelude.<$> (x Core..?> "policyDocument")
+            Prelude.<$> (x Core..?> "isDefaultVersion")
             Prelude.<*> (x Core..?> "policyVersionId")
+            Prelude.<*> (x Core..?> "policyDocument")
             Prelude.<*> (x Core..?> "policyArn")
-            Prelude.<*> (x Core..?> "isDefaultVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -182,14 +182,14 @@ instance Core.ToQuery CreatePolicyVersion where
 --
 -- /See:/ 'newCreatePolicyVersionResponse' smart constructor.
 data CreatePolicyVersionResponse = CreatePolicyVersionResponse'
-  { -- | The JSON document that describes the policy.
-    policyDocument :: Prelude.Maybe Prelude.Text,
+  { -- | Specifies whether the policy version is the default.
+    isDefaultVersion :: Prelude.Maybe Prelude.Bool,
     -- | The policy version ID.
     policyVersionId :: Prelude.Maybe Prelude.Text,
+    -- | The JSON document that describes the policy.
+    policyDocument :: Prelude.Maybe Prelude.Text,
     -- | The policy ARN.
     policyArn :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether the policy version is the default.
-    isDefaultVersion :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -203,13 +203,13 @@ data CreatePolicyVersionResponse = CreatePolicyVersionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyDocument', 'createPolicyVersionResponse_policyDocument' - The JSON document that describes the policy.
+-- 'isDefaultVersion', 'createPolicyVersionResponse_isDefaultVersion' - Specifies whether the policy version is the default.
 --
 -- 'policyVersionId', 'createPolicyVersionResponse_policyVersionId' - The policy version ID.
 --
--- 'policyArn', 'createPolicyVersionResponse_policyArn' - The policy ARN.
+-- 'policyDocument', 'createPolicyVersionResponse_policyDocument' - The JSON document that describes the policy.
 --
--- 'isDefaultVersion', 'createPolicyVersionResponse_isDefaultVersion' - Specifies whether the policy version is the default.
+-- 'policyArn', 'createPolicyVersionResponse_policyArn' - The policy ARN.
 --
 -- 'httpStatus', 'createPolicyVersionResponse_httpStatus' - The response's http status code.
 newCreatePolicyVersionResponse ::
@@ -218,29 +218,29 @@ newCreatePolicyVersionResponse ::
   CreatePolicyVersionResponse
 newCreatePolicyVersionResponse pHttpStatus_ =
   CreatePolicyVersionResponse'
-    { policyDocument =
+    { isDefaultVersion =
         Prelude.Nothing,
       policyVersionId = Prelude.Nothing,
+      policyDocument = Prelude.Nothing,
       policyArn = Prelude.Nothing,
-      isDefaultVersion = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The JSON document that describes the policy.
-createPolicyVersionResponse_policyDocument :: Lens.Lens' CreatePolicyVersionResponse (Prelude.Maybe Prelude.Text)
-createPolicyVersionResponse_policyDocument = Lens.lens (\CreatePolicyVersionResponse' {policyDocument} -> policyDocument) (\s@CreatePolicyVersionResponse' {} a -> s {policyDocument = a} :: CreatePolicyVersionResponse)
+-- | Specifies whether the policy version is the default.
+createPolicyVersionResponse_isDefaultVersion :: Lens.Lens' CreatePolicyVersionResponse (Prelude.Maybe Prelude.Bool)
+createPolicyVersionResponse_isDefaultVersion = Lens.lens (\CreatePolicyVersionResponse' {isDefaultVersion} -> isDefaultVersion) (\s@CreatePolicyVersionResponse' {} a -> s {isDefaultVersion = a} :: CreatePolicyVersionResponse)
 
 -- | The policy version ID.
 createPolicyVersionResponse_policyVersionId :: Lens.Lens' CreatePolicyVersionResponse (Prelude.Maybe Prelude.Text)
 createPolicyVersionResponse_policyVersionId = Lens.lens (\CreatePolicyVersionResponse' {policyVersionId} -> policyVersionId) (\s@CreatePolicyVersionResponse' {} a -> s {policyVersionId = a} :: CreatePolicyVersionResponse)
 
+-- | The JSON document that describes the policy.
+createPolicyVersionResponse_policyDocument :: Lens.Lens' CreatePolicyVersionResponse (Prelude.Maybe Prelude.Text)
+createPolicyVersionResponse_policyDocument = Lens.lens (\CreatePolicyVersionResponse' {policyDocument} -> policyDocument) (\s@CreatePolicyVersionResponse' {} a -> s {policyDocument = a} :: CreatePolicyVersionResponse)
+
 -- | The policy ARN.
 createPolicyVersionResponse_policyArn :: Lens.Lens' CreatePolicyVersionResponse (Prelude.Maybe Prelude.Text)
 createPolicyVersionResponse_policyArn = Lens.lens (\CreatePolicyVersionResponse' {policyArn} -> policyArn) (\s@CreatePolicyVersionResponse' {} a -> s {policyArn = a} :: CreatePolicyVersionResponse)
-
--- | Specifies whether the policy version is the default.
-createPolicyVersionResponse_isDefaultVersion :: Lens.Lens' CreatePolicyVersionResponse (Prelude.Maybe Prelude.Bool)
-createPolicyVersionResponse_isDefaultVersion = Lens.lens (\CreatePolicyVersionResponse' {isDefaultVersion} -> isDefaultVersion) (\s@CreatePolicyVersionResponse' {} a -> s {isDefaultVersion = a} :: CreatePolicyVersionResponse)
 
 -- | The response's http status code.
 createPolicyVersionResponse_httpStatus :: Lens.Lens' CreatePolicyVersionResponse Prelude.Int
@@ -248,8 +248,8 @@ createPolicyVersionResponse_httpStatus = Lens.lens (\CreatePolicyVersionResponse
 
 instance Prelude.NFData CreatePolicyVersionResponse where
   rnf CreatePolicyVersionResponse' {..} =
-    Prelude.rnf policyDocument
+    Prelude.rnf isDefaultVersion
       `Prelude.seq` Prelude.rnf policyVersionId
+      `Prelude.seq` Prelude.rnf policyDocument
       `Prelude.seq` Prelude.rnf policyArn
-      `Prelude.seq` Prelude.rnf isDefaultVersion
       `Prelude.seq` Prelude.rnf httpStatus

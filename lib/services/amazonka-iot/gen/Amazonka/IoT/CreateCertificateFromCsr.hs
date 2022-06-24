@@ -85,9 +85,9 @@ module Amazonka.IoT.CreateCertificateFromCsr
     newCreateCertificateFromCsrResponse,
 
     -- * Response Lenses
-    createCertificateFromCsrResponse_certificatePem,
     createCertificateFromCsrResponse_certificateArn,
     createCertificateFromCsrResponse_certificateId,
+    createCertificateFromCsrResponse_certificatePem,
     createCertificateFromCsrResponse_httpStatus,
   )
 where
@@ -151,9 +151,9 @@ instance Core.AWSRequest CreateCertificateFromCsr where
     Response.receiveJSON
       ( \s h x ->
           CreateCertificateFromCsrResponse'
-            Prelude.<$> (x Core..?> "certificatePem")
-            Prelude.<*> (x Core..?> "certificateArn")
+            Prelude.<$> (x Core..?> "certificateArn")
             Prelude.<*> (x Core..?> "certificateId")
+            Prelude.<*> (x Core..?> "certificatePem")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -192,14 +192,14 @@ instance Core.ToQuery CreateCertificateFromCsr where
 --
 -- /See:/ 'newCreateCertificateFromCsrResponse' smart constructor.
 data CreateCertificateFromCsrResponse = CreateCertificateFromCsrResponse'
-  { -- | The certificate data, in PEM format.
-    certificatePem :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the certificate. You can use the ARN
+  { -- | The Amazon Resource Name (ARN) of the certificate. You can use the ARN
     -- as a principal for policy operations.
     certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the certificate. Certificate management operations only take a
     -- certificateId.
     certificateId :: Prelude.Maybe Prelude.Text,
+    -- | The certificate data, in PEM format.
+    certificatePem :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -213,13 +213,13 @@ data CreateCertificateFromCsrResponse = CreateCertificateFromCsrResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'certificatePem', 'createCertificateFromCsrResponse_certificatePem' - The certificate data, in PEM format.
---
 -- 'certificateArn', 'createCertificateFromCsrResponse_certificateArn' - The Amazon Resource Name (ARN) of the certificate. You can use the ARN
 -- as a principal for policy operations.
 --
 -- 'certificateId', 'createCertificateFromCsrResponse_certificateId' - The ID of the certificate. Certificate management operations only take a
 -- certificateId.
+--
+-- 'certificatePem', 'createCertificateFromCsrResponse_certificatePem' - The certificate data, in PEM format.
 --
 -- 'httpStatus', 'createCertificateFromCsrResponse_httpStatus' - The response's http status code.
 newCreateCertificateFromCsrResponse ::
@@ -228,16 +228,12 @@ newCreateCertificateFromCsrResponse ::
   CreateCertificateFromCsrResponse
 newCreateCertificateFromCsrResponse pHttpStatus_ =
   CreateCertificateFromCsrResponse'
-    { certificatePem =
+    { certificateArn =
         Prelude.Nothing,
-      certificateArn = Prelude.Nothing,
       certificateId = Prelude.Nothing,
+      certificatePem = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The certificate data, in PEM format.
-createCertificateFromCsrResponse_certificatePem :: Lens.Lens' CreateCertificateFromCsrResponse (Prelude.Maybe Prelude.Text)
-createCertificateFromCsrResponse_certificatePem = Lens.lens (\CreateCertificateFromCsrResponse' {certificatePem} -> certificatePem) (\s@CreateCertificateFromCsrResponse' {} a -> s {certificatePem = a} :: CreateCertificateFromCsrResponse)
 
 -- | The Amazon Resource Name (ARN) of the certificate. You can use the ARN
 -- as a principal for policy operations.
@@ -249,6 +245,10 @@ createCertificateFromCsrResponse_certificateArn = Lens.lens (\CreateCertificateF
 createCertificateFromCsrResponse_certificateId :: Lens.Lens' CreateCertificateFromCsrResponse (Prelude.Maybe Prelude.Text)
 createCertificateFromCsrResponse_certificateId = Lens.lens (\CreateCertificateFromCsrResponse' {certificateId} -> certificateId) (\s@CreateCertificateFromCsrResponse' {} a -> s {certificateId = a} :: CreateCertificateFromCsrResponse)
 
+-- | The certificate data, in PEM format.
+createCertificateFromCsrResponse_certificatePem :: Lens.Lens' CreateCertificateFromCsrResponse (Prelude.Maybe Prelude.Text)
+createCertificateFromCsrResponse_certificatePem = Lens.lens (\CreateCertificateFromCsrResponse' {certificatePem} -> certificatePem) (\s@CreateCertificateFromCsrResponse' {} a -> s {certificatePem = a} :: CreateCertificateFromCsrResponse)
+
 -- | The response's http status code.
 createCertificateFromCsrResponse_httpStatus :: Lens.Lens' CreateCertificateFromCsrResponse Prelude.Int
 createCertificateFromCsrResponse_httpStatus = Lens.lens (\CreateCertificateFromCsrResponse' {httpStatus} -> httpStatus) (\s@CreateCertificateFromCsrResponse' {} a -> s {httpStatus = a} :: CreateCertificateFromCsrResponse)
@@ -258,7 +258,7 @@ instance
     CreateCertificateFromCsrResponse
   where
   rnf CreateCertificateFromCsrResponse' {..} =
-    Prelude.rnf certificatePem
-      `Prelude.seq` Prelude.rnf certificateArn
+    Prelude.rnf certificateArn
       `Prelude.seq` Prelude.rnf certificateId
+      `Prelude.seq` Prelude.rnf certificatePem
       `Prelude.seq` Prelude.rnf httpStatus

@@ -46,8 +46,8 @@ module Amazonka.IoT.CreateDimension
     newCreateDimensionResponse,
 
     -- * Response Lenses
-    createDimensionResponse_arn,
     createDimensionResponse_name,
+    createDimensionResponse_arn,
     createDimensionResponse_httpStatus,
   )
 where
@@ -161,8 +161,8 @@ instance Core.AWSRequest CreateDimension where
     Response.receiveJSON
       ( \s h x ->
           CreateDimensionResponse'
-            Prelude.<$> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "name")
+            Prelude.<$> (x Core..?> "name")
+            Prelude.<*> (x Core..?> "arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -206,10 +206,10 @@ instance Core.ToQuery CreateDimension where
 
 -- | /See:/ 'newCreateDimensionResponse' smart constructor.
 data CreateDimensionResponse = CreateDimensionResponse'
-  { -- | The Amazon Resource Name (ARN) of the created dimension.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the dimension.
+  { -- | A unique identifier for the dimension.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the created dimension.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -223,9 +223,9 @@ data CreateDimensionResponse = CreateDimensionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'createDimensionResponse_arn' - The Amazon Resource Name (ARN) of the created dimension.
---
 -- 'name', 'createDimensionResponse_name' - A unique identifier for the dimension.
+--
+-- 'arn', 'createDimensionResponse_arn' - The Amazon Resource Name (ARN) of the created dimension.
 --
 -- 'httpStatus', 'createDimensionResponse_httpStatus' - The response's http status code.
 newCreateDimensionResponse ::
@@ -234,18 +234,18 @@ newCreateDimensionResponse ::
   CreateDimensionResponse
 newCreateDimensionResponse pHttpStatus_ =
   CreateDimensionResponse'
-    { arn = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      arn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Amazon Resource Name (ARN) of the created dimension.
-createDimensionResponse_arn :: Lens.Lens' CreateDimensionResponse (Prelude.Maybe Prelude.Text)
-createDimensionResponse_arn = Lens.lens (\CreateDimensionResponse' {arn} -> arn) (\s@CreateDimensionResponse' {} a -> s {arn = a} :: CreateDimensionResponse)
 
 -- | A unique identifier for the dimension.
 createDimensionResponse_name :: Lens.Lens' CreateDimensionResponse (Prelude.Maybe Prelude.Text)
 createDimensionResponse_name = Lens.lens (\CreateDimensionResponse' {name} -> name) (\s@CreateDimensionResponse' {} a -> s {name = a} :: CreateDimensionResponse)
+
+-- | The Amazon Resource Name (ARN) of the created dimension.
+createDimensionResponse_arn :: Lens.Lens' CreateDimensionResponse (Prelude.Maybe Prelude.Text)
+createDimensionResponse_arn = Lens.lens (\CreateDimensionResponse' {arn} -> arn) (\s@CreateDimensionResponse' {} a -> s {arn = a} :: CreateDimensionResponse)
 
 -- | The response's http status code.
 createDimensionResponse_httpStatus :: Lens.Lens' CreateDimensionResponse Prelude.Int
@@ -253,6 +253,6 @@ createDimensionResponse_httpStatus = Lens.lens (\CreateDimensionResponse' {httpS
 
 instance Prelude.NFData CreateDimensionResponse where
   rnf CreateDimensionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf httpStatus

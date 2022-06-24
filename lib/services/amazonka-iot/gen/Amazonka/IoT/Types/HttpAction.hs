@@ -37,10 +37,10 @@ data HttpAction = HttpAction'
     -- of the substitution template before traffic is allowed to your endpoint
     -- URL.
     confirmationUrl :: Prelude.Maybe Prelude.Text,
-    -- | The authentication method to use when sending data to an HTTPS endpoint.
-    auth :: Prelude.Maybe HttpAuthorization,
     -- | The HTTP headers to send with the message data.
     headers :: Prelude.Maybe [HttpActionHeader],
+    -- | The authentication method to use when sending data to an HTTPS endpoint.
+    auth :: Prelude.Maybe HttpAuthorization,
     -- | The endpoint URL. If substitution templates are used in the URL, you
     -- must also specify a @confirmationUrl@. If this is a new destination, a
     -- new @TopicRuleDestination@ is created if possible.
@@ -64,9 +64,9 @@ data HttpAction = HttpAction'
 -- of the substitution template before traffic is allowed to your endpoint
 -- URL.
 --
--- 'auth', 'httpAction_auth' - The authentication method to use when sending data to an HTTPS endpoint.
---
 -- 'headers', 'httpAction_headers' - The HTTP headers to send with the message data.
+--
+-- 'auth', 'httpAction_auth' - The authentication method to use when sending data to an HTTPS endpoint.
 --
 -- 'url', 'httpAction_url' - The endpoint URL. If substitution templates are used in the URL, you
 -- must also specify a @confirmationUrl@. If this is a new destination, a
@@ -78,8 +78,8 @@ newHttpAction ::
 newHttpAction pUrl_ =
   HttpAction'
     { confirmationUrl = Prelude.Nothing,
-      auth = Prelude.Nothing,
       headers = Prelude.Nothing,
+      auth = Prelude.Nothing,
       url = pUrl_
     }
 
@@ -93,13 +93,13 @@ newHttpAction pUrl_ =
 httpAction_confirmationUrl :: Lens.Lens' HttpAction (Prelude.Maybe Prelude.Text)
 httpAction_confirmationUrl = Lens.lens (\HttpAction' {confirmationUrl} -> confirmationUrl) (\s@HttpAction' {} a -> s {confirmationUrl = a} :: HttpAction)
 
--- | The authentication method to use when sending data to an HTTPS endpoint.
-httpAction_auth :: Lens.Lens' HttpAction (Prelude.Maybe HttpAuthorization)
-httpAction_auth = Lens.lens (\HttpAction' {auth} -> auth) (\s@HttpAction' {} a -> s {auth = a} :: HttpAction)
-
 -- | The HTTP headers to send with the message data.
 httpAction_headers :: Lens.Lens' HttpAction (Prelude.Maybe [HttpActionHeader])
 httpAction_headers = Lens.lens (\HttpAction' {headers} -> headers) (\s@HttpAction' {} a -> s {headers = a} :: HttpAction) Prelude.. Lens.mapping Lens.coerced
+
+-- | The authentication method to use when sending data to an HTTPS endpoint.
+httpAction_auth :: Lens.Lens' HttpAction (Prelude.Maybe HttpAuthorization)
+httpAction_auth = Lens.lens (\HttpAction' {auth} -> auth) (\s@HttpAction' {} a -> s {auth = a} :: HttpAction)
 
 -- | The endpoint URL. If substitution templates are used in the URL, you
 -- must also specify a @confirmationUrl@. If this is a new destination, a
@@ -114,23 +114,23 @@ instance Core.FromJSON HttpAction where
       ( \x ->
           HttpAction'
             Prelude.<$> (x Core..:? "confirmationUrl")
-            Prelude.<*> (x Core..:? "auth")
             Prelude.<*> (x Core..:? "headers" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "auth")
             Prelude.<*> (x Core..: "url")
       )
 
 instance Prelude.Hashable HttpAction where
   hashWithSalt _salt HttpAction' {..} =
     _salt `Prelude.hashWithSalt` confirmationUrl
-      `Prelude.hashWithSalt` auth
       `Prelude.hashWithSalt` headers
+      `Prelude.hashWithSalt` auth
       `Prelude.hashWithSalt` url
 
 instance Prelude.NFData HttpAction where
   rnf HttpAction' {..} =
     Prelude.rnf confirmationUrl
-      `Prelude.seq` Prelude.rnf auth
       `Prelude.seq` Prelude.rnf headers
+      `Prelude.seq` Prelude.rnf auth
       `Prelude.seq` Prelude.rnf url
 
 instance Core.ToJSON HttpAction where
@@ -139,8 +139,8 @@ instance Core.ToJSON HttpAction where
       ( Prelude.catMaybes
           [ ("confirmationUrl" Core..=)
               Prelude.<$> confirmationUrl,
-            ("auth" Core..=) Prelude.<$> auth,
             ("headers" Core..=) Prelude.<$> headers,
+            ("auth" Core..=) Prelude.<$> auth,
             Prelude.Just ("url" Core..= url)
           ]
       )

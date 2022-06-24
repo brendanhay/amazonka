@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFleetMetricNameAndArn' smart constructor.
 data FleetMetricNameAndArn = FleetMetricNameAndArn'
-  { -- | The fleet metric name.
-    metricName :: Prelude.Maybe Prelude.Text,
-    -- | The fleet metric ARN.
-    metricArn :: Prelude.Maybe Prelude.Text
+  { -- | The fleet metric ARN.
+    metricArn :: Prelude.Maybe Prelude.Text,
+    -- | The fleet metric name.
+    metricName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,24 @@ data FleetMetricNameAndArn = FleetMetricNameAndArn'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metricName', 'fleetMetricNameAndArn_metricName' - The fleet metric name.
---
 -- 'metricArn', 'fleetMetricNameAndArn_metricArn' - The fleet metric ARN.
+--
+-- 'metricName', 'fleetMetricNameAndArn_metricName' - The fleet metric name.
 newFleetMetricNameAndArn ::
   FleetMetricNameAndArn
 newFleetMetricNameAndArn =
   FleetMetricNameAndArn'
-    { metricName =
-        Prelude.Nothing,
-      metricArn = Prelude.Nothing
+    { metricArn = Prelude.Nothing,
+      metricName = Prelude.Nothing
     }
-
--- | The fleet metric name.
-fleetMetricNameAndArn_metricName :: Lens.Lens' FleetMetricNameAndArn (Prelude.Maybe Prelude.Text)
-fleetMetricNameAndArn_metricName = Lens.lens (\FleetMetricNameAndArn' {metricName} -> metricName) (\s@FleetMetricNameAndArn' {} a -> s {metricName = a} :: FleetMetricNameAndArn)
 
 -- | The fleet metric ARN.
 fleetMetricNameAndArn_metricArn :: Lens.Lens' FleetMetricNameAndArn (Prelude.Maybe Prelude.Text)
 fleetMetricNameAndArn_metricArn = Lens.lens (\FleetMetricNameAndArn' {metricArn} -> metricArn) (\s@FleetMetricNameAndArn' {} a -> s {metricArn = a} :: FleetMetricNameAndArn)
+
+-- | The fleet metric name.
+fleetMetricNameAndArn_metricName :: Lens.Lens' FleetMetricNameAndArn (Prelude.Maybe Prelude.Text)
+fleetMetricNameAndArn_metricName = Lens.lens (\FleetMetricNameAndArn' {metricName} -> metricName) (\s@FleetMetricNameAndArn' {} a -> s {metricName = a} :: FleetMetricNameAndArn)
 
 instance Core.FromJSON FleetMetricNameAndArn where
   parseJSON =
@@ -68,16 +67,16 @@ instance Core.FromJSON FleetMetricNameAndArn where
       "FleetMetricNameAndArn"
       ( \x ->
           FleetMetricNameAndArn'
-            Prelude.<$> (x Core..:? "metricName")
-            Prelude.<*> (x Core..:? "metricArn")
+            Prelude.<$> (x Core..:? "metricArn")
+            Prelude.<*> (x Core..:? "metricName")
       )
 
 instance Prelude.Hashable FleetMetricNameAndArn where
   hashWithSalt _salt FleetMetricNameAndArn' {..} =
-    _salt `Prelude.hashWithSalt` metricName
-      `Prelude.hashWithSalt` metricArn
+    _salt `Prelude.hashWithSalt` metricArn
+      `Prelude.hashWithSalt` metricName
 
 instance Prelude.NFData FleetMetricNameAndArn where
   rnf FleetMetricNameAndArn' {..} =
-    Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf metricArn
+    Prelude.rnf metricArn
+      `Prelude.seq` Prelude.rnf metricName

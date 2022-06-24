@@ -27,13 +27,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAuditNotificationTarget' smart constructor.
 data AuditNotificationTarget = AuditNotificationTarget'
-  { -- | The ARN of the target (SNS topic) to which audit notifications are sent.
+  { -- | The ARN of the role that grants permission to send notifications to the
+    -- target.
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the target (SNS topic) to which audit notifications are sent.
     targetArn :: Prelude.Maybe Prelude.Text,
     -- | True if notifications to the target are enabled.
-    enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The ARN of the role that grants permission to send notifications to the
-    -- target.
-    roleArn :: Prelude.Maybe Prelude.Text
+    enabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,21 +45,25 @@ data AuditNotificationTarget = AuditNotificationTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'roleArn', 'auditNotificationTarget_roleArn' - The ARN of the role that grants permission to send notifications to the
+-- target.
+--
 -- 'targetArn', 'auditNotificationTarget_targetArn' - The ARN of the target (SNS topic) to which audit notifications are sent.
 --
 -- 'enabled', 'auditNotificationTarget_enabled' - True if notifications to the target are enabled.
---
--- 'roleArn', 'auditNotificationTarget_roleArn' - The ARN of the role that grants permission to send notifications to the
--- target.
 newAuditNotificationTarget ::
   AuditNotificationTarget
 newAuditNotificationTarget =
   AuditNotificationTarget'
-    { targetArn =
-        Prelude.Nothing,
-      enabled = Prelude.Nothing,
-      roleArn = Prelude.Nothing
+    { roleArn = Prelude.Nothing,
+      targetArn = Prelude.Nothing,
+      enabled = Prelude.Nothing
     }
+
+-- | The ARN of the role that grants permission to send notifications to the
+-- target.
+auditNotificationTarget_roleArn :: Lens.Lens' AuditNotificationTarget (Prelude.Maybe Prelude.Text)
+auditNotificationTarget_roleArn = Lens.lens (\AuditNotificationTarget' {roleArn} -> roleArn) (\s@AuditNotificationTarget' {} a -> s {roleArn = a} :: AuditNotificationTarget)
 
 -- | The ARN of the target (SNS topic) to which audit notifications are sent.
 auditNotificationTarget_targetArn :: Lens.Lens' AuditNotificationTarget (Prelude.Maybe Prelude.Text)
@@ -69,40 +73,35 @@ auditNotificationTarget_targetArn = Lens.lens (\AuditNotificationTarget' {target
 auditNotificationTarget_enabled :: Lens.Lens' AuditNotificationTarget (Prelude.Maybe Prelude.Bool)
 auditNotificationTarget_enabled = Lens.lens (\AuditNotificationTarget' {enabled} -> enabled) (\s@AuditNotificationTarget' {} a -> s {enabled = a} :: AuditNotificationTarget)
 
--- | The ARN of the role that grants permission to send notifications to the
--- target.
-auditNotificationTarget_roleArn :: Lens.Lens' AuditNotificationTarget (Prelude.Maybe Prelude.Text)
-auditNotificationTarget_roleArn = Lens.lens (\AuditNotificationTarget' {roleArn} -> roleArn) (\s@AuditNotificationTarget' {} a -> s {roleArn = a} :: AuditNotificationTarget)
-
 instance Core.FromJSON AuditNotificationTarget where
   parseJSON =
     Core.withObject
       "AuditNotificationTarget"
       ( \x ->
           AuditNotificationTarget'
-            Prelude.<$> (x Core..:? "targetArn")
+            Prelude.<$> (x Core..:? "roleArn")
+            Prelude.<*> (x Core..:? "targetArn")
             Prelude.<*> (x Core..:? "enabled")
-            Prelude.<*> (x Core..:? "roleArn")
       )
 
 instance Prelude.Hashable AuditNotificationTarget where
   hashWithSalt _salt AuditNotificationTarget' {..} =
-    _salt `Prelude.hashWithSalt` targetArn
+    _salt `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` targetArn
       `Prelude.hashWithSalt` enabled
-      `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData AuditNotificationTarget where
   rnf AuditNotificationTarget' {..} =
-    Prelude.rnf targetArn
+    Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf targetArn
       `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToJSON AuditNotificationTarget where
   toJSON AuditNotificationTarget' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("targetArn" Core..=) Prelude.<$> targetArn,
-            ("enabled" Core..=) Prelude.<$> enabled,
-            ("roleArn" Core..=) Prelude.<$> roleArn
+          [ ("roleArn" Core..=) Prelude.<$> roleArn,
+            ("targetArn" Core..=) Prelude.<$> targetArn,
+            ("enabled" Core..=) Prelude.<$> enabled
           ]
       )

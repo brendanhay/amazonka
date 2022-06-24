@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newErrorInfo' smart constructor.
 data ErrorInfo = ErrorInfo'
-  { -- | The error code.
-    code :: Prelude.Maybe Prelude.Text,
-    -- | The error message.
-    message :: Prelude.Maybe Prelude.Text
+  { -- | The error message.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The error code.
+    code :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data ErrorInfo = ErrorInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'code', 'errorInfo_code' - The error code.
---
 -- 'message', 'errorInfo_message' - The error message.
+--
+-- 'code', 'errorInfo_code' - The error code.
 newErrorInfo ::
   ErrorInfo
 newErrorInfo =
   ErrorInfo'
-    { code = Prelude.Nothing,
-      message = Prelude.Nothing
+    { message = Prelude.Nothing,
+      code = Prelude.Nothing
     }
-
--- | The error code.
-errorInfo_code :: Lens.Lens' ErrorInfo (Prelude.Maybe Prelude.Text)
-errorInfo_code = Lens.lens (\ErrorInfo' {code} -> code) (\s@ErrorInfo' {} a -> s {code = a} :: ErrorInfo)
 
 -- | The error message.
 errorInfo_message :: Lens.Lens' ErrorInfo (Prelude.Maybe Prelude.Text)
 errorInfo_message = Lens.lens (\ErrorInfo' {message} -> message) (\s@ErrorInfo' {} a -> s {message = a} :: ErrorInfo)
+
+-- | The error code.
+errorInfo_code :: Lens.Lens' ErrorInfo (Prelude.Maybe Prelude.Text)
+errorInfo_code = Lens.lens (\ErrorInfo' {code} -> code) (\s@ErrorInfo' {} a -> s {code = a} :: ErrorInfo)
 
 instance Core.FromJSON ErrorInfo where
   parseJSON =
@@ -67,15 +67,15 @@ instance Core.FromJSON ErrorInfo where
       "ErrorInfo"
       ( \x ->
           ErrorInfo'
-            Prelude.<$> (x Core..:? "code")
-            Prelude.<*> (x Core..:? "message")
+            Prelude.<$> (x Core..:? "message")
+            Prelude.<*> (x Core..:? "code")
       )
 
 instance Prelude.Hashable ErrorInfo where
   hashWithSalt _salt ErrorInfo' {..} =
-    _salt `Prelude.hashWithSalt` code
-      `Prelude.hashWithSalt` message
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` code
 
 instance Prelude.NFData ErrorInfo where
   rnf ErrorInfo' {..} =
-    Prelude.rnf code `Prelude.seq` Prelude.rnf message
+    Prelude.rnf message `Prelude.seq` Prelude.rnf code

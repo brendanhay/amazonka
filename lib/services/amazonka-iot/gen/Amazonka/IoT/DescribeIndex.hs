@@ -38,9 +38,9 @@ module Amazonka.IoT.DescribeIndex
     newDescribeIndexResponse,
 
     -- * Response Lenses
+    describeIndexResponse_indexName,
     describeIndexResponse_indexStatus,
     describeIndexResponse_schema,
-    describeIndexResponse_indexName,
     describeIndexResponse_httpStatus,
   )
 where
@@ -88,9 +88,9 @@ instance Core.AWSRequest DescribeIndex where
     Response.receiveJSON
       ( \s h x ->
           DescribeIndexResponse'
-            Prelude.<$> (x Core..?> "indexStatus")
+            Prelude.<$> (x Core..?> "indexName")
+            Prelude.<*> (x Core..?> "indexStatus")
             Prelude.<*> (x Core..?> "schema")
-            Prelude.<*> (x Core..?> "indexName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,7 +113,9 @@ instance Core.ToQuery DescribeIndex where
 
 -- | /See:/ 'newDescribeIndexResponse' smart constructor.
 data DescribeIndexResponse = DescribeIndexResponse'
-  { -- | The index status.
+  { -- | The index name.
+    indexName :: Prelude.Maybe Prelude.Text,
+    -- | The index status.
     indexStatus :: Prelude.Maybe IndexStatus,
     -- | Contains a value that specifies the type of indexing performed. Valid
     -- values are:
@@ -130,8 +132,6 @@ data DescribeIndexResponse = DescribeIndexResponse'
     --     contains registry data, shadow data, and thing connectivity status
     --     data.
     schema :: Prelude.Maybe Prelude.Text,
-    -- | The index name.
-    indexName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -144,6 +144,8 @@ data DescribeIndexResponse = DescribeIndexResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'indexName', 'describeIndexResponse_indexName' - The index name.
 --
 -- 'indexStatus', 'describeIndexResponse_indexStatus' - The index status.
 --
@@ -162,8 +164,6 @@ data DescribeIndexResponse = DescribeIndexResponse'
 --     contains registry data, shadow data, and thing connectivity status
 --     data.
 --
--- 'indexName', 'describeIndexResponse_indexName' - The index name.
---
 -- 'httpStatus', 'describeIndexResponse_httpStatus' - The response's http status code.
 newDescribeIndexResponse ::
   -- | 'httpStatus'
@@ -171,12 +171,15 @@ newDescribeIndexResponse ::
   DescribeIndexResponse
 newDescribeIndexResponse pHttpStatus_ =
   DescribeIndexResponse'
-    { indexStatus =
-        Prelude.Nothing,
+    { indexName = Prelude.Nothing,
+      indexStatus = Prelude.Nothing,
       schema = Prelude.Nothing,
-      indexName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The index name.
+describeIndexResponse_indexName :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe Prelude.Text)
+describeIndexResponse_indexName = Lens.lens (\DescribeIndexResponse' {indexName} -> indexName) (\s@DescribeIndexResponse' {} a -> s {indexName = a} :: DescribeIndexResponse)
 
 -- | The index status.
 describeIndexResponse_indexStatus :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe IndexStatus)
@@ -199,17 +202,13 @@ describeIndexResponse_indexStatus = Lens.lens (\DescribeIndexResponse' {indexSta
 describeIndexResponse_schema :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe Prelude.Text)
 describeIndexResponse_schema = Lens.lens (\DescribeIndexResponse' {schema} -> schema) (\s@DescribeIndexResponse' {} a -> s {schema = a} :: DescribeIndexResponse)
 
--- | The index name.
-describeIndexResponse_indexName :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe Prelude.Text)
-describeIndexResponse_indexName = Lens.lens (\DescribeIndexResponse' {indexName} -> indexName) (\s@DescribeIndexResponse' {} a -> s {indexName = a} :: DescribeIndexResponse)
-
 -- | The response's http status code.
 describeIndexResponse_httpStatus :: Lens.Lens' DescribeIndexResponse Prelude.Int
 describeIndexResponse_httpStatus = Lens.lens (\DescribeIndexResponse' {httpStatus} -> httpStatus) (\s@DescribeIndexResponse' {} a -> s {httpStatus = a} :: DescribeIndexResponse)
 
 instance Prelude.NFData DescribeIndexResponse where
   rnf DescribeIndexResponse' {..} =
-    Prelude.rnf indexStatus
+    Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf indexStatus
       `Prelude.seq` Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf indexName
       `Prelude.seq` Prelude.rnf httpStatus

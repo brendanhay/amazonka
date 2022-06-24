@@ -31,6 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 data Behavior = Behavior'
   { -- | Suppresses alerts.
     suppressAlerts :: Prelude.Maybe Prelude.Bool,
+    -- | The criteria that determine if a device is behaving normally in regard
+    -- to the @metric@.
+    criteria :: Prelude.Maybe BehaviorCriteria,
     -- | The dimension for a metric in your behavior. For example, using a
     -- @TOPIC_FILTER@ dimension, you can narrow down the scope of the metric to
     -- only MQTT topics where the name matches the pattern specified in the
@@ -38,9 +41,6 @@ data Behavior = Behavior'
     metricDimension :: Prelude.Maybe MetricDimension,
     -- | What is measured by the behavior.
     metric :: Prelude.Maybe Prelude.Text,
-    -- | The criteria that determine if a device is behaving normally in regard
-    -- to the @metric@.
-    criteria :: Prelude.Maybe BehaviorCriteria,
     -- | The name you\'ve given to the behavior.
     name :: Prelude.Text
   }
@@ -56,15 +56,15 @@ data Behavior = Behavior'
 --
 -- 'suppressAlerts', 'behavior_suppressAlerts' - Suppresses alerts.
 --
+-- 'criteria', 'behavior_criteria' - The criteria that determine if a device is behaving normally in regard
+-- to the @metric@.
+--
 -- 'metricDimension', 'behavior_metricDimension' - The dimension for a metric in your behavior. For example, using a
 -- @TOPIC_FILTER@ dimension, you can narrow down the scope of the metric to
 -- only MQTT topics where the name matches the pattern specified in the
 -- dimension. This can\'t be used with custom metrics.
 --
 -- 'metric', 'behavior_metric' - What is measured by the behavior.
---
--- 'criteria', 'behavior_criteria' - The criteria that determine if a device is behaving normally in regard
--- to the @metric@.
 --
 -- 'name', 'behavior_name' - The name you\'ve given to the behavior.
 newBehavior ::
@@ -74,15 +74,20 @@ newBehavior ::
 newBehavior pName_ =
   Behavior'
     { suppressAlerts = Prelude.Nothing,
+      criteria = Prelude.Nothing,
       metricDimension = Prelude.Nothing,
       metric = Prelude.Nothing,
-      criteria = Prelude.Nothing,
       name = pName_
     }
 
 -- | Suppresses alerts.
 behavior_suppressAlerts :: Lens.Lens' Behavior (Prelude.Maybe Prelude.Bool)
 behavior_suppressAlerts = Lens.lens (\Behavior' {suppressAlerts} -> suppressAlerts) (\s@Behavior' {} a -> s {suppressAlerts = a} :: Behavior)
+
+-- | The criteria that determine if a device is behaving normally in regard
+-- to the @metric@.
+behavior_criteria :: Lens.Lens' Behavior (Prelude.Maybe BehaviorCriteria)
+behavior_criteria = Lens.lens (\Behavior' {criteria} -> criteria) (\s@Behavior' {} a -> s {criteria = a} :: Behavior)
 
 -- | The dimension for a metric in your behavior. For example, using a
 -- @TOPIC_FILTER@ dimension, you can narrow down the scope of the metric to
@@ -95,11 +100,6 @@ behavior_metricDimension = Lens.lens (\Behavior' {metricDimension} -> metricDime
 behavior_metric :: Lens.Lens' Behavior (Prelude.Maybe Prelude.Text)
 behavior_metric = Lens.lens (\Behavior' {metric} -> metric) (\s@Behavior' {} a -> s {metric = a} :: Behavior)
 
--- | The criteria that determine if a device is behaving normally in regard
--- to the @metric@.
-behavior_criteria :: Lens.Lens' Behavior (Prelude.Maybe BehaviorCriteria)
-behavior_criteria = Lens.lens (\Behavior' {criteria} -> criteria) (\s@Behavior' {} a -> s {criteria = a} :: Behavior)
-
 -- | The name you\'ve given to the behavior.
 behavior_name :: Lens.Lens' Behavior Prelude.Text
 behavior_name = Lens.lens (\Behavior' {name} -> name) (\s@Behavior' {} a -> s {name = a} :: Behavior)
@@ -111,26 +111,26 @@ instance Core.FromJSON Behavior where
       ( \x ->
           Behavior'
             Prelude.<$> (x Core..:? "suppressAlerts")
+            Prelude.<*> (x Core..:? "criteria")
             Prelude.<*> (x Core..:? "metricDimension")
             Prelude.<*> (x Core..:? "metric")
-            Prelude.<*> (x Core..:? "criteria")
             Prelude.<*> (x Core..: "name")
       )
 
 instance Prelude.Hashable Behavior where
   hashWithSalt _salt Behavior' {..} =
     _salt `Prelude.hashWithSalt` suppressAlerts
+      `Prelude.hashWithSalt` criteria
       `Prelude.hashWithSalt` metricDimension
       `Prelude.hashWithSalt` metric
-      `Prelude.hashWithSalt` criteria
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData Behavior where
   rnf Behavior' {..} =
     Prelude.rnf suppressAlerts
+      `Prelude.seq` Prelude.rnf criteria
       `Prelude.seq` Prelude.rnf metricDimension
       `Prelude.seq` Prelude.rnf metric
-      `Prelude.seq` Prelude.rnf criteria
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON Behavior where
@@ -139,10 +139,10 @@ instance Core.ToJSON Behavior where
       ( Prelude.catMaybes
           [ ("suppressAlerts" Core..=)
               Prelude.<$> suppressAlerts,
+            ("criteria" Core..=) Prelude.<$> criteria,
             ("metricDimension" Core..=)
               Prelude.<$> metricDimension,
             ("metric" Core..=) Prelude.<$> metric,
-            ("criteria" Core..=) Prelude.<$> criteria,
             Prelude.Just ("name" Core..= name)
           ]
       )

@@ -31,9 +31,9 @@ module Amazonka.IoT.GetCardinality
     newGetCardinality,
 
     -- * Request Lenses
-    getCardinality_queryVersion,
     getCardinality_aggregationField,
     getCardinality_indexName,
+    getCardinality_queryVersion,
     getCardinality_queryString,
 
     -- * Destructuring the Response
@@ -55,12 +55,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetCardinality' smart constructor.
 data GetCardinality = GetCardinality'
-  { -- | The query version.
-    queryVersion :: Prelude.Maybe Prelude.Text,
-    -- | The field to aggregate.
+  { -- | The field to aggregate.
     aggregationField :: Prelude.Maybe Prelude.Text,
     -- | The name of the index to search.
     indexName :: Prelude.Maybe Prelude.Text,
+    -- | The query version.
+    queryVersion :: Prelude.Maybe Prelude.Text,
     -- | The search query string.
     queryString :: Prelude.Text
   }
@@ -74,11 +74,11 @@ data GetCardinality = GetCardinality'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'queryVersion', 'getCardinality_queryVersion' - The query version.
---
 -- 'aggregationField', 'getCardinality_aggregationField' - The field to aggregate.
 --
 -- 'indexName', 'getCardinality_indexName' - The name of the index to search.
+--
+-- 'queryVersion', 'getCardinality_queryVersion' - The query version.
 --
 -- 'queryString', 'getCardinality_queryString' - The search query string.
 newGetCardinality ::
@@ -87,15 +87,11 @@ newGetCardinality ::
   GetCardinality
 newGetCardinality pQueryString_ =
   GetCardinality'
-    { queryVersion = Prelude.Nothing,
-      aggregationField = Prelude.Nothing,
+    { aggregationField = Prelude.Nothing,
       indexName = Prelude.Nothing,
+      queryVersion = Prelude.Nothing,
       queryString = pQueryString_
     }
-
--- | The query version.
-getCardinality_queryVersion :: Lens.Lens' GetCardinality (Prelude.Maybe Prelude.Text)
-getCardinality_queryVersion = Lens.lens (\GetCardinality' {queryVersion} -> queryVersion) (\s@GetCardinality' {} a -> s {queryVersion = a} :: GetCardinality)
 
 -- | The field to aggregate.
 getCardinality_aggregationField :: Lens.Lens' GetCardinality (Prelude.Maybe Prelude.Text)
@@ -104,6 +100,10 @@ getCardinality_aggregationField = Lens.lens (\GetCardinality' {aggregationField}
 -- | The name of the index to search.
 getCardinality_indexName :: Lens.Lens' GetCardinality (Prelude.Maybe Prelude.Text)
 getCardinality_indexName = Lens.lens (\GetCardinality' {indexName} -> indexName) (\s@GetCardinality' {} a -> s {indexName = a} :: GetCardinality)
+
+-- | The query version.
+getCardinality_queryVersion :: Lens.Lens' GetCardinality (Prelude.Maybe Prelude.Text)
+getCardinality_queryVersion = Lens.lens (\GetCardinality' {queryVersion} -> queryVersion) (\s@GetCardinality' {} a -> s {queryVersion = a} :: GetCardinality)
 
 -- | The search query string.
 getCardinality_queryString :: Lens.Lens' GetCardinality Prelude.Text
@@ -124,16 +124,16 @@ instance Core.AWSRequest GetCardinality where
 
 instance Prelude.Hashable GetCardinality where
   hashWithSalt _salt GetCardinality' {..} =
-    _salt `Prelude.hashWithSalt` queryVersion
-      `Prelude.hashWithSalt` aggregationField
+    _salt `Prelude.hashWithSalt` aggregationField
       `Prelude.hashWithSalt` indexName
+      `Prelude.hashWithSalt` queryVersion
       `Prelude.hashWithSalt` queryString
 
 instance Prelude.NFData GetCardinality where
   rnf GetCardinality' {..} =
-    Prelude.rnf queryVersion
-      `Prelude.seq` Prelude.rnf aggregationField
+    Prelude.rnf aggregationField
       `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf queryVersion
       `Prelude.seq` Prelude.rnf queryString
 
 instance Core.ToHeaders GetCardinality where
@@ -143,10 +143,10 @@ instance Core.ToJSON GetCardinality where
   toJSON GetCardinality' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("queryVersion" Core..=) Prelude.<$> queryVersion,
-            ("aggregationField" Core..=)
+          [ ("aggregationField" Core..=)
               Prelude.<$> aggregationField,
             ("indexName" Core..=) Prelude.<$> indexName,
+            ("queryVersion" Core..=) Prelude.<$> queryVersion,
             Prelude.Just ("queryString" Core..= queryString)
           ]
       )

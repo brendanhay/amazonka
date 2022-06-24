@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJobExecutionSummaryForJob' smart constructor.
 data JobExecutionSummaryForJob = JobExecutionSummaryForJob'
-  { -- | Contains a subset of information about a job execution.
-    jobExecutionSummary :: Prelude.Maybe JobExecutionSummary,
-    -- | The ARN of the thing on which the job execution is running.
-    thingArn :: Prelude.Maybe Prelude.Text
+  { -- | The ARN of the thing on which the job execution is running.
+    thingArn :: Prelude.Maybe Prelude.Text,
+    -- | Contains a subset of information about a job execution.
+    jobExecutionSummary :: Prelude.Maybe JobExecutionSummary
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data JobExecutionSummaryForJob = JobExecutionSummaryForJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobExecutionSummary', 'jobExecutionSummaryForJob_jobExecutionSummary' - Contains a subset of information about a job execution.
---
 -- 'thingArn', 'jobExecutionSummaryForJob_thingArn' - The ARN of the thing on which the job execution is running.
+--
+-- 'jobExecutionSummary', 'jobExecutionSummaryForJob_jobExecutionSummary' - Contains a subset of information about a job execution.
 newJobExecutionSummaryForJob ::
   JobExecutionSummaryForJob
 newJobExecutionSummaryForJob =
   JobExecutionSummaryForJob'
-    { jobExecutionSummary =
+    { thingArn =
         Prelude.Nothing,
-      thingArn = Prelude.Nothing
+      jobExecutionSummary = Prelude.Nothing
     }
-
--- | Contains a subset of information about a job execution.
-jobExecutionSummaryForJob_jobExecutionSummary :: Lens.Lens' JobExecutionSummaryForJob (Prelude.Maybe JobExecutionSummary)
-jobExecutionSummaryForJob_jobExecutionSummary = Lens.lens (\JobExecutionSummaryForJob' {jobExecutionSummary} -> jobExecutionSummary) (\s@JobExecutionSummaryForJob' {} a -> s {jobExecutionSummary = a} :: JobExecutionSummaryForJob)
 
 -- | The ARN of the thing on which the job execution is running.
 jobExecutionSummaryForJob_thingArn :: Lens.Lens' JobExecutionSummaryForJob (Prelude.Maybe Prelude.Text)
 jobExecutionSummaryForJob_thingArn = Lens.lens (\JobExecutionSummaryForJob' {thingArn} -> thingArn) (\s@JobExecutionSummaryForJob' {} a -> s {thingArn = a} :: JobExecutionSummaryForJob)
+
+-- | Contains a subset of information about a job execution.
+jobExecutionSummaryForJob_jobExecutionSummary :: Lens.Lens' JobExecutionSummaryForJob (Prelude.Maybe JobExecutionSummary)
+jobExecutionSummaryForJob_jobExecutionSummary = Lens.lens (\JobExecutionSummaryForJob' {jobExecutionSummary} -> jobExecutionSummary) (\s@JobExecutionSummaryForJob' {} a -> s {jobExecutionSummary = a} :: JobExecutionSummaryForJob)
 
 instance Core.FromJSON JobExecutionSummaryForJob where
   parseJSON =
@@ -70,16 +70,16 @@ instance Core.FromJSON JobExecutionSummaryForJob where
       "JobExecutionSummaryForJob"
       ( \x ->
           JobExecutionSummaryForJob'
-            Prelude.<$> (x Core..:? "jobExecutionSummary")
-            Prelude.<*> (x Core..:? "thingArn")
+            Prelude.<$> (x Core..:? "thingArn")
+            Prelude.<*> (x Core..:? "jobExecutionSummary")
       )
 
 instance Prelude.Hashable JobExecutionSummaryForJob where
   hashWithSalt _salt JobExecutionSummaryForJob' {..} =
-    _salt `Prelude.hashWithSalt` jobExecutionSummary
-      `Prelude.hashWithSalt` thingArn
+    _salt `Prelude.hashWithSalt` thingArn
+      `Prelude.hashWithSalt` jobExecutionSummary
 
 instance Prelude.NFData JobExecutionSummaryForJob where
   rnf JobExecutionSummaryForJob' {..} =
-    Prelude.rnf jobExecutionSummary
-      `Prelude.seq` Prelude.rnf thingArn
+    Prelude.rnf thingArn
+      `Prelude.seq` Prelude.rnf jobExecutionSummary

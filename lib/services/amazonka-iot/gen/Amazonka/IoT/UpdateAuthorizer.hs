@@ -31,10 +31,10 @@ module Amazonka.IoT.UpdateAuthorizer
     newUpdateAuthorizer,
 
     -- * Request Lenses
+    updateAuthorizer_tokenKeyName,
     updateAuthorizer_status,
     updateAuthorizer_authorizerFunctionArn,
     updateAuthorizer_tokenSigningPublicKeys,
-    updateAuthorizer_tokenKeyName,
     updateAuthorizer_authorizerName,
 
     -- * Destructuring the Response
@@ -42,8 +42,8 @@ module Amazonka.IoT.UpdateAuthorizer
     newUpdateAuthorizerResponse,
 
     -- * Response Lenses
-    updateAuthorizerResponse_authorizerName,
     updateAuthorizerResponse_authorizerArn,
+    updateAuthorizerResponse_authorizerName,
     updateAuthorizerResponse_httpStatus,
   )
 where
@@ -57,14 +57,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateAuthorizer' smart constructor.
 data UpdateAuthorizer = UpdateAuthorizer'
-  { -- | The status of the update authorizer request.
+  { -- | The key used to extract the token from the HTTP headers.
+    tokenKeyName :: Prelude.Maybe Prelude.Text,
+    -- | The status of the update authorizer request.
     status :: Prelude.Maybe AuthorizerStatus,
     -- | The ARN of the authorizer\'s Lambda function.
     authorizerFunctionArn :: Prelude.Maybe Prelude.Text,
     -- | The public keys used to verify the token signature.
     tokenSigningPublicKeys :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The key used to extract the token from the HTTP headers.
-    tokenKeyName :: Prelude.Maybe Prelude.Text,
     -- | The authorizer name.
     authorizerName :: Prelude.Text
   }
@@ -78,13 +78,13 @@ data UpdateAuthorizer = UpdateAuthorizer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tokenKeyName', 'updateAuthorizer_tokenKeyName' - The key used to extract the token from the HTTP headers.
+--
 -- 'status', 'updateAuthorizer_status' - The status of the update authorizer request.
 --
 -- 'authorizerFunctionArn', 'updateAuthorizer_authorizerFunctionArn' - The ARN of the authorizer\'s Lambda function.
 --
 -- 'tokenSigningPublicKeys', 'updateAuthorizer_tokenSigningPublicKeys' - The public keys used to verify the token signature.
---
--- 'tokenKeyName', 'updateAuthorizer_tokenKeyName' - The key used to extract the token from the HTTP headers.
 --
 -- 'authorizerName', 'updateAuthorizer_authorizerName' - The authorizer name.
 newUpdateAuthorizer ::
@@ -93,12 +93,16 @@ newUpdateAuthorizer ::
   UpdateAuthorizer
 newUpdateAuthorizer pAuthorizerName_ =
   UpdateAuthorizer'
-    { status = Prelude.Nothing,
+    { tokenKeyName = Prelude.Nothing,
+      status = Prelude.Nothing,
       authorizerFunctionArn = Prelude.Nothing,
       tokenSigningPublicKeys = Prelude.Nothing,
-      tokenKeyName = Prelude.Nothing,
       authorizerName = pAuthorizerName_
     }
+
+-- | The key used to extract the token from the HTTP headers.
+updateAuthorizer_tokenKeyName :: Lens.Lens' UpdateAuthorizer (Prelude.Maybe Prelude.Text)
+updateAuthorizer_tokenKeyName = Lens.lens (\UpdateAuthorizer' {tokenKeyName} -> tokenKeyName) (\s@UpdateAuthorizer' {} a -> s {tokenKeyName = a} :: UpdateAuthorizer)
 
 -- | The status of the update authorizer request.
 updateAuthorizer_status :: Lens.Lens' UpdateAuthorizer (Prelude.Maybe AuthorizerStatus)
@@ -111,10 +115,6 @@ updateAuthorizer_authorizerFunctionArn = Lens.lens (\UpdateAuthorizer' {authoriz
 -- | The public keys used to verify the token signature.
 updateAuthorizer_tokenSigningPublicKeys :: Lens.Lens' UpdateAuthorizer (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateAuthorizer_tokenSigningPublicKeys = Lens.lens (\UpdateAuthorizer' {tokenSigningPublicKeys} -> tokenSigningPublicKeys) (\s@UpdateAuthorizer' {} a -> s {tokenSigningPublicKeys = a} :: UpdateAuthorizer) Prelude.. Lens.mapping Lens.coerced
-
--- | The key used to extract the token from the HTTP headers.
-updateAuthorizer_tokenKeyName :: Lens.Lens' UpdateAuthorizer (Prelude.Maybe Prelude.Text)
-updateAuthorizer_tokenKeyName = Lens.lens (\UpdateAuthorizer' {tokenKeyName} -> tokenKeyName) (\s@UpdateAuthorizer' {} a -> s {tokenKeyName = a} :: UpdateAuthorizer)
 
 -- | The authorizer name.
 updateAuthorizer_authorizerName :: Lens.Lens' UpdateAuthorizer Prelude.Text
@@ -129,25 +129,25 @@ instance Core.AWSRequest UpdateAuthorizer where
     Response.receiveJSON
       ( \s h x ->
           UpdateAuthorizerResponse'
-            Prelude.<$> (x Core..?> "authorizerName")
-            Prelude.<*> (x Core..?> "authorizerArn")
+            Prelude.<$> (x Core..?> "authorizerArn")
+            Prelude.<*> (x Core..?> "authorizerName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateAuthorizer where
   hashWithSalt _salt UpdateAuthorizer' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` tokenKeyName
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` authorizerFunctionArn
       `Prelude.hashWithSalt` tokenSigningPublicKeys
-      `Prelude.hashWithSalt` tokenKeyName
       `Prelude.hashWithSalt` authorizerName
 
 instance Prelude.NFData UpdateAuthorizer where
   rnf UpdateAuthorizer' {..} =
-    Prelude.rnf status
+    Prelude.rnf tokenKeyName
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf authorizerFunctionArn
       `Prelude.seq` Prelude.rnf tokenSigningPublicKeys
-      `Prelude.seq` Prelude.rnf tokenKeyName
       `Prelude.seq` Prelude.rnf authorizerName
 
 instance Core.ToHeaders UpdateAuthorizer where
@@ -157,12 +157,12 @@ instance Core.ToJSON UpdateAuthorizer where
   toJSON UpdateAuthorizer' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("status" Core..=) Prelude.<$> status,
+          [ ("tokenKeyName" Core..=) Prelude.<$> tokenKeyName,
+            ("status" Core..=) Prelude.<$> status,
             ("authorizerFunctionArn" Core..=)
               Prelude.<$> authorizerFunctionArn,
             ("tokenSigningPublicKeys" Core..=)
-              Prelude.<$> tokenSigningPublicKeys,
-            ("tokenKeyName" Core..=) Prelude.<$> tokenKeyName
+              Prelude.<$> tokenSigningPublicKeys
           ]
       )
 
@@ -176,10 +176,10 @@ instance Core.ToQuery UpdateAuthorizer where
 
 -- | /See:/ 'newUpdateAuthorizerResponse' smart constructor.
 data UpdateAuthorizerResponse = UpdateAuthorizerResponse'
-  { -- | The authorizer name.
-    authorizerName :: Prelude.Maybe Prelude.Text,
-    -- | The authorizer ARN.
+  { -- | The authorizer ARN.
     authorizerArn :: Prelude.Maybe Prelude.Text,
+    -- | The authorizer name.
+    authorizerName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -193,9 +193,9 @@ data UpdateAuthorizerResponse = UpdateAuthorizerResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authorizerName', 'updateAuthorizerResponse_authorizerName' - The authorizer name.
---
 -- 'authorizerArn', 'updateAuthorizerResponse_authorizerArn' - The authorizer ARN.
+--
+-- 'authorizerName', 'updateAuthorizerResponse_authorizerName' - The authorizer name.
 --
 -- 'httpStatus', 'updateAuthorizerResponse_httpStatus' - The response's http status code.
 newUpdateAuthorizerResponse ::
@@ -204,19 +204,19 @@ newUpdateAuthorizerResponse ::
   UpdateAuthorizerResponse
 newUpdateAuthorizerResponse pHttpStatus_ =
   UpdateAuthorizerResponse'
-    { authorizerName =
+    { authorizerArn =
         Prelude.Nothing,
-      authorizerArn = Prelude.Nothing,
+      authorizerName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The authorizer name.
-updateAuthorizerResponse_authorizerName :: Lens.Lens' UpdateAuthorizerResponse (Prelude.Maybe Prelude.Text)
-updateAuthorizerResponse_authorizerName = Lens.lens (\UpdateAuthorizerResponse' {authorizerName} -> authorizerName) (\s@UpdateAuthorizerResponse' {} a -> s {authorizerName = a} :: UpdateAuthorizerResponse)
 
 -- | The authorizer ARN.
 updateAuthorizerResponse_authorizerArn :: Lens.Lens' UpdateAuthorizerResponse (Prelude.Maybe Prelude.Text)
 updateAuthorizerResponse_authorizerArn = Lens.lens (\UpdateAuthorizerResponse' {authorizerArn} -> authorizerArn) (\s@UpdateAuthorizerResponse' {} a -> s {authorizerArn = a} :: UpdateAuthorizerResponse)
+
+-- | The authorizer name.
+updateAuthorizerResponse_authorizerName :: Lens.Lens' UpdateAuthorizerResponse (Prelude.Maybe Prelude.Text)
+updateAuthorizerResponse_authorizerName = Lens.lens (\UpdateAuthorizerResponse' {authorizerName} -> authorizerName) (\s@UpdateAuthorizerResponse' {} a -> s {authorizerName = a} :: UpdateAuthorizerResponse)
 
 -- | The response's http status code.
 updateAuthorizerResponse_httpStatus :: Lens.Lens' UpdateAuthorizerResponse Prelude.Int
@@ -224,6 +224,6 @@ updateAuthorizerResponse_httpStatus = Lens.lens (\UpdateAuthorizerResponse' {htt
 
 instance Prelude.NFData UpdateAuthorizerResponse where
   rnf UpdateAuthorizerResponse' {..} =
-    Prelude.rnf authorizerName
-      `Prelude.seq` Prelude.rnf authorizerArn
+    Prelude.rnf authorizerArn
+      `Prelude.seq` Prelude.rnf authorizerName
       `Prelude.seq` Prelude.rnf httpStatus

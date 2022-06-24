@@ -31,14 +31,14 @@ module Amazonka.IoT.CreateJobTemplate
     newCreateJobTemplate,
 
     -- * Request Lenses
+    createJobTemplate_tags,
     createJobTemplate_jobExecutionsRolloutConfig,
-    createJobTemplate_jobArn,
     createJobTemplate_documentSource,
     createJobTemplate_abortConfig,
     createJobTemplate_presignedUrlConfig,
     createJobTemplate_document,
+    createJobTemplate_jobArn,
     createJobTemplate_timeoutConfig,
-    createJobTemplate_tags,
     createJobTemplate_jobTemplateId,
     createJobTemplate_description,
 
@@ -47,8 +47,8 @@ module Amazonka.IoT.CreateJobTemplate
     newCreateJobTemplateResponse,
 
     -- * Response Lenses
-    createJobTemplateResponse_jobTemplateId,
     createJobTemplateResponse_jobTemplateArn,
+    createJobTemplateResponse_jobTemplateId,
     createJobTemplateResponse_httpStatus,
   )
 where
@@ -62,9 +62,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateJobTemplate' smart constructor.
 data CreateJobTemplate = CreateJobTemplate'
-  { jobExecutionsRolloutConfig :: Prelude.Maybe JobExecutionsRolloutConfig,
-    -- | The ARN of the job to use as the basis for the job template.
-    jobArn :: Prelude.Maybe Prelude.Text,
+  { -- | Metadata that can be used to manage the job template.
+    tags :: Prelude.Maybe [Tag],
+    jobExecutionsRolloutConfig :: Prelude.Maybe JobExecutionsRolloutConfig,
     -- | An S3 link to the job document to use in the template. Required if you
     -- don\'t specify a value for @document@.
     --
@@ -83,9 +83,9 @@ data CreateJobTemplate = CreateJobTemplate'
     -- | The job document. Required if you don\'t specify a value for
     -- @documentSource@.
     document :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the job to use as the basis for the job template.
+    jobArn :: Prelude.Maybe Prelude.Text,
     timeoutConfig :: Prelude.Maybe TimeoutConfig,
-    -- | Metadata that can be used to manage the job template.
-    tags :: Prelude.Maybe [Tag],
     -- | A unique identifier for the job template. We recommend using a UUID.
     -- Alpha-numeric characters, \"-\", and \"_\" are valid for use here.
     jobTemplateId :: Prelude.Text,
@@ -102,9 +102,9 @@ data CreateJobTemplate = CreateJobTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobExecutionsRolloutConfig', 'createJobTemplate_jobExecutionsRolloutConfig' - Undocumented member.
+-- 'tags', 'createJobTemplate_tags' - Metadata that can be used to manage the job template.
 --
--- 'jobArn', 'createJobTemplate_jobArn' - The ARN of the job to use as the basis for the job template.
+-- 'jobExecutionsRolloutConfig', 'createJobTemplate_jobExecutionsRolloutConfig' - Undocumented member.
 --
 -- 'documentSource', 'createJobTemplate_documentSource' - An S3 link to the job document to use in the template. Required if you
 -- don\'t specify a value for @document@.
@@ -126,9 +126,9 @@ data CreateJobTemplate = CreateJobTemplate'
 -- 'document', 'createJobTemplate_document' - The job document. Required if you don\'t specify a value for
 -- @documentSource@.
 --
--- 'timeoutConfig', 'createJobTemplate_timeoutConfig' - Undocumented member.
+-- 'jobArn', 'createJobTemplate_jobArn' - The ARN of the job to use as the basis for the job template.
 --
--- 'tags', 'createJobTemplate_tags' - Metadata that can be used to manage the job template.
+-- 'timeoutConfig', 'createJobTemplate_timeoutConfig' - Undocumented member.
 --
 -- 'jobTemplateId', 'createJobTemplate_jobTemplateId' - A unique identifier for the job template. We recommend using a UUID.
 -- Alpha-numeric characters, \"-\", and \"_\" are valid for use here.
@@ -142,26 +142,25 @@ newCreateJobTemplate ::
   CreateJobTemplate
 newCreateJobTemplate pJobTemplateId_ pDescription_ =
   CreateJobTemplate'
-    { jobExecutionsRolloutConfig =
-        Prelude.Nothing,
-      jobArn = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      jobExecutionsRolloutConfig = Prelude.Nothing,
       documentSource = Prelude.Nothing,
       abortConfig = Prelude.Nothing,
       presignedUrlConfig = Prelude.Nothing,
       document = Prelude.Nothing,
+      jobArn = Prelude.Nothing,
       timeoutConfig = Prelude.Nothing,
-      tags = Prelude.Nothing,
       jobTemplateId = pJobTemplateId_,
       description = pDescription_
     }
 
+-- | Metadata that can be used to manage the job template.
+createJobTemplate_tags :: Lens.Lens' CreateJobTemplate (Prelude.Maybe [Tag])
+createJobTemplate_tags = Lens.lens (\CreateJobTemplate' {tags} -> tags) (\s@CreateJobTemplate' {} a -> s {tags = a} :: CreateJobTemplate) Prelude.. Lens.mapping Lens.coerced
+
 -- | Undocumented member.
 createJobTemplate_jobExecutionsRolloutConfig :: Lens.Lens' CreateJobTemplate (Prelude.Maybe JobExecutionsRolloutConfig)
 createJobTemplate_jobExecutionsRolloutConfig = Lens.lens (\CreateJobTemplate' {jobExecutionsRolloutConfig} -> jobExecutionsRolloutConfig) (\s@CreateJobTemplate' {} a -> s {jobExecutionsRolloutConfig = a} :: CreateJobTemplate)
-
--- | The ARN of the job to use as the basis for the job template.
-createJobTemplate_jobArn :: Lens.Lens' CreateJobTemplate (Prelude.Maybe Prelude.Text)
-createJobTemplate_jobArn = Lens.lens (\CreateJobTemplate' {jobArn} -> jobArn) (\s@CreateJobTemplate' {} a -> s {jobArn = a} :: CreateJobTemplate)
 
 -- | An S3 link to the job document to use in the template. Required if you
 -- don\'t specify a value for @document@.
@@ -191,13 +190,13 @@ createJobTemplate_presignedUrlConfig = Lens.lens (\CreateJobTemplate' {presigned
 createJobTemplate_document :: Lens.Lens' CreateJobTemplate (Prelude.Maybe Prelude.Text)
 createJobTemplate_document = Lens.lens (\CreateJobTemplate' {document} -> document) (\s@CreateJobTemplate' {} a -> s {document = a} :: CreateJobTemplate)
 
+-- | The ARN of the job to use as the basis for the job template.
+createJobTemplate_jobArn :: Lens.Lens' CreateJobTemplate (Prelude.Maybe Prelude.Text)
+createJobTemplate_jobArn = Lens.lens (\CreateJobTemplate' {jobArn} -> jobArn) (\s@CreateJobTemplate' {} a -> s {jobArn = a} :: CreateJobTemplate)
+
 -- | Undocumented member.
 createJobTemplate_timeoutConfig :: Lens.Lens' CreateJobTemplate (Prelude.Maybe TimeoutConfig)
 createJobTemplate_timeoutConfig = Lens.lens (\CreateJobTemplate' {timeoutConfig} -> timeoutConfig) (\s@CreateJobTemplate' {} a -> s {timeoutConfig = a} :: CreateJobTemplate)
-
--- | Metadata that can be used to manage the job template.
-createJobTemplate_tags :: Lens.Lens' CreateJobTemplate (Prelude.Maybe [Tag])
-createJobTemplate_tags = Lens.lens (\CreateJobTemplate' {tags} -> tags) (\s@CreateJobTemplate' {} a -> s {tags = a} :: CreateJobTemplate) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique identifier for the job template. We recommend using a UUID.
 -- Alpha-numeric characters, \"-\", and \"_\" are valid for use here.
@@ -217,35 +216,34 @@ instance Core.AWSRequest CreateJobTemplate where
     Response.receiveJSON
       ( \s h x ->
           CreateJobTemplateResponse'
-            Prelude.<$> (x Core..?> "jobTemplateId")
-            Prelude.<*> (x Core..?> "jobTemplateArn")
+            Prelude.<$> (x Core..?> "jobTemplateArn")
+            Prelude.<*> (x Core..?> "jobTemplateId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateJobTemplate where
   hashWithSalt _salt CreateJobTemplate' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` jobExecutionsRolloutConfig
-      `Prelude.hashWithSalt` jobArn
       `Prelude.hashWithSalt` documentSource
       `Prelude.hashWithSalt` abortConfig
       `Prelude.hashWithSalt` presignedUrlConfig
       `Prelude.hashWithSalt` document
+      `Prelude.hashWithSalt` jobArn
       `Prelude.hashWithSalt` timeoutConfig
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` jobTemplateId
       `Prelude.hashWithSalt` description
 
 instance Prelude.NFData CreateJobTemplate where
   rnf CreateJobTemplate' {..} =
-    Prelude.rnf jobExecutionsRolloutConfig
-      `Prelude.seq` Prelude.rnf jobArn
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf jobExecutionsRolloutConfig
       `Prelude.seq` Prelude.rnf documentSource
       `Prelude.seq` Prelude.rnf abortConfig
       `Prelude.seq` Prelude.rnf presignedUrlConfig
       `Prelude.seq` Prelude.rnf document
+      `Prelude.seq` Prelude.rnf jobArn
       `Prelude.seq` Prelude.rnf timeoutConfig
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf jobTemplateId
       `Prelude.seq` Prelude.rnf description
 
@@ -256,17 +254,17 @@ instance Core.ToJSON CreateJobTemplate where
   toJSON CreateJobTemplate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("jobExecutionsRolloutConfig" Core..=)
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("jobExecutionsRolloutConfig" Core..=)
               Prelude.<$> jobExecutionsRolloutConfig,
-            ("jobArn" Core..=) Prelude.<$> jobArn,
             ("documentSource" Core..=)
               Prelude.<$> documentSource,
             ("abortConfig" Core..=) Prelude.<$> abortConfig,
             ("presignedUrlConfig" Core..=)
               Prelude.<$> presignedUrlConfig,
             ("document" Core..=) Prelude.<$> document,
+            ("jobArn" Core..=) Prelude.<$> jobArn,
             ("timeoutConfig" Core..=) Prelude.<$> timeoutConfig,
-            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("description" Core..= description)
           ]
       )
@@ -281,10 +279,10 @@ instance Core.ToQuery CreateJobTemplate where
 
 -- | /See:/ 'newCreateJobTemplateResponse' smart constructor.
 data CreateJobTemplateResponse = CreateJobTemplateResponse'
-  { -- | The unique identifier of the job template.
-    jobTemplateId :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the job template.
+  { -- | The ARN of the job template.
     jobTemplateArn :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier of the job template.
+    jobTemplateId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -298,9 +296,9 @@ data CreateJobTemplateResponse = CreateJobTemplateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobTemplateId', 'createJobTemplateResponse_jobTemplateId' - The unique identifier of the job template.
---
 -- 'jobTemplateArn', 'createJobTemplateResponse_jobTemplateArn' - The ARN of the job template.
+--
+-- 'jobTemplateId', 'createJobTemplateResponse_jobTemplateId' - The unique identifier of the job template.
 --
 -- 'httpStatus', 'createJobTemplateResponse_httpStatus' - The response's http status code.
 newCreateJobTemplateResponse ::
@@ -309,19 +307,19 @@ newCreateJobTemplateResponse ::
   CreateJobTemplateResponse
 newCreateJobTemplateResponse pHttpStatus_ =
   CreateJobTemplateResponse'
-    { jobTemplateId =
+    { jobTemplateArn =
         Prelude.Nothing,
-      jobTemplateArn = Prelude.Nothing,
+      jobTemplateId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The unique identifier of the job template.
-createJobTemplateResponse_jobTemplateId :: Lens.Lens' CreateJobTemplateResponse (Prelude.Maybe Prelude.Text)
-createJobTemplateResponse_jobTemplateId = Lens.lens (\CreateJobTemplateResponse' {jobTemplateId} -> jobTemplateId) (\s@CreateJobTemplateResponse' {} a -> s {jobTemplateId = a} :: CreateJobTemplateResponse)
 
 -- | The ARN of the job template.
 createJobTemplateResponse_jobTemplateArn :: Lens.Lens' CreateJobTemplateResponse (Prelude.Maybe Prelude.Text)
 createJobTemplateResponse_jobTemplateArn = Lens.lens (\CreateJobTemplateResponse' {jobTemplateArn} -> jobTemplateArn) (\s@CreateJobTemplateResponse' {} a -> s {jobTemplateArn = a} :: CreateJobTemplateResponse)
+
+-- | The unique identifier of the job template.
+createJobTemplateResponse_jobTemplateId :: Lens.Lens' CreateJobTemplateResponse (Prelude.Maybe Prelude.Text)
+createJobTemplateResponse_jobTemplateId = Lens.lens (\CreateJobTemplateResponse' {jobTemplateId} -> jobTemplateId) (\s@CreateJobTemplateResponse' {} a -> s {jobTemplateId = a} :: CreateJobTemplateResponse)
 
 -- | The response's http status code.
 createJobTemplateResponse_httpStatus :: Lens.Lens' CreateJobTemplateResponse Prelude.Int
@@ -329,6 +327,6 @@ createJobTemplateResponse_httpStatus = Lens.lens (\CreateJobTemplateResponse' {h
 
 instance Prelude.NFData CreateJobTemplateResponse where
   rnf CreateJobTemplateResponse' {..} =
-    Prelude.rnf jobTemplateId
-      `Prelude.seq` Prelude.rnf jobTemplateArn
+    Prelude.rnf jobTemplateArn
+      `Prelude.seq` Prelude.rnf jobTemplateId
       `Prelude.seq` Prelude.rnf httpStatus

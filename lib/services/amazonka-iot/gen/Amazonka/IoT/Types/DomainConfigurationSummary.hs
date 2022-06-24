@@ -38,13 +38,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDomainConfigurationSummary' smart constructor.
 data DomainConfigurationSummary = DomainConfigurationSummary'
-  { -- | The name of the domain configuration. This value must be unique to a
-    -- region.
-    domainConfigurationName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the domain configuration.
+  { -- | The ARN of the domain configuration.
     domainConfigurationArn :: Prelude.Maybe Prelude.Text,
     -- | The type of service delivered by the endpoint.
-    serviceType :: Prelude.Maybe ServiceType
+    serviceType :: Prelude.Maybe ServiceType,
+    -- | The name of the domain configuration. This value must be unique to a
+    -- region.
+    domainConfigurationName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,26 +56,21 @@ data DomainConfigurationSummary = DomainConfigurationSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainConfigurationName', 'domainConfigurationSummary_domainConfigurationName' - The name of the domain configuration. This value must be unique to a
--- region.
---
 -- 'domainConfigurationArn', 'domainConfigurationSummary_domainConfigurationArn' - The ARN of the domain configuration.
 --
 -- 'serviceType', 'domainConfigurationSummary_serviceType' - The type of service delivered by the endpoint.
+--
+-- 'domainConfigurationName', 'domainConfigurationSummary_domainConfigurationName' - The name of the domain configuration. This value must be unique to a
+-- region.
 newDomainConfigurationSummary ::
   DomainConfigurationSummary
 newDomainConfigurationSummary =
   DomainConfigurationSummary'
-    { domainConfigurationName =
+    { domainConfigurationArn =
         Prelude.Nothing,
-      domainConfigurationArn = Prelude.Nothing,
-      serviceType = Prelude.Nothing
+      serviceType = Prelude.Nothing,
+      domainConfigurationName = Prelude.Nothing
     }
-
--- | The name of the domain configuration. This value must be unique to a
--- region.
-domainConfigurationSummary_domainConfigurationName :: Lens.Lens' DomainConfigurationSummary (Prelude.Maybe Prelude.Text)
-domainConfigurationSummary_domainConfigurationName = Lens.lens (\DomainConfigurationSummary' {domainConfigurationName} -> domainConfigurationName) (\s@DomainConfigurationSummary' {} a -> s {domainConfigurationName = a} :: DomainConfigurationSummary)
 
 -- | The ARN of the domain configuration.
 domainConfigurationSummary_domainConfigurationArn :: Lens.Lens' DomainConfigurationSummary (Prelude.Maybe Prelude.Text)
@@ -85,26 +80,30 @@ domainConfigurationSummary_domainConfigurationArn = Lens.lens (\DomainConfigurat
 domainConfigurationSummary_serviceType :: Lens.Lens' DomainConfigurationSummary (Prelude.Maybe ServiceType)
 domainConfigurationSummary_serviceType = Lens.lens (\DomainConfigurationSummary' {serviceType} -> serviceType) (\s@DomainConfigurationSummary' {} a -> s {serviceType = a} :: DomainConfigurationSummary)
 
+-- | The name of the domain configuration. This value must be unique to a
+-- region.
+domainConfigurationSummary_domainConfigurationName :: Lens.Lens' DomainConfigurationSummary (Prelude.Maybe Prelude.Text)
+domainConfigurationSummary_domainConfigurationName = Lens.lens (\DomainConfigurationSummary' {domainConfigurationName} -> domainConfigurationName) (\s@DomainConfigurationSummary' {} a -> s {domainConfigurationName = a} :: DomainConfigurationSummary)
+
 instance Core.FromJSON DomainConfigurationSummary where
   parseJSON =
     Core.withObject
       "DomainConfigurationSummary"
       ( \x ->
           DomainConfigurationSummary'
-            Prelude.<$> (x Core..:? "domainConfigurationName")
-            Prelude.<*> (x Core..:? "domainConfigurationArn")
+            Prelude.<$> (x Core..:? "domainConfigurationArn")
             Prelude.<*> (x Core..:? "serviceType")
+            Prelude.<*> (x Core..:? "domainConfigurationName")
       )
 
 instance Prelude.Hashable DomainConfigurationSummary where
   hashWithSalt _salt DomainConfigurationSummary' {..} =
-    _salt
-      `Prelude.hashWithSalt` domainConfigurationName
-      `Prelude.hashWithSalt` domainConfigurationArn
+    _salt `Prelude.hashWithSalt` domainConfigurationArn
       `Prelude.hashWithSalt` serviceType
+      `Prelude.hashWithSalt` domainConfigurationName
 
 instance Prelude.NFData DomainConfigurationSummary where
   rnf DomainConfigurationSummary' {..} =
-    Prelude.rnf domainConfigurationName
-      `Prelude.seq` Prelude.rnf domainConfigurationArn
+    Prelude.rnf domainConfigurationArn
       `Prelude.seq` Prelude.rnf serviceType
+      `Prelude.seq` Prelude.rnf domainConfigurationName

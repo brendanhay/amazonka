@@ -43,8 +43,8 @@ module Amazonka.IoT.ListTargetsForSecurityProfile
     newListTargetsForSecurityProfileResponse,
 
     -- * Response Lenses
-    listTargetsForSecurityProfileResponse_securityProfileTargets,
     listTargetsForSecurityProfileResponse_nextToken,
+    listTargetsForSecurityProfileResponse_securityProfileTargets,
     listTargetsForSecurityProfileResponse_httpStatus,
   )
 where
@@ -139,10 +139,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListTargetsForSecurityProfileResponse'
-            Prelude.<$> ( x Core..?> "securityProfileTargets"
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "securityProfileTargets"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,11 +181,11 @@ instance Core.ToQuery ListTargetsForSecurityProfile where
 
 -- | /See:/ 'newListTargetsForSecurityProfileResponse' smart constructor.
 data ListTargetsForSecurityProfileResponse = ListTargetsForSecurityProfileResponse'
-  { -- | The thing groups to which the security profile is attached.
-    securityProfileTargets :: Prelude.Maybe [SecurityProfileTarget],
-    -- | A token that can be used to retrieve the next set of results, or @null@
+  { -- | A token that can be used to retrieve the next set of results, or @null@
     -- if there are no additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The thing groups to which the security profile is attached.
+    securityProfileTargets :: Prelude.Maybe [SecurityProfileTarget],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -199,10 +199,10 @@ data ListTargetsForSecurityProfileResponse = ListTargetsForSecurityProfileRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'securityProfileTargets', 'listTargetsForSecurityProfileResponse_securityProfileTargets' - The thing groups to which the security profile is attached.
---
 -- 'nextToken', 'listTargetsForSecurityProfileResponse_nextToken' - A token that can be used to retrieve the next set of results, or @null@
 -- if there are no additional results.
+--
+-- 'securityProfileTargets', 'listTargetsForSecurityProfileResponse_securityProfileTargets' - The thing groups to which the security profile is attached.
 --
 -- 'httpStatus', 'listTargetsForSecurityProfileResponse_httpStatus' - The response's http status code.
 newListTargetsForSecurityProfileResponse ::
@@ -211,20 +211,21 @@ newListTargetsForSecurityProfileResponse ::
   ListTargetsForSecurityProfileResponse
 newListTargetsForSecurityProfileResponse pHttpStatus_ =
   ListTargetsForSecurityProfileResponse'
-    { securityProfileTargets =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      securityProfileTargets =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The thing groups to which the security profile is attached.
-listTargetsForSecurityProfileResponse_securityProfileTargets :: Lens.Lens' ListTargetsForSecurityProfileResponse (Prelude.Maybe [SecurityProfileTarget])
-listTargetsForSecurityProfileResponse_securityProfileTargets = Lens.lens (\ListTargetsForSecurityProfileResponse' {securityProfileTargets} -> securityProfileTargets) (\s@ListTargetsForSecurityProfileResponse' {} a -> s {securityProfileTargets = a} :: ListTargetsForSecurityProfileResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that can be used to retrieve the next set of results, or @null@
 -- if there are no additional results.
 listTargetsForSecurityProfileResponse_nextToken :: Lens.Lens' ListTargetsForSecurityProfileResponse (Prelude.Maybe Prelude.Text)
 listTargetsForSecurityProfileResponse_nextToken = Lens.lens (\ListTargetsForSecurityProfileResponse' {nextToken} -> nextToken) (\s@ListTargetsForSecurityProfileResponse' {} a -> s {nextToken = a} :: ListTargetsForSecurityProfileResponse)
+
+-- | The thing groups to which the security profile is attached.
+listTargetsForSecurityProfileResponse_securityProfileTargets :: Lens.Lens' ListTargetsForSecurityProfileResponse (Prelude.Maybe [SecurityProfileTarget])
+listTargetsForSecurityProfileResponse_securityProfileTargets = Lens.lens (\ListTargetsForSecurityProfileResponse' {securityProfileTargets} -> securityProfileTargets) (\s@ListTargetsForSecurityProfileResponse' {} a -> s {securityProfileTargets = a} :: ListTargetsForSecurityProfileResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTargetsForSecurityProfileResponse_httpStatus :: Lens.Lens' ListTargetsForSecurityProfileResponse Prelude.Int
@@ -235,6 +236,6 @@ instance
     ListTargetsForSecurityProfileResponse
   where
   rnf ListTargetsForSecurityProfileResponse' {..} =
-    Prelude.rnf securityProfileTargets
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf securityProfileTargets
       `Prelude.seq` Prelude.rnf httpStatus

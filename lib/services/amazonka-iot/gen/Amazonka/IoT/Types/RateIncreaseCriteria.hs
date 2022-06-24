@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRateIncreaseCriteria' smart constructor.
 data RateIncreaseCriteria = RateIncreaseCriteria'
-  { -- | The threshold for number of notified things that will initiate the
+  { -- | The threshold for number of succeeded things that will initiate the
     -- increase in rate of rollout.
-    numberOfNotifiedThings :: Prelude.Maybe Prelude.Natural,
-    -- | The threshold for number of succeeded things that will initiate the
+    numberOfSucceededThings :: Prelude.Maybe Prelude.Natural,
+    -- | The threshold for number of notified things that will initiate the
     -- increase in rate of rollout.
-    numberOfSucceededThings :: Prelude.Maybe Prelude.Natural
+    numberOfNotifiedThings :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,29 +45,29 @@ data RateIncreaseCriteria = RateIncreaseCriteria'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'numberOfNotifiedThings', 'rateIncreaseCriteria_numberOfNotifiedThings' - The threshold for number of notified things that will initiate the
+-- 'numberOfSucceededThings', 'rateIncreaseCriteria_numberOfSucceededThings' - The threshold for number of succeeded things that will initiate the
 -- increase in rate of rollout.
 --
--- 'numberOfSucceededThings', 'rateIncreaseCriteria_numberOfSucceededThings' - The threshold for number of succeeded things that will initiate the
+-- 'numberOfNotifiedThings', 'rateIncreaseCriteria_numberOfNotifiedThings' - The threshold for number of notified things that will initiate the
 -- increase in rate of rollout.
 newRateIncreaseCriteria ::
   RateIncreaseCriteria
 newRateIncreaseCriteria =
   RateIncreaseCriteria'
-    { numberOfNotifiedThings =
+    { numberOfSucceededThings =
         Prelude.Nothing,
-      numberOfSucceededThings = Prelude.Nothing
+      numberOfNotifiedThings = Prelude.Nothing
     }
-
--- | The threshold for number of notified things that will initiate the
--- increase in rate of rollout.
-rateIncreaseCriteria_numberOfNotifiedThings :: Lens.Lens' RateIncreaseCriteria (Prelude.Maybe Prelude.Natural)
-rateIncreaseCriteria_numberOfNotifiedThings = Lens.lens (\RateIncreaseCriteria' {numberOfNotifiedThings} -> numberOfNotifiedThings) (\s@RateIncreaseCriteria' {} a -> s {numberOfNotifiedThings = a} :: RateIncreaseCriteria)
 
 -- | The threshold for number of succeeded things that will initiate the
 -- increase in rate of rollout.
 rateIncreaseCriteria_numberOfSucceededThings :: Lens.Lens' RateIncreaseCriteria (Prelude.Maybe Prelude.Natural)
 rateIncreaseCriteria_numberOfSucceededThings = Lens.lens (\RateIncreaseCriteria' {numberOfSucceededThings} -> numberOfSucceededThings) (\s@RateIncreaseCriteria' {} a -> s {numberOfSucceededThings = a} :: RateIncreaseCriteria)
+
+-- | The threshold for number of notified things that will initiate the
+-- increase in rate of rollout.
+rateIncreaseCriteria_numberOfNotifiedThings :: Lens.Lens' RateIncreaseCriteria (Prelude.Maybe Prelude.Natural)
+rateIncreaseCriteria_numberOfNotifiedThings = Lens.lens (\RateIncreaseCriteria' {numberOfNotifiedThings} -> numberOfNotifiedThings) (\s@RateIncreaseCriteria' {} a -> s {numberOfNotifiedThings = a} :: RateIncreaseCriteria)
 
 instance Core.FromJSON RateIncreaseCriteria where
   parseJSON =
@@ -75,27 +75,28 @@ instance Core.FromJSON RateIncreaseCriteria where
       "RateIncreaseCriteria"
       ( \x ->
           RateIncreaseCriteria'
-            Prelude.<$> (x Core..:? "numberOfNotifiedThings")
-            Prelude.<*> (x Core..:? "numberOfSucceededThings")
+            Prelude.<$> (x Core..:? "numberOfSucceededThings")
+            Prelude.<*> (x Core..:? "numberOfNotifiedThings")
       )
 
 instance Prelude.Hashable RateIncreaseCriteria where
   hashWithSalt _salt RateIncreaseCriteria' {..} =
-    _salt `Prelude.hashWithSalt` numberOfNotifiedThings
+    _salt
       `Prelude.hashWithSalt` numberOfSucceededThings
+      `Prelude.hashWithSalt` numberOfNotifiedThings
 
 instance Prelude.NFData RateIncreaseCriteria where
   rnf RateIncreaseCriteria' {..} =
-    Prelude.rnf numberOfNotifiedThings
-      `Prelude.seq` Prelude.rnf numberOfSucceededThings
+    Prelude.rnf numberOfSucceededThings
+      `Prelude.seq` Prelude.rnf numberOfNotifiedThings
 
 instance Core.ToJSON RateIncreaseCriteria where
   toJSON RateIncreaseCriteria' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("numberOfNotifiedThings" Core..=)
-              Prelude.<$> numberOfNotifiedThings,
-            ("numberOfSucceededThings" Core..=)
-              Prelude.<$> numberOfSucceededThings
+          [ ("numberOfSucceededThings" Core..=)
+              Prelude.<$> numberOfSucceededThings,
+            ("numberOfNotifiedThings" Core..=)
+              Prelude.<$> numberOfNotifiedThings
           ]
       )

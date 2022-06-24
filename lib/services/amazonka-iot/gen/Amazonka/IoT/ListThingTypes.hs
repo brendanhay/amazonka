@@ -33,8 +33,8 @@ module Amazonka.IoT.ListThingTypes
     newListThingTypes,
 
     -- * Request Lenses
-    listThingTypes_thingTypeName,
     listThingTypes_nextToken,
+    listThingTypes_thingTypeName,
     listThingTypes_maxResults,
 
     -- * Destructuring the Response
@@ -42,8 +42,8 @@ module Amazonka.IoT.ListThingTypes
     newListThingTypesResponse,
 
     -- * Response Lenses
-    listThingTypesResponse_thingTypes,
     listThingTypesResponse_nextToken,
+    listThingTypesResponse_thingTypes,
     listThingTypesResponse_httpStatus,
   )
 where
@@ -59,12 +59,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListThingTypes' smart constructor.
 data ListThingTypes = ListThingTypes'
-  { -- | The name of the thing type.
-    thingTypeName :: Prelude.Maybe Prelude.Text,
-    -- | To retrieve the next set of results, the @nextToken@ value from a
+  { -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of the thing type.
+    thingTypeName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in this operation.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -78,31 +78,31 @@ data ListThingTypes = ListThingTypes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'thingTypeName', 'listThingTypes_thingTypeName' - The name of the thing type.
---
 -- 'nextToken', 'listThingTypes_nextToken' - To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
+--
+-- 'thingTypeName', 'listThingTypes_thingTypeName' - The name of the thing type.
 --
 -- 'maxResults', 'listThingTypes_maxResults' - The maximum number of results to return in this operation.
 newListThingTypes ::
   ListThingTypes
 newListThingTypes =
   ListThingTypes'
-    { thingTypeName = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      thingTypeName = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | The name of the thing type.
-listThingTypes_thingTypeName :: Lens.Lens' ListThingTypes (Prelude.Maybe Prelude.Text)
-listThingTypes_thingTypeName = Lens.lens (\ListThingTypes' {thingTypeName} -> thingTypeName) (\s@ListThingTypes' {} a -> s {thingTypeName = a} :: ListThingTypes)
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
 listThingTypes_nextToken :: Lens.Lens' ListThingTypes (Prelude.Maybe Prelude.Text)
 listThingTypes_nextToken = Lens.lens (\ListThingTypes' {nextToken} -> nextToken) (\s@ListThingTypes' {} a -> s {nextToken = a} :: ListThingTypes)
+
+-- | The name of the thing type.
+listThingTypes_thingTypeName :: Lens.Lens' ListThingTypes (Prelude.Maybe Prelude.Text)
+listThingTypes_thingTypeName = Lens.lens (\ListThingTypes' {thingTypeName} -> thingTypeName) (\s@ListThingTypes' {} a -> s {thingTypeName = a} :: ListThingTypes)
 
 -- | The maximum number of results to return in this operation.
 listThingTypes_maxResults :: Lens.Lens' ListThingTypes (Prelude.Maybe Prelude.Natural)
@@ -138,21 +138,21 @@ instance Core.AWSRequest ListThingTypes where
     Response.receiveJSON
       ( \s h x ->
           ListThingTypesResponse'
-            Prelude.<$> (x Core..?> "thingTypes" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "thingTypes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListThingTypes where
   hashWithSalt _salt ListThingTypes' {..} =
-    _salt `Prelude.hashWithSalt` thingTypeName
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` thingTypeName
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListThingTypes where
   rnf ListThingTypes' {..} =
-    Prelude.rnf thingTypeName
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf thingTypeName
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListThingTypes where
@@ -164,8 +164,8 @@ instance Core.ToPath ListThingTypes where
 instance Core.ToQuery ListThingTypes where
   toQuery ListThingTypes' {..} =
     Prelude.mconcat
-      [ "thingTypeName" Core.=: thingTypeName,
-        "nextToken" Core.=: nextToken,
+      [ "nextToken" Core.=: nextToken,
+        "thingTypeName" Core.=: thingTypeName,
         "maxResults" Core.=: maxResults
       ]
 
@@ -173,11 +173,11 @@ instance Core.ToQuery ListThingTypes where
 --
 -- /See:/ 'newListThingTypesResponse' smart constructor.
 data ListThingTypesResponse = ListThingTypesResponse'
-  { -- | The thing types.
-    thingTypes :: Prelude.Maybe [ThingTypeDefinition],
-    -- | The token for the next set of results. Will not be returned if operation
+  { -- | The token for the next set of results. Will not be returned if operation
     -- has returned all results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The thing types.
+    thingTypes :: Prelude.Maybe [ThingTypeDefinition],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -191,10 +191,10 @@ data ListThingTypesResponse = ListThingTypesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'thingTypes', 'listThingTypesResponse_thingTypes' - The thing types.
---
 -- 'nextToken', 'listThingTypesResponse_nextToken' - The token for the next set of results. Will not be returned if operation
 -- has returned all results.
+--
+-- 'thingTypes', 'listThingTypesResponse_thingTypes' - The thing types.
 --
 -- 'httpStatus', 'listThingTypesResponse_httpStatus' - The response's http status code.
 newListThingTypesResponse ::
@@ -203,20 +203,20 @@ newListThingTypesResponse ::
   ListThingTypesResponse
 newListThingTypesResponse pHttpStatus_ =
   ListThingTypesResponse'
-    { thingTypes =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      thingTypes = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The thing types.
-listThingTypesResponse_thingTypes :: Lens.Lens' ListThingTypesResponse (Prelude.Maybe [ThingTypeDefinition])
-listThingTypesResponse_thingTypes = Lens.lens (\ListThingTypesResponse' {thingTypes} -> thingTypes) (\s@ListThingTypesResponse' {} a -> s {thingTypes = a} :: ListThingTypesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results. Will not be returned if operation
 -- has returned all results.
 listThingTypesResponse_nextToken :: Lens.Lens' ListThingTypesResponse (Prelude.Maybe Prelude.Text)
 listThingTypesResponse_nextToken = Lens.lens (\ListThingTypesResponse' {nextToken} -> nextToken) (\s@ListThingTypesResponse' {} a -> s {nextToken = a} :: ListThingTypesResponse)
+
+-- | The thing types.
+listThingTypesResponse_thingTypes :: Lens.Lens' ListThingTypesResponse (Prelude.Maybe [ThingTypeDefinition])
+listThingTypesResponse_thingTypes = Lens.lens (\ListThingTypesResponse' {thingTypes} -> thingTypes) (\s@ListThingTypesResponse' {} a -> s {thingTypes = a} :: ListThingTypesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listThingTypesResponse_httpStatus :: Lens.Lens' ListThingTypesResponse Prelude.Int
@@ -224,6 +224,6 @@ listThingTypesResponse_httpStatus = Lens.lens (\ListThingTypesResponse' {httpSta
 
 instance Prelude.NFData ListThingTypesResponse where
   rnf ListThingTypesResponse' {..} =
-    Prelude.rnf thingTypes
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf thingTypes
       `Prelude.seq` Prelude.rnf httpStatus

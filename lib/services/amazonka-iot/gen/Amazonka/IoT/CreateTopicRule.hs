@@ -151,12 +151,7 @@ instance Core.ToHeaders CreateTopicRule where
 
 instance Core.ToJSON CreateTopicRule where
   toJSON CreateTopicRule' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("topicRulePayload" Core..= topicRulePayload)
-          ]
-      )
+    Core.toJSON topicRulePayload
 
 instance Core.ToPath CreateTopicRule where
   toPath CreateTopicRule' {..} =

@@ -33,19 +33,19 @@ module Amazonka.IoT.ListThingGroups
     newListThingGroups,
 
     -- * Request Lenses
-    listThingGroups_namePrefixFilter,
-    listThingGroups_parentGroup,
     listThingGroups_nextToken,
+    listThingGroups_namePrefixFilter,
     listThingGroups_recursive,
     listThingGroups_maxResults,
+    listThingGroups_parentGroup,
 
     -- * Destructuring the Response
     ListThingGroupsResponse (..),
     newListThingGroupsResponse,
 
     -- * Response Lenses
-    listThingGroupsResponse_thingGroups,
     listThingGroupsResponse_nextToken,
+    listThingGroupsResponse_thingGroups,
     listThingGroupsResponse_httpStatus,
   )
 where
@@ -59,20 +59,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListThingGroups' smart constructor.
 data ListThingGroups = ListThingGroups'
-  { -- | A filter that limits the results to those with the specified name
-    -- prefix.
-    namePrefixFilter :: Prelude.Maybe Prelude.Text,
-    -- | A filter that limits the results to those with the specified parent
-    -- group.
-    parentGroup :: Prelude.Maybe Prelude.Text,
-    -- | To retrieve the next set of results, the @nextToken@ value from a
+  { -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A filter that limits the results to those with the specified name
+    -- prefix.
+    namePrefixFilter :: Prelude.Maybe Prelude.Text,
     -- | If true, return child groups as well.
     recursive :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return at one time.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A filter that limits the results to those with the specified parent
+    -- group.
+    parentGroup :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,46 +84,40 @@ data ListThingGroups = ListThingGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'namePrefixFilter', 'listThingGroups_namePrefixFilter' - A filter that limits the results to those with the specified name
--- prefix.
---
--- 'parentGroup', 'listThingGroups_parentGroup' - A filter that limits the results to those with the specified parent
--- group.
---
 -- 'nextToken', 'listThingGroups_nextToken' - To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
 --
+-- 'namePrefixFilter', 'listThingGroups_namePrefixFilter' - A filter that limits the results to those with the specified name
+-- prefix.
+--
 -- 'recursive', 'listThingGroups_recursive' - If true, return child groups as well.
 --
 -- 'maxResults', 'listThingGroups_maxResults' - The maximum number of results to return at one time.
+--
+-- 'parentGroup', 'listThingGroups_parentGroup' - A filter that limits the results to those with the specified parent
+-- group.
 newListThingGroups ::
   ListThingGroups
 newListThingGroups =
   ListThingGroups'
-    { namePrefixFilter =
-        Prelude.Nothing,
-      parentGroup = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      namePrefixFilter = Prelude.Nothing,
       recursive = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      parentGroup = Prelude.Nothing
     }
-
--- | A filter that limits the results to those with the specified name
--- prefix.
-listThingGroups_namePrefixFilter :: Lens.Lens' ListThingGroups (Prelude.Maybe Prelude.Text)
-listThingGroups_namePrefixFilter = Lens.lens (\ListThingGroups' {namePrefixFilter} -> namePrefixFilter) (\s@ListThingGroups' {} a -> s {namePrefixFilter = a} :: ListThingGroups)
-
--- | A filter that limits the results to those with the specified parent
--- group.
-listThingGroups_parentGroup :: Lens.Lens' ListThingGroups (Prelude.Maybe Prelude.Text)
-listThingGroups_parentGroup = Lens.lens (\ListThingGroups' {parentGroup} -> parentGroup) (\s@ListThingGroups' {} a -> s {parentGroup = a} :: ListThingGroups)
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
 listThingGroups_nextToken :: Lens.Lens' ListThingGroups (Prelude.Maybe Prelude.Text)
 listThingGroups_nextToken = Lens.lens (\ListThingGroups' {nextToken} -> nextToken) (\s@ListThingGroups' {} a -> s {nextToken = a} :: ListThingGroups)
+
+-- | A filter that limits the results to those with the specified name
+-- prefix.
+listThingGroups_namePrefixFilter :: Lens.Lens' ListThingGroups (Prelude.Maybe Prelude.Text)
+listThingGroups_namePrefixFilter = Lens.lens (\ListThingGroups' {namePrefixFilter} -> namePrefixFilter) (\s@ListThingGroups' {} a -> s {namePrefixFilter = a} :: ListThingGroups)
 
 -- | If true, return child groups as well.
 listThingGroups_recursive :: Lens.Lens' ListThingGroups (Prelude.Maybe Prelude.Bool)
@@ -132,6 +126,11 @@ listThingGroups_recursive = Lens.lens (\ListThingGroups' {recursive} -> recursiv
 -- | The maximum number of results to return at one time.
 listThingGroups_maxResults :: Lens.Lens' ListThingGroups (Prelude.Maybe Prelude.Natural)
 listThingGroups_maxResults = Lens.lens (\ListThingGroups' {maxResults} -> maxResults) (\s@ListThingGroups' {} a -> s {maxResults = a} :: ListThingGroups)
+
+-- | A filter that limits the results to those with the specified parent
+-- group.
+listThingGroups_parentGroup :: Lens.Lens' ListThingGroups (Prelude.Maybe Prelude.Text)
+listThingGroups_parentGroup = Lens.lens (\ListThingGroups' {parentGroup} -> parentGroup) (\s@ListThingGroups' {} a -> s {parentGroup = a} :: ListThingGroups)
 
 instance Core.AWSPager ListThingGroups where
   page rq rs
@@ -164,26 +163,26 @@ instance Core.AWSRequest ListThingGroups where
     Response.receiveJSON
       ( \s h x ->
           ListThingGroupsResponse'
-            Prelude.<$> (x Core..?> "thingGroups" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "thingGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListThingGroups where
   hashWithSalt _salt ListThingGroups' {..} =
-    _salt `Prelude.hashWithSalt` namePrefixFilter
-      `Prelude.hashWithSalt` parentGroup
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` namePrefixFilter
       `Prelude.hashWithSalt` recursive
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` parentGroup
 
 instance Prelude.NFData ListThingGroups where
   rnf ListThingGroups' {..} =
-    Prelude.rnf namePrefixFilter
-      `Prelude.seq` Prelude.rnf parentGroup
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf namePrefixFilter
       `Prelude.seq` Prelude.rnf recursive
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf parentGroup
 
 instance Core.ToHeaders ListThingGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -194,20 +193,20 @@ instance Core.ToPath ListThingGroups where
 instance Core.ToQuery ListThingGroups where
   toQuery ListThingGroups' {..} =
     Prelude.mconcat
-      [ "namePrefixFilter" Core.=: namePrefixFilter,
-        "parentGroup" Core.=: parentGroup,
-        "nextToken" Core.=: nextToken,
+      [ "nextToken" Core.=: nextToken,
+        "namePrefixFilter" Core.=: namePrefixFilter,
         "recursive" Core.=: recursive,
-        "maxResults" Core.=: maxResults
+        "maxResults" Core.=: maxResults,
+        "parentGroup" Core.=: parentGroup
       ]
 
 -- | /See:/ 'newListThingGroupsResponse' smart constructor.
 data ListThingGroupsResponse = ListThingGroupsResponse'
-  { -- | The thing groups.
-    thingGroups :: Prelude.Maybe [GroupNameAndArn],
-    -- | The token to use to get the next set of results. Will not be returned if
+  { -- | The token to use to get the next set of results. Will not be returned if
     -- operation has returned all results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The thing groups.
+    thingGroups :: Prelude.Maybe [GroupNameAndArn],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -221,10 +220,10 @@ data ListThingGroupsResponse = ListThingGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'thingGroups', 'listThingGroupsResponse_thingGroups' - The thing groups.
---
 -- 'nextToken', 'listThingGroupsResponse_nextToken' - The token to use to get the next set of results. Will not be returned if
 -- operation has returned all results.
+--
+-- 'thingGroups', 'listThingGroupsResponse_thingGroups' - The thing groups.
 --
 -- 'httpStatus', 'listThingGroupsResponse_httpStatus' - The response's http status code.
 newListThingGroupsResponse ::
@@ -233,20 +232,20 @@ newListThingGroupsResponse ::
   ListThingGroupsResponse
 newListThingGroupsResponse pHttpStatus_ =
   ListThingGroupsResponse'
-    { thingGroups =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      thingGroups = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The thing groups.
-listThingGroupsResponse_thingGroups :: Lens.Lens' ListThingGroupsResponse (Prelude.Maybe [GroupNameAndArn])
-listThingGroupsResponse_thingGroups = Lens.lens (\ListThingGroupsResponse' {thingGroups} -> thingGroups) (\s@ListThingGroupsResponse' {} a -> s {thingGroups = a} :: ListThingGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to get the next set of results. Will not be returned if
 -- operation has returned all results.
 listThingGroupsResponse_nextToken :: Lens.Lens' ListThingGroupsResponse (Prelude.Maybe Prelude.Text)
 listThingGroupsResponse_nextToken = Lens.lens (\ListThingGroupsResponse' {nextToken} -> nextToken) (\s@ListThingGroupsResponse' {} a -> s {nextToken = a} :: ListThingGroupsResponse)
+
+-- | The thing groups.
+listThingGroupsResponse_thingGroups :: Lens.Lens' ListThingGroupsResponse (Prelude.Maybe [GroupNameAndArn])
+listThingGroupsResponse_thingGroups = Lens.lens (\ListThingGroupsResponse' {thingGroups} -> thingGroups) (\s@ListThingGroupsResponse' {} a -> s {thingGroups = a} :: ListThingGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listThingGroupsResponse_httpStatus :: Lens.Lens' ListThingGroupsResponse Prelude.Int
@@ -254,6 +253,6 @@ listThingGroupsResponse_httpStatus = Lens.lens (\ListThingGroupsResponse' {httpS
 
 instance Prelude.NFData ListThingGroupsResponse where
   rnf ListThingGroupsResponse' {..} =
-    Prelude.rnf thingGroups
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf thingGroups
       `Prelude.seq` Prelude.rnf httpStatus

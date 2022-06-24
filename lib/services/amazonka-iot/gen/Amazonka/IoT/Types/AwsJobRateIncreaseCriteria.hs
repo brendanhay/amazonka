@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsJobRateIncreaseCriteria' smart constructor.
 data AwsJobRateIncreaseCriteria = AwsJobRateIncreaseCriteria'
-  { -- | When this number of things have been notified, it will initiate an
-    -- increase in the rollout rate.
-    numberOfNotifiedThings :: Prelude.Maybe Prelude.Natural,
-    -- | When this number of things have succeeded in their job execution, it
+  { -- | When this number of things have succeeded in their job execution, it
     -- will initiate an increase in the rollout rate.
-    numberOfSucceededThings :: Prelude.Maybe Prelude.Natural
+    numberOfSucceededThings :: Prelude.Maybe Prelude.Natural,
+    -- | When this number of things have been notified, it will initiate an
+    -- increase in the rollout rate.
+    numberOfNotifiedThings :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,29 +44,29 @@ data AwsJobRateIncreaseCriteria = AwsJobRateIncreaseCriteria'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'numberOfNotifiedThings', 'awsJobRateIncreaseCriteria_numberOfNotifiedThings' - When this number of things have been notified, it will initiate an
--- increase in the rollout rate.
---
 -- 'numberOfSucceededThings', 'awsJobRateIncreaseCriteria_numberOfSucceededThings' - When this number of things have succeeded in their job execution, it
 -- will initiate an increase in the rollout rate.
+--
+-- 'numberOfNotifiedThings', 'awsJobRateIncreaseCriteria_numberOfNotifiedThings' - When this number of things have been notified, it will initiate an
+-- increase in the rollout rate.
 newAwsJobRateIncreaseCriteria ::
   AwsJobRateIncreaseCriteria
 newAwsJobRateIncreaseCriteria =
   AwsJobRateIncreaseCriteria'
-    { numberOfNotifiedThings =
+    { numberOfSucceededThings =
         Prelude.Nothing,
-      numberOfSucceededThings = Prelude.Nothing
+      numberOfNotifiedThings = Prelude.Nothing
     }
-
--- | When this number of things have been notified, it will initiate an
--- increase in the rollout rate.
-awsJobRateIncreaseCriteria_numberOfNotifiedThings :: Lens.Lens' AwsJobRateIncreaseCriteria (Prelude.Maybe Prelude.Natural)
-awsJobRateIncreaseCriteria_numberOfNotifiedThings = Lens.lens (\AwsJobRateIncreaseCriteria' {numberOfNotifiedThings} -> numberOfNotifiedThings) (\s@AwsJobRateIncreaseCriteria' {} a -> s {numberOfNotifiedThings = a} :: AwsJobRateIncreaseCriteria)
 
 -- | When this number of things have succeeded in their job execution, it
 -- will initiate an increase in the rollout rate.
 awsJobRateIncreaseCriteria_numberOfSucceededThings :: Lens.Lens' AwsJobRateIncreaseCriteria (Prelude.Maybe Prelude.Natural)
 awsJobRateIncreaseCriteria_numberOfSucceededThings = Lens.lens (\AwsJobRateIncreaseCriteria' {numberOfSucceededThings} -> numberOfSucceededThings) (\s@AwsJobRateIncreaseCriteria' {} a -> s {numberOfSucceededThings = a} :: AwsJobRateIncreaseCriteria)
+
+-- | When this number of things have been notified, it will initiate an
+-- increase in the rollout rate.
+awsJobRateIncreaseCriteria_numberOfNotifiedThings :: Lens.Lens' AwsJobRateIncreaseCriteria (Prelude.Maybe Prelude.Natural)
+awsJobRateIncreaseCriteria_numberOfNotifiedThings = Lens.lens (\AwsJobRateIncreaseCriteria' {numberOfNotifiedThings} -> numberOfNotifiedThings) (\s@AwsJobRateIncreaseCriteria' {} a -> s {numberOfNotifiedThings = a} :: AwsJobRateIncreaseCriteria)
 
 instance Core.FromJSON AwsJobRateIncreaseCriteria where
   parseJSON =
@@ -74,27 +74,28 @@ instance Core.FromJSON AwsJobRateIncreaseCriteria where
       "AwsJobRateIncreaseCriteria"
       ( \x ->
           AwsJobRateIncreaseCriteria'
-            Prelude.<$> (x Core..:? "numberOfNotifiedThings")
-            Prelude.<*> (x Core..:? "numberOfSucceededThings")
+            Prelude.<$> (x Core..:? "numberOfSucceededThings")
+            Prelude.<*> (x Core..:? "numberOfNotifiedThings")
       )
 
 instance Prelude.Hashable AwsJobRateIncreaseCriteria where
   hashWithSalt _salt AwsJobRateIncreaseCriteria' {..} =
-    _salt `Prelude.hashWithSalt` numberOfNotifiedThings
+    _salt
       `Prelude.hashWithSalt` numberOfSucceededThings
+      `Prelude.hashWithSalt` numberOfNotifiedThings
 
 instance Prelude.NFData AwsJobRateIncreaseCriteria where
   rnf AwsJobRateIncreaseCriteria' {..} =
-    Prelude.rnf numberOfNotifiedThings
-      `Prelude.seq` Prelude.rnf numberOfSucceededThings
+    Prelude.rnf numberOfSucceededThings
+      `Prelude.seq` Prelude.rnf numberOfNotifiedThings
 
 instance Core.ToJSON AwsJobRateIncreaseCriteria where
   toJSON AwsJobRateIncreaseCriteria' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("numberOfNotifiedThings" Core..=)
-              Prelude.<$> numberOfNotifiedThings,
-            ("numberOfSucceededThings" Core..=)
-              Prelude.<$> numberOfSucceededThings
+          [ ("numberOfSucceededThings" Core..=)
+              Prelude.<$> numberOfSucceededThings,
+            ("numberOfNotifiedThings" Core..=)
+              Prelude.<$> numberOfNotifiedThings
           ]
       )

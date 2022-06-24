@@ -33,8 +33,8 @@ module Amazonka.IoT.ListThingRegistrationTasks
     newListThingRegistrationTasks,
 
     -- * Request Lenses
-    listThingRegistrationTasks_status,
     listThingRegistrationTasks_nextToken,
+    listThingRegistrationTasks_status,
     listThingRegistrationTasks_maxResults,
 
     -- * Destructuring the Response
@@ -57,12 +57,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListThingRegistrationTasks' smart constructor.
 data ListThingRegistrationTasks = ListThingRegistrationTasks'
-  { -- | The status of the bulk thing provisioning task.
-    status :: Prelude.Maybe TaskStatus,
-    -- | To retrieve the next set of results, the @nextToken@ value from a
+  { -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The status of the bulk thing provisioning task.
+    status :: Prelude.Maybe TaskStatus,
     -- | The maximum number of results to return at one time.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -76,32 +76,32 @@ data ListThingRegistrationTasks = ListThingRegistrationTasks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'listThingRegistrationTasks_status' - The status of the bulk thing provisioning task.
---
 -- 'nextToken', 'listThingRegistrationTasks_nextToken' - To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
+--
+-- 'status', 'listThingRegistrationTasks_status' - The status of the bulk thing provisioning task.
 --
 -- 'maxResults', 'listThingRegistrationTasks_maxResults' - The maximum number of results to return at one time.
 newListThingRegistrationTasks ::
   ListThingRegistrationTasks
 newListThingRegistrationTasks =
   ListThingRegistrationTasks'
-    { status =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      status = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
-
--- | The status of the bulk thing provisioning task.
-listThingRegistrationTasks_status :: Lens.Lens' ListThingRegistrationTasks (Prelude.Maybe TaskStatus)
-listThingRegistrationTasks_status = Lens.lens (\ListThingRegistrationTasks' {status} -> status) (\s@ListThingRegistrationTasks' {} a -> s {status = a} :: ListThingRegistrationTasks)
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
 listThingRegistrationTasks_nextToken :: Lens.Lens' ListThingRegistrationTasks (Prelude.Maybe Prelude.Text)
 listThingRegistrationTasks_nextToken = Lens.lens (\ListThingRegistrationTasks' {nextToken} -> nextToken) (\s@ListThingRegistrationTasks' {} a -> s {nextToken = a} :: ListThingRegistrationTasks)
+
+-- | The status of the bulk thing provisioning task.
+listThingRegistrationTasks_status :: Lens.Lens' ListThingRegistrationTasks (Prelude.Maybe TaskStatus)
+listThingRegistrationTasks_status = Lens.lens (\ListThingRegistrationTasks' {status} -> status) (\s@ListThingRegistrationTasks' {} a -> s {status = a} :: ListThingRegistrationTasks)
 
 -- | The maximum number of results to return at one time.
 listThingRegistrationTasks_maxResults :: Lens.Lens' ListThingRegistrationTasks (Prelude.Maybe Prelude.Natural)
@@ -145,14 +145,14 @@ instance Core.AWSRequest ListThingRegistrationTasks where
 
 instance Prelude.Hashable ListThingRegistrationTasks where
   hashWithSalt _salt ListThingRegistrationTasks' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListThingRegistrationTasks where
   rnf ListThingRegistrationTasks' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListThingRegistrationTasks where
@@ -164,8 +164,8 @@ instance Core.ToPath ListThingRegistrationTasks where
 instance Core.ToQuery ListThingRegistrationTasks where
   toQuery ListThingRegistrationTasks' {..} =
     Prelude.mconcat
-      [ "status" Core.=: status,
-        "nextToken" Core.=: nextToken,
+      [ "nextToken" Core.=: nextToken,
+        "status" Core.=: status,
         "maxResults" Core.=: maxResults
       ]
 

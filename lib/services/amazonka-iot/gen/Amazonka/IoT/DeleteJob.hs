@@ -40,8 +40,8 @@ module Amazonka.IoT.DeleteJob
     newDeleteJob,
 
     -- * Request Lenses
-    deleteJob_force,
     deleteJob_namespaceId,
+    deleteJob_force,
     deleteJob_jobId,
 
     -- * Destructuring the Response
@@ -59,17 +59,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteJob' smart constructor.
 data DeleteJob = DeleteJob'
-  { -- | (Optional) When true, you can delete a job which is \"IN_PROGRESS\".
-    -- Otherwise, you can only delete a job which is in a terminal state
-    -- (\"COMPLETED\" or \"CANCELED\") or an exception will occur. The default
-    -- is false.
-    --
-    -- Deleting a job which is \"IN_PROGRESS\", will cause a device which is
-    -- executing the job to be unable to access job information or update the
-    -- job execution status. Use caution and ensure that each device executing
-    -- a job which is deleted is able to recover to a valid state.
-    force :: Prelude.Maybe Prelude.Bool,
-    -- | The namespace used to indicate that a job is a customer-managed job.
+  { -- | The namespace used to indicate that a job is a customer-managed job.
     --
     -- When you specify a value for this parameter, Amazon Web Services IoT
     -- Core sends jobs notifications to MQTT topics that contain the value in
@@ -79,6 +69,16 @@ data DeleteJob = DeleteJob'
     --
     -- The @namespaceId@ feature is in public preview.
     namespaceId :: Prelude.Maybe Prelude.Text,
+    -- | (Optional) When true, you can delete a job which is \"IN_PROGRESS\".
+    -- Otherwise, you can only delete a job which is in a terminal state
+    -- (\"COMPLETED\" or \"CANCELED\") or an exception will occur. The default
+    -- is false.
+    --
+    -- Deleting a job which is \"IN_PROGRESS\", will cause a device which is
+    -- executing the job to be unable to access job information or update the
+    -- job execution status. Use caution and ensure that each device executing
+    -- a job which is deleted is able to recover to a valid state.
+    force :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the job to be deleted.
     --
     -- After a job deletion is completed, you may reuse this jobId when you
@@ -96,16 +96,6 @@ data DeleteJob = DeleteJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'force', 'deleteJob_force' - (Optional) When true, you can delete a job which is \"IN_PROGRESS\".
--- Otherwise, you can only delete a job which is in a terminal state
--- (\"COMPLETED\" or \"CANCELED\") or an exception will occur. The default
--- is false.
---
--- Deleting a job which is \"IN_PROGRESS\", will cause a device which is
--- executing the job to be unable to access job information or update the
--- job execution status. Use caution and ensure that each device executing
--- a job which is deleted is able to recover to a valid state.
---
 -- 'namespaceId', 'deleteJob_namespaceId' - The namespace used to indicate that a job is a customer-managed job.
 --
 -- When you specify a value for this parameter, Amazon Web Services IoT
@@ -115,6 +105,16 @@ data DeleteJob = DeleteJob'
 -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
 --
 -- The @namespaceId@ feature is in public preview.
+--
+-- 'force', 'deleteJob_force' - (Optional) When true, you can delete a job which is \"IN_PROGRESS\".
+-- Otherwise, you can only delete a job which is in a terminal state
+-- (\"COMPLETED\" or \"CANCELED\") or an exception will occur. The default
+-- is false.
+--
+-- Deleting a job which is \"IN_PROGRESS\", will cause a device which is
+-- executing the job to be unable to access job information or update the
+-- job execution status. Use caution and ensure that each device executing
+-- a job which is deleted is able to recover to a valid state.
 --
 -- 'jobId', 'deleteJob_jobId' - The ID of the job to be deleted.
 --
@@ -127,22 +127,10 @@ newDeleteJob ::
   DeleteJob
 newDeleteJob pJobId_ =
   DeleteJob'
-    { force = Prelude.Nothing,
-      namespaceId = Prelude.Nothing,
+    { namespaceId = Prelude.Nothing,
+      force = Prelude.Nothing,
       jobId = pJobId_
     }
-
--- | (Optional) When true, you can delete a job which is \"IN_PROGRESS\".
--- Otherwise, you can only delete a job which is in a terminal state
--- (\"COMPLETED\" or \"CANCELED\") or an exception will occur. The default
--- is false.
---
--- Deleting a job which is \"IN_PROGRESS\", will cause a device which is
--- executing the job to be unable to access job information or update the
--- job execution status. Use caution and ensure that each device executing
--- a job which is deleted is able to recover to a valid state.
-deleteJob_force :: Lens.Lens' DeleteJob (Prelude.Maybe Prelude.Bool)
-deleteJob_force = Lens.lens (\DeleteJob' {force} -> force) (\s@DeleteJob' {} a -> s {force = a} :: DeleteJob)
 
 -- | The namespace used to indicate that a job is a customer-managed job.
 --
@@ -155,6 +143,18 @@ deleteJob_force = Lens.lens (\DeleteJob' {force} -> force) (\s@DeleteJob' {} a -
 -- The @namespaceId@ feature is in public preview.
 deleteJob_namespaceId :: Lens.Lens' DeleteJob (Prelude.Maybe Prelude.Text)
 deleteJob_namespaceId = Lens.lens (\DeleteJob' {namespaceId} -> namespaceId) (\s@DeleteJob' {} a -> s {namespaceId = a} :: DeleteJob)
+
+-- | (Optional) When true, you can delete a job which is \"IN_PROGRESS\".
+-- Otherwise, you can only delete a job which is in a terminal state
+-- (\"COMPLETED\" or \"CANCELED\") or an exception will occur. The default
+-- is false.
+--
+-- Deleting a job which is \"IN_PROGRESS\", will cause a device which is
+-- executing the job to be unable to access job information or update the
+-- job execution status. Use caution and ensure that each device executing
+-- a job which is deleted is able to recover to a valid state.
+deleteJob_force :: Lens.Lens' DeleteJob (Prelude.Maybe Prelude.Bool)
+deleteJob_force = Lens.lens (\DeleteJob' {force} -> force) (\s@DeleteJob' {} a -> s {force = a} :: DeleteJob)
 
 -- | The ID of the job to be deleted.
 --
@@ -171,14 +171,14 @@ instance Core.AWSRequest DeleteJob where
 
 instance Prelude.Hashable DeleteJob where
   hashWithSalt _salt DeleteJob' {..} =
-    _salt `Prelude.hashWithSalt` force
-      `Prelude.hashWithSalt` namespaceId
+    _salt `Prelude.hashWithSalt` namespaceId
+      `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` jobId
 
 instance Prelude.NFData DeleteJob where
   rnf DeleteJob' {..} =
-    Prelude.rnf force
-      `Prelude.seq` Prelude.rnf namespaceId
+    Prelude.rnf namespaceId
+      `Prelude.seq` Prelude.rnf force
       `Prelude.seq` Prelude.rnf jobId
 
 instance Core.ToHeaders DeleteJob where
@@ -191,8 +191,8 @@ instance Core.ToPath DeleteJob where
 instance Core.ToQuery DeleteJob where
   toQuery DeleteJob' {..} =
     Prelude.mconcat
-      [ "force" Core.=: force,
-        "namespaceId" Core.=: namespaceId
+      [ "namespaceId" Core.=: namespaceId,
+        "force" Core.=: force
       ]
 
 -- | /See:/ 'newDeleteJobResponse' smart constructor.

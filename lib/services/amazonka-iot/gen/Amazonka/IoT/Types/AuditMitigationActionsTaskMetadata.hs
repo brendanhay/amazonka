@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAuditMitigationActionsTaskMetadata' smart constructor.
 data AuditMitigationActionsTaskMetadata = AuditMitigationActionsTaskMetadata'
-  { -- | The time at which the audit mitigation actions task was started.
-    startTime :: Prelude.Maybe Core.POSIX,
-    -- | The unique identifier for the task.
+  { -- | The unique identifier for the task.
     taskId :: Prelude.Maybe Prelude.Text,
     -- | The current state of the audit mitigation actions task.
-    taskStatus :: Prelude.Maybe AuditMitigationActionsTaskStatus
+    taskStatus :: Prelude.Maybe AuditMitigationActionsTaskStatus,
+    -- | The time at which the audit mitigation actions task was started.
+    startTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,24 +46,20 @@ data AuditMitigationActionsTaskMetadata = AuditMitigationActionsTaskMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startTime', 'auditMitigationActionsTaskMetadata_startTime' - The time at which the audit mitigation actions task was started.
---
 -- 'taskId', 'auditMitigationActionsTaskMetadata_taskId' - The unique identifier for the task.
 --
 -- 'taskStatus', 'auditMitigationActionsTaskMetadata_taskStatus' - The current state of the audit mitigation actions task.
+--
+-- 'startTime', 'auditMitigationActionsTaskMetadata_startTime' - The time at which the audit mitigation actions task was started.
 newAuditMitigationActionsTaskMetadata ::
   AuditMitigationActionsTaskMetadata
 newAuditMitigationActionsTaskMetadata =
   AuditMitigationActionsTaskMetadata'
-    { startTime =
+    { taskId =
         Prelude.Nothing,
-      taskId = Prelude.Nothing,
-      taskStatus = Prelude.Nothing
+      taskStatus = Prelude.Nothing,
+      startTime = Prelude.Nothing
     }
-
--- | The time at which the audit mitigation actions task was started.
-auditMitigationActionsTaskMetadata_startTime :: Lens.Lens' AuditMitigationActionsTaskMetadata (Prelude.Maybe Prelude.UTCTime)
-auditMitigationActionsTaskMetadata_startTime = Lens.lens (\AuditMitigationActionsTaskMetadata' {startTime} -> startTime) (\s@AuditMitigationActionsTaskMetadata' {} a -> s {startTime = a} :: AuditMitigationActionsTaskMetadata) Prelude.. Lens.mapping Core._Time
 
 -- | The unique identifier for the task.
 auditMitigationActionsTaskMetadata_taskId :: Lens.Lens' AuditMitigationActionsTaskMetadata (Prelude.Maybe Prelude.Text)
@@ -72,6 +68,10 @@ auditMitigationActionsTaskMetadata_taskId = Lens.lens (\AuditMitigationActionsTa
 -- | The current state of the audit mitigation actions task.
 auditMitigationActionsTaskMetadata_taskStatus :: Lens.Lens' AuditMitigationActionsTaskMetadata (Prelude.Maybe AuditMitigationActionsTaskStatus)
 auditMitigationActionsTaskMetadata_taskStatus = Lens.lens (\AuditMitigationActionsTaskMetadata' {taskStatus} -> taskStatus) (\s@AuditMitigationActionsTaskMetadata' {} a -> s {taskStatus = a} :: AuditMitigationActionsTaskMetadata)
+
+-- | The time at which the audit mitigation actions task was started.
+auditMitigationActionsTaskMetadata_startTime :: Lens.Lens' AuditMitigationActionsTaskMetadata (Prelude.Maybe Prelude.UTCTime)
+auditMitigationActionsTaskMetadata_startTime = Lens.lens (\AuditMitigationActionsTaskMetadata' {startTime} -> startTime) (\s@AuditMitigationActionsTaskMetadata' {} a -> s {startTime = a} :: AuditMitigationActionsTaskMetadata) Prelude.. Lens.mapping Core._Time
 
 instance
   Core.FromJSON
@@ -82,9 +82,9 @@ instance
       "AuditMitigationActionsTaskMetadata"
       ( \x ->
           AuditMitigationActionsTaskMetadata'
-            Prelude.<$> (x Core..:? "startTime")
-            Prelude.<*> (x Core..:? "taskId")
+            Prelude.<$> (x Core..:? "taskId")
             Prelude.<*> (x Core..:? "taskStatus")
+            Prelude.<*> (x Core..:? "startTime")
       )
 
 instance
@@ -94,15 +94,15 @@ instance
   hashWithSalt
     _salt
     AuditMitigationActionsTaskMetadata' {..} =
-      _salt `Prelude.hashWithSalt` startTime
-        `Prelude.hashWithSalt` taskId
+      _salt `Prelude.hashWithSalt` taskId
         `Prelude.hashWithSalt` taskStatus
+        `Prelude.hashWithSalt` startTime
 
 instance
   Prelude.NFData
     AuditMitigationActionsTaskMetadata
   where
   rnf AuditMitigationActionsTaskMetadata' {..} =
-    Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf taskId
+    Prelude.rnf taskId
       `Prelude.seq` Prelude.rnf taskStatus
+      `Prelude.seq` Prelude.rnf startTime

@@ -42,8 +42,8 @@ module Amazonka.IoT.ListTopicRuleDestinations
     newListTopicRuleDestinationsResponse,
 
     -- * Response Lenses
-    listTopicRuleDestinationsResponse_destinationSummaries,
     listTopicRuleDestinationsResponse_nextToken,
+    listTopicRuleDestinationsResponse_destinationSummaries,
     listTopicRuleDestinationsResponse_httpStatus,
   )
 where
@@ -129,10 +129,10 @@ instance Core.AWSRequest ListTopicRuleDestinations where
     Response.receiveJSON
       ( \s h x ->
           ListTopicRuleDestinationsResponse'
-            Prelude.<$> ( x Core..?> "destinationSummaries"
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "destinationSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,11 +161,11 @@ instance Core.ToQuery ListTopicRuleDestinations where
 
 -- | /See:/ 'newListTopicRuleDestinationsResponse' smart constructor.
 data ListTopicRuleDestinationsResponse = ListTopicRuleDestinationsResponse'
-  { -- | Information about a topic rule destination.
-    destinationSummaries :: Prelude.Maybe [TopicRuleDestinationSummary],
-    -- | The token to use to get the next set of results, or __null__ if there
+  { -- | The token to use to get the next set of results, or __null__ if there
     -- are no additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about a topic rule destination.
+    destinationSummaries :: Prelude.Maybe [TopicRuleDestinationSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -179,10 +179,10 @@ data ListTopicRuleDestinationsResponse = ListTopicRuleDestinationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'destinationSummaries', 'listTopicRuleDestinationsResponse_destinationSummaries' - Information about a topic rule destination.
---
 -- 'nextToken', 'listTopicRuleDestinationsResponse_nextToken' - The token to use to get the next set of results, or __null__ if there
 -- are no additional results.
+--
+-- 'destinationSummaries', 'listTopicRuleDestinationsResponse_destinationSummaries' - Information about a topic rule destination.
 --
 -- 'httpStatus', 'listTopicRuleDestinationsResponse_httpStatus' - The response's http status code.
 newListTopicRuleDestinationsResponse ::
@@ -191,20 +191,20 @@ newListTopicRuleDestinationsResponse ::
   ListTopicRuleDestinationsResponse
 newListTopicRuleDestinationsResponse pHttpStatus_ =
   ListTopicRuleDestinationsResponse'
-    { destinationSummaries =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      destinationSummaries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about a topic rule destination.
-listTopicRuleDestinationsResponse_destinationSummaries :: Lens.Lens' ListTopicRuleDestinationsResponse (Prelude.Maybe [TopicRuleDestinationSummary])
-listTopicRuleDestinationsResponse_destinationSummaries = Lens.lens (\ListTopicRuleDestinationsResponse' {destinationSummaries} -> destinationSummaries) (\s@ListTopicRuleDestinationsResponse' {} a -> s {destinationSummaries = a} :: ListTopicRuleDestinationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to get the next set of results, or __null__ if there
 -- are no additional results.
 listTopicRuleDestinationsResponse_nextToken :: Lens.Lens' ListTopicRuleDestinationsResponse (Prelude.Maybe Prelude.Text)
 listTopicRuleDestinationsResponse_nextToken = Lens.lens (\ListTopicRuleDestinationsResponse' {nextToken} -> nextToken) (\s@ListTopicRuleDestinationsResponse' {} a -> s {nextToken = a} :: ListTopicRuleDestinationsResponse)
+
+-- | Information about a topic rule destination.
+listTopicRuleDestinationsResponse_destinationSummaries :: Lens.Lens' ListTopicRuleDestinationsResponse (Prelude.Maybe [TopicRuleDestinationSummary])
+listTopicRuleDestinationsResponse_destinationSummaries = Lens.lens (\ListTopicRuleDestinationsResponse' {destinationSummaries} -> destinationSummaries) (\s@ListTopicRuleDestinationsResponse' {} a -> s {destinationSummaries = a} :: ListTopicRuleDestinationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTopicRuleDestinationsResponse_httpStatus :: Lens.Lens' ListTopicRuleDestinationsResponse Prelude.Int
@@ -215,6 +215,6 @@ instance
     ListTopicRuleDestinationsResponse
   where
   rnf ListTopicRuleDestinationsResponse' {..} =
-    Prelude.rnf destinationSummaries
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf destinationSummaries
       `Prelude.seq` Prelude.rnf httpStatus

@@ -28,9 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAuditCheckDetails' smart constructor.
 data AuditCheckDetails = AuditCheckDetails'
-  { -- | Describes how many of the non-compliant resources created during the
-    -- evaluation of an audit check were marked as suppressed.
-    suppressedNonCompliantResourcesCount :: Prelude.Maybe Prelude.Integer,
+  { -- | The message associated with any error encountered when this check is
+    -- performed during this audit.
+    message :: Prelude.Maybe Prelude.Text,
     -- | The number of resources on which the check was performed.
     totalResourcesCount :: Prelude.Maybe Prelude.Integer,
     -- | True if the check is complete and found all resources compliant.
@@ -41,13 +41,13 @@ data AuditCheckDetails = AuditCheckDetails'
     -- this audit. One of \"INSUFFICIENT_PERMISSIONS\" or
     -- \"AUDIT_CHECK_DISABLED\".
     errorCode :: Prelude.Maybe Prelude.Text,
-    -- | The message associated with any error encountered when this check is
-    -- performed during this audit.
-    message :: Prelude.Maybe Prelude.Text,
     -- | The completion status of this check. One of \"IN_PROGRESS\",
     -- \"WAITING_FOR_DATA_COLLECTION\", \"CANCELED\", \"COMPLETED_COMPLIANT\",
     -- \"COMPLETED_NON_COMPLIANT\", or \"FAILED\".
-    checkRunStatus :: Prelude.Maybe AuditCheckRunStatus
+    checkRunStatus :: Prelude.Maybe AuditCheckRunStatus,
+    -- | Describes how many of the non-compliant resources created during the
+    -- evaluation of an audit check were marked as suppressed.
+    suppressedNonCompliantResourcesCount :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,8 +59,8 @@ data AuditCheckDetails = AuditCheckDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'suppressedNonCompliantResourcesCount', 'auditCheckDetails_suppressedNonCompliantResourcesCount' - Describes how many of the non-compliant resources created during the
--- evaluation of an audit check were marked as suppressed.
+-- 'message', 'auditCheckDetails_message' - The message associated with any error encountered when this check is
+-- performed during this audit.
 --
 -- 'totalResourcesCount', 'auditCheckDetails_totalResourcesCount' - The number of resources on which the check was performed.
 --
@@ -72,30 +72,30 @@ data AuditCheckDetails = AuditCheckDetails'
 -- this audit. One of \"INSUFFICIENT_PERMISSIONS\" or
 -- \"AUDIT_CHECK_DISABLED\".
 --
--- 'message', 'auditCheckDetails_message' - The message associated with any error encountered when this check is
--- performed during this audit.
---
 -- 'checkRunStatus', 'auditCheckDetails_checkRunStatus' - The completion status of this check. One of \"IN_PROGRESS\",
 -- \"WAITING_FOR_DATA_COLLECTION\", \"CANCELED\", \"COMPLETED_COMPLIANT\",
 -- \"COMPLETED_NON_COMPLIANT\", or \"FAILED\".
+--
+-- 'suppressedNonCompliantResourcesCount', 'auditCheckDetails_suppressedNonCompliantResourcesCount' - Describes how many of the non-compliant resources created during the
+-- evaluation of an audit check were marked as suppressed.
 newAuditCheckDetails ::
   AuditCheckDetails
 newAuditCheckDetails =
   AuditCheckDetails'
-    { suppressedNonCompliantResourcesCount =
-        Prelude.Nothing,
+    { message = Prelude.Nothing,
       totalResourcesCount = Prelude.Nothing,
       checkCompliant = Prelude.Nothing,
       nonCompliantResourcesCount = Prelude.Nothing,
       errorCode = Prelude.Nothing,
-      message = Prelude.Nothing,
-      checkRunStatus = Prelude.Nothing
+      checkRunStatus = Prelude.Nothing,
+      suppressedNonCompliantResourcesCount =
+        Prelude.Nothing
     }
 
--- | Describes how many of the non-compliant resources created during the
--- evaluation of an audit check were marked as suppressed.
-auditCheckDetails_suppressedNonCompliantResourcesCount :: Lens.Lens' AuditCheckDetails (Prelude.Maybe Prelude.Integer)
-auditCheckDetails_suppressedNonCompliantResourcesCount = Lens.lens (\AuditCheckDetails' {suppressedNonCompliantResourcesCount} -> suppressedNonCompliantResourcesCount) (\s@AuditCheckDetails' {} a -> s {suppressedNonCompliantResourcesCount = a} :: AuditCheckDetails)
+-- | The message associated with any error encountered when this check is
+-- performed during this audit.
+auditCheckDetails_message :: Lens.Lens' AuditCheckDetails (Prelude.Maybe Prelude.Text)
+auditCheckDetails_message = Lens.lens (\AuditCheckDetails' {message} -> message) (\s@AuditCheckDetails' {} a -> s {message = a} :: AuditCheckDetails)
 
 -- | The number of resources on which the check was performed.
 auditCheckDetails_totalResourcesCount :: Lens.Lens' AuditCheckDetails (Prelude.Maybe Prelude.Integer)
@@ -115,16 +115,16 @@ auditCheckDetails_nonCompliantResourcesCount = Lens.lens (\AuditCheckDetails' {n
 auditCheckDetails_errorCode :: Lens.Lens' AuditCheckDetails (Prelude.Maybe Prelude.Text)
 auditCheckDetails_errorCode = Lens.lens (\AuditCheckDetails' {errorCode} -> errorCode) (\s@AuditCheckDetails' {} a -> s {errorCode = a} :: AuditCheckDetails)
 
--- | The message associated with any error encountered when this check is
--- performed during this audit.
-auditCheckDetails_message :: Lens.Lens' AuditCheckDetails (Prelude.Maybe Prelude.Text)
-auditCheckDetails_message = Lens.lens (\AuditCheckDetails' {message} -> message) (\s@AuditCheckDetails' {} a -> s {message = a} :: AuditCheckDetails)
-
 -- | The completion status of this check. One of \"IN_PROGRESS\",
 -- \"WAITING_FOR_DATA_COLLECTION\", \"CANCELED\", \"COMPLETED_COMPLIANT\",
 -- \"COMPLETED_NON_COMPLIANT\", or \"FAILED\".
 auditCheckDetails_checkRunStatus :: Lens.Lens' AuditCheckDetails (Prelude.Maybe AuditCheckRunStatus)
 auditCheckDetails_checkRunStatus = Lens.lens (\AuditCheckDetails' {checkRunStatus} -> checkRunStatus) (\s@AuditCheckDetails' {} a -> s {checkRunStatus = a} :: AuditCheckDetails)
+
+-- | Describes how many of the non-compliant resources created during the
+-- evaluation of an audit check were marked as suppressed.
+auditCheckDetails_suppressedNonCompliantResourcesCount :: Lens.Lens' AuditCheckDetails (Prelude.Maybe Prelude.Integer)
+auditCheckDetails_suppressedNonCompliantResourcesCount = Lens.lens (\AuditCheckDetails' {suppressedNonCompliantResourcesCount} -> suppressedNonCompliantResourcesCount) (\s@AuditCheckDetails' {} a -> s {suppressedNonCompliantResourcesCount = a} :: AuditCheckDetails)
 
 instance Core.FromJSON AuditCheckDetails where
   parseJSON =
@@ -132,32 +132,31 @@ instance Core.FromJSON AuditCheckDetails where
       "AuditCheckDetails"
       ( \x ->
           AuditCheckDetails'
-            Prelude.<$> (x Core..:? "suppressedNonCompliantResourcesCount")
+            Prelude.<$> (x Core..:? "message")
             Prelude.<*> (x Core..:? "totalResourcesCount")
             Prelude.<*> (x Core..:? "checkCompliant")
             Prelude.<*> (x Core..:? "nonCompliantResourcesCount")
             Prelude.<*> (x Core..:? "errorCode")
-            Prelude.<*> (x Core..:? "message")
             Prelude.<*> (x Core..:? "checkRunStatus")
+            Prelude.<*> (x Core..:? "suppressedNonCompliantResourcesCount")
       )
 
 instance Prelude.Hashable AuditCheckDetails where
   hashWithSalt _salt AuditCheckDetails' {..} =
-    _salt
-      `Prelude.hashWithSalt` suppressedNonCompliantResourcesCount
+    _salt `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` totalResourcesCount
       `Prelude.hashWithSalt` checkCompliant
       `Prelude.hashWithSalt` nonCompliantResourcesCount
       `Prelude.hashWithSalt` errorCode
-      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` checkRunStatus
+      `Prelude.hashWithSalt` suppressedNonCompliantResourcesCount
 
 instance Prelude.NFData AuditCheckDetails where
   rnf AuditCheckDetails' {..} =
-    Prelude.rnf suppressedNonCompliantResourcesCount
+    Prelude.rnf message
       `Prelude.seq` Prelude.rnf totalResourcesCount
       `Prelude.seq` Prelude.rnf checkCompliant
       `Prelude.seq` Prelude.rnf nonCompliantResourcesCount
       `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf checkRunStatus
+      `Prelude.seq` Prelude.rnf suppressedNonCompliantResourcesCount

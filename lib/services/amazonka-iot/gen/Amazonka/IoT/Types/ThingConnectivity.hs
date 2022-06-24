@@ -27,17 +27,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newThingConnectivity' smart constructor.
 data ThingConnectivity = ThingConnectivity'
-  { -- | The reason why the client is disconnected. If the thing has been
-    -- disconnected for approximately an hour, the @disconnectReason@ value
-    -- might be missing.
-    disconnectReason :: Prelude.Maybe Prelude.Text,
+  { -- | The epoch time (in milliseconds) when the thing last connected or
+    -- disconnected. If the thing has been disconnected for approximately an
+    -- hour, the time value might be missing.
+    timestamp :: Prelude.Maybe Prelude.Integer,
     -- | True if the thing is connected to the Amazon Web Services IoT Core
     -- service; false if it is not connected.
     connected :: Prelude.Maybe Prelude.Bool,
-    -- | The epoch time (in milliseconds) when the thing last connected or
-    -- disconnected. If the thing has been disconnected for approximately an
-    -- hour, the time value might be missing.
-    timestamp :: Prelude.Maybe Prelude.Integer
+    -- | The reason why the client is disconnected. If the thing has been
+    -- disconnected for approximately an hour, the @disconnectReason@ value
+    -- might be missing.
+    disconnectReason :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,36 +49,24 @@ data ThingConnectivity = ThingConnectivity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'disconnectReason', 'thingConnectivity_disconnectReason' - The reason why the client is disconnected. If the thing has been
--- disconnected for approximately an hour, the @disconnectReason@ value
--- might be missing.
+-- 'timestamp', 'thingConnectivity_timestamp' - The epoch time (in milliseconds) when the thing last connected or
+-- disconnected. If the thing has been disconnected for approximately an
+-- hour, the time value might be missing.
 --
 -- 'connected', 'thingConnectivity_connected' - True if the thing is connected to the Amazon Web Services IoT Core
 -- service; false if it is not connected.
 --
--- 'timestamp', 'thingConnectivity_timestamp' - The epoch time (in milliseconds) when the thing last connected or
--- disconnected. If the thing has been disconnected for approximately an
--- hour, the time value might be missing.
+-- 'disconnectReason', 'thingConnectivity_disconnectReason' - The reason why the client is disconnected. If the thing has been
+-- disconnected for approximately an hour, the @disconnectReason@ value
+-- might be missing.
 newThingConnectivity ::
   ThingConnectivity
 newThingConnectivity =
   ThingConnectivity'
-    { disconnectReason =
-        Prelude.Nothing,
+    { timestamp = Prelude.Nothing,
       connected = Prelude.Nothing,
-      timestamp = Prelude.Nothing
+      disconnectReason = Prelude.Nothing
     }
-
--- | The reason why the client is disconnected. If the thing has been
--- disconnected for approximately an hour, the @disconnectReason@ value
--- might be missing.
-thingConnectivity_disconnectReason :: Lens.Lens' ThingConnectivity (Prelude.Maybe Prelude.Text)
-thingConnectivity_disconnectReason = Lens.lens (\ThingConnectivity' {disconnectReason} -> disconnectReason) (\s@ThingConnectivity' {} a -> s {disconnectReason = a} :: ThingConnectivity)
-
--- | True if the thing is connected to the Amazon Web Services IoT Core
--- service; false if it is not connected.
-thingConnectivity_connected :: Lens.Lens' ThingConnectivity (Prelude.Maybe Prelude.Bool)
-thingConnectivity_connected = Lens.lens (\ThingConnectivity' {connected} -> connected) (\s@ThingConnectivity' {} a -> s {connected = a} :: ThingConnectivity)
 
 -- | The epoch time (in milliseconds) when the thing last connected or
 -- disconnected. If the thing has been disconnected for approximately an
@@ -86,25 +74,36 @@ thingConnectivity_connected = Lens.lens (\ThingConnectivity' {connected} -> conn
 thingConnectivity_timestamp :: Lens.Lens' ThingConnectivity (Prelude.Maybe Prelude.Integer)
 thingConnectivity_timestamp = Lens.lens (\ThingConnectivity' {timestamp} -> timestamp) (\s@ThingConnectivity' {} a -> s {timestamp = a} :: ThingConnectivity)
 
+-- | True if the thing is connected to the Amazon Web Services IoT Core
+-- service; false if it is not connected.
+thingConnectivity_connected :: Lens.Lens' ThingConnectivity (Prelude.Maybe Prelude.Bool)
+thingConnectivity_connected = Lens.lens (\ThingConnectivity' {connected} -> connected) (\s@ThingConnectivity' {} a -> s {connected = a} :: ThingConnectivity)
+
+-- | The reason why the client is disconnected. If the thing has been
+-- disconnected for approximately an hour, the @disconnectReason@ value
+-- might be missing.
+thingConnectivity_disconnectReason :: Lens.Lens' ThingConnectivity (Prelude.Maybe Prelude.Text)
+thingConnectivity_disconnectReason = Lens.lens (\ThingConnectivity' {disconnectReason} -> disconnectReason) (\s@ThingConnectivity' {} a -> s {disconnectReason = a} :: ThingConnectivity)
+
 instance Core.FromJSON ThingConnectivity where
   parseJSON =
     Core.withObject
       "ThingConnectivity"
       ( \x ->
           ThingConnectivity'
-            Prelude.<$> (x Core..:? "disconnectReason")
+            Prelude.<$> (x Core..:? "timestamp")
             Prelude.<*> (x Core..:? "connected")
-            Prelude.<*> (x Core..:? "timestamp")
+            Prelude.<*> (x Core..:? "disconnectReason")
       )
 
 instance Prelude.Hashable ThingConnectivity where
   hashWithSalt _salt ThingConnectivity' {..} =
-    _salt `Prelude.hashWithSalt` disconnectReason
+    _salt `Prelude.hashWithSalt` timestamp
       `Prelude.hashWithSalt` connected
-      `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` disconnectReason
 
 instance Prelude.NFData ThingConnectivity where
   rnf ThingConnectivity' {..} =
-    Prelude.rnf disconnectReason
+    Prelude.rnf timestamp
       `Prelude.seq` Prelude.rnf connected
-      `Prelude.seq` Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf disconnectReason

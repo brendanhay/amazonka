@@ -115,12 +115,7 @@ instance Core.ToHeaders ReplaceTopicRule where
 
 instance Core.ToJSON ReplaceTopicRule where
   toJSON ReplaceTopicRule' {..} =
-    Core.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("topicRulePayload" Core..= topicRulePayload)
-          ]
-      )
+    Core.toJSON topicRulePayload
 
 instance Core.ToPath ReplaceTopicRule where
   toPath ReplaceTopicRule' {..} =

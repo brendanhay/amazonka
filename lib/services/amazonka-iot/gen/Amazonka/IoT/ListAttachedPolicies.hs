@@ -43,8 +43,8 @@ module Amazonka.IoT.ListAttachedPolicies
     newListAttachedPoliciesResponse,
 
     -- * Response Lenses
-    listAttachedPoliciesResponse_nextMarker,
     listAttachedPoliciesResponse_policies,
+    listAttachedPoliciesResponse_nextMarker,
     listAttachedPoliciesResponse_httpStatus,
   )
 where
@@ -155,8 +155,8 @@ instance Core.AWSRequest ListAttachedPolicies where
     Response.receiveJSON
       ( \s h x ->
           ListAttachedPoliciesResponse'
-            Prelude.<$> (x Core..?> "nextMarker")
-            Prelude.<*> (x Core..?> "policies" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "policies" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -195,11 +195,11 @@ instance Core.ToQuery ListAttachedPolicies where
 
 -- | /See:/ 'newListAttachedPoliciesResponse' smart constructor.
 data ListAttachedPoliciesResponse = ListAttachedPoliciesResponse'
-  { -- | The token to retrieve the next set of results, or \`\`null\`\` if there
+  { -- | The policies.
+    policies :: Prelude.Maybe [Policy],
+    -- | The token to retrieve the next set of results, or \`\`null\`\` if there
     -- are no more results.
     nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | The policies.
-    policies :: Prelude.Maybe [Policy],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -213,10 +213,10 @@ data ListAttachedPoliciesResponse = ListAttachedPoliciesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'policies', 'listAttachedPoliciesResponse_policies' - The policies.
+--
 -- 'nextMarker', 'listAttachedPoliciesResponse_nextMarker' - The token to retrieve the next set of results, or \`\`null\`\` if there
 -- are no more results.
---
--- 'policies', 'listAttachedPoliciesResponse_policies' - The policies.
 --
 -- 'httpStatus', 'listAttachedPoliciesResponse_httpStatus' - The response's http status code.
 newListAttachedPoliciesResponse ::
@@ -225,20 +225,20 @@ newListAttachedPoliciesResponse ::
   ListAttachedPoliciesResponse
 newListAttachedPoliciesResponse pHttpStatus_ =
   ListAttachedPoliciesResponse'
-    { nextMarker =
+    { policies =
         Prelude.Nothing,
-      policies = Prelude.Nothing,
+      nextMarker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The policies.
+listAttachedPoliciesResponse_policies :: Lens.Lens' ListAttachedPoliciesResponse (Prelude.Maybe [Policy])
+listAttachedPoliciesResponse_policies = Lens.lens (\ListAttachedPoliciesResponse' {policies} -> policies) (\s@ListAttachedPoliciesResponse' {} a -> s {policies = a} :: ListAttachedPoliciesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to retrieve the next set of results, or \`\`null\`\` if there
 -- are no more results.
 listAttachedPoliciesResponse_nextMarker :: Lens.Lens' ListAttachedPoliciesResponse (Prelude.Maybe Prelude.Text)
 listAttachedPoliciesResponse_nextMarker = Lens.lens (\ListAttachedPoliciesResponse' {nextMarker} -> nextMarker) (\s@ListAttachedPoliciesResponse' {} a -> s {nextMarker = a} :: ListAttachedPoliciesResponse)
-
--- | The policies.
-listAttachedPoliciesResponse_policies :: Lens.Lens' ListAttachedPoliciesResponse (Prelude.Maybe [Policy])
-listAttachedPoliciesResponse_policies = Lens.lens (\ListAttachedPoliciesResponse' {policies} -> policies) (\s@ListAttachedPoliciesResponse' {} a -> s {policies = a} :: ListAttachedPoliciesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAttachedPoliciesResponse_httpStatus :: Lens.Lens' ListAttachedPoliciesResponse Prelude.Int
@@ -246,6 +246,6 @@ listAttachedPoliciesResponse_httpStatus = Lens.lens (\ListAttachedPoliciesRespon
 
 instance Prelude.NFData ListAttachedPoliciesResponse where
   rnf ListAttachedPoliciesResponse' {..} =
-    Prelude.rnf nextMarker
-      `Prelude.seq` Prelude.rnf policies
+    Prelude.rnf policies
+      `Prelude.seq` Prelude.rnf nextMarker
       `Prelude.seq` Prelude.rnf httpStatus

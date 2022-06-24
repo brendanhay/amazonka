@@ -14,185 +14,233 @@
 module Amazonka.DataBrew.Lens
   ( -- * Operations
 
-    -- ** ListProjects
-    listProjects_nextToken,
-    listProjects_maxResults,
-    listProjectsResponse_nextToken,
-    listProjectsResponse_httpStatus,
-    listProjectsResponse_projects,
-
-    -- ** DeleteProject
-    deleteProject_name,
-    deleteProjectResponse_httpStatus,
-    deleteProjectResponse_name,
-
-    -- ** UpdateProject
-    updateProject_sample,
-    updateProject_roleArn,
-    updateProject_name,
-    updateProjectResponse_lastModifiedDate,
-    updateProjectResponse_httpStatus,
-    updateProjectResponse_name,
-
-    -- ** ListSchedules
-    listSchedules_jobName,
-    listSchedules_nextToken,
-    listSchedules_maxResults,
-    listSchedulesResponse_nextToken,
-    listSchedulesResponse_httpStatus,
-    listSchedulesResponse_schedules,
-
-    -- ** DescribeDataset
-    describeDataset_name,
-    describeDatasetResponse_lastModifiedDate,
-    describeDatasetResponse_pathOptions,
-    describeDatasetResponse_createDate,
-    describeDatasetResponse_formatOptions,
-    describeDatasetResponse_format,
-    describeDatasetResponse_createdBy,
-    describeDatasetResponse_resourceArn,
-    describeDatasetResponse_source,
-    describeDatasetResponse_lastModifiedBy,
-    describeDatasetResponse_tags,
-    describeDatasetResponse_httpStatus,
-    describeDatasetResponse_name,
-    describeDatasetResponse_input,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** DescribeProject
-    describeProject_name,
-    describeProjectResponse_lastModifiedDate,
-    describeProjectResponse_sessionStatus,
-    describeProjectResponse_openDate,
-    describeProjectResponse_createDate,
-    describeProjectResponse_createdBy,
-    describeProjectResponse_resourceArn,
-    describeProjectResponse_recipeName,
-    describeProjectResponse_datasetName,
-    describeProjectResponse_lastModifiedBy,
-    describeProjectResponse_sample,
-    describeProjectResponse_openedBy,
-    describeProjectResponse_tags,
-    describeProjectResponse_roleArn,
-    describeProjectResponse_httpStatus,
-    describeProjectResponse_name,
-
-    -- ** CreateRecipeJob
-    createRecipeJob_dataCatalogOutputs,
-    createRecipeJob_recipeReference,
-    createRecipeJob_databaseOutputs,
-    createRecipeJob_encryptionMode,
-    createRecipeJob_outputs,
-    createRecipeJob_logSubscription,
-    createRecipeJob_projectName,
-    createRecipeJob_maxRetries,
-    createRecipeJob_datasetName,
-    createRecipeJob_encryptionKeyArn,
-    createRecipeJob_maxCapacity,
-    createRecipeJob_timeout,
-    createRecipeJob_tags,
-    createRecipeJob_name,
-    createRecipeJob_roleArn,
-    createRecipeJobResponse_httpStatus,
-    createRecipeJobResponse_name,
-
-    -- ** ListRecipeVersions
-    listRecipeVersions_nextToken,
-    listRecipeVersions_maxResults,
-    listRecipeVersions_name,
-    listRecipeVersionsResponse_nextToken,
-    listRecipeVersionsResponse_httpStatus,
-    listRecipeVersionsResponse_recipes,
-
-    -- ** DeleteDataset
-    deleteDataset_name,
-    deleteDatasetResponse_httpStatus,
-    deleteDatasetResponse_name,
-
-    -- ** UpdateDataset
-    updateDataset_pathOptions,
-    updateDataset_formatOptions,
-    updateDataset_format,
-    updateDataset_name,
-    updateDataset_input,
-    updateDatasetResponse_httpStatus,
-    updateDatasetResponse_name,
-
-    -- ** StopJobRun
-    stopJobRun_name,
-    stopJobRun_runId,
-    stopJobRunResponse_httpStatus,
-    stopJobRunResponse_runId,
-
-    -- ** UpdateRecipeJob
-    updateRecipeJob_dataCatalogOutputs,
-    updateRecipeJob_databaseOutputs,
-    updateRecipeJob_encryptionMode,
-    updateRecipeJob_outputs,
-    updateRecipeJob_logSubscription,
-    updateRecipeJob_maxRetries,
-    updateRecipeJob_encryptionKeyArn,
-    updateRecipeJob_maxCapacity,
-    updateRecipeJob_timeout,
-    updateRecipeJob_name,
-    updateRecipeJob_roleArn,
-    updateRecipeJobResponse_httpStatus,
-    updateRecipeJobResponse_name,
-
-    -- ** ListJobs
-    listJobs_nextToken,
-    listJobs_projectName,
-    listJobs_datasetName,
-    listJobs_maxResults,
-    listJobsResponse_nextToken,
-    listJobsResponse_httpStatus,
-    listJobsResponse_jobs,
-
-    -- ** CreateDataset
-    createDataset_pathOptions,
-    createDataset_formatOptions,
-    createDataset_format,
-    createDataset_tags,
-    createDataset_name,
-    createDataset_input,
-    createDatasetResponse_httpStatus,
-    createDatasetResponse_name,
-
-    -- ** DeleteJob
-    deleteJob_name,
-    deleteJobResponse_httpStatus,
-    deleteJobResponse_name,
-
-    -- ** CreateRecipe
-    createRecipe_description,
-    createRecipe_tags,
-    createRecipe_name,
-    createRecipe_steps,
-    createRecipeResponse_httpStatus,
-    createRecipeResponse_name,
-
-    -- ** UpdateSchedule
-    updateSchedule_jobNames,
-    updateSchedule_cronExpression,
-    updateSchedule_name,
-    updateScheduleResponse_httpStatus,
-    updateScheduleResponse_name,
-
-    -- ** DeleteSchedule
-    deleteSchedule_name,
-    deleteScheduleResponse_httpStatus,
-    deleteScheduleResponse_name,
-
     -- ** BatchDeleteRecipeVersion
     batchDeleteRecipeVersion_name,
     batchDeleteRecipeVersion_recipeVersions,
     batchDeleteRecipeVersionResponse_errors,
     batchDeleteRecipeVersionResponse_httpStatus,
     batchDeleteRecipeVersionResponse_name,
+
+    -- ** CreateDataset
+    createDataset_tags,
+    createDataset_pathOptions,
+    createDataset_format,
+    createDataset_formatOptions,
+    createDataset_name,
+    createDataset_input,
+    createDatasetResponse_httpStatus,
+    createDatasetResponse_name,
+
+    -- ** CreateProfileJob
+    createProfileJob_tags,
+    createProfileJob_encryptionKeyArn,
+    createProfileJob_jobSample,
+    createProfileJob_timeout,
+    createProfileJob_configuration,
+    createProfileJob_logSubscription,
+    createProfileJob_maxRetries,
+    createProfileJob_maxCapacity,
+    createProfileJob_encryptionMode,
+    createProfileJob_datasetName,
+    createProfileJob_name,
+    createProfileJob_outputLocation,
+    createProfileJob_roleArn,
+    createProfileJobResponse_httpStatus,
+    createProfileJobResponse_name,
+
+    -- ** CreateProject
+    createProject_tags,
+    createProject_sample,
+    createProject_datasetName,
+    createProject_name,
+    createProject_recipeName,
+    createProject_roleArn,
+    createProjectResponse_httpStatus,
+    createProjectResponse_name,
+
+    -- ** CreateRecipe
+    createRecipe_tags,
+    createRecipe_description,
+    createRecipe_name,
+    createRecipe_steps,
+    createRecipeResponse_httpStatus,
+    createRecipeResponse_name,
+
+    -- ** CreateRecipeJob
+    createRecipeJob_tags,
+    createRecipeJob_encryptionKeyArn,
+    createRecipeJob_timeout,
+    createRecipeJob_databaseOutputs,
+    createRecipeJob_dataCatalogOutputs,
+    createRecipeJob_datasetName,
+    createRecipeJob_logSubscription,
+    createRecipeJob_maxRetries,
+    createRecipeJob_recipeReference,
+    createRecipeJob_outputs,
+    createRecipeJob_projectName,
+    createRecipeJob_maxCapacity,
+    createRecipeJob_encryptionMode,
+    createRecipeJob_name,
+    createRecipeJob_roleArn,
+    createRecipeJobResponse_httpStatus,
+    createRecipeJobResponse_name,
+
+    -- ** CreateSchedule
+    createSchedule_tags,
+    createSchedule_jobNames,
+    createSchedule_cronExpression,
+    createSchedule_name,
+    createScheduleResponse_httpStatus,
+    createScheduleResponse_name,
+
+    -- ** DeleteDataset
+    deleteDataset_name,
+    deleteDatasetResponse_httpStatus,
+    deleteDatasetResponse_name,
+
+    -- ** DeleteJob
+    deleteJob_name,
+    deleteJobResponse_httpStatus,
+    deleteJobResponse_name,
+
+    -- ** DeleteProject
+    deleteProject_name,
+    deleteProjectResponse_httpStatus,
+    deleteProjectResponse_name,
+
+    -- ** DeleteRecipeVersion
+    deleteRecipeVersion_name,
+    deleteRecipeVersion_recipeVersion,
+    deleteRecipeVersionResponse_httpStatus,
+    deleteRecipeVersionResponse_name,
+    deleteRecipeVersionResponse_recipeVersion,
+
+    -- ** DeleteSchedule
+    deleteSchedule_name,
+    deleteScheduleResponse_httpStatus,
+    deleteScheduleResponse_name,
+
+    -- ** DescribeDataset
+    describeDataset_name,
+    describeDatasetResponse_tags,
+    describeDatasetResponse_pathOptions,
+    describeDatasetResponse_lastModifiedDate,
+    describeDatasetResponse_format,
+    describeDatasetResponse_source,
+    describeDatasetResponse_createDate,
+    describeDatasetResponse_formatOptions,
+    describeDatasetResponse_lastModifiedBy,
+    describeDatasetResponse_resourceArn,
+    describeDatasetResponse_createdBy,
+    describeDatasetResponse_httpStatus,
+    describeDatasetResponse_name,
+    describeDatasetResponse_input,
+
+    -- ** DescribeJob
+    describeJob_name,
+    describeJobResponse_tags,
+    describeJobResponse_encryptionKeyArn,
+    describeJobResponse_jobSample,
+    describeJobResponse_timeout,
+    describeJobResponse_type,
+    describeJobResponse_roleArn,
+    describeJobResponse_databaseOutputs,
+    describeJobResponse_lastModifiedDate,
+    describeJobResponse_dataCatalogOutputs,
+    describeJobResponse_datasetName,
+    describeJobResponse_logSubscription,
+    describeJobResponse_maxRetries,
+    describeJobResponse_recipeReference,
+    describeJobResponse_outputs,
+    describeJobResponse_createDate,
+    describeJobResponse_profileConfiguration,
+    describeJobResponse_lastModifiedBy,
+    describeJobResponse_resourceArn,
+    describeJobResponse_projectName,
+    describeJobResponse_createdBy,
+    describeJobResponse_maxCapacity,
+    describeJobResponse_encryptionMode,
+    describeJobResponse_httpStatus,
+    describeJobResponse_name,
+
+    -- ** DescribeJobRun
+    describeJobRun_name,
+    describeJobRun_runId,
+    describeJobRunResponse_jobSample,
+    describeJobRunResponse_databaseOutputs,
+    describeJobRunResponse_startedOn,
+    describeJobRunResponse_errorMessage,
+    describeJobRunResponse_attempt,
+    describeJobRunResponse_dataCatalogOutputs,
+    describeJobRunResponse_datasetName,
+    describeJobRunResponse_state,
+    describeJobRunResponse_executionTime,
+    describeJobRunResponse_logSubscription,
+    describeJobRunResponse_completedOn,
+    describeJobRunResponse_startedBy,
+    describeJobRunResponse_recipeReference,
+    describeJobRunResponse_outputs,
+    describeJobRunResponse_profileConfiguration,
+    describeJobRunResponse_runId,
+    describeJobRunResponse_logGroupName,
+    describeJobRunResponse_httpStatus,
+    describeJobRunResponse_jobName,
+
+    -- ** DescribeProject
+    describeProject_name,
+    describeProjectResponse_tags,
+    describeProjectResponse_openedBy,
+    describeProjectResponse_roleArn,
+    describeProjectResponse_lastModifiedDate,
+    describeProjectResponse_recipeName,
+    describeProjectResponse_datasetName,
+    describeProjectResponse_sessionStatus,
+    describeProjectResponse_createDate,
+    describeProjectResponse_openDate,
+    describeProjectResponse_lastModifiedBy,
+    describeProjectResponse_resourceArn,
+    describeProjectResponse_createdBy,
+    describeProjectResponse_sample,
+    describeProjectResponse_httpStatus,
+    describeProjectResponse_name,
+
+    -- ** DescribeRecipe
+    describeRecipe_recipeVersion,
+    describeRecipe_name,
+    describeRecipeResponse_tags,
+    describeRecipeResponse_publishedBy,
+    describeRecipeResponse_lastModifiedDate,
+    describeRecipeResponse_steps,
+    describeRecipeResponse_description,
+    describeRecipeResponse_createDate,
+    describeRecipeResponse_publishedDate,
+    describeRecipeResponse_lastModifiedBy,
+    describeRecipeResponse_resourceArn,
+    describeRecipeResponse_projectName,
+    describeRecipeResponse_createdBy,
+    describeRecipeResponse_recipeVersion,
+    describeRecipeResponse_httpStatus,
+    describeRecipeResponse_name,
+
+    -- ** DescribeSchedule
+    describeSchedule_name,
+    describeScheduleResponse_tags,
+    describeScheduleResponse_lastModifiedDate,
+    describeScheduleResponse_createDate,
+    describeScheduleResponse_lastModifiedBy,
+    describeScheduleResponse_resourceArn,
+    describeScheduleResponse_jobNames,
+    describeScheduleResponse_cronExpression,
+    describeScheduleResponse_createdBy,
+    describeScheduleResponse_httpStatus,
+    describeScheduleResponse_name,
+
+    -- ** ListDatasets
+    listDatasets_nextToken,
+    listDatasets_maxResults,
+    listDatasetsResponse_nextToken,
+    listDatasetsResponse_httpStatus,
+    listDatasetsResponse_datasets,
 
     -- ** ListJobRuns
     listJobRuns_nextToken,
@@ -202,123 +250,73 @@ module Amazonka.DataBrew.Lens
     listJobRunsResponse_httpStatus,
     listJobRunsResponse_jobRuns,
 
-    -- ** DescribeJob
-    describeJob_name,
-    describeJobResponse_dataCatalogOutputs,
-    describeJobResponse_lastModifiedDate,
-    describeJobResponse_createDate,
-    describeJobResponse_recipeReference,
-    describeJobResponse_profileConfiguration,
-    describeJobResponse_createdBy,
-    describeJobResponse_databaseOutputs,
-    describeJobResponse_encryptionMode,
-    describeJobResponse_outputs,
-    describeJobResponse_resourceArn,
-    describeJobResponse_logSubscription,
-    describeJobResponse_projectName,
-    describeJobResponse_maxRetries,
-    describeJobResponse_datasetName,
-    describeJobResponse_encryptionKeyArn,
-    describeJobResponse_maxCapacity,
-    describeJobResponse_lastModifiedBy,
-    describeJobResponse_type,
-    describeJobResponse_timeout,
-    describeJobResponse_tags,
-    describeJobResponse_roleArn,
-    describeJobResponse_jobSample,
-    describeJobResponse_httpStatus,
-    describeJobResponse_name,
+    -- ** ListJobs
+    listJobs_nextToken,
+    listJobs_datasetName,
+    listJobs_maxResults,
+    listJobs_projectName,
+    listJobsResponse_nextToken,
+    listJobsResponse_httpStatus,
+    listJobsResponse_jobs,
 
-    -- ** UpdateProfileJob
-    updateProfileJob_encryptionMode,
-    updateProfileJob_logSubscription,
-    updateProfileJob_maxRetries,
-    updateProfileJob_encryptionKeyArn,
-    updateProfileJob_maxCapacity,
-    updateProfileJob_configuration,
-    updateProfileJob_timeout,
-    updateProfileJob_jobSample,
-    updateProfileJob_name,
-    updateProfileJob_outputLocation,
-    updateProfileJob_roleArn,
-    updateProfileJobResponse_httpStatus,
-    updateProfileJobResponse_name,
+    -- ** ListProjects
+    listProjects_nextToken,
+    listProjects_maxResults,
+    listProjectsResponse_nextToken,
+    listProjectsResponse_httpStatus,
+    listProjectsResponse_projects,
 
-    -- ** DescribeRecipe
-    describeRecipe_recipeVersion,
-    describeRecipe_name,
-    describeRecipeResponse_lastModifiedDate,
-    describeRecipeResponse_createDate,
-    describeRecipeResponse_publishedBy,
-    describeRecipeResponse_createdBy,
-    describeRecipeResponse_steps,
-    describeRecipeResponse_publishedDate,
-    describeRecipeResponse_resourceArn,
-    describeRecipeResponse_recipeVersion,
-    describeRecipeResponse_projectName,
-    describeRecipeResponse_lastModifiedBy,
-    describeRecipeResponse_description,
-    describeRecipeResponse_tags,
-    describeRecipeResponse_httpStatus,
-    describeRecipeResponse_name,
+    -- ** ListRecipeVersions
+    listRecipeVersions_nextToken,
+    listRecipeVersions_maxResults,
+    listRecipeVersions_name,
+    listRecipeVersionsResponse_nextToken,
+    listRecipeVersionsResponse_httpStatus,
+    listRecipeVersionsResponse_recipes,
 
-    -- ** CreateProfileJob
-    createProfileJob_encryptionMode,
-    createProfileJob_logSubscription,
-    createProfileJob_maxRetries,
-    createProfileJob_encryptionKeyArn,
-    createProfileJob_maxCapacity,
-    createProfileJob_configuration,
-    createProfileJob_timeout,
-    createProfileJob_tags,
-    createProfileJob_jobSample,
-    createProfileJob_datasetName,
-    createProfileJob_name,
-    createProfileJob_outputLocation,
-    createProfileJob_roleArn,
-    createProfileJobResponse_httpStatus,
-    createProfileJobResponse_name,
+    -- ** ListRecipes
+    listRecipes_nextToken,
+    listRecipes_maxResults,
+    listRecipes_recipeVersion,
+    listRecipesResponse_nextToken,
+    listRecipesResponse_httpStatus,
+    listRecipesResponse_recipes,
 
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
+    -- ** ListSchedules
+    listSchedules_nextToken,
+    listSchedules_jobName,
+    listSchedules_maxResults,
+    listSchedulesResponse_nextToken,
+    listSchedulesResponse_httpStatus,
+    listSchedulesResponse_schedules,
 
-    -- ** DescribeSchedule
-    describeSchedule_name,
-    describeScheduleResponse_lastModifiedDate,
-    describeScheduleResponse_createDate,
-    describeScheduleResponse_createdBy,
-    describeScheduleResponse_resourceArn,
-    describeScheduleResponse_cronExpression,
-    describeScheduleResponse_lastModifiedBy,
-    describeScheduleResponse_jobNames,
-    describeScheduleResponse_tags,
-    describeScheduleResponse_httpStatus,
-    describeScheduleResponse_name,
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
-    -- ** DescribeJobRun
-    describeJobRun_name,
-    describeJobRun_runId,
-    describeJobRunResponse_completedOn,
-    describeJobRunResponse_state,
-    describeJobRunResponse_dataCatalogOutputs,
-    describeJobRunResponse_startedOn,
-    describeJobRunResponse_recipeReference,
-    describeJobRunResponse_profileConfiguration,
-    describeJobRunResponse_databaseOutputs,
-    describeJobRunResponse_logGroupName,
-    describeJobRunResponse_outputs,
-    describeJobRunResponse_runId,
-    describeJobRunResponse_executionTime,
-    describeJobRunResponse_logSubscription,
-    describeJobRunResponse_startedBy,
-    describeJobRunResponse_datasetName,
-    describeJobRunResponse_attempt,
-    describeJobRunResponse_errorMessage,
-    describeJobRunResponse_jobSample,
-    describeJobRunResponse_httpStatus,
-    describeJobRunResponse_jobName,
+    -- ** PublishRecipe
+    publishRecipe_description,
+    publishRecipe_name,
+    publishRecipeResponse_httpStatus,
+    publishRecipeResponse_name,
+
+    -- ** SendProjectSessionAction
+    sendProjectSessionAction_viewFrame,
+    sendProjectSessionAction_preview,
+    sendProjectSessionAction_recipeStep,
+    sendProjectSessionAction_stepIndex,
+    sendProjectSessionAction_clientSessionId,
+    sendProjectSessionAction_name,
+    sendProjectSessionActionResponse_actionId,
+    sendProjectSessionActionResponse_result,
+    sendProjectSessionActionResponse_httpStatus,
+    sendProjectSessionActionResponse_name,
+
+    -- ** StartJobRun
+    startJobRun_name,
+    startJobRunResponse_httpStatus,
+    startJobRunResponse_runId,
 
     -- ** StartProjectSession
     startProjectSession_assumeControl,
@@ -327,29 +325,53 @@ module Amazonka.DataBrew.Lens
     startProjectSessionResponse_httpStatus,
     startProjectSessionResponse_name,
 
-    -- ** DeleteRecipeVersion
-    deleteRecipeVersion_name,
-    deleteRecipeVersion_recipeVersion,
-    deleteRecipeVersionResponse_httpStatus,
-    deleteRecipeVersionResponse_name,
-    deleteRecipeVersionResponse_recipeVersion,
+    -- ** StopJobRun
+    stopJobRun_name,
+    stopJobRun_runId,
+    stopJobRunResponse_httpStatus,
+    stopJobRunResponse_runId,
 
-    -- ** ListDatasets
-    listDatasets_nextToken,
-    listDatasets_maxResults,
-    listDatasetsResponse_nextToken,
-    listDatasetsResponse_httpStatus,
-    listDatasetsResponse_datasets,
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
 
     -- ** UntagResource
     untagResource_resourceArn,
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
-    -- ** StartJobRun
-    startJobRun_name,
-    startJobRunResponse_httpStatus,
-    startJobRunResponse_runId,
+    -- ** UpdateDataset
+    updateDataset_pathOptions,
+    updateDataset_format,
+    updateDataset_formatOptions,
+    updateDataset_name,
+    updateDataset_input,
+    updateDatasetResponse_httpStatus,
+    updateDatasetResponse_name,
+
+    -- ** UpdateProfileJob
+    updateProfileJob_encryptionKeyArn,
+    updateProfileJob_jobSample,
+    updateProfileJob_timeout,
+    updateProfileJob_configuration,
+    updateProfileJob_logSubscription,
+    updateProfileJob_maxRetries,
+    updateProfileJob_maxCapacity,
+    updateProfileJob_encryptionMode,
+    updateProfileJob_name,
+    updateProfileJob_outputLocation,
+    updateProfileJob_roleArn,
+    updateProfileJobResponse_httpStatus,
+    updateProfileJobResponse_name,
+
+    -- ** UpdateProject
+    updateProject_sample,
+    updateProject_roleArn,
+    updateProject_name,
+    updateProjectResponse_lastModifiedDate,
+    updateProjectResponse_httpStatus,
+    updateProjectResponse_name,
 
     -- ** UpdateRecipe
     updateRecipe_steps,
@@ -358,55 +380,33 @@ module Amazonka.DataBrew.Lens
     updateRecipeResponse_httpStatus,
     updateRecipeResponse_name,
 
-    -- ** CreateSchedule
-    createSchedule_jobNames,
-    createSchedule_tags,
-    createSchedule_cronExpression,
-    createSchedule_name,
-    createScheduleResponse_httpStatus,
-    createScheduleResponse_name,
+    -- ** UpdateRecipeJob
+    updateRecipeJob_encryptionKeyArn,
+    updateRecipeJob_timeout,
+    updateRecipeJob_databaseOutputs,
+    updateRecipeJob_dataCatalogOutputs,
+    updateRecipeJob_logSubscription,
+    updateRecipeJob_maxRetries,
+    updateRecipeJob_outputs,
+    updateRecipeJob_maxCapacity,
+    updateRecipeJob_encryptionMode,
+    updateRecipeJob_name,
+    updateRecipeJob_roleArn,
+    updateRecipeJobResponse_httpStatus,
+    updateRecipeJobResponse_name,
 
-    -- ** ListRecipes
-    listRecipes_nextToken,
-    listRecipes_recipeVersion,
-    listRecipes_maxResults,
-    listRecipesResponse_nextToken,
-    listRecipesResponse_httpStatus,
-    listRecipesResponse_recipes,
-
-    -- ** PublishRecipe
-    publishRecipe_description,
-    publishRecipe_name,
-    publishRecipeResponse_httpStatus,
-    publishRecipeResponse_name,
-
-    -- ** CreateProject
-    createProject_sample,
-    createProject_tags,
-    createProject_datasetName,
-    createProject_name,
-    createProject_recipeName,
-    createProject_roleArn,
-    createProjectResponse_httpStatus,
-    createProjectResponse_name,
-
-    -- ** SendProjectSessionAction
-    sendProjectSessionAction_stepIndex,
-    sendProjectSessionAction_preview,
-    sendProjectSessionAction_clientSessionId,
-    sendProjectSessionAction_recipeStep,
-    sendProjectSessionAction_viewFrame,
-    sendProjectSessionAction_name,
-    sendProjectSessionActionResponse_actionId,
-    sendProjectSessionActionResponse_result,
-    sendProjectSessionActionResponse_httpStatus,
-    sendProjectSessionActionResponse_name,
+    -- ** UpdateSchedule
+    updateSchedule_jobNames,
+    updateSchedule_cronExpression,
+    updateSchedule_name,
+    updateScheduleResponse_httpStatus,
+    updateScheduleResponse_name,
 
     -- * Types
 
     -- ** ColumnSelector
-    columnSelector_regex,
     columnSelector_name,
+    columnSelector_regex,
 
     -- ** ColumnStatisticsConfiguration
     columnStatisticsConfiguration_selectors,
@@ -418,8 +418,8 @@ module Amazonka.DataBrew.Lens
     conditionExpression_targetColumn,
 
     -- ** CsvOptions
-    csvOptions_headerRow,
     csvOptions_delimiter,
+    csvOptions_headerRow,
 
     -- ** CsvOutputOptions
     csvOutputOptions_delimiter,
@@ -431,10 +431,10 @@ module Amazonka.DataBrew.Lens
     dataCatalogInputDefinition_tableName,
 
     -- ** DataCatalogOutput
-    dataCatalogOutput_databaseOptions,
     dataCatalogOutput_s3Options,
-    dataCatalogOutput_catalogId,
+    dataCatalogOutput_databaseOptions,
     dataCatalogOutput_overwrite,
+    dataCatalogOutput_catalogId,
     dataCatalogOutput_databaseName,
     dataCatalogOutput_tableName,
 
@@ -453,30 +453,30 @@ module Amazonka.DataBrew.Lens
     databaseTableOutputOptions_tableName,
 
     -- ** Dataset
-    dataset_lastModifiedDate,
+    dataset_tags,
     dataset_pathOptions,
+    dataset_lastModifiedDate,
+    dataset_format,
+    dataset_accountId,
+    dataset_source,
     dataset_createDate,
     dataset_formatOptions,
-    dataset_format,
-    dataset_createdBy,
-    dataset_accountId,
-    dataset_resourceArn,
-    dataset_source,
     dataset_lastModifiedBy,
-    dataset_tags,
+    dataset_resourceArn,
+    dataset_createdBy,
     dataset_name,
     dataset_input,
 
     -- ** DatasetParameter
-    datasetParameter_createColumn,
-    datasetParameter_filter,
     datasetParameter_datetimeOptions,
+    datasetParameter_filter,
+    datasetParameter_createColumn,
     datasetParameter_name,
     datasetParameter_type,
 
     -- ** DatetimeOptions
-    datetimeOptions_timezoneOffset,
     datetimeOptions_localeCode,
+    datetimeOptions_timezoneOffset,
     datetimeOptions_format,
 
     -- ** ExcelOptions
@@ -494,58 +494,58 @@ module Amazonka.DataBrew.Lens
     filterExpression_valuesMap,
 
     -- ** FormatOptions
+    formatOptions_excel,
     formatOptions_json,
     formatOptions_csv,
-    formatOptions_excel,
 
     -- ** Input
-    input_dataCatalogInputDefinition,
     input_s3InputDefinition,
+    input_dataCatalogInputDefinition,
     input_databaseInputDefinition,
 
     -- ** Job
-    job_dataCatalogOutputs,
-    job_lastModifiedDate,
-    job_createDate,
-    job_recipeReference,
-    job_createdBy,
-    job_databaseOutputs,
-    job_accountId,
-    job_encryptionMode,
-    job_outputs,
-    job_resourceArn,
-    job_logSubscription,
-    job_projectName,
-    job_maxRetries,
-    job_datasetName,
-    job_encryptionKeyArn,
-    job_maxCapacity,
-    job_lastModifiedBy,
-    job_type,
-    job_timeout,
     job_tags,
-    job_roleArn,
+    job_encryptionKeyArn,
     job_jobSample,
+    job_timeout,
+    job_type,
+    job_roleArn,
+    job_databaseOutputs,
+    job_lastModifiedDate,
+    job_dataCatalogOutputs,
+    job_datasetName,
+    job_logSubscription,
+    job_maxRetries,
+    job_recipeReference,
+    job_accountId,
+    job_outputs,
+    job_createDate,
+    job_lastModifiedBy,
+    job_resourceArn,
+    job_projectName,
+    job_createdBy,
+    job_maxCapacity,
+    job_encryptionMode,
     job_name,
 
     -- ** JobRun
-    jobRun_completedOn,
-    jobRun_state,
+    jobRun_jobSample,
+    jobRun_databaseOutputs,
+    jobRun_startedOn,
+    jobRun_errorMessage,
+    jobRun_attempt,
     jobRun_dataCatalogOutputs,
     jobRun_jobName,
-    jobRun_startedOn,
-    jobRun_recipeReference,
-    jobRun_databaseOutputs,
-    jobRun_logGroupName,
-    jobRun_outputs,
-    jobRun_runId,
+    jobRun_datasetName,
+    jobRun_state,
     jobRun_executionTime,
     jobRun_logSubscription,
+    jobRun_completedOn,
     jobRun_startedBy,
-    jobRun_datasetName,
-    jobRun_attempt,
-    jobRun_errorMessage,
-    jobRun_jobSample,
+    jobRun_recipeReference,
+    jobRun_outputs,
+    jobRun_runId,
+    jobRun_logGroupName,
 
     -- ** JobSample
     jobSample_size,
@@ -555,11 +555,11 @@ module Amazonka.DataBrew.Lens
     jsonOptions_multiLine,
 
     -- ** Output
+    output_format,
+    output_overwrite,
     output_partitionColumns,
     output_formatOptions,
-    output_format,
     output_compressionFormat,
-    output_overwrite,
     output_location,
 
     -- ** OutputFormatOptions
@@ -567,43 +567,43 @@ module Amazonka.DataBrew.Lens
 
     -- ** PathOptions
     pathOptions_lastModifiedDateCondition,
-    pathOptions_parameters,
     pathOptions_filesLimit,
+    pathOptions_parameters,
 
     -- ** ProfileConfiguration
-    profileConfiguration_datasetStatisticsConfiguration,
     profileConfiguration_columnStatisticsConfigurations,
+    profileConfiguration_datasetStatisticsConfiguration,
     profileConfiguration_profileColumns,
 
     -- ** Project
-    project_lastModifiedDate,
-    project_openDate,
-    project_createDate,
-    project_createdBy,
-    project_accountId,
-    project_resourceArn,
-    project_datasetName,
-    project_lastModifiedBy,
-    project_sample,
-    project_openedBy,
     project_tags,
+    project_openedBy,
     project_roleArn,
+    project_lastModifiedDate,
+    project_datasetName,
+    project_accountId,
+    project_createDate,
+    project_openDate,
+    project_lastModifiedBy,
+    project_resourceArn,
+    project_createdBy,
+    project_sample,
     project_name,
     project_recipeName,
 
     -- ** Recipe
-    recipe_lastModifiedDate,
-    recipe_createDate,
-    recipe_publishedBy,
-    recipe_createdBy,
-    recipe_steps,
-    recipe_publishedDate,
-    recipe_resourceArn,
-    recipe_recipeVersion,
-    recipe_projectName,
-    recipe_lastModifiedBy,
-    recipe_description,
     recipe_tags,
+    recipe_publishedBy,
+    recipe_lastModifiedDate,
+    recipe_steps,
+    recipe_description,
+    recipe_createDate,
+    recipe_publishedDate,
+    recipe_lastModifiedBy,
+    recipe_resourceArn,
+    recipe_projectName,
+    recipe_createdBy,
+    recipe_recipeVersion,
     recipe_name,
 
     -- ** RecipeAction
@@ -619,9 +619,9 @@ module Amazonka.DataBrew.Lens
     recipeStep_action,
 
     -- ** RecipeVersionErrorDetail
-    recipeVersionErrorDetail_recipeVersion,
-    recipeVersionErrorDetail_errorCode,
     recipeVersionErrorDetail_errorMessage,
+    recipeVersionErrorDetail_errorCode,
+    recipeVersionErrorDetail_recipeVersion,
 
     -- ** S3Location
     s3Location_key,
@@ -635,15 +635,15 @@ module Amazonka.DataBrew.Lens
     sample_type,
 
     -- ** Schedule
-    schedule_lastModifiedDate,
-    schedule_createDate,
-    schedule_createdBy,
-    schedule_accountId,
-    schedule_resourceArn,
-    schedule_cronExpression,
-    schedule_lastModifiedBy,
-    schedule_jobNames,
     schedule_tags,
+    schedule_lastModifiedDate,
+    schedule_accountId,
+    schedule_createDate,
+    schedule_lastModifiedBy,
+    schedule_resourceArn,
+    schedule_jobNames,
+    schedule_cronExpression,
+    schedule_createdBy,
     schedule_name,
 
     -- ** StatisticOverride
@@ -651,12 +651,12 @@ module Amazonka.DataBrew.Lens
     statisticOverride_parameters,
 
     -- ** StatisticsConfiguration
-    statisticsConfiguration_overrides,
     statisticsConfiguration_includedStatistics,
+    statisticsConfiguration_overrides,
 
     -- ** ViewFrame
-    viewFrame_hiddenColumns,
     viewFrame_columnRange,
+    viewFrame_hiddenColumns,
     viewFrame_startColumnIndex,
   )
 where

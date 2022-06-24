@@ -27,361 +27,247 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListProjects $
---             newListProjects
---
---         , requestDeleteProject $
---             newDeleteProject
---
---         , requestUpdateProject $
---             newUpdateProject
---
---         , requestListSchedules $
---             newListSchedules
---
---         , requestDescribeDataset $
---             newDescribeDataset
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestDescribeProject $
---             newDescribeProject
---
---         , requestCreateRecipeJob $
---             newCreateRecipeJob
---
---         , requestListRecipeVersions $
---             newListRecipeVersions
---
---         , requestDeleteDataset $
---             newDeleteDataset
---
---         , requestUpdateDataset $
---             newUpdateDataset
---
---         , requestStopJobRun $
---             newStopJobRun
---
---         , requestUpdateRecipeJob $
---             newUpdateRecipeJob
---
---         , requestListJobs $
---             newListJobs
+--         [ requestBatchDeleteRecipeVersion $
+--             newBatchDeleteRecipeVersion
 --
 --         , requestCreateDataset $
 --             newCreateDataset
 --
---         , requestDeleteJob $
---             newDeleteJob
---
---         , requestCreateRecipe $
---             newCreateRecipe
---
---         , requestUpdateSchedule $
---             newUpdateSchedule
---
---         , requestDeleteSchedule $
---             newDeleteSchedule
---
---         , requestBatchDeleteRecipeVersion $
---             newBatchDeleteRecipeVersion
---
---         , requestListJobRuns $
---             newListJobRuns
---
---         , requestDescribeJob $
---             newDescribeJob
---
---         , requestUpdateProfileJob $
---             newUpdateProfileJob
---
---         , requestDescribeRecipe $
---             newDescribeRecipe
---
 --         , requestCreateProfileJob $
 --             newCreateProfileJob
---
---         , requestTagResource $
---             newTagResource
---
---         , requestDescribeSchedule $
---             newDescribeSchedule
---
---         , requestDescribeJobRun $
---             newDescribeJobRun
---
---         , requestStartProjectSession $
---             newStartProjectSession
---
---         , requestDeleteRecipeVersion $
---             newDeleteRecipeVersion
---
---         , requestListDatasets $
---             newListDatasets
---
---         , requestUntagResource $
---             newUntagResource
---
---         , requestStartJobRun $
---             newStartJobRun
---
---         , requestUpdateRecipe $
---             newUpdateRecipe
---
---         , requestCreateSchedule $
---             newCreateSchedule
---
---         , requestListRecipes $
---             newListRecipes
---
---         , requestPublishRecipe $
---             newPublishRecipe
 --
 --         , requestCreateProject $
 --             newCreateProject
 --
+--         , requestCreateRecipe $
+--             newCreateRecipe
+--
+--         , requestCreateRecipeJob $
+--             newCreateRecipeJob
+--
+--         , requestCreateSchedule $
+--             newCreateSchedule
+--
+--         , requestDeleteDataset $
+--             newDeleteDataset
+--
+--         , requestDeleteJob $
+--             newDeleteJob
+--
+--         , requestDeleteProject $
+--             newDeleteProject
+--
+--         , requestDeleteRecipeVersion $
+--             newDeleteRecipeVersion
+--
+--         , requestDeleteSchedule $
+--             newDeleteSchedule
+--
+--         , requestDescribeDataset $
+--             newDescribeDataset
+--
+--         , requestDescribeJob $
+--             newDescribeJob
+--
+--         , requestDescribeJobRun $
+--             newDescribeJobRun
+--
+--         , requestDescribeProject $
+--             newDescribeProject
+--
+--         , requestDescribeRecipe $
+--             newDescribeRecipe
+--
+--         , requestDescribeSchedule $
+--             newDescribeSchedule
+--
+--         , requestListDatasets $
+--             newListDatasets
+--
+--         , requestListJobRuns $
+--             newListJobRuns
+--
+--         , requestListJobs $
+--             newListJobs
+--
+--         , requestListProjects $
+--             newListProjects
+--
+--         , requestListRecipeVersions $
+--             newListRecipeVersions
+--
+--         , requestListRecipes $
+--             newListRecipes
+--
+--         , requestListSchedules $
+--             newListSchedules
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestPublishRecipe $
+--             newPublishRecipe
+--
 --         , requestSendProjectSessionAction $
 --             newSendProjectSessionAction
+--
+--         , requestStartJobRun $
+--             newStartJobRun
+--
+--         , requestStartProjectSession $
+--             newStartProjectSession
+--
+--         , requestStopJobRun $
+--             newStopJobRun
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateDataset $
+--             newUpdateDataset
+--
+--         , requestUpdateProfileJob $
+--             newUpdateProfileJob
+--
+--         , requestUpdateProject $
+--             newUpdateProject
+--
+--         , requestUpdateRecipe $
+--             newUpdateRecipe
+--
+--         , requestUpdateRecipeJob $
+--             newUpdateRecipeJob
+--
+--         , requestUpdateSchedule $
+--             newUpdateSchedule
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseListProjects $
---             newListProjectsResponse
---
---         , responseDeleteProject $
---             newDeleteProjectResponse
---
---         , responseUpdateProject $
---             newUpdateProjectResponse
---
---         , responseListSchedules $
---             newListSchedulesResponse
---
---         , responseDescribeDataset $
---             newDescribeDatasetResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseDescribeProject $
---             newDescribeProjectResponse
---
---         , responseCreateRecipeJob $
---             newCreateRecipeJobResponse
---
---         , responseListRecipeVersions $
---             newListRecipeVersionsResponse
---
---         , responseDeleteDataset $
---             newDeleteDatasetResponse
---
---         , responseUpdateDataset $
---             newUpdateDatasetResponse
---
---         , responseStopJobRun $
---             newStopJobRunResponse
---
---         , responseUpdateRecipeJob $
---             newUpdateRecipeJobResponse
---
---         , responseListJobs $
---             newListJobsResponse
+--         [ responseBatchDeleteRecipeVersion $
+--             newBatchDeleteRecipeVersionResponse
 --
 --         , responseCreateDataset $
 --             newCreateDatasetResponse
 --
---         , responseDeleteJob $
---             newDeleteJobResponse
---
---         , responseCreateRecipe $
---             newCreateRecipeResponse
---
---         , responseUpdateSchedule $
---             newUpdateScheduleResponse
---
---         , responseDeleteSchedule $
---             newDeleteScheduleResponse
---
---         , responseBatchDeleteRecipeVersion $
---             newBatchDeleteRecipeVersionResponse
---
---         , responseListJobRuns $
---             newListJobRunsResponse
---
---         , responseDescribeJob $
---             newDescribeJobResponse
---
---         , responseUpdateProfileJob $
---             newUpdateProfileJobResponse
---
---         , responseDescribeRecipe $
---             newDescribeRecipeResponse
---
 --         , responseCreateProfileJob $
 --             newCreateProfileJobResponse
---
---         , responseTagResource $
---             newTagResourceResponse
---
---         , responseDescribeSchedule $
---             newDescribeScheduleResponse
---
---         , responseDescribeJobRun $
---             newDescribeJobRunResponse
---
---         , responseStartProjectSession $
---             newStartProjectSessionResponse
---
---         , responseDeleteRecipeVersion $
---             newDeleteRecipeVersionResponse
---
---         , responseListDatasets $
---             newListDatasetsResponse
---
---         , responseUntagResource $
---             newUntagResourceResponse
---
---         , responseStartJobRun $
---             newStartJobRunResponse
---
---         , responseUpdateRecipe $
---             newUpdateRecipeResponse
---
---         , responseCreateSchedule $
---             newCreateScheduleResponse
---
---         , responseListRecipes $
---             newListRecipesResponse
---
---         , responsePublishRecipe $
---             newPublishRecipeResponse
 --
 --         , responseCreateProject $
 --             newCreateProjectResponse
 --
+--         , responseCreateRecipe $
+--             newCreateRecipeResponse
+--
+--         , responseCreateRecipeJob $
+--             newCreateRecipeJobResponse
+--
+--         , responseCreateSchedule $
+--             newCreateScheduleResponse
+--
+--         , responseDeleteDataset $
+--             newDeleteDatasetResponse
+--
+--         , responseDeleteJob $
+--             newDeleteJobResponse
+--
+--         , responseDeleteProject $
+--             newDeleteProjectResponse
+--
+--         , responseDeleteRecipeVersion $
+--             newDeleteRecipeVersionResponse
+--
+--         , responseDeleteSchedule $
+--             newDeleteScheduleResponse
+--
+--         , responseDescribeDataset $
+--             newDescribeDatasetResponse
+--
+--         , responseDescribeJob $
+--             newDescribeJobResponse
+--
+--         , responseDescribeJobRun $
+--             newDescribeJobRunResponse
+--
+--         , responseDescribeProject $
+--             newDescribeProjectResponse
+--
+--         , responseDescribeRecipe $
+--             newDescribeRecipeResponse
+--
+--         , responseDescribeSchedule $
+--             newDescribeScheduleResponse
+--
+--         , responseListDatasets $
+--             newListDatasetsResponse
+--
+--         , responseListJobRuns $
+--             newListJobRunsResponse
+--
+--         , responseListJobs $
+--             newListJobsResponse
+--
+--         , responseListProjects $
+--             newListProjectsResponse
+--
+--         , responseListRecipeVersions $
+--             newListRecipeVersionsResponse
+--
+--         , responseListRecipes $
+--             newListRecipesResponse
+--
+--         , responseListSchedules $
+--             newListSchedulesResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responsePublishRecipe $
+--             newPublishRecipeResponse
+--
 --         , responseSendProjectSessionAction $
 --             newSendProjectSessionActionResponse
+--
+--         , responseStartJobRun $
+--             newStartJobRunResponse
+--
+--         , responseStartProjectSession $
+--             newStartProjectSessionResponse
+--
+--         , responseStopJobRun $
+--             newStopJobRunResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseUpdateDataset $
+--             newUpdateDatasetResponse
+--
+--         , responseUpdateProfileJob $
+--             newUpdateProfileJobResponse
+--
+--         , responseUpdateProject $
+--             newUpdateProjectResponse
+--
+--         , responseUpdateRecipe $
+--             newUpdateRecipeResponse
+--
+--         , responseUpdateRecipeJob $
+--             newUpdateRecipeJobResponse
+--
+--         , responseUpdateSchedule $
+--             newUpdateScheduleResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestListProjects :: ListProjects -> TestTree
-requestListProjects =
-  req
-    "ListProjects"
-    "fixture/ListProjects.yaml"
-
-requestDeleteProject :: DeleteProject -> TestTree
-requestDeleteProject =
-  req
-    "DeleteProject"
-    "fixture/DeleteProject.yaml"
-
-requestUpdateProject :: UpdateProject -> TestTree
-requestUpdateProject =
-  req
-    "UpdateProject"
-    "fixture/UpdateProject.yaml"
-
-requestListSchedules :: ListSchedules -> TestTree
-requestListSchedules =
-  req
-    "ListSchedules"
-    "fixture/ListSchedules.yaml"
-
-requestDescribeDataset :: DescribeDataset -> TestTree
-requestDescribeDataset =
-  req
-    "DescribeDataset"
-    "fixture/DescribeDataset.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestDescribeProject :: DescribeProject -> TestTree
-requestDescribeProject =
-  req
-    "DescribeProject"
-    "fixture/DescribeProject.yaml"
-
-requestCreateRecipeJob :: CreateRecipeJob -> TestTree
-requestCreateRecipeJob =
-  req
-    "CreateRecipeJob"
-    "fixture/CreateRecipeJob.yaml"
-
-requestListRecipeVersions :: ListRecipeVersions -> TestTree
-requestListRecipeVersions =
-  req
-    "ListRecipeVersions"
-    "fixture/ListRecipeVersions.yaml"
-
-requestDeleteDataset :: DeleteDataset -> TestTree
-requestDeleteDataset =
-  req
-    "DeleteDataset"
-    "fixture/DeleteDataset.yaml"
-
-requestUpdateDataset :: UpdateDataset -> TestTree
-requestUpdateDataset =
-  req
-    "UpdateDataset"
-    "fixture/UpdateDataset.yaml"
-
-requestStopJobRun :: StopJobRun -> TestTree
-requestStopJobRun =
-  req
-    "StopJobRun"
-    "fixture/StopJobRun.yaml"
-
-requestUpdateRecipeJob :: UpdateRecipeJob -> TestTree
-requestUpdateRecipeJob =
-  req
-    "UpdateRecipeJob"
-    "fixture/UpdateRecipeJob.yaml"
-
-requestListJobs :: ListJobs -> TestTree
-requestListJobs =
-  req
-    "ListJobs"
-    "fixture/ListJobs.yaml"
-
-requestCreateDataset :: CreateDataset -> TestTree
-requestCreateDataset =
-  req
-    "CreateDataset"
-    "fixture/CreateDataset.yaml"
-
-requestDeleteJob :: DeleteJob -> TestTree
-requestDeleteJob =
-  req
-    "DeleteJob"
-    "fixture/DeleteJob.yaml"
-
-requestCreateRecipe :: CreateRecipe -> TestTree
-requestCreateRecipe =
-  req
-    "CreateRecipe"
-    "fixture/CreateRecipe.yaml"
-
-requestUpdateSchedule :: UpdateSchedule -> TestTree
-requestUpdateSchedule =
-  req
-    "UpdateSchedule"
-    "fixture/UpdateSchedule.yaml"
-
-requestDeleteSchedule :: DeleteSchedule -> TestTree
-requestDeleteSchedule =
-  req
-    "DeleteSchedule"
-    "fixture/DeleteSchedule.yaml"
 
 requestBatchDeleteRecipeVersion :: BatchDeleteRecipeVersion -> TestTree
 requestBatchDeleteRecipeVersion =
@@ -389,29 +275,11 @@ requestBatchDeleteRecipeVersion =
     "BatchDeleteRecipeVersion"
     "fixture/BatchDeleteRecipeVersion.yaml"
 
-requestListJobRuns :: ListJobRuns -> TestTree
-requestListJobRuns =
+requestCreateDataset :: CreateDataset -> TestTree
+requestCreateDataset =
   req
-    "ListJobRuns"
-    "fixture/ListJobRuns.yaml"
-
-requestDescribeJob :: DescribeJob -> TestTree
-requestDescribeJob =
-  req
-    "DescribeJob"
-    "fixture/DescribeJob.yaml"
-
-requestUpdateProfileJob :: UpdateProfileJob -> TestTree
-requestUpdateProfileJob =
-  req
-    "UpdateProfileJob"
-    "fixture/UpdateProfileJob.yaml"
-
-requestDescribeRecipe :: DescribeRecipe -> TestTree
-requestDescribeRecipe =
-  req
-    "DescribeRecipe"
-    "fixture/DescribeRecipe.yaml"
+    "CreateDataset"
+    "fixture/CreateDataset.yaml"
 
 requestCreateProfileJob :: CreateProfileJob -> TestTree
 requestCreateProfileJob =
@@ -419,59 +287,23 @@ requestCreateProfileJob =
     "CreateProfileJob"
     "fixture/CreateProfileJob.yaml"
 
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
+requestCreateProject :: CreateProject -> TestTree
+requestCreateProject =
   req
-    "TagResource"
-    "fixture/TagResource.yaml"
+    "CreateProject"
+    "fixture/CreateProject.yaml"
 
-requestDescribeSchedule :: DescribeSchedule -> TestTree
-requestDescribeSchedule =
+requestCreateRecipe :: CreateRecipe -> TestTree
+requestCreateRecipe =
   req
-    "DescribeSchedule"
-    "fixture/DescribeSchedule.yaml"
+    "CreateRecipe"
+    "fixture/CreateRecipe.yaml"
 
-requestDescribeJobRun :: DescribeJobRun -> TestTree
-requestDescribeJobRun =
+requestCreateRecipeJob :: CreateRecipeJob -> TestTree
+requestCreateRecipeJob =
   req
-    "DescribeJobRun"
-    "fixture/DescribeJobRun.yaml"
-
-requestStartProjectSession :: StartProjectSession -> TestTree
-requestStartProjectSession =
-  req
-    "StartProjectSession"
-    "fixture/StartProjectSession.yaml"
-
-requestDeleteRecipeVersion :: DeleteRecipeVersion -> TestTree
-requestDeleteRecipeVersion =
-  req
-    "DeleteRecipeVersion"
-    "fixture/DeleteRecipeVersion.yaml"
-
-requestListDatasets :: ListDatasets -> TestTree
-requestListDatasets =
-  req
-    "ListDatasets"
-    "fixture/ListDatasets.yaml"
-
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
-
-requestStartJobRun :: StartJobRun -> TestTree
-requestStartJobRun =
-  req
-    "StartJobRun"
-    "fixture/StartJobRun.yaml"
-
-requestUpdateRecipe :: UpdateRecipe -> TestTree
-requestUpdateRecipe =
-  req
-    "UpdateRecipe"
-    "fixture/UpdateRecipe.yaml"
+    "CreateRecipeJob"
+    "fixture/CreateRecipeJob.yaml"
 
 requestCreateSchedule :: CreateSchedule -> TestTree
 requestCreateSchedule =
@@ -479,11 +311,119 @@ requestCreateSchedule =
     "CreateSchedule"
     "fixture/CreateSchedule.yaml"
 
+requestDeleteDataset :: DeleteDataset -> TestTree
+requestDeleteDataset =
+  req
+    "DeleteDataset"
+    "fixture/DeleteDataset.yaml"
+
+requestDeleteJob :: DeleteJob -> TestTree
+requestDeleteJob =
+  req
+    "DeleteJob"
+    "fixture/DeleteJob.yaml"
+
+requestDeleteProject :: DeleteProject -> TestTree
+requestDeleteProject =
+  req
+    "DeleteProject"
+    "fixture/DeleteProject.yaml"
+
+requestDeleteRecipeVersion :: DeleteRecipeVersion -> TestTree
+requestDeleteRecipeVersion =
+  req
+    "DeleteRecipeVersion"
+    "fixture/DeleteRecipeVersion.yaml"
+
+requestDeleteSchedule :: DeleteSchedule -> TestTree
+requestDeleteSchedule =
+  req
+    "DeleteSchedule"
+    "fixture/DeleteSchedule.yaml"
+
+requestDescribeDataset :: DescribeDataset -> TestTree
+requestDescribeDataset =
+  req
+    "DescribeDataset"
+    "fixture/DescribeDataset.yaml"
+
+requestDescribeJob :: DescribeJob -> TestTree
+requestDescribeJob =
+  req
+    "DescribeJob"
+    "fixture/DescribeJob.yaml"
+
+requestDescribeJobRun :: DescribeJobRun -> TestTree
+requestDescribeJobRun =
+  req
+    "DescribeJobRun"
+    "fixture/DescribeJobRun.yaml"
+
+requestDescribeProject :: DescribeProject -> TestTree
+requestDescribeProject =
+  req
+    "DescribeProject"
+    "fixture/DescribeProject.yaml"
+
+requestDescribeRecipe :: DescribeRecipe -> TestTree
+requestDescribeRecipe =
+  req
+    "DescribeRecipe"
+    "fixture/DescribeRecipe.yaml"
+
+requestDescribeSchedule :: DescribeSchedule -> TestTree
+requestDescribeSchedule =
+  req
+    "DescribeSchedule"
+    "fixture/DescribeSchedule.yaml"
+
+requestListDatasets :: ListDatasets -> TestTree
+requestListDatasets =
+  req
+    "ListDatasets"
+    "fixture/ListDatasets.yaml"
+
+requestListJobRuns :: ListJobRuns -> TestTree
+requestListJobRuns =
+  req
+    "ListJobRuns"
+    "fixture/ListJobRuns.yaml"
+
+requestListJobs :: ListJobs -> TestTree
+requestListJobs =
+  req
+    "ListJobs"
+    "fixture/ListJobs.yaml"
+
+requestListProjects :: ListProjects -> TestTree
+requestListProjects =
+  req
+    "ListProjects"
+    "fixture/ListProjects.yaml"
+
+requestListRecipeVersions :: ListRecipeVersions -> TestTree
+requestListRecipeVersions =
+  req
+    "ListRecipeVersions"
+    "fixture/ListRecipeVersions.yaml"
+
 requestListRecipes :: ListRecipes -> TestTree
 requestListRecipes =
   req
     "ListRecipes"
     "fixture/ListRecipes.yaml"
+
+requestListSchedules :: ListSchedules -> TestTree
+requestListSchedules =
+  req
+    "ListSchedules"
+    "fixture/ListSchedules.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
 requestPublishRecipe :: PublishRecipe -> TestTree
 requestPublishRecipe =
@@ -491,171 +431,79 @@ requestPublishRecipe =
     "PublishRecipe"
     "fixture/PublishRecipe.yaml"
 
-requestCreateProject :: CreateProject -> TestTree
-requestCreateProject =
-  req
-    "CreateProject"
-    "fixture/CreateProject.yaml"
-
 requestSendProjectSessionAction :: SendProjectSessionAction -> TestTree
 requestSendProjectSessionAction =
   req
     "SendProjectSessionAction"
     "fixture/SendProjectSessionAction.yaml"
 
+requestStartJobRun :: StartJobRun -> TestTree
+requestStartJobRun =
+  req
+    "StartJobRun"
+    "fixture/StartJobRun.yaml"
+
+requestStartProjectSession :: StartProjectSession -> TestTree
+requestStartProjectSession =
+  req
+    "StartProjectSession"
+    "fixture/StartProjectSession.yaml"
+
+requestStopJobRun :: StopJobRun -> TestTree
+requestStopJobRun =
+  req
+    "StopJobRun"
+    "fixture/StopJobRun.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateDataset :: UpdateDataset -> TestTree
+requestUpdateDataset =
+  req
+    "UpdateDataset"
+    "fixture/UpdateDataset.yaml"
+
+requestUpdateProfileJob :: UpdateProfileJob -> TestTree
+requestUpdateProfileJob =
+  req
+    "UpdateProfileJob"
+    "fixture/UpdateProfileJob.yaml"
+
+requestUpdateProject :: UpdateProject -> TestTree
+requestUpdateProject =
+  req
+    "UpdateProject"
+    "fixture/UpdateProject.yaml"
+
+requestUpdateRecipe :: UpdateRecipe -> TestTree
+requestUpdateRecipe =
+  req
+    "UpdateRecipe"
+    "fixture/UpdateRecipe.yaml"
+
+requestUpdateRecipeJob :: UpdateRecipeJob -> TestTree
+requestUpdateRecipeJob =
+  req
+    "UpdateRecipeJob"
+    "fixture/UpdateRecipeJob.yaml"
+
+requestUpdateSchedule :: UpdateSchedule -> TestTree
+requestUpdateSchedule =
+  req
+    "UpdateSchedule"
+    "fixture/UpdateSchedule.yaml"
+
 -- Responses
-
-responseListProjects :: ListProjectsResponse -> TestTree
-responseListProjects =
-  res
-    "ListProjectsResponse"
-    "fixture/ListProjectsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListProjects)
-
-responseDeleteProject :: DeleteProjectResponse -> TestTree
-responseDeleteProject =
-  res
-    "DeleteProjectResponse"
-    "fixture/DeleteProjectResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteProject)
-
-responseUpdateProject :: UpdateProjectResponse -> TestTree
-responseUpdateProject =
-  res
-    "UpdateProjectResponse"
-    "fixture/UpdateProjectResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateProject)
-
-responseListSchedules :: ListSchedulesResponse -> TestTree
-responseListSchedules =
-  res
-    "ListSchedulesResponse"
-    "fixture/ListSchedulesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListSchedules)
-
-responseDescribeDataset :: DescribeDatasetResponse -> TestTree
-responseDescribeDataset =
-  res
-    "DescribeDatasetResponse"
-    "fixture/DescribeDatasetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeDataset)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseDescribeProject :: DescribeProjectResponse -> TestTree
-responseDescribeProject =
-  res
-    "DescribeProjectResponse"
-    "fixture/DescribeProjectResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeProject)
-
-responseCreateRecipeJob :: CreateRecipeJobResponse -> TestTree
-responseCreateRecipeJob =
-  res
-    "CreateRecipeJobResponse"
-    "fixture/CreateRecipeJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateRecipeJob)
-
-responseListRecipeVersions :: ListRecipeVersionsResponse -> TestTree
-responseListRecipeVersions =
-  res
-    "ListRecipeVersionsResponse"
-    "fixture/ListRecipeVersionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListRecipeVersions)
-
-responseDeleteDataset :: DeleteDatasetResponse -> TestTree
-responseDeleteDataset =
-  res
-    "DeleteDatasetResponse"
-    "fixture/DeleteDatasetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteDataset)
-
-responseUpdateDataset :: UpdateDatasetResponse -> TestTree
-responseUpdateDataset =
-  res
-    "UpdateDatasetResponse"
-    "fixture/UpdateDatasetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateDataset)
-
-responseStopJobRun :: StopJobRunResponse -> TestTree
-responseStopJobRun =
-  res
-    "StopJobRunResponse"
-    "fixture/StopJobRunResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StopJobRun)
-
-responseUpdateRecipeJob :: UpdateRecipeJobResponse -> TestTree
-responseUpdateRecipeJob =
-  res
-    "UpdateRecipeJobResponse"
-    "fixture/UpdateRecipeJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateRecipeJob)
-
-responseListJobs :: ListJobsResponse -> TestTree
-responseListJobs =
-  res
-    "ListJobsResponse"
-    "fixture/ListJobsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListJobs)
-
-responseCreateDataset :: CreateDatasetResponse -> TestTree
-responseCreateDataset =
-  res
-    "CreateDatasetResponse"
-    "fixture/CreateDatasetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateDataset)
-
-responseDeleteJob :: DeleteJobResponse -> TestTree
-responseDeleteJob =
-  res
-    "DeleteJobResponse"
-    "fixture/DeleteJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteJob)
-
-responseCreateRecipe :: CreateRecipeResponse -> TestTree
-responseCreateRecipe =
-  res
-    "CreateRecipeResponse"
-    "fixture/CreateRecipeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateRecipe)
-
-responseUpdateSchedule :: UpdateScheduleResponse -> TestTree
-responseUpdateSchedule =
-  res
-    "UpdateScheduleResponse"
-    "fixture/UpdateScheduleResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateSchedule)
-
-responseDeleteSchedule :: DeleteScheduleResponse -> TestTree
-responseDeleteSchedule =
-  res
-    "DeleteScheduleResponse"
-    "fixture/DeleteScheduleResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteSchedule)
 
 responseBatchDeleteRecipeVersion :: BatchDeleteRecipeVersionResponse -> TestTree
 responseBatchDeleteRecipeVersion =
@@ -665,37 +513,13 @@ responseBatchDeleteRecipeVersion =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchDeleteRecipeVersion)
 
-responseListJobRuns :: ListJobRunsResponse -> TestTree
-responseListJobRuns =
+responseCreateDataset :: CreateDatasetResponse -> TestTree
+responseCreateDataset =
   res
-    "ListJobRunsResponse"
-    "fixture/ListJobRunsResponse.proto"
+    "CreateDatasetResponse"
+    "fixture/CreateDatasetResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListJobRuns)
-
-responseDescribeJob :: DescribeJobResponse -> TestTree
-responseDescribeJob =
-  res
-    "DescribeJobResponse"
-    "fixture/DescribeJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeJob)
-
-responseUpdateProfileJob :: UpdateProfileJobResponse -> TestTree
-responseUpdateProfileJob =
-  res
-    "UpdateProfileJobResponse"
-    "fixture/UpdateProfileJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateProfileJob)
-
-responseDescribeRecipe :: DescribeRecipeResponse -> TestTree
-responseDescribeRecipe =
-  res
-    "DescribeRecipeResponse"
-    "fixture/DescribeRecipeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeRecipe)
+    (Proxy.Proxy :: Proxy.Proxy CreateDataset)
 
 responseCreateProfileJob :: CreateProfileJobResponse -> TestTree
 responseCreateProfileJob =
@@ -705,77 +529,29 @@ responseCreateProfileJob =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateProfileJob)
 
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
+responseCreateProject :: CreateProjectResponse -> TestTree
+responseCreateProject =
   res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
+    "CreateProjectResponse"
+    "fixture/CreateProjectResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy CreateProject)
 
-responseDescribeSchedule :: DescribeScheduleResponse -> TestTree
-responseDescribeSchedule =
+responseCreateRecipe :: CreateRecipeResponse -> TestTree
+responseCreateRecipe =
   res
-    "DescribeScheduleResponse"
-    "fixture/DescribeScheduleResponse.proto"
+    "CreateRecipeResponse"
+    "fixture/CreateRecipeResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeSchedule)
+    (Proxy.Proxy :: Proxy.Proxy CreateRecipe)
 
-responseDescribeJobRun :: DescribeJobRunResponse -> TestTree
-responseDescribeJobRun =
+responseCreateRecipeJob :: CreateRecipeJobResponse -> TestTree
+responseCreateRecipeJob =
   res
-    "DescribeJobRunResponse"
-    "fixture/DescribeJobRunResponse.proto"
+    "CreateRecipeJobResponse"
+    "fixture/CreateRecipeJobResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeJobRun)
-
-responseStartProjectSession :: StartProjectSessionResponse -> TestTree
-responseStartProjectSession =
-  res
-    "StartProjectSessionResponse"
-    "fixture/StartProjectSessionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartProjectSession)
-
-responseDeleteRecipeVersion :: DeleteRecipeVersionResponse -> TestTree
-responseDeleteRecipeVersion =
-  res
-    "DeleteRecipeVersionResponse"
-    "fixture/DeleteRecipeVersionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteRecipeVersion)
-
-responseListDatasets :: ListDatasetsResponse -> TestTree
-responseListDatasets =
-  res
-    "ListDatasetsResponse"
-    "fixture/ListDatasetsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDatasets)
-
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UntagResource)
-
-responseStartJobRun :: StartJobRunResponse -> TestTree
-responseStartJobRun =
-  res
-    "StartJobRunResponse"
-    "fixture/StartJobRunResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartJobRun)
-
-responseUpdateRecipe :: UpdateRecipeResponse -> TestTree
-responseUpdateRecipe =
-  res
-    "UpdateRecipeResponse"
-    "fixture/UpdateRecipeResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateRecipe)
+    (Proxy.Proxy :: Proxy.Proxy CreateRecipeJob)
 
 responseCreateSchedule :: CreateScheduleResponse -> TestTree
 responseCreateSchedule =
@@ -785,6 +561,134 @@ responseCreateSchedule =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateSchedule)
 
+responseDeleteDataset :: DeleteDatasetResponse -> TestTree
+responseDeleteDataset =
+  res
+    "DeleteDatasetResponse"
+    "fixture/DeleteDatasetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteDataset)
+
+responseDeleteJob :: DeleteJobResponse -> TestTree
+responseDeleteJob =
+  res
+    "DeleteJobResponse"
+    "fixture/DeleteJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteJob)
+
+responseDeleteProject :: DeleteProjectResponse -> TestTree
+responseDeleteProject =
+  res
+    "DeleteProjectResponse"
+    "fixture/DeleteProjectResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteProject)
+
+responseDeleteRecipeVersion :: DeleteRecipeVersionResponse -> TestTree
+responseDeleteRecipeVersion =
+  res
+    "DeleteRecipeVersionResponse"
+    "fixture/DeleteRecipeVersionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteRecipeVersion)
+
+responseDeleteSchedule :: DeleteScheduleResponse -> TestTree
+responseDeleteSchedule =
+  res
+    "DeleteScheduleResponse"
+    "fixture/DeleteScheduleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteSchedule)
+
+responseDescribeDataset :: DescribeDatasetResponse -> TestTree
+responseDescribeDataset =
+  res
+    "DescribeDatasetResponse"
+    "fixture/DescribeDatasetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeDataset)
+
+responseDescribeJob :: DescribeJobResponse -> TestTree
+responseDescribeJob =
+  res
+    "DescribeJobResponse"
+    "fixture/DescribeJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeJob)
+
+responseDescribeJobRun :: DescribeJobRunResponse -> TestTree
+responseDescribeJobRun =
+  res
+    "DescribeJobRunResponse"
+    "fixture/DescribeJobRunResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeJobRun)
+
+responseDescribeProject :: DescribeProjectResponse -> TestTree
+responseDescribeProject =
+  res
+    "DescribeProjectResponse"
+    "fixture/DescribeProjectResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeProject)
+
+responseDescribeRecipe :: DescribeRecipeResponse -> TestTree
+responseDescribeRecipe =
+  res
+    "DescribeRecipeResponse"
+    "fixture/DescribeRecipeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeRecipe)
+
+responseDescribeSchedule :: DescribeScheduleResponse -> TestTree
+responseDescribeSchedule =
+  res
+    "DescribeScheduleResponse"
+    "fixture/DescribeScheduleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeSchedule)
+
+responseListDatasets :: ListDatasetsResponse -> TestTree
+responseListDatasets =
+  res
+    "ListDatasetsResponse"
+    "fixture/ListDatasetsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDatasets)
+
+responseListJobRuns :: ListJobRunsResponse -> TestTree
+responseListJobRuns =
+  res
+    "ListJobRunsResponse"
+    "fixture/ListJobRunsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListJobRuns)
+
+responseListJobs :: ListJobsResponse -> TestTree
+responseListJobs =
+  res
+    "ListJobsResponse"
+    "fixture/ListJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListJobs)
+
+responseListProjects :: ListProjectsResponse -> TestTree
+responseListProjects =
+  res
+    "ListProjectsResponse"
+    "fixture/ListProjectsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListProjects)
+
+responseListRecipeVersions :: ListRecipeVersionsResponse -> TestTree
+responseListRecipeVersions =
+  res
+    "ListRecipeVersionsResponse"
+    "fixture/ListRecipeVersionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRecipeVersions)
+
 responseListRecipes :: ListRecipesResponse -> TestTree
 responseListRecipes =
   res
@@ -792,6 +696,22 @@ responseListRecipes =
     "fixture/ListRecipesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListRecipes)
+
+responseListSchedules :: ListSchedulesResponse -> TestTree
+responseListSchedules =
+  res
+    "ListSchedulesResponse"
+    "fixture/ListSchedulesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSchedules)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
 responsePublishRecipe :: PublishRecipeResponse -> TestTree
 responsePublishRecipe =
@@ -801,14 +721,6 @@ responsePublishRecipe =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PublishRecipe)
 
-responseCreateProject :: CreateProjectResponse -> TestTree
-responseCreateProject =
-  res
-    "CreateProjectResponse"
-    "fixture/CreateProjectResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateProject)
-
 responseSendProjectSessionAction :: SendProjectSessionActionResponse -> TestTree
 responseSendProjectSessionAction =
   res
@@ -816,3 +728,91 @@ responseSendProjectSessionAction =
     "fixture/SendProjectSessionActionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy SendProjectSessionAction)
+
+responseStartJobRun :: StartJobRunResponse -> TestTree
+responseStartJobRun =
+  res
+    "StartJobRunResponse"
+    "fixture/StartJobRunResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartJobRun)
+
+responseStartProjectSession :: StartProjectSessionResponse -> TestTree
+responseStartProjectSession =
+  res
+    "StartProjectSessionResponse"
+    "fixture/StartProjectSessionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartProjectSession)
+
+responseStopJobRun :: StopJobRunResponse -> TestTree
+responseStopJobRun =
+  res
+    "StopJobRunResponse"
+    "fixture/StopJobRunResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopJobRun)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateDataset :: UpdateDatasetResponse -> TestTree
+responseUpdateDataset =
+  res
+    "UpdateDatasetResponse"
+    "fixture/UpdateDatasetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateDataset)
+
+responseUpdateProfileJob :: UpdateProfileJobResponse -> TestTree
+responseUpdateProfileJob =
+  res
+    "UpdateProfileJobResponse"
+    "fixture/UpdateProfileJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateProfileJob)
+
+responseUpdateProject :: UpdateProjectResponse -> TestTree
+responseUpdateProject =
+  res
+    "UpdateProjectResponse"
+    "fixture/UpdateProjectResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateProject)
+
+responseUpdateRecipe :: UpdateRecipeResponse -> TestTree
+responseUpdateRecipe =
+  res
+    "UpdateRecipeResponse"
+    "fixture/UpdateRecipeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateRecipe)
+
+responseUpdateRecipeJob :: UpdateRecipeJobResponse -> TestTree
+responseUpdateRecipeJob =
+  res
+    "UpdateRecipeJobResponse"
+    "fixture/UpdateRecipeJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateRecipeJob)
+
+responseUpdateSchedule :: UpdateScheduleResponse -> TestTree
+responseUpdateSchedule =
+  res
+    "UpdateScheduleResponse"
+    "fixture/UpdateScheduleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateSchedule)

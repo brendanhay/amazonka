@@ -23,23 +23,23 @@ module Amazonka.DataBrew
     -- * Errors
     -- $errors
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
 
     -- ** InternalServerException
     _InternalServerException,
 
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -47,89 +47,11 @@ module Amazonka.DataBrew
     -- * Operations
     -- $operations
 
-    -- ** ListProjects (Paginated)
-    ListProjects (ListProjects'),
-    newListProjects,
-    ListProjectsResponse (ListProjectsResponse'),
-    newListProjectsResponse,
-
-    -- ** DeleteProject
-    DeleteProject (DeleteProject'),
-    newDeleteProject,
-    DeleteProjectResponse (DeleteProjectResponse'),
-    newDeleteProjectResponse,
-
-    -- ** UpdateProject
-    UpdateProject (UpdateProject'),
-    newUpdateProject,
-    UpdateProjectResponse (UpdateProjectResponse'),
-    newUpdateProjectResponse,
-
-    -- ** ListSchedules (Paginated)
-    ListSchedules (ListSchedules'),
-    newListSchedules,
-    ListSchedulesResponse (ListSchedulesResponse'),
-    newListSchedulesResponse,
-
-    -- ** DescribeDataset
-    DescribeDataset (DescribeDataset'),
-    newDescribeDataset,
-    DescribeDatasetResponse (DescribeDatasetResponse'),
-    newDescribeDatasetResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** DescribeProject
-    DescribeProject (DescribeProject'),
-    newDescribeProject,
-    DescribeProjectResponse (DescribeProjectResponse'),
-    newDescribeProjectResponse,
-
-    -- ** CreateRecipeJob
-    CreateRecipeJob (CreateRecipeJob'),
-    newCreateRecipeJob,
-    CreateRecipeJobResponse (CreateRecipeJobResponse'),
-    newCreateRecipeJobResponse,
-
-    -- ** ListRecipeVersions (Paginated)
-    ListRecipeVersions (ListRecipeVersions'),
-    newListRecipeVersions,
-    ListRecipeVersionsResponse (ListRecipeVersionsResponse'),
-    newListRecipeVersionsResponse,
-
-    -- ** DeleteDataset
-    DeleteDataset (DeleteDataset'),
-    newDeleteDataset,
-    DeleteDatasetResponse (DeleteDatasetResponse'),
-    newDeleteDatasetResponse,
-
-    -- ** UpdateDataset
-    UpdateDataset (UpdateDataset'),
-    newUpdateDataset,
-    UpdateDatasetResponse (UpdateDatasetResponse'),
-    newUpdateDatasetResponse,
-
-    -- ** StopJobRun
-    StopJobRun (StopJobRun'),
-    newStopJobRun,
-    StopJobRunResponse (StopJobRunResponse'),
-    newStopJobRunResponse,
-
-    -- ** UpdateRecipeJob
-    UpdateRecipeJob (UpdateRecipeJob'),
-    newUpdateRecipeJob,
-    UpdateRecipeJobResponse (UpdateRecipeJobResponse'),
-    newUpdateRecipeJobResponse,
-
-    -- ** ListJobs (Paginated)
-    ListJobs (ListJobs'),
-    newListJobs,
-    ListJobsResponse (ListJobsResponse'),
-    newListJobsResponse,
+    -- ** BatchDeleteRecipeVersion
+    BatchDeleteRecipeVersion (BatchDeleteRecipeVersion'),
+    newBatchDeleteRecipeVersion,
+    BatchDeleteRecipeVersionResponse (BatchDeleteRecipeVersionResponse'),
+    newBatchDeleteRecipeVersionResponse,
 
     -- ** CreateDataset
     CreateDataset (CreateDataset'),
@@ -137,137 +59,11 @@ module Amazonka.DataBrew
     CreateDatasetResponse (CreateDatasetResponse'),
     newCreateDatasetResponse,
 
-    -- ** DeleteJob
-    DeleteJob (DeleteJob'),
-    newDeleteJob,
-    DeleteJobResponse (DeleteJobResponse'),
-    newDeleteJobResponse,
-
-    -- ** CreateRecipe
-    CreateRecipe (CreateRecipe'),
-    newCreateRecipe,
-    CreateRecipeResponse (CreateRecipeResponse'),
-    newCreateRecipeResponse,
-
-    -- ** UpdateSchedule
-    UpdateSchedule (UpdateSchedule'),
-    newUpdateSchedule,
-    UpdateScheduleResponse (UpdateScheduleResponse'),
-    newUpdateScheduleResponse,
-
-    -- ** DeleteSchedule
-    DeleteSchedule (DeleteSchedule'),
-    newDeleteSchedule,
-    DeleteScheduleResponse (DeleteScheduleResponse'),
-    newDeleteScheduleResponse,
-
-    -- ** BatchDeleteRecipeVersion
-    BatchDeleteRecipeVersion (BatchDeleteRecipeVersion'),
-    newBatchDeleteRecipeVersion,
-    BatchDeleteRecipeVersionResponse (BatchDeleteRecipeVersionResponse'),
-    newBatchDeleteRecipeVersionResponse,
-
-    -- ** ListJobRuns (Paginated)
-    ListJobRuns (ListJobRuns'),
-    newListJobRuns,
-    ListJobRunsResponse (ListJobRunsResponse'),
-    newListJobRunsResponse,
-
-    -- ** DescribeJob
-    DescribeJob (DescribeJob'),
-    newDescribeJob,
-    DescribeJobResponse (DescribeJobResponse'),
-    newDescribeJobResponse,
-
-    -- ** UpdateProfileJob
-    UpdateProfileJob (UpdateProfileJob'),
-    newUpdateProfileJob,
-    UpdateProfileJobResponse (UpdateProfileJobResponse'),
-    newUpdateProfileJobResponse,
-
-    -- ** DescribeRecipe
-    DescribeRecipe (DescribeRecipe'),
-    newDescribeRecipe,
-    DescribeRecipeResponse (DescribeRecipeResponse'),
-    newDescribeRecipeResponse,
-
     -- ** CreateProfileJob
     CreateProfileJob (CreateProfileJob'),
     newCreateProfileJob,
     CreateProfileJobResponse (CreateProfileJobResponse'),
     newCreateProfileJobResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** DescribeSchedule
-    DescribeSchedule (DescribeSchedule'),
-    newDescribeSchedule,
-    DescribeScheduleResponse (DescribeScheduleResponse'),
-    newDescribeScheduleResponse,
-
-    -- ** DescribeJobRun
-    DescribeJobRun (DescribeJobRun'),
-    newDescribeJobRun,
-    DescribeJobRunResponse (DescribeJobRunResponse'),
-    newDescribeJobRunResponse,
-
-    -- ** StartProjectSession
-    StartProjectSession (StartProjectSession'),
-    newStartProjectSession,
-    StartProjectSessionResponse (StartProjectSessionResponse'),
-    newStartProjectSessionResponse,
-
-    -- ** DeleteRecipeVersion
-    DeleteRecipeVersion (DeleteRecipeVersion'),
-    newDeleteRecipeVersion,
-    DeleteRecipeVersionResponse (DeleteRecipeVersionResponse'),
-    newDeleteRecipeVersionResponse,
-
-    -- ** ListDatasets (Paginated)
-    ListDatasets (ListDatasets'),
-    newListDatasets,
-    ListDatasetsResponse (ListDatasetsResponse'),
-    newListDatasetsResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** StartJobRun
-    StartJobRun (StartJobRun'),
-    newStartJobRun,
-    StartJobRunResponse (StartJobRunResponse'),
-    newStartJobRunResponse,
-
-    -- ** UpdateRecipe
-    UpdateRecipe (UpdateRecipe'),
-    newUpdateRecipe,
-    UpdateRecipeResponse (UpdateRecipeResponse'),
-    newUpdateRecipeResponse,
-
-    -- ** CreateSchedule
-    CreateSchedule (CreateSchedule'),
-    newCreateSchedule,
-    CreateScheduleResponse (CreateScheduleResponse'),
-    newCreateScheduleResponse,
-
-    -- ** ListRecipes (Paginated)
-    ListRecipes (ListRecipes'),
-    newListRecipes,
-    ListRecipesResponse (ListRecipesResponse'),
-    newListRecipesResponse,
-
-    -- ** PublishRecipe
-    PublishRecipe (PublishRecipe'),
-    newPublishRecipe,
-    PublishRecipeResponse (PublishRecipeResponse'),
-    newPublishRecipeResponse,
 
     -- ** CreateProject
     CreateProject (CreateProject'),
@@ -275,11 +71,215 @@ module Amazonka.DataBrew
     CreateProjectResponse (CreateProjectResponse'),
     newCreateProjectResponse,
 
+    -- ** CreateRecipe
+    CreateRecipe (CreateRecipe'),
+    newCreateRecipe,
+    CreateRecipeResponse (CreateRecipeResponse'),
+    newCreateRecipeResponse,
+
+    -- ** CreateRecipeJob
+    CreateRecipeJob (CreateRecipeJob'),
+    newCreateRecipeJob,
+    CreateRecipeJobResponse (CreateRecipeJobResponse'),
+    newCreateRecipeJobResponse,
+
+    -- ** CreateSchedule
+    CreateSchedule (CreateSchedule'),
+    newCreateSchedule,
+    CreateScheduleResponse (CreateScheduleResponse'),
+    newCreateScheduleResponse,
+
+    -- ** DeleteDataset
+    DeleteDataset (DeleteDataset'),
+    newDeleteDataset,
+    DeleteDatasetResponse (DeleteDatasetResponse'),
+    newDeleteDatasetResponse,
+
+    -- ** DeleteJob
+    DeleteJob (DeleteJob'),
+    newDeleteJob,
+    DeleteJobResponse (DeleteJobResponse'),
+    newDeleteJobResponse,
+
+    -- ** DeleteProject
+    DeleteProject (DeleteProject'),
+    newDeleteProject,
+    DeleteProjectResponse (DeleteProjectResponse'),
+    newDeleteProjectResponse,
+
+    -- ** DeleteRecipeVersion
+    DeleteRecipeVersion (DeleteRecipeVersion'),
+    newDeleteRecipeVersion,
+    DeleteRecipeVersionResponse (DeleteRecipeVersionResponse'),
+    newDeleteRecipeVersionResponse,
+
+    -- ** DeleteSchedule
+    DeleteSchedule (DeleteSchedule'),
+    newDeleteSchedule,
+    DeleteScheduleResponse (DeleteScheduleResponse'),
+    newDeleteScheduleResponse,
+
+    -- ** DescribeDataset
+    DescribeDataset (DescribeDataset'),
+    newDescribeDataset,
+    DescribeDatasetResponse (DescribeDatasetResponse'),
+    newDescribeDatasetResponse,
+
+    -- ** DescribeJob
+    DescribeJob (DescribeJob'),
+    newDescribeJob,
+    DescribeJobResponse (DescribeJobResponse'),
+    newDescribeJobResponse,
+
+    -- ** DescribeJobRun
+    DescribeJobRun (DescribeJobRun'),
+    newDescribeJobRun,
+    DescribeJobRunResponse (DescribeJobRunResponse'),
+    newDescribeJobRunResponse,
+
+    -- ** DescribeProject
+    DescribeProject (DescribeProject'),
+    newDescribeProject,
+    DescribeProjectResponse (DescribeProjectResponse'),
+    newDescribeProjectResponse,
+
+    -- ** DescribeRecipe
+    DescribeRecipe (DescribeRecipe'),
+    newDescribeRecipe,
+    DescribeRecipeResponse (DescribeRecipeResponse'),
+    newDescribeRecipeResponse,
+
+    -- ** DescribeSchedule
+    DescribeSchedule (DescribeSchedule'),
+    newDescribeSchedule,
+    DescribeScheduleResponse (DescribeScheduleResponse'),
+    newDescribeScheduleResponse,
+
+    -- ** ListDatasets (Paginated)
+    ListDatasets (ListDatasets'),
+    newListDatasets,
+    ListDatasetsResponse (ListDatasetsResponse'),
+    newListDatasetsResponse,
+
+    -- ** ListJobRuns (Paginated)
+    ListJobRuns (ListJobRuns'),
+    newListJobRuns,
+    ListJobRunsResponse (ListJobRunsResponse'),
+    newListJobRunsResponse,
+
+    -- ** ListJobs (Paginated)
+    ListJobs (ListJobs'),
+    newListJobs,
+    ListJobsResponse (ListJobsResponse'),
+    newListJobsResponse,
+
+    -- ** ListProjects (Paginated)
+    ListProjects (ListProjects'),
+    newListProjects,
+    ListProjectsResponse (ListProjectsResponse'),
+    newListProjectsResponse,
+
+    -- ** ListRecipeVersions (Paginated)
+    ListRecipeVersions (ListRecipeVersions'),
+    newListRecipeVersions,
+    ListRecipeVersionsResponse (ListRecipeVersionsResponse'),
+    newListRecipeVersionsResponse,
+
+    -- ** ListRecipes (Paginated)
+    ListRecipes (ListRecipes'),
+    newListRecipes,
+    ListRecipesResponse (ListRecipesResponse'),
+    newListRecipesResponse,
+
+    -- ** ListSchedules (Paginated)
+    ListSchedules (ListSchedules'),
+    newListSchedules,
+    ListSchedulesResponse (ListSchedulesResponse'),
+    newListSchedulesResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** PublishRecipe
+    PublishRecipe (PublishRecipe'),
+    newPublishRecipe,
+    PublishRecipeResponse (PublishRecipeResponse'),
+    newPublishRecipeResponse,
+
     -- ** SendProjectSessionAction
     SendProjectSessionAction (SendProjectSessionAction'),
     newSendProjectSessionAction,
     SendProjectSessionActionResponse (SendProjectSessionActionResponse'),
     newSendProjectSessionActionResponse,
+
+    -- ** StartJobRun
+    StartJobRun (StartJobRun'),
+    newStartJobRun,
+    StartJobRunResponse (StartJobRunResponse'),
+    newStartJobRunResponse,
+
+    -- ** StartProjectSession
+    StartProjectSession (StartProjectSession'),
+    newStartProjectSession,
+    StartProjectSessionResponse (StartProjectSessionResponse'),
+    newStartProjectSessionResponse,
+
+    -- ** StopJobRun
+    StopJobRun (StopJobRun'),
+    newStopJobRun,
+    StopJobRunResponse (StopJobRunResponse'),
+    newStopJobRunResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateDataset
+    UpdateDataset (UpdateDataset'),
+    newUpdateDataset,
+    UpdateDatasetResponse (UpdateDatasetResponse'),
+    newUpdateDatasetResponse,
+
+    -- ** UpdateProfileJob
+    UpdateProfileJob (UpdateProfileJob'),
+    newUpdateProfileJob,
+    UpdateProfileJobResponse (UpdateProfileJobResponse'),
+    newUpdateProfileJobResponse,
+
+    -- ** UpdateProject
+    UpdateProject (UpdateProject'),
+    newUpdateProject,
+    UpdateProjectResponse (UpdateProjectResponse'),
+    newUpdateProjectResponse,
+
+    -- ** UpdateRecipe
+    UpdateRecipe (UpdateRecipe'),
+    newUpdateRecipe,
+    UpdateRecipeResponse (UpdateRecipeResponse'),
+    newUpdateRecipeResponse,
+
+    -- ** UpdateRecipeJob
+    UpdateRecipeJob (UpdateRecipeJob'),
+    newUpdateRecipeJob,
+    UpdateRecipeJobResponse (UpdateRecipeJobResponse'),
+    newUpdateRecipeJobResponse,
+
+    -- ** UpdateSchedule
+    UpdateSchedule (UpdateSchedule'),
+    newUpdateSchedule,
+    UpdateScheduleResponse (UpdateScheduleResponse'),
+    newUpdateScheduleResponse,
 
     -- * Types
 

@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newViewFrame' smart constructor.
 data ViewFrame = ViewFrame'
-  { -- | A list of columns to hide in the view frame.
-    hiddenColumns :: Prelude.Maybe [Prelude.Text],
-    -- | The number of columns to include in the view frame, beginning with the
+  { -- | The number of columns to include in the view frame, beginning with the
     -- @StartColumnIndex@ value and ignoring any columns in the @HiddenColumns@
     -- list.
     columnRange :: Prelude.Maybe Prelude.Natural,
+    -- | A list of columns to hide in the view frame.
+    hiddenColumns :: Prelude.Maybe [Prelude.Text],
     -- | The starting index for the range of columns to return in the view frame.
     startColumnIndex :: Prelude.Natural
   }
@@ -46,11 +46,11 @@ data ViewFrame = ViewFrame'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hiddenColumns', 'viewFrame_hiddenColumns' - A list of columns to hide in the view frame.
---
 -- 'columnRange', 'viewFrame_columnRange' - The number of columns to include in the view frame, beginning with the
 -- @StartColumnIndex@ value and ignoring any columns in the @HiddenColumns@
 -- list.
+--
+-- 'hiddenColumns', 'viewFrame_hiddenColumns' - A list of columns to hide in the view frame.
 --
 -- 'startColumnIndex', 'viewFrame_startColumnIndex' - The starting index for the range of columns to return in the view frame.
 newViewFrame ::
@@ -59,14 +59,10 @@ newViewFrame ::
   ViewFrame
 newViewFrame pStartColumnIndex_ =
   ViewFrame'
-    { hiddenColumns = Prelude.Nothing,
-      columnRange = Prelude.Nothing,
+    { columnRange = Prelude.Nothing,
+      hiddenColumns = Prelude.Nothing,
       startColumnIndex = pStartColumnIndex_
     }
-
--- | A list of columns to hide in the view frame.
-viewFrame_hiddenColumns :: Lens.Lens' ViewFrame (Prelude.Maybe [Prelude.Text])
-viewFrame_hiddenColumns = Lens.lens (\ViewFrame' {hiddenColumns} -> hiddenColumns) (\s@ViewFrame' {} a -> s {hiddenColumns = a} :: ViewFrame) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of columns to include in the view frame, beginning with the
 -- @StartColumnIndex@ value and ignoring any columns in the @HiddenColumns@
@@ -74,28 +70,32 @@ viewFrame_hiddenColumns = Lens.lens (\ViewFrame' {hiddenColumns} -> hiddenColumn
 viewFrame_columnRange :: Lens.Lens' ViewFrame (Prelude.Maybe Prelude.Natural)
 viewFrame_columnRange = Lens.lens (\ViewFrame' {columnRange} -> columnRange) (\s@ViewFrame' {} a -> s {columnRange = a} :: ViewFrame)
 
+-- | A list of columns to hide in the view frame.
+viewFrame_hiddenColumns :: Lens.Lens' ViewFrame (Prelude.Maybe [Prelude.Text])
+viewFrame_hiddenColumns = Lens.lens (\ViewFrame' {hiddenColumns} -> hiddenColumns) (\s@ViewFrame' {} a -> s {hiddenColumns = a} :: ViewFrame) Prelude.. Lens.mapping Lens.coerced
+
 -- | The starting index for the range of columns to return in the view frame.
 viewFrame_startColumnIndex :: Lens.Lens' ViewFrame Prelude.Natural
 viewFrame_startColumnIndex = Lens.lens (\ViewFrame' {startColumnIndex} -> startColumnIndex) (\s@ViewFrame' {} a -> s {startColumnIndex = a} :: ViewFrame)
 
 instance Prelude.Hashable ViewFrame where
   hashWithSalt _salt ViewFrame' {..} =
-    _salt `Prelude.hashWithSalt` hiddenColumns
-      `Prelude.hashWithSalt` columnRange
+    _salt `Prelude.hashWithSalt` columnRange
+      `Prelude.hashWithSalt` hiddenColumns
       `Prelude.hashWithSalt` startColumnIndex
 
 instance Prelude.NFData ViewFrame where
   rnf ViewFrame' {..} =
-    Prelude.rnf hiddenColumns
-      `Prelude.seq` Prelude.rnf columnRange
+    Prelude.rnf columnRange
+      `Prelude.seq` Prelude.rnf hiddenColumns
       `Prelude.seq` Prelude.rnf startColumnIndex
 
 instance Core.ToJSON ViewFrame where
   toJSON ViewFrame' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("HiddenColumns" Core..=) Prelude.<$> hiddenColumns,
-            ("ColumnRange" Core..=) Prelude.<$> columnRange,
+          [ ("ColumnRange" Core..=) Prelude.<$> columnRange,
+            ("HiddenColumns" Core..=) Prelude.<$> hiddenColumns,
             Prelude.Just
               ("StartColumnIndex" Core..= startColumnIndex)
           ]

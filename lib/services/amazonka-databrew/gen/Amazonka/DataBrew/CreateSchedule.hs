@@ -28,8 +28,8 @@ module Amazonka.DataBrew.CreateSchedule
     newCreateSchedule,
 
     -- * Request Lenses
-    createSchedule_jobNames,
     createSchedule_tags,
+    createSchedule_jobNames,
     createSchedule_cronExpression,
     createSchedule_name,
 
@@ -52,10 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSchedule' smart constructor.
 data CreateSchedule = CreateSchedule'
-  { -- | The name or names of one or more jobs to be run.
-    jobNames :: Prelude.Maybe [Prelude.Text],
-    -- | Metadata tags to apply to this schedule.
+  { -- | Metadata tags to apply to this schedule.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The name or names of one or more jobs to be run.
+    jobNames :: Prelude.Maybe [Prelude.Text],
     -- | The date or dates and time or times when the jobs are to be run. For
     -- more information, see
     -- <https://docs.aws.amazon.com/databrew/latest/dg/jobs.cron.html Cron expressions>
@@ -75,9 +75,9 @@ data CreateSchedule = CreateSchedule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobNames', 'createSchedule_jobNames' - The name or names of one or more jobs to be run.
---
 -- 'tags', 'createSchedule_tags' - Metadata tags to apply to this schedule.
+--
+-- 'jobNames', 'createSchedule_jobNames' - The name or names of one or more jobs to be run.
 --
 -- 'cronExpression', 'createSchedule_cronExpression' - The date or dates and time or times when the jobs are to be run. For
 -- more information, see
@@ -94,19 +94,19 @@ newCreateSchedule ::
   CreateSchedule
 newCreateSchedule pCronExpression_ pName_ =
   CreateSchedule'
-    { jobNames = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      jobNames = Prelude.Nothing,
       cronExpression = pCronExpression_,
       name = pName_
     }
 
--- | The name or names of one or more jobs to be run.
-createSchedule_jobNames :: Lens.Lens' CreateSchedule (Prelude.Maybe [Prelude.Text])
-createSchedule_jobNames = Lens.lens (\CreateSchedule' {jobNames} -> jobNames) (\s@CreateSchedule' {} a -> s {jobNames = a} :: CreateSchedule) Prelude.. Lens.mapping Lens.coerced
-
 -- | Metadata tags to apply to this schedule.
 createSchedule_tags :: Lens.Lens' CreateSchedule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createSchedule_tags = Lens.lens (\CreateSchedule' {tags} -> tags) (\s@CreateSchedule' {} a -> s {tags = a} :: CreateSchedule) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name or names of one or more jobs to be run.
+createSchedule_jobNames :: Lens.Lens' CreateSchedule (Prelude.Maybe [Prelude.Text])
+createSchedule_jobNames = Lens.lens (\CreateSchedule' {jobNames} -> jobNames) (\s@CreateSchedule' {} a -> s {jobNames = a} :: CreateSchedule) Prelude.. Lens.mapping Lens.coerced
 
 -- | The date or dates and time or times when the jobs are to be run. For
 -- more information, see
@@ -135,15 +135,15 @@ instance Core.AWSRequest CreateSchedule where
 
 instance Prelude.Hashable CreateSchedule where
   hashWithSalt _salt CreateSchedule' {..} =
-    _salt `Prelude.hashWithSalt` jobNames
-      `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` jobNames
       `Prelude.hashWithSalt` cronExpression
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateSchedule where
   rnf CreateSchedule' {..} =
-    Prelude.rnf jobNames
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf jobNames
       `Prelude.seq` Prelude.rnf cronExpression
       `Prelude.seq` Prelude.rnf name
 
@@ -162,8 +162,8 @@ instance Core.ToJSON CreateSchedule where
   toJSON CreateSchedule' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("JobNames" Core..=) Prelude.<$> jobNames,
-            ("Tags" Core..=) Prelude.<$> tags,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("JobNames" Core..=) Prelude.<$> jobNames,
             Prelude.Just
               ("CronExpression" Core..= cronExpression),
             Prelude.Just ("Name" Core..= name)

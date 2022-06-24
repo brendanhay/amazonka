@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInput' smart constructor.
 data Input = Input'
-  { -- | The Glue Data Catalog parameters for the data.
-    dataCatalogInputDefinition :: Prelude.Maybe DataCatalogInputDefinition,
-    -- | The Amazon S3 location where the data is stored.
+  { -- | The Amazon S3 location where the data is stored.
     s3InputDefinition :: Prelude.Maybe S3Location,
+    -- | The Glue Data Catalog parameters for the data.
+    dataCatalogInputDefinition :: Prelude.Maybe DataCatalogInputDefinition,
     -- | Connection information for dataset input files stored in a database.
     databaseInputDefinition :: Prelude.Maybe DatabaseInputDefinition
   }
@@ -48,28 +48,27 @@ data Input = Input'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataCatalogInputDefinition', 'input_dataCatalogInputDefinition' - The Glue Data Catalog parameters for the data.
---
 -- 's3InputDefinition', 'input_s3InputDefinition' - The Amazon S3 location where the data is stored.
+--
+-- 'dataCatalogInputDefinition', 'input_dataCatalogInputDefinition' - The Glue Data Catalog parameters for the data.
 --
 -- 'databaseInputDefinition', 'input_databaseInputDefinition' - Connection information for dataset input files stored in a database.
 newInput ::
   Input
 newInput =
   Input'
-    { dataCatalogInputDefinition =
-        Prelude.Nothing,
-      s3InputDefinition = Prelude.Nothing,
+    { s3InputDefinition = Prelude.Nothing,
+      dataCatalogInputDefinition = Prelude.Nothing,
       databaseInputDefinition = Prelude.Nothing
     }
-
--- | The Glue Data Catalog parameters for the data.
-input_dataCatalogInputDefinition :: Lens.Lens' Input (Prelude.Maybe DataCatalogInputDefinition)
-input_dataCatalogInputDefinition = Lens.lens (\Input' {dataCatalogInputDefinition} -> dataCatalogInputDefinition) (\s@Input' {} a -> s {dataCatalogInputDefinition = a} :: Input)
 
 -- | The Amazon S3 location where the data is stored.
 input_s3InputDefinition :: Lens.Lens' Input (Prelude.Maybe S3Location)
 input_s3InputDefinition = Lens.lens (\Input' {s3InputDefinition} -> s3InputDefinition) (\s@Input' {} a -> s {s3InputDefinition = a} :: Input)
+
+-- | The Glue Data Catalog parameters for the data.
+input_dataCatalogInputDefinition :: Lens.Lens' Input (Prelude.Maybe DataCatalogInputDefinition)
+input_dataCatalogInputDefinition = Lens.lens (\Input' {dataCatalogInputDefinition} -> dataCatalogInputDefinition) (\s@Input' {} a -> s {dataCatalogInputDefinition = a} :: Input)
 
 -- | Connection information for dataset input files stored in a database.
 input_databaseInputDefinition :: Lens.Lens' Input (Prelude.Maybe DatabaseInputDefinition)
@@ -81,32 +80,31 @@ instance Core.FromJSON Input where
       "Input"
       ( \x ->
           Input'
-            Prelude.<$> (x Core..:? "DataCatalogInputDefinition")
-            Prelude.<*> (x Core..:? "S3InputDefinition")
+            Prelude.<$> (x Core..:? "S3InputDefinition")
+            Prelude.<*> (x Core..:? "DataCatalogInputDefinition")
             Prelude.<*> (x Core..:? "DatabaseInputDefinition")
       )
 
 instance Prelude.Hashable Input where
   hashWithSalt _salt Input' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` s3InputDefinition
       `Prelude.hashWithSalt` dataCatalogInputDefinition
-      `Prelude.hashWithSalt` s3InputDefinition
       `Prelude.hashWithSalt` databaseInputDefinition
 
 instance Prelude.NFData Input where
   rnf Input' {..} =
-    Prelude.rnf dataCatalogInputDefinition
-      `Prelude.seq` Prelude.rnf s3InputDefinition
+    Prelude.rnf s3InputDefinition
+      `Prelude.seq` Prelude.rnf dataCatalogInputDefinition
       `Prelude.seq` Prelude.rnf databaseInputDefinition
 
 instance Core.ToJSON Input where
   toJSON Input' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DataCatalogInputDefinition" Core..=)
-              Prelude.<$> dataCatalogInputDefinition,
-            ("S3InputDefinition" Core..=)
+          [ ("S3InputDefinition" Core..=)
               Prelude.<$> s3InputDefinition,
+            ("DataCatalogInputDefinition" Core..=)
+              Prelude.<$> dataCatalogInputDefinition,
             ("DatabaseInputDefinition" Core..=)
               Prelude.<$> databaseInputDefinition
           ]

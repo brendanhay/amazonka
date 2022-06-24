@@ -32,17 +32,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOutput' smart constructor.
 data Output = Output'
-  { -- | The names of one or more partition columns for the output of the job.
-    partitionColumns :: Prelude.Maybe [Prelude.Text],
-    -- | Represents options that define how DataBrew formats job output files.
-    formatOptions :: Prelude.Maybe OutputFormatOptions,
-    -- | The data format of the output of the job.
+  { -- | The data format of the output of the job.
     format :: Prelude.Maybe OutputFormat,
-    -- | The compression algorithm used to compress the output text of the job.
-    compressionFormat :: Prelude.Maybe CompressionFormat,
     -- | A value that, if true, means that any data in the location specified for
     -- output is overwritten with new output.
     overwrite :: Prelude.Maybe Prelude.Bool,
+    -- | The names of one or more partition columns for the output of the job.
+    partitionColumns :: Prelude.Maybe [Prelude.Text],
+    -- | Represents options that define how DataBrew formats job output files.
+    formatOptions :: Prelude.Maybe OutputFormatOptions,
+    -- | The compression algorithm used to compress the output text of the job.
+    compressionFormat :: Prelude.Maybe CompressionFormat,
     -- | The location in Amazon S3 where the job writes its output.
     location :: S3Location
   }
@@ -56,16 +56,16 @@ data Output = Output'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'format', 'output_format' - The data format of the output of the job.
+--
+-- 'overwrite', 'output_overwrite' - A value that, if true, means that any data in the location specified for
+-- output is overwritten with new output.
+--
 -- 'partitionColumns', 'output_partitionColumns' - The names of one or more partition columns for the output of the job.
 --
 -- 'formatOptions', 'output_formatOptions' - Represents options that define how DataBrew formats job output files.
 --
--- 'format', 'output_format' - The data format of the output of the job.
---
 -- 'compressionFormat', 'output_compressionFormat' - The compression algorithm used to compress the output text of the job.
---
--- 'overwrite', 'output_overwrite' - A value that, if true, means that any data in the location specified for
--- output is overwritten with new output.
 --
 -- 'location', 'output_location' - The location in Amazon S3 where the job writes its output.
 newOutput ::
@@ -74,13 +74,22 @@ newOutput ::
   Output
 newOutput pLocation_ =
   Output'
-    { partitionColumns = Prelude.Nothing,
-      formatOptions = Prelude.Nothing,
-      format = Prelude.Nothing,
-      compressionFormat = Prelude.Nothing,
+    { format = Prelude.Nothing,
       overwrite = Prelude.Nothing,
+      partitionColumns = Prelude.Nothing,
+      formatOptions = Prelude.Nothing,
+      compressionFormat = Prelude.Nothing,
       location = pLocation_
     }
+
+-- | The data format of the output of the job.
+output_format :: Lens.Lens' Output (Prelude.Maybe OutputFormat)
+output_format = Lens.lens (\Output' {format} -> format) (\s@Output' {} a -> s {format = a} :: Output)
+
+-- | A value that, if true, means that any data in the location specified for
+-- output is overwritten with new output.
+output_overwrite :: Lens.Lens' Output (Prelude.Maybe Prelude.Bool)
+output_overwrite = Lens.lens (\Output' {overwrite} -> overwrite) (\s@Output' {} a -> s {overwrite = a} :: Output)
 
 -- | The names of one or more partition columns for the output of the job.
 output_partitionColumns :: Lens.Lens' Output (Prelude.Maybe [Prelude.Text])
@@ -90,18 +99,9 @@ output_partitionColumns = Lens.lens (\Output' {partitionColumns} -> partitionCol
 output_formatOptions :: Lens.Lens' Output (Prelude.Maybe OutputFormatOptions)
 output_formatOptions = Lens.lens (\Output' {formatOptions} -> formatOptions) (\s@Output' {} a -> s {formatOptions = a} :: Output)
 
--- | The data format of the output of the job.
-output_format :: Lens.Lens' Output (Prelude.Maybe OutputFormat)
-output_format = Lens.lens (\Output' {format} -> format) (\s@Output' {} a -> s {format = a} :: Output)
-
 -- | The compression algorithm used to compress the output text of the job.
 output_compressionFormat :: Lens.Lens' Output (Prelude.Maybe CompressionFormat)
 output_compressionFormat = Lens.lens (\Output' {compressionFormat} -> compressionFormat) (\s@Output' {} a -> s {compressionFormat = a} :: Output)
-
--- | A value that, if true, means that any data in the location specified for
--- output is overwritten with new output.
-output_overwrite :: Lens.Lens' Output (Prelude.Maybe Prelude.Bool)
-output_overwrite = Lens.lens (\Output' {overwrite} -> overwrite) (\s@Output' {} a -> s {overwrite = a} :: Output)
 
 -- | The location in Amazon S3 where the job writes its output.
 output_location :: Lens.Lens' Output S3Location
@@ -113,45 +113,45 @@ instance Core.FromJSON Output where
       "Output"
       ( \x ->
           Output'
-            Prelude.<$> ( x Core..:? "PartitionColumns"
+            Prelude.<$> (x Core..:? "Format")
+            Prelude.<*> (x Core..:? "Overwrite")
+            Prelude.<*> ( x Core..:? "PartitionColumns"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "FormatOptions")
-            Prelude.<*> (x Core..:? "Format")
             Prelude.<*> (x Core..:? "CompressionFormat")
-            Prelude.<*> (x Core..:? "Overwrite")
             Prelude.<*> (x Core..: "Location")
       )
 
 instance Prelude.Hashable Output where
   hashWithSalt _salt Output' {..} =
-    _salt `Prelude.hashWithSalt` partitionColumns
-      `Prelude.hashWithSalt` formatOptions
-      `Prelude.hashWithSalt` format
-      `Prelude.hashWithSalt` compressionFormat
+    _salt `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` overwrite
+      `Prelude.hashWithSalt` partitionColumns
+      `Prelude.hashWithSalt` formatOptions
+      `Prelude.hashWithSalt` compressionFormat
       `Prelude.hashWithSalt` location
 
 instance Prelude.NFData Output where
   rnf Output' {..} =
-    Prelude.rnf partitionColumns
-      `Prelude.seq` Prelude.rnf formatOptions
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf compressionFormat
+    Prelude.rnf format
       `Prelude.seq` Prelude.rnf overwrite
+      `Prelude.seq` Prelude.rnf partitionColumns
+      `Prelude.seq` Prelude.rnf formatOptions
+      `Prelude.seq` Prelude.rnf compressionFormat
       `Prelude.seq` Prelude.rnf location
 
 instance Core.ToJSON Output where
   toJSON Output' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PartitionColumns" Core..=)
+          [ ("Format" Core..=) Prelude.<$> format,
+            ("Overwrite" Core..=) Prelude.<$> overwrite,
+            ("PartitionColumns" Core..=)
               Prelude.<$> partitionColumns,
             ("FormatOptions" Core..=) Prelude.<$> formatOptions,
-            ("Format" Core..=) Prelude.<$> format,
             ("CompressionFormat" Core..=)
               Prelude.<$> compressionFormat,
-            ("Overwrite" Core..=) Prelude.<$> overwrite,
             Prelude.Just ("Location" Core..= location)
           ]
       )

@@ -34,19 +34,19 @@ module Amazonka.DataBrew.DescribeProject
     newDescribeProjectResponse,
 
     -- * Response Lenses
+    describeProjectResponse_tags,
+    describeProjectResponse_openedBy,
+    describeProjectResponse_roleArn,
     describeProjectResponse_lastModifiedDate,
-    describeProjectResponse_sessionStatus,
-    describeProjectResponse_openDate,
-    describeProjectResponse_createDate,
-    describeProjectResponse_createdBy,
-    describeProjectResponse_resourceArn,
     describeProjectResponse_recipeName,
     describeProjectResponse_datasetName,
+    describeProjectResponse_sessionStatus,
+    describeProjectResponse_createDate,
+    describeProjectResponse_openDate,
     describeProjectResponse_lastModifiedBy,
+    describeProjectResponse_resourceArn,
+    describeProjectResponse_createdBy,
     describeProjectResponse_sample,
-    describeProjectResponse_openedBy,
-    describeProjectResponse_tags,
-    describeProjectResponse_roleArn,
     describeProjectResponse_httpStatus,
     describeProjectResponse_name,
   )
@@ -95,19 +95,19 @@ instance Core.AWSRequest DescribeProject where
     Response.receiveJSON
       ( \s h x ->
           DescribeProjectResponse'
-            Prelude.<$> (x Core..?> "LastModifiedDate")
-            Prelude.<*> (x Core..?> "SessionStatus")
-            Prelude.<*> (x Core..?> "OpenDate")
-            Prelude.<*> (x Core..?> "CreateDate")
-            Prelude.<*> (x Core..?> "CreatedBy")
-            Prelude.<*> (x Core..?> "ResourceArn")
+            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "OpenedBy")
+            Prelude.<*> (x Core..?> "RoleArn")
+            Prelude.<*> (x Core..?> "LastModifiedDate")
             Prelude.<*> (x Core..?> "RecipeName")
             Prelude.<*> (x Core..?> "DatasetName")
+            Prelude.<*> (x Core..?> "SessionStatus")
+            Prelude.<*> (x Core..?> "CreateDate")
+            Prelude.<*> (x Core..?> "OpenDate")
             Prelude.<*> (x Core..?> "LastModifiedBy")
+            Prelude.<*> (x Core..?> "ResourceArn")
+            Prelude.<*> (x Core..?> "CreatedBy")
             Prelude.<*> (x Core..?> "Sample")
-            Prelude.<*> (x Core..?> "OpenedBy")
-            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "RoleArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Name")
       )
@@ -139,8 +139,19 @@ instance Core.ToQuery DescribeProject where
 
 -- | /See:/ 'newDescribeProjectResponse' smart constructor.
 data DescribeProjectResponse = DescribeProjectResponse'
-  { -- | The date and time that the project was last modified.
+  { -- | Metadata tags associated with this project.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The identifier (user name) of the user that opened the project for use.
+    openedBy :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the Identity and Access Management (IAM) role to be assumed
+    -- when DataBrew runs the job.
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the project was last modified.
     lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    -- | The recipe associated with this job.
+    recipeName :: Prelude.Maybe Prelude.Text,
+    -- | The dataset associated with the project.
+    datasetName :: Prelude.Maybe Prelude.Text,
     -- | Describes the current state of the session:
     --
     -- -   @PROVISIONING@ - allocating resources for the session.
@@ -149,28 +160,17 @@ data DescribeProjectResponse = DescribeProjectResponse'
     --
     -- -   @ASSIGNED@ - the session is ready for use.
     sessionStatus :: Prelude.Maybe SessionStatus,
-    -- | The date and time when the project was opened.
-    openDate :: Prelude.Maybe Core.POSIX,
     -- | The date and time that the project was created.
     createDate :: Prelude.Maybe Core.POSIX,
-    -- | The identifier (user name) of the user who created the project.
-    createdBy :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the project.
-    resourceArn :: Prelude.Maybe Prelude.Text,
-    -- | The recipe associated with this job.
-    recipeName :: Prelude.Maybe Prelude.Text,
-    -- | The dataset associated with the project.
-    datasetName :: Prelude.Maybe Prelude.Text,
+    -- | The date and time when the project was opened.
+    openDate :: Prelude.Maybe Core.POSIX,
     -- | The identifier (user name) of the user who last modified the project.
     lastModifiedBy :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the project.
+    resourceArn :: Prelude.Maybe Prelude.Text,
+    -- | The identifier (user name) of the user who created the project.
+    createdBy :: Prelude.Maybe Prelude.Text,
     sample :: Prelude.Maybe Sample,
-    -- | The identifier (user name) of the user that opened the project for use.
-    openedBy :: Prelude.Maybe Prelude.Text,
-    -- | Metadata tags associated with this project.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The ARN of the Identity and Access Management (IAM) role to be assumed
-    -- when DataBrew runs the job.
-    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The name of the project.
@@ -186,7 +186,18 @@ data DescribeProjectResponse = DescribeProjectResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'describeProjectResponse_tags' - Metadata tags associated with this project.
+--
+-- 'openedBy', 'describeProjectResponse_openedBy' - The identifier (user name) of the user that opened the project for use.
+--
+-- 'roleArn', 'describeProjectResponse_roleArn' - The ARN of the Identity and Access Management (IAM) role to be assumed
+-- when DataBrew runs the job.
+--
 -- 'lastModifiedDate', 'describeProjectResponse_lastModifiedDate' - The date and time that the project was last modified.
+--
+-- 'recipeName', 'describeProjectResponse_recipeName' - The recipe associated with this job.
+--
+-- 'datasetName', 'describeProjectResponse_datasetName' - The dataset associated with the project.
 --
 -- 'sessionStatus', 'describeProjectResponse_sessionStatus' - Describes the current state of the session:
 --
@@ -196,28 +207,17 @@ data DescribeProjectResponse = DescribeProjectResponse'
 --
 -- -   @ASSIGNED@ - the session is ready for use.
 --
--- 'openDate', 'describeProjectResponse_openDate' - The date and time when the project was opened.
---
 -- 'createDate', 'describeProjectResponse_createDate' - The date and time that the project was created.
 --
--- 'createdBy', 'describeProjectResponse_createdBy' - The identifier (user name) of the user who created the project.
---
--- 'resourceArn', 'describeProjectResponse_resourceArn' - The Amazon Resource Name (ARN) of the project.
---
--- 'recipeName', 'describeProjectResponse_recipeName' - The recipe associated with this job.
---
--- 'datasetName', 'describeProjectResponse_datasetName' - The dataset associated with the project.
+-- 'openDate', 'describeProjectResponse_openDate' - The date and time when the project was opened.
 --
 -- 'lastModifiedBy', 'describeProjectResponse_lastModifiedBy' - The identifier (user name) of the user who last modified the project.
 --
+-- 'resourceArn', 'describeProjectResponse_resourceArn' - The Amazon Resource Name (ARN) of the project.
+--
+-- 'createdBy', 'describeProjectResponse_createdBy' - The identifier (user name) of the user who created the project.
+--
 -- 'sample', 'describeProjectResponse_sample' - Undocumented member.
---
--- 'openedBy', 'describeProjectResponse_openedBy' - The identifier (user name) of the user that opened the project for use.
---
--- 'tags', 'describeProjectResponse_tags' - Metadata tags associated with this project.
---
--- 'roleArn', 'describeProjectResponse_roleArn' - The ARN of the Identity and Access Management (IAM) role to be assumed
--- when DataBrew runs the job.
 --
 -- 'httpStatus', 'describeProjectResponse_httpStatus' - The response's http status code.
 --
@@ -230,27 +230,47 @@ newDescribeProjectResponse ::
   DescribeProjectResponse
 newDescribeProjectResponse pHttpStatus_ pName_ =
   DescribeProjectResponse'
-    { lastModifiedDate =
-        Prelude.Nothing,
-      sessionStatus = Prelude.Nothing,
-      openDate = Prelude.Nothing,
-      createDate = Prelude.Nothing,
-      createdBy = Prelude.Nothing,
-      resourceArn = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      openedBy = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
+      lastModifiedDate = Prelude.Nothing,
       recipeName = Prelude.Nothing,
       datasetName = Prelude.Nothing,
+      sessionStatus = Prelude.Nothing,
+      createDate = Prelude.Nothing,
+      openDate = Prelude.Nothing,
       lastModifiedBy = Prelude.Nothing,
+      resourceArn = Prelude.Nothing,
+      createdBy = Prelude.Nothing,
       sample = Prelude.Nothing,
-      openedBy = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       name = pName_
     }
 
+-- | Metadata tags associated with this project.
+describeProjectResponse_tags :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeProjectResponse_tags = Lens.lens (\DescribeProjectResponse' {tags} -> tags) (\s@DescribeProjectResponse' {} a -> s {tags = a} :: DescribeProjectResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The identifier (user name) of the user that opened the project for use.
+describeProjectResponse_openedBy :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)
+describeProjectResponse_openedBy = Lens.lens (\DescribeProjectResponse' {openedBy} -> openedBy) (\s@DescribeProjectResponse' {} a -> s {openedBy = a} :: DescribeProjectResponse)
+
+-- | The ARN of the Identity and Access Management (IAM) role to be assumed
+-- when DataBrew runs the job.
+describeProjectResponse_roleArn :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)
+describeProjectResponse_roleArn = Lens.lens (\DescribeProjectResponse' {roleArn} -> roleArn) (\s@DescribeProjectResponse' {} a -> s {roleArn = a} :: DescribeProjectResponse)
+
 -- | The date and time that the project was last modified.
 describeProjectResponse_lastModifiedDate :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.UTCTime)
 describeProjectResponse_lastModifiedDate = Lens.lens (\DescribeProjectResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeProjectResponse' {} a -> s {lastModifiedDate = a} :: DescribeProjectResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The recipe associated with this job.
+describeProjectResponse_recipeName :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)
+describeProjectResponse_recipeName = Lens.lens (\DescribeProjectResponse' {recipeName} -> recipeName) (\s@DescribeProjectResponse' {} a -> s {recipeName = a} :: DescribeProjectResponse)
+
+-- | The dataset associated with the project.
+describeProjectResponse_datasetName :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)
+describeProjectResponse_datasetName = Lens.lens (\DescribeProjectResponse' {datasetName} -> datasetName) (\s@DescribeProjectResponse' {} a -> s {datasetName = a} :: DescribeProjectResponse)
 
 -- | Describes the current state of the session:
 --
@@ -262,50 +282,29 @@ describeProjectResponse_lastModifiedDate = Lens.lens (\DescribeProjectResponse' 
 describeProjectResponse_sessionStatus :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe SessionStatus)
 describeProjectResponse_sessionStatus = Lens.lens (\DescribeProjectResponse' {sessionStatus} -> sessionStatus) (\s@DescribeProjectResponse' {} a -> s {sessionStatus = a} :: DescribeProjectResponse)
 
--- | The date and time when the project was opened.
-describeProjectResponse_openDate :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.UTCTime)
-describeProjectResponse_openDate = Lens.lens (\DescribeProjectResponse' {openDate} -> openDate) (\s@DescribeProjectResponse' {} a -> s {openDate = a} :: DescribeProjectResponse) Prelude.. Lens.mapping Core._Time
-
 -- | The date and time that the project was created.
 describeProjectResponse_createDate :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.UTCTime)
 describeProjectResponse_createDate = Lens.lens (\DescribeProjectResponse' {createDate} -> createDate) (\s@DescribeProjectResponse' {} a -> s {createDate = a} :: DescribeProjectResponse) Prelude.. Lens.mapping Core._Time
 
--- | The identifier (user name) of the user who created the project.
-describeProjectResponse_createdBy :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)
-describeProjectResponse_createdBy = Lens.lens (\DescribeProjectResponse' {createdBy} -> createdBy) (\s@DescribeProjectResponse' {} a -> s {createdBy = a} :: DescribeProjectResponse)
-
--- | The Amazon Resource Name (ARN) of the project.
-describeProjectResponse_resourceArn :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)
-describeProjectResponse_resourceArn = Lens.lens (\DescribeProjectResponse' {resourceArn} -> resourceArn) (\s@DescribeProjectResponse' {} a -> s {resourceArn = a} :: DescribeProjectResponse)
-
--- | The recipe associated with this job.
-describeProjectResponse_recipeName :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)
-describeProjectResponse_recipeName = Lens.lens (\DescribeProjectResponse' {recipeName} -> recipeName) (\s@DescribeProjectResponse' {} a -> s {recipeName = a} :: DescribeProjectResponse)
-
--- | The dataset associated with the project.
-describeProjectResponse_datasetName :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)
-describeProjectResponse_datasetName = Lens.lens (\DescribeProjectResponse' {datasetName} -> datasetName) (\s@DescribeProjectResponse' {} a -> s {datasetName = a} :: DescribeProjectResponse)
+-- | The date and time when the project was opened.
+describeProjectResponse_openDate :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.UTCTime)
+describeProjectResponse_openDate = Lens.lens (\DescribeProjectResponse' {openDate} -> openDate) (\s@DescribeProjectResponse' {} a -> s {openDate = a} :: DescribeProjectResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The identifier (user name) of the user who last modified the project.
 describeProjectResponse_lastModifiedBy :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)
 describeProjectResponse_lastModifiedBy = Lens.lens (\DescribeProjectResponse' {lastModifiedBy} -> lastModifiedBy) (\s@DescribeProjectResponse' {} a -> s {lastModifiedBy = a} :: DescribeProjectResponse)
 
+-- | The Amazon Resource Name (ARN) of the project.
+describeProjectResponse_resourceArn :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)
+describeProjectResponse_resourceArn = Lens.lens (\DescribeProjectResponse' {resourceArn} -> resourceArn) (\s@DescribeProjectResponse' {} a -> s {resourceArn = a} :: DescribeProjectResponse)
+
+-- | The identifier (user name) of the user who created the project.
+describeProjectResponse_createdBy :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)
+describeProjectResponse_createdBy = Lens.lens (\DescribeProjectResponse' {createdBy} -> createdBy) (\s@DescribeProjectResponse' {} a -> s {createdBy = a} :: DescribeProjectResponse)
+
 -- | Undocumented member.
 describeProjectResponse_sample :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Sample)
 describeProjectResponse_sample = Lens.lens (\DescribeProjectResponse' {sample} -> sample) (\s@DescribeProjectResponse' {} a -> s {sample = a} :: DescribeProjectResponse)
-
--- | The identifier (user name) of the user that opened the project for use.
-describeProjectResponse_openedBy :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)
-describeProjectResponse_openedBy = Lens.lens (\DescribeProjectResponse' {openedBy} -> openedBy) (\s@DescribeProjectResponse' {} a -> s {openedBy = a} :: DescribeProjectResponse)
-
--- | Metadata tags associated with this project.
-describeProjectResponse_tags :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeProjectResponse_tags = Lens.lens (\DescribeProjectResponse' {tags} -> tags) (\s@DescribeProjectResponse' {} a -> s {tags = a} :: DescribeProjectResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The ARN of the Identity and Access Management (IAM) role to be assumed
--- when DataBrew runs the job.
-describeProjectResponse_roleArn :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)
-describeProjectResponse_roleArn = Lens.lens (\DescribeProjectResponse' {roleArn} -> roleArn) (\s@DescribeProjectResponse' {} a -> s {roleArn = a} :: DescribeProjectResponse)
 
 -- | The response's http status code.
 describeProjectResponse_httpStatus :: Lens.Lens' DescribeProjectResponse Prelude.Int
@@ -317,18 +316,18 @@ describeProjectResponse_name = Lens.lens (\DescribeProjectResponse' {name} -> na
 
 instance Prelude.NFData DescribeProjectResponse where
   rnf DescribeProjectResponse' {..} =
-    Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf sessionStatus
-      `Prelude.seq` Prelude.rnf openDate
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf openedBy
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf lastModifiedDate
       `Prelude.seq` Prelude.rnf recipeName
       `Prelude.seq` Prelude.rnf datasetName
+      `Prelude.seq` Prelude.rnf sessionStatus
+      `Prelude.seq` Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf openDate
       `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf createdBy
       `Prelude.seq` Prelude.rnf sample
-      `Prelude.seq` Prelude.rnf openedBy
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf name

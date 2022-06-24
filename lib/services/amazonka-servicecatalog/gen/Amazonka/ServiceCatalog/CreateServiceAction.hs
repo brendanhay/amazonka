@@ -27,8 +27,8 @@ module Amazonka.ServiceCatalog.CreateServiceAction
     newCreateServiceAction,
 
     -- * Request Lenses
-    createServiceAction_acceptLanguage,
     createServiceAction_description,
+    createServiceAction_acceptLanguage,
     createServiceAction_name,
     createServiceAction_definitionType,
     createServiceAction_definition,
@@ -53,7 +53,9 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newCreateServiceAction' smart constructor.
 data CreateServiceAction = CreateServiceAction'
-  { -- | The language code.
+  { -- | The self-service action description.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The language code.
     --
     -- -   @en@ - English (default)
     --
@@ -61,8 +63,6 @@ data CreateServiceAction = CreateServiceAction'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
-    -- | The self-service action description.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The self-service action name.
     name :: Prelude.Text,
     -- | The service action definition type. For example, @SSM_AUTOMATION@.
@@ -110,6 +110,8 @@ data CreateServiceAction = CreateServiceAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'createServiceAction_description' - The self-service action description.
+--
 -- 'acceptLanguage', 'createServiceAction_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -117,8 +119,6 @@ data CreateServiceAction = CreateServiceAction'
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
---
--- 'description', 'createServiceAction_description' - The self-service action description.
 --
 -- 'name', 'createServiceAction_name' - The self-service action name.
 --
@@ -168,14 +168,17 @@ newCreateServiceAction
   pDefinitionType_
   pIdempotencyToken_ =
     CreateServiceAction'
-      { acceptLanguage =
-          Prelude.Nothing,
-        description = Prelude.Nothing,
+      { description = Prelude.Nothing,
+        acceptLanguage = Prelude.Nothing,
         name = pName_,
         definitionType = pDefinitionType_,
         definition = Prelude.mempty,
         idempotencyToken = pIdempotencyToken_
       }
+
+-- | The self-service action description.
+createServiceAction_description :: Lens.Lens' CreateServiceAction (Prelude.Maybe Prelude.Text)
+createServiceAction_description = Lens.lens (\CreateServiceAction' {description} -> description) (\s@CreateServiceAction' {} a -> s {description = a} :: CreateServiceAction)
 
 -- | The language code.
 --
@@ -186,10 +189,6 @@ newCreateServiceAction
 -- -   @zh@ - Chinese
 createServiceAction_acceptLanguage :: Lens.Lens' CreateServiceAction (Prelude.Maybe Prelude.Text)
 createServiceAction_acceptLanguage = Lens.lens (\CreateServiceAction' {acceptLanguage} -> acceptLanguage) (\s@CreateServiceAction' {} a -> s {acceptLanguage = a} :: CreateServiceAction)
-
--- | The self-service action description.
-createServiceAction_description :: Lens.Lens' CreateServiceAction (Prelude.Maybe Prelude.Text)
-createServiceAction_description = Lens.lens (\CreateServiceAction' {description} -> description) (\s@CreateServiceAction' {} a -> s {description = a} :: CreateServiceAction)
 
 -- | The self-service action name.
 createServiceAction_name :: Lens.Lens' CreateServiceAction Prelude.Text
@@ -250,8 +249,8 @@ instance Core.AWSRequest CreateServiceAction where
 
 instance Prelude.Hashable CreateServiceAction where
   hashWithSalt _salt CreateServiceAction' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` definitionType
       `Prelude.hashWithSalt` definition
@@ -259,8 +258,8 @@ instance Prelude.Hashable CreateServiceAction where
 
 instance Prelude.NFData CreateServiceAction where
   rnf CreateServiceAction' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf definitionType
       `Prelude.seq` Prelude.rnf definition
@@ -285,9 +284,9 @@ instance Core.ToJSON CreateServiceAction where
   toJSON CreateServiceAction' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AcceptLanguage" Core..=)
+          [ ("Description" Core..=) Prelude.<$> description,
+            ("AcceptLanguage" Core..=)
               Prelude.<$> acceptLanguage,
-            ("Description" Core..=) Prelude.<$> description,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just
               ("DefinitionType" Core..= definitionType),

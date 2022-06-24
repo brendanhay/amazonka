@@ -31,9 +31,9 @@ module Amazonka.ServiceCatalog.ListLaunchPaths
     newListLaunchPaths,
 
     -- * Request Lenses
-    listLaunchPaths_acceptLanguage,
     listLaunchPaths_pageToken,
     listLaunchPaths_pageSize,
+    listLaunchPaths_acceptLanguage,
     listLaunchPaths_productId,
 
     -- * Destructuring the Response
@@ -56,7 +56,12 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newListLaunchPaths' smart constructor.
 data ListLaunchPaths = ListLaunchPaths'
-  { -- | The language code.
+  { -- | The page token for the next set of results. To retrieve the first set of
+    -- results, use null.
+    pageToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural,
+    -- | The language code.
     --
     -- -   @en@ - English (default)
     --
@@ -64,11 +69,6 @@ data ListLaunchPaths = ListLaunchPaths'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
-    -- | The page token for the next set of results. To retrieve the first set of
-    -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | The product identifier.
     productId :: Prelude.Text
   }
@@ -82,6 +82,11 @@ data ListLaunchPaths = ListLaunchPaths'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'pageToken', 'listLaunchPaths_pageToken' - The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+--
+-- 'pageSize', 'listLaunchPaths_pageSize' - The maximum number of items to return with this call.
+--
 -- 'acceptLanguage', 'listLaunchPaths_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -90,11 +95,6 @@ data ListLaunchPaths = ListLaunchPaths'
 --
 -- -   @zh@ - Chinese
 --
--- 'pageToken', 'listLaunchPaths_pageToken' - The page token for the next set of results. To retrieve the first set of
--- results, use null.
---
--- 'pageSize', 'listLaunchPaths_pageSize' - The maximum number of items to return with this call.
---
 -- 'productId', 'listLaunchPaths_productId' - The product identifier.
 newListLaunchPaths ::
   -- | 'productId'
@@ -102,11 +102,20 @@ newListLaunchPaths ::
   ListLaunchPaths
 newListLaunchPaths pProductId_ =
   ListLaunchPaths'
-    { acceptLanguage = Prelude.Nothing,
-      pageToken = Prelude.Nothing,
+    { pageToken = Prelude.Nothing,
       pageSize = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing,
       productId = pProductId_
     }
+
+-- | The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+listLaunchPaths_pageToken :: Lens.Lens' ListLaunchPaths (Prelude.Maybe Prelude.Text)
+listLaunchPaths_pageToken = Lens.lens (\ListLaunchPaths' {pageToken} -> pageToken) (\s@ListLaunchPaths' {} a -> s {pageToken = a} :: ListLaunchPaths)
+
+-- | The maximum number of items to return with this call.
+listLaunchPaths_pageSize :: Lens.Lens' ListLaunchPaths (Prelude.Maybe Prelude.Natural)
+listLaunchPaths_pageSize = Lens.lens (\ListLaunchPaths' {pageSize} -> pageSize) (\s@ListLaunchPaths' {} a -> s {pageSize = a} :: ListLaunchPaths)
 
 -- | The language code.
 --
@@ -117,15 +126,6 @@ newListLaunchPaths pProductId_ =
 -- -   @zh@ - Chinese
 listLaunchPaths_acceptLanguage :: Lens.Lens' ListLaunchPaths (Prelude.Maybe Prelude.Text)
 listLaunchPaths_acceptLanguage = Lens.lens (\ListLaunchPaths' {acceptLanguage} -> acceptLanguage) (\s@ListLaunchPaths' {} a -> s {acceptLanguage = a} :: ListLaunchPaths)
-
--- | The page token for the next set of results. To retrieve the first set of
--- results, use null.
-listLaunchPaths_pageToken :: Lens.Lens' ListLaunchPaths (Prelude.Maybe Prelude.Text)
-listLaunchPaths_pageToken = Lens.lens (\ListLaunchPaths' {pageToken} -> pageToken) (\s@ListLaunchPaths' {} a -> s {pageToken = a} :: ListLaunchPaths)
-
--- | The maximum number of items to return with this call.
-listLaunchPaths_pageSize :: Lens.Lens' ListLaunchPaths (Prelude.Maybe Prelude.Natural)
-listLaunchPaths_pageSize = Lens.lens (\ListLaunchPaths' {pageSize} -> pageSize) (\s@ListLaunchPaths' {} a -> s {pageSize = a} :: ListLaunchPaths)
 
 -- | The product identifier.
 listLaunchPaths_productId :: Lens.Lens' ListLaunchPaths Prelude.Text
@@ -171,16 +171,16 @@ instance Core.AWSRequest ListLaunchPaths where
 
 instance Prelude.Hashable ListLaunchPaths where
   hashWithSalt _salt ListLaunchPaths' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
-      `Prelude.hashWithSalt` pageToken
+    _salt `Prelude.hashWithSalt` pageToken
       `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` productId
 
 instance Prelude.NFData ListLaunchPaths where
   rnf ListLaunchPaths' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf pageToken
+    Prelude.rnf pageToken
       `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf productId
 
 instance Core.ToHeaders ListLaunchPaths where
@@ -202,10 +202,10 @@ instance Core.ToJSON ListLaunchPaths where
   toJSON ListLaunchPaths' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AcceptLanguage" Core..=)
-              Prelude.<$> acceptLanguage,
-            ("PageToken" Core..=) Prelude.<$> pageToken,
+          [ ("PageToken" Core..=) Prelude.<$> pageToken,
             ("PageSize" Core..=) Prelude.<$> pageSize,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
             Prelude.Just ("ProductId" Core..= productId)
           ]
       )

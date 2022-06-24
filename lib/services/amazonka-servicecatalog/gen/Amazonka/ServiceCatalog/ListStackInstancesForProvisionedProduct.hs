@@ -30,9 +30,9 @@ module Amazonka.ServiceCatalog.ListStackInstancesForProvisionedProduct
     newListStackInstancesForProvisionedProduct,
 
     -- * Request Lenses
-    listStackInstancesForProvisionedProduct_acceptLanguage,
     listStackInstancesForProvisionedProduct_pageToken,
     listStackInstancesForProvisionedProduct_pageSize,
+    listStackInstancesForProvisionedProduct_acceptLanguage,
     listStackInstancesForProvisionedProduct_provisionedProductId,
 
     -- * Destructuring the Response
@@ -55,7 +55,12 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newListStackInstancesForProvisionedProduct' smart constructor.
 data ListStackInstancesForProvisionedProduct = ListStackInstancesForProvisionedProduct'
-  { -- | The language code.
+  { -- | The page token for the next set of results. To retrieve the first set of
+    -- results, use null.
+    pageToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural,
+    -- | The language code.
     --
     -- -   @en@ - English (default)
     --
@@ -63,11 +68,6 @@ data ListStackInstancesForProvisionedProduct = ListStackInstancesForProvisionedP
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
-    -- | The page token for the next set of results. To retrieve the first set of
-    -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the provisioned product.
     provisionedProductId :: Prelude.Text
   }
@@ -81,6 +81,11 @@ data ListStackInstancesForProvisionedProduct = ListStackInstancesForProvisionedP
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'pageToken', 'listStackInstancesForProvisionedProduct_pageToken' - The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+--
+-- 'pageSize', 'listStackInstancesForProvisionedProduct_pageSize' - The maximum number of items to return with this call.
+--
 -- 'acceptLanguage', 'listStackInstancesForProvisionedProduct_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -88,11 +93,6 @@ data ListStackInstancesForProvisionedProduct = ListStackInstancesForProvisionedP
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
---
--- 'pageToken', 'listStackInstancesForProvisionedProduct_pageToken' - The page token for the next set of results. To retrieve the first set of
--- results, use null.
---
--- 'pageSize', 'listStackInstancesForProvisionedProduct_pageSize' - The maximum number of items to return with this call.
 --
 -- 'provisionedProductId', 'listStackInstancesForProvisionedProduct_provisionedProductId' - The identifier of the provisioned product.
 newListStackInstancesForProvisionedProduct ::
@@ -102,13 +102,22 @@ newListStackInstancesForProvisionedProduct ::
 newListStackInstancesForProvisionedProduct
   pProvisionedProductId_ =
     ListStackInstancesForProvisionedProduct'
-      { acceptLanguage =
+      { pageToken =
           Prelude.Nothing,
-        pageToken = Prelude.Nothing,
         pageSize = Prelude.Nothing,
+        acceptLanguage = Prelude.Nothing,
         provisionedProductId =
           pProvisionedProductId_
       }
+
+-- | The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+listStackInstancesForProvisionedProduct_pageToken :: Lens.Lens' ListStackInstancesForProvisionedProduct (Prelude.Maybe Prelude.Text)
+listStackInstancesForProvisionedProduct_pageToken = Lens.lens (\ListStackInstancesForProvisionedProduct' {pageToken} -> pageToken) (\s@ListStackInstancesForProvisionedProduct' {} a -> s {pageToken = a} :: ListStackInstancesForProvisionedProduct)
+
+-- | The maximum number of items to return with this call.
+listStackInstancesForProvisionedProduct_pageSize :: Lens.Lens' ListStackInstancesForProvisionedProduct (Prelude.Maybe Prelude.Natural)
+listStackInstancesForProvisionedProduct_pageSize = Lens.lens (\ListStackInstancesForProvisionedProduct' {pageSize} -> pageSize) (\s@ListStackInstancesForProvisionedProduct' {} a -> s {pageSize = a} :: ListStackInstancesForProvisionedProduct)
 
 -- | The language code.
 --
@@ -119,15 +128,6 @@ newListStackInstancesForProvisionedProduct
 -- -   @zh@ - Chinese
 listStackInstancesForProvisionedProduct_acceptLanguage :: Lens.Lens' ListStackInstancesForProvisionedProduct (Prelude.Maybe Prelude.Text)
 listStackInstancesForProvisionedProduct_acceptLanguage = Lens.lens (\ListStackInstancesForProvisionedProduct' {acceptLanguage} -> acceptLanguage) (\s@ListStackInstancesForProvisionedProduct' {} a -> s {acceptLanguage = a} :: ListStackInstancesForProvisionedProduct)
-
--- | The page token for the next set of results. To retrieve the first set of
--- results, use null.
-listStackInstancesForProvisionedProduct_pageToken :: Lens.Lens' ListStackInstancesForProvisionedProduct (Prelude.Maybe Prelude.Text)
-listStackInstancesForProvisionedProduct_pageToken = Lens.lens (\ListStackInstancesForProvisionedProduct' {pageToken} -> pageToken) (\s@ListStackInstancesForProvisionedProduct' {} a -> s {pageToken = a} :: ListStackInstancesForProvisionedProduct)
-
--- | The maximum number of items to return with this call.
-listStackInstancesForProvisionedProduct_pageSize :: Lens.Lens' ListStackInstancesForProvisionedProduct (Prelude.Maybe Prelude.Natural)
-listStackInstancesForProvisionedProduct_pageSize = Lens.lens (\ListStackInstancesForProvisionedProduct' {pageSize} -> pageSize) (\s@ListStackInstancesForProvisionedProduct' {} a -> s {pageSize = a} :: ListStackInstancesForProvisionedProduct)
 
 -- | The identifier of the provisioned product.
 listStackInstancesForProvisionedProduct_provisionedProductId :: Lens.Lens' ListStackInstancesForProvisionedProduct Prelude.Text
@@ -158,9 +158,9 @@ instance
   hashWithSalt
     _salt
     ListStackInstancesForProvisionedProduct' {..} =
-      _salt `Prelude.hashWithSalt` acceptLanguage
-        `Prelude.hashWithSalt` pageToken
+      _salt `Prelude.hashWithSalt` pageToken
         `Prelude.hashWithSalt` pageSize
+        `Prelude.hashWithSalt` acceptLanguage
         `Prelude.hashWithSalt` provisionedProductId
 
 instance
@@ -168,9 +168,9 @@ instance
     ListStackInstancesForProvisionedProduct
   where
   rnf ListStackInstancesForProvisionedProduct' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf pageToken
+    Prelude.rnf pageToken
       `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf provisionedProductId
 
 instance
@@ -198,10 +198,10 @@ instance
   toJSON ListStackInstancesForProvisionedProduct' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AcceptLanguage" Core..=)
-              Prelude.<$> acceptLanguage,
-            ("PageToken" Core..=) Prelude.<$> pageToken,
+          [ ("PageToken" Core..=) Prelude.<$> pageToken,
             ("PageSize" Core..=) Prelude.<$> pageSize,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
             Prelude.Just
               ( "ProvisionedProductId"
                   Core..= provisionedProductId

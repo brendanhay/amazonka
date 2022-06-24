@@ -29,14 +29,14 @@ import Amazonka.ServiceCatalog.Types.ResourceAttribute
 --
 -- /See:/ 'newResourceTargetDefinition' smart constructor.
 data ResourceTargetDefinition = ResourceTargetDefinition'
-  { -- | The attribute to be changed.
+  { -- | If the attribute is @Properties@, the value is the name of the property.
+    -- Otherwise, the value is null.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The attribute to be changed.
     attribute :: Prelude.Maybe ResourceAttribute,
     -- | If the attribute is @Properties@, indicates whether a change to this
     -- property causes the resource to be re-created.
-    requiresRecreation :: Prelude.Maybe RequiresRecreation,
-    -- | If the attribute is @Properties@, the value is the name of the property.
-    -- Otherwise, the value is null.
-    name :: Prelude.Maybe Prelude.Text
+    requiresRecreation :: Prelude.Maybe RequiresRecreation
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,22 +48,26 @@ data ResourceTargetDefinition = ResourceTargetDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'resourceTargetDefinition_name' - If the attribute is @Properties@, the value is the name of the property.
+-- Otherwise, the value is null.
+--
 -- 'attribute', 'resourceTargetDefinition_attribute' - The attribute to be changed.
 --
 -- 'requiresRecreation', 'resourceTargetDefinition_requiresRecreation' - If the attribute is @Properties@, indicates whether a change to this
 -- property causes the resource to be re-created.
---
--- 'name', 'resourceTargetDefinition_name' - If the attribute is @Properties@, the value is the name of the property.
--- Otherwise, the value is null.
 newResourceTargetDefinition ::
   ResourceTargetDefinition
 newResourceTargetDefinition =
   ResourceTargetDefinition'
-    { attribute =
-        Prelude.Nothing,
-      requiresRecreation = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      attribute = Prelude.Nothing,
+      requiresRecreation = Prelude.Nothing
     }
+
+-- | If the attribute is @Properties@, the value is the name of the property.
+-- Otherwise, the value is null.
+resourceTargetDefinition_name :: Lens.Lens' ResourceTargetDefinition (Prelude.Maybe Prelude.Text)
+resourceTargetDefinition_name = Lens.lens (\ResourceTargetDefinition' {name} -> name) (\s@ResourceTargetDefinition' {} a -> s {name = a} :: ResourceTargetDefinition)
 
 -- | The attribute to be changed.
 resourceTargetDefinition_attribute :: Lens.Lens' ResourceTargetDefinition (Prelude.Maybe ResourceAttribute)
@@ -74,30 +78,25 @@ resourceTargetDefinition_attribute = Lens.lens (\ResourceTargetDefinition' {attr
 resourceTargetDefinition_requiresRecreation :: Lens.Lens' ResourceTargetDefinition (Prelude.Maybe RequiresRecreation)
 resourceTargetDefinition_requiresRecreation = Lens.lens (\ResourceTargetDefinition' {requiresRecreation} -> requiresRecreation) (\s@ResourceTargetDefinition' {} a -> s {requiresRecreation = a} :: ResourceTargetDefinition)
 
--- | If the attribute is @Properties@, the value is the name of the property.
--- Otherwise, the value is null.
-resourceTargetDefinition_name :: Lens.Lens' ResourceTargetDefinition (Prelude.Maybe Prelude.Text)
-resourceTargetDefinition_name = Lens.lens (\ResourceTargetDefinition' {name} -> name) (\s@ResourceTargetDefinition' {} a -> s {name = a} :: ResourceTargetDefinition)
-
 instance Core.FromJSON ResourceTargetDefinition where
   parseJSON =
     Core.withObject
       "ResourceTargetDefinition"
       ( \x ->
           ResourceTargetDefinition'
-            Prelude.<$> (x Core..:? "Attribute")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Attribute")
             Prelude.<*> (x Core..:? "RequiresRecreation")
-            Prelude.<*> (x Core..:? "Name")
       )
 
 instance Prelude.Hashable ResourceTargetDefinition where
   hashWithSalt _salt ResourceTargetDefinition' {..} =
-    _salt `Prelude.hashWithSalt` attribute
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` requiresRecreation
-      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ResourceTargetDefinition where
   rnf ResourceTargetDefinition' {..} =
-    Prelude.rnf attribute
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf attribute
       `Prelude.seq` Prelude.rnf requiresRecreation
-      `Prelude.seq` Prelude.rnf name

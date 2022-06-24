@@ -28,18 +28,18 @@ module Amazonka.ServiceCatalog.DescribeProduct
 
     -- * Request Lenses
     describeProduct_name,
-    describeProduct_acceptLanguage,
     describeProduct_id,
+    describeProduct_acceptLanguage,
 
     -- * Destructuring the Response
     DescribeProductResponse (..),
     newDescribeProductResponse,
 
     -- * Response Lenses
+    describeProductResponse_budgets,
+    describeProductResponse_launchPaths,
     describeProductResponse_productViewSummary,
     describeProductResponse_provisioningArtifacts,
-    describeProductResponse_launchPaths,
-    describeProductResponse_budgets,
     describeProductResponse_httpStatus,
   )
 where
@@ -55,6 +55,8 @@ import Amazonka.ServiceCatalog.Types
 data DescribeProduct = DescribeProduct'
   { -- | The product name.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The product identifier.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -62,9 +64,7 @@ data DescribeProduct = DescribeProduct'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text,
-    -- | The product identifier.
-    id :: Prelude.Maybe Prelude.Text
+    acceptLanguage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,6 +78,8 @@ data DescribeProduct = DescribeProduct'
 --
 -- 'name', 'describeProduct_name' - The product name.
 --
+-- 'id', 'describeProduct_id' - The product identifier.
+--
 -- 'acceptLanguage', 'describeProduct_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -85,20 +87,22 @@ data DescribeProduct = DescribeProduct'
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
---
--- 'id', 'describeProduct_id' - The product identifier.
 newDescribeProduct ::
   DescribeProduct
 newDescribeProduct =
   DescribeProduct'
     { name = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing,
-      id = Prelude.Nothing
+      id = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing
     }
 
 -- | The product name.
 describeProduct_name :: Lens.Lens' DescribeProduct (Prelude.Maybe Prelude.Text)
 describeProduct_name = Lens.lens (\DescribeProduct' {name} -> name) (\s@DescribeProduct' {} a -> s {name = a} :: DescribeProduct)
+
+-- | The product identifier.
+describeProduct_id :: Lens.Lens' DescribeProduct (Prelude.Maybe Prelude.Text)
+describeProduct_id = Lens.lens (\DescribeProduct' {id} -> id) (\s@DescribeProduct' {} a -> s {id = a} :: DescribeProduct)
 
 -- | The language code.
 --
@@ -110,10 +114,6 @@ describeProduct_name = Lens.lens (\DescribeProduct' {name} -> name) (\s@Describe
 describeProduct_acceptLanguage :: Lens.Lens' DescribeProduct (Prelude.Maybe Prelude.Text)
 describeProduct_acceptLanguage = Lens.lens (\DescribeProduct' {acceptLanguage} -> acceptLanguage) (\s@DescribeProduct' {} a -> s {acceptLanguage = a} :: DescribeProduct)
 
--- | The product identifier.
-describeProduct_id :: Lens.Lens' DescribeProduct (Prelude.Maybe Prelude.Text)
-describeProduct_id = Lens.lens (\DescribeProduct' {id} -> id) (\s@DescribeProduct' {} a -> s {id = a} :: DescribeProduct)
-
 instance Core.AWSRequest DescribeProduct where
   type
     AWSResponse DescribeProduct =
@@ -123,26 +123,26 @@ instance Core.AWSRequest DescribeProduct where
     Response.receiveJSON
       ( \s h x ->
           DescribeProductResponse'
-            Prelude.<$> (x Core..?> "ProductViewSummary")
+            Prelude.<$> (x Core..?> "Budgets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "LaunchPaths" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "ProductViewSummary")
             Prelude.<*> ( x Core..?> "ProvisioningArtifacts"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "LaunchPaths" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Budgets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeProduct where
   hashWithSalt _salt DescribeProduct' {..} =
     _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` acceptLanguage
 
 instance Prelude.NFData DescribeProduct where
   rnf DescribeProduct' {..} =
     Prelude.rnf name
-      `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf acceptLanguage
 
 instance Core.ToHeaders DescribeProduct where
   toHeaders =
@@ -164,9 +164,9 @@ instance Core.ToJSON DescribeProduct where
     Core.object
       ( Prelude.catMaybes
           [ ("Name" Core..=) Prelude.<$> name,
+            ("Id" Core..=) Prelude.<$> id,
             ("AcceptLanguage" Core..=)
-              Prelude.<$> acceptLanguage,
-            ("Id" Core..=) Prelude.<$> id
+              Prelude.<$> acceptLanguage
           ]
       )
 
@@ -178,14 +178,14 @@ instance Core.ToQuery DescribeProduct where
 
 -- | /See:/ 'newDescribeProductResponse' smart constructor.
 data DescribeProductResponse = DescribeProductResponse'
-  { -- | Summary information about the product view.
+  { -- | Information about the associated budgets.
+    budgets :: Prelude.Maybe [BudgetDetail],
+    -- | Information about the associated launch paths.
+    launchPaths :: Prelude.Maybe [LaunchPath],
+    -- | Summary information about the product view.
     productViewSummary :: Prelude.Maybe ProductViewSummary,
     -- | Information about the provisioning artifacts for the specified product.
     provisioningArtifacts :: Prelude.Maybe [ProvisioningArtifact],
-    -- | Information about the associated launch paths.
-    launchPaths :: Prelude.Maybe [LaunchPath],
-    -- | Information about the associated budgets.
-    budgets :: Prelude.Maybe [BudgetDetail],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -199,13 +199,13 @@ data DescribeProductResponse = DescribeProductResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'productViewSummary', 'describeProductResponse_productViewSummary' - Summary information about the product view.
---
--- 'provisioningArtifacts', 'describeProductResponse_provisioningArtifacts' - Information about the provisioning artifacts for the specified product.
+-- 'budgets', 'describeProductResponse_budgets' - Information about the associated budgets.
 --
 -- 'launchPaths', 'describeProductResponse_launchPaths' - Information about the associated launch paths.
 --
--- 'budgets', 'describeProductResponse_budgets' - Information about the associated budgets.
+-- 'productViewSummary', 'describeProductResponse_productViewSummary' - Summary information about the product view.
+--
+-- 'provisioningArtifacts', 'describeProductResponse_provisioningArtifacts' - Information about the provisioning artifacts for the specified product.
 --
 -- 'httpStatus', 'describeProductResponse_httpStatus' - The response's http status code.
 newDescribeProductResponse ::
@@ -214,13 +214,20 @@ newDescribeProductResponse ::
   DescribeProductResponse
 newDescribeProductResponse pHttpStatus_ =
   DescribeProductResponse'
-    { productViewSummary =
-        Prelude.Nothing,
-      provisioningArtifacts = Prelude.Nothing,
+    { budgets = Prelude.Nothing,
       launchPaths = Prelude.Nothing,
-      budgets = Prelude.Nothing,
+      productViewSummary = Prelude.Nothing,
+      provisioningArtifacts = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the associated budgets.
+describeProductResponse_budgets :: Lens.Lens' DescribeProductResponse (Prelude.Maybe [BudgetDetail])
+describeProductResponse_budgets = Lens.lens (\DescribeProductResponse' {budgets} -> budgets) (\s@DescribeProductResponse' {} a -> s {budgets = a} :: DescribeProductResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Information about the associated launch paths.
+describeProductResponse_launchPaths :: Lens.Lens' DescribeProductResponse (Prelude.Maybe [LaunchPath])
+describeProductResponse_launchPaths = Lens.lens (\DescribeProductResponse' {launchPaths} -> launchPaths) (\s@DescribeProductResponse' {} a -> s {launchPaths = a} :: DescribeProductResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Summary information about the product view.
 describeProductResponse_productViewSummary :: Lens.Lens' DescribeProductResponse (Prelude.Maybe ProductViewSummary)
@@ -230,22 +237,14 @@ describeProductResponse_productViewSummary = Lens.lens (\DescribeProductResponse
 describeProductResponse_provisioningArtifacts :: Lens.Lens' DescribeProductResponse (Prelude.Maybe [ProvisioningArtifact])
 describeProductResponse_provisioningArtifacts = Lens.lens (\DescribeProductResponse' {provisioningArtifacts} -> provisioningArtifacts) (\s@DescribeProductResponse' {} a -> s {provisioningArtifacts = a} :: DescribeProductResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Information about the associated launch paths.
-describeProductResponse_launchPaths :: Lens.Lens' DescribeProductResponse (Prelude.Maybe [LaunchPath])
-describeProductResponse_launchPaths = Lens.lens (\DescribeProductResponse' {launchPaths} -> launchPaths) (\s@DescribeProductResponse' {} a -> s {launchPaths = a} :: DescribeProductResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Information about the associated budgets.
-describeProductResponse_budgets :: Lens.Lens' DescribeProductResponse (Prelude.Maybe [BudgetDetail])
-describeProductResponse_budgets = Lens.lens (\DescribeProductResponse' {budgets} -> budgets) (\s@DescribeProductResponse' {} a -> s {budgets = a} :: DescribeProductResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 describeProductResponse_httpStatus :: Lens.Lens' DescribeProductResponse Prelude.Int
 describeProductResponse_httpStatus = Lens.lens (\DescribeProductResponse' {httpStatus} -> httpStatus) (\s@DescribeProductResponse' {} a -> s {httpStatus = a} :: DescribeProductResponse)
 
 instance Prelude.NFData DescribeProductResponse where
   rnf DescribeProductResponse' {..} =
-    Prelude.rnf productViewSummary
-      `Prelude.seq` Prelude.rnf provisioningArtifacts
+    Prelude.rnf budgets
       `Prelude.seq` Prelude.rnf launchPaths
-      `Prelude.seq` Prelude.rnf budgets
+      `Prelude.seq` Prelude.rnf productViewSummary
+      `Prelude.seq` Prelude.rnf provisioningArtifacts
       `Prelude.seq` Prelude.rnf httpStatus

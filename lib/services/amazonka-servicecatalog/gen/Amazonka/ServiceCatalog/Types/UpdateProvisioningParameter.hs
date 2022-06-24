@@ -27,13 +27,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpdateProvisioningParameter' smart constructor.
 data UpdateProvisioningParameter = UpdateProvisioningParameter'
-  { -- | The parameter value.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The parameter key.
+  { -- | The parameter key.
     key :: Prelude.Maybe Prelude.Text,
     -- | If set to true, @Value@ is ignored and the previous parameter value is
     -- kept.
-    usePreviousValue :: Prelude.Maybe Prelude.Bool
+    usePreviousValue :: Prelude.Maybe Prelude.Bool,
+    -- | The parameter value.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,25 +45,20 @@ data UpdateProvisioningParameter = UpdateProvisioningParameter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'updateProvisioningParameter_value' - The parameter value.
---
 -- 'key', 'updateProvisioningParameter_key' - The parameter key.
 --
 -- 'usePreviousValue', 'updateProvisioningParameter_usePreviousValue' - If set to true, @Value@ is ignored and the previous parameter value is
 -- kept.
+--
+-- 'value', 'updateProvisioningParameter_value' - The parameter value.
 newUpdateProvisioningParameter ::
   UpdateProvisioningParameter
 newUpdateProvisioningParameter =
   UpdateProvisioningParameter'
-    { value =
-        Prelude.Nothing,
-      key = Prelude.Nothing,
-      usePreviousValue = Prelude.Nothing
+    { key = Prelude.Nothing,
+      usePreviousValue = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The parameter value.
-updateProvisioningParameter_value :: Lens.Lens' UpdateProvisioningParameter (Prelude.Maybe Prelude.Text)
-updateProvisioningParameter_value = Lens.lens (\UpdateProvisioningParameter' {value} -> value) (\s@UpdateProvisioningParameter' {} a -> s {value = a} :: UpdateProvisioningParameter)
 
 -- | The parameter key.
 updateProvisioningParameter_key :: Lens.Lens' UpdateProvisioningParameter (Prelude.Maybe Prelude.Text)
@@ -74,36 +69,40 @@ updateProvisioningParameter_key = Lens.lens (\UpdateProvisioningParameter' {key}
 updateProvisioningParameter_usePreviousValue :: Lens.Lens' UpdateProvisioningParameter (Prelude.Maybe Prelude.Bool)
 updateProvisioningParameter_usePreviousValue = Lens.lens (\UpdateProvisioningParameter' {usePreviousValue} -> usePreviousValue) (\s@UpdateProvisioningParameter' {} a -> s {usePreviousValue = a} :: UpdateProvisioningParameter)
 
+-- | The parameter value.
+updateProvisioningParameter_value :: Lens.Lens' UpdateProvisioningParameter (Prelude.Maybe Prelude.Text)
+updateProvisioningParameter_value = Lens.lens (\UpdateProvisioningParameter' {value} -> value) (\s@UpdateProvisioningParameter' {} a -> s {value = a} :: UpdateProvisioningParameter)
+
 instance Core.FromJSON UpdateProvisioningParameter where
   parseJSON =
     Core.withObject
       "UpdateProvisioningParameter"
       ( \x ->
           UpdateProvisioningParameter'
-            Prelude.<$> (x Core..:? "Value")
-            Prelude.<*> (x Core..:? "Key")
+            Prelude.<$> (x Core..:? "Key")
             Prelude.<*> (x Core..:? "UsePreviousValue")
+            Prelude.<*> (x Core..:? "Value")
       )
 
 instance Prelude.Hashable UpdateProvisioningParameter where
   hashWithSalt _salt UpdateProvisioningParameter' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` key
+    _salt `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` usePreviousValue
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData UpdateProvisioningParameter where
   rnf UpdateProvisioningParameter' {..} =
-    Prelude.rnf value
-      `Prelude.seq` Prelude.rnf key
+    Prelude.rnf key
       `Prelude.seq` Prelude.rnf usePreviousValue
+      `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON UpdateProvisioningParameter where
   toJSON UpdateProvisioningParameter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Value" Core..=) Prelude.<$> value,
-            ("Key" Core..=) Prelude.<$> key,
+          [ ("Key" Core..=) Prelude.<$> key,
             ("UsePreviousValue" Core..=)
-              Prelude.<$> usePreviousValue
+              Prelude.<$> usePreviousValue,
+            ("Value" Core..=) Prelude.<$> value
           ]
       )

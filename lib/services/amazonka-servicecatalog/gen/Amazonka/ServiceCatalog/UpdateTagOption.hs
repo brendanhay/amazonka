@@ -27,8 +27,8 @@ module Amazonka.ServiceCatalog.UpdateTagOption
     newUpdateTagOption,
 
     -- * Request Lenses
-    updateTagOption_value,
     updateTagOption_active,
+    updateTagOption_value,
     updateTagOption_id,
 
     -- * Destructuring the Response
@@ -50,10 +50,10 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newUpdateTagOption' smart constructor.
 data UpdateTagOption = UpdateTagOption'
-  { -- | The updated value.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The updated active state.
+  { -- | The updated active state.
     active :: Prelude.Maybe Prelude.Bool,
+    -- | The updated value.
+    value :: Prelude.Maybe Prelude.Text,
     -- | The TagOption identifier.
     id :: Prelude.Text
   }
@@ -67,9 +67,9 @@ data UpdateTagOption = UpdateTagOption'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'updateTagOption_value' - The updated value.
---
 -- 'active', 'updateTagOption_active' - The updated active state.
+--
+-- 'value', 'updateTagOption_value' - The updated value.
 --
 -- 'id', 'updateTagOption_id' - The TagOption identifier.
 newUpdateTagOption ::
@@ -78,18 +78,18 @@ newUpdateTagOption ::
   UpdateTagOption
 newUpdateTagOption pId_ =
   UpdateTagOption'
-    { value = Prelude.Nothing,
-      active = Prelude.Nothing,
+    { active = Prelude.Nothing,
+      value = Prelude.Nothing,
       id = pId_
     }
-
--- | The updated value.
-updateTagOption_value :: Lens.Lens' UpdateTagOption (Prelude.Maybe Prelude.Text)
-updateTagOption_value = Lens.lens (\UpdateTagOption' {value} -> value) (\s@UpdateTagOption' {} a -> s {value = a} :: UpdateTagOption)
 
 -- | The updated active state.
 updateTagOption_active :: Lens.Lens' UpdateTagOption (Prelude.Maybe Prelude.Bool)
 updateTagOption_active = Lens.lens (\UpdateTagOption' {active} -> active) (\s@UpdateTagOption' {} a -> s {active = a} :: UpdateTagOption)
+
+-- | The updated value.
+updateTagOption_value :: Lens.Lens' UpdateTagOption (Prelude.Maybe Prelude.Text)
+updateTagOption_value = Lens.lens (\UpdateTagOption' {value} -> value) (\s@UpdateTagOption' {} a -> s {value = a} :: UpdateTagOption)
 
 -- | The TagOption identifier.
 updateTagOption_id :: Lens.Lens' UpdateTagOption Prelude.Text
@@ -110,14 +110,14 @@ instance Core.AWSRequest UpdateTagOption where
 
 instance Prelude.Hashable UpdateTagOption where
   hashWithSalt _salt UpdateTagOption' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` active
+    _salt `Prelude.hashWithSalt` active
+      `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData UpdateTagOption where
   rnf UpdateTagOption' {..} =
-    Prelude.rnf value
-      `Prelude.seq` Prelude.rnf active
+    Prelude.rnf active
+      `Prelude.seq` Prelude.rnf value
       `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders UpdateTagOption where
@@ -139,8 +139,8 @@ instance Core.ToJSON UpdateTagOption where
   toJSON UpdateTagOption' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Value" Core..=) Prelude.<$> value,
-            ("Active" Core..=) Prelude.<$> active,
+          [ ("Active" Core..=) Prelude.<$> active,
+            ("Value" Core..=) Prelude.<$> value,
             Prelude.Just ("Id" Core..= id)
           ]
       )

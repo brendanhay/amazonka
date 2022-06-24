@@ -29,12 +29,12 @@ module Amazonka.ServiceCatalog.UpdatePortfolio
     newUpdatePortfolio,
 
     -- * Request Lenses
-    updatePortfolio_removeTags,
-    updatePortfolio_acceptLanguage,
-    updatePortfolio_displayName,
     updatePortfolio_addTags,
-    updatePortfolio_description,
+    updatePortfolio_removeTags,
     updatePortfolio_providerName,
+    updatePortfolio_displayName,
+    updatePortfolio_description,
+    updatePortfolio_acceptLanguage,
     updatePortfolio_id,
 
     -- * Destructuring the Response
@@ -42,8 +42,8 @@ module Amazonka.ServiceCatalog.UpdatePortfolio
     newUpdatePortfolioResponse,
 
     -- * Response Lenses
-    updatePortfolioResponse_portfolioDetail,
     updatePortfolioResponse_tags,
+    updatePortfolioResponse_portfolioDetail,
     updatePortfolioResponse_httpStatus,
   )
 where
@@ -57,8 +57,16 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newUpdatePortfolio' smart constructor.
 data UpdatePortfolio = UpdatePortfolio'
-  { -- | The tags to remove.
+  { -- | The tags to add.
+    addTags :: Prelude.Maybe [Tag],
+    -- | The tags to remove.
     removeTags :: Prelude.Maybe [Prelude.Text],
+    -- | The updated name of the portfolio provider.
+    providerName :: Prelude.Maybe Prelude.Text,
+    -- | The name to use for display purposes.
+    displayName :: Prelude.Maybe Prelude.Text,
+    -- | The updated description of the portfolio.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -67,14 +75,6 @@ data UpdatePortfolio = UpdatePortfolio'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
-    -- | The name to use for display purposes.
-    displayName :: Prelude.Maybe Prelude.Text,
-    -- | The tags to add.
-    addTags :: Prelude.Maybe [Tag],
-    -- | The updated description of the portfolio.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The updated name of the portfolio provider.
-    providerName :: Prelude.Maybe Prelude.Text,
     -- | The portfolio identifier.
     id :: Prelude.Text
   }
@@ -88,7 +88,15 @@ data UpdatePortfolio = UpdatePortfolio'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'addTags', 'updatePortfolio_addTags' - The tags to add.
+--
 -- 'removeTags', 'updatePortfolio_removeTags' - The tags to remove.
+--
+-- 'providerName', 'updatePortfolio_providerName' - The updated name of the portfolio provider.
+--
+-- 'displayName', 'updatePortfolio_displayName' - The name to use for display purposes.
+--
+-- 'description', 'updatePortfolio_description' - The updated description of the portfolio.
 --
 -- 'acceptLanguage', 'updatePortfolio_acceptLanguage' - The language code.
 --
@@ -98,14 +106,6 @@ data UpdatePortfolio = UpdatePortfolio'
 --
 -- -   @zh@ - Chinese
 --
--- 'displayName', 'updatePortfolio_displayName' - The name to use for display purposes.
---
--- 'addTags', 'updatePortfolio_addTags' - The tags to add.
---
--- 'description', 'updatePortfolio_description' - The updated description of the portfolio.
---
--- 'providerName', 'updatePortfolio_providerName' - The updated name of the portfolio provider.
---
 -- 'id', 'updatePortfolio_id' - The portfolio identifier.
 newUpdatePortfolio ::
   -- | 'id'
@@ -113,18 +113,34 @@ newUpdatePortfolio ::
   UpdatePortfolio
 newUpdatePortfolio pId_ =
   UpdatePortfolio'
-    { removeTags = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing,
-      displayName = Prelude.Nothing,
-      addTags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { addTags = Prelude.Nothing,
+      removeTags = Prelude.Nothing,
       providerName = Prelude.Nothing,
+      displayName = Prelude.Nothing,
+      description = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing,
       id = pId_
     }
+
+-- | The tags to add.
+updatePortfolio_addTags :: Lens.Lens' UpdatePortfolio (Prelude.Maybe [Tag])
+updatePortfolio_addTags = Lens.lens (\UpdatePortfolio' {addTags} -> addTags) (\s@UpdatePortfolio' {} a -> s {addTags = a} :: UpdatePortfolio) Prelude.. Lens.mapping Lens.coerced
 
 -- | The tags to remove.
 updatePortfolio_removeTags :: Lens.Lens' UpdatePortfolio (Prelude.Maybe [Prelude.Text])
 updatePortfolio_removeTags = Lens.lens (\UpdatePortfolio' {removeTags} -> removeTags) (\s@UpdatePortfolio' {} a -> s {removeTags = a} :: UpdatePortfolio) Prelude.. Lens.mapping Lens.coerced
+
+-- | The updated name of the portfolio provider.
+updatePortfolio_providerName :: Lens.Lens' UpdatePortfolio (Prelude.Maybe Prelude.Text)
+updatePortfolio_providerName = Lens.lens (\UpdatePortfolio' {providerName} -> providerName) (\s@UpdatePortfolio' {} a -> s {providerName = a} :: UpdatePortfolio)
+
+-- | The name to use for display purposes.
+updatePortfolio_displayName :: Lens.Lens' UpdatePortfolio (Prelude.Maybe Prelude.Text)
+updatePortfolio_displayName = Lens.lens (\UpdatePortfolio' {displayName} -> displayName) (\s@UpdatePortfolio' {} a -> s {displayName = a} :: UpdatePortfolio)
+
+-- | The updated description of the portfolio.
+updatePortfolio_description :: Lens.Lens' UpdatePortfolio (Prelude.Maybe Prelude.Text)
+updatePortfolio_description = Lens.lens (\UpdatePortfolio' {description} -> description) (\s@UpdatePortfolio' {} a -> s {description = a} :: UpdatePortfolio)
 
 -- | The language code.
 --
@@ -135,22 +151,6 @@ updatePortfolio_removeTags = Lens.lens (\UpdatePortfolio' {removeTags} -> remove
 -- -   @zh@ - Chinese
 updatePortfolio_acceptLanguage :: Lens.Lens' UpdatePortfolio (Prelude.Maybe Prelude.Text)
 updatePortfolio_acceptLanguage = Lens.lens (\UpdatePortfolio' {acceptLanguage} -> acceptLanguage) (\s@UpdatePortfolio' {} a -> s {acceptLanguage = a} :: UpdatePortfolio)
-
--- | The name to use for display purposes.
-updatePortfolio_displayName :: Lens.Lens' UpdatePortfolio (Prelude.Maybe Prelude.Text)
-updatePortfolio_displayName = Lens.lens (\UpdatePortfolio' {displayName} -> displayName) (\s@UpdatePortfolio' {} a -> s {displayName = a} :: UpdatePortfolio)
-
--- | The tags to add.
-updatePortfolio_addTags :: Lens.Lens' UpdatePortfolio (Prelude.Maybe [Tag])
-updatePortfolio_addTags = Lens.lens (\UpdatePortfolio' {addTags} -> addTags) (\s@UpdatePortfolio' {} a -> s {addTags = a} :: UpdatePortfolio) Prelude.. Lens.mapping Lens.coerced
-
--- | The updated description of the portfolio.
-updatePortfolio_description :: Lens.Lens' UpdatePortfolio (Prelude.Maybe Prelude.Text)
-updatePortfolio_description = Lens.lens (\UpdatePortfolio' {description} -> description) (\s@UpdatePortfolio' {} a -> s {description = a} :: UpdatePortfolio)
-
--- | The updated name of the portfolio provider.
-updatePortfolio_providerName :: Lens.Lens' UpdatePortfolio (Prelude.Maybe Prelude.Text)
-updatePortfolio_providerName = Lens.lens (\UpdatePortfolio' {providerName} -> providerName) (\s@UpdatePortfolio' {} a -> s {providerName = a} :: UpdatePortfolio)
 
 -- | The portfolio identifier.
 updatePortfolio_id :: Lens.Lens' UpdatePortfolio Prelude.Text
@@ -165,29 +165,29 @@ instance Core.AWSRequest UpdatePortfolio where
     Response.receiveJSON
       ( \s h x ->
           UpdatePortfolioResponse'
-            Prelude.<$> (x Core..?> "PortfolioDetail")
-            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "PortfolioDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdatePortfolio where
   hashWithSalt _salt UpdatePortfolio' {..} =
-    _salt `Prelude.hashWithSalt` removeTags
-      `Prelude.hashWithSalt` acceptLanguage
-      `Prelude.hashWithSalt` displayName
-      `Prelude.hashWithSalt` addTags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` addTags
+      `Prelude.hashWithSalt` removeTags
       `Prelude.hashWithSalt` providerName
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData UpdatePortfolio where
   rnf UpdatePortfolio' {..} =
-    Prelude.rnf removeTags
-      `Prelude.seq` Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf addTags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf addTags
+      `Prelude.seq` Prelude.rnf removeTags
       `Prelude.seq` Prelude.rnf providerName
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders UpdatePortfolio where
@@ -209,13 +209,13 @@ instance Core.ToJSON UpdatePortfolio where
   toJSON UpdatePortfolio' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RemoveTags" Core..=) Prelude.<$> removeTags,
+          [ ("AddTags" Core..=) Prelude.<$> addTags,
+            ("RemoveTags" Core..=) Prelude.<$> removeTags,
+            ("ProviderName" Core..=) Prelude.<$> providerName,
+            ("DisplayName" Core..=) Prelude.<$> displayName,
+            ("Description" Core..=) Prelude.<$> description,
             ("AcceptLanguage" Core..=)
               Prelude.<$> acceptLanguage,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
-            ("AddTags" Core..=) Prelude.<$> addTags,
-            ("Description" Core..=) Prelude.<$> description,
-            ("ProviderName" Core..=) Prelude.<$> providerName,
             Prelude.Just ("Id" Core..= id)
           ]
       )
@@ -228,10 +228,10 @@ instance Core.ToQuery UpdatePortfolio where
 
 -- | /See:/ 'newUpdatePortfolioResponse' smart constructor.
 data UpdatePortfolioResponse = UpdatePortfolioResponse'
-  { -- | Information about the portfolio.
-    portfolioDetail :: Prelude.Maybe PortfolioDetail,
-    -- | Information about the tags associated with the portfolio.
+  { -- | Information about the tags associated with the portfolio.
     tags :: Prelude.Maybe [Tag],
+    -- | Information about the portfolio.
+    portfolioDetail :: Prelude.Maybe PortfolioDetail,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -245,9 +245,9 @@ data UpdatePortfolioResponse = UpdatePortfolioResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'portfolioDetail', 'updatePortfolioResponse_portfolioDetail' - Information about the portfolio.
---
 -- 'tags', 'updatePortfolioResponse_tags' - Information about the tags associated with the portfolio.
+--
+-- 'portfolioDetail', 'updatePortfolioResponse_portfolioDetail' - Information about the portfolio.
 --
 -- 'httpStatus', 'updatePortfolioResponse_httpStatus' - The response's http status code.
 newUpdatePortfolioResponse ::
@@ -256,19 +256,18 @@ newUpdatePortfolioResponse ::
   UpdatePortfolioResponse
 newUpdatePortfolioResponse pHttpStatus_ =
   UpdatePortfolioResponse'
-    { portfolioDetail =
-        Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      portfolioDetail = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the portfolio.
-updatePortfolioResponse_portfolioDetail :: Lens.Lens' UpdatePortfolioResponse (Prelude.Maybe PortfolioDetail)
-updatePortfolioResponse_portfolioDetail = Lens.lens (\UpdatePortfolioResponse' {portfolioDetail} -> portfolioDetail) (\s@UpdatePortfolioResponse' {} a -> s {portfolioDetail = a} :: UpdatePortfolioResponse)
 
 -- | Information about the tags associated with the portfolio.
 updatePortfolioResponse_tags :: Lens.Lens' UpdatePortfolioResponse (Prelude.Maybe [Tag])
 updatePortfolioResponse_tags = Lens.lens (\UpdatePortfolioResponse' {tags} -> tags) (\s@UpdatePortfolioResponse' {} a -> s {tags = a} :: UpdatePortfolioResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Information about the portfolio.
+updatePortfolioResponse_portfolioDetail :: Lens.Lens' UpdatePortfolioResponse (Prelude.Maybe PortfolioDetail)
+updatePortfolioResponse_portfolioDetail = Lens.lens (\UpdatePortfolioResponse' {portfolioDetail} -> portfolioDetail) (\s@UpdatePortfolioResponse' {} a -> s {portfolioDetail = a} :: UpdatePortfolioResponse)
 
 -- | The response's http status code.
 updatePortfolioResponse_httpStatus :: Lens.Lens' UpdatePortfolioResponse Prelude.Int
@@ -276,6 +275,6 @@ updatePortfolioResponse_httpStatus = Lens.lens (\UpdatePortfolioResponse' {httpS
 
 instance Prelude.NFData UpdatePortfolioResponse where
   rnf UpdatePortfolioResponse' {..} =
-    Prelude.rnf portfolioDetail
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf portfolioDetail
       `Prelude.seq` Prelude.rnf httpStatus

@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProvisioningParameter' smart constructor.
 data ProvisioningParameter = ProvisioningParameter'
-  { -- | The parameter value.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The parameter key.
-    key :: Prelude.Maybe Prelude.Text
+  { -- | The parameter key.
+    key :: Prelude.Maybe Prelude.Text,
+    -- | The parameter value.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,39 +42,39 @@ data ProvisioningParameter = ProvisioningParameter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'provisioningParameter_value' - The parameter value.
---
 -- 'key', 'provisioningParameter_key' - The parameter key.
+--
+-- 'value', 'provisioningParameter_value' - The parameter value.
 newProvisioningParameter ::
   ProvisioningParameter
 newProvisioningParameter =
   ProvisioningParameter'
-    { value = Prelude.Nothing,
-      key = Prelude.Nothing
+    { key = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The parameter value.
-provisioningParameter_value :: Lens.Lens' ProvisioningParameter (Prelude.Maybe Prelude.Text)
-provisioningParameter_value = Lens.lens (\ProvisioningParameter' {value} -> value) (\s@ProvisioningParameter' {} a -> s {value = a} :: ProvisioningParameter)
 
 -- | The parameter key.
 provisioningParameter_key :: Lens.Lens' ProvisioningParameter (Prelude.Maybe Prelude.Text)
 provisioningParameter_key = Lens.lens (\ProvisioningParameter' {key} -> key) (\s@ProvisioningParameter' {} a -> s {key = a} :: ProvisioningParameter)
 
+-- | The parameter value.
+provisioningParameter_value :: Lens.Lens' ProvisioningParameter (Prelude.Maybe Prelude.Text)
+provisioningParameter_value = Lens.lens (\ProvisioningParameter' {value} -> value) (\s@ProvisioningParameter' {} a -> s {value = a} :: ProvisioningParameter)
+
 instance Prelude.Hashable ProvisioningParameter where
   hashWithSalt _salt ProvisioningParameter' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` key
+    _salt `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ProvisioningParameter where
   rnf ProvisioningParameter' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf key
+    Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
 instance Core.ToJSON ProvisioningParameter where
   toJSON ProvisioningParameter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Value" Core..=) Prelude.<$> value,
-            ("Key" Core..=) Prelude.<$> key
+          [ ("Key" Core..=) Prelude.<$> key,
+            ("Value" Core..=) Prelude.<$> value
           ]
       )

@@ -27,10 +27,10 @@ module Amazonka.ServiceCatalog.UpdateServiceAction
     newUpdateServiceAction,
 
     -- * Request Lenses
-    updateServiceAction_definition,
     updateServiceAction_name,
-    updateServiceAction_acceptLanguage,
     updateServiceAction_description,
+    updateServiceAction_acceptLanguage,
+    updateServiceAction_definition,
     updateServiceAction_id,
 
     -- * Destructuring the Response
@@ -52,10 +52,10 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newUpdateServiceAction' smart constructor.
 data UpdateServiceAction = UpdateServiceAction'
-  { -- | A map that defines the self-service action.
-    definition :: Prelude.Maybe (Prelude.HashMap ServiceActionDefinitionKey Prelude.Text),
-    -- | The self-service action name.
+  { -- | The self-service action name.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The self-service action description.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -64,8 +64,8 @@ data UpdateServiceAction = UpdateServiceAction'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
-    -- | The self-service action description.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | A map that defines the self-service action.
+    definition :: Prelude.Maybe (Prelude.HashMap ServiceActionDefinitionKey Prelude.Text),
     -- | The self-service action identifier.
     id :: Prelude.Text
   }
@@ -79,9 +79,9 @@ data UpdateServiceAction = UpdateServiceAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'definition', 'updateServiceAction_definition' - A map that defines the self-service action.
---
 -- 'name', 'updateServiceAction_name' - The self-service action name.
+--
+-- 'description', 'updateServiceAction_description' - The self-service action description.
 --
 -- 'acceptLanguage', 'updateServiceAction_acceptLanguage' - The language code.
 --
@@ -91,7 +91,7 @@ data UpdateServiceAction = UpdateServiceAction'
 --
 -- -   @zh@ - Chinese
 --
--- 'description', 'updateServiceAction_description' - The self-service action description.
+-- 'definition', 'updateServiceAction_definition' - A map that defines the self-service action.
 --
 -- 'id', 'updateServiceAction_id' - The self-service action identifier.
 newUpdateServiceAction ::
@@ -100,20 +100,20 @@ newUpdateServiceAction ::
   UpdateServiceAction
 newUpdateServiceAction pId_ =
   UpdateServiceAction'
-    { definition = Prelude.Nothing,
-      name = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing,
+    { name = Prelude.Nothing,
       description = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing,
+      definition = Prelude.Nothing,
       id = pId_
     }
-
--- | A map that defines the self-service action.
-updateServiceAction_definition :: Lens.Lens' UpdateServiceAction (Prelude.Maybe (Prelude.HashMap ServiceActionDefinitionKey Prelude.Text))
-updateServiceAction_definition = Lens.lens (\UpdateServiceAction' {definition} -> definition) (\s@UpdateServiceAction' {} a -> s {definition = a} :: UpdateServiceAction) Prelude.. Lens.mapping Lens.coerced
 
 -- | The self-service action name.
 updateServiceAction_name :: Lens.Lens' UpdateServiceAction (Prelude.Maybe Prelude.Text)
 updateServiceAction_name = Lens.lens (\UpdateServiceAction' {name} -> name) (\s@UpdateServiceAction' {} a -> s {name = a} :: UpdateServiceAction)
+
+-- | The self-service action description.
+updateServiceAction_description :: Lens.Lens' UpdateServiceAction (Prelude.Maybe Prelude.Text)
+updateServiceAction_description = Lens.lens (\UpdateServiceAction' {description} -> description) (\s@UpdateServiceAction' {} a -> s {description = a} :: UpdateServiceAction)
 
 -- | The language code.
 --
@@ -125,9 +125,9 @@ updateServiceAction_name = Lens.lens (\UpdateServiceAction' {name} -> name) (\s@
 updateServiceAction_acceptLanguage :: Lens.Lens' UpdateServiceAction (Prelude.Maybe Prelude.Text)
 updateServiceAction_acceptLanguage = Lens.lens (\UpdateServiceAction' {acceptLanguage} -> acceptLanguage) (\s@UpdateServiceAction' {} a -> s {acceptLanguage = a} :: UpdateServiceAction)
 
--- | The self-service action description.
-updateServiceAction_description :: Lens.Lens' UpdateServiceAction (Prelude.Maybe Prelude.Text)
-updateServiceAction_description = Lens.lens (\UpdateServiceAction' {description} -> description) (\s@UpdateServiceAction' {} a -> s {description = a} :: UpdateServiceAction)
+-- | A map that defines the self-service action.
+updateServiceAction_definition :: Lens.Lens' UpdateServiceAction (Prelude.Maybe (Prelude.HashMap ServiceActionDefinitionKey Prelude.Text))
+updateServiceAction_definition = Lens.lens (\UpdateServiceAction' {definition} -> definition) (\s@UpdateServiceAction' {} a -> s {definition = a} :: UpdateServiceAction) Prelude.. Lens.mapping Lens.coerced
 
 -- | The self-service action identifier.
 updateServiceAction_id :: Lens.Lens' UpdateServiceAction Prelude.Text
@@ -148,18 +148,18 @@ instance Core.AWSRequest UpdateServiceAction where
 
 instance Prelude.Hashable UpdateServiceAction where
   hashWithSalt _salt UpdateServiceAction' {..} =
-    _salt `Prelude.hashWithSalt` definition
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` acceptLanguage
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` definition
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData UpdateServiceAction where
   rnf UpdateServiceAction' {..} =
-    Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf acceptLanguage
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf definition
       `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders UpdateServiceAction where
@@ -181,11 +181,11 @@ instance Core.ToJSON UpdateServiceAction where
   toJSON UpdateServiceAction' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Definition" Core..=) Prelude.<$> definition,
-            ("Name" Core..=) Prelude.<$> name,
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("Description" Core..=) Prelude.<$> description,
             ("AcceptLanguage" Core..=)
               Prelude.<$> acceptLanguage,
-            ("Description" Core..=) Prelude.<$> description,
+            ("Definition" Core..=) Prelude.<$> definition,
             Prelude.Just ("Id" Core..= id)
           ]
       )

@@ -39,8 +39,8 @@ module Amazonka.ServiceCatalog.ListResourcesForTagOption
     newListResourcesForTagOptionResponse,
 
     -- * Response Lenses
-    listResourcesForTagOptionResponse_resourceDetails,
     listResourcesForTagOptionResponse_pageToken,
+    listResourcesForTagOptionResponse_resourceDetails,
     listResourcesForTagOptionResponse_httpStatus,
   )
 where
@@ -155,10 +155,10 @@ instance Core.AWSRequest ListResourcesForTagOption where
     Response.receiveJSON
       ( \s h x ->
           ListResourcesForTagOptionResponse'
-            Prelude.<$> ( x Core..?> "ResourceDetails"
+            Prelude.<$> (x Core..?> "PageToken")
+            Prelude.<*> ( x Core..?> "ResourceDetails"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "PageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -210,11 +210,11 @@ instance Core.ToQuery ListResourcesForTagOption where
 
 -- | /See:/ 'newListResourcesForTagOptionResponse' smart constructor.
 data ListResourcesForTagOptionResponse = ListResourcesForTagOptionResponse'
-  { -- | Information about the resources.
-    resourceDetails :: Prelude.Maybe [ResourceDetail],
-    -- | The page token for the next set of results. To retrieve the first set of
+  { -- | The page token for the next set of results. To retrieve the first set of
     -- results, use null.
     pageToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the resources.
+    resourceDetails :: Prelude.Maybe [ResourceDetail],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -228,10 +228,10 @@ data ListResourcesForTagOptionResponse = ListResourcesForTagOptionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceDetails', 'listResourcesForTagOptionResponse_resourceDetails' - Information about the resources.
---
 -- 'pageToken', 'listResourcesForTagOptionResponse_pageToken' - The page token for the next set of results. To retrieve the first set of
 -- results, use null.
+--
+-- 'resourceDetails', 'listResourcesForTagOptionResponse_resourceDetails' - Information about the resources.
 --
 -- 'httpStatus', 'listResourcesForTagOptionResponse_httpStatus' - The response's http status code.
 newListResourcesForTagOptionResponse ::
@@ -240,20 +240,20 @@ newListResourcesForTagOptionResponse ::
   ListResourcesForTagOptionResponse
 newListResourcesForTagOptionResponse pHttpStatus_ =
   ListResourcesForTagOptionResponse'
-    { resourceDetails =
+    { pageToken =
         Prelude.Nothing,
-      pageToken = Prelude.Nothing,
+      resourceDetails = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the resources.
-listResourcesForTagOptionResponse_resourceDetails :: Lens.Lens' ListResourcesForTagOptionResponse (Prelude.Maybe [ResourceDetail])
-listResourcesForTagOptionResponse_resourceDetails = Lens.lens (\ListResourcesForTagOptionResponse' {resourceDetails} -> resourceDetails) (\s@ListResourcesForTagOptionResponse' {} a -> s {resourceDetails = a} :: ListResourcesForTagOptionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The page token for the next set of results. To retrieve the first set of
 -- results, use null.
 listResourcesForTagOptionResponse_pageToken :: Lens.Lens' ListResourcesForTagOptionResponse (Prelude.Maybe Prelude.Text)
 listResourcesForTagOptionResponse_pageToken = Lens.lens (\ListResourcesForTagOptionResponse' {pageToken} -> pageToken) (\s@ListResourcesForTagOptionResponse' {} a -> s {pageToken = a} :: ListResourcesForTagOptionResponse)
+
+-- | Information about the resources.
+listResourcesForTagOptionResponse_resourceDetails :: Lens.Lens' ListResourcesForTagOptionResponse (Prelude.Maybe [ResourceDetail])
+listResourcesForTagOptionResponse_resourceDetails = Lens.lens (\ListResourcesForTagOptionResponse' {resourceDetails} -> resourceDetails) (\s@ListResourcesForTagOptionResponse' {} a -> s {resourceDetails = a} :: ListResourcesForTagOptionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listResourcesForTagOptionResponse_httpStatus :: Lens.Lens' ListResourcesForTagOptionResponse Prelude.Int
@@ -264,6 +264,6 @@ instance
     ListResourcesForTagOptionResponse
   where
   rnf ListResourcesForTagOptionResponse' {..} =
-    Prelude.rnf resourceDetails
-      `Prelude.seq` Prelude.rnf pageToken
+    Prelude.rnf pageToken
+      `Prelude.seq` Prelude.rnf resourceDetails
       `Prelude.seq` Prelude.rnf httpStatus

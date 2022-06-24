@@ -29,7 +29,9 @@ import Amazonka.ServiceCatalog.Types.RequestStatus
 --
 -- /See:/ 'newProductViewDetail' smart constructor.
 data ProductViewDetail = ProductViewDetail'
-  { -- | The status of the product.
+  { -- | The UTC time stamp of the creation time.
+    createdTime :: Prelude.Maybe Core.POSIX,
+    -- | The status of the product.
     --
     -- -   @AVAILABLE@ - The product is ready for use.
     --
@@ -40,8 +42,6 @@ data ProductViewDetail = ProductViewDetail'
     status :: Prelude.Maybe RequestStatus,
     -- | Summary information about the product view.
     productViewSummary :: Prelude.Maybe ProductViewSummary,
-    -- | The UTC time stamp of the creation time.
-    createdTime :: Prelude.Maybe Core.POSIX,
     -- | The ARN of the product.
     productARN :: Prelude.Maybe Prelude.Text
   }
@@ -55,6 +55,8 @@ data ProductViewDetail = ProductViewDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'createdTime', 'productViewDetail_createdTime' - The UTC time stamp of the creation time.
+--
 -- 'status', 'productViewDetail_status' - The status of the product.
 --
 -- -   @AVAILABLE@ - The product is ready for use.
@@ -66,18 +68,20 @@ data ProductViewDetail = ProductViewDetail'
 --
 -- 'productViewSummary', 'productViewDetail_productViewSummary' - Summary information about the product view.
 --
--- 'createdTime', 'productViewDetail_createdTime' - The UTC time stamp of the creation time.
---
 -- 'productARN', 'productViewDetail_productARN' - The ARN of the product.
 newProductViewDetail ::
   ProductViewDetail
 newProductViewDetail =
   ProductViewDetail'
-    { status = Prelude.Nothing,
+    { createdTime = Prelude.Nothing,
+      status = Prelude.Nothing,
       productViewSummary = Prelude.Nothing,
-      createdTime = Prelude.Nothing,
       productARN = Prelude.Nothing
     }
+
+-- | The UTC time stamp of the creation time.
+productViewDetail_createdTime :: Lens.Lens' ProductViewDetail (Prelude.Maybe Prelude.UTCTime)
+productViewDetail_createdTime = Lens.lens (\ProductViewDetail' {createdTime} -> createdTime) (\s@ProductViewDetail' {} a -> s {createdTime = a} :: ProductViewDetail) Prelude.. Lens.mapping Core._Time
 
 -- | The status of the product.
 --
@@ -94,10 +98,6 @@ productViewDetail_status = Lens.lens (\ProductViewDetail' {status} -> status) (\
 productViewDetail_productViewSummary :: Lens.Lens' ProductViewDetail (Prelude.Maybe ProductViewSummary)
 productViewDetail_productViewSummary = Lens.lens (\ProductViewDetail' {productViewSummary} -> productViewSummary) (\s@ProductViewDetail' {} a -> s {productViewSummary = a} :: ProductViewDetail)
 
--- | The UTC time stamp of the creation time.
-productViewDetail_createdTime :: Lens.Lens' ProductViewDetail (Prelude.Maybe Prelude.UTCTime)
-productViewDetail_createdTime = Lens.lens (\ProductViewDetail' {createdTime} -> createdTime) (\s@ProductViewDetail' {} a -> s {createdTime = a} :: ProductViewDetail) Prelude.. Lens.mapping Core._Time
-
 -- | The ARN of the product.
 productViewDetail_productARN :: Lens.Lens' ProductViewDetail (Prelude.Maybe Prelude.Text)
 productViewDetail_productARN = Lens.lens (\ProductViewDetail' {productARN} -> productARN) (\s@ProductViewDetail' {} a -> s {productARN = a} :: ProductViewDetail)
@@ -108,22 +108,22 @@ instance Core.FromJSON ProductViewDetail where
       "ProductViewDetail"
       ( \x ->
           ProductViewDetail'
-            Prelude.<$> (x Core..:? "Status")
+            Prelude.<$> (x Core..:? "CreatedTime")
+            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "ProductViewSummary")
-            Prelude.<*> (x Core..:? "CreatedTime")
             Prelude.<*> (x Core..:? "ProductARN")
       )
 
 instance Prelude.Hashable ProductViewDetail where
   hashWithSalt _salt ProductViewDetail' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` productViewSummary
-      `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` productARN
 
 instance Prelude.NFData ProductViewDetail where
   rnf ProductViewDetail' {..} =
-    Prelude.rnf status
+    Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf productViewSummary
-      `Prelude.seq` Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf productARN

@@ -40,15 +40,15 @@ data PortfolioShareDetail = PortfolioShareDetail'
     -- 4. The organization itself. (This shares with every account in the
     -- organization).
     principalId :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether TagOptions sharing is enabled or disabled for the
-    -- portfolio share.
-    shareTagOptions :: Prelude.Maybe Prelude.Bool,
     -- | The type of the portfolio share.
     type' :: Prelude.Maybe DescribePortfolioShareType,
     -- | Indicates whether the shared portfolio is imported by the recipient
     -- account. If the recipient is in an organization node, the share is
     -- automatically imported, and the field is always set to true.
-    accepted :: Prelude.Maybe Prelude.Bool
+    accepted :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates whether TagOptions sharing is enabled or disabled for the
+    -- portfolio share.
+    shareTagOptions :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,23 +72,23 @@ data PortfolioShareDetail = PortfolioShareDetail'
 -- 4. The organization itself. (This shares with every account in the
 -- organization).
 --
--- 'shareTagOptions', 'portfolioShareDetail_shareTagOptions' - Indicates whether TagOptions sharing is enabled or disabled for the
--- portfolio share.
---
 -- 'type'', 'portfolioShareDetail_type' - The type of the portfolio share.
 --
 -- 'accepted', 'portfolioShareDetail_accepted' - Indicates whether the shared portfolio is imported by the recipient
 -- account. If the recipient is in an organization node, the share is
 -- automatically imported, and the field is always set to true.
+--
+-- 'shareTagOptions', 'portfolioShareDetail_shareTagOptions' - Indicates whether TagOptions sharing is enabled or disabled for the
+-- portfolio share.
 newPortfolioShareDetail ::
   PortfolioShareDetail
 newPortfolioShareDetail =
   PortfolioShareDetail'
     { principalId =
         Prelude.Nothing,
-      shareTagOptions = Prelude.Nothing,
       type' = Prelude.Nothing,
-      accepted = Prelude.Nothing
+      accepted = Prelude.Nothing,
+      shareTagOptions = Prelude.Nothing
     }
 
 -- | The identifier of the recipient entity that received the portfolio
@@ -105,11 +105,6 @@ newPortfolioShareDetail =
 portfolioShareDetail_principalId :: Lens.Lens' PortfolioShareDetail (Prelude.Maybe Prelude.Text)
 portfolioShareDetail_principalId = Lens.lens (\PortfolioShareDetail' {principalId} -> principalId) (\s@PortfolioShareDetail' {} a -> s {principalId = a} :: PortfolioShareDetail)
 
--- | Indicates whether TagOptions sharing is enabled or disabled for the
--- portfolio share.
-portfolioShareDetail_shareTagOptions :: Lens.Lens' PortfolioShareDetail (Prelude.Maybe Prelude.Bool)
-portfolioShareDetail_shareTagOptions = Lens.lens (\PortfolioShareDetail' {shareTagOptions} -> shareTagOptions) (\s@PortfolioShareDetail' {} a -> s {shareTagOptions = a} :: PortfolioShareDetail)
-
 -- | The type of the portfolio share.
 portfolioShareDetail_type :: Lens.Lens' PortfolioShareDetail (Prelude.Maybe DescribePortfolioShareType)
 portfolioShareDetail_type = Lens.lens (\PortfolioShareDetail' {type'} -> type') (\s@PortfolioShareDetail' {} a -> s {type' = a} :: PortfolioShareDetail)
@@ -120,6 +115,11 @@ portfolioShareDetail_type = Lens.lens (\PortfolioShareDetail' {type'} -> type') 
 portfolioShareDetail_accepted :: Lens.Lens' PortfolioShareDetail (Prelude.Maybe Prelude.Bool)
 portfolioShareDetail_accepted = Lens.lens (\PortfolioShareDetail' {accepted} -> accepted) (\s@PortfolioShareDetail' {} a -> s {accepted = a} :: PortfolioShareDetail)
 
+-- | Indicates whether TagOptions sharing is enabled or disabled for the
+-- portfolio share.
+portfolioShareDetail_shareTagOptions :: Lens.Lens' PortfolioShareDetail (Prelude.Maybe Prelude.Bool)
+portfolioShareDetail_shareTagOptions = Lens.lens (\PortfolioShareDetail' {shareTagOptions} -> shareTagOptions) (\s@PortfolioShareDetail' {} a -> s {shareTagOptions = a} :: PortfolioShareDetail)
+
 instance Core.FromJSON PortfolioShareDetail where
   parseJSON =
     Core.withObject
@@ -127,21 +127,21 @@ instance Core.FromJSON PortfolioShareDetail where
       ( \x ->
           PortfolioShareDetail'
             Prelude.<$> (x Core..:? "PrincipalId")
-            Prelude.<*> (x Core..:? "ShareTagOptions")
             Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "Accepted")
+            Prelude.<*> (x Core..:? "ShareTagOptions")
       )
 
 instance Prelude.Hashable PortfolioShareDetail where
   hashWithSalt _salt PortfolioShareDetail' {..} =
     _salt `Prelude.hashWithSalt` principalId
-      `Prelude.hashWithSalt` shareTagOptions
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` accepted
+      `Prelude.hashWithSalt` shareTagOptions
 
 instance Prelude.NFData PortfolioShareDetail where
   rnf PortfolioShareDetail' {..} =
     Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf shareTagOptions
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf accepted
+      `Prelude.seq` Prelude.rnf shareTagOptions

@@ -27,9 +27,9 @@ module Amazonka.ServiceCatalog.ListBudgetsForResource
     newListBudgetsForResource,
 
     -- * Request Lenses
-    listBudgetsForResource_acceptLanguage,
     listBudgetsForResource_pageToken,
     listBudgetsForResource_pageSize,
+    listBudgetsForResource_acceptLanguage,
     listBudgetsForResource_resourceId,
 
     -- * Destructuring the Response
@@ -52,7 +52,12 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newListBudgetsForResource' smart constructor.
 data ListBudgetsForResource = ListBudgetsForResource'
-  { -- | The language code.
+  { -- | The page token for the next set of results. To retrieve the first set of
+    -- results, use null.
+    pageToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural,
+    -- | The language code.
     --
     -- -   @en@ - English (default)
     --
@@ -60,11 +65,6 @@ data ListBudgetsForResource = ListBudgetsForResource'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
-    -- | The page token for the next set of results. To retrieve the first set of
-    -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | The resource identifier.
     resourceId :: Prelude.Text
   }
@@ -78,6 +78,11 @@ data ListBudgetsForResource = ListBudgetsForResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'pageToken', 'listBudgetsForResource_pageToken' - The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+--
+-- 'pageSize', 'listBudgetsForResource_pageSize' - The maximum number of items to return with this call.
+--
 -- 'acceptLanguage', 'listBudgetsForResource_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -86,11 +91,6 @@ data ListBudgetsForResource = ListBudgetsForResource'
 --
 -- -   @zh@ - Chinese
 --
--- 'pageToken', 'listBudgetsForResource_pageToken' - The page token for the next set of results. To retrieve the first set of
--- results, use null.
---
--- 'pageSize', 'listBudgetsForResource_pageSize' - The maximum number of items to return with this call.
---
 -- 'resourceId', 'listBudgetsForResource_resourceId' - The resource identifier.
 newListBudgetsForResource ::
   -- | 'resourceId'
@@ -98,12 +98,21 @@ newListBudgetsForResource ::
   ListBudgetsForResource
 newListBudgetsForResource pResourceId_ =
   ListBudgetsForResource'
-    { acceptLanguage =
+    { pageToken =
         Prelude.Nothing,
-      pageToken = Prelude.Nothing,
       pageSize = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing,
       resourceId = pResourceId_
     }
+
+-- | The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+listBudgetsForResource_pageToken :: Lens.Lens' ListBudgetsForResource (Prelude.Maybe Prelude.Text)
+listBudgetsForResource_pageToken = Lens.lens (\ListBudgetsForResource' {pageToken} -> pageToken) (\s@ListBudgetsForResource' {} a -> s {pageToken = a} :: ListBudgetsForResource)
+
+-- | The maximum number of items to return with this call.
+listBudgetsForResource_pageSize :: Lens.Lens' ListBudgetsForResource (Prelude.Maybe Prelude.Natural)
+listBudgetsForResource_pageSize = Lens.lens (\ListBudgetsForResource' {pageSize} -> pageSize) (\s@ListBudgetsForResource' {} a -> s {pageSize = a} :: ListBudgetsForResource)
 
 -- | The language code.
 --
@@ -114,15 +123,6 @@ newListBudgetsForResource pResourceId_ =
 -- -   @zh@ - Chinese
 listBudgetsForResource_acceptLanguage :: Lens.Lens' ListBudgetsForResource (Prelude.Maybe Prelude.Text)
 listBudgetsForResource_acceptLanguage = Lens.lens (\ListBudgetsForResource' {acceptLanguage} -> acceptLanguage) (\s@ListBudgetsForResource' {} a -> s {acceptLanguage = a} :: ListBudgetsForResource)
-
--- | The page token for the next set of results. To retrieve the first set of
--- results, use null.
-listBudgetsForResource_pageToken :: Lens.Lens' ListBudgetsForResource (Prelude.Maybe Prelude.Text)
-listBudgetsForResource_pageToken = Lens.lens (\ListBudgetsForResource' {pageToken} -> pageToken) (\s@ListBudgetsForResource' {} a -> s {pageToken = a} :: ListBudgetsForResource)
-
--- | The maximum number of items to return with this call.
-listBudgetsForResource_pageSize :: Lens.Lens' ListBudgetsForResource (Prelude.Maybe Prelude.Natural)
-listBudgetsForResource_pageSize = Lens.lens (\ListBudgetsForResource' {pageSize} -> pageSize) (\s@ListBudgetsForResource' {} a -> s {pageSize = a} :: ListBudgetsForResource)
 
 -- | The resource identifier.
 listBudgetsForResource_resourceId :: Lens.Lens' ListBudgetsForResource Prelude.Text
@@ -144,16 +144,16 @@ instance Core.AWSRequest ListBudgetsForResource where
 
 instance Prelude.Hashable ListBudgetsForResource where
   hashWithSalt _salt ListBudgetsForResource' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
-      `Prelude.hashWithSalt` pageToken
+    _salt `Prelude.hashWithSalt` pageToken
       `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData ListBudgetsForResource where
   rnf ListBudgetsForResource' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf pageToken
+    Prelude.rnf pageToken
       `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf resourceId
 
 instance Core.ToHeaders ListBudgetsForResource where
@@ -175,10 +175,10 @@ instance Core.ToJSON ListBudgetsForResource where
   toJSON ListBudgetsForResource' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AcceptLanguage" Core..=)
-              Prelude.<$> acceptLanguage,
-            ("PageToken" Core..=) Prelude.<$> pageToken,
+          [ ("PageToken" Core..=) Prelude.<$> pageToken,
             ("PageSize" Core..=) Prelude.<$> pageSize,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
             Prelude.Just ("ResourceId" Core..= resourceId)
           ]
       )

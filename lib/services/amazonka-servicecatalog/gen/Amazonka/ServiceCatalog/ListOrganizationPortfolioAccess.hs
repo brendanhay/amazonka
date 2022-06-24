@@ -34,9 +34,9 @@ module Amazonka.ServiceCatalog.ListOrganizationPortfolioAccess
     newListOrganizationPortfolioAccess,
 
     -- * Request Lenses
-    listOrganizationPortfolioAccess_acceptLanguage,
     listOrganizationPortfolioAccess_pageToken,
     listOrganizationPortfolioAccess_pageSize,
+    listOrganizationPortfolioAccess_acceptLanguage,
     listOrganizationPortfolioAccess_portfolioId,
     listOrganizationPortfolioAccess_organizationNodeType,
 
@@ -60,7 +60,12 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newListOrganizationPortfolioAccess' smart constructor.
 data ListOrganizationPortfolioAccess = ListOrganizationPortfolioAccess'
-  { -- | The language code.
+  { -- | The page token for the next set of results. To retrieve the first set of
+    -- results, use null.
+    pageToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural,
+    -- | The language code.
     --
     -- -   @en@ - English (default)
     --
@@ -68,11 +73,6 @@ data ListOrganizationPortfolioAccess = ListOrganizationPortfolioAccess'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
-    -- | The page token for the next set of results. To retrieve the first set of
-    -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | The portfolio identifier. For example, @port-2abcdext3y5fk@.
     portfolioId :: Prelude.Text,
     -- | The organization node type that will be returned in the output.
@@ -96,6 +96,11 @@ data ListOrganizationPortfolioAccess = ListOrganizationPortfolioAccess'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'pageToken', 'listOrganizationPortfolioAccess_pageToken' - The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+--
+-- 'pageSize', 'listOrganizationPortfolioAccess_pageSize' - The maximum number of items to return with this call.
+--
 -- 'acceptLanguage', 'listOrganizationPortfolioAccess_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -103,11 +108,6 @@ data ListOrganizationPortfolioAccess = ListOrganizationPortfolioAccess'
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
---
--- 'pageToken', 'listOrganizationPortfolioAccess_pageToken' - The page token for the next set of results. To retrieve the first set of
--- results, use null.
---
--- 'pageSize', 'listOrganizationPortfolioAccess_pageSize' - The maximum number of items to return with this call.
 --
 -- 'portfolioId', 'listOrganizationPortfolioAccess_portfolioId' - The portfolio identifier. For example, @port-2abcdext3y5fk@.
 --
@@ -130,14 +130,23 @@ newListOrganizationPortfolioAccess
   pPortfolioId_
   pOrganizationNodeType_ =
     ListOrganizationPortfolioAccess'
-      { acceptLanguage =
+      { pageToken =
           Prelude.Nothing,
-        pageToken = Prelude.Nothing,
         pageSize = Prelude.Nothing,
+        acceptLanguage = Prelude.Nothing,
         portfolioId = pPortfolioId_,
         organizationNodeType =
           pOrganizationNodeType_
       }
+
+-- | The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+listOrganizationPortfolioAccess_pageToken :: Lens.Lens' ListOrganizationPortfolioAccess (Prelude.Maybe Prelude.Text)
+listOrganizationPortfolioAccess_pageToken = Lens.lens (\ListOrganizationPortfolioAccess' {pageToken} -> pageToken) (\s@ListOrganizationPortfolioAccess' {} a -> s {pageToken = a} :: ListOrganizationPortfolioAccess)
+
+-- | The maximum number of items to return with this call.
+listOrganizationPortfolioAccess_pageSize :: Lens.Lens' ListOrganizationPortfolioAccess (Prelude.Maybe Prelude.Natural)
+listOrganizationPortfolioAccess_pageSize = Lens.lens (\ListOrganizationPortfolioAccess' {pageSize} -> pageSize) (\s@ListOrganizationPortfolioAccess' {} a -> s {pageSize = a} :: ListOrganizationPortfolioAccess)
 
 -- | The language code.
 --
@@ -148,15 +157,6 @@ newListOrganizationPortfolioAccess
 -- -   @zh@ - Chinese
 listOrganizationPortfolioAccess_acceptLanguage :: Lens.Lens' ListOrganizationPortfolioAccess (Prelude.Maybe Prelude.Text)
 listOrganizationPortfolioAccess_acceptLanguage = Lens.lens (\ListOrganizationPortfolioAccess' {acceptLanguage} -> acceptLanguage) (\s@ListOrganizationPortfolioAccess' {} a -> s {acceptLanguage = a} :: ListOrganizationPortfolioAccess)
-
--- | The page token for the next set of results. To retrieve the first set of
--- results, use null.
-listOrganizationPortfolioAccess_pageToken :: Lens.Lens' ListOrganizationPortfolioAccess (Prelude.Maybe Prelude.Text)
-listOrganizationPortfolioAccess_pageToken = Lens.lens (\ListOrganizationPortfolioAccess' {pageToken} -> pageToken) (\s@ListOrganizationPortfolioAccess' {} a -> s {pageToken = a} :: ListOrganizationPortfolioAccess)
-
--- | The maximum number of items to return with this call.
-listOrganizationPortfolioAccess_pageSize :: Lens.Lens' ListOrganizationPortfolioAccess (Prelude.Maybe Prelude.Natural)
-listOrganizationPortfolioAccess_pageSize = Lens.lens (\ListOrganizationPortfolioAccess' {pageSize} -> pageSize) (\s@ListOrganizationPortfolioAccess' {} a -> s {pageSize = a} :: ListOrganizationPortfolioAccess)
 
 -- | The portfolio identifier. For example, @port-2abcdext3y5fk@.
 listOrganizationPortfolioAccess_portfolioId :: Lens.Lens' ListOrganizationPortfolioAccess Prelude.Text
@@ -225,9 +225,9 @@ instance
   hashWithSalt
     _salt
     ListOrganizationPortfolioAccess' {..} =
-      _salt `Prelude.hashWithSalt` acceptLanguage
-        `Prelude.hashWithSalt` pageToken
+      _salt `Prelude.hashWithSalt` pageToken
         `Prelude.hashWithSalt` pageSize
+        `Prelude.hashWithSalt` acceptLanguage
         `Prelude.hashWithSalt` portfolioId
         `Prelude.hashWithSalt` organizationNodeType
 
@@ -236,9 +236,9 @@ instance
     ListOrganizationPortfolioAccess
   where
   rnf ListOrganizationPortfolioAccess' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf pageToken
+    Prelude.rnf pageToken
       `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf portfolioId
       `Prelude.seq` Prelude.rnf organizationNodeType
 
@@ -264,10 +264,10 @@ instance Core.ToJSON ListOrganizationPortfolioAccess where
   toJSON ListOrganizationPortfolioAccess' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AcceptLanguage" Core..=)
-              Prelude.<$> acceptLanguage,
-            ("PageToken" Core..=) Prelude.<$> pageToken,
+          [ ("PageToken" Core..=) Prelude.<$> pageToken,
             ("PageSize" Core..=) Prelude.<$> pageSize,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
             Prelude.Just ("PortfolioId" Core..= portfolioId),
             Prelude.Just
               ( "OrganizationNodeType"

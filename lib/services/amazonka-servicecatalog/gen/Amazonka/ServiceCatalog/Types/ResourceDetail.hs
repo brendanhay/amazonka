@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResourceDetail' smart constructor.
 data ResourceDetail = ResourceDetail'
-  { -- | The ARN of the resource.
-    arn :: Prelude.Maybe Prelude.Text,
+  { -- | The name of the resource.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The creation time of the resource.
     createdTime :: Prelude.Maybe Core.POSIX,
-    -- | The name of the resource.
-    name :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the resource.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the resource.
     id :: Prelude.Maybe Prelude.Text,
     -- | The description of the resource.
@@ -48,11 +48,11 @@ data ResourceDetail = ResourceDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'resourceDetail_arn' - The ARN of the resource.
+-- 'name', 'resourceDetail_name' - The name of the resource.
 --
 -- 'createdTime', 'resourceDetail_createdTime' - The creation time of the resource.
 --
--- 'name', 'resourceDetail_name' - The name of the resource.
+-- 'arn', 'resourceDetail_arn' - The ARN of the resource.
 --
 -- 'id', 'resourceDetail_id' - The identifier of the resource.
 --
@@ -61,24 +61,24 @@ newResourceDetail ::
   ResourceDetail
 newResourceDetail =
   ResourceDetail'
-    { arn = Prelude.Nothing,
+    { name = Prelude.Nothing,
       createdTime = Prelude.Nothing,
-      name = Prelude.Nothing,
+      arn = Prelude.Nothing,
       id = Prelude.Nothing,
       description = Prelude.Nothing
     }
 
--- | The ARN of the resource.
-resourceDetail_arn :: Lens.Lens' ResourceDetail (Prelude.Maybe Prelude.Text)
-resourceDetail_arn = Lens.lens (\ResourceDetail' {arn} -> arn) (\s@ResourceDetail' {} a -> s {arn = a} :: ResourceDetail)
+-- | The name of the resource.
+resourceDetail_name :: Lens.Lens' ResourceDetail (Prelude.Maybe Prelude.Text)
+resourceDetail_name = Lens.lens (\ResourceDetail' {name} -> name) (\s@ResourceDetail' {} a -> s {name = a} :: ResourceDetail)
 
 -- | The creation time of the resource.
 resourceDetail_createdTime :: Lens.Lens' ResourceDetail (Prelude.Maybe Prelude.UTCTime)
 resourceDetail_createdTime = Lens.lens (\ResourceDetail' {createdTime} -> createdTime) (\s@ResourceDetail' {} a -> s {createdTime = a} :: ResourceDetail) Prelude.. Lens.mapping Core._Time
 
--- | The name of the resource.
-resourceDetail_name :: Lens.Lens' ResourceDetail (Prelude.Maybe Prelude.Text)
-resourceDetail_name = Lens.lens (\ResourceDetail' {name} -> name) (\s@ResourceDetail' {} a -> s {name = a} :: ResourceDetail)
+-- | The ARN of the resource.
+resourceDetail_arn :: Lens.Lens' ResourceDetail (Prelude.Maybe Prelude.Text)
+resourceDetail_arn = Lens.lens (\ResourceDetail' {arn} -> arn) (\s@ResourceDetail' {} a -> s {arn = a} :: ResourceDetail)
 
 -- | The identifier of the resource.
 resourceDetail_id :: Lens.Lens' ResourceDetail (Prelude.Maybe Prelude.Text)
@@ -94,25 +94,25 @@ instance Core.FromJSON ResourceDetail where
       "ResourceDetail"
       ( \x ->
           ResourceDetail'
-            Prelude.<$> (x Core..:? "ARN")
+            Prelude.<$> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "ARN")
             Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Description")
       )
 
 instance Prelude.Hashable ResourceDetail where
   hashWithSalt _salt ResourceDetail' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` description
 
 instance Prelude.NFData ResourceDetail where
   rnf ResourceDetail' {..} =
-    Prelude.rnf arn
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf description

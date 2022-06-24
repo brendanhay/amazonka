@@ -27,9 +27,9 @@ module Amazonka.ServiceCatalog.DescribeProvisionedProductPlan
     newDescribeProvisionedProductPlan,
 
     -- * Request Lenses
-    describeProvisionedProductPlan_acceptLanguage,
     describeProvisionedProductPlan_pageToken,
     describeProvisionedProductPlan_pageSize,
+    describeProvisionedProductPlan_acceptLanguage,
     describeProvisionedProductPlan_planId,
 
     -- * Destructuring the Response
@@ -53,7 +53,12 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newDescribeProvisionedProductPlan' smart constructor.
 data DescribeProvisionedProductPlan = DescribeProvisionedProductPlan'
-  { -- | The language code.
+  { -- | The page token for the next set of results. To retrieve the first set of
+    -- results, use null.
+    pageToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural,
+    -- | The language code.
     --
     -- -   @en@ - English (default)
     --
@@ -61,11 +66,6 @@ data DescribeProvisionedProductPlan = DescribeProvisionedProductPlan'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
-    -- | The page token for the next set of results. To retrieve the first set of
-    -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | The plan identifier.
     planId :: Prelude.Text
   }
@@ -79,6 +79,11 @@ data DescribeProvisionedProductPlan = DescribeProvisionedProductPlan'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'pageToken', 'describeProvisionedProductPlan_pageToken' - The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+--
+-- 'pageSize', 'describeProvisionedProductPlan_pageSize' - The maximum number of items to return with this call.
+--
 -- 'acceptLanguage', 'describeProvisionedProductPlan_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -87,11 +92,6 @@ data DescribeProvisionedProductPlan = DescribeProvisionedProductPlan'
 --
 -- -   @zh@ - Chinese
 --
--- 'pageToken', 'describeProvisionedProductPlan_pageToken' - The page token for the next set of results. To retrieve the first set of
--- results, use null.
---
--- 'pageSize', 'describeProvisionedProductPlan_pageSize' - The maximum number of items to return with this call.
---
 -- 'planId', 'describeProvisionedProductPlan_planId' - The plan identifier.
 newDescribeProvisionedProductPlan ::
   -- | 'planId'
@@ -99,12 +99,21 @@ newDescribeProvisionedProductPlan ::
   DescribeProvisionedProductPlan
 newDescribeProvisionedProductPlan pPlanId_ =
   DescribeProvisionedProductPlan'
-    { acceptLanguage =
+    { pageToken =
         Prelude.Nothing,
-      pageToken = Prelude.Nothing,
       pageSize = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing,
       planId = pPlanId_
     }
+
+-- | The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+describeProvisionedProductPlan_pageToken :: Lens.Lens' DescribeProvisionedProductPlan (Prelude.Maybe Prelude.Text)
+describeProvisionedProductPlan_pageToken = Lens.lens (\DescribeProvisionedProductPlan' {pageToken} -> pageToken) (\s@DescribeProvisionedProductPlan' {} a -> s {pageToken = a} :: DescribeProvisionedProductPlan)
+
+-- | The maximum number of items to return with this call.
+describeProvisionedProductPlan_pageSize :: Lens.Lens' DescribeProvisionedProductPlan (Prelude.Maybe Prelude.Natural)
+describeProvisionedProductPlan_pageSize = Lens.lens (\DescribeProvisionedProductPlan' {pageSize} -> pageSize) (\s@DescribeProvisionedProductPlan' {} a -> s {pageSize = a} :: DescribeProvisionedProductPlan)
 
 -- | The language code.
 --
@@ -115,15 +124,6 @@ newDescribeProvisionedProductPlan pPlanId_ =
 -- -   @zh@ - Chinese
 describeProvisionedProductPlan_acceptLanguage :: Lens.Lens' DescribeProvisionedProductPlan (Prelude.Maybe Prelude.Text)
 describeProvisionedProductPlan_acceptLanguage = Lens.lens (\DescribeProvisionedProductPlan' {acceptLanguage} -> acceptLanguage) (\s@DescribeProvisionedProductPlan' {} a -> s {acceptLanguage = a} :: DescribeProvisionedProductPlan)
-
--- | The page token for the next set of results. To retrieve the first set of
--- results, use null.
-describeProvisionedProductPlan_pageToken :: Lens.Lens' DescribeProvisionedProductPlan (Prelude.Maybe Prelude.Text)
-describeProvisionedProductPlan_pageToken = Lens.lens (\DescribeProvisionedProductPlan' {pageToken} -> pageToken) (\s@DescribeProvisionedProductPlan' {} a -> s {pageToken = a} :: DescribeProvisionedProductPlan)
-
--- | The maximum number of items to return with this call.
-describeProvisionedProductPlan_pageSize :: Lens.Lens' DescribeProvisionedProductPlan (Prelude.Maybe Prelude.Natural)
-describeProvisionedProductPlan_pageSize = Lens.lens (\DescribeProvisionedProductPlan' {pageSize} -> pageSize) (\s@DescribeProvisionedProductPlan' {} a -> s {pageSize = a} :: DescribeProvisionedProductPlan)
 
 -- | The plan identifier.
 describeProvisionedProductPlan_planId :: Lens.Lens' DescribeProvisionedProductPlan Prelude.Text
@@ -156,9 +156,9 @@ instance
   hashWithSalt
     _salt
     DescribeProvisionedProductPlan' {..} =
-      _salt `Prelude.hashWithSalt` acceptLanguage
-        `Prelude.hashWithSalt` pageToken
+      _salt `Prelude.hashWithSalt` pageToken
         `Prelude.hashWithSalt` pageSize
+        `Prelude.hashWithSalt` acceptLanguage
         `Prelude.hashWithSalt` planId
 
 instance
@@ -166,9 +166,9 @@ instance
     DescribeProvisionedProductPlan
   where
   rnf DescribeProvisionedProductPlan' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf pageToken
+    Prelude.rnf pageToken
       `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf planId
 
 instance
@@ -193,10 +193,10 @@ instance Core.ToJSON DescribeProvisionedProductPlan where
   toJSON DescribeProvisionedProductPlan' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AcceptLanguage" Core..=)
-              Prelude.<$> acceptLanguage,
-            ("PageToken" Core..=) Prelude.<$> pageToken,
+          [ ("PageToken" Core..=) Prelude.<$> pageToken,
             ("PageSize" Core..=) Prelude.<$> pageSize,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
             Prelude.Just ("PlanId" Core..= planId)
           ]
       )

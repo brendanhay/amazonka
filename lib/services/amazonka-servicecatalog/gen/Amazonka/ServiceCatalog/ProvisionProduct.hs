@@ -37,17 +37,17 @@ module Amazonka.ServiceCatalog.ProvisionProduct
     newProvisionProduct,
 
     -- * Request Lenses
-    provisionProduct_productName,
-    provisionProduct_provisioningArtifactId,
-    provisionProduct_provisioningArtifactName,
-    provisionProduct_notificationArns,
-    provisionProduct_pathName,
-    provisionProduct_acceptLanguage,
-    provisionProduct_pathId,
-    provisionProduct_provisioningParameters,
-    provisionProduct_productId,
     provisionProduct_tags,
+    provisionProduct_productName,
+    provisionProduct_pathId,
+    provisionProduct_notificationArns,
+    provisionProduct_productId,
+    provisionProduct_pathName,
+    provisionProduct_provisioningParameters,
     provisionProduct_provisioningPreferences,
+    provisionProduct_provisioningArtifactName,
+    provisionProduct_provisioningArtifactId,
+    provisionProduct_acceptLanguage,
     provisionProduct_provisionedProductName,
     provisionProduct_provisionToken,
 
@@ -70,19 +70,34 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newProvisionProduct' smart constructor.
 data ProvisionProduct = ProvisionProduct'
-  { -- | The name of the product. You must provide the name or ID, but not both.
+  { -- | One or more tags.
+    tags :: Prelude.Maybe [Tag],
+    -- | The name of the product. You must provide the name or ID, but not both.
     productName :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the provisioning artifact. You must provide the name
-    -- or ID, but not both.
-    provisioningArtifactId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the provisioning artifact. You must provide the name or ID,
-    -- but not both.
-    provisioningArtifactName :: Prelude.Maybe Prelude.Text,
+    -- | The path identifier of the product. This value is optional if the
+    -- product has a default path, and required if the product has more than
+    -- one path. To list the paths for a product, use ListLaunchPaths. You must
+    -- provide the name or ID, but not both.
+    pathId :: Prelude.Maybe Prelude.Text,
     -- | Passed to CloudFormation. The SNS topic ARNs to which to publish
     -- stack-related events.
     notificationArns :: Prelude.Maybe [Prelude.Text],
+    -- | The product identifier. You must provide the name or ID, but not both.
+    productId :: Prelude.Maybe Prelude.Text,
     -- | The name of the path. You must provide the name or ID, but not both.
     pathName :: Prelude.Maybe Prelude.Text,
+    -- | Parameters specified by the administrator that are required for
+    -- provisioning the product.
+    provisioningParameters :: Prelude.Maybe [ProvisioningParameter],
+    -- | An object that contains information about the provisioning preferences
+    -- for a stack set.
+    provisioningPreferences :: Prelude.Maybe ProvisioningPreferences,
+    -- | The name of the provisioning artifact. You must provide the name or ID,
+    -- but not both.
+    provisioningArtifactName :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the provisioning artifact. You must provide the name
+    -- or ID, but not both.
+    provisioningArtifactId :: Prelude.Maybe Prelude.Text,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -91,21 +106,6 @@ data ProvisionProduct = ProvisionProduct'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
-    -- | The path identifier of the product. This value is optional if the
-    -- product has a default path, and required if the product has more than
-    -- one path. To list the paths for a product, use ListLaunchPaths. You must
-    -- provide the name or ID, but not both.
-    pathId :: Prelude.Maybe Prelude.Text,
-    -- | Parameters specified by the administrator that are required for
-    -- provisioning the product.
-    provisioningParameters :: Prelude.Maybe [ProvisioningParameter],
-    -- | The product identifier. You must provide the name or ID, but not both.
-    productId :: Prelude.Maybe Prelude.Text,
-    -- | One or more tags.
-    tags :: Prelude.Maybe [Tag],
-    -- | An object that contains information about the provisioning preferences
-    -- for a stack set.
-    provisioningPreferences :: Prelude.Maybe ProvisioningPreferences,
     -- | A user-friendly name for the provisioned product. This value must be
     -- unique for the AWS account and cannot be updated after the product is
     -- provisioned.
@@ -123,18 +123,33 @@ data ProvisionProduct = ProvisionProduct'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'provisionProduct_tags' - One or more tags.
+--
 -- 'productName', 'provisionProduct_productName' - The name of the product. You must provide the name or ID, but not both.
 --
--- 'provisioningArtifactId', 'provisionProduct_provisioningArtifactId' - The identifier of the provisioning artifact. You must provide the name
--- or ID, but not both.
---
--- 'provisioningArtifactName', 'provisionProduct_provisioningArtifactName' - The name of the provisioning artifact. You must provide the name or ID,
--- but not both.
+-- 'pathId', 'provisionProduct_pathId' - The path identifier of the product. This value is optional if the
+-- product has a default path, and required if the product has more than
+-- one path. To list the paths for a product, use ListLaunchPaths. You must
+-- provide the name or ID, but not both.
 --
 -- 'notificationArns', 'provisionProduct_notificationArns' - Passed to CloudFormation. The SNS topic ARNs to which to publish
 -- stack-related events.
 --
+-- 'productId', 'provisionProduct_productId' - The product identifier. You must provide the name or ID, but not both.
+--
 -- 'pathName', 'provisionProduct_pathName' - The name of the path. You must provide the name or ID, but not both.
+--
+-- 'provisioningParameters', 'provisionProduct_provisioningParameters' - Parameters specified by the administrator that are required for
+-- provisioning the product.
+--
+-- 'provisioningPreferences', 'provisionProduct_provisioningPreferences' - An object that contains information about the provisioning preferences
+-- for a stack set.
+--
+-- 'provisioningArtifactName', 'provisionProduct_provisioningArtifactName' - The name of the provisioning artifact. You must provide the name or ID,
+-- but not both.
+--
+-- 'provisioningArtifactId', 'provisionProduct_provisioningArtifactId' - The identifier of the provisioning artifact. You must provide the name
+-- or ID, but not both.
 --
 -- 'acceptLanguage', 'provisionProduct_acceptLanguage' - The language code.
 --
@@ -143,21 +158,6 @@ data ProvisionProduct = ProvisionProduct'
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
---
--- 'pathId', 'provisionProduct_pathId' - The path identifier of the product. This value is optional if the
--- product has a default path, and required if the product has more than
--- one path. To list the paths for a product, use ListLaunchPaths. You must
--- provide the name or ID, but not both.
---
--- 'provisioningParameters', 'provisionProduct_provisioningParameters' - Parameters specified by the administrator that are required for
--- provisioning the product.
---
--- 'productId', 'provisionProduct_productId' - The product identifier. You must provide the name or ID, but not both.
---
--- 'tags', 'provisionProduct_tags' - One or more tags.
---
--- 'provisioningPreferences', 'provisionProduct_provisioningPreferences' - An object that contains information about the provisioning preferences
--- for a stack set.
 --
 -- 'provisionedProductName', 'provisionProduct_provisionedProductName' - A user-friendly name for the provisioned product. This value must be
 -- unique for the AWS account and cannot be updated after the product is
@@ -174,43 +174,68 @@ newProvisionProduct
   pProvisionedProductName_
   pProvisionToken_ =
     ProvisionProduct'
-      { productName = Prelude.Nothing,
-        provisioningArtifactId = Prelude.Nothing,
-        provisioningArtifactName = Prelude.Nothing,
-        notificationArns = Prelude.Nothing,
-        pathName = Prelude.Nothing,
-        acceptLanguage = Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        productName = Prelude.Nothing,
         pathId = Prelude.Nothing,
-        provisioningParameters = Prelude.Nothing,
+        notificationArns = Prelude.Nothing,
         productId = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        pathName = Prelude.Nothing,
+        provisioningParameters = Prelude.Nothing,
         provisioningPreferences = Prelude.Nothing,
+        provisioningArtifactName = Prelude.Nothing,
+        provisioningArtifactId = Prelude.Nothing,
+        acceptLanguage = Prelude.Nothing,
         provisionedProductName = pProvisionedProductName_,
         provisionToken = pProvisionToken_
       }
+
+-- | One or more tags.
+provisionProduct_tags :: Lens.Lens' ProvisionProduct (Prelude.Maybe [Tag])
+provisionProduct_tags = Lens.lens (\ProvisionProduct' {tags} -> tags) (\s@ProvisionProduct' {} a -> s {tags = a} :: ProvisionProduct) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the product. You must provide the name or ID, but not both.
 provisionProduct_productName :: Lens.Lens' ProvisionProduct (Prelude.Maybe Prelude.Text)
 provisionProduct_productName = Lens.lens (\ProvisionProduct' {productName} -> productName) (\s@ProvisionProduct' {} a -> s {productName = a} :: ProvisionProduct)
 
--- | The identifier of the provisioning artifact. You must provide the name
--- or ID, but not both.
-provisionProduct_provisioningArtifactId :: Lens.Lens' ProvisionProduct (Prelude.Maybe Prelude.Text)
-provisionProduct_provisioningArtifactId = Lens.lens (\ProvisionProduct' {provisioningArtifactId} -> provisioningArtifactId) (\s@ProvisionProduct' {} a -> s {provisioningArtifactId = a} :: ProvisionProduct)
-
--- | The name of the provisioning artifact. You must provide the name or ID,
--- but not both.
-provisionProduct_provisioningArtifactName :: Lens.Lens' ProvisionProduct (Prelude.Maybe Prelude.Text)
-provisionProduct_provisioningArtifactName = Lens.lens (\ProvisionProduct' {provisioningArtifactName} -> provisioningArtifactName) (\s@ProvisionProduct' {} a -> s {provisioningArtifactName = a} :: ProvisionProduct)
+-- | The path identifier of the product. This value is optional if the
+-- product has a default path, and required if the product has more than
+-- one path. To list the paths for a product, use ListLaunchPaths. You must
+-- provide the name or ID, but not both.
+provisionProduct_pathId :: Lens.Lens' ProvisionProduct (Prelude.Maybe Prelude.Text)
+provisionProduct_pathId = Lens.lens (\ProvisionProduct' {pathId} -> pathId) (\s@ProvisionProduct' {} a -> s {pathId = a} :: ProvisionProduct)
 
 -- | Passed to CloudFormation. The SNS topic ARNs to which to publish
 -- stack-related events.
 provisionProduct_notificationArns :: Lens.Lens' ProvisionProduct (Prelude.Maybe [Prelude.Text])
 provisionProduct_notificationArns = Lens.lens (\ProvisionProduct' {notificationArns} -> notificationArns) (\s@ProvisionProduct' {} a -> s {notificationArns = a} :: ProvisionProduct) Prelude.. Lens.mapping Lens.coerced
 
+-- | The product identifier. You must provide the name or ID, but not both.
+provisionProduct_productId :: Lens.Lens' ProvisionProduct (Prelude.Maybe Prelude.Text)
+provisionProduct_productId = Lens.lens (\ProvisionProduct' {productId} -> productId) (\s@ProvisionProduct' {} a -> s {productId = a} :: ProvisionProduct)
+
 -- | The name of the path. You must provide the name or ID, but not both.
 provisionProduct_pathName :: Lens.Lens' ProvisionProduct (Prelude.Maybe Prelude.Text)
 provisionProduct_pathName = Lens.lens (\ProvisionProduct' {pathName} -> pathName) (\s@ProvisionProduct' {} a -> s {pathName = a} :: ProvisionProduct)
+
+-- | Parameters specified by the administrator that are required for
+-- provisioning the product.
+provisionProduct_provisioningParameters :: Lens.Lens' ProvisionProduct (Prelude.Maybe [ProvisioningParameter])
+provisionProduct_provisioningParameters = Lens.lens (\ProvisionProduct' {provisioningParameters} -> provisioningParameters) (\s@ProvisionProduct' {} a -> s {provisioningParameters = a} :: ProvisionProduct) Prelude.. Lens.mapping Lens.coerced
+
+-- | An object that contains information about the provisioning preferences
+-- for a stack set.
+provisionProduct_provisioningPreferences :: Lens.Lens' ProvisionProduct (Prelude.Maybe ProvisioningPreferences)
+provisionProduct_provisioningPreferences = Lens.lens (\ProvisionProduct' {provisioningPreferences} -> provisioningPreferences) (\s@ProvisionProduct' {} a -> s {provisioningPreferences = a} :: ProvisionProduct)
+
+-- | The name of the provisioning artifact. You must provide the name or ID,
+-- but not both.
+provisionProduct_provisioningArtifactName :: Lens.Lens' ProvisionProduct (Prelude.Maybe Prelude.Text)
+provisionProduct_provisioningArtifactName = Lens.lens (\ProvisionProduct' {provisioningArtifactName} -> provisioningArtifactName) (\s@ProvisionProduct' {} a -> s {provisioningArtifactName = a} :: ProvisionProduct)
+
+-- | The identifier of the provisioning artifact. You must provide the name
+-- or ID, but not both.
+provisionProduct_provisioningArtifactId :: Lens.Lens' ProvisionProduct (Prelude.Maybe Prelude.Text)
+provisionProduct_provisioningArtifactId = Lens.lens (\ProvisionProduct' {provisioningArtifactId} -> provisioningArtifactId) (\s@ProvisionProduct' {} a -> s {provisioningArtifactId = a} :: ProvisionProduct)
 
 -- | The language code.
 --
@@ -221,31 +246,6 @@ provisionProduct_pathName = Lens.lens (\ProvisionProduct' {pathName} -> pathName
 -- -   @zh@ - Chinese
 provisionProduct_acceptLanguage :: Lens.Lens' ProvisionProduct (Prelude.Maybe Prelude.Text)
 provisionProduct_acceptLanguage = Lens.lens (\ProvisionProduct' {acceptLanguage} -> acceptLanguage) (\s@ProvisionProduct' {} a -> s {acceptLanguage = a} :: ProvisionProduct)
-
--- | The path identifier of the product. This value is optional if the
--- product has a default path, and required if the product has more than
--- one path. To list the paths for a product, use ListLaunchPaths. You must
--- provide the name or ID, but not both.
-provisionProduct_pathId :: Lens.Lens' ProvisionProduct (Prelude.Maybe Prelude.Text)
-provisionProduct_pathId = Lens.lens (\ProvisionProduct' {pathId} -> pathId) (\s@ProvisionProduct' {} a -> s {pathId = a} :: ProvisionProduct)
-
--- | Parameters specified by the administrator that are required for
--- provisioning the product.
-provisionProduct_provisioningParameters :: Lens.Lens' ProvisionProduct (Prelude.Maybe [ProvisioningParameter])
-provisionProduct_provisioningParameters = Lens.lens (\ProvisionProduct' {provisioningParameters} -> provisioningParameters) (\s@ProvisionProduct' {} a -> s {provisioningParameters = a} :: ProvisionProduct) Prelude.. Lens.mapping Lens.coerced
-
--- | The product identifier. You must provide the name or ID, but not both.
-provisionProduct_productId :: Lens.Lens' ProvisionProduct (Prelude.Maybe Prelude.Text)
-provisionProduct_productId = Lens.lens (\ProvisionProduct' {productId} -> productId) (\s@ProvisionProduct' {} a -> s {productId = a} :: ProvisionProduct)
-
--- | One or more tags.
-provisionProduct_tags :: Lens.Lens' ProvisionProduct (Prelude.Maybe [Tag])
-provisionProduct_tags = Lens.lens (\ProvisionProduct' {tags} -> tags) (\s@ProvisionProduct' {} a -> s {tags = a} :: ProvisionProduct) Prelude.. Lens.mapping Lens.coerced
-
--- | An object that contains information about the provisioning preferences
--- for a stack set.
-provisionProduct_provisioningPreferences :: Lens.Lens' ProvisionProduct (Prelude.Maybe ProvisioningPreferences)
-provisionProduct_provisioningPreferences = Lens.lens (\ProvisionProduct' {provisioningPreferences} -> provisioningPreferences) (\s@ProvisionProduct' {} a -> s {provisioningPreferences = a} :: ProvisionProduct)
 
 -- | A user-friendly name for the provisioned product. This value must be
 -- unique for the AWS account and cannot be updated after the product is
@@ -272,33 +272,33 @@ instance Core.AWSRequest ProvisionProduct where
 
 instance Prelude.Hashable ProvisionProduct where
   hashWithSalt _salt ProvisionProduct' {..} =
-    _salt `Prelude.hashWithSalt` productName
-      `Prelude.hashWithSalt` provisioningArtifactId
-      `Prelude.hashWithSalt` provisioningArtifactName
-      `Prelude.hashWithSalt` notificationArns
-      `Prelude.hashWithSalt` pathName
-      `Prelude.hashWithSalt` acceptLanguage
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` productName
       `Prelude.hashWithSalt` pathId
-      `Prelude.hashWithSalt` provisioningParameters
+      `Prelude.hashWithSalt` notificationArns
       `Prelude.hashWithSalt` productId
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` pathName
+      `Prelude.hashWithSalt` provisioningParameters
       `Prelude.hashWithSalt` provisioningPreferences
+      `Prelude.hashWithSalt` provisioningArtifactName
+      `Prelude.hashWithSalt` provisioningArtifactId
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` provisionedProductName
       `Prelude.hashWithSalt` provisionToken
 
 instance Prelude.NFData ProvisionProduct where
   rnf ProvisionProduct' {..} =
-    Prelude.rnf productName
-      `Prelude.seq` Prelude.rnf provisioningArtifactId
-      `Prelude.seq` Prelude.rnf provisioningArtifactName
-      `Prelude.seq` Prelude.rnf notificationArns
-      `Prelude.seq` Prelude.rnf pathName
-      `Prelude.seq` Prelude.rnf acceptLanguage
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf productName
       `Prelude.seq` Prelude.rnf pathId
-      `Prelude.seq` Prelude.rnf provisioningParameters
+      `Prelude.seq` Prelude.rnf notificationArns
       `Prelude.seq` Prelude.rnf productId
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf pathName
+      `Prelude.seq` Prelude.rnf provisioningParameters
       `Prelude.seq` Prelude.rnf provisioningPreferences
+      `Prelude.seq` Prelude.rnf provisioningArtifactName
+      `Prelude.seq` Prelude.rnf provisioningArtifactId
+      `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf provisionedProductName
       `Prelude.seq` Prelude.rnf provisionToken
 
@@ -321,23 +321,23 @@ instance Core.ToJSON ProvisionProduct where
   toJSON ProvisionProduct' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ProductName" Core..=) Prelude.<$> productName,
-            ("ProvisioningArtifactId" Core..=)
-              Prelude.<$> provisioningArtifactId,
-            ("ProvisioningArtifactName" Core..=)
-              Prelude.<$> provisioningArtifactName,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("ProductName" Core..=) Prelude.<$> productName,
+            ("PathId" Core..=) Prelude.<$> pathId,
             ("NotificationArns" Core..=)
               Prelude.<$> notificationArns,
+            ("ProductId" Core..=) Prelude.<$> productId,
             ("PathName" Core..=) Prelude.<$> pathName,
-            ("AcceptLanguage" Core..=)
-              Prelude.<$> acceptLanguage,
-            ("PathId" Core..=) Prelude.<$> pathId,
             ("ProvisioningParameters" Core..=)
               Prelude.<$> provisioningParameters,
-            ("ProductId" Core..=) Prelude.<$> productId,
-            ("Tags" Core..=) Prelude.<$> tags,
             ("ProvisioningPreferences" Core..=)
               Prelude.<$> provisioningPreferences,
+            ("ProvisioningArtifactName" Core..=)
+              Prelude.<$> provisioningArtifactName,
+            ("ProvisioningArtifactId" Core..=)
+              Prelude.<$> provisioningArtifactId,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
             Prelude.Just
               ( "ProvisionedProductName"
                   Core..= provisionedProductName

@@ -29,8 +29,8 @@ module Amazonka.ServiceCatalog.CreateConstraint
     newCreateConstraint,
 
     -- * Request Lenses
-    createConstraint_acceptLanguage,
     createConstraint_description,
+    createConstraint_acceptLanguage,
     createConstraint_portfolioId,
     createConstraint_productId,
     createConstraint_parameters,
@@ -42,8 +42,8 @@ module Amazonka.ServiceCatalog.CreateConstraint
     newCreateConstraintResponse,
 
     -- * Response Lenses
-    createConstraintResponse_status,
     createConstraintResponse_constraintDetail,
+    createConstraintResponse_status,
     createConstraintResponse_constraintParameters,
     createConstraintResponse_httpStatus,
   )
@@ -58,7 +58,9 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newCreateConstraint' smart constructor.
 data CreateConstraint = CreateConstraint'
-  { -- | The language code.
+  { -- | The description of the constraint.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The language code.
     --
     -- -   @en@ - English (default)
     --
@@ -66,8 +68,6 @@ data CreateConstraint = CreateConstraint'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
-    -- | The description of the constraint.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The portfolio identifier.
     portfolioId :: Prelude.Text,
     -- | The product identifier.
@@ -159,6 +159,8 @@ data CreateConstraint = CreateConstraint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'createConstraint_description' - The description of the constraint.
+--
 -- 'acceptLanguage', 'createConstraint_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -166,8 +168,6 @@ data CreateConstraint = CreateConstraint'
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
---
--- 'description', 'createConstraint_description' - The description of the constraint.
 --
 -- 'portfolioId', 'createConstraint_portfolioId' - The portfolio identifier.
 --
@@ -267,14 +267,18 @@ newCreateConstraint
   pType_
   pIdempotencyToken_ =
     CreateConstraint'
-      { acceptLanguage = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { description = Prelude.Nothing,
+        acceptLanguage = Prelude.Nothing,
         portfolioId = pPortfolioId_,
         productId = pProductId_,
         parameters = pParameters_,
         type' = pType_,
         idempotencyToken = pIdempotencyToken_
       }
+
+-- | The description of the constraint.
+createConstraint_description :: Lens.Lens' CreateConstraint (Prelude.Maybe Prelude.Text)
+createConstraint_description = Lens.lens (\CreateConstraint' {description} -> description) (\s@CreateConstraint' {} a -> s {description = a} :: CreateConstraint)
 
 -- | The language code.
 --
@@ -285,10 +289,6 @@ newCreateConstraint
 -- -   @zh@ - Chinese
 createConstraint_acceptLanguage :: Lens.Lens' CreateConstraint (Prelude.Maybe Prelude.Text)
 createConstraint_acceptLanguage = Lens.lens (\CreateConstraint' {acceptLanguage} -> acceptLanguage) (\s@CreateConstraint' {} a -> s {acceptLanguage = a} :: CreateConstraint)
-
--- | The description of the constraint.
-createConstraint_description :: Lens.Lens' CreateConstraint (Prelude.Maybe Prelude.Text)
-createConstraint_description = Lens.lens (\CreateConstraint' {description} -> description) (\s@CreateConstraint' {} a -> s {description = a} :: CreateConstraint)
 
 -- | The portfolio identifier.
 createConstraint_portfolioId :: Lens.Lens' CreateConstraint Prelude.Text
@@ -389,16 +389,16 @@ instance Core.AWSRequest CreateConstraint where
     Response.receiveJSON
       ( \s h x ->
           CreateConstraintResponse'
-            Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "ConstraintDetail")
+            Prelude.<$> (x Core..?> "ConstraintDetail")
+            Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "ConstraintParameters")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateConstraint where
   hashWithSalt _salt CreateConstraint' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` portfolioId
       `Prelude.hashWithSalt` productId
       `Prelude.hashWithSalt` parameters
@@ -407,8 +407,8 @@ instance Prelude.Hashable CreateConstraint where
 
 instance Prelude.NFData CreateConstraint where
   rnf CreateConstraint' {..} =
-    Prelude.rnf acceptLanguage
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf portfolioId
       `Prelude.seq` Prelude.rnf productId
       `Prelude.seq` Prelude.rnf parameters
@@ -434,9 +434,9 @@ instance Core.ToJSON CreateConstraint where
   toJSON CreateConstraint' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AcceptLanguage" Core..=)
+          [ ("Description" Core..=) Prelude.<$> description,
+            ("AcceptLanguage" Core..=)
               Prelude.<$> acceptLanguage,
-            ("Description" Core..=) Prelude.<$> description,
             Prelude.Just ("PortfolioId" Core..= portfolioId),
             Prelude.Just ("ProductId" Core..= productId),
             Prelude.Just ("Parameters" Core..= parameters),
@@ -454,10 +454,10 @@ instance Core.ToQuery CreateConstraint where
 
 -- | /See:/ 'newCreateConstraintResponse' smart constructor.
 data CreateConstraintResponse = CreateConstraintResponse'
-  { -- | The status of the current request.
-    status :: Prelude.Maybe RequestStatus,
-    -- | Information about the constraint.
+  { -- | Information about the constraint.
     constraintDetail :: Prelude.Maybe ConstraintDetail,
+    -- | The status of the current request.
+    status :: Prelude.Maybe RequestStatus,
     -- | The constraint parameters.
     constraintParameters :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -473,9 +473,9 @@ data CreateConstraintResponse = CreateConstraintResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'createConstraintResponse_status' - The status of the current request.
---
 -- 'constraintDetail', 'createConstraintResponse_constraintDetail' - Information about the constraint.
+--
+-- 'status', 'createConstraintResponse_status' - The status of the current request.
 --
 -- 'constraintParameters', 'createConstraintResponse_constraintParameters' - The constraint parameters.
 --
@@ -486,19 +486,20 @@ newCreateConstraintResponse ::
   CreateConstraintResponse
 newCreateConstraintResponse pHttpStatus_ =
   CreateConstraintResponse'
-    { status = Prelude.Nothing,
-      constraintDetail = Prelude.Nothing,
+    { constraintDetail =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
       constraintParameters = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The status of the current request.
-createConstraintResponse_status :: Lens.Lens' CreateConstraintResponse (Prelude.Maybe RequestStatus)
-createConstraintResponse_status = Lens.lens (\CreateConstraintResponse' {status} -> status) (\s@CreateConstraintResponse' {} a -> s {status = a} :: CreateConstraintResponse)
-
 -- | Information about the constraint.
 createConstraintResponse_constraintDetail :: Lens.Lens' CreateConstraintResponse (Prelude.Maybe ConstraintDetail)
 createConstraintResponse_constraintDetail = Lens.lens (\CreateConstraintResponse' {constraintDetail} -> constraintDetail) (\s@CreateConstraintResponse' {} a -> s {constraintDetail = a} :: CreateConstraintResponse)
+
+-- | The status of the current request.
+createConstraintResponse_status :: Lens.Lens' CreateConstraintResponse (Prelude.Maybe RequestStatus)
+createConstraintResponse_status = Lens.lens (\CreateConstraintResponse' {status} -> status) (\s@CreateConstraintResponse' {} a -> s {status = a} :: CreateConstraintResponse)
 
 -- | The constraint parameters.
 createConstraintResponse_constraintParameters :: Lens.Lens' CreateConstraintResponse (Prelude.Maybe Prelude.Text)
@@ -510,7 +511,7 @@ createConstraintResponse_httpStatus = Lens.lens (\CreateConstraintResponse' {htt
 
 instance Prelude.NFData CreateConstraintResponse where
   rnf CreateConstraintResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf constraintDetail
+    Prelude.rnf constraintDetail
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf constraintParameters
       `Prelude.seq` Prelude.rnf httpStatus

@@ -29,14 +29,14 @@ import Amazonka.ServiceCatalog.Types.Tag
 --
 -- /See:/ 'newLaunchPathSummary' smart constructor.
 data LaunchPathSummary = LaunchPathSummary'
-  { -- | The constraints on the portfolio-product relationship.
+  { -- | The tags associated with this product path.
+    tags :: Prelude.Maybe [Tag],
+    -- | The constraints on the portfolio-product relationship.
     constraintSummaries :: Prelude.Maybe [ConstraintSummary],
     -- | The name of the portfolio to which the user was assigned.
     name :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the product path.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The tags associated with this product path.
-    tags :: Prelude.Maybe [Tag]
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,23 +48,26 @@ data LaunchPathSummary = LaunchPathSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'launchPathSummary_tags' - The tags associated with this product path.
+--
 -- 'constraintSummaries', 'launchPathSummary_constraintSummaries' - The constraints on the portfolio-product relationship.
 --
 -- 'name', 'launchPathSummary_name' - The name of the portfolio to which the user was assigned.
 --
 -- 'id', 'launchPathSummary_id' - The identifier of the product path.
---
--- 'tags', 'launchPathSummary_tags' - The tags associated with this product path.
 newLaunchPathSummary ::
   LaunchPathSummary
 newLaunchPathSummary =
   LaunchPathSummary'
-    { constraintSummaries =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      constraintSummaries = Prelude.Nothing,
       name = Prelude.Nothing,
-      id = Prelude.Nothing,
-      tags = Prelude.Nothing
+      id = Prelude.Nothing
     }
+
+-- | The tags associated with this product path.
+launchPathSummary_tags :: Lens.Lens' LaunchPathSummary (Prelude.Maybe [Tag])
+launchPathSummary_tags = Lens.lens (\LaunchPathSummary' {tags} -> tags) (\s@LaunchPathSummary' {} a -> s {tags = a} :: LaunchPathSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The constraints on the portfolio-product relationship.
 launchPathSummary_constraintSummaries :: Lens.Lens' LaunchPathSummary (Prelude.Maybe [ConstraintSummary])
@@ -78,34 +81,30 @@ launchPathSummary_name = Lens.lens (\LaunchPathSummary' {name} -> name) (\s@Laun
 launchPathSummary_id :: Lens.Lens' LaunchPathSummary (Prelude.Maybe Prelude.Text)
 launchPathSummary_id = Lens.lens (\LaunchPathSummary' {id} -> id) (\s@LaunchPathSummary' {} a -> s {id = a} :: LaunchPathSummary)
 
--- | The tags associated with this product path.
-launchPathSummary_tags :: Lens.Lens' LaunchPathSummary (Prelude.Maybe [Tag])
-launchPathSummary_tags = Lens.lens (\LaunchPathSummary' {tags} -> tags) (\s@LaunchPathSummary' {} a -> s {tags = a} :: LaunchPathSummary) Prelude.. Lens.mapping Lens.coerced
-
 instance Core.FromJSON LaunchPathSummary where
   parseJSON =
     Core.withObject
       "LaunchPathSummary"
       ( \x ->
           LaunchPathSummary'
-            Prelude.<$> ( x Core..:? "ConstraintSummaries"
+            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
+            Prelude.<*> ( x Core..:? "ConstraintSummaries"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable LaunchPathSummary where
   hashWithSalt _salt LaunchPathSummary' {..} =
-    _salt `Prelude.hashWithSalt` constraintSummaries
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` constraintSummaries
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData LaunchPathSummary where
   rnf LaunchPathSummary' {..} =
-    Prelude.rnf constraintSummaries
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf constraintSummaries
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf tags

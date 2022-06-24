@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUsageInstruction' smart constructor.
 data UsageInstruction = UsageInstruction'
-  { -- | The usage instruction value for this type.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The usage instruction type for the value.
-    type' :: Prelude.Maybe Prelude.Text
+  { -- | The usage instruction type for the value.
+    type' :: Prelude.Maybe Prelude.Text,
+    -- | The usage instruction value for this type.
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data UsageInstruction = UsageInstruction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'usageInstruction_value' - The usage instruction value for this type.
---
 -- 'type'', 'usageInstruction_type' - The usage instruction type for the value.
+--
+-- 'value', 'usageInstruction_value' - The usage instruction value for this type.
 newUsageInstruction ::
   UsageInstruction
 newUsageInstruction =
   UsageInstruction'
-    { value = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { type' = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The usage instruction value for this type.
-usageInstruction_value :: Lens.Lens' UsageInstruction (Prelude.Maybe Prelude.Text)
-usageInstruction_value = Lens.lens (\UsageInstruction' {value} -> value) (\s@UsageInstruction' {} a -> s {value = a} :: UsageInstruction)
 
 -- | The usage instruction type for the value.
 usageInstruction_type :: Lens.Lens' UsageInstruction (Prelude.Maybe Prelude.Text)
 usageInstruction_type = Lens.lens (\UsageInstruction' {type'} -> type') (\s@UsageInstruction' {} a -> s {type' = a} :: UsageInstruction)
+
+-- | The usage instruction value for this type.
+usageInstruction_value :: Lens.Lens' UsageInstruction (Prelude.Maybe Prelude.Text)
+usageInstruction_value = Lens.lens (\UsageInstruction' {value} -> value) (\s@UsageInstruction' {} a -> s {value = a} :: UsageInstruction)
 
 instance Core.FromJSON UsageInstruction where
   parseJSON =
@@ -67,14 +67,14 @@ instance Core.FromJSON UsageInstruction where
       "UsageInstruction"
       ( \x ->
           UsageInstruction'
-            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Type") Prelude.<*> (x Core..:? "Value")
       )
 
 instance Prelude.Hashable UsageInstruction where
   hashWithSalt _salt UsageInstruction' {..} =
-    _salt `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData UsageInstruction where
   rnf UsageInstruction' {..} =
-    Prelude.rnf value `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf type' `Prelude.seq` Prelude.rnf value

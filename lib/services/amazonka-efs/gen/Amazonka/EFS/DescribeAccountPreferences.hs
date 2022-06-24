@@ -38,8 +38,8 @@ module Amazonka.EFS.DescribeAccountPreferences
     newDescribeAccountPreferencesResponse,
 
     -- * Response Lenses
-    describeAccountPreferencesResponse_resourceIdPreference,
     describeAccountPreferencesResponse_nextToken,
+    describeAccountPreferencesResponse_resourceIdPreference,
     describeAccountPreferencesResponse_httpStatus,
   )
 where
@@ -109,8 +109,8 @@ instance Core.AWSRequest DescribeAccountPreferences where
     Response.receiveJSON
       ( \s h x ->
           DescribeAccountPreferencesResponse'
-            Prelude.<$> (x Core..?> "ResourceIdPreference")
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "ResourceIdPreference")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,14 +136,14 @@ instance Core.ToQuery DescribeAccountPreferences where
 
 -- | /See:/ 'newDescribeAccountPreferencesResponse' smart constructor.
 data DescribeAccountPreferencesResponse = DescribeAccountPreferencesResponse'
-  { -- | Describes the resource ID preference setting for the Amazon Web Services
-    -- account associated with the user making the request, in the current
-    -- Amazon Web Services Region.
-    resourceIdPreference :: Prelude.Maybe ResourceIdPreference,
-    -- | Present if there are more records than returned in the response. You can
+  { -- | Present if there are more records than returned in the response. You can
     -- use the @NextToken@ in the subsequent request to fetch the additional
     -- descriptions.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Describes the resource ID preference setting for the Amazon Web Services
+    -- account associated with the user making the request, in the current
+    -- Amazon Web Services Region.
+    resourceIdPreference :: Prelude.Maybe ResourceIdPreference,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -157,13 +157,13 @@ data DescribeAccountPreferencesResponse = DescribeAccountPreferencesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceIdPreference', 'describeAccountPreferencesResponse_resourceIdPreference' - Describes the resource ID preference setting for the Amazon Web Services
--- account associated with the user making the request, in the current
--- Amazon Web Services Region.
---
 -- 'nextToken', 'describeAccountPreferencesResponse_nextToken' - Present if there are more records than returned in the response. You can
 -- use the @NextToken@ in the subsequent request to fetch the additional
 -- descriptions.
+--
+-- 'resourceIdPreference', 'describeAccountPreferencesResponse_resourceIdPreference' - Describes the resource ID preference setting for the Amazon Web Services
+-- account associated with the user making the request, in the current
+-- Amazon Web Services Region.
 --
 -- 'httpStatus', 'describeAccountPreferencesResponse_httpStatus' - The response's http status code.
 newDescribeAccountPreferencesResponse ::
@@ -172,23 +172,23 @@ newDescribeAccountPreferencesResponse ::
   DescribeAccountPreferencesResponse
 newDescribeAccountPreferencesResponse pHttpStatus_ =
   DescribeAccountPreferencesResponse'
-    { resourceIdPreference =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      resourceIdPreference = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Describes the resource ID preference setting for the Amazon Web Services
--- account associated with the user making the request, in the current
--- Amazon Web Services Region.
-describeAccountPreferencesResponse_resourceIdPreference :: Lens.Lens' DescribeAccountPreferencesResponse (Prelude.Maybe ResourceIdPreference)
-describeAccountPreferencesResponse_resourceIdPreference = Lens.lens (\DescribeAccountPreferencesResponse' {resourceIdPreference} -> resourceIdPreference) (\s@DescribeAccountPreferencesResponse' {} a -> s {resourceIdPreference = a} :: DescribeAccountPreferencesResponse)
 
 -- | Present if there are more records than returned in the response. You can
 -- use the @NextToken@ in the subsequent request to fetch the additional
 -- descriptions.
 describeAccountPreferencesResponse_nextToken :: Lens.Lens' DescribeAccountPreferencesResponse (Prelude.Maybe Prelude.Text)
 describeAccountPreferencesResponse_nextToken = Lens.lens (\DescribeAccountPreferencesResponse' {nextToken} -> nextToken) (\s@DescribeAccountPreferencesResponse' {} a -> s {nextToken = a} :: DescribeAccountPreferencesResponse)
+
+-- | Describes the resource ID preference setting for the Amazon Web Services
+-- account associated with the user making the request, in the current
+-- Amazon Web Services Region.
+describeAccountPreferencesResponse_resourceIdPreference :: Lens.Lens' DescribeAccountPreferencesResponse (Prelude.Maybe ResourceIdPreference)
+describeAccountPreferencesResponse_resourceIdPreference = Lens.lens (\DescribeAccountPreferencesResponse' {resourceIdPreference} -> resourceIdPreference) (\s@DescribeAccountPreferencesResponse' {} a -> s {resourceIdPreference = a} :: DescribeAccountPreferencesResponse)
 
 -- | The response's http status code.
 describeAccountPreferencesResponse_httpStatus :: Lens.Lens' DescribeAccountPreferencesResponse Prelude.Int
@@ -199,6 +199,6 @@ instance
     DescribeAccountPreferencesResponse
   where
   rnf DescribeAccountPreferencesResponse' {..} =
-    Prelude.rnf resourceIdPreference
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceIdPreference
       `Prelude.seq` Prelude.rnf httpStatus

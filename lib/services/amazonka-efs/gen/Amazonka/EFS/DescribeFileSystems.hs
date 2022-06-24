@@ -54,18 +54,18 @@ module Amazonka.EFS.DescribeFileSystems
     newDescribeFileSystems,
 
     -- * Request Lenses
-    describeFileSystems_fileSystemId,
-    describeFileSystems_creationToken,
     describeFileSystems_marker,
+    describeFileSystems_creationToken,
     describeFileSystems_maxItems,
+    describeFileSystems_fileSystemId,
 
     -- * Destructuring the Response
     DescribeFileSystemsResponse (..),
     newDescribeFileSystemsResponse,
 
     -- * Response Lenses
-    describeFileSystemsResponse_fileSystems,
     describeFileSystemsResponse_marker,
+    describeFileSystemsResponse_fileSystems,
     describeFileSystemsResponse_nextMarker,
     describeFileSystemsResponse_httpStatus,
   )
@@ -82,22 +82,22 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeFileSystems' smart constructor.
 data DescribeFileSystems = DescribeFileSystems'
-  { -- | (Optional) ID of the file system whose description you want to retrieve
-    -- (String).
-    fileSystemId :: Prelude.Maybe Prelude.Text,
+  { -- | (Optional) Opaque pagination token returned from a previous
+    -- @DescribeFileSystems@ operation (String). If present, specifies to
+    -- continue the list from where the returning call had left off.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | (Optional) Restricts the list to the file system with this creation
     -- token (String). You specify a creation token when you create an Amazon
     -- EFS file system.
     creationToken :: Prelude.Maybe Prelude.Text,
-    -- | (Optional) Opaque pagination token returned from a previous
-    -- @DescribeFileSystems@ operation (String). If present, specifies to
-    -- continue the list from where the returning call had left off.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | (Optional) Specifies the maximum number of file systems to return in the
     -- response (integer). This number is automatically set to 100. The
     -- response is paginated at 100 per page if you have more than 100 file
     -- systems.
-    maxItems :: Prelude.Maybe Prelude.Natural
+    maxItems :: Prelude.Maybe Prelude.Natural,
+    -- | (Optional) ID of the file system whose description you want to retrieve
+    -- (String).
+    fileSystemId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -109,42 +109,30 @@ data DescribeFileSystems = DescribeFileSystems'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fileSystemId', 'describeFileSystems_fileSystemId' - (Optional) ID of the file system whose description you want to retrieve
--- (String).
+-- 'marker', 'describeFileSystems_marker' - (Optional) Opaque pagination token returned from a previous
+-- @DescribeFileSystems@ operation (String). If present, specifies to
+-- continue the list from where the returning call had left off.
 --
 -- 'creationToken', 'describeFileSystems_creationToken' - (Optional) Restricts the list to the file system with this creation
 -- token (String). You specify a creation token when you create an Amazon
 -- EFS file system.
 --
--- 'marker', 'describeFileSystems_marker' - (Optional) Opaque pagination token returned from a previous
--- @DescribeFileSystems@ operation (String). If present, specifies to
--- continue the list from where the returning call had left off.
---
 -- 'maxItems', 'describeFileSystems_maxItems' - (Optional) Specifies the maximum number of file systems to return in the
 -- response (integer). This number is automatically set to 100. The
 -- response is paginated at 100 per page if you have more than 100 file
 -- systems.
+--
+-- 'fileSystemId', 'describeFileSystems_fileSystemId' - (Optional) ID of the file system whose description you want to retrieve
+-- (String).
 newDescribeFileSystems ::
   DescribeFileSystems
 newDescribeFileSystems =
   DescribeFileSystems'
-    { fileSystemId =
-        Prelude.Nothing,
+    { marker = Prelude.Nothing,
       creationToken = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxItems = Prelude.Nothing
+      maxItems = Prelude.Nothing,
+      fileSystemId = Prelude.Nothing
     }
-
--- | (Optional) ID of the file system whose description you want to retrieve
--- (String).
-describeFileSystems_fileSystemId :: Lens.Lens' DescribeFileSystems (Prelude.Maybe Prelude.Text)
-describeFileSystems_fileSystemId = Lens.lens (\DescribeFileSystems' {fileSystemId} -> fileSystemId) (\s@DescribeFileSystems' {} a -> s {fileSystemId = a} :: DescribeFileSystems)
-
--- | (Optional) Restricts the list to the file system with this creation
--- token (String). You specify a creation token when you create an Amazon
--- EFS file system.
-describeFileSystems_creationToken :: Lens.Lens' DescribeFileSystems (Prelude.Maybe Prelude.Text)
-describeFileSystems_creationToken = Lens.lens (\DescribeFileSystems' {creationToken} -> creationToken) (\s@DescribeFileSystems' {} a -> s {creationToken = a} :: DescribeFileSystems)
 
 -- | (Optional) Opaque pagination token returned from a previous
 -- @DescribeFileSystems@ operation (String). If present, specifies to
@@ -152,12 +140,23 @@ describeFileSystems_creationToken = Lens.lens (\DescribeFileSystems' {creationTo
 describeFileSystems_marker :: Lens.Lens' DescribeFileSystems (Prelude.Maybe Prelude.Text)
 describeFileSystems_marker = Lens.lens (\DescribeFileSystems' {marker} -> marker) (\s@DescribeFileSystems' {} a -> s {marker = a} :: DescribeFileSystems)
 
+-- | (Optional) Restricts the list to the file system with this creation
+-- token (String). You specify a creation token when you create an Amazon
+-- EFS file system.
+describeFileSystems_creationToken :: Lens.Lens' DescribeFileSystems (Prelude.Maybe Prelude.Text)
+describeFileSystems_creationToken = Lens.lens (\DescribeFileSystems' {creationToken} -> creationToken) (\s@DescribeFileSystems' {} a -> s {creationToken = a} :: DescribeFileSystems)
+
 -- | (Optional) Specifies the maximum number of file systems to return in the
 -- response (integer). This number is automatically set to 100. The
 -- response is paginated at 100 per page if you have more than 100 file
 -- systems.
 describeFileSystems_maxItems :: Lens.Lens' DescribeFileSystems (Prelude.Maybe Prelude.Natural)
 describeFileSystems_maxItems = Lens.lens (\DescribeFileSystems' {maxItems} -> maxItems) (\s@DescribeFileSystems' {} a -> s {maxItems = a} :: DescribeFileSystems)
+
+-- | (Optional) ID of the file system whose description you want to retrieve
+-- (String).
+describeFileSystems_fileSystemId :: Lens.Lens' DescribeFileSystems (Prelude.Maybe Prelude.Text)
+describeFileSystems_fileSystemId = Lens.lens (\DescribeFileSystems' {fileSystemId} -> fileSystemId) (\s@DescribeFileSystems' {} a -> s {fileSystemId = a} :: DescribeFileSystems)
 
 instance Core.AWSPager DescribeFileSystems where
   page rq rs
@@ -190,25 +189,25 @@ instance Core.AWSRequest DescribeFileSystems where
     Response.receiveJSON
       ( \s h x ->
           DescribeFileSystemsResponse'
-            Prelude.<$> (x Core..?> "FileSystems" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<$> (x Core..?> "Marker")
+            Prelude.<*> (x Core..?> "FileSystems" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeFileSystems where
   hashWithSalt _salt DescribeFileSystems' {..} =
-    _salt `Prelude.hashWithSalt` fileSystemId
+    _salt `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` creationToken
-      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` fileSystemId
 
 instance Prelude.NFData DescribeFileSystems where
   rnf DescribeFileSystems' {..} =
-    Prelude.rnf fileSystemId
+    Prelude.rnf marker
       `Prelude.seq` Prelude.rnf creationToken
-      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf fileSystemId
 
 instance Core.ToHeaders DescribeFileSystems where
   toHeaders = Prelude.const Prelude.mempty
@@ -219,18 +218,18 @@ instance Core.ToPath DescribeFileSystems where
 instance Core.ToQuery DescribeFileSystems where
   toQuery DescribeFileSystems' {..} =
     Prelude.mconcat
-      [ "FileSystemId" Core.=: fileSystemId,
+      [ "Marker" Core.=: marker,
         "CreationToken" Core.=: creationToken,
-        "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems
+        "MaxItems" Core.=: maxItems,
+        "FileSystemId" Core.=: fileSystemId
       ]
 
 -- | /See:/ 'newDescribeFileSystemsResponse' smart constructor.
 data DescribeFileSystemsResponse = DescribeFileSystemsResponse'
-  { -- | An array of file system descriptions.
-    fileSystems :: Prelude.Maybe [FileSystemDescription],
-    -- | Present if provided by caller in the request (String).
+  { -- | Present if provided by caller in the request (String).
     marker :: Prelude.Maybe Prelude.Text,
+    -- | An array of file system descriptions.
+    fileSystems :: Prelude.Maybe [FileSystemDescription],
     -- | Present if there are more file systems than returned in the response
     -- (String). You can use the @NextMarker@ in the subsequent request to
     -- fetch the descriptions.
@@ -248,9 +247,9 @@ data DescribeFileSystemsResponse = DescribeFileSystemsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fileSystems', 'describeFileSystemsResponse_fileSystems' - An array of file system descriptions.
---
 -- 'marker', 'describeFileSystemsResponse_marker' - Present if provided by caller in the request (String).
+--
+-- 'fileSystems', 'describeFileSystemsResponse_fileSystems' - An array of file system descriptions.
 --
 -- 'nextMarker', 'describeFileSystemsResponse_nextMarker' - Present if there are more file systems than returned in the response
 -- (String). You can use the @NextMarker@ in the subsequent request to
@@ -263,20 +262,20 @@ newDescribeFileSystemsResponse ::
   DescribeFileSystemsResponse
 newDescribeFileSystemsResponse pHttpStatus_ =
   DescribeFileSystemsResponse'
-    { fileSystems =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      fileSystems = Prelude.Nothing,
       nextMarker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | An array of file system descriptions.
-describeFileSystemsResponse_fileSystems :: Lens.Lens' DescribeFileSystemsResponse (Prelude.Maybe [FileSystemDescription])
-describeFileSystemsResponse_fileSystems = Lens.lens (\DescribeFileSystemsResponse' {fileSystems} -> fileSystems) (\s@DescribeFileSystemsResponse' {} a -> s {fileSystems = a} :: DescribeFileSystemsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | Present if provided by caller in the request (String).
 describeFileSystemsResponse_marker :: Lens.Lens' DescribeFileSystemsResponse (Prelude.Maybe Prelude.Text)
 describeFileSystemsResponse_marker = Lens.lens (\DescribeFileSystemsResponse' {marker} -> marker) (\s@DescribeFileSystemsResponse' {} a -> s {marker = a} :: DescribeFileSystemsResponse)
+
+-- | An array of file system descriptions.
+describeFileSystemsResponse_fileSystems :: Lens.Lens' DescribeFileSystemsResponse (Prelude.Maybe [FileSystemDescription])
+describeFileSystemsResponse_fileSystems = Lens.lens (\DescribeFileSystemsResponse' {fileSystems} -> fileSystems) (\s@DescribeFileSystemsResponse' {} a -> s {fileSystems = a} :: DescribeFileSystemsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Present if there are more file systems than returned in the response
 -- (String). You can use the @NextMarker@ in the subsequent request to
@@ -290,7 +289,7 @@ describeFileSystemsResponse_httpStatus = Lens.lens (\DescribeFileSystemsResponse
 
 instance Prelude.NFData DescribeFileSystemsResponse where
   rnf DescribeFileSystemsResponse' {..} =
-    Prelude.rnf fileSystems
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf fileSystems
       `Prelude.seq` Prelude.rnf nextMarker
       `Prelude.seq` Prelude.rnf httpStatus

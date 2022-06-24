@@ -30,74 +30,74 @@ import Test.Tasty
 --         [ requestCreateAccessPoint $
 --             newCreateAccessPoint
 --
---         , requestDescribeAccountPreferences $
---             newDescribeAccountPreferences
---
---         , requestDescribeMountTargets $
---             newDescribeMountTargets
---
---         , requestDeleteFileSystemPolicy $
---             newDeleteFileSystemPolicy
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestPutFileSystemPolicy $
---             newPutFileSystemPolicy
---
---         , requestDescribeFileSystems $
---             newDescribeFileSystems
---
---         , requestDeleteMountTarget $
---             newDeleteMountTarget
---
---         , requestPutAccountPreferences $
---             newPutAccountPreferences
---
---         , requestDescribeMountTargetSecurityGroups $
---             newDescribeMountTargetSecurityGroups
---
---         , requestDescribeAccessPoints $
---             newDescribeAccessPoints
---
---         , requestModifyMountTargetSecurityGroups $
---             newModifyMountTargetSecurityGroups
---
 --         , requestCreateFileSystem $
 --             newCreateFileSystem
---
---         , requestPutLifecycleConfiguration $
---             newPutLifecycleConfiguration
---
---         , requestPutBackupPolicy $
---             newPutBackupPolicy
---
---         , requestDeleteFileSystem $
---             newDeleteFileSystem
---
---         , requestUpdateFileSystem $
---             newUpdateFileSystem
 --
 --         , requestCreateMountTarget $
 --             newCreateMountTarget
 --
---         , requestTagResource $
---             newTagResource
+--         , requestDeleteAccessPoint $
+--             newDeleteAccessPoint
+--
+--         , requestDeleteFileSystem $
+--             newDeleteFileSystem
+--
+--         , requestDeleteFileSystemPolicy $
+--             newDeleteFileSystemPolicy
+--
+--         , requestDeleteMountTarget $
+--             newDeleteMountTarget
+--
+--         , requestDescribeAccessPoints $
+--             newDescribeAccessPoints
+--
+--         , requestDescribeAccountPreferences $
+--             newDescribeAccountPreferences
 --
 --         , requestDescribeBackupPolicy $
 --             newDescribeBackupPolicy
 --
+--         , requestDescribeFileSystemPolicy $
+--             newDescribeFileSystemPolicy
+--
+--         , requestDescribeFileSystems $
+--             newDescribeFileSystems
+--
 --         , requestDescribeLifecycleConfiguration $
 --             newDescribeLifecycleConfiguration
+--
+--         , requestDescribeMountTargetSecurityGroups $
+--             newDescribeMountTargetSecurityGroups
+--
+--         , requestDescribeMountTargets $
+--             newDescribeMountTargets
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestModifyMountTargetSecurityGroups $
+--             newModifyMountTargetSecurityGroups
+--
+--         , requestPutAccountPreferences $
+--             newPutAccountPreferences
+--
+--         , requestPutBackupPolicy $
+--             newPutBackupPolicy
+--
+--         , requestPutFileSystemPolicy $
+--             newPutFileSystemPolicy
+--
+--         , requestPutLifecycleConfiguration $
+--             newPutLifecycleConfiguration
+--
+--         , requestTagResource $
+--             newTagResource
 --
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestDescribeFileSystemPolicy $
---             newDescribeFileSystemPolicy
---
---         , requestDeleteAccessPoint $
---             newDeleteAccessPoint
+--         , requestUpdateFileSystem $
+--             newUpdateFileSystem
 --
 --           ]
 
@@ -105,74 +105,74 @@ import Test.Tasty
 --         [ responseCreateAccessPoint $
 --             newAccessPointDescription
 --
---         , responseDescribeAccountPreferences $
---             newDescribeAccountPreferencesResponse
---
---         , responseDescribeMountTargets $
---             newDescribeMountTargetsResponse
---
---         , responseDeleteFileSystemPolicy $
---             newDeleteFileSystemPolicyResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responsePutFileSystemPolicy $
---             newFileSystemPolicyDescription
---
---         , responseDescribeFileSystems $
---             newDescribeFileSystemsResponse
---
---         , responseDeleteMountTarget $
---             newDeleteMountTargetResponse
---
---         , responsePutAccountPreferences $
---             newPutAccountPreferencesResponse
---
---         , responseDescribeMountTargetSecurityGroups $
---             newDescribeMountTargetSecurityGroupsResponse
---
---         , responseDescribeAccessPoints $
---             newDescribeAccessPointsResponse
---
---         , responseModifyMountTargetSecurityGroups $
---             newModifyMountTargetSecurityGroupsResponse
---
 --         , responseCreateFileSystem $
---             newFileSystemDescription
---
---         , responsePutLifecycleConfiguration $
---             newLifecycleConfigurationDescription
---
---         , responsePutBackupPolicy $
---             newBackupPolicyDescription
---
---         , responseDeleteFileSystem $
---             newDeleteFileSystemResponse
---
---         , responseUpdateFileSystem $
 --             newFileSystemDescription
 --
 --         , responseCreateMountTarget $
 --             newMountTargetDescription
 --
---         , responseTagResource $
---             newTagResourceResponse
+--         , responseDeleteAccessPoint $
+--             newDeleteAccessPointResponse
+--
+--         , responseDeleteFileSystem $
+--             newDeleteFileSystemResponse
+--
+--         , responseDeleteFileSystemPolicy $
+--             newDeleteFileSystemPolicyResponse
+--
+--         , responseDeleteMountTarget $
+--             newDeleteMountTargetResponse
+--
+--         , responseDescribeAccessPoints $
+--             newDescribeAccessPointsResponse
+--
+--         , responseDescribeAccountPreferences $
+--             newDescribeAccountPreferencesResponse
 --
 --         , responseDescribeBackupPolicy $
 --             newBackupPolicyDescription
 --
+--         , responseDescribeFileSystemPolicy $
+--             newFileSystemPolicyDescription
+--
+--         , responseDescribeFileSystems $
+--             newDescribeFileSystemsResponse
+--
 --         , responseDescribeLifecycleConfiguration $
 --             newLifecycleConfigurationDescription
+--
+--         , responseDescribeMountTargetSecurityGroups $
+--             newDescribeMountTargetSecurityGroupsResponse
+--
+--         , responseDescribeMountTargets $
+--             newDescribeMountTargetsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseModifyMountTargetSecurityGroups $
+--             newModifyMountTargetSecurityGroupsResponse
+--
+--         , responsePutAccountPreferences $
+--             newPutAccountPreferencesResponse
+--
+--         , responsePutBackupPolicy $
+--             newBackupPolicyDescription
+--
+--         , responsePutFileSystemPolicy $
+--             newFileSystemPolicyDescription
+--
+--         , responsePutLifecycleConfiguration $
+--             newLifecycleConfigurationDescription
+--
+--         , responseTagResource $
+--             newTagResourceResponse
 --
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseDescribeFileSystemPolicy $
---             newFileSystemPolicyDescription
---
---         , responseDeleteAccessPoint $
---             newDeleteAccessPointResponse
+--         , responseUpdateFileSystem $
+--             newFileSystemDescription
 --
 --           ]
 --     ]
@@ -185,101 +185,11 @@ requestCreateAccessPoint =
     "CreateAccessPoint"
     "fixture/CreateAccessPoint.yaml"
 
-requestDescribeAccountPreferences :: DescribeAccountPreferences -> TestTree
-requestDescribeAccountPreferences =
-  req
-    "DescribeAccountPreferences"
-    "fixture/DescribeAccountPreferences.yaml"
-
-requestDescribeMountTargets :: DescribeMountTargets -> TestTree
-requestDescribeMountTargets =
-  req
-    "DescribeMountTargets"
-    "fixture/DescribeMountTargets.yaml"
-
-requestDeleteFileSystemPolicy :: DeleteFileSystemPolicy -> TestTree
-requestDeleteFileSystemPolicy =
-  req
-    "DeleteFileSystemPolicy"
-    "fixture/DeleteFileSystemPolicy.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestPutFileSystemPolicy :: PutFileSystemPolicy -> TestTree
-requestPutFileSystemPolicy =
-  req
-    "PutFileSystemPolicy"
-    "fixture/PutFileSystemPolicy.yaml"
-
-requestDescribeFileSystems :: DescribeFileSystems -> TestTree
-requestDescribeFileSystems =
-  req
-    "DescribeFileSystems"
-    "fixture/DescribeFileSystems.yaml"
-
-requestDeleteMountTarget :: DeleteMountTarget -> TestTree
-requestDeleteMountTarget =
-  req
-    "DeleteMountTarget"
-    "fixture/DeleteMountTarget.yaml"
-
-requestPutAccountPreferences :: PutAccountPreferences -> TestTree
-requestPutAccountPreferences =
-  req
-    "PutAccountPreferences"
-    "fixture/PutAccountPreferences.yaml"
-
-requestDescribeMountTargetSecurityGroups :: DescribeMountTargetSecurityGroups -> TestTree
-requestDescribeMountTargetSecurityGroups =
-  req
-    "DescribeMountTargetSecurityGroups"
-    "fixture/DescribeMountTargetSecurityGroups.yaml"
-
-requestDescribeAccessPoints :: DescribeAccessPoints -> TestTree
-requestDescribeAccessPoints =
-  req
-    "DescribeAccessPoints"
-    "fixture/DescribeAccessPoints.yaml"
-
-requestModifyMountTargetSecurityGroups :: ModifyMountTargetSecurityGroups -> TestTree
-requestModifyMountTargetSecurityGroups =
-  req
-    "ModifyMountTargetSecurityGroups"
-    "fixture/ModifyMountTargetSecurityGroups.yaml"
-
 requestCreateFileSystem :: CreateFileSystem -> TestTree
 requestCreateFileSystem =
   req
     "CreateFileSystem"
     "fixture/CreateFileSystem.yaml"
-
-requestPutLifecycleConfiguration :: PutLifecycleConfiguration -> TestTree
-requestPutLifecycleConfiguration =
-  req
-    "PutLifecycleConfiguration"
-    "fixture/PutLifecycleConfiguration.yaml"
-
-requestPutBackupPolicy :: PutBackupPolicy -> TestTree
-requestPutBackupPolicy =
-  req
-    "PutBackupPolicy"
-    "fixture/PutBackupPolicy.yaml"
-
-requestDeleteFileSystem :: DeleteFileSystem -> TestTree
-requestDeleteFileSystem =
-  req
-    "DeleteFileSystem"
-    "fixture/DeleteFileSystem.yaml"
-
-requestUpdateFileSystem :: UpdateFileSystem -> TestTree
-requestUpdateFileSystem =
-  req
-    "UpdateFileSystem"
-    "fixture/UpdateFileSystem.yaml"
 
 requestCreateMountTarget :: CreateMountTarget -> TestTree
 requestCreateMountTarget =
@@ -287,11 +197,41 @@ requestCreateMountTarget =
     "CreateMountTarget"
     "fixture/CreateMountTarget.yaml"
 
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
+requestDeleteAccessPoint :: DeleteAccessPoint -> TestTree
+requestDeleteAccessPoint =
   req
-    "TagResource"
-    "fixture/TagResource.yaml"
+    "DeleteAccessPoint"
+    "fixture/DeleteAccessPoint.yaml"
+
+requestDeleteFileSystem :: DeleteFileSystem -> TestTree
+requestDeleteFileSystem =
+  req
+    "DeleteFileSystem"
+    "fixture/DeleteFileSystem.yaml"
+
+requestDeleteFileSystemPolicy :: DeleteFileSystemPolicy -> TestTree
+requestDeleteFileSystemPolicy =
+  req
+    "DeleteFileSystemPolicy"
+    "fixture/DeleteFileSystemPolicy.yaml"
+
+requestDeleteMountTarget :: DeleteMountTarget -> TestTree
+requestDeleteMountTarget =
+  req
+    "DeleteMountTarget"
+    "fixture/DeleteMountTarget.yaml"
+
+requestDescribeAccessPoints :: DescribeAccessPoints -> TestTree
+requestDescribeAccessPoints =
+  req
+    "DescribeAccessPoints"
+    "fixture/DescribeAccessPoints.yaml"
+
+requestDescribeAccountPreferences :: DescribeAccountPreferences -> TestTree
+requestDescribeAccountPreferences =
+  req
+    "DescribeAccountPreferences"
+    "fixture/DescribeAccountPreferences.yaml"
 
 requestDescribeBackupPolicy :: DescribeBackupPolicy -> TestTree
 requestDescribeBackupPolicy =
@@ -299,11 +239,77 @@ requestDescribeBackupPolicy =
     "DescribeBackupPolicy"
     "fixture/DescribeBackupPolicy.yaml"
 
+requestDescribeFileSystemPolicy :: DescribeFileSystemPolicy -> TestTree
+requestDescribeFileSystemPolicy =
+  req
+    "DescribeFileSystemPolicy"
+    "fixture/DescribeFileSystemPolicy.yaml"
+
+requestDescribeFileSystems :: DescribeFileSystems -> TestTree
+requestDescribeFileSystems =
+  req
+    "DescribeFileSystems"
+    "fixture/DescribeFileSystems.yaml"
+
 requestDescribeLifecycleConfiguration :: DescribeLifecycleConfiguration -> TestTree
 requestDescribeLifecycleConfiguration =
   req
     "DescribeLifecycleConfiguration"
     "fixture/DescribeLifecycleConfiguration.yaml"
+
+requestDescribeMountTargetSecurityGroups :: DescribeMountTargetSecurityGroups -> TestTree
+requestDescribeMountTargetSecurityGroups =
+  req
+    "DescribeMountTargetSecurityGroups"
+    "fixture/DescribeMountTargetSecurityGroups.yaml"
+
+requestDescribeMountTargets :: DescribeMountTargets -> TestTree
+requestDescribeMountTargets =
+  req
+    "DescribeMountTargets"
+    "fixture/DescribeMountTargets.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestModifyMountTargetSecurityGroups :: ModifyMountTargetSecurityGroups -> TestTree
+requestModifyMountTargetSecurityGroups =
+  req
+    "ModifyMountTargetSecurityGroups"
+    "fixture/ModifyMountTargetSecurityGroups.yaml"
+
+requestPutAccountPreferences :: PutAccountPreferences -> TestTree
+requestPutAccountPreferences =
+  req
+    "PutAccountPreferences"
+    "fixture/PutAccountPreferences.yaml"
+
+requestPutBackupPolicy :: PutBackupPolicy -> TestTree
+requestPutBackupPolicy =
+  req
+    "PutBackupPolicy"
+    "fixture/PutBackupPolicy.yaml"
+
+requestPutFileSystemPolicy :: PutFileSystemPolicy -> TestTree
+requestPutFileSystemPolicy =
+  req
+    "PutFileSystemPolicy"
+    "fixture/PutFileSystemPolicy.yaml"
+
+requestPutLifecycleConfiguration :: PutLifecycleConfiguration -> TestTree
+requestPutLifecycleConfiguration =
+  req
+    "PutLifecycleConfiguration"
+    "fixture/PutLifecycleConfiguration.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
@@ -311,17 +317,11 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestDescribeFileSystemPolicy :: DescribeFileSystemPolicy -> TestTree
-requestDescribeFileSystemPolicy =
+requestUpdateFileSystem :: UpdateFileSystem -> TestTree
+requestUpdateFileSystem =
   req
-    "DescribeFileSystemPolicy"
-    "fixture/DescribeFileSystemPolicy.yaml"
-
-requestDeleteAccessPoint :: DeleteAccessPoint -> TestTree
-requestDeleteAccessPoint =
-  req
-    "DeleteAccessPoint"
-    "fixture/DeleteAccessPoint.yaml"
+    "UpdateFileSystem"
+    "fixture/UpdateFileSystem.yaml"
 
 -- Responses
 
@@ -333,94 +333,6 @@ responseCreateAccessPoint =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateAccessPoint)
 
-responseDescribeAccountPreferences :: DescribeAccountPreferencesResponse -> TestTree
-responseDescribeAccountPreferences =
-  res
-    "DescribeAccountPreferencesResponse"
-    "fixture/DescribeAccountPreferencesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeAccountPreferences)
-
-responseDescribeMountTargets :: DescribeMountTargetsResponse -> TestTree
-responseDescribeMountTargets =
-  res
-    "DescribeMountTargetsResponse"
-    "fixture/DescribeMountTargetsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeMountTargets)
-
-responseDeleteFileSystemPolicy :: DeleteFileSystemPolicyResponse -> TestTree
-responseDeleteFileSystemPolicy =
-  res
-    "DeleteFileSystemPolicyResponse"
-    "fixture/DeleteFileSystemPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteFileSystemPolicy)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responsePutFileSystemPolicy :: FileSystemPolicyDescription -> TestTree
-responsePutFileSystemPolicy =
-  res
-    "PutFileSystemPolicyResponse"
-    "fixture/PutFileSystemPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutFileSystemPolicy)
-
-responseDescribeFileSystems :: DescribeFileSystemsResponse -> TestTree
-responseDescribeFileSystems =
-  res
-    "DescribeFileSystemsResponse"
-    "fixture/DescribeFileSystemsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeFileSystems)
-
-responseDeleteMountTarget :: DeleteMountTargetResponse -> TestTree
-responseDeleteMountTarget =
-  res
-    "DeleteMountTargetResponse"
-    "fixture/DeleteMountTargetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteMountTarget)
-
-responsePutAccountPreferences :: PutAccountPreferencesResponse -> TestTree
-responsePutAccountPreferences =
-  res
-    "PutAccountPreferencesResponse"
-    "fixture/PutAccountPreferencesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutAccountPreferences)
-
-responseDescribeMountTargetSecurityGroups :: DescribeMountTargetSecurityGroupsResponse -> TestTree
-responseDescribeMountTargetSecurityGroups =
-  res
-    "DescribeMountTargetSecurityGroupsResponse"
-    "fixture/DescribeMountTargetSecurityGroupsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeMountTargetSecurityGroups)
-
-responseDescribeAccessPoints :: DescribeAccessPointsResponse -> TestTree
-responseDescribeAccessPoints =
-  res
-    "DescribeAccessPointsResponse"
-    "fixture/DescribeAccessPointsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeAccessPoints)
-
-responseModifyMountTargetSecurityGroups :: ModifyMountTargetSecurityGroupsResponse -> TestTree
-responseModifyMountTargetSecurityGroups =
-  res
-    "ModifyMountTargetSecurityGroupsResponse"
-    "fixture/ModifyMountTargetSecurityGroupsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ModifyMountTargetSecurityGroups)
-
 responseCreateFileSystem :: FileSystemDescription -> TestTree
 responseCreateFileSystem =
   res
@@ -428,38 +340,6 @@ responseCreateFileSystem =
     "fixture/CreateFileSystemResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateFileSystem)
-
-responsePutLifecycleConfiguration :: LifecycleConfigurationDescription -> TestTree
-responsePutLifecycleConfiguration =
-  res
-    "PutLifecycleConfigurationResponse"
-    "fixture/PutLifecycleConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutLifecycleConfiguration)
-
-responsePutBackupPolicy :: BackupPolicyDescription -> TestTree
-responsePutBackupPolicy =
-  res
-    "PutBackupPolicyResponse"
-    "fixture/PutBackupPolicyResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutBackupPolicy)
-
-responseDeleteFileSystem :: DeleteFileSystemResponse -> TestTree
-responseDeleteFileSystem =
-  res
-    "DeleteFileSystemResponse"
-    "fixture/DeleteFileSystemResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteFileSystem)
-
-responseUpdateFileSystem :: FileSystemDescription -> TestTree
-responseUpdateFileSystem =
-  res
-    "UpdateFileSystemResponse"
-    "fixture/UpdateFileSystemResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateFileSystem)
 
 responseCreateMountTarget :: MountTargetDescription -> TestTree
 responseCreateMountTarget =
@@ -469,13 +349,53 @@ responseCreateMountTarget =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateMountTarget)
 
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
+responseDeleteAccessPoint :: DeleteAccessPointResponse -> TestTree
+responseDeleteAccessPoint =
   res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
+    "DeleteAccessPointResponse"
+    "fixture/DeleteAccessPointResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy DeleteAccessPoint)
+
+responseDeleteFileSystem :: DeleteFileSystemResponse -> TestTree
+responseDeleteFileSystem =
+  res
+    "DeleteFileSystemResponse"
+    "fixture/DeleteFileSystemResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteFileSystem)
+
+responseDeleteFileSystemPolicy :: DeleteFileSystemPolicyResponse -> TestTree
+responseDeleteFileSystemPolicy =
+  res
+    "DeleteFileSystemPolicyResponse"
+    "fixture/DeleteFileSystemPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteFileSystemPolicy)
+
+responseDeleteMountTarget :: DeleteMountTargetResponse -> TestTree
+responseDeleteMountTarget =
+  res
+    "DeleteMountTargetResponse"
+    "fixture/DeleteMountTargetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteMountTarget)
+
+responseDescribeAccessPoints :: DescribeAccessPointsResponse -> TestTree
+responseDescribeAccessPoints =
+  res
+    "DescribeAccessPointsResponse"
+    "fixture/DescribeAccessPointsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccessPoints)
+
+responseDescribeAccountPreferences :: DescribeAccountPreferencesResponse -> TestTree
+responseDescribeAccountPreferences =
+  res
+    "DescribeAccountPreferencesResponse"
+    "fixture/DescribeAccountPreferencesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccountPreferences)
 
 responseDescribeBackupPolicy :: BackupPolicyDescription -> TestTree
 responseDescribeBackupPolicy =
@@ -485,6 +405,22 @@ responseDescribeBackupPolicy =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeBackupPolicy)
 
+responseDescribeFileSystemPolicy :: FileSystemPolicyDescription -> TestTree
+responseDescribeFileSystemPolicy =
+  res
+    "DescribeFileSystemPolicyResponse"
+    "fixture/DescribeFileSystemPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeFileSystemPolicy)
+
+responseDescribeFileSystems :: DescribeFileSystemsResponse -> TestTree
+responseDescribeFileSystems =
+  res
+    "DescribeFileSystemsResponse"
+    "fixture/DescribeFileSystemsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeFileSystems)
+
 responseDescribeLifecycleConfiguration :: LifecycleConfigurationDescription -> TestTree
 responseDescribeLifecycleConfiguration =
   res
@@ -492,6 +428,78 @@ responseDescribeLifecycleConfiguration =
     "fixture/DescribeLifecycleConfigurationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeLifecycleConfiguration)
+
+responseDescribeMountTargetSecurityGroups :: DescribeMountTargetSecurityGroupsResponse -> TestTree
+responseDescribeMountTargetSecurityGroups =
+  res
+    "DescribeMountTargetSecurityGroupsResponse"
+    "fixture/DescribeMountTargetSecurityGroupsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeMountTargetSecurityGroups)
+
+responseDescribeMountTargets :: DescribeMountTargetsResponse -> TestTree
+responseDescribeMountTargets =
+  res
+    "DescribeMountTargetsResponse"
+    "fixture/DescribeMountTargetsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeMountTargets)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseModifyMountTargetSecurityGroups :: ModifyMountTargetSecurityGroupsResponse -> TestTree
+responseModifyMountTargetSecurityGroups =
+  res
+    "ModifyMountTargetSecurityGroupsResponse"
+    "fixture/ModifyMountTargetSecurityGroupsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ModifyMountTargetSecurityGroups)
+
+responsePutAccountPreferences :: PutAccountPreferencesResponse -> TestTree
+responsePutAccountPreferences =
+  res
+    "PutAccountPreferencesResponse"
+    "fixture/PutAccountPreferencesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutAccountPreferences)
+
+responsePutBackupPolicy :: BackupPolicyDescription -> TestTree
+responsePutBackupPolicy =
+  res
+    "PutBackupPolicyResponse"
+    "fixture/PutBackupPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutBackupPolicy)
+
+responsePutFileSystemPolicy :: FileSystemPolicyDescription -> TestTree
+responsePutFileSystemPolicy =
+  res
+    "PutFileSystemPolicyResponse"
+    "fixture/PutFileSystemPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutFileSystemPolicy)
+
+responsePutLifecycleConfiguration :: LifecycleConfigurationDescription -> TestTree
+responsePutLifecycleConfiguration =
+  res
+    "PutLifecycleConfigurationResponse"
+    "fixture/PutLifecycleConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutLifecycleConfiguration)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -501,18 +509,10 @@ responseUntagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
-responseDescribeFileSystemPolicy :: FileSystemPolicyDescription -> TestTree
-responseDescribeFileSystemPolicy =
+responseUpdateFileSystem :: FileSystemDescription -> TestTree
+responseUpdateFileSystem =
   res
-    "DescribeFileSystemPolicyResponse"
-    "fixture/DescribeFileSystemPolicyResponse.proto"
+    "UpdateFileSystemResponse"
+    "fixture/UpdateFileSystemResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeFileSystemPolicy)
-
-responseDeleteAccessPoint :: DeleteAccessPointResponse -> TestTree
-responseDeleteAccessPoint =
-  res
-    "DeleteAccessPointResponse"
-    "fixture/DeleteAccessPointResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteAccessPoint)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFileSystem)

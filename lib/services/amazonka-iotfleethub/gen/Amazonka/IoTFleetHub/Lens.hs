@@ -14,12 +14,27 @@
 module Amazonka.IoTFleetHub.Lens
   ( -- * Operations
 
+    -- ** CreateApplication
+    createApplication_tags,
+    createApplication_clientToken,
+    createApplication_applicationDescription,
+    createApplication_applicationName,
+    createApplication_roleArn,
+    createApplicationResponse_httpStatus,
+    createApplicationResponse_applicationId,
+    createApplicationResponse_applicationArn,
+
+    -- ** DeleteApplication
+    deleteApplication_clientToken,
+    deleteApplication_applicationId,
+    deleteApplicationResponse_httpStatus,
+
     -- ** DescribeApplication
     describeApplication_applicationId,
-    describeApplicationResponse_applicationDescription,
+    describeApplicationResponse_tags,
     describeApplicationResponse_ssoClientId,
     describeApplicationResponse_errorMessage,
-    describeApplicationResponse_tags,
+    describeApplicationResponse_applicationDescription,
     describeApplicationResponse_httpStatus,
     describeApplicationResponse_applicationId,
     describeApplicationResponse_applicationArn,
@@ -30,56 +45,41 @@ module Amazonka.IoTFleetHub.Lens
     describeApplicationResponse_applicationLastUpdateDate,
     describeApplicationResponse_roleArn,
 
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** DeleteApplication
-    deleteApplication_clientToken,
-    deleteApplication_applicationId,
-    deleteApplicationResponse_httpStatus,
-
-    -- ** UpdateApplication
-    updateApplication_applicationDescription,
-    updateApplication_clientToken,
-    updateApplication_applicationName,
-    updateApplication_applicationId,
-    updateApplicationResponse_httpStatus,
-
-    -- ** CreateApplication
-    createApplication_applicationDescription,
-    createApplication_clientToken,
-    createApplication_tags,
-    createApplication_applicationName,
-    createApplication_roleArn,
-    createApplicationResponse_httpStatus,
-    createApplicationResponse_applicationId,
-    createApplicationResponse_applicationArn,
-
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
     -- ** ListApplications
     listApplications_nextToken,
     listApplicationsResponse_nextToken,
     listApplicationsResponse_applicationSummaries,
     listApplicationsResponse_httpStatus,
 
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
     -- ** UntagResource
     untagResource_resourceArn,
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
+    -- ** UpdateApplication
+    updateApplication_clientToken,
+    updateApplication_applicationDescription,
+    updateApplication_applicationName,
+    updateApplication_applicationId,
+    updateApplicationResponse_httpStatus,
+
     -- * Types
 
     -- ** ApplicationSummary
-    applicationSummary_applicationDescription,
     applicationSummary_applicationState,
     applicationSummary_applicationCreationDate,
     applicationSummary_applicationLastUpdateDate,
+    applicationSummary_applicationDescription,
     applicationSummary_applicationId,
     applicationSummary_applicationName,
     applicationSummary_applicationUrl,

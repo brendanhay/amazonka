@@ -23,8 +23,11 @@ module Amazonka.IoTFleetHub
     -- * Errors
     -- $errors
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- ** ConflictException
     _ConflictException,
@@ -32,14 +35,11 @@ module Amazonka.IoTFleetHub
     -- ** ThrottlingException
     _ThrottlingException,
 
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
     -- ** InternalFailureException
     _InternalFailureException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -47,17 +47,11 @@ module Amazonka.IoTFleetHub
     -- * Operations
     -- $operations
 
-    -- ** DescribeApplication
-    DescribeApplication (DescribeApplication'),
-    newDescribeApplication,
-    DescribeApplicationResponse (DescribeApplicationResponse'),
-    newDescribeApplicationResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** CreateApplication
+    CreateApplication (CreateApplication'),
+    newCreateApplication,
+    CreateApplicationResponse (CreateApplicationResponse'),
+    newCreateApplicationResponse,
 
     -- ** DeleteApplication
     DeleteApplication (DeleteApplication'),
@@ -65,23 +59,11 @@ module Amazonka.IoTFleetHub
     DeleteApplicationResponse (DeleteApplicationResponse'),
     newDeleteApplicationResponse,
 
-    -- ** UpdateApplication
-    UpdateApplication (UpdateApplication'),
-    newUpdateApplication,
-    UpdateApplicationResponse (UpdateApplicationResponse'),
-    newUpdateApplicationResponse,
-
-    -- ** CreateApplication
-    CreateApplication (CreateApplication'),
-    newCreateApplication,
-    CreateApplicationResponse (CreateApplicationResponse'),
-    newCreateApplicationResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
+    -- ** DescribeApplication
+    DescribeApplication (DescribeApplication'),
+    newDescribeApplication,
+    DescribeApplicationResponse (DescribeApplicationResponse'),
+    newDescribeApplicationResponse,
 
     -- ** ListApplications (Paginated)
     ListApplications (ListApplications'),
@@ -89,11 +71,29 @@ module Amazonka.IoTFleetHub
     ListApplicationsResponse (ListApplicationsResponse'),
     newListApplicationsResponse,
 
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
     -- ** UntagResource
     UntagResource (UntagResource'),
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
+
+    -- ** UpdateApplication
+    UpdateApplication (UpdateApplication'),
+    newUpdateApplication,
+    UpdateApplicationResponse (UpdateApplicationResponse'),
+    newUpdateApplicationResponse,
 
     -- * Types
 

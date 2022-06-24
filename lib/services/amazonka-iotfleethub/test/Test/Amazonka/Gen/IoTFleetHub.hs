@@ -27,85 +27,61 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDescribeApplication $
---             newDescribeApplication
---
---         , requestListTagsForResource $
---             newListTagsForResource
+--         [ requestCreateApplication $
+--             newCreateApplication
 --
 --         , requestDeleteApplication $
 --             newDeleteApplication
 --
---         , requestUpdateApplication $
---             newUpdateApplication
---
---         , requestCreateApplication $
---             newCreateApplication
---
---         , requestTagResource $
---             newTagResource
+--         , requestDescribeApplication $
+--             newDescribeApplication
 --
 --         , requestListApplications $
 --             newListApplications
 --
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestTagResource $
+--             newTagResource
+--
 --         , requestUntagResource $
 --             newUntagResource
+--
+--         , requestUpdateApplication $
+--             newUpdateApplication
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseDescribeApplication $
---             newDescribeApplicationResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
+--         [ responseCreateApplication $
+--             newCreateApplicationResponse
 --
 --         , responseDeleteApplication $
 --             newDeleteApplicationResponse
 --
---         , responseUpdateApplication $
---             newUpdateApplicationResponse
---
---         , responseCreateApplication $
---             newCreateApplicationResponse
---
---         , responseTagResource $
---             newTagResourceResponse
+--         , responseDescribeApplication $
+--             newDescribeApplicationResponse
 --
 --         , responseListApplications $
 --             newListApplicationsResponse
 --
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
 --         , responseUntagResource $
 --             newUntagResourceResponse
+--
+--         , responseUpdateApplication $
+--             newUpdateApplicationResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestDescribeApplication :: DescribeApplication -> TestTree
-requestDescribeApplication =
-  req
-    "DescribeApplication"
-    "fixture/DescribeApplication.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestDeleteApplication :: DeleteApplication -> TestTree
-requestDeleteApplication =
-  req
-    "DeleteApplication"
-    "fixture/DeleteApplication.yaml"
-
-requestUpdateApplication :: UpdateApplication -> TestTree
-requestUpdateApplication =
-  req
-    "UpdateApplication"
-    "fixture/UpdateApplication.yaml"
 
 requestCreateApplication :: CreateApplication -> TestTree
 requestCreateApplication =
@@ -113,11 +89,17 @@ requestCreateApplication =
     "CreateApplication"
     "fixture/CreateApplication.yaml"
 
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
+requestDeleteApplication :: DeleteApplication -> TestTree
+requestDeleteApplication =
   req
-    "TagResource"
-    "fixture/TagResource.yaml"
+    "DeleteApplication"
+    "fixture/DeleteApplication.yaml"
+
+requestDescribeApplication :: DescribeApplication -> TestTree
+requestDescribeApplication =
+  req
+    "DescribeApplication"
+    "fixture/DescribeApplication.yaml"
 
 requestListApplications :: ListApplications -> TestTree
 requestListApplications =
@@ -125,45 +107,31 @@ requestListApplications =
     "ListApplications"
     "fixture/ListApplications.yaml"
 
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
   req
     "UntagResource"
     "fixture/UntagResource.yaml"
 
+requestUpdateApplication :: UpdateApplication -> TestTree
+requestUpdateApplication =
+  req
+    "UpdateApplication"
+    "fixture/UpdateApplication.yaml"
+
 -- Responses
-
-responseDescribeApplication :: DescribeApplicationResponse -> TestTree
-responseDescribeApplication =
-  res
-    "DescribeApplicationResponse"
-    "fixture/DescribeApplicationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeApplication)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseDeleteApplication :: DeleteApplicationResponse -> TestTree
-responseDeleteApplication =
-  res
-    "DeleteApplicationResponse"
-    "fixture/DeleteApplicationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteApplication)
-
-responseUpdateApplication :: UpdateApplicationResponse -> TestTree
-responseUpdateApplication =
-  res
-    "UpdateApplicationResponse"
-    "fixture/UpdateApplicationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateApplication)
 
 responseCreateApplication :: CreateApplicationResponse -> TestTree
 responseCreateApplication =
@@ -173,13 +141,21 @@ responseCreateApplication =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateApplication)
 
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
+responseDeleteApplication :: DeleteApplicationResponse -> TestTree
+responseDeleteApplication =
   res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
+    "DeleteApplicationResponse"
+    "fixture/DeleteApplicationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy TagResource)
+    (Proxy.Proxy :: Proxy.Proxy DeleteApplication)
+
+responseDescribeApplication :: DescribeApplicationResponse -> TestTree
+responseDescribeApplication =
+  res
+    "DescribeApplicationResponse"
+    "fixture/DescribeApplicationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeApplication)
 
 responseListApplications :: ListApplicationsResponse -> TestTree
 responseListApplications =
@@ -189,6 +165,22 @@ responseListApplications =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListApplications)
 
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
   res
@@ -196,3 +188,11 @@ responseUntagResource =
     "fixture/UntagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateApplication :: UpdateApplicationResponse -> TestTree
+responseUpdateApplication =
+  res
+    "UpdateApplicationResponse"
+    "fixture/UpdateApplicationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateApplication)

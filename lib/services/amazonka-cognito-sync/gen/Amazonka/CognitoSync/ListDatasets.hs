@@ -43,9 +43,9 @@ module Amazonka.CognitoSync.ListDatasets
     newListDatasetsResponse,
 
     -- * Response Lenses
-    listDatasetsResponse_count,
     listDatasetsResponse_nextToken,
     listDatasetsResponse_datasets,
+    listDatasetsResponse_count,
     listDatasetsResponse_httpStatus,
   )
 where
@@ -136,9 +136,9 @@ instance Core.AWSRequest ListDatasets where
     Response.receiveJSON
       ( \s h x ->
           ListDatasetsResponse'
-            Prelude.<$> (x Core..?> "Count")
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
             Prelude.<*> (x Core..?> "Datasets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Count")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -188,12 +188,12 @@ instance Core.ToQuery ListDatasets where
 --
 -- /See:/ 'newListDatasetsResponse' smart constructor.
 data ListDatasetsResponse = ListDatasetsResponse'
-  { -- | Number of datasets returned.
-    count :: Prelude.Maybe Prelude.Int,
-    -- | A pagination token for obtaining the next page of results.
+  { -- | A pagination token for obtaining the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A set of datasets.
     datasets :: Prelude.Maybe [Dataset],
+    -- | Number of datasets returned.
+    count :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -207,11 +207,11 @@ data ListDatasetsResponse = ListDatasetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'count', 'listDatasetsResponse_count' - Number of datasets returned.
---
 -- 'nextToken', 'listDatasetsResponse_nextToken' - A pagination token for obtaining the next page of results.
 --
 -- 'datasets', 'listDatasetsResponse_datasets' - A set of datasets.
+--
+-- 'count', 'listDatasetsResponse_count' - Number of datasets returned.
 --
 -- 'httpStatus', 'listDatasetsResponse_httpStatus' - The response's http status code.
 newListDatasetsResponse ::
@@ -220,15 +220,11 @@ newListDatasetsResponse ::
   ListDatasetsResponse
 newListDatasetsResponse pHttpStatus_ =
   ListDatasetsResponse'
-    { count = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       datasets = Prelude.Nothing,
+      count = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Number of datasets returned.
-listDatasetsResponse_count :: Lens.Lens' ListDatasetsResponse (Prelude.Maybe Prelude.Int)
-listDatasetsResponse_count = Lens.lens (\ListDatasetsResponse' {count} -> count) (\s@ListDatasetsResponse' {} a -> s {count = a} :: ListDatasetsResponse)
 
 -- | A pagination token for obtaining the next page of results.
 listDatasetsResponse_nextToken :: Lens.Lens' ListDatasetsResponse (Prelude.Maybe Prelude.Text)
@@ -238,13 +234,17 @@ listDatasetsResponse_nextToken = Lens.lens (\ListDatasetsResponse' {nextToken} -
 listDatasetsResponse_datasets :: Lens.Lens' ListDatasetsResponse (Prelude.Maybe [Dataset])
 listDatasetsResponse_datasets = Lens.lens (\ListDatasetsResponse' {datasets} -> datasets) (\s@ListDatasetsResponse' {} a -> s {datasets = a} :: ListDatasetsResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | Number of datasets returned.
+listDatasetsResponse_count :: Lens.Lens' ListDatasetsResponse (Prelude.Maybe Prelude.Int)
+listDatasetsResponse_count = Lens.lens (\ListDatasetsResponse' {count} -> count) (\s@ListDatasetsResponse' {} a -> s {count = a} :: ListDatasetsResponse)
+
 -- | The response's http status code.
 listDatasetsResponse_httpStatus :: Lens.Lens' ListDatasetsResponse Prelude.Int
 listDatasetsResponse_httpStatus = Lens.lens (\ListDatasetsResponse' {httpStatus} -> httpStatus) (\s@ListDatasetsResponse' {} a -> s {httpStatus = a} :: ListDatasetsResponse)
 
 instance Prelude.NFData ListDatasetsResponse where
   rnf ListDatasetsResponse' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf datasets
+      `Prelude.seq` Prelude.rnf count
       `Prelude.seq` Prelude.rnf httpStatus

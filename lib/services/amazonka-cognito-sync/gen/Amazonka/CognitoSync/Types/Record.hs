@@ -27,18 +27,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecord' smart constructor.
 data Record = Record'
-  { -- | The server sync count for this record.
+  { -- | The key for the record.
+    key :: Prelude.Maybe Prelude.Text,
+    -- | The date on which the record was last modified.
+    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    -- | The user\/device that made the last change to this record.
+    lastModifiedBy :: Prelude.Maybe Prelude.Text,
+    -- | The server sync count for this record.
     syncCount :: Prelude.Maybe Prelude.Integer,
     -- | The last modified date of the client device.
     deviceLastModifiedDate :: Prelude.Maybe Core.POSIX,
-    -- | The date on which the record was last modified.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
     -- | The value for the record.
-    value :: Prelude.Maybe Prelude.Text,
-    -- | The key for the record.
-    key :: Prelude.Maybe Prelude.Text,
-    -- | The user\/device that made the last change to this record.
-    lastModifiedBy :: Prelude.Maybe Prelude.Text
+    value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,28 +50,40 @@ data Record = Record'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'key', 'record_key' - The key for the record.
+--
+-- 'lastModifiedDate', 'record_lastModifiedDate' - The date on which the record was last modified.
+--
+-- 'lastModifiedBy', 'record_lastModifiedBy' - The user\/device that made the last change to this record.
+--
 -- 'syncCount', 'record_syncCount' - The server sync count for this record.
 --
 -- 'deviceLastModifiedDate', 'record_deviceLastModifiedDate' - The last modified date of the client device.
 --
--- 'lastModifiedDate', 'record_lastModifiedDate' - The date on which the record was last modified.
---
 -- 'value', 'record_value' - The value for the record.
---
--- 'key', 'record_key' - The key for the record.
---
--- 'lastModifiedBy', 'record_lastModifiedBy' - The user\/device that made the last change to this record.
 newRecord ::
   Record
 newRecord =
   Record'
-    { syncCount = Prelude.Nothing,
-      deviceLastModifiedDate = Prelude.Nothing,
+    { key = Prelude.Nothing,
       lastModifiedDate = Prelude.Nothing,
-      value = Prelude.Nothing,
-      key = Prelude.Nothing,
-      lastModifiedBy = Prelude.Nothing
+      lastModifiedBy = Prelude.Nothing,
+      syncCount = Prelude.Nothing,
+      deviceLastModifiedDate = Prelude.Nothing,
+      value = Prelude.Nothing
     }
+
+-- | The key for the record.
+record_key :: Lens.Lens' Record (Prelude.Maybe Prelude.Text)
+record_key = Lens.lens (\Record' {key} -> key) (\s@Record' {} a -> s {key = a} :: Record)
+
+-- | The date on which the record was last modified.
+record_lastModifiedDate :: Lens.Lens' Record (Prelude.Maybe Prelude.UTCTime)
+record_lastModifiedDate = Lens.lens (\Record' {lastModifiedDate} -> lastModifiedDate) (\s@Record' {} a -> s {lastModifiedDate = a} :: Record) Prelude.. Lens.mapping Core._Time
+
+-- | The user\/device that made the last change to this record.
+record_lastModifiedBy :: Lens.Lens' Record (Prelude.Maybe Prelude.Text)
+record_lastModifiedBy = Lens.lens (\Record' {lastModifiedBy} -> lastModifiedBy) (\s@Record' {} a -> s {lastModifiedBy = a} :: Record)
 
 -- | The server sync count for this record.
 record_syncCount :: Lens.Lens' Record (Prelude.Maybe Prelude.Integer)
@@ -81,21 +93,9 @@ record_syncCount = Lens.lens (\Record' {syncCount} -> syncCount) (\s@Record' {} 
 record_deviceLastModifiedDate :: Lens.Lens' Record (Prelude.Maybe Prelude.UTCTime)
 record_deviceLastModifiedDate = Lens.lens (\Record' {deviceLastModifiedDate} -> deviceLastModifiedDate) (\s@Record' {} a -> s {deviceLastModifiedDate = a} :: Record) Prelude.. Lens.mapping Core._Time
 
--- | The date on which the record was last modified.
-record_lastModifiedDate :: Lens.Lens' Record (Prelude.Maybe Prelude.UTCTime)
-record_lastModifiedDate = Lens.lens (\Record' {lastModifiedDate} -> lastModifiedDate) (\s@Record' {} a -> s {lastModifiedDate = a} :: Record) Prelude.. Lens.mapping Core._Time
-
 -- | The value for the record.
 record_value :: Lens.Lens' Record (Prelude.Maybe Prelude.Text)
 record_value = Lens.lens (\Record' {value} -> value) (\s@Record' {} a -> s {value = a} :: Record)
-
--- | The key for the record.
-record_key :: Lens.Lens' Record (Prelude.Maybe Prelude.Text)
-record_key = Lens.lens (\Record' {key} -> key) (\s@Record' {} a -> s {key = a} :: Record)
-
--- | The user\/device that made the last change to this record.
-record_lastModifiedBy :: Lens.Lens' Record (Prelude.Maybe Prelude.Text)
-record_lastModifiedBy = Lens.lens (\Record' {lastModifiedBy} -> lastModifiedBy) (\s@Record' {} a -> s {lastModifiedBy = a} :: Record)
 
 instance Core.FromJSON Record where
   parseJSON =
@@ -103,28 +103,28 @@ instance Core.FromJSON Record where
       "Record"
       ( \x ->
           Record'
-            Prelude.<$> (x Core..:? "SyncCount")
-            Prelude.<*> (x Core..:? "DeviceLastModifiedDate")
+            Prelude.<$> (x Core..:? "Key")
             Prelude.<*> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "Value")
-            Prelude.<*> (x Core..:? "Key")
             Prelude.<*> (x Core..:? "LastModifiedBy")
+            Prelude.<*> (x Core..:? "SyncCount")
+            Prelude.<*> (x Core..:? "DeviceLastModifiedDate")
+            Prelude.<*> (x Core..:? "Value")
       )
 
 instance Prelude.Hashable Record where
   hashWithSalt _salt Record' {..} =
-    _salt `Prelude.hashWithSalt` syncCount
-      `Prelude.hashWithSalt` deviceLastModifiedDate
+    _salt `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` lastModifiedDate
-      `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` lastModifiedBy
+      `Prelude.hashWithSalt` syncCount
+      `Prelude.hashWithSalt` deviceLastModifiedDate
+      `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Record where
   rnf Record' {..} =
-    Prelude.rnf syncCount
-      `Prelude.seq` Prelude.rnf deviceLastModifiedDate
+    Prelude.rnf key
       `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf syncCount
+      `Prelude.seq` Prelude.rnf deviceLastModifiedDate
+      `Prelude.seq` Prelude.rnf value

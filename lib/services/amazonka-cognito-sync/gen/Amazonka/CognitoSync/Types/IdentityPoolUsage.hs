@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 data IdentityPoolUsage = IdentityPoolUsage'
   { -- | Date on which the identity pool was last modified.
     lastModifiedDate :: Prelude.Maybe Core.POSIX,
-    -- | A name-spaced GUID (for example,
-    -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
-    -- Cognito. GUID generation is unique within a region.
-    identityPoolId :: Prelude.Maybe Prelude.Text,
     -- | Data storage information for the identity pool.
     dataStorage :: Prelude.Maybe Prelude.Integer,
     -- | Number of sync sessions for the identity pool.
-    syncSessionsCount :: Prelude.Maybe Prelude.Integer
+    syncSessionsCount :: Prelude.Maybe Prelude.Integer,
+    -- | A name-spaced GUID (for example,
+    -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+    -- Cognito. GUID generation is unique within a region.
+    identityPoolId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,33 +50,27 @@ data IdentityPoolUsage = IdentityPoolUsage'
 --
 -- 'lastModifiedDate', 'identityPoolUsage_lastModifiedDate' - Date on which the identity pool was last modified.
 --
--- 'identityPoolId', 'identityPoolUsage_identityPoolId' - A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
---
 -- 'dataStorage', 'identityPoolUsage_dataStorage' - Data storage information for the identity pool.
 --
 -- 'syncSessionsCount', 'identityPoolUsage_syncSessionsCount' - Number of sync sessions for the identity pool.
+--
+-- 'identityPoolId', 'identityPoolUsage_identityPoolId' - A name-spaced GUID (for example,
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+-- Cognito. GUID generation is unique within a region.
 newIdentityPoolUsage ::
   IdentityPoolUsage
 newIdentityPoolUsage =
   IdentityPoolUsage'
     { lastModifiedDate =
         Prelude.Nothing,
-      identityPoolId = Prelude.Nothing,
       dataStorage = Prelude.Nothing,
-      syncSessionsCount = Prelude.Nothing
+      syncSessionsCount = Prelude.Nothing,
+      identityPoolId = Prelude.Nothing
     }
 
 -- | Date on which the identity pool was last modified.
 identityPoolUsage_lastModifiedDate :: Lens.Lens' IdentityPoolUsage (Prelude.Maybe Prelude.UTCTime)
 identityPoolUsage_lastModifiedDate = Lens.lens (\IdentityPoolUsage' {lastModifiedDate} -> lastModifiedDate) (\s@IdentityPoolUsage' {} a -> s {lastModifiedDate = a} :: IdentityPoolUsage) Prelude.. Lens.mapping Core._Time
-
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
-identityPoolUsage_identityPoolId :: Lens.Lens' IdentityPoolUsage (Prelude.Maybe Prelude.Text)
-identityPoolUsage_identityPoolId = Lens.lens (\IdentityPoolUsage' {identityPoolId} -> identityPoolId) (\s@IdentityPoolUsage' {} a -> s {identityPoolId = a} :: IdentityPoolUsage)
 
 -- | Data storage information for the identity pool.
 identityPoolUsage_dataStorage :: Lens.Lens' IdentityPoolUsage (Prelude.Maybe Prelude.Integer)
@@ -86,6 +80,12 @@ identityPoolUsage_dataStorage = Lens.lens (\IdentityPoolUsage' {dataStorage} -> 
 identityPoolUsage_syncSessionsCount :: Lens.Lens' IdentityPoolUsage (Prelude.Maybe Prelude.Integer)
 identityPoolUsage_syncSessionsCount = Lens.lens (\IdentityPoolUsage' {syncSessionsCount} -> syncSessionsCount) (\s@IdentityPoolUsage' {} a -> s {syncSessionsCount = a} :: IdentityPoolUsage)
 
+-- | A name-spaced GUID (for example,
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+-- Cognito. GUID generation is unique within a region.
+identityPoolUsage_identityPoolId :: Lens.Lens' IdentityPoolUsage (Prelude.Maybe Prelude.Text)
+identityPoolUsage_identityPoolId = Lens.lens (\IdentityPoolUsage' {identityPoolId} -> identityPoolId) (\s@IdentityPoolUsage' {} a -> s {identityPoolId = a} :: IdentityPoolUsage)
+
 instance Core.FromJSON IdentityPoolUsage where
   parseJSON =
     Core.withObject
@@ -93,21 +93,21 @@ instance Core.FromJSON IdentityPoolUsage where
       ( \x ->
           IdentityPoolUsage'
             Prelude.<$> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "IdentityPoolId")
             Prelude.<*> (x Core..:? "DataStorage")
             Prelude.<*> (x Core..:? "SyncSessionsCount")
+            Prelude.<*> (x Core..:? "IdentityPoolId")
       )
 
 instance Prelude.Hashable IdentityPoolUsage where
   hashWithSalt _salt IdentityPoolUsage' {..} =
     _salt `Prelude.hashWithSalt` lastModifiedDate
-      `Prelude.hashWithSalt` identityPoolId
       `Prelude.hashWithSalt` dataStorage
       `Prelude.hashWithSalt` syncSessionsCount
+      `Prelude.hashWithSalt` identityPoolId
 
 instance Prelude.NFData IdentityPoolUsage where
   rnf IdentityPoolUsage' {..} =
     Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf identityPoolId
       `Prelude.seq` Prelude.rnf dataStorage
       `Prelude.seq` Prelude.rnf syncSessionsCount
+      `Prelude.seq` Prelude.rnf identityPoolId

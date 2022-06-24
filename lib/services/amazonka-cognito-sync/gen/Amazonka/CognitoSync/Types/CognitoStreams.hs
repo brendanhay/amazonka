@@ -28,7 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCognitoStreams' smart constructor.
 data CognitoStreams = CognitoStreams'
-  { -- | Status of the Cognito streams. Valid values are:
+  { -- | The ARN of the role Amazon Cognito can assume in order to publish to the
+    -- stream. This role must grant access to Amazon Cognito (cognito-sync) to
+    -- invoke PutRecord on your Cognito stream.
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | Status of the Cognito streams. Valid values are:
     --
     -- ENABLED - Streaming of updates to identity pool is enabled.
     --
@@ -37,11 +41,7 @@ data CognitoStreams = CognitoStreams'
     streamingStatus :: Prelude.Maybe StreamingStatus,
     -- | The name of the Cognito stream to receive updates. This stream must be
     -- in the developers account and in the same region as the identity pool.
-    streamName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the role Amazon Cognito can assume in order to publish to the
-    -- stream. This role must grant access to Amazon Cognito (cognito-sync) to
-    -- invoke PutRecord on your Cognito stream.
-    roleArn :: Prelude.Maybe Prelude.Text
+    streamName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,6 +53,10 @@ data CognitoStreams = CognitoStreams'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'roleArn', 'cognitoStreams_roleArn' - The ARN of the role Amazon Cognito can assume in order to publish to the
+-- stream. This role must grant access to Amazon Cognito (cognito-sync) to
+-- invoke PutRecord on your Cognito stream.
+--
 -- 'streamingStatus', 'cognitoStreams_streamingStatus' - Status of the Cognito streams. Valid values are:
 --
 -- ENABLED - Streaming of updates to identity pool is enabled.
@@ -62,18 +66,20 @@ data CognitoStreams = CognitoStreams'
 --
 -- 'streamName', 'cognitoStreams_streamName' - The name of the Cognito stream to receive updates. This stream must be
 -- in the developers account and in the same region as the identity pool.
---
--- 'roleArn', 'cognitoStreams_roleArn' - The ARN of the role Amazon Cognito can assume in order to publish to the
--- stream. This role must grant access to Amazon Cognito (cognito-sync) to
--- invoke PutRecord on your Cognito stream.
 newCognitoStreams ::
   CognitoStreams
 newCognitoStreams =
   CognitoStreams'
-    { streamingStatus = Prelude.Nothing,
-      streamName = Prelude.Nothing,
-      roleArn = Prelude.Nothing
+    { roleArn = Prelude.Nothing,
+      streamingStatus = Prelude.Nothing,
+      streamName = Prelude.Nothing
     }
+
+-- | The ARN of the role Amazon Cognito can assume in order to publish to the
+-- stream. This role must grant access to Amazon Cognito (cognito-sync) to
+-- invoke PutRecord on your Cognito stream.
+cognitoStreams_roleArn :: Lens.Lens' CognitoStreams (Prelude.Maybe Prelude.Text)
+cognitoStreams_roleArn = Lens.lens (\CognitoStreams' {roleArn} -> roleArn) (\s@CognitoStreams' {} a -> s {roleArn = a} :: CognitoStreams)
 
 -- | Status of the Cognito streams. Valid values are:
 --
@@ -89,42 +95,36 @@ cognitoStreams_streamingStatus = Lens.lens (\CognitoStreams' {streamingStatus} -
 cognitoStreams_streamName :: Lens.Lens' CognitoStreams (Prelude.Maybe Prelude.Text)
 cognitoStreams_streamName = Lens.lens (\CognitoStreams' {streamName} -> streamName) (\s@CognitoStreams' {} a -> s {streamName = a} :: CognitoStreams)
 
--- | The ARN of the role Amazon Cognito can assume in order to publish to the
--- stream. This role must grant access to Amazon Cognito (cognito-sync) to
--- invoke PutRecord on your Cognito stream.
-cognitoStreams_roleArn :: Lens.Lens' CognitoStreams (Prelude.Maybe Prelude.Text)
-cognitoStreams_roleArn = Lens.lens (\CognitoStreams' {roleArn} -> roleArn) (\s@CognitoStreams' {} a -> s {roleArn = a} :: CognitoStreams)
-
 instance Core.FromJSON CognitoStreams where
   parseJSON =
     Core.withObject
       "CognitoStreams"
       ( \x ->
           CognitoStreams'
-            Prelude.<$> (x Core..:? "StreamingStatus")
+            Prelude.<$> (x Core..:? "RoleArn")
+            Prelude.<*> (x Core..:? "StreamingStatus")
             Prelude.<*> (x Core..:? "StreamName")
-            Prelude.<*> (x Core..:? "RoleArn")
       )
 
 instance Prelude.Hashable CognitoStreams where
   hashWithSalt _salt CognitoStreams' {..} =
-    _salt `Prelude.hashWithSalt` streamingStatus
+    _salt `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` streamingStatus
       `Prelude.hashWithSalt` streamName
-      `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData CognitoStreams where
   rnf CognitoStreams' {..} =
-    Prelude.rnf streamingStatus
+    Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf streamingStatus
       `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf roleArn
 
 instance Core.ToJSON CognitoStreams where
   toJSON CognitoStreams' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("StreamingStatus" Core..=)
+          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
+            ("StreamingStatus" Core..=)
               Prelude.<$> streamingStatus,
-            ("StreamName" Core..=) Prelude.<$> streamName,
-            ("RoleArn" Core..=) Prelude.<$> roleArn
+            ("StreamName" Core..=) Prelude.<$> streamName
           ]
       )

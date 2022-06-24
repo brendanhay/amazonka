@@ -35,11 +35,11 @@ module Amazonka.IoTThingsGraph.DescribeNamespace
     newDescribeNamespaceResponse,
 
     -- * Response Lenses
-    describeNamespaceResponse_namespaceArn,
-    describeNamespaceResponse_trackingNamespaceVersion,
-    describeNamespaceResponse_namespaceVersion,
     describeNamespaceResponse_namespaceName,
     describeNamespaceResponse_trackingNamespaceName,
+    describeNamespaceResponse_namespaceVersion,
+    describeNamespaceResponse_namespaceArn,
+    describeNamespaceResponse_trackingNamespaceVersion,
     describeNamespaceResponse_httpStatus,
   )
 where
@@ -88,11 +88,11 @@ instance Core.AWSRequest DescribeNamespace where
     Response.receiveJSON
       ( \s h x ->
           DescribeNamespaceResponse'
-            Prelude.<$> (x Core..?> "namespaceArn")
-            Prelude.<*> (x Core..?> "trackingNamespaceVersion")
-            Prelude.<*> (x Core..?> "namespaceVersion")
-            Prelude.<*> (x Core..?> "namespaceName")
+            Prelude.<$> (x Core..?> "namespaceName")
             Prelude.<*> (x Core..?> "trackingNamespaceName")
+            Prelude.<*> (x Core..?> "namespaceVersion")
+            Prelude.<*> (x Core..?> "namespaceArn")
+            Prelude.<*> (x Core..?> "trackingNamespaceVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,17 +136,17 @@ instance Core.ToQuery DescribeNamespace where
 
 -- | /See:/ 'newDescribeNamespaceResponse' smart constructor.
 data DescribeNamespaceResponse = DescribeNamespaceResponse'
-  { -- | The ARN of the namespace.
-    namespaceArn :: Prelude.Maybe Prelude.Text,
-    -- | The version of the public namespace that the latest version is tracking.
-    trackingNamespaceVersion :: Prelude.Maybe Prelude.Integer,
-    -- | The version of the user\'s namespace to describe.
-    namespaceVersion :: Prelude.Maybe Prelude.Integer,
-    -- | The name of the namespace.
+  { -- | The name of the namespace.
     namespaceName :: Prelude.Maybe Prelude.Text,
     -- | The name of the public namespace that the latest namespace version is
     -- tracking.
     trackingNamespaceName :: Prelude.Maybe Prelude.Text,
+    -- | The version of the user\'s namespace to describe.
+    namespaceVersion :: Prelude.Maybe Prelude.Integer,
+    -- | The ARN of the namespace.
+    namespaceArn :: Prelude.Maybe Prelude.Text,
+    -- | The version of the public namespace that the latest version is tracking.
+    trackingNamespaceVersion :: Prelude.Maybe Prelude.Integer,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -160,16 +160,16 @@ data DescribeNamespaceResponse = DescribeNamespaceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'namespaceArn', 'describeNamespaceResponse_namespaceArn' - The ARN of the namespace.
---
--- 'trackingNamespaceVersion', 'describeNamespaceResponse_trackingNamespaceVersion' - The version of the public namespace that the latest version is tracking.
---
--- 'namespaceVersion', 'describeNamespaceResponse_namespaceVersion' - The version of the user\'s namespace to describe.
---
 -- 'namespaceName', 'describeNamespaceResponse_namespaceName' - The name of the namespace.
 --
 -- 'trackingNamespaceName', 'describeNamespaceResponse_trackingNamespaceName' - The name of the public namespace that the latest namespace version is
 -- tracking.
+--
+-- 'namespaceVersion', 'describeNamespaceResponse_namespaceVersion' - The version of the user\'s namespace to describe.
+--
+-- 'namespaceArn', 'describeNamespaceResponse_namespaceArn' - The ARN of the namespace.
+--
+-- 'trackingNamespaceVersion', 'describeNamespaceResponse_trackingNamespaceVersion' - The version of the public namespace that the latest version is tracking.
 --
 -- 'httpStatus', 'describeNamespaceResponse_httpStatus' - The response's http status code.
 newDescribeNamespaceResponse ::
@@ -178,26 +178,14 @@ newDescribeNamespaceResponse ::
   DescribeNamespaceResponse
 newDescribeNamespaceResponse pHttpStatus_ =
   DescribeNamespaceResponse'
-    { namespaceArn =
+    { namespaceName =
         Prelude.Nothing,
-      trackingNamespaceVersion = Prelude.Nothing,
-      namespaceVersion = Prelude.Nothing,
-      namespaceName = Prelude.Nothing,
       trackingNamespaceName = Prelude.Nothing,
+      namespaceVersion = Prelude.Nothing,
+      namespaceArn = Prelude.Nothing,
+      trackingNamespaceVersion = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARN of the namespace.
-describeNamespaceResponse_namespaceArn :: Lens.Lens' DescribeNamespaceResponse (Prelude.Maybe Prelude.Text)
-describeNamespaceResponse_namespaceArn = Lens.lens (\DescribeNamespaceResponse' {namespaceArn} -> namespaceArn) (\s@DescribeNamespaceResponse' {} a -> s {namespaceArn = a} :: DescribeNamespaceResponse)
-
--- | The version of the public namespace that the latest version is tracking.
-describeNamespaceResponse_trackingNamespaceVersion :: Lens.Lens' DescribeNamespaceResponse (Prelude.Maybe Prelude.Integer)
-describeNamespaceResponse_trackingNamespaceVersion = Lens.lens (\DescribeNamespaceResponse' {trackingNamespaceVersion} -> trackingNamespaceVersion) (\s@DescribeNamespaceResponse' {} a -> s {trackingNamespaceVersion = a} :: DescribeNamespaceResponse)
-
--- | The version of the user\'s namespace to describe.
-describeNamespaceResponse_namespaceVersion :: Lens.Lens' DescribeNamespaceResponse (Prelude.Maybe Prelude.Integer)
-describeNamespaceResponse_namespaceVersion = Lens.lens (\DescribeNamespaceResponse' {namespaceVersion} -> namespaceVersion) (\s@DescribeNamespaceResponse' {} a -> s {namespaceVersion = a} :: DescribeNamespaceResponse)
 
 -- | The name of the namespace.
 describeNamespaceResponse_namespaceName :: Lens.Lens' DescribeNamespaceResponse (Prelude.Maybe Prelude.Text)
@@ -208,15 +196,27 @@ describeNamespaceResponse_namespaceName = Lens.lens (\DescribeNamespaceResponse'
 describeNamespaceResponse_trackingNamespaceName :: Lens.Lens' DescribeNamespaceResponse (Prelude.Maybe Prelude.Text)
 describeNamespaceResponse_trackingNamespaceName = Lens.lens (\DescribeNamespaceResponse' {trackingNamespaceName} -> trackingNamespaceName) (\s@DescribeNamespaceResponse' {} a -> s {trackingNamespaceName = a} :: DescribeNamespaceResponse)
 
+-- | The version of the user\'s namespace to describe.
+describeNamespaceResponse_namespaceVersion :: Lens.Lens' DescribeNamespaceResponse (Prelude.Maybe Prelude.Integer)
+describeNamespaceResponse_namespaceVersion = Lens.lens (\DescribeNamespaceResponse' {namespaceVersion} -> namespaceVersion) (\s@DescribeNamespaceResponse' {} a -> s {namespaceVersion = a} :: DescribeNamespaceResponse)
+
+-- | The ARN of the namespace.
+describeNamespaceResponse_namespaceArn :: Lens.Lens' DescribeNamespaceResponse (Prelude.Maybe Prelude.Text)
+describeNamespaceResponse_namespaceArn = Lens.lens (\DescribeNamespaceResponse' {namespaceArn} -> namespaceArn) (\s@DescribeNamespaceResponse' {} a -> s {namespaceArn = a} :: DescribeNamespaceResponse)
+
+-- | The version of the public namespace that the latest version is tracking.
+describeNamespaceResponse_trackingNamespaceVersion :: Lens.Lens' DescribeNamespaceResponse (Prelude.Maybe Prelude.Integer)
+describeNamespaceResponse_trackingNamespaceVersion = Lens.lens (\DescribeNamespaceResponse' {trackingNamespaceVersion} -> trackingNamespaceVersion) (\s@DescribeNamespaceResponse' {} a -> s {trackingNamespaceVersion = a} :: DescribeNamespaceResponse)
+
 -- | The response's http status code.
 describeNamespaceResponse_httpStatus :: Lens.Lens' DescribeNamespaceResponse Prelude.Int
 describeNamespaceResponse_httpStatus = Lens.lens (\DescribeNamespaceResponse' {httpStatus} -> httpStatus) (\s@DescribeNamespaceResponse' {} a -> s {httpStatus = a} :: DescribeNamespaceResponse)
 
 instance Prelude.NFData DescribeNamespaceResponse where
   rnf DescribeNamespaceResponse' {..} =
-    Prelude.rnf namespaceArn
-      `Prelude.seq` Prelude.rnf trackingNamespaceVersion
-      `Prelude.seq` Prelude.rnf namespaceVersion
-      `Prelude.seq` Prelude.rnf namespaceName
+    Prelude.rnf namespaceName
       `Prelude.seq` Prelude.rnf trackingNamespaceName
+      `Prelude.seq` Prelude.rnf namespaceVersion
+      `Prelude.seq` Prelude.rnf namespaceArn
+      `Prelude.seq` Prelude.rnf trackingNamespaceVersion
       `Prelude.seq` Prelude.rnf httpStatus

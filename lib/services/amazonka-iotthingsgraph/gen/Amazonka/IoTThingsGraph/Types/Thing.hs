@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newThing' smart constructor.
 data Thing = Thing'
-  { -- | The ARN of the thing.
-    thingArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the thing.
-    thingName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the thing.
+    thingName :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the thing.
+    thingArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data Thing = Thing'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'thingArn', 'thing_thingArn' - The ARN of the thing.
---
 -- 'thingName', 'thing_thingName' - The name of the thing.
+--
+-- 'thingArn', 'thing_thingArn' - The ARN of the thing.
 newThing ::
   Thing
 newThing =
   Thing'
-    { thingArn = Prelude.Nothing,
-      thingName = Prelude.Nothing
+    { thingName = Prelude.Nothing,
+      thingArn = Prelude.Nothing
     }
-
--- | The ARN of the thing.
-thing_thingArn :: Lens.Lens' Thing (Prelude.Maybe Prelude.Text)
-thing_thingArn = Lens.lens (\Thing' {thingArn} -> thingArn) (\s@Thing' {} a -> s {thingArn = a} :: Thing)
 
 -- | The name of the thing.
 thing_thingName :: Lens.Lens' Thing (Prelude.Maybe Prelude.Text)
 thing_thingName = Lens.lens (\Thing' {thingName} -> thingName) (\s@Thing' {} a -> s {thingName = a} :: Thing)
+
+-- | The ARN of the thing.
+thing_thingArn :: Lens.Lens' Thing (Prelude.Maybe Prelude.Text)
+thing_thingArn = Lens.lens (\Thing' {thingArn} -> thingArn) (\s@Thing' {} a -> s {thingArn = a} :: Thing)
 
 instance Core.FromJSON Thing where
   parseJSON =
@@ -67,16 +67,16 @@ instance Core.FromJSON Thing where
       "Thing"
       ( \x ->
           Thing'
-            Prelude.<$> (x Core..:? "thingArn")
-            Prelude.<*> (x Core..:? "thingName")
+            Prelude.<$> (x Core..:? "thingName")
+            Prelude.<*> (x Core..:? "thingArn")
       )
 
 instance Prelude.Hashable Thing where
   hashWithSalt _salt Thing' {..} =
-    _salt `Prelude.hashWithSalt` thingArn
-      `Prelude.hashWithSalt` thingName
+    _salt `Prelude.hashWithSalt` thingName
+      `Prelude.hashWithSalt` thingArn
 
 instance Prelude.NFData Thing where
   rnf Thing' {..} =
-    Prelude.rnf thingArn
-      `Prelude.seq` Prelude.rnf thingName
+    Prelude.rnf thingName
+      `Prelude.seq` Prelude.rnf thingArn

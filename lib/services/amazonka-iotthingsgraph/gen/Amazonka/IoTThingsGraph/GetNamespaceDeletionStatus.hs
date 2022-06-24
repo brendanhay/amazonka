@@ -31,11 +31,11 @@ module Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus
     newGetNamespaceDeletionStatusResponse,
 
     -- * Response Lenses
-    getNamespaceDeletionStatusResponse_status,
-    getNamespaceDeletionStatusResponse_namespaceArn,
     getNamespaceDeletionStatusResponse_namespaceName,
-    getNamespaceDeletionStatusResponse_errorCode,
     getNamespaceDeletionStatusResponse_errorMessage,
+    getNamespaceDeletionStatusResponse_namespaceArn,
+    getNamespaceDeletionStatusResponse_status,
+    getNamespaceDeletionStatusResponse_errorCode,
     getNamespaceDeletionStatusResponse_httpStatus,
   )
 where
@@ -71,11 +71,11 @@ instance Core.AWSRequest GetNamespaceDeletionStatus where
     Response.receiveJSON
       ( \s h x ->
           GetNamespaceDeletionStatusResponse'
-            Prelude.<$> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "namespaceArn")
-            Prelude.<*> (x Core..?> "namespaceName")
-            Prelude.<*> (x Core..?> "errorCode")
+            Prelude.<$> (x Core..?> "namespaceName")
             Prelude.<*> (x Core..?> "errorMessage")
+            Prelude.<*> (x Core..?> "namespaceArn")
+            Prelude.<*> (x Core..?> "status")
+            Prelude.<*> (x Core..?> "errorCode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,16 +112,16 @@ instance Core.ToQuery GetNamespaceDeletionStatus where
 
 -- | /See:/ 'newGetNamespaceDeletionStatusResponse' smart constructor.
 data GetNamespaceDeletionStatusResponse = GetNamespaceDeletionStatusResponse'
-  { -- | The status of the deletion request.
-    status :: Prelude.Maybe NamespaceDeletionStatus,
-    -- | The ARN of the namespace that is being deleted.
-    namespaceArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the namespace that is being deleted.
+  { -- | The name of the namespace that is being deleted.
     namespaceName :: Prelude.Maybe Prelude.Text,
     -- | An error code returned by the namespace deletion task.
-    errorCode :: Prelude.Maybe NamespaceDeletionStatusErrorCodes,
-    -- | An error code returned by the namespace deletion task.
     errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the namespace that is being deleted.
+    namespaceArn :: Prelude.Maybe Prelude.Text,
+    -- | The status of the deletion request.
+    status :: Prelude.Maybe NamespaceDeletionStatus,
+    -- | An error code returned by the namespace deletion task.
+    errorCode :: Prelude.Maybe NamespaceDeletionStatusErrorCodes,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -135,15 +135,15 @@ data GetNamespaceDeletionStatusResponse = GetNamespaceDeletionStatusResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'getNamespaceDeletionStatusResponse_status' - The status of the deletion request.
+-- 'namespaceName', 'getNamespaceDeletionStatusResponse_namespaceName' - The name of the namespace that is being deleted.
+--
+-- 'errorMessage', 'getNamespaceDeletionStatusResponse_errorMessage' - An error code returned by the namespace deletion task.
 --
 -- 'namespaceArn', 'getNamespaceDeletionStatusResponse_namespaceArn' - The ARN of the namespace that is being deleted.
 --
--- 'namespaceName', 'getNamespaceDeletionStatusResponse_namespaceName' - The name of the namespace that is being deleted.
+-- 'status', 'getNamespaceDeletionStatusResponse_status' - The status of the deletion request.
 --
 -- 'errorCode', 'getNamespaceDeletionStatusResponse_errorCode' - An error code returned by the namespace deletion task.
---
--- 'errorMessage', 'getNamespaceDeletionStatusResponse_errorMessage' - An error code returned by the namespace deletion task.
 --
 -- 'httpStatus', 'getNamespaceDeletionStatusResponse_httpStatus' - The response's http status code.
 newGetNamespaceDeletionStatusResponse ::
@@ -152,34 +152,34 @@ newGetNamespaceDeletionStatusResponse ::
   GetNamespaceDeletionStatusResponse
 newGetNamespaceDeletionStatusResponse pHttpStatus_ =
   GetNamespaceDeletionStatusResponse'
-    { status =
+    { namespaceName =
         Prelude.Nothing,
-      namespaceArn = Prelude.Nothing,
-      namespaceName = Prelude.Nothing,
-      errorCode = Prelude.Nothing,
       errorMessage = Prelude.Nothing,
+      namespaceArn = Prelude.Nothing,
+      status = Prelude.Nothing,
+      errorCode = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The status of the deletion request.
-getNamespaceDeletionStatusResponse_status :: Lens.Lens' GetNamespaceDeletionStatusResponse (Prelude.Maybe NamespaceDeletionStatus)
-getNamespaceDeletionStatusResponse_status = Lens.lens (\GetNamespaceDeletionStatusResponse' {status} -> status) (\s@GetNamespaceDeletionStatusResponse' {} a -> s {status = a} :: GetNamespaceDeletionStatusResponse)
-
--- | The ARN of the namespace that is being deleted.
-getNamespaceDeletionStatusResponse_namespaceArn :: Lens.Lens' GetNamespaceDeletionStatusResponse (Prelude.Maybe Prelude.Text)
-getNamespaceDeletionStatusResponse_namespaceArn = Lens.lens (\GetNamespaceDeletionStatusResponse' {namespaceArn} -> namespaceArn) (\s@GetNamespaceDeletionStatusResponse' {} a -> s {namespaceArn = a} :: GetNamespaceDeletionStatusResponse)
 
 -- | The name of the namespace that is being deleted.
 getNamespaceDeletionStatusResponse_namespaceName :: Lens.Lens' GetNamespaceDeletionStatusResponse (Prelude.Maybe Prelude.Text)
 getNamespaceDeletionStatusResponse_namespaceName = Lens.lens (\GetNamespaceDeletionStatusResponse' {namespaceName} -> namespaceName) (\s@GetNamespaceDeletionStatusResponse' {} a -> s {namespaceName = a} :: GetNamespaceDeletionStatusResponse)
 
 -- | An error code returned by the namespace deletion task.
-getNamespaceDeletionStatusResponse_errorCode :: Lens.Lens' GetNamespaceDeletionStatusResponse (Prelude.Maybe NamespaceDeletionStatusErrorCodes)
-getNamespaceDeletionStatusResponse_errorCode = Lens.lens (\GetNamespaceDeletionStatusResponse' {errorCode} -> errorCode) (\s@GetNamespaceDeletionStatusResponse' {} a -> s {errorCode = a} :: GetNamespaceDeletionStatusResponse)
-
--- | An error code returned by the namespace deletion task.
 getNamespaceDeletionStatusResponse_errorMessage :: Lens.Lens' GetNamespaceDeletionStatusResponse (Prelude.Maybe Prelude.Text)
 getNamespaceDeletionStatusResponse_errorMessage = Lens.lens (\GetNamespaceDeletionStatusResponse' {errorMessage} -> errorMessage) (\s@GetNamespaceDeletionStatusResponse' {} a -> s {errorMessage = a} :: GetNamespaceDeletionStatusResponse)
+
+-- | The ARN of the namespace that is being deleted.
+getNamespaceDeletionStatusResponse_namespaceArn :: Lens.Lens' GetNamespaceDeletionStatusResponse (Prelude.Maybe Prelude.Text)
+getNamespaceDeletionStatusResponse_namespaceArn = Lens.lens (\GetNamespaceDeletionStatusResponse' {namespaceArn} -> namespaceArn) (\s@GetNamespaceDeletionStatusResponse' {} a -> s {namespaceArn = a} :: GetNamespaceDeletionStatusResponse)
+
+-- | The status of the deletion request.
+getNamespaceDeletionStatusResponse_status :: Lens.Lens' GetNamespaceDeletionStatusResponse (Prelude.Maybe NamespaceDeletionStatus)
+getNamespaceDeletionStatusResponse_status = Lens.lens (\GetNamespaceDeletionStatusResponse' {status} -> status) (\s@GetNamespaceDeletionStatusResponse' {} a -> s {status = a} :: GetNamespaceDeletionStatusResponse)
+
+-- | An error code returned by the namespace deletion task.
+getNamespaceDeletionStatusResponse_errorCode :: Lens.Lens' GetNamespaceDeletionStatusResponse (Prelude.Maybe NamespaceDeletionStatusErrorCodes)
+getNamespaceDeletionStatusResponse_errorCode = Lens.lens (\GetNamespaceDeletionStatusResponse' {errorCode} -> errorCode) (\s@GetNamespaceDeletionStatusResponse' {} a -> s {errorCode = a} :: GetNamespaceDeletionStatusResponse)
 
 -- | The response's http status code.
 getNamespaceDeletionStatusResponse_httpStatus :: Lens.Lens' GetNamespaceDeletionStatusResponse Prelude.Int
@@ -190,9 +190,9 @@ instance
     GetNamespaceDeletionStatusResponse
   where
   rnf GetNamespaceDeletionStatusResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf namespaceArn
-      `Prelude.seq` Prelude.rnf namespaceName
-      `Prelude.seq` Prelude.rnf errorCode
+    Prelude.rnf namespaceName
       `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf namespaceArn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf errorCode
       `Prelude.seq` Prelude.rnf httpStatus

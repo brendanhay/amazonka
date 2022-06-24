@@ -34,10 +34,10 @@ module Amazonka.IoTThingsGraph.GetUploadStatus
     newGetUploadStatusResponse,
 
     -- * Response Lenses
-    getUploadStatusResponse_failureReason,
-    getUploadStatusResponse_namespaceArn,
-    getUploadStatusResponse_namespaceVersion,
     getUploadStatusResponse_namespaceName,
+    getUploadStatusResponse_namespaceVersion,
+    getUploadStatusResponse_namespaceArn,
+    getUploadStatusResponse_failureReason,
     getUploadStatusResponse_httpStatus,
     getUploadStatusResponse_uploadId,
     getUploadStatusResponse_uploadStatus,
@@ -91,10 +91,10 @@ instance Core.AWSRequest GetUploadStatus where
     Response.receiveJSON
       ( \s h x ->
           GetUploadStatusResponse'
-            Prelude.<$> (x Core..?> "failureReason" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "namespaceArn")
+            Prelude.<$> (x Core..?> "namespaceName")
             Prelude.<*> (x Core..?> "namespaceVersion")
-            Prelude.<*> (x Core..?> "namespaceName")
+            Prelude.<*> (x Core..?> "namespaceArn")
+            Prelude.<*> (x Core..?> "failureReason" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "uploadId")
             Prelude.<*> (x Core..:> "uploadStatus")
@@ -138,15 +138,15 @@ instance Core.ToQuery GetUploadStatus where
 
 -- | /See:/ 'newGetUploadStatusResponse' smart constructor.
 data GetUploadStatusResponse = GetUploadStatusResponse'
-  { -- | The reason for an upload failure.
-    failureReason :: Prelude.Maybe [Prelude.Text],
-    -- | The ARN of the upload.
-    namespaceArn :: Prelude.Maybe Prelude.Text,
+  { -- | The name of the upload\'s namespace.
+    namespaceName :: Prelude.Maybe Prelude.Text,
     -- | The version of the user\'s namespace. Defaults to the latest version of
     -- the user\'s namespace.
     namespaceVersion :: Prelude.Maybe Prelude.Integer,
-    -- | The name of the upload\'s namespace.
-    namespaceName :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the upload.
+    namespaceArn :: Prelude.Maybe Prelude.Text,
+    -- | The reason for an upload failure.
+    failureReason :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The ID of the upload.
@@ -167,14 +167,14 @@ data GetUploadStatusResponse = GetUploadStatusResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failureReason', 'getUploadStatusResponse_failureReason' - The reason for an upload failure.
---
--- 'namespaceArn', 'getUploadStatusResponse_namespaceArn' - The ARN of the upload.
+-- 'namespaceName', 'getUploadStatusResponse_namespaceName' - The name of the upload\'s namespace.
 --
 -- 'namespaceVersion', 'getUploadStatusResponse_namespaceVersion' - The version of the user\'s namespace. Defaults to the latest version of
 -- the user\'s namespace.
 --
--- 'namespaceName', 'getUploadStatusResponse_namespaceName' - The name of the upload\'s namespace.
+-- 'namespaceArn', 'getUploadStatusResponse_namespaceArn' - The ARN of the upload.
+--
+-- 'failureReason', 'getUploadStatusResponse_failureReason' - The reason for an upload failure.
 --
 -- 'httpStatus', 'getUploadStatusResponse_httpStatus' - The response's http status code.
 --
@@ -200,33 +200,33 @@ newGetUploadStatusResponse
   pUploadStatus_
   pCreatedDate_ =
     GetUploadStatusResponse'
-      { failureReason =
+      { namespaceName =
           Prelude.Nothing,
-        namespaceArn = Prelude.Nothing,
         namespaceVersion = Prelude.Nothing,
-        namespaceName = Prelude.Nothing,
+        namespaceArn = Prelude.Nothing,
+        failureReason = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         uploadId = pUploadId_,
         uploadStatus = pUploadStatus_,
         createdDate = Core._Time Lens.# pCreatedDate_
       }
 
--- | The reason for an upload failure.
-getUploadStatusResponse_failureReason :: Lens.Lens' GetUploadStatusResponse (Prelude.Maybe [Prelude.Text])
-getUploadStatusResponse_failureReason = Lens.lens (\GetUploadStatusResponse' {failureReason} -> failureReason) (\s@GetUploadStatusResponse' {} a -> s {failureReason = a} :: GetUploadStatusResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The ARN of the upload.
-getUploadStatusResponse_namespaceArn :: Lens.Lens' GetUploadStatusResponse (Prelude.Maybe Prelude.Text)
-getUploadStatusResponse_namespaceArn = Lens.lens (\GetUploadStatusResponse' {namespaceArn} -> namespaceArn) (\s@GetUploadStatusResponse' {} a -> s {namespaceArn = a} :: GetUploadStatusResponse)
+-- | The name of the upload\'s namespace.
+getUploadStatusResponse_namespaceName :: Lens.Lens' GetUploadStatusResponse (Prelude.Maybe Prelude.Text)
+getUploadStatusResponse_namespaceName = Lens.lens (\GetUploadStatusResponse' {namespaceName} -> namespaceName) (\s@GetUploadStatusResponse' {} a -> s {namespaceName = a} :: GetUploadStatusResponse)
 
 -- | The version of the user\'s namespace. Defaults to the latest version of
 -- the user\'s namespace.
 getUploadStatusResponse_namespaceVersion :: Lens.Lens' GetUploadStatusResponse (Prelude.Maybe Prelude.Integer)
 getUploadStatusResponse_namespaceVersion = Lens.lens (\GetUploadStatusResponse' {namespaceVersion} -> namespaceVersion) (\s@GetUploadStatusResponse' {} a -> s {namespaceVersion = a} :: GetUploadStatusResponse)
 
--- | The name of the upload\'s namespace.
-getUploadStatusResponse_namespaceName :: Lens.Lens' GetUploadStatusResponse (Prelude.Maybe Prelude.Text)
-getUploadStatusResponse_namespaceName = Lens.lens (\GetUploadStatusResponse' {namespaceName} -> namespaceName) (\s@GetUploadStatusResponse' {} a -> s {namespaceName = a} :: GetUploadStatusResponse)
+-- | The ARN of the upload.
+getUploadStatusResponse_namespaceArn :: Lens.Lens' GetUploadStatusResponse (Prelude.Maybe Prelude.Text)
+getUploadStatusResponse_namespaceArn = Lens.lens (\GetUploadStatusResponse' {namespaceArn} -> namespaceArn) (\s@GetUploadStatusResponse' {} a -> s {namespaceArn = a} :: GetUploadStatusResponse)
+
+-- | The reason for an upload failure.
+getUploadStatusResponse_failureReason :: Lens.Lens' GetUploadStatusResponse (Prelude.Maybe [Prelude.Text])
+getUploadStatusResponse_failureReason = Lens.lens (\GetUploadStatusResponse' {failureReason} -> failureReason) (\s@GetUploadStatusResponse' {} a -> s {failureReason = a} :: GetUploadStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getUploadStatusResponse_httpStatus :: Lens.Lens' GetUploadStatusResponse Prelude.Int
@@ -247,10 +247,10 @@ getUploadStatusResponse_createdDate = Lens.lens (\GetUploadStatusResponse' {crea
 
 instance Prelude.NFData GetUploadStatusResponse where
   rnf GetUploadStatusResponse' {..} =
-    Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf namespaceArn
+    Prelude.rnf namespaceName
       `Prelude.seq` Prelude.rnf namespaceVersion
-      `Prelude.seq` Prelude.rnf namespaceName
+      `Prelude.seq` Prelude.rnf namespaceArn
+      `Prelude.seq` Prelude.rnf failureReason
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf uploadId
       `Prelude.seq` Prelude.rnf uploadStatus

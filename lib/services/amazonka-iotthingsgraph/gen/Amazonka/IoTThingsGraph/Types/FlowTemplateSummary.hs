@@ -27,14 +27,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFlowTemplateSummary' smart constructor.
 data FlowTemplateSummary = FlowTemplateSummary'
-  { -- | The ARN of the workflow.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The date when the workflow was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
-    -- | The revision number of the workflow.
+  { -- | The revision number of the workflow.
     revisionNumber :: Prelude.Maybe Prelude.Integer,
+    -- | The ARN of the workflow.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the workflow.
-    id :: Prelude.Maybe Prelude.Text
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The date when the workflow was created.
+    createdAt :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,38 +46,39 @@ data FlowTemplateSummary = FlowTemplateSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'flowTemplateSummary_arn' - The ARN of the workflow.
---
--- 'createdAt', 'flowTemplateSummary_createdAt' - The date when the workflow was created.
---
 -- 'revisionNumber', 'flowTemplateSummary_revisionNumber' - The revision number of the workflow.
 --
+-- 'arn', 'flowTemplateSummary_arn' - The ARN of the workflow.
+--
 -- 'id', 'flowTemplateSummary_id' - The ID of the workflow.
+--
+-- 'createdAt', 'flowTemplateSummary_createdAt' - The date when the workflow was created.
 newFlowTemplateSummary ::
   FlowTemplateSummary
 newFlowTemplateSummary =
   FlowTemplateSummary'
-    { arn = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      revisionNumber = Prelude.Nothing,
-      id = Prelude.Nothing
+    { revisionNumber =
+        Prelude.Nothing,
+      arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      createdAt = Prelude.Nothing
     }
-
--- | The ARN of the workflow.
-flowTemplateSummary_arn :: Lens.Lens' FlowTemplateSummary (Prelude.Maybe Prelude.Text)
-flowTemplateSummary_arn = Lens.lens (\FlowTemplateSummary' {arn} -> arn) (\s@FlowTemplateSummary' {} a -> s {arn = a} :: FlowTemplateSummary)
-
--- | The date when the workflow was created.
-flowTemplateSummary_createdAt :: Lens.Lens' FlowTemplateSummary (Prelude.Maybe Prelude.UTCTime)
-flowTemplateSummary_createdAt = Lens.lens (\FlowTemplateSummary' {createdAt} -> createdAt) (\s@FlowTemplateSummary' {} a -> s {createdAt = a} :: FlowTemplateSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The revision number of the workflow.
 flowTemplateSummary_revisionNumber :: Lens.Lens' FlowTemplateSummary (Prelude.Maybe Prelude.Integer)
 flowTemplateSummary_revisionNumber = Lens.lens (\FlowTemplateSummary' {revisionNumber} -> revisionNumber) (\s@FlowTemplateSummary' {} a -> s {revisionNumber = a} :: FlowTemplateSummary)
 
+-- | The ARN of the workflow.
+flowTemplateSummary_arn :: Lens.Lens' FlowTemplateSummary (Prelude.Maybe Prelude.Text)
+flowTemplateSummary_arn = Lens.lens (\FlowTemplateSummary' {arn} -> arn) (\s@FlowTemplateSummary' {} a -> s {arn = a} :: FlowTemplateSummary)
+
 -- | The ID of the workflow.
 flowTemplateSummary_id :: Lens.Lens' FlowTemplateSummary (Prelude.Maybe Prelude.Text)
 flowTemplateSummary_id = Lens.lens (\FlowTemplateSummary' {id} -> id) (\s@FlowTemplateSummary' {} a -> s {id = a} :: FlowTemplateSummary)
+
+-- | The date when the workflow was created.
+flowTemplateSummary_createdAt :: Lens.Lens' FlowTemplateSummary (Prelude.Maybe Prelude.UTCTime)
+flowTemplateSummary_createdAt = Lens.lens (\FlowTemplateSummary' {createdAt} -> createdAt) (\s@FlowTemplateSummary' {} a -> s {createdAt = a} :: FlowTemplateSummary) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON FlowTemplateSummary where
   parseJSON =
@@ -85,22 +86,22 @@ instance Core.FromJSON FlowTemplateSummary where
       "FlowTemplateSummary"
       ( \x ->
           FlowTemplateSummary'
-            Prelude.<$> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "revisionNumber")
+            Prelude.<$> (x Core..:? "revisionNumber")
+            Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "createdAt")
       )
 
 instance Prelude.Hashable FlowTemplateSummary where
   hashWithSalt _salt FlowTemplateSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` createdAt
-      `Prelude.hashWithSalt` revisionNumber
+    _salt `Prelude.hashWithSalt` revisionNumber
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` createdAt
 
 instance Prelude.NFData FlowTemplateSummary where
   rnf FlowTemplateSummary' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf revisionNumber
+    Prelude.rnf revisionNumber
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf createdAt

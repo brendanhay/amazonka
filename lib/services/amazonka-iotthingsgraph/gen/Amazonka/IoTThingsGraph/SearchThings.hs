@@ -38,8 +38,8 @@ module Amazonka.IoTThingsGraph.SearchThings
     newSearchThings,
 
     -- * Request Lenses
-    searchThings_namespaceVersion,
     searchThings_nextToken,
+    searchThings_namespaceVersion,
     searchThings_maxResults,
     searchThings_entityId,
 
@@ -63,12 +63,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchThings' smart constructor.
 data SearchThings = SearchThings'
-  { -- | The version of the user\'s namespace. Defaults to the latest version of
-    -- the user\'s namespace.
-    namespaceVersion :: Prelude.Maybe Prelude.Integer,
-    -- | The string that specifies the next page of results. Use this when
+  { -- | The string that specifies the next page of results. Use this when
     -- you\'re paginating results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The version of the user\'s namespace. Defaults to the latest version of
+    -- the user\'s namespace.
+    namespaceVersion :: Prelude.Maybe Prelude.Integer,
     -- | The maximum number of results to return in the response.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the entity to which the things are associated.
@@ -88,11 +88,11 @@ data SearchThings = SearchThings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'namespaceVersion', 'searchThings_namespaceVersion' - The version of the user\'s namespace. Defaults to the latest version of
--- the user\'s namespace.
---
 -- 'nextToken', 'searchThings_nextToken' - The string that specifies the next page of results. Use this when
 -- you\'re paginating results.
+--
+-- 'namespaceVersion', 'searchThings_namespaceVersion' - The version of the user\'s namespace. Defaults to the latest version of
+-- the user\'s namespace.
 --
 -- 'maxResults', 'searchThings_maxResults' - The maximum number of results to return in the response.
 --
@@ -107,21 +107,21 @@ newSearchThings ::
   SearchThings
 newSearchThings pEntityId_ =
   SearchThings'
-    { namespaceVersion = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      namespaceVersion = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       entityId = pEntityId_
     }
-
--- | The version of the user\'s namespace. Defaults to the latest version of
--- the user\'s namespace.
-searchThings_namespaceVersion :: Lens.Lens' SearchThings (Prelude.Maybe Prelude.Integer)
-searchThings_namespaceVersion = Lens.lens (\SearchThings' {namespaceVersion} -> namespaceVersion) (\s@SearchThings' {} a -> s {namespaceVersion = a} :: SearchThings)
 
 -- | The string that specifies the next page of results. Use this when
 -- you\'re paginating results.
 searchThings_nextToken :: Lens.Lens' SearchThings (Prelude.Maybe Prelude.Text)
 searchThings_nextToken = Lens.lens (\SearchThings' {nextToken} -> nextToken) (\s@SearchThings' {} a -> s {nextToken = a} :: SearchThings)
+
+-- | The version of the user\'s namespace. Defaults to the latest version of
+-- the user\'s namespace.
+searchThings_namespaceVersion :: Lens.Lens' SearchThings (Prelude.Maybe Prelude.Integer)
+searchThings_namespaceVersion = Lens.lens (\SearchThings' {namespaceVersion} -> namespaceVersion) (\s@SearchThings' {} a -> s {namespaceVersion = a} :: SearchThings)
 
 -- | The maximum number of results to return in the response.
 searchThings_maxResults :: Lens.Lens' SearchThings (Prelude.Maybe Prelude.Natural)
@@ -168,15 +168,15 @@ instance Core.AWSRequest SearchThings where
 
 instance Prelude.Hashable SearchThings where
   hashWithSalt _salt SearchThings' {..} =
-    _salt `Prelude.hashWithSalt` namespaceVersion
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` namespaceVersion
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` entityId
 
 instance Prelude.NFData SearchThings where
   rnf SearchThings' {..} =
-    Prelude.rnf namespaceVersion
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf namespaceVersion
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf entityId
 
@@ -199,9 +199,9 @@ instance Core.ToJSON SearchThings where
   toJSON SearchThings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("namespaceVersion" Core..=)
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("namespaceVersion" Core..=)
               Prelude.<$> namespaceVersion,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
             ("maxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just ("entityId" Core..= entityId)
           ]

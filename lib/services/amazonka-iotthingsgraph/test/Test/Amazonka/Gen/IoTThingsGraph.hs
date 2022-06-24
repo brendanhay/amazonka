@@ -27,74 +27,50 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGetFlowTemplate $
---             newGetFlowTemplate
+--         [ requestAssociateEntityToThing $
+--             newAssociateEntityToThing
 --
---         , requestUpdateSystemTemplate $
---             newUpdateSystemTemplate
---
---         , requestDeleteSystemTemplate $
---             newDeleteSystemTemplate
---
---         , requestDeprecateFlowTemplate $
---             newDeprecateFlowTemplate
---
---         , requestDeploySystemInstance $
---             newDeploySystemInstance
---
---         , requestSearchFlowTemplates $
---             newSearchFlowTemplates
---
---         , requestDeleteNamespace $
---             newDeleteNamespace
---
---         , requestGetSystemInstance $
---             newGetSystemInstance
---
---         , requestListFlowExecutionMessages $
---             newListFlowExecutionMessages
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestSearchFlowExecutions $
---             newSearchFlowExecutions
---
---         , requestDeleteSystemInstance $
---             newDeleteSystemInstance
+--         , requestCreateFlowTemplate $
+--             newCreateFlowTemplate
 --
 --         , requestCreateSystemInstance $
 --             newCreateSystemInstance
 --
---         , requestDeprecateSystemTemplate $
---             newDeprecateSystemTemplate
---
---         , requestGetSystemTemplateRevisions $
---             newGetSystemTemplateRevisions
---
---         , requestSearchEntities $
---             newSearchEntities
+--         , requestCreateSystemTemplate $
+--             newCreateSystemTemplate
 --
 --         , requestDeleteFlowTemplate $
 --             newDeleteFlowTemplate
 --
---         , requestUpdateFlowTemplate $
---             newUpdateFlowTemplate
+--         , requestDeleteNamespace $
+--             newDeleteNamespace
 --
---         , requestGetSystemTemplate $
---             newGetSystemTemplate
+--         , requestDeleteSystemInstance $
+--             newDeleteSystemInstance
 --
---         , requestSearchSystemInstances $
---             newSearchSystemInstances
+--         , requestDeleteSystemTemplate $
+--             newDeleteSystemTemplate
 --
---         , requestGetUploadStatus $
---             newGetUploadStatus
+--         , requestDeploySystemInstance $
+--             newDeploySystemInstance
 --
---         , requestCreateSystemTemplate $
---             newCreateSystemTemplate
+--         , requestDeprecateFlowTemplate $
+--             newDeprecateFlowTemplate
 --
---         , requestUndeploySystemInstance $
---             newUndeploySystemInstance
+--         , requestDeprecateSystemTemplate $
+--             newDeprecateSystemTemplate
+--
+--         , requestDescribeNamespace $
+--             newDescribeNamespace
+--
+--         , requestDissociateEntityFromThing $
+--             newDissociateEntityFromThing
+--
+--         , requestGetEntities $
+--             newGetEntities
+--
+--         , requestGetFlowTemplate $
+--             newGetFlowTemplate
 --
 --         , requestGetFlowTemplateRevisions $
 --             newGetFlowTemplateRevisions
@@ -102,107 +78,107 @@ import Test.Tasty
 --         , requestGetNamespaceDeletionStatus $
 --             newGetNamespaceDeletionStatus
 --
---         , requestAssociateEntityToThing $
---             newAssociateEntityToThing
+--         , requestGetSystemInstance $
+--             newGetSystemInstance
+--
+--         , requestGetSystemTemplate $
+--             newGetSystemTemplate
+--
+--         , requestGetSystemTemplateRevisions $
+--             newGetSystemTemplateRevisions
+--
+--         , requestGetUploadStatus $
+--             newGetUploadStatus
+--
+--         , requestListFlowExecutionMessages $
+--             newListFlowExecutionMessages
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestSearchEntities $
+--             newSearchEntities
+--
+--         , requestSearchFlowExecutions $
+--             newSearchFlowExecutions
+--
+--         , requestSearchFlowTemplates $
+--             newSearchFlowTemplates
+--
+--         , requestSearchSystemInstances $
+--             newSearchSystemInstances
 --
 --         , requestSearchSystemTemplates $
 --             newSearchSystemTemplates
 --
+--         , requestSearchThings $
+--             newSearchThings
+--
 --         , requestTagResource $
 --             newTagResource
+--
+--         , requestUndeploySystemInstance $
+--             newUndeploySystemInstance
 --
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestGetEntities $
---             newGetEntities
+--         , requestUpdateFlowTemplate $
+--             newUpdateFlowTemplate
 --
---         , requestDescribeNamespace $
---             newDescribeNamespace
---
---         , requestCreateFlowTemplate $
---             newCreateFlowTemplate
+--         , requestUpdateSystemTemplate $
+--             newUpdateSystemTemplate
 --
 --         , requestUploadEntityDefinitions $
 --             newUploadEntityDefinitions
 --
---         , requestDissociateEntityFromThing $
---             newDissociateEntityFromThing
---
---         , requestSearchThings $
---             newSearchThings
---
 --           ]
 
 --     , testGroup "response"
---         [ responseGetFlowTemplate $
---             newGetFlowTemplateResponse
+--         [ responseAssociateEntityToThing $
+--             newAssociateEntityToThingResponse
 --
---         , responseUpdateSystemTemplate $
---             newUpdateSystemTemplateResponse
---
---         , responseDeleteSystemTemplate $
---             newDeleteSystemTemplateResponse
---
---         , responseDeprecateFlowTemplate $
---             newDeprecateFlowTemplateResponse
---
---         , responseDeploySystemInstance $
---             newDeploySystemInstanceResponse
---
---         , responseSearchFlowTemplates $
---             newSearchFlowTemplatesResponse
---
---         , responseDeleteNamespace $
---             newDeleteNamespaceResponse
---
---         , responseGetSystemInstance $
---             newGetSystemInstanceResponse
---
---         , responseListFlowExecutionMessages $
---             newListFlowExecutionMessagesResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseSearchFlowExecutions $
---             newSearchFlowExecutionsResponse
---
---         , responseDeleteSystemInstance $
---             newDeleteSystemInstanceResponse
+--         , responseCreateFlowTemplate $
+--             newCreateFlowTemplateResponse
 --
 --         , responseCreateSystemInstance $
 --             newCreateSystemInstanceResponse
 --
---         , responseDeprecateSystemTemplate $
---             newDeprecateSystemTemplateResponse
---
---         , responseGetSystemTemplateRevisions $
---             newGetSystemTemplateRevisionsResponse
---
---         , responseSearchEntities $
---             newSearchEntitiesResponse
+--         , responseCreateSystemTemplate $
+--             newCreateSystemTemplateResponse
 --
 --         , responseDeleteFlowTemplate $
 --             newDeleteFlowTemplateResponse
 --
---         , responseUpdateFlowTemplate $
---             newUpdateFlowTemplateResponse
+--         , responseDeleteNamespace $
+--             newDeleteNamespaceResponse
 --
---         , responseGetSystemTemplate $
---             newGetSystemTemplateResponse
+--         , responseDeleteSystemInstance $
+--             newDeleteSystemInstanceResponse
 --
---         , responseSearchSystemInstances $
---             newSearchSystemInstancesResponse
+--         , responseDeleteSystemTemplate $
+--             newDeleteSystemTemplateResponse
 --
---         , responseGetUploadStatus $
---             newGetUploadStatusResponse
+--         , responseDeploySystemInstance $
+--             newDeploySystemInstanceResponse
 --
---         , responseCreateSystemTemplate $
---             newCreateSystemTemplateResponse
+--         , responseDeprecateFlowTemplate $
+--             newDeprecateFlowTemplateResponse
 --
---         , responseUndeploySystemInstance $
---             newUndeploySystemInstanceResponse
+--         , responseDeprecateSystemTemplate $
+--             newDeprecateSystemTemplateResponse
+--
+--         , responseDescribeNamespace $
+--             newDescribeNamespaceResponse
+--
+--         , responseDissociateEntityFromThing $
+--             newDissociateEntityFromThingResponse
+--
+--         , responseGetEntities $
+--             newGetEntitiesResponse
+--
+--         , responseGetFlowTemplate $
+--             newGetFlowTemplateResponse
 --
 --         , responseGetFlowTemplateRevisions $
 --             newGetFlowTemplateRevisionsResponse
@@ -210,112 +186,76 @@ import Test.Tasty
 --         , responseGetNamespaceDeletionStatus $
 --             newGetNamespaceDeletionStatusResponse
 --
---         , responseAssociateEntityToThing $
---             newAssociateEntityToThingResponse
+--         , responseGetSystemInstance $
+--             newGetSystemInstanceResponse
+--
+--         , responseGetSystemTemplate $
+--             newGetSystemTemplateResponse
+--
+--         , responseGetSystemTemplateRevisions $
+--             newGetSystemTemplateRevisionsResponse
+--
+--         , responseGetUploadStatus $
+--             newGetUploadStatusResponse
+--
+--         , responseListFlowExecutionMessages $
+--             newListFlowExecutionMessagesResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseSearchEntities $
+--             newSearchEntitiesResponse
+--
+--         , responseSearchFlowExecutions $
+--             newSearchFlowExecutionsResponse
+--
+--         , responseSearchFlowTemplates $
+--             newSearchFlowTemplatesResponse
+--
+--         , responseSearchSystemInstances $
+--             newSearchSystemInstancesResponse
 --
 --         , responseSearchSystemTemplates $
 --             newSearchSystemTemplatesResponse
 --
+--         , responseSearchThings $
+--             newSearchThingsResponse
+--
 --         , responseTagResource $
 --             newTagResourceResponse
+--
+--         , responseUndeploySystemInstance $
+--             newUndeploySystemInstanceResponse
 --
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseGetEntities $
---             newGetEntitiesResponse
+--         , responseUpdateFlowTemplate $
+--             newUpdateFlowTemplateResponse
 --
---         , responseDescribeNamespace $
---             newDescribeNamespaceResponse
---
---         , responseCreateFlowTemplate $
---             newCreateFlowTemplateResponse
+--         , responseUpdateSystemTemplate $
+--             newUpdateSystemTemplateResponse
 --
 --         , responseUploadEntityDefinitions $
 --             newUploadEntityDefinitionsResponse
---
---         , responseDissociateEntityFromThing $
---             newDissociateEntityFromThingResponse
---
---         , responseSearchThings $
---             newSearchThingsResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestGetFlowTemplate :: GetFlowTemplate -> TestTree
-requestGetFlowTemplate =
+requestAssociateEntityToThing :: AssociateEntityToThing -> TestTree
+requestAssociateEntityToThing =
   req
-    "GetFlowTemplate"
-    "fixture/GetFlowTemplate.yaml"
+    "AssociateEntityToThing"
+    "fixture/AssociateEntityToThing.yaml"
 
-requestUpdateSystemTemplate :: UpdateSystemTemplate -> TestTree
-requestUpdateSystemTemplate =
+requestCreateFlowTemplate :: CreateFlowTemplate -> TestTree
+requestCreateFlowTemplate =
   req
-    "UpdateSystemTemplate"
-    "fixture/UpdateSystemTemplate.yaml"
-
-requestDeleteSystemTemplate :: DeleteSystemTemplate -> TestTree
-requestDeleteSystemTemplate =
-  req
-    "DeleteSystemTemplate"
-    "fixture/DeleteSystemTemplate.yaml"
-
-requestDeprecateFlowTemplate :: DeprecateFlowTemplate -> TestTree
-requestDeprecateFlowTemplate =
-  req
-    "DeprecateFlowTemplate"
-    "fixture/DeprecateFlowTemplate.yaml"
-
-requestDeploySystemInstance :: DeploySystemInstance -> TestTree
-requestDeploySystemInstance =
-  req
-    "DeploySystemInstance"
-    "fixture/DeploySystemInstance.yaml"
-
-requestSearchFlowTemplates :: SearchFlowTemplates -> TestTree
-requestSearchFlowTemplates =
-  req
-    "SearchFlowTemplates"
-    "fixture/SearchFlowTemplates.yaml"
-
-requestDeleteNamespace :: DeleteNamespace -> TestTree
-requestDeleteNamespace =
-  req
-    "DeleteNamespace"
-    "fixture/DeleteNamespace.yaml"
-
-requestGetSystemInstance :: GetSystemInstance -> TestTree
-requestGetSystemInstance =
-  req
-    "GetSystemInstance"
-    "fixture/GetSystemInstance.yaml"
-
-requestListFlowExecutionMessages :: ListFlowExecutionMessages -> TestTree
-requestListFlowExecutionMessages =
-  req
-    "ListFlowExecutionMessages"
-    "fixture/ListFlowExecutionMessages.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestSearchFlowExecutions :: SearchFlowExecutions -> TestTree
-requestSearchFlowExecutions =
-  req
-    "SearchFlowExecutions"
-    "fixture/SearchFlowExecutions.yaml"
-
-requestDeleteSystemInstance :: DeleteSystemInstance -> TestTree
-requestDeleteSystemInstance =
-  req
-    "DeleteSystemInstance"
-    "fixture/DeleteSystemInstance.yaml"
+    "CreateFlowTemplate"
+    "fixture/CreateFlowTemplate.yaml"
 
 requestCreateSystemInstance :: CreateSystemInstance -> TestTree
 requestCreateSystemInstance =
@@ -323,23 +263,11 @@ requestCreateSystemInstance =
     "CreateSystemInstance"
     "fixture/CreateSystemInstance.yaml"
 
-requestDeprecateSystemTemplate :: DeprecateSystemTemplate -> TestTree
-requestDeprecateSystemTemplate =
+requestCreateSystemTemplate :: CreateSystemTemplate -> TestTree
+requestCreateSystemTemplate =
   req
-    "DeprecateSystemTemplate"
-    "fixture/DeprecateSystemTemplate.yaml"
-
-requestGetSystemTemplateRevisions :: GetSystemTemplateRevisions -> TestTree
-requestGetSystemTemplateRevisions =
-  req
-    "GetSystemTemplateRevisions"
-    "fixture/GetSystemTemplateRevisions.yaml"
-
-requestSearchEntities :: SearchEntities -> TestTree
-requestSearchEntities =
-  req
-    "SearchEntities"
-    "fixture/SearchEntities.yaml"
+    "CreateSystemTemplate"
+    "fixture/CreateSystemTemplate.yaml"
 
 requestDeleteFlowTemplate :: DeleteFlowTemplate -> TestTree
 requestDeleteFlowTemplate =
@@ -347,41 +275,65 @@ requestDeleteFlowTemplate =
     "DeleteFlowTemplate"
     "fixture/DeleteFlowTemplate.yaml"
 
-requestUpdateFlowTemplate :: UpdateFlowTemplate -> TestTree
-requestUpdateFlowTemplate =
+requestDeleteNamespace :: DeleteNamespace -> TestTree
+requestDeleteNamespace =
   req
-    "UpdateFlowTemplate"
-    "fixture/UpdateFlowTemplate.yaml"
+    "DeleteNamespace"
+    "fixture/DeleteNamespace.yaml"
 
-requestGetSystemTemplate :: GetSystemTemplate -> TestTree
-requestGetSystemTemplate =
+requestDeleteSystemInstance :: DeleteSystemInstance -> TestTree
+requestDeleteSystemInstance =
   req
-    "GetSystemTemplate"
-    "fixture/GetSystemTemplate.yaml"
+    "DeleteSystemInstance"
+    "fixture/DeleteSystemInstance.yaml"
 
-requestSearchSystemInstances :: SearchSystemInstances -> TestTree
-requestSearchSystemInstances =
+requestDeleteSystemTemplate :: DeleteSystemTemplate -> TestTree
+requestDeleteSystemTemplate =
   req
-    "SearchSystemInstances"
-    "fixture/SearchSystemInstances.yaml"
+    "DeleteSystemTemplate"
+    "fixture/DeleteSystemTemplate.yaml"
 
-requestGetUploadStatus :: GetUploadStatus -> TestTree
-requestGetUploadStatus =
+requestDeploySystemInstance :: DeploySystemInstance -> TestTree
+requestDeploySystemInstance =
   req
-    "GetUploadStatus"
-    "fixture/GetUploadStatus.yaml"
+    "DeploySystemInstance"
+    "fixture/DeploySystemInstance.yaml"
 
-requestCreateSystemTemplate :: CreateSystemTemplate -> TestTree
-requestCreateSystemTemplate =
+requestDeprecateFlowTemplate :: DeprecateFlowTemplate -> TestTree
+requestDeprecateFlowTemplate =
   req
-    "CreateSystemTemplate"
-    "fixture/CreateSystemTemplate.yaml"
+    "DeprecateFlowTemplate"
+    "fixture/DeprecateFlowTemplate.yaml"
 
-requestUndeploySystemInstance :: UndeploySystemInstance -> TestTree
-requestUndeploySystemInstance =
+requestDeprecateSystemTemplate :: DeprecateSystemTemplate -> TestTree
+requestDeprecateSystemTemplate =
   req
-    "UndeploySystemInstance"
-    "fixture/UndeploySystemInstance.yaml"
+    "DeprecateSystemTemplate"
+    "fixture/DeprecateSystemTemplate.yaml"
+
+requestDescribeNamespace :: DescribeNamespace -> TestTree
+requestDescribeNamespace =
+  req
+    "DescribeNamespace"
+    "fixture/DescribeNamespace.yaml"
+
+requestDissociateEntityFromThing :: DissociateEntityFromThing -> TestTree
+requestDissociateEntityFromThing =
+  req
+    "DissociateEntityFromThing"
+    "fixture/DissociateEntityFromThing.yaml"
+
+requestGetEntities :: GetEntities -> TestTree
+requestGetEntities =
+  req
+    "GetEntities"
+    "fixture/GetEntities.yaml"
+
+requestGetFlowTemplate :: GetFlowTemplate -> TestTree
+requestGetFlowTemplate =
+  req
+    "GetFlowTemplate"
+    "fixture/GetFlowTemplate.yaml"
 
 requestGetFlowTemplateRevisions :: GetFlowTemplateRevisions -> TestTree
 requestGetFlowTemplateRevisions =
@@ -395,11 +347,65 @@ requestGetNamespaceDeletionStatus =
     "GetNamespaceDeletionStatus"
     "fixture/GetNamespaceDeletionStatus.yaml"
 
-requestAssociateEntityToThing :: AssociateEntityToThing -> TestTree
-requestAssociateEntityToThing =
+requestGetSystemInstance :: GetSystemInstance -> TestTree
+requestGetSystemInstance =
   req
-    "AssociateEntityToThing"
-    "fixture/AssociateEntityToThing.yaml"
+    "GetSystemInstance"
+    "fixture/GetSystemInstance.yaml"
+
+requestGetSystemTemplate :: GetSystemTemplate -> TestTree
+requestGetSystemTemplate =
+  req
+    "GetSystemTemplate"
+    "fixture/GetSystemTemplate.yaml"
+
+requestGetSystemTemplateRevisions :: GetSystemTemplateRevisions -> TestTree
+requestGetSystemTemplateRevisions =
+  req
+    "GetSystemTemplateRevisions"
+    "fixture/GetSystemTemplateRevisions.yaml"
+
+requestGetUploadStatus :: GetUploadStatus -> TestTree
+requestGetUploadStatus =
+  req
+    "GetUploadStatus"
+    "fixture/GetUploadStatus.yaml"
+
+requestListFlowExecutionMessages :: ListFlowExecutionMessages -> TestTree
+requestListFlowExecutionMessages =
+  req
+    "ListFlowExecutionMessages"
+    "fixture/ListFlowExecutionMessages.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestSearchEntities :: SearchEntities -> TestTree
+requestSearchEntities =
+  req
+    "SearchEntities"
+    "fixture/SearchEntities.yaml"
+
+requestSearchFlowExecutions :: SearchFlowExecutions -> TestTree
+requestSearchFlowExecutions =
+  req
+    "SearchFlowExecutions"
+    "fixture/SearchFlowExecutions.yaml"
+
+requestSearchFlowTemplates :: SearchFlowTemplates -> TestTree
+requestSearchFlowTemplates =
+  req
+    "SearchFlowTemplates"
+    "fixture/SearchFlowTemplates.yaml"
+
+requestSearchSystemInstances :: SearchSystemInstances -> TestTree
+requestSearchSystemInstances =
+  req
+    "SearchSystemInstances"
+    "fixture/SearchSystemInstances.yaml"
 
 requestSearchSystemTemplates :: SearchSystemTemplates -> TestTree
 requestSearchSystemTemplates =
@@ -407,11 +413,23 @@ requestSearchSystemTemplates =
     "SearchSystemTemplates"
     "fixture/SearchSystemTemplates.yaml"
 
+requestSearchThings :: SearchThings -> TestTree
+requestSearchThings =
+  req
+    "SearchThings"
+    "fixture/SearchThings.yaml"
+
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
   req
     "TagResource"
     "fixture/TagResource.yaml"
+
+requestUndeploySystemInstance :: UndeploySystemInstance -> TestTree
+requestUndeploySystemInstance =
+  req
+    "UndeploySystemInstance"
+    "fixture/UndeploySystemInstance.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
@@ -419,23 +437,17 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestGetEntities :: GetEntities -> TestTree
-requestGetEntities =
+requestUpdateFlowTemplate :: UpdateFlowTemplate -> TestTree
+requestUpdateFlowTemplate =
   req
-    "GetEntities"
-    "fixture/GetEntities.yaml"
+    "UpdateFlowTemplate"
+    "fixture/UpdateFlowTemplate.yaml"
 
-requestDescribeNamespace :: DescribeNamespace -> TestTree
-requestDescribeNamespace =
+requestUpdateSystemTemplate :: UpdateSystemTemplate -> TestTree
+requestUpdateSystemTemplate =
   req
-    "DescribeNamespace"
-    "fixture/DescribeNamespace.yaml"
-
-requestCreateFlowTemplate :: CreateFlowTemplate -> TestTree
-requestCreateFlowTemplate =
-  req
-    "CreateFlowTemplate"
-    "fixture/CreateFlowTemplate.yaml"
+    "UpdateSystemTemplate"
+    "fixture/UpdateSystemTemplate.yaml"
 
 requestUploadEntityDefinitions :: UploadEntityDefinitions -> TestTree
 requestUploadEntityDefinitions =
@@ -443,115 +455,23 @@ requestUploadEntityDefinitions =
     "UploadEntityDefinitions"
     "fixture/UploadEntityDefinitions.yaml"
 
-requestDissociateEntityFromThing :: DissociateEntityFromThing -> TestTree
-requestDissociateEntityFromThing =
-  req
-    "DissociateEntityFromThing"
-    "fixture/DissociateEntityFromThing.yaml"
-
-requestSearchThings :: SearchThings -> TestTree
-requestSearchThings =
-  req
-    "SearchThings"
-    "fixture/SearchThings.yaml"
-
 -- Responses
 
-responseGetFlowTemplate :: GetFlowTemplateResponse -> TestTree
-responseGetFlowTemplate =
+responseAssociateEntityToThing :: AssociateEntityToThingResponse -> TestTree
+responseAssociateEntityToThing =
   res
-    "GetFlowTemplateResponse"
-    "fixture/GetFlowTemplateResponse.proto"
+    "AssociateEntityToThingResponse"
+    "fixture/AssociateEntityToThingResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetFlowTemplate)
+    (Proxy.Proxy :: Proxy.Proxy AssociateEntityToThing)
 
-responseUpdateSystemTemplate :: UpdateSystemTemplateResponse -> TestTree
-responseUpdateSystemTemplate =
+responseCreateFlowTemplate :: CreateFlowTemplateResponse -> TestTree
+responseCreateFlowTemplate =
   res
-    "UpdateSystemTemplateResponse"
-    "fixture/UpdateSystemTemplateResponse.proto"
+    "CreateFlowTemplateResponse"
+    "fixture/CreateFlowTemplateResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateSystemTemplate)
-
-responseDeleteSystemTemplate :: DeleteSystemTemplateResponse -> TestTree
-responseDeleteSystemTemplate =
-  res
-    "DeleteSystemTemplateResponse"
-    "fixture/DeleteSystemTemplateResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteSystemTemplate)
-
-responseDeprecateFlowTemplate :: DeprecateFlowTemplateResponse -> TestTree
-responseDeprecateFlowTemplate =
-  res
-    "DeprecateFlowTemplateResponse"
-    "fixture/DeprecateFlowTemplateResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeprecateFlowTemplate)
-
-responseDeploySystemInstance :: DeploySystemInstanceResponse -> TestTree
-responseDeploySystemInstance =
-  res
-    "DeploySystemInstanceResponse"
-    "fixture/DeploySystemInstanceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeploySystemInstance)
-
-responseSearchFlowTemplates :: SearchFlowTemplatesResponse -> TestTree
-responseSearchFlowTemplates =
-  res
-    "SearchFlowTemplatesResponse"
-    "fixture/SearchFlowTemplatesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy SearchFlowTemplates)
-
-responseDeleteNamespace :: DeleteNamespaceResponse -> TestTree
-responseDeleteNamespace =
-  res
-    "DeleteNamespaceResponse"
-    "fixture/DeleteNamespaceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteNamespace)
-
-responseGetSystemInstance :: GetSystemInstanceResponse -> TestTree
-responseGetSystemInstance =
-  res
-    "GetSystemInstanceResponse"
-    "fixture/GetSystemInstanceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetSystemInstance)
-
-responseListFlowExecutionMessages :: ListFlowExecutionMessagesResponse -> TestTree
-responseListFlowExecutionMessages =
-  res
-    "ListFlowExecutionMessagesResponse"
-    "fixture/ListFlowExecutionMessagesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListFlowExecutionMessages)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseSearchFlowExecutions :: SearchFlowExecutionsResponse -> TestTree
-responseSearchFlowExecutions =
-  res
-    "SearchFlowExecutionsResponse"
-    "fixture/SearchFlowExecutionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy SearchFlowExecutions)
-
-responseDeleteSystemInstance :: DeleteSystemInstanceResponse -> TestTree
-responseDeleteSystemInstance =
-  res
-    "DeleteSystemInstanceResponse"
-    "fixture/DeleteSystemInstanceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteSystemInstance)
+    (Proxy.Proxy :: Proxy.Proxy CreateFlowTemplate)
 
 responseCreateSystemInstance :: CreateSystemInstanceResponse -> TestTree
 responseCreateSystemInstance =
@@ -561,29 +481,13 @@ responseCreateSystemInstance =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateSystemInstance)
 
-responseDeprecateSystemTemplate :: DeprecateSystemTemplateResponse -> TestTree
-responseDeprecateSystemTemplate =
+responseCreateSystemTemplate :: CreateSystemTemplateResponse -> TestTree
+responseCreateSystemTemplate =
   res
-    "DeprecateSystemTemplateResponse"
-    "fixture/DeprecateSystemTemplateResponse.proto"
+    "CreateSystemTemplateResponse"
+    "fixture/CreateSystemTemplateResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeprecateSystemTemplate)
-
-responseGetSystemTemplateRevisions :: GetSystemTemplateRevisionsResponse -> TestTree
-responseGetSystemTemplateRevisions =
-  res
-    "GetSystemTemplateRevisionsResponse"
-    "fixture/GetSystemTemplateRevisionsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetSystemTemplateRevisions)
-
-responseSearchEntities :: SearchEntitiesResponse -> TestTree
-responseSearchEntities =
-  res
-    "SearchEntitiesResponse"
-    "fixture/SearchEntitiesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy SearchEntities)
+    (Proxy.Proxy :: Proxy.Proxy CreateSystemTemplate)
 
 responseDeleteFlowTemplate :: DeleteFlowTemplateResponse -> TestTree
 responseDeleteFlowTemplate =
@@ -593,53 +497,85 @@ responseDeleteFlowTemplate =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteFlowTemplate)
 
-responseUpdateFlowTemplate :: UpdateFlowTemplateResponse -> TestTree
-responseUpdateFlowTemplate =
+responseDeleteNamespace :: DeleteNamespaceResponse -> TestTree
+responseDeleteNamespace =
   res
-    "UpdateFlowTemplateResponse"
-    "fixture/UpdateFlowTemplateResponse.proto"
+    "DeleteNamespaceResponse"
+    "fixture/DeleteNamespaceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateFlowTemplate)
+    (Proxy.Proxy :: Proxy.Proxy DeleteNamespace)
 
-responseGetSystemTemplate :: GetSystemTemplateResponse -> TestTree
-responseGetSystemTemplate =
+responseDeleteSystemInstance :: DeleteSystemInstanceResponse -> TestTree
+responseDeleteSystemInstance =
   res
-    "GetSystemTemplateResponse"
-    "fixture/GetSystemTemplateResponse.proto"
+    "DeleteSystemInstanceResponse"
+    "fixture/DeleteSystemInstanceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetSystemTemplate)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSystemInstance)
 
-responseSearchSystemInstances :: SearchSystemInstancesResponse -> TestTree
-responseSearchSystemInstances =
+responseDeleteSystemTemplate :: DeleteSystemTemplateResponse -> TestTree
+responseDeleteSystemTemplate =
   res
-    "SearchSystemInstancesResponse"
-    "fixture/SearchSystemInstancesResponse.proto"
+    "DeleteSystemTemplateResponse"
+    "fixture/DeleteSystemTemplateResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy SearchSystemInstances)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSystemTemplate)
 
-responseGetUploadStatus :: GetUploadStatusResponse -> TestTree
-responseGetUploadStatus =
+responseDeploySystemInstance :: DeploySystemInstanceResponse -> TestTree
+responseDeploySystemInstance =
   res
-    "GetUploadStatusResponse"
-    "fixture/GetUploadStatusResponse.proto"
+    "DeploySystemInstanceResponse"
+    "fixture/DeploySystemInstanceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetUploadStatus)
+    (Proxy.Proxy :: Proxy.Proxy DeploySystemInstance)
 
-responseCreateSystemTemplate :: CreateSystemTemplateResponse -> TestTree
-responseCreateSystemTemplate =
+responseDeprecateFlowTemplate :: DeprecateFlowTemplateResponse -> TestTree
+responseDeprecateFlowTemplate =
   res
-    "CreateSystemTemplateResponse"
-    "fixture/CreateSystemTemplateResponse.proto"
+    "DeprecateFlowTemplateResponse"
+    "fixture/DeprecateFlowTemplateResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateSystemTemplate)
+    (Proxy.Proxy :: Proxy.Proxy DeprecateFlowTemplate)
 
-responseUndeploySystemInstance :: UndeploySystemInstanceResponse -> TestTree
-responseUndeploySystemInstance =
+responseDeprecateSystemTemplate :: DeprecateSystemTemplateResponse -> TestTree
+responseDeprecateSystemTemplate =
   res
-    "UndeploySystemInstanceResponse"
-    "fixture/UndeploySystemInstanceResponse.proto"
+    "DeprecateSystemTemplateResponse"
+    "fixture/DeprecateSystemTemplateResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UndeploySystemInstance)
+    (Proxy.Proxy :: Proxy.Proxy DeprecateSystemTemplate)
+
+responseDescribeNamespace :: DescribeNamespaceResponse -> TestTree
+responseDescribeNamespace =
+  res
+    "DescribeNamespaceResponse"
+    "fixture/DescribeNamespaceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeNamespace)
+
+responseDissociateEntityFromThing :: DissociateEntityFromThingResponse -> TestTree
+responseDissociateEntityFromThing =
+  res
+    "DissociateEntityFromThingResponse"
+    "fixture/DissociateEntityFromThingResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DissociateEntityFromThing)
+
+responseGetEntities :: GetEntitiesResponse -> TestTree
+responseGetEntities =
+  res
+    "GetEntitiesResponse"
+    "fixture/GetEntitiesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetEntities)
+
+responseGetFlowTemplate :: GetFlowTemplateResponse -> TestTree
+responseGetFlowTemplate =
+  res
+    "GetFlowTemplateResponse"
+    "fixture/GetFlowTemplateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetFlowTemplate)
 
 responseGetFlowTemplateRevisions :: GetFlowTemplateRevisionsResponse -> TestTree
 responseGetFlowTemplateRevisions =
@@ -657,13 +593,85 @@ responseGetNamespaceDeletionStatus =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetNamespaceDeletionStatus)
 
-responseAssociateEntityToThing :: AssociateEntityToThingResponse -> TestTree
-responseAssociateEntityToThing =
+responseGetSystemInstance :: GetSystemInstanceResponse -> TestTree
+responseGetSystemInstance =
   res
-    "AssociateEntityToThingResponse"
-    "fixture/AssociateEntityToThingResponse.proto"
+    "GetSystemInstanceResponse"
+    "fixture/GetSystemInstanceResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy AssociateEntityToThing)
+    (Proxy.Proxy :: Proxy.Proxy GetSystemInstance)
+
+responseGetSystemTemplate :: GetSystemTemplateResponse -> TestTree
+responseGetSystemTemplate =
+  res
+    "GetSystemTemplateResponse"
+    "fixture/GetSystemTemplateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetSystemTemplate)
+
+responseGetSystemTemplateRevisions :: GetSystemTemplateRevisionsResponse -> TestTree
+responseGetSystemTemplateRevisions =
+  res
+    "GetSystemTemplateRevisionsResponse"
+    "fixture/GetSystemTemplateRevisionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetSystemTemplateRevisions)
+
+responseGetUploadStatus :: GetUploadStatusResponse -> TestTree
+responseGetUploadStatus =
+  res
+    "GetUploadStatusResponse"
+    "fixture/GetUploadStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetUploadStatus)
+
+responseListFlowExecutionMessages :: ListFlowExecutionMessagesResponse -> TestTree
+responseListFlowExecutionMessages =
+  res
+    "ListFlowExecutionMessagesResponse"
+    "fixture/ListFlowExecutionMessagesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListFlowExecutionMessages)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseSearchEntities :: SearchEntitiesResponse -> TestTree
+responseSearchEntities =
+  res
+    "SearchEntitiesResponse"
+    "fixture/SearchEntitiesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SearchEntities)
+
+responseSearchFlowExecutions :: SearchFlowExecutionsResponse -> TestTree
+responseSearchFlowExecutions =
+  res
+    "SearchFlowExecutionsResponse"
+    "fixture/SearchFlowExecutionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SearchFlowExecutions)
+
+responseSearchFlowTemplates :: SearchFlowTemplatesResponse -> TestTree
+responseSearchFlowTemplates =
+  res
+    "SearchFlowTemplatesResponse"
+    "fixture/SearchFlowTemplatesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SearchFlowTemplates)
+
+responseSearchSystemInstances :: SearchSystemInstancesResponse -> TestTree
+responseSearchSystemInstances =
+  res
+    "SearchSystemInstancesResponse"
+    "fixture/SearchSystemInstancesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SearchSystemInstances)
 
 responseSearchSystemTemplates :: SearchSystemTemplatesResponse -> TestTree
 responseSearchSystemTemplates =
@@ -673,6 +681,14 @@ responseSearchSystemTemplates =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy SearchSystemTemplates)
 
+responseSearchThings :: SearchThingsResponse -> TestTree
+responseSearchThings =
+  res
+    "SearchThingsResponse"
+    "fixture/SearchThingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SearchThings)
+
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
   res
@@ -680,6 +696,14 @@ responseTagResource =
     "fixture/TagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUndeploySystemInstance :: UndeploySystemInstanceResponse -> TestTree
+responseUndeploySystemInstance =
+  res
+    "UndeploySystemInstanceResponse"
+    "fixture/UndeploySystemInstanceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UndeploySystemInstance)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -689,29 +713,21 @@ responseUntagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
-responseGetEntities :: GetEntitiesResponse -> TestTree
-responseGetEntities =
+responseUpdateFlowTemplate :: UpdateFlowTemplateResponse -> TestTree
+responseUpdateFlowTemplate =
   res
-    "GetEntitiesResponse"
-    "fixture/GetEntitiesResponse.proto"
+    "UpdateFlowTemplateResponse"
+    "fixture/UpdateFlowTemplateResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetEntities)
+    (Proxy.Proxy :: Proxy.Proxy UpdateFlowTemplate)
 
-responseDescribeNamespace :: DescribeNamespaceResponse -> TestTree
-responseDescribeNamespace =
+responseUpdateSystemTemplate :: UpdateSystemTemplateResponse -> TestTree
+responseUpdateSystemTemplate =
   res
-    "DescribeNamespaceResponse"
-    "fixture/DescribeNamespaceResponse.proto"
+    "UpdateSystemTemplateResponse"
+    "fixture/UpdateSystemTemplateResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeNamespace)
-
-responseCreateFlowTemplate :: CreateFlowTemplateResponse -> TestTree
-responseCreateFlowTemplate =
-  res
-    "CreateFlowTemplateResponse"
-    "fixture/CreateFlowTemplateResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateFlowTemplate)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSystemTemplate)
 
 responseUploadEntityDefinitions :: UploadEntityDefinitionsResponse -> TestTree
 responseUploadEntityDefinitions =
@@ -720,19 +736,3 @@ responseUploadEntityDefinitions =
     "fixture/UploadEntityDefinitionsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UploadEntityDefinitions)
-
-responseDissociateEntityFromThing :: DissociateEntityFromThingResponse -> TestTree
-responseDissociateEntityFromThing =
-  res
-    "DissociateEntityFromThingResponse"
-    "fixture/DissociateEntityFromThingResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DissociateEntityFromThing)
-
-responseSearchThings :: SearchThingsResponse -> TestTree
-responseSearchThings =
-  res
-    "SearchThingsResponse"
-    "fixture/SearchThingsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy SearchThings)

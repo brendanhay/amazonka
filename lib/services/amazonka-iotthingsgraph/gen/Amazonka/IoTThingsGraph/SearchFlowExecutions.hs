@@ -29,11 +29,11 @@ module Amazonka.IoTThingsGraph.SearchFlowExecutions
     newSearchFlowExecutions,
 
     -- * Request Lenses
-    searchFlowExecutions_startTime,
-    searchFlowExecutions_flowExecutionId,
     searchFlowExecutions_nextToken,
     searchFlowExecutions_endTime,
     searchFlowExecutions_maxResults,
+    searchFlowExecutions_flowExecutionId,
+    searchFlowExecutions_startTime,
     searchFlowExecutions_systemInstanceId,
 
     -- * Destructuring the Response
@@ -56,17 +56,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchFlowExecutions' smart constructor.
 data SearchFlowExecutions = SearchFlowExecutions'
-  { -- | The date and time of the earliest flow execution to return.
-    startTime :: Prelude.Maybe Core.POSIX,
-    -- | The ID of a flow execution.
-    flowExecutionId :: Prelude.Maybe Prelude.Text,
-    -- | The string that specifies the next page of results. Use this when
+  { -- | The string that specifies the next page of results. Use this when
     -- you\'re paginating results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The date and time of the latest flow execution to return.
     endTime :: Prelude.Maybe Core.POSIX,
     -- | The maximum number of results to return in the response.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The ID of a flow execution.
+    flowExecutionId :: Prelude.Maybe Prelude.Text,
+    -- | The date and time of the earliest flow execution to return.
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | The ID of the system instance that contains the flow.
     systemInstanceId :: Prelude.Text
   }
@@ -80,16 +80,16 @@ data SearchFlowExecutions = SearchFlowExecutions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startTime', 'searchFlowExecutions_startTime' - The date and time of the earliest flow execution to return.
---
--- 'flowExecutionId', 'searchFlowExecutions_flowExecutionId' - The ID of a flow execution.
---
 -- 'nextToken', 'searchFlowExecutions_nextToken' - The string that specifies the next page of results. Use this when
 -- you\'re paginating results.
 --
 -- 'endTime', 'searchFlowExecutions_endTime' - The date and time of the latest flow execution to return.
 --
 -- 'maxResults', 'searchFlowExecutions_maxResults' - The maximum number of results to return in the response.
+--
+-- 'flowExecutionId', 'searchFlowExecutions_flowExecutionId' - The ID of a flow execution.
+--
+-- 'startTime', 'searchFlowExecutions_startTime' - The date and time of the earliest flow execution to return.
 --
 -- 'systemInstanceId', 'searchFlowExecutions_systemInstanceId' - The ID of the system instance that contains the flow.
 newSearchFlowExecutions ::
@@ -98,21 +98,13 @@ newSearchFlowExecutions ::
   SearchFlowExecutions
 newSearchFlowExecutions pSystemInstanceId_ =
   SearchFlowExecutions'
-    { startTime = Prelude.Nothing,
-      flowExecutionId = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       endTime = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      flowExecutionId = Prelude.Nothing,
+      startTime = Prelude.Nothing,
       systemInstanceId = pSystemInstanceId_
     }
-
--- | The date and time of the earliest flow execution to return.
-searchFlowExecutions_startTime :: Lens.Lens' SearchFlowExecutions (Prelude.Maybe Prelude.UTCTime)
-searchFlowExecutions_startTime = Lens.lens (\SearchFlowExecutions' {startTime} -> startTime) (\s@SearchFlowExecutions' {} a -> s {startTime = a} :: SearchFlowExecutions) Prelude.. Lens.mapping Core._Time
-
--- | The ID of a flow execution.
-searchFlowExecutions_flowExecutionId :: Lens.Lens' SearchFlowExecutions (Prelude.Maybe Prelude.Text)
-searchFlowExecutions_flowExecutionId = Lens.lens (\SearchFlowExecutions' {flowExecutionId} -> flowExecutionId) (\s@SearchFlowExecutions' {} a -> s {flowExecutionId = a} :: SearchFlowExecutions)
 
 -- | The string that specifies the next page of results. Use this when
 -- you\'re paginating results.
@@ -126,6 +118,14 @@ searchFlowExecutions_endTime = Lens.lens (\SearchFlowExecutions' {endTime} -> en
 -- | The maximum number of results to return in the response.
 searchFlowExecutions_maxResults :: Lens.Lens' SearchFlowExecutions (Prelude.Maybe Prelude.Natural)
 searchFlowExecutions_maxResults = Lens.lens (\SearchFlowExecutions' {maxResults} -> maxResults) (\s@SearchFlowExecutions' {} a -> s {maxResults = a} :: SearchFlowExecutions)
+
+-- | The ID of a flow execution.
+searchFlowExecutions_flowExecutionId :: Lens.Lens' SearchFlowExecutions (Prelude.Maybe Prelude.Text)
+searchFlowExecutions_flowExecutionId = Lens.lens (\SearchFlowExecutions' {flowExecutionId} -> flowExecutionId) (\s@SearchFlowExecutions' {} a -> s {flowExecutionId = a} :: SearchFlowExecutions)
+
+-- | The date and time of the earliest flow execution to return.
+searchFlowExecutions_startTime :: Lens.Lens' SearchFlowExecutions (Prelude.Maybe Prelude.UTCTime)
+searchFlowExecutions_startTime = Lens.lens (\SearchFlowExecutions' {startTime} -> startTime) (\s@SearchFlowExecutions' {} a -> s {startTime = a} :: SearchFlowExecutions) Prelude.. Lens.mapping Core._Time
 
 -- | The ID of the system instance that contains the flow.
 searchFlowExecutions_systemInstanceId :: Lens.Lens' SearchFlowExecutions Prelude.Text
@@ -169,20 +169,20 @@ instance Core.AWSRequest SearchFlowExecutions where
 
 instance Prelude.Hashable SearchFlowExecutions where
   hashWithSalt _salt SearchFlowExecutions' {..} =
-    _salt `Prelude.hashWithSalt` startTime
-      `Prelude.hashWithSalt` flowExecutionId
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` flowExecutionId
+      `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` systemInstanceId
 
 instance Prelude.NFData SearchFlowExecutions where
   rnf SearchFlowExecutions' {..} =
-    Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf flowExecutionId
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf flowExecutionId
+      `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf systemInstanceId
 
 instance Core.ToHeaders SearchFlowExecutions where
@@ -204,12 +204,12 @@ instance Core.ToJSON SearchFlowExecutions where
   toJSON SearchFlowExecutions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("startTime" Core..=) Prelude.<$> startTime,
-            ("flowExecutionId" Core..=)
-              Prelude.<$> flowExecutionId,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
             ("endTime" Core..=) Prelude.<$> endTime,
             ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("flowExecutionId" Core..=)
+              Prelude.<$> flowExecutionId,
+            ("startTime" Core..=) Prelude.<$> startTime,
             Prelude.Just
               ("systemInstanceId" Core..= systemInstanceId)
           ]

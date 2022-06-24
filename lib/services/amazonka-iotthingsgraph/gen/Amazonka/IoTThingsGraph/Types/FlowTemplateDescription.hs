@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFlowTemplateDescription' smart constructor.
 data FlowTemplateDescription = FlowTemplateDescription'
-  { -- | An object that contains summary information about a workflow.
+  { -- | The version of the user\'s namespace against which the workflow was
+    -- validated. Use this value in your system instance.
+    validatedNamespaceVersion :: Prelude.Maybe Prelude.Integer,
+    -- | An object that contains summary information about a workflow.
     summary :: Prelude.Maybe FlowTemplateSummary,
     -- | A workflow\'s definition document.
-    definition :: Prelude.Maybe DefinitionDocument,
-    -- | The version of the user\'s namespace against which the workflow was
-    -- validated. Use this value in your system instance.
-    validatedNamespaceVersion :: Prelude.Maybe Prelude.Integer
+    definition :: Prelude.Maybe DefinitionDocument
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,20 +48,26 @@ data FlowTemplateDescription = FlowTemplateDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'validatedNamespaceVersion', 'flowTemplateDescription_validatedNamespaceVersion' - The version of the user\'s namespace against which the workflow was
+-- validated. Use this value in your system instance.
+--
 -- 'summary', 'flowTemplateDescription_summary' - An object that contains summary information about a workflow.
 --
 -- 'definition', 'flowTemplateDescription_definition' - A workflow\'s definition document.
---
--- 'validatedNamespaceVersion', 'flowTemplateDescription_validatedNamespaceVersion' - The version of the user\'s namespace against which the workflow was
--- validated. Use this value in your system instance.
 newFlowTemplateDescription ::
   FlowTemplateDescription
 newFlowTemplateDescription =
   FlowTemplateDescription'
-    { summary = Prelude.Nothing,
-      definition = Prelude.Nothing,
-      validatedNamespaceVersion = Prelude.Nothing
+    { validatedNamespaceVersion =
+        Prelude.Nothing,
+      summary = Prelude.Nothing,
+      definition = Prelude.Nothing
     }
+
+-- | The version of the user\'s namespace against which the workflow was
+-- validated. Use this value in your system instance.
+flowTemplateDescription_validatedNamespaceVersion :: Lens.Lens' FlowTemplateDescription (Prelude.Maybe Prelude.Integer)
+flowTemplateDescription_validatedNamespaceVersion = Lens.lens (\FlowTemplateDescription' {validatedNamespaceVersion} -> validatedNamespaceVersion) (\s@FlowTemplateDescription' {} a -> s {validatedNamespaceVersion = a} :: FlowTemplateDescription)
 
 -- | An object that contains summary information about a workflow.
 flowTemplateDescription_summary :: Lens.Lens' FlowTemplateDescription (Prelude.Maybe FlowTemplateSummary)
@@ -71,30 +77,26 @@ flowTemplateDescription_summary = Lens.lens (\FlowTemplateDescription' {summary}
 flowTemplateDescription_definition :: Lens.Lens' FlowTemplateDescription (Prelude.Maybe DefinitionDocument)
 flowTemplateDescription_definition = Lens.lens (\FlowTemplateDescription' {definition} -> definition) (\s@FlowTemplateDescription' {} a -> s {definition = a} :: FlowTemplateDescription)
 
--- | The version of the user\'s namespace against which the workflow was
--- validated. Use this value in your system instance.
-flowTemplateDescription_validatedNamespaceVersion :: Lens.Lens' FlowTemplateDescription (Prelude.Maybe Prelude.Integer)
-flowTemplateDescription_validatedNamespaceVersion = Lens.lens (\FlowTemplateDescription' {validatedNamespaceVersion} -> validatedNamespaceVersion) (\s@FlowTemplateDescription' {} a -> s {validatedNamespaceVersion = a} :: FlowTemplateDescription)
-
 instance Core.FromJSON FlowTemplateDescription where
   parseJSON =
     Core.withObject
       "FlowTemplateDescription"
       ( \x ->
           FlowTemplateDescription'
-            Prelude.<$> (x Core..:? "summary")
+            Prelude.<$> (x Core..:? "validatedNamespaceVersion")
+            Prelude.<*> (x Core..:? "summary")
             Prelude.<*> (x Core..:? "definition")
-            Prelude.<*> (x Core..:? "validatedNamespaceVersion")
       )
 
 instance Prelude.Hashable FlowTemplateDescription where
   hashWithSalt _salt FlowTemplateDescription' {..} =
-    _salt `Prelude.hashWithSalt` summary
-      `Prelude.hashWithSalt` definition
+    _salt
       `Prelude.hashWithSalt` validatedNamespaceVersion
+      `Prelude.hashWithSalt` summary
+      `Prelude.hashWithSalt` definition
 
 instance Prelude.NFData FlowTemplateDescription where
   rnf FlowTemplateDescription' {..} =
-    Prelude.rnf summary
+    Prelude.rnf validatedNamespaceVersion
+      `Prelude.seq` Prelude.rnf summary
       `Prelude.seq` Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf validatedNamespaceVersion

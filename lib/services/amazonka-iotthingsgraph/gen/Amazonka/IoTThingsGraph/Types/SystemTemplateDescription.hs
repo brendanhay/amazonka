@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSystemTemplateDescription' smart constructor.
 data SystemTemplateDescription = SystemTemplateDescription'
-  { -- | An object that contains summary information about a system.
+  { -- | The namespace version against which the system was validated. Use this
+    -- value in your system instance.
+    validatedNamespaceVersion :: Prelude.Maybe Prelude.Integer,
+    -- | An object that contains summary information about a system.
     summary :: Prelude.Maybe SystemTemplateSummary,
     -- | The definition document of a system.
-    definition :: Prelude.Maybe DefinitionDocument,
-    -- | The namespace version against which the system was validated. Use this
-    -- value in your system instance.
-    validatedNamespaceVersion :: Prelude.Maybe Prelude.Integer
+    definition :: Prelude.Maybe DefinitionDocument
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,21 +48,26 @@ data SystemTemplateDescription = SystemTemplateDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'validatedNamespaceVersion', 'systemTemplateDescription_validatedNamespaceVersion' - The namespace version against which the system was validated. Use this
+-- value in your system instance.
+--
 -- 'summary', 'systemTemplateDescription_summary' - An object that contains summary information about a system.
 --
 -- 'definition', 'systemTemplateDescription_definition' - The definition document of a system.
---
--- 'validatedNamespaceVersion', 'systemTemplateDescription_validatedNamespaceVersion' - The namespace version against which the system was validated. Use this
--- value in your system instance.
 newSystemTemplateDescription ::
   SystemTemplateDescription
 newSystemTemplateDescription =
   SystemTemplateDescription'
-    { summary =
+    { validatedNamespaceVersion =
         Prelude.Nothing,
-      definition = Prelude.Nothing,
-      validatedNamespaceVersion = Prelude.Nothing
+      summary = Prelude.Nothing,
+      definition = Prelude.Nothing
     }
+
+-- | The namespace version against which the system was validated. Use this
+-- value in your system instance.
+systemTemplateDescription_validatedNamespaceVersion :: Lens.Lens' SystemTemplateDescription (Prelude.Maybe Prelude.Integer)
+systemTemplateDescription_validatedNamespaceVersion = Lens.lens (\SystemTemplateDescription' {validatedNamespaceVersion} -> validatedNamespaceVersion) (\s@SystemTemplateDescription' {} a -> s {validatedNamespaceVersion = a} :: SystemTemplateDescription)
 
 -- | An object that contains summary information about a system.
 systemTemplateDescription_summary :: Lens.Lens' SystemTemplateDescription (Prelude.Maybe SystemTemplateSummary)
@@ -72,30 +77,26 @@ systemTemplateDescription_summary = Lens.lens (\SystemTemplateDescription' {summ
 systemTemplateDescription_definition :: Lens.Lens' SystemTemplateDescription (Prelude.Maybe DefinitionDocument)
 systemTemplateDescription_definition = Lens.lens (\SystemTemplateDescription' {definition} -> definition) (\s@SystemTemplateDescription' {} a -> s {definition = a} :: SystemTemplateDescription)
 
--- | The namespace version against which the system was validated. Use this
--- value in your system instance.
-systemTemplateDescription_validatedNamespaceVersion :: Lens.Lens' SystemTemplateDescription (Prelude.Maybe Prelude.Integer)
-systemTemplateDescription_validatedNamespaceVersion = Lens.lens (\SystemTemplateDescription' {validatedNamespaceVersion} -> validatedNamespaceVersion) (\s@SystemTemplateDescription' {} a -> s {validatedNamespaceVersion = a} :: SystemTemplateDescription)
-
 instance Core.FromJSON SystemTemplateDescription where
   parseJSON =
     Core.withObject
       "SystemTemplateDescription"
       ( \x ->
           SystemTemplateDescription'
-            Prelude.<$> (x Core..:? "summary")
+            Prelude.<$> (x Core..:? "validatedNamespaceVersion")
+            Prelude.<*> (x Core..:? "summary")
             Prelude.<*> (x Core..:? "definition")
-            Prelude.<*> (x Core..:? "validatedNamespaceVersion")
       )
 
 instance Prelude.Hashable SystemTemplateDescription where
   hashWithSalt _salt SystemTemplateDescription' {..} =
-    _salt `Prelude.hashWithSalt` summary
-      `Prelude.hashWithSalt` definition
+    _salt
       `Prelude.hashWithSalt` validatedNamespaceVersion
+      `Prelude.hashWithSalt` summary
+      `Prelude.hashWithSalt` definition
 
 instance Prelude.NFData SystemTemplateDescription where
   rnf SystemTemplateDescription' {..} =
-    Prelude.rnf summary
+    Prelude.rnf validatedNamespaceVersion
+      `Prelude.seq` Prelude.rnf summary
       `Prelude.seq` Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf validatedNamespaceVersion

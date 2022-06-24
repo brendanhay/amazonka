@@ -50,9 +50,9 @@ module Amazonka.IoTThingsGraph.UploadEntityDefinitions
     newUploadEntityDefinitions,
 
     -- * Request Lenses
-    uploadEntityDefinitions_syncWithPublicNamespace,
-    uploadEntityDefinitions_deprecateExistingEntities,
     uploadEntityDefinitions_document,
+    uploadEntityDefinitions_deprecateExistingEntities,
+    uploadEntityDefinitions_syncWithPublicNamespace,
 
     -- * Destructuring the Response
     UploadEntityDefinitionsResponse (..),
@@ -73,16 +73,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUploadEntityDefinitions' smart constructor.
 data UploadEntityDefinitions = UploadEntityDefinitions'
-  { -- | A Boolean that specifies whether to synchronize with the latest version
-    -- of the public namespace. If set to @true@, the upload will create a new
-    -- namespace version.
-    syncWithPublicNamespace :: Prelude.Maybe Prelude.Bool,
+  { -- | The @DefinitionDocument@ that defines the updated entities.
+    document :: Prelude.Maybe DefinitionDocument,
     -- | A Boolean that specifies whether to deprecate all entities in the latest
     -- version before uploading the new @DefinitionDocument@. If set to @true@,
     -- the upload will create a new namespace version.
     deprecateExistingEntities :: Prelude.Maybe Prelude.Bool,
-    -- | The @DefinitionDocument@ that defines the updated entities.
-    document :: Prelude.Maybe DefinitionDocument
+    -- | A Boolean that specifies whether to synchronize with the latest version
+    -- of the public namespace. If set to @true@, the upload will create a new
+    -- namespace version.
+    syncWithPublicNamespace :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -94,30 +94,28 @@ data UploadEntityDefinitions = UploadEntityDefinitions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'syncWithPublicNamespace', 'uploadEntityDefinitions_syncWithPublicNamespace' - A Boolean that specifies whether to synchronize with the latest version
--- of the public namespace. If set to @true@, the upload will create a new
--- namespace version.
+-- 'document', 'uploadEntityDefinitions_document' - The @DefinitionDocument@ that defines the updated entities.
 --
 -- 'deprecateExistingEntities', 'uploadEntityDefinitions_deprecateExistingEntities' - A Boolean that specifies whether to deprecate all entities in the latest
 -- version before uploading the new @DefinitionDocument@. If set to @true@,
 -- the upload will create a new namespace version.
 --
--- 'document', 'uploadEntityDefinitions_document' - The @DefinitionDocument@ that defines the updated entities.
+-- 'syncWithPublicNamespace', 'uploadEntityDefinitions_syncWithPublicNamespace' - A Boolean that specifies whether to synchronize with the latest version
+-- of the public namespace. If set to @true@, the upload will create a new
+-- namespace version.
 newUploadEntityDefinitions ::
   UploadEntityDefinitions
 newUploadEntityDefinitions =
   UploadEntityDefinitions'
-    { syncWithPublicNamespace =
+    { document =
         Prelude.Nothing,
       deprecateExistingEntities = Prelude.Nothing,
-      document = Prelude.Nothing
+      syncWithPublicNamespace = Prelude.Nothing
     }
 
--- | A Boolean that specifies whether to synchronize with the latest version
--- of the public namespace. If set to @true@, the upload will create a new
--- namespace version.
-uploadEntityDefinitions_syncWithPublicNamespace :: Lens.Lens' UploadEntityDefinitions (Prelude.Maybe Prelude.Bool)
-uploadEntityDefinitions_syncWithPublicNamespace = Lens.lens (\UploadEntityDefinitions' {syncWithPublicNamespace} -> syncWithPublicNamespace) (\s@UploadEntityDefinitions' {} a -> s {syncWithPublicNamespace = a} :: UploadEntityDefinitions)
+-- | The @DefinitionDocument@ that defines the updated entities.
+uploadEntityDefinitions_document :: Lens.Lens' UploadEntityDefinitions (Prelude.Maybe DefinitionDocument)
+uploadEntityDefinitions_document = Lens.lens (\UploadEntityDefinitions' {document} -> document) (\s@UploadEntityDefinitions' {} a -> s {document = a} :: UploadEntityDefinitions)
 
 -- | A Boolean that specifies whether to deprecate all entities in the latest
 -- version before uploading the new @DefinitionDocument@. If set to @true@,
@@ -125,9 +123,11 @@ uploadEntityDefinitions_syncWithPublicNamespace = Lens.lens (\UploadEntityDefini
 uploadEntityDefinitions_deprecateExistingEntities :: Lens.Lens' UploadEntityDefinitions (Prelude.Maybe Prelude.Bool)
 uploadEntityDefinitions_deprecateExistingEntities = Lens.lens (\UploadEntityDefinitions' {deprecateExistingEntities} -> deprecateExistingEntities) (\s@UploadEntityDefinitions' {} a -> s {deprecateExistingEntities = a} :: UploadEntityDefinitions)
 
--- | The @DefinitionDocument@ that defines the updated entities.
-uploadEntityDefinitions_document :: Lens.Lens' UploadEntityDefinitions (Prelude.Maybe DefinitionDocument)
-uploadEntityDefinitions_document = Lens.lens (\UploadEntityDefinitions' {document} -> document) (\s@UploadEntityDefinitions' {} a -> s {document = a} :: UploadEntityDefinitions)
+-- | A Boolean that specifies whether to synchronize with the latest version
+-- of the public namespace. If set to @true@, the upload will create a new
+-- namespace version.
+uploadEntityDefinitions_syncWithPublicNamespace :: Lens.Lens' UploadEntityDefinitions (Prelude.Maybe Prelude.Bool)
+uploadEntityDefinitions_syncWithPublicNamespace = Lens.lens (\UploadEntityDefinitions' {syncWithPublicNamespace} -> syncWithPublicNamespace) (\s@UploadEntityDefinitions' {} a -> s {syncWithPublicNamespace = a} :: UploadEntityDefinitions)
 
 instance Core.AWSRequest UploadEntityDefinitions where
   type
@@ -144,16 +144,15 @@ instance Core.AWSRequest UploadEntityDefinitions where
 
 instance Prelude.Hashable UploadEntityDefinitions where
   hashWithSalt _salt UploadEntityDefinitions' {..} =
-    _salt
-      `Prelude.hashWithSalt` syncWithPublicNamespace
+    _salt `Prelude.hashWithSalt` document
       `Prelude.hashWithSalt` deprecateExistingEntities
-      `Prelude.hashWithSalt` document
+      `Prelude.hashWithSalt` syncWithPublicNamespace
 
 instance Prelude.NFData UploadEntityDefinitions where
   rnf UploadEntityDefinitions' {..} =
-    Prelude.rnf syncWithPublicNamespace
+    Prelude.rnf document
       `Prelude.seq` Prelude.rnf deprecateExistingEntities
-      `Prelude.seq` Prelude.rnf document
+      `Prelude.seq` Prelude.rnf syncWithPublicNamespace
 
 instance Core.ToHeaders UploadEntityDefinitions where
   toHeaders =
@@ -174,11 +173,11 @@ instance Core.ToJSON UploadEntityDefinitions where
   toJSON UploadEntityDefinitions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("syncWithPublicNamespace" Core..=)
-              Prelude.<$> syncWithPublicNamespace,
+          [ ("document" Core..=) Prelude.<$> document,
             ("deprecateExistingEntities" Core..=)
               Prelude.<$> deprecateExistingEntities,
-            ("document" Core..=) Prelude.<$> document
+            ("syncWithPublicNamespace" Core..=)
+              Prelude.<$> syncWithPublicNamespace
           ]
       )
 

@@ -17,13 +17,13 @@ module Amazonka.IoTThingsGraph.Types
     defaultService,
 
     -- * Errors
-    _InvalidRequestException,
     _ResourceAlreadyExistsException,
-    _ThrottlingException,
-    _InternalFailureException,
     _ResourceNotFoundException,
-    _LimitExceededException,
     _ResourceInUseException,
+    _LimitExceededException,
+    _ThrottlingException,
+    _InvalidRequestException,
+    _InternalFailureException,
 
     -- * DefinitionLanguage
     DefinitionLanguage (..),
@@ -79,42 +79,42 @@ module Amazonka.IoTThingsGraph.Types
     -- * EntityDescription
     EntityDescription (..),
     newEntityDescription,
+    entityDescription_type,
     entityDescription_arn,
+    entityDescription_id,
     entityDescription_createdAt,
     entityDescription_definition,
-    entityDescription_id,
-    entityDescription_type,
 
     -- * EntityFilter
     EntityFilter (..),
     newEntityFilter,
-    entityFilter_value,
     entityFilter_name,
+    entityFilter_value,
 
     -- * FlowExecutionMessage
     FlowExecutionMessage (..),
     newFlowExecutionMessage,
-    flowExecutionMessage_payload,
     flowExecutionMessage_eventType,
     flowExecutionMessage_timestamp,
     flowExecutionMessage_messageId,
+    flowExecutionMessage_payload,
 
     -- * FlowExecutionSummary
     FlowExecutionSummary (..),
     newFlowExecutionSummary,
-    flowExecutionSummary_status,
     flowExecutionSummary_flowTemplateId,
-    flowExecutionSummary_createdAt,
-    flowExecutionSummary_flowExecutionId,
     flowExecutionSummary_systemInstanceId,
+    flowExecutionSummary_status,
+    flowExecutionSummary_flowExecutionId,
+    flowExecutionSummary_createdAt,
     flowExecutionSummary_updatedAt,
 
     -- * FlowTemplateDescription
     FlowTemplateDescription (..),
     newFlowTemplateDescription,
+    flowTemplateDescription_validatedNamespaceVersion,
     flowTemplateDescription_summary,
     flowTemplateDescription_definition,
-    flowTemplateDescription_validatedNamespaceVersion,
 
     -- * FlowTemplateFilter
     FlowTemplateFilter (..),
@@ -125,10 +125,10 @@ module Amazonka.IoTThingsGraph.Types
     -- * FlowTemplateSummary
     FlowTemplateSummary (..),
     newFlowTemplateSummary,
-    flowTemplateSummary_arn,
-    flowTemplateSummary_createdAt,
     flowTemplateSummary_revisionNumber,
+    flowTemplateSummary_arn,
     flowTemplateSummary_id,
+    flowTemplateSummary_createdAt,
 
     -- * MetricsConfiguration
     MetricsConfiguration (..),
@@ -139,39 +139,39 @@ module Amazonka.IoTThingsGraph.Types
     -- * SystemInstanceDescription
     SystemInstanceDescription (..),
     newSystemInstanceDescription,
-    systemInstanceDescription_summary,
-    systemInstanceDescription_metricsConfiguration,
-    systemInstanceDescription_validatedDependencyRevisions,
-    systemInstanceDescription_definition,
     systemInstanceDescription_validatedNamespaceVersion,
-    systemInstanceDescription_flowActionsRoleArn,
     systemInstanceDescription_s3BucketName,
+    systemInstanceDescription_summary,
+    systemInstanceDescription_validatedDependencyRevisions,
+    systemInstanceDescription_metricsConfiguration,
+    systemInstanceDescription_flowActionsRoleArn,
+    systemInstanceDescription_definition,
 
     -- * SystemInstanceFilter
     SystemInstanceFilter (..),
     newSystemInstanceFilter,
-    systemInstanceFilter_value,
     systemInstanceFilter_name,
+    systemInstanceFilter_value,
 
     -- * SystemInstanceSummary
     SystemInstanceSummary (..),
     newSystemInstanceSummary,
-    systemInstanceSummary_status,
-    systemInstanceSummary_greengrassGroupName,
-    systemInstanceSummary_arn,
-    systemInstanceSummary_createdAt,
-    systemInstanceSummary_greengrassGroupId,
     systemInstanceSummary_greengrassGroupVersionId,
-    systemInstanceSummary_id,
-    systemInstanceSummary_updatedAt,
+    systemInstanceSummary_arn,
+    systemInstanceSummary_status,
     systemInstanceSummary_target,
+    systemInstanceSummary_id,
+    systemInstanceSummary_greengrassGroupId,
+    systemInstanceSummary_greengrassGroupName,
+    systemInstanceSummary_createdAt,
+    systemInstanceSummary_updatedAt,
 
     -- * SystemTemplateDescription
     SystemTemplateDescription (..),
     newSystemTemplateDescription,
+    systemTemplateDescription_validatedNamespaceVersion,
     systemTemplateDescription_summary,
     systemTemplateDescription_definition,
-    systemTemplateDescription_validatedNamespaceVersion,
 
     -- * SystemTemplateFilter
     SystemTemplateFilter (..),
@@ -182,10 +182,10 @@ module Amazonka.IoTThingsGraph.Types
     -- * SystemTemplateSummary
     SystemTemplateSummary (..),
     newSystemTemplateSummary,
-    systemTemplateSummary_arn,
-    systemTemplateSummary_createdAt,
     systemTemplateSummary_revisionNumber,
+    systemTemplateSummary_arn,
     systemTemplateSummary_id,
+    systemTemplateSummary_createdAt,
 
     -- * Tag
     Tag (..),
@@ -196,8 +196,8 @@ module Amazonka.IoTThingsGraph.Types
     -- * Thing
     Thing (..),
     newThing,
-    thing_thingArn,
     thing_thingName,
+    thing_thingArn,
   )
 where
 
@@ -264,35 +264,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -301,20 +274,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- |
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRequestException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidRequestException"
 
 -- |
 _ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -324,25 +317,18 @@ _ResourceAlreadyExistsException =
     "ResourceAlreadyExistsException"
 
 -- |
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
-  Core._MatchServiceError
-    defaultService
-    "ThrottlingException"
-
--- |
-_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalFailureException =
-  Core._MatchServiceError
-    defaultService
-    "InternalFailureException"
-
--- |
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
+
+-- |
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUseException"
 
 -- |
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -352,8 +338,22 @@ _LimitExceededException =
     "LimitExceededException"
 
 -- |
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
   Core._MatchServiceError
     defaultService
-    "ResourceInUseException"
+    "ThrottlingException"
+
+-- |
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRequestException"
+
+-- |
+_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalFailureException =
+  Core._MatchServiceError
+    defaultService
+    "InternalFailureException"

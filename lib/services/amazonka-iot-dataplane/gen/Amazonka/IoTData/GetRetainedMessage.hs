@@ -48,8 +48,8 @@ module Amazonka.IoTData.GetRetainedMessage
     -- * Response Lenses
     getRetainedMessageResponse_lastModifiedTime,
     getRetainedMessageResponse_payload,
-    getRetainedMessageResponse_topic,
     getRetainedMessageResponse_qos,
+    getRetainedMessageResponse_topic,
     getRetainedMessageResponse_httpStatus,
   )
 where
@@ -101,8 +101,8 @@ instance Core.AWSRequest GetRetainedMessage where
           GetRetainedMessageResponse'
             Prelude.<$> (x Core..?> "lastModifiedTime")
             Prelude.<*> (x Core..?> "payload")
-            Prelude.<*> (x Core..?> "topic")
             Prelude.<*> (x Core..?> "qos")
+            Prelude.<*> (x Core..?> "topic")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,10 +133,10 @@ data GetRetainedMessageResponse = GetRetainedMessageResponse'
     lastModifiedTime :: Prelude.Maybe Prelude.Integer,
     -- | The Base64-encoded message payload of the retained message body.
     payload :: Prelude.Maybe Core.Base64,
-    -- | The topic name to which the retained message was published.
-    topic :: Prelude.Maybe Prelude.Text,
     -- | The quality of service (QoS) level used to publish the retained message.
     qos :: Prelude.Maybe Prelude.Natural,
+    -- | The topic name to which the retained message was published.
+    topic :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -159,9 +159,9 @@ data GetRetainedMessageResponse = GetRetainedMessageResponse'
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
--- 'topic', 'getRetainedMessageResponse_topic' - The topic name to which the retained message was published.
---
 -- 'qos', 'getRetainedMessageResponse_qos' - The quality of service (QoS) level used to publish the retained message.
+--
+-- 'topic', 'getRetainedMessageResponse_topic' - The topic name to which the retained message was published.
 --
 -- 'httpStatus', 'getRetainedMessageResponse_httpStatus' - The response's http status code.
 newGetRetainedMessageResponse ::
@@ -173,8 +173,8 @@ newGetRetainedMessageResponse pHttpStatus_ =
     { lastModifiedTime =
         Prelude.Nothing,
       payload = Prelude.Nothing,
-      topic = Prelude.Nothing,
       qos = Prelude.Nothing,
+      topic = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -191,13 +191,13 @@ getRetainedMessageResponse_lastModifiedTime = Lens.lens (\GetRetainedMessageResp
 getRetainedMessageResponse_payload :: Lens.Lens' GetRetainedMessageResponse (Prelude.Maybe Prelude.ByteString)
 getRetainedMessageResponse_payload = Lens.lens (\GetRetainedMessageResponse' {payload} -> payload) (\s@GetRetainedMessageResponse' {} a -> s {payload = a} :: GetRetainedMessageResponse) Prelude.. Lens.mapping Core._Base64
 
--- | The topic name to which the retained message was published.
-getRetainedMessageResponse_topic :: Lens.Lens' GetRetainedMessageResponse (Prelude.Maybe Prelude.Text)
-getRetainedMessageResponse_topic = Lens.lens (\GetRetainedMessageResponse' {topic} -> topic) (\s@GetRetainedMessageResponse' {} a -> s {topic = a} :: GetRetainedMessageResponse)
-
 -- | The quality of service (QoS) level used to publish the retained message.
 getRetainedMessageResponse_qos :: Lens.Lens' GetRetainedMessageResponse (Prelude.Maybe Prelude.Natural)
 getRetainedMessageResponse_qos = Lens.lens (\GetRetainedMessageResponse' {qos} -> qos) (\s@GetRetainedMessageResponse' {} a -> s {qos = a} :: GetRetainedMessageResponse)
+
+-- | The topic name to which the retained message was published.
+getRetainedMessageResponse_topic :: Lens.Lens' GetRetainedMessageResponse (Prelude.Maybe Prelude.Text)
+getRetainedMessageResponse_topic = Lens.lens (\GetRetainedMessageResponse' {topic} -> topic) (\s@GetRetainedMessageResponse' {} a -> s {topic = a} :: GetRetainedMessageResponse)
 
 -- | The response's http status code.
 getRetainedMessageResponse_httpStatus :: Lens.Lens' GetRetainedMessageResponse Prelude.Int
@@ -207,6 +207,6 @@ instance Prelude.NFData GetRetainedMessageResponse where
   rnf GetRetainedMessageResponse' {..} =
     Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf payload
-      `Prelude.seq` Prelude.rnf topic
       `Prelude.seq` Prelude.rnf qos
+      `Prelude.seq` Prelude.rnf topic
       `Prelude.seq` Prelude.rnf httpStatus

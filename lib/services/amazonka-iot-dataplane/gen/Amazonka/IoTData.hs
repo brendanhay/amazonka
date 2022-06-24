@@ -36,29 +36,11 @@ module Amazonka.IoTData
     -- * Errors
     -- $errors
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** RequestEntityTooLargeException
-    _RequestEntityTooLargeException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
-
-    -- ** MethodNotAllowedException
-    _MethodNotAllowedException,
-
-    -- ** InternalFailureException
-    _InternalFailureException,
+    -- ** UnauthorizedException
+    _UnauthorizedException,
 
     -- ** ServiceUnavailableException
     _ServiceUnavailableException,
-
-    -- ** UnauthorizedException
-    _UnauthorizedException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
@@ -66,11 +48,41 @@ module Amazonka.IoTData
     -- ** UnsupportedDocumentEncodingException
     _UnsupportedDocumentEncodingException,
 
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** MethodNotAllowedException
+    _MethodNotAllowedException,
+
+    -- ** RequestEntityTooLargeException
+    _RequestEntityTooLargeException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** InternalFailureException
+    _InternalFailureException,
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
+
+    -- ** DeleteThingShadow
+    DeleteThingShadow (DeleteThingShadow'),
+    newDeleteThingShadow,
+    DeleteThingShadowResponse (DeleteThingShadowResponse'),
+    newDeleteThingShadowResponse,
+
+    -- ** GetRetainedMessage
+    GetRetainedMessage (GetRetainedMessage'),
+    newGetRetainedMessage,
+    GetRetainedMessageResponse (GetRetainedMessageResponse'),
+    newGetRetainedMessageResponse,
 
     -- ** GetThingShadow
     GetThingShadow (GetThingShadow'),
@@ -84,35 +96,23 @@ module Amazonka.IoTData
     ListNamedShadowsForThingResponse (ListNamedShadowsForThingResponse'),
     newListNamedShadowsForThingResponse,
 
-    -- ** DeleteThingShadow
-    DeleteThingShadow (DeleteThingShadow'),
-    newDeleteThingShadow,
-    DeleteThingShadowResponse (DeleteThingShadowResponse'),
-    newDeleteThingShadowResponse,
-
-    -- ** UpdateThingShadow
-    UpdateThingShadow (UpdateThingShadow'),
-    newUpdateThingShadow,
-    UpdateThingShadowResponse (UpdateThingShadowResponse'),
-    newUpdateThingShadowResponse,
-
     -- ** ListRetainedMessages (Paginated)
     ListRetainedMessages (ListRetainedMessages'),
     newListRetainedMessages,
     ListRetainedMessagesResponse (ListRetainedMessagesResponse'),
     newListRetainedMessagesResponse,
 
-    -- ** GetRetainedMessage
-    GetRetainedMessage (GetRetainedMessage'),
-    newGetRetainedMessage,
-    GetRetainedMessageResponse (GetRetainedMessageResponse'),
-    newGetRetainedMessageResponse,
-
     -- ** Publish
     Publish (Publish'),
     newPublish,
     PublishResponse (PublishResponse'),
     newPublishResponse,
+
+    -- ** UpdateThingShadow
+    UpdateThingShadow (UpdateThingShadow'),
+    newUpdateThingShadow,
+    UpdateThingShadowResponse (UpdateThingShadowResponse'),
+    newUpdateThingShadowResponse,
 
     -- * Types
 

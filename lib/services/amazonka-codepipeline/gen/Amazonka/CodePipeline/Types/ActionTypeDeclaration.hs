@@ -34,15 +34,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newActionTypeDeclaration' smart constructor.
 data ActionTypeDeclaration = ActionTypeDeclaration'
-  { -- | The links associated with the action type to be updated.
-    urls :: Prelude.Maybe ActionTypeUrls,
+  { -- | The properties of the action type to be updated.
+    properties :: Prelude.Maybe [ActionTypeProperty],
     -- | Details identifying the accounts with permissions to use the action
     -- type.
     permissions :: Prelude.Maybe ActionTypePermissions,
     -- | The description for the action type to be updated.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The properties of the action type to be updated.
-    properties :: Prelude.Maybe [ActionTypeProperty],
+    -- | The links associated with the action type to be updated.
+    urls :: Prelude.Maybe ActionTypeUrls,
     -- | Information about the executor for an action type that was created with
     -- any supported integration model.
     executor :: ActionTypeExecutor,
@@ -68,14 +68,14 @@ data ActionTypeDeclaration = ActionTypeDeclaration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'urls', 'actionTypeDeclaration_urls' - The links associated with the action type to be updated.
+-- 'properties', 'actionTypeDeclaration_properties' - The properties of the action type to be updated.
 --
 -- 'permissions', 'actionTypeDeclaration_permissions' - Details identifying the accounts with permissions to use the action
 -- type.
 --
 -- 'description', 'actionTypeDeclaration_description' - The description for the action type to be updated.
 --
--- 'properties', 'actionTypeDeclaration_properties' - The properties of the action type to be updated.
+-- 'urls', 'actionTypeDeclaration_urls' - The links associated with the action type to be updated.
 --
 -- 'executor', 'actionTypeDeclaration_executor' - Information about the executor for an action type that was created with
 -- any supported integration model.
@@ -106,19 +106,20 @@ newActionTypeDeclaration
   pInputArtifactDetails_
   pOutputArtifactDetails_ =
     ActionTypeDeclaration'
-      { urls = Prelude.Nothing,
+      { properties =
+          Prelude.Nothing,
         permissions = Prelude.Nothing,
         description = Prelude.Nothing,
-        properties = Prelude.Nothing,
+        urls = Prelude.Nothing,
         executor = pExecutor_,
         id = pId_,
         inputArtifactDetails = pInputArtifactDetails_,
         outputArtifactDetails = pOutputArtifactDetails_
       }
 
--- | The links associated with the action type to be updated.
-actionTypeDeclaration_urls :: Lens.Lens' ActionTypeDeclaration (Prelude.Maybe ActionTypeUrls)
-actionTypeDeclaration_urls = Lens.lens (\ActionTypeDeclaration' {urls} -> urls) (\s@ActionTypeDeclaration' {} a -> s {urls = a} :: ActionTypeDeclaration)
+-- | The properties of the action type to be updated.
+actionTypeDeclaration_properties :: Lens.Lens' ActionTypeDeclaration (Prelude.Maybe [ActionTypeProperty])
+actionTypeDeclaration_properties = Lens.lens (\ActionTypeDeclaration' {properties} -> properties) (\s@ActionTypeDeclaration' {} a -> s {properties = a} :: ActionTypeDeclaration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Details identifying the accounts with permissions to use the action
 -- type.
@@ -129,9 +130,9 @@ actionTypeDeclaration_permissions = Lens.lens (\ActionTypeDeclaration' {permissi
 actionTypeDeclaration_description :: Lens.Lens' ActionTypeDeclaration (Prelude.Maybe Prelude.Text)
 actionTypeDeclaration_description = Lens.lens (\ActionTypeDeclaration' {description} -> description) (\s@ActionTypeDeclaration' {} a -> s {description = a} :: ActionTypeDeclaration)
 
--- | The properties of the action type to be updated.
-actionTypeDeclaration_properties :: Lens.Lens' ActionTypeDeclaration (Prelude.Maybe [ActionTypeProperty])
-actionTypeDeclaration_properties = Lens.lens (\ActionTypeDeclaration' {properties} -> properties) (\s@ActionTypeDeclaration' {} a -> s {properties = a} :: ActionTypeDeclaration) Prelude.. Lens.mapping Lens.coerced
+-- | The links associated with the action type to be updated.
+actionTypeDeclaration_urls :: Lens.Lens' ActionTypeDeclaration (Prelude.Maybe ActionTypeUrls)
+actionTypeDeclaration_urls = Lens.lens (\ActionTypeDeclaration' {urls} -> urls) (\s@ActionTypeDeclaration' {} a -> s {urls = a} :: ActionTypeDeclaration)
 
 -- | Information about the executor for an action type that was created with
 -- any supported integration model.
@@ -161,10 +162,10 @@ instance Core.FromJSON ActionTypeDeclaration where
       "ActionTypeDeclaration"
       ( \x ->
           ActionTypeDeclaration'
-            Prelude.<$> (x Core..:? "urls")
+            Prelude.<$> (x Core..:? "properties" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "permissions")
             Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "properties" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "urls")
             Prelude.<*> (x Core..: "executor")
             Prelude.<*> (x Core..: "id")
             Prelude.<*> (x Core..: "inputArtifactDetails")
@@ -173,10 +174,10 @@ instance Core.FromJSON ActionTypeDeclaration where
 
 instance Prelude.Hashable ActionTypeDeclaration where
   hashWithSalt _salt ActionTypeDeclaration' {..} =
-    _salt `Prelude.hashWithSalt` urls
+    _salt `Prelude.hashWithSalt` properties
       `Prelude.hashWithSalt` permissions
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` properties
+      `Prelude.hashWithSalt` urls
       `Prelude.hashWithSalt` executor
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` inputArtifactDetails
@@ -184,10 +185,10 @@ instance Prelude.Hashable ActionTypeDeclaration where
 
 instance Prelude.NFData ActionTypeDeclaration where
   rnf ActionTypeDeclaration' {..} =
-    Prelude.rnf urls
+    Prelude.rnf properties
       `Prelude.seq` Prelude.rnf permissions
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf properties
+      `Prelude.seq` Prelude.rnf urls
       `Prelude.seq` Prelude.rnf executor
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf inputArtifactDetails
@@ -197,10 +198,10 @@ instance Core.ToJSON ActionTypeDeclaration where
   toJSON ActionTypeDeclaration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("urls" Core..=) Prelude.<$> urls,
+          [ ("properties" Core..=) Prelude.<$> properties,
             ("permissions" Core..=) Prelude.<$> permissions,
             ("description" Core..=) Prelude.<$> description,
-            ("properties" Core..=) Prelude.<$> properties,
+            ("urls" Core..=) Prelude.<$> urls,
             Prelude.Just ("executor" Core..= executor),
             Prelude.Just ("id" Core..= id),
             Prelude.Just

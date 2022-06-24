@@ -31,7 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPipelineExecutionSummary' smart constructor.
 data PipelineExecutionSummary = PipelineExecutionSummary'
-  { -- | The status of the pipeline execution.
+  { -- | The interaction or event that started a pipeline execution, such as
+    -- automated change detection or a @StartPipelineExecution@ API call.
+    trigger :: Prelude.Maybe ExecutionTrigger,
+    -- | The ID of the pipeline execution.
+    pipelineExecutionId :: Prelude.Maybe Prelude.Text,
+    -- | The status of the pipeline execution.
     --
     -- -   InProgress: The pipeline execution is currently running.
     --
@@ -54,22 +59,17 @@ data PipelineExecutionSummary = PipelineExecutionSummary'
     --
     -- -   Failed: The pipeline execution was not completed successfully.
     status :: Prelude.Maybe PipelineExecutionStatus,
-    -- | The date and time when the pipeline execution began, in timestamp
-    -- format.
-    startTime :: Prelude.Maybe Core.POSIX,
-    -- | The interaction that stopped a pipeline execution.
-    stopTrigger :: Prelude.Maybe StopExecutionTrigger,
-    -- | The ID of the pipeline execution.
-    pipelineExecutionId :: Prelude.Maybe Prelude.Text,
     -- | A list of the source artifact revisions that initiated a pipeline
     -- execution.
     sourceRevisions :: Prelude.Maybe [SourceRevision],
-    -- | The interaction or event that started a pipeline execution, such as
-    -- automated change detection or a @StartPipelineExecution@ API call.
-    trigger :: Prelude.Maybe ExecutionTrigger,
+    -- | The interaction that stopped a pipeline execution.
+    stopTrigger :: Prelude.Maybe StopExecutionTrigger,
     -- | The date and time of the last change to the pipeline execution, in
     -- timestamp format.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX
+    lastUpdateTime :: Prelude.Maybe Core.POSIX,
+    -- | The date and time when the pipeline execution began, in timestamp
+    -- format.
+    startTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,6 +80,11 @@ data PipelineExecutionSummary = PipelineExecutionSummary'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'trigger', 'pipelineExecutionSummary_trigger' - The interaction or event that started a pipeline execution, such as
+-- automated change detection or a @StartPipelineExecution@ API call.
+--
+-- 'pipelineExecutionId', 'pipelineExecutionSummary_pipelineExecutionId' - The ID of the pipeline execution.
 --
 -- 'status', 'pipelineExecutionSummary_status' - The status of the pipeline execution.
 --
@@ -104,33 +109,38 @@ data PipelineExecutionSummary = PipelineExecutionSummary'
 --
 -- -   Failed: The pipeline execution was not completed successfully.
 --
--- 'startTime', 'pipelineExecutionSummary_startTime' - The date and time when the pipeline execution began, in timestamp
--- format.
---
--- 'stopTrigger', 'pipelineExecutionSummary_stopTrigger' - The interaction that stopped a pipeline execution.
---
--- 'pipelineExecutionId', 'pipelineExecutionSummary_pipelineExecutionId' - The ID of the pipeline execution.
---
 -- 'sourceRevisions', 'pipelineExecutionSummary_sourceRevisions' - A list of the source artifact revisions that initiated a pipeline
 -- execution.
 --
--- 'trigger', 'pipelineExecutionSummary_trigger' - The interaction or event that started a pipeline execution, such as
--- automated change detection or a @StartPipelineExecution@ API call.
+-- 'stopTrigger', 'pipelineExecutionSummary_stopTrigger' - The interaction that stopped a pipeline execution.
 --
 -- 'lastUpdateTime', 'pipelineExecutionSummary_lastUpdateTime' - The date and time of the last change to the pipeline execution, in
 -- timestamp format.
+--
+-- 'startTime', 'pipelineExecutionSummary_startTime' - The date and time when the pipeline execution began, in timestamp
+-- format.
 newPipelineExecutionSummary ::
   PipelineExecutionSummary
 newPipelineExecutionSummary =
   PipelineExecutionSummary'
-    { status = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      stopTrigger = Prelude.Nothing,
+    { trigger =
+        Prelude.Nothing,
       pipelineExecutionId = Prelude.Nothing,
+      status = Prelude.Nothing,
       sourceRevisions = Prelude.Nothing,
-      trigger = Prelude.Nothing,
-      lastUpdateTime = Prelude.Nothing
+      stopTrigger = Prelude.Nothing,
+      lastUpdateTime = Prelude.Nothing,
+      startTime = Prelude.Nothing
     }
+
+-- | The interaction or event that started a pipeline execution, such as
+-- automated change detection or a @StartPipelineExecution@ API call.
+pipelineExecutionSummary_trigger :: Lens.Lens' PipelineExecutionSummary (Prelude.Maybe ExecutionTrigger)
+pipelineExecutionSummary_trigger = Lens.lens (\PipelineExecutionSummary' {trigger} -> trigger) (\s@PipelineExecutionSummary' {} a -> s {trigger = a} :: PipelineExecutionSummary)
+
+-- | The ID of the pipeline execution.
+pipelineExecutionSummary_pipelineExecutionId :: Lens.Lens' PipelineExecutionSummary (Prelude.Maybe Prelude.Text)
+pipelineExecutionSummary_pipelineExecutionId = Lens.lens (\PipelineExecutionSummary' {pipelineExecutionId} -> pipelineExecutionId) (\s@PipelineExecutionSummary' {} a -> s {pipelineExecutionId = a} :: PipelineExecutionSummary)
 
 -- | The status of the pipeline execution.
 --
@@ -157,33 +167,24 @@ newPipelineExecutionSummary =
 pipelineExecutionSummary_status :: Lens.Lens' PipelineExecutionSummary (Prelude.Maybe PipelineExecutionStatus)
 pipelineExecutionSummary_status = Lens.lens (\PipelineExecutionSummary' {status} -> status) (\s@PipelineExecutionSummary' {} a -> s {status = a} :: PipelineExecutionSummary)
 
--- | The date and time when the pipeline execution began, in timestamp
--- format.
-pipelineExecutionSummary_startTime :: Lens.Lens' PipelineExecutionSummary (Prelude.Maybe Prelude.UTCTime)
-pipelineExecutionSummary_startTime = Lens.lens (\PipelineExecutionSummary' {startTime} -> startTime) (\s@PipelineExecutionSummary' {} a -> s {startTime = a} :: PipelineExecutionSummary) Prelude.. Lens.mapping Core._Time
-
--- | The interaction that stopped a pipeline execution.
-pipelineExecutionSummary_stopTrigger :: Lens.Lens' PipelineExecutionSummary (Prelude.Maybe StopExecutionTrigger)
-pipelineExecutionSummary_stopTrigger = Lens.lens (\PipelineExecutionSummary' {stopTrigger} -> stopTrigger) (\s@PipelineExecutionSummary' {} a -> s {stopTrigger = a} :: PipelineExecutionSummary)
-
--- | The ID of the pipeline execution.
-pipelineExecutionSummary_pipelineExecutionId :: Lens.Lens' PipelineExecutionSummary (Prelude.Maybe Prelude.Text)
-pipelineExecutionSummary_pipelineExecutionId = Lens.lens (\PipelineExecutionSummary' {pipelineExecutionId} -> pipelineExecutionId) (\s@PipelineExecutionSummary' {} a -> s {pipelineExecutionId = a} :: PipelineExecutionSummary)
-
 -- | A list of the source artifact revisions that initiated a pipeline
 -- execution.
 pipelineExecutionSummary_sourceRevisions :: Lens.Lens' PipelineExecutionSummary (Prelude.Maybe [SourceRevision])
 pipelineExecutionSummary_sourceRevisions = Lens.lens (\PipelineExecutionSummary' {sourceRevisions} -> sourceRevisions) (\s@PipelineExecutionSummary' {} a -> s {sourceRevisions = a} :: PipelineExecutionSummary) Prelude.. Lens.mapping Lens.coerced
 
--- | The interaction or event that started a pipeline execution, such as
--- automated change detection or a @StartPipelineExecution@ API call.
-pipelineExecutionSummary_trigger :: Lens.Lens' PipelineExecutionSummary (Prelude.Maybe ExecutionTrigger)
-pipelineExecutionSummary_trigger = Lens.lens (\PipelineExecutionSummary' {trigger} -> trigger) (\s@PipelineExecutionSummary' {} a -> s {trigger = a} :: PipelineExecutionSummary)
+-- | The interaction that stopped a pipeline execution.
+pipelineExecutionSummary_stopTrigger :: Lens.Lens' PipelineExecutionSummary (Prelude.Maybe StopExecutionTrigger)
+pipelineExecutionSummary_stopTrigger = Lens.lens (\PipelineExecutionSummary' {stopTrigger} -> stopTrigger) (\s@PipelineExecutionSummary' {} a -> s {stopTrigger = a} :: PipelineExecutionSummary)
 
 -- | The date and time of the last change to the pipeline execution, in
 -- timestamp format.
 pipelineExecutionSummary_lastUpdateTime :: Lens.Lens' PipelineExecutionSummary (Prelude.Maybe Prelude.UTCTime)
 pipelineExecutionSummary_lastUpdateTime = Lens.lens (\PipelineExecutionSummary' {lastUpdateTime} -> lastUpdateTime) (\s@PipelineExecutionSummary' {} a -> s {lastUpdateTime = a} :: PipelineExecutionSummary) Prelude.. Lens.mapping Core._Time
+
+-- | The date and time when the pipeline execution began, in timestamp
+-- format.
+pipelineExecutionSummary_startTime :: Lens.Lens' PipelineExecutionSummary (Prelude.Maybe Prelude.UTCTime)
+pipelineExecutionSummary_startTime = Lens.lens (\PipelineExecutionSummary' {startTime} -> startTime) (\s@PipelineExecutionSummary' {} a -> s {startTime = a} :: PipelineExecutionSummary) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON PipelineExecutionSummary where
   parseJSON =
@@ -191,33 +192,33 @@ instance Core.FromJSON PipelineExecutionSummary where
       "PipelineExecutionSummary"
       ( \x ->
           PipelineExecutionSummary'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "startTime")
-            Prelude.<*> (x Core..:? "stopTrigger")
+            Prelude.<$> (x Core..:? "trigger")
             Prelude.<*> (x Core..:? "pipelineExecutionId")
+            Prelude.<*> (x Core..:? "status")
             Prelude.<*> ( x Core..:? "sourceRevisions"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "trigger")
+            Prelude.<*> (x Core..:? "stopTrigger")
             Prelude.<*> (x Core..:? "lastUpdateTime")
+            Prelude.<*> (x Core..:? "startTime")
       )
 
 instance Prelude.Hashable PipelineExecutionSummary where
   hashWithSalt _salt PipelineExecutionSummary' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` startTime
-      `Prelude.hashWithSalt` stopTrigger
+    _salt `Prelude.hashWithSalt` trigger
       `Prelude.hashWithSalt` pipelineExecutionId
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` sourceRevisions
-      `Prelude.hashWithSalt` trigger
+      `Prelude.hashWithSalt` stopTrigger
       `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData PipelineExecutionSummary where
   rnf PipelineExecutionSummary' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf stopTrigger
+    Prelude.rnf trigger
       `Prelude.seq` Prelude.rnf pipelineExecutionId
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf sourceRevisions
-      `Prelude.seq` Prelude.rnf trigger
+      `Prelude.seq` Prelude.rnf stopTrigger
       `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf startTime

@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStageState' smart constructor.
 data StageState = StageState'
-  { inboundExecution :: Prelude.Maybe StageExecution,
+  { -- | The name of the stage.
+    stageName :: Prelude.Maybe Prelude.Text,
+    inboundExecution :: Prelude.Maybe StageExecution,
+    -- | The state of the stage.
+    actionStates :: Prelude.Maybe [ActionState],
     -- | The state of the inbound transition, which is either enabled or
     -- disabled.
     inboundTransitionState :: Prelude.Maybe TransitionState,
-    -- | The state of the stage.
-    actionStates :: Prelude.Maybe [ActionState],
-    -- | The name of the stage.
-    stageName :: Prelude.Maybe Prelude.Text,
     -- | Information about the latest execution in the stage, including its ID
     -- and status.
     latestExecution :: Prelude.Maybe StageExecution
@@ -52,14 +52,14 @@ data StageState = StageState'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inboundExecution', 'stageState_inboundExecution' - Undocumented member.
+-- 'stageName', 'stageState_stageName' - The name of the stage.
 --
--- 'inboundTransitionState', 'stageState_inboundTransitionState' - The state of the inbound transition, which is either enabled or
--- disabled.
+-- 'inboundExecution', 'stageState_inboundExecution' - Undocumented member.
 --
 -- 'actionStates', 'stageState_actionStates' - The state of the stage.
 --
--- 'stageName', 'stageState_stageName' - The name of the stage.
+-- 'inboundTransitionState', 'stageState_inboundTransitionState' - The state of the inbound transition, which is either enabled or
+-- disabled.
 --
 -- 'latestExecution', 'stageState_latestExecution' - Information about the latest execution in the stage, including its ID
 -- and status.
@@ -67,29 +67,29 @@ newStageState ::
   StageState
 newStageState =
   StageState'
-    { inboundExecution = Prelude.Nothing,
-      inboundTransitionState = Prelude.Nothing,
+    { stageName = Prelude.Nothing,
+      inboundExecution = Prelude.Nothing,
       actionStates = Prelude.Nothing,
-      stageName = Prelude.Nothing,
+      inboundTransitionState = Prelude.Nothing,
       latestExecution = Prelude.Nothing
     }
+
+-- | The name of the stage.
+stageState_stageName :: Lens.Lens' StageState (Prelude.Maybe Prelude.Text)
+stageState_stageName = Lens.lens (\StageState' {stageName} -> stageName) (\s@StageState' {} a -> s {stageName = a} :: StageState)
 
 -- | Undocumented member.
 stageState_inboundExecution :: Lens.Lens' StageState (Prelude.Maybe StageExecution)
 stageState_inboundExecution = Lens.lens (\StageState' {inboundExecution} -> inboundExecution) (\s@StageState' {} a -> s {inboundExecution = a} :: StageState)
 
--- | The state of the inbound transition, which is either enabled or
--- disabled.
-stageState_inboundTransitionState :: Lens.Lens' StageState (Prelude.Maybe TransitionState)
-stageState_inboundTransitionState = Lens.lens (\StageState' {inboundTransitionState} -> inboundTransitionState) (\s@StageState' {} a -> s {inboundTransitionState = a} :: StageState)
-
 -- | The state of the stage.
 stageState_actionStates :: Lens.Lens' StageState (Prelude.Maybe [ActionState])
 stageState_actionStates = Lens.lens (\StageState' {actionStates} -> actionStates) (\s@StageState' {} a -> s {actionStates = a} :: StageState) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the stage.
-stageState_stageName :: Lens.Lens' StageState (Prelude.Maybe Prelude.Text)
-stageState_stageName = Lens.lens (\StageState' {stageName} -> stageName) (\s@StageState' {} a -> s {stageName = a} :: StageState)
+-- | The state of the inbound transition, which is either enabled or
+-- disabled.
+stageState_inboundTransitionState :: Lens.Lens' StageState (Prelude.Maybe TransitionState)
+stageState_inboundTransitionState = Lens.lens (\StageState' {inboundTransitionState} -> inboundTransitionState) (\s@StageState' {} a -> s {inboundTransitionState = a} :: StageState)
 
 -- | Information about the latest execution in the stage, including its ID
 -- and status.
@@ -102,25 +102,25 @@ instance Core.FromJSON StageState where
       "StageState"
       ( \x ->
           StageState'
-            Prelude.<$> (x Core..:? "inboundExecution")
-            Prelude.<*> (x Core..:? "inboundTransitionState")
+            Prelude.<$> (x Core..:? "stageName")
+            Prelude.<*> (x Core..:? "inboundExecution")
             Prelude.<*> (x Core..:? "actionStates" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "stageName")
+            Prelude.<*> (x Core..:? "inboundTransitionState")
             Prelude.<*> (x Core..:? "latestExecution")
       )
 
 instance Prelude.Hashable StageState where
   hashWithSalt _salt StageState' {..} =
-    _salt `Prelude.hashWithSalt` inboundExecution
-      `Prelude.hashWithSalt` inboundTransitionState
+    _salt `Prelude.hashWithSalt` stageName
+      `Prelude.hashWithSalt` inboundExecution
       `Prelude.hashWithSalt` actionStates
-      `Prelude.hashWithSalt` stageName
+      `Prelude.hashWithSalt` inboundTransitionState
       `Prelude.hashWithSalt` latestExecution
 
 instance Prelude.NFData StageState where
   rnf StageState' {..} =
-    Prelude.rnf inboundExecution
-      `Prelude.seq` Prelude.rnf inboundTransitionState
+    Prelude.rnf stageName
+      `Prelude.seq` Prelude.rnf inboundExecution
       `Prelude.seq` Prelude.rnf actionStates
-      `Prelude.seq` Prelude.rnf stageName
+      `Prelude.seq` Prelude.rnf inboundTransitionState
       `Prelude.seq` Prelude.rnf latestExecution

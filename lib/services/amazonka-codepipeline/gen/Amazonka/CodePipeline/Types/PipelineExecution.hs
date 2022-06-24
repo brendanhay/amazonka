@@ -29,7 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPipelineExecution' smart constructor.
 data PipelineExecution = PipelineExecution'
-  { -- | The status of the pipeline execution.
+  { -- | The ID of the pipeline execution.
+    pipelineExecutionId :: Prelude.Maybe Prelude.Text,
+    -- | A list of @ArtifactRevision@ objects included in a pipeline execution.
+    artifactRevisions :: Prelude.Maybe [ArtifactRevision],
+    -- | The status of the pipeline execution.
     --
     -- -   Cancelled: The pipeline’s definition was updated before the pipeline
     --     execution could be completed.
@@ -55,17 +59,13 @@ data PipelineExecution = PipelineExecution'
     --
     -- -   Failed: The pipeline execution was not completed successfully.
     status :: Prelude.Maybe PipelineExecutionStatus,
-    -- | The name of the pipeline with the specified pipeline execution.
-    pipelineName :: Prelude.Maybe Prelude.Text,
-    -- | A summary that contains a description of the pipeline execution status.
-    statusSummary :: Prelude.Maybe Prelude.Text,
     -- | The version number of the pipeline with the specified pipeline
     -- execution.
     pipelineVersion :: Prelude.Maybe Prelude.Natural,
-    -- | The ID of the pipeline execution.
-    pipelineExecutionId :: Prelude.Maybe Prelude.Text,
-    -- | A list of @ArtifactRevision@ objects included in a pipeline execution.
-    artifactRevisions :: Prelude.Maybe [ArtifactRevision]
+    -- | A summary that contains a description of the pipeline execution status.
+    statusSummary :: Prelude.Maybe Prelude.Text,
+    -- | The name of the pipeline with the specified pipeline execution.
+    pipelineName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,6 +76,10 @@ data PipelineExecution = PipelineExecution'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'pipelineExecutionId', 'pipelineExecution_pipelineExecutionId' - The ID of the pipeline execution.
+--
+-- 'artifactRevisions', 'pipelineExecution_artifactRevisions' - A list of @ArtifactRevision@ objects included in a pipeline execution.
 --
 -- 'status', 'pipelineExecution_status' - The status of the pipeline execution.
 --
@@ -103,27 +107,32 @@ data PipelineExecution = PipelineExecution'
 --
 -- -   Failed: The pipeline execution was not completed successfully.
 --
--- 'pipelineName', 'pipelineExecution_pipelineName' - The name of the pipeline with the specified pipeline execution.
---
--- 'statusSummary', 'pipelineExecution_statusSummary' - A summary that contains a description of the pipeline execution status.
---
 -- 'pipelineVersion', 'pipelineExecution_pipelineVersion' - The version number of the pipeline with the specified pipeline
 -- execution.
 --
--- 'pipelineExecutionId', 'pipelineExecution_pipelineExecutionId' - The ID of the pipeline execution.
+-- 'statusSummary', 'pipelineExecution_statusSummary' - A summary that contains a description of the pipeline execution status.
 --
--- 'artifactRevisions', 'pipelineExecution_artifactRevisions' - A list of @ArtifactRevision@ objects included in a pipeline execution.
+-- 'pipelineName', 'pipelineExecution_pipelineName' - The name of the pipeline with the specified pipeline execution.
 newPipelineExecution ::
   PipelineExecution
 newPipelineExecution =
   PipelineExecution'
-    { status = Prelude.Nothing,
-      pipelineName = Prelude.Nothing,
-      statusSummary = Prelude.Nothing,
+    { pipelineExecutionId =
+        Prelude.Nothing,
+      artifactRevisions = Prelude.Nothing,
+      status = Prelude.Nothing,
       pipelineVersion = Prelude.Nothing,
-      pipelineExecutionId = Prelude.Nothing,
-      artifactRevisions = Prelude.Nothing
+      statusSummary = Prelude.Nothing,
+      pipelineName = Prelude.Nothing
     }
+
+-- | The ID of the pipeline execution.
+pipelineExecution_pipelineExecutionId :: Lens.Lens' PipelineExecution (Prelude.Maybe Prelude.Text)
+pipelineExecution_pipelineExecutionId = Lens.lens (\PipelineExecution' {pipelineExecutionId} -> pipelineExecutionId) (\s@PipelineExecution' {} a -> s {pipelineExecutionId = a} :: PipelineExecution)
+
+-- | A list of @ArtifactRevision@ objects included in a pipeline execution.
+pipelineExecution_artifactRevisions :: Lens.Lens' PipelineExecution (Prelude.Maybe [ArtifactRevision])
+pipelineExecution_artifactRevisions = Lens.lens (\PipelineExecution' {artifactRevisions} -> artifactRevisions) (\s@PipelineExecution' {} a -> s {artifactRevisions = a} :: PipelineExecution) Prelude.. Lens.mapping Lens.coerced
 
 -- | The status of the pipeline execution.
 --
@@ -153,26 +162,18 @@ newPipelineExecution =
 pipelineExecution_status :: Lens.Lens' PipelineExecution (Prelude.Maybe PipelineExecutionStatus)
 pipelineExecution_status = Lens.lens (\PipelineExecution' {status} -> status) (\s@PipelineExecution' {} a -> s {status = a} :: PipelineExecution)
 
--- | The name of the pipeline with the specified pipeline execution.
-pipelineExecution_pipelineName :: Lens.Lens' PipelineExecution (Prelude.Maybe Prelude.Text)
-pipelineExecution_pipelineName = Lens.lens (\PipelineExecution' {pipelineName} -> pipelineName) (\s@PipelineExecution' {} a -> s {pipelineName = a} :: PipelineExecution)
-
--- | A summary that contains a description of the pipeline execution status.
-pipelineExecution_statusSummary :: Lens.Lens' PipelineExecution (Prelude.Maybe Prelude.Text)
-pipelineExecution_statusSummary = Lens.lens (\PipelineExecution' {statusSummary} -> statusSummary) (\s@PipelineExecution' {} a -> s {statusSummary = a} :: PipelineExecution)
-
 -- | The version number of the pipeline with the specified pipeline
 -- execution.
 pipelineExecution_pipelineVersion :: Lens.Lens' PipelineExecution (Prelude.Maybe Prelude.Natural)
 pipelineExecution_pipelineVersion = Lens.lens (\PipelineExecution' {pipelineVersion} -> pipelineVersion) (\s@PipelineExecution' {} a -> s {pipelineVersion = a} :: PipelineExecution)
 
--- | The ID of the pipeline execution.
-pipelineExecution_pipelineExecutionId :: Lens.Lens' PipelineExecution (Prelude.Maybe Prelude.Text)
-pipelineExecution_pipelineExecutionId = Lens.lens (\PipelineExecution' {pipelineExecutionId} -> pipelineExecutionId) (\s@PipelineExecution' {} a -> s {pipelineExecutionId = a} :: PipelineExecution)
+-- | A summary that contains a description of the pipeline execution status.
+pipelineExecution_statusSummary :: Lens.Lens' PipelineExecution (Prelude.Maybe Prelude.Text)
+pipelineExecution_statusSummary = Lens.lens (\PipelineExecution' {statusSummary} -> statusSummary) (\s@PipelineExecution' {} a -> s {statusSummary = a} :: PipelineExecution)
 
--- | A list of @ArtifactRevision@ objects included in a pipeline execution.
-pipelineExecution_artifactRevisions :: Lens.Lens' PipelineExecution (Prelude.Maybe [ArtifactRevision])
-pipelineExecution_artifactRevisions = Lens.lens (\PipelineExecution' {artifactRevisions} -> artifactRevisions) (\s@PipelineExecution' {} a -> s {artifactRevisions = a} :: PipelineExecution) Prelude.. Lens.mapping Lens.coerced
+-- | The name of the pipeline with the specified pipeline execution.
+pipelineExecution_pipelineName :: Lens.Lens' PipelineExecution (Prelude.Maybe Prelude.Text)
+pipelineExecution_pipelineName = Lens.lens (\PipelineExecution' {pipelineName} -> pipelineName) (\s@PipelineExecution' {} a -> s {pipelineName = a} :: PipelineExecution)
 
 instance Core.FromJSON PipelineExecution where
   parseJSON =
@@ -180,30 +181,30 @@ instance Core.FromJSON PipelineExecution where
       "PipelineExecution"
       ( \x ->
           PipelineExecution'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "pipelineName")
-            Prelude.<*> (x Core..:? "statusSummary")
-            Prelude.<*> (x Core..:? "pipelineVersion")
-            Prelude.<*> (x Core..:? "pipelineExecutionId")
+            Prelude.<$> (x Core..:? "pipelineExecutionId")
             Prelude.<*> ( x Core..:? "artifactRevisions"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "pipelineVersion")
+            Prelude.<*> (x Core..:? "statusSummary")
+            Prelude.<*> (x Core..:? "pipelineName")
       )
 
 instance Prelude.Hashable PipelineExecution where
   hashWithSalt _salt PipelineExecution' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` pipelineName
-      `Prelude.hashWithSalt` statusSummary
-      `Prelude.hashWithSalt` pipelineVersion
-      `Prelude.hashWithSalt` pipelineExecutionId
+    _salt `Prelude.hashWithSalt` pipelineExecutionId
       `Prelude.hashWithSalt` artifactRevisions
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` pipelineVersion
+      `Prelude.hashWithSalt` statusSummary
+      `Prelude.hashWithSalt` pipelineName
 
 instance Prelude.NFData PipelineExecution where
   rnf PipelineExecution' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf pipelineName
-      `Prelude.seq` Prelude.rnf statusSummary
-      `Prelude.seq` Prelude.rnf pipelineVersion
-      `Prelude.seq` Prelude.rnf pipelineExecutionId
+    Prelude.rnf pipelineExecutionId
       `Prelude.seq` Prelude.rnf artifactRevisions
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf pipelineVersion
+      `Prelude.seq` Prelude.rnf statusSummary
+      `Prelude.seq` Prelude.rnf pipelineName

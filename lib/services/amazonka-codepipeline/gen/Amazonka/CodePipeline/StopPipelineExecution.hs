@@ -32,8 +32,8 @@ module Amazonka.CodePipeline.StopPipelineExecution
     newStopPipelineExecution,
 
     -- * Request Lenses
-    stopPipelineExecution_abandon,
     stopPipelineExecution_reason,
+    stopPipelineExecution_abandon,
     stopPipelineExecution_pipelineName,
     stopPipelineExecution_pipelineExecutionId,
 
@@ -56,14 +56,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStopPipelineExecution' smart constructor.
 data StopPipelineExecution = StopPipelineExecution'
-  { -- | Use this option to stop the pipeline execution by abandoning, rather
+  { -- | Use this option to enter comments, such as the reason the pipeline was
+    -- stopped.
+    reason :: Prelude.Maybe Prelude.Text,
+    -- | Use this option to stop the pipeline execution by abandoning, rather
     -- than finishing, in-progress actions.
     --
     -- This option can lead to failed or out-of-sequence tasks.
     abandon :: Prelude.Maybe Prelude.Bool,
-    -- | Use this option to enter comments, such as the reason the pipeline was
-    -- stopped.
-    reason :: Prelude.Maybe Prelude.Text,
     -- | The name of the pipeline to stop.
     pipelineName :: Prelude.Text,
     -- | The ID of the pipeline execution to be stopped in the current stage. Use
@@ -81,13 +81,13 @@ data StopPipelineExecution = StopPipelineExecution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'reason', 'stopPipelineExecution_reason' - Use this option to enter comments, such as the reason the pipeline was
+-- stopped.
+--
 -- 'abandon', 'stopPipelineExecution_abandon' - Use this option to stop the pipeline execution by abandoning, rather
 -- than finishing, in-progress actions.
 --
 -- This option can lead to failed or out-of-sequence tasks.
---
--- 'reason', 'stopPipelineExecution_reason' - Use this option to enter comments, such as the reason the pipeline was
--- stopped.
 --
 -- 'pipelineName', 'stopPipelineExecution_pipelineName' - The name of the pipeline to stop.
 --
@@ -104,11 +104,16 @@ newStopPipelineExecution
   pPipelineName_
   pPipelineExecutionId_ =
     StopPipelineExecution'
-      { abandon = Prelude.Nothing,
-        reason = Prelude.Nothing,
+      { reason = Prelude.Nothing,
+        abandon = Prelude.Nothing,
         pipelineName = pPipelineName_,
         pipelineExecutionId = pPipelineExecutionId_
       }
+
+-- | Use this option to enter comments, such as the reason the pipeline was
+-- stopped.
+stopPipelineExecution_reason :: Lens.Lens' StopPipelineExecution (Prelude.Maybe Prelude.Text)
+stopPipelineExecution_reason = Lens.lens (\StopPipelineExecution' {reason} -> reason) (\s@StopPipelineExecution' {} a -> s {reason = a} :: StopPipelineExecution)
 
 -- | Use this option to stop the pipeline execution by abandoning, rather
 -- than finishing, in-progress actions.
@@ -116,11 +121,6 @@ newStopPipelineExecution
 -- This option can lead to failed or out-of-sequence tasks.
 stopPipelineExecution_abandon :: Lens.Lens' StopPipelineExecution (Prelude.Maybe Prelude.Bool)
 stopPipelineExecution_abandon = Lens.lens (\StopPipelineExecution' {abandon} -> abandon) (\s@StopPipelineExecution' {} a -> s {abandon = a} :: StopPipelineExecution)
-
--- | Use this option to enter comments, such as the reason the pipeline was
--- stopped.
-stopPipelineExecution_reason :: Lens.Lens' StopPipelineExecution (Prelude.Maybe Prelude.Text)
-stopPipelineExecution_reason = Lens.lens (\StopPipelineExecution' {reason} -> reason) (\s@StopPipelineExecution' {} a -> s {reason = a} :: StopPipelineExecution)
 
 -- | The name of the pipeline to stop.
 stopPipelineExecution_pipelineName :: Lens.Lens' StopPipelineExecution Prelude.Text
@@ -147,15 +147,15 @@ instance Core.AWSRequest StopPipelineExecution where
 
 instance Prelude.Hashable StopPipelineExecution where
   hashWithSalt _salt StopPipelineExecution' {..} =
-    _salt `Prelude.hashWithSalt` abandon
-      `Prelude.hashWithSalt` reason
+    _salt `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` abandon
       `Prelude.hashWithSalt` pipelineName
       `Prelude.hashWithSalt` pipelineExecutionId
 
 instance Prelude.NFData StopPipelineExecution where
   rnf StopPipelineExecution' {..} =
-    Prelude.rnf abandon
-      `Prelude.seq` Prelude.rnf reason
+    Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf abandon
       `Prelude.seq` Prelude.rnf pipelineName
       `Prelude.seq` Prelude.rnf pipelineExecutionId
 
@@ -178,8 +178,8 @@ instance Core.ToJSON StopPipelineExecution where
   toJSON StopPipelineExecution' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("abandon" Core..=) Prelude.<$> abandon,
-            ("reason" Core..=) Prelude.<$> reason,
+          [ ("reason" Core..=) Prelude.<$> reason,
+            ("abandon" Core..=) Prelude.<$> abandon,
             Prelude.Just ("pipelineName" Core..= pipelineName),
             Prelude.Just
               ("pipelineExecutionId" Core..= pipelineExecutionId)

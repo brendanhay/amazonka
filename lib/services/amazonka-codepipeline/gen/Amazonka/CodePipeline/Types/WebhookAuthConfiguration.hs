@@ -27,13 +27,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWebhookAuthConfiguration' smart constructor.
 data WebhookAuthConfiguration = WebhookAuthConfiguration'
-  { -- | The property used to configure acceptance of webhooks in an IP address
+  { -- | The property used to configure GitHub authentication. For GITHUB_HMAC,
+    -- only the @SecretToken@ property must be set.
+    secretToken :: Prelude.Maybe Prelude.Text,
+    -- | The property used to configure acceptance of webhooks in an IP address
     -- range. For IP, only the @AllowedIPRange@ property must be set. This
     -- property must be set to a valid CIDR range.
-    allowedIPRange :: Prelude.Maybe Prelude.Text,
-    -- | The property used to configure GitHub authentication. For GITHUB_HMAC,
-    -- only the @SecretToken@ property must be set.
-    secretToken :: Prelude.Maybe Prelude.Text
+    allowedIPRange :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,20 +45,25 @@ data WebhookAuthConfiguration = WebhookAuthConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'secretToken', 'webhookAuthConfiguration_secretToken' - The property used to configure GitHub authentication. For GITHUB_HMAC,
+-- only the @SecretToken@ property must be set.
+--
 -- 'allowedIPRange', 'webhookAuthConfiguration_allowedIPRange' - The property used to configure acceptance of webhooks in an IP address
 -- range. For IP, only the @AllowedIPRange@ property must be set. This
 -- property must be set to a valid CIDR range.
---
--- 'secretToken', 'webhookAuthConfiguration_secretToken' - The property used to configure GitHub authentication. For GITHUB_HMAC,
--- only the @SecretToken@ property must be set.
 newWebhookAuthConfiguration ::
   WebhookAuthConfiguration
 newWebhookAuthConfiguration =
   WebhookAuthConfiguration'
-    { allowedIPRange =
+    { secretToken =
         Prelude.Nothing,
-      secretToken = Prelude.Nothing
+      allowedIPRange = Prelude.Nothing
     }
+
+-- | The property used to configure GitHub authentication. For GITHUB_HMAC,
+-- only the @SecretToken@ property must be set.
+webhookAuthConfiguration_secretToken :: Lens.Lens' WebhookAuthConfiguration (Prelude.Maybe Prelude.Text)
+webhookAuthConfiguration_secretToken = Lens.lens (\WebhookAuthConfiguration' {secretToken} -> secretToken) (\s@WebhookAuthConfiguration' {} a -> s {secretToken = a} :: WebhookAuthConfiguration)
 
 -- | The property used to configure acceptance of webhooks in an IP address
 -- range. For IP, only the @AllowedIPRange@ property must be set. This
@@ -66,37 +71,32 @@ newWebhookAuthConfiguration =
 webhookAuthConfiguration_allowedIPRange :: Lens.Lens' WebhookAuthConfiguration (Prelude.Maybe Prelude.Text)
 webhookAuthConfiguration_allowedIPRange = Lens.lens (\WebhookAuthConfiguration' {allowedIPRange} -> allowedIPRange) (\s@WebhookAuthConfiguration' {} a -> s {allowedIPRange = a} :: WebhookAuthConfiguration)
 
--- | The property used to configure GitHub authentication. For GITHUB_HMAC,
--- only the @SecretToken@ property must be set.
-webhookAuthConfiguration_secretToken :: Lens.Lens' WebhookAuthConfiguration (Prelude.Maybe Prelude.Text)
-webhookAuthConfiguration_secretToken = Lens.lens (\WebhookAuthConfiguration' {secretToken} -> secretToken) (\s@WebhookAuthConfiguration' {} a -> s {secretToken = a} :: WebhookAuthConfiguration)
-
 instance Core.FromJSON WebhookAuthConfiguration where
   parseJSON =
     Core.withObject
       "WebhookAuthConfiguration"
       ( \x ->
           WebhookAuthConfiguration'
-            Prelude.<$> (x Core..:? "AllowedIPRange")
-            Prelude.<*> (x Core..:? "SecretToken")
+            Prelude.<$> (x Core..:? "SecretToken")
+            Prelude.<*> (x Core..:? "AllowedIPRange")
       )
 
 instance Prelude.Hashable WebhookAuthConfiguration where
   hashWithSalt _salt WebhookAuthConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` allowedIPRange
-      `Prelude.hashWithSalt` secretToken
+    _salt `Prelude.hashWithSalt` secretToken
+      `Prelude.hashWithSalt` allowedIPRange
 
 instance Prelude.NFData WebhookAuthConfiguration where
   rnf WebhookAuthConfiguration' {..} =
-    Prelude.rnf allowedIPRange
-      `Prelude.seq` Prelude.rnf secretToken
+    Prelude.rnf secretToken
+      `Prelude.seq` Prelude.rnf allowedIPRange
 
 instance Core.ToJSON WebhookAuthConfiguration where
   toJSON WebhookAuthConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AllowedIPRange" Core..=)
-              Prelude.<$> allowedIPRange,
-            ("SecretToken" Core..=) Prelude.<$> secretToken
+          [ ("SecretToken" Core..=) Prelude.<$> secretToken,
+            ("AllowedIPRange" Core..=)
+              Prelude.<$> allowedIPRange
           ]
       )

@@ -14,25 +14,11 @@
 module Amazonka.CodePipeline.Lens
   ( -- * Operations
 
-    -- ** GetPipeline
-    getPipeline_version,
-    getPipeline_name,
-    getPipelineResponse_pipeline,
-    getPipelineResponse_metadata,
-    getPipelineResponse_httpStatus,
-
-    -- ** PutJobFailureResult
-    putJobFailureResult_jobId,
-    putJobFailureResult_failureDetails,
-
-    -- ** PutApprovalResult
-    putApprovalResult_pipelineName,
-    putApprovalResult_stageName,
-    putApprovalResult_actionName,
-    putApprovalResult_result,
-    putApprovalResult_token,
-    putApprovalResultResponse_approvedAt,
-    putApprovalResultResponse_httpStatus,
+    -- ** AcknowledgeJob
+    acknowledgeJob_jobId,
+    acknowledgeJob_nonce,
+    acknowledgeJobResponse_status,
+    acknowledgeJobResponse_httpStatus,
 
     -- ** AcknowledgeThirdPartyJob
     acknowledgeThirdPartyJob_jobId,
@@ -41,28 +27,140 @@ module Amazonka.CodePipeline.Lens
     acknowledgeThirdPartyJobResponse_status,
     acknowledgeThirdPartyJobResponse_httpStatus,
 
-    -- ** PutThirdPartyJobFailureResult
-    putThirdPartyJobFailureResult_jobId,
-    putThirdPartyJobFailureResult_clientToken,
-    putThirdPartyJobFailureResult_failureDetails,
+    -- ** CreateCustomActionType
+    createCustomActionType_tags,
+    createCustomActionType_settings,
+    createCustomActionType_configurationProperties,
+    createCustomActionType_category,
+    createCustomActionType_provider,
+    createCustomActionType_version,
+    createCustomActionType_inputArtifactDetails,
+    createCustomActionType_outputArtifactDetails,
+    createCustomActionTypeResponse_tags,
+    createCustomActionTypeResponse_httpStatus,
+    createCustomActionTypeResponse_actionType,
+
+    -- ** CreatePipeline
+    createPipeline_tags,
+    createPipeline_pipeline,
+    createPipelineResponse_tags,
+    createPipelineResponse_pipeline,
+    createPipelineResponse_httpStatus,
+
+    -- ** DeleteCustomActionType
+    deleteCustomActionType_category,
+    deleteCustomActionType_provider,
+    deleteCustomActionType_version,
+
+    -- ** DeletePipeline
+    deletePipeline_name,
+
+    -- ** DeleteWebhook
+    deleteWebhook_name,
+    deleteWebhookResponse_httpStatus,
+
+    -- ** DeregisterWebhookWithThirdParty
+    deregisterWebhookWithThirdParty_webhookName,
+    deregisterWebhookWithThirdPartyResponse_httpStatus,
+
+    -- ** DisableStageTransition
+    disableStageTransition_pipelineName,
+    disableStageTransition_stageName,
+    disableStageTransition_transitionType,
+    disableStageTransition_reason,
+
+    -- ** EnableStageTransition
+    enableStageTransition_pipelineName,
+    enableStageTransition_stageName,
+    enableStageTransition_transitionType,
+
+    -- ** GetActionType
+    getActionType_category,
+    getActionType_owner,
+    getActionType_provider,
+    getActionType_version,
+    getActionTypeResponse_actionType,
+    getActionTypeResponse_httpStatus,
+
+    -- ** GetJobDetails
+    getJobDetails_jobId,
+    getJobDetailsResponse_jobDetails,
+    getJobDetailsResponse_httpStatus,
+
+    -- ** GetPipeline
+    getPipeline_version,
+    getPipeline_name,
+    getPipelineResponse_metadata,
+    getPipelineResponse_pipeline,
+    getPipelineResponse_httpStatus,
+
+    -- ** GetPipelineExecution
+    getPipelineExecution_pipelineName,
+    getPipelineExecution_pipelineExecutionId,
+    getPipelineExecutionResponse_pipelineExecution,
+    getPipelineExecutionResponse_httpStatus,
+
+    -- ** GetPipelineState
+    getPipelineState_name,
+    getPipelineStateResponse_stageStates,
+    getPipelineStateResponse_updated,
+    getPipelineStateResponse_created,
+    getPipelineStateResponse_pipelineVersion,
+    getPipelineStateResponse_pipelineName,
+    getPipelineStateResponse_httpStatus,
+
+    -- ** GetThirdPartyJobDetails
+    getThirdPartyJobDetails_jobId,
+    getThirdPartyJobDetails_clientToken,
+    getThirdPartyJobDetailsResponse_jobDetails,
+    getThirdPartyJobDetailsResponse_httpStatus,
+
+    -- ** ListActionExecutions
+    listActionExecutions_nextToken,
+    listActionExecutions_filter,
+    listActionExecutions_maxResults,
+    listActionExecutions_pipelineName,
+    listActionExecutionsResponse_nextToken,
+    listActionExecutionsResponse_actionExecutionDetails,
+    listActionExecutionsResponse_httpStatus,
+
+    -- ** ListActionTypes
+    listActionTypes_nextToken,
+    listActionTypes_regionFilter,
+    listActionTypes_actionOwnerFilter,
+    listActionTypesResponse_nextToken,
+    listActionTypesResponse_httpStatus,
+    listActionTypesResponse_actionTypes,
+
+    -- ** ListPipelineExecutions
+    listPipelineExecutions_nextToken,
+    listPipelineExecutions_maxResults,
+    listPipelineExecutions_pipelineName,
+    listPipelineExecutionsResponse_nextToken,
+    listPipelineExecutionsResponse_pipelineExecutionSummaries,
+    listPipelineExecutionsResponse_httpStatus,
+
+    -- ** ListPipelines
+    listPipelines_nextToken,
+    listPipelines_maxResults,
+    listPipelinesResponse_nextToken,
+    listPipelinesResponse_pipelines,
+    listPipelinesResponse_httpStatus,
 
     -- ** ListTagsForResource
     listTagsForResource_nextToken,
     listTagsForResource_maxResults,
     listTagsForResource_resourceArn,
-    listTagsForResourceResponse_nextToken,
     listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_nextToken,
     listTagsForResourceResponse_httpStatus,
 
-    -- ** RegisterWebhookWithThirdParty
-    registerWebhookWithThirdParty_webhookName,
-    registerWebhookWithThirdPartyResponse_httpStatus,
-
-    -- ** PollForThirdPartyJobs
-    pollForThirdPartyJobs_maxBatchSize,
-    pollForThirdPartyJobs_actionTypeId,
-    pollForThirdPartyJobsResponse_jobs,
-    pollForThirdPartyJobsResponse_httpStatus,
+    -- ** ListWebhooks
+    listWebhooks_nextToken,
+    listWebhooks_maxResults,
+    listWebhooksResponse_nextToken,
+    listWebhooksResponse_webhooks,
+    listWebhooksResponse_httpStatus,
 
     -- ** PollForJobs
     pollForJobs_maxBatchSize,
@@ -71,70 +169,11 @@ module Amazonka.CodePipeline.Lens
     pollForJobsResponse_jobs,
     pollForJobsResponse_httpStatus,
 
-    -- ** StartPipelineExecution
-    startPipelineExecution_clientRequestToken,
-    startPipelineExecution_name,
-    startPipelineExecutionResponse_pipelineExecutionId,
-    startPipelineExecutionResponse_httpStatus,
-
-    -- ** UpdatePipeline
-    updatePipeline_pipeline,
-    updatePipelineResponse_pipeline,
-    updatePipelineResponse_httpStatus,
-
-    -- ** DeletePipeline
-    deletePipeline_name,
-
-    -- ** GetPipelineState
-    getPipelineState_name,
-    getPipelineStateResponse_pipelineName,
-    getPipelineStateResponse_created,
-    getPipelineStateResponse_stageStates,
-    getPipelineStateResponse_pipelineVersion,
-    getPipelineStateResponse_updated,
-    getPipelineStateResponse_httpStatus,
-
-    -- ** GetJobDetails
-    getJobDetails_jobId,
-    getJobDetailsResponse_jobDetails,
-    getJobDetailsResponse_httpStatus,
-
-    -- ** ListPipelines
-    listPipelines_nextToken,
-    listPipelines_maxResults,
-    listPipelinesResponse_pipelines,
-    listPipelinesResponse_nextToken,
-    listPipelinesResponse_httpStatus,
-
-    -- ** RetryStageExecution
-    retryStageExecution_pipelineName,
-    retryStageExecution_stageName,
-    retryStageExecution_pipelineExecutionId,
-    retryStageExecution_retryMode,
-    retryStageExecutionResponse_pipelineExecutionId,
-    retryStageExecutionResponse_httpStatus,
-
-    -- ** GetPipelineExecution
-    getPipelineExecution_pipelineName,
-    getPipelineExecution_pipelineExecutionId,
-    getPipelineExecutionResponse_pipelineExecution,
-    getPipelineExecutionResponse_httpStatus,
-
-    -- ** PutJobSuccessResult
-    putJobSuccessResult_outputVariables,
-    putJobSuccessResult_continuationToken,
-    putJobSuccessResult_executionDetails,
-    putJobSuccessResult_currentRevision,
-    putJobSuccessResult_jobId,
-
-    -- ** DeregisterWebhookWithThirdParty
-    deregisterWebhookWithThirdParty_webhookName,
-    deregisterWebhookWithThirdPartyResponse_httpStatus,
-
-    -- ** DeleteCustomActionType
-    deleteCustomActionType_category,
-    deleteCustomActionType_provider,
-    deleteCustomActionType_version,
+    -- ** PollForThirdPartyJobs
+    pollForThirdPartyJobs_maxBatchSize,
+    pollForThirdPartyJobs_actionTypeId,
+    pollForThirdPartyJobsResponse_jobs,
+    pollForThirdPartyJobsResponse_httpStatus,
 
     -- ** PutActionRevision
     putActionRevision_pipelineName,
@@ -145,37 +184,37 @@ module Amazonka.CodePipeline.Lens
     putActionRevisionResponse_pipelineExecutionId,
     putActionRevisionResponse_httpStatus,
 
-    -- ** DisableStageTransition
-    disableStageTransition_pipelineName,
-    disableStageTransition_stageName,
-    disableStageTransition_transitionType,
-    disableStageTransition_reason,
+    -- ** PutApprovalResult
+    putApprovalResult_pipelineName,
+    putApprovalResult_stageName,
+    putApprovalResult_actionName,
+    putApprovalResult_result,
+    putApprovalResult_token,
+    putApprovalResultResponse_approvedAt,
+    putApprovalResultResponse_httpStatus,
 
-    -- ** UpdateActionType
-    updateActionType_actionType,
+    -- ** PutJobFailureResult
+    putJobFailureResult_jobId,
+    putJobFailureResult_failureDetails,
 
-    -- ** ListActionTypes
-    listActionTypes_actionOwnerFilter,
-    listActionTypes_regionFilter,
-    listActionTypes_nextToken,
-    listActionTypesResponse_nextToken,
-    listActionTypesResponse_httpStatus,
-    listActionTypesResponse_actionTypes,
+    -- ** PutJobSuccessResult
+    putJobSuccessResult_executionDetails,
+    putJobSuccessResult_continuationToken,
+    putJobSuccessResult_currentRevision,
+    putJobSuccessResult_outputVariables,
+    putJobSuccessResult_jobId,
 
-    -- ** AcknowledgeJob
-    acknowledgeJob_jobId,
-    acknowledgeJob_nonce,
-    acknowledgeJobResponse_status,
-    acknowledgeJobResponse_httpStatus,
+    -- ** PutThirdPartyJobFailureResult
+    putThirdPartyJobFailureResult_jobId,
+    putThirdPartyJobFailureResult_clientToken,
+    putThirdPartyJobFailureResult_failureDetails,
 
-    -- ** EnableStageTransition
-    enableStageTransition_pipelineName,
-    enableStageTransition_stageName,
-    enableStageTransition_transitionType,
-
-    -- ** DeleteWebhook
-    deleteWebhook_name,
-    deleteWebhookResponse_httpStatus,
+    -- ** PutThirdPartyJobSuccessResult
+    putThirdPartyJobSuccessResult_executionDetails,
+    putThirdPartyJobSuccessResult_continuationToken,
+    putThirdPartyJobSuccessResult_currentRevision,
+    putThirdPartyJobSuccessResult_jobId,
+    putThirdPartyJobSuccessResult_clientToken,
 
     -- ** PutWebhook
     putWebhook_tags,
@@ -183,33 +222,27 @@ module Amazonka.CodePipeline.Lens
     putWebhookResponse_webhook,
     putWebhookResponse_httpStatus,
 
-    -- ** ListWebhooks
-    listWebhooks_nextToken,
-    listWebhooks_maxResults,
-    listWebhooksResponse_nextToken,
-    listWebhooksResponse_webhooks,
-    listWebhooksResponse_httpStatus,
+    -- ** RegisterWebhookWithThirdParty
+    registerWebhookWithThirdParty_webhookName,
+    registerWebhookWithThirdPartyResponse_httpStatus,
 
-    -- ** ListActionExecutions
-    listActionExecutions_nextToken,
-    listActionExecutions_filter,
-    listActionExecutions_maxResults,
-    listActionExecutions_pipelineName,
-    listActionExecutionsResponse_actionExecutionDetails,
-    listActionExecutionsResponse_nextToken,
-    listActionExecutionsResponse_httpStatus,
+    -- ** RetryStageExecution
+    retryStageExecution_pipelineName,
+    retryStageExecution_stageName,
+    retryStageExecution_pipelineExecutionId,
+    retryStageExecution_retryMode,
+    retryStageExecutionResponse_pipelineExecutionId,
+    retryStageExecutionResponse_httpStatus,
 
-    -- ** GetActionType
-    getActionType_category,
-    getActionType_owner,
-    getActionType_provider,
-    getActionType_version,
-    getActionTypeResponse_actionType,
-    getActionTypeResponse_httpStatus,
+    -- ** StartPipelineExecution
+    startPipelineExecution_clientRequestToken,
+    startPipelineExecution_name,
+    startPipelineExecutionResponse_pipelineExecutionId,
+    startPipelineExecutionResponse_httpStatus,
 
     -- ** StopPipelineExecution
-    stopPipelineExecution_abandon,
     stopPipelineExecution_reason,
+    stopPipelineExecution_abandon,
     stopPipelineExecution_pipelineName,
     stopPipelineExecution_pipelineExecutionId,
     stopPipelineExecutionResponse_pipelineExecutionId,
@@ -225,46 +258,13 @@ module Amazonka.CodePipeline.Lens
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
-    -- ** CreatePipeline
-    createPipeline_tags,
-    createPipeline_pipeline,
-    createPipelineResponse_pipeline,
-    createPipelineResponse_tags,
-    createPipelineResponse_httpStatus,
+    -- ** UpdateActionType
+    updateActionType_actionType,
 
-    -- ** GetThirdPartyJobDetails
-    getThirdPartyJobDetails_jobId,
-    getThirdPartyJobDetails_clientToken,
-    getThirdPartyJobDetailsResponse_jobDetails,
-    getThirdPartyJobDetailsResponse_httpStatus,
-
-    -- ** PutThirdPartyJobSuccessResult
-    putThirdPartyJobSuccessResult_continuationToken,
-    putThirdPartyJobSuccessResult_executionDetails,
-    putThirdPartyJobSuccessResult_currentRevision,
-    putThirdPartyJobSuccessResult_jobId,
-    putThirdPartyJobSuccessResult_clientToken,
-
-    -- ** CreateCustomActionType
-    createCustomActionType_settings,
-    createCustomActionType_configurationProperties,
-    createCustomActionType_tags,
-    createCustomActionType_category,
-    createCustomActionType_provider,
-    createCustomActionType_version,
-    createCustomActionType_inputArtifactDetails,
-    createCustomActionType_outputArtifactDetails,
-    createCustomActionTypeResponse_tags,
-    createCustomActionTypeResponse_httpStatus,
-    createCustomActionTypeResponse_actionType,
-
-    -- ** ListPipelineExecutions
-    listPipelineExecutions_nextToken,
-    listPipelineExecutions_maxResults,
-    listPipelineExecutions_pipelineName,
-    listPipelineExecutionsResponse_nextToken,
-    listPipelineExecutionsResponse_pipelineExecutionSummaries,
-    listPipelineExecutionsResponse_httpStatus,
+    -- ** UpdatePipeline
+    updatePipeline_pipeline,
+    updatePipelineResponse_pipeline,
+    updatePipelineResponse_httpStatus,
 
     -- * Types
 
@@ -277,8 +277,8 @@ module Amazonka.CodePipeline.Lens
     actionConfiguration_configuration,
 
     -- ** ActionConfigurationProperty
-    actionConfigurationProperty_queryable,
     actionConfigurationProperty_type,
+    actionConfigurationProperty_queryable,
     actionConfigurationProperty_description,
     actionConfigurationProperty_name,
     actionConfigurationProperty_required,
@@ -290,60 +290,60 @@ module Amazonka.CodePipeline.Lens
     actionContext_actionExecutionId,
 
     -- ** ActionDeclaration
-    actionDeclaration_outputArtifacts,
-    actionDeclaration_namespace,
-    actionDeclaration_runOrder,
-    actionDeclaration_region,
-    actionDeclaration_configuration,
-    actionDeclaration_inputArtifacts,
     actionDeclaration_roleArn,
+    actionDeclaration_runOrder,
+    actionDeclaration_configuration,
+    actionDeclaration_outputArtifacts,
+    actionDeclaration_region,
+    actionDeclaration_inputArtifacts,
+    actionDeclaration_namespace,
     actionDeclaration_name,
     actionDeclaration_actionTypeId,
 
     -- ** ActionExecution
-    actionExecution_lastUpdatedBy,
+    actionExecution_errorDetails,
+    actionExecution_actionExecutionId,
     actionExecution_summary,
     actionExecution_status,
     actionExecution_lastStatusChange,
-    actionExecution_token,
-    actionExecution_externalExecutionUrl,
     actionExecution_externalExecutionId,
-    actionExecution_errorDetails,
     actionExecution_percentComplete,
-    actionExecution_actionExecutionId,
+    actionExecution_externalExecutionUrl,
+    actionExecution_lastUpdatedBy,
+    actionExecution_token,
 
     -- ** ActionExecutionDetail
-    actionExecutionDetail_status,
-    actionExecutionDetail_startTime,
-    actionExecutionDetail_pipelineVersion,
-    actionExecutionDetail_input,
     actionExecutionDetail_actionName,
-    actionExecutionDetail_output,
-    actionExecutionDetail_pipelineExecutionId,
     actionExecutionDetail_stageName,
-    actionExecutionDetail_lastUpdateTime,
+    actionExecutionDetail_pipelineExecutionId,
     actionExecutionDetail_actionExecutionId,
+    actionExecutionDetail_status,
+    actionExecutionDetail_input,
+    actionExecutionDetail_pipelineVersion,
+    actionExecutionDetail_output,
+    actionExecutionDetail_lastUpdateTime,
+    actionExecutionDetail_startTime,
 
     -- ** ActionExecutionFilter
     actionExecutionFilter_pipelineExecutionId,
 
     -- ** ActionExecutionInput
-    actionExecutionInput_namespace,
     actionExecutionInput_resolvedConfiguration,
-    actionExecutionInput_region,
-    actionExecutionInput_configuration,
-    actionExecutionInput_actionTypeId,
-    actionExecutionInput_inputArtifacts,
     actionExecutionInput_roleArn,
+    actionExecutionInput_actionTypeId,
+    actionExecutionInput_configuration,
+    actionExecutionInput_region,
+    actionExecutionInput_inputArtifacts,
+    actionExecutionInput_namespace,
 
     -- ** ActionExecutionOutput
-    actionExecutionOutput_outputVariables,
     actionExecutionOutput_outputArtifacts,
     actionExecutionOutput_executionResult,
+    actionExecutionOutput_outputVariables,
 
     -- ** ActionExecutionResult
-    actionExecutionResult_externalExecutionUrl,
     actionExecutionResult_externalExecutionId,
+    actionExecutionResult_externalExecutionUrl,
     actionExecutionResult_externalExecutionSummary,
 
     -- ** ActionRevision
@@ -352,9 +352,9 @@ module Amazonka.CodePipeline.Lens
     actionRevision_created,
 
     -- ** ActionState
-    actionState_revisionUrl,
-    actionState_entityUrl,
     actionState_actionName,
+    actionState_entityUrl,
+    actionState_revisionUrl,
     actionState_currentRevision,
     actionState_latestExecution,
 
@@ -370,18 +370,18 @@ module Amazonka.CodePipeline.Lens
     actionTypeArtifactDetails_maximumCount,
 
     -- ** ActionTypeDeclaration
-    actionTypeDeclaration_urls,
+    actionTypeDeclaration_properties,
     actionTypeDeclaration_permissions,
     actionTypeDeclaration_description,
-    actionTypeDeclaration_properties,
+    actionTypeDeclaration_urls,
     actionTypeDeclaration_executor,
     actionTypeDeclaration_id,
     actionTypeDeclaration_inputArtifactDetails,
     actionTypeDeclaration_outputArtifactDetails,
 
     -- ** ActionTypeExecutor
-    actionTypeExecutor_jobTimeout,
     actionTypeExecutor_policyStatementsTemplate,
+    actionTypeExecutor_jobTimeout,
     actionTypeExecutor_configuration,
     actionTypeExecutor_type,
 
@@ -410,24 +410,24 @@ module Amazonka.CodePipeline.Lens
 
     -- ** ActionTypeSettings
     actionTypeSettings_thirdPartyConfigurationUrl,
-    actionTypeSettings_executionUrlTemplate,
     actionTypeSettings_revisionUrlTemplate,
     actionTypeSettings_entityUrlTemplate,
+    actionTypeSettings_executionUrlTemplate,
 
     -- ** ActionTypeUrls
-    actionTypeUrls_executionUrlTemplate,
+    actionTypeUrls_configurationUrl,
     actionTypeUrls_revisionUrlTemplate,
     actionTypeUrls_entityUrlTemplate,
-    actionTypeUrls_configurationUrl,
+    actionTypeUrls_executionUrlTemplate,
 
     -- ** ApprovalResult
     approvalResult_summary,
     approvalResult_status,
 
     -- ** Artifact
-    artifact_location,
     artifact_name,
     artifact_revision,
+    artifact_location,
 
     -- ** ArtifactDetail
     artifactDetail_name,
@@ -438,16 +438,16 @@ module Amazonka.CodePipeline.Lens
     artifactDetails_maximumCount,
 
     -- ** ArtifactLocation
-    artifactLocation_s3Location,
     artifactLocation_type,
+    artifactLocation_s3Location,
 
     -- ** ArtifactRevision
-    artifactRevision_revisionSummary,
-    artifactRevision_revisionUrl,
-    artifactRevision_created,
-    artifactRevision_name,
-    artifactRevision_revisionId,
     artifactRevision_revisionChangeIdentifier,
+    artifactRevision_name,
+    artifactRevision_created,
+    artifactRevision_revisionId,
+    artifactRevision_revisionUrl,
+    artifactRevision_revisionSummary,
 
     -- ** ArtifactStore
     artifactStore_encryptionKey,
@@ -459,8 +459,8 @@ module Amazonka.CodePipeline.Lens
     blockerDeclaration_type,
 
     -- ** CurrentRevision
-    currentRevision_revisionSummary,
     currentRevision_created,
+    currentRevision_revisionSummary,
     currentRevision_revision,
     currentRevision_changeIdentifier,
 
@@ -469,8 +469,8 @@ module Amazonka.CodePipeline.Lens
     encryptionKey_type,
 
     -- ** ErrorDetails
-    errorDetails_code,
     errorDetails_message,
+    errorDetails_code,
 
     -- ** ExecutionDetails
     executionDetails_summary,
@@ -482,8 +482,8 @@ module Amazonka.CodePipeline.Lens
     executionTrigger_triggerDetail,
 
     -- ** ExecutorConfiguration
-    executorConfiguration_lambdaExecutorConfiguration,
     executorConfiguration_jobWorkerExecutorConfiguration,
+    executorConfiguration_lambdaExecutorConfiguration,
 
     -- ** FailureDetails
     failureDetails_externalExecutionId,
@@ -494,25 +494,25 @@ module Amazonka.CodePipeline.Lens
     inputArtifact_name,
 
     -- ** Job
-    job_data,
-    job_accountId,
-    job_id,
     job_nonce,
+    job_id,
+    job_accountId,
+    job_data,
 
     -- ** JobData
-    jobData_continuationToken,
+    jobData_actionTypeId,
     jobData_outputArtifacts,
     jobData_artifactCredentials,
-    jobData_pipelineContext,
-    jobData_encryptionKey,
-    jobData_actionTypeId,
-    jobData_inputArtifacts,
+    jobData_continuationToken,
     jobData_actionConfiguration,
+    jobData_inputArtifacts,
+    jobData_encryptionKey,
+    jobData_pipelineContext,
 
     -- ** JobDetails
-    jobDetails_data,
-    jobDetails_accountId,
     jobDetails_id,
+    jobDetails_accountId,
+    jobDetails_data,
 
     -- ** JobWorkerExecutorConfiguration
     jobWorkerExecutorConfiguration_pollingAccounts,
@@ -522,11 +522,11 @@ module Amazonka.CodePipeline.Lens
     lambdaExecutorConfiguration_lambdaFunctionArn,
 
     -- ** ListWebhookItem
-    listWebhookItem_arn,
-    listWebhookItem_errorCode,
-    listWebhookItem_lastTriggered,
-    listWebhookItem_errorMessage,
     listWebhookItem_tags,
+    listWebhookItem_errorMessage,
+    listWebhookItem_arn,
+    listWebhookItem_lastTriggered,
+    listWebhookItem_errorCode,
     listWebhookItem_definition,
     listWebhookItem_url,
 
@@ -534,11 +534,11 @@ module Amazonka.CodePipeline.Lens
     outputArtifact_name,
 
     -- ** PipelineContext
-    pipelineContext_stage,
-    pipelineContext_pipelineName,
-    pipelineContext_action,
-    pipelineContext_pipelineArn,
     pipelineContext_pipelineExecutionId,
+    pipelineContext_pipelineArn,
+    pipelineContext_pipelineName,
+    pipelineContext_stage,
+    pipelineContext_action,
 
     -- ** PipelineDeclaration
     pipelineDeclaration_artifactStores,
@@ -549,45 +549,45 @@ module Amazonka.CodePipeline.Lens
     pipelineDeclaration_stages,
 
     -- ** PipelineExecution
-    pipelineExecution_status,
-    pipelineExecution_pipelineName,
-    pipelineExecution_statusSummary,
-    pipelineExecution_pipelineVersion,
     pipelineExecution_pipelineExecutionId,
     pipelineExecution_artifactRevisions,
+    pipelineExecution_status,
+    pipelineExecution_pipelineVersion,
+    pipelineExecution_statusSummary,
+    pipelineExecution_pipelineName,
 
     -- ** PipelineExecutionSummary
-    pipelineExecutionSummary_status,
-    pipelineExecutionSummary_startTime,
-    pipelineExecutionSummary_stopTrigger,
-    pipelineExecutionSummary_pipelineExecutionId,
-    pipelineExecutionSummary_sourceRevisions,
     pipelineExecutionSummary_trigger,
+    pipelineExecutionSummary_pipelineExecutionId,
+    pipelineExecutionSummary_status,
+    pipelineExecutionSummary_sourceRevisions,
+    pipelineExecutionSummary_stopTrigger,
     pipelineExecutionSummary_lastUpdateTime,
+    pipelineExecutionSummary_startTime,
 
     -- ** PipelineMetadata
+    pipelineMetadata_updated,
     pipelineMetadata_created,
     pipelineMetadata_pipelineArn,
-    pipelineMetadata_updated,
 
     -- ** PipelineSummary
-    pipelineSummary_created,
     pipelineSummary_name,
-    pipelineSummary_version,
     pipelineSummary_updated,
+    pipelineSummary_created,
+    pipelineSummary_version,
 
     -- ** S3ArtifactLocation
     s3ArtifactLocation_bucketName,
     s3ArtifactLocation_objectKey,
 
     -- ** S3Location
-    s3Location_bucket,
     s3Location_key,
+    s3Location_bucket,
 
     -- ** SourceRevision
-    sourceRevision_revisionSummary,
-    sourceRevision_revisionUrl,
     sourceRevision_revisionId,
+    sourceRevision_revisionUrl,
+    sourceRevision_revisionSummary,
     sourceRevision_actionName,
 
     -- ** StageContext
@@ -603,10 +603,10 @@ module Amazonka.CodePipeline.Lens
     stageExecution_status,
 
     -- ** StageState
-    stageState_inboundExecution,
-    stageState_inboundTransitionState,
-    stageState_actionStates,
     stageState_stageName,
+    stageState_inboundExecution,
+    stageState_actionStates,
+    stageState_inboundTransitionState,
     stageState_latestExecution,
 
     -- ** StopExecutionTrigger
@@ -621,29 +621,29 @@ module Amazonka.CodePipeline.Lens
     thirdPartyJob_jobId,
 
     -- ** ThirdPartyJobData
-    thirdPartyJobData_continuationToken,
+    thirdPartyJobData_actionTypeId,
     thirdPartyJobData_outputArtifacts,
     thirdPartyJobData_artifactCredentials,
-    thirdPartyJobData_pipelineContext,
-    thirdPartyJobData_encryptionKey,
-    thirdPartyJobData_actionTypeId,
-    thirdPartyJobData_inputArtifacts,
+    thirdPartyJobData_continuationToken,
     thirdPartyJobData_actionConfiguration,
+    thirdPartyJobData_inputArtifacts,
+    thirdPartyJobData_encryptionKey,
+    thirdPartyJobData_pipelineContext,
 
     -- ** ThirdPartyJobDetails
-    thirdPartyJobDetails_data,
-    thirdPartyJobDetails_id,
     thirdPartyJobDetails_nonce,
+    thirdPartyJobDetails_id,
+    thirdPartyJobDetails_data,
 
     -- ** TransitionState
-    transitionState_enabled,
-    transitionState_disabledReason,
     transitionState_lastChangedAt,
+    transitionState_disabledReason,
+    transitionState_enabled,
     transitionState_lastChangedBy,
 
     -- ** WebhookAuthConfiguration
-    webhookAuthConfiguration_allowedIPRange,
     webhookAuthConfiguration_secretToken,
+    webhookAuthConfiguration_allowedIPRange,
 
     -- ** WebhookDefinition
     webhookDefinition_name,

@@ -28,13 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJobDetails' smart constructor.
 data JobDetails = JobDetails'
-  { -- | Represents other information about a job required for a job worker to
-    -- complete the job.
-    data' :: Prelude.Maybe JobData,
+  { -- | The unique system-generated ID of the job.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The AWS account ID associated with the job.
     accountId :: Prelude.Maybe Prelude.Text,
-    -- | The unique system-generated ID of the job.
-    id :: Prelude.Maybe Prelude.Text
+    -- | Represents other information about a job required for a job worker to
+    -- complete the job.
+    data' :: Prelude.Maybe JobData
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -46,33 +46,33 @@ data JobDetails = JobDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'data'', 'jobDetails_data' - Represents other information about a job required for a job worker to
--- complete the job.
+-- 'id', 'jobDetails_id' - The unique system-generated ID of the job.
 --
 -- 'accountId', 'jobDetails_accountId' - The AWS account ID associated with the job.
 --
--- 'id', 'jobDetails_id' - The unique system-generated ID of the job.
+-- 'data'', 'jobDetails_data' - Represents other information about a job required for a job worker to
+-- complete the job.
 newJobDetails ::
   JobDetails
 newJobDetails =
   JobDetails'
-    { data' = Prelude.Nothing,
+    { id = Prelude.Nothing,
       accountId = Prelude.Nothing,
-      id = Prelude.Nothing
+      data' = Prelude.Nothing
     }
 
--- | Represents other information about a job required for a job worker to
--- complete the job.
-jobDetails_data :: Lens.Lens' JobDetails (Prelude.Maybe JobData)
-jobDetails_data = Lens.lens (\JobDetails' {data'} -> data') (\s@JobDetails' {} a -> s {data' = a} :: JobDetails)
+-- | The unique system-generated ID of the job.
+jobDetails_id :: Lens.Lens' JobDetails (Prelude.Maybe Prelude.Text)
+jobDetails_id = Lens.lens (\JobDetails' {id} -> id) (\s@JobDetails' {} a -> s {id = a} :: JobDetails)
 
 -- | The AWS account ID associated with the job.
 jobDetails_accountId :: Lens.Lens' JobDetails (Prelude.Maybe Prelude.Text)
 jobDetails_accountId = Lens.lens (\JobDetails' {accountId} -> accountId) (\s@JobDetails' {} a -> s {accountId = a} :: JobDetails)
 
--- | The unique system-generated ID of the job.
-jobDetails_id :: Lens.Lens' JobDetails (Prelude.Maybe Prelude.Text)
-jobDetails_id = Lens.lens (\JobDetails' {id} -> id) (\s@JobDetails' {} a -> s {id = a} :: JobDetails)
+-- | Represents other information about a job required for a job worker to
+-- complete the job.
+jobDetails_data :: Lens.Lens' JobDetails (Prelude.Maybe JobData)
+jobDetails_data = Lens.lens (\JobDetails' {data'} -> data') (\s@JobDetails' {} a -> s {data' = a} :: JobDetails)
 
 instance Core.FromJSON JobDetails where
   parseJSON =
@@ -80,19 +80,19 @@ instance Core.FromJSON JobDetails where
       "JobDetails"
       ( \x ->
           JobDetails'
-            Prelude.<$> (x Core..:? "data")
+            Prelude.<$> (x Core..:? "id")
             Prelude.<*> (x Core..:? "accountId")
-            Prelude.<*> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "data")
       )
 
 instance Prelude.Hashable JobDetails where
   hashWithSalt _salt JobDetails' {..} =
-    _salt `Prelude.hashWithSalt` data'
+    _salt `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` accountId
-      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` data'
 
 instance Prelude.NFData JobDetails where
   rnf JobDetails' {..} =
-    Prelude.rnf data'
+    Prelude.rnf id
       `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf data'

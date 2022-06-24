@@ -29,11 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newActionTypeUrls' smart constructor.
 data ActionTypeUrls = ActionTypeUrls'
-  { -- | The link to an execution page for the action type in progress. For
-    -- example, for a CodeDeploy action, this link is shown on the pipeline
-    -- view page in the CodePipeline console, and it links to a CodeDeploy
-    -- status page.
-    executionUrlTemplate :: Prelude.Maybe Prelude.Text,
+  { -- | The URL returned to the CodePipeline console that contains a link to the
+    -- page where customers can configure the external action.
+    configurationUrl :: Prelude.Maybe Prelude.Text,
     -- | The URL returned to the CodePipeline console that contains a link to the
     -- page where customers can update or change the configuration of the
     -- external action.
@@ -42,9 +40,11 @@ data ActionTypeUrls = ActionTypeUrls'
     -- to the resources of the external system, such as a status page. This
     -- link is provided as part of the action display in the pipeline.
     entityUrlTemplate :: Prelude.Maybe Prelude.Text,
-    -- | The URL returned to the CodePipeline console that contains a link to the
-    -- page where customers can configure the external action.
-    configurationUrl :: Prelude.Maybe Prelude.Text
+    -- | The link to an execution page for the action type in progress. For
+    -- example, for a CodeDeploy action, this link is shown on the pipeline
+    -- view page in the CodePipeline console, and it links to a CodeDeploy
+    -- status page.
+    executionUrlTemplate :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,10 +56,8 @@ data ActionTypeUrls = ActionTypeUrls'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'executionUrlTemplate', 'actionTypeUrls_executionUrlTemplate' - The link to an execution page for the action type in progress. For
--- example, for a CodeDeploy action, this link is shown on the pipeline
--- view page in the CodePipeline console, and it links to a CodeDeploy
--- status page.
+-- 'configurationUrl', 'actionTypeUrls_configurationUrl' - The URL returned to the CodePipeline console that contains a link to the
+-- page where customers can configure the external action.
 --
 -- 'revisionUrlTemplate', 'actionTypeUrls_revisionUrlTemplate' - The URL returned to the CodePipeline console that contains a link to the
 -- page where customers can update or change the configuration of the
@@ -69,25 +67,24 @@ data ActionTypeUrls = ActionTypeUrls'
 -- to the resources of the external system, such as a status page. This
 -- link is provided as part of the action display in the pipeline.
 --
--- 'configurationUrl', 'actionTypeUrls_configurationUrl' - The URL returned to the CodePipeline console that contains a link to the
--- page where customers can configure the external action.
+-- 'executionUrlTemplate', 'actionTypeUrls_executionUrlTemplate' - The link to an execution page for the action type in progress. For
+-- example, for a CodeDeploy action, this link is shown on the pipeline
+-- view page in the CodePipeline console, and it links to a CodeDeploy
+-- status page.
 newActionTypeUrls ::
   ActionTypeUrls
 newActionTypeUrls =
   ActionTypeUrls'
-    { executionUrlTemplate =
-        Prelude.Nothing,
+    { configurationUrl = Prelude.Nothing,
       revisionUrlTemplate = Prelude.Nothing,
       entityUrlTemplate = Prelude.Nothing,
-      configurationUrl = Prelude.Nothing
+      executionUrlTemplate = Prelude.Nothing
     }
 
--- | The link to an execution page for the action type in progress. For
--- example, for a CodeDeploy action, this link is shown on the pipeline
--- view page in the CodePipeline console, and it links to a CodeDeploy
--- status page.
-actionTypeUrls_executionUrlTemplate :: Lens.Lens' ActionTypeUrls (Prelude.Maybe Prelude.Text)
-actionTypeUrls_executionUrlTemplate = Lens.lens (\ActionTypeUrls' {executionUrlTemplate} -> executionUrlTemplate) (\s@ActionTypeUrls' {} a -> s {executionUrlTemplate = a} :: ActionTypeUrls)
+-- | The URL returned to the CodePipeline console that contains a link to the
+-- page where customers can configure the external action.
+actionTypeUrls_configurationUrl :: Lens.Lens' ActionTypeUrls (Prelude.Maybe Prelude.Text)
+actionTypeUrls_configurationUrl = Lens.lens (\ActionTypeUrls' {configurationUrl} -> configurationUrl) (\s@ActionTypeUrls' {} a -> s {configurationUrl = a} :: ActionTypeUrls)
 
 -- | The URL returned to the CodePipeline console that contains a link to the
 -- page where customers can update or change the configuration of the
@@ -101,10 +98,12 @@ actionTypeUrls_revisionUrlTemplate = Lens.lens (\ActionTypeUrls' {revisionUrlTem
 actionTypeUrls_entityUrlTemplate :: Lens.Lens' ActionTypeUrls (Prelude.Maybe Prelude.Text)
 actionTypeUrls_entityUrlTemplate = Lens.lens (\ActionTypeUrls' {entityUrlTemplate} -> entityUrlTemplate) (\s@ActionTypeUrls' {} a -> s {entityUrlTemplate = a} :: ActionTypeUrls)
 
--- | The URL returned to the CodePipeline console that contains a link to the
--- page where customers can configure the external action.
-actionTypeUrls_configurationUrl :: Lens.Lens' ActionTypeUrls (Prelude.Maybe Prelude.Text)
-actionTypeUrls_configurationUrl = Lens.lens (\ActionTypeUrls' {configurationUrl} -> configurationUrl) (\s@ActionTypeUrls' {} a -> s {configurationUrl = a} :: ActionTypeUrls)
+-- | The link to an execution page for the action type in progress. For
+-- example, for a CodeDeploy action, this link is shown on the pipeline
+-- view page in the CodePipeline console, and it links to a CodeDeploy
+-- status page.
+actionTypeUrls_executionUrlTemplate :: Lens.Lens' ActionTypeUrls (Prelude.Maybe Prelude.Text)
+actionTypeUrls_executionUrlTemplate = Lens.lens (\ActionTypeUrls' {executionUrlTemplate} -> executionUrlTemplate) (\s@ActionTypeUrls' {} a -> s {executionUrlTemplate = a} :: ActionTypeUrls)
 
 instance Core.FromJSON ActionTypeUrls where
   parseJSON =
@@ -112,37 +111,37 @@ instance Core.FromJSON ActionTypeUrls where
       "ActionTypeUrls"
       ( \x ->
           ActionTypeUrls'
-            Prelude.<$> (x Core..:? "executionUrlTemplate")
+            Prelude.<$> (x Core..:? "configurationUrl")
             Prelude.<*> (x Core..:? "revisionUrlTemplate")
             Prelude.<*> (x Core..:? "entityUrlTemplate")
-            Prelude.<*> (x Core..:? "configurationUrl")
+            Prelude.<*> (x Core..:? "executionUrlTemplate")
       )
 
 instance Prelude.Hashable ActionTypeUrls where
   hashWithSalt _salt ActionTypeUrls' {..} =
-    _salt `Prelude.hashWithSalt` executionUrlTemplate
+    _salt `Prelude.hashWithSalt` configurationUrl
       `Prelude.hashWithSalt` revisionUrlTemplate
       `Prelude.hashWithSalt` entityUrlTemplate
-      `Prelude.hashWithSalt` configurationUrl
+      `Prelude.hashWithSalt` executionUrlTemplate
 
 instance Prelude.NFData ActionTypeUrls where
   rnf ActionTypeUrls' {..} =
-    Prelude.rnf executionUrlTemplate
+    Prelude.rnf configurationUrl
       `Prelude.seq` Prelude.rnf revisionUrlTemplate
       `Prelude.seq` Prelude.rnf entityUrlTemplate
-      `Prelude.seq` Prelude.rnf configurationUrl
+      `Prelude.seq` Prelude.rnf executionUrlTemplate
 
 instance Core.ToJSON ActionTypeUrls where
   toJSON ActionTypeUrls' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("executionUrlTemplate" Core..=)
-              Prelude.<$> executionUrlTemplate,
+          [ ("configurationUrl" Core..=)
+              Prelude.<$> configurationUrl,
             ("revisionUrlTemplate" Core..=)
               Prelude.<$> revisionUrlTemplate,
             ("entityUrlTemplate" Core..=)
               Prelude.<$> entityUrlTemplate,
-            ("configurationUrl" Core..=)
-              Prelude.<$> configurationUrl
+            ("executionUrlTemplate" Core..=)
+              Prelude.<$> executionUrlTemplate
           ]
       )

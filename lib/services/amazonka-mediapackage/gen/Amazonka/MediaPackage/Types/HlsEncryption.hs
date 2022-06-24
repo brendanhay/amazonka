@@ -29,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHlsEncryption' smart constructor.
 data HlsEncryption = HlsEncryption'
-  { -- | The encryption method to use.
-    encryptionMethod :: Prelude.Maybe EncryptionMethod,
-    -- | Interval (in seconds) between each encryption key rotation.
-    keyRotationIntervalSeconds :: Prelude.Maybe Prelude.Int,
-    -- | A constant initialization vector for encryption (optional). When not
+  { -- | A constant initialization vector for encryption (optional). When not
     -- specified the initialization vector will be periodically rotated.
     constantInitializationVector :: Prelude.Maybe Prelude.Text,
     -- | When enabled, the EXT-X-KEY tag will be repeated in output manifests.
     repeatExtXKey :: Prelude.Maybe Prelude.Bool,
+    -- | The encryption method to use.
+    encryptionMethod :: Prelude.Maybe EncryptionMethod,
+    -- | Interval (in seconds) between each encryption key rotation.
+    keyRotationIntervalSeconds :: Prelude.Maybe Prelude.Int,
     spekeKeyProvider :: SpekeKeyProvider
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,14 +50,14 @@ data HlsEncryption = HlsEncryption'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'encryptionMethod', 'hlsEncryption_encryptionMethod' - The encryption method to use.
---
--- 'keyRotationIntervalSeconds', 'hlsEncryption_keyRotationIntervalSeconds' - Interval (in seconds) between each encryption key rotation.
---
 -- 'constantInitializationVector', 'hlsEncryption_constantInitializationVector' - A constant initialization vector for encryption (optional). When not
 -- specified the initialization vector will be periodically rotated.
 --
 -- 'repeatExtXKey', 'hlsEncryption_repeatExtXKey' - When enabled, the EXT-X-KEY tag will be repeated in output manifests.
+--
+-- 'encryptionMethod', 'hlsEncryption_encryptionMethod' - The encryption method to use.
+--
+-- 'keyRotationIntervalSeconds', 'hlsEncryption_keyRotationIntervalSeconds' - Interval (in seconds) between each encryption key rotation.
 --
 -- 'spekeKeyProvider', 'hlsEncryption_spekeKeyProvider' - Undocumented member.
 newHlsEncryption ::
@@ -66,20 +66,13 @@ newHlsEncryption ::
   HlsEncryption
 newHlsEncryption pSpekeKeyProvider_ =
   HlsEncryption'
-    { encryptionMethod = Prelude.Nothing,
-      keyRotationIntervalSeconds = Prelude.Nothing,
-      constantInitializationVector = Prelude.Nothing,
+    { constantInitializationVector =
+        Prelude.Nothing,
       repeatExtXKey = Prelude.Nothing,
+      encryptionMethod = Prelude.Nothing,
+      keyRotationIntervalSeconds = Prelude.Nothing,
       spekeKeyProvider = pSpekeKeyProvider_
     }
-
--- | The encryption method to use.
-hlsEncryption_encryptionMethod :: Lens.Lens' HlsEncryption (Prelude.Maybe EncryptionMethod)
-hlsEncryption_encryptionMethod = Lens.lens (\HlsEncryption' {encryptionMethod} -> encryptionMethod) (\s@HlsEncryption' {} a -> s {encryptionMethod = a} :: HlsEncryption)
-
--- | Interval (in seconds) between each encryption key rotation.
-hlsEncryption_keyRotationIntervalSeconds :: Lens.Lens' HlsEncryption (Prelude.Maybe Prelude.Int)
-hlsEncryption_keyRotationIntervalSeconds = Lens.lens (\HlsEncryption' {keyRotationIntervalSeconds} -> keyRotationIntervalSeconds) (\s@HlsEncryption' {} a -> s {keyRotationIntervalSeconds = a} :: HlsEncryption)
 
 -- | A constant initialization vector for encryption (optional). When not
 -- specified the initialization vector will be periodically rotated.
@@ -89,6 +82,14 @@ hlsEncryption_constantInitializationVector = Lens.lens (\HlsEncryption' {constan
 -- | When enabled, the EXT-X-KEY tag will be repeated in output manifests.
 hlsEncryption_repeatExtXKey :: Lens.Lens' HlsEncryption (Prelude.Maybe Prelude.Bool)
 hlsEncryption_repeatExtXKey = Lens.lens (\HlsEncryption' {repeatExtXKey} -> repeatExtXKey) (\s@HlsEncryption' {} a -> s {repeatExtXKey = a} :: HlsEncryption)
+
+-- | The encryption method to use.
+hlsEncryption_encryptionMethod :: Lens.Lens' HlsEncryption (Prelude.Maybe EncryptionMethod)
+hlsEncryption_encryptionMethod = Lens.lens (\HlsEncryption' {encryptionMethod} -> encryptionMethod) (\s@HlsEncryption' {} a -> s {encryptionMethod = a} :: HlsEncryption)
+
+-- | Interval (in seconds) between each encryption key rotation.
+hlsEncryption_keyRotationIntervalSeconds :: Lens.Lens' HlsEncryption (Prelude.Maybe Prelude.Int)
+hlsEncryption_keyRotationIntervalSeconds = Lens.lens (\HlsEncryption' {keyRotationIntervalSeconds} -> keyRotationIntervalSeconds) (\s@HlsEncryption' {} a -> s {keyRotationIntervalSeconds = a} :: HlsEncryption)
 
 -- | Undocumented member.
 hlsEncryption_spekeKeyProvider :: Lens.Lens' HlsEncryption SpekeKeyProvider
@@ -100,40 +101,41 @@ instance Core.FromJSON HlsEncryption where
       "HlsEncryption"
       ( \x ->
           HlsEncryption'
-            Prelude.<$> (x Core..:? "encryptionMethod")
-            Prelude.<*> (x Core..:? "keyRotationIntervalSeconds")
-            Prelude.<*> (x Core..:? "constantInitializationVector")
+            Prelude.<$> (x Core..:? "constantInitializationVector")
             Prelude.<*> (x Core..:? "repeatExtXKey")
+            Prelude.<*> (x Core..:? "encryptionMethod")
+            Prelude.<*> (x Core..:? "keyRotationIntervalSeconds")
             Prelude.<*> (x Core..: "spekeKeyProvider")
       )
 
 instance Prelude.Hashable HlsEncryption where
   hashWithSalt _salt HlsEncryption' {..} =
-    _salt `Prelude.hashWithSalt` encryptionMethod
-      `Prelude.hashWithSalt` keyRotationIntervalSeconds
+    _salt
       `Prelude.hashWithSalt` constantInitializationVector
       `Prelude.hashWithSalt` repeatExtXKey
+      `Prelude.hashWithSalt` encryptionMethod
+      `Prelude.hashWithSalt` keyRotationIntervalSeconds
       `Prelude.hashWithSalt` spekeKeyProvider
 
 instance Prelude.NFData HlsEncryption where
   rnf HlsEncryption' {..} =
-    Prelude.rnf encryptionMethod
-      `Prelude.seq` Prelude.rnf keyRotationIntervalSeconds
-      `Prelude.seq` Prelude.rnf constantInitializationVector
+    Prelude.rnf constantInitializationVector
       `Prelude.seq` Prelude.rnf repeatExtXKey
+      `Prelude.seq` Prelude.rnf encryptionMethod
+      `Prelude.seq` Prelude.rnf keyRotationIntervalSeconds
       `Prelude.seq` Prelude.rnf spekeKeyProvider
 
 instance Core.ToJSON HlsEncryption where
   toJSON HlsEncryption' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("encryptionMethod" Core..=)
+          [ ("constantInitializationVector" Core..=)
+              Prelude.<$> constantInitializationVector,
+            ("repeatExtXKey" Core..=) Prelude.<$> repeatExtXKey,
+            ("encryptionMethod" Core..=)
               Prelude.<$> encryptionMethod,
             ("keyRotationIntervalSeconds" Core..=)
               Prelude.<$> keyRotationIntervalSeconds,
-            ("constantInitializationVector" Core..=)
-              Prelude.<$> constantInitializationVector,
-            ("repeatExtXKey" Core..=) Prelude.<$> repeatExtXKey,
             Prelude.Just
               ("spekeKeyProvider" Core..= spekeKeyProvider)
           ]

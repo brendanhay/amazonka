@@ -45,11 +45,11 @@ module Amazonka.Proton.CreateEnvironmentTemplate
     newCreateEnvironmentTemplate,
 
     -- * Request Lenses
+    createEnvironmentTemplate_tags,
     createEnvironmentTemplate_provisioning,
     createEnvironmentTemplate_displayName,
-    createEnvironmentTemplate_encryptionKey,
     createEnvironmentTemplate_description,
-    createEnvironmentTemplate_tags,
+    createEnvironmentTemplate_encryptionKey,
     createEnvironmentTemplate_name,
 
     -- * Destructuring the Response
@@ -71,21 +71,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateEnvironmentTemplate' smart constructor.
 data CreateEnvironmentTemplate = CreateEnvironmentTemplate'
-  { -- | When included, indicates that the environment template is for customer
-    -- provisioned and managed infrastructure.
-    provisioning :: Prelude.Maybe Provisioning,
-    -- | The environment template name as displayed in the developer interface.
-    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | A customer provided encryption key that AWS Proton uses to encrypt data.
-    encryptionKey :: Prelude.Maybe Prelude.Text,
-    -- | A description of the environment template.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | Create tags for your environment template. For more information, see
+  { -- | Create tags for your environment template. For more information, see
     -- /AWS Proton resources and tagging/ in the
     -- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html AWS Proton Administrator Guide>
     -- or
     -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html AWS Proton User Guide>.
     tags :: Prelude.Maybe [Tag],
+    -- | When included, indicates that the environment template is for customer
+    -- provisioned and managed infrastructure.
+    provisioning :: Prelude.Maybe Provisioning,
+    -- | The environment template name as displayed in the developer interface.
+    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | A description of the environment template.
+    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | A customer provided encryption key that AWS Proton uses to encrypt data.
+    encryptionKey :: Prelude.Maybe Prelude.Text,
     -- | The name of the environment template.
     name :: Prelude.Text
   }
@@ -99,20 +99,20 @@ data CreateEnvironmentTemplate = CreateEnvironmentTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'provisioning', 'createEnvironmentTemplate_provisioning' - When included, indicates that the environment template is for customer
--- provisioned and managed infrastructure.
---
--- 'displayName', 'createEnvironmentTemplate_displayName' - The environment template name as displayed in the developer interface.
---
--- 'encryptionKey', 'createEnvironmentTemplate_encryptionKey' - A customer provided encryption key that AWS Proton uses to encrypt data.
---
--- 'description', 'createEnvironmentTemplate_description' - A description of the environment template.
---
 -- 'tags', 'createEnvironmentTemplate_tags' - Create tags for your environment template. For more information, see
 -- /AWS Proton resources and tagging/ in the
 -- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html AWS Proton Administrator Guide>
 -- or
 -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html AWS Proton User Guide>.
+--
+-- 'provisioning', 'createEnvironmentTemplate_provisioning' - When included, indicates that the environment template is for customer
+-- provisioned and managed infrastructure.
+--
+-- 'displayName', 'createEnvironmentTemplate_displayName' - The environment template name as displayed in the developer interface.
+--
+-- 'description', 'createEnvironmentTemplate_description' - A description of the environment template.
+--
+-- 'encryptionKey', 'createEnvironmentTemplate_encryptionKey' - A customer provided encryption key that AWS Proton uses to encrypt data.
 --
 -- 'name', 'createEnvironmentTemplate_name' - The name of the environment template.
 newCreateEnvironmentTemplate ::
@@ -121,14 +121,21 @@ newCreateEnvironmentTemplate ::
   CreateEnvironmentTemplate
 newCreateEnvironmentTemplate pName_ =
   CreateEnvironmentTemplate'
-    { provisioning =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      provisioning = Prelude.Nothing,
       displayName = Prelude.Nothing,
-      encryptionKey = Prelude.Nothing,
       description = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      encryptionKey = Prelude.Nothing,
       name = pName_
     }
+
+-- | Create tags for your environment template. For more information, see
+-- /AWS Proton resources and tagging/ in the
+-- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html AWS Proton Administrator Guide>
+-- or
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html AWS Proton User Guide>.
+createEnvironmentTemplate_tags :: Lens.Lens' CreateEnvironmentTemplate (Prelude.Maybe [Tag])
+createEnvironmentTemplate_tags = Lens.lens (\CreateEnvironmentTemplate' {tags} -> tags) (\s@CreateEnvironmentTemplate' {} a -> s {tags = a} :: CreateEnvironmentTemplate) Prelude.. Lens.mapping Lens.coerced
 
 -- | When included, indicates that the environment template is for customer
 -- provisioned and managed infrastructure.
@@ -139,21 +146,13 @@ createEnvironmentTemplate_provisioning = Lens.lens (\CreateEnvironmentTemplate' 
 createEnvironmentTemplate_displayName :: Lens.Lens' CreateEnvironmentTemplate (Prelude.Maybe Prelude.Text)
 createEnvironmentTemplate_displayName = Lens.lens (\CreateEnvironmentTemplate' {displayName} -> displayName) (\s@CreateEnvironmentTemplate' {} a -> s {displayName = a} :: CreateEnvironmentTemplate) Prelude.. Lens.mapping Core._Sensitive
 
--- | A customer provided encryption key that AWS Proton uses to encrypt data.
-createEnvironmentTemplate_encryptionKey :: Lens.Lens' CreateEnvironmentTemplate (Prelude.Maybe Prelude.Text)
-createEnvironmentTemplate_encryptionKey = Lens.lens (\CreateEnvironmentTemplate' {encryptionKey} -> encryptionKey) (\s@CreateEnvironmentTemplate' {} a -> s {encryptionKey = a} :: CreateEnvironmentTemplate)
-
 -- | A description of the environment template.
 createEnvironmentTemplate_description :: Lens.Lens' CreateEnvironmentTemplate (Prelude.Maybe Prelude.Text)
 createEnvironmentTemplate_description = Lens.lens (\CreateEnvironmentTemplate' {description} -> description) (\s@CreateEnvironmentTemplate' {} a -> s {description = a} :: CreateEnvironmentTemplate) Prelude.. Lens.mapping Core._Sensitive
 
--- | Create tags for your environment template. For more information, see
--- /AWS Proton resources and tagging/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html AWS Proton Administrator Guide>
--- or
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html AWS Proton User Guide>.
-createEnvironmentTemplate_tags :: Lens.Lens' CreateEnvironmentTemplate (Prelude.Maybe [Tag])
-createEnvironmentTemplate_tags = Lens.lens (\CreateEnvironmentTemplate' {tags} -> tags) (\s@CreateEnvironmentTemplate' {} a -> s {tags = a} :: CreateEnvironmentTemplate) Prelude.. Lens.mapping Lens.coerced
+-- | A customer provided encryption key that AWS Proton uses to encrypt data.
+createEnvironmentTemplate_encryptionKey :: Lens.Lens' CreateEnvironmentTemplate (Prelude.Maybe Prelude.Text)
+createEnvironmentTemplate_encryptionKey = Lens.lens (\CreateEnvironmentTemplate' {encryptionKey} -> encryptionKey) (\s@CreateEnvironmentTemplate' {} a -> s {encryptionKey = a} :: CreateEnvironmentTemplate)
 
 -- | The name of the environment template.
 createEnvironmentTemplate_name :: Lens.Lens' CreateEnvironmentTemplate Prelude.Text
@@ -174,20 +173,20 @@ instance Core.AWSRequest CreateEnvironmentTemplate where
 
 instance Prelude.Hashable CreateEnvironmentTemplate where
   hashWithSalt _salt CreateEnvironmentTemplate' {..} =
-    _salt `Prelude.hashWithSalt` provisioning
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` provisioning
       `Prelude.hashWithSalt` displayName
-      `Prelude.hashWithSalt` encryptionKey
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` encryptionKey
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateEnvironmentTemplate where
   rnf CreateEnvironmentTemplate' {..} =
-    Prelude.rnf provisioning
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf provisioning
       `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf encryptionKey
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf encryptionKey
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders CreateEnvironmentTemplate where
@@ -209,11 +208,11 @@ instance Core.ToJSON CreateEnvironmentTemplate where
   toJSON CreateEnvironmentTemplate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("provisioning" Core..=) Prelude.<$> provisioning,
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("provisioning" Core..=) Prelude.<$> provisioning,
             ("displayName" Core..=) Prelude.<$> displayName,
-            ("encryptionKey" Core..=) Prelude.<$> encryptionKey,
             ("description" Core..=) Prelude.<$> description,
-            ("tags" Core..=) Prelude.<$> tags,
+            ("encryptionKey" Core..=) Prelude.<$> encryptionKey,
             Prelude.Just ("name" Core..= name)
           ]
       )

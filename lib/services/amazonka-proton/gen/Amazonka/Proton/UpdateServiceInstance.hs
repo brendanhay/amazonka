@@ -61,9 +61,9 @@ module Amazonka.Proton.UpdateServiceInstance
     newUpdateServiceInstance,
 
     -- * Request Lenses
-    updateServiceInstance_spec,
-    updateServiceInstance_templateMinorVersion,
     updateServiceInstance_templateMajorVersion,
+    updateServiceInstance_templateMinorVersion,
+    updateServiceInstance_spec,
     updateServiceInstance_deploymentType,
     updateServiceInstance_name,
     updateServiceInstance_serviceName,
@@ -87,12 +87,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateServiceInstance' smart constructor.
 data UpdateServiceInstance = UpdateServiceInstance'
-  { -- | The formatted specification that defines the service instance update.
-    spec :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+  { -- | The major version of the service template to update.
+    templateMajorVersion :: Prelude.Maybe Prelude.Text,
     -- | The minor version of the service template to update.
     templateMinorVersion :: Prelude.Maybe Prelude.Text,
-    -- | The major version of the service template to update.
-    templateMajorVersion :: Prelude.Maybe Prelude.Text,
+    -- | The formatted specification that defines the service instance update.
+    spec :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The deployment type.
     --
     -- There are four modes for updating a service instance as described in the
@@ -144,11 +144,11 @@ data UpdateServiceInstance = UpdateServiceInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'spec', 'updateServiceInstance_spec' - The formatted specification that defines the service instance update.
+-- 'templateMajorVersion', 'updateServiceInstance_templateMajorVersion' - The major version of the service template to update.
 --
 -- 'templateMinorVersion', 'updateServiceInstance_templateMinorVersion' - The minor version of the service template to update.
 --
--- 'templateMajorVersion', 'updateServiceInstance_templateMajorVersion' - The major version of the service template to update.
+-- 'spec', 'updateServiceInstance_spec' - The formatted specification that defines the service instance update.
 --
 -- 'deploymentType', 'updateServiceInstance_deploymentType' - The deployment type.
 --
@@ -202,25 +202,26 @@ newUpdateServiceInstance
   pName_
   pServiceName_ =
     UpdateServiceInstance'
-      { spec = Prelude.Nothing,
+      { templateMajorVersion =
+          Prelude.Nothing,
         templateMinorVersion = Prelude.Nothing,
-        templateMajorVersion = Prelude.Nothing,
+        spec = Prelude.Nothing,
         deploymentType = pDeploymentType_,
         name = pName_,
         serviceName = pServiceName_
       }
 
--- | The formatted specification that defines the service instance update.
-updateServiceInstance_spec :: Lens.Lens' UpdateServiceInstance (Prelude.Maybe Prelude.Text)
-updateServiceInstance_spec = Lens.lens (\UpdateServiceInstance' {spec} -> spec) (\s@UpdateServiceInstance' {} a -> s {spec = a} :: UpdateServiceInstance) Prelude.. Lens.mapping Core._Sensitive
+-- | The major version of the service template to update.
+updateServiceInstance_templateMajorVersion :: Lens.Lens' UpdateServiceInstance (Prelude.Maybe Prelude.Text)
+updateServiceInstance_templateMajorVersion = Lens.lens (\UpdateServiceInstance' {templateMajorVersion} -> templateMajorVersion) (\s@UpdateServiceInstance' {} a -> s {templateMajorVersion = a} :: UpdateServiceInstance)
 
 -- | The minor version of the service template to update.
 updateServiceInstance_templateMinorVersion :: Lens.Lens' UpdateServiceInstance (Prelude.Maybe Prelude.Text)
 updateServiceInstance_templateMinorVersion = Lens.lens (\UpdateServiceInstance' {templateMinorVersion} -> templateMinorVersion) (\s@UpdateServiceInstance' {} a -> s {templateMinorVersion = a} :: UpdateServiceInstance)
 
--- | The major version of the service template to update.
-updateServiceInstance_templateMajorVersion :: Lens.Lens' UpdateServiceInstance (Prelude.Maybe Prelude.Text)
-updateServiceInstance_templateMajorVersion = Lens.lens (\UpdateServiceInstance' {templateMajorVersion} -> templateMajorVersion) (\s@UpdateServiceInstance' {} a -> s {templateMajorVersion = a} :: UpdateServiceInstance)
+-- | The formatted specification that defines the service instance update.
+updateServiceInstance_spec :: Lens.Lens' UpdateServiceInstance (Prelude.Maybe Prelude.Text)
+updateServiceInstance_spec = Lens.lens (\UpdateServiceInstance' {spec} -> spec) (\s@UpdateServiceInstance' {} a -> s {spec = a} :: UpdateServiceInstance) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The deployment type.
 --
@@ -283,18 +284,18 @@ instance Core.AWSRequest UpdateServiceInstance where
 
 instance Prelude.Hashable UpdateServiceInstance where
   hashWithSalt _salt UpdateServiceInstance' {..} =
-    _salt `Prelude.hashWithSalt` spec
+    _salt `Prelude.hashWithSalt` templateMajorVersion
       `Prelude.hashWithSalt` templateMinorVersion
-      `Prelude.hashWithSalt` templateMajorVersion
+      `Prelude.hashWithSalt` spec
       `Prelude.hashWithSalt` deploymentType
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` serviceName
 
 instance Prelude.NFData UpdateServiceInstance where
   rnf UpdateServiceInstance' {..} =
-    Prelude.rnf spec
+    Prelude.rnf templateMajorVersion
       `Prelude.seq` Prelude.rnf templateMinorVersion
-      `Prelude.seq` Prelude.rnf templateMajorVersion
+      `Prelude.seq` Prelude.rnf spec
       `Prelude.seq` Prelude.rnf deploymentType
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf serviceName
@@ -318,11 +319,11 @@ instance Core.ToJSON UpdateServiceInstance where
   toJSON UpdateServiceInstance' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("spec" Core..=) Prelude.<$> spec,
+          [ ("templateMajorVersion" Core..=)
+              Prelude.<$> templateMajorVersion,
             ("templateMinorVersion" Core..=)
               Prelude.<$> templateMinorVersion,
-            ("templateMajorVersion" Core..=)
-              Prelude.<$> templateMajorVersion,
+            ("spec" Core..=) Prelude.<$> spec,
             Prelude.Just
               ("deploymentType" Core..= deploymentType),
             Prelude.Just ("name" Core..= name),

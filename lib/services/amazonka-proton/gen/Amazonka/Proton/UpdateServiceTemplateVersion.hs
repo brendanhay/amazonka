@@ -28,8 +28,8 @@ module Amazonka.Proton.UpdateServiceTemplateVersion
 
     -- * Request Lenses
     updateServiceTemplateVersion_status,
-    updateServiceTemplateVersion_compatibleEnvironmentTemplates,
     updateServiceTemplateVersion_description,
+    updateServiceTemplateVersion_compatibleEnvironmentTemplates,
     updateServiceTemplateVersion_majorVersion,
     updateServiceTemplateVersion_minorVersion,
     updateServiceTemplateVersion_templateName,
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 data UpdateServiceTemplateVersion = UpdateServiceTemplateVersion'
   { -- | The status of the service template minor version to update.
     status :: Prelude.Maybe TemplateVersionStatus,
+    -- | A description of a service template version to update.
+    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | An array of compatible environment names for a service template major or
     -- minor version to update.
     compatibleEnvironmentTemplates :: Prelude.Maybe (Prelude.NonEmpty CompatibleEnvironmentTemplateInput),
-    -- | A description of a service template version to update.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | To update a major version of a service template, include @majorVersion@.
     majorVersion :: Prelude.Text,
     -- | To update a minor version of a service template, include @minorVersion@.
@@ -79,10 +79,10 @@ data UpdateServiceTemplateVersion = UpdateServiceTemplateVersion'
 --
 -- 'status', 'updateServiceTemplateVersion_status' - The status of the service template minor version to update.
 --
+-- 'description', 'updateServiceTemplateVersion_description' - A description of a service template version to update.
+--
 -- 'compatibleEnvironmentTemplates', 'updateServiceTemplateVersion_compatibleEnvironmentTemplates' - An array of compatible environment names for a service template major or
 -- minor version to update.
---
--- 'description', 'updateServiceTemplateVersion_description' - A description of a service template version to update.
 --
 -- 'majorVersion', 'updateServiceTemplateVersion_majorVersion' - To update a major version of a service template, include @majorVersion@.
 --
@@ -104,9 +104,9 @@ newUpdateServiceTemplateVersion
     UpdateServiceTemplateVersion'
       { status =
           Prelude.Nothing,
+        description = Prelude.Nothing,
         compatibleEnvironmentTemplates =
           Prelude.Nothing,
-        description = Prelude.Nothing,
         majorVersion = pMajorVersion_,
         minorVersion = pMinorVersion_,
         templateName = pTemplateName_
@@ -116,14 +116,14 @@ newUpdateServiceTemplateVersion
 updateServiceTemplateVersion_status :: Lens.Lens' UpdateServiceTemplateVersion (Prelude.Maybe TemplateVersionStatus)
 updateServiceTemplateVersion_status = Lens.lens (\UpdateServiceTemplateVersion' {status} -> status) (\s@UpdateServiceTemplateVersion' {} a -> s {status = a} :: UpdateServiceTemplateVersion)
 
+-- | A description of a service template version to update.
+updateServiceTemplateVersion_description :: Lens.Lens' UpdateServiceTemplateVersion (Prelude.Maybe Prelude.Text)
+updateServiceTemplateVersion_description = Lens.lens (\UpdateServiceTemplateVersion' {description} -> description) (\s@UpdateServiceTemplateVersion' {} a -> s {description = a} :: UpdateServiceTemplateVersion) Prelude.. Lens.mapping Core._Sensitive
+
 -- | An array of compatible environment names for a service template major or
 -- minor version to update.
 updateServiceTemplateVersion_compatibleEnvironmentTemplates :: Lens.Lens' UpdateServiceTemplateVersion (Prelude.Maybe (Prelude.NonEmpty CompatibleEnvironmentTemplateInput))
 updateServiceTemplateVersion_compatibleEnvironmentTemplates = Lens.lens (\UpdateServiceTemplateVersion' {compatibleEnvironmentTemplates} -> compatibleEnvironmentTemplates) (\s@UpdateServiceTemplateVersion' {} a -> s {compatibleEnvironmentTemplates = a} :: UpdateServiceTemplateVersion) Prelude.. Lens.mapping Lens.coerced
-
--- | A description of a service template version to update.
-updateServiceTemplateVersion_description :: Lens.Lens' UpdateServiceTemplateVersion (Prelude.Maybe Prelude.Text)
-updateServiceTemplateVersion_description = Lens.lens (\UpdateServiceTemplateVersion' {description} -> description) (\s@UpdateServiceTemplateVersion' {} a -> s {description = a} :: UpdateServiceTemplateVersion) Prelude.. Lens.mapping Core._Sensitive
 
 -- | To update a major version of a service template, include @majorVersion@.
 updateServiceTemplateVersion_majorVersion :: Lens.Lens' UpdateServiceTemplateVersion Prelude.Text
@@ -156,8 +156,8 @@ instance
   where
   hashWithSalt _salt UpdateServiceTemplateVersion' {..} =
     _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` compatibleEnvironmentTemplates
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` compatibleEnvironmentTemplates
       `Prelude.hashWithSalt` majorVersion
       `Prelude.hashWithSalt` minorVersion
       `Prelude.hashWithSalt` templateName
@@ -165,8 +165,8 @@ instance
 instance Prelude.NFData UpdateServiceTemplateVersion where
   rnf UpdateServiceTemplateVersion' {..} =
     Prelude.rnf status
-      `Prelude.seq` Prelude.rnf compatibleEnvironmentTemplates
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf compatibleEnvironmentTemplates
       `Prelude.seq` Prelude.rnf majorVersion
       `Prelude.seq` Prelude.rnf minorVersion
       `Prelude.seq` Prelude.rnf templateName
@@ -191,9 +191,9 @@ instance Core.ToJSON UpdateServiceTemplateVersion where
     Core.object
       ( Prelude.catMaybes
           [ ("status" Core..=) Prelude.<$> status,
+            ("description" Core..=) Prelude.<$> description,
             ("compatibleEnvironmentTemplates" Core..=)
               Prelude.<$> compatibleEnvironmentTemplates,
-            ("description" Core..=) Prelude.<$> description,
             Prelude.Just ("majorVersion" Core..= majorVersion),
             Prelude.Just ("minorVersion" Core..= minorVersion),
             Prelude.Just ("templateName" Core..= templateName)

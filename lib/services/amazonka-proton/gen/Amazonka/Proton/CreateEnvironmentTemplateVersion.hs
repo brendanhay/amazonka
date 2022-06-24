@@ -30,10 +30,10 @@ module Amazonka.Proton.CreateEnvironmentTemplateVersion
     newCreateEnvironmentTemplateVersion,
 
     -- * Request Lenses
-    createEnvironmentTemplateVersion_clientToken,
-    createEnvironmentTemplateVersion_majorVersion,
-    createEnvironmentTemplateVersion_description,
     createEnvironmentTemplateVersion_tags,
+    createEnvironmentTemplateVersion_majorVersion,
+    createEnvironmentTemplateVersion_clientToken,
+    createEnvironmentTemplateVersion_description,
     createEnvironmentTemplateVersion_source,
     createEnvironmentTemplateVersion_templateName,
 
@@ -56,20 +56,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateEnvironmentTemplateVersion' smart constructor.
 data CreateEnvironmentTemplateVersion = CreateEnvironmentTemplateVersion'
-  { -- | When included, if two identicial requests are made with the same client
-    -- token, AWS Proton returns the environment template version that the
-    -- first request created.
-    clientToken :: Prelude.Maybe Prelude.Text,
+  { -- | Create tags for a new version of an environment template.
+    tags :: Prelude.Maybe [Tag],
     -- | To create a new minor version of the environment template, include a
     -- @majorVersion@.
     --
     -- To create a new major and minor version of the environment template,
     -- /exclude/ @majorVersion@.
     majorVersion :: Prelude.Maybe Prelude.Text,
+    -- | When included, if two identicial requests are made with the same client
+    -- token, AWS Proton returns the environment template version that the
+    -- first request created.
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | A description of the new version of an environment template.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | Create tags for a new version of an environment template.
-    tags :: Prelude.Maybe [Tag],
     -- | An object that includes the template bundle S3 bucket path and name for
     -- the new version of an template.
     source :: TemplateVersionSourceInput,
@@ -86,9 +86,7 @@ data CreateEnvironmentTemplateVersion = CreateEnvironmentTemplateVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'createEnvironmentTemplateVersion_clientToken' - When included, if two identicial requests are made with the same client
--- token, AWS Proton returns the environment template version that the
--- first request created.
+-- 'tags', 'createEnvironmentTemplateVersion_tags' - Create tags for a new version of an environment template.
 --
 -- 'majorVersion', 'createEnvironmentTemplateVersion_majorVersion' - To create a new minor version of the environment template, include a
 -- @majorVersion@.
@@ -96,9 +94,11 @@ data CreateEnvironmentTemplateVersion = CreateEnvironmentTemplateVersion'
 -- To create a new major and minor version of the environment template,
 -- /exclude/ @majorVersion@.
 --
--- 'description', 'createEnvironmentTemplateVersion_description' - A description of the new version of an environment template.
+-- 'clientToken', 'createEnvironmentTemplateVersion_clientToken' - When included, if two identicial requests are made with the same client
+-- token, AWS Proton returns the environment template version that the
+-- first request created.
 --
--- 'tags', 'createEnvironmentTemplateVersion_tags' - Create tags for a new version of an environment template.
+-- 'description', 'createEnvironmentTemplateVersion_description' - A description of the new version of an environment template.
 --
 -- 'source', 'createEnvironmentTemplateVersion_source' - An object that includes the template bundle S3 bucket path and name for
 -- the new version of an template.
@@ -114,20 +114,18 @@ newCreateEnvironmentTemplateVersion
   pSource_
   pTemplateName_ =
     CreateEnvironmentTemplateVersion'
-      { clientToken =
+      { tags =
           Prelude.Nothing,
         majorVersion = Prelude.Nothing,
+        clientToken = Prelude.Nothing,
         description = Prelude.Nothing,
-        tags = Prelude.Nothing,
         source = pSource_,
         templateName = pTemplateName_
       }
 
--- | When included, if two identicial requests are made with the same client
--- token, AWS Proton returns the environment template version that the
--- first request created.
-createEnvironmentTemplateVersion_clientToken :: Lens.Lens' CreateEnvironmentTemplateVersion (Prelude.Maybe Prelude.Text)
-createEnvironmentTemplateVersion_clientToken = Lens.lens (\CreateEnvironmentTemplateVersion' {clientToken} -> clientToken) (\s@CreateEnvironmentTemplateVersion' {} a -> s {clientToken = a} :: CreateEnvironmentTemplateVersion)
+-- | Create tags for a new version of an environment template.
+createEnvironmentTemplateVersion_tags :: Lens.Lens' CreateEnvironmentTemplateVersion (Prelude.Maybe [Tag])
+createEnvironmentTemplateVersion_tags = Lens.lens (\CreateEnvironmentTemplateVersion' {tags} -> tags) (\s@CreateEnvironmentTemplateVersion' {} a -> s {tags = a} :: CreateEnvironmentTemplateVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | To create a new minor version of the environment template, include a
 -- @majorVersion@.
@@ -137,13 +135,15 @@ createEnvironmentTemplateVersion_clientToken = Lens.lens (\CreateEnvironmentTemp
 createEnvironmentTemplateVersion_majorVersion :: Lens.Lens' CreateEnvironmentTemplateVersion (Prelude.Maybe Prelude.Text)
 createEnvironmentTemplateVersion_majorVersion = Lens.lens (\CreateEnvironmentTemplateVersion' {majorVersion} -> majorVersion) (\s@CreateEnvironmentTemplateVersion' {} a -> s {majorVersion = a} :: CreateEnvironmentTemplateVersion)
 
+-- | When included, if two identicial requests are made with the same client
+-- token, AWS Proton returns the environment template version that the
+-- first request created.
+createEnvironmentTemplateVersion_clientToken :: Lens.Lens' CreateEnvironmentTemplateVersion (Prelude.Maybe Prelude.Text)
+createEnvironmentTemplateVersion_clientToken = Lens.lens (\CreateEnvironmentTemplateVersion' {clientToken} -> clientToken) (\s@CreateEnvironmentTemplateVersion' {} a -> s {clientToken = a} :: CreateEnvironmentTemplateVersion)
+
 -- | A description of the new version of an environment template.
 createEnvironmentTemplateVersion_description :: Lens.Lens' CreateEnvironmentTemplateVersion (Prelude.Maybe Prelude.Text)
 createEnvironmentTemplateVersion_description = Lens.lens (\CreateEnvironmentTemplateVersion' {description} -> description) (\s@CreateEnvironmentTemplateVersion' {} a -> s {description = a} :: CreateEnvironmentTemplateVersion) Prelude.. Lens.mapping Core._Sensitive
-
--- | Create tags for a new version of an environment template.
-createEnvironmentTemplateVersion_tags :: Lens.Lens' CreateEnvironmentTemplateVersion (Prelude.Maybe [Tag])
-createEnvironmentTemplateVersion_tags = Lens.lens (\CreateEnvironmentTemplateVersion' {tags} -> tags) (\s@CreateEnvironmentTemplateVersion' {} a -> s {tags = a} :: CreateEnvironmentTemplateVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | An object that includes the template bundle S3 bucket path and name for
 -- the new version of an template.
@@ -177,10 +177,10 @@ instance
   hashWithSalt
     _salt
     CreateEnvironmentTemplateVersion' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` majorVersion
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` description
-        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` source
         `Prelude.hashWithSalt` templateName
 
@@ -189,10 +189,10 @@ instance
     CreateEnvironmentTemplateVersion
   where
   rnf CreateEnvironmentTemplateVersion' {..} =
-    Prelude.rnf clientToken
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf majorVersion
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf templateName
 
@@ -218,10 +218,10 @@ instance Core.ToJSON CreateEnvironmentTemplateVersion where
   toJSON CreateEnvironmentTemplateVersion' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
+          [ ("tags" Core..=) Prelude.<$> tags,
             ("majorVersion" Core..=) Prelude.<$> majorVersion,
+            ("clientToken" Core..=) Prelude.<$> clientToken,
             ("description" Core..=) Prelude.<$> description,
-            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("source" Core..= source),
             Prelude.Just ("templateName" Core..= templateName)
           ]

@@ -30,8 +30,8 @@ module Amazonka.Proton.ListServiceInstances
 
     -- * Request Lenses
     listServiceInstances_nextToken,
-    listServiceInstances_serviceName,
     listServiceInstances_maxResults,
+    listServiceInstances_serviceName,
 
     -- * Destructuring the Response
     ListServiceInstancesResponse (..),
@@ -57,10 +57,10 @@ data ListServiceInstances = ListServiceInstances'
     -- service instances, after the list of service instances that was
     -- previously requested.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of the service that the service instance belongs to.
-    serviceName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of service instances to list.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The name of the service that the service instance belongs to.
+    serviceName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,16 +76,16 @@ data ListServiceInstances = ListServiceInstances'
 -- service instances, after the list of service instances that was
 -- previously requested.
 --
--- 'serviceName', 'listServiceInstances_serviceName' - The name of the service that the service instance belongs to.
---
 -- 'maxResults', 'listServiceInstances_maxResults' - The maximum number of service instances to list.
+--
+-- 'serviceName', 'listServiceInstances_serviceName' - The name of the service that the service instance belongs to.
 newListServiceInstances ::
   ListServiceInstances
 newListServiceInstances =
   ListServiceInstances'
     { nextToken = Prelude.Nothing,
-      serviceName = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      serviceName = Prelude.Nothing
     }
 
 -- | A token to indicate the location of the next service in the array of
@@ -94,13 +94,13 @@ newListServiceInstances =
 listServiceInstances_nextToken :: Lens.Lens' ListServiceInstances (Prelude.Maybe Prelude.Text)
 listServiceInstances_nextToken = Lens.lens (\ListServiceInstances' {nextToken} -> nextToken) (\s@ListServiceInstances' {} a -> s {nextToken = a} :: ListServiceInstances)
 
--- | The name of the service that the service instance belongs to.
-listServiceInstances_serviceName :: Lens.Lens' ListServiceInstances (Prelude.Maybe Prelude.Text)
-listServiceInstances_serviceName = Lens.lens (\ListServiceInstances' {serviceName} -> serviceName) (\s@ListServiceInstances' {} a -> s {serviceName = a} :: ListServiceInstances)
-
 -- | The maximum number of service instances to list.
 listServiceInstances_maxResults :: Lens.Lens' ListServiceInstances (Prelude.Maybe Prelude.Natural)
 listServiceInstances_maxResults = Lens.lens (\ListServiceInstances' {maxResults} -> maxResults) (\s@ListServiceInstances' {} a -> s {maxResults = a} :: ListServiceInstances)
+
+-- | The name of the service that the service instance belongs to.
+listServiceInstances_serviceName :: Lens.Lens' ListServiceInstances (Prelude.Maybe Prelude.Text)
+listServiceInstances_serviceName = Lens.lens (\ListServiceInstances' {serviceName} -> serviceName) (\s@ListServiceInstances' {} a -> s {serviceName = a} :: ListServiceInstances)
 
 instance Core.AWSPager ListServiceInstances where
   page rq rs
@@ -142,14 +142,14 @@ instance Core.AWSRequest ListServiceInstances where
 instance Prelude.Hashable ListServiceInstances where
   hashWithSalt _salt ListServiceInstances' {..} =
     _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` serviceName
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` serviceName
 
 instance Prelude.NFData ListServiceInstances where
   rnf ListServiceInstances' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf serviceName
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf serviceName
 
 instance Core.ToHeaders ListServiceInstances where
   toHeaders =
@@ -171,8 +171,8 @@ instance Core.ToJSON ListServiceInstances where
     Core.object
       ( Prelude.catMaybes
           [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("serviceName" Core..=) Prelude.<$> serviceName,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+            ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("serviceName" Core..=) Prelude.<$> serviceName
           ]
       )
 

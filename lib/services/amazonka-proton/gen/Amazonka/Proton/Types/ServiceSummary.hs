@@ -28,10 +28,10 @@ import Amazonka.Proton.Types.ServiceStatus
 --
 -- /See:/ 'newServiceSummary' smart constructor.
 data ServiceSummary = ServiceSummary'
-  { -- | A service status message.
-    statusMessage :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | A description of the service.
+  { -- | A description of the service.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | A service status message.
+    statusMessage :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the service.
     arn :: Prelude.Text,
     -- | The time when the service was created.
@@ -55,9 +55,9 @@ data ServiceSummary = ServiceSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusMessage', 'serviceSummary_statusMessage' - A service status message.
---
 -- 'description', 'serviceSummary_description' - A description of the service.
+--
+-- 'statusMessage', 'serviceSummary_statusMessage' - A service status message.
 --
 -- 'arn', 'serviceSummary_arn' - The Amazon Resource Name (ARN) of the service.
 --
@@ -92,8 +92,8 @@ newServiceSummary
   pStatus_
   pTemplateName_ =
     ServiceSummary'
-      { statusMessage = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { description = Prelude.Nothing,
+        statusMessage = Prelude.Nothing,
         arn = pArn_,
         createdAt = Core._Time Lens.# pCreatedAt_,
         lastModifiedAt = Core._Time Lens.# pLastModifiedAt_,
@@ -102,13 +102,13 @@ newServiceSummary
         templateName = pTemplateName_
       }
 
--- | A service status message.
-serviceSummary_statusMessage :: Lens.Lens' ServiceSummary (Prelude.Maybe Prelude.Text)
-serviceSummary_statusMessage = Lens.lens (\ServiceSummary' {statusMessage} -> statusMessage) (\s@ServiceSummary' {} a -> s {statusMessage = a} :: ServiceSummary) Prelude.. Lens.mapping Core._Sensitive
-
 -- | A description of the service.
 serviceSummary_description :: Lens.Lens' ServiceSummary (Prelude.Maybe Prelude.Text)
 serviceSummary_description = Lens.lens (\ServiceSummary' {description} -> description) (\s@ServiceSummary' {} a -> s {description = a} :: ServiceSummary) Prelude.. Lens.mapping Core._Sensitive
+
+-- | A service status message.
+serviceSummary_statusMessage :: Lens.Lens' ServiceSummary (Prelude.Maybe Prelude.Text)
+serviceSummary_statusMessage = Lens.lens (\ServiceSummary' {statusMessage} -> statusMessage) (\s@ServiceSummary' {} a -> s {statusMessage = a} :: ServiceSummary) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the service.
 serviceSummary_arn :: Lens.Lens' ServiceSummary Prelude.Text
@@ -140,8 +140,8 @@ instance Core.FromJSON ServiceSummary where
       "ServiceSummary"
       ( \x ->
           ServiceSummary'
-            Prelude.<$> (x Core..:? "statusMessage")
-            Prelude.<*> (x Core..:? "description")
+            Prelude.<$> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "statusMessage")
             Prelude.<*> (x Core..: "arn")
             Prelude.<*> (x Core..: "createdAt")
             Prelude.<*> (x Core..: "lastModifiedAt")
@@ -152,8 +152,8 @@ instance Core.FromJSON ServiceSummary where
 
 instance Prelude.Hashable ServiceSummary where
   hashWithSalt _salt ServiceSummary' {..} =
-    _salt `Prelude.hashWithSalt` statusMessage
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` lastModifiedAt
@@ -163,8 +163,8 @@ instance Prelude.Hashable ServiceSummary where
 
 instance Prelude.NFData ServiceSummary where
   rnf ServiceSummary' {..} =
-    Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf lastModifiedAt

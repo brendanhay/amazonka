@@ -28,14 +28,14 @@ import Amazonka.Proton.Types.TemplateVersionStatus
 --
 -- /See:/ 'newEnvironmentTemplateVersion' smart constructor.
 data EnvironmentTemplateVersion = EnvironmentTemplateVersion'
-  { -- | The schema of the version of an environment template.
+  { -- | A description of the minor version of an environment template.
+    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The ID of the recommended minor version of the environment template.
+    recommendedMinorVersion :: Prelude.Maybe Prelude.Text,
+    -- | The schema of the version of an environment template.
     schema :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The status message of the version of an environment template.
     statusMessage :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The ID of the recommended minor version of the environment template.
-    recommendedMinorVersion :: Prelude.Maybe Prelude.Text,
-    -- | A description of the minor version of an environment template.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the version of an environment
     -- template.
     arn :: Prelude.Text,
@@ -63,13 +63,13 @@ data EnvironmentTemplateVersion = EnvironmentTemplateVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'schema', 'environmentTemplateVersion_schema' - The schema of the version of an environment template.
---
--- 'statusMessage', 'environmentTemplateVersion_statusMessage' - The status message of the version of an environment template.
+-- 'description', 'environmentTemplateVersion_description' - A description of the minor version of an environment template.
 --
 -- 'recommendedMinorVersion', 'environmentTemplateVersion_recommendedMinorVersion' - The ID of the recommended minor version of the environment template.
 --
--- 'description', 'environmentTemplateVersion_description' - A description of the minor version of an environment template.
+-- 'schema', 'environmentTemplateVersion_schema' - The schema of the version of an environment template.
+--
+-- 'statusMessage', 'environmentTemplateVersion_statusMessage' - The status message of the version of an environment template.
 --
 -- 'arn', 'environmentTemplateVersion_arn' - The Amazon Resource Name (ARN) of the version of an environment
 -- template.
@@ -111,11 +111,11 @@ newEnvironmentTemplateVersion
   pStatus_
   pTemplateName_ =
     EnvironmentTemplateVersion'
-      { schema =
+      { description =
           Prelude.Nothing,
-        statusMessage = Prelude.Nothing,
         recommendedMinorVersion = Prelude.Nothing,
-        description = Prelude.Nothing,
+        schema = Prelude.Nothing,
+        statusMessage = Prelude.Nothing,
         arn = pArn_,
         createdAt = Core._Time Lens.# pCreatedAt_,
         lastModifiedAt =
@@ -126,6 +126,14 @@ newEnvironmentTemplateVersion
         templateName = pTemplateName_
       }
 
+-- | A description of the minor version of an environment template.
+environmentTemplateVersion_description :: Lens.Lens' EnvironmentTemplateVersion (Prelude.Maybe Prelude.Text)
+environmentTemplateVersion_description = Lens.lens (\EnvironmentTemplateVersion' {description} -> description) (\s@EnvironmentTemplateVersion' {} a -> s {description = a} :: EnvironmentTemplateVersion) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The ID of the recommended minor version of the environment template.
+environmentTemplateVersion_recommendedMinorVersion :: Lens.Lens' EnvironmentTemplateVersion (Prelude.Maybe Prelude.Text)
+environmentTemplateVersion_recommendedMinorVersion = Lens.lens (\EnvironmentTemplateVersion' {recommendedMinorVersion} -> recommendedMinorVersion) (\s@EnvironmentTemplateVersion' {} a -> s {recommendedMinorVersion = a} :: EnvironmentTemplateVersion)
+
 -- | The schema of the version of an environment template.
 environmentTemplateVersion_schema :: Lens.Lens' EnvironmentTemplateVersion (Prelude.Maybe Prelude.Text)
 environmentTemplateVersion_schema = Lens.lens (\EnvironmentTemplateVersion' {schema} -> schema) (\s@EnvironmentTemplateVersion' {} a -> s {schema = a} :: EnvironmentTemplateVersion) Prelude.. Lens.mapping Core._Sensitive
@@ -133,14 +141,6 @@ environmentTemplateVersion_schema = Lens.lens (\EnvironmentTemplateVersion' {sch
 -- | The status message of the version of an environment template.
 environmentTemplateVersion_statusMessage :: Lens.Lens' EnvironmentTemplateVersion (Prelude.Maybe Prelude.Text)
 environmentTemplateVersion_statusMessage = Lens.lens (\EnvironmentTemplateVersion' {statusMessage} -> statusMessage) (\s@EnvironmentTemplateVersion' {} a -> s {statusMessage = a} :: EnvironmentTemplateVersion) Prelude.. Lens.mapping Core._Sensitive
-
--- | The ID of the recommended minor version of the environment template.
-environmentTemplateVersion_recommendedMinorVersion :: Lens.Lens' EnvironmentTemplateVersion (Prelude.Maybe Prelude.Text)
-environmentTemplateVersion_recommendedMinorVersion = Lens.lens (\EnvironmentTemplateVersion' {recommendedMinorVersion} -> recommendedMinorVersion) (\s@EnvironmentTemplateVersion' {} a -> s {recommendedMinorVersion = a} :: EnvironmentTemplateVersion)
-
--- | A description of the minor version of an environment template.
-environmentTemplateVersion_description :: Lens.Lens' EnvironmentTemplateVersion (Prelude.Maybe Prelude.Text)
-environmentTemplateVersion_description = Lens.lens (\EnvironmentTemplateVersion' {description} -> description) (\s@EnvironmentTemplateVersion' {} a -> s {description = a} :: EnvironmentTemplateVersion) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the version of an environment
 -- template.
@@ -178,10 +178,10 @@ instance Core.FromJSON EnvironmentTemplateVersion where
       "EnvironmentTemplateVersion"
       ( \x ->
           EnvironmentTemplateVersion'
-            Prelude.<$> (x Core..:? "schema")
-            Prelude.<*> (x Core..:? "statusMessage")
+            Prelude.<$> (x Core..:? "description")
             Prelude.<*> (x Core..:? "recommendedMinorVersion")
-            Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "schema")
+            Prelude.<*> (x Core..:? "statusMessage")
             Prelude.<*> (x Core..: "arn")
             Prelude.<*> (x Core..: "createdAt")
             Prelude.<*> (x Core..: "lastModifiedAt")
@@ -193,10 +193,10 @@ instance Core.FromJSON EnvironmentTemplateVersion where
 
 instance Prelude.Hashable EnvironmentTemplateVersion where
   hashWithSalt _salt EnvironmentTemplateVersion' {..} =
-    _salt `Prelude.hashWithSalt` schema
-      `Prelude.hashWithSalt` statusMessage
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` recommendedMinorVersion
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` schema
+      `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` lastModifiedAt
@@ -207,10 +207,10 @@ instance Prelude.Hashable EnvironmentTemplateVersion where
 
 instance Prelude.NFData EnvironmentTemplateVersion where
   rnf EnvironmentTemplateVersion' {..} =
-    Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf recommendedMinorVersion
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf schema
+      `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf lastModifiedAt

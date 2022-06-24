@@ -32,12 +32,12 @@ data ServiceTemplateSummary = ServiceTemplateSummary'
     recommendedVersion :: Prelude.Maybe Prelude.Text,
     -- | The service template name as displayed in the developer interface.
     displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | A description of the service template.
+    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | If @pipelineProvisioning@ is @true@, a service pipeline is included in
     -- the service template, otherwise a service pipeline /isn\'t/ included in
     -- the service template.
     pipelineProvisioning :: Prelude.Maybe Provisioning,
-    -- | A description of the service template.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the service template.
     arn :: Prelude.Text,
     -- | The time when the service template was created.
@@ -61,11 +61,11 @@ data ServiceTemplateSummary = ServiceTemplateSummary'
 --
 -- 'displayName', 'serviceTemplateSummary_displayName' - The service template name as displayed in the developer interface.
 --
+-- 'description', 'serviceTemplateSummary_description' - A description of the service template.
+--
 -- 'pipelineProvisioning', 'serviceTemplateSummary_pipelineProvisioning' - If @pipelineProvisioning@ is @true@, a service pipeline is included in
 -- the service template, otherwise a service pipeline /isn\'t/ included in
 -- the service template.
---
--- 'description', 'serviceTemplateSummary_description' - A description of the service template.
 --
 -- 'arn', 'serviceTemplateSummary_arn' - The Amazon Resource Name (ARN) of the service template.
 --
@@ -93,8 +93,8 @@ newServiceTemplateSummary
       { recommendedVersion =
           Prelude.Nothing,
         displayName = Prelude.Nothing,
-        pipelineProvisioning = Prelude.Nothing,
         description = Prelude.Nothing,
+        pipelineProvisioning = Prelude.Nothing,
         arn = pArn_,
         createdAt = Core._Time Lens.# pCreatedAt_,
         lastModifiedAt = Core._Time Lens.# pLastModifiedAt_,
@@ -109,15 +109,15 @@ serviceTemplateSummary_recommendedVersion = Lens.lens (\ServiceTemplateSummary' 
 serviceTemplateSummary_displayName :: Lens.Lens' ServiceTemplateSummary (Prelude.Maybe Prelude.Text)
 serviceTemplateSummary_displayName = Lens.lens (\ServiceTemplateSummary' {displayName} -> displayName) (\s@ServiceTemplateSummary' {} a -> s {displayName = a} :: ServiceTemplateSummary) Prelude.. Lens.mapping Core._Sensitive
 
+-- | A description of the service template.
+serviceTemplateSummary_description :: Lens.Lens' ServiceTemplateSummary (Prelude.Maybe Prelude.Text)
+serviceTemplateSummary_description = Lens.lens (\ServiceTemplateSummary' {description} -> description) (\s@ServiceTemplateSummary' {} a -> s {description = a} :: ServiceTemplateSummary) Prelude.. Lens.mapping Core._Sensitive
+
 -- | If @pipelineProvisioning@ is @true@, a service pipeline is included in
 -- the service template, otherwise a service pipeline /isn\'t/ included in
 -- the service template.
 serviceTemplateSummary_pipelineProvisioning :: Lens.Lens' ServiceTemplateSummary (Prelude.Maybe Provisioning)
 serviceTemplateSummary_pipelineProvisioning = Lens.lens (\ServiceTemplateSummary' {pipelineProvisioning} -> pipelineProvisioning) (\s@ServiceTemplateSummary' {} a -> s {pipelineProvisioning = a} :: ServiceTemplateSummary)
-
--- | A description of the service template.
-serviceTemplateSummary_description :: Lens.Lens' ServiceTemplateSummary (Prelude.Maybe Prelude.Text)
-serviceTemplateSummary_description = Lens.lens (\ServiceTemplateSummary' {description} -> description) (\s@ServiceTemplateSummary' {} a -> s {description = a} :: ServiceTemplateSummary) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the service template.
 serviceTemplateSummary_arn :: Lens.Lens' ServiceTemplateSummary Prelude.Text
@@ -143,8 +143,8 @@ instance Core.FromJSON ServiceTemplateSummary where
           ServiceTemplateSummary'
             Prelude.<$> (x Core..:? "recommendedVersion")
             Prelude.<*> (x Core..:? "displayName")
-            Prelude.<*> (x Core..:? "pipelineProvisioning")
             Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "pipelineProvisioning")
             Prelude.<*> (x Core..: "arn")
             Prelude.<*> (x Core..: "createdAt")
             Prelude.<*> (x Core..: "lastModifiedAt")
@@ -155,8 +155,8 @@ instance Prelude.Hashable ServiceTemplateSummary where
   hashWithSalt _salt ServiceTemplateSummary' {..} =
     _salt `Prelude.hashWithSalt` recommendedVersion
       `Prelude.hashWithSalt` displayName
-      `Prelude.hashWithSalt` pipelineProvisioning
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` pipelineProvisioning
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` lastModifiedAt
@@ -166,8 +166,8 @@ instance Prelude.NFData ServiceTemplateSummary where
   rnf ServiceTemplateSummary' {..} =
     Prelude.rnf recommendedVersion
       `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf pipelineProvisioning
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf pipelineProvisioning
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf lastModifiedAt

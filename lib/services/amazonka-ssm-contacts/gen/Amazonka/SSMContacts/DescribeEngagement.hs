@@ -36,11 +36,11 @@ module Amazonka.SSMContacts.DescribeEngagement
     newDescribeEngagementResponse,
 
     -- * Response Lenses
-    describeEngagementResponse_publicSubject,
-    describeEngagementResponse_startTime,
     describeEngagementResponse_publicContent,
     describeEngagementResponse_stopTime,
+    describeEngagementResponse_publicSubject,
     describeEngagementResponse_incidentId,
+    describeEngagementResponse_startTime,
     describeEngagementResponse_httpStatus,
     describeEngagementResponse_contactArn,
     describeEngagementResponse_engagementArn,
@@ -96,11 +96,11 @@ instance Core.AWSRequest DescribeEngagement where
     Response.receiveJSON
       ( \s h x ->
           DescribeEngagementResponse'
-            Prelude.<$> (x Core..?> "PublicSubject")
-            Prelude.<*> (x Core..?> "StartTime")
-            Prelude.<*> (x Core..?> "PublicContent")
+            Prelude.<$> (x Core..?> "PublicContent")
             Prelude.<*> (x Core..?> "StopTime")
+            Prelude.<*> (x Core..?> "PublicSubject")
             Prelude.<*> (x Core..?> "IncidentId")
+            Prelude.<*> (x Core..?> "StartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "ContactArn")
             Prelude.<*> (x Core..:> "EngagementArn")
@@ -147,18 +147,18 @@ instance Core.ToQuery DescribeEngagement where
 
 -- | /See:/ 'newDescribeEngagementResponse' smart constructor.
 data DescribeEngagementResponse = DescribeEngagementResponse'
-  { -- | The insecure subject of the message that was sent to the contact. Use
-    -- this field for engagements to @SMS@.
-    publicSubject :: Prelude.Maybe Prelude.Text,
-    -- | The time that the engagement started.
-    startTime :: Prelude.Maybe Core.POSIX,
-    -- | The insecure content of the message that was sent to the contact. Use
+  { -- | The insecure content of the message that was sent to the contact. Use
     -- this field for engagements to @SMS@.
     publicContent :: Prelude.Maybe Prelude.Text,
     -- | The time that the engagement ended.
     stopTime :: Prelude.Maybe Core.POSIX,
+    -- | The insecure subject of the message that was sent to the contact. Use
+    -- this field for engagements to @SMS@.
+    publicSubject :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the incident in which the engagement occurred.
     incidentId :: Prelude.Maybe Prelude.Text,
+    -- | The time that the engagement started.
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The ARN of the escalation plan or contacts involved in the engagement.
@@ -184,17 +184,17 @@ data DescribeEngagementResponse = DescribeEngagementResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'publicSubject', 'describeEngagementResponse_publicSubject' - The insecure subject of the message that was sent to the contact. Use
--- this field for engagements to @SMS@.
---
--- 'startTime', 'describeEngagementResponse_startTime' - The time that the engagement started.
---
 -- 'publicContent', 'describeEngagementResponse_publicContent' - The insecure content of the message that was sent to the contact. Use
 -- this field for engagements to @SMS@.
 --
 -- 'stopTime', 'describeEngagementResponse_stopTime' - The time that the engagement ended.
 --
+-- 'publicSubject', 'describeEngagementResponse_publicSubject' - The insecure subject of the message that was sent to the contact. Use
+-- this field for engagements to @SMS@.
+--
 -- 'incidentId', 'describeEngagementResponse_incidentId' - The ARN of the incident in which the engagement occurred.
+--
+-- 'startTime', 'describeEngagementResponse_startTime' - The time that the engagement started.
 --
 -- 'httpStatus', 'describeEngagementResponse_httpStatus' - The response's http status code.
 --
@@ -231,12 +231,12 @@ newDescribeEngagementResponse
   pSubject_
   pContent_ =
     DescribeEngagementResponse'
-      { publicSubject =
+      { publicContent =
           Prelude.Nothing,
-        startTime = Prelude.Nothing,
-        publicContent = Prelude.Nothing,
         stopTime = Prelude.Nothing,
+        publicSubject = Prelude.Nothing,
         incidentId = Prelude.Nothing,
+        startTime = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         contactArn = pContactArn_,
         engagementArn = pEngagementArn_,
@@ -244,15 +244,6 @@ newDescribeEngagementResponse
         subject = pSubject_,
         content = pContent_
       }
-
--- | The insecure subject of the message that was sent to the contact. Use
--- this field for engagements to @SMS@.
-describeEngagementResponse_publicSubject :: Lens.Lens' DescribeEngagementResponse (Prelude.Maybe Prelude.Text)
-describeEngagementResponse_publicSubject = Lens.lens (\DescribeEngagementResponse' {publicSubject} -> publicSubject) (\s@DescribeEngagementResponse' {} a -> s {publicSubject = a} :: DescribeEngagementResponse)
-
--- | The time that the engagement started.
-describeEngagementResponse_startTime :: Lens.Lens' DescribeEngagementResponse (Prelude.Maybe Prelude.UTCTime)
-describeEngagementResponse_startTime = Lens.lens (\DescribeEngagementResponse' {startTime} -> startTime) (\s@DescribeEngagementResponse' {} a -> s {startTime = a} :: DescribeEngagementResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The insecure content of the message that was sent to the contact. Use
 -- this field for engagements to @SMS@.
@@ -263,9 +254,18 @@ describeEngagementResponse_publicContent = Lens.lens (\DescribeEngagementRespons
 describeEngagementResponse_stopTime :: Lens.Lens' DescribeEngagementResponse (Prelude.Maybe Prelude.UTCTime)
 describeEngagementResponse_stopTime = Lens.lens (\DescribeEngagementResponse' {stopTime} -> stopTime) (\s@DescribeEngagementResponse' {} a -> s {stopTime = a} :: DescribeEngagementResponse) Prelude.. Lens.mapping Core._Time
 
+-- | The insecure subject of the message that was sent to the contact. Use
+-- this field for engagements to @SMS@.
+describeEngagementResponse_publicSubject :: Lens.Lens' DescribeEngagementResponse (Prelude.Maybe Prelude.Text)
+describeEngagementResponse_publicSubject = Lens.lens (\DescribeEngagementResponse' {publicSubject} -> publicSubject) (\s@DescribeEngagementResponse' {} a -> s {publicSubject = a} :: DescribeEngagementResponse)
+
 -- | The ARN of the incident in which the engagement occurred.
 describeEngagementResponse_incidentId :: Lens.Lens' DescribeEngagementResponse (Prelude.Maybe Prelude.Text)
 describeEngagementResponse_incidentId = Lens.lens (\DescribeEngagementResponse' {incidentId} -> incidentId) (\s@DescribeEngagementResponse' {} a -> s {incidentId = a} :: DescribeEngagementResponse)
+
+-- | The time that the engagement started.
+describeEngagementResponse_startTime :: Lens.Lens' DescribeEngagementResponse (Prelude.Maybe Prelude.UTCTime)
+describeEngagementResponse_startTime = Lens.lens (\DescribeEngagementResponse' {startTime} -> startTime) (\s@DescribeEngagementResponse' {} a -> s {startTime = a} :: DescribeEngagementResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
 describeEngagementResponse_httpStatus :: Lens.Lens' DescribeEngagementResponse Prelude.Int
@@ -295,11 +295,11 @@ describeEngagementResponse_content = Lens.lens (\DescribeEngagementResponse' {co
 
 instance Prelude.NFData DescribeEngagementResponse where
   rnf DescribeEngagementResponse' {..} =
-    Prelude.rnf publicSubject
-      `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf publicContent
+    Prelude.rnf publicContent
       `Prelude.seq` Prelude.rnf stopTime
+      `Prelude.seq` Prelude.rnf publicSubject
       `Prelude.seq` Prelude.rnf incidentId
+      `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf contactArn
       `Prelude.seq` Prelude.rnf engagementArn

@@ -29,10 +29,10 @@ module Amazonka.SSMContacts.ListContacts
     newListContacts,
 
     -- * Request Lenses
-    listContacts_aliasPrefix,
     listContacts_nextToken,
     listContacts_type,
     listContacts_maxResults,
+    listContacts_aliasPrefix,
 
     -- * Destructuring the Response
     ListContactsResponse (..),
@@ -54,16 +54,16 @@ import Amazonka.SSMContacts.Types
 
 -- | /See:/ 'newListContacts' smart constructor.
 data ListContacts = ListContacts'
-  { -- | Used to list only contacts who\'s aliases start with the specified
-    -- prefix.
-    aliasPrefix :: Prelude.Maybe Prelude.Text,
-    -- | The pagination token to continue to the next page of results.
+  { -- | The pagination token to continue to the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The type of contact. A contact is type @PERSONAL@ and an escalation plan
     -- is type @ESCALATION@.
     type' :: Prelude.Maybe ContactType,
     -- | The maximum number of contacts and escalation plans per page of results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Used to list only contacts who\'s aliases start with the specified
+    -- prefix.
+    aliasPrefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,29 +75,24 @@ data ListContacts = ListContacts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'aliasPrefix', 'listContacts_aliasPrefix' - Used to list only contacts who\'s aliases start with the specified
--- prefix.
---
 -- 'nextToken', 'listContacts_nextToken' - The pagination token to continue to the next page of results.
 --
 -- 'type'', 'listContacts_type' - The type of contact. A contact is type @PERSONAL@ and an escalation plan
 -- is type @ESCALATION@.
 --
 -- 'maxResults', 'listContacts_maxResults' - The maximum number of contacts and escalation plans per page of results.
+--
+-- 'aliasPrefix', 'listContacts_aliasPrefix' - Used to list only contacts who\'s aliases start with the specified
+-- prefix.
 newListContacts ::
   ListContacts
 newListContacts =
   ListContacts'
-    { aliasPrefix = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       type' = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      aliasPrefix = Prelude.Nothing
     }
-
--- | Used to list only contacts who\'s aliases start with the specified
--- prefix.
-listContacts_aliasPrefix :: Lens.Lens' ListContacts (Prelude.Maybe Prelude.Text)
-listContacts_aliasPrefix = Lens.lens (\ListContacts' {aliasPrefix} -> aliasPrefix) (\s@ListContacts' {} a -> s {aliasPrefix = a} :: ListContacts)
 
 -- | The pagination token to continue to the next page of results.
 listContacts_nextToken :: Lens.Lens' ListContacts (Prelude.Maybe Prelude.Text)
@@ -111,6 +106,11 @@ listContacts_type = Lens.lens (\ListContacts' {type'} -> type') (\s@ListContacts
 -- | The maximum number of contacts and escalation plans per page of results.
 listContacts_maxResults :: Lens.Lens' ListContacts (Prelude.Maybe Prelude.Natural)
 listContacts_maxResults = Lens.lens (\ListContacts' {maxResults} -> maxResults) (\s@ListContacts' {} a -> s {maxResults = a} :: ListContacts)
+
+-- | Used to list only contacts who\'s aliases start with the specified
+-- prefix.
+listContacts_aliasPrefix :: Lens.Lens' ListContacts (Prelude.Maybe Prelude.Text)
+listContacts_aliasPrefix = Lens.lens (\ListContacts' {aliasPrefix} -> aliasPrefix) (\s@ListContacts' {} a -> s {aliasPrefix = a} :: ListContacts)
 
 instance Core.AWSPager ListContacts where
   page rq rs
@@ -145,17 +145,17 @@ instance Core.AWSRequest ListContacts where
 
 instance Prelude.Hashable ListContacts where
   hashWithSalt _salt ListContacts' {..} =
-    _salt `Prelude.hashWithSalt` aliasPrefix
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` aliasPrefix
 
 instance Prelude.NFData ListContacts where
   rnf ListContacts' {..} =
-    Prelude.rnf aliasPrefix
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf aliasPrefix
 
 instance Core.ToHeaders ListContacts where
   toHeaders =
@@ -174,10 +174,10 @@ instance Core.ToJSON ListContacts where
   toJSON ListContacts' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AliasPrefix" Core..=) Prelude.<$> aliasPrefix,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("Type" Core..=) Prelude.<$> type',
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("AliasPrefix" Core..=) Prelude.<$> aliasPrefix
           ]
       )
 

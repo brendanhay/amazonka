@@ -27,44 +27,11 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListPagesByEngagement $
---             newListPagesByEngagement
---
---         , requestListEngagements $
---             newListEngagements
---
---         , requestListContactChannels $
---             newListContactChannels
+--         [ requestAcceptPage $
+--             newAcceptPage
 --
 --         , requestActivateContactChannel $
 --             newActivateContactChannel
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestStartEngagement $
---             newStartEngagement
---
---         , requestDeactivateContactChannel $
---             newDeactivateContactChannel
---
---         , requestAcceptPage $
---             newAcceptPage
---
---         , requestListPageReceipts $
---             newListPageReceipts
---
---         , requestGetContact $
---             newGetContact
---
---         , requestDescribePage $
---             newDescribePage
---
---         , requestDeleteContact $
---             newDeleteContact
---
---         , requestUpdateContact $
---             newUpdateContact
 --
 --         , requestCreateContact $
 --             newCreateContact
@@ -72,23 +39,62 @@ import Test.Tasty
 --         , requestCreateContactChannel $
 --             newCreateContactChannel
 --
+--         , requestDeactivateContactChannel $
+--             newDeactivateContactChannel
+--
+--         , requestDeleteContact $
+--             newDeleteContact
+--
 --         , requestDeleteContactChannel $
 --             newDeleteContactChannel
 --
---         , requestUpdateContactChannel $
---             newUpdateContactChannel
+--         , requestDescribeEngagement $
+--             newDescribeEngagement
+--
+--         , requestDescribePage $
+--             newDescribePage
+--
+--         , requestGetContact $
+--             newGetContact
 --
 --         , requestGetContactChannel $
 --             newGetContactChannel
 --
+--         , requestGetContactPolicy $
+--             newGetContactPolicy
+--
+--         , requestListContactChannels $
+--             newListContactChannels
+--
+--         , requestListContacts $
+--             newListContacts
+--
+--         , requestListEngagements $
+--             newListEngagements
+--
+--         , requestListPageReceipts $
+--             newListPageReceipts
+--
+--         , requestListPagesByContact $
+--             newListPagesByContact
+--
+--         , requestListPagesByEngagement $
+--             newListPagesByEngagement
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestPutContactPolicy $
+--             newPutContactPolicy
+--
 --         , requestSendActivationCode $
 --             newSendActivationCode
 --
+--         , requestStartEngagement $
+--             newStartEngagement
+--
 --         , requestStopEngagement $
 --             newStopEngagement
---
---         , requestDescribeEngagement $
---             newDescribeEngagement
 --
 --         , requestTagResource $
 --             newTagResource
@@ -96,59 +102,20 @@ import Test.Tasty
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestGetContactPolicy $
---             newGetContactPolicy
+--         , requestUpdateContact $
+--             newUpdateContact
 --
---         , requestPutContactPolicy $
---             newPutContactPolicy
---
---         , requestListContacts $
---             newListContacts
---
---         , requestListPagesByContact $
---             newListPagesByContact
+--         , requestUpdateContactChannel $
+--             newUpdateContactChannel
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseListPagesByEngagement $
---             newListPagesByEngagementResponse
---
---         , responseListEngagements $
---             newListEngagementsResponse
---
---         , responseListContactChannels $
---             newListContactChannelsResponse
+--         [ responseAcceptPage $
+--             newAcceptPageResponse
 --
 --         , responseActivateContactChannel $
 --             newActivateContactChannelResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responseStartEngagement $
---             newStartEngagementResponse
---
---         , responseDeactivateContactChannel $
---             newDeactivateContactChannelResponse
---
---         , responseAcceptPage $
---             newAcceptPageResponse
---
---         , responseListPageReceipts $
---             newListPageReceiptsResponse
---
---         , responseGetContact $
---             newGetContactResponse
---
---         , responseDescribePage $
---             newDescribePageResponse
---
---         , responseDeleteContact $
---             newDeleteContactResponse
---
---         , responseUpdateContact $
---             newUpdateContactResponse
 --
 --         , responseCreateContact $
 --             newCreateContactResponse
@@ -156,23 +123,62 @@ import Test.Tasty
 --         , responseCreateContactChannel $
 --             newCreateContactChannelResponse
 --
+--         , responseDeactivateContactChannel $
+--             newDeactivateContactChannelResponse
+--
+--         , responseDeleteContact $
+--             newDeleteContactResponse
+--
 --         , responseDeleteContactChannel $
 --             newDeleteContactChannelResponse
 --
---         , responseUpdateContactChannel $
---             newUpdateContactChannelResponse
+--         , responseDescribeEngagement $
+--             newDescribeEngagementResponse
+--
+--         , responseDescribePage $
+--             newDescribePageResponse
+--
+--         , responseGetContact $
+--             newGetContactResponse
 --
 --         , responseGetContactChannel $
 --             newGetContactChannelResponse
 --
+--         , responseGetContactPolicy $
+--             newGetContactPolicyResponse
+--
+--         , responseListContactChannels $
+--             newListContactChannelsResponse
+--
+--         , responseListContacts $
+--             newListContactsResponse
+--
+--         , responseListEngagements $
+--             newListEngagementsResponse
+--
+--         , responseListPageReceipts $
+--             newListPageReceiptsResponse
+--
+--         , responseListPagesByContact $
+--             newListPagesByContactResponse
+--
+--         , responseListPagesByEngagement $
+--             newListPagesByEngagementResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responsePutContactPolicy $
+--             newPutContactPolicyResponse
+--
 --         , responseSendActivationCode $
 --             newSendActivationCodeResponse
 --
+--         , responseStartEngagement $
+--             newStartEngagementResponse
+--
 --         , responseStopEngagement $
 --             newStopEngagementResponse
---
---         , responseDescribeEngagement $
---             newDescribeEngagementResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -180,64 +186,16 @@ import Test.Tasty
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseGetContactPolicy $
---             newGetContactPolicyResponse
+--         , responseUpdateContact $
+--             newUpdateContactResponse
 --
---         , responsePutContactPolicy $
---             newPutContactPolicyResponse
---
---         , responseListContacts $
---             newListContactsResponse
---
---         , responseListPagesByContact $
---             newListPagesByContactResponse
+--         , responseUpdateContactChannel $
+--             newUpdateContactChannelResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestListPagesByEngagement :: ListPagesByEngagement -> TestTree
-requestListPagesByEngagement =
-  req
-    "ListPagesByEngagement"
-    "fixture/ListPagesByEngagement.yaml"
-
-requestListEngagements :: ListEngagements -> TestTree
-requestListEngagements =
-  req
-    "ListEngagements"
-    "fixture/ListEngagements.yaml"
-
-requestListContactChannels :: ListContactChannels -> TestTree
-requestListContactChannels =
-  req
-    "ListContactChannels"
-    "fixture/ListContactChannels.yaml"
-
-requestActivateContactChannel :: ActivateContactChannel -> TestTree
-requestActivateContactChannel =
-  req
-    "ActivateContactChannel"
-    "fixture/ActivateContactChannel.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestStartEngagement :: StartEngagement -> TestTree
-requestStartEngagement =
-  req
-    "StartEngagement"
-    "fixture/StartEngagement.yaml"
-
-requestDeactivateContactChannel :: DeactivateContactChannel -> TestTree
-requestDeactivateContactChannel =
-  req
-    "DeactivateContactChannel"
-    "fixture/DeactivateContactChannel.yaml"
 
 requestAcceptPage :: AcceptPage -> TestTree
 requestAcceptPage =
@@ -245,35 +203,11 @@ requestAcceptPage =
     "AcceptPage"
     "fixture/AcceptPage.yaml"
 
-requestListPageReceipts :: ListPageReceipts -> TestTree
-requestListPageReceipts =
+requestActivateContactChannel :: ActivateContactChannel -> TestTree
+requestActivateContactChannel =
   req
-    "ListPageReceipts"
-    "fixture/ListPageReceipts.yaml"
-
-requestGetContact :: GetContact -> TestTree
-requestGetContact =
-  req
-    "GetContact"
-    "fixture/GetContact.yaml"
-
-requestDescribePage :: DescribePage -> TestTree
-requestDescribePage =
-  req
-    "DescribePage"
-    "fixture/DescribePage.yaml"
-
-requestDeleteContact :: DeleteContact -> TestTree
-requestDeleteContact =
-  req
-    "DeleteContact"
-    "fixture/DeleteContact.yaml"
-
-requestUpdateContact :: UpdateContact -> TestTree
-requestUpdateContact =
-  req
-    "UpdateContact"
-    "fixture/UpdateContact.yaml"
+    "ActivateContactChannel"
+    "fixture/ActivateContactChannel.yaml"
 
 requestCreateContact :: CreateContact -> TestTree
 requestCreateContact =
@@ -287,17 +221,41 @@ requestCreateContactChannel =
     "CreateContactChannel"
     "fixture/CreateContactChannel.yaml"
 
+requestDeactivateContactChannel :: DeactivateContactChannel -> TestTree
+requestDeactivateContactChannel =
+  req
+    "DeactivateContactChannel"
+    "fixture/DeactivateContactChannel.yaml"
+
+requestDeleteContact :: DeleteContact -> TestTree
+requestDeleteContact =
+  req
+    "DeleteContact"
+    "fixture/DeleteContact.yaml"
+
 requestDeleteContactChannel :: DeleteContactChannel -> TestTree
 requestDeleteContactChannel =
   req
     "DeleteContactChannel"
     "fixture/DeleteContactChannel.yaml"
 
-requestUpdateContactChannel :: UpdateContactChannel -> TestTree
-requestUpdateContactChannel =
+requestDescribeEngagement :: DescribeEngagement -> TestTree
+requestDescribeEngagement =
   req
-    "UpdateContactChannel"
-    "fixture/UpdateContactChannel.yaml"
+    "DescribeEngagement"
+    "fixture/DescribeEngagement.yaml"
+
+requestDescribePage :: DescribePage -> TestTree
+requestDescribePage =
+  req
+    "DescribePage"
+    "fixture/DescribePage.yaml"
+
+requestGetContact :: GetContact -> TestTree
+requestGetContact =
+  req
+    "GetContact"
+    "fixture/GetContact.yaml"
 
 requestGetContactChannel :: GetContactChannel -> TestTree
 requestGetContactChannel =
@@ -305,23 +263,77 @@ requestGetContactChannel =
     "GetContactChannel"
     "fixture/GetContactChannel.yaml"
 
+requestGetContactPolicy :: GetContactPolicy -> TestTree
+requestGetContactPolicy =
+  req
+    "GetContactPolicy"
+    "fixture/GetContactPolicy.yaml"
+
+requestListContactChannels :: ListContactChannels -> TestTree
+requestListContactChannels =
+  req
+    "ListContactChannels"
+    "fixture/ListContactChannels.yaml"
+
+requestListContacts :: ListContacts -> TestTree
+requestListContacts =
+  req
+    "ListContacts"
+    "fixture/ListContacts.yaml"
+
+requestListEngagements :: ListEngagements -> TestTree
+requestListEngagements =
+  req
+    "ListEngagements"
+    "fixture/ListEngagements.yaml"
+
+requestListPageReceipts :: ListPageReceipts -> TestTree
+requestListPageReceipts =
+  req
+    "ListPageReceipts"
+    "fixture/ListPageReceipts.yaml"
+
+requestListPagesByContact :: ListPagesByContact -> TestTree
+requestListPagesByContact =
+  req
+    "ListPagesByContact"
+    "fixture/ListPagesByContact.yaml"
+
+requestListPagesByEngagement :: ListPagesByEngagement -> TestTree
+requestListPagesByEngagement =
+  req
+    "ListPagesByEngagement"
+    "fixture/ListPagesByEngagement.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestPutContactPolicy :: PutContactPolicy -> TestTree
+requestPutContactPolicy =
+  req
+    "PutContactPolicy"
+    "fixture/PutContactPolicy.yaml"
+
 requestSendActivationCode :: SendActivationCode -> TestTree
 requestSendActivationCode =
   req
     "SendActivationCode"
     "fixture/SendActivationCode.yaml"
 
+requestStartEngagement :: StartEngagement -> TestTree
+requestStartEngagement =
+  req
+    "StartEngagement"
+    "fixture/StartEngagement.yaml"
+
 requestStopEngagement :: StopEngagement -> TestTree
 requestStopEngagement =
   req
     "StopEngagement"
     "fixture/StopEngagement.yaml"
-
-requestDescribeEngagement :: DescribeEngagement -> TestTree
-requestDescribeEngagement =
-  req
-    "DescribeEngagement"
-    "fixture/DescribeEngagement.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -335,87 +347,19 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestGetContactPolicy :: GetContactPolicy -> TestTree
-requestGetContactPolicy =
+requestUpdateContact :: UpdateContact -> TestTree
+requestUpdateContact =
   req
-    "GetContactPolicy"
-    "fixture/GetContactPolicy.yaml"
+    "UpdateContact"
+    "fixture/UpdateContact.yaml"
 
-requestPutContactPolicy :: PutContactPolicy -> TestTree
-requestPutContactPolicy =
+requestUpdateContactChannel :: UpdateContactChannel -> TestTree
+requestUpdateContactChannel =
   req
-    "PutContactPolicy"
-    "fixture/PutContactPolicy.yaml"
-
-requestListContacts :: ListContacts -> TestTree
-requestListContacts =
-  req
-    "ListContacts"
-    "fixture/ListContacts.yaml"
-
-requestListPagesByContact :: ListPagesByContact -> TestTree
-requestListPagesByContact =
-  req
-    "ListPagesByContact"
-    "fixture/ListPagesByContact.yaml"
+    "UpdateContactChannel"
+    "fixture/UpdateContactChannel.yaml"
 
 -- Responses
-
-responseListPagesByEngagement :: ListPagesByEngagementResponse -> TestTree
-responseListPagesByEngagement =
-  res
-    "ListPagesByEngagementResponse"
-    "fixture/ListPagesByEngagementResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListPagesByEngagement)
-
-responseListEngagements :: ListEngagementsResponse -> TestTree
-responseListEngagements =
-  res
-    "ListEngagementsResponse"
-    "fixture/ListEngagementsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListEngagements)
-
-responseListContactChannels :: ListContactChannelsResponse -> TestTree
-responseListContactChannels =
-  res
-    "ListContactChannelsResponse"
-    "fixture/ListContactChannelsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListContactChannels)
-
-responseActivateContactChannel :: ActivateContactChannelResponse -> TestTree
-responseActivateContactChannel =
-  res
-    "ActivateContactChannelResponse"
-    "fixture/ActivateContactChannelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ActivateContactChannel)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
-
-responseStartEngagement :: StartEngagementResponse -> TestTree
-responseStartEngagement =
-  res
-    "StartEngagementResponse"
-    "fixture/StartEngagementResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy StartEngagement)
-
-responseDeactivateContactChannel :: DeactivateContactChannelResponse -> TestTree
-responseDeactivateContactChannel =
-  res
-    "DeactivateContactChannelResponse"
-    "fixture/DeactivateContactChannelResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeactivateContactChannel)
 
 responseAcceptPage :: AcceptPageResponse -> TestTree
 responseAcceptPage =
@@ -425,45 +369,13 @@ responseAcceptPage =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AcceptPage)
 
-responseListPageReceipts :: ListPageReceiptsResponse -> TestTree
-responseListPageReceipts =
+responseActivateContactChannel :: ActivateContactChannelResponse -> TestTree
+responseActivateContactChannel =
   res
-    "ListPageReceiptsResponse"
-    "fixture/ListPageReceiptsResponse.proto"
+    "ActivateContactChannelResponse"
+    "fixture/ActivateContactChannelResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListPageReceipts)
-
-responseGetContact :: GetContactResponse -> TestTree
-responseGetContact =
-  res
-    "GetContactResponse"
-    "fixture/GetContactResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetContact)
-
-responseDescribePage :: DescribePageResponse -> TestTree
-responseDescribePage =
-  res
-    "DescribePageResponse"
-    "fixture/DescribePageResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribePage)
-
-responseDeleteContact :: DeleteContactResponse -> TestTree
-responseDeleteContact =
-  res
-    "DeleteContactResponse"
-    "fixture/DeleteContactResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteContact)
-
-responseUpdateContact :: UpdateContactResponse -> TestTree
-responseUpdateContact =
-  res
-    "UpdateContactResponse"
-    "fixture/UpdateContactResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateContact)
+    (Proxy.Proxy :: Proxy.Proxy ActivateContactChannel)
 
 responseCreateContact :: CreateContactResponse -> TestTree
 responseCreateContact =
@@ -481,6 +393,22 @@ responseCreateContactChannel =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateContactChannel)
 
+responseDeactivateContactChannel :: DeactivateContactChannelResponse -> TestTree
+responseDeactivateContactChannel =
+  res
+    "DeactivateContactChannelResponse"
+    "fixture/DeactivateContactChannelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeactivateContactChannel)
+
+responseDeleteContact :: DeleteContactResponse -> TestTree
+responseDeleteContact =
+  res
+    "DeleteContactResponse"
+    "fixture/DeleteContactResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteContact)
+
 responseDeleteContactChannel :: DeleteContactChannelResponse -> TestTree
 responseDeleteContactChannel =
   res
@@ -489,13 +417,29 @@ responseDeleteContactChannel =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteContactChannel)
 
-responseUpdateContactChannel :: UpdateContactChannelResponse -> TestTree
-responseUpdateContactChannel =
+responseDescribeEngagement :: DescribeEngagementResponse -> TestTree
+responseDescribeEngagement =
   res
-    "UpdateContactChannelResponse"
-    "fixture/UpdateContactChannelResponse.proto"
+    "DescribeEngagementResponse"
+    "fixture/DescribeEngagementResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateContactChannel)
+    (Proxy.Proxy :: Proxy.Proxy DescribeEngagement)
+
+responseDescribePage :: DescribePageResponse -> TestTree
+responseDescribePage =
+  res
+    "DescribePageResponse"
+    "fixture/DescribePageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribePage)
+
+responseGetContact :: GetContactResponse -> TestTree
+responseGetContact =
+  res
+    "GetContactResponse"
+    "fixture/GetContactResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetContact)
 
 responseGetContactChannel :: GetContactChannelResponse -> TestTree
 responseGetContactChannel =
@@ -505,6 +449,78 @@ responseGetContactChannel =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetContactChannel)
 
+responseGetContactPolicy :: GetContactPolicyResponse -> TestTree
+responseGetContactPolicy =
+  res
+    "GetContactPolicyResponse"
+    "fixture/GetContactPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetContactPolicy)
+
+responseListContactChannels :: ListContactChannelsResponse -> TestTree
+responseListContactChannels =
+  res
+    "ListContactChannelsResponse"
+    "fixture/ListContactChannelsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListContactChannels)
+
+responseListContacts :: ListContactsResponse -> TestTree
+responseListContacts =
+  res
+    "ListContactsResponse"
+    "fixture/ListContactsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListContacts)
+
+responseListEngagements :: ListEngagementsResponse -> TestTree
+responseListEngagements =
+  res
+    "ListEngagementsResponse"
+    "fixture/ListEngagementsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListEngagements)
+
+responseListPageReceipts :: ListPageReceiptsResponse -> TestTree
+responseListPageReceipts =
+  res
+    "ListPageReceiptsResponse"
+    "fixture/ListPageReceiptsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListPageReceipts)
+
+responseListPagesByContact :: ListPagesByContactResponse -> TestTree
+responseListPagesByContact =
+  res
+    "ListPagesByContactResponse"
+    "fixture/ListPagesByContactResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListPagesByContact)
+
+responseListPagesByEngagement :: ListPagesByEngagementResponse -> TestTree
+responseListPagesByEngagement =
+  res
+    "ListPagesByEngagementResponse"
+    "fixture/ListPagesByEngagementResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListPagesByEngagement)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responsePutContactPolicy :: PutContactPolicyResponse -> TestTree
+responsePutContactPolicy =
+  res
+    "PutContactPolicyResponse"
+    "fixture/PutContactPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutContactPolicy)
+
 responseSendActivationCode :: SendActivationCodeResponse -> TestTree
 responseSendActivationCode =
   res
@@ -513,6 +529,14 @@ responseSendActivationCode =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy SendActivationCode)
 
+responseStartEngagement :: StartEngagementResponse -> TestTree
+responseStartEngagement =
+  res
+    "StartEngagementResponse"
+    "fixture/StartEngagementResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartEngagement)
+
 responseStopEngagement :: StopEngagementResponse -> TestTree
 responseStopEngagement =
   res
@@ -520,14 +544,6 @@ responseStopEngagement =
     "fixture/StopEngagementResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StopEngagement)
-
-responseDescribeEngagement :: DescribeEngagementResponse -> TestTree
-responseDescribeEngagement =
-  res
-    "DescribeEngagementResponse"
-    "fixture/DescribeEngagementResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeEngagement)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -545,34 +561,18 @@ responseUntagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
-responseGetContactPolicy :: GetContactPolicyResponse -> TestTree
-responseGetContactPolicy =
+responseUpdateContact :: UpdateContactResponse -> TestTree
+responseUpdateContact =
   res
-    "GetContactPolicyResponse"
-    "fixture/GetContactPolicyResponse.proto"
+    "UpdateContactResponse"
+    "fixture/UpdateContactResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetContactPolicy)
+    (Proxy.Proxy :: Proxy.Proxy UpdateContact)
 
-responsePutContactPolicy :: PutContactPolicyResponse -> TestTree
-responsePutContactPolicy =
+responseUpdateContactChannel :: UpdateContactChannelResponse -> TestTree
+responseUpdateContactChannel =
   res
-    "PutContactPolicyResponse"
-    "fixture/PutContactPolicyResponse.proto"
+    "UpdateContactChannelResponse"
+    "fixture/UpdateContactChannelResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutContactPolicy)
-
-responseListContacts :: ListContactsResponse -> TestTree
-responseListContacts =
-  res
-    "ListContactsResponse"
-    "fixture/ListContactsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListContacts)
-
-responseListPagesByContact :: ListPagesByContactResponse -> TestTree
-responseListPagesByContact =
-  res
-    "ListPagesByContactResponse"
-    "fixture/ListPagesByContactResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListPagesByContact)
+    (Proxy.Proxy :: Proxy.Proxy UpdateContactChannel)

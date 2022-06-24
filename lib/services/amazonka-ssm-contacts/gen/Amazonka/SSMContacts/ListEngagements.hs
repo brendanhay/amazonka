@@ -29,10 +29,10 @@ module Amazonka.SSMContacts.ListEngagements
     newListEngagements,
 
     -- * Request Lenses
-    listEngagements_timeRangeValue,
     listEngagements_nextToken,
-    listEngagements_incidentId,
+    listEngagements_timeRangeValue,
     listEngagements_maxResults,
+    listEngagements_incidentId,
 
     -- * Destructuring the Response
     ListEngagementsResponse (..),
@@ -54,15 +54,15 @@ import Amazonka.SSMContacts.Types
 
 -- | /See:/ 'newListEngagements' smart constructor.
 data ListEngagements = ListEngagements'
-  { -- | The time range to lists engagements for an incident.
-    timeRangeValue :: Prelude.Maybe TimeRange,
-    -- | The pagination token to continue to the next page of results.
+  { -- | The pagination token to continue to the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The time range to lists engagements for an incident.
+    timeRangeValue :: Prelude.Maybe TimeRange,
+    -- | The maximum number of engagements per page of results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the incident you\'re listing
     -- engagements for.
-    incidentId :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of engagements per page of results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    incidentId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,40 +74,40 @@ data ListEngagements = ListEngagements'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listEngagements_nextToken' - The pagination token to continue to the next page of results.
+--
 -- 'timeRangeValue', 'listEngagements_timeRangeValue' - The time range to lists engagements for an incident.
 --
--- 'nextToken', 'listEngagements_nextToken' - The pagination token to continue to the next page of results.
+-- 'maxResults', 'listEngagements_maxResults' - The maximum number of engagements per page of results.
 --
 -- 'incidentId', 'listEngagements_incidentId' - The Amazon Resource Name (ARN) of the incident you\'re listing
 -- engagements for.
---
--- 'maxResults', 'listEngagements_maxResults' - The maximum number of engagements per page of results.
 newListEngagements ::
   ListEngagements
 newListEngagements =
   ListEngagements'
-    { timeRangeValue = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      incidentId = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Prelude.Nothing,
+      timeRangeValue = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      incidentId = Prelude.Nothing
     }
-
--- | The time range to lists engagements for an incident.
-listEngagements_timeRangeValue :: Lens.Lens' ListEngagements (Prelude.Maybe TimeRange)
-listEngagements_timeRangeValue = Lens.lens (\ListEngagements' {timeRangeValue} -> timeRangeValue) (\s@ListEngagements' {} a -> s {timeRangeValue = a} :: ListEngagements)
 
 -- | The pagination token to continue to the next page of results.
 listEngagements_nextToken :: Lens.Lens' ListEngagements (Prelude.Maybe Prelude.Text)
 listEngagements_nextToken = Lens.lens (\ListEngagements' {nextToken} -> nextToken) (\s@ListEngagements' {} a -> s {nextToken = a} :: ListEngagements)
 
--- | The Amazon Resource Name (ARN) of the incident you\'re listing
--- engagements for.
-listEngagements_incidentId :: Lens.Lens' ListEngagements (Prelude.Maybe Prelude.Text)
-listEngagements_incidentId = Lens.lens (\ListEngagements' {incidentId} -> incidentId) (\s@ListEngagements' {} a -> s {incidentId = a} :: ListEngagements)
+-- | The time range to lists engagements for an incident.
+listEngagements_timeRangeValue :: Lens.Lens' ListEngagements (Prelude.Maybe TimeRange)
+listEngagements_timeRangeValue = Lens.lens (\ListEngagements' {timeRangeValue} -> timeRangeValue) (\s@ListEngagements' {} a -> s {timeRangeValue = a} :: ListEngagements)
 
 -- | The maximum number of engagements per page of results.
 listEngagements_maxResults :: Lens.Lens' ListEngagements (Prelude.Maybe Prelude.Natural)
 listEngagements_maxResults = Lens.lens (\ListEngagements' {maxResults} -> maxResults) (\s@ListEngagements' {} a -> s {maxResults = a} :: ListEngagements)
+
+-- | The Amazon Resource Name (ARN) of the incident you\'re listing
+-- engagements for.
+listEngagements_incidentId :: Lens.Lens' ListEngagements (Prelude.Maybe Prelude.Text)
+listEngagements_incidentId = Lens.lens (\ListEngagements' {incidentId} -> incidentId) (\s@ListEngagements' {} a -> s {incidentId = a} :: ListEngagements)
 
 instance Core.AWSPager ListEngagements where
   page rq rs
@@ -144,17 +144,17 @@ instance Core.AWSRequest ListEngagements where
 
 instance Prelude.Hashable ListEngagements where
   hashWithSalt _salt ListEngagements' {..} =
-    _salt `Prelude.hashWithSalt` timeRangeValue
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` incidentId
+    _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` timeRangeValue
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` incidentId
 
 instance Prelude.NFData ListEngagements where
   rnf ListEngagements' {..} =
-    Prelude.rnf timeRangeValue
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf incidentId
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf timeRangeValue
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf incidentId
 
 instance Core.ToHeaders ListEngagements where
   toHeaders =
@@ -175,11 +175,11 @@ instance Core.ToJSON ListEngagements where
   toJSON ListEngagements' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TimeRangeValue" Core..=)
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("TimeRangeValue" Core..=)
               Prelude.<$> timeRangeValue,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("IncidentId" Core..=) Prelude.<$> incidentId,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("IncidentId" Core..=) Prelude.<$> incidentId
           ]
       )
 

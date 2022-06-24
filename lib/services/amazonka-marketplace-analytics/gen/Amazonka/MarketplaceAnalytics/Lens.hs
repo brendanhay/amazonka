@@ -14,20 +14,9 @@
 module Amazonka.MarketplaceAnalytics.Lens
   ( -- * Operations
 
-    -- ** StartSupportDataExport
-    startSupportDataExport_customerDefinedValues,
-    startSupportDataExport_destinationS3Prefix,
-    startSupportDataExport_dataSetType,
-    startSupportDataExport_fromDate,
-    startSupportDataExport_roleNameArn,
-    startSupportDataExport_destinationS3BucketName,
-    startSupportDataExport_snsTopicArn,
-    startSupportDataExportResponse_dataSetRequestId,
-    startSupportDataExportResponse_httpStatus,
-
     -- ** GenerateDataSet
-    generateDataSet_customerDefinedValues,
     generateDataSet_destinationS3Prefix,
+    generateDataSet_customerDefinedValues,
     generateDataSet_dataSetType,
     generateDataSet_dataSetPublicationDate,
     generateDataSet_roleNameArn,
@@ -35,6 +24,17 @@ module Amazonka.MarketplaceAnalytics.Lens
     generateDataSet_snsTopicArn,
     generateDataSetResponse_dataSetRequestId,
     generateDataSetResponse_httpStatus,
+
+    -- ** StartSupportDataExport
+    startSupportDataExport_destinationS3Prefix,
+    startSupportDataExport_customerDefinedValues,
+    startSupportDataExport_dataSetType,
+    startSupportDataExport_fromDate,
+    startSupportDataExport_roleNameArn,
+    startSupportDataExport_destinationS3BucketName,
+    startSupportDataExport_snsTopicArn,
+    startSupportDataExportResponse_dataSetRequestId,
+    startSupportDataExportResponse_httpStatus,
 
     -- * Types
   )

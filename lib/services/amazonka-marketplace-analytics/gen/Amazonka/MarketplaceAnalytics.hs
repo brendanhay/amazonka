@@ -28,17 +28,17 @@ module Amazonka.MarketplaceAnalytics
     -- * Operations
     -- $operations
 
-    -- ** StartSupportDataExport
-    StartSupportDataExport (StartSupportDataExport'),
-    newStartSupportDataExport,
-    StartSupportDataExportResponse (StartSupportDataExportResponse'),
-    newStartSupportDataExportResponse,
-
     -- ** GenerateDataSet
     GenerateDataSet (GenerateDataSet'),
     newGenerateDataSet,
     GenerateDataSetResponse (GenerateDataSetResponse'),
     newGenerateDataSetResponse,
+
+    -- ** StartSupportDataExport
+    StartSupportDataExport (StartSupportDataExport'),
+    newStartSupportDataExport,
+    StartSupportDataExportResponse (StartSupportDataExportResponse'),
+    newStartSupportDataExportResponse,
 
     -- * Types
 

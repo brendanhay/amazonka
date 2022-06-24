@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEnrollmentFilter' smart constructor.
 data EnrollmentFilter = EnrollmentFilter'
-  { -- | The value of the filter.
-    --
-    -- The valid values are @Active@, @Inactive@, @Pending@, and @Failed@.
-    values :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the filter.
+  { -- | The name of the filter.
     --
     -- Specify @Status@ to return accounts with a specific enrollment status
     -- (for example, @Active@).
-    name :: Prelude.Maybe EnrollmentFilterName
+    name :: Prelude.Maybe EnrollmentFilterName,
+    -- | The value of the filter.
+    --
+    -- The valid values are @Active@, @Inactive@, @Pending@, and @Failed@.
+    values :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,27 +50,21 @@ data EnrollmentFilter = EnrollmentFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'values', 'enrollmentFilter_values' - The value of the filter.
---
--- The valid values are @Active@, @Inactive@, @Pending@, and @Failed@.
---
 -- 'name', 'enrollmentFilter_name' - The name of the filter.
 --
 -- Specify @Status@ to return accounts with a specific enrollment status
 -- (for example, @Active@).
+--
+-- 'values', 'enrollmentFilter_values' - The value of the filter.
+--
+-- The valid values are @Active@, @Inactive@, @Pending@, and @Failed@.
 newEnrollmentFilter ::
   EnrollmentFilter
 newEnrollmentFilter =
   EnrollmentFilter'
-    { values = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      values = Prelude.Nothing
     }
-
--- | The value of the filter.
---
--- The valid values are @Active@, @Inactive@, @Pending@, and @Failed@.
-enrollmentFilter_values :: Lens.Lens' EnrollmentFilter (Prelude.Maybe [Prelude.Text])
-enrollmentFilter_values = Lens.lens (\EnrollmentFilter' {values} -> values) (\s@EnrollmentFilter' {} a -> s {values = a} :: EnrollmentFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the filter.
 --
@@ -79,20 +73,26 @@ enrollmentFilter_values = Lens.lens (\EnrollmentFilter' {values} -> values) (\s@
 enrollmentFilter_name :: Lens.Lens' EnrollmentFilter (Prelude.Maybe EnrollmentFilterName)
 enrollmentFilter_name = Lens.lens (\EnrollmentFilter' {name} -> name) (\s@EnrollmentFilter' {} a -> s {name = a} :: EnrollmentFilter)
 
+-- | The value of the filter.
+--
+-- The valid values are @Active@, @Inactive@, @Pending@, and @Failed@.
+enrollmentFilter_values :: Lens.Lens' EnrollmentFilter (Prelude.Maybe [Prelude.Text])
+enrollmentFilter_values = Lens.lens (\EnrollmentFilter' {values} -> values) (\s@EnrollmentFilter' {} a -> s {values = a} :: EnrollmentFilter) Prelude.. Lens.mapping Lens.coerced
+
 instance Prelude.Hashable EnrollmentFilter where
   hashWithSalt _salt EnrollmentFilter' {..} =
-    _salt `Prelude.hashWithSalt` values
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` values
 
 instance Prelude.NFData EnrollmentFilter where
   rnf EnrollmentFilter' {..} =
-    Prelude.rnf values `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON EnrollmentFilter where
   toJSON EnrollmentFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("values" Core..=) Prelude.<$> values,
-            ("name" Core..=) Prelude.<$> name
+          [ ("name" Core..=) Prelude.<$> name,
+            ("values" Core..=) Prelude.<$> values
           ]
       )

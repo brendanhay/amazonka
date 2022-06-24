@@ -51,8 +51,8 @@ module Amazonka.ComputeOptimizer.UpdateEnrollmentStatus
     newUpdateEnrollmentStatusResponse,
 
     -- * Response Lenses
-    updateEnrollmentStatusResponse_status,
     updateEnrollmentStatusResponse_statusReason,
+    updateEnrollmentStatusResponse_status,
     updateEnrollmentStatusResponse_httpStatus,
   )
 where
@@ -166,8 +166,8 @@ instance Core.AWSRequest UpdateEnrollmentStatus where
     Response.receiveJSON
       ( \s h x ->
           UpdateEnrollmentStatusResponse'
-            Prelude.<$> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "statusReason")
+            Prelude.<$> (x Core..?> "statusReason")
+            Prelude.<*> (x Core..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -214,12 +214,12 @@ instance Core.ToQuery UpdateEnrollmentStatus where
 
 -- | /See:/ 'newUpdateEnrollmentStatusResponse' smart constructor.
 data UpdateEnrollmentStatusResponse = UpdateEnrollmentStatusResponse'
-  { -- | The enrollment status of the account.
-    status :: Prelude.Maybe Status,
-    -- | The reason for the enrollment status of the account. For example, an
+  { -- | The reason for the enrollment status of the account. For example, an
     -- account might show a status of @Pending@ because member accounts of an
     -- organization require more time to be enrolled in the service.
     statusReason :: Prelude.Maybe Prelude.Text,
+    -- | The enrollment status of the account.
+    status :: Prelude.Maybe Status,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -233,11 +233,11 @@ data UpdateEnrollmentStatusResponse = UpdateEnrollmentStatusResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'updateEnrollmentStatusResponse_status' - The enrollment status of the account.
---
 -- 'statusReason', 'updateEnrollmentStatusResponse_statusReason' - The reason for the enrollment status of the account. For example, an
 -- account might show a status of @Pending@ because member accounts of an
 -- organization require more time to be enrolled in the service.
+--
+-- 'status', 'updateEnrollmentStatusResponse_status' - The enrollment status of the account.
 --
 -- 'httpStatus', 'updateEnrollmentStatusResponse_httpStatus' - The response's http status code.
 newUpdateEnrollmentStatusResponse ::
@@ -246,21 +246,21 @@ newUpdateEnrollmentStatusResponse ::
   UpdateEnrollmentStatusResponse
 newUpdateEnrollmentStatusResponse pHttpStatus_ =
   UpdateEnrollmentStatusResponse'
-    { status =
+    { statusReason =
         Prelude.Nothing,
-      statusReason = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The enrollment status of the account.
-updateEnrollmentStatusResponse_status :: Lens.Lens' UpdateEnrollmentStatusResponse (Prelude.Maybe Status)
-updateEnrollmentStatusResponse_status = Lens.lens (\UpdateEnrollmentStatusResponse' {status} -> status) (\s@UpdateEnrollmentStatusResponse' {} a -> s {status = a} :: UpdateEnrollmentStatusResponse)
 
 -- | The reason for the enrollment status of the account. For example, an
 -- account might show a status of @Pending@ because member accounts of an
 -- organization require more time to be enrolled in the service.
 updateEnrollmentStatusResponse_statusReason :: Lens.Lens' UpdateEnrollmentStatusResponse (Prelude.Maybe Prelude.Text)
 updateEnrollmentStatusResponse_statusReason = Lens.lens (\UpdateEnrollmentStatusResponse' {statusReason} -> statusReason) (\s@UpdateEnrollmentStatusResponse' {} a -> s {statusReason = a} :: UpdateEnrollmentStatusResponse)
+
+-- | The enrollment status of the account.
+updateEnrollmentStatusResponse_status :: Lens.Lens' UpdateEnrollmentStatusResponse (Prelude.Maybe Status)
+updateEnrollmentStatusResponse_status = Lens.lens (\UpdateEnrollmentStatusResponse' {status} -> status) (\s@UpdateEnrollmentStatusResponse' {} a -> s {status = a} :: UpdateEnrollmentStatusResponse)
 
 -- | The response's http status code.
 updateEnrollmentStatusResponse_httpStatus :: Lens.Lens' UpdateEnrollmentStatusResponse Prelude.Int
@@ -271,6 +271,6 @@ instance
     UpdateEnrollmentStatusResponse
   where
   rnf UpdateEnrollmentStatusResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf statusReason
+    Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

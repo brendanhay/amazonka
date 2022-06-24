@@ -38,10 +38,10 @@ module Amazonka.ComputeOptimizer.ExportLambdaFunctionRecommendations
 
     -- * Request Lenses
     exportLambdaFunctionRecommendations_accountIds,
-    exportLambdaFunctionRecommendations_fileFormat,
     exportLambdaFunctionRecommendations_filters,
-    exportLambdaFunctionRecommendations_fieldsToExport,
     exportLambdaFunctionRecommendations_includeMemberAccounts,
+    exportLambdaFunctionRecommendations_fileFormat,
+    exportLambdaFunctionRecommendations_fieldsToExport,
     exportLambdaFunctionRecommendations_s3DestinationConfig,
 
     -- * Destructuring the Response
@@ -79,18 +79,9 @@ data ExportLambdaFunctionRecommendations = ExportLambdaFunctionRecommendations'
     --
     -- You can specify multiple account IDs per request.
     accountIds :: Prelude.Maybe [Prelude.Text],
-    -- | The format of the export file.
-    --
-    -- The only export file format currently supported is @Csv@.
-    fileFormat :: Prelude.Maybe FileFormat,
     -- | An array of objects to specify a filter that exports a more specific set
     -- of Lambda function recommendations.
     filters :: Prelude.Maybe [LambdaFunctionRecommendationFilter],
-    -- | The recommendations data to include in the export file. For more
-    -- information about the fields that can be exported, see
-    -- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files Exported files>
-    -- in the /Compute Optimizer User Guide/.
-    fieldsToExport :: Prelude.Maybe [ExportableLambdaFunctionField],
     -- | Indicates whether to include recommendations for resources in all member
     -- accounts of the organization if your account is the management account
     -- of an organization.
@@ -110,6 +101,15 @@ data ExportLambdaFunctionRecommendations = ExportLambdaFunctionRecommendations'
     -- Recommendations for member accounts are not included in the export if
     -- this parameter, or the account IDs parameter, is omitted.
     includeMemberAccounts :: Prelude.Maybe Prelude.Bool,
+    -- | The format of the export file.
+    --
+    -- The only export file format currently supported is @Csv@.
+    fileFormat :: Prelude.Maybe FileFormat,
+    -- | The recommendations data to include in the export file. For more
+    -- information about the fields that can be exported, see
+    -- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files Exported files>
+    -- in the /Compute Optimizer User Guide/.
+    fieldsToExport :: Prelude.Maybe [ExportableLambdaFunctionField],
     s3DestinationConfig :: S3DestinationConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -137,17 +137,8 @@ data ExportLambdaFunctionRecommendations = ExportLambdaFunctionRecommendations'
 --
 -- You can specify multiple account IDs per request.
 --
--- 'fileFormat', 'exportLambdaFunctionRecommendations_fileFormat' - The format of the export file.
---
--- The only export file format currently supported is @Csv@.
---
 -- 'filters', 'exportLambdaFunctionRecommendations_filters' - An array of objects to specify a filter that exports a more specific set
 -- of Lambda function recommendations.
---
--- 'fieldsToExport', 'exportLambdaFunctionRecommendations_fieldsToExport' - The recommendations data to include in the export file. For more
--- information about the fields that can be exported, see
--- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files Exported files>
--- in the /Compute Optimizer User Guide/.
 --
 -- 'includeMemberAccounts', 'exportLambdaFunctionRecommendations_includeMemberAccounts' - Indicates whether to include recommendations for resources in all member
 -- accounts of the organization if your account is the management account
@@ -168,6 +159,15 @@ data ExportLambdaFunctionRecommendations = ExportLambdaFunctionRecommendations'
 -- Recommendations for member accounts are not included in the export if
 -- this parameter, or the account IDs parameter, is omitted.
 --
+-- 'fileFormat', 'exportLambdaFunctionRecommendations_fileFormat' - The format of the export file.
+--
+-- The only export file format currently supported is @Csv@.
+--
+-- 'fieldsToExport', 'exportLambdaFunctionRecommendations_fieldsToExport' - The recommendations data to include in the export file. For more
+-- information about the fields that can be exported, see
+-- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files Exported files>
+-- in the /Compute Optimizer User Guide/.
+--
 -- 's3DestinationConfig', 'exportLambdaFunctionRecommendations_s3DestinationConfig' - Undocumented member.
 newExportLambdaFunctionRecommendations ::
   -- | 's3DestinationConfig'
@@ -178,11 +178,11 @@ newExportLambdaFunctionRecommendations
     ExportLambdaFunctionRecommendations'
       { accountIds =
           Prelude.Nothing,
-        fileFormat = Prelude.Nothing,
         filters = Prelude.Nothing,
-        fieldsToExport = Prelude.Nothing,
         includeMemberAccounts =
           Prelude.Nothing,
+        fileFormat = Prelude.Nothing,
+        fieldsToExport = Prelude.Nothing,
         s3DestinationConfig =
           pS3DestinationConfig_
       }
@@ -204,23 +204,10 @@ newExportLambdaFunctionRecommendations
 exportLambdaFunctionRecommendations_accountIds :: Lens.Lens' ExportLambdaFunctionRecommendations (Prelude.Maybe [Prelude.Text])
 exportLambdaFunctionRecommendations_accountIds = Lens.lens (\ExportLambdaFunctionRecommendations' {accountIds} -> accountIds) (\s@ExportLambdaFunctionRecommendations' {} a -> s {accountIds = a} :: ExportLambdaFunctionRecommendations) Prelude.. Lens.mapping Lens.coerced
 
--- | The format of the export file.
---
--- The only export file format currently supported is @Csv@.
-exportLambdaFunctionRecommendations_fileFormat :: Lens.Lens' ExportLambdaFunctionRecommendations (Prelude.Maybe FileFormat)
-exportLambdaFunctionRecommendations_fileFormat = Lens.lens (\ExportLambdaFunctionRecommendations' {fileFormat} -> fileFormat) (\s@ExportLambdaFunctionRecommendations' {} a -> s {fileFormat = a} :: ExportLambdaFunctionRecommendations)
-
 -- | An array of objects to specify a filter that exports a more specific set
 -- of Lambda function recommendations.
 exportLambdaFunctionRecommendations_filters :: Lens.Lens' ExportLambdaFunctionRecommendations (Prelude.Maybe [LambdaFunctionRecommendationFilter])
 exportLambdaFunctionRecommendations_filters = Lens.lens (\ExportLambdaFunctionRecommendations' {filters} -> filters) (\s@ExportLambdaFunctionRecommendations' {} a -> s {filters = a} :: ExportLambdaFunctionRecommendations) Prelude.. Lens.mapping Lens.coerced
-
--- | The recommendations data to include in the export file. For more
--- information about the fields that can be exported, see
--- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files Exported files>
--- in the /Compute Optimizer User Guide/.
-exportLambdaFunctionRecommendations_fieldsToExport :: Lens.Lens' ExportLambdaFunctionRecommendations (Prelude.Maybe [ExportableLambdaFunctionField])
-exportLambdaFunctionRecommendations_fieldsToExport = Lens.lens (\ExportLambdaFunctionRecommendations' {fieldsToExport} -> fieldsToExport) (\s@ExportLambdaFunctionRecommendations' {} a -> s {fieldsToExport = a} :: ExportLambdaFunctionRecommendations) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates whether to include recommendations for resources in all member
 -- accounts of the organization if your account is the management account
@@ -242,6 +229,19 @@ exportLambdaFunctionRecommendations_fieldsToExport = Lens.lens (\ExportLambdaFun
 -- this parameter, or the account IDs parameter, is omitted.
 exportLambdaFunctionRecommendations_includeMemberAccounts :: Lens.Lens' ExportLambdaFunctionRecommendations (Prelude.Maybe Prelude.Bool)
 exportLambdaFunctionRecommendations_includeMemberAccounts = Lens.lens (\ExportLambdaFunctionRecommendations' {includeMemberAccounts} -> includeMemberAccounts) (\s@ExportLambdaFunctionRecommendations' {} a -> s {includeMemberAccounts = a} :: ExportLambdaFunctionRecommendations)
+
+-- | The format of the export file.
+--
+-- The only export file format currently supported is @Csv@.
+exportLambdaFunctionRecommendations_fileFormat :: Lens.Lens' ExportLambdaFunctionRecommendations (Prelude.Maybe FileFormat)
+exportLambdaFunctionRecommendations_fileFormat = Lens.lens (\ExportLambdaFunctionRecommendations' {fileFormat} -> fileFormat) (\s@ExportLambdaFunctionRecommendations' {} a -> s {fileFormat = a} :: ExportLambdaFunctionRecommendations)
+
+-- | The recommendations data to include in the export file. For more
+-- information about the fields that can be exported, see
+-- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files Exported files>
+-- in the /Compute Optimizer User Guide/.
+exportLambdaFunctionRecommendations_fieldsToExport :: Lens.Lens' ExportLambdaFunctionRecommendations (Prelude.Maybe [ExportableLambdaFunctionField])
+exportLambdaFunctionRecommendations_fieldsToExport = Lens.lens (\ExportLambdaFunctionRecommendations' {fieldsToExport} -> fieldsToExport) (\s@ExportLambdaFunctionRecommendations' {} a -> s {fieldsToExport = a} :: ExportLambdaFunctionRecommendations) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 exportLambdaFunctionRecommendations_s3DestinationConfig :: Lens.Lens' ExportLambdaFunctionRecommendations S3DestinationConfig
@@ -272,10 +272,10 @@ instance
     _salt
     ExportLambdaFunctionRecommendations' {..} =
       _salt `Prelude.hashWithSalt` accountIds
-        `Prelude.hashWithSalt` fileFormat
         `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` fieldsToExport
         `Prelude.hashWithSalt` includeMemberAccounts
+        `Prelude.hashWithSalt` fileFormat
+        `Prelude.hashWithSalt` fieldsToExport
         `Prelude.hashWithSalt` s3DestinationConfig
 
 instance
@@ -284,10 +284,10 @@ instance
   where
   rnf ExportLambdaFunctionRecommendations' {..} =
     Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf fileFormat
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf fieldsToExport
       `Prelude.seq` Prelude.rnf includeMemberAccounts
+      `Prelude.seq` Prelude.rnf fileFormat
+      `Prelude.seq` Prelude.rnf fieldsToExport
       `Prelude.seq` Prelude.rnf s3DestinationConfig
 
 instance
@@ -316,12 +316,12 @@ instance
     Core.object
       ( Prelude.catMaybes
           [ ("accountIds" Core..=) Prelude.<$> accountIds,
-            ("fileFormat" Core..=) Prelude.<$> fileFormat,
             ("filters" Core..=) Prelude.<$> filters,
-            ("fieldsToExport" Core..=)
-              Prelude.<$> fieldsToExport,
             ("includeMemberAccounts" Core..=)
               Prelude.<$> includeMemberAccounts,
+            ("fileFormat" Core..=) Prelude.<$> fileFormat,
+            ("fieldsToExport" Core..=)
+              Prelude.<$> fieldsToExport,
             Prelude.Just
               ("s3DestinationConfig" Core..= s3DestinationConfig)
           ]

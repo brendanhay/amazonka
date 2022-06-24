@@ -29,7 +29,24 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceRecommendationOption' smart constructor.
 data InstanceRecommendationOption = InstanceRecommendationOption'
-  { -- | Describes the configuration differences between the current instance and
+  { -- | The performance risk of the instance recommendation option.
+    --
+    -- Performance risk indicates the likelihood of the recommended instance
+    -- type not meeting the resource needs of your workload. Compute Optimizer
+    -- calculates an individual performance risk score for each specification
+    -- of the recommended instance, including CPU, memory, EBS throughput, EBS
+    -- IOPS, disk throughput, disk IOPS, network throughput, and network PPS.
+    -- The performance risk of the recommended instance is calculated as the
+    -- maximum performance risk score across the analyzed resource
+    -- specifications.
+    --
+    -- The value ranges from @0@ - @4@, with @0@ meaning that the recommended
+    -- resource is predicted to always provide enough hardware capability. The
+    -- higher the performance risk is, the more likely you should validate
+    -- whether the recommendation will meet the performance requirements of
+    -- your workload before migrating your resource.
+    performanceRisk :: Prelude.Maybe Prelude.Double,
+    -- | Describes the configuration differences between the current instance and
     -- the recommended instance type. You should consider the configuration
     -- differences before migrating your workloads from the current instance to
     -- the recommended instance type. The
@@ -122,23 +139,12 @@ data InstanceRecommendationOption = InstanceRecommendationOption'
     --     each instance type, see
     --     <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types>.
     platformDifferences :: Prelude.Maybe [PlatformDifference],
-    -- | The performance risk of the instance recommendation option.
+    -- | The rank of the instance recommendation option.
     --
-    -- Performance risk indicates the likelihood of the recommended instance
-    -- type not meeting the resource needs of your workload. Compute Optimizer
-    -- calculates an individual performance risk score for each specification
-    -- of the recommended instance, including CPU, memory, EBS throughput, EBS
-    -- IOPS, disk throughput, disk IOPS, network throughput, and network PPS.
-    -- The performance risk of the recommended instance is calculated as the
-    -- maximum performance risk score across the analyzed resource
-    -- specifications.
-    --
-    -- The value ranges from @0@ - @4@, with @0@ meaning that the recommended
-    -- resource is predicted to always provide enough hardware capability. The
-    -- higher the performance risk is, the more likely you should validate
-    -- whether the recommendation will meet the performance requirements of
-    -- your workload before migrating your resource.
-    performanceRisk :: Prelude.Maybe Prelude.Double,
+    -- The top recommendation option is ranked as @1@.
+    rank :: Prelude.Maybe Prelude.Int,
+    -- | The instance type of the instance recommendation.
+    instanceType :: Prelude.Maybe Prelude.Text,
     -- | An array of objects that describe the projected utilization metrics of
     -- the instance recommendation option.
     --
@@ -147,13 +153,7 @@ data InstanceRecommendationOption = InstanceRecommendationOption'
     -- resources that have the unified CloudWatch agent installed on them. For
     -- more information, see
     -- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent Enabling Memory Utilization with the CloudWatch Agent>.
-    projectedUtilizationMetrics :: Prelude.Maybe [UtilizationMetric],
-    -- | The instance type of the instance recommendation.
-    instanceType :: Prelude.Maybe Prelude.Text,
-    -- | The rank of the instance recommendation option.
-    --
-    -- The top recommendation option is ranked as @1@.
-    rank :: Prelude.Maybe Prelude.Int
+    projectedUtilizationMetrics :: Prelude.Maybe [UtilizationMetric]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -164,6 +164,23 @@ data InstanceRecommendationOption = InstanceRecommendationOption'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'performanceRisk', 'instanceRecommendationOption_performanceRisk' - The performance risk of the instance recommendation option.
+--
+-- Performance risk indicates the likelihood of the recommended instance
+-- type not meeting the resource needs of your workload. Compute Optimizer
+-- calculates an individual performance risk score for each specification
+-- of the recommended instance, including CPU, memory, EBS throughput, EBS
+-- IOPS, disk throughput, disk IOPS, network throughput, and network PPS.
+-- The performance risk of the recommended instance is calculated as the
+-- maximum performance risk score across the analyzed resource
+-- specifications.
+--
+-- The value ranges from @0@ - @4@, with @0@ meaning that the recommended
+-- resource is predicted to always provide enough hardware capability. The
+-- higher the performance risk is, the more likely you should validate
+-- whether the recommendation will meet the performance requirements of
+-- your workload before migrating your resource.
 --
 -- 'platformDifferences', 'instanceRecommendationOption_platformDifferences' - Describes the configuration differences between the current instance and
 -- the recommended instance type. You should consider the configuration
@@ -258,7 +275,33 @@ data InstanceRecommendationOption = InstanceRecommendationOption'
 --     each instance type, see
 --     <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types>.
 --
--- 'performanceRisk', 'instanceRecommendationOption_performanceRisk' - The performance risk of the instance recommendation option.
+-- 'rank', 'instanceRecommendationOption_rank' - The rank of the instance recommendation option.
+--
+-- The top recommendation option is ranked as @1@.
+--
+-- 'instanceType', 'instanceRecommendationOption_instanceType' - The instance type of the instance recommendation.
+--
+-- 'projectedUtilizationMetrics', 'instanceRecommendationOption_projectedUtilizationMetrics' - An array of objects that describe the projected utilization metrics of
+-- the instance recommendation option.
+--
+-- The @Cpu@ and @Memory@ metrics are the only projected utilization
+-- metrics returned. Additionally, the @Memory@ metric is returned only for
+-- resources that have the unified CloudWatch agent installed on them. For
+-- more information, see
+-- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent Enabling Memory Utilization with the CloudWatch Agent>.
+newInstanceRecommendationOption ::
+  InstanceRecommendationOption
+newInstanceRecommendationOption =
+  InstanceRecommendationOption'
+    { performanceRisk =
+        Prelude.Nothing,
+      platformDifferences = Prelude.Nothing,
+      rank = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
+      projectedUtilizationMetrics = Prelude.Nothing
+    }
+
+-- | The performance risk of the instance recommendation option.
 --
 -- Performance risk indicates the likelihood of the recommended instance
 -- type not meeting the resource needs of your workload. Compute Optimizer
@@ -274,32 +317,8 @@ data InstanceRecommendationOption = InstanceRecommendationOption'
 -- higher the performance risk is, the more likely you should validate
 -- whether the recommendation will meet the performance requirements of
 -- your workload before migrating your resource.
---
--- 'projectedUtilizationMetrics', 'instanceRecommendationOption_projectedUtilizationMetrics' - An array of objects that describe the projected utilization metrics of
--- the instance recommendation option.
---
--- The @Cpu@ and @Memory@ metrics are the only projected utilization
--- metrics returned. Additionally, the @Memory@ metric is returned only for
--- resources that have the unified CloudWatch agent installed on them. For
--- more information, see
--- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent Enabling Memory Utilization with the CloudWatch Agent>.
---
--- 'instanceType', 'instanceRecommendationOption_instanceType' - The instance type of the instance recommendation.
---
--- 'rank', 'instanceRecommendationOption_rank' - The rank of the instance recommendation option.
---
--- The top recommendation option is ranked as @1@.
-newInstanceRecommendationOption ::
-  InstanceRecommendationOption
-newInstanceRecommendationOption =
-  InstanceRecommendationOption'
-    { platformDifferences =
-        Prelude.Nothing,
-      performanceRisk = Prelude.Nothing,
-      projectedUtilizationMetrics = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
-      rank = Prelude.Nothing
-    }
+instanceRecommendationOption_performanceRisk :: Lens.Lens' InstanceRecommendationOption (Prelude.Maybe Prelude.Double)
+instanceRecommendationOption_performanceRisk = Lens.lens (\InstanceRecommendationOption' {performanceRisk} -> performanceRisk) (\s@InstanceRecommendationOption' {} a -> s {performanceRisk = a} :: InstanceRecommendationOption)
 
 -- | Describes the configuration differences between the current instance and
 -- the recommended instance type. You should consider the configuration
@@ -396,24 +415,15 @@ newInstanceRecommendationOption =
 instanceRecommendationOption_platformDifferences :: Lens.Lens' InstanceRecommendationOption (Prelude.Maybe [PlatformDifference])
 instanceRecommendationOption_platformDifferences = Lens.lens (\InstanceRecommendationOption' {platformDifferences} -> platformDifferences) (\s@InstanceRecommendationOption' {} a -> s {platformDifferences = a} :: InstanceRecommendationOption) Prelude.. Lens.mapping Lens.coerced
 
--- | The performance risk of the instance recommendation option.
+-- | The rank of the instance recommendation option.
 --
--- Performance risk indicates the likelihood of the recommended instance
--- type not meeting the resource needs of your workload. Compute Optimizer
--- calculates an individual performance risk score for each specification
--- of the recommended instance, including CPU, memory, EBS throughput, EBS
--- IOPS, disk throughput, disk IOPS, network throughput, and network PPS.
--- The performance risk of the recommended instance is calculated as the
--- maximum performance risk score across the analyzed resource
--- specifications.
---
--- The value ranges from @0@ - @4@, with @0@ meaning that the recommended
--- resource is predicted to always provide enough hardware capability. The
--- higher the performance risk is, the more likely you should validate
--- whether the recommendation will meet the performance requirements of
--- your workload before migrating your resource.
-instanceRecommendationOption_performanceRisk :: Lens.Lens' InstanceRecommendationOption (Prelude.Maybe Prelude.Double)
-instanceRecommendationOption_performanceRisk = Lens.lens (\InstanceRecommendationOption' {performanceRisk} -> performanceRisk) (\s@InstanceRecommendationOption' {} a -> s {performanceRisk = a} :: InstanceRecommendationOption)
+-- The top recommendation option is ranked as @1@.
+instanceRecommendationOption_rank :: Lens.Lens' InstanceRecommendationOption (Prelude.Maybe Prelude.Int)
+instanceRecommendationOption_rank = Lens.lens (\InstanceRecommendationOption' {rank} -> rank) (\s@InstanceRecommendationOption' {} a -> s {rank = a} :: InstanceRecommendationOption)
+
+-- | The instance type of the instance recommendation.
+instanceRecommendationOption_instanceType :: Lens.Lens' InstanceRecommendationOption (Prelude.Maybe Prelude.Text)
+instanceRecommendationOption_instanceType = Lens.lens (\InstanceRecommendationOption' {instanceType} -> instanceType) (\s@InstanceRecommendationOption' {} a -> s {instanceType = a} :: InstanceRecommendationOption)
 
 -- | An array of objects that describe the projected utilization metrics of
 -- the instance recommendation option.
@@ -426,31 +436,21 @@ instanceRecommendationOption_performanceRisk = Lens.lens (\InstanceRecommendatio
 instanceRecommendationOption_projectedUtilizationMetrics :: Lens.Lens' InstanceRecommendationOption (Prelude.Maybe [UtilizationMetric])
 instanceRecommendationOption_projectedUtilizationMetrics = Lens.lens (\InstanceRecommendationOption' {projectedUtilizationMetrics} -> projectedUtilizationMetrics) (\s@InstanceRecommendationOption' {} a -> s {projectedUtilizationMetrics = a} :: InstanceRecommendationOption) Prelude.. Lens.mapping Lens.coerced
 
--- | The instance type of the instance recommendation.
-instanceRecommendationOption_instanceType :: Lens.Lens' InstanceRecommendationOption (Prelude.Maybe Prelude.Text)
-instanceRecommendationOption_instanceType = Lens.lens (\InstanceRecommendationOption' {instanceType} -> instanceType) (\s@InstanceRecommendationOption' {} a -> s {instanceType = a} :: InstanceRecommendationOption)
-
--- | The rank of the instance recommendation option.
---
--- The top recommendation option is ranked as @1@.
-instanceRecommendationOption_rank :: Lens.Lens' InstanceRecommendationOption (Prelude.Maybe Prelude.Int)
-instanceRecommendationOption_rank = Lens.lens (\InstanceRecommendationOption' {rank} -> rank) (\s@InstanceRecommendationOption' {} a -> s {rank = a} :: InstanceRecommendationOption)
-
 instance Core.FromJSON InstanceRecommendationOption where
   parseJSON =
     Core.withObject
       "InstanceRecommendationOption"
       ( \x ->
           InstanceRecommendationOption'
-            Prelude.<$> ( x Core..:? "platformDifferences"
+            Prelude.<$> (x Core..:? "performanceRisk")
+            Prelude.<*> ( x Core..:? "platformDifferences"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "performanceRisk")
+            Prelude.<*> (x Core..:? "rank")
+            Prelude.<*> (x Core..:? "instanceType")
             Prelude.<*> ( x Core..:? "projectedUtilizationMetrics"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "instanceType")
-            Prelude.<*> (x Core..:? "rank")
       )
 
 instance
@@ -458,16 +458,16 @@ instance
     InstanceRecommendationOption
   where
   hashWithSalt _salt InstanceRecommendationOption' {..} =
-    _salt `Prelude.hashWithSalt` platformDifferences
-      `Prelude.hashWithSalt` performanceRisk
-      `Prelude.hashWithSalt` projectedUtilizationMetrics
-      `Prelude.hashWithSalt` instanceType
+    _salt `Prelude.hashWithSalt` performanceRisk
+      `Prelude.hashWithSalt` platformDifferences
       `Prelude.hashWithSalt` rank
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` projectedUtilizationMetrics
 
 instance Prelude.NFData InstanceRecommendationOption where
   rnf InstanceRecommendationOption' {..} =
-    Prelude.rnf platformDifferences
-      `Prelude.seq` Prelude.rnf performanceRisk
-      `Prelude.seq` Prelude.rnf projectedUtilizationMetrics
-      `Prelude.seq` Prelude.rnf instanceType
+    Prelude.rnf performanceRisk
+      `Prelude.seq` Prelude.rnf platformDifferences
       `Prelude.seq` Prelude.rnf rank
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf projectedUtilizationMetrics

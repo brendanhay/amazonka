@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSummary' smart constructor.
 data Summary = Summary'
-  { -- | An array of objects that summarize a finding reason code.
+  { -- | The finding classification of the recommendation.
+    name :: Prelude.Maybe Finding,
+    -- | An array of objects that summarize a finding reason code.
     reasonCodeSummaries :: Prelude.Maybe [ReasonCodeSummary],
     -- | The value of the recommendation summary.
-    value :: Prelude.Maybe Prelude.Double,
-    -- | The finding classification of the recommendation.
-    name :: Prelude.Maybe Finding
+    value :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,19 +46,23 @@ data Summary = Summary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'summary_name' - The finding classification of the recommendation.
+--
 -- 'reasonCodeSummaries', 'summary_reasonCodeSummaries' - An array of objects that summarize a finding reason code.
 --
 -- 'value', 'summary_value' - The value of the recommendation summary.
---
--- 'name', 'summary_name' - The finding classification of the recommendation.
 newSummary ::
   Summary
 newSummary =
   Summary'
-    { reasonCodeSummaries = Prelude.Nothing,
-      value = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      reasonCodeSummaries = Prelude.Nothing,
+      value = Prelude.Nothing
     }
+
+-- | The finding classification of the recommendation.
+summary_name :: Lens.Lens' Summary (Prelude.Maybe Finding)
+summary_name = Lens.lens (\Summary' {name} -> name) (\s@Summary' {} a -> s {name = a} :: Summary)
 
 -- | An array of objects that summarize a finding reason code.
 summary_reasonCodeSummaries :: Lens.Lens' Summary (Prelude.Maybe [ReasonCodeSummary])
@@ -68,31 +72,27 @@ summary_reasonCodeSummaries = Lens.lens (\Summary' {reasonCodeSummaries} -> reas
 summary_value :: Lens.Lens' Summary (Prelude.Maybe Prelude.Double)
 summary_value = Lens.lens (\Summary' {value} -> value) (\s@Summary' {} a -> s {value = a} :: Summary)
 
--- | The finding classification of the recommendation.
-summary_name :: Lens.Lens' Summary (Prelude.Maybe Finding)
-summary_name = Lens.lens (\Summary' {name} -> name) (\s@Summary' {} a -> s {name = a} :: Summary)
-
 instance Core.FromJSON Summary where
   parseJSON =
     Core.withObject
       "Summary"
       ( \x ->
           Summary'
-            Prelude.<$> ( x Core..:? "reasonCodeSummaries"
+            Prelude.<$> (x Core..:? "name")
+            Prelude.<*> ( x Core..:? "reasonCodeSummaries"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "value")
-            Prelude.<*> (x Core..:? "name")
       )
 
 instance Prelude.Hashable Summary where
   hashWithSalt _salt Summary' {..} =
-    _salt `Prelude.hashWithSalt` reasonCodeSummaries
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` reasonCodeSummaries
       `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData Summary where
   rnf Summary' {..} =
-    Prelude.rnf reasonCodeSummaries
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf reasonCodeSummaries
       `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf name

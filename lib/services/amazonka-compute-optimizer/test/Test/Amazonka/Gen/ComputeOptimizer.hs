@@ -27,133 +27,97 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestExportEBSVolumeRecommendations $
---             newExportEBSVolumeRecommendations
---
---         , requestGetRecommendationSummaries $
---             newGetRecommendationSummaries
+--         [ requestDescribeRecommendationExportJobs $
+--             newDescribeRecommendationExportJobs
 --
 --         , requestExportAutoScalingGroupRecommendations $
 --             newExportAutoScalingGroupRecommendations
 --
---         , requestGetEC2InstanceRecommendations $
---             newGetEC2InstanceRecommendations
---
---         , requestGetLambdaFunctionRecommendations $
---             newGetLambdaFunctionRecommendations
---
---         , requestUpdateEnrollmentStatus $
---             newUpdateEnrollmentStatus
---
---         , requestDescribeRecommendationExportJobs $
---             newDescribeRecommendationExportJobs
---
---         , requestGetEC2RecommendationProjectedMetrics $
---             newGetEC2RecommendationProjectedMetrics
---
---         , requestGetEnrollmentStatusesForOrganization $
---             newGetEnrollmentStatusesForOrganization
---
---         , requestGetEBSVolumeRecommendations $
---             newGetEBSVolumeRecommendations
---
---         , requestExportLambdaFunctionRecommendations $
---             newExportLambdaFunctionRecommendations
+--         , requestExportEBSVolumeRecommendations $
+--             newExportEBSVolumeRecommendations
 --
 --         , requestExportEC2InstanceRecommendations $
 --             newExportEC2InstanceRecommendations
 --
---         , requestGetEnrollmentStatus $
---             newGetEnrollmentStatus
+--         , requestExportLambdaFunctionRecommendations $
+--             newExportLambdaFunctionRecommendations
 --
 --         , requestGetAutoScalingGroupRecommendations $
 --             newGetAutoScalingGroupRecommendations
 --
+--         , requestGetEBSVolumeRecommendations $
+--             newGetEBSVolumeRecommendations
+--
+--         , requestGetEC2InstanceRecommendations $
+--             newGetEC2InstanceRecommendations
+--
+--         , requestGetEC2RecommendationProjectedMetrics $
+--             newGetEC2RecommendationProjectedMetrics
+--
+--         , requestGetEnrollmentStatus $
+--             newGetEnrollmentStatus
+--
+--         , requestGetEnrollmentStatusesForOrganization $
+--             newGetEnrollmentStatusesForOrganization
+--
+--         , requestGetLambdaFunctionRecommendations $
+--             newGetLambdaFunctionRecommendations
+--
+--         , requestGetRecommendationSummaries $
+--             newGetRecommendationSummaries
+--
+--         , requestUpdateEnrollmentStatus $
+--             newUpdateEnrollmentStatus
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseExportEBSVolumeRecommendations $
---             newExportEBSVolumeRecommendationsResponse
---
---         , responseGetRecommendationSummaries $
---             newGetRecommendationSummariesResponse
+--         [ responseDescribeRecommendationExportJobs $
+--             newDescribeRecommendationExportJobsResponse
 --
 --         , responseExportAutoScalingGroupRecommendations $
 --             newExportAutoScalingGroupRecommendationsResponse
 --
---         , responseGetEC2InstanceRecommendations $
---             newGetEC2InstanceRecommendationsResponse
---
---         , responseGetLambdaFunctionRecommendations $
---             newGetLambdaFunctionRecommendationsResponse
---
---         , responseUpdateEnrollmentStatus $
---             newUpdateEnrollmentStatusResponse
---
---         , responseDescribeRecommendationExportJobs $
---             newDescribeRecommendationExportJobsResponse
---
---         , responseGetEC2RecommendationProjectedMetrics $
---             newGetEC2RecommendationProjectedMetricsResponse
---
---         , responseGetEnrollmentStatusesForOrganization $
---             newGetEnrollmentStatusesForOrganizationResponse
---
---         , responseGetEBSVolumeRecommendations $
---             newGetEBSVolumeRecommendationsResponse
---
---         , responseExportLambdaFunctionRecommendations $
---             newExportLambdaFunctionRecommendationsResponse
+--         , responseExportEBSVolumeRecommendations $
+--             newExportEBSVolumeRecommendationsResponse
 --
 --         , responseExportEC2InstanceRecommendations $
 --             newExportEC2InstanceRecommendationsResponse
 --
---         , responseGetEnrollmentStatus $
---             newGetEnrollmentStatusResponse
+--         , responseExportLambdaFunctionRecommendations $
+--             newExportLambdaFunctionRecommendationsResponse
 --
 --         , responseGetAutoScalingGroupRecommendations $
 --             newGetAutoScalingGroupRecommendationsResponse
+--
+--         , responseGetEBSVolumeRecommendations $
+--             newGetEBSVolumeRecommendationsResponse
+--
+--         , responseGetEC2InstanceRecommendations $
+--             newGetEC2InstanceRecommendationsResponse
+--
+--         , responseGetEC2RecommendationProjectedMetrics $
+--             newGetEC2RecommendationProjectedMetricsResponse
+--
+--         , responseGetEnrollmentStatus $
+--             newGetEnrollmentStatusResponse
+--
+--         , responseGetEnrollmentStatusesForOrganization $
+--             newGetEnrollmentStatusesForOrganizationResponse
+--
+--         , responseGetLambdaFunctionRecommendations $
+--             newGetLambdaFunctionRecommendationsResponse
+--
+--         , responseGetRecommendationSummaries $
+--             newGetRecommendationSummariesResponse
+--
+--         , responseUpdateEnrollmentStatus $
+--             newUpdateEnrollmentStatusResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestExportEBSVolumeRecommendations :: ExportEBSVolumeRecommendations -> TestTree
-requestExportEBSVolumeRecommendations =
-  req
-    "ExportEBSVolumeRecommendations"
-    "fixture/ExportEBSVolumeRecommendations.yaml"
-
-requestGetRecommendationSummaries :: GetRecommendationSummaries -> TestTree
-requestGetRecommendationSummaries =
-  req
-    "GetRecommendationSummaries"
-    "fixture/GetRecommendationSummaries.yaml"
-
-requestExportAutoScalingGroupRecommendations :: ExportAutoScalingGroupRecommendations -> TestTree
-requestExportAutoScalingGroupRecommendations =
-  req
-    "ExportAutoScalingGroupRecommendations"
-    "fixture/ExportAutoScalingGroupRecommendations.yaml"
-
-requestGetEC2InstanceRecommendations :: GetEC2InstanceRecommendations -> TestTree
-requestGetEC2InstanceRecommendations =
-  req
-    "GetEC2InstanceRecommendations"
-    "fixture/GetEC2InstanceRecommendations.yaml"
-
-requestGetLambdaFunctionRecommendations :: GetLambdaFunctionRecommendations -> TestTree
-requestGetLambdaFunctionRecommendations =
-  req
-    "GetLambdaFunctionRecommendations"
-    "fixture/GetLambdaFunctionRecommendations.yaml"
-
-requestUpdateEnrollmentStatus :: UpdateEnrollmentStatus -> TestTree
-requestUpdateEnrollmentStatus =
-  req
-    "UpdateEnrollmentStatus"
-    "fixture/UpdateEnrollmentStatus.yaml"
 
 requestDescribeRecommendationExportJobs :: DescribeRecommendationExportJobs -> TestTree
 requestDescribeRecommendationExportJobs =
@@ -161,29 +125,17 @@ requestDescribeRecommendationExportJobs =
     "DescribeRecommendationExportJobs"
     "fixture/DescribeRecommendationExportJobs.yaml"
 
-requestGetEC2RecommendationProjectedMetrics :: GetEC2RecommendationProjectedMetrics -> TestTree
-requestGetEC2RecommendationProjectedMetrics =
+requestExportAutoScalingGroupRecommendations :: ExportAutoScalingGroupRecommendations -> TestTree
+requestExportAutoScalingGroupRecommendations =
   req
-    "GetEC2RecommendationProjectedMetrics"
-    "fixture/GetEC2RecommendationProjectedMetrics.yaml"
+    "ExportAutoScalingGroupRecommendations"
+    "fixture/ExportAutoScalingGroupRecommendations.yaml"
 
-requestGetEnrollmentStatusesForOrganization :: GetEnrollmentStatusesForOrganization -> TestTree
-requestGetEnrollmentStatusesForOrganization =
+requestExportEBSVolumeRecommendations :: ExportEBSVolumeRecommendations -> TestTree
+requestExportEBSVolumeRecommendations =
   req
-    "GetEnrollmentStatusesForOrganization"
-    "fixture/GetEnrollmentStatusesForOrganization.yaml"
-
-requestGetEBSVolumeRecommendations :: GetEBSVolumeRecommendations -> TestTree
-requestGetEBSVolumeRecommendations =
-  req
-    "GetEBSVolumeRecommendations"
-    "fixture/GetEBSVolumeRecommendations.yaml"
-
-requestExportLambdaFunctionRecommendations :: ExportLambdaFunctionRecommendations -> TestTree
-requestExportLambdaFunctionRecommendations =
-  req
-    "ExportLambdaFunctionRecommendations"
-    "fixture/ExportLambdaFunctionRecommendations.yaml"
+    "ExportEBSVolumeRecommendations"
+    "fixture/ExportEBSVolumeRecommendations.yaml"
 
 requestExportEC2InstanceRecommendations :: ExportEC2InstanceRecommendations -> TestTree
 requestExportEC2InstanceRecommendations =
@@ -191,11 +143,11 @@ requestExportEC2InstanceRecommendations =
     "ExportEC2InstanceRecommendations"
     "fixture/ExportEC2InstanceRecommendations.yaml"
 
-requestGetEnrollmentStatus :: GetEnrollmentStatus -> TestTree
-requestGetEnrollmentStatus =
+requestExportLambdaFunctionRecommendations :: ExportLambdaFunctionRecommendations -> TestTree
+requestExportLambdaFunctionRecommendations =
   req
-    "GetEnrollmentStatus"
-    "fixture/GetEnrollmentStatus.yaml"
+    "ExportLambdaFunctionRecommendations"
+    "fixture/ExportLambdaFunctionRecommendations.yaml"
 
 requestGetAutoScalingGroupRecommendations :: GetAutoScalingGroupRecommendations -> TestTree
 requestGetAutoScalingGroupRecommendations =
@@ -203,55 +155,55 @@ requestGetAutoScalingGroupRecommendations =
     "GetAutoScalingGroupRecommendations"
     "fixture/GetAutoScalingGroupRecommendations.yaml"
 
+requestGetEBSVolumeRecommendations :: GetEBSVolumeRecommendations -> TestTree
+requestGetEBSVolumeRecommendations =
+  req
+    "GetEBSVolumeRecommendations"
+    "fixture/GetEBSVolumeRecommendations.yaml"
+
+requestGetEC2InstanceRecommendations :: GetEC2InstanceRecommendations -> TestTree
+requestGetEC2InstanceRecommendations =
+  req
+    "GetEC2InstanceRecommendations"
+    "fixture/GetEC2InstanceRecommendations.yaml"
+
+requestGetEC2RecommendationProjectedMetrics :: GetEC2RecommendationProjectedMetrics -> TestTree
+requestGetEC2RecommendationProjectedMetrics =
+  req
+    "GetEC2RecommendationProjectedMetrics"
+    "fixture/GetEC2RecommendationProjectedMetrics.yaml"
+
+requestGetEnrollmentStatus :: GetEnrollmentStatus -> TestTree
+requestGetEnrollmentStatus =
+  req
+    "GetEnrollmentStatus"
+    "fixture/GetEnrollmentStatus.yaml"
+
+requestGetEnrollmentStatusesForOrganization :: GetEnrollmentStatusesForOrganization -> TestTree
+requestGetEnrollmentStatusesForOrganization =
+  req
+    "GetEnrollmentStatusesForOrganization"
+    "fixture/GetEnrollmentStatusesForOrganization.yaml"
+
+requestGetLambdaFunctionRecommendations :: GetLambdaFunctionRecommendations -> TestTree
+requestGetLambdaFunctionRecommendations =
+  req
+    "GetLambdaFunctionRecommendations"
+    "fixture/GetLambdaFunctionRecommendations.yaml"
+
+requestGetRecommendationSummaries :: GetRecommendationSummaries -> TestTree
+requestGetRecommendationSummaries =
+  req
+    "GetRecommendationSummaries"
+    "fixture/GetRecommendationSummaries.yaml"
+
+requestUpdateEnrollmentStatus :: UpdateEnrollmentStatus -> TestTree
+requestUpdateEnrollmentStatus =
+  req
+    "UpdateEnrollmentStatus"
+    "fixture/UpdateEnrollmentStatus.yaml"
+
 -- Responses
-
-responseExportEBSVolumeRecommendations :: ExportEBSVolumeRecommendationsResponse -> TestTree
-responseExportEBSVolumeRecommendations =
-  res
-    "ExportEBSVolumeRecommendationsResponse"
-    "fixture/ExportEBSVolumeRecommendationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ExportEBSVolumeRecommendations)
-
-responseGetRecommendationSummaries :: GetRecommendationSummariesResponse -> TestTree
-responseGetRecommendationSummaries =
-  res
-    "GetRecommendationSummariesResponse"
-    "fixture/GetRecommendationSummariesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetRecommendationSummaries)
-
-responseExportAutoScalingGroupRecommendations :: ExportAutoScalingGroupRecommendationsResponse -> TestTree
-responseExportAutoScalingGroupRecommendations =
-  res
-    "ExportAutoScalingGroupRecommendationsResponse"
-    "fixture/ExportAutoScalingGroupRecommendationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ExportAutoScalingGroupRecommendations)
-
-responseGetEC2InstanceRecommendations :: GetEC2InstanceRecommendationsResponse -> TestTree
-responseGetEC2InstanceRecommendations =
-  res
-    "GetEC2InstanceRecommendationsResponse"
-    "fixture/GetEC2InstanceRecommendationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetEC2InstanceRecommendations)
-
-responseGetLambdaFunctionRecommendations :: GetLambdaFunctionRecommendationsResponse -> TestTree
-responseGetLambdaFunctionRecommendations =
-  res
-    "GetLambdaFunctionRecommendationsResponse"
-    "fixture/GetLambdaFunctionRecommendationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetLambdaFunctionRecommendations)
-
-responseUpdateEnrollmentStatus :: UpdateEnrollmentStatusResponse -> TestTree
-responseUpdateEnrollmentStatus =
-  res
-    "UpdateEnrollmentStatusResponse"
-    "fixture/UpdateEnrollmentStatusResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateEnrollmentStatus)
 
 responseDescribeRecommendationExportJobs :: DescribeRecommendationExportJobsResponse -> TestTree
 responseDescribeRecommendationExportJobs =
@@ -261,37 +213,21 @@ responseDescribeRecommendationExportJobs =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeRecommendationExportJobs)
 
-responseGetEC2RecommendationProjectedMetrics :: GetEC2RecommendationProjectedMetricsResponse -> TestTree
-responseGetEC2RecommendationProjectedMetrics =
+responseExportAutoScalingGroupRecommendations :: ExportAutoScalingGroupRecommendationsResponse -> TestTree
+responseExportAutoScalingGroupRecommendations =
   res
-    "GetEC2RecommendationProjectedMetricsResponse"
-    "fixture/GetEC2RecommendationProjectedMetricsResponse.proto"
+    "ExportAutoScalingGroupRecommendationsResponse"
+    "fixture/ExportAutoScalingGroupRecommendationsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetEC2RecommendationProjectedMetrics)
+    (Proxy.Proxy :: Proxy.Proxy ExportAutoScalingGroupRecommendations)
 
-responseGetEnrollmentStatusesForOrganization :: GetEnrollmentStatusesForOrganizationResponse -> TestTree
-responseGetEnrollmentStatusesForOrganization =
+responseExportEBSVolumeRecommendations :: ExportEBSVolumeRecommendationsResponse -> TestTree
+responseExportEBSVolumeRecommendations =
   res
-    "GetEnrollmentStatusesForOrganizationResponse"
-    "fixture/GetEnrollmentStatusesForOrganizationResponse.proto"
+    "ExportEBSVolumeRecommendationsResponse"
+    "fixture/ExportEBSVolumeRecommendationsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetEnrollmentStatusesForOrganization)
-
-responseGetEBSVolumeRecommendations :: GetEBSVolumeRecommendationsResponse -> TestTree
-responseGetEBSVolumeRecommendations =
-  res
-    "GetEBSVolumeRecommendationsResponse"
-    "fixture/GetEBSVolumeRecommendationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetEBSVolumeRecommendations)
-
-responseExportLambdaFunctionRecommendations :: ExportLambdaFunctionRecommendationsResponse -> TestTree
-responseExportLambdaFunctionRecommendations =
-  res
-    "ExportLambdaFunctionRecommendationsResponse"
-    "fixture/ExportLambdaFunctionRecommendationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ExportLambdaFunctionRecommendations)
+    (Proxy.Proxy :: Proxy.Proxy ExportEBSVolumeRecommendations)
 
 responseExportEC2InstanceRecommendations :: ExportEC2InstanceRecommendationsResponse -> TestTree
 responseExportEC2InstanceRecommendations =
@@ -301,13 +237,13 @@ responseExportEC2InstanceRecommendations =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ExportEC2InstanceRecommendations)
 
-responseGetEnrollmentStatus :: GetEnrollmentStatusResponse -> TestTree
-responseGetEnrollmentStatus =
+responseExportLambdaFunctionRecommendations :: ExportLambdaFunctionRecommendationsResponse -> TestTree
+responseExportLambdaFunctionRecommendations =
   res
-    "GetEnrollmentStatusResponse"
-    "fixture/GetEnrollmentStatusResponse.proto"
+    "ExportLambdaFunctionRecommendationsResponse"
+    "fixture/ExportLambdaFunctionRecommendationsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetEnrollmentStatus)
+    (Proxy.Proxy :: Proxy.Proxy ExportLambdaFunctionRecommendations)
 
 responseGetAutoScalingGroupRecommendations :: GetAutoScalingGroupRecommendationsResponse -> TestTree
 responseGetAutoScalingGroupRecommendations =
@@ -316,3 +252,67 @@ responseGetAutoScalingGroupRecommendations =
     "fixture/GetAutoScalingGroupRecommendationsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetAutoScalingGroupRecommendations)
+
+responseGetEBSVolumeRecommendations :: GetEBSVolumeRecommendationsResponse -> TestTree
+responseGetEBSVolumeRecommendations =
+  res
+    "GetEBSVolumeRecommendationsResponse"
+    "fixture/GetEBSVolumeRecommendationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetEBSVolumeRecommendations)
+
+responseGetEC2InstanceRecommendations :: GetEC2InstanceRecommendationsResponse -> TestTree
+responseGetEC2InstanceRecommendations =
+  res
+    "GetEC2InstanceRecommendationsResponse"
+    "fixture/GetEC2InstanceRecommendationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetEC2InstanceRecommendations)
+
+responseGetEC2RecommendationProjectedMetrics :: GetEC2RecommendationProjectedMetricsResponse -> TestTree
+responseGetEC2RecommendationProjectedMetrics =
+  res
+    "GetEC2RecommendationProjectedMetricsResponse"
+    "fixture/GetEC2RecommendationProjectedMetricsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetEC2RecommendationProjectedMetrics)
+
+responseGetEnrollmentStatus :: GetEnrollmentStatusResponse -> TestTree
+responseGetEnrollmentStatus =
+  res
+    "GetEnrollmentStatusResponse"
+    "fixture/GetEnrollmentStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetEnrollmentStatus)
+
+responseGetEnrollmentStatusesForOrganization :: GetEnrollmentStatusesForOrganizationResponse -> TestTree
+responseGetEnrollmentStatusesForOrganization =
+  res
+    "GetEnrollmentStatusesForOrganizationResponse"
+    "fixture/GetEnrollmentStatusesForOrganizationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetEnrollmentStatusesForOrganization)
+
+responseGetLambdaFunctionRecommendations :: GetLambdaFunctionRecommendationsResponse -> TestTree
+responseGetLambdaFunctionRecommendations =
+  res
+    "GetLambdaFunctionRecommendationsResponse"
+    "fixture/GetLambdaFunctionRecommendationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetLambdaFunctionRecommendations)
+
+responseGetRecommendationSummaries :: GetRecommendationSummariesResponse -> TestTree
+responseGetRecommendationSummaries =
+  res
+    "GetRecommendationSummariesResponse"
+    "fixture/GetRecommendationSummariesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetRecommendationSummaries)
+
+responseUpdateEnrollmentStatus :: UpdateEnrollmentStatusResponse -> TestTree
+responseUpdateEnrollmentStatus =
+  res
+    "UpdateEnrollmentStatusResponse"
+    "fixture/UpdateEnrollmentStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateEnrollmentStatus)

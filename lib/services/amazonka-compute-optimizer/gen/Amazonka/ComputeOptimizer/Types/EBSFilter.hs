@@ -36,15 +36,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEBSFilter' smart constructor.
 data EBSFilter = EBSFilter'
-  { -- | The value of the filter.
-    --
-    -- The valid values are @Optimized@, or @NotOptimized@.
-    values :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the filter.
+  { -- | The name of the filter.
     --
     -- Specify @Finding@ to return recommendations with a specific finding
     -- classification (for example, @NotOptimized@).
-    name :: Prelude.Maybe EBSFilterName
+    name :: Prelude.Maybe EBSFilterName,
+    -- | The value of the filter.
+    --
+    -- The valid values are @Optimized@, or @NotOptimized@.
+    values :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,27 +56,21 @@ data EBSFilter = EBSFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'values', 'eBSFilter_values' - The value of the filter.
---
--- The valid values are @Optimized@, or @NotOptimized@.
---
 -- 'name', 'eBSFilter_name' - The name of the filter.
 --
 -- Specify @Finding@ to return recommendations with a specific finding
 -- classification (for example, @NotOptimized@).
+--
+-- 'values', 'eBSFilter_values' - The value of the filter.
+--
+-- The valid values are @Optimized@, or @NotOptimized@.
 newEBSFilter ::
   EBSFilter
 newEBSFilter =
   EBSFilter'
-    { values = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      values = Prelude.Nothing
     }
-
--- | The value of the filter.
---
--- The valid values are @Optimized@, or @NotOptimized@.
-eBSFilter_values :: Lens.Lens' EBSFilter (Prelude.Maybe [Prelude.Text])
-eBSFilter_values = Lens.lens (\EBSFilter' {values} -> values) (\s@EBSFilter' {} a -> s {values = a} :: EBSFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the filter.
 --
@@ -85,20 +79,26 @@ eBSFilter_values = Lens.lens (\EBSFilter' {values} -> values) (\s@EBSFilter' {} 
 eBSFilter_name :: Lens.Lens' EBSFilter (Prelude.Maybe EBSFilterName)
 eBSFilter_name = Lens.lens (\EBSFilter' {name} -> name) (\s@EBSFilter' {} a -> s {name = a} :: EBSFilter)
 
+-- | The value of the filter.
+--
+-- The valid values are @Optimized@, or @NotOptimized@.
+eBSFilter_values :: Lens.Lens' EBSFilter (Prelude.Maybe [Prelude.Text])
+eBSFilter_values = Lens.lens (\EBSFilter' {values} -> values) (\s@EBSFilter' {} a -> s {values = a} :: EBSFilter) Prelude.. Lens.mapping Lens.coerced
+
 instance Prelude.Hashable EBSFilter where
   hashWithSalt _salt EBSFilter' {..} =
-    _salt `Prelude.hashWithSalt` values
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` values
 
 instance Prelude.NFData EBSFilter where
   rnf EBSFilter' {..} =
-    Prelude.rnf values `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf values
 
 instance Core.ToJSON EBSFilter where
   toJSON EBSFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("values" Core..=) Prelude.<$> values,
-            ("name" Core..=) Prelude.<$> name
+          [ ("name" Core..=) Prelude.<$> name,
+            ("values" Core..=) Prelude.<$> values
           ]
       )

@@ -17,13 +17,13 @@ module Amazonka.WellArchitected.Types
     defaultService,
 
     -- * Errors
-    _ValidationException,
     _AccessDeniedException,
-    _ConflictException,
-    _ServiceQuotaExceededException,
-    _ThrottlingException,
     _InternalServerException,
+    _ServiceQuotaExceededException,
     _ResourceNotFoundException,
+    _ConflictException,
+    _ThrottlingException,
+    _ValidationException,
 
     -- * AnswerReason
     AnswerReason (..),
@@ -64,54 +64,54 @@ module Amazonka.WellArchitected.Types
     -- * Answer
     Answer (..),
     newAnswer,
-    answer_choiceAnswers,
-    answer_helpfulResourceUrl,
-    answer_isApplicable,
-    answer_pillarId,
-    answer_improvementPlanUrl,
-    answer_questionDescription,
-    answer_risk,
-    answer_questionTitle,
-    answer_selectedChoices,
-    answer_reason,
     answer_choices,
+    answer_selectedChoices,
+    answer_risk,
     answer_questionId,
+    answer_questionDescription,
+    answer_improvementPlanUrl,
+    answer_isApplicable,
+    answer_reason,
     answer_notes,
+    answer_questionTitle,
+    answer_helpfulResourceUrl,
+    answer_pillarId,
+    answer_choiceAnswers,
 
     -- * AnswerSummary
     AnswerSummary (..),
     newAnswerSummary,
-    answerSummary_isApplicable,
-    answerSummary_pillarId,
-    answerSummary_choiceAnswerSummaries,
-    answerSummary_risk,
-    answerSummary_questionTitle,
-    answerSummary_selectedChoices,
-    answerSummary_reason,
     answerSummary_choices,
+    answerSummary_selectedChoices,
+    answerSummary_risk,
+    answerSummary_choiceAnswerSummaries,
     answerSummary_questionId,
+    answerSummary_isApplicable,
+    answerSummary_reason,
+    answerSummary_questionTitle,
+    answerSummary_pillarId,
 
     -- * Choice
     Choice (..),
     newChoice,
-    choice_title,
     choice_description,
     choice_choiceId,
+    choice_title,
 
     -- * ChoiceAnswer
     ChoiceAnswer (..),
     newChoiceAnswer,
     choiceAnswer_status,
+    choiceAnswer_choiceId,
     choiceAnswer_reason,
     choiceAnswer_notes,
-    choiceAnswer_choiceId,
 
     -- * ChoiceAnswerSummary
     ChoiceAnswerSummary (..),
     newChoiceAnswerSummary,
     choiceAnswerSummary_status,
-    choiceAnswerSummary_reason,
     choiceAnswerSummary_choiceId,
+    choiceAnswerSummary_reason,
 
     -- * ChoiceUpdate
     ChoiceUpdate (..),
@@ -123,24 +123,24 @@ module Amazonka.WellArchitected.Types
     -- * ImprovementSummary
     ImprovementSummary (..),
     newImprovementSummary,
-    improvementSummary_pillarId,
-    improvementSummary_improvementPlanUrl,
     improvementSummary_risk,
-    improvementSummary_questionTitle,
     improvementSummary_questionId,
+    improvementSummary_improvementPlanUrl,
+    improvementSummary_questionTitle,
+    improvementSummary_pillarId,
 
     -- * LensReview
     LensReview (..),
     newLensReview,
-    lensReview_lensAlias,
-    lensReview_riskCounts,
-    lensReview_lensName,
     lensReview_nextToken,
-    lensReview_pillarReviewSummaries,
-    lensReview_updatedAt,
-    lensReview_lensStatus,
-    lensReview_notes,
+    lensReview_riskCounts,
+    lensReview_lensAlias,
     lensReview_lensVersion,
+    lensReview_lensName,
+    lensReview_pillarReviewSummaries,
+    lensReview_notes,
+    lensReview_lensStatus,
+    lensReview_updatedAt,
 
     -- * LensReviewReport
     LensReviewReport (..),
@@ -151,89 +151,89 @@ module Amazonka.WellArchitected.Types
     -- * LensReviewSummary
     LensReviewSummary (..),
     newLensReviewSummary,
-    lensReviewSummary_lensAlias,
     lensReviewSummary_riskCounts,
-    lensReviewSummary_lensName,
-    lensReviewSummary_updatedAt,
-    lensReviewSummary_lensStatus,
+    lensReviewSummary_lensAlias,
     lensReviewSummary_lensVersion,
+    lensReviewSummary_lensName,
+    lensReviewSummary_lensStatus,
+    lensReviewSummary_updatedAt,
 
     -- * LensSummary
     LensSummary (..),
     newLensSummary,
     lensSummary_lensAlias,
-    lensSummary_lensName,
     lensSummary_lensVersion,
     lensSummary_description,
+    lensSummary_lensName,
 
     -- * LensUpgradeSummary
     LensUpgradeSummary (..),
     newLensUpgradeSummary,
-    lensUpgradeSummary_lensAlias,
-    lensUpgradeSummary_latestLensVersion,
     lensUpgradeSummary_currentLensVersion,
-    lensUpgradeSummary_workloadId,
+    lensUpgradeSummary_lensAlias,
     lensUpgradeSummary_workloadName,
+    lensUpgradeSummary_latestLensVersion,
+    lensUpgradeSummary_workloadId,
 
     -- * Milestone
     Milestone (..),
     newMilestone,
-    milestone_workload,
-    milestone_milestoneNumber,
-    milestone_milestoneName,
     milestone_recordedAt,
+    milestone_milestoneName,
+    milestone_milestoneNumber,
+    milestone_workload,
 
     -- * MilestoneSummary
     MilestoneSummary (..),
     newMilestoneSummary,
-    milestoneSummary_milestoneNumber,
-    milestoneSummary_milestoneName,
     milestoneSummary_recordedAt,
+    milestoneSummary_milestoneName,
     milestoneSummary_workloadSummary,
+    milestoneSummary_milestoneNumber,
 
     -- * NotificationSummary
     NotificationSummary (..),
     newNotificationSummary,
-    notificationSummary_lensUpgradeSummary,
     notificationSummary_type,
+    notificationSummary_lensUpgradeSummary,
 
     -- * PillarDifference
     PillarDifference (..),
     newPillarDifference,
-    pillarDifference_pillarId,
-    pillarDifference_questionDifferences,
     pillarDifference_differenceStatus,
+    pillarDifference_questionDifferences,
+    pillarDifference_pillarId,
 
     -- * PillarReviewSummary
     PillarReviewSummary (..),
     newPillarReviewSummary,
-    pillarReviewSummary_pillarId,
-    pillarReviewSummary_pillarName,
     pillarReviewSummary_riskCounts,
     pillarReviewSummary_notes,
+    pillarReviewSummary_pillarId,
+    pillarReviewSummary_pillarName,
 
     -- * QuestionDifference
     QuestionDifference (..),
     newQuestionDifference,
-    questionDifference_questionTitle,
-    questionDifference_differenceStatus,
     questionDifference_questionId,
+    questionDifference_differenceStatus,
+    questionDifference_questionTitle,
 
     -- * ShareInvitation
     ShareInvitation (..),
     newShareInvitation,
-    shareInvitation_workloadId,
     shareInvitation_shareInvitationId,
+    shareInvitation_workloadId,
 
     -- * ShareInvitationSummary
     ShareInvitationSummary (..),
     newShareInvitationSummary,
-    shareInvitationSummary_sharedBy,
-    shareInvitationSummary_sharedWith,
     shareInvitationSummary_permissionType,
-    shareInvitationSummary_workloadId,
-    shareInvitationSummary_workloadName,
+    shareInvitationSummary_sharedWith,
     shareInvitationSummary_shareInvitationId,
+    shareInvitationSummary_workloadName,
+    shareInvitationSummary_sharedBy,
+    shareInvitationSummary_workloadId,
 
     -- * VersionDifferences
     VersionDifferences (..),
@@ -243,60 +243,60 @@ module Amazonka.WellArchitected.Types
     -- * Workload
     Workload (..),
     newWorkload,
-    workload_isReviewOwnerUpdateAcknowledged,
-    workload_architecturalDesign,
+    workload_tags,
     workload_accountIds,
-    workload_lenses,
-    workload_reviewRestrictionDate,
-    workload_industry,
     workload_environment,
     workload_riskCounts,
-    workload_awsRegions,
-    workload_owner,
-    workload_improvementStatus,
-    workload_workloadArn,
-    workload_industryType,
-    workload_workloadId,
-    workload_workloadName,
-    workload_updatedAt,
-    workload_notes,
-    workload_reviewOwner,
-    workload_description,
-    workload_pillarPriorities,
+    workload_isReviewOwnerUpdateAcknowledged,
+    workload_industry,
     workload_shareInvitationId,
+    workload_workloadArn,
+    workload_awsRegions,
+    workload_workloadName,
+    workload_reviewOwner,
+    workload_owner,
     workload_nonAwsRegions,
-    workload_tags,
+    workload_description,
+    workload_notes,
+    workload_industryType,
+    workload_architecturalDesign,
+    workload_pillarPriorities,
+    workload_improvementStatus,
+    workload_lenses,
+    workload_reviewRestrictionDate,
+    workload_updatedAt,
+    workload_workloadId,
 
     -- * WorkloadShare
     WorkloadShare (..),
     newWorkloadShare,
-    workloadShare_status,
-    workloadShare_sharedBy,
-    workloadShare_sharedWith,
     workloadShare_permissionType,
-    workloadShare_workloadId,
+    workloadShare_sharedWith,
     workloadShare_workloadName,
+    workloadShare_status,
     workloadShare_shareId,
+    workloadShare_sharedBy,
+    workloadShare_workloadId,
 
     -- * WorkloadShareSummary
     WorkloadShareSummary (..),
     newWorkloadShareSummary,
-    workloadShareSummary_status,
-    workloadShareSummary_sharedWith,
     workloadShareSummary_permissionType,
+    workloadShareSummary_sharedWith,
+    workloadShareSummary_status,
     workloadShareSummary_shareId,
 
     -- * WorkloadSummary
     WorkloadSummary (..),
     newWorkloadSummary,
-    workloadSummary_lenses,
     workloadSummary_riskCounts,
+    workloadSummary_workloadArn,
+    workloadSummary_workloadName,
     workloadSummary_owner,
     workloadSummary_improvementStatus,
-    workloadSummary_workloadArn,
-    workloadSummary_workloadId,
-    workloadSummary_workloadName,
+    workloadSummary_lenses,
     workloadSummary_updatedAt,
+    workloadSummary_workloadId,
   )
 where
 
@@ -369,35 +369,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -406,21 +379,40 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The user input is not valid.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
-    Prelude.. Core.hasStatus 400
 
 -- | User does not have sufficient access to perform this action.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -430,13 +422,13 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
--- | The resource already exists.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
+-- | There is a problem with the AWS Well-Architected Tool API service.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
   Core._MatchServiceError
     defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
+    "InternalServerException"
+    Prelude.. Core.hasStatus 500
 
 -- | The user has reached their resource quota.
 _ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -446,6 +438,22 @@ _ServiceQuotaExceededException =
     "ServiceQuotaExceededException"
     Prelude.. Core.hasStatus 402
 
+-- | The requested resource was not found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | The resource already exists.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
 -- | Request was denied due to request throttling.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ThrottlingException =
@@ -454,18 +462,10 @@ _ThrottlingException =
     "ThrottlingException"
     Prelude.. Core.hasStatus 429
 
--- | There is a problem with the AWS Well-Architected Tool API service.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
+-- | The user input is not valid.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
   Core._MatchServiceError
     defaultService
-    "InternalServerException"
-    Prelude.. Core.hasStatus 500
-
--- | The requested resource was not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
+    "ValidationException"
+    Prelude.. Core.hasStatus 400

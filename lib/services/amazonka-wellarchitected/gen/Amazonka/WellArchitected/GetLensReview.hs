@@ -36,9 +36,9 @@ module Amazonka.WellArchitected.GetLensReview
     newGetLensReviewResponse,
 
     -- * Response Lenses
+    getLensReviewResponse_lensReview,
     getLensReviewResponse_milestoneNumber,
     getLensReviewResponse_workloadId,
-    getLensReviewResponse_lensReview,
     getLensReviewResponse_httpStatus,
   )
 where
@@ -107,9 +107,9 @@ instance Core.AWSRequest GetLensReview where
     Response.receiveJSON
       ( \s h x ->
           GetLensReviewResponse'
-            Prelude.<$> (x Core..?> "MilestoneNumber")
+            Prelude.<$> (x Core..?> "LensReview")
+            Prelude.<*> (x Core..?> "MilestoneNumber")
             Prelude.<*> (x Core..?> "WorkloadId")
-            Prelude.<*> (x Core..?> "LensReview")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,9 +154,9 @@ instance Core.ToQuery GetLensReview where
 --
 -- /See:/ 'newGetLensReviewResponse' smart constructor.
 data GetLensReviewResponse = GetLensReviewResponse'
-  { milestoneNumber :: Prelude.Maybe Prelude.Natural,
+  { lensReview :: Prelude.Maybe LensReview,
+    milestoneNumber :: Prelude.Maybe Prelude.Natural,
     workloadId :: Prelude.Maybe Prelude.Text,
-    lensReview :: Prelude.Maybe LensReview,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -170,11 +170,11 @@ data GetLensReviewResponse = GetLensReviewResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lensReview', 'getLensReviewResponse_lensReview' - Undocumented member.
+--
 -- 'milestoneNumber', 'getLensReviewResponse_milestoneNumber' - Undocumented member.
 --
 -- 'workloadId', 'getLensReviewResponse_workloadId' - Undocumented member.
---
--- 'lensReview', 'getLensReviewResponse_lensReview' - Undocumented member.
 --
 -- 'httpStatus', 'getLensReviewResponse_httpStatus' - The response's http status code.
 newGetLensReviewResponse ::
@@ -183,12 +183,16 @@ newGetLensReviewResponse ::
   GetLensReviewResponse
 newGetLensReviewResponse pHttpStatus_ =
   GetLensReviewResponse'
-    { milestoneNumber =
+    { lensReview =
         Prelude.Nothing,
+      milestoneNumber = Prelude.Nothing,
       workloadId = Prelude.Nothing,
-      lensReview = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Undocumented member.
+getLensReviewResponse_lensReview :: Lens.Lens' GetLensReviewResponse (Prelude.Maybe LensReview)
+getLensReviewResponse_lensReview = Lens.lens (\GetLensReviewResponse' {lensReview} -> lensReview) (\s@GetLensReviewResponse' {} a -> s {lensReview = a} :: GetLensReviewResponse)
 
 -- | Undocumented member.
 getLensReviewResponse_milestoneNumber :: Lens.Lens' GetLensReviewResponse (Prelude.Maybe Prelude.Natural)
@@ -198,17 +202,13 @@ getLensReviewResponse_milestoneNumber = Lens.lens (\GetLensReviewResponse' {mile
 getLensReviewResponse_workloadId :: Lens.Lens' GetLensReviewResponse (Prelude.Maybe Prelude.Text)
 getLensReviewResponse_workloadId = Lens.lens (\GetLensReviewResponse' {workloadId} -> workloadId) (\s@GetLensReviewResponse' {} a -> s {workloadId = a} :: GetLensReviewResponse)
 
--- | Undocumented member.
-getLensReviewResponse_lensReview :: Lens.Lens' GetLensReviewResponse (Prelude.Maybe LensReview)
-getLensReviewResponse_lensReview = Lens.lens (\GetLensReviewResponse' {lensReview} -> lensReview) (\s@GetLensReviewResponse' {} a -> s {lensReview = a} :: GetLensReviewResponse)
-
 -- | The response's http status code.
 getLensReviewResponse_httpStatus :: Lens.Lens' GetLensReviewResponse Prelude.Int
 getLensReviewResponse_httpStatus = Lens.lens (\GetLensReviewResponse' {httpStatus} -> httpStatus) (\s@GetLensReviewResponse' {} a -> s {httpStatus = a} :: GetLensReviewResponse)
 
 instance Prelude.NFData GetLensReviewResponse where
   rnf GetLensReviewResponse' {..} =
-    Prelude.rnf milestoneNumber
+    Prelude.rnf lensReview
+      `Prelude.seq` Prelude.rnf milestoneNumber
       `Prelude.seq` Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf lensReview
       `Prelude.seq` Prelude.rnf httpStatus

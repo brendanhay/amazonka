@@ -36,8 +36,8 @@ module Amazonka.WellArchitected.ListShareInvitations
     newListShareInvitationsResponse,
 
     -- * Response Lenses
-    listShareInvitationsResponse_shareInvitationSummaries,
     listShareInvitationsResponse_nextToken,
+    listShareInvitationsResponse_shareInvitationSummaries,
     listShareInvitationsResponse_httpStatus,
   )
 where
@@ -103,10 +103,10 @@ instance Core.AWSRequest ListShareInvitations where
     Response.receiveJSON
       ( \s h x ->
           ListShareInvitationsResponse'
-            Prelude.<$> ( x Core..?> "ShareInvitationSummaries"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "ShareInvitationSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,9 +148,9 @@ instance Core.ToQuery ListShareInvitations where
 --
 -- /See:/ 'newListShareInvitationsResponse' smart constructor.
 data ListShareInvitationsResponse = ListShareInvitationsResponse'
-  { -- | List of share invitation summaries in a workload.
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    -- | List of share invitation summaries in a workload.
     shareInvitationSummaries :: Prelude.Maybe [ShareInvitationSummary],
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -164,9 +164,9 @@ data ListShareInvitationsResponse = ListShareInvitationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'shareInvitationSummaries', 'listShareInvitationsResponse_shareInvitationSummaries' - List of share invitation summaries in a workload.
---
 -- 'nextToken', 'listShareInvitationsResponse_nextToken' - Undocumented member.
+--
+-- 'shareInvitationSummaries', 'listShareInvitationsResponse_shareInvitationSummaries' - List of share invitation summaries in a workload.
 --
 -- 'httpStatus', 'listShareInvitationsResponse_httpStatus' - The response's http status code.
 newListShareInvitationsResponse ::
@@ -175,19 +175,19 @@ newListShareInvitationsResponse ::
   ListShareInvitationsResponse
 newListShareInvitationsResponse pHttpStatus_ =
   ListShareInvitationsResponse'
-    { shareInvitationSummaries =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      shareInvitationSummaries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | List of share invitation summaries in a workload.
-listShareInvitationsResponse_shareInvitationSummaries :: Lens.Lens' ListShareInvitationsResponse (Prelude.Maybe [ShareInvitationSummary])
-listShareInvitationsResponse_shareInvitationSummaries = Lens.lens (\ListShareInvitationsResponse' {shareInvitationSummaries} -> shareInvitationSummaries) (\s@ListShareInvitationsResponse' {} a -> s {shareInvitationSummaries = a} :: ListShareInvitationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 listShareInvitationsResponse_nextToken :: Lens.Lens' ListShareInvitationsResponse (Prelude.Maybe Prelude.Text)
 listShareInvitationsResponse_nextToken = Lens.lens (\ListShareInvitationsResponse' {nextToken} -> nextToken) (\s@ListShareInvitationsResponse' {} a -> s {nextToken = a} :: ListShareInvitationsResponse)
+
+-- | List of share invitation summaries in a workload.
+listShareInvitationsResponse_shareInvitationSummaries :: Lens.Lens' ListShareInvitationsResponse (Prelude.Maybe [ShareInvitationSummary])
+listShareInvitationsResponse_shareInvitationSummaries = Lens.lens (\ListShareInvitationsResponse' {shareInvitationSummaries} -> shareInvitationSummaries) (\s@ListShareInvitationsResponse' {} a -> s {shareInvitationSummaries = a} :: ListShareInvitationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listShareInvitationsResponse_httpStatus :: Lens.Lens' ListShareInvitationsResponse Prelude.Int
@@ -195,6 +195,6 @@ listShareInvitationsResponse_httpStatus = Lens.lens (\ListShareInvitationsRespon
 
 instance Prelude.NFData ListShareInvitationsResponse where
   rnf ListShareInvitationsResponse' {..} =
-    Prelude.rnf shareInvitationSummaries
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf shareInvitationSummaries
       `Prelude.seq` Prelude.rnf httpStatus

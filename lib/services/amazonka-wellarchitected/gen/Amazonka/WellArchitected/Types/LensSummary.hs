@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newLensSummary' smart constructor.
 data LensSummary = LensSummary'
   { lensAlias :: Prelude.Maybe Prelude.Text,
-    lensName :: Prelude.Maybe Prelude.Text,
     -- | The version of the lens.
     lensVersion :: Prelude.Maybe Prelude.Text,
-    description :: Prelude.Maybe Prelude.Text
+    description :: Prelude.Maybe Prelude.Text,
+    lensName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,28 +45,24 @@ data LensSummary = LensSummary'
 --
 -- 'lensAlias', 'lensSummary_lensAlias' - Undocumented member.
 --
--- 'lensName', 'lensSummary_lensName' - Undocumented member.
---
 -- 'lensVersion', 'lensSummary_lensVersion' - The version of the lens.
 --
 -- 'description', 'lensSummary_description' - Undocumented member.
+--
+-- 'lensName', 'lensSummary_lensName' - Undocumented member.
 newLensSummary ::
   LensSummary
 newLensSummary =
   LensSummary'
     { lensAlias = Prelude.Nothing,
-      lensName = Prelude.Nothing,
       lensVersion = Prelude.Nothing,
-      description = Prelude.Nothing
+      description = Prelude.Nothing,
+      lensName = Prelude.Nothing
     }
 
 -- | Undocumented member.
 lensSummary_lensAlias :: Lens.Lens' LensSummary (Prelude.Maybe Prelude.Text)
 lensSummary_lensAlias = Lens.lens (\LensSummary' {lensAlias} -> lensAlias) (\s@LensSummary' {} a -> s {lensAlias = a} :: LensSummary)
-
--- | Undocumented member.
-lensSummary_lensName :: Lens.Lens' LensSummary (Prelude.Maybe Prelude.Text)
-lensSummary_lensName = Lens.lens (\LensSummary' {lensName} -> lensName) (\s@LensSummary' {} a -> s {lensName = a} :: LensSummary)
 
 -- | The version of the lens.
 lensSummary_lensVersion :: Lens.Lens' LensSummary (Prelude.Maybe Prelude.Text)
@@ -76,6 +72,10 @@ lensSummary_lensVersion = Lens.lens (\LensSummary' {lensVersion} -> lensVersion)
 lensSummary_description :: Lens.Lens' LensSummary (Prelude.Maybe Prelude.Text)
 lensSummary_description = Lens.lens (\LensSummary' {description} -> description) (\s@LensSummary' {} a -> s {description = a} :: LensSummary)
 
+-- | Undocumented member.
+lensSummary_lensName :: Lens.Lens' LensSummary (Prelude.Maybe Prelude.Text)
+lensSummary_lensName = Lens.lens (\LensSummary' {lensName} -> lensName) (\s@LensSummary' {} a -> s {lensName = a} :: LensSummary)
+
 instance Core.FromJSON LensSummary where
   parseJSON =
     Core.withObject
@@ -83,21 +83,21 @@ instance Core.FromJSON LensSummary where
       ( \x ->
           LensSummary'
             Prelude.<$> (x Core..:? "LensAlias")
-            Prelude.<*> (x Core..:? "LensName")
             Prelude.<*> (x Core..:? "LensVersion")
             Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "LensName")
       )
 
 instance Prelude.Hashable LensSummary where
   hashWithSalt _salt LensSummary' {..} =
     _salt `Prelude.hashWithSalt` lensAlias
-      `Prelude.hashWithSalt` lensName
       `Prelude.hashWithSalt` lensVersion
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` lensName
 
 instance Prelude.NFData LensSummary where
   rnf LensSummary' {..} =
     Prelude.rnf lensAlias
-      `Prelude.seq` Prelude.rnf lensName
       `Prelude.seq` Prelude.rnf lensVersion
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lensName

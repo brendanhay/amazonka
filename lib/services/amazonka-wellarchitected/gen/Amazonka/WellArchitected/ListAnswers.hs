@@ -27,10 +27,10 @@ module Amazonka.WellArchitected.ListAnswers
     newListAnswers,
 
     -- * Request Lenses
-    listAnswers_pillarId,
-    listAnswers_milestoneNumber,
     listAnswers_nextToken,
     listAnswers_maxResults,
+    listAnswers_milestoneNumber,
+    listAnswers_pillarId,
     listAnswers_workloadId,
     listAnswers_lensAlias,
 
@@ -39,11 +39,11 @@ module Amazonka.WellArchitected.ListAnswers
     newListAnswersResponse,
 
     -- * Response Lenses
+    listAnswersResponse_answerSummaries,
+    listAnswersResponse_nextToken,
     listAnswersResponse_lensAlias,
     listAnswersResponse_milestoneNumber,
-    listAnswersResponse_nextToken,
     listAnswersResponse_workloadId,
-    listAnswersResponse_answerSummaries,
     listAnswersResponse_httpStatus,
   )
 where
@@ -59,11 +59,11 @@ import Amazonka.WellArchitected.Types
 --
 -- /See:/ 'newListAnswers' smart constructor.
 data ListAnswers = ListAnswers'
-  { pillarId :: Prelude.Maybe Prelude.Text,
-    milestoneNumber :: Prelude.Maybe Prelude.Natural,
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return for this request.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    milestoneNumber :: Prelude.Maybe Prelude.Natural,
+    pillarId :: Prelude.Maybe Prelude.Text,
     workloadId :: Prelude.Text,
     lensAlias :: Prelude.Text
   }
@@ -77,13 +77,13 @@ data ListAnswers = ListAnswers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pillarId', 'listAnswers_pillarId' - Undocumented member.
---
--- 'milestoneNumber', 'listAnswers_milestoneNumber' - Undocumented member.
---
 -- 'nextToken', 'listAnswers_nextToken' - Undocumented member.
 --
 -- 'maxResults', 'listAnswers_maxResults' - The maximum number of results to return for this request.
+--
+-- 'milestoneNumber', 'listAnswers_milestoneNumber' - Undocumented member.
+--
+-- 'pillarId', 'listAnswers_pillarId' - Undocumented member.
 --
 -- 'workloadId', 'listAnswers_workloadId' - Undocumented member.
 --
@@ -96,21 +96,13 @@ newListAnswers ::
   ListAnswers
 newListAnswers pWorkloadId_ pLensAlias_ =
   ListAnswers'
-    { pillarId = Prelude.Nothing,
-      milestoneNumber = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      milestoneNumber = Prelude.Nothing,
+      pillarId = Prelude.Nothing,
       workloadId = pWorkloadId_,
       lensAlias = pLensAlias_
     }
-
--- | Undocumented member.
-listAnswers_pillarId :: Lens.Lens' ListAnswers (Prelude.Maybe Prelude.Text)
-listAnswers_pillarId = Lens.lens (\ListAnswers' {pillarId} -> pillarId) (\s@ListAnswers' {} a -> s {pillarId = a} :: ListAnswers)
-
--- | Undocumented member.
-listAnswers_milestoneNumber :: Lens.Lens' ListAnswers (Prelude.Maybe Prelude.Natural)
-listAnswers_milestoneNumber = Lens.lens (\ListAnswers' {milestoneNumber} -> milestoneNumber) (\s@ListAnswers' {} a -> s {milestoneNumber = a} :: ListAnswers)
 
 -- | Undocumented member.
 listAnswers_nextToken :: Lens.Lens' ListAnswers (Prelude.Maybe Prelude.Text)
@@ -119,6 +111,14 @@ listAnswers_nextToken = Lens.lens (\ListAnswers' {nextToken} -> nextToken) (\s@L
 -- | The maximum number of results to return for this request.
 listAnswers_maxResults :: Lens.Lens' ListAnswers (Prelude.Maybe Prelude.Natural)
 listAnswers_maxResults = Lens.lens (\ListAnswers' {maxResults} -> maxResults) (\s@ListAnswers' {} a -> s {maxResults = a} :: ListAnswers)
+
+-- | Undocumented member.
+listAnswers_milestoneNumber :: Lens.Lens' ListAnswers (Prelude.Maybe Prelude.Natural)
+listAnswers_milestoneNumber = Lens.lens (\ListAnswers' {milestoneNumber} -> milestoneNumber) (\s@ListAnswers' {} a -> s {milestoneNumber = a} :: ListAnswers)
+
+-- | Undocumented member.
+listAnswers_pillarId :: Lens.Lens' ListAnswers (Prelude.Maybe Prelude.Text)
+listAnswers_pillarId = Lens.lens (\ListAnswers' {pillarId} -> pillarId) (\s@ListAnswers' {} a -> s {pillarId = a} :: ListAnswers)
 
 -- | Undocumented member.
 listAnswers_workloadId :: Lens.Lens' ListAnswers Prelude.Text
@@ -135,31 +135,31 @@ instance Core.AWSRequest ListAnswers where
     Response.receiveJSON
       ( \s h x ->
           ListAnswersResponse'
-            Prelude.<$> (x Core..?> "LensAlias")
-            Prelude.<*> (x Core..?> "MilestoneNumber")
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "WorkloadId")
-            Prelude.<*> ( x Core..?> "AnswerSummaries"
+            Prelude.<$> ( x Core..?> "AnswerSummaries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "LensAlias")
+            Prelude.<*> (x Core..?> "MilestoneNumber")
+            Prelude.<*> (x Core..?> "WorkloadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListAnswers where
   hashWithSalt _salt ListAnswers' {..} =
-    _salt `Prelude.hashWithSalt` pillarId
-      `Prelude.hashWithSalt` milestoneNumber
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` milestoneNumber
+      `Prelude.hashWithSalt` pillarId
       `Prelude.hashWithSalt` workloadId
       `Prelude.hashWithSalt` lensAlias
 
 instance Prelude.NFData ListAnswers where
   rnf ListAnswers' {..} =
-    Prelude.rnf pillarId
-      `Prelude.seq` Prelude.rnf milestoneNumber
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf milestoneNumber
+      `Prelude.seq` Prelude.rnf pillarId
       `Prelude.seq` Prelude.rnf workloadId
       `Prelude.seq` Prelude.rnf lensAlias
 
@@ -187,21 +187,21 @@ instance Core.ToPath ListAnswers where
 instance Core.ToQuery ListAnswers where
   toQuery ListAnswers' {..} =
     Prelude.mconcat
-      [ "PillarId" Core.=: pillarId,
+      [ "NextToken" Core.=: nextToken,
+        "MaxResults" Core.=: maxResults,
         "MilestoneNumber" Core.=: milestoneNumber,
-        "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults
+        "PillarId" Core.=: pillarId
       ]
 
 -- | Output of a list answers call.
 --
 -- /See:/ 'newListAnswersResponse' smart constructor.
 data ListAnswersResponse = ListAnswersResponse'
-  { lensAlias :: Prelude.Maybe Prelude.Text,
-    milestoneNumber :: Prelude.Maybe Prelude.Natural,
+  { answerSummaries :: Prelude.Maybe [AnswerSummary],
     nextToken :: Prelude.Maybe Prelude.Text,
+    lensAlias :: Prelude.Maybe Prelude.Text,
+    milestoneNumber :: Prelude.Maybe Prelude.Natural,
     workloadId :: Prelude.Maybe Prelude.Text,
-    answerSummaries :: Prelude.Maybe [AnswerSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -215,15 +215,15 @@ data ListAnswersResponse = ListAnswersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'answerSummaries', 'listAnswersResponse_answerSummaries' - Undocumented member.
+--
+-- 'nextToken', 'listAnswersResponse_nextToken' - Undocumented member.
+--
 -- 'lensAlias', 'listAnswersResponse_lensAlias' - Undocumented member.
 --
 -- 'milestoneNumber', 'listAnswersResponse_milestoneNumber' - Undocumented member.
 --
--- 'nextToken', 'listAnswersResponse_nextToken' - Undocumented member.
---
 -- 'workloadId', 'listAnswersResponse_workloadId' - Undocumented member.
---
--- 'answerSummaries', 'listAnswersResponse_answerSummaries' - Undocumented member.
 --
 -- 'httpStatus', 'listAnswersResponse_httpStatus' - The response's http status code.
 newListAnswersResponse ::
@@ -232,13 +232,22 @@ newListAnswersResponse ::
   ListAnswersResponse
 newListAnswersResponse pHttpStatus_ =
   ListAnswersResponse'
-    { lensAlias = Prelude.Nothing,
-      milestoneNumber = Prelude.Nothing,
+    { answerSummaries =
+        Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      lensAlias = Prelude.Nothing,
+      milestoneNumber = Prelude.Nothing,
       workloadId = Prelude.Nothing,
-      answerSummaries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Undocumented member.
+listAnswersResponse_answerSummaries :: Lens.Lens' ListAnswersResponse (Prelude.Maybe [AnswerSummary])
+listAnswersResponse_answerSummaries = Lens.lens (\ListAnswersResponse' {answerSummaries} -> answerSummaries) (\s@ListAnswersResponse' {} a -> s {answerSummaries = a} :: ListAnswersResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+listAnswersResponse_nextToken :: Lens.Lens' ListAnswersResponse (Prelude.Maybe Prelude.Text)
+listAnswersResponse_nextToken = Lens.lens (\ListAnswersResponse' {nextToken} -> nextToken) (\s@ListAnswersResponse' {} a -> s {nextToken = a} :: ListAnswersResponse)
 
 -- | Undocumented member.
 listAnswersResponse_lensAlias :: Lens.Lens' ListAnswersResponse (Prelude.Maybe Prelude.Text)
@@ -249,16 +258,8 @@ listAnswersResponse_milestoneNumber :: Lens.Lens' ListAnswersResponse (Prelude.M
 listAnswersResponse_milestoneNumber = Lens.lens (\ListAnswersResponse' {milestoneNumber} -> milestoneNumber) (\s@ListAnswersResponse' {} a -> s {milestoneNumber = a} :: ListAnswersResponse)
 
 -- | Undocumented member.
-listAnswersResponse_nextToken :: Lens.Lens' ListAnswersResponse (Prelude.Maybe Prelude.Text)
-listAnswersResponse_nextToken = Lens.lens (\ListAnswersResponse' {nextToken} -> nextToken) (\s@ListAnswersResponse' {} a -> s {nextToken = a} :: ListAnswersResponse)
-
--- | Undocumented member.
 listAnswersResponse_workloadId :: Lens.Lens' ListAnswersResponse (Prelude.Maybe Prelude.Text)
 listAnswersResponse_workloadId = Lens.lens (\ListAnswersResponse' {workloadId} -> workloadId) (\s@ListAnswersResponse' {} a -> s {workloadId = a} :: ListAnswersResponse)
-
--- | Undocumented member.
-listAnswersResponse_answerSummaries :: Lens.Lens' ListAnswersResponse (Prelude.Maybe [AnswerSummary])
-listAnswersResponse_answerSummaries = Lens.lens (\ListAnswersResponse' {answerSummaries} -> answerSummaries) (\s@ListAnswersResponse' {} a -> s {answerSummaries = a} :: ListAnswersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAnswersResponse_httpStatus :: Lens.Lens' ListAnswersResponse Prelude.Int
@@ -266,9 +267,9 @@ listAnswersResponse_httpStatus = Lens.lens (\ListAnswersResponse' {httpStatus} -
 
 instance Prelude.NFData ListAnswersResponse where
   rnf ListAnswersResponse' {..} =
-    Prelude.rnf lensAlias
-      `Prelude.seq` Prelude.rnf milestoneNumber
+    Prelude.rnf answerSummaries
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf lensAlias
+      `Prelude.seq` Prelude.rnf milestoneNumber
       `Prelude.seq` Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf answerSummaries
       `Prelude.seq` Prelude.rnf httpStatus

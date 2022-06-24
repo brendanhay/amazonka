@@ -38,8 +38,8 @@ module Amazonka.WellArchitected.GetAnswer
 
     -- * Response Lenses
     getAnswerResponse_lensAlias,
-    getAnswerResponse_milestoneNumber,
     getAnswerResponse_answer,
+    getAnswerResponse_milestoneNumber,
     getAnswerResponse_workloadId,
     getAnswerResponse_httpStatus,
   )
@@ -118,8 +118,8 @@ instance Core.AWSRequest GetAnswer where
       ( \s h x ->
           GetAnswerResponse'
             Prelude.<$> (x Core..?> "LensAlias")
-            Prelude.<*> (x Core..?> "MilestoneNumber")
             Prelude.<*> (x Core..?> "Answer")
+            Prelude.<*> (x Core..?> "MilestoneNumber")
             Prelude.<*> (x Core..?> "WorkloadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -170,8 +170,8 @@ instance Core.ToQuery GetAnswer where
 -- /See:/ 'newGetAnswerResponse' smart constructor.
 data GetAnswerResponse = GetAnswerResponse'
   { lensAlias :: Prelude.Maybe Prelude.Text,
-    milestoneNumber :: Prelude.Maybe Prelude.Natural,
     answer :: Prelude.Maybe Answer,
+    milestoneNumber :: Prelude.Maybe Prelude.Natural,
     workloadId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -188,9 +188,9 @@ data GetAnswerResponse = GetAnswerResponse'
 --
 -- 'lensAlias', 'getAnswerResponse_lensAlias' - Undocumented member.
 --
--- 'milestoneNumber', 'getAnswerResponse_milestoneNumber' - Undocumented member.
---
 -- 'answer', 'getAnswerResponse_answer' - Undocumented member.
+--
+-- 'milestoneNumber', 'getAnswerResponse_milestoneNumber' - Undocumented member.
 --
 -- 'workloadId', 'getAnswerResponse_workloadId' - Undocumented member.
 --
@@ -202,8 +202,8 @@ newGetAnswerResponse ::
 newGetAnswerResponse pHttpStatus_ =
   GetAnswerResponse'
     { lensAlias = Prelude.Nothing,
-      milestoneNumber = Prelude.Nothing,
       answer = Prelude.Nothing,
+      milestoneNumber = Prelude.Nothing,
       workloadId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -213,12 +213,12 @@ getAnswerResponse_lensAlias :: Lens.Lens' GetAnswerResponse (Prelude.Maybe Prelu
 getAnswerResponse_lensAlias = Lens.lens (\GetAnswerResponse' {lensAlias} -> lensAlias) (\s@GetAnswerResponse' {} a -> s {lensAlias = a} :: GetAnswerResponse)
 
 -- | Undocumented member.
-getAnswerResponse_milestoneNumber :: Lens.Lens' GetAnswerResponse (Prelude.Maybe Prelude.Natural)
-getAnswerResponse_milestoneNumber = Lens.lens (\GetAnswerResponse' {milestoneNumber} -> milestoneNumber) (\s@GetAnswerResponse' {} a -> s {milestoneNumber = a} :: GetAnswerResponse)
-
--- | Undocumented member.
 getAnswerResponse_answer :: Lens.Lens' GetAnswerResponse (Prelude.Maybe Answer)
 getAnswerResponse_answer = Lens.lens (\GetAnswerResponse' {answer} -> answer) (\s@GetAnswerResponse' {} a -> s {answer = a} :: GetAnswerResponse)
+
+-- | Undocumented member.
+getAnswerResponse_milestoneNumber :: Lens.Lens' GetAnswerResponse (Prelude.Maybe Prelude.Natural)
+getAnswerResponse_milestoneNumber = Lens.lens (\GetAnswerResponse' {milestoneNumber} -> milestoneNumber) (\s@GetAnswerResponse' {} a -> s {milestoneNumber = a} :: GetAnswerResponse)
 
 -- | Undocumented member.
 getAnswerResponse_workloadId :: Lens.Lens' GetAnswerResponse (Prelude.Maybe Prelude.Text)
@@ -231,7 +231,7 @@ getAnswerResponse_httpStatus = Lens.lens (\GetAnswerResponse' {httpStatus} -> ht
 instance Prelude.NFData GetAnswerResponse where
   rnf GetAnswerResponse' {..} =
     Prelude.rnf lensAlias
-      `Prelude.seq` Prelude.rnf milestoneNumber
       `Prelude.seq` Prelude.rnf answer
+      `Prelude.seq` Prelude.rnf milestoneNumber
       `Prelude.seq` Prelude.rnf workloadId
       `Prelude.seq` Prelude.rnf httpStatus

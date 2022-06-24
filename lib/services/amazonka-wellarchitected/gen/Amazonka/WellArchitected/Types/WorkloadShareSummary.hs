@@ -29,9 +29,9 @@ import Amazonka.WellArchitected.Types.ShareStatus
 --
 -- /See:/ 'newWorkloadShareSummary' smart constructor.
 data WorkloadShareSummary = WorkloadShareSummary'
-  { status :: Prelude.Maybe ShareStatus,
+  { permissionType :: Prelude.Maybe PermissionType,
     sharedWith :: Prelude.Maybe Prelude.Text,
-    permissionType :: Prelude.Maybe PermissionType,
+    status :: Prelude.Maybe ShareStatus,
     shareId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,34 +44,35 @@ data WorkloadShareSummary = WorkloadShareSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'workloadShareSummary_status' - Undocumented member.
+-- 'permissionType', 'workloadShareSummary_permissionType' - Undocumented member.
 --
 -- 'sharedWith', 'workloadShareSummary_sharedWith' - Undocumented member.
 --
--- 'permissionType', 'workloadShareSummary_permissionType' - Undocumented member.
+-- 'status', 'workloadShareSummary_status' - Undocumented member.
 --
 -- 'shareId', 'workloadShareSummary_shareId' - Undocumented member.
 newWorkloadShareSummary ::
   WorkloadShareSummary
 newWorkloadShareSummary =
   WorkloadShareSummary'
-    { status = Prelude.Nothing,
+    { permissionType =
+        Prelude.Nothing,
       sharedWith = Prelude.Nothing,
-      permissionType = Prelude.Nothing,
+      status = Prelude.Nothing,
       shareId = Prelude.Nothing
     }
 
 -- | Undocumented member.
-workloadShareSummary_status :: Lens.Lens' WorkloadShareSummary (Prelude.Maybe ShareStatus)
-workloadShareSummary_status = Lens.lens (\WorkloadShareSummary' {status} -> status) (\s@WorkloadShareSummary' {} a -> s {status = a} :: WorkloadShareSummary)
+workloadShareSummary_permissionType :: Lens.Lens' WorkloadShareSummary (Prelude.Maybe PermissionType)
+workloadShareSummary_permissionType = Lens.lens (\WorkloadShareSummary' {permissionType} -> permissionType) (\s@WorkloadShareSummary' {} a -> s {permissionType = a} :: WorkloadShareSummary)
 
 -- | Undocumented member.
 workloadShareSummary_sharedWith :: Lens.Lens' WorkloadShareSummary (Prelude.Maybe Prelude.Text)
 workloadShareSummary_sharedWith = Lens.lens (\WorkloadShareSummary' {sharedWith} -> sharedWith) (\s@WorkloadShareSummary' {} a -> s {sharedWith = a} :: WorkloadShareSummary)
 
 -- | Undocumented member.
-workloadShareSummary_permissionType :: Lens.Lens' WorkloadShareSummary (Prelude.Maybe PermissionType)
-workloadShareSummary_permissionType = Lens.lens (\WorkloadShareSummary' {permissionType} -> permissionType) (\s@WorkloadShareSummary' {} a -> s {permissionType = a} :: WorkloadShareSummary)
+workloadShareSummary_status :: Lens.Lens' WorkloadShareSummary (Prelude.Maybe ShareStatus)
+workloadShareSummary_status = Lens.lens (\WorkloadShareSummary' {status} -> status) (\s@WorkloadShareSummary' {} a -> s {status = a} :: WorkloadShareSummary)
 
 -- | Undocumented member.
 workloadShareSummary_shareId :: Lens.Lens' WorkloadShareSummary (Prelude.Maybe Prelude.Text)
@@ -83,22 +84,22 @@ instance Core.FromJSON WorkloadShareSummary where
       "WorkloadShareSummary"
       ( \x ->
           WorkloadShareSummary'
-            Prelude.<$> (x Core..:? "Status")
+            Prelude.<$> (x Core..:? "PermissionType")
             Prelude.<*> (x Core..:? "SharedWith")
-            Prelude.<*> (x Core..:? "PermissionType")
+            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "ShareId")
       )
 
 instance Prelude.Hashable WorkloadShareSummary where
   hashWithSalt _salt WorkloadShareSummary' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` permissionType
       `Prelude.hashWithSalt` sharedWith
-      `Prelude.hashWithSalt` permissionType
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` shareId
 
 instance Prelude.NFData WorkloadShareSummary where
   rnf WorkloadShareSummary' {..} =
-    Prelude.rnf status
+    Prelude.rnf permissionType
       `Prelude.seq` Prelude.rnf sharedWith
-      `Prelude.seq` Prelude.rnf permissionType
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf shareId

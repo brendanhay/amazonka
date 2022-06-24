@@ -45,8 +45,8 @@ module Amazonka.WellArchitected.CreateWorkloadShare
     newCreateWorkloadShareResponse,
 
     -- * Response Lenses
-    createWorkloadShareResponse_workloadId,
     createWorkloadShareResponse_shareId,
+    createWorkloadShareResponse_workloadId,
     createWorkloadShareResponse_httpStatus,
   )
 where
@@ -131,8 +131,8 @@ instance Core.AWSRequest CreateWorkloadShare where
     Response.receiveJSON
       ( \s h x ->
           CreateWorkloadShareResponse'
-            Prelude.<$> (x Core..?> "WorkloadId")
-            Prelude.<*> (x Core..?> "ShareId")
+            Prelude.<$> (x Core..?> "ShareId")
+            Prelude.<*> (x Core..?> "WorkloadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -185,8 +185,8 @@ instance Core.ToQuery CreateWorkloadShare where
 --
 -- /See:/ 'newCreateWorkloadShareResponse' smart constructor.
 data CreateWorkloadShareResponse = CreateWorkloadShareResponse'
-  { workloadId :: Prelude.Maybe Prelude.Text,
-    shareId :: Prelude.Maybe Prelude.Text,
+  { shareId :: Prelude.Maybe Prelude.Text,
+    workloadId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -200,9 +200,9 @@ data CreateWorkloadShareResponse = CreateWorkloadShareResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'workloadId', 'createWorkloadShareResponse_workloadId' - Undocumented member.
---
 -- 'shareId', 'createWorkloadShareResponse_shareId' - Undocumented member.
+--
+-- 'workloadId', 'createWorkloadShareResponse_workloadId' - Undocumented member.
 --
 -- 'httpStatus', 'createWorkloadShareResponse_httpStatus' - The response's http status code.
 newCreateWorkloadShareResponse ::
@@ -211,19 +211,19 @@ newCreateWorkloadShareResponse ::
   CreateWorkloadShareResponse
 newCreateWorkloadShareResponse pHttpStatus_ =
   CreateWorkloadShareResponse'
-    { workloadId =
+    { shareId =
         Prelude.Nothing,
-      shareId = Prelude.Nothing,
+      workloadId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-createWorkloadShareResponse_workloadId :: Lens.Lens' CreateWorkloadShareResponse (Prelude.Maybe Prelude.Text)
-createWorkloadShareResponse_workloadId = Lens.lens (\CreateWorkloadShareResponse' {workloadId} -> workloadId) (\s@CreateWorkloadShareResponse' {} a -> s {workloadId = a} :: CreateWorkloadShareResponse)
-
--- | Undocumented member.
 createWorkloadShareResponse_shareId :: Lens.Lens' CreateWorkloadShareResponse (Prelude.Maybe Prelude.Text)
 createWorkloadShareResponse_shareId = Lens.lens (\CreateWorkloadShareResponse' {shareId} -> shareId) (\s@CreateWorkloadShareResponse' {} a -> s {shareId = a} :: CreateWorkloadShareResponse)
+
+-- | Undocumented member.
+createWorkloadShareResponse_workloadId :: Lens.Lens' CreateWorkloadShareResponse (Prelude.Maybe Prelude.Text)
+createWorkloadShareResponse_workloadId = Lens.lens (\CreateWorkloadShareResponse' {workloadId} -> workloadId) (\s@CreateWorkloadShareResponse' {} a -> s {workloadId = a} :: CreateWorkloadShareResponse)
 
 -- | The response's http status code.
 createWorkloadShareResponse_httpStatus :: Lens.Lens' CreateWorkloadShareResponse Prelude.Int
@@ -231,6 +231,6 @@ createWorkloadShareResponse_httpStatus = Lens.lens (\CreateWorkloadShareResponse
 
 instance Prelude.NFData CreateWorkloadShareResponse where
   rnf CreateWorkloadShareResponse' {..} =
-    Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf shareId
+    Prelude.rnf shareId
+      `Prelude.seq` Prelude.rnf workloadId
       `Prelude.seq` Prelude.rnf httpStatus

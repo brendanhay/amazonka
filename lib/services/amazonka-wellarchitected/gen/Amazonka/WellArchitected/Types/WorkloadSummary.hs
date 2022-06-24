@@ -29,14 +29,14 @@ import Amazonka.WellArchitected.Types.WorkloadImprovementStatus
 --
 -- /See:/ 'newWorkloadSummary' smart constructor.
 data WorkloadSummary = WorkloadSummary'
-  { lenses :: Prelude.Maybe [Prelude.Text],
-    riskCounts :: Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural),
+  { riskCounts :: Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural),
+    workloadArn :: Prelude.Maybe Prelude.Text,
+    workloadName :: Prelude.Maybe Prelude.Text,
     owner :: Prelude.Maybe Prelude.Text,
     improvementStatus :: Prelude.Maybe WorkloadImprovementStatus,
-    workloadArn :: Prelude.Maybe Prelude.Text,
-    workloadId :: Prelude.Maybe Prelude.Text,
-    workloadName :: Prelude.Maybe Prelude.Text,
-    updatedAt :: Prelude.Maybe Core.POSIX
+    lenses :: Prelude.Maybe [Prelude.Text],
+    updatedAt :: Prelude.Maybe Core.POSIX,
+    workloadId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,42 +48,46 @@ data WorkloadSummary = WorkloadSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lenses', 'workloadSummary_lenses' - Undocumented member.
---
 -- 'riskCounts', 'workloadSummary_riskCounts' - Undocumented member.
+--
+-- 'workloadArn', 'workloadSummary_workloadArn' - Undocumented member.
+--
+-- 'workloadName', 'workloadSummary_workloadName' - Undocumented member.
 --
 -- 'owner', 'workloadSummary_owner' - Undocumented member.
 --
 -- 'improvementStatus', 'workloadSummary_improvementStatus' - Undocumented member.
 --
--- 'workloadArn', 'workloadSummary_workloadArn' - Undocumented member.
---
--- 'workloadId', 'workloadSummary_workloadId' - Undocumented member.
---
--- 'workloadName', 'workloadSummary_workloadName' - Undocumented member.
+-- 'lenses', 'workloadSummary_lenses' - Undocumented member.
 --
 -- 'updatedAt', 'workloadSummary_updatedAt' - Undocumented member.
+--
+-- 'workloadId', 'workloadSummary_workloadId' - Undocumented member.
 newWorkloadSummary ::
   WorkloadSummary
 newWorkloadSummary =
   WorkloadSummary'
-    { lenses = Prelude.Nothing,
-      riskCounts = Prelude.Nothing,
+    { riskCounts = Prelude.Nothing,
+      workloadArn = Prelude.Nothing,
+      workloadName = Prelude.Nothing,
       owner = Prelude.Nothing,
       improvementStatus = Prelude.Nothing,
-      workloadArn = Prelude.Nothing,
-      workloadId = Prelude.Nothing,
-      workloadName = Prelude.Nothing,
-      updatedAt = Prelude.Nothing
+      lenses = Prelude.Nothing,
+      updatedAt = Prelude.Nothing,
+      workloadId = Prelude.Nothing
     }
-
--- | Undocumented member.
-workloadSummary_lenses :: Lens.Lens' WorkloadSummary (Prelude.Maybe [Prelude.Text])
-workloadSummary_lenses = Lens.lens (\WorkloadSummary' {lenses} -> lenses) (\s@WorkloadSummary' {} a -> s {lenses = a} :: WorkloadSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 workloadSummary_riskCounts :: Lens.Lens' WorkloadSummary (Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural))
 workloadSummary_riskCounts = Lens.lens (\WorkloadSummary' {riskCounts} -> riskCounts) (\s@WorkloadSummary' {} a -> s {riskCounts = a} :: WorkloadSummary) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+workloadSummary_workloadArn :: Lens.Lens' WorkloadSummary (Prelude.Maybe Prelude.Text)
+workloadSummary_workloadArn = Lens.lens (\WorkloadSummary' {workloadArn} -> workloadArn) (\s@WorkloadSummary' {} a -> s {workloadArn = a} :: WorkloadSummary)
+
+-- | Undocumented member.
+workloadSummary_workloadName :: Lens.Lens' WorkloadSummary (Prelude.Maybe Prelude.Text)
+workloadSummary_workloadName = Lens.lens (\WorkloadSummary' {workloadName} -> workloadName) (\s@WorkloadSummary' {} a -> s {workloadName = a} :: WorkloadSummary)
 
 -- | Undocumented member.
 workloadSummary_owner :: Lens.Lens' WorkloadSummary (Prelude.Maybe Prelude.Text)
@@ -94,20 +98,16 @@ workloadSummary_improvementStatus :: Lens.Lens' WorkloadSummary (Prelude.Maybe W
 workloadSummary_improvementStatus = Lens.lens (\WorkloadSummary' {improvementStatus} -> improvementStatus) (\s@WorkloadSummary' {} a -> s {improvementStatus = a} :: WorkloadSummary)
 
 -- | Undocumented member.
-workloadSummary_workloadArn :: Lens.Lens' WorkloadSummary (Prelude.Maybe Prelude.Text)
-workloadSummary_workloadArn = Lens.lens (\WorkloadSummary' {workloadArn} -> workloadArn) (\s@WorkloadSummary' {} a -> s {workloadArn = a} :: WorkloadSummary)
-
--- | Undocumented member.
-workloadSummary_workloadId :: Lens.Lens' WorkloadSummary (Prelude.Maybe Prelude.Text)
-workloadSummary_workloadId = Lens.lens (\WorkloadSummary' {workloadId} -> workloadId) (\s@WorkloadSummary' {} a -> s {workloadId = a} :: WorkloadSummary)
-
--- | Undocumented member.
-workloadSummary_workloadName :: Lens.Lens' WorkloadSummary (Prelude.Maybe Prelude.Text)
-workloadSummary_workloadName = Lens.lens (\WorkloadSummary' {workloadName} -> workloadName) (\s@WorkloadSummary' {} a -> s {workloadName = a} :: WorkloadSummary)
+workloadSummary_lenses :: Lens.Lens' WorkloadSummary (Prelude.Maybe [Prelude.Text])
+workloadSummary_lenses = Lens.lens (\WorkloadSummary' {lenses} -> lenses) (\s@WorkloadSummary' {} a -> s {lenses = a} :: WorkloadSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 workloadSummary_updatedAt :: Lens.Lens' WorkloadSummary (Prelude.Maybe Prelude.UTCTime)
 workloadSummary_updatedAt = Lens.lens (\WorkloadSummary' {updatedAt} -> updatedAt) (\s@WorkloadSummary' {} a -> s {updatedAt = a} :: WorkloadSummary) Prelude.. Lens.mapping Core._Time
+
+-- | Undocumented member.
+workloadSummary_workloadId :: Lens.Lens' WorkloadSummary (Prelude.Maybe Prelude.Text)
+workloadSummary_workloadId = Lens.lens (\WorkloadSummary' {workloadId} -> workloadId) (\s@WorkloadSummary' {} a -> s {workloadId = a} :: WorkloadSummary)
 
 instance Core.FromJSON WorkloadSummary where
   parseJSON =
@@ -115,34 +115,34 @@ instance Core.FromJSON WorkloadSummary where
       "WorkloadSummary"
       ( \x ->
           WorkloadSummary'
-            Prelude.<$> (x Core..:? "Lenses" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "RiskCounts" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "RiskCounts" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "WorkloadArn")
+            Prelude.<*> (x Core..:? "WorkloadName")
             Prelude.<*> (x Core..:? "Owner")
             Prelude.<*> (x Core..:? "ImprovementStatus")
-            Prelude.<*> (x Core..:? "WorkloadArn")
-            Prelude.<*> (x Core..:? "WorkloadId")
-            Prelude.<*> (x Core..:? "WorkloadName")
+            Prelude.<*> (x Core..:? "Lenses" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "UpdatedAt")
+            Prelude.<*> (x Core..:? "WorkloadId")
       )
 
 instance Prelude.Hashable WorkloadSummary where
   hashWithSalt _salt WorkloadSummary' {..} =
-    _salt `Prelude.hashWithSalt` lenses
-      `Prelude.hashWithSalt` riskCounts
+    _salt `Prelude.hashWithSalt` riskCounts
+      `Prelude.hashWithSalt` workloadArn
+      `Prelude.hashWithSalt` workloadName
       `Prelude.hashWithSalt` owner
       `Prelude.hashWithSalt` improvementStatus
-      `Prelude.hashWithSalt` workloadArn
-      `Prelude.hashWithSalt` workloadId
-      `Prelude.hashWithSalt` workloadName
+      `Prelude.hashWithSalt` lenses
       `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` workloadId
 
 instance Prelude.NFData WorkloadSummary where
   rnf WorkloadSummary' {..} =
-    Prelude.rnf lenses
-      `Prelude.seq` Prelude.rnf riskCounts
+    Prelude.rnf riskCounts
+      `Prelude.seq` Prelude.rnf workloadArn
+      `Prelude.seq` Prelude.rnf workloadName
       `Prelude.seq` Prelude.rnf owner
       `Prelude.seq` Prelude.rnf improvementStatus
-      `Prelude.seq` Prelude.rnf workloadArn
-      `Prelude.seq` Prelude.rnf workloadId
-      `Prelude.seq` Prelude.rnf workloadName
+      `Prelude.seq` Prelude.rnf lenses
       `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf workloadId

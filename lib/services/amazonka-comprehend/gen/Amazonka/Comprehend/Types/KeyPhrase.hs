@@ -33,8 +33,6 @@ data KeyPhrase = KeyPhrase'
     -- abstract character from a particular graphical representation. For
     -- example, a multi-byte UTF-8 character maps to a single code point.
     beginOffset :: Prelude.Maybe Prelude.Int,
-    -- | The text of a key noun phrase.
-    text :: Prelude.Maybe Prelude.Text,
     -- | The level of confidence that Amazon Comprehend has in the accuracy of
     -- the detection.
     score :: Prelude.Maybe Prelude.Double,
@@ -43,7 +41,9 @@ data KeyPhrase = KeyPhrase'
     -- @code point@ is the abstract character from a particular graphical
     -- representation. For example, a multi-byte UTF-8 character maps to a
     -- single code point.
-    endOffset :: Prelude.Maybe Prelude.Int
+    endOffset :: Prelude.Maybe Prelude.Int,
+    -- | The text of a key noun phrase.
+    text :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,8 +61,6 @@ data KeyPhrase = KeyPhrase'
 -- abstract character from a particular graphical representation. For
 -- example, a multi-byte UTF-8 character maps to a single code point.
 --
--- 'text', 'keyPhrase_text' - The text of a key noun phrase.
---
 -- 'score', 'keyPhrase_score' - The level of confidence that Amazon Comprehend has in the accuracy of
 -- the detection.
 --
@@ -71,14 +69,16 @@ data KeyPhrase = KeyPhrase'
 -- @code point@ is the abstract character from a particular graphical
 -- representation. For example, a multi-byte UTF-8 character maps to a
 -- single code point.
+--
+-- 'text', 'keyPhrase_text' - The text of a key noun phrase.
 newKeyPhrase ::
   KeyPhrase
 newKeyPhrase =
   KeyPhrase'
     { beginOffset = Prelude.Nothing,
-      text = Prelude.Nothing,
       score = Prelude.Nothing,
-      endOffset = Prelude.Nothing
+      endOffset = Prelude.Nothing,
+      text = Prelude.Nothing
     }
 
 -- | A character offset in the input text that shows where the key phrase
@@ -88,10 +88,6 @@ newKeyPhrase =
 -- example, a multi-byte UTF-8 character maps to a single code point.
 keyPhrase_beginOffset :: Lens.Lens' KeyPhrase (Prelude.Maybe Prelude.Int)
 keyPhrase_beginOffset = Lens.lens (\KeyPhrase' {beginOffset} -> beginOffset) (\s@KeyPhrase' {} a -> s {beginOffset = a} :: KeyPhrase)
-
--- | The text of a key noun phrase.
-keyPhrase_text :: Lens.Lens' KeyPhrase (Prelude.Maybe Prelude.Text)
-keyPhrase_text = Lens.lens (\KeyPhrase' {text} -> text) (\s@KeyPhrase' {} a -> s {text = a} :: KeyPhrase)
 
 -- | The level of confidence that Amazon Comprehend has in the accuracy of
 -- the detection.
@@ -106,6 +102,10 @@ keyPhrase_score = Lens.lens (\KeyPhrase' {score} -> score) (\s@KeyPhrase' {} a -
 keyPhrase_endOffset :: Lens.Lens' KeyPhrase (Prelude.Maybe Prelude.Int)
 keyPhrase_endOffset = Lens.lens (\KeyPhrase' {endOffset} -> endOffset) (\s@KeyPhrase' {} a -> s {endOffset = a} :: KeyPhrase)
 
+-- | The text of a key noun phrase.
+keyPhrase_text :: Lens.Lens' KeyPhrase (Prelude.Maybe Prelude.Text)
+keyPhrase_text = Lens.lens (\KeyPhrase' {text} -> text) (\s@KeyPhrase' {} a -> s {text = a} :: KeyPhrase)
+
 instance Core.FromJSON KeyPhrase where
   parseJSON =
     Core.withObject
@@ -113,21 +113,21 @@ instance Core.FromJSON KeyPhrase where
       ( \x ->
           KeyPhrase'
             Prelude.<$> (x Core..:? "BeginOffset")
-            Prelude.<*> (x Core..:? "Text")
             Prelude.<*> (x Core..:? "Score")
             Prelude.<*> (x Core..:? "EndOffset")
+            Prelude.<*> (x Core..:? "Text")
       )
 
 instance Prelude.Hashable KeyPhrase where
   hashWithSalt _salt KeyPhrase' {..} =
     _salt `Prelude.hashWithSalt` beginOffset
-      `Prelude.hashWithSalt` text
       `Prelude.hashWithSalt` score
       `Prelude.hashWithSalt` endOffset
+      `Prelude.hashWithSalt` text
 
 instance Prelude.NFData KeyPhrase where
   rnf KeyPhrase' {..} =
     Prelude.rnf beginOffset
-      `Prelude.seq` Prelude.rnf text
       `Prelude.seq` Prelude.rnf score
       `Prelude.seq` Prelude.rnf endOffset
+      `Prelude.seq` Prelude.rnf text

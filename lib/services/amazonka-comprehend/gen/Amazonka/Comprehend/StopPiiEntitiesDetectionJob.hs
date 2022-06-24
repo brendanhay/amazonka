@@ -34,8 +34,8 @@ module Amazonka.Comprehend.StopPiiEntitiesDetectionJob
     newStopPiiEntitiesDetectionJobResponse,
 
     -- * Response Lenses
-    stopPiiEntitiesDetectionJobResponse_jobId,
     stopPiiEntitiesDetectionJobResponse_jobStatus,
+    stopPiiEntitiesDetectionJobResponse_jobId,
     stopPiiEntitiesDetectionJobResponse_httpStatus,
   )
 where
@@ -83,8 +83,8 @@ instance Core.AWSRequest StopPiiEntitiesDetectionJob where
     Response.receiveJSON
       ( \s h x ->
           StopPiiEntitiesDetectionJobResponse'
-            Prelude.<$> (x Core..?> "JobId")
-            Prelude.<*> (x Core..?> "JobStatus")
+            Prelude.<$> (x Core..?> "JobStatus")
+            Prelude.<*> (x Core..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,10 +126,10 @@ instance Core.ToQuery StopPiiEntitiesDetectionJob where
 
 -- | /See:/ 'newStopPiiEntitiesDetectionJobResponse' smart constructor.
 data StopPiiEntitiesDetectionJobResponse = StopPiiEntitiesDetectionJobResponse'
-  { -- | The identifier of the PII entities detection job to stop.
-    jobId :: Prelude.Maybe Prelude.Text,
-    -- | The status of the PII entities detection job.
+  { -- | The status of the PII entities detection job.
     jobStatus :: Prelude.Maybe JobStatus,
+    -- | The identifier of the PII entities detection job to stop.
+    jobId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -143,9 +143,9 @@ data StopPiiEntitiesDetectionJobResponse = StopPiiEntitiesDetectionJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobId', 'stopPiiEntitiesDetectionJobResponse_jobId' - The identifier of the PII entities detection job to stop.
---
 -- 'jobStatus', 'stopPiiEntitiesDetectionJobResponse_jobStatus' - The status of the PII entities detection job.
+--
+-- 'jobId', 'stopPiiEntitiesDetectionJobResponse_jobId' - The identifier of the PII entities detection job to stop.
 --
 -- 'httpStatus', 'stopPiiEntitiesDetectionJobResponse_httpStatus' - The response's http status code.
 newStopPiiEntitiesDetectionJobResponse ::
@@ -154,19 +154,19 @@ newStopPiiEntitiesDetectionJobResponse ::
   StopPiiEntitiesDetectionJobResponse
 newStopPiiEntitiesDetectionJobResponse pHttpStatus_ =
   StopPiiEntitiesDetectionJobResponse'
-    { jobId =
+    { jobStatus =
         Prelude.Nothing,
-      jobStatus = Prelude.Nothing,
+      jobId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The identifier of the PII entities detection job to stop.
-stopPiiEntitiesDetectionJobResponse_jobId :: Lens.Lens' StopPiiEntitiesDetectionJobResponse (Prelude.Maybe Prelude.Text)
-stopPiiEntitiesDetectionJobResponse_jobId = Lens.lens (\StopPiiEntitiesDetectionJobResponse' {jobId} -> jobId) (\s@StopPiiEntitiesDetectionJobResponse' {} a -> s {jobId = a} :: StopPiiEntitiesDetectionJobResponse)
 
 -- | The status of the PII entities detection job.
 stopPiiEntitiesDetectionJobResponse_jobStatus :: Lens.Lens' StopPiiEntitiesDetectionJobResponse (Prelude.Maybe JobStatus)
 stopPiiEntitiesDetectionJobResponse_jobStatus = Lens.lens (\StopPiiEntitiesDetectionJobResponse' {jobStatus} -> jobStatus) (\s@StopPiiEntitiesDetectionJobResponse' {} a -> s {jobStatus = a} :: StopPiiEntitiesDetectionJobResponse)
+
+-- | The identifier of the PII entities detection job to stop.
+stopPiiEntitiesDetectionJobResponse_jobId :: Lens.Lens' StopPiiEntitiesDetectionJobResponse (Prelude.Maybe Prelude.Text)
+stopPiiEntitiesDetectionJobResponse_jobId = Lens.lens (\StopPiiEntitiesDetectionJobResponse' {jobId} -> jobId) (\s@StopPiiEntitiesDetectionJobResponse' {} a -> s {jobId = a} :: StopPiiEntitiesDetectionJobResponse)
 
 -- | The response's http status code.
 stopPiiEntitiesDetectionJobResponse_httpStatus :: Lens.Lens' StopPiiEntitiesDetectionJobResponse Prelude.Int
@@ -177,6 +177,6 @@ instance
     StopPiiEntitiesDetectionJobResponse
   where
   rnf StopPiiEntitiesDetectionJobResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobStatus
+    Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf httpStatus

@@ -29,19 +29,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newKeyPhrasesDetectionJobFilter' smart constructor.
 data KeyPhrasesDetectionJobFilter = KeyPhrasesDetectionJobFilter'
-  { -- | Filters the list of jobs based on the time that the job was submitted
-    -- for processing. Returns only jobs submitted after the specified time.
-    -- Jobs are returned in descending order, newest to oldest.
-    submitTimeAfter :: Prelude.Maybe Core.POSIX,
+  { -- | Filters the list of jobs based on job status. Returns only jobs with the
+    -- specified status.
+    jobStatus :: Prelude.Maybe JobStatus,
+    -- | Filters on the name of the job.
+    jobName :: Prelude.Maybe Prelude.Text,
     -- | Filters the list of jobs based on the time that the job was submitted
     -- for processing. Returns only jobs submitted before the specified time.
     -- Jobs are returned in ascending order, oldest to newest.
     submitTimeBefore :: Prelude.Maybe Core.POSIX,
-    -- | Filters on the name of the job.
-    jobName :: Prelude.Maybe Prelude.Text,
-    -- | Filters the list of jobs based on job status. Returns only jobs with the
-    -- specified status.
-    jobStatus :: Prelude.Maybe JobStatus
+    -- | Filters the list of jobs based on the time that the job was submitted
+    -- for processing. Returns only jobs submitted after the specified time.
+    -- Jobs are returned in descending order, newest to oldest.
+    submitTimeAfter :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,34 +53,37 @@ data KeyPhrasesDetectionJobFilter = KeyPhrasesDetectionJobFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'submitTimeAfter', 'keyPhrasesDetectionJobFilter_submitTimeAfter' - Filters the list of jobs based on the time that the job was submitted
--- for processing. Returns only jobs submitted after the specified time.
--- Jobs are returned in descending order, newest to oldest.
+-- 'jobStatus', 'keyPhrasesDetectionJobFilter_jobStatus' - Filters the list of jobs based on job status. Returns only jobs with the
+-- specified status.
+--
+-- 'jobName', 'keyPhrasesDetectionJobFilter_jobName' - Filters on the name of the job.
 --
 -- 'submitTimeBefore', 'keyPhrasesDetectionJobFilter_submitTimeBefore' - Filters the list of jobs based on the time that the job was submitted
 -- for processing. Returns only jobs submitted before the specified time.
 -- Jobs are returned in ascending order, oldest to newest.
 --
--- 'jobName', 'keyPhrasesDetectionJobFilter_jobName' - Filters on the name of the job.
---
--- 'jobStatus', 'keyPhrasesDetectionJobFilter_jobStatus' - Filters the list of jobs based on job status. Returns only jobs with the
--- specified status.
+-- 'submitTimeAfter', 'keyPhrasesDetectionJobFilter_submitTimeAfter' - Filters the list of jobs based on the time that the job was submitted
+-- for processing. Returns only jobs submitted after the specified time.
+-- Jobs are returned in descending order, newest to oldest.
 newKeyPhrasesDetectionJobFilter ::
   KeyPhrasesDetectionJobFilter
 newKeyPhrasesDetectionJobFilter =
   KeyPhrasesDetectionJobFilter'
-    { submitTimeAfter =
+    { jobStatus =
         Prelude.Nothing,
-      submitTimeBefore = Prelude.Nothing,
       jobName = Prelude.Nothing,
-      jobStatus = Prelude.Nothing
+      submitTimeBefore = Prelude.Nothing,
+      submitTimeAfter = Prelude.Nothing
     }
 
--- | Filters the list of jobs based on the time that the job was submitted
--- for processing. Returns only jobs submitted after the specified time.
--- Jobs are returned in descending order, newest to oldest.
-keyPhrasesDetectionJobFilter_submitTimeAfter :: Lens.Lens' KeyPhrasesDetectionJobFilter (Prelude.Maybe Prelude.UTCTime)
-keyPhrasesDetectionJobFilter_submitTimeAfter = Lens.lens (\KeyPhrasesDetectionJobFilter' {submitTimeAfter} -> submitTimeAfter) (\s@KeyPhrasesDetectionJobFilter' {} a -> s {submitTimeAfter = a} :: KeyPhrasesDetectionJobFilter) Prelude.. Lens.mapping Core._Time
+-- | Filters the list of jobs based on job status. Returns only jobs with the
+-- specified status.
+keyPhrasesDetectionJobFilter_jobStatus :: Lens.Lens' KeyPhrasesDetectionJobFilter (Prelude.Maybe JobStatus)
+keyPhrasesDetectionJobFilter_jobStatus = Lens.lens (\KeyPhrasesDetectionJobFilter' {jobStatus} -> jobStatus) (\s@KeyPhrasesDetectionJobFilter' {} a -> s {jobStatus = a} :: KeyPhrasesDetectionJobFilter)
+
+-- | Filters on the name of the job.
+keyPhrasesDetectionJobFilter_jobName :: Lens.Lens' KeyPhrasesDetectionJobFilter (Prelude.Maybe Prelude.Text)
+keyPhrasesDetectionJobFilter_jobName = Lens.lens (\KeyPhrasesDetectionJobFilter' {jobName} -> jobName) (\s@KeyPhrasesDetectionJobFilter' {} a -> s {jobName = a} :: KeyPhrasesDetectionJobFilter)
 
 -- | Filters the list of jobs based on the time that the job was submitted
 -- for processing. Returns only jobs submitted before the specified time.
@@ -88,41 +91,38 @@ keyPhrasesDetectionJobFilter_submitTimeAfter = Lens.lens (\KeyPhrasesDetectionJo
 keyPhrasesDetectionJobFilter_submitTimeBefore :: Lens.Lens' KeyPhrasesDetectionJobFilter (Prelude.Maybe Prelude.UTCTime)
 keyPhrasesDetectionJobFilter_submitTimeBefore = Lens.lens (\KeyPhrasesDetectionJobFilter' {submitTimeBefore} -> submitTimeBefore) (\s@KeyPhrasesDetectionJobFilter' {} a -> s {submitTimeBefore = a} :: KeyPhrasesDetectionJobFilter) Prelude.. Lens.mapping Core._Time
 
--- | Filters on the name of the job.
-keyPhrasesDetectionJobFilter_jobName :: Lens.Lens' KeyPhrasesDetectionJobFilter (Prelude.Maybe Prelude.Text)
-keyPhrasesDetectionJobFilter_jobName = Lens.lens (\KeyPhrasesDetectionJobFilter' {jobName} -> jobName) (\s@KeyPhrasesDetectionJobFilter' {} a -> s {jobName = a} :: KeyPhrasesDetectionJobFilter)
-
--- | Filters the list of jobs based on job status. Returns only jobs with the
--- specified status.
-keyPhrasesDetectionJobFilter_jobStatus :: Lens.Lens' KeyPhrasesDetectionJobFilter (Prelude.Maybe JobStatus)
-keyPhrasesDetectionJobFilter_jobStatus = Lens.lens (\KeyPhrasesDetectionJobFilter' {jobStatus} -> jobStatus) (\s@KeyPhrasesDetectionJobFilter' {} a -> s {jobStatus = a} :: KeyPhrasesDetectionJobFilter)
+-- | Filters the list of jobs based on the time that the job was submitted
+-- for processing. Returns only jobs submitted after the specified time.
+-- Jobs are returned in descending order, newest to oldest.
+keyPhrasesDetectionJobFilter_submitTimeAfter :: Lens.Lens' KeyPhrasesDetectionJobFilter (Prelude.Maybe Prelude.UTCTime)
+keyPhrasesDetectionJobFilter_submitTimeAfter = Lens.lens (\KeyPhrasesDetectionJobFilter' {submitTimeAfter} -> submitTimeAfter) (\s@KeyPhrasesDetectionJobFilter' {} a -> s {submitTimeAfter = a} :: KeyPhrasesDetectionJobFilter) Prelude.. Lens.mapping Core._Time
 
 instance
   Prelude.Hashable
     KeyPhrasesDetectionJobFilter
   where
   hashWithSalt _salt KeyPhrasesDetectionJobFilter' {..} =
-    _salt `Prelude.hashWithSalt` submitTimeAfter
-      `Prelude.hashWithSalt` submitTimeBefore
+    _salt `Prelude.hashWithSalt` jobStatus
       `Prelude.hashWithSalt` jobName
-      `Prelude.hashWithSalt` jobStatus
+      `Prelude.hashWithSalt` submitTimeBefore
+      `Prelude.hashWithSalt` submitTimeAfter
 
 instance Prelude.NFData KeyPhrasesDetectionJobFilter where
   rnf KeyPhrasesDetectionJobFilter' {..} =
-    Prelude.rnf submitTimeAfter
-      `Prelude.seq` Prelude.rnf submitTimeBefore
+    Prelude.rnf jobStatus
       `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf submitTimeBefore
+      `Prelude.seq` Prelude.rnf submitTimeAfter
 
 instance Core.ToJSON KeyPhrasesDetectionJobFilter where
   toJSON KeyPhrasesDetectionJobFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SubmitTimeAfter" Core..=)
-              Prelude.<$> submitTimeAfter,
+          [ ("JobStatus" Core..=) Prelude.<$> jobStatus,
+            ("JobName" Core..=) Prelude.<$> jobName,
             ("SubmitTimeBefore" Core..=)
               Prelude.<$> submitTimeBefore,
-            ("JobName" Core..=) Prelude.<$> jobName,
-            ("JobStatus" Core..=) Prelude.<$> jobStatus
+            ("SubmitTimeAfter" Core..=)
+              Prelude.<$> submitTimeAfter
           ]
       )

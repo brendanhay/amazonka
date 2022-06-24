@@ -34,6 +34,8 @@ data PiiEntity = PiiEntity'
     -- abstract character from a particular graphical representation. For
     -- example, a multi-byte UTF-8 character maps to a single code point.
     beginOffset :: Prelude.Maybe Prelude.Int,
+    -- | The entity\'s type.
+    type' :: Prelude.Maybe PiiEntityType,
     -- | The level of confidence that Amazon Comprehend has in the accuracy of
     -- the detection.
     score :: Prelude.Maybe Prelude.Double,
@@ -42,9 +44,7 @@ data PiiEntity = PiiEntity'
     -- string. A /code point/ is the abstract character from a particular
     -- graphical representation. For example, a multi-byte UTF-8 character maps
     -- to a single code point.
-    endOffset :: Prelude.Maybe Prelude.Int,
-    -- | The entity\'s type.
-    type' :: Prelude.Maybe PiiEntityType
+    endOffset :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,6 +62,8 @@ data PiiEntity = PiiEntity'
 -- abstract character from a particular graphical representation. For
 -- example, a multi-byte UTF-8 character maps to a single code point.
 --
+-- 'type'', 'piiEntity_type' - The entity\'s type.
+--
 -- 'score', 'piiEntity_score' - The level of confidence that Amazon Comprehend has in the accuracy of
 -- the detection.
 --
@@ -70,16 +72,14 @@ data PiiEntity = PiiEntity'
 -- string. A /code point/ is the abstract character from a particular
 -- graphical representation. For example, a multi-byte UTF-8 character maps
 -- to a single code point.
---
--- 'type'', 'piiEntity_type' - The entity\'s type.
 newPiiEntity ::
   PiiEntity
 newPiiEntity =
   PiiEntity'
     { beginOffset = Prelude.Nothing,
+      type' = Prelude.Nothing,
       score = Prelude.Nothing,
-      endOffset = Prelude.Nothing,
-      type' = Prelude.Nothing
+      endOffset = Prelude.Nothing
     }
 
 -- | A character offset in the input text that shows where the PII entity
@@ -89,6 +89,10 @@ newPiiEntity =
 -- example, a multi-byte UTF-8 character maps to a single code point.
 piiEntity_beginOffset :: Lens.Lens' PiiEntity (Prelude.Maybe Prelude.Int)
 piiEntity_beginOffset = Lens.lens (\PiiEntity' {beginOffset} -> beginOffset) (\s@PiiEntity' {} a -> s {beginOffset = a} :: PiiEntity)
+
+-- | The entity\'s type.
+piiEntity_type :: Lens.Lens' PiiEntity (Prelude.Maybe PiiEntityType)
+piiEntity_type = Lens.lens (\PiiEntity' {type'} -> type') (\s@PiiEntity' {} a -> s {type' = a} :: PiiEntity)
 
 -- | The level of confidence that Amazon Comprehend has in the accuracy of
 -- the detection.
@@ -103,10 +107,6 @@ piiEntity_score = Lens.lens (\PiiEntity' {score} -> score) (\s@PiiEntity' {} a -
 piiEntity_endOffset :: Lens.Lens' PiiEntity (Prelude.Maybe Prelude.Int)
 piiEntity_endOffset = Lens.lens (\PiiEntity' {endOffset} -> endOffset) (\s@PiiEntity' {} a -> s {endOffset = a} :: PiiEntity)
 
--- | The entity\'s type.
-piiEntity_type :: Lens.Lens' PiiEntity (Prelude.Maybe PiiEntityType)
-piiEntity_type = Lens.lens (\PiiEntity' {type'} -> type') (\s@PiiEntity' {} a -> s {type' = a} :: PiiEntity)
-
 instance Core.FromJSON PiiEntity where
   parseJSON =
     Core.withObject
@@ -114,21 +114,21 @@ instance Core.FromJSON PiiEntity where
       ( \x ->
           PiiEntity'
             Prelude.<$> (x Core..:? "BeginOffset")
+            Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "Score")
             Prelude.<*> (x Core..:? "EndOffset")
-            Prelude.<*> (x Core..:? "Type")
       )
 
 instance Prelude.Hashable PiiEntity where
   hashWithSalt _salt PiiEntity' {..} =
     _salt `Prelude.hashWithSalt` beginOffset
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` score
       `Prelude.hashWithSalt` endOffset
-      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData PiiEntity where
   rnf PiiEntity' {..} =
     Prelude.rnf beginOffset
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf score
       `Prelude.seq` Prelude.rnf endOffset
-      `Prelude.seq` Prelude.rnf type'

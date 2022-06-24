@@ -27,11 +27,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDocumentClass' smart constructor.
 data DocumentClass = DocumentClass'
-  { -- | The confidence score that Amazon Comprehend has this class correctly
+  { -- | The name of the class.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The confidence score that Amazon Comprehend has this class correctly
     -- attributed.
-    score :: Prelude.Maybe Prelude.Double,
-    -- | The name of the class.
-    name :: Prelude.Maybe Prelude.Text
+    score :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,26 +43,26 @@ data DocumentClass = DocumentClass'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'documentClass_name' - The name of the class.
+--
 -- 'score', 'documentClass_score' - The confidence score that Amazon Comprehend has this class correctly
 -- attributed.
---
--- 'name', 'documentClass_name' - The name of the class.
 newDocumentClass ::
   DocumentClass
 newDocumentClass =
   DocumentClass'
-    { score = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      score = Prelude.Nothing
     }
+
+-- | The name of the class.
+documentClass_name :: Lens.Lens' DocumentClass (Prelude.Maybe Prelude.Text)
+documentClass_name = Lens.lens (\DocumentClass' {name} -> name) (\s@DocumentClass' {} a -> s {name = a} :: DocumentClass)
 
 -- | The confidence score that Amazon Comprehend has this class correctly
 -- attributed.
 documentClass_score :: Lens.Lens' DocumentClass (Prelude.Maybe Prelude.Double)
 documentClass_score = Lens.lens (\DocumentClass' {score} -> score) (\s@DocumentClass' {} a -> s {score = a} :: DocumentClass)
-
--- | The name of the class.
-documentClass_name :: Lens.Lens' DocumentClass (Prelude.Maybe Prelude.Text)
-documentClass_name = Lens.lens (\DocumentClass' {name} -> name) (\s@DocumentClass' {} a -> s {name = a} :: DocumentClass)
 
 instance Core.FromJSON DocumentClass where
   parseJSON =
@@ -70,14 +70,14 @@ instance Core.FromJSON DocumentClass where
       "DocumentClass"
       ( \x ->
           DocumentClass'
-            Prelude.<$> (x Core..:? "Score") Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Score")
       )
 
 instance Prelude.Hashable DocumentClass where
   hashWithSalt _salt DocumentClass' {..} =
-    _salt `Prelude.hashWithSalt` score
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` score
 
 instance Prelude.NFData DocumentClass where
   rnf DocumentClass' {..} =
-    Prelude.rnf score `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name `Prelude.seq` Prelude.rnf score

@@ -38,8 +38,8 @@ module Amazonka.Comprehend.ListKeyPhrasesDetectionJobs
     newListKeyPhrasesDetectionJobsResponse,
 
     -- * Response Lenses
-    listKeyPhrasesDetectionJobsResponse_keyPhrasesDetectionJobPropertiesList,
     listKeyPhrasesDetectionJobsResponse_nextToken,
+    listKeyPhrasesDetectionJobsResponse_keyPhrasesDetectionJobPropertiesList,
     listKeyPhrasesDetectionJobsResponse_httpStatus,
   )
 where
@@ -137,10 +137,10 @@ instance Core.AWSRequest ListKeyPhrasesDetectionJobs where
     Response.receiveJSON
       ( \s h x ->
           ListKeyPhrasesDetectionJobsResponse'
-            Prelude.<$> ( x Core..?> "KeyPhrasesDetectionJobPropertiesList"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "KeyPhrasesDetectionJobPropertiesList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -189,10 +189,10 @@ instance Core.ToQuery ListKeyPhrasesDetectionJobs where
 
 -- | /See:/ 'newListKeyPhrasesDetectionJobsResponse' smart constructor.
 data ListKeyPhrasesDetectionJobsResponse = ListKeyPhrasesDetectionJobsResponse'
-  { -- | A list containing the properties of each job that is returned.
-    keyPhrasesDetectionJobPropertiesList :: Prelude.Maybe [KeyPhrasesDetectionJobProperties],
-    -- | Identifies the next page of results to return.
+  { -- | Identifies the next page of results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list containing the properties of each job that is returned.
+    keyPhrasesDetectionJobPropertiesList :: Prelude.Maybe [KeyPhrasesDetectionJobProperties],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -206,9 +206,9 @@ data ListKeyPhrasesDetectionJobsResponse = ListKeyPhrasesDetectionJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyPhrasesDetectionJobPropertiesList', 'listKeyPhrasesDetectionJobsResponse_keyPhrasesDetectionJobPropertiesList' - A list containing the properties of each job that is returned.
---
 -- 'nextToken', 'listKeyPhrasesDetectionJobsResponse_nextToken' - Identifies the next page of results to return.
+--
+-- 'keyPhrasesDetectionJobPropertiesList', 'listKeyPhrasesDetectionJobsResponse_keyPhrasesDetectionJobPropertiesList' - A list containing the properties of each job that is returned.
 --
 -- 'httpStatus', 'listKeyPhrasesDetectionJobsResponse_httpStatus' - The response's http status code.
 newListKeyPhrasesDetectionJobsResponse ::
@@ -217,19 +217,20 @@ newListKeyPhrasesDetectionJobsResponse ::
   ListKeyPhrasesDetectionJobsResponse
 newListKeyPhrasesDetectionJobsResponse pHttpStatus_ =
   ListKeyPhrasesDetectionJobsResponse'
-    { keyPhrasesDetectionJobPropertiesList =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      keyPhrasesDetectionJobPropertiesList =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list containing the properties of each job that is returned.
-listKeyPhrasesDetectionJobsResponse_keyPhrasesDetectionJobPropertiesList :: Lens.Lens' ListKeyPhrasesDetectionJobsResponse (Prelude.Maybe [KeyPhrasesDetectionJobProperties])
-listKeyPhrasesDetectionJobsResponse_keyPhrasesDetectionJobPropertiesList = Lens.lens (\ListKeyPhrasesDetectionJobsResponse' {keyPhrasesDetectionJobPropertiesList} -> keyPhrasesDetectionJobPropertiesList) (\s@ListKeyPhrasesDetectionJobsResponse' {} a -> s {keyPhrasesDetectionJobPropertiesList = a} :: ListKeyPhrasesDetectionJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Identifies the next page of results to return.
 listKeyPhrasesDetectionJobsResponse_nextToken :: Lens.Lens' ListKeyPhrasesDetectionJobsResponse (Prelude.Maybe Prelude.Text)
 listKeyPhrasesDetectionJobsResponse_nextToken = Lens.lens (\ListKeyPhrasesDetectionJobsResponse' {nextToken} -> nextToken) (\s@ListKeyPhrasesDetectionJobsResponse' {} a -> s {nextToken = a} :: ListKeyPhrasesDetectionJobsResponse)
+
+-- | A list containing the properties of each job that is returned.
+listKeyPhrasesDetectionJobsResponse_keyPhrasesDetectionJobPropertiesList :: Lens.Lens' ListKeyPhrasesDetectionJobsResponse (Prelude.Maybe [KeyPhrasesDetectionJobProperties])
+listKeyPhrasesDetectionJobsResponse_keyPhrasesDetectionJobPropertiesList = Lens.lens (\ListKeyPhrasesDetectionJobsResponse' {keyPhrasesDetectionJobPropertiesList} -> keyPhrasesDetectionJobPropertiesList) (\s@ListKeyPhrasesDetectionJobsResponse' {} a -> s {keyPhrasesDetectionJobPropertiesList = a} :: ListKeyPhrasesDetectionJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listKeyPhrasesDetectionJobsResponse_httpStatus :: Lens.Lens' ListKeyPhrasesDetectionJobsResponse Prelude.Int
@@ -240,6 +241,6 @@ instance
     ListKeyPhrasesDetectionJobsResponse
   where
   rnf ListKeyPhrasesDetectionJobsResponse' {..} =
-    Prelude.rnf keyPhrasesDetectionJobPropertiesList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf keyPhrasesDetectionJobPropertiesList
       `Prelude.seq` Prelude.rnf httpStatus

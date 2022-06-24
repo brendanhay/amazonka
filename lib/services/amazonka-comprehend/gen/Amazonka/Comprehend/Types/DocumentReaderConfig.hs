@@ -30,9 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDocumentReaderConfig' smart constructor.
 data DocumentReaderConfig = DocumentReaderConfig'
-  { -- | Specifies how the text in an input file should be processed:
-    featureTypes :: Prelude.Maybe (Prelude.NonEmpty DocumentReadFeatureTypes),
-    -- | This enum field provides two values:
+  { -- | This enum field provides two values:
     --
     -- -   @SERVICE_DEFAULT@ - use service defaults for Document reading. For
     --     Digital PDF it would mean using an internal parser instead of
@@ -41,6 +39,8 @@ data DocumentReaderConfig = DocumentReaderConfig'
     -- -   @FORCE_DOCUMENT_READ_ACTION@ - Always use specified action for
     --     DocumentReadAction, including Digital PDF.
     documentReadMode :: Prelude.Maybe DocumentReadMode,
+    -- | Specifies how the text in an input file should be processed:
+    featureTypes :: Prelude.Maybe (Prelude.NonEmpty DocumentReadFeatureTypes),
     -- | This enum field will start with two values which will apply to PDFs:
     --
     -- -   @TEXTRACT_DETECT_DOCUMENT_TEXT@ - The service calls
@@ -60,8 +60,6 @@ data DocumentReaderConfig = DocumentReaderConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'featureTypes', 'documentReaderConfig_featureTypes' - Specifies how the text in an input file should be processed:
---
 -- 'documentReadMode', 'documentReaderConfig_documentReadMode' - This enum field provides two values:
 --
 -- -   @SERVICE_DEFAULT@ - use service defaults for Document reading. For
@@ -70,6 +68,8 @@ data DocumentReaderConfig = DocumentReaderConfig'
 --
 -- -   @FORCE_DOCUMENT_READ_ACTION@ - Always use specified action for
 --     DocumentReadAction, including Digital PDF.
+--
+-- 'featureTypes', 'documentReaderConfig_featureTypes' - Specifies how the text in an input file should be processed:
 --
 -- 'documentReadAction', 'documentReaderConfig_documentReadAction' - This enum field will start with two values which will apply to PDFs:
 --
@@ -84,15 +84,11 @@ newDocumentReaderConfig ::
   DocumentReaderConfig
 newDocumentReaderConfig pDocumentReadAction_ =
   DocumentReaderConfig'
-    { featureTypes =
+    { documentReadMode =
         Prelude.Nothing,
-      documentReadMode = Prelude.Nothing,
+      featureTypes = Prelude.Nothing,
       documentReadAction = pDocumentReadAction_
     }
-
--- | Specifies how the text in an input file should be processed:
-documentReaderConfig_featureTypes :: Lens.Lens' DocumentReaderConfig (Prelude.Maybe (Prelude.NonEmpty DocumentReadFeatureTypes))
-documentReaderConfig_featureTypes = Lens.lens (\DocumentReaderConfig' {featureTypes} -> featureTypes) (\s@DocumentReaderConfig' {} a -> s {featureTypes = a} :: DocumentReaderConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | This enum field provides two values:
 --
@@ -104,6 +100,10 @@ documentReaderConfig_featureTypes = Lens.lens (\DocumentReaderConfig' {featureTy
 --     DocumentReadAction, including Digital PDF.
 documentReaderConfig_documentReadMode :: Lens.Lens' DocumentReaderConfig (Prelude.Maybe DocumentReadMode)
 documentReaderConfig_documentReadMode = Lens.lens (\DocumentReaderConfig' {documentReadMode} -> documentReadMode) (\s@DocumentReaderConfig' {} a -> s {documentReadMode = a} :: DocumentReaderConfig)
+
+-- | Specifies how the text in an input file should be processed:
+documentReaderConfig_featureTypes :: Lens.Lens' DocumentReaderConfig (Prelude.Maybe (Prelude.NonEmpty DocumentReadFeatureTypes))
+documentReaderConfig_featureTypes = Lens.lens (\DocumentReaderConfig' {featureTypes} -> featureTypes) (\s@DocumentReaderConfig' {} a -> s {featureTypes = a} :: DocumentReaderConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | This enum field will start with two values which will apply to PDFs:
 --
@@ -121,30 +121,30 @@ instance Core.FromJSON DocumentReaderConfig where
       "DocumentReaderConfig"
       ( \x ->
           DocumentReaderConfig'
-            Prelude.<$> (x Core..:? "FeatureTypes")
-            Prelude.<*> (x Core..:? "DocumentReadMode")
+            Prelude.<$> (x Core..:? "DocumentReadMode")
+            Prelude.<*> (x Core..:? "FeatureTypes")
             Prelude.<*> (x Core..: "DocumentReadAction")
       )
 
 instance Prelude.Hashable DocumentReaderConfig where
   hashWithSalt _salt DocumentReaderConfig' {..} =
-    _salt `Prelude.hashWithSalt` featureTypes
-      `Prelude.hashWithSalt` documentReadMode
+    _salt `Prelude.hashWithSalt` documentReadMode
+      `Prelude.hashWithSalt` featureTypes
       `Prelude.hashWithSalt` documentReadAction
 
 instance Prelude.NFData DocumentReaderConfig where
   rnf DocumentReaderConfig' {..} =
-    Prelude.rnf featureTypes
-      `Prelude.seq` Prelude.rnf documentReadMode
+    Prelude.rnf documentReadMode
+      `Prelude.seq` Prelude.rnf featureTypes
       `Prelude.seq` Prelude.rnf documentReadAction
 
 instance Core.ToJSON DocumentReaderConfig where
   toJSON DocumentReaderConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("FeatureTypes" Core..=) Prelude.<$> featureTypes,
-            ("DocumentReadMode" Core..=)
+          [ ("DocumentReadMode" Core..=)
               Prelude.<$> documentReadMode,
+            ("FeatureTypes" Core..=) Prelude.<$> featureTypes,
             Prelude.Just
               ("DocumentReadAction" Core..= documentReadAction)
           ]

@@ -33,15 +33,15 @@ data EndpointFilter = EndpointFilter'
   { -- | Specifies the status of the endpoint being returned. Possible values
     -- are: Creating, Ready, Updating, Deleting, Failed.
     status :: Prelude.Maybe EndpointStatus,
+    -- | Specifies a date before which the returned endpoint or endpoints were
+    -- created.
+    creationTimeBefore :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Number (ARN) of the model to which the endpoint is
     -- attached.
     modelArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies a date after which the returned endpoint or endpoints were
     -- created.
-    creationTimeAfter :: Prelude.Maybe Core.POSIX,
-    -- | Specifies a date before which the returned endpoint or endpoints were
-    -- created.
-    creationTimeBefore :: Prelude.Maybe Core.POSIX
+    creationTimeAfter :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,28 +56,33 @@ data EndpointFilter = EndpointFilter'
 -- 'status', 'endpointFilter_status' - Specifies the status of the endpoint being returned. Possible values
 -- are: Creating, Ready, Updating, Deleting, Failed.
 --
+-- 'creationTimeBefore', 'endpointFilter_creationTimeBefore' - Specifies a date before which the returned endpoint or endpoints were
+-- created.
+--
 -- 'modelArn', 'endpointFilter_modelArn' - The Amazon Resource Number (ARN) of the model to which the endpoint is
 -- attached.
 --
 -- 'creationTimeAfter', 'endpointFilter_creationTimeAfter' - Specifies a date after which the returned endpoint or endpoints were
--- created.
---
--- 'creationTimeBefore', 'endpointFilter_creationTimeBefore' - Specifies a date before which the returned endpoint or endpoints were
 -- created.
 newEndpointFilter ::
   EndpointFilter
 newEndpointFilter =
   EndpointFilter'
     { status = Prelude.Nothing,
+      creationTimeBefore = Prelude.Nothing,
       modelArn = Prelude.Nothing,
-      creationTimeAfter = Prelude.Nothing,
-      creationTimeBefore = Prelude.Nothing
+      creationTimeAfter = Prelude.Nothing
     }
 
 -- | Specifies the status of the endpoint being returned. Possible values
 -- are: Creating, Ready, Updating, Deleting, Failed.
 endpointFilter_status :: Lens.Lens' EndpointFilter (Prelude.Maybe EndpointStatus)
 endpointFilter_status = Lens.lens (\EndpointFilter' {status} -> status) (\s@EndpointFilter' {} a -> s {status = a} :: EndpointFilter)
+
+-- | Specifies a date before which the returned endpoint or endpoints were
+-- created.
+endpointFilter_creationTimeBefore :: Lens.Lens' EndpointFilter (Prelude.Maybe Prelude.UTCTime)
+endpointFilter_creationTimeBefore = Lens.lens (\EndpointFilter' {creationTimeBefore} -> creationTimeBefore) (\s@EndpointFilter' {} a -> s {creationTimeBefore = a} :: EndpointFilter) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Number (ARN) of the model to which the endpoint is
 -- attached.
@@ -89,34 +94,29 @@ endpointFilter_modelArn = Lens.lens (\EndpointFilter' {modelArn} -> modelArn) (\
 endpointFilter_creationTimeAfter :: Lens.Lens' EndpointFilter (Prelude.Maybe Prelude.UTCTime)
 endpointFilter_creationTimeAfter = Lens.lens (\EndpointFilter' {creationTimeAfter} -> creationTimeAfter) (\s@EndpointFilter' {} a -> s {creationTimeAfter = a} :: EndpointFilter) Prelude.. Lens.mapping Core._Time
 
--- | Specifies a date before which the returned endpoint or endpoints were
--- created.
-endpointFilter_creationTimeBefore :: Lens.Lens' EndpointFilter (Prelude.Maybe Prelude.UTCTime)
-endpointFilter_creationTimeBefore = Lens.lens (\EndpointFilter' {creationTimeBefore} -> creationTimeBefore) (\s@EndpointFilter' {} a -> s {creationTimeBefore = a} :: EndpointFilter) Prelude.. Lens.mapping Core._Time
-
 instance Prelude.Hashable EndpointFilter where
   hashWithSalt _salt EndpointFilter' {..} =
     _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` modelArn
       `Prelude.hashWithSalt` creationTimeAfter
-      `Prelude.hashWithSalt` creationTimeBefore
 
 instance Prelude.NFData EndpointFilter where
   rnf EndpointFilter' {..} =
     Prelude.rnf status
+      `Prelude.seq` Prelude.rnf creationTimeBefore
       `Prelude.seq` Prelude.rnf modelArn
       `Prelude.seq` Prelude.rnf creationTimeAfter
-      `Prelude.seq` Prelude.rnf creationTimeBefore
 
 instance Core.ToJSON EndpointFilter where
   toJSON EndpointFilter' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("Status" Core..=) Prelude.<$> status,
+            ("CreationTimeBefore" Core..=)
+              Prelude.<$> creationTimeBefore,
             ("ModelArn" Core..=) Prelude.<$> modelArn,
             ("CreationTimeAfter" Core..=)
-              Prelude.<$> creationTimeAfter,
-            ("CreationTimeBefore" Core..=)
-              Prelude.<$> creationTimeBefore
+              Prelude.<$> creationTimeAfter
           ]
       )

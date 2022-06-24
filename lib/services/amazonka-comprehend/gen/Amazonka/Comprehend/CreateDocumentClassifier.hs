@@ -32,14 +32,14 @@ module Amazonka.Comprehend.CreateDocumentClassifier
     newCreateDocumentClassifier,
 
     -- * Request Lenses
-    createDocumentClassifier_versionName,
+    createDocumentClassifier_tags,
+    createDocumentClassifier_outputDataConfig,
     createDocumentClassifier_modelKmsKeyId,
-    createDocumentClassifier_mode,
+    createDocumentClassifier_clientRequestToken,
     createDocumentClassifier_vpcConfig,
     createDocumentClassifier_volumeKmsKeyId,
-    createDocumentClassifier_outputDataConfig,
-    createDocumentClassifier_clientRequestToken,
-    createDocumentClassifier_tags,
+    createDocumentClassifier_versionName,
+    createDocumentClassifier_mode,
     createDocumentClassifier_documentClassifierName,
     createDocumentClassifier_dataAccessRoleArn,
     createDocumentClassifier_inputDataConfig,
@@ -64,12 +64,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDocumentClassifier' smart constructor.
 data CreateDocumentClassifier = CreateDocumentClassifier'
-  { -- | The version name given to the newly created classifier. Version names
-    -- can have a maximum of 256 characters. Alphanumeric characters, hyphens
-    -- (-) and underscores (_) are allowed. The version name must be unique
-    -- among all models with the same classifier name in the account\/AWS
-    -- Region.
-    versionName :: Prelude.Maybe Prelude.Text,
+  { -- | Tags to be associated with the document classifier being created. A tag
+    -- is a key-value pair that adds as a metadata to a resource used by Amazon
+    -- Comprehend. For example, a tag with \"Sales\" as the key might be added
+    -- to a resource to indicate its use by the sales department.
+    tags :: Prelude.Maybe [Tag],
+    -- | Enables the addition of output results configuration parameters for
+    -- custom classifier jobs.
+    outputDataConfig :: Prelude.Maybe DocumentClassifierOutputDataConfig,
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
     -- uses to encrypt trained custom models. The ModelKmsKeyId can be either
     -- of the following formats:
@@ -79,13 +81,9 @@ data CreateDocumentClassifier = CreateDocumentClassifier'
     -- -   Amazon Resource Name (ARN) of a KMS Key:
     --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
     modelKmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | Indicates the mode in which the classifier will be trained. The
-    -- classifier can be trained in multi-class mode, which identifies one and
-    -- only one class for each document, or multi-label mode, which identifies
-    -- one or more labels for each document. In multi-label mode, multiple
-    -- labels for an individual document are separated by a delimiter. The
-    -- default delimiter between labels is a pipe (|).
-    mode :: Prelude.Maybe DocumentClassifierMode,
+    -- | A unique identifier for the request. If you don\'t set the client
+    -- request token, Amazon Comprehend generates one.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | Configuration parameters for an optional private Virtual Private Cloud
     -- (VPC) containing the resources you are using for your custom classifier.
     -- For more information, see
@@ -101,17 +99,19 @@ data CreateDocumentClassifier = CreateDocumentClassifier'
     -- -   Amazon Resource Name (ARN) of a KMS Key:
     --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
     volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | Enables the addition of output results configuration parameters for
-    -- custom classifier jobs.
-    outputDataConfig :: Prelude.Maybe DocumentClassifierOutputDataConfig,
-    -- | A unique identifier for the request. If you don\'t set the client
-    -- request token, Amazon Comprehend generates one.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | Tags to be associated with the document classifier being created. A tag
-    -- is a key-value pair that adds as a metadata to a resource used by Amazon
-    -- Comprehend. For example, a tag with \"Sales\" as the key might be added
-    -- to a resource to indicate its use by the sales department.
-    tags :: Prelude.Maybe [Tag],
+    -- | The version name given to the newly created classifier. Version names
+    -- can have a maximum of 256 characters. Alphanumeric characters, hyphens
+    -- (-) and underscores (_) are allowed. The version name must be unique
+    -- among all models with the same classifier name in the account\/AWS
+    -- Region.
+    versionName :: Prelude.Maybe Prelude.Text,
+    -- | Indicates the mode in which the classifier will be trained. The
+    -- classifier can be trained in multi-class mode, which identifies one and
+    -- only one class for each document, or multi-label mode, which identifies
+    -- one or more labels for each document. In multi-label mode, multiple
+    -- labels for an individual document are separated by a delimiter. The
+    -- default delimiter between labels is a pipe (|).
+    mode :: Prelude.Maybe DocumentClassifierMode,
     -- | The name of the document classifier.
     documentClassifierName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM)
@@ -135,11 +135,13 @@ data CreateDocumentClassifier = CreateDocumentClassifier'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versionName', 'createDocumentClassifier_versionName' - The version name given to the newly created classifier. Version names
--- can have a maximum of 256 characters. Alphanumeric characters, hyphens
--- (-) and underscores (_) are allowed. The version name must be unique
--- among all models with the same classifier name in the account\/AWS
--- Region.
+-- 'tags', 'createDocumentClassifier_tags' - Tags to be associated with the document classifier being created. A tag
+-- is a key-value pair that adds as a metadata to a resource used by Amazon
+-- Comprehend. For example, a tag with \"Sales\" as the key might be added
+-- to a resource to indicate its use by the sales department.
+--
+-- 'outputDataConfig', 'createDocumentClassifier_outputDataConfig' - Enables the addition of output results configuration parameters for
+-- custom classifier jobs.
 --
 -- 'modelKmsKeyId', 'createDocumentClassifier_modelKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt trained custom models. The ModelKmsKeyId can be either
@@ -150,12 +152,8 @@ data CreateDocumentClassifier = CreateDocumentClassifier'
 -- -   Amazon Resource Name (ARN) of a KMS Key:
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
--- 'mode', 'createDocumentClassifier_mode' - Indicates the mode in which the classifier will be trained. The
--- classifier can be trained in multi-class mode, which identifies one and
--- only one class for each document, or multi-label mode, which identifies
--- one or more labels for each document. In multi-label mode, multiple
--- labels for an individual document are separated by a delimiter. The
--- default delimiter between labels is a pipe (|).
+-- 'clientRequestToken', 'createDocumentClassifier_clientRequestToken' - A unique identifier for the request. If you don\'t set the client
+-- request token, Amazon Comprehend generates one.
 --
 -- 'vpcConfig', 'createDocumentClassifier_vpcConfig' - Configuration parameters for an optional private Virtual Private Cloud
 -- (VPC) containing the resources you are using for your custom classifier.
@@ -172,16 +170,18 @@ data CreateDocumentClassifier = CreateDocumentClassifier'
 -- -   Amazon Resource Name (ARN) of a KMS Key:
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
--- 'outputDataConfig', 'createDocumentClassifier_outputDataConfig' - Enables the addition of output results configuration parameters for
--- custom classifier jobs.
+-- 'versionName', 'createDocumentClassifier_versionName' - The version name given to the newly created classifier. Version names
+-- can have a maximum of 256 characters. Alphanumeric characters, hyphens
+-- (-) and underscores (_) are allowed. The version name must be unique
+-- among all models with the same classifier name in the account\/AWS
+-- Region.
 --
--- 'clientRequestToken', 'createDocumentClassifier_clientRequestToken' - A unique identifier for the request. If you don\'t set the client
--- request token, Amazon Comprehend generates one.
---
--- 'tags', 'createDocumentClassifier_tags' - Tags to be associated with the document classifier being created. A tag
--- is a key-value pair that adds as a metadata to a resource used by Amazon
--- Comprehend. For example, a tag with \"Sales\" as the key might be added
--- to a resource to indicate its use by the sales department.
+-- 'mode', 'createDocumentClassifier_mode' - Indicates the mode in which the classifier will be trained. The
+-- classifier can be trained in multi-class mode, which identifies one and
+-- only one class for each document, or multi-label mode, which identifies
+-- one or more labels for each document. In multi-label mode, multiple
+-- labels for an individual document are separated by a delimiter. The
+-- default delimiter between labels is a pipe (|).
 --
 -- 'documentClassifierName', 'createDocumentClassifier_documentClassifierName' - The name of the document classifier.
 --
@@ -210,28 +210,31 @@ newCreateDocumentClassifier
   pInputDataConfig_
   pLanguageCode_ =
     CreateDocumentClassifier'
-      { versionName =
-          Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        outputDataConfig = Prelude.Nothing,
         modelKmsKeyId = Prelude.Nothing,
-        mode = Prelude.Nothing,
+        clientRequestToken = Prelude.Nothing,
         vpcConfig = Prelude.Nothing,
         volumeKmsKeyId = Prelude.Nothing,
-        outputDataConfig = Prelude.Nothing,
-        clientRequestToken = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        versionName = Prelude.Nothing,
+        mode = Prelude.Nothing,
         documentClassifierName = pDocumentClassifierName_,
         dataAccessRoleArn = pDataAccessRoleArn_,
         inputDataConfig = pInputDataConfig_,
         languageCode = pLanguageCode_
       }
 
--- | The version name given to the newly created classifier. Version names
--- can have a maximum of 256 characters. Alphanumeric characters, hyphens
--- (-) and underscores (_) are allowed. The version name must be unique
--- among all models with the same classifier name in the account\/AWS
--- Region.
-createDocumentClassifier_versionName :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe Prelude.Text)
-createDocumentClassifier_versionName = Lens.lens (\CreateDocumentClassifier' {versionName} -> versionName) (\s@CreateDocumentClassifier' {} a -> s {versionName = a} :: CreateDocumentClassifier)
+-- | Tags to be associated with the document classifier being created. A tag
+-- is a key-value pair that adds as a metadata to a resource used by Amazon
+-- Comprehend. For example, a tag with \"Sales\" as the key might be added
+-- to a resource to indicate its use by the sales department.
+createDocumentClassifier_tags :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe [Tag])
+createDocumentClassifier_tags = Lens.lens (\CreateDocumentClassifier' {tags} -> tags) (\s@CreateDocumentClassifier' {} a -> s {tags = a} :: CreateDocumentClassifier) Prelude.. Lens.mapping Lens.coerced
+
+-- | Enables the addition of output results configuration parameters for
+-- custom classifier jobs.
+createDocumentClassifier_outputDataConfig :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe DocumentClassifierOutputDataConfig)
+createDocumentClassifier_outputDataConfig = Lens.lens (\CreateDocumentClassifier' {outputDataConfig} -> outputDataConfig) (\s@CreateDocumentClassifier' {} a -> s {outputDataConfig = a} :: CreateDocumentClassifier)
 
 -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt trained custom models. The ModelKmsKeyId can be either
@@ -244,14 +247,10 @@ createDocumentClassifier_versionName = Lens.lens (\CreateDocumentClassifier' {ve
 createDocumentClassifier_modelKmsKeyId :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe Prelude.Text)
 createDocumentClassifier_modelKmsKeyId = Lens.lens (\CreateDocumentClassifier' {modelKmsKeyId} -> modelKmsKeyId) (\s@CreateDocumentClassifier' {} a -> s {modelKmsKeyId = a} :: CreateDocumentClassifier)
 
--- | Indicates the mode in which the classifier will be trained. The
--- classifier can be trained in multi-class mode, which identifies one and
--- only one class for each document, or multi-label mode, which identifies
--- one or more labels for each document. In multi-label mode, multiple
--- labels for an individual document are separated by a delimiter. The
--- default delimiter between labels is a pipe (|).
-createDocumentClassifier_mode :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe DocumentClassifierMode)
-createDocumentClassifier_mode = Lens.lens (\CreateDocumentClassifier' {mode} -> mode) (\s@CreateDocumentClassifier' {} a -> s {mode = a} :: CreateDocumentClassifier)
+-- | A unique identifier for the request. If you don\'t set the client
+-- request token, Amazon Comprehend generates one.
+createDocumentClassifier_clientRequestToken :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe Prelude.Text)
+createDocumentClassifier_clientRequestToken = Lens.lens (\CreateDocumentClassifier' {clientRequestToken} -> clientRequestToken) (\s@CreateDocumentClassifier' {} a -> s {clientRequestToken = a} :: CreateDocumentClassifier)
 
 -- | Configuration parameters for an optional private Virtual Private Cloud
 -- (VPC) containing the resources you are using for your custom classifier.
@@ -272,22 +271,22 @@ createDocumentClassifier_vpcConfig = Lens.lens (\CreateDocumentClassifier' {vpcC
 createDocumentClassifier_volumeKmsKeyId :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe Prelude.Text)
 createDocumentClassifier_volumeKmsKeyId = Lens.lens (\CreateDocumentClassifier' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@CreateDocumentClassifier' {} a -> s {volumeKmsKeyId = a} :: CreateDocumentClassifier)
 
--- | Enables the addition of output results configuration parameters for
--- custom classifier jobs.
-createDocumentClassifier_outputDataConfig :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe DocumentClassifierOutputDataConfig)
-createDocumentClassifier_outputDataConfig = Lens.lens (\CreateDocumentClassifier' {outputDataConfig} -> outputDataConfig) (\s@CreateDocumentClassifier' {} a -> s {outputDataConfig = a} :: CreateDocumentClassifier)
+-- | The version name given to the newly created classifier. Version names
+-- can have a maximum of 256 characters. Alphanumeric characters, hyphens
+-- (-) and underscores (_) are allowed. The version name must be unique
+-- among all models with the same classifier name in the account\/AWS
+-- Region.
+createDocumentClassifier_versionName :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe Prelude.Text)
+createDocumentClassifier_versionName = Lens.lens (\CreateDocumentClassifier' {versionName} -> versionName) (\s@CreateDocumentClassifier' {} a -> s {versionName = a} :: CreateDocumentClassifier)
 
--- | A unique identifier for the request. If you don\'t set the client
--- request token, Amazon Comprehend generates one.
-createDocumentClassifier_clientRequestToken :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe Prelude.Text)
-createDocumentClassifier_clientRequestToken = Lens.lens (\CreateDocumentClassifier' {clientRequestToken} -> clientRequestToken) (\s@CreateDocumentClassifier' {} a -> s {clientRequestToken = a} :: CreateDocumentClassifier)
-
--- | Tags to be associated with the document classifier being created. A tag
--- is a key-value pair that adds as a metadata to a resource used by Amazon
--- Comprehend. For example, a tag with \"Sales\" as the key might be added
--- to a resource to indicate its use by the sales department.
-createDocumentClassifier_tags :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe [Tag])
-createDocumentClassifier_tags = Lens.lens (\CreateDocumentClassifier' {tags} -> tags) (\s@CreateDocumentClassifier' {} a -> s {tags = a} :: CreateDocumentClassifier) Prelude.. Lens.mapping Lens.coerced
+-- | Indicates the mode in which the classifier will be trained. The
+-- classifier can be trained in multi-class mode, which identifies one and
+-- only one class for each document, or multi-label mode, which identifies
+-- one or more labels for each document. In multi-label mode, multiple
+-- labels for an individual document are separated by a delimiter. The
+-- default delimiter between labels is a pipe (|).
+createDocumentClassifier_mode :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe DocumentClassifierMode)
+createDocumentClassifier_mode = Lens.lens (\CreateDocumentClassifier' {mode} -> mode) (\s@CreateDocumentClassifier' {} a -> s {mode = a} :: CreateDocumentClassifier)
 
 -- | The name of the document classifier.
 createDocumentClassifier_documentClassifierName :: Lens.Lens' CreateDocumentClassifier Prelude.Text
@@ -324,14 +323,14 @@ instance Core.AWSRequest CreateDocumentClassifier where
 
 instance Prelude.Hashable CreateDocumentClassifier where
   hashWithSalt _salt CreateDocumentClassifier' {..} =
-    _salt `Prelude.hashWithSalt` versionName
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` outputDataConfig
       `Prelude.hashWithSalt` modelKmsKeyId
-      `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` vpcConfig
       `Prelude.hashWithSalt` volumeKmsKeyId
-      `Prelude.hashWithSalt` outputDataConfig
-      `Prelude.hashWithSalt` clientRequestToken
-      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` versionName
+      `Prelude.hashWithSalt` mode
       `Prelude.hashWithSalt` documentClassifierName
       `Prelude.hashWithSalt` dataAccessRoleArn
       `Prelude.hashWithSalt` inputDataConfig
@@ -339,14 +338,14 @@ instance Prelude.Hashable CreateDocumentClassifier where
 
 instance Prelude.NFData CreateDocumentClassifier where
   rnf CreateDocumentClassifier' {..} =
-    Prelude.rnf versionName
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf outputDataConfig
       `Prelude.seq` Prelude.rnf modelKmsKeyId
-      `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf vpcConfig
       `Prelude.seq` Prelude.rnf volumeKmsKeyId
-      `Prelude.seq` Prelude.rnf outputDataConfig
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf versionName
+      `Prelude.seq` Prelude.rnf mode
       `Prelude.seq` Prelude.rnf documentClassifierName
       `Prelude.seq` Prelude.rnf dataAccessRoleArn
       `Prelude.seq` Prelude.rnf inputDataConfig
@@ -371,17 +370,17 @@ instance Core.ToJSON CreateDocumentClassifier where
   toJSON CreateDocumentClassifier' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("VersionName" Core..=) Prelude.<$> versionName,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("OutputDataConfig" Core..=)
+              Prelude.<$> outputDataConfig,
             ("ModelKmsKeyId" Core..=) Prelude.<$> modelKmsKeyId,
-            ("Mode" Core..=) Prelude.<$> mode,
+            ("ClientRequestToken" Core..=)
+              Prelude.<$> clientRequestToken,
             ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
             ("VolumeKmsKeyId" Core..=)
               Prelude.<$> volumeKmsKeyId,
-            ("OutputDataConfig" Core..=)
-              Prelude.<$> outputDataConfig,
-            ("ClientRequestToken" Core..=)
-              Prelude.<$> clientRequestToken,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("VersionName" Core..=) Prelude.<$> versionName,
+            ("Mode" Core..=) Prelude.<$> mode,
             Prelude.Just
               ( "DocumentClassifierName"
                   Core..= documentClassifierName

@@ -28,11 +28,11 @@ module Amazonka.Comprehend.StartDominantLanguageDetectionJob
     newStartDominantLanguageDetectionJob,
 
     -- * Request Lenses
-    startDominantLanguageDetectionJob_jobName,
-    startDominantLanguageDetectionJob_vpcConfig,
-    startDominantLanguageDetectionJob_volumeKmsKeyId,
-    startDominantLanguageDetectionJob_clientRequestToken,
     startDominantLanguageDetectionJob_tags,
+    startDominantLanguageDetectionJob_clientRequestToken,
+    startDominantLanguageDetectionJob_vpcConfig,
+    startDominantLanguageDetectionJob_jobName,
+    startDominantLanguageDetectionJob_volumeKmsKeyId,
     startDominantLanguageDetectionJob_inputDataConfig,
     startDominantLanguageDetectionJob_outputDataConfig,
     startDominantLanguageDetectionJob_dataAccessRoleArn,
@@ -42,9 +42,9 @@ module Amazonka.Comprehend.StartDominantLanguageDetectionJob
     newStartDominantLanguageDetectionJobResponse,
 
     -- * Response Lenses
+    startDominantLanguageDetectionJobResponse_jobStatus,
     startDominantLanguageDetectionJobResponse_jobId,
     startDominantLanguageDetectionJobResponse_jobArn,
-    startDominantLanguageDetectionJobResponse_jobStatus,
     startDominantLanguageDetectionJobResponse_httpStatus,
   )
 where
@@ -58,13 +58,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartDominantLanguageDetectionJob' smart constructor.
 data StartDominantLanguageDetectionJob = StartDominantLanguageDetectionJob'
-  { -- | An identifier for the job.
-    jobName :: Prelude.Maybe Prelude.Text,
+  { -- | Tags to be associated with the dominant language detection job. A tag is
+    -- a key-value pair that adds metadata to a resource used by Amazon
+    -- Comprehend. For example, a tag with \"Sales\" as the key might be added
+    -- to a resource to indicate its use by the sales department.
+    tags :: Prelude.Maybe [Tag],
+    -- | A unique identifier for the request. If you do not set the client
+    -- request token, Amazon Comprehend generates one.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | Configuration parameters for an optional private Virtual Private Cloud
     -- (VPC) containing the resources you are using for your dominant language
     -- detection job. For more information, see
     -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
     vpcConfig :: Prelude.Maybe VpcConfig,
+    -- | An identifier for the job.
+    jobName :: Prelude.Maybe Prelude.Text,
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
     -- uses to encrypt data on the storage volume attached to the ML compute
     -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
@@ -75,14 +83,6 @@ data StartDominantLanguageDetectionJob = StartDominantLanguageDetectionJob'
     -- -   Amazon Resource Name (ARN) of a KMS Key:
     --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
     volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the request. If you do not set the client
-    -- request token, Amazon Comprehend generates one.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | Tags to be associated with the dominant language detection job. A tag is
-    -- a key-value pair that adds metadata to a resource used by Amazon
-    -- Comprehend. For example, a tag with \"Sales\" as the key might be added
-    -- to a resource to indicate its use by the sales department.
-    tags :: Prelude.Maybe [Tag],
     -- | Specifies the format and location of the input data for the job.
     inputDataConfig :: InputDataConfig,
     -- | Specifies where to send the output files.
@@ -103,12 +103,20 @@ data StartDominantLanguageDetectionJob = StartDominantLanguageDetectionJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobName', 'startDominantLanguageDetectionJob_jobName' - An identifier for the job.
+-- 'tags', 'startDominantLanguageDetectionJob_tags' - Tags to be associated with the dominant language detection job. A tag is
+-- a key-value pair that adds metadata to a resource used by Amazon
+-- Comprehend. For example, a tag with \"Sales\" as the key might be added
+-- to a resource to indicate its use by the sales department.
+--
+-- 'clientRequestToken', 'startDominantLanguageDetectionJob_clientRequestToken' - A unique identifier for the request. If you do not set the client
+-- request token, Amazon Comprehend generates one.
 --
 -- 'vpcConfig', 'startDominantLanguageDetectionJob_vpcConfig' - Configuration parameters for an optional private Virtual Private Cloud
 -- (VPC) containing the resources you are using for your dominant language
 -- detection job. For more information, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
+--
+-- 'jobName', 'startDominantLanguageDetectionJob_jobName' - An identifier for the job.
 --
 -- 'volumeKmsKeyId', 'startDominantLanguageDetectionJob_volumeKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt data on the storage volume attached to the ML compute
@@ -119,14 +127,6 @@ data StartDominantLanguageDetectionJob = StartDominantLanguageDetectionJob'
 --
 -- -   Amazon Resource Name (ARN) of a KMS Key:
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
---
--- 'clientRequestToken', 'startDominantLanguageDetectionJob_clientRequestToken' - A unique identifier for the request. If you do not set the client
--- request token, Amazon Comprehend generates one.
---
--- 'tags', 'startDominantLanguageDetectionJob_tags' - Tags to be associated with the dominant language detection job. A tag is
--- a key-value pair that adds metadata to a resource used by Amazon
--- Comprehend. For example, a tag with \"Sales\" as the key might be added
--- to a resource to indicate its use by the sales department.
 --
 -- 'inputDataConfig', 'startDominantLanguageDetectionJob_inputDataConfig' - Specifies the format and location of the input data for the job.
 --
@@ -149,20 +149,28 @@ newStartDominantLanguageDetectionJob
   pOutputDataConfig_
   pDataAccessRoleArn_ =
     StartDominantLanguageDetectionJob'
-      { jobName =
+      { tags =
           Prelude.Nothing,
-        vpcConfig = Prelude.Nothing,
-        volumeKmsKeyId = Prelude.Nothing,
         clientRequestToken = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        vpcConfig = Prelude.Nothing,
+        jobName = Prelude.Nothing,
+        volumeKmsKeyId = Prelude.Nothing,
         inputDataConfig = pInputDataConfig_,
         outputDataConfig = pOutputDataConfig_,
         dataAccessRoleArn = pDataAccessRoleArn_
       }
 
--- | An identifier for the job.
-startDominantLanguageDetectionJob_jobName :: Lens.Lens' StartDominantLanguageDetectionJob (Prelude.Maybe Prelude.Text)
-startDominantLanguageDetectionJob_jobName = Lens.lens (\StartDominantLanguageDetectionJob' {jobName} -> jobName) (\s@StartDominantLanguageDetectionJob' {} a -> s {jobName = a} :: StartDominantLanguageDetectionJob)
+-- | Tags to be associated with the dominant language detection job. A tag is
+-- a key-value pair that adds metadata to a resource used by Amazon
+-- Comprehend. For example, a tag with \"Sales\" as the key might be added
+-- to a resource to indicate its use by the sales department.
+startDominantLanguageDetectionJob_tags :: Lens.Lens' StartDominantLanguageDetectionJob (Prelude.Maybe [Tag])
+startDominantLanguageDetectionJob_tags = Lens.lens (\StartDominantLanguageDetectionJob' {tags} -> tags) (\s@StartDominantLanguageDetectionJob' {} a -> s {tags = a} :: StartDominantLanguageDetectionJob) Prelude.. Lens.mapping Lens.coerced
+
+-- | A unique identifier for the request. If you do not set the client
+-- request token, Amazon Comprehend generates one.
+startDominantLanguageDetectionJob_clientRequestToken :: Lens.Lens' StartDominantLanguageDetectionJob (Prelude.Maybe Prelude.Text)
+startDominantLanguageDetectionJob_clientRequestToken = Lens.lens (\StartDominantLanguageDetectionJob' {clientRequestToken} -> clientRequestToken) (\s@StartDominantLanguageDetectionJob' {} a -> s {clientRequestToken = a} :: StartDominantLanguageDetectionJob)
 
 -- | Configuration parameters for an optional private Virtual Private Cloud
 -- (VPC) containing the resources you are using for your dominant language
@@ -170,6 +178,10 @@ startDominantLanguageDetectionJob_jobName = Lens.lens (\StartDominantLanguageDet
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
 startDominantLanguageDetectionJob_vpcConfig :: Lens.Lens' StartDominantLanguageDetectionJob (Prelude.Maybe VpcConfig)
 startDominantLanguageDetectionJob_vpcConfig = Lens.lens (\StartDominantLanguageDetectionJob' {vpcConfig} -> vpcConfig) (\s@StartDominantLanguageDetectionJob' {} a -> s {vpcConfig = a} :: StartDominantLanguageDetectionJob)
+
+-- | An identifier for the job.
+startDominantLanguageDetectionJob_jobName :: Lens.Lens' StartDominantLanguageDetectionJob (Prelude.Maybe Prelude.Text)
+startDominantLanguageDetectionJob_jobName = Lens.lens (\StartDominantLanguageDetectionJob' {jobName} -> jobName) (\s@StartDominantLanguageDetectionJob' {} a -> s {jobName = a} :: StartDominantLanguageDetectionJob)
 
 -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt data on the storage volume attached to the ML compute
@@ -182,18 +194,6 @@ startDominantLanguageDetectionJob_vpcConfig = Lens.lens (\StartDominantLanguageD
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
 startDominantLanguageDetectionJob_volumeKmsKeyId :: Lens.Lens' StartDominantLanguageDetectionJob (Prelude.Maybe Prelude.Text)
 startDominantLanguageDetectionJob_volumeKmsKeyId = Lens.lens (\StartDominantLanguageDetectionJob' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@StartDominantLanguageDetectionJob' {} a -> s {volumeKmsKeyId = a} :: StartDominantLanguageDetectionJob)
-
--- | A unique identifier for the request. If you do not set the client
--- request token, Amazon Comprehend generates one.
-startDominantLanguageDetectionJob_clientRequestToken :: Lens.Lens' StartDominantLanguageDetectionJob (Prelude.Maybe Prelude.Text)
-startDominantLanguageDetectionJob_clientRequestToken = Lens.lens (\StartDominantLanguageDetectionJob' {clientRequestToken} -> clientRequestToken) (\s@StartDominantLanguageDetectionJob' {} a -> s {clientRequestToken = a} :: StartDominantLanguageDetectionJob)
-
--- | Tags to be associated with the dominant language detection job. A tag is
--- a key-value pair that adds metadata to a resource used by Amazon
--- Comprehend. For example, a tag with \"Sales\" as the key might be added
--- to a resource to indicate its use by the sales department.
-startDominantLanguageDetectionJob_tags :: Lens.Lens' StartDominantLanguageDetectionJob (Prelude.Maybe [Tag])
-startDominantLanguageDetectionJob_tags = Lens.lens (\StartDominantLanguageDetectionJob' {tags} -> tags) (\s@StartDominantLanguageDetectionJob' {} a -> s {tags = a} :: StartDominantLanguageDetectionJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the format and location of the input data for the job.
 startDominantLanguageDetectionJob_inputDataConfig :: Lens.Lens' StartDominantLanguageDetectionJob InputDataConfig
@@ -222,9 +222,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           StartDominantLanguageDetectionJobResponse'
-            Prelude.<$> (x Core..?> "JobId")
+            Prelude.<$> (x Core..?> "JobStatus")
+              Prelude.<*> (x Core..?> "JobId")
               Prelude.<*> (x Core..?> "JobArn")
-              Prelude.<*> (x Core..?> "JobStatus")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -235,11 +235,11 @@ instance
   hashWithSalt
     _salt
     StartDominantLanguageDetectionJob' {..} =
-      _salt `Prelude.hashWithSalt` jobName
-        `Prelude.hashWithSalt` vpcConfig
-        `Prelude.hashWithSalt` volumeKmsKeyId
+      _salt `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` clientRequestToken
-        `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` vpcConfig
+        `Prelude.hashWithSalt` jobName
+        `Prelude.hashWithSalt` volumeKmsKeyId
         `Prelude.hashWithSalt` inputDataConfig
         `Prelude.hashWithSalt` outputDataConfig
         `Prelude.hashWithSalt` dataAccessRoleArn
@@ -249,11 +249,11 @@ instance
     StartDominantLanguageDetectionJob
   where
   rnf StartDominantLanguageDetectionJob' {..} =
-    Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf volumeKmsKeyId
+    Prelude.rnf tags
       `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf volumeKmsKeyId
       `Prelude.seq` Prelude.rnf inputDataConfig
       `Prelude.seq` Prelude.rnf outputDataConfig
       `Prelude.seq` Prelude.rnf dataAccessRoleArn
@@ -283,13 +283,13 @@ instance
   toJSON StartDominantLanguageDetectionJob' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("JobName" Core..=) Prelude.<$> jobName,
-            ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("VolumeKmsKeyId" Core..=)
-              Prelude.<$> volumeKmsKeyId,
+          [ ("Tags" Core..=) Prelude.<$> tags,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
+            ("JobName" Core..=) Prelude.<$> jobName,
+            ("VolumeKmsKeyId" Core..=)
+              Prelude.<$> volumeKmsKeyId,
             Prelude.Just
               ("InputDataConfig" Core..= inputDataConfig),
             Prelude.Just
@@ -313,7 +313,19 @@ instance
 
 -- | /See:/ 'newStartDominantLanguageDetectionJobResponse' smart constructor.
 data StartDominantLanguageDetectionJobResponse = StartDominantLanguageDetectionJobResponse'
-  { -- | The identifier generated for the job. To get the status of a job, use
+  { -- | The status of the job.
+    --
+    -- -   SUBMITTED - The job has been received and is queued for processing.
+    --
+    -- -   IN_PROGRESS - Amazon Comprehend is processing the job.
+    --
+    -- -   COMPLETED - The job was successfully completed and the output is
+    --     available.
+    --
+    -- -   FAILED - The job did not complete. To get details, use the
+    --     operation.
+    jobStatus :: Prelude.Maybe JobStatus,
+    -- | The identifier generated for the job. To get the status of a job, use
     -- this identifier with the operation.
     jobId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the dominant language detection job.
@@ -327,18 +339,6 @@ data StartDominantLanguageDetectionJobResponse = StartDominantLanguageDetectionJ
     --
     -- @arn:aws:comprehend:us-west-2:111122223333:dominant-language-detection-job\/1234abcd12ab34cd56ef1234567890ab@
     jobArn :: Prelude.Maybe Prelude.Text,
-    -- | The status of the job.
-    --
-    -- -   SUBMITTED - The job has been received and is queued for processing.
-    --
-    -- -   IN_PROGRESS - Amazon Comprehend is processing the job.
-    --
-    -- -   COMPLETED - The job was successfully completed and the output is
-    --     available.
-    --
-    -- -   FAILED - The job did not complete. To get details, use the
-    --     operation.
-    jobStatus :: Prelude.Maybe JobStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -351,6 +351,18 @@ data StartDominantLanguageDetectionJobResponse = StartDominantLanguageDetectionJ
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'jobStatus', 'startDominantLanguageDetectionJobResponse_jobStatus' - The status of the job.
+--
+-- -   SUBMITTED - The job has been received and is queued for processing.
+--
+-- -   IN_PROGRESS - Amazon Comprehend is processing the job.
+--
+-- -   COMPLETED - The job was successfully completed and the output is
+--     available.
+--
+-- -   FAILED - The job did not complete. To get details, use the
+--     operation.
 --
 -- 'jobId', 'startDominantLanguageDetectionJobResponse_jobId' - The identifier generated for the job. To get the status of a job, use
 -- this identifier with the operation.
@@ -366,7 +378,22 @@ data StartDominantLanguageDetectionJobResponse = StartDominantLanguageDetectionJ
 --
 -- @arn:aws:comprehend:us-west-2:111122223333:dominant-language-detection-job\/1234abcd12ab34cd56ef1234567890ab@
 --
--- 'jobStatus', 'startDominantLanguageDetectionJobResponse_jobStatus' - The status of the job.
+-- 'httpStatus', 'startDominantLanguageDetectionJobResponse_httpStatus' - The response's http status code.
+newStartDominantLanguageDetectionJobResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  StartDominantLanguageDetectionJobResponse
+newStartDominantLanguageDetectionJobResponse
+  pHttpStatus_ =
+    StartDominantLanguageDetectionJobResponse'
+      { jobStatus =
+          Prelude.Nothing,
+        jobId = Prelude.Nothing,
+        jobArn = Prelude.Nothing,
+        httpStatus = pHttpStatus_
+      }
+
+-- | The status of the job.
 --
 -- -   SUBMITTED - The job has been received and is queued for processing.
 --
@@ -377,21 +404,8 @@ data StartDominantLanguageDetectionJobResponse = StartDominantLanguageDetectionJ
 --
 -- -   FAILED - The job did not complete. To get details, use the
 --     operation.
---
--- 'httpStatus', 'startDominantLanguageDetectionJobResponse_httpStatus' - The response's http status code.
-newStartDominantLanguageDetectionJobResponse ::
-  -- | 'httpStatus'
-  Prelude.Int ->
-  StartDominantLanguageDetectionJobResponse
-newStartDominantLanguageDetectionJobResponse
-  pHttpStatus_ =
-    StartDominantLanguageDetectionJobResponse'
-      { jobId =
-          Prelude.Nothing,
-        jobArn = Prelude.Nothing,
-        jobStatus = Prelude.Nothing,
-        httpStatus = pHttpStatus_
-      }
+startDominantLanguageDetectionJobResponse_jobStatus :: Lens.Lens' StartDominantLanguageDetectionJobResponse (Prelude.Maybe JobStatus)
+startDominantLanguageDetectionJobResponse_jobStatus = Lens.lens (\StartDominantLanguageDetectionJobResponse' {jobStatus} -> jobStatus) (\s@StartDominantLanguageDetectionJobResponse' {} a -> s {jobStatus = a} :: StartDominantLanguageDetectionJobResponse)
 
 -- | The identifier generated for the job. To get the status of a job, use
 -- this identifier with the operation.
@@ -411,20 +425,6 @@ startDominantLanguageDetectionJobResponse_jobId = Lens.lens (\StartDominantLangu
 startDominantLanguageDetectionJobResponse_jobArn :: Lens.Lens' StartDominantLanguageDetectionJobResponse (Prelude.Maybe Prelude.Text)
 startDominantLanguageDetectionJobResponse_jobArn = Lens.lens (\StartDominantLanguageDetectionJobResponse' {jobArn} -> jobArn) (\s@StartDominantLanguageDetectionJobResponse' {} a -> s {jobArn = a} :: StartDominantLanguageDetectionJobResponse)
 
--- | The status of the job.
---
--- -   SUBMITTED - The job has been received and is queued for processing.
---
--- -   IN_PROGRESS - Amazon Comprehend is processing the job.
---
--- -   COMPLETED - The job was successfully completed and the output is
---     available.
---
--- -   FAILED - The job did not complete. To get details, use the
---     operation.
-startDominantLanguageDetectionJobResponse_jobStatus :: Lens.Lens' StartDominantLanguageDetectionJobResponse (Prelude.Maybe JobStatus)
-startDominantLanguageDetectionJobResponse_jobStatus = Lens.lens (\StartDominantLanguageDetectionJobResponse' {jobStatus} -> jobStatus) (\s@StartDominantLanguageDetectionJobResponse' {} a -> s {jobStatus = a} :: StartDominantLanguageDetectionJobResponse)
-
 -- | The response's http status code.
 startDominantLanguageDetectionJobResponse_httpStatus :: Lens.Lens' StartDominantLanguageDetectionJobResponse Prelude.Int
 startDominantLanguageDetectionJobResponse_httpStatus = Lens.lens (\StartDominantLanguageDetectionJobResponse' {httpStatus} -> httpStatus) (\s@StartDominantLanguageDetectionJobResponse' {} a -> s {httpStatus = a} :: StartDominantLanguageDetectionJobResponse)
@@ -434,7 +434,7 @@ instance
     StartDominantLanguageDetectionJobResponse
   where
   rnf StartDominantLanguageDetectionJobResponse' {..} =
-    Prelude.rnf jobId
+    Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf jobArn
-      `Prelude.seq` Prelude.rnf jobStatus
       `Prelude.seq` Prelude.rnf httpStatus

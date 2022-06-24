@@ -34,8 +34,8 @@ module Amazonka.Comprehend.ListTagsForResource
     newListTagsForResourceResponse,
 
     -- * Response Lenses
-    listTagsForResourceResponse_resourceArn,
     listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_resourceArn,
     listTagsForResourceResponse_httpStatus,
   )
 where
@@ -86,8 +86,8 @@ instance Core.AWSRequest ListTagsForResource where
     Response.receiveJSON
       ( \s h x ->
           ListTagsForResourceResponse'
-            Prelude.<$> (x Core..?> "ResourceArn")
-            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "ResourceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,14 +129,14 @@ instance Core.ToQuery ListTagsForResource where
 
 -- | /See:/ 'newListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { -- | The Amazon Resource Name (ARN) of the given Amazon Comprehend resource
-    -- you are querying.
-    resourceArn :: Prelude.Maybe Prelude.Text,
-    -- | Tags associated with the Amazon Comprehend resource being queried. A tag
+  { -- | Tags associated with the Amazon Comprehend resource being queried. A tag
     -- is a key-value pair that adds as a metadata to a resource used by Amazon
     -- Comprehend. For example, a tag with \"Sales\" as the key might be added
     -- to a resource to indicate its use by the sales department.
     tags :: Prelude.Maybe [Tag],
+    -- | The Amazon Resource Name (ARN) of the given Amazon Comprehend resource
+    -- you are querying.
+    resourceArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -150,13 +150,13 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'listTagsForResourceResponse_resourceArn' - The Amazon Resource Name (ARN) of the given Amazon Comprehend resource
--- you are querying.
---
 -- 'tags', 'listTagsForResourceResponse_tags' - Tags associated with the Amazon Comprehend resource being queried. A tag
 -- is a key-value pair that adds as a metadata to a resource used by Amazon
 -- Comprehend. For example, a tag with \"Sales\" as the key might be added
 -- to a resource to indicate its use by the sales department.
+--
+-- 'resourceArn', 'listTagsForResourceResponse_resourceArn' - The Amazon Resource Name (ARN) of the given Amazon Comprehend resource
+-- you are querying.
 --
 -- 'httpStatus', 'listTagsForResourceResponse_httpStatus' - The response's http status code.
 newListTagsForResourceResponse ::
@@ -165,16 +165,11 @@ newListTagsForResourceResponse ::
   ListTagsForResourceResponse
 newListTagsForResourceResponse pHttpStatus_ =
   ListTagsForResourceResponse'
-    { resourceArn =
+    { tags =
         Prelude.Nothing,
-      tags = Prelude.Nothing,
+      resourceArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Amazon Resource Name (ARN) of the given Amazon Comprehend resource
--- you are querying.
-listTagsForResourceResponse_resourceArn :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe Prelude.Text)
-listTagsForResourceResponse_resourceArn = Lens.lens (\ListTagsForResourceResponse' {resourceArn} -> resourceArn) (\s@ListTagsForResourceResponse' {} a -> s {resourceArn = a} :: ListTagsForResourceResponse)
 
 -- | Tags associated with the Amazon Comprehend resource being queried. A tag
 -- is a key-value pair that adds as a metadata to a resource used by Amazon
@@ -183,12 +178,17 @@ listTagsForResourceResponse_resourceArn = Lens.lens (\ListTagsForResourceRespons
 listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe [Tag])
 listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The Amazon Resource Name (ARN) of the given Amazon Comprehend resource
+-- you are querying.
+listTagsForResourceResponse_resourceArn :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe Prelude.Text)
+listTagsForResourceResponse_resourceArn = Lens.lens (\ListTagsForResourceResponse' {resourceArn} -> resourceArn) (\s@ListTagsForResourceResponse' {} a -> s {resourceArn = a} :: ListTagsForResourceResponse)
+
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Prelude.Int
 listTagsForResourceResponse_httpStatus = Lens.lens (\ListTagsForResourceResponse' {httpStatus} -> httpStatus) (\s@ListTagsForResourceResponse' {} a -> s {httpStatus = a} :: ListTagsForResourceResponse)
 
 instance Prelude.NFData ListTagsForResourceResponse where
   rnf ListTagsForResourceResponse' {..} =
-    Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf tags
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf httpStatus

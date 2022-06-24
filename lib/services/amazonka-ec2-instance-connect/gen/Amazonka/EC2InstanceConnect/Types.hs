@@ -20,12 +20,12 @@ module Amazonka.EC2InstanceConnect.Types
     _SerialConsoleSessionUnavailableException,
     _AuthException,
     _SerialConsoleSessionLimitExceededException,
-    _InvalidArgsException,
-    _SerialConsoleAccessDisabledException,
+    _EC2InstanceNotFoundException,
+    _EC2InstanceTypeInvalidException,
     _ThrottlingException,
     _ServiceException,
-    _EC2InstanceTypeInvalidException,
-    _EC2InstanceNotFoundException,
+    _SerialConsoleAccessDisabledException,
+    _InvalidArgsException,
   )
 where
 
@@ -61,35 +61,8 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has
-          ( Core.hasCode "ThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttled_exception"
       | Lens.has (Core.hasStatus 429) e =
         Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "ThrottlingException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling_exception"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
@@ -98,12 +71,39 @@ defaultService =
         Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Unable to start a serial console session. Please try again.
@@ -129,23 +129,20 @@ _SerialConsoleSessionLimitExceededException =
     defaultService
     "SerialConsoleSessionLimitExceededException"
 
--- | One of the parameters is not valid.
-_InvalidArgsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidArgsException =
+-- | The specified instance was not found.
+_EC2InstanceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EC2InstanceNotFoundException =
   Core._MatchServiceError
     defaultService
-    "InvalidArgsException"
+    "EC2InstanceNotFoundException"
 
--- | Your account is not authorized to use the EC2 Serial Console. To
--- authorize your account, run the EnableSerialConsoleAccess API. For more
--- information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableSerialConsoleAccess.html EnableSerialConsoleAccess>
--- in the /Amazon EC2 API Reference/.
-_SerialConsoleAccessDisabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SerialConsoleAccessDisabledException =
+-- | The instance type is not supported for connecting via the serial
+-- console. Only Nitro instance types are currently supported.
+_EC2InstanceTypeInvalidException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EC2InstanceTypeInvalidException =
   Core._MatchServiceError
     defaultService
-    "SerialConsoleAccessDisabledException"
+    "EC2InstanceTypeInvalidException"
 
 -- | The requests were made too frequently and have been throttled. Wait a
 -- while and try again. To increase the limit on your request frequency,
@@ -164,17 +161,20 @@ _ServiceException =
     defaultService
     "ServiceException"
 
--- | The instance type is not supported for connecting via the serial
--- console. Only Nitro instance types are currently supported.
-_EC2InstanceTypeInvalidException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_EC2InstanceTypeInvalidException =
+-- | Your account is not authorized to use the EC2 Serial Console. To
+-- authorize your account, run the EnableSerialConsoleAccess API. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableSerialConsoleAccess.html EnableSerialConsoleAccess>
+-- in the /Amazon EC2 API Reference/.
+_SerialConsoleAccessDisabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SerialConsoleAccessDisabledException =
   Core._MatchServiceError
     defaultService
-    "EC2InstanceTypeInvalidException"
+    "SerialConsoleAccessDisabledException"
 
--- | The specified instance was not found.
-_EC2InstanceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_EC2InstanceNotFoundException =
+-- | One of the parameters is not valid.
+_InvalidArgsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidArgsException =
   Core._MatchServiceError
     defaultService
-    "EC2InstanceNotFoundException"
+    "InvalidArgsException"
